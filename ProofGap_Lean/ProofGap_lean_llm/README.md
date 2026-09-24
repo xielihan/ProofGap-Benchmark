@@ -1,94 +1,75 @@
 # ProofGap_lean_llm
 
-ProofGap_lean_llm is the LLM-converted Lean 4 dataset in ProofGap-Benchmark,
-built from Demidovich's mathematical analysis exercises
-(吉米多维奇《数学分析习题集》) and packaged with reference proofs.
-Each benchmark target is a theorem named `gapN` inside an `Exercise*.lean`
-module.
+**26,116 Lean gap theorems across 3,015 exercise modules**, with reference
+proofs. This variant uses LLM conversion to formalize Demidovich's
+mathematical analysis exercises (吉米多维奇《数学分析习题集》).
 
-The `ProofGap_nfl/` and `ProofGap_lean/` datasets use two printers over common
-proof-gap abstract syntax trees; this directory uses the `llm` suffix to
-identify LLM conversion. See the [benchmark overview](../../README.md) for
-dataset sizes and differences in coverage and statements.
-The Lean module namespace and build target remain `ProofGapLean`. Environment
-configuration is shared with `ProofGap_lean/` in the parent `ProofGap_Lean/` directory.
+Each target is a theorem named `gapN` within an exercise module. The dataset
+uses the [shared Lean environment](../README.md) and the build target
+`ProofGapLean`.
 
-## Dataset contents
-
-- **3,015** exercise modules
-- **26,116** `gapN` theorems
-- Lean **v4.29.0-rc6**
-- Mathlib **v4.29.0-rc6**
-- One aggregate entry point importing every exercise
-
-Exercise identifiers are strings derived from filenames. This preserves
-variants such as `Exercise131_1.lean` and `Exercise131_2.lean` as distinct
-benchmark cases.
-
-## Repository layout
+## Data format
 
 ```text
 ProofGap_lean_llm/
-├── README.md
-├── ProofGapLean.lean
+├── ProofGapLean.lean                 # Imports all exercise modules
 └── ProofGapLean/
-    ├── Prelude.lean
-    ├── Prelude/
-    │   └── *.lean
+    ├── Prelude.lean                  # Aggregate support import
+    ├── Prelude/                      # Shared definitions and support
     └── Exercises/
-        └── Exercise*.lean
+        └── Exercise<id>.lean         # Definitions, gap targets, and proofs
 ```
 
-- `ProofGapLean/Exercises/` contains all exercise modules and gap theorems.
-- `ProofGapLean/Prelude/` contains the local definitions and checking support
-  required by the exercises.
-- `ProofGapLean.lean` imports all 3,015 exercise modules.
+An item is identified by its exercise module and gap theorem, for example
+`ProofGap.Exercise2.gap1` in
+[Exercise2.lean](ProofGapLean/Exercises/Exercise2.lean).
+Treat suffixes such as `Exercise131_1` and `Exercise131_2` as distinct module
+identifiers. Coverage and some statements differ from the other variants.
 
-## Build
+`Prelude/` supplies definitions and support shared by exercises. Some
+exercise modules also import other exercises, so selected subsets must keep
+their transitive local dependencies.
 
-Install Lean through `elan`. From the **Lean workspace root** (`ProofGap_Lean/`, the
-parent of this directory), run:
+## Proof completion
+
+For a target theorem:
+
+1. Retain its imports, required definitions, allowed context, and exact
+   statement.
+2. Withhold the reference proof from model input and replace the target's
+   proof body with the generated candidate.
+3. Check the reconstructed module in the pinned environment and ensure that
+   the target proof and its dependencies do not rely on `sorry`, `admit`, or
+   newly introduced axioms.
+
+Reference proofs support evaluation; their presence is not a substitute for
+verifying a generated candidate. The repository does not include an automated
+Lean proof-submission evaluator.
+
+## Check an exercise
+
+After [setting up the environment](../README.md#setup), run from
+`ProofGap_Lean/`:
 
 ```sh
-lake exe cache get
+lake build +ProofGapLean.Exercises.Exercise2
+```
+
+After dependencies are built, check an edited module directly:
+
+```sh
+lake env lean ProofGap_lean_llm/ProofGapLean/Exercises/Exercise2.lean
+```
+
+To build all exercise modules through the aggregate entry point:
+
+```sh
 lake build ProofGapLean
 ```
 
-The shared [toolchain](../lean-toolchain), [Lake configuration](../lakefile.toml),
-and [dependency manifest](../lake-manifest.json) pin Lean, Mathlib, and the
-transitive dependencies. This dataset uses the `ProofGap_Lean/.lake/` cache alongside
-the backend-printed dataset.
+The shared workspace pins Lean and Mathlib to `v4.29.0-rc6`. Individual
+exercise checks have been performed; a full-dataset build has not been
+validated in this workspace.
 
-To build one exercise and its local dependencies from the `ProofGap_Lean/` directory:
-
-```sh
-lake build +ProofGapLean.Exercises.Exercise3591
-```
-
-Once its dependencies have been built, check the source file directly with:
-
-```sh
-lake env lean ProofGap_lean_llm/ProofGapLean/Exercises/Exercise3591.lean
-```
-
-## Benchmark unit
-
-For a theorem such as
-
-```lean
-theorem gap7 (...) : target := by
-  ...
-```
-
-the benchmark input should preserve the module's imports, definitions, helper
-declarations, preceding theorem statements, and the exact target statement.
-Only the proof body of the selected `gapN` theorem should be replaced by the
-candidate proof.
-
-A candidate is successful only if the reconstructed exercise module compiles
-under the pinned environment without proof escapes such as `sorry`, `admit`,
-new axioms, or unsafe metaprogramming shortcuts.
-
-Each exercise can be checked as a module under the complete source tree. Some
-modules import earlier exercise modules, so a reduced subset must retain the
-transitive local dependencies of every selected target.
+See the [benchmark overview](../../README.md#evaluation) for evaluation and
+reporting guidance.

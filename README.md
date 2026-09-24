@@ -1,107 +1,163 @@
 # ProofGap-Benchmark
 
-A step-level benchmark for formal reasoning, based on Demidovich's mathematical
-analysis exercises (吉米多维奇《数学分析习题集》).
-`ProofGap_nfl` and `ProofGap_lean` use NFL and Lean printers over common
-proof-gap abstract syntax trees (ASTs). `ProofGap_lean_llm` contains LLM-converted
-Lean formalizations with reference proofs.
+**A benchmark for completing individual steps in mathematical proofs.**
+
+ProofGap-Benchmark is built from Demidovich's mathematical analysis exercises
+(吉米多维奇《数学分析习题集》). Each **proof gap** specifies a mathematical
+claim together with the assumptions available at that step. The task is to
+produce a proof that a verifier accepts.
+
+The benchmark provides structured statements in Natural Formal Language
+(NFL), Lean statements printed by the backend, and Lean formalizations
+converted by a large language model (LLM).
+
+[Datasets](#datasets) · [Task](#task) · [Quick start](#quick-start) ·
+[Evaluation](#evaluation) · [Documentation](#documentation)
 
 ## Datasets
 
-| Dataset | Representation | Exercises | Proof gaps |
-| --- | --- | ---: | ---: |
-| [ProofGap_nfl](ProofGap_nfl/) | NFL statements printed from proof-gap ASTs | 2,947 | 25,987 |
-| [ProofGap_lean](ProofGap_Lean/ProofGap_lean/) | Lean statements printed from the same ASTs | 1,884 | 15,191 source gaps |
-| [ProofGap_lean_llm](ProofGap_Lean/ProofGap_lean_llm/) | LLM-converted Lean formalizations | 3,015 | 26,116 `gapN` theorems |
+| Dataset | Construction | Exercises | Proof gaps | Reference proofs |
+| --- | --- | ---: | ---: | --- |
+| [ProofGap_nfl](ProofGap_nfl/) | NFL printed from proof-gap ASTs | 2,947 | 25,987 | 9,385 DSL answers |
+| [ProofGap_lean](ProofGap_Lean/ProofGap_lean/) | Lean printed from proof-gap ASTs | 1,884 | 15,191 | Proof placeholders |
+| [ProofGap_lean_llm](ProofGap_Lean/ProofGap_lean_llm/) | LLM-converted Lean formalizations | 3,015 | 26,116 | Lean reference proofs |
 
-The backend-printed Lean set is a selected subset of the AST-printed exercises;
-its gap count is computed from the corresponding NFL exercises. The
-datasets differ in coverage and some gap statements. Exercise and gap IDs
-are not fully aligned across datasets, and equal IDs alone do not establish
-semantic equivalence.
+**NFL and backend Lean use two printers over a common abstract syntax tree
+(AST) representation.** The LLM variant uses a separate formalization process.
+The three variants differ in coverage and some statements; matching exercise
+and gap identifiers does not by itself establish semantic equivalence.
+Exercise variants with suffixes, such as `131_1` and `131_2`, are distinct items.
 
-The NFL dataset includes 9,385 accompanying DSL answer files; the remaining
-16,602 gaps have no packaged DSL answer.
+Use **ProofGap_nfl** for DSL proof generation with the bundled verifier,
+**ProofGap_lean** for backend-generated Lean proof obligations, and
+**ProofGap_lean_llm** for Lean proof completion with reference proofs.
 
-## Layout
+## Task
+
+A benchmark item consists of an exercise identifier, a gap identifier, the
+available assumptions, and a target statement.
+
+| Representation | Model input | Expected output | Verification |
+| --- | --- | --- | --- |
+| NFL | A gap statement and the allowed theorem library | A DSL proof script | `test_dsl`, through `check.py` |
+| Lean | A target theorem and its imports, definitions, and allowed context | A Lean proof of the target | Lean under the pinned environment |
+
+For example, [Exercise 2, gap 1](ProofGap_nfl/exercise_2/gap_1/gap.txt) contains
+this NFL goal:
 
 ```text
-ProofGap-Benchmark/
-├── README.md
-├── ProofGap_nfl/
-│   ├── README.md
-│   ├── check.py
-│   ├── settings.ini
-│   ├── bin/
-│   ├── thm/all_lib_idx.md
-│   └── exercise_<id>/gap_<gap_id>/
-│       ├── gap.txt
-│       └── dsl.txt                  # Present for 9,385 gaps
-└── ProofGap_Lean/
-    ├── README.md
-    ├── lean-toolchain
-    ├── lakefile.toml
-    ├── lake-manifest.json
-    ├── ProofGap_lean/
-    │   └── exercise_<id>.lean
-    └── ProofGap_lean_llm/
-        ├── ProofGapLean.lean
-        └── ProofGapLean/
-            ├── Prelude.lean
-            ├── Prelude/
-            └── Exercises/Exercise<id>.lean
+forall (n), n ∈ NonNegIntegerSet ∧ n = 1 ⇒ 1 = frac(n * (n + 1) * (2 * n + 1), 6)
 ```
 
-## NFL verification
+The candidate must prove this goal from its stated assumptions. Reference
+answers are evaluation material and should be excluded from model inputs.
 
-The NFL package includes the `test_dsl` verifier, its settings, and the bundled
-theorem library, together with DSL answers for a subset of gaps. Check a
-packaged answer from the repository root:
+## Quick start
+
+Clone the repository:
 
 ```sh
-python3 ProofGap_nfl/check.py ProofGap_nfl/exercise_2/gap_1/gap.txt ProofGap_nfl/exercise_2/gap_1/dsl.txt
+git clone https://github.com/xielihan/ProofGap-Benchmark.git
+cd ProofGap-Benchmark
 ```
 
-To evaluate a generated proof, pass the candidate file instead:
+### Check an NFL answer
+
+Requires Python 3.9+ and a compatible platform; see the
+[NFL platform requirements](ProofGap_nfl/README.md#requirements).
+Run the bundled example from the repository root:
 
 ```sh
-python3 ProofGap_nfl/check.py ProofGap_nfl/exercise_2/gap_1/gap.txt /path/to/candidate.dsl
+python3 ProofGap_nfl/check.py \
+  ProofGap_nfl/exercise_2/gap_1/gap.txt \
+  ProofGap_nfl/exercise_2/gap_1/dsl.txt
 ```
 
-The checker selects the packaged binary for Linux x86-64, Windows x86-64, or
-macOS arm64. It preserves the source gap and writes isolated results and logs
-under `ProofGap_nfl/verify/`. See the [NFL README](ProofGap_nfl/README.md) for
-platform requirements, configuration, and proof acceptance criteria.
+A successful check prints `PASS` followed by the results directory and returns
+exit code `0`. To evaluate a generated proof, replace the last argument with
+its path. Each run saves a structured summary and logs under
+`ProofGap_nfl/verify/`.
 
-## Lean environment
+### Check a Lean exercise
 
-Both Lean datasets share one workspace under `ProofGap_Lean/`, pinning Lean and Mathlib
-to `v4.29.0-rc6` and all dependencies to their recorded revisions. Run Lean
-commands from that directory:
+With Lean's `elan` toolchain manager installed, enter the shared workspace:
 
 ```sh
 cd ProofGap_Lean
 lake exe cache get
+
+# LLM-converted exercise
 lake build +ProofGapLean.Exercises.Exercise2
+
+# Backend-printed exercise
 lake build +ProofGap_lean.exercise_1000
 ```
 
-The last two commands check one LLM-converted exercise and one backend-printed
-exercise. See the [Lean environment guide](ProofGap_Lean/README.md) for full build
-targets, direct file checks, and editor setup.
+Both datasets use **Lean and Mathlib `v4.29.0-rc6`**, with dependency revisions
+locked by the workspace configuration. These commands check the packaged
+exercise modules. To evaluate a candidate, replace the selected theorem's
+proof while preserving its statement and allowed context.
 
-## Validation and scope
+## Evaluation
 
-- All 9,385 packaged NFL answers passed with the macOS arm64 verifier and
-  bundled theorem library on 2026-09-24. The Linux and Windows binaries have
-  not been rebuilt with the binder fix or executed on the macOS host.
-  Exclude answer files from model inputs when evaluating proof generation.
-- Backend Lean exercises were selected by compilation of the last gap.
-  Whole-file or full-dataset compilation is not guaranteed; `sorry`
-  placeholders are retained.
-- The shared Lean workspace was checked with one exercise from each dataset;
-  a full benchmark rebuild was not performed. Successful compilation of a
-  statement containing `sorry` does not constitute a completed proof.
+- **NFL:** an answer is accepted only when verification finishes successfully,
+  the proof is marked verified, and both the admit count and remaining split-gap
+  count are zero. `check.py` enforces these conditions; its default timeout is
+  120 seconds per proof.
+- **Lean:** a candidate must prove the unchanged target under the pinned
+  environment. Compilation alone is insufficient: the target proof and its
+  dependencies must not rely on `sorry`, `admit`, or newly introduced axioms.
+  The backend dataset contains proof placeholders.
+- **Reporting:** identify the repository commit, dataset variant, evaluated
+  exercise/gap IDs, verification environment, time limit, and number of proof
+  attempts. Report accepted proofs against the full evaluated set. If you
+  create train/test splits, group related gaps by exercise to limit overlap.
 
-See the [NFL README](ProofGap_nfl/README.md) for platform-specific validation
-details and the [Lean environment guide](ProofGap_Lean/README.md) for build instructions.
+The NFL dataset contains 16,602 gaps without packaged reference answers; those
+gaps can still be submitted to the verifier with candidate DSL proofs.
+The repository does not prescribe train/validation/test splits.
+
+### Verification coverage
+
+All **9,385 packaged NFL answers** passed the bundled macOS arm64 verifier.
+This result does not establish the same pass rate for the other platform
+binaries; see the [NFL guide](ProofGap_nfl/README.md#verification-coverage).
+
+The shared Lean environment has been checked with one exercise from each
+variant. A complete Lean dataset build has not been validated. Backend
+exercises were selected by successful compilation of their last gap, so
+other gaps in an exercise may require statement-level corrections before
+proof completion. Keep such corrections separate from proof-generation
+results.
+
+## Repository layout
+
+```text
+ProofGap-Benchmark/
+├── ProofGap_nfl/
+│   ├── exercise_<id>/gap_<id>/
+│   │   ├── gap.txt               # Assumptions and target
+│   │   └── dsl.txt               # Reference proof, where available
+│   ├── check.py                  # NFL verification entry point
+│   ├── settings.ini
+│   ├── bin/                      # Platform-specific verifiers
+│   └── thm/                      # Theorem library
+└── ProofGap_Lean/
+    ├── lean-toolchain            # Shared Lean version
+    ├── lakefile.toml             # Build targets and Mathlib dependency
+    ├── lake-manifest.json        # Locked dependency revisions
+    ├── ProofGap_lean/
+    │   └── exercise_<id>.lean
+    └── ProofGap_lean_llm/
+        ├── ProofGapLean.lean      # Aggregate module
+        └── ProofGapLean/
+            ├── Prelude/          # Shared definitions and support
+            └── Exercises/        # Exercise modules and gap theorems
+```
+
+## Documentation
+
+- [NFL data format and verifier](ProofGap_nfl/README.md)
+- [Shared Lean environment](ProofGap_Lean/README.md)
+- [Backend-printed Lean dataset](ProofGap_Lean/ProofGap_lean/README.md)
+- [LLM-converted Lean dataset](ProofGap_Lean/ProofGap_lean_llm/README.md)

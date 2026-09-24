@@ -1,47 +1,66 @@
 # ProofGap_lean
 
-Based on Demidovich's mathematical analysis exercises
-(吉米多维奇《数学分析习题集》), this dataset contains 1,884 exercise files
-printed directly into Lean using the same proof-gap AST representation as
-the NFL printer. It shares its Lean and Mathlib environment with
-`ProofGap_lean_llm/`. Coverage and some gap statements differ across datasets.
+**15,191 Lean proof obligations across 1,884 exercises**, based on
+Demidovich's mathematical analysis exercises
+(吉米多维奇《数学分析习题集》).
 
-## Environment and checking
+The backend prints these Lean statements using the same proof-gap AST
+representation as the NFL printer. This variant provides theorem statements
+with `sorry` proof placeholders. It shares its environment with the
+[LLM-converted variant](../ProofGap_lean_llm/).
 
-Install Lean through `elan`, then run these commands from the **Lean workspace
-root** (`ProofGap_Lean/`):
+## Data format
+
+Each `exercise_<id>.lean` is a separate Lean module containing imports,
+helper definitions, and the exercise's gap theorems. A target is named
+`proof_gap_exercise_<id>_<gap_id>`.
+
+For example, [exercise_1000.lean](exercise_1000.lean) contains
+`proof_gap_exercise_1000_1`, `proof_gap_exercise_1000_2`, and further targets.
+Each theorem's parameters specify the assumptions available for that gap.
+
+Coverage and some statements differ from the NFL and LLM variants. Preserve
+exercise suffixes and gap identifiers when selecting or reporting targets;
+matching identifiers across variants do not guarantee equivalent statements.
+
+## Proof completion
+
+Select a gap theorem, retain its statement and allowed context, and replace
+its `by sorry` proof with a candidate proof. Module compilation alone is not
+a completion criterion, because Lean accepts `sorry` with a warning. Check
+that the target proof and the declarations it relies on contain no proof
+placeholders or newly introduced axioms.
+
+## Check an exercise
+
+Set up the [shared environment](../README.md#setup), then run from
+`ProofGap_Lean/`:
 
 ```sh
-lake exe cache get
 lake build +ProofGap_lean.exercise_1000
 ```
 
-To check a file directly after fetching Mathlib's cache:
+To check an edited module directly:
 
 ```sh
 lake env lean ProofGap_lean/exercise_1000.lean
 ```
 
-To attempt compilation of all backend exercise modules:
+To attempt a build of all backend exercises:
 
 ```sh
 lake build ProofGapLeanBackend
 ```
 
-Every exercise is compiled as a separate module, so generated helper names
-can be reused across files without importing the exercises into one module.
+## Validation scope
 
-The shared [toolchain](../lean-toolchain) pins Lean to `v4.29.0-rc6`.
-The [Lake configuration](../lakefile.toml) and
-[dependency manifest](../lake-manifest.json) pin Mathlib to the corresponding
-release and lock every dependency revision. Both Lean datasets use the
-`ProofGap_Lean/.lake/` cache.
+Exercises were selected by successful compilation of their last gap. Every
+non-internal gap is included, but other gaps may have elaboration errors;
+whole-module and full-dataset compilation are not guaranteed.
 
-## Compilation status
+For proof-generation evaluation, identify the targets that elaborate before
+replacing their proofs. Report any statement corrections separately so that
+the evaluated proof obligations remain clear.
 
-Every non-internal gap was printed to Lean, and exercises were selected by
-successful compilation of the last gap. This does not guarantee that each
-whole exercise file or the complete dataset will compile. `sorry` placeholders are retained, and
-successful compilation alone does not establish completed proofs.
-
-See the [benchmark overview](../../README.md) for dataset counts and scope.
+See the [benchmark overview](../../README.md#evaluation) for evaluation and
+reporting guidance.

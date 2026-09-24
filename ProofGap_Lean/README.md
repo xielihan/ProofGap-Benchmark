@@ -1,69 +1,83 @@
-# Shared Lean environment
+# ProofGap Lean workspace
 
-Both Lean datasets are based on Demidovich's mathematical analysis exercises
+A shared Lean environment for the two Lean variants of ProofGap-Benchmark,
+based on Demidovich's mathematical analysis exercises
 (吉米多维奇《数学分析习题集》).
-`ProofGap_lean/` contains AST-printed Lean statements; `ProofGap_lean_llm/`
-contains LLM-converted formalizations with reference proofs. Both use the
-configuration and dependency cache in this `ProofGap_Lean/` directory.
+
+| Dataset | Contents | Build target |
+| --- | --- | --- |
+| [ProofGap_lean](ProofGap_lean/) | Backend-printed statements with proof placeholders | `ProofGapLeanBackend` |
+| [ProofGap_lean_llm](ProofGap_lean_llm/) | LLM-converted formalizations with reference proofs | `ProofGapLean` |
+
+Both datasets use **Lean and Mathlib `v4.29.0-rc6`** and share the dependency
+cache in `.lake/`. Their proof-completion task is described in the
+[benchmark overview](../README.md#task).
 
 ## Setup
 
-Install Lean through `elan` and open `ProofGap_Lean/` as the workspace in your Lean
-editor. From the repository root, enter the workspace and fetch Mathlib's
-precompiled cache:
+Install Lean through `elan`, then enter this directory from the repository
+root and download Mathlib's precompiled cache:
 
 ```sh
 cd ProofGap_Lean
 lake exe cache get
 ```
 
-| File | Purpose |
-| --- | --- |
-| [lean-toolchain](lean-toolchain) | Lean `v4.29.0-rc6` |
-| [lakefile.toml](lakefile.toml) | Mathlib `v4.29.0-rc6` and both dataset targets |
-| [lake-manifest.json](lake-manifest.json) | Exact dependency revisions |
+Open `ProofGap_Lean/` as the workspace in your Lean editor. All remaining
+commands on this page run from this directory.
 
-Mathlib is locked to commit `5c8398df528176d9c87ccd9226ba8f7c8852d59c`.
-Keep the manifest when reproducing the environment. The first setup may
-download the pinned toolchain and dependencies. All commands below run from
-`ProofGap_Lean/`; both datasets share `ProofGap_Lean/.lake/`.
+## Check an exercise
 
-## Build and check
-
-Build the LLM-converted dataset, also the default target of `lake build`:
+Build one exercise and its dependencies:
 
 ```sh
-lake build ProofGapLean
-```
-
-Build individual exercises with their dependencies:
-
-```sh
+# LLM-converted exercise
 lake build +ProofGapLean.Exercises.Exercise2
+
+# Backend-printed exercise
 lake build +ProofGap_lean.exercise_1000
 ```
 
-After their dependencies have been built, check the files directly:
+After dependencies are built, check an edited exercise directly:
 
 ```sh
 lake env lean ProofGap_lean_llm/ProofGapLean/Exercises/Exercise2.lean
 lake env lean ProofGap_lean/exercise_1000.lean
 ```
 
-To attempt compilation of every backend-printed exercise:
+A successful build checks module elaboration. Proof-completion evaluation
+also requires checking that the target proof and its dependencies do not
+use proof placeholders or introduce new axioms.
+
+## Build a dataset
+
+The default target is the LLM-converted dataset:
+
+```sh
+lake build ProofGapLean
+```
+
+To attempt a build of every backend exercise:
 
 ```sh
 lake build ProofGapLeanBackend
 ```
 
-Backend exercises are separate modules so generated helper declarations can
-reuse names. The backend dataset was selected by last-gap compilation, so a
-full build can report errors in other gaps. `sorry` placeholders do not count
-as completed proofs.
+Backend exercises compile as separate modules, allowing generated helper
+names to be reused across exercises. Some backend modules may report errors
+outside their last gap; see the [backend guide](ProofGap_lean/README.md#validation-scope).
 
-The shared workspace was smoke-tested with the two individual exercises above.
-It does not certify full-dataset compilation or proof completion.
+## Reproduce the environment
 
-See the [backend dataset README](ProofGap_lean/README.md),
-[LLM dataset README](ProofGap_lean_llm/README.md), and
-[benchmark overview](../README.md) for further details.
+| File | Role |
+| --- | --- |
+| [lean-toolchain](lean-toolchain) | Pins the Lean toolchain |
+| [lakefile.toml](lakefile.toml) | Defines both dataset targets and the Mathlib requirement |
+| [lake-manifest.json](lake-manifest.json) | Locks all dependency revisions |
+
+Mathlib is locked to commit `5c8398df528176d9c87ccd9226ba8f7c8852d59c`.
+Keep these configuration files together when reproducing an evaluation.
+The first setup may download the pinned toolchain and dependencies.
+
+The two individual exercises above have been checked in this environment.
+A full build of both datasets has not been validated.

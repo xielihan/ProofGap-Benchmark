@@ -1,107 +1,128 @@
 # ProofGap_nfl
 
-Based on Demidovich's mathematical analysis exercises
-(吉米多维奇《数学分析习题集》), this dataset contains 25,987 NFL proof-gap
-statements from 2,947 exercises. The NFL and backend Lean printers operate
-on common proof-gap ASTs. Each item is stored as
-`exercise_<id>/gap_<gap_id>/gap.txt`.
-For 9,385 gaps, a sibling `dsl.txt` contains a reference answer; the remaining
-16,602 gaps have no packaged answer.
+NFL proof-completion tasks based on Demidovich's mathematical analysis
+exercises (吉米多维奇《数学分析习题集》).
+The dataset contains **25,987 gaps from 2,947 exercises**, with **9,385 DSL
+reference proofs** and a bundled verifier.
 
-Coverage and some gap statements differ from the backend Lean dataset;
-matching exercise and gap IDs alone does not guarantee equivalent statements.
+NFL (Natural Formal Language) expresses each proof obligation as assumptions
+and a target. The NFL and backend Lean printers use a common proof-gap AST
+representation; coverage and some statements differ between the datasets.
 
-On 2026-09-24, all 9,385 current packaged DSL answers passed with the macOS
-arm64 verifier and bundled theorem library, with zero failures.
+## Data format
 
-Use `gap.txt` as model input and reserve `dsl.txt` for reference or evaluation.
+```text
+exercise_<id>/gap_<gap_id>/
+├── gap.txt    # Proof obligation
+└── dsl.txt    # Reference proof, present for 9,385 gaps
+```
 
-## Check a packaged answer
+A gap uses the following fields:
 
-From this directory, run:
+| Field | Meaning |
+| --- | --- |
+| `PROOF GAP` | Gap identifier within the exercise |
+| `ASSUM` | Available assumptions, which may be empty |
+| `GOAL` | Statement to prove |
+| `METHOD` | Method field in the NFL gap format |
+
+Use the complete `gap.txt` as the proof obligation and the bundled theorem
+library as the allowed library. Keep `dsl.txt` out of model inputs.
+The 16,602 gaps without reference answers use the same verification interface.
+
+## Requirements
+
+Python **3.9+** is required. The checker selects a packaged binary for these
+platforms:
+
+| Platform | Binary | System requirement |
+| --- | --- | --- |
+| macOS arm64 | `bin/test_dsl_macos_arm64` | macOS 15 or newer |
+| Linux x86-64 | `bin/test_dsl` | glibc 2.34 or newer |
+| Windows x86-64 | `bin/test_dsl_windows.exe` | 64-bit Windows |
+
+For another platform or verifier build, supply a compatible executable with
+`--binary /path/to/test_dsl`. Platform binaries differ in their handling of
+bound variables; the validation results below apply to the macOS arm64 build.
+
+## Run the verifier
+
+All examples here run from `ProofGap_nfl/`.
+
+Check a reference answer:
 
 ```sh
 python3 check.py exercise_2/gap_1/gap.txt exercise_2/gap_1/dsl.txt
 ```
 
-## Packaged tools
-
-- `check.py`: Python 3.9+ entry point for one gap and one candidate DSL proof.
-- `settings.ini`: verifier settings, including the theorem-library path.
-- `thm/all_lib_idx.md`: the theorem library used by the verifier.
-- `bin/test_dsl`: Linux x86-64 verifier (glibc 2.34 or newer).
-- `bin/test_dsl_windows.exe`: Windows x86-64 verifier.
-- `bin/test_dsl_macos_arm64`: macOS arm64 verifier (macOS 15 or newer).
-
-The macOS binary depends only on the macOS system library.
-
-The macOS binary identifies local binders from declaration positions, preserves
-free bounds and limit parameters, and avoids capturing free variables during
-instantiation, including compound substitution values. It does not use the
-historical empty-result fallback in `get_binders`. The bundled Linux and Windows binaries
-have not been rebuilt with this fix. To use the fix on those platforms, build
-`test_dsl` from the updated proofgrader source and select it with `--binary`.
-
-## Check a generated proof
-
-From this directory, run:
+Check a generated proof:
 
 ```sh
 python3 check.py exercise_2/gap_1/gap.txt /path/to/candidate.dsl
 ```
 
-On Windows, use `py` instead of `python3` if that is your Python launcher:
+On Windows, use `py` instead of `python3` if needed. Input paths are relative
+to the current working directory; the verifier and theorem library are
+located relative to `check.py`.
 
-```powershell
-py check.py exercise_2/gap_1/gap.txt C:/path/to/candidate.dsl
-```
+| Option | Purpose | Default |
+| --- | --- | --- |
+| `--timeout` | Time limit in seconds | `120` |
+| `--output-dir` | A new directory for this run's results | Unique directory under `verify/` |
+| `--binary` | Override the packaged verifier | Native platform binary |
 
-Input paths are interpreted relative to your current working directory. The
-script locates the binary, settings, and theorem library relative to itself,
-so it can also be invoked from another directory. It selects a native binary
-automatically; `--binary /path/to/test_dsl` selects a compatible custom build.
-
-Use a different time limit or a new output directory when needed:
+For example:
 
 ```sh
-python3 check.py exercise_2/gap_1/gap.txt /path/to/candidate.dsl --timeout 180 --output-dir verify/my-run
+python3 check.py exercise_2/gap_1/gap.txt /path/to/candidate.dsl \
+  --timeout 180 --output-dir verify/my-run
 ```
 
-The default timeout is 120 seconds. By default each run creates a unique
-`verify/run-.../` directory. An explicit output directory must not already
-exist, so earlier results cannot be mistaken for a fresh run.
+An explicit output directory must not already exist.
 
-## Settings and results
+## Acceptance and results
 
-The template `settings.ini` uses `ROOT_PATH = .` and loads only
-`thm/all_lib_idx.md`. The key `THMEOREM_LIB_SET` intentionally preserves the
-spelling expected by `test_dsl`. When invoking the binary directly with
-`-c settings.ini`, run from this directory and create `verify/` first for its
-configured log paths.
+`check.py` accepts a proof only if all of the following hold:
 
-`check.py` creates a separate settings file per run with resolved library
-and log paths, invokes `test_dsl --result-json`, and checks the result. It
-normalizes BOMs, blank lines, and line endings in a temporary copy of the gap;
-the original file is preserved. Each output directory contains:
+- The verifier exits with code `0` and emits schema `test_dsl_structured_v2`.
+- `final_status` is `finish`; `proof_finished` and `proof_verified` are true.
+- `admit_count` and `split_gap_count` are both zero.
+- Standard output contains `dsl proof finished`.
 
-- `result.json`: the verifier's structured result, when produced.
-- `summary.json`: acceptance status, timing, input and component hashes.
-- `stdout.txt`, `stderr.txt`, `error_log.md`, and `execute_log.md`.
-- `settings.ini` and `gap.normalized.txt` for replaying the invocation.
+The checker prints `PASS`, `FAIL`, `TIMEOUT`, or `ERROR` with the results
+location. Its exit code is `0` for acceptance, `1` for rejection or timeout,
+and `2` for a setup or process-launch error.
 
-A proof passes only when the verifier exits with code 0, emits schema
-`test_dsl_structured_v2`, reports `final_status = finish`, sets both
-`proof_finished` and `proof_verified` to true, reports zero admits and zero
-split gaps, and prints `dsl proof finished`. A process exit code alone is
-insufficient.
+Each run records:
 
-The checker returns 0 for an accepted proof, 1 for rejection or timeout, and
-2 for a setup or process-launch error. Run outputs are excluded from Git.
+| Output | Contents |
+| --- | --- |
+| `summary.json` | Acceptance status, runtime, and input/component hashes |
+| `result.json` | Structured verifier result, when available |
+| `stdout.txt`, `stderr.txt` | Process output |
+| `error_log.md`, `execute_log.md` | Verification logs |
+| `settings.ini`, `gap.normalized.txt` | Effective configuration and normalized input |
 
-The updated macOS verifier was checked against all packaged DSL answers and
-targeted semantic regressions for shadowing, tuple binders, nested scopes,
-free parameters, alpha-equivalence, and capture avoidance.
-The checker entry point was
-previously tested for admit rejection, malformed DSL rejection, and timeout
-handling. Linux and Windows binaries were inspected but were not executed on
-the macOS host. See the [benchmark overview](../README.md) for dataset details.
+The checker removes a UTF-8 BOM and blank lines and normalizes line endings
+in a temporary copy of the gap. The original input is preserved. Run outputs
+are excluded from Git.
+
+## Configuration
+
+`settings.ini` selects the theorem library at `thm/all_lib_idx.md`.
+The key `THMEOREM_LIB_SET` preserves the spelling required by the verifier.
+The checker creates a separate configuration per run with resolved paths.
+
+To invoke `bin/test_dsl` directly with `-c settings.ini`, run from this
+folder and create `verify/` first. Using `check.py` also applies the
+acceptance checks above.
+
+## Verification coverage
+
+All **9,385 packaged reference answers** passed the macOS arm64 verifier on
+2026-09-24, with zero admits and zero remaining split gaps. The bundled Linux
+and Windows binaries are different verifier builds and have not been
+validated on their target platforms in this evaluation.
+
+See the [benchmark overview](../README.md) for the task and reporting guidance,
+and the [Lean workspace](../ProofGap_Lean/README.md) for Lean verification.
