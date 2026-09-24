@@ -9,8 +9,9 @@ rev = "v4.29.0-rc6"
 
 [[lean_lib]]
 name = "ProofGapLean"
-srcDir = "ProofGap_lean_llm"
-roots = ["ProofGapLean"]
+srcDir = "."
+roots = ["ProofGap_lean_llm"]
+globs = ["ProofGap_lean_llm.+"]
 
 [[lean_lib]]
 name = "ProofGapLeanBackend"

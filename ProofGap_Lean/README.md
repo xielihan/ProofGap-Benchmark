@@ -7,7 +7,7 @@ based on Demidovich's mathematical analysis exercises
 | Dataset | Contents | Build target |
 | --- | --- | --- |
 | [ProofGap_lean](ProofGap_lean/) | Backend-printed statements with proof placeholders | `ProofGapLeanBackend` |
-| [ProofGap_lean_llm](ProofGap_lean_llm/) | LLM-converted formalizations with reference proofs | `ProofGapLean` |
+| [ProofGap_lean_llm](ProofGap_lean_llm/) | LLM-converted statements, primarily with proof placeholders | `ProofGapLean` |
 
 Both datasets use **Lean and Mathlib `v4.29.0-rc6`** and share the dependency
 cache in `.lake/`. Their proof-completion task is described in the
@@ -32,7 +32,7 @@ Build one exercise and its dependencies:
 
 ```sh
 # LLM-converted exercise
-lake build +ProofGapLean.Exercises.Exercise2
+lake build +ProofGap_lean_llm.exercise_100
 
 # Backend-printed exercise
 lake build +ProofGap_lean.exercise_1000
@@ -41,7 +41,7 @@ lake build +ProofGap_lean.exercise_1000
 After dependencies are built, check an edited exercise directly:
 
 ```sh
-lake env lean ProofGap_lean_llm/ProofGapLean/Exercises/Exercise2.lean
+lake env lean ProofGap_lean_llm/exercise_100.lean
 lake env lean ProofGap_lean/exercise_1000.lean
 ```
 
@@ -51,7 +51,7 @@ use proof placeholders or introduce new axioms.
 
 ## Build a dataset
 
-The default target is the LLM-converted dataset:
+The default target builds the LLM-converted exercise modules independently:
 
 ```sh
 lake build ProofGapLean
@@ -63,8 +63,8 @@ To attempt a build of every backend exercise:
 lake build ProofGapLeanBackend
 ```
 
-Backend exercises compile as separate modules, allowing generated helper
-names to be reused across exercises. Some backend modules may report errors
+Both datasets compile exercises as separate modules, allowing helper names
+to be reused across exercises. Some backend modules may report errors
 outside their last gap; see the [backend guide](ProofGap_lean/README.md#validation-scope).
 
 ## Reproduce the environment

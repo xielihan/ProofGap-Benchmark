@@ -20,7 +20,7 @@ converted by a large language model (LLM).
 | --- | --- | ---: | ---: | --- |
 | [ProofGap_nfl](ProofGap_nfl/) | NFL printed from proof-gap ASTs | 2,947 | 25,987 | 9,385 DSL answers |
 | [ProofGap_lean](ProofGap_Lean/ProofGap_lean/) | Lean printed from proof-gap ASTs | 1,884 | 15,191 | Proof placeholders |
-| [ProofGap_lean_llm](ProofGap_Lean/ProofGap_lean_llm/) | LLM-converted Lean formalizations | 3,015 | 26,116 | Lean reference proofs |
+| [ProofGap_lean_llm](ProofGap_Lean/ProofGap_lean_llm/) | LLM-converted Lean statements | 1,072 | 10,857 | Primarily proof placeholders |
 
 **NFL and backend Lean use two printers over a common abstract syntax tree
 (AST) representation.** The LLM variant uses a separate formalization process.
@@ -30,7 +30,7 @@ Exercise variants with suffixes, such as `131_1` and `131_2`, are distinct items
 
 Use **ProofGap_nfl** for DSL proof generation with the bundled verifier,
 **ProofGap_lean** for backend-generated Lean proof obligations, and
-**ProofGap_lean_llm** for Lean proof completion with reference proofs.
+**ProofGap_lean_llm** for LLM-converted Lean proof obligations.
 
 ## Task
 
@@ -87,7 +87,7 @@ cd ProofGap_Lean
 lake exe cache get
 
 # LLM-converted exercise
-lake build +ProofGapLean.Exercises.Exercise2
+lake build +ProofGap_lean_llm.exercise_100
 
 # Backend-printed exercise
 lake build +ProofGap_lean.exercise_1000
@@ -107,7 +107,9 @@ proof while preserving its statement and allowed context.
 - **Lean:** a candidate must prove the unchanged target under the pinned
   environment. Compilation alone is insufficient: the target proof and its
   dependencies must not rely on `sorry`, `admit`, or newly introduced axioms.
-  The backend dataset contains proof placeholders.
+  Both Lean datasets contain proof placeholders. Some LLM-converted
+  statements also use simplified or placeholder definitions, so compilation
+  does not establish equivalence with the mathematical exercise.
 - **Reporting:** identify the repository commit, dataset variant, evaluated
   exercise/gap IDs, verification environment, time limit, and number of proof
   attempts. Report accepted proofs against the full evaluated set. If you
@@ -149,10 +151,7 @@ ProofGap-Benchmark/
     ├── ProofGap_lean/
     │   └── exercise_<id>.lean
     └── ProofGap_lean_llm/
-        ├── ProofGapLean.lean      # Aggregate module
-        └── ProofGapLean/
-            ├── Prelude/          # Shared definitions and support
-            └── Exercises/        # Exercise modules and gap theorems
+        └── exercise_<id>.lean     # LLM-converted statements
 ```
 
 ## Documentation
