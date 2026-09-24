@@ -139,6 +139,10 @@ results.
 
 ```text
 ProofGap-Benchmark/
+├── document/
+│   ├── README.md                 # Language documentation index
+│   ├── NFL_syntax.md             # NFL grammar and notation
+│   └── DSL_guide.md              # DSL proof commands and examples
 ├── ProofGap_nfl/
 │   ├── exercise_<id>/gap_<id>/
 │   │   ├── gap.txt               # Assumptions and target
@@ -159,6 +163,8 @@ ProofGap-Benchmark/
 
 ## Documentation
 
+- [NFL syntax reference](document/NFL_syntax.md)
+- [DSL proof guide](document/DSL_guide.md)
 - [NFL data format and verifier](ProofGap_nfl/README.md)
 - [Shared Lean environment](ProofGap_Lean/README.md)
 - [Backend-printed Lean dataset](ProofGap_Lean/ProofGap_lean/README.md)

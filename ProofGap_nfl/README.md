@@ -9,6 +9,10 @@ NFL (Natural Formal Language) expresses each proof obligation as assumptions
 and a target. The NFL and backend Lean printers use a common proof-gap AST
 representation; coverage and some statements differ between the datasets.
 
+Read the [NFL syntax reference](../document/NFL_syntax.md) for mathematical
+notation and the [DSL proof guide](../document/DSL_guide.md) for writing
+candidate answers.
+
 ## Data format
 
 ```text
