@@ -9,7 +9,7 @@ produce a proof that a verifier accepts.
 
 The benchmark provides structured statements in Natural Formal Language
 (NFL), Lean statements printed by the backend, and Lean formalizations
-converted by a large language model (LLM).
+converted with Codex and reviewed for semantic fidelity to NFL.
 
 [Datasets](#datasets) · [Task](#task) · [Quick start](#quick-start) ·
 [Evaluation](#evaluation) · [Documentation](#documentation)
@@ -20,10 +20,16 @@ converted by a large language model (LLM).
 | --- | --- | ---: | ---: | --- |
 | [ProofGap_nfl](ProofGap_nfl/) | NFL printed from proof-gap ASTs | 2,947 | 25,987 | 9,385 DSL answers |
 | [ProofGap_lean](ProofGap_Lean/ProofGap_lean/) | Lean printed from proof-gap ASTs | 1,875 | 15,105 | Proof placeholders |
-| [ProofGap_lean_llm](ProofGap_Lean/ProofGap_lean_llm/) | LLM-converted Lean statements | 1,072 | 10,882 | Primarily proof placeholders |
+| [ProofGap_lean_llm](ProofGap_Lean/ProofGap_lean_llm/) | Codex conversion with semantic review | 1,072 | 10,882 | Primarily proof placeholders |
 
 **NFL and backend Lean use two printers over a common abstract syntax tree
-(AST) representation.** The LLM variant uses a separate formalization process.
+(AST) representation.** However, NFL and Lean have different logical
+foundations, so the backend cannot directly print a Lean version of every
+NFL proof gap. For gaps outside direct backend coverage, we use Codex to
+produce Lean formalizations, followed by semantic review and correction
+against the NFL statements. The resulting exercise modules are collected in
+**ProofGap_lean_llm**.
+
 The two Lean variants partition the NFL exercise IDs without overlap.
 Together, they cover all **2,947 exercises and 25,987 gap IDs** in NFL.
 Matching identifiers does not by itself establish semantic equivalence;

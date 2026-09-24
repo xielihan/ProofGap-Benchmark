@@ -9,6 +9,12 @@ representation as the NFL printer. This variant provides theorem statements
 with `sorry` proof placeholders. It shares its environment with the
 [LLM-converted variant](../ProofGap_lean_llm/).
 
+NFL and Lean have different logical foundations, which prevents direct
+backend printing from covering every NFL proof gap. For gaps outside this
+coverage, Codex produces Lean formalizations that undergo semantic review
+and correction against NFL. Those exercise modules are provided in
+`ProofGap_lean_llm`.
+
 ## Data format
 
 Each `exercise_<id>.lean` is a separate Lean module containing imports,

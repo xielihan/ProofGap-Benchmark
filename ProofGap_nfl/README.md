@@ -9,6 +9,11 @@ NFL (Natural Formal Language) expresses each proof obligation as assumptions
 and a target. The NFL and backend Lean printers use a common proof-gap AST
 representation; coverage and some statements differ between the datasets.
 
+NFL and Lean have different logical foundations, so not every NFL gap can
+be printed directly as Lean by the backend. For gaps outside direct backend
+coverage, Codex conversion with semantic review and correction provides the
+[LLM Lean variant](../ProofGap_Lean/ProofGap_lean_llm/).
+
 Read the [NFL syntax reference](../document/NFL_syntax.md) for mathematical
 notation and the [DSL proof guide](../document/DSL_guide.md) for writing
 candidate answers.

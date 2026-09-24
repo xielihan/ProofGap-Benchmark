@@ -1,8 +1,14 @@
 # ProofGap_lean_llm
 
 **10,882 Lean gap statements across 1,072 exercise modules.** This variant
-uses LLM conversion to formalize Demidovich's mathematical analysis exercises
+uses Codex to formalize Demidovich's mathematical analysis exercises
 (吉米多维奇《数学分析习题集》).
+
+NFL and Lean have different logical foundations, so the backend cannot
+directly print a Lean version of every NFL proof gap. This variant covers
+gaps outside direct backend coverage: Codex converts them to Lean, followed
+by semantic review and correction against the NFL assumptions and goals.
+The resulting statements are organized into exercise modules.
 
 The dataset primarily contains theorem statements with `sorry` proof
 placeholders. It is intended for inspecting formalized proof obligations

@@ -7,7 +7,13 @@ based on Demidovich's mathematical analysis exercises
 | Dataset | Contents | Build target |
 | --- | --- | --- |
 | [ProofGap_lean](ProofGap_lean/) | Backend-printed statements with proof placeholders | `ProofGapLeanBackend` |
-| [ProofGap_lean_llm](ProofGap_lean_llm/) | LLM-converted statements, primarily with proof placeholders | `ProofGapLean` |
+| [ProofGap_lean_llm](ProofGap_lean_llm/) | Codex-converted statements with semantic review, primarily with proof placeholders | `ProofGapLean` |
+
+NFL and Lean have different logical foundations, so direct backend printing
+does not cover every NFL gap. Gaps outside that coverage are converted to
+Lean with Codex and undergo semantic review and correction against their NFL
+statements. These exercise modules are collected in `ProofGap_lean_llm`;
+`ProofGap_lean` contains the backend-printed modules.
 
 The variants contain disjoint exercise sets and together cover all **2,947
 exercises and 25,987 gap IDs** in NFL.
