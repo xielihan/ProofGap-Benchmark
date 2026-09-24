@@ -9,7 +9,7 @@ the NFL printer. It shares its Lean and Mathlib environment with
 ## Environment and checking
 
 Install Lean through `elan`, then run these commands from the **Lean workspace
-root** (`Lean/`):
+root** (`ProofGap_Lean/`):
 
 ```sh
 lake exe cache get
@@ -35,7 +35,7 @@ The shared [toolchain](../lean-toolchain) pins Lean to `v4.29.0-rc6`.
 The [Lake configuration](../lakefile.toml) and
 [dependency manifest](../lake-manifest.json) pin Mathlib to the corresponding
 release and lock every dependency revision. Both Lean datasets use the
-`Lean/.lake/` cache.
+`ProofGap_Lean/.lake/` cache.
 
 ## Compilation status
 

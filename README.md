@@ -11,8 +11,8 @@ Lean formalizations with reference proofs.
 | Dataset | Representation | Exercises | Proof gaps |
 | --- | --- | ---: | ---: |
 | [ProofGap_nfl](ProofGap_nfl/) | NFL statements printed from proof-gap ASTs | 2,947 | 25,987 |
-| [ProofGap_lean](Lean/ProofGap_lean/) | Lean statements printed from the same ASTs | 1,884 | 15,191 source gaps |
-| [ProofGap_lean_llm](Lean/ProofGap_lean_llm/) | LLM-converted Lean formalizations | 3,015 | 26,116 `gapN` theorems |
+| [ProofGap_lean](ProofGap_Lean/ProofGap_lean/) | Lean statements printed from the same ASTs | 1,884 | 15,191 source gaps |
+| [ProofGap_lean_llm](ProofGap_Lean/ProofGap_lean_llm/) | LLM-converted Lean formalizations | 3,015 | 26,116 `gapN` theorems |
 
 The backend-printed Lean set is a selected subset of the AST-printed exercises;
 its gap count is computed from the corresponding NFL exercises. The
@@ -37,7 +37,7 @@ ProofGap-Benchmark/
 │   └── exercise_<id>/gap_<gap_id>/
 │       ├── gap.txt
 │       └── dsl.txt                  # Present for 9,385 gaps
-└── Lean/
+└── ProofGap_Lean/
     ├── README.md
     ├── lean-toolchain
     ├── lakefile.toml
@@ -75,19 +75,19 @@ platform requirements, configuration, and proof acceptance criteria.
 
 ## Lean environment
 
-Both Lean datasets share one workspace under `Lean/`, pinning Lean and Mathlib
+Both Lean datasets share one workspace under `ProofGap_Lean/`, pinning Lean and Mathlib
 to `v4.29.0-rc6` and all dependencies to their recorded revisions. Run Lean
 commands from that directory:
 
 ```sh
-cd Lean
+cd ProofGap_Lean
 lake exe cache get
 lake build +ProofGapLean.Exercises.Exercise2
 lake build +ProofGap_lean.exercise_1000
 ```
 
 The last two commands check one LLM-converted exercise and one backend-printed
-exercise. See the [Lean environment guide](Lean/README.md) for full build
+exercise. See the [Lean environment guide](ProofGap_Lean/README.md) for full build
 targets, direct file checks, and editor setup.
 
 ## Validation and scope
@@ -104,4 +104,4 @@ targets, direct file checks, and editor setup.
   statement containing `sorry` does not constitute a completed proof.
 
 See the [NFL README](ProofGap_nfl/README.md) for platform-specific validation
-details and the [Lean environment guide](Lean/README.md) for build instructions.
+details and the [Lean environment guide](ProofGap_Lean/README.md) for build instructions.

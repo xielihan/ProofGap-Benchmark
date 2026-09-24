@@ -4,16 +4,16 @@ Both Lean datasets are based on Demidovich's mathematical analysis exercises
 (吉米多维奇《数学分析习题集》).
 `ProofGap_lean/` contains AST-printed Lean statements; `ProofGap_lean_llm/`
 contains LLM-converted formalizations with reference proofs. Both use the
-configuration and dependency cache in this `Lean/` directory.
+configuration and dependency cache in this `ProofGap_Lean/` directory.
 
 ## Setup
 
-Install Lean through `elan` and open `Lean/` as the workspace in your Lean
+Install Lean through `elan` and open `ProofGap_Lean/` as the workspace in your Lean
 editor. From the repository root, enter the workspace and fetch Mathlib's
 precompiled cache:
 
 ```sh
-cd Lean
+cd ProofGap_Lean
 lake exe cache get
 ```
 
@@ -26,7 +26,7 @@ lake exe cache get
 Mathlib is locked to commit `5c8398df528176d9c87ccd9226ba8f7c8852d59c`.
 Keep the manifest when reproducing the environment. The first setup may
 download the pinned toolchain and dependencies. All commands below run from
-`Lean/`; both datasets share `Lean/.lake/`.
+`ProofGap_Lean/`; both datasets share `ProofGap_Lean/.lake/`.
 
 ## Build and check
 

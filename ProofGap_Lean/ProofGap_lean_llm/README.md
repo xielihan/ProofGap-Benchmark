@@ -11,7 +11,7 @@ proof-gap abstract syntax trees; this directory uses the `llm` suffix to
 identify LLM conversion. See the [benchmark overview](../../README.md) for
 dataset sizes and differences in coverage and statements.
 The Lean module namespace and build target remain `ProofGapLean`. Environment
-configuration is shared with `ProofGap_lean/` in the parent `Lean/` directory.
+configuration is shared with `ProofGap_lean/` in the parent `ProofGap_Lean/` directory.
 
 ## Dataset contents
 
@@ -46,7 +46,7 @@ ProofGap_lean_llm/
 
 ## Build
 
-Install Lean through `elan`. From the **Lean workspace root** (`Lean/`, the
+Install Lean through `elan`. From the **Lean workspace root** (`ProofGap_Lean/`, the
 parent of this directory), run:
 
 ```sh
@@ -56,10 +56,10 @@ lake build ProofGapLean
 
 The shared [toolchain](../lean-toolchain), [Lake configuration](../lakefile.toml),
 and [dependency manifest](../lake-manifest.json) pin Lean, Mathlib, and the
-transitive dependencies. This dataset uses the `Lean/.lake/` cache alongside
+transitive dependencies. This dataset uses the `ProofGap_Lean/.lake/` cache alongside
 the backend-printed dataset.
 
-To build one exercise and its local dependencies from the `Lean/` directory:
+To build one exercise and its local dependencies from the `ProofGap_Lean/` directory:
 
 ```sh
 lake build +ProofGapLean.Exercises.Exercise3591
