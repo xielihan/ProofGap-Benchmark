@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ (forall (α), α ∈ RealSet ∧ x ≥ 0 ∧ α ≥ 0 ⇒ (x + α)^{2} + 1 > 0)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (α), α ∈ RealSet ∧ x ≥ 0 ∧ α ≥ 0 ⇒ 0 < frac(1, (x + α)^{2} + 1))
+
+METHOD:

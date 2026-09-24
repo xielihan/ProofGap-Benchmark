@@ -1,0 +1,8 @@
+get_prop (hypothesis 24: {forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ 6 ⇒ x_{i} = i * h ∧ y_{i} = f(x_{i})}) (i := {5}) as (hypothesis 44: {5 ∈ IntegerSet ∧ 0 ≤ 5 ∧ 5 ≤ 6 ⇒ x_{5} = 5 * h ∧ y_{5} = f(x_{5})})
+use_condition (obvious: {5 ∈ IntegerSet ∧ 0 ≤ 5 ∧ 5 ≤ 6}) in (hypothesis 44: {5 ∈ IntegerSet ∧ 0 ≤ 5 ∧ 5 ≤ 6 ⇒ x_{5} = 5 * h ∧ y_{5} = f(x_{5})}) as (hypothesis 45: {x_{5} = 5 * h ∧ y_{5} = f(x_{5})})
+destruct_and (hypothesis 45: {x_{5} = 5 * h ∧ y_{5} = f(x_{5})}) as (hypothesis 46: {x_{5} = 5 * h}) (hypothesis 47: {y_{5} = f(x_{5})})
+rewrite (left_to_right, equation) (hypothesis 43: {x_{5} = frac(5 * π, 6)}); from (hypothesis 47: {y_{5} = f(x_{5})}) to (hypothesis 47: {y_{5} = f(frac(5 * π, 6))})
+get_prop (hypothesis 22: {forall (x), x ∈ RealSet ∧ x ∈ [0, π] ⇒ f(x) = sqrtn(2, 3 + cos(x))}) (x := {frac(5 * π, 6)}) as (hypothesis 48: {frac(5 * π, 6) ∈ RealSet ∧ frac(5 * π, 6) ∈ [0, π] ⇒ f(frac(5 * π, 6)) = sqrtn(2, 3 + cos(frac(5 * π, 6)))})
+use_condition (obvious: {frac(5 * π, 6) ∈ RealSet ∧ frac(5 * π, 6) ∈ [0, π]}) in (hypothesis 48: {frac(5 * π, 6) ∈ RealSet ∧ frac(5 * π, 6) ∈ [0, π] ⇒ f(frac(5 * π, 6)) = sqrtn(2, 3 + cos(frac(5 * π, 6)))}) as (hypothesis 49: {f(frac(5 * π, 6)) = sqrtn(2, 3 + cos(frac(5 * π, 6)))})
+rewrite (right_to_left, equation) (hypothesis 49: {f(frac(5 * π, 6)) = sqrtn(2, 3 + cos(frac(5 * π, 6)))}); from (GOAL: {y_{5} = sqrtn(2, 3 + cos(frac(5 * π, 6)))}) to (GOAL: {y_{5} = f(frac(5 * π, 6))})
+apply (hypothesis 47: {y_{5} = f(frac(5 * π, 6))})

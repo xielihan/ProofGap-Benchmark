@@ -1,0 +1,28 @@
+PROOF GAP @16
+ASSUM:
+1. a_{1} ∈ RealSet
+2. b_{1} ∈ RealSet
+3. a_{2} ∈ RealSet
+4. b_{2} ∈ RealSet
+5. forall (x), x ∈ RealSet ⇒ lim_{ x → -∞ } (sqrtn(2, x^{2} - x + 1) - a_{1} * x - b_{1}) = 0
+6. forall (x), x ∈ RealSet ⇒ lim_{ x → +∞ } (sqrtn(2, x^{2} - x + 1) - a_{2} * x - b_{2}) = 0
+7. forall (x), x ∈ RealSet ⇒ sqrtn(2, x^{2} - x + 1) - a_{1} * x - b_{1} = frac((1 - (a_{1})^{2}) * x^{2} - (1 + 2 * a_{1} * b_{1}) * x + 1 - (b_{1})^{2}, sqrtn(2, x^{2} - x + 1) + a_{1} * x + b_{1})
+8. 1 - (a_{1})^{2} = 0
+9. 1 + 2 * a_{1} * b_{1} = 0
+10. a_{1} = 1 ∧ b_{1} = -frac(1, 2) ∨ a_{1} = -1 ∧ b_{1} = frac(1, 2)
+11. forall (x), x ∈ RealSet ∧ a_{1} = 1 ∧ b_{1} = -frac(1, 2) ⇒ sqrtn(2, x^{2} - x + 1) + a_{1} * x + b_{1} = sqrtn(2, x^{2} - x + 1) + x - frac(1, 2)
+12. forall (x), x ∈ RealSet ∧ a_{1} = 1 ∧ b_{1} = -frac(1, 2) ⇒ sqrtn(2, x^{2} - x + 1) + x - frac(1, 2) = frac(frac(3, 4), sqrtn(2, x^{2} - x + 1) - x + frac(1, 2))
+13. forall (x), x ∈ RealSet ∧ a_{1} = 1 ∧ b_{1} = -frac(1, 2) ⇒ sqrtn(2, x^{2} - x + 1) + a_{1} * x + b_{1} = frac(frac(3, 4), sqrtn(2, x^{2} - x + 1) - x + frac(1, 2))
+14. forall (x), x ∈ RealSet ∧ a_{1} = 1 ∧ b_{1} = -frac(1, 2) ⇒ lim_{ x → -∞ } (sqrtn(2, x^{2} - x + 1) + a_{1} * x + b_{1}) = 0
+15. forall (x), x ∈ RealSet ∧ a_{1} = 1 ∧ b_{1} = -frac(1, 2) ⇒ lim_{ x → -∞ } (sqrtn(2, x^{2} - x + 1) - a_{1} * x - b_{1}) = +∞
+16. forall (x), x ∈ RealSet ∧ a_{1} = -1 ∧ b_{1} = frac(1, 2) ⇒ lim_{ x → -∞ } (sqrtn(2, x^{2} - x + 1) + a_{1} * x + b_{1}) = +∞
+17. forall (x), x ∈ RealSet ∧ a_{1} = -1 ∧ b_{1} = frac(1, 2) ⇒ lim_{ x → -∞ } (sqrtn(2, x^{2} - x + 1) - a_{1} * x - b_{1}) = 0
+18. a_{1} = -1
+19. b_{1} = frac(1, 2)
+20. a_{2} = 1
+21. b_{2} = -frac(1, 2)
+
+GOAL:
+(a_{1}, b_{1}, a_{2}, b_{2}) = (-1, frac(1, 2), 1, -frac(1, 2)) ⇒ (forall (x), x ∈ RealSet ⇒ lim_{ x → -∞ } (sqrtn(2, x^{2} - x + 1) - a_{1} * x - b_{1}) = 0 ∧ (forall (x), x ∈ RealSet ⇒ lim_{ x → +∞ } (sqrtn(2, x^{2} - x + 1) - a_{2} * x - b_{2}) = 0))
+
+METHOD:

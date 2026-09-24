@@ -1,0 +1,7 @@
+get_prop (hypothesis 16: {forall (k), k ∈ IntegerSet ∧ k ≥ 1 ⇒ Iseq(k) = frac(1, (k + 1)^{2})}) (k := {6}) as (hypothesis 20: {6 ∈ IntegerSet ∧ 6 ≥ 1 ⇒ Iseq(6) = frac(1, (6 + 1)^{2})})
+use_condition (obvious: {6 ∈ IntegerSet ∧ 6 ≥ 1}) in (hypothesis 20: {6 ∈ IntegerSet ∧ 6 ≥ 1 ⇒ Iseq(6) = frac(1, (6 + 1)^{2})}) as (hypothesis 21: {Iseq(6) = frac(1, (6 + 1)^{2})})
+autoreplace no_hypothesis; from ((6 + 1)^{2}) to (49); from (hypothesis 21: {Iseq(6) = frac(1, (6 + 1)^{2})}) to (hypothesis 22: {Iseq(6) = frac(1, 49)})
+rewrite (left_to_right, equation) (hypothesis 22: {Iseq(6) = frac(1, 49)}); from (hypothesis 17: {|R(6)| ≤ frac(e, 6!) * Iseq(6)}) to (hypothesis 23: {|R(6)| ≤ frac(e, 6!) * frac(1, 49)})
+assert (hypothesis 24: {frac(e, 6!) * frac(1, 49) = frac(e, 7 * 7!)})
+rewrite (left_to_right, equation) (hypothesis 24: {frac(e, 6!) * frac(1, 49) = frac(e, 7 * 7!)}); from (hypothesis 23: {|R(6)| ≤ frac(e, 6!) * frac(1, 49)}) to (hypothesis 25: {|R(6)| ≤ frac(e, 7 * 7!)})
+apply (hypothesis 25: {|R(6)| ≤ frac(e, 7 * 7!)})

@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet ∧ x ≠ -1
+2. C ∈ RealSet
+3. t = sqrtn(3, 2 + x)
+4. x = t^{3} - 2
+5. diff(fun t [t ∈ RealSet] . x) = 3 * t^{2} * diff(fun t [t ∈ RealSet] . t)
+
+GOAL:
+frac(x * sqrtn(3, 2 + x), x + sqrtn(3, 2 + x)) * diff(fun x [x ∈ RealSet] . x) = 3 * frac(t^{6} - 2 * t^{3}, t^{3} + t - 2) * diff(fun t [t ∈ RealSet] . t)
+
+METHOD:

@@ -1,0 +1,6 @@
+1. destruct_and (hypothesis 14: {ψ ∈ RealSet ∧ ψ ∈ [-frac(π, 2), frac(π, 2)]}) as (hypothesis 15: {ψ ∈ RealSet}) (hypothesis 16: {ψ ∈ [-frac(π, 2), frac(π, 2)]})
+2. get_prop (theorem 'Thm 487. (ClosedIntervalMembership)': {forall (x) (a) (b), x ∈ RealSet => a ∈ RealSet => b ∈ RealSet => (x ∈ [a, b] <==> (x >= a /\ x <= b))}) (x := {ψ}) (a := {-frac(π, 2)}) (b := {frac(π, 2)}) as (hypothesis 17: {ψ ∈ RealSet => -frac(π, 2) ∈ RealSet => frac(π, 2) ∈ RealSet => (ψ ∈ [-frac(π, 2), frac(π, 2)] <==> (ψ >= -frac(π, 2) /\ ψ <= frac(π, 2)))})
+3. use_condition (hypothesis 15: {ψ ∈ RealSet}) (obvious: {-frac(π, 2) ∈ RealSet}) (obvious: {frac(π, 2) ∈ RealSet}) in (hypothesis 17: {ψ ∈ RealSet => -frac(π, 2) ∈ RealSet => frac(π, 2) ∈ RealSet => (ψ ∈ [-frac(π, 2), frac(π, 2)] <==> (ψ >= -frac(π, 2) /\ ψ <= frac(π, 2)))}) as (hypothesis 18: {ψ ∈ [-frac(π, 2), frac(π, 2)] <==> (ψ >= -frac(π, 2) /\ ψ <= frac(π, 2))})
+4. rewrite (left_to_right, iff) (hypothesis 18: {ψ ∈ [-frac(π, 2), frac(π, 2)] <==> (ψ >= -frac(π, 2) /\ ψ <= frac(π, 2))}); from (hypothesis 16: {ψ ∈ [-frac(π, 2), frac(π, 2)]}) to (hypothesis 16: {ψ >= -frac(π, 2) /\ ψ <= frac(π, 2)})
+5. destruct_and (hypothesis 16: {ψ >= -frac(π, 2) /\ ψ <= frac(π, 2)}) as (hypothesis 19: {ψ >= -frac(π, 2)}) (hypothesis 20: {ψ <= frac(π, 2)})
+6. autosolve (hypothesis 19: {ψ >= -frac(π, 2)})

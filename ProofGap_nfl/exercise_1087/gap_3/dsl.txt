@@ -1,0 +1,1 @@
+apply (hypothesis 6: {FunDeri(y, 1, 1)(x) = frac(1, x^{2} - a^{2})})

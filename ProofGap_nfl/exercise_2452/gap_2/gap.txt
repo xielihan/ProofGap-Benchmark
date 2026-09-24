@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. φ : RealSet → RealSet
+2. s ∈ RealSet
+3. forall (r), r ∈ RealSet ∧ 1 ≤ r ∧ r ≤ 3 ⇒ φ(r) = frac(1, 2) * (r + frac(1, r))
+4. forall (r), r ∈ RealSet ∧ 1 ≤ r ∧ r ≤ 3 ⇒ r^{2} - 2 * r * φ + 1 = 0
+
+GOAL:
+forall (r), r ∈ RealSet ∧ 1 ≤ r ∧ r ≤ 3 ⇒ 2 * r * FunDeri(r, 1, 1) - 2 * φ * FunDeri(r, 1, 1) - 2 * r = 0
+
+METHOD:
+[@method 两边同时对 φ 求 导数 @]

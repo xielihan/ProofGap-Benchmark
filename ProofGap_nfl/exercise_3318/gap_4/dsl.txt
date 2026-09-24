@@ -1,0 +1,5 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ y^{2} * 2 * x * y * FunDeri(f, 1, 1)(x^{2} - y^{2}) + x * y * (f(x^{2} - y^{2}) - 2 * y^{2} * FunDeri(f, 1, 1)(x^{2} - y^{2})) = x * y * f(x^{2} - y^{2}))}) (x := {x0})
+2. get_condition (hypothesis 8: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ (forall (y), x0 ∈ RealSet ∧ y ∈ RealSet ⇒ y^{2} * 2 * x0 * y * FunDeri(f, 1, 1)(x0^{2} - y^{2}) + x0 * y * (f(x0^{2} - y^{2}) - 2 * y^{2} * FunDeri(f, 1, 1)(x0^{2} - y^{2})) = x0 * y * f(x0^{2} - y^{2}))})
+3. get_forall (GOAL: {forall (y), x0 ∈ RealSet ∧ y ∈ RealSet ⇒ y^{2} * 2 * x0 * y * FunDeri(f, 1, 1)(x0^{2} - y^{2}) + x0 * y * (f(x0^{2} - y^{2}) - 2 * y^{2} * FunDeri(f, 1, 1)(x0^{2} - y^{2})) = x0 * y * f(x0^{2} - y^{2})}) (y := {y0})
+4. get_condition (hypothesis 9: {x0 ∈ RealSet ∧ y0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ∧ y0 ∈ RealSet ⇒ y0^{2} * 2 * x0 * y0 * FunDeri(f, 1, 1)(x0^{2} - y0^{2}) + x0 * y0 * (f(x0^{2} - y0^{2}) - 2 * y0^{2} * FunDeri(f, 1, 1)(x0^{2} - y0^{2})) = x0 * y0 * f(x0^{2} - y0^{2})})
+5. autosolve all_hypothesis

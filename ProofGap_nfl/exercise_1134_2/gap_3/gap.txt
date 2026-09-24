@@ -1,0 +1,17 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. u : RealSet → RealSet
+3. v : RealSet → RealSet
+4. I ⊆ RealSet
+5. FuncOfClassKOn(u, I, 2)
+6. FuncOfClassKOn(v, I, 2)
+7. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ v(x) ≠ 0
+8. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ y(x) = frac(u(x), v(x))
+9. diff(y) = frac(v * diff(u) - u * diff(v), v^{2})
+10. diff^{2}(y) = frac(v^{2} * (diff(v) * diff(u) + v * diff^{2}(u) - diff(u) * diff(v) - u * diff^{2}(v)) - 2 * v * diff(v) * (v * diff(u) - u * diff(v)), v^{4})
+
+GOAL:
+diff^{2}(y) = frac(v * (v * diff^{2}(u) - u * diff^{2}(v)) - 2 * diff(v) * (v * diff(u) - u * diff(v)), v^{3})
+
+METHOD:

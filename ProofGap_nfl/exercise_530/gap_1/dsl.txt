@@ -1,0 +1,2 @@
+1. exists (x := {1})
+2. autosolve all_hypothesis

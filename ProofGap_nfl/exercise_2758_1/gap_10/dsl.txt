@@ -1,0 +1,19 @@
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε < 1 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N = floor(l + sqrtn(2, ln(frac(1, ε)))) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > N ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l) ⇒ |f(n, x) - g(x)| < ε)))}) (ε := {ε0})
+get_condition (hypothesis 16: {ε0 ∈ RealSet ∧ ε0 > 0 ∧ ε0 < 1}) in (GOAL: {ε0 ∈ RealSet ∧ ε0 > 0 ∧ ε0 < 1 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N = floor(l + sqrtn(2, ln(frac(1, ε0)))) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > N ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l) ⇒ |f(n, x) - g(x)| < ε0)))})
+get_prop (hypothesis 14: {forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε < 1 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N = floor(l + sqrtn(2, ln(frac(1, ε)))))}) (ε := {ε0}) as (hypothesis 17: {ε0 ∈ RealSet ∧ ε0 > 0 ∧ ε0 < 1 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N = floor(l + sqrtn(2, ln(frac(1, ε0)))))})
+use_condition (hypothesis 16: {ε0 ∈ RealSet ∧ ε0 > 0 ∧ ε0 < 1}) in (hypothesis 17: {ε0 ∈ RealSet ∧ ε0 > 0 ∧ ε0 < 1 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N = floor(l + sqrtn(2, ln(frac(1, ε0)))))}) as (hypothesis 18: {exists (N), N ∈ NonNegIntegerSet ∧ N = floor(l + sqrtn(2, ln(frac(1, ε0))))})
+get_exists (hypothesis 18: {exists (N), N ∈ NonNegIntegerSet ∧ N = floor(l + sqrtn(2, ln(frac(1, ε0))))}) (N := {N0})
+destruct_and (hypothesis 16: {ε0 ∈ RealSet ∧ ε0 > 0 ∧ ε0 < 1}) as (hypothesis 20: {ε0 ∈ RealSet}) (hypothesis 21: {ε0 > 0}) (hypothesis 22: {ε0 < 1})
+destruct_and (hypothesis 19: {N0 ∈ NonNegIntegerSet ∧ N0 = floor(l + sqrtn(2, ln(frac(1, ε0))))}) as (hypothesis 23: {N0 ∈ NonNegIntegerSet}) (hypothesis 24: {N0 = floor(l + sqrtn(2, ln(frac(1, ε0))))})
+exists (N := {N0})
+assert (hypothesis 25: {forall (n), n ∈ NonNegIntegerSet ∧ n > N0 ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l) ⇒ |f(n, x) - g(x)| < ε0)}) by proof {
+  get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n > N0 ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l) ⇒ |f(n, x) - g(x)| < ε0)}) (n := {n0})
+  get_condition (hypothesis 25: {n0 ∈ NonNegIntegerSet ∧ n0 > N0 ∧ n0 ∈ PosIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 > N0 ∧ n0 ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l) ⇒ |f(n0, x) - g(x)| < ε0)})
+  assert (hypothesis 26: {ε0 ∈ RealSet ∧ N0 ∈ NonNegIntegerSet ∧ n0 ∈ NonNegIntegerSet ∧ ε0 > 0 ∧ ε0 < 1 ∧ N0 = floor(l + sqrtn(2, ln(frac(1, ε0)))) ∧ n0 > N0 ∧ n0 ∈ PosIntegerSet}) by proof {
+    autosolve all_hypothesis
+  }
+  get_prop (hypothesis 15: {forall (ε) (N) (n), ε ∈ RealSet ∧ N ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ ε > 0 ∧ ε < 1 ∧ N = floor(l + sqrtn(2, ln(frac(1, ε)))) ∧ n > N ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l) ⇒ |f(n, x) - g(x)| < ε)}) (ε := {ε0}) (N := {N0}) (n := {n0}) as (hypothesis 27: {ε0 ∈ RealSet ∧ N0 ∈ NonNegIntegerSet ∧ n0 ∈ NonNegIntegerSet ∧ ε0 > 0 ∧ ε0 < 1 ∧ N0 = floor(l + sqrtn(2, ln(frac(1, ε0)))) ∧ n0 > N0 ∧ n0 ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l) ⇒ |f(n0, x) - g(x)| < ε0)})
+  use_condition (hypothesis 26: {ε0 ∈ RealSet ∧ N0 ∈ NonNegIntegerSet ∧ n0 ∈ NonNegIntegerSet ∧ ε0 > 0 ∧ ε0 < 1 ∧ N0 = floor(l + sqrtn(2, ln(frac(1, ε0)))) ∧ n0 > N0 ∧ n0 ∈ PosIntegerSet}) in (hypothesis 27: {ε0 ∈ RealSet ∧ N0 ∈ NonNegIntegerSet ∧ n0 ∈ NonNegIntegerSet ∧ ε0 > 0 ∧ ε0 < 1 ∧ N0 = floor(l + sqrtn(2, ln(frac(1, ε0)))) ∧ n0 > N0 ∧ n0 ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l) ⇒ |f(n0, x) - g(x)| < ε0)}) as (hypothesis 28: {forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l) ⇒ |f(n0, x) - g(x)| < ε0})
+  apply (hypothesis 28: {forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l) ⇒ |f(n0, x) - g(x)| < ε0})
+}
+autosolve all_hypothesis

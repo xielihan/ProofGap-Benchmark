@@ -1,0 +1,16 @@
+PROOF GAP @6
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. p ∈ RealSet
+3. n ∈ NonNegIntegerSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > 1 ⇒ a(n) = (sqrtn(2, n + 1) - sqrtn(2, n))^{p} * ln(frac(n - 1, n + 1))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > 1 ⇒ a(n) < 0
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > 1 ⇒ a(n) = frac(1, sqrtn(2, n + 1) + sqrtn(2, n))^{p} * ln(1 - frac(2, n + 1))
+7. (|a(n)|) ∼_{ n → +∞ } (frac(1, n^{frac(p, 2) + 1}))
+8. ConvergentSeries(sum_{ n = 2 }^{ +∞ } (frac(1, n^{frac(p, 2) + 1}))) ⇔ frac(p, 2) + 1 > 1
+9. frac(p, 2) + 1 > 1 ⇒ ConvergentSeries(sum_{ n = 2 }^{ +∞ } (a(n)))
+
+GOAL:
+frac(p, 2) + 1 > 1 ⇔ p > 0
+
+METHOD:

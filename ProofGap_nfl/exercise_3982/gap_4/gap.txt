@@ -1,0 +1,16 @@
+PROOF GAP @4
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. u : CartesianProd(RealSet, RealSet) → RealSet
+3. ContinuousFuncOn(f, CartesianProd(RealSet, RealSet))
+4. ContinuousFuncOn(FunDeri(f, 2, 1), CartesianProd(RealSet, RealSet))
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ u(x, y) = frac(1, 2) * DefInt(0, x, (fun ξ [ξ ∈ RealSet] . DefInt(ξ - x + y, x + y - ξ, (fun η [η ∈ RealSet] . f(ξ, η)) * diff(fun η [η ∈ RealSet] . η))) * diff(fun ξ [ξ ∈ RealSet] . ξ))
+6. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(u, 1, 1)(x, y) = frac(1, 2) * DefInt(0, x, (fun ξ [ξ ∈ RealSet] . f(ξ, x + y - ξ) + f(ξ, ξ - x + y)) * diff(fun ξ [ξ ∈ RealSet] . ξ)))
+7. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(u, 1, 2)(x, y) = frac(1, 2) * DefInt(0, x, (fun ξ [ξ ∈ RealSet] . FunDeri(f, 2, 1)(ξ, x + y - ξ) - FunDeri(f, 2, 1)(ξ, ξ - x + y)) * diff(fun ξ [ξ ∈ RealSet] . ξ)) + frac(1, 2) * (f(x, x + y - x) + f(x, x - x + y)))
+8. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(u, 1, 2)(x, y) = frac(1, 2) * DefInt(0, x, (fun ξ [ξ ∈ RealSet] . FunDeri(f, 2, 1)(ξ, x + y - ξ) - FunDeri(f, 2, 1)(ξ, ξ - x + y)) * diff(fun ξ [ξ ∈ RealSet] . ξ)) + f(x, y))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(u, 2, 1)(x, y) = frac(1, 2) * DefInt(0, x, (fun ξ [ξ ∈ RealSet] . f(ξ, x + y - ξ) - f(ξ, ξ - x + y)) * diff(fun ξ [ξ ∈ RealSet] . ξ)))
+
+METHOD:
+[@method 同理 @]

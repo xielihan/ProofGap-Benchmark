@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = sin(x)^{2}
+3. forall (x), x ∈ RealSet ⇒ f(x + π) = sin(x + π)^{2} ∧ sin(x + π)^{2} = sin(x)^{2} ∧ sin(x)^{2} = f(x)
+4. PeriodicFunc(f, π)
+5. forall (T), T ∈ RealSet ∧ T > 0 ∧ PeriodicFunc(f, T) ⇒ π ≤ T
+
+GOAL:
+PeriodicFunc(f, π) ∧ (forall (T), T ∈ RealSet ∧ T > 0 ∧ PeriodicFunc(f, T) ⇒ π ≤ T) ⇒ (exists (T), T ∈ RealSet ∧ T > 0 ∧ PeriodicFunc(f, T))
+
+METHOD:

@@ -1,0 +1,18 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. δ ∈ RealSet
+5. -∞ ≤ a
+6. a < b
+7. b ≤ +∞
+8. ContinuousFuncOn(f, IntervalLoRo(a, b))
+9. BoundedFuncOn(f, IntervalLoRo(a, b))
+10. MonoIncFuncOn(f, IntervalLoRo(a, b)) ∨ MonoDecFuncOn(f, IntervalLoRo(a, b))
+11. a ∈ RealSet ⇒ b ∈ RealSet ⇒ (exists (A), A ∈ RealSet ∧ lim_{ x → a^+ } (f(x)) = A)
+
+GOAL:
+a ∈ RealSet ⇒ b ∈ RealSet ⇒ (exists (B), B ∈ RealSet ∧ lim_{ x → b^- } (f(x)) = B)
+
+METHOD:

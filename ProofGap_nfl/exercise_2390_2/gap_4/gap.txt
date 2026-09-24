@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. VP ∈ RealSet
+2. forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < 1 ⇒ (forall (b), b ∈ RealSet ∧ b > 1 + ε ⇒ VP = lim_{ ε → 0^+ } (lim_{ b → +∞ } (DefInt(0, 1 - ε, (fun x [x ∈ RealSet] . frac(1, 1 - x^{2})) * diff(fun x [x ∈ RealSet] . x)) + DefInt(1 + ε, b, (fun x [x ∈ RealSet] . frac(1, 1 - x^{2})) * diff(fun x [x ∈ RealSet] . x)))))
+3. forall (ε), ε ∈ RealSet ⇒ (forall (b), b ∈ RealSet ∧ 0 < ε ∧ ε < 1 ∧ b > 1 + ε ⇒ DefInt(0, 1 - ε, (fun x [x ∈ RealSet] . frac(1, 1 - x^{2})) * diff(fun x [x ∈ RealSet] . x)) + DefInt(1 + ε, b, (fun x [x ∈ RealSet] . frac(1, 1 - x^{2})) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 2) * ln(|frac(2 - ε, ε)|) + frac(1, 2) * ln(|frac(1 + b, 1 - b)|) - frac(1, 2) * ln(|frac(2 + ε, ε)|))
+4. forall (b), b ∈ RealSet ∧ b > 1 ⇒ lim_{ b → +∞ } (frac(1, 2) * ln(|frac(1 + b, 1 - b)|)) = 0
+5. forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < 1 ⇒ VP = frac(1, 2) * (lim_{ ε → 0^+ } (ln(|frac(2 - ε, 2 + ε)|)))
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < 1 ⇒ frac(1, 2) * (lim_{ ε → 0^+ } (ln(|frac(2 - ε, 2 + ε)|))) = 0
+
+METHOD:

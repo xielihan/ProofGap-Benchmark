@@ -1,0 +1,5 @@
+1. get_prop (theorem 'Thm 203. (NaturalLogarithmPower)': {forall (x) (y), (x > 0 => ln (x ^ y) = y * ln(x))}) (x := {2}) (y := {3}) as (hypothesis 3: {2 > 0 => ln (2 ^ 3) = 3 * ln(2)})
+2. use_condition (obvious: {2 > 0}) in (hypothesis 3: {2 > 0 => ln (2 ^ 3) = 3 * ln(2)}) as (hypothesis 4: {ln(2 ^ 3) = 3 * ln(2)})
+3. autoreplace no_hypothesis; from (8) to (2 ^ 3); from (GOAL: {lim_{ x → +∞ } (ln(1 + 2^{x}) * ln(1 + frac(3, x))) = ln(8)}) to (GOAL: {lim_{ x → +∞ } (ln(1 + 2^{x}) * ln(1 + frac(3, x))) = ln(2 ^ 3)})
+4. rewrite (left_to_right, equation) (hypothesis 4: {ln(2 ^ 3) = 3 * ln(2)}); from (GOAL: {lim_{ x → +∞ } (ln(1 + 2^{x}) * ln(1 + frac(3, x))) = ln(2 ^ 3)}) to (GOAL: {lim_{ x → +∞ } (ln(1 + 2^{x}) * ln(1 + frac(3, x))) = 3 * ln(2)})
+5. apply (hypothesis 2: {lim_{ x → +∞ } (ln(1 + 2^{x}) * ln(1 + frac(3, x))) = 3 * ln(2)})

@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (α), α ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ α ≥ 0 ∧ x > 0 ⇒ 0 < frac(e^{-(α * x)}, x))}) (α := {a})
+get_condition (hypothesis 7: {a ∈ RealSet}) in (GOAL: {a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ a ≥ 0 ∧ x > 0 ⇒ 0 < frac(e^{-(a * x)}, x))})
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ a ≥ 0 ∧ x > 0 ⇒ 0 < frac(e^{-(a * x)}, x)}) (x := {y})
+get_condition (hypothesis 8: {y ∈ RealSet ∧ a ≥ 0 ∧ y > 0}) in (GOAL: {y ∈ RealSet ∧ a ≥ 0 ∧ y > 0 ⇒ 0 < frac(e^{-(a * y)}, y)})
+autosolve all_hypothesis

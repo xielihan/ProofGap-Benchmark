@@ -1,0 +1,2 @@
+1. autoreplace no_hypothesis; from (0 + 0) to (0); from (GOAL: {lim_{ x → +∞ } (frac(1, x)) = 0 + 0}) to (GOAL: {lim_{ x → +∞ } (frac(1, x)) = 0})
+2. autosolve all_hypothesis

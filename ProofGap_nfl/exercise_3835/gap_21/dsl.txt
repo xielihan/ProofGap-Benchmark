@@ -1,0 +1,5 @@
+get_condition (hypothesis 30: {forall (t), t ∈ RealSet => f(t) = cos(t)}) in (GOAL: {(forall (t), t ∈ RealSet => f(t) = cos(t)) => F(p) = DefInt(0, +∞, e^{-p * t} * cos(t) * diff(t))})
+get_prop (hypothesis 30: {forall (t), t ∈ RealSet => f(t) = cos(t)}) (t := {t}) as (hypothesis 31: {t ∈ RealSet => f(t) = cos(t)})
+use_condition (hypothesis 7: {t ∈ RealSet}) in (hypothesis 31: {t ∈ RealSet => f(t) = cos(t)}) as (hypothesis 32: {f(t) = cos(t)})
+rewrite (left_to_right, equation) (hypothesis 32: {f(t) = cos(t)}); from (hypothesis 10: {F(p) = DefInt(0, +∞, e^{-p * t} * f(t) * diff(t))}) to (hypothesis 33: {F(p) = DefInt(0, +∞, e^{-p * t} * cos(t) * diff(t))})
+apply (hypothesis 33: {F(p) = DefInt(0, +∞, e^{-p * t} * cos(t) * diff(t))})

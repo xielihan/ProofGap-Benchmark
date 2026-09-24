@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. y : PosRealSet → RealSet
+2. a ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x) = sqrtn(2, x) * arctan(frac(1, x))
+4. lim_{ x → 0^+ } (y(x)) = 0
+GOAL:
+RemovableSingularPoint(y, 0)
+
+METHOD:

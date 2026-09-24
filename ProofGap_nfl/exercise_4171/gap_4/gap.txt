@@ -1,0 +1,16 @@
+PROOF GAP @4
+ASSUM:
+1. I ∈ RealSet
+2. x : CartesianProd(RealSet, RealSet) → RealSet
+3. y : CartesianProd(RealSet, RealSet) → RealSet
+4. I = DefInt(0, 2 * π, (fun θ [θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ 2 * π] . DefInt(0, 1, (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1] . frac(r, sqrtn(2, 1 - r^{2}))) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1] . r))) * diff(fun θ [θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ 2 * π] . θ))
+5. forall (r), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1 ⇒ (forall (θ), θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ 2 * π ⇒ x(r, θ) = r * cos(θ))
+6. forall (r), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1 ⇒ (forall (θ), θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ 2 * π ⇒ y(r, θ) = r * sin(θ))
+7. forall (r), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1 ⇒ 0 ≤ r
+8. forall (r), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1 ⇒ r ≤ 1
+9. forall (θ), θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ 2 * π ⇒ 0 ≤ θ
+
+GOAL:
+forall (θ), θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ 2 * π ⇒ θ ≤ 2 * π
+
+METHOD:

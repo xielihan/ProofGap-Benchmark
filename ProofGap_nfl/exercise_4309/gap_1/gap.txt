@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. C ⊆ CartesianProd(RealSet, RealSet)
+4. S ∈ RealSet
+5. x ∈ RealSet
+6. y ∈ RealSet
+7. C = ImageOn((fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . (a * cos(t)^{3}, b * sin(t)^{3})), [0, 2 * π])
+
+GOAL:
+S = frac(1, 2) * VectorCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x))
+
+METHOD:

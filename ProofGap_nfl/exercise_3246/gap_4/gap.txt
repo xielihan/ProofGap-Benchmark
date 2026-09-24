@@ -1,0 +1,21 @@
+PROOF GAP @4
+ASSUM:
+1. A : CartesianProd(RealSet, RealSet) → RealSet
+2. l : CartesianProd(RealSet, RealSet) → RealSet
+3. x ∈ RealSet
+4. y ∈ RealSet
+5. x = 6000
+6. y = 8000
+7. diff(x) = 2
+8. diff(y) = -5
+9. A(x, y) = x * y
+10. l(x, y) = sqrtn(2, x^{2} + y^{2})
+11. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ diff(A) ≈_{ ε } (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+12. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ diff(l) ≈_{ ε } frac((fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y), sqrtn(2, x^{2} + y^{2}))
+13. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ diff(A) ≈_{ ε } 8000 * 2 + 6000 * -5
+
+GOAL:
+8000 * 2 + 6000 * -5 = -14000
+
+METHOD:
+[@method 代入 x = 6000, y = 8000, diff(x) = 2, diff(y) = -5 到 diff(A) ≈_{ ε } y * diff(x) + x * diff(y) @]

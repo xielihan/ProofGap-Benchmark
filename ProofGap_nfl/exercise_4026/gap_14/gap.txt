@@ -1,0 +1,26 @@
+PROOF GAP @14
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. c ∈ RealSet ∧ c > 0
+4. V ∈ RealSet
+5. x = a * r * cos(φ)
+6. y = b * r * sin(φ)
+7. exists (z), z ∈ RealSet ∧ frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}) = 1
+8. (frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}))^{2} = frac(x^{2}, a^{2}) - frac(y^{2}, b^{2})
+9. exists (z), z ∈ RealSet ∧ (z = c * sqrtn(2, 1 - r^{2}) ∨ z = -c * sqrtn(2, 1 - r^{2}))
+10. r^{2} = cos(φ)^{2} - sin(φ)^{2}
+11. cos(φ)^{2} - sin(φ)^{2} = cos(2 * φ)
+12. r^{2} = cos(2 * φ)
+13. 0 ≤ r
+14. r ≤ 1
+15. -frac(π, 4) ≤ φ ∧ φ ≤ frac(π, 4) ∨ frac(3 * π, 4) ≤ φ ∧ φ ≤ frac(5 * π, 4)
+16. V = 8 * a * b * c * DefInt(0, frac(π, 4), (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 4)] . DefInt(0, sqrtn(2, cos(2 * φ)), (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ sqrtn(2, cos(2 * φ))] . sqrtn(2, 1 - r^{2}) * r) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ sqrtn(2, cos(2 * φ))] . r))) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 4)] . φ))
+17. V = 8 * a * b * c * DefInt(0, frac(π, 4), (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 4)] . frac(1, 3) * (1 - sqrtn(2, 8) * sin(φ)^{3})) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 4)] . φ))
+18. V = frac(8 * a * b * c, 3) * ((fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 4)] . φ + sqrtn(2, 8) * cos(φ) - frac(sqrtn(2, 8), 3) * cos(φ)^{3})|_{0}^{frac(π, 4)})
+19. V = frac(8 * a * b * c, 3) * (frac(π, 4) + frac(5, 3) - frac(4 * sqrtn(2, 2), 3))
+
+GOAL:
+V = frac(2 * a * b * c, 9) * (3 * π + 20 - 16 * sqrtn(2, 2))
+
+METHOD:

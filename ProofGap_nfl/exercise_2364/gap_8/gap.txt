@@ -1,0 +1,17 @@
+PROOF GAP @8
+ASSUM:
+1. a ∈ RealSet
+2. n ∈ RealSet
+3. a ≠ 0
+4. forall (x), x ∈ RealSet ⇒ arctan(a * x) = -arctan(-a * x)
+5. a > 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . frac(arctan(a * x), x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet ∧ x > 0] . frac(arctan(a * x), x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) + DefInt(1, +∞, (fun x [x ∈ RealSet ∧ x > 1] . frac(arctan(a * x), x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 1] . x))
+6. a > 0 ⇒ lim_{ x → 0^+ } (x^{n - 1} * frac(arctan(a * x), x^{n})) = a
+7. a > 0 ⇒ (DefInt(0, 1, (fun x [x ∈ RealSet ∧ x > 0] . frac(arctan(a * x), x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) ∈ RealSet ⇔ n - 1 < 1)
+8. a > 0 ⇒ (DefInt(0, 1, (fun x [x ∈ RealSet ∧ x > 0] . frac(arctan(a * x), x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) ∈ RealSet ⇔ n < 2)
+9. a > 0 ⇒ lim_{ x → +∞ } (x^{n} * frac(arctan(a * x), x^{n})) = frac(π, 2)
+10. a > 0 ⇒ (DefInt(1, +∞, (fun x [x ∈ RealSet ∧ x > 1] . frac(arctan(a * x), x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 1] . x)) ∈ RealSet ⇔ n > 1)
+
+GOAL:
+(a, n) ∈ { (a, n) | a ≠ 0, 1 < n, n < 2 } ⇔ DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . frac(arctan(a * x), x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) ∈ RealSet
+
+METHOD:

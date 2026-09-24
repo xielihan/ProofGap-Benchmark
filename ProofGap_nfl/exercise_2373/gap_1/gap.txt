@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ frac(π, 2) ⇒ sin(x) > 0 ∧ ln(sin(x)) ∈ RealSet
+
+METHOD:

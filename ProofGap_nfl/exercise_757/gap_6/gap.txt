@@ -1,0 +1,18 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. a < b
+5. ContinuousFuncOn(f, IntervalLoRo(a, b))
+6. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x : NonNegIntegerSet → RealSet ∧ n ∈ PosIntegerSet ∧ (forall (i), i ∈ PosIntegerSet ∧ i ≤ n ⇒ x(i) ∈ IntervalLoRo(a, b)) ∧ x(1) = x(n) ⇒ (exists (ξ), ξ ∈ RealSet ∧ ξ = x(1)))
+7. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x : NonNegIntegerSet → RealSet ∧ n ∈ PosIntegerSet ∧ (forall (i), i ∈ PosIntegerSet ∧ i ≤ n ⇒ x(i) ∈ IntervalLoRo(a, b)) ∧ x(1) = x(n) ⇒ (exists (ξ), ξ ∈ RealSet ∧ ξ ∈ IntervalLoRo(a, b)))
+8. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x : NonNegIntegerSet → RealSet ∧ n ∈ PosIntegerSet ∧ (forall (i), i ∈ PosIntegerSet ∧ i ≤ n ⇒ x(i) ∈ IntervalLoRo(a, b)) ∧ x(1) = x(n) ⇒ (exists (ξ), ξ ∈ RealSet ∧ f(ξ) = frac(1, n) * (sum_{ i = 1 }^{ n } (f(x(i))))))
+9. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x : NonNegIntegerSet → RealSet ∧ n ∈ PosIntegerSet ∧ (forall (i), i ∈ PosIntegerSet ∧ i ≤ n ⇒ x(i) ∈ IntervalLoRo(a, b)) ∧ x(1) ≠ x(n) ⇒ (exists (u) (v), u ∈ RealSet ∧ v ∈ RealSet ∧ u ∈ IntervalLoRo(a, b) ∧ v ∈ IntervalLoRo(a, b) ∧ u ≤ v ∧ (forall (i), i ∈ PosIntegerSet ∧ i ≤ n ⇒ u ≤ x(i) ∧ x(i) ≤ v)))
+10. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x : NonNegIntegerSet → RealSet ∧ n ∈ PosIntegerSet ∧ (forall (i), i ∈ PosIntegerSet ∧ i ≤ n ⇒ x(i) ∈ IntervalLoRo(a, b)) ∧ x(1) ≠ x(n) ⇒ (exists (u) (v), u ∈ RealSet ∧ v ∈ RealSet ∧ ContinuousFuncOn(f, [u, v])))
+11. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x : NonNegIntegerSet → RealSet ∧ n ∈ PosIntegerSet ∧ (forall (i), i ∈ PosIntegerSet ∧ i ≤ n ⇒ x(i) ∈ IntervalLoRo(a, b)) ∧ x(1) ≠ x(n) ⇒ (exists (m) (u) (v), m ∈ RealSet ∧ u ∈ RealSet ∧ v ∈ RealSet ∧ m = min(ImageOn(f, [u, v]))))
+12. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x : NonNegIntegerSet → RealSet ∧ n ∈ PosIntegerSet ∧ (forall (i), i ∈ PosIntegerSet ∧ i ≤ n ⇒ x(i) ∈ IntervalLoRo(a, b)) ∧ x(1) ≠ x(n) ⇒ (exists (M) (u) (v), M ∈ RealSet ∧ u ∈ RealSet ∧ v ∈ RealSet ∧ M = max(ImageOn(f, [u, v]))))
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x : NonNegIntegerSet → RealSet ∧ n ∈ PosIntegerSet ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ x(i) ∈ IntervalLoRo(a, b)) ∧ x(1) ≠ x(n) ⇒ (exists (m), m ∈ RealSet ∧ m ≤ frac(1, n) * (sum_{ i = 1 }^{ n } (f(x(i))))))
+
+METHOD:

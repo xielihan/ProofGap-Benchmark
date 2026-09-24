@@ -1,0 +1,17 @@
+PROOF GAP @5
+ASSUM:
+1. f : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. A ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. n ∈ RealSet
+4. A ⊆ RealSet
+5. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ∈ A ⇒ DiffableFuncAt(f, (x, y, z))
+6. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ∈ A ⇒ x * FunDeri(f, 1, 1)(x, y, z) + y * FunDeri(f, 2, 1)(x, y, z) + z * FunDeri(f, 3, 1)(x, y, z) = n * f(x, y, z)
+7. forall (F) (t), F : RealSet → RealSet ∧ t ∈ RealSet ∧ t > 0 ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ (x_{0}, y_{0}, z_{0}) ∈ A ∧ F = (fun t [t ∈ RealSet] . frac(f(t * x_{0}, t * y_{0}, t * z_{0}), t^{n})) ∧ t > 0 ∧ (t * x_{0}, t * y_{0}, t * z_{0}) ∈ A ⇒ DiffableFuncAt(F, t))))
+8. forall (F) (t), F : RealSet → RealSet ∧ t ∈ RealSet ∧ t > 0 ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ (x_{0}, y_{0}, z_{0}) ∈ A ∧ F = (fun t [t ∈ RealSet] . frac(f(t * x_{0}, t * y_{0}, t * z_{0}), t^{n})) ⇒ FunDeri(F, 1, 1)(t) = frac(1, t^{n}) * (x_{0} * FunDeri(f, 1, 1)(t * x_{0}, t * y_{0}, t * z_{0}) + y_{0} * FunDeri(f, 2, 1)(t * x_{0}, t * y_{0}, t * z_{0}) + z_{0} * FunDeri(f, 3, 1)(t * x_{0}, t * y_{0}, t * z_{0})) - frac(n, t^{n + 1}) * f(t * x_{0}, t * y_{0}, t * z_{0}))))
+9. forall (F) (t), F : RealSet → RealSet ∧ t ∈ RealSet ∧ t > 0 ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ (x_{0}, y_{0}, z_{0}) ∈ A ∧ F = (fun t [t ∈ RealSet] . frac(f(t * x_{0}, t * y_{0}, t * z_{0}), t^{n})) ⇒ FunDeri(F, 1, 1)(t) = frac(1, t^{n + 1}) * (t * x_{0} * FunDeri(f, 1, 1)(t * x_{0}, t * y_{0}, t * z_{0}) + t * y_{0} * FunDeri(f, 2, 1)(t * x_{0}, t * y_{0}, t * z_{0}) + t * z_{0} * FunDeri(f, 3, 1)(t * x_{0}, t * y_{0}, t * z_{0}) - n * f(t * x_{0}, t * y_{0}, t * z_{0})))))
+10. forall (F) (t), F : RealSet → RealSet ∧ t ∈ RealSet ∧ t > 0 ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ (x_{0}, y_{0}, z_{0}) ∈ A ∧ F = (fun t [t ∈ RealSet] . frac(f(t * x_{0}, t * y_{0}, t * z_{0}), t^{n})) ∧ (t * x_{0}, t * y_{0}, t * z_{0}) ∈ A ⇒ t * x_{0} * FunDeri(f, 1, 1)(t * x_{0}, t * y_{0}, t * z_{0}) + t * y_{0} * FunDeri(f, 2, 1)(t * x_{0}, t * y_{0}, t * z_{0}) + t * z_{0} * FunDeri(f, 3, 1)(t * x_{0}, t * y_{0}, t * z_{0}) = n * f(t * x_{0}, t * y_{0}, t * z_{0}))))
+
+GOAL:
+forall (F) (t), F : RealSet → RealSet ∧ t ∈ RealSet ∧ t > 0 ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ (x_{0}, y_{0}, z_{0}) ∈ A ∧ F = (fun t [t ∈ RealSet] . frac(f(t * x_{0}, t * y_{0}, t * z_{0}), t^{n})) ⇒ FunDeri(F, 1, 1)(t) = 0)))
+
+METHOD:

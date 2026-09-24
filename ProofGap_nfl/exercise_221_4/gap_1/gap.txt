@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. c ∈ RealSet
+5. d ∈ RealSet
+6. forall (x), x ∈ RealSet ∧ c * x + d ≠ 0 ⇒ f(x) = frac(a * x + b, c * x + d)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ c ≠ 0 ∧ c * x + d ≠ 0 ⇒ f(x) = frac(a, c) + frac(b - a * frac(d, c), c * x + d)
+
+METHOD:

@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ∧ x = frac(1, t) ⇒ t > 0)
+
+METHOD:

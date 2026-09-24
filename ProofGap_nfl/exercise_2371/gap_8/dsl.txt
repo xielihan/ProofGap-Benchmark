@@ -1,0 +1,15 @@
+get_condition (hypothesis 10: {p ≤ q}) in (GOAL: {p ≤ q ⇒ lim_{ x → +∞ } (x^{q} * frac(1, x^{p} + x^{q})) = lim_{ x → +∞ } (frac(1, x^{-(q - p)} + 1))})
+assert (hypothesis 11: {forall (t), (t ∈ RealSet /\ t > 0) => t^{q} * frac(1, t^{p} + t^{q}) = frac(1, t^{-(q - p)} + 1)}) by proof {
+  get_forall (GOAL: {forall (t), (t ∈ RealSet /\ t > 0) => t^{q} * frac(1, t^{p} + t^{q}) = frac(1, t^{-(q - p)} + 1)}) (t := {u})
+  get_condition (hypothesis 11: {u ∈ RealSet /\ u > 0}) in (GOAL: {(u ∈ RealSet /\ u > 0) => u^{q} * frac(1, u^{p} + u^{q}) = frac(1, u^{-(q - p)} + 1)})
+  destruct_and (hypothesis 11: {u ∈ RealSet /\ u > 0}) as (hypothesis 12: {u ∈ RealSet}) (hypothesis 13: {u > 0})
+  get_prop (theorem 'Thm 205. (ExponentSubtractionLaw)': {forall (a) (x) (y), a ∈ RealSet => x ∈ RealSet => y ∈ RealSet => (a > 0 => a ^ (x - y) = a ^ x / a ^ y)}) (a := {u}) (x := {p}) (y := {q}) as (hypothesis 14: {u ∈ RealSet => p ∈ RealSet => q ∈ RealSet => (u > 0 => u ^ (p - q) = u ^ p / u ^ q)})
+  use_condition (hypothesis 12: {u ∈ RealSet}) (hypothesis 1: {p ∈ RealSet}) (hypothesis 2: {q ∈ RealSet}) (hypothesis 13: {u > 0}) in (hypothesis 14: {u ∈ RealSet => p ∈ RealSet => q ∈ RealSet => (u > 0 => u ^ (p - q) = u ^ p / u ^ q)}) as (hypothesis 15: {u ^ (p - q) = u ^ p / u ^ q})
+  get_prop (theorem 'Thm 387. (PositiveBasePowerPositive)': {forall (a) (u), a ∈ RealSet => u ∈ RealSet => a > 0 => a ^ u > 0}) (a := {u}) (u := {q}) as (hypothesis 16: {u ∈ RealSet => q ∈ RealSet => u > 0 => u ^ q > 0})
+  use_condition (hypothesis 12: {u ∈ RealSet}) (hypothesis 2: {q ∈ RealSet}) (hypothesis 13: {u > 0}) in (hypothesis 16: {u ∈ RealSet => q ∈ RealSet => u > 0 => u ^ q > 0}) as (hypothesis 17: {u ^ q > 0})
+  autoreplace no_hypothesis; from (-(q - p)) to (p - q); from (GOAL: {u^{q} * frac(1, u^{p} + u^{q}) = frac(1, u^{-(q - p)} + 1)}) to (GOAL: {u^{q} * frac(1, u^{p} + u^{q}) = frac(1, u^{p - q} + 1)})
+  rewrite (left_to_right, equation) (hypothesis 15: {u ^ (p - q) = u ^ p / u ^ q}); from (GOAL: {u^{q} * frac(1, u^{p} + u^{q}) = frac(1, u^{p - q} + 1)}) to (GOAL: {u^{q} * frac(1, u^{p} + u^{q}) = frac(1, (u ^ p / u ^ q) + 1)})
+  autosolve all_hypothesis
+}
+rewrite_in limit (left_to_right, equation) (hypothesis 11: {forall (t), (t ∈ RealSet /\ t > 0) => t^{q} * frac(1, t^{p} + t^{q}) = frac(1, t^{-(q - p)} + 1)}); from (GOAL: {lim_{ x → +∞ } (x^{q} * frac(1, x^{p} + x^{q})) = lim_{ x → +∞ } (frac(1, x^{-(q - p)} + 1))}) to (GOAL: {lim_{ x → +∞ } (frac(1, x^{-(q - p)} + 1)) = lim_{ x → +∞ } (frac(1, x^{-(q - p)} + 1))})
+autosolve all_hypothesis

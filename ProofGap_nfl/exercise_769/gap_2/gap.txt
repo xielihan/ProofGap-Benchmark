@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. g_{1} : RealSet → RealSet
+3. g_{2} : RealSet → RealSet
+4. forall (x), x ∈ RealSet ⇒ y(x) = frac(2 * x, 1 + x^{2})
+5. forall (t), t ∈ RealSet ∧ t ∈ [-1, 1] ⇒ (forall (x), x ∈ RealSet ∧ y(x) = t ⇒ x^{2} * t - 2 * x + t = 0)
+
+GOAL:
+forall (t), t ∈ RealSet ∧ t ∈ [-1, 1] ∧ t ≠ 0 ⇒ (forall (x), x ∈ RealSet ∧ x^{2} * t - 2 * x + t = 0 ⇒ x = frac(1 - sqrtn(2, 1 - t^{2}), t) ∨ x = frac(1 + sqrtn(2, 1 - t^{2}), t))
+
+METHOD:

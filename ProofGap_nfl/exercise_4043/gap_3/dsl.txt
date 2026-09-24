@@ -1,0 +1,24 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet => (forall (y), y ∈ RealSet => sqrtn(2, 1 + FunDeri(z, 1, 1)(x, y)^{2} + FunDeri(z, 2, 1)(x, y)^{2}) = sqrtn(2, 1 + x^{2} + y^{2}))}) (x := {a})
+get_condition (hypothesis 13: {a ∈ RealSet}) in (GOAL: {a ∈ RealSet => (forall (y), y ∈ RealSet => sqrtn(2, 1 + FunDeri(z, 1, 1)(a, y)^{2} + FunDeri(z, 2, 1)(a, y)^{2}) = sqrtn(2, 1 + a^{2} + y^{2}))})
+get_forall (GOAL: {forall (y), y ∈ RealSet => sqrtn(2, 1 + FunDeri(z, 1, 1)(a, y)^{2} + FunDeri(z, 2, 1)(a, y)^{2}) = sqrtn(2, 1 + a^{2} + y^{2})}) (y := {b})
+get_condition (hypothesis 14: {b ∈ RealSet}) in (GOAL: {b ∈ RealSet => sqrtn(2, 1 + FunDeri(z, 1, 1)(a, b)^{2} + FunDeri(z, 2, 1)(a, b)^{2}) = sqrtn(2, 1 + a^{2} + b^{2})})
+get_prop (hypothesis 11: {forall (x), x ∈ RealSet => (forall (y), y ∈ RealSet => FunDeri(z, 1, 1)(x, y) = x)}) (x := {a}) as (hypothesis 15: {a ∈ RealSet => (forall (y), y ∈ RealSet => FunDeri(z, 1, 1)(a, y) = a)})
+use_condition (hypothesis 13: {a ∈ RealSet}) in (hypothesis 15: {a ∈ RealSet => (forall (y), y ∈ RealSet => FunDeri(z, 1, 1)(a, y) = a)}) as (hypothesis 16: {forall (y), y ∈ RealSet => FunDeri(z, 1, 1)(a, y) = a})
+get_prop (hypothesis 16: {forall (y), y ∈ RealSet => FunDeri(z, 1, 1)(a, y) = a}) (y := {b}) as (hypothesis 17: {b ∈ RealSet => FunDeri(z, 1, 1)(a, b) = a})
+use_condition (hypothesis 14: {b ∈ RealSet}) in (hypothesis 17: {b ∈ RealSet => FunDeri(z, 1, 1)(a, b) = a}) as (hypothesis 18: {FunDeri(z, 1, 1)(a, b) = a})
+get_prop (hypothesis 12: {forall (x), x ∈ RealSet => (forall (y), y ∈ RealSet => FunDeri(z, 2, 1)(x, y) = -y)}) (x := {a}) as (hypothesis 19: {a ∈ RealSet => (forall (y), y ∈ RealSet => FunDeri(z, 2, 1)(a, y) = -y)})
+use_condition (hypothesis 13: {a ∈ RealSet}) in (hypothesis 19: {a ∈ RealSet => (forall (y), y ∈ RealSet => FunDeri(z, 2, 1)(a, y) = -y)}) as (hypothesis 20: {forall (y), y ∈ RealSet => FunDeri(z, 2, 1)(a, y) = -y})
+get_prop (hypothesis 20: {forall (y), y ∈ RealSet => FunDeri(z, 2, 1)(a, y) = -y}) (y := {b}) as (hypothesis 21: {b ∈ RealSet => FunDeri(z, 2, 1)(a, b) = -b})
+use_condition (hypothesis 14: {b ∈ RealSet}) in (hypothesis 21: {b ∈ RealSet => FunDeri(z, 2, 1)(a, b) = -b}) as (hypothesis 22: {FunDeri(z, 2, 1)(a, b) = -b})
+get_prop (theorem 'Thm 232. (SquareOfDifference)': {forall (a) (b), a ∈ RealSet => b ∈ RealSet => ((a - b) ^ 2 = a ^ 2 - 2 * a * b + b ^ 2)}) (a := {0}) (b := {b}) as (hypothesis 23: {0 ∈ RealSet => b ∈ RealSet => ((0 - b) ^ 2 = 0 ^ 2 - 2 * 0 * b + b ^ 2)})
+assert (hypothesis 24: {0 ∈ RealSet}) by proof {
+  autosolve
+}
+use_condition (hypothesis 24: {0 ∈ RealSet}) (hypothesis 14: {b ∈ RealSet}) in (hypothesis 23: {0 ∈ RealSet => b ∈ RealSet => ((0 - b) ^ 2 = 0 ^ 2 - 2 * 0 * b + b ^ 2)}) as (hypothesis 25: {(0 - b) ^ 2 = 0 ^ 2 - 2 * 0 * b + b ^ 2})
+assert (hypothesis 26: {(-b)^{2} = b^{2}}) by proof {
+  autosolve (hypothesis 25: {(0 - b) ^ 2 = 0 ^ 2 - 2 * 0 * b + b ^ 2})
+}
+assert (hypothesis 27: {1 + FunDeri(z, 1, 1)(a, b)^{2} + FunDeri(z, 2, 1)(a, b)^{2} = 1 + a^{2} + b^{2}}) by proof {
+  autosolve (hypothesis 18: {FunDeri(z, 1, 1)(a, b) = a}) (hypothesis 22: {FunDeri(z, 2, 1)(a, b) = -b}) (hypothesis 26: {(-b)^{2} = b^{2}})
+}
+autosolve (hypothesis 27: {1 + FunDeri(z, 1, 1)(a, b)^{2} + FunDeri(z, 2, 1)(a, b)^{2} = 1 + a^{2} + b^{2}})

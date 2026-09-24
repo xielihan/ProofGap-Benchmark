@@ -1,0 +1,8 @@
+rewrite (left_to_right, equation) (hypothesis 14: {`β'` = (β + b) / 2}); from (GOAL: {β < `β'`}) to (GOAL: {β < (β + b) / 2})
+assert (hypothesis 18: {β * 2 < β + b}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 19: {((β + b) / 2) * 2 = β + b}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

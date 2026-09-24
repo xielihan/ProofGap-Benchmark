@@ -1,0 +1,8 @@
+get_prop (theorem 'Thm 490. (AbsoluteValueOfNonnegativeReal)': {forall (x), x ∈ RealSet ⇒ (x ≥ 0 <==> |x| = x)}) (x := {frac(a^{2}, 2 * v)}) as (hypothesis 14: {frac(a^{2}, 2 * v) ∈ RealSet ⇒ (frac(a^{2}, 2 * v) ≥ 0 <==> |frac(a^{2}, 2 * v)| = frac(a^{2}, 2 * v))})
+destruct_and (hypothesis 12: {v ∈ RealSet ∧ frac(a^{2}, 2 * v) ∈ RealSet ∧ frac(1, 2) ≤ v}) as (hypothesis 15: {v ∈ RealSet}) (hypothesis 16: {frac(a^{2}, 2 * v) ∈ RealSet}) (hypothesis 17: {frac(1, 2) ≤ v})
+use_condition (hypothesis 16: {frac(a^{2}, 2 * v) ∈ RealSet}) in (hypothesis 14: {frac(a^{2}, 2 * v) ∈ RealSet ⇒ (frac(a^{2}, 2 * v) ≥ 0 <==> |frac(a^{2}, 2 * v)| = frac(a^{2}, 2 * v))}) as (hypothesis 18: {frac(a^{2}, 2 * v) ≥ 0 <==> |frac(a^{2}, 2 * v)| = frac(a^{2}, 2 * v)})
+assert (hypothesis 19: {frac(a^{2}, 2 * v) ≥ 0}) by proof {
+  autosolve (hypothesis 1: {a ∈ RealSet ∧ a > 0}) (hypothesis 15: {v ∈ RealSet}) (hypothesis 17: {frac(1, 2) ≤ v})
+}
+exists (I := {frac(a^{2}, 2 * v)})
+autosolve (hypothesis 18: {frac(a^{2}, 2 * v) ≥ 0 <==> |frac(a^{2}, 2 * v)| = frac(a^{2}, 2 * v)}) (hypothesis 19: {frac(a^{2}, 2 * v) ≥ 0})

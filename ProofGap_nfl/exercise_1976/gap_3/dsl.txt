@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ∧ x = tan(t) ⇒ -frac(π, 2) < t}) (t := {t0})
+get_condition (hypothesis 4: {t0 ∈ RealSet ∧ -frac(π, 2) < t0 ∧ t0 < frac(π, 2) ∧ x = tan(t0)}) in (GOAL: {t0 ∈ RealSet ∧ -frac(π, 2) < t0 ∧ t0 < frac(π, 2) ∧ x = tan(t0) ⇒ -frac(π, 2) < t0})
+destruct_and (hypothesis 4: {t0 ∈ RealSet ∧ -frac(π, 2) < t0 ∧ t0 < frac(π, 2) ∧ x = tan(t0)}) as (hypothesis 5: {t0 ∈ RealSet}) (hypothesis 6: {-frac(π, 2) < t0}) (hypothesis 7: {t0 < frac(π, 2)}) (hypothesis 8: {x = tan(t0)})
+apply (hypothesis 6: {-frac(π, 2) < t0})

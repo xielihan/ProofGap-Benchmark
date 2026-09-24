@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. forall (α) (x) (t), x ∈ RealSet ∧ t ∈ RealSet ∧ α ∈ RealSet ⇒ t = x - α
+
+GOAL:
+forall (α), α ∈ RealSet ⇒ DefInt(-∞, +∞, (fun x [x ∈ RealSet] . e^{-(x - α)^{2}}) * diff(fun x [x ∈ RealSet] . x)) = DefInt(-∞, +∞, (fun t [t ∈ RealSet] . e^{-t^{2}}) * diff(fun t [t ∈ RealSet] . t))
+
+METHOD:

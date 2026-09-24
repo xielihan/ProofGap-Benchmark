@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. lim_{ x → -∞ } (frac(ln(1 + e^{x}), x)) = lim_{ x → -∞ } (frac(ln(1 + e^{x}), e^{x}) * frac(e^{x}, x))
+2. lim_{ x → -∞ } (frac(ln(1 + e^{x}), e^{x}) * frac(e^{x}, x)) = 0
+
+GOAL:
+lim_{ x → -∞ } (frac(ln(1 + e^{x}), x)) = 0
+
+METHOD:

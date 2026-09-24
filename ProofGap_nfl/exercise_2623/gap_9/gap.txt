@@ -1,0 +1,22 @@
+PROOF GAP @9
+ASSUM:
+1. f : RealSet → RealSet ∧ Defined(f, [1, +∞))
+2. R : NonNegIntegerSet → RealSet
+3. forall (x), x ∈ RealSet ∧ x ∈ [1, +∞) ⇒ f(x) > 0
+4. MonoDecFuncOn(f, [1, +∞))
+5. IntegrableFuncOn(f, [1, +∞))
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (f(n)))
+7. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ k ≥ n + 1 ⇒ R(n) = sum_{ k = n + 1 }^{ +∞ } (f(k)))
+8. ConvergentSeries(DefInt(1, +∞, (fun x [x ∈ RealSet ∧ x ≥ 1] . f(x)) * diff(fun x [x ∈ RealSet ∧ x ≥ 1] . x)))
+9. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ k ∈ PosIntegerSet ⇒ f(n + k + 1) ≤ DefInt(n + k, n + k + 1, (fun x [x ∈ RealSet ∧ x ∈ [n + k, n + k + 1]] . f(x)) * diff(fun x [x ∈ RealSet ∧ x ∈ [n + k, n + k + 1]] . x)))
+10. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ k ∈ PosIntegerSet ⇒ DefInt(n + k, n + k + 1, (fun x [x ∈ RealSet ∧ x ∈ [n + k, n + k + 1]] . f(x)) * diff(fun x [x ∈ RealSet ∧ x ∈ [n + k, n + k + 1]] . x)) ≤ f(n + k))
+11. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ k ∈ PosIntegerSet ⇒ f(n + k + 1) ≤ f(n + k))
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ sum_{ k = 1 }^{ +∞ } (f(n + k + 1)) ≤ DefInt(n + 1, +∞, (fun x [x ∈ RealSet ∧ x ≥ n + 1] . f(x)) * diff(fun x [x ∈ RealSet ∧ x ≥ n + 1] . x))
+13. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ DefInt(n + 1, +∞, (fun x [x ∈ RealSet ∧ x ≥ n + 1] . f(x)) * diff(fun x [x ∈ RealSet ∧ x ≥ n + 1] . x)) ≤ sum_{ k = 1 }^{ +∞ } (f(n + k))
+14. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ sum_{ k = 1 }^{ +∞ } (f(n + k + 1)) ≤ sum_{ k = 1 }^{ +∞ } (f(n + k))
+15. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ R(n) - f(n + 1) ≤ DefInt(n + 1, +∞, (fun x [x ∈ RealSet ∧ x ≥ n + 1] . f(x)) * diff(fun x [x ∈ RealSet ∧ x ≥ n + 1] . x))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ DefInt(n + 1, +∞, (fun x [x ∈ RealSet ∧ x ≥ n + 1] . f(x)) * diff(fun x [x ∈ RealSet ∧ x ≥ n + 1] . x)) ≤ R(n)
+
+METHOD:

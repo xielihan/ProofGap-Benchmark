@@ -1,0 +1,4 @@
+destruct_and (hypothesis 5: {c ∈ RealSet ∧ c > 0}) as (hypothesis 15: {c ∈ RealSet}) (hypothesis 16: {c > 0})
+destruct_and (hypothesis 14: {r ∈ RealSet ∧ φ ∈ RealSet ∧ sin(φ) ∈ RealSet ∧ cos(φ) ∈ RealSet}) as (hypothesis 17: {r ∈ RealSet}) (hypothesis 18: {φ ∈ RealSet}) (hypothesis 19: {sin(φ) ∈ RealSet}) (hypothesis 20: {cos(φ) ∈ RealSet})
+exists (z := {c * (1 - r^{2} * (cos(φ)^{6} + sin(φ)^{6}))})
+autosolve all_hypothesis

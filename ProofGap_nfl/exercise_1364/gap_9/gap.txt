@@ -1,0 +1,15 @@
+PROOF GAP @9
+ASSUM:
+1. forall (x), x ∈ RealSet
+2. forall (x), x ∈ RealSet ⇒ x ≠ 0
+3. forall (x), x ∈ RealSet ⇒ 1 + x > 0
+4. lim_{ x → 0 } ((frac(1, x) * ln(1 + x) - 1) / x) = lim_{ x → 0 } ((ln(1 + x) - x) / x^{2})
+5. lim_{ x → 0 } ((ln(1 + x) - x) / x^{2}) = lim_{ x → 0 } ((frac(1, 1 + x) - 1) / (2 * x))
+6. lim_{ x → 0 } ((frac(1, 1 + x) - 1) / (2 * x)) = -(lim_{ x → 0 } (frac(1, 2 * (1 + x))))
+7. -(lim_{ x → 0 } (frac(1, 2 * (1 + x)))) = -frac(1, 2)
+8. lim_{ x → 0 } ((frac(1, 1 + x) - 1) / (2 * x)) = -frac(1, 2)
+
+GOAL:
+lim_{ x → 0 } (((1 + x)^{frac(1, x)} / e)^{frac(1, x)}) = e^{-frac(1, 2)}
+
+METHOD:

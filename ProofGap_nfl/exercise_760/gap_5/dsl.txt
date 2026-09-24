@@ -1,0 +1,10 @@
+get_forall (GOAL: {forall (t), t ∈ RealSet ⇒ (forall (k), k ∈ IntegerSet ∧ k ≤ t ∧ t < k + 1 ⇒ t = y(t) - k)}) (t := {u})
+get_condition (hypothesis 8: {u ∈ RealSet}) in (GOAL: {u ∈ RealSet ⇒ (forall (k), k ∈ IntegerSet ∧ k ≤ u ∧ u < k + 1 ⇒ u = y(u) - k)})
+get_forall (GOAL: {forall (k), k ∈ IntegerSet ∧ k ≤ u ∧ u < k + 1 ⇒ u = y(u) - k}) (k := {n})
+get_condition (hypothesis 9: {n ∈ IntegerSet ∧ n ≤ u ∧ u < n + 1}) in (GOAL: {n ∈ IntegerSet ∧ n ≤ u ∧ u < n + 1 ⇒ u = y(u) - n})
+get_prop (hypothesis 5: {forall (t), t ∈ RealSet ⇒ (forall (k), k ∈ IntegerSet ∧ k ≤ t ∧ t < k + 1 ⇒ y(t) = t + k)}) (t := {u}) as (hypothesis 10: {u ∈ RealSet ⇒ (forall (k), k ∈ IntegerSet ∧ k ≤ u ∧ u < k + 1 ⇒ y(u) = u + k)})
+use_condition (hypothesis 8: {u ∈ RealSet}) in (hypothesis 10: {u ∈ RealSet ⇒ (forall (k), k ∈ IntegerSet ∧ k ≤ u ∧ u < k + 1 ⇒ y(u) = u + k)}) as (hypothesis 11: {forall (k), k ∈ IntegerSet ∧ k ≤ u ∧ u < k + 1 ⇒ y(u) = u + k})
+get_prop (hypothesis 11: {forall (k), k ∈ IntegerSet ∧ k ≤ u ∧ u < k + 1 ⇒ y(u) = u + k}) (k := {n}) as (hypothesis 12: {n ∈ IntegerSet ∧ n ≤ u ∧ u < n + 1 ⇒ y(u) = u + n})
+use_condition (hypothesis 9: {n ∈ IntegerSet ∧ n ≤ u ∧ u < n + 1}) in (hypothesis 12: {n ∈ IntegerSet ∧ n ≤ u ∧ u < n + 1 ⇒ y(u) = u + n}) as (hypothesis 13: {y(u) = u + n})
+rewrite (left_to_right, equation) (hypothesis 13: {y(u) = u + n}); from (GOAL: {u = y(u) - n}) to (GOAL: {u = u + n - n})
+autosolve all_hypothesis

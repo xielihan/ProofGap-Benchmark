@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. m ∈ IntegerSet
+2. n ∈ IntegerSet
+3. m ≠ 0
+4. n ≠ 0
+5. x = π + y
+6. lim_{ x → π } (x) = π ⇒ lim_{ y → 0 } (y) = 0
+7. lim_{ x → π } (frac(sin(m * x), sin(n * x))) = lim_{ y → 0 } (frac((-1)^{m} * sin(m * y), (-1)^{n} * sin(n * y)))
+8. lim_{ y → 0 } (frac((-1)^{m} * sin(m * y), (-1)^{n} * sin(n * y))) = (-1)^{m - n} * (lim_{ y → 0 } (frac(sin(m * y), m * y) * frac(n * y, sin(n * y)) * frac(m, n)))
+
+GOAL:
+lim_{ y → 0 } (frac(sin(m * y), m * y)) = 1
+
+METHOD:

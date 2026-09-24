@@ -1,0 +1,10 @@
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (X), X ∈ RealSet ∧ X ∈ PosRealSet ∧ (forall (x), x ∈ RealSet ∧ x > X ⇒ frac(ε, 3) + frac(ε, 3) + frac(ε, 3) = ε))}) (ε := {eps})
+get_condition (hypothesis 24: {eps ∈ RealSet ∧ eps > 0}) in (GOAL: {eps ∈ RealSet ∧ eps > 0 ⇒ (exists (X), X ∈ RealSet ∧ X ∈ PosRealSet ∧ (forall (x), x ∈ RealSet ∧ x > X ⇒ frac(eps, 3) + frac(eps, 3) + frac(eps, 3) = eps))})
+assert (hypothesis 25: {forall (x), x ∈ RealSet ∧ x > 1 ⇒ frac(eps, 3) + frac(eps, 3) + frac(eps, 3) = eps}) by proof {
+  get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x > 1 ⇒ frac(eps, 3) + frac(eps, 3) + frac(eps, 3) = eps}) (x := {y})
+  get_condition (hypothesis 25: {y ∈ RealSet ∧ y > 1}) in (GOAL: {y ∈ RealSet ∧ y > 1 ⇒ frac(eps, 3) + frac(eps, 3) + frac(eps, 3) = eps})
+  autoreplace no_hypothesis; from (frac(eps, 3) + frac(eps, 3) + frac(eps, 3)) to (eps); from (GOAL: {frac(eps, 3) + frac(eps, 3) + frac(eps, 3) = eps}) to (GOAL: {eps = eps})
+  autosolve (hypothesis 24: {eps ∈ RealSet ∧ eps > 0})
+}
+exists (X := {1})
+autosolve (hypothesis 25: {forall (x), x ∈ RealSet ∧ x > 1 ⇒ frac(eps, 3) + frac(eps, 3) + frac(eps, 3) = eps})

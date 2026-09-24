@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ 2 * x + 4 * y - z = 5}) (x := {xx}) (y := {yy}) (z := {zz})
+get_condition (hypothesis 14: {xx ∈ RealSet ∧ yy ∈ RealSet ∧ zz ∈ RealSet}) in (GOAL: {xx ∈ RealSet ∧ yy ∈ RealSet ∧ zz ∈ RealSet ⇒ 2 * xx + 4 * yy - zz = 5})
+get_prop (hypothesis 11: {forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ 2 * (x - 1) + 4 * (y - 2) - (z - 5) = 0}) (x := {xx}) (y := {yy}) (z := {zz}) as (hypothesis 15: {xx ∈ RealSet ∧ yy ∈ RealSet ∧ zz ∈ RealSet ⇒ 2 * (xx - 1) + 4 * (yy - 2) - (zz - 5) = 0})
+use_condition (hypothesis 14: {xx ∈ RealSet ∧ yy ∈ RealSet ∧ zz ∈ RealSet}) in (hypothesis 15: {xx ∈ RealSet ∧ yy ∈ RealSet ∧ zz ∈ RealSet ⇒ 2 * (xx - 1) + 4 * (yy - 2) - (zz - 5) = 0}) as (hypothesis 16: {2 * (xx - 1) + 4 * (yy - 2) - (zz - 5) = 0})
+autosolve all_hypothesis

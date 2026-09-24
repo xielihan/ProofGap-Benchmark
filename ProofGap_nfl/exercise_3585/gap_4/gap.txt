@@ -1,0 +1,17 @@
+PROOF GAP @4
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. A ∈ CartesianProd(RealSet, RealSet)
+3. x ∈ RealSet ∧ x > 0
+4. y ∈ RealSet
+5. R_{2} : CartesianProd(RealSet, RealSet) → RealSet
+6. A = (1, 1)
+7. forall (x) (y), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ⇒ f(x, y) = x^{y}
+8. forall (x) (y), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ⇒ FunDeri(f, 1, 1)(x, y) = y * x^{y - 1}
+9. forall (x) (y), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ⇒ FunDeri(f, 2, 1)(x, y) = x^{y} * ln(x)
+10. forall (x) (y), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ⇒ FunDeri(f, 1, 2)(x, y) = y * (y - 1) * x^{y - 2}
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ⇒ FunDeri(FunDeri(f, 1, 1), 2, 1)(x, y) = x^{y - 1} + y * x^{y - 1} * ln(x)
+
+METHOD:

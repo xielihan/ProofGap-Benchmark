@@ -1,0 +1,6 @@
+get_prop (hypothesis 10: {forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ FunDeri(f, 1, 2)(x) - FunDeri(g, 1, 2)(x) = 2 - 6 * x}) (x := {frac(2, 3)}) as (hypothesis 11: {frac(2, 3) ∈ RealSet ∧ frac(2, 3) ∈ [0, 1] ⇒ FunDeri(f, 1, 2)(frac(2, 3)) - FunDeri(g, 1, 2)(frac(2, 3)) = 2 - 6 * frac(2, 3)})
+assert (hypothesis 12: {frac(2, 3) ∈ RealSet ∧ frac(2, 3) ∈ [0, 1]})
+use_condition (hypothesis 12: {frac(2, 3) ∈ RealSet ∧ frac(2, 3) ∈ [0, 1]}) in (hypothesis 11: {frac(2, 3) ∈ RealSet ∧ frac(2, 3) ∈ [0, 1] ⇒ FunDeri(f, 1, 2)(frac(2, 3)) - FunDeri(g, 1, 2)(frac(2, 3)) = 2 - 6 * frac(2, 3)}) as (hypothesis 13: {FunDeri(f, 1, 2)(frac(2, 3)) - FunDeri(g, 1, 2)(frac(2, 3)) = 2 - 6 * frac(2, 3)})
+assert (hypothesis 14: {2 - 6 * frac(2, 3) = -2})
+rewrite (left_to_right, equation) (hypothesis 14: {2 - 6 * frac(2, 3) = -2}); from (hypothesis 13: {FunDeri(f, 1, 2)(frac(2, 3)) - FunDeri(g, 1, 2)(frac(2, 3)) = 2 - 6 * frac(2, 3)}) to (hypothesis 15: {FunDeri(f, 1, 2)(frac(2, 3)) - FunDeri(g, 1, 2)(frac(2, 3)) = -2})
+apply (hypothesis 15: {FunDeri(f, 1, 2)(frac(2, 3)) - FunDeri(g, 1, 2)(frac(2, 3)) = -2})

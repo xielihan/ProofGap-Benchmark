@@ -1,0 +1,2 @@
+assert (hypothesis 27: {a(0) = 2 * α(0) ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ a(k) = α(k)) ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ b(k) = β(k))})
+autosolve all_hypothesis

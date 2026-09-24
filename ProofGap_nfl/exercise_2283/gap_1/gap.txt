@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. I : NonNegIntegerSet → RealSet
+2. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = DefInt(0, frac(π, 4), (fun x [x ∈ RealSet] . tan(x)^{2 * n}) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ I(n) = DefInt(0, frac(π, 4), (fun x [x ∈ RealSet] . tan(x)^{2 * n - 2} * (sec(x)^{2} - 1)) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

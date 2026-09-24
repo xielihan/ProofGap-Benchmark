@@ -1,0 +1,27 @@
+get_prop (theorem 'Thm 168. (PythagoreanTrigonometricIdentity)': {forall (x), x ∈ RealSet => (sin(x)) ^ 2 + (cos(x)) ^ 2 = 1}) (x := {φ}) as (hypothesis 19: {φ ∈ RealSet => (sin(φ)) ^ 2 + (cos(φ)) ^ 2 = 1})
+use_condition (hypothesis 6: {φ ∈ RealSet}) in (hypothesis 19: {φ ∈ RealSet => (sin(φ)) ^ 2 + (cos(φ)) ^ 2 = 1}) as (hypothesis 20: {(sin(φ)) ^ 2 + (cos(φ)) ^ 2 = 1})
+destruct_and (hypothesis 5: {r ∈ RealSet ∧ r > 0}) as (hypothesis 21: {r ∈ RealSet}) (hypothesis 22: {r > 0})
+assert (hypothesis 23: {r ≠ 0}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 24: {frac(r * sin(φ), r) = sin(φ)}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 25: {frac(r * cos(φ), r) = cos(φ)}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 26: {r * frac(r * cos(φ), r^{2}) = cos(φ)}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 27: {r * frac(r * sin(φ), r^{2}) = sin(φ)}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 28: {(r * cos(φ)) * (frac(r * sin(φ), r) * FunDeri(u, 1, 1)(r, φ) + frac(r * cos(φ), r^{2}) * FunDeri(u, 2, 1)(r, φ)) - (r * sin(φ)) * (frac(r * cos(φ), r) * FunDeri(u, 1, 1)(r, φ) - frac(r * sin(φ), r^{2}) * FunDeri(u, 2, 1)(r, φ)) = ((sin(φ)) ^ 2 + (cos(φ)) ^ 2) * FunDeri(u, 2, 1)(r, φ)}) by proof {
+autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 18: {w(r, φ) = x(r, φ) * (frac(y(r, φ), r) * FunDeri(u, 1, 1)(r, φ) + frac(x(r, φ), r^{2}) * FunDeri(u, 2, 1)(r, φ)) - y(r, φ) * (frac(x(r, φ), r) * FunDeri(u, 1, 1)(r, φ) - frac(y(r, φ), r^{2}) * FunDeri(u, 2, 1)(r, φ))}); from (GOAL: {w(r, φ) = FunDeri(u, 2, 1)(r, φ)}) to (GOAL: {x(r, φ) * (frac(y(r, φ), r) * FunDeri(u, 1, 1)(r, φ) + frac(x(r, φ), r^{2}) * FunDeri(u, 2, 1)(r, φ)) - y(r, φ) * (frac(x(r, φ), r) * FunDeri(u, 1, 1)(r, φ) - frac(y(r, φ), r^{2}) * FunDeri(u, 2, 1)(r, φ)) = FunDeri(u, 2, 1)(r, φ)})
+rewrite (left_to_right, equation) (hypothesis 7: {x(r, φ) = r * cos(φ)}); from (GOAL: {x(r, φ) * (frac(y(r, φ), r) * FunDeri(u, 1, 1)(r, φ) + frac(x(r, φ), r^{2}) * FunDeri(u, 2, 1)(r, φ)) - y(r, φ) * (frac(x(r, φ), r) * FunDeri(u, 1, 1)(r, φ) - frac(y(r, φ), r^{2}) * FunDeri(u, 2, 1)(r, φ)) = FunDeri(u, 2, 1)(r, φ)}) to (GOAL: {(r * cos(φ)) * (frac(y(r, φ), r) * FunDeri(u, 1, 1)(r, φ) + frac(r * cos(φ), r^{2}) * FunDeri(u, 2, 1)(r, φ)) - y(r, φ) * (frac(r * cos(φ), r) * FunDeri(u, 1, 1)(r, φ) - frac(y(r, φ), r^{2}) * FunDeri(u, 2, 1)(r, φ)) = FunDeri(u, 2, 1)(r, φ)})
+rewrite (left_to_right, equation) (hypothesis 8: {y(r, φ) = r * sin(φ)}); from (GOAL: {(r * cos(φ)) * (frac(y(r, φ), r) * FunDeri(u, 1, 1)(r, φ) + frac(r * cos(φ), r^{2}) * FunDeri(u, 2, 1)(r, φ)) - y(r, φ) * (frac(r * cos(φ), r) * FunDeri(u, 1, 1)(r, φ) - frac(y(r, φ), r^{2}) * FunDeri(u, 2, 1)(r, φ)) = FunDeri(u, 2, 1)(r, φ)}) to (GOAL: {(r * cos(φ)) * (frac(r * sin(φ), r) * FunDeri(u, 1, 1)(r, φ) + frac(r * cos(φ), r^{2}) * FunDeri(u, 2, 1)(r, φ)) - (r * sin(φ)) * (frac(r * cos(φ), r) * FunDeri(u, 1, 1)(r, φ) - frac(r * sin(φ), r^{2}) * FunDeri(u, 2, 1)(r, φ)) = FunDeri(u, 2, 1)(r, φ)})
+rewrite (left_to_right, equation) (hypothesis 28: {(r * cos(φ)) * (frac(r * sin(φ), r) * FunDeri(u, 1, 1)(r, φ) + frac(r * cos(φ), r^{2}) * FunDeri(u, 2, 1)(r, φ)) - (r * sin(φ)) * (frac(r * cos(φ), r) * FunDeri(u, 1, 1)(r, φ) - frac(r * sin(φ), r^{2}) * FunDeri(u, 2, 1)(r, φ)) = ((sin(φ)) ^ 2 + (cos(φ)) ^ 2) * FunDeri(u, 2, 1)(r, φ)}); from (GOAL: {(r * cos(φ)) * (frac(r * sin(φ), r) * FunDeri(u, 1, 1)(r, φ) + frac(r * cos(φ), r^{2}) * FunDeri(u, 2, 1)(r, φ)) - (r * sin(φ)) * (frac(r * cos(φ), r) * FunDeri(u, 1, 1)(r, φ) - frac(r * sin(φ), r^{2}) * FunDeri(u, 2, 1)(r, φ)) = FunDeri(u, 2, 1)(r, φ)}) to (GOAL: {((sin(φ)) ^ 2 + (cos(φ)) ^ 2) * FunDeri(u, 2, 1)(r, φ) = FunDeri(u, 2, 1)(r, φ)})
+rewrite (left_to_right, equation) (hypothesis 20: {(sin(φ)) ^ 2 + (cos(φ)) ^ 2 = 1}); from (GOAL: {((sin(φ)) ^ 2 + (cos(φ)) ^ 2) * FunDeri(u, 2, 1)(r, φ) = FunDeri(u, 2, 1)(r, φ)}) to (GOAL: {1 * FunDeri(u, 2, 1)(r, φ) = FunDeri(u, 2, 1)(r, φ)})
+autosolve all_hypothesis

@@ -1,0 +1,37 @@
+PROOF GAP @26
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. y : NonNegIntegerSet → RealSet ∧ IsSeq(y)
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = (1 + frac(1, n))^{n}
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n) = (1 + frac(1, n))^{n + 1}
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = (1 + frac(1, n))^{n}
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = 2 + (sum_{ k = 2 }^{ n } (frac(1, k!) * (prod_{ i = 1 }^{ k - 1 } (1 - frac(i, n)))))
+7. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (m), m ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ m ∈ PosIntegerSet ∧ m > n ⇒ x(n) < x(m))
+8. MonoIncSeq(x)
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (k), k ∈ IntegerSet ∧ k > 2 ⇒ frac(1, k!) < frac(1, 2^{k - 1}))
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) < 2 + (sum_{ k = 1 }^{ n - 1 } (frac(1, 2^{k})))
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 2 + (sum_{ k = 1 }^{ n - 1 } (frac(1, 2^{k}))) = 2 + 1 - frac(1, 2^{n - 1})
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) < 3
+13. BoundedAboveSeq(x)
+14. ConvergentSeq(x)
+15. e = seqlim_{ n → +∞ } (x(n))
+16. forall (n), n ∈ IntegerSet ∧ n > 1 ⇒ frac(n^{2}, n^{2} - 1)^{n} = (1 + frac(1, n^{2} - 1))^{n}
+17. forall (n), n ∈ IntegerSet ∧ n > 1 ⇒ (1 + frac(1, n^{2} - 1))^{n} > 1 + frac(n, n^{2} - 1)
+18. forall (n), n ∈ IntegerSet ∧ n > 1 ⇒ 1 + frac(n, n^{2} - 1) > 1 + frac(1, n)
+19. forall (n), n ∈ IntegerSet ∧ n > 1 ⇒ frac(n, n - 1)^{n} > frac(n + 1, n)^{n + 1}
+20. forall (n), n ∈ IntegerSet ∧ n > 1 ⇒ y(n - 1) > y(n)
+21. MonoDecSeq(y)
+22. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n) = x(n) * (1 + frac(1, n))
+23. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n) > 1 + n * frac(1, n)
+24. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n) > 2
+25. BoundedBelowSeq(y)
+26. ConvergentSeq(y)
+27. seqlim_{ n → +∞ } (y(n)) = seqlim_{ n → +∞ } (x(n) * (1 + frac(1, n)))
+28. seqlim_{ n → +∞ } (y(n)) = (seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (1 + frac(1, n)))
+29. seqlim_{ n → +∞ } (1 + frac(1, n)) = 1
+30. seqlim_{ n → +∞ } (x(n)) = e
+
+GOAL:
+seqlim_{ n → +∞ } (y(n)) = e
+
+METHOD:

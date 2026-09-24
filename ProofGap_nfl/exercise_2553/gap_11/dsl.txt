@@ -1,0 +1,4 @@
+1. get_condition (hypothesis 12: {¬(exists (k), k ∈ IntegerSet ∧ x = k * π)}) in (GOAL: {¬(exists (k), k ∈ IntegerSet ∧ x = k * π) ⇒ ¬seqlim_{ n → +∞ } (sin(n * x)) = 0})
+2. not_normalize from (GOAL: {¬seqlim_{ n → +∞ } (sin(n * x)) = 0}) to (GOAL: {seqlim_{ n → +∞ } (sin(n * x)) = 0 ⇒ False})
+3. use_condition (hypothesis 12: {¬(exists (k), k ∈ IntegerSet ∧ x = k * π)}) in (hypothesis 11: {¬(exists (k), k ∈ IntegerSet ∧ x = k * π) ⇒ seqlim_{ n → +∞ } (sin(n * x)) = 0 ⇒ False}) as (hypothesis 13: {seqlim_{ n → +∞ } (sin(n * x)) = 0 ⇒ False})
+4. apply (hypothesis 13: {seqlim_{ n → +∞ } (sin(n * x)) = 0 ⇒ False})

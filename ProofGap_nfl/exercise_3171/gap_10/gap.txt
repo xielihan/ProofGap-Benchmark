@@ -1,0 +1,28 @@
+PROOF GAP @10
+ASSUM:
+1. a ∈ RealSet
+2. x ∈ RealSet
+3. y ∈ RealSet
+4. z ∈ RealSet
+5. t ∈ RealSet
+6. s ∈ RealSet
+7. D ⊆ RealSet
+8. f : RealSet → RealSet ∧ Defined(f, D)
+9. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+10. L ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+11. C ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+12. S = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, y - a * x ∈ D, z = f(y - a * x) }
+13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ (exists (s), s ∈ RealSet ∧ s = y - a * x)
+14. forall (s), s ∈ RealSet ⇒ s ∈ D
+15. forall (s), s ∈ RealSet ∧ s ∈ D ⇒ (exists (z), z ∈ RealSet ∧ z = f(s))
+16. forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ t = x)
+17. forall (t) (s), t ∈ RealSet ∧ s ∈ RealSet ∧ s ∈ D ⇒ a * t + s = a * t + s
+18. S = { (t, a * t + s, f(s)) | t ∈ RealSet, s ∈ D }
+19. forall (s), s ∈ RealSet ∧ s ∈ D ⇒ { (t, a * t + s, f(s)) | t ∈ RealSet } = { (0, s, f(s)) + t * (1, a, 0) | t ∈ RealSet }
+20. forall (s), s ∈ RealSet ∧ s ∈ D ⇒ L = (1, a, 0)
+21. forall (t) (x), t ∈ RealSet ∧ x ∈ RealSet ∧ x = t ∧ t = 0 ⇒ x = 0
+
+GOAL:
+forall (t) (y) (s), t ∈ RealSet ∧ y ∈ RealSet ∧ s ∈ RealSet ∧ y = s ∧ t = 0 ⇒ y = s
+
+METHOD:

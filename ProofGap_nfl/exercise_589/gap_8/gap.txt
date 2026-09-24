@@ -1,0 +1,14 @@
+PROOF GAP @8
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x > 0 ⇒ x^{2} + 1 > 0
+2. forall (x), x ∈ RealSet ∧ x > 0 ⇒ sqrtn(2, x^{2} + 1) ≠ 0
+3. forall (x), x ∈ RealSet ∧ x > 0 ⇒ 0 < frac(x, sqrtn(2, x^{2} + 1))
+4. forall (x), x ∈ RealSet ∧ x > 0 ⇒ frac(x, sqrtn(2, x^{2} + 1)) < 1
+5. forall (x), x ∈ RealSet ∧ x > 0 ⇒ 0 < frac(1, sqrtn(2, x^{2} + 1))
+6. forall (x), x ∈ RealSet ∧ x > 0 ⇒ frac(1, sqrtn(2, x^{2} + 1)) < 1
+7. lim_{ x → +∞ } (x * (frac(π, 2) - arcsin(frac(x, sqrtn(2, x^{2} + 1))))) = lim_{ x → +∞ } (x * arcsin(frac(1, sqrtn(2, x^{2} + 1))))
+
+GOAL:
+lim_{ x → +∞ } (x * arcsin(frac(1, sqrtn(2, x^{2} + 1)))) = lim_{ x → +∞ } (frac(arcsin(frac(1, sqrtn(2, x^{2} + 1))), frac(1, sqrtn(2, x^{2} + 1))) * frac(x, sqrtn(2, x^{2} + 1)))
+
+METHOD:

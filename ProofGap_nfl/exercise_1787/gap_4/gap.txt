@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. C ∈ RealSet
+3. x = a * sinh(t)
+4. t ∈ RealSet
+5. sqrtn(2, a^{2} + x^{2}) = a * cosh(t)
+6. frac(x^{2}, sqrtn(2, a^{2} + x^{2})) = frac(a * sinh(t)^{2}, cosh(t))
+
+GOAL:
+diff(fun x [x ∈ RealSet] . x) = a * cosh(t) * diff(fun t [t ∈ RealSet] . t)
+
+METHOD:

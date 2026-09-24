@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. F : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. M_{0} ∈ RealSet
+3. n ∈ RealSet
+4. P ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+5. L ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+6. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x > 0 ∧ z > 0 ⇒ F(x, y, z) = y + ln(x) - ln(z) - z
+7. M_{0} = (1, 1, 1)
+
+GOAL:
+n = (FunDeri(F, 1, 1)(1, 1, 1), FunDeri(F, 2, 1)(1, 1, 1), FunDeri(F, 3, 1)(1, 1, 1))
+
+METHOD:

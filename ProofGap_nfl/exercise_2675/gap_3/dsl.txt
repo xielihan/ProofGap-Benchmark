@@ -1,0 +1,5 @@
+get_condition (hypothesis 4: {p = 0}) in (GOAL: {p = 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (-1)^{n - 1} / n^{p} = (-1)^{n - 1})})
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (-1)^{n - 1} / n^{p} = (-1)^{n - 1}}) (n := {n0})
+get_condition (hypothesis 5: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ (-1)^{n0 - 1} / n0^{p} = (-1)^{n0 - 1}})
+rewrite (left_to_right, equation) (hypothesis 4: {p = 0}); from (GOAL: {(-1)^{n0 - 1} / n0^{p} = (-1)^{n0 - 1}}) to (GOAL: {(-1)^{n0 - 1} / n0^{0} = (-1)^{n0 - 1}})
+autosolve (hypothesis 5: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet})

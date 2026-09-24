@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+
+GOAL:
+cos(x)^{3} * diff(fun x [x ∈ RealSet] . x) = (1 - sin(x)^{2}) * diff(fun x [x ∈ RealSet] . sin(x))
+
+METHOD:

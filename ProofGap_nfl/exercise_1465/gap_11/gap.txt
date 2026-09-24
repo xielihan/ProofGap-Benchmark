@@ -1,0 +1,21 @@
+PROOF GAP @11
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. a ∈ RealSet
+4. forall (t), t ∈ RealSet ⇒ f(t) = t^{5} - 5 * t - a
+5. forall (t), t ∈ RealSet ⇒ FunDeri(f, 1, 1)(t) = 5 * t^{4} - 5
+6. FunDeri(f, 1, 1)(x) = 0 ⇔ x = -1 ∨ x = 1
+7. lim_{ t → -∞ } (f(t)) = -∞
+8. lim_{ t → +∞ } (f(t)) = +∞
+9. forall (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(-∞, -1) ⇒ FunDeri(f, 1, 1)(t) > 0
+10. forall (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(-1, 1) ⇒ FunDeri(f, 1, 1)(t) < 0
+11. forall (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(1, +∞) ⇒ FunDeri(f, 1, 1)(t) > 0
+12. f(-1) = 4 - a
+13. f(1) = -4 - a
+14. a < -4 ⇒ f(-1) > 0
+
+GOAL:
+a < -4 ⇒ f(1) > 0
+
+METHOD:

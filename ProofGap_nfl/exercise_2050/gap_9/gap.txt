@@ -1,0 +1,24 @@
+PROOF GAP @9
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. a_{1} ∈ RealSet
+4. b_{1} ∈ RealSet
+5. c_{1} ∈ RealSet
+6. A ∈ RealSet
+7. B ∈ RealSet
+8. C ∈ RealSet
+9. a^{2} + b^{2} ≠ 0
+10. A = frac(b * c_{1} - a_{1} * b + 2 * a * b_{1}, a^{2} + b^{2})
+11. B = frac(a * c_{1} - a * a_{1} - 2 * b * b_{1}, a^{2} + b^{2})
+12. C = frac(a_{1} * b^{2} + a^{2} * c_{1} - 2 * a * b * b_{1}, a^{2} + b^{2})
+13. forall (x), x ∈ RealSet ⇒ a_{1} * sin(x)^{2} + 2 * b_{1} * sin(x) * cos(x) + c_{1} * cos(x)^{2} = A * cos(x) * (a * sin(x) + b * cos(x)) - B * sin(x) * (a * sin(x) + b * cos(x)) + C
+14. a * A - b * B = 2 * b_{1}
+15. C - a * B = a_{1}
+16. C + b * A = c_{1}
+17. forall (x), x ∈ RealSet ∧ a * sin(x) + b * cos(x) ≠ 0 ⇒ frac(a_{1} * sin(x)^{2} + 2 * b_{1} * sin(x) * cos(x) + c_{1} * cos(x)^{2}, a * sin(x) + b * cos(x)) = A * cos(x) - B * sin(x) + C * frac(1, a * sin(x) + b * cos(x))
+
+GOAL:
+{ `F_6` | forall (x), x ∈ RealSet ∧ a * sin(x) + b * cos(x) ≠ 0 ⇒ FunDeri(`F_6`, 1, 1)(x) = frac(a_{1} * sin(x)^{2} + 2 * b_{1} * sin(x) * cos(x) + c_{1} * cos(x)^{2}, a * sin(x) + b * cos(x)) * FunDeri(fun x [x ∈ RealSet ∧ a * sin(x) + b * cos(x) ≠ 0] . x, 1, 1)(x) } = { `F_14` | exists (`F_7`) (`F_9`) (`F_12`) (K), `F_7` : RealSet → RealSet ∧ `F_9` : RealSet → RealSet ∧ `F_12` : RealSet → RealSet ∧ K : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ a * sin(x) + b * cos(x) ≠ 0 ⇒ FunDeri(`F_7`, 1, 1)(x) = cos(x) * FunDeri(fun x [x ∈ RealSet ∧ a * sin(x) + b * cos(x) ≠ 0] . x, 1, 1)(x) ∧ FunDeri(`F_9`, 1, 1)(x) = sin(x) * FunDeri(fun x [x ∈ RealSet ∧ a * sin(x) + b * cos(x) ≠ 0] . x, 1, 1)(x) ∧ FunDeri(`F_12`, 1, 1)(x) = frac(1, a * sin(x) + b * cos(x)) * FunDeri(fun x [x ∈ RealSet ∧ a * sin(x) + b * cos(x) ≠ 0] . x, 1, 1)(x) ∧ FunDeri(K, 1, 1)(x) = 0 ∧ `F_14`(x) = A * `F_7`(x) - B * `F_9`(x) + C * `F_12`(x) + K(x)) }
+
+METHOD:

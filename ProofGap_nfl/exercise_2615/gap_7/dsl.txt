@@ -1,0 +1,17 @@
+get_condition (hypothesis 9: {exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ frac(ln(frac(1, a(n))), ln(n)) ≤ 1)}) in (GOAL: {(exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ frac(ln(frac(1, a(n))), ln(n)) ≤ 1)) ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n)))})
+get_prop (theorem 'Thm 365. (PSeriesDivergesForExponentAtMostOne)': {forall (p), p ∈ RealSet => p <= 1 => DivergentSeries(sum_{n = 1}^{+∞}(1 / n ^ p))}) (p := {1}) as (hypothesis 10: {1 ∈ RealSet ⇒ 1 ≤ 1 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{1}))})
+assert (hypothesis 11: {1 ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 12: {1 ≤ 1}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 11: {1 ∈ RealSet}) in (hypothesis 10: {1 ∈ RealSet ⇒ 1 ≤ 1 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{1}))}) as (hypothesis 13: {1 ≤ 1 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{1}))})
+use_condition (hypothesis 12: {1 ≤ 1}) in (hypothesis 13: {1 ≤ 1 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{1}))}) as (hypothesis 14: {DivergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{1}))})
+assert (hypothesis 15: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 1 / n^{1} = frac(1, n)}) by proof {
+  get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 1 / n^{1} = frac(1, n)}) (n := {m})
+  get_condition (hypothesis 15: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet}) in (GOAL: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ 1 / m^{1} = frac(1, m)})
+  autosolve all_hypothesis
+}
+rewrite_in sum (right_to_left, equation) (hypothesis 15: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 1 / n^{1} = frac(1, n)}); from (GOAL: {DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n)))}) to (GOAL: {DivergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{1}))})
+apply (hypothesis 14: {DivergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{1}))})

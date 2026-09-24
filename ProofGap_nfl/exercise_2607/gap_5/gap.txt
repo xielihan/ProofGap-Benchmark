@@ -1,0 +1,24 @@
+PROOF GAP @5
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. α : NonNegIntegerSet → RealSet
+3. β : NonNegIntegerSet → RealSet
+4. p ∈ NonNegIntegerSet
+5. q ∈ NonNegIntegerSet
+6. k ∈ NonNegIntegerSet
+7. l ∈ NonNegIntegerSet
+8. p ∈ PosIntegerSet
+9. q ∈ PosIntegerSet
+10. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≤ p ⇒ α(k) ∈ RealSet
+11. forall (l), l ∈ NonNegIntegerSet ∧ l ∈ PosIntegerSet ∧ l ≤ q ⇒ β(l) ∈ RealSet
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ n^{q} + (sum_{ l = 1 }^{ q } (β(l) * n^{q - l})) > 0
+13. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(n^{p} + (sum_{ k = 1 }^{ p } (α(k) * n^{p - k})), n^{q} + (sum_{ l = 1 }^{ q } (β(l) * n^{q - l})))
+14. (a(n)) ∼_{ n → +∞ } (frac(1, n^{q - p}))
+15. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{q - p}))) ⇔ q - p > 1
+16. q - p > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+17. q - p > 1 ⇔ q > 1 + p
+
+GOAL:
+(p, q) ∈ { (p, q) | p ∈ PosIntegerSet, q ∈ PosIntegerSet, q > 1 + p } ⇔ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+METHOD:

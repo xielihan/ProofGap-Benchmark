@@ -1,0 +1,10 @@
+1. get_forall (GOAL: {forall (t), t ∈ RealSet ⇒ x(t)^{2} + y(t)^{2} = 25}) (t := {t0})
+2. get_condition (hypothesis 10: {t0 ∈ RealSet}) in (GOAL: {t0 ∈ RealSet ⇒ x(t0)^{2} + y(t0)^{2} = 25})
+3. get_prop (hypothesis 9: {forall (t), t ∈ RealSet ⇒ x(t)^{2} + y(t)^{2} = 25 * (sin(ω * t)^{2} + cos(ω * t)^{2})}) (t := {t0}) as (hypothesis 11: {t0 ∈ RealSet ⇒ x(t0)^{2} + y(t0)^{2} = 25 * (sin(ω * t0)^{2} + cos(ω * t0)^{2})})
+4. use_condition (hypothesis 10: {t0 ∈ RealSet}) in (hypothesis 11: {t0 ∈ RealSet ⇒ x(t0)^{2} + y(t0)^{2} = 25 * (sin(ω * t0)^{2} + cos(ω * t0)^{2})}) as (hypothesis 12: {x(t0)^{2} + y(t0)^{2} = 25 * (sin(ω * t0)^{2} + cos(ω * t0)^{2})})
+5. assert (hypothesis 13: {ω * t0 ∈ RealSet})
+6. get_prop (theorem 'Thm 168. (PythagoreanTrigonometricIdentity)': {forall (x), x ∈ RealSet => (sin(x)) ^ 2 + (cos(x)) ^ 2 = 1}) (x := {ω * t0}) as (hypothesis 14: {ω * t0 ∈ RealSet => (sin(ω * t0)) ^ 2 + (cos(ω * t0)) ^ 2 = 1})
+7. use_condition (hypothesis 13: {ω * t0 ∈ RealSet}) in (hypothesis 14: {ω * t0 ∈ RealSet => (sin(ω * t0)) ^ 2 + (cos(ω * t0)) ^ 2 = 1}) as (hypothesis 15: {(sin(ω * t0)) ^ 2 + (cos(ω * t0)) ^ 2 = 1})
+8. rewrite (left_to_right, equation) (hypothesis 12: {x(t0)^{2} + y(t0)^{2} = 25 * (sin(ω * t0)^{2} + cos(ω * t0)^{2})}); from (GOAL: {x(t0)^{2} + y(t0)^{2} = 25}) to (GOAL: {25 * (sin(ω * t0)^{2} + cos(ω * t0)^{2}) = 25})
+9. rewrite (left_to_right, equation) (hypothesis 15: {(sin(ω * t0)) ^ 2 + (cos(ω * t0)) ^ 2 = 1}); from (GOAL: {25 * (sin(ω * t0)^{2} + cos(ω * t0)^{2}) = 25}) to (GOAL: {25 * 1 = 25})
+10. autosolve all_hypothesis

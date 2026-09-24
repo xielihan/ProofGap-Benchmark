@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ frac(x * sin(sqrtn(2, x)), x * sqrtn(2, x)) = frac(sin(sqrtn(2, x)), sqrtn(2, x))
+
+METHOD:

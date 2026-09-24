@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. k ∈ NonNegIntegerSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = sum_{ k = 0 }^{ +∞ } (frac(x^{k}, k!))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ AbsoluteConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac(x^{n}, n!))))
+
+METHOD:

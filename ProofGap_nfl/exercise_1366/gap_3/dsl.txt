@@ -1,0 +1,4 @@
+get_condition (hypothesis 4: {x ≠ 0}) in (GOAL: {x ≠ 0 => cosh(x) > 0})
+get_prop (theorem 'Thm 413. (HyperbolicCosinePositive)': {forall (u), u ∈ RealSet => cosh(u) > 0}) (u := {x}) as (hypothesis 5: {x ∈ RealSet => cosh(x) > 0})
+use_condition (hypothesis 1: {x ∈ RealSet}) in (hypothesis 5: {x ∈ RealSet => cosh(x) > 0}) as (hypothesis 6: {cosh(x) > 0})
+apply (hypothesis 6: {cosh(x) > 0})

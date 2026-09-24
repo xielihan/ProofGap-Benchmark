@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ y(x) = frac(1, sqrtn(2, 2)) * arccot(frac(sqrtn(2, 2), x))
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(y, 1, 1)(x) = -frac(1, sqrtn(2, 2)) * frac(1, 1 + frac(sqrtn(2, 2), x)^{2}) * -frac(sqrtn(2, 2), x^{2}) ∧ -frac(1, sqrtn(2, 2)) * frac(1, 1 + frac(sqrtn(2, 2), x)^{2}) * -frac(sqrtn(2, 2), x^{2}) = frac(1, x^{2} + 2)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(y, 1, 1)(x) = frac(1, x^{2} + 2)
+
+METHOD:

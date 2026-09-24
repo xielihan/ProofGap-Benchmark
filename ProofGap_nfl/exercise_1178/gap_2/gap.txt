@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. u : RealSet → RealSet ∧ FuncOfClassK(u, 3)
+3. forall (x), x ∈ RealSet ⇒ u(x) > 0
+4. forall (x), x ∈ RealSet ⇒ y(x) = ln(u(x))
+5. diff(y) = frac(1, u) * diff(u)
+
+GOAL:
+diff^{2}(y) = -frac(1, u^{2}) * diff(u)^{2} + frac(1, u) * diff^{2}(u)
+
+METHOD:

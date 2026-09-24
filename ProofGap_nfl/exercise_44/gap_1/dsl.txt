@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet => x(2 * k) = (2 * k) ^ ((-1) ^ (2 * k))}) (k := {u})
+get_condition (hypothesis 4: {u ∈ NonNegIntegerSet ∧ u ∈ PosIntegerSet}) in (GOAL: {u ∈ NonNegIntegerSet ∧ u ∈ PosIntegerSet => x(2 * u) = (2 * u) ^ ((-1) ^ (2 * u))})
+get_prop (hypothesis 3: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet => x(n) = n ^ ((-1) ^ n)}) (n := {2 * u}) as (hypothesis 5: {2 * u ∈ NonNegIntegerSet ∧ 2 * u ∈ PosIntegerSet => x(2 * u) = (2 * u) ^ ((-1) ^ (2 * u))})
+autosolve all_hypothesis

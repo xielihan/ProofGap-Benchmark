@@ -1,0 +1,17 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b ≠ 0
+3. x_{0} ∈ RealSet
+4. y_{0} ∈ RealSet
+5. z_{0} ∈ RealSet
+6. φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ π
+7. (x_{0})^{2} + (y_{0})^{2} = a^{2}
+8. b * z_{0} = x_{0} * y_{0}
+9. forall (n_{1}), n_{1} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ n_{1} = (y_{0}, x_{0}, -b)
+10. forall (n_{2}), n_{2} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ n_{2} = (2 * x_{0}, 2 * y_{0}, 0)
+
+GOAL:
+cos(φ) = frac(y_{0} * 2 * x_{0} + x_{0} * 2 * y_{0} + -b * 0, sqrtn(2, (x_{0})^{2} + (y_{0})^{2} + b^{2}) * sqrtn(2, 4 * (x_{0})^{2} + 4 * (y_{0})^{2}))
+
+METHOD:

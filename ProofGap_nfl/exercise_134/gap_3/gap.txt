@@ -1,0 +1,19 @@
+PROOF GAP @3
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. y : NonNegIntegerSet → RealSet ∧ IsSeq(y)
+3. p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p)
+4. n ∈ NonNegIntegerSet
+5. k ∈ NonNegIntegerSet
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ∈ NonNegRealSet
+7. forall (y), y : NonNegIntegerSet → RealSet ⇒ IsSeq(y) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ y(n) ∈ RealSet ⇒ seqlim_{ n → +∞ } (x(n) + y(n)) = (seqlim_{ n → +∞ } (x(n))) + (seqlim_{ n → +∞ } (y(n))) ∨ seqlim_{ n → +∞ } (x(n) * y(n)) = (seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (y(n))))
+8. α = seqliminf_{ n → +∞ } (x(n))
+9. β = seqlimsup_{ n → +∞ } (x(n))
+10. exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ seqlim_{ k → +∞ } (x(p(k))) = α
+11. forall (A), A ∈ RealSet ∧ A ∈ PosRealSet ⇒ y = (fun n [n ∈ NonNegIntegerSet] . cases{ A if exists (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ n = p(k); otherwise -x(n) })
+12. forall (A), A ∈ RealSet ∧ A ∈ PosRealSet ⇒ IsSeq(y)
+
+GOAL:
+forall (A), A ∈ RealSet ∧ A ∈ PosRealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n) ∈ RealSet)
+
+METHOD:

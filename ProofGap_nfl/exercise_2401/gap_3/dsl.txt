@@ -1,0 +1,2 @@
+1. rewrite (left_to_right, equation) (hypothesis 3: {S = (frac(π, 2) - frac(1, 4) * sin(2 * π)) - (frac(0, 2) - frac(1, 4) * sin(2 * 0))}); from (GOAL: {S = frac(π, 2)}) to (GOAL: {(frac(π, 2) - frac(1, 4) * sin(2 * π)) - (frac(0, 2) - frac(1, 4) * sin(2 * 0)) = frac(π, 2)})
+2. autosolve all_hypothesis

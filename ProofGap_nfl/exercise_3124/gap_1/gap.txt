@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. P : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. P(0) = 0
+5. P(30) = frac(1, 2)
+6. P(90) = 1
+7. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 90 ⇒ P(x) = a * x + b * x^{3}
+
+GOAL:
+30 * a + 27000 * b = frac(1, 2)
+
+METHOD:

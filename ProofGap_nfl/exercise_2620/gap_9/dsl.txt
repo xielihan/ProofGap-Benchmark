@@ -1,0 +1,13 @@
+get_condition (hypothesis 14: {p ≠ 1}) in (GOAL: {p ≠ 1 ⇒ p < 1 ⇒ (exists (τ), τ ∈ RealSet ∧ τ > 0 ∧ p + τ < 1)})
+get_condition (hypothesis 15: {p < 1}) in (GOAL: {p < 1 ⇒ (exists (τ), τ ∈ RealSet ∧ τ > 0 ∧ p + τ < 1)})
+exists (τ := {frac(1 - p, 2)})
+assert (hypothesis 16: {p + p < 2}) by proof {
+  autosolve (hypothesis 15: {p < 1})
+}
+assert (hypothesis 17: {p + frac(1 - p, 2) = frac(p + 1, 2)}) by proof {
+  autosolve (hypothesis 2: {p ∈ RealSet})
+}
+assert (hypothesis 18: {frac(p + 1, 2) < 1}) by proof {
+  autosolve (hypothesis 16: {p + p < 2})
+}
+autosolve (hypothesis 2: {p ∈ RealSet}) (hypothesis 15: {p < 1}) (hypothesis 17: {p + frac(1 - p, 2) = frac(p + 1, 2)}) (hypothesis 18: {frac(p + 1, 2) < 1})

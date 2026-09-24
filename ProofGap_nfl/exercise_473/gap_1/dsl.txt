@@ -1,0 +1,2 @@
+get_condition (hypothesis 6: {lim_{ x → π } (x) = π}) in (GOAL: {lim_{ x → π } (x) = π => lim_{ y → 0 } (y) = 0})
+autosolve all_hypothesis

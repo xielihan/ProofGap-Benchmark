@@ -1,0 +1,2 @@
+exists (y := {frac(b, sqrtn(2, 2))})
+autosolve all_hypothesis

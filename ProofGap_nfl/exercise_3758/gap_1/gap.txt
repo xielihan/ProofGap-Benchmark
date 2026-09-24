@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (α), x ∈ RealSet ∧ α ∈ RealSet ⇒ 1 + x^{2} > 0)
+
+METHOD:

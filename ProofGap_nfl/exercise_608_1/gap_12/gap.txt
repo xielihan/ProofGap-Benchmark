@@ -1,0 +1,14 @@
+PROOF GAP @12
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. A ∈ RealSet
+4. x ∈ RealSet
+5. Defined(f, (a, +∞))
+6. forall (b), b ∈ RealSet ∧ b > a ⇒ BoundedFuncOn(f, IntervalLoRo(a, b))
+7. lim_{ x → +∞ } (f(x + 1) - f(x)) = A
+8. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (X_{0}), X_{0} ∈ RealSet ∧ X_{0} ∈ PosRealSet ∧ X_{0} > a ∧ (forall (x), x ∈ RealSet ∧ x ≥ X_{0} ⇒ |f(x + 1) - f(x) - A| < frac(ε, 3)))
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (X_{0}) (X_{1}), X_{0} ∈ RealSet ∧ X_{1} ∈ RealSet ∧ X_{0} ∈ PosRealSet ∧ X_{1} ∈ PosRealSet ∧ (forall (τ) (x), τ ∈ RealSet ∧ x ∈ RealSet ∧ x > X_{1} ∧ 0 ≤ τ ∧ τ < 1 ⇒ |frac(f(X_{0} + τ), x)| < frac(ε, 3)))
+
+METHOD:

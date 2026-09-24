@@ -1,0 +1,2 @@
+exists (Δ := {0})
+autosolve all_hypothesis

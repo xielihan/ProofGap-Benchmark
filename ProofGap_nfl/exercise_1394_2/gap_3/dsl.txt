@@ -1,0 +1,4 @@
+get_exists (hypothesis 6: {exists (θ), θ ∈ RealSet ∧ 0 < θ ∧ θ < 1 ∧ R_{4}(x) = frac(FunDeri(f, 1, 5)(θ * x), 5!) * x^{5}}) (θ := {θ0})
+destruct_and (hypothesis 7: {θ0 ∈ RealSet ∧ 0 < θ0 ∧ θ0 < 1 ∧ R_{4}(x) = frac(FunDeri(f, 1, 5)(θ0 * x), 5!) * x^{5}}) as (hypothesis 8: {θ0 ∈ RealSet}) (hypothesis 9: {0 < θ0}) (hypothesis 10: {θ0 < 1}) (hypothesis 11: {R_{4}(x) = frac(FunDeri(f, 1, 5)(θ0 * x), 5!) * x^{5}})
+exists (θ := {θ0})
+autosolve (hypothesis 8: {θ0 ∈ RealSet}) (hypothesis 9: {0 < θ0}) (hypothesis 10: {θ0 < 1})

@@ -1,0 +1,17 @@
+PROOF GAP @7
+ASSUM:
+1. x ∈ RealSet ∧ x > 0
+2. C ∈ RealSet
+3. t : RealSet → RealSet
+4. forall (x), x ∈ RealSet ∧ x > 0 ⇒ t(x) = sqrtn(6, x)
+5. forall (x), x ∈ RealSet ∧ x > 0 ⇒ sqrtn(2, x) = t(x)^{3}
+6. forall (x), x ∈ RealSet ∧ x > 0 ⇒ sqrtn(3, x) = t(x)^{2}
+7. forall (x), x ∈ RealSet ∧ x > 0 ⇒ diff(fun x [x ∈ RealSet ∧ x > 0] . x) = (fun x [x ∈ RealSet ∧ x > 0] . 6 * t(x)^{5}) * diff(fun x [x ∈ RealSet ∧ x > 0] . t(x))
+8. { `F_2` | forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, sqrtn(2, x) + sqrtn(3, x)) * FunDeri(fun x [x ∈ RealSet ∧ x > 0] . x, 1, 1)(x) } = { `F_4` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(t(x)^{3}, t(x) + 1) * FunDeri(fun x [x ∈ RealSet ∧ x > 0] . t(x), 1, 1)(x) ∧ `F_4`(x) = 6 * `F_3`(x)) }
+9. { `F_6` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(t(x)^{3}, t(x) + 1) * FunDeri(fun x [x ∈ RealSet ∧ x > 0] . t(x), 1, 1)(x) ∧ `F_6`(x) = 6 * `F_5`(x)) } = { `F_8` | exists (`F_7`), `F_7` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_7`, 1, 1)(x) = (t(x)^{2} - t(x) + 1 - frac(1, t(x) + 1)) * FunDeri(fun x [x ∈ RealSet ∧ x > 0] . t(x), 1, 1)(x) ∧ `F_8`(x) = 6 * `F_7`(x)) }
+10. { `F_10` | exists (`F_9`), `F_9` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_9`, 1, 1)(x) = (t(x)^{2} - t(x) + 1 - frac(1, t(x) + 1)) * FunDeri(fun x [x ∈ RealSet ∧ x > 0] . t(x), 1, 1)(x) ∧ `F_10`(x) = 6 * `F_9`(x)) } = { `F_11` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ `F_11`(x) = 2 * t(x)^{3} - 3 * t(x)^{2} + 6 * t(x) - 6 * ln(1 + t(x)) + C) }
+
+GOAL:
+{ `F_12` | forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_12`, 1, 1)(x) = frac(1, sqrtn(2, x) + sqrtn(3, x)) * FunDeri(fun x [x ∈ RealSet ∧ x > 0] . x, 1, 1)(x) } = { `F_13` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ `F_13`(x) = 2 * sqrtn(2, x) - 3 * sqrtn(3, x) + 6 * sqrtn(6, x) - 6 * ln(1 + sqrtn(6, x)) + C) }
+
+METHOD:

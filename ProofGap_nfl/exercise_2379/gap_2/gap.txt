@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ (forall (A), A ∈ RealSet ∧ A > 0 ⇒ |DefInt(0, A, cos(x) * diff(fun x [x ∈ RealSet] . x))| ≤ 2)
+
+GOAL:
+Defined(fun x [x ∈ RealSet] . frac(sqrtn(2, x), x + 100), NonNegRealSet)
+
+METHOD:

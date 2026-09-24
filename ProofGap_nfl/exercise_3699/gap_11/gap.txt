@@ -1,0 +1,29 @@
+PROOF GAP @11
+ASSUM:
+1. x_{0} ∈ RealSet
+2. y_{0} ∈ RealSet
+3. z_{0} ∈ RealSet
+4. A ∈ RealSet
+5. B ∈ RealSet
+6. C ∈ RealSet
+7. D ∈ RealSet
+8. r2 : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+9. F : CartesianProd(RealSet, CartesianProd(RealSet, CartesianProd(RealSet, RealSet))) → RealSet
+10. A^{2} + B^{2} + C^{2} > 0
+11. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ r2(x, y, z) = (x - x_{0})^{2} + (y - y_{0})^{2} + (z - z_{0})^{2}
+12. forall (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ⇒ F(x, y, z, λ) = r2(x, y, z) + λ * (A * x + B * y + C * z + D)
+13. forall (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 1, 1)(x, y, z, λ) = 2 * (x - x_{0}) + λ * A
+14. forall (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 2, 1)(x, y, z, λ) = 2 * (y - y_{0}) + λ * B
+15. forall (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 3, 1)(x, y, z, λ) = 2 * (z - z_{0}) + λ * C
+16. exists (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ∧ FunDeri(F, 1, 1)(x, y, z, λ) = 0
+17. exists (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ∧ FunDeri(F, 2, 1)(x, y, z, λ) = 0
+18. exists (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ∧ FunDeri(F, 3, 1)(x, y, z, λ) = 0
+19. exists (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ A * x + B * y + C * z + D = 0
+20. forall (λ), λ ∈ RealSet ⇒ (exists (x), x ∈ RealSet ∧ x = x_{0} - frac(λ * A, 2))
+21. forall (λ), λ ∈ RealSet ⇒ (exists (y), y ∈ RealSet ∧ y = y_{0} - frac(λ * B, 2))
+22. forall (λ), λ ∈ RealSet ⇒ (exists (z), z ∈ RealSet ∧ z = z_{0} - frac(λ * C, 2))
+
+GOAL:
+exists (λ), λ ∈ RealSet ∧ λ = frac(2 * (A * x_{0} + B * y_{0} + C * z_{0} + D), A^{2} + B^{2} + C^{2})
+
+METHOD:

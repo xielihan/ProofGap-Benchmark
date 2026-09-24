@@ -1,0 +1,5 @@
+get_condition (hypothesis 3: {exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x = -n}) in (GOAL: {(exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x = -n) ⇒ (exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x + n = 0)})
+get_exists (hypothesis 3: {exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x = -n}) (n := {n0})
+destruct_and (hypothesis 4: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x = -n0}) as (hypothesis 5: {n0 ∈ NonNegIntegerSet}) (hypothesis 6: {n0 ∈ PosIntegerSet}) (hypothesis 7: {x = -n0})
+exists (n := {n0})
+autosolve all_hypothesis

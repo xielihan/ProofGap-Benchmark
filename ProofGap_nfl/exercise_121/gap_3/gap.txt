@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. a : IntegerSet → RealSet
+2. p ∈ NonNegIntegerSet ∧ p ∈ PosIntegerSet
+3. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+4. forall (i), i ∈ IntegerSet ∧ 1 ≤ i ∧ i ≤ p ⇒ a(i) ∈ RealSet
+5. forall (n), n ∈ IntegerSet ⇒ (forall (i), n ∈ IntegerSet ∧ n ≥ 2 ∧ i ∈ IntegerSet ∧ 1 ≤ i ∧ i ≤ p ∧ x((n - 2) * p + i) = a(i) - frac(1, n) ⇒ seqlim_{ n → +∞ } (x((n - 2) * p + i)) = a(i))
+6. { a(i) | i ∈ IntegerSet, 1 ≤ i ∧ i ≤ p } ⊆ AccumulationPointSet(x)
+
+GOAL:
+(forall (n) (i), n ∈ IntegerSet ∧ i ∈ IntegerSet ∧ n ≥ 2 ∧ 1 ≤ i ∧ i ≤ p ⇒ x((n - 2) * p + i) = a(i) - frac(1, n)) ⇒ IsSeq(x) ∧ { a(i) | i ∈ IntegerSet, 1 ≤ i ∧ i ≤ p } ⊆ AccumulationPointSet(x)
+
+METHOD:

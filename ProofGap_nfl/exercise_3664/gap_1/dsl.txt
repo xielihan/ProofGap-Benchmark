@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x > 0 ∧ y > 0 ∧ z > 0 ∧ x + y + z = frac(π, 2) ⇒ 0 < x ∧ x < frac(π, 2) ∧ 0 < y ∧ y < frac(π, 2) ∧ 0 < z ∧ z < frac(π, 2)}) (x := {xx}) (y := {yy}) (z := {zz})
+get_condition (hypothesis 3: {xx ∈ RealSet ∧ yy ∈ RealSet ∧ zz ∈ RealSet ∧ xx > 0 ∧ yy > 0 ∧ zz > 0 ∧ xx + yy + zz = frac(π, 2)}) in (GOAL: {xx ∈ RealSet ∧ yy ∈ RealSet ∧ zz ∈ RealSet ∧ xx > 0 ∧ yy > 0 ∧ zz > 0 ∧ xx + yy + zz = frac(π, 2) ⇒ 0 < xx ∧ xx < frac(π, 2) ∧ 0 < yy ∧ yy < frac(π, 2) ∧ 0 < zz ∧ zz < frac(π, 2)})
+destruct_and (hypothesis 3: {xx ∈ RealSet ∧ yy ∈ RealSet ∧ zz ∈ RealSet ∧ xx > 0 ∧ yy > 0 ∧ zz > 0 ∧ xx + yy + zz = frac(π, 2)}) as (hypothesis 4: {xx ∈ RealSet}) (hypothesis 5: {yy ∈ RealSet}) (hypothesis 6: {zz ∈ RealSet}) (hypothesis 7: {xx > 0}) (hypothesis 8: {yy > 0}) (hypothesis 9: {zz > 0}) (hypothesis 10: {xx + yy + zz = frac(π, 2)})
+autosolve all_hypothesis

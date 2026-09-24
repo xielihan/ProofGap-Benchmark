@@ -1,0 +1,3 @@
+rewrite (left_to_right, equation) (hypothesis 13: {X = 0}); from (GOAL: {F = (0, frac(2 * k * m * M, π * a^{2})) ⇒ F = (X, Y)}) to (GOAL: {F = (0, frac(2 * k * m * M, π * a^{2})) ⇒ F = (0, Y)})
+rewrite (left_to_right, equation) (hypothesis 18: {Y = frac(2 * k * m * M, π * a^{2})}); from (GOAL: {F = (0, frac(2 * k * m * M, π * a^{2})) ⇒ F = (0, Y)}) to (GOAL: {F = (0, frac(2 * k * m * M, π * a^{2})) ⇒ F = (0, frac(2 * k * m * M, π * a^{2}))})
+autosolve

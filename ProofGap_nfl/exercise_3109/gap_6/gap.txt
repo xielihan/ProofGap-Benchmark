@@ -1,0 +1,21 @@
+PROOF GAP @6
+ASSUM:
+1. F : RealSet → RealSet
+2. G : RealSet → RealSet
+3. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+4. a ∈ RealSet
+5. b ∈ RealSet
+6. c : NonNegIntegerSet → RealSet
+7. a < b
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ f(n) : IntervalLoRo(a, b) → RealSet
+9. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ F(x) = prod_{ n = 1 }^{ +∞ } (1 + f(n, x)))
+10. forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ x ∈ IntervalLoRo(a, b) ∧ n ∈ PosIntegerSet ⇒ 1 + f(n, x) ≠ 0
+11. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (|f(n, x)|))
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ DiffableFuncOn(f(n), IntervalLoRo(a, b))
+13. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ c(n) ≥ 0
+14. forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ x ∈ IntervalLoRo(a, b) ∧ n ∈ PosIntegerSet ⇒ |FunDeri(f(n), 1, 1)(x)| ≤ c(n)
+
+GOAL:
+ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n)))
+
+METHOD:

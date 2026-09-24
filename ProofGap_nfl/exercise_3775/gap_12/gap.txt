@@ -1,0 +1,31 @@
+PROOF GAP @12
+ASSUM:
+1. a ∈ RealSet
+2. D ⊆ RealSet
+3. y_{0} ∈ RealSet
+4. f : CartesianProd(RealSet, RealSet) → RealSet
+5. F : RealSet → RealSet
+6. y_{0} ∈ D
+7. y_{0} ∈ AccumulationPointSet(D)
+8. f : CartesianProd([a, +∞), D) → RealSet
+9. F : [a, +∞) → [0, +∞)
+10. forall (b) (y), b ∈ RealSet ∧ y ∈ RealSet ∧ b > a ∧ y ∈ D ⇒ IntegrableFuncOn(fun x [x ∈ RealSet] . f(x, y), [a, b])
+11. forall (y) (b) (x), y ∈ RealSet ∧ b ∈ RealSet ∧ x ∈ RealSet ∧ y ∈ D ∧ b > a ∧ x ∈ [a, b] ⇒ lim_{ y → y_{0} } (f(x, y)) = f(x, y_{0})
+12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ∈ [a, +∞) ∧ y ∈ D ⇒ |f(x, y)| ≤ F(x)
+13. DefInt(a, +∞, F * diff(fun x [x ∈ RealSet] . x)) < +∞
+14. forall (b), b ∈ RealSet ∧ b > a ⇒ lim_{ y → y_{0} } (DefInt(a, b, (fun x [x ∈ RealSet] . f(x, y)) * diff(fun x [x ∈ RealSet] . x))) = DefInt(a, b, (fun x [x ∈ RealSet] . f(x, y_{0})) * diff(fun x [x ∈ RealSet] . x))
+15. forall (x), x ∈ RealSet ∧ x ∈ [a, +∞) ⇒ |f(x, y_{0})| ≤ F(x)
+16. DefInt(a, +∞, (fun x [x ∈ RealSet] . f(x, y_{0})) * diff(fun x [x ∈ RealSet] . x)) < +∞
+17. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (b), b ∈ RealSet ∧ b > a ∧ DefInt(b, +∞, F * diff(fun x [x ∈ RealSet] . x)) < frac(ε, 3))
+18. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (b), b ∈ RealSet ∧ b > a ∧ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (y), y ∈ RealSet ∧ y ∈ D ∧ 0 < |y - y_{0}| ∧ |y - y_{0}| < δ ⇒ |DefInt(a, b, (fun x [x ∈ RealSet] . f(x, y)) * diff(fun x [x ∈ RealSet] . x)) - DefInt(a, b, (fun x [x ∈ RealSet] . f(x, y_{0})) * diff(fun x [x ∈ RealSet] . x))| < frac(ε, 3))))
+19. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (b), b ∈ RealSet ∧ b > a ∧ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (y), y ∈ RealSet ∧ y ∈ D ∧ 0 < |y - y_{0}| ∧ |y - y_{0}| < δ ⇒ |DefInt(a, +∞, (fun x [x ∈ RealSet] . f(x, y)) * diff(fun x [x ∈ RealSet] . x)) - DefInt(a, +∞, (fun x [x ∈ RealSet] . f(x, y_{0})) * diff(fun x [x ∈ RealSet] . x))| ≤ |DefInt(a, b, (fun x [x ∈ RealSet] . f(x, y)) * diff(fun x [x ∈ RealSet] . x)) - DefInt(a, b, (fun x [x ∈ RealSet] . f(x, y_{0})) * diff(fun x [x ∈ RealSet] . x))| + DefInt(b, +∞, (fun x [x ∈ RealSet] . |f(x, y)|) * diff(fun x [x ∈ RealSet] . x)) + DefInt(b, +∞, (fun x [x ∈ RealSet] . |f(x, y_{0})|) * diff(fun x [x ∈ RealSet] . x)))))
+20. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (b), b ∈ RealSet ∧ b > a ∧ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (y), y ∈ RealSet ∧ y ∈ D ∧ 0 < |y - y_{0}| ∧ |y - y_{0}| < δ ⇒ |DefInt(a, +∞, (fun x [x ∈ RealSet] . f(x, y)) * diff(fun x [x ∈ RealSet] . x)) - DefInt(a, +∞, (fun x [x ∈ RealSet] . f(x, y_{0})) * diff(fun x [x ∈ RealSet] . x))| < frac(ε, 3) + DefInt(b, +∞, F * diff(fun x [x ∈ RealSet] . x)) + DefInt(b, +∞, F * diff(fun x [x ∈ RealSet] . x)))))
+21. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (y), y ∈ RealSet ∧ y ∈ D ∧ 0 < |y - y_{0}| ∧ |y - y_{0}| < δ ⇒ |DefInt(a, +∞, (fun x [x ∈ RealSet] . f(x, y)) * diff(fun x [x ∈ RealSet] . x)) - DefInt(a, +∞, (fun x [x ∈ RealSet] . f(x, y_{0})) * diff(fun x [x ∈ RealSet] . x))| < ε))
+22. lim_{ y → y_{0} } (DefInt(a, +∞, (fun x [x ∈ RealSet] . f(x, y)) * diff(fun x [x ∈ RealSet] . x))) = DefInt(a, +∞, (fun x [x ∈ RealSet] . f(x, y_{0})) * diff(fun x [x ∈ RealSet] . x))
+23. DefInt(a, +∞, (fun x [x ∈ RealSet] . f(x, y_{0})) * diff(fun x [x ∈ RealSet] . x)) = DefInt(a, +∞, (fun x [x ∈ RealSet] . lim_{ y → y_{0} } (f(x, y))) * diff(fun x [x ∈ RealSet] . x))
+24. lim_{ y → y_{0} } (DefInt(a, +∞, (fun x [x ∈ RealSet] . f(x, y)) * diff(fun x [x ∈ RealSet] . x))) = DefInt(a, +∞, (fun x [x ∈ RealSet] . lim_{ y → y_{0} } (f(x, y))) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+lim_{ y → y_{0} } (DefInt(a, +∞, (fun x [x ∈ RealSet] . f(x, y)) * diff(fun x [x ∈ RealSet] . x))) = DefInt(a, +∞, (fun x [x ∈ RealSet] . lim_{ y → y_{0} } (f(x, y))) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

@@ -1,0 +1,4 @@
+assert (hypothesis 20: {frac(2, p) = 2 * frac(1, p)})
+assert (hypothesis 21: {frac(2, q) = 2 * frac(1, q)})
+assert (hypothesis 22: {frac(2, r) = 2 * frac(1, r)})
+autosolve (hypothesis 20: {frac(2, p) = 2 * frac(1, p)}) (hypothesis 21: {frac(2, q) = 2 * frac(1, q)}) (hypothesis 22: {frac(2, r) = 2 * frac(1, r)})

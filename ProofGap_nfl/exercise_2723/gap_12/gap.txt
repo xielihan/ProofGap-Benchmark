@@ -1,0 +1,22 @@
+PROOF GAP @12
+ASSUM:
+1. A ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. C ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. u : CartesianProd(RealSet, CartesianProd(RealSet, CartesianProd(RealSet, NonNegIntegerSet))) → RealSet
+4. forall (x) (p) (q) (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ∧ x ∈ RealSet ∧ p ∈ RealSet ∧ q ∈ RealSet ∧ 0 < x ∧ x < π ∧ q > 0 ⇒ u(x, p, q, n) = frac(n^{p} * sin(n * x), 1 + n^{q})
+5. forall (x) (q) (p) (n), x ∈ RealSet ∧ 0 < x ∧ x < π ∧ q ∈ RealSet ∧ q > 0 ∧ p ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ n ≥ 1 ∧ n ∈ PosIntegerSet ⇒ frac(|sin(n * x)|, 2 * n^{q - p}) ≤ |frac(n^{p} * sin(n * x), 1 + n^{q})|
+6. forall (p) (x) (q) (n), p ∈ RealSet ∧ x ∈ RealSet ∧ 0 < x ∧ x < π ∧ q ∈ RealSet ∧ q > 0 ∧ n ∈ NonNegIntegerSet ∧ n ≥ 1 ∧ n ∈ PosIntegerSet ⇒ |frac(n^{p} * sin(n * x), 1 + n^{q})| ≤ frac(1, n^{q - p})
+7. forall (q) (p), q ∈ RealSet ∧ p ∈ RealSet ∧ q - p > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{q - p})))
+8. forall (q) (p) (x), q ∈ RealSet ∧ p ∈ RealSet ∧ x ∈ RealSet ∧ 0 < x ∧ x < π ∧ q - p > 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (u(x, p, q, n)))
+9. forall (q) (p) (x), q ∈ RealSet ∧ p ∈ RealSet ∧ x ∈ RealSet ∧ 0 < x ∧ x < π ∧ q ≤ p + 1 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (|u(x, p, q, n)|))
+10. forall (q) (p) (x), q ∈ RealSet ∧ p ∈ RealSet ∧ x ∈ RealSet ∧ 0 < x ∧ x < π ∧ q ≤ p + 1 ⇒ ¬AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (u(x, p, q, n)))
+11. forall (p) (q) (x), p ∈ RealSet ∧ q ∈ RealSet ∧ x ∈ RealSet ∧ 0 < x ∧ x < π ∧ p < q ∧ q ≤ p + 1 ⇒ BoundedSeq(fun m [m ∈ NonNegIntegerSet ∧ m ≥ 1] . sum_{ k = 1 }^{ m } (sin(k * x)))
+12. forall (p) (q), p ∈ RealSet ∧ q ∈ RealSet ∧ p < q ∧ q ≤ p + 1 ⇒ (frac(n^{p}, 1 + n^{q})) ∼_{ n → +∞ } (frac(1, n^{q - p}))
+13. forall (p) (q), p ∈ RealSet ∧ q ∈ RealSet ∧ p < q ∧ q ≤ p + 1 ⇒ seqlim_{ n → +∞ } (fun n [n ∈ NonNegIntegerSet ∧ n ≥ 1] . frac(n^{p}, 1 + n^{q})) = 0
+14. forall (p) (q) (x), p ∈ RealSet ∧ q ∈ RealSet ∧ x ∈ RealSet ∧ 0 < x ∧ x < π ∧ p < q ∧ q ≤ p + 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (u(x, p, q, n)))
+15. forall (p) (q) (x), p ∈ RealSet ∧ q ∈ RealSet ∧ x ∈ RealSet ∧ 0 < x ∧ x < π ∧ p < q ∧ q ≤ p + 1 ⇒ ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } (u(x, p, q, n)))
+
+GOAL:
+forall (q) (p) (x), q ∈ RealSet ∧ p ∈ RealSet ∧ x ∈ RealSet ∧ 0 < x ∧ x < π ∧ q ≤ p ⇒ ¬seqlim_{ n → +∞ } (u(x, p, q, n)) = 0
+
+METHOD:

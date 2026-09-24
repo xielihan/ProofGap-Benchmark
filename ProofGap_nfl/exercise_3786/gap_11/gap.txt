@@ -1,0 +1,19 @@
+PROOF GAP @11
+ASSUM:
+1. I : RealSet → RealSet
+2. forall (α), α ∈ RealSet ⇒ I(α) = DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . frac(sin(α * x), x)) * diff(fun x [x ∈ RealSet ∧ x > 0] . x))
+3. forall (α), α ∈ RealSet ∧ α > 0 ⇒ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ (exists (y), y ∈ RealSet ∧ y = α * x))
+4. forall (α), α ∈ RealSet ∧ α > 0 ⇒ I(α) = DefInt(0, +∞, (fun y [y ∈ RealSet ∧ y > 0] . frac(sin(y), y)) * diff(fun y [y ∈ RealSet ∧ y > 0] . y))
+5. forall (α), α ∈ RealSet ∧ α > 0 ⇒ I(α) = frac(π, 2)
+6. forall (α), α ∈ RealSet ∧ α > 0 ⇒ FunDeri(I, 1, 1)(α) = 0
+7. forall (α), α ∈ RealSet ∧ α < 0 ⇒ I(α) = -I(-α)
+8. forall (α), α ∈ RealSet ∧ α < 0 ⇒ I(α) = -frac(π, 2)
+9. forall (α), α ∈ RealSet ∧ α < 0 ⇒ FunDeri(I, 1, 1)(α) = 0
+10. forall (α), α ∈ RealSet ∧ α ≠ 0 ⇒ DiffableFuncAt(I, α) ∧ FunDeri(I, 1, 1)(α) = 0
+11. forall (x), x ∈ RealSet ∧ x > 0 ⇒ (forall (α), α ∈ RealSet ⇒ FunDeri(fun α [α ∈ RealSet] . frac(sin(α * x), x), 1, 1)(α) = cos(α * x))
+12. forall (α), α ∈ RealSet ∧ α ≠ 0 ⇒ DivergentSeries(DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . cos(α * x)) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)))
+
+GOAL:
+forall (α), α ∈ RealSet ∧ α ≠ 0 ⇒ ¬(DivergentSeries(DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . cos(α * x)) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x))) ⇒ FunDeri(I, 1, 1)(α) = DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . cos(α * x)) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)))
+
+METHOD:

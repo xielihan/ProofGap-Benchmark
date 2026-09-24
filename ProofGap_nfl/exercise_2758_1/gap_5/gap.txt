@@ -1,0 +1,17 @@
+PROOF GAP @5
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. g : RealSet → RealSet
+3. l ∈ RealSet
+4. l ∈ PosRealSet
+5. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ IntervalLoRo(-l, l) ⇒ f(n, x) = e^{-(x - n)^{2}}
+6. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l) ⇒ g(x) = 0
+7. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l) ⇒ seqlim_{ n → +∞ } (f(n, x)) = 0
+8. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l) ⇒ 0 = g(x)
+9. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l) ⇒ seqlim_{ n → +∞ } (f(n, x)) = g(x)
+10. forall (n), n ∈ NonNegIntegerSet ∧ n > floor(l) ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l) ⇒ |f(n, x) - g(x)| = e^{-(x - n)^{2}} ∧ e^{-(x - n)^{2}} ≤ e^{-(n - l)^{2}})
+
+GOAL:
+forall (n) (x) (ε), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l) ∧ ε ∈ RealSet ∧ ε > 0 ∧ ε < 1 ∧ n > floor(l) ∧ e^{-(n - l)^{2}} < ε ⇒ |f(n, x) - g(x)| < ε
+
+METHOD:

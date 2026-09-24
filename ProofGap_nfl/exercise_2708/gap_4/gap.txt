@@ -1,0 +1,10 @@
+PROOF GAP @4
+ASSUM:
+1. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, 2^{n})))
+2. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac((-1)^{n}, 3^{n})))
+3. sum_{ n = 1 }^{ +∞ } (frac(1, 2^{n}) + frac((-1)^{n}, 3^{n})) = (sum_{ n = 1 }^{ +∞ } (frac(1, 2^{n}))) + (sum_{ n = 1 }^{ +∞ } (frac((-1)^{n}, 3^{n})))
+
+GOAL:
+(sum_{ n = 1 }^{ +∞ } (frac(1, 2^{n}))) + (sum_{ n = 1 }^{ +∞ } (frac((-1)^{n}, 3^{n}))) = frac(1, 2) * frac(1, 1 - frac(1, 2)) + -frac(1, 3) * frac(1, 1 - -frac(1, 3))
+
+METHOD:

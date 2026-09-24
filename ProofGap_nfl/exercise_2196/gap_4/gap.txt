@@ -1,0 +1,17 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. x : NonNegIntegerSet → RealSet
+3. Δx : NonNegIntegerSet → RealSet
+4. ω : NonNegIntegerSet → RealSet
+5. d ∈ RealSet
+6. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ∧ x ≠ 0 ⇒ f(x) = frac(1, x) * floor(frac(1, x))
+7. f(0) = 0
+8. BoundedFuncOn(f, [0, 1])
+9. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ (¬ContinuousFuncAt(f, x) ⇔ x ∈ { 0 } ∪ { frac(1, n) | n ∈ PosIntegerSet, n ≥ 2 })
+10. forall (α) (β), α ∈ RealSet ∧ β ∈ RealSet ∧ 0 ≤ α ∧ α ≤ β ∧ β ≤ 1 ⇒ OscillationOn(f, [α, β]) ≤ 1
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε ≤ 3 ⇒ FiniteSet({ x | x ∈ [frac(ε, 3), 1], ¬ContinuousFuncAt(f, x) })
+
+METHOD:

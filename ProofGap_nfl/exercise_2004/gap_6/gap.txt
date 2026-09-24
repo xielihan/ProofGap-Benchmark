@@ -1,0 +1,16 @@
+PROOF GAP @6
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+3. C_{1} ∈ RealSet
+4. cos(x) ≠ 0
+5. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = tan(x)^{5} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = tan(x) * (sec(x)^{2} - 1)^{2} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+6. { `F_4` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = tan(x) * (sec(x)^{2} - 1)^{2} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_10` | exists (`F_9`) (`F_5`) (`F_6`), `F_9` : RealSet → RealSet ∧ `F_5` : RealSet → RealSet ∧ `F_6` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = sec(x)^{4} * tan(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ FunDeri(`F_6`, 1, 1)(x) = sec(x)^{2} * tan(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ FunDeri(`F_9`, 1, 1)(x) = tan(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_10`(x) = `F_5`(x) - 2 * `F_6`(x) + `F_9`(x)) }
+7. { `F_16` | exists (`F_15`) (`F_11`) (`F_12`), `F_15` : RealSet → RealSet ∧ `F_11` : RealSet → RealSet ∧ `F_12` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_11`, 1, 1)(x) = sec(x)^{4} * tan(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ FunDeri(`F_12`, 1, 1)(x) = sec(x)^{2} * tan(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ FunDeri(`F_15`, 1, 1)(x) = tan(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_16`(x) = `F_11`(x) - 2 * `F_12`(x) + `F_15`(x)) } = { `F_22` | exists (`F_21`) (`F_17`) (`F_18`), `F_21` : RealSet → RealSet ∧ `F_17` : RealSet → RealSet ∧ `F_18` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_17`, 1, 1)(x) = sec(x)^{3} * FunDeri(fun x [x ∈ RealSet] . sec(x), 1, 1)(x) ∧ FunDeri(`F_18`, 1, 1)(x) = sec(x) * FunDeri(fun x [x ∈ RealSet] . sec(x), 1, 1)(x) ∧ FunDeri(`F_21`, 1, 1)(x) = frac(1, cos(x)) * FunDeri(fun x [x ∈ RealSet] . cos(x), 1, 1)(x) ∧ `F_22`(x) = `F_17`(x) - 2 * `F_18`(x) - `F_21`(x)) }
+8. { `F_28` | exists (`F_27`) (`F_23`) (`F_24`), `F_27` : RealSet → RealSet ∧ `F_23` : RealSet → RealSet ∧ `F_24` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_23`, 1, 1)(x) = sec(x)^{3} * FunDeri(fun x [x ∈ RealSet] . sec(x), 1, 1)(x) ∧ FunDeri(`F_24`, 1, 1)(x) = sec(x) * FunDeri(fun x [x ∈ RealSet] . sec(x), 1, 1)(x) ∧ FunDeri(`F_27`, 1, 1)(x) = frac(1, cos(x)) * FunDeri(fun x [x ∈ RealSet] . cos(x), 1, 1)(x) ∧ `F_28`(x) = `F_23`(x) - 2 * `F_24`(x) - `F_27`(x)) } = { `F_29` | exists (C_{1}), C_{1} ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_29`(x) = frac(1, 4) * sec(x)^{4} - sec(x)^{2} - ln(|cos(x)|) + C_{1}) }
+9. frac(1, 4) * sec(x)^{4} - sec(x)^{2} - ln(|cos(x)|) + C_{1} = frac(1, 4) * tan(x)^{4} - frac(1, 2) * tan(x)^{2} - ln(|cos(x)|) + C
+
+GOAL:
+{ `F_30` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_30`, 1, 1)(x) = tan(x)^{5} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_31` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_31`(x) = frac(1, 4) * tan(x)^{4} - frac(1, 2) * tan(x)^{2} - ln(|cos(x)|) + C) }
+
+METHOD:

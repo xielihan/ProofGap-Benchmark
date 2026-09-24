@@ -1,0 +1,25 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. c ∈ RealSet
+4. α ∈ RealSet
+5. β ∈ RealSet
+6. γ ∈ RealSet
+7. A ∈ RealSet
+8. B ∈ RealSet
+9. C ∈ RealSet
+10. D ∈ RealSet
+11. a ≠ 0
+12. b^{2} - a * c ≠ 0
+13. forall (x), x ∈ RealSet ⇒ a * x^{2} + 2 * b * x + c ≠ 0
+14. R = (fun x [x ∈ RealSet] . frac(A * x + B, a * x^{2} + 2 * b * x + c))
+15. forall (x), x ∈ RealSet ⇒ frac(α * x^{2} + 2 * β * x + γ, (a * x^{2} + 2 * b * x + c)^{2}) = FunDeri(R, 1, 1)(x) + frac(C * x + D, a * x^{2} + 2 * b * x + c)
+16. forall (x), x ∈ RealSet ⇒ α * x^{2} + 2 * β * x + γ ≡ A * (a * x^{2} + 2 * b * x + c) - (2 * a * x + 2 * b) * (A * x + B) + (C * x + D) * (a * x^{2} + 2 * b * x + c)
+17. C = 0
+18. D = frac(2 * b * β - a * γ - c * α, 2 * (b^{2} - a * c))
+
+GOAL:
+D = 0 ⇒ (forall (x), x ∈ RealSet ⇒ FunDeri(R, 1, 1)(x) = frac(α * x^{2} + 2 * β * x + γ, (a * x^{2} + 2 * b * x + c)^{2}))
+
+METHOD:

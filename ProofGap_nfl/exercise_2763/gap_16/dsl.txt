@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ seqlim_{ n → +∞ } (F(n, x)) = f(x) ∧ ¬UniformConvergent(F, [0, 1], f)}) (x := {x0})
+get_condition (hypothesis 23: {x0 ∈ RealSet ∧ x0 ∈ [0, 1]}) in (GOAL: {x0 ∈ RealSet ∧ x0 ∈ [0, 1] ⇒ seqlim_{ n → +∞ } (F(n, x0)) = f(x0) ∧ ¬UniformConvergent(F, [0, 1], f)})
+get_prop (hypothesis 14: {forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ seqlim_{ n → +∞ } (F(n, x)) = f(x)}) (x := {x0}) as (hypothesis 24: {x0 ∈ RealSet ∧ x0 ∈ [0, 1] ⇒ seqlim_{ n → +∞ } (F(n, x0)) = f(x0)})
+use_condition (hypothesis 23: {x0 ∈ RealSet ∧ x0 ∈ [0, 1]}) in (hypothesis 24: {x0 ∈ RealSet ∧ x0 ∈ [0, 1] ⇒ seqlim_{ n → +∞ } (F(n, x0)) = f(x0)}) as (hypothesis 25: {seqlim_{ n → +∞ } (F(n, x0)) = f(x0)})
+assert (hypothesis 26: {seqlim_{ n → +∞ } (F(n, x0)) = f(x0) ∧ ¬UniformConvergent(F, [0, 1], f)}) by proof {
+  autosolve all_hypothesis
+}
+apply (hypothesis 26: {seqlim_{ n → +∞ } (F(n, x0)) = f(x0) ∧ ¬UniformConvergent(F, [0, 1], f)})

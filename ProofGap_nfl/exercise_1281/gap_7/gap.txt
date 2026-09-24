@@ -1,0 +1,19 @@
+PROOF GAP @7
+ASSUM:
+1. P : RealSet → RealSet
+2. a : NonNegIntegerSet → RealSet
+3. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+4. a(n) ≠ 0
+5. forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n ⇒ a(i) ∈ RealSet
+6. forall (i), i ∈ NonNegIntegerSet ∧ 0 ≤ i ∧ i ≤ n ⇒ (forall (x), x ∈ RealSet ⇒ P(x) = sum_{ i = 0 }^{ n } (a(i) * x^{i}))
+7. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(P, 1, 1)(x) = sum_{ i = 1 }^{ n } (i * a(i) * x^{i - 1})
+8. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(P, 1, 1)(x) = x^{n - 1} * (n * a(n) + (sum_{ i = 1 }^{ n - 1 } (frac(i * a(i), x^{n - i}))))
+9. lim_{ x → +∞ } (sum_{ i = 1 }^{ n - 1 } (frac(i * a(i), x^{n - i}))) = 0
+10. lim_{ x → -∞ } (sum_{ i = 1 }^{ n - 1 } (frac(i * a(i), x^{n - i}))) = 0
+11. exists (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ PosRealSet ∧ (forall (x), x ∈ RealSet ∧ |x| > x_{0} ⇒ |sum_{ i = 1 }^{ n - 1 } (frac(i * a(i), x^{n - i}))| < n * |a(n)|)
+12. forall (x), x ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ PosRealSet ∧ (forall (x), x ∈ RealSet ∧ |x| > x_{0} ⇒ |sum_{ i = 1 }^{ n - 1 } (frac(i * a(i), x^{n - i}))| < n * |a(n)|) ∧ -∞ < x ∧ x < -x_{0} ⇒ FunDeri(P, 1, 1)(x) > 0 ∨ FunDeri(P, 1, 1)(x) < 0)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ PosRealSet ∧ (forall (x), x ∈ RealSet ∧ |x| > x_{0} ⇒ |sum_{ i = 1 }^{ n - 1 } (frac(i * a(i), x^{n - i}))| < n * |a(n)|) ∧ -∞ < x ∧ x < -x_{0} ⇒ StrictMonoIncFuncOn(P, IntervalLoRo(-∞, -x_{0})) ∨ StrictMonoDecFuncOn(P, IntervalLoRo(-∞, -x_{0})))
+
+METHOD:

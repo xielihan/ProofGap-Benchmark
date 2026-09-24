@@ -1,0 +1,23 @@
+PROOF GAP @7
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. R : RealSet → RealSet
+6. ε ∈ RealSet
+7. a > b
+8. b > 0
+9. forall (t), t ∈ RealSet ⇒ x(t) = a * cos(t)
+10. forall (t), t ∈ RealSet ⇒ y(t) = b * sin(t)
+11. forall (t), t ∈ RealSet ∧ sin(t) ≠ 0 ⇒ FunDeri(y, x, 1)(t) = frac(b * cos(t), -a * sin(t))
+12. forall (t), t ∈ RealSet ∧ sin(t) ≠ 0 ⇒ frac(b * cos(t), -a * sin(t)) = -frac(b, a) * cot(t)
+13. forall (t), t ∈ RealSet ∧ sin(t) ≠ 0 ⇒ FunDeri(y, x, 1)(t) = -frac(b, a) * cot(t)
+14. forall (t), t ∈ RealSet ∧ sin(t) ≠ 0 ⇒ FunDeri(y, x, 2)(t) = frac(-frac(b, a) * -frac(1, sin(t)^{2}), -a * sin(t))
+15. forall (t), t ∈ RealSet ∧ sin(t) ≠ 0 ⇒ frac(-frac(b, a) * -frac(1, sin(t)^{2}), -a * sin(t)) = -frac(b, a^{2} * sin(t)^{3})
+16. forall (t), t ∈ RealSet ∧ sin(t) ≠ 0 ⇒ FunDeri(y, x, 2)(t) = -frac(b, a^{2} * sin(t)^{3})
+
+GOAL:
+forall (t), t ∈ RealSet ⇒ R(t) = frac((1 + frac(b^{2} * cot(t)^{2}, a^{2}))^{frac(3, 2)}, frac(b, a^{2} * |sin(t)|^{3}))
+
+METHOD:

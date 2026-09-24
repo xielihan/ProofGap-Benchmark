@@ -1,0 +1,17 @@
+PROOF GAP @1
+ASSUM:
+1. F : CartesianProd(RealSet, RealSet) → RealSet
+2. φ : CartesianProd(RealSet, RealSet) → RealSet
+3. ψ : CartesianProd(RealSet, RealSet) → RealSet
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ x = cos(φ(x, y)) * cos(ψ(x, y))
+5. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ⇒ y = cos(φ(x, y)) * sin(ψ(x, y))
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ F(x, y) = sin(φ(x, y))
+7. φ ∈ RealSet
+8. ψ ∈ RealSet
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ sin(φ(x, y)) * cos(φ(x, y)) ≠ 0
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ 1 = -sin(φ(x, y)) * cos(ψ(x, y)) * FunDeri(φ, 1, 1)(x, y) - cos(φ(x, y)) * sin(ψ(x, y)) * FunDeri(ψ, 1, 1)(x, y)
+
+METHOD:
+[@method 两边同时对 x 求 导数 @]

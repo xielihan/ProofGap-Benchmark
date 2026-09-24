@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet
+2. 1 - x^{2} > 0
+3. 1 - x^{2} > 0 ⇒ frac(1, (1 - x^{2}) * sqrtn(2, 1 - x^{2})) = (1 - x^{2})^{-frac(3, 2)}
+4. (1 - x^{2})^{-frac(3, 2)} = sum_{ n = 0 }^{ +∞ } (frac(prod_{ k = 0 }^{ n - 1 } (-frac(3, 2) - k), n!) * (-x^{2})^{n})
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ frac(prod_{ k = 0 }^{ n - 1 } (-frac(3, 2) - k), n!) * (-x^{2})^{n} = frac(prod_{ k = 0 }^{ n } (2 * k + 1), prod_{ k = 1 }^{ n } (2 * k)) * x^{2 * n}
+
+METHOD:

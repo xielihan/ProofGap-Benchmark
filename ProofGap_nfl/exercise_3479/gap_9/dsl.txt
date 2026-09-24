@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ FunDeri(w, 2, 1)(u(x, y), v(x, y)) ≠ 0 ⇒ A = frac(FunDeri(z, 1, 1)(x, y), FunDeri(z, 2, 1)(x, y))}) (x := {xx}) (y := {yy})
+get_condition (hypothesis 16: {xx ∈ RealSet ∧ yy ∈ RealSet ∧ FunDeri(w, 2, 1)(u(xx, yy), v(xx, yy)) ≠ 0}) in (GOAL: {xx ∈ RealSet ∧ yy ∈ RealSet ∧ FunDeri(w, 2, 1)(u(xx, yy), v(xx, yy)) ≠ 0 ⇒ A = frac(FunDeri(z, 1, 1)(xx, yy), FunDeri(z, 2, 1)(xx, yy))})
+get_prop (hypothesis 7: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ A = frac(FunDeri(z, 1, 1)(x, y), FunDeri(z, 2, 1)(x, y))}) (x := {xx}) (y := {yy}) as (hypothesis 17: {xx ∈ RealSet ∧ yy ∈ RealSet ⇒ A = frac(FunDeri(z, 1, 1)(xx, yy), FunDeri(z, 2, 1)(xx, yy))})
+use_condition (obvious: {xx ∈ RealSet ∧ yy ∈ RealSet}) in (hypothesis 17: {xx ∈ RealSet ∧ yy ∈ RealSet ⇒ A = frac(FunDeri(z, 1, 1)(xx, yy), FunDeri(z, 2, 1)(xx, yy))}) as (hypothesis 18: {A = frac(FunDeri(z, 1, 1)(xx, yy), FunDeri(z, 2, 1)(xx, yy))})
+autosolve all_hypothesis

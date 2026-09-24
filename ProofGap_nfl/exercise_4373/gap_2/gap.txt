@@ -1,0 +1,19 @@
+PROOF GAP @2
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. S_{xy} ⊆ CartesianProd(RealSet, RealSet)
+4. a ∈ RealSet
+5. x ∈ RealSet
+6. y ∈ RealSet
+7. z ∈ RealSet
+8. a ∈ PosRealSet
+9. S = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, x + y + z = frac(3, 2) * a, 0 ≤ x ∧ x ≤ a, 0 ≤ y ∧ y ≤ a, 0 ≤ z ∧ z ≤ a }
+10. C = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, (x, y, z) ∈ S }
+11. S_{xy} = { (x, y) | x ∈ RealSet, y ∈ RealSet, exists (z), z ∈ RealSet ∧ (x, y, z) ∈ S }
+12. ScalarSurfaceInt(S_{xy}, 1 * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y)) = frac(3, 4) * a^{2}
+
+GOAL:
+exists (n), n ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ∧ n = (frac(1, sqrtn(2, 3)), frac(1, sqrtn(2, 3)), frac(1, sqrtn(2, 3)))
+
+METHOD:

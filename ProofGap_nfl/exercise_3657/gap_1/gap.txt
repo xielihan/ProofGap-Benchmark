@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. F : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+3. A ∈ RealSet
+4. B ∈ RealSet
+5. C ∈ RealSet
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = A * x^{2} + 2 * B * x * y + C * y^{2}
+7. F = (fun x, y, λ [x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet] . A * x^{2} + 2 * B * x * y + C * y^{2} - λ * (x^{2} + y^{2} - 1))
+
+GOAL:
+forall (x) (y) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 1, 1)(x, y, λ) = 2 * ((A - λ) * x + B * y)
+
+METHOD:

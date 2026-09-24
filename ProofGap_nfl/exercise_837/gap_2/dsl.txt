@@ -1,0 +1,9 @@
+1. get_condition (hypothesis 8: {a = 0}) in (GOAL: {a = 0 => (forall (x), x ∈ RealSet => FunDeri(y, 1, 1)(x) = 0)})
+2. get_forall (GOAL: {forall (x), x ∈ RealSet => FunDeri(y, 1, 1)(x) = 0}) (x := {z})
+3. get_condition (hypothesis 9: {z ∈ RealSet}) in (GOAL: {z ∈ RealSet => FunDeri(y, 1, 1)(z) = 0})
+4. get_prop (hypothesis 7: {forall (x), x ∈ RealSet => FunDeri(y, 1, 1)(x) = frac(a, a + b)}) (x := {z}) as (hypothesis 10: {z ∈ RealSet => FunDeri(y, 1, 1)(z) = frac(a, a + b)})
+5. use_condition (hypothesis 9: {z ∈ RealSet}) in (hypothesis 10: {z ∈ RealSet => FunDeri(y, 1, 1)(z) = frac(a, a + b)}) as (hypothesis 11: {FunDeri(y, 1, 1)(z) = frac(a, a + b)})
+6. rewrite (left_to_right, equation) (hypothesis 11: {FunDeri(y, 1, 1)(z) = frac(a, a + b)}); from (GOAL: {FunDeri(y, 1, 1)(z) = 0}) to (GOAL: {frac(a, a + b) = 0})
+7. rewrite (left_to_right, equation) (hypothesis 8: {a = 0}); from (GOAL: {frac(a, a + b) = 0}) to (GOAL: {frac(0, 0 + b) = 0})
+8. autoreplace all_hypothesis; from (frac(0, 0 + b)) to (0); from (GOAL: {frac(0, 0 + b) = 0}) to (GOAL: {0 = 0})
+9. autosolve all_hypothesis

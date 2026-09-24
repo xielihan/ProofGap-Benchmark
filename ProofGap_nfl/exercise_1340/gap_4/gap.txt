@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. lim_{ x → 1^- } (ln(x) * ln(1 - x)) = lim_{ x → 1^- } (frac(ln(1 - x), frac(1, ln(x))))
+2. lim_{ x → 1^- } (frac(ln(1 - x), frac(1, ln(x)))) = lim_{ x → 1^- } (frac(-frac(1, 1 - x), -frac(1, x * ln(x)^{2})))
+3. lim_{ x → 1^- } (frac(-frac(1, 1 - x), -frac(1, x * ln(x)^{2}))) = lim_{ x → 1^- } (frac(x * ln(x)^{2}, 1 - x))
+
+GOAL:
+lim_{ x → 1^- } (frac(x * ln(x)^{2}, 1 - x)) = lim_{ x → 1^- } (frac(ln(x)^{2} + 2 * ln(x), -1))
+
+METHOD:
+[@method 根据 "洛必达法则" @]

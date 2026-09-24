@@ -1,0 +1,21 @@
+PROOF GAP @11
+ASSUM:
+1. y : RealSet → RealSet
+2. x ∈ RealSet
+3. FuncOfClassK(y, 3)
+4. forall (x), x ∈ RealSet ⇒ x^{2} + x * y(x) + y(x)^{2} = 3 ∧ x + 2 * y(x) ≠ 0
+5. 2 * x + y(x) + x * FunDeri(y, 1, 1)(x) + 2 * y(x) * FunDeri(y, 1, 1)(x) = 0
+6. FunDeri(y, 1, 1)(x) = -frac(2 * x + y(x), x + 2 * y(x))
+7. FunDeri(y, 1, 2)(x) = -frac((2 + FunDeri(y, 1, 1)(x)) * (x + 2 * y(x)) - (1 + 2 * FunDeri(y, 1, 1)(x)) * (2 * x + y(x)), (x + 2 * y(x))^{2})
+8. -frac((2 + FunDeri(y, 1, 1)(x)) * (x + 2 * y(x)) - (1 + 2 * FunDeri(y, 1, 1)(x)) * (2 * x + y(x)), (x + 2 * y(x))^{2}) = -frac(18, (x + 2 * y(x))^{3})
+9. FunDeri(y, 1, 2)(x) = -frac(18, (x + 2 * y(x))^{3})
+10. FunDeri(y, 1, 3)(x) = frac(54, (x + 2 * y(x))^{4}) * (1 + 2 * FunDeri(y, 1, 1)(x))
+11. frac(54, (x + 2 * y(x))^{4}) * (1 + 2 * FunDeri(y, 1, 1)(x)) = -frac(162 * x, (x + 2 * y(x))^{5})
+12. FunDeri(y, 1, 3)(x) = -frac(162 * x, (x + 2 * y(x))^{5})
+13. FunDeri(y, 1, 1)(x) = -frac(2 * x + y(x), x + 2 * y(x))
+14. FunDeri(y, 1, 2)(x) = -frac(18, (x + 2 * y(x))^{3})
+
+GOAL:
+FunDeri(y, 1, 3)(x) = -frac(162 * x, (x + 2 * y(x))^{5})
+
+METHOD:

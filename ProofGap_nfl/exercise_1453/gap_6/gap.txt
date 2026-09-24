@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = e^{-x^{2}} * cos(x^{2})
+3. MinimumPointOn(f, IntervalLoRo(-∞, +∞)) = { sqrtn(2, frac(3 * π, 4)), -sqrtn(2, frac(3 * π, 4)) }
+4. f(sqrtn(2, frac(3 * π, 4))) = -frac(sqrtn(2, 2), 2) * e^{-frac(3 * π, 4)}
+5. f(-sqrtn(2, frac(3 * π, 4))) = -frac(sqrtn(2, 2), 2) * e^{-frac(3 * π, 4)}
+6. MaximumPointOn(f, IntervalLoRo(-∞, +∞)) = { 0 }
+7. f(0) = 1
+
+GOAL:
+inf(ImageOn(f, IntervalLoRo(-∞, +∞))) = -frac(sqrtn(2, 2), 2) * e^{-frac(3 * π, 4)}
+
+METHOD:

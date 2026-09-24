@@ -1,0 +1,4 @@
+get_prop (hypothesis 2: {forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x) = frac(ln(x)^{2}, x)}) (x := {1}) as (hypothesis 9: {1 ∈ RealSet ∧ 1 > 0 ⇒ y(1) = frac(ln(1)^{2}, 1)})
+use_condition (obvious: {1 ∈ RealSet ∧ 1 > 0}) in (hypothesis 9: {1 ∈ RealSet ∧ 1 > 0 ⇒ y(1) = frac(ln(1)^{2}, 1)}) as (hypothesis 10: {y(1) = frac(ln(1)^{2}, 1)})
+rewrite (left_to_right, equation) (hypothesis 10: {y(1) = frac(ln(1)^{2}, 1)}); from (GOAL: {y(1) = 0}) to (GOAL: {frac(ln(1)^{2}, 1) = 0})
+autosolve

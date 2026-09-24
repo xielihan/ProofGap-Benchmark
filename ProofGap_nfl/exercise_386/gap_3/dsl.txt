@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (x) (y), (x ∈ RealSet /\ 0 <= x /\ x < +infty) => (y ∈ RealSet /\ 0 <= y /\ y < +infty) => x <= y => f(x) <= f(y)}) (x := {x1}) (y := {y1})
+get_condition (hypothesis 7: {x1 ∈ RealSet /\ 0 <= x1 /\ x1 < +infty}) (hypothesis 8: {y1 ∈ RealSet /\ 0 <= y1 /\ y1 < +infty}) (hypothesis 9: {x1 <= y1}) in (GOAL: {(x1 ∈ RealSet /\ 0 <= x1 /\ x1 < +infty) => (y1 ∈ RealSet /\ 0 <= y1 /\ y1 < +infty) => x1 <= y1 => f(x1) <= f(y1)})
+get_prop (hypothesis 4: {forall (x), x ∈ RealSet /\ 0 <= x /\ x < +infty => f(x) = frac(x, 1 + x)}) (x := {x1}) as (hypothesis 10: {x1 ∈ RealSet /\ 0 <= x1 /\ x1 < +infty => f(x1) = frac(x1, 1 + x1)})
+use_condition (hypothesis 7: {x1 ∈ RealSet /\ 0 <= x1 /\ x1 < +infty}) in (hypothesis 10: {x1 ∈ RealSet /\ 0 <= x1 /\ x1 < +infty => f(x1) = frac(x1, 1 + x1)}) as (hypothesis 11: {f(x1) = frac(x1, 1 + x1)})
+get_prop (hypothesis 4: {forall (x), x ∈ RealSet /\ 0 <= x /\ x < +infty => f(x) = frac(x, 1 + x)}) (x := {y1}) as (hypothesis 12: {y1 ∈ RealSet /\ 0 <= y1 /\ y1 < +infty => f(y1) = frac(y1, 1 + y1)})
+use_condition (hypothesis 8: {y1 ∈ RealSet /\ 0 <= y1 /\ y1 < +infty}) in (hypothesis 12: {y1 ∈ RealSet /\ 0 <= y1 /\ y1 < +infty => f(y1) = frac(y1, 1 + y1)}) as (hypothesis 13: {f(y1) = frac(y1, 1 + y1)})
+autosolve all_hypothesis

@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. a ∈ RealSet
+4. forall (t), t ∈ RealSet ⇒ f(t) = t^{5} - 5 * t - a
+5. forall (t), t ∈ RealSet ⇒ FunDeri(f, 1, 1)(t) = 5 * t^{4} - 5
+
+GOAL:
+FunDeri(f, 1, 1)(x) = 0 ⇔ x = -1 ∨ x = 1
+
+METHOD:

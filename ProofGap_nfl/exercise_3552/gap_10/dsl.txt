@@ -1,0 +1,18 @@
+get_forall (GOAL: {forall (x_{0}) (y_{0}) (z_{0}), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ z_{0} ∈ RealSet ∧ x_{0} * y_{0} * z_{0} = a^{3} ⇒ frac(1, 6) * |3 * x_{0} * 3 * y_{0} * 3 * z_{0}| = frac(9, 2) * a^{3}}) (x_{0} := {u}) (y_{0} := {v}) (z_{0} := {w})
+get_condition (hypothesis 11: {u ∈ RealSet ∧ v ∈ RealSet ∧ w ∈ RealSet ∧ u * v * w = a^{3}}) in (GOAL: {frac(1, 6) * |3 * u * 3 * v * 3 * w| = frac(9, 2) * a^{3}})
+destruct_and (hypothesis 1: {a ∈ RealSet ∧ a > 0}) as (hypothesis 12: {a ∈ RealSet}) (hypothesis 13: {a > 0})
+destruct_and (hypothesis 11: {u ∈ RealSet ∧ v ∈ RealSet ∧ w ∈ RealSet ∧ u * v * w = a^{3}}) as (hypothesis 14: {u ∈ RealSet}) (hypothesis 15: {v ∈ RealSet}) (hypothesis 16: {w ∈ RealSet}) (hypothesis 17: {u * v * w = a^{3}})
+assert (hypothesis 18: {3 * u * 3 * v * 3 * w = 27 * (u * v * w)}) by proof {
+  1. autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 18: {3 * u * 3 * v * 3 * w = 27 * (u * v * w)}); from (GOAL: {frac(1, 6) * |3 * u * 3 * v * 3 * w| = frac(9, 2) * a^{3}}) to (GOAL: {frac(1, 6) * |27 * (u * v * w)| = frac(9, 2) * a^{3}})
+rewrite (left_to_right, equation) (hypothesis 17: {u * v * w = a^{3}}); from (GOAL: {frac(1, 6) * |27 * (u * v * w)| = frac(9, 2) * a^{3}}) to (GOAL: {frac(1, 6) * |27 * a^{3}| = frac(9, 2) * a^{3}})
+assert (hypothesis 19: {27 * a^{3} >= 0}) by proof {
+  1. autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 490. (AbsoluteValueOfNonnegativeReal)': {forall (x), x ∈ RealSet => (x >= 0 <==> |x| = x)}) (x := {27 * a^{3}}) as (hypothesis 20: {27 * a^{3} ∈ RealSet => (27 * a^{3} >= 0 <==> |27 * a^{3}| = 27 * a^{3})})
+assert (hypothesis 21: {|27 * a^{3}| = 27 * a^{3}}) by proof {
+  1. autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 21: {|27 * a^{3}| = 27 * a^{3}}); from (GOAL: {frac(1, 6) * |27 * a^{3}| = frac(9, 2) * a^{3}}) to (GOAL: {frac(1, 6) * (27 * a^{3}) = frac(9, 2) * a^{3}})
+autosolve all_hypothesis

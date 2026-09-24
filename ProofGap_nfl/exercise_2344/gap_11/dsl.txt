@@ -1,0 +1,1 @@
+apply (hypothesis 11: {lim_{ ε → 0^+ } (DefInt(ε, +∞, (fun x [x ∈ RealSet ∧ x > 0] . frac(x * ln(x), (1 + x^{2})^{2})) * diff(fun x [x ∈ RealSet] . x))) = 0})

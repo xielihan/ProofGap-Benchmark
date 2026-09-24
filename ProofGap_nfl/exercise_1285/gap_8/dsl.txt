@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, +∞) ⇒ FunDeri(f, 1, 1)(x) > 0}) (x := {x0})
+get_condition (hypothesis 14: {x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(a, +∞)}) in (GOAL: {x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(a, +∞) ⇒ FunDeri(f, 1, 1)(x0) > 0})
+get_prop (hypothesis 5: {forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, +∞) ⇒ FunDeri(f, 1, 1)(x) > k}) (x := {x0}) as (hypothesis 15: {x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(a, +∞) ⇒ FunDeri(f, 1, 1)(x0) > k})
+use_condition (hypothesis 14: {x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(a, +∞)}) in (hypothesis 15: {x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(a, +∞) ⇒ FunDeri(f, 1, 1)(x0) > k}) as (hypothesis 16: {FunDeri(f, 1, 1)(x0) > k})
+destruct_and (hypothesis 3: {k ∈ RealSet ∧ k ∈ PosRealSet}) as (hypothesis 17: {k ∈ RealSet}) (hypothesis 18: {k ∈ PosRealSet})
+autosolve all_hypothesis

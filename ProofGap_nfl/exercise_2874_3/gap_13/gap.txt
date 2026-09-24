@@ -1,0 +1,25 @@
+PROOF GAP @13
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. h ∈ RealSet
+4. y ∈ RealSet
+5. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+6. s ∈ NonNegIntegerSet
+7. A : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+8. forall (x), x ∈ RealSet ⇒ f(x) = arctan(x)
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ 1 - x * y > 0 ⇒ arctan(x) + arctan(y) = arctan(frac(x + y, 1 - x * y))
+10. 1 + frac(x, 1 + x^{2}) * h ≠ 0 ∧ y = frac(frac(h, 1 + x^{2}), 1 + frac(x, 1 + x^{2}) * h)
+11. frac(x + y, 1 - x * y) = x + h
+12. f(x + h) - f(x) = arctan(x + h) - arctan(x)
+13. arctan(x + h) - arctan(x) = arctan(y)
+14. arctan(y) = arctan(frac(h, 1 + x^{2}) * frac(1, 1 + frac(x, 1 + x^{2}) * h))
+15. f(x + h) - f(x) = arctan(frac(h, 1 + x^{2}) * frac(1, 1 + frac(x, 1 + x^{2}) * h))
+16. forall (y), y ∈ RealSet ∧ |y| ≤ 1 ⇒ arctan(y) = sum_{ m = 0 }^{ +∞ } ((-1)^{m} * frac(y^{2 * m + 1}, 2 * m + 1))
+17. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ A(n, x) = sum_{ k = 0 }^{ floor(frac(n - 1, 2)) } ((-1)^{k} * Combination(n, 2 * k + 1) * x^{n - 2 * k - 1})
+18. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ FunDeri(f, 1, n)(x) = (-1)^{n - 1} * frac((n - 1)!, (1 + x^{2})^{n}) * A(n, x)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ FunDeri(f, 1, n)(x) = (-1)^{n - 1} * frac((n - 1)!, (1 + x^{2})^{n}) * (sum_{ k = 0 }^{ floor(frac(n - 1, 2)) } ((-1)^{k} * Combination(n, 2 * k + 1) * x^{n - 2 * k - 1}))
+
+METHOD:

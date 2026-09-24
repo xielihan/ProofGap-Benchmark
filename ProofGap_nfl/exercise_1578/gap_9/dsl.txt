@@ -1,0 +1,2 @@
+exists (h := {sqrtn(3, frac(3 * V, 5 * π))})
+autosolve all_hypothesis

@@ -1,0 +1,20 @@
+PROOF GAP @13
+ASSUM:
+1. forall (a), a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ |sin(x) - sin(a)| = 2 * |sin(frac(x - a, 2))| * |cos(frac(x + a, 2))|)
+2. forall (a), a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ 2 * |sin(frac(x - a, 2))| * |cos(frac(x + a, 2))| ≤ 2 * |sin(frac(x - a, 2))|)
+3. forall (a), a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ 2 * |sin(frac(x - a, 2))| ≤ |x - a|)
+4. forall (a), a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ |sin(x) - sin(a)| ≤ |x - a|)
+5. forall (a), a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |x - a| < ε ⇒ |sin(x) - sin(a)| < ε))
+6. forall (a), a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |x - a| < ε ⇒ |sin(x) - sin(a)| < ε))
+7. forall (a), a ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ δ = ε))
+8. forall (a), a ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ 0 < |x - a| ∧ |x - a| < δ ⇒ |sin(x) - sin(a)| < ε)))
+9. forall (a), a ∈ RealSet ⇒ lim_{ x → a } (sin(x)) = sin(a)
+10. forall (a), a ∈ RealSet ⇒ lim_{ x → a } (cos(x)) = lim_{ x → a } (sin(frac(π, 2) - x))
+11. forall (a), a ∈ RealSet ⇒ lim_{ x → a } (sin(frac(π, 2) - x)) = sin(frac(π, 2) - a)
+12. forall (a), a ∈ RealSet ⇒ sin(frac(π, 2) - a) = cos(a)
+13. forall (a), a ∈ RealSet ⇒ lim_{ x → a } (cos(x)) = cos(a)
+
+GOAL:
+forall (a), a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ (forall (n), n ∈ IntegerSet ⇒ a ≠ frac(2 * n - 1, 2) * π) ⇒ ((forall (n), n ∈ IntegerSet ⇒ x ≠ frac(2 * n - 1, 2) * π) ⇒ cos(x) ≠ 0))
+
+METHOD:

@@ -1,0 +1,32 @@
+PROOF GAP @12
+ASSUM:
+1. a ∈ RealSet ∧ a ≠ 0
+2. x ∈ RealSet ∧ x ∈ [-|a|, |a|]
+3. C ∈ RealSet
+4. A ∈ RealSet
+5. B ∈ RealSet
+6. C_{0} ∈ RealSet
+7. D ∈ RealSet
+8. E ∈ RealSet
+9. F ∈ RealSet
+10. λ ∈ RealSet
+11. P : RealSet → RealSet
+12. { `F_2` | forall (x), x ∈ RealSet ∧ -|a| < x ∧ x < |a| ⇒ FunDeri(`F_2`, 1, 1)(x) = x^{4} * sqrtn(2, a^{2} - x^{2}) * FunDeri(fun x [x ∈ RealSet ∧ -|a| < x ∧ x < |a|] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ -|a| < x ∧ x < |a| ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(x^{4} * (a^{2} - x^{2}), sqrtn(2, a^{2} - x^{2})) * FunDeri(fun x [x ∈ RealSet ∧ -|a| < x ∧ x < |a|] . x, 1, 1)(x) }
+13. forall (x), x ∈ RealSet ⇒ P(x) = A * x^{5} + B * x^{4} + C_{0} * x^{3} + D * x^{2} + E * x + F
+14. { `F_4` | forall (x), x ∈ RealSet ∧ -|a| < x ∧ x < |a| ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(x^{4} * (a^{2} - x^{2}), sqrtn(2, a^{2} - x^{2})) * FunDeri(fun x [x ∈ RealSet ∧ -|a| < x ∧ x < |a|] . x, 1, 1)(x) } = { `F_8` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ -|a| < x ∧ x < |a| ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(1, sqrtn(2, a^{2} - x^{2})) * FunDeri(fun x [x ∈ RealSet ∧ -|a| < x ∧ x < |a|] . x, 1, 1)(x) ∧ `F_8`(x) = P(x) * sqrtn(2, a^{2} - x^{2}) + λ * `F_5`(x)) }
+15. A ∈ RealSet
+16. B ∈ RealSet
+17. C_{0} ∈ RealSet
+18. D ∈ RealSet
+19. E ∈ RealSet
+20. F ∈ RealSet
+21. λ ∈ RealSet
+22. x^{4} * (a^{2} - x^{2}) ≡ (5 * A * x^{4} + 4 * B * x^{3} + 3 * C_{0} * x^{2} + 2 * D * x + E) * (a^{2} - x^{2}) - x * P(x) + λ
+23. A = frac(1, 6)
+24. B = 0
+
+GOAL:
+C_{0} = -frac(a^{2}, 24)
+
+METHOD:
+[@method 两边同时比较系数 @]

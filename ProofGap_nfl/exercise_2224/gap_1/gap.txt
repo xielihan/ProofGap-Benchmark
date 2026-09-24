@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+lim_{ n → +∞ } (frac(1, n) * (sum_{ i = 1 }^{ n } (sqrtn(2, 1 + frac(i, n))))) = lim_{ n → +∞ } (sum_{ i = 1 }^{ n } (frac(1, n) * sqrtn(2, 1 + frac(i, n))))
+
+METHOD:

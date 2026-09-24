@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. d : NonNegIntegerSet → RealSet
+2. sum_{ n = 0 }^{ +∞ } (frac(2^{n} * (n + 1), n!)) = 1 + (sum_{ n = 1 }^{ +∞ } (frac(2^{n}, (n - 1)!))) + (sum_{ n = 1 }^{ +∞ } (frac(2^{n}, n!)))
+
+GOAL:
+1 + (sum_{ n = 1 }^{ +∞ } (frac(2^{n}, (n - 1)!))) + (sum_{ n = 1 }^{ +∞ } (frac(2^{n}, n!))) = 2 * (sum_{ m = 0 }^{ +∞ } (frac(2^{m}, m!))) + (sum_{ n = 0 }^{ +∞ } (frac(2^{n}, n!)))
+
+METHOD:

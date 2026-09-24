@@ -1,0 +1,5 @@
+assert (hypothesis 13: {a ≠ 0}) by proof {
+  autosolve all_hypothesis
+}
+rewrite (right_to_left, equation) (hypothesis 12: {a * z(x, y) = x * y}); from (GOAL: {z(x, y) = frac(x * y, a)}) to (GOAL: {z(x, y) = frac(a * z(x, y), a)})
+autosolve all_hypothesis using PolyRatSolver

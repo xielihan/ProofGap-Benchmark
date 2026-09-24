@@ -1,0 +1,6 @@
+get_condition (hypothesis 26: {forall (t), t ∈ RealSet ⇒ f(t) = t * e^{-a * t}}) in (GOAL: {(forall (t), t ∈ RealSet ⇒ f(t) = t * e^{-a * t}) ⇒ F(p) = DefInt(0, +∞, t * e^{-p * t} * e^{-a * t} * diff(t))})
+get_prop (hypothesis 26: {forall (t), t ∈ RealSet ⇒ f(t) = t * e^{-a * t}}) (t := {t}) as (hypothesis 27: {t ∈ RealSet ⇒ f(t) = t * e^{-a * t}})
+use_condition (hypothesis 7: {t ∈ RealSet}) in (hypothesis 27: {t ∈ RealSet ⇒ f(t) = t * e^{-a * t}}) as (hypothesis 28: {f(t) = t * e^{-a * t}})
+rewrite (left_to_right, equation) (hypothesis 10: {F(p) = DefInt(0, +∞, e^{-p * t} * f(t) * diff(t))}); from (GOAL: {F(p) = DefInt(0, +∞, t * e^{-p * t} * e^{-a * t} * diff(t))}) to (GOAL: {DefInt(0, +∞, e^{-p * t} * f(t) * diff(t)) = DefInt(0, +∞, t * e^{-p * t} * e^{-a * t} * diff(t))})
+rewrite (left_to_right, equation) (hypothesis 28: {f(t) = t * e^{-a * t}}); from (GOAL: {DefInt(0, +∞, e^{-p * t} * f(t) * diff(t)) = DefInt(0, +∞, t * e^{-p * t} * e^{-a * t} * diff(t))}) to (GOAL: {DefInt(0, +∞, e^{-p * t} * (t * e^{-a * t}) * diff(t)) = DefInt(0, +∞, t * e^{-p * t} * e^{-a * t} * diff(t))})
+autosolve

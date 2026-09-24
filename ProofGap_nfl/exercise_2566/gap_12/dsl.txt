@@ -1,0 +1,2 @@
+1. exists (a := {a}) (b := {b}) (c := {c}) (d := {d})
+2. autosolve all_hypothesis

@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. F : RealSet → RealSet
+2. forall (a), a ∈ RealSet ⇒ F(a) = DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-(x - a)^{2}}) * diff(fun x [x ∈ RealSet] . x))
+3. forall (a), a ∈ RealSet ⇒ F(a) = DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-(x - a)^{2}}) * diff(fun x [x ∈ RealSet] . x))
+4. forall (a), a ∈ RealSet ⇒ F(a) = DefInt(-a, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x))
+5. forall (a), a ∈ RealSet ⇒ F(a) = DefInt(-a, 0, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x)) + DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x))
+6. forall (a), a ∈ RealSet ⇒ F(a) = DefInt(0, a, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x)) + frac(sqrtn(2, π), 2)
+7. ContinuousFunc(fun a [a ∈ RealSet] . DefInt(0, a, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x)))
+
+GOAL:
+ContinuousFunc(F)
+
+METHOD:

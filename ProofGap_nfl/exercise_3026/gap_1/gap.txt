@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. S : RealSet → RealSet
+2. z : RealSet → ComplexSet
+3. forall (x), x ∈ RealSet ⇒ z(x) = e^{__IMAGINARY_UNIT__ * x}
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ sum_{ n = 0 }^{ +∞ } (frac(z(x)^{n}, n!)) = e^{z(x)}
+
+METHOD:

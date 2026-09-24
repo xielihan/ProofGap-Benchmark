@@ -1,0 +1,18 @@
+PROOF GAP @10
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = x^{2} + y^{2} + z^{2} + 2 * x + 4 * y - 6 * z
+3. ContinuouslyDiffableFunc(u)
+4. diff(u) = (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . 2 * (x + 1)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . 2 * (y + 2)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . 2 * (z - 3)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)
+5. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(u, 1, 1)(x, y, z) = 2 * (x + 1)
+6. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(u, 2, 1)(x, y, z) = 2 * (y + 2)
+7. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(u, 3, 1)(x, y, z) = 2 * (z - 3)
+8. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ FunDeri(u, 1, 1)(x, y, z) = 0 ∧ FunDeri(u, 2, 1)(x, y, z) = 0 ∧ FunDeri(u, 3, 1)(x, y, z) = 0 ⇒ (x, y, z) = (-1, -2, 3)
+9. diff^{2}(u) = 2 * (diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x)^{2} + diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y)^{2} + diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)^{2})
+10. diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x)^{2} + diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y)^{2} + diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)^{2} ≠ 0 ⇒ diff^{2}(u) > 0
+11. (-1, -2, 3) ∈ MinimumPoint(u)
+
+GOAL:
+u(-1, -2, 3) = -14
+
+METHOD:

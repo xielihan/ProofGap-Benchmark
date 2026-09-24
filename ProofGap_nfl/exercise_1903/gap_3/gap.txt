@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ≠ 1 ⇒ x ∈ RealSet
+3. { `F_2` | forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x^{3}, (x - 1)^{100}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ FunDeri(`F_3`, 1, 1)(x) = frac((x - 1 + 1)^{3}, (x - 1)^{100}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+4. { `F_4` | forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ FunDeri(`F_4`, 1, 1)(x) = frac((x - 1 + 1)^{3}, (x - 1)^{100}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ FunDeri(`F_5`, 1, 1)(x) = (frac(1, (x - 1)^{97}) + frac(3, (x - 1)^{98}) + frac(3, (x - 1)^{99}) + frac(1, (x - 1)^{100})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+GOAL:
+{ `F_6` | forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ FunDeri(`F_6`, 1, 1)(x) = frac(x^{3}, (x - 1)^{100}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_7` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ `F_7`(x) = -frac(1, 96 * (x - 1)^{96}) - frac(3, 97 * (x - 1)^{97}) - frac(3, 98 * (x - 1)^{98}) - frac(1, 99 * (x - 1)^{99}) + C) }
+
+METHOD:

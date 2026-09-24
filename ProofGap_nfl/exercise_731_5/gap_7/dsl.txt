@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (a), a ∈ RealSet ∧ a ∉ IntegerSet ⇒ ¬(exists (L), L ∈ RealSet ∧ lim_{ x → a } (f(x)) = L)}) (a := {a0})
+get_condition (hypothesis 9: {a0 ∈ RealSet ∧ a0 ∉ IntegerSet}) in (GOAL: {a0 ∈ RealSet ∧ a0 ∉ IntegerSet ⇒ ¬(exists (L), L ∈ RealSet ∧ lim_{ x → a0 } (f(x)) = L)})
+get_prop (hypothesis 8: {forall (a), a ∈ RealSet ∧ a ∉ IntegerSet ⇒ ¬(exists (L), L ∈ RealSet ∧ lim_{ x → a } (f(x)) = L)}) (a := {a0}) as (hypothesis 10: {a0 ∈ RealSet ∧ a0 ∉ IntegerSet ⇒ ¬(exists (L), L ∈ RealSet ∧ lim_{ x → a0 } (f(x)) = L)})
+use_condition (hypothesis 9: {a0 ∈ RealSet ∧ a0 ∉ IntegerSet}) in (hypothesis 10: {a0 ∈ RealSet ∧ a0 ∉ IntegerSet ⇒ ¬(exists (L), L ∈ RealSet ∧ lim_{ x → a0 } (f(x)) = L)}) as (hypothesis 11: {¬(exists (L), L ∈ RealSet ∧ lim_{ x → a0 } (f(x)) = L)})
+apply (hypothesis 11: {¬(exists (L), L ∈ RealSet ∧ lim_{ x → a0 } (f(x)) = L)})

@@ -1,0 +1,1 @@
+apply (hypothesis 18: {forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > 1 ∧ x = 1 - frac(1, n) ⇒ |f(n, x) - g(x)| > ε_{0}})

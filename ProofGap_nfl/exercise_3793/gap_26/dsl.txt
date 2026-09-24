@@ -1,0 +1,9 @@
+destruct_and (hypothesis 1: {α ∈ RealSet ∧ α > 0}) as (hypothesis 29: {α ∈ RealSet}) (hypothesis 30: {α > 0})
+destruct_and (hypothesis 2: {β ∈ RealSet ∧ β > 0}) as (hypothesis 31: {β ∈ RealSet}) (hypothesis 32: {β > 0})
+get_prop (theorem 'Thm 202. (NaturalLogarithmQuotient)': {forall (x) (y), x ∈ RealSet => y ∈ RealSet => (x > 0 => y > 0 => ln (x / y) = ln(x) - ln(y))}) (x := {β}) (y := {α}) as (hypothesis 33: {β ∈ RealSet => α ∈ RealSet => (β > 0 => α > 0 => ln (β / α) = ln(β) - ln(α))})
+use_condition (hypothesis 31: {β ∈ RealSet}) in (hypothesis 33: {β ∈ RealSet => α ∈ RealSet => (β > 0 => α > 0 => ln (β / α) = ln(β) - ln(α))}) as (hypothesis 34: {α ∈ RealSet => (β > 0 => α > 0 => ln (β / α) = ln(β) - ln(α))})
+use_condition (hypothesis 29: {α ∈ RealSet}) in (hypothesis 34: {α ∈ RealSet => (β > 0 => α > 0 => ln (β / α) = ln(β) - ln(α))}) as (hypothesis 35: {β > 0 => α > 0 => ln (β / α) = ln(β) - ln(α)})
+use_condition (hypothesis 32: {β > 0}) in (hypothesis 35: {β > 0 => α > 0 => ln (β / α) = ln(β) - ln(α)}) as (hypothesis 36: {α > 0 => ln (β / α) = ln(β) - ln(α)})
+use_condition (hypothesis 30: {α > 0}) in (hypothesis 36: {α > 0 => ln (β / α) = ln(β) - ln(α)}) as (hypothesis 37: {ln (β / α) = ln(β) - ln(α)})
+rewrite (left_to_right, equation) (hypothesis 37: {ln (β / α) = ln(β) - ln(α)}); from (GOAL: {-frac(1, 2) * ln(α) + frac(1, 2) * ln(β) = frac(1, 2) * ln(frac(β, α))}) to (GOAL: {-frac(1, 2) * ln(α) + frac(1, 2) * ln(β) = frac(1, 2) * (ln(β) - ln(α))})
+autosolve all_hypothesis

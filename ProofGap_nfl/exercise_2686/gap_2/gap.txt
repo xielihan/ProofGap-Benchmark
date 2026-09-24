@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. MonoDecSeq(fun n [n ∈ NonNegIntegerSet ∧ n ≥ 2] . frac(1, ln(n)))
+
+GOAL:
+seqlim_{ n → +∞ } (frac(1, ln(n))) = 0
+
+METHOD:

@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. ContinuousFunc(fun t [t ∈ RealSet] . sqrtn(2, 1 + t^{2}))
+
+GOAL:
+ContinuousFunc(fun t [t ∈ RealSet] . frac(1, sqrtn(2, 1 + t^{4})))
+
+METHOD:

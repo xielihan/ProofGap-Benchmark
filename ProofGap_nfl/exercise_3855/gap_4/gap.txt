@@ -1,0 +1,16 @@
+PROOF GAP @4
+ASSUM:
+1. m ∈ RealSet
+2. n ∈ RealSet
+3. B : CartesianProd(RealSet, RealSet) → RealSet
+4. m > 0
+5. n ≠ 0
+6. t = x^{m}
+7. 0 ≤ x ∧ x ≤ 1 ⇒ 0 ≤ t ∧ t ≤ 1
+8. DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1, sqrtn(n, 1 - x^{m}))) * diff(fun x [x ∈ RealSet] . x)) = frac(1, m) * DefInt(0, 1, (fun t [t ∈ RealSet] . t^{frac(1, m) - 1} * (1 - t)^{-frac(1, n)}) * diff(fun t [t ∈ RealSet] . t))
+9. frac(1, m) * DefInt(0, 1, (fun t [t ∈ RealSet] . t^{frac(1, m) - 1} * (1 - t)^{-frac(1, n)}) * diff(fun t [t ∈ RealSet] . t)) = frac(1, m) * B(frac(1, m), 1 - frac(1, n))
+
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1, sqrtn(n, 1 - x^{m}))) * diff(fun x [x ∈ RealSet] . x)) = frac(1, m) * B(frac(1, m), 1 - frac(1, n))
+
+METHOD:

@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. a : NonNegIntegerSet → RealSet ∧ IsSeq(a)
+3. a(1) = sin(x)
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n + 1) = sin(a(n))
+
+GOAL:
+0 ≤ x ⇒ x ≤ π ⇒ 0 ≤ a(1)
+
+METHOD:

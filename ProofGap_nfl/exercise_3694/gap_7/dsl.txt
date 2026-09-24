@@ -1,0 +1,2 @@
+exists (x := {frac(R, 3)}) (y := {frac(2 * R, 3)}) (z := {frac(2 * R, 3)})
+autosolve all_hypothesis

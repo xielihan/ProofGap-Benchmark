@@ -1,0 +1,29 @@
+PROOF GAP @6
+ASSUM:
+1. A ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. B ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. C ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+4. L ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+5. Γ ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+6. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+7. a ∈ RealSet ∧ a > 0
+8. h ∈ RealSet ∧ h > 0
+9. x ∈ RealSet
+10. y ∈ RealSet
+11. z ∈ RealSet
+12. A = (a, 0, 0)
+13. B = (a, 0, h)
+14. C = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (exists (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ∧ x = a * cos(φ) ∧ y = a * sin(φ) ∧ z = frac(h, 2 * π) * φ) }
+15. L = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x = a ∧ y = 0 ∧ 0 ≤ z ∧ z ≤ h }
+16. Γ = C ∪ L
+17. S = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (exists (φ) (λ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ∧ λ ∈ RealSet ∧ 0 ≤ λ ∧ λ ≤ 1 ∧ x = a * ((1 - λ) + λ * cos(φ)) ∧ y = a * λ * sin(φ) ∧ z = frac(h, 2 * π) * φ) }
+18. VectorCurveInt(Γ, (x^{2} - y * z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + (y^{2} - x * z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) + (z^{2} - x * y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)) = VectorSurfaceInt(S, 0 * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) + 0 * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + 0 * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y))
+19. VectorSurfaceInt(S, 0 * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) + 0 * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + 0 * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y)) = 0
+20. VectorCurveInt(Γ, (x^{2} - y * z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + (y^{2} - x * z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) + (z^{2} - x * y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)) = 0
+21. VectorCurveInt(C, (x^{2} - y * z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + (y^{2} - x * z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) + (z^{2} - x * y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)) = VectorCurveInt(L, (x^{2} - y * z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + (y^{2} - x * z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) + (z^{2} - x * y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z))
+22. exists (x), (exists (y), x : RealSet → RealSet ∧ y : RealSet → RealSet ∧ (forall (z), z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ h ⇒ x(z) = a ∧ y(z) = 0))
+
+GOAL:
+VectorCurveInt(L, (x^{2} - y * z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + (y^{2} - x * z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) + (z^{2} - x * y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)) = DefInt(0, h, z^{2} * diff(fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ h] . z))
+
+METHOD:

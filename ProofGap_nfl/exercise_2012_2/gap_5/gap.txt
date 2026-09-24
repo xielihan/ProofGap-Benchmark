@@ -1,0 +1,14 @@
+PROOF GAP @5
+ASSUM:
+1. K : CartesianProd(IntegerSet, RealSet) → RealSet
+2. C ∈ RealSet
+3. exists (`F_1`), `F_1` : RealSet → RealSet ∧ (forall (n) (x), n ∈ IntegerSet ∧ n > 2 ∧ x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ K(n, x) = { `F_1` | forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ FunDeri(`F_1`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), cos(x)^{n}) })
+4. forall (n), n ∈ IntegerSet ∧ n > 2 ⇒ (forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ K(n, x) = { `F_3` | forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), cos(x)^{n}) })
+5. forall (n), n ∈ IntegerSet ∧ n > 2 ⇒ (forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ K(n, x) = { `F_4` | forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(sin(x)^{2} + cos(x)^{2}, cos(x)^{n}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) })
+6. forall (n), n ∈ IntegerSet ∧ n > 2 ⇒ (forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ K(n, x) = { `F_8` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ FunDeri(`F_5`, 1, 1)(x) = sin(x) * FunDeri(fun x [x ∈ RealSet ∧ cos(x) ≠ 0] . frac(1, cos(x)^{n - 1}), 1, 1)(x) ∧ `F_8`(x) = frac(1, n - 1) * `F_5`(x) + K(n - 2, x)) })
+7. forall (n), n ∈ IntegerSet ∧ n > 2 ⇒ (forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ K(n, x) = frac(sin(x), (n - 1) * cos(x)^{n - 1}) - frac(1, n - 1) * K(n - 2, x) + K(n - 2, x))
+
+GOAL:
+forall (n), n ∈ IntegerSet ∧ n > 2 ⇒ (forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ K(n, x) = frac(sin(x), (n - 1) * cos(x)^{n - 1}) + frac(n - 2, n - 1) * K(n - 2, x))
+
+METHOD:

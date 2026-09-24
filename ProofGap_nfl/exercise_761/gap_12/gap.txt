@@ -1,0 +1,19 @@
+PROOF GAP @12
+ASSUM:
+1. ε ∈ RealSet
+2. 0 ≤ ε
+3. ε < 1
+4. Y(0) = (fun x [x ∈ RealSet] . x)
+5. exists (y), y : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (Y(n, x)) = y(x))
+6. forall (y), y : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (Y(n, x)) = y(x)) ⇒ (forall (x), x ∈ RealSet ⇒ y(x) - ε * sin(y(x)) = x)
+7. forall (y), y : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (Y(n, x)) = y(x)) ⇒ (forall (x), x ∈ RealSet ⇒ (forall (z), z ∈ RealSet ∧ z - ε * sin(z) = x ⇒ z = y(x)))
+8. forall (x), x ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (n), n ∈ PosIntegerSet ⇒ |Y(n, x) - Y(n, x_{0})| = |x - x_{0} + ε * (sin(Y(n - 1, x)) - sin(Y(n - 1, x_{0})))|))
+9. forall (x), x ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (n), n ∈ PosIntegerSet ⇒ |Y(n, x) - Y(n, x_{0})| ≤ |x - x_{0}| + ε * |Y(n - 1, x) - Y(n - 1, x_{0})|))
+10. forall (x), x ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (n), n ∈ PosIntegerSet ⇒ |Y(n, x) - Y(n, x_{0})| ≤ |x - x_{0}| * (sum_{ i = 0 }^{ n } (ε^{i}))))
+11. forall (x), x ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (n), n ∈ PosIntegerSet ⇒ |x - x_{0}| * frac(1 - ε^{n + 1}, 1 - ε) ≤ frac(1, 1 - ε) * |x - x_{0}|))
+12. forall (x), x ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (n), n ∈ PosIntegerSet ⇒ |Y(n, x) - Y(n, x_{0})| ≤ frac(1, 1 - ε) * |x - x_{0}|))
+13. forall (y), y : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (Y(n, x)) = y(x)) ⇒ (forall (x), x ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ |y(x) - y(x_{0})| ≤ frac(1, 1 - ε) * |x - x_{0}|))
+GOAL:
+forall (y), y : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (Y(n, x)) = y(x)) ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ lim_{ x → x_{0} } (y(x)) = y(x_{0}))
+
+METHOD:

@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (k), k ∈ IntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ k ∈ IntegerSet ∧ n ∈ PosIntegerSet ∧ 1 ≤ k ∧ k < n ∧ n > 3 ⇒ cos(frac(k * π, n^{2})) > 0)
+
+METHOD:

@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = x * e^{-x}
+3. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = e^{-x} * (1 - x)
+4. forall (x), x ∈ RealSet ⇒ (FunDeri(y, 1, 1)(x) = 0 ⇔ x = 1)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x < 1 ⇒ FunDeri(y, 1, 1)(x) > 0
+
+METHOD:

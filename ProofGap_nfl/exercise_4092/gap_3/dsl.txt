@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 24: {w = z(u, v, w)}); from (GOAL: {z(u, v, w) = w}) to (GOAL: {z(u, v, w) = z(u, v, w)})
+autosolve all_hypothesis

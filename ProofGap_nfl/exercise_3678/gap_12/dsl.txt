@@ -1,0 +1,3 @@
+get_prop (hypothesis 6: {forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = x^{2} + 2 * y^{2} + 3 * z^{2}}) (x := {0}) (y := {0}) (z := {10}) as (hypothesis 19: {0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 10 ∈ RealSet ⇒ u(0, 0, 10) = 0^{2} + 2 * 0^{2} + 3 * 10^{2}})
+use_condition (obvious: {0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 10 ∈ RealSet}) in (hypothesis 19: {0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 10 ∈ RealSet ⇒ u(0, 0, 10) = 0^{2} + 2 * 0^{2} + 3 * 10^{2}}) as (hypothesis 20: {u(0, 0, 10) = 0^{2} + 2 * 0^{2} + 3 * 10^{2}})
+autosolve (hypothesis 20: {u(0, 0, 10) = 0^{2} + 2 * 0^{2} + 3 * 10^{2}})

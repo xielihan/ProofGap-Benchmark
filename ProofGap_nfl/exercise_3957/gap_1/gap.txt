@@ -1,0 +1,19 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet ∧ 0 < a
+2. b ∈ RealSet ∧ a < b
+3. α ∈ RealSet ∧ 0 < α
+4. β ∈ RealSet ∧ α < β
+5. f : CartesianProd(RealSet, RealSet) → RealSet
+6. Ω ⊆ CartesianProd(RealSet, RealSet)
+7. Ω' ⊆ CartesianProd(RealSet, RealSet)
+8. D : CartesianProd(RealSet, RealSet) → RealSet
+9. Ω = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet ∧ a ≤ x ∧ x ≤ b ∧ α * x ≤ y ∧ y ≤ β * x }
+10. ContinuousFuncOn(f, Ω)
+11. x ∈ RealSet ∧ a ≤ x ∧ x ≤ b ∧ u ∈ RealSet ∧ u = x
+12. y ∈ RealSet ∧ α * x ≤ y ∧ y ≤ β * x ∧ v ∈ RealSet ∧ v = frac(y, x)
+
+GOAL:
+Ω' = { (u, v) | u ∈ RealSet ∧ v ∈ RealSet ∧ a ≤ u ∧ u ≤ b ∧ α ≤ v ∧ v ≤ β }
+
+METHOD:

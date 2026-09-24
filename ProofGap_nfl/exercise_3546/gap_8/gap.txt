@@ -1,0 +1,27 @@
+PROOF GAP @8
+ASSUM:
+1. α ∈ RealSet
+2. `φ_{0}` ∈ RealSet
+3. r_{0} ∈ RealSet
+4. PlaneEq ∈ RealSet
+5. NormalEq ∈ RealSet
+6. X : CartesianProd(RealSet, RealSet) → RealSet
+7. Y : CartesianProd(RealSet, RealSet) → RealSet
+8. Z : CartesianProd(RealSet, RealSet) → RealSet
+9. M_{0} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+10. v_{1} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+11. v_{2} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+12. n ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+13. sin(α) ≠ 0
+14. forall (φ) (r), φ ∈ RealSet ∧ r ∈ RealSet ⇒ X(φ, r) = r * cos(φ)
+15. forall (φ) (r), φ ∈ RealSet ∧ r ∈ RealSet ⇒ Y(φ, r) = r * sin(φ)
+16. forall (φ) (r), φ ∈ RealSet ∧ r ∈ RealSet ⇒ Z(φ, r) = r * cot(α)
+17. M_{0} = (r_{0} * cos(`φ_{0}`), r_{0} * sin(`φ_{0}`), r_{0} * cot(α))
+18. v_{1} = (FunDeri(X, 1, 1)(`φ_{0}`, r_{0}), FunDeri(Y, 1, 1)(`φ_{0}`, r_{0}), FunDeri(Z, 1, 1)(`φ_{0}`, r_{0}))
+19. (FunDeri(X, 1, 1)(`φ_{0}`, r_{0}), FunDeri(Y, 1, 1)(`φ_{0}`, r_{0}), FunDeri(Z, 1, 1)(`φ_{0}`, r_{0})) = r_{0} * (-sin(`φ_{0}`), cos(`φ_{0}`), 0)
+20. v_{1} = r_{0} * (-sin(`φ_{0}`), cos(`φ_{0}`), 0)
+
+GOAL:
+v_{2} = (FunDeri(X, 2, 1)(`φ_{0}`, r_{0}), FunDeri(Y, 2, 1)(`φ_{0}`, r_{0}), FunDeri(Z, 2, 1)(`φ_{0}`, r_{0}))
+
+METHOD:

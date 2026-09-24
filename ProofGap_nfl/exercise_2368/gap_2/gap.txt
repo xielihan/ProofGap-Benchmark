@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x > 0 ⇒ frac(sin(x)^{2}, x) = frac(1 - cos(2 * x), 2 * x) ∧ frac(1 - cos(2 * x), 2 * x) = frac(1, 2) * (frac(1, x) - frac(cos(2 * x), x))
+
+GOAL:
+¬DefInt(1, +∞, (fun x [x ∈ RealSet ∧ x > 1] . frac(1, x)) * diff(fun x [x ∈ RealSet ∧ x > 1] . x)) ∈ RealSet
+
+METHOD:

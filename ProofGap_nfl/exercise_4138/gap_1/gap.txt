@@ -1,0 +1,17 @@
+PROOF GAP @1
+ASSUM:
+1. E ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. Mass ∈ RealSet
+3. x_{0} ∈ RealSet
+4. y_{0} ∈ RealSet
+5. z_{0} ∈ RealSet
+6. x ∈ RealSet
+7. y ∈ RealSet
+8. z ∈ RealSet
+9. ω ∈ RealSet
+10. E = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x^{2} + y^{2} ≤ 2 * z, z ≤ x + y }
+
+GOAL:
+{ (x, y) | x ∈ RealSet ∧ y ∈ RealSet, exists (z), z ∈ RealSet ∧ (x, y, z) ∈ E } = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet, (x - 1)^{2} + (y - 1)^{2} ≤ 2 }
+
+METHOD:

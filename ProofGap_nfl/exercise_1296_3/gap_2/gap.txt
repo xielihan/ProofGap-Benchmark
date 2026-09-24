@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. Delta : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. a ∈ RealSet ∧ a ∈ PosRealSet
+3. b ∈ RealSet ∧ b ∈ PosRealSet
+4. forall (s), s ∈ RealSet ∧ s ≠ 0 ⇒ Delta(s, a, b) = frac(a^{s} + b^{s}, 2)^{frac(1, s)}
+5. forall (t), t ∈ RealSet ⇒ Delta(0, a, b) = lim_{ t → 0 } (Delta(t, a, b))
+6. 0 < a ⇒ a < b ⇒ lim_{ s → -∞ } (Delta(s, a, b)) = lim_{ s → -∞ } (a * (frac(1, 2) + frac(1, 2) * frac(b, a)^{s})^{frac(1, s)})
+
+GOAL:
+0 < a ⇒ a < b ⇒ lim_{ s → -∞ } (a * (frac(1, 2) + frac(1, 2) * frac(b, a)^{s})^{frac(1, s)}) = a
+
+METHOD:

@@ -1,0 +1,26 @@
+PROOF GAP @15
+ASSUM:
+1. N ∈ NonNegIntegerSet
+2. R : NonNegIntegerSet → RealSet
+3. Δ : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ R(N) = sum_{ n = N + 1 }^{ +∞ } (frac(2^{n}, (n + 1)!)))
+5. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ k! > frac(k, e)^{k}
+6. forall (N), N ∈ NonNegIntegerSet ⇒ (forall (n), N ∈ PosIntegerSet ∧ n ∈ IntegerSet ∧ n ≥ N + 1 ⇒ frac(2^{n}, (n + 1)!) < 2^{n} * frac(e, n + 1)^{n + 1})
+7. forall (N), N ∈ NonNegIntegerSet ⇒ (forall (n), N ∈ PosIntegerSet ∧ n ∈ IntegerSet ∧ n ≥ N + 1 ⇒ 2^{n} * frac(e, n + 1)^{n + 1} = frac(1, n + 1) * frac(2 * e, n + 1)^{n})
+8. forall (N), N ∈ NonNegIntegerSet ⇒ (forall (n), N ∈ PosIntegerSet ∧ n ∈ IntegerSet ∧ n ≥ N + 1 ⇒ frac(1, n + 1) * frac(2 * e, n + 1)^{n} ≤ frac(1, N + 2) * frac(2 * e, N + 2)^{n})
+9. forall (N), N ∈ NonNegIntegerSet ⇒ (forall (n), N ∈ PosIntegerSet ∧ n ∈ IntegerSet ∧ n ≥ N + 1 ⇒ frac(1, N + 2) * frac(2 * e, N + 2)^{n} = frac(1, 2 * e) * frac(2 * e, N + 2)^{N + 2} * frac(2 * e, N + 2)^{n - (N + 1)})
+10. forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ R(N) < frac(1, 2 * e) * frac(2 * e, N + 2)^{N + 2} * (sum_{ n = N + 1 }^{ +∞ } (frac(2 * e, N + 2)^{n - (N + 1)}))
+11. forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ R(N) < frac(1, 2 * e) * frac(2 * e, N + 2)^{N + 2} * (sum_{ l = 0 }^{ +∞ } (frac(2 * e, N + 2)^{l}))
+12. forall (N), N ∈ NonNegIntegerSet ∧ N ≥ 4 ⇒ frac(2 * e, N + 2) < 1
+13. forall (N), N ∈ NonNegIntegerSet ∧ N ≥ 4 ⇒ R(N) < frac(1, 2 * e) * frac(2 * e, N + 2)^{N + 2} * frac(1, 1 - frac(2 * e, N + 2))
+14. forall (N), N ∈ NonNegIntegerSet ∧ N ≥ 4 ⇒ Δ(N) = frac(1, 2 * e) * frac(2 * e, N + 2)^{N + 2} * frac(1, 1 - frac(2 * e, N + 2))
+15. forall (N), N ∈ NonNegIntegerSet ∧ N = 11 ⇒ R(N) < Δ(N)
+16. forall (N), N ∈ NonNegIntegerSet ∧ N = 11 ⇒ Δ(N) = frac(1, 2 * e) * frac(2 * e, 13)^{13} * frac(1, 1 - frac(2 * e, 13))
+17. forall (N), N ∈ NonNegIntegerSet ∧ N = 11 ⇒ Δ(N) ≤ frac(13, 15.126 * e) * frac(2 * e, 13)^{13}
+18. forall (N), N ∈ NonNegIntegerSet ∧ N = 11 ⇒ Δ(N) ≈_{ 10^{-5} } 10^{-5.42266}
+19. forall (N), N ∈ NonNegIntegerSet ∧ N = 11 ⇒ Δ(N) < 10^{-5}
+
+GOAL:
+forall (N), N ∈ NonNegIntegerSet ∧ N = 11 ⇒ R(N) < 10^{-5}
+
+METHOD:

@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. DefInt(0, π, (fun x [x ∈ RealSet] . (x * sin(x))^{2}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 2) * DefInt(0, π, (fun x [x ∈ RealSet] . x^{2} * (1 - cos(2 * x))) * diff(fun x [x ∈ RealSet] . x))
+2. frac(1, 2) * DefInt(0, π, (fun x [x ∈ RealSet] . x^{2} * (1 - cos(2 * x))) * diff(fun x [x ∈ RealSet] . x)) = ((fun x [x ∈ RealSet] . frac(1, 6) * x^{3})|_{0}^{π}) - frac(1, 2) * DefInt(0, π, (fun x [x ∈ RealSet] . x^{2} * cos(2 * x)) * diff(fun x [x ∈ RealSet] . x))
+3. ((fun x [x ∈ RealSet] . frac(1, 6) * x^{3})|_{0}^{π}) - frac(1, 2) * DefInt(0, π, (fun x [x ∈ RealSet] . x^{2} * cos(2 * x)) * diff(fun x [x ∈ RealSet] . x)) = ((fun x [x ∈ RealSet] . frac(π^{3}, 6) - frac(x^{2}, 4) * sin(2 * x))|_{0}^{π}) + frac(1, 2) * DefInt(0, π, (fun x [x ∈ RealSet] . x * sin(2 * x)) * diff(fun x [x ∈ RealSet] . x))
+4. ((fun x [x ∈ RealSet] . frac(π^{3}, 6) - frac(x^{2}, 4) * sin(2 * x))|_{0}^{π}) + frac(1, 2) * DefInt(0, π, (fun x [x ∈ RealSet] . x * sin(2 * x)) * diff(fun x [x ∈ RealSet] . x)) = ((fun x [x ∈ RealSet] . frac(π^{3}, 6) - frac(x, 4) * cos(2 * x))|_{0}^{π}) + frac(1, 4) * DefInt(0, π, (fun x [x ∈ RealSet] . cos(2 * x)) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+DefInt(0, π, (fun x [x ∈ RealSet] . (x * sin(x))^{2}) * diff(fun x [x ∈ RealSet] . x)) = frac(π^{3}, 6) - frac(π, 4)
+
+METHOD:

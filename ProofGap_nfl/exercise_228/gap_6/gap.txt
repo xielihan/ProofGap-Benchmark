@@ -1,0 +1,15 @@
+PROOF GAP @6
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = sinh(x)
+3. forall (x), x ∈ RealSet ⇒ sinh(x) = frac(1, 2) * (e^{x} - e^{-x})
+4. forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t = y(x) ⇒ 2 * t = e^{x} - e^{-x})
+5. forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t = y(x) ⇒ (e^{x})^{2} - 2 * t * e^{x} - 1 = 0)
+6. forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t = y(x) ⇒ e^{x} = t + sqrtn(2, 1 + t^{2}))
+7. forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t = y(x) ⇒ x = ln(t + sqrtn(2, 1 + t^{2})))
+8. forall (t), t ∈ RealSet ⇒ InverseFunc(y, t) = arcsinh(t) ∧ arcsinh(t) = ln(t + sqrtn(2, 1 + t^{2}))
+
+GOAL:
+InverseFunc(y) = (fun t [t ∈ RealSet] . ln(t + sqrtn(2, 1 + t^{2})))
+
+METHOD:

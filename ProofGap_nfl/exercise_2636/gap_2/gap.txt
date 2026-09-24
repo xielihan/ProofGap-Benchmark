@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. u : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = cos(frac(a, n))^{n^{3}}
+4. a = 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = 1)
+
+GOAL:
+a = 0 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (u(n)))
+
+METHOD:

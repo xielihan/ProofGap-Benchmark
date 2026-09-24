@@ -1,0 +1,7 @@
+1. get_forall (GOAL: {forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x''` ∈ RealSet ∧ `x'` ∈ [-10, 10] ∧ `x''` ∈ [-10, 10] ∧ y(`x'`) ≠ y(`x''`) ∧ y(`x'`)^{2} + y(`x'`) * y(`x''`) + y(`x''`)^{2} ≠ 0 ⇒ y(`x''`) = sqrtn(3, `x''`))}) (`x'` := {x1})
+2. get_condition (hypothesis 6: {x1 ∈ RealSet}) in (GOAL: {x1 ∈ RealSet ⇒ (forall (`x''`), `x''` ∈ RealSet ∧ x1 ∈ [-10, 10] ∧ `x''` ∈ [-10, 10] ∧ y(x1) ≠ y(`x''`) ∧ y(x1)^{2} + y(x1) * y(`x''`) + y(`x''`)^{2} ≠ 0 ⇒ y(`x''`) = sqrtn(3, `x''`))})
+3. get_forall (GOAL: {forall (`x''`), `x''` ∈ RealSet ∧ x1 ∈ [-10, 10] ∧ `x''` ∈ [-10, 10] ∧ y(x1) ≠ y(`x''`) ∧ y(x1)^{2} + y(x1) * y(`x''`) + y(`x''`)^{2} ≠ 0 ⇒ y(`x''`) = sqrtn(3, `x''`)}) (`x''` := {x2})
+4. get_condition (hypothesis 7: {x2 ∈ RealSet ∧ x1 ∈ [-10, 10] ∧ x2 ∈ [-10, 10] ∧ y(x1) ≠ y(x2) ∧ y(x1)^{2} + y(x1) * y(x2) + y(x2)^{2} ≠ 0}) in (GOAL: {x2 ∈ RealSet ∧ x1 ∈ [-10, 10] ∧ x2 ∈ [-10, 10] ∧ y(x1) ≠ y(x2) ∧ y(x1)^{2} + y(x1) * y(x2) + y(x2)^{2} ≠ 0 ⇒ y(x2) = sqrtn(3, x2)})
+5. destruct_and (hypothesis 7: {x2 ∈ RealSet ∧ x1 ∈ [-10, 10] ∧ x2 ∈ [-10, 10] ∧ y(x1) ≠ y(x2) ∧ y(x1)^{2} + y(x1) * y(x2) + y(x2)^{2} ≠ 0}) as (hypothesis 8: {x2 ∈ RealSet}) (hypothesis 9: {x1 ∈ [-10, 10]}) (hypothesis 10: {x2 ∈ [-10, 10]}) (hypothesis 11: {y(x1) ≠ y(x2)}) (hypothesis 12: {y(x1)^{2} + y(x1) * y(x2) + y(x2)^{2} ≠ 0})
+6. get_prop (hypothesis 4: {forall (x), x ∈ RealSet ∧ x ∈ [-10, 10] ⇒ y(x) = sqrtn(3, x)}) (x := {x2}) as (hypothesis 13: {x2 ∈ RealSet ∧ x2 ∈ [-10, 10] ⇒ y(x2) = sqrtn(3, x2)})
+7. autosolve all_hypothesis

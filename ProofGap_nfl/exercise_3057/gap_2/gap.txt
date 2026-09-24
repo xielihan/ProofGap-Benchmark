@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. x ≠ 0
+3. P = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . prod_{ k = 1 }^{ n } (cosh(frac(x, 2^{k}))))
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ P(n) = frac(sinh(x), 2^{n} * sinh(frac(x, 2^{n})))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ P(n) = frac(sinh(x), x) * frac(frac(x, 2^{n}), sinh(frac(x, 2^{n})))
+
+METHOD:

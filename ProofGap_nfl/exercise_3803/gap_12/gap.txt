@@ -1,0 +1,23 @@
+PROOF GAP @12
+ASSUM:
+1. I ∈ RealSet
+2. a ∈ RealSet ∧ a > 0
+3. b ∈ RealSet
+4. n ∈ NonNegIntegerSet
+5. I = DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x))
+6. I = DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x)) ⇒ (forall (u), u ∈ RealSet ∧ u > 0 ⇒ I = u * DefInt(0, +∞, (fun t [t ∈ RealSet] . e^{-(u^{2} * t^{2})}) * diff(fun t [t ∈ RealSet] . t)))
+7. I = DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x)) ⇒ (forall (u), u ∈ RealSet ∧ u > 0 ⇒ I^{2} = DefInt(0, +∞, (fun u [u ∈ RealSet] . e^{-u^{2}}) * diff(fun u [u ∈ RealSet] . u)) * DefInt(0, +∞, (fun t [t ∈ RealSet] . u * e^{-(u^{2} * t^{2})}) * diff(fun t [t ∈ RealSet] . t)))
+8. I = DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x)) ⇒ (forall (u) (t), u ∈ RealSet ∧ t ∈ RealSet ∧ u ≥ 0 ∧ t ≥ 0 ⇒ u * e^{-((1 + t^{2}) * u^{2})} ≥ 0)
+9. I = DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x)) ⇒ ContinuousFuncOn(fun u, t [u ∈ RealSet ∧ t ∈ RealSet] . u * e^{-((1 + t^{2}) * u^{2})}, CartesianProd([0, +∞), [0, +∞)))
+10. I = DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x)) ⇒ (forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ DefInt(0, +∞, (fun u [u ∈ RealSet] . e^{-((1 + t^{2}) * u^{2})} * u) * diff(fun u [u ∈ RealSet] . u)) = frac(1, 2 * (1 + t^{2})))
+11. I = DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x)) ⇒ (forall (u), u ∈ RealSet ∧ u > 0 ⇒ DefInt(0, +∞, (fun t [t ∈ RealSet] . e^{-((1 + t^{2}) * u^{2})} * u) * diff(fun t [t ∈ RealSet] . t)) = e^{-u^{2}} * I)
+12. I = DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x)) ⇒ I^{2} = DefInt(0, +∞, (fun t [t ∈ RealSet] . DefInt(0, +∞, (fun u [u ∈ RealSet] . e^{-((1 + t^{2}) * u^{2})} * u) * diff(fun u [u ∈ RealSet] . u))) * diff(fun t [t ∈ RealSet] . t))
+13. I = DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x)) ⇒ I^{2} = frac(1, 2) * DefInt(0, +∞, (fun t [t ∈ RealSet] . frac(1, 1 + t^{2})) * diff(fun t [t ∈ RealSet] . t))
+14. I = DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x)) ⇒ frac(1, 2) * DefInt(0, +∞, (fun t [t ∈ RealSet] . frac(1, 1 + t^{2})) * diff(fun t [t ∈ RealSet] . t)) = frac(π, 4)
+15. I = DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x)) ⇒ I^{2} = frac(π, 4)
+16. I = DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x)) ⇒ I > 0
+
+GOAL:
+I = DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x)) ⇒ I = frac(sqrtn(2, π), 2)
+
+METHOD:

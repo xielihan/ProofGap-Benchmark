@@ -1,0 +1,26 @@
+1. get_prop (hypothesis 20: {forall (φ), φ ∈ RealSet ∧ φ ≤ `φ_{2}` ⇒ `φ_{1}` ≤ φ}) (φ := {`φ_{2}`}) as (hypothesis 29: {`φ_{2}` ∈ RealSet ∧ `φ_{2}` ≤ `φ_{2}` ⇒ `φ_{1}` ≤ `φ_{2}`})
+2. assert (hypothesis 30: {`φ_{2}` ∈ RealSet ∧ `φ_{2}` ≤ `φ_{2}`}) by proof {
+  1. autosolve all_hypothesis
+}
+3. use_condition (hypothesis 30: {`φ_{2}` ∈ RealSet ∧ `φ_{2}` ≤ `φ_{2}`}) in (hypothesis 29: {`φ_{2}` ∈ RealSet ∧ `φ_{2}` ≤ `φ_{2}` ⇒ `φ_{1}` ≤ `φ_{2}`}) as (hypothesis 31: {`φ_{1}` ≤ `φ_{2}`})
+4. get_prop (hypothesis 28: {forall (φ) (ψ), φ ∈ RealSet ∧ `φ_{1}` ≤ φ ∧ φ ≤ `φ_{2}` ∧ ψ ∈ RealSet ∧ `ψ_{1}` ≤ ψ ∧ ψ ≤ `ψ_{2}` ⇒ G = R^{2} * cos(φ)^{2} * sin(ψ)^{2} + R^{2} * sin(φ)^{2} * sin(ψ)^{2} + R^{2} * cos(ψ)^{2}}) (φ := {`φ_{2}`}) (ψ := {`ψ_{2}`}) as (hypothesis 32: {`φ_{2}` ∈ RealSet ∧ `φ_{1}` ≤ `φ_{2}` ∧ `φ_{2}` ≤ `φ_{2}` ∧ `ψ_{2}` ∈ RealSet ∧ `ψ_{1}` ≤ `ψ_{2}` ∧ `ψ_{2}` ≤ `ψ_{2}` ⇒ G = R^{2} * cos(`φ_{2}`)^{2} * sin(`ψ_{2}`)^{2} + R^{2} * sin(`φ_{2}`)^{2} * sin(`ψ_{2}`)^{2} + R^{2} * cos(`ψ_{2}`)^{2}})
+5. assert (hypothesis 33: {`φ_{2}` ∈ RealSet ∧ `φ_{1}` ≤ `φ_{2}` ∧ `φ_{2}` ≤ `φ_{2}` ∧ `ψ_{2}` ∈ RealSet ∧ `ψ_{1}` ≤ `ψ_{2}` ∧ `ψ_{2}` ≤ `ψ_{2}`}) by proof {
+  1. autosolve all_hypothesis
+}
+6. use_condition (hypothesis 33: {`φ_{2}` ∈ RealSet ∧ `φ_{1}` ≤ `φ_{2}` ∧ `φ_{2}` ≤ `φ_{2}` ∧ `ψ_{2}` ∈ RealSet ∧ `ψ_{1}` ≤ `ψ_{2}` ∧ `ψ_{2}` ≤ `ψ_{2}`}) in (hypothesis 32: {`φ_{2}` ∈ RealSet ∧ `φ_{1}` ≤ `φ_{2}` ∧ `φ_{2}` ≤ `φ_{2}` ∧ `ψ_{2}` ∈ RealSet ∧ `ψ_{1}` ≤ `ψ_{2}` ∧ `ψ_{2}` ≤ `ψ_{2}` ⇒ G = R^{2} * cos(`φ_{2}`)^{2} * sin(`ψ_{2}`)^{2} + R^{2} * sin(`φ_{2}`)^{2} * sin(`ψ_{2}`)^{2} + R^{2} * cos(`ψ_{2}`)^{2}}) as (hypothesis 34: {G = R^{2} * cos(`φ_{2}`)^{2} * sin(`ψ_{2}`)^{2} + R^{2} * sin(`φ_{2}`)^{2} * sin(`ψ_{2}`)^{2} + R^{2} * cos(`ψ_{2}`)^{2}})
+7. get_prop (theorem 'Thm 168. (PythagoreanTrigonometricIdentity)': {forall (x), x ∈ RealSet ⇒ sin(x)^{2} + cos(x)^{2} = 1}) (x := {`φ_{2}`}) as (hypothesis 35: {`φ_{2}` ∈ RealSet ⇒ sin(`φ_{2}`)^{2} + cos(`φ_{2}`)^{2} = 1})
+8. use_condition (hypothesis 3: {`φ_{2}` ∈ RealSet}) in (hypothesis 35: {`φ_{2}` ∈ RealSet ⇒ sin(`φ_{2}`)^{2} + cos(`φ_{2}`)^{2} = 1}) as (hypothesis 36: {sin(`φ_{2}`)^{2} + cos(`φ_{2}`)^{2} = 1})
+9. get_prop (theorem 'Thm 168. (PythagoreanTrigonometricIdentity)': {forall (x), x ∈ RealSet ⇒ sin(x)^{2} + cos(x)^{2} = 1}) (x := {`ψ_{2}`}) as (hypothesis 37: {`ψ_{2}` ∈ RealSet ⇒ sin(`ψ_{2}`)^{2} + cos(`ψ_{2}`)^{2} = 1})
+10. use_condition (hypothesis 5: {`ψ_{2}` ∈ RealSet}) in (hypothesis 37: {`ψ_{2}` ∈ RealSet ⇒ sin(`ψ_{2}`)^{2} + cos(`ψ_{2}`)^{2} = 1}) as (hypothesis 38: {sin(`ψ_{2}`)^{2} + cos(`ψ_{2}`)^{2} = 1})
+11. rewrite (left_to_right, equation) (hypothesis 34: {G = R^{2} * cos(`φ_{2}`)^{2} * sin(`ψ_{2}`)^{2} + R^{2} * sin(`φ_{2}`)^{2} * sin(`ψ_{2}`)^{2} + R^{2} * cos(`ψ_{2}`)^{2}}); from (GOAL: {G = R^{2}}) to (GOAL: {R^{2} * cos(`φ_{2}`)^{2} * sin(`ψ_{2}`)^{2} + R^{2} * sin(`φ_{2}`)^{2} * sin(`ψ_{2}`)^{2} + R^{2} * cos(`ψ_{2}`)^{2} = R^{2}})
+12. assert (hypothesis 39: {R^{2} * cos(`φ_{2}`)^{2} * sin(`ψ_{2}`)^{2} + R^{2} * sin(`φ_{2}`)^{2} * sin(`ψ_{2}`)^{2} + R^{2} * cos(`ψ_{2}`)^{2} = R^{2} * (sin(`φ_{2}`)^{2} + cos(`φ_{2}`)^{2}) * sin(`ψ_{2}`)^{2} + R^{2} * cos(`ψ_{2}`)^{2}}) by proof {
+  1. autosolve all_hypothesis
+}
+13. rewrite (left_to_right, equation) (hypothesis 39: {R^{2} * cos(`φ_{2}`)^{2} * sin(`ψ_{2}`)^{2} + R^{2} * sin(`φ_{2}`)^{2} * sin(`ψ_{2}`)^{2} + R^{2} * cos(`ψ_{2}`)^{2} = R^{2} * (sin(`φ_{2}`)^{2} + cos(`φ_{2}`)^{2}) * sin(`ψ_{2}`)^{2} + R^{2} * cos(`ψ_{2}`)^{2}}); from (GOAL: {R^{2} * cos(`φ_{2}`)^{2} * sin(`ψ_{2}`)^{2} + R^{2} * sin(`φ_{2}`)^{2} * sin(`ψ_{2}`)^{2} + R^{2} * cos(`ψ_{2}`)^{2} = R^{2}}) to (GOAL: {R^{2} * (sin(`φ_{2}`)^{2} + cos(`φ_{2}`)^{2}) * sin(`ψ_{2}`)^{2} + R^{2} * cos(`ψ_{2}`)^{2} = R^{2}})
+14. rewrite (left_to_right, equation) (hypothesis 36: {sin(`φ_{2}`)^{2} + cos(`φ_{2}`)^{2} = 1}); from (GOAL: {R^{2} * (sin(`φ_{2}`)^{2} + cos(`φ_{2}`)^{2}) * sin(`ψ_{2}`)^{2} + R^{2} * cos(`ψ_{2}`)^{2} = R^{2}}) to (GOAL: {R^{2} * 1 * sin(`ψ_{2}`)^{2} + R^{2} * cos(`ψ_{2}`)^{2} = R^{2}})
+15. assert (hypothesis 40: {R^{2} * 1 * sin(`ψ_{2}`)^{2} + R^{2} * cos(`ψ_{2}`)^{2} = R^{2} * (sin(`ψ_{2}`)^{2} + cos(`ψ_{2}`)^{2})}) by proof {
+  1. autosolve all_hypothesis
+}
+16. rewrite (left_to_right, equation) (hypothesis 40: {R^{2} * 1 * sin(`ψ_{2}`)^{2} + R^{2} * cos(`ψ_{2}`)^{2} = R^{2} * (sin(`ψ_{2}`)^{2} + cos(`ψ_{2}`)^{2})}); from (GOAL: {R^{2} * 1 * sin(`ψ_{2}`)^{2} + R^{2} * cos(`ψ_{2}`)^{2} = R^{2}}) to (GOAL: {R^{2} * (sin(`ψ_{2}`)^{2} + cos(`ψ_{2}`)^{2}) = R^{2}})
+17. rewrite (left_to_right, equation) (hypothesis 38: {sin(`ψ_{2}`)^{2} + cos(`ψ_{2}`)^{2} = 1}); from (GOAL: {R^{2} * (sin(`ψ_{2}`)^{2} + cos(`ψ_{2}`)^{2}) = R^{2}}) to (GOAL: {R^{2} * 1 = R^{2}})
+18. autosolve all_hypothesis

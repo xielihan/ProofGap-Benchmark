@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+ContinuousFuncOn(fun x [x ∈ RealSet] . frac(1, sqrtn(2, 1 + x^{4})), [0, 1])
+
+METHOD:

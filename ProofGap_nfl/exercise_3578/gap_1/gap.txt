@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. ρ ∈ RealSet ∧ ρ ∈ PosRealSet
+2. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+
+GOAL:
+forall (x) (a) (y) (b) (z) (c), x ∈ RealSet ∧ a ∈ RealSet ∧ y ∈ RealSet ∧ b ∈ RealSet ∧ z ∈ RealSet ∧ c ∈ RealSet ⇒ (x - a)^{2} + (y - b)^{2} + (z - c)^{2} = ρ^{2}
+
+METHOD:

@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet
+3. y : RealSet → RealSet
+4. V_{x} ∈ RealSet
+5. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ⇒ y(x) = b * frac(x, a)^{frac(2, 3)}
+
+GOAL:
+V_{x} = π * b^{2} * DefInt(0, a, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . frac(x, a)^{frac(4, 3)}) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

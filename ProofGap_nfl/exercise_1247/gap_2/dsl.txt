@@ -1,0 +1,1 @@
+apply (hypothesis 2: {forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ θ(x) = frac(1, 4) + frac(1, 2) * (sqrtn(2, x * (x + 1)) - x)})

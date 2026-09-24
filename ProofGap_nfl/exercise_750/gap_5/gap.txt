@@ -1,0 +1,27 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. m : RealSet → RealSet
+3. M : RealSet → RealSet
+4. `m̅` : RealSet → RealSet
+5. `M̅` : RealSet → RealSet
+6. a ∈ RealSet
+7. b ∈ RealSet
+8. p ∈ RealSet ∧ a < p ∧ p < b
+9. ξ ∈ RealSet
+10. a < b
+11. Defined(f, [a, b])
+12. BoundedFuncOn(f, [a, b])
+13. forall (x), x ∈ RealSet ∧ a < x ∧ x ≤ b ⇒ m(x) = inf({ f(ξ) | a ≤ ξ ∧ ξ < x })
+14. forall (x), x ∈ RealSet ∧ a < x ∧ x ≤ b ⇒ M(x) = sup({ f(ξ) | a ≤ ξ ∧ ξ < x })
+15. forall (x), x ∈ RealSet ∧ a ≤ x ∧ x < b ⇒ `m̅`(x) = inf({ f(ξ) | a ≤ ξ ∧ ξ ≤ x })
+16. forall (x), x ∈ RealSet ∧ a ≤ x ∧ x < b ⇒ `M̅`(x) = sup({ f(ξ) | a ≤ ξ ∧ ξ ≤ x })
+17. forall (x_{0}), x_{0} ∈ RealSet ∧ a < x_{0} ∧ x_{0} ≤ b ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (`ξ_{0}`), `ξ_{0}` ∈ RealSet ∧ `ξ_{0}` ∈ [a, x_{0}] ∧ `ξ_{0}` < x_{0} ∧ f(`ξ_{0}`) < m(x_{0}) + ε))
+18. forall (x_{0}), x_{0} ∈ RealSet ∧ a < x_{0} ∧ x_{0} ≤ b ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (`ξ_{0}`), `ξ_{0}` ∈ RealSet ∧ `ξ_{0}` ∈ [a, x_{0}] ∧ `ξ_{0}` < x_{0} ∧ (forall (x), x ∈ RealSet ∧ `ξ_{0}` < x ∧ x < x_{0} ⇒ m(x_{0}) ≤ m(x))))
+19. forall (x_{0}), x_{0} ∈ RealSet ∧ a < x_{0} ∧ x_{0} ≤ b ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (`ξ_{0}`), `ξ_{0}` ∈ RealSet ∧ `ξ_{0}` ∈ [a, x_{0}] ∧ `ξ_{0}` < x_{0} ∧ (forall (x), x ∈ RealSet ∧ `ξ_{0}` < x ∧ x < x_{0} ⇒ m(x) ≤ f(`ξ_{0}`))))
+20. forall (x_{0}), x_{0} ∈ RealSet ∧ a < x_{0} ∧ x_{0} ≤ b ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (`ξ_{0}`), `ξ_{0}` ∈ RealSet ∧ `ξ_{0}` ∈ [a, x_{0}] ∧ `ξ_{0}` < x_{0} ∧ (forall (x), x ∈ RealSet ∧ `ξ_{0}` < x ∧ x < x_{0} ⇒ m(x_{0}) ≤ m(x))))
+
+GOAL:
+forall (x_{0}), x_{0} ∈ RealSet ∧ a < x_{0} ∧ x_{0} ≤ b ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (`ξ_{0}`), `ξ_{0}` ∈ RealSet ∧ `ξ_{0}` ∈ [a, x_{0}] ∧ `ξ_{0}` < x_{0} ∧ (forall (x), x ∈ RealSet ∧ `ξ_{0}` < x ∧ x < x_{0} ⇒ m(x) < m(x_{0}) + ε)))
+
+METHOD:

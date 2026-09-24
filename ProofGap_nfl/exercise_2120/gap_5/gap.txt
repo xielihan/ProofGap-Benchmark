@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. forall (x), x ∈ RealSet
+2. forall (x), x ∈ RealSet ⇒ cosh(x) > 0
+3. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = tanh(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(sinh(x), cosh(x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+4. { `F_4` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(sinh(x), cosh(x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_5`(x) = ln(cosh(x)) + C) }
+
+GOAL:
+{ `F_6` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_6`, 1, 1)(x) = tanh(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_7` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_7`(x) = ln(cosh(x)) + C) }
+
+METHOD:

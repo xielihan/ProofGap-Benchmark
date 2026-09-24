@@ -1,0 +1,27 @@
+PROOF GAP @15
+ASSUM:
+1. f_{1} = (fun x [x ∈ RealSet] . x^{2})
+2. g_{1} = (fun x [x ∈ RealSet] . |x|)
+3. F_{1} = (fun x [x ∈ RealSet] . f_{1}(g_{1}(x)))
+4. g_{1}(0) = 0
+5. DiffableFuncAt(f_{1}, 0)
+6. FunDeri(f_{1}, 1, 1)(0) = 0
+7. ¬DiffableFuncAt(g_{1}, 0)
+8. forall (x), x ∈ RealSet ⇒ F_{1}(x) = f_{1}(g_{1}(x)) ∧ f_{1}(g_{1}(x)) = x^{2}
+9. DiffableFuncAt(F_{1}, 0)
+10. FunDeri(F_{1}, 1, 1)(0) = 0
+11. f_{2} = (fun x [x ∈ RealSet] . x)
+12. g_{2} = (fun x [x ∈ RealSet] . |x|)
+13. F_{2} = (fun x [x ∈ RealSet] . f_{2}(g_{2}(x)))
+14. g_{2}(0) = 0
+15. DiffableFuncAt(f_{2}, 0)
+16. FunDeri(f_{2}, 1, 1)(0) = 1
+17. ¬DiffableFuncAt(g_{2}, 0)
+18. forall (x), x ∈ RealSet ⇒ F_{2}(x) = f_{2}(g_{2}(x)) ∧ f_{2}(g_{2}(x)) = |x|
+19. ¬DiffableFuncAt(F_{2}, 0)
+20. exists (f_{1}) (g_{1}) (F_{1}) (x_{0}), f_{1} : RealSet → RealSet ∧ g_{1} : RealSet → RealSet ∧ F_{1} : RealSet → RealSet ∧ x_{0} ∈ RealSet ∧ DiffableFuncAt(f_{1}, g_{1}(x_{0})) ∧ ¬DiffableFuncAt(g_{1}, x_{0}) ∧ (forall (x), x ∈ RealSet ⇒ F_{1}(x) = f_{1}(g_{1}(x)) ∧ DiffableFuncAt(F_{1}, x_{0}))
+
+GOAL:
+exists (f_{2}) (g_{2}) (F_{2}) (x_{0}), f_{2} : RealSet → RealSet ∧ g_{2} : RealSet → RealSet ∧ F_{2} : RealSet → RealSet ∧ x_{0} ∈ RealSet ∧ DiffableFuncAt(f_{2}, g_{2}(x_{0})) ∧ ¬DiffableFuncAt(g_{2}, x_{0}) ∧ (forall (x), x ∈ RealSet ⇒ F_{2}(x) = f_{2}(g_{2}(x)) ∧ ¬DiffableFuncAt(F_{2}, x_{0}))
+
+METHOD:

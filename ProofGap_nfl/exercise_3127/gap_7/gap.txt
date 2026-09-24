@@ -1,0 +1,22 @@
+PROOF GAP @7
+ASSUM:
+1. B : CartesianProd(PosIntegerSet, CartesianProd(PosIntegerSet, RealSet)) → RealSet
+2. B_{1} : RealSet → RealSet
+3. B_{2} : RealSet → RealSet
+4. B_{3} : RealSet → RealSet
+5. n ∈ PosIntegerSet
+6. forall (m) (x), m ∈ PosIntegerSet ∧ x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ B(n, m, x) = sum_{ k = 0 }^{ n } ((frac(k, n))^{m} * Combination(n, k) * x^{k} * (1 - x)^{n-k})
+7. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ B_{1}(x) = B(n, 1, x)
+8. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ B_{2}(x) = B(n, 2, x)
+9. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ B_{3}(x) = B(n, 3, x)
+10. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ B_{1}(x) = sum_{ k = 0 }^{ n } (frac(k, n) * Combination(n, k) * x^{k} * (1 - x)^{n - k})
+11. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ B_{1}(x) = x * (sum_{ k = 0 }^{ n - 1 } (Combination(n - 1, k) * x^{k} * (1 - x)^{n - k - 1})) ∧ x * (sum_{ k = 0 }^{ n - 1 } (Combination(n - 1, k) * x^{k} * (1 - x)^{n - k - 1})) = x
+12. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ n ≥ 2 ⇒ B_{2}(x) = sum_{ k = 0 }^{ n } (frac(k^{2}, n^{2}) * Combination(n, k) * x^{k} * (1 - x)^{n - k})
+13. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ n ≥ 2 ⇒ B_{2}(x) = x - frac(n - 1, n) * x * (1 - x) ∧ x - frac(n - 1, n) * x * (1 - x) = x^{2} + frac(x * (1 - x), n)
+14. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ n ≥ 3 ⇒ B_{3}(x) = sum_{ k = 0 }^{ n } (frac(k^{3}, n^{3}) * Combination(n, k) * x^{k} * (1 - x)^{n - k})
+15. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ n ≥ 3 ⇒ B_{3}(x) = B_{2}(x) - frac(n - 1, n^{2}) * x * (1 - x) * (1 + (n - 2) * x)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ n ≥ 3 ⇒ B_{3}(x) = (1 - frac(1, n)) * (1 - frac(2, n)) * x^{3} + frac(3, n) * (1 - frac(1, n)) * x^{2} + frac(1, n^{2}) * x
+
+METHOD:

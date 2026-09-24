@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 11: {L = ScalarCurveInt(C, diff(fun s [s ∈ RealSet] . s))}); from (GOAL: {M * ScalarCurveInt(C, diff(fun s [s ∈ RealSet] . s)) = L * M}) to (GOAL: {M * ScalarCurveInt(C, diff(fun s [s ∈ RealSet] . s)) = ScalarCurveInt(C, diff(fun s [s ∈ RealSet] . s)) * M})
+autosolve (hypothesis 5: {M ∈ RealSet})

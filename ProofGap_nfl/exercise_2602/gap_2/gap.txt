@@ -1,0 +1,15 @@
+PROOF GAP @2
+ASSUM:
+1. p ∈ RealSet
+2. q ∈ RealSet
+3. u : NonNegIntegerSet → RealSet
+4. k ∈ NonNegIntegerSet
+5. p > 0
+6. q > 0
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = frac(n! * n^{-p}, prod_{ k = 0 }^{ n } (q + k))
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(u(n), u(n + 1)) = frac(n + 1, n)^{p} * (1 + frac(q, n + 1))
+
+GOAL:
+seqlim_{ n → +∞ } (n * (frac(u(n), u(n + 1)) - 1)) = seqlim_{ n → +∞ } (n * ((1 + frac(1, n))^{p} * (1 + frac(q, n + 1)) - 1))
+
+METHOD:

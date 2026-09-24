@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(z, 2, 1)(x, y) = -y)}) (x := {a})
+get_condition (hypothesis 12: {a ∈ RealSet}) in (GOAL: {a ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(z, 2, 1)(a, y) = -y)})
+get_forall (GOAL: {forall (y), y ∈ RealSet ⇒ FunDeri(z, 2, 1)(a, y) = -y}) (y := {b})
+get_condition (hypothesis 13: {b ∈ RealSet}) in (GOAL: {b ∈ RealSet ⇒ FunDeri(z, 2, 1)(a, b) = -b})
+autosolve all_hypothesis

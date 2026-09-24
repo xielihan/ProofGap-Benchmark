@@ -1,0 +1,9 @@
+rewrite (left_to_right, equation) (hypothesis 11: {Y = frac(1, sqrtn(2, 6)) * x - frac(2, sqrtn(2, 6)) * y + frac(1, sqrtn(2, 6)) * z}); from (GOAL: {y = -frac(sqrtn(2, 6), 3) * Y + frac(1, sqrtn(2, 3)) * Z}) to (GOAL: {y = -frac(sqrtn(2, 6), 3) * (frac(1, sqrtn(2, 6)) * x - frac(2, sqrtn(2, 6)) * y + frac(1, sqrtn(2, 6)) * z) + frac(1, sqrtn(2, 3)) * Z})
+rewrite (left_to_right, equation) (hypothesis 12: {Z = frac(1, sqrtn(2, 3)) * x + frac(1, sqrtn(2, 3)) * y + frac(1, sqrtn(2, 3)) * z}); from (GOAL: {y = -frac(sqrtn(2, 6), 3) * (frac(1, sqrtn(2, 6)) * x - frac(2, sqrtn(2, 6)) * y + frac(1, sqrtn(2, 6)) * z) + frac(1, sqrtn(2, 3)) * Z}) to (GOAL: {y = -frac(sqrtn(2, 6), 3) * (frac(1, sqrtn(2, 6)) * x - frac(2, sqrtn(2, 6)) * y + frac(1, sqrtn(2, 6)) * z) + frac(1, sqrtn(2, 3)) * (frac(1, sqrtn(2, 3)) * x + frac(1, sqrtn(2, 3)) * y + frac(1, sqrtn(2, 3)) * z)})
+get_prop (theorem 'Thm 450. (SquareRootSquareCancellation)': {forall (u), u ∈ RealSet => u >= 0 => sqrtn(2, u)^2 = u}) (u := {6}) as (hypothesis 17: {6 ∈ RealSet => 6 >= 0 => sqrtn(2, 6)^2 = 6})
+use_condition (obvious: {6 ∈ RealSet}) (obvious: {6 >= 0}) in (hypothesis 17: {6 ∈ RealSet => 6 >= 0 => sqrtn(2, 6)^2 = 6}) as (hypothesis 18: {sqrtn(2, 6)^2 = 6})
+get_prop (theorem 'Thm 450. (SquareRootSquareCancellation)': {forall (u), u ∈ RealSet => u >= 0 => sqrtn(2, u)^2 = u}) (u := {3}) as (hypothesis 19: {3 ∈ RealSet => 3 >= 0 => sqrtn(2, 3)^2 = 3})
+use_condition (obvious: {3 ∈ RealSet}) (obvious: {3 >= 0}) in (hypothesis 19: {3 ∈ RealSet => 3 >= 0 => sqrtn(2, 3)^2 = 3}) as (hypothesis 20: {sqrtn(2, 3)^2 = 3})
+assert (hypothesis 21: {frac(sqrtn(2, 6), 3) * frac(1, sqrtn(2, 6)) = frac(1, 3)})
+assert (hypothesis 22: {frac(1, sqrtn(2, 3)) * frac(1, sqrtn(2, 3)) = frac(1, 3)})
+autosolve all_hypothesis

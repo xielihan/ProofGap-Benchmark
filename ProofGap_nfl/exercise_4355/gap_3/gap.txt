@@ -1,0 +1,21 @@
+PROOF GAP @3
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. D ⊆ CartesianProd(RealSet, RealSet)
+4. a ∈ RealSet ∧ a > 0
+5. `ρ_0` ∈ RealSet ∧ `ρ_0` > 0
+6. M ∈ RealSet
+7. x_{0} ∈ RealSet
+8. y_{0} ∈ RealSet
+9. z_{0} ∈ RealSet
+10. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = sqrtn(2, x^{2} + y^{2}))
+11. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ S = { (x, y, z(x, y)) | x ∈ RealSet ∧ y ∈ RealSet, x^{2} + y^{2} ≤ a * x })
+12. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ D = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet, x^{2} + y^{2} ≤ a * x })
+13. M = ScalarSurfaceInt(S, `ρ_0` * diff(S))
+14. ScalarSurfaceInt(S, `ρ_0` * diff(S)) = sqrtn(2, 2) * `ρ_0` * VolumeInt(D, diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+
+GOAL:
+sqrtn(2, 2) * `ρ_0` * VolumeInt(D, diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = sqrtn(2, 2) * `ρ_0` * frac(a, 2)^{2} * π
+
+METHOD:

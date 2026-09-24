@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. S : NonNegIntegerSet → RealSet
+2. ε_{0} ∈ RealSet
+3. k ∈ NonNegIntegerSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ S(n) = sum_{ k = 1 }^{ n } (frac(1, k))
+5. 0 < ε_{0}
+6. ε_{0} < frac(1, 2)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ (forall (p), p ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ p = n ⇒ |S(n + p) - S(n)| = sum_{ k = n + 1 }^{ 2 * n } (frac(1, k)))
+
+METHOD:

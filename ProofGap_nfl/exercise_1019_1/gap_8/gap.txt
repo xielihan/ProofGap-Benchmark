@@ -1,0 +1,18 @@
+PROOF GAP @8
+ASSUM:
+1. a = 0
+2. b = frac(π, 2)
+3. f = (fun x [x ∈ RealSet ∧ x ≠ 0] . frac(1, x) + cos(frac(1, x)))
+4. DiffableFuncOn(f, IntervalLoRo(0, frac(π, 2)))
+5. lim_{ x → 0^+ } (f(x)) = +∞
+6. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, frac(π, 2)) ⇒ FunDeri(f, 1, 1)(x) = -frac(1, x^{2}) + frac(1, x^{2}) * sin(frac(1, x))
+7. p = (fun k [k ∈ NonNegIntegerSet] . frac(1, 2 * k * π + frac(π, 2)))
+8. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ p(k) ∈ IntervalLoRo(0, frac(π, 2)) ∧ lim_{ k → +∞ } (p(k)) = 0
+9. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ FunDeri(f, 1, 1)(p(k)) = 0
+10. seqlim_{ k → +∞ } (FunDeri(f, 1, 1)(p(k))) = 0
+11. ¬lim_{ x → 0^+ } (FunDeri(f, 1, 1)(x)) = +∞
+
+GOAL:
+¬(forall (f) (a) (b), f : RealSet → RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ a < b ∧ DiffableFuncOn(f, IntervalLoRo(a, b)) ∧ lim_{ x → a^+ } (f(x)) = +∞ ⇒ lim_{ x → a^+ } (FunDeri(f, 1, 1)(x)) = +∞)
+
+METHOD:

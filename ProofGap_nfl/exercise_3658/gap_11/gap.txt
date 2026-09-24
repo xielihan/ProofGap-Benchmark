@@ -1,0 +1,21 @@
+PROOF GAP @11
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. F : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = cos(x)^{2} + cos(y)^{2}
+4. F = (fun x, y, λ [x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet] . cos(x)^{2} + cos(y)^{2} + λ * (x - y - frac(π, 4)))
+5. forall (x) (y) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 1, 1)(x, y, λ) = -sin(2 * x) + λ
+6. forall (x) (y) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 2, 1)(x, y, λ) = -sin(2 * y) - λ
+7. exists (x) (λ), x ∈ RealSet ∧ λ ∈ RealSet ∧ -sin(2 * x) + λ = 0
+8. exists (y) (λ), y ∈ RealSet ∧ λ ∈ RealSet ∧ -sin(2 * y) - λ = 0
+9. exists (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x - y = frac(π, 4)
+10. exists (x) (y), x : IntegerSet → RealSet ∧ y : IntegerSet → RealSet ∧ (forall (k), k ∈ IntegerSet ⇒ x(k) = frac(π, 8) + frac(k * π, 2) ∧ y(k) = -frac(π, 8) + frac(k * π, 2))
+11. exists (x) (y), x : IntegerSet → RealSet ∧ y : IntegerSet → RealSet ∧ (forall (k), k ∈ IntegerSet ∧ Even(k) ⇒ z(x(k), y(k)) = 1 + frac(1, sqrtn(2, 2)))
+12. exists (x) (y), x : IntegerSet → RealSet ∧ y : IntegerSet → RealSet ∧ (forall (k), k ∈ IntegerSet ∧ Odd(k) ⇒ z(x(k), y(k)) = 1 - frac(1, sqrtn(2, 2)))
+13. PeriodicFunc(z, π)
+14. exists (x) (y), x : IntegerSet → RealSet ∧ y : IntegerSet → RealSet ∧ { (u, v) | u ∈ RealSet, v ∈ RealSet, u - v = frac(π, 4), forall (a) (b), a ∈ RealSet ∧ b ∈ RealSet ∧ a - b = frac(π, 4) ⇒ z(a, b) ≤ z(u, v) } = { (x(k), y(k)) | k ∈ IntegerSet, Even(k) }
+
+GOAL:
+exists (x) (y), x : IntegerSet → RealSet ∧ y : IntegerSet → RealSet ∧ { (u, v) | u ∈ RealSet, v ∈ RealSet, u - v = frac(π, 4), forall (a) (b), a ∈ RealSet ∧ b ∈ RealSet ∧ a - b = frac(π, 4) ⇒ z(u, v) ≤ z(a, b) } = { (x(k), y(k)) | k ∈ IntegerSet, Odd(k) }
+
+METHOD:

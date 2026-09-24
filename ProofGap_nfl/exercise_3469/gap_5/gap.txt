@@ -1,0 +1,17 @@
+PROOF GAP @5
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. ξ : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+3. η : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+4. ζ : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+5. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ ξ(x, y, z) = x ∧ η(x, y, z) = y - x ∧ ζ(x, y, z) = z - x
+6. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(u, 1, 1)(x, y, z) + FunDeri(u, 2, 1)(x, y, z) + FunDeri(u, 3, 1)(x, y, z) = 0
+7. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(u, 1, 1)(x, y, z) = FunDeri(u, ξ, 1)(x, y, z) * FunDeri(ξ, 1, 1)(x, y, z) + FunDeri(u, η, 1)(x, y, z) * FunDeri(η, 1, 1)(x, y, z) + FunDeri(u, ζ, 1)(x, y, z) * FunDeri(ζ, 1, 1)(x, y, z)
+8. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(u, 1, 1)(x, y, z) = FunDeri(u, ξ, 1)(x, y, z) - FunDeri(u, η, 1)(x, y, z) - FunDeri(u, ζ, 1)(x, y, z)
+9. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(u, 2, 1)(x, y, z) = FunDeri(u, η, 1)(x, y, z)
+10. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(u, 3, 1)(x, y, z) = FunDeri(u, ζ, 1)(x, y, z)
+
+GOAL:
+forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(u, ξ, 1)(x, y, z) = 0
+
+METHOD:

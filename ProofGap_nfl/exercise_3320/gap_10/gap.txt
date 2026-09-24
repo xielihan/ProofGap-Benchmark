@@ -1,0 +1,26 @@
+PROOF GAP @10
+ASSUM:
+1. x : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. y : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+3. z : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+4. f : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+5. F : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+6. DiffableFunc(f)
+7. DiffableFunc(F)
+8. forall (u) (v) (w), u ∈ RealSet ∧ v ∈ RealSet ∧ w ∈ RealSet ⇒ x(u, v, w) ≠ 0 ∧ y(u, v, w) ≠ 0 ∧ z(u, v, w) ≠ 0
+9. forall (u) (v) (w), u ∈ RealSet ∧ v ∈ RealSet ∧ w ∈ RealSet ⇒ x(u, v, w)^{2} = v * w ∧ y(u, v, w)^{2} = u * w ∧ z(u, v, w)^{2} = u * v
+10. forall (u) (v) (w), u ∈ RealSet ∧ v ∈ RealSet ∧ w ∈ RealSet ⇒ f(x(u, v, w), y(u, v, w), z(u, v, w)) = F(u, v, w)
+11. forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ⇒ (forall (w), u ∈ RealSet ∧ v ∈ RealSet ∧ w ∈ RealSet ⇒ u * FunDeri(F, 1, 1)(u, v, w) = u * FunDeri(f, 1, 1)(x(u, v, w), y(u, v, w), z(u, v, w)) * FunDeri(x, 1, 1)(u, v, w) + u * FunDeri(f, 2, 1)(x(u, v, w), y(u, v, w), z(u, v, w)) * FunDeri(y, 1, 1)(u, v, w) + u * FunDeri(f, 3, 1)(x(u, v, w), y(u, v, w), z(u, v, w)) * FunDeri(z, 1, 1)(u, v, w)))
+12. forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ⇒ (forall (w), u ∈ RealSet ∧ v ∈ RealSet ∧ w ∈ RealSet ⇒ v * FunDeri(F, 2, 1)(u, v, w) = v * FunDeri(f, 1, 1)(x(u, v, w), y(u, v, w), z(u, v, w)) * FunDeri(x, 2, 1)(u, v, w) + v * FunDeri(f, 2, 1)(x(u, v, w), y(u, v, w), z(u, v, w)) * FunDeri(y, 2, 1)(u, v, w) + v * FunDeri(f, 3, 1)(x(u, v, w), y(u, v, w), z(u, v, w)) * FunDeri(z, 2, 1)(u, v, w)))
+13. forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ⇒ (forall (w), u ∈ RealSet ∧ v ∈ RealSet ∧ w ∈ RealSet ⇒ w * FunDeri(F, 3, 1)(u, v, w) = w * FunDeri(f, 1, 1)(x(u, v, w), y(u, v, w), z(u, v, w)) * FunDeri(x, 3, 1)(u, v, w) + w * FunDeri(f, 2, 1)(x(u, v, w), y(u, v, w), z(u, v, w)) * FunDeri(y, 3, 1)(u, v, w) + w * FunDeri(f, 3, 1)(x(u, v, w), y(u, v, w), z(u, v, w)) * FunDeri(z, 3, 1)(u, v, w)))
+14. forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ⇒ (forall (w), u ∈ RealSet ∧ v ∈ RealSet ∧ w ∈ RealSet ⇒ FunDeri(x, 1, 1)(u, v, w) = 0))
+15. forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ⇒ (forall (w), u ∈ RealSet ∧ v ∈ RealSet ∧ w ∈ RealSet ⇒ FunDeri(y, 2, 1)(u, v, w) = 0))
+16. forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ⇒ (forall (w), u ∈ RealSet ∧ v ∈ RealSet ∧ w ∈ RealSet ⇒ FunDeri(z, 3, 1)(u, v, w) = 0))
+17. forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ⇒ (forall (w), u ∈ RealSet ∧ v ∈ RealSet ∧ w ∈ RealSet ⇒ 2 * x(u, v, w) * FunDeri(x, 3, 1)(u, v, w) = v))
+18. forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ⇒ (forall (w), u ∈ RealSet ∧ v ∈ RealSet ∧ w ∈ RealSet ⇒ 2 * x(u, v, w) * FunDeri(x, 2, 1)(u, v, w) = w))
+19. forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ⇒ (forall (w), u ∈ RealSet ∧ v ∈ RealSet ∧ w ∈ RealSet ⇒ 2 * y(u, v, w) * FunDeri(y, 1, 1)(u, v, w) = w))
+
+GOAL:
+forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ⇒ (forall (w), u ∈ RealSet ∧ v ∈ RealSet ∧ w ∈ RealSet ⇒ 2 * y(u, v, w) * FunDeri(y, 3, 1)(u, v, w) = u))
+
+METHOD:

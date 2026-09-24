@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0 ⇒ z(x, y) = x^{2} + x * y + y^{2} - 4 * ln(x) - 10 * ln(y)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ⇒ FunDeri(z, 1, 1)(x, y) = 2 * x + y - frac(4, x)
+
+METHOD:

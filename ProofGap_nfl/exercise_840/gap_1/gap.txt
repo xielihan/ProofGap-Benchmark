@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. α ∈ RealSet
+3. x ∈ RealSet
+4. forall (x), x ∈ RealSet ⇒ y(x) = (x * sin(α) + cos(α)) * (x * cos(α) - sin(α))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = sin(α) * (x * cos(α) - sin(α)) + cos(α) * (x * sin(α) + cos(α))
+
+METHOD:

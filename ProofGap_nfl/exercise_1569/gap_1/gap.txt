@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. R ∈ RealSet ∧ R > 0
+2. h : RealSet → RealSet
+3. f : RealSet → RealSet
+4. r ∈ RealSet ∧ 0 < r ∧ r < R
+5. forall (r), r ∈ RealSet ∧ 0 < r ∧ r < R ⇒ h(r) = sqrtn(2, R^{2} - r^{2})
+6. forall (r), r ∈ RealSet ∧ 0 < r ∧ r < R ⇒ f(r) = 2 * π * r^{2} * h(r)
+
+GOAL:
+r^{2} + h(r)^{2} = R^{2}
+
+METHOD:

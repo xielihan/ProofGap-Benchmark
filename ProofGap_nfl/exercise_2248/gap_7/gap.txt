@@ -1,0 +1,14 @@
+PROOF GAP @7
+ASSUM:
+1. t : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ IntervalCC(0, ln(2)) ∧ t(x) = sqrtn(2, e^{x} - 1) ⇒ 0 ≤ x
+3. forall (x), x ∈ RealSet ∧ x ∈ IntervalCC(0, ln(2)) ∧ t(x) = sqrtn(2, e^{x} - 1) ⇒ x ≤ ln(2)
+4. forall (x), x ∈ RealSet ∧ x ∈ IntervalCC(0, ln(2)) ∧ t(x) = sqrtn(2, e^{x} - 1) ⇒ 0 ≤ t(x)
+5. forall (x), x ∈ RealSet ∧ x ∈ IntervalCC(0, ln(2)) ∧ t(x) = sqrtn(2, e^{x} - 1) ⇒ t(x) ≤ 1
+6. forall (x), x ∈ RealSet ∧ x ∈ IntervalCC(0, ln(2)) ∧ t(x) = sqrtn(2, e^{x} - 1) ⇒ e^{x} = 1 + t(x)^{2}
+7. forall (x), x ∈ RealSet ∧ x ∈ IntervalCC(0, ln(2)) ∧ t(x) = sqrtn(2, e^{x} - 1) ⇒ diff(fun x [x ∈ RealSet ∧ x ∈ IntervalCC(0, ln(2))] . x) = (fun x [x ∈ RealSet ∧ x ∈ IntervalCC(0, ln(2))] . frac(2 * t(x), 1 + t(x)^{2})) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalCC(0, ln(2))] . t(x))
+
+GOAL:
+DefInt(0, ln(2), (fun x [x ∈ RealSet ∧ x ∈ IntervalCC(0, ln(2))] . sqrtn(2, e^{x} - 1)) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalCC(0, ln(2))] . x)) = 2 * DefInt(0, 1, (fun t [t ∈ RealSet ∧ t ∈ IntervalCC(0, 1)] . frac(t^{2}, 1 + t^{2})) * diff(fun t [t ∈ RealSet ∧ t ∈ IntervalCC(0, 1)] . t))
+
+METHOD:

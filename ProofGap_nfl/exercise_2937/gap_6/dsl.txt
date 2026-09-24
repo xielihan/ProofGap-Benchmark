@@ -1,0 +1,2 @@
+rewrite (right_to_left, equation) (hypothesis 14: {a(0) = frac(1, π) * DefInt(-π, π, (fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . sum_{ i = 0 }^{ N } (α(i) * cos(i * x) + β(i) * sin(i * x))) * diff(fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . x))}); from (hypothesis 15: {frac(1, π) * DefInt(-π, π, (fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . sum_{ i = 0 }^{ N } (α(i) * cos(i * x) + β(i) * sin(i * x))) * diff(fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . x)) = 2 * α(0)}) to (hypothesis 16: {a(0) = 2 * α(0)})
+autosolve all_hypothesis

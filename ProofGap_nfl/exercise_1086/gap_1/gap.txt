@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. Y : CartesianProd(RealSet, RealSet) → RealSet
+2. a ∈ RealSet ∧ a ≠ 0
+3. x ∈ RealSet
+4. forall (a) (x), a ∈ RealSet ∧ a ≠ 0 ⇒ x ∈ RealSet ⇒ Y(a, x) = frac(1, a) * arctan(frac(x, a))
+
+GOAL:
+FunDeri(Y(a), 1, 1)(x) = frac(1, a) * frac(1, a) * frac(1, 1 + frac(x^{2}, a^{2}))
+
+METHOD:

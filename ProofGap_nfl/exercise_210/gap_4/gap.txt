@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. IsFunc(f) ∧ IsFuncOn(g, RealSet, RealSet)
+2. forall (x), x ∈ RealSet ⇒ g(x) = frac(x, sqrtn(2, 1 + x^{2}))
+3. forall (n) (x), n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ ((n = 1 ⇒ f(n, x) = g(x)) ∧ (n > 1 ⇒ f(n, x) = g(f(n - 1, x))))
+4. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n = 1 ⇒ f(n, x) = frac(x, sqrtn(2, 1 + x^{2}))
+5. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n = 2 ⇒ f(n, x) = frac(x, sqrtn(2, 1 + 2 * x^{2}))
+6. forall (k) (n) (x), k ∈ PosIntegerSet ∧ n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ f(k, x) = frac(x, sqrtn(2, 1 + k * x^{2}))) ∧ n = k + 1 ⇒ f(n, x) = frac(frac(x, sqrtn(2, 1 + k * x^{2})), sqrtn(2, 1 + frac(x^{2}, 1 + k * x^{2})))
+
+GOAL:
+forall (k) (n) (x), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ f(k, x) = frac(x, sqrtn(2, 1 + k * x^{2}))) ∧ n = k + 1 ⇒ frac(frac(x, sqrtn(2, 1 + k * x^{2})), sqrtn(2, 1 + frac(x^{2}, 1 + k * x^{2}))) = frac(x, sqrtn(2, 1 + (k + 1) * x^{2}))
+
+METHOD:

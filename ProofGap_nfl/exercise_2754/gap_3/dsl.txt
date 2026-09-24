@@ -1,0 +1,15 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |f(n, frac(1, n)) - g(frac(1, n))| = |n * (sqrtn(2, frac(2, n)) - sqrtn(2, frac(1, n))) - frac(1, 2 * sqrtn(2, frac(1, n)))|}) (n := {n0})
+get_condition (hypothesis 8: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ |f(n0, frac(1, n0)) - g(frac(1, n0))| = |n0 * (sqrtn(2, frac(2, n0)) - sqrtn(2, frac(1, n0))) - frac(1, 2 * sqrtn(2, frac(1, n0)))|})
+get_prop (hypothesis 7: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, n) ∈ PosRealSet}) (n := {n0}) as (hypothesis 9: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ frac(1, n0) ∈ PosRealSet})
+use_condition (hypothesis 8: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (hypothesis 9: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ frac(1, n0) ∈ PosRealSet}) as (hypothesis 10: {frac(1, n0) ∈ PosRealSet})
+assert (hypothesis 11: {n0 ∈ NonNegIntegerSet ∧ frac(1, n0) ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ frac(1, n0) ∈ PosRealSet}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (hypothesis 4: {forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ f(n, x) = n * (sqrtn(2, x + frac(1, n)) - sqrtn(2, x))}) (n := {n0}) (x := {frac(1, n0)}) as (hypothesis 12: {n0 ∈ NonNegIntegerSet ∧ frac(1, n0) ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ frac(1, n0) ∈ PosRealSet ⇒ f(n0, frac(1, n0)) = n0 * (sqrtn(2, frac(1, n0) + frac(1, n0)) - sqrtn(2, frac(1, n0)))})
+use_condition (hypothesis 11: {n0 ∈ NonNegIntegerSet ∧ frac(1, n0) ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ frac(1, n0) ∈ PosRealSet}) in (hypothesis 12: {n0 ∈ NonNegIntegerSet ∧ frac(1, n0) ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ frac(1, n0) ∈ PosRealSet ⇒ f(n0, frac(1, n0)) = n0 * (sqrtn(2, frac(1, n0) + frac(1, n0)) - sqrtn(2, frac(1, n0)))}) as (hypothesis 13: {f(n0, frac(1, n0)) = n0 * (sqrtn(2, frac(1, n0) + frac(1, n0)) - sqrtn(2, frac(1, n0)))})
+assert (hypothesis 14: {frac(1, n0) ∈ RealSet ∧ frac(1, n0) ∈ PosRealSet}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (hypothesis 5: {forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ g(x) = frac(1, 2 * sqrtn(2, x))}) (x := {frac(1, n0)}) as (hypothesis 15: {frac(1, n0) ∈ RealSet ∧ frac(1, n0) ∈ PosRealSet ⇒ g(frac(1, n0)) = frac(1, 2 * sqrtn(2, frac(1, n0)))})
+use_condition (hypothesis 14: {frac(1, n0) ∈ RealSet ∧ frac(1, n0) ∈ PosRealSet}) in (hypothesis 15: {frac(1, n0) ∈ RealSet ∧ frac(1, n0) ∈ PosRealSet ⇒ g(frac(1, n0)) = frac(1, 2 * sqrtn(2, frac(1, n0)))}) as (hypothesis 16: {g(frac(1, n0)) = frac(1, 2 * sqrtn(2, frac(1, n0)))})
+autosolve all_hypothesis

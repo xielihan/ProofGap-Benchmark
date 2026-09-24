@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ sin(x) = 2^{n} * (prod_{ k = 1 }^{ n } (cos(frac(x, 2^{k})))) * sin(frac(x, 2^{n}))
+3. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ x ≠ 0 ⇒ prod_{ k = 1 }^{ n } (cos(frac(x, 2^{k}))) = frac(sin(x), x) * frac(frac(x, 2^{n}), sin(frac(x, 2^{n})))
+4. x ≠ 0 ⇒ seqlim_{ n → +∞ } (frac(frac(x, 2^{n}), sin(frac(x, 2^{n})))) = 1
+
+GOAL:
+x ≠ 0 ⇒ seqlim_{ n → +∞ } (prod_{ k = 1 }^{ n } (cos(frac(x, 2^{k})))) = frac(sin(x), x)
+
+METHOD:

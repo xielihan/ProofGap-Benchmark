@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (α), α ∈ RealSet ∧ α = 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . sqrtn(2, α) * e^{-α * x^{2}}) * diff(fun x [x ∈ RealSet] . x)) = 0
+
+METHOD:

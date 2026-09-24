@@ -1,0 +1,19 @@
+PROOF GAP @8
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. m ∈ RealSet ∧ m > 0
+3. n ∈ RealSet ∧ n > 0
+4. f : RealSet → RealSet
+5. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < a ⇒ f(x) = x^{m} * (a - x)^{n}
+6. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < a ⇒ FunDeri(f, 1, 1)(x) = x^{m - 1} * (a - x)^{n - 1} * (m * a - (m + n) * x)
+7. forall (x), x ∈ RealSet ∧ FunDeri(f, 1, 1)(x) = 0 ⇒ x = frac(m * a, m + n)
+8. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < frac(m * a, m + n) ⇒ FunDeri(f, 1, 1)(x) > 0
+9. forall (x), x ∈ RealSet ∧ frac(m * a, m + n) < x ∧ x < a ⇒ FunDeri(f, 1, 1)(x) < 0
+10. MaximumPointOn(f, IntervalLoRo(0, a)) = { frac(m * a, m + n) }
+11. max(ImageOn(f, IntervalLoRo(0, a))) = f(frac(m * a, m + n))
+12. f(frac(m * a, m + n)) = frac(a^{m + n} * m^{m} * n^{n}, (m + n)^{m + n})
+
+GOAL:
+max(ImageOn(f, IntervalLoRo(0, a))) = frac(a^{m + n} * m^{m} * n^{n}, (m + n)^{m + n})
+
+METHOD:

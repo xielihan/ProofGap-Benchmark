@@ -1,0 +1,13 @@
+PROOF GAP @6
+ASSUM:
+1. n ∈ IntegerSet
+2. n ≥ 2
+3. forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ∧ x = t^{n!} ⇒ t > 0)
+4. forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ∧ x = t^{n!} ⇒ frac(prod_{ k = 2 }^{ n } (1 - sqrtn(k, x)), (1 - x)^{n - 1}) = frac(prod_{ k = 2 }^{ n } (1 - t^{frac(n!, k)}), (1 - t^{n!})^{n - 1}))
+5. forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ∧ t ≠ 1 ∧ x = t^{n!} ⇒ frac(prod_{ k = 2 }^{ n } (1 - t^{frac(n!, k)}), (1 - t^{n!})^{n - 1}) = frac(prod_{ k = 2 }^{ n } (sum_{ j = 0 }^{ frac(n!, k) - 1 } (t^{j})), (sum_{ j = 0 }^{ n! - 1 } (t^{j}))^{n - 1}))
+6. forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ∧ x = t^{n!} ∧ lim_{ x → 1 } (x) = 1 ⇒ lim_{ t → 1 } (t) = 1)
+7. forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ∧ x = t^{n!} ∧ lim_{ x → 1 } (x) = 1 ⇒ lim_{ t → 1 } (frac(prod_{ k = 2 }^{ n } (sum_{ j = 0 }^{ frac(n!, k) - 1 } (t^{j})), (sum_{ j = 0 }^{ n! - 1 } (t^{j}))^{n - 1})) = frac(prod_{ k = 2 }^{ n } (frac(n!, k)), (n!)^{n - 1}))
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ∧ x = t^{n!} ∧ lim_{ x → 1 } (x) = 1 ⇒ frac(prod_{ k = 2 }^{ n } (frac(n!, k)), (n!)^{n - 1}) = frac(1, n!))
+
+METHOD:

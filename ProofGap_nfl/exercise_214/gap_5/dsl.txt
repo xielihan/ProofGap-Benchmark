@@ -1,0 +1,13 @@
+1. get_prop (theorem 'Thm 300. (MonotoneIncreasingOnSetDefinition)': {forall (f) (S), f : RealSet -> RealSet => IsSet(S) => (MonoIncFuncOn(f, S) <==> (forall (x) (y), x ∈ S => y ∈ S => x <= y => f(x) <= f(y)))}) (f := {f}) (S := {[0, +∞)}) as (hypothesis 7: {f : RealSet -> RealSet => IsSet([0, +∞)) => (MonoIncFuncOn(f, [0, +∞)) <==> (forall (x) (y), x ∈ [0, +∞) => y ∈ [0, +∞) => x <= y => f(x) <= f(y)))})
+2. get_prop (theorem 'Thm 275. (SetPredicateDefinition)': {forall (S), IsSet(S)}) (S := {[0, +∞)}) as (hypothesis 8: {IsSet([0, +∞))})
+3. use_condition (hypothesis 1: {f : RealSet → RealSet}) (hypothesis 8: {IsSet([0, +∞))}) in (hypothesis 7: {f : RealSet -> RealSet => IsSet([0, +∞)) => (MonoIncFuncOn(f, [0, +∞)) <==> (forall (x) (y), x ∈ [0, +∞) => y ∈ [0, +∞) => x <= y => f(x) <= f(y)))}) as (hypothesis 9: {MonoIncFuncOn(f, [0, +∞)) <==> (forall (x) (y), x ∈ [0, +∞) => y ∈ [0, +∞) => x <= y => f(x) <= f(y))})
+4. rewrite (left_to_right, iff) (hypothesis 9: {MonoIncFuncOn(f, [0, +∞)) <==> (forall (x) (y), x ∈ [0, +∞) => y ∈ [0, +∞) => x <= y => f(x) <= f(y))}); from (GOAL: {MonoIncFuncOn(f, [0, +∞))}) to (GOAL: {forall (x) (y), x ∈ [0, +∞) => y ∈ [0, +∞) => x <= y => f(x) <= f(y)})
+5. get_forall (GOAL: {forall (x) (y), x ∈ [0, +∞) => y ∈ [0, +∞) => x <= y => f(x) <= f(y)}) (x := {a}) (y := {b})
+6. get_condition (hypothesis 10: {a ∈ [0, +∞)}) (hypothesis 11: {b ∈ [0, +∞)}) (hypothesis 12: {a <= b}) in (GOAL: {a ∈ [0, +∞) => b ∈ [0, +∞) => a <= b => f(a) <= f(b)})
+7. assert (hypothesis 13: {a ∈ RealSet ∧ a ∈ [0, +∞)})
+8. assert (hypothesis 14: {b ∈ RealSet ∧ b ∈ [0, +∞)})
+9. get_prop (hypothesis 2: {forall (x), x ∈ RealSet ∧ x ∈ [0, +∞) ⇒ f(x) = x^{2}}) (x := {a}) as (hypothesis 15: {a ∈ RealSet ∧ a ∈ [0, +∞) ⇒ f(a) = a^{2}})
+10. use_condition (hypothesis 13: {a ∈ RealSet ∧ a ∈ [0, +∞)}) in (hypothesis 15: {a ∈ RealSet ∧ a ∈ [0, +∞) ⇒ f(a) = a^{2}}) as (hypothesis 16: {f(a) = a^{2}})
+11. get_prop (hypothesis 2: {forall (x), x ∈ RealSet ∧ x ∈ [0, +∞) ⇒ f(x) = x^{2}}) (x := {b}) as (hypothesis 17: {b ∈ RealSet ∧ b ∈ [0, +∞) ⇒ f(b) = b^{2}})
+12. use_condition (hypothesis 14: {b ∈ RealSet ∧ b ∈ [0, +∞)}) in (hypothesis 17: {b ∈ RealSet ∧ b ∈ [0, +∞) ⇒ f(b) = b^{2}}) as (hypothesis 18: {f(b) = b^{2}})
+13. autosolve all_hypothesis

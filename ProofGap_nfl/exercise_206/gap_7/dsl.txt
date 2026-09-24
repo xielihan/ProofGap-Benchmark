@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ ψ(φ(x)) = 2^{x^{2}}}) (x := {x0})
+get_condition (hypothesis 11: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ ψ(φ(x0)) = 2^{x0^{2}}})
+get_prop (hypothesis 3: {forall (x), x ∈ RealSet ⇒ φ(x) = x^{2}}) (x := {x0}) as (hypothesis 12: {x0 ∈ RealSet ⇒ φ(x0) = x0^{2}})
+use_condition (hypothesis 11: {x0 ∈ RealSet}) in (hypothesis 12: {x0 ∈ RealSet ⇒ φ(x0) = x0^{2}}) as (hypothesis 13: {φ(x0) = x0^{2}})
+get_prop (hypothesis 4: {forall (x), x ∈ RealSet ⇒ ψ(x) = 2^{x}}) (x := {x0^{2}}) as (hypothesis 14: {x0^{2} ∈ RealSet ⇒ ψ(x0^{2}) = 2^{x0^{2}}})
+use_condition (obvious: {x0^{2} ∈ RealSet}) in (hypothesis 14: {x0^{2} ∈ RealSet ⇒ ψ(x0^{2}) = 2^{x0^{2}}}) as (hypothesis 15: {ψ(x0^{2}) = 2^{x0^{2}}})
+rewrite (left_to_right, equation) (hypothesis 13: {φ(x0) = x0^{2}}); from (GOAL: {ψ(φ(x0)) = 2^{x0^{2}}}) to (GOAL: {ψ(x0^{2}) = 2^{x0^{2}}})
+apply (hypothesis 15: {ψ(x0^{2}) = 2^{x0^{2}}})

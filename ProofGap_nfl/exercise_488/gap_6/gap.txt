@@ -1,0 +1,13 @@
+PROOF GAP @6
+ASSUM:
+1. a ∈ RealSet
+2. forall (x), x ∈ RealSet ⇒ sin(a + 2 * x) - 2 * sin(a + x) + sin(a) = sin(a + 2 * x) - sin(a + x) - (sin(a + x) - sin(a))
+3. lim_{ x → 0 } (frac(sin(a + 2 * x) - 2 * sin(a + x) + sin(a), x^{2})) = lim_{ x → 0 } (frac(sin(a + 2 * x) - sin(a + x) - (sin(a + x) - sin(a)), x^{2}))
+4. lim_{ x → 0 } (frac(sin(a + 2 * x) - sin(a + x) - (sin(a + x) - sin(a)), x^{2})) = lim_{ x → 0 } (frac(2 * cos(a + frac(3 * x, 2)) * sin(frac(x, 2)) - 2 * cos(a + frac(x, 2)) * sin(frac(x, 2)), x^{2}))
+5. lim_{ x → 0 } (frac(2 * cos(a + frac(3 * x, 2)) * sin(frac(x, 2)) - 2 * cos(a + frac(x, 2)) * sin(frac(x, 2)), x^{2})) = lim_{ x → 0 } (frac(2 * sin(frac(x, 2)) * (cos(a + frac(3 * x, 2)) - cos(a + frac(x, 2))), x^{2}))
+6. lim_{ x → 0 } (frac(sin(a + 2 * x) - 2 * sin(a + x) + sin(a), x^{2})) = -(lim_{ x → 0 } (frac(sin(frac(x, 2)), frac(x, 2))^{2} * sin(a + x)))
+
+GOAL:
+lim_{ x → 0 } (frac(sin(a + 2 * x) - 2 * sin(a + x) + sin(a), x^{2})) = -sin(a)
+
+METHOD:

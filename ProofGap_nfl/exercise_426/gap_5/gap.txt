@@ -1,0 +1,16 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet
+2. n > 0
+3. n ∈ PosIntegerSet
+4. x = a + y
+5. lim_{ x → a } (x) = a ⇒ lim_{ y → 0 } (y) = 0
+6. x ≠ a ⇒ y ≠ 0
+7. lim_{ x → a } (frac(x^{n} - a^{n} - n * a^{n - 1} * (x - a), (x - a)^{2})) = lim_{ y → 0 } (frac((a + y)^{n} - a^{n} - n * a^{n - 1} * y, y^{2}))
+8. frac((a + y)^{n} - a^{n} - n * a^{n - 1} * y, y^{2}) = sum_{ k = 2 }^{ n } (Combination(n, k) * a^{n - k} * y^{k - 2})
+9. n ≥ 2
+
+GOAL:
+lim_{ y → 0 } (sum_{ k = 2 }^{ n } (Combination(n, k) * a^{n - k} * y^{k - 2})) = frac(n * (n - 1), 2) * a^{n - 2}
+
+METHOD:

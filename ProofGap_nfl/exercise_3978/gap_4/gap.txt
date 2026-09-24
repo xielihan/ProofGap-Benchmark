@@ -1,0 +1,16 @@
+PROOF GAP @4
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. Ω : RealSet → PowerSet(RealSet)
+3. ξ : RealSet → RealSet
+4. η : RealSet → RealSet
+5. ContinuousFuncAt(f, (0, 0))
+6. forall (ρ), ρ ∈ RealSet ∧ ρ ≠ 0 ⇒ (forall (p), p ∈ RealSet ⇒ (p ∈ Ω(ρ) ⇔ (exists (x), x ∈ RealSet ∧ (exists (y), y ∈ RealSet ∧ p = (x, y) ∧ x^{2} + y^{2} ≤ ρ^{2}))))
+7. forall (ρ), ρ ∈ RealSet ∧ ρ ≠ 0 ⇒ ξ(ρ) ∈ RealSet ∧ η(ρ) ∈ RealSet ∧ ξ(ρ)^{2} + η(ρ)^{2} ≤ ρ^{2} ∧ VolumeInt(Ω(ρ), (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . f(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = f(ξ(ρ), η(ρ)) * VolumeInt(Ω(ρ), (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . 1) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+8. forall (ρ), ρ ∈ RealSet ∧ ρ ≠ 0 ⇒ VolumeInt(Ω(ρ), (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . 1) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = π * ρ^{2}
+9. forall (ρ), ρ ∈ RealSet ∧ ρ ≠ 0 ⇒ frac(1, π * ρ^{2}) * VolumeInt(Ω(ρ), (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . f(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = f(ξ(ρ), η(ρ))
+
+GOAL:
+lim_{ ρ → 0 } (ξ(ρ)) = 0
+
+METHOD:

@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet /\ x > 0 => lim_{ x → +infty } (frac(3 * x + ln(2 * e^{-3 * x} + 1), 2 * x + ln(3 * e^{-2 * x} + 1))) = lim_{ x → +infty } (frac(3 + frac(1, x) * ln(2 * e^{-3 * x} + 1), 2 + frac(1, x) * ln(3 * e^{-2 * x} + 1)))}) (x := {a})
+get_condition (hypothesis 2: {a ∈ RealSet /\ a > 0}) in (GOAL: {a ∈ RealSet /\ a > 0 => lim_{ x → +infty } (frac(3 * x + ln(2 * e^{-3 * x} + 1), 2 * x + ln(3 * e^{-2 * x} + 1))) = lim_{ x → +infty } (frac(3 + frac(1, x) * ln(2 * e^{-3 * x} + 1), 2 + frac(1, x) * ln(3 * e^{-2 * x} + 1)))})
+assert (hypothesis 3: {forall (t), t ≠ 0 => frac(3 * t + ln(2 * e^{-3 * t} + 1), 2 * t + ln(3 * e^{-2 * t} + 1)) = frac(3 + frac(1, t) * ln(2 * e^{-3 * t} + 1), 2 + frac(1, t) * ln(3 * e^{-2 * t} + 1))}) by proof {
+  get_forall (GOAL: {forall (t), t ≠ 0 => frac(3 * t + ln(2 * e^{-3 * t} + 1), 2 * t + ln(3 * e^{-2 * t} + 1)) = frac(3 + frac(1, t) * ln(2 * e^{-3 * t} + 1), 2 + frac(1, t) * ln(3 * e^{-2 * t} + 1))}) (t := {u})
+  get_condition (hypothesis 3: {u ≠ 0}) in (GOAL: {u ≠ 0 => frac(3 * u + ln(2 * e^{-3 * u} + 1), 2 * u + ln(3 * e^{-2 * u} + 1)) = frac(3 + frac(1, u) * ln(2 * e^{-3 * u} + 1), 2 + frac(1, u) * ln(3 * e^{-2 * u} + 1))})
+  autosolve all_hypothesis
+}
+rewrite_in limit (left_to_right, equation) (hypothesis 3: {forall (t), t ≠ 0 => frac(3 * t + ln(2 * e^{-3 * t} + 1), 2 * t + ln(3 * e^{-2 * t} + 1)) = frac(3 + frac(1, t) * ln(2 * e^{-3 * t} + 1), 2 + frac(1, t) * ln(3 * e^{-2 * t} + 1))}); from (GOAL: {lim_{ x → +infty } (frac(3 * x + ln(2 * e^{-3 * x} + 1), 2 * x + ln(3 * e^{-2 * x} + 1))) = lim_{ x → +infty } (frac(3 + frac(1, x) * ln(2 * e^{-3 * x} + 1), 2 + frac(1, x) * ln(3 * e^{-2 * x} + 1)))}) to (GOAL: {lim_{ x → +infty } (frac(3 + frac(1, x) * ln(2 * e^{-3 * x} + 1), 2 + frac(1, x) * ln(3 * e^{-2 * x} + 1))) = lim_{ x → +infty } (frac(3 + frac(1, x) * ln(2 * e^{-3 * x} + 1), 2 + frac(1, x) * ln(3 * e^{-2 * x} + 1)))})
+autosolve all_hypothesis

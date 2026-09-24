@@ -1,0 +1,15 @@
+PROOF GAP @2
+ASSUM:
+1. p ∈ RealSet
+2. B : CartesianProd(RealSet, RealSet) → RealSet
+3. Gamma : RealSet → RealSet
+4. 0 < p
+5. p < 1
+6. lim_{ x → 1^- } (frac(x^{p - 1} - x^{-p}, 1 - x)) = 1 - 2 * p
+7. p_{0} ∈ RealSet
+8. p_{0} = max(p, 1 - p)
+
+GOAL:
+forall ((p_{0})_{star}), (p_{0})_{star} ∈ RealSet ∧ p_{0} < (p_{0})_{star} ∧ (p_{0})_{star} < 1 ⇒ lim_{ x → 0^+ } (x^{(p_{0})_{star}} * |frac(x^{p - 1} - x^{-p}, 1 - x)|) = 0
+
+METHOD:

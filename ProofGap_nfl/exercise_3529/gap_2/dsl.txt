@@ -1,0 +1,4 @@
+get_prop (hypothesis 10: {forall (t), t ∈ RealSet => y(t) = b * sin(t) * cos(t)}) (t := {frac(π, 4)}) as (hypothesis 13: {frac(π, 4) ∈ RealSet => y(frac(π, 4)) = b * sin(frac(π, 4)) * cos(frac(π, 4))})
+use_condition (obvious: {frac(π, 4) ∈ RealSet}) in (hypothesis 13: {frac(π, 4) ∈ RealSet => y(frac(π, 4)) = b * sin(frac(π, 4)) * cos(frac(π, 4))}) as (hypothesis 14: {y(frac(π, 4)) = b * sin(frac(π, 4)) * cos(frac(π, 4))})
+rewrite (left_to_right, equation) (hypothesis 14: {y(frac(π, 4)) = b * sin(frac(π, 4)) * cos(frac(π, 4))}); from (GOAL: {y(frac(π, 4)) = frac(b, 2)}) to (GOAL: {b * sin(frac(π, 4)) * cos(frac(π, 4)) = frac(b, 2)})
+autosolve all_hypothesis

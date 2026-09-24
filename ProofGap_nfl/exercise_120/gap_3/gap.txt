@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. x : NonNegIntegerSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. IsSeq(x)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = frac(1, 2) * (a + b + (-1)^{n} * (a - b))
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ Even(n) ⇒ x(n) = a
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ Odd(n) ⇒ x(n) = b
+
+GOAL:
+AccumulationPointSet(x) = { a, b }
+
+METHOD:

@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. α : CartesianProd(RealSet, RealSet) → RealSet
+3. f : RealSet → RealSet
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ (z(x, y) - f(α(x, y)))^{2} = x^{2} * (y^{2} - α(x, y)^{2})
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ (z(x, y) - f(α(x, y))) * FunDeri(f, α, 1)(α(x, y)) = α(x, y) * x^{2}
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) - f(α(x, y)) ≠ 0
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ 2 * (z(x, y) - f(α(x, y))) * (diff(z) - FunDeri(f, α, 1)(α(x, y)) * diff(α)) = (y^{2} - α(x, y)^{2}) * 2 * x * diff(x) + x^{2} * (2 * y * diff(y) - 2 * α(x, y) * diff(α))
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ (z(x, y) - f(α(x, y))) * diff(z) = x * (y^{2} - α(x, y)^{2}) * diff(x) + x^{2} * y * diff(y) - (α(x, y) * x^{2} - (z(x, y) - f(α(x, y))) * FunDeri(f, α, 1)(α(x, y))) * diff(α)
+
+METHOD:

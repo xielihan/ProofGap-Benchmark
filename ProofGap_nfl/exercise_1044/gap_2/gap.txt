@@ -1,0 +1,16 @@
+PROOF GAP @2
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. F : RealSet → RealSet
+4. a ∈ RealSet
+5. a ≠ 0
+6. forall (t), t ∈ RealSet ⇒ x(t) = a * (t - sin(t))
+7. forall (t), t ∈ RealSet ⇒ y(t) = a * (1 - cos(t))
+8. forall (t), t ∈ RealSet ∧ x(t) ∈ Dom(F) ⇒ y(t) = F(x(t))
+9. forall (t), t ∈ RealSet ⇒ FunDeri(x, 1, 1)(t) = a * (1 - cos(t)) ∧ FunDeri(y, 1, 1)(t) = a * sin(t)
+
+GOAL:
+forall (t), t ∈ RealSet ∧ (forall (k), k ∈ IntegerSet ⇒ t ≠ 2 * k * π) ⇒ FunDeri(F, x, 1)(x(t)) = frac(FunDeri(y, 1, 1)(t), FunDeri(x, 1, 1)(t)) ∧ frac(FunDeri(y, 1, 1)(t), FunDeri(x, 1, 1)(t)) = frac(a * sin(t), a * (1 - cos(t))) ∧ frac(a * sin(t), a * (1 - cos(t))) = cot(frac(t, 2))
+
+METHOD:

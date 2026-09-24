@@ -1,0 +1,5 @@
+1. get_condition (hypothesis 33: {L ∈ RealSet}) in (GOAL: {L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ x > X ⇒ frac(3, 2) * frac(ε, 2) + frac(ε, 4) = ε)})
+2. get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ x > X ⇒ frac(3, 2) * frac(ε, 2) + frac(ε, 4) = ε}) (ε := {eps})
+3. get_condition (hypothesis 34: {eps ∈ RealSet ∧ eps > 0 ∧ x > X}) in (GOAL: {eps ∈ RealSet ∧ eps > 0 ∧ x > X ⇒ frac(3, 2) * frac(eps, 2) + frac(eps, 4) = eps})
+4. autoreplace no_hypothesis; from (frac(3, 2) * frac(eps, 2) + frac(eps, 4)) to (eps); from (GOAL: {frac(3, 2) * frac(eps, 2) + frac(eps, 4) = eps}) to (GOAL: {eps = eps})
+5. autosolve all_hypothesis

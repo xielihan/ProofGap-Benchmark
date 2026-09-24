@@ -1,0 +1,30 @@
+PROOF GAP @12
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. c_{1} ∈ RealSet
+5. c_{2} ∈ RealSet
+6. a < b
+7. f : [a, b] → RealSet
+8. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ FunDeri(f, 1, 2)(x) ∈ RealSet
+9. FunDeri(f, 1, 1)(a) = 0
+10. FunDeri(f, 1, 1)(b) = 0
+11. forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x_{0} ∈ [a, b] ∧ x ∈ [a, b] ∧ x ≠ x_{0} ⇒ (exists (ξ), ξ ∈ RealSet ∧ (x_{0} < ξ ∧ ξ < x ∨ x < ξ ∧ ξ < x_{0}) ∧ f(x) = f(x_{0}) + FunDeri(f, 1, 1)(x_{0}) * (x - x_{0}) + frac(1, 2) * (x - x_{0})^{2} * FunDeri(f, 1, 2)(ξ)))
+12. m = frac(a + b, 2)
+13. a < m
+14. m < b
+15. exists (c_{1}), c_{1} ∈ RealSet ∧ a < c_{1} ∧ c_{1} < m ∧ f(m) = f(a) + frac((b - a)^{2}, 8) * FunDeri(f, 1, 2)(c_{1})
+16. exists (c_{2}), c_{2} ∈ RealSet ∧ m < c_{2} ∧ c_{2} < b ∧ f(m) = f(b) + frac((b - a)^{2}, 8) * FunDeri(f, 1, 2)(c_{2})
+17. |f(b) - f(a)| ≤ |f(b) - f(m)| + |f(m) - f(a)|
+18. |f(b) - f(a)| ≤ frac((b - a)^{2}, 8) * (|FunDeri(f, 1, 2)(c_{1})| + |FunDeri(f, 1, 2)(c_{2})|)
+19. |FunDeri(f, 1, 2)(c_{1})| ≥ |FunDeri(f, 1, 2)(c_{2})| ⇒ c = c_{1}
+20. |FunDeri(f, 1, 2)(c_{1})| ≥ |FunDeri(f, 1, 2)(c_{2})| ⇒ a < c
+21. |FunDeri(f, 1, 2)(c_{1})| ≥ |FunDeri(f, 1, 2)(c_{2})| ⇒ c < b
+22. |FunDeri(f, 1, 2)(c_{1})| ≥ |FunDeri(f, 1, 2)(c_{2})| ⇒ |FunDeri(f, 1, 2)(c)| = max(|FunDeri(f, 1, 2)(c_{1})|, |FunDeri(f, 1, 2)(c_{2})|)
+23. |FunDeri(f, 1, 2)(c_{1})| ≥ |FunDeri(f, 1, 2)(c_{2})| ⇒ |f(b) - f(a)| ≤ frac((b - a)^{2}, 4) * |FunDeri(f, 1, 2)(c)|
+
+GOAL:
+|FunDeri(f, 1, 2)(c_{1})| ≥ |FunDeri(f, 1, 2)(c_{2})| ⇒ |FunDeri(f, 1, 2)(c)| ≥ frac(4, (b - a)^{2}) * |f(b) - f(a)|
+
+METHOD:

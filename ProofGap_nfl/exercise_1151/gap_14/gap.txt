@@ -1,0 +1,30 @@
+PROOF GAP @14
+ASSUM:
+1. x_{0} ∈ RealSet
+2. f : RealSet → RealSet
+3. F : RealSet → RealSet
+4. a ∈ RealSet
+5. b ∈ RealSet
+6. c ∈ RealSet
+7. forall (x), x ∈ RealSet ∧ x ≤ x_{0} ⇒ DiffableFuncAt(f, x)
+8. forall (x), x ∈ RealSet ∧ x ≤ x_{0} ⇒ DiffableFuncAt(FunDeri(f, 1, 1), x)
+9. forall (x), x ∈ RealSet ∧ x ≤ x_{0} ⇒ ContinuousFuncAt(FunDeri(f, 1, 2), x)
+10. forall (x), x ∈ RealSet ⇒ F(x) = cases{ f(x) if x ≤ x_{0}; a * (x - x_{0})^{2} + b * (x - x_{0}) + c if x > x_{0} }
+11. lim_{ x → x_{0}^- } (F(x)) = lim_{ x → x_{0}^+ } (F(x))
+12. lim_{ x → x_{0}^+ } (F(x)) = F(x_{0})
+13. lim_{ x → x_{0}^- } (F(x)) = F(x_{0})
+14. lim_{ x → x_{0}^- } (f(x)) = f(x_{0})
+15. lim_{ x → x_{0}^+ } (a * (x - x_{0})^{2} + b * (x - x_{0}) + c) = c
+16. c = f(x_{0})
+17. lim_{ x → x_{0}^- } (FunDeri(F, 1, 1)(x)) = FunDeri(f, 1, 1)(x_{0})
+18. lim_{ x → x_{0}^+ } (FunDeri(F, 1, 1)(x)) = 2 * a * (x_{0} - x_{0}) + b
+19. FunDeri(f, 1, 1)(x_{0}) = b
+20. lim_{ x → x_{0}^- } (FunDeri(F, 1, 2)(x)) = FunDeri(f, 1, 2)(x_{0})
+21. lim_{ x → x_{0}^+ } (FunDeri(F, 1, 2)(x)) = 2 * a
+22. FunDeri(f, 1, 2)(x_{0}) = 2 * a
+23. a = frac(1, 2) * FunDeri(f, 1, 2)(x_{0})
+
+GOAL:
+(a, b, c) = (frac(1, 2) * FunDeri(f, 1, 2)(x_{0}), FunDeri(f, 1, 1)(x_{0}), f(x_{0})) ⇒ FuncOfClassK(F, 2)
+
+METHOD:

@@ -1,0 +1,18 @@
+PROOF GAP @10
+ASSUM:
+1. a ∈ RealSet
+2. k = min({ m | m ∈ PosIntegerSet, m > 2 * |a| })
+3. k ∈ PosIntegerSet
+4. k > 2 * |a|
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ IntegerSet ∧ n > k ⇒ 0 < |frac(a^{n}, n!)|
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ IntegerSet ∧ n > k ⇒ |frac(a^{n}, n!)| = prod_{ i = 1 }^{ n } (frac(|a|, i))
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ IntegerSet ∧ n > k ⇒ 0 < prod_{ i = 1 }^{ n } (frac(|a|, i))
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ IntegerSet ∧ n > k ⇒ prod_{ i = 1 }^{ n } (frac(|a|, i)) < |a|^{k} * frac(1, 2)^{n - k}
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ IntegerSet ∧ n > k ⇒ |a|^{k} * frac(1, 2)^{n - k} = frac((2 * |a|)^{k}, 2^{n})
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ IntegerSet ∧ n > k ⇒ 0 < |frac(a^{n}, n!)|
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ IntegerSet ∧ n > k ⇒ |frac(a^{n}, n!)| < frac((2 * |a|)^{k}, 2^{n})
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ IntegerSet ∧ n > k ⇒ 0 < frac((2 * |a|)^{k}, 2^{n})
+
+METHOD:

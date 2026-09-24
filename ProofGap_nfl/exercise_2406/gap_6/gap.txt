@@ -1,0 +1,21 @@
+PROOF GAP @6
+ASSUM:
+1. A ∈ RealSet
+2. B ∈ RealSet
+3. C ∈ RealSet ∧ C > 0
+4. S ∈ RealSet
+5. y_{1} : RealSet → RealSet
+6. y_{2} : RealSet → RealSet
+7. a ∈ RealSet ∧ a > 0
+8. A * C - B^{2} > 0
+9. forall (x), x ∈ RealSet ∧ |x| ≤ sqrtn(2, frac(C, A * C - B^{2})) ⇒ y_{1}(x) = frac(-B * x - sqrtn(2, B^{2} * x^{2} - C * (A * x^{2} - 1)), C)
+10. forall (x), x ∈ RealSet ∧ |x| ≤ sqrtn(2, frac(C, A * C - B^{2})) ⇒ y_{2}(x) = frac(-B * x + sqrtn(2, B^{2} * x^{2} - C * (A * x^{2} - 1)), C)
+11. forall (x), x ∈ RealSet ⇒ (B^{2} * x^{2} - C * (A * x^{2} - 1) ≥ 0 ⇔ |x| ≤ sqrtn(2, frac(C, A * C - B^{2})))
+12. a = sqrtn(2, frac(C, A * C - B^{2}))
+13. S = DefInt(-a, a, (fun x [x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a] . y_{2}(x) - y_{1}(x)) * diff(fun x [x ∈ RealSet] . x))
+14. S = frac(2, C) * DefInt(-a, a, (fun x [x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a] . sqrtn(2, B^{2} * x^{2} - C * (A * x^{2} - 1))) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+S = frac(2, C) * DefInt(-a, a, (fun x [x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a] . sqrtn(2, C - (A * C - B^{2}) * x^{2})) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

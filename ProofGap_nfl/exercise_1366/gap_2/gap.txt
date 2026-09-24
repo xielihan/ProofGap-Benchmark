@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. x ∈ RealSet
+
+GOAL:
+x ≠ 0 ⇒ cos(x) > 0
+
+METHOD:

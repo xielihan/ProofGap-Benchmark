@@ -1,0 +1,34 @@
+PROOF GAP @22
+ASSUM:
+1. f : RealSet → RealSet
+2. u : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ x ≠ -k) ⇒ f(x) = sum_{ n = 1 }^{ +∞ } (frac((-1)^{n} * x, n + x)))
+4. Dom(f) = { x | x ∈ RealSet ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ x ≠ -k) }
+5. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ Dom(f) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac((-1)^{n} * x_{0}, n + x_{0})))
+6. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ Dom(f) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = (fun x [x ∈ RealSet ∧ x ∈ Dom(f)] . frac((-1)^{n} * x, n + x)))
+7. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ Dom(f) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ Dom(f) ⇒ FunDeri(u(n), 1, 1)(x) = frac((-1)^{n} * n, (n + x)^{2})))
+8. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ Dom(f) ∧ x_{0} ≥ 0 ⇒ (exists (β), β ∈ RealSet ∧ β ≥ x_{0} ∧ β = β)
+9. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ Dom(f) ∧ x_{0} ≥ 0 ⇒ (exists (β), β ∈ RealSet ∧ β ≥ x_{0})
+10. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ Dom(f) ∧ x_{0} ≥ 0 ⇒ (exists (β), β ∈ RealSet ∧ β ≥ x_{0} ∧ x_{0} ∈ [-frac(1, 2), β])
+11. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ Dom(f) ∧ x_{0} ≥ 0 ⇒ (exists (β), β ∈ RealSet ∧ β ≥ x_{0} ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ContinuousFuncOn(FunDeri(u(n), 1, 1), [-frac(1, 2), β])))
+12. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ Dom(f) ∧ x_{0} ≥ 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [0, +∞) ⇒ |frac(n, (n + x)^{2})| ≤ frac(n, (n - 1)^{2})))
+13. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ Dom(f) ∧ x_{0} ≥ 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ seqlim_{ n → +∞ } (frac(n, (n - 1)^{2})) = 0)
+14. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ Dom(f) ∧ x_{0} ≥ 0 ⇒ BoundedSeq(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . sum_{ k = 1 }^{ n } ((-1)^{k}))
+15. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ Dom(f) ∧ x_{0} ≥ 0 ⇒ (exists (β), β ∈ RealSet ∧ β ≥ x_{0} ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [0, β] ⇒ UniformConvergent(FunDeri(u(n), 1, 1), [0, β], sum_{ n = 1 }^{ +∞ } (FunDeri(u(n), 1, 1)(x))))))
+16. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ Dom(f) ∧ x_{0} ≥ 0 ⇒ (exists (β), β ∈ RealSet ∧ β ≥ x_{0} ∧ DiffableFuncOn(f, [0, β]))
+17. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ Dom(f) ∧ x_{0} ≥ 0 ⇒ DiffableFuncAt(f, x_{0})
+18. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ Dom(f) ∧ x_{0} < 0 ⇒ (exists (k_{0}), k_{0} ∈ NonNegIntegerSet ∧ k_{0} ∈ PosIntegerSet ∧ -(k_{0} + 1) < x_{0} ∧ x_{0} < -k_{0})
+19. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ Dom(f) ∧ x_{0} < 0 ⇒ (exists (k_{0}), k_{0} ∈ NonNegIntegerSet ∧ k_{0} ∈ PosIntegerSet ∧ (exists (α), α ∈ RealSet ∧ (exists (β), β ∈ RealSet ∧ -(k_{0} + 1) < α ∧ α < x_{0} ∧ x_{0} < β ∧ β < -k_{0} ∧ α = α ∧ β = β)))
+20. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ Dom(f) ∧ x_{0} < 0 ⇒ (exists (k_{0}), k_{0} ∈ NonNegIntegerSet ∧ k_{0} ∈ PosIntegerSet ∧ (exists (α), α ∈ RealSet ∧ -(k_{0} + 1) < α))
+21. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ Dom(f) ∧ x_{0} < 0 ⇒ (exists (α), α ∈ RealSet ∧ α < x_{0})
+22. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ Dom(f) ∧ x_{0} < 0 ⇒ (exists (β), β ∈ RealSet ∧ x_{0} < β)
+23. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ Dom(f) ∧ x_{0} < 0 ⇒ (exists (k_{0}), k_{0} ∈ NonNegIntegerSet ∧ k_{0} ∈ PosIntegerSet ∧ (exists (β), β ∈ RealSet ∧ β < -k_{0}))
+24. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ Dom(f) ∧ x_{0} < 0 ⇒ (exists (α), α ∈ RealSet ∧ (exists (β), β ∈ RealSet ∧ α < x_{0} ∧ x_{0} < β ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ContinuousFuncOn(FunDeri(u(n), 1, 1), [α, β]))))
+25. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ Dom(f) ∧ x_{0} < 0 ⇒ (exists (α), α ∈ RealSet ∧ α < x_{0} ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [α, x_{0}] ⇒ |frac(n, (n + x)^{2})| ≤ frac(1, n - 2 * |α|))))
+26. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ Dom(f) ∧ x_{0} < 0 ⇒ (exists (α), α ∈ RealSet ∧ α < x_{0} ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ seqlim_{ n → +∞ } (frac(1, n - 2 * |α|)) = 0))
+27. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ Dom(f) ∧ x_{0} < 0 ⇒ BoundedSeq(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . sum_{ k = 1 }^{ n } ((-1)^{k}))
+
+GOAL:
+forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ Dom(f) ∧ x_{0} < 0 ⇒ (exists (α), α ∈ RealSet ∧ (exists (β), β ∈ RealSet ∧ α < x_{0} ∧ x_{0} < β ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [α, β] ⇒ UniformConvergent(FunDeri(u(n), 1, 1), [α, β], sum_{ n = 1 }^{ +∞ } (FunDeri(u(n), 1, 1)(x)))))))
+
+METHOD:

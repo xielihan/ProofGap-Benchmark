@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. lim_{ x → 0 } (frac(cos(x * e^{x}) - cos(x * e^{-x}), x^{3})) = lim_{ x → 0 } (frac(-2 * sin(frac(x * (e^{x} + e^{-x}), 2)) * sin(frac(x * (e^{x} - e^{-x}), 2)), x^{3}))
+
+GOAL:
+lim_{ x → 0 } (frac(cos(x * e^{x}) - cos(x * e^{-x}), x^{3})) = -2 * (lim_{ x → 0 } (frac(sin(frac(x * (e^{x} + e^{-x}), 2)), frac(x * (e^{x} + e^{-x}), 2)) * frac(sin(frac(x * (e^{x} - e^{-x}), 2)), frac(x * (e^{x} - e^{-x}), 2)) * frac(x^{2} * (e^{4 * x} - 1), 4 * x^{3} * e^{2 * x})))
+
+METHOD:

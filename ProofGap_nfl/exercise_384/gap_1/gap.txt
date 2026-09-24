@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = frac(1, x) * cos(frac(1, x))
+3. u = (fun k . frac(2, (2 * k + 1) * π))
+4. v = (fun k [k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet] . frac(1, k * π))
+
+GOAL:
+forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ f(u(k)) = 0
+
+METHOD:

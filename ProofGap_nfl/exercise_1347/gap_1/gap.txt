@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x < 2 ∧ x ≠ 1 ⇒ lim_{ x → 1 } (tan(frac(π * x, 2)) * ln(2 - x)) = lim_{ x → 1 } (frac(ln(2 - x), cot(frac(π * x, 2))))
+
+METHOD:

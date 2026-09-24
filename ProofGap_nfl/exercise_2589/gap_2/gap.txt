@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. b : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(n^{n - 1}, (2 * n^{2} + n + 1)^{frac(n + 1, 2)})
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = frac(1, n^{2})
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < a(n) ∧ a(n) < frac(n^{n - 1}, (n^{2})^{frac(n + 1, 2)}) ∧ frac(n^{n - 1}, (n^{2})^{frac(n + 1, 2)}) = b(n)
+
+GOAL:
+ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n)))
+
+METHOD:

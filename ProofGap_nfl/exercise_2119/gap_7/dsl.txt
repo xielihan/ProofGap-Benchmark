@@ -1,0 +1,3 @@
+exists (C := {0})
+assert (hypothesis 7: {0 ∈ RealSet})
+apply (hypothesis 7: {0 ∈ RealSet})

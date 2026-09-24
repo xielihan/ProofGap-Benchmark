@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ z(x, y) ∈ RealSet ∧ frac(z(x, y), y) > 0 ∧ x + z(x, y) ≠ 0 ⇒ frac(x, z(x, y)) = ln(frac(z(x, y), y)) + 1
+3. FuncOfClassK(z, 2)
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ z(x, y) ∈ RealSet ∧ frac(z(x, y), y) > 0 ∧ x + z(x, y) ≠ 0 ⇒ frac(z(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - x * diff(z), z(x, y)^{2}) = frac(diff(z), z(x, y)) - frac(diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y), y)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ z(x, y) ∈ RealSet ∧ frac(z(x, y), y) > 0 ∧ x + z(x, y) ≠ 0 ⇒ diff(z) = frac(z(x, y) * (y * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + z(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)), y * (x + z(x, y)))
+
+METHOD:

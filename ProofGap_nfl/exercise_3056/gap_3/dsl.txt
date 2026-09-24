@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ sin(frac(x, 2^{n})) ≠ 0 ⇒ P(n) = frac(frac(x, 2^{n}), sin(frac(x, 2^{n}))) * frac(sin(x), x)}) (n := {n0})
+get_condition (hypothesis 6: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ sin(frac(x, 2^{n0})) ≠ 0}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ sin(frac(x, 2^{n0})) ≠ 0 ⇒ P(n0) = frac(frac(x, 2^{n0}), sin(frac(x, 2^{n0}))) * frac(sin(x), x)})
+get_prop (hypothesis 5: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ sin(frac(x, 2^{n})) ≠ 0 ⇒ P(n) = frac(sin(x), 2^{n} * sin(frac(x, 2^{n})))}) (n := {n0}) as (hypothesis 7: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ sin(frac(x, 2^{n0})) ≠ 0 ⇒ P(n0) = frac(sin(x), 2^{n0} * sin(frac(x, 2^{n0})))})
+use_condition (hypothesis 6: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ sin(frac(x, 2^{n0})) ≠ 0}) in (hypothesis 7: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ sin(frac(x, 2^{n0})) ≠ 0 ⇒ P(n0) = frac(sin(x), 2^{n0} * sin(frac(x, 2^{n0})))}) as (hypothesis 8: {P(n0) = frac(sin(x), 2^{n0} * sin(frac(x, 2^{n0})))})
+autosolve all_hypothesis

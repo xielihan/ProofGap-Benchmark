@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(n, 2^{n})}) (n := {n1})
+get_condition (hypothesis 4: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet}) in (GOAL: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet ⇒ a(n1) = frac(n1, 2^{n1})})
+rewrite (left_to_right, equation) (hypothesis 2: {a = (fun n [n ∈ NonNegIntegerSet] . frac(n, 2^{n}))}); from (GOAL: {a(n1) = frac(n1, 2^{n1})}) to (GOAL: {(fun n [n ∈ NonNegIntegerSet] . frac(n, 2^{n}))(n1) = frac(n1, 2^{n1})})
+autosolve all_hypothesis

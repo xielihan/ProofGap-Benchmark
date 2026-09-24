@@ -1,0 +1,25 @@
+PROOF GAP @13
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. δ ∈ RealSet
+4. h ∈ RealSet
+5. δ > 0 ∧ Defined(f, (x - δ, x + δ))
+6. exists (A), A ∈ RealSet ∧ FunDeri(f, 1, 2)(x) = A
+7. lim_{ h → 0 } (f(x + h) + f(x - h) - 2 * f(x)) = 0
+8. lim_{ h → 0 } (h^{2}) = 0
+9. forall (h), h ∈ RealSet ∧ h ≠ 0 ∧ |h| < δ ⇒ x + h ∈ Dom(f)
+10. forall (h), h ∈ RealSet ∧ h ≠ 0 ∧ |h| < δ ⇒ x - h ∈ Dom(f)
+11. forall (h), h ∈ RealSet ∧ h ≠ 0 ∧ |h| < δ ⇒ FunDeri(fun h [h ∈ RealSet] . h^{2}, 1, 1)(h) = 2 * h
+12. forall (h), h ∈ RealSet ∧ h ≠ 0 ∧ |h| < δ ⇒ 2 * h ≠ 0
+13. lim_{ h → 0 } (frac(f(x + h) + f(x - h) - 2 * f(x), h^{2})) = lim_{ h → 0 } (frac(FunDeri(f, 1, 1)(x + h) - FunDeri(f, 1, 1)(x - h), 2 * h))
+14. lim_{ h → 0 } (frac(FunDeri(f, 1, 1)(x + h) - FunDeri(f, 1, 1)(x - h), 2 * h)) = frac(1, 2) * (lim_{ h → 0 } (frac(FunDeri(f, 1, 1)(x + h) - FunDeri(f, 1, 1)(x), h) + frac(FunDeri(f, 1, 1)(x - h) - FunDeri(f, 1, 1)(x), -h)))
+15. lim_{ h → 0 } (frac(FunDeri(f, 1, 1)(x + h) - FunDeri(f, 1, 1)(x), h)) = FunDeri(f, 1, 2)(x)
+16. lim_{ h → 0 } (frac(FunDeri(f, 1, 1)(x - h) - FunDeri(f, 1, 1)(x), -h)) = FunDeri(f, 1, 2)(x)
+17. frac(1, 2) * (FunDeri(f, 1, 2)(x) + FunDeri(f, 1, 2)(x)) = FunDeri(f, 1, 2)(x)
+18. lim_{ h → 0 } (frac(f(x + h) + f(x - h) - 2 * f(x), h^{2})) = FunDeri(f, 1, 2)(x)
+
+GOAL:
+FunDeri(f, 1, 2)(x) = lim_{ h → 0 } (frac(f(x + h) + f(x - h) - 2 * f(x), h^{2}))
+
+METHOD:

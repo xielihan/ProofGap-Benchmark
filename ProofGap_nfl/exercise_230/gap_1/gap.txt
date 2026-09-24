@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. F : RealSet → RealSet
+3. forall (x), x ∈ RealSet ⇒ y(x) = cases{ x if -∞ < x ∧ x < 1; x^{2} if 1 ≤ x ∧ x ≤ 4; 2^{x} if 4 < x ∧ x < +∞ }
+4. forall (z), z ∈ RealSet ⇒ F(z) = cases{ z if -∞ < z ∧ z < 1; sqrtn(2, z) if 1 ≤ z ∧ z ≤ 16; log(2, z) if 16 < z ∧ z < +∞ }
+
+GOAL:
+F = InverseFunc(y)
+
+METHOD:

@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (φ), φ ∈ RealSet ⇒ S = frac(a * b, 2) * DefInt(0, frac(π, 2), frac(frac(a^{4}, h^{4}) * cos(φ)^{4} + frac(b^{4}, k^{4}) * sin(φ)^{4} + 2 * frac(a^{2}, h^{2}) * frac(b^{2}, k^{2}) * cos(φ)^{2} * sin(φ)^{2}, (cos(φ)^{3} + sin(φ)^{3})^{2}) * diff(fun φ [φ ∈ RealSet] . φ))}) (φ := {t})
+get_condition (hypothesis 19: {t ∈ RealSet}) in (GOAL: {t ∈ RealSet ⇒ S = frac(a * b, 2) * DefInt(0, frac(π, 2), frac(frac(a^{4}, h^{4}) * cos(t)^{4} + frac(b^{4}, k^{4}) * sin(t)^{4} + 2 * frac(a^{2}, h^{2}) * frac(b^{2}, k^{2}) * cos(t)^{2} * sin(t)^{2}, (cos(t)^{3} + sin(t)^{3})^{2}) * diff(fun φ [φ ∈ RealSet] . φ))})
+get_prop (hypothesis 14: {forall (r), r ∈ RealSet ⇒ r ≥ 0}) (r := {-1}) as (hypothesis 20: {-1 ∈ RealSet ⇒ -1 ≥ 0})
+use_condition (obvious: {-1 ∈ RealSet}) in (hypothesis 20: {-1 ∈ RealSet ⇒ -1 ≥ 0}) as (hypothesis 21: {-1 ≥ 0})
+autosolve all_hypothesis

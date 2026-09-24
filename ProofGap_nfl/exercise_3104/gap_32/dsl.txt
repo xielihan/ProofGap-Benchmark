@@ -1,0 +1,15 @@
+1. exists (A := {A})
+2. assert (hypothesis 39: {A ∈ RealSet}) by proof {
+  1. autosolve all_hypothesis
+}
+3. assert (hypothesis 40: {seqlim_{ n → +∞ } (a(n)) = A}) by proof {
+  1. autosolve all_hypothesis
+}
+4. assert (hypothesis 41: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ n! = A * n^{n + frac(1, 2)} * e^{-n} * (1 + ε(n)) ∧ seqlim_{ n → +∞ } (ε(n)) = 0}) by proof {
+  1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ n! = A * n^{n + frac(1, 2)} * e^{-n} * (1 + ε(n)) ∧ seqlim_{ n → +∞ } (ε(n)) = 0}) (n := {n0})
+  2. get_condition (hypothesis 41: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ n0! = A * n0^{n0 + frac(1, 2)} * e^{-n0} * (1 + ε(n0)) ∧ seqlim_{ n → +∞ } (ε(n)) = 0})
+  3. get_prop (hypothesis 33: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ n! = A * n^{n + frac(1, 2)} * e^{-n} * (1 + ε(n))}) (n := {n0}) as (hypothesis 42: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ n0! = A * n0^{n0 + frac(1, 2)} * e^{-n0} * (1 + ε(n0))})
+  4. use_condition (hypothesis 41: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (hypothesis 42: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ n0! = A * n0^{n0 + frac(1, 2)} * e^{-n0} * (1 + ε(n0))}) as (hypothesis 43: {n0! = A * n0^{n0 + frac(1, 2)} * e^{-n0} * (1 + ε(n0))})
+  5. autosolve all_hypothesis
+}
+5. autosolve all_hypothesis

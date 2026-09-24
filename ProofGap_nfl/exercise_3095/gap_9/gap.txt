@@ -1,0 +1,21 @@
+PROOF GAP @9
+ASSUM:
+1. p : NonNegIntegerSet → RealSet
+2. u : NonNegIntegerSet → RealSet
+3. a : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(n) = 1 + frac((-1)^{frac(n * (n - 1), 2)}, n)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = ln(p(n))
+6. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ a(k) = u(2 * k - 1) + u(2 * k)
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(n) > 0
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |ln(p(n))| = frac(1, n) * |ln((1 + frac((-1)^{frac(n * (n - 1), 2)}, n))^{frac(n, (-1)^{frac(n * (n - 1), 2)})})|
+9. (|ln(p(n))|) ∼_{ n → +∞ } (frac(1, n))
+10. DivergentSeries(sum_{ n = 1 }^{ +∞ } (|ln(p(n))|))
+11. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ u(2 * k - 1) = ln(1 + frac((-1)^{k - 1}, 2 * k - 1)) ∧ u(2 * k) = ln(1 + frac((-1)^{k}, 2 * k))
+12. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ a(k) = ln(1 + frac((-1)^{k - 1} - 1, 2 * k * (2 * k - 1)))
+13. forall (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ a(2 * m - 1) = 0 ∧ a(2 * m) = ln(1 - frac(2, 4 * m * (4 * m - 1)))
+14. ConvergentSeries(sum_{ k = 1 }^{ +∞ } (a(k)))
+
+GOAL:
+seqlim_{ k → +∞ } (u(k)) = 0
+
+METHOD:

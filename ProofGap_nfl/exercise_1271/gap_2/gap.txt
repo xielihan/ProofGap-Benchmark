@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ y(x) = frac(sqrtn(2, x), x + 100)
+3. forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(y, 1, 1)(x) = frac(-x + 100, 2 * sqrtn(2, x) * (x + 100)^{2})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 < x ∧ x < 100 ⇒ FunDeri(y, 1, 1)(x) > 0
+
+METHOD:

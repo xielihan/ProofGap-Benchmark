@@ -1,0 +1,17 @@
+PROOF GAP @2
+ASSUM:
+1. P : RealSet → RealSet
+2. n ∈ NonNegIntegerSet
+3. a : NonNegIntegerSet → RealSet
+4. n ∈ PosIntegerSet
+5. forall (k), k ∈ NonNegIntegerSet ∧ k ≤ n ⇒ a(k) ∈ RealSet
+6. a(0) ≠ 0
+7. forall (k), k ∈ NonNegIntegerSet ∧ k ≤ n ⇒ (forall (x), x ∈ RealSet ⇒ P(x) = sum_{ k = 0 }^{ n } (a(k) * x^{n - k}))
+8. forall (r), r ∈ RealSet ∧ P(r) = 0 ⇒ r ∈ RealSet
+9. R = { r | r ∈ RealSet ∧ P(r) = 0 }
+10. exists (α) (k) (l), α : NonNegIntegerSet → RealSet ∧ k : NonNegIntegerSet → NonNegIntegerSet ∧ l ∈ NonNegIntegerSet ∧ l ∈ PosIntegerSet ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l ⇒ α(i) ∈ RealSet ∧ k(i) ∈ PosIntegerSet)
+
+GOAL:
+exists (l) (α), l ∈ NonNegIntegerSet ∧ α : NonNegIntegerSet → RealSet ∧ l ∈ PosIntegerSet ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i < l ⇒ α(i) < α(i + 1))
+
+METHOD:

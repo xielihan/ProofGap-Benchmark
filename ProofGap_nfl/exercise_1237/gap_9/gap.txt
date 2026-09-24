@@ -1,0 +1,27 @@
+PROOF GAP @9
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. -∞ ≤ a
+5. a < b
+6. b ≤ +∞
+7. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ DiffableFuncAt(f, x)
+8. forall (x), x ∈ RealSet ⇒ lim_{ x → a^+ } (f(x)) = lim_{ x → b^- } (f(x))
+9. a > -∞ ⇒ b < +∞ ⇒ A = lim_{ x → a^+ } (f(x))
+10. a > -∞ ⇒ b < +∞ ⇒ F = (fun x [x ∈ RealSet] . cases{ f(x) if x ∈ IntervalLoRo(a, b); A if x = a ∨ x = b })
+11. a > -∞ ⇒ b < +∞ ⇒ ContinuousFuncOn(F, [a, b])
+12. a > -∞ ⇒ b < +∞ ⇒ DiffableFuncOn(F, IntervalLoRo(a, b))
+13. a > -∞ ⇒ b < +∞ ⇒ F(a) = F(b)
+14. a > -∞ ⇒ b < +∞ ⇒ (exists (c), c ∈ RealSet ∧ c ∈ IntervalLoRo(a, b) ∧ FunDeri(F, 1, 1)(c) = 0)
+15. a > -∞ ⇒ b < +∞ ⇒ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ FunDeri(F, 1, 1)(x) = FunDeri(f, 1, 1)(x))
+16. a > -∞ ⇒ b < +∞ ⇒ (exists (c), c ∈ RealSet ∧ c ∈ IntervalLoRo(a, b) ∧ FunDeri(f, 1, 1)(c) = 0)
+17. a = -∞ ⇒ b = +∞ ⇒ g = (fun t [t ∈ RealSet] . f(tan(t)))
+18. a = -∞ ⇒ b = +∞ ⇒ lim_{ t → (-frac(π, 2))^+ } (g(t)) = lim_{ t → frac(π, 2)^- } (g(t))
+19. a = -∞ ⇒ b = +∞ ⇒ (exists (t_{0}), t_{0} ∈ RealSet ∧ t_{0} ∈ IntervalLoRo(-frac(π, 2), frac(π, 2)) ∧ FunDeri(g, 1, 1)(t_{0}) = 0)
+20. a = -∞ ⇒ b = +∞ ⇒ c = tan(t_{0})
+
+GOAL:
+a = -∞ ⇒ b = +∞ ⇒ c ∈ IntervalLoRo(a, b)
+
+METHOD:

@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-1, 1) ⇒ y(x) = frac(1, arccos(x^{2})^{2})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ FunDeri(y, 1, 1)(x) = -frac(2, arccos(x^{2})^{3}) * frac(-2 * x, sqrtn(2, 1 - x^{4})) ∧ -frac(2, arccos(x^{2})^{3}) * frac(-2 * x, sqrtn(2, 1 - x^{4})) = frac(4 * x, sqrtn(2, 1 - x^{4}) * arccos(x^{2})^{3})
+
+METHOD:

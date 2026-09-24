@@ -1,0 +1,4 @@
+rewrite_in limit (left_to_right, equation) (hypothesis 6: {forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ x(2 * k) = 2 * k}); from (GOAL: {seqlim_{ k → +∞ } (x(2 * k)) = +∞}) to (GOAL: {seqlim_{ k → +∞ } (2 * k) = +∞})
+get_prop (theorem 'Thm 471. (PositiveLinearSequenceTendsToInfinity)': {forall (c), c ∈ RealSet => c > 0 => seqlim_{k -> +∞} (c * k) = +∞}) (c := {2}) as (hypothesis 10: {2 ∈ RealSet => 2 > 0 => seqlim_{k -> +∞} (2 * k) = +∞})
+use_condition (obvious: {2 ∈ RealSet}) (obvious: {2 > 0}) in (hypothesis 10: {2 ∈ RealSet => 2 > 0 => seqlim_{k -> +∞} (2 * k) = +∞}) as (hypothesis 11: {seqlim_{k -> +∞} (2 * k) = +∞})
+apply (hypothesis 11: {seqlim_{k -> +∞} (2 * k) = +∞})

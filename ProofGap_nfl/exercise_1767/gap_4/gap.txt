@@ -1,0 +1,10 @@
+PROOF GAP @4
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ (1 - 5 * x^{2} = t ⇒ x ∈ RealSet))
+2. forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ (1 - 5 * x^{2} = t ⇒ t ∈ RealSet))
+3. forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ (1 - 5 * x^{2} = t ⇒ t ≤ 1))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ (1 - 5 * x^{2} = t ⇒ x^{2} = frac(1, 5) * (1 - t)))
+
+METHOD:

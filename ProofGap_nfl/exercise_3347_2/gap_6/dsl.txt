@@ -1,0 +1,4 @@
+1. get_prop (hypothesis 6: {forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ r(x, y, z) = sqrtn(2, x^{2} + y^{2} + z^{2})}) (x := {1}) (y := {2}) (z := {2}) as (hypothesis 12: {1 ∈ RealSet ∧ 2 ∈ RealSet ∧ 2 ∈ RealSet ⇒ r(1, 2, 2) = sqrtn(2, 1^{2} + 2^{2} + 2^{2})})
+2. use_condition (obvious: {1 ∈ RealSet ∧ 2 ∈ RealSet ∧ 2 ∈ RealSet}) in (hypothesis 12: {1 ∈ RealSet ∧ 2 ∈ RealSet ∧ 2 ∈ RealSet ⇒ r(1, 2, 2) = sqrtn(2, 1^{2} + 2^{2} + 2^{2})}) as (hypothesis 13: {r(1, 2, 2) = sqrtn(2, 1^{2} + 2^{2} + 2^{2})})
+3. rewrite (left_to_right, equation) (hypothesis 13: {r(1, 2, 2) = sqrtn(2, 1^{2} + 2^{2} + 2^{2})}); from (GOAL: {r(1, 2, 2) = 3}) to (GOAL: {sqrtn(2, 1^{2} + 2^{2} + 2^{2}) = 3})
+4. autosolve all_hypothesis

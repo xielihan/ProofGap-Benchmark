@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. li : RealSet → RealSet
+2. g : RealSet → RealSet
+3. α : RealSet → RealSet
+4. VP ∈ RealSet
+5. ξ ∈ RealSet
+6. e ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x < 1 ⇒ lim_{ ξ → 0^+ } (frac(1, ln(ξ))) = 0
+
+METHOD:

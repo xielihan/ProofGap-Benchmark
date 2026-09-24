@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet
+3. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), (e^{x + 1} + 1)^{2} - (e^{x - 1} + 1)^{2}) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), (e^{x + 1} - e^{x - 1}) * (e^{x + 1} + e^{x - 1} + 2)) }
+4. { `F_4` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), (e^{x + 1} - e^{x - 1}) * (e^{x + 1} + e^{x - 1} + 2)) } = { `F_5` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), e^{2 * x} * (e^{-x} - e^{-1}) * (e^{x} * e^{-1} + 2 * e^{-x})) }
+5. { `F_6` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_6`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), e^{2 * x} * (e^{-x} - e^{-1}) * (e^{x} * e^{-1} + 2 * e^{-x})) } = { `F_7` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_7`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), e^{2 * x} * 2 * sinh(1) * (2 * cosh(1) + 2 * e^{-x})) }
+
+GOAL:
+{ `F_8` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_8`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), e^{2 * x} * 2 * sinh(1) * (2 * cosh(1) + 2 * e^{-x})) } = { `F_9` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_9`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), 4 * e^{x} * sinh(1) * (1 + e^{x} * cosh(1))) }
+
+METHOD:

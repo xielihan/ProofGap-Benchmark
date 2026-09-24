@@ -1,0 +1,24 @@
+1. destruct_and (hypothesis 11: {frac(x, 1 + y) ∈ RealSet /\ frac(x, 1 + y) < 1}) as (hypothesis 12: {frac(x, 1 + y) ∈ RealSet}) (hypothesis 13: {frac(x, 1 + y) < 1})
+2. get_prop (theorem 'Thm 415. (ArctangentAdditionPrincipalFormula)': {forall (a) (b), a ∈ RealSet => b ∈ RealSet => a * b < 1 => arctan((a + b) / (1 - a * b)) = arctan(a) + arctan(b)}) (a := {1}) (b := {frac(x, 1 + y)}) as (hypothesis 14: {1 ∈ RealSet => frac(x, 1 + y) ∈ RealSet => 1 * frac(x, 1 + y) < 1 => arctan((1 + frac(x, 1 + y)) / (1 - 1 * frac(x, 1 + y))) = arctan(1) + arctan(frac(x, 1 + y))})
+3. assert (hypothesis 15: {1 ∈ RealSet}) by proof {
+  1. autosolve
+}
+4. assert (hypothesis 16: {1 * frac(x, 1 + y) < 1}) by proof {
+  1. autosolve all_hypothesis
+}
+5. use_condition (hypothesis 15: {1 ∈ RealSet}) (hypothesis 12: {frac(x, 1 + y) ∈ RealSet}) (hypothesis 16: {1 * frac(x, 1 + y) < 1}) in (hypothesis 14: {1 ∈ RealSet => frac(x, 1 + y) ∈ RealSet => 1 * frac(x, 1 + y) < 1 => arctan((1 + frac(x, 1 + y)) / (1 - 1 * frac(x, 1 + y))) = arctan(1) + arctan(frac(x, 1 + y))}) as (hypothesis 17: {arctan((1 + frac(x, 1 + y)) / (1 - 1 * frac(x, 1 + y))) = arctan(1) + arctan(frac(x, 1 + y))})
+6. get_prop (theorem 'Thm 396. (ArctangentTangentPrincipalInverse)': {forall (theta), theta ∈ RealSet => -frac(π, 2) < theta /\ theta < frac(π, 2) => arctan(tan(theta)) = theta}) (theta := {frac(π, 4)}) as (hypothesis 18: {frac(π, 4) ∈ RealSet => -frac(π, 2) < frac(π, 4) /\ frac(π, 4) < frac(π, 2) => arctan(tan(frac(π, 4))) = frac(π, 4)})
+7. assert (hypothesis 19: {frac(π, 4) ∈ RealSet}) by proof {
+  1. autosolve
+}
+8. assert (hypothesis 20: {-frac(π, 2) < frac(π, 4) /\ frac(π, 4) < frac(π, 2)}) by proof {
+  1. autosolve
+}
+9. use_condition (hypothesis 19: {frac(π, 4) ∈ RealSet}) (hypothesis 20: {-frac(π, 2) < frac(π, 4) /\ frac(π, 4) < frac(π, 2)}) in (hypothesis 18: {frac(π, 4) ∈ RealSet => -frac(π, 2) < frac(π, 4) /\ frac(π, 4) < frac(π, 2) => arctan(tan(frac(π, 4))) = frac(π, 4)}) as (hypothesis 21: {arctan(tan(frac(π, 4))) = frac(π, 4)})
+10. assert (hypothesis 22: {tan(frac(π, 4)) = 1}) by proof {
+  1. autosolve
+}
+11. rewrite (left_to_right, equation) (hypothesis 22: {tan(frac(π, 4)) = 1}); from (hypothesis 21: {arctan(tan(frac(π, 4))) = frac(π, 4)}) to (hypothesis 23: {arctan(1) = frac(π, 4)})
+12. rewrite (left_to_right, equation) (hypothesis 17: {arctan((1 + frac(x, 1 + y)) / (1 - 1 * frac(x, 1 + y))) = arctan(1) + arctan(frac(x, 1 + y))}); from (GOAL: {arctan(frac(1 + frac(x, 1 + y), 1 - frac(x, 1 + y))) = frac(π, 4) + arctan(frac(x, 1 + y))}) to (GOAL: {arctan(1) + arctan(frac(x, 1 + y)) = frac(π, 4) + arctan(frac(x, 1 + y))})
+13. rewrite (left_to_right, equation) (hypothesis 23: {arctan(1) = frac(π, 4)}); from (GOAL: {arctan(1) + arctan(frac(x, 1 + y)) = frac(π, 4) + arctan(frac(x, 1 + y))}) to (GOAL: {frac(π, 4) + arctan(frac(x, 1 + y)) = frac(π, 4) + arctan(frac(x, 1 + y))})
+14. autosolve

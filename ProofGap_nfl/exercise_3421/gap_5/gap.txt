@@ -1,0 +1,20 @@
+PROOF GAP @5
+ASSUM:
+1. Φ : CartesianProd(RealSet, RealSet) → RealSet
+2. z : CartesianProd(RealSet, RealSet) → RealSet
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+6. DiffableFunc(Φ)
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ Φ(x - a * z(x, y), y - b * z(x, y)) = 0
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ a * FunDeri(Φ, 1, 1)(x - a * z(x, y), y - b * z(x, y)) + b * FunDeri(Φ, 2, 1)(x - a * z(x, y), y - b * z(x, y)) ≠ 0
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ S = { (x, y, z(x, y)) | x ∈ RealSet, y ∈ RealSet, Φ(x - a * z(x, y), y - b * z(x, y)) = 0 }
+10. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(Φ, 1, 1)(x - a * z(x, y), y - b * z(x, y)) * (1 - a * FunDeri(z, 1, 1)(x, y)) - b * FunDeri(Φ, 2, 1)(x - a * z(x, y), y - b * z(x, y)) * FunDeri(z, 1, 1)(x, y) = 0
+11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ -a * FunDeri(Φ, 1, 1)(x - a * z(x, y), y - b * z(x, y)) * FunDeri(z, 2, 1)(x, y) + FunDeri(Φ, 2, 1)(x - a * z(x, y), y - b * z(x, y)) * (1 - b * FunDeri(z, 2, 1)(x, y)) = 0
+12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 1)(x, y) = frac(FunDeri(Φ, 1, 1)(x - a * z(x, y), y - b * z(x, y)), a * FunDeri(Φ, 1, 1)(x - a * z(x, y), y - b * z(x, y)) + b * FunDeri(Φ, 2, 1)(x - a * z(x, y), y - b * z(x, y)))
+13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 2, 1)(x, y) = frac(FunDeri(Φ, 2, 1)(x - a * z(x, y), y - b * z(x, y)), a * FunDeri(Φ, 1, 1)(x - a * z(x, y), y - b * z(x, y)) + b * FunDeri(Φ, 2, 1)(x - a * z(x, y), y - b * z(x, y)))
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ a * FunDeri(z, 1, 1)(x, y) + b * FunDeri(z, 2, 1)(x, y) = 1
+
+METHOD:

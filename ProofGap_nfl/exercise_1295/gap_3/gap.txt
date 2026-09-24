@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. x : NonNegIntegerSet → RealSet
+2. G : NonNegIntegerSet → RealSet
+3. A : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ x(i) > 0)
+5. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ G(n) = (prod_{ i = 1 }^{ n } (x(i)))^{frac(1, n)})
+6. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ A(n) = frac(1, n) * (sum_{ i = 1 }^{ n } (x(i))))
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n = 1 ⇒ G(n) = x(1)
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n = 1 ⇒ A(n) = x(1)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n = 1 ⇒ G(n) ≤ A(n)
+
+METHOD:

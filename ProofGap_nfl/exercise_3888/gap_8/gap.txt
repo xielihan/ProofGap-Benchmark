@@ -1,0 +1,18 @@
+PROOF GAP @8
+ASSUM:
+1. f : RealSet → RealSet
+2. A : RealSet → RealSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = cases{ cos(x) if |x| ≤ frac(π, 2); 0 if |x| > frac(π, 2) }
+4. ContinuousFunc(f)
+5. EvenFunc(f)
+6. forall (λ), λ ∈ RealSet ⇒ A(λ) = frac(2, π) * DefInt(0, +∞, (fun ξ [ξ ∈ RealSet] . f(ξ) * cos(λ * ξ)) * diff(fun ξ [ξ ∈ RealSet] . ξ))
+7. forall (λ), λ ∈ RealSet ⇒ A(λ) = frac(2, π) * DefInt(0, frac(π, 2), (fun ξ [ξ ∈ RealSet] . cos(ξ) * cos(λ * ξ)) * diff(fun ξ [ξ ∈ RealSet] . ξ))
+8. forall (λ), λ ∈ RealSet ∧ λ ≠ 1 ∧ λ ≠ -1 ⇒ frac(2, π) * DefInt(0, frac(π, 2), (fun ξ [ξ ∈ RealSet] . cos(ξ) * cos(λ * ξ)) * diff(fun ξ [ξ ∈ RealSet] . ξ)) = frac(2 * cos(frac(λ * π, 2)), π * (1 - λ^{2}))
+9. forall (λ), λ ∈ RealSet ∧ λ ≠ 1 ∧ λ ≠ -1 ⇒ A(λ) = frac(2 * cos(frac(λ * π, 2)), π * (1 - λ^{2}))
+10. forall (x), x ∈ RealSet ⇒ f(x) = frac(2, π) * DefInt(0, +∞, (fun λ [λ ∈ RealSet] . frac(cos(frac(λ * π, 2)), 1 - λ^{2}) * cos(λ * x)) * diff(fun λ [λ ∈ RealSet] . λ))
+11. forall (x), x ∈ RealSet ⇒ lim_{ λ → 1 } (frac(cos(frac(λ * π, 2)), 1 - λ^{2}) * cos(λ * x)) = frac(π, 4) * cos(x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ f(x) = frac(2, π) * DefInt(0, +∞, (fun λ [λ ∈ RealSet] . frac(cos(frac(λ * π, 2)), 1 - λ^{2}) * cos(λ * x)) * diff(fun λ [λ ∈ RealSet] . λ))
+
+METHOD:

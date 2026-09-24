@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. p ∈ RealSet
+2. forall (x), x ∈ RealSet ⇒ DefInt(0, +∞, x^{p - 1} * e^{-x} * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, x^{p - 1} * e^{-x} * diff(fun x [x ∈ RealSet] . x)) + DefInt(1, +∞, x^{p - 1} * e^{-x} * diff(fun x [x ∈ RealSet] . x))
+3. lim_{ x → 0^+ } (x^{1 - p} * x^{p - 1} * e^{-x}) = 1
+
+GOAL:
+forall (x), x ∈ RealSet ∧ p > 0 ⇒ ConvergentSeries(DefInt(0, 1, x^{p - 1} * e^{-x} * diff(fun x [x ∈ RealSet] . x)))
+
+METHOD:
+[@method 根据 "广义积分比较判别法" @]

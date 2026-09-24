@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 12: {I = r}); from (GOAL: {|I| = r}) to (GOAL: {|r| = r})
+autosolve (hypothesis 11: {0 ≤ r})

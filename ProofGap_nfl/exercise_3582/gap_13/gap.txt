@@ -1,0 +1,28 @@
+PROOF GAP @13
+ASSUM:
+1. f : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. A ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. R_{3} : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+4. x ∈ RealSet
+5. y ∈ RealSet
+6. z ∈ RealSet
+7. f : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+8. A = (1, 1, 1)
+9. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ f(x, y, z) = x^{3} + y^{3} + z^{3} - 3 * x * y * z
+10. FunDeri(f, 1, 1)(x, y, z) = 3 * x^{2} - 3 * y * z
+11. FunDeri(f, 2, 1)(x, y, z) = 3 * y^{2} - 3 * x * z
+12. FunDeri(f, 3, 1)(x, y, z) = 3 * z^{2} - 3 * x * y
+13. FunDeri(f, 1, 2)(x, y, z) = 6 * x
+14. FunDeri(f, 2, 2)(x, y, z) = 6 * y
+15. FunDeri(f, 3, 2)(x, y, z) = 6 * z
+16. FunDeri(FunDeri(f, 1, 1), 2, 1)(x, y, z) = -3 * z
+17. FunDeri(FunDeri(f, 2, 1), 3, 1)(x, y, z) = -3 * x
+18. FunDeri(FunDeri(f, 1, 1), 3, 1)(x, y, z) = -3 * y
+19. FunDeri(f, 1, 3)(x, y, z) = 6
+20. FunDeri(f, 2, 3)(x, y, z) = 6
+21. FunDeri(f, 3, 3)(x, y, z) = 6
+
+GOAL:
+FunDeri(FunDeri(FunDeri(f, 1, 1), 2, 1), 3, 1)(x, y, z) = -3
+
+METHOD:

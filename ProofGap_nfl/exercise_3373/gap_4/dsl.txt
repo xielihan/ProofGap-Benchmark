@@ -1,0 +1,8 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = -frac(ε * sin(y(x)), (1 - ε * cos(y(x)))^{3})}) (x := {x0})
+2. get_condition (hypothesis 9: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ FunDeri(y, 1, 2)(x0) = -frac(ε * sin(y(x0)), (1 - ε * cos(y(x0)))^{3})})
+3. get_prop (hypothesis 8: {forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = -frac(ε * FunDeri(y, 1, 1)(x) * sin(y(x)), (1 - ε * cos(y(x)))^{2})}) (x := {x0}) as (hypothesis 10: {x0 ∈ RealSet ⇒ FunDeri(y, 1, 2)(x0) = -frac(ε * FunDeri(y, 1, 1)(x0) * sin(y(x0)), (1 - ε * cos(y(x0)))^{2})})
+4. get_prop (hypothesis 7: {forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = frac(1, 1 - ε * cos(y(x)))}) (x := {x0}) as (hypothesis 11: {x0 ∈ RealSet ⇒ FunDeri(y, 1, 1)(x0) = frac(1, 1 - ε * cos(y(x0)))})
+5. use_condition (hypothesis 9: {x0 ∈ RealSet}) in (hypothesis 10: {x0 ∈ RealSet ⇒ FunDeri(y, 1, 2)(x0) = -frac(ε * FunDeri(y, 1, 1)(x0) * sin(y(x0)), (1 - ε * cos(y(x0)))^{2})}) as (hypothesis 12: {FunDeri(y, 1, 2)(x0) = -frac(ε * FunDeri(y, 1, 1)(x0) * sin(y(x0)), (1 - ε * cos(y(x0)))^{2})})
+6. use_condition (hypothesis 9: {x0 ∈ RealSet}) in (hypothesis 11: {x0 ∈ RealSet ⇒ FunDeri(y, 1, 1)(x0) = frac(1, 1 - ε * cos(y(x0)))}) as (hypothesis 13: {FunDeri(y, 1, 1)(x0) = frac(1, 1 - ε * cos(y(x0)))})
+7. rewrite (left_to_right, equation) (hypothesis 13: {FunDeri(y, 1, 1)(x0) = frac(1, 1 - ε * cos(y(x0)))}); from (hypothesis 12: {FunDeri(y, 1, 2)(x0) = -frac(ε * FunDeri(y, 1, 1)(x0) * sin(y(x0)), (1 - ε * cos(y(x0)))^{2})}) to (hypothesis 14: {FunDeri(y, 1, 2)(x0) = -frac(ε * frac(1, 1 - ε * cos(y(x0))) * sin(y(x0)), (1 - ε * cos(y(x0)))^{2})})
+8. autosolve all_hypothesis

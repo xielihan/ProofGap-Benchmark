@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet => sum_{ k = 1 }^{ n } (frac(1, k)) = C + ln(n) + ε(n)}) (n := {q})
+get_condition (hypothesis 21: {q ∈ NonNegIntegerSet /\ q ∈ PosIntegerSet}) in (GOAL: {q ∈ NonNegIntegerSet /\ q ∈ PosIntegerSet => sum_{ k = 1 }^{ q } (frac(1, k)) = C + ln(q) + ε(q)})
+get_prop (hypothesis 19: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet => ε(n) = (sum_{ k = 1 }^{ n } (frac(1, k))) - ln(n) - C}) (n := {q}) as (hypothesis 22: {q ∈ NonNegIntegerSet /\ q ∈ PosIntegerSet => ε(q) = (sum_{ k = 1 }^{ q } (frac(1, k))) - ln(q) - C})
+use_condition (hypothesis 21: {q ∈ NonNegIntegerSet /\ q ∈ PosIntegerSet}) in (hypothesis 22: {q ∈ NonNegIntegerSet /\ q ∈ PosIntegerSet => ε(q) = (sum_{ k = 1 }^{ q } (frac(1, k))) - ln(q) - C}) as (hypothesis 23: {ε(q) = (sum_{ k = 1 }^{ q } (frac(1, k))) - ln(q) - C})
+rewrite (left_to_right, equation) (hypothesis 23: {ε(q) = (sum_{ k = 1 }^{ q } (frac(1, k))) - ln(q) - C}); from (GOAL: {sum_{ k = 1 }^{ q } (frac(1, k)) = C + ln(q) + ε(q)}) to (GOAL: {sum_{ k = 1 }^{ q } (frac(1, k)) = C + ln(q) + ((sum_{ k = 1 }^{ q } (frac(1, k))) - ln(q) - C)})
+autosolve all_hypothesis

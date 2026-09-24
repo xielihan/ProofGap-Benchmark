@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. I : RealSet → RealSet
+2. J : RealSet → RealSet
+3. forall (n), n ∈ RealSet ∧ 0 < n ∧ n < 2 ⇒ I(n) = DefInt(0, 1, (fun x [x ∈ RealSet] . frac(sin(frac(1, x)), x^{n})) * diff(fun x [x ∈ RealSet] . x))
+4. forall (n), n ∈ RealSet ∧ 0 < n ∧ n < 2 ⇒ J(n) = DefInt(1, +∞, (fun t [t ∈ RealSet] . t^{n - 2} * sin(t)) * diff(fun t [t ∈ RealSet] . t))
+
+GOAL:
+forall (n), n ∈ RealSet ∧ 0 < n ∧ n < 2 ⇒ I(n) = J(n)
+
+METHOD:
+[@method 根据 "变量代换 frac(1, x) = t" @]

@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. a ≠ 0
+4. forall (x), x ∈ RealSet ⇒ y(x) = arctan(frac(x^{2}, a))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ a ∈ RealSet ∧ a ≠ 0 ⇒ FunDeri(y, 1, 1)(x) = frac(1, 1 + frac(x^{2}, a)^{2}) * frac(2 * x, a) ∧ frac(1, 1 + frac(x^{2}, a)^{2}) * frac(2 * x, a) = frac(2 * a * x, a^{2} + x^{4})
+
+METHOD:

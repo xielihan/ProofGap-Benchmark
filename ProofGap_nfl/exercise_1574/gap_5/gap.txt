@@ -1,0 +1,16 @@
+PROOF GAP @5
+ASSUM:
+1. p ∈ RealSet ∧ p > 0
+2. f : RealSet → RealSet
+3. d ∈ RealSet
+4. forall (y), y ∈ RealSet ⇒ f(y) = (frac(y^{2}, 2 * p) - p)^{2} + (y - p)^{2}
+5. d = sqrtn(2, min(ImageOn(f, RealSet)))
+6. forall (y), y ∈ RealSet ⇒ (exists (x), x ∈ RealSet ∧ y^{2} = 2 * p * x)
+7. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ y^{2} = 2 * p * x ⇒ x = frac(y^{2}, 2 * p))
+8. forall (y), y ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ y^{2} = 2 * p * x ⇒ f(y) = (x - p)^{2} + (y - p)^{2})
+9. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ y^{2} = 2 * p * x ⇒ (x - p)^{2} + (y - p)^{2} = x^{2} + 2 * p^{2} - 2 * p * y)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ y^{2} = 2 * p * x ⇒ x^{2} + 2 * p^{2} - 2 * p * y = frac(y^{4}, 4 * p^{2}) + 2 * p^{2} - 2 * p * y)
+
+METHOD:

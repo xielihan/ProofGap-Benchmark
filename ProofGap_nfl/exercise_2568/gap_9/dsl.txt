@@ -1,0 +1,8 @@
+1. rewrite_in sum (left_to_right, equation) (hypothesis 14: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ c(n) = frac(1, n)}); from (GOAL: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n)^{2}))}) to (GOAL: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } ((frac(1, n))^{2}))})
+2. autoreplace no_hypothesis; from ((frac(1, n))^{2}) to (frac(1, n^{2})); from (GOAL: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } ((frac(1, n))^{2}))}) to (GOAL: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{2})))})
+3. autoreplace no_hypothesis; from (frac(1, n^{2})) to (1 / n^{2}); from (GOAL: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{2})))}) to (GOAL: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{2}))})
+4. get_prop (theorem 'Thm 366. (PSeriesConvergesForExponentAboveOne)': {forall (p), p ∈ RealSet => p > 1 => ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ p))}) (p := {2}) as (hypothesis 15: {2 ∈ RealSet ⇒ 2 > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{2}))})
+5. assert (hypothesis 16: {2 ∈ RealSet})
+6. assert (hypothesis 17: {2 > 1})
+7. use_condition (hypothesis 16: {2 ∈ RealSet}) (hypothesis 17: {2 > 1}) in (hypothesis 15: {2 ∈ RealSet ⇒ 2 > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{2}))}) as (hypothesis 18: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{2}))})
+8. apply (hypothesis 18: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{2}))})

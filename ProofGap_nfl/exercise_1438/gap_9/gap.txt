@@ -1,0 +1,17 @@
+PROOF GAP @9
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x) = sqrtn(2, x) * ln(x)
+3. forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(y, 1, 1)(x) = frac(1, 2 * sqrtn(2, x)) * (ln(x) + 2)
+4. forall (x), x ∈ RealSet ∧ x > 0 ∧ FunDeri(y, 1, 1)(x) = 0 ⇒ x = e^{-2}
+5. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < e^{-2} ⇒ FunDeri(y, 1, 1)(x) < 0
+6. forall (x), x ∈ RealSet ∧ x > e^{-2} ⇒ FunDeri(y, 1, 1)(x) > 0
+7. MinimumPointOn(y, IntervalLoRo(0, +∞)) = { e^{-2} }
+8. y(e^{-2}) = -frac(2, e)
+9. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < 1 ⇒ y(x) < 0
+10. lim_{ x → 0^+ } (y(x)) = 0
+
+GOAL:
+MinimumPointOn(y, IntervalLoRo(0, +∞)) = { e^{-2} }
+
+METHOD:

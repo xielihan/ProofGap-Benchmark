@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet
+3. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+4. forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ y(x) = sqrtn(m + n, (1 - x)^{m} * (1 + x)^{n})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ FunDeri(y, 1, 1)(x) = frac(-m * (1 - x)^{m - 1} * (1 + x)^{n} + n * (1 + x)^{n - 1} * (1 - x)^{m}, (m + n) * sqrtn(m + n, ((1 - x)^{m} * (1 + x)^{n})^{m + n - 1})) ∧ frac(-m * (1 - x)^{m - 1} * (1 + x)^{n} + n * (1 + x)^{n - 1} * (1 - x)^{m}, (m + n) * sqrtn(m + n, ((1 - x)^{m} * (1 + x)^{n})^{m + n - 1})) = frac(sqrtn(m + n, (1 - x)^{m} * (1 + x)^{n}) * (n - m - (n + m) * x), (m + n) * (1 - x) * (1 + x))
+
+METHOD:

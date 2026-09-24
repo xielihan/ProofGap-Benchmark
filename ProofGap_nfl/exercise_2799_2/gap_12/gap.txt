@@ -1,0 +1,23 @@
+PROOF GAP @12
+ASSUM:
+1. f : RealSet → RealSet
+2. φ : RealSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ⇒ (forall (x), x ∈ RealSet ⇒ f(x) = sum_{ n = 1 }^{ +∞ } (frac(|x|, n^{2} + x^{2})))
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ⇒ (forall (x), x ∈ RealSet ⇒ φ(x) = sum_{ n = 1 }^{ +∞ } (frac(1, n^{2} + x^{2})))
+5. forall (x), x ∈ RealSet ∧ x = 0 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(|x|, n^{2} + x^{2})))
+6. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ∧ x ≠ 0 ⇒ frac(frac(|x|, n^{2} + x^{2}), frac(1, n^{2})) = frac(n^{2}, n^{2} + x^{2}) * |x|)
+7. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ seqlim_{ n → +∞ } (frac(n^{2}, n^{2} + x^{2}) * |x|) = |x|
+8. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{2})))
+9. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(|x|, n^{2} + x^{2})))
+10. Dom(f) = (-∞, +∞)
+11. forall (x), x ∈ RealSet ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{2} + x^{2})))
+12. forall (x), x ∈ RealSet ⇒ f(x) = |x| * φ(x)
+13. exists (l), l ∈ RealSet ∧ l > 0 ∧ (forall (x_{0}), x_{0} ∈ RealSet ⇒ l = l)
+14. forall (l), l ∈ RealSet ∧ l > 0 ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ l > 0)
+15. forall (l), l ∈ RealSet ∧ l > 0 ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ -l < x_{0})
+16. forall (l), l ∈ RealSet ∧ l > 0 ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ x_{0} < l)
+
+GOAL:
+forall (l), l ∈ RealSet ∧ l > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [-l, l] ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ |FunDeri(fun x [x ∈ RealSet] . frac(1, n^{2} + x^{2}), 1, 1)(x)| = |frac(-2 * x, (n^{2} + x^{2})^{2})|)))
+
+METHOD:

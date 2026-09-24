@@ -1,0 +1,15 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. s ∈ RealSet
+5. 0 ≤ b
+6. b < a
+7. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b ⇒ y(x) = a * ln(frac(a^{2}, a^{2} - x^{2}))
+8. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b ⇒ FunDeri(y, 1, 1)(x) = frac(2 * a * x, a^{2} - x^{2})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b ⇒ sqrtn(2, 1 + FunDeri(y, 1, 1)(x)^{2}) = frac(a^{2} + x^{2}, a^{2} - x^{2})
+
+METHOD:

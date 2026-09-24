@@ -1,0 +1,17 @@
+PROOF GAP @8
+ASSUM:
+1. x : NonNegIntegerSet → RealSet
+2. IsSeq(x)
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = n + frac(100, n)
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = (sqrtn(2, n) - frac(10, sqrtn(2, n)))^{2} + 20
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ≥ 20
+6. x(10) = 20
+7. min({ x(n) | n ∈ PosIntegerSet }) = 20
+8. inf({ x(n) | n ∈ PosIntegerSet }) = 20
+9. sup({ x(n) | n ∈ PosIntegerSet }) = +∞
+10. seqlimsup_{ n → +∞ } (x(n)) = +∞
+
+GOAL:
+seqlim_{ n → +∞ } (x(n)) = +∞
+
+METHOD:

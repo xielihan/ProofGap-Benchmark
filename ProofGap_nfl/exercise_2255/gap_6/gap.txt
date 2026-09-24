@@ -1,0 +1,16 @@
+PROOF GAP @6
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. f : RealSet → RealSet ∧ ContinuousFuncOn(f, [0, a^{2}])
+3. x : RealSet → RealSet
+4. forall (t), t ∈ RealSet ∧ t ∈ [0, a^{2}] ⇒ x(t) = sqrtn(2, t)
+5. forall (t), t ∈ RealSet ∧ t = 0 ⇒ x(t) = 0
+6. forall (t), t ∈ RealSet ∧ t = a^{2} ⇒ x(t) = a
+7. diff(x) = (fun t [t ∈ RealSet ∧ t ∈ [0, a^{2}]] . frac(1, 2 * sqrtn(2, t))) * diff(fun t [t ∈ RealSet ∧ t ∈ [0, a^{2}]] . t)
+8. DefInt(0, a, (fun x [x ∈ RealSet ∧ x ∈ [0, a]] . x^{3} * f(x^{2})) * diff(fun x [x ∈ RealSet ∧ x ∈ [0, a]] . x)) = DefInt(0, a^{2}, (fun t [t ∈ RealSet ∧ t ∈ [0, a^{2}]] . frac(t^{frac(3, 2)} * f(t), 2 * sqrtn(2, t))) * diff(fun t [t ∈ RealSet ∧ t ∈ [0, a^{2}]] . t))
+9. DefInt(0, a^{2}, (fun t [t ∈ RealSet ∧ t ∈ [0, a^{2}]] . frac(t^{frac(3, 2)} * f(t), 2 * sqrtn(2, t))) * diff(fun t [t ∈ RealSet ∧ t ∈ [0, a^{2}]] . t)) = frac(1, 2) * DefInt(0, a^{2}, (fun t [t ∈ RealSet ∧ t ∈ [0, a^{2}]] . t * f(t)) * diff(fun t [t ∈ RealSet ∧ t ∈ [0, a^{2}]] . t))
+
+GOAL:
+frac(1, 2) * DefInt(0, a^{2}, (fun t [t ∈ RealSet ∧ t ∈ [0, a^{2}]] . t * f(t)) * diff(fun t [t ∈ RealSet ∧ t ∈ [0, a^{2}]] . t)) = frac(1, 2) * DefInt(0, a^{2}, (fun x [x ∈ RealSet ∧ x ∈ [0, a^{2}]] . x * f(x)) * diff(fun x [x ∈ RealSet ∧ x ∈ [0, a^{2}]] . x))
+
+METHOD:

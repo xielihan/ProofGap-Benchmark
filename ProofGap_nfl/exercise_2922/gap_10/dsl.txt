@@ -1,0 +1,4 @@
+assert (hypothesis 11: {2 * frac(frac(1, 10) * (frac(1, 10) - 1) * (frac(1, 10) - 2), 3!) * frac(3, 128)^{3} < 10^{-6}}) by proof {
+  autosolve all_hypothesis
+}
+apply (hypothesis 11: {2 * frac(frac(1, 10) * (frac(1, 10) - 1) * (frac(1, 10) - 2), 3!) * frac(3, 128)^{3} < 10^{-6}})

@@ -1,0 +1,2 @@
+autoreplace no_hypothesis; from (3 - 1) to (2); from (hypothesis 14: {sqrtn(3, 2^{3} + 1) ≈_{ ε } 2 + frac(1, 3 * 2^{3 - 1})}) to (hypothesis 16: {sqrtn(3, 2^{3} + 1) ≈_{ ε } 2 + frac(1, 3 * 2^{2})})
+apply (hypothesis 16: {sqrtn(3, 2^{3} + 1) ≈_{ ε } 2 + frac(1, 3 * 2^{2})})

@@ -1,0 +1,18 @@
+PROOF GAP @10
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = arctan(x)
+3. ContinuousFuncOn(f, (-∞, 1])
+4. ContinuousFuncOn(f, [0, +∞))
+5. lim_{ x → +∞ } (arctan(x)) = frac(π, 2)
+6. lim_{ x → -∞ } (arctan(x)) = -frac(π, 2)
+7. UniformContinuousFuncOn(f, [0, +∞))
+8. UniformContinuousFuncOn(f, (-∞, 1])
+9. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ) (ε), δ : RealSet → RealSet ∧ ε ∈ RealSet ∧ δ(1, ε) > 0 ∧ (forall (x_{1}) (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ x_{1} ∈ (-∞, 1] ∧ x_{2} ∈ (-∞, 1] ∧ |x_{1} - x_{2}| < δ(1, ε) ⇒ |f(x_{1}) - f(x_{2})| < ε))
+10. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ) (ε), δ : RealSet → RealSet ∧ ε ∈ RealSet ∧ δ(2, ε) > 0 ∧ (forall (x_{1}) (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ x_{1} ∈ [0, +∞) ∧ x_{2} ∈ [0, +∞) ∧ |x_{1} - x_{2}| < δ(2, ε) ⇒ |f(x_{1}) - f(x_{2})| < ε))
+11. exists (δ), δ : RealSet → RealSet ∧ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ δ(ε) = min(1, δ(1, ε), δ(2, ε)) ⇒ (forall (x_{1}) (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ x_{1} ∈ IntervalLoRo(-∞, +∞) ∧ x_{2} ∈ IntervalLoRo(-∞, +∞) ∧ |x_{1} - x_{2}| < δ(ε) ⇒ x_{1} ∈ (-∞, 1] ∧ x_{2} ∈ (-∞, 1] ∨ x_{1} ∈ [0, +∞) ∧ x_{2} ∈ [0, +∞)))
+
+GOAL:
+UniformContinuousFuncOn(f, (-∞, 1]) ∧ UniformContinuousFuncOn(f, [0, +∞))
+
+METHOD:

@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. I : NonNegIntegerSet → RealSet
+2. forall (n), n ∈ IntegerSet ∧ n ∈ PosIntegerSet ⇒ I(n) = DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . sin(x)^{n}) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ I(n) = -DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . sin(x)^{n - 1}) * diff(fun x [x ∈ RealSet] . cos(x)))
+
+METHOD:

@@ -1,0 +1,2 @@
+1. exists (x := {a})
+2. autosolve (hypothesis 1: {a ∈ RealSet}) (hypothesis 2: {a > 0})

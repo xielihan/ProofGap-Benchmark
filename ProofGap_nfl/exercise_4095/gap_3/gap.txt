@@ -1,0 +1,18 @@
+PROOF GAP @3
+ASSUM:
+1. f : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. V ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. a ∈ RealSet ∧ a > 0
+4. b ∈ RealSet ∧ b > 0
+5. c ∈ RealSet ∧ c > 0
+6. ω ∈ RealSet
+7. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ f(x, y, z) = e^{sqrtn(2, frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}))}
+8. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ ((x, y, z) ∈ V ⇔ frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}) ≤ 1)
+9. VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . 1) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)) = frac(4, 3) * π * a * b * c
+10. frac(VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . f(x, y, z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)), VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . 1) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z))) = frac(3, 4 * π * a * b * c) * VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . e^{sqrtn(2, frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}))}) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z))
+
+GOAL:
+frac(3, 4 * π * a * b * c) * VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . e^{sqrtn(2, frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}))}) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)) = frac(3, 4 * π * a * b * c) * 8 * DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet ∧ φ ∈ IntervalCC(0, frac(π, 2))] . DefInt(0, frac(π, 2), (fun ψ [ψ ∈ RealSet ∧ ψ ∈ IntervalCC(0, frac(π, 2))] . DefInt(0, 1, (fun r [r ∈ RealSet ∧ r ∈ IntervalCC(0, 1)] . a * b * c * e^{r} * r^{2} * cos(ψ)) * diff(fun r [r ∈ RealSet ∧ r ∈ IntervalCC(0, 1)] . r))) * diff(fun ψ [ψ ∈ RealSet ∧ ψ ∈ IntervalCC(0, frac(π, 2))] . ψ))) * diff(fun φ [φ ∈ RealSet ∧ φ ∈ IntervalCC(0, frac(π, 2))] . φ))
+
+METHOD:
+[@method 令 x = a * r * cos(φ) * cos(ψ), y = b * r * sin(φ) * cos(ψ), z = c * r * sin(ψ) 并利用对称性 @]

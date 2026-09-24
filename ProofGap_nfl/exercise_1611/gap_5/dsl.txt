@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x > 0 ⇒ x + frac(frac(p, y(x)) * (1 + frac(p^{2}, y(x)^{2})), frac(p^{2}, y(x)^{3})) = x + frac(y(x)^{2} + p^{2}, p)}) (x := {x0})
+get_condition (hypothesis 10: {x0 ∈ RealSet ∧ x0 > 0}) in (GOAL: {x0 ∈ RealSet ∧ x0 > 0 ⇒ x0 + frac(frac(p, y(x0)) * (1 + frac(p^{2}, y(x0)^{2})), frac(p^{2}, y(x0)^{3})) = x0 + frac(y(x0)^{2} + p^{2}, p)})
+assert (hypothesis 11: {x0 + frac(frac(p, y(x0)) * (1 + frac(p^{2}, y(x0)^{2})), frac(p^{2}, y(x0)^{3})) = x0 + frac(y(x0)^{2} + p^{2}, p)})
+apply (hypothesis 11: {x0 + frac(frac(p, y(x0)) * (1 + frac(p^{2}, y(x0)^{2})), frac(p^{2}, y(x0)^{3})) = x0 + frac(y(x0)^{2} + p^{2}, p)})

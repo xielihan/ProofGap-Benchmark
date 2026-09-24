@@ -1,0 +1,17 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. n ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = x^{n} * sin(frac(1, x))
+4. f(0) = 0
+5. forall (x), x ∈ RealSet
+6. n > 1 ⇒ lim_{ Δx → 0 } (frac(f(0 + Δx) - f(0), Δx)) = lim_{ Δx → 0 } (Δx^{n - 1} * sin(frac(1, Δx)))
+7. n > 1 ⇒ lim_{ Δx → 0 } (Δx^{n - 1} * sin(frac(1, Δx))) = 0
+8. n > 1 ⇒ lim_{ Δx → 0 } (frac(f(0 + Δx) - f(0), Δx)) = 0
+9. n > 1 ⇒ FunDeri(f, 1, 1)(0) = 0
+10. n > 1 ⇒ DiffableFuncAt(f, 0)
+
+GOAL:
+n > 1 ⇒ DiffableFuncAt(f, 0)
+
+METHOD:

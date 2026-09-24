@@ -1,0 +1,21 @@
+PROOF GAP @4
+ASSUM:
+1. x : CartesianProd(RealSet, RealSet) → RealSet
+2. y : CartesianProd(RealSet, RealSet) → RealSet
+3. z : CartesianProd(RealSet, RealSet) → RealSet
+4. a ∈ RealSet ∧ a > 0
+5. V ∈ RealSet
+6. D ⊆ CartesianProd(RealSet, RealSet)
+7. Omega ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+8. forall (u) (v), u ∈ RealSet ∧ u ≥ 0 ∧ v ∈ RealSet ⇒ x(u, v) = u * cos(v)
+9. forall (u) (v), u ∈ RealSet ∧ u ≥ 0 ∧ v ∈ RealSet ⇒ y(u, v) = u * sin(v)
+10. forall (u) (v), u ∈ RealSet ∧ u ≥ 0 ∧ v ∈ RealSet ⇒ z(u, v) = -u + a * cos(v)
+11. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ⇒ ((u, v) ∈ D ⇔ -frac(π, 2) ≤ v ∧ v ≤ frac(π, 2) ∧ 0 ≤ u ∧ u ≤ a * cos(v))
+12. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ∧ (u, v) ∈ D ⇒ z(u, v) ≥ 0
+13. forall (u), u ∈ RealSet ∧ u ≥ 0 ⇒ (forall (v), v ∈ RealSet ⇒ FunDeri(x, 1, 1)(u, v) * FunDeri(y, 2, 1)(u, v) - FunDeri(x, 2, 1)(u, v) * FunDeri(y, 1, 1)(u, v) = u)
+14. V = VolumeInt(Omega, diff(fun ω [ω ∈ RealSet] . ω))
+
+GOAL:
+V = DefInt(-frac(π, 2), frac(π, 2), (fun v [v ∈ RealSet ∧ v ∈ [-frac(π, 2), frac(π, 2)]] . DefInt(0, a * cos(v), (fun u [u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ a * cos(v)] . (-u + a * cos(v)) * u) * diff(fun u [u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ a * cos(v)] . u))) * diff(fun v [v ∈ RealSet ∧ v ∈ [-frac(π, 2), frac(π, 2)]] . v))
+
+METHOD:

@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (N), N ∈ NonNegIntegerSet ∧ N = 11 => R(N) < Δ(N)}) (N := {M})
+get_condition (hypothesis 15: {M ∈ NonNegIntegerSet ∧ M = 11}) in (GOAL: {M ∈ NonNegIntegerSet ∧ M = 11 => R(M) < Δ(M)})
+assert (hypothesis 16: {M ∈ NonNegIntegerSet ∧ M >= 4}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (hypothesis 13: {forall (N), N ∈ NonNegIntegerSet ∧ N >= 4 => R(N) < frac(1, 2 * e) * frac(2 * e, N + 2) ^ (N + 2) * frac(1, 1 - frac(2 * e, N + 2))}) (N := {M}) as (hypothesis 17: {M ∈ NonNegIntegerSet ∧ M >= 4 => R(M) < frac(1, 2 * e) * frac(2 * e, M + 2) ^ (M + 2) * frac(1, 1 - frac(2 * e, M + 2))})
+get_prop (hypothesis 14: {forall (N), N ∈ NonNegIntegerSet ∧ N >= 4 => Δ(N) = frac(1, 2 * e) * frac(2 * e, N + 2) ^ (N + 2) * frac(1, 1 - frac(2 * e, N + 2))}) (N := {M}) as (hypothesis 18: {M ∈ NonNegIntegerSet ∧ M >= 4 => Δ(M) = frac(1, 2 * e) * frac(2 * e, M + 2) ^ (M + 2) * frac(1, 1 - frac(2 * e, M + 2))})
+autosolve all_hypothesis

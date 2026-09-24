@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. P = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . prod_{ i = 1 }^{ n } (cos(frac(π, 2^{i + 1}))))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ P(n) = prod_{ i = 1 }^{ n } (cos(frac(π, 2^{i + 1})))
+
+METHOD:

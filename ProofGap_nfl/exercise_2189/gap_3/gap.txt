@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. x : NonNegIntegerSet → RealSet
+4. S : NonNegIntegerSet → RealSet
+5. 0 < a
+6. a < b
+7. x(0) = a
+8. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ x(n) = b
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ (exists (ξ), ξ : IntegerSet → RealSet ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ ξ(i) = sqrtn(2, x(i) * x(i + 1))))
+
+METHOD:

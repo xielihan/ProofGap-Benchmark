@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. IsFunc(f)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ ((x ∈ Dom(f) ∧ f(x) ∈ Dom(f)) ⇒ (InverseFunc(f, x) = f(x) ⇔ x = f(f(x))))
+
+METHOD:

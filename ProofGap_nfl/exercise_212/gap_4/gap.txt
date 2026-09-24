@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ |x| ≥ 2 ⇒ f(x + frac(1, x)) = x^{2} + frac(1, x^{2})
+3. forall (x), x ∈ RealSet ∧ |x| ≥ 2 ⇒ f(x + frac(1, x)) = (x + frac(1, x))^{2} - 2
+4. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ (forall (t), t ∈ RealSet ∧ t = x + frac(1, x) ⇒ t^{2} = x^{2} + 2 + frac(1, x^{2}))
+5. forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t = x + frac(1, x) ∧ |x| ≥ 2 ⇒ |t| ≥ frac(5, 2))
+
+GOAL:
+forall (t), t ∈ RealSet ∧ |t| ≥ frac(5, 2) ⇒ f(t) = t^{2} - 2
+
+METHOD:

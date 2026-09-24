@@ -1,0 +1,1 @@
+apply (hypothesis 22: {forall (E), E ∈ RealSet ∧ E > 0 => (exists (N_{2}), N_{2} ∈ NonNegIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > N_{2} ∧ n ∈ PosIntegerSet => |x_{2}(n)| > E))})

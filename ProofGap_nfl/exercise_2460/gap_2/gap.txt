@@ -1,0 +1,20 @@
+PROOF GAP @2
+ASSUM:
+1. S : RealSet → RealSet
+2. V ∈ RealSet
+3. H ∈ RealSet
+4. A ∈ RealSet
+5. B ∈ RealSet
+6. C ∈ RealSet
+7. a ∈ RealSet
+8. b ∈ RealSet
+9. a < b
+10. forall (x), x ∈ RealSet ∧ a ≤ x ∧ x ≤ b ⇒ S(x) = A * x^{2} + B * x + C
+11. H = b - a
+12. V = DefInt(a, b, (fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . S(x)) * diff(fun x [x ∈ RealSet] . x))
+13. V = DefInt(a, b, (fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . A * x^{2} + B * x + C) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+V = frac(A, 3) * (b^{3} - a^{3}) + frac(B, 2) * (b^{2} - a^{2}) + C * (b - a)
+
+METHOD:

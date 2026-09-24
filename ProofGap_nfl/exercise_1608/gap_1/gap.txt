@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. r : RealSet → RealSet
+2. a ∈ RealSet ∧ a > 0
+3. R ∈ RealSet
+4. forall (φ), φ ∈ RealSet ∧ cos(2 * φ) > 0 ⇒ r(φ)^{2} = a^{2} * cos(2 * φ)
+
+GOAL:
+forall (φ), φ ∈ RealSet ∧ cos(2 * φ) > 0 ⇒ FunDeri(r, 1, 1)(φ) = frac(-a^{2} * sin(2 * φ), r(φ))
+
+METHOD:

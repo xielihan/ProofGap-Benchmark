@@ -1,0 +1,27 @@
+PROOF GAP @12
+ASSUM:
+1. f : RealSet → RealSet
+2. x : NonNegIntegerSet → RealSet
+3. Δx : NonNegIntegerSet → RealSet
+4. ω : NonNegIntegerSet → RealSet
+5. d ∈ RealSet
+6. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ∧ x ≠ 0 ⇒ f(x) = frac(1, x) * floor(frac(1, x))
+7. f(0) = 0
+8. BoundedFuncOn(f, [0, 1])
+9. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ (¬ContinuousFuncAt(f, x) ⇔ x ∈ { 0 } ∪ { frac(1, n) | n ∈ PosIntegerSet, n ≥ 2 })
+10. forall (α) (β), α ∈ RealSet ∧ β ∈ RealSet ∧ 0 ≤ α ∧ α ≤ β ∧ β ≤ 1 ⇒ OscillationOn(f, [α, β]) ≤ 1
+11. forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε ≤ 3 ⇒ FiniteSet({ x | x ∈ [frac(ε, 3), 1], ¬ContinuousFuncAt(f, x) })
+12. forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε ≤ 3 ⇒ IntegrableFuncOn(f, [frac(ε, 3), 1])
+13. forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε ≤ 3 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ (exists (η), η ∈ RealSet ∧ η ∈ PosRealSet ∧ (forall (α) (β), α ∈ RealSet ∧ β ∈ RealSet ∧ [α, β] ⊆ [frac(ε, 3), 1] ∧ d < η ⇒ sum_{ i = 0 }^{ n - 1 } (ω(i) * Δx(i)) < frac(ε, 3))))
+14. forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε ≤ 3 ⇒ (exists (η), η ∈ RealSet ∧ η ∈ PosRealSet ∧ (exists (δ), δ ∈ RealSet ∧ δ ∈ PosRealSet ∧ δ = min(frac(ε, 3), η)))
+15. forall (i), i ∈ IntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε ≤ 3 ⇒ (exists (δ), δ ∈ RealSet ∧ δ ∈ PosRealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ x(0) = 0 ∧ x(n) = 1 ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ x(i) < x(i + 1) ∧ Δx(i) = x(i + 1) - x(i)) ∧ d < δ ⇒ (exists (i_{0}), i_{0} ∈ IntegerSet ∧ i_{0} = max({ i | i ∈ IntegerSet, 0 ≤ i ∧ i ≤ n - 1 ∧ x(i) ≤ frac(ε, 3) })))))
+16. forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε ≤ 3 ⇒ (exists (δ), δ ∈ RealSet ∧ δ ∈ PosRealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ x(0) = 0 ∧ x(n) = 1 ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ x(i) < x(i + 1) ∧ Δx(i) = x(i + 1) - x(i)) ∧ d < δ ⇒ (exists (i_{0}), i_{0} ∈ IntegerSet ∧ x(i_{0}) ≤ frac(ε, 3))))
+17. forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε ≤ 3 ⇒ (exists (δ), δ ∈ RealSet ∧ δ ∈ PosRealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ x(0) = 0 ∧ x(n) = 1 ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ x(i) < x(i + 1) ∧ Δx(i) = x(i + 1) - x(i)) ∧ d < δ ⇒ (exists (i_{0}), i_{0} ∈ IntegerSet ∧ frac(ε, 3) < x(i_{0} + 1))))
+18. forall (i), i ∈ IntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε ≤ 3 ⇒ (exists (δ), δ ∈ RealSet ∧ δ ∈ PosRealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ x(0) = 0 ∧ x(n) = 1 ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ x(i) < x(i + 1) ∧ Δx(i) = x(i + 1) - x(i)) ∧ d < δ ⇒ (exists (i_{0}), i_{0} ∈ IntegerSet ∧ sum_{ i = i_{0} + 1 }^{ n - 1 } (ω(i) * Δx(i)) < frac(ε, 3)))))
+19. forall (i), i ∈ IntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε ≤ 3 ⇒ (exists (δ), δ ∈ RealSet ∧ δ ∈ PosRealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ x(0) = 0 ∧ x(n) = 1 ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ x(i) < x(i + 1) ∧ Δx(i) = x(i + 1) - x(i)) ∧ d < δ ⇒ (exists (i_{0}), i_{0} ∈ IntegerSet ∧ sum_{ i = 0 }^{ i_{0} } (ω(i) * Δx(i)) ≤ sum_{ i = 0 }^{ i_{0} } (Δx(i))))))
+20. forall (i), i ∈ IntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε ≤ 3 ⇒ (exists (δ), δ ∈ RealSet ∧ δ ∈ PosRealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ x(0) = 0 ∧ x(n) = 1 ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ x(i) < x(i + 1) ∧ Δx(i) = x(i + 1) - x(i)) ∧ d < δ ⇒ (exists (i_{0}), i_{0} ∈ IntegerSet ∧ sum_{ i = 0 }^{ i_{0} } (Δx(i)) < frac(2 * ε, 3)))))
+
+GOAL:
+forall (i), i ∈ IntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε ≤ 3 ⇒ (exists (δ), δ ∈ RealSet ∧ δ ∈ PosRealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ x(0) = 0 ∧ x(n) = 1 ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ x(i) < x(i + 1) ∧ Δx(i) = x(i + 1) - x(i)) ∧ d < δ ⇒ (exists (i_{0}), i_{0} ∈ IntegerSet ∧ sum_{ i = 0 }^{ i_{0} } (ω(i) * Δx(i)) < frac(2 * ε, 3)))))
+
+METHOD:

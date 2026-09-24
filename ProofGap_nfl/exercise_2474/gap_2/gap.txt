@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. V_{x} ∈ RealSet
+3. V_{y} ∈ RealSet
+4. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π ⇒ y(x) = sin(x)
+5. V_{x} = π * DefInt(0, π, (fun x [x ∈ RealSet] . sin(x)^{2}) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+V_{x} = frac(π^{2}, 2)
+
+METHOD:

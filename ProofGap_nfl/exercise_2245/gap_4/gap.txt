@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. t : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ IntervalCC(-1, 1) ∧ t(x) = sqrtn(2, 5 - 4 * x) ⇒ 5 - 4 * x > 0
+3. forall (x), x ∈ RealSet ∧ x ∈ IntervalCC(-1, 1) ∧ t(x) = sqrtn(2, 5 - 4 * x) ⇒ t(x) ∈ [1, 3]
+4. forall (x), x ∈ RealSet ∧ x ∈ IntervalCC(-1, 1) ∧ t(x) = sqrtn(2, 5 - 4 * x) ⇒ x = frac(5 - t(x)^{2}, 4)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ IntervalCC(-1, 1) ∧ t(x) = sqrtn(2, 5 - 4 * x) ⇒ diff(fun x [x ∈ RealSet ∧ x ∈ IntervalCC(-1, 1)] . x) = (fun x [x ∈ RealSet ∧ x ∈ IntervalCC(-1, 1)] . -frac(t(x), 2)) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalCC(-1, 1)] . t(x))
+
+METHOD:

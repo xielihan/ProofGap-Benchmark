@@ -1,0 +1,4 @@
+assert (hypothesis 10: {0 < 2 * frac(frac(1, 10) * (frac(1, 10) - 1) * (frac(1, 10) - 2), 3!) * frac(3, 128)^{3}}) by proof {
+  autosolve all_hypothesis
+}
+apply (hypothesis 10: {0 < 2 * frac(frac(1, 10) * (frac(1, 10) - 1) * (frac(1, 10) - 2), 3!) * frac(3, 128)^{3}})

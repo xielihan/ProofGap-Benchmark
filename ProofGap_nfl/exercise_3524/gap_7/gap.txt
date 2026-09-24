@@ -1,0 +1,20 @@
+PROOF GAP @7
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. w : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+3. forall (x) (y) (z), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ∧ z > 0 ⇒ x^{2} * FunDeri(u, 1, 2)(x, y, z) + y^{2} * FunDeri(u, 2, 2)(x, y, z) + z^{2} * FunDeri(u, 3, 2)(x, y, z) = (x * FunDeri(u, 1, 1)(x, y, z))^{2} + (y * FunDeri(u, 2, 1)(x, y, z))^{2} + (z * FunDeri(u, 3, 1)(x, y, z))^{2}
+4. forall (ξ) (η) (ζ), ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet ⇒ (exists (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x = e^{ξ} ∧ y = e^{η} ∧ z = e^{ζ} ∧ u(x, y, z) = e^{w(ξ, η, ζ)})
+5. ContinuouslyDiffableFunc(u)
+6. ContinuouslyDiffableFunc(w)
+7. forall (ξ) (η) (ζ) (x) (y) (z), ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet ∧ x ∈ RealSet ∧ x = e^{ξ} ∧ y ∈ RealSet ∧ y = e^{η} ∧ z ∈ RealSet ∧ z = e^{ζ} ⇒ FunDeri(u, 1, 1)(x, y, z) = frac(e^{w(ξ, η, ζ)}, x) * FunDeri(w, 1, 1)(ξ, η, ζ)
+8. forall (ξ) (η) (ζ) (x) (y) (z), ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet ∧ x ∈ RealSet ∧ x = e^{ξ} ∧ y ∈ RealSet ∧ y = e^{η} ∧ z ∈ RealSet ∧ z = e^{ζ} ⇒ x * FunDeri(u, 1, 1)(x, y, z) = e^{w(ξ, η, ζ)} * FunDeri(w, 1, 1)(ξ, η, ζ)
+9. forall (ξ) (η) (ζ) (x) (y) (z), ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet ∧ x ∈ RealSet ∧ x = e^{ξ} ∧ y ∈ RealSet ∧ y = e^{η} ∧ z ∈ RealSet ∧ z = e^{ζ} ⇒ y * FunDeri(u, 2, 1)(x, y, z) = e^{w(ξ, η, ζ)} * FunDeri(w, 2, 1)(ξ, η, ζ)
+10. forall (ξ) (η) (ζ) (x) (y) (z), ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet ∧ x ∈ RealSet ∧ x = e^{ξ} ∧ y ∈ RealSet ∧ y = e^{η} ∧ z ∈ RealSet ∧ z = e^{ζ} ⇒ z * FunDeri(u, 3, 1)(x, y, z) = e^{w(ξ, η, ζ)} * FunDeri(w, 3, 1)(ξ, η, ζ)
+11. forall (ξ) (η) (ζ) (x) (y) (z), ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet ∧ x ∈ RealSet ∧ x = e^{ξ} ∧ y ∈ RealSet ∧ y = e^{η} ∧ z ∈ RealSet ∧ z = e^{ζ} ⇒ x * FunDeri(u, 1, 2)(x, y, z) + FunDeri(u, 1, 1)(x, y, z) = e^{w(ξ, η, ζ)} * FunDeri(w, 1, 1)(ξ, η, ζ)^{2} * FunDeri(ξ, 1, 1) + e^{w(ξ, η, ζ)} * FunDeri(w, 1, 2)(ξ, η, ζ) * FunDeri(ξ, 1, 1)
+12. forall (ξ) (η) (ζ) (x) (y) (z), ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet ∧ x ∈ RealSet ∧ x = e^{ξ} ∧ y ∈ RealSet ∧ y = e^{η} ∧ z ∈ RealSet ∧ z = e^{ζ} ⇒ x^{2} * FunDeri(u, 1, 2)(x, y, z) = e^{w(ξ, η, ζ)} * FunDeri(w, 1, 1)(ξ, η, ζ)^{2} + e^{w(ξ, η, ζ)} * FunDeri(w, 1, 2)(ξ, η, ζ) - e^{w(ξ, η, ζ)} * FunDeri(w, 1, 1)(ξ, η, ζ)
+
+GOAL:
+forall (ξ) (η) (ζ) (x) (y) (z), ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet ∧ x ∈ RealSet ∧ x = e^{ξ} ∧ y ∈ RealSet ∧ y = e^{η} ∧ z ∈ RealSet ∧ z = e^{ζ} ⇒ y^{2} * FunDeri(u, 2, 2)(x, y, z) = e^{w(ξ, η, ζ)} * FunDeri(w, 2, 1)(ξ, η, ζ)^{2} + e^{w(ξ, η, ζ)} * FunDeri(w, 2, 2)(ξ, η, ζ) - e^{w(ξ, η, ζ)} * FunDeri(w, 2, 1)(ξ, η, ζ)
+
+METHOD:
+[@method 同理 @]

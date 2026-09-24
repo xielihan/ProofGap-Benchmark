@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n = 2 ⇒ ln(3) = ln(2) + 2 * (sum_{ k = 0 }^{ +∞ } (frac(1, (2 * k + 1) * 5^{2 * k + 1})))}) (n := {n0})
+get_condition (hypothesis 4: {n0 ∈ NonNegIntegerSet ∧ n0 = 2}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 = 2 ⇒ ln(3) = ln(2) + 2 * (sum_{ k = 0 }^{ +∞ } (frac(1, (2 * k + 1) * 5^{2 * k + 1})))})
+get_prop (hypothesis 1: {forall (k) (n), k ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ln(n + 1) = ln(n) + 2 * (sum_{ k = 0 }^{ +∞ } (frac(1, (2 * k + 1) * (2 * n + 1)^{2 * k + 1})))}) (k := {0}) (n := {2}) as (hypothesis 5: {0 ∈ NonNegIntegerSet ∧ 2 ∈ NonNegIntegerSet ∧ 2 ∈ PosIntegerSet ⇒ ln(2 + 1) = ln(2) + 2 * (sum_{ k = 0 }^{ +∞ } (frac(1, (2 * k + 1) * (2 * 2 + 1)^{2 * k + 1})))})
+assert (hypothesis 6: {0 ∈ NonNegIntegerSet ∧ 2 ∈ NonNegIntegerSet ∧ 2 ∈ PosIntegerSet}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 6: {0 ∈ NonNegIntegerSet ∧ 2 ∈ NonNegIntegerSet ∧ 2 ∈ PosIntegerSet}) in (hypothesis 5: {0 ∈ NonNegIntegerSet ∧ 2 ∈ NonNegIntegerSet ∧ 2 ∈ PosIntegerSet ⇒ ln(2 + 1) = ln(2) + 2 * (sum_{ k = 0 }^{ +∞ } (frac(1, (2 * k + 1) * (2 * 2 + 1)^{2 * k + 1})))}) as (hypothesis 7: {ln(2 + 1) = ln(2) + 2 * (sum_{ k = 0 }^{ +∞ } (frac(1, (2 * k + 1) * (2 * 2 + 1)^{2 * k + 1})))})
+autosolve all_hypothesis

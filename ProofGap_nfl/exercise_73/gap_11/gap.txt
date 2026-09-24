@@ -1,0 +1,17 @@
+PROOF GAP @11
+ASSUM:
+1. (exists (m) (n), m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n)) ⇒ (exists (m) (n), m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n))
+2. (exists (m) (n), m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n)) ⇒ (exists (m) (n) (θ), θ : NonNegIntegerSet → RealSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n) ∧ frac(m, n) = 2 + (sum_{ k = 2 }^{ n } (frac(1, k!))) + frac(θ(n), n! * n))
+3. (exists (m) (n), m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n)) ⇒ (exists (m) (n) (θ), θ : NonNegIntegerSet → RealSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n) ∧ frac(m, n) = 2 + (sum_{ k = 2 }^{ n } (frac(1, k!))) + frac(θ(n), n! * n) ∧ 0 < θ(n))
+4. (exists (m) (n), m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n)) ⇒ (exists (m) (n) (θ), θ : NonNegIntegerSet → RealSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n) ∧ frac(m, n) = 2 + (sum_{ k = 2 }^{ n } (frac(1, k!))) + frac(θ(n), n! * n) ∧ 0 < θ(n) ∧ θ(n) < 1)
+5. (exists (m) (n), m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n)) ⇒ (exists (m) (n) (θ), θ : NonNegIntegerSet → RealSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n) ∧ frac(m, n) = 2 + (sum_{ k = 2 }^{ n } (frac(1, k!))) + frac(θ(n), n! * n) ∧ 0 < θ(n) ∧ θ(n) < 1 ∧ n! * frac(m, n) = n! * (2 + (sum_{ k = 2 }^{ n } (frac(1, k!)))) + frac(θ(n), n))
+6. (exists (m) (n), m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n)) ⇒ (exists (m) (n) (θ), θ : NonNegIntegerSet → RealSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n) ∧ frac(m, n) = 2 + (sum_{ k = 2 }^{ n } (frac(1, k!))) + frac(θ(n), n! * n) ∧ 0 < θ(n) ∧ θ(n) < 1 ∧ n! * frac(m, n) = n! * (2 + (sum_{ k = 2 }^{ n } (frac(1, k!)))) + frac(θ(n), n) ∧ n! * frac(m, n) ∈ IntegerSet)
+7. (exists (m) (n), m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n)) ⇒ (exists (m) (n) (θ), θ : NonNegIntegerSet → RealSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n) ∧ frac(m, n) = 2 + (sum_{ k = 2 }^{ n } (frac(1, k!))) + frac(θ(n), n! * n) ∧ 0 < θ(n) ∧ θ(n) < 1 ∧ n! * frac(m, n) = n! * (2 + (sum_{ k = 2 }^{ n } (frac(1, k!)))) + frac(θ(n), n) ∧ n! * frac(m, n) ∈ IntegerSet ∧ n! * (2 + (sum_{ k = 2 }^{ n } (frac(1, k!)))) ∈ IntegerSet)
+8. (exists (m) (n), m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n)) ⇒ (exists (m) (n) (θ), θ : NonNegIntegerSet → RealSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n) ∧ frac(m, n) = 2 + (sum_{ k = 2 }^{ n } (frac(1, k!))) + frac(θ(n), n! * n) ∧ 0 < θ(n) ∧ θ(n) < 1 ∧ n! * frac(m, n) = n! * (2 + (sum_{ k = 2 }^{ n } (frac(1, k!)))) + frac(θ(n), n) ∧ n! * frac(m, n) ∈ IntegerSet ∧ n! * (2 + (sum_{ k = 2 }^{ n } (frac(1, k!)))) ∈ IntegerSet ∧ 0 < frac(θ(n), n))
+9. (exists (m) (n), m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n)) ⇒ (exists (m) (n) (θ), θ : NonNegIntegerSet → RealSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n) ∧ frac(m, n) = 2 + (sum_{ k = 2 }^{ n } (frac(1, k!))) + frac(θ(n), n! * n) ∧ 0 < θ(n) ∧ θ(n) < 1 ∧ n! * frac(m, n) = n! * (2 + (sum_{ k = 2 }^{ n } (frac(1, k!)))) + frac(θ(n), n) ∧ n! * frac(m, n) ∈ IntegerSet ∧ n! * (2 + (sum_{ k = 2 }^{ n } (frac(1, k!)))) ∈ IntegerSet ∧ 0 < frac(θ(n), n) ∧ frac(θ(n), n) < 1)
+10. (exists (m) (n), m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n)) ⇒ 0 < 1
+
+GOAL:
+(exists (m) (n), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n)) ⇒ False
+
+METHOD:

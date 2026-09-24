@@ -1,0 +1,18 @@
+PROOF GAP @10
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. a < b ⇒ (forall (x), x ∈ RealSet ∧ x ∈ IntervalClCl(0, 1) ∧ 0 ≤ x ∧ x ≤ 1 ⇒ frac(x^{b} - x^{a}, ln(x)) = DefInt(a, b, (fun y [y ∈ RealSet ∧ y ∈ IntervalClCl(a, b)] . x^{y}) * diff(fun y [y ∈ RealSet] . y)))
+4. a < b ⇒ DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . sin(ln(frac(1, x))) * frac(x^{b} - x^{a}, ln(x))) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . sin(ln(frac(1, x))) * DefInt(a, b, (fun y [y ∈ RealSet ∧ y ∈ IntervalClCl(a, b)] . x^{y}) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+5. a < b ⇒ ContinuousFuncOn(fun x, y [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1) ∧ y ∈ RealSet ∧ y ∈ IntervalClCl(a, b)] . sin(ln(frac(1, x))) * x^{y}, CartesianProd([0, 1], [a, b]))
+6. a < b ⇒ DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . sin(ln(frac(1, x))) * DefInt(a, b, (fun y [y ∈ RealSet ∧ y ∈ IntervalClCl(a, b)] . x^{y}) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x)) = DefInt(a, b, (fun y [y ∈ RealSet ∧ y ∈ IntervalClCl(a, b)] . DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . sin(ln(frac(1, x))) * x^{y}) * diff(fun x [x ∈ RealSet] . x))) * diff(fun y [y ∈ RealSet] . y))
+7. forall (y), y ∈ RealSet ∧ y ∈ IntervalClCl(a, b) ∧ a < b ⇒ DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . sin(ln(frac(1, x))) * x^{y}) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ≥ 0] . e^{-(y + 1) * t} * sin(t)) * diff(fun t [t ∈ RealSet] . t))
+8. forall (y), y ∈ RealSet ∧ y ∈ IntervalClCl(a, b) ∧ a < b ⇒ DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ≥ 0] . e^{-(y + 1) * t} * sin(t)) * diff(fun t [t ∈ RealSet] . t)) = frac(1, 1 + (1 + y)^{2})
+9. a < b ⇒ DefInt(a, b, (fun y [y ∈ RealSet ∧ y ∈ IntervalClCl(a, b)] . DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . sin(ln(frac(1, x))) * x^{y}) * diff(fun x [x ∈ RealSet] . x))) * diff(fun y [y ∈ RealSet] . y)) = DefInt(a, b, (fun y [y ∈ RealSet ∧ y ∈ IntervalClCl(a, b)] . frac(1, 1 + (1 + y)^{2})) * diff(fun y [y ∈ RealSet] . y))
+10. a < b ⇒ DefInt(a, b, (fun y [y ∈ RealSet ∧ y ∈ IntervalClCl(a, b)] . frac(1, 1 + (1 + y)^{2})) * diff(fun y [y ∈ RealSet] . y)) = arctan(1 + b) - arctan(1 + a)
+11. a < b ⇒ arctan(1 + b) - arctan(1 + a) = arctan(frac(b - a, 1 + (1 + b) * (1 + a)))
+
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . sin(ln(frac(1, x))) * frac(x^{b} - x^{a}, ln(x))) * diff(fun x [x ∈ RealSet] . x)) = arctan(frac(b - a, 1 + (1 + b) * (1 + a)))
+
+METHOD:

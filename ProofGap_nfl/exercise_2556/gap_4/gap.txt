@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. IsSeq(a)
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = (-1)^{n - 1}
+4. ¬(exists (l), l ∈ RealSet ∧ seqlim_{ n → +∞ } (a(n)) = l)
+5. ¬seqlim_{ n → +∞ } (a(n)) = 0
+6. DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+GOAL:
+DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+METHOD:

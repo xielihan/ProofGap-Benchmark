@@ -1,0 +1,18 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet ∧ a > 0
+3. h ∈ RealSet
+4. A : RealSet → RealSet
+5. forall (x), x ∈ RealSet ⇒ f(x) = cases{ h * (1 - frac(|x|, a)) if |x| ≤ a; 0 if |x| > a }
+6. EvenFunc(f)
+7. forall (λ), λ ∈ RealSet ⇒ A(λ) = frac(2, π) * DefInt(0, +∞, (fun ξ [ξ ∈ RealSet ∧ ξ ≥ 0] . f(ξ) * cos(λ * ξ)) * diff(fun ξ [ξ ∈ RealSet ∧ ξ ≥ 0] . ξ))
+8. forall (λ), λ ∈ RealSet ⇒ A(λ) = frac(2 * h, π) * DefInt(0, a, (fun ξ [ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ a] . (1 - frac(ξ, a)) * cos(λ * ξ)) * diff(fun ξ [ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ a] . ξ))
+9. forall (λ), λ ∈ RealSet ∧ λ ≠ 0 ⇒ frac(2 * h, π) * DefInt(0, a, (fun ξ [ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ a] . (1 - frac(ξ, a)) * cos(λ * ξ)) * diff(fun ξ [ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ a] . ξ)) = frac(2 * h * (1 - cos(a * λ)), π * a * λ^{2})
+10. forall (λ), λ ∈ RealSet ∧ λ ≠ 0 ⇒ A(λ) = frac(2 * h * (1 - cos(a * λ)), π * a * λ^{2})
+11. forall (x), x ∈ RealSet ⇒ f(x) = frac(2 * h, π * a) * DefInt(0, +∞, (fun λ [λ ∈ RealSet ∧ λ > 0] . frac(1 - cos(a * λ), λ^{2}) * cos(λ * x)) * diff(fun λ [λ ∈ RealSet ∧ λ > 0] . λ))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ lim_{ λ → 0 } (frac(1 - cos(a * λ), λ^{2}) * cos(λ * x)) = frac(a^{2}, 2)
+
+METHOD:

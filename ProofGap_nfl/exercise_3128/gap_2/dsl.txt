@@ -1,0 +1,9 @@
+1. get_forall (GOAL: {forall (y) (x), y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 ∧ x ∈ RealSet ∧ x = a + (b - a) * y ⇒ x ≤ b}) (y := {y0}) (x := {x0})
+2. get_condition (hypothesis 7: {y0 ∈ RealSet ∧ 0 ≤ y0 ∧ y0 ≤ 1 ∧ x0 ∈ RealSet ∧ x0 = a + (b - a) * y0}) in (GOAL: {y0 ∈ RealSet ∧ 0 ≤ y0 ∧ y0 ≤ 1 ∧ x0 ∈ RealSet ∧ x0 = a + (b - a) * y0 ⇒ x0 ≤ b})
+3. assert (hypothesis 8: {b - a > 0}) by proof {
+  1. autosolve all_hypothesis
+}
+4. assert (hypothesis 9: {(b - a) * y0 <= b - a}) by proof {
+  1. autosolve all_hypothesis
+}
+5. autosolve all_hypothesis

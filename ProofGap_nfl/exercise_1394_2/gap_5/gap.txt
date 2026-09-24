@@ -1,0 +1,15 @@
+PROOF GAP @5
+ASSUM:
+1. x ∈ RealSet
+2. R_{4} : RealSet → RealSet
+3. |x| ≤ frac(1, 2)
+4. f = (fun t [t ∈ RealSet] . sin(t))
+5. sin(x) = x - frac(x^{3}, 6) + R_{4}(x)
+6. exists (θ), θ ∈ RealSet ∧ 0 < θ ∧ θ < 1 ∧ R_{4}(x) = frac(FunDeri(f, 1, 5)(θ * x), 5!) * x^{5}
+7. exists (θ), θ ∈ RealSet ∧ θ < 1 ∧ 0 < θ
+8. exists (θ), θ ∈ RealSet ∧ 0 < θ ∧ θ < 1
+
+GOAL:
+exists (θ), θ ∈ RealSet ∧ 0 < θ ∧ θ < 1 ∧ |FunDeri(f, 1, 5)(θ * x)| = |sin(θ * x + frac(5, 2) * π)|
+
+METHOD:

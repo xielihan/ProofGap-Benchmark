@@ -1,0 +1,2 @@
+rewrite_in limit (left_to_right, equation) (hypothesis 9: {forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ x(2 * k - 1) = frac(1, 2 * k - 1)}); from (GOAL: {seqlim_{ k → +∞ } (x(2 * k - 1)) = 0}) to (GOAL: {seqlim_{ k → +∞ } (frac(1, 2 * k - 1)) = 0})
+autosolve all_hypothesis

@@ -1,0 +1,15 @@
+PROOF GAP @1
+ASSUM:
+1. E ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. P_{xy} ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. P_{xz} ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+4. P_{yz} ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+5. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ E = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x^{2} + y^{2} + z^{2} - x * y = 1 }))
+6. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ P_{xy} = { (x, y, 0) | x ∈ RealSet ∧ y ∈ RealSet, exists (z), z ∈ RealSet ∧ (x, y, z) ∈ E })
+7. forall (x), x ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ P_{xz} = { (x, 0, z) | x ∈ RealSet ∧ z ∈ RealSet, exists (y), y ∈ RealSet ∧ (x, y, z) ∈ E })
+8. forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ P_{yz} = { (0, y, z) | y ∈ RealSet ∧ z ∈ RealSet, exists (x), x ∈ RealSet ∧ (x, y, z) ∈ E })
+
+GOAL:
+forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ (exists (n), n = (2 * x - y, 2 * y - x, 2 * z))
+
+METHOD:

@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |x - 5| * |x + 5| < ε ⇒ |x^{2} - 25| < ε)}) (x := {x1})
+get_condition (hypothesis 4: {x1 ∈ RealSet}) in (GOAL: {x1 ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |x1 - 5| * |x1 + 5| < ε ⇒ |x1^{2} - 25| < ε)})
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |x1 - 5| * |x1 + 5| < ε ⇒ |x1^{2} - 25| < ε}) (ε := {eps})
+get_condition (hypothesis 5: {eps ∈ RealSet ∧ eps > 0 ∧ |x1 - 5| * |x1 + 5| < eps}) in (GOAL: {eps ∈ RealSet ∧ eps > 0 ∧ |x1 - 5| * |x1 + 5| < eps ⇒ |x1^{2} - 25| < eps})
+autoreplace no_hypothesis; from (x1^{2} - 25) to ((x1 - 5) * (x1 + 5)); from (GOAL: {|x1^{2} - 25| < eps}) to (GOAL: {|(x1 - 5) * (x1 + 5)| < eps})
+get_prop (theorem 'Thm 397. (AbsoluteValueOfProduct)': {forall (u) (v), u ∈ RealSet ⇒ v ∈ RealSet ⇒ |u * v| = |u| * |v|}) (u := {x1 - 5}) (v := {x1 + 5}) as (hypothesis 6: {x1 - 5 ∈ RealSet ⇒ x1 + 5 ∈ RealSet ⇒ |(x1 - 5) * (x1 + 5)| = |x1 - 5| * |x1 + 5|})
+use_condition (obvious: {x1 - 5 ∈ RealSet}) (obvious: {x1 + 5 ∈ RealSet}) in (hypothesis 6: {x1 - 5 ∈ RealSet ⇒ x1 + 5 ∈ RealSet ⇒ |(x1 - 5) * (x1 + 5)| = |x1 - 5| * |x1 + 5|}) as (hypothesis 7: {|(x1 - 5) * (x1 + 5)| = |x1 - 5| * |x1 + 5|})
+rewrite (left_to_right, equation) (hypothesis 7: {|(x1 - 5) * (x1 + 5)| = |x1 - 5| * |x1 + 5|}); from (GOAL: {|(x1 - 5) * (x1 + 5)| < eps}) to (GOAL: {|x1 - 5| * |x1 + 5| < eps})
+autosolve all_hypothesis

@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (u), u ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ u = t / (1 + t) ∧ t ∈ [0, +∞) ⇒ u ∈ [0, 1))}) (u := {u})
+get_condition (hypothesis 6: {u ∈ RealSet}) in (GOAL: {u ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ u = t / (1 + t) ∧ t ∈ [0, +∞) ⇒ u ∈ [0, 1))})
+get_forall (GOAL: {forall (t), t ∈ RealSet ∧ u = t / (1 + t) ∧ t ∈ [0, +∞) ⇒ u ∈ [0, 1)}) (t := {t})
+get_condition (hypothesis 7: {t ∈ RealSet ∧ u = t / (1 + t) ∧ t ∈ [0, +∞)}) in (GOAL: {t ∈ RealSet ∧ u = t / (1 + t) ∧ t ∈ [0, +∞) ⇒ u ∈ [0, 1)})
+destruct_and (hypothesis 7: {t ∈ RealSet ∧ u = t / (1 + t) ∧ t ∈ [0, +∞)}) as (hypothesis 8: {t ∈ RealSet}) (hypothesis 9: {u = t / (1 + t)}) (hypothesis 10: {t ∈ [0, +∞)})
+rewrite (left_to_right, equation) (hypothesis 9: {u = t / (1 + t)}); from (GOAL: {u ∈ [0, 1)}) to (GOAL: {t / (1 + t) ∈ [0, 1)})
+autosolve all_hypothesis

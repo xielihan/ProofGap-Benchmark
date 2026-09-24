@@ -1,0 +1,22 @@
+PROOF GAP @9
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. θ ∈ RealSet
+4. 0 < a
+5. a < b
+6. f = (fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . sin(x))
+7. φ = (fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . frac(e^{-a * x}, x))
+8. ContinuousFuncOn(f, [a, b])
+9. ContinuousFuncOn(φ, [a, b])
+10. MonoDecFuncOn(φ, [a, b])
+11. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ φ(x) ≥ 0
+12. exists (ξ), ξ ∈ RealSet ∧ a ≤ ξ ∧ ξ ≤ b ∧ DefInt(a, b, (fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . frac(e^{-a * x}, x) * sin(x)) * diff(fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . x)) = frac(e^{-a * a}, a) * DefInt(a, ξ, (fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ ξ] . sin(x)) * diff(fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ ξ] . x))
+13. exists (ξ), ξ ∈ RealSet ∧ a ≤ ξ ∧ ξ ≤ b ∧ DefInt(a, ξ, (fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ ξ] . sin(x)) * diff(fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ ξ] . x)) = cos(a) - cos(ξ)
+14. exists (ξ), ξ ∈ RealSet ∧ a ≤ ξ ∧ ξ ≤ b ∧ cos(a) - cos(ξ) = -2 * sin(frac(a + ξ, 2)) * sin(frac(a - ξ, 2))
+15. exists (ξ), ξ ∈ RealSet ∧ a ≤ ξ ∧ ξ ≤ b ∧ θ = -e^{-a * a} * sin(frac(a + ξ, 2)) * sin(frac(a - ξ, 2))
+
+GOAL:
+|θ| < 1
+
+METHOD:

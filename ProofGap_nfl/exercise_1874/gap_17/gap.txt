@@ -1,0 +1,33 @@
+PROOF GAP @17
+ASSUM:
+1. x ∈ RealSet
+2. x ≠ -3
+3. x ≠ -2
+4. x ≠ -1
+5. A = frac(1, 8)
+6. B = 2
+7. C_{1} = -1
+8. D = -frac(17, 8)
+9. E = -frac(5, 4)
+10. F = -frac(1, 2)
+11. frac(1, (x + 1) * (x + 2)^{2} * (x + 3)^{3}) = frac(A, x + 1) + frac(B, x + 2) + frac(C_{1}, (x + 2)^{2}) + frac(D, x + 3) + frac(E, (x + 3)^{2}) + frac(F, (x + 3)^{3})
+12. 1 ≡ A * (x + 2)^{2} * (x + 3)^{3} + B * (x + 1) * (x + 2) * (x + 3)^{3} + C_{1} * (x + 1) * (x + 3)^{3} + D * (x + 1) * (x + 2)^{2} * (x + 3)^{2} + E * (x + 1) * (x + 2)^{2} * (x + 3) + F * (x + 1) * (x + 2)^{2}
+13. 1 = 8 * A
+14. A = frac(1, 8)
+15. 1 = -C_{1}
+16. C_{1} = -1
+17. 1 = -2 * F
+18. F = -frac(1, 2)
+19. A + B + D = 0
+20. 13 * A + 12 * B + C_{1} + 11 * D + E = 0
+21. 67 * A + 56 * B + 10 * C_{1} + 47 * D + 8 * E + F = 0
+22. B = 2
+23. D = -frac(17, 8)
+24. E = -frac(5, 4)
+25. { `F_2` | forall (x), x ∈ RealSet ∧ x ≠ -3 ∧ x ≠ -2 ∧ x ≠ -1 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, (x + 1) * (x + 2)^{2} * (x + 3)^{3}) * FunDeri(fun x [x ∈ RealSet ∧ x ≠ -3 ∧ x ≠ -2 ∧ x ≠ -1] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ x ≠ -3 ∧ x ≠ -2 ∧ x ≠ -1 ⇒ FunDeri(`F_3`, 1, 1)(x) = (frac(1, 8 * (x + 1)) + frac(2, x + 2) - frac(1, (x + 2)^{2}) - frac(17, 8 * (x + 3)) - frac(5, 4 * (x + 3)^{2}) - frac(1, 2 * (x + 3)^{3})) * FunDeri(fun x [x ∈ RealSet ∧ x ≠ -3 ∧ x ≠ -2 ∧ x ≠ -1] . x, 1, 1)(x) }
+26. { `F_4` | forall (x), x ∈ RealSet ∧ x ≠ -3 ∧ x ≠ -2 ∧ x ≠ -1 ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(1, (x + 1) * (x + 2)^{2} * (x + 3)^{3}) * FunDeri(fun x [x ∈ RealSet ∧ x ≠ -3 ∧ x ≠ -2 ∧ x ≠ -1] . x, 1, 1)(x) } = { `F_6` | exists (K), K ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ -3 ∧ x ≠ -2 ∧ x ≠ -1 ⇒ `F_6`(x) = frac(1, 8) * ln(|x + 1|) + 2 * ln(|x + 2|) + frac(1, x + 2) - frac(17, 8) * ln(|x + 3|) + frac(5, 4 * (x + 3)) + frac(1, 4 * (x + 3)^{2}) + K) }
+
+GOAL:
+{ `F_5` | forall (x), x ∈ RealSet ∧ x ≠ -3 ∧ x ≠ -2 ∧ x ≠ -1 ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(1, (x + 1) * (x + 2)^{2} * (x + 3)^{3}) * FunDeri(fun x [x ∈ RealSet ∧ x ≠ -3 ∧ x ≠ -2 ∧ x ≠ -1] . x, 1, 1)(x) } = { `F_7` | exists (K), K ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ -3 ∧ x ≠ -2 ∧ x ≠ -1 ⇒ `F_7`(x) = frac(1, 8) * ln(|frac((x + 1) * (x + 2)^{16}, (x + 3)^{17})|) + frac(9 * x^{2} + 50 * x + 68, 4 * (x + 2) * (x + 3)^{2}) + K) }
+
+METHOD:

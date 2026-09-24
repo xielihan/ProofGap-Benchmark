@@ -1,0 +1,4 @@
+exists (x := {0}) (y := {0}) (z := {0}) (λ := {0})
+get_prop (hypothesis 11: {forall (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 1, 1)(x, y, z, λ) = y * z - 2 * λ * x}) (x := {0}) (y := {0}) (z := {0}) (λ := {0}) as (hypothesis 14: {0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet ⇒ FunDeri(F, 1, 1)(0, 0, 0, 0) = 0 * 0 - 2 * 0 * 0})
+use_condition (obvious: {0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet}) in (hypothesis 14: {0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet ⇒ FunDeri(F, 1, 1)(0, 0, 0, 0) = 0 * 0 - 2 * 0 * 0}) as (hypothesis 15: {FunDeri(F, 1, 1)(0, 0, 0, 0) = 0 * 0 - 2 * 0 * 0})
+autosolve all_hypothesis

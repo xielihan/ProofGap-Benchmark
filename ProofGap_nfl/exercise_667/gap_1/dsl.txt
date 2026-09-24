@@ -1,0 +1,11 @@
+get_forall (GOAL: {forall (y), y ∈ RealSet ∧ y ≠ 0 ⇒ |f(y) - f(x_{0})| = |frac(x_{0} - y, y * x_{0})|}) (y := {z})
+get_condition (hypothesis 8: {z ∈ RealSet ∧ z ≠ 0}) in (GOAL: {z ∈ RealSet ∧ z ≠ 0 ⇒ |f(z) - f(x_{0})| = |frac(x_{0} - z, z * x_{0})|})
+destruct_and (hypothesis 8: {z ∈ RealSet ∧ z ≠ 0}) as (hypothesis 9: {z ∈ RealSet}) (hypothesis 10: {z ≠ 0})
+assert (hypothesis 11: {x_{0} ≠ 0})
+get_prop (hypothesis 5: {forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = frac(1, x)}) (x := {z}) as (hypothesis 12: {z ∈ RealSet ∧ z ≠ 0 ⇒ f(z) = frac(1, z)})
+use_condition (hypothesis 8: {z ∈ RealSet ∧ z ≠ 0}) in (hypothesis 12: {z ∈ RealSet ∧ z ≠ 0 ⇒ f(z) = frac(1, z)}) as (hypothesis 13: {f(z) = frac(1, z)})
+get_prop (hypothesis 5: {forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = frac(1, x)}) (x := {x_{0}}) as (hypothesis 14: {x_{0} ∈ RealSet ∧ x_{0} ≠ 0 ⇒ f(x_{0}) = frac(1, x_{0})})
+use_condition (obvious: {x_{0} ∈ RealSet ∧ x_{0} ≠ 0}) in (hypothesis 14: {x_{0} ∈ RealSet ∧ x_{0} ≠ 0 ⇒ f(x_{0}) = frac(1, x_{0})}) as (hypothesis 15: {f(x_{0}) = frac(1, x_{0})})
+rewrite (left_to_right, equation) (hypothesis 13: {f(z) = frac(1, z)}); from (GOAL: {|f(z) - f(x_{0})| = |frac(x_{0} - z, z * x_{0})|}) to (GOAL: {|frac(1, z) - f(x_{0})| = |frac(x_{0} - z, z * x_{0})|})
+rewrite (left_to_right, equation) (hypothesis 15: {f(x_{0}) = frac(1, x_{0})}); from (GOAL: {|frac(1, z) - f(x_{0})| = |frac(x_{0} - z, z * x_{0})|}) to (GOAL: {|frac(1, z) - frac(1, x_{0})| = |frac(x_{0} - z, z * x_{0})|})
+autosolve all_hypothesis

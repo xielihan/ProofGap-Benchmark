@@ -1,0 +1,16 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. u : RealSet → RealSet
+3. v : RealSet → RealSet
+4. I ⊆ RealSet
+5. FuncOfClassKOn(u, I, 2)
+6. FuncOfClassKOn(v, I, 2)
+7. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ u(x)^{2} + v(x)^{2} > 0
+8. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ y(x) = sqrtn(2, u(x)^{2} + v(x)^{2})
+9. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(y, 1, 1)(x) = frac(u(x) * FunDeri(u, 1, 1)(x) + v(x) * FunDeri(v, 1, 1)(x), sqrtn(2, u(x)^{2} + v(x)^{2}))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ I ∧ u(x)^{2} + v(x)^{2} > 0 ⇒ FunDeri(y, 1, 2)(x) = frac((u(x) * FunDeri(u, 1, 2)(x) + FunDeri(u, 1, 1)(x)^{2} + v(x) * FunDeri(v, 1, 2)(x) + FunDeri(v, 1, 1)(x)^{2}) * sqrtn(2, u(x)^{2} + v(x)^{2}) - frac((u(x) * FunDeri(u, 1, 1)(x) + v(x) * FunDeri(v, 1, 1)(x))^{2}, sqrtn(2, u(x)^{2} + v(x)^{2})), u(x)^{2} + v(x)^{2}) ∧ frac((u(x) * FunDeri(u, 1, 2)(x) + FunDeri(u, 1, 1)(x)^{2} + v(x) * FunDeri(v, 1, 2)(x) + FunDeri(v, 1, 1)(x)^{2}) * sqrtn(2, u(x)^{2} + v(x)^{2}) - frac((u(x) * FunDeri(u, 1, 1)(x) + v(x) * FunDeri(v, 1, 1)(x))^{2}, sqrtn(2, u(x)^{2} + v(x)^{2})), u(x)^{2} + v(x)^{2}) = frac((u(x)^{2} + v(x)^{2}) * (u(x) * FunDeri(u, 1, 2)(x) + v(x) * FunDeri(v, 1, 2)(x)) + (FunDeri(u, 1, 1)(x) * v(x) - FunDeri(v, 1, 1)(x) * u(x))^{2}, (u(x)^{2} + v(x)^{2})^{frac(3, 2)})
+
+METHOD:

@@ -1,0 +1,25 @@
+PROOF GAP @12
+ASSUM:
+1. x : NonNegIntegerSet → RealSet
+2. a ∈ RealSet
+3. L ∈ RealSet
+4. IsSeq(x)
+5. forall (n), n ∈ PosIntegerSet ⇒ x(n) ∈ RealSet ∧ x(n) ≠ 0
+6. forall (n), n ∈ NonNegIntegerSet ⇒ seqlim_{ n → +∞ } (x(n)) = a
+7. a ≠ 0 ⇒ seqlim_{ n → +∞ } (x(n + 1)) = a
+8. a ≠ 0 ⇒ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = frac(seqlim_{ n → +∞ } (x(n + 1)), seqlim_{ n → +∞ } (x(n)))
+9. a ≠ 0 ⇒ frac(seqlim_{ n → +∞ } (x(n + 1)), seqlim_{ n → +∞ } (x(n))) = frac(a, a)
+10. a ≠ 0 ⇒ frac(a, a) = 1
+11. a ≠ 0 ⇒ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = 1
+12. a ≠ 0 ⇒ L = 1
+13. a = 0 ⇒ (exists (y), y : NonNegIntegerSet → RealSet ∧ y = (fun n [n ∈ NonNegIntegerSet] . cases{ 1 if n ≤ 2; frac(1, 2^{floor(frac(n - 1, 2))}) if n > 2 }))
+14. a = 0 ⇒ (exists (y), y : NonNegIntegerSet → RealSet ∧ (forall (n), n ∈ PosIntegerSet ⇒ y(n) ≠ 0))
+15. a = 0 ⇒ (exists (y), y : NonNegIntegerSet → RealSet ∧ seqlim_{ n → +∞ } (y(n)) = 0)
+16. forall (m), m ∈ NonNegIntegerSet ∧ a = 0 ⇒ (exists (y), y : NonNegIntegerSet → RealSet ∧ seqlim_{ m → +∞ } (y(2 * m) / y(2 * m - 1)) = 1)
+17. forall (m), m ∈ NonNegIntegerSet ∧ a = 0 ⇒ (exists (y), y : NonNegIntegerSet → RealSet ∧ seqlim_{ m → +∞ } (y(2 * m + 1) / y(2 * m)) = frac(1, 2))
+18. a = 0 ⇒ (exists (y), y : NonNegIntegerSet → RealSet ∧ DivergentSeq(fun n [n ∈ NonNegIntegerSet] . y(n + 1) / y(n)))
+
+GOAL:
+forall (b), b ∈ RealSet ∧ a = 0 ∧ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = b ∧ |b| > 1 ⇒ (exists (r), r ∈ RealSet ∧ |b| > r ∧ r > 1)
+
+METHOD:

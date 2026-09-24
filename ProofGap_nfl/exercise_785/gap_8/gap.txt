@@ -1,0 +1,17 @@
+PROOF GAP @8
+ASSUM:
+1. y : RealSet → RealSet
+2. ε ∈ RealSet ∧ ε > 0
+3. δ ∈ RealSet ∧ δ = frac(ε, 20)
+4. forall (x), x ∈ RealSet ∧ x ∈ [1, 10] ⇒ y(x) = x^{2}
+5. forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x''` ∈ RealSet ∧ `x'` ∈ [1, 10] ∧ `x''` ∈ [1, 10] ⇒ |`x'`^{2} - `x''`^{2}| = |`x'` - `x''`| * |`x'` + `x''`|)
+6. forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x''` ∈ RealSet ∧ `x'` ∈ [1, 10] ∧ `x''` ∈ [1, 10] ⇒ |`x'` - `x''`| * |`x'` + `x''`| ≤ 20 * |`x'` - `x''`|)
+7. forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x''` ∈ RealSet ∧ `x'` ∈ [1, 10] ∧ `x''` ∈ [1, 10] ⇒ |`x'`^{2} - `x''`^{2}| ≤ 20 * |`x'` - `x''`|)
+8. forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x''` ∈ RealSet ∧ `x'` ∈ [1, 10] ∧ `x''` ∈ [1, 10] ∧ 20 * |`x'` - `x''`| < ε ⇒ |`x'`^{2} - `x''`^{2}| < ε)
+9. forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x''` ∈ RealSet ∧ `x'` ∈ [1, 10] ∧ `x''` ∈ [1, 10] ∧ |`x'` - `x''`| < frac(ε, 20) ⇒ 20 * |`x'` - `x''`| < ε)
+10. forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x''` ∈ RealSet ∧ `x'` ∈ [1, 10] ∧ `x''` ∈ [1, 10] ∧ |`x'` - `x''`| < frac(ε, 20) ⇒ |`x'`^{2} - `x''`^{2}| < ε)
+11. δ ≤ frac(ε, 20) ⇒ (forall (`x'`) (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ `x'` ∈ [1, 10] ∧ `x''` ∈ [1, 10] ∧ |`x'` - `x''`| < δ ⇒ |y(`x'`) - y(`x''`)| < ε)
+GOAL:
+ε = 1 ⇒ δ ≤ frac(1, 20)
+
+METHOD:

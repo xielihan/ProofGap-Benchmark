@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. exists (`δ_0`), `δ_0` ∈ RealSet ∧ `δ_0` > 0 ∧ Defined(f, IntervalLoRo(a - `δ_0`, a) ∪ IntervalLoRo(a, a + `δ_0`))
+5. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ 0 < |a - x| ∧ |a - x| < δ ⇒ 0 < f(x) - b ∧ f(x) - b < ε))
+6. y = (fun x [x ∈ RealSet] . |x|)
+7. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ 0 < |0 - x| ∧ |0 - x| < δ ⇒ 0 < y(x) - 0 ∧ y(x) - 0 < ε))
+8. lim_{ x → 0 } (y(x)) = 0 + 0
+
+GOAL:
+(forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ 0 < |a - x| ∧ |a - x| < δ ⇒ 0 < f(x) - b ∧ f(x) - b < ε))) ⇔ lim_{ x → a } (f(x)) = b + 0
+
+METHOD:

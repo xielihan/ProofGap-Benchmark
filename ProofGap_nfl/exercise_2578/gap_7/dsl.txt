@@ -1,0 +1,2 @@
+rewrite_in sum (right_to_left, equation) (hypothesis 2: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet => a(n) = frac(1000^{n}, n!)}); from (GOAL: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1000^{n}, n!)))}) to (GOAL: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))})
+apply (hypothesis 8: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))})

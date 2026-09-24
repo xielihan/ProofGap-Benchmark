@@ -1,0 +1,29 @@
+PROOF GAP @12
+ASSUM:
+1. M ∈ RealSet ∧ M > 0
+2. R ∈ RealSet ∧ R > 0
+3. B ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+4. ρ : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+5. k ∈ RealSet
+6. I_{z} ∈ RealSet
+7. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ B = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x^{2} + y^{2} + z^{2} ≤ R^{2} }
+8. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ∈ B ⇒ ρ(x, y, z) = k * sqrtn(2, x^{2} + y^{2} + z^{2})
+9. x = r * cos(φ) * cos(ψ)
+10. y = r * sin(φ) * cos(ψ)
+11. z = r * sin(ψ)
+12. 0 ≤ φ
+13. φ ≤ 2 * π
+14. -frac(π, 2) ≤ ψ
+15. ψ ≤ frac(π, 2)
+16. 0 ≤ r
+17. r ≤ R
+18. M = DefInt(0, 2 * π, DefInt(-frac(π, 2), frac(π, 2), DefInt(0, R, r^{2} * cos(ψ) * k * r * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ R] . r)) * diff(fun ψ [ψ ∈ RealSet ∧ -frac(π, 2) ≤ ψ ∧ ψ ≤ frac(π, 2)] . ψ)) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . φ))
+19. M = k * π * R^{4}
+20. k = frac(M, π * R^{4})
+21. forall (r), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ R ⇒ ρ(r) = frac(M * r, π * R^{4})
+22. I_{z} = DefInt(0, 2 * π, DefInt(-frac(π, 2), frac(π, 2), DefInt(0, R, r^{2} * cos(ψ)^{2} * frac(M * r, π * R^{4}) * r^{2} * cos(ψ) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ R] . r)) * diff(fun ψ [ψ ∈ RealSet ∧ -frac(π, 2) ≤ ψ ∧ ψ ≤ frac(π, 2)] . ψ)) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . φ))
+
+GOAL:
+I_{z} = frac(2 * M, R^{4}) * DefInt(-frac(π, 2), frac(π, 2), cos(ψ)^{3} * diff(fun ψ [ψ ∈ RealSet ∧ -frac(π, 2) ≤ ψ ∧ ψ ≤ frac(π, 2)] . ψ)) * DefInt(0, R, r^{5} * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ R] . r))
+
+METHOD:

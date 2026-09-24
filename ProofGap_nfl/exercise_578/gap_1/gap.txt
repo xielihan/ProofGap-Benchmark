@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+lim_{ x → +∞ } (x - ln(cosh(x))) = lim_{ x → +∞ } (x - ln((e^{x} + e^{-x}) / 2))
+
+METHOD:

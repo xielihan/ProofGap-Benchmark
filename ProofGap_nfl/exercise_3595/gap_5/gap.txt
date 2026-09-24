@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x, y) = e^{x} * sin(y)
+3. forall (x), x ∈ RealSet ⇒ e^{x} = sum_{ m = 0 }^{ +∞ } (frac(x^{m}, m!))
+4. forall (y), y ∈ RealSet ⇒ sin(y) = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(y^{2 * n + 1}, (2 * n + 1)!))
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x, y) = (sum_{ m = 0 }^{ +∞ } (frac(x^{m}, m!))) * (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(y^{2 * n + 1}, (2 * n + 1)!)))
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x, y) = sum_{ m = 0 }^{ +∞ } (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x^{m} * y^{2 * n + 1}, m! * (2 * n + 1)!)))
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x, y) = sum_{ m = 0 }^{ +∞ } (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x^{m} * y^{2 * n + 1}, m! * (2 * n + 1)!)))
+
+METHOD:

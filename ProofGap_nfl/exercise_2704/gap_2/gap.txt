@@ -1,0 +1,27 @@
+PROOF GAP @2
+ASSUM:
+1. p ∈ NonNegIntegerSet
+2. q ∈ NonNegIntegerSet
+3. b : NonNegIntegerSet → RealSet
+4. S ∈ RealSet
+5. H : NonNegIntegerSet → RealSet
+6. α : NonNegIntegerSet → RealSet
+7. `α'` : NonNegIntegerSet → RealSet
+8. β : NonNegIntegerSet → RealSet
+9. C ∈ RealSet
+10. ε : NonNegIntegerSet → RealSet
+11. n ∈ NonNegIntegerSet
+12. k ∈ NonNegIntegerSet
+13. i ∈ NonNegIntegerSet
+14. p ∈ PosIntegerSet
+15. q ∈ PosIntegerSet
+16. forall (r) (j), r ∈ NonNegIntegerSet ∧ j ∈ NonNegIntegerSet ∧ r ∈ PosIntegerSet ∧ j ∈ PosIntegerSet ∧ j ≤ p ⇒ b((r - 1) * (p + q) + j) = frac(1, 2 * ((r - 1) * p + j) - 1)
+17. forall (r) (j), r ∈ NonNegIntegerSet ∧ j ∈ NonNegIntegerSet ∧ r ∈ PosIntegerSet ∧ j ∈ PosIntegerSet ∧ j ≤ q ⇒ b((r - 1) * (p + q) + p + j) = -frac(1, 2 * ((r - 1) * q + j))
+18. S = sum_{ n = 1 }^{ +∞ } (b(n))
+19. H = (fun n [n ∈ NonNegIntegerSet ∧ n ≥ 1] . sum_{ k = 1 }^{ n } (frac(1, k)))
+20. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ H(n) = ln(n) + C + ε(n)
+
+GOAL:
+seqlim_{ n → +∞ } (ε(n)) = 0
+
+METHOD:

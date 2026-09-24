@@ -1,0 +1,23 @@
+PROOF GAP @5
+ASSUM:
+1. u ∈ RealSet
+2. w ∈ RealSet
+3. F ∈ RealSet
+4. x : NonNegIntegerSet → RealSet
+5. α : NonNegIntegerSet → RealSet
+6. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+7. a ∈ RealSet ∧ a > 0
+8. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ α(i) > 1 ∧ x(i) > 0
+9. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ u(x) = prod_{ i = 1 }^{ n } (x(i)^{α(i)})
+10. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ sum_{ i = 1 }^{ n } (x(i)) = a
+11. w = ln(u)
+12. w = sum_{ i = 1 }^{ n } (α(i) * ln(x(i)))
+13. F = (fun λ [λ ∈ RealSet ∧ λ ≠ 0] . w - frac(1, λ) * ((sum_{ i = 1 }^{ n } (x(i))) - a))
+14. forall (λ), λ ∈ RealSet ∧ λ ≠ 0 ⇒ F = (sum_{ i = 1 }^{ n } (α(i) * ln(x(i)) - frac(x(i), λ))) + frac(a, λ)
+15. forall (λ), λ ∈ RealSet ∧ λ ≠ 0 ⇒ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ FunDeri(F, fun λ [λ ∈ RealSet ∧ λ ≠ 0] . x(i), 1) = frac(α(i), x(i)) - frac(1, λ) ∧ frac(α(i), x(i)) - frac(1, λ) = 0)
+16. sum_{ i = 1 }^{ n } (x(i)) = a
+
+GOAL:
+forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ x(i) = frac(a * α(i), sum_{ j = 1 }^{ n } (α(j)))
+
+METHOD:

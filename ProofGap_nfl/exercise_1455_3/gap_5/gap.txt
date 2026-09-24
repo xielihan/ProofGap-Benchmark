@@ -1,0 +1,15 @@
+PROOF GAP @5
+ASSUM:
+1. a : NonNegIntegerSet → RealSet ∧ IsSeq(a)
+2. f : RealSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = sqrtn(n, n)
+4. forall (x), x ∈ RealSet ∧ x > 0 ⇒ f(x) = x^{frac(1, x)}
+5. MaximumPointOn(f, IntervalLoRo(0, +∞)) = { e }
+6. a(1) < a(2)
+7. a(2) < a(3)
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 3 ⇒ a(n + 1) < a(n)
+
+GOAL:
+max({ a(n) | n ∈ PosIntegerSet }) = max(sqrtn(3, 3), sqrtn(2, 2))
+
+METHOD:

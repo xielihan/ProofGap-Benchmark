@@ -1,0 +1,24 @@
+PROOF GAP @3
+ASSUM:
+1. C ⊆ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+2. a ∈ RealSet ∧ a > 0
+3. x : RealSet → RealSet
+4. y : RealSet → RealSet
+5. z : RealSet → RealSet
+6. ρ : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+7. s ∈ RealSet
+8. t ∈ RealSet
+9. u ∈ RealSet
+10. M ∈ RealSet
+11. C = { (x(t), y(t), z(t)) | t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 1 }
+12. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 1 ⇒ x(t) = a * t
+13. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 1 ⇒ y(t) = frac(a, 2) * t^{2}
+14. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 1 ⇒ z(t) = frac(a, 3) * t^{3}
+15. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ ρ(x, y, z) = sqrtn(2, frac(2 * y, a))
+16. M = ScalarCurveInt(C, sqrtn(2, frac(2 * y, a)) * diff(s))
+17. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 1 ⇒ diff(s) = sqrtn(2, a^{2} + a^{2} * t^{2} + a^{2} * t^{4}) * diff(fun t [t ∈ RealSet] . t)
+
+GOAL:
+forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 1 ⇒ diff(s) = a * sqrtn(2, 1 + t^{2} + t^{4}) * diff(fun t [t ∈ RealSet] . t)
+
+METHOD:

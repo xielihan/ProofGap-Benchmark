@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ e^{x + y} = e^{x - 1 + y + 1})
+2. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ e^{x - 1 + y + 1} = e^{x - 1} * e^{y + 1})
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ e^{x - 1} = sum_{ m = 0 }^{ +∞ } (frac((x - 1)^{m}, m!))
+
+METHOD:

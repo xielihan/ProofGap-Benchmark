@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet -> RealSet
+2. forall (x), x ∈ RealPlus => f(x) = cos(ln(x))
+3. x_{0} = 0
+
+GOAL:
+BoundedFuncOn(f, RealPlus)
+
+METHOD:

@@ -1,0 +1,32 @@
+get_prop (theorem 'Thm 489. (AbsoluteValueOfNonpositiveReal)': {forall (x), x ∈ RealSet ⇒ (x ≤ 0 ⇔ |x| = -x)}) (x := {α}) as (hypothesis 22: {α ∈ RealSet ⇒ (α ≤ 0 ⇔ |α| = -α)})
+use_condition (hypothesis 1: {α ∈ RealSet}) in (hypothesis 22: {α ∈ RealSet ⇒ (α ≤ 0 ⇔ |α| = -α)}) as (hypothesis 23: {α ≤ 0 ⇔ |α| = -α})
+get_prop (theorem 'Thm 490. (AbsoluteValueOfNonnegativeReal)': {forall (x), x ∈ RealSet ⇒ (x ≥ 0 ⇔ |x| = x)}) (x := {α}) as (hypothesis 24: {α ∈ RealSet ⇒ (α ≥ 0 ⇔ |α| = α)})
+use_condition (hypothesis 1: {α ∈ RealSet}) in (hypothesis 24: {α ∈ RealSet ⇒ (α ≥ 0 ⇔ |α| = α)}) as (hypothesis 25: {α ≥ 0 ⇔ |α| = α})
+assert (hypothesis 26: {α < 0 ∨ α ≥ 0}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 27: {α < 0 ⇒ I(α) = frac(π, 2) * |α|}) by proof {
+  get_condition (hypothesis 27: {α < 0}) in (GOAL: {α < 0 ⇒ I(α) = frac(π, 2) * |α|})
+  use_condition (hypothesis 27: {α < 0}) in (hypothesis 20: {α < 0 ⇒ I(α) = I(-α)}) as (hypothesis 28: {I(α) = I(-α)})
+  use_condition (hypothesis 27: {α < 0}) in (hypothesis 21: {α < 0 ⇒ I(-α) = frac(π, 2) * -α}) as (hypothesis 29: {I(-α) = frac(π, 2) * -α})
+  assert (hypothesis 30: {|α| = -α}) by proof {
+    autosolve all_hypothesis
+  }
+  rewrite (left_to_right, equation) (hypothesis 30: {|α| = -α}); from (GOAL: {I(α) = frac(π, 2) * |α|}) to (GOAL: {I(α) = frac(π, 2) * -α})
+  rewrite (left_to_right, equation) (hypothesis 28: {I(α) = I(-α)}); from (GOAL: {I(α) = frac(π, 2) * -α}) to (GOAL: {I(-α) = frac(π, 2) * -α})
+  apply (hypothesis 29: {I(-α) = frac(π, 2) * -α})
+}
+assert (hypothesis 28: {α ≥ 0 ⇒ I(α) = frac(π, 2) * |α|}) by proof {
+  get_condition (hypothesis 28: {α ≥ 0}) in (GOAL: {α ≥ 0 ⇒ I(α) = frac(π, 2) * |α|})
+  get_prop (hypothesis 19: {forall (β), β ∈ RealSet ∧ β ≥ 0 ⇒ I(β) = frac(π, 2) * β}) (β := {α}) as (hypothesis 29: {α ∈ RealSet ∧ α ≥ 0 ⇒ I(α) = frac(π, 2) * α})
+  assert (hypothesis 30: {α ∈ RealSet ∧ α ≥ 0}) by proof {
+    autosolve all_hypothesis
+  }
+  use_condition (hypothesis 30: {α ∈ RealSet ∧ α ≥ 0}) in (hypothesis 29: {α ∈ RealSet ∧ α ≥ 0 ⇒ I(α) = frac(π, 2) * α}) as (hypothesis 31: {I(α) = frac(π, 2) * α})
+  assert (hypothesis 32: {|α| = α}) by proof {
+    autosolve all_hypothesis
+  }
+  rewrite (left_to_right, equation) (hypothesis 32: {|α| = α}); from (GOAL: {I(α) = frac(π, 2) * |α|}) to (GOAL: {I(α) = frac(π, 2) * α})
+  apply (hypothesis 31: {I(α) = frac(π, 2) * α})
+}
+autosolve all_hypothesis

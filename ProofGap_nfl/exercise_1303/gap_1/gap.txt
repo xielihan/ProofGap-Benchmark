@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. y = fun x . (x + sin(x))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (x + sin(x))' = 1 + cos(x)
+
+METHOD:

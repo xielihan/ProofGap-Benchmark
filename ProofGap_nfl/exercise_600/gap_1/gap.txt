@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = x + floor(x^{2})
+
+GOAL:
+f(1) = 2
+
+METHOD:

@@ -1,0 +1,34 @@
+PROOF GAP @17
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. c ∈ RealSet ∧ c > 0
+4. V : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+5. F : CartesianProd(RealSet, CartesianProd(RealSet, CartesianProd(RealSet, RealSet))) → RealSet
+6. x ∈ RealSet ∧ x > 0
+7. y ∈ RealSet ∧ y > 0
+8. z ∈ RealSet ∧ z > 0
+9. λ ∈ RealSet
+10. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x > 0 ∧ y > 0 ∧ z > 0 ∧ frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}) = 1 ⇒ V(x, y, z) = 8 * x * y * z
+11. forall (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ⇒ F(x, y, z, λ) = x * y * z - λ * (frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}) - 1)
+12. forall (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 1, 1)(x, y, z, λ) = y * z - 2 * λ * frac(x, a^{2})
+13. forall (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 2, 1)(x, y, z, λ) = x * z - 2 * λ * frac(y, b^{2})
+14. forall (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 3, 1)(x, y, z, λ) = x * y - 2 * λ * frac(z, c^{2})
+15. exists (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ∧ FunDeri(F, 1, 1)(x, y, z, λ) = 0
+16. exists (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ∧ FunDeri(F, 2, 1)(x, y, z, λ) = 0
+17. exists (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ∧ FunDeri(F, 3, 1)(x, y, z, λ) = 0
+18. exists (x) (y) (z), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ∧ z > 0 ∧ frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}) = 1
+19. exists (x), x ∈ RealSet ∧ x = frac(a, sqrtn(2, 3))
+20. exists (y), y ∈ RealSet ∧ y = frac(b, sqrtn(2, 3))
+21. exists (z), z ∈ RealSet ∧ z = frac(c, sqrtn(2, 3))
+22. V(x, y, z) = frac(8 * a * b * c, 3 * sqrtn(2, 3))
+23. frac(8 * a * b * c, 3 * sqrtn(2, 3)) > 0
+24. V(x, y, z) > 0
+25. lim_{ x → 0^+ } (V(x, y, z)) = 0
+26. lim_{ y → 0^+ } (V(x, y, z)) = 0
+27. lim_{ z → 0^+ } (V(x, y, z)) = 0
+
+GOAL:
+forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) = (frac(a, sqrtn(2, 3)), frac(b, sqrtn(2, 3)), frac(c, sqrtn(2, 3))) ⇒ x > 0 ∧ y > 0 ∧ z > 0 ∧ frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}) = 1 ∧ MaximumPointOn(V, { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x > 0 ∧ y > 0 ∧ z > 0 ∧ frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}) = 1 }) = { (x, y, z) }
+
+METHOD:

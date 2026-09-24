@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. forall (k), k ∈ IntegerSet ⇒ a ≠ frac(2 * k + 1, 2) * π
+3. lim_{ x → 0 } (frac(tan(a + x) * tan(a - x) - tan(a)^{2}, x^{2})) = lim_{ x → 0 } (frac(frac(tan(a) + tan(x), 1 - tan(a) * tan(x)) * frac(tan(a) - tan(x), 1 + tan(a) * tan(x)) - tan(a)^{2}, x^{2}))
+
+GOAL:
+lim_{ x → 0 } (frac(frac(tan(a) + tan(x), 1 - tan(a) * tan(x)) * frac(tan(a) - tan(x), 1 + tan(a) * tan(x)) - tan(a)^{2}, x^{2})) = lim_{ x → 0 } (frac(tan(x)^{2} * (tan(a)^{4} - 1), x^{2} * (1 - tan(a)^{2} * tan(x)^{2})))
+
+METHOD:

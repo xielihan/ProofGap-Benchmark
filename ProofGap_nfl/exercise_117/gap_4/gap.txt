@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. x : NonNegIntegerSet → RealSet
+2. IsSeq(x)
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ x(m) = frac(1, n))
+4. forall (k) (n), n ∈ NonNegIntegerSet ∧ k ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ x(m) = frac(1, k) + frac(1, n))
+5. seqlim_{ n → +∞ } (frac(1, n)) = 0
+6. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ seqlim_{ n → +∞ } (frac(1, k) + frac(1, n)) = frac(1, k)
+7. seqlim_{ n → +∞ } (1 + frac(1, n)) = 1
+
+GOAL:
+AccumulationPointSet(x) = { y | y ∈ RealSet, y = 0 ∨ y = 1 ∨ (exists (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ y = frac(1, k)) }
+
+METHOD:

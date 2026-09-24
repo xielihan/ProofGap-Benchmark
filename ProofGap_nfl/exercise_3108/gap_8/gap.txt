@@ -1,0 +1,29 @@
+PROOF GAP @8
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. c : NonNegIntegerSet → RealSet
+3. F : RealSet → RealSet
+4. G : RealSet → RealSet
+5. L : RealSet → RealSet
+6. a ∈ RealSet
+7. b ∈ RealSet
+8. a < b
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ContinuousFuncOn(f(n), IntervalLoRo(a, b))
+10. forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ x ∈ IntervalLoRo(a, b) ∧ n ∈ PosIntegerSet ⇒ |f(n, x)| ≤ c(n)
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ c(n) ≥ 0
+12. forall (n), n ∈ NonNegIntegerSet ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n)))
+13. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ F(x) = prod_{ n = 1 }^{ +∞ } (1 + f(n, x)))
+14. seqlim_{ n → +∞ } (c(n)) = 0
+15. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ seqlim_{ n → +∞ } (f(n, x)) = 0
+16. forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ (exists (N_{0}), N_{0} ∈ NonNegIntegerSet ∧ N_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N_{0} ⇒ |f(n, x)| < δ)))
+17. forall (g), g : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ⇒ (forall (N_{0}), N_{0} ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ g = (fun k [k ∈ NonNegIntegerSet] . f(N_{0} + k))))
+18. forall (g), g : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ⇒ (forall (N_{0}), N_{0} ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ |g(k, x)| ≤ c(N_{0} + k))))
+19. forall (N_{0}), N_{0} ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ ConvergentSeries(sum_{ k = 1 }^{ +∞ } (c(N_{0} + k))))
+20. forall (g), g : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ AbsoluteConvergentSeries(sum_{ k = 1 }^{ +∞ } (g(k, x))))
+21. forall (g), g : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ ConvergentSeries(prod_{ k = 1 }^{ +∞ } (1 + g(k, x))))
+22. G = (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b)] . prod_{ k = 1 }^{ +∞ } (1 + g(k, x)))
+
+GOAL:
+forall (N_{0}), N_{0} ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ F(x) = G(x) * (prod_{ n = 1 }^{ N_{0} } (1 + f(n, x))))
+
+METHOD:

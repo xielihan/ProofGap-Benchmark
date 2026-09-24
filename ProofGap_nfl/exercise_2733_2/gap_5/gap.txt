@@ -1,0 +1,16 @@
+PROOF GAP @5
+ASSUM:
+1. x ∈ RealSet
+2. y ∈ RealSet ∧ y ∈ NonNegRealSet
+3. a : NonNegIntegerSet → RealSet
+4. x = 1
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(x^{n}, n + y^{n})
+6. y > 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |a(n)| = frac(1, n + y^{n}) ∧ frac(1, n + y^{n}) < frac(1, y)^{n})
+7. y > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, y)^{n}))
+8. y > 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+9. 0 ≤ y ⇒ y ≤ 1 ⇒ seqlim_{ n → +∞ } (frac(a(n), frac(1, n))) = seqlim_{ n → +∞ } (frac(n, n + y^{n}))
+
+GOAL:
+0 ≤ y ⇒ y ≤ 1 ⇒ seqlim_{ n → +∞ } (frac(n, n + y^{n})) = 1
+
+METHOD:

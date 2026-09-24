@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. y : NonNegIntegerSet → RealSet ∧ IsSeq(y)
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n) = x(n) * sqrtn(n, n)
+
+GOAL:
+seqlim_{ n → +∞ } (sqrtn(n + 1, n + 1)) = 1
+
+METHOD:

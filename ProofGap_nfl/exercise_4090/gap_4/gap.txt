@@ -1,0 +1,29 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. c ∈ RealSet
+4. V ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+5. x ∈ RealSet
+6. y ∈ RealSet
+7. z ∈ RealSet
+8. r ∈ RealSet
+9. φ ∈ RealSet
+10. ψ ∈ RealSet
+11. I ∈ RealSet
+12. t ∈ RealSet
+13. a > 0
+14. b > 0
+15. c > 0
+16. V = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}) ≤ 1 }
+17. x = a * r * cos(φ) * cos(ψ)
+18. y = b * r * sin(φ) * cos(ψ)
+19. z = c * r * sin(ψ)
+20. |I| = a * b * c * r^{2} * cos(ψ)
+21. 0 ≤ φ ⇒ φ ≤ frac(π, 2) ⇒ 0 ≤ ψ ⇒ ψ ≤ frac(π, 2) ⇒ 0 ≤ r ⇒ r ≤ 1 ⇒ frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}) = r^{2}
+22. VolumeInt(V, sqrtn(2, 1 - frac(x^{2}, a^{2}) - frac(y^{2}, b^{2}) - frac(z^{2}, c^{2})) * diff(fun x . x) * diff(fun y . y) * diff(fun z . z)) = 8 * DefInt(0, frac(π, 2), DefInt(0, frac(π, 2), DefInt(0, 1, a * b * c * r^{2} * cos(ψ) * sqrtn(2, 1 - r^{2}) * diff(fun r . r)) * diff(fun ψ . ψ)) * diff(fun φ . φ))
+
+GOAL:
+VolumeInt(V, sqrtn(2, 1 - frac(x^{2}, a^{2}) - frac(y^{2}, b^{2}) - frac(z^{2}, c^{2})) * diff(fun x . x) * diff(fun y . y) * diff(fun z . z)) = 4 * π * DefInt(0, 1, a * b * c * r^{2} * sqrtn(2, 1 - r^{2}) * diff(fun r . r))
+
+METHOD:

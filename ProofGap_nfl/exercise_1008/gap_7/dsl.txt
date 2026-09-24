@@ -1,0 +1,14 @@
+assert (hypothesis 9: {forall (Δx), Δx ∈ RealSet ∧ Δx > 0 ⇒ frac(f(2 + Δx) - f(2), Δx) = arctan(frac(1, Δx))}) by proof {
+  get_forall (GOAL: {forall (Δx), Δx ∈ RealSet ∧ Δx > 0 ⇒ frac(f(2 + Δx) - f(2), Δx) = arctan(frac(1, Δx))}) (Δx := {d})
+  get_condition (hypothesis 9: {d ∈ RealSet ∧ d > 0}) in (GOAL: {d ∈ RealSet ∧ d > 0 ⇒ frac(f(2 + d) - f(2), d) = arctan(frac(1, d))})
+  destruct_and (hypothesis 9: {d ∈ RealSet ∧ d > 0}) as (hypothesis 10: {d ∈ RealSet}) (hypothesis 11: {d > 0})
+  assert (hypothesis 12: {2 + d ∈ RealSet})
+  assert (hypothesis 13: {2 + d ≠ 2})
+  assert (hypothesis 14: {2 ∈ RealSet})
+  assert (hypothesis 15: {f(2 + d) = d * arctan(frac(1, d))})
+  assert (hypothesis 16: {f(2) = 0})
+  assert (hypothesis 17: {frac(f(2 + d) - f(2), d) = arctan(frac(1, d))})
+  apply (hypothesis 17: {frac(f(2 + d) - f(2), d) = arctan(frac(1, d))})
+}
+rewrite_in limit (left_to_right, equation) (hypothesis 9: {forall (Δx), Δx ∈ RealSet ∧ Δx > 0 ⇒ frac(f(2 + Δx) - f(2), Δx) = arctan(frac(1, Δx))}); from (GOAL: {lim_{ Δx → 0^+ } (frac(f(2 + Δx) - f(2), Δx)) = lim_{ Δx → 0^+ } (arctan(frac(1, Δx)))}) to (GOAL: {lim_{ Δx → 0^+ } (arctan(frac(1, Δx))) = lim_{ Δx → 0^+ } (arctan(frac(1, Δx)))})
+autosolve all_hypothesis

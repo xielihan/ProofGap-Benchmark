@@ -1,0 +1,14 @@
+get_forall (GOAL: {forall (R), R ∈ RealSet ∧ R > 0 ⇒ (forall (y), y ∈ RealSet ∧ |y - P| < R ⇒ |y - P| + |P - x_{0}| < L(R))}) (R := {R0})
+get_condition (hypothesis 20: {R0 ∈ RealSet ∧ R0 > 0}) in (GOAL: {R0 ∈ RealSet ∧ R0 > 0 ⇒ (forall (y), y ∈ RealSet ∧ |y - P| < R0 ⇒ |y - P| + |P - x_{0}| < L(R0))})
+destruct_and (hypothesis 20: {R0 ∈ RealSet ∧ R0 > 0}) as (hypothesis 21: {R0 ∈ RealSet}) (hypothesis 22: {R0 > 0})
+get_forall (GOAL: {forall (y), y ∈ RealSet ∧ |y - P| < R0 ⇒ |y - P| + |P - x_{0}| < L(R0)}) (y := {y1})
+get_condition (hypothesis 23: {y1 ∈ RealSet ∧ |y1 - P| < R0}) in (GOAL: {y1 ∈ RealSet ∧ |y1 - P| < R0 ⇒ |y1 - P| + |P - x_{0}| < L(R0)})
+destruct_and (hypothesis 23: {y1 ∈ RealSet ∧ |y1 - P| < R0}) as (hypothesis 24: {y1 ∈ RealSet}) (hypothesis 25: {|y1 - P| < R0})
+get_prop (hypothesis 18: {forall (R), R ∈ RealSet ∧ R > 0 ⇒ (forall (y), y ∈ RealSet ∧ |y - P| < R ⇒ L(R) = R + |P - x_{0}|)}) (R := {R0}) as (hypothesis 26: {R0 ∈ RealSet ∧ R0 > 0 ⇒ (forall (y), y ∈ RealSet ∧ |y - P| < R0 ⇒ L(R0) = R0 + |P - x_{0}|)})
+assert (hypothesis 27: {R0 ∈ RealSet ∧ R0 > 0}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 27: {R0 ∈ RealSet ∧ R0 > 0}) in (hypothesis 26: {R0 ∈ RealSet ∧ R0 > 0 ⇒ (forall (y), y ∈ RealSet ∧ |y - P| < R0 ⇒ L(R0) = R0 + |P - x_{0}|)}) as (hypothesis 28: {forall (y), y ∈ RealSet ∧ |y - P| < R0 ⇒ L(R0) = R0 + |P - x_{0}|})
+get_prop (hypothesis 28: {forall (y), y ∈ RealSet ∧ |y - P| < R0 ⇒ L(R0) = R0 + |P - x_{0}|}) (y := {y1}) as (hypothesis 29: {y1 ∈ RealSet ∧ |y1 - P| < R0 ⇒ L(R0) = R0 + |P - x_{0}|})
+use_condition (hypothesis 23: {y1 ∈ RealSet ∧ |y1 - P| < R0}) in (hypothesis 29: {y1 ∈ RealSet ∧ |y1 - P| < R0 ⇒ L(R0) = R0 + |P - x_{0}|}) as (hypothesis 30: {L(R0) = R0 + |P - x_{0}|})
+autosolve all_hypothesis

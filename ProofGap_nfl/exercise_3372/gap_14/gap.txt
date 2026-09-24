@@ -1,0 +1,23 @@
+PROOF GAP @14
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ ln(sqrtn(2, x^{2} + y(x)^{2})) = arctan(frac(y(x), x))
+3. forall (x), x ∈ RealSet ⇒ x ≠ y(x)
+4. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x ≠ y(x) ⇒ frac(x + y(x) * FunDeri(y, 1, 1)(x), x^{2} + y(x)^{2}) = frac(x * FunDeri(y, 1, 1)(x) - y(x), x^{2} + y(x)^{2})
+5. forall (x), x ∈ RealSet ∧ x ≠ y(x) ⇒ FunDeri(y, 1, 1)(x) = frac(x + y(x), x - y(x))
+6. forall (x), x ∈ RealSet ∧ x ≠ y(x) ⇒ FunDeri(y, 1, 2)(x) = frac((x - y(x)) * (1 + FunDeri(y, 1, 1)(x)) - (x + y(x)) * (1 - FunDeri(y, 1, 1)(x)), (x - y(x))^{2})
+7. forall (x), x ∈ RealSet ∧ x ≠ y(x) ⇒ FunDeri(y, 1, 2)(x) = frac(2 * (x * FunDeri(y, 1, 1)(x) - y(x)), (x - y(x))^{2})
+8. forall (x), x ∈ RealSet ∧ x ≠ y(x) ⇒ FunDeri(y, 1, 2)(x) = frac(2 * x * (x + y(x)) - 2 * y(x) * (x - y(x)), (x - y(x))^{3})
+9. forall (x), x ∈ RealSet ∧ x ≠ y(x) ⇒ FunDeri(y, 1, 2)(x) = frac(2 * (x^{2} + y(x)^{2}), (x - y(x))^{3})
+10. frac((fun x [x ∈ RealSet] . x) * diff(fun x [x ∈ RealSet] . x) + (fun x [x ∈ RealSet] . y(x)) * diff(y), fun x [x ∈ RealSet] . x^{2} + y(x)^{2}) = frac((fun x [x ∈ RealSet] . x) * diff(y) - (fun x [x ∈ RealSet] . y(x)) * diff(fun x [x ∈ RealSet] . x), fun x [x ∈ RealSet] . x^{2} + y(x)^{2})
+11. FunDeri(y, 1, 1) = (fun x [x ∈ RealSet ∧ x ≠ y(x)] . frac(x + y(x), x - y(x)))
+12. diff(fun x [x ∈ RealSet] . x)^{2} + diff(y)^{2} + (fun x [x ∈ RealSet] . y(x)) * diff^{2}(y) = (fun x [x ∈ RealSet] . x) * diff^{2}(y)
+13. FunDeri(y, 1, 2) = (fun x [x ∈ RealSet ∧ x ≠ y(x)] . frac(1 + FunDeri(y, 1, 1)(x)^{2}, x - y(x)))
+14. FunDeri(y, 1, 2) = (fun x [x ∈ RealSet ∧ x ≠ y(x)] . frac((x - y(x))^{2} + (x + y(x))^{2}, (x - y(x))^{3}))
+15. FunDeri(y, 1, 2) = (fun x [x ∈ RealSet ∧ x ≠ y(x)] . frac(2 * (x^{2} + y(x)^{2}), (x - y(x))^{3}))
+16. forall (x), x ∈ RealSet ∧ x ≠ y(x) ⇒ FunDeri(y, 1, 1)(x) = frac(x + y(x), x - y(x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ y(x) ⇒ FunDeri(y, 1, 2)(x) = frac(2 * (x^{2} + y(x)^{2}), (x - y(x))^{3})
+
+METHOD:

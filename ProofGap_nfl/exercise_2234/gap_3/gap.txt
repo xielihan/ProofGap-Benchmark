@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. lim_{ x → +∞ } (frac(DefInt(0, x, (fun t [t ∈ RealSet] . e^{t^{2}}) * diff(fun t [t ∈ RealSet] . t)), frac(e^{x^{2}}, 2 * x))) = lim_{ x → +∞ } (frac(e^{x^{2}}, e^{x^{2}} * (1 - frac(1, 2 * x^{2}))))
+2. lim_{ x → +∞ } (frac(e^{x^{2}}, e^{x^{2}} * (1 - frac(1, 2 * x^{2})))) = 1
+
+GOAL:
+lim_{ x → +∞ } (frac(DefInt(0, x, (fun t [t ∈ RealSet] . e^{t^{2}}) * diff(fun t [t ∈ RealSet] . t)), frac(e^{x^{2}}, 2 * x))) = 1
+
+METHOD:

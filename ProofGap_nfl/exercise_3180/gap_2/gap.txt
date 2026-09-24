@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (s) (t), s ∈ RealSet ∧ t ∈ RealSet ∧ s ≠ 0 ⇒ f(s + t, t / s) = s^{2} - t^{2}
+3. forall (s) (t), s ∈ RealSet ∧ t ∈ RealSet ∧ s ≠ 0 ⇒ f(s + t, t / s) = s^{2} - t^{2} ∧ s^{2} - t^{2} = (s + t) * (s - t)
+
+GOAL:
+forall (s) (t), s ∈ RealSet ∧ t ∈ RealSet ∧ s ≠ 0 ∧ s + t ≠ 0 ⇒ f(s + t, t / s) = (s + t)^{2} * frac(1 - t / s, 1 + t / s)
+
+METHOD:

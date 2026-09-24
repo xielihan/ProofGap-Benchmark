@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. E ⊆ RealSet
+2. forall (x), x ∈ RealSet ⇒ (x ∈ E ⇔ x ∈ IntervalLoRo(0, +∞) ∧ sin(x) > 0)
+
+GOAL:
+E = union_{ k ∈ NonNegIntegerSet } ([2 * k * π, (2 * k + 1) * π])
+
+METHOD:

@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x) (k), k ∈ IntegerSet ∧ x ∈ RealSet ∧ x ≠ k * π ⇒ y(x) = tan(frac(x, 2)) - cot(frac(x, 2))
+3. forall (x) (k), k ∈ IntegerSet ∧ x ∈ RealSet ∧ x ≠ k * π ⇒ FunDeri(y, x, 1)(x) = frac(1, 2) * sec(frac(x, 2))^{2} + frac(1, 2) * csc(frac(x, 2))^{2}
+
+GOAL:
+forall (x) (k), k ∈ IntegerSet ∧ x ∈ RealSet ∧ x ≠ k * π ⇒ FunDeri(y, x, 1)(x) = frac(2, sin(x)^{2})
+
+METHOD:

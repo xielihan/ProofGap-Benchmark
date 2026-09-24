@@ -1,0 +1,16 @@
+PROOF GAP @6
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. x ∈ RealSet
+3. y ∈ RealSet ∧ x^{2} + y^{2} < 1
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} < 1 ⇒ f(x, y) = sqrtn(2, 1 - x^{2} - y^{2})
+5. forall (t), t ∈ RealSet ∧ -1 < t ∧ t < 1 ⇒ (1 + t)^{frac(1, 2)} ≈_{ t^{4} } 1 + frac(1, 2) * t - frac(1, 8) * t^{2} + frac(1, 16) * t^{3}
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} < 1 ⇒ f(x, y) = sqrtn(2, 1 - x^{2} - y^{2})
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} < 1 ⇒ sqrtn(2, 1 - x^{2} - y^{2}) = (1 + -x^{2} - y^{2})^{frac(1, 2)}
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} < 1 ⇒ f(x, y) = (1 + -x^{2} - y^{2})^{frac(1, 2)}
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} < 1 ⇒ f(x, y) ≈_{ (x^{2} + y^{2})^{3} } 1 - frac(1, 2) * (x^{2} + y^{2}) - frac(1, 8) * (x^{2} + y^{2})^{2}
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} < 1 ⇒ f(x, y) ≈_{ (x^{2} + y^{2})^{3} } 1 - frac(1, 2) * (x^{2} + y^{2}) - frac(1, 8) * (x^{2} + y^{2})^{2}
+
+METHOD:

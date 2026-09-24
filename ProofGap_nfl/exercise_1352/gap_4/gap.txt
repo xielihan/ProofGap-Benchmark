@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet
+2. forall (k), k ∈ IntegerSet ⇒ a ≠ frac(k * π, 2)
+3. lim_{ x → a } (cot(x - a) * ln(frac(tan(x), tan(a)))) = lim_{ x → a } (frac(ln(tan(x)) - ln(tan(a)), tan(x - a)))
+4. lim_{ x → a } (frac(ln(tan(x)) - ln(tan(a)), tan(x - a))) = lim_{ x → a } (frac(frac(1, tan(x)) * sec(x)^{2}, sec(x - a)^{2}))
+5. lim_{ x → a } (frac(frac(1, tan(x)) * sec(x)^{2}, sec(x - a)^{2})) = frac(2, sin(2 * a))
+
+GOAL:
+lim_{ x → a } (frac(tan(x), tan(a))^{cot(x - a)}) = e^{frac(2, sin(2 * a))}
+
+METHOD:

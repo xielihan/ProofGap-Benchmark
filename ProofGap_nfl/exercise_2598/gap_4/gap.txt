@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. p ∈ RealSet
+2. a = (fun n [n ∈ NonNegIntegerSet] . (prod_{ k = 1 }^{ n } (frac(2 * k - 1, 2 * k)))^{p})
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = (prod_{ k = 1 }^{ n } (frac(2 * k - 1, 2 * k)))^{p}
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(a(n), a(n + 1)) = frac(2 * n + 2, 2 * n + 1)^{p}
+5. seqlim_{ n → +∞ } (n * (frac(a(n), a(n + 1)) - 1)) = seqlim_{ n → +∞ } (frac(frac(2 * n + 2, 2 * n + 1)^{p} - 1, frac(1, n)))
+
+GOAL:
+seqlim_{ n → +∞ } (frac(frac(2 * n + 2, 2 * n + 1)^{p} - 1, frac(1, n))) = frac(p, 2)
+
+METHOD:

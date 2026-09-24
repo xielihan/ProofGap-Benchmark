@@ -1,0 +1,24 @@
+PROOF GAP @8
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. C ⊆ CartesianProd(RealSet, RealSet)
+3. C_{1} ⊆ CartesianProd(RealSet, RealSet)
+4. C_{2} ⊆ CartesianProd(RealSet, RealSet)
+5. S ∈ RealSet
+6. x : RealSet → RealSet
+7. y : RealSet → RealSet
+8. C_{1} = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet ∧ (exists (t), t ∈ RealSet ∧ t ≥ 0 ∧ x = frac(a, (1 + t)^{2}) ∧ y = frac(a * t, (1 + t)^{2})) }
+9. C_{2} = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ∧ y = 0 }
+10. C = C_{1} ∪ C_{2}
+11. forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ x(t) = frac(a, (1 + t)^{2}) ∧ y(t) = frac(a * t, (1 + t)^{2})
+12. C_{1} ∩ C_{2} = { (0, 0), (a, 0) }
+13. VectorCurveInt(C_{2}, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)) = 0
+14. VectorCurveInt(C_{1}, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)) = DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ≥ 0] . frac(a^{2}, (1 + t)^{4})) * diff(fun t [t ∈ RealSet ∧ t ≥ 0] . t))
+15. S = frac(1, 2) * VectorCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x))
+16. S = frac(a^{2}, 2) * DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ≥ 0] . frac(1, (1 + t)^{4})) * diff(fun t [t ∈ RealSet ∧ t ≥ 0] . t))
+17. S = ((fun t [t ∈ RealSet ∧ t ≥ 0] . -frac(a^{2}, 6) * frac(1, (1 + t)^{3}))|_{0}^{+∞})
+
+GOAL:
+S = frac(a^{2}, 6)
+
+METHOD:

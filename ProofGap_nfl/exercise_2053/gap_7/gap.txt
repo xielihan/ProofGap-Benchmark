@@ -1,0 +1,43 @@
+PROOF GAP @7
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. c ∈ RealSet
+4. a_{1} ∈ RealSet
+5. b_{1} ∈ RealSet
+6. A ∈ RealSet
+7. B ∈ RealSet
+8. λ : NonNegIntegerSet → RealSet
+9. k : NonNegIntegerSet → RealSet
+10. u : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+11. λ_{1} ∈ RealSet
+12. λ_{2} ∈ RealSet
+13. k_{1} ∈ RealSet
+14. k_{2} ∈ RealSet
+15. u_{1} : RealSet → RealSet
+16. u_{2} : RealSet → RealSet
+17. forall (x), x ∈ RealSet ⇒ a * sin(x)^{2} + 2 * b * sin(x) * cos(x) + c * cos(x)^{2} ≠ 0
+18. λ(1) ≠ λ(2)
+19. (a - λ(1)) * (c - λ(1)) - b^{2} = 0
+20. (a - λ(2)) * (c - λ(2)) - b^{2} = 0
+21. a - λ(1) ≠ 0
+22. a - λ(2) ≠ 0
+23. forall (x), x ∈ RealSet ⇒ u(1, x) = (a - λ(1)) * sin(x) + b * cos(x)
+24. forall (x), x ∈ RealSet ⇒ u(2, x) = (a - λ(2)) * sin(x) + b * cos(x)
+25. k(1) = frac(1, a - λ(1))
+26. k(2) = frac(1, a - λ(2))
+27. b ≠ 0
+28. A = -frac(a_{1} * (λ(1) - λ(2)) + b * b_{1} + a_{1} * (a - λ(1)), b * (λ(1) - λ(2)))
+29. B = frac(b * b_{1} + a_{1} * (a - λ(1)), b * (λ(1) - λ(2)))
+30. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ { 1, 2 } ⇒ (a - λ(i)) * (c - λ(i)) - b^{2} = 0
+31. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ { 1, 2 } ⇒ b^{2} = (a - λ(i)) * (c - λ(i))
+32. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ { 1, 2 } ⇒ k(i) = frac(1, a - λ(i))
+33. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ { 1, 2 } ⇒ (forall (x), x ∈ RealSet ⇒ u(i, x) = (a - λ(i)) * sin(x) + b * cos(x))
+34. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ { 1, 2 } ⇒ (forall (x), x ∈ RealSet ⇒ a * sin(x)^{2} + 2 * b * sin(x) * cos(x) + c * cos(x)^{2} = k(i) * u(i, x)^{2} + λ(i))
+35. forall (x), x ∈ RealSet ⇒ a_{1} * sin(x) + b_{1} * cos(x) = A * ((a - λ(1)) * cos(x) - b * sin(x)) + B * ((a - λ(2)) * cos(x) - b * sin(x))
+
+GOAL:
+-b * (A + B) = a_{1}
+
+METHOD:
+[@method 两边同时比较系数 @]

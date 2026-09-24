@@ -1,0 +1,4 @@
+get_prop (hypothesis 4: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ seqlim_{ n → +∞ } (x(n)) ∈ RealSet}) (n := {1}) as (hypothesis 21: {1 ∈ NonNegIntegerSet ∧ 1 ∈ PosIntegerSet ⇒ seqlim_{ n → +∞ } (x(n)) ∈ RealSet})
+use_condition (obvious: {1 ∈ NonNegIntegerSet ∧ 1 ∈ PosIntegerSet}) in (hypothesis 21: {1 ∈ NonNegIntegerSet ∧ 1 ∈ PosIntegerSet ⇒ seqlim_{ n → +∞ } (x(n)) ∈ RealSet}) as (hypothesis 22: {seqlim_{ n → +∞ } (x(n)) ∈ RealSet})
+exists (`β'` := {seqlim_{ n → +∞ } (x(n))})
+autosolve all_hypothesis

@@ -1,0 +1,7 @@
+get_exists (hypothesis 15: {exists (C), C ∈ RealSet ∧ 0 = π * ln(2) + C}) (C := {C0})
+destruct_and (hypothesis 17: {C0 ∈ RealSet ∧ 0 = π * ln(2) + C0}) as (hypothesis 18: {C0 ∈ RealSet}) (hypothesis 19: {0 = π * ln(2) + C0})
+assert (hypothesis 20: {C0 = -π * ln(2)}) by proof {
+  autosolve all_hypothesis
+}
+exists (C := {C0}) in (GOAL: {exists (C), C ∈ RealSet ∧ C = -π * ln(2)})
+autosolve all_hypothesis

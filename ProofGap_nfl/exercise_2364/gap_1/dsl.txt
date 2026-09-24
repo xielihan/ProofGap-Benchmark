@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ arctan(a * x) = -arctan(-a * x)}) (x := {z})
+get_condition (hypothesis 4: {z ∈ RealSet}) in (GOAL: {z ∈ RealSet ⇒ arctan(a * z) = -arctan(-a * z)})
+get_prop (theorem 'Thm 417. (ArctangentOdd)': {forall (u), u ∈ RealSet ⇒ arctan(-u) = -arctan(u)}) (u := {a * z}) as (hypothesis 5: {a * z ∈ RealSet ⇒ arctan(-(a * z)) = -arctan(a * z)})
+assert (hypothesis 6: {a * z ∈ RealSet})
+use_condition (hypothesis 6: {a * z ∈ RealSet}) in (hypothesis 5: {a * z ∈ RealSet ⇒ arctan(-(a * z)) = -arctan(a * z)}) as (hypothesis 7: {arctan(-(a * z)) = -arctan(a * z)})
+rewrite (left_to_right, equation) (hypothesis 7: {arctan(-(a * z)) = -arctan(a * z)}); from (GOAL: {arctan(a * z) = -arctan(-a * z)}) to (GOAL: {arctan(a * z) = -(-arctan(a * z))})
+autosolve all_hypothesis

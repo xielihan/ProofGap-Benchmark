@@ -1,0 +1,16 @@
+PROOF GAP @5
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. x ∈ RealSet
+3. y ∈ RealSet
+4. x * y ≠ 0
+5. u(x, y) = x * y
+6. diff(u) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)
+7. frac(diff(u), u(x, y)) = frac((fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x), x * y)
+8. frac(diff(u), u(x, y)) = frac(diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x), x) + frac(diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y), y)
+9. |frac(diff(u), u(x, y))| ≤ |frac(diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x), x)| + |frac(diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y), y)|
+
+GOAL:
+|frac(diff(u), u(x, y))| ≤ |frac(diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x), x)| + |frac(diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y), y)|
+
+METHOD:

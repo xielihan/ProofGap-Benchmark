@@ -1,0 +1,28 @@
+PROOF GAP @18
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. h ∈ RealSet
+4. forall (t), t ∈ RealSet ⇒ f(t) = t^{3} - 3 * t^{2} - 9 * t + h
+5. forall (t), t ∈ RealSet ⇒ FunDeri(f, 1, 1)(t) = 3 * t^{2} - 6 * t - 9
+6. FunDeri(f, 1, 1)(x) = 0 ⇔ x = -1 ∨ x = 3
+7. f(-1) = 5 + h
+8. f(3) = -27 + h
+9. lim_{ t → -∞ } (f(t)) = -∞
+10. lim_{ t → +∞ } (f(t)) = +∞
+11. forall (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(-∞, -1) ⇒ FunDeri(f, 1, 1)(t) > 0
+12. forall (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(-1, 3) ⇒ FunDeri(f, 1, 1)(t) < 0
+13. forall (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(3, +∞) ⇒ FunDeri(f, 1, 1)(t) > 0
+14. h < -5 ⇒ f(-1) < 0
+15. h < -5 ⇒ f(3) < 0
+16. h < -5 ⇒ ¬(exists (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-∞, -1) ∧ f(x) = 0)
+17. h < -5 ⇒ ¬(exists (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-1, 3) ∧ f(x) = 0)
+18. h < -5 ⇒ (existsUnique (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(3, +∞) ∧ f(x) = 0)
+19. h < -5 ⇒ x ∈ { x | x ∈ IntervalLoRo(3, +∞), f(x) = 0 }
+20. -5 < h ⇒ h < 27 ⇒ f(-1) > 0
+21. -5 < h ⇒ h < 27 ⇒ f(3) < 0
+
+GOAL:
+-5 < h ⇒ h < 27 ⇒ (existsUnique (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-∞, -1) ∧ f(x) = 0)
+
+METHOD:

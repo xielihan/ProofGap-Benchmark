@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (exists (n), n = (2 * x, 2 * y, 1)))}) (x := {a})
+get_condition (hypothesis 4: {a ∈ RealSet}) in (GOAL: {a ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (exists (n), n = (2 * a, 2 * y, 1)))})
+get_forall (GOAL: {forall (y), y ∈ RealSet ⇒ (exists (n), n = (2 * a, 2 * y, 1))}) (y := {b})
+get_condition (hypothesis 5: {b ∈ RealSet}) in (GOAL: {b ∈ RealSet ⇒ (exists (n), n = (2 * a, 2 * b, 1))})
+exists (n := {(2 * a, 2 * b, 1)})
+autosolve all_hypothesis

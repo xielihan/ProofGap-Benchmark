@@ -1,0 +1,24 @@
+get_prop (theorem 'Thm 371. (SineAtOddHalfPi)': {forall (n), n ∈ IntegerSet => sin((2 * n + 1) * π / 2) = (-1) ^ n}) (n := {0}) as (hypothesis 14: {0 ∈ IntegerSet => sin((2 * 0 + 1) * π / 2) = (-1) ^ 0})
+assert (hypothesis 15: {0 ∈ IntegerSet}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 15: {0 ∈ IntegerSet}) in (hypothesis 14: {0 ∈ IntegerSet => sin((2 * 0 + 1) * π / 2) = (-1) ^ 0}) as (hypothesis 16: {sin((2 * 0 + 1) * π / 2) = (-1) ^ 0})
+assert (hypothesis 17: {frac(π, 2) = (2 * 0 + 1) * π / 2}) by proof {
+  autosolve all_hypothesis using PolyRatSolver
+}
+assert (hypothesis 18: {sin(frac(π, 2)) = 1}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 17: {frac(π, 2) = (2 * 0 + 1) * π / 2}); from (GOAL: {sin(frac(π, 2)) = 1}) to (GOAL: {sin((2 * 0 + 1) * π / 2) = 1})
+  rewrite (left_to_right, equation) (hypothesis 16: {sin((2 * 0 + 1) * π / 2) = (-1) ^ 0}); from (GOAL: {sin((2 * 0 + 1) * π / 2) = 1}) to (GOAL: {(-1) ^ 0 = 1})
+  autosolve all_hypothesis using PolyRatSolver
+}
+assert (hypothesis 19: {Γ(frac(1, 2)) * Γ(1 - frac(1, 2)) = π}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 13: {Γ(frac(1, 2)) * Γ(1 - frac(1, 2)) = frac(π, sin(frac(π, 2)))}); from (GOAL: {Γ(frac(1, 2)) * Γ(1 - frac(1, 2)) = π}) to (GOAL: {frac(π, sin(frac(π, 2))) = π})
+  rewrite (left_to_right, equation) (hypothesis 18: {sin(frac(π, 2)) = 1}); from (GOAL: {frac(π, sin(frac(π, 2))) = π}) to (GOAL: {frac(π, 1) = π})
+  autosolve all_hypothesis using PolyRatSolver
+}
+assert (hypothesis 20: {1 - frac(1, 2) = frac(1, 2)}) by proof {
+  autosolve all_hypothesis using PolyRatSolver
+}
+rewrite (right_to_left, equation) (hypothesis 19: {Γ(frac(1, 2)) * Γ(1 - frac(1, 2)) = π}); from (GOAL: {Γ(frac(1, 2))^{2} = π}) to (GOAL: {Γ(frac(1, 2))^{2} = Γ(frac(1, 2)) * Γ(1 - frac(1, 2))})
+rewrite (left_to_right, equation) (hypothesis 20: {1 - frac(1, 2) = frac(1, 2)}); from (GOAL: {Γ(frac(1, 2))^{2} = Γ(frac(1, 2)) * Γ(1 - frac(1, 2))}) to (GOAL: {Γ(frac(1, 2))^{2} = Γ(frac(1, 2)) * Γ(frac(1, 2))})
+autosolve all_hypothesis using PolyRatSolver

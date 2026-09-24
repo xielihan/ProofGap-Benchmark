@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = sin(x) * sin(2 * x) * sin(3 * x)
+3. forall (x), x ∈ RealSet ⇒ y(x) = frac(1, 4) * sin(4 * x) - frac(1, 4) * sin(6 * x) + frac(1, 4) * sin(2 * x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 10)(x) = frac(1, 4) * 4^{10} * sin(4 * x + frac(10, 2) * π) - frac(1, 4) * 6^{10} * sin(6 * x + frac(10, 2) * π) + frac(1, 4) * 2^{10} * sin(2 * x + frac(10, 2) * π)
+
+METHOD:

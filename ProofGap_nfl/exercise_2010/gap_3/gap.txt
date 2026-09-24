@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet ∧ tan(x) ≠ 0
+2. C ∈ RealSet
+3. t : RealSet → RealSet
+4. t(x) = sqrtn(3, tan(x))
+5. t(x) ∈ RealSet
+6. t(x) ≠ 0
+
+GOAL:
+x = arctan(t(x)^{3})
+
+METHOD:

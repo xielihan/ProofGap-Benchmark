@@ -1,0 +1,19 @@
+PROOF GAP @6
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. D ⊆ CartesianProd(RealSet, RealSet)
+3. I_{0} ∈ RealSet
+4. CartesianProduct : CartesianProd(PowerSet(RealSet), PowerSet(RealSet)) → PowerSet(CartesianProd(RealSet, RealSet))
+5. IntervalCC : CartesianProd(RealSet, RealSet) → PowerSet(RealSet)
+6. D = CartesianProduct(IntervalCC(0, π), IntervalCC(0, π))
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D ⇒ f(x, y) = sin(x)^{2} * sin(y)^{2}
+8. I_{0} = frac(1, π^{2}) * VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . f(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+9. I_{0} = frac(1, π^{2}) * VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . sin(x)^{2} * sin(y)^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+10. I_{0} = frac(1, π^{2}) * DefInt(0, π, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π] . sin(x)^{2}) * diff(fun x [x ∈ RealSet] . x))^{2}
+11. DefInt(0, π, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π] . sin(x)^{2}) * diff(fun x [x ∈ RealSet] . x)) = ((fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π] . frac(x, 2) - frac(1, 4) * sin(2 * x))|_{0}^{π})
+12. ((fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π] . frac(x, 2) - frac(1, 4) * sin(2 * x))|_{0}^{π}) = frac(π, 2)
+
+GOAL:
+I_{0} = frac(1, π^{2}) * frac(π, 2)^{2}
+
+METHOD:

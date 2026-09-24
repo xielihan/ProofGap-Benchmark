@@ -1,0 +1,2 @@
+1. get_forall (GOAL: {forall (x), (Impl(Belong(x, RealSet), Eq(Mult(frac(1, 2), frac(Minus(Minus(2, Mult(q, Power(e, Mult(__IMAGINARY_UNIT__, x)))), Mult(q, Power(e, Mult(Neg(__IMAGINARY_UNIT__), x)))), Mult(Minus(1, Mult(q, Power(e, Mult(__IMAGINARY_UNIT__, x)))), Minus(1, Mult(q, Power(e, Mult(Neg(__IMAGINARY_UNIT__), x))))))), Mult(frac(1, 2), Plus(frac(1, Minus(1, Mult(q, Power(e, Mult(__IMAGINARY_UNIT__, x))))), frac(1, Minus(1, Mult(q, Power(e, Mult(Neg(__IMAGINARY_UNIT__), x))))))))))}) (x := {x})
+2. autosolve all_hypothesis

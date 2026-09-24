@@ -1,0 +1,17 @@
+PROOF GAP @4
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. s : NonNegIntegerSet → RealSet ∧ IsSeq(s)
+3. zeta : NonNegIntegerSet → RealSet ∧ IsSeq(zeta)
+4. k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet
+5. ConvergentSeq(x)
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ s(n) = sum_{ k = 1 }^{ n } (x(k))
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ zeta(n) = frac(s(n), n)
+8. exists (a), a ∈ RealSet ∧ seqlim_{ n → +∞ } (x(n)) = a
+9. exists (a), a ∈ RealSet ∧ seqlim_{ n → +∞ } (x(n)) = a ∧ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ |x(n) - a| < ε)))
+10. exists (a), a ∈ RealSet ∧ seqlim_{ n → +∞ } (x(n)) = a ∧ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ frac(s(n), n) = frac(s(N), n) + frac(s(n) - s(N), n))))
+
+GOAL:
+exists (a), a ∈ RealSet ∧ seqlim_{ n → +∞ } (x(n)) = a ∧ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ frac(s(n) - s(N), n) = frac(sum_{ k = N + 1 }^{ n } (x(k)), n - N) * (1 - frac(N, n)))))
+
+METHOD:

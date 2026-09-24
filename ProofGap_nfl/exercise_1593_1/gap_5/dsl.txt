@@ -1,0 +1,5 @@
+get_prop (hypothesis 8: {forall (x), x ∈ RealSet ⇒ FunDeri(f, 1, 2)(x) = cos(x)}) (x := {0}) as (hypothesis 10: {0 ∈ RealSet ⇒ FunDeri(f, 1, 2)(0) = cos(0)})
+use_condition (obvious: {0 ∈ RealSet}) in (hypothesis 10: {0 ∈ RealSet ⇒ FunDeri(f, 1, 2)(0) = cos(0)}) as (hypothesis 11: {FunDeri(f, 1, 2)(0) = cos(0)})
+assert (hypothesis 12: {cos(0) = 1})
+rewrite (right_to_left, equation) (hypothesis 12: {cos(0) = 1}); from (GOAL: {FunDeri(f, 1, 2)(0) = 1}) to (GOAL: {FunDeri(f, 1, 2)(0) = cos(0)})
+apply (hypothesis 11: {FunDeri(f, 1, 2)(0) = cos(0)})

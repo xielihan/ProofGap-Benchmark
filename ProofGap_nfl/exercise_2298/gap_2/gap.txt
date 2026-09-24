@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+2. I = lim_{ b → frac(π, 2)^- } (DefInt(0, b, (fun x [x ∈ RealSet] . ln(cos(x)) * cos(2 * n * x)) * diff(fun x [x ∈ RealSet] . x)))
+3. I = lim_{ b → frac(π, 2)^- } (((fun x [x ∈ RealSet] . frac(1, 2 * n) * sin(2 * n * x) * ln(cos(x)))|_{0}^{b}) + frac(1, 2 * n) * DefInt(0, b, (fun x [x ∈ RealSet] . frac(sin(2 * n * x) * sin(x), cos(x))) * diff(fun x [x ∈ RealSet] . x)))
+
+GOAL:
+lim_{ b → frac(π, 2)^- } (((fun x [x ∈ RealSet] . frac(1, 2 * n) * sin(2 * n * x) * ln(cos(x)))|_{0}^{b})) = 0
+
+METHOD:

@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ≠ 0 ⇒ u(x, y) = frac(cos(x^{2}), y)
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ≠ 0 ⇒ FunDeri(u, 1, 1)(x, y) = -frac(2 * x * sin(x^{2}), y)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ≠ 0 ⇒ FunDeri(u, 2, 1)(x, y) = -frac(cos(x^{2}), y^{2})
+
+METHOD:

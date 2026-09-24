@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. f = (fun x [x ∈ RealSet] . cases{ 2 - x^{2} * (2 + sin(frac(1, x))) if x ≠ 0; 2 if x = 0 })
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) - f(0) = -x^{2} * (2 + sin(frac(1, x)))
+
+METHOD:

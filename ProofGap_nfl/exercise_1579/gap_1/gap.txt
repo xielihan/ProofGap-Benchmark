@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. S ∈ RealSet
+2. h ∈ RealSet
+3. l : RealSet → RealSet
+4. S > 0
+5. h > 0
+6. forall (φ), φ ∈ RealSet ∧ 0 < φ ∧ φ < π ⇒ l(φ) = 2 * h * csc(φ) + frac(S, h) - h * cot(φ)
+
+GOAL:
+forall (φ), φ ∈ RealSet ⇒ (forall (a), a ∈ RealSet ⇒ S = a * h + h^{2} * cot(φ))
+
+METHOD:

@@ -1,0 +1,36 @@
+PROOF GAP @16
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. δ ∈ RealSet
+5. -∞ ≤ a
+6. a < b
+7. b ≤ +∞
+8. ContinuousFuncOn(f, IntervalLoRo(a, b))
+9. BoundedFuncOn(f, IntervalLoRo(a, b))
+10. MonoIncFuncOn(f, IntervalLoRo(a, b)) ∨ MonoDecFuncOn(f, IntervalLoRo(a, b))
+11. a ∈ RealSet ⇒ b ∈ RealSet ⇒ (exists (A), A ∈ RealSet ∧ lim_{ x → a^+ } (f(x)) = A)
+12. a ∈ RealSet ⇒ b ∈ RealSet ⇒ (exists (B), B ∈ RealSet ∧ lim_{ x → b^- } (f(x)) = B)
+13. a ∈ RealSet ⇒ b ∈ RealSet ⇒ f_{star} = (fun x [x ∈ RealSet] . cases{ f(x) if x ∈ IntervalLoRo(a, b); A if x = a; B if x = b })
+14. a ∈ RealSet ⇒ b ∈ RealSet ⇒ ContinuousFuncOn(f_{star}, [a, b])
+15. a ∈ RealSet ⇒ b ∈ RealSet ⇒ UniformContinuousFuncOn(f_{star}, [a, b])
+16. a ∈ RealSet ⇒ b ∈ RealSet ⇒ UniformContinuousFuncOn(f, IntervalLoRo(a, b))
+17. a ∈ RealSet ⇒ b = +∞ ⇒ (exists (A), A ∈ RealSet ∧ lim_{ x → a^+ } (f(x)) = A)
+18. a ∈ RealSet ⇒ b = +∞ ⇒ f_{star} = (fun x [x ∈ RealSet] . cases{ f(x) if x ∈ IntervalLoRo(a, +∞); A if x = a })
+19. a ∈ RealSet ⇒ b = +∞ ⇒ ContinuousFuncOn(f_{star}, [a, +∞))
+20. a ∈ RealSet ⇒ b = +∞ ⇒ (exists (B), B ∈ RealSet ∧ lim_{ x → +∞ } (f_{star}(x)) = B)
+21. a ∈ RealSet ⇒ b = +∞ ⇒ UniformContinuousFuncOn(f_{star}, [a, +∞))
+22. a ∈ RealSet ⇒ b = +∞ ⇒ UniformContinuousFuncOn(f, IntervalLoRo(a, +∞))
+23. a = -∞ ⇒ b ∈ RealSet ⇒ g = (fun x [x ∈ RealSet] . f(-x))
+24. a = -∞ ⇒ b ∈ RealSet ⇒ ContinuousFuncOn(g, IntervalLoRo(-b, +∞))
+25. a = -∞ ⇒ b ∈ RealSet ⇒ BoundedFuncOn(g, IntervalLoRo(-b, +∞))
+26. a = -∞ ⇒ b ∈ RealSet ⇒ MonoIncFuncOn(g, IntervalLoRo(-b, +∞)) ∨ MonoDecFuncOn(g, IntervalLoRo(-b, +∞))
+27. a = -∞ ⇒ b ∈ RealSet ⇒ UniformContinuousFuncOn(g, IntervalLoRo(-b, +∞))
+28. a = -∞ ⇒ b ∈ RealSet ⇒ UniformContinuousFuncOn(f, IntervalLoRo(-∞, b))
+
+GOAL:
+a = -∞ ⇒ b = +∞ ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ_{1}), δ_{1} ∈ RealSet ∧ δ_{1} > 0 ∧ (forall (x_{1}) (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ x_{1} ∈ IntervalLoRo(0, +∞) ∧ x_{2} ∈ IntervalLoRo(0, +∞) ∧ |x_{1} - x_{2}| < δ_{1} ⇒ |f(x_{1}) - f(x_{2})| < ε)))
+
+METHOD:
+[@method 根据 "半无限区间情形" @]

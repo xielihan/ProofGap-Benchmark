@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = ln(x + sqrtn(2, 1 + x^{2}))
+
+GOAL:
+ln(x + sqrtn(2, 1 + x^{2})) = DefInt(0, x, (fun t [t ∈ RealSet] . frac(1, sqrtn(2, 1 + t^{2}))) * diff(fun t [t ∈ RealSet] . t))
+
+METHOD:

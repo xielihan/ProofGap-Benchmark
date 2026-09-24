@@ -1,0 +1,19 @@
+get_condition (hypothesis 12: {exists (A), A : NonNegIntegerSet → RealSet ∧ NonNegSeq(A) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ∧ (forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ |f(n, x)| ≤ A(n))}) in (GOAL: {(exists (A), A : NonNegIntegerSet → RealSet ∧ NonNegSeq(A) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ∧ (forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ |f(n, x)| ≤ A(n))) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x(n) = frac(3, 2) * 2^{-(n + 1)} ⇒ x(n) < 2^{-n})})
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x(n) = frac(3, 2) * 2^{-(n + 1)} ⇒ x(n) < 2^{-n}}) (n := {n0})
+get_condition (hypothesis 13: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x(n0) = frac(3, 2) * 2^{-(n0 + 1)}}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x(n0) = frac(3, 2) * 2^{-(n0 + 1)} ⇒ x(n0) < 2^{-n0}})
+destruct_and (hypothesis 13: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x(n0) = frac(3, 2) * 2^{-(n0 + 1)}}) as (hypothesis 14: {n0 ∈ NonNegIntegerSet}) (hypothesis 15: {n0 ∈ PosIntegerSet}) (hypothesis 16: {x(n0) = frac(3, 2) * 2^{-(n0 + 1)}})
+get_prop (theorem 'Thm 204. (ExponentAdditionLaw)': {forall (a) (x) (y), a ∈ RealSet => x ∈ RealSet => y ∈ RealSet => (a > 0 => a ^ (x + y) = a ^ x * a ^ y)}) (a := {2}) (x := {-(n0 + 1)}) (y := {1}) as (hypothesis 17: {2 ∈ RealSet ⇒ -(n0 + 1) ∈ RealSet ⇒ 1 ∈ RealSet ⇒ (2 > 0 ⇒ 2^{-(n0 + 1) + 1} = 2^{-(n0 + 1)} * 2^{1})})
+assert (hypothesis 18: {2^{-n0} = 2 * 2^{-(n0 + 1)}}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 387. (PositiveBasePowerPositive)': {forall (a) (u), a ∈ RealSet => u ∈ RealSet => a > 0 => a ^ u > 0}) (a := {2}) (u := {-(n0 + 1)}) as (hypothesis 19: {2 ∈ RealSet ⇒ -(n0 + 1) ∈ RealSet ⇒ 2 > 0 ⇒ 2^{-(n0 + 1)} > 0})
+assert (hypothesis 20: {2^{-(n0 + 1)} > 0}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 395. (MultiplyStrictInequalityByPositive)': {forall (a) (b) (c), a ∈ RealSet => b ∈ RealSet => c ∈ RealSet => c > 0 => (a < b <==> a * c < b * c)}) (a := {frac(3, 2)}) (b := {2}) (c := {2^{-(n0 + 1)}}) as (hypothesis 21: {frac(3, 2) ∈ RealSet ⇒ 2 ∈ RealSet ⇒ 2^{-(n0 + 1)} ∈ RealSet ⇒ 2^{-(n0 + 1)} > 0 ⇒ (frac(3, 2) < 2 ⇔ frac(3, 2) * 2^{-(n0 + 1)} < 2 * 2^{-(n0 + 1)})})
+use_condition (obvious: {frac(3, 2) ∈ RealSet}) (obvious: {2 ∈ RealSet}) (obvious: {2^{-(n0 + 1)} ∈ RealSet}) (hypothesis 20: {2^{-(n0 + 1)} > 0}) in (hypothesis 21: {frac(3, 2) ∈ RealSet ⇒ 2 ∈ RealSet ⇒ 2^{-(n0 + 1)} ∈ RealSet ⇒ 2^{-(n0 + 1)} > 0 ⇒ (frac(3, 2) < 2 ⇔ frac(3, 2) * 2^{-(n0 + 1)} < 2 * 2^{-(n0 + 1)})}) as (hypothesis 22: {frac(3, 2) < 2 ⇔ frac(3, 2) * 2^{-(n0 + 1)} < 2 * 2^{-(n0 + 1)}})
+assert (hypothesis 23: {frac(3, 2) < 2 ⇒ frac(3, 2) * 2^{-(n0 + 1)} < 2 * 2^{-(n0 + 1)}}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (obvious: {frac(3, 2) < 2}) in (hypothesis 23: {frac(3, 2) < 2 ⇒ frac(3, 2) * 2^{-(n0 + 1)} < 2 * 2^{-(n0 + 1)}}) as (hypothesis 24: {frac(3, 2) * 2^{-(n0 + 1)} < 2 * 2^{-(n0 + 1)}})
+autosolve all_hypothesis

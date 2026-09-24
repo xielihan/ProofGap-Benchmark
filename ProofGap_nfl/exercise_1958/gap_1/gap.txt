@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet ∧ |x| > 1
+2. t ∈ RealSet
+3. C ∈ RealSet
+
+GOAL:
+x > 1 ⇒ x = sec(t) ⇒ 0 < t
+
+METHOD:

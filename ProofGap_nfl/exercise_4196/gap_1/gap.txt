@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. p ∈ RealSet
+2. q ∈ RealSet
+3. r ∈ RealSet
+
+GOAL:
+DefInt(0, 1, DefInt(0, 1, DefInt(0, 1, (fun x, y, z [x ∈ RealSet ∧ x ∈ [0, 1] ∧ y ∈ RealSet ∧ y ∈ [0, 1] ∧ z ∈ RealSet ∧ z ∈ [0, 1]] . frac(1, x^{p} * y^{q} * z^{r})) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)))) = DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . frac(1, x^{p})) * diff(fun x [x ∈ RealSet] . x)) * DefInt(0, 1, (fun y [y ∈ RealSet ∧ y ∈ [0, 1]] . frac(1, y^{q})) * diff(fun y [y ∈ RealSet] . y)) * DefInt(0, 1, (fun z [z ∈ RealSet ∧ z ∈ [0, 1]] . frac(1, z^{r})) * diff(fun z [z ∈ RealSet] . z))
+
+METHOD:

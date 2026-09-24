@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(f, 1, 1)(x) = sgn(x)}) (x := {x0})
+get_condition (hypothesis 5: {x0 ∈ RealSet ∧ x0 ≠ 0}) in (GOAL: {x0 ∈ RealSet ∧ x0 ≠ 0 ⇒ FunDeri(f, 1, 1)(x0) = sgn(x0)})
+get_prop (hypothesis 3: {forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(f, 1, 1)(x) = frac(|x|, x)}) (x := {x0}) as (hypothesis 6: {x0 ∈ RealSet ∧ x0 ≠ 0 ⇒ FunDeri(f, 1, 1)(x0) = frac(|x0|, x0)})
+get_prop (hypothesis 4: {forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ frac(|x|, x) = sgn(x)}) (x := {x0}) as (hypothesis 7: {x0 ∈ RealSet ∧ x0 ≠ 0 ⇒ frac(|x0|, x0) = sgn(x0)})
+use_condition (hypothesis 5: {x0 ∈ RealSet ∧ x0 ≠ 0}) in (hypothesis 6: {x0 ∈ RealSet ∧ x0 ≠ 0 ⇒ FunDeri(f, 1, 1)(x0) = frac(|x0|, x0)}) as (hypothesis 8: {FunDeri(f, 1, 1)(x0) = frac(|x0|, x0)})
+use_condition (hypothesis 5: {x0 ∈ RealSet ∧ x0 ≠ 0}) in (hypothesis 7: {x0 ∈ RealSet ∧ x0 ≠ 0 ⇒ frac(|x0|, x0) = sgn(x0)}) as (hypothesis 9: {frac(|x0|, x0) = sgn(x0)})
+autosolve (hypothesis 8: {FunDeri(f, 1, 1)(x0) = frac(|x0|, x0)}) (hypothesis 9: {frac(|x0|, x0) = sgn(x0)})

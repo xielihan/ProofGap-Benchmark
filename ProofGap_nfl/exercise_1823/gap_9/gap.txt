@@ -1,0 +1,19 @@
+PROOF GAP @9
+ASSUM:
+1. x ∈ RealSet ∧ x ≥ 0
+2. t ∈ RealSet ∧ t ≥ 0
+3. sqrtn(2, x) = t
+4. x = t^{2}
+5. diff(fun t [t ∈ RealSet] . t^{2}) = 2 * t * diff(fun t [t ∈ RealSet] . t)
+6. x * sin(sqrtn(2, x)) * diff(fun x [x ∈ RealSet] . x) = 2 * t^{3} * sin(t) * diff(fun t [t ∈ RealSet] . t)
+7. { `F_6` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ FunDeri(`F_5`, 1, 1)(t) = t^{3} * sin(t) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_6`(t) = 2 * `F_5`(t)) } = { `F_8` | exists (`F_7`), `F_7` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ FunDeri(`F_7`, 1, 1)(t) = t^{3} * FunDeri(fun t [t ∈ RealSet] . cos(t), 1, 1)(t) ∧ `F_8`(t) = -2 * `F_7`(t)) }
+8. { `F_8` | exists (`F_7`), `F_7` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ FunDeri(`F_7`, 1, 1)(t) = t^{3} * FunDeri(fun t [t ∈ RealSet] . cos(t), 1, 1)(t) ∧ `F_8`(t) = -2 * `F_7`(t)) } = { `F_12` | exists (`F_9`), `F_9` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ FunDeri(`F_9`, 1, 1)(t) = t^{2} * cos(t) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_12`(t) = -2 * t^{3} * cos(t) + 6 * `F_9`(t)) }
+9. { `F_6` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ FunDeri(`F_5`, 1, 1)(t) = t^{3} * sin(t) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_6`(t) = 2 * `F_5`(t)) } = { `F_12` | exists (`F_9`), `F_9` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ FunDeri(`F_9`, 1, 1)(t) = t^{2} * cos(t) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_12`(t) = -2 * t^{3} * cos(t) + 6 * `F_9`(t)) }
+10. { `F_16` | exists (`F_13`), `F_13` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ FunDeri(`F_13`, 1, 1)(t) = t^{2} * cos(t) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_16`(t) = -2 * t^{3} * cos(t) + 6 * `F_13`(t)) } = { `F_20` | exists (`F_17`), `F_17` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ FunDeri(`F_17`, 1, 1)(t) = t^{2} * FunDeri(fun t [t ∈ RealSet] . sin(t), 1, 1)(t) ∧ `F_20`(t) = -2 * t^{3} * cos(t) + 6 * `F_17`(t)) }
+11. { `F_20` | exists (`F_17`), `F_17` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ FunDeri(`F_17`, 1, 1)(t) = t^{2} * FunDeri(fun t [t ∈ RealSet] . sin(t), 1, 1)(t) ∧ `F_20`(t) = -2 * t^{3} * cos(t) + 6 * `F_17`(t)) } = { `F_24` | exists (`F_21`), `F_21` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ FunDeri(`F_21`, 1, 1)(t) = t * sin(t) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_24`(t) = -2 * t^{3} * cos(t) + 6 * t^{2} * sin(t) - 12 * `F_21`(t)) }
+
+GOAL:
+{ `F_16` | exists (`F_13`), `F_13` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ FunDeri(`F_13`, 1, 1)(t) = t^{2} * cos(t) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_16`(t) = -2 * t^{3} * cos(t) + 6 * `F_13`(t)) } = { `F_24` | exists (`F_21`), `F_21` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ FunDeri(`F_21`, 1, 1)(t) = t * sin(t) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_24`(t) = -2 * t^{3} * cos(t) + 6 * t^{2} * sin(t) - 12 * `F_21`(t)) }
+
+METHOD:
+[@method 分部积分法 @]

@@ -1,0 +1,4 @@
+assert (hypothesis 4: {0 < frac(1, 5) * frac(1, 11)^{5}}) by proof {
+  autosolve all_hypothesis
+}
+apply (hypothesis 4: {0 < frac(1, 5) * frac(1, 11)^{5}})

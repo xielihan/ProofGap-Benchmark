@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. n ∈ RealSet
+2. x ∈ RealSet
+3. ξ : NonNegIntegerSet → RealSet
+4. η : NonNegIntegerSet → RealSet
+5. DefInt(0, +∞, frac(sin(x + x^{2}), x^{n}) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)) = DefInt(0, 1, frac(sin(x + x^{2}), x^{n}) * diff(fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . x)) + DefInt(1, +∞, frac(sin(x + x^{2}), x^{n}) * diff(fun x [x ∈ RealSet ∧ x ≥ 1] . x))
+
+GOAL:
+ConvergentSeries(DefInt(0, 1, frac(sin(x + x^{2}), x^{n}) * diff(fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . x))) ⇔ n < 2
+
+METHOD:

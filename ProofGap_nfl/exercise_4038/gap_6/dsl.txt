@@ -1,0 +1,25 @@
+assert (hypothesis 16: {a > 0}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 17: {0 ≤ y^{2}}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 18: {0 ≤ z(x, y)^{2}}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 19: {x^{2} ≤ a^{2}}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 20: {0 < a + x}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 21: {(a + x) * (a - x) = a^{2} - x^{2}}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 22: {0 ≤ (a + x) * (a - x)}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 23: {0 ≤ a - x}) by proof {
+autosolve all_hypothesis
+}
+autosolve all_hypothesis

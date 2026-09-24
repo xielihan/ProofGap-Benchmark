@@ -1,0 +1,6 @@
+get_prop (hypothesis 8: {forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ FunDeri(f, 1, 2)(x) = 2 * sec(x)^{2} * tan(x) + sin(x)}) (x := {0}) as (hypothesis 11: {0 ∈ RealSet ∧ cos(0) ≠ 0 ⇒ FunDeri(f, 1, 2)(0) = 2 * sec(0)^{2} * tan(0) + sin(0)})
+assert (hypothesis 12: {0 ∈ RealSet ∧ cos(0) ≠ 0})
+use_condition (hypothesis 12: {0 ∈ RealSet ∧ cos(0) ≠ 0}) in (hypothesis 11: {0 ∈ RealSet ∧ cos(0) ≠ 0 ⇒ FunDeri(f, 1, 2)(0) = 2 * sec(0)^{2} * tan(0) + sin(0)}) as (hypothesis 13: {FunDeri(f, 1, 2)(0) = 2 * sec(0)^{2} * tan(0) + sin(0)})
+assert (hypothesis 14: {2 * sec(0)^{2} * tan(0) + sin(0) = 0})
+rewrite (left_to_right, equation) (hypothesis 13: {FunDeri(f, 1, 2)(0) = 2 * sec(0)^{2} * tan(0) + sin(0)}); from (GOAL: {FunDeri(f, 1, 2)(0) = 0}) to (GOAL: {2 * sec(0)^{2} * tan(0) + sin(0) = 0})
+apply (hypothesis 14: {2 * sec(0)^{2} * tan(0) + sin(0) = 0})

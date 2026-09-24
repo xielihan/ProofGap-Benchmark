@@ -1,0 +1,9 @@
+get_condition (hypothesis 35: {-4 < x}) in (GOAL: {-4 < x ⇒ x < 0 ⇒ t < 1})
+get_condition (hypothesis 36: {x < 0}) in (GOAL: {x < 0 ⇒ t < 1})
+assert (hypothesis 37: {x = -(2 * t)^{2}}) by proof {
+ autosolve all_hypothesis
+}
+assert (hypothesis 38: {0 < t}) by proof {
+ autosolve all_hypothesis
+}
+autosolve all_hypothesis

@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ z(x, y) ∈ RealSet ∧ 1 - x * y ≠ 0 ∧ x * y * z(x, y) = x + y + z(x, y)
+
+GOAL:
+(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y * z(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x * z(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x * y) * diff(z) = diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) + diff(z)
+
+METHOD:
+[@method 两边同时求微分 @]

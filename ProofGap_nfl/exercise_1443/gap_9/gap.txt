@@ -1,0 +1,17 @@
+PROOF GAP @9
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = e^{x} * sin(x)
+3. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = e^{x} * (sin(x) + cos(x))
+4. forall (x), x ∈ RealSet ⇒ (FunDeri(y, 1, 1)(x) = 0 ⇔ (exists (k), k ∈ IntegerSet ∧ (x = -frac(π, 4) + 2 * k * π ∨ x = frac(3 * π, 4) + 2 * k * π)))
+5. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = 2 * e^{x} * cos(x)
+6. forall (k), k ∈ IntegerSet ⇒ FunDeri(y, 1, 2)(-frac(π, 4) + 2 * k * π) > 0
+7. forall (k), k ∈ IntegerSet ⇒ FunDeri(y, 1, 2)(frac(3 * π, 4) + 2 * k * π) < 0
+8. forall (x), x ∈ RealSet ⇒ ((exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(x - δ, x + δ) ⇒ y(t) ≥ y(x))) ⇔ (exists (k), k ∈ IntegerSet ∧ x = -frac(π, 4) + 2 * k * π))
+9. forall (k), k ∈ IntegerSet ⇒ y(-frac(π, 4) + 2 * k * π) = -frac(sqrtn(2, 2), 2) * e^{-frac(π, 4) + 2 * k * π}
+10. forall (x), x ∈ RealSet ⇒ ((exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(x - δ, x + δ) ⇒ y(t) ≤ y(x))) ⇔ (exists (k), k ∈ IntegerSet ∧ x = frac(3 * π, 4) + 2 * k * π))
+
+GOAL:
+forall (k), k ∈ IntegerSet ⇒ y(frac(3 * π, 4) + 2 * k * π) = frac(sqrtn(2, 2), 2) * e^{frac(3 * π, 4) + 2 * k * π}
+
+METHOD:

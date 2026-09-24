@@ -1,0 +1,13 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = -sin(x) * (1 + 2 * cos(x))}) (x := {x0})
+get_condition (hypothesis 3: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ FunDeri(y, 1, 1)(x0) = -sin(x0) * (1 + 2 * cos(x0))})
+assert (hypothesis 4: {FunDeri(y, 1, 1)(x0) = -sin(x0) - sin(2 * x0)}) by proof {
+  autosolve (hypothesis 2: {forall (x), x ∈ RealSet ⇒ y(x) = cos(x) + frac(1, 2) * cos(2 * x)}) (hypothesis 3: {x0 ∈ RealSet}) using DerivSolver
+}
+get_prop (theorem 'Thm 190. (SineDoubleAngle)': {forall (x), x ∈ RealSet => sin(2 * x) = 2 * sin(x) * cos(x)}) (x := {x0}) as (hypothesis 5: {x0 ∈ RealSet => sin(2 * x0) = 2 * sin(x0) * cos(x0)})
+use_condition (hypothesis 3: {x0 ∈ RealSet}) in (hypothesis 5: {x0 ∈ RealSet => sin(2 * x0) = 2 * sin(x0) * cos(x0)}) as (hypothesis 6: {sin(2 * x0) = 2 * sin(x0) * cos(x0)})
+rewrite (left_to_right, equation) (hypothesis 6: {sin(2 * x0) = 2 * sin(x0) * cos(x0)}); from (hypothesis 4: {FunDeri(y, 1, 1)(x0) = -sin(x0) - sin(2 * x0)}) to (hypothesis 7: {FunDeri(y, 1, 1)(x0) = -sin(x0) - 2 * sin(x0) * cos(x0)})
+assert (hypothesis 8: {-sin(x0) - 2 * sin(x0) * cos(x0) = -sin(x0) * (1 + 2 * cos(x0))}) by proof {
+  autosolve all_hypothesis using PolyRatSolver
+}
+rewrite (left_to_right, equation) (hypothesis 7: {FunDeri(y, 1, 1)(x0) = -sin(x0) - 2 * sin(x0) * cos(x0)}); from (GOAL: {FunDeri(y, 1, 1)(x0) = -sin(x0) * (1 + 2 * cos(x0))}) to (GOAL: {-sin(x0) - 2 * sin(x0) * cos(x0) = -sin(x0) * (1 + 2 * cos(x0))})
+apply (hypothesis 8: {-sin(x0) - 2 * sin(x0) * cos(x0) = -sin(x0) * (1 + 2 * cos(x0))})

@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = |x^{2} - 3 * x + 2|
+3. forall (x), x ∈ RealSet ∧ x ∈ [-10, 10] ⇒ f(x) ≥ 0
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (x^{2} - 3 * x + 2 = 0 ⇔ x = 1 ∨ x = 2)
+
+METHOD:

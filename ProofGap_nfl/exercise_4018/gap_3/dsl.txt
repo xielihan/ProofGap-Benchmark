@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ (exists (y), y = r * sin(φ)))}) (r := {r0})
+get_condition (hypothesis 7: {r0 ∈ RealSet}) in (GOAL: {r0 ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ (exists (y), y = r0 * sin(φ)))})
+get_forall (GOAL: {forall (φ), φ ∈ RealSet ⇒ (exists (y), y = r0 * sin(φ))}) (φ := {phi0})
+get_condition (hypothesis 8: {phi0 ∈ RealSet}) in (GOAL: {phi0 ∈ RealSet ⇒ (exists (y), y = r0 * sin(phi0))})
+exists (y := {r0 * sin(phi0)})
+autosolve

@@ -1,0 +1,23 @@
+PROOF GAP @13
+ASSUM:
+1. R ∈ RealSet ∧ R > 0
+2. V : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+3. F : CartesianProd(RealSet, CartesianProd(RealSet, CartesianProd(RealSet, RealSet))) → RealSet
+4. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+5. S = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x > 0 ∧ y > 0 ∧ z > 0 ∧ x^{2} + y^{2} + z^{2} = R^{2} }
+6. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x > 0 ∧ y > 0 ∧ z > 0 ⇒ V(x, y, z) = 4 * x * y * z
+7. F = (fun x, y, z, λ [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet] . x * y * z - λ * (x^{2} + y^{2} + z^{2} - R^{2}))
+8. forall (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 1, 1)(x, y, z, λ) = y * z - 2 * λ * x
+9. forall (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 2, 1)(x, y, z, λ) = x * z - 2 * λ * y
+10. forall (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 3, 1)(x, y, z, λ) = x * y - 2 * λ * z
+11. forall (x) (y) (z) (λ), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ∧ z > 0 ∧ λ ∈ RealSet ∧ x^{2} + y^{2} + z^{2} = R^{2} ∧ FunDeri(F, 1, 1)(x, y, z, λ) = 0 ∧ FunDeri(F, 2, 1)(x, y, z, λ) = 0 ∧ FunDeri(F, 3, 1)(x, y, z, λ) = 0 ⇒ x = y
+12. forall (x) (y) (z) (λ), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ∧ z > 0 ∧ λ ∈ RealSet ∧ x^{2} + y^{2} + z^{2} = R^{2} ∧ FunDeri(F, 1, 1)(x, y, z, λ) = 0 ∧ FunDeri(F, 2, 1)(x, y, z, λ) = 0 ∧ FunDeri(F, 3, 1)(x, y, z, λ) = 0 ⇒ y = z
+13. forall (x) (y) (z) (λ), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ∧ z > 0 ∧ λ ∈ RealSet ∧ x^{2} + y^{2} + z^{2} = R^{2} ∧ FunDeri(F, 1, 1)(x, y, z, λ) = 0 ∧ FunDeri(F, 2, 1)(x, y, z, λ) = 0 ∧ FunDeri(F, 3, 1)(x, y, z, λ) = 0 ⇒ x = y ∧ y = z
+14. forall (x) (y) (z) (λ), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ∧ z > 0 ∧ λ ∈ RealSet ∧ x^{2} + y^{2} + z^{2} = R^{2} ∧ FunDeri(F, 1, 1)(x, y, z, λ) = 0 ∧ FunDeri(F, 2, 1)(x, y, z, λ) = 0 ∧ FunDeri(F, 3, 1)(x, y, z, λ) = 0 ⇒ 3 * x^{2} = R^{2}
+15. forall (x) (y) (z) (λ), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ∧ z > 0 ∧ λ ∈ RealSet ∧ x^{2} + y^{2} + z^{2} = R^{2} ∧ FunDeri(F, 1, 1)(x, y, z, λ) = 0 ∧ FunDeri(F, 2, 1)(x, y, z, λ) = 0 ∧ FunDeri(F, 3, 1)(x, y, z, λ) = 0 ⇒ x = frac(R, sqrtn(2, 3)) ∧ y = frac(R, sqrtn(2, 3)) ∧ z = frac(R, sqrtn(2, 3))
+16. V(frac(R, sqrtn(2, 3)), frac(R, sqrtn(2, 3)), frac(R, sqrtn(2, 3))) = frac(4 * R^{3}, 3 * sqrtn(2, 3))
+
+GOAL:
+(forall (y) (z), y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ∧ z > 0 ⇒ lim_{ x → 0^+ } (V(x, y, z)) = 0) ∧ (forall (x) (z), x ∈ RealSet ∧ x > 0 ∧ z ∈ RealSet ∧ z > 0 ⇒ lim_{ y → 0^+ } (V(x, y, z)) = 0) ∧ (forall (x) (y), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ⇒ lim_{ z → 0^+ } (V(x, y, z)) = 0)
+
+METHOD:

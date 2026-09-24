@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. I ∈ RealSet
+2. forall (x), x ∈ RealSet ∧ 10 ≤ x ∧ x ≤ 100 ⇒ ln(1 + x) = ln(x * (1 + frac(1, x)))
+3. forall (x), x ∈ RealSet ∧ 10 ≤ x ∧ x ≤ 100 ⇒ ln(x * (1 + frac(1, x))) = ln(x) + (sum_{ n = 1 }^{ +∞ } (frac((-1)^{n - 1}, n) * frac(1, x)^{n}))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 10 ≤ x ∧ x ≤ 100 ⇒ ln(1 + x) = ln(x) + (sum_{ n = 1 }^{ +∞ } (frac((-1)^{n - 1}, n) * frac(1, x)^{n}))
+
+METHOD:

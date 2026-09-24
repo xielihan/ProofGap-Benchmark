@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. m ∈ RealSet
+2. n ∈ RealSet ∧ n ≥ 0
+
+GOAL:
+DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . frac(x^{m} * arctan(x), 2 + x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet ∧ x > 0] . frac(x^{m} * arctan(x), 2 + x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) + DefInt(1, +∞, (fun x [x ∈ RealSet ∧ x > 1] . frac(x^{m} * arctan(x), 2 + x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 1] . x))
+
+METHOD:

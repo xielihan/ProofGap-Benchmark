@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ y(x) = tan(x)
+3. forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ FunDeri(y, 1, 1)(x) = frac(1, cos(x)^{2})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ FunDeri(y, 1, 2)(x) = frac(2 * sin(x), cos(x)^{3})
+
+METHOD:

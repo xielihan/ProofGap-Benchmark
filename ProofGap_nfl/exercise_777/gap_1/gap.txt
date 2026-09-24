@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. ε : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ ε(x, y) = cases{ 0 if x * y ≤ 0 ∨ x^{2} + y^{2} ≤ 1; sgn(x) if x * y > 0 ∧ x^{2} + y^{2} > 1 }
+
+GOAL:
+forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ∧ |x| ≤ 1 ∧ |y| ≤ 1 ∧ u = arcsin(x) + arcsin(y) ∧ v = arcsin(x * sqrtn(2, 1 - y^{2}) + y * sqrtn(2, 1 - x^{2})) ⇒ sin(u) = x * sqrtn(2, 1 - y^{2}) + y * sqrtn(2, 1 - x^{2}))))
+
+METHOD:

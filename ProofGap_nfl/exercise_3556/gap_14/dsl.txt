@@ -1,0 +1,17 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ P_{xy} = { (x, y, 0) | x ∈ RealSet ∧ y ∈ RealSet, x^{2} + y^{2} - x * y ≤ 1 })}) (x := {x0})
+get_condition (hypothesis 22: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ P_{xy} = { (x, y, 0) | x ∈ RealSet ∧ y ∈ RealSet, x^{2} + y^{2} - x * y ≤ 1 })})
+get_forall (GOAL: {forall (y), y ∈ RealSet ⇒ P_{xy} = { (x, y, 0) | x ∈ RealSet ∧ y ∈ RealSet, x^{2} + y^{2} - x * y ≤ 1 }}) (y := {y0})
+get_condition (hypothesis 23: {y0 ∈ RealSet}) in (GOAL: {y0 ∈ RealSet ⇒ P_{xy} = { (x, y, 0) | x ∈ RealSet ∧ y ∈ RealSet, x^{2} + y^{2} - x * y ≤ 1 }})
+assert (hypothesis 24: {0 ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (hypothesis 13: {forall (z), z ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ 2 * z = 0 ⇒ P_{xy} = { (x, y, 0) | x ∈ RealSet ∧ y ∈ RealSet, x^{2} + y^{2} - x * y ≤ 1 }))}) (z := {0}) as (hypothesis 25: {0 ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ 2 * 0 = 0 ⇒ P_{xy} = { (x, y, 0) | x ∈ RealSet ∧ y ∈ RealSet, x^{2} + y^{2} - x * y ≤ 1 }))})
+use_condition (hypothesis 24: {0 ∈ RealSet}) in (hypothesis 25: {0 ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ 2 * 0 = 0 ⇒ P_{xy} = { (x, y, 0) | x ∈ RealSet ∧ y ∈ RealSet, x^{2} + y^{2} - x * y ≤ 1 }))}) as (hypothesis 26: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ 2 * 0 = 0 ⇒ P_{xy} = { (x, y, 0) | x ∈ RealSet ∧ y ∈ RealSet, x^{2} + y^{2} - x * y ≤ 1 })})
+get_prop (hypothesis 26: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ 2 * 0 = 0 ⇒ P_{xy} = { (a, b, 0) | a ∈ RealSet ∧ b ∈ RealSet, a^{2} + b^{2} - a * b ≤ 1 })}) (x := {x0}) as (hypothesis 27: {x0 ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ 2 * 0 = 0 ⇒ P_{xy} = { (a, b, 0) | a ∈ RealSet ∧ b ∈ RealSet, a^{2} + b^{2} - a * b ≤ 1 })})
+use_condition (hypothesis 22: {x0 ∈ RealSet}) in (hypothesis 27: {x0 ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ 2 * 0 = 0 ⇒ P_{xy} = { (a, b, 0) | a ∈ RealSet ∧ b ∈ RealSet, a^{2} + b^{2} - a * b ≤ 1 })}) as (hypothesis 28: {forall (y), y ∈ RealSet ∧ 2 * 0 = 0 ⇒ P_{xy} = { (a, b, 0) | a ∈ RealSet ∧ b ∈ RealSet, a^{2} + b^{2} - a * b ≤ 1 }})
+get_prop (hypothesis 28: {forall (y), y ∈ RealSet ∧ 2 * 0 = 0 ⇒ P_{xy} = { (a, b, 0) | a ∈ RealSet ∧ b ∈ RealSet, a^{2} + b^{2} - a * b ≤ 1 }}) (y := {y0}) as (hypothesis 29: {y0 ∈ RealSet ∧ 2 * 0 = 0 ⇒ P_{xy} = { (a, b, 0) | a ∈ RealSet ∧ b ∈ RealSet, a^{2} + b^{2} - a * b ≤ 1 }})
+assert (hypothesis 30: {y0 ∈ RealSet ∧ 2 * 0 = 0}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 30: {y0 ∈ RealSet ∧ 2 * 0 = 0}) in (hypothesis 29: {y0 ∈ RealSet ∧ 2 * 0 = 0 ⇒ P_{xy} = { (a, b, 0) | a ∈ RealSet ∧ b ∈ RealSet, a^{2} + b^{2} - a * b ≤ 1 }}) as (hypothesis 31: {P_{xy} = { (a, b, 0) | a ∈ RealSet ∧ b ∈ RealSet, a^{2} + b^{2} - a * b ≤ 1 }})
+autosolve all_hypothesis

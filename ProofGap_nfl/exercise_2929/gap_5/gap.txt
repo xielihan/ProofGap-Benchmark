@@ -1,0 +1,21 @@
+PROOF GAP @5
+ASSUM:
+1. S_{1} ∈ RealSet
+2. S_{2} ∈ RealSet
+3. Δ_{1} ∈ RealSet
+4. Δ_{2} ∈ RealSet
+5. Δ ∈ RealSet
+6. k ∈ NonNegIntegerSet
+7. frac(π, 4) = arctan(frac(1, 2)) + arctan(frac(1, 3))
+8. arctan(frac(1, 2)) = sum_{ k = 0 }^{ +∞ } ((-1)^{k} * frac(1, 2 * k + 1) * frac(1, 2)^{2 * k + 1})
+9. arctan(frac(1, 3)) = sum_{ k = 0 }^{ +∞ } ((-1)^{k} * frac(1, 2 * k + 1) * frac(1, 3)^{2 * k + 1})
+10. S_{1} = frac(4, 2) - frac(4, 3 * 2^{3}) + frac(4, 5 * 2^{5}) - frac(4, 7 * 2^{7}) + frac(4, 9 * 2^{9})
+11. S_{2} = frac(4, 3) - frac(4, 3 * 3^{3}) + frac(4, 5 * 3^{5}) - frac(4, 7 * 3^{7})
+12. Δ_{1} = |4 * arctan(frac(1, 2)) - S_{1}|
+13. Δ_{2} = |4 * arctan(frac(1, 3)) - S_{2}|
+14. 0 < Δ_{1}
+
+GOAL:
+Δ_{1} < frac(4, 11 * 2^{11})
+
+METHOD:

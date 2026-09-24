@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. x ∈ RealSet
+3. a > 0
+4. b = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(1, a^{sqrtn(2, n)}))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = frac(1, a^{sqrtn(2, n)})
+
+METHOD:

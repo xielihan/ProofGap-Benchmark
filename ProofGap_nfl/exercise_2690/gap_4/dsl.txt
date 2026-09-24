@@ -1,0 +1,20 @@
+assert (hypothesis 10: {forall (N), N ∈ NonNegIntegerSet ⇒ |S(N)| <= 1}) by proof {
+  get_forall (GOAL: {forall (N), N ∈ NonNegIntegerSet ⇒ |S(N)| <= 1}) (N := {N0})
+  get_condition (hypothesis 10: {N0 ∈ NonNegIntegerSet}) in (GOAL: {N0 ∈ NonNegIntegerSet ⇒ |S(N0)| <= 1})
+  get_prop (hypothesis 9: {forall (N), N ∈ NonNegIntegerSet ⇒ S(N) = sum_{ n = 1 }^{ N + 1 } (b(n))}) (N := {N0}) as (hypothesis 11: {N0 ∈ NonNegIntegerSet ⇒ S(N0) = sum_{ n = 1 }^{ N0 + 1 } (b(n))})
+  use_condition (hypothesis 10: {N0 ∈ NonNegIntegerSet}) in (hypothesis 11: {N0 ∈ NonNegIntegerSet ⇒ S(N0) = sum_{ n = 1 }^{ N0 + 1 } (b(n))}) as (hypothesis 12: {S(N0) = sum_{ n = 1 }^{ N0 + 1 } (b(n))})
+  get_prop (hypothesis 7: {forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ |sum_{ n = 1 }^{ N } (b(n))| = |sum_{ n = 1 }^{ N } (frac(1, 2) * (cos(n * (n - 1)) - cos(n * (n + 1))))| ∧ |sum_{ n = 1 }^{ N } (frac(1, 2) * (cos(n * (n - 1)) - cos(n * (n + 1))))| = |frac(1, 2) * (cos(0) - cos(N * (N + 1)))| ∧ |frac(1, 2) * (cos(0) - cos(N * (N + 1)))| ≤ 1}) (N := {N0 + 1}) as (hypothesis 13: {(N0 + 1) ∈ NonNegIntegerSet ∧ (N0 + 1) ∈ PosIntegerSet ⇒ |sum_{ n = 1 }^{ N0 + 1 } (b(n))| = |sum_{ n = 1 }^{ N0 + 1 } (frac(1, 2) * (cos(n * (n - 1)) - cos(n * (n + 1))))| ∧ |sum_{ n = 1 }^{ N0 + 1 } (frac(1, 2) * (cos(n * (n - 1)) - cos(n * (n + 1))))| = |frac(1, 2) * (cos(0) - cos((N0 + 1) * ((N0 + 1) + 1)))| ∧ |frac(1, 2) * (cos(0) - cos((N0 + 1) * ((N0 + 1) + 1)))| ≤ 1})
+  assert (hypothesis 14: {(N0 + 1) ∈ NonNegIntegerSet ∧ (N0 + 1) ∈ PosIntegerSet}) by proof {
+    autosolve all_hypothesis
+  }
+  use_condition (hypothesis 14: {(N0 + 1) ∈ NonNegIntegerSet ∧ (N0 + 1) ∈ PosIntegerSet}) in (hypothesis 13: {(N0 + 1) ∈ NonNegIntegerSet ∧ (N0 + 1) ∈ PosIntegerSet ⇒ |sum_{ n = 1 }^{ N0 + 1 } (b(n))| = |sum_{ n = 1 }^{ N0 + 1 } (frac(1, 2) * (cos(n * (n - 1)) - cos(n * (n + 1))))| ∧ |sum_{ n = 1 }^{ N0 + 1 } (frac(1, 2) * (cos(n * (n - 1)) - cos(n * (n + 1))))| = |frac(1, 2) * (cos(0) - cos((N0 + 1) * ((N0 + 1) + 1)))| ∧ |frac(1, 2) * (cos(0) - cos((N0 + 1) * ((N0 + 1) + 1)))| ≤ 1}) as (hypothesis 15: {|sum_{ n = 1 }^{ N0 + 1 } (b(n))| = |sum_{ n = 1 }^{ N0 + 1 } (frac(1, 2) * (cos(n * (n - 1)) - cos(n * (n + 1))))| ∧ |sum_{ n = 1 }^{ N0 + 1 } (frac(1, 2) * (cos(n * (n - 1)) - cos(n * (n + 1))))| = |frac(1, 2) * (cos(0) - cos((N0 + 1) * ((N0 + 1) + 1)))| ∧ |frac(1, 2) * (cos(0) - cos((N0 + 1) * ((N0 + 1) + 1)))| ≤ 1})
+  destruct_and (hypothesis 15: {|sum_{ n = 1 }^{ N0 + 1 } (b(n))| = |sum_{ n = 1 }^{ N0 + 1 } (frac(1, 2) * (cos(n * (n - 1)) - cos(n * (n + 1))))| ∧ |sum_{ n = 1 }^{ N0 + 1 } (frac(1, 2) * (cos(n * (n - 1)) - cos(n * (n + 1))))| = |frac(1, 2) * (cos(0) - cos((N0 + 1) * ((N0 + 1) + 1)))| ∧ |frac(1, 2) * (cos(0) - cos((N0 + 1) * ((N0 + 1) + 1)))| ≤ 1}) as (hypothesis 16: {|sum_{ n = 1 }^{ N0 + 1 } (b(n))| = |sum_{ n = 1 }^{ N0 + 1 } (frac(1, 2) * (cos(n * (n - 1)) - cos(n * (n + 1))))|}) (hypothesis 17: {|sum_{ n = 1 }^{ N0 + 1 } (frac(1, 2) * (cos(n * (n - 1)) - cos(n * (n + 1))))| = |frac(1, 2) * (cos(0) - cos((N0 + 1) * ((N0 + 1) + 1)))|}) (hypothesis 18: {|frac(1, 2) * (cos(0) - cos((N0 + 1) * ((N0 + 1) + 1)))| ≤ 1})
+  autosolve all_hypothesis
+}
+assert (hypothesis 11: {exists (M), M ∈ RealSet ∧ M >= 0 ∧ forall (N), N ∈ NonNegIntegerSet ⇒ |S(N)| <= M}) by proof {
+  exists (M := {1})
+  autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 340. (BoundedSequenceDefinition)': {forall (a), (BoundedSeq(a) <==> (exists (M), M ∈ RealSet /\ M >= 0 /\ forall (n), n ∈ NonNegIntegerSet => |a(n)| <= M))}) (a := {S}) as (hypothesis 12: {BoundedSeq(S) <==> (exists (M), M ∈ RealSet ∧ M >= 0 ∧ forall (n), n ∈ NonNegIntegerSet ⇒ |S(n)| <= M)})
+rewrite (left_to_right, iff) (hypothesis 12: {BoundedSeq(S) <==> (exists (M), M ∈ RealSet ∧ M >= 0 ∧ forall (n), n ∈ NonNegIntegerSet ⇒ |S(n)| <= M)}); from (GOAL: {BoundedSeq(S)}) to (GOAL: {exists (M), M ∈ RealSet ∧ M >= 0 ∧ forall (n), n ∈ NonNegIntegerSet ⇒ |S(n)| <= M})
+autosolve all_hypothesis

@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. x ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ y(x) = 1 / x + 2 / x^{2} + 3 / x^{3}
+4. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(y, 1, 1)(x) = -(1 / x^{2} + 4 / x^{3} + 9 / x^{4})
+5. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ (FunDeri(y, 1, 1)(x) = 0 ⇔ 1 / x^{2} + 4 / x^{3} + 9 / x^{4} = 0)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ (1 / x^{2} + 4 / x^{3} + 9 / x^{4} = 0 ⇒ x^{2} + 4 * x + 9 = 0)
+
+METHOD:
+[@method 两边同时乘 x^{4}x^{4} @]

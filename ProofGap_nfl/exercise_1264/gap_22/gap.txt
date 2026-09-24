@@ -1,0 +1,31 @@
+PROOF GAP @22
+ASSUM:
+1. C_{1} ∈ RealSet
+2. C_{2} ∈ RealSet
+3. C ∈ RealSet
+4. forall (x), x ∈ RealSet ∧ |x| > 1 ⇒ FunDeri(fun x [x ∈ RealSet] . 2 * arctan(x) + arcsin(frac(2 * x, 1 + x^{2})), 1, 1)(x) = frac(2, 1 + x^{2}) + frac(1, sqrtn(2, 1 - frac(4 * x^{2}, (1 + x^{2})^{2}))) * frac(2 * (1 + x^{2}) - 4 * x^{2}, (1 + x^{2})^{2})
+5. forall (x), x ∈ RealSet ∧ |x| > 1 ⇒ frac(2, 1 + x^{2}) + frac(1, sqrtn(2, 1 - frac(4 * x^{2}, (1 + x^{2})^{2}))) * frac(2 * (1 + x^{2}) - 4 * x^{2}, (1 + x^{2})^{2}) = 0
+6. forall (x), x ∈ RealSet ∧ |x| > 1 ⇒ FunDeri(fun x [x ∈ RealSet] . 2 * arctan(x) + arcsin(frac(2 * x, 1 + x^{2})), 1, 1)(x) = 0
+7. forall (x), x ∈ RealSet ∧ |x| > 1 ∧ x > 1 ⇒ 2 * arctan(x) + arcsin(frac(2 * x, 1 + x^{2})) = C_{1}
+8. forall (x), x ∈ RealSet ∧ |x| > 1 ∧ x > 1 ⇒ 2 * arctan(sqrtn(2, 3)) + arcsin(frac(2 * sqrtn(2, 3), 1 + sqrtn(2, 3)^{2})) = C_{1}
+9. forall (x), x ∈ RealSet ∧ |x| > 1 ∧ x > 1 ⇒ C_{1} = π
+10. forall (x), x ∈ RealSet ∧ |x| > 1 ∧ x < -1 ⇒ 2 * arctan(x) + arcsin(frac(2 * x, 1 + x^{2})) = C_{2}
+11. forall (x), x ∈ RealSet ∧ |x| > 1 ∧ x < -1 ⇒ 2 * arctan(-sqrtn(2, 3)) + arcsin(frac(2 * -sqrtn(2, 3), 1 + (-sqrtn(2, 3))^{2})) = C_{2}
+12. forall (x), x ∈ RealSet ∧ |x| > 1 ∧ x < -1 ⇒ C_{2} = -π
+13. forall (x), x ∈ RealSet ∧ |x| > 1 ⇒ 2 * arctan(x) + arcsin(frac(2 * x, 1 + x^{2})) = cases{ π if x > 1; -π if x < -1 }
+14. forall (x), x ∈ RealSet ∧ |x| = 1 ⇒ 2 * arctan(x) + arcsin(frac(2 * x, 1 + x^{2})) = π * sgn(x)
+15. forall (x), x ∈ RealSet ∧ |x| ≥ 1 ⇒ 2 * arctan(x) + arcsin(frac(2 * x, 1 + x^{2})) = π * sgn(x)
+16. forall (x), x ∈ RealSet ∧ |x| ≥ 1 ⇒ 2 * arctan(x) + arcsin(frac(2 * x, 1 + x^{2})) = π * sgn(x)
+17. forall (x), x ∈ RealSet ∧ |x| < frac(1, 2) ⇒ FunDeri(fun x [x ∈ RealSet] . 3 * arccos(x) - arccos(3 * x - 4 * x^{3}), 1, 1)(x) = -frac(3, sqrtn(2, 1 - x^{2})) + frac(1, sqrtn(2, 1 - (3 * x - 4 * x^{3})^{2})) * (3 - 12 * x^{2})
+18. forall (x), x ∈ RealSet ∧ |x| < frac(1, 2) ⇒ -frac(3, sqrtn(2, 1 - x^{2})) + frac(1, sqrtn(2, 1 - (3 * x - 4 * x^{3})^{2})) * (3 - 12 * x^{2}) = 0
+19. forall (x), x ∈ RealSet ∧ |x| < frac(1, 2) ⇒ FunDeri(fun x [x ∈ RealSet] . 3 * arccos(x) - arccos(3 * x - 4 * x^{3}), 1, 1)(x) = 0
+20. forall (x), x ∈ RealSet ∧ |x| < frac(1, 2) ⇒ 3 * arccos(x) - arccos(3 * x - 4 * x^{3}) = C
+21. forall (x), x ∈ RealSet ∧ |x| < frac(1, 2) ⇒ 3 * arccos(0) - arccos(0) = C
+22. forall (x), x ∈ RealSet ∧ |x| < frac(1, 2) ⇒ C = π
+23. forall (x), x ∈ RealSet ∧ |x| < frac(1, 2) ⇒ 3 * arccos(x) - arccos(3 * x - 4 * x^{3}) = π
+24. forall (x), x ∈ RealSet ∧ x = frac(1, 2) ⇒ lim_{ t → frac(1, 2)^- } (3 * arccos(t) - arccos(3 * t - 4 * t^{3})) = π
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x = frac(1, 2) ⇒ 3 * arccos(x) - arccos(3 * x - 4 * x^{3}) = π
+
+METHOD:

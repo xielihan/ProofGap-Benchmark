@@ -1,0 +1,24 @@
+PROOF GAP @11
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. F : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = x * y
+4. forall (x), x ∈ RealSet
+5. forall (y), y ∈ RealSet
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x + y = 1 ⇒ x + y = 1
+7. F = (fun x, y, λ [x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet] . x * y + λ * (x + y - 1))
+8. forall (x) (y) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 1, 1)(x, y, λ) = y + λ
+9. forall (x) (y) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 2, 1)(x, y, λ) = x + λ
+10. exists (y) (λ), y ∈ RealSet ∧ λ ∈ RealSet ∧ y + λ = 0
+11. exists (x) (λ), x ∈ RealSet ∧ λ ∈ RealSet ∧ x + λ = 0
+12. exists (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x + y = 1
+13. exists (x), x ∈ RealSet ∧ x = frac(1, 2)
+14. exists (y), y ∈ RealSet ∧ y = frac(1, 2)
+15. exists (λ), λ ∈ RealSet ∧ λ = -frac(1, 2)
+16. z(frac(1, 2), frac(1, 2)) = frac(1, 4)
+17. forall (M), M ∈ RealSet ⇒ (exists (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x + y = 1 ∧ z(x, y) < M)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x + y = 1 ⇒ z(x, y) ≤ z(frac(1, 2), frac(1, 2))
+
+METHOD:

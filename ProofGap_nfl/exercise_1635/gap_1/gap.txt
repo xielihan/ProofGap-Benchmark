@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. x ≠ 0
+
+GOAL:
+frac((1 - x)^{3}, x * sqrtn(3, x)) = x^{-frac(4, 3)} - 3 * x^{-frac(1, 3)} + 3 * x^{frac(2, 3)} - x^{frac(5, 3)}
+
+METHOD:

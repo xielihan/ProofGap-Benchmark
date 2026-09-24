@@ -1,0 +1,20 @@
+PROOF GAP @6
+ASSUM:
+1. V ∈ RealSet
+2. n ∈ NonNegIntegerSet ∧ n ≥ 3
+3. a : NonNegIntegerSet → RealSet
+4. B : CartesianProd(RealSet, RealSet) → RealSet
+5. Γ : RealSet → RealSet
+6. n ∈ IntegerSet
+7. forall (j), j ∈ NonNegIntegerSet ∧ j ∈ IntegerSet ∧ 1 ≤ j ∧ j ≤ n ⇒ a(j) > 0
+8. forall (j), j ∈ NonNegIntegerSet ∧ j ∈ IntegerSet ∧ 1 ≤ j ∧ j ≤ n ⇒ (forall (x), x : NonNegIntegerSet → RealSet ∧ IsSeq(x) ⇒ V = VolumeInt({ x | x ∈ RealSet, IsSeq(x), sum_{ j = 1 }^{ n - 1 } (frac(x(j)^{2}, a(j)^{2})) ≤ frac(x(n)^{2}, a(n)^{2}) ∧ 0 ≤ x(n) ∧ x(n) ≤ a(n) }, diff(ω)))
+9. forall (x), x : NonNegIntegerSet → RealSet ∧ IsSeq(x) ⇒ (forall (`x_{n}'`), `x_{n}'` ∈ RealSet ⇒ x(n) = a(n) * `x_{n}'`)
+10. forall (x), x : NonNegIntegerSet → RealSet ∧ IsSeq(x) ⇒ (forall (r), r ∈ RealSet ⇒ (forall (S), S : NonNegIntegerSet → RealSet ∧ IsSeq(S) ⇒ (forall (j), j ∈ NonNegIntegerSet ∧ j ∈ IntegerSet ∧ 1 ≤ j ∧ j ≤ n - 1 ⇒ x(j) = a(j) * r * S(j))))
+11. forall (r), r ∈ RealSet ⇒ 0 ≤ r
+12. forall (r), r ∈ RealSet ⇒ r ≤ 1
+13. forall (φ), φ : NonNegIntegerSet → RealSet ∧ IsSeq(φ) ⇒ (forall (r), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1 ⇒ (forall (`x_{n}'`), `x_{n}'` ∈ RealSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ IntegerSet ∧ 1 ≤ k ∧ k ≤ n - 3 ⇒ 0 ≤ φ(k) ∧ φ(k) ≤ π ∧ 0 ≤ φ(n - 2) ∧ φ(n - 2) ≤ 2 * π ∧ r ≤ `x_{n}'` ∧ `x_{n}'` ≤ 1)))
+
+GOAL:
+forall (I), I ∈ RealSet ⇒ (forall (r), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1 ⇒ (forall (φ), φ : NonNegIntegerSet → RealSet ∧ IsSeq(φ) ⇒ |I| = (prod_{ j = 1 }^{ n } (a(j))) * r^{n - 2} * (prod_{ k = 1 }^{ n - 3 } (sin(φ(k))^{n - 2 - k}))))
+
+METHOD:

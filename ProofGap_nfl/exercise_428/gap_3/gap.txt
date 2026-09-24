@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. m ∈ NonNegIntegerSet ∧ m > 0
+2. n ∈ NonNegIntegerSet ∧ n > 0
+3. m ∈ PosIntegerSet
+4. n ∈ PosIntegerSet
+5. m = n ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ frac(m, 1 - x^{m}) - frac(n, 1 - x^{n}) = 0)
+6. m = n ⇒ lim_{ x → 1 } (frac(m, 1 - x^{m}) - frac(n, 1 - x^{n})) = 0
+
+GOAL:
+m = n ⇒ 0 = frac(m - n, 2)
+
+METHOD:

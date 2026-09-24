@@ -1,0 +1,17 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. b ∈ RealSet
+3. N_{0} ∈ RealSet
+4. x ∈ RealSet
+5. N_{0} > 0
+6. Defined(f, { x | x ∈ RealSet, |x| > N_{0} })
+7. lim_{ x → ∞ } (f(x)) = b ⇔ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ |x| > N ⇒ 0 < b - f(x) ∧ b - f(x) < ε)))
+8. f = (fun x [x ∈ RealSet ∧ x ≠ 0] . -frac(1, |x|))
+9. b = 0
+10. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = -frac(1, |x|)
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ |x| > N ⇒ 0 < 0 - f(x) ∧ 0 - f(x) < ε))
+
+METHOD:

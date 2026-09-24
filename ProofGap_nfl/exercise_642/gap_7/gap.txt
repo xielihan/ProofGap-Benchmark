@@ -1,0 +1,16 @@
+PROOF GAP @7
+ASSUM:
+1. f : (RealSet \ { 0 }) → RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = sin(frac(1, x))
+3. Dom(f) = RealSet \ { 0 }
+4. forall (α), α ∈ RealSet ∧ -1 ≤ α ∧ α ≤ 1 ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [-frac(π, 2), frac(π, 2)] ∧ sin(x_{0}) = α)
+5. forall (α), α ∈ RealSet ∧ -1 ≤ α ∧ α ≤ 1 ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [-frac(π, 2), frac(π, 2)] ∧ sin(x_{0}) = α ∧ (exists (x), x : NonNegIntegerSet → RealSet ∧ x = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . frac(1, 2 * n * π + x_{0}))))
+6. forall (α), α ∈ RealSet ∧ -1 ≤ α ∧ α ≤ 1 ⇒ (exists (x), x : NonNegIntegerSet → RealSet ∧ IsSeq(x))
+7. forall (α), α ∈ RealSet ∧ -1 ≤ α ∧ α ≤ 1 ⇒ (exists (x), x : NonNegIntegerSet → RealSet ∧ seqlim_{ n → +∞ } (x(n)) = 0)
+8. forall (α), α ∈ RealSet ∧ -1 ≤ α ∧ α ≤ 1 ⇒ (exists (x), x : NonNegIntegerSet → RealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ f(x(n)) = sin(frac(1, x(n)))))
+9. forall (α), α ∈ RealSet ∧ -1 ≤ α ∧ α ≤ 1 ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [-frac(π, 2), frac(π, 2)] ∧ sin(x_{0}) = α ∧ (exists (x), x : NonNegIntegerSet → RealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ sin(frac(1, x(n))) = sin(2 * n * π + x_{0}))))
+10. forall (α), α ∈ RealSet ∧ -1 ≤ α ∧ α ≤ 1 ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [-frac(π, 2), frac(π, 2)] ∧ sin(x_{0}) = α ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ sin(2 * n * π + x_{0}) = α))
+GOAL:
+forall (α), α ∈ RealSet ∧ -1 ≤ α ∧ α ≤ 1 ⇒ (exists (x), x : NonNegIntegerSet → RealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ f(x(n)) = α))
+
+METHOD:

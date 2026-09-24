@@ -1,0 +1,3 @@
+not_normalize from (GOAL: {BoundedFuncOn(f, [a, b])}) to (GOAL: {¬¬BoundedFuncOn(f, [a, b])})
+not_normalize from (GOAL: {¬¬BoundedFuncOn(f, [a, b])}) to (GOAL: {¬BoundedFuncOn(f, [a, b]) => False})
+apply (hypothesis 10: {¬BoundedFuncOn(f, [a, b]) => False})

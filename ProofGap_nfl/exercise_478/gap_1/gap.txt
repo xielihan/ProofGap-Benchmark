@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. p ∈ RealSet
+2. x ∈ RealSet
+3. p ≠ 0
+4. x ≠ 0
+
+GOAL:
+lim_{ x → 0 } (frac(1 + sin(x) - cos(x), 1 + sin(p * x) - cos(p * x))) = lim_{ x → 0 } (frac(2 * sin(frac(x, 2))^{2} + sin(x), 2 * sin(frac(p * x, 2))^{2} + sin(p * x)))
+
+METHOD:
+[@method 利用三角变换 @]

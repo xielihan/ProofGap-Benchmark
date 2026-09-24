@@ -1,0 +1,17 @@
+PROOF GAP @3
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. b : NonNegIntegerSet → RealSet
+3. n ∈ NonNegIntegerSet
+4. IsSeq(a)
+5. IsSeq(b)
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ≥ 0 ∧ b(n) ≥ 0
+7. DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+8. DivergentSeries(sum_{ n = 1 }^{ +∞ } (b(n)))
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ max(a(n), b(n)) ≥ a(n) ∧ a(n) ≥ 0
+10. DivergentSeries(sum_{ n = 1 }^{ +∞ } (max(a(n), b(n))))
+
+GOAL:
+DivergentSeries(sum_{ n = 1 }^{ +∞ } (max(a(n), b(n))))
+
+METHOD:

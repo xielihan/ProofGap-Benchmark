@@ -1,0 +1,27 @@
+get_prop (theorem 'Thm 202. (NaturalLogarithmQuotient)': {forall (x) (y), x ∈ RealSet => y ∈ RealSet => (x > 0 => y > 0 => ln (x / y) = ln(x) - ln(y))}) (x := {1}) (y := {1}) as (hypothesis 22: {1 ∈ RealSet => 1 ∈ RealSet => (1 > 0 => 1 > 0 => ln (1 / 1) = ln(1) - ln(1))})
+assert (hypothesis 23: {1 ∈ RealSet}) by proof {
+autosolve all_hypothesis
+}
+use_condition (hypothesis 23: {1 ∈ RealSet}) in (hypothesis 22: {1 ∈ RealSet => 1 ∈ RealSet => (1 > 0 => 1 > 0 => ln (1 / 1) = ln(1) - ln(1))}) as (hypothesis 24: {1 ∈ RealSet => (1 > 0 => 1 > 0 => ln (1 / 1) = ln(1) - ln(1))})
+use_condition (hypothesis 23: {1 ∈ RealSet}) in (hypothesis 24: {1 ∈ RealSet => (1 > 0 => 1 > 0 => ln (1 / 1) = ln(1) - ln(1))}) as (hypothesis 25: {1 > 0 => 1 > 0 => ln (1 / 1) = ln(1) - ln(1)})
+assert (hypothesis 26: {1 > 0}) by proof {
+autosolve all_hypothesis
+}
+use_condition (hypothesis 26: {1 > 0}) in (hypothesis 25: {1 > 0 => 1 > 0 => ln (1 / 1) = ln(1) - ln(1)}) as (hypothesis 27: {1 > 0 => ln (1 / 1) = ln(1) - ln(1)})
+use_condition (hypothesis 26: {1 > 0}) in (hypothesis 27: {1 > 0 => ln (1 / 1) = ln(1) - ln(1)}) as (hypothesis 28: {ln (1 / 1) = ln(1) - ln(1)})
+assert (hypothesis 29: {1 / 1 = 1}) by proof {
+autosolve all_hypothesis using PolyRatSolver
+}
+rewrite (left_to_right, equation) (hypothesis 29: {1 / 1 = 1}); from (hypothesis 28: {ln (1 / 1) = ln(1) - ln(1)}) to (hypothesis 30: {ln(1) = ln(1) - ln(1)})
+assert (hypothesis 31: {ln(1) = 0}) by proof {
+rewrite (left_to_right, equation) (hypothesis 30: {ln(1) = ln(1) - ln(1)}); from (GOAL: {ln(1) = 0}) to (GOAL: {ln(1) - ln(1) = 0})
+autosolve all_hypothesis using PolyRatSolver
+}
+get_prop (hypothesis 12: {forall (x) (y), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ⇒ FunDeri(f, 2, 2)(x, y) = x^{y} * ln(x)^{2}}) (x := {1}) (y := {1}) as (hypothesis 32: {1 ∈ RealSet ∧ 1 > 0 ∧ 1 ∈ RealSet ⇒ FunDeri(f, 2, 2)(1, 1) = 1^{1} * ln(1)^{2}})
+assert (hypothesis 33: {1 ∈ RealSet ∧ 1 > 0 ∧ 1 ∈ RealSet}) by proof {
+autosolve all_hypothesis
+}
+use_condition (hypothesis 33: {1 ∈ RealSet ∧ 1 > 0 ∧ 1 ∈ RealSet}) in (hypothesis 32: {1 ∈ RealSet ∧ 1 > 0 ∧ 1 ∈ RealSet ⇒ FunDeri(f, 2, 2)(1, 1) = 1^{1} * ln(1)^{2}}) as (hypothesis 34: {FunDeri(f, 2, 2)(1, 1) = 1^{1} * ln(1)^{2}})
+rewrite (left_to_right, equation) (hypothesis 34: {FunDeri(f, 2, 2)(1, 1) = 1^{1} * ln(1)^{2}}); from (GOAL: {FunDeri(f, 2, 2)(1, 1) = 0}) to (GOAL: {1^{1} * ln(1)^{2} = 0})
+rewrite (left_to_right, equation) (hypothesis 31: {ln(1) = 0}); from (GOAL: {1^{1} * ln(1)^{2} = 0}) to (GOAL: {1^{1} * 0^{2} = 0})
+autosolve all_hypothesis using PolyRatSolver

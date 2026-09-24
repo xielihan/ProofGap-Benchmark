@@ -1,0 +1,2 @@
+get_condition (hypothesis 14: {FunDeri(M, 1, 1)(a, b) = 0}) in (GOAL: {FunDeri(M, 1, 1)(a, b) = 0 ⇒ sum_{ i = 1 }^{ n } ((a * x(i) + b - y(i)) * x(i)) = 0})
+autosolve (hypothesis 12: {FunDeri(M, 1, 1)(a, b) = 2 * (sum_{ i = 1 }^{ n } ((a * x(i) + b - y(i)) * x(i)))}) (hypothesis 14: {FunDeri(M, 1, 1)(a, b) = 0})

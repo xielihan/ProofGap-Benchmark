@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. f : RealSet → RealSet
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ y(x) = f(frac(1, x))
+4. FuncOfClassK(f, 3)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(y, 1, 1)(x) = -frac(1, x^{2}) * FunDeri(f, 1, 1)(frac(1, x))
+
+METHOD:

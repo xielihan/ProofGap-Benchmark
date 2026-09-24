@@ -1,0 +1,10 @@
+PROOF GAP @4
+ASSUM:
+1. DefInt(0, ln(2), (fun x [x ∈ RealSet] . x * e^{-x}) * diff(fun x [x ∈ RealSet] . x)) = -DefInt(0, ln(2), (fun x [x ∈ RealSet] . x) * diff(fun x [x ∈ RealSet] . e^{-x}))
+2. DefInt(0, ln(2), (fun x [x ∈ RealSet] . x * e^{-x}) * diff(fun x [x ∈ RealSet] . x)) = -((fun x [x ∈ RealSet] . x * e^{-x})|_{0}^{ln(2)}) + DefInt(0, ln(2), (fun x [x ∈ RealSet] . e^{-x}) * diff(fun x [x ∈ RealSet] . x))
+3. DefInt(0, ln(2), (fun x [x ∈ RealSet] . x * e^{-x}) * diff(fun x [x ∈ RealSet] . x)) = -frac(1, 2) * ln(2) + frac(1, 2)
+
+GOAL:
+DefInt(0, ln(2), (fun x [x ∈ RealSet] . x * e^{-x}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 2) * ln(frac(e, 2))
+
+METHOD:

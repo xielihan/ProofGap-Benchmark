@@ -1,0 +1,15 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+3. forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ⇒ f(x) = arcsin(x)^{2}
+4. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ FunDeri(f, 1, 1)(x) = frac(2, sqrtn(2, 1 - x^{2})) * arcsin(x)
+5. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ sqrtn(2, 1 - x^{2}) * FunDeri(f, 1, 1)(x) = 2 * arcsin(x)
+6. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ sqrtn(2, 1 - x^{2}) * FunDeri(f, 1, 2)(x) - frac(x * FunDeri(f, 1, 1)(x), sqrtn(2, 1 - x^{2})) = frac(2, sqrtn(2, 1 - x^{2}))
+7. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ (1 - x^{2}) * FunDeri(f, 1, 2)(x) - x * FunDeri(f, 1, 1)(x) - 2 = 0
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ (1 - x^{2}) * FunDeri(f, 1, n + 2)(x) - 2 * n * x * FunDeri(f, 1, n + 1)(x) - n * (n - 1) * FunDeri(f, 1, n)(x) - x * FunDeri(f, 1, n + 1)(x) - n * FunDeri(f, 1, n)(x) = 0)
+
+METHOD:
+[@method 根据 "莱布尼茨公式" @]

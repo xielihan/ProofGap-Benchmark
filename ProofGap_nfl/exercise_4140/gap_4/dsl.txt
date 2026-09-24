@@ -1,0 +1,2 @@
+1. rewrite (left_to_right, equation) (hypothesis 15: {x^{2} + y^{2} = frac(u^{2} + v^{2}, 2)}); from (GOAL: {frac(x^{2} + y^{2}, 2) = frac(u^{2} + v^{2}, 4)}) to (GOAL: {frac(frac(u^{2} + v^{2}, 2), 2) = frac(u^{2} + v^{2}, 4)})
+2. autosolve all_hypothesis

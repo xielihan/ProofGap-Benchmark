@@ -1,0 +1,4 @@
+get_condition (hypothesis 12: {g(x) = frac(1, π) * frac(1, 1 - x) ∧ n = 1}) in (GOAL: {g(x) = frac(1, π) * frac(1, 1 - x) ∧ n = 1 ⇒ (exists (C) (n), C ∈ RealSet ∧ n ∈ RealSet ∧ g(x) = C * frac(1, 1 - x)^{n} ∧ (f(x)) ∼_{ x → 1 } (g(x)))})
+destruct_and (hypothesis 12: {g(x) = frac(1, π) * frac(1, 1 - x) ∧ n = 1}) as (hypothesis 13: {g(x) = frac(1, π) * frac(1, 1 - x)}) (hypothesis 14: {n = 1})
+exists (C := {frac(1, π)}) (n := {1})
+autosolve all_hypothesis

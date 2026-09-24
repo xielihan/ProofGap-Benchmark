@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. P : RealSet → RealSet
+3. V ∈ RealSet
+4. forall (z), z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a ⇒ P(z) = DefInt(-a, a, (fun x [x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a] . 2 * z * sqrtn(2, 1 - frac(x^{2}, a^{2}))) * diff(fun x [x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a] . x))
+5. V = DefInt(0, a, (fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a] . P(z)) * diff(fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a] . z))
+6. forall (z), z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a ⇒ P(z) = π * a * z
+7. V = π * a * DefInt(0, a, (fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a] . z) * diff(fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a] . z))
+
+GOAL:
+DefInt(0, a, (fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a] . z) * diff(fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a] . z)) = ((fun z [z ∈ RealSet] . frac(z^{2}, 2))|_{0}^{a})
+
+METHOD:

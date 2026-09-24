@@ -1,0 +1,19 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. h ∈ RealSet ∧ h > 0
+4. k ∈ RealSet ∧ k > 0
+5. S ∈ RealSet
+6. C ⊆ CartesianProd(RealSet, RealSet)
+7. x ∈ RealSet
+8. y ∈ RealSet
+9. C = { (x, y) | x ∈ RealSet, y ∈ RealSet, x > 0, y > 0, (frac(x, a) + frac(y, b))^{4} = frac(x^{2}, h^{2}) + frac(y^{2}, k^{2}) }
+10. forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ x = a * r * cos(φ))
+11. forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ y = b * r * sin(φ))
+
+GOAL:
+forall (r), r ∈ RealSet ⇒ r ≥ 0
+
+METHOD:
+[@method 根据 "变量代换" @]

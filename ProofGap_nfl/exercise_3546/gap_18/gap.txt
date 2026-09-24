@@ -1,0 +1,37 @@
+PROOF GAP @18
+ASSUM:
+1. α ∈ RealSet
+2. `φ_{0}` ∈ RealSet
+3. r_{0} ∈ RealSet
+4. PlaneEq ∈ RealSet
+5. NormalEq ∈ RealSet
+6. X : CartesianProd(RealSet, RealSet) → RealSet
+7. Y : CartesianProd(RealSet, RealSet) → RealSet
+8. Z : CartesianProd(RealSet, RealSet) → RealSet
+9. M_{0} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+10. v_{1} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+11. v_{2} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+12. n ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+13. sin(α) ≠ 0
+14. forall (φ) (r), φ ∈ RealSet ∧ r ∈ RealSet ⇒ X(φ, r) = r * cos(φ)
+15. forall (φ) (r), φ ∈ RealSet ∧ r ∈ RealSet ⇒ Y(φ, r) = r * sin(φ)
+16. forall (φ) (r), φ ∈ RealSet ∧ r ∈ RealSet ⇒ Z(φ, r) = r * cot(α)
+17. M_{0} = (r_{0} * cos(`φ_{0}`), r_{0} * sin(`φ_{0}`), r_{0} * cot(α))
+18. v_{1} = (FunDeri(X, 1, 1)(`φ_{0}`, r_{0}), FunDeri(Y, 1, 1)(`φ_{0}`, r_{0}), FunDeri(Z, 1, 1)(`φ_{0}`, r_{0}))
+19. (FunDeri(X, 1, 1)(`φ_{0}`, r_{0}), FunDeri(Y, 1, 1)(`φ_{0}`, r_{0}), FunDeri(Z, 1, 1)(`φ_{0}`, r_{0})) = r_{0} * (-sin(`φ_{0}`), cos(`φ_{0}`), 0)
+20. v_{1} = r_{0} * (-sin(`φ_{0}`), cos(`φ_{0}`), 0)
+21. v_{2} = (FunDeri(X, 2, 1)(`φ_{0}`, r_{0}), FunDeri(Y, 2, 1)(`φ_{0}`, r_{0}), FunDeri(Z, 2, 1)(`φ_{0}`, r_{0}))
+22. (FunDeri(X, 2, 1)(`φ_{0}`, r_{0}), FunDeri(Y, 2, 1)(`φ_{0}`, r_{0}), FunDeri(Z, 2, 1)(`φ_{0}`, r_{0})) = (cos(`φ_{0}`), sin(`φ_{0}`), cot(α))
+23. v_{2} = (cos(`φ_{0}`), sin(`φ_{0}`), cot(α))
+24. n = r_{0} * (cos(`φ_{0}`) * cot(α), sin(`φ_{0}`) * cot(α), -1)
+25. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ PlaneEq = cos(`φ_{0}`) * cot(α) * (x - r_{0} * cos(`φ_{0}`)) + sin(`φ_{0}`) * cot(α) * (y - r_{0} * sin(`φ_{0}`)) - (z - r_{0} * cot(α))
+26. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ cos(`φ_{0}`) * cot(α) * (x - r_{0} * cos(`φ_{0}`)) + sin(`φ_{0}`) * cot(α) * (y - r_{0} * sin(`φ_{0}`)) - (z - r_{0} * cot(α)) = 0
+27. PlaneEq = 0
+28. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ cos(α) ≠ 0 ⇒ PlaneEq = x * cos(`φ_{0}`) + y * sin(`φ_{0}`) - z * tan(α)
+29. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ cos(α) ≠ 0 ⇒ x * cos(`φ_{0}`) + y * sin(`φ_{0}`) - z * tan(α) = 0
+30. cos(α) ≠ 0 ⇒ PlaneEq = 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ cos(`φ_{0}`) * cot(α) ≠ 0 ∧ sin(`φ_{0}`) * cot(α) ≠ 0 ⇒ NormalEq = frac(x - r_{0} * cos(`φ_{0}`), cos(`φ_{0}`) * cot(α))
+
+METHOD:

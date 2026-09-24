@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+lim_{ x → 0^+ } (frac(1 - sqrtn(2, cos(x)), 1 - cos(sqrtn(2, x)))) = lim_{ x → 0^+ } (frac(1 - cos(x), 2 * sin(frac(sqrtn(2, x), 2))^{2} * (1 + sqrtn(2, cos(x)))))
+
+METHOD:

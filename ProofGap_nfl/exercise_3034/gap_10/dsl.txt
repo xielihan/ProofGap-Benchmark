@@ -1,0 +1,4 @@
+assert (hypothesis 11: {DefInt(0, 1, (fun x [x ∈ RealSet] . ln(1 - x)) * diff(fun x [x ∈ RealSet] . x)) = -1}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

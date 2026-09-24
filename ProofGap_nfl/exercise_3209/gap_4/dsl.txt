@@ -1,0 +1,9 @@
+1. get_forall (GOAL: {forall (x_{0}) (y_{0}) (η) (x), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ η ∈ RealSet ∧ x ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, A) ∧ y_{0} = φ(x_{0}) ∧ η > 0 ∧ x ∈ IntervalLoRo(a, A) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |x - x_{0}| < η ⇒ |φ(x) - φ(x_{0})| = |φ(x) - y_{0}|)}) (x_{0} := {x0v}) (y_{0} := {y0v}) (η := {etav}) (x := {xv})
+2. get_condition (hypothesis 18: {x0v ∈ RealSet ∧ y0v ∈ RealSet ∧ etav ∈ RealSet ∧ xv ∈ RealSet ∧ x0v ∈ IntervalLoRo(a, A) ∧ y0v = φ(x0v) ∧ etav > 0 ∧ xv ∈ IntervalLoRo(a, A)}) in (GOAL: {x0v ∈ RealSet ∧ y0v ∈ RealSet ∧ etav ∈ RealSet ∧ xv ∈ RealSet ∧ x0v ∈ IntervalLoRo(a, A) ∧ y0v = φ(x0v) ∧ etav > 0 ∧ xv ∈ IntervalLoRo(a, A) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |xv - x0v| < etav ⇒ |φ(xv) - φ(x0v)| = |φ(xv) - y0v|)})
+3. get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |xv - x0v| < etav ⇒ |φ(xv) - φ(x0v)| = |φ(xv) - y0v|}) (ε := {epsv})
+4. get_condition (hypothesis 19: {epsv ∈ RealSet ∧ epsv > 0 ∧ |xv - x0v| < etav}) in (GOAL: {epsv ∈ RealSet ∧ epsv > 0 ∧ |xv - x0v| < etav ⇒ |φ(xv) - φ(x0v)| = |φ(xv) - y0v|})
+5. assert (hypothesis 20: {y0v = φ(x0v)}) by proof {
+  1. autosolve all_hypothesis
+}
+6. rewrite (left_to_right, equation) (hypothesis 20: {y0v = φ(x0v)}); from (GOAL: {|φ(xv) - φ(x0v)| = |φ(xv) - y0v|}) to (GOAL: {|φ(xv) - φ(x0v)| = |φ(xv) - φ(x0v)|})
+7. autosolve all_hypothesis

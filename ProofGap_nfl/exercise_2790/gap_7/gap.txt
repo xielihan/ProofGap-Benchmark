@@ -1,0 +1,17 @@
+PROOF GAP @7
+ASSUM:
+1. a : NonNegIntegerSet → RealSet ∧ IsSeq(a)
+2. n ∈ NonNegIntegerSet
+3. k ∈ NonNegIntegerSet
+4. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+5. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, +∞) ⇒ 0 < frac(1, n^{x}))
+6. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, +∞) ⇒ frac(1, n^{x}) ≤ 1)
+7. forall (x), x ∈ RealSet ∧ x ∈ [0, +∞) ⇒ MonoDecSeq(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(1, n^{x}))
+8. forall (x), x ∈ RealSet ∧ x ∈ [0, +∞) ⇒ BoundedSeq(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(1, n^{x}))
+9. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n) (p), n ∈ NonNegIntegerSet ∧ p ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ p ∈ PosIntegerSet ∧ n > N ⇒ |sum_{ k = n + 1 }^{ n + p } (a(k))| < ε))
+10. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n) (p) (x), n ∈ NonNegIntegerSet ∧ p ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ p ∈ PosIntegerSet ∧ x ∈ [0, +∞) ∧ n > N ⇒ |sum_{ k = n + 1 }^{ n + p } (frac(a(k), k^{x}))| < ε))
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n) (p) (x), n ∈ NonNegIntegerSet ∧ p ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ p ∈ PosIntegerSet ∧ x ∈ [0, +∞) ∧ n > N ⇒ |sum_{ k = n + 1 }^{ n + p } (frac(a(k), k^{x}))| < ε))
+
+METHOD:

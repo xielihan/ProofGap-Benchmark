@@ -1,0 +1,12 @@
+get_forall (GOAL: {forall (a), a ∈ RealSet ∧ a > 1 ⇒ (forall (x), x ∈ RealSet ∧ a ≤ x ∧ x < +∞ ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 ≤ frac(ln(n), n^{a})))}) (a := {a0})
+get_condition (hypothesis 8: {a0 ∈ RealSet ∧ a0 > 1}) in (GOAL: {a0 ∈ RealSet ∧ a0 > 1 ⇒ (forall (x), x ∈ RealSet ∧ a0 ≤ x ∧ x < +∞ ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 ≤ frac(ln(n), n^{a0})))})
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ a0 ≤ x ∧ x < +∞ ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 ≤ frac(ln(n), n^{a0})))}) (x := {x0})
+get_condition (hypothesis 9: {x0 ∈ RealSet ∧ a0 ≤ x0 ∧ x0 < +∞}) in (GOAL: {x0 ∈ RealSet ∧ a0 ≤ x0 ∧ x0 < +∞ ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 ≤ frac(ln(n), n^{a0}))})
+get_prop (hypothesis 6: {forall (a), a ∈ RealSet ∧ a > 1 ⇒ (forall (x), x ∈ RealSet ∧ a ≤ x ∧ x < +∞ ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 ≤ frac(ln(n), n^{x})))}) (a := {a0}) as (hypothesis 10: {a0 ∈ RealSet ∧ a0 > 1 ⇒ (forall (x), x ∈ RealSet ∧ a0 ≤ x ∧ x < +∞ ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 ≤ frac(ln(n), n^{x})))})
+use_condition (hypothesis 8: {a0 ∈ RealSet ∧ a0 > 1}) in (hypothesis 10: {a0 ∈ RealSet ∧ a0 > 1 ⇒ (forall (x), x ∈ RealSet ∧ a0 ≤ x ∧ x < +∞ ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 ≤ frac(ln(n), n^{x})))}) as (hypothesis 11: {forall (x), x ∈ RealSet ∧ a0 ≤ x ∧ x < +∞ ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 ≤ frac(ln(n), n^{x}))})
+get_prop (hypothesis 11: {forall (x), x ∈ RealSet ∧ a0 ≤ x ∧ x < +∞ ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 ≤ frac(ln(n), n^{x}))}) (x := {a0}) as (hypothesis 12: {a0 ∈ RealSet ∧ a0 ≤ a0 ∧ a0 < +∞ ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 ≤ frac(ln(n), n^{a0}))})
+assert (hypothesis 13: {a0 ∈ RealSet ∧ a0 ≤ a0 ∧ a0 < +∞}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 13: {a0 ∈ RealSet ∧ a0 ≤ a0 ∧ a0 < +∞}) in (hypothesis 12: {a0 ∈ RealSet ∧ a0 ≤ a0 ∧ a0 < +∞ ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 ≤ frac(ln(n), n^{a0}))}) as (hypothesis 14: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 ≤ frac(ln(n), n^{a0})})
+apply (hypothesis 14: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 ≤ frac(ln(n), n^{a0})})

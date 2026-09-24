@@ -1,0 +1,17 @@
+PROOF GAP @4
+ASSUM:
+1. p ∈ RealSet ∧ p > 0
+2. D ⊆ RealSet
+3. ConvergenceClass : RealSet → RealSet
+4. Convergent ∈ RealSet
+5. Divergent ∈ RealSet
+6. lim_{ x → 0^+ } (frac(sin(x), x^{p} + sin(x))) = cases{ 1 if p > 1; frac(1, 2) if p = 1; 0 if p < 1 }
+7. lim_{ x → 0^+ } (frac(sin(x), x^{p} + sin(x))) ∈ RealSet
+8. I = DefInt(0, +∞, frac(sin(x), x^{p} + sin(x)) * diff(fun x [x ∈ RealSet] . x))
+9. I_{1} = DefInt(2, +∞, frac(sin(x), x^{p} + sin(x)) * diff(fun x [x ∈ RealSet] . x))
+10. ConvergenceClass(I) = ConvergenceClass(I_{1})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≥ 2 ⇒ frac(sin(x), x^{p} + sin(x)) = frac(sin(x), x^{p}) - frac(sin(x)^{2}, x^{p} * (x^{p} + sin(x)))
+
+METHOD:

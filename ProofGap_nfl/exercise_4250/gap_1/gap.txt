@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. y : RealSet → RealSet
+3. forall (x), x ∈ RealSet ⇒ C = { (x, y(x)) | x ∈ [-1, 1] }
+4. forall (x), x ∈ RealSet ∧ x ∈ [-1, 1] ⇒ y(x) = x^{2}
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ [-1, 1] ⇒ y(x) = x^{2}
+
+METHOD:

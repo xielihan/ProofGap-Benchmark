@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. P : RealSet → RealSet
+2. a : NonNegIntegerSet → RealSet
+3. n ∈ NonNegIntegerSet
+4. forall (k), k ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ P(frac(1, x)) = sum_{ k = 0 }^{ n } (frac(a(k), x^{k})))
+5. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ IntegerSet ∧ k ≥ 2 ∧ x ≠ 0 ⇒ { `F_1` | forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_1`, 1, 1)(x) = frac(a(k), x^{k}) * e^{x} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | exists (`F_2`), `F_2` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(e^{x}, x^{k - 1}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_5`(x) = -frac(a(k), k - 1) * frac(e^{x}, x^{k - 1}) + frac(a(k), k - 1) * `F_2`(x)) })
+6. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ IntegerSet ∧ k ≥ 2 ∧ x ≠ 0 ⇒ { `F_6` | forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_6`, 1, 1)(x) = frac(a(k), x^{k}) * e^{x} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_10` | exists (`F_7`), `F_7` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_7`, 1, 1)(x) = frac(e^{x}, x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_10`(x) = -(sum_{ j = 1 }^{ k - 1 } (frac(a(k), prod_{ i = 1 }^{ j } (k - i)) * frac(e^{x}, x^{k - j}))) + frac(a(k), (k - 1)!) * `F_7`(x)) })
+
+GOAL:
+{ `F_11` | forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_11`, 1, 1)(x) = P(frac(1, x)) * e^{x} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = sum_{ k = 0 }^{ n } ({ `F_12` | forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_12`, 1, 1)(x) = frac(a(k), x^{k}) * e^{x} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) })
+
+METHOD:

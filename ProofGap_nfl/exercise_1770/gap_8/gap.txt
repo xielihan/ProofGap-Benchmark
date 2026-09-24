@@ -1,0 +1,17 @@
+PROOF GAP @8
+ASSUM:
+1. x ∈ RealSet
+2. t ∈ RealSet
+3. t = 2 - 5 * x^{3}
+4. x^{3} = frac(1, 5) * (2 - t)
+5. x^{5} * diff(fun x [x ∈ RealSet] . x) = frac(1, 3) * x^{3} * diff(fun x [x ∈ RealSet] . x^{3})
+6. frac(1, 3) * x^{3} * diff(fun x [x ∈ RealSet] . x^{3}) = -frac(1, 75) * (2 - t) * diff(fun t [t ∈ RealSet] . t)
+7. x^{5} * diff(fun x [x ∈ RealSet] . x) = -frac(1, 75) * (2 - t) * diff(fun t [t ∈ RealSet] . t)
+8. x^{5} * sqrtn(3, 2 - 5 * x^{3})^{2} * diff(fun x [x ∈ RealSet] . x) = -frac(1, 75) * sqrtn(3, t)^{2} * (2 - t) * diff(fun t [t ∈ RealSet] . t)
+9. { `F_6` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(t) = sqrtn(3, t)^{2} * (2 - t) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_6`(t) = -frac(1, 75) * `F_5`(t)) } = { `F_8` | exists (`F_7`), `F_7` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ⇒ FunDeri(`F_7`, 1, 1)(t) = (2 * sqrtn(3, t)^{2} - sqrtn(3, t)^{5}) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_8`(t) = -frac(1, 75) * `F_7`(t)) }
+10. { `F_10` | exists (`F_9`), `F_9` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ⇒ FunDeri(`F_9`, 1, 1)(t) = (2 * sqrtn(3, t)^{2} - sqrtn(3, t)^{5}) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_10`(t) = -frac(1, 75) * `F_9`(t)) } = { `F_11` | exists (C), C ∈ RealSet ∧ (forall (t), t ∈ RealSet ⇒ `F_11`(t) = -frac(2, 125) * sqrtn(3, t)^{5} + frac(1, 200) * sqrtn(3, t)^{8} + C) }
+
+GOAL:
+{ `F_12` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_12`, 1, 1)(x) = x^{5} * sqrtn(3, 2 - 5 * x^{3})^{2} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_13` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_13`(x) = -frac(6 + 25 * x^{3}, 1000) * sqrtn(3, 2 - 5 * x^{3})^{5} + C) }
+
+METHOD:

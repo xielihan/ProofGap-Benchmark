@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+3. forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ⇒ f(x) = arcsin(x)^{2}
+4. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ FunDeri(f, 1, 1)(x) = frac(2, sqrtn(2, 1 - x^{2})) * arcsin(x)
+5. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ sqrtn(2, 1 - x^{2}) * FunDeri(f, 1, 1)(x) = 2 * arcsin(x)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ sqrtn(2, 1 - x^{2}) * FunDeri(f, 1, 2)(x) - frac(x * FunDeri(f, 1, 1)(x), sqrtn(2, 1 - x^{2})) = frac(2, sqrtn(2, 1 - x^{2}))
+
+METHOD:
+[@method 两边同时对 x 求 导数 @]

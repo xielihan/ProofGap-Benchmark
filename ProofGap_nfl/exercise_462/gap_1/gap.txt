@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+lim_{ x → +∞ } (sqrtn(3, x^{3} + 3 * x^{2}) - sqrtn(2, x^{2} - 2 * x)) = lim_{ x → +∞ } (frac((x^{3} + 3 * x^{2})^{2} - (x^{2} - 2 * x)^{3}, sum_{ k = 0 }^{ 5 } ((x^{3} + 3 * x^{2})^{frac(5 - k, 3)} * (x^{2} - 2 * x)^{frac(k, 2)})))
+
+METHOD:

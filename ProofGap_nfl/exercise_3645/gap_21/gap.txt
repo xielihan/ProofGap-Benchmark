@@ -1,0 +1,31 @@
+PROOF GAP @21
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. a ∈ RealSet
+3. a > 0
+4. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = x * y^{2} * z^{3} * (a - x - 2 * y - 3 * z)
+5. diff(u) = (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y^{2} * z^{3} * (a - 2 * x - 2 * y - 3 * z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . 2 * x * y * z^{3} * (a - x - 3 * y - 3 * z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . 3 * x * y^{2} * z^{2} * (a - x - 2 * y - 4 * z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)
+6. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(u, 1, 1)(x, y, z) = y^{2} * z^{3} * (a - 2 * x - 2 * y - 3 * z)
+7. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(u, 2, 1)(x, y, z) = 2 * x * y * z^{3} * (a - x - 3 * y - 3 * z)
+8. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(u, 3, 1)(x, y, z) = 3 * x * y^{2} * z^{2} * (a - x - 2 * y - 4 * z)
+9. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ FunDeri(u, 1, 1)(x, y, z) = 0 ∧ FunDeri(u, 2, 1)(x, y, z) = 0 ∧ FunDeri(u, 3, 1)(x, y, z) = 0 ⇒ (x, y, z) = (frac(a, 7), frac(a, 7), frac(a, 7)) ∨ x = 0 ∧ 2 * y + 3 * z = a ∨ y = 0 ∨ z = 0
+10. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x = 0 ∧ 2 * y + 3 * z = a ⇒ ¬(x ∈ MaximumPoint(u) ∧ y ∈ MaximumPoint(u) ∧ z ∈ MaximumPoint(u))
+11. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x = 0 ∧ 2 * y + 3 * z = a ⇒ ¬((x, y, z) ∈ MinimumPoint(u))
+12. forall (z) (x) (y), z ∈ RealSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ z = 0 ⇒ ¬(x ∈ MaximumPoint(u) ∧ y ∈ MaximumPoint(u) ∧ z ∈ MaximumPoint(u))
+13. forall (z) (x) (y), z ∈ RealSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ z = 0 ⇒ ¬((x, y, z) ∈ MinimumPoint(u))
+14. forall (y) (x) (z), y ∈ RealSet ∧ x ∈ RealSet ∧ z ∈ RealSet ∧ y = 0 ∧ x * z^{3} * (a - x - 3 * z) > 0 ⇒ u(x, y, z) = 0
+15. forall (y) (x) (z), y ∈ RealSet ∧ x ∈ RealSet ∧ z ∈ RealSet ∧ y = 0 ∧ x * z^{3} * (a - x - 3 * z) > 0 ⇒ (x, y, z) ∈ MinimumPoint(u)
+16. forall (y) (x) (z), y ∈ RealSet ∧ x ∈ RealSet ∧ z ∈ RealSet ∧ y = 0 ∧ x * z^{3} * (a - x - 3 * z) < 0 ⇒ u(x, y, z) = 0
+17. forall (y) (x) (z), y ∈ RealSet ∧ x ∈ RealSet ∧ z ∈ RealSet ∧ y = 0 ∧ x * z^{3} * (a - x - 3 * z) < 0 ⇒ (x, y, z) ∈ MaximumPoint(u)
+18. forall (y) (x) (z), y ∈ RealSet ∧ x ∈ RealSet ∧ z ∈ RealSet ∧ y = 0 ∧ x * z^{3} * (a - x - 3 * z) = 0 ⇒ ¬(x ∈ MaximumPoint(u) ∧ y ∈ MaximumPoint(u) ∧ z ∈ MaximumPoint(u))
+19. forall (y) (x) (z), y ∈ RealSet ∧ x ∈ RealSet ∧ z ∈ RealSet ∧ y = 0 ∧ x * z^{3} * (a - x - 3 * z) = 0 ⇒ ¬((x, y, z) ∈ MinimumPoint(u))
+20. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) = (frac(a, 7), frac(a, 7), frac(a, 7)) ⇒ diff^{2}(u) = -frac(a^{5}, 7^{5}) * ((diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + 2 * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) + 3 * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z))^{2} + diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x)^{2} + 2 * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y)^{2} + 3 * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)^{2})
+21. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) = (frac(a, 7), frac(a, 7), frac(a, 7)) ∧ diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x)^{2} + diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y)^{2} + diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)^{2} ≠ 0 ⇒ diff^{2}(u) < 0
+22. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) = (frac(a, 7), frac(a, 7), frac(a, 7)) ⇒ (frac(a, 7), frac(a, 7), frac(a, 7)) ∈ MaximumPoint(u)
+23. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) = (frac(a, 7), frac(a, 7), frac(a, 7)) ⇒ u(frac(a, 7), frac(a, 7), frac(a, 7)) = frac(a^{7}, 7^{7})
+24. MaximumPoint(u) = { (frac(a, 7), frac(a, 7), frac(a, 7)) } ∪ { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ y = 0 ∧ x * z^{3} * (a - x - 3 * z) < 0 }
+
+GOAL:
+MinimumPoint(u) = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ y = 0 ∧ x * z^{3} * (a - x - 3 * z) > 0 }
+
+METHOD:

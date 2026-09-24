@@ -1,0 +1,5 @@
+assert (hypothesis 12: {a * (cos(θ) * (4 * cos(θ)^{2} - 3)) ≥ 0}) by proof {
+  autosolve (hypothesis 9: {r ≥ 0}) (hypothesis 10: {r = a * cos(θ) * (4 * cos(θ)^{2} - 3)})
+}
+get_prop (theorem 'Thm 434. (NonnegativeRealProductCharacterization)': {forall (a) (b), a ∈ RealSet => b ∈ RealSet => (a * b >= 0 <==> ((a >= 0 /\ b >= 0) \/ (a <= 0 /\ b <= 0)))}) (a := {a}) (b := {cos(θ) * (4 * cos(θ)^{2} - 3)}) as (hypothesis 13: {a ∈ RealSet => cos(θ) * (4 * cos(θ)^{2} - 3) ∈ RealSet => (a * (cos(θ) * (4 * cos(θ)^{2} - 3)) >= 0 <==> ((a >= 0 /\ cos(θ) * (4 * cos(θ)^{2} - 3) >= 0) \/ (a <= 0 /\ cos(θ) * (4 * cos(θ)^{2} - 3) <= 0)))})
+autosolve all_hypothesis

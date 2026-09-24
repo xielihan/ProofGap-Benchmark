@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. R : CartesianProd(NonNegIntegerSet, CartesianProd(NonNegIntegerSet, RealSet)) → RealSet
+3. x : NonNegIntegerSet → RealSet
+4. k ∈ NonNegIntegerSet
+5. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ f(n, x) = cases{ 0 if 0 ≤ x ∧ x ≤ 2^{-(n + 1)}; frac(1, n) * sin(2^{n + 1} * π * x)^{2} if 2^{-(n + 1)} < x ∧ x < 2^{-n}; 0 if 2^{-n} ≤ x ∧ x ≤ 1 }
+6. forall (N) (p) (x), N ∈ NonNegIntegerSet ∧ p ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ N ∈ PosIntegerSet ∧ p ∈ PosIntegerSet ∧ x ∈ [0, 1] ∧ R(N, p, x) = sum_{ k = N + 1 }^{ N + p } (f(k, x)) ⇒ |R(N, p, x)| < frac(1, N)
+7. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N = floor(frac(1, ε)) + 1 ∧ (forall (n) (p) (x), n ∈ NonNegIntegerSet ∧ p ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ p ∈ PosIntegerSet ∧ x ∈ [0, 1] ∧ n > N ⇒ |sum_{ k = n + 1 }^{ n + p } (f(k, x))| < frac(1, n)))
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N = floor(frac(1, ε)) + 1 ∧ (forall (n) (p) (x), n ∈ NonNegIntegerSet ∧ p ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ p ∈ PosIntegerSet ∧ x ∈ [0, 1] ∧ n > N ⇒ frac(1, n) < ε))
+
+METHOD:

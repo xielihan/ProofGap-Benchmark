@@ -1,0 +1,6 @@
+1. get_prop (hypothesis 22: {forall (ψ), ψ ∈ RealSet ∧ ψ ≤ `ψ_{2}` ⇒ `ψ_{1}` ≤ ψ}) (ψ := {`ψ_{1}` - 1}) as (hypothesis 34: {`ψ_{1}` - 1 ∈ RealSet ∧ `ψ_{1}` - 1 ≤ `ψ_{2}` ⇒ `ψ_{1}` ≤ `ψ_{1}` - 1})
+2. assert (hypothesis 35: {`ψ_{1}` - 1 ∈ RealSet ∧ `ψ_{1}` - 1 ≤ `ψ_{2}`}) by proof {
+  1. autosolve all_hypothesis
+}
+3. use_condition (hypothesis 35: {`ψ_{1}` - 1 ∈ RealSet ∧ `ψ_{1}` - 1 ≤ `ψ_{2}`}) in (hypothesis 34: {`ψ_{1}` - 1 ∈ RealSet ∧ `ψ_{1}` - 1 ≤ `ψ_{2}` ⇒ `ψ_{1}` ≤ `ψ_{1}` - 1}) as (hypothesis 36: {`ψ_{1}` ≤ `ψ_{1}` - 1})
+4. autosolve all_hypothesis

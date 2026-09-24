@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. forall (F) (x_{0}) (f) (g) (Δx), F : RealSet → RealSet ∧ x_{0} ∈ RealSet ∧ f : RealSet → RealSet ∧ g : RealSet → RealSet ∧ Δx ∈ RealSet ∧ Δx ≠ 0 ⇒ frac((f(x_{0} + Δx) + g(x_{0} + Δx)) - (f(x_{0}) + g(x_{0})), Δx) = frac(f(x_{0} + Δx) - f(x_{0}), Δx) + frac(g(x_{0} + Δx) - g(x_{0}), Δx)
+2. forall (f) (x_{0}), f : RealSet → RealSet ∧ x_{0} ∈ RealSet ∧ DiffableFuncAt(f, x_{0}) ⇒ lim_{ Δx → 0 } (frac(f(x_{0} + Δx) - f(x_{0}), Δx)) ∈ RealSet
+3. forall (g) (x_{0}), g : RealSet → RealSet ∧ x_{0} ∈ RealSet ∧ DiffableFuncAt(g, x_{0}) ⇒ exists (L), L ∈ RealSet ∧ lim_{ h → 0 } ((g(x_{0} + h) - g(x_{0})) / h) = L
+4. forall (F) (x_{0}), F : RealSet → RealSet ∧ x_{0} ∈ RealSet ∧ DiffableFuncAt(F, x_{0}) ⇒ lim_{ h → 0 } ((F(x_{0} + h) - F(x_{0})) / h) ∈ RealSet
+
+GOAL:
+forall (F) (x_{0}) (g) (f) (Δx), F : RealSet → RealSet ∧ x_{0} ∈ RealSet ∧ g : RealSet → RealSet ∧ f : RealSet → RealSet ∧ Δx ∈ RealSet ∧ Δx ≠ 0 ∧ DiffableFuncAt(F, x_{0}) ⇒ frac(g(x_{0} + Δx) - g(x_{0}), Δx) = frac((f(x_{0} + Δx) + g(x_{0} + Δx)) - (f(x_{0}) + g(x_{0})), Δx) - frac(f(x_{0} + Δx) - f(x_{0}), Δx)
+
+METHOD:

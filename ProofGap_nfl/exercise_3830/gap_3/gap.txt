@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet
+2. forall (x), x ∈ RealSet ∧ x > 0 ⇒ frac(1, sqrtn(2, x)) = frac(2, sqrtn(2, π)) * DefInt(0, +∞, e^{-x * y^{2}} * diff(y))
+3. DefInt(0, +∞, sin(x^{2}) * diff(x)) = frac(1, 2) * DefInt(0, +∞, frac(sin(x), sqrtn(2, x)) * diff(x))
+
+GOAL:
+DefInt(0, +∞, cos(x^{2}) * diff(x)) = frac(1, 2) * DefInt(0, +∞, frac(cos(x), sqrtn(2, x)) * diff(x))
+
+METHOD:

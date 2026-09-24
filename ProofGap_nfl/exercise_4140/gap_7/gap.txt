@@ -1,0 +1,26 @@
+PROOF GAP @7
+ASSUM:
+1. E ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. Mass ∈ RealSet
+3. x_{0} ∈ RealSet
+4. y_{0} ∈ RealSet
+5. z_{0} ∈ RealSet
+6. x ∈ RealSet
+7. y ∈ RealSet
+8. z ∈ RealSet
+9. ω ∈ RealSet
+10. E = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, frac(x^{2} + y^{2}, 2) ≤ z, z ≤ x^{2} + y^{2}, -1 ≤ x + y, x + y ≤ 1, -1 ≤ x - y, x - y ≤ 1 }
+11. u = x - y
+12. v = x + y
+13. x = frac(u + v, 2)
+14. y = frac(v - u, 2)
+15. x^{2} + y^{2} = frac(u^{2} + v^{2}, 2)
+16. frac(x^{2} + y^{2}, 2) = frac(u^{2} + v^{2}, 4)
+17. diff(fun u, v [u ∈ RealSet ∧ -1 ≤ u ∧ u ≤ 1 ∧ v ∈ RealSet ∧ -1 ≤ v ∧ v ≤ 1] . x) * diff(fun u, v [u ∈ RealSet ∧ -1 ≤ u ∧ u ≤ 1 ∧ v ∈ RealSet ∧ -1 ≤ v ∧ v ≤ 1] . y) = frac(1, 2) * diff(fun u, v [u ∈ RealSet ∧ -1 ≤ u ∧ u ≤ 1 ∧ v ∈ RealSet ∧ -1 ≤ v ∧ v ≤ 1] . u) * diff(fun u, v [u ∈ RealSet ∧ -1 ≤ u ∧ u ≤ 1 ∧ v ∈ RealSet ∧ -1 ≤ v ∧ v ≤ 1] . v)
+18. -1 ≤ u
+19. (x, y, z) ∈ E
+
+GOAL:
+u ≤ 1
+
+METHOD:

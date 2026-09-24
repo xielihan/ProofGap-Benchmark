@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 12: {J_{z} = frac(8, 15) * π * δ * R^{5}}); from (GOAL: {frac(1, 2) * J_{z} * ω^{2} = frac(4, 15) * π * δ * ω^{2} * R^{5}}) to (GOAL: {frac(1, 2) * (frac(8, 15) * π * δ * R^{5}) * ω^{2} = frac(4, 15) * π * δ * ω^{2} * R^{5}})
+autosolve all_hypothesis

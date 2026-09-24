@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. h ∈ RealSet
+4. F : CartesianProd(RealSet, NonNegIntegerSet) → RealSet
+5. forall (x), x ∈ RealSet ⇒ F(x, 0) = 1
+6. forall (x) (n) (i), n ∈ NonNegIntegerSet ∧ i ∈ NonNegIntegerSet ∧ i ≤ n - 1 ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ⇒ F(x, n) = prod_{ i = 0 }^{ n - 1 } (x - i * h)
+7. forall (n), n ∈ NonNegIntegerSet ∧ n = 1 ⇒ F(a + b, 1) = a + b
+8. forall (n), n ∈ NonNegIntegerSet ∧ n = 1 ⇒ sum_{ m = 0 }^{ 1 } (Combination(1, m) * F(a, 1 - m) * F(b, m)) = a + b
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n = 1 ⇒ F(a + b, n) = sum_{ m = 0 }^{ n } (Combination(n, m) * F(a, n - m) * F(b, m))
+
+METHOD:

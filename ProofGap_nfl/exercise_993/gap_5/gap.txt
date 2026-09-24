@@ -1,0 +1,17 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. n ∈ RealSet
+3. m ∈ RealSet
+4. m > 0
+5. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = |x|^{n} * sin(frac(1, |x|^{m}))
+6. f(0) = 0
+7. forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x ∈ IntervalLoRo(-δ, δ) ∧ δ > 0 ⇒ FunDeri(f, 1, 1)(x) = n * |x|^{n - 1} * frac(|x|, x) * sin(frac(1, |x|^{m})) - frac(m, |x|^{m + 1}) * frac(|x|, x) * |x|^{n} * cos(frac(1, |x|^{m})))
+8. forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x ∈ IntervalLoRo(-δ, δ) ∧ δ > 0 ⇒ FunDeri(f, 1, 1)(x) = frac(|x|, x) * (n * |x|^{n - 1} * sin(frac(1, |x|^{m})) - m * |x|^{n - (m + 1)} * cos(frac(1, |x|^{m}))))
+9. BoundedFunc(fun x [x ∈ RealSet ∧ x ≠ 0] . frac(|x|, x))
+10. BoundedFunc(fun x [x ∈ RealSet ∧ x ≠ 0] . sin(frac(1, |x|^{m})))
+
+GOAL:
+exists (M), M ∈ RealSet ∧ M >= 0 ∧ (forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ |cos(frac(1, |x|^{m}))| <= M)
+
+METHOD:

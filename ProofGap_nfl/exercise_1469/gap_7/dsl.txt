@@ -1,0 +1,4 @@
+exists (x_{0} := {0})
+get_prop (hypothesis 7: {forall (x), x ∈ RealSet ⇒ f(x) = cosh(x) - k * x}) (x := {0}) as (hypothesis 16: {0 ∈ RealSet ⇒ f(0) = cosh(0) - k * 0})
+use_condition (obvious: {0 ∈ RealSet}) in (hypothesis 16: {0 ∈ RealSet ⇒ f(0) = cosh(0) - k * 0}) as (hypothesis 17: {f(0) = cosh(0) - k * 0})
+autosolve (hypothesis 17: {f(0) = cosh(0) - k * 0})

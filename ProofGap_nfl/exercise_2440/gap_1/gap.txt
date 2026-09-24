@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. s ∈ RealSet
+3. y : RealSet → RealSet
+4. a > 0
+5. forall (x), x ∈ RealSet ⇒ x^{frac(2, 3)} + y(x)^{frac(2, 3)} = a^{frac(2, 3)}
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ a ⇒ FunDeri(y, 1, 1)(x) = -sqrtn(3, frac(y(x), x))
+
+METHOD:

@@ -1,0 +1,12 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet => F_{1}(x) = f_{1}(g_{1}(x)) /\ f_{1}(g_{1}(x)) = |x^{2}| /\ |x^{2}| = x^{2}}) (x := {a})
+get_condition (hypothesis 8: {a ∈ RealSet}) in (GOAL: {a ∈ RealSet => F_{1}(a) = f_{1}(g_{1}(a)) /\ f_{1}(g_{1}(a)) = |a^{2}| /\ |a^{2}| = a^{2}})
+get_prop (hypothesis 3: {forall (x), x ∈ RealSet => F_{1}(x) = f_{1}(g_{1}(x))}) (x := {a}) as (hypothesis 9: {a ∈ RealSet => F_{1}(a) = f_{1}(g_{1}(a))})
+use_condition (hypothesis 8: {a ∈ RealSet}) in (hypothesis 9: {a ∈ RealSet => F_{1}(a) = f_{1}(g_{1}(a))}) as (hypothesis 10: {F_{1}(a) = f_{1}(g_{1}(a))})
+get_prop (hypothesis 2: {forall (x), x ∈ RealSet => g_{1}(x) = x^{2}}) (x := {a}) as (hypothesis 11: {a ∈ RealSet => g_{1}(a) = a^{2}})
+use_condition (hypothesis 8: {a ∈ RealSet}) in (hypothesis 11: {a ∈ RealSet => g_{1}(a) = a^{2}}) as (hypothesis 12: {g_{1}(a) = a^{2}})
+get_prop (hypothesis 1: {forall (x), x ∈ RealSet => f_{1}(x) = |x|}) (x := {a^{2}}) as (hypothesis 13: {a^{2} ∈ RealSet => f_{1}(a^{2}) = |a^{2}|})
+use_condition (obvious: {a^{2} ∈ RealSet}) in (hypothesis 13: {a^{2} ∈ RealSet => f_{1}(a^{2}) = |a^{2}|}) as (hypothesis 14: {f_{1}(a^{2}) = |a^{2}|})
+get_prop (theorem 'Thm 490. (AbsoluteValueOfNonnegativeReal)': {forall (x), x ∈ RealSet => (x >= 0 <==> |x| = x)}) (x := {a^{2}}) as (hypothesis 15: {a^{2} ∈ RealSet => (a^{2} >= 0 <==> |a^{2}| = a^{2})})
+use_condition (obvious: {a^{2} ∈ RealSet}) in (hypothesis 15: {a^{2} ∈ RealSet => (a^{2} >= 0 <==> |a^{2}| = a^{2})}) as (hypothesis 16: {a^{2} >= 0 <==> |a^{2}| = a^{2}})
+assert (hypothesis 17: {a^{2} >= 0})
+autosolve all_hypothesis

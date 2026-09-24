@@ -1,0 +1,21 @@
+PROOF GAP @8
+ASSUM:
+1. x : CartesianProd(RealSet, RealSet) → RealSet
+2. z : CartesianProd(RealSet, RealSet) → RealSet
+3. u : CartesianProd(RealSet, RealSet) → RealSet
+4. v : CartesianProd(RealSet, RealSet) → RealSet
+5. forall (y) (z), y ∈ RealSet ∧ z ∈ RealSet ⇒ u(y, z) = y - z ∧ v(y, z) = y + z
+6. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ⇒ FunDeri(x, 1, 1)(u, v) - FunDeri(x, 2, 1)(u, v) ≠ 0
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ (y - z(x, y)) * FunDeri(z, 1, 1)(x, y) + (y + z(x, y)) * FunDeri(z, 2, 1)(x, y) = 0
+8. diff(fun y, z [y ∈ RealSet ∧ z ∈ RealSet] . u(y, z)) = diff(fun y, z [y ∈ RealSet ∧ z ∈ RealSet] . y) - diff(fun y, z [y ∈ RealSet ∧ z ∈ RealSet] . z)
+9. diff(fun y, z [y ∈ RealSet ∧ z ∈ RealSet] . v(y, z)) = diff(fun y, z [y ∈ RealSet ∧ z ∈ RealSet] . y) + diff(fun y, z [y ∈ RealSet ∧ z ∈ RealSet] . z)
+10. diff(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . x(u, v)) = FunDeri(x, 1, 1)(u, v) * diff(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . u) + FunDeri(x, 2, 1)(u, v) * diff(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . v)
+11. diff(fun y, z [y ∈ RealSet ∧ z ∈ RealSet] . x(u(y, z), v(y, z))) = (FunDeri(x, 1, 1)(u, v) + FunDeri(x, 2, 1)(u, v)) * diff(fun y, z [y ∈ RealSet ∧ z ∈ RealSet] . y) + (-FunDeri(x, 1, 1)(u, v) + FunDeri(x, 2, 1)(u, v)) * diff(fun y, z [y ∈ RealSet ∧ z ∈ RealSet] . z)
+12. (FunDeri(x, 1, 1)(u, v) - FunDeri(x, 2, 1)(u, v)) * diff(fun y, z [y ∈ RealSet ∧ z ∈ RealSet] . z) = -diff(fun y, z [y ∈ RealSet ∧ z ∈ RealSet] . x(u(y, z), v(y, z))) + (FunDeri(x, 1, 1)(u, v) + FunDeri(x, 2, 1)(u, v)) * diff(fun y, z [y ∈ RealSet ∧ z ∈ RealSet] . y)
+13. forall (y), y ∈ RealSet ⇒ FunDeri(z, 1, 1)(x, y) = -frac(1, FunDeri(x, 1, 1)(u, v) - FunDeri(x, 2, 1)(u, v))
+14. forall (y), y ∈ RealSet ⇒ FunDeri(z, 2, 1)(x, y) = frac(FunDeri(x, 1, 1)(u, v) + FunDeri(x, 2, 1)(u, v), FunDeri(x, 1, 1)(u, v) - FunDeri(x, 2, 1)(u, v))
+
+GOAL:
+-u * frac(1, FunDeri(x, 1, 1)(u, v) - FunDeri(x, 2, 1)(u, v)) + v * frac(FunDeri(x, 1, 1)(u, v) + FunDeri(x, 2, 1)(u, v), FunDeri(x, 1, 1)(u, v) - FunDeri(x, 2, 1)(u, v)) = 0
+
+METHOD:

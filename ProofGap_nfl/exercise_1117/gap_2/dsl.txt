@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x > 0 => FunDeri(fun u . ln(u), 1, 1)(x) = 1 / x}) (x := {x0})
+get_condition (hypothesis 4: {x0 ∈ RealSet ∧ x0 > 0}) in (GOAL: {x0 ∈ RealSet ∧ x0 > 0 => FunDeri(fun u . ln(u), 1, 1)(x0) = 1 / x0})
+destruct_and (hypothesis 4: {x0 ∈ RealSet ∧ x0 > 0}) as (hypothesis 5: {x0 ∈ RealSet}) (hypothesis 6: {x0 > 0})
+get_prop (theorem 'Thm 177. (NaturalLogarithmDerivative)': {forall (x), x ∈ RealSet => x > 0 => FunDeri(fun x . ln(x), 1, 1)(x) = 1 / x}) (x := {x0}) as (hypothesis 7: {x0 ∈ RealSet => x0 > 0 => FunDeri(fun x . ln(x), 1, 1)(x0) = 1 / x0})
+use_condition (hypothesis 5: {x0 ∈ RealSet}) (hypothesis 6: {x0 > 0}) in (hypothesis 7: {x0 ∈ RealSet => x0 > 0 => FunDeri(fun x . ln(x), 1, 1)(x0) = 1 / x0}) as (hypothesis 8: {FunDeri(fun x . ln(x), 1, 1)(x0) = 1 / x0})
+apply (hypothesis 8: {FunDeri(fun x . ln(x), 1, 1)(x0) = 1 / x0})

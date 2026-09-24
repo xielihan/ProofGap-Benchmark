@@ -1,0 +1,4 @@
+get_condition (hypothesis 29: {a = 0}) in (GOAL: {a = 0 ⇒ b = 0 ⇒ c > 0 ⇒ MaximumPoint(z) = { (0, 0) }})
+get_condition (hypothesis 30: {b = 0}) in (GOAL: {b = 0 ⇒ c > 0 ⇒ MaximumPoint(z) = { (0, 0) }})
+get_condition (hypothesis 31: {c > 0}) in (GOAL: {c > 0 ⇒ MaximumPoint(z) = { (0, 0) }})
+autosolve all_hypothesis

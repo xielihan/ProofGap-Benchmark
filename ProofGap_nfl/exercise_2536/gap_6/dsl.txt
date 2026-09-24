@@ -1,0 +1,6 @@
+get_prop (hypothesis 24: {forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ 6 ⇒ x_{i} = i * h ∧ y_{i} = f(x_{i})}) (i := {1}) as (hypothesis 28: {1 ∈ IntegerSet ∧ 0 ≤ 1 ∧ 1 ≤ 6 ⇒ x_{1} = 1 * h ∧ y_{1} = f(x_{1})})
+use_condition (obvious: {1 ∈ IntegerSet ∧ 0 ≤ 1 ∧ 1 ≤ 6}) in (hypothesis 28: {1 ∈ IntegerSet ∧ 0 ≤ 1 ∧ 1 ≤ 6 ⇒ x_{1} = 1 * h ∧ y_{1} = f(x_{1})}) as (hypothesis 29: {x_{1} = 1 * h ∧ y_{1} = f(x_{1})})
+destruct_and (hypothesis 29: {x_{1} = 1 * h ∧ y_{1} = f(x_{1})}) as (hypothesis 30: {x_{1} = 1 * h}) (hypothesis 31: {y_{1} = f(x_{1})})
+get_prop (hypothesis 22: {forall (x), x ∈ RealSet ∧ x ∈ [0, π] ⇒ f(x) = sqrtn(2, 3 + cos(x))}) (x := {frac(π, 6)}) as (hypothesis 32: {frac(π, 6) ∈ RealSet ∧ frac(π, 6) ∈ [0, π] ⇒ f(frac(π, 6)) = sqrtn(2, 3 + cos(frac(π, 6)))})
+use_condition (obvious: {frac(π, 6) ∈ RealSet ∧ frac(π, 6) ∈ [0, π]}) in (hypothesis 32: {frac(π, 6) ∈ RealSet ∧ frac(π, 6) ∈ [0, π] ⇒ f(frac(π, 6)) = sqrtn(2, 3 + cos(frac(π, 6)))}) as (hypothesis 33: {f(frac(π, 6)) = sqrtn(2, 3 + cos(frac(π, 6)))})
+autosolve all_hypothesis

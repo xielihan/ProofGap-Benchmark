@@ -1,0 +1,15 @@
+PROOF GAP @2
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. b : NonNegIntegerSet → RealSet
+3. S : NonNegIntegerSet → RealSet
+4. a(0) = 1
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(1, n)
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = sin(n) * sin(n^{2})
+7. forall (N), N ∈ NonNegIntegerSet ⇒ S(N) = sum_{ n = 1 }^{ N + 1 } (b(n))
+8. MonoDecSeq(a)
+
+GOAL:
+seqlim_{ n → +∞ } (a(n)) = 0
+
+METHOD:

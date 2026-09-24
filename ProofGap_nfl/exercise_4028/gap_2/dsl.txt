@@ -1,0 +1,6 @@
+assert (hypothesis 4: {exists (y), y ∈ RealSet ∧ (a * y = a^{2} ∨ a * y = 2 * a^{2})}) by proof {
+  exists (y := {a})
+  autosolve (hypothesis 1: {a ∈ RealSet ∧ a > 0})
+}
+exists (x := {a})
+autosolve (hypothesis 1: {a ∈ RealSet ∧ a > 0}) (hypothesis 4: {exists (y), y ∈ RealSet ∧ (a * y = a^{2} ∨ a * y = 2 * a^{2})})

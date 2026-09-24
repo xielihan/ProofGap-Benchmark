@@ -1,0 +1,19 @@
+PROOF GAP @8
+ASSUM:
+1. m ∈ RealSet
+2. n ∈ RealSet
+3. B : CartesianProd(RealSet, RealSet) → RealSet
+4. t = sin(x)
+5. 0 ≤ t
+6. t ≤ 1
+7. u = t^{2}
+8. 0 ≤ u
+9. u ≤ 1
+10. DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . sin(x)^{m} * cos(x)^{n}) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun t [t ∈ RealSet] . t^{m} * (1 - t^{2})^{frac(n - 1, 2)}) * diff(fun t [t ∈ RealSet] . t))
+11. DefInt(0, 1, (fun t [t ∈ RealSet] . t^{m} * (1 - t^{2})^{frac(n - 1, 2)}) * diff(fun t [t ∈ RealSet] . t)) = frac(1, 2) * DefInt(0, 1, (fun u [u ∈ RealSet] . u^{frac(m - 1, 2)} * (1 - u)^{frac(n - 1, 2)}) * diff(fun u [u ∈ RealSet] . u))
+12. frac(1, 2) * DefInt(0, 1, (fun u [u ∈ RealSet] . u^{frac(m - 1, 2)} * (1 - u)^{frac(n - 1, 2)}) * diff(fun u [u ∈ RealSet] . u)) = frac(1, 2) * B(frac(m + 1, 2), frac(n + 1, 2))
+
+GOAL:
+DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . sin(x)^{m} * cos(x)^{n}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 2) * B(frac(m + 1, 2), frac(n + 1, 2))
+
+METHOD:

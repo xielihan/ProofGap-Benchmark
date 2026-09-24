@@ -1,0 +1,5 @@
+rewrite (left_to_right, equation) (hypothesis 3: {x = a * sinh(t)}); from (hypothesis 5: {sqrtn(2, a^{2} + x^{2}) = a * cosh(t)}) to (hypothesis 6: {sqrtn(2, a^{2} + (a * sinh(t))^{2}) = a * cosh(t)})
+rewrite (left_to_right, equation) (hypothesis 3: {x = a * sinh(t)}); from (GOAL: {frac(x^{2}, sqrtn(2, a^{2} + x^{2})) = frac(a * sinh(t)^{2}, cosh(t))}) to (GOAL: {frac((a * sinh(t))^{2}, sqrtn(2, a^{2} + (a * sinh(t))^{2})) = frac(a * sinh(t)^{2}, cosh(t))})
+rewrite (left_to_right, equation) (hypothesis 6: {sqrtn(2, a^{2} + (a * sinh(t))^{2}) = a * cosh(t)}); from (GOAL: {frac((a * sinh(t))^{2}, sqrtn(2, a^{2} + (a * sinh(t))^{2})) = frac(a * sinh(t)^{2}, cosh(t))}) to (GOAL: {frac((a * sinh(t))^{2}, a * cosh(t)) = frac(a * sinh(t)^{2}, cosh(t))})
+assert (hypothesis 7: {frac((a * sinh(t))^{2}, a * cosh(t)) = frac(a * sinh(t)^{2}, cosh(t))})
+apply (hypothesis 7: {frac((a * sinh(t))^{2}, a * cosh(t)) = frac(a * sinh(t)^{2}, cosh(t))})

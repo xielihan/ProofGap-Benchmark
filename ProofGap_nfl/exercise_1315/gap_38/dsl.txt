@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ ContinuousFuncAt(f, x_{0}) ∧ LeftDiffableFuncAt(f, x_{0}) ∧ RightDiffableFuncAt(f, x_{0})}) (x_{0} := {z})
+get_condition (hypothesis 48: {z ∈ RealSet ∧ z ∈ IntervalLoRo(a, b)}) in (GOAL: {z ∈ RealSet ∧ z ∈ IntervalLoRo(a, b) ⇒ ContinuousFuncAt(f, z) ∧ LeftDiffableFuncAt(f, z) ∧ RightDiffableFuncAt(f, z)})
+get_prop (hypothesis 45: {forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ ContinuousFuncAt(f, x_{0})}) (x_{0} := {z}) as (hypothesis 49: {z ∈ RealSet ∧ z ∈ IntervalLoRo(a, b) ⇒ ContinuousFuncAt(f, z)})
+use_condition (hypothesis 48: {z ∈ RealSet ∧ z ∈ IntervalLoRo(a, b)}) in (hypothesis 49: {z ∈ RealSet ∧ z ∈ IntervalLoRo(a, b) ⇒ ContinuousFuncAt(f, z)}) as (hypothesis 50: {ContinuousFuncAt(f, z)})
+get_prop (hypothesis 46: {forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ LeftDiffableFuncAt(f, x_{0})}) (x_{0} := {z}) as (hypothesis 51: {z ∈ RealSet ∧ z ∈ IntervalLoRo(a, b) ⇒ LeftDiffableFuncAt(f, z)})
+use_condition (hypothesis 48: {z ∈ RealSet ∧ z ∈ IntervalLoRo(a, b)}) in (hypothesis 51: {z ∈ RealSet ∧ z ∈ IntervalLoRo(a, b) ⇒ LeftDiffableFuncAt(f, z)}) as (hypothesis 52: {LeftDiffableFuncAt(f, z)})
+get_prop (hypothesis 47: {forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ RightDiffableFuncAt(f, x_{0})}) (x_{0} := {z}) as (hypothesis 53: {z ∈ RealSet ∧ z ∈ IntervalLoRo(a, b) ⇒ RightDiffableFuncAt(f, z)})
+use_condition (hypothesis 48: {z ∈ RealSet ∧ z ∈ IntervalLoRo(a, b)}) in (hypothesis 53: {z ∈ RealSet ∧ z ∈ IntervalLoRo(a, b) ⇒ RightDiffableFuncAt(f, z)}) as (hypothesis 54: {RightDiffableFuncAt(f, z)})
+autosolve all_hypothesis

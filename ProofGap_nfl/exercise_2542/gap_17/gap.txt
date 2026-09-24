@@ -1,0 +1,33 @@
+PROOF GAP @17
+ASSUM:
+1. I ∈ RealSet
+2. I_{k} : NonNegIntegerSet → RealSet
+3. R : NonNegIntegerSet → RealSet
+4. J ∈ RealSet
+5. Δ ∈ RealSet
+6. `Δ'` ∈ RealSet
+7. θ ∈ RealSet ∧ 0 < θ ∧ θ < 1
+8. I = DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . (e^{x} - 1) * ln(frac(1, x))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . x))
+9. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ e^{x} = 1 + (sum_{ k = 1 }^{ n } (frac(x^{k}, k!))) + Δ(n + 1))
+10. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ Δ(n + 1) = frac(e^{θ * x}, (n + 1)!) * x^{n + 1})
+11. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |Δ(n + 1)| ≤ frac(e, (n + 1)!) * x^{n + 1})
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ I = (sum_{ k = 1 }^{ n } (frac(1, k!) * DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . x^{k} * ln(frac(1, x))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . x)))) + R(n + 1)
+13. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |R(n + 1)| ≤ frac(e, (n + 1)!) * DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . x^{n + 1} * ln(frac(1, x))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . x))
+14. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ I(k) = DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . x^{k} * ln(frac(1, x))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . x))
+15. forall (k), k ∈ IntegerSet ∧ k ≥ 1 ⇒ I(k) = frac(1, k + 1) * DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . ln(frac(1, x))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . x^{k + 1}))
+16. forall (k), k ∈ IntegerSet ∧ k ≥ 1 ⇒ I(k) = frac(1, (k + 1)^{2})
+17. |R(6)| ≤ frac(e, 6!) * I(6)
+18. |R(6)| ≤ frac(e, 7 * 7!)
+19. frac(e, 7 * 7!) < frac(3, 35280)
+20. frac(3, 35280) < frac(1, 1.1 * 10^{4})
+21. frac(1, 1.1 * 10^{4}) < 10^{-4}
+22. |R(6)| < 10^{-4}
+23. J = sum_{ k = 1 }^{ 5 } (frac(1, k!) * I(k))
+24. J = sum_{ k = 1 }^{ 5 } (frac(1, (k + 1)! * (k + 1)))
+25. J = frac(1, 4) + frac(1, 18) + frac(1, 96) + frac(1, 600) + frac(1, 4320)
+26. J = 0.3179 + `Δ'`
+
+GOAL:
+|`Δ'`| ≤ 0.00004
+
+METHOD:

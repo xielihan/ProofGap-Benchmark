@@ -1,0 +1,6 @@
+assert (hypothesis 42: {u = g(ξ, η, ζ) * frac(4, 3) * π * R^{3}})
+rewrite (left_to_right, equation) (hypothesis 20: {g(ξ, η, ζ) = frac(1, sqrtn(2, (ξ - a)^{2} + (η - b)^{2} + (ζ - c)^{2}))}); from (hypothesis 42: {u = g(ξ, η, ζ) * frac(4, 3) * π * R^{3}}) to (hypothesis 43: {u = frac(1, sqrtn(2, (ξ - a)^{2} + (η - b)^{2} + (ζ - c)^{2})) * frac(4, 3) * π * R^{3}})
+assert (hypothesis 44: {sqrtn(2, (ξ - a)^{2} + (η - b)^{2} + (ζ - c)^{2}) = sqrtn(2, a^{2} + b^{2} + c^{2}) + θ * R})
+rewrite (left_to_right, equation) (hypothesis 44: {sqrtn(2, (ξ - a)^{2} + (η - b)^{2} + (ζ - c)^{2}) = sqrtn(2, a^{2} + b^{2} + c^{2}) + θ * R}); from (hypothesis 43: {u = frac(1, sqrtn(2, (ξ - a)^{2} + (η - b)^{2} + (ζ - c)^{2})) * frac(4, 3) * π * R^{3}}) to (hypothesis 45: {u = frac(1, sqrtn(2, a^{2} + b^{2} + c^{2}) + θ * R) * frac(4, 3) * π * R^{3}})
+autoreplace all_hypothesis; from (frac(1, sqrtn(2, a^{2} + b^{2} + c^{2}) + θ * R) * frac(4, 3) * π * R^{3}) to (frac(4 * π, 3) * frac(R^{3}, sqrtn(2, a^{2} + b^{2} + c^{2}) + θ * R)); from (hypothesis 45: {u = frac(1, sqrtn(2, a^{2} + b^{2} + c^{2}) + θ * R) * frac(4, 3) * π * R^{3}}) to (hypothesis 46: {u = frac(4 * π, 3) * frac(R^{3}, sqrtn(2, a^{2} + b^{2} + c^{2}) + θ * R)})
+apply (hypothesis 46: {u = frac(4 * π, 3) * frac(R^{3}, sqrtn(2, a^{2} + b^{2} + c^{2}) + θ * R)})

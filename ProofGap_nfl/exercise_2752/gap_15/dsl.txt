@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (n) (N) (x), n ∈ NonNegIntegerSet ∧ N ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ N = floor(frac(2, ε)) ∧ n > N ∧ n ∈ PosIntegerSet ∧ x ∈ IntervalLoRo(1, +∞) ⇒ frac(2, n) < ε)}) (n := {n0}) (N := {N0}) (x := {x0})
+get_condition (hypothesis 21: {n0 ∈ NonNegIntegerSet ∧ N0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ N0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ N0 = floor(frac(2, ε)) ∧ n0 > N0 ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ IntervalLoRo(1, +∞) ⇒ frac(2, n0) < ε)})
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ N0 = floor(frac(2, ε)) ∧ n0 > N0 ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ IntervalLoRo(1, +∞) ⇒ frac(2, n0) < ε}) (ε := {εc})
+get_condition (hypothesis 22: {εc ∈ RealSet ∧ εc > 0 ∧ N0 = floor(frac(2, εc)) ∧ n0 > N0 ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ IntervalLoRo(1, +∞)}) in (GOAL: {εc ∈ RealSet ∧ εc > 0 ∧ N0 = floor(frac(2, εc)) ∧ n0 > N0 ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ IntervalLoRo(1, +∞) ⇒ frac(2, n0) < εc})
+assert (hypothesis 23: {n0 > frac(2, εc)}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (hypothesis 16: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ n > frac(2, ε) ⇒ frac(2, n) < ε)}) (n := {n0}) as (hypothesis 24: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ n0 > frac(2, ε) ⇒ frac(2, n0) < ε)})
+autosolve all_hypothesis

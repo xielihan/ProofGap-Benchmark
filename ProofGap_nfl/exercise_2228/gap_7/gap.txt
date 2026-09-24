@@ -1,0 +1,14 @@
+PROOF GAP @7
+ASSUM:
+1. α = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . frac(n * sin(frac(π, n)), π) - 1)
+2. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ sin(frac(π, n)) = frac(π, n) * (1 + α(n))
+3. seqlim_{ n → +∞ } (α(n)) = 0
+4. seqlim_{ n → +∞ } (sin(frac(π, n)) * (sum_{ k = 1 }^{ n } (frac(1, 2 + cos(frac(k * π, n)))))) = seqlim_{ n → +∞ } ((1 + α(n)) * frac(π, n) * (sum_{ k = 1 }^{ n } (frac(1, 2 + cos(frac(k * π, n))))))
+5. seqlim_{ n → +∞ } ((1 + α(n)) * frac(π, n) * (sum_{ k = 1 }^{ n } (frac(1, 2 + cos(frac(k * π, n)))))) = DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalCC(0, 1)] . frac(π, 2 + cos(π * x))) * diff(fun x [x ∈ RealSet] . x))
+6. DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalCC(0, 1)] . frac(π, 2 + cos(π * x))) * diff(fun x [x ∈ RealSet] . x)) = ((fun x [x ∈ RealSet ∧ x ∈ IntervalCC(0, 1)] . frac(2, sqrtn(2, 3)) * arctan(frac(tan(frac(π * x, 2)), sqrtn(2, 3))))|_{0}^{1})
+7. ((fun x [x ∈ RealSet ∧ x ∈ IntervalCC(0, 1)] . frac(2, sqrtn(2, 3)) * arctan(frac(tan(frac(π * x, 2)), sqrtn(2, 3))))|_{0}^{1}) = frac(π, sqrtn(2, 3))
+
+GOAL:
+seqlim_{ n → +∞ } (sin(frac(π, n)) * (sum_{ k = 1 }^{ n } (frac(1, 2 + cos(frac(k * π, n)))))) = frac(π, sqrtn(2, 3))
+
+METHOD:

@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. ε ∈ RealSet
+3. 0 < ε
+4. ε < 1
+5. forall (x), x ∈ RealSet ⇒ y(x) - ε * sin(y(x)) = x
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) - ε * FunDeri(y, 1, 1)(x) * cos(y(x)) = 1
+
+METHOD:
+[@method 两边同时对 x 求 导数 @]

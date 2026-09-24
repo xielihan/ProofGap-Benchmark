@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ 1 - 2 * x > 0 ⇒ (1 - 2 * x)^{frac(1, x)} = (1 + -2 * x)^{frac(1, -2 * x) * -2}
+
+GOAL:
+lim_{ x → 0 } ((1 - 2 * x)^{frac(1, x)}) = e^{-2}
+
+METHOD:

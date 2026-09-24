@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. n ∈ NonNegIntegerSet
+3. forall (x), x ∈ RealSet ⇒ y(x) = sum_{ n = 0 }^{ +∞ } (frac(x^{4 * n}, (4 * n)!))
+4. forall (x), x ∈ RealSet ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac(x^{4 * n}, (4 * n)!)))
+5. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = sum_{ n = 1 }^{ +∞ } (frac(x^{4 * n - 1}, (4 * n - 1)!))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = sum_{ n = 1 }^{ +∞ } (frac(x^{4 * n - 2}, (4 * n - 2)!))
+
+METHOD:

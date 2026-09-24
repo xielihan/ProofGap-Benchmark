@@ -1,0 +1,4 @@
+assert (hypothesis 19: {e < 3})
+assert (hypothesis 20: {7 * 7! = 35280})
+rewrite (left_to_right, equation) (hypothesis 20: {7 * 7! = 35280}); from (GOAL: {frac(e, 7 * 7!) < frac(3, 35280)}) to (GOAL: {frac(e, 35280) < frac(3, 35280)})
+autosolve (hypothesis 19: {e < 3})

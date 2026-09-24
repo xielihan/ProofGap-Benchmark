@@ -1,0 +1,23 @@
+PROOF GAP @6
+ASSUM:
+1. x : CartesianProd(RealSet, RealSet) → RealSet
+2. y : CartesianProd(RealSet, RealSet) → RealSet
+3. z : CartesianProd(RealSet, RealSet) → RealSet
+4. a ∈ RealSet
+5. b ∈ RealSet
+6. c ∈ RealSet ∧ c ≠ 0
+7. V ∈ RealSet
+8. S : RealSet → RealSet
+9. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ∧ u ∈ [-frac(π, 2), frac(π, 2)] ∧ v ∈ [0, 2 * π] ⇒ x(u, v) = a * cos(u) * cos(v) + b * sin(u) * sin(v)
+10. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ∧ u ∈ [-frac(π, 2), frac(π, 2)] ∧ v ∈ [0, 2 * π] ⇒ y(u, v) = a * cos(u) * sin(v) - b * sin(u) * cos(v)
+11. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ∧ u ∈ [-frac(π, 2), frac(π, 2)] ∧ v ∈ [0, 2 * π] ⇒ z(u, v) = c * sin(u)
+12. forall (u), u ∈ RealSet ∧ u ∈ [-frac(π, 2), frac(π, 2)] ⇒ (forall (v), v ∈ RealSet ∧ v ∈ [0, 2 * π] ⇒ x(u, v)^{2} + y(u, v)^{2} = a^{2} * cos(u)^{2} + b^{2} * sin(u)^{2})
+13. forall (u), u ∈ RealSet ∧ u ∈ [-frac(π, 2), frac(π, 2)] ⇒ (forall (v), v ∈ RealSet ∧ v ∈ [0, 2 * π] ⇒ x(u, v)^{2} + y(u, v)^{2} + frac(a^{2} - b^{2}, c^{2}) * z(u, v)^{2} = a^{2})
+14. forall (u), u ∈ RealSet ∧ u ∈ [-frac(π, 2), frac(π, 2)] ⇒ S(c * sin(u)) = π * (a^{2} * cos(u)^{2} + b^{2} * sin(u)^{2})
+15. V = DefInt(-frac(π, 2), frac(π, 2), (fun u [u ∈ RealSet ∧ u ∈ [-frac(π, 2), frac(π, 2)]] . π * (a^{2} * cos(u)^{2} + b^{2} * sin(u)^{2}) * |c|) * diff(fun u [u ∈ RealSet ∧ u ∈ [-frac(π, 2), frac(π, 2)]] . sin(u)))
+16. V = π * |c| * DefInt(-frac(π, 2), frac(π, 2), (fun u [u ∈ RealSet ∧ u ∈ [-frac(π, 2), frac(π, 2)]] . a^{2} + (b^{2} - a^{2}) * sin(u)^{2}) * diff(fun u [u ∈ RealSet ∧ u ∈ [-frac(π, 2), frac(π, 2)]] . sin(u)))
+
+GOAL:
+V = π * |c| * (2 * a^{2} + frac(2, 3) * (b^{2} - a^{2}))
+
+METHOD:

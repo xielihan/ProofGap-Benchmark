@@ -1,0 +1,2 @@
+assert (hypothesis 5: {(-1)^{0} = 1})
+apply (hypothesis 5: {(-1)^{0} = 1})

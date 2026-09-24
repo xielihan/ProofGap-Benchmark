@@ -1,0 +1,12 @@
+1. get_forall (GOAL: {forall (x_{1}), x_{1} ∈ RealSet => (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ x_{2} > x_{1} => f(x_{2}) - f(x_{1}) = a^{x_{2}} - a^{x_{1}})}) (x_{1} := {u})
+2. get_condition (hypothesis 5: {u ∈ RealSet}) in (GOAL: {u ∈ RealSet => (forall (x_{2}), u ∈ RealSet ∧ x_{2} ∈ RealSet ∧ x_{2} > u => f(x_{2}) - f(u) = a^{x_{2}} - a^{u})})
+3. get_forall (GOAL: {forall (x_{2}), u ∈ RealSet ∧ x_{2} ∈ RealSet ∧ x_{2} > u => f(x_{2}) - f(u) = a^{x_{2}} - a^{u}}) (x_{2} := {v})
+4. get_condition (hypothesis 6: {u ∈ RealSet ∧ v ∈ RealSet ∧ v > u}) in (GOAL: {u ∈ RealSet ∧ v ∈ RealSet ∧ v > u => f(v) - f(u) = a^{v} - a^{u}})
+5. destruct_and (hypothesis 6: {u ∈ RealSet ∧ v ∈ RealSet ∧ v > u}) as (hypothesis 7: {u ∈ RealSet}) (hypothesis 8: {v ∈ RealSet}) (hypothesis 9: {v > u})
+6. get_prop (hypothesis 4: {forall (x), x ∈ RealSet => f(x) = a^{x}}) (x := {u}) as (hypothesis 10: {u ∈ RealSet => f(u) = a^{u}})
+7. use_condition (hypothesis 7: {u ∈ RealSet}) in (hypothesis 10: {u ∈ RealSet => f(u) = a^{u}}) as (hypothesis 11: {f(u) = a^{u}})
+8. get_prop (hypothesis 4: {forall (x), x ∈ RealSet => f(x) = a^{x}}) (x := {v}) as (hypothesis 12: {v ∈ RealSet => f(v) = a^{v}})
+9. use_condition (hypothesis 8: {v ∈ RealSet}) in (hypothesis 12: {v ∈ RealSet => f(v) = a^{v}}) as (hypothesis 13: {f(v) = a^{v}})
+10. rewrite (left_to_right, equation) (hypothesis 13: {f(v) = a^{v}}); from (GOAL: {f(v) - f(u) = a^{v} - a^{u}}) to (GOAL: {a^{v} - f(u) = a^{v} - a^{u}})
+11. rewrite (left_to_right, equation) (hypothesis 11: {f(u) = a^{u}}); from (GOAL: {a^{v} - f(u) = a^{v} - a^{u}}) to (GOAL: {a^{v} - a^{u} = a^{v} - a^{u}})
+12. autosolve all_hypothesis

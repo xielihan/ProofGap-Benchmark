@@ -1,0 +1,3 @@
+exists (C_{1} := {0})
+assert (hypothesis 5: {0 ∈ RealSet ∧ -frac(1, 2) * arcsin(frac(x^{-2} + 1, sqrtn(2, 2))) + 0 = -frac(1, 2) * arcsin(frac(x^{2} + 1, x^{2} * sqrtn(2, 2))) + 0})
+apply (hypothesis 5: {0 ∈ RealSet ∧ -frac(1, 2) * arcsin(frac(x^{-2} + 1, sqrtn(2, 2))) + 0 = -frac(1, 2) * arcsin(frac(x^{2} + 1, x^{2} * sqrtn(2, 2))) + 0})

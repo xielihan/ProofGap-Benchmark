@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. MonoDecSeq(fun n [n ∈ NonNegIntegerSet ∧ n ≥ 2] . frac(1, ln(n)))
+2. seqlim_{ n → +∞ } (frac(1, ln(n))) = 0
+3. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ |sum_{ m = 2 }^{ n } (sin(frac(m * π, 12)))| = |frac(cos(frac(π, 24)) - cos(frac((n + frac(1, 2)) * π, 12)), 2 * sin(frac(π, 24)))| ∧ |frac(cos(frac(π, 24)) - cos(frac((n + frac(1, 2)) * π, 12)), 2 * sin(frac(π, 24)))| ≤ frac(1, sin(frac(π, 12)))
+4. BoundedSeq(fun n [n ∈ NonNegIntegerSet ∧ n ≥ 2] . sum_{ m = 2 }^{ n } (sin(frac(m * π, 12))))
+
+GOAL:
+ConvergentSeries(sum_{ n = 2 }^{ +∞ } (frac(sin(frac(n * π, 12)), ln(n))))
+
+METHOD:

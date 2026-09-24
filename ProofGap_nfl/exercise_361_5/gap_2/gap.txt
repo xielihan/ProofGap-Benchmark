@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. C ∈ CartesianProd(RealSet, RealSet)
+3. forall (x), x ∈ RealSet ⇒ y(x) = 1 + sqrtn(3, x - 2)
+4. forall (x), x ∈ RealSet ⇒ y(4 - x) = 2 - y(x)
+
+GOAL:
+C = (2, 1) ⇒ (forall (x), x ∈ RealSet ⇒ y(4 - x) = 2 - y(x))
+
+METHOD:

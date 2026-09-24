@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. x ∈ RealSet ∧ x > 0 ∧ x ≠ 1
+2. C ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ x > 0 ∧ x ≠ 1 ⇒ FunDeri(fun x [x ∈ RealSet ∧ x > 0] . arcsin(frac(2 * sqrtn(2, x), 1 + x)), 1, 1)(x) = frac(frac(1, (1 + x)^{2}) * ((1 + x) * frac(1, sqrtn(2, x)) - 2 * sqrtn(2, x)), sqrtn(2, 1 - frac(4 * x, (1 + x)^{2})))
+4. forall (x), x ∈ RealSet ∧ x > 0 ∧ x ≠ 1 ⇒ frac(frac(1, (1 + x)^{2}) * ((1 + x) * frac(1, sqrtn(2, x)) - 2 * sqrtn(2, x)), sqrtn(2, 1 - frac(4 * x, (1 + x)^{2}))) = frac(1, 1 + x) * sgn(1 - x) * frac(1, sqrtn(2, x))
+5. forall (x), x ∈ RealSet ∧ x > 0 ∧ x ≠ 1 ⇒ FunDeri(fun x [x ∈ RealSet ∧ x > 0] . arcsin(frac(2 * sqrtn(2, x), 1 + x)), 1, 1)(x) = frac(1, 1 + x) * sgn(1 - x) * frac(1, sqrtn(2, x))
+6. { `F_2` | forall (x), x ∈ RealSet ∧ x > 0 ∧ x ≠ 1 ⇒ FunDeri(`F_2`, 1, 1)(x) = arcsin(frac(2 * sqrtn(2, x), 1 + x)) * FunDeri(fun x [x ∈ RealSet ∧ x > 0] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ x > 0 ∧ x ≠ 1 ⇒ FunDeri(`F_3`, 1, 1)(x) = arcsin(frac(2 * sqrtn(2, x), 1 + x)) * FunDeri(fun x [x ∈ RealSet ∧ x > 0] . x + 1, 1, 1)(x) }
+7. { `F_4` | forall (x), x ∈ RealSet ∧ x > 0 ∧ x ≠ 1 ⇒ FunDeri(`F_4`, 1, 1)(x) = arcsin(frac(2 * sqrtn(2, x), 1 + x)) * FunDeri(fun x [x ∈ RealSet ∧ x > 0] . x + 1, 1, 1)(x) } = { `F_8` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 0 ∧ x ≠ 1 ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(1, sqrtn(2, x)) * FunDeri(fun x [x ∈ RealSet ∧ x > 0] . x, 1, 1)(x) ∧ `F_8`(x) = (x + 1) * arcsin(frac(2 * sqrtn(2, x), 1 + x)) - sgn(1 - x) * `F_5`(x)) }
+
+GOAL:
+{ `F_9` | forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_9`, 1, 1)(x) = frac(1, sqrtn(2, x)) * FunDeri(fun x [x ∈ RealSet ∧ x > 0] . x, 1, 1)(x) } = { `F_10` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ `F_10`(x) = 2 * sqrtn(2, x) + C) }
+
+METHOD:

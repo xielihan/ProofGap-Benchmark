@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ 1 - x - x^{2} ≠ 0 ⇒ f(x) = frac(1, 1 - x - x^{2})
+3. forall (x), x ∈ RealSet ∧ |x| < frac(sqrtn(2, 5) - 1, 2) ⇒ f(x) = frac(1, frac(5, 4) - (x + frac(1, 2))^{2})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| < frac(sqrtn(2, 5) - 1, 2) ⇒ f(x) = frac(1, sqrtn(2, 5)) * (frac(1, sqrtn(2, 5) - (x + frac(1, 2))) + frac(1, frac(sqrtn(2, 5), 2) + x + frac(1, 2)))
+
+METHOD:

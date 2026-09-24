@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. p ∈ RealSet
+2. x ∈ RealSet
+3. 0 < x
+4. x < π
+
+GOAL:
+p > 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |frac(cos(n * x), n^{p})| ≤ frac(1, n^{p}) ∧ |frac(sin(n * x), n^{p})| ≤ frac(1, n^{p}))
+
+METHOD:

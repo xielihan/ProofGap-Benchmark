@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. a : NonNegIntegerSet → RealSet
+3. b : NonNegIntegerSet → RealSet
+4. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 3 ⇒ f(x) = cases{ x if 0 ≤ x ∧ x ≤ 1; 1 if 1 < x ∧ x < 2; 3 - x if 2 ≤ x ∧ x ≤ 3 }
+5. PeriodicFunc(f, 3)
+
+GOAL:
+EvenFunc(f)
+
+METHOD:

@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. forall (t), t ∈ RealSet ∧ t ≠ 0 ⇒ f(t) = t^{2} + frac(1, t^{2}) - 10 * t
+4. f(0.4) = 2.41
+
+GOAL:
+f(0.5) = -0.75
+
+METHOD:

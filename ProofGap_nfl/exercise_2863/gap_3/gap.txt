@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet
+2. α ∈ RealSet
+3. |x| < 1 ⇒ frac(x * cos(α) - x^{2}, 1 - 2 * x * cos(α) + x^{2}) = -1 - frac(1, 2) * (frac(cos(α) + __IMAGINARY_UNIT__ * sin(α), x - (cos(α) + __IMAGINARY_UNIT__ * sin(α))) + frac(cos(α) - __IMAGINARY_UNIT__ * sin(α), x - (cos(α) - __IMAGINARY_UNIT__ * sin(α))))
+4. |x| < 1 ⇒ frac(x * cos(α) - x^{2}, 1 - 2 * x * cos(α) + x^{2}) = -1 + frac(1, 2) * (frac(1, 1 - x * (cos(α) - __IMAGINARY_UNIT__ * sin(α))) + frac(1, 1 - x * (cos(α) + __IMAGINARY_UNIT__ * sin(α))))
+
+GOAL:
+|x| < 1 ⇒ frac(x * cos(α) - x^{2}, 1 - 2 * x * cos(α) + x^{2}) = -1 + frac(1, 2) * ((sum_{ n = 0 }^{ +∞ } (x^{n} * (cos(α) - __IMAGINARY_UNIT__ * sin(α))^{n})) + (sum_{ n = 0 }^{ +∞ } (x^{n} * (cos(α) + __IMAGINARY_UNIT__ * sin(α))^{n})))
+
+METHOD:

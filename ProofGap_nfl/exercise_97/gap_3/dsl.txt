@@ -1,0 +1,3 @@
+get_prop (hypothesis 2: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = frac(sqrtn(2, n), 100 + n)}) (n := {100}) as (hypothesis 5: {100 ∈ NonNegIntegerSet ∧ 100 ∈ PosIntegerSet ⇒ x(100) = frac(sqrtn(2, 100), 100 + 100)})
+use_condition (obvious: {100 ∈ NonNegIntegerSet ∧ 100 ∈ PosIntegerSet}) in (hypothesis 5: {100 ∈ NonNegIntegerSet ∧ 100 ∈ PosIntegerSet ⇒ x(100) = frac(sqrtn(2, 100), 100 + 100)}) as (hypothesis 6: {x(100) = frac(sqrtn(2, 100), 100 + 100)})
+autosolve all_hypothesis

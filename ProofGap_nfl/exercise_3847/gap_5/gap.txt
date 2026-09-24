@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. B : CartesianProd(RealSet, RealSet) → RealSet
+2. Gamma : RealSet → RealSet
+3. forall (t), t ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ t = x^{4} ∧ x ∈ [0, +∞) ⇒ t ∈ [0, +∞))
+4. forall (t), t ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ t = x^{4} ∧ x ∈ [0, +∞) ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ∈ [0, +∞)] . frac(x^{2}, 1 + x^{4})) * diff(fun x [x ∈ RealSet ∧ x ∈ [0, +∞)] . x)) = frac(1, 4) * DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ∈ [0, +∞)] . frac(t^{-frac(1, 4)}, 1 + t)) * diff(fun t [t ∈ RealSet ∧ t ∈ [0, +∞)] . t)))
+5. forall (u), u ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ u = t / (1 + t) ∧ t ∈ [0, +∞) ⇒ 1 + t ≠ 0)
+6. forall (u), u ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ u = t / (1 + t) ∧ t ∈ [0, +∞) ⇒ u ∈ [0, 1))
+
+GOAL:
+DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ∈ [0, +∞)] . frac(x^{2}, 1 + x^{4})) * diff(fun x [x ∈ RealSet ∧ x ∈ [0, +∞)] . x)) = frac(1, 4) * DefInt(0, 1, (fun u [u ∈ RealSet ∧ u ∈ [0, 1)] . u^{-frac(1, 4)} * (1 - u)^{-frac(3, 4)}) * diff(fun u [u ∈ RealSet ∧ u ∈ [0, 1)] . u))
+
+METHOD:

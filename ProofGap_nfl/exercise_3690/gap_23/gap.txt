@@ -1,0 +1,39 @@
+PROOF GAP @23
+ASSUM:
+1. Q ∈ RealSet ∧ Q > 0
+2. V : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+3. F : CartesianProd(RealSet, CartesianProd(RealSet, CartesianProd(RealSet, RealSet))) → RealSet
+4. α ∈ RealSet
+5. h ∈ RealSet
+6. R ∈ RealSet
+7. λ ∈ RealSet
+8. forall (α) (h) (R), α ∈ RealSet ∧ h ∈ RealSet ∧ R ∈ RealSet ∧ R > 0 ∧ h > 0 ∧ 0 ≤ α ∧ α < frac(π, 2) ⇒ V(α, h, R) = π * R^{2} * h + frac(1, 3) * π * R^{3} * tan(α)
+9. forall (α) (h) (R), α ∈ RealSet ∧ h ∈ RealSet ∧ R ∈ RealSet ∧ R > 0 ∧ h > 0 ∧ 0 ≤ α ∧ α < frac(π, 2) ⇒ π * R^{2} + 2 * π * R * h + frac(π * R^{2}, cos(α)) = Q
+10. F = (fun α, h, R, λ [α ∈ RealSet ∧ h ∈ RealSet ∧ R ∈ RealSet ∧ λ ∈ RealSet] . 3 * R^{2} * h + R^{3} * tan(α) - λ * (R^{2} + 2 * R * h + frac(R^{2}, cos(α)) - frac(Q, π)))
+11. FunDeri(F, 1, 1)(α, h, R, λ) = frac(R^{3}, cos(α)^{2}) - frac(λ * R^{2} * sin(α), cos(α)^{2})
+12. FunDeri(F, 2, 1)(α, h, R, λ) = 3 * R^{2} - 2 * R * λ
+13. FunDeri(F, 3, 1)(α, h, R, λ) = 6 * R * h + 3 * R^{2} * tan(α) - (2 * R + 2 * h + frac(2 * R, cos(α))) * λ
+14. FunDeri(F, 1, 1)(α, h, R, λ) = 0
+15. FunDeri(F, 2, 1)(α, h, R, λ) = 0
+16. FunDeri(F, 3, 1)(α, h, R, λ) = 0
+17. R^{2} + 2 * R * h + frac(R^{2}, cos(α)) = frac(Q, π)
+18. λ = frac(3, 2) * R
+19. sin(α) = frac(2, 3)
+20. cos(α) = frac(sqrtn(2, 5), 3)
+21. tan(α) = frac(2, sqrtn(2, 5))
+22. 6 * R * h + frac(6, sqrtn(2, 5)) * R^{2} = 3 * R^{2} + 3 * R * h + frac(9, sqrtn(2, 5)) * R^{2}
+23. h = (1 + frac(1, sqrtn(2, 5))) * R
+24. R^{2} + (2 + frac(2, sqrtn(2, 5))) * R^{2} + frac(3, sqrtn(2, 5)) * R^{2} = frac(Q, π)
+25. R = frac(sqrtn(2, 2) * (sqrtn(2, 5) - 1), 4) * sqrtn(2, frac(Q, π))
+26. h = (1 + frac(1, sqrtn(2, 5))) * R
+27. V(α, h, R) = frac(sqrtn(2, 2) * (sqrtn(2, 5) - 1), 12) * sqrtn(2, frac(Q^{3}, π))
+28. R^{2} + 2 * R * h + frac(R^{2}, cos(α)) = frac(Q, π) ⇒ R^{2} ≥ 0 ∧ R * h ≥ 0 ∧ frac(R^{2}, cos(α)) ≥ 0
+29. lim_{ R → 0^+ } (R) = 0 ⇒ lim_{ R → 0^+ } (V(α, h, R)) = 0
+30. lim_{ h → +∞ } (h) = +∞ ⇒ lim_{ h → +∞ } (R) = 0 ⇒ lim_{ h → +∞ } (V(α, h, R)) = 0
+31. lim_{ α → frac(π, 2)^- } (V(α, h, R)) = 0
+32. h = 0 ⇒ V(α, 0, R) ≤ frac(1, 6 * sqrtn(2, 2)) * sqrtn(2, frac(Q^{3}, π))
+
+GOAL:
+h = 0 ⇒ frac(1, 6 * sqrtn(2, 2)) * sqrtn(2, frac(Q^{3}, π)) < frac(sqrtn(2, 2) * (sqrtn(2, 5) - 1), 12) * sqrtn(2, frac(Q^{3}, π))
+
+METHOD:

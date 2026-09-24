@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x)^{2} = x^{2}
+3. ContinuousFunc(y)
+
+GOAL:
+y = (fun x [x ∈ RealSet] . x) ∨ y = (fun x [x ∈ RealSet] . -x) ∨ y = (fun x [x ∈ RealSet] . |x|) ∨ y = (fun x [x ∈ RealSet] . -|x|)
+
+METHOD:

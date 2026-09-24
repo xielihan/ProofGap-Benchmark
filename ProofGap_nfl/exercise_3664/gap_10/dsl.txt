@@ -1,0 +1,2 @@
+exists (x := {frac(π, 6)})
+autosolve

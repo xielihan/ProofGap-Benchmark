@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. p ∈ RealSet ∧ p > -1
+2. Gamma : RealSet → RealSet
+3. DefInt(0, 1, (fun x [x ∈ RealSet ∧ x > 0 ∧ x < 1] . ln(frac(1, x))^{p}) * diff(fun x [x ∈ RealSet ∧ x > 0 ∧ x < 1] . x)) = -DefInt(+∞, 0, (fun t [t ∈ RealSet ∧ t > 0] . t^{p} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))
+4. -DefInt(+∞, 0, (fun t [t ∈ RealSet ∧ t > 0] . t^{p} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t)) = DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{p} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))
+
+GOAL:
+DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{p} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t)) = Gamma(p + 1)
+
+METHOD:

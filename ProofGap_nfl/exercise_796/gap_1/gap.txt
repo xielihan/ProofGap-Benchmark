@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. F : RealSet → RealSet
+3. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, π) ⇒ f(x) = frac(sin(x), x)
+
+GOAL:
+lim_{ x → 0 } (sin(x) / x) = 1
+
+METHOD:

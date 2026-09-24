@@ -1,0 +1,4 @@
+exists (x := {x}) (y := {y}) (λ := {2 * π * x * y})
+get_prop (hypothesis 10: {forall (x) (y) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 2, 1)(x, y, λ) = 2 * π * x * y - λ}) (x := {x}) (y := {y}) (λ := {2 * π * x * y}) as (hypothesis 12: {x ∈ RealSet ∧ y ∈ RealSet ∧ 2 * π * x * y ∈ RealSet ⇒ FunDeri(F, 2, 1)(x, y, 2 * π * x * y) = 2 * π * x * y - 2 * π * x * y})
+use_condition (obvious: {x ∈ RealSet ∧ y ∈ RealSet ∧ 2 * π * x * y ∈ RealSet}) in (hypothesis 12: {x ∈ RealSet ∧ y ∈ RealSet ∧ 2 * π * x * y ∈ RealSet ⇒ FunDeri(F, 2, 1)(x, y, 2 * π * x * y) = 2 * π * x * y - 2 * π * x * y}) as (hypothesis 13: {FunDeri(F, 2, 1)(x, y, 2 * π * x * y) = 2 * π * x * y - 2 * π * x * y})
+autosolve all_hypothesis

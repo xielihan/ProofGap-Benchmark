@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet
+2. a > 0
+3. φ = (fun x [x ∈ RealSet] . a^{x} - 1)
+4. ψ = (fun x [x ∈ RealSet] . x * ln(a))
+5. α = (fun k, n [k ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ n > 0] . frac(k, n^{2}))
+6. a > 0 ∧ a ≠ 1 ⇒ lim_{ x → 0 } (frac(φ(x), ψ(x))) = 1
+7. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ PosIntegerSet ∧ (forall (n) (k), n ∈ PosIntegerSet ∧ k ∈ PosIntegerSet ∧ n > N ∧ 1 ≤ k ∧ k ≤ n ⇒ |α(k, n) * ln(a)| < ε))
+8. seqlim_{ n → +∞ } (sum_{ k = 1 }^{ n } (ψ(α(k, n)))) = seqlim_{ n → +∞ } (sum_{ k = 1 }^{ n } (frac(k, n^{2}) * ln(a)))
+
+GOAL:
+seqlim_{ n → +∞ } (sum_{ k = 1 }^{ n } (frac(k, n^{2}) * ln(a))) = frac(1, 2) * ln(a)
+
+METHOD:

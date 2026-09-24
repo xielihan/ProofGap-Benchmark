@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ sqrtn(2, 1 - sin(2 * x)) = sqrtn(2, (cos(x) - sin(x))^{2})
+
+METHOD:

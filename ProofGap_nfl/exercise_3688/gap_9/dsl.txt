@@ -1,0 +1,8 @@
+get_condition (hypothesis 18: {r^{2} + r * h = frac(S, π)}) in (GOAL: {r^{2} + r * h = frac(S, π) ⇒ r^{2} ≥ 0 ∧ r * h ≤ frac(S, π)})
+assert (hypothesis 19: {r^{2} ≥ 0}) by proof {
+  1. autosolve all_hypothesis
+}
+assert (hypothesis 20: {r * h ≤ frac(S, π)}) by proof {
+  1. autosolve all_hypothesis
+}
+autosolve all_hypothesis

@@ -1,0 +1,5 @@
+1. get_forall (GOAL: {forall (T), T ∈ RealSet ∧ T > 0 ⇒ (forall (ε), ε : NonNegIntegerSet → RealSet ∧ PosSeq(ε) ∧ seqlim_{ n → +∞ } (ε(n)) = 0 ⇒ IsSubseqIndexFunc(k))}) (T := {T1})
+2. get_condition (hypothesis 19: {T1 ∈ RealSet ∧ T1 > 0}) in (GOAL: {T1 ∈ RealSet ∧ T1 > 0 ⇒ (forall (ε), ε : NonNegIntegerSet → RealSet ∧ PosSeq(ε) ∧ seqlim_{ n → +∞ } (ε(n)) = 0 ⇒ IsSubseqIndexFunc(k))})
+3. get_forall (GOAL: {forall (ε), ε : NonNegIntegerSet → RealSet ∧ PosSeq(ε) ∧ seqlim_{ n → +∞ } (ε(n)) = 0 ⇒ IsSubseqIndexFunc(k)}) (ε := {eps})
+4. get_condition (hypothesis 20: {eps : NonNegIntegerSet → RealSet ∧ PosSeq(eps) ∧ seqlim_{ n → +∞ } (eps(n)) = 0}) in (GOAL: {eps : NonNegIntegerSet → RealSet ∧ PosSeq(eps) ∧ seqlim_{ n → +∞ } (eps(n)) = 0 ⇒ IsSubseqIndexFunc(k)})
+5. autosolve all_hypothesis

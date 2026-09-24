@@ -1,0 +1,19 @@
+PROOF GAP @9
+ASSUM:
+1. x ∈ RealSet
+2. f : RealSet → RealSet
+3. a : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(1, n)
+5. lim_{ n → +∞ } (|frac(a(n), a(n + 1))|) = lim_{ n → +∞ } (frac(n + 1, n))
+6. lim_{ n → +∞ } (frac(n + 1, n)) = 1
+7. lim_{ n → +∞ } (|frac(a(n), a(n + 1))|) = 1
+8. RadiusOfConvergence(a) = 1
+9. DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1^{n}, n)))
+10. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac((-1)^{n}, n)))
+11. { x | x ∈ RealSet, ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(x^{n}, n))) } = [-1, 1)
+12. x ∈ [-1, 1) ⇒ f = (fun x [x ∈ RealSet] . sum_{ n = 1 }^{ +∞ } (frac(x^{n}, n))) ⇒ |x| < 1 ⇒ FunDeri(f, 1, 1)(x) = sum_{ n = 1 }^{ +∞ } (x^{n - 1})
+
+GOAL:
+x ∈ [-1, 1) ⇒ f = (fun x [x ∈ RealSet] . sum_{ n = 1 }^{ +∞ } (frac(x^{n}, n))) ⇒ |x| < 1 ⇒ sum_{ n = 1 }^{ +∞ } (x^{n - 1}) = frac(1, 1 - x)
+
+METHOD:

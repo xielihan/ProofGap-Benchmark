@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. S : NonNegIntegerSet → RealSet
+3. ξ : CartesianProd(NonNegIntegerSet, IntegerSet) → RealSet
+4. forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 4 ⇒ f(x) = 1 + x
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ ξ(n, i) = -1 + (i + frac(1, 2)) * frac(5, n)
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ S(n) = sum_{ i = 0 }^{ n - 1 } (f(ξ(n, i)) * frac(5, n))
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ⇒ n ∈ PosIntegerSet
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ exists (Δx), Δx ∈ RealSet ∧ Δx = frac(5, n)
+
+METHOD:

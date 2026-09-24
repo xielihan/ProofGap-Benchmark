@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. n ∈ NonNegIntegerSet
+3. n ∈ PosIntegerSet
+4. forall (x), x ∈ RealSet ⇒ y(x) = x^{n} * e^{x}
+5. forall (x), x ∈ RealSet ⇒ diff^{n}(y) = FunDeri(y, 1, n)(x) * diff(fun x [x ∈ RealSet] . x)^{n}
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, n)(x) = e^{x} * (sum_{ k = 0 }^{ n } (Combination(n, k) * frac(n!, (n - k)!) * x^{n - k}))
+
+METHOD:

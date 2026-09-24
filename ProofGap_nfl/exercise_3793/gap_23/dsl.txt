@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 23: {I(β) = 0}); from (hypothesis 25: {exists (C), C ∈ RealSet ∧ I(β) = -frac(1, 2) * ln(β) + C}) to (hypothesis 25: {exists (C), C ∈ RealSet ∧ 0 = -frac(1, 2) * ln(β) + C})
+autosolve all_hypothesis

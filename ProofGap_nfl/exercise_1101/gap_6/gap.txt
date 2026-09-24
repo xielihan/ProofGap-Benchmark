@@ -1,0 +1,15 @@
+PROOF GAP @6
+ASSUM:
+1. f = (fun x [x ∈ RealSet] . cos(x))
+2. x_{0} = frac(5 * π, 6)
+3. Δx = frac(π, 180)
+4. frac(151 * π, 180) = x_{0} + Δx
+5. cos(frac(151 * π, 180)) = f(x_{0} + Δx)
+6. f(x_{0} + Δx) ≈_{ |Δx|^{2} } f(x_{0}) + FunDeri(f, 1, 1)(x_{0}) * Δx
+7. FunDeri(f, 1, 1)(x_{0}) = -sin(x_{0})
+8. cos(frac(151 * π, 180)) ≈_{ |Δx|^{2} } cos(frac(5 * π, 6)) - sin(frac(5 * π, 6)) * frac(π, 180)
+
+GOAL:
+cos(frac(151 * π, 180)) = -0.8748
+
+METHOD:

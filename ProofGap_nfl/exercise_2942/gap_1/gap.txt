@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. a : NonNegIntegerSet → RealSet
+3. b : NonNegIntegerSet → RealSet
+4. forall (x), x ∈ RealSet ∧ -π < x ∧ x < π ⇒ f(x) = |x|
+
+GOAL:
+forall (x), x ∈ RealSet ∧ -π < x ∧ x < π ⇒ f(-x) = f(x)
+
+METHOD:

@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+
+GOAL:
+frac(x^{2}, 1 + x^{2}) = 1 - frac(1, x^{2} + 1)
+
+METHOD:

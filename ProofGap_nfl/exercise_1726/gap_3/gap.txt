@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ sqrtn(2, 2) ∧ x ≠ -sqrtn(2, 2) ⇒ frac((2 - x)^{2}, 2 - x^{2}) = frac(x^{2} - 2 - 4 * x + 6, 2 - x^{2})
+3. forall (x), x ∈ RealSet ∧ x ≠ sqrtn(2, 2) ∧ x ≠ -sqrtn(2, 2) ⇒ frac(x^{2} - 2 - 4 * x + 6, 2 - x^{2}) = -1 - frac(4 * x, 2 - x^{2}) + frac(6, 2 - x^{2})
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac((2 - x)^{2}, 2 - x^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = (-1 - frac(4 * x, 2 - x^{2}) + frac(6, 2 - x^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+METHOD:

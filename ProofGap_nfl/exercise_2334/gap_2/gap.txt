@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. a > 0
+3. lim_{ b → +∞ } (DefInt(a, b, (fun x [x ∈ RealSet ∧ x > 0] . frac(1, x^{2})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x))) = lim_{ b → +∞ } (frac(1, a) - frac(1, b))
+
+GOAL:
+lim_{ b → +∞ } (frac(1, a) - frac(1, b)) = frac(1, a)
+
+METHOD:

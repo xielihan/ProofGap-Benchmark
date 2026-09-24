@@ -1,0 +1,11 @@
+1. get_condition (hypothesis 33: {q - 1 <= p}) (hypothesis 34: {p < q}) (hypothesis 35: {q > 0}) in (GOAL: {q - 1 <= p => p < q => q > 0 => (forall (A), A ∈ RealSet /\ A > 1 => |cos(1) - cos(A)| <= 2)})
+2. get_forall (GOAL: {forall (A), A ∈ RealSet /\ A > 1 => |cos(1) - cos(A)| <= 2}) (A := {A0})
+3. get_condition (hypothesis 36: {A0 ∈ RealSet /\ A0 > 1}) in (GOAL: {A0 ∈ RealSet /\ A0 > 1 => |cos(1) - cos(A0)| <= 2})
+4. destruct_and (hypothesis 36: {A0 ∈ RealSet /\ A0 > 1}) as (hypothesis 37: {A0 ∈ RealSet}) (hypothesis 38: {A0 > 1})
+5. get_prop (theorem 'Thm 167. (CosineBounded)': {forall (x), x ∈ RealSet => -1 <= cos(x) /\ cos(x) <= 1}) (x := {1}) as (hypothesis 39: {1 ∈ RealSet => -1 <= cos(1) /\ cos(1) <= 1})
+6. get_prop (theorem 'Thm 167. (CosineBounded)': {forall (x), x ∈ RealSet => -1 <= cos(x) /\ cos(x) <= 1}) (x := {A0}) as (hypothesis 40: {A0 ∈ RealSet => -1 <= cos(A0) /\ cos(A0) <= 1})
+7. use_condition (obvious: {1 ∈ RealSet}) in (hypothesis 39: {1 ∈ RealSet => -1 <= cos(1) /\ cos(1) <= 1}) as (hypothesis 41: {-1 <= cos(1) /\ cos(1) <= 1})
+8. use_condition (hypothesis 37: {A0 ∈ RealSet}) in (hypothesis 40: {A0 ∈ RealSet => -1 <= cos(A0) /\ cos(A0) <= 1}) as (hypothesis 42: {-1 <= cos(A0) /\ cos(A0) <= 1})
+9. destruct_and (hypothesis 41: {-1 <= cos(1) /\ cos(1) <= 1}) as (hypothesis 43: {-1 <= cos(1)}) (hypothesis 44: {cos(1) <= 1})
+10. destruct_and (hypothesis 42: {-1 <= cos(A0) /\ cos(A0) <= 1}) as (hypothesis 45: {-1 <= cos(A0)}) (hypothesis 46: {cos(A0) <= 1})
+11. autosolve all_hypothesis

@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet => f(x) = (1 + x) * (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x^{n}, n!)))}) (x := {x0})
+get_condition (hypothesis 4: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet => f(x0) = (1 + x0) * (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x0^{n}, n!)))})
+get_prop (hypothesis 2: {forall (x), x ∈ RealSet => f(x) = (1 + x) * e^{-x}}) (x := {x0}) as (hypothesis 5: {x0 ∈ RealSet => f(x0) = (1 + x0) * e^{-x0}})
+use_condition (hypothesis 4: {x0 ∈ RealSet}) in (hypothesis 5: {x0 ∈ RealSet => f(x0) = (1 + x0) * e^{-x0}}) as (hypothesis 6: {f(x0) = (1 + x0) * e^{-x0}})
+get_prop (hypothesis 3: {forall (x), x ∈ RealSet => e^{-x} = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x^{n}, n!))}) (x := {x0}) as (hypothesis 7: {x0 ∈ RealSet => e^{-x0} = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x0^{n}, n!))})
+use_condition (hypothesis 4: {x0 ∈ RealSet}) in (hypothesis 7: {x0 ∈ RealSet => e^{-x0} = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x0^{n}, n!))}) as (hypothesis 8: {e^{-x0} = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x0^{n}, n!))})
+rewrite (left_to_right, equation) (hypothesis 6: {f(x0) = (1 + x0) * e^{-x0}}); from (GOAL: {f(x0) = (1 + x0) * (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x0^{n}, n!)))}) to (GOAL: {(1 + x0) * e^{-x0} = (1 + x0) * (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x0^{n}, n!)))})
+rewrite (left_to_right, equation) (hypothesis 8: {e^{-x0} = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x0^{n}, n!))}); from (GOAL: {(1 + x0) * e^{-x0} = (1 + x0) * (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x0^{n}, n!)))}) to (GOAL: {(1 + x0) * (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x0^{n}, n!))) = (1 + x0) * (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x0^{n}, n!)))})
+autosolve all_hypothesis

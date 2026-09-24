@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. a : NonNegIntegerSet → RealSet ∧ IsSeq(a)
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac((n!)^{2}, (2 * n)!)
+
+GOAL:
+seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!)))
+
+METHOD:

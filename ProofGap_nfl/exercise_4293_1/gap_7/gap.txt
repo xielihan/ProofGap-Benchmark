@@ -1,0 +1,31 @@
+PROOF GAP @7
+ASSUM:
+1. m ∈ RealSet
+2. g ∈ RealSet
+3. A ∈ RealSet
+4. C ∈ CartesianProd(CartesianProd(CartesianProd(RealSet, RealSet), RealSet), CartesianProd(CartesianProd(RealSet, RealSet), RealSet))
+5. x_{1} ∈ RealSet
+6. y_{1} ∈ RealSet
+7. z_{1} ∈ RealSet
+8. x_{2} ∈ RealSet
+9. y_{2} ∈ RealSet
+10. z_{2} ∈ RealSet
+11. s ∈ RealSet
+12. i ∈ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+13. j ∈ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+14. k ∈ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+15. m > 0
+16. g > 0
+17. C = ((x_{1}, y_{1}, z_{1}), (x_{2}, y_{2}, z_{2}))
+18. F = (0, 0, -m * g)
+19. diff(s) = diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * i + diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * j + diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) * k
+20. diff(A) = F · diff(s)
+21. F · diff(s) = (fun z [z ∈ RealSet] . -m * g) * diff(fun z [z ∈ RealSet] . z)
+22. (fun z [z ∈ RealSet] . -m * g) * diff(fun z [z ∈ RealSet] . z) = diff(fun z [z ∈ RealSet] . -m * g * z)
+23. diff(A) = diff(fun z [z ∈ RealSet] . -m * g * z)
+24. A = VectorCurveInt(C, F · diff(s))
+
+GOAL:
+VectorCurveInt(C, F · diff(s)) = VectorCurveInt(C, (fun z [z ∈ RealSet] . -m * g) * diff(fun z [z ∈ RealSet] . z))
+
+METHOD:

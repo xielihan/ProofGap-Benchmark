@@ -1,0 +1,44 @@
+PROOF GAP @29
+ASSUM:
+1. x ∈ RealSet ∧ x > 0
+2. λ ∈ RealSet ∧ λ > 0
+3. α ∈ RealSet ∧ -frac(π, 2) < α ∧ α < frac(π, 2)
+4. I : RealSet → RealSet
+5. I_{1} : RealSet → RealSet
+6. Gamma : RealSet → RealSet
+7. D_{alpha} : RealSet → RealSet
+8. forall (t), t ∈ RealSet ∧ 0 < t ∧ t < +∞ ⇒ |t^{x - 1} * e^{-λ * t * cos(α)} * cos(λ * t * sin(α))| ≤ t^{x - 1} * e^{-λ * t * cos(α)}
+9. exists (u), u : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t > 0 ∧ u(t) = λ * t * cos(α) ⇒ DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-λ * t * cos(α)}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t)) = frac(1, (λ * cos(α))^{x}) * DefInt(0, +∞, (fun u [u ∈ RealSet ∧ u > 0] . u^{x - 1} * e^{-u}) * diff(fun u [u ∈ RealSet ∧ u > 0] . u)))
+10. exists (u), u : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t > 0 ∧ u(t) = λ * t * cos(α) ⇒ DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-λ * t * cos(α)}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t)) = frac(Gamma(x), (λ * cos(α))^{x}))
+11. exists (u), u : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t > 0 ∧ u(t) = λ * t * cos(α) ⇒ frac(Gamma(x), (λ * cos(α))^{x}) < +∞)
+12. exists (u), u : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t > 0 ∧ u(t) = λ * t * cos(α) ⇒ DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-λ * t * cos(α)}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t)) < +∞)
+13. ConvergentSeries(DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-λ * t * cos(α)} * cos(λ * t * sin(α))) * diff(fun t [t ∈ RealSet ∧ t > 0] . t)))
+14. ConvergentSeries(DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-λ * t * cos(α)} * sin(λ * t * sin(α))) * diff(fun t [t ∈ RealSet ∧ t > 0] . t)))
+15. I(α) = DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-λ * t * cos(α)} * cos(λ * t * sin(α))) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))
+16. I_{1}(α) = DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-λ * t * cos(α)} * sin(λ * t * sin(α))) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))
+17. forall (t), t ∈ RealSet ∧ t > 0 ⇒ D_{alpha}(t^{x - 1} * e^{-λ * t * cos(α)} * cos(λ * t * sin(α))) = λ * t^{x} * e^{-λ * t * cos(α)} * (sin(α) * cos(λ * t * sin(α)) - cos(α) * sin(λ * t * sin(α)))
+18. forall (t), t ∈ RealSet ∧ t > 0 ⇒ (forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < frac(π, 2) ⇒ (forall (α), α ∈ RealSet ∧ -frac(π, 2) + ε ≤ α ∧ α ≤ frac(π, 2) - ε ⇒ |t^{x} * e^{-λ * t * cos(α)} * (sin(α) * cos(λ * t * sin(α)) - cos(α) * sin(λ * t * sin(α)))| ≤ 2 * t^{x} * e^{-λ * t * cos(α)}))
+19. DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{x} * e^{-λ * t * cos(α)}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t)) < +∞
+20. FunDeri(I, 1, 1)(α) = DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t > 0] . D_{alpha}(t^{x - 1} * e^{-λ * t * cos(α)} * cos(λ * t * sin(α)))) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))
+21. FunDeri(I, 1, 1)(α) = -x * I_{1}(α)
+22. FunDeri(I_{1}, 1, 1)(α) = x * I(α)
+23. FunDeri(I, 1, 2)(α) + x^{2} * I(α) = 0
+24. exists (C_{1}), C_{1} ∈ RealSet ∧ (exists (C_{2}), C_{2} ∈ RealSet ∧ I(α) = C_{1} * cos(α * x) + C_{2} * sin(α * x))
+25. exists (C_{1}), C_{1} ∈ RealSet ∧ C_{1} = I(0)
+26. I(0) = DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-λ * t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))
+27. DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-λ * t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t)) = frac(Gamma(x), λ^{x})
+28. exists (C_{1}), C_{1} ∈ RealSet ∧ C_{1} = frac(Gamma(x), λ^{x})
+29. FunDeri(I, 1, 1)(0) = -x * I_{1}(0)
+30. exists (C_{2}), C_{2} ∈ RealSet ∧ FunDeri(I, 1, 1)(0) = C_{2} * x
+31. I_{1}(0) = 0
+32. exists (C_{2}), C_{2} ∈ RealSet ∧ C_{2} = 0
+33. I(α) = frac(Gamma(x), λ^{x}) * cos(α * x)
+34. I_{1}(α) = -frac(1, x) * FunDeri(I, 1, 1)(α)
+35. -frac(1, x) * FunDeri(I, 1, 1)(α) = frac(Gamma(x), λ^{x}) * sin(α * x)
+36. I_{1}(α) = frac(Gamma(x), λ^{x}) * sin(α * x)
+37. DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-λ * t * cos(α)} * sin(λ * t * sin(α))) * diff(fun t [t ∈ RealSet ∧ t > 0] . t)) = frac(Gamma(x), λ^{x}) * sin(α * x)
+
+GOAL:
+DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-λ * t * cos(α)} * sin(λ * t * sin(α))) * diff(fun t [t ∈ RealSet ∧ t > 0] . t)) = frac(Gamma(x), λ^{x}) * sin(α * x)
+
+METHOD:

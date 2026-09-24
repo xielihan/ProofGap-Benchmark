@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. lim_{ x → 4 } (frac(sqrtn(2, 1 + 2 * x) - 3, sqrtn(2, x) - 2)) = lim_{ x → 4 } (frac((sqrtn(2, 1 + 2 * x) - 3) * (sqrtn(2, 1 + 2 * x) + 3) * (sqrtn(2, x) + 2), (sqrtn(2, x) - 2) * (sqrtn(2, x) + 2) * (sqrtn(2, 1 + 2 * x) + 3)))
+2. lim_{ x → 4 } (frac((sqrtn(2, 1 + 2 * x) - 3) * (sqrtn(2, 1 + 2 * x) + 3) * (sqrtn(2, x) + 2), (sqrtn(2, x) - 2) * (sqrtn(2, x) + 2) * (sqrtn(2, 1 + 2 * x) + 3))) = lim_{ x → 4 } (frac(2 * (x - 4) * (sqrtn(2, x) + 2), (x - 4) * (sqrtn(2, 1 + 2 * x) + 3)))
+3. lim_{ x → 4 } (frac(2 * (x - 4) * (sqrtn(2, x) + 2), (x - 4) * (sqrtn(2, 1 + 2 * x) + 3))) = lim_{ x → 4 } (frac(2 * (sqrtn(2, x) + 2), sqrtn(2, 1 + 2 * x) + 3))
+4. lim_{ x → 4 } (frac(2 * (sqrtn(2, x) + 2), sqrtn(2, 1 + 2 * x) + 3)) = frac(4, 3)
+
+GOAL:
+lim_{ x → 4 } (frac(sqrtn(2, 1 + 2 * x) - 3, sqrtn(2, x) - 2)) = frac(4, 3)
+
+METHOD:

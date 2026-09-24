@@ -1,0 +1,36 @@
+PROOF GAP @21
+ASSUM:
+1. x ∈ RealSet
+2. a ∈ RealSet
+3. d ∈ RealSet
+4. b : NonNegIntegerSet → RealSet
+5. f : RealSet → RealSet
+6. C ∈ RealSet
+7. d > 0
+8. forall (k), k ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = frac(prod_{ k = 0 }^{ n - 1 } (a + k * d), prod_{ k = 1 }^{ n } (k * d)))
+9. exists (m), m ∈ NonNegIntegerSet ∧ (m ∈ NonNegIntegerSet ∧ a = -m * d ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ m + 1 ⇒ b(n) = 0))
+10. exists (m), m ∈ NonNegIntegerSet ∧ (m ∈ NonNegIntegerSet ∧ a = -m * d ⇒ sum_{ n = 1 }^{ +∞ } (b(n) * x^{n}) = sum_{ n = 1 }^{ m } (b(n) * x^{n}))
+11. ¬(exists (m), m ∈ NonNegIntegerSet ∧ a = -m * d) ⇒ lim_{ n → +∞ } (|frac(b(n), b(n + 1))|) = lim_{ n → +∞ } (frac((n + 1) * d, a + n * d))
+12. ¬(exists (m), m ∈ NonNegIntegerSet ∧ a = -m * d) ⇒ lim_{ n → +∞ } (frac((n + 1) * d, a + n * d)) = 1
+13. ¬(exists (m), m ∈ NonNegIntegerSet ∧ a = -m * d) ⇒ lim_{ n → +∞ } (|frac(b(n), b(n + 1))|) = 1
+14. ¬(exists (m), m ∈ NonNegIntegerSet ∧ a = -m * d) ⇒ RadiusOfConvergence(b) = 1
+15. forall (n), n ∈ NonNegIntegerSet ∧ ¬(exists (m), m ∈ NonNegIntegerSet ∧ a = -m * d) ∧ x ∈ IntervalLoRo(-1, 1) ⇒ f(x) = sum_{ n = 1 }^{ +∞ } (b(n) * x^{n})
+16. forall (n), n ∈ NonNegIntegerSet ∧ ¬(exists (m), m ∈ NonNegIntegerSet ∧ a = -m * d) ∧ x ∈ IntervalLoRo(-1, 1) ⇒ FunDeri(f, 1, 1)(x) = sum_{ n = 1 }^{ +∞ } (frac(prod_{ k = 0 }^{ n - 1 } (a + k * d), d * (prod_{ k = 1 }^{ n - 1 } (k * d))) * x^{n - 1})
+17. ¬(exists (m), m ∈ NonNegIntegerSet ∧ a = -m * d) ⇒ x ∈ IntervalLoRo(-1, 1) ⇒ (1 - x) * FunDeri(f, 1, 1)(x) = frac(a, d) + frac(a, d) * f(x)
+18. ¬(exists (m), m ∈ NonNegIntegerSet ∧ a = -m * d) ⇒ x ∈ IntervalLoRo(-1, 1) ⇒ FunDeri(f, 1, 1)(x) - frac(a, d) * frac(1, 1 - x) * f(x) = frac(a, d) * frac(1, 1 - x)
+19. ¬(exists (m), m ∈ NonNegIntegerSet ∧ a = -m * d) ⇒ x ∈ IntervalLoRo(-1, 1) ⇒ f(x) = C * (1 - x)^{-frac(a, d)} - 1
+20. ¬(exists (m), m ∈ NonNegIntegerSet ∧ a = -m * d) ⇒ x ∈ IntervalLoRo(-1, 1) ⇒ f(0) = 0
+21. ¬(exists (m), m ∈ NonNegIntegerSet ∧ a = -m * d) ⇒ x ∈ IntervalLoRo(-1, 1) ⇒ C = 1
+22. ¬(exists (m), m ∈ NonNegIntegerSet ∧ a = -m * d) ⇒ x ∈ IntervalLoRo(-1, 1) ⇒ f(x) = (1 - x)^{-frac(a, d)} - 1
+23. forall (n), n ∈ NonNegIntegerSet ∧ ¬(exists (m), m ∈ NonNegIntegerSet ∧ a = -m * d) ∧ x = 1 ∧ a < 0 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n)))
+24. forall (n), n ∈ NonNegIntegerSet ∧ ¬(exists (m), m ∈ NonNegIntegerSet ∧ a = -m * d) ∧ x = 1 ∧ a > 0 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (b(n)))
+25. forall (n), n ∈ NonNegIntegerSet ∧ ¬(exists (m), m ∈ NonNegIntegerSet ∧ a = -m * d) ∧ x = -1 ∧ a < 0 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n} * b(n)))
+26. forall (n), n ∈ NonNegIntegerSet ∧ ¬(exists (m), m ∈ NonNegIntegerSet ∧ a = -m * d) ∧ x = -1 ∧ 0 < a ∧ a < d ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n} * b(n)))
+27. forall (n), n ∈ NonNegIntegerSet ∧ ¬(exists (m), m ∈ NonNegIntegerSet ∧ a = -m * d) ∧ x = -1 ∧ a ≥ d ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n} * b(n)))
+28. forall (n), n ∈ NonNegIntegerSet ∧ ¬(exists (m), m ∈ NonNegIntegerSet ∧ a = -m * d) ∧ a < 0 ⇒ (forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ⇒ sum_{ n = 1 }^{ +∞ } (b(n) * x^{n}) = (1 - x)^{-frac(a, d)} - 1)
+29. forall (n), n ∈ NonNegIntegerSet ∧ ¬(exists (m), m ∈ NonNegIntegerSet ∧ a = -m * d) ∧ 0 < a ∧ a < d ⇒ (forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x < 1 ⇒ sum_{ n = 1 }^{ +∞ } (b(n) * x^{n}) = (1 - x)^{-frac(a, d)} - 1)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ ¬(exists (m), m ∈ NonNegIntegerSet ∧ a = -m * d) ∧ a ≥ d ⇒ (forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ sum_{ n = 1 }^{ +∞ } (b(n) * x^{n}) = (1 - x)^{-frac(a, d)} - 1)
+
+METHOD:

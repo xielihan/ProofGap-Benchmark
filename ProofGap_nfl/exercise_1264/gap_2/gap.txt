@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. C_{1} ∈ RealSet
+2. C_{2} ∈ RealSet
+3. C ∈ RealSet
+4. forall (x), x ∈ RealSet ∧ |x| > 1 ⇒ FunDeri(fun x [x ∈ RealSet] . 2 * arctan(x) + arcsin(frac(2 * x, 1 + x^{2})), 1, 1)(x) = frac(2, 1 + x^{2}) + frac(1, sqrtn(2, 1 - frac(4 * x^{2}, (1 + x^{2})^{2}))) * frac(2 * (1 + x^{2}) - 4 * x^{2}, (1 + x^{2})^{2})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| > 1 ⇒ frac(2, 1 + x^{2}) + frac(1, sqrtn(2, 1 - frac(4 * x^{2}, (1 + x^{2})^{2}))) * frac(2 * (1 + x^{2}) - 4 * x^{2}, (1 + x^{2})^{2}) = 0
+
+METHOD:

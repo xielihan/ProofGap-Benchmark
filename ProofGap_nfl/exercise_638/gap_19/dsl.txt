@@ -1,0 +1,6 @@
+1. get_condition (hypothesis 25: {0 < x}) (hypothesis 26: {x <= 1}) in (GOAL: {0 < x ⇒ x <= 1 ⇒ A_{1} <= frac(x, 2)})
+2. use_condition (hypothesis 25: {0 < x}) (hypothesis 26: {x <= 1}) in (hypothesis 22: {0 < x ⇒ x <= 1 ⇒ A_{1} = frac(x, 2) - frac((A_{2})^{2}, 2)}) as (hypothesis 27: {A_{1} = frac(x, 2) - frac((A_{2})^{2}, 2)})
+3. assert (hypothesis 28: {(A_{2})^{2} >= 0})
+4. assert (hypothesis 29: {frac((A_{2})^{2}, 2) >= 0})
+5. rewrite (left_to_right, equation) (hypothesis 27: {A_{1} = frac(x, 2) - frac((A_{2})^{2}, 2)}); from (GOAL: {A_{1} <= frac(x, 2)}) to (GOAL: {frac(x, 2) - frac((A_{2})^{2}, 2) <= frac(x, 2)})
+6. autosolve all_hypothesis

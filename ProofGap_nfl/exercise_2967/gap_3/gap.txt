@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. q ∈ RealSet
+2. F : RealSet → RealSet
+3. |q| < 1
+4. forall (x), x ∈ RealSet ⇒ 1 - q * e^{__IMAGINARY_UNIT__ * x} ≠ 0
+5. forall (x), x ∈ RealSet ⇒ 1 - q * e^{-__IMAGINARY_UNIT__ * x} ≠ 0
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ frac(1 - q^{2}, 1 - 2 * q * cos(x) + q^{2}) = frac(1 - q^{2}, 1 - q * (e^{__IMAGINARY_UNIT__ * x} + e^{-__IMAGINARY_UNIT__ * x}) + q^{2})
+
+METHOD:

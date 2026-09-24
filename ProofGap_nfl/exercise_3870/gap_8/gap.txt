@@ -1,0 +1,16 @@
+PROOF GAP @8
+ASSUM:
+1. Gamma : RealSet → RealSet
+2. t = (fun x [x ∈ RealSet] . 1 - x)
+3. DefInt(0, 1, (fun x [x ∈ RealSet] . ln(Gamma(x)) * sin(π * x)) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun t [t ∈ RealSet] . ln(Gamma(1 - t)) * sin(π * t)) * diff(fun t [t ∈ RealSet] . t))
+4. DefInt(0, 1, (fun t [t ∈ RealSet] . ln(Gamma(1 - t)) * sin(π * t)) * diff(fun t [t ∈ RealSet] . t)) = DefInt(0, 1, (fun x [x ∈ RealSet] . ln(Gamma(1 - x)) * sin(π * x)) * diff(fun x [x ∈ RealSet] . x))
+5. DefInt(0, 1, (fun x [x ∈ RealSet] . ln(Gamma(x)) * sin(π * x)) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet] . ln(Gamma(1 - x)) * sin(π * x)) * diff(fun x [x ∈ RealSet] . x))
+6. 2 * DefInt(0, 1, (fun x [x ∈ RealSet] . ln(Gamma(x)) * sin(π * x)) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet] . ln(Gamma(x) * Gamma(1 - x)) * sin(π * x)) * diff(fun x [x ∈ RealSet] . x))
+7. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < 1 ⇒ Gamma(x) * Gamma(1 - x) = frac(π, sin(π * x))
+8. 2 * DefInt(0, 1, (fun x [x ∈ RealSet] . ln(Gamma(x)) * sin(π * x)) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet] . ln(frac(π, sin(π * x))) * sin(π * x)) * diff(fun x [x ∈ RealSet] . x))
+9. DefInt(0, 1, (fun x [x ∈ RealSet] . ln(frac(π, sin(π * x))) * sin(π * x)) * diff(fun x [x ∈ RealSet] . x)) = ln(π) * DefInt(0, 1, (fun x [x ∈ RealSet] . sin(π * x)) * diff(fun x [x ∈ RealSet] . x)) - DefInt(0, 1, (fun x [x ∈ RealSet] . sin(π * x) * ln(sin(π * x))) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet] . sin(π * x)) * diff(fun x [x ∈ RealSet] . x)) = frac(2, π)
+
+METHOD:

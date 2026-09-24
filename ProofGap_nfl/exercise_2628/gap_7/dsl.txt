@@ -1,0 +1,9 @@
+1. get_prop (theorem 'Thm 366. (PSeriesConvergesForExponentAboveOne)': {forall (p), p ∈ RealSet ⇒ p > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{p}))}) (p := {2}) as (hypothesis 14: {2 ∈ RealSet ⇒ 2 > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{2}))})
+2. use_condition (obvious: {2 ∈ RealSet}) (obvious: {2 > 1}) in (hypothesis 14: {2 ∈ RealSet ⇒ 2 > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{2}))}) as (hypothesis 15: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{2}))})
+3. assert (hypothesis 16: {forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ⇒ 1 / n^{2} = frac(1, n^{2})}) by proof {
+4. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ⇒ 1 / n^{2} = frac(1, n^{2})}) (n := {k})
+5. get_condition (hypothesis 16: {k ∈ NonNegIntegerSet ∧ k ≥ 1}) in (GOAL: {k ∈ NonNegIntegerSet ∧ k ≥ 1 ⇒ 1 / k^{2} = frac(1, k^{2})})
+6. autosolve all_hypothesis
+}
+8. rewrite_in sum (right_to_left, equation) (hypothesis 16: {forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ⇒ 1 / n^{2} = frac(1, n^{2})}); from (GOAL: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{2})))}) to (GOAL: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{2}))})
+9. apply (hypothesis 15: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{2}))})

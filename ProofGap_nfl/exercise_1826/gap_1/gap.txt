@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet ∧ x > 0
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = sin(ln(x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = x * cos(ln(x)) * frac(1, x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_5`(x) = x * sin(ln(x)) - `F_3`(x)) }
+
+METHOD:
+[@method 分部积分法 @]

@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. V ⊆ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+2. x ∈ RealSet
+3. y ∈ RealSet
+4. z ∈ RealSet
+5. V = { (x, y, z) | (x, y, z) ∈ CartesianProd(CartesianProd(RealSet, RealSet), RealSet), x ≥ 0, y ≥ 0, z ≥ 0, x^{2} + y^{2} + z^{2} ≤ 1 }
+6. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ VolumeInt(V, x * y * z * diff(fun x [x ∈ RealSet] . x) * diff(fun y [y ∈ RealSet] . y) * diff(fun z [z ∈ RealSet] . z)) = DefInt(0, 1, x * DefInt(0, sqrtn(2, 1 - x^{2}), y * DefInt(0, sqrtn(2, 1 - x^{2} - y^{2}), z * diff(fun z [z ∈ RealSet] . z)) * diff(fun y [y ∈ RealSet] . y)) * diff(fun x [x ∈ RealSet] . x))))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ VolumeInt(V, x * y * z * diff(fun x [x ∈ RealSet] . x) * diff(fun y [y ∈ RealSet] . y) * diff(fun z [z ∈ RealSet] . z)) = frac(1, 2) * DefInt(0, 1, x * DefInt(0, sqrtn(2, 1 - x^{2}), y * (1 - x^{2} - y^{2}) * diff(fun y [y ∈ RealSet] . y)) * diff(fun x [x ∈ RealSet] . x))))
+
+METHOD:

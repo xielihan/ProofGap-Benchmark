@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet /\ x != 0 => (1 / x^2 + 4 / x^3 + 9 / x^4 = 0 => x^2 + 4 * x + 9 = 0)}) (x := {u})
+get_condition (hypothesis 6: {u ∈ RealSet /\ u != 0}) (hypothesis 7: {1 / u^2 + 4 / u^3 + 9 / u^4 = 0}) in (GOAL: {u ∈ RealSet /\ u != 0 => (1 / u^2 + 4 / u^3 + 9 / u^4 = 0 => u^2 + 4 * u + 9 = 0)})
+destruct_and (hypothesis 6: {u ∈ RealSet /\ u != 0}) as (hypothesis 8: {u ∈ RealSet}) (hypothesis 9: {u != 0})
+autoreplace (hypothesis 9: {u != 0}); from (1 / u^2 + 4 / u^3 + 9 / u^4) to ((u^2 + 4 * u + 9) / u^4); from (hypothesis 7: {1 / u^2 + 4 / u^3 + 9 / u^4 = 0}) to (hypothesis 10: {(u^2 + 4 * u + 9) / u^4 = 0})
+autosolve all_hypothesis

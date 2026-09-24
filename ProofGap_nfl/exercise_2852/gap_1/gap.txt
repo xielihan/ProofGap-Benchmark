@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+
+GOAL:
+cos(x)^{2} = frac(1 + cos(2 * x), 2)
+
+METHOD:

@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ prod_{ k = 0 }^{ n - 1 } (x - k) = x * (prod_{ k = 1 }^{ n - 1 } (x - k))
+3. x ≥ 0 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(prod_{ k = 0 }^{ n - 1 } (x - k), n!)))
+
+GOAL:
+-1 < x ∧ x < 0 ⇒ ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(prod_{ k = 0 }^{ n - 1 } (x - k), n!)))
+
+METHOD:
+[@method 根据 "牛顿级数收敛判别结果" @]

@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. MonoDecSeq(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(ln(n)^{100}, n))
+
+GOAL:
+seqlim_{ n → +∞ } (frac(ln(n)^{100}, n)) = 0
+
+METHOD:

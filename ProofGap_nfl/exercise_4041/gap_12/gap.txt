@@ -1,0 +1,27 @@
+PROOF GAP @12
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. S ∈ RealSet
+3. Ω ⊆ CartesianProd(RealSet, RealSet)
+4. x ∈ RealSet
+5. y ∈ RealSet
+6. r ∈ RealSet
+7. φ ∈ RealSet
+8. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ z(x, y) = sqrtn(2, x^{2} + y^{2}))
+9. Ω = { (x, y) | x ∈ RealSet, y ∈ RealSet, x^{2} + y^{2} ≤ 2 * x }
+10. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ sqrtn(2, 1 + FunDeri(z, 1, 1)(x, y)^{2} + FunDeri(z, 2, 1)(x, y)^{2}) = sqrtn(2, 1 + frac(x, sqrtn(2, x^{2} + y^{2}))^{2} + frac(y, sqrtn(2, x^{2} + y^{2}))^{2}))
+11. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ sqrtn(2, 1 + frac(x, sqrtn(2, x^{2} + y^{2}))^{2} + frac(y, sqrtn(2, x^{2} + y^{2}))^{2}) = sqrtn(2, 2))
+12. forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ x = r * cos(φ))
+13. forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ y = r * sin(φ))
+14. -frac(π, 2) ≤ φ
+15. φ ≤ frac(π, 2)
+16. 0 ≤ r
+17. r ≤ 2 * cos(φ)
+18. S = DefInt(-frac(π, 2), frac(π, 2), DefInt(0, 2 * cos(φ), sqrtn(2, 2) * r * diff(fun r [r ∈ RealSet ∧ r ≥ 0 ∧ r ≤ 2 * cos(φ)] . r)) * diff(fun φ [φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2)] . φ))
+19. S = 2 * sqrtn(2, 2) * DefInt(-frac(π, 2), frac(π, 2), cos(φ)^{2} * diff(fun φ [φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2)] . φ))
+20. DefInt(-frac(π, 2), frac(π, 2), cos(φ)^{2} * diff(fun φ [φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2)] . φ)) = frac(π, 2)
+
+GOAL:
+S = sqrtn(2, 2) * π
+
+METHOD:

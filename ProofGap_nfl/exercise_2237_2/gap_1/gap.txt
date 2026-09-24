@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. t ∈ RealSet
+3. 0 ≤ t
+4. t < 1
+5. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ f(x) = cases{ x if 0 ≤ x ∧ x ≤ t; t * frac(1 - x, 1 - t) if t ≤ x ∧ x ≤ 1 }
+
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet] . f(x)) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, t, (fun x [x ∈ RealSet] . x) * diff(fun x [x ∈ RealSet] . x)) + DefInt(t, 1, (fun x [x ∈ RealSet] . t * frac(1 - x, 1 - t)) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

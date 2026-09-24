@@ -1,0 +1,12 @@
+get_forall (GOAL: {forall (F), (F : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ∈ T => F(φ(t)) = ψ(t))) => (forall (t_{1}), t_{1} ∈ RealSet => (forall (t_{2}), t_{2} ∈ RealSet ∧ t_{1} ∈ T ∧ t_{2} ∈ T ∧ φ(t_{1}) = φ(t_{2}) => ψ(t_{1}) = F(φ(t_{1}))))}) (F := {G})
+get_condition (hypothesis 6: {G : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ∈ T => G(φ(t)) = ψ(t))}) in (GOAL: {(G : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ∈ T => G(φ(t)) = ψ(t))) => (forall (t_{1}), t_{1} ∈ RealSet => (forall (t_{2}), t_{2} ∈ RealSet ∧ t_{1} ∈ T ∧ t_{2} ∈ T ∧ φ(t_{1}) = φ(t_{2}) => ψ(t_{1}) = G(φ(t_{1}))))})
+destruct_and (hypothesis 6: {G : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ∈ T => G(φ(t)) = ψ(t))}) as (hypothesis 7: {G : RealSet → RealSet}) (hypothesis 8: {forall (t), t ∈ RealSet ∧ t ∈ T => G(φ(t)) = ψ(t)})
+get_forall (GOAL: {forall (t_{1}), t_{1} ∈ RealSet => (forall (t_{2}), t_{2} ∈ RealSet ∧ t_{1} ∈ T ∧ t_{2} ∈ T ∧ φ(t_{1}) = φ(t_{2}) => ψ(t_{1}) = G(φ(t_{1})))}) (t_{1} := {a})
+get_condition (hypothesis 9: {a ∈ RealSet}) in (GOAL: {a ∈ RealSet => (forall (t_{2}), t_{2} ∈ RealSet ∧ a ∈ T ∧ t_{2} ∈ T ∧ φ(a) = φ(t_{2}) => ψ(a) = G(φ(a)))})
+get_forall (GOAL: {forall (t_{2}), t_{2} ∈ RealSet ∧ a ∈ T ∧ t_{2} ∈ T ∧ φ(a) = φ(t_{2}) => ψ(a) = G(φ(a))}) (t_{2} := {b})
+get_condition (hypothesis 10: {b ∈ RealSet ∧ a ∈ T ∧ b ∈ T ∧ φ(a) = φ(b)}) in (GOAL: {b ∈ RealSet ∧ a ∈ T ∧ b ∈ T ∧ φ(a) = φ(b) => ψ(a) = G(φ(a))})
+destruct_and (hypothesis 10: {b ∈ RealSet ∧ a ∈ T ∧ b ∈ T ∧ φ(a) = φ(b)}) as (hypothesis 11: {b ∈ RealSet}) (hypothesis 12: {a ∈ T}) (hypothesis 13: {b ∈ T}) (hypothesis 14: {φ(a) = φ(b)})
+get_prop (hypothesis 8: {forall (t), t ∈ RealSet ∧ t ∈ T => G(φ(t)) = ψ(t)}) (t := {a}) as (hypothesis 15: {a ∈ RealSet ∧ a ∈ T => G(φ(a)) = ψ(a)})
+assert (hypothesis 16: {a ∈ RealSet ∧ a ∈ T})
+use_condition (hypothesis 16: {a ∈ RealSet ∧ a ∈ T}) in (hypothesis 15: {a ∈ RealSet ∧ a ∈ T => G(φ(a)) = ψ(a)}) as (hypothesis 17: {G(φ(a)) = ψ(a)})
+autosolve all_hypothesis

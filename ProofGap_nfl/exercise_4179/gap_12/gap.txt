@@ -1,0 +1,39 @@
+PROOF GAP @12
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. c ∈ RealSet
+4. d ∈ RealSet
+5. e ∈ RealSet
+6. f ∈ RealSet
+7. φ : CartesianProd(RealSet, RealSet) → RealSet
+8. δ ∈ RealSet
+9. β ∈ RealSet
+10. Δ ∈ RealSet
+11. t : CartesianProd(RealSet, RealSet) → RealSet
+12. u : CartesianProd(RealSet, RealSet) → RealSet
+13. v : RealSet → RealSet
+14. a < 0
+15. a * c - b^{2} > 0
+16. δ = a * c - b^{2}
+17. Δ = a * c * f - b^{2} * f - c * d^{2} - a * e^{2} + 2 * b * d * e
+18. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ φ(x, y) = a * x^{2} + 2 * b * x * y + c * y^{2} + 2 * d * x + 2 * e * y + f
+19. δ > 0
+20. a ≠ 0
+21. δ ≠ 0
+22. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ t(x, y) = x + frac(b, a) * y
+23. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ φ(x, y) = a * t(x, y)^{2} + frac(δ, a) * y^{2} + 2 * d * (t(x, y) - frac(b, a) * y) + 2 * e * y + f
+24. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ φ(x, y) = a * (t(x, y) + frac(d, a))^{2} + frac(δ, a) * (y + frac(a * e - b * d, δ))^{2} + β
+25. β = f - frac(d^{2}, a) - frac((a * e - b * d)^{2}, a * δ)
+26. f - frac(d^{2}, a) - frac((a * e - b * d)^{2}, a * δ) = frac(Δ, δ)
+27. β = frac(Δ, δ)
+28. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ u(x, y) = sqrtn(2, -a) * x + frac(b * sqrtn(2, -a), a) * y + frac(d * sqrtn(2, -a), a)
+29. forall (y), y ∈ RealSet ⇒ v(y) = sqrtn(2, -frac(δ, a)) * y + sqrtn(2, -frac(δ, a)) * frac(a * e - b * d, δ)
+30. -a > 0
+31. -frac(δ, a) > 0
+32. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ φ(x, y) = -u(x, y)^{2} - v(y)^{2} + β
+
+GOAL:
+diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) = frac(1, sqrtn(2, δ)) * diff(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . u) * diff(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . v)
+
+METHOD:

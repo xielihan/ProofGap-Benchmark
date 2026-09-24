@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. s : NonNegIntegerSet → RealSet
+3. |x| < 1
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ s(n) = frac(x^{n + 1}, (1 - x^{n}) * (1 - x^{n + 1}))
+
+GOAL:
+x ≠ 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, 1 - x^{n}) - frac(1, 1 - x^{n + 1}) = frac(1 - x, x) * s(n))
+
+METHOD:

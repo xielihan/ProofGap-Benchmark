@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. y ∈ RealSet
+3. z ∈ RealSet
+4. |x| < 1
+5. |y| < 1
+6. |z| < 1
+
+GOAL:
+cos(x + y + z) ≈_{ (x + y + z)^{4} } 1 - frac(1, 2) * (x + y + z)^{2}
+
+METHOD:

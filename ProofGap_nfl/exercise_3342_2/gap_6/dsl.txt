@@ -1,0 +1,4 @@
+1. rewrite (left_to_right, equation) (hypothesis 9: {FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . l, 1)(1, 1) = cos(α) + cos(frac(π, 2) - α)}); from (GOAL: {FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . l, 1)(1, 1) = sqrtn(2, 2) * sin(α + frac(π, 4))}) to (GOAL: {cos(α) + cos(frac(π, 2) - α) = sqrtn(2, 2) * sin(α + frac(π, 4))})
+2. rewrite (left_to_right, equation) (hypothesis 10: {cos(α) + cos(frac(π, 2) - α) = cos(α) + sin(α)}); from (GOAL: {cos(α) + cos(frac(π, 2) - α) = sqrtn(2, 2) * sin(α + frac(π, 4))}) to (GOAL: {cos(α) + sin(α) = sqrtn(2, 2) * sin(α + frac(π, 4))})
+3. rewrite (left_to_right, equation) (hypothesis 11: {cos(α) + sin(α) = sqrtn(2, 2) * sin(α + frac(π, 4))}); from (GOAL: {cos(α) + sin(α) = sqrtn(2, 2) * sin(α + frac(π, 4))}) to (GOAL: {sqrtn(2, 2) * sin(α + frac(π, 4)) = sqrtn(2, 2) * sin(α + frac(π, 4))})
+4. autosolve all_hypothesis

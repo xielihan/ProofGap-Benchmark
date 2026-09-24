@@ -1,0 +1,21 @@
+PROOF GAP @11
+ASSUM:
+1. a ∈ RealSet
+2. k ∈ RealSet
+3. a > 1
+4. λ = a - 1
+5. λ > 0
+6. a = 1 + λ
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ IntegerSet ∧ n > 2 ⇒ a^{n} = (1 + λ)^{n}
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ IntegerSet ∧ n > 2 ⇒ (1 + λ)^{n} > frac(n * (n - 1), 2) * λ^{2}
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ IntegerSet ∧ n > 2 ⇒ a^{n} > frac(n * (n - 1), 2) * λ^{2}
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ IntegerSet ∧ n > 2 ⇒ n - 1 > frac(n, 2)
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ IntegerSet ∧ n > 2 ⇒ a^{n} > frac(n^{2} * (a - 1)^{2}, 4)
+12. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ k ≤ 0 ⇒ frac(n^{k}, a^{n}) = frac(1, a^{n} * n^{-k})
+13. k ≤ 0 ⇒ seqlim_{ n → +∞ } (frac(n^{k}, a^{n})) = 0
+14. forall (n), n ∈ NonNegIntegerSet ∧ k = 1 ∧ n ∈ IntegerSet ∧ n > 2 ⇒ 0 < frac(n^{k}, a^{n})
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ k = 1 ∧ n ∈ IntegerSet ∧ n > 2 ⇒ frac(n^{k}, a^{n}) = frac(n, a^{n})
+
+METHOD:

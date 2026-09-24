@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. ε ∈ RealSet
+2. ε > 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ lim_{ x → 0^+ } (x^{ε} * ln(x)) = lim_{ x → 0^+ } (frac(ln(x), x^{-ε}))
+
+METHOD:

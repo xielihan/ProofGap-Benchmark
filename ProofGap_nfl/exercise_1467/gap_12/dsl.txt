@@ -1,0 +1,5 @@
+get_prop (hypothesis 18: {forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ FunDeri(g, 1, 1)(x) = 1 - frac(2, x) ∧ 1 - frac(2, x) = frac(x - 2, x)}) (x := {2}) as (hypothesis 19: {2 ∈ RealSet ∧ 2 ∈ PosRealSet ⇒ FunDeri(g, 1, 1)(2) = 1 - frac(2, 2) ∧ 1 - frac(2, 2) = frac(2 - 2, 2)})
+use_condition (obvious: {2 ∈ RealSet ∧ 2 ∈ PosRealSet}) in (hypothesis 19: {2 ∈ RealSet ∧ 2 ∈ PosRealSet ⇒ FunDeri(g, 1, 1)(2) = 1 - frac(2, 2) ∧ 1 - frac(2, 2) = frac(2 - 2, 2)}) as (hypothesis 20: {FunDeri(g, 1, 1)(2) = 1 - frac(2, 2) ∧ 1 - frac(2, 2) = frac(2 - 2, 2)})
+destruct_and (hypothesis 20: {FunDeri(g, 1, 1)(2) = 1 - frac(2, 2) ∧ 1 - frac(2, 2) = frac(2 - 2, 2)}) as (hypothesis 21: {FunDeri(g, 1, 1)(2) = 1 - frac(2, 2)}) (hypothesis 22: {1 - frac(2, 2) = frac(2 - 2, 2)})
+autoreplace no_hypothesis; from (1 - frac(2, 2)) to (0); from (hypothesis 21: {FunDeri(g, 1, 1)(2) = 1 - frac(2, 2)}) to (hypothesis 23: {FunDeri(g, 1, 1)(2) = 0})
+apply (hypothesis 23: {FunDeri(g, 1, 1)(2) = 0})

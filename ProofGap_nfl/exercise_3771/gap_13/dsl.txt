@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ (forall (A), A ∈ RealSet ∧ A > 0 ⇒ (exists (`ε_{0}`), `ε_{0}` ∈ RealSet ∧ 0 < `ε_{0}` ∧ `ε_{0}` < frac(π, 2)))}) (δ := {d})
+get_condition (hypothesis 15: {d ∈ RealSet ∧ d > 0}) in (GOAL: {d ∈ RealSet ∧ d > 0 ⇒ (forall (A), A ∈ RealSet ∧ A > 0 ⇒ (exists (`ε_{0}`), `ε_{0}` ∈ RealSet ∧ 0 < `ε_{0}` ∧ `ε_{0}` < frac(π, 2)))})
+get_forall (GOAL: {forall (A), A ∈ RealSet ∧ A > 0 ⇒ (exists (`ε_{0}`), `ε_{0}` ∈ RealSet ∧ 0 < `ε_{0}` ∧ `ε_{0}` < frac(π, 2))}) (A := {a})
+get_condition (hypothesis 16: {a ∈ RealSet ∧ a > 0}) in (GOAL: {a ∈ RealSet ∧ a > 0 ⇒ (exists (`ε_{0}`), `ε_{0}` ∈ RealSet ∧ 0 < `ε_{0}` ∧ `ε_{0}` < frac(π, 2))})
+exists (`ε_{0}` := {frac(π, 4)})
+autosolve all_hypothesis

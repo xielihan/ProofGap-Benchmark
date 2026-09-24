@@ -1,0 +1,18 @@
+PROOF GAP @9
+ASSUM:
+1. ContinuousFuncOn(fun x [x ∈ RealSet] . frac(1, sqrtn(2, 1 + x^{4})), [0, 1])
+2. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x < 1 ⇒ frac(1, sqrtn(2, 1 + x^{4})) = (1 + x^{4})^{-frac(1, 2)}
+3. b : NonNegIntegerSet -> RealSet
+4. b(0) = 1
+5. forall (n), n ∈ NonNegIntegerSet ⇒ b(n + 1) = -b(n) * frac(2 * n + 1, 2 * (n + 1))
+6. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x < 1 ⇒ (1 + x^{4})^{-frac(1, 2)} = sum_{ n = 0 }^{ +∞ } (b(n) * x^{4 * n})
+7. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x < 1 ⇒ frac(1, sqrtn(2, 1 + x^{4})) = sum_{ n = 0 }^{ +∞ } (b(n) * x^{4 * n})
+8. DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1, sqrtn(2, 1 + x^{4}))) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet] . (1 + x^{4})^{-frac(1, 2)}) * diff(fun x [x ∈ RealSet] . x))
+9. DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1, sqrtn(2, 1 + x^{4}))) * diff(fun x [x ∈ RealSet] . x)) = sum_{ n = 0 }^{ +∞ } (frac(b(n), 4 * n + 1))
+10. exists (Δ), Δ ∈ RealSet ∧ 0 < Δ
+11. b(24) ∈ RealSet
+
+GOAL:
+exists (Δ), Δ ∈ RealSet ∧ Δ < frac(b(24), 97)
+
+METHOD:

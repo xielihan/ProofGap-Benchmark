@@ -1,0 +1,8 @@
+1. get_forall (GOAL: {forall (t), (t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ x_{`bar`}(t) = a * (t - sin(t)))}) (t := {u})
+2. get_condition (hypothesis 11: {u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 2 * π}) in (GOAL: {u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 2 * π ⇒ x_{`bar`}(u) = a * (u - sin(u))})
+3. destruct_and (hypothesis 11: {u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 2 * π}) as (hypothesis 12: {u ∈ RealSet}) (hypothesis 13: {0 ≤ u}) (hypothesis 14: {u ≤ 2 * π})
+4. get_prop (hypothesis 7: {forall (t), (t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ x(t) = a * (t - sin(t)))}) (t := {u}) as (hypothesis 15: {u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 2 * π ⇒ x(u) = a * (u - sin(u))})
+5. use_condition (hypothesis 11: {u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 2 * π}) in (hypothesis 15: {u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 2 * π ⇒ x(u) = a * (u - sin(u))}) as (hypothesis 16: {x(u) = a * (u - sin(u))})
+6. get_prop (hypothesis 10: {forall (t), (t ∈ RealSet ⇒ x(t) = x_{`bar`}(t))}) (t := {u}) as (hypothesis 17: {u ∈ RealSet ⇒ x(u) = x_{`bar`}(u)})
+7. use_condition (hypothesis 12: {u ∈ RealSet}) in (hypothesis 17: {u ∈ RealSet ⇒ x(u) = x_{`bar`}(u)}) as (hypothesis 18: {x(u) = x_{`bar`}(u)})
+8. autosolve (hypothesis 16: {x(u) = a * (u - sin(u))}) (hypothesis 18: {x(u) = x_{`bar`}(u)})

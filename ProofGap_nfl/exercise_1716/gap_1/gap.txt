@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. C ∈ RealSet
+2. x ∈ RealSet
+3. 1 - x^{2} ≠ 0
+4. frac(1 + x, 1 - x) > 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 1 - x^{2} ≠ 0 ∧ frac(1 + x, 1 - x) > 0 ⇒ frac(1, 1 - x^{2}) * diff(fun x [x ∈ RealSet] . x) = frac(1, 2) * diff(fun x [x ∈ RealSet ∧ 1 - x^{2} ≠ 0 ∧ frac(1 + x, 1 - x) > 0] . ln(frac(1 + x, 1 - x)))
+
+METHOD:

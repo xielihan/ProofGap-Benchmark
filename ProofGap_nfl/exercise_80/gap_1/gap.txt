@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. forall (k), k ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = prod_{ k = 1 }^{ n } (1 + frac(1, 2^{k})))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n + 1) = x(n) * (1 + frac(1, 2^{n + 1}))
+
+METHOD:

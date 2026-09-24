@@ -1,0 +1,12 @@
+1. get_prop (theorem 'Thm 459. (FiniteSeriesTermsDoNotAffectConvergence)': {forall (a) (N) (M), N ∈ NonNegIntegerSet => M ∈ NonNegIntegerSet => (ConvergentSeries(sum_{n = N}^{+∞} (a(n))) <==> ConvergentSeries(sum_{n = M}^{+∞} (a(n))))}) (a := {c}) (N := {1}) (M := {0}) as (hypothesis 14: {1 ∈ NonNegIntegerSet => 0 ∈ NonNegIntegerSet => (ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n))) <==> ConvergentSeries(sum_{ n = 0 }^{ +∞ } (c(n))))})
+2. use_condition (obvious: {1 ∈ NonNegIntegerSet}) (obvious: {0 ∈ NonNegIntegerSet}) in (hypothesis 14: {1 ∈ NonNegIntegerSet => 0 ∈ NonNegIntegerSet => (ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n))) <==> ConvergentSeries(sum_{ n = 0 }^{ +∞ } (c(n))))}) as (hypothesis 15: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n))) <==> ConvergentSeries(sum_{ n = 0 }^{ +∞ } (c(n)))})
+3. rewrite (left_to_right, iff) (hypothesis 15: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n))) <==> ConvergentSeries(sum_{ n = 0 }^{ +∞ } (c(n)))}); from (hypothesis 12: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n)))}) to (hypothesis 16: {ConvergentSeries(sum_{ n = 0 }^{ +∞ } (c(n)))})
+4. get_prop (theorem 'Thm 364. (NonzeroTermLimitImpliesSeriesDiverges)': {forall (a), ¬ConvergentSeqTo(a, 0) => DivergentSeries(sum_{n = 0}^{+∞}(a(n)))}) (a := {c}) as (hypothesis 17: {¬ConvergentSeqTo(c, 0) => DivergentSeries(sum_{ n = 0 }^{ +∞ } (c(n)))})
+5. get_prop (theorem 'Thm 350. (DivergentSeriesDefinition)': {forall (a), DivergentSeries(sum_{n = 0}^{+∞} (a(n))) <==> Not(ConvergentSeries(sum_{n = 0}^{+∞} (a(n))))}) (a := {c}) as (hypothesis 18: {DivergentSeries(sum_{ n = 0 }^{ +∞ } (c(n))) <==> Not(ConvergentSeries(sum_{ n = 0 }^{ +∞ } (c(n))))})
+6. assert (hypothesis 19: {ConvergentSeqTo(c, 0)}) by proof {
+   1. autosolve all_hypothesis
+}
+7. get_prop (theorem 'Thm 344. (SequenceConvergesToDefinition)': {forall (a) (L), L ∈ RealSet => (ConvergentSeqTo(a, L) <==> seqlim_{n -> +∞}(a(n)) = L)}) (a := {c}) (L := {0}) as (hypothesis 20: {0 ∈ RealSet => (ConvergentSeqTo(c, 0) <==> seqlim_{ n → +∞ } (c(n)) = 0)})
+8. use_condition (obvious: {0 ∈ RealSet}) in (hypothesis 20: {0 ∈ RealSet => (ConvergentSeqTo(c, 0) <==> seqlim_{ n → +∞ } (c(n)) = 0)}) as (hypothesis 21: {ConvergentSeqTo(c, 0) <==> seqlim_{ n → +∞ } (c(n)) = 0})
+9. rewrite (left_to_right, iff) (hypothesis 21: {ConvergentSeqTo(c, 0) <==> seqlim_{ n → +∞ } (c(n)) = 0}); from (hypothesis 19: {ConvergentSeqTo(c, 0)}) to (hypothesis 22: {seqlim_{ n → +∞ } (c(n)) = 0})
+10. apply (hypothesis 22: {seqlim_{ n → +∞ } (c(n)) = 0})

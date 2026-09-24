@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = x + sin(x)
+3. IsSet(RealSet)
+
+GOAL:
+¬BoundedFuncOn(f, RealSet)
+
+METHOD:

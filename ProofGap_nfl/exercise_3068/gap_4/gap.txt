@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. P : NonNegIntegerSet → RealSet
+3. p ∈ RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = 1 + frac(1, n^{p})
+5. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (i), i ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ P(n) = prod_{ i ∈ PosIntegerSet ∧ i ≤ n } (a(i)))
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, n^{p}) > 0
+7. p > 1 ⇒ ConvergentSeries(sum_{ n ∈ PosIntegerSet } (frac(1, n^{p})))
+8. p ≤ 1 ⇒ DivergentSeries(sum_{ n ∈ PosIntegerSet } (frac(1, n^{p})))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ p > 1 ⇒ (exists (L), L ∈ RealSet ∧ L ≠ 0 ∧ seqlim_{ n → +∞ } (P(n)) = L)
+
+METHOD:

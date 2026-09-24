@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet ∧ a > 0
+3. h ∈ RealSet
+4. A : RealSet → RealSet
+5. forall (x), x ∈ RealSet ⇒ f(x) = cases{ h * (1 - frac(|x|, a)) if |x| ≤ a; 0 if |x| > a }
+
+GOAL:
+EvenFunc(f)
+
+METHOD:

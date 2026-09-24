@@ -1,0 +1,18 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. c ∈ RealSet
+5. n ∈ NonNegIntegerSet
+6. φ ∈ RealSet
+7. n ∈ PosIntegerSet
+8. a^{2} + b^{2} > 0
+9. sin(φ) = frac(b, sqrtn(2, a^{2} + b^{2}))
+10. cos(φ) = frac(a, sqrtn(2, a^{2} + b^{2}))
+11. forall (x), x ∈ RealSet ⇒ f(x) = e^{a * x} * sin(b * x + c)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (e^{a * x} * sin(b * x + c))' = e^{a * x} * (a * sin(b * x + c) + b * cos(b * x + c))
+
+METHOD:

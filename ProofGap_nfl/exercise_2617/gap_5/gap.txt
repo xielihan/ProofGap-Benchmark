@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 3 ⇒ frac(1, ln(ln(n))^{ln(n)}) > 0
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 3 ⇒ frac(ln(frac(1, frac(1, ln(ln(n))^{ln(n)}))), ln(n)) = ln(ln(ln(n)))
+3. forall (α), α ∈ RealSet ∧ α > 0 ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ n_{0} ≥ 3 ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ ln(ln(ln(n))) ≥ 1 + α))
+4. forall (α), α ∈ RealSet ∧ α > 0 ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ n_{0} ≥ 3 ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ frac(ln(frac(1, frac(1, ln(ln(n))^{ln(n)}))), ln(n)) ≥ 1 + α))
+
+GOAL:
+ConvergentSeries(sum_{ n = 3 }^{ +∞ } (frac(1, ln(ln(n))^{ln(n)})))
+
+METHOD:

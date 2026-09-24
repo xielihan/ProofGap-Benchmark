@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ y(x) = frac(e^{x}, x)
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(y, 1, 10)(x) = sum_{ i = 0 }^{ 10 } (Combination(10, i) * e^{x} * FunDeri(fun x [x ∈ RealSet ∧ x ≠ 0] . frac(1, x), 1, 10 - i)(x))
+4. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(y, 1, 10)(x) = e^{x} * (sum_{ i = 0 }^{ 10 } ((-1)^{i} * frac(Permutation(10, i), x^{i + 1})))
+
+GOAL:
+(-1)^{0} = 1
+
+METHOD:

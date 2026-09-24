@@ -1,0 +1,16 @@
+PROOF GAP @8
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ 0 ∧ y ≠ 0 ⇒ f(x, y) = (x + y) * sin(frac(1, x)) * sin(frac(1, y))
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ 0 ∧ y ≠ 0 ⇒ 0 ≤ |f(x, y)| ∧ |f(x, y)| ≤ |x + y| ∧ |x + y| ≤ |x| + |y|
+4. lim_{ (x, y) → (0, 0) } (|x| + |y|) = 0
+5. lim_{ (x, y) → (0, 0) } (f(x, y)) = 0
+6. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ ¬(exists (k), k ∈ IntegerSet ∧ k ≠ 0 ∧ x = frac(1, k * π)) ⇒ ¬(exists (A), A ∈ RealSet ∧ lim_{ y → 0 } ((x + y) * sin(frac(1, x)) * sin(frac(1, y))) = A)
+7. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ ¬(exists (k), k ∈ IntegerSet ∧ k ≠ 0 ∧ x = frac(1, k * π)) ⇒ ¬(exists (A), A ∈ RealSet ∧ lim_{ y → 0 } (f(x, y)) = A)
+8. ¬(exists (A), A ∈ RealSet ∧ lim_{ x → 0 } (lim_{ y → 0 } (f(x, y))) = A)
+9. ¬(exists (B), B ∈ RealSet ∧ lim_{ y → 0 } (lim_{ x → 0 } (f(x, y))) = B)
+
+GOAL:
+lim_{ (x, y) → (0, 0) } (f(x, y)) = 0 ∧ ¬(exists (A), A ∈ RealSet ∧ lim_{ x → 0 } (lim_{ y → 0 } (f(x, y))) = A) ∧ ¬(exists (B), B ∈ RealSet ∧ lim_{ y → 0 } (lim_{ x → 0 } (f(x, y))) = B)
+
+METHOD:

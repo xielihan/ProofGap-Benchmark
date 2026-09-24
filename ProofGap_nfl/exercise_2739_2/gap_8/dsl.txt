@@ -1,0 +1,8 @@
+assert (hypothesis 12: {(p > -x ∨ x ∈ NonNegIntegerSet) => AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{p}) * frac(prod_{ k = 0 }^{ n - 1 } (x - k), n!)))}) by proof {
+  get_condition (hypothesis 13: {p > -x ∨ x ∈ NonNegIntegerSet}) in (GOAL: {(p > -x ∨ x ∈ NonNegIntegerSet) => AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{p}) * frac(prod_{ k = 0 }^{ n - 1 } (x - k), n!)))})
+  autosolve all_hypothesis
+}
+assert (hypothesis 14: {-(1 + x) < p ∧ p ≤ -x ∧ x ∉ NonNegIntegerSet => ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{p}) * frac(prod_{ k = 0 }^{ n - 1 } (x - k), n!)))}) by proof {
+  apply (hypothesis 11: {-(1 + x) < p ∧ p ≤ -x ∧ x ∉ NonNegIntegerSet => ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{p}) * frac(prod_{ k = 0 }^{ n - 1 } (x - k), n!)))})
+}
+autosolve all_hypothesis

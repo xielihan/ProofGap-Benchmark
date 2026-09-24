@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet => a(n) = frac((2 * n)!!, (2 * n + 1)!!)}) (n := {n})
+get_condition (hypothesis 3: {n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet}) in (GOAL: {n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet => a(n) = frac((2 * n)!!, (2 * n + 1)!!)})
+rewrite (left_to_right, equation) (hypothesis 2: {a = (fun n [n ∈ NonNegIntegerSet /\ n >= 1] . frac((2 * n)!!, (2 * n + 1)!!))}); from (GOAL: {a(n) = frac((2 * n)!!, (2 * n + 1)!!)}) to (GOAL: {(fun n [n ∈ NonNegIntegerSet /\ n >= 1] . frac((2 * n)!!, (2 * n + 1)!!))(n) = frac((2 * n)!!, (2 * n + 1)!!)})
+autosolve all_hypothesis

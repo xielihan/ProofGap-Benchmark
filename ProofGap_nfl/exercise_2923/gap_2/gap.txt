@@ -1,0 +1,7 @@
+PROOF GAP @2
+ASSUM:
+
+GOAL:
+0 < frac(1, 4!)
+
+METHOD:

@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. g : RealSet → RealSet
+3. n ∈ NonNegIntegerSet
+4. forall (x), x ∈ RealSet ⇒ f(x) = e^{x} - (1 + x + frac(x^{2}, 2))
+5. forall (x), x ∈ RealSet ⇒ g(x) = 0
+6. f(0) = g(0)
+7. forall (x), x ∈ RealSet ⇒ FunDeri(f, 1, 1)(x) = e^{x} - 1 - x
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(f, 1, 2)(x) = e^{x} - 1
+
+METHOD:

@@ -1,0 +1,15 @@
+PROOF GAP @5
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. x ∈ RealSet
+4. forall (x), x ∈ RealSet ⇒ y(x) = a^{5} + 5 * a^{3} * x^{2} - x^{5}
+5. FunDeri(y, 1, 1)(x) = 10 * a^{3} * x - 5 * x^{4}
+6. FunDeri(y, 1, 1)(x) = 0 ⇒ 10 * a^{3} * x - 5 * x^{4} = 0
+7. FunDeri(y, 1, 1)(x) = 0 ⇒ x = 0 ∨ x^{3} = 2 * a^{3}
+8. FunDeri(y, 1, 1)(x) = 10 * a^{3} * a ⇒ 10 * a^{3} * x - 5 * x^{4} = 10 * a^{4}
+
+GOAL:
+FunDeri(y, 1, 1)(x) = 10 * a^{3} * a ⇒ x^{4} - 2 * a^{3} * x + 2 * a^{4} = 0
+
+METHOD:

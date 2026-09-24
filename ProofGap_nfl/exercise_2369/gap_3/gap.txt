@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. p ∈ RealSet
+2. q ∈ RealSet
+3. lim_{ x → 0^+ } (x^{p} * frac(1, sin(x)^{p} * cos(x)^{q})) = (lim_{ x → 0^+ } (frac(x, sin(x))^{p})) * (lim_{ x → 0^+ } (frac(1, cos(x)^{q})))
+4. (lim_{ x → 0^+ } (frac(x, sin(x))^{p})) * (lim_{ x → 0^+ } (frac(1, cos(x)^{q}))) = 1
+
+GOAL:
+lim_{ x → 0^+ } (x^{p} * frac(1, sin(x)^{p} * cos(x)^{q})) = 1
+
+METHOD:

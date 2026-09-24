@@ -1,0 +1,22 @@
+PROOF GAP @9
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. X : CartesianProd(RealSet, RealSet) → RealSet
+3. Y : CartesianProd(RealSet, RealSet) → RealSet
+4. A : CartesianProd(RealSet, RealSet) → RealSet
+5. FuncOfClassK(u, 2)
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x + y ≠ 0 ∧ X(x, y) = x + y ∧ Y(x, y) = frac(y, x + y)
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ A(x, y) = x * FunDeri(u, x, 2)(x, y) + y * FunDeri(FunDeri(u, x, 1), y, 1)(x, y) + FunDeri(u, x, 1)(x, y)
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x + y ≠ 0 ⇒ FunDeri(X, x, 1)(x, y) = 1
+9. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x + y ≠ 0 ⇒ FunDeri(X, y, 1)(x, y) = 1
+10. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x + y ≠ 0 ⇒ FunDeri(Y, x, 1)(x, y) = -frac(y, (x + y)^{2})
+11. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x + y ≠ 0 ⇒ FunDeri(Y, y, 1)(x, y) = frac(x, (x + y)^{2})
+12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x + y ≠ 0 ⇒ FunDeri(u, x, 1)(x, y) = FunDeri(u, X, 1)(X(x, y), Y(x, y)) - frac(y, (x + y)^{2}) * FunDeri(u, Y, 1)(X(x, y), Y(x, y))
+13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x + y ≠ 0 ⇒ FunDeri(u, x, 2)(x, y) = FunDeri(u, X, 2)(X(x, y), Y(x, y)) - frac(2 * y, (x + y)^{2}) * FunDeri(FunDeri(u, X, 1), Y, 1)(X(x, y), Y(x, y)) + frac(y^{2}, (x + y)^{4}) * FunDeri(u, Y, 2)(X(x, y), Y(x, y)) + frac(2 * y, (x + y)^{3}) * FunDeri(u, Y, 1)(X(x, y), Y(x, y))
+14. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x + y ≠ 0 ⇒ FunDeri(FunDeri(u, x, 1), y, 1)(x, y) = FunDeri(u, X, 2)(X(x, y), Y(x, y)) + frac(x - y, (x + y)^{2}) * FunDeri(FunDeri(u, X, 1), Y, 1)(X(x, y), Y(x, y)) - frac(x * y, (x + y)^{4}) * FunDeri(u, Y, 2)(X(x, y), Y(x, y)) - frac(x - y, (x + y)^{3}) * FunDeri(u, Y, 1)(X(x, y), Y(x, y))
+15. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x + y ≠ 0 ⇒ A(x, y) = X(x, y) * FunDeri(u, X, 2)(X(x, y), Y(x, y)) - Y(x, y) * FunDeri(FunDeri(u, X, 1), Y, 1)(X(x, y), Y(x, y)) + FunDeri(u, X, 1)(X(x, y), Y(x, y))
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x + y ≠ 0 ⇒ A(x, y) = X(x, y) * FunDeri(u, X, 2)(X(x, y), Y(x, y)) - Y(x, y) * FunDeri(FunDeri(u, X, 1), Y, 1)(X(x, y), Y(x, y)) + FunDeri(u, X, 1)(X(x, y), Y(x, y))
+
+METHOD:

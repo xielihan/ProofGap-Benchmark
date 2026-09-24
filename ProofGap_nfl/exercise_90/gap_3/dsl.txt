@@ -1,0 +1,17 @@
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (`N'`), `N'` ∈ NonNegIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > `N'` ⇒ (exists (k), k ∈ NonNegIntegerSet ∧ |x(p(k)) - a| < ε)))}) (ε := {epsnew})
+get_condition (hypothesis 12: {epsnew ∈ RealSet ∧ epsnew > 0}) in (GOAL: {epsnew ∈ RealSet ∧ epsnew > 0 ⇒ (exists (`N'`), `N'` ∈ NonNegIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > `N'` ⇒ (exists (k), k ∈ NonNegIntegerSet ∧ |x(p(k)) - a| < epsnew))})
+get_prop (hypothesis 9: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k > N ⇒ |x(p(k)) - a| < ε))}) (ε := {epsnew}) as (hypothesis 13: {epsnew ∈ RealSet ∧ epsnew > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k > N ⇒ |x(p(k)) - a| < epsnew))})
+use_condition (hypothesis 12: {epsnew ∈ RealSet ∧ epsnew > 0}) in (hypothesis 13: {epsnew ∈ RealSet ∧ epsnew > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k > N ⇒ |x(p(k)) - a| < epsnew))}) as (hypothesis 14: {exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k > N ⇒ |x(p(k)) - a| < epsnew)})
+get_exists (hypothesis 14: {exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k > N ⇒ |x(p(k)) - a| < epsnew)}) (N := {Nnew})
+destruct_and (hypothesis 15: {Nnew ∈ NonNegIntegerSet ∧ Nnew ∈ PosIntegerSet ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k > Nnew ⇒ |x(p(k)) - a| < epsnew)}) as (hypothesis 16: {Nnew ∈ NonNegIntegerSet}) (hypothesis 17: {Nnew ∈ PosIntegerSet}) (hypothesis 18: {forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k > Nnew ⇒ |x(p(k)) - a| < epsnew})
+assert (hypothesis 19: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > Nnew ⇒ (exists (k), k ∈ NonNegIntegerSet ∧ |x(p(k)) - a| < epsnew)}) by proof {
+  get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > Nnew ⇒ (exists (k), k ∈ NonNegIntegerSet ∧ |x(p(k)) - a| < epsnew)}) (n := {nnew})
+  get_condition (hypothesis 19: {nnew ∈ NonNegIntegerSet ∧ nnew ∈ PosIntegerSet ∧ nnew > Nnew}) in (GOAL: {nnew ∈ NonNegIntegerSet ∧ nnew ∈ PosIntegerSet ∧ nnew > Nnew ⇒ (exists (k), k ∈ NonNegIntegerSet ∧ |x(p(k)) - a| < epsnew)})
+  exists (k := {Nnew + 1})
+  get_prop (hypothesis 18: {forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k > Nnew ⇒ |x(p(k)) - a| < epsnew}) (k := {Nnew + 1}) as (hypothesis 20: {Nnew + 1 ∈ NonNegIntegerSet ∧ Nnew + 1 ∈ PosIntegerSet ∧ Nnew + 1 > Nnew ⇒ |x(p(Nnew + 1)) - a| < epsnew})
+  assert (hypothesis 21: {Nnew + 1 ∈ NonNegIntegerSet ∧ Nnew + 1 ∈ PosIntegerSet ∧ Nnew + 1 > Nnew})
+  use_condition (hypothesis 21: {Nnew + 1 ∈ NonNegIntegerSet ∧ Nnew + 1 ∈ PosIntegerSet ∧ Nnew + 1 > Nnew}) in (hypothesis 20: {Nnew + 1 ∈ NonNegIntegerSet ∧ Nnew + 1 ∈ PosIntegerSet ∧ Nnew + 1 > Nnew ⇒ |x(p(Nnew + 1)) - a| < epsnew}) as (hypothesis 22: {|x(p(Nnew + 1)) - a| < epsnew})
+  autosolve all_hypothesis
+}
+exists (`N'` := {Nnew})
+autosolve all_hypothesis

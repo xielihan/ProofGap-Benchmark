@@ -1,0 +1,22 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. φ : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+5. x : CartesianProd(NonNegIntegerSet, NonNegIntegerSet) → RealSet
+6. m : CartesianProd(NonNegIntegerSet, NonNegIntegerSet) → RealSet
+7. M : CartesianProd(NonNegIntegerSet, NonNegIntegerSet) → RealSet
+8. ω : CartesianProd(NonNegIntegerSet, NonNegIntegerSet) → RealSet
+9. a < b
+10. IntegrableFuncOn(f, [a, b])
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ⇒ x(n, i) = a + frac(i, n) * (b - a))
+12. φ = (fun n, x [n ∈ NonNegIntegerSet ∧ x ∈ RealSet] . φ(n, x))
+13. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a = x(n, 0)
+14. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n, 0) < x(n, 1)
+15. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n, 1) < x(n, n - 1)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n, n - 1) < x(n, n)
+
+METHOD:

@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. a : NonNegIntegerSet → RealSet ∧ IsSeq(a)
+2. p ∈ RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > 2 ⇒ a(n) = ln(sec(frac(π, n)))^{p}
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > 2 ⇒ a(n) > 0
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > 2 ⇒ a(n) = frac(1, 2^{p}) * ln(1 + tan(frac(π, n))^{2})^{p}
+6. (a(n)) ∼_{ n → +∞ } frac(1, 2^{p}) * tan(frac(π, n))^{2 * p}
+
+GOAL:
+(a(n)) ∼_{ n → +∞ } frac(1, 2^{p}) * frac(π, n)^{2 * p}
+
+METHOD:

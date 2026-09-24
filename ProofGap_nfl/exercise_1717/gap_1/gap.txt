@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. C ∈ RealSet
+2. x ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ frac(cos(x), sqrtn(2, 2 + cos(2 * x))) * diff(fun x [x ∈ RealSet] . x) = frac(diff(fun x [x ∈ RealSet] . sin(x)), sqrtn(2, 3 - 2 * sin(x)^{2}))
+
+METHOD:

@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (f), f : RealSet → RealSet ∧ Defined(f, (-l, l)) ⇒ (forall (x), -l < x ∧ x < l ∧ x ∈ RealSet ⇒ f(x) = frac(f(x) + f(-x), 2) + frac(f(x) - f(-x), 2))}) (f := {f1})
+get_condition (hypothesis 4: {f1 : RealSet → RealSet ∧ Defined(f1, (-l, l))}) in (GOAL: {f1 : RealSet → RealSet ∧ Defined(f1, (-l, l)) ⇒ (forall (x), -l < x ∧ x < l ∧ x ∈ RealSet ⇒ f1(x) = frac(f1(x) + f1(-x), 2) + frac(f1(x) - f1(-x), 2))})
+get_forall (GOAL: {forall (x), -l < x ∧ x < l ∧ x ∈ RealSet ⇒ f1(x) = frac(f1(x) + f1(-x), 2) + frac(f1(x) - f1(-x), 2)}) (x := {x1})
+get_condition (hypothesis 5: {-l < x1 ∧ x1 < l ∧ x1 ∈ RealSet}) in (GOAL: {-l < x1 ∧ x1 < l ∧ x1 ∈ RealSet ⇒ f1(x1) = frac(f1(x1) + f1(-x1), 2) + frac(f1(x1) - f1(-x1), 2)})
+autosolve all_hypothesis

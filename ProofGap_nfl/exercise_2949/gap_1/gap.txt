@@ -1,0 +1,15 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. S : RealSet → RealSet
+3. A : NonNegIntegerSet → RealSet
+4. B : NonNegIntegerSet → RealSet
+5. a ∈ RealSet
+6. l ∈ RealSet ∧ l > 0
+7. forall (x), x ∈ RealSet ⇒ f(x) = x
+8. A(0) = frac(1, l) * DefInt(a, a + 2 * l, (fun x [x ∈ RealSet] . x) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+A(0) = frac(1, l) * DefInt(a, a + 2 * l, (fun x [x ∈ RealSet] . x) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

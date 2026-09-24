@@ -1,0 +1,18 @@
+PROOF GAP @2
+ASSUM:
+1. I : CartesianProd(NonNegIntegerSet, NonNegIntegerSet) → RealSet
+2. m ∈ NonNegIntegerSet ∧ m > 0
+3. n ∈ NonNegIntegerSet ∧ n > 0
+4. x ∈ RealSet
+5. m ∈ PosIntegerSet
+6. n ∈ PosIntegerSet
+7. forall (x), x ∈ RealSet ⇒ sin(x) = frac(e^{__IMAGINARY_UNIT__ * x} - e^{-__IMAGINARY_UNIT__ * x}, 2 * __IMAGINARY_UNIT__)
+8. forall (x), x ∈ RealSet ⇒ cos(x) = frac(e^{__IMAGINARY_UNIT__ * x} + e^{-__IMAGINARY_UNIT__ * x}, 2)
+9. I(m, n) = DefInt(0, frac(π, 2), sin(x)^{2 * m} * cos(x)^{2 * n} * diff(fun x [x ∈ RealSet] . x))
+10. J = DefInt(0, 2 * π, sin(x)^{2 * m} * cos(x)^{2 * n} * diff(fun x [x ∈ RealSet] . x))
+11. I(m, n) = frac(1, 4) * J
+
+GOAL:
+sin(x)^{2 * m} * cos(x)^{2 * n} = frac(e^{__IMAGINARY_UNIT__ * x} - e^{-__IMAGINARY_UNIT__ * x}, 2 * __IMAGINARY_UNIT__)^{2 * m} * frac(e^{__IMAGINARY_UNIT__ * x} + e^{-__IMAGINARY_UNIT__ * x}, 2)^{2 * n}
+
+METHOD:

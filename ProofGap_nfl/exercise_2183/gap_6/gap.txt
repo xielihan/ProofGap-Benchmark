@@ -1,0 +1,19 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. S_{lower} : NonNegIntegerSet → RealSet
+3. n ∈ NonNegIntegerSet ∧ n > 0
+4. x : NonNegIntegerSet → RealSet
+5. forall (x), x ∈ RealSet ∧ x ∈ [1, 2] ⇒ f(x) = x^{4}
+6. n ∈ PosIntegerSet
+7. q = sqrtn(n, 2)
+8. q > 0
+9. 2 = q^{n}
+10. forall (i), i ∈ NonNegIntegerSet ∧ i ≤ n ⇒ x(i) = q^{i}
+11. x(0) = 1
+12. x(n) = 2
+
+GOAL:
+StrictMonoIncFuncOn(f, [1, 2])
+
+METHOD:

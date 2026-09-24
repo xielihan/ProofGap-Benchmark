@@ -1,0 +1,13 @@
+1. get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ (δ = frac(ε, 2 * l) ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ |x_{1} - x_{2}| < δ ∧ x_{1} ∈ IntervalLoRo(-l, l) ∧ x_{2} ∈ IntervalLoRo(-l, l) ⇒ |f(x_{1}) - f(x_{2})| < ε))))}) (ε := {eps0})
+2. get_condition (hypothesis 7: {eps0 ∈ RealSet ∧ eps0 > 0}) in (GOAL: {eps0 ∈ RealSet ∧ eps0 > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ (δ = frac(eps0, 2 * l) ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ |x_{1} - x_{2}| < δ ∧ x_{1} ∈ IntervalLoRo(-l, l) ∧ x_{2} ∈ IntervalLoRo(-l, l) ⇒ |f(x_{1}) - f(x_{2})| < eps0))))})
+3. destruct_and (hypothesis 2: {l ∈ RealSet ∧ l ∈ PosRealSet}) as (hypothesis 8: {l ∈ RealSet}) (hypothesis 9: {l ∈ PosRealSet})
+4. destruct_and (hypothesis 7: {eps0 ∈ RealSet ∧ eps0 > 0}) as (hypothesis 10: {eps0 ∈ RealSet}) (hypothesis 11: {eps0 > 0})
+5. assert (hypothesis 12: {forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ |x_{1} - x_{2}| < 0 ∧ x_{1} ∈ IntervalLoRo(-l, l) ∧ x_{2} ∈ IntervalLoRo(-l, l) ⇒ |f(x_{1}) - f(x_{2})| < eps0)}) by proof {
+  1. get_forall (GOAL: {forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ |x_{1} - x_{2}| < 0 ∧ x_{1} ∈ IntervalLoRo(-l, l) ∧ x_{2} ∈ IntervalLoRo(-l, l) ⇒ |f(x_{1}) - f(x_{2})| < eps0)}) (x_{1} := {u0})
+  2. get_condition (hypothesis 12: {u0 ∈ RealSet}) in (GOAL: {u0 ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ |u0 - x_{2}| < 0 ∧ u0 ∈ IntervalLoRo(-l, l) ∧ x_{2} ∈ IntervalLoRo(-l, l) ⇒ |f(u0) - f(x_{2})| < eps0)})
+  3. get_forall (GOAL: {forall (x_{2}), x_{2} ∈ RealSet ∧ |u0 - x_{2}| < 0 ∧ u0 ∈ IntervalLoRo(-l, l) ∧ x_{2} ∈ IntervalLoRo(-l, l) ⇒ |f(u0) - f(x_{2})| < eps0}) (x_{2} := {v0})
+  4. get_condition (hypothesis 13: {v0 ∈ RealSet ∧ |u0 - v0| < 0 ∧ u0 ∈ IntervalLoRo(-l, l) ∧ v0 ∈ IntervalLoRo(-l, l)}) in (GOAL: {v0 ∈ RealSet ∧ |u0 - v0| < 0 ∧ u0 ∈ IntervalLoRo(-l, l) ∧ v0 ∈ IntervalLoRo(-l, l) ⇒ |f(u0) - f(v0)| < eps0})
+  5. autosolve all_hypothesis
+}
+6. exists (δ := {0})
+7. autosolve all_hypothesis

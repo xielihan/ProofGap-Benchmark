@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. n ∈ NonNegIntegerSet ∧ n > 0
+3. f : RealSet → RealSet
+4. n ∈ PosIntegerSet
+5. forall (k), k ∈ IntegerSet ∧ 1 ≤ k ∧ k ≤ n ⇒ a(k) ∈ RealSet
+6. forall (x), x ∈ RealSet ⇒ f(x) = sum_{ k = 1 }^{ n } (|x - a(k)|)
+7. forall (k), k ∈ IntegerSet ∧ 1 ≤ k ∧ k ≤ n ⇒ ContinuousFuncAt(fun x [x ∈ RealSet] . |x - a(k)|, a(k)) ∧ ¬DiffableFuncAt(fun x [x ∈ RealSet] . |x - a(k)|, a(k))
+
+GOAL:
+forall (k), k ∈ IntegerSet ∧ 1 ≤ k ∧ k ≤ n ⇒ ContinuousFuncAt(fun x [x ∈ RealSet] . |x - a(k)|, a(k)) ∧ ¬DiffableFuncAt(fun x [x ∈ RealSet] . |x - a(k)|, a(k))
+
+METHOD:

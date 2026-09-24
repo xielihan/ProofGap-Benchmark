@@ -1,0 +1,2 @@
+rewrite_in sum (right_to_left, equation) (hypothesis 2: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(2 + (-1)^{n}, 2^{n})}); from (GOAL: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(2 + (-1)^{n}, 2^{n})))}) to (GOAL: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))})
+apply (hypothesis 7: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))})

@@ -1,0 +1,3 @@
+exists (θ := {θ})
+assert (hypothesis 43: {θ ∈ RealSet ∧ |θ| < 1 ∧ u = frac(4 * π, 3) * frac(R^{3}, sqrtn(2, a^{2} + b^{2} + c^{2}) + θ * R)})
+apply (hypothesis 43: {θ ∈ RealSet ∧ |θ| < 1 ∧ u = frac(4 * π, 3) * frac(R^{3}, sqrtn(2, a^{2} + b^{2} + c^{2}) + θ * R)})

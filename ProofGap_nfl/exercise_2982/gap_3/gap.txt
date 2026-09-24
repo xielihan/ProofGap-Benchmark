@@ -1,0 +1,18 @@
+PROOF GAP @3
+ASSUM:
+1. φ : RealSet → RealSet
+2. ψ : RealSet → RealSet
+3. a : NonNegIntegerSet → RealSet
+4. b : NonNegIntegerSet → RealSet
+5. α : NonNegIntegerSet → RealSet
+6. β : NonNegIntegerSet → RealSet
+7. IntegrableFuncOn(φ, [-π, π])
+8. IntegrableFuncOn(ψ, [-π, π])
+9. PeriodicFunc(φ, 2 * π)
+10. PeriodicFunc(ψ, 2 * π)
+11. forall (x), x ∈ RealSet ∧ x ∈ [-π, π] ⇒ φ(-x) = -ψ(x)
+
+GOAL:
+IntegrableFuncOn(ψ, [-π, π]) ∧ PeriodicFunc(ψ, 2 * π)
+
+METHOD:

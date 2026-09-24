@@ -1,0 +1,23 @@
+PROOF GAP @13
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. a ∈ RealSet
+3. a ∈ PosRealSet
+4. x(1) = sqrtn(2, a)
+5. forall (n), n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ x(n) = sqrtn(2, a + x(n - 1))
+6. forall (n), n ∈ PosIntegerSet ⇒ x(n) < x(n + 1)
+7. forall (n), n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ x(n)^{2} = a + x(n - 1)
+8. forall (n), n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ x(n) = frac(a, x(n)) + frac(x(n - 1), x(n))
+9. forall (n), n ∈ PosIntegerSet ∧ n ≥ 3 ⇒ sqrtn(2, a) < x(n - 1) ∧ x(n - 1) < x(n)
+10. forall (n), n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ x(n) < frac(a, x(n)) + 1
+11. forall (n), n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ x(n) > sqrtn(2, a)
+12. forall (n), n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ x(n) < sqrtn(2, a) + 1
+13. BoundedSeq(x)
+14. ConvergentSeq(x)
+15. l = seqlim_{ n → +∞ } (x(n))
+16. l^{2} = a + l
+17. forall (n), n ∈ PosIntegerSet ⇒ x(n) > 0
+GOAL:
+l = frac(1 + sqrtn(2, 1 + 4 * a), 2)
+
+METHOD:

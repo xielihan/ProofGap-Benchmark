@@ -1,0 +1,4 @@
+rewrite (left_to_right, equation) (hypothesis 8: {x_{4} = x_{3} + h}); from (GOAL: {x_{4} = 9}) to (GOAL: {x_{3} + h = 9})
+rewrite (left_to_right, equation) (hypothesis 24: {x_{3} = 7}); from (GOAL: {x_{3} + h = 9}) to (GOAL: {7 + h = 9})
+rewrite (left_to_right, equation) (hypothesis 15: {h = 2}); from (GOAL: {7 + h = 9}) to (GOAL: {7 + 2 = 9})
+autosolve all_hypothesis

@@ -1,0 +1,19 @@
+get_forall (GOAL: {forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ |F(n, x) - f(x)| = |sqrtn(n, 1 + x^{n}) - 1|}) (n := {n0}) (x := {x0})
+get_condition (hypothesis 5: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ 0 ≤ x0 ∧ x0 ≤ 1}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ 0 ≤ x0 ∧ x0 ≤ 1 ⇒ |F(n0, x0) - f(x0)| = |sqrtn(n0, 1 + x0^{n0}) - 1|})
+get_prop (hypothesis 3: {forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 2] ⇒ F(n, x) = sqrtn(n, 1 + x^{n})}) (n := {n0}) as (hypothesis 6: {forall (x), n0 ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ x ∈ [0, 2] ⇒ F(n0, x) = sqrtn(n0, 1 + x^{n0})})
+get_prop (hypothesis 6: {forall (x), n0 ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ x ∈ [0, 2] ⇒ F(n0, x) = sqrtn(n0, 1 + x^{n0})}) (x := {x0}) as (hypothesis 7: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ [0, 2] ⇒ F(n0, x0) = sqrtn(n0, 1 + x0^{n0})})
+assert (hypothesis 8: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ [0, 2]}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 8: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ [0, 2]}) in (hypothesis 7: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ [0, 2] ⇒ F(n0, x0) = sqrtn(n0, 1 + x0^{n0})}) as (hypothesis 9: {F(n0, x0) = sqrtn(n0, 1 + x0^{n0})})
+get_prop (hypothesis 4: {forall (x), x ∈ RealSet ∧ x ∈ [0, 2] ⇒ f(x) = cases{ 1 if 0 ≤ x ∧ x ≤ 1; x if 1 < x ∧ x ≤ 2 }}) (x := {x0}) as (hypothesis 10: {x0 ∈ RealSet ∧ x0 ∈ [0, 2] ⇒ f(x0) = cases{ 1 if 0 ≤ x0 ∧ x0 ≤ 1; x0 if 1 < x0 ∧ x0 ≤ 2 }})
+assert (hypothesis 11: {x0 ∈ RealSet ∧ x0 ∈ [0, 2]}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 11: {x0 ∈ RealSet ∧ x0 ∈ [0, 2]}) in (hypothesis 10: {x0 ∈ RealSet ∧ x0 ∈ [0, 2] ⇒ f(x0) = cases{ 1 if 0 ≤ x0 ∧ x0 ≤ 1; x0 if 1 < x0 ∧ x0 ≤ 2 }}) as (hypothesis 12: {f(x0) = cases{ 1 if 0 ≤ x0 ∧ x0 ≤ 1; x0 if 1 < x0 ∧ x0 ≤ 2 }})
+assert (hypothesis 13: {f(x0) = 1}) by proof {
+  autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 9: {F(n0, x0) = sqrtn(n0, 1 + x0^{n0})}); from (GOAL: {|F(n0, x0) - f(x0)| = |sqrtn(n0, 1 + x0^{n0}) - 1|}) to (GOAL: {|sqrtn(n0, 1 + x0^{n0}) - f(x0)| = |sqrtn(n0, 1 + x0^{n0}) - 1|})
+rewrite (left_to_right, equation) (hypothesis 13: {f(x0) = 1}); from (GOAL: {|sqrtn(n0, 1 + x0^{n0}) - f(x0)| = |sqrtn(n0, 1 + x0^{n0}) - 1|}) to (GOAL: {|sqrtn(n0, 1 + x0^{n0}) - 1| = |sqrtn(n0, 1 + x0^{n0}) - 1|})
+autosolve all_hypothesis

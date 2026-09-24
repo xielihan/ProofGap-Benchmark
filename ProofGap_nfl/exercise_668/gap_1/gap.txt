@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. x_{0} ∈ RealSet
+3. ε_{0} ∈ RealSet
+4. x_{0} ∈ Dom(f)
+5. ¬ContinuousFuncAt(f, x_{0})
+GOAL:
+exists (ε_{0}), ε_{0} ∈ RealSet ∧ ε_{0} > 0 ∧ (forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ (exists (x), x ∈ RealSet ∧ x ∈ Dom(f) ∧ |x - x_{0}| < δ ∧ |f(x) - f(x_{0})| ≥ ε_{0}))
+
+METHOD:

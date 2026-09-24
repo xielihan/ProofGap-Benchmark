@@ -1,0 +1,14 @@
+PROOF GAP @7
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ x_{0} ∈ PosRealSet ∧ y_{0} ∈ PosRealSet ∧ z_{0} ∈ PosRealSet ∧ sqrtn(2, x_{0}) + sqrtn(2, y_{0}) + sqrtn(2, z_{0}) = sqrtn(2, a) ⇒ frac(1, 2 * sqrtn(2, x_{0})) * (x - x_{0}) + frac(1, 2 * sqrtn(2, y_{0})) * (y - y_{0}) + frac(1, 2 * sqrtn(2, z_{0})) * (z - z_{0}) = 0)))))
+3. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ x_{0} ∈ PosRealSet ∧ y_{0} ∈ PosRealSet ∧ z_{0} ∈ PosRealSet ∧ sqrtn(2, x_{0}) + sqrtn(2, y_{0}) + sqrtn(2, z_{0}) = sqrtn(2, a) ⇒ sqrtn(2, y_{0} * z_{0}) * (x - x_{0}) + sqrtn(2, x_{0} * z_{0}) * (y - y_{0}) + sqrtn(2, x_{0} * y_{0}) * (z - z_{0}) = 0)))))
+4. exists (L_{x}), L_{x} ∈ RealSet ∧ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ x_{0} ∈ PosRealSet ∧ y_{0} ∈ PosRealSet ∧ z_{0} ∈ PosRealSet ∧ sqrtn(2, x_{0}) + sqrtn(2, y_{0}) + sqrtn(2, z_{0}) = sqrtn(2, a) ⇒ L_{x} = sqrtn(2, a * x_{0}))))
+5. exists (L_{y}), L_{y} ∈ RealSet ∧ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ x_{0} ∈ PosRealSet ∧ y_{0} ∈ PosRealSet ∧ z_{0} ∈ PosRealSet ∧ sqrtn(2, x_{0}) + sqrtn(2, y_{0}) + sqrtn(2, z_{0}) = sqrtn(2, a) ⇒ L_{y} = sqrtn(2, a * y_{0}))))
+6. exists (L_{z}), L_{z} ∈ RealSet ∧ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ x_{0} ∈ PosRealSet ∧ y_{0} ∈ PosRealSet ∧ z_{0} ∈ PosRealSet ∧ sqrtn(2, x_{0}) + sqrtn(2, y_{0}) + sqrtn(2, z_{0}) = sqrtn(2, a) ⇒ L_{z} = sqrtn(2, a * z_{0}))))
+7. exists (L_{x}), L_{x} ∈ RealSet ∧ (exists (L_{y}), L_{y} ∈ RealSet ∧ (exists (L_{z}), L_{z} ∈ RealSet ∧ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ x_{0} ∈ PosRealSet ∧ y_{0} ∈ PosRealSet ∧ z_{0} ∈ PosRealSet ∧ sqrtn(2, x_{0}) + sqrtn(2, y_{0}) + sqrtn(2, z_{0}) = sqrtn(2, a) ⇒ L_{x} + L_{y} + L_{z} = sqrtn(2, a * x_{0}) + sqrtn(2, a * y_{0}) + sqrtn(2, a * z_{0}))))))
+
+GOAL:
+forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ x_{0} ∈ PosRealSet ∧ y_{0} ∈ PosRealSet ∧ z_{0} ∈ PosRealSet ∧ sqrtn(2, x_{0}) + sqrtn(2, y_{0}) + sqrtn(2, z_{0}) = sqrtn(2, a) ⇒ sqrtn(2, a * x_{0}) + sqrtn(2, a * y_{0}) + sqrtn(2, a * z_{0}) = sqrtn(2, a) * (sqrtn(2, x_{0}) + sqrtn(2, y_{0}) + sqrtn(2, z_{0}))))
+
+METHOD:

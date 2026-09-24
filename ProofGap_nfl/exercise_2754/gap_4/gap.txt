@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. g : RealSet → RealSet
+3. C ∈ RealSet
+4. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ f(n, x) = n * (sqrtn(2, x + frac(1, n)) - sqrtn(2, x))
+5. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ g(x) = frac(1, 2 * sqrtn(2, x))
+6. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ seqlim_{ n → +∞ } (f(n, x)) = seqlim_{ n → +∞ } (frac(n * (x + frac(1, n) - x), sqrtn(2, x + frac(1, n)) + sqrtn(2, x))) ∧ seqlim_{ n → +∞ } (frac(n * (x + frac(1, n) - x), sqrtn(2, x + frac(1, n)) + sqrtn(2, x))) = frac(1, 2 * sqrtn(2, x)) ∧ frac(1, 2 * sqrtn(2, x)) = g(x)
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, n) ∈ PosRealSet
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |f(n, frac(1, n)) - g(frac(1, n))| = |n * (sqrtn(2, frac(2, n)) - sqrtn(2, frac(1, n))) - frac(1, 2 * sqrtn(2, frac(1, n)))|
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |f(n, frac(1, n)) - g(frac(1, n))| = sqrtn(2, n) * |sqrtn(2, 2) - 1 - frac(1, 2)|
+
+METHOD:

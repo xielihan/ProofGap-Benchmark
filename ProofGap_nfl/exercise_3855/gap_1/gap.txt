@@ -1,0 +1,15 @@
+PROOF GAP @1
+ASSUM:
+1. m ∈ RealSet
+2. n ∈ RealSet
+3. B : CartesianProd(RealSet, RealSet) → RealSet
+4. m > 0
+5. n ≠ 0
+6. x ∈ RealSet
+7. t ∈ RealSet
+8. t = x^{m}
+
+GOAL:
+0 ≤ x ∧ x ≤ 1 ⇒ 0 ≤ t ∧ t ≤ 1
+
+METHOD:

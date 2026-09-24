@@ -1,0 +1,19 @@
+PROOF GAP @2
+ASSUM:
+1. I_{l} ∈ RealSet
+2. I_{l_{0}} ∈ RealSet
+3. E ⊆ CartesianProd(RealSet, RealSet)
+4. S ∈ RealSet ∧ S > 0
+5. d ∈ RealSet ∧ d ≥ 0
+6. l ∈ RealSet
+7. l_{0} ∈ RealSet
+8. S = VolumeInt(E, diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+9. I_{l} = VolumeInt(E, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . (y - d)^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+10. I_{l_{0}} = VolumeInt(E, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+11. frac(1, S) * VolumeInt(E, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = 0
+12. I_{l} = VolumeInt(E, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . (y - d)^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+
+GOAL:
+I_{l} = VolumeInt(E, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) - 2 * d * VolumeInt(E, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) + d^{2} * VolumeInt(E, diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+
+METHOD:

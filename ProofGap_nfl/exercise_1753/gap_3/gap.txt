@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet ⇒ sin(3 * x)^{2} * sin(2 * x)^{3} = frac(1, 2) * (1 - cos(6 * x)) * frac(1, 4) * (3 * sin(2 * x) - sin(6 * x))
+3. forall (x), x ∈ RealSet ⇒ sin(3 * x)^{2} * sin(2 * x)^{3} = frac(3, 8) * sin(2 * x) + frac(3, 16) * sin(4 * x) - frac(1, 8) * sin(6 * x) - frac(3, 16) * sin(8 * x) + frac(1, 16) * sin(12 * x)
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = sin(3 * x)^{2} * sin(2 * x)^{3} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_3`(x) = -frac(3, 16) * cos(2 * x) - frac(3, 64) * cos(4 * x) + frac(1, 48) * cos(6 * x) + frac(3, 128) * cos(8 * x) - frac(1, 192) * cos(12 * x) + C) }
+
+METHOD:

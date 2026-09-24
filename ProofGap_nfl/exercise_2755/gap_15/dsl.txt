@@ -1,0 +1,25 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(n * π, 2) ∈ RealSet ∧ |h(n, frac(n * π, 2)) - g(frac(n * π, 2))| = 1 ∧ 1 > ε_{0}}) (n := {n0})
+get_condition (hypothesis 23: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ frac(n0 * π, 2) ∈ RealSet ∧ |h(n0, frac(n0 * π, 2)) - g(frac(n0 * π, 2))| = 1 ∧ 1 > ε_{0}})
+destruct_and (hypothesis 23: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) as (hypothesis 24: {n0 ∈ NonNegIntegerSet}) (hypothesis 25: {n0 ∈ PosIntegerSet})
+assert (hypothesis 26: {frac(n0 * π, 2) ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (hypothesis 6: {forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ h(n, x) = sin(frac(x, n))}) (n := {n0}) (x := {frac(n0 * π, 2)}) as (hypothesis 27: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ frac(n0 * π, 2) ∈ RealSet ⇒ h(n0, frac(n0 * π, 2)) = sin(frac(frac(n0 * π, 2), n0))})
+assert (hypothesis 28: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ frac(n0 * π, 2) ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 28: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ frac(n0 * π, 2) ∈ RealSet}) in (hypothesis 27: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ frac(n0 * π, 2) ∈ RealSet ⇒ h(n0, frac(n0 * π, 2)) = sin(frac(frac(n0 * π, 2), n0))}) as (hypothesis 29: {h(n0, frac(n0 * π, 2)) = sin(frac(frac(n0 * π, 2), n0))})
+get_prop (hypothesis 7: {forall (x), x ∈ RealSet ⇒ g(x) = 0}) (x := {frac(n0 * π, 2)}) as (hypothesis 30: {frac(n0 * π, 2) ∈ RealSet ⇒ g(frac(n0 * π, 2)) = 0})
+use_condition (hypothesis 26: {frac(n0 * π, 2) ∈ RealSet}) in (hypothesis 30: {frac(n0 * π, 2) ∈ RealSet ⇒ g(frac(n0 * π, 2)) = 0}) as (hypothesis 31: {g(frac(n0 * π, 2)) = 0})
+get_prop (theorem 'Thm 371. (SineAtOddHalfPi)': {forall (n), n ∈ IntegerSet => sin((2 * n + 1) * π / 2) = (-1) ^ n}) (n := {0}) as (hypothesis 32: {0 ∈ IntegerSet => sin((2 * 0 + 1) * π / 2) = (-1) ^ 0})
+use_condition (obvious: {0 ∈ IntegerSet}) in (hypothesis 32: {0 ∈ IntegerSet => sin((2 * 0 + 1) * π / 2) = (-1) ^ 0}) as (hypothesis 33: {sin((2 * 0 + 1) * π / 2) = (-1) ^ 0})
+assert (hypothesis 34: {frac(frac(n0 * π, 2), n0) = frac(π, 2)}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 35: {sin(frac(π, 2)) = 1}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 36: {h(n0, frac(n0 * π, 2)) = 1}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

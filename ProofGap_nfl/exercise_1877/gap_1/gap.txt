@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. A ∈ RealSet
+3. B ∈ RealSet
+4. C ∈ RealSet
+5. K ∈ RealSet
+6. x ≠ -1
+7. frac(1, (x + 1) * (x^{2} + 1)) = frac(A, x + 1) + frac(B * x + C, x^{2} + 1)
+
+GOAL:
+1 ≡ A * (x^{2} + 1) + (B * x + C) * (x + 1)
+
+METHOD:

@@ -1,0 +1,16 @@
+PROOF GAP @8
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ y(x) = cos(frac(π, x))
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(y, 1, 1)(x) = frac(π, x^{2}) * sin(frac(π, x))
+4. forall (x), x ∈ RealSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ 2 * k * π < frac(π, x) ∧ frac(π, x) < (2 * k + 1) * π ⇒ FunDeri(y, 1, 1)(x) > 0)
+5. forall (x), x ∈ RealSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ 2 * k * π < frac(π, x) ∧ frac(π, x) < (2 * k + 1) * π ⇒ MonoIncFuncOn(y, IntervalLoRo(frac(1, 2 * k + 1), frac(1, 2 * k))))
+6. forall (x), x ∈ RealSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ -(2 * k + 2) * π < frac(π, x) ∧ frac(π, x) < -(2 * k + 1) * π ⇒ FunDeri(y, 1, 1)(x) > 0)
+7. forall (x), x ∈ RealSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ -(2 * k + 2) * π < frac(π, x) ∧ frac(π, x) < -(2 * k + 1) * π ⇒ MonoIncFuncOn(y, IntervalLoRo(-frac(1, 2 * k + 1), -frac(1, 2 * k + 2))))
+8. forall (x), x ∈ RealSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ (2 * k + 1) * π < frac(π, x) ∧ frac(π, x) < (2 * k + 2) * π ⇒ FunDeri(y, 1, 1)(x) < 0)
+9. forall (x), x ∈ RealSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ (2 * k + 1) * π < frac(π, x) ∧ frac(π, x) < (2 * k + 2) * π ⇒ MonoDecFuncOn(y, IntervalLoRo(frac(1, 2 * k + 2), frac(1, 2 * k + 1))))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ -2 * k * π < frac(π, x) ∧ frac(π, x) < -(2 * k + 1) * π ⇒ FunDeri(y, 1, 1)(x) < 0)
+
+METHOD:

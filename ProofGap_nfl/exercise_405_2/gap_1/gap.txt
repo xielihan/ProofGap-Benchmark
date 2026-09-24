@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ Defined(f, IntervalLoRo(a - δ, a) ∪ IntervalLoRo(a, a + δ))
+
+GOAL:
+lim_{ x → a } (f(x)) = -∞ ⇔ (forall (E), E ∈ RealSet ∧ E > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ 0 < |x - a| ∧ |x - a| < δ ⇒ f(x) < -E)))
+
+METHOD:

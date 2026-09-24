@@ -1,0 +1,17 @@
+PROOF GAP @1
+ASSUM:
+1. R : CartesianProd(RealSet, RealSet) → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. p ∈ IntegerSet
+5. q ∈ IntegerSet
+6. n ∈ NonNegIntegerSet ∧ n > 0
+7. k ∈ IntegerSet
+8. ElementaryFuncSet ⊆ RealSet
+9. n ∈ PosIntegerSet
+10. p + q = k * n
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ a ∧ a = b ⇒ (x - a)^{frac(p, n)} * (x - b)^{frac(q, n)} = (x - a)^{k}
+
+METHOD:

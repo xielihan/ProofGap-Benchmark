@@ -1,0 +1,17 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet ∧ 1 + 2 * x - x^{2} > 0
+2. C ∈ RealSet
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. c ∈ RealSet
+6. λ ∈ RealSet
+7. { `F_2` | forall (x), x ∈ RealSet ∧ 1 + 2 * x - x^{2} > 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x^{3}, sqrtn(2, 1 + 2 * x - x^{2})) * FunDeri(fun x [x ∈ RealSet ∧ 1 + 2 * x - x^{2} > 0] . x, 1, 1)(x) } = { `F_6` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ 1 + 2 * x - x^{2} > 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(1, sqrtn(2, 1 + 2 * x - x^{2})) * FunDeri(fun x [x ∈ RealSet ∧ 1 + 2 * x - x^{2} > 0] . x, 1, 1)(x) ∧ `F_6`(x) = (a * x^{2} + b * x + c) * sqrtn(2, 1 + 2 * x - x^{2}) + λ * `F_3`(x)) }
+8. a ∈ RealSet
+9. b ∈ RealSet
+10. c ∈ RealSet
+
+GOAL:
+λ ∈ RealSet
+
+METHOD:

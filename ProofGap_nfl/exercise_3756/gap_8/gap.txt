@@ -1,0 +1,16 @@
+PROOF GAP @8
+ASSUM:
+1. `α_0` ∈ RealSet ∧ `α_0` > 0
+2. `α_0` ∈ PosRealSet
+3. forall (α) (x), α ∈ RealSet ∧ x ∈ RealSet ∧ α ≥ `α_0` ∧ x ≥ 0 ⇒ |e^{-(α * x)} * sin(x)| ≤ e^{-(`α_0` * x)}
+4. forall (x), x ∈ RealSet ⇒ DefInt(0, +∞, e^{-(`α_0` * x)} * diff(fun x [x ∈ RealSet] . x)) = frac(1, `α_0`)
+5. forall (x), x ∈ RealSet ⇒ ConvergentSeries(DefInt(0, +∞, e^{-(`α_0` * x)} * diff(fun x [x ∈ RealSet] . x)))
+6. forall (x), x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (A), A ∈ RealSet ∧ A > 0 ∧ (forall (b) (c), b ∈ RealSet ∧ c ∈ RealSet ∧ b ≥ A ∧ c ≥ b ⇒ DefInt(b, c, e^{-(`α_0` * x)} * diff(fun x [x ∈ RealSet] . x)) < ε)))
+7. forall (A) (x), A ∈ RealSet ∧ A > 0 ∧ x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (α), α ∈ RealSet ⇒ (forall (b), b ∈ RealSet ⇒ (forall (c), c ∈ RealSet ∧ α ≥ `α_0` ∧ b ≥ A ∧ c ≥ b ⇒ |DefInt(b, c, e^{-(α * x)} * sin(x) * diff(fun x [x ∈ RealSet] . x))| ≤ DefInt(b, c, e^{-(`α_0` * x)} * diff(fun x [x ∈ RealSet] . x))))))
+8. forall (A) (x), A ∈ RealSet ∧ A > 0 ∧ x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (α), α ∈ RealSet ⇒ (forall (b), b ∈ RealSet ⇒ (forall (c), c ∈ RealSet ∧ α ≥ `α_0` ∧ b ≥ A ∧ c ≥ b ⇒ DefInt(b, c, e^{-(`α_0` * x)} * diff(fun x [x ∈ RealSet] . x)) < ε))))
+9. forall (A) (x), A ∈ RealSet ∧ A > 0 ∧ x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (α), α ∈ RealSet ⇒ (forall (b), b ∈ RealSet ⇒ (forall (c), c ∈ RealSet ∧ α ≥ `α_0` ∧ b ≥ A ∧ c ≥ b ⇒ |DefInt(b, c, e^{-(α * x)} * sin(x) * diff(fun x [x ∈ RealSet] . x))| < ε))))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (A), A ∈ RealSet ∧ A > 0 ∧ (forall (α) (b) (c), α ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ α ≥ `α_0` ∧ b ≥ A ∧ c ≥ b ⇒ |DefInt(b, c, e^{-(α * x)} * sin(x) * diff(fun x [x ∈ RealSet] . x))| < ε)))
+
+METHOD:

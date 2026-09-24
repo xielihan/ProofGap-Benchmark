@@ -1,0 +1,17 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet
+2. D ⊆ RealSet
+3. ConvergenceClass : RealSet → RealSet
+4. Convergent ∈ RealSet
+5. Divergent ∈ RealSet
+6. I = DefInt(0, +∞, frac(cos(x), x + a) * diff(fun x [x ∈ RealSet] . x))
+7. a > 0 ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [0, +∞) ⇒ x + a ≠ 0)
+8. a > 0 ⇒ (forall (s), s : NonNegIntegerSet → RealSet ∧ IsSeq(s) ∧ s(0) = 0 ∧ (forall (n), n ∈ NonNegIntegerSet ⇒ s(n) < s(n + 1)) ∧ seqlim_{ n → +∞ } (s(n)) = +∞ ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ DefInt(s(n), s(n + 1), frac(cos(x), x + a) * diff(fun x [x ∈ RealSet] . x)) = frac(sin(s(n + 1)), s(n + 1) + a) - frac(sin(s(n)), s(n) + a) + DefInt(s(n), s(n + 1), frac(sin(x), (x + a)^{2}) * diff(fun x [x ∈ RealSet] . x))))
+9. a > 0 ⇒ (forall (m), m ∈ NonNegIntegerSet ⇒ (forall (p), p ∈ NonNegIntegerSet ∧ p > 0 ⇒ (forall (s), s : NonNegIntegerSet → RealSet ∧ IsSeq(s) ∧ s(0) = 0 ∧ (forall (n), n ∈ NonNegIntegerSet ⇒ s(n) < s(n + 1)) ∧ seqlim_{ n → +∞ } (s(n)) = +∞ ⇒ |sum_{ n = m }^{ m + p - 1 } (DefInt(s(n), s(n + 1), frac(cos(x), x + a) * diff(fun x [x ∈ RealSet] . x)))| ≤ frac(2, s(m) + a))))
+10. a > 0 ⇒ (forall (s), s : NonNegIntegerSet → RealSet ∧ IsSeq(s) ∧ s(0) = 0 ∧ (forall (n), n ∈ NonNegIntegerSet ⇒ s(n) < s(n + 1)) ∧ seqlim_{ n → +∞ } (s(n)) = +∞ ⇒ CauchySeq(fun m [m ∈ NonNegIntegerSet] . sum_{ n = 0 }^{ m } (DefInt(s(n), s(n + 1), frac(cos(x), x + a) * diff(fun x [x ∈ RealSet] . x)))))
+
+GOAL:
+a > 0 ⇒ ConvergenceClass(I) = Convergent
+
+METHOD:

@@ -1,0 +1,22 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. c_{1} ∈ RealSet
+5. c_{2} ∈ RealSet
+6. a < b
+7. f : [a, b] → RealSet
+8. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ FunDeri(f, 1, 2)(x) ∈ RealSet
+9. FunDeri(f, 1, 1)(a) = 0
+10. FunDeri(f, 1, 1)(b) = 0
+11. forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x_{0} ∈ [a, b] ∧ x ∈ [a, b] ∧ x ≠ x_{0} ⇒ (exists (ξ), ξ ∈ RealSet ∧ (x_{0} < ξ ∧ ξ < x ∨ x < ξ ∧ ξ < x_{0}) ∧ f(x) = f(x_{0}) + FunDeri(f, 1, 1)(x_{0}) * (x - x_{0}) + frac(1, 2) * (x - x_{0})^{2} * FunDeri(f, 1, 2)(ξ)))
+12. m = frac(a + b, 2)
+13. a < m
+14. m < b
+
+GOAL:
+exists (c_{1}), c_{1} ∈ RealSet ∧ a < c_{1} ∧ c_{1} < m ∧ f(m) = f(a) + FunDeri(f, 1, 1)(a) * (m - a) + frac(1, 2) * (m - a)^{2} * FunDeri(f, 1, 2)(c_{1})
+
+METHOD:
+[@method 代入 x_{0} = a, x = m 到 Taylor公式 @]

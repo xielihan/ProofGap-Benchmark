@@ -1,0 +1,3 @@
+get_prop (theorem 'Thm 435. (RealsEqualUnboundedOpenInterval)': {RealSet = (-∞, +∞)}) as (hypothesis 8: {RealSet = (-∞, +∞)})
+rewrite (left_to_right, equation) (hypothesis 8: {RealSet = (-∞, +∞)}); from (hypothesis 7: {x ∈ RealSet}) to (hypothesis 7: {x ∈ (-∞, +∞)})
+autosolve all_hypothesis

@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. y ∈ RealSet
+3. k ∈ RealSet
+4. 1 + x * y = k * (x - y)
+
+GOAL:
+x * diff(y) + y * diff(x) = k * (diff(x) - diff(y))
+
+METHOD:
+[@method 两边同时求微分 @]

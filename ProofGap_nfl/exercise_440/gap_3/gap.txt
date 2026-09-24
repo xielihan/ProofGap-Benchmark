@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(2, 4) ⇒ x > -1
+2. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(2, 4) ⇒ x ≠ 3
+
+GOAL:
+lim_{ x → 3 } (frac(sqrtn(2, x + 13) - 2 * sqrtn(2, x + 1), x^{2} - 9)) = lim_{ x → 3 } (frac((sqrtn(2, x + 13) - 2 * sqrtn(2, x + 1)) * (sqrtn(2, x + 13) + 2 * sqrtn(2, x + 1)), (x + 3) * (x - 3) * (sqrtn(2, x + 13) + 2 * sqrtn(2, x + 1))))
+
+METHOD:
+[@method 分子分母同乘 sqrt(x + 13) + 2 * sqrt(x + 1) @]

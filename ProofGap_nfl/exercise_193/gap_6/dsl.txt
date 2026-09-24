@@ -1,0 +1,5 @@
+get_condition (hypothesis 9: {x ≠ -1 ∧ x ≠ 1}) in (GOAL: {x ≠ -1 ∧ x ≠ 1 ⇒ frac(1, f(x)) = frac(1, frac(1 - x, 1 + x)) ∧ frac(1, frac(1 - x, 1 + x)) = frac(1 + x, 1 - x)})
+assert (hypothesis 10: {x ∈ RealSet ∧ x ≠ -1})
+get_prop (hypothesis 3: {forall (x), x ∈ RealSet ∧ x ≠ -1 ⇒ f(x) = frac(1 - x, 1 + x)}) (x := {x}) as (hypothesis 11: {x ∈ RealSet ∧ x ≠ -1 ⇒ f(x) = frac(1 - x, 1 + x)})
+use_condition (hypothesis 10: {x ∈ RealSet ∧ x ≠ -1}) in (hypothesis 11: {x ∈ RealSet ∧ x ≠ -1 ⇒ f(x) = frac(1 - x, 1 + x)}) as (hypothesis 12: {f(x) = frac(1 - x, 1 + x)})
+autosolve all_hypothesis

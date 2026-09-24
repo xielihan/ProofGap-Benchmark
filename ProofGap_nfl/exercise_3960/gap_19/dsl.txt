@@ -1,0 +1,7 @@
+get_condition (hypothesis 25: {0 ≤ ξ}) (hypothesis 26: {ξ ≤ 1}) (hypothesis 27: {0 ≤ η}) (hypothesis 28: {η ≤ 1}) in (GOAL: {0 ≤ ξ ⇒ ξ ≤ 1 ⇒ 0 ≤ η ⇒ η ≤ 1 ⇒ x = ξ * (1 - η)})
+assert (hypothesis 29: {ξ * (1 - η) = ξ - ξ * η}) by proof {
+  autosolve (hypothesis 3: {ξ ∈ RealSet}) (hypothesis 4: {η ∈ RealSet})
+}
+rewrite (left_to_right, equation) (hypothesis 29: {ξ * (1 - η) = ξ - ξ * η}); from (GOAL: {x = ξ * (1 - η)}) to (GOAL: {x = ξ - ξ * η})
+rewrite (right_to_left, equation) (hypothesis 6: {y = ξ * η}); from (GOAL: {x = ξ - ξ * η}) to (GOAL: {x = ξ - y})
+autosolve (hypothesis 5: {x + y = ξ})

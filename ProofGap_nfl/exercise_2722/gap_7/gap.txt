@@ -1,0 +1,17 @@
+PROOF GAP @7
+ASSUM:
+1. A ⊆ CartesianProd(RealSet, RealSet)
+2. C ⊆ CartesianProd(RealSet, RealSet)
+3. u : CartesianProd(RealSet, CartesianProd(RealSet, NonNegIntegerSet)) → RealSet
+4. forall (x) (p), x ∈ RealSet ∧ p ∈ RealSet ∧ x ∉ NegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ⇒ u(x, p, n) = frac((-1)^{n}, (x + n)^{p}))
+5. forall (p) (x), p ∈ RealSet ∧ x ∈ RealSet ∧ p > 1 ∧ x ∉ NegIntegerSet ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, (x + n)^{p})))
+6. forall (p) (x), p ∈ RealSet ∧ x ∈ RealSet ∧ p > 1 ∧ x ∉ NegIntegerSet ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (u(x, p, n)))
+7. forall (p) (x), p ∈ RealSet ∧ x ∈ RealSet ∧ 0 < p ∧ p ≤ 1 ∧ x ∉ NegIntegerSet ⇒ seqlim_{ n → +∞ } (fun n [n ∈ NonNegIntegerSet] . frac(1, (x + n)^{p})) = 0
+8. forall (p) (x), p ∈ RealSet ∧ x ∈ RealSet ∧ 0 < p ∧ p ≤ 1 ∧ x ∉ NegIntegerSet ⇒ MonoDecSeq(fun n [n ∈ NonNegIntegerSet] . frac(1, (x + n)^{p}))
+9. forall (p) (x), p ∈ RealSet ∧ x ∈ RealSet ∧ 0 < p ∧ p ≤ 1 ∧ x ∉ NegIntegerSet ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (u(x, p, n)))
+10. forall (p) (x), p ∈ RealSet ∧ x ∈ RealSet ∧ 0 < p ∧ p ≤ 1 ∧ x ∉ NegIntegerSet ⇒ ¬AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (u(x, p, n)))
+
+GOAL:
+forall (p) (x), p ∈ RealSet ∧ x ∈ RealSet ∧ 0 < p ∧ p ≤ 1 ∧ x ∉ NegIntegerSet ⇒ ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } (u(x, p, n)))
+
+METHOD:

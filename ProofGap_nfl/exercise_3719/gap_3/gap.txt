@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. F : RealSet → RealSet
+2. f : RealSet → RealSet
+3. DiffableFuncOn(f, RealSet)
+4. forall (x), x ∈ RealSet ⇒ F(x) = DefInt(0, x, (fun y [y ∈ RealSet] . (x + y) * f(y)) * diff(fun y [y ∈ RealSet] . y))
+5. forall (x), x ∈ RealSet ⇒ FunDeri(F, 1, 1)(x) = 2 * x * f(x) + DefInt(0, x, (fun y [y ∈ RealSet] . f(y)) * diff(fun y [y ∈ RealSet] . y))
+6. forall (x), x ∈ RealSet ⇒ FunDeri(F, 1, 2)(x) = 2 * f(x) + 2 * x * FunDeri(f, 1, 1)(x) + f(x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ 2 * f(x) + 2 * x * FunDeri(f, 1, 1)(x) + f(x) = 3 * f(x) + 2 * x * FunDeri(f, 1, 1)(x)
+
+METHOD:

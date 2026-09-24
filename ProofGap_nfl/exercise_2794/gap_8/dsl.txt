@@ -1,0 +1,7 @@
+get_condition (hypothesis 18: {UniformConvergent(S, [0, 1], F)}) in (GOAL: {UniformConvergent(S, [0, 1], F) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ x_{0} ∈ [0, 1])})
+use_condition (hypothesis 18: {UniformConvergent(S, [0, 1], F)}) in (hypothesis 17: {UniformConvergent(S, [0, 1], F) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ x_{0} = frac(1, n))}) as (hypothesis 19: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ x_{0} = frac(1, n)})
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ x_{0} ∈ [0, 1]}) (n := {u})
+get_condition (hypothesis 20: {u ∈ NonNegIntegerSet ∧ u ∈ PosIntegerSet ∧ u ≥ N}) in (GOAL: {u ∈ NonNegIntegerSet ∧ u ∈ PosIntegerSet ∧ u ≥ N ⇒ x_{0} ∈ [0, 1]})
+get_prop (hypothesis 19: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ x_{0} = frac(1, n)}) (n := {u}) as (hypothesis 21: {u ∈ NonNegIntegerSet ∧ u ∈ PosIntegerSet ∧ u ≥ N ⇒ x_{0} = frac(1, u)})
+use_condition (hypothesis 20: {u ∈ NonNegIntegerSet ∧ u ∈ PosIntegerSet ∧ u ≥ N}) in (hypothesis 21: {u ∈ NonNegIntegerSet ∧ u ∈ PosIntegerSet ∧ u ≥ N ⇒ x_{0} = frac(1, u)}) as (hypothesis 22: {x_{0} = frac(1, u)})
+autosolve all_hypothesis

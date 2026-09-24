@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet] . lim_{ n → +∞ } (frac(n * x, 1 + n^{2} * x^{4}))) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet] . 0) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

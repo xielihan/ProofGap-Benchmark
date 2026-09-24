@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. a = (fun n [n ∈ NonNegIntegerSet ∧ n ≥ 1] . frac((3 + (-1)^{n})^{n}, n))
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac((3 + (-1)^{n})^{n}, n)
+4. seqlim_{ n → +∞ } (sqrtn(n, |a(n)|)) = 4
+5. RadiusOfConvergence(a) = frac(1, 4)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| < frac(1, 4) ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac((3 + (-1)^{n})^{n}, n) * x^{n}))
+
+METHOD:

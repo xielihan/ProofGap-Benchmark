@@ -1,0 +1,5 @@
+assert (hypothesis 22: {1 ∈ IntegerSet ∧ 0 ≤ 1 ∧ 1 ≤ 12})
+get_prop (hypothesis 19: {forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ 12 ⇒ x(i) = frac(i, 12) ∧ y(i) = f(x(i))}) (i := {1}) as (hypothesis 23: {1 ∈ IntegerSet ∧ 0 ≤ 1 ∧ 1 ≤ 12 ⇒ x(1) = frac(1, 12) ∧ y(1) = f(x(1))})
+use_condition (hypothesis 22: {1 ∈ IntegerSet ∧ 0 ≤ 1 ∧ 1 ≤ 12}) in (hypothesis 23: {1 ∈ IntegerSet ∧ 0 ≤ 1 ∧ 1 ≤ 12 ⇒ x(1) = frac(1, 12) ∧ y(1) = f(x(1))}) as (hypothesis 24: {x(1) = frac(1, 12) ∧ y(1) = f(x(1))})
+destruct_and (hypothesis 24: {x(1) = frac(1, 12) ∧ y(1) = f(x(1))}) as (hypothesis 25: {x(1) = frac(1, 12)}) (hypothesis 26: {y(1) = f(x(1))})
+apply (hypothesis 25: {x(1) = frac(1, 12)})

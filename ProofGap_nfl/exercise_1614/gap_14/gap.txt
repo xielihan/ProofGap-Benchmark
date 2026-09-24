@@ -1,0 +1,27 @@
+PROOF GAP @14
+ASSUM:
+1. x ∈ RealSet
+2. y : RealSet → RealSet
+3. a ∈ RealSet
+4. ξ ∈ RealSet
+5. η ∈ RealSet
+6. a > 0
+7. forall (x), x ∈ RealSet ∧ 0 < y(x) ∧ y(x) < a ⇒ x = a * ln(frac(a + sqrtn(2, a^{2} - y(x)^{2}), y(x))) - sqrtn(2, a^{2} - y(x)^{2})
+8. 1 = a * (frac(-1, a + sqrtn(2, a^{2} - y(x)^{2})) * frac(y(x) * FunDeri(y, 1, 1)(x), sqrtn(2, a^{2} - y(x)^{2})) - frac(FunDeri(y, 1, 1)(x), y(x))) + frac(y(x) * FunDeri(y, 1, 1)(x), sqrtn(2, a^{2} - y(x)^{2}))
+9. FunDeri(y, 1, 1)(x) = -frac(y(x), sqrtn(2, a^{2} - y(x)^{2}))
+10. FunDeri(y, 1, 2)(x) = frac(a^{2} * y(x), (a^{2} - y(x)^{2})^{2})
+11. ξ = x - frac(FunDeri(y, 1, 1)(x) * (1 + FunDeri(y, 1, 1)(x)^{2}), FunDeri(y, 1, 2)(x))
+12. x - frac(FunDeri(y, 1, 1)(x) * (1 + FunDeri(y, 1, 1)(x)^{2}), FunDeri(y, 1, 2)(x)) = x + sqrtn(2, a^{2} - y(x)^{2})
+13. ξ = x + sqrtn(2, a^{2} - y(x)^{2})
+14. η = y(x) + frac(1 + FunDeri(y, 1, 1)(x)^{2}, FunDeri(y, 1, 2)(x))
+15. y(x) + frac(1 + FunDeri(y, 1, 1)(x)^{2}, FunDeri(y, 1, 2)(x)) = frac(a^{2}, y(x))
+16. η = frac(a^{2}, y(x))
+17. x + sqrtn(2, a^{2} - y(x)^{2}) = a * ln(frac(a + sqrtn(2, a^{2} - y(x)^{2}), y(x)))
+18. ξ = a * ln(frac(a + sqrtn(2, a^{2} - y(x)^{2}), y(x)))
+19. frac(a + sqrtn(2, a^{2} - y(x)^{2}), y(x)) = e^{frac(ξ, a)}
+20. frac(a - sqrtn(2, a^{2} - y(x)^{2}), y(x)) = e^{-frac(ξ, a)}
+
+GOAL:
+frac(a, y(x)) = cosh(frac(ξ, a))
+
+METHOD:

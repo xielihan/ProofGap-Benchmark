@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. I ∈ RealSet
+2. n ∈ RealSet ∧ n > 0
+3. m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet
+4. forall (n), n ∈ RealSet ∧ n > 0 ⇒ DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 < x ∧ x ≤ 1] . x^{n - 1}) * diff(fun x [x ∈ RealSet ∧ 0 < x ∧ x ≤ 1] . x)) = frac(1, n)
+5. I = DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 < x ∧ x ≤ 1] . x^{n - 1} * ln(x)^{m}) * diff(fun x [x ∈ RealSet ∧ 0 < x ∧ x ≤ 1] . x))
+6. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ FunDeri(fun n [n ∈ RealSet ∧ n > 0] . x^{n - 1}, 1, 1)(n) = x^{n - 1} * ln(x)
+7. forall (n_{0}), n_{0} ∈ RealSet ∧ n_{0} > 0 ⇒ (forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ (forall (n), n ∈ RealSet ∧ n ≥ n_{0} ⇒ |x^{n - 1} * ln(x)| ≤ -x^{n_{0} - 1} * ln(x)))
+
+GOAL:
+forall (n_{0}), n_{0} ∈ RealSet ∧ n_{0} > 0 ⇒ DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 < x ∧ x ≤ 1] . x^{n_{0} - 1} * ln(x)) * diff(fun x [x ∈ RealSet ∧ 0 < x ∧ x ≤ 1] . x)) < +∞
+
+METHOD:

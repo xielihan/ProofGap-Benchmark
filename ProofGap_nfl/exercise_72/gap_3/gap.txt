@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. seqlim_{ n → +∞ } ((1 + frac(1, n))^{n}) = e
+3. x = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . (1 + frac(1, n))^{n})
+4. ω = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . sum_{ k = 0 }^{ n } (frac(1, k!)))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = 1 + 1 + (sum_{ k = 2 }^{ n } (frac(1, k!) * (prod_{ i = 1 }^{ k - 1 } (1 - frac(i, n)))))
+6. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > k ⇒ x(n) > 1 + 1 + (sum_{ j = 2 }^{ k } (frac(1, j!) * (prod_{ i = 1 }^{ j - 1 } (1 - frac(i, n))))))
+
+GOAL:
+forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ e ≥ sum_{ j = 0 }^{ k } (frac(1, j!))
+
+METHOD:
+[@method 两边同时求极限 n → +∞ @]

@@ -1,0 +1,6 @@
+assert (hypothesis 15: {0 ∈ NonNegIntegerSet /\ 0 = 0}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (hypothesis 10: {forall (n), n ∈ NonNegIntegerSet /\ n = 0 => I(0) = 2 * π}) (n := {0}) as (hypothesis 16: {0 ∈ NonNegIntegerSet /\ 0 = 0 => I(0) = 2 * π})
+use_condition (hypothesis 15: {0 ∈ NonNegIntegerSet /\ 0 = 0}) in (hypothesis 16: {0 ∈ NonNegIntegerSet /\ 0 = 0 => I(0) = 2 * π}) as (hypothesis 17: {I(0) = 2 * π})
+autosolve all_hypothesis

@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = e^{-x^{2}} * cos(x^{2})
+
+GOAL:
+MinimumPointOn(f, IntervalLoRo(-∞, +∞)) = { sqrtn(2, frac(3 * π, 4)), -sqrtn(2, frac(3 * π, 4)) }
+
+METHOD:

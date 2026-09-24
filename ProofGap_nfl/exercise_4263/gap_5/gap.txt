@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ C ⇒ x ≠ 0
+3. (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(y, x^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(x, x^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) = diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . -frac(y, x))
+4. VectorCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(y, x^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(x, x^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = VectorCurveInt(C, diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . -frac(y, x)))
+5. VectorCurveInt(C, diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . -frac(y, x))) = ((fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . -frac(y, x))|_{(2, 1)}^{(1, 2)})
+6. ((fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . -frac(y, x))|_{(2, 1)}^{(1, 2)}) = -frac(3, 2)
+
+GOAL:
+VectorCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(y, x^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(x, x^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = -frac(3, 2)
+
+METHOD:

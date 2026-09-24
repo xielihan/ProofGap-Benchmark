@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. A : NonNegIntegerSet → RealSet
+2. n ∈ NonNegIntegerSet
+3. forall (x), x ∈ RealSet ⇒ sin(x) = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x^{2 * n + 1}, (2 * n + 1)!))
+4. forall (x), x ∈ RealSet ⇒ cos(x) = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x^{2 * n}, (2 * n)!))
+5. forall (x), x ∈ RealSet ⇒ AbsoluteConvergentSeries(sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x^{2 * n + 1}, (2 * n + 1)!)))
+6. forall (x), x ∈ RealSet ⇒ AbsoluteConvergentSeries(sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x^{2 * n}, (2 * n)!)))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ sin(x) * cos(x) = (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x^{2 * n + 1}, (2 * n + 1)!))) * (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x^{2 * n}, (2 * n)!)))
+
+METHOD:

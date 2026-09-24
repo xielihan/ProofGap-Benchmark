@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, (2 * n - 1) * (2 * n + 1)) = frac(1, 2) * (frac(1, 2 * n - 1) - frac(1, 2 * n + 1))}) (n := {n0})
+get_condition (hypothesis 1: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ frac(1, (2 * n0 - 1) * (2 * n0 + 1)) = frac(1, 2) * (frac(1, 2 * n0 - 1) - frac(1, 2 * n0 + 1))})
+assert (hypothesis 2: {2 * n0 - 1 ≠ 0}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 3: {2 * n0 + 1 ≠ 0}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

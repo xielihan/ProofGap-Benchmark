@@ -1,0 +1,3 @@
+exists (t := {e^{frac(x, 4)}})
+assert (hypothesis 2: {e^{frac(x, 4)} ∈ RealSet ∧ e^{frac(x, 4)} > 0 ∧ e^{frac(x, 4)} = e^{frac(x, 4)}})
+apply (hypothesis 2: {e^{frac(x, 4)} ∈ RealSet ∧ e^{frac(x, 4)} > 0 ∧ e^{frac(x, 4)} = e^{frac(x, 4)}})

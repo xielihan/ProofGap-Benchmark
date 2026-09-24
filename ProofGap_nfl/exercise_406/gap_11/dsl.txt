@@ -1,0 +1,18 @@
+get_forall (GOAL: {forall (E), E ∈ RealSet ∧ E > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ x < -N ⇒ f(x) > E))}) (E := {E0})
+get_condition (hypothesis 14: {E0 ∈ RealSet ∧ E0 > 0}) in (GOAL: {E0 ∈ RealSet ∧ E0 > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ x < -N ⇒ f(x) > E0))})
+get_prop (hypothesis 8: {forall (E), E ∈ RealSet ∧ E > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x| > N ⇒ f(x) > E))}) (E := {E0}) as (hypothesis 15: {E0 ∈ RealSet ∧ E0 > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x| > N ⇒ f(x) > E0))})
+use_condition (hypothesis 14: {E0 ∈ RealSet ∧ E0 > 0}) in (hypothesis 15: {E0 ∈ RealSet ∧ E0 > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x| > N ⇒ f(x) > E0))}) as (hypothesis 16: {exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x| > N ⇒ f(x) > E0)})
+get_exists (hypothesis 16: {exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x| > N ⇒ f(x) > E0)}) (N := {N0})
+destruct_and (hypothesis 17: {N0 ∈ RealSet ∧ N0 > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x| > N0 ⇒ f(x) > E0)}) as (hypothesis 18: {N0 ∈ RealSet}) (hypothesis 19: {N0 > 0}) (hypothesis 20: {forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x| > N0 ⇒ f(x) > E0})
+exists (N := {N0})
+assert (hypothesis 21: {forall (x), x ∈ RealSet ∧ x ∈ D ∧ x < -N0 ⇒ f(x) > E0}) by proof {
+  get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ D ∧ x < -N0 ⇒ f(x) > E0}) (x := {x0})
+  get_condition (hypothesis 21: {x0 ∈ RealSet ∧ x0 ∈ D ∧ x0 < -N0}) in (GOAL: {x0 ∈ RealSet ∧ x0 ∈ D ∧ x0 < -N0 ⇒ f(x0) > E0})
+  destruct_and (hypothesis 21: {x0 ∈ RealSet ∧ x0 ∈ D ∧ x0 < -N0}) as (hypothesis 22: {x0 ∈ RealSet}) (hypothesis 23: {x0 ∈ D}) (hypothesis 24: {x0 < -N0})
+  get_prop (hypothesis 20: {forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x| > N0 ⇒ f(x) > E0}) (x := {x0}) as (hypothesis 25: {x0 ∈ RealSet ∧ x0 ∈ D ∧ |x0| > N0 ⇒ f(x0) > E0})
+  assert (hypothesis 26: {|x0| > N0})
+  assert (hypothesis 27: {x0 ∈ RealSet ∧ x0 ∈ D ∧ |x0| > N0})
+  use_condition (hypothesis 27: {x0 ∈ RealSet ∧ x0 ∈ D ∧ |x0| > N0}) in (hypothesis 25: {x0 ∈ RealSet ∧ x0 ∈ D ∧ |x0| > N0 ⇒ f(x0) > E0}) as (hypothesis 28: {f(x0) > E0})
+  apply (hypothesis 28: {f(x0) > E0})
+}
+autosolve all_hypothesis

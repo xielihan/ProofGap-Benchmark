@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ∈ PosRealSet ∧ y ∈ PosRealSet ⇒ z(x, y) = x * y + frac(50, x) + frac(20, y)
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ∈ PosRealSet ∧ y ∈ PosRealSet ⇒ FunDeri(z, 1, 1)(x, y) = y - frac(50, x^{2})
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ∈ PosRealSet ∧ y ∈ PosRealSet ⇒ FunDeri(z, 2, 1)(x, y) = x - frac(20, y^{2})
+
+METHOD:

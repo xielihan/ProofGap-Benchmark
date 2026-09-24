@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 35: {PlaneEq = 3 * (u_{0})^{2} * (x - 2 * u_{0}) - 3 * u_{0} * (y - 2 * (u_{0})^{2}) + z - 2 * (u_{0})^{3}}); from (GOAL: {PlaneEq = 3 * (u_{0})^{2} * x - 3 * u_{0} * y + z - 2 * (u_{0})^{3}}) to (GOAL: {3 * (u_{0})^{2} * (x - 2 * u_{0}) - 3 * u_{0} * (y - 2 * (u_{0})^{2}) + z - 2 * (u_{0})^{3} = 3 * (u_{0})^{2} * x - 3 * u_{0} * y + z - 2 * (u_{0})^{3}})
+autosolve all_hypothesis using PolyRatSolver

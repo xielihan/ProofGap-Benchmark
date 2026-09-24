@@ -1,0 +1,23 @@
+PROOF GAP @7
+ASSUM:
+1. F : CartesianProd(RealSet, RealSet) → RealSet
+2. u : CartesianProd(RealSet, RealSet) → RealSet
+3. v : CartesianProd(RealSet, RealSet) → RealSet
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ x = e^{u(x, y) + v(x, y)}
+5. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ⇒ y = e^{u(x, y) - v(x, y)}
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ F(x, y) = u(x, y) * v(x, y)
+7. u ∈ RealSet
+8. v ∈ RealSet
+9. forall (x), x ∈ RealSet ⇒ x > 0
+10. forall (y), y ∈ RealSet ⇒ y > 0
+11. diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{u(x, y) + v(x, y)}) * (diff(u) + diff(v))
+12. diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{u(x, y) - v(x, y)}) * (diff(u) - diff(v))
+13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ u(x, y) = 0 ∧ v(x, y) = 0 ⇒ diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) = diff(u) + diff(v)
+14. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ u(x, y) = 0 ∧ v(x, y) = 0 ⇒ diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) = diff(u) - diff(v)
+15. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ u(x, y) = 0 ∧ v(x, y) = 0 ⇒ diff(u) = frac(1, 2) * (diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+16. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ u(x, y) = 0 ∧ v(x, y) = 0 ⇒ diff(v) = frac(1, 2) * (diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ u(x, y) = 0 ∧ v(x, y) = 0 ⇒ diff(F) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y)) * diff(v) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . v(x, y)) * diff(u)
+
+METHOD:

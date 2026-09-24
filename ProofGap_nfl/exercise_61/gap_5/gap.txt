@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet
+2. k = min({ m | m ∈ PosIntegerSet, m > 2 * |a| })
+3. k ∈ PosIntegerSet
+4. k > 2 * |a|
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ IntegerSet ∧ n > k ⇒ 0 < |frac(a^{n}, n!)|
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ IntegerSet ∧ n > k ⇒ |frac(a^{n}, n!)| = prod_{ i = 1 }^{ n } (frac(|a|, i))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ IntegerSet ∧ n > k ⇒ 0 < prod_{ i = 1 }^{ n } (frac(|a|, i))
+
+METHOD:

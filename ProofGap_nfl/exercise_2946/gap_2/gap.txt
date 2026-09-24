@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet ∧ a ∉ IntegerSet
+3. A : NonNegIntegerSet → RealSet
+4. B : NonNegIntegerSet → RealSet
+5. forall (x), x ∈ RealSet ∧ -π < x ∧ x < π ⇒ f(x) = sin(a * x)
+6. OddFunc(f)
+
+GOAL:
+A(0) = 0
+
+METHOD:

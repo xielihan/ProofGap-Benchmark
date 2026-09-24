@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x) (k), x ∈ RealSet ∧ k ∈ IntegerSet ∧ 0 < x - 2 * k * π ∧ x - 2 * k * π < frac(π, 2) ⇒ y(x) = ln(tan(frac(x, 2))) - cos(x) * ln(tan(x))
+
+GOAL:
+forall (x) (k), x ∈ RealSet ∧ 0 < x - 2 * k * π ∧ x - 2 * k * π < frac(π, 2) ∧ k ∈ IntegerSet ⇒ FunDeri(y, 1, 1)(x) = frac(1, tan(frac(x, 2))) * sec(frac(x, 2))^{2} * frac(1, 2) + sin(x) * ln(tan(x)) - cos(x) * frac(1, tan(x)) * sec(x)^{2} ∧ frac(1, tan(frac(x, 2))) * sec(frac(x, 2))^{2} * frac(1, 2) + sin(x) * ln(tan(x)) - cos(x) * frac(1, tan(x)) * sec(x)^{2} = sin(x) * ln(tan(x))
+
+METHOD:

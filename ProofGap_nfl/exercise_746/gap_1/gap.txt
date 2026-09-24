@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. F : RealSet → RealSet
+3. D ⊆ RealSet
+4. ContinuousFuncOn(f, D)
+5. forall (x), x ∈ RealSet ∧ x ∈ D ⇒ F(x) = |f(x)|
+
+GOAL:
+ContinuousFuncOn(f, D)
+
+METHOD:

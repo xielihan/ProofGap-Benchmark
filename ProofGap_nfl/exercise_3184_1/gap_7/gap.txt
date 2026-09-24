@@ -1,0 +1,19 @@
+PROOF GAP @7
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ f(x, y) = frac(x^{2} + y^{2}, x^{2} + y^{4})
+5. a = +∞
+6. b = +∞
+7. lim_{ x → +∞ } (lim_{ y → +∞ } (f(x, y))) = lim_{ x → +∞ } (lim_{ y → +∞ } (frac(x^{2} + y^{2}, x^{2} + y^{4})))
+8. lim_{ x → +∞ } (lim_{ y → +∞ } (frac(x^{2} + y^{2}, x^{2} + y^{4}))) = lim_{ x → +∞ } (0)
+9. lim_{ x → +∞ } (0) = 0
+10. lim_{ x → +∞ } (lim_{ y → +∞ } (f(x, y))) = 0
+11. lim_{ y → +∞ } (lim_{ x → +∞ } (f(x, y))) = lim_{ y → +∞ } (lim_{ x → +∞ } (frac(x^{2} + y^{2}, x^{2} + y^{4})))
+12. lim_{ y → +∞ } (lim_{ x → +∞ } (frac(x^{2} + y^{2}, x^{2} + y^{4}))) = lim_{ y → +∞ } (1)
+
+GOAL:
+lim_{ y → +∞ } (1) = 1
+
+METHOD:

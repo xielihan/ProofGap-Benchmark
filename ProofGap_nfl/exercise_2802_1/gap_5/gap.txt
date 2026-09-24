@@ -1,0 +1,14 @@
+PROOF GAP @5
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. α ∈ RealSet
+3. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ f(n, x) = n^{α} * x * e^{-n * x})
+4. forall (x), x ∈ RealSet ∧ x = 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ f(n, x) = 0)
+5. forall (x), x ∈ RealSet ∧ x = 0 ⇒ seqlim_{ n → +∞ } (f(n, x)) = 0
+6. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x ∈ (0, 1] ⇒ seqlim_{ n → +∞ } (n^{α} * x * e^{-n * x}) = 0
+7. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x ∈ (0, 1] ⇒ seqlim_{ n → +∞ } (f(n, x)) = 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ α ∈ RealSet ∧ x ∈ [0, 1] ⇒ ConvergentSeq(fun n [n ∈ NonNegIntegerSet] . f(n, x))
+
+METHOD:

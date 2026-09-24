@@ -1,0 +1,19 @@
+PROOF GAP @9
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. N : RealSet → NonNegIntegerSet
+3. forall (i), i ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = sum_{ i = 1 }^{ n } (frac(sin(i), 2^{i})))
+4. forall (m), m ∈ IntegerSet ⇒ (forall (n), m ∈ IntegerSet ∧ n ∈ IntegerSet ∧ m > n ∧ n > 0 ⇒ |x(m) - x(n)| = |sum_{ i = n + 1 }^{ m } (frac(sin(i), 2^{i}))|)
+5. forall (m), m ∈ IntegerSet ⇒ (forall (n), m ∈ IntegerSet ∧ n ∈ IntegerSet ∧ m > n ∧ n > 0 ⇒ |sum_{ i = n + 1 }^{ m } (frac(sin(i), 2^{i}))| ≤ frac(1, 2^{n + 1}) * (sum_{ i = 0 }^{ m - n - 1 } (frac(1, 2^{i}))))
+6. forall (m), m ∈ IntegerSet ⇒ (forall (n), m ∈ IntegerSet ∧ n ∈ IntegerSet ∧ m > n ∧ n > 0 ⇒ frac(1, 2^{n + 1}) * (sum_{ i = 0 }^{ m - n - 1 } (frac(1, 2^{i}))) < frac(1, 2^{n + 1}) * frac(1, 1 - frac(1, 2)))
+7. forall (m), m ∈ IntegerSet ⇒ (forall (n), m ∈ IntegerSet ∧ n ∈ IntegerSet ∧ m > n ∧ n > 0 ⇒ frac(1, 2^{n + 1}) * frac(1, 1 - frac(1, 2)) = frac(1, 2^{n}))
+8. forall (m), m ∈ IntegerSet ⇒ (forall (n), m ∈ IntegerSet ∧ n ∈ IntegerSet ∧ m > n ∧ n > 0 ⇒ |x(m) - x(n)| < frac(1, 2^{n}))
+9. forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε < 1 ⇒ N(ε) = floor(frac(ln(frac(1, ε)), ln(2)))
+10. forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε < 1 ⇒ (forall (m), m ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ m > n ∧ n > N(ε) ⇒ frac(1, 2^{n}) < ε))
+11. forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε < 1 ⇒ (forall (m), m ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ m > n ∧ n > N(ε) ⇒ |x(m) - x(n)| < ε))
+12. CauchySeq(x)
+
+GOAL:
+ConvergentSeq(x)
+
+METHOD:

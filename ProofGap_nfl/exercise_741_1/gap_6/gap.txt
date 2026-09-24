@@ -1,0 +1,12 @@
+PROOF GAP @6
+ASSUM:
+1. forall (F), F : RealSet → RealSet ⇒ (forall (f), f : RealSet → RealSet ⇒ (forall (g), g : RealSet → RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ ContinuousFuncAt(f, x_{0}) ∧ ¬ContinuousFuncAt(g, x_{0}) ∧ F = f + g ∧ ContinuousFuncAt(F, x_{0}) ⇒ g = F - f)))
+2. forall (F), F : RealSet → RealSet ⇒ (forall (f), f : RealSet → RealSet ⇒ (forall (g), g : RealSet → RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ ContinuousFuncAt(f, x_{0}) ∧ ¬ContinuousFuncAt(g, x_{0}) ∧ F = f + g ∧ ContinuousFuncAt(F, x_{0}) ⇒ lim_{ x → x_{0} } (g(x)) = lim_{ x → x_{0} } (F(x) - f(x)))))
+3. forall (F), F : RealSet → RealSet ⇒ (forall (f), f : RealSet → RealSet ⇒ (forall (g), g : RealSet → RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ ContinuousFuncAt(f, x_{0}) ∧ ¬ContinuousFuncAt(g, x_{0}) ∧ F = f + g ∧ ContinuousFuncAt(F, x_{0}) ⇒ lim_{ x → x_{0} } (F(x) - f(x)) = (lim_{ x → x_{0} } (F(x))) - (lim_{ x → x_{0} } (f(x))))))
+4. forall (F), F : RealSet → RealSet ⇒ (forall (f), f : RealSet → RealSet ⇒ (forall (g), g : RealSet → RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ ContinuousFuncAt(f, x_{0}) ∧ ¬ContinuousFuncAt(g, x_{0}) ∧ F = f + g ∧ ContinuousFuncAt(F, x_{0}) ⇒ (lim_{ x → x_{0} } (F(x))) - (lim_{ x → x_{0} } (f(x))) = F(x_{0}) - f(x_{0}))))
+5. forall (F), F : RealSet → RealSet ⇒ (forall (f), f : RealSet → RealSet ⇒ (forall (g), g : RealSet → RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ ContinuousFuncAt(f, x_{0}) ∧ ¬ContinuousFuncAt(g, x_{0}) ∧ F = f + g ∧ ContinuousFuncAt(F, x_{0}) ⇒ F(x_{0}) - f(x_{0}) = g(x_{0}))))
+
+GOAL:
+forall (F), F : RealSet → RealSet ⇒ (forall (f), f : RealSet → RealSet ⇒ (forall (g), g : RealSet → RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ ContinuousFuncAt(f, x_{0}) ∧ ¬ContinuousFuncAt(g, x_{0}) ∧ F = f + g ∧ ContinuousFuncAt(F, x_{0}) ⇒ lim_{ x → x_{0} } (g(x)) = g(x_{0}))))
+
+METHOD:

@@ -1,0 +1,13 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ a * sin(x) + b * cos(x) = sqrtn(2, a^{2} + b^{2}) * sin(x + α)}) (x := {x0})
+get_condition (hypothesis 17: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ a * sin(x0) + b * cos(x0) = sqrtn(2, a^{2} + b^{2}) * sin(x0 + α)})
+assert (hypothesis 18: {sin(x0 + α) = sin(x0) * cos(α) + cos(x0) * sin(α)}) by proof {
+  get_prop (theorem 'Thm 180. (SineAdditionFormula)': {forall (x) (y), x ∈ RealSet ⇒ y ∈ RealSet ⇒ sin(x + y) = sin(x) * cos(y) + cos(x) * sin(y)}) (x := {x0}) (y := {α}) as (hypothesis 18: {x0 ∈ RealSet ⇒ α ∈ RealSet ⇒ sin(x0 + α) = sin(x0) * cos(α) + cos(x0) * sin(α)})
+  use_condition (hypothesis 17: {x0 ∈ RealSet}) (hypothesis 8: {α ∈ RealSet}) in (hypothesis 18: {x0 ∈ RealSet ⇒ α ∈ RealSet ⇒ sin(x0 + α) = sin(x0) * cos(α) + cos(x0) * sin(α)}) as (hypothesis 19: {sin(x0 + α) = sin(x0) * cos(α) + cos(x0) * sin(α)})
+  apply (hypothesis 19: {sin(x0 + α) = sin(x0) * cos(α) + cos(x0) * sin(α)})
+}
+rewrite (left_to_right, equation) (hypothesis 18: {sin(x0 + α) = sin(x0) * cos(α) + cos(x0) * sin(α)}); from (GOAL: {a * sin(x0) + b * cos(x0) = sqrtn(2, a^{2} + b^{2}) * sin(x0 + α)}) to (GOAL: {a * sin(x0) + b * cos(x0) = sqrtn(2, a^{2} + b^{2}) * (sin(x0) * cos(α) + cos(x0) * sin(α))})
+rewrite (left_to_right, equation) (hypothesis 13: {cos(α) = frac(a, sqrtn(2, a^{2} + b^{2}))}); from (GOAL: {a * sin(x0) + b * cos(x0) = sqrtn(2, a^{2} + b^{2}) * (sin(x0) * cos(α) + cos(x0) * sin(α))}) to (GOAL: {a * sin(x0) + b * cos(x0) = sqrtn(2, a^{2} + b^{2}) * (sin(x0) * frac(a, sqrtn(2, a^{2} + b^{2})) + cos(x0) * sin(α))})
+rewrite (left_to_right, equation) (hypothesis 12: {sin(α) = frac(b, sqrtn(2, a^{2} + b^{2}))}); from (GOAL: {a * sin(x0) + b * cos(x0) = sqrtn(2, a^{2} + b^{2}) * (sin(x0) * frac(a, sqrtn(2, a^{2} + b^{2})) + cos(x0) * sin(α))}) to (GOAL: {a * sin(x0) + b * cos(x0) = sqrtn(2, a^{2} + b^{2}) * (sin(x0) * frac(a, sqrtn(2, a^{2} + b^{2})) + cos(x0) * frac(b, sqrtn(2, a^{2} + b^{2})))})
+assert (hypothesis 19: {sqrtn(2, a^{2} + b^{2}) ≠ 0})
+assert (hypothesis 20: {a * sin(x0) + b * cos(x0) = sqrtn(2, a^{2} + b^{2}) * (sin(x0) * frac(a, sqrtn(2, a^{2} + b^{2})) + cos(x0) * frac(b, sqrtn(2, a^{2} + b^{2})))})
+apply (hypothesis 20: {a * sin(x0) + b * cos(x0) = sqrtn(2, a^{2} + b^{2}) * (sin(x0) * frac(a, sqrtn(2, a^{2} + b^{2})) + cos(x0) * frac(b, sqrtn(2, a^{2} + b^{2})))})

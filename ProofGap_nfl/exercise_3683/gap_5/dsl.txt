@@ -1,0 +1,4 @@
+get_prop (hypothesis 8: {forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ prod_{ i = 1 }^{ n } (x(i)) = a}) (i := {1}) as (hypothesis 15: {1 ∈ NonNegIntegerSet ∧ 1 ∈ PosIntegerSet ∧ 1 ≤ n ⇒ prod_{ i = 1 }^{ n } (x(i)) = a})
+assert (hypothesis 16: {1 ∈ NonNegIntegerSet ∧ 1 ∈ PosIntegerSet ∧ 1 ≤ n})
+use_condition (hypothesis 16: {1 ∈ NonNegIntegerSet ∧ 1 ∈ PosIntegerSet ∧ 1 ≤ n}) in (hypothesis 15: {1 ∈ NonNegIntegerSet ∧ 1 ∈ PosIntegerSet ∧ 1 ≤ n ⇒ prod_{ i = 1 }^{ n } (x(i)) = a}) as (hypothesis 17: {prod_{ i = 1 }^{ n } (x(i)) = a})
+autosolve all_hypothesis

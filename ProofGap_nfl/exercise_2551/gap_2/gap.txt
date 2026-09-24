@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. q ∈ RealSet
+2. α ∈ RealSet
+3. |q| < 1
+4. z = q * (cos(α) + __IMAGINARY_UNIT__ * sin(α))
+5. z = q * e^{__IMAGINARY_UNIT__ * α}
+
+GOAL:
+|z| = |q|
+
+METHOD:

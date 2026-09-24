@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (α), x ∈ RealSet ∧ α ∈ RealSet ⇒ 1 + x^{2} > 0)}) (x := {t})
+get_condition (hypothesis 1: {t ∈ RealSet}) in (GOAL: {t ∈ RealSet ⇒ (forall (α), t ∈ RealSet ∧ α ∈ RealSet ⇒ 1 + t^{2} > 0)})
+get_forall (GOAL: {forall (α), t ∈ RealSet ∧ α ∈ RealSet ⇒ 1 + t^{2} > 0}) (α := {al})
+get_condition (hypothesis 2: {t ∈ RealSet ∧ al ∈ RealSet}) in (GOAL: {t ∈ RealSet ∧ al ∈ RealSet ⇒ 1 + t^{2} > 0})
+autosolve all_hypothesis

@@ -1,0 +1,5 @@
+get_condition (hypothesis 20: {p = q}) in (GOAL: {p = q ⇒ (exists (c), c ∈ RealSet ∧ c ∈ IntervalLoRo(a, b) ∧ FunDeri(f, 1, p + q + 1)(c) = 0)})
+use_condition (hypothesis 20: {p = q}) in (hypothesis 18: {p = q ⇒ (exists (c), c ∈ RealSet ∧ c ∈ IntervalLoRo(a, b) ∧ FunDeri(f, 1, 2 * p + 1)(c) = 0)}) as (hypothesis 21: {exists (c), c ∈ RealSet ∧ c ∈ IntervalLoRo(a, b) ∧ FunDeri(f, 1, 2 * p + 1)(c) = 0})
+use_condition (hypothesis 20: {p = q}) in (hypothesis 19: {p = q ⇒ 2 * p + 1 = p + q + 1}) as (hypothesis 22: {2 * p + 1 = p + q + 1})
+rewrite (left_to_right, equation) (hypothesis 22: {2 * p + 1 = p + q + 1}); from (hypothesis 21: {exists (c), c ∈ RealSet ∧ c ∈ IntervalLoRo(a, b) ∧ FunDeri(f, 1, 2 * p + 1)(c) = 0}) to (hypothesis 23: {exists (c), c ∈ RealSet ∧ c ∈ IntervalLoRo(a, b) ∧ FunDeri(f, 1, p + q + 1)(c) = 0})
+apply (hypothesis 23: {exists (c), c ∈ RealSet ∧ c ∈ IntervalLoRo(a, b) ∧ FunDeri(f, 1, p + q + 1)(c) = 0})

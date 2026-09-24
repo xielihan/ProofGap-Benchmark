@@ -1,0 +1,4 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∉ RationalSet ∧ 0 < x ∧ x < 1 ⇒ φ(x) = 2 - x}) (x := {x0})
+2. get_condition (hypothesis 14: {x0 ∈ RealSet ∧ x0 ∉ RationalSet ∧ 0 < x0 ∧ x0 < 1}) in (GOAL: {x0 ∈ RealSet ∧ x0 ∉ RationalSet ∧ 0 < x0 ∧ x0 < 1 ⇒ φ(x0) = 2 - x0})
+3. get_prop (hypothesis 7: {forall (x), x ∈ RealSet ∧ x ∉ RationalSet ⇒ φ(x) = 2 - x}) (x := {x0}) as (hypothesis 15: {x0 ∈ RealSet ∧ x0 ∉ RationalSet ⇒ φ(x0) = 2 - x0})
+4. autosolve (hypothesis 14: {x0 ∈ RealSet ∧ x0 ∉ RationalSet ∧ 0 < x0 ∧ x0 < 1}) (hypothesis 15: {x0 ∈ RealSet ∧ x0 ∉ RationalSet ⇒ φ(x0) = 2 - x0})

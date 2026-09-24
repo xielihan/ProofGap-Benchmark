@@ -1,0 +1,21 @@
+PROOF GAP @9
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. c ∈ RealSet ∧ c > 0
+5. m ∈ RealSet
+6. forall (x), x ∈ RealSet ⇒ y(x) = cases{ a + b * x^{2} if |x| ≤ c; frac(m^{2}, |x|) if |x| > c }
+7. a + b * c^{2} = frac(m^{2}, c)
+8. FunDeri(fun x [x ∈ RealSet] . a + b * x^{2}, 1, 1)(c) = FunDeri(fun x [x ∈ RealSet] . frac(m^{2}, |x|), 1, 1)(c)
+9. 2 * b * c = -frac(m^{2}, c^{2})
+10. a + b * c^{2} = frac(m^{2}, c)
+11. 2 * b * c = -frac(m^{2}, c^{2})
+12. a = frac(3 * m^{2}, 2 * c)
+13. b = -frac(m^{2}, 2 * c^{3})
+14. FunDeri(fun x [x ∈ RealSet] . a + b * x^{2}, 1, 1)(-c) = FunDeri(fun x [x ∈ RealSet] . frac(m^{2}, |x|), 1, 1)(-c)
+
+GOAL:
+(a, b) = (frac(3 * m^{2}, 2 * c), -frac(m^{2}, 2 * c^{3})) ⇒ FuncOfClassK(y, 1)
+
+METHOD:

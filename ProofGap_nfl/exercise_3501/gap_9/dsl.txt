@@ -1,0 +1,7 @@
+assert (hypothesis 25: {C * lambda_{1} * lambda_{2} = C * (lambda_{1} * lambda_{2})}) by proof {
+autosolve all_hypothesis using PolyRatSolver
+}
+rewrite (left_to_right, equation) (hypothesis 23: {lambda_{1} + lambda_{2} = -frac(2 * B, C)}); from (GOAL: {A + B * (lambda_{1} + lambda_{2}) + C * lambda_{1} * lambda_{2} = frac(2 * (A * C - B^{2}), C)}) to (GOAL: {A + B * (-frac(2 * B, C)) + C * lambda_{1} * lambda_{2} = frac(2 * (A * C - B^{2}), C)})
+rewrite (left_to_right, equation) (hypothesis 25: {C * lambda_{1} * lambda_{2} = C * (lambda_{1} * lambda_{2})}); from (GOAL: {A + B * (-frac(2 * B, C)) + C * lambda_{1} * lambda_{2} = frac(2 * (A * C - B^{2}), C)}) to (GOAL: {A + B * (-frac(2 * B, C)) + C * (lambda_{1} * lambda_{2}) = frac(2 * (A * C - B^{2}), C)})
+rewrite (left_to_right, equation) (hypothesis 24: {lambda_{1} * lambda_{2} = frac(A, C)}); from (GOAL: {A + B * (-frac(2 * B, C)) + C * (lambda_{1} * lambda_{2}) = frac(2 * (A * C - B^{2}), C)}) to (GOAL: {A + B * (-frac(2 * B, C)) + C * frac(A, C) = frac(2 * (A * C - B^{2}), C)})
+autosolve all_hypothesis using PolyRatSolver

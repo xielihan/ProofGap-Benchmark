@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+
+GOAL:
+exists (A) (B) (C) (D), A ∈ RealSet ∧ B ∈ RealSet ∧ C ∈ RealSet ∧ D ∈ RealSet ∧ (A = frac(1, 2) ⇒ B = frac(1, 2) ⇒ C = -frac(1, 2) ⇒ D = frac(1, 2) ⇒ frac(1, x^{4} + x^{2} + 1) = frac(A * x + B, x^{2} + x + 1) + frac(C * x + D, x^{2} - x + 1))
+
+METHOD:

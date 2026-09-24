@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ (1 - x = t ⇒ x = 1 - t))
+
+METHOD:

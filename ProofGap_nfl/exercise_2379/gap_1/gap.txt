@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (A), A ∈ RealSet ∧ A > 0 ⇒ |DefInt(0, A, cos(x) * diff(fun x [x ∈ RealSet] . x))| ≤ 2)
+
+METHOD:

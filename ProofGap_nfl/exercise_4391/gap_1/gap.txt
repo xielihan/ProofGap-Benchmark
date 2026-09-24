@@ -1,0 +1,19 @@
+PROOF GAP @1
+ASSUM:
+1. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. V ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. x ∈ RealSet
+4. y ∈ RealSet
+5. z ∈ RealSet
+6. r : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+7. R : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+8. n ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+9. Boundary : PowerSet(CartesianProd(RealSet, CartesianProd(RealSet, RealSet))) → PowerSet(CartesianProd(RealSet, CartesianProd(RealSet, RealSet)))
+10. S = Boundary(V)
+11. forall (ξ), ξ ∈ RealSet ⇒ (forall (η), η ∈ RealSet ⇒ (forall (ζ), ζ ∈ RealSet ⇒ r(ξ, η, ζ) = sqrtn(2, (ξ - x)^{2} + (η - y)^{2} + (ζ - z)^{2})))
+12. forall (ξ), ξ ∈ RealSet ⇒ (forall (η), η ∈ RealSet ⇒ (forall (ζ), ζ ∈ RealSet ⇒ R(ξ, η, ζ) = (ξ - x, η - y, ζ - z)))
+
+GOAL:
+forall (ξ), ξ ∈ RealSet ⇒ (forall (η), η ∈ RealSet ⇒ (forall (ζ), ζ ∈ RealSet ⇒ (forall (α), α ∈ RealSet ⇒ (forall (β), β ∈ RealSet ⇒ (forall (γ), γ ∈ RealSet ∧ (x, y, z) ∉ V ∧ r(ξ, η, ζ) ≠ 0 ∧ n = (cos(α), cos(β), cos(γ)) ∧ cos(α)^{2} + cos(β)^{2} + cos(γ)^{2} = 1 ⇒ cos(R(ξ, η, ζ), n) = frac(ξ - x, r(ξ, η, ζ)) * cos(α) + frac(η - y, r(ξ, η, ζ)) * cos(β) + frac(ζ - z, r(ξ, η, ζ)) * cos(γ))))))
+
+METHOD:

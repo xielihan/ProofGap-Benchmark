@@ -1,0 +1,2 @@
+exists (y_{2} := {-frac(5, 8)})
+autosolve all_hypothesis

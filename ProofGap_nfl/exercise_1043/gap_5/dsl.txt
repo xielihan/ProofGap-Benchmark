@@ -1,0 +1,7 @@
+1. get_forall (GOAL: {forall (t), t ∈ RealSet ∧ sin(t) ≠ 0 ∧ cos(t) ≠ 0 ⇒ frac(3 * a * sin(t)^{2} * cos(t), -3 * a * cos(t)^{2} * sin(t)) = -tan(t)}) (t := {t0})
+2. get_condition (hypothesis 13: {t0 ∈ RealSet ∧ sin(t0) ≠ 0 ∧ cos(t0) ≠ 0}) in (GOAL: {t0 ∈ RealSet ∧ sin(t0) ≠ 0 ∧ cos(t0) ≠ 0 ⇒ frac(3 * a * sin(t0)^{2} * cos(t0), -3 * a * cos(t0)^{2} * sin(t0)) = -tan(t0)})
+3. destruct_and (hypothesis 13: {t0 ∈ RealSet ∧ sin(t0) ≠ 0 ∧ cos(t0) ≠ 0}) as (hypothesis 14: {t0 ∈ RealSet}) (hypothesis 15: {sin(t0) ≠ 0}) (hypothesis 16: {cos(t0) ≠ 0})
+4. get_prop (theorem 'Thm 171. (TangentDefinition)': {forall (x), x ∈ RealSet ⇒ cos(x) ≠ 0 ⇒ tan(x) = sin(x) / cos(x)}) (x := {t0}) as (hypothesis 17: {t0 ∈ RealSet ⇒ cos(t0) ≠ 0 ⇒ tan(t0) = sin(t0) / cos(t0)})
+5. use_condition (hypothesis 14: {t0 ∈ RealSet}) (hypothesis 16: {cos(t0) ≠ 0}) in (hypothesis 17: {t0 ∈ RealSet ⇒ cos(t0) ≠ 0 ⇒ tan(t0) = sin(t0) / cos(t0)}) as (hypothesis 18: {tan(t0) = sin(t0) / cos(t0)})
+6. rewrite (left_to_right, equation) (hypothesis 18: {tan(t0) = sin(t0) / cos(t0)}); from (GOAL: {frac(3 * a * sin(t0)^{2} * cos(t0), -3 * a * cos(t0)^{2} * sin(t0)) = -tan(t0)}) to (GOAL: {frac(3 * a * sin(t0)^{2} * cos(t0), -3 * a * cos(t0)^{2} * sin(t0)) = -(sin(t0) / cos(t0))})
+7. autosolve all_hypothesis

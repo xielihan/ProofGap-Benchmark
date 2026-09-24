@@ -1,0 +1,20 @@
+get_forall (GOAL: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D_{2} => 0 ≤ x + y ∧ x + y ≤ 1}) (x := {x})
+get_forall (GOAL: {forall (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D_{2} => 0 ≤ x + y ∧ x + y ≤ 1}) (y := {y})
+get_condition (hypothesis 9: {x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D_{2}}) in (GOAL: {x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D_{2} => 0 ≤ x + y ∧ x + y ≤ 1})
+destruct_and (hypothesis 9: {x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D_{2}}) as (hypothesis 10: {x ∈ RealSet}) (hypothesis 11: {y ∈ RealSet}) (hypothesis 12: {(x, y) ∈ D_{2}})
+get_prop (hypothesis 6: {forall (x), x ∈ RealSet => (forall (y), y ∈ RealSet => ((x, y) ∈ D_{2} ⇔ x ∈ RealSet ∧ y ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ 0 ≤ y ∧ y ≤ 1 - x))}) (x := {x}) as (hypothesis 13: {x ∈ RealSet => (forall (y), y ∈ RealSet => ((x, y) ∈ D_{2} ⇔ x ∈ RealSet ∧ y ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ 0 ≤ y ∧ y ≤ 1 - x))})
+assert (hypothesis 14: {forall (y), y ∈ RealSet => ((x, y) ∈ D_{2} ⇔ x ∈ RealSet ∧ y ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ 0 ≤ y ∧ y ≤ 1 - x)}) by proof {
+  autosolve (hypothesis 10: {x ∈ RealSet}) (hypothesis 13: {x ∈ RealSet => (forall (y), y ∈ RealSet => ((x, y) ∈ D_{2} ⇔ x ∈ RealSet ∧ y ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ 0 ≤ y ∧ y ≤ 1 - x))})
+}
+get_prop (hypothesis 14: {forall (y), y ∈ RealSet => ((x, y) ∈ D_{2} ⇔ x ∈ RealSet ∧ y ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ 0 ≤ y ∧ y ≤ 1 - x)}) (y := {y}) as (hypothesis 15: {y ∈ RealSet => ((x, y) ∈ D_{2} ⇔ x ∈ RealSet ∧ y ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ 0 ≤ y ∧ y ≤ 1 - x)})
+assert (hypothesis 16: {x ∈ RealSet ∧ y ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ 0 ≤ y ∧ y ≤ 1 - x}) by proof {
+  autosolve (hypothesis 11: {y ∈ RealSet}) (hypothesis 12: {(x, y) ∈ D_{2}}) (hypothesis 15: {y ∈ RealSet => ((x, y) ∈ D_{2} ⇔ x ∈ RealSet ∧ y ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ 0 ≤ y ∧ y ≤ 1 - x)})
+}
+destruct_and (hypothesis 16: {x ∈ RealSet ∧ y ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ 0 ≤ y ∧ y ≤ 1 - x}) as (hypothesis 17: {x ∈ RealSet}) (hypothesis 18: {y ∈ RealSet}) (hypothesis 19: {0 ≤ x}) (hypothesis 20: {x ≤ 1}) (hypothesis 21: {0 ≤ y}) (hypothesis 22: {y ≤ 1 - x})
+assert (hypothesis 23: {0 ≤ x + y}) by proof {
+  autosolve (hypothesis 19: {0 ≤ x}) (hypothesis 21: {0 ≤ y})
+}
+assert (hypothesis 24: {x + y ≤ 1}) by proof {
+  autosolve (hypothesis 22: {y ≤ 1 - x})
+}
+autosolve (hypothesis 23: {0 ≤ x + y}) (hypothesis 24: {x + y ≤ 1})

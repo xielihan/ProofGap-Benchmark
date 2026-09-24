@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. p ∈ RealSet ∧ p > 0
+2. forall (A), A ∈ RealSet ∧ A ≥ 1 ⇒ |DefInt(1, A, (fun x [x ∈ RealSet] . cos(x)) * diff(fun x [x ∈ RealSet] . x))| = |sin(A) - sin(1)| ∧ |sin(A) - sin(1)| ≤ 2
+3. forall (α), α ∈ RealSet ∧ α ∈ NonNegRealSet ⇒ MonoDecFuncOn(fun x [x ∈ RealSet ∧ x ≥ 1] . frac(e^{-α * x}, x^{p}), [1, +∞))
+4. forall (x) (α), x ∈ RealSet ∧ α ∈ RealSet ∧ x ≥ 1 ∧ α ∈ NonNegRealSet ⇒ 0 < frac(e^{-α * x}, x^{p}) ∧ frac(e^{-α * x}, x^{p}) ≤ frac(1, x^{p})
+5. lim_{ x → +∞ } (frac(1, x^{p})) = 0
+6. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (M), M ∈ RealSet ∧ M ≥ 1 ∧ (forall (x) (α), x ∈ RealSet ∧ α ∈ RealSet ∧ x ≥ M ∧ α ∈ NonNegRealSet ⇒ frac(e^{-α * x}, x^{p}) < ε))
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (M), M ∈ RealSet ∧ M ≥ 1 ∧ (forall (A) (B) (α), A ∈ RealSet ∧ B ∈ RealSet ∧ α ∈ RealSet ∧ A ≥ M ∧ B ≥ A ∧ α ∈ NonNegRealSet ⇒ |DefInt(A, B, (fun x [x ∈ RealSet] . e^{-α * x} * frac(cos(x), x^{p})) * diff(fun x [x ∈ RealSet] . x))| < ε))
+
+METHOD:
+[@method 根据 "含参无穷积分的狄利克雷判别法" @]

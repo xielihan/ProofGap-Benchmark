@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet ⇒ x ≥ 0
+3. forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ (forall (t), t ∈ RealSet ∧ t = sqrtn(2, x) ⇒ t ≥ 0)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ (forall (t), t ∈ RealSet ∧ t = sqrtn(2, x) ⇒ x = t^{2})
+
+METHOD:

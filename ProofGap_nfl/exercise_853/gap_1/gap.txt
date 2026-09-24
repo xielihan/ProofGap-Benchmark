@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x) = sqrtn(3, x^{2}) - frac(2, sqrtn(2, x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(y, 1, 1)(x) = frac(2 * x, 3 * sqrtn(3, x^{4})) + frac(1, sqrtn(2, x)^{3})
+
+METHOD:

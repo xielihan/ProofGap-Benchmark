@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. forall (t), t ∈ RealSet ⇒ f(t) = t^{3} - 6 * t^{2} + 9 * t - 10
+4. forall (t), t ∈ RealSet ⇒ FunDeri(f, 1, 1)(t) = 3 * t^{2} - 12 * t + 9
+5. FunDeri(f, 1, 1)(x) = 0 ⇔ x = 1 ∨ x = 3
+
+GOAL:
+ContinuousFuncOn(f, IntervalLoRo(-∞, +∞))
+
+METHOD:

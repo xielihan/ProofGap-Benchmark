@@ -1,0 +1,18 @@
+PROOF GAP @6
+ASSUM:
+1. x ∈ RealSet
+2. y ∈ RealSet
+3. a : NonNegIntegerSet → RealSet
+4. x ∈ PosRealSet
+5. y ∈ PosRealSet
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(x^{n} * y^{n}, x^{n} + y^{n})
+7. x < 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(x^{n}, 1 + frac(x, y)^{n}))
+8. x < 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < a(n) ∧ a(n) ≤ x^{n})
+9. x < 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (x^{n}))
+10. x < 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+11. y < 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(y^{n}, 1 + frac(y, x)^{n}))
+
+GOAL:
+y < 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < a(n) ∧ a(n) ≤ y^{n})
+
+METHOD:

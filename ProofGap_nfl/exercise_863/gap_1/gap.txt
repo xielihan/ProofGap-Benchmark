@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = (2 - x^{2}) * cos(x) + 2 * x * sin(x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ -2 * x * cos(x) - (2 - x^{2}) * sin(x) + 2 * sin(x) + 2 * x * cos(x) = x^{2} * sin(x)
+
+METHOD:

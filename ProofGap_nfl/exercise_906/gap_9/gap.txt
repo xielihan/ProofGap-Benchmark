@@ -1,0 +1,21 @@
+PROOF GAP @9
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. 0 ≤ |a|
+5. |a| < |b|
+6. forall (x), x ∈ RealSet ⇒ y(x) = ln(frac(b + a * cos(x) + sqrtn(2, b^{2} - a^{2}) * sin(x), a + b * cos(x)))
+7. forall (x), x ∈ RealSet ∧ a = 0 ⇒ y(x) = ln(frac(1 + sin(x), cos(x)))
+8. forall (x), x ∈ RealSet ∧ a = 0 ∧ 1 + sin(x) > 0 ∧ cos(x) > 0 ⇒ y(x) ∈ RealSet
+9. forall (x), x ∈ RealSet ∧ a = 0 ∧ (exists (k), k ∈ IntegerSet ∧ (2 * k - frac(1, 2)) * π < x ∧ x < (2 * k + frac(1, 2)) * π) ⇒ 1 + sin(x) > 0 ∧ cos(x) > 0
+10. forall (x), x ∈ RealSet ∧ a = 0 ∧ (exists (k), k ∈ IntegerSet ∧ (2 * k - frac(1, 2)) * π < x ∧ x < (2 * k + frac(1, 2)) * π) ⇒ y(x) ∈ RealSet
+11. forall (x), x ∈ RealSet ∧ a = 0 ⇒ FunDeri(y, 1, 1)(x) = frac(cos(x), 1 + sin(x)) + frac(sin(x), cos(x))
+12. forall (x), x ∈ RealSet ∧ a = 0 ⇒ frac(cos(x), 1 + sin(x)) + frac(sin(x), cos(x)) = frac(1, cos(x))
+13. forall (x), x ∈ RealSet ∧ a = 0 ⇒ FunDeri(y, 1, 1)(x) = frac(1, cos(x))
+14. exists (phi_{0}) (u) (v_{1}) (v_{2}), phi_{0} ∈ RealSet ∧ u : RealSet → RealSet ∧ v_{1} : RealSet → RealSet ∧ v_{2} : RealSet → RealSet ∧ (a ≠ 0 ⇒ phi_{0} = arctan(frac(sqrtn(2, b^{2} - a^{2}), a)) ⇒ u = (fun x [x ∈ RealSet] . frac(1 + frac(a, b) * cos(x) + frac(sqrtn(2, b^{2} - a^{2}), b) * sin(x), frac(a, b) + cos(x))) ⇒ v_{1} = (fun x [x ∈ RealSet] . 1 + cos(x - phi_{0})) ⇒ v_{2} = (fun x [x ∈ RealSet] . cos(x) + cos(phi_{0})) ⇒ (forall (x), x ∈ RealSet ⇒ y(x) = ln(u(x))))
+
+GOAL:
+exists (phi_{0}) (u) (v_{1}) (v_{2}), phi_{0} ∈ RealSet ∧ u : RealSet → RealSet ∧ v_{1} : RealSet → RealSet ∧ v_{2} : RealSet → RealSet ∧ (a ≠ 0 ⇒ phi_{0} = arctan(frac(sqrtn(2, b^{2} - a^{2}), a)) ⇒ u = (fun x [x ∈ RealSet] . frac(1 + frac(a, b) * cos(x) + frac(sqrtn(2, b^{2} - a^{2}), b) * sin(x), frac(a, b) + cos(x))) ⇒ v_{1} = (fun x [x ∈ RealSet] . 1 + cos(x - phi_{0})) ⇒ v_{2} = (fun x [x ∈ RealSet] . cos(x) + cos(phi_{0})) ⇒ (forall (x), x ∈ RealSet ⇒ u(x) = frac(v_{1}(x), v_{2}(x))))
+
+METHOD:

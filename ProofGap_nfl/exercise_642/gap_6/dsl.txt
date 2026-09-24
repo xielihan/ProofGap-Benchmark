@@ -1,0 +1,18 @@
+1. get_forall (GOAL: {forall (α), α ∈ RealSet ∧ -1 ≤ α ∧ α ≤ 1 ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [-frac(π, 2), frac(π, 2)] ∧ sin(x_{0}) = α ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ sin(2 * n * π + x_{0}) = α))}) (α := {a})
+2. get_condition (hypothesis 10: {a ∈ RealSet ∧ -1 ≤ a ∧ a ≤ 1}) in (GOAL: {a ∈ RealSet ∧ -1 ≤ a ∧ a ≤ 1 ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [-frac(π, 2), frac(π, 2)] ∧ sin(x_{0}) = a ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ sin(2 * n * π + x_{0}) = a))})
+3. get_prop (hypothesis 4: {forall (α), α ∈ RealSet ∧ -1 ≤ α ∧ α ≤ 1 ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [-frac(π, 2), frac(π, 2)] ∧ sin(x_{0}) = α)}) (α := {a}) as (hypothesis 11: {a ∈ RealSet ∧ -1 ≤ a ∧ a ≤ 1 ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [-frac(π, 2), frac(π, 2)] ∧ sin(x_{0}) = a)})
+4. use_condition (hypothesis 10: {a ∈ RealSet ∧ -1 ≤ a ∧ a ≤ 1}) in (hypothesis 11: {a ∈ RealSet ∧ -1 ≤ a ∧ a ≤ 1 ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [-frac(π, 2), frac(π, 2)] ∧ sin(x_{0}) = a)}) as (hypothesis 12: {exists (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [-frac(π, 2), frac(π, 2)] ∧ sin(x_{0}) = a})
+5. get_exists (hypothesis 12: {exists (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [-frac(π, 2), frac(π, 2)] ∧ sin(x_{0}) = a}) (x_{0} := {x0})
+6. destruct_and (hypothesis 13: {x0 ∈ RealSet ∧ x0 ∈ [-frac(π, 2), frac(π, 2)] ∧ sin(x0) = a}) as (hypothesis 14: {x0 ∈ RealSet}) (hypothesis 15: {x0 ∈ [-frac(π, 2), frac(π, 2)]}) (hypothesis 16: {sin(x0) = a})
+7. exists (x_{0} := {x0})
+8. assert (hypothesis 17: {forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ sin(2 * n * π + x0) = a}) by proof {
+  1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ sin(2 * n * π + x0) = a}) (n := {n0})
+  2. get_condition (hypothesis 17: {n0 ∈ NonNegIntegerSet ∧ n0 > 0}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 > 0 ⇒ sin(2 * n0 * π + x0) = a})
+  3. destruct_and (hypothesis 17: {n0 ∈ NonNegIntegerSet ∧ n0 > 0}) as (hypothesis 18: {n0 ∈ NonNegIntegerSet}) (hypothesis 19: {n0 > 0})
+  4. assert (hypothesis 20: {n0 ∈ IntegerSet})
+  5. get_prop (theorem 'Thm 169. (SinePeriodicity)': {forall (x) (k), x ∈ RealSet => k ∈ IntegerSet => sin (x + 2 * k * π) = sin(x)}) (x := {x0}) (k := {n0}) as (hypothesis 21: {x0 ∈ RealSet => n0 ∈ IntegerSet => sin(x0 + 2 * n0 * π) = sin(x0)})
+  6. use_condition (hypothesis 14: {x0 ∈ RealSet}) (hypothesis 20: {n0 ∈ IntegerSet}) in (hypothesis 21: {x0 ∈ RealSet => n0 ∈ IntegerSet => sin(x0 + 2 * n0 * π) = sin(x0)}) as (hypothesis 22: {sin(x0 + 2 * n0 * π) = sin(x0)})
+  7. rewrite (left_to_right, equation) (hypothesis 22: {sin(x0 + 2 * n0 * π) = sin(x0)}); from (GOAL: {sin(2 * n0 * π + x0) = a}) to (GOAL: {sin(x0) = a})
+  8. apply (hypothesis 16: {sin(x0) = a})
+}
+9. autosolve all_hypothesis

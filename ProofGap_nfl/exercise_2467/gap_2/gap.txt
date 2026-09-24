@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. S : RealSet → RealSet
+4. V ∈ RealSet
+5. a > 0
+6. b > 0
+7. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ⇒ S(x) = DefInt(0, sqrtn(2, a * x - x^{2}), sqrtn(2, b * (a - x)) * diff(fun y [y ∈ RealSet] . y))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ⇒ S(x) = sqrtn(2, a * x - x^{2}) * sqrtn(2, b * (a - x))
+
+METHOD:

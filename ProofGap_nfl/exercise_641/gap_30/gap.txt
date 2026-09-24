@@ -1,0 +1,50 @@
+PROOF GAP @30
+ASSUM:
+1. f_{1} : RealSet → RealSet
+2. f_{2} : RealSet → RealSet
+3. f_{3} : RealSet → RealSet
+4. f_{4} : RealSet → RealSet
+5. f_{5} : RealSet → RealSet
+6. f_{6} : RealSet → RealSet
+7. f_{7} : RealSet → RealSet
+8. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f_{1}(x) = sin(frac(1, x))
+9. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f_{2}(x) = frac(1, x^{2}) * cos(frac(1, x))^{2}
+10. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f_{3}(x) = x * (2 + sin(frac(1, x)))
+11. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f_{4}(x) = frac(1, π) * arctan(frac(1, x))
+12. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f_{5}(x) = frac(|sin(x)|, x)
+13. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f_{6}(x) = frac(1, 1 + e^{frac(1, x)})
+14. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f_{7}(x) = (1 + |x|)^{frac(1, x)}
+15. forall (k), k ∈ RealSet ∧ k ∈ PosRealSet ⇒ OscillationOn(f_{1}, [-k, k]) = 2
+16. OscillationAt(f_{1}, 0) = lim_{ k → 0^+ } (OscillationOn(f_{1}, [-k, k]))
+17. lim_{ k → 0^+ } (OscillationOn(f_{1}, [-k, k])) = 2
+18. OscillationAt(f_{1}, 0) = 2
+19. forall (k), k ∈ RealSet ∧ k ∈ PosRealSet ⇒ OscillationOn(f_{2}, [-k, k]) = +∞
+20. OscillationAt(f_{2}, 0) = lim_{ k → 0^+ } (OscillationOn(f_{2}, [-k, k]))
+21. lim_{ k → 0^+ } (OscillationOn(f_{2}, [-k, k])) = +∞
+22. OscillationAt(f_{2}, 0) = +∞
+23. forall (k), k ∈ RealSet ∧ k ∈ PosRealSet ⇒ OscillationOn(f_{3}, [-k, k]) = 3 * k - k
+24. forall (k), k ∈ RealSet ∧ k ∈ PosRealSet ⇒ OscillationOn(f_{3}, [-k, k]) = 2 * k
+25. OscillationAt(f_{3}, 0) = lim_{ k → 0^+ } (2 * k)
+26. lim_{ k → 0^+ } (2 * k) = 0
+27. OscillationAt(f_{3}, 0) = 0
+28. forall (k), k ∈ RealSet ∧ k ∈ PosRealSet ⇒ OscillationOn(f_{4}, [-k, k]) = frac(1, π) * (arctan(frac(1, k)) - arctan(frac(1, -k)))
+29. forall (k), k ∈ RealSet ∧ k ∈ PosRealSet ⇒ OscillationOn(f_{4}, [-k, k]) = frac(2, π) * arctan(frac(1, k))
+30. OscillationAt(f_{4}, 0) = lim_{ k → 0^+ } (frac(2, π) * arctan(frac(1, k)))
+31. lim_{ k → 0^+ } (frac(2, π) * arctan(frac(1, k))) = 1
+32. OscillationAt(f_{4}, 0) = 1
+33. forall (k), k ∈ RealSet ∧ k ∈ PosRealSet ⇒ OscillationOn(f_{5}, [-k, k]) = 2
+34. OscillationAt(f_{5}, 0) = lim_{ k → 0^+ } (OscillationOn(f_{5}, [-k, k]))
+35. lim_{ k → 0^+ } (OscillationOn(f_{5}, [-k, k])) = 2
+36. OscillationAt(f_{5}, 0) = 2
+37. forall (k), k ∈ RealSet ∧ k ∈ PosRealSet ⇒ OscillationOn(f_{6}, [-k, k]) = |frac(1, 1 + e^{frac(1, k)}) - frac(1, 1 + e^{-frac(1, k)})|
+38. OscillationAt(f_{6}, 0) = lim_{ k → 0^+ } (|frac(1, 1 + e^{frac(1, k)}) - frac(1, 1 + e^{-frac(1, k)})|)
+39. lim_{ k → 0^+ } (|frac(1, 1 + e^{frac(1, k)}) - frac(1, 1 + e^{-frac(1, k)})|) = 1
+40. OscillationAt(f_{6}, 0) = 1
+41. forall (k), k ∈ RealSet ∧ k ∈ PosRealSet ⇒ OscillationOn(f_{7}, [-k, k]) = (1 + k)^{frac(1, k)} - (1 + k)^{-frac(1, k)}
+42. OscillationAt(f_{7}, 0) = lim_{ k → 0^+ } ((1 + k)^{frac(1, k)} - (1 + k)^{-frac(1, k)})
+43. lim_{ k → 0^+ } ((1 + k)^{frac(1, k)} - (1 + k)^{-frac(1, k)}) = e - e^{-1}
+
+GOAL:
+OscillationAt(f_{7}, 0) = e - e^{-1}
+
+METHOD:

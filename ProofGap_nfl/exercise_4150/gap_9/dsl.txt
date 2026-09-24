@@ -1,0 +1,5 @@
+assert (hypothesis 20: {π * R^{4} ≠ 0}) by proof {
+  autosolve (hypothesis 2: {R ∈ RealSet ∧ R > 0})
+}
+rewrite (left_to_right, equation) (hypothesis 19: {M = k * π * R^{4}}); from (GOAL: {k = frac(M, π * R^{4})}) to (GOAL: {k = frac(k * π * R^{4}, π * R^{4})})
+autosolve (hypothesis 20: {π * R^{4} ≠ 0})

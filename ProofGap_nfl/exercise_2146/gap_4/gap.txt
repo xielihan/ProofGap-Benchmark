@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. t : RealSet → RealSet
+3. C ∈ RealSet
+4. C_{1} ∈ RealSet
+5. t(x) = tan(frac(x, 2))
+6. -π < x ∧ x < π ⇒ t(x) ∈ RealSet
+7. sin(x) = frac(2 * t(x), 1 + t(x)^{2})
+8. diff(fun x [x ∈ RealSet] . x) = frac(2 * diff(fun x [x ∈ RealSet] . t(x)), 1 + t(x)^{2})
+
+GOAL:
+{ `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(1, (2 + sin(x))^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | exists (`F_4`), `F_4` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(1 + t(x)^{2}, (1 + t(x) + t(x)^{2})^{2}) * FunDeri(fun x [x ∈ RealSet] . t(x), 1, 1)(x) ∧ `F_5`(x) = frac(1, 2) * `F_4`(x)) }
+
+METHOD:

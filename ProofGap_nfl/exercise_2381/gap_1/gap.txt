@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. p ∈ RealSet
+2. q ∈ RealSet ∧ q ≥ 0
+
+GOAL:
+lim_{ x → 0^+ } (x^{-1 - p} * frac(x^{p} * sin(x), 1 + x^{q})) = lim_{ x → 0^+ } (frac(sin(x), x) * frac(1, 1 + x^{q}))
+
+METHOD:

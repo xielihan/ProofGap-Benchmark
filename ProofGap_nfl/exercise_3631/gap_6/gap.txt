@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = 1 - sqrtn(2, x^{2} + y^{2})
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ FunDeri(z, 1, 1)(x, y) = -frac(x, sqrtn(2, x^{2} + y^{2}))
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ FunDeri(z, 2, 1)(x, y) = -frac(y, sqrtn(2, x^{2} + y^{2}))
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ z(x, y) < 1
+6. z(0, 0) = 1
+7. MaximumPoint(z) = { (0, 0) }
+
+GOAL:
+z(0, 0) = 1
+
+METHOD:

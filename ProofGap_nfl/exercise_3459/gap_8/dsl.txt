@@ -1,0 +1,5 @@
+1. get_forall (GOAL: {forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ⇒ y * FunDeri(z, ξ, 1)(x, y) = 0}) (y := {y0}) (x := {x0})
+2. get_condition (hypothesis 14: {y0 ∈ RealSet ∧ x0 ∈ RealSet}) in (GOAL: {y0 ∈ RealSet ∧ x0 ∈ RealSet ⇒ y0 * FunDeri(z, ξ, 1)(x0, y0) = 0})
+3. get_prop (hypothesis 13: {forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ⇒ y * (FunDeri(z, ξ, 1)(x, y) + 2 * x * FunDeri(z, η, 1)(x, y)) - 2 * x * y * FunDeri(z, η, 1)(x, y) = 0}) (y := {y0}) (x := {x0}) as (hypothesis 15: {y0 ∈ RealSet ∧ x0 ∈ RealSet ⇒ y0 * (FunDeri(z, ξ, 1)(x0, y0) + 2 * x0 * FunDeri(z, η, 1)(x0, y0)) - 2 * x0 * y0 * FunDeri(z, η, 1)(x0, y0) = 0})
+4. use_condition (hypothesis 14: {y0 ∈ RealSet ∧ x0 ∈ RealSet}) in (hypothesis 15: {y0 ∈ RealSet ∧ x0 ∈ RealSet ⇒ y0 * (FunDeri(z, ξ, 1)(x0, y0) + 2 * x0 * FunDeri(z, η, 1)(x0, y0)) - 2 * x0 * y0 * FunDeri(z, η, 1)(x0, y0) = 0}) as (hypothesis 16: {y0 * (FunDeri(z, ξ, 1)(x0, y0) + 2 * x0 * FunDeri(z, η, 1)(x0, y0)) - 2 * x0 * y0 * FunDeri(z, η, 1)(x0, y0) = 0})
+5. autosolve all_hypothesis

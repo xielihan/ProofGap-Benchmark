@@ -1,0 +1,25 @@
+PROOF GAP @12
+ASSUM:
+1. x ∈ RealSet
+2. n ∈ NonNegIntegerSet
+3. R_{n + 1} : RealSet → RealSet
+4. θ ∈ RealSet
+5. 0 ≤ x
+6. x ≤ 1
+7. f = (fun t [t ∈ RealSet] . e^{t})
+8. e^{x} = (sum_{ k = 0 }^{ n } (frac(x^{k}, k!))) + R_{n + 1}(x)
+9. R_{n + 1}(x) = frac(FunDeri(f, 1, n + 1)(θ * x), (n + 1)!) * x^{n + 1}
+10. 0 < θ
+11. θ < 1
+12. FunDeri(f, 1, n + 1)(θ * x) = e^{θ * x}
+13. e^{θ * x} < e
+14. FunDeri(f, 1, n + 1)(θ * x) < e
+15. |R_{n + 1}(x)| < frac(e, (n + 1)!) * |x|^{n + 1}
+16. frac(e, (n + 1)!) * |x|^{n + 1} ≤ frac(e, (n + 1)!)
+17. frac(e, (n + 1)!) < frac(3, (n + 1)!)
+18. |R_{n + 1}(x)| < frac(3, (n + 1)!)
+
+GOAL:
+|R_{n + 1}(x)| < frac(3, (n + 1)!)
+
+METHOD:

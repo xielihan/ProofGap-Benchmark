@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ cot(x)^{2} = csc(x)^{2} - 1
+
+METHOD:

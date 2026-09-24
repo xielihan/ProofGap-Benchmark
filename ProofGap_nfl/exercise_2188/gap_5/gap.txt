@@ -1,0 +1,12 @@
+PROOF GAP @5
+ASSUM:
+1. x ∈ RealSet
+2. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ (exists (h), h ∈ RealSet ∧ h = frac(x, n))
+3. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ (exists (h), h ∈ RealSet ∧ h = frac(x, n))
+4. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ (exists (h), h ∈ RealSet ∧ h = frac(x, n) ∧ (exists (ξ), ξ : NonNegIntegerSet → RealSet ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ≤ n - 1 ⇒ ξ(i) = i * h)))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ (exists (h), h ∈ RealSet ∧ h = frac(x, n) ∧ DefInt(0, x, (fun t [t ∈ RealSet] . cos(t)) * diff(fun t [t ∈ RealSet] . t)) = seqlim_{ n → +∞ } (sum_{ i = 0 }^{ n - 1 } (h * cos(i * h))))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ (exists (h), h ∈ RealSet ∧ h = frac(x, n) ∧ sum_{ i = 0 }^{ n - 1 } (h * cos(i * h)) = frac(h, 2 * sin(frac(h, 2))) * (sin(frac(h, 2)) + sin(frac((2 * n - 1) * h, 2))))
+
+METHOD:

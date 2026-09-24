@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. C_{1} ∈ RealSet
+3. C_{2} ∈ RealSet
+4. forall (x), x ∈ RealSet ⇒ y(x) = C_{1} * cosh(x) + C_{2} * sinh(x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = C_{1} * sinh(x) + C_{2} * cosh(x)
+
+METHOD:

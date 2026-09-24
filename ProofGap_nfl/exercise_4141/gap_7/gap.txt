@@ -1,0 +1,32 @@
+PROOF GAP @7
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. c ∈ RealSet ∧ c > 0
+4. n ∈ RealSet ∧ n > 0
+5. E ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+6. Mass ∈ RealSet
+7. x_{0} ∈ RealSet
+8. y_{0} ∈ RealSet
+9. z_{0} ∈ RealSet
+10. x ∈ RealSet
+11. y ∈ RealSet
+12. z ∈ RealSet
+13. ω ∈ RealSet
+14. B : CartesianProd(RealSet, RealSet) → RealSet
+15. Gamma : RealSet → RealSet
+16. E = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x > 0, y > 0, z > 0, frac(x^{n}, a^{n}) + frac(y^{n}, b^{n}) + frac(z^{n}, c^{n}) ≤ 1 }
+17. x = a * r * cos(φ)^{frac(2, n)} * cos(ψ)^{frac(2, n)}
+18. y = b * r * sin(φ)^{frac(2, n)} * cos(ψ)^{frac(2, n)}
+19. z = c * r * sin(ψ)^{frac(2, n)}
+20. 0 ≤ r
+21. r ≤ 1
+22. 0 ≤ φ
+23. φ ≤ frac(π, 2)
+24. 0 ≤ ψ
+25. ψ ≤ frac(π, 2)
+
+GOAL:
+diff(ω) = frac(4, n^{2}) * a * b * c * r^{2} * sin(φ)^{frac(2, n) - 1} * cos(φ)^{frac(2, n) - 1} * cos(ψ)^{frac(1, n) - 1} * sin(ψ)^{frac(2, n) - 1} * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1] . r) * diff(fun ψ [ψ ∈ RealSet ∧ 0 ≤ ψ ∧ ψ ≤ frac(π, 2)] . ψ) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . φ)
+
+METHOD:

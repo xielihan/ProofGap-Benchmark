@@ -1,0 +1,15 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. n ∈ IntegerSet
+3. m ∈ IntegerSet
+4. a ∈ RealSet
+5. b ∈ RealSet
+6. p ∈ RealSet
+7. forall (x), x ∈ RealSet ∧ x ∈ RealSet \ IntegerSet ⇒ f(x) = sum_{ n = -∞ }^{ +∞ } (frac(1, (n - x)^{2}))
+8. forall (x), x ∈ RealSet ∧ x ∉ IntegerSet ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac(1, (n - x)^{2})))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∉ IntegerSet ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, (-n - x)^{2})))
+
+METHOD:

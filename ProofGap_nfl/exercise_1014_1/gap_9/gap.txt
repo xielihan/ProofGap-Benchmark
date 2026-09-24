@@ -1,0 +1,15 @@
+PROOF GAP @9
+ASSUM:
+1. forall (F) (x_{0}) (f) (g) (Δx), F : RealSet → RealSet ∧ x_{0} ∈ RealSet ∧ f : RealSet → RealSet ∧ g : RealSet → RealSet ∧ Δx ∈ RealSet ∧ Δx ≠ 0 ⇒ frac(F(x_{0} + Δx) - F(x_{0}), Δx) = frac(f(x_{0} + Δx) - f(x_{0}), Δx) + frac(g(x_{0} + Δx) - g(x_{0}), Δx)
+2. forall (f) (x_{0}), f : RealSet → RealSet ∧ x_{0} ∈ RealSet ⇒ lim_{ Δx → 0 } (frac(f(x_{0} + Δx) - f(x_{0}), Δx)) ∈ RealSet
+3. forall (g) (x_{0}), g : RealSet → RealSet ∧ x_{0} ∈ RealSet ⇒ ¬lim_{ Δx → 0 } (frac(g(x_{0} + Δx) - g(x_{0}), Δx)) ∈ RealSet
+4. forall (F) (x_{0}), F : RealSet → RealSet ∧ x_{0} ∈ RealSet ∧ DiffableFuncAt(F, x_{0}) ⇒ lim_{ Δx → 0 } (frac(F(x_{0} + Δx) - F(x_{0}), Δx)) ∈ RealSet
+5. forall (F) (x_{0}) (g) (f) (Δx), F : RealSet → RealSet ∧ x_{0} ∈ RealSet ∧ g : RealSet → RealSet ∧ f : RealSet → RealSet ∧ Δx ∈ RealSet ∧ Δx ≠ 0 ∧ DiffableFuncAt(F, x_{0}) ⇒ frac(g(x_{0} + Δx) - g(x_{0}), Δx) = frac(F(x_{0} + Δx) - F(x_{0}), Δx) - frac(f(x_{0} + Δx) - f(x_{0}), Δx)
+6. forall (F) (x_{0}) (g), F : RealSet → RealSet ∧ x_{0} ∈ RealSet ∧ g : RealSet → RealSet ∧ DiffableFuncAt(F, x_{0}) ⇒ lim_{ Δx → 0 } (frac(g(x_{0} + Δx) - g(x_{0}), Δx)) ∈ RealSet
+7. forall (F) (x_{0}), F : RealSet → RealSet ∧ x_{0} ∈ RealSet ∧ DiffableFuncAt(F, x_{0}) ⇒ False
+8. forall (F) (x_{0}), F : RealSet → RealSet ∧ x_{0} ∈ RealSet ⇒ ¬DiffableFuncAt(F, x_{0})
+
+GOAL:
+forall (f) (g) (F) (x_{0}), f : RealSet → RealSet ∧ g : RealSet → RealSet ∧ F : RealSet → RealSet ∧ x_{0} ∈ RealSet ∧ (exists (`ϵ`), `ϵ` ∈ RealSet ∧ `ϵ` > 0 ∧ Dom(f) = (x_{0} - `ϵ`, x_{0} + `ϵ`) ∧ Dom(g) = (x_{0} - `ϵ`, x_{0} + `ϵ`)) ∧ DiffableFuncAt(f, x_{0}) ∧ ¬DiffableFuncAt(g, x_{0}) ∧ F = f + g ⇒ ¬DiffableFuncAt(F, x_{0})
+
+METHOD:

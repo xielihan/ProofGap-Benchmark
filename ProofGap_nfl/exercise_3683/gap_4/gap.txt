@@ -1,0 +1,20 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet ∧ a ∈ PosRealSet
+2. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+3. x : NonNegIntegerSet → RealSet
+4. u ∈ RealSet
+5. F ∈ RealSet
+6. λ ∈ RealSet
+7. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ x(i) ∈ PosRealSet
+8. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ prod_{ i = 1 }^{ n } (x(i)) = a
+9. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ u = sum_{ i = 1 }^{ n } (frac(1, x(i)))
+10. ln(a) = sum_{ i = 1 }^{ n } (ln(x(i)))
+11. F = u + λ * ((sum_{ i = 1 }^{ n } (ln(x(i)))) - ln(a))
+12. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ FunDeri(F, fun x [x ∈ NonNegIntegerSet] . x(i), 1) = -frac(1, x(i)^{2}) + frac(λ, x(i)) ∧ -frac(1, x(i)^{2}) + frac(λ, x(i)) = 0
+13. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ x(i) = frac(1, λ)
+
+GOAL:
+prod_{ i = 1 }^{ n } (x(i)) = frac(1, λ)^{n}
+
+METHOD:

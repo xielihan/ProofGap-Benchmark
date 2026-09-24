@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = tanh(x)
+3. forall (x), x ∈ RealSet ⇒ tanh(x) = frac(e^{x} - e^{-x}, e^{x} + e^{-x})
+4. forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t = y(x) ⇒ t = frac(e^{x} - e^{-x}, e^{x} + e^{-x}))
+5. forall (x), x ∈ RealSet ⇒ frac(e^{x} - e^{-x}, e^{x} + e^{-x}) = frac((e^{x})^{2} - 1, (e^{x})^{2} + 1)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t = y(x) ⇒ t = frac((e^{x})^{2} - 1, (e^{x})^{2} + 1))
+
+METHOD:

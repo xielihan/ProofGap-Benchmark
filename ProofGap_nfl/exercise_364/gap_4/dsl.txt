@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ f(x) = 2 * (y_{0} - y_{1}) + f(x + 2 * (b - a))}) (x := {z})
+get_condition (hypothesis 12: {z ∈ RealSet}) in (GOAL: {z ∈ RealSet ⇒ f(z) = 2 * (y_{0} - y_{1}) + f(z + 2 * (b - a))})
+get_prop (hypothesis 11: {forall (x), x ∈ RealSet ⇒ f(x) = 2 * (y_{1} - y_{0}) + f(2 * a - 2 * b + x)}) (x := {z + 2 * (b - a)}) as (hypothesis 13: {z + 2 * (b - a) ∈ RealSet ⇒ f(z + 2 * (b - a)) = 2 * (y_{1} - y_{0}) + f(2 * a - 2 * b + (z + 2 * (b - a)))})
+assert (hypothesis 14: {z + 2 * (b - a) ∈ RealSet})
+use_condition (hypothesis 14: {z + 2 * (b - a) ∈ RealSet}) in (hypothesis 13: {z + 2 * (b - a) ∈ RealSet ⇒ f(z + 2 * (b - a)) = 2 * (y_{1} - y_{0}) + f(2 * a - 2 * b + (z + 2 * (b - a)))}) as (hypothesis 15: {f(z + 2 * (b - a)) = 2 * (y_{1} - y_{0}) + f(2 * a - 2 * b + (z + 2 * (b - a)))})
+autosolve all_hypothesis

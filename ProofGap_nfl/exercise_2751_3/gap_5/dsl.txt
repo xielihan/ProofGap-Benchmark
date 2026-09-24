@@ -1,0 +1,10 @@
+get_forall (GOAL: {forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ≥ 1 + ε ⇒ |f(n, x) - g(x)| < frac(1, (1 + ε)^{n})}) (n := {n0}) (x := {x0})
+get_condition (hypothesis 11: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ x0 ≥ 1 + ε}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ x0 ≥ 1 + ε ⇒ |f(n0, x0) - g(x0)| < frac(1, (1 + ε)^{n0})})
+get_prop (hypothesis 9: {forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ≥ 1 + ε ⇒ |f(n, x) - g(x)| = frac(1, 1 + x^{n})}) (n := {n0}) (x := {x0}) as (hypothesis 12: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ x0 ≥ 1 + ε ⇒ |f(n0, x0) - g(x0)| = frac(1, 1 + x0^{n0})})
+use_condition (hypothesis 11: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ x0 ≥ 1 + ε}) in (hypothesis 12: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ x0 ≥ 1 + ε ⇒ |f(n0, x0) - g(x0)| = frac(1, 1 + x0^{n0})}) as (hypothesis 13: {|f(n0, x0) - g(x0)| = frac(1, 1 + x0^{n0})})
+assert (hypothesis 14: {x0 ∈ RealSet ∧ n0 ∈ NonNegIntegerSet ∧ x0 ≥ 1 + ε ∧ n0 ∈ PosIntegerSet}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (hypothesis 10: {forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ x ≥ 1 + ε ∧ n ∈ PosIntegerSet ⇒ frac(1, 1 + x^{n}) < frac(1, (1 + ε)^{n})}) (x := {x0}) (n := {n0}) as (hypothesis 15: {x0 ∈ RealSet ∧ n0 ∈ NonNegIntegerSet ∧ x0 ≥ 1 + ε ∧ n0 ∈ PosIntegerSet ⇒ frac(1, 1 + x0^{n0}) < frac(1, (1 + ε)^{n0})})
+use_condition (hypothesis 14: {x0 ∈ RealSet ∧ n0 ∈ NonNegIntegerSet ∧ x0 ≥ 1 + ε ∧ n0 ∈ PosIntegerSet}) in (hypothesis 15: {x0 ∈ RealSet ∧ n0 ∈ NonNegIntegerSet ∧ x0 ≥ 1 + ε ∧ n0 ∈ PosIntegerSet ⇒ frac(1, 1 + x0^{n0}) < frac(1, (1 + ε)^{n0})}) as (hypothesis 16: {frac(1, 1 + x0^{n0}) < frac(1, (1 + ε)^{n0})})
+autosolve all_hypothesis

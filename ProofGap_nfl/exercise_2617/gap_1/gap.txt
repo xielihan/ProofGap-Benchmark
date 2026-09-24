@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 3 ⇒ frac(1, ln(ln(n))^{ln(n)}) > 0
+
+METHOD:

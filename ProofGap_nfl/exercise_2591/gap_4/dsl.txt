@@ -1,0 +1,11 @@
+get_exists (hypothesis 15: {exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ |sqrtn(n, a(n)) - q| < ε)}) (n_{0} := {N})
+destruct_and (hypothesis 16: {N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ |sqrtn(n, a(n)) - q| < ε)}) as (hypothesis 17: {N∈NonNegIntegerSet}) (hypothesis 18: {N∈PosIntegerSet}) (hypothesis 19: {forall (n), n∈NonNegIntegerSet ∧ n∈PosIntegerSet ∧ n≥N ⇒ |sqrtn(n,a(n))-q|<ε})
+assert (hypothesis 20: {forall (n), n∈NonNegIntegerSet ∧ n∈PosIntegerSet ∧ n≥N ⇒ sqrtn(n,a(n))<q+ε}) by proof {
+  get_forall (GOAL: {forall (n), n∈NonNegIntegerSet ∧ n∈PosIntegerSet ∧ n≥N ⇒ sqrtn(n,a(n))<q+ε}) (n := {m})
+  get_condition (hypothesis 20: {m∈NonNegIntegerSet ∧ m∈PosIntegerSet ∧ m≥N}) in (GOAL: {m∈NonNegIntegerSet ∧ m∈PosIntegerSet ∧ m≥N ⇒ sqrtn(m,a(m))<q+ε})
+  get_prop (hypothesis 19: {forall (n), n∈NonNegIntegerSet ∧ n∈PosIntegerSet ∧ n≥N ⇒ |sqrtn(n,a(n))-q|<ε}) (n := {m}) as (hypothesis 21: {m∈NonNegIntegerSet ∧ m∈PosIntegerSet ∧ m≥N ⇒ |sqrtn(m,a(m))-q|<ε})
+  use_condition (hypothesis 20: {m∈NonNegIntegerSet ∧ m∈PosIntegerSet ∧ m≥N}) in (hypothesis 21: {m∈NonNegIntegerSet ∧ m∈PosIntegerSet ∧ m≥N ⇒ |sqrtn(m,a(m))-q|<ε}) as (hypothesis 22: {|sqrtn(m,a(m))-q|<ε})
+  autosolve all_hypothesis
+}
+exists (N := {N})
+autosolve all_hypothesis

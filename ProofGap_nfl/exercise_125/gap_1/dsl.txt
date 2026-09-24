@@ -1,0 +1,15 @@
+1. get_prop (theorem 'Thm 340. (BoundedSequenceDefinition)': {forall (a), (BoundedSeq(a) <==> (exists (M), M ∈ RealSet /\ M >= 0 /\ forall (n), n ∈ NonNegIntegerSet => |a(n)| <= M))}) (a := {x}) as (hypothesis 3: {BoundedSeq(x) <==> (exists (M), M ∈ RealSet /\ M >= 0 /\ forall (n), n ∈ NonNegIntegerSet => |x(n)| <= M)})
+2. rewrite (left_to_right, iff) (hypothesis 3: {BoundedSeq(x) <==> (exists (M), M ∈ RealSet /\ M >= 0 /\ forall (n), n ∈ NonNegIntegerSet => |x(n)| <= M)}); from (hypothesis 2: {BoundedSeq(x)}) to (hypothesis 2: {exists (M), M ∈ RealSet /\ M >= 0 /\ forall (n), n ∈ NonNegIntegerSet => |x(n)| <= M})
+3. get_exists (hypothesis 2: {exists (M), M ∈ RealSet /\ M >= 0 /\ forall (n), n ∈ NonNegIntegerSet => |x(n)| <= M}) (M := {M0})
+4. destruct_and (hypothesis 4: {M0 ∈ RealSet /\ M0 >= 0 /\ forall (n), n ∈ NonNegIntegerSet => |x(n)| <= M0}) as (hypothesis 5: {M0 ∈ RealSet}) (hypothesis 6: {M0 >= 0}) (hypothesis 7: {forall (n), n ∈ NonNegIntegerSet => |x(n)| <= M0})
+5. assert (hypothesis 8: {-M0 ∈ RealSet})
+6. assert (hypothesis 9: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet => -M0 <= x(n) /\ x(n) <= M0}) by proof {
+  1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet => -M0 <= x(n) /\ x(n) <= M0}) (n := {n0})
+  2. get_condition (hypothesis 9: {n0 ∈ NonNegIntegerSet /\ n0 ∈ PosIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet /\ n0 ∈ PosIntegerSet => -M0 <= x(n0) /\ x(n0) <= M0})
+  3. destruct_and (hypothesis 9: {n0 ∈ NonNegIntegerSet /\ n0 ∈ PosIntegerSet}) as (hypothesis 10: {n0 ∈ NonNegIntegerSet}) (hypothesis 11: {n0 ∈ PosIntegerSet})
+  4. get_prop (hypothesis 7: {forall (n), n ∈ NonNegIntegerSet => |x(n)| <= M0}) (n := {n0}) as (hypothesis 12: {n0 ∈ NonNegIntegerSet => |x(n0)| <= M0})
+  5. use_condition (hypothesis 10: {n0 ∈ NonNegIntegerSet}) in (hypothesis 12: {n0 ∈ NonNegIntegerSet => |x(n0)| <= M0}) as (hypothesis 13: {|x(n0)| <= M0})
+  6. autosolve all_hypothesis
+}
+7. exists (a := {-M0}) (b := {M0})
+8. autosolve all_hypothesis

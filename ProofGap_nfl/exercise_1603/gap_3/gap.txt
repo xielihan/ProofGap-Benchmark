@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. p ∈ RealSet ∧ p ≠ 0
+3. q ∈ RealSet
+4. R ∈ RealSet
+5. l ∈ RealSet
+6. forall (x), x ∈ RealSet ∧ 2 * p * x - q * x^{2} ≥ 0 ⇒ y(x)^{2} = 2 * p * x - q * x^{2}
+7. R = frac((1 + FunDeri(y, 1, 1)^{2})^{frac(3, 2)}, |FunDeri(y, 1, 2)|)
+8. forall (x), x ∈ RealSet ∧ 2 * p * x - q * x^{2} ≥ 0 ⇒ l = |y(x) * sqrtn(2, 1 + FunDeri(y, 1, 1)^{2})|
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 2 * p * x - q * x^{2} ≥ 0 ⇒ R / l^{3} = frac(1, |y(x)^{3} * FunDeri(y, 1, 2)|)
+
+METHOD:

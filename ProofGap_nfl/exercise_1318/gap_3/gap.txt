@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. b ≠ 0
+4. lim_{ x → 0 } (frac(sin(a * x), sin(b * x))) = lim_{ x → 0 } (frac(a * cos(a * x), b * cos(b * x)))
+5. lim_{ x → 0 } (frac(a * cos(a * x), b * cos(b * x))) = frac(a, b)
+
+GOAL:
+lim_{ x → 0 } (frac(sin(a * x), sin(b * x))) = frac(a, b)
+
+METHOD:

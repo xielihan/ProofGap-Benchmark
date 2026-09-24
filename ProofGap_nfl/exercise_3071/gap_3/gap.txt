@@ -1,0 +1,20 @@
+PROOF GAP @3
+ASSUM:
+1. n_{0} ∈ NonNegIntegerSet
+2. a ∈ RealSet
+3. a_{1} ∈ RealSet
+4. b ∈ RealSet
+5. b_{1} ∈ RealSet
+6. p : IntegerSet → RealSet
+7. A : IntegerSet → RealSet
+8. P : IntegerSet → RealSet
+9. n_{0} ∈ PosIntegerSet
+10. forall (n), n ∈ IntegerSet ∧ n ≥ n_{0} ⇒ n^{2} + a * n + b > 0
+11. forall (n), n ∈ IntegerSet ∧ n ≥ n_{0} ⇒ p(n) = frac(n^{2} + a_{1} * n + b_{1}, n^{2} + a * n + b)
+12. forall (n), n ∈ IntegerSet ∧ n ≥ n_{0} ⇒ A(n) = frac((a_{1} - a) * n + b_{1} - b, n^{2} + a * n + b)
+13. forall (n), n ∈ IntegerSet ∧ n ≥ n_{0} ⇒ p(n) = 1 + A(n)
+
+GOAL:
+a_{1} = a ⇒ ConvergentSeries(sum_{ n = n_{0} }^{ +∞ } (frac(1, n^{2})))
+
+METHOD:

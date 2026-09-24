@@ -1,0 +1,6 @@
+get_condition (hypothesis 31: {S = frac(π * a * b * sqrtn(2, A^{2} + B^{2} + C^{2}), |C|)}) in (GOAL: {S = frac(π * a * b * sqrtn(2, A^{2} + B^{2} + C^{2}), |C|) ⇒ C ≠ 0})
+assert (hypothesis 32: {exists (T), T ∈ RealSet ∧ T > 0}) by proof {
+  1. exists (T := {1})
+  2. autosolve all_hypothesis
+}
+autosolve all_hypothesis

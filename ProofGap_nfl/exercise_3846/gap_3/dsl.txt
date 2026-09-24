@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (u), u ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ u = t / (1 + t) ∧ t ∈ IntervalLoRo(0, +∞) ⇒ 0 < u)}) (u := {u})
+get_condition (hypothesis 5: {u ∈ RealSet}) in (GOAL: {u ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ u = t / (1 + t) ∧ t ∈ IntervalLoRo(0, +∞) ⇒ 0 < u)})
+get_forall (GOAL: {forall (t), t ∈ RealSet ∧ u = t / (1 + t) ∧ t ∈ IntervalLoRo(0, +∞) ⇒ 0 < u}) (t := {t})
+get_condition (hypothesis 6: {t ∈ RealSet ∧ u = t / (1 + t) ∧ t ∈ IntervalLoRo(0, +∞)}) in (GOAL: {t ∈ RealSet ∧ u = t / (1 + t) ∧ t ∈ IntervalLoRo(0, +∞) ⇒ 0 < u})
+autosolve (hypothesis 5: {u ∈ RealSet}) (hypothesis 6: {t ∈ RealSet ∧ u = t / (1 + t) ∧ t ∈ IntervalLoRo(0, +∞)})

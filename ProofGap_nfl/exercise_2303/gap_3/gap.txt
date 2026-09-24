@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+3. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = sgn(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_3`(x) = DefInt(0, x, (fun x [x ∈ RealSet] . sgn(x)) * diff(fun x [x ∈ RealSet] . x)) + C) }
+4. DefInt(0, x, (fun x [x ∈ RealSet] . sgn(x)) * diff(fun x [x ∈ RealSet] . x)) = |x|
+
+GOAL:
+{ `F_4` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = sgn(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_5`(x) = |x| + C) }
+
+METHOD:

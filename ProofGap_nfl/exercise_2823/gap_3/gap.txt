@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet
+2. x ∈ RealSet
+3. a > 0
+4. b = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(1, a^{sqrtn(2, n)}))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = frac(1, a^{sqrtn(2, n)})
+6. seqlim_{ n → +∞ } (|frac(b(n), b(n + 1))|) = seqlim_{ n → +∞ } (a^{sqrtn(2, n + 1) - sqrtn(2, n)})
+
+GOAL:
+seqlim_{ n → +∞ } (a^{sqrtn(2, n + 1) - sqrtn(2, n)}) = 1
+
+METHOD:

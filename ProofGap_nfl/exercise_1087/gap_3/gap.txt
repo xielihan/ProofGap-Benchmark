@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet ∧ a ≠ 0
+3. x ∈ RealSet ∧ x ≠ -a ∧ x ≠ a
+4. forall (x), x ∈ RealSet ∧ x ≠ -a ∧ x ≠ a ⇒ y(x) = frac(1, 2 * a) * ln(|frac(x - a, x + a)|)
+5. FunDeri(y, 1, 1)(x) = frac(1, 2 * a) * (frac(1, x - a) - frac(1, x + a))
+6. FunDeri(y, 1, 1)(x) = frac(1, x^{2} - a^{2})
+
+GOAL:
+FunDeri(y, 1, 1)(x) = frac(1, x^{2} - a^{2})
+
+METHOD:

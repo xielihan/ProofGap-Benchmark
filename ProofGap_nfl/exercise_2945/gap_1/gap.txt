@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. A : NonNegIntegerSet → RealSet
+4. B : NonNegIntegerSet → RealSet
+5. a ∉ IntegerSet
+6. forall (x), x ∈ RealSet ∧ -π < x ∧ x < π ⇒ f(x) = cos(a * x)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ -π < x ∧ x < π ⇒ f(-x) = f(x)
+
+METHOD:

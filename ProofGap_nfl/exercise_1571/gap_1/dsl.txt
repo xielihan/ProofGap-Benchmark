@@ -1,0 +1,3 @@
+get_prop (hypothesis 5: {forall (x), x ∈ RealSet ∧ x > R ⇒ h(x) = frac(2 * R * x^{2}, x^{2} - R^{2})}) (x := {x}) as (hypothesis 7: {x ∈ RealSet ∧ x > R ⇒ h(x) = frac(2 * R * x^{2}, x^{2} - R^{2})})
+use_condition (hypothesis 4: {x ∈ RealSet ∧ x > R}) in (hypothesis 7: {x ∈ RealSet ∧ x > R ⇒ h(x) = frac(2 * R * x^{2}, x^{2} - R^{2})}) as (hypothesis 8: {h(x) = frac(2 * R * x^{2}, x^{2} - R^{2})})
+apply (hypothesis 8: {h(x) = frac(2 * R * x^{2}, x^{2} - R^{2})})

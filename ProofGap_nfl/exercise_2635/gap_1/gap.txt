@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+seqlim_{ n → +∞ } (frac(ln(sin(frac(1, n))), ln(frac(1, n)))) = 1
+
+METHOD:

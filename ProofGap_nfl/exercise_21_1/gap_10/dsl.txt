@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ |x - y| ≥ ||x| - |y||}) (x := {a}) (y := {b})
+get_condition (hypothesis 10: {a ∈ RealSet ∧ b ∈ RealSet}) in (GOAL: {a ∈ RealSet ∧ b ∈ RealSet ⇒ |a - b| ≥ ||a| - |b||})
+destruct_and (hypothesis 10: {a ∈ RealSet ∧ b ∈ RealSet}) as (hypothesis 11: {a ∈ RealSet}) (hypothesis 12: {b ∈ RealSet})
+get_prop (hypothesis 9: {forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ |x - y| ≥ ||x| - |y||)}) (x := {a}) as (hypothesis 13: {a ∈ RealSet ⇒ (forall (y), a ∈ RealSet ∧ y ∈ RealSet ⇒ |a - y| ≥ ||a| - |y||)})
+use_condition (hypothesis 11: {a ∈ RealSet}) in (hypothesis 13: {a ∈ RealSet ⇒ (forall (y), a ∈ RealSet ∧ y ∈ RealSet ⇒ |a - y| ≥ ||a| - |y||)}) as (hypothesis 14: {forall (y), a ∈ RealSet ∧ y ∈ RealSet ⇒ |a - y| ≥ ||a| - |y||})
+get_prop (hypothesis 14: {forall (y), a ∈ RealSet ∧ y ∈ RealSet ⇒ |a - y| ≥ ||a| - |y||}) (y := {b}) as (hypothesis 15: {a ∈ RealSet ∧ b ∈ RealSet ⇒ |a - b| ≥ ||a| - |b||})
+use_condition (hypothesis 10: {a ∈ RealSet ∧ b ∈ RealSet}) in (hypothesis 15: {a ∈ RealSet ∧ b ∈ RealSet ⇒ |a - b| ≥ ||a| - |b||}) as (hypothesis 16: {|a - b| ≥ ||a| - |b||})
+apply (hypothesis 16: {|a - b| ≥ ||a| - |b||})

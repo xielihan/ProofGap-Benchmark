@@ -1,0 +1,19 @@
+PROOF GAP @6
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. x ∈ RealSet
+3. y ∈ RealSet
+4. I_{x} ∈ RealSet
+5. I_{y} ∈ RealSet
+6. D ⊆ CartesianProd(RealSet, RealSet)
+7. D = { (x, y) | x ∈ RealSet, y ∈ RealSet, x ≥ 0, y ≥ 0, (x - a)^{2} + (y - a)^{2} ≤ a^{2}, x ≤ a }
+8. I_{x} = DefInt(0, a, (fun x [x ∈ RealSet] . DefInt(0, a - sqrtn(2, 2 * a * x - x^{2}), (fun y [y ∈ RealSet] . y^{2}) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+9. I_{x} = frac(1, 3) * DefInt(0, a, (fun x [x ∈ RealSet] . a^{3} - 3 * a^{2} * sqrtn(2, 2 * a * x - x^{2}) + 3 * a * (2 * a * x - x^{2}) - (2 * a * x - x^{2})^{frac(3, 2)}) * diff(fun x [x ∈ RealSet] . x))
+10. DefInt(0, a, (fun x [x ∈ RealSet] . (2 * a * x - x^{2})^{frac(3, 2)}) * diff(fun x [x ∈ RealSet] . x)) = DefInt(-frac(π, 2), 0, (fun t [t ∈ RealSet] . a^{4} * cos(t)^{4}) * diff(fun t [t ∈ RealSet] . t))
+11. I_{x} = a^{4} * (1 - frac(π, 4)) - frac(1, 3) * DefInt(0, frac(π, 2), (fun t [t ∈ RealSet] . a^{4} * cos(t)^{4}) * diff(fun t [t ∈ RealSet] . t))
+12. I_{x} = frac(a^{4}, 16) * (16 - 5 * π)
+
+GOAL:
+I_{y} = I_{x}
+
+METHOD:

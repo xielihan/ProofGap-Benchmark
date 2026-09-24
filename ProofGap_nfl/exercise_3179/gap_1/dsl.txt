@@ -1,0 +1,11 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ x^{2} = x + f(x)}) (x := {x0})
+2. get_condition (hypothesis 6: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ x0^{2} = x0 + f(x0)})
+3. get_prop (hypothesis 5: {forall (x), x ∈ RealSet ⇒ z(x, 0) = x^{2}}) (x := {x0}) as (hypothesis 7: {x0 ∈ RealSet ⇒ z(x0, 0) = x0^{2}})
+4. use_condition (hypothesis 6: {x0 ∈ RealSet}) in (hypothesis 7: {x0 ∈ RealSet ⇒ z(x0, 0) = x0^{2}}) as (hypothesis 8: {z(x0, 0) = x0^{2}})
+5. get_prop (hypothesis 3: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = x + y + f(x - y)}) (x := {x0}) (y := {0}) as (hypothesis 9: {x0 ∈ RealSet ∧ 0 ∈ RealSet ⇒ z(x0, 0) = x0 + 0 + f(x0 - 0)})
+6. assert (hypothesis 10: {x0 ∈ RealSet ∧ 0 ∈ RealSet}) by proof {
+7. autosolve all_hypothesis
+}
+8. use_condition (hypothesis 10: {x0 ∈ RealSet ∧ 0 ∈ RealSet}) in (hypothesis 9: {x0 ∈ RealSet ∧ 0 ∈ RealSet ⇒ z(x0, 0) = x0 + 0 + f(x0 - 0)}) as (hypothesis 11: {z(x0, 0) = x0 + 0 + f(x0 - 0)})
+9. rewrite (left_to_right, equation) (hypothesis 8: {z(x0, 0) = x0^{2}}); from (hypothesis 11: {z(x0, 0) = x0 + 0 + f(x0 - 0)}) to (hypothesis 12: {x0^{2} = x0 + 0 + f(x0 - 0)})
+10. autosolve all_hypothesis

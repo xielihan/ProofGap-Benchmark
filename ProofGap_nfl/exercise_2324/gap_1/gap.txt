@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ frac(x^{9}, sqrtn(2, 2)) ≤ frac(x^{9}, sqrtn(2, 1 + x)) ∧ frac(x^{9}, sqrtn(2, 1 + x)) ≤ x^{9}
+
+METHOD:

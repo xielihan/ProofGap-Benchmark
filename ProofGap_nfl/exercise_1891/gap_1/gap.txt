@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. Q : RealSet → RealSet
+2. A ∈ RealSet
+3. B ∈ RealSet
+4. C ∈ RealSet
+5. D ∈ RealSet
+6. E ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ -1 ∧ x ≠ 1 ⇒ x ∈ RealSet \ { -1, 1 }
+
+METHOD:

@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x > 0 ⇒ tanh(x) > 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ x ≠ 0
+
+METHOD:

@@ -1,0 +1,4 @@
+rewrite (left_to_right, equation) (hypothesis 3: {A = 1}); from (GOAL: {frac(2 * x + 3, (x - 2) * (x + 5)) = frac(A, x - 2) + frac(B, x + 5)}) to (GOAL: {frac(2 * x + 3, (x - 2) * (x + 5)) = frac(1, x - 2) + frac(B, x + 5)})
+rewrite (left_to_right, equation) (hypothesis 4: {B = 1}); from (GOAL: {frac(2 * x + 3, (x - 2) * (x + 5)) = frac(1, x - 2) + frac(B, x + 5)}) to (GOAL: {frac(2 * x + 3, (x - 2) * (x + 5)) = frac(1, x - 2) + frac(1, x + 5)})
+assert (hypothesis 5: {frac(2 * x + 3, (x - 2) * (x + 5)) = frac(1, x - 2) + frac(1, x + 5)})
+apply (hypothesis 5: {frac(2 * x + 3, (x - 2) * (x + 5)) = frac(1, x - 2) + frac(1, x + 5)})

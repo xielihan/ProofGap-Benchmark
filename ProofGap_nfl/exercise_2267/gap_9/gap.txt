@@ -1,0 +1,23 @@
+PROOF GAP @9
+ASSUM:
+1. f : RealSet → RealSet ∧ Defined(f, RealSet)
+2. F : RealSet → RealSet
+3. T ∈ RealSet ∧ T > 0
+4. x_{0} ∈ RealSet
+5. ContinuousFunc(f)
+6. PeriodicFunc(f, T)
+7. forall (x), x ∈ RealSet ⇒ F(x) = DefInt(x_{0}, x, (fun t [t ∈ RealSet] . f(t)) * diff(fun t [t ∈ RealSet] . t))
+8. forall (x), x ∈ RealSet ⇒ F(x + T) - F(x) = DefInt(x, x + T, (fun t [t ∈ RealSet] . f(t)) * diff(fun t [t ∈ RealSet] . t))
+9. forall (x), x ∈ RealSet ⇒ DefInt(x, x + T, (fun t [t ∈ RealSet] . f(t)) * diff(fun t [t ∈ RealSet] . t)) = DefInt(x_{0}, x_{0} + T, (fun t [t ∈ RealSet] . f(t)) * diff(fun t [t ∈ RealSet] . t))
+10. K = DefInt(x_{0}, x_{0} + T, (fun t [t ∈ RealSet] . f(t)) * diff(fun t [t ∈ RealSet] . t))
+11. forall (x), x ∈ RealSet ⇒ F(x + T) - F(x) = K
+12. K = 0 ⇒ (forall (x), x ∈ RealSet ⇒ F(x + T) = F(x))
+13. K = 0 ⇒ PeriodicFunc(F, T)
+14. K = 0 ⇒ (exists (φ) (K), φ : RealSet → RealSet ∧ K ∈ RealSet ∧ φ = F ∧ K = 0 ∧ PeriodicFunc(φ, T) ∧ (forall (x), x ∈ RealSet ⇒ F(x) = φ(x) + frac(K, T) * x))
+15. forall (φ), φ : RealSet → RealSet ∧ K ≠ 0 ∧ φ = (fun x [x ∈ RealSet] . F(x) - frac(K, T) * x) ⇒ (forall (x), x ∈ RealSet ⇒ φ(x + T) = F(x + T) - frac(K, T) * (x + T))
+16. forall (φ), φ : RealSet → RealSet ∧ K ≠ 0 ∧ φ = (fun x [x ∈ RealSet] . F(x) - frac(K, T) * x) ⇒ (forall (x), x ∈ RealSet ⇒ φ(x + T) = F(x) - frac(K, T) * x)
+
+GOAL:
+forall (φ), φ : RealSet → RealSet ∧ K ≠ 0 ∧ φ = (fun x [x ∈ RealSet] . F(x) - frac(K, T) * x) ⇒ (forall (x), x ∈ RealSet ⇒ φ(x + T) = φ(x))
+
+METHOD:

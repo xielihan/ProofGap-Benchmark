@@ -1,0 +1,15 @@
+PROOF GAP @6
+ASSUM:
+1. α ∈ RealSet
+2. I : RealSet → RealSet
+3. forall (β), β ∈ RealSet ⇒ I(β) = DefInt(0, +∞, frac(sin(β * x), x)^{2} * diff(x))
+4. α ≥ 0 ⇒ lim_{ x → 0^+ } (frac(sin(α * x), x)^{2}) = α^{2}
+5. α ≥ 0 ⇒ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ frac(sin(α * x), x)^{2} ≤ frac(1, x^{2}))
+6. exists (L), L ∈ RealSet ∧ lim_{t -> +∞}(DefInt(1, t, frac(1, x^{2}) * diff(x))) = L
+7. UniformConvergent(fun n [n ∈ NonNegIntegerSet] . (fun β [β ∈ RealSet ∧ β ≥ 0] . DefInt(1, n, frac(sin(β * x), x)^{2} * diff(x))), NonNegRealSet, fun β [β ∈ RealSet ∧ β ≥ 0] . DefInt(1, +∞, frac(sin(β * x), x)^{2} * diff(x)))
+8. UniformConvergent(fun n [n ∈ NonNegIntegerSet] . (fun β [β ∈ RealSet ∧ β ≥ 0] . DefInt(0, n, frac(sin(β * x), x)^{2} * diff(x))), NonNegRealSet, I)
+
+GOAL:
+ContinuousFuncOn(I, NonNegRealSet)
+
+METHOD:

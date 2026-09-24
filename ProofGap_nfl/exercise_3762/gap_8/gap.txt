@@ -1,0 +1,15 @@
+PROOF GAP @8
+ASSUM:
+1. forall (α), α ∈ RealSet ∧ α = 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . sqrtn(2, α) * e^{-α * x^{2}}) * diff(fun x [x ∈ RealSet] . x)) = 0
+2. α > 0 ⇒ t = sqrtn(2, α) * x
+3. forall (α), α ∈ RealSet ∧ α > 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . sqrtn(2, α) * e^{-α * x^{2}}) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, +∞, (fun t [t ∈ RealSet] . e^{-t^{2}}) * diff(fun t [t ∈ RealSet] . t))
+4. forall (α), α ∈ RealSet ∧ α > 0 ⇒ DefInt(0, +∞, (fun t [t ∈ RealSet] . e^{-t^{2}}) * diff(fun t [t ∈ RealSet] . t)) = frac(sqrtn(2, π), 2)
+5. forall (α), α ∈ RealSet ∧ α > 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . sqrtn(2, α) * e^{-α * x^{2}}) * diff(fun x [x ∈ RealSet] . x)) = frac(sqrtn(2, π), 2)
+6. forall (α), α ∈ RealSet ∧ α ∈ NonNegRealSet ⇒ (exists (L), L ∈ RealSet ∧ DefInt(0, +∞, (fun x [x ∈ RealSet] . sqrtn(2, α) * e^{-α * x^{2}}) * diff(fun x [x ∈ RealSet] . x)) = L)
+7. forall (A), A ∈ RealSet ∧ A > 0 ⇒ lim_{ a → 0 } (DefInt(A, +∞, (fun x [x ∈ RealSet] . sqrtn(2, a) * e^{-a * x^{2}}) * diff(fun x [x ∈ RealSet] . x))) = lim_{ a → 0 } (DefInt(sqrtn(2, a) * A, +∞, (fun t [t ∈ RealSet] . e^{-t^{2}}) * diff(fun t [t ∈ RealSet] . t)))
+8. forall (A), A ∈ RealSet ∧ A > 0 ⇒ lim_{ a → 0 } (DefInt(sqrtn(2, a) * A, +∞, (fun t [t ∈ RealSet] . e^{-t^{2}}) * diff(fun t [t ∈ RealSet] . t))) = DefInt(0, +∞, (fun t [t ∈ RealSet] . e^{-t^{2}}) * diff(fun t [t ∈ RealSet] . t))
+
+GOAL:
+forall (A), A ∈ RealSet ∧ A > 0 ⇒ DefInt(0, +∞, (fun t [t ∈ RealSet] . e^{-t^{2}}) * diff(fun t [t ∈ RealSet] . t)) = frac(sqrtn(2, π), 2)
+
+METHOD:

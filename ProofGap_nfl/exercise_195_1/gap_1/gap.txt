@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. h ∈ RealSet
+4. f : RealSet → RealSet
+5. φ : RealSet → RealSet
+6. h ≠ 0
+7. forall (x), x ∈ RealSet ⇒ f(x) = a * x + b
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ frac(f(x + h) - f(x), h) = a
+
+METHOD:

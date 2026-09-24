@@ -1,0 +1,3 @@
+exists (m := {25})
+assert (hypothesis 24: {25 ∈ RealSet ∧ 25 = 25})
+apply (hypothesis 24: {25 ∈ RealSet ∧ 25 = 25})

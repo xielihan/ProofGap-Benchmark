@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. C ∈ RealSet
+2. C_{1} ∈ RealSet
+3. x ∈ RealSet ∧ x > sqrtn(2, 2)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > sqrtn(2, 2) ⇒ (forall (t), t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2) ∧ x = sqrtn(2, 2) * sec(t) ⇒ 0 < t)
+
+METHOD:

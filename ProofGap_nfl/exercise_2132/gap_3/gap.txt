@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+3. 0 < x
+4. x < 1
+5. t(x) = sqrtn(2, 1 - x * sqrtn(2, x))
+6. 0 < t(x)
+7. t(x) < 1
+
+GOAL:
+x = (1 - t(x)^{2})^{frac(2, 3)}
+
+METHOD:

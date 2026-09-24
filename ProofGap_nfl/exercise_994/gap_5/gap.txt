@@ -1,0 +1,16 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet
+2. f : RealSet → RealSet
+3. φ : RealSet → RealSet
+4. exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a - δ, a + δ) ⇒ f(x) = (x - a) * φ(x))
+5. exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ Defined(φ, (a - δ, a + δ)) ∧ ContinuousFuncAt(φ, a)
+6. f(a) = 0
+7. lim_{ Δx → 0 } (frac(f(a + Δx) - f(a), Δx)) = lim_{ Δx → 0 } (frac(Δx * φ(a + Δx) - 0, Δx))
+8. lim_{ Δx → 0 } (frac(Δx * φ(a + Δx) - 0, Δx)) = lim_{ Δx → 0 } (φ(a + Δx))
+9. lim_{ Δx → 0 } (φ(a + Δx)) = φ(a)
+
+GOAL:
+FunDeri(f, 1, 1)(a) = φ(a)
+
+METHOD:

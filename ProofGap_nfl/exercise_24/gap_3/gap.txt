@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet
+2. x^{2} > (x + 1)^{2}
+3. 2 * x + 1 < 0
+
+GOAL:
+x < -frac(1, 2)
+
+METHOD:

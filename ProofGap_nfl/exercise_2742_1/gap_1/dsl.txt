@@ -1,0 +1,10 @@
+get_forall (GOAL: {forall (y), y ∈ RealSet /\ y ∈ I => f(y) ∈ RealSet}) (y := {u})
+get_condition (hypothesis 7: {u ∈ RealSet /\ u ∈ I}) in (GOAL: {u ∈ RealSet /\ u ∈ I => f(u) ∈ RealSet})
+destruct_and (hypothesis 7: {u ∈ RealSet /\ u ∈ I}) as (hypothesis 8: {u ∈ RealSet}) (hypothesis 9: {u ∈ I})
+get_prop (theorem 'Thm 76. (FunctionValueExists)': {forall (A) (B) (f), f : A -> B => (forall (x), (x ∈ A) => (exists (y), (y ∈ B) /\ (f(x) = y)))}) (A := {RealSet}) (B := {RealSet}) (f := {f}) as (hypothesis 10: {f : RealSet -> RealSet => (forall (x), x ∈ RealSet => (exists (y), y ∈ RealSet /\ f(x) = y))})
+use_condition (hypothesis 2: {f : RealSet -> RealSet}) in (hypothesis 10: {f : RealSet -> RealSet => (forall (x), x ∈ RealSet => (exists (y), y ∈ RealSet /\ f(x) = y))}) as (hypothesis 11: {forall (x), x ∈ RealSet => (exists (y), y ∈ RealSet /\ f(x) = y)})
+get_prop (hypothesis 11: {forall (x), x ∈ RealSet => (exists (y), y ∈ RealSet /\ f(x) = y)}) (x := {u}) as (hypothesis 12: {u ∈ RealSet => (exists (y), y ∈ RealSet /\ f(u) = y)})
+use_condition (hypothesis 8: {u ∈ RealSet}) in (hypothesis 12: {u ∈ RealSet => (exists (y), y ∈ RealSet /\ f(u) = y)}) as (hypothesis 13: {exists (y), y ∈ RealSet /\ f(u) = y})
+get_exists (hypothesis 13: {exists (y), y ∈ RealSet /\ f(u) = y}) (y := {v})
+destruct_and (hypothesis 14: {v ∈ RealSet /\ f(u) = v}) as (hypothesis 15: {v ∈ RealSet}) (hypothesis 16: {f(u) = v})
+autosolve all_hypothesis

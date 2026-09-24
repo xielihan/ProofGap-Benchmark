@@ -1,0 +1,2 @@
+1. autoreplace no_hypothesis; from (e^{-1}) to (frac(1, e)); from (GOAL: {e^{-1} < 1}) to (GOAL: {frac(1, e) < 1})
+2. autosolve all_hypothesis

@@ -1,0 +1,20 @@
+PROOF GAP @12
+ASSUM:
+1. f : RealSet → RealSet
+2. ContinuousFuncOn(f, [0, 2 * π])
+3. DefInt(0, 2 * π, (fun x [x ∈ RealSet] . f(x) * cos(x)) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . f(x) * cos(x)) * diff(fun x [x ∈ RealSet] . x)) + DefInt(frac(π, 2), π, (fun x [x ∈ RealSet] . f(x) * cos(x)) * diff(fun x [x ∈ RealSet] . x)) + DefInt(π, frac(3 * π, 2), (fun x [x ∈ RealSet] . f(x) * cos(x)) * diff(fun x [x ∈ RealSet] . x)) + DefInt(frac(3 * π, 2), 2 * π, (fun x [x ∈ RealSet] . f(x) * cos(x)) * diff(fun x [x ∈ RealSet] . x))
+4. forall (t), t : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2) ∧ t(x) = sin(x) ⇒ 0 ≤ t(x))
+5. forall (t), t : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2) ∧ t(x) = sin(x) ⇒ t(x) ≤ 1)
+6. forall (t), t : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2) ∧ t(x) = sin(x) ⇒ x = arcsin(t(x)))
+7. forall (t), t : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2) ∧ t(x) = sin(x) ⇒ diff(t) = (fun x [x ∈ RealSet] . cos(x)) * diff(fun x [x ∈ RealSet] . x))
+8. forall (t), t : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ frac(π, 2) ≤ x ∧ x ≤ frac(3 * π, 2) ∧ t(x) = sin(π - x) ⇒ 0 ≤ t(x))
+9. forall (t), t : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ frac(π, 2) ≤ x ∧ x ≤ frac(3 * π, 2) ∧ t(x) = sin(π - x) ⇒ t(x) ≤ 1)
+10. forall (t), t : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ frac(π, 2) ≤ x ∧ x ≤ frac(3 * π, 2) ∧ t(x) = sin(π - x) ⇒ x = π - arcsin(t(x)))
+11. forall (t), t : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ frac(π, 2) ≤ x ∧ x ≤ frac(3 * π, 2) ∧ t(x) = sin(π - x) ⇒ diff(t) = (fun x [x ∈ RealSet] . -cos(x)) * diff(fun x [x ∈ RealSet] . x))
+12. forall (t), t : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ frac(3 * π, 2) ≤ x ∧ x ≤ 2 * π ∧ -t(x) = sin(2 * π - x) ⇒ -1 ≤ t(x))
+13. forall (t), t : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ frac(3 * π, 2) ≤ x ∧ x ≤ 2 * π ∧ -t(x) = sin(2 * π - x) ⇒ t(x) ≤ 0)
+
+GOAL:
+forall (t), t : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ frac(3 * π, 2) ≤ x ∧ x ≤ 2 * π ∧ -t(x) = sin(2 * π - x) ⇒ x = 2 * π + arcsin(t(x)))
+
+METHOD:

@@ -1,0 +1,15 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. P : RealSet → RealSet
+3. forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ⇒ f(x) = |x|
+4. f(0) = 0
+5. f(frac(1, 2)) = frac(1, 2)
+6. f(-frac(1, 2)) = frac(1, 2)
+7. f(1) = 1
+8. f(-1) = 1
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ P(x) = frac(x * (x - frac(1, 2)) * (x^{2} - 1), -frac(1, 2) * -1 * frac(1, 2) * -frac(3, 2)) * frac(1, 2) + frac(x * (x + frac(1, 2)) * (x^{2} - 1), frac(1, 2) * 1 * frac(3, 2) * -frac(1, 2)) * frac(1, 2) + frac(x * (x - 1) * (x^{2} - frac(1, 4)), -1 * -frac(1, 2) * -frac(3, 2) * -2) * 1 + frac(x * (x + 1) * (x^{2} - frac(1, 4)), 1 * frac(3, 2) * frac(1, 2) * 2) * 1
+
+METHOD:

@@ -1,0 +1,4 @@
+get_prop (hypothesis 4: {forall (a), a ∈ RealSet ⇒ I(a) = DefInt(0, frac(π, 2), g * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . x))}) (a := {a}) as (hypothesis 34: {a ∈ RealSet ⇒ I(a) = DefInt(0, frac(π, 2), g * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . x))})
+use_condition (hypothesis 1: {a ∈ RealSet}) in (hypothesis 34: {a ∈ RealSet ⇒ I(a) = DefInt(0, frac(π, 2), g * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . x))}) as (hypothesis 35: {I(a) = DefInt(0, frac(π, 2), g * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . x))})
+rewrite (right_to_left, equation) (hypothesis 35: {I(a) = DefInt(0, frac(π, 2), g * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . x))}); from (GOAL: {DefInt(0, frac(π, 2), g * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . x)) = frac(π, 2) * sgn(a) * ln(1 + |a|)}) to (GOAL: {I(a) = frac(π, 2) * sgn(a) * ln(1 + |a|)})
+apply (hypothesis 33: {I(a) = frac(π, 2) * sgn(a) * ln(1 + |a|)})

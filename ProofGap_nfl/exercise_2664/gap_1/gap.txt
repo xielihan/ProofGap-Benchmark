@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac((-1)^{frac(n * (n - 1), 2)}, 2^{n})
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |a(n)| = frac(1, 2^{n})
+
+METHOD:

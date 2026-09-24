@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ (-∞, 0] ⇒ f(x) = x^{2}
+3. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ x_{1} < x_{2} ∧ x_{2} < 0 ⇒ f(x_{2}) - f(x_{1}) = (x_{2} - x_{1}) * (x_{2} + x_{1}))
+4. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ x_{1} < x_{2} ∧ x_{2} < 0 ⇒ (x_{2} - x_{1}) * (x_{2} + x_{1}) < 0)
+5. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ x_{1} < x_{2} ∧ x_{2} < 0 ⇒ f(x_{2}) - f(x_{1}) < 0)
+6. MonoDecFuncOn(f, (-∞, 0])
+
+GOAL:
+MonoDecFuncOn(f, (-∞, 0])
+
+METHOD:

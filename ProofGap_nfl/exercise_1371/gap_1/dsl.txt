@@ -1,0 +1,2 @@
+rewrite_in limit (left_to_right, equation) (hypothesis 5: {forall (x), x ∈ RealSet ⇒ y(x) = f(x)}); from (GOAL: {lim_{ x → 0 } (frac(y(x), x)) = lim_{ x → 0 } (frac(f(x), x))}) to (GOAL: {lim_{ x → 0 } (frac(f(x), x)) = lim_{ x → 0 } (frac(f(x), x))})
+autosolve using Reflexivity

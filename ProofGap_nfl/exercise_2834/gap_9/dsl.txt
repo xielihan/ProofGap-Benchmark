@@ -1,0 +1,5 @@
+get_condition (hypothesis 13: {|x| = frac(1, 2)}) in (GOAL: {|x| = frac(1, 2) => π != 0})
+assert (hypothesis 14: {π > 0}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

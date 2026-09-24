@@ -1,0 +1,26 @@
+PROOF GAP @19
+ASSUM:
+1. Gamma : RealSet → RealSet
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (m), m ∈ NonNegIntegerSet ∧ 1 ≤ m ∧ m ≤ n ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . x^{m - 1} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, n) * Gamma(frac(m, n)))
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ prod_{ m = 1 }^{ n } (DefInt(0, +∞, (fun x [x ∈ RealSet] . x^{m - 1} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet] . x))) = prod_{ m = 1 }^{ n } (frac(1, n) * Gamma(frac(m, n)))
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ prod_{ m = 1 }^{ n } (frac(1, n) * Gamma(frac(m, n))) = frac(1, n)^{n} * (prod_{ m = 1 }^{ n - 1 } (Gamma(frac(m, n))))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ prod_{ m = 1 }^{ n } (DefInt(0, +∞, (fun x [x ∈ RealSet] . x^{m - 1} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet] . x))) = frac(1, n)^{n} * (prod_{ m = 1 }^{ n - 1 } (Gamma(frac(m, n))))
+6. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (E), E ∈ RealSet ∧ n ∈ PosIntegerSet ∧ E = prod_{ m = 1 }^{ n - 1 } (Gamma(frac(m, n))) ⇒ E = prod_{ m = 1 }^{ n - 1 } (Gamma(frac(n - m, n))))
+7. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (E), E ∈ RealSet ∧ n ∈ PosIntegerSet ∧ E = prod_{ m = 1 }^{ n - 1 } (Gamma(frac(m, n))) ⇒ E^{2} = prod_{ m = 1 }^{ n - 1 } (Gamma(frac(m, n)) * Gamma(frac(n - m, n))))
+8. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (E), E ∈ RealSet ∧ n ∈ PosIntegerSet ∧ E = prod_{ m = 1 }^{ n - 1 } (Gamma(frac(m, n))) ⇒ E^{2} = prod_{ m = 1 }^{ n - 1 } (frac(π, sin(frac(m * π, n)))))
+9. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (E), E ∈ RealSet ∧ n ∈ PosIntegerSet ∧ E = prod_{ m = 1 }^{ n - 1 } (Gamma(frac(m, n))) ⇒ prod_{ m = 1 }^{ n - 1 } (frac(π, sin(frac(m * π, n)))) = frac(π^{n - 1}, prod_{ m = 1 }^{ n - 1 } (sin(frac(m * π, n)))))
+10. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (E), E ∈ RealSet ∧ n ∈ PosIntegerSet ∧ E = prod_{ m = 1 }^{ n - 1 } (Gamma(frac(m, n))) ⇒ E^{2} = frac(π^{n - 1}, prod_{ m = 1 }^{ n - 1 } (sin(frac(m * π, n)))))
+11. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (E), E ∈ RealSet ∧ n ∈ PosIntegerSet ∧ E = prod_{ m = 1 }^{ n - 1 } (Gamma(frac(m, n))) ⇒ (forall (z), z ∈ ComplexSet ∧ z ≠ 1 ⇒ frac(z^{n} - 1, z - 1) = prod_{ m = 1 }^{ n - 1 } (z - cos(frac(2 * m * π, n)) - __IMAGINARY_UNIT__ * sin(frac(2 * m * π, n)))))
+12. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (E), E ∈ RealSet ∧ n ∈ PosIntegerSet ∧ E = prod_{ m = 1 }^{ n - 1 } (Gamma(frac(m, n))) ⇒ n = prod_{ m = 1 }^{ n - 1 } (|1 - cos(frac(2 * m * π, n)) - __IMAGINARY_UNIT__ * sin(frac(2 * m * π, n))|))
+13. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (E), E ∈ RealSet ∧ n ∈ PosIntegerSet ∧ E = prod_{ m = 1 }^{ n - 1 } (Gamma(frac(m, n))) ⇒ prod_{ m = 1 }^{ n - 1 } (|1 - cos(frac(2 * m * π, n)) - __IMAGINARY_UNIT__ * sin(frac(2 * m * π, n))|) = 2^{n - 1} * (prod_{ m = 1 }^{ n - 1 } (sin(frac(m * π, n)))))
+14. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (E), E ∈ RealSet ∧ n ∈ PosIntegerSet ∧ E = prod_{ m = 1 }^{ n - 1 } (Gamma(frac(m, n))) ⇒ n = 2^{n - 1} * (prod_{ m = 1 }^{ n - 1 } (sin(frac(m * π, n)))))
+15. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (E), E ∈ RealSet ∧ n ∈ PosIntegerSet ∧ E = prod_{ m = 1 }^{ n - 1 } (Gamma(frac(m, n))) ⇒ prod_{ m = 1 }^{ n - 1 } (sin(frac(m * π, n))) = frac(n, 2^{n - 1}))
+16. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (E), E ∈ RealSet ∧ n ∈ PosIntegerSet ∧ E = prod_{ m = 1 }^{ n - 1 } (Gamma(frac(m, n))) ⇒ E = π^{frac(n - 1, 2)} * frac(2^{frac(n - 1, 2)}, n^{frac(1, 2)}))
+17. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (E), E ∈ RealSet ∧ n ∈ PosIntegerSet ∧ E = prod_{ m = 1 }^{ n - 1 } (Gamma(frac(m, n))) ⇒ prod_{ m = 1 }^{ n } (DefInt(0, +∞, (fun x [x ∈ RealSet] . x^{m - 1} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet] . x))) = frac(1, n)^{n} * E)
+18. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (E), E ∈ RealSet ∧ n ∈ PosIntegerSet ∧ E = prod_{ m = 1 }^{ n - 1 } (Gamma(frac(m, n))) ⇒ prod_{ m = 1 }^{ n } (DefInt(0, +∞, (fun x [x ∈ RealSet] . x^{m - 1} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet] . x))) = frac(1, n)^{n + frac(1, 2)} * (2 * π)^{frac(n - 1, 2)})
+19. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ prod_{ m = 1 }^{ n } (DefInt(0, +∞, (fun x [x ∈ RealSet] . x^{m - 1} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet] . x))) = frac(1, n)^{n + frac(1, 2)} * (2 * π)^{frac(n - 1, 2)}
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ prod_{ m = 1 }^{ n } (DefInt(0, +∞, (fun x [x ∈ RealSet] . x^{m - 1} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet] . x))) = frac(1, n)^{n + frac(1, 2)} * (2 * π)^{frac(n - 1, 2)}
+
+METHOD:

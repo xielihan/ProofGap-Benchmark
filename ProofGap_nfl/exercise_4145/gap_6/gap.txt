@@ -1,0 +1,28 @@
+PROOF GAP @6
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. c ∈ RealSet ∧ c > 0
+4. x ∈ RealSet
+5. y ∈ RealSet
+6. z ∈ RealSet
+7. r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1
+8. φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π
+9. E ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+10. I_{xy} ∈ RealSet ∧ I_{xy} = VolumeInt(E, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z^{2}) * diff(ω))
+11. I_{yz} ∈ RealSet ∧ I_{yz} = VolumeInt(E, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x^{2}) * diff(ω))
+12. I_{zx} ∈ RealSet ∧ I_{zx} = VolumeInt(E, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y^{2}) * diff(ω))
+13. E = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) ≤ frac(z^{2}, c^{2}) ∧ z ≤ c ∧ z ≥ 0 }
+14. x = a * r * cos(φ)
+15. y = b * r * sin(φ)
+16. (x, y, z) ∈ E
+17. 0 ≤ r
+18. r ≤ 1
+19. 0 ≤ φ
+20. φ ≤ 2 * π
+21. c * r ≤ z
+
+GOAL:
+z ≤ c
+
+METHOD:

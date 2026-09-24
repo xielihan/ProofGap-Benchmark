@@ -1,0 +1,6 @@
+get_prop (hypothesis 2: {forall (x), x ∈ RealSet => ((-infty < x /\ x <= 0 => f(x) = 1 + x) /\ (0 < x /\ x < +infty => f(x) = 2 ^ x))}) (x := {-2}) as (hypothesis 3: {-2 ∈ RealSet => ((-infty < -2 /\ -2 <= 0 => f(-2) = 1 + (-2)) /\ (0 < -2 /\ -2 < +infty => f(-2) = 2 ^ (-2)))})
+use_condition (obvious: {-2 ∈ RealSet}) in (hypothesis 3: {-2 ∈ RealSet => ((-infty < -2 /\ -2 <= 0 => f(-2) = 1 + (-2)) /\ (0 < -2 /\ -2 < +infty => f(-2) = 2 ^ (-2)))}) as (hypothesis 4: {(-infty < -2 /\ -2 <= 0 => f(-2) = 1 + (-2)) /\ (0 < -2 /\ -2 < +infty => f(-2) = 2 ^ (-2))})
+destruct_and (hypothesis 4: {(-infty < -2 /\ -2 <= 0 => f(-2) = 1 + (-2)) /\ (0 < -2 /\ -2 < +infty => f(-2) = 2 ^ (-2))}) as (hypothesis 5: {-infty < -2 /\ -2 <= 0 => f(-2) = 1 + (-2)}) (hypothesis 6: {0 < -2 /\ -2 < +infty => f(-2) = 2 ^ (-2)})
+use_condition (obvious: {-infty < -2 /\ -2 <= 0}) in (hypothesis 5: {-infty < -2 /\ -2 <= 0 => f(-2) = 1 + (-2)}) as (hypothesis 7: {f(-2) = 1 + (-2)})
+autoreplace no_hypothesis; from (1 + (-2)) to (1 - 2); from (hypothesis 7: {f(-2) = 1 + (-2)}) to (hypothesis 8: {f(-2) = 1 - 2})
+apply (hypothesis 8: {f(-2) = 1 - 2})

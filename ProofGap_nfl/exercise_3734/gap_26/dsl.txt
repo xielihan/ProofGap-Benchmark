@@ -1,0 +1,2 @@
+exists (C_{2} := {0})
+autosolve

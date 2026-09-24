@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = frac(arcsin(x), x)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ frac(1, 2) ⇒ (exists (Δ_{1}), Δ_{1} ∈ RealSet ∧ arcsin(x) = x + frac(x^{3}, 2 * 3) + frac(1 * 3 * x^{5}, 2 * 4 * 5) + Δ_{1})
+
+METHOD:

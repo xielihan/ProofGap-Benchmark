@@ -1,0 +1,4 @@
+get_condition (hypothesis 20: {m ∈ NegIntegerSet}) (hypothesis 21: {n ∈ NegIntegerSet}) in (GOAL: {m ∈ NegIntegerSet ⇒ n ∈ NegIntegerSet ⇒ lim_{ x → 0 } (frac(sqrtn(m, 1 + α * x) - sqrtn(n, 1 + β * x), x)) = frac(α, m) - frac(β, n)})
+use_condition (hypothesis 20: {m ∈ NegIntegerSet}) (hypothesis 21: {n ∈ NegIntegerSet}) in (hypothesis 18: {m ∈ NegIntegerSet ⇒ n ∈ NegIntegerSet ⇒ lim_{ x → 0 } (frac(sqrtn(m, 1 + α * x) - sqrtn(n, 1 + β * x), x)) = frac(β, `n'`) - frac(α, `m'`)}) as (hypothesis 22: {lim_{ x → 0 } (frac(sqrtn(m, 1 + α * x) - sqrtn(n, 1 + β * x), x)) = frac(β, `n'`) - frac(α, `m'`)})
+use_condition (hypothesis 20: {m ∈ NegIntegerSet}) (hypothesis 21: {n ∈ NegIntegerSet}) in (hypothesis 19: {m ∈ NegIntegerSet ⇒ n ∈ NegIntegerSet ⇒ frac(β, `n'`) - frac(α, `m'`) = frac(α, m) - frac(β, n)}) as (hypothesis 23: {frac(β, `n'`) - frac(α, `m'`) = frac(α, m) - frac(β, n)})
+autosolve all_hypothesis

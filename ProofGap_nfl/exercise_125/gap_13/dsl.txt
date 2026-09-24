@@ -1,0 +1,16 @@
+1. destruct_and (hypothesis 1: {x : NonNegIntegerSet → RealSet ∧ IsSeq(x)}) as (hypothesis 16: {x : NonNegIntegerSet → RealSet}) (hypothesis 17: {IsSeq(x)})
+2. get_exists (hypothesis 15: {exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ (exists (c), c ∈ RealSet ∧ seqlim_{ k → +∞ } (x(p(k))) = c)}) (p := {p1})
+3. destruct_and (hypothesis 18: {p1 : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p1) ∧ (exists (c), c ∈ RealSet ∧ seqlim_{ k → +∞ } (x(p1(k))) = c)}) as (hypothesis 19: {p1 : NonNegIntegerSet → NonNegIntegerSet}) (hypothesis 20: {IsSubseqIndexFunc(p1)}) (hypothesis 21: {exists (c), c ∈ RealSet ∧ seqlim_{ k → +∞ } (x(p1(k))) = c})
+4. get_exists (hypothesis 21: {exists (c), c ∈ RealSet ∧ seqlim_{ k → +∞ } (x(p1(k))) = c}) (c := {c1})
+5. destruct_and (hypothesis 22: {c1 ∈ RealSet ∧ seqlim_{ k → +∞ } (x(p1(k))) = c1}) as (hypothesis 23: {c1 ∈ RealSet}) (hypothesis 24: {seqlim_{ k → +∞ } (x(p1(k))) = c1})
+6. get_prop (theorem 'Thm 80. (FunctionCompositionApply)': {forall (A) (B) (C) (f) (g), f : B -> C => g : A -> B => (forall (n), n ∈ A => ((f ∘ g)(n) = f(g(n))))}) (A := {NonNegIntegerSet}) (B := {NonNegIntegerSet}) (C := {RealSet}) (f := {x}) (g := {p1}) as (hypothesis 25: {x : NonNegIntegerSet → RealSet => p1 : NonNegIntegerSet → NonNegIntegerSet => (forall (n), n ∈ NonNegIntegerSet => ((x ∘ p1)(n) = x(p1(n))))})
+7. use_condition (hypothesis 16: {x : NonNegIntegerSet → RealSet}) (hypothesis 19: {p1 : NonNegIntegerSet → NonNegIntegerSet}) in (hypothesis 25: {x : NonNegIntegerSet → RealSet => p1 : NonNegIntegerSet → NonNegIntegerSet => (forall (n), n ∈ NonNegIntegerSet => ((x ∘ p1)(n) = x(p1(n))))}) as (hypothesis 26: {forall (n), n ∈ NonNegIntegerSet => ((x ∘ p1)(n) = x(p1(n)))})
+8. rewrite_in limit (right_to_left, equation) (hypothesis 26: {forall (n), n ∈ NonNegIntegerSet => ((x ∘ p1)(n) = x(p1(n))) }); from (hypothesis 24: {seqlim_{ k → +∞ } (x(p1(k))) = c1}) to (hypothesis 27: {seqlim_{ k → +∞ } ((x ∘ p1)(k)) = c1})
+9. get_prop (theorem 'Thm 343. (ConvergentSequenceDefinition)': {forall (a), (ConvergentSeq(a) <==> (exists (L), L ∈ RealSet /\ seqlim_{n -> +∞}(a(n)) = L))}) (a := {x ∘ p1}) as (hypothesis 28: {ConvergentSeq(x ∘ p1) <==> (exists (L), L ∈ RealSet /\ seqlim_{n -> +∞}((x ∘ p1)(n)) = L)})
+10. assert (hypothesis 29: {exists (L), L ∈ RealSet /\ seqlim_{n -> +∞}((x ∘ p1)(n)) = L}) by proof {
+  1. exists (L := {c1})
+  2. autosolve all_hypothesis
+}
+11. exists (p := {p1})
+12. rewrite (left_to_right, iff) (hypothesis 28: {ConvergentSeq(x ∘ p1) <==> (exists (L), L ∈ RealSet /\ seqlim_{n -> +∞}((x ∘ p1)(n)) = L)}); from (GOAL: {p1 : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p1) ∧ ConvergentSeq(x ∘ p1)}) to (GOAL: {p1 : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p1) ∧ (exists (L), L ∈ RealSet /\ seqlim_{n -> +∞}((x ∘ p1)(n)) = L)})
+13. autosolve all_hypothesis

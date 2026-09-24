@@ -1,0 +1,4 @@
+assert (hypothesis 4: {0 < frac(1, 1!)}) by proof {
+  autosolve all_hypothesis
+}
+apply (hypothesis 4: {0 < frac(1, 1!)})

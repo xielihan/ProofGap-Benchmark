@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet ∧ Dom(y) = RealSet \ { 0 }
+2. x ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ y(x) = x + frac(1, x)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(y, 1, 1)(x) = 1 - frac(1, x^{2})
+
+METHOD:

@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac(n * cos(frac(n * π, 3))^{2}, 2^{n}) ∧ frac(n * cos(frac(n * π, 3))^{2}, 2^{n}) ≤ frac(n, 2^{n})
+2. a = (fun n [n ∈ NonNegIntegerSet] . frac(n, 2^{n}))
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(n, 2^{n})
+
+GOAL:
+seqlim_{ n → +∞ } (sqrtn(n, a(n))) = seqlim_{ n → +∞ } (frac(sqrtn(n, n), 2))
+
+METHOD:

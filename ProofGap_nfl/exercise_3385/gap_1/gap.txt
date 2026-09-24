@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. FuncOfClassK(z, 2)
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ x + y + z(x, y) = e^{z(x, y)} ∧ e^{z(x, y)} - 1 ≠ 0
+
+GOAL:
+diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) + diff(z) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{z(x, y)}) * diff(z)
+
+METHOD:
+[@method 两边同时求微分 @]

@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. ε ∈ RealSet
+2. 0 ≤ ε
+3. ε < 1
+4. Y(0) = (fun x [x ∈ RealSet] . x)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ Y(n) = (fun x [x ∈ RealSet] . x + ε * sin(Y(n - 1, x)))
+
+METHOD:

@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. y : RealSet → RealSet
+3. y = (fun u . e^{u})
+
+GOAL:
+FunDeri(y, 1, 1)(x) = e^{x}
+
+METHOD:

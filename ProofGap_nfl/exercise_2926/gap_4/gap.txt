@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. S : NonNegIntegerSet → RealSet
+2. Δ : NonNegIntegerSet → RealSet
+3. k ∈ NonNegIntegerSet
+4. ln(1.2) = sum_{ k = 1 }^{ +∞ } ((-1)^{k + 1} * frac(0.2^{k}, k))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ S(n) = sum_{ k = 1 }^{ n } ((-1)^{k + 1} * frac(0.2^{k}, k))
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ Δ(n) = |ln(1.2) - S(n)|
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ Δ(n) < frac(1, n + 1) * 0.2^{n + 1}
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ frac(1, n + 1) * 0.2^{n + 1} < 10^{-4} ⇒ Δ(n) < 10^{-4}
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n = 4 ⇒ frac(1, n + 1) * 0.2^{n + 1} < 10^{-4}
+
+METHOD:

@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. R_{5} : RealSet → RealSet
+3. |x| ≤ 0.1
+4. f = (fun t [t ∈ RealSet] . tan(t))
+
+GOAL:
+tan(x) = x + frac(x^{3}, 3) + R_{5}(x)
+
+METHOD:

@@ -1,0 +1,8 @@
+rewrite (left_to_right, equation) (hypothesis 25: {J = frac(1, 4) + frac(1, 18) + frac(1, 96) + frac(1, 600) + frac(1, 4320)}); from (hypothesis 26: {J = 0.3179 + `Δ'`}) to (hypothesis 27: {frac(1, 4) + frac(1, 18) + frac(1, 96) + frac(1, 600) + frac(1, 4320) = 0.3179 + `Δ'`})
+assert (hypothesis 28: {`Δ'` < 0})
+get_prop (theorem 'Thm 489. (AbsoluteValueOfNonpositiveReal)': {forall (x), x ∈ RealSet => (x <= 0 <==> |x| = -x)}) (x := {`Δ'`}) as (hypothesis 29: {`Δ'` ∈ RealSet => (`Δ'` <= 0 <==> |`Δ'`| = -`Δ'`)})
+use_condition (hypothesis 6: {`Δ'` ∈ RealSet}) in (hypothesis 29: {`Δ'` ∈ RealSet => (`Δ'` <= 0 <==> |`Δ'`| = -`Δ'`)}) as (hypothesis 30: {`Δ'` <= 0 <==> |`Δ'`| = -`Δ'`})
+assert (hypothesis 31: {`Δ'` <= 0})
+rewrite (left_to_right, iff) (hypothesis 30: {`Δ'` <= 0 <==> |`Δ'`| = -`Δ'`}); from (hypothesis 31: {`Δ'` <= 0}) to (hypothesis 31: {|`Δ'`| = -`Δ'`})
+rewrite (left_to_right, equation) (hypothesis 31: {|`Δ'`| = -`Δ'`}); from (GOAL: {|`Δ'`| <= 0.00004}) to (GOAL: {-`Δ'` <= 0.00004})
+autosolve (hypothesis 27: {frac(1, 4) + frac(1, 18) + frac(1, 96) + frac(1, 600) + frac(1, 4320) = 0.3179 + `Δ'`})

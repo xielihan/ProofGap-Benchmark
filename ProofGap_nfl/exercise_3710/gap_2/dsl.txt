@@ -1,0 +1,15 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ FunDeri(f, 1, 1)(x, a, b) = 0 ⇒ x = frac(a, 2)}) (x := {t})
+get_condition (hypothesis 13: {t ∈ RealSet ∧ FunDeri(f, 1, 1)(t, a, b) = 0}) in (GOAL: {t ∈ RealSet ∧ FunDeri(f, 1, 1)(t, a, b) = 0 ⇒ t = frac(a, 2)})
+destruct_and (hypothesis 13: {t ∈ RealSet ∧ FunDeri(f, 1, 1)(t, a, b) = 0}) as (hypothesis 14: {t ∈ RealSet}) (hypothesis 15: {FunDeri(f, 1, 1)(t, a, b) = 0})
+get_prop (hypothesis 12: {forall (x), x ∈ RealSet ⇒ FunDeri(f, 1, 1)(x, a, b) = 2 * x - a}) (x := {t}) as (hypothesis 16: {t ∈ RealSet ⇒ FunDeri(f, 1, 1)(t, a, b) = 2 * t - a})
+use_condition (hypothesis 14: {t ∈ RealSet}) in (hypothesis 16: {t ∈ RealSet ⇒ FunDeri(f, 1, 1)(t, a, b) = 2 * t - a}) as (hypothesis 17: {FunDeri(f, 1, 1)(t, a, b) = 2 * t - a})
+assert (hypothesis 18: {t * 2 = a}) by proof {
+  1. autosolve (hypothesis 15: {FunDeri(f, 1, 1)(t, a, b) = 0}) (hypothesis 17: {FunDeri(f, 1, 1)(t, a, b) = 2 * t - a})
+}
+assert (hypothesis 19: {frac(t, 1) = t})
+get_prop (theorem 'Thm 408. (FractionScalingByNonzeroFactor)': {forall (a) (b) (c), a ∈ RealSet => b ∈ RealSet => c ∈ RealSet => b ≠ 0 => c ≠ 0 => frac(a * c, b * c) = frac(a, b)}) (a := {t}) (b := {1}) (c := {2}) as (hypothesis 20: {t ∈ RealSet => 1 ∈ RealSet => 2 ∈ RealSet => 1 ≠ 0 => 2 ≠ 0 => frac(t * 2, 1 * 2) = frac(t, 1)})
+use_condition (hypothesis 14: {t ∈ RealSet}) (obvious: {1 ∈ RealSet}) (obvious: {2 ∈ RealSet}) (obvious: {1 ≠ 0}) (obvious: {2 ≠ 0}) in (hypothesis 20: {t ∈ RealSet => 1 ∈ RealSet => 2 ∈ RealSet => 1 ≠ 0 => 2 ≠ 0 => frac(t * 2, 1 * 2) = frac(t, 1)}) as (hypothesis 21: {frac(t * 2, 1 * 2) = frac(t, 1)})
+rewrite (right_to_left, equation) (hypothesis 19: {frac(t, 1) = t}); from (GOAL: {t = frac(a, 2)}) to (GOAL: {frac(t, 1) = frac(a, 2)})
+rewrite (right_to_left, equation) (hypothesis 21: {frac(t * 2, 1 * 2) = frac(t, 1)}); from (GOAL: {frac(t, 1) = frac(a, 2)}) to (GOAL: {frac(t * 2, 1 * 2) = frac(a, 2)})
+rewrite (left_to_right, equation) (hypothesis 18: {t * 2 = a}); from (GOAL: {frac(t * 2, 1 * 2) = frac(a, 2)}) to (GOAL: {frac(a, 1 * 2) = frac(a, 2)})
+autosolve all_hypothesis

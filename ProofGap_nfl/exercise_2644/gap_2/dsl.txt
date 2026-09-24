@@ -1,0 +1,7 @@
+get_condition (hypothesis 8: {a + b > 1}) in (GOAL: {a + b > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{a + b})))})
+get_prop (theorem 'Thm 366. (PSeriesConvergesForExponentAboveOne)': {forall (p), p ∈ RealSet => p > 1 => ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ p))}) (p := {a + b}) as (hypothesis 9: {a + b ∈ RealSet => a + b > 1 => ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ (a + b)))})
+assert (hypothesis 10: {a + b ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 10: {a + b ∈ RealSet}) (hypothesis 8: {a + b > 1}) in (hypothesis 9: {a + b ∈ RealSet => a + b > 1 => ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ (a + b)))}) as (hypothesis 11: {ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ (a + b)))})
+autosolve all_hypothesis

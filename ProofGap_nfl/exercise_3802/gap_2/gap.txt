@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. α ∈ RealSet
+2. β ∈ RealSet
+3. I : CartesianProd(RealSet, RealSet) → RealSet
+4. J : CartesianProd(RealSet, RealSet) → RealSet
+5. K : CartesianProd(RealSet, RealSet) → RealSet
+6. α ≥ 0 ⇒ β ≥ 0 ⇒ lim_{ x → 0^+ } (frac(ln(1 + α^{2} * x^{2}) * ln(1 + β^{2} * x^{2}), x^{4})) = α^{2} * β^{2}
+
+GOAL:
+α ≥ 0 ⇒ β ≥ 0 ⇒ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ (forall (α_{1}), α_{1} ∈ RealSet ⇒ (forall (β_{1}), β_{1} ∈ RealSet ∧ α_{1} > 0 ∧ β_{1} > 0 ∧ 0 ≤ α ∧ α ≤ α_{1} ∧ 0 ≤ β ∧ β ≤ β_{1} ⇒ 0 ≤ frac(ln(1 + α^{2} * x^{2}) * ln(1 + β^{2} * x^{2}), x^{4}))))
+
+METHOD:

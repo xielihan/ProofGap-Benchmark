@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. n ∈ NonNegIntegerSet ∧ n > 0
+2. b ∈ RealSet
+3. n ∈ PosIntegerSet
+4. DefInt(0, +∞, e^{-x^{2}} * cos(2 * b * x) * diff(x)) = frac(sqrtn(2, π), 2) * e^{-b^{2}}
+5. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ DefInt(0, +∞, FunDeri(fun b [b ∈ RealSet] . e^{-x^{2}} * cos(2 * b * x), 1, k)(b) * diff(x)) = 2^{k} * DefInt(0, +∞, x^{k} * e^{-x^{2}} * cos(2 * b * x + frac(k * π, 2)) * diff(x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ |x^{k} * e^{-x^{2}} * cos(2 * b * x + frac(k * π, 2))| ≤ x^{k} * e^{-x^{2}})
+
+METHOD:

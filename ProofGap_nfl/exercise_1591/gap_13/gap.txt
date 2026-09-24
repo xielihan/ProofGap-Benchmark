@@ -1,0 +1,25 @@
+PROOF GAP @13
+ASSUM:
+1. f : RealSet → RealSet
+2. g : RealSet → RealSet
+3. k ∈ RealSet
+4. b ∈ RealSet
+5. forall (x), x ∈ RealSet ⇒ f(x) = k * x + b
+6. forall (x), x ∈ RealSet ⇒ g(x) = x^{3} - 3 * x^{2} + 2
+7. forall (x), x ∈ RealSet ∧ FunDeri(g, 1, 2)(x) = 6 * x - 6 ∧ 6 * x - 6 = 0 ⇒ (exists (x), x ∈ RealSet ∧ FunDeri(g, 1, 2)(x) = 0 ∧ FunDeri(f, 1, 1)(x) = FunDeri(g, 1, 1)(x) ∧ f(x) = g(x))
+8. forall (x), x ∈ RealSet ∧ x = 1 ⇒ FunDeri(g, 1, 2)(x) = 6 * x - 6 ∧ 6 * x - 6 = 0
+9. exists (x), x ∈ RealSet ∧ (k = 3 * 1^{2} - 6 * 1 ⇒ x = 1)
+10. k = 3 * 1^{2} - 6 * 1 ⇒ (exists (x), x ∈ RealSet ∧ FunDeri(g, 1, 2)(x) = 0 ∧ FunDeri(f, 1, 1)(x) = FunDeri(g, 1, 1)(x) ∧ f(x) = g(x))
+11. k = -3
+12. g(1) = 1^{3} - 3 * 1^{2} + 2
+13. 1^{3} - 3 * 1^{2} + 2 = 0
+14. g(1) = 0
+15. f(1) = k * 1 + b
+16. k * 1 + b = -3 + b
+17. f(1) = -3 + b
+18. 0 = -3 + b
+
+GOAL:
+b = 3
+
+METHOD:

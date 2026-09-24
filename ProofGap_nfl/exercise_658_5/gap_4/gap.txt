@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+3. n ∈ RealSet
+4. x > 0
+5. x ≠ 1
+6. frac(frac(ln(x), (1 - x)^{2}), frac(1, x - 1)) = frac(ln(1 + x - 1), x - 1)
+7. lim_{ x → 1 } (frac(ln(1 + x - 1), x - 1)) = 1
+8. (frac(ln(x), (1 - x)^{2})) ∼_{ x → 1 } (frac(1, x - 1))
+
+GOAL:
+C = 1 ∧ n = 1 ⇒ (frac(ln(x), (1 - x)^{2})) ∼_{ x → 1 } C * frac(1, x - 1)^{n}
+
+METHOD:

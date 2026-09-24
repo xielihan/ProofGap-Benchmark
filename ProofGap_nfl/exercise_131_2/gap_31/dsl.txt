@@ -1,0 +1,4 @@
+get_prop (hypothesis 4: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ seqlim_{ n → +∞ } (x(n)) ∈ RealSet}) (n := {1}) as (hypothesis 40: {1 ∈ NonNegIntegerSet ∧ 1 ∈ PosIntegerSet ⇒ seqlim_{ n → +∞ } (x(n)) ∈ RealSet})
+use_condition (obvious: {1 ∈ NonNegIntegerSet ∧ 1 ∈ PosIntegerSet}) in (hypothesis 40: {1 ∈ NonNegIntegerSet ∧ 1 ∈ PosIntegerSet ⇒ seqlim_{ n → +∞ } (x(n)) ∈ RealSet}) as (hypothesis 41: {seqlim_{ n → +∞ } (x(n)) ∈ RealSet})
+exists (τ := {seqlim_{ n → +∞ } (x(n))})
+autosolve (hypothesis 17: {seqlim_{ n → +∞ } (x(n) + y(n)) ≤ (seqlim_{ n → +∞ } (x(n))) + (seqlim_{ n → +∞ } (y(n)))}) (hypothesis 32: {r = seqlim_{ n → +∞ } (x(n) + y(n))}) (hypothesis 41: {seqlim_{ n → +∞ } (x(n)) ∈ RealSet})

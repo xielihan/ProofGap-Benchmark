@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = arctan(x + sqrtn(2, 1 + x^{2}))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = frac(1, 1 + (x + sqrtn(2, 1 + x^{2}))^{2}) * (1 + frac(x, sqrtn(2, 1 + x^{2})))
+
+METHOD:

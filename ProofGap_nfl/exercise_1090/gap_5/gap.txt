@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet
+2. forall (x), x ∈ RealSet
+3. diff(fun x [x ∈ RealSet] . x * e^{x}) = (fun x [x ∈ RealSet] . e^{x} * (x + 1)) * diff(fun x [x ∈ RealSet] . x)
+4. diff(fun x [x ∈ RealSet] . sin(x) - x * cos(x)) = (fun x [x ∈ RealSet] . x * sin(x)) * diff(fun x [x ∈ RealSet] . x)
+5. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ diff(fun x [x ∈ RealSet ∧ x ≠ 0] . frac(1, x^{3})) = (fun x [x ∈ RealSet ∧ x ≠ 0] . -frac(3, x^{4})) * diff(fun x [x ∈ RealSet] . x)
+6. forall (x), x ∈ RealSet ∧ x > 0 ⇒ diff(fun x [x ∈ RealSet ∧ x > 0] . frac(ln(x), sqrtn(2, x))) = (fun x [x ∈ RealSet ∧ x > 0] . frac(frac(1, x) * sqrtn(2, x) - frac(1, 2 * sqrtn(2, x)) * ln(x), x)) * diff(fun x [x ∈ RealSet] . x) ∧ (fun x [x ∈ RealSet ∧ x > 0] . frac(frac(1, x) * sqrtn(2, x) - frac(1, 2 * sqrtn(2, x)) * ln(x), x)) * diff(fun x [x ∈ RealSet] . x) = (fun x [x ∈ RealSet ∧ x > 0] . frac(2 - ln(x), 2 * x * sqrtn(2, x))) * diff(fun x [x ∈ RealSet] . x)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ a^{2} + x^{2} > 0 ⇒ diff(fun x [x ∈ RealSet ∧ a^{2} + x^{2} > 0] . sqrtn(2, a^{2} + x^{2})) = (fun x [x ∈ RealSet ∧ a^{2} + x^{2} > 0] . frac(x, sqrtn(2, a^{2} + x^{2}))) * diff(fun x [x ∈ RealSet] . x)
+
+METHOD:

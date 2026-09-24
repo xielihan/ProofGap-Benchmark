@@ -1,0 +1,18 @@
+PROOF GAP @4
+ASSUM:
+1. p ∈ RealSet
+2. I ∈ RealSet
+3. Ω ⊆ CartesianProd(RealSet, RealSet)
+4. `Ω'` : NonNegIntegerSet → PowerSet(CartesianProd(RealSet, RealSet))
+5. ω : NonNegIntegerSet → PowerSet(CartesianProd(RealSet, RealSet))
+6. `ω'` : NonNegIntegerSet → PowerSet(CartesianProd(RealSet, RealSet))
+7. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ Ω = { (x, y) | x ∈ RealSet, y ∈ RealSet, x + y ≥ 1 })
+8. I = VolumeInt(Ω, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(sin(x) * sin(y), (x + y)^{p})) * diff(ω))
+9. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ I < +∞ ∧ Ω(n) = { (x, y) | x ∈ RealSet, y ∈ RealSet, 1 ≤ x + y ∧ x + y ≤ 2 * n * π, -2 * n * π ≤ x - y ∧ x - y ≤ 2 * n * π } ∧ `Ω'`(n) = { (x, y) | x ∈ RealSet, y ∈ RealSet, 1 ≤ x + y ∧ x + y ≤ 2 * n * π - frac(π, 4), -2 * n * π ≤ x - y ∧ x - y ≤ 2 * n * π } ∧ ω(n) = { (x, y) | x ∈ RealSet, y ∈ RealSet, 2 * n * π - frac(π, 4) ≤ x + y ∧ x + y ≤ 2 * n * π, -2 * n * π ≤ x - y ∧ x - y ≤ 2 * n * π } ⇒ seqlim_{ n → +∞ } (VolumeInt(Ω(n), (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(sin(x) * sin(y), (x + y)^{p})) * diff(ω))) = I
+10. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ I < +∞ ∧ Ω(n) = { (x, y) | x ∈ RealSet, y ∈ RealSet, 1 ≤ x + y ∧ x + y ≤ 2 * n * π, -2 * n * π ≤ x - y ∧ x - y ≤ 2 * n * π } ∧ `Ω'`(n) = { (x, y) | x ∈ RealSet, y ∈ RealSet, 1 ≤ x + y ∧ x + y ≤ 2 * n * π - frac(π, 4), -2 * n * π ≤ x - y ∧ x - y ≤ 2 * n * π } ∧ ω(n) = { (x, y) | x ∈ RealSet, y ∈ RealSet, 2 * n * π - frac(π, 4) ≤ x + y ∧ x + y ≤ 2 * n * π, -2 * n * π ≤ x - y ∧ x - y ≤ 2 * n * π } ⇒ seqlim_{ n → +∞ } (VolumeInt(`Ω'`(n), (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(sin(x) * sin(y), (x + y)^{p})) * diff(ω))) = I
+11. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ I < +∞ ∧ Ω(n) = { (x, y) | x ∈ RealSet, y ∈ RealSet, 1 ≤ x + y ∧ x + y ≤ 2 * n * π, -2 * n * π ≤ x - y ∧ x - y ≤ 2 * n * π } ∧ `Ω'`(n) = { (x, y) | x ∈ RealSet, y ∈ RealSet, 1 ≤ x + y ∧ x + y ≤ 2 * n * π - frac(π, 4), -2 * n * π ≤ x - y ∧ x - y ≤ 2 * n * π } ∧ ω(n) = { (x, y) | x ∈ RealSet, y ∈ RealSet, 2 * n * π - frac(π, 4) ≤ x + y ∧ x + y ≤ 2 * n * π, -2 * n * π ≤ x - y ∧ x - y ≤ 2 * n * π } ⇒ seqlim_{ n → +∞ } (VolumeInt(ω(n), (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(sin(x) * sin(y), (x + y)^{p})) * diff(ω))) = 0
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ I < +∞ ⇒ sin(x) * sin(y) = frac(1, 2) * (cos(x - y) - cos(x + y)))
+
+METHOD:

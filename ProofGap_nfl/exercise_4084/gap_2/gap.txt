@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. x ≥ 0
+4. f : [0, x] → RealSet
+5. ContinuousFuncOn(f, [0, x])
+6. forall (ξ), ξ ∈ RealSet ⇒ (forall (η), η ∈ RealSet ⇒ (forall (ζ), ζ ∈ RealSet ⇒ DefInt(0, x, DefInt(0, ξ, DefInt(0, η, f(ζ) * diff(fun ζ [ζ ∈ RealSet] . ζ)) * diff(fun η [η ∈ RealSet] . η)) * diff(fun ξ [ξ ∈ RealSet] . ξ)) = DefInt(0, x, DefInt(0, ξ, DefInt(ζ, ξ, f(ζ) * diff(fun η [η ∈ RealSet] . η)) * diff(fun ζ [ζ ∈ RealSet] . ζ)) * diff(fun ξ [ξ ∈ RealSet] . ξ))))
+
+GOAL:
+DefInt(0, x, DefInt(0, ξ, DefInt(ζ, ξ, f(ζ) * diff(fun η [η ∈ RealSet] . η)) * diff(fun ζ [ζ ∈ RealSet] . ζ)) * diff(fun ξ [ξ ∈ RealSet] . ξ)) = DefInt(0, x, DefInt(0, ξ, f(ζ) * (ξ - ζ) * diff(fun ζ [ζ ∈ RealSet] . ζ)) * diff(fun ξ [ξ ∈ RealSet] . ξ))
+
+METHOD:

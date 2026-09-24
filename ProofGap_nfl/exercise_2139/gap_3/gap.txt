@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet ∧ x ≠ -1
+2. C ∈ RealSet
+3. { `F_2` | forall (x), x ∈ RealSet ∧ x ≠ -1 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(ln(1 + x + x^{2}), (1 + x)^{2}) * FunDeri(fun x [x ∈ RealSet ∧ x ≠ -1] . x, 1, 1)(x) } = { `F_4` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ -1 ⇒ FunDeri(`F_3`, 1, 1)(x) = ln(1 + x + x^{2}) * FunDeri(fun x [x ∈ RealSet ∧ x ≠ -1] . frac(1, 1 + x), 1, 1)(x) ∧ `F_4`(x) = -`F_3`(x)) }
+4. { `F_6` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ -1 ⇒ FunDeri(`F_5`, 1, 1)(x) = ln(1 + x + x^{2}) * FunDeri(fun x [x ∈ RealSet ∧ x ≠ -1] . frac(1, 1 + x), 1, 1)(x) ∧ `F_6`(x) = -`F_5`(x)) } = { `F_9` | exists (`F_7`), `F_7` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ -1 ⇒ FunDeri(`F_7`, 1, 1)(x) = frac(2 * x + 1, (x + 1) * (1 + x + x^{2})) * FunDeri(fun x [x ∈ RealSet ∧ x ≠ -1] . x, 1, 1)(x) ∧ `F_9`(x) = -frac(ln(1 + x + x^{2}), 1 + x) + `F_7`(x)) }
+
+GOAL:
+{ `F_12` | exists (`F_10`), `F_10` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ -1 ⇒ FunDeri(`F_10`, 1, 1)(x) = frac(2 * x + 1, (x + 1) * (1 + x + x^{2})) * FunDeri(fun x [x ∈ RealSet ∧ x ≠ -1] . x, 1, 1)(x) ∧ `F_12`(x) = -frac(ln(1 + x + x^{2}), 1 + x) + `F_10`(x)) } = { `F_15` | exists (`F_13`), `F_13` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ -1 ⇒ FunDeri(`F_13`, 1, 1)(x) = (frac(x + 2, 1 + x + x^{2}) - frac(1, 1 + x)) * FunDeri(fun x [x ∈ RealSet ∧ x ≠ -1] . x, 1, 1)(x) ∧ `F_15`(x) = -frac(ln(1 + x + x^{2}), 1 + x) + `F_13`(x)) }
+
+METHOD:

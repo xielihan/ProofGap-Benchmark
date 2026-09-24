@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 3, 1)(x, y, z, λ) = 2 + 2 * λ * z}) (x := {xx}) (y := {yy}) (z := {zz}) (λ := {ll})
+get_condition (hypothesis 6: {xx ∈ RealSet ∧ yy ∈ RealSet ∧ zz ∈ RealSet ∧ ll ∈ RealSet}) in (GOAL: {xx ∈ RealSet ∧ yy ∈ RealSet ∧ zz ∈ RealSet ∧ ll ∈ RealSet ⇒ FunDeri(F, 3, 1)(xx, yy, zz, ll) = 2 + 2 * ll * zz})
+destruct_and (hypothesis 6: {xx ∈ RealSet ∧ yy ∈ RealSet ∧ zz ∈ RealSet ∧ ll ∈ RealSet}) as (hypothesis 7: {xx ∈ RealSet}) (hypothesis 8: {yy ∈ RealSet}) (hypothesis 9: {zz ∈ RealSet}) (hypothesis 10: {ll ∈ RealSet})
+autosolve all_hypothesis

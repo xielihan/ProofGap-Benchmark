@@ -1,0 +1,7 @@
+1. get_prop (hypothesis 8: {forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ grad(u, x, y, z) = (2 * x, 2 * y, -2 * z)}) (x := {0}) (y := {ε}) (z := {0}) as (hypothesis 10: {0 ∈ RealSet ∧ ε ∈ RealSet ∧ 0 ∈ RealSet ⇒ grad(u, 0, ε, 0) = (2 * 0, 2 * ε, -2 * 0)})
+2. assert (hypothesis 11: {0 ∈ RealSet ∧ ε ∈ RealSet ∧ 0 ∈ RealSet}) by proof {
+  1. autosolve all_hypothesis
+}
+3. use_condition (hypothesis 11: {0 ∈ RealSet ∧ ε ∈ RealSet ∧ 0 ∈ RealSet}) in (hypothesis 10: {0 ∈ RealSet ∧ ε ∈ RealSet ∧ 0 ∈ RealSet ⇒ grad(u, 0, ε, 0) = (2 * 0, 2 * ε, -2 * 0)}) as (hypothesis 12: {grad(u, 0, ε, 0) = (2 * 0, 2 * ε, -2 * 0)})
+4. autoreplace no_hypothesis; from ((2 * 0, 2 * ε, -2 * 0)) to ((0, 2 * ε, 0)); from (hypothesis 12: {grad(u, 0, ε, 0) = (2 * 0, 2 * ε, -2 * 0)}) to (hypothesis 13: {grad(u, 0, ε, 0) = (0, 2 * ε, 0)})
+5. apply (hypothesis 13: {grad(u, 0, ε, 0) = (0, 2 * ε, 0)})

@@ -1,0 +1,20 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. D ⊆ CartesianProd(RealSet, RealSet)
+3. I ∈ RealSet
+4. p ∈ CartesianProd(RealSet, RealSet)
+5. q ∈ CartesianProd(RealSet, RealSet)
+6. D = { p | exists (x), x ∈ RealSet ∧ (exists (y), y ∈ RealSet ∧ p = (x, y) ∧ |x| + |y| ≤ 1) }
+7. ContinuousFuncOn(f, [-1, 1])
+8. u = x + y
+9. v = x - y
+10. x = frac(u + v, 2)
+11. y = frac(u - v, 2)
+12. |I| = frac(1, 2)
+13. D = { q | exists (u), u ∈ RealSet ∧ (exists (v), v ∈ RealSet ∧ q = (u, v) ∧ -1 ≤ u ∧ u ≤ 1 ∧ -1 ≤ v ∧ v ≤ 1) }
+
+GOAL:
+VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . f(x + y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = frac(1, 2) * DefInt(-1, 1, (fun v [v ∈ RealSet ∧ -1 ≤ v ∧ v ≤ 1] . 1) * diff(fun v [v ∈ RealSet ∧ -1 ≤ v ∧ v ≤ 1] . v)) * DefInt(-1, 1, (fun u [u ∈ RealSet ∧ -1 ≤ u ∧ u ≤ 1] . f(u)) * diff(fun u [u ∈ RealSet ∧ -1 ≤ u ∧ u ≤ 1] . u))
+
+METHOD:

@@ -1,0 +1,2 @@
+assert (hypothesis 14: {4 * (b - a) ≠ 0})
+autosolve all_hypothesis

@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (Δt), Δt ∈ RealSet ∧ Δt ≠ 0 ⇒ (exists (Δx), Δx ∈ RealSet ∧ Δx = 2 * Δt + |Δt|)}) (Δt := {dt})
+get_condition (hypothesis 11: {dt ∈ RealSet ∧ dt ≠ 0}) in (GOAL: {dt ∈ RealSet ∧ dt ≠ 0 ⇒ (exists (Δx), Δx ∈ RealSet ∧ Δx = 2 * dt + |dt|)})
+destruct_and (hypothesis 11: {dt ∈ RealSet ∧ dt ≠ 0}) as (hypothesis 12: {dt ∈ RealSet}) (hypothesis 13: {dt ≠ 0})
+exists (Δx := {2 * dt + |dt|})
+autosolve all_hypothesis

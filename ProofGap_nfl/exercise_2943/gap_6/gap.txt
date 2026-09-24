@@ -1,0 +1,21 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. A : NonNegIntegerSet → RealSet
+5. B : NonNegIntegerSet → RealSet
+6. forall (x), x ∈ RealSet ∧ -π < x ∧ x < π ⇒ f(x) = cases{a * x if -π < x ∧ x < 0; 0 if x = 0; b * x if 0 < x ∧ x < π}
+7. A(0) = frac(1, π) * DefInt(-π, 0, (fun x [x ∈ RealSet] . a * x) * diff(fun x [x ∈ RealSet] . x)) + frac(1, π) * DefInt(0, π, (fun x [x ∈ RealSet] . b * x) * diff(fun x [x ∈ RealSet] . x))
+8. forall (n), n ∈ PosIntegerSet ⇒ A(n) = frac(1, π) * DefInt(-π, 0, (fun x [x ∈ RealSet] . a * x * cos(n * x)) * diff(fun x [x ∈ RealSet] . x)) + frac(1, π) * DefInt(0, π, (fun x [x ∈ RealSet] . b * x * cos(n * x)) * diff(fun x [x ∈ RealSet] . x))
+9. forall (n), n ∈ PosIntegerSet ⇒ B(n) = frac(1, π) * DefInt(-π, 0, (fun x [x ∈ RealSet] . a * x * sin(n * x)) * diff(fun x [x ∈ RealSet] . x)) + frac(1, π) * DefInt(0, π, (fun x [x ∈ RealSet] . b * x * sin(n * x)) * diff(fun x [x ∈ RealSet] . x))
+10. DefInt(-π, 0, (fun x [x ∈ RealSet] . a * x) * diff(fun x [x ∈ RealSet] . x)) = -frac(a * π^{2}, 2) ∧ DefInt(0, π, (fun x [x ∈ RealSet] . b * x) * diff(fun x [x ∈ RealSet] . x)) = frac(b * π^{2}, 2)
+11. frac(1, π) * DefInt(-π, 0, (fun x [x ∈ RealSet] . a * x) * diff(fun x [x ∈ RealSet] . x)) + frac(1, π) * DefInt(0, π, (fun x [x ∈ RealSet] . b * x) * diff(fun x [x ∈ RealSet] . x)) = frac(b - a, 2) * π
+12. A(0) = frac(b - a, 2) * π
+13. forall (n), n ∈ PosIntegerSet ⇒ A(n) = frac(a - b, n^{2} * π) * (1 - (-1)^{n})
+14. forall (n), n ∈ PosIntegerSet ⇒ B(n) = frac(a + b, n) * (-1)^{n + 1}
+
+GOAL:
+forall (x), x ∈ RealSet ∧ -π < x ∧ x < π ⇒ frac(b - a, 4) * π + frac(2 * (a - b), π) * (sum_{ k = 0 }^{ +∞ } (frac(cos((2 * k + 1) * x), (2 * k + 1)^{2}))) + (a + b) * (sum_{ n = 1 }^{ +∞ } (frac((-1)^{n + 1}, n) * sin(n * x))) = cases{a * x if -π < x ∧ x < 0; 0 if x = 0; b * x if 0 < x ∧ x < π}
+
+METHOD:

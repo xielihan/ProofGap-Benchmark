@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. ε ∈ RealSet
+2. 0 ≤ ε
+3. ε < 1
+4. Y(0) = (fun x [x ∈ RealSet] . x)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ Y(n) = (fun x [x ∈ RealSet] . x + ε * sin(Y(n - 1, x)))
+6. exists (y), y : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (Y(n, x)) = y(x))
+7. forall (y), y : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (Y(n, x)) = y(x)) ⇒ (forall (x), x ∈ RealSet ⇒ y(x) - ε * sin(y(x)) = x)
+
+GOAL:
+forall (y), y : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (Y(n, x)) = y(x)) ⇒ (forall (x), x ∈ RealSet ⇒ (forall (z), z ∈ RealSet ∧ z - ε * sin(z) = x ⇒ z = y(x)))
+
+METHOD:

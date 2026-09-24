@@ -1,0 +1,23 @@
+get_condition (hypothesis 14: {a > 0}) in (GOAL: {a > 0 ⇒ b > 0 ⇒ FunDeri(I, 1, 1)(a) = frac(π, a + b)})
+get_condition (hypothesis 15: {b > 0}) in (GOAL: {b > 0 ⇒ FunDeri(I, 1, 1)(a) = frac(π, a + b)})
+assert (hypothesis 16: {a = b ∨ a ≠ b}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 372. (TangentAtIntegerPi)': {forall (n), n ∈ IntegerSet ⇒ tan(n * π) = 0}) (n := {0}) as (hypothesis 17: {0 ∈ IntegerSet ⇒ tan(0 * π) = 0})
+use_condition (obvious: {0 ∈ IntegerSet}) in (hypothesis 17: {0 ∈ IntegerSet ⇒ tan(0 * π) = 0}) as (hypothesis 18: {tan(0 * π) = 0})
+assert (hypothesis 19: {tan(0) = 0}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 20: {a = b ⇒ FunDeri(I, 1, 1)(a) = frac(π, a + b)}) by proof {
+  get_condition (hypothesis 20: {a = b}) in (GOAL: {a = b ⇒ FunDeri(I, 1, 1)(a) = frac(π, a + b)})
+  rewrite (left_to_right, equation) (hypothesis 20: {a = b}); from (GOAL: {FunDeri(I, 1, 1)(a) = frac(π, a + b)}) to (GOAL: {FunDeri(I, 1, 1)(b) = frac(π, b + b)})
+  use_condition (hypothesis 14: {a > 0}) (hypothesis 15: {b > 0}) (hypothesis 20: {a = b}) in (hypothesis 9: {a > 0 ⇒ b > 0 ⇒ a = b ⇒ FunDeri(I, 1, 1)(b) = frac(π, 2 * b)}) as (hypothesis 21: {FunDeri(I, 1, 1)(b) = frac(π, 2 * b)})
+  autosolve all_hypothesis
+}
+get_prop (hypothesis 13: {forall (x) (t), x ∈ RealSet ∧ 0 ≤ x ∧ x < frac(π, 2) ∧ t ∈ RealSet ∧ t ≥ 0 ∧ a > 0 ∧ b > 0 ∧ a ≠ b ∧ t = tan(x) ⇒ FunDeri(I, 1, 1)(a) = frac(π, a + b)}) (x := {0}) (t := {0}) as (hypothesis 21: {0 ∈ RealSet ∧ 0 ≤ 0 ∧ 0 < frac(π, 2) ∧ 0 ∈ RealSet ∧ 0 ≥ 0 ∧ a > 0 ∧ b > 0 ∧ a ≠ b ∧ 0 = tan(0) ⇒ FunDeri(I, 1, 1)(a) = frac(π, a + b)})
+assert (hypothesis 22: {a ≠ b ⇒ FunDeri(I, 1, 1)(a) = frac(π, a + b)}) by proof {
+  get_condition (hypothesis 22: {a ≠ b}) in (GOAL: {a ≠ b ⇒ FunDeri(I, 1, 1)(a) = frac(π, a + b)})
+  use_condition (obvious: {0 ∈ RealSet ∧ 0 ≤ 0 ∧ 0 < frac(π, 2) ∧ 0 ∈ RealSet ∧ 0 ≥ 0 ∧ a > 0 ∧ b > 0 ∧ a ≠ b ∧ 0 = tan(0)}) in (hypothesis 21: {0 ∈ RealSet ∧ 0 ≤ 0 ∧ 0 < frac(π, 2) ∧ 0 ∈ RealSet ∧ 0 ≥ 0 ∧ a > 0 ∧ b > 0 ∧ a ≠ b ∧ 0 = tan(0) ⇒ FunDeri(I, 1, 1)(a) = frac(π, a + b)}) as (hypothesis 23: {FunDeri(I, 1, 1)(a) = frac(π, a + b)})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

@@ -1,0 +1,12 @@
+1. get_forall (GOAL: {forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ x_{1} < x_{2} ⇒ f(x_{2}) - f(x_{1}) = a * (x_{2} - x_{1}))}) (x_{1} := {u})
+2. get_condition (hypothesis 5: {u ∈ RealSet}) in (GOAL: {u ∈ RealSet ⇒ (forall (x_{2}), u ∈ RealSet ∧ x_{2} ∈ RealSet ∧ u < x_{2} ⇒ f(x_{2}) - f(u) = a * (x_{2} - u))})
+3. get_forall (GOAL: {forall (x_{2}), u ∈ RealSet ∧ x_{2} ∈ RealSet ∧ u < x_{2} ⇒ f(x_{2}) - f(u) = a * (x_{2} - u)}) (x_{2} := {v})
+4. get_condition (hypothesis 6: {u ∈ RealSet ∧ v ∈ RealSet ∧ u < v}) in (GOAL: {u ∈ RealSet ∧ v ∈ RealSet ∧ u < v ⇒ f(v) - f(u) = a * (v - u)})
+5. destruct_and (hypothesis 6: {u ∈ RealSet ∧ v ∈ RealSet ∧ u < v}) as (hypothesis 7: {u ∈ RealSet}) (hypothesis 8: {v ∈ RealSet}) (hypothesis 9: {u < v})
+6. get_prop (hypothesis 4: {forall (x), x ∈ RealSet ⇒ f(x) = a * x + b}) (x := {u}) as (hypothesis 10: {u ∈ RealSet ⇒ f(u) = a * u + b})
+7. get_prop (hypothesis 4: {forall (x), x ∈ RealSet ⇒ f(x) = a * x + b}) (x := {v}) as (hypothesis 11: {v ∈ RealSet ⇒ f(v) = a * v + b})
+8. use_condition (hypothesis 7: {u ∈ RealSet}) in (hypothesis 10: {u ∈ RealSet ⇒ f(u) = a * u + b}) as (hypothesis 12: {f(u) = a * u + b})
+9. use_condition (hypothesis 8: {v ∈ RealSet}) in (hypothesis 11: {v ∈ RealSet ⇒ f(v) = a * v + b}) as (hypothesis 13: {f(v) = a * v + b})
+10. rewrite (left_to_right, equation) (hypothesis 13: {f(v) = a * v + b}); from (GOAL: {f(v) - f(u) = a * (v - u)}) to (GOAL: {(a * v + b) - f(u) = a * (v - u)})
+11. rewrite (left_to_right, equation) (hypothesis 12: {f(u) = a * u + b}); from (GOAL: {(a * v + b) - f(u) = a * (v - u)}) to (GOAL: {(a * v + b) - (a * u + b) = a * (v - u)})
+12. autosolve all_hypothesis

@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet ∧ x > 1 ∧ x ≠ e
+2. C ∈ RealSet
+
+GOAL:
+frac(FunDeri(fun x [x ∈ RealSet ∧ x > 1 ∧ x ≠ e] . x, 1, 1)(x), x * ln(x) * ln(ln(x))) = frac(FunDeri(fun x [x ∈ RealSet ∧ x > 1 ∧ x ≠ e] . ln(x), 1, 1)(x), ln(x) * ln(ln(x)))
+
+METHOD:

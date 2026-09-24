@@ -1,0 +1,20 @@
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 => (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N => ||x(n)| - |a|| < ε))}) (ε := {eps0})
+get_condition (hypothesis 8: {eps0 ∈ RealSet ∧ eps0 > 0}) in (GOAL: {eps0 ∈ RealSet ∧ eps0 > 0 => (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N => ||x(n)| - |a|| < eps0))})
+get_prop (hypothesis 6: {forall (ε), ε ∈ RealSet ∧ ε > 0 => (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N => |x(n) - a| < ε))}) (ε := {eps0}) as (hypothesis 9: {eps0 ∈ RealSet ∧ eps0 > 0 => (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N => |x(n) - a| < eps0))})
+use_condition (hypothesis 8: {eps0 ∈ RealSet ∧ eps0 > 0}) in (hypothesis 9: {eps0 ∈ RealSet ∧ eps0 > 0 => (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N => |x(n) - a| < eps0))}) as (hypothesis 10: {exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N => |x(n) - a| < eps0)})
+get_exists (hypothesis 10: {exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N => |x(n) - a| < eps0)}) (N := {N0})
+destruct_and (hypothesis 11: {N0 ∈ NonNegIntegerSet ∧ N0 ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N0 => |x(n) - a| < eps0)}) as (hypothesis 12: {N0 ∈ NonNegIntegerSet}) (hypothesis 13: {N0 ∈ PosIntegerSet}) (hypothesis 14: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N0 => |x(n) - a| < eps0})
+exists (N := {N0})
+assert (hypothesis 15: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N0 => ||x(n)| - |a|| < eps0}) by proof {
+  get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N0 => ||x(n)| - |a|| < eps0}) (n := {n0})
+  get_condition (hypothesis 15: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 > N0}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 > N0 => ||x(n0)| - |a|| < eps0})
+  destruct_and (hypothesis 15: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 > N0}) as (hypothesis 16: {n0 ∈ NonNegIntegerSet}) (hypothesis 17: {n0 ∈ PosIntegerSet}) (hypothesis 18: {n0 > N0})
+  get_prop (hypothesis 14: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N0 => |x(n) - a| < eps0}) (n := {n0}) as (hypothesis 19: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 > N0 => |x(n0) - a| < eps0})
+  use_condition (hypothesis 15: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 > N0}) in (hypothesis 19: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 > N0 => |x(n0) - a| < eps0}) as (hypothesis 20: {|x(n0) - a| < eps0})
+  get_prop (hypothesis 7: {forall (ε), ε ∈ RealSet ∧ ε > 0 => (forall (n), n ∈ NonNegIntegerSet => ||x(n)| - |a|| <= |x(n) - a|)}) (ε := {eps0}) as (hypothesis 21: {eps0 ∈ RealSet ∧ eps0 > 0 => (forall (n), n ∈ NonNegIntegerSet => ||x(n)| - |a|| <= |x(n) - a|)})
+  use_condition (hypothesis 8: {eps0 ∈ RealSet ∧ eps0 > 0}) in (hypothesis 21: {eps0 ∈ RealSet ∧ eps0 > 0 => (forall (n), n ∈ NonNegIntegerSet => ||x(n)| - |a|| <= |x(n) - a|)}) as (hypothesis 22: {forall (n), n ∈ NonNegIntegerSet => ||x(n)| - |a|| <= |x(n) - a|})
+  get_prop (hypothesis 22: {forall (n), n ∈ NonNegIntegerSet => ||x(n)| - |a|| <= |x(n) - a|}) (n := {n0}) as (hypothesis 23: {n0 ∈ NonNegIntegerSet => ||x(n0)| - |a|| <= |x(n0) - a|})
+  use_condition (hypothesis 16: {n0 ∈ NonNegIntegerSet}) in (hypothesis 23: {n0 ∈ NonNegIntegerSet => ||x(n0)| - |a|| <= |x(n0) - a|}) as (hypothesis 24: {||x(n0)| - |a|| <= |x(n0) - a|})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

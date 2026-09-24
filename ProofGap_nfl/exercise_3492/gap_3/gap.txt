@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. v : CartesianProd(RealSet, RealSet) → RealSet
+3. z : CartesianProd(RealSet, RealSet) → RealSet
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ u(x, y) = frac(x, x^{2} + y^{2}) ∧ v(x, y) = -frac(y, x^{2} + y^{2})
+5. ContinuouslyDiffableFunc(z)
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ FunDeri(z, 1, 2)(x, y) + FunDeri(z, 2, 2)(x, y) = 0
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ FunDeri(z, 1, 1)(x, y) = FunDeri(z, u, 1)(x, y) * FunDeri(u, 1, 1)(x, y) + FunDeri(z, v, 1)(x, y) * FunDeri(v, 1, 1)(x, y)
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ FunDeri(z, 2, 1)(x, y) = FunDeri(z, u, 1)(x, y) * FunDeri(u, 2, 1)(x, y) + FunDeri(z, v, 1)(x, y) * FunDeri(v, 2, 1)(x, y)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ FunDeri(u, 1, 1)(x, y) = frac(y^{2} - x^{2}, (x^{2} + y^{2})^{2})
+
+METHOD:

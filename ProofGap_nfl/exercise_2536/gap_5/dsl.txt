@@ -1,0 +1,4 @@
+get_prop (hypothesis 24: {forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ 6 ⇒ x_{i} = i * h ∧ y_{i} = f(x_{i})}) (i := {1}) as (hypothesis 27: {1 ∈ IntegerSet ∧ 0 ≤ 1 ∧ 1 ≤ 6 ⇒ x_{1} = 1 * h ∧ y_{1} = f(x_{1})})
+use_condition (obvious: {1 ∈ IntegerSet ∧ 0 ≤ 1 ∧ 1 ≤ 6}) in (hypothesis 27: {1 ∈ IntegerSet ∧ 0 ≤ 1 ∧ 1 ≤ 6 ⇒ x_{1} = 1 * h ∧ y_{1} = f(x_{1})}) as (hypothesis 28: {x_{1} = 1 * h ∧ y_{1} = f(x_{1})})
+destruct_and (hypothesis 28: {x_{1} = 1 * h ∧ y_{1} = f(x_{1})}) as (hypothesis 29: {x_{1} = 1 * h}) (hypothesis 30: {y_{1} = f(x_{1})})
+autosolve all_hypothesis

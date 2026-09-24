@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet] . x * (2 - x^{2})^{12}) * diff(fun x [x ∈ RealSet] . x)) = ((fun x [x ∈ RealSet] . -(frac(1, 26) * (2 - x^{2})^{13}))|_{0}^{1})
+
+METHOD:

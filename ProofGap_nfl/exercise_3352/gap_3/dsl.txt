@@ -1,0 +1,2 @@
+1. get_forall (GOAL: {forall (x), (Impl(Belong(x, RealSet), Eq(FunDeri(fun x [Belong(x, RealSet)] . Power(x, 2), 1, 1)(x), Mult(2, x))))}) (x := {x})
+2. autosolve all_hypothesis

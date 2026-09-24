@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. C ∈ RealSet
+2. C_{1} ∈ RealSet
+3. C_{2} ∈ RealSet
+4. C_{3} ∈ RealSet
+5. C_{4} ∈ RealSet
+6. forall (x), x ∈ RealSet ∧ x > 0 ⇒ (exists (t), t ∈ RealSet ∧ t > 0 ∧ x = frac(1, t))
+7. forall (x), x ∈ RealSet ∧ x > 0 ⇒ (exists (t), t ∈ RealSet ∧ x = frac(1, t) ∧ t > 0)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ (exists (t), t ∈ RealSet ∧ t > 0 ∧ x = frac(1, t) ∧ { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, x * sqrtn(2, x^{2} + x + 1)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_4` | exists (`F_3`), forall (t), t ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(t) = frac(FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t), sqrtn(2, t^{2} + t + 1)) ∧ `F_4`(t) = -`F_3`(t) })
+
+METHOD:

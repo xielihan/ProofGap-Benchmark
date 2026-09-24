@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet ∧ a > 0
+3. forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x) = x^{x^{a}} + x^{a^{x}} + a^{x^{x}}
+4. forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(y, 1, 1)(x) = x^{x^{a}} * (a * x^{a - 1} * ln(x) + frac(x^{a}, x)) + x^{a^{x}} * (a^{x} * ln(a) * ln(x) + frac(a^{x}, x)) + a^{x^{x}} * ln(a) * x^{x} * (1 + ln(x))
+5. forall (x), x ∈ RealSet ∧ x > 0 ⇒ x^{x^{a}} * (a * x^{a - 1} * ln(x) + frac(x^{a}, x)) + x^{a^{x}} * (a^{x} * ln(a) * ln(x) + frac(a^{x}, x)) + a^{x^{x}} * ln(a) * x^{x} * (1 + ln(x)) = x^{a - 1} * x^{x^{a}} * (1 + a * ln(x)) + a^{x} * x^{a^{x}} * (frac(1, x) + ln(a) * ln(x)) + x^{x} * a^{x^{x}} * ln(a) * (1 + ln(x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(y, 1, 1)(x) = x^{a - 1} * x^{x^{a}} * (1 + a * ln(x)) + a^{x} * x^{a^{x}} * (frac(1, x) + ln(a) * ln(x)) + x^{x} * a^{x^{x}} * ln(a) * (1 + ln(x))
+
+METHOD:

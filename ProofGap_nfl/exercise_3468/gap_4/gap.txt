@@ -1,0 +1,20 @@
+PROOF GAP @4
+ASSUM:
+1. x : CartesianProd(RealSet, RealSet) → RealSet
+2. y : CartesianProd(RealSet, RealSet) → RealSet
+3. z : CartesianProd(RealSet, RealSet) → RealSet
+4. E : CartesianProd(RealSet, RealSet) → RealSet
+5. forall (u), u ∈ RealSet
+6. forall (v), v ∈ RealSet
+7. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ⇒ u^{2} + v^{2} ≠ 0
+8. DiffableFunc(z)
+9. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ⇒ x(u, v) = u * v ∧ y(u, v) = frac(1, 2) * (u^{2} - v^{2})
+10. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ⇒ E(u, v) = FunDeri(z, x, 1)(u, v)^{2} + FunDeri(z, y, 1)(u, v)^{2}
+11. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ⇒ diff(x) = v * diff(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . u) + u * diff(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . v)
+12. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ⇒ diff(y) = u * diff(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . u) - v * diff(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . v)
+13. forall (v) (u), v ∈ RealSet ∧ u ∈ RealSet ∧ u^{2} + v^{2} ≠ 0 ⇒ diff(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . u) = frac(v * diff(x) + u * diff(y), u^{2} + v^{2})
+
+GOAL:
+forall (v) (u), v ∈ RealSet ∧ u ∈ RealSet ∧ u^{2} + v^{2} ≠ 0 ⇒ diff(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . v) = frac(u * diff(x) - v * diff(y), u^{2} + v^{2})
+
+METHOD:

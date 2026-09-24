@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+lim_{ x → 0 } (frac(DefInt(0, x, (fun t [t ∈ RealSet] . cos(t^{2})) * diff(fun t [t ∈ RealSet] . t)), x)) = lim_{ x → 0 } (cos(x^{2}))
+
+METHOD:
+[@method 使用洛必达法则和变上限积分求导法则 @]

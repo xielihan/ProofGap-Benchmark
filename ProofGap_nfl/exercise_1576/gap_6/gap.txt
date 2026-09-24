@@ -1,0 +1,19 @@
+PROOF GAP @6
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet ∧ 0 < b
+3. c ∈ RealSet
+4. f : RealSet → RealSet
+5. b < a
+6. c = sqrtn(2, a^{2} - b^{2})
+7. forall (y), y ∈ RealSet ∧ -b ≤ y ∧ y ≤ b ⇒ f(y) = (1 - frac(a^{2}, b^{2})) * y^{2} + 2 * b * y + a^{2} + b^{2}
+8. ContinuousFuncOn(f, [-b, b])
+9. DiffableFuncOn(f, IntervalLoRo(-b, b))
+10. forall (y), y ∈ RealSet ∧ -b < y ∧ y < b ⇒ FunDeri(f, 1, 1)(y) = 2 * (1 - frac(a^{2}, b^{2})) * y + 2 * b
+11. b ≤ frac(a, sqrtn(2, 2)) ⇒ FunDeri(f, 1, 1)(frac(b^{3}, c^{2})) = 0
+12. b ≤ frac(a, sqrtn(2, 2)) ⇒ frac(b^{3}, c^{2}) ∈ [-b, b]
+
+GOAL:
+b ≤ frac(a, sqrtn(2, 2)) ⇒ (exists (x), x ∈ RealSet ∧ x^{2} = a^{2} * (1 - frac(b^{4}, c^{4})))
+
+METHOD:

@@ -1,0 +1,17 @@
+PROOF GAP @9
+ASSUM:
+1. ε : CartesianProd(RealSet, RealSet) → IntegerSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ ε(x, y) = cases{ 0 if x + y ≥ 0; 1 if x + y < 0 }
+3. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ∧ |x| ≤ 1 ∧ |y| ≤ 1 ⇒ 0 ≤ arccos(x))
+4. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ∧ |x| ≤ 1 ∧ |y| ≤ 1 ⇒ arccos(x) ≤ π)
+5. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ∧ |x| ≤ 1 ∧ |y| ≤ 1 ⇒ 0 ≤ π)
+6. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ∧ |x| ≤ 1 ∧ |y| ≤ 1 ⇒ 0 ≤ arccos(y))
+7. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ∧ |x| ≤ 1 ∧ |y| ≤ 1 ⇒ arccos(y) ≤ π)
+8. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ∧ |x| ≤ 1 ∧ |y| ≤ 1 ⇒ 0 ≤ π)
+9. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ∧ |x| ≤ 1 ∧ |y| ≤ 1 ⇒ 0 ≤ arccos(x) + arccos(y))
+10. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ∧ |x| ≤ 1 ∧ |y| ≤ 1 ⇒ arccos(x) + arccos(y) ≤ 2 * π)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ∧ |x| ≤ 1 ∧ |y| ≤ 1 ⇒ 0 ≤ 2 * π)
+
+METHOD:

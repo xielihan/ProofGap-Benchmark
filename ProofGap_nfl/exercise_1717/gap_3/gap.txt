@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. C ∈ RealSet
+2. x ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ frac(cos(x), sqrtn(2, 2 + cos(2 * x))) * diff(fun x [x ∈ RealSet] . x) = frac(diff(fun x [x ∈ RealSet] . sin(x)), sqrtn(2, 3 - 2 * sin(x)^{2}))
+4. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(cos(x), sqrtn(2, 2 + cos(2 * x))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . sin(x), 1, 1)(x), sqrtn(2, 3 - 2 * sin(x)^{2})) }
+
+GOAL:
+{ `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . sin(x), 1, 1)(x), sqrtn(2, 3 - 2 * sin(x)^{2})) } = { `F_4` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_4`(x) = frac(1, sqrtn(2, 2)) * arcsin(sqrtn(2, frac(2, 3)) * sin(x)) + C) }
+
+METHOD:

@@ -1,0 +1,16 @@
+PROOF GAP @8
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. forall (α) (x), α ∈ RealSet ∧ x ∈ RealSet ∧ a ≤ α ∧ α ≤ b ∧ x ≥ 1 ⇒ 0 < x^{α} * e^{-x}
+4. forall (α) (x), α ∈ RealSet ∧ x ∈ RealSet ∧ a ≤ α ∧ α ≤ b ∧ x ≥ 1 ⇒ x^{α} * e^{-x} ≤ x^{b} * e^{-x}
+5. forall (α) (x), α ∈ RealSet ∧ x ∈ RealSet ∧ a ≤ α ∧ α ≤ b ∧ x ≥ 1 ⇒ 0 < x^{b} * e^{-x}
+6. lim_{ x → +∞ } (x^{2} * x^{b} * e^{-x}) = lim_{ x → +∞ } (frac(x^{b + 2}, e^{x}))
+7. lim_{ x → +∞ } (frac(x^{b + 2}, e^{x})) = 0
+8. lim_{ x → +∞ } (x^{2} * x^{b} * e^{-x}) = 0
+9. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (A), A ∈ RealSet ∧ A > 1 ∧ (forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ∧ u ≥ A ∧ v ≥ u ⇒ DefInt(u, v, (fun x [x ∈ RealSet] . x^{b} * e^{-x}) * diff(fun x [x ∈ RealSet] . x)) < ε))
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (A), A ∈ RealSet ∧ A > 1 ∧ (forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ∧ u ≥ A ∧ v ≥ u ⇒ DefInt(u, v, (fun x [x ∈ RealSet] . x^{b} * e^{-x}) * diff(fun x [x ∈ RealSet] . x)) < ε))
+
+METHOD:

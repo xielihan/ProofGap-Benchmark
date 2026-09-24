@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ 0 < x ∧ x < ε ∧ ln(x) < 0 ⇒ k * x * ln(x) ≤ f(x) * ln(x)}) (x := {x0})
+get_condition (hypothesis 14: {x0 ∈ RealSet ∧ 0 < x0 ∧ x0 < ε ∧ ln(x0) < 0}) in (GOAL: {x0 ∈ RealSet ∧ 0 < x0 ∧ x0 < ε ∧ ln(x0) < 0 ⇒ k * x0 * ln(x0) ≤ f(x0) * ln(x0)})
+get_prop (hypothesis 13: {forall (x), x ∈ RealSet ∧ 0 < x ∧ x < ε ⇒ f(x) ≤ k * x}) (x := {x0}) as (hypothesis 15: {x0 ∈ RealSet ∧ 0 < x0 ∧ x0 < ε ⇒ f(x0) ≤ k * x0})
+assert (hypothesis 16: {x0 ∈ RealSet ∧ 0 < x0 ∧ x0 < ε}) by proof {
+  autosolve (hypothesis 14: {x0 ∈ RealSet ∧ 0 < x0 ∧ x0 < ε ∧ ln(x0) < 0})
+}
+use_condition (hypothesis 16: {x0 ∈ RealSet ∧ 0 < x0 ∧ x0 < ε}) in (hypothesis 15: {x0 ∈ RealSet ∧ 0 < x0 ∧ x0 < ε ⇒ f(x0) ≤ k * x0}) as (hypothesis 17: {f(x0) ≤ k * x0})
+autosolve (hypothesis 14: {x0 ∈ RealSet ∧ 0 < x0 ∧ x0 < ε ∧ ln(x0) < 0}) (hypothesis 17: {f(x0) ≤ k * x0}) using SqueezeSolver

@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ x^{x} = e^{x * ln(x)}
+2. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ e^{x * ln(x)} = sum_{ n = 0 }^{ +∞ } (frac((x * ln(x))^{n}, n!))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ x^{x} = sum_{ n = 0 }^{ +∞ } (frac((x * ln(x))^{n}, n!))
+
+METHOD:

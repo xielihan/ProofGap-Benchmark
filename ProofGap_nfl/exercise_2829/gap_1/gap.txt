@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. x ∈ RealSet
+3. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ a(n) = frac((1 + 2 * cos(frac(π * n, 4)))^{n}, ln(n))
+
+GOAL:
+seqlim_{ n → +∞ } (sqrtn(n, |a(n)|)) = 3
+
+METHOD:

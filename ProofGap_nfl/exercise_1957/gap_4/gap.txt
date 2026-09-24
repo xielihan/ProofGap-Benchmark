@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet ∧ -1 < x ∧ x < 1
+2. t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2)
+3. C ∈ RealSet
+4. -1 < x ⇒ x < 1 ⇒ x = sin(t) ⇒ -frac(π, 2) < t
+5. -1 < x ⇒ x < 1 ⇒ x = sin(t) ⇒ t < frac(π, 2)
+6. -1 < x ⇒ x < 1 ⇒ x = sin(t) ⇒ diff(fun x [x ∈ RealSet] . x) = cos(t) * diff(fun t [t ∈ RealSet] . t)
+
+GOAL:
+-1 < x ⇒ x < 1 ⇒ x = sin(t) ⇒ sqrtn(2, 1 - x^{2}) = cos(t)
+
+METHOD:

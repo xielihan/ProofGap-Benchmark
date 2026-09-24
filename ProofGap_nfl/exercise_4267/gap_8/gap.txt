@@ -1,0 +1,23 @@
+PROOF GAP @8
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. P : CartesianProd(RealSet, RealSet) → RealSet
+3. Q : CartesianProd(RealSet, RealSet) → RealSet
+4. Ω ⊆ CartesianProd(RealSet, RealSet)
+5. u : CartesianProd(RealSet, RealSet) → RealSet
+6. P = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ y] . frac(-y, (x - y)^{2}))
+7. Q = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ y] . frac(x, (x - y)^{2}))
+8. forall (z), z ∈ CartesianProd(RealSet, RealSet) ⇒ (z ∈ Ω ⇔ (exists (x), x ∈ RealSet ∧ (exists (y), y ∈ RealSet ∧ x > y ∧ z = (x, y))))
+9. C ⊆ Ω
+10. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x > y ⇒ FunDeri(Q, 1, 1)(x, y) = FunDeri(P, 2, 1)(x, y))
+11. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x > y ⇒ FunDeri(P, 2, 1)(x, y) = frac(-(x + y), (x - y)^{3}))
+12. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x > y ⇒ FunDeri(Q, 1, 1)(x, y) = frac(-(x + y), (x - y)^{3}))
+13. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x > y ⇒ (exists (u), u : CartesianProd(RealSet, RealSet) → RealSet ∧ diff(u) = P(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + Q(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)))
+14. (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ y] . frac(-y, (x - y)^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ y] . frac(x, (x - y)^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) = diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ y] . frac(y, x - y))
+15. VectorCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ y] . frac(-y, (x - y)^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ y] . frac(x, (x - y)^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = ((fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ y] . frac(y, x - y))|_{(0, -1)}^{(1, 0)})
+16. ((fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ y] . frac(y, x - y))|_{(0, -1)}^{(1, 0)}) = 1
+
+GOAL:
+VectorCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ y] . frac(-y, (x - y)^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ y] . frac(x, (x - y)^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = 1
+
+METHOD:

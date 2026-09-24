@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. f : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet
+3. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+4. FuncOfClassK(f, m)
+5. forall (t) (x) (y) (z), t ∈ RealSet ∧ t ∈ PosRealSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ f(t * x, t * y, t * z) = t^{n} * f(x, y, z)
+6. L = (fun g [g : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet] . fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x * FunDeri(g, 1, 1)(x, y, z) + y * FunDeri(g, 2, 1)(x, y, z) + z * FunDeri(g, 3, 1)(x, y, z))
+
+GOAL:
+forall (t) (x) (y) (z), t ∈ RealSet ∧ t ∈ PosRealSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ f(t * x, t * y, t * z) = t^{n} * f(x, y, z)
+
+METHOD:

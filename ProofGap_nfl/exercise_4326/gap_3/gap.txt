@@ -1,0 +1,21 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. M ∈ RealSet ∧ M > 0
+3. m ∈ RealSet ∧ m > 0
+4. k ∈ RealSet ∧ k > 0
+5. F ∈ CartesianProd(RealSet, RealSet)
+6. X ∈ RealSet
+7. Y ∈ RealSet
+8. C ⊆ CartesianProd(RealSet, RealSet)
+9. x ∈ RealSet
+10. y ∈ RealSet
+11. s ∈ RealSet
+12. C = { (x, y) | x ∈ RealSet, y ∈ RealSet, x^{2} + y^{2} = a^{2}, y ≥ 0 }
+13. X = 0
+14. forall (θ), θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ π ⇒ diff(s) = a * diff(fun θ [θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ π] . θ)
+
+GOAL:
+forall (θ), θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ π ⇒ diff(Y) = (fun θ [θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ π] . frac(k * m * frac(M, π * a), a^{2}) * sin(θ) * a) * diff(fun θ [θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ π] . θ)
+
+METHOD:

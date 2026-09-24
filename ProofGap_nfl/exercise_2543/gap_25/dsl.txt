@@ -1,0 +1,4 @@
+get_prop (hypothesis 13: {forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ 18 ⇒ t(i) = frac(i, 18) ∧ y(i) = f(t(i))}) (i := {10}) as (hypothesis 34: {10 ∈ IntegerSet ∧ 0 ≤ 10 ∧ 10 ≤ 18 ⇒ t(10) = frac(10, 18) ∧ y(10) = f(t(10))})
+use_condition (obvious: {10 ∈ IntegerSet ∧ 0 ≤ 10 ∧ 10 ≤ 18}) in (hypothesis 34: {10 ∈ IntegerSet ∧ 0 ≤ 10 ∧ 10 ≤ 18 ⇒ t(10) = frac(10, 18) ∧ y(10) = f(t(10))}) as (hypothesis 35: {t(10) = frac(10, 18) ∧ y(10) = f(t(10))})
+destruct_and (hypothesis 35: {t(10) = frac(10, 18) ∧ y(10) = f(t(10))}) as (hypothesis 36: {t(10) = frac(10, 18)}) (hypothesis 37: {y(10) = f(t(10))})
+autosolve (hypothesis 36: {t(10) = frac(10, 18)})

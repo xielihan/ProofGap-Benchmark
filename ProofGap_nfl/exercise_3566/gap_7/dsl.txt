@@ -1,0 +1,9 @@
+get_prop (hypothesis 8: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ x^{2} + y^{2} = p^{2})}) (x := {0}) as (hypothesis 10: {0 ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ 0^{2} + y^{2} = p^{2})})
+use_condition (obvious: {0 ∈ RealSet}) in (hypothesis 10: {0 ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ 0^{2} + y^{2} = p^{2})}) as (hypothesis 11: {forall (y), y ∈ RealSet ⇒ 0^{2} + y^{2} = p^{2}})
+get_prop (hypothesis 11: {forall (y), y ∈ RealSet ⇒ 0^{2} + y^{2} = p^{2}}) (y := {0}) as (hypothesis 12: {0 ∈ RealSet ⇒ 0^{2} + 0^{2} = p^{2}})
+use_condition (obvious: {0 ∈ RealSet}) in (hypothesis 12: {0 ∈ RealSet ⇒ 0^{2} + 0^{2} = p^{2}}) as (hypothesis 13: {0^{2} + 0^{2} = p^{2}})
+get_prop (hypothesis 8: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ x^{2} + y^{2} = p^{2})}) (x := {1}) as (hypothesis 14: {1 ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ 1^{2} + y^{2} = p^{2})})
+use_condition (obvious: {1 ∈ RealSet}) in (hypothesis 14: {1 ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ 1^{2} + y^{2} = p^{2})}) as (hypothesis 15: {forall (y), y ∈ RealSet ⇒ 1^{2} + y^{2} = p^{2}})
+get_prop (hypothesis 15: {forall (y), y ∈ RealSet ⇒ 1^{2} + y^{2} = p^{2}}) (y := {0}) as (hypothesis 16: {0 ∈ RealSet ⇒ 1^{2} + 0^{2} = p^{2}})
+use_condition (obvious: {0 ∈ RealSet}) in (hypothesis 16: {0 ∈ RealSet ⇒ 1^{2} + 0^{2} = p^{2}}) as (hypothesis 17: {1^{2} + 0^{2} = p^{2}})
+autosolve all_hypothesis

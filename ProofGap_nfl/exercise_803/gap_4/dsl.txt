@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ [1, 10] ∧ x_{2} ∈ [1, 10] ∧ |x_{1} - x_{2}| ≤ frac(9, n) ⇒ |x_{1} + x_{2}| ≤ 10 + 10)}) (x_{1} := {u0})
+get_condition (hypothesis 7: {u0 ∈ RealSet}) in (GOAL: {u0 ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ u0 ∈ [1, 10] ∧ x_{2} ∈ [1, 10] ∧ |u0 - x_{2}| ≤ frac(9, n) ⇒ |u0 + x_{2}| ≤ 10 + 10)})
+get_forall (GOAL: {forall (x_{2}), x_{2} ∈ RealSet ∧ u0 ∈ [1, 10] ∧ x_{2} ∈ [1, 10] ∧ |u0 - x_{2}| ≤ frac(9, n) ⇒ |u0 + x_{2}| ≤ 10 + 10}) (x_{2} := {v0})
+get_condition (hypothesis 8: {v0 ∈ RealSet ∧ u0 ∈ [1, 10] ∧ v0 ∈ [1, 10] ∧ |u0 - v0| ≤ frac(9, n)}) in (GOAL: {v0 ∈ RealSet ∧ u0 ∈ [1, 10] ∧ v0 ∈ [1, 10] ∧ |u0 - v0| ≤ frac(9, n) ⇒ |u0 + v0| ≤ 10 + 10})
+destruct_and (hypothesis 8: {v0 ∈ RealSet ∧ u0 ∈ [1, 10] ∧ v0 ∈ [1, 10] ∧ |u0 - v0| ≤ frac(9, n)}) as (hypothesis 9: {v0 ∈ RealSet}) (hypothesis 10: {u0 ∈ [1, 10]}) (hypothesis 11: {v0 ∈ [1, 10]}) (hypothesis 12: {|u0 - v0| ≤ frac(9, n)})
+autosolve all_hypothesis

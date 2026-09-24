@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < frac(1, 2) ⇒ 1 - x^{2} ≠ 0 ∧ ln(x) ∈ RealSet
+
+GOAL:
+lim_{ x → 0^+ } (sqrtn(2, x) * frac(ln(x), 1 - x^{2})) = 0
+
+METHOD:

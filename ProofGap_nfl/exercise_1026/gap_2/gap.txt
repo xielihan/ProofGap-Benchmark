@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. S : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. forall (n) (x) (k), n ∈ NonNegIntegerSet ∧ k ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ k ∈ PosIntegerSet ∧ sin(x) ≠ 0 ⇒ prod_{ k = 1 }^{ n } (cos(frac(x, 2^{k}))) = frac(sin(x), 2^{n} * sin(frac(x, 2^{n})))
+3. forall (n) (x) (k), n ∈ NonNegIntegerSet ∧ k ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ k ∈ PosIntegerSet ⇒ S(n, x) = sum_{ k = 1 }^{ n } (frac(1, 2^{k}) * tan(frac(x, 2^{k})))
+4. forall (n) (k), n ∈ NonNegIntegerSet ∧ k ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ k ∈ PosIntegerSet ⇒ (fun x [x ∈ RealSet ∧ sin(x) ≠ 0] . prod_{ k = 1 }^{ n } (cos(frac(x, 2^{k})))) = (fun x [x ∈ RealSet ∧ sin(x) ≠ 0] . frac(sin(x), 2^{n} * sin(frac(x, 2^{n}))))
+
+GOAL:
+forall (n) (x) (k), n ∈ NonNegIntegerSet ∧ k ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ k ∈ PosIntegerSet ∧ sin(x) ≠ 0 ⇒ FunDeri(fun x [x ∈ RealSet ∧ sin(x) ≠ 0] . prod_{ k = 1 }^{ n } (cos(frac(x, 2^{k}))), 1, 1)(x) = FunDeri(fun x [x ∈ RealSet ∧ sin(x) ≠ 0] . frac(sin(x), 2^{n} * sin(frac(x, 2^{n}))), 1, 1)(x)
+
+METHOD:
+[@method 两边同时对 x 求 导数 @]

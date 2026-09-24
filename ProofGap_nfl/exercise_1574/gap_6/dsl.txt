@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (y), y ∈ RealSet ⇒ f(y) = frac(y^{4}, 4 * p^{2}) + 2 * p^{2} - 2 * p * y}) (y := {y0})
+get_condition (hypothesis 11: {y0 ∈ RealSet}) in (GOAL: {y0 ∈ RealSet ⇒ f(y0) = frac(y0^{4}, 4 * p^{2}) + 2 * p^{2} - 2 * p * y0})
+get_prop (hypothesis 4: {forall (y), y ∈ RealSet ⇒ f(y) = (frac(y^{2}, 2 * p) - p)^{2} + (y - p)^{2}}) (y := {y0}) as (hypothesis 12: {y0 ∈ RealSet ⇒ f(y0) = (frac(y0^{2}, 2 * p) - p)^{2} + (y0 - p)^{2}})
+use_condition (hypothesis 11: {y0 ∈ RealSet}) in (hypothesis 12: {y0 ∈ RealSet ⇒ f(y0) = (frac(y0^{2}, 2 * p) - p)^{2} + (y0 - p)^{2}}) as (hypothesis 13: {f(y0) = (frac(y0^{2}, 2 * p) - p)^{2} + (y0 - p)^{2}})
+autosolve all_hypothesis

@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ frac(x^{2} - 1 + 1, 1 - x) = -(x + 1) + frac(1, 1 - x)}) (x := {z})
+get_condition (hypothesis 4: {z ∈ RealSet ∧ z ≠ 1}) in (GOAL: {z ∈ RealSet ∧ z ≠ 1 ⇒ frac(z^{2} - 1 + 1, 1 - z) = -(z + 1) + frac(1, 1 - z)})
+autoreplace no_hypothesis; from (frac(z^{2} - 1 + 1, 1 - z)) to (-(z + 1) + frac(1, 1 - z)); from (GOAL: {frac(z^{2} - 1 + 1, 1 - z) = -(z + 1) + frac(1, 1 - z)}) to (GOAL: {-(z + 1) + frac(1, 1 - z) = -(z + 1) + frac(1, 1 - z)})
+autosolve all_hypothesis

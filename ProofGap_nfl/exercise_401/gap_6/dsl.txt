@@ -1,0 +1,21 @@
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ (δ = min(1, frac(ε, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < δ ⇒ |x^{2} - 4| < 5 * |x - 2|)))}) (ε := {z})
+get_condition (hypothesis 7: {z ∈ RealSet ∧ z > 0}) in (GOAL: {z ∈ RealSet ∧ z > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ (δ = min(1, frac(z, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < δ ⇒ |x^{2} - 4| < 5 * |x - 2|)))})
+get_prop (hypothesis 6: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ (δ = min(1, frac(ε, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < δ ⇒ |x + 2| < 5)))}) (ε := {z}) as (hypothesis 8: {z ∈ RealSet ∧ z > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ (δ = min(1, frac(z, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < δ ⇒ |x + 2| < 5)))})
+use_condition (hypothesis 7: {z ∈ RealSet ∧ z > 0}) in (hypothesis 8: {z ∈ RealSet ∧ z > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ (δ = min(1, frac(z, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < δ ⇒ |x + 2| < 5)))}) as (hypothesis 9: {exists (δ), δ ∈ RealSet ∧ (δ = min(1, frac(z, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < δ ⇒ |x + 2| < 5))})
+get_exists (hypothesis 9: {exists (δ), δ ∈ RealSet ∧ (δ = min(1, frac(z, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < δ ⇒ |x + 2| < 5))}) (δ := {d})
+destruct_and (hypothesis 10: {d ∈ RealSet ∧ (d = min(1, frac(z, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < d ⇒ |x + 2| < 5))}) as (hypothesis 11: {d ∈ RealSet}) (hypothesis 12: {d = min(1, frac(z, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < d ⇒ |x + 2| < 5)})
+assert (hypothesis 13: {d = min(1, frac(z, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < d ⇒ |x^{2} - 4| < 5 * |x - 2|)}) by proof {
+  get_condition (hypothesis 13: {d = min(1, frac(z, 5))}) in (GOAL: {d = min(1, frac(z, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < d ⇒ |x^{2} - 4| < 5 * |x - 2|)})
+  get_forall (GOAL: {forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < d ⇒ |x^{2} - 4| < 5 * |x - 2|}) (x := {w})
+  get_condition (hypothesis 14: {w ∈ RealSet ∧ 0 < |w - 2| ∧ |w - 2| < d}) in (GOAL: {w ∈ RealSet ∧ 0 < |w - 2| ∧ |w - 2| < d ⇒ |w^{2} - 4| < 5 * |w - 2|})
+  destruct_and (hypothesis 14: {w ∈ RealSet ∧ 0 < |w - 2| ∧ |w - 2| < d}) as (hypothesis 15: {w ∈ RealSet}) (hypothesis 16: {0 < |w - 2|}) (hypothesis 17: {|w - 2| < d})
+  use_condition (hypothesis 13: {d = min(1, frac(z, 5))}) in (hypothesis 12: {d = min(1, frac(z, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < d ⇒ |x + 2| < 5)}) as (hypothesis 18: {forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < d ⇒ |x + 2| < 5})
+  get_prop (hypothesis 18: {forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < d ⇒ |x + 2| < 5}) (x := {w}) as (hypothesis 19: {w ∈ RealSet ∧ 0 < |w - 2| ∧ |w - 2| < d ⇒ |w + 2| < 5})
+  use_condition (hypothesis 14: {w ∈ RealSet ∧ 0 < |w - 2| ∧ |w - 2| < d}) in (hypothesis 19: {w ∈ RealSet ∧ 0 < |w - 2| ∧ |w - 2| < d ⇒ |w + 2| < 5}) as (hypothesis 20: {|w + 2| < 5})
+  get_prop (hypothesis 1: {forall (x), x ∈ RealSet ⇒ |x^{2} - 4| = |x - 2| * |x + 2|}) (x := {w}) as (hypothesis 21: {w ∈ RealSet ⇒ |w^{2} - 4| = |w - 2| * |w + 2|})
+  use_condition (hypothesis 15: {w ∈ RealSet}) in (hypothesis 21: {w ∈ RealSet ⇒ |w^{2} - 4| = |w - 2| * |w + 2|}) as (hypothesis 22: {|w^{2} - 4| = |w - 2| * |w + 2|})
+  rewrite (left_to_right, equation) (hypothesis 22: {|w^{2} - 4| = |w - 2| * |w + 2|}); from (GOAL: {|w^{2} - 4| < 5 * |w - 2|}) to (GOAL: {|w - 2| * |w + 2| < 5 * |w - 2|})
+  autosolve all_hypothesis
+}
+exists (δ := {d})
+autosolve all_hypothesis

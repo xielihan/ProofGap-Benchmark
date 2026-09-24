@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (α), α ∈ RealSet ∧ x ≥ 0 ∧ α ≥ 0 ⇒ 0 < frac(1, (x + α)^{2} + 1))}) (x := {t})
+get_condition (hypothesis 2: {t ∈ RealSet}) in (GOAL: {t ∈ RealSet ⇒ (forall (α), α ∈ RealSet ∧ t ≥ 0 ∧ α ≥ 0 ⇒ 0 < frac(1, (t + α)^{2} + 1))})
+get_forall (GOAL: {forall (α), α ∈ RealSet ∧ t ≥ 0 ∧ α ≥ 0 ⇒ 0 < frac(1, (t + α)^{2} + 1)}) (α := {al})
+get_condition (hypothesis 3: {al ∈ RealSet ∧ t ≥ 0 ∧ al ≥ 0}) in (GOAL: {al ∈ RealSet ∧ t ≥ 0 ∧ al ≥ 0 ⇒ 0 < frac(1, (t + al)^{2} + 1)})
+get_prop (hypothesis 1: {forall (x), x ∈ RealSet ⇒ (forall (α), α ∈ RealSet ∧ x ≥ 0 ∧ α ≥ 0 ⇒ (x + α)^{2} + 1 > 0)}) (x := {t}) as (hypothesis 4: {t ∈ RealSet ⇒ (forall (α), α ∈ RealSet ∧ t ≥ 0 ∧ α ≥ 0 ⇒ (t + α)^{2} + 1 > 0)})
+use_condition (hypothesis 2: {t ∈ RealSet}) in (hypothesis 4: {t ∈ RealSet ⇒ (forall (α), α ∈ RealSet ∧ t ≥ 0 ∧ α ≥ 0 ⇒ (t + α)^{2} + 1 > 0)}) as (hypothesis 5: {forall (α), α ∈ RealSet ∧ t ≥ 0 ∧ α ≥ 0 ⇒ (t + α)^{2} + 1 > 0})
+get_prop (hypothesis 5: {forall (α), α ∈ RealSet ∧ t ≥ 0 ∧ α ≥ 0 ⇒ (t + α)^{2} + 1 > 0}) (α := {al}) as (hypothesis 6: {al ∈ RealSet ∧ t ≥ 0 ∧ al ≥ 0 ⇒ (t + al)^{2} + 1 > 0})
+use_condition (hypothesis 3: {al ∈ RealSet ∧ t ≥ 0 ∧ al ≥ 0}) in (hypothesis 6: {al ∈ RealSet ∧ t ≥ 0 ∧ al ≥ 0 ⇒ (t + al)^{2} + 1 > 0}) as (hypothesis 7: {(t + al)^{2} + 1 > 0})
+autosolve all_hypothesis

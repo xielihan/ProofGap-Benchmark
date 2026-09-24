@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(n) + q(n) = 2}) (n := {n0})
+get_condition (hypothesis 5: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ p(n0) + q(n0) = 2})
+assert (hypothesis 6: {p(n0) = 1 - frac(1, n0^{2})}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 7: {q(n0) = 1 + frac(1, n0^{2})}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

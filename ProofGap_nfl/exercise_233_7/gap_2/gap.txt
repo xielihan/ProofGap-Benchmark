@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. IsFunc(f)
+2. forall (x), x ∈ RealSet ∧ x ∈ Dom(f) ⇒ f(x) = tan(sqrtn(2, x))
+3. forall (T), T ∈ RealSet ∧ T > 0 ∧ PeriodicFunc(f, T) ⇒ (forall (x), x ∈ RealSet ∧ x ∈ Dom(f) ∧ x + T ∈ Dom(f) ⇒ tan(sqrtn(2, x + T)) = tan(sqrtn(2, x)))
+4. Dom(f) = [0, +∞) \ { (frac(π, 2) + k * π)^{2} | k ∈ IntegerSet, frac(π, 2) + k * π ≥ 0 }
+
+GOAL:
+forall (T), T ∈ RealSet ∧ T > 0 ∧ PeriodicFunc(f, T) ⇒ (forall (x), x ∈ RealSet ∧ x ∈ Dom(f) ∧ x + T ∈ Dom(f) ⇒ (exists (k), k ∈ IntegerSet ∧ sqrtn(2, x + T) = sqrtn(2, x) + k * π))
+
+METHOD:

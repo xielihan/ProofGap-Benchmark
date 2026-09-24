@@ -1,0 +1,16 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. k ∈ RealSet
+4. f : RealSet → RealSet
+5. B : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+6. a < b
+7. forall (x), x ∈ RealSet ∧ a ≤ x ∧ x ≤ b ⇒ f(x) = e^{k * x}
+8. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ∈ [a, b] ⇒ B(n, x) = sum_{ j = 0 }^{ n } (f(a + (b - a) * frac(j, n)) * Combination(n, j) * frac((x - a)^{j} * (b - x)^{n - j}, (b - a)^{n}))
+9. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ∈ [a, b] ⇒ B(n, x) = sum_{ j = 0 }^{ n } (e^{k * (a + (b - a) * frac(j, n))} * Combination(n, j) * frac((x - a)^{j} * (b - x)^{n - j}, (b - a)^{n}))
+
+GOAL:
+forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ∈ [a, b] ⇒ B(n, x) = frac(e^{k * a}, (b - a)^{n}) * (sum_{ j = 0 }^{ n } (e^{k * (b - a) * frac(j, n)} * Combination(n, j) * (x - a)^{j} * (b - x)^{n - j}))
+
+METHOD:

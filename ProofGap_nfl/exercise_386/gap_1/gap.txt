@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. m_{0} ∈ RealSet
+3. M_{0} ∈ RealSet
+4. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x < +∞ ⇒ f(x) = frac(x, 1 + x)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x < +∞ ⇒ 0 ≤ f(x)
+
+METHOD:

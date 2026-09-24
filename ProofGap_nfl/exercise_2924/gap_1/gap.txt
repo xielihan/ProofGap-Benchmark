@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. S : NonNegIntegerSet → RealSet
+2. Δ : NonNegIntegerSet → RealSet
+3. m ∈ NonNegIntegerSet ∧ m > 0
+
+GOAL:
+0 < frac(1, 1!)
+
+METHOD:

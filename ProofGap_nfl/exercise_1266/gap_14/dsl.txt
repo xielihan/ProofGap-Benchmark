@@ -1,0 +1,5 @@
+get_condition (hypothesis 28: {|FunDeri(f, 1, 2)(c_{1})| < |FunDeri(f, 1, 2)(c_{2})|}) in (GOAL: {|FunDeri(f, 1, 2)(c_{1})| < |FunDeri(f, 1, 2)(c_{2})| ⇒ c < b})
+use_condition (hypothesis 28: {|FunDeri(f, 1, 2)(c_{1})| < |FunDeri(f, 1, 2)(c_{2})|}) in (hypothesis 25: {|FunDeri(f, 1, 2)(c_{1})| < |FunDeri(f, 1, 2)(c_{2})| ⇒ c = c_{2}}) as (hypothesis 29: {c = c_{2}})
+destruct_and (hypothesis 16: {c_{2} ∈ RealSet ∧ m < c_{2} ∧ c_{2} < b ∧ f(m) = f(b) + frac((b - a)^{2}, 8) * FunDeri(f, 1, 2)(c_{2})}) as (hypothesis 30: {c_{2} ∈ RealSet}) (hypothesis 31: {m < c_{2}}) (hypothesis 32: {c_{2} < b}) (hypothesis 33: {f(m) = f(b) + frac((b - a)^{2}, 8) * FunDeri(f, 1, 2)(c_{2})})
+rewrite (left_to_right, equation) (hypothesis 29: {c = c_{2}}); from (GOAL: {c < b}) to (GOAL: {c_{2} < b})
+apply (hypothesis 32: {c_{2} < b})

@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ∧ cos(frac(x, 2)) ≠ 0 ⇒ frac(diff(fun x [x ∈ RealSet] . x), sin(x)) = frac(frac(1, 2 * cos(frac(x, 2))^{2}) * diff(fun x [x ∈ RealSet] . x), tan(frac(x, 2))) ∧ frac(frac(1, 2 * cos(frac(x, 2))^{2}) * diff(fun x [x ∈ RealSet] . x), tan(frac(x, 2))) = frac(diff(fun x [x ∈ RealSet] . tan(frac(x, 2))), tan(frac(x, 2)))
+
+METHOD:

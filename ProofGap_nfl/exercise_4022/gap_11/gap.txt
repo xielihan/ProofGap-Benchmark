@@ -1,0 +1,22 @@
+PROOF GAP @11
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. c ∈ RealSet ∧ c > 0
+4. V ∈ RealSet
+5. D = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet ∧ frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) ≤ 1 }
+6. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) - frac(z^{2}, c^{2}) = -1))
+7. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) ≤ 1)
+8. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (r), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1 ⇒ (forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ x = a * r * cos(φ) ∧ y = b * r * sin(φ))))
+9. forall (z), z ∈ RealSet ⇒ (forall (r), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1 ⇒ z = c * sqrtn(2, 1 + r^{2}) ∨ z = -c * sqrtn(2, 1 + r^{2}))
+10. forall (φ), φ ∈ RealSet ∧ φ ≤ 2 * π ⇒ 0 ≤ φ
+11. forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ⇒ φ ≤ 2 * π
+12. forall (r), r ∈ RealSet ∧ r ≤ 1 ⇒ 0 ≤ r
+13. forall (r), r ∈ RealSet ∧ 0 ≤ r ⇒ r ≤ 1
+14. V = DefInt(0, 2 * π, (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . DefInt(0, 1, (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1] . 2 * a * b * c * r * sqrtn(2, 1 + r^{2})) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1] . r))) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . φ))
+15. V = 2 * a * b * c * DefInt(0, 2 * π, (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . DefInt(0, 1, (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1] . r * sqrtn(2, 1 + r^{2})) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1] . r))) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . φ))
+
+GOAL:
+V = frac(4 * π, 3) * a * b * c * (2 * sqrtn(2, 2) - 1)
+
+METHOD:

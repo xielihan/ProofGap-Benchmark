@@ -1,0 +1,16 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. A : NonNegIntegerSet → RealSet
+4. B : NonNegIntegerSet → RealSet
+5. forall (x), x ∈ RealSet ∧ -π < x ∧ x < π ⇒ f(x) = sinh(a * x)
+6. OddFunc(f)
+7. A(0) = 0
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ A(n) = 0
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ B(n) = frac(2, π) * DefInt(0, π, (fun x [x ∈ RealSet] . sinh(a * x) * sin(n * x)) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ B(n) = frac(2, π) * (frac((-1)^{n + 1}, n) * sinh(a * π) - frac(a^{2}, n^{2}) * DefInt(0, π, (fun x [x ∈ RealSet] . sinh(a * x) * sin(n * x)) * diff(fun x [x ∈ RealSet] . x))) ∧ frac(2, π) * (frac((-1)^{n + 1}, n) * sinh(a * π) - frac(a^{2}, n^{2}) * DefInt(0, π, (fun x [x ∈ RealSet] . sinh(a * x) * sin(n * x)) * diff(fun x [x ∈ RealSet] . x))) = frac(2 * (-1)^{n + 1}, n * π) * sinh(a * π) - frac(a^{2}, n^{2}) * B(n)
+
+METHOD:

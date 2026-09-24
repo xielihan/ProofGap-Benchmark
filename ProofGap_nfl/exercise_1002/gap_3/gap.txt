@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = cases{ x * |cos(frac(π, x))| if x ≠ 0; 0 if x = 0 }
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ ¬(exists (k), k ∈ IntegerSet ∧ x = frac(2, 2 * k + 1)) ⇒ cos(frac(π, x)) ≠ 0
+4. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ ¬(exists (k), k ∈ IntegerSet ∧ x = frac(2, 2 * k + 1)) ⇒ FunDeri(f, 1, 1)(x) = |cos(frac(π, x))| + frac(π, x) * frac(|cos(frac(π, x))|, cos(frac(π, x))) * sin(frac(π, x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ ¬(exists (k), k ∈ IntegerSet ∧ x = frac(2, 2 * k + 1)) ⇒ |cos(frac(π, x))| + frac(π, x) * frac(|cos(frac(π, x))|, cos(frac(π, x))) * sin(frac(π, x)) = (cos(frac(π, x)) + frac(π, x) * sin(frac(π, x))) * sgn(cos(frac(π, x)))
+
+METHOD:

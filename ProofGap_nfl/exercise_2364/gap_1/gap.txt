@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. n ∈ RealSet
+3. a ≠ 0
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ arctan(a * x) = -arctan(-a * x)
+
+METHOD:

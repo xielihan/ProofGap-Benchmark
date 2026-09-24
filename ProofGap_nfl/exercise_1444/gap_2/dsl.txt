@@ -1,0 +1,5 @@
+get_prop (hypothesis 3: {forall (x), x ∈ RealSet ∧ x < 0 ⇒ y(x) = -x * e^{x - 1} ∧ FunDeri(y, 1, 1)(x) = -(x + 1) * e^{x - 1}}) (x := {-1}) as (hypothesis 4: {-1 ∈ RealSet ∧ -1 < 0 ⇒ y(-1) = -(-1) * e^{-1 - 1} ∧ FunDeri(y, 1, 1)(-1) = -(-1 + 1) * e^{-1 - 1}})
+assert (hypothesis 5: {-1 ∈ RealSet ∧ -1 < 0})
+use_condition (hypothesis 5: {-1 ∈ RealSet ∧ -1 < 0}) in (hypothesis 4: {-1 ∈ RealSet ∧ -1 < 0 ⇒ y(-1) = -(-1) * e^{-1 - 1} ∧ FunDeri(y, 1, 1)(-1) = -(-1 + 1) * e^{-1 - 1}}) as (hypothesis 6: {y(-1) = -(-1) * e^{-1 - 1} ∧ FunDeri(y, 1, 1)(-1) = -(-1 + 1) * e^{-1 - 1}})
+destruct_and (hypothesis 6: {y(-1) = -(-1) * e^{-1 - 1} ∧ FunDeri(y, 1, 1)(-1) = -(-1 + 1) * e^{-1 - 1}}) as (hypothesis 7: {y(-1) = -(-1) * e^{-1 - 1}}) (hypothesis 8: {FunDeri(y, 1, 1)(-1) = -(-1 + 1) * e^{-1 - 1}})
+autosolve all_hypothesis

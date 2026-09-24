@@ -1,0 +1,15 @@
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ⇒ (forall (N), N ∈ NonNegIntegerSet ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ (UniformConvergent(S_{n}, PosRealSet, S) ⇒ ε = 1 ⇒ x_{0} = frac(2, 3^{N + 1} * π) ⇒ x_{0} ∈ PosRealSet)))}) (ε := {ε0})
+get_condition (hypothesis 15: {ε0 ∈ RealSet}) in (GOAL: {ε0 ∈ RealSet ⇒ (forall (N), N ∈ NonNegIntegerSet ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ (UniformConvergent(S_{n}, PosRealSet, S) ⇒ ε0 = 1 ⇒ x_{0} = frac(2, 3^{N + 1} * π) ⇒ x_{0} ∈ PosRealSet)))})
+get_forall (GOAL: {forall (N), N ∈ NonNegIntegerSet ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ (UniformConvergent(S_{n}, PosRealSet, S) ⇒ ε0 = 1 ⇒ x_{0} = frac(2, 3^{N + 1} * π) ⇒ x_{0} ∈ PosRealSet))}) (N := {N0})
+get_condition (hypothesis 16: {N0 ∈ NonNegIntegerSet}) in (GOAL: {N0 ∈ NonNegIntegerSet ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ (UniformConvergent(S_{n}, PosRealSet, S) ⇒ ε0 = 1 ⇒ x_{0} = frac(2, 3^{N0 + 1} * π) ⇒ x_{0} ∈ PosRealSet))})
+exists (x_{0} := {1})
+assert (hypothesis 17: {1 ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 18: {UniformConvergent(S_{n}, PosRealSet, S) ⇒ ε0 = 1 ⇒ 1 = frac(2, 3^{N0 + 1} * π) ⇒ 1 ∈ PosRealSet}) by proof {
+  get_condition (hypothesis 19: {UniformConvergent(S_{n}, PosRealSet, S)}) in (GOAL: {UniformConvergent(S_{n}, PosRealSet, S) ⇒ ε0 = 1 ⇒ 1 = frac(2, 3^{N0 + 1} * π) ⇒ 1 ∈ PosRealSet})
+  get_condition (hypothesis 20: {ε0 = 1}) in (GOAL: {ε0 = 1 ⇒ 1 = frac(2, 3^{N0 + 1} * π) ⇒ 1 ∈ PosRealSet})
+  get_condition (hypothesis 21: {1 = frac(2, 3^{N0 + 1} * π)}) in (GOAL: {1 = frac(2, 3^{N0 + 1} * π) ⇒ 1 ∈ PosRealSet})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

@@ -1,0 +1,14 @@
+PROOF GAP @7
+ASSUM:
+1. f = (fun x [x ∈ RealSet] . cases{ 2 - x^{2} * (2 + sin(frac(1, x))) if x ≠ 0; 2 if x = 0 })
+2. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) - f(0) = -x^{2} * (2 + sin(frac(1, x)))
+3. forall (δ), δ ∈ RealSet ∧ 0 < δ ∧ δ < 1 ⇒ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-δ, δ) ∧ x ≠ 0 ⇒ f(x) < f(0))
+4. 0 ∈ MaximumPoint(f)
+5. f(0) = 2
+6. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(f, 1, 1)(x) = cos(frac(1, x)) - 2 * x * (2 + sin(frac(1, x)))
+7. forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ (exists (x_{1}) (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ 0 < x_{1} ∧ x_{1} < δ ∧ 0 < x_{2} ∧ x_{2} < δ ∧ FunDeri(f, 1, 1)(x_{1}) > 0 ∧ FunDeri(f, 1, 1)(x_{2}) < 0)
+
+GOAL:
+forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ (exists (x_{1}) (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ -δ < x_{1} ∧ x_{1} < 0 ∧ -δ < x_{2} ∧ x_{2} < 0 ∧ FunDeri(f, 1, 1)(x_{1}) > 0 ∧ FunDeri(f, 1, 1)(x_{2}) < 0)
+
+METHOD:

@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+3. F : RealSet → RealSet
+4. forall (x), x ∈ RealSet ⇒ F(x) = DefInt(0, x, (fun t [t ∈ RealSet] . sgn(sin(t))) * diff(fun t [t ∈ RealSet] . t))
+5. forall (a), a ∈ RealSet ⇒ (forall (b), b ∈ RealSet ∧ a < b ⇒ IntegrableFuncOn(fun t [t ∈ RealSet] . sgn(sin(t)), [a, b]))
+
+GOAL:
+ContinuousFunc(F)
+
+METHOD:

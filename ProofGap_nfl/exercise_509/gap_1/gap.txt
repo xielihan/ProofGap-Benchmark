@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |sin(frac(2 * π * n, 3 * n + 1))| ≤ 1
+
+METHOD:

@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. n ∈ NonNegIntegerSet
+4. forall (x), x ∈ RealSet ⇒ y(x) = x * cos(a * x)
+5. n ∈ PosIntegerSet
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, n)(x) = x * FunDeri(fun x [x ∈ RealSet] . cos(a * x), 1, n)(x) + n * FunDeri(fun x [x ∈ RealSet] . cos(a * x), 1, n - 1)(x)
+
+METHOD:

@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ a(n) = (1 - frac(2, n^{2} + 1))^{p}}) (n := {k})
+get_condition (hypothesis 5: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2}) in (GOAL: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2 ⇒ a(k) = (1 - frac(2, k^{2} + 1))^{p}})
+get_prop (hypothesis 4: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ a(n) = frac(n^{2} - 1, n^{2} + 1)^{p}}) (n := {k}) as (hypothesis 6: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2 ⇒ a(k) = frac(k^{2} - 1, k^{2} + 1)^{p}})
+use_condition (hypothesis 5: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2}) in (hypothesis 6: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2 ⇒ a(k) = frac(k^{2} - 1, k^{2} + 1)^{p}}) as (hypothesis 7: {a(k) = frac(k^{2} - 1, k^{2} + 1)^{p}})
+autosolve all_hypothesis

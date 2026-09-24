@@ -1,0 +1,12 @@
+PROOF GAP @5
+ASSUM:
+1. R : NonNegIntegerSet → RealSet
+2. arctan(1.2) = arctan(1) + arctan(frac(1, 11))
+3. arctan(1.2) = frac(π, 4) + frac(1, 11) - frac(1, 3) * frac(1, 11)^{3} + frac(1, 5) * frac(1, 11)^{5} - ...
+4. |R(3)| < frac(1, 5) * frac(1, 11)^{5}
+5. frac(1, 5) * frac(1, 11)^{5} < 10^{-5}
+
+GOAL:
+|R(3)| < 10^{-5}
+
+METHOD:

@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. m ∈ RealSet
+2. n ∈ RealSet ∧ n ≥ 0
+3. DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . frac(x^{m} * arctan(x), 2 + x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet ∧ x > 0] . frac(x^{m} * arctan(x), 2 + x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) + DefInt(1, +∞, (fun x [x ∈ RealSet ∧ x > 1] . frac(x^{m} * arctan(x), 2 + x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 1] . x))
+4. lim_{ x → 0^+ } (x^{-m - 1} * frac(x^{m} * arctan(x), 2 + x^{n})) = cases{ frac(1, 3) if n = 0; frac(1, 2) if n > 0 }
+5. DefInt(0, 1, (fun x [x ∈ RealSet ∧ x > 0] . frac(x^{m} * arctan(x), 2 + x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) ∈ RealSet ⇔ -m - 1 < 1
+6. DefInt(0, 1, (fun x [x ∈ RealSet ∧ x > 0] . frac(x^{m} * arctan(x), 2 + x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) ∈ RealSet ⇔ m > -2
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 1 ⇒ x^{n - m} * frac(x^{m} * arctan(x), 2 + x^{n}) = frac(x^{n} * arctan(x), 2 + x^{n})
+
+METHOD:

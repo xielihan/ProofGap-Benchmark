@@ -1,0 +1,2 @@
+get_exists (hypothesis 12: {exists (u), u : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t > 0 ∧ u(t) = λ * t * cos(α) ⇒ DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-λ * t * cos(α)}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t)) < +∞)}) (u := {u0}) as (hypothesis 14: {u0 : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t > 0 ∧ u0(t) = λ * t * cos(α) ⇒ DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-λ * t * cos(α)}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t)) < +∞)})
+autosolve all_hypothesis

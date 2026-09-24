@@ -1,0 +1,17 @@
+PROOF GAP @8
+ASSUM:
+1. f : RealSet → RealSet
+2. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = arctan(x)^{2}
+4. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ FunDeri(f, 1, 2 * k - 1)(0) = FunDeri(fun x [x ∈ RealSet] . arctan(x) * arctan(x), 1, 2 * k - 1)(0)
+5. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ FunDeri(fun x [x ∈ RealSet] . arctan(x) * arctan(x), 1, 2 * k - 1)(0) = 0
+6. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ FunDeri(f, 1, 2 * k - 1)(0) = 0
+7. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ FunDeri(f, 1, 2 * k)(0) = FunDeri(fun x [x ∈ RealSet] . arctan(x) * arctan(x), 1, 2 * k)(0)
+8. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ FunDeri(fun x [x ∈ RealSet] . arctan(x) * arctan(x), 1, 2 * k)(0) = sum_{ i = 0 }^{ 2 * k } (Combination(2 * k, i) * FunDeri(arctan, 1, i)(0) * FunDeri(arctan, 1, 2 * k - i)(0))
+9. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ FunDeri(f, 1, 2 * k)(0) = sum_{ i = 0 }^{ 2 * k } (Combination(2 * k, i) * FunDeri(arctan, 1, i)(0) * FunDeri(arctan, 1, 2 * k - i)(0))
+10. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ FunDeri(f, 1, 2 * k)(0) = sum_{ i = 0 }^{ k - 1 } (Combination(2 * k, 2 * i + 1) * FunDeri(arctan, 1, 2 * i + 1)(0) * FunDeri(arctan, 1, 2 * k - 2 * i - 1)(0))
+
+GOAL:
+forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ FunDeri(f, 1, 2 * k)(0) = sum_{ i = 0 }^{ k - 1 } (Combination(2 * k, 2 * i + 1) * (-1)^{i} * (2 * i)! * (-1)^{k - i - 1} * (2 * k - 2 * i - 2)!)
+
+METHOD:

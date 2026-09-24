@@ -1,0 +1,16 @@
+PROOF GAP @7
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. forall (t), t ∈ RealSet ⇒ x(t) = e^{t} * cos(t) ∧ y(t) = e^{t} * sin(t)
+4. forall (t), t ∈ RealSet ∧ cos(frac(π, 4) + t) ≠ 0 ⇒ FunDeri(y, x, 1)(t) = frac(e^{t} * (sin(t) + cos(t)), e^{t} * (cos(t) - sin(t)))
+5. forall (t), t ∈ RealSet ∧ cos(frac(π, 4) + t) ≠ 0 ⇒ frac(e^{t} * (sin(t) + cos(t)), e^{t} * (cos(t) - sin(t))) = frac(sin(frac(π, 4) + t), cos(frac(π, 4) + t))
+6. forall (t), t ∈ RealSet ∧ cos(frac(π, 4) + t) ≠ 0 ⇒ frac(sin(frac(π, 4) + t), cos(frac(π, 4) + t)) = tan(frac(π, 4) + t)
+7. forall (t), t ∈ RealSet ∧ cos(frac(π, 4) + t) ≠ 0 ⇒ FunDeri(y, x, 1)(t) = tan(frac(π, 4) + t)
+8. forall (t), t ∈ RealSet ∧ cos(frac(π, 4) + t) ≠ 0 ⇒ FunDeri(y, x, 2)(t) = frac(frac(1, cos(frac(π, 4) + t)^{2}), e^{t} * (cos(t) - sin(t)))
+9. forall (t), t ∈ RealSet ∧ cos(frac(π, 4) + t) ≠ 0 ⇒ frac(frac(1, cos(frac(π, 4) + t)^{2}), e^{t} * (cos(t) - sin(t))) = frac(e^{-t}, sqrtn(2, 2) * cos(frac(π, 4) + t)^{3})
+
+GOAL:
+forall (t), t ∈ RealSet ∧ cos(frac(π, 4) + t) ≠ 0 ⇒ FunDeri(y, x, 2)(t) = frac(e^{-t}, sqrtn(2, 2) * cos(frac(π, 4) + t)^{3})
+
+METHOD:

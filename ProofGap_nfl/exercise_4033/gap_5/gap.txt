@@ -1,0 +1,25 @@
+PROOF GAP @5
+ASSUM:
+1. V ∈ RealSet
+2. Ω ⊆ CartesianProd(RealSet, RealSet)
+3. a ∈ RealSet
+4. c ∈ RealSet
+5. x ∈ RealSet
+6. y ∈ RealSet
+7. z ∈ RealSet
+8. a > 0
+9. c > 0
+10. Ω = { (x, y) | x ∈ RealSet, y ∈ RealSet, y ≥ 0, x ≠ 0, sqrtn(2, x^{2} + y^{2}) ≤ a * arctan(y / x) }
+11. V = VolumeInt({ (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, (x, y) ∈ Ω, 0 ≤ z, z ≤ c * arctan(y / x) }, 1 * diff(ω))
+12. x = r * cos(φ)
+13. y = r * sin(φ)
+14. 0 ≤ φ
+15. φ ≤ frac(π, 2)
+16. 0 ≤ r
+17. r ≤ a * φ
+18. φ ∈ RealSet
+
+GOAL:
+exists (z), z ∈ RealSet ∧ z = c * φ
+
+METHOD:

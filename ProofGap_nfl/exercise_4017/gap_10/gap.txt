@@ -1,0 +1,22 @@
+PROOF GAP @10
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. V ∈ RealSet
+3. Ω ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+4. D ⊆ CartesianProd(RealSet, RealSet)
+5. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ Ω = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x^{2} + y^{2} - a * z = 0 ∧ (x^{2} + y^{2})^{2} ≤ a^{2} * (x^{2} - y^{2}) ∧ z ≥ 0 }))
+6. forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ D = { (r, φ) | r ∈ RealSet ∧ φ ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a * sqrtn(2, cos(2 * φ)) ∧ 0 ≤ φ ∧ φ ≤ frac(π, 4) })
+7. V = VolumeInt(Ω, 1 * diff(ω))
+8. forall (r), r ∈ RealSet ∧ r ≥ 0 ⇒ (forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 4) ⇒ (exists (x), x ∈ RealSet ∧ x = r * cos(φ)))
+9. forall (r), r ∈ RealSet ∧ r ≥ 0 ⇒ (forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 4) ⇒ (exists (y), y ∈ RealSet ∧ y = r * sin(φ)))
+10. forall (r), r ∈ RealSet ⇒ r ≥ 0
+11. forall (r), r ∈ RealSet ∧ r ≥ 0 ⇒ (exists (z), z ∈ RealSet ∧ z = frac(r^{2}, a))
+12. forall (r), r ∈ RealSet ∧ r ≥ 0 ⇒ (forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 4) ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x = r * cos(φ) ∧ y = r * sin(φ) ⇒ ((x^{2} + y^{2})^{2} = a^{2} * (x^{2} - y^{2}) ⇔ r^{2} = a^{2} * cos(2 * φ)))))
+13. forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 4) ⇒ cos(2 * φ) ≥ 0
+14. forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ D = { (r, φ) | r ∈ RealSet ∧ φ ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a * sqrtn(2, cos(2 * φ)) ∧ 0 ≤ φ ∧ φ ≤ frac(π, 4) })
+15. V = 4 * DefInt(0, frac(π, 4), (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 4)] . DefInt(0, a * sqrtn(2, cos(2 * φ)), (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a * sqrtn(2, cos(2 * φ))] . frac(r^{2}, a) * r) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a * sqrtn(2, cos(2 * φ))] . r))) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 4)] . φ))
+
+GOAL:
+4 * DefInt(0, frac(π, 4), (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 4)] . DefInt(0, a * sqrtn(2, cos(2 * φ)), (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a * sqrtn(2, cos(2 * φ))] . frac(r^{2}, a) * r) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a * sqrtn(2, cos(2 * φ))] . r))) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 4)] . φ)) = a^{3} * DefInt(0, frac(π, 4), (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 4)] . cos(2 * φ)^{2}) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 4)] . φ))
+
+METHOD:

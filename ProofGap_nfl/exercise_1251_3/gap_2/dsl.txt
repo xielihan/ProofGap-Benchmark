@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (a), a ∈ RealSet ⇒ (forall (b), a ∈ RealSet ∧ b ∈ RealSet ⇒ (exists (ξ), ξ ∈ RealSet ∧ |frac(a - b, 1 + ξ^{2})| ≤ |a - b|))}) (a := {x})
+get_condition (hypothesis 2: {x ∈ RealSet}) in (GOAL: {x ∈ RealSet ⇒ (forall (b), x ∈ RealSet ∧ b ∈ RealSet ⇒ (exists (ξ), ξ ∈ RealSet ∧ |frac(x - b, 1 + ξ^{2})| ≤ |x - b|))})
+get_forall (GOAL: {forall (b), x ∈ RealSet ∧ b ∈ RealSet ⇒ (exists (ξ), ξ ∈ RealSet ∧ |frac(x - b, 1 + ξ^{2})| ≤ |x - b|)}) (b := {y})
+get_condition (hypothesis 3: {x ∈ RealSet ∧ y ∈ RealSet}) in (GOAL: {x ∈ RealSet ∧ y ∈ RealSet ⇒ (exists (ξ), ξ ∈ RealSet ∧ |frac(x - y, 1 + ξ^{2})| ≤ |x - y|)})
+exists (ξ := {0})
+autoreplace no_hypothesis; from (frac(x - y, 1 + 0^{2})) to (x - y); from (GOAL: {0 ∈ RealSet ∧ |frac(x - y, 1 + 0^{2})| ≤ |x - y|}) to (GOAL: {0 ∈ RealSet ∧ |x - y| ≤ |x - y|})
+autosolve all_hypothesis

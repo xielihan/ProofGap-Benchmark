@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet
+2. a ≠ 0
+3. forall (x), x ∈ RealSet ∧ x ≠ a ∧ frac(x + a, x - a) > 0 ⇒ frac(x + a, x - a)^{x} = (1 + frac(1, frac(x - a, 2 * a)))^{frac(x - a, 2 * a) * 2 * a + a}
+4. lim_{ t → 0 } ((1 + t)^{frac(1, t)}) = e
+
+GOAL:
+lim_{ u → +∞ } ((1 + 1 / u)^{u}) = e
+
+METHOD:

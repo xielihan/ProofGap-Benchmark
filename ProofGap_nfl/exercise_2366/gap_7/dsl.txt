@@ -1,0 +1,2 @@
+1. rewrite_in limit (left_to_right, equation) (hypothesis 7: {forall (x), x ∈ RealSet ∧ x > 1 ⇒ x^{n - m} * frac(x^{m} * arctan(x), 2 + x^{n}) = frac(x^{n} * arctan(x), 2 + x^{n})}); from (GOAL: {lim_{ x → +∞ } (x^{n - m} * frac(x^{m} * arctan(x), 2 + x^{n})) = frac(π, 2)}) to (GOAL: {lim_{ x → +∞ } (frac(x^{n} * arctan(x), 2 + x^{n})) = frac(π, 2)})
+2. apply (hypothesis 8: {lim_{ x → +∞ } (frac(x^{n} * arctan(x), 2 + x^{n})) = frac(π, 2)})

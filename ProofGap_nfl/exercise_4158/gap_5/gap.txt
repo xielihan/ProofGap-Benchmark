@@ -1,0 +1,21 @@
+PROOF GAP @5
+ASSUM:
+1. R ∈ RealSet ∧ R > 0
+2. M ∈ RealSet ∧ M > 0
+3. m ∈ RealSet ∧ m > 0
+4. a ∈ RealSet ∧ a > 0
+5. k ∈ RealSet
+6. X ∈ RealSet
+7. Y ∈ RealSet
+8. Z ∈ RealSet
+9. `ρ_0` ∈ RealSet
+10. `ρ_0` = frac(3 * M, 4 * π * R^{3})
+11. X = 0
+12. Y = 0
+13. forall (ξ), ξ ∈ RealSet ⇒ (forall (η), η ∈ RealSet ⇒ (forall (ζ), ζ ∈ RealSet ∧ ξ^{2} + η^{2} + ζ^{2} ≤ R^{2} ⇒ Z = k * `ρ_0` * m * VolumeInt({ (ξ, η, ζ) | ξ ∈ RealSet, η ∈ RealSet, ζ ∈ RealSet, ξ^{2} + η^{2} + ζ^{2} ≤ R^{2} }, frac(ζ - a, (ξ^{2} + η^{2} + (ζ - a)^{2})^{frac(3, 2)}) * diff(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . ξ) * diff(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . η) * diff(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . ζ))))
+14. forall (ζ), ζ ∈ RealSet ∧ ζ ∈ IntervalClCl(-R, R) ⇒ (forall (r), r ∈ RealSet ∧ r ∈ IntervalClCl(0, sqrtn(2, R^{2} - ζ^{2})) ⇒ Z = k * m * `ρ_0` * DefInt(-R, R, (ζ - a) * DefInt(0, 2 * π, diff(fun φ [φ ∈ RealSet] . φ)) * DefInt(0, sqrtn(2, R^{2} - ζ^{2}), frac(r, (r^{2} + (ζ - a)^{2})^{frac(3, 2)}) * diff(fun r [r ∈ RealSet ∧ r ≥ 0] . r)) * diff(fun ζ [ζ ∈ RealSet ∧ ζ ∈ IntervalClCl(-R, R)] . ζ)))
+
+GOAL:
+forall (ζ), ζ ∈ RealSet ∧ ζ ∈ IntervalClCl(-R, R) ⇒ Z = 2 * π * k * m * `ρ_0` * DefInt(-R, R, (ζ - a) * (frac(1, |ζ - a|) - frac(1, sqrtn(2, R^{2} - 2 * a * ζ + a^{2}))) * diff(fun ζ [ζ ∈ RealSet ∧ ζ ∈ IntervalClCl(-R, R)] . ζ))
+
+METHOD:

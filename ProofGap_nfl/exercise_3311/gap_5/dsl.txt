@@ -1,0 +1,25 @@
+1. get_forall (GOAL: {forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ r(x, y, z) ≠ 0 ⇒ FunDeri(u, 1, 2)(x, y, z) + FunDeri(u, 2, 2)(x, y, z) + FunDeri(u, 3, 2)(x, y, z) = 0}) (x := {x0}) (y := {y0}) (z := {z0})
+2. get_condition (hypothesis 12: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet ∧ r(x0, y0, z0) ≠ 0}) in (GOAL: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet ∧ r(x0, y0, z0) ≠ 0 ⇒ FunDeri(u, 1, 2)(x0, y0, z0) + FunDeri(u, 2, 2)(x0, y0, z0) + FunDeri(u, 3, 2)(x0, y0, z0) = 0})
+3. get_prop (hypothesis 11: {forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ r(x, y, z) ≠ 0 ⇒ FunDeri(u, 1, 2)(x, y, z) + FunDeri(u, 2, 2)(x, y, z) + FunDeri(u, 3, 2)(x, y, z) = frac(-3 * r(x, y, z)^{2} + 3 * ((x - a)^{2} + (y - b)^{2} + (z - c)^{2}), r(x, y, z)^{5})}) (x := {x0}) (y := {y0}) (z := {z0}) as (hypothesis 13: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet ∧ r(x0, y0, z0) ≠ 0 ⇒ FunDeri(u, 1, 2)(x0, y0, z0) + FunDeri(u, 2, 2)(x0, y0, z0) + FunDeri(u, 3, 2)(x0, y0, z0) = frac(-3 * r(x0, y0, z0)^{2} + 3 * ((x0 - a)^{2} + (y0 - b)^{2} + (z0 - c)^{2}), r(x0, y0, z0)^{5})})
+4. use_condition (hypothesis 12: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet ∧ r(x0, y0, z0) ≠ 0}) in (hypothesis 13: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet ∧ r(x0, y0, z0) ≠ 0 ⇒ FunDeri(u, 1, 2)(x0, y0, z0) + FunDeri(u, 2, 2)(x0, y0, z0) + FunDeri(u, 3, 2)(x0, y0, z0) = frac(-3 * r(x0, y0, z0)^{2} + 3 * ((x0 - a)^{2} + (y0 - b)^{2} + (z0 - c)^{2}), r(x0, y0, z0)^{5})}) as (hypothesis 14: {FunDeri(u, 1, 2)(x0, y0, z0) + FunDeri(u, 2, 2)(x0, y0, z0) + FunDeri(u, 3, 2)(x0, y0, z0) = frac(-3 * r(x0, y0, z0)^{2} + 3 * ((x0 - a)^{2} + (y0 - b)^{2} + (z0 - c)^{2}), r(x0, y0, z0)^{5})})
+5. assert (hypothesis 15: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet}) by proof {
+  1. autosolve all_hypothesis
+}
+6. get_prop (hypothesis 6: {forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ r(x, y, z) = sqrtn(2, (x - a)^{2} + (y - b)^{2} + (z - c)^{2})}) (x := {x0}) (y := {y0}) (z := {z0}) as (hypothesis 16: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet ⇒ r(x0, y0, z0) = sqrtn(2, (x0 - a)^{2} + (y0 - b)^{2} + (z0 - c)^{2})})
+7. use_condition (hypothesis 15: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet}) in (hypothesis 16: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet ⇒ r(x0, y0, z0) = sqrtn(2, (x0 - a)^{2} + (y0 - b)^{2} + (z0 - c)^{2})}) as (hypothesis 17: {r(x0, y0, z0) = sqrtn(2, (x0 - a)^{2} + (y0 - b)^{2} + (z0 - c)^{2})})
+8. assert (hypothesis 18: {(x0 - a)^{2} + (y0 - b)^{2} + (z0 - c)^{2} ∈ RealSet}) by proof {
+  1. autosolve all_hypothesis
+}
+9. assert (hypothesis 19: {(x0 - a)^{2} + (y0 - b)^{2} + (z0 - c)^{2} >= 0}) by proof {
+  1. autosolve all_hypothesis
+}
+10. get_prop (theorem 'Thm 450. (SquareRootSquareCancellation)': {forall (u), u ∈ RealSet => u >= 0 => sqrtn(2, u)^2 = u}) (u := {(x0 - a)^{2} + (y0 - b)^{2} + (z0 - c)^{2}}) as (hypothesis 20: {(x0 - a)^{2} + (y0 - b)^{2} + (z0 - c)^{2} ∈ RealSet => (x0 - a)^{2} + (y0 - b)^{2} + (z0 - c)^{2} >= 0 => sqrtn(2, (x0 - a)^{2} + (y0 - b)^{2} + (z0 - c)^{2})^2 = (x0 - a)^{2} + (y0 - b)^{2} + (z0 - c)^{2}})
+11. use_condition (hypothesis 18: {(x0 - a)^{2} + (y0 - b)^{2} + (z0 - c)^{2} ∈ RealSet}) (hypothesis 19: {(x0 - a)^{2} + (y0 - b)^{2} + (z0 - c)^{2} >= 0}) in (hypothesis 20: {(x0 - a)^{2} + (y0 - b)^{2} + (z0 - c)^{2} ∈ RealSet => (x0 - a)^{2} + (y0 - b)^{2} + (z0 - c)^{2} >= 0 => sqrtn(2, (x0 - a)^{2} + (y0 - b)^{2} + (z0 - c)^{2})^2 = (x0 - a)^{2} + (y0 - b)^{2} + (z0 - c)^{2}}) as (hypothesis 21: {sqrtn(2, (x0 - a)^{2} + (y0 - b)^{2} + (z0 - c)^{2})^2 = (x0 - a)^{2} + (y0 - b)^{2} + (z0 - c)^{2}})
+12. assert (hypothesis 22: {r(x0, y0, z0)^{2} = (x0 - a)^{2} + (y0 - b)^{2} + (z0 - c)^{2}}) by proof {
+  1. autosolve all_hypothesis
+}
+13. assert (hypothesis 23: {FunDeri(u, 1, 2)(x0, y0, z0) + FunDeri(u, 2, 2)(x0, y0, z0) + FunDeri(u, 3, 2)(x0, y0, z0) = 0}) by proof {
+  1. rewrite (left_to_right, equation) (hypothesis 22: {r(x0, y0, z0)^{2} = (x0 - a)^{2} + (y0 - b)^{2} + (z0 - c)^{2}}); from (hypothesis 14: {FunDeri(u, 1, 2)(x0, y0, z0) + FunDeri(u, 2, 2)(x0, y0, z0) + FunDeri(u, 3, 2)(x0, y0, z0) = frac(-3 * r(x0, y0, z0)^{2} + 3 * ((x0 - a)^{2} + (y0 - b)^{2} + (z0 - c)^{2}), r(x0, y0, z0)^{5})}) to (hypothesis 14: {FunDeri(u, 1, 2)(x0, y0, z0) + FunDeri(u, 2, 2)(x0, y0, z0) + FunDeri(u, 3, 2)(x0, y0, z0) = frac(-3 * ((x0 - a)^{2} + (y0 - b)^{2} + (z0 - c)^{2}) + 3 * ((x0 - a)^{2} + (y0 - b)^{2} + (z0 - c)^{2}), r(x0, y0, z0)^{5})})
+  2. autosolve all_hypothesis
+}
+14. apply (hypothesis 23: {FunDeri(u, 1, 2)(x0, y0, z0) + FunDeri(u, 2, 2)(x0, y0, z0) + FunDeri(u, 3, 2)(x0, y0, z0) = 0})

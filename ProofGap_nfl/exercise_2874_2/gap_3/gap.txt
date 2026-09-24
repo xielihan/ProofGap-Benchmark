@@ -1,0 +1,17 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. x ∈ RealSet ∧ x ≠ 0
+4. h ∈ RealSet
+5. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+6. s ∈ NonNegIntegerSet
+7. A : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+8. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = e^{frac(a, x)}
+9. f(x + h) - f(x) = e^{frac(a, x + h)} - e^{frac(a, x)}
+10. e^{frac(a, x + h)} - e^{frac(a, x)} = e^{frac(a, x)} * (e^{-frac(a * h, x * (x + h))} - 1)
+
+GOAL:
+f(x + h) - f(x) = e^{frac(a, x)} * (e^{-frac(a * h, x * (x + h))} - 1)
+
+METHOD:

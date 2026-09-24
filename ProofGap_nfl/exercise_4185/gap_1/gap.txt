@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. p ∈ RealSet
+2. φ : CartesianProd(RealSet, RealSet) → RealSet
+3. D ⊆ CartesianProd(RealSet, RealSet)
+4. forall (z), z ∈ CartesianProd(RealSet, RealSet) ⇒ (z ∈ D ⇔ (exists (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ z = (x, y) ∧ x^{2} + y^{2} ≤ 1))
+5. Defined(φ, D)
+6. ContinuousFuncOn(φ, D)
+7. BoundedFuncOn(φ, D)
+
+GOAL:
+exists (m) (M), m ∈ RealSet ∧ M ∈ RealSet ∧ (forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} < 1 ⇒ frac(m, (1 - x^{2} - y^{2})^{p}) ≤ frac(|φ(x, y)|, (1 - x^{2} - y^{2})^{p}) ∧ frac(|φ(x, y)|, (1 - x^{2} - y^{2})^{p}) ≤ frac(M, (1 - x^{2} - y^{2})^{p}))
+
+METHOD:

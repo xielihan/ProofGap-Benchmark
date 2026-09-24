@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. A : RealSet → RealSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = e^{-|x|}
+4. ContinuousFuncOn(f, [0, +∞))
+5. DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x}) * diff(fun x [x ∈ RealSet] . x)) = 1
+6. 1 < +∞
+
+GOAL:
+EvenFunc(f)
+
+METHOD:
+[@method 偶式延拓 @]

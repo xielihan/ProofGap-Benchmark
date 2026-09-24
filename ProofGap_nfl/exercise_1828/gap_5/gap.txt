@@ -1,0 +1,15 @@
+PROOF GAP @5
+ASSUM:
+1. x ∈ RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. a = 0 ⇒ b = 0 ⇒ { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = e^{a * x} * cos(b * x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_3`(x) = x + C) }
+5. a = 0 ⇒ b ≠ 0 ⇒ { `F_4` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = e^{a * x} * cos(b * x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_5`(x) = frac(1, b) * sin(b * x) + C) }
+6. a ≠ 0 ⇒ { `F_6` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_6`, 1, 1)(x) = e^{a * x} * cos(b * x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_8` | exists (`F_7`), `F_7` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_7`, 1, 1)(x) = cos(b * x) * FunDeri(fun x [x ∈ RealSet] . e^{a * x}, 1, 1)(x) ∧ `F_8`(x) = frac(1, a) * `F_7`(x)) }
+7. a ≠ 0 ⇒ { `F_8` | exists (`F_7`), `F_7` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_7`, 1, 1)(x) = cos(b * x) * FunDeri(fun x [x ∈ RealSet] . e^{a * x}, 1, 1)(x) ∧ `F_8`(x) = frac(1, a) * `F_7`(x)) } = { `F_12` | exists (`F_9`), `F_9` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_9`, 1, 1)(x) = e^{a * x} * sin(b * x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_12`(x) = frac(1, a) * e^{a * x} * cos(b * x) + frac(b, a) * `F_9`(x)) }
+
+GOAL:
+a ≠ 0 ⇒ { `F_6` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_6`, 1, 1)(x) = e^{a * x} * cos(b * x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_12` | exists (`F_9`), `F_9` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_9`, 1, 1)(x) = e^{a * x} * sin(b * x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_12`(x) = frac(1, a) * e^{a * x} * cos(b * x) + frac(b, a) * `F_9`(x)) }
+
+METHOD:
+[@method 分部积分法 @]

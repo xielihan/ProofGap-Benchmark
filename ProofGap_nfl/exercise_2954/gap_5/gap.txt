@@ -1,0 +1,18 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. S : RealSet → RealSet
+3. A : NonNegIntegerSet → RealSet
+4. B : NonNegIntegerSet → RealSet
+5. forall (x), x ∈ RealSet ⇒ f(x) = arcsin(cos(x))
+6. PeriodicFunc(f, 2 * π)
+7. ContinuousFunc(f)
+8. EvenFunc(f)
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ B(n) = frac(1, π) * DefInt(-π, π, (fun x [x ∈ RealSet] . f(x) * sin(n * x)) * diff(fun x [x ∈ RealSet] . x))
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ B(n) = 0
+11. A(0) = frac(2, π) * DefInt(0, π, (fun x [x ∈ RealSet] . f(x)) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ [0, π] ⇒ arcsin(cos(x)) = frac(π, 2) - x
+
+METHOD:

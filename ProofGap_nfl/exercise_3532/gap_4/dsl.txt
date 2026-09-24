@@ -1,0 +1,4 @@
+assert (hypothesis 15: {(-3, 0, 3) = (1, 0, -1)}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

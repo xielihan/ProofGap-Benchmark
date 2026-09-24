@@ -1,0 +1,2 @@
+autoreplace no_hypothesis; from (11 - frac(1, 2 * 11)) to (frac(241, 22)); from (GOAL: {11 - frac(1, 2 * 11) = frac(241, 22)}) to (GOAL: {frac(241, 22) = frac(241, 22)})
+autosolve all_hypothesis

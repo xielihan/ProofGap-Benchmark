@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac(n * cos(frac(n * π, 3))^{2}, 2^{n}) ∧ frac(n * cos(frac(n * π, 3))^{2}, 2^{n}) ≤ frac(n, 2^{n})
+
+METHOD:

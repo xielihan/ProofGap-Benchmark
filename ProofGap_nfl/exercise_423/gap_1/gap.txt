@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 2 ⇒ x^{2} - x - 2 = (x - 2) * (x + 1) ∧ x^{3} - 12 * x + 16 = (x - 2)^{2} * (x + 4)
+
+METHOD:

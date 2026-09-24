@@ -1,0 +1,13 @@
+get_forall (GOAL: {forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ 0 < frac(π, 2))}) (φ := {p})
+get_condition (hypothesis 4: {p ∈ RealSet}) in (GOAL: {p ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ p = arctan(x) ⇒ 0 < frac(π, 2))})
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ p = arctan(x) ⇒ 0 < frac(π, 2)}) (x := {a})
+get_condition (hypothesis 5: {a ∈ RealSet ∧ a ≠ 0 ∧ a > 0 ∧ p = arctan(a)}) in (GOAL: {a ∈ RealSet ∧ a ≠ 0 ∧ a > 0 ∧ p = arctan(a) ⇒ 0 < frac(π, 2)})
+get_prop (hypothesis 2: {forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ 0 < φ)}) (φ := {p}) as (hypothesis 6: {p ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ p = arctan(x) ⇒ 0 < p)})
+use_condition (hypothesis 4: {p ∈ RealSet}) in (hypothesis 6: {p ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ p = arctan(x) ⇒ 0 < p)}) as (hypothesis 7: {forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ p = arctan(x) ⇒ 0 < p})
+get_prop (hypothesis 7: {forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ p = arctan(x) ⇒ 0 < p}) (x := {a}) as (hypothesis 8: {a ∈ RealSet ∧ a ≠ 0 ∧ a > 0 ∧ p = arctan(a) ⇒ 0 < p})
+use_condition (hypothesis 5: {a ∈ RealSet ∧ a ≠ 0 ∧ a > 0 ∧ p = arctan(a)}) in (hypothesis 8: {a ∈ RealSet ∧ a ≠ 0 ∧ a > 0 ∧ p = arctan(a) ⇒ 0 < p}) as (hypothesis 9: {0 < p})
+get_prop (hypothesis 3: {forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ φ < frac(π, 2))}) (φ := {p}) as (hypothesis 10: {p ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ p = arctan(x) ⇒ p < frac(π, 2))})
+use_condition (hypothesis 4: {p ∈ RealSet}) in (hypothesis 10: {p ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ p = arctan(x) ⇒ p < frac(π, 2))}) as (hypothesis 11: {forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ p = arctan(x) ⇒ p < frac(π, 2)})
+get_prop (hypothesis 11: {forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ p = arctan(x) ⇒ p < frac(π, 2)}) (x := {a}) as (hypothesis 12: {a ∈ RealSet ∧ a ≠ 0 ∧ a > 0 ∧ p = arctan(a) ⇒ p < frac(π, 2)})
+use_condition (hypothesis 5: {a ∈ RealSet ∧ a ≠ 0 ∧ a > 0 ∧ p = arctan(a)}) in (hypothesis 12: {a ∈ RealSet ∧ a ≠ 0 ∧ a > 0 ∧ p = arctan(a) ⇒ p < frac(π, 2)}) as (hypothesis 13: {p < frac(π, 2)})
+autosolve all_hypothesis

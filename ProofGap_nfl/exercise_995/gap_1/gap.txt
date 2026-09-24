@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. δ ∈ RealSet ∧ δ > 0
+3. f : RealSet → RealSet
+4. φ : RealSet → RealSet
+5. forall (x), x ∈ RealSet ∧ (x > a - δ ∧ x < a + δ) ⇒ f(x) = |x - a| * φ(x)
+6. ContinuousFuncOn(φ, IntervalLoRo(a - δ, a + δ))
+7. φ(a) ≠ 0
+
+GOAL:
+f(a) = 0
+
+METHOD:

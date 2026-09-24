@@ -1,0 +1,15 @@
+PROOF GAP @5
+ASSUM:
+1. f = (fun x [x ∈ RealSet] . frac(x + |x|, 2))
+2. g = (fun x [x ∈ RealSet] . frac(x - |x|, 2))
+3. F = f + g
+4. (fun x [x ∈ RealSet] . f(x) + g(x)) = (fun x [x ∈ RealSet] . x)
+5. ¬DiffableFuncAt(f, 0)
+6. ¬DiffableFuncAt(g, 0)
+7. DiffableFuncAt(F, 0)
+8. FunDeri(F, 1, 1)(0) = 1
+
+GOAL:
+¬(forall (f) (g) (F) (x_{0}), f : RealSet → RealSet ∧ g : RealSet → RealSet ∧ F : RealSet → RealSet ∧ x_{0} ∈ RealSet ∧ (exists (`ϵ`), `ϵ` ∈ RealSet ∧ `ϵ` > 0 ∧ (x_{0} - `ϵ`, x_{0} + `ϵ`) ⊆ Dom(f)) ∧ (exists (`ϵ`), `ϵ` ∈ RealSet ∧ `ϵ` > 0 ∧ (x_{0} - `ϵ`, x_{0} + `ϵ`) ⊆ Dom(g)) ∧ ¬DiffableFuncAt(f, x_{0}) ∧ ¬DiffableFuncAt(g, x_{0}) ∧ F = f + g ⇒ ¬DiffableFuncAt(F, x_{0}))
+
+METHOD:

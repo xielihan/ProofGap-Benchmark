@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. F : RealSet → RealSet
+2. x ∈ RealSet
+3. n ∈ NonNegIntegerSet
+4. forall (x), x ∈ RealSet ⇒ F(x) = DefInt(0, x, (fun t [t ∈ RealSet] . e^{-t^{2}}) * diff(fun t [t ∈ RealSet] . t))
+5. forall (t), t ∈ RealSet ⇒ e^{-t^{2}} = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(t^{2 * n}, n!))
+6. forall (x), x ∈ RealSet ⇒ F(x) = DefInt(0, x, (fun t [t ∈ RealSet] . sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(t^{2 * n}, n!))) * diff(fun t [t ∈ RealSet] . t))
+7. forall (x), x ∈ RealSet ⇒ F(x) = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x^{2 * n + 1}, n! * (2 * n + 1)))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ F(x) = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x^{2 * n + 1}, n! * (2 * n + 1)))
+
+METHOD:

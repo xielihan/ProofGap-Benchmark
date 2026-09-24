@@ -1,0 +1,8 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ∧ -∞ < x ∧ x < 0 => FunDeri(y, 1, 1)(x) < 0}) (x := {x0})
+2. get_condition (hypothesis 4: {x0 ∈ RealSet ∧ -∞ < x0 ∧ x0 < 0}) in (GOAL: {x0 ∈ RealSet ∧ -∞ < x0 ∧ x0 < 0 => FunDeri(y, 1, 1)(x0) < 0})
+3. destruct_and (hypothesis 4: {x0 ∈ RealSet ∧ -∞ < x0 ∧ x0 < 0}) as (hypothesis 5: {x0 ∈ RealSet}) (hypothesis 6: {-∞ < x0}) (hypothesis 7: {x0 < 0})
+4. get_prop (hypothesis 3: {forall (x), x ∈ RealSet => FunDeri(y, 1, 1)(x) = frac(2 * x - x^{2} * ln(2), 2^{x})}) (x := {x0}) as (hypothesis 8: {x0 ∈ RealSet => FunDeri(y, 1, 1)(x0) = frac(2 * x0 - x0^{2} * ln(2), 2^{x0})})
+5. use_condition (hypothesis 5: {x0 ∈ RealSet}) in (hypothesis 8: {x0 ∈ RealSet => FunDeri(y, 1, 1)(x0) = frac(2 * x0 - x0^{2} * ln(2), 2^{x0})}) as (hypothesis 9: {FunDeri(y, 1, 1)(x0) = frac(2 * x0 - x0^{2} * ln(2), 2^{x0})})
+6. get_prop (theorem 'Thm 387. (PositiveBasePowerPositive)': {forall (a) (u), a ∈ RealSet => u ∈ RealSet => a > 0 => a ^ u > 0}) (a := {2}) (u := {x0}) as (hypothesis 10: {2 ∈ RealSet => x0 ∈ RealSet => 2 > 0 => 2 ^ x0 > 0})
+7. use_condition (obvious: {2 ∈ RealSet}) (hypothesis 5: {x0 ∈ RealSet}) (obvious: {2 > 0}) in (hypothesis 10: {2 ∈ RealSet => x0 ∈ RealSet => 2 > 0 => 2 ^ x0 > 0}) as (hypothesis 11: {2 ^ x0 > 0})
+8. autosolve all_hypothesis

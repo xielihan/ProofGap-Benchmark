@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ∈ PosRealSet ∧ x ≠ 1 ∧ x + y > 0 ⇒ f(x, y) = log(x, x + y)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ∈ PosRealSet ∧ x ≠ 1 ∧ x + y > 0 ⇒ f(x, y) = frac(ln(x + y), ln(x))
+
+METHOD:

@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. y ∈ RealSet
+3. a : NonNegIntegerSet → RealSet
+4. forall (n) (m), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ m ∈ IntegerSet ⇒ x + frac(y, n) ≠ frac(π, 2) + m * π
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = tan(x + frac(y, n))^{n}
+
+GOAL:
+seqlim_{ n → +∞ } (sqrtn(n, |tan(x + frac(y, n))^{n}|)) = |tan(x)|
+
+METHOD:

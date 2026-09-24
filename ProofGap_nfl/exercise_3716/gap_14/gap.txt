@@ -1,0 +1,22 @@
+PROOF GAP @14
+ASSUM:
+1. F : RealSet → RealSet
+2. forall (y), y ∈ RealSet ⇒ F(y) = DefInt(0, 1, ln(sqrtn(2, x^{2} + y^{2})) * diff(x))
+3. forall (y), y ∈ RealSet ∧ y ≠ 0 ⇒ F(y) = DefInt(0, 1, ln(sqrtn(2, x^{2} + y^{2})) * diff(x))
+4. forall (y) (x), y ∈ RealSet ∧ y ≠ 0 ∧ x ∈ RealSet ∧ x ∈ [0, 1] ⇒ F(y) = ((x * ln(sqrtn(2, x^{2} + y^{2})))|_{0}^{1}) - DefInt(0, 1, frac(x^{2}, x^{2} + y^{2}) * diff(x))
+5. forall (y), y ∈ RealSet ∧ y ≠ 0 ⇒ F(y) = ln(sqrtn(2, 1 + y^{2})) - 1 + y * arctan(frac(1, y))
+6. F(0) = DefInt(0, 1, ln(x) * diff(x))
+7. forall (x), x ∈ RealSet ∧ x ∈ (0, 1] ⇒ DefInt(0, 1, ln(x) * diff(x)) = ((x * ln(x))|_{0}^{1}) - DefInt(0, 1, 1 * diff(x))
+8. forall (x), x ∈ RealSet ∧ x ∈ (0, 1] ⇒ ((x * ln(x))|_{0}^{1}) - DefInt(0, 1, 1 * diff(x)) = -1
+9. F(0) = -1
+10. lim_{ y → 0^+ } (frac(F(y) - F(0), y)) = lim_{ y → 0^+ } (frac(ln(1 + y^{2}), 2 * y) + arctan(frac(1, y)))
+11. lim_{ y → 0^+ } (frac(ln(1 + y^{2}), 2 * y) + arctan(frac(1, y))) = frac(π, 2)
+12. lim_{ y → 0^+ } (frac(F(y) - F(0), y)) = frac(π, 2)
+13. lim_{ y → 0^- } (frac(F(y) - F(0), y)) = lim_{ y → 0^- } (frac(ln(1 + y^{2}), 2 * y) + arctan(frac(1, y)))
+14. lim_{ y → 0^- } (frac(ln(1 + y^{2}), 2 * y) + arctan(frac(1, y))) = -frac(π, 2)
+15. lim_{ y → 0^- } (frac(F(y) - F(0), y)) = -frac(π, 2)
+
+GOAL:
+¬DiffableFuncAt(F, 0)
+
+METHOD:

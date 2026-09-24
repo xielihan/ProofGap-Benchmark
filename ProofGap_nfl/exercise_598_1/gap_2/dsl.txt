@@ -1,0 +1,2 @@
+exists (M := {-1})
+autosolve all_hypothesis

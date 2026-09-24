@@ -1,0 +1,17 @@
+PROOF GAP @2
+ASSUM:
+1. K_{1} ∈ RealSet
+2. K_{2} ∈ RealSet
+3. ρ ∈ RealSet ∧ ρ ≥ 0
+4. φ ∈ RealSet
+5. m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet
+6. r ∈ RealSet
+7. n ∈ RealSet
+8. K_{1} = DefInt(0, 2 * π, (fun ψ [ψ ∈ RealSet] . cos(m * ψ) * frac(cos(r, n), r)) * diff(fun ψ [ψ ∈ RealSet] . ψ))
+9. K_{2} = DefInt(0, 2 * π, (fun ψ [ψ ∈ RealSet] . sin(m * ψ) * frac(cos(r, n), r)) * diff(fun ψ [ψ ∈ RealSet] . ψ))
+10. forall (ψ), ψ ∈ RealSet ⇒ frac(cos(r, n), r) = frac(1 - ρ * cos(ψ - φ), 1 + ρ^{2} - 2 * ρ * cos(ψ - φ))
+
+GOAL:
+ρ = 1 ⇒ frac(cos(r, n), r) = frac(1, 2)
+
+METHOD:

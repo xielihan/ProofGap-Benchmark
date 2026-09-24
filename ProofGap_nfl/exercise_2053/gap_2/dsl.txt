@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (i), i ∈ NonNegIntegerSet ∧ i ∈ { 1, 2 } ⇒ b^{2} = (a - λ(i)) * (c - λ(i))}) (i := {i0})
+get_condition (hypothesis 31: {i0 ∈ NonNegIntegerSet ∧ i0 ∈ { 1, 2 }}) in (GOAL: {i0 ∈ NonNegIntegerSet ∧ i0 ∈ { 1, 2 } ⇒ b^{2} = (a - λ(i0)) * (c - λ(i0))})
+get_prop (hypothesis 30: {forall (i), i ∈ NonNegIntegerSet ∧ i ∈ { 1, 2 } ⇒ (a - λ(i)) * (c - λ(i)) - b^{2} = 0}) (i := {i0}) as (hypothesis 32: {i0 ∈ NonNegIntegerSet ∧ i0 ∈ { 1, 2 } ⇒ (a - λ(i0)) * (c - λ(i0)) - b^{2} = 0})
+use_condition (hypothesis 31: {i0 ∈ NonNegIntegerSet ∧ i0 ∈ { 1, 2 }}) in (hypothesis 32: {i0 ∈ NonNegIntegerSet ∧ i0 ∈ { 1, 2 } ⇒ (a - λ(i0)) * (c - λ(i0)) - b^{2} = 0}) as (hypothesis 33: {(a - λ(i0)) * (c - λ(i0)) - b^{2} = 0})
+assert (hypothesis 34: {b^{2} = (a - λ(i0)) * (c - λ(i0))})
+apply (hypothesis 34: {b^{2} = (a - λ(i0)) * (c - λ(i0))})

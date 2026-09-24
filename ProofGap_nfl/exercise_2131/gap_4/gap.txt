@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+3. 0 < |x|
+4. |x| < 1
+5. x = sin(t(x))
+6. -frac(π, 2) < t(x)
+7. t(x) < frac(π, 2)
+8. t(x) ≠ 0
+
+GOAL:
+diff(fun x [x ∈ RealSet ∧ 0 < |x| ∧ |x| < 1] . x) = (fun x [x ∈ RealSet ∧ 0 < |x| ∧ |x| < 1] . cos(t(x))) * diff(fun x [x ∈ RealSet ∧ 0 < |x| ∧ |x| < 1] . t(x))
+
+METHOD:

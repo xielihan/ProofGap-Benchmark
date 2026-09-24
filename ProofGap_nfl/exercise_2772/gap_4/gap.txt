@@ -1,0 +1,16 @@
+PROOF GAP @4
+ASSUM:
+1. S_{n} : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. S : RealSet → RealSet
+3. k ∈ NonNegIntegerSet
+4. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ S_{n}(n, x) = sum_{ k = 1 }^{ n } (frac(1, (x + k) * (x + k + 1)))
+5. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ |frac(1, (x + n) * (x + n + 1))| < frac(1, n^{2}))
+6. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{2})))
+7. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, (x + n) * (x + n + 1))))
+8. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ S(x) = sum_{ n = 1 }^{ +∞ } (frac(1, (x + n) * (x + n + 1)))
+
+GOAL:
+UniformConvergent(S_{n}, PosRealSet, S)
+
+METHOD:
+[@method 根据 "魏尔斯特拉斯判别法" @]

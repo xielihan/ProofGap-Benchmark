@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. C_{1} ∈ RealSet
+3. C_{2} ∈ RealSet
+4. n ∈ RealSet
+5. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ y(x) = x^{n} * (C_{1} * cos(ln(x)) + C_{2} * sin(ln(x)))
+6. A = (fun x [x ∈ RealSet ∧ x ∈ PosRealSet] . C_{1} * cos(ln(x)) + C_{2} * sin(ln(x)))
+7. B = (fun x [x ∈ RealSet ∧ x ∈ PosRealSet] . C_{2} * cos(ln(x)) - C_{1} * sin(ln(x)))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ FunDeri(y, 1, 1)(x) = n * x^{n - 1} * A(x) + x^{n - 1} * B(x)
+
+METHOD:

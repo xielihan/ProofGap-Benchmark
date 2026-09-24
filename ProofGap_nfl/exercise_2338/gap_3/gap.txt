@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (b), b ∈ RealSet ∧ b > 2 ⇒ (forall (x), x ∈ RealSet ∧ 2 ≤ x ∧ x ≤ b ⇒ x^{2} + x - 2 ≠ 0 ∧ frac(x - 1, x + 2) > 0)
+2. forall (b), b ∈ RealSet ∧ b > 2 ⇒ DefInt(2, b, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(2, b)] . frac(1, x^{2} + x - 2)) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(2, b)] . x)) = ((fun x [x ∈ RealSet ∧ x > 2] . frac(1, 3) * ln(frac(x - 1, x + 2)))|_{2}^{b})
+
+GOAL:
+lim_{ b → +∞ } (DefInt(2, b, (fun x [x ∈ RealSet ∧ x > 2] . frac(1, x^{2} + x - 2)) * diff(fun x [x ∈ RealSet ∧ x > 2] . x))) = lim_{ b → +∞ } ((fun x [x ∈ RealSet ∧ x > 2] . frac(1, 3) * ln(frac(x - 1, x + 2)))|_{2}^{b})
+
+METHOD:

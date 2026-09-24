@@ -1,0 +1,23 @@
+PROOF GAP @15
+ASSUM:
+1. ε : CartesianProd(RealSet, RealSet) → IntegerSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ ε(x, y) = cases{ 0 if x + y ≥ 0; 1 if x + y < 0 }
+3. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ∧ |x| ≤ 1 ∧ |y| ≤ 1 ⇒ 0 ≤ arccos(x))
+4. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ∧ |x| ≤ 1 ∧ |y| ≤ 1 ⇒ arccos(x) ≤ π)
+5. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ∧ |x| ≤ 1 ∧ |y| ≤ 1 ⇒ 0 ≤ π)
+6. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ∧ |x| ≤ 1 ∧ |y| ≤ 1 ⇒ 0 ≤ arccos(y))
+7. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ∧ |x| ≤ 1 ∧ |y| ≤ 1 ⇒ arccos(y) ≤ π)
+8. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ∧ |x| ≤ 1 ∧ |y| ≤ 1 ⇒ 0 ≤ π)
+9. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ∧ |x| ≤ 1 ∧ |y| ≤ 1 ⇒ 0 ≤ arccos(x) + arccos(y))
+10. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ∧ |x| ≤ 1 ∧ |y| ≤ 1 ⇒ arccos(x) + arccos(y) ≤ 2 * π)
+11. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ∧ |x| ≤ 1 ∧ |y| ≤ 1 ⇒ 0 ≤ 2 * π)
+12. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ |x| ≤ 1 ∧ |y| ≤ 1 ∧ u = arccos(x) + arccos(y) ∧ v = arccos(x * y - sqrtn(2, 1 - x^{2}) * sqrtn(2, 1 - y^{2})) ⇒ cos(u) = x * y - sqrtn(2, 1 - x^{2}) * sqrtn(2, 1 - y^{2}))))
+13. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ |x| ≤ 1 ∧ |y| ≤ 1 ∧ u = arccos(x) + arccos(y) ∧ v = arccos(x * y - sqrtn(2, 1 - x^{2}) * sqrtn(2, 1 - y^{2})) ⇒ cos(v) = x * y - sqrtn(2, 1 - x^{2}) * sqrtn(2, 1 - y^{2}))))
+14. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ |x| ≤ 1 ∧ |y| ≤ 1 ∧ u = arccos(x) + arccos(y) ∧ v = arccos(x * y - sqrtn(2, 1 - x^{2}) * sqrtn(2, 1 - y^{2})) ⇒ 0 ≤ v)))
+15. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ |x| ≤ 1 ∧ |y| ≤ 1 ∧ u = arccos(x) + arccos(y) ∧ v = arccos(x * y - sqrtn(2, 1 - x^{2}) * sqrtn(2, 1 - y^{2})) ⇒ v ≤ π)))
+16. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ |x| ≤ 1 ∧ |y| ≤ 1 ∧ u = arccos(x) + arccos(y) ∧ v = arccos(x * y - sqrtn(2, 1 - x^{2}) * sqrtn(2, 1 - y^{2})) ⇒ 0 ≤ π)))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ |x| ≤ 1 ∧ |y| ≤ 1 ∧ u = arccos(x) + arccos(y) ∧ v = arccos(x * y - sqrtn(2, 1 - x^{2}) * sqrtn(2, 1 - y^{2})) ∧ x + y ≥ 0 ⇒ 0 ≤ u)))
+
+METHOD:

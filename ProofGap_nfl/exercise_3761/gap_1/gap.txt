@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. p ∈ RealSet ∧ p > 0
+
+GOAL:
+forall (A), A ∈ RealSet ∧ A ≥ 1 ⇒ |DefInt(1, A, (fun x [x ∈ RealSet] . cos(x)) * diff(fun x [x ∈ RealSet] . x))| = |sin(A) - sin(1)| ∧ |sin(A) - sin(1)| ≤ 2
+
+METHOD:

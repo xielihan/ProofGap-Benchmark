@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = frac(n^{2}, 2^{n})
+3. forall (n), n ∈ NonNegIntegerSet ∧ n = 3 ⇒ n^{2} > 2^{n}
+4. forall (n), n ∈ NonNegIntegerSet ∧ n = 3 ⇒ x(3) = frac(9, 8)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ≠ 3 ∧ n ∈ PosIntegerSet ⇒ n^{2} ≤ 2^{n}
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ≠ 3 ∧ n ∈ PosIntegerSet ⇒ x(n) ≤ x(3)
+
+METHOD:

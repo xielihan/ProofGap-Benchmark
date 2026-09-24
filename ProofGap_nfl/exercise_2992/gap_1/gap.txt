@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 2 ⇒ frac(1, n^{2} - 1) = frac(1, 2) * (frac(1, n - 1) - frac(1, n + 1))
+
+METHOD:

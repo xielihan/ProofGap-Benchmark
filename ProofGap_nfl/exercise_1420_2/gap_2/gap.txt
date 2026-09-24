@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. n ∈ NonNegIntegerSet
+3. n ∈ PosIntegerSet
+4. Odd(n)
+5. forall (k), k ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ⇒ y(x) = (sum_{ k = 0 }^{ n } (frac(x^{k}, k!))) * e^{-x})
+6. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = -frac(1, n!) * e^{-x} * x^{n}
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (FunDeri(y, 1, 1)(x) = 0 ⇔ x = 0)
+
+METHOD:

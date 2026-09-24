@@ -1,0 +1,4 @@
+get_prop (theorem 'Thm 345. (DivergentSequenceDefinition)': {forall (a), (DivergentSeq(a) <==> Not(ConvergentSeq(a)))}) (a := {fun n [n ∈ NonNegIntegerSet] . x(n) + y(n)}) as (hypothesis 10: {DivergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n) + y(n)) <==> Not(ConvergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n) + y(n)))})
+rewrite (left_to_right, iff) (hypothesis 10: {DivergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n) + y(n)) <==> Not(ConvergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n) + y(n)))}); from (GOAL: {DivergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n) + y(n))}) to (GOAL: {Not(ConvergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n) + y(n)))})
+not_normalize from (GOAL: {Not(ConvergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n) + y(n)))}) to (GOAL: {ConvergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n) + y(n)) ⇒ False})
+apply (hypothesis 9: {ConvergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n) + y(n)) ⇒ False})

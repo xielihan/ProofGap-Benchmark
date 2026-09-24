@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. n ∈ NonNegIntegerSet
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ y(x) = frac(e^{x}, x)
+4. n ∈ PosIntegerSet
+5. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(y, 1, n)(x) = sum_{ k = 0 }^{ n } (Combination(n, k) * e^{x} * FunDeri(fun x [x ∈ RealSet ∧ x ≠ 0] . frac(1, x), 1, k)(x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(y, 1, n)(x) = e^{x} * (frac(1, x) + (sum_{ k = 1 }^{ n } ((-1)^{k} * frac(prod_{ i = 0 }^{ k - 1 } (n - i), x^{k + 1}))))
+
+METHOD:

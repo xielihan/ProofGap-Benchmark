@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. Ω ⊆ CartesianProd(RealSet, RealSet)
+2. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ Ω = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet, 0 ≤ x ∧ x ≤ π ∧ 0 ≤ y ∧ y ≤ π })
+3. VolumeInt(Ω, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . |cos(x + y)|) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = DefInt(0, π, (fun x [x ∈ RealSet] . DefInt(0, π, (fun y [y ∈ RealSet] . |cos(x + y)|) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+4. VolumeInt(Ω, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . |cos(x + y)|) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . DefInt(0, frac(π, 2) - x, (fun y [y ∈ RealSet] . cos(x + y)) * diff(fun y [y ∈ RealSet] . y)) - DefInt(frac(π, 2) - x, π, (fun y [y ∈ RealSet] . cos(x + y)) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x)) + DefInt(frac(π, 2), π, (fun x [x ∈ RealSet] . -DefInt(0, frac(3 * π, 2) - x, (fun y [y ∈ RealSet] . cos(x + y)) * diff(fun y [y ∈ RealSet] . y)) + DefInt(frac(3 * π, 2) - x, π, (fun y [y ∈ RealSet] . cos(x + y)) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+5. VolumeInt(Ω, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . |cos(x + y)|) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . 2) * diff(fun x [x ∈ RealSet] . x)) + DefInt(frac(π, 2), π, (fun x [x ∈ RealSet] . 2) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+VolumeInt(Ω, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . |cos(x + y)|) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = 2 * π
+
+METHOD:

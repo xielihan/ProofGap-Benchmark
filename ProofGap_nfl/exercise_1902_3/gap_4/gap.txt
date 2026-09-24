@@ -1,0 +1,19 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. c ∈ RealSet
+4. α ∈ RealSet
+5. β ∈ RealSet
+6. γ ∈ RealSet
+7. a = 0
+8. b ≠ 0
+9. forall (x), x ∈ RealSet ⇒ x + frac(c, 2 * b) ≠ 0
+10. forall (x), x ∈ RealSet ⇒ frac(α * x^{2} + 2 * β * x + γ, (a * x^{2} + 2 * b * x + c)^{2}) = frac(α * (x + frac(c, 2 * b))^{2} - frac(α * c, b) * (x + frac(c, 2 * b)) + frac(α * c^{2}, 4 * b^{2}) + 2 * β * (x + frac(c, 2 * b)) - frac(β * c, b) + γ, 4 * b^{2} * (x + frac(c, 2 * b))^{2})
+11. forall (x), x ∈ RealSet ⇒ frac(α * x^{2} + 2 * β * x + γ, (a * x^{2} + 2 * b * x + c)^{2}) = frac(α, 4 * b^{2}) + frac(2 * β - frac(α * c, b), 4 * b^{2} * (x + frac(c, 2 * b))) + frac(frac(α * c^{2}, 4 * b^{2}) - frac(β * c, b) + γ, 4 * b^{2} * (x + frac(c, 2 * b))^{2})
+12. 2 * β - frac(α * c, b) = 0 ⇒ (exists (R), R : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(R, 1, 1)(x) = frac(α * x^{2} + 2 * β * x + γ, (a * x^{2} + 2 * b * x + c)^{2})))
+
+GOAL:
+α * c = 2 * b * β ⇒ 2 * β - frac(α * c, b) = 0
+
+METHOD:

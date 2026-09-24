@@ -1,0 +1,24 @@
+PROOF GAP @8
+ASSUM:
+1. a : NonNegIntegerSet → RealSet ∧ IsSeq(a)
+2. A : NonNegIntegerSet → RealSet ∧ IsSeq(A)
+3. p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSeq(p)
+4. m ∈ PosIntegerSet
+5. Δ : CartesianProd(NonNegIntegerSet, NonNegIntegerSet) → RealSet
+6. seqlim_{ n → +∞ } (a(n)) = 0
+7. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n)))
+8. p(1) = 1
+9. forall (n), n ∈ PosIntegerSet ⇒ p(n) ∈ PosIntegerSet ∧ p(n + 1) > p(n) ∧ A(n) = sum_{ i = p(n) }^{ p(n + 1) - 1 } (a(i))
+10. forall (n), n ∈ PosIntegerSet ⇒ p(n + 1) - p(n) ≤ m
+11. forall (ε) (δ), ε ∈ RealSet ∧ ε > 0 ∧ δ ∈ RealSet ∧ δ = frac(ε, 2 * m + 1) ⇒ δ > 0
+12. forall (ε) (δ), ε ∈ RealSet ∧ ε > 0 ∧ δ ∈ RealSet ∧ δ = frac(ε, 2 * m + 1) ⇒ (exists (J), J ∈ PosIntegerSet ∧ (forall (j), j ∈ PosIntegerSet ∧ j ≥ J ⇒ |a(j)| < δ))
+13. forall (ε) (δ), ε ∈ RealSet ∧ ε > 0 ∧ δ ∈ RealSet ∧ δ = frac(ε, 2 * m + 1) ⇒ (exists (J) (K) (N), J ∈ PosIntegerSet ∧ K ∈ PosIntegerSet ∧ N ∈ PosIntegerSet ∧ K ≥ J ∧ p(K) ≥ J ∧ N = p(K) ∧ (forall (j), j ∈ PosIntegerSet ∧ j ≥ J ⇒ |a(j)| < δ) ∧ (forall (u) (q), u ∈ PosIntegerSet ∧ q ∈ NonNegIntegerSet ∧ u ≥ K ⇒ |sum_{ k = u }^{ u + q } (A(k))| < δ))
+14. forall (ε) (δ), ε ∈ RealSet ∧ ε > 0 ∧ δ ∈ RealSet ∧ δ = frac(ε, 2 * m + 1) ⇒ (exists (J) (K) (N), J ∈ PosIntegerSet ∧ K ∈ PosIntegerSet ∧ N ∈ PosIntegerSet ∧ K ≥ J ∧ p(K) ≥ J ∧ N = p(K) ∧ (forall (j), j ∈ PosIntegerSet ∧ j ≥ J ⇒ |a(j)| < δ) ∧ (forall (u) (q), u ∈ PosIntegerSet ∧ q ∈ NonNegIntegerSet ∧ u ≥ K ⇒ |sum_{ k = u }^{ u + q } (A(k))| < δ) ∧ (forall (n) (s), n ∈ PosIntegerSet ∧ n ≥ N ∧ s ∈ NonNegIntegerSet ∧ Δ(n, s) = sum_{ i = n }^{ n + s } (a(i)) ⇒ (exists (B_{L}) (B_{R}) (u) (q), B_{L} ∈ RealSet ∧ B_{R} ∈ RealSet ∧ u ∈ PosIntegerSet ∧ q ∈ NonNegIntegerSet ∧ u ≥ K ∧ Δ(n, s) = B_{L} + (cases{0 if q = 0; sum_{ k = u }^{ u + q - 1 } (A(k)) if q > 0}) + B_{R})))
+15. forall (ε) (δ), ε ∈ RealSet ∧ ε > 0 ∧ δ ∈ RealSet ∧ δ = frac(ε, 2 * m + 1) ⇒ (exists (J) (K) (N), J ∈ PosIntegerSet ∧ K ∈ PosIntegerSet ∧ N ∈ PosIntegerSet ∧ K ≥ J ∧ p(K) ≥ J ∧ N = p(K) ∧ (forall (j), j ∈ PosIntegerSet ∧ j ≥ J ⇒ |a(j)| < δ) ∧ (forall (u) (q), u ∈ PosIntegerSet ∧ q ∈ NonNegIntegerSet ∧ u ≥ K ⇒ |sum_{ k = u }^{ u + q } (A(k))| < δ) ∧ (forall (n) (s), n ∈ PosIntegerSet ∧ n ≥ N ∧ s ∈ NonNegIntegerSet ∧ Δ(n, s) = sum_{ i = n }^{ n + s } (a(i)) ⇒ (exists (B_{L}) (B_{R}) (u) (q), B_{L} ∈ RealSet ∧ B_{R} ∈ RealSet ∧ u ∈ PosIntegerSet ∧ q ∈ NonNegIntegerSet ∧ u ≥ K ∧ Δ(n, s) = B_{L} + (cases{0 if q = 0; sum_{ k = u }^{ u + q - 1 } (A(k)) if q > 0}) + B_{R} ∧ |B_{L}| < m * δ)))
+16. forall (ε) (δ), ε ∈ RealSet ∧ ε > 0 ∧ δ ∈ RealSet ∧ δ = frac(ε, 2 * m + 1) ⇒ (exists (J) (K) (N), J ∈ PosIntegerSet ∧ K ∈ PosIntegerSet ∧ N ∈ PosIntegerSet ∧ K ≥ J ∧ p(K) ≥ J ∧ N = p(K) ∧ (forall (j), j ∈ PosIntegerSet ∧ j ≥ J ⇒ |a(j)| < δ) ∧ (forall (u) (q), u ∈ PosIntegerSet ∧ q ∈ NonNegIntegerSet ∧ u ≥ K ⇒ |sum_{ k = u }^{ u + q } (A(k))| < δ) ∧ (forall (n) (s), n ∈ PosIntegerSet ∧ n ≥ N ∧ s ∈ NonNegIntegerSet ∧ Δ(n, s) = sum_{ i = n }^{ n + s } (a(i)) ⇒ (exists (B_{L}) (B_{R}) (u) (q), B_{L} ∈ RealSet ∧ B_{R} ∈ RealSet ∧ u ∈ PosIntegerSet ∧ q ∈ NonNegIntegerSet ∧ u ≥ K ∧ Δ(n, s) = B_{L} + (cases{0 if q = 0; sum_{ k = u }^{ u + q - 1 } (A(k)) if q > 0}) + B_{R} ∧ |B_{L}| < m * δ ∧ |B_{R}| < m * δ)))
+17. forall (ε) (δ), ε ∈ RealSet ∧ ε > 0 ∧ δ ∈ RealSet ∧ δ = frac(ε, 2 * m + 1) ⇒ (exists (J) (K) (N), J ∈ PosIntegerSet ∧ K ∈ PosIntegerSet ∧ N ∈ PosIntegerSet ∧ K ≥ J ∧ p(K) ≥ J ∧ N = p(K) ∧ (forall (j), j ∈ PosIntegerSet ∧ j ≥ J ⇒ |a(j)| < δ) ∧ (forall (u) (q), u ∈ PosIntegerSet ∧ q ∈ NonNegIntegerSet ∧ u ≥ K ⇒ |sum_{ k = u }^{ u + q } (A(k))| < δ) ∧ (forall (n) (s), n ∈ PosIntegerSet ∧ n ≥ N ∧ s ∈ NonNegIntegerSet ∧ Δ(n, s) = sum_{ i = n }^{ n + s } (a(i)) ⇒ (exists (B_{L}) (B_{R}) (u) (q), B_{L} ∈ RealSet ∧ B_{R} ∈ RealSet ∧ u ∈ PosIntegerSet ∧ q ∈ NonNegIntegerSet ∧ u ≥ K ∧ Δ(n, s) = B_{L} + (cases{0 if q = 0; sum_{ k = u }^{ u + q - 1 } (A(k)) if q > 0}) + B_{R} ∧ |B_{L}| < m * δ ∧ |B_{R}| < m * δ ∧ |cases{0 if q = 0; sum_{ k = u }^{ u + q - 1 } (A(k)) if q > 0}| < δ)))
+
+GOAL:
+forall (ε) (δ), ε ∈ RealSet ∧ ε > 0 ∧ δ ∈ RealSet ∧ δ = frac(ε, 2 * m + 1) ⇒ (exists (J) (K) (N), J ∈ PosIntegerSet ∧ K ∈ PosIntegerSet ∧ N ∈ PosIntegerSet ∧ K ≥ J ∧ p(K) ≥ J ∧ N = p(K) ∧ (forall (j), j ∈ PosIntegerSet ∧ j ≥ J ⇒ |a(j)| < δ) ∧ (forall (u) (q), u ∈ PosIntegerSet ∧ q ∈ NonNegIntegerSet ∧ u ≥ K ⇒ |sum_{ k = u }^{ u + q } (A(k))| < δ) ∧ (forall (n) (s), n ∈ PosIntegerSet ∧ n ≥ N ∧ s ∈ NonNegIntegerSet ∧ Δ(n, s) = sum_{ i = n }^{ n + s } (a(i)) ⇒ (exists (B_{L}) (B_{R}) (u) (q), B_{L} ∈ RealSet ∧ B_{R} ∈ RealSet ∧ u ∈ PosIntegerSet ∧ q ∈ NonNegIntegerSet ∧ u ≥ K ∧ Δ(n, s) = B_{L} + (cases{0 if q = 0; sum_{ k = u }^{ u + q - 1 } (A(k)) if q > 0}) + B_{R} ∧ |B_{L}| < m * δ ∧ |B_{R}| < m * δ ∧ |cases{0 if q = 0; sum_{ k = u }^{ u + q - 1 } (A(k)) if q > 0}| < δ ∧ |Δ(n, s)| ≤ |B_{L}| + |cases{0 if q = 0; sum_{ k = u }^{ u + q - 1 } (A(k)) if q > 0}| + |B_{R}|)))
+
+METHOD:

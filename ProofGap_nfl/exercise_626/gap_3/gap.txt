@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. k ∈ RealSet
+3. b ∈ RealSet
+4. x ∈ RealSet
+5. lim_{ x → +∞ } (f(x) - (k * x + b)) = 0 ⇒ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ frac(f(x), x) = frac(f(x) - (k * x + b), x) + k + frac(b, x))
+6. lim_{ x → +∞ } (f(x) - (k * x + b)) = 0 ⇒ lim_{ x → +∞ } (frac(f(x), x)) = k
+
+GOAL:
+lim_{ x → +∞ } (f(x) - (k * x + b)) = 0 ⇒ lim_{ x → +∞ } (f(x) - k * x) = b
+
+METHOD:
+[@method 由 lim_{ x → +∞ } (f(x) - (k * x + b)) = 0 等价变形 @]

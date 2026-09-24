@@ -1,0 +1,11 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(1, n) < ε ⇒ |x_{1}(n)| < ε)}) (n := {k})
+get_condition (hypothesis 14: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet}) in (GOAL: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(1, k) < ε ⇒ |x_{1}(k)| < ε)})
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(1, k) < ε ⇒ |x_{1}(k)| < ε}) (ε := {epsilon0})
+get_condition (hypothesis 15: {epsilon0 ∈ RealSet ∧ epsilon0 > 0 ∧ frac(1, k) < epsilon0}) in (GOAL: {epsilon0 ∈ RealSet ∧ epsilon0 > 0 ∧ frac(1, k) < epsilon0 ⇒ |x_{1}(k)| < epsilon0})
+destruct_and (hypothesis 15: {epsilon0 ∈ RealSet ∧ epsilon0 > 0 ∧ frac(1, k) < epsilon0}) as (hypothesis 16: {epsilon0 ∈ RealSet}) (hypothesis 17: {epsilon0 > 0}) (hypothesis 18: {frac(1, k) < epsilon0})
+assert (hypothesis 19: {epsilon0 ∈ RealSet ∧ epsilon0 > 0})
+get_prop (hypothesis 13: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |x_{1}(n)| = frac(1, n))}) (ε := {epsilon0}) as (hypothesis 20: {epsilon0 ∈ RealSet ∧ epsilon0 > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |x_{1}(n)| = frac(1, n))})
+use_condition (hypothesis 19: {epsilon0 ∈ RealSet ∧ epsilon0 > 0}) in (hypothesis 20: {epsilon0 ∈ RealSet ∧ epsilon0 > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |x_{1}(n)| = frac(1, n))}) as (hypothesis 21: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |x_{1}(n)| = frac(1, n)})
+get_prop (hypothesis 21: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |x_{1}(n)| = frac(1, n)}) (n := {k}) as (hypothesis 22: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ |x_{1}(k)| = frac(1, k)})
+use_condition (hypothesis 14: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet}) in (hypothesis 22: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ |x_{1}(k)| = frac(1, k)}) as (hypothesis 23: {|x_{1}(k)| = frac(1, k)})
+autosolve all_hypothesis

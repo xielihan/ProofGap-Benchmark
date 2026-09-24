@@ -1,0 +1,19 @@
+PROOF GAP @9
+ASSUM:
+1. a = (fun n [n ∈ NonNegIntegerSet] . frac(1 + (-1)^{n}, 2))
+2. b = (fun n [n ∈ NonNegIntegerSet] . frac(1 - (-1)^{n}, 2))
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ≥ 0 ∧ b(n) ≥ 0
+4. DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+5. DivergentSeries(sum_{ n = 1 }^{ +∞ } (b(n)))
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ min(a(n), b(n)) = 0
+7. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (min(a(n), b(n))))
+8. c = (fun n [n ∈ NonNegIntegerSet] . frac(1, n))
+9. d = (fun n [n ∈ NonNegIntegerSet] . frac(1, 2 * n))
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ c(n) ≥ 0 ∧ d(n) ≥ 0
+11. DivergentSeries(sum_{ n = 1 }^{ +∞ } (c(n)))
+12. DivergentSeries(sum_{ n = 1 }^{ +∞ } (d(n)))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ min(c(n), d(n)) = d(n)
+
+METHOD:

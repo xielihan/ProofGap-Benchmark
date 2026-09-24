@@ -1,0 +1,42 @@
+PROOF GAP @23
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. D ⊆ CartesianProd(RealSet, RealSet)
+4. a ∈ RealSet ∧ a > 0
+5. `ρ_0` ∈ RealSet ∧ `ρ_0` > 0
+6. M ∈ RealSet
+7. x_{0} ∈ RealSet
+8. y_{0} ∈ RealSet
+9. z_{0} ∈ RealSet
+10. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = sqrtn(2, x^{2} + y^{2}))
+11. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ S = { (x, y, z(x, y)) | x ∈ RealSet ∧ y ∈ RealSet, x^{2} + y^{2} ≤ a * x })
+12. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ D = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet, x^{2} + y^{2} ≤ a * x })
+13. M = ScalarSurfaceInt(S, `ρ_0` * diff(S))
+14. ScalarSurfaceInt(S, `ρ_0` * diff(S)) = sqrtn(2, 2) * `ρ_0` * VolumeInt(D, diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+15. sqrtn(2, 2) * `ρ_0` * VolumeInt(D, diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = sqrtn(2, 2) * `ρ_0` * frac(a, 2)^{2} * π
+16. sqrtn(2, 2) * `ρ_0` * frac(a, 2)^{2} * π = frac(sqrtn(2, 2) * π * a^{2} * `ρ_0`, 4)
+17. M = frac(sqrtn(2, 2) * π * a^{2} * `ρ_0`, 4)
+18. x_{0} = frac(1, M) * sqrtn(2, 2) * `ρ_0` * VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+19. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ⇒ frac(1, M) * sqrtn(2, 2) * `ρ_0` * VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = frac(4, π * a^{2}) * DefInt(0, a, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . x) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . x)) * DefInt(-sqrtn(2, a * x - x^{2}), sqrtn(2, a * x - x^{2}), diff(fun y [y ∈ RealSet] . y))
+20. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ⇒ frac(4, π * a^{2}) * DefInt(0, a, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . x) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . x)) * DefInt(-sqrtn(2, a * x - x^{2}), sqrtn(2, a * x - x^{2}), diff(fun y [y ∈ RealSet] . y)) = frac(8, π * a^{2}) * DefInt(0, a, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . x * sqrtn(2, a * x - x^{2})) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . x))
+21. x_{0} = frac(8, π * a^{2}) * DefInt(0, a, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . x * sqrtn(2, a * x - x^{2})) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . x))
+22. t = x_{0} - frac(a, 2)
+23. x_{0} = frac(8, π * a^{2}) * DefInt(-frac(a, 2), frac(a, 2), (fun t [t ∈ RealSet ∧ -frac(a, 2) ≤ t ∧ t ≤ frac(a, 2)] . (frac(a, 2) + t) * sqrtn(2, frac(a, 2)^{2} - t^{2})) * diff(fun t [t ∈ RealSet ∧ -frac(a, 2) ≤ t ∧ t ≤ frac(a, 2)] . t))
+24. frac(8, π * a^{2}) * DefInt(-frac(a, 2), frac(a, 2), (fun t [t ∈ RealSet ∧ -frac(a, 2) ≤ t ∧ t ≤ frac(a, 2)] . (frac(a, 2) + t) * sqrtn(2, frac(a, 2)^{2} - t^{2})) * diff(fun t [t ∈ RealSet ∧ -frac(a, 2) ≤ t ∧ t ≤ frac(a, 2)] . t)) = frac(8, π * a^{2}) * DefInt(0, frac(a, 2), (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(a, 2)] . sqrtn(2, frac(a, 2)^{2} - t^{2})) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(a, 2)] . t))
+25. frac(8, π * a^{2}) * DefInt(0, frac(a, 2), (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(a, 2)] . sqrtn(2, frac(a, 2)^{2} - t^{2})) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(a, 2)] . t)) = frac(a, 2)
+26. x_{0} = frac(a, 2)
+27. y_{0} = frac(1, M) * sqrtn(2, 2) * `ρ_0` * DefInt(0, a, diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . x)) * DefInt(-sqrtn(2, a * x_{0} - (x_{0})^{2}), sqrtn(2, a * x_{0} - (x_{0})^{2}), (fun y [y ∈ RealSet] . y) * diff(fun y [y ∈ RealSet] . y))
+28. frac(1, M) * sqrtn(2, 2) * `ρ_0` * DefInt(0, a, diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . x)) * DefInt(-sqrtn(2, a * x_{0} - (x_{0})^{2}), sqrtn(2, a * x_{0} - (x_{0})^{2}), (fun y [y ∈ RealSet] . y) * diff(fun y [y ∈ RealSet] . y)) = 0
+29. y_{0} = 0
+30. z_{0} = frac(1, M) * sqrtn(2, 2) * `ρ_0` * VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+31. forall (φ), φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2) ⇒ frac(1, M) * sqrtn(2, 2) * `ρ_0` * VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = frac(4, π * a^{2}) * DefInt(-frac(π, 2), frac(π, 2), diff(fun φ [φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2)] . φ)) * DefInt(0, a * cos(φ), (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a * cos(φ)] . r^{2}) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a * cos(φ)] . r))
+32. forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2) ⇒ frac(4, π * a^{2}) * DefInt(-frac(π, 2), frac(π, 2), diff(fun φ [φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2)] . φ)) * DefInt(0, a * cos(φ), (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a * cos(φ)] . r^{2}) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a * cos(φ)] . r)) = frac(8 * a, 3 * π) * DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . cos(φ)^{3}) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . φ))
+33. frac(8 * a, 3 * π) * DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . cos(φ)^{3}) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . φ)) = frac(16 * a, 9 * π)
+34. z_{0} = frac(16 * a, 9 * π)
+35. x_{0} = frac(a, 2)
+
+GOAL:
+y_{0} = 0
+
+METHOD:

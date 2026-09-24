@@ -1,0 +1,3 @@
+exists (t := {e^{frac(x, 6)}})
+assert (hypothesis 2: {e^{frac(x, 6)} ∈ RealSet ∧ e^{frac(x, 6)} > 0 ∧ e^{frac(x, 6)} = e^{frac(x, 6)}})
+apply (hypothesis 2: {e^{frac(x, 6)} ∈ RealSet ∧ e^{frac(x, 6)} > 0 ∧ e^{frac(x, 6)} = e^{frac(x, 6)}})

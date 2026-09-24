@@ -1,0 +1,28 @@
+PROOF GAP @19
+ASSUM:
+1. α ∈ RealSet ∧ |α| ≤ 1
+2. lim_{ x → 0^+ } (frac(ln(1 - α^{2} * x^{2}), x^{2} * sqrtn(2, 1 - x^{2}))) = lim_{ x → 0^+ } (frac(ln(1 - α^{2} * x^{2}), x^{2}))
+3. lim_{ x → 0^+ } (frac(ln(1 - α^{2} * x^{2}), x^{2})) = lim_{ x → 0^+ } (frac(-frac(2 * α^{2} * x, 1 - α^{2} * x^{2}), 2 * x))
+4. lim_{ x → 0^+ } (frac(-frac(2 * α^{2} * x, 1 - α^{2} * x^{2}), 2 * x)) = -α^{2}
+5. lim_{ x → 0^+ } (frac(ln(1 - α^{2} * x^{2}), x^{2} * sqrtn(2, 1 - x^{2}))) = -α^{2}
+6. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < 1 ∧ |α| ≤ 1 ⇒ |frac(ln(1 - α^{2} * x^{2}), x^{2} * sqrtn(2, 1 - x^{2}))| ≤ -frac(ln(1 - x^{2}), x^{2} * sqrtn(2, 1 - x^{2}))
+7. lim_{ x → 1^- } ((1 - x)^{frac(2, 3)} * frac(ln(1 - x^{2}), x^{2} * sqrtn(2, 1 - x^{2}))) = 0
+8. ConvergentSeries(DefInt(0, 1, (fun x [x ∈ RealSet] . frac(ln(1 - x^{2}), x^{2} * sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x)))
+9. ConvergentSeries(DefInt(0, 1, (fun x [x ∈ RealSet] . frac(ln(1 - α^{2} * x^{2}), x^{2} * sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x)))
+10. I = (fun α [α ∈ RealSet ∧ |α| ≤ 1] . DefInt(0, 1, (fun x [x ∈ RealSet] . frac(ln(1 - α^{2} * x^{2}), x^{2} * sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x)))
+11. ContinuousFuncOn(I, [-1, 1])
+12. DefInt(0, 1, (fun x [x ∈ RealSet] . FunDeri(fun α [α ∈ RealSet ∧ |α| < 1] . frac(ln(1 - α^{2} * x^{2}), x^{2} * sqrtn(2, 1 - x^{2})), 1, 1)) * diff(fun x [x ∈ RealSet] . x)) = -2 * α * DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1, (1 - α^{2} * x^{2}) * sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x))
+13. forall (`α₀`), `α₀` ∈ RealSet ∧ 0 < `α₀` ∧ `α₀` < 1 ∧ |α| ≤ `α₀` ⇒ (forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x < 1 ⇒ |frac(-2 * α, (1 - α^{2} * x^{2}) * sqrtn(2, 1 - x^{2}))| ≤ frac(2, 1 - `α₀`^{2}) * frac(1, sqrtn(2, 1 - x^{2})))
+14. forall (`α₀`), `α₀` ∈ RealSet ∧ 0 < `α₀` ∧ `α₀` < 1 ⇒ DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1, sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x)) = frac(π, 2)
+15. |α| < 1 ⇒ FunDeri(I, 1, 1)(α) = -2 * α * DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1, (1 - α^{2} * x^{2}) * sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x))
+16. I_{1} = (fun x [x ∈ RealSet] . { `F_1` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_1`, 1, 1)(x) = frac(1, (1 - α^{2} * x^{2}) * sqrtn(2, 1 - x^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) })
+17. forall (t), t ∈ RealSet ⇒ I_{1}(t) = { `F_2` | forall (t), t ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(t) = frac(1, 1 - α^{2} * sin(t)^{2}) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) }
+18. { `F_2` | forall (t), t ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(t) = frac(1, 1 - α^{2} * sin(t)^{2}) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) } = { `F_6` | exists (`F_3`) (`F_4`), `F_3` : RealSet → RealSet ∧ `F_4` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(t) = frac(1, 1 - α * sin(t)) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ FunDeri(`F_4`, 1, 1)(t) = frac(1, 1 + α * sin(t)) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_6`(t) = frac(1, 2) * (`F_3`(t) + `F_4`(t))) }
+19. forall (t), t ∈ RealSet ⇒ I_{1}(t) = { `F_6` | exists (`F_3`) (`F_4`), `F_3` : RealSet → RealSet ∧ `F_4` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(t) = frac(1, 1 - α * sin(t)) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ FunDeri(`F_4`, 1, 1)(t) = frac(1, 1 + α * sin(t)) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_6`(t) = frac(1, 2) * (`F_3`(t) + `F_4`(t))) }
+20. forall (t), t ∈ RealSet ⇒ { `F_7` | forall (t), t ∈ RealSet ⇒ FunDeri(`F_7`, 1, 1)(t) = frac(1, 1 - α * sin(t)) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) } = frac(2, sqrtn(2, 1 - α^{2})) * arctan(frac(tan(frac(t, 2)) - α, sqrtn(2, 1 - α^{2})))
+21. forall (t), t ∈ RealSet ⇒ { `F_8` | forall (t), t ∈ RealSet ⇒ FunDeri(`F_8`, 1, 1)(t) = frac(1, 1 + α * sin(t)) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) } = frac(2, sqrtn(2, 1 - α^{2})) * arctan(frac(tan(frac(t, 2)) + α, sqrtn(2, 1 - α^{2})))
+
+GOAL:
+|α| < 1 ⇒ FunDeri(I, 1, 1)(α) = -frac(π * α, sqrtn(2, 1 - α^{2}))
+
+METHOD:

@@ -1,0 +1,4 @@
+assert (hypothesis 12: {x - 2 ∈ RealSet ∧ x - 2 = x - 2})
+get_prop (hypothesis 10: {forall (t), t ∈ RealSet ∧ t = x - 2 ⇒ -8 ≤ t}) (t := {x - 2}) as (hypothesis 13: {x - 2 ∈ RealSet ∧ x - 2 = x - 2 ⇒ -8 ≤ x - 2})
+use_condition (hypothesis 12: {x - 2 ∈ RealSet ∧ x - 2 = x - 2}) in (hypothesis 13: {x - 2 ∈ RealSet ∧ x - 2 = x - 2 ⇒ -8 ≤ x - 2}) as (hypothesis 14: {-8 ≤ x - 2})
+apply (hypothesis 14: {-8 ≤ x - 2})

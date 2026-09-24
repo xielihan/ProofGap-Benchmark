@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ∧ x + a > 0 ∧ x + b > 0 ∧ x + a + b > 0 ⇒ frac((x + a)^{x + a} * (x + b)^{x + b}, (x + a + b)^{2 * x + a + b}) = frac((1 + frac(a, x))^{x + a} * (1 + frac(b, x))^{x + b}, (1 + frac(a + b, x))^{2 * x + a + b})
+4. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ∧ x + a > 0 ∧ x + b > 0 ∧ x + a + b > 0 ∧ a ≠ 0 ∧ b ≠ 0 ∧ a + b ≠ 0 ⇒ lim_{ x → +∞ } (frac((1 + frac(a, x))^{x + a} * (1 + frac(b, x))^{x + b}, (1 + frac(a + b, x))^{2 * x + a + b})) = frac(e^{a} * e^{b}, e^{2 * (a + b)})
+
+GOAL:
+lim_{ x → +∞ } (frac((x + a)^{x + a} * (x + b)^{x + b}, (x + a + b)^{2 * x + a + b})) = frac(e^{a} * e^{b}, e^{2 * (a + b)})
+
+METHOD:

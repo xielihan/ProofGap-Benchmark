@@ -1,0 +1,5 @@
+1. get_prop (theorem 'Thm 384. (ArccosCosRightInverse)': {forall (u), u ∈ RealSet => u ∈ [0, π] => arccos(cos(u)) = u}) (u := {frac(π, 3)}) as (hypothesis 7: {frac(π, 3) ∈ RealSet => frac(π, 3) ∈ [0, π] => arccos(cos(frac(π, 3))) = frac(π, 3)})
+2. use_condition (obvious: {frac(π, 3) ∈ RealSet}) (obvious: {frac(π, 3) ∈ [0, π]}) in (hypothesis 7: {frac(π, 3) ∈ RealSet => frac(π, 3) ∈ [0, π] => arccos(cos(frac(π, 3))) = frac(π, 3)}) as (hypothesis 8: {arccos(cos(frac(π, 3))) = frac(π, 3)})
+3. assert (hypothesis 9: {cos(frac(π, 3)) = frac(1, 2)})
+4. rewrite (left_to_right, equation) (hypothesis 9: {cos(frac(π, 3)) = frac(1, 2)}); from (hypothesis 8: {arccos(cos(frac(π, 3))) = frac(π, 3)}) to (hypothesis 10: {arccos(frac(1, 2)) = frac(π, 3)})
+5. apply (hypothesis 10: {arccos(frac(1, 2)) = frac(π, 3)})

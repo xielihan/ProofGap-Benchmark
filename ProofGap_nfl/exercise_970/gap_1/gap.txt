@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. y = fun x . arccos(frac(1, cosh(x)))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(y, 1, 1)(x) = -frac(1, sqrtn(2, 1 - frac(1, cosh(x)^{2}))) * -frac(sinh(x), cosh(x)^{2}) ∧ -frac(1, sqrtn(2, 1 - frac(1, cosh(x)^{2}))) * -frac(sinh(x), cosh(x)^{2}) = frac(sgn(sinh(x)), cosh(x))
+
+METHOD:

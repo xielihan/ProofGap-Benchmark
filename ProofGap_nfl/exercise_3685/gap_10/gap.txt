@@ -1,0 +1,30 @@
+PROOF GAP @10
+ASSUM:
+1. a ∈ RealSet ∧ a ∈ PosRealSet
+2. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+3. x : NonNegIntegerSet → RealSet
+4. α : NonNegIntegerSet → RealSet
+5. u ∈ RealSet
+6. F ∈ RealSet
+7. λ ∈ RealSet
+8. β ∈ RealSet
+9. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ x(i) ∈ PosRealSet
+10. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ α(i) ∈ PosRealSet
+11. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ prod_{ i = 1 }^{ n } (x(i)) = a
+12. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ u = sum_{ i = 1 }^{ n } (x(i)^{α(i)})
+13. ln(a) = sum_{ i = 1 }^{ n } (ln(x(i)))
+14. F = u - λ * ((sum_{ i = 1 }^{ n } (ln(x(i)))) - ln(a))
+15. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ FunDeri(F, fun x, λ [x ∈ NonNegIntegerSet ∧ λ ∈ RealSet] . x(i), 1) = α(i) * x(i)^{α(i) - 1} - frac(λ, x(i)) ∧ α(i) * x(i)^{α(i) - 1} - frac(λ, x(i)) = 0
+16. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ α(i) * x(i)^{α(i)} = λ
+17. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ x(i) = frac(λ, α(i))^{frac(1, α(i))}
+18. β = sum_{ i = 1 }^{ n } (frac(1, α(i)))
+19. ln(a) + (sum_{ i = 1 }^{ n } (frac(ln(α(i)), α(i)))) = ln(λ) * β
+20. λ = (a * (prod_{ i = 1 }^{ n } (α(i)^{frac(1, α(i))})))^{frac(1, β)}
+21. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ x(i) = frac((a * (prod_{ j = 1 }^{ n } (α(j)^{frac(1, α(j))})))^{frac(1, β)}, α(i))^{frac(1, α(i))}
+22. u = sum_{ i = 1 }^{ n } (frac(λ, α(i)))
+23. sum_{ i = 1 }^{ n } (frac(λ, α(i))) = β * λ
+
+GOAL:
+u = β * λ
+
+METHOD:

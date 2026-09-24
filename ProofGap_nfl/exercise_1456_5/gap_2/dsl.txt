@@ -1,0 +1,2 @@
+get_condition (hypothesis 5: {(a, b) = (0, 0)}) in (GOAL: {(a, b) = (0, 0) ⇒ sqrtn(2, a^{2} + b^{2}) = 0})
+autosolve all_hypothesis

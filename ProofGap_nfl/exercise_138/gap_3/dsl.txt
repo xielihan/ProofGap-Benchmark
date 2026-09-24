@@ -1,0 +1,14 @@
+get_exists (hypothesis 9: {exists (a), a ∈ RealSet ∧ seqlim_{ n → +∞ } (x(n)) = a ∧ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ |x(n) - a| < ε)))}) (a := {b})
+assert (hypothesis 11: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ frac(s(n), n) = frac(s(N), n) + frac(s(n) - s(N), n)))}) by proof {
+  get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ frac(s(n), n) = frac(s(N), n) + frac(s(n) - s(N), n)))}) (ε := {t})
+  get_condition (hypothesis 11: {t ∈ RealSet ∧ t > 0}) in (GOAL: {t ∈ RealSet ∧ t > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ frac(s(n), n) = frac(s(N), n) + frac(s(n) - s(N), n)))})
+  assert (hypothesis 12: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > 1 ⇒ frac(s(n), n) = frac(s(1), n) + frac(s(n) - s(1), n)}) by proof {
+    get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > 1 ⇒ frac(s(n), n) = frac(s(1), n) + frac(s(n) - s(1), n)}) (n := {u})
+    get_condition (hypothesis 12: {u ∈ NonNegIntegerSet ∧ u ∈ PosIntegerSet ∧ u > 1}) in (GOAL: {u ∈ NonNegIntegerSet ∧ u ∈ PosIntegerSet ∧ u > 1 ⇒ frac(s(u), u) = frac(s(1), u) + frac(s(u) - s(1), u)})
+    autosolve all_hypothesis
+  }
+  exists (N := {1})
+  autosolve all_hypothesis
+}
+exists (a := {b})
+autosolve all_hypothesis

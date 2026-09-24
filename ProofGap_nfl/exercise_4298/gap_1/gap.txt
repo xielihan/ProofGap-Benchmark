@@ -1,0 +1,18 @@
+PROOF GAP @1
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. a ∈ RealSet ∧ a > 0
+3. x ∈ RealSet
+4. y ∈ RealSet
+5. P : CartesianProd(RealSet, RealSet) → RealSet
+6. Q : CartesianProd(RealSet, RealSet) → RealSet
+7. S ⊆ CartesianProd(RealSet, RealSet)
+8. C = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet, x^{2} + y^{2} = a^{2} }
+9. P = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . -x^{2} * y)
+10. Q = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x * y^{2})
+11. S = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet, x^{2} + y^{2} ≤ a^{2} }
+
+GOAL:
+FunDeri(Q, 1, 1)(x, y) - FunDeri(P, 2, 1)(x, y) = y^{2} - -x^{2}
+
+METHOD:

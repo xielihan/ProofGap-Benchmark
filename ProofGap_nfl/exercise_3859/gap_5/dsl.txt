@@ -1,0 +1,5 @@
+destruct_and (hypothesis 1: {n ∈ RealSet ∧ n > 0 ∧ x ∈ RealSet ∧ t ∈ RealSet}) as (hypothesis 8: {n ∈ RealSet}) (hypothesis 9: {n > 0}) (hypothesis 10: {x ∈ RealSet}) (hypothesis 11: {t ∈ RealSet})
+assert (hypothesis 12: {frac(1, n) > 0}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

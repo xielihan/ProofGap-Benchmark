@@ -1,0 +1,16 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. c ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ f(x) = cases{ frac(3 - x^{2}, 2) if 0 ≤ x ∧ x ≤ 1; frac(1, x) if 1 < x ∧ x < +∞ }
+4. f(0) = frac(3, 2)
+5. f(2) = frac(1, 2)
+6. forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(f, 1, 1)(x) = cases{ -x if 0 < x ∧ x ≤ 1; -frac(1, x^{2}) if 1 < x ∧ x < +∞ }
+7. f(2) - f(0) = FunDeri(f, 1, 1)(c) * (2 - 0)
+8. 0 < c
+
+GOAL:
+c < 2
+
+METHOD:
+[@method 根据 "拉格朗日有限增量公式" @]

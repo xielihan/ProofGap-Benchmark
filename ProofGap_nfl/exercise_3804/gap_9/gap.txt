@@ -1,0 +1,19 @@
+PROOF GAP @9
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet
+3. c ∈ RealSet
+4. a * c - b^{2} > 0
+5. forall (x), x ∈ RealSet ⇒ a * x^{2} + 2 * b * x + c = frac(1, a) * ((a * x + b)^{2} + a * c - b^{2})
+6. forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ (t = frac(a * x + b, sqrtn(2, a)) ⇒ diff(fun x [x ∈ RealSet] . x) = frac(1, sqrtn(2, a)) * diff(fun t [t ∈ RealSet] . t)))
+7. forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ (t = frac(a * x + b, sqrtn(2, a)) ⇒ frac(1, a) * (a * x + b)^{2} = t^{2}))
+8. DefInt(-∞, +∞, (fun x [x ∈ RealSet] . e^{-(a * x^{2} + 2 * b * x + c)}) * diff(fun x [x ∈ RealSet] . x)) = DefInt(-∞, +∞, (fun x [x ∈ RealSet] . e^{-(frac(1, a) * ((a * x + b)^{2} + a * c - b^{2}))}) * diff(fun x [x ∈ RealSet] . x))
+9. DefInt(-∞, +∞, (fun x [x ∈ RealSet] . e^{-(a * x^{2} + 2 * b * x + c)}) * diff(fun x [x ∈ RealSet] . x)) = e^{frac(b^{2} - a * c, a)} * DefInt(-∞, +∞, (fun t [t ∈ RealSet] . frac(1, sqrtn(2, a)) * e^{-t^{2}}) * diff(fun t [t ∈ RealSet] . t))
+10. DefInt(-∞, +∞, (fun t [t ∈ RealSet] . frac(1, sqrtn(2, a)) * e^{-t^{2}}) * diff(fun t [t ∈ RealSet] . t)) = frac(2, sqrtn(2, a)) * DefInt(0, +∞, (fun t [t ∈ RealSet] . e^{-t^{2}}) * diff(fun t [t ∈ RealSet] . t))
+11. DefInt(0, +∞, (fun t [t ∈ RealSet] . e^{-t^{2}}) * diff(fun t [t ∈ RealSet] . t)) = frac(sqrtn(2, π), 2)
+12. DefInt(-∞, +∞, (fun x [x ∈ RealSet] . e^{-(a * x^{2} + 2 * b * x + c)}) * diff(fun x [x ∈ RealSet] . x)) = sqrtn(2, frac(π, a)) * e^{frac(b^{2} - a * c, a)}
+
+GOAL:
+a > 0 ⇒ DefInt(-∞, +∞, (fun x [x ∈ RealSet] . e^{-(a * x^{2} + 2 * b * x + c)}) * diff(fun x [x ∈ RealSet] . x)) = sqrtn(2, frac(π, a)) * e^{frac(b^{2} - a * c, a)}
+
+METHOD:

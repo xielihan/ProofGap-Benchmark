@@ -1,0 +1,19 @@
+PROOF GAP @1
+ASSUM:
+1. M ∈ RealSet ∧ M > 0
+2. R ∈ RealSet ∧ R > 0
+3. B ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+4. ρ : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+5. k ∈ RealSet
+6. I_{z} ∈ RealSet
+7. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ B = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x^{2} + y^{2} + z^{2} ≤ R^{2} }
+8. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ∈ B ⇒ ρ(x, y, z) = k * sqrtn(2, x^{2} + y^{2} + z^{2})
+9. x = r * cos(φ) * cos(ψ)
+10. y = r * sin(φ) * cos(ψ)
+11. z = r * sin(ψ)
+12. φ ∈ RealSet ∧ φ ∈ [0, 2 * π]
+
+GOAL:
+0 ≤ φ
+
+METHOD:

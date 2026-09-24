@@ -1,0 +1,22 @@
+PROOF GAP @14
+ASSUM:
+1. a ∈ RealSet ∧ a ∈ PosRealSet
+2. a > 1 ⇒ b = (fun n [n ∈ PosIntegerSet] . a^{frac(1, n)} - 1)
+3. a > 1 ⇒ (forall (n), n ∈ PosIntegerSet ⇒ b(n) > 0)
+4. a > 1 ⇒ (forall (n), n ∈ PosIntegerSet ⇒ frac(ln(a), n) = ln(1 + b(n)))
+5. a > 1 ⇒ (forall (n), n ∈ PosIntegerSet ⇒ n * (a^{frac(1, n)} - 1) = ln(a) * frac(b(n), ln(1 + b(n))))
+6. a > 1 ⇒ seqlim_{ n → +∞ } (b(n)) = 0
+7. a > 1 ⇒ (exists (N), N ∈ PosIntegerSet ∧ (forall (n), n ∈ PosIntegerSet ∧ n > N ⇒ 0 < b(n) ∧ b(n) < 1))
+8. a > 1 ⇒ (k : NonNegIntegerSet → NonNegIntegerSet ∧ (exists (N), N ∈ PosIntegerSet ∧ (forall (n), n ∈ PosIntegerSet ∧ n > N ⇒ k(n) ∈ PosIntegerSet ∧ frac(1, k(n) + 1) ≤ b(n) ∧ b(n) < frac(1, k(n)) ∧ (forall (q), q ∈ PosIntegerSet ∧ frac(1, q + 1) ≤ b(n) ∧ b(n) < frac(1, q) ⇒ q = k(n)))))
+9. a > 1 ⇒ seqlim_{ n → +∞ } (k(n)) = +∞
+10. a > 1 ⇒ (exists (N), N ∈ PosIntegerSet ∧ (forall (n), n ∈ PosIntegerSet ∧ n > N ⇒ frac(1, k(n) + 2) < ln(1 + frac(1, k(n) + 1))))
+11. a > 1 ⇒ (exists (N), N ∈ PosIntegerSet ∧ (forall (n), n ∈ PosIntegerSet ∧ n > N ⇒ ln(1 + frac(1, k(n) + 1)) ≤ ln(1 + b(n))))
+12. a > 1 ⇒ (exists (N), N ∈ PosIntegerSet ∧ (forall (n), n ∈ PosIntegerSet ∧ n > N ⇒ ln(1 + b(n)) < ln(1 + frac(1, k(n)))))
+13. a > 1 ⇒ (exists (N), N ∈ PosIntegerSet ∧ (forall (n), n ∈ PosIntegerSet ∧ n > N ⇒ ln(1 + frac(1, k(n))) < frac(1, k(n))))
+14. a > 1 ⇒ (exists (N), N ∈ PosIntegerSet ∧ (forall (n), n ∈ PosIntegerSet ∧ n > N ⇒ frac(1, k(n) + 2) < frac(1, k(n))))
+15. a > 1 ⇒ (exists (N), N ∈ PosIntegerSet ∧ (forall (n), n ∈ PosIntegerSet ∧ n > N ⇒ 1 - frac(1, k(n) + 1) = frac(k(n), k(n) + 1)))
+
+GOAL:
+a > 1 ⇒ (exists (N) (k), N ∈ NonNegIntegerSet ∧ k : NonNegIntegerSet → NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ frac(k(n), k(n) + 1) < frac(b(n), ln(1 + b(n)))))
+
+METHOD:

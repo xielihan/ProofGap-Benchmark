@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. seqlim_{ n → +∞ } (frac(ln(sin(frac(1, n))), ln(frac(1, n)))) = 1
+
+GOAL:
+(frac(1, ln(sin(frac(1, n)))^{2})) ∼_{ n → +∞ } (frac(1, ln(frac(1, n))^{2}))
+
+METHOD:

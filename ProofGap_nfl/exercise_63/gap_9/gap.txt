@@ -1,0 +1,18 @@
+PROOF GAP @9
+ASSUM:
+1. a ∈ RealSet
+2. a > 0
+3. a = 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ sqrtn(n, a) = 1)
+4. a = 1 ⇒ seqlim_{ n → +∞ } (sqrtn(n, a)) = 1
+5. a > 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (1 + ε)^{n} > 1 + n * ε))
+6. a > 1 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ IntegerSet ∧ N = floor(frac(a - 1, ε))))
+7. a > 1 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N ⇒ 1 + n * ε > a)))
+8. a > 1 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N ⇒ (1 + ε)^{n} > a)))
+9. a > 1 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N ⇒ 1 < sqrtn(n, a))))
+10. a > 1 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N ⇒ sqrtn(n, a) < 1 + ε)))
+11. a > 1 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N ⇒ 1 < 1 + ε)))
+
+GOAL:
+a > 1 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N1), exists (N2), N1 ∈ IntegerSet ∧ N2 ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N1 ∧ n > N2 ⇒ |sqrtn(n, a) - 1| < ε)))
+
+METHOD:

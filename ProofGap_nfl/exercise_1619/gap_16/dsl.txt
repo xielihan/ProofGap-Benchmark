@@ -1,0 +1,8 @@
+assert (hypothesis 19: {exists (m_{1}), m_{1} ∈ RealSet ∧ |2.087 - 2.087| ≤ frac(|f(2.087)|, m_{1})}) by proof {
+  exists (m_{1} := {1})
+  assert (hypothesis 19: {1 ∈ RealSet ∧ |2.087 - 2.087| ≤ frac(|f(2.087)|, 1)})
+  apply (hypothesis 19: {1 ∈ RealSet ∧ |2.087 - 2.087| ≤ frac(|f(2.087)|, 1)})
+}
+exists (ξ_{1} := {2.087})
+assert (hypothesis 20: {2.087 ∈ RealSet ∧ (exists (m_{1}), m_{1} ∈ RealSet ∧ |2.087 - 2.087| ≤ frac(|f(2.087)|, m_{1}))})
+apply (hypothesis 20: {2.087 ∈ RealSet ∧ (exists (m_{1}), m_{1} ∈ RealSet ∧ |2.087 - 2.087| ≤ frac(|f(2.087)|, m_{1}))})

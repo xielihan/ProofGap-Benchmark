@@ -1,0 +1,22 @@
+PROOF GAP @3
+ASSUM:
+1. C ∈ RealSet
+2. Q : RealSet → RealSet
+3. Q_{1} : RealSet → RealSet
+4. Q_{2} : RealSet → RealSet
+5. A ∈ RealSet
+6. B ∈ RealSet
+7. C_{1} ∈ RealSet
+8. D ∈ RealSet
+9. E ∈ RealSet
+10. Q = (fun x [x ∈ RealSet] . (x - 1) * (x^{2} + x + 1)^{2})
+11. Q_{1} = (fun x [x ∈ RealSet] . x^{2} + x + 1)
+12. Q_{2} = (fun x [x ∈ RealSet] . (x - 1) * (x^{2} + x + 1))
+13. forall (x), x ∈ RealSet ∧ x ∈ RealSet \ { 1 } ⇒ frac(x^{2} + 3 * x - 2, (x - 1) * (x^{2} + x + 1)^{2}) = FunDeri(frac(A * x + B, x^{2} + x + 1), 1, 1) + frac(C_{1} * x^{2} + D * x + E, (x - 1) * (x^{2} + x + 1))
+14. forall (x), x ∈ RealSet ⇒ x^{2} + 3 * x - 2 ≡ A * (x - 1) * (x^{2} + x + 1) - (2 * x + 1) * (A * x + B) * (x - 1) + (C_{1} * x^{2} + D * x + E) * (x^{2} + x + 1)
+
+GOAL:
+C_{1} = 0
+
+METHOD:
+[@method 两边同时比较系数 @]

@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. m ∈ RealSet
+2. n ∈ RealSet ∧ n ≠ 0 ∧ frac(m + 1, n) > 0
+3. Gamma : RealSet → RealSet
+4. n > 0 ⇒ frac(m + 1, n) > 0 ⇒ t = x^{n}
+5. n > 0 ⇒ frac(m + 1, n) > 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . x^{m} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = frac(1, n) * DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{frac(m + 1, n) - 1} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))
+6. n > 0 ⇒ frac(m + 1, n) > 0 ⇒ frac(1, n) * DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{frac(m + 1, n) - 1} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t)) = frac(1, n) * Gamma(frac(m + 1, n))
+7. n > 0 ⇒ frac(m + 1, n) > 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . x^{m} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = frac(1, n) * Gamma(frac(m + 1, n))
+8. n < 0 ⇒ frac(m + 1, n) > 0 ⇒ t = x^{n}
+
+GOAL:
+n < 0 ⇒ frac(m + 1, n) > 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . x^{m} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = frac(1, n) * DefInt(+∞, 0, (fun t [t ∈ RealSet ∧ t > 0] . t^{frac(m + 1, n) - 1} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))
+
+METHOD:

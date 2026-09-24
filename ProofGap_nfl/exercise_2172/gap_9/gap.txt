@@ -1,0 +1,22 @@
+PROOF GAP @9
+ASSUM:
+1. F : RealSet → RealSet
+2. φ : RealSet → RealSet
+3. r : RealSet → RealSet
+4. n ∈ IntegerSet
+5. forall (x), x ∈ RealSet ⇒ φ(x) = min({ |x - n| | n ∈ IntegerSet })
+6. forall (x), x ∈ RealSet ⇒ r(x) = x - floor(x)
+7. F(0) = 0
+8. ContinuousFunc(φ)
+9. ContinuouslyDiffableFunc(F)
+10. forall (x) (n), x ∈ RealSet ∧ n ∈ IntegerSet ∧ n ≤ x ∧ x < n + frac(1, 2) ⇒ φ(x) = x - n
+11. forall (x) (n), x ∈ RealSet ∧ n ∈ IntegerSet ∧ n + frac(1, 2) ≤ x ∧ x < n + 1 ⇒ φ(x) = -x + n + 1
+12. exists (C), C : IntegerSet → RealSet ∧ (forall (x) (n), x ∈ RealSet ∧ n ∈ IntegerSet ∧ n ≤ x ∧ x < n + frac(1, 2) ⇒ F(x) = frac(x^{2}, 2) - n * x + C(n))
+13. exists (`C'`), `C'` : IntegerSet → RealSet ∧ (forall (x) (n), x ∈ RealSet ∧ n ∈ IntegerSet ∧ n + frac(1, 2) ≤ x ∧ x < n + 1 ⇒ F(x) = -frac(x^{2}, 2) + (n + 1) * x + `C'`(n))
+14. forall (n), n ∈ IntegerSet ⇒ lim_{ x → (n + frac(1, 2))^- } (F(x)) = F(n + frac(1, 2))
+15. exists (`C'`), `C'` : IntegerSet → RealSet ∧ (exists (C), C : IntegerSet → RealSet ∧ (forall (n), n ∈ IntegerSet ⇒ `C'`(n) = C(n) - (n + frac(1, 2))^{2}))
+
+GOAL:
+exists (C), C : IntegerSet → RealSet ∧ (forall (x) (n), x ∈ RealSet ∧ n ∈ IntegerSet ∧ n + frac(1, 2) ≤ x ∧ x < n + 1 ⇒ F(x) = -frac(x^{2}, 2) + (n + 1) * x - (n + frac(1, 2))^{2} + C(n))
+
+METHOD:

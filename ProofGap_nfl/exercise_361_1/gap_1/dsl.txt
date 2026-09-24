@@ -1,0 +1,3 @@
+get_forall (GOAL: {forall (x_{0}), x_{0} ∈ RealSet => y(x_{0}) = a * x_{0} + b}) (x_{0} := {z})
+get_prop (hypothesis 6: {forall (x), x ∈ RealSet => y(x) = a * x + b}) (x := {z}) as (hypothesis 7: {z ∈ RealSet => y(z) = a * z + b})
+apply (hypothesis 7: {z ∈ RealSet => y(z) = a * z + b})

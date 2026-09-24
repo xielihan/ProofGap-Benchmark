@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. P : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. `P̅` : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+3. forall (k) (n) (x), k ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ P(n, x) = sum_{ k = 1 }^{ n } (k * x^{k - 1})
+4. forall (k) (n) (x), k ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ `P̅`(n, x) = sum_{ k = 1 }^{ n } (x^{k})
+
+GOAL:
+forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ≠ 1 ⇒ `P̅`(n, x) = frac(x * (1 - x^{n}), 1 - x)
+
+METHOD:

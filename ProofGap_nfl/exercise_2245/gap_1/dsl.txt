@@ -1,0 +1,8 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ [-1, 1] ∧ t(x) = sqrtn(2, 5 - 4 * x) ⇒ 5 - 4 * x > 0}) (x := {y})
+2. get_condition (hypothesis 2: {y ∈ RealSet ∧ y ∈ [-1, 1] ∧ t(y) = sqrtn(2, 5 - 4 * y)}) in (GOAL: {y ∈ RealSet ∧ y ∈ [-1, 1] ∧ t(y) = sqrtn(2, 5 - 4 * y) ⇒ 5 - 4 * y > 0})
+3. destruct_and (hypothesis 2: {y ∈ RealSet ∧ y ∈ [-1, 1] ∧ t(y) = sqrtn(2, 5 - 4 * y)}) as (hypothesis 3: {y ∈ RealSet}) (hypothesis 4: {y ∈ [-1, 1]}) (hypothesis 5: {t(y) = sqrtn(2, 5 - 4 * y)})
+4. get_prop (theorem 'Thm 487. (ClosedIntervalMembership)': {forall (x) (a) (b), x ∈ RealSet => a ∈ RealSet => b ∈ RealSet => (x ∈ [a, b] <==> (x >= a /\ x <= b))}) (x := {y}) (a := {-1}) (b := {1}) as (hypothesis 6: {y ∈ RealSet => -1 ∈ RealSet => 1 ∈ RealSet => (y ∈ [-1, 1] <==> (y >= -1 /\ y <= 1))})
+5. use_condition (hypothesis 3: {y ∈ RealSet}) (obvious: {-1 ∈ RealSet}) (obvious: {1 ∈ RealSet}) in (hypothesis 6: {y ∈ RealSet => -1 ∈ RealSet => 1 ∈ RealSet => (y ∈ [-1, 1] <==> (y >= -1 /\ y <= 1))}) as (hypothesis 7: {y ∈ [-1, 1] <==> (y >= -1 /\ y <= 1)})
+6. rewrite (left_to_right, iff) (hypothesis 7: {y ∈ [-1, 1] <==> (y >= -1 /\ y <= 1)}); from (hypothesis 4: {y ∈ [-1, 1]}) to (hypothesis 8: {y >= -1 /\ y <= 1})
+7. destruct_and (hypothesis 8: {y >= -1 /\ y <= 1}) as (hypothesis 9: {y >= -1}) (hypothesis 10: {y <= 1})
+8. autosolve (hypothesis 10: {y <= 1})

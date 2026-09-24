@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. χ : RealSet → RealSet
+2. f : CartesianProd(NonNegIntegerSet, CartesianProd(NonNegIntegerSet, RealSet)) → RealSet
+3. forall (m) (n) (x), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ χ(x) = seqlim_{ m → +∞ } (seqlim_{ n → +∞ } (cos(π * m! * x)^{n}))
+4. forall (m) (n) (x), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ f(m, n, x) = cos(π * m! * x)^{n}
+5. forall (x), x ∈ RealSet ∧ x ∈ RationalSet ⇒ (exists (q) (p), q ∈ IntegerSet ∧ x = frac(q, p) ∧ p ∈ IntegerSet)
+6. forall (x), x ∈ RealSet ∧ x ∈ RationalSet ⇒ (exists (q) (p), p ∈ IntegerSet ∧ x = frac(q, p) ∧ q ∈ IntegerSet)
+7. forall (x), x ∈ RealSet ∧ x ∈ RationalSet ⇒ (exists (q) (p), q ∈ IntegerSet ∧ p ∈ IntegerSet ∧ x = frac(q, p) ∧ p ≠ 0)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ RationalSet ⇒ (exists (q) (p), q ∈ IntegerSet ∧ p ∈ IntegerSet ∧ x = frac(q, p) ∧ p ≠ 0)
+
+METHOD:

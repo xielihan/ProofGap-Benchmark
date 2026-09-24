@@ -1,0 +1,6 @@
+autoreplace no_hypothesis; from ((10 + 10) * 9) to (180); from (GOAL: {forall (x_{1}), x_{1} ∈ RealSet => (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ [1, 10] ∧ x_{2} ∈ [1, 10] ∧ |x_{1} - x_{2}| ≤ frac(9, n) => frac((10 + 10) * 9, n) = frac(180, n))}) to (GOAL: {forall (x_{1}), x_{1} ∈ RealSet => (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ [1, 10] ∧ x_{2} ∈ [1, 10] ∧ |x_{1} - x_{2}| ≤ frac(9, n) => frac(180, n) = frac(180, n))})
+get_forall (GOAL: {forall (x_{1}), x_{1} ∈ RealSet => (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ [1, 10] ∧ x_{2} ∈ [1, 10] ∧ |x_{1} - x_{2}| ≤ frac(9, n) => frac(180, n) = frac(180, n))}) (x_{1} := {a})
+get_condition (hypothesis 9: {a ∈ RealSet}) in (GOAL: {a ∈ RealSet => (forall (x_{2}), x_{2} ∈ RealSet ∧ a ∈ [1, 10] ∧ x_{2} ∈ [1, 10] ∧ |a - x_{2}| ≤ frac(9, n) => frac(180, n) = frac(180, n))})
+get_forall (GOAL: {forall (x_{2}), x_{2} ∈ RealSet ∧ a ∈ [1, 10] ∧ x_{2} ∈ [1, 10] ∧ |a - x_{2}| ≤ frac(9, n) => frac(180, n) = frac(180, n)}) (x_{2} := {b})
+get_condition (hypothesis 10: {b ∈ RealSet ∧ a ∈ [1, 10] ∧ b ∈ [1, 10] ∧ |a - b| ≤ frac(9, n)}) in (GOAL: {b ∈ RealSet ∧ a ∈ [1, 10] ∧ b ∈ [1, 10] ∧ |a - b| ≤ frac(9, n) => frac(180, n) = frac(180, n)})
+autosolve all_hypothesis

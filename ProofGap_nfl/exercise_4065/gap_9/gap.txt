@@ -1,0 +1,22 @@
+PROOF GAP @9
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. Ω ⊆ CartesianProd(RealSet, RealSet)
+3. I_{x} ∈ RealSet
+4. I_{y} ∈ RealSet
+5. forall (p), p ∈ CartesianProd(RealSet, RealSet) ⇒ (p ∈ Ω ⇔ (exists (x), x ∈ RealSet ∧ x > 0 ∧ (exists (y), y ∈ RealSet ∧ y > 0 ∧ p = (x, y) ∧ x * y ≥ a^{2} ∧ x * y ≤ 2 * a^{2} ∧ (x = 2 * y ∨ 2 * x = y ∨ x * y = a^{2} ∨ x * y = 2 * a^{2}))))
+6. u = x * y
+7. v = frac(y, x)
+8. u > 0
+9. v > 0
+10. x = sqrtn(2, frac(u, v))
+11. y = sqrtn(2, u * v)
+12. exists (I), I ∈ RealSet ∧ |I| = frac(1, 2 * v)
+13. Ω = { (u, v) | u ∈ RealSet, v ∈ RealSet, a^{2} ≤ u ∧ u ≤ 2 * a^{2} ∧ frac(1, 2) ≤ v ∧ v ≤ 2 }
+14. I_{x} = DefInt(frac(1, 2), 2, (fun v [v ∈ RealSet ∧ frac(1, 2) ≤ v ∧ v ≤ 2] . DefInt(a^{2}, 2 * a^{2}, (fun u [u ∈ RealSet ∧ a^{2} ≤ u ∧ u ≤ 2 * a^{2}] . frac(u * v, 2 * v)) * diff(fun u [u ∈ RealSet ∧ a^{2} ≤ u ∧ u ≤ 2 * a^{2}] . u))) * diff(fun v [v ∈ RealSet ∧ frac(1, 2) ≤ v ∧ v ≤ 2] . v))
+15. DefInt(frac(1, 2), 2, (fun v [v ∈ RealSet ∧ frac(1, 2) ≤ v ∧ v ≤ 2] . DefInt(a^{2}, 2 * a^{2}, (fun u [u ∈ RealSet ∧ a^{2} ≤ u ∧ u ≤ 2 * a^{2}] . frac(u * v, 2 * v)) * diff(fun u [u ∈ RealSet ∧ a^{2} ≤ u ∧ u ≤ 2 * a^{2}] . u))) * diff(fun v [v ∈ RealSet ∧ frac(1, 2) ≤ v ∧ v ≤ 2] . v)) = frac(9 * a^{4}, 8)
+
+GOAL:
+I_{x} = frac(9 * a^{4}, 8)
+
+METHOD:

@@ -1,0 +1,1 @@
+apply (hypothesis 5: {forall (k), k ∈ IntegerSet ∧ 1 ≤ k ∧ k ≤ n ⇒ a(k) ∈ RealSet})

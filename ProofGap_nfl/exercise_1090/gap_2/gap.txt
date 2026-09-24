@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. forall (x), x ∈ RealSet
+3. diff(fun x [x ∈ RealSet] . x * e^{x}) = (fun x [x ∈ RealSet] . e^{x} * (x + 1)) * diff(fun x [x ∈ RealSet] . x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(fun t . sin(t) - t * cos(t), 1, 1)(x) = x * sin(x)
+
+METHOD:

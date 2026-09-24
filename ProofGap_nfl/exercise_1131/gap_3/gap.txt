@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = sqrtn(2, 1 + x^{2})
+3. forall (x), x ∈ RealSet ⇒ diff(y) = frac(x, sqrtn(2, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x)
+4. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = FunDeri(fun x [x ∈ RealSet] . frac(x, sqrtn(2, 1 + x^{2})), 1, 1)(x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(fun u . u / sqrt(2, 1 + u ^ 2), 1, 1)(x) = 1 / ((1 + x ^ 2) ^ (3 / 2))
+
+METHOD:

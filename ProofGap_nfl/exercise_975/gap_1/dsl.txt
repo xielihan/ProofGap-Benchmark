@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (u), u : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ u(x) = e^{-x^{2}} ⇒ 0 < u(x))}) (u := {v})
+get_condition (hypothesis 3: {v : RealSet → RealSet}) in (GOAL: {v : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ v(x) = e^{-x^{2}} ⇒ 0 < v(x))})
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ v(x) = e^{-x^{2}} ⇒ 0 < v(x)}) (x := {x0})
+get_condition (hypothesis 4: {x0 ∈ RealSet ∧ v(x0) = e^{-x0^{2}}}) in (GOAL: {x0 ∈ RealSet ∧ v(x0) = e^{-x0^{2}} ⇒ 0 < v(x0)})
+destruct_and (hypothesis 4: {x0 ∈ RealSet ∧ v(x0) = e^{-x0^{2}}}) as (hypothesis 5: {x0 ∈ RealSet}) (hypothesis 6: {v(x0) = e^{-x0^{2}}})
+rewrite (left_to_right, equation) (hypothesis 6: {v(x0) = e^{-x0^{2}}}); from (GOAL: {0 < v(x0)}) to (GOAL: {0 < e^{-x0^{2}}})
+autosolve all_hypothesis

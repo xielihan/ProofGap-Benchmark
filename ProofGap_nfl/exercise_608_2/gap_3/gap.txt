@@ -1,0 +1,18 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. c ∈ RealSet ∧ c > 0
+4. x ∈ RealSet
+5. `A'` ∈ RealSet ∧ `A'` ≥ 0
+6. Defined(f, (a, +∞))
+7. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, +∞) ⇒ f(x) ≥ c
+8. forall (b), b ∈ RealSet ∧ b > a ⇒ BoundedFuncOn(f, IntervalLoRo(a, b))
+9. lim_{ x → +∞ } (frac(f(x + 1), f(x))) = `A'`
+10. `A'` ≥ 0
+11. `A'` = 0 ⇒ (exists (X_{0}), X_{0} ∈ RealSet ∧ X_{0} ∈ PosRealSet ∧ X_{0} > a ∧ (forall (x), x ∈ RealSet ∧ x ≥ X_{0} ⇒ 0 < frac(f(x + 1), f(x)) ∧ frac(f(x + 1), f(x)) < frac(1, 2)))
+
+GOAL:
+`A'` = 0 ⇒ (exists (X_{0}), X_{0} ∈ RealSet ∧ X_{0} ∈ PosRealSet ∧ X_{0} > a ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac(f(X_{0} + n), f(X_{0}))))
+
+METHOD:

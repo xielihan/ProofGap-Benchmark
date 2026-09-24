@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. V ⊆ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+2. x ∈ RealSet
+3. y ∈ RealSet
+4. z ∈ RealSet
+5. V = { (x, y, z) | (x, y, z) ∈ CartesianProd(CartesianProd(RealSet, RealSet), RealSet), x ≥ 0, y ≥ 0, z ≥ 0, x + y + z ≤ 1 }
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ VolumeInt(V, frac(1, (1 + x + y + z)^{3}) * diff(fun x [x ∈ RealSet] . x) * diff(fun y [y ∈ RealSet] . y) * diff(fun z [z ∈ RealSet] . z)) = DefInt(0, 1, DefInt(0, 1 - x, DefInt(0, 1 - x - y, frac(1, (1 + x + y + z)^{3}) * diff(fun z [z ∈ RealSet] . z)) * diff(fun y [y ∈ RealSet] . y)) * diff(fun x [x ∈ RealSet] . x))))
+
+METHOD:

@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. F : RealSet → RealSet
+3. a : NonNegIntegerSet → RealSet
+4. forall (m), m ∈ NonNegIntegerSet ∧ m ≥ 0 ⇒ (forall (x), x ∈ RealSet ∧ x ∈ Dom(f) ⇒ f(x) = sum_{ m = 0 }^{ +∞ } (a(m) * x^{m}))
+5. forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ F(x) = frac(f(x), 1 - x)
+6. forall (x), x ∈ RealSet ∧ x ∈ Dom(f) ∧ x ≠ 1 ⇒ F(x) = (sum_{ n_{1} = 0 }^{ +∞ } (a(n_{1}) * x^{n_{1}})) * (sum_{ n_{2} = 0 }^{ +∞ } (x^{n_{2}}))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ Dom(f) ∧ x ≠ 1 ⇒ F(x) = sum_{ n = 0 }^{ +∞ } ((sum_{ k = 0 }^{ n } (a(k))) * x^{n})
+
+METHOD:

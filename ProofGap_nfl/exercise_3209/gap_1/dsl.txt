@@ -1,0 +1,18 @@
+1. get_forall (GOAL: {forall (x_{0}) (y_{0}), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, A) ∧ y_{0} = φ(x_{0}) ⇒ (x_{0}, y_{0}) ∈ CartesianProd(IntervalLoRo(a, A), IntervalLoRo(b, B))}) (x_{0} := {x0v}) (y_{0} := {y0v})
+2. get_condition (hypothesis 15: {x0v ∈ RealSet ∧ y0v ∈ RealSet ∧ x0v ∈ IntervalLoRo(a, A) ∧ y0v = φ(x0v)}) in (GOAL: {x0v ∈ RealSet ∧ y0v ∈ RealSet ∧ x0v ∈ IntervalLoRo(a, A) ∧ y0v = φ(x0v) ⇒ (x0v, y0v) ∈ CartesianProd(IntervalLoRo(a, A), IntervalLoRo(b, B))})
+3. get_prop (hypothesis 12: {forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, A) ⇒ φ(x) ∈ IntervalLoRo(b, B)}) (x := {x0v}) as (hypothesis 16: {x0v ∈ RealSet ∧ x0v ∈ IntervalLoRo(a, A) ⇒ φ(x0v) ∈ IntervalLoRo(b, B)})
+4. assert (hypothesis 17: {x0v ∈ RealSet ∧ x0v ∈ IntervalLoRo(a, A)}) by proof {
+  1. autosolve all_hypothesis
+}
+5. use_condition (hypothesis 17: {x0v ∈ RealSet ∧ x0v ∈ IntervalLoRo(a, A)}) in (hypothesis 16: {x0v ∈ RealSet ∧ x0v ∈ IntervalLoRo(a, A) ⇒ φ(x0v) ∈ IntervalLoRo(b, B)}) as (hypothesis 18: {φ(x0v) ∈ IntervalLoRo(b, B)})
+6. assert (hypothesis 19: {y0v = φ(x0v)}) by proof {
+  1. autosolve all_hypothesis
+}
+7. rewrite (right_to_left, equation) (hypothesis 19: {y0v = φ(x0v)}); from (hypothesis 18: {φ(x0v) ∈ IntervalLoRo(b, B)}) to (hypothesis 20: {y0v ∈ IntervalLoRo(b, B)})
+8. assert (hypothesis 21: {x0v ∈ IntervalLoRo(a, A)}) by proof {
+  1. autosolve all_hypothesis
+}
+9. get_prop (theorem 'Thm 30. (CartesianProductMemberIntro)': {forall (A) (B) (a) (b), (a ∈ A) => (b ∈ B) => ((a,b) ∈ CartesianProd(A,B))}) (A := {IntervalLoRo(a, A)}) (B := {IntervalLoRo(b, B)}) (a := {x0v}) (b := {y0v}) as (hypothesis 22: {(x0v ∈ IntervalLoRo(a, A)) => (y0v ∈ IntervalLoRo(b, B)) => ((x0v,y0v) ∈ CartesianProd(IntervalLoRo(a, A),IntervalLoRo(b, B)))})
+10. use_condition (hypothesis 21: {x0v ∈ IntervalLoRo(a, A)}) in (hypothesis 22: {(x0v ∈ IntervalLoRo(a, A)) => (y0v ∈ IntervalLoRo(b, B)) => ((x0v,y0v) ∈ CartesianProd(IntervalLoRo(a, A),IntervalLoRo(b, B)))}) as (hypothesis 23: {(y0v ∈ IntervalLoRo(b, B)) => ((x0v,y0v) ∈ CartesianProd(IntervalLoRo(a, A),IntervalLoRo(b, B)))})
+11. use_condition (hypothesis 20: {y0v ∈ IntervalLoRo(b, B)}) in (hypothesis 23: {(y0v ∈ IntervalLoRo(b, B)) => ((x0v,y0v) ∈ CartesianProd(IntervalLoRo(a, A),IntervalLoRo(b, B)))}) as (hypothesis 24: {(x0v,y0v) ∈ CartesianProd(IntervalLoRo(a, A),IntervalLoRo(b, B))})
+12. apply (hypothesis 24: {(x0v,y0v) ∈ CartesianProd(IntervalLoRo(a, A),IntervalLoRo(b, B))})

@@ -1,0 +1,1 @@
+autosolve (hypothesis 6: {FunDeri(y, 1, 1)(x) = 0 => x ∈ { -2, 1 }}) (hypothesis 8: {FunDeri(y, 1, 1)(x) = -2 => x ∈ { -1, 0 }}) (hypothesis 10: {FunDeri(y, 1, 1)(x) = 10 => x ∈ { -4, 3 }})

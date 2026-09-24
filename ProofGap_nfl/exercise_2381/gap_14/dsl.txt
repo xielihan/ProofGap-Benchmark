@@ -1,0 +1,1 @@
+1. apply (hypothesis 15: {p < q - 1 => (exists (α), α ∈ RealSet /\ α > 0 /\ (exists (a), a ∈ RealSet /\ a = α /\ p + a < q - 1))})

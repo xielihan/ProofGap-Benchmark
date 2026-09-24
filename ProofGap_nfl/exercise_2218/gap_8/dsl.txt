@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 6: {lim_{ n → +∞ } (sum_{ k = 1 }^{ n } (frac(1, 1 + frac(k, n)) * frac(1, n))) = DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1, 1 + x)) * diff(fun x [x ∈ RealSet] . x))}); from (GOAL: {lim_{ n → +∞ } (sum_{ k = 1 }^{ n } (frac(1, 1 + frac(k, n)) * frac(1, n))) = ln(2)}) to (GOAL: {DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1, 1 + x)) * diff(fun x [x ∈ RealSet] . x)) = ln(2)})
+apply (hypothesis 7: {DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1, 1 + x)) * diff(fun x [x ∈ RealSet] . x)) = ln(2)})

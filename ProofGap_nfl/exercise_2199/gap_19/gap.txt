@@ -1,0 +1,40 @@
+PROOF GAP @19
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. φ : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+5. x : CartesianProd(NonNegIntegerSet, NonNegIntegerSet) → RealSet
+6. m : CartesianProd(NonNegIntegerSet, NonNegIntegerSet) → RealSet
+7. M : CartesianProd(NonNegIntegerSet, NonNegIntegerSet) → RealSet
+8. ω : CartesianProd(NonNegIntegerSet, NonNegIntegerSet) → RealSet
+9. a < b
+10. IntegrableFuncOn(f, [a, b])
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ⇒ x(n, i) = a + frac(i, n) * (b - a))
+12. φ = (fun n, x [n ∈ NonNegIntegerSet ∧ x ∈ RealSet] . φ(n, x))
+13. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a = x(n, 0)
+14. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n, 0) < x(n, 1)
+15. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n, 1) < x(n, n - 1)
+16. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n, n - 1) < x(n, n)
+17. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n, n) = b
+18. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a < b
+19. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [x(n, i - 1), x(n, i)] ⇒ φ(n, x) = f(x(n, i - 1)) + frac(x - x(n, i - 1), x(n, i) - x(n, i - 1)) * (f(x(n, i)) - f(x(n, i - 1)))))
+20. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ContinuousFuncOn(φ(n), [a, b])
+21. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ IntegrableFuncOn(φ(n), [a, b])
+22. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ⇒ m(n, i) = inf(ImageOn(f, [x(n, i - 1), x(n, i)])))
+23. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ⇒ M(n, i) = sup(ImageOn(f, [x(n, i - 1), x(n, i)])))
+24. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ⇒ ω(n, i) = OscillationOn(f, [x(n, i - 1), x(n, i)]))
+25. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (i), i ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [x(n, i - 1), x(n, i)] ⇒ m(n, i) ≤ φ(n, x)))
+26. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (i), i ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [x(n, i - 1), x(n, i)] ⇒ φ(n, x) ≤ M(n, i)))
+27. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (i), i ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [x(n, i - 1), x(n, i)] ⇒ m(n, i) ≤ M(n, i)))
+28. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (i), i ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [x(n, i - 1), x(n, i)] ⇒ m(n, i) ≤ f(x)))
+29. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (i), i ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [x(n, i - 1), x(n, i)] ⇒ f(x) ≤ M(n, i)))
+30. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (i), i ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [x(n, i - 1), x(n, i)] ⇒ m(n, i) ≤ M(n, i)))
+31. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (i), i ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [x(n, i - 1), x(n, i)] ⇒ |φ(n, x) - f(x)| ≤ ω(n, i)))
+32. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (c), c ∈ RealSet ∧ c ∈ [a, b] ⇒ |DefInt(a, c, (fun x [x ∈ RealSet] . f(x)) * diff(fun x [x ∈ RealSet] . x)) - DefInt(a, c, (fun x [x ∈ RealSet] . φ(n, x)) * diff(fun x [x ∈ RealSet] . x))| ≤ DefInt(a, c, (fun x [x ∈ RealSet] . |f(x) - φ(n, x)|) * diff(fun x [x ∈ RealSet] . x)))
+33. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (c), c ∈ RealSet ∧ c ∈ [a, b] ⇒ DefInt(a, c, (fun x [x ∈ RealSet] . |f(x) - φ(n, x)|) * diff(fun x [x ∈ RealSet] . x)) ≤ DefInt(a, b, (fun x [x ∈ RealSet] . |f(x) - φ(n, x)|) * diff(fun x [x ∈ RealSet] . x)))
+
+GOAL:
+forall (i), i ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (c), c ∈ RealSet ∧ c ∈ [a, b] ⇒ DefInt(a, b, (fun x [x ∈ RealSet] . |f(x) - φ(n, x)|) * diff(fun x [x ∈ RealSet] . x)) = sum_{ i = 1 }^{ n } (DefInt(x(n, i - 1), x(n, i), (fun x [x ∈ RealSet] . |f(x) - φ(n, x)|) * diff(fun x [x ∈ RealSet] . x)))))
+
+METHOD:

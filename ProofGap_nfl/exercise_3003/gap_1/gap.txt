@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 2 ⇒ frac(n^{3}, (n + 1)!) = frac(1, (n - 2)!) + frac(1, n!) - frac(1, (n + 1)!)
+
+METHOD:

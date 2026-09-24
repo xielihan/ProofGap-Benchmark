@@ -1,0 +1,8 @@
+get_condition (hypothesis 21: {1 - a - b = 9 - 3 * a - b}) in (GOAL: {1 - a - b = 9 - 3 * a - b ⇒ 9 - 3 * a - b ≠ -(frac(a^{2}, 4) + b)})
+assert (hypothesis 22: {a = 4}) by proof {
+  autosolve (hypothesis 1: {a ∈ RealSet}) (hypothesis 2: {b ∈ RealSet}) (hypothesis 21: {1 - a - b = 9 - 3 * a - b})
+}
+rewrite (left_to_right, equation) (hypothesis 22: {a = 4}); from (GOAL: {9 - 3 * a - b ≠ -(frac(a^{2}, 4) + b)}) to (GOAL: {9 - 3 * 4 - b ≠ -(frac(4^{2}, 4) + b)})
+autoreplace no_hypothesis; from (9 - 3 * 4 - b) to (-3 - b); from (GOAL: {9 - 3 * 4 - b ≠ -(frac(4^{2}, 4) + b)}) to (GOAL: {-3 - b ≠ -(frac(4^{2}, 4) + b)})
+autoreplace no_hypothesis; from (-(frac(4^{2}, 4) + b)) to (-4 - b); from (GOAL: {-3 - b ≠ -(frac(4^{2}, 4) + b)}) to (GOAL: {-3 - b ≠ -4 - b})
+autosolve (hypothesis 2: {b ∈ RealSet})

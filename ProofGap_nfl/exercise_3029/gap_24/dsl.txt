@@ -1,0 +1,1 @@
+apply (hypothesis 38: {-4 < x ⇒ x < 0 ⇒ sqrtn(2, 1 + t^{2}) * FunDeri(g, 1, 1)(t) + frac(t, sqrtn(2, 1 + t^{2})) * g(t) = frac(1, sqrtn(2, 1 + t^{2}))})

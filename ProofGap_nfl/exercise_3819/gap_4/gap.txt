@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. DefInt(0, +∞, frac(sin(x)^{4}, x^{2}) * diff(x)) = ((-frac(1, x) * sin(x)^{4})|_{0}^{+∞}) + DefInt(0, +∞, frac(4 * sin(x)^{3} * cos(x), x) * diff(x))
+3. ((-frac(1, x) * sin(x)^{4})|_{0}^{+∞}) = 0
+4. DefInt(0, +∞, frac(sin(x)^{4}, x^{2}) * diff(x)) = DefInt(0, +∞, frac((3 * sin(x) - sin(3 * x)) * cos(x), x) * diff(x))
+
+GOAL:
+DefInt(0, +∞, frac((3 * sin(x) - sin(3 * x)) * cos(x), x) * diff(x)) = frac(3, 2) * DefInt(0, +∞, frac(sin(2 * x), x) * diff(x)) - frac(1, 2) * DefInt(0, +∞, frac(sin(4 * x), x) * diff(x)) - frac(1, 2) * DefInt(0, +∞, frac(sin(2 * x), x) * diff(x))
+
+METHOD:

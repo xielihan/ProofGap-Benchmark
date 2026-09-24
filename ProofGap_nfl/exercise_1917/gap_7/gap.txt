@@ -1,0 +1,16 @@
+PROOF GAP @7
+ASSUM:
+1. C ∈ RealSet
+2. C_{1} ∈ RealSet
+3. forall (x), x ∈ RealSet
+4. forall (x), x ∈ RealSet ⇒ frac(x^{2} + 1, x^{4} + x^{2} + 1) = frac(x^{2} + 1, (x^{2} + 1)^{2} - x^{2})
+5. forall (x), x ∈ RealSet ⇒ frac(x^{2} + 1, (x^{2} + 1)^{2} - x^{2}) = frac(x^{2} + 1, (x^{2} - x + 1) * (x^{2} + x + 1))
+6. forall (x), x ∈ RealSet ⇒ frac(x^{2} + 1, x^{4} + x^{2} + 1) = frac(x^{2} + 1, (x^{2} - x + 1) * (x^{2} + x + 1))
+7. forall (x), x ∈ RealSet ⇒ frac(x^{2} + 1, (x^{2} - x + 1) * (x^{2} + x + 1)) = frac(1, 2) * (frac(1, x^{2} - x + 1) + frac(1, x^{2} + x + 1))
+8. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x^{2} + 1, x^{4} + x^{2} + 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_7` | exists (`F_3`) (`F_5`), `F_3` : RealSet → RealSet ∧ `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), x^{2} - x + 1) ∧ FunDeri(`F_5`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), x^{2} + x + 1) ∧ `F_7`(x) = frac(1, 2) * `F_3`(x) + frac(1, 2) * `F_5`(x)) }
+9. { `F_12` | exists (`F_8`) (`F_10`), `F_8` : RealSet → RealSet ∧ `F_10` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_8`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), x^{2} - x + 1) ∧ FunDeri(`F_10`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), x^{2} + x + 1) ∧ `F_12`(x) = frac(1, 2) * `F_8`(x) + frac(1, 2) * `F_10`(x)) } = { `F_17` | exists (`F_13`) (`F_15`), `F_13` : RealSet → RealSet ∧ `F_15` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_13`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x - frac(1, 2), 1, 1)(x), (x - frac(1, 2))^{2} + frac(3, 4)) ∧ FunDeri(`F_15`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x + frac(1, 2), 1, 1)(x), (x + frac(1, 2))^{2} + frac(3, 4)) ∧ `F_17`(x) = frac(1, 2) * `F_13`(x) + frac(1, 2) * `F_15`(x)) }
+
+GOAL:
+{ `F_22` | exists (`F_18`) (`F_20`), `F_18` : RealSet → RealSet ∧ `F_20` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_18`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x - frac(1, 2), 1, 1)(x), (x - frac(1, 2))^{2} + frac(3, 4)) ∧ FunDeri(`F_20`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x + frac(1, 2), 1, 1)(x), (x + frac(1, 2))^{2} + frac(3, 4)) ∧ `F_22`(x) = frac(1, 2) * `F_18`(x) + frac(1, 2) * `F_20`(x)) } = { `F_23` | exists (C_{1}), C_{1} ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_23`(x) = frac(1, sqrtn(2, 3)) * arctan(frac(2 * x - 1, sqrtn(2, 3))) + frac(1, sqrtn(2, 3)) * arctan(frac(2 * x + 1, sqrtn(2, 3))) + C_{1}) }
+
+METHOD:

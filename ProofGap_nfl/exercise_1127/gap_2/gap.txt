@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. f : RealSet → RealSet
+3. forall (x), x ∈ RealSet ⇒ y(x) = f(e^{x})
+4. FuncOfClassK(f, 3)
+5. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = e^{x} * FunDeri(f, 1, 1)(e^{x})
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = e^{2 * x} * FunDeri(f, 1, 2)(e^{x}) + e^{x} * FunDeri(f, 1, 1)(e^{x})
+
+METHOD:

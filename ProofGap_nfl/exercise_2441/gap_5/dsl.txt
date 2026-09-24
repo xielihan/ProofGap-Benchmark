@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 15: {frac(12 * c^{2}, 3 * a * b * (a^{2} - b^{2})) * ((b^{2} + (a^{2} - b^{2}) * sin(t)^{2})^{frac(3, 2)}|_{0}^{frac(π, 2)}) = frac(4 * (a^{3} - b^{3}), a * b)}); from (hypothesis 14: {s = frac(12 * c^{2}, 3 * a * b * (a^{2} - b^{2})) * ((b^{2} + (a^{2} - b^{2}) * sin(t)^{2})^{frac(3, 2)}|_{0}^{frac(π, 2)})}) to (hypothesis 16: {s = frac(4 * (a^{3} - b^{3}), a * b)})
+apply (hypothesis 16: {s = frac(4 * (a^{3} - b^{3}), a * b)})

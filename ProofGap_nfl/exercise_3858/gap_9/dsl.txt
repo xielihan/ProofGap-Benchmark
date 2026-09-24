@@ -1,0 +1,26 @@
+destruct_and (hypothesis 1: {n ∈ RealSet ∧ x ∈ RealSet ∧ t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ π}) as (hypothesis 18: {n ∈ RealSet}) (hypothesis 19: {x ∈ RealSet}) (hypothesis 20: {t ∈ RealSet}) (hypothesis 21: {0 ≤ t}) (hypothesis 22: {t ≤ π})
+get_prop (theorem 'Thm 467. (SinePositiveOnPositiveHalfPeriod)': {forall (n) (t), t ∈ RealSet => n ∈ IntegerSet => (2 * n * π < t /\ t < (2 * n + 1) * π) => sin(t) > 0}) (n := {0}) (t := {frac(t, 2)}) as (hypothesis 23: {frac(t, 2) ∈ RealSet => 0 ∈ IntegerSet => (2 * 0 * π < frac(t, 2) /\ frac(t, 2) < (2 * 0 + 1) * π) => sin(frac(t, 2)) > 0})
+use_condition (obvious: {frac(t, 2) ∈ RealSet}) (obvious: {0 ∈ IntegerSet}) in (hypothesis 23: {frac(t, 2) ∈ RealSet => 0 ∈ IntegerSet => (2 * 0 * π < frac(t, 2) /\ frac(t, 2) < (2 * 0 + 1) * π) => sin(frac(t, 2)) > 0}) as (hypothesis 24: {(2 * 0 * π < frac(t, 2) /\ frac(t, 2) < (2 * 0 + 1) * π) => sin(frac(t, 2)) > 0})
+get_prop (theorem 'Thm 370. (SineAtIntegerPi)': {forall (n), n ∈ IntegerSet => sin(n * π) = 0}) (n := {0}) as (hypothesis 25: {0 ∈ IntegerSet => sin(0 * π) = 0})
+use_condition (obvious: {0 ∈ IntegerSet}) in (hypothesis 25: {0 ∈ IntegerSet => sin(0 * π) = 0}) as (hypothesis 26: {sin(0 * π) = 0})
+assert (hypothesis 27: {t = 0 ∨ t > 0}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 28: {t = 0 => sin(frac(t, 2)) = 0}) by proof {
+  get_condition (hypothesis 28: {t = 0}) in (GOAL: {t = 0 => sin(frac(t, 2)) = 0})
+  rewrite (left_to_right, equation) (hypothesis 28: {t = 0}); from (GOAL: {sin(frac(t, 2)) = 0}) to (GOAL: {sin(frac(0, 2)) = 0})
+  autosolve (hypothesis 26: {sin(0 * π) = 0})
+}
+assert (hypothesis 29: {t > 0 => sin(frac(t, 2)) > 0}) by proof {
+  get_condition (hypothesis 29: {t > 0}) in (GOAL: {t > 0 => sin(frac(t, 2)) > 0})
+  assert (hypothesis 30: {2 * 0 * π < frac(t, 2) /\ frac(t, 2) < (2 * 0 + 1) * π}) by proof {
+    autosolve (hypothesis 22: {t ≤ π}) (hypothesis 29: {t > 0})
+  }
+  use_condition (hypothesis 30: {2 * 0 * π < frac(t, 2) /\ frac(t, 2) < (2 * 0 + 1) * π}) in (hypothesis 24: {(2 * 0 * π < frac(t, 2) /\ frac(t, 2) < (2 * 0 + 1) * π) => sin(frac(t, 2)) > 0}) as (hypothesis 31: {sin(frac(t, 2)) > 0})
+  autosolve (hypothesis 31: {sin(frac(t, 2)) > 0})
+}
+assert (hypothesis 30: {sin(frac(t, 2)) >= 0}) by proof {
+  autosolve (hypothesis 27: {t = 0 ∨ t > 0}) (hypothesis 28: {t = 0 => sin(frac(t, 2)) = 0}) (hypothesis 29: {t > 0 => sin(frac(t, 2)) > 0})
+}
+rewrite (left_to_right, equation) (hypothesis 16: {u = sin(frac(t, 2))}); from (GOAL: {0 ≤ u}) to (GOAL: {0 ≤ sin(frac(t, 2))})
+autosolve (hypothesis 30: {sin(frac(t, 2)) >= 0})

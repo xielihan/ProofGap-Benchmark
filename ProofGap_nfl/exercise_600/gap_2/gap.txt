@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = x + floor(x^{2})
+3. f(1) = 2
+
+GOAL:
+lim_{ x → 1^- } (f(x)) = lim_{ x → 1^- } (x + floor(x^{2}))
+
+METHOD:

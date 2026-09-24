@@ -1,0 +1,24 @@
+PROOF GAP @6
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. r : RealSet → RealSet
+4. φ : RealSet → RealSet
+5. k ∈ RealSet
+6. DiffableFunc(x)
+7. DiffableFunc(y)
+8. DiffableFunc(r)
+9. DiffableFunc(φ)
+10. forall (t), t ∈ RealSet ⇒ FunDeri(x, 1, 1)(t) = y(t) + k * x(t) * (x(t)^{2} + y(t)^{2})
+11. forall (t), t ∈ RealSet ⇒ FunDeri(y, 1, 1)(t) = -x(t) + k * y(t) * (x(t)^{2} + y(t)^{2})
+12. forall (t), t ∈ RealSet ⇒ x(t) = r(t) * cos(φ(t)) ∧ y(t) = r(t) * sin(φ(t)) ∧ r(t) > 0
+13. forall (t), t ∈ RealSet ⇒ cos(φ(t)) * FunDeri(r, 1, 1)(t) - r(t) * sin(φ(t)) * FunDeri(φ, 1, 1)(t) = r(t) * sin(φ(t)) + k * r(t)^{3} * cos(φ(t))
+14. forall (t), t ∈ RealSet ⇒ sin(φ(t)) * FunDeri(r, 1, 1)(t) + r(t) * cos(φ(t)) * FunDeri(φ, 1, 1)(t) = -r(t) * cos(φ(t)) + k * r(t)^{3} * sin(φ(t))
+15. forall (t), t ∈ RealSet ⇒ FunDeri(r, 1, 1)(t) = frac(1, r(t)) * (r(t) * cos(φ(t)) * (r(t) * sin(φ(t)) + k * r(t)^{3} * cos(φ(t))) - -r(t) * sin(φ(t)) * (-r(t) * cos(φ(t)) + k * r(t)^{3} * sin(φ(t)))) ∧ frac(1, r(t)) * (r(t) * cos(φ(t)) * (r(t) * sin(φ(t)) + k * r(t)^{3} * cos(φ(t))) - -r(t) * sin(φ(t)) * (-r(t) * cos(φ(t)) + k * r(t)^{3} * sin(φ(t)))) = k * r(t)^{3}
+16. forall (t), t ∈ RealSet ⇒ FunDeri(φ, 1, 1)(t) = frac(1, r(t)) * (cos(φ(t)) * (-r(t) * cos(φ(t)) + k * r(t)^{3} * sin(φ(t))) - sin(φ(t)) * (r(t) * sin(φ(t)) + k * r(t)^{3} * cos(φ(t)))) ∧ frac(1, r(t)) * (cos(φ(t)) * (-r(t) * cos(φ(t)) + k * r(t)^{3} * sin(φ(t))) - sin(φ(t)) * (r(t) * sin(φ(t)) + k * r(t)^{3} * cos(φ(t)))) = -1
+17. forall (t), t ∈ RealSet ⇒ FunDeri(r, 1, 1)(t) = k * r(t)^{3} ∧ FunDeri(φ, 1, 1)(t) = -1
+
+GOAL:
+forall (t), t ∈ RealSet ⇒ FunDeri(r, 1, 1)(t) = k * r(t)^{3} ∧ FunDeri(φ, 1, 1)(t) = -1
+
+METHOD:

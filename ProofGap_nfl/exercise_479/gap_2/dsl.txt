@@ -1,0 +1,4 @@
+assert (hypothesis 6: {y = x - frac(π, 4)})
+rewrite (left_to_right, equation) (hypothesis 6: {y = x - frac(π, 4)}); from (GOAL: {y ∈ RealSet}) to (GOAL: {x - frac(π, 4) ∈ RealSet})
+assert (hypothesis 7: {x - frac(π, 4) ∈ RealSet})
+apply (hypothesis 7: {x - frac(π, 4) ∈ RealSet})

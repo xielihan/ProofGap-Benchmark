@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. z ∈ ComplexSet
+2. c : NonNegIntegerSet → ComplexSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n ∈ PosIntegerSet ⇒ c(n) = frac((1 + __IMAGINARY_UNIT__)^{n}, (n + 1) * (n + 2))
+4. seqlim_{ n → +∞ } (|frac(c(n), c(n + 1))|) = frac(1, |1 + __IMAGINARY_UNIT__|)
+
+GOAL:
+|1 + __IMAGINARY_UNIT__| = sqrtn(2, 2)
+
+METHOD:

@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (n), n ∈ NonNegIntegerSet ∧ n = 1 ⇒ sum_{ i = 0 }^{ n - 1 } (2^{i}) = 2^{n} - 1
+2. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ sum_{ i = 0 }^{ k - 1 } (2^{i}) = 2^{k} - 1 ∧ n = k + 1 ⇒ sum_{ i = 0 }^{ n - 1 } (2^{i}) = (sum_{ i = 0 }^{ k - 1 } (2^{i})) + 2^{k})
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ sum_{ i = 0 }^{ k - 1 } (2^{i}) = 2^{k} - 1 ∧ n = k + 1 ⇒ (sum_{ i = 0 }^{ k - 1 } (2^{i})) + 2^{k} = 2^{k} - 1 + 2^{k})
+
+METHOD:

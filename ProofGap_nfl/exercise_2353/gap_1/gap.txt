@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+
+
+GOAL:
+exists (L_s), L_s ∈ RealSet ∧ lim_{ ε → 0^+ } (DefInt(ε, frac(π, 2), (fun x [x ∈ RealSet ∧ 0 < x ∧ x ≤ frac(π, 2)] . ln(sin(x))) * diff(fun x [x ∈ RealSet ∧ 0 < x ∧ x ≤ frac(π, 2)] . x))) = L_s ∧ DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, frac(π, 2))] . ln(sin(x))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, frac(π, 2))] . x)) = L_s
+
+METHOD:

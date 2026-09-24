@@ -1,0 +1,11 @@
+1. get_forall (GOAL: {forall (Δx), Δx ∈ RealSet /\ Δx > 0 => frac(f(a + Δx) - f(a), Δx) = φ(a + Δx)}) (Δx := {h})
+2. get_condition (hypothesis 14: {h ∈ RealSet /\ h > 0}) in (GOAL: {h ∈ RealSet /\ h > 0 => frac(f(a + h) - f(a), h) = φ(a + h)})
+3. destruct_and (hypothesis 14: {h ∈ RealSet /\ h > 0}) as (hypothesis 15: {h ∈ RealSet}) (hypothesis 16: {h > 0})
+4. get_prop (hypothesis 9: {forall (Δx), Δx ∈ RealSet /\ Δx != 0 => frac(f(a + Δx) - f(a), Δx) = frac(|Δx|, Δx) * φ(a + Δx)}) (Δx := {h}) as (hypothesis 17: {h ∈ RealSet /\ h != 0 => frac(f(a + h) - f(a), h) = frac(|h|, h) * φ(a + h)})
+5. assert (hypothesis 18: {h != 0})
+6. assert (hypothesis 19: {h ∈ RealSet /\ h != 0})
+7. use_condition (hypothesis 19: {h ∈ RealSet /\ h != 0}) in (hypothesis 17: {h ∈ RealSet /\ h != 0 => frac(f(a + h) - f(a), h) = frac(|h|, h) * φ(a + h)}) as (hypothesis 20: {frac(f(a + h) - f(a), h) = frac(|h|, h) * φ(a + h)})
+8. rewrite (left_to_right, equation) (hypothesis 20: {frac(f(a + h) - f(a), h) = frac(|h|, h) * φ(a + h)}); from (GOAL: {frac(f(a + h) - f(a), h) = φ(a + h)}) to (GOAL: {frac(|h|, h) * φ(a + h) = φ(a + h)})
+9. assert (hypothesis 21: {|h| = h})
+10. rewrite (left_to_right, equation) (hypothesis 21: {|h| = h}); from (GOAL: {frac(|h|, h) * φ(a + h) = φ(a + h)}) to (GOAL: {frac(h, h) * φ(a + h) = φ(a + h)})
+11. autosolve all_hypothesis

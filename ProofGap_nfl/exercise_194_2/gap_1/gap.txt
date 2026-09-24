@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = sin(frac(π, x))
+
+GOAL:
+x ≠ 0 ⇒ f(x) = 0 ⇒ sin(frac(π, x)) = 0
+
+METHOD:

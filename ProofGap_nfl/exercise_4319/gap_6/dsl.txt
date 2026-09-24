@@ -1,0 +1,4 @@
+1. get_condition (hypothesis 17: {n = 4}) in (GOAL: {n = 4 ⇒ S = 6 * π * r^{2}})
+2. rewrite (left_to_right, equation) (hypothesis 17: {n = 4}); from (hypothesis 16: {S = π * r^{2} * (n - 1) * (n - 2)}) to (hypothesis 18: {S = π * r^{2} * (4 - 1) * (4 - 2)})
+3. autoreplace no_hypothesis; from (π * r^{2} * (4 - 1) * (4 - 2)) to (6 * π * r^{2}); from (hypothesis 18: {S = π * r^{2} * (4 - 1) * (4 - 2)}) to (hypothesis 19: {S = 6 * π * r^{2}})
+4. apply (hypothesis 19: {S = 6 * π * r^{2}})

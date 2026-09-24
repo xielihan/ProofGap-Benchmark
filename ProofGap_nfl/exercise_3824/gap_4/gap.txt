@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. VPInt ∈ RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. x ∈ RealSet
+5. t ∈ RealSet
+6. VPInt(-∞, +∞, frac(sin(a * x), x + b) * diff(x)) = VPInt(-∞, +∞, frac(sin(a * (t - b)), t) * diff(t))
+7. VPInt(-∞, +∞, frac(sin(a * (t - b)), t) * diff(t)) = VPInt(-∞, +∞, frac(sin(a * t) * cos(a * b), t) * diff(t)) - VPInt(-∞, +∞, frac(cos(a * t) * sin(a * b), t) * diff(t))
+8. VPInt(-∞, +∞, frac(cos(a * t) * sin(a * b), t) * diff(t)) = 0
+
+GOAL:
+VPInt(-∞, +∞, frac(sin(a * t) * cos(a * b), t) * diff(t)) = 2 * DefInt(0, +∞, frac(sin(a * t), t) * cos(a * b) * diff(t))
+
+METHOD:

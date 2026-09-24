@@ -1,0 +1,15 @@
+PROOF GAP @5
+ASSUM:
+1. f : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. p ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (α), α ∈ RealSet ⇒ f(x, y, α) = x * cos(α) + y * sin(α) - p))
+4. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (α), α ∈ RealSet ⇒ f(x, y, α) = x * cos(α) + y * sin(α) - p))
+5. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (α), α ∈ RealSet ⇒ FunDeri(f, 3, 1)(x, y, α) = -x * sin(α) + y * cos(α)))
+6. forall (x), x ∈ RealSet ⇒ (forall (α), α ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ x * cos(α) + y * sin(α) - p = 0))
+7. forall (x), x ∈ RealSet ⇒ (forall (α), α ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ -x * sin(α) + y * cos(α) = 0))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ x^{2} + y^{2} = p^{2})
+
+METHOD:
+[@method 消去 α @]

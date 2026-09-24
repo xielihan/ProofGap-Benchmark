@@ -1,0 +1,25 @@
+PROOF GAP @8
+ASSUM:
+1. φ : RealSet → RealSet
+2. ψ : RealSet → RealSet
+3. a : NonNegIntegerSet → RealSet
+4. b : NonNegIntegerSet → RealSet
+5. α : NonNegIntegerSet → RealSet
+6. β : NonNegIntegerSet → RealSet
+7. IntegrableFuncOn(φ, [-π, π])
+8. IntegrableFuncOn(ψ, [-π, π])
+9. PeriodicFunc(φ, 2 * π)
+10. PeriodicFunc(ψ, 2 * π)
+11. forall (x), x ∈ RealSet ∧ x ∈ [-π, π] ⇒ φ(-x) = -ψ(x)
+12. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ a(n) = frac(1, π) * DefInt(-π, π, φ(x) * cos(n * x) * diff(fun x [x ∈ RealSet] . x)))
+13. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = frac(1, π) * DefInt(-π, π, φ(x) * sin(n * x) * diff(fun x [x ∈ RealSet] . x)))
+14. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ α(n) = frac(1, π) * DefInt(-π, π, ψ(x) * cos(n * x) * diff(fun x [x ∈ RealSet] . x)))
+15. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ β(n) = frac(1, π) * DefInt(-π, π, ψ(x) * sin(n * x) * diff(fun x [x ∈ RealSet] . x)))
+16. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ a(n) = frac(1, π) * (DefInt(-π, 0, φ(x) * cos(n * x) * diff(fun x [x ∈ RealSet] . x)) + DefInt(0, π, φ(x) * cos(n * x) * diff(fun x [x ∈ RealSet] . x))))
+17. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ a(n) = frac(1, π) * (-DefInt(0, π, ψ(x) * cos(n * x) * diff(fun x [x ∈ RealSet] . x)) - DefInt(-π, 0, ψ(x) * cos(n * x) * diff(fun x [x ∈ RealSet] . x))) ∧ frac(1, π) * (-DefInt(0, π, ψ(x) * cos(n * x) * diff(fun x [x ∈ RealSet] . x)) - DefInt(-π, 0, ψ(x) * cos(n * x) * diff(fun x [x ∈ RealSet] . x))) = -frac(1, π) * DefInt(-π, π, ψ(x) * cos(n * x) * diff(fun x [x ∈ RealSet] . x)) ∧ -frac(1, π) * DefInt(-π, π, ψ(x) * cos(n * x) * diff(fun x [x ∈ RealSet] . x)) = -α(n))
+18. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = frac(1, π) * DefInt(-π, π, ψ(x) * sin(n * x) * diff(fun x [x ∈ RealSet] . x)) ∧ frac(1, π) * DefInt(-π, π, ψ(x) * sin(n * x) * diff(fun x [x ∈ RealSet] . x)) = β(n))
+
+GOAL:
+(a, b, α, β) ∈ { (a, b, α, β) | forall (n), n ∈ NonNegIntegerSet ⇒ a(n) = -α(n), forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = β(n) } ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ a(n) = -α(n)) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = β(n))
+
+METHOD:

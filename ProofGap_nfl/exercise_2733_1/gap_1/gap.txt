@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. y ∈ RealSet ∧ y ∈ NonNegRealSet
+3. a : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(x^{n}, n + y^{n})
+
+GOAL:
+|x| < 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |a(n)| ≤ |x|^{n})
+
+METHOD:

@@ -1,0 +1,13 @@
+get_forall (GOAL: {forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ cot(frac(π, 2) - φ) = x)}) (φ := {p})
+get_condition (hypothesis 7: {p ∈ RealSet}) in (GOAL: {p ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ p = arctan(x) ⇒ cot(frac(π, 2) - p) = x)})
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ p = arctan(x) ⇒ cot(frac(π, 2) - p) = x}) (x := {a})
+get_condition (hypothesis 8: {a ∈ RealSet ∧ a ≠ 0 ∧ a > 0 ∧ p = arctan(a)}) in (GOAL: {a ∈ RealSet ∧ a ≠ 0 ∧ a > 0 ∧ p = arctan(a) ⇒ cot(frac(π, 2) - p) = a})
+get_prop (hypothesis 5: {forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ cot(frac(π, 2) - φ) = tan(φ))}) (φ := {p}) as (hypothesis 9: {p ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ p = arctan(x) ⇒ cot(frac(π, 2) - p) = tan(p))})
+use_condition (hypothesis 7: {p ∈ RealSet}) in (hypothesis 9: {p ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ p = arctan(x) ⇒ cot(frac(π, 2) - p) = tan(p))}) as (hypothesis 10: {forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ p = arctan(x) ⇒ cot(frac(π, 2) - p) = tan(p)})
+get_prop (hypothesis 10: {forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ p = arctan(x) ⇒ cot(frac(π, 2) - p) = tan(p)}) (x := {a}) as (hypothesis 11: {a ∈ RealSet ∧ a ≠ 0 ∧ a > 0 ∧ p = arctan(a) ⇒ cot(frac(π, 2) - p) = tan(p)})
+use_condition (hypothesis 8: {a ∈ RealSet ∧ a ≠ 0 ∧ a > 0 ∧ p = arctan(a)}) in (hypothesis 11: {a ∈ RealSet ∧ a ≠ 0 ∧ a > 0 ∧ p = arctan(a) ⇒ cot(frac(π, 2) - p) = tan(p)}) as (hypothesis 12: {cot(frac(π, 2) - p) = tan(p)})
+get_prop (hypothesis 6: {forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ tan(φ) = x)}) (φ := {p}) as (hypothesis 13: {p ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ p = arctan(x) ⇒ tan(p) = x)})
+use_condition (hypothesis 7: {p ∈ RealSet}) in (hypothesis 13: {p ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ p = arctan(x) ⇒ tan(p) = x)}) as (hypothesis 14: {forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ p = arctan(x) ⇒ tan(p) = x})
+get_prop (hypothesis 14: {forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ p = arctan(x) ⇒ tan(p) = x}) (x := {a}) as (hypothesis 15: {a ∈ RealSet ∧ a ≠ 0 ∧ a > 0 ∧ p = arctan(a) ⇒ tan(p) = a})
+use_condition (hypothesis 8: {a ∈ RealSet ∧ a ≠ 0 ∧ a > 0 ∧ p = arctan(a)}) in (hypothesis 15: {a ∈ RealSet ∧ a ≠ 0 ∧ a > 0 ∧ p = arctan(a) ⇒ tan(p) = a}) as (hypothesis 16: {tan(p) = a})
+autosolve all_hypothesis

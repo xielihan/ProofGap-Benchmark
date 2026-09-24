@@ -1,0 +1,5 @@
+get_condition (hypothesis 34: {0 < x}) (hypothesis 35: {x ≤ 1}) in (GOAL: {0 < x ⇒ x ≤ 1 ⇒ seqlim_{ n → +∞ } (y(n, x)) = sqrtn(2, 1 + x) - 1})
+use_condition (hypothesis 34: {0 < x}) (hypothesis 35: {x ≤ 1}) in (hypothesis 31: {0 < x ⇒ x ≤ 1 ⇒ seqlim_{ n → +∞ } (y(n, x)) = A}) as (hypothesis 36: {seqlim_{ n → +∞ } (y(n, x)) = A})
+use_condition (hypothesis 34: {0 < x}) (hypothesis 35: {x ≤ 1}) in (hypothesis 33: {0 < x ⇒ x ≤ 1 ⇒ A = sqrtn(2, 1 + x) - 1}) as (hypothesis 37: {A = sqrtn(2, 1 + x) - 1})
+rewrite (left_to_right, equation) (hypothesis 37: {A = sqrtn(2, 1 + x) - 1}); from (hypothesis 36: {seqlim_{ n → +∞ } (y(n, x)) = A}) to (hypothesis 36: {seqlim_{ n → +∞ } (y(n, x)) = sqrtn(2, 1 + x) - 1})
+apply (hypothesis 36: {seqlim_{ n → +∞ } (y(n, x)) = sqrtn(2, 1 + x) - 1})

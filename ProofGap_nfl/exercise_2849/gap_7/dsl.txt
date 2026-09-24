@@ -1,0 +1,1 @@
+apply (hypothesis 5: {cos(x + h) = cos(x) - h * sin(x) - frac(h^{2}, 2!) * cos(x) + frac(h^{3}, 3!) * sin(x) + (sum_{ n = 4 }^{ +∞ } (frac(FunDeri(fun t [t ∈ RealSet] . cos(x + t), 1, n)(0), n!) * h^{n}))})

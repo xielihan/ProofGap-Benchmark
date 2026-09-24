@@ -1,0 +1,2 @@
+1. rewrite_in sum (right_to_left, equation) (hypothesis 5: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = ln(p(n))}); from (GOAL: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (ln(p(n))))}) to (GOAL: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (u(n)))})
+2. apply (hypothesis 16: {ConvergentSeries(sum_{ k = 1 }^{ +∞ } (u(k)))})

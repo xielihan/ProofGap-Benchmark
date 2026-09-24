@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = x + y + z
+4. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ ((x, y, z) ∈ S ⇔ x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x^{2} + y^{2} ≤ z ∧ z ≤ 1)
+5. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x^{2} + y^{2} < z ∧ z < 1 ⇒ ¬grad(u, x, y, z) = (0, 0, 0)
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} < 1 ⇒ ¬grad(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y, 1), x, y) = (0, 0)
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} ≤ 1 ⇒ u(x, y, x^{2} + y^{2}) = x + y + x^{2} + y^{2}
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y, x^{2} + y^{2}), 1, 1)(x, y) = 1 + 2 * x
+
+METHOD:

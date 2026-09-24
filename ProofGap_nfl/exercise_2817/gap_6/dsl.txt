@@ -1,0 +1,3 @@
+get_prop (hypothesis 10: {forall (x), x ∈ RealSet ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n) * x^{n}))}) (x := {x}) as (hypothesis 11: {x ∈ RealSet ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n) * x^{n}))})
+use_condition (hypothesis 1: {x ∈ RealSet}) in (hypothesis 11: {x ∈ RealSet ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n) * x^{n}))}) as (hypothesis 12: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n) * x^{n}))})
+autosolve all_hypothesis

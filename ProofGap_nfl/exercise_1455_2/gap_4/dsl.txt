@@ -1,0 +1,7 @@
+get_prop (hypothesis 3: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(sqrtn(2, n), n + 10000)}) (n := {10000}) as (hypothesis 8: {10000 ∈ NonNegIntegerSet ∧ 10000 ∈ PosIntegerSet ⇒ a(10000) = frac(sqrtn(2, 10000), 10000 + 10000)})
+assert (hypothesis 9: {10000 ∈ NonNegIntegerSet ∧ 10000 ∈ PosIntegerSet})
+use_condition (hypothesis 9: {10000 ∈ NonNegIntegerSet ∧ 10000 ∈ PosIntegerSet}) in (hypothesis 8: {10000 ∈ NonNegIntegerSet ∧ 10000 ∈ PosIntegerSet ⇒ a(10000) = frac(sqrtn(2, 10000), 10000 + 10000)}) as (hypothesis 10: {a(10000) = frac(sqrtn(2, 10000), 10000 + 10000)})
+get_prop (hypothesis 4: {forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ f(x) = frac(sqrtn(2, x), x + 10000)}) (x := {10000}) as (hypothesis 11: {10000 ∈ RealSet ∧ 10000 ∈ NonNegRealSet ⇒ f(10000) = frac(sqrtn(2, 10000), 10000 + 10000)})
+assert (hypothesis 12: {10000 ∈ RealSet ∧ 10000 ∈ NonNegRealSet})
+use_condition (hypothesis 12: {10000 ∈ RealSet ∧ 10000 ∈ NonNegRealSet}) in (hypothesis 11: {10000 ∈ RealSet ∧ 10000 ∈ NonNegRealSet ⇒ f(10000) = frac(sqrtn(2, 10000), 10000 + 10000)}) as (hypothesis 13: {f(10000) = frac(sqrtn(2, 10000), 10000 + 10000)})
+autosolve (hypothesis 10: {a(10000) = frac(sqrtn(2, 10000), 10000 + 10000)}) (hypothesis 13: {f(10000) = frac(sqrtn(2, 10000), 10000 + 10000)})

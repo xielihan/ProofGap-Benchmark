@@ -1,0 +1,9 @@
+get_prop (hypothesis 29: {forall (p), p ∈ NonNegIntegerSet ∧ p ≥ 0 ⇒ (forall (c) (y), c ∈ RealSet ∧ y ∈ RealSet ⇒ f(y) = sum_{ n = 0 }^{ +∞ } (frac(FunDeri(f, 1, n)(c), n!) * (y - c)^{n}))}) (p := {0}) as (hypothesis 30: {0 ∈ NonNegIntegerSet ∧ 0 ≥ 0 ⇒ (forall (c) (y), c ∈ RealSet ∧ y ∈ RealSet ⇒ f(y) = sum_{ n = 0 }^{ +∞ } (frac(FunDeri(f, 1, n)(c), n!) * (y - c)^{n}))})
+assert (hypothesis 31: {0 ∈ NonNegIntegerSet ∧ 0 ≥ 0}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 31: {0 ∈ NonNegIntegerSet ∧ 0 ≥ 0}) in (hypothesis 30: {0 ∈ NonNegIntegerSet ∧ 0 ≥ 0 ⇒ (forall (c) (y), c ∈ RealSet ∧ y ∈ RealSet ⇒ f(y) = sum_{ n = 0 }^{ +∞ } (frac(FunDeri(f, 1, n)(c), n!) * (y - c)^{n}))}) as (hypothesis 32: {forall (c) (y), c ∈ RealSet ∧ y ∈ RealSet ⇒ f(y) = sum_{ n = 0 }^{ +∞ } (frac(FunDeri(f, 1, n)(c), n!) * (y - c)^{n})})
+assert (hypothesis 33: {(forall (c) (m), m ∈ NonNegIntegerSet ∧ c ∈ RealSet ∧ m ∈ PosIntegerSet ⇒ DiffableFuncAt(FunDeri(f, 1, m), c)) ∧ (forall (c) (y), c ∈ RealSet ∧ y ∈ RealSet ⇒ f(y) = sum_{ n = 0 }^{ +∞ } (frac(FunDeri(f, 1, n)(c), n!) * (y - c)^{n}))}) by proof {
+  autosolve all_hypothesis
+}
+apply (hypothesis 33: {(forall (c) (m), m ∈ NonNegIntegerSet ∧ c ∈ RealSet ∧ m ∈ PosIntegerSet ⇒ DiffableFuncAt(FunDeri(f, 1, m), c)) ∧ (forall (c) (y), c ∈ RealSet ∧ y ∈ RealSet ⇒ f(y) = sum_{ n = 0 }^{ +∞ } (frac(FunDeri(f, 1, n)(c), n!) * (y - c)^{n}))})

@@ -1,0 +1,22 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. y : RealSet → RealSet
+3. a ∈ RealSet
+4. m ∈ RealSet
+5. φ ∈ RealSet
+6. r ∈ RealSet
+7. ξ ∈ RealSet
+8. η ∈ RealSet
+9. ρ ∈ RealSet
+10. ψ ∈ RealSet
+11. a > 0
+12. m ≠ 0
+13. r = a * e^{m * φ}
+14. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x^{2} + y(x)^{2} > 0 ⇒ frac(1, 2) * ln(x^{2} + y(x)^{2}) = ln(a) + m * arctan(frac(y(x), x))
+
+GOAL:
+frac(x + y(x) * FunDeri(y, 1, 1)(x), x^{2} + y(x)^{2}) = frac(m * (x * FunDeri(y, 1, 1)(x) - y(x)), x^{2} + y(x)^{2})
+
+METHOD:
+[@method 两边同时对 x 求 导数 @]

@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. g_{1} : RealSet → RealSet
+3. g_{2} : RealSet → RealSet
+4. forall (x), x ∈ RealSet ⇒ y(x) = 2 * x - x^{2}
+
+GOAL:
+forall (t), t ∈ RealSet ∧ t ∈ (-∞, 1] ⇒ (forall (x), x ∈ RealSet ∧ y(x) = t ⇒ x^{2} - 2 * x + t = 0)
+
+METHOD:

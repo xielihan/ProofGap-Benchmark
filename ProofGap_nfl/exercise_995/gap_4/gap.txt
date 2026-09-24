@@ -1,0 +1,17 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet
+2. δ ∈ RealSet ∧ δ > 0
+3. f : RealSet → RealSet
+4. φ : RealSet → RealSet
+5. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a - δ, a + δ) ⇒ f(x) = |x - a| * φ(x)
+6. ContinuousFuncOn(φ, IntervalLoRo(a - δ, a + δ))
+7. φ(a) ≠ 0
+8. f(a) = 0
+9. forall (Δx), Δx ∈ RealSet ∧ Δx ≠ 0 ⇒ frac(f(a + Δx) - f(a), Δx) = frac(|Δx|, Δx) * φ(a + Δx)
+10. forall (Δx), Δx ∈ RealSet ∧ Δx < 0 ⇒ frac(f(a + Δx) - f(a), Δx) = -φ(a + Δx)
+
+GOAL:
+lim_{ Δx → 0^- } (frac(f(a + Δx) - f(a), Δx)) = lim_{ Δx → 0^- } (-φ(a + Δx))
+
+METHOD:

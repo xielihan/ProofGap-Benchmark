@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = x * ln(x + sqrtn(2, 1 + x^{2}))^{2} - 2 * sqrtn(2, 1 + x^{2}) * ln(x + sqrtn(2, 1 + x^{2})) + 2 * x
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = ln(x + sqrtn(2, 1 + x^{2}))^{2} + frac(2 * x, sqrtn(2, 1 + x^{2})) * ln(x + sqrtn(2, 1 + x^{2})) - frac(2 * x, sqrtn(2, 1 + x^{2})) * ln(x + sqrtn(2, 1 + x^{2})) - 2 * sqrtn(2, 1 + x^{2}) * frac(1, sqrtn(2, 1 + x^{2})) + 2
+
+METHOD:

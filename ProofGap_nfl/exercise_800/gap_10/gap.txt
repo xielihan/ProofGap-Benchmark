@@ -1,0 +1,21 @@
+PROOF GAP @10
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ [0, +∞) ⇒ f(x) = x * sin(x)
+3. x = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . 2 * n * π + frac(1, n))
+4. `x'` = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . 2 * n * π)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ∈ [0, +∞) ∧ `x'`(n) ∈ [0, +∞)
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |x(n) - `x'`(n)| = frac(1, n)
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |f(x(n)) - f(`x'`(n))| = (2 * n * π + frac(1, n)) * sin(frac(1, n)) ∧ (2 * n * π + frac(1, n)) * sin(frac(1, n)) = 2 * n * π * sin(frac(1, n)) + frac(1, n) * sin(frac(1, n))
+8. seqlim_{ n → +∞ } (frac(1, n) * sin(frac(1, n))) = 0
+9. seqlim_{ n → +∞ } (2 * n * π * sin(frac(1, n))) = seqlim_{ n → +∞ } (2 * π * frac(sin(frac(1, n)), frac(1, n)))
+10. seqlim_{ n → +∞ } (2 * π * frac(sin(frac(1, n)), frac(1, n))) = 2 * π
+11. seqlim_{ n → +∞ } (2 * n * π * sin(frac(1, n))) = 2 * π
+12. seqlim_{ n → +∞ } (|f(x(n)) - f(`x'`(n))|) = 2 * π
+13. ε_{0} = 2 * π - 1
+14. ε_{0} > 0
+
+GOAL:
+forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ |x(n) - `x'`(n)| < δ ∧ |f(x(n)) - f(`x'`(n))| > ε_{0}))
+
+METHOD:

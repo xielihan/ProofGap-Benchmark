@@ -1,0 +1,30 @@
+assert (hypothesis 5: {1 + (x + 1)^{2} > 0}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 6: {1 + (x + 1)^{2} ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (theorem 202: {forall (x) (y), x ∈ RealSet ⇒ y ∈ RealSet ⇒ (x > 0 ⇒ y > 0 ⇒ ln (x / y) = ln(x) - ln(y))}) (x := {1}) (y := {1 + (x + 1)^{2}}) as (hypothesis 7: {1 ∈ RealSet ⇒ 1 + (x + 1)^{2} ∈ RealSet ⇒ 1 > 0 ⇒ 1 + (x + 1)^{2} > 0 ⇒ ln(1 / (1 + (x + 1)^{2})) = ln(1) - ln(1 + (x + 1)^{2})})
+assert (hypothesis 8: {1 ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 8: {1 ∈ RealSet}) in (hypothesis 7: {1 ∈ RealSet ⇒ 1 + (x + 1)^{2} ∈ RealSet ⇒ 1 > 0 ⇒ 1 + (x + 1)^{2} > 0 ⇒ ln(1 / (1 + (x + 1)^{2})) = ln(1) - ln(1 + (x + 1)^{2})}) as (hypothesis 9: {1 + (x + 1)^{2} ∈ RealSet ⇒ 1 > 0 ⇒ 1 + (x + 1)^{2} > 0 ⇒ ln(1 / (1 + (x + 1)^{2})) = ln(1) - ln(1 + (x + 1)^{2})})
+use_condition (hypothesis 6: {1 + (x + 1)^{2} ∈ RealSet}) in (hypothesis 9: {1 + (x + 1)^{2} ∈ RealSet ⇒ 1 > 0 ⇒ 1 + (x + 1)^{2} > 0 ⇒ ln(1 / (1 + (x + 1)^{2})) = ln(1) - ln(1 + (x + 1)^{2})}) as (hypothesis 10: {1 > 0 ⇒ 1 + (x + 1)^{2} > 0 ⇒ ln(1 / (1 + (x + 1)^{2})) = ln(1) - ln(1 + (x + 1)^{2})})
+assert (hypothesis 11: {1 > 0}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 11: {1 > 0}) in (hypothesis 10: {1 > 0 ⇒ 1 + (x + 1)^{2} > 0 ⇒ ln(1 / (1 + (x + 1)^{2})) = ln(1) - ln(1 + (x + 1)^{2})}) as (hypothesis 12: {1 + (x + 1)^{2} > 0 ⇒ ln(1 / (1 + (x + 1)^{2})) = ln(1) - ln(1 + (x + 1)^{2})})
+use_condition (hypothesis 5: {1 + (x + 1)^{2} > 0}) in (hypothesis 12: {1 + (x + 1)^{2} > 0 ⇒ ln(1 / (1 + (x + 1)^{2})) = ln(1) - ln(1 + (x + 1)^{2})}) as (hypothesis 13: {ln(1 / (1 + (x + 1)^{2})) = ln(1) - ln(1 + (x + 1)^{2})})
+assert (hypothesis 14: {ln(1) = 0}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 15: {ln(1 / (1 + (x + 1)^{2})) = -ln(1 + (x + 1)^{2})}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (hypothesis 3: {forall (x), x ∈ RealSet ⇒ f(x) = ln(frac(1, 2 + 2 * x + x^{2}))}) (x := {x}) as (hypothesis 16: {x ∈ RealSet ⇒ f(x) = ln(frac(1, 2 + 2 * x + x^{2}))})
+use_condition (hypothesis 2: {x ∈ RealSet}) in (hypothesis 16: {x ∈ RealSet ⇒ f(x) = ln(frac(1, 2 + 2 * x + x^{2}))}) as (hypothesis 17: {f(x) = ln(frac(1, 2 + 2 * x + x^{2}))})
+rewrite (left_to_right, equation) (hypothesis 4: {2 + 2 * x + x^{2} = 1 + (x + 1)^{2}}); from (hypothesis 17: {f(x) = ln(frac(1, 2 + 2 * x + x^{2}))}) to (hypothesis 18: {f(x) = ln(frac(1, 1 + (x + 1)^{2}))})
+assert (hypothesis 19: {frac(1, 1 + (x + 1)^{2}) = 1 / (1 + (x + 1)^{2})}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

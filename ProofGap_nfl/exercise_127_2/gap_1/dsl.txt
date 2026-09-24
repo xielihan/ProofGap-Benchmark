@@ -1,0 +1,5 @@
+get_prop (theorem 'Thm 343. (ConvergentSequenceDefinition)': {forall (a), (ConvergentSeq(a) <==> (exists (L), L ∈ RealSet /\ seqlim_{n -> +∞}(a(n)) = L))}) (a := {x(1)}) as (hypothesis 16: {ConvergentSeq(x(1)) <==> (exists (L), L ∈ RealSet /\ seqlim_{n -> +∞}(x(1, n)) = L)})
+rewrite (left_to_right, iff) (hypothesis 16: {ConvergentSeq(x(1)) <==> (exists (L), L ∈ RealSet /\ seqlim_{n -> +∞}(x(1, n)) = L)}); from (GOAL: {ConvergentSeq(x(1))}) to (GOAL: {exists (L), L ∈ RealSet /\ seqlim_{n -> +∞}(x(1, n)) = L})
+exists (L := {0})
+rewrite_in limit (left_to_right, equation) (hypothesis 7: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet ⇒ x(1, n) = frac(1, n)}); from (GOAL: {0 ∈ RealSet /\ seqlim_{n -> +∞}(x(1, n)) = 0}) to (GOAL: {0 ∈ RealSet /\ seqlim_{n -> +∞}(frac(1, n)) = 0})
+autosolve all_hypothesis

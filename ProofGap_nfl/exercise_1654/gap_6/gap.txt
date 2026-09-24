@@ -1,0 +1,24 @@
+PROOF GAP @6
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. f : RealSet → RealSet
+4. F : RealSet → RealSet
+5. I ⊆ RealSet
+6. `F_1` : RealSet → RealSet
+7. `F_2` : RealSet → RealSet
+8. a ≠ 0
+9. f : I → RealSet
+10. F : I → RealSet
+11. forall (x), x ∈ RealSet ⇒ a * x + b ∈ I
+12. { `F_1` | forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(`F_1`, 1, 1)(x) = f(x) * FunDeri(fun x [x ∈ RealSet ∧ x ∈ I] . x, 1, 1)(x) } = { `F_2` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ I ⇒ `F_2`(x) = F(x) + C) }
+13. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(F, 1, 1)(x) = f(x)
+14. forall (x), x ∈ RealSet ⇒ FunDeri(F, 1, 1)(a * x + b) = f(a * x + b)
+15. forall (x), x ∈ RealSet ⇒ FunDeri(fun x [x ∈ RealSet] . frac(1, a) * F(a * x + b), 1, 1)(x) = FunDeri(F, 1, 1)(a * x + b)
+16. forall (x), x ∈ RealSet ⇒ FunDeri(fun x [x ∈ RealSet] . frac(1, a) * F(a * x + b), 1, 1)(x) = f(a * x + b)
+17. { `F_5` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = f(a * x + b) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_6` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_6`(x) = frac(1, a) * F(a * x + b) + C) }
+
+GOAL:
+{ `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = f(a * x + b) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_4` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_4`(x) = frac(1, a) * F(a * x + b) + C) }
+
+METHOD:

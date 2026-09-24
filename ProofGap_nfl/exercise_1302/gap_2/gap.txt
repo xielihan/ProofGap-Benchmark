@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = sqrtn(2, 1 + x^{2})
+3. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = x / sqrtn(2, 1 + x^{2})
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = (1 + x^{2})^{-frac(3, 2)} ∧ FunDeri(y, 1, 2)(x) > 0
+
+METHOD:

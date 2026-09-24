@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. n ∈ NonNegIntegerSet ∧ n > 0
+3. n ∈ PosIntegerSet
+4. forall (x), x ∈ RealSet ⇒ y(x) = sin(x)^{4} + cos(x)^{4}
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ y(x) = frac(3, 4) + frac(1, 4) * cos(4 * x)
+
+METHOD:

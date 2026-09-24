@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+cos(2 * frac(π, 180)) = 2 * cos(frac(π, 180))^{2} - 1
+
+METHOD:
+[@method 根据 "余弦函数展开式" @]

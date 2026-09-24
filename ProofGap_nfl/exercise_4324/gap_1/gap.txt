@@ -1,0 +1,16 @@
+PROOF GAP @1
+ASSUM:
+1. I ∈ RealSet
+2. C ⊆ CartesianProd(RealSet, RealSet)
+3. S ∈ RealSet
+4. n ∈ RealSet
+5. t ∈ RealSet
+6. x : RealSet → RealSet
+7. y : RealSet → RealSet
+8. s ∈ RealSet
+9. I = ScalarCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x * cos(n, x) + y * cos(n, y)) * diff(fun s [s ∈ RealSet] . s))
+
+GOAL:
+cos(n, x) = sin(t, x)
+
+METHOD:

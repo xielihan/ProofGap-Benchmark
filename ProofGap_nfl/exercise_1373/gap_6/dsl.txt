@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (h), h ∈ RealSet ∧ h ≠ 0 ∧ |h| < δ ⇒ 2 * h ≠ 0}) (h := {h0})
+get_condition (hypothesis 12: {h0 ∈ RealSet ∧ h0 ≠ 0 ∧ |h0| < δ}) in (GOAL: {h0 ∈ RealSet ∧ h0 ≠ 0 ∧ |h0| < δ ⇒ 2 * h0 ≠ 0})
+destruct_and (hypothesis 12: {h0 ∈ RealSet ∧ h0 ≠ 0 ∧ |h0| < δ}) as (hypothesis 13: {h0 ∈ RealSet}) (hypothesis 14: {h0 ≠ 0}) (hypothesis 15: {|h0| < δ})
+autosolve all_hypothesis using SgnSolver

@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. a = 0
+2. b = frac(π, 2)
+3. f = (fun x [x ∈ RealSet ∧ x ≠ 0] . frac(1, x) + cos(frac(1, x)))
+4. DiffableFuncOn(f, IntervalLoRo(0, frac(π, 2)))
+5. lim_{ x → 0^+ } (f(x)) = +∞
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, frac(π, 2)) ⇒ FunDeri(f, 1, 1)(x) = -frac(1, x^{2}) + frac(1, x^{2}) * sin(frac(1, x))
+
+METHOD:

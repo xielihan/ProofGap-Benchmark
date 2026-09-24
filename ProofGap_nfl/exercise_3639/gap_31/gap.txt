@@ -1,0 +1,49 @@
+PROOF GAP @31
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. D ⊆ CartesianProd(RealSet, RealSet)
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ ((x, y) ∈ D ⇔ x^{2} + y^{2} > 0)
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D ⇒ z(x, y) = x * y * ln(x^{2} + y^{2})
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} > 0 ⇒ FunDeri(z, 1, 1)(x, y) = y * ln(x^{2} + y^{2}) + frac(2 * x^{2} * y, x^{2} + y^{2})
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} > 0 ⇒ FunDeri(z, 2, 1)(x, y) = x * ln(x^{2} + y^{2}) + frac(2 * x * y^{2}, x^{2} + y^{2})
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} > 0 ∧ FunDeri(z, 1, 1)(x, y) = 0 ∧ FunDeri(z, 2, 1)(x, y) = 0 ⇒ x = 0 ∨ y = 0 ∨ x = y ∨ x = -y
+8. P_{1} = (0, 1)
+9. P_{2} = (0, -1)
+10. P_{3} = (1, 0)
+11. P_{4} = (-1, 0)
+12. P_{5} = (frac(1, sqrtn(2, 2 * e)), frac(1, sqrtn(2, 2 * e)))
+13. P_{6} = (-frac(1, sqrtn(2, 2 * e)), -frac(1, sqrtn(2, 2 * e)))
+14. P_{7} = (frac(1, sqrtn(2, 2 * e)), -frac(1, sqrtn(2, 2 * e)))
+15. P_{8} = (-frac(1, sqrtn(2, 2 * e)), frac(1, sqrtn(2, 2 * e)))
+16. { P_{1}, P_{2}, P_{3}, P_{4}, P_{5}, P_{6}, P_{7}, P_{8} } = { (x, y) | (x, y) ∈ D ∧ FunDeri(z, 1, 1)(x, y) = 0 ∧ FunDeri(z, 2, 1)(x, y) = 0 }
+17. (P_{1}, P_{2}, P_{3}, P_{4}) ∉ MaximumPointOn(z, D)
+18. (P_{1}, P_{2}, P_{3}, P_{4}) ∉ MinimumPointOn(z, D)
+19. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} > 0 ⇒ FunDeri(z, 1, 2)(x, y) = frac(2 * x * y * (x^{2} + 3 * y^{2}), (x^{2} + y^{2})^{2})
+20. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} > 0 ⇒ FunDeri(z, 2, 2)(x, y) = frac(2 * x * y * (3 * x^{2} + y^{2}), (x^{2} + y^{2})^{2})
+21. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} > 0 ⇒ FunDeri(FunDeri(z, 1, 1), 2, 1)(x, y) = ln(x^{2} + y^{2}) + frac(2 * (x^{4} + y^{4}), (x^{2} + y^{2})^{2})
+22. FunDeri(z, 1, 2)(P_{5}) = 2
+23. FunDeri(FunDeri(z, 1, 1), 2, 1)(P_{5}) = 0
+24. FunDeri(z, 2, 2)(P_{5}) = 2
+25. FunDeri(z, 1, 2)(P_{6}) = 2
+26. FunDeri(FunDeri(z, 1, 1), 2, 1)(P_{6}) = 0
+27. FunDeri(z, 2, 2)(P_{6}) = 2
+28. 2 * 2 - 0^{2} = 4
+29. 4 > 0
+30. 2 * 2 - 0^{2} > 0
+31. MinimumPointOn(z, D) = { P_{5}, P_{6} }
+32. z(P_{5}) = -frac(1, 2 * e)
+33. z(P_{6}) = -frac(1, 2 * e)
+34. FunDeri(z, 1, 2)(P_{7}) = -2
+35. FunDeri(FunDeri(z, 1, 1), 2, 1)(P_{7}) = 0
+36. FunDeri(z, 2, 2)(P_{7}) = -2
+37. FunDeri(z, 1, 2)(P_{8}) = -2
+38. FunDeri(FunDeri(z, 1, 1), 2, 1)(P_{8}) = 0
+39. FunDeri(z, 2, 2)(P_{8}) = -2
+40. -2 * -2 - 0^{2} = 4
+41. 4 > 0
+42. -2 * -2 - 0^{2} > 0
+
+GOAL:
+MaximumPointOn(z, D) = { P_{7}, P_{8} }
+
+METHOD:

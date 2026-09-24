@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. k ∈ NonNegIntegerSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = sum_{ k = 0 }^{ +∞ } (frac(x^{k}, k!))
+4. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ AbsoluteConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac(x^{n}, n!))))
+5. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ AbsoluteConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac(y^{n}, n!))))
+6. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x) * f(y) = (sum_{ n_{1} = 0 }^{ +∞ } (frac(x^{n_{1}}, n_{1}!))) * (sum_{ n_{2} = 0 }^{ +∞ } (frac(y^{n_{2}}, n_{2}!))))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x) * f(y) = sum_{ n_{1} = 0 }^{ +∞ } (sum_{ n_{2} = 0 }^{ +∞ } (frac(1, n_{1}! * n_{2}!) * x^{n_{1}} * y^{n_{2}})))
+
+METHOD:

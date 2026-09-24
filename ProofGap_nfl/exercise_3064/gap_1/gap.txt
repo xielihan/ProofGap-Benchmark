@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. P : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ⇒ P(n) = prod_{ k = 1 }^{ n } (a^{frac((-1)^{k}, k)})
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ⇒ P(n) = a^{-(sum_{ k = 1 }^{ n } (frac((-1)^{k - 1}, k)))}
+
+METHOD:

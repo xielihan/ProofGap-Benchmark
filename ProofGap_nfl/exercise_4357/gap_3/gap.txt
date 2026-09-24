@@ -1,0 +1,24 @@
+PROOF GAP @3
+ASSUM:
+1. x : CartesianProd(RealSet, RealSet) → RealSet
+2. y : CartesianProd(RealSet, RealSet) → RealSet
+3. z : CartesianProd(RealSet, RealSet) → RealSet
+4. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+5. a ∈ RealSet
+6. b ∈ RealSet ∧ 0 < b
+7. `ρ_0` ∈ RealSet ∧ `ρ_0` > 0
+8. m ∈ RealSet ∧ m > 0
+9. k ∈ RealSet
+10. X ∈ RealSet
+11. Y ∈ RealSet
+12. Z ∈ RealSet
+13. b ≤ a
+14. forall (r), r ∈ RealSet ∧ b ≤ r ∧ r ≤ a ⇒ (forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ∧ b ≤ r ∧ r ≤ a ⇒ x(r, φ) = r * cos(φ) ∧ y(r, φ) = r * sin(φ) ∧ z(r, φ) = r)
+15. forall (r), r ∈ RealSet ∧ b ≤ r ∧ r ≤ a ⇒ (forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ S = { (x(r, φ), y(r, φ), z(r, φ)) | 0 ≤ φ ∧ φ ≤ 2 * π, b ≤ r ∧ r ≤ a })
+16. forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ (0, 0, 0) = (x(0, φ), y(0, φ), z(0, φ))
+17. forall (r), r ∈ RealSet ∧ b ≤ r ∧ r ≤ a ⇒ (forall (s), s ∈ RealSet ⇒ diff(S) = 2 * π * r * diff(fun r [r ∈ RealSet ∧ b ≤ r ∧ r ≤ a] . s))
+
+GOAL:
+forall (r), r ∈ RealSet ∧ b ≤ r ∧ r ≤ a ⇒ 2 * π * r * diff(fun r [r ∈ RealSet ∧ b ≤ r ∧ r ≤ a] . sqrtn(2, 2) * r) = 2 * sqrtn(2, 2) * π * r * diff(fun r [r ∈ RealSet ∧ b ≤ r ∧ r ≤ a] . r)
+
+METHOD:

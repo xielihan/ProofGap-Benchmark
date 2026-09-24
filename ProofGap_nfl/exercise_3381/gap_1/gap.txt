@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. FuncOfClassK(y, 3)
+3. exists (`ϵ`), `ϵ` ∈ RealSet ∧ `ϵ` > 0 ∧ Defined(y, (-`ϵ`, `ϵ`))
+4. forall (x), x ∈ RealSet ⇒ x^{2} - x * y(x) + 2 * y(x)^{2} + x - y(x) - 1 = 0
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ 2 * x - y(x) - x * FunDeri(y, 1, 1)(x) + 4 * y(x) * FunDeri(y, 1, 1)(x) + 1 - FunDeri(y, 1, 1)(x) = 0
+
+METHOD:
+[@method 两边同时对 x 求 导数 @]

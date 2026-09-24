@@ -1,0 +1,9 @@
+get_condition (hypothesis 25: {a^{2} + b^{2} ≠ 0}) in (GOAL: {a^{2} + b^{2} ≠ 0 ⇒ c ≠ 0 ⇒ FunDeri(fun t . z(r * cos(t), r * sin(t)), 1, 1)(φ) = 0 ⇒ (1 + r^{2})^{frac(3, 2)} * FunDeri(fun t . FunDeri(fun s . z(s * cos(t), s * sin(t)), 1, 1)(r), 1, 1)(φ) = 0})
+get_condition (hypothesis 26: {c ≠ 0}) in (GOAL: {c ≠ 0 ⇒ FunDeri(fun t . z(r * cos(t), r * sin(t)), 1, 1)(φ) = 0 ⇒ (1 + r^{2})^{frac(3, 2)} * FunDeri(fun t . FunDeri(fun s . z(s * cos(t), s * sin(t)), 1, 1)(r), 1, 1)(φ) = 0})
+get_condition (hypothesis 27: {FunDeri(fun t . z(r * cos(t), r * sin(t)), 1, 1)(φ) = 0}) in (GOAL: {FunDeri(fun t . z(r * cos(t), r * sin(t)), 1, 1)(φ) = 0 ⇒ (1 + r^{2})^{frac(3, 2)} * FunDeri(fun t . FunDeri(fun s . z(s * cos(t), s * sin(t)), 1, 1)(r), 1, 1)(φ) = 0})
+use_condition (hypothesis 25: {a^{2} + b^{2} ≠ 0}) (hypothesis 27: {FunDeri(fun t . z(r * cos(t), r * sin(t)), 1, 1)(φ) = 0}) in (hypothesis 14: {a^{2} + b^{2} ≠ 0 ⇒ FunDeri(fun t . z(r * cos(t), r * sin(t)), 1, 1)(φ) = 0 ⇒ a * sin(φ) = b * cos(φ)}) as (hypothesis 28: {a * sin(φ) = b * cos(φ)})
+assert (hypothesis 29: {-a * sin(φ) + b * cos(φ) = 0}) by proof {
+  autosolve (hypothesis 28: {a * sin(φ) = b * cos(φ)})
+}
+rewrite (left_to_right, equation) (hypothesis 29: {-a * sin(φ) + b * cos(φ) = 0}); from (hypothesis 22: {(1 + r^{2})^{frac(3, 2)} * FunDeri(fun t . FunDeri(fun s . z(s * cos(t), s * sin(t)), 1, 1)(r), 1, 1)(φ) = -a * sin(φ) + b * cos(φ)}) to (hypothesis 22: {(1 + r^{2})^{frac(3, 2)} * FunDeri(fun t . FunDeri(fun s . z(s * cos(t), s * sin(t)), 1, 1)(r), 1, 1)(φ) = 0})
+autosolve (hypothesis 22: {(1 + r^{2})^{frac(3, 2)} * FunDeri(fun t . FunDeri(fun s . z(s * cos(t), s * sin(t)), 1, 1)(r), 1, 1)(φ) = 0})

@@ -1,0 +1,16 @@
+PROOF GAP @2
+ASSUM:
+1. a : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. b : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+3. s : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+4. S : RealSet → RealSet
+5. k ∈ NonNegIntegerSet
+6. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [-10, 10] ⇒ b(n, x) = frac(1, sqrtn(3, n^{2} + e^{x}))
+7. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [-10, 10] ⇒ a(n, x) = frac((-1)^{frac(n * (n - 1), 2)}, sqrtn(3, n^{2} + e^{x}))
+8. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [-10, 10] ⇒ s(n, x) = sum_{ k = 1 }^{ n } (a(k, x))
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |sum_{ k = 1 }^{ n } ((-1)^{frac(k * (k - 1), 2)})| ≤ 2
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| ≤ 10 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, sqrtn(3, n^{2} + e^{x})) > frac(1, sqrtn(3, (n + 1)^{2} + e^{x})))
+
+METHOD:

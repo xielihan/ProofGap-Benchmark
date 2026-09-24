@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x) = x * (sin(ln(x)) + cos(ln(x)))
+3. forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(y, 1, 1)(x) = sin(ln(x)) + cos(ln(x)) + x * frac(1, x) * (cos(ln(x)) - sin(ln(x))) ∧ sin(ln(x)) + cos(ln(x)) + x * frac(1, x) * (cos(ln(x)) - sin(ln(x))) = 2 * cos(ln(x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(y, 1, 2)(x) = -frac(2 * sin(ln(x)), x)
+
+METHOD:

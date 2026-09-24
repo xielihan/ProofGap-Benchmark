@@ -1,0 +1,19 @@
+PROOF GAP @7
+ASSUM:
+1. f_{1} = (fun x [x ∈ RealSet] . 2 * x + |x|)
+2. g_{1} = (fun x [x ∈ RealSet] . frac(2, 3) * x - frac(1, 3) * |x|)
+3. F_{1} = (fun x [x ∈ RealSet] . f_{1}(g_{1}(x)))
+4. g_{1}(0) = 0
+5. ¬DiffableFuncAt(f_{1}, 0)
+6. ¬DiffableFuncAt(g_{1}, 0)
+7. forall (x), x ∈ RealSet ⇒ F_{1}(x) = f_{1}(g_{1}(x)) ∧ f_{1}(g_{1}(x)) = 2 * (frac(2, 3) * x - frac(1, 3) * |x|) + |frac(2, 3) * x - frac(1, 3) * |x|| ∧ 2 * (frac(2, 3) * x - frac(1, 3) * |x|) + |frac(2, 3) * x - frac(1, 3) * |x|| = x
+8. DiffableFuncAt(F_{1}, 0)
+9. FunDeri(F_{1}, 1, 1)(0) = 1
+10. f_{2} = (fun x [x ∈ RealSet] . |x|)
+11. g_{2} = (fun x [x ∈ RealSet] . |x|)
+12. F_{2} = (fun x [x ∈ RealSet] . f_{2}(g_{2}(x)))
+
+GOAL:
+g_{2}(0) = 0
+
+METHOD:

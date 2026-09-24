@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (m) (x), x ∈ RealSet ∧ m ∈ NonNegIntegerSet ⇒ FunDeri(y, 1, 1)(x) + 2 * x * e^{-x^{2}} = 0}) (m := {m0}) (x := {x0})
+get_condition (hypothesis 11: {x0 ∈ RealSet ∧ m0 ∈ NonNegIntegerSet}) in (GOAL: {x0 ∈ RealSet ∧ m0 ∈ NonNegIntegerSet ⇒ FunDeri(y, 1, 1)(x0) + 2 * x0 * e^{-x0^{2}} = 0})
+get_prop (hypothesis 7: {forall (m) (x), x ∈ RealSet ∧ m ∈ NonNegIntegerSet ⇒ FunDeri(y, 1, 1)(x) = (-1)^{1} * (2 * x)^{1} * e^{-x^{2}}}) (m := {m0}) (x := {x0}) as (hypothesis 12: {x0 ∈ RealSet ∧ m0 ∈ NonNegIntegerSet ⇒ FunDeri(y, 1, 1)(x0) = (-1)^{1} * (2 * x0)^{1} * e^{-x0^{2}}})
+use_condition (hypothesis 11: {x0 ∈ RealSet ∧ m0 ∈ NonNegIntegerSet}) in (hypothesis 12: {x0 ∈ RealSet ∧ m0 ∈ NonNegIntegerSet ⇒ FunDeri(y, 1, 1)(x0) = (-1)^{1} * (2 * x0)^{1} * e^{-x0^{2}}}) as (hypothesis 13: {FunDeri(y, 1, 1)(x0) = (-1)^{1} * (2 * x0)^{1} * e^{-x0^{2}}})
+autosolve all_hypothesis

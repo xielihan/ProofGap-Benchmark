@@ -1,0 +1,19 @@
+PROOF GAP @13
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ (1 - 5 * x^{2} = t ⇒ x ∈ RealSet))
+2. forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ (1 - 5 * x^{2} = t ⇒ t ∈ RealSet))
+3. forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ (1 - 5 * x^{2} = t ⇒ t ≤ 1))
+4. forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ (1 - 5 * x^{2} = t ⇒ x^{2} = frac(1, 5) * (1 - t)))
+5. forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ (1 - 5 * x^{2} = t ⇒ x^{3} * diff(fun x [x ∈ RealSet] . x) = frac(1, 2) * x^{2} * diff(fun x [x ∈ RealSet] . x^{2})))
+6. forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ (1 - 5 * x^{2} = t ⇒ frac(1, 2) * x^{2} * diff(fun x [x ∈ RealSet] . x^{2}) = frac(1, 10) * (1 - t) * -frac(1, 5) * diff(fun t [t ∈ RealSet] . t)))
+7. forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ (1 - 5 * x^{2} = t ⇒ frac(1, 10) * (1 - t) * -frac(1, 5) * diff(fun t [t ∈ RealSet] . t) = -frac(1, 50) * (1 - t) * diff(fun t [t ∈ RealSet] . t)))
+8. forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ (1 - 5 * x^{2} = t ⇒ x^{3} * diff(fun x [x ∈ RealSet] . x) = -frac(1, 50) * (1 - t) * diff(fun t [t ∈ RealSet] . t)))
+9. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = x^{3} * (1 - 5 * x^{2})^{10} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_4` | exists (`F_3`), forall (t), t ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(t) = (t^{10} - t^{11}) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_4`(t) = -frac(1, 50) * `F_3`(t) }
+10. { `F_5` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = x^{3} * (1 - 5 * x^{2})^{10} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_6` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_6`(x) = -frac(1, 550) * (1 - 5 * x^{2})^{11} + frac(1, 600) * (1 - 5 * x^{2})^{12} + C) }
+11. exists (C), C ∈ RealSet
+12. { `F_7` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_7`, 1, 1)(x) = x^{3} * (1 - 5 * x^{2})^{10} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_8` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_8`(x) = -frac(1 + 55 * x^{2}, 6600) * (1 - 5 * x^{2})^{11} + C) }
+
+GOAL:
+exists (C), C ∈ RealSet
+
+METHOD:

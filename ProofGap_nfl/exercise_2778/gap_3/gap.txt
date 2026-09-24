@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. a : CartesianProd(IntegerSet, RealSet) → RealSet
+2. s : CartesianProd(IntegerSet, RealSet) → RealSet
+3. S : RealSet → RealSet
+4. k ∈ IntegerSet
+5. forall (n) (x), x ∈ RealSet ∧ n ∈ IntegerSet ∧ x ∈ [0, 2 * π] ∧ n ≥ 2 ⇒ a(n, x) = frac((-1)^{n}, n + sin(x))
+6. forall (n) (x), x ∈ RealSet ∧ n ∈ IntegerSet ∧ x ∈ [0, 2 * π] ∧ n ≥ 2 ⇒ s(n, x) = sum_{ k = 2 }^{ n } (a(k, x))
+7. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 2 * π ⇒ MonoDecSeqOn(fun n [n ∈ IntegerSet ∧ n ≥ 2] . frac(1, n + sin(x)), { n | n ∈ IntegerSet, n ≥ 2 })
+8. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 2 * π ⇒ (forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ 0 < frac(1, n + sin(x)) ∧ frac(1, n + sin(x)) < frac(1, n - 1))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 2 * π ⇒ seqlim_{ n → +∞ } (frac(1, n + sin(x))) = 0
+
+METHOD:

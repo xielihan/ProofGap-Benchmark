@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. p : NonNegIntegerSet → RealSet
+2. q : NonNegIntegerSet → RealSet
+3. P ∈ RealSet
+4. Q = (fun n [n ∈ NonNegIntegerSet ∧ n ≥ 1] . prod_{ k = 1 }^{ n } (p(k)^{2}))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ Q(n) = (prod_{ k = 1 }^{ n } (p(k)))^{2}
+
+GOAL:
+seqlim_{ n → +∞ } (prod_{ k = 1 }^{ n } (p(k))) = P
+
+METHOD:

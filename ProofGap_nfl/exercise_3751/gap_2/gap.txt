@@ -1,0 +1,15 @@
+PROOF GAP @2
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. y_{1} ∈ RealSet
+3. y_{2} ∈ RealSet
+4. x ∈ RealSet
+5. y ∈ RealSet
+6. y_{1} < y_{2}
+7. f : CartesianProd([0, +∞), IntervalLoRo(y_{1}, y_{2})) → RealSet
+8. forall (ε_{0}), ε_{0} ∈ RealSet ∧ ε_{0} > 0 ∧ ε_{0} ∈ PosRealSet ∧ (forall (B), B ∈ RealSet ∧ B > 0 ⇒ (exists (b_{0}), b_{0} ∈ RealSet ∧ (exists (y_{0}), y_{0} ∈ RealSet ∧ b_{0} ≥ B ∧ y_{0} ∈ IntervalLoRo(y_{1}, y_{2}) ∧ |DefInt(b_{0}, +∞, f(x, y_{0}) * diff(fun x [x ∈ RealSet ∧ x ≥ b_{0}] . x))| ≥ ε_{0}))) ⇒ (forall (B), B ∈ RealSet ∧ B > 0 ⇒ (exists (b_{0}), b_{0} ∈ RealSet ∧ (exists (y_{0}), y_{0} ∈ RealSet ∧ b_{0} ≥ B ∧ y_{0} ∈ IntervalLoRo(y_{1}, y_{2}) ∧ |DefInt(b_{0}, +∞, f(x, y_{0}) * diff(fun x [x ∈ RealSet ∧ x ≥ b_{0}] . x))| ≥ ε_{0})))
+
+GOAL:
+(exists (ε_{0}), ε_{0} ∈ RealSet ∧ ε_{0} > 0 ∧ ε_{0} ∈ PosRealSet ∧ (forall (B), B ∈ RealSet ∧ B > 0 ⇒ (exists (b_{0}), b_{0} ∈ RealSet ∧ (exists (y_{0}), y_{0} ∈ RealSet ∧ b_{0} ≥ B ∧ y_{0} ∈ IntervalLoRo(y_{1}, y_{2}) ∧ |DefInt(b_{0}, +∞, f(x, y_{0}) * diff(fun x [x ∈ RealSet ∧ x ≥ b_{0}] . x))| ≥ ε_{0})))) ⇒ ¬UniformConvergent(fun b [b ∈ RealSet ∧ b ≥ 0] . DefInt(0, b, f(x, y) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)), IntervalLoRo(y_{1}, y_{2}), DefInt(0, +∞, f(x, y) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)))
+
+METHOD:

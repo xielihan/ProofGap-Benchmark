@@ -1,0 +1,2 @@
+1. autoreplace no_hypothesis; from (6 - frac(2, 2 * 6)) to (frac(35, 6)); from (GOAL: {6 - frac(2, 2 * 6) = frac(35, 6)}) to (GOAL: {frac(35, 6) = frac(35, 6)})
+2. autosolve all_hypothesis

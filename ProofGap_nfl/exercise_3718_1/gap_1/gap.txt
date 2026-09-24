@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. F : RealSet → RealSet
+2. forall (α), α ∈ RealSet ⇒ F(α) = DefInt(sin(α), cos(α), (fun x [x ∈ RealSet] . e^{α * sqrtn(2, 1 - x^{2})}) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+forall (α), α ∈ RealSet ⇒ FunDeri(F, 1, 1)(α) = -sin(α) * e^{α * |sin(α)|} - cos(α) * e^{α * |cos(α)|} + DefInt(sin(α), cos(α), (fun x [x ∈ RealSet] . sqrtn(2, 1 - x^{2}) * e^{α * sqrtn(2, 1 - x^{2})}) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. F : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ FunDeri(F, 1, 1)(x) = max(1, x^{2})
+3. F(1) = 1
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| ≤ 1 ⇒ { `F_1` | forall (x), x ∈ RealSet ∧ |x| ≤ 1 ⇒ FunDeri(`F_1`, 1, 1)(x) = max(1, x^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_2` | forall (x), x ∈ RealSet ∧ |x| ≤ 1 ⇒ FunDeri(`F_2`, 1, 1)(x) = 1 * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+METHOD:

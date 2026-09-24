@@ -1,0 +1,30 @@
+PROOF GAP @16
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. s : NonNegIntegerSet → RealSet ∧ IsSeq(s)
+3. zeta : NonNegIntegerSet → RealSet ∧ IsSeq(zeta)
+4. k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet
+5. ConvergentSeq(x)
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ s(n) = sum_{ k = 1 }^{ n } (x(k))
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ zeta(n) = frac(s(n), n)
+8. exists (a), a ∈ RealSet ∧ seqlim_{ n → +∞ } (x(n)) = a
+9. exists (a), a ∈ RealSet ∧ seqlim_{ n → +∞ } (x(n)) = a ∧ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ |x(n) - a| < ε)))
+10. exists (a), a ∈ RealSet ∧ seqlim_{ n → +∞ } (x(n)) = a ∧ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ frac(s(n), n) = frac(s(N), n) + frac(s(n) - s(N), n))))
+11. exists (a), a ∈ RealSet ∧ seqlim_{ n → +∞ } (x(n)) = a ∧ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ frac(s(n) - s(N), n) = frac(sum_{ k = N + 1 }^{ n } (x(k)), n - N) * (1 - frac(N, n)))))
+12. exists (a), a ∈ RealSet ∧ seqlim_{ n → +∞ } (x(n)) = a ∧ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (exists (α), α ∈ RealSet ∧ |α| < ε ∧ frac(sum_{ k = N + 1 }^{ n } (x(k)), n - N) = a + α))))
+13. exists (a), a ∈ RealSet ∧ seqlim_{ n → +∞ } (x(n)) = a ∧ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (exists (α), α ∈ RealSet ∧ |α| < ε ∧ frac(s(n), n) = frac(s(N), n) + (a + α) * (1 - frac(N, n))))))
+14. exists (a), a ∈ RealSet ∧ seqlim_{ n → +∞ } (x(n)) = a ∧ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (exists (`N'`), `N'` ∈ NonNegIntegerSet ∧ `N'` ∈ PosIntegerSet ∧ `N'` > N ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > `N'` ⇒ frac(|s(N)|, n) < ε ∧ frac(N, n) < frac(ε, |a| + ε)))))
+15. exists (a), a ∈ RealSet ∧ seqlim_{ n → +∞ } (x(n)) = a ∧ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (exists (`N'`), `N'` ∈ NonNegIntegerSet ∧ `N'` ∈ PosIntegerSet ∧ `N'` > N ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > `N'` ⇒ (exists (α), α ∈ RealSet ∧ |α| < ε ∧ |frac(s(n), n) - a| ≤ frac(|s(N)|, n) + |α| + (|a| + |α|) * frac(N, n))))))
+16. exists (a), a ∈ RealSet ∧ seqlim_{ n → +∞ } (x(n)) = a ∧ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (exists (`N'`), `N'` ∈ NonNegIntegerSet ∧ `N'` ∈ PosIntegerSet ∧ `N'` > N ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > `N'` ⇒ |frac(s(n), n) - a| < 3 * ε))))
+17. exists (a), a ∈ RealSet ∧ seqlim_{ n → +∞ } (x(n)) = a ∧ seqlim_{ n → +∞ } (zeta(n)) = a
+18. y = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . (-1)^{n + 1})
+19. DivergentSeq(y)
+20. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(sum_{ k = 1 }^{ n } (y(k)), n) = cases{ 0 if Even(n); -frac(1, n) if Odd(n) }
+21. ConvergentSeq(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(sum_{ k = 1 }^{ n } (y(k)), n))
+22. exists (y), y : NonNegIntegerSet → RealSet ∧ IsSeq(y) ∧ DivergentSeq(y) ∧ ConvergentSeq(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(sum_{ k = 1 }^{ n } (y(k)), n))
+23. exists (a), a ∈ RealSet ∧ seqlim_{ n → +∞ } (x(n)) = a ∧ seqlim_{ n → +∞ } (zeta(n)) = a ∧ (exists (y), y : NonNegIntegerSet → RealSet ∧ IsSeq(y) ∧ DivergentSeq(y) ∧ ConvergentSeq(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(sum_{ k = 1 }^{ n } (y(k)), n)))
+
+GOAL:
+exists (a), a ∈ RealSet ∧ seqlim_{ n → +∞ } (x(n)) = a ∧ seqlim_{ n → +∞ } (zeta(n)) = a ∧ (exists (y), y : NonNegIntegerSet → RealSet ∧ IsSeq(y) ∧ DivergentSeq(y) ∧ ConvergentSeq(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(sum_{ k = 1 }^{ n } (y(k)), n)))
+
+METHOD:

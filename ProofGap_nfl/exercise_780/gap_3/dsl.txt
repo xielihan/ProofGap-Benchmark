@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (t), t ∈ RealSet ⇒ 0 < y(t)}) (t := {u})
+get_condition (hypothesis 8: {u ∈ RealSet}) in (GOAL: {u ∈ RealSet ⇒ 0 < y(u)})
+get_prop (hypothesis 5: {forall (t), t ∈ RealSet ⇒ y(t) = frac(π, 2) - arctan(t)}) (t := {u}) as (hypothesis 9: {u ∈ RealSet ⇒ y(u) = frac(π, 2) - arctan(u)})
+use_condition (hypothesis 8: {u ∈ RealSet}) in (hypothesis 9: {u ∈ RealSet ⇒ y(u) = frac(π, 2) - arctan(u)}) as (hypothesis 10: {y(u) = frac(π, 2) - arctan(u)})
+get_prop (hypothesis 4: {forall (t), t ∈ RealSet ⇒ x(t) = arctan(t)}) (t := {u}) as (hypothesis 11: {u ∈ RealSet ⇒ x(u) = arctan(u)})
+use_condition (hypothesis 8: {u ∈ RealSet}) in (hypothesis 11: {u ∈ RealSet ⇒ x(u) = arctan(u)}) as (hypothesis 12: {x(u) = arctan(u)})
+get_prop (hypothesis 7: {forall (t), t ∈ RealSet ⇒ x(t) < frac(π, 2)}) (t := {u}) as (hypothesis 13: {u ∈ RealSet ⇒ x(u) < frac(π, 2)})
+use_condition (hypothesis 8: {u ∈ RealSet}) in (hypothesis 13: {u ∈ RealSet ⇒ x(u) < frac(π, 2)}) as (hypothesis 14: {x(u) < frac(π, 2)})
+autosolve all_hypothesis

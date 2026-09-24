@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ u(x, y) = sin(x^{2} + y^{2})
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ diff(u) = 2 * x * cos(x^{2} + y^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + 2 * y * cos(x^{2} + y^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ diff(u) = 2 * (x * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + y * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) * cos(x^{2} + y^{2})
+
+METHOD:

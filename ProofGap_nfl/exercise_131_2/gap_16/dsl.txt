@@ -1,0 +1,6 @@
+1. assert (hypothesis 24: {forall (a), y(a) = x(a) + y(a) - x(a)}) by proof {
+  1. get_forall (GOAL: {forall (a), y(a) = x(a) + y(a) - x(a)}) (a := {a0})
+  2. autosolve all_hypothesis
+}
+2. rewrite_in limit (right_to_left, equation) (hypothesis 24: {forall (a), y(a) = x(a) + y(a) - x(a)}); from (hypothesis 23: {exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ (exists (q), q : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(q) ∧ (exists (`β'`), `β'` ∈ RealSet ∧ seqlim_{ i → +∞ } (x(p(q(i))) + y(p(q(i))) - x(p(q(i)))) = `α'` - `β'`))}) to (hypothesis 25: {exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ (exists (q), q : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(q) ∧ (exists (`β'`), `β'` ∈ RealSet ∧ seqlim_{ i → +∞ } (y(p(q(i)))) = `α'` - `β'`))})
+3. apply (hypothesis 25: {exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ (exists (q), q : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(q) ∧ (exists (`β'`), `β'` ∈ RealSet ∧ seqlim_{ i → +∞ } (y(p(q(i)))) = `α'` - `β'`))})

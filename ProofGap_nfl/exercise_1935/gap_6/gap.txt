@@ -1,0 +1,15 @@
+PROOF GAP @6
+ASSUM:
+1. x ∈ RealSet ∧ x > 0
+2. C ∈ RealSet
+3. C_{1} ∈ RealSet
+4. exists (t), t : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ sqrtn(2, x) = frac(t(x)^{2} - 1, 2 * t(x)))
+5. exists (t), t : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ t(x) > 1)
+6. exists (t), t : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ x = frac(t(x)^{2} - 1, 2 * t(x))^{2})
+7. exists (t), t : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ diff(fun x [x ∈ RealSet] . x) = frac(t(x)^{4} - 1, 2 * t(x)^{3}) * diff(fun x [x ∈ RealSet] . t(x)))
+8. exists (t), t : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ sqrtn(2, x + 1) = frac(t(x)^{2} + 1, 2 * t(x)))
+
+GOAL:
+exists (t), t : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ t(x) = sqrtn(2, x) + sqrtn(2, x + 1))
+
+METHOD:

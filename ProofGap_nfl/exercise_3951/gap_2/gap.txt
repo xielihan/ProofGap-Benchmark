@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. Ω ⊆ CartesianProd(RealSet, RealSet)
+2. f : RealSet → RealSet
+3. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ Ω = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} ≤ 1 })
+4. f : [0, 1] → RealSet
+5. ContinuousFuncOn(f, [0, 1])
+6. forall (r), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1 ⇒ ScalarSurfaceInt(Ω, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . f(sqrtn(2, x^{2} + y^{2}))) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = DefInt(0, 2 * π, DefInt(0, 1, f(r) * r * diff(fun r [r ∈ RealSet] . r)) * diff(fun φ [φ ∈ RealSet] . φ))
+
+GOAL:
+forall (r), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1 ⇒ DefInt(0, 2 * π, DefInt(0, 1, f(r) * r * diff(fun r [r ∈ RealSet] . r)) * diff(fun φ [φ ∈ RealSet] . φ)) = 2 * π * DefInt(0, 1, r * f(r) * diff(fun r [r ∈ RealSet] . r))
+
+METHOD:

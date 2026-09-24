@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x, y) = cases{ x * y * frac(x^{2} - y^{2}, x^{2} + y^{2}) if x^{2} + y^{2} ≠ 0; 0 if x^{2} + y^{2} = 0 }
+3. forall (y), y ∈ RealSet ⇒ lim_{ x → 0 } (frac(f(x, y) - f(0, y), x)) = lim_{ x → 0 } (frac(x * y * frac(x^{2} - y^{2}, x^{2} + y^{2}) - 0, x)) ∧ lim_{ x → 0 } (frac(x * y * frac(x^{2} - y^{2}, x^{2} + y^{2}) - 0, x)) = -y
+4. forall (y), y ∈ RealSet ⇒ FunDeri(f, 1, 1)(0, y) = -y
+
+GOAL:
+FunDeri(FunDeri(f, 1, 1), 2, 1)(0, 0) = -1
+
+METHOD:

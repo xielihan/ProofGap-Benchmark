@@ -1,0 +1,15 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. h ∈ RealSet
+4. y ∈ RealSet
+5. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+6. s ∈ NonNegIntegerSet
+7. A : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+8. forall (x), x ∈ RealSet ⇒ f(x) = arctan(x)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ 1 - x * y ≠ 0 ⇒ arctan(x) + arctan(y) = arctan(frac(x + y, 1 - x * y))
+
+METHOD:

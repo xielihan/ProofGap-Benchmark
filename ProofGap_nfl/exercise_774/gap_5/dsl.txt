@@ -1,0 +1,10 @@
+1. get_forall (GOAL: {forall (φ), φ ∈ RealSet => (forall (x), x ∈ RealSet /\ -1 <= x /\ x <= 1 /\ φ = arcsin(x) => -frac(π, 2) <= φ)}) (φ := {p})
+2. get_condition (hypothesis 5: {p ∈ RealSet}) in (GOAL: {p ∈ RealSet => (forall (x), x ∈ RealSet /\ -1 <= x /\ x <= 1 /\ p = arcsin(x) => -frac(π, 2) <= p)})
+3. get_forall (GOAL: {forall (x), x ∈ RealSet /\ -1 <= x /\ x <= 1 /\ p = arcsin(x) => -frac(π, 2) <= p}) (x := {u})
+4. get_condition (hypothesis 6: {u ∈ RealSet /\ -1 <= u /\ u <= 1 /\ p = arcsin(u)}) in (GOAL: {u ∈ RealSet /\ -1 <= u /\ u <= 1 /\ p = arcsin(u) => -frac(π, 2) <= p})
+5. destruct_and (hypothesis 6: {u ∈ RealSet /\ -1 <= u /\ u <= 1 /\ p = arcsin(u)}) as (hypothesis 7: {u ∈ RealSet}) (hypothesis 8: {-1 <= u}) (hypothesis 9: {u <= 1}) (hypothesis 10: {p = arcsin(u)})
+6. rewrite (left_to_right, equation) (hypothesis 10: {p = arcsin(u)}); from (GOAL: {-frac(π, 2) <= p}) to (GOAL: {-frac(π, 2) <= arcsin(u)})
+7. assert (hypothesis 11: {|u| <= 1})
+8. get_prop (theorem 'Thm 385. (ArcsinPrincipalRange)': {forall (u), u ∈ RealSet => |u| <= 1 => arcsin(u) ∈ [-(π / 2), (π / 2)]}) (u := {u}) as (hypothesis 12: {u ∈ RealSet => |u| <= 1 => arcsin(u) ∈ [-(π / 2), (π / 2)]})
+9. use_condition (hypothesis 7: {u ∈ RealSet}) (hypothesis 11: {|u| <= 1}) in (hypothesis 12: {u ∈ RealSet => |u| <= 1 => arcsin(u) ∈ [-(π / 2), (π / 2)]}) as (hypothesis 13: {arcsin(u) ∈ [-(π / 2), (π / 2)]})
+10. autosolve all_hypothesis

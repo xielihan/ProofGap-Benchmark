@@ -1,0 +1,30 @@
+PROOF GAP @14
+ASSUM:
+1. N ∈ NonNegIntegerSet
+2. j ∈ NonNegIntegerSet
+3. p : RealSet → RealSet
+4. α : NonNegIntegerSet → RealSet
+5. β : NonNegIntegerSet → RealSet
+6. a : NonNegIntegerSet → RealSet
+7. b : NonNegIntegerSet → RealSet
+8. N ∈ PosIntegerSet
+9. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ N ⇒ α(i) ∈ RealSet ∧ β(i) ∈ RealSet
+10. forall (x), x ∈ RealSet ⇒ p(x) = sum_{ j = 0 }^{ N } (α(j) * cos(j * x) + β(j) * sin(j * x))
+11. ContinuousFunc(p)
+12. PeriodicFunc(p, 2 * π)
+13. a(0) = frac(1, π) * DefInt(-π, π, (fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . p(x)) * diff(fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . x))
+14. a(0) = frac(1, π) * DefInt(-π, π, (fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . sum_{ i = 0 }^{ N } (α(i) * cos(i * x) + β(i) * sin(i * x))) * diff(fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . x))
+15. frac(1, π) * DefInt(-π, π, (fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . sum_{ i = 0 }^{ N } (α(i) * cos(i * x) + β(i) * sin(i * x))) * diff(fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . x)) = 2 * α(0)
+16. a(0) = 2 * α(0)
+17. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ a(k) = frac(1, π) * DefInt(-π, π, (fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . p(x) * cos(k * x)) * diff(fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . x))
+18. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ a(k) = frac(1, π) * DefInt(-π, π, (fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . (sum_{ i = 0 }^{ N } (α(i) * cos(i * x) + β(i) * sin(i * x))) * cos(k * x)) * diff(fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . x))
+19. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ frac(1, π) * DefInt(-π, π, (fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . (sum_{ i = 0 }^{ N } (α(i) * cos(i * x) + β(i) * sin(i * x))) * cos(k * x)) * diff(fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . x)) = α(k)
+20. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ a(k) = α(k)
+21. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ b(k) = frac(1, π) * DefInt(-π, π, (fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . p(x) * sin(k * x)) * diff(fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . x))
+22. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ b(k) = frac(1, π) * DefInt(-π, π, (fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . (sum_{ i = 0 }^{ N } (α(i) * cos(i * x) + β(i) * sin(i * x))) * sin(k * x)) * diff(fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . x))
+23. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ frac(1, π) * DefInt(-π, π, (fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . (sum_{ i = 0 }^{ N } (α(i) * cos(i * x) + β(i) * sin(i * x))) * sin(k * x)) * diff(fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . x)) = β(k)
+
+GOAL:
+forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ b(k) = β(k)
+
+METHOD:

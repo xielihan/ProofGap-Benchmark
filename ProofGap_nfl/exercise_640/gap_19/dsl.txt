@@ -1,0 +1,6 @@
+1. get_forall (GOAL: {forall (ξ_{1}), ξ_{1} ∈ RealSet ∧ ξ_{1} - ε * sin(ξ_{1}) = m ⇒ ξ_{1} - ξ = ε * (sin(ξ_{1}) - sin(ξ))}) (ξ_{1} := {z})
+2. get_condition (hypothesis 27: {z ∈ RealSet ∧ z - ε * sin(z) = m}) in (GOAL: {z ∈ RealSet ∧ z - ε * sin(z) = m ⇒ z - ξ = ε * (sin(z) - sin(ξ))})
+3. destruct_and (hypothesis 27: {z ∈ RealSet ∧ z - ε * sin(z) = m}) as (hypothesis 28: {z ∈ RealSet}) (hypothesis 29: {z - ε * sin(z) = m})
+4. assert (hypothesis 30: {z - ε * sin(z) = ξ - ε * sin(ξ)})
+5. autoreplace no_hypothesis; from (ε * (sin(z) - sin(ξ))) to (ε * sin(z) - ε * sin(ξ)); from (GOAL: {z - ξ = ε * (sin(z) - sin(ξ))}) to (GOAL: {z - ξ = ε * sin(z) - ε * sin(ξ)})
+6. autosolve (hypothesis 30: {z - ε * sin(z) = ξ - ε * sin(ξ)})

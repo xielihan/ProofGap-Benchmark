@@ -1,0 +1,15 @@
+PROOF GAP @7
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. forall (x), x ∈ RealSet ∧ x ∈ IntervalClCl(0, 1) ∧ 0 ≤ x ∧ x ≤ 1 ⇒ frac(x^{b} - x^{a}, ln(x)) = DefInt(a, b, (fun y [y ∈ RealSet ∧ y ∈ IntervalClCl(a, b)] . x^{y}) * diff(fun y [y ∈ RealSet] . y))
+4. DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . cos(ln(frac(1, x))) * frac(x^{b} - x^{a}, ln(x))) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . cos(ln(frac(1, x))) * DefInt(a, b, (fun y [y ∈ RealSet ∧ y ∈ IntervalClCl(a, b)] . x^{y}) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+5. DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . cos(ln(frac(1, x))) * DefInt(a, b, (fun y [y ∈ RealSet ∧ y ∈ IntervalClCl(a, b)] . x^{y}) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x)) = DefInt(a, b, (fun y [y ∈ RealSet ∧ y ∈ IntervalClCl(a, b)] . DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . cos(ln(frac(1, x))) * x^{y}) * diff(fun x [x ∈ RealSet] . x))) * diff(fun y [y ∈ RealSet] . y))
+6. forall (y), y ∈ RealSet ∧ y ∈ IntervalClCl(a, b) ⇒ DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . cos(ln(frac(1, x))) * x^{y}) * diff(fun x [x ∈ RealSet] . x)) = frac(1 + y, 1 + (1 + y)^{2})
+7. DefInt(a, b, (fun y [y ∈ RealSet ∧ y ∈ IntervalClCl(a, b)] . DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . cos(ln(frac(1, x))) * x^{y}) * diff(fun x [x ∈ RealSet] . x))) * diff(fun y [y ∈ RealSet] . y)) = DefInt(a, b, (fun y [y ∈ RealSet ∧ y ∈ IntervalClCl(a, b)] . frac(1 + y, 1 + (1 + y)^{2})) * diff(fun y [y ∈ RealSet] . y))
+8. DefInt(a, b, (fun y [y ∈ RealSet ∧ y ∈ IntervalClCl(a, b)] . frac(1 + y, 1 + (1 + y)^{2})) * diff(fun y [y ∈ RealSet] . y)) = frac(1, 2) * ln(frac(b^{2} + 2 * b + 2, a^{2} + 2 * a + 2))
+
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . cos(ln(frac(1, x))) * frac(x^{b} - x^{a}, ln(x))) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 2) * ln(frac(b^{2} + 2 * b + 2, a^{2} + 2 * a + 2))
+
+METHOD:

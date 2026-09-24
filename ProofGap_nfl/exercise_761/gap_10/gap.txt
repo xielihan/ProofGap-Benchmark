@@ -1,0 +1,20 @@
+PROOF GAP @10
+ASSUM:
+1. ε ∈ RealSet
+2. 0 ≤ ε
+3. ε < 1
+4. Y(0) = (fun x [x ∈ RealSet] . x)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ Y(n) = (fun x [x ∈ RealSet] . x + ε * sin(Y(n - 1, x)))
+6. exists (y), y : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (Y(n, x)) = y(x))
+7. forall (y), y : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (Y(n, x)) = y(x)) ⇒ (forall (x), x ∈ RealSet ⇒ y(x) - ε * sin(y(x)) = x)
+8. forall (y), y : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (Y(n, x)) = y(x)) ⇒ (forall (x), x ∈ RealSet ⇒ (forall (z), z ∈ RealSet ∧ z - ε * sin(z) = x ⇒ z = y(x)))
+9. forall (x), x ∈ RealSet ⇒ (forall (w), w ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |Y(n, x) - Y(n, w)| = |x - w + ε * (sin(Y(n - 1, x)) - sin(Y(n - 1, w)))|))
+10. forall (x), x ∈ RealSet ⇒ (forall (w), w ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |Y(n, x) - Y(n, w)| ≤ |x - w| + ε * |Y(n - 1, x) - Y(n - 1, w)|))
+11. forall (x), x ∈ RealSet ⇒ (forall (w), w ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |Y(n, x) - Y(n, w)| ≤ |x - w| * (sum_{ i = 0 }^{ n } (ε^{i}))))
+12. forall (x), x ∈ RealSet ⇒ (forall (w), w ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |Y(n, x) - Y(n, w)| = |x - w| * frac(1 - ε^{n + 1}, 1 - ε)))
+13. forall (x), x ∈ RealSet ⇒ (forall (w), w ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |x - w| * frac(1 - ε^{n + 1}, 1 - ε) ≤ frac(1, 1 - ε) * |x - w|))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (w), w ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |Y(n, x) - Y(n, w)| ≤ frac(1, 1 - ε) * |x - w|))
+
+METHOD:

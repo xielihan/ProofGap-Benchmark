@@ -1,0 +1,4 @@
+1. get_condition (hypothesis 12: {d = 0}) in (GOAL: {d = 0 ⇒ a ≠ 0})
+2. get_prop (hypothesis 3: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a + (n - 1) * d ≠ 0}) (n := {1}) as (hypothesis 13: {1 ∈ NonNegIntegerSet ∧ 1 ∈ PosIntegerSet ⇒ a + (1 - 1) * d ≠ 0})
+3. use_condition (obvious: {1 ∈ NonNegIntegerSet ∧ 1 ∈ PosIntegerSet}) in (hypothesis 13: {1 ∈ NonNegIntegerSet ∧ 1 ∈ PosIntegerSet ⇒ a + (1 - 1) * d ≠ 0}) as (hypothesis 14: {a + (1 - 1) * d ≠ 0})
+4. autosolve all_hypothesis

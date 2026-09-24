@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. R : NonNegIntegerSet → RealSet
+2. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x < 1 ⇒ ln(1 - x) = -(sum_{ n = 1 }^{ +∞ } (frac(x^{n}, n)))
+
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet] . ln(frac(1, 1 - x))) * diff(fun x [x ∈ RealSet] . x)) = -DefInt(0, 1, (fun x [x ∈ RealSet] . ln(1 - x)) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

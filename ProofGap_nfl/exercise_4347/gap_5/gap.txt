@@ -1,0 +1,26 @@
+PROOF GAP @5
+ASSUM:
+1. S ⊆ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+2. ρ : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. c ∈ RealSet
+6. x ∈ RealSet
+7. y ∈ RealSet
+8. z ∈ RealSet
+9. n ∈ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+10. R ∈ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+11. a > 0
+12. b > 0
+13. c > 0
+14. S = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}) = 1 }
+15. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ∧ (x, y, z) ∈ S ⇒ ρ(x, y, z) = frac(1, sqrtn(2, frac(x^{2}, a^{4}) + frac(y^{2}, b^{4}) + frac(z^{2}, c^{4})))))
+16. n = (frac(x, a^{2}), frac(y, b^{2}), frac(z, c^{2}))
+17. cos(n, R) = frac(frac(z, c^{2}), sqrtn(2, frac(x^{2}, a^{4}) + frac(y^{2}, b^{4}) + frac(z^{2}, c^{4})))
+18. ScalarSurfaceInt(S, frac(1, ρ(x, y, z)) * diff(S)) = 2 * DefInt(0, 1, fun r [r ∈ RealSet ∧ r ∈ IntervalClCl(0, 1)] . DefInt(0, 2 * π, (fun θ [θ ∈ RealSet ∧ θ ∈ IntervalClCl(0, 2 * π)] . frac(c, sqrtn(2, 1 - r^{2})) * (frac(r^{2} * cos(θ)^{2}, a^{2}) + frac(r^{2} * sin(θ)^{2}, b^{2}) + frac(1, c^{2}) - frac(r^{2}, c^{2})) * a * b * r) * diff(fun θ [θ ∈ RealSet ∧ θ ∈ IntervalClCl(0, 2 * π)] . θ)) * diff(fun r [r ∈ RealSet ∧ r ∈ IntervalClCl(0, 1)] . r))
+19. ScalarSurfaceInt(S, frac(1, ρ(x, y, z)) * diff(S)) = 2 * π * a * b * c * DefInt(0, 1, (fun r [r ∈ RealSet ∧ r ∈ IntervalClCl(0, 1)] . (frac(1, sqrtn(2, 1 - r^{2})) * (frac(1, a^{2}) + frac(1, b^{2})) - sqrtn(2, 1 - r^{2}) * (frac(1, a^{2}) + frac(1, b^{2})) + 2 * frac(sqrtn(2, 1 - r^{2}), c^{2})) * r) * diff(fun r [r ∈ RealSet ∧ r ∈ IntervalClCl(0, 1)] . r))
+
+GOAL:
+ScalarSurfaceInt(S, frac(1, ρ(x, y, z)) * diff(S)) = -π * a * b * c * ((fun r [r ∈ RealSet ∧ r ∈ IntervalClCl(0, 1)] . 2 * sqrtn(2, 1 - r^{2}) * (frac(1, a^{2}) + frac(1, b^{2})) - frac(2, 3) * (1 - r^{2})^{frac(3, 2)} * (frac(1, a^{2}) + frac(1, b^{2})) + frac(4, 3 * c^{2}) * (1 - r^{2})^{frac(3, 2)})|_{0}^{1})
+
+METHOD:

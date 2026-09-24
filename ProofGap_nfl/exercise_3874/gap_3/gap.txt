@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. Gamma : RealSet → RealSet
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (m), m ∈ NonNegIntegerSet ∧ 1 ≤ m ∧ m ≤ n ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . x^{m - 1} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, n) * Gamma(frac(m, n)))
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ prod_{ m = 1 }^{ n } (DefInt(0, +∞, (fun x [x ∈ RealSet] . x^{m - 1} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet] . x))) = prod_{ m = 1 }^{ n } (frac(1, n) * Gamma(frac(m, n)))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ prod_{ m = 1 }^{ n } (frac(1, n) * Gamma(frac(m, n))) = frac(1, n)^{n} * (prod_{ m = 1 }^{ n - 1 } (Gamma(frac(m, n))))
+
+METHOD:

@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. F : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ F(x) = sum_{ n = 1 }^{ +∞ } (arctan(frac(x, n^{2}))))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ DiffableFuncAt(fun t [t ∈ RealSet] . arctan(frac(t, n^{2})), x))
+
+METHOD:

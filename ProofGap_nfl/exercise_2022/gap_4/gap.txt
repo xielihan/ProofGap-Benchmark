@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet
+2. C ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ sin(x) - sin(a) ≠ 0
+4. cos(a) ≠ 0
+5. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, sin(x) - sin(a)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_4` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(cos(frac(x + a, 2) - frac(x - a, 2)), sin(x) - sin(a)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_4`(x) = frac(1, cos(a)) * `F_3`(x)) }
+6. { `F_6` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(cos(frac(x + a, 2) - frac(x - a, 2)), sin(x) - sin(a)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_6`(x) = frac(1, cos(a)) * `F_5`(x)) } = { `F_8` | exists (`F_7`), `F_7` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_7`, 1, 1)(x) = frac(cos(frac(x + a, 2)) * cos(frac(x - a, 2)) + sin(frac(x + a, 2)) * sin(frac(x - a, 2)), 2 * cos(frac(x + a, 2)) * sin(frac(x - a, 2))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_8`(x) = frac(1, cos(a)) * `F_7`(x)) }
+7. { `F_10` | exists (`F_9`), `F_9` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_9`, 1, 1)(x) = frac(cos(frac(x + a, 2)) * cos(frac(x - a, 2)) + sin(frac(x + a, 2)) * sin(frac(x - a, 2)), 2 * cos(frac(x + a, 2)) * sin(frac(x - a, 2))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_10`(x) = frac(1, cos(a)) * `F_9`(x)) } = { `F_12` | exists (`F_11`), `F_11` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_11`, 1, 1)(x) = (frac(cos(frac(x - a, 2)), sin(frac(x - a, 2))) + frac(sin(frac(x + a, 2)), cos(frac(x + a, 2)))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_12`(x) = frac(1, 2 * cos(a)) * `F_11`(x)) }
+
+GOAL:
+{ `F_13` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_13`, 1, 1)(x) = frac(1, sin(x) - sin(a)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_14` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_14`(x) = frac(1, cos(a)) * ln(|frac(sin(frac(x - a, 2)), cos(frac(x + a, 2)))|) + C) }
+
+METHOD:

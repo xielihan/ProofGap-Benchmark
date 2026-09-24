@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x_{i} : NonNegIntegerSet → RealSet
+2. IsSeq(x_{i})
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ (forall (z), n ∈ PosIntegerSet ∧ z ∈ RealSet ∧ (forall (i), i ∈ IntegerSet ∧ 1 ≤ i ∧ i ≤ n ⇒ x_{i}(i) ∈ RealSet) ⇒ |z + (sum_{ i = 1 }^{ n } (x_{i}(i)))| ≥ |z| - |sum_{ i = 1 }^{ n } (x_{i}(i))|)
+
+METHOD:

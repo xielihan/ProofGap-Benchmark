@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. g : RealSet → RealSet
+3. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ f(n, x) = frac(x, n) * ln(frac(x, n))
+4. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ g(x) = 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ seqlim_{ n → +∞ } (frac(x, n)) = 0
+
+METHOD:

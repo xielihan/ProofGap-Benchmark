@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. L : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. forall (m) (x), m ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ L(m, x) = e^{x} * FunDeri(fun x [x ∈ RealSet] . x^{m} * e^{-x}, 1, m)(x)
+3. forall (m) (x), m ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ L(m, x) = sum_{ k = 0 }^{ m } ((-1)^{k} * Combination(m, k) * frac(m!, k!) * x^{k})
+4. exists (y), y : RealSet → RealSet ∧ (forall (m), m ∈ NonNegIntegerSet ⇒ y = (fun x [x ∈ RealSet] . x^{m} * e^{-x}))
+5. forall (y) (m) (x), y : RealSet → RealSet ∧ y = (fun t [t ∈ RealSet] . t^{m} * e^{-t}) ∧ m ∈ NonNegIntegerSet ∧ x ∈ RealPlus ⇒ FunDeri(y, 1, 1)(x) = m * x^{m - 1} * e^{-x} - x^{m} * e^{-x}
+
+GOAL:
+forall (y) (m) (x), y : RealSet → RealSet ∧ y = (fun t [t ∈ RealSet] . t^{m} * e^{-t}) ∧ m ∈ NonNegIntegerSet ∧ x ∈ RealPlus ⇒ x * FunDeri(y, 1, 1)(x) + (x - m) * y(x) = 0
+
+METHOD:

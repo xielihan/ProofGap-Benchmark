@@ -1,0 +1,3 @@
+rewrite (left_to_right, equation) (hypothesis 5: {ε_{0} = frac(ln(2), 2)}); from (hypothesis 6: {0 < ε_{0}}) to (hypothesis 6: {0 < frac(ln(2), 2)})
+rewrite (left_to_right, equation) (hypothesis 5: {ε_{0} = frac(ln(2), 2)}); from (GOAL: {ε_{0} < ln(2)}) to (GOAL: {frac(ln(2), 2) < ln(2)})
+autosolve all_hypothesis

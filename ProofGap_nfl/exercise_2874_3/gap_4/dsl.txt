@@ -1,0 +1,11 @@
+get_prop (hypothesis 9: {forall (x) (y), x ∈ RealSet /\ y ∈ RealSet /\ 1 - x * y > 0 ⇒ arctan(x) + arctan(y) = arctan(frac(x + y, 1 - x * y))}) (x := {x}) as (hypothesis 14: {forall (y), x ∈ RealSet /\ y ∈ RealSet /\ 1 - x * y > 0 ⇒ arctan(x) + arctan(y) = arctan(frac(x + y, 1 - x * y))})
+get_prop (hypothesis 14: {forall (y), x ∈ RealSet /\ y ∈ RealSet /\ 1 - x * y > 0 ⇒ arctan(x) + arctan(y) = arctan(frac(x + y, 1 - x * y))}) (y := {y}) as (hypothesis 15: {x ∈ RealSet /\ y ∈ RealSet /\ 1 - x * y > 0 ⇒ arctan(x) + arctan(y) = arctan(frac(x + y, 1 - x * y))})
+assert (hypothesis 16: {x ∈ RealSet /\ y ∈ RealSet /\ 1 - x * y > 0}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 16: {x ∈ RealSet /\ y ∈ RealSet /\ 1 - x * y > 0}) in (hypothesis 15: {x ∈ RealSet /\ y ∈ RealSet /\ 1 - x * y > 0 ⇒ arctan(x) + arctan(y) = arctan(frac(x + y, 1 - x * y))}) as (hypothesis 17: {arctan(x) + arctan(y) = arctan(frac(x + y, 1 - x * y))})
+assert (hypothesis 18: {arctan(x) + arctan(y) = arctan(x + h)}) by proof {
+  rewrite (right_to_left, equation) (hypothesis 11: {frac(x + y, 1 - x * y) = x + h}); from (GOAL: {arctan(x) + arctan(y) = arctan(x + h)}) to (GOAL: {arctan(x) + arctan(y) = arctan(frac(x + y, 1 - x * y))})
+  apply (hypothesis 17: {arctan(x) + arctan(y) = arctan(frac(x + y, 1 - x * y))})
+}
+autosolve all_hypothesis

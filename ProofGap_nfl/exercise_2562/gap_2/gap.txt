@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. b : NonNegIntegerSet → RealSet
+3. IsSeq(a)
+4. IsSeq(b)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(1, (2 * n - 1)^{2})
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = frac(1, n^{2})
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < a(n) ∧ a(n) ≤ b(n)
+
+GOAL:
+ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n)))
+
+METHOD:

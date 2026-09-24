@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet ∧ a ∈ PosRealSet
+2. h ∈ RealSet ∧ h ≠ 0
+3. f : RealSet → RealSet
+4. φ = (fun x [x ∈ RealSet] . frac(f(x + h) - f(x), h))
+5. forall (x), x ∈ RealSet ⇒ f(x) = a^{x}
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ φ(x) = frac(f(x + h) - f(x), h)
+
+METHOD:

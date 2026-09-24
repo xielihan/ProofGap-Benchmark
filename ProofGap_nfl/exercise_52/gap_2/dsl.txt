@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ n = 2 * k ⇒ -frac(k, 2 * k) = -frac(1, 2))}) (n := {n0})
+get_condition (hypothesis 2: {n0 ∈ NonNegIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ n0 = 2 * k ⇒ -frac(k, 2 * k) = -frac(1, 2))})
+get_forall (GOAL: {forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ n0 = 2 * k ⇒ -frac(k, 2 * k) = -frac(1, 2)}) (k := {k0})
+get_condition (hypothesis 3: {k0 ∈ NonNegIntegerSet ∧ k0 ∈ PosIntegerSet ∧ n0 = 2 * k0}) in (GOAL: {k0 ∈ NonNegIntegerSet ∧ k0 ∈ PosIntegerSet ∧ n0 = 2 * k0 ⇒ -frac(k0, 2 * k0) = -frac(1, 2)})
+destruct_and (hypothesis 3: {k0 ∈ NonNegIntegerSet ∧ k0 ∈ PosIntegerSet ∧ n0 = 2 * k0}) as (hypothesis 4: {k0 ∈ NonNegIntegerSet}) (hypothesis 5: {k0 ∈ PosIntegerSet}) (hypothesis 6: {n0 = 2 * k0})
+autosolve all_hypothesis

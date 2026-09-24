@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. a = (fun n [n ∈ NonNegIntegerSet ∧ n ≥ 1] . frac((2 * n)!!, (2 * n + 1)!!))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac((2 * n)!!, (2 * n + 1)!!)
+
+METHOD:

@@ -1,0 +1,31 @@
+PROOF GAP @17
+ASSUM:
+1. p : NonNegIntegerSet → RealSet ∧ IsSeq(p)
+2. q : NonNegIntegerSet → RealSet ∧ IsSeq(q)
+3. n ∈ NonNegIntegerSet
+4. seqlim_{ n → +∞ } (p(n)) = +∞
+5. seqlim_{ n → +∞ } (q(n)) = -∞
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(n) ∉ [-1, 0] ∧ q(n) ∉ [-1, 0]
+7. k = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . floor(p(n)))
+8. seqlim_{ n → +∞ } (k(n)) = +∞
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ k(n) ≤ p(n)
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(n) < k(n) + 1
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ k(n) > 0 ⇒ frac(1, k(n)) ≥ frac(1, p(n))
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ k(n) > 0 ⇒ frac(1, p(n)) > frac(1, k(n) + 1)
+13. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ k(n) > 0 ⇒ (1 + frac(1, k(n)))^{k(n) + 1} > (1 + frac(1, p(n)))^{p(n)}
+14. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ k(n) > 0 ⇒ (1 + frac(1, p(n)))^{p(n)} > (1 + frac(1, k(n) + 1))^{k(n)}
+15. seqlim_{ n → +∞ } ((1 + frac(1, k(n)))^{k(n) + 1}) = e
+16. seqlim_{ n → +∞ } ((1 + frac(1, k(n) + 1))^{k(n)}) = seqlim_{ n → +∞ } ((1 + frac(1, k(n) + 1))^{k(n) + 1} * (1 + frac(1, k(n) + 1))^{-1})
+17. seqlim_{ n → +∞ } ((1 + frac(1, k(n) + 1))^{k(n)}) = e
+18. seqlim_{ n → +∞ } ((1 + frac(1, p(n)))^{p(n)}) = e
+19. r = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . -q(n))
+20. seqlim_{ n → +∞ } (r(n)) = +∞
+21. seqlim_{ n → +∞ } ((1 + frac(1, r(n)))^{r(n)}) = e
+22. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ r(n) > 1 ⇒ (1 + frac(1, q(n)))^{q(n)} = (1 - frac(1, r(n)))^{-r(n)}
+23. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ r(n) > 1 ⇒ (1 - frac(1, r(n)))^{-r(n)} = frac(r(n), r(n) - 1)^{r(n)}
+24. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ r(n) > 1 ⇒ frac(r(n), r(n) - 1)^{r(n)} = (1 + frac(1, r(n) - 1))^{r(n) - 1} * (1 + frac(1, r(n) - 1))
+
+GOAL:
+seqlim_{ n → +∞ } ((1 + frac(1, q(n)))^{q(n)}) = e
+
+METHOD:

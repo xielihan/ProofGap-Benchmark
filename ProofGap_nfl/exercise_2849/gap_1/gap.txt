@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. h ∈ RealSet
+
+GOAL:
+sin(x + h) = sin(x) * cos(h) + cos(x) * sin(h)
+
+METHOD:

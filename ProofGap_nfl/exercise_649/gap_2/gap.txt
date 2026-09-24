@@ -1,0 +1,7 @@
+PROOF GAP @2
+ASSUM:
+1. forall (φ), φ : RealSet → RealSet ⇒ (forall (ψ), ψ : RealSet → RealSet ⇒ (forall (χ), χ : RealSet → RealSet ⇒ (forall (a), a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ φ(x) ≠ 0 ⇒ frac(φ(x), φ(x)) ≡ 1))))
+GOAL:
+forall (φ), φ : RealSet → RealSet ⇒ (forall (ψ), ψ : RealSet → RealSet ⇒ (forall (χ), χ : RealSet → RealSet ⇒ (forall (a), a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ φ(x) ≠ 0 ⇒ lim_{ x → a } (frac(φ(x), φ(x))) = 1))))
+
+METHOD:

@@ -1,0 +1,20 @@
+PROOF GAP @1
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. s ∈ RealSet ∧ s > 0
+3. x : RealSet → RealSet
+4. y : RealSet → RealSet
+5. ξ ∈ RealSet
+6. η ∈ RealSet
+7. S ∈ RealSet
+8. ContinuousFuncOn(x, [0, s])
+9. ContinuousFuncOn(y, [0, s])
+10. forall (t), t ∈ RealSet ∧ t ∈ [0, s] ⇒ (x(t), y(t)) ∈ C
+11. ξ * s = DefInt(0, s, x(t) * diff(t))
+12. η * s = DefInt(0, s, y(t) * diff(t))
+13. S = 2 * π * DefInt(0, s, y(t) * diff(t))
+
+GOAL:
+η * s = DefInt(0, s, y(t) * diff(t))
+
+METHOD:

@@ -1,0 +1,32 @@
+PROOF GAP @20
+ASSUM:
+1. a ∈ RealSet
+2. I : RealSet → RealSet
+3. g : CartesianProd(RealSet, RealSet) → RealSet
+4. forall (a), a ∈ RealSet ⇒ I(a) = DefInt(0, frac(π, 2), g * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . x))
+5. forall (x) (a), x ∈ RealSet ∧ a ∈ RealSet ∧ 0 < x ∧ x < frac(π, 2) ⇒ g(x, a) = frac(arctan(a * tan(x)), tan(x))
+6. forall (a), a ∈ RealSet ⇒ g(0, a) = a ∧ g(frac(π, 2), a) = 0
+7. lim_{ x → 0^+ } (g(x, a)) = a
+8. lim_{ x → frac(π, 2)^- } (g(x, a)) = 0
+9. ContinuousFuncOn(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . g(x, a), [0, frac(π, 2)])
+10. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < frac(π, 2) ⇒ FunDeri(g, 2, 1)(x, a) = frac(1, tan(x)) * frac(tan(x), 1 + a^{2} * tan(x)^{2})
+11. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < frac(π, 2) ⇒ frac(1, tan(x)) * frac(tan(x), 1 + a^{2} * tan(x)^{2}) = frac(1, 1 + a^{2} * tan(x)^{2})
+12. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < frac(π, 2) ⇒ FunDeri(g, 2, 1)(x, a) = frac(1, 1 + a^{2} * tan(x)^{2})
+13. FunDeri(g, 2, 1)(0, a) = 1
+14. FunDeri(g, 2, 1)(frac(π, 2), a) = 0
+15. forall (x) (a), x ∈ RealSet ∧ a ∈ RealSet ⇒ FunDeri(g, 2, 1)(x, a) = cases{ frac(1, 1 + a^{2} * tan(x)^{2}) if 0 ≤ x ∧ x < frac(π, 2); 0 if x = frac(π, 2) }
+16. a > 0 ∨ a < 0 ⇒ FunDeri(I, 1, 1)(a) = DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . frac(1, 1 + a^{2} * tan(x)^{2})) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . x))
+17. forall (x) (t), x ∈ RealSet ∧ 0 ≤ x ∧ x < frac(π, 2) ∧ t ∈ RealSet ∧ t ≥ 0 ∧ (a > 0 ∨ a < 0) ∧ t = tan(x) ∧ a^{2} ≠ 1 ⇒ DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . frac(1, 1 + a^{2} * tan(x)^{2})) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . x)) = DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ≥ 0] . frac(1, (1 + t^{2}) * (1 + a^{2} * t^{2}))) * diff(fun t [t ∈ RealSet ∧ t ≥ 0] . t))
+18. forall (x) (t), x ∈ RealSet ∧ 0 ≤ x ∧ x < frac(π, 2) ∧ t ∈ RealSet ∧ t ≥ 0 ∧ (a > 0 ∨ a < 0) ∧ t = tan(x) ∧ a^{2} ≠ 1 ⇒ DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ≥ 0] . frac(1, (1 + t^{2}) * (1 + a^{2} * t^{2}))) * diff(fun t [t ∈ RealSet ∧ t ≥ 0] . t)) = frac(1, 1 - a^{2}) * DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ≥ 0] . frac(1, 1 + t^{2}) - frac(a^{2}, a^{2} * t^{2} + 1)) * diff(fun t [t ∈ RealSet ∧ t ≥ 0] . t))
+19. forall (x) (t), x ∈ RealSet ∧ 0 ≤ x ∧ x < frac(π, 2) ∧ t ∈ RealSet ∧ t ≥ 0 ∧ (a > 0 ∨ a < 0) ∧ t = tan(x) ∧ a^{2} ≠ 1 ⇒ frac(1, 1 - a^{2}) * DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ≥ 0] . frac(1, 1 + t^{2}) - frac(a^{2}, a^{2} * t^{2} + 1)) * diff(fun t [t ∈ RealSet ∧ t ≥ 0] . t)) = frac(π, 2 * (1 + |a|))
+20. forall (x) (t), x ∈ RealSet ∧ 0 ≤ x ∧ x < frac(π, 2) ∧ t ∈ RealSet ∧ t ≥ 0 ∧ (a > 0 ∨ a < 0) ∧ t = tan(x) ∧ a^{2} ≠ 1 ⇒ DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ≥ 0] . frac(1, (1 + t^{2}) * (1 + a^{2} * t^{2}))) * diff(fun t [t ∈ RealSet ∧ t ≥ 0] . t)) = frac(π, 2 * (1 + |a|))
+21. forall (x) (t), x ∈ RealSet ∧ 0 ≤ x ∧ x < frac(π, 2) ∧ t ∈ RealSet ∧ t ≥ 0 ∧ (a > 0 ∨ a < 0) ∧ t = tan(x) ∧ a^{2} = 1 ⇒ DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . frac(1, 1 + a^{2} * tan(x)^{2})) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . x)) = DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . cos(x)^{2}) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . x))
+22. forall (x) (t), x ∈ RealSet ∧ 0 ≤ x ∧ x < frac(π, 2) ∧ t ∈ RealSet ∧ t ≥ 0 ∧ (a > 0 ∨ a < 0) ∧ t = tan(x) ∧ a^{2} = 1 ⇒ DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . cos(x)^{2}) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . x)) = frac(π, 4)
+23. forall (x) (t), x ∈ RealSet ∧ 0 ≤ x ∧ x < frac(π, 2) ∧ t ∈ RealSet ∧ t ≥ 0 ∧ (a > 0 ∨ a < 0) ∧ t = tan(x) ∧ a^{2} = 1 ⇒ DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . frac(1, 1 + a^{2} * tan(x)^{2})) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . x)) = frac(π, 4)
+24. a > 0 ∨ a < 0 ⇒ FunDeri(I, 1, 1)(a) = frac(π, 2 * (1 + |a|))
+25. a > 0 ⇒ (exists (C_{1}), C_{1} ∈ RealSet ∧ I(a) = frac(π, 2) * ln(1 + a) + C_{1})
+
+GOAL:
+a < 0 ⇒ (exists (C_{2}), C_{2} ∈ RealSet ∧ I(a) = -frac(π, 2) * ln(1 - a) + C_{2})
+
+METHOD:

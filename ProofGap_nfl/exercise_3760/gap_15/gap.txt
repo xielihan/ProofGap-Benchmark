@@ -1,0 +1,24 @@
+PROOF GAP @15
+ASSUM:
+1. F : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (α) (x), α ∈ RealSet ∧ x ∈ RealSet ∧ α ≥ 0 ∧ x > 0 ⇒ F(α, x) = -frac(α * sin(x) + cos(x), 1 + α^{2}) * e^{-(α * x)}
+3. forall (α), α ∈ RealSet ∧ α ≥ 0 ⇒ lim_{ x → 0^+ } (frac(sin(x), x) * e^{-(α * x)}) = 1
+4. forall (A), A ∈ RealSet ∧ A > 0 ⇒ |DefInt(0, A, (fun x [x ∈ RealSet] . sin(x)) * diff(fun x [x ∈ RealSet] . x))| = |1 - cos(A)|
+5. forall (A), A ∈ RealSet ∧ A > 0 ⇒ |1 - cos(A)| ≤ 2
+6. forall (A), A ∈ RealSet ∧ A > 0 ⇒ |DefInt(0, A, (fun x [x ∈ RealSet] . sin(x)) * diff(fun x [x ∈ RealSet] . x))| ≤ 2
+7. forall (α), α ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ α ≥ 0 ∧ x > 0 ⇒ 0 < frac(e^{-(α * x)}, x))
+8. forall (α), α ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ α ≥ 0 ∧ x > 0 ⇒ frac(e^{-(α * x)}, x) ≤ frac(1, x))
+9. forall (α), α ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ α ≥ 0 ∧ x > 0 ⇒ 0 < frac(1, x))
+10. forall (A), A ∈ RealSet ⇒ (forall (`A'`), `A'` ∈ RealSet ∧ `A'` > A ∧ A > 0 ⇒ (forall (α), α ∈ RealSet ∧ α ≥ 0 ⇒ (exists (ξ), ξ ∈ RealSet ∧ A ≤ ξ ∧ ξ ≤ `A'` ∧ |DefInt(A, `A'`, (fun x [x ∈ RealSet] . frac(sin(x), x) * e^{-(α * x)}) * diff(fun x [x ∈ RealSet] . x))| = |frac(1, A) * DefInt(A, ξ, (fun x [x ∈ RealSet] . e^{-(α * x)} * sin(x)) * diff(fun x [x ∈ RealSet] . x))|)))
+11. forall (A), A ∈ RealSet ⇒ (forall (`A'`), `A'` ∈ RealSet ∧ `A'` > A ∧ A > 0 ⇒ (forall (x), x ∈ RealSet ∧ A ≤ x ∧ x ≤ `A'` ⇒ (forall (α), α ∈ RealSet ∧ α ≥ 0 ⇒ |F(α, x)| ≤ frac(α + 1, 1 + α^{2}))))
+12. forall (A), A ∈ RealSet ⇒ (forall (`A'`), `A'` ∈ RealSet ∧ `A'` > A ∧ A > 0 ⇒ (forall (α), α ∈ RealSet ∧ α ≥ 0 ⇒ frac(α + 1, 1 + α^{2}) ≤ frac(2 * α, 1 + α^{2}) + frac(1, 1 + α^{2})))
+13. forall (A), A ∈ RealSet ⇒ (forall (`A'`), `A'` ∈ RealSet ∧ `A'` > A ∧ A > 0 ⇒ (forall (α), α ∈ RealSet ∧ α ≥ 0 ⇒ frac(2 * α, 1 + α^{2}) + frac(1, 1 + α^{2}) < 2))
+14. forall (A), A ∈ RealSet ⇒ (forall (`A'`), `A'` ∈ RealSet ∧ `A'` > A ∧ A > 0 ⇒ (forall (x), x ∈ RealSet ∧ A ≤ x ∧ x ≤ `A'` ⇒ (forall (α), α ∈ RealSet ∧ α ≥ 0 ⇒ |F(α, x)| < 2)))
+15. forall (A), A ∈ RealSet ⇒ (forall (`A'`), `A'` ∈ RealSet ∧ `A'` > A ∧ A > 0 ⇒ (forall (α), α ∈ RealSet ∧ α ≥ 0 ⇒ |DefInt(A, `A'`, (fun x [x ∈ RealSet] . frac(sin(x), x) * e^{-(α * x)}) * diff(fun x [x ∈ RealSet] . x))| < frac(4, A)))
+16. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (A), A ∈ RealSet ∧ A = frac(4, ε) + 1)
+17. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (A), A ∈ RealSet ∧ A = frac(4, ε) + 1 ∧ (forall (α), α ∈ RealSet ⇒ (forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ∧ α ≥ 0 ∧ v > u ∧ u ≥ A ⇒ |DefInt(u, v, (fun x [x ∈ RealSet] . frac(sin(x), x) * e^{-(α * x)}) * diff(fun x [x ∈ RealSet] . x))| < frac(4, u)))))
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (A), A ∈ RealSet ∧ A = frac(4, ε) + 1 ∧ (forall (α), α ∈ RealSet ⇒ (forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ∧ α ≥ 0 ∧ v > u ∧ u ≥ A ⇒ frac(4, u) ≤ frac(4, A)))))
+
+METHOD:

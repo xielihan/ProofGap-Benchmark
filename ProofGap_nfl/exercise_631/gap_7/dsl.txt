@@ -1,0 +1,1 @@
+1. apply (hypothesis 10: {seqlim_{ n → +∞ } (prod_{ m = 1 }^{ n } (cos(frac(x, 2^{m})))) = e^{-frac(x^{2}, 6)}})

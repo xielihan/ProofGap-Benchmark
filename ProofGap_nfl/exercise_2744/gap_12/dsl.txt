@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n > frac(1, ε) - 1 ⇒ Δ(n, x) < ε}) (n := {n0}) (x := {x0})
+get_condition (hypothesis 21: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ n0 > frac(1, ε) - 1}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ n0 > frac(1, ε) - 1 ⇒ Δ(n0, x0) < ε})
+destruct_and (hypothesis 21: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ n0 > frac(1, ε) - 1}) as (hypothesis 22: {n0 ∈ NonNegIntegerSet}) (hypothesis 23: {x0 ∈ RealSet}) (hypothesis 24: {n0 > frac(1, ε) - 1})
+get_prop (hypothesis 20: {forall (n), n ∈ NonNegIntegerSet ∧ n > frac(1, ε) - 1 ⇒ frac(1, n + 1) < ε}) (n := {n0}) as (hypothesis 25: {n0 ∈ NonNegIntegerSet ∧ n0 > frac(1, ε) - 1 ⇒ frac(1, n0 + 1) < ε})
+get_prop (hypothesis 19: {forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ frac(1, n + 1) < ε ⇒ Δ(n, x) < ε}) (n := {n0}) (x := {x0}) as (hypothesis 26: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ frac(1, n0 + 1) < ε ⇒ Δ(n0, x0) < ε})
+autosolve all_hypothesis

@@ -1,0 +1,6 @@
+get_condition (hypothesis 10: {a ≠ 0}) in (GOAL: {a ≠ 0 ⇒ e^{-frac(a^{2}, 2)} < 1})
+get_prop (theorem 'Thm 172. (ExponentialMonotonicity)': {forall (x) (y) (a), x ∈ RealSet => y ∈ RealSet => a ∈ RealSet => (a > 0 => a ≠ 1 => x < y => ((a > 1 => a ^ x < a ^ y) /\ (a < 1 => a ^ x > a ^ y)))}) (x := {-frac(a^2,2)}) (y := {0}) (a := {e}) as (hypothesis 10: {-frac(a^2,2) ∈ RealSet => 0 ∈ RealSet => e ∈ RealSet => (e > 0 => e ≠ 1 => -frac(a^2,2) < 0 => ((e > 1 => e^{-frac(a^2,2)} < e^0) /\ (e < 1 => e^{-frac(a^2,2)} > e^0)))})
+use_condition (obvious: {-frac(a^2,2) ∈ RealSet}) (obvious: {0 ∈ RealSet}) (obvious: {e ∈ RealSet}) (obvious: {e > 0}) (obvious: {e ≠ 1}) (obvious: {-frac(a^2,2) < 0}) in (hypothesis 10: {-frac(a^2,2) ∈ RealSet => 0 ∈ RealSet => e ∈ RealSet => (e > 0 => e ≠ 1 => -frac(a^2,2) < 0 => ((e > 1 => e^{-frac(a^2,2)} < e^0) /\ (e < 1 => e^{-frac(a^2,2)} > e^0)))}) as (hypothesis 11: {(e > 1 => e^{-frac(a^2,2)} < e^0) /\ (e < 1 => e^{-frac(a^2,2)} > e^0)})
+destruct_and (hypothesis 11: {(e > 1 => e^{-frac(a^2,2)} < e^0) /\ (e < 1 => e^{-frac(a^2,2)} > e^0)}) as (hypothesis 12: {e > 1 => e^{-frac(a^2,2)} < e^0}) (hypothesis 13: {e < 1 => e^{-frac(a^2,2)} > e^0})
+use_condition (obvious: {e > 1}) in (hypothesis 12: {e > 1 => e^{-frac(a^2,2)} < e^0}) as (hypothesis 14: {e^{-frac(a^2,2)} < e^0})
+autosolve all_hypothesis

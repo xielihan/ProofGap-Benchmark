@@ -1,0 +1,37 @@
+PROOF GAP @19
+ASSUM:
+1. f : RealSet → RealSet
+2. p ∈ NonNegIntegerSet
+3. q ∈ NonNegIntegerSet
+4. a ∈ RealSet
+5. b ∈ RealSet
+6. a < b
+7. Defined(f, [a, b])
+8. ContinuousFuncOn(FunDeri(f, 1, p + q), [a, b])
+9. DiffableFuncOn(FunDeri(f, 1, p + q), IntervalLoRo(a, b))
+10. forall (i), i ∈ NonNegIntegerSet ∧ i ≤ p ⇒ FunDeri(f, 1, i)(a) = 0
+11. forall (j), j ∈ NonNegIntegerSet ∧ j ≤ q ⇒ FunDeri(f, 1, j)(b) = 0
+12. p = q ⇒ (exists (x_{1}), x_{1} ∈ RealSet ∧ x_{1} ∈ IntervalLoRo(a, b) ∧ FunDeri(f, 1, 1)(x_{1}) = 0)
+13. p = q ⇒ (exists (X_{p}), X_{p} ⊆ RealSet ∧ X_{p} ⊆ IntervalLoRo(a, b) ∧ (forall (x) (X_{p}), x ∈ RealSet ∧ x ∈ X_{p} ⇒ FunDeri(f, 1, p)(x) = 0))
+14. p = q ⇒ (exists (X_{p}), X_{p} ⊆ RealSet ∧ X_{p} ⊆ IntervalLoRo(a, b) ∧ |X_{p}| = p)
+15. p = q ⇒ FunDeri(f, 1, p)(a) = 0
+16. p = q ⇒ FunDeri(f, 1, p)(b) = 0
+17. p = q ⇒ (exists (Y), Y ⊆ RealSet ∧ Y ⊆ IntervalLoRo(a, b) ∧ |Y| = p + 2 ∧ (forall (y) (Y), y ∈ RealSet ∧ y ∈ Y ⇒ FunDeri(f, 1, p)(y) = 0))
+18. p = q ⇒ (exists (c), c ∈ RealSet ∧ c ∈ IntervalLoRo(a, b) ∧ FunDeri(f, 1, 2 * p + 1)(c) = 0)
+19. p = q ⇒ 2 * p + 1 = p + q + 1
+20. p = q ⇒ (exists (c), c ∈ RealSet ∧ c ∈ IntervalLoRo(a, b) ∧ FunDeri(f, 1, p + q + 1)(c) = 0)
+21. p ≠ q ⇒ q > p ⇒ k = q - p
+22. p ≠ q ⇒ q > p ⇒ k ∈ PosIntegerSet
+23. p ≠ q ⇒ q > p ⇒ (exists (X), X ⊆ RealSet ∧ X ⊆ IntervalLoRo(a, b) ∧ |X| = p + 1 ∧ (forall (ξ) (X), ξ ∈ RealSet ∧ ξ ∈ X ⇒ FunDeri(f, 1, p + 1)(ξ) = 0))
+24. p ≠ q ⇒ q > p ⇒ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ k ⇒ FunDeri(f, 1, p + i)(b) = 0)
+25. p ≠ q ⇒ q > p ⇒ (exists (Z), Z ⊆ RealSet ∧ Z ⊆ IntervalLoRo(a, b) ∧ |Z| = p + 1 ∧ (forall (z) (Z), z ∈ RealSet ∧ z ∈ Z ⇒ FunDeri(f, 1, p + k + 1)(z) = 0))
+26. p ≠ q ⇒ q > p ⇒ (exists (c), c ∈ RealSet ∧ c ∈ IntervalLoRo(a, b) ∧ FunDeri(f, 1, p + k + p + 1)(c) = 0)
+27. p ≠ q ⇒ q > p ⇒ p + k + p + 1 = p + q + 1
+28. p ≠ q ⇒ q > p ⇒ (exists (c), c ∈ RealSet ∧ c ∈ IntervalLoRo(a, b) ∧ FunDeri(f, 1, p + q + 1)(c) = 0)
+29. p ≠ q ⇒ p > q ⇒ (exists (c), c ∈ RealSet ∧ c ∈ IntervalLoRo(a, b) ∧ FunDeri(f, 1, p + q + 1)(c) = 0)
+30. p ≠ q ⇒ (exists (c), c ∈ RealSet ∧ c ∈ IntervalLoRo(a, b) ∧ FunDeri(f, 1, p + q + 1)(c) = 0)
+
+GOAL:
+exists (c), c ∈ RealSet ∧ c ∈ IntervalLoRo(a, b) ∧ FunDeri(f, 1, p + q + 1)(c) = 0
+
+METHOD:

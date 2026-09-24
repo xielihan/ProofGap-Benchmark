@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. p : NonNegIntegerSet → RealSet
+2. P : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(n) = sqrtn(n, 1 + frac(1, n))
+4. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ P(N) = prod_{ n = 1 }^{ N } (p(n)))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ln(p(n)) = frac(1, n) * ln(1 + frac(1, n)) ∧ ln(p(n)) > 0
+6. (ln(p(n))) ∼_{ n → +∞ } (frac(1, n^{2}))
+7. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{2})))
+
+GOAL:
+ConvergentSeries(sum_{ n = 1 }^{ +∞ } (ln(p(n))))
+
+METHOD:

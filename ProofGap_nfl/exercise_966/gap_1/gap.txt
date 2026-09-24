@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x > 0 ∧ x ≠ 1 ⇒ y(x) = log(x, e)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ∧ x ≠ 1 ⇒ y(x) = frac(1, ln(x))
+
+METHOD:

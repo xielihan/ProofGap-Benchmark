@@ -1,0 +1,2 @@
+1. get_condition (hypothesis 9: {a_{1} < a_{2}}) in (GOAL: {a_{1} < a_{2} => 0 < frac(a_{1}, a_{2})})
+2. autosolve (hypothesis 5: {a_{1} > 0}) (hypothesis 6: {a_{2} > 0})

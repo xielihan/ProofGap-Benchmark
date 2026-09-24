@@ -1,0 +1,22 @@
+PROOF GAP @9
+ASSUM:
+1. f : RealSet → RealSet
+2. S_{lower} : NonNegIntegerSet → RealSet
+3. S_{upper} : NonNegIntegerSet → RealSet
+4. m : CartesianProd(NonNegIntegerSet, IntegerSet) → RealSet
+5. M : CartesianProd(NonNegIntegerSet, IntegerSet) → RealSet
+6. h : NonNegIntegerSet → RealSet
+7. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ f(x) = sqrtn(2, x)
+8. forall (n), n ∈ PosIntegerSet ⇒ n ∈ NonNegIntegerSet
+9. forall (n), n ∈ PosIntegerSet ⇒ h(n) = frac(1, n)
+10. MonoIncFuncOn(f, [0, 1])
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ m((n, i)) = sqrtn(2, frac(i, n)))
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ M((n, i)) = sqrtn(2, frac(i + 1, n)))
+13. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ S_{lower}(n) = sum_{ i = 0 }^{ n - 1 } (m((n, i)) * h(n))
+14. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ S_{lower}(n) = frac(1, n) * (sum_{ i = 0 }^{ n - 1 } (sqrtn(2, frac(i, n))))
+15. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ S_{upper}(n) = sum_{ i = 0 }^{ n - 1 } (M((n, i)) * h(n))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ S_{upper}(n) = frac(1, n) * (sum_{ i = 1 }^{ n } (sqrtn(2, frac(i, n))))
+
+METHOD:

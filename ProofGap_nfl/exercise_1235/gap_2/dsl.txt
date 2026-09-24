@@ -1,0 +1,2 @@
+assert (hypothesis 6: {ContinuousFuncOn(f, [2, 3])})
+apply (hypothesis 6: {ContinuousFuncOn(f, [2, 3])})

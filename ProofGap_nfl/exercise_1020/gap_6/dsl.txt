@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (b), b ∈ RealSet ∧ b > 0 ⇒ lim_{ x → 0^+ } (f(x)) = 0}) (b := {b0})
+get_condition (hypothesis 8: {b0 ∈ RealSet ∧ b0 > 0}) in (GOAL: {b0 ∈ RealSet ∧ b0 > 0 ⇒ lim_{ x → 0^+ } (f(x)) = 0})
+get_prop (hypothesis 6: {forall (b), b ∈ RealSet ∧ b > 0 ⇒ lim_{ x → 0^+ } (f(x)) = lim_{ x → 0^+ } (sqrtn(3, x))}) (b := {b0}) as (hypothesis 9: {b0 ∈ RealSet ∧ b0 > 0 ⇒ lim_{ x → 0^+ } (f(x)) = lim_{ x → 0^+ } (sqrtn(3, x))})
+get_prop (hypothesis 7: {forall (b), b ∈ RealSet ∧ b > 0 ⇒ lim_{ x → 0^+ } (sqrtn(3, x)) = 0}) (b := {b0}) as (hypothesis 10: {b0 ∈ RealSet ∧ b0 > 0 ⇒ lim_{ x → 0^+ } (sqrtn(3, x)) = 0})
+use_condition (hypothesis 8: {b0 ∈ RealSet ∧ b0 > 0}) in (hypothesis 9: {b0 ∈ RealSet ∧ b0 > 0 ⇒ lim_{ x → 0^+ } (f(x)) = lim_{ x → 0^+ } (sqrtn(3, x))}) as (hypothesis 11: {lim_{ x → 0^+ } (f(x)) = lim_{ x → 0^+ } (sqrtn(3, x))})
+use_condition (hypothesis 8: {b0 ∈ RealSet ∧ b0 > 0}) in (hypothesis 10: {b0 ∈ RealSet ∧ b0 > 0 ⇒ lim_{ x → 0^+ } (sqrtn(3, x)) = 0}) as (hypothesis 12: {lim_{ x → 0^+ } (sqrtn(3, x)) = 0})
+autosolve (hypothesis 11: {lim_{ x → 0^+ } (f(x)) = lim_{ x → 0^+ } (sqrtn(3, x))}) (hypothesis 12: {lim_{ x → 0^+ } (sqrtn(3, x)) = 0})

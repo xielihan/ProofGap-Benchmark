@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+2. F : RealSet → RealSet
+3. G : RealSet → RealSet
+4. forall (x), x ∈ RealSet ⇒ F(x) = DefInt(0, x, (fun t [t ∈ RealSet] . sin(t)^{n}) * diff(fun t [t ∈ RealSet] . t))
+5. forall (x), x ∈ RealSet ⇒ G(x) = DefInt(0, x, (fun t [t ∈ RealSet] . cos(t)^{n}) * diff(fun t [t ∈ RealSet] . t))
+
+GOAL:
+Odd(n) ⇒ OddFunc(fun x [x ∈ RealSet] . sin(x)^{n})
+
+METHOD:

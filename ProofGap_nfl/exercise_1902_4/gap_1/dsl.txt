@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ a = 0 ∧ b = 0 ∧ c ≠ 0 ⇒ frac(α * x^{2} + 2 * β * x + γ, (a * x^{2} + 2 * b * x + c)^{2}) = frac(α * x^{2} + 2 * β * x + γ, c^{2})}) (x := {x0})
+get_condition (hypothesis 8: {x0 ∈ RealSet ∧ a = 0 ∧ b = 0 ∧ c ≠ 0}) in (GOAL: {x0 ∈ RealSet ∧ a = 0 ∧ b = 0 ∧ c ≠ 0 ⇒ frac(α * x0^{2} + 2 * β * x0 + γ, (a * x0^{2} + 2 * b * x0 + c)^{2}) = frac(α * x0^{2} + 2 * β * x0 + γ, c^{2})})
+destruct_and (hypothesis 8: {x0 ∈ RealSet ∧ a = 0 ∧ b = 0 ∧ c ≠ 0}) as (hypothesis 9: {x0 ∈ RealSet}) (hypothesis 10: {a = 0}) (hypothesis 11: {b = 0}) (hypothesis 12: {c ≠ 0})
+rewrite (left_to_right, equation) (hypothesis 10: {a = 0}); from (GOAL: {frac(α * x0^{2} + 2 * β * x0 + γ, (a * x0^{2} + 2 * b * x0 + c)^{2}) = frac(α * x0^{2} + 2 * β * x0 + γ, c^{2})}) to (GOAL: {frac(α * x0^{2} + 2 * β * x0 + γ, (0 * x0^{2} + 2 * b * x0 + c)^{2}) = frac(α * x0^{2} + 2 * β * x0 + γ, c^{2})})
+rewrite (left_to_right, equation) (hypothesis 11: {b = 0}); from (GOAL: {frac(α * x0^{2} + 2 * β * x0 + γ, (0 * x0^{2} + 2 * b * x0 + c)^{2}) = frac(α * x0^{2} + 2 * β * x0 + γ, c^{2})}) to (GOAL: {frac(α * x0^{2} + 2 * β * x0 + γ, (0 * x0^{2} + 2 * 0 * x0 + c)^{2}) = frac(α * x0^{2} + 2 * β * x0 + γ, c^{2})})
+assert (hypothesis 13: {frac(α * x0^{2} + 2 * β * x0 + γ, (0 * x0^{2} + 2 * 0 * x0 + c)^{2}) = frac(α * x0^{2} + 2 * β * x0 + γ, c^{2})})
+apply (hypothesis 13: {frac(α * x0^{2} + 2 * β * x0 + γ, (0 * x0^{2} + 2 * 0 * x0 + c)^{2}) = frac(α * x0^{2} + 2 * β * x0 + γ, c^{2})})

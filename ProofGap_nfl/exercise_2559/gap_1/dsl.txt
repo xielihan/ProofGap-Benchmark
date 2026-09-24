@@ -1,0 +1,13 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet => a(n) > b(n) ∧ b(n) > 0}) (n := {m})
+get_condition (hypothesis 7: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet}) in (GOAL: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet => a(m) > b(m) ∧ b(m) > 0})
+get_prop (hypothesis 5: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet => a(n) = frac(1, 2 * n - 1)}) (n := {m}) as (hypothesis 8: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet => a(m) = frac(1, 2 * m - 1)})
+use_condition (hypothesis 7: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet}) in (hypothesis 8: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet => a(m) = frac(1, 2 * m - 1)}) as (hypothesis 9: {a(m) = frac(1, 2 * m - 1)})
+get_prop (hypothesis 6: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet => b(n) = frac(1, 2 * n)}) (n := {m}) as (hypothesis 10: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet => b(m) = frac(1, 2 * m)})
+use_condition (hypothesis 7: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet}) in (hypothesis 10: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet => b(m) = frac(1, 2 * m)}) as (hypothesis 11: {b(m) = frac(1, 2 * m)})
+rewrite (left_to_right, equation) (hypothesis 9: {a(m) = frac(1, 2 * m - 1)}); from (GOAL: {a(m) > b(m) ∧ b(m) > 0}) to (GOAL: {frac(1, 2 * m - 1) > b(m) ∧ b(m) > 0})
+rewrite (left_to_right, equation) (hypothesis 11: {b(m) = frac(1, 2 * m)}); from (GOAL: {frac(1, 2 * m - 1) > b(m) ∧ b(m) > 0}) to (GOAL: {frac(1, 2 * m - 1) > frac(1, 2 * m) ∧ frac(1, 2 * m) > 0})
+assert (hypothesis 12: {2 * m - 1 > 0})
+assert (hypothesis 13: {2 * m > 0})
+assert (hypothesis 14: {frac(1, 2 * m - 1) - frac(1, 2 * m) = frac(1, (2 * m - 1) * (2 * m))})
+assert (hypothesis 15: {frac(1, (2 * m - 1) * (2 * m)) > 0})
+autosolve all_hypothesis

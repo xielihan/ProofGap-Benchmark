@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. c ∈ RealSet
+5. a ≠ 0
+6. forall (x), x ∈ RealSet ⇒ f(x) = a * x^{2} + b * x + c
+7. forall (x), x ∈ RealSet ⇒ f(x) = a * (x + frac(b, 2 * a))^{2} + frac(4 * a * c - b^{2}, 4 * a)
+8. a > 0 ⇒ MinimumPoint(f) = { -frac(b, 2 * a) }
+
+GOAL:
+a > 0 ⇒ MonoDecFuncOn(f, IntervalLoRo(-∞, -frac(b, 2 * a)))
+
+METHOD:

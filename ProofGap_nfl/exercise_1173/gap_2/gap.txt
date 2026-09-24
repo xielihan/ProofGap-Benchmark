@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = x * cos(2 * x)
+3. FuncOfClassK(y, 10)
+GOAL:
+diff^{10}(y) = (fun x [x ∈ RealSet] . 2^{10} * x * cos(2 * x + frac(10 * π, 2)) + 10 * 2^{9} * cos(2 * x + frac(9 * π, 2))) * diff(fun x [x ∈ RealSet] . x)^{10}
+
+METHOD:

@@ -1,0 +1,16 @@
+get_forall (GOAL: {forall (N) (n) (ε), N : RealSet → NonNegIntegerSet ∧ (forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ N(δ) = floor(frac(1, δ))) ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ ε ∈ RealSet ∧ ε > 0 ∧ n > N(ε) ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ |f(n, x) - h(x)| < ε)}) (N := {N0}) (n := {n0}) (ε := {ε0})
+get_condition (hypothesis 21: {N0 : RealSet → NonNegIntegerSet ∧ (forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ N0(δ) = floor(frac(1, δ))) ∧ n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ ε0 ∈ RealSet ∧ ε0 > 0 ∧ n0 > N0(ε0)}) in (GOAL: {N0 : RealSet → NonNegIntegerSet ∧ (forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ N0(δ) = floor(frac(1, δ))) ∧ n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ ε0 ∈ RealSet ∧ ε0 > 0 ∧ n0 > N0(ε0) ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ |f(n0, x) - h(x)| < ε0)})
+destruct_and (hypothesis 21: {N0 : RealSet → NonNegIntegerSet ∧ (forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ N0(δ) = floor(frac(1, δ))) ∧ n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ ε0 ∈ RealSet ∧ ε0 > 0 ∧ n0 > N0(ε0)}) as (hypothesis 22: {N0 : RealSet → NonNegIntegerSet}) (hypothesis 23: {forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ N0(δ) = floor(frac(1, δ))}) (hypothesis 24: {n0 ∈ NonNegIntegerSet}) (hypothesis 25: {n0 ∈ PosIntegerSet}) (hypothesis 26: {ε0 ∈ RealSet}) (hypothesis 27: {ε0 > 0}) (hypothesis 28: {n0 > N0(ε0)})
+get_prop (hypothesis 23: {forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ N0(δ) = floor(frac(1, δ))}) (δ := {ε0}) as (hypothesis 29: {ε0 ∈ RealSet ∧ ε0 > 0 ⇒ N0(ε0) = floor(frac(1, ε0))})
+assert (hypothesis 30: {ε0 ∈ RealSet ∧ ε0 > 0}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 30: {ε0 ∈ RealSet ∧ ε0 > 0}) in (hypothesis 29: {ε0 ∈ RealSet ∧ ε0 > 0 ⇒ N0(ε0) = floor(frac(1, ε0))}) as (hypothesis 31: {N0(ε0) = floor(frac(1, ε0))})
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ |f(n0, x) - h(x)| < ε0}) (x := {x0})
+get_condition (hypothesis 32: {x0 ∈ RealSet ∧ x0 ∈ [0, 1]}) in (GOAL: {x0 ∈ RealSet ∧ x0 ∈ [0, 1] ⇒ |f(n0, x0) - h(x0)| < ε0})
+get_prop (hypothesis 19: {forall (n) (x) (ε), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ∈ [0, 1] ∧ ε ∈ RealSet ∧ ε > 0 ∧ n > floor(frac(1, ε)) ⇒ |f(n, x) - h(x)| < ε}) (n := {n0}) (x := {x0}) (ε := {ε0}) as (hypothesis 33: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet ∧ x0 ∈ [0, 1] ∧ ε0 ∈ RealSet ∧ ε0 > 0 ∧ n0 > floor(frac(1, ε0)) ⇒ |f(n0, x0) - h(x0)| < ε0})
+assert (hypothesis 34: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet ∧ x0 ∈ [0, 1] ∧ ε0 ∈ RealSet ∧ ε0 > 0 ∧ n0 > floor(frac(1, ε0))}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 34: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet ∧ x0 ∈ [0, 1] ∧ ε0 ∈ RealSet ∧ ε0 > 0 ∧ n0 > floor(frac(1, ε0))}) in (hypothesis 33: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet ∧ x0 ∈ [0, 1] ∧ ε0 ∈ RealSet ∧ ε0 > 0 ∧ n0 > floor(frac(1, ε0)) ⇒ |f(n0, x0) - h(x0)| < ε0}) as (hypothesis 35: {|f(n0, x0) - h(x0)| < ε0})
+apply (hypothesis 35: {|f(n0, x0) - h(x0)| < ε0})

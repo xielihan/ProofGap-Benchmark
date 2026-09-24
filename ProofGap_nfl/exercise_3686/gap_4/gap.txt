@@ -1,0 +1,23 @@
+PROOF GAP @4
+ASSUM:
+1. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+2. X : NonNegIntegerSet → RealSet
+3. Y : NonNegIntegerSet → RealSet
+4. m : NonNegIntegerSet → RealSet
+5. f : CartesianProd(RealSet, RealSet) → RealSet
+6. M ∈ RealSet
+7. x ∈ RealSet
+8. y ∈ RealSet
+9. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ X(i) ∈ RealSet
+10. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ Y(i) ∈ RealSet
+11. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ m(i) ∈ PosRealSet
+12. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ (forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x, y) = sum_{ i = 1 }^{ n } (m(i) * ((x - X(i))^{2} + (y - Y(i))^{2})))
+13. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ M = sum_{ i = 1 }^{ n } (m(i))
+14. FunDeri(f, 1, 1)(x, y) = 2 * (sum_{ i = 1 }^{ n } (m(i) * (x - X(i))))
+15. FunDeri(f, 2, 1)(x, y) = 2 * (sum_{ i = 1 }^{ n } (m(i) * (y - Y(i))))
+16. FunDeri(f, 1, 1)(x, y) = 0 ⇒ f(x, y) = min({ f(u, v) | u ∈ RealSet, v ∈ RealSet })
+
+GOAL:
+FunDeri(f, 2, 1)(x, y) = 0 ⇒ FunDeri(f, 1, 1)(x, y) = 0
+
+METHOD:

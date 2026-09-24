@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (t), t ∈ RealSet ∧ t = x - 2 ⇒ t ≤ 4}) (t := {t0})
+get_condition (hypothesis 11: {t0 ∈ RealSet ∧ t0 = x - 2}) in (GOAL: {t0 ∈ RealSet ∧ t0 = x - 2 ⇒ t0 ≤ 4})
+get_prop (hypothesis 7: {forall (t), t ∈ RealSet ∧ t = x - 2 ⇒ 3 * |t| ≤ 16 - t}) (t := {t0}) as (hypothesis 12: {t0 ∈ RealSet ∧ t0 = x - 2 ⇒ 3 * |t0| ≤ 16 - t0})
+use_condition (hypothesis 11: {t0 ∈ RealSet ∧ t0 = x - 2}) in (hypothesis 12: {t0 ∈ RealSet ∧ t0 = x - 2 ⇒ 3 * |t0| ≤ 16 - t0}) as (hypothesis 13: {3 * |t0| ≤ 16 - t0})
+autosolve (hypothesis 13: {3 * |t0| ≤ 16 - t0})

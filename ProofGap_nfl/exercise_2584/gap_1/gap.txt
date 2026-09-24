@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. forall (n) (k), k ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ⇒ a(n) = prod_{ k = 0 }^{ n } (frac(3 * k + 4, 4 * k + 2))
+3. forall (n), n ∈ NonNegIntegerSet ⇒ a(n) ≠ 0
+
+GOAL:
+seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = seqlim_{ n → +∞ } (frac(3 * (n + 1) + 4, 4 * (n + 1) + 2))
+
+METHOD:

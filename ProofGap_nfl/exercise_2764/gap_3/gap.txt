@@ -1,0 +1,16 @@
+PROOF GAP @3
+ASSUM:
+1. F : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. f : RealSet → RealSet
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. a < b
+6. Defined(f, [a, b])
+7. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [a, b] ⇒ F(n, x) = frac(floor(n * f(x)), n)
+8. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [a, b] ⇒ |F(n, x) - f(x)| = frac(1, n) * |floor(n * f(x)) - n * f(x)|)
+9. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [a, b] ⇒ frac(1, n) * |floor(n * f(x)) - n * f(x)| ≤ frac(1, n))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [a, b] ⇒ |F(n, x) - f(x)| ≤ frac(1, n))
+
+METHOD:

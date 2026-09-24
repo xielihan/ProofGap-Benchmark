@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x + sin(x) ≠ 0 ⇒ frac(x - sin(x), x + sin(x)) = frac(1 - frac(sin(x), x), 1 + frac(sin(x), x))
+
+METHOD:

@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ FunDeri(fun x [x ∈ RealSet] . frac(1, a) * F(a * x + b), 1, 1)(x) = f(a * x + b)}) (x := {x0})
+get_condition (hypothesis 16: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ FunDeri(fun x [x ∈ RealSet] . frac(1, a) * F(a * x + b), 1, 1)(x0) = f(a * x0 + b)})
+get_prop (hypothesis 15: {forall (x), x ∈ RealSet ⇒ FunDeri(fun x [x ∈ RealSet] . frac(1, a) * F(a * x + b), 1, 1)(x) = FunDeri(F, 1, 1)(a * x + b)}) (x := {x0}) as (hypothesis 17: {x0 ∈ RealSet ⇒ FunDeri(fun x [x ∈ RealSet] . frac(1, a) * F(a * x + b), 1, 1)(x0) = FunDeri(F, 1, 1)(a * x0 + b)})
+use_condition (hypothesis 16: {x0 ∈ RealSet}) in (hypothesis 17: {x0 ∈ RealSet ⇒ FunDeri(fun x [x ∈ RealSet] . frac(1, a) * F(a * x + b), 1, 1)(x0) = FunDeri(F, 1, 1)(a * x0 + b)}) as (hypothesis 18: {FunDeri(fun x [x ∈ RealSet] . frac(1, a) * F(a * x + b), 1, 1)(x0) = FunDeri(F, 1, 1)(a * x0 + b)})
+get_prop (hypothesis 14: {forall (x), x ∈ RealSet ⇒ FunDeri(F, 1, 1)(a * x + b) = f(a * x + b)}) (x := {x0}) as (hypothesis 19: {x0 ∈ RealSet ⇒ FunDeri(F, 1, 1)(a * x0 + b) = f(a * x0 + b)})
+use_condition (hypothesis 16: {x0 ∈ RealSet}) in (hypothesis 19: {x0 ∈ RealSet ⇒ FunDeri(F, 1, 1)(a * x0 + b) = f(a * x0 + b)}) as (hypothesis 20: {FunDeri(F, 1, 1)(a * x0 + b) = f(a * x0 + b)})
+rewrite (left_to_right, equation) (hypothesis 18: {FunDeri(fun x [x ∈ RealSet] . frac(1, a) * F(a * x + b), 1, 1)(x0) = FunDeri(F, 1, 1)(a * x0 + b)}); from (GOAL: {FunDeri(fun x [x ∈ RealSet] . frac(1, a) * F(a * x + b), 1, 1)(x0) = f(a * x0 + b)}) to (GOAL: {FunDeri(F, 1, 1)(a * x0 + b) = f(a * x0 + b)})
+apply (hypothesis 20: {FunDeri(F, 1, 1)(a * x0 + b) = f(a * x0 + b)})

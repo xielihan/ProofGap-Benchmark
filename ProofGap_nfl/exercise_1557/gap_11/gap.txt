@@ -1,0 +1,23 @@
+PROOF GAP @11
+ASSUM:
+1. φ : RealSet → RealSet
+2. f : RealSet → RealSet
+3. h : RealSet → RealSet
+4. I ⊆ RealSet
+5. StrictMonoIncFunc(φ)
+6. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ h(x) = φ(f(x))
+7. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ MaximumPointOn(f, I) ⇒ (forall (x), x ∈ RealSet ∧ x ∈ I ∧ x ≠ x_{0} ⇒ f(x_{0}) > f(x))
+8. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ MaximumPointOn(f, I) ⇒ (forall (x), x ∈ RealSet ∧ x ∈ I ∧ x ≠ x_{0} ⇒ φ(f(x_{0})) > φ(f(x)))
+9. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ MaximumPointOn(f, I) ⇒ (forall (x), x ∈ RealSet ∧ x ∈ I ∧ x ≠ x_{0} ⇒ h(x_{0}) > h(x))
+10. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ MaximumPointOn(f, I) ⇒ x_{0} ∈ MaximumPointOn(h, I)
+11. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ MaximumPointOn(h, I) ⇒ (forall (x), x ∈ RealSet ∧ x ∈ I ∧ x ≠ x_{0} ⇒ h(x_{0}) > h(x))
+12. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ MaximumPointOn(h, I) ⇒ (forall (x), x ∈ RealSet ∧ x ∈ I ∧ x ≠ x_{0} ⇒ φ(f(x_{0})) > φ(f(x)))
+13. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ MaximumPointOn(h, I) ⇒ (forall (x), x ∈ RealSet ∧ x ∈ I ∧ x ≠ x_{0} ⇒ f(x_{0}) > f(x))
+14. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ MaximumPointOn(h, I) ⇒ x_{0} ∈ MaximumPointOn(f, I)
+15. MaximumPointOn(h, I) = MaximumPointOn(f, I)
+16. MinimumPointOn(h, I) = MinimumPointOn(f, I)
+
+GOAL:
+MaximumPointOn(h, I) = MaximumPointOn(f, I) ∧ MinimumPointOn(h, I) = MinimumPointOn(f, I)
+
+METHOD:

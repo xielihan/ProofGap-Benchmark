@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > -a ∧ x > -b ∧ x > 0 ⇒ sqrtn(2, (x + a) * (x + b)) - x = frac((x + a) * (x + b) - x^{2}, sqrtn(2, (x + a) * (x + b)) + x)
+
+METHOD:

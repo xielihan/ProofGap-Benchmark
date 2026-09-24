@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. 0 < b
+4. b < a
+
+GOAL:
+exists (ξ), ξ ∈ RealSet ∧ 0 < b ∧ b < ξ ∧ ξ < a ∧ ln(a) - ln(b) = frac(a - b, ξ)
+
+METHOD:

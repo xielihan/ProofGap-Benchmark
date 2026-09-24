@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet
+2. forall (x), x ∈ RealSet ∧ (x ≤ -1 ∨ x ≥ 0) ⇒ x^{2} + x ≥ 0
+3. lim_{ x → -∞ } (sqrtn(2, x^{2} + x) - x) = +∞
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x^{2} + x ≥ 0 ∧ sqrtn(2, x^{2} + x) + x ≠ 0 ⇒ sqrtn(2, x^{2} + x) - x = frac(x, sqrtn(2, x^{2} + x) + x)
+
+METHOD:

@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. F : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. a < b
+5. forall (α), α ∈ RealSet ∧ α ≠ 0 ∧ 0 ∉ [a + α, b + α] ⇒ F(α) = DefInt(a + α, b + α, (fun x [x ∈ RealSet] . frac(sin(α * x), x)) * diff(fun x [x ∈ RealSet] . x))
+6. forall (α), α ∈ RealSet ∧ α ≠ 0 ∧ 0 ∉ [a + α, b + α] ⇒ FunDeri(F, 1, 1)(α) = frac(sin(α * (b + α)), b + α) - frac(sin(α * (a + α)), a + α) + DefInt(a + α, b + α, (fun x [x ∈ RealSet] . cos(α * x)) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+forall (α), α ∈ RealSet ∧ α ≠ 0 ∧ 0 ∉ [a + α, b + α] ⇒ FunDeri(F, 1, 1)(α) = (frac(1, α) + frac(1, b + α)) * sin(α * (b + α)) - (frac(1, α) + frac(1, a + α)) * sin(α * (a + α))
+
+METHOD:

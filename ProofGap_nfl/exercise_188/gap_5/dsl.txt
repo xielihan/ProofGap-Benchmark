@@ -1,0 +1,9 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ∧ frac(1, 2) ≤ x ∧ x < 1 ⇒ floor(2 * x) = 1}) (x := {z})
+2. get_condition (hypothesis 7: {z ∈ RealSet ∧ frac(1, 2) ≤ z ∧ z < 1}) in (GOAL: {z ∈ RealSet ∧ frac(1, 2) ≤ z ∧ z < 1 ⇒ floor(2 * z) = 1})
+3. destruct_and (hypothesis 7: {z ∈ RealSet ∧ frac(1, 2) ≤ z ∧ z < 1}) as (hypothesis 8: {z ∈ RealSet}) (hypothesis 9: {frac(1, 2) ≤ z}) (hypothesis 10: {z < 1})
+4. assert (hypothesis 11: {2 * z ∈ RealSet})
+5. assert (hypothesis 12: {1 ∈ RealSet})
+6. get_prop (theorem 'Thm 422. (FloorEquivalentDefinition)': {forall (x) (n), x ∈ RealSet => n ∈ RealSet => (floor(x) = n <==> (n ∈ IntegerSet) /\ (n <= x) /\ (x < n + 1))}) (x := {2 * z}) (n := {1}) as (hypothesis 13: {2 * z ∈ RealSet => 1 ∈ RealSet => (floor(2 * z) = 1 <==> (1 ∈ IntegerSet) /\ (1 <= 2 * z) /\ (2 * z < 1 + 1))})
+7. use_condition (hypothesis 11: {2 * z ∈ RealSet}) (hypothesis 12: {1 ∈ RealSet}) in (hypothesis 13: {2 * z ∈ RealSet => 1 ∈ RealSet => (floor(2 * z) = 1 <==> (1 ∈ IntegerSet) /\ (1 <= 2 * z) /\ (2 * z < 1 + 1))}) as (hypothesis 14: {floor(2 * z) = 1 <==> (1 ∈ IntegerSet) /\ (1 <= 2 * z) /\ (2 * z < 1 + 1)})
+8. rewrite (left_to_right, iff) (hypothesis 14: {floor(2 * z) = 1 <==> (1 ∈ IntegerSet) /\ (1 <= 2 * z) /\ (2 * z < 1 + 1)}); from (GOAL: {floor(2 * z) = 1}) to (GOAL: {(1 ∈ IntegerSet) /\ (1 <= 2 * z) /\ (2 * z < 1 + 1)})
+9. autosolve all_hypothesis

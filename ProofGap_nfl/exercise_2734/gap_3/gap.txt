@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet
+2. y ∈ RealSet
+3. a : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = sqrtn(n, |x|^{n^{2}} + |y|^{n^{2}})
+5. max(|x|, |y|) > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = sqrtn(n, frac(|x|, max(|x|, |y|))^{n^{2}} + frac(|y|, max(|x|, |y|))^{n^{2}}) * max(|x|, |y|)^{n})
+6. max(|x|, |y|) > 0 ⇒ seqlim_{ n → +∞ } (sqrtn(n, a(n))) = max(|x|, |y|)
+
+GOAL:
+max(|x|, |y|) < 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+METHOD:

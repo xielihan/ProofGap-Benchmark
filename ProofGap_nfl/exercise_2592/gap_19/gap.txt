@@ -1,0 +1,34 @@
+PROOF GAP @19
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. m ∈ NonNegIntegerSet
+3. ε ∈ RealSet
+4. l ∈ RealSet
+5. n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet
+6. b : NonNegIntegerSet → RealSet
+7. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ ε = frac(1 - q, 2))
+8. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ 0 < ε)
+9. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ ε < 1 - q)
+10. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ l = q + ε)
+11. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ l < 1)
+12. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ frac(a(n + 1), a(n)) < l)))
+13. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ 0 < a(n) ∧ a(n) ≤ a(n_{0}) * l^{n - n_{0}}))
+14. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ ConvergentSeries(sum_{ n = n_{0} }^{ +∞ } (l^{n - n_{0}})))
+15. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ ConvergentSeries(sum_{ n = n_{0} }^{ +∞ } (a(n))))
+16. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))))
+17. forall (a) (q), a : NonNegIntegerSet → RealSet ∧ q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+18. b = (fun n [n ∈ NonNegIntegerSet] . cases{ frac(1, 2^{m + 1}) if exists (m), m ∈ NonNegIntegerSet ∧ n = 2 * m + 1; frac(1, 3^{m}) if exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n = 2 * m })
+19. PosSeq(b)
+20. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n)))
+21. forall (m), m ∈ NonNegIntegerSet ⇒ frac(b(2 * m + 2), b(2 * m + 1)) = frac(2, 3)^{m + 1}
+22. forall (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ frac(b(2 * m + 1), b(2 * m)) = frac(1, 2) * frac(3, 2)^{m}
+23. seqlim_{ n → +∞ } (frac(b(n + 1), b(n))) = +∞
+24. ¬(exists (q), q ∈ RealSet ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(b(n + 1), b(n))) = q)
+25. ¬(forall (a), a : NonNegIntegerSet → RealSet ∧ PosSeq(a) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ⇒ (exists (q), q ∈ RealSet ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q))
+26. forall (a) (q), a : NonNegIntegerSet → RealSet ∧ q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+27. ¬(forall (a), a : NonNegIntegerSet → RealSet ∧ PosSeq(a) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ⇒ (exists (q), q ∈ RealSet ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q))
+
+GOAL:
+(forall (a) (q), a : NonNegIntegerSet → RealSet ∧ q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))) ∧ ¬(forall (a), a : NonNegIntegerSet → RealSet ∧ PosSeq(a) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ⇒ (exists (q), q ∈ RealSet ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q))
+
+METHOD:

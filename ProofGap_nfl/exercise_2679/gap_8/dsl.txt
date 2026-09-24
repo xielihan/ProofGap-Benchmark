@@ -1,0 +1,1 @@
+apply (hypothesis 9: {¬(exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x = -n) ⇒ ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n} / (x + n)))})

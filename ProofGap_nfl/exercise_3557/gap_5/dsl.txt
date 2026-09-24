@@ -1,0 +1,22 @@
+get_forall (GOAL: {forall (φ), φ ∈ RealSet ⇒ (forall (n), n ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ (forall (n_{1}), n_{1} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ sin(φ) = frac(|w|, |n| * |n_{1}|)))}) (φ := {p})
+get_condition (hypothesis 9: {p ∈ RealSet}) in (GOAL: {p ∈ RealSet ⇒ (forall (n), n ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ (forall (n_{1}), n_{1} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ sin(p) = frac(|w|, |n| * |n_{1}|)))})
+get_forall (GOAL: {forall (n), n ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ (forall (n_{1}), n_{1} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ sin(p) = frac(|w|, |n| * |n_{1}|))}) (n := {a})
+get_condition (hypothesis 10: {a ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))}) in (GOAL: {a ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ (forall (n_{1}), n_{1} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ sin(p) = frac(|w|, |a| * |n_{1}|))})
+get_prop (hypothesis 4: {forall (n), n ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ n = (2 * x, 2 * y, 1)))}) (n := {a}) as (hypothesis 11: {a ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ a = (2 * x, 2 * y, 1)))})
+use_condition (hypothesis 10: {a ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))}) in (hypothesis 11: {a ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ a = (2 * x, 2 * y, 1)))}) as (hypothesis 12: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ a = (2 * x, 2 * y, 1))})
+assert (hypothesis 13: {0 ∈ RealSet}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 14: {1 ∈ RealSet}) by proof {
+autosolve all_hypothesis
+}
+get_prop (hypothesis 12: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ a = (2 * x, 2 * y, 1))}) (x := {0}) as (hypothesis 15: {0 ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ a = (2 * 0, 2 * y, 1))})
+use_condition (hypothesis 13: {0 ∈ RealSet}) in (hypothesis 15: {0 ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ a = (2 * 0, 2 * y, 1))}) as (hypothesis 16: {forall (y), y ∈ RealSet ⇒ a = (2 * 0, 2 * y, 1)})
+get_prop (hypothesis 16: {forall (y), y ∈ RealSet ⇒ a = (2 * 0, 2 * y, 1)}) (y := {0}) as (hypothesis 17: {0 ∈ RealSet ⇒ a = (2 * 0, 2 * 0, 1)})
+use_condition (hypothesis 13: {0 ∈ RealSet}) in (hypothesis 17: {0 ∈ RealSet ⇒ a = (2 * 0, 2 * 0, 1)}) as (hypothesis 18: {a = (2 * 0, 2 * 0, 1)})
+get_prop (hypothesis 12: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ a = (2 * x, 2 * y, 1))}) (x := {1}) as (hypothesis 19: {1 ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ a = (2 * 1, 2 * y, 1))})
+use_condition (hypothesis 14: {1 ∈ RealSet}) in (hypothesis 19: {1 ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ a = (2 * 1, 2 * y, 1))}) as (hypothesis 20: {forall (y), y ∈ RealSet ⇒ a = (2 * 1, 2 * y, 1)})
+get_prop (hypothesis 20: {forall (y), y ∈ RealSet ⇒ a = (2 * 1, 2 * y, 1)}) (y := {0}) as (hypothesis 21: {0 ∈ RealSet ⇒ a = (2 * 1, 2 * 0, 1)})
+use_condition (hypothesis 13: {0 ∈ RealSet}) in (hypothesis 21: {0 ∈ RealSet ⇒ a = (2 * 1, 2 * 0, 1)}) as (hypothesis 22: {a = (2 * 1, 2 * 0, 1)})
+rewrite (left_to_right, equation) (hypothesis 18: {a = (2 * 0, 2 * 0, 1)}); from (hypothesis 22: {a = (2 * 1, 2 * 0, 1)}) to (hypothesis 23: {(2 * 0, 2 * 0, 1) = (2 * 1, 2 * 0, 1)})
+autosolve all_hypothesis

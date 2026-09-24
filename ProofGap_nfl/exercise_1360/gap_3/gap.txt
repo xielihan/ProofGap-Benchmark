@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet
+2. a > 0
+3. lim_{ x → 0 } (frac((a + x)^{x} - a^{x}, x^{2})) = lim_{ x → 0 } (frac((a + x)^{x} * (ln(a + x) + frac(x, a + x)) - a^{x} * ln(a), 2 * x))
+4. lim_{ x → 0 } (frac((a + x)^{x} * (ln(a + x) + frac(x, a + x)) - a^{x} * ln(a), 2 * x)) = frac(1, 2) * (lim_{ x → 0 } ((a + x)^{x} * (ln(a + x) + frac(x, a + x))^{2} + (a + x)^{x} * (frac(1, a + x) + frac(a, (a + x)^{2})) - a^{x} * ln(a)^{2}))
+
+GOAL:
+frac(1, 2) * (lim_{ x → 0 } ((a + x)^{x} * (ln(a + x) + frac(x, a + x))^{2} + (a + x)^{x} * (frac(1, a + x) + frac(a, (a + x)^{2})) - a^{x} * ln(a)^{2})) = frac(1, a)
+
+METHOD:

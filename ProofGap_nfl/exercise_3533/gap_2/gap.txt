@@ -1,0 +1,17 @@
+PROOF GAP @2
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. z : RealSet → RealSet
+4. M ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+5. forall (t), t ∈ RealSet ⇒ x(t) = t
+6. forall (t), t ∈ RealSet ⇒ y(t) = t^{2}
+7. forall (t), t ∈ RealSet ⇒ z(t) = t^{3}
+8. v = (FunDeri(x, 1, 1)(t), FunDeri(y, 1, 1)(t), FunDeri(z, 1, 1)(t))
+9. v = (1, 2 * t, 3 * t^{2})
+10. n = (1, 2, 1)
+
+GOAL:
+1 + 4 * t + 3 * t^{2} = 0 ⇒ 1 + 4 * t + 3 * t^{2} = 0
+
+METHOD:

@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ x ≠ 0 ∧ n ∈ PosIntegerSet ∧ cos(frac(x, sqrtn(2, n))) ≠ 0 ∧ tan(frac(x, sqrtn(2, n))) ≠ 0 ⇒ seqlim_{ n → +∞ } (cos(frac(x, sqrtn(2, n)))^{n}) = seqlim_{ n → +∞ } ((1 + tan(frac(x, sqrtn(2, n)))^{2})^{-frac(n, 2)})
+
+METHOD:

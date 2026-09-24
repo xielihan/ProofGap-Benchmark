@@ -1,0 +1,3 @@
+exists (α := {0})
+assert (hypothesis 9: {0 ∈ RealSet ∧ 0 < 4.8})
+apply (hypothesis 9: {0 ∈ RealSet ∧ 0 < 4.8})

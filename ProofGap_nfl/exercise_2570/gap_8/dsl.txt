@@ -1,0 +1,15 @@
+1. get_condition (hypothesis 15: {a > 0}) in (GOAL: {a > 0 ⇒ (forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < a ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))))})
+2. get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < a ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (A(n)))}) (ε := {e0})
+3. get_condition (hypothesis 16: {e0 ∈ RealSet ∧ 0 < e0 ∧ e0 < a}) in (GOAL: {e0 ∈ RealSet ∧ 0 < e0 ∧ e0 < a ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (A(n)))})
+4. use_condition (hypothesis 15: {a > 0}) in (hypothesis 13: {a > 0 ⇒ (forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < a ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ⇒ False)}) as (hypothesis 17: {forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < a ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ⇒ False})
+5. get_prop (hypothesis 17: {forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < a ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ⇒ False}) (ε := {e0}) as (hypothesis 18: {e0 ∈ RealSet ∧ 0 < e0 ∧ e0 < a ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ⇒ False})
+6. assert (hypothesis 19: {¬ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n)))}) by proof {
+  1. not_normalize from (GOAL: {¬ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n)))}) to (GOAL: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ⇒ False})
+  2. get_condition (hypothesis 19: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n)))}) in (GOAL: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ⇒ False})
+  3. assert (hypothesis 20: {e0 ∈ RealSet ∧ 0 < e0 ∧ e0 < a ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n)))})
+  4. use_condition (hypothesis 20: {e0 ∈ RealSet ∧ 0 < e0 ∧ e0 < a ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n)))}) in (hypothesis 18: {e0 ∈ RealSet ∧ 0 < e0 ∧ e0 < a ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ⇒ False}) as (hypothesis 21: {False})
+  5. apply (hypothesis 21: {False})
+}
+7. get_prop (hypothesis 14: {forall (u) (N), DivergentSeries(sum_{ n = N }^{ +∞ } (u(n))) ⇔ ¬ ConvergentSeries(sum_{ n = N }^{ +∞ } (u(n)))}) (u := {A}) (N := {1}) as (hypothesis 20: {DivergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ⇔ ¬ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n)))})
+8. assert (hypothesis 21: {DivergentSeries(sum_{ n = 1 }^{ +∞ } (A(n)))})
+9. apply (hypothesis 21: {DivergentSeries(sum_{ n = 1 }^{ +∞ } (A(n)))})

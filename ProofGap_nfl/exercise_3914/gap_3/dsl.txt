@@ -1,0 +1,10 @@
+get_forall (GOAL: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D => 0 <= cos(x)^{2} + cos(y)^{2} ∧ cos(x)^{2} + cos(y)^{2} <= 2}) (x := {x0}) (y := {y0})
+get_condition (hypothesis 12: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ (x0, y0) ∈ D}) in (GOAL: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ (x0, y0) ∈ D => 0 <= cos(x0)^{2} + cos(y0)^{2} ∧ cos(x0)^{2} + cos(y0)^{2} <= 2})
+destruct_and (hypothesis 12: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ (x0, y0) ∈ D}) as (hypothesis 13: {x0 ∈ RealSet}) (hypothesis 14: {y0 ∈ RealSet}) (hypothesis 15: {(x0, y0) ∈ D})
+get_prop (theorem 'Thm 167. (CosineBounded)': {forall (x), x ∈ RealSet => -1 <= cos(x) /\ cos(x) <= 1}) (x := {x0}) as (hypothesis 16: {x0 ∈ RealSet => -1 <= cos(x0) /\ cos(x0) <= 1})
+use_condition (hypothesis 13: {x0 ∈ RealSet}) in (hypothesis 16: {x0 ∈ RealSet => -1 <= cos(x0) /\ cos(x0) <= 1}) as (hypothesis 17: {-1 <= cos(x0) /\ cos(x0) <= 1})
+destruct_and (hypothesis 17: {-1 <= cos(x0) /\ cos(x0) <= 1}) as (hypothesis 18: {-1 <= cos(x0)}) (hypothesis 19: {cos(x0) <= 1})
+get_prop (theorem 'Thm 167. (CosineBounded)': {forall (x), x ∈ RealSet => -1 <= cos(x) /\ cos(x) <= 1}) (x := {y0}) as (hypothesis 20: {y0 ∈ RealSet => -1 <= cos(y0) /\ cos(y0) <= 1})
+use_condition (hypothesis 14: {y0 ∈ RealSet}) in (hypothesis 20: {y0 ∈ RealSet => -1 <= cos(y0) /\ cos(y0) <= 1}) as (hypothesis 21: {-1 <= cos(y0) /\ cos(y0) <= 1})
+destruct_and (hypothesis 21: {-1 <= cos(y0) /\ cos(y0) <= 1}) as (hypothesis 22: {-1 <= cos(y0)}) (hypothesis 23: {cos(y0) <= 1})
+autosolve all_hypothesis

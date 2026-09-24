@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ sin(x) = 2^{n} * (prod_{ k = 1 }^{ n } (cos(frac(x, 2^{k})))) * sin(frac(x, 2^{n}))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ≠ 0 ∧ sin(frac(x, 2^{n})) ≠ 0 ⇒ prod_{ k = 1 }^{ n } (cos(frac(x, 2^{k}))) = frac(sin(x), x) * frac(frac(x, 2^{n}), sin(frac(x, 2^{n})))
+
+METHOD:

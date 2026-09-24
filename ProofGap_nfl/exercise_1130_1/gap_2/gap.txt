@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = e^{x}
+3. forall (x), x ∈ RealSet ⇒ diff(y) = e^{x} * diff(fun x [x ∈ RealSet] . x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ diff^{2}(y) = e^{x} * diff(fun x [x ∈ RealSet] . x)^{2}
+
+METHOD:

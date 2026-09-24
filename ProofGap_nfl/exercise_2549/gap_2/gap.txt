@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. S : NonNegIntegerSet → RealSet
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, n * (n + 1)) = frac(1, n) - frac(1, n + 1)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ S(n) = sum_{ i = 1 }^{ n } (frac(1, i * (i + 1)))
+
+METHOD:

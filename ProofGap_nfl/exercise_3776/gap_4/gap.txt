@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. I : NonNegIntegerSet → RealSet
+2. forall (A) (n), A ∈ RealSet ∧ A > 0 ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ IntegrableFuncOn(fun x [x ∈ RealSet] . (1 + frac(x^{2}, n))^{-n}, [0, A])
+3. forall (A), A ∈ RealSet ∧ A > 0 ⇒ UniformConvergent(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . fun x [x ∈ RealSet ∧ x ∈ [0, A]] . (1 + frac(x^{2}, n))^{-n}, [0, A], fun x [x ∈ RealSet ∧ x ∈ [0, A]] . e^{-x^{2}})
+4. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ≥ 0 ⇒ 0 < (1 + frac(x^{2}, n))^{-n} ∧ (1 + frac(x^{2}, n))^{-n} ≤ frac(1, 1 + x^{2})
+
+GOAL:
+DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x)) = frac(π, 2)
+
+METHOD:

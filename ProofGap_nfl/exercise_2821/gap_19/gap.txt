@@ -1,0 +1,36 @@
+PROOF GAP @19
+ASSUM:
+1. x ∈ RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. c : NonNegIntegerSet → RealSet
+5. d : NonNegIntegerSet → RealSet
+6. s : NonNegIntegerSet → RealSet
+7. a > 0
+8. b > 0
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ c(n) = frac(a^{n}, n)
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ d(n) = frac(b^{n}, n^{2})
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ s(n) = c(n) + d(n)
+12. RadiusOfConvergence(c) = frac(1, a)
+13. RadiusOfConvergence(d) = frac(1, b)
+14. RadiusOfConvergence(s) = min(frac(1, a), frac(1, b))
+15. forall (x), x ∈ RealSet ∧ |x| < min(frac(1, a), frac(1, b)) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (s(n) * x^{n}))
+16. a < b ⇒ min(frac(1, a), frac(1, b)) = frac(1, b)
+17. a < b ⇒ x = -frac(1, b) ⇒ sum_{ n = 1 }^{ +∞ } (s(n) * x^{n}) = (sum_{ n = 1 }^{ +∞ } ((-1)^{n} * frac(1, n) * frac(a, b)^{n})) + (sum_{ n = 1 }^{ +∞ } ((-1)^{n} * frac(1, n^{2})))
+18. a < b ⇒ x = -frac(1, b) ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n} * frac(1, n) * frac(a, b)^{n}))
+19. a < b ⇒ x = -frac(1, b) ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n} * frac(1, n^{2})))
+20. a < b ⇒ x = -frac(1, b) ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (s(n) * x^{n}))
+21. a < b ⇒ x = frac(1, b) ⇒ sum_{ n = 1 }^{ +∞ } (s(n) * x^{n}) = (sum_{ n = 1 }^{ +∞ } (frac(1, n) * frac(a, b)^{n})) + (sum_{ n = 1 }^{ +∞ } (frac(1, n^{2})))
+22. a < b ⇒ x = frac(1, b) ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (s(n) * x^{n}))
+23. a ≥ b ⇒ min(frac(1, a), frac(1, b)) = frac(1, a)
+24. a ≥ b ⇒ x = -frac(1, a) ⇒ sum_{ n = 1 }^{ +∞ } (s(n) * x^{n}) = (sum_{ n = 1 }^{ +∞ } ((-1)^{n} * frac(1, n))) + (sum_{ n = 1 }^{ +∞ } ((-1)^{n} * frac(1, n^{2}) * frac(b, a)^{n}))
+25. a ≥ b ⇒ x = -frac(1, a) ⇒ ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n} * frac(1, n)))
+26. a ≥ b ⇒ x = -frac(1, a) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n} * frac(1, n^{2}) * frac(b, a)^{n}))
+27. a ≥ b ⇒ x = -frac(1, a) ⇒ ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } (s(n) * x^{n}))
+28. a ≥ b ⇒ x = frac(1, a) ⇒ sum_{ n = 1 }^{ +∞ } (s(n) * x^{n}) = (sum_{ n = 1 }^{ +∞ } (frac(1, n))) + (sum_{ n = 1 }^{ +∞ } (frac(1, n^{2}) * frac(b, a)^{n}))
+29. a ≥ b ⇒ x = frac(1, a) ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n)))
+
+GOAL:
+a ≥ b ⇒ x = frac(1, a) ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (s(n) * x^{n}))
+
+METHOD:

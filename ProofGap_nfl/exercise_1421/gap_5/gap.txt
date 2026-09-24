@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = |x|
+3. y(0) = 0
+4. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ y(x) = |x| ∧ |x| > 0
+5. ¬DiffableFuncAt(y, 0)
+6. MinimumPoint(y) = { 0 }
+
+GOAL:
+y(0) = 0
+
+METHOD:

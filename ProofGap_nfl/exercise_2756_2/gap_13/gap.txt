@@ -1,0 +1,23 @@
+PROOF GAP @13
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. g : RealSet → RealSet
+3. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ f(n, x) = x * arctan(n * x)
+4. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ g(x) = frac(π, 2) * x
+5. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ seqlim_{ n → +∞ } (f(n, x)) = frac(π, 2) * x
+6. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ frac(π, 2) * x = g(x)
+7. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ seqlim_{ n → +∞ } (f(n, x)) = g(x)
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ |f(n, x) - g(x)| = x * |arctan(n * x) - frac(π, 2)|)
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ x * |arctan(n * x) - frac(π, 2)| = x * |-arctan(frac(1, n * x))|)
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ x * |-arctan(frac(1, n * x))| ≤ x * frac(1, n * x))
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ x * frac(1, n * x) = frac(1, n))
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ |f(n, x) - g(x)| ≤ frac(1, n))
+13. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(1, n) < ε ⇒ |f(n, x) - g(x)| < ε)
+14. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ n > frac(1, ε) ⇒ frac(1, n) < ε)
+15. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ n > frac(1, ε) ⇒ |f(n, x) - g(x)| < ε)
+16. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N = floor(frac(1, ε)))
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > N ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ |f(n, x) - g(x)| < ε)))
+
+METHOD:

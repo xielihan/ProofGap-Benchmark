@@ -1,0 +1,18 @@
+PROOF GAP @4
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. g : RealSet → RealSet
+3. N : CartesianProd(RealSet, RealSet) → NonNegIntegerSet
+4. ε ∈ RealSet
+5. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ f(n, x) = x^{n}
+6. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ g(x) = 0
+7. ε = 0.001
+8. forall (η) (x), η ∈ RealSet ∧ x ∈ RealSet ∧ 0 < η ∧ η < 1 ∧ 0 < x ∧ x < 1 ⇒ N(η, x) = floor(frac(lg(η), lg(x)))
+9. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ |f(n, x) - g(x)| = |x^{n} - 0|
+10. forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ 0 < x ∧ x < 1 ∧ n ∈ PosIntegerSet ⇒ (|x^{n} - 0| < ε ⇔ x^{n} < ε)
+11. forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ 0 < x ∧ x < 1 ∧ n ∈ PosIntegerSet ⇒ (x^{n} < ε ⇔ n > frac(lg(ε), lg(x)))
+
+GOAL:
+forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ 0 < x ∧ x < 1 ∧ n ∈ PosIntegerSet ⇒ (|f(n, x) - g(x)| < ε ⇔ n > N(ε, x))
+
+METHOD:

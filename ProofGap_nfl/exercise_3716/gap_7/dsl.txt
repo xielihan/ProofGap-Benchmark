@@ -1,0 +1,8 @@
+assert (hypothesis 9: {1 ∈ RealSet ∧ 1 ∈ (0, 1]})
+get_prop (hypothesis 7: {forall (x), x ∈ RealSet ∧ x ∈ (0, 1] ⇒ DefInt(0, 1, ln(x) * diff(x)) = ((x * ln(x))|_{0}^{1}) - DefInt(0, 1, 1 * diff(x))}) (x := {1}) as (hypothesis 10: {1 ∈ RealSet ∧ 1 ∈ (0, 1] ⇒ DefInt(0, 1, ln(x) * diff(x)) = ((1 * ln(1))|_{0}^{1}) - DefInt(0, 1, 1 * diff(x))})
+use_condition (hypothesis 9: {1 ∈ RealSet ∧ 1 ∈ (0, 1]}) in (hypothesis 10: {1 ∈ RealSet ∧ 1 ∈ (0, 1] ⇒ DefInt(0, 1, ln(x) * diff(x)) = ((1 * ln(1))|_{0}^{1}) - DefInt(0, 1, 1 * diff(x))}) as (hypothesis 11: {DefInt(0, 1, ln(x) * diff(x)) = ((1 * ln(1))|_{0}^{1}) - DefInt(0, 1, 1 * diff(x))})
+get_prop (hypothesis 8: {forall (x), x ∈ RealSet ∧ x ∈ (0, 1] ⇒ ((x * ln(x))|_{0}^{1}) - DefInt(0, 1, 1 * diff(x)) = -1}) (x := {1}) as (hypothesis 12: {1 ∈ RealSet ∧ 1 ∈ (0, 1] ⇒ ((1 * ln(1))|_{0}^{1}) - DefInt(0, 1, 1 * diff(x)) = -1})
+use_condition (hypothesis 9: {1 ∈ RealSet ∧ 1 ∈ (0, 1]}) in (hypothesis 12: {1 ∈ RealSet ∧ 1 ∈ (0, 1] ⇒ ((1 * ln(1))|_{0}^{1}) - DefInt(0, 1, 1 * diff(x)) = -1}) as (hypothesis 13: {((1 * ln(1))|_{0}^{1}) - DefInt(0, 1, 1 * diff(x)) = -1})
+rewrite (left_to_right, equation) (hypothesis 6: {F(0) = DefInt(0, 1, ln(x) * diff(x))}); from (GOAL: {F(0) = -1}) to (GOAL: {DefInt(0, 1, ln(x) * diff(x)) = -1})
+rewrite (left_to_right, equation) (hypothesis 11: {DefInt(0, 1, ln(x) * diff(x)) = ((1 * ln(1))|_{0}^{1}) - DefInt(0, 1, 1 * diff(x))}); from (GOAL: {DefInt(0, 1, ln(x) * diff(x)) = -1}) to (GOAL: {((1 * ln(1))|_{0}^{1}) - DefInt(0, 1, 1 * diff(x)) = -1})
+apply (hypothesis 13: {((1 * ln(1))|_{0}^{1}) - DefInt(0, 1, 1 * diff(x)) = -1})

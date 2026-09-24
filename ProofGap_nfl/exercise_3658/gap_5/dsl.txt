@@ -1,0 +1,3 @@
+exists (x := {frac(π, 4)})
+exists (y := {0})
+autosolve all_hypothesis

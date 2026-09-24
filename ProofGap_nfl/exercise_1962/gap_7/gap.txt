@@ -1,0 +1,17 @@
+PROOF GAP @7
+ASSUM:
+1. C ∈ RealSet
+2. x ∈ RealSet
+3. t ∈ RealSet
+4. 2 + 2 * x - x^{2} > 0
+5. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x^{2}, (4 - 2 * x + x^{2}) * sqrtn(2, 2 + 2 * x - x^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac((x - 1)^{2} + 2 * (x - 1) + 1, (3 + (x - 1)^{2}) * sqrtn(2, 3 - (x - 1)^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+6. x - 1 = sqrtn(2, 3) * sin(t) ⇒ -frac(π, 2) < t
+7. x - 1 = sqrtn(2, 3) * sin(t) ⇒ t < frac(π, 2)
+8. x - 1 = sqrtn(2, 3) * sin(t) ⇒ diff(fun x [x ∈ RealSet] . x) = sqrtn(2, 3) * cos(t) * diff(fun t [t ∈ RealSet] . t)
+9. x - 1 = sqrtn(2, 3) * sin(t) ⇒ sqrtn(2, 2 + 2 * x - x^{2}) = sqrtn(2, 3) * cos(t)
+10. x - 1 = sqrtn(2, 3) * sin(t) ⇒ { `F_4` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(x^{2}, (4 - 2 * x + x^{2}) * sqrtn(2, 2 + 2 * x - x^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | forall (t), t ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(t) = frac(1 + 2 * sqrtn(2, 3) * sin(t) + 3 * sin(t)^{2}, 3 * (1 + sin(t)^{2})) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) }
+
+GOAL:
+x - 1 = sqrtn(2, 3) * sin(t) ⇒ { `F_6` | forall (t), t ∈ RealSet ⇒ FunDeri(`F_6`, 1, 1)(t) = frac(1 + 2 * sqrtn(2, 3) * sin(t) + 3 * sin(t)^{2}, 3 * (1 + sin(t)^{2})) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) } = { `F_13` | exists (`F_7`) (`F_8`) (`F_11`), `F_7` : RealSet → RealSet ∧ `F_8` : RealSet → RealSet ∧ `F_11` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ⇒ FunDeri(`F_7`, 1, 1)(t) = 1 * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ FunDeri(`F_8`, 1, 1)(t) = frac(sin(t), 1 + sin(t)^{2}) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ FunDeri(`F_11`, 1, 1)(t) = frac(1, 1 + sin(t)^{2}) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_13`(t) = `F_7`(t) + frac(2, sqrtn(2, 3)) * `F_8`(t) - frac(2, 3) * `F_11`(t)) }
+
+METHOD:

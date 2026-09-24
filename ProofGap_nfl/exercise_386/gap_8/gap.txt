@@ -1,0 +1,18 @@
+PROOF GAP @8
+ASSUM:
+1. f : RealSet → RealSet
+2. m_{0} ∈ RealSet
+3. M_{0} ∈ RealSet
+4. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x < +∞ ⇒ f(x) = frac(x, 1 + x)
+5. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x < +∞ ⇒ 0 ≤ f(x)
+6. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x < +∞ ⇒ f(x) < 1
+7. MonoIncFuncOn(f, { x | x ∈ RealSet, 0 ≤ x, x < +∞ })
+8. inf(ImageOn(f, { x | x ∈ RealSet, 0 ≤ x, x < +∞ })) = 0
+9. sup(ImageOn(f, { x | x ∈ RealSet, 0 ≤ x, x < +∞ })) = 1
+10. m_{0} = 0
+11. M_{0} = 1
+
+GOAL:
+m_{0} = 0 ∧ M_{0} = 1 ∧ inf(ImageOn(f, { x | x ∈ RealSet, 0 ≤ x, x < +∞ })) = m_{0} ∧ sup(ImageOn(f, { x | x ∈ RealSet, 0 ≤ x, x < +∞ })) = M_{0}
+
+METHOD:

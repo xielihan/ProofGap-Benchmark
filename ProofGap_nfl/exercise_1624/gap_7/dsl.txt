@@ -1,0 +1,4 @@
+get_prop (hypothesis 11: {forall (t), t ∈ RealSet ⇒ FunDeri(f, 1, 2)(t) = e^{t} ∧ e^{t} > 0}) (t := {0}) as (hypothesis 16: {0 ∈ RealSet ⇒ FunDeri(f, 1, 2)(0) = e^{0} ∧ e^{0} > 0})
+use_condition (obvious: {0 ∈ RealSet}) in (hypothesis 16: {0 ∈ RealSet ⇒ FunDeri(f, 1, 2)(0) = e^{0} ∧ e^{0} > 0}) as (hypothesis 17: {FunDeri(f, 1, 2)(0) = e^{0} ∧ e^{0} > 0})
+assert (hypothesis 18: {f(0) * FunDeri(f, 1, 2)(0) > 0})
+apply (hypothesis 18: {f(0) * FunDeri(f, 1, 2)(0) > 0})

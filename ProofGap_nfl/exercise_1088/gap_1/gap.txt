@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. x ∈ RealSet ∧ x^{2} + a > 0 ∧ x + sqrtn(2, x^{2} + a) ≠ 0
+4. forall (x), x ∈ RealSet ∧ x^{2} + a > 0 ∧ x + sqrtn(2, x^{2} + a) ≠ 0 ⇒ y(x) = ln(|x + sqrtn(2, x^{2} + a)|)
+
+GOAL:
+FunDeri(fun t . ln(|t + sqrtn(2, t^{2} + a)|), 1, 1)(x) = frac(1, sqrtn(2, x^{2} + a))
+
+METHOD:

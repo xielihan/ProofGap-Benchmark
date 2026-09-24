@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (r), r ∈ RealSet ∧ 1 ≤ r ∧ r ≤ 3 ⇒ r^{2} - 2 * r * φ(r) + 1 = 0}) (r := {u})
+get_condition (hypothesis 4: {u ∈ RealSet ∧ 1 ≤ u ∧ u ≤ 3}) in (GOAL: {u ∈ RealSet ∧ 1 ≤ u ∧ u ≤ 3 ⇒ u^{2} - 2 * u * φ(u) + 1 = 0})
+get_prop (hypothesis 3: {forall (r), r ∈ RealSet ∧ 1 ≤ r ∧ r ≤ 3 ⇒ φ(r) = frac(1, 2) * (r + frac(1, r))}) (r := {u}) as (hypothesis 5: {u ∈ RealSet ∧ 1 ≤ u ∧ u ≤ 3 ⇒ φ(u) = frac(1, 2) * (u + frac(1, u))})
+use_condition (hypothesis 4: {u ∈ RealSet ∧ 1 ≤ u ∧ u ≤ 3}) in (hypothesis 5: {u ∈ RealSet ∧ 1 ≤ u ∧ u ≤ 3 ⇒ φ(u) = frac(1, 2) * (u + frac(1, u))}) as (hypothesis 6: {φ(u) = frac(1, 2) * (u + frac(1, u))})
+autosolve all_hypothesis

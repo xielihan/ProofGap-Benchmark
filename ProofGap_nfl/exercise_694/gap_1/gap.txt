@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ y(x) = sgn(sin(frac(π, x)))
+
+GOAL:
+¬(exists (l), l ∈ RealSet ∧ lim_{ x → 0 } (y(x)) = l)
+
+METHOD:

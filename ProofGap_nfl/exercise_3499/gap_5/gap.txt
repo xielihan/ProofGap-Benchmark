@@ -1,0 +1,15 @@
+PROOF GAP @5
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y) (u) (v), x ∈ RealSet ∧ y ∈ RealSet ∧ u ∈ RealSet ∧ v ∈ RealSet ∧ u + v ≠ 0 ∧ u - v ≠ 0 ⇒ x = (u + v)^{2} ∧ y = (u - v)^{2}
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0 ⇒ x * FunDeri(z, x, 2)(x, y) - y * FunDeri(z, y, 2)(x, y) = 0
+4. FuncOfClassK(z, 2)
+5. forall (u) (v) (x) (y), u ∈ RealSet ∧ v ∈ RealSet ∧ u + v ≠ 0 ∧ u - v ≠ 0 ∧ x ∈ RealSet ∧ x = (u + v)^{2} ∧ y ∈ RealSet ∧ y = (u - v)^{2} ⇒ FunDeri(u, x, 1)(x, y) = FunDeri(v, x, 1)(x, y)
+6. forall (v) (u) (x) (y), v ∈ RealSet ∧ u ∈ RealSet ∧ u + v ≠ 0 ∧ u - v ≠ 0 ∧ x ∈ RealSet ∧ x = (u + v)^{2} ∧ y ∈ RealSet ∧ y = (u - v)^{2} ⇒ FunDeri(v, x, 1)(x, y) = frac(1, 4 * (u + v))
+7. forall (u) (v) (x) (y), u ∈ RealSet ∧ v ∈ RealSet ∧ u + v ≠ 0 ∧ u - v ≠ 0 ∧ x ∈ RealSet ∧ x = (u + v)^{2} ∧ y ∈ RealSet ∧ y = (u - v)^{2} ⇒ FunDeri(u, x, 1)(x, y) = frac(1, 4 * (u + v))
+8. forall (u) (v) (y) (x), u ∈ RealSet ∧ v ∈ RealSet ∧ u + v ≠ 0 ∧ u - v ≠ 0 ∧ y ∈ RealSet ∧ y = (u - v)^{2} ∧ x ∈ RealSet ∧ x = (u + v)^{2} ⇒ FunDeri(u, y, 1)(x, y) = -FunDeri(v, y, 1)(x, y)
+
+GOAL:
+forall (v) (u) (y) (x), v ∈ RealSet ∧ u ∈ RealSet ∧ u + v ≠ 0 ∧ u - v ≠ 0 ∧ y ∈ RealSet ∧ y = (u - v)^{2} ∧ x ∈ RealSet ∧ x = (u + v)^{2} ⇒ -FunDeri(v, y, 1)(x, y) = frac(1, 4 * (u - v))
+
+METHOD:

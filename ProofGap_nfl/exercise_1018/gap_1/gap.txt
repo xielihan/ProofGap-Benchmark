@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (f), f : RealSet → RealSet ⇒ (forall (a), a ∈ RealSet ∧ DiffableFuncAt(f, a) ⇒ ContinuousFuncAt(f, a))
+
+METHOD:

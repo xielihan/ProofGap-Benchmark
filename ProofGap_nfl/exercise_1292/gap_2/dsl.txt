@@ -1,0 +1,4 @@
+1. get_condition (hypothesis 20: {q = 1}) in (GOAL: {q = 1 ⇒ sigma = Q})
+2. use_condition (hypothesis 20: {q = 1}) in (hypothesis 19: {q = 1 ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≤ n ⇒ a(k) = b(k))}) as (hypothesis 21: {forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≤ n ⇒ a(k) = b(k)})
+3. rewrite_in sum (left_to_right, equation) (hypothesis 21: {forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≤ n ⇒ a(k) = b(k)}); from (hypothesis 17: {sigma = sum_{ k = 1 }^{ n } (a(k))}) to (hypothesis 22: {sigma = sum_{ k = 1 }^{ n } (b(k))})
+4. autosolve all_hypothesis

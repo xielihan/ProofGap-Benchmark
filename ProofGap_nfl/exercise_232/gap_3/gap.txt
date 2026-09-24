@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. l ∈ RealSet ∧ l > 0
+2. forall (f), f : RealSet → RealSet ∧ Defined(f, (-l, l)) ⇒ (exists (g), g : RealSet → RealSet ∧ g = (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l)] . frac(f(x) + f(-x), 2)))
+3. forall (f), f : RealSet → RealSet ∧ Defined(f, (-l, l)) ⇒ (exists (h), h : RealSet → RealSet ∧ h = (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l)] . frac(f(x) - f(-x), 2)))
+4. forall (f), f : RealSet → RealSet ∧ Defined(f, (-l, l)) ⇒ (forall (x), -l < x ∧ x < l ∧ x ∈ RealSet ⇒ f(x) = frac(f(x) + f(-x), 2) + frac(f(x) - f(-x), 2))
+5. forall (f), f : RealSet → RealSet ∧ Defined(f, (-l, l)) ⇒ (exists (g) (h), g : RealSet → RealSet ∧ h : RealSet → RealSet ∧ (forall (x), -l < x ∧ x < l ∧ x ∈ RealSet ⇒ f(x) = g(x) + h(x)))
+
+GOAL:
+forall (f), f : RealSet → RealSet ∧ Defined(f, (-l, l)) ⇒ (exists (g), g : RealSet → RealSet ∧ EvenFunc(g))
+
+METHOD:

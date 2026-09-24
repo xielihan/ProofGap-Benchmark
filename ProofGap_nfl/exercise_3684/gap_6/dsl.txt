@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ x(i) = frac(a, n)}) (i := {j})
+get_condition (hypothesis 16: {j ∈ NonNegIntegerSet ∧ j ∈ PosIntegerSet ∧ j ≤ n}) in (GOAL: {j ∈ NonNegIntegerSet ∧ j ∈ PosIntegerSet ∧ j ≤ n ⇒ x(j) = frac(a, n)})
+get_prop (hypothesis 12: {forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ x(i) = -frac(λ, 2)}) (i := {j}) as (hypothesis 17: {j ∈ NonNegIntegerSet ∧ j ∈ PosIntegerSet ∧ j ≤ n ⇒ x(j) = -frac(λ, 2)})
+use_condition (hypothesis 16: {j ∈ NonNegIntegerSet ∧ j ∈ PosIntegerSet ∧ j ≤ n}) in (hypothesis 17: {j ∈ NonNegIntegerSet ∧ j ∈ PosIntegerSet ∧ j ≤ n ⇒ x(j) = -frac(λ, 2)}) as (hypothesis 18: {x(j) = -frac(λ, 2)})
+rewrite (right_to_left, equation) (hypothesis 14: {n * -frac(λ, 2) = a}); from (GOAL: {x(j) = frac(a, n)}) to (GOAL: {x(j) = frac(n * -frac(λ, 2), n)})
+rewrite (left_to_right, equation) (hypothesis 18: {x(j) = -frac(λ, 2)}); from (GOAL: {x(j) = frac(n * -frac(λ, 2), n)}) to (GOAL: {-frac(λ, 2) = frac(n * -frac(λ, 2), n)})
+autosolve all_hypothesis

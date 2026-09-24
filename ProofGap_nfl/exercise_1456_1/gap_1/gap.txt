@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. f = (fun x [x ∈ RealSet] . 3 * x - x^{3})
+
+GOAL:
+ContinuousFuncOn(f, [-2, 2])
+
+METHOD:

@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ f(n, x) = frac(1, n) * arctan(x^{n}))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ |arctan(x^{n})| < frac(π, 2))
+
+METHOD:

@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet ∧ x ≥ 0
+2. y ∈ RealSet
+3. a : NonNegIntegerSet → RealSet
+4. b : NonNegIntegerSet → RealSet
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(ln(1 + x^{n}), n^{y})
+
+GOAL:
+0 < x ⇒ x < 1 ⇒ lim_{ n → +∞ } (frac(ln(1 + x^{n}), x^{n})) = 1
+
+METHOD:

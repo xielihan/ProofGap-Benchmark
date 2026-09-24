@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ IntervalCC(0, ln(2)) ∧ t(x) = sqrtn(2, e^{x} - 1) ⇒ e^{x} = 1 + t(x)^{2}}) (x := {y})
+get_condition (hypothesis 6: {y ∈ RealSet ∧ y ∈ IntervalCC(0, ln(2)) ∧ t(y) = sqrtn(2, e^{y} - 1)}) in (GOAL: {y ∈ RealSet ∧ y ∈ IntervalCC(0, ln(2)) ∧ t(y) = sqrtn(2, e^{y} - 1) ⇒ e^{y} = 1 + t(y)^{2}})
+destruct_and (hypothesis 6: {y ∈ RealSet ∧ y ∈ IntervalCC(0, ln(2)) ∧ t(y) = sqrtn(2, e^{y} - 1)}) as (hypothesis 7: {y ∈ RealSet}) (hypothesis 8: {y ∈ IntervalCC(0, ln(2))}) (hypothesis 9: {t(y) = sqrtn(2, e^{y} - 1)})
+get_prop (hypothesis 2: {forall (x), x ∈ RealSet ∧ x ∈ IntervalCC(0, ln(2)) ∧ t(x) = sqrtn(2, e^{x} - 1) ⇒ 0 ≤ x}) (x := {y}) as (hypothesis 10: {y ∈ RealSet ∧ y ∈ IntervalCC(0, ln(2)) ∧ t(y) = sqrtn(2, e^{y} - 1) ⇒ 0 ≤ y})
+use_condition (hypothesis 6: {y ∈ RealSet ∧ y ∈ IntervalCC(0, ln(2)) ∧ t(y) = sqrtn(2, e^{y} - 1)}) in (hypothesis 10: {y ∈ RealSet ∧ y ∈ IntervalCC(0, ln(2)) ∧ t(y) = sqrtn(2, e^{y} - 1) ⇒ 0 ≤ y}) as (hypothesis 11: {0 ≤ y})
+rewrite (left_to_right, equation) (hypothesis 9: {t(y) = sqrtn(2, e^{y} - 1)}); from (GOAL: {e^{y} = 1 + t(y)^{2}}) to (GOAL: {e^{y} = 1 + sqrtn(2, e^{y} - 1)^{2}})
+autosolve all_hypothesis

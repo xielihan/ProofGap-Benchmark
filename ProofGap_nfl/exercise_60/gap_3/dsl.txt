@@ -1,0 +1,4 @@
+1. rewrite (left_to_right, equation) (hypothesis 6: {a = 1 + λ}); from (GOAL: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ IntegerSet /\ n > 2 => a^{n} = (1 + λ)^{n}}) to (GOAL: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ IntegerSet /\ n > 2 => (1 + λ)^{n} = (1 + λ)^{n}})
+2. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ IntegerSet /\ n > 2 => (1 + λ)^{n} = (1 + λ)^{n}}) (n := {m})
+3. get_condition (hypothesis 7: {m ∈ NonNegIntegerSet /\ m ∈ IntegerSet /\ m > 2}) in (GOAL: {m ∈ NonNegIntegerSet /\ m ∈ IntegerSet /\ m > 2 => (1 + λ)^{m} = (1 + λ)^{m}})
+4. autosolve all_hypothesis

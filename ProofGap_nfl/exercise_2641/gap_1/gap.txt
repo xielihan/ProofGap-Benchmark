@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. α ∈ RealSet
+2. a : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = n^{n^{α}} - 1
+
+GOAL:
+α ≥ 0 ⇒ seqlim_{ n → +∞ } (a(n)) = +∞
+
+METHOD:

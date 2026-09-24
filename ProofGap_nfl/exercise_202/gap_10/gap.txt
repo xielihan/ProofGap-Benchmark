@@ -1,0 +1,24 @@
+PROOF GAP @10
+ASSUM:
+1. f : RealSet → RealSet
+2. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+3. y : NonNegIntegerSet → RealSet ∧ IsSeq(y)
+4. a ∈ RealSet ∧ a ∈ PosRealSet
+5. d ∈ RealSet
+6. forall (t), t ∈ RealSet ⇒ f(t) = a^{t}
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ∈ RealSet ∧ y(n) = f(x(n))
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ x(n) - x(n - 1) = d
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ y(n) = f(x(n))
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ f(x(n)) = a^{x(n)}
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ y(n) = a^{x(n)}
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ y(n - 1) = f(x(n - 1))
+13. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ f(x(n - 1)) = a^{x(n - 1)}
+14. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ y(n - 1) = a^{x(n - 1)}
+15. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ frac(y(n), y(n - 1)) = frac(a^{x(n)}, a^{x(n - 1)})
+16. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ frac(a^{x(n)}, a^{x(n - 1)}) = a^{x(n) - x(n - 1)}
+17. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ frac(y(n), y(n - 1)) = a^{x(n) - x(n - 1)}
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ x(n) - x(n - 1) = d
+
+METHOD:

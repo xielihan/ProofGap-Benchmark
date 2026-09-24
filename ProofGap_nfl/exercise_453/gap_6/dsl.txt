@@ -1,0 +1,4 @@
+1. get_condition (hypothesis 11: {m ∈ PosIntegerSet}) (hypothesis 12: {n ∈ PosIntegerSet}) in (GOAL: {m ∈ PosIntegerSet ⇒ n ∈ PosIntegerSet ⇒ lim_{ x → 0 } (frac(sqrtn(m, 1 + α * x) * sqrtn(n, 1 + β * x) - 1, x)) = frac(α, m) + frac(β, n)})
+2. use_condition (hypothesis 11: {m ∈ PosIntegerSet}) (hypothesis 12: {n ∈ PosIntegerSet}) in (hypothesis 9: {m ∈ PosIntegerSet ⇒ n ∈ PosIntegerSet ⇒ lim_{ x → 0 } (frac(sqrtn(m, 1 + α * x) * sqrtn(n, 1 + β * x) - 1, x)) = frac(n * α + m * β, m * n)}) as (hypothesis 13: {lim_{ x → 0 } (frac(sqrtn(m, 1 + α * x) * sqrtn(n, 1 + β * x) - 1, x)) = frac(n * α + m * β, m * n)})
+3. use_condition (hypothesis 11: {m ∈ PosIntegerSet}) (hypothesis 12: {n ∈ PosIntegerSet}) in (hypothesis 10: {m ∈ PosIntegerSet ⇒ n ∈ PosIntegerSet ⇒ frac(n * α + m * β, m * n) = frac(α, m) + frac(β, n)}) as (hypothesis 14: {frac(n * α + m * β, m * n) = frac(α, m) + frac(β, n)})
+4. autosolve all_hypothesis

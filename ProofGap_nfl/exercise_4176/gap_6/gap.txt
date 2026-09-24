@@ -1,0 +1,12 @@
+PROOF GAP @6
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ |e^{-(x^{2} + y^{2})} * cos(x^{2} + y^{2})| ≤ e^{-(x^{2} + y^{2})})
+2. exists (A), A ∈ RealSet ∧ A = DefInt(-∞, +∞, (fun y [y ∈ RealSet] . DefInt(-∞, +∞, (fun x [x ∈ RealSet] . e^{-(x^{2} + y^{2})}) * diff(fun x [x ∈ RealSet] . x))) * diff(fun y [y ∈ RealSet] . y))
+3. exists (B), B ∈ RealSet ∧ B = DefInt(-∞, +∞, (fun y [y ∈ RealSet] . DefInt(-∞, +∞, (fun x [x ∈ RealSet] . e^{-(x^{2} + y^{2})} * cos(x^{2} + y^{2})) * diff(fun x [x ∈ RealSet] . x))) * diff(fun y [y ∈ RealSet] . y))
+4. DefInt(-∞, +∞, (fun y [y ∈ RealSet] . DefInt(-∞, +∞, (fun x [x ∈ RealSet] . e^{-(x^{2} + y^{2})} * cos(x^{2} + y^{2})) * diff(fun x [x ∈ RealSet] . x))) * diff(fun y [y ∈ RealSet] . y)) = DefInt(0, 2 * π, (fun θ [θ ∈ RealSet] . DefInt(0, +∞, (fun r [r ∈ RealSet ∧ r ≥ 0] . r * e^{-r^{2}} * cos(r^{2})) * diff(fun r [r ∈ RealSet] . r))) * diff(fun θ [θ ∈ RealSet] . θ))
+5. DefInt(0, 2 * π, (fun θ [θ ∈ RealSet] . DefInt(0, +∞, (fun r [r ∈ RealSet ∧ r ≥ 0] . r * e^{-r^{2}} * cos(r^{2})) * diff(fun r [r ∈ RealSet] . r))) * diff(fun θ [θ ∈ RealSet] . θ)) = π * DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ≥ 0] . e^{-t} * cos(t)) * diff(fun t [t ∈ RealSet] . t))
+
+GOAL:
+π * DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ≥ 0] . e^{-t} * cos(t)) * diff(fun t [t ∈ RealSet] . t)) = π * ((fun t [t ∈ RealSet ∧ t ≥ 0] . frac(sin(t) - cos(t), (-1)^{2} + 1^{2}) * e^{-t})|_{0}^{+∞})
+
+METHOD:

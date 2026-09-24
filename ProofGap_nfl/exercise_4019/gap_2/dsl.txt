@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (r), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ⇒ (forall (φ), φ ∈ RealSet ∧ α ≤ φ ∧ φ ≤ β ⇒ (exists (x), x = r * cos(φ)))}) (r := {r0})
+get_condition (hypothesis 9: {r0 ∈ RealSet ∧ 0 ≤ r0 ∧ r0 ≤ a}) in (GOAL: {r0 ∈ RealSet ∧ 0 ≤ r0 ∧ r0 ≤ a ⇒ (forall (φ), φ ∈ RealSet ∧ α ≤ φ ∧ φ ≤ β ⇒ (exists (x), x = r0 * cos(φ)))})
+get_forall (GOAL: {forall (φ), φ ∈ RealSet ∧ α ≤ φ ∧ φ ≤ β ⇒ (exists (x), x = r0 * cos(φ))}) (φ := {phi0})
+get_condition (hypothesis 10: {phi0 ∈ RealSet ∧ α ≤ phi0 ∧ phi0 ≤ β}) in (GOAL: {phi0 ∈ RealSet ∧ α ≤ phi0 ∧ phi0 ≤ β ⇒ (exists (x), x = r0 * cos(phi0))})
+exists (x := {r0 * cos(phi0)})
+autosolve

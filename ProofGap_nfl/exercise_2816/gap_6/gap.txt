@@ -1,0 +1,15 @@
+PROOF GAP @6
+ASSUM:
+1. x ∈ RealSet
+2. a : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = (1 + frac(1, n))^{n^{2}}
+4. forall (n), n ∈ NonNegIntegerSet ⇒ seqlim_{ n → +∞ } (|frac(a(n), a(n + 1))|) = seqlim_{ n → +∞ } (frac((1 + frac(1, n))^{n}, (1 + frac(1, n + 1))^{n + 1})^{n} * frac(1, (1 + frac(1, n + 1))^{n + 1}))
+5. forall (n), n ∈ NonNegIntegerSet ⇒ seqlim_{ n → +∞ } (frac((1 + frac(1, n))^{n}, (1 + frac(1, n + 1))^{n + 1})^{n} * frac(1, (1 + frac(1, n + 1))^{n + 1})) = frac(1, e)
+6. forall (n), n ∈ NonNegIntegerSet ⇒ seqlim_{ n → +∞ } (|frac(a(n), a(n + 1))|) = frac(1, e)
+7. RadiusOfConvergence(a) = frac(1, e)
+8. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ |x| < frac(1, e) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n) * x^{n}))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ |x| = frac(1, e) ⇒ seqlim_{ n → +∞ } (|a(n) * frac(1, e)^{n} * (-1)^{n}|) = 1
+
+METHOD:

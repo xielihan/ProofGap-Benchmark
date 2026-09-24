@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. S : NonNegIntegerSet → RealSet
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ S(n) = sum_{ i = 1 }^{ n } (frac((-1)^{i - 1}, 2^{i - 1}))
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ S(n) = frac(1 - frac((-1)^{n}, 2^{n}), 1 + frac(1, 2))
+4. seqlim_{ n → +∞ } (S(n)) = frac(1, 1 + frac(1, 2))
+
+GOAL:
+seqlim_{ n → +∞ } (S(n)) = frac(2, 3)
+
+METHOD:

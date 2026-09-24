@@ -1,0 +1,16 @@
+PROOF GAP @2
+ASSUM:
+1. A ∈ RealSet
+2. x : CartesianProd(RealSet, RealSet) → RealSet
+3. z : CartesianProd(RealSet, RealSet) → RealSet
+4. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+5. v : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+6. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = x * z ∧ v(x, y, z) = y * z
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ A = FunDeri(z, 1, 1)(x, y)^{2} + FunDeri(z, 2, 1)(x, y)^{2}
+8. forall (y), y ∈ RealSet ⇒ (forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ⇒ x(u, v) * FunDeri(x, 1, 1)(u, v) + y * FunDeri(x, 2, 1)(u, v) ≠ 0)
+9. diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . u(x, y, z)) = x * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) + z * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x)
+
+GOAL:
+forall (y), y ∈ RealSet ⇒ diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . v(x, y, z)) = y * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) + z * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y)
+
+METHOD:

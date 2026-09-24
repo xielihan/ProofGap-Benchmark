@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. lim_{ x → 0 } (frac(cos(sin(x)) - cos(x), x^{4})) = lim_{ x → 0 } (frac(-cos(x) * sin(sin(x)) + sin(x), 4 * x^{3}))
+
+GOAL:
+lim_{ x → 0 } (frac(-cos(x) * sin(sin(x)) + sin(x), 4 * x^{3})) = lim_{ x → 0 } (frac(sin(x) * sin(sin(x)) - cos(x)^{2} * cos(sin(x)) + cos(x), 12 * x^{2}))
+
+METHOD:
+[@method 根据 "洛必达法则" @]

@@ -1,0 +1,31 @@
+PROOF GAP @9
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. p ∈ RealSet
+3. f : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+4. φ : RealSet → RealSet
+5. ψ : RealSet → RealSet
+6. m ∈ RealSet ∧ m > 0
+7. M ∈ RealSet
+8. F : RealSet → RealSet
+9. c ∈ RealSet
+10. ε ∈ RealSet ∧ ε > 0
+11. `I_0` ⊆ RealSet
+12. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ∧ x ∈ [0, a] ∧ y ∈ [0, a] ∧ z ∈ [0, a] ⇒ 0 < m ∧ m ≤ |f(x, y, z)| ∧ |f(x, y, z)| ≤ M))
+13. ContinuousFuncOn(φ, [0, a])
+14. ContinuousFuncOn(ψ, [0, a])
+15. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ∧ x ∈ [0, a] ∧ y ∈ [0, a] ∧ z ∈ [0, a] ⇒ frac(m, ((y - φ(x))^{2} + (z - ψ(x))^{2})^{p}) ≤ frac(|f(x, y, z)|, ((y - φ(x))^{2} + (z - ψ(x))^{2})^{p})))
+16. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ∧ x ∈ [0, a] ∧ y ∈ [0, a] ∧ z ∈ [0, a] ⇒ frac(|f(x, y, z)|, ((y - φ(x))^{2} + (z - ψ(x))^{2})^{p}) ≤ frac(M, ((y - φ(x))^{2} + (z - ψ(x))^{2})^{p})))
+17. ConvergentSeries(DefInt(0, a, DefInt(0, a, DefInt(0, a, (fun x, y, z [x ∈ RealSet ∧ x ∈ [0, a] ∧ y ∈ RealSet ∧ y ∈ [0, a] ∧ z ∈ RealSet ∧ z ∈ [0, a]] . frac(f(x, y, z), ((y - φ(x))^{2} + (z - ψ(x))^{2})^{p})) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z))))) ⇔ ConvergentSeries(DefInt(0, a, DefInt(0, a, DefInt(0, a, (fun x, y, z [x ∈ RealSet ∧ x ∈ [0, a] ∧ y ∈ RealSet ∧ y ∈ [0, a] ∧ z ∈ RealSet ∧ z ∈ [0, a]] . frac(1, ((y - φ(x))^{2} + (z - ψ(x))^{2})^{p})) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)))))
+18. F = (fun x [x ∈ RealSet ∧ x ∈ [0, a]] . DefInt(0, a, DefInt(0, a, (fun y, z [y ∈ RealSet ∧ y ∈ [0, a] ∧ z ∈ RealSet ∧ z ∈ [0, a]] . frac(1, ((y - φ(x))^{2} + (z - ψ(x))^{2})^{p})) * diff(fun y, z [y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun y, z [y ∈ RealSet ∧ z ∈ RealSet] . z))))
+19. DefInt(0, a, DefInt(0, a, DefInt(0, a, (fun x, y, z [x ∈ RealSet ∧ x ∈ [0, a] ∧ y ∈ RealSet ∧ y ∈ [0, a] ∧ z ∈ RealSet ∧ z ∈ [0, a]] . frac(1, ((y - φ(x))^{2} + (z - ψ(x))^{2})^{p})) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)))) = DefInt(0, a, (fun x [x ∈ RealSet ∧ x ∈ [0, a]] . F(x)) * diff(fun x [x ∈ RealSet] . x))
+20. forall (x), x ∈ RealSet ∧ x ∈ [0, a] ⇒ F(x) = DefInt(-φ(x), a - φ(x), DefInt(-ψ(x), a - ψ(x), (fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . frac(1, (u^{2} + v^{2})^{p})) * diff(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . u) * diff(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . v)))
+21. p < 1 ⇒ c = max({ t | t ∈ RealSet, exists (x), x ∈ RealSet ∧ x ∈ [0, a] ∧ t = |φ(x)| + |ψ(x)| })
+22. p < 1 ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [0, a] ⇒ F(x) ≤ DefInt(0, 2 * π, diff(fun θ [θ ∈ RealSet] . θ)) * DefInt(0, sqrtn(2, 2) * (a + c), (fun r [r ∈ RealSet ∧ r ∈ [0, sqrtn(2, 2) * (a + c)]] . frac(1, r^{2 * p - 1})) * diff(fun r [r ∈ RealSet] . r)))
+23. p < 1 ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [0, a] ⇒ F(x) ≤ frac(π, 1 - p) * (sqrtn(2, 2) * (a + c))^{2 - 2 * p})
+24. p < 1 ⇒ BoundedFuncOn(F, [0, a])
+
+GOAL:
+p < 1 ⇒ ConvergentSeries(DefInt(0, a, (fun x [x ∈ RealSet ∧ x ∈ [0, a]] . F(x)) * diff(fun x [x ∈ RealSet] . x)))
+
+METHOD:

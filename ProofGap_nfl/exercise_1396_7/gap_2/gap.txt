@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. 0.8 ∈ IntervalLoRo(-1, 1)
+
+GOAL:
+arctan(0.8) ≈_{ frac(1, 41) * 0.8^{41} } sum_{ k = 0 }^{ 19 } ((-1)^{k} * frac(0.8^{2 * k + 1}, 2 * k + 1))
+
+METHOD:
+[@method 根据 "arctan x 的 Taylor 公式" @]

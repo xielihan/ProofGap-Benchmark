@@ -1,0 +1,15 @@
+PROOF GAP @7
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = |x|
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(f, 1, 1)(x) = frac(|x|, x)
+4. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ frac(|x|, x) = sgn(x)
+5. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(f, 1, 1)(x) = sgn(x)
+6. forall (x), x ∈ RealSet ∧ x = 0 ⇒ (forall (Δx), Δx ∈ RealSet ∧ Δx ≠ 0 ⇒ frac(f(0 + Δx) - f(0), Δx) = cases{ -1 if Δx < 0; 1 if Δx > 0 })
+7. forall (x), x ∈ RealSet ∧ x = 0 ⇒ lim_{ Δx → 0^+ } (frac(f(0 + Δx) - f(0), Δx)) = 1
+8. forall (x), x ∈ RealSet ∧ x = 0 ⇒ lim_{ Δx → 0^- } (frac(f(0 + Δx) - f(0), Δx)) = -1
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x = 0 ⇒ ¬DiffableFuncAt(f, 0)
+
+METHOD:

@@ -1,0 +1,2 @@
+1. rewrite (left_to_right, equation) (hypothesis 16: {DefInt(-1, 1, (fun x [x ∈ RealSet] . frac(1, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x)) = ((fun x [x ∈ RealSet] . arctan(x))|_{-1}^{1})}); from (GOAL: {DefInt(-1, 1, (fun x [x ∈ RealSet] . frac(1, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x)) = frac(π, 2)}) to (GOAL: {((fun x [x ∈ RealSet] . arctan(x))|_{-1}^{1}) = frac(π, 2)})
+2. apply (hypothesis 17: {((fun x [x ∈ RealSet] . arctan(x))|_{-1}^{1}) = frac(π, 2)})

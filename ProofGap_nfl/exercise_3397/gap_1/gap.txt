@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. F : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. z : CartesianProd(RealSet, RealSet) → RealSet
+3. FuncOfClassK(F, 2)
+4. FuncOfClassK(z, 2)
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ F(x, x + y, x + y + z(x, y)) = 0
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(F, 3, 1)(x, x + y, x + y + z(x, y)) ≠ 0
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(F, 1, 1)(x, x + y, x + y + z(x, y)) + FunDeri(F, 2, 1)(x, x + y, x + y + z(x, y)) + FunDeri(F, 3, 1)(x, x + y, x + y + z(x, y)) * (1 + FunDeri(z, 1, 1)(x, y)) = 0
+
+METHOD:
+[@method implicit differentiation @]

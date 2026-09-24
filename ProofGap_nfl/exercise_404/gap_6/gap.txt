@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. b ∈ RealSet
+3. lim_{ x → ∞ } (f(x)) = b ⇔ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ Dom(f) ∧ |x| > N ⇒ |f(x) - b| < ε)))
+4. lim_{ x → -∞ } (f(x)) = b ⇔ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ Dom(f) ∧ x < -N ⇒ |f(x) - b| < ε)))
+5. lim_{ x → +∞ } (f(x)) = b ⇔ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ Dom(f) ∧ x > N ⇒ |f(x) - b| < ε)))
+6. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = frac(1, x^{2})
+7. lim_{ x → -∞ } (f(x)) = 0
+
+GOAL:
+lim_{ x → +∞ } (f(x)) = 0
+
+METHOD:

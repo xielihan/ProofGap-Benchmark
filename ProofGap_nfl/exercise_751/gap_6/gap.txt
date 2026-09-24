@@ -1,0 +1,19 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. x ∈ RealSet
+4. Defined(f, [a, +∞))
+5. ContinuousFuncOn(f, [a, +∞))
+6. exists (A), A ∈ RealSet ∧ lim_{ x → +∞ } (f(x)) = A
+7. A = lim_{ x → +∞ } (f(x))
+8. A ∈ RealSet
+9. forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε = 1 ⇒ (exists (X), X ∈ RealSet ∧ X > a ∧ (forall (x), x ∈ RealSet ∧ x > X ⇒ |f(x) - A| < 1))
+10. exists (X), X ∈ RealSet ∧ X > a ∧ (forall (x), x ∈ RealSet ∧ x > X ⇒ |f(x)| < |A| + 1)
+11. forall (X), X ∈ RealSet ∧ X > a ⇒ ContinuousFuncOn(f, [a, X])
+12. forall (X), X ∈ RealSet ∧ X > a ⇒ BoundedFuncOn(f, [a, X])
+
+GOAL:
+exists (M_{1}), M_{1} ∈ RealSet ∧ M_{1} > 0 ∧ (forall (x) (X), x ∈ RealSet ∧ X ∈ RealSet ∧ X > a ∧ x ∈ [a, X] ⇒ |f(x)| < M_{1})
+
+METHOD:

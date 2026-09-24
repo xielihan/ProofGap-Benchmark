@@ -1,0 +1,29 @@
+PROOF GAP @8
+ASSUM:
+1. m ∈ NonNegIntegerSet
+2. n ∈ NonNegIntegerSet
+3. a ∈ RealSet
+4. Ω ⊆ CartesianProd(RealSet, RealSet)
+5. x ∈ RealSet
+6. y ∈ RealSet
+7. r ∈ RealSet
+8. φ ∈ RealSet
+9. m ∈ PosIntegerSet
+10. n ∈ PosIntegerSet
+11. a > 0
+12. Odd(m) ∨ Odd(n)
+13. forall (p), p ∈ CartesianProd(RealSet, RealSet) ⇒ (p ∈ Ω ⇔ (exists (x), x ∈ RealSet ∧ (exists (y), y ∈ RealSet ∧ p = (x, y) ∧ x^{2} + y^{2} < a^{2})))
+14. x = r * cos(φ)
+15. y = r * sin(φ)
+16. VolumeInt(Ω, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x^{m} * y^{n}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = DefInt(0, a, (fun r [r ∈ RealSet ∧ r ∈ IntervalClose(0, a)] . DefInt(0, 2 * π, (fun φ [φ ∈ RealSet ∧ φ ∈ IntervalClose(0, 2 * π)] . r^{m + n + 1} * cos(φ)^{m} * sin(φ)^{n}) * diff(fun φ [φ ∈ RealSet] . φ))) * diff(fun r [r ∈ RealSet] . r))
+17. VolumeInt(Ω, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x^{m} * y^{n}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = frac(a^{m + n + 2}, m + n + 2) * DefInt(0, 2 * π, (fun φ [φ ∈ RealSet ∧ φ ∈ IntervalClose(0, 2 * π)] . cos(φ)^{m} * sin(φ)^{n}) * diff(fun φ [φ ∈ RealSet] . φ))
+18. Odd(m) ⇒ Even(n) ⇒ (forall (φ), φ ∈ RealSet ⇒ cos(π - φ)^{m} * sin(π - φ)^{n} = -cos(φ)^{m} * sin(φ)^{n})
+19. Odd(m) ⇒ Even(n) ⇒ DefInt(0, 2 * π, (fun φ [φ ∈ RealSet ∧ φ ∈ IntervalClose(0, 2 * π)] . cos(φ)^{m} * sin(φ)^{n}) * diff(fun φ [φ ∈ RealSet] . φ)) = 0
+20. Even(m) ⇒ Odd(n) ⇒ (forall (φ), φ ∈ RealSet ⇒ cos(-φ)^{m} * sin(-φ)^{n} = -cos(φ)^{m} * sin(φ)^{n})
+21. Even(m) ⇒ Odd(n) ⇒ DefInt(0, 2 * π, (fun φ [φ ∈ RealSet ∧ φ ∈ IntervalClose(0, 2 * π)] . cos(φ)^{m} * sin(φ)^{n}) * diff(fun φ [φ ∈ RealSet] . φ)) = 0
+22. Odd(m) ⇒ Odd(n) ⇒ (forall (φ), φ ∈ RealSet ⇒ cos(-φ)^{m} * sin(-φ)^{n} = -cos(φ)^{m} * sin(φ)^{n})
+
+GOAL:
+Odd(m) ⇒ Odd(n) ⇒ DefInt(0, 2 * π, (fun φ [φ ∈ RealSet ∧ φ ∈ IntervalClose(0, 2 * π)] . cos(φ)^{m} * sin(φ)^{n}) * diff(fun φ [φ ∈ RealSet] . φ)) = 0
+
+METHOD:

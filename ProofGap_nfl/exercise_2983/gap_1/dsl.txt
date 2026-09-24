@@ -1,0 +1,4 @@
+assert (hypothesis 9: {IntegrableFunc(f) ∧ PeriodicFunc(f, 2 * π)}) by proof {
+  autosolve all_hypothesis
+}
+apply (hypothesis 9: {IntegrableFunc(f) ∧ PeriodicFunc(f, 2 * π)})

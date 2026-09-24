@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+0.8 ∈ IntervalLoRo(-1, 1)
+
+METHOD:

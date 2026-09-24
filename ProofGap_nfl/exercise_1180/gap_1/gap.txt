@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet ∧ x ∈ Dom(f)
+2. y ∈ RealSet
+3. f : RealSet → RealSet
+4. y = f(x)
+5. diff(x) ≠ 0
+
+GOAL:
+FunDeri(y, x, 1) = FunDeri(y, x, 1)
+
+METHOD:

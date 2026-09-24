@@ -1,0 +1,24 @@
+assert (hypothesis 13: {0 ∈ RealSet}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 14: {1 ∈ RealSet}) by proof {
+autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 30. (CartesianProductMemberIntro)': {forall (A) (B) (a) (b), (a ∈ A) => (b ∈ B) => ((a,b) ∈ CartesianProd(A,B))}) (A := {RealSet}) (B := {RealSet}) (a := {0}) (b := {0}) as (hypothesis 15: {(0 ∈ RealSet) => (0 ∈ RealSet) => ((0,0) ∈ CartesianProd(RealSet,RealSet))})
+use_condition (hypothesis 13: {0 ∈ RealSet}) in (hypothesis 15: {(0 ∈ RealSet) => (0 ∈ RealSet) => ((0,0) ∈ CartesianProd(RealSet,RealSet))}) as (hypothesis 16: {(0 ∈ RealSet) => ((0,0) ∈ CartesianProd(RealSet,RealSet))})
+use_condition (hypothesis 13: {0 ∈ RealSet}) in (hypothesis 16: {(0 ∈ RealSet) => ((0,0) ∈ CartesianProd(RealSet,RealSet))}) as (hypothesis 17: {(0,0) ∈ CartesianProd(RealSet,RealSet)})
+get_prop (theorem 'Thm 30. (CartesianProductMemberIntro)': {forall (A) (B) (a) (b), (a ∈ A) => (b ∈ B) => ((a,b) ∈ CartesianProd(A,B))}) (A := {RealSet}) (B := {CartesianProd(RealSet,RealSet)}) (a := {0}) (b := {(0,0)}) as (hypothesis 18: {(0 ∈ RealSet) => ((0,0) ∈ CartesianProd(RealSet,RealSet)) => ((0,(0,0)) ∈ CartesianProd(RealSet,CartesianProd(RealSet,RealSet)))})
+use_condition (hypothesis 13: {0 ∈ RealSet}) in (hypothesis 18: {(0 ∈ RealSet) => ((0,0) ∈ CartesianProd(RealSet,RealSet)) => ((0,(0,0)) ∈ CartesianProd(RealSet,CartesianProd(RealSet,RealSet)))}) as (hypothesis 19: {((0,0) ∈ CartesianProd(RealSet,RealSet)) => ((0,(0,0)) ∈ CartesianProd(RealSet,CartesianProd(RealSet,RealSet)))})
+use_condition (hypothesis 17: {(0,0) ∈ CartesianProd(RealSet,RealSet)}) in (hypothesis 19: {((0,0) ∈ CartesianProd(RealSet,RealSet)) => ((0,(0,0)) ∈ CartesianProd(RealSet,CartesianProd(RealSet,RealSet)))}) as (hypothesis 20: {(0,(0,0)) ∈ CartesianProd(RealSet,CartesianProd(RealSet,RealSet))})
+get_prop (hypothesis 4: {forall (n), n ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ n = (2 * x, 2 * y, 1)))}) (n := {(0,(0,0))}) as (hypothesis 21: {(0,(0,0)) ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (0,(0,0)) = (2 * x, 2 * y, 1)))})
+use_condition (hypothesis 20: {(0,(0,0)) ∈ CartesianProd(RealSet,CartesianProd(RealSet,RealSet))}) in (hypothesis 21: {(0,(0,0)) ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (0,(0,0)) = (2 * x, 2 * y, 1)))}) as (hypothesis 22: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (0,(0,0)) = (2 * x, 2 * y, 1))})
+get_prop (hypothesis 22: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (0,(0,0)) = (2 * x, 2 * y, 1))}) (x := {0}) as (hypothesis 23: {0 ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (0,(0,0)) = (2 * 0, 2 * y, 1))})
+use_condition (hypothesis 13: {0 ∈ RealSet}) in (hypothesis 23: {0 ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (0,(0,0)) = (2 * 0, 2 * y, 1))}) as (hypothesis 24: {forall (y), y ∈ RealSet ⇒ (0,(0,0)) = (2 * 0, 2 * y, 1)})
+get_prop (hypothesis 24: {forall (y), y ∈ RealSet ⇒ (0,(0,0)) = (2 * 0, 2 * y, 1)}) (y := {0}) as (hypothesis 25: {0 ∈ RealSet ⇒ (0,(0,0)) = (2 * 0, 2 * 0, 1)})
+use_condition (hypothesis 13: {0 ∈ RealSet}) in (hypothesis 25: {0 ∈ RealSet ⇒ (0,(0,0)) = (2 * 0, 2 * 0, 1)}) as (hypothesis 26: {(0,(0,0)) = (2 * 0, 2 * 0, 1)})
+get_prop (hypothesis 22: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (0,(0,0)) = (2 * x, 2 * y, 1))}) (x := {1}) as (hypothesis 27: {1 ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (0,(0,0)) = (2 * 1, 2 * y, 1))})
+use_condition (hypothesis 14: {1 ∈ RealSet}) in (hypothesis 27: {1 ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (0,(0,0)) = (2 * 1, 2 * y, 1))}) as (hypothesis 28: {forall (y), y ∈ RealSet ⇒ (0,(0,0)) = (2 * 1, 2 * y, 1)})
+get_prop (hypothesis 28: {forall (y), y ∈ RealSet ⇒ (0,(0,0)) = (2 * 1, 2 * y, 1)}) (y := {0}) as (hypothesis 29: {0 ∈ RealSet ⇒ (0,(0,0)) = (2 * 1, 2 * 0, 1)})
+use_condition (hypothesis 13: {0 ∈ RealSet}) in (hypothesis 29: {0 ∈ RealSet ⇒ (0,(0,0)) = (2 * 1, 2 * 0, 1)}) as (hypothesis 30: {(0,(0,0)) = (2 * 1, 2 * 0, 1)})
+rewrite (left_to_right, equation) (hypothesis 26: {(0,(0,0)) = (2 * 0, 2 * 0, 1)}); from (hypothesis 30: {(0,(0,0)) = (2 * 1, 2 * 0, 1)}) to (hypothesis 31: {(2 * 0, 2 * 0, 1) = (2 * 1, 2 * 0, 1)})
+autosolve all_hypothesis

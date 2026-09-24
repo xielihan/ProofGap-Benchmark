@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. I : NonNegIntegerSet → RealSet
+
+GOAL:
+forall (A) (n), A ∈ RealSet ∧ A > 0 ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ IntegrableFuncOn(fun x [x ∈ RealSet] . (1 + frac(x^{2}, n))^{-n}, [0, A])
+
+METHOD:

@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. DefInt(0, 6, (fun x [x ∈ RealSet] . floor(x) * sin(frac(π * x, 6))) * diff(fun x [x ∈ RealSet] . x)) = sum_{ k = 1 }^{ 5 } (DefInt(k, k + 1, (fun x [x ∈ RealSet] . k * sin(frac(π * x, 6))) * diff(fun x [x ∈ RealSet] . x)))
+2. sum_{ k = 1 }^{ 5 } (DefInt(k, k + 1, (fun x [x ∈ RealSet] . k * sin(frac(π * x, 6))) * diff(fun x [x ∈ RealSet] . x))) = frac(30, π)
+
+GOAL:
+DefInt(0, 6, (fun x [x ∈ RealSet] . floor(x) * sin(frac(π * x, 6))) * diff(fun x [x ∈ RealSet] . x)) = frac(30, π)
+
+METHOD:

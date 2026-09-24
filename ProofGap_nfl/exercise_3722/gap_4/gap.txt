@@ -1,0 +1,18 @@
+PROOF GAP @4
+ASSUM:
+1. F : RealSet → RealSet
+2. f : RealSet → RealSet
+3. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+4. I ⊆ RealSet
+5. x ∈ RealSet ∧ x ∈ I
+6. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ [0, x] ⊆ I ∨ [x, 0] ⊆ I
+7. ContinuousFuncOn(f, I)
+8. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ F(x) = DefInt(0, x, (fun t [t ∈ RealSet] . f(t) * (x - t)^{n - 1}) * diff(fun t [t ∈ RealSet] . t))
+9. n ≥ 2 ∧ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (y), y ∈ RealSet ∧ x - δ < y ∧ y < x + δ ⇒ y ∈ I)) ⇒ FunDeri(F, 1, 1)(x) = DefInt(0, x, (fun t [t ∈ RealSet] . (n - 1) * f(t) * (x - t)^{n - 2}) * diff(fun t [t ∈ RealSet] . t))
+10. n ≥ 2 ⇒ DefInt(0, x, (fun t [t ∈ RealSet] . (n - 1) * f(t) * (x - t)^{n - 2}) * diff(fun t [t ∈ RealSet] . t)) = (n - 1) * DefInt(0, x, (fun t [t ∈ RealSet] . f(t) * (x - t)^{n - 2}) * diff(fun t [t ∈ RealSet] . t))
+11. n ≥ 2 ∧ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (y), y ∈ RealSet ∧ x - δ < y ∧ y < x + δ ⇒ y ∈ I)) ⇒ FunDeri(F, 1, 1)(x) = (n - 1) * DefInt(0, x, (fun t [t ∈ RealSet] . f(t) * (x - t)^{n - 2}) * diff(fun t [t ∈ RealSet] . t))
+
+GOAL:
+n ≥ 3 ∧ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (y), y ∈ RealSet ∧ x - δ < y ∧ y < x + δ ⇒ y ∈ I)) ⇒ FunDeri(F, 1, 2)(x) = (n - 1) * (n - 2) * DefInt(0, x, (fun t [t ∈ RealSet] . f(t) * (x - t)^{n - 3}) * diff(fun t [t ∈ RealSet] . t))
+
+METHOD:

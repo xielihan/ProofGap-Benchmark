@@ -1,0 +1,4 @@
+get_prop (hypothesis 5: {forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = -2}) (x := {frac(1, 2)}) as (hypothesis 6: {frac(1, 2) ∈ RealSet ⇒ FunDeri(y, 1, 2)(frac(1, 2)) = -2})
+use_condition (obvious: {frac(1, 2) ∈ RealSet}) in (hypothesis 6: {frac(1, 2) ∈ RealSet ⇒ FunDeri(y, 1, 2)(frac(1, 2)) = -2}) as (hypothesis 7: {FunDeri(y, 1, 2)(frac(1, 2)) = -2})
+rewrite (left_to_right, equation) (hypothesis 7: {FunDeri(y, 1, 2)(frac(1, 2)) = -2}); from (GOAL: {FunDeri(y, 1, 2)(frac(1, 2)) < 0}) to (GOAL: {-2 < 0})
+autosolve using IntervalSolver

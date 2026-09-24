@@ -1,0 +1,17 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. y ∈ RealSet
+3. ξ : CartesianProd(RealSet, RealSet) → RealSet
+4. η : CartesianProd(RealSet, RealSet) → RealSet
+5. z : CartesianProd(RealSet, RealSet) → RealSet
+6. E : CartesianProd(RealSet, RealSet) → RealSet
+7. DiffableFunc(z)
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ ξ(x, y) = y + z(x, y) * e^{-x} ∧ η(x, y) = x + z(x, y) * e^{-y}
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ E(x, y) = (z(x, y) + e^{x}) * FunDeri(z, 1, 1)(x, y) + (z(x, y) + e^{y}) * FunDeri(z, 2, 1)(x, y) - (z(x, y)^{2} - e^{x + y})
+10. diff(z) = FunDeri(z, ξ, 1)(x, y) * diff(ξ) + FunDeri(z, η, 1)(x, y) * diff(η)
+
+GOAL:
+diff(z) = FunDeri(z, ξ, 1)(x, y) * (diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) + e^{-x} * diff(z) - z(x, y) * e^{-x} * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)) + FunDeri(z, η, 1)(x, y) * (diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + e^{-y} * diff(z) - z(x, y) * e^{-y} * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+
+METHOD:

@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. a : NonNegIntegerSet → RealSet ∧ PosSeq(a) ∧ StrictMonoDecSeq(a)
+2. S = (fun k [k ∈ NonNegIntegerSet ∧ k ≥ 1] . sum_{ i = 1 }^{ k } (a(i)))
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < S(2^{n})
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ S(2^{n}) < a(1) + (sum_{ k = 1 }^{ n } (2^{k} * a(2^{k})))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ S(2^{n}) > frac(1, 2) * (a(1) + (sum_{ k = 1 }^{ n } (2^{k} * a(2^{k}))))
+6. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (2^{n} * a(2^{n}))) ⇒ BoundedAboveSeq(S)
+7. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (2^{n} * a(2^{n}))) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+GOAL:
+DivergentSeries(sum_{ n = 1 }^{ +∞ } (2^{n} * a(2^{n}))) ⇒ ¬BoundedAboveSeq(S)
+
+METHOD:

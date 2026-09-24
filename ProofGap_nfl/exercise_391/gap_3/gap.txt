@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. m_{0} ∈ RealSet
+3. M_{0} ∈ RealSet
+4. forall (x), x ∈ RealSet ∧ 0 < x ⇒ f(x) = x + frac(1, x)
+5. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < +∞ ⇒ x + frac(1, x) ≥ 2
+6. f(1) = 2
+
+GOAL:
+forall (A), A ∈ RealSet => exists (N), N ∈ RealSet ∧ forall (x), x ∈ RealSet => x >= N => f(x) > A
+
+METHOD:

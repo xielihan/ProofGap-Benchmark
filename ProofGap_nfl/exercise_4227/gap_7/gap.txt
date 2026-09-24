@@ -1,0 +1,25 @@
+PROOF GAP @7
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. C_{1} ⊆ CartesianProd(RealSet, RealSet)
+3. a ∈ RealSet ∧ a > 0
+4. x : RealSet → RealSet
+5. y : RealSet → RealSet
+6. r : RealSet → RealSet
+7. s : RealSet → RealSet
+8. C = { (X, Y) | X ∈ RealSet ∧ Y ∈ RealSet, (X^{2} + Y^{2})^{2} = a^{2} * (X^{2} - Y^{2}) }
+9. forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 4) ⇒ r(φ) = a * sqrtn(2, cos(2 * φ))
+10. forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 4) ⇒ x(φ) = r(φ) * cos(φ) ∧ y(φ) = r(φ) * sin(φ)
+11. C_{1} = { (x(φ), y(φ)) | φ ∈ RealSet, 0 ≤ φ ∧ φ ≤ frac(π, 4) }
+12. ScalarCurveInt(C, (fun X, Y [X ∈ RealSet ∧ Y ∈ RealSet] . |Y|) * diff(s)) = 4 * ScalarCurveInt(C_{1}, (fun X, Y [X ∈ RealSet ∧ Y ∈ RealSet] . |Y|) * diff(s))
+13. diff(s) = sqrtn(2, diff(x)^{2} + diff(y)^{2})
+14. diff(s) = (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ < frac(π, 4)] . sqrtn(2, r(φ)^{2} + FunDeri(r, 1, 1)(φ)^{2})) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ < frac(π, 4)] . φ)
+15. (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ < frac(π, 4)] . sqrtn(2, r(φ)^{2} + FunDeri(r, 1, 1)(φ)^{2})) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ < frac(π, 4)] . φ) = (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ < frac(π, 4)] . frac(a, sqrtn(2, cos(2 * φ)))) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ < frac(π, 4)] . φ)
+16. diff(s) = (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ < frac(π, 4)] . frac(a, sqrtn(2, cos(2 * φ)))) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ < frac(π, 4)] . φ)
+17. forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ < frac(π, 4) ⇒ |y(φ)| = a * sqrtn(2, cos(2 * φ)) * sin(φ)
+18. ScalarCurveInt(C, (fun X, Y [X ∈ RealSet ∧ Y ∈ RealSet] . |Y|) * diff(s)) = 4 * DefInt(0, frac(π, 4), (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ < frac(π, 4)] . a * sqrtn(2, cos(2 * φ)) * sin(φ) * frac(a, sqrtn(2, cos(2 * φ)))) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ < frac(π, 4)] . φ))
+
+GOAL:
+4 * DefInt(0, frac(π, 4), (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ < frac(π, 4)] . a * sqrtn(2, cos(2 * φ)) * sin(φ) * frac(a, sqrtn(2, cos(2 * φ)))) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ < frac(π, 4)] . φ)) = 4 * a^{2} * ((fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ < frac(π, 4)] . -cos(φ))|_{0}^{frac(π, 4)})
+
+METHOD:

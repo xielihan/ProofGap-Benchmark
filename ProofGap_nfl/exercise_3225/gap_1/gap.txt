@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x^{2} + y^{2} + z^{2} > 0 ⇒ u(x, y, z) = frac(1, sqrtn(2, x^{2} + y^{2} + z^{2}))
+
+GOAL:
+forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x^{2} + y^{2} + z^{2} > 0 ⇒ FunDeri(u, 1, 1)(x, y, z) = -frac(x, (x^{2} + y^{2} + z^{2})^{frac(3, 2)})
+
+METHOD:

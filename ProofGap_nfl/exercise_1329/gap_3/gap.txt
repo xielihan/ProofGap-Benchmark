@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. lim_{ x → 0 } (frac(a^{x} - a^{sin(x)}, x^{3})) = lim_{ x → 0 } (frac((a^{x} - a^{sin(x)} * cos(x)) * ln(a), 3 * x^{2}))
+3. lim_{ x → 0 } (frac((a^{x} - a^{sin(x)} * cos(x)) * ln(a), 3 * x^{2})) = frac(ln(a), 3) * (lim_{ x → 0 } (frac(a^{x} * ln(a) + a^{sin(x)} * sin(x) - a^{sin(x)} * ln(a) * cos(x)^{2}, 2 * x)))
+
+GOAL:
+frac(ln(a), 3) * (lim_{ x → 0 } (frac(a^{x} * ln(a) + a^{sin(x)} * sin(x) - a^{sin(x)} * ln(a) * cos(x)^{2}, 2 * x))) = frac(ln(a), 6) * (lim_{ x → 0 } (a^{x} * ln(a)^{2} + a^{sin(x)} * cos(x) + a^{sin(x)} * ln(a) * sin(x) * cos(x) + a^{sin(x)} * ln(a) * sin(2 * x) - a^{sin(x)} * ln(a)^{2} * cos(x)^{3}))
+
+METHOD:

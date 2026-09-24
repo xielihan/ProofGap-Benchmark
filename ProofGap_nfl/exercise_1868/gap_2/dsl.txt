@@ -1,0 +1,4 @@
+rewrite (left_to_right, equation) (hypothesis 4: {A = -frac(1024, 3)}); from (GOAL: {frac(-341 * x + 342, x^{2} + x - 2) = frac(A, x + 2) + frac(B, x - 1)}) to (GOAL: {frac(-341 * x + 342, x^{2} + x - 2) = frac(-frac(1024, 3), x + 2) + frac(B, x - 1)})
+rewrite (left_to_right, equation) (hypothesis 5: {B = frac(1, 3)}); from (GOAL: {frac(-341 * x + 342, x^{2} + x - 2) = frac(-frac(1024, 3), x + 2) + frac(B, x - 1)}) to (GOAL: {frac(-341 * x + 342, x^{2} + x - 2) = frac(-frac(1024, 3), x + 2) + frac(frac(1, 3), x - 1)})
+assert (hypothesis 6: {frac(-341 * x + 342, x^{2} + x - 2) = frac(-frac(1024, 3), x + 2) + frac(frac(1, 3), x - 1)})
+apply (hypothesis 6: {frac(-341 * x + 342, x^{2} + x - 2) = frac(-frac(1024, 3), x + 2) + frac(frac(1, 3), x - 1)})

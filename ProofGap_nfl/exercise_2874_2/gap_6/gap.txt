@@ -1,0 +1,20 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. x ∈ RealSet ∧ x ≠ 0
+4. h ∈ RealSet
+5. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+6. s ∈ NonNegIntegerSet
+7. A : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+8. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = e^{frac(a, x)}
+9. f(x + h) - f(x) = e^{frac(a, x + h)} - e^{frac(a, x)}
+10. e^{frac(a, x + h)} - e^{frac(a, x)} = e^{frac(a, x)} * (e^{-frac(a * h, x * (x + h))} - 1)
+11. f(x + h) - f(x) = e^{frac(a, x)} * (e^{-frac(a * h, x * (x + h))} - 1)
+12. -frac(a * h, x * (x + h)) = sum_{ r = 0 }^{ +∞ } ((-1)^{r + 1} * frac(a * h^{r + 1}, x^{r + 2}))
+13. f(x + h) - f(x) = e^{frac(a, x)} * (sum_{ m = 1 }^{ +∞ } (frac(1, m!) * (sum_{ r = 0 }^{ +∞ } ((-1)^{r + 1} * frac(a * h^{r + 1}, x^{r + 2})))^{m}))
+
+GOAL:
+f(x + h) - f(x) = e^{frac(a, x)} * (sum_{ m = 1 }^{ +∞ } (frac(a^{m}, m! * x^{m}) * (prod_{ i = 1 }^{ m } (sum_{ k(i) = 0 }^{ +∞ } ((-1)^{k(i) + 1} * frac(h, x)^{k(i) + 1})))))
+
+METHOD:

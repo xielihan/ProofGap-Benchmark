@@ -1,0 +1,38 @@
+PROOF GAP @25
+ASSUM:
+1. f : RealSet → RealSet
+2. R : NonNegIntegerSet → RealSet
+3. x : IntegerSet → RealSet
+4. y : IntegerSet → RealSet
+5. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+6. frac(π, 4) = DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . frac(1, 1 + x^{2})) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x))
+7. forall (a) (b), a ∈ RealSet ∧ b ∈ RealSet ∧ n ∈ PosIntegerSet ∧ a < b ⇒ (exists (ξ), ξ ∈ RealSet ∧ a < ξ ∧ ξ < b ∧ R(n) = -frac((b - a)^{5}, 180 * n^{4}) * FunDeri(f, 1, 4)(ξ))
+8. f = (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . frac(1, 1 + x^{2}))
+9. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ f(x) = FunDeri(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . arctan(x), 1, 1)(x)
+10. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ FunDeri(f, 1, 4)(x) = FunDeri(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . arctan(x), 1, 5)(x)
+11. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ FunDeri(f, 1, 4)(x) = frac(24, (1 + x^{2})^{frac(5, 2)}) * sin(5 * arctan(frac(1, x)))
+12. ContinuousFuncOn(FunDeri(f, 1, 4), [0, 1])
+13. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ |FunDeri(f, 1, 4)(x)| ≤ 24
+14. |R(n)| ≤ frac(24, 180 * n^{4})
+15. frac(24, 180 * n^{4}) < frac(1, 100000) ⇒ |R(n)| < frac(1, 100000)
+16. n = 12 ⇒ frac(24, 180 * n^{4}) < frac(1, 100000)
+17. n = 12 ⇒ |R(n)| < frac(1, 100000)
+18. n = 12 ⇒ |R(n)| ≤ 0.0000065
+19. forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ 12 ⇒ x(i) = frac(i, 12) ∧ y(i) = f(x(i))
+20. x(0) = 0
+21. y(0) = 1
+22. x(1) = frac(1, 12)
+23. y(1) = frac(144, 145)
+24. x(2) = frac(1, 6)
+25. y(2) = frac(36, 37)
+26. x(3) = frac(1, 4)
+27. y(3) = frac(16, 17)
+28. x(4) = frac(1, 3)
+29. y(4) = 0.900000
+30. x(5) = frac(5, 12)
+31. y(5) = frac(144, 169)
+
+GOAL:
+x(6) = frac(1, 2)
+
+METHOD:

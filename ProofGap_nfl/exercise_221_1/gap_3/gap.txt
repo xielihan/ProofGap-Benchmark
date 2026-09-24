@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. forall (x), x ∈ RealSet ⇒ f(x) = a * x + b
+5. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ x_{1} < x_{2} ⇒ f(x_{2}) - f(x_{1}) = a * (x_{2} - x_{1}))
+6. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ x_{1} < x_{2} ∧ a > 0 ⇒ f(x_{2}) - f(x_{1}) > 0)
+
+GOAL:
+forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ x_{1} < x_{2} ∧ a > 0 ⇒ MonoIncFunc(f))
+
+METHOD:

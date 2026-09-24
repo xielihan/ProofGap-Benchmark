@@ -1,0 +1,21 @@
+PROOF GAP @11
+ASSUM:
+1. x ∈ RealSet ∧ 1 - x - x^{2} > 0 ∧ 1 + x ≠ 0
+2. C ∈ RealSet
+3. t : RealSet → RealSet
+4. 1 + x = frac(1, t(x))
+5. t(x) ∈ RealSet
+6. t(x) ≠ 0
+7. x = frac(1 - t(x), t(x))
+8. diff(fun x [x ∈ RealSet ∧ 1 - x - x^{2} > 0 ∧ 1 + x ≠ 0] . x) = -frac(1, t(x)^{2}) * diff(fun x [x ∈ RealSet ∧ 1 - x - x^{2} > 0 ∧ 1 + x ≠ 0] . t(x))
+9. sqrtn(2, 1 - x - x^{2}) = frac(sqrtn(2, t(x)^{2} + t(x) - 1), |t(x)|)
+10. frac(sqrtn(2, t(x)^{2} + t(x) - 1), |t(x)|) = sgn(t(x)) * frac(sqrtn(2, t(x)^{2} + t(x) - 1), t(x))
+11. sqrtn(2, 1 - x - x^{2}) = sgn(t(x)) * frac(sqrtn(2, t(x)^{2} + t(x) - 1), t(x))
+12. t(x)^{2} + t(x) - 1 > 0
+13. { `F_2` | forall (x), x ∈ RealSet ∧ 1 - x - x^{2} > 0 ∧ 1 + x ≠ 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x, (1 + x) * sqrtn(2, 1 - x - x^{2})) * FunDeri(fun x [x ∈ RealSet ∧ 1 - x - x^{2} > 0 ∧ 1 + x ≠ 0] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ 1 - x - x^{2} > 0 ∧ 1 + x ≠ 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = (frac(1, sqrtn(2, 1 - x - x^{2})) - frac(1, (1 + x) * sqrtn(2, 1 - x - x^{2}))) * FunDeri(fun x [x ∈ RealSet ∧ 1 - x - x^{2} > 0 ∧ 1 + x ≠ 0] . x, 1, 1)(x) }
+14. { `F_4` | forall (x), x ∈ RealSet ∧ 1 - x - x^{2} > 0 ∧ 1 + x ≠ 0 ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(x, (1 + x) * sqrtn(2, 1 - x - x^{2})) * FunDeri(fun x [x ∈ RealSet ∧ 1 - x - x^{2} > 0 ∧ 1 + x ≠ 0] . x, 1, 1)(x) } = { `F_8` | exists (`F_5`) (`F_6`), `F_5` : RealSet → RealSet ∧ `F_6` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ 1 - x - x^{2} > 0 ∧ 1 + x ≠ 0 ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(1, sqrtn(2, 1 - x - x^{2})) * FunDeri(fun x [x ∈ RealSet ∧ 1 - x - x^{2} > 0 ∧ 1 + x ≠ 0] . x, 1, 1)(x) ∧ FunDeri(`F_6`, 1, 1)(x) = frac(1, sqrtn(2, t(x)^{2} + t(x) - 1)) * FunDeri(fun x [x ∈ RealSet ∧ 1 - x - x^{2} > 0 ∧ 1 + x ≠ 0] . t(x), 1, 1)(x) ∧ `F_8`(x) = `F_5`(x) + sgn(t(x)) * `F_6`(x)) }
+
+GOAL:
+{ `F_9` | forall (x), x ∈ RealSet ∧ 1 - x - x^{2} > 0 ∧ 1 + x ≠ 0 ⇒ FunDeri(`F_9`, 1, 1)(x) = frac(x, (1 + x) * sqrtn(2, 1 - x - x^{2})) * FunDeri(fun x [x ∈ RealSet ∧ 1 - x - x^{2} > 0 ∧ 1 + x ≠ 0] . x, 1, 1)(x) } = { `F_10` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ 1 - x - x^{2} > 0 ∧ 1 + x ≠ 0 ⇒ `F_10`(x) = arcsin(frac(2 * x + 1, sqrtn(2, 5))) + sgn(1 + x) * ln(|frac(3 + x + 2 * sgn(x + 1) * sqrtn(2, 1 - x - x^{2}), 2 * (1 + x))|) + C) }
+
+METHOD:

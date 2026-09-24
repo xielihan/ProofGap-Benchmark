@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. x = tan(t)
+2. 0 ≤ t
+
+GOAL:
+t < frac(π, 2)
+
+METHOD:

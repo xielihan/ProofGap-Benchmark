@@ -1,0 +1,4 @@
+get_prop (theorem 'Thm 192. (CosineDoubleAngleSquareCosine)': {forall (x), x ∈ RealSet ⇒ cos (2 * x) = 2 * (cos(x)) ^ 2 - 1}) (x := {x}) as (hypothesis 2: {x ∈ RealSet ⇒ cos (2 * x) = 2 * (cos(x)) ^ 2 - 1})
+use_condition (hypothesis 1: {x ∈ RealSet}) in (hypothesis 2: {x ∈ RealSet ⇒ cos (2 * x) = 2 * (cos(x)) ^ 2 - 1}) as (hypothesis 3: {cos (2 * x) = 2 * (cos(x)) ^ 2 - 1})
+rewrite (left_to_right, equation) (hypothesis 3: {cos (2 * x) = 2 * (cos(x)) ^ 2 - 1}); from (GOAL: {cos(x)^{2} = frac(1 + cos(2 * x), 2)}) to (GOAL: {cos(x)^{2} = frac(1 + (2 * (cos(x)) ^ 2 - 1), 2)})
+autosolve all_hypothesis

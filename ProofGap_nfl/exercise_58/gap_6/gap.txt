@@ -1,0 +1,12 @@
+PROOF GAP @6
+ASSUM:
+1. forall (n), n ∈ NonNegIntegerSet ∧ n > 2 ⇒ 2^{n} = (1 + 1)^{n}
+2. forall (n), n ∈ NonNegIntegerSet ∧ n > 2 ⇒ (1 + 1)^{n} > frac(n * (n - 1), 2)
+3. forall (n), n ∈ NonNegIntegerSet ∧ n > 2 ⇒ 2^{n} > frac(n * (n - 1), 2)
+4. forall (n), n ∈ NonNegIntegerSet ∧ n > 2 ⇒ 0 < frac(n, 2^{n})
+5. forall (n), n ∈ NonNegIntegerSet ∧ n > 2 ⇒ frac(n, 2^{n}) < frac(2, n - 1)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n > 2 ⇒ 0 < frac(2, n - 1)
+
+METHOD:

@@ -1,0 +1,19 @@
+PROOF GAP @6
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. r : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. c ∈ RealSet
+6. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ r(x, y, z) = sqrtn(2, (x - a)^{2} + (y - b)^{2} + (z - c)^{2})
+7. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ r(x, y, z) ≠ 0 ⇒ u(x, y, z) = frac(1, r(x, y, z))
+8. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ r(x, y, z) ≠ 0 ⇒ FunDeri(u, 1, 2)(x, y, z) = -frac(1, r(x, y, z)^{3}) + frac(3 * (x - a)^{2}, r(x, y, z)^{5})
+9. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ r(x, y, z) ≠ 0 ⇒ FunDeri(u, 2, 2)(x, y, z) = -frac(1, r(x, y, z)^{3}) + frac(3 * (y - b)^{2}, r(x, y, z)^{5})
+10. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ r(x, y, z) ≠ 0 ⇒ FunDeri(u, 3, 2)(x, y, z) = -frac(1, r(x, y, z)^{3}) + frac(3 * (z - c)^{2}, r(x, y, z)^{5})
+11. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ r(x, y, z) ≠ 0 ⇒ FunDeri(u, 1, 2)(x, y, z) + FunDeri(u, 2, 2)(x, y, z) + FunDeri(u, 3, 2)(x, y, z) = frac(-3 * r(x, y, z)^{2} + 3 * ((x - a)^{2} + (y - b)^{2} + (z - c)^{2}), r(x, y, z)^{5})
+12. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ r(x, y, z) ≠ 0 ⇒ FunDeri(u, 1, 2)(x, y, z) + FunDeri(u, 2, 2)(x, y, z) + FunDeri(u, 3, 2)(x, y, z) = 0
+
+GOAL:
+forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ r(x, y, z) ≠ 0 ⇒ FunDeri(u, 1, 2)(x, y, z) + FunDeri(u, 2, 2)(x, y, z) + FunDeri(u, 3, 2)(x, y, z) = 0
+
+METHOD:

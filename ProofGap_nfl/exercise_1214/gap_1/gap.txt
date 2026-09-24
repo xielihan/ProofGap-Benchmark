@@ -1,0 +1,23 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. φ ∈ RealSet
+4. y_{1} : RealSet → RealSet
+5. y_{2} : RealSet → RealSet
+6. y_{3} : RealSet → RealSet
+7. y_{4} : RealSet → RealSet
+8. n ∈ NonNegIntegerSet
+9. x ∈ RealSet
+10. a^{2} + b^{2} > 0
+11. sin(φ) = frac(b, sqrtn(2, a^{2} + b^{2}))
+12. cos(φ) = frac(a, sqrtn(2, a^{2} + b^{2}))
+13. forall (x), x ∈ RealSet ⇒ y_{1}(x) = cosh(a * x) * cos(b * x)
+14. forall (x), x ∈ RealSet ⇒ y_{2}(x) = cosh(a * x) * sin(b * x)
+15. forall (x), x ∈ RealSet ⇒ y_{3}(x) = sinh(a * x) * cos(b * x)
+16. forall (x), x ∈ RealSet ⇒ y_{4}(x) = sinh(a * x) * sin(b * x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ y_{1}(x) = frac(1, 2) * e^{a * x} * cos(b * x) + frac(1, 2) * e^{-a * x} * cos(b * x)
+
+METHOD:

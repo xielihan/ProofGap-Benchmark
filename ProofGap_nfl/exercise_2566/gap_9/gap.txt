@@ -1,0 +1,19 @@
+PROOF GAP @9
+ASSUM:
+1. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (b), b : NonNegIntegerSet → RealSet ⇒ (forall (c), c : NonNegIntegerSet → RealSet ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n))) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ≤ c(n) ∧ c(n) ≤ b(n)) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 ≤ c(n) - a(n) ∧ c(n) - a(n) ≤ b(n) - a(n))))
+2. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (b), b : NonNegIntegerSet → RealSet ⇒ (forall (c), c : NonNegIntegerSet → RealSet ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n))) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ≤ c(n) ∧ c(n) ≤ b(n)) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n) - a(n)))))
+3. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (b), b : NonNegIntegerSet → RealSet ⇒ (forall (c), c : NonNegIntegerSet → RealSet ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n))) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ≤ c(n) ∧ c(n) ≤ b(n)) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n) - a(n)))))
+4. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (b), b : NonNegIntegerSet → RealSet ⇒ (forall (c), c : NonNegIntegerSet → RealSet ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n))) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ≤ c(n) ∧ c(n) ≤ b(n)) ⇒ sum_{ n = 1 }^{ +∞ } (c(n)) = sum_{ n = 1 }^{ +∞ } (a(n) + c(n) - a(n))))
+5. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (b), b : NonNegIntegerSet → RealSet ⇒ (forall (c), c : NonNegIntegerSet → RealSet ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n))) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ≤ c(n) ∧ c(n) ≤ b(n)) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n)))))
+6. a = (fun n [n ∈ NonNegIntegerSet] . -1)
+7. b = (fun n [n ∈ NonNegIntegerSet] . 1)
+8. c = (fun n [n ∈ NonNegIntegerSet] . 0)
+9. d = (fun n [n ∈ NonNegIntegerSet] . frac(1, 2))
+10. DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+11. DivergentSeries(sum_{ n = 1 }^{ +∞ } (b(n)))
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ≤ c(n) ∧ c(n) ≤ b(n) ∧ a(n) ≤ d(n) ∧ d(n) ≤ b(n)
+
+GOAL:
+ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n)))
+
+METHOD:

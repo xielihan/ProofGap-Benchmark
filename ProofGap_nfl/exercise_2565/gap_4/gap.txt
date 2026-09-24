@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet
+2. d ∈ RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a + (n - 1) * d ≠ 0
+4. d > 0 ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ a < (n_{0} - 1) * d)
+5. d > 0 ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ a < (n_{0} - 1) * d ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ≥ n_{0} ∧ n ∈ PosIntegerSet ⇒ a + (n - 1) * d < 2 * (n - 1) * d))
+6. d > 0 ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ a < (n_{0} - 1) * d ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ≥ n_{0} ∧ n ∈ PosIntegerSet ⇒ frac(1, a + (n - 1) * d) > frac(1, 2 * (n - 1) * d)))
+
+GOAL:
+d > 0 ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ a < (n_{0} - 1) * d ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ≥ n_{0} ∧ n ∈ PosIntegerSet ⇒ frac(1, 2 * (n - 1) * d) > frac(1, 2 * n * d)))
+
+METHOD:

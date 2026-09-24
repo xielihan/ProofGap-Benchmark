@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet ⇒ x ∈ IntervalLoRo(frac(1 - sqrtn(2, 21), 2), frac(1 + sqrtn(2, 21), 2))
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x, sqrtn(2, 5 + x - x^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(x - frac(1, 2) + frac(1, 2), sqrtn(2, frac(21, 4) - (x - frac(1, 2))^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+METHOD:

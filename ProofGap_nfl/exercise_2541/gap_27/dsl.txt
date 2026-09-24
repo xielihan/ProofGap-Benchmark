@@ -1,0 +1,10 @@
+1. rewrite (left_to_right, equation) (hypothesis 32: {y(6) = e}); from (GOAL: {y(6) ≈_{ 0.0001 } 2.7183}) to (GOAL: {e ≈_{ 0.0001 } 2.7183})
+2. get_prop (hypothesis 33: {forall (a) (b) (ε), a ≈_{ ε } b <==> |a - b| < ε}) (a := {e}) (b := {2.7183}) (ε := {0.0001}) as (hypothesis 34: {e ≈_{ 0.0001 } 2.7183 <==> |e - 2.7183| < 0.0001})
+3. rewrite (left_to_right, iff) (hypothesis 34: {e ≈_{ 0.0001 } 2.7183 <==> |e - 2.7183| < 0.0001}); from (GOAL: {e ≈_{ 0.0001 } 2.7183}) to (GOAL: {|e - 2.7183| < 0.0001})
+4. assert (hypothesis 35: {e - 2.7183 ∈ RealSet})
+5. assert (hypothesis 36: {e - 2.7183 <= 0})
+6. get_prop (theorem 'Thm 489. (AbsoluteValueOfNonpositiveReal)': {forall (x), x ∈ RealSet => (x <= 0 <==> |x| = -x)}) (x := {e - 2.7183}) as (hypothesis 37: {e - 2.7183 ∈ RealSet => (e - 2.7183 <= 0 <==> |e - 2.7183| = -(e - 2.7183))})
+7. use_condition (hypothesis 35: {e - 2.7183 ∈ RealSet}) in (hypothesis 37: {e - 2.7183 ∈ RealSet => (e - 2.7183 <= 0 <==> |e - 2.7183| = -(e - 2.7183))}) as (hypothesis 38: {e - 2.7183 <= 0 <==> |e - 2.7183| = -(e - 2.7183)})
+8. rewrite (left_to_right, iff) (hypothesis 38: {e - 2.7183 <= 0 <==> |e - 2.7183| = -(e - 2.7183)}); from (hypothesis 36: {e - 2.7183 <= 0}) to (hypothesis 39: {|e - 2.7183| = -(e - 2.7183)})
+9. rewrite (left_to_right, equation) (hypothesis 39: {|e - 2.7183| = -(e - 2.7183)}); from (GOAL: {|e - 2.7183| < 0.0001}) to (GOAL: {-(e - 2.7183) < 0.0001})
+10. autosolve all_hypothesis

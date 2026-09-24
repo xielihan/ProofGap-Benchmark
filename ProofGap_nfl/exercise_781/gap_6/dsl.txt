@@ -1,0 +1,12 @@
+1. get_forall (GOAL: {forall (t), t ∈ RealSet ∧ sinh(t) = frac(e^{t} - e^{-t}, 2) ∧ frac(e^{t} - e^{-t}, 2) ≥ 0 ⇒ x(t) ∈ [1, +∞)}) (t := {t0})
+2. get_condition (hypothesis 12: {t0 ∈ RealSet ∧ sinh(t0) = frac(e^{t0} - e^{-t0}, 2) ∧ frac(e^{t0} - e^{-t0}, 2) ≥ 0}) in (GOAL: {t0 ∈ RealSet ∧ sinh(t0) = frac(e^{t0} - e^{-t0}, 2) ∧ frac(e^{t0} - e^{-t0}, 2) ≥ 0 ⇒ x(t0) ∈ [1, +∞)})
+3. destruct_and (hypothesis 12: {t0 ∈ RealSet ∧ sinh(t0) = frac(e^{t0} - e^{-t0}, 2) ∧ frac(e^{t0} - e^{-t0}, 2) ≥ 0}) as (hypothesis 13: {t0 ∈ RealSet}) (hypothesis 14: {sinh(t0) = frac(e^{t0} - e^{-t0}, 2)}) (hypothesis 15: {frac(e^{t0} - e^{-t0}, 2) ≥ 0})
+4. get_prop (hypothesis 5: {forall (t), t ∈ RealSet ⇒ x(t) = cosh(t)}) (t := {t0}) as (hypothesis 16: {t0 ∈ RealSet ⇒ x(t0) = cosh(t0)})
+5. use_condition (hypothesis 13: {t0 ∈ RealSet}) in (hypothesis 16: {t0 ∈ RealSet ⇒ x(t0) = cosh(t0)}) as (hypothesis 17: {x(t0) = cosh(t0)})
+6. get_prop (hypothesis 9: {forall (t), t ∈ RealSet ⇒ x(t)^{2} - y(t)^{2} = 1}) (t := {t0}) as (hypothesis 18: {t0 ∈ RealSet ⇒ x(t0)^{2} - y(t0)^{2} = 1})
+7. use_condition (hypothesis 13: {t0 ∈ RealSet}) in (hypothesis 18: {t0 ∈ RealSet ⇒ x(t0)^{2} - y(t0)^{2} = 1}) as (hypothesis 19: {x(t0)^{2} - y(t0)^{2} = 1})
+8. get_prop (theorem 'Thm 413. (HyperbolicCosinePositive)': {forall (u), u ∈ RealSet => cosh(u) > 0}) (u := {t0}) as (hypothesis 20: {t0 ∈ RealSet => cosh(t0) > 0})
+9. use_condition (hypothesis 13: {t0 ∈ RealSet}) in (hypothesis 20: {t0 ∈ RealSet => cosh(t0) > 0}) as (hypothesis 21: {cosh(t0) > 0})
+10. assert (hypothesis 22: {x(t0) > 0})
+11. assert (hypothesis 23: {x(t0) ≥ 1})
+12. autosolve all_hypothesis

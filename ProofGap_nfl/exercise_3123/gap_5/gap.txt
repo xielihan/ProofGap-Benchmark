@@ -1,0 +1,17 @@
+PROOF GAP @5
+ASSUM:
+1. y : RealSet → RealSet
+2. P : RealSet → RealSet
+3. y(1) = 1
+4. y(25) = 5
+5. y(100) = 10
+6. forall (x), x ∈ RealSet ∧ 1 ≤ x ∧ x ≤ 100 ⇒ y(x) = sqrtn(2, x)
+7. forall (x), x ∈ RealSet ⇒ P(x) = frac((x - 25) * (x - 100), -24 * -99) * 1 + frac((x - 1) * (x - 100), 24 * -75) * 5 + frac((x - 1) * (x - 25), 99 * 75) * 10
+8. forall (x), x ∈ RealSet ⇒ P(x) = 0.808 + 0.193 * x - 0.00101 * x^{2}
+9. P(4) = 1.564
+10. P(9) = 2.463
+
+GOAL:
+P(16) = 3.637
+
+METHOD:

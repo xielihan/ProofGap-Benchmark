@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x < frac(1, 2) ⇒ f(x) = frac(x, sqrtn(2, 1 - 2 * x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x < frac(1, 2) ⇒ f(x) = x * (1 - 2 * x)^{-frac(1, 2)}
+
+METHOD:

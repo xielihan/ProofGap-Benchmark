@@ -1,0 +1,7 @@
+not_normalize from (GOAL: {¬ seqlim_{ n -> +∞ } (a(n)) = 0}) to (GOAL: {seqlim_{ n -> +∞ } (a(n)) = 0 => False})
+get_condition (hypothesis 5: {seqlim_{ n -> +∞ } (a(n)) = 0}) in (GOAL: {seqlim_{ n -> +∞ } (a(n)) = 0 => False})
+assert (hypothesis 6: {exists (l), l ∈ RealSet ∧ seqlim_{ n -> +∞ } (a(n)) = l}) by proof {
+  1. exists (l := {0})
+  2. autosolve all_hypothesis
+}
+autosolve all_hypothesis

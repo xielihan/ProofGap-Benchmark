@@ -1,0 +1,12 @@
+PROOF GAP @6
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ 0 < |x| ∧ |x| < 1 ⇒ x + 2 * sqrtn(3, x^{4}) ≠ 0
+2. forall (x), x ∈ RealSet ∧ 0 < |x| ∧ |x| < 1 ⇒ sqrtn(3, (27 + x)^{2}) + sqrtn(3, 27^{2} - x^{2}) + sqrtn(3, (27 - x)^{2}) ≠ 0
+3. lim_{ x → 0 } (frac(sqrtn(3, 27 + x) - sqrtn(3, 27 - x), x + 2 * sqrtn(3, x^{4}))) = lim_{ x → 0 } (frac(sqrtn(3, 27 + x) - sqrtn(3, 27 - x), x + 2 * sqrtn(3, x^{4})) * frac(sqrtn(3, (27 + x)^{2}) + sqrtn(3, 27^{2} - x^{2}) + sqrtn(3, (27 - x)^{2}), sqrtn(3, (27 + x)^{2}) + sqrtn(3, 27^{2} - x^{2}) + sqrtn(3, (27 - x)^{2})))
+4. lim_{ x → 0 } (frac(sqrtn(3, 27 + x) - sqrtn(3, 27 - x), x + 2 * sqrtn(3, x^{4})) * frac(sqrtn(3, (27 + x)^{2}) + sqrtn(3, 27^{2} - x^{2}) + sqrtn(3, (27 - x)^{2}), sqrtn(3, (27 + x)^{2}) + sqrtn(3, 27^{2} - x^{2}) + sqrtn(3, (27 - x)^{2}))) = lim_{ x → 0 } (frac(2, (1 + 2 * sqrtn(3, x)) * (sqrtn(3, (27 + x)^{2}) + sqrtn(3, 27^{2} - x^{2}) + sqrtn(3, (27 - x)^{2}))))
+5. lim_{ x → 0 } (frac(2, (1 + 2 * sqrtn(3, x)) * (sqrtn(3, (27 + x)^{2}) + sqrtn(3, 27^{2} - x^{2}) + sqrtn(3, (27 - x)^{2})))) = frac(2, 27)
+
+GOAL:
+lim_{ x → 0 } (frac(sqrtn(3, 27 + x) - sqrtn(3, 27 - x), x + 2 * sqrtn(3, x^{4}))) = frac(2, 27)
+
+METHOD:

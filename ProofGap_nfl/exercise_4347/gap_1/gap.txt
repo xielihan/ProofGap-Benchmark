@@ -1,0 +1,22 @@
+PROOF GAP @1
+ASSUM:
+1. S ⊆ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+2. ρ : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. c ∈ RealSet
+6. x ∈ RealSet
+7. y ∈ RealSet
+8. z ∈ RealSet
+9. n ∈ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+10. R ∈ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+11. a > 0
+12. b > 0
+13. c > 0
+14. S = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}) = 1 }
+15. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ∧ (x, y, z) ∈ S ⇒ ρ(x, y, z) = frac(1, sqrtn(2, frac(x^{2}, a^{4}) + frac(y^{2}, b^{4}) + frac(z^{2}, c^{4})))))
+
+GOAL:
+n = (frac(x, a^{2}), frac(y, b^{2}), frac(z, c^{2}))
+
+METHOD:

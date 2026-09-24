@@ -1,0 +1,43 @@
+PROOF GAP @25
+ASSUM:
+1. x_{1} : NonNegIntegerSet → RealSet
+2. x_{2} : NonNegIntegerSet → RealSet
+3. x_{3} : NonNegIntegerSet → RealSet
+4. x_{4} : NonNegIntegerSet → RealSet
+5. IsSeq(x_{1})
+6. IsSeq(x_{2})
+7. IsSeq(x_{3})
+8. IsSeq(x_{4})
+9. forall (n), n ∈ PosIntegerSet ⇒ x_{1}(n) = frac((-1)^{n + 1}, n)
+10. forall (n), n ∈ PosIntegerSet ⇒ x_{2}(n) = frac(2 * n, n^{3} + 1)
+11. forall (n), n ∈ PosIntegerSet ⇒ x_{3}(n) = frac(1, n!)
+12. forall (n), n ∈ PosIntegerSet ⇒ x_{4}(n) = (-1)^{n} * 0.999^{n}
+13. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (n), n ∈ PosIntegerSet ⇒ |x_{1}(n)| = frac(1, n))
+14. forall (n), n ∈ PosIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(1, n) < ε ⇒ |x_{1}(n)| < ε)
+15. forall (n), n ∈ PosIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ n > frac(1, ε) ⇒ frac(1, n) < ε)
+16. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ n > frac(1, ε) ⇒ |x_{1}(n)| < ε)
+17. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N_{1}), N_{1} ∈ NonNegIntegerSet ∧ N_{1} = floor(frac(1, ε)))
+18. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N_{1}), N_{1} ∈ NonNegIntegerSet ∧ N_{1} = floor(frac(1, ε)) ∧ (forall (n), n > N_{1} ∧ n ∈ PosIntegerSet ⇒ |x_{1}(n)| < ε))
+19. seqlim_{ n → +∞ } (x_{1}(n)) = 0
+20. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (n), n ∈ PosIntegerSet ⇒ |x_{2}(n)| = frac(2 * n, n^{3} + 1) ∧ frac(2 * n, n^{3} + 1) < frac(2, n^{2}))
+21. forall (n), n ∈ PosIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(2, n^{2}) < ε ⇒ |x_{2}(n)| < ε)
+22. forall (n), n ∈ PosIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ n > sqrtn(2, frac(2, ε)) ⇒ frac(2, n^{2}) < ε)
+23. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ n > sqrtn(2, frac(2, ε)) ⇒ |x_{2}(n)| < ε)
+24. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N_{2}), N_{2} ∈ NonNegIntegerSet ∧ N_{2} = floor(sqrtn(2, frac(2, ε))))
+25. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N_{2}), N_{2} ∈ NonNegIntegerSet ∧ N_{2} = floor(sqrtn(2, frac(2, ε))) ∧ (forall (n), n > N_{2} ∧ n ∈ PosIntegerSet ⇒ |x_{2}(n)| < ε))
+26. seqlim_{ n → +∞ } (x_{2}(n)) = 0
+27. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (n), n ∈ PosIntegerSet ⇒ |x_{3}(n)| = frac(1, n!) ∧ frac(1, n!) ≤ frac(1, 2^{n - 1}))
+28. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(1, 2^{n - 1}) < ε ⇒ |x_{3}(n)| < ε)
+29. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ n > 1 + log(2, frac(1, ε)) ⇒ frac(1, 2^{n - 1}) < ε)
+30. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ n > 1 + log(2, frac(1, ε)) ⇒ |x_{3}(n)| < ε)
+31. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N_{3}), N_{3} ∈ IntegerSet ∧ N_{3} = floor(log(2, frac(1, ε))) + 1)
+32. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N_{3}), N_{3} ∈ IntegerSet ∧ N_{3} = floor(log(2, frac(1, ε))) + 1 ∧ (forall (n), n > N_{3} ∧ n ∈ PosIntegerSet ⇒ |x_{3}(n)| < ε))
+33. seqlim_{ n → +∞ } (x_{3}(n)) = 0
+34. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (n), n ∈ PosIntegerSet ⇒ |x_{4}(n)| = 0.999^{n})
+35. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ 0.999^{n} < ε ⇒ |x_{4}(n)| < ε)
+36. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ n * lg(0.999) < lg(ε) ⇒ 0.999^{n} < ε)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ n > frac(lg(ε), lg(0.999)) ⇒ n * lg(0.999) < lg(ε))
+
+METHOD:

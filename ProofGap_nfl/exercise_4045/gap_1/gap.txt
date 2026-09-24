@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. y : CartesianProd(RealSet, RealSet) → RealSet
+3. S ∈ RealSet
+4. Ω ⊆ CartesianProd(RealSet, RealSet)
+5. a > 0
+6. forall (x) (z), x ∈ RealSet ∧ z ∈ RealSet ⇒ x ≥ 0 ∧ y(x, z) ≥ 0 ∧ x^{2} + y(x, z)^{2} = a^{2}
+7. forall (x) (z), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ∧ z ∈ RealSet ∧ -x ≤ z ∧ z ≤ x ⇒ Ω = { (x, z) | x ∈ RealSet ∧ z ∈ RealSet, 0 ≤ x ∧ x ≤ a, -x ≤ z ∧ z ≤ x }
+
+GOAL:
+forall (x) (z), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ∧ z ∈ RealSet ∧ -x ≤ z ∧ z ≤ x ⇒ y(x, z) = sqrtn(2, a^{2} - x^{2})
+
+METHOD:

@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 2 ≤ x ∧ x ≤ 4 ⇒ e^{frac(1, x)} = sum_{ n = 0 }^{ +∞ } (frac(1, n! * x^{n}))
+
+METHOD:

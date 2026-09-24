@@ -1,0 +1,21 @@
+PROOF GAP @10
+ASSUM:
+1. a ∈ RealSet
+2. f : RealSet → RealSet
+3. S ⊆ RealSet
+4. forall (x), x ∈ RealSet ∧ x ∈ [0, π] ⇒ f(x) = sin(x)^{3} * cos(x) - a
+5. forall (x), x ∈ RealSet ⇒ (x ∈ S ⇔ x ∈ [0, π] ∧ sin(x)^{3} * cos(x) = a)
+6. forall (x), x ∈ RealSet ∧ x ∈ [0, π] ⇒ FunDeri(f, 1, 1)(x) = 3 * sin(x)^{2} * cos(x)^{2} - sin(x)^{4}
+7. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, π) ⇒ (FunDeri(f, 1, 1)(x) = 0 ⇔ x = frac(π, 3) ∨ x = frac(2 * π, 3))
+8. f(frac(π, 3)) = frac(3 * sqrtn(2, 3), 16) - a
+9. f(frac(2 * π, 3)) = -frac(3 * sqrtn(2, 3), 16) - a
+10. f(0) = -a
+11. f(π) = -a
+12. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, frac(π, 3)) ⇒ FunDeri(f, 1, 1)(x) > 0
+13. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(frac(π, 3), frac(2 * π, 3)) ⇒ FunDeri(f, 1, 1)(x) < 0
+14. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(frac(2 * π, 3), π) ⇒ FunDeri(f, 1, 1)(x) > 0
+
+GOAL:
+a = 0 ⇒ S = { 0, frac(π, 2), π }
+
+METHOD:

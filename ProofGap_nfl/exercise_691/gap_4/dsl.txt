@@ -1,0 +1,6 @@
+1. get_forall (GOAL: {forall (k), k ∈ IntegerSet ∧ k ≠ 0 ⇒ sin(k * π) = 0}) (k := {k1})
+2. get_condition (hypothesis 7: {k1 ∈ IntegerSet ∧ k1 ≠ 0}) in (GOAL: {k1 ∈ IntegerSet ∧ k1 ≠ 0 ⇒ sin(k1 * π) = 0})
+3. destruct_and (hypothesis 7: {k1 ∈ IntegerSet ∧ k1 ≠ 0}) as (hypothesis 8: {k1 ∈ IntegerSet}) (hypothesis 9: {k1 ≠ 0})
+4. get_prop (hypothesis 4: {forall (k), k ∈ IntegerSet ⇒ sin(k * π) = 0}) (k := {k1}) as (hypothesis 10: {k1 ∈ IntegerSet ⇒ sin(k1 * π) = 0})
+5. use_condition (hypothesis 8: {k1 ∈ IntegerSet}) in (hypothesis 10: {k1 ∈ IntegerSet ⇒ sin(k1 * π) = 0}) as (hypothesis 11: {sin(k1 * π) = 0})
+6. apply (hypothesis 11: {sin(k1 * π) = 0})

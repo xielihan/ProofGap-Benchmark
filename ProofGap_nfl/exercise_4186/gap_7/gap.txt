@@ -1,0 +1,31 @@
+PROOF GAP @7
+ASSUM:
+1. a ∈ RealSet
+2. A ∈ RealSet
+3. b ∈ RealSet
+4. B ∈ RealSet
+5. p ∈ RealSet
+6. φ : CartesianProd(RealSet, RealSet) → RealSet
+7. f : RealSet → RealSet
+8. F : RealSet → RealSet
+9. R ⊆ CartesianProd(RealSet, RealSet)
+10. a < A
+11. b < B
+12. p < 1
+13. R = CartesianProd([a, A], [b, B])
+14. ContinuousFuncOn(φ, R)
+15. ContinuousFuncOn(f, [a, A])
+16. forall (x), x ∈ RealSet ∧ x ∈ [a, A] ∧ f(x) ∈ [b, B] ⇒ DefInt(b, B, (fun y [y ∈ RealSet ∧ y ∈ [b, B]] . frac(1, |f(x) - y|^{p})) * diff(fun y [y ∈ RealSet ∧ y ∈ [b, B]] . y)) < +∞
+17. forall (x), x ∈ RealSet ∧ x ∈ [a, A] ∧ f(x) ∉ [b, B] ⇒ DefInt(b, B, (fun y [y ∈ RealSet ∧ y ∈ [b, B]] . frac(1, |f(x) - y|^{p})) * diff(fun y [y ∈ RealSet ∧ y ∈ [b, B]] . y)) < +∞
+18. forall (x), x ∈ RealSet ∧ x ∈ [a, A] ⇒ DefInt(b, B, (fun y [y ∈ RealSet ∧ y ∈ [b, B]] . frac(φ(x, y), |f(x) - y|^{p})) * diff(fun y [y ∈ RealSet ∧ y ∈ [b, B]] . y)) < +∞
+19. F = (fun x [x ∈ RealSet ∧ x ∈ [a, A]] . DefInt(b, B, (fun y [y ∈ RealSet ∧ y ∈ [b, B]] . frac(φ(x, y), |f(x) - y|^{p})) * diff(fun y [y ∈ RealSet ∧ y ∈ [b, B]] . y)))
+20. c ∈ RealSet ∧ c = max({ |f(x)| | x ∈ [a, A] })
+21. R = CartesianProd([a, A], [b - 2 * c, B + 2 * c])
+22. ContinuousFuncOn(φ, R)
+23. ContinuousFuncOn(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . |f(x) - y|^{1 - p}, R)
+24. UniformContinuousFuncOn(φ, R)
+
+GOAL:
+UniformContinuousFuncOn(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . |f(x) - y|^{1 - p}, R)
+
+METHOD:

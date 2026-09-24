@@ -1,0 +1,12 @@
+get_forall (GOAL: {forall (n), n ∈ IntegerSet ∧ n ≥ 0 ⇒ (forall (i), i ∈ IntegerSet ∧ i ≥ 0 ∧ n ∈ NonNegIntegerSet ⇒ (1 - frac(1, 2)) * P(n) = (1 - frac(1, 2)) * (prod_{ i = 0 }^{ n } (1 + frac(1, 2)^{2^{i}})))}) (n := {n0})
+get_condition (hypothesis 3: {n0 ∈ IntegerSet ∧ n0 ≥ 0}) in (GOAL: {n0 ∈ IntegerSet ∧ n0 ≥ 0 ⇒ (forall (i), i ∈ IntegerSet ∧ i ≥ 0 ∧ n0 ∈ NonNegIntegerSet ⇒ (1 - frac(1, 2)) * P(n0) = (1 - frac(1, 2)) * (prod_{ i = 0 }^{ n0 } (1 + frac(1, 2)^{2^{i}})))})
+get_forall (GOAL: {forall (i), i ∈ IntegerSet ∧ i ≥ 0 ∧ n0 ∈ NonNegIntegerSet ⇒ (1 - frac(1, 2)) * P(n0) = (1 - frac(1, 2)) * (prod_{ i = 0 }^{ n0 } (1 + frac(1, 2)^{2^{i}}))}) (i := {i0})
+get_condition (hypothesis 4: {i0 ∈ IntegerSet ∧ i0 ≥ 0 ∧ n0 ∈ NonNegIntegerSet}) in (GOAL: {i0 ∈ IntegerSet ∧ i0 ≥ 0 ∧ n0 ∈ NonNegIntegerSet ⇒ (1 - frac(1, 2)) * P(n0) = (1 - frac(1, 2)) * (prod_{ i = 0 }^{ n0 } (1 + frac(1, 2)^{2^{i}}))})
+get_prop (hypothesis 2: {forall (n), n ∈ IntegerSet ∧ n ≥ 0 ⇒ (forall (i), i ∈ IntegerSet ∧ i ≥ 0 ⇒ P(n) = prod_{ i = 0 }^{ n } (1 + frac(1, 2)^{2^{i}}))}) (n := {n0}) as (hypothesis 5: {n0 ∈ IntegerSet ∧ n0 ≥ 0 ⇒ (forall (i), i ∈ IntegerSet ∧ i ≥ 0 ⇒ P(n0) = prod_{ i = 0 }^{ n0 } (1 + frac(1, 2)^{2^{i}}))})
+use_condition (hypothesis 3: {n0 ∈ IntegerSet ∧ n0 ≥ 0}) in (hypothesis 5: {n0 ∈ IntegerSet ∧ n0 ≥ 0 ⇒ (forall (i), i ∈ IntegerSet ∧ i ≥ 0 ⇒ P(n0) = prod_{ i = 0 }^{ n0 } (1 + frac(1, 2)^{2^{i}}))}) as (hypothesis 6: {forall (i), i ∈ IntegerSet ∧ i ≥ 0 ⇒ P(n0) = prod_{ i = 0 }^{ n0 } (1 + frac(1, 2)^{2^{i}})})
+get_prop (hypothesis 6: {forall (i), i ∈ IntegerSet ∧ i ≥ 0 ⇒ P(n0) = prod_{ i = 0 }^{ n0 } (1 + frac(1, 2)^{2^{i}})}) (i := {i0}) as (hypothesis 7: {i0 ∈ IntegerSet ∧ i0 ≥ 0 ⇒ P(n0) = prod_{ i = 0 }^{ n0 } (1 + frac(1, 2)^{2^{i}})})
+assert (hypothesis 8: {i0 ∈ IntegerSet ∧ i0 ≥ 0}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 8: {i0 ∈ IntegerSet ∧ i0 ≥ 0}) in (hypothesis 7: {i0 ∈ IntegerSet ∧ i0 ≥ 0 ⇒ P(n0) = prod_{ i = 0 }^{ n0 } (1 + frac(1, 2)^{2^{i}})}) as (hypothesis 9: {P(n0) = prod_{ i = 0 }^{ n0 } (1 + frac(1, 2)^{2^{i}})})
+autosolve all_hypothesis

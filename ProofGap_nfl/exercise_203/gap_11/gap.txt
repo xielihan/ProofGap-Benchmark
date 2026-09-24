@@ -1,0 +1,25 @@
+PROOF GAP @11
+ASSUM:
+1. f : RealSet → RealSet
+2. F_{1} : RealSet → RealSet
+3. F_{2} : RealSet → RealSet
+4. F_{3} : RealSet → RealSet
+5. Dom(f) = (0, 1)
+6. F_{1} = (fun x [x ∈ RealSet] . f(sin(x)))
+7. F_{2} = (fun x [x ∈ RealSet] . f(ln(x)))
+8. F_{3} = (fun x [x ∈ RealSet] . f(frac(floor(x), x)))
+9. forall (x), x ∈ RealSet ∧ 0 < sin(x) ∧ sin(x) < 1 ⇒ x ∈ Dom(F_{1})
+10. forall (x), x ∈ RealSet ∧ (exists (k), k ∈ IntegerSet ∧ 2 * k * π < x ∧ x < π + 2 * k * π ∧ x ≠ frac(4 * k + 1, 2) * π) ⇒ 0 < sin(x) ∧ sin(x) < 1
+11. forall (x), x ∈ RealSet ∧ (exists (k), k ∈ IntegerSet ∧ 2 * k * π < x ∧ x < π + 2 * k * π ∧ x ≠ frac(4 * k + 1, 2) * π) ⇒ x ∈ Dom(F_{1})
+12. Dom(F_{1}) = { x | x ∈ RealSet ∧ (exists (k), k ∈ IntegerSet ∧ 2 * k * π < x ∧ x < π + 2 * k * π ∧ x ≠ frac(4 * k + 1, 2) * π) }
+13. forall (x), x ∈ RealSet ∧ 0 < ln(x) ∧ ln(x) < 1 ⇒ x ∈ Dom(F_{2})
+14. forall (x), x ∈ RealSet ∧ 1 < x ∧ x < e ⇒ 0 < ln(x) ∧ ln(x) < 1
+15. forall (x), x ∈ RealSet ∧ 1 < x ∧ x < e ⇒ x ∈ Dom(F_{2})
+16. Dom(F_{2}) = (1, e)
+17. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ 0 < frac(floor(x), x) ∧ frac(floor(x), x) < 1 ⇒ x ∈ Dom(F_{3})
+18. forall (x), x ∈ RealSet ∧ x > 1 ∧ ¬(exists (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2 ∧ x = k) ⇒ x ≠ 0 ∧ 0 < frac(floor(x), x) ∧ frac(floor(x), x) < 1
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 1 ∧ ¬(exists (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2 ∧ x = k) ⇒ x ∈ Dom(F_{3})
+
+METHOD:

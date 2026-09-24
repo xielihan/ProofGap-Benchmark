@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 2 ⇒ f(x) = cases{ x^{2} if 0 ≤ x ∧ x ≤ 1; 2 - x if 1 < x ∧ x ≤ 2 }
+
+GOAL:
+DefInt(0, 2, (fun x [x ∈ RealSet] . f(x)) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet] . x^{2}) * diff(fun x [x ∈ RealSet] . x)) + DefInt(1, 2, (fun x [x ∈ RealSet] . 2 - x) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

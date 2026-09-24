@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. n ∈ NonNegIntegerSet ∧ n > 0
+4. C ∈ RealSet
+5. n ∈ PosIntegerSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ a ∧ a = b ⇒ frac(1, sqrtn(n, (x - a)^{n + 1} * (x - b)^{n - 1})) = (x - a)^{-2}
+
+METHOD:

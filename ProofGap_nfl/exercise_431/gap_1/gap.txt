@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ sum_{ i = 1 }^{ n } ((2 * i - 1)^{2}) = frac(n * (4 * n^{2} - 1), 3)
+
+METHOD:

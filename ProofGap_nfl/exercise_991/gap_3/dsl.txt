@@ -1,0 +1,13 @@
+assert (hypothesis 5: {forall (h), h ∈ RealSet ∧ h ≠ 0 => frac(f(0 + h) - f(0), h) = h * sin(frac(1, h))}) by proof {
+  get_forall (GOAL: {forall (h), h ∈ RealSet ∧ h ≠ 0 => frac(f(0 + h) - f(0), h) = h * sin(frac(1, h))}) (h := {h0})
+  get_condition (hypothesis 5: {h0 ∈ RealSet ∧ h0 ≠ 0}) in (GOAL: {h0 ∈ RealSet ∧ h0 ≠ 0 => frac(f(0 + h0) - f(0), h0) = h0 * sin(frac(1, h0))})
+  destruct_and (hypothesis 5: {h0 ∈ RealSet ∧ h0 ≠ 0}) as (hypothesis 6: {h0 ∈ RealSet}) (hypothesis 7: {h0 ≠ 0})
+  get_prop (hypothesis 2: {forall (x), x ∈ RealSet ⇒ f(x) = cases{ x^{2} * sin(frac(1, x)) if x ≠ 0; 0 if x = 0 }}) (x := {h0}) as (hypothesis 8: {h0 ∈ RealSet ⇒ f(h0) = cases{ h0^{2} * sin(frac(1, h0)) if h0 ≠ 0; 0 if h0 = 0 }})
+  use_condition (hypothesis 6: {h0 ∈ RealSet}) in (hypothesis 8: {h0 ∈ RealSet ⇒ f(h0) = cases{ h0^{2} * sin(frac(1, h0)) if h0 ≠ 0; 0 if h0 = 0 }}) as (hypothesis 9: {f(h0) = cases{ h0^{2} * sin(frac(1, h0)) if h0 ≠ 0; 0 if h0 = 0 }})
+  get_prop (hypothesis 2: {forall (x), x ∈ RealSet ⇒ f(x) = cases{ x^{2} * sin(frac(1, x)) if x ≠ 0; 0 if x = 0 }}) (x := {0}) as (hypothesis 10: {0 ∈ RealSet ⇒ f(0) = cases{ 0^{2} * sin(frac(1, 0)) if 0 ≠ 0; 0 if 0 = 0 }})
+  assert (hypothesis 11: {0 ∈ RealSet})
+  use_condition (hypothesis 11: {0 ∈ RealSet}) in (hypothesis 10: {0 ∈ RealSet ⇒ f(0) = cases{ 0^{2} * sin(frac(1, 0)) if 0 ≠ 0; 0 if 0 = 0 }}) as (hypothesis 12: {f(0) = cases{ 0^{2} * sin(frac(1, 0)) if 0 ≠ 0; 0 if 0 = 0 }})
+  autosolve all_hypothesis
+}
+rewrite_in limit (left_to_right, equation) (hypothesis 5: {forall (h), h ∈ RealSet ∧ h ≠ 0 => frac(f(0 + h) - f(0), h) = h * sin(frac(1, h))}); from (GOAL: {lim_{ Δx → 0 } (frac(f(0 + Δx) - f(0), Δx)) = lim_{ Δx → 0 } (Δx * sin(frac(1, Δx)))}) to (GOAL: {lim_{ Δx → 0 } (Δx * sin(frac(1, Δx))) = lim_{ Δx → 0 } (Δx * sin(frac(1, Δx)))})
+autosolve all_hypothesis

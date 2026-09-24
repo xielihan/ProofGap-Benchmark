@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. A_{1} ⊆ NonNegIntegerSet
+2. A_{2} ⊆ NonNegIntegerSet
+3. A_{3} ⊆ NonNegIntegerSet
+4. forall (n), n ∈ NonNegIntegerSet ⇒ (n ∈ A_{1} ⇔ (exists (k), k ∈ NonNegIntegerSet ∧ n = 3 * k))
+5. forall (n), n ∈ NonNegIntegerSet ⇒ (n ∈ A_{2} ⇔ (exists (k), k ∈ NonNegIntegerSet ∧ n = 3 * k + 1))
+6. forall (n), n ∈ NonNegIntegerSet ⇒ (n ∈ A_{3} ⇔ (exists (k), k ∈ NonNegIntegerSet ∧ n = 3 * k + 2))
+
+GOAL:
+AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(cos(frac(2 * n * π, 3)), 2^{n})))
+
+METHOD:

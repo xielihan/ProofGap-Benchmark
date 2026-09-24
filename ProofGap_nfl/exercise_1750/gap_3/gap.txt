@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+3. cos(x)^{4} = frac(1 + cos(2 * x), 2)^{2}
+4. cos(x)^{4} = frac(1, 4) * (1 + 2 * cos(2 * x) + frac(1 + cos(4 * x), 2))
+
+GOAL:
+cos(x)^{4} = frac(1, 8) * (3 + 4 * cos(2 * x) + cos(4 * x))
+
+METHOD:

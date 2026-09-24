@@ -1,0 +1,19 @@
+PROOF GAP @10
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet ∧ a < b
+3. C ∈ RealSet
+4. forall (x), x ∈ RealSet ∧ x < b ⇒ a < x
+5. forall (x), x ∈ RealSet ∧ a < x ⇒ x < b
+6. forall (x), x ∈ RealSet ∧ a < x ∧ x < b ⇒ (exists (t), t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2) ∧ x - a = (b - a) * sin(t)^{2})
+7. forall (t), t ∈ RealSet ∧ t < frac(π, 2) ⇒ 0 < t
+8. forall (t), t ∈ RealSet ∧ 0 < t ⇒ t < frac(π, 2)
+9. forall (x), x ∈ RealSet ∧ a < x ∧ x < b ⇒ (forall (t), t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2) ∧ x - a = (b - a) * sin(t)^{2} ⇒ sqrtn(2, (x - a) * (b - x)) = (b - a) * sin(t) * cos(t))
+10. forall (t), t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2) ⇒ diff(fun x [x ∈ RealSet] . x) = 2 * (b - a) * sin(t) * cos(t) * diff(fun t [t ∈ RealSet] . t)
+11. { `F_2` | forall (x), x ∈ RealSet ∧ a < x ∧ x < b ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, sqrtn(2, (x - a) * (b - x))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_4` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2) ⇒ FunDeri(`F_3`, 1, 1)(t) = FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_4`(t) = 2 * `F_3`(t)) }
+12. { `F_6` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2) ⇒ FunDeri(`F_5`, 1, 1)(t) = FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_6`(t) = 2 * `F_5`(t)) } = { `F_7` | exists (C), C ∈ RealSet ∧ (forall (t), t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2) ⇒ `F_7`(t) = 2 * t + C) }
+
+GOAL:
+forall (x), x ∈ RealSet ∧ a < x ∧ x < b ⇒ (forall (t), t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2) ∧ x - a = (b - a) * sin(t)^{2} ⇒ t = arcsin(sqrtn(2, frac(x - a, b - a))))
+
+METHOD:

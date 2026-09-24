@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet ∧ x ≠ -1
+2. C ∈ RealSet
+3. t = sqrtn(3, 2 + x)
+4. x = t^{3} - 2
+5. diff(fun t [t ∈ RealSet] . x) = 3 * t^{2} * diff(fun t [t ∈ RealSet] . t)
+6. frac(x * sqrtn(3, 2 + x), x + sqrtn(3, 2 + x)) * diff(fun x [x ∈ RealSet] . x) = 3 * frac(t^{6} - 2 * t^{3}, t^{3} + t - 2) * diff(fun t [t ∈ RealSet] . t)
+
+GOAL:
+{ `F_6` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ≠ 1 ⇒ FunDeri(`F_5`, 1, 1)(t) = frac(t^{6} - 2 * t^{3}, t^{3} + t - 2) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_6`(t) = 3 * `F_5`(t)) } = { `F_8` | exists (`F_7`), `F_7` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ≠ 1 ⇒ FunDeri(`F_7`, 1, 1)(t) = (t^{3} - t + frac(t^{2} - 2 * t, t^{3} + t - 2)) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_8`(t) = 3 * `F_7`(t)) }
+
+METHOD:

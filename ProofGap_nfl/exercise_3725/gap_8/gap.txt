@@ -1,0 +1,19 @@
+PROOF GAP @8
+ASSUM:
+1. E : RealSet → RealSet
+2. F : RealSet → RealSet
+3. forall (k), k ∈ RealSet ∧ 0 < k ∧ k < 1 ⇒ E(k) = DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet] . sqrtn(2, 1 - k^{2} * sin(φ)^{2})) * diff(fun φ [φ ∈ RealSet] . φ))
+4. forall (k), k ∈ RealSet ∧ 0 < k ∧ k < 1 ⇒ F(k) = DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet] . frac(1, sqrtn(2, 1 - k^{2} * sin(φ)^{2}))) * diff(fun φ [φ ∈ RealSet] . φ))
+5. forall (k), k ∈ RealSet ∧ 0 < k ∧ k < 1 ⇒ FunDeri(E, 1, 1)(k) = -DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet] . frac(k * sin(φ)^{2}, sqrtn(2, 1 - k^{2} * sin(φ)^{2}))) * diff(fun φ [φ ∈ RealSet] . φ))
+6. forall (k), k ∈ RealSet ∧ 0 < k ∧ k < 1 ⇒ FunDeri(E, 1, 1)(k) = frac(1, k) * DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet] . frac(1 - k^{2} * sin(φ)^{2} - 1, sqrtn(2, 1 - k^{2} * sin(φ)^{2}))) * diff(fun φ [φ ∈ RealSet] . φ))
+7. forall (k), k ∈ RealSet ∧ 0 < k ∧ k < 1 ⇒ FunDeri(E, 1, 1)(k) = frac(E(k) - F(k), k)
+8. forall (k), k ∈ RealSet ∧ 0 < k ∧ k < 1 ⇒ FunDeri(F, 1, 1)(k) = DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet] . frac(k * sin(φ)^{2}, (1 - k^{2} * sin(φ)^{2})^{frac(3, 2)})) * diff(fun φ [φ ∈ RealSet] . φ))
+9. forall (k), k ∈ RealSet ∧ 0 < k ∧ k < 1 ⇒ FunDeri(F, 1, 1)(k) = -frac(1, k) * DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet] . frac(1, sqrtn(2, 1 - k^{2} * sin(φ)^{2}))) * diff(fun φ [φ ∈ RealSet] . φ)) + frac(1, k) * DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet] . frac(1, (1 - k^{2} * sin(φ)^{2})^{frac(3, 2)})) * diff(fun φ [φ ∈ RealSet] . φ))
+10. forall (k), k ∈ RealSet ∧ 0 < k ∧ k < 1 ⇒ DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet] . (1 - k^{2} * sin(φ)^{2})^{-frac(3, 2)}) * diff(fun φ [φ ∈ RealSet] . φ)) = frac(1, 1 - k^{2}) * DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet] . (1 - k^{2} * sin(φ)^{2})^{frac(1, 2)}) * diff(fun φ [φ ∈ RealSet] . φ))
+11. forall (k), k ∈ RealSet ∧ 0 < k ∧ k < 1 ⇒ FunDeri(F, 1, 1)(k) = -frac(F(k), k) + frac(E(k), k * (1 - k^{2}))
+
+GOAL:
+forall (k), k ∈ RealSet ∧ 0 < k ∧ k < 1 ⇒ FunDeri(E, 1, 2)(k) = frac((FunDeri(E, 1, 1)(k) - FunDeri(F, 1, 1)(k)) * k - (E(k) - F(k)), k^{2})
+
+METHOD:
+[@method 由 FunDeri(E, 1, 1)(k) = frac(E(k) - F(k), k) 两边同时对 k 求 导数 @]

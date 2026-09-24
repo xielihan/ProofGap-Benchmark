@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. I : NonNegIntegerSet → RealSet
+2. Re : ComplexSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{cos(x)} * cos(sin(x)) * cos(n * x)) * diff(fun x [x ∈ RealSet] . x))
+4. forall (x), x ∈ RealSet ⇒ Re(e^{e^{__IMAGINARY_UNIT__ * x}}) = e^{cos(x)} * cos(sin(x))
+5. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = Re(DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{e^{__IMAGINARY_UNIT__ * x}} * cos(n * x)) * diff(fun x [x ∈ RealSet] . x)))
+6. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ cos(n * x) = frac(1, 2) * (e^{__IMAGINARY_UNIT__ * n * x} + e^{-__IMAGINARY_UNIT__ * n * x}))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = frac(1, 2) * Re(DefInt(0, 2 * π, (fun x [x ∈ RealSet] . (sum_{ m = 0 }^{ +∞ } (frac(e^{__IMAGINARY_UNIT__ * m * x}, m!))) * (e^{__IMAGINARY_UNIT__ * n * x} + e^{-__IMAGINARY_UNIT__ * n * x})) * diff(fun x [x ∈ RealSet] . x)))
+
+METHOD:

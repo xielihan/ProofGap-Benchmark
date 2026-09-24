@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. C ∈ CartesianProd(RealSet, RealSet)
+3. forall (x), x ∈ RealSet ∧ x ≠ 1 ∧ x ≠ 2 ∧ x ≠ 3 ⇒ y(x) = frac(1, x - 1) + frac(1, x - 2) + frac(1, x - 3)
+4. forall (x), x ∈ RealSet ∧ x ≠ 1 ∧ x ≠ 2 ∧ x ≠ 3 ⇒ y(4 - x) = -y(x)
+
+GOAL:
+C = (2, 0) ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 1 ∧ x ≠ 2 ∧ x ≠ 3 ⇒ 4 - x ∈ RealSet ∧ 4 - x ≠ 1 ∧ 4 - x ≠ 2 ∧ 4 - x ≠ 3 ∧ y(4 - x) = -y(x))
+
+METHOD:

@@ -1,0 +1,3 @@
+not_normalize from (GOAL: {¬(forall (x) (I), x ∈ RealSet ∧ I ⊆ RealSet ∧ x ∈ I ⇒ 2 ≤ 2 * x)}) to (GOAL: {exists (x) (I), (x ∈ RealSet ∧ I ⊆ RealSet ∧ x ∈ I) ∧ ¬(2 ≤ 2 * x)})
+exists (x := {-1}) (I := {RealSet})
+autosolve all_hypothesis

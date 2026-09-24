@@ -1,0 +1,19 @@
+PROOF GAP @9
+ASSUM:
+1. θ : CartesianProd(RealSet, RealSet) → RealSet
+2. f : RealSet → RealSet
+3. forall (a), a ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ a ∈ PosRealSet ∧ n ∈ PosIntegerSet ⇒ f = (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(1, x + a)))
+4. forall (a), a ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ a ∈ PosRealSet ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ f(x) = (sum_{ k = 1 }^{ n } (frac((-1)^{k - 1} * x^{k - 1}, a^{k}))) + (-1)^{n} * θ(0, x) * frac(x^{n}, a^{n + 1})))
+5. forall (a), a ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ a ∈ PosRealSet ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ 0 < θ(0, x) ∧ θ(0, x) < 1))
+6. forall (a), a ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ a ∈ PosRealSet ∧ n ∈ PosIntegerSet ⇒ (forall (m), m ∈ NonNegIntegerSet ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x} * x^{m}) * diff(fun x [x ∈ RealSet] . x)) = m!))
+7. forall (a), a ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ a ∈ PosRealSet ∧ n ∈ PosIntegerSet ⇒ 0 < DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x} * θ(0, x) * x^{n}) * diff(fun x [x ∈ RealSet] . x)))
+8. forall (a), a ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ a ∈ PosRealSet ∧ n ∈ PosIntegerSet ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x} * θ(0, x) * x^{n}) * diff(fun x [x ∈ RealSet] . x)) < n!)
+9. forall (a), a ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ a ∈ PosRealSet ∧ n ∈ PosIntegerSet ⇒ θ(n) = frac(DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x} * θ(0, x) * x^{n}) * diff(fun x [x ∈ RealSet] . x)), n!))
+10. forall (a), a ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ a ∈ PosRealSet ∧ n ∈ PosIntegerSet ⇒ 0 < θ(n))
+11. forall (a), a ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ a ∈ PosRealSet ∧ n ∈ PosIntegerSet ⇒ θ(n) < 1)
+12. forall (a), a ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ a ∈ PosRealSet ∧ n ∈ PosIntegerSet ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(e^{-x}, a + x)) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, +∞, (fun x [x ∈ RealSet] . f(x) * e^{-x}) * diff(fun x [x ∈ RealSet] . x)))
+
+GOAL:
+forall (a), a ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ a ∈ PosRealSet ∧ n ∈ PosIntegerSet ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . f(x) * e^{-x}) * diff(fun x [x ∈ RealSet] . x)) = (sum_{ k = 1 }^{ n } (frac((-1)^{k - 1}, a^{k}) * DefInt(0, +∞, (fun x [x ∈ RealSet] . x^{k - 1} * e^{-x}) * diff(fun x [x ∈ RealSet] . x)))) + frac((-1)^{n}, a^{n + 1}) * DefInt(0, +∞, (fun x [x ∈ RealSet] . θ(0, x) * x^{n} * e^{-x}) * diff(fun x [x ∈ RealSet] . x)))
+
+METHOD:

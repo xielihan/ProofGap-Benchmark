@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. b ≠ 0
+
+GOAL:
+lim_{ x → 0 } (frac(ln(cos(a * x)), ln(cos(b * x)))) = lim_{ x → 0 } (frac(a * tan(a * x), b * tan(b * x)))
+
+METHOD:

@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = frac(sqrtn(2, n), 100 + n)
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = frac(1, (sqrtn(4, n) - frac(10, sqrtn(4, n)))^{2} + 20)
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ≤ frac(1, 20)
+5. x(100) = frac(1, 20)
+6. max({ x(n) | n ∈ PosIntegerSet }) = x(100)
+
+GOAL:
+max({ x(n) | n ∈ PosIntegerSet }) = frac(1, 20)
+
+METHOD:

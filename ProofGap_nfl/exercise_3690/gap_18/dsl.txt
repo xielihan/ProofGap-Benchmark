@@ -1,0 +1,12 @@
+get_condition (hypothesis 28: {R^{2} + 2 * R * h + frac(R^{2}, cos(α)) = frac(Q, π) /\ R > 0 /\ h > 0 /\ 0 ≤ α /\ α < frac(π, 2)}) in (GOAL: {R^{2} + 2 * R * h + frac(R^{2}, cos(α)) = frac(Q, π) /\ R > 0 /\ h > 0 /\ 0 ≤ α /\ α < frac(π, 2) => R^{2} ≥ 0 /\ R * h ≥ 0 /\ frac(R^{2}, cos(α)) ≥ 0})
+get_prop (theorem 'Thm 355. (NonnegativeNthRoot)': {forall (x) (n), x ∈ RealSet => n ∈ IntegerSet => x >= 0 => n > 0 => sqrt(n, x) >= 0}) (x := {5}) (n := {2}) as (hypothesis 29: {5 ∈ RealSet => 2 ∈ IntegerSet => 5 >= 0 => 2 > 0 => sqrt(2, 5) >= 0})
+use_condition (obvious: {5 ∈ RealSet}) in (hypothesis 29: {5 ∈ RealSet => 2 ∈ IntegerSet => 5 >= 0 => 2 > 0 => sqrt(2, 5) >= 0}) as (hypothesis 30: {2 ∈ IntegerSet => 5 >= 0 => 2 > 0 => sqrt(2, 5) >= 0})
+use_condition (obvious: {2 ∈ IntegerSet}) in (hypothesis 30: {2 ∈ IntegerSet => 5 >= 0 => 2 > 0 => sqrt(2, 5) >= 0}) as (hypothesis 31: {5 >= 0 => 2 > 0 => sqrt(2, 5) >= 0})
+use_condition (obvious: {5 >= 0}) in (hypothesis 31: {5 >= 0 => 2 > 0 => sqrt(2, 5) >= 0}) as (hypothesis 32: {2 > 0 => sqrt(2, 5) >= 0})
+use_condition (obvious: {2 > 0}) in (hypothesis 32: {2 > 0 => sqrt(2, 5) >= 0}) as (hypothesis 33: {sqrt(2, 5) >= 0})
+get_prop (theorem 'Thm 450. (SquareRootSquareCancellation)': {forall (u), u ∈ RealSet => u >= 0 => sqrtn(2, u)^2 = u}) (u := {5}) as (hypothesis 34: {5 ∈ RealSet => 5 >= 0 => sqrtn(2, 5)^2 = 5})
+use_condition (obvious: {5 ∈ RealSet}) in (hypothesis 34: {5 ∈ RealSet => 5 >= 0 => sqrtn(2, 5)^2 = 5}) as (hypothesis 35: {5 >= 0 => sqrtn(2, 5)^2 = 5})
+use_condition (obvious: {5 >= 0}) in (hypothesis 35: {5 >= 0 => sqrtn(2, 5)^2 = 5}) as (hypothesis 36: {sqrtn(2, 5)^2 = 5})
+assert (hypothesis 37: {sqrtn(2, 5) > 0})
+assert (hypothesis 38: {cos(α) > 0})
+autosolve all_hypothesis

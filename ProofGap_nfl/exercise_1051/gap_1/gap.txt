@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. a ∈ NonNegRealSet
+4. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ y(x) ∈ NonNegRealSet ∧ sqrtn(2, x) + sqrtn(2, y(x)) = sqrtn(2, a)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ∧ y(x) > 0 ⇒ frac(1, 2 * sqrtn(2, x)) + frac(1, 2 * sqrtn(2, y(x))) * FunDeri(y, 1, 1)(x) = 0
+
+METHOD:
+[@method 两边同时对 x 求 导数 @]

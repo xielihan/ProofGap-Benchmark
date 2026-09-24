@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. a : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(3^{n} + (-2)^{n}, n)
+4. forall (n), n ∈ NonNegIntegerSet ⇒ seqlim_{ n → +∞ } (|frac(a(n), a(n + 1))|) = frac(1, 3)
+5. RadiusOfConvergence(a) = frac(1, 3)
+6. forall (n), n ∈ NonNegIntegerSet ∧ -1 - frac(1, 3) < x ∧ x < -1 + frac(1, 3) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n) * (x + 1)^{n}))
+
+GOAL:
+(-1 - frac(1, 3), -1 + frac(1, 3)) = (-frac(4, 3), -frac(2, 3))
+
+METHOD:

@@ -1,0 +1,15 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. f : RealSet → RealSet
+3. L ∈ RealSet
+4. x ∈ RealSet
+5. Defined(f, [a, +∞))
+6. ContinuousFuncOn(f, [a, +∞))
+7. lim_{ x → +∞ } (f(x)) = L
+8. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (X), X ∈ RealSet ∧ X > a ∧ (forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x''` ∈ RealSet ∧ `x'` > X ∧ `x''` > X ⇒ |f(`x'`) - f(`x''`)| < ε)))
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (X), X ∈ RealSet ∧ X > a ∧ ContinuousFuncOn(f, [a, X + 1]))
+
+METHOD:

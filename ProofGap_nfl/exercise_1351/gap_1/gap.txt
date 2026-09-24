@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ lim_{ x → +∞ } (frac(1, x) * ln(tan(frac(π * x, 2 * x + 1)))) = lim_{ x → +∞ } (frac(frac(π, (1 + 2 * x)^{2}), tan(frac(π * x, 2 * x + 1)) * cos(frac(π * x, 2 * x + 1))^{2}))
+
+METHOD:

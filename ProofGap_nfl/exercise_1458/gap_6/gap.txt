@@ -1,0 +1,17 @@
+PROOF GAP @6
+ASSUM:
+1. P : RealSet → RealSet
+2. q ∈ RealSet
+3. E_{P} ∈ RealSet
+4. forall (x), x ∈ RealSet ∧ x ∈ [-1, 1] ⇒ P(x) = x^{2} + q
+5. forall (x), x ∈ RealSet ∧ x ∈ [-1, 1] ⇒ E_{P} = sup({ |P(x)| | x ∈ [-1, 1] })
+6. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-1, 1) ⇒ FunDeri(P, 1, 1)(x) = 2 * x
+7. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-1, 1) ⇒ (FunDeri(P, 1, 1)(x) = 0 ⇔ x = 0)
+8. E_{P} = max({ |P(0)|, |P(1)|, |P(-1)| })
+9. E_{P} = max({ |q|, |1 + q| })
+10. |q| = |1 + q| ⇒ E_{P} = min({ max({ |r|, |1 + r| }) | r ∈ RealSet })
+
+GOAL:
+q = -frac(1, 2) ⇒ |q| = |1 + q|
+
+METHOD:

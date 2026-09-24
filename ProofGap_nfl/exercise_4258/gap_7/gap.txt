@@ -1,0 +1,20 @@
+PROOF GAP @7
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. A ∈ CartesianProd(RealSet, RealSet)
+3. B ∈ CartesianProd(RealSet, RealSet)
+4. CurveFromTo : CartesianProd(CartesianProd(RealSet, RealSet), CartesianProd(RealSet, RealSet)) → PowerSet(CartesianProd(RealSet, RealSet))
+5. A = (-1, 2)
+6. B = (2, 3)
+7. C = CurveFromTo(A, B)
+8. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ x * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) + y * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) = diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x * y))
+9. VectorCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)) = VectorCurveInt(C, diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x * y))
+10. VectorCurveInt(C, diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x * y)) = ((fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x * y)|_{A}^{B})
+11. ((fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x * y)|_{A}^{B}) = 2 * 3 - -1 * 2
+12. 2 * 3 - -1 * 2 = 8
+13. ((fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x * y)|_{A}^{B}) = 8
+
+GOAL:
+VectorCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)) = 8
+
+METHOD:

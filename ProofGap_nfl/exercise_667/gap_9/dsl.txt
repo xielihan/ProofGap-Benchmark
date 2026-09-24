@@ -1,0 +1,5 @@
+1. get_condition (hypothesis 16: {x_{0} = 0.1}) in (GOAL: {x_{0} = 0.1 ⇒ δ ≈_{ 10^{-5} } 10^{-5}})
+2. use_condition (hypothesis 6: {ε = 0.001}) in (hypothesis 15: {ε = 0.001 ⇒ δ ≈_{ 0.001 * (x_{0})^{2} } 0.001 * (x_{0})^{2}}) as (hypothesis 17: {δ ≈_{ 0.001 * (x_{0})^{2} } 0.001 * (x_{0})^{2}})
+3. rewrite (left_to_right, equation) (hypothesis 16: {x_{0} = 0.1}); from (hypothesis 17: {δ ≈_{ 0.001 * (x_{0})^{2} } 0.001 * (x_{0})^{2}}) to (hypothesis 17: {δ ≈_{ 0.001 * (0.1)^{2} } 0.001 * (0.1)^{2}})
+4. autoreplace no_hypothesis; from (0.001 * (0.1)^{2}) to (10^{-5}); from (hypothesis 17: {δ ≈_{ 0.001 * (0.1)^{2} } 0.001 * (0.1)^{2}}) to (hypothesis 18: {δ ≈_{ 10^{-5} } 10^{-5}})
+5. apply (hypothesis 18: {δ ≈_{ 10^{-5} } 10^{-5}})

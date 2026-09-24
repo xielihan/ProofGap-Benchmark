@@ -1,0 +1,17 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. a : NonNegIntegerSet → RealSet
+3. b : NonNegIntegerSet → RealSet
+4. h ∈ RealSet
+5. abar : NonNegIntegerSet → RealSet
+6. bbar : NonNegIntegerSet → RealSet
+7. IntegrableFunc(f)
+8. PeriodicFunc(f, 2 * π)
+9. forall (n), n ∈ NonNegIntegerSet ⇒ abar(n) = a(n) * cos(n * h) + b(n) * sin(n * h)
+
+GOAL:
+IntegrableFunc(f) ∧ PeriodicFunc(f, 2 * π)
+
+METHOD:
+[@method 同理 @]

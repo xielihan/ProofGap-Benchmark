@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. α = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . frac(n * sin(frac(π, n)), π) - 1)
+2. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ sin(frac(π, n)) = frac(π, n) * (1 + α(n))
+3. seqlim_{ n → +∞ } (α(n)) = 0
+
+GOAL:
+seqlim_{ n → +∞ } (sin(frac(π, n)) * (sum_{ k = 1 }^{ n } (frac(1, 2 + cos(frac(k * π, n)))))) = seqlim_{ n → +∞ } ((1 + α(n)) * frac(π, n) * (sum_{ k = 1 }^{ n } (frac(1, 2 + cos(frac(k * π, n))))))
+
+METHOD:

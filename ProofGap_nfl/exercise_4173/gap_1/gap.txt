@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. I ∈ RealSet
+2. I = DefInt(-∞, +∞, (fun x [x ∈ RealSet] . DefInt(x^{2} + 1, +∞, (fun y [y ∈ RealSet] . frac(1, x^{4} + y^{2})) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+I = DefInt(-∞, +∞, (fun x [x ∈ RealSet] . DefInt(x^{2} + 1, +∞, (fun y [y ∈ RealSet] . frac(1, x^{4} + y^{2})) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

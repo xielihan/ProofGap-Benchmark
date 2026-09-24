@@ -1,0 +1,23 @@
+PROOF GAP @7
+ASSUM:
+1. x : CartesianProd(RealSet, RealSet) → RealSet
+2. y : CartesianProd(RealSet, RealSet) → RealSet
+3. u : CartesianProd(RealSet, RealSet) → RealSet
+4. v : CartesianProd(RealSet, RealSet) → RealSet
+5. I : CartesianProd(RealSet, RealSet) → RealSet
+6. forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ x(r, φ) = r * cos(φ)
+7. forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ y(r, φ) = r * sin(φ)
+8. ContinuouslyDiffableFunc(u)
+9. ContinuouslyDiffableFunc(v)
+10. forall (r) (φ), r ∈ RealSet ∧ φ ∈ RealSet ⇒ I(r, φ) = FunDeri(u, x, 1)(r, φ) * FunDeri(v, y, 1)(r, φ) - FunDeri(u, y, 1)(r, φ) * FunDeri(v, x, 1)(r, φ)
+11. forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ FunDeri(u, x, 1)(r, φ) = frac(x(r, φ), r) * FunDeri(u, 1, 1)(r, φ) - frac(y(r, φ), r^{2}) * FunDeri(u, 2, 1)(r, φ)
+12. forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ FunDeri(u, y, 1)(r, φ) = frac(y(r, φ), r) * FunDeri(u, 1, 1)(r, φ) + frac(x(r, φ), r^{2}) * FunDeri(u, 2, 1)(r, φ)
+13. forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ FunDeri(v, x, 1)(r, φ) = frac(x(r, φ), r) * FunDeri(v, 1, 1)(r, φ) - frac(y(r, φ), r^{2}) * FunDeri(v, 2, 1)(r, φ)
+14. forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ FunDeri(v, y, 1)(r, φ) = frac(y(r, φ), r) * FunDeri(v, 1, 1)(r, φ) + frac(x(r, φ), r^{2}) * FunDeri(v, 2, 1)(r, φ)
+15. forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ I(r, φ) = (frac(x(r, φ), r) * FunDeri(u, 1, 1)(r, φ) - frac(y(r, φ), r^{2}) * FunDeri(u, 2, 1)(r, φ)) * (frac(y(r, φ), r) * FunDeri(v, 1, 1)(r, φ) + frac(x(r, φ), r^{2}) * FunDeri(v, 2, 1)(r, φ)) - (frac(y(r, φ), r) * FunDeri(u, 1, 1)(r, φ) + frac(x(r, φ), r^{2}) * FunDeri(u, 2, 1)(r, φ)) * (frac(x(r, φ), r) * FunDeri(v, 1, 1)(r, φ) - frac(y(r, φ), r^{2}) * FunDeri(v, 2, 1)(r, φ))
+16. forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ I(r, φ) = frac(x(r, φ)^{2} + y(r, φ)^{2}, r^{3}) * (FunDeri(u, 1, 1)(r, φ) * FunDeri(v, 2, 1)(r, φ) - FunDeri(u, 2, 1)(r, φ) * FunDeri(v, 1, 1)(r, φ))
+
+GOAL:
+forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ x(r, φ)^{2} + y(r, φ)^{2} = r^{2}
+
+METHOD:

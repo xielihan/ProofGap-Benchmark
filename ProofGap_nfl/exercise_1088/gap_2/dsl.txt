@@ -1,0 +1,1 @@
+apply (hypothesis 5: {FunDeri(y, 1, 1)(x) = frac(1, sqrtn(2, x^{2} + a))})

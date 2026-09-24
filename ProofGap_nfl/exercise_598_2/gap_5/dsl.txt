@@ -1,0 +1,18 @@
+exists (M := {1})
+assert (hypothesis 5: {forall (x), x ∈ RealSet ∧ x > 1 ⇒ 0 < frac(2 * x, 1 + x) ∧ frac(2 * x, 1 + x) < 2}) by proof {
+  get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x > 1 ⇒ 0 < frac(2 * x, 1 + x) ∧ frac(2 * x, 1 + x) < 2}) (x := {z})
+  get_condition (hypothesis 5: {z ∈ RealSet ∧ z > 1}) in (GOAL: {z ∈ RealSet ∧ z > 1 ⇒ 0 < frac(2 * z, 1 + z) ∧ frac(2 * z, 1 + z) < 2})
+  destruct_and (hypothesis 5: {z ∈ RealSet ∧ z > 1}) as (hypothesis 6: {z ∈ RealSet}) (hypothesis 7: {z > 1})
+  assert (hypothesis 8: {z > 0}) by proof {
+    autosolve (hypothesis 7: {z > 1})
+  }
+  assert (hypothesis 9: {z ∈ RealSet ∧ z > 0}) by proof {
+    autosolve (hypothesis 6: {z ∈ RealSet}) (hypothesis 8: {z > 0})
+  }
+  get_prop (hypothesis 2: {forall (x), x ∈ RealSet ∧ x > 0 ⇒ 0 < frac(2 * x, 1 + x)}) (x := {z}) as (hypothesis 10: {z ∈ RealSet ∧ z > 0 ⇒ 0 < frac(2 * z, 1 + z)})
+  use_condition (hypothesis 9: {z ∈ RealSet ∧ z > 0}) in (hypothesis 10: {z ∈ RealSet ∧ z > 0 ⇒ 0 < frac(2 * z, 1 + z)}) as (hypothesis 11: {0 < frac(2 * z, 1 + z)})
+  get_prop (hypothesis 3: {forall (x), x ∈ RealSet ∧ x > 0 ⇒ frac(2 * x, 1 + x) < 2}) (x := {z}) as (hypothesis 12: {z ∈ RealSet ∧ z > 0 ⇒ frac(2 * z, 1 + z) < 2})
+  use_condition (hypothesis 9: {z ∈ RealSet ∧ z > 0}) in (hypothesis 12: {z ∈ RealSet ∧ z > 0 ⇒ frac(2 * z, 1 + z) < 2}) as (hypothesis 13: {frac(2 * z, 1 + z) < 2})
+  autosolve (hypothesis 11: {0 < frac(2 * z, 1 + z)}) (hypothesis 13: {frac(2 * z, 1 + z) < 2})
+}
+autosolve (hypothesis 5: {forall (x), x ∈ RealSet ∧ x > 1 ⇒ 0 < frac(2 * x, 1 + x) ∧ frac(2 * x, 1 + x) < 2})

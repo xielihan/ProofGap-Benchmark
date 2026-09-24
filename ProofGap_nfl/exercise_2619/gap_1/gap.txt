@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. a : NonNegIntegerSet → RealSet ∧ IsSeq(a)
+2. p ∈ RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 2 ⇒ a(n) = frac(1, n * ln(n)^{p})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 1 ⇒ frac(1, x * ln(x)^{p}) ≥ 0
+
+METHOD:

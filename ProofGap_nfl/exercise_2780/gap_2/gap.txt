@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. a : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. s : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+3. S : RealSet → RealSet
+4. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ a(n, x) = frac(cos(frac(2 * n * π, 3)), sqrtn(2, n^{2} + x^{2}))
+5. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ s(n, x) = sum_{ k = 1 }^{ n } (frac(cos(frac(2 * k * π, 3)), sqrtn(2, k^{2} + x^{2})))
+6. forall (x), x ∈ RealSet ⇒ S(x) = sum_{ n = 1 }^{ +∞ } (frac(cos(frac(2 * n * π, 3)), sqrtn(2, n^{2} + x^{2})))
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |sum_{ k = 1 }^{ n } (cos(frac(2 * k * π, 3)))| ≤ frac(1, |sin(frac(π, 3))|) ∧ frac(1, |sin(frac(π, 3))|) = frac(2, sqrtn(2, 3))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ MonoDecSeq(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(1, sqrtn(2, n^{2} + x^{2})))
+
+METHOD:

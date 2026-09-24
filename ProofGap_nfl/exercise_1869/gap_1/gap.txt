@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet ∧ x ≠ 0 ∧ x ≠ 2 ∧ x ≠ 3
+2. C ∈ RealSet
+
+GOAL:
+frac(x^{3} + 1, x^{3} - 5 * x^{2} + 6 * x) = 1 + frac(5 * x^{2} - 6 * x + 1, x * (x - 2) * (x - 3))
+
+METHOD:

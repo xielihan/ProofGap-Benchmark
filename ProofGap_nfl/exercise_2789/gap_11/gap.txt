@@ -1,0 +1,23 @@
+PROOF GAP @11
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. n ∈ NonNegIntegerSet
+3. k ∈ NonNegIntegerSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ∈ RealSet ∧ a(n) ≠ 0
+5. seqlim_{ n → +∞ } (a(n)) = +∞
+6. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (|frac(1, a(n))|))
+7. forall (E), E ⊆ RealSet ∧ (exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (x) (E), x ∈ RealSet ∧ E ⊆ RealSet ∧ x ∈ E ⇒ |x| ≤ M)) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ∉ E) ⇒ (exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (x) (E), x ∈ RealSet ∧ E ⊆ RealSet ∧ x ∈ E ⇒ |x| ≤ M))
+8. forall (E), E ⊆ RealSet ∧ (exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (x) (E), x ∈ RealSet ∧ E ⊆ RealSet ∧ x ∈ E ⇒ |x| ≤ M)) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ∉ E) ⇒ seqlim_{ n → +∞ } (frac(1, |a(n)|)) = 0
+9. forall (E), E ⊆ RealSet ∧ (exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (x) (E), x ∈ RealSet ∧ E ⊆ RealSet ∧ x ∈ E ⇒ |x| ≤ M)) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ∉ E) ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n) (x) (E), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ E ⊆ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ E ∧ n > N ⇒ |frac(x, a(n))| < frac(1, 2)))
+10. forall (E), E ⊆ RealSet ∧ (exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (x) (E), x ∈ RealSet ∧ E ⊆ RealSet ∧ x ∈ E ⇒ |x| ≤ M)) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ∉ E) ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ E ∧ n > N ⇒ |frac(1, x - a(n))| = frac(1, |a(n)|) * frac(1, |1 - frac(x, a(n))|))))
+11. forall (E), E ⊆ RealSet ∧ (exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (x) (E), x ∈ RealSet ∧ E ⊆ RealSet ∧ x ∈ E ⇒ |x| ≤ M)) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ∉ E) ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ E ∧ n > N ⇒ frac(1, |1 - frac(x, a(n))|) ≤ frac(1, 1 - |frac(x, a(n))|))))
+12. forall (E), E ⊆ RealSet ∧ (exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (x) (E), x ∈ RealSet ∧ E ⊆ RealSet ∧ x ∈ E ⇒ |x| ≤ M)) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ∉ E) ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ E ∧ n > N ⇒ frac(1, |1 - frac(x, a(n))|) ≤ 2)))
+13. forall (E), E ⊆ RealSet ∧ (exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (x) (E), x ∈ RealSet ∧ E ⊆ RealSet ∧ x ∈ E ⇒ |x| ≤ M)) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ∉ E) ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ E ∧ n > N ⇒ |frac(1, x - a(n))| ≤ frac(2, |a(n)|))))
+14. forall (E), E ⊆ RealSet ∧ (exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (x) (E), x ∈ RealSet ∧ E ⊆ RealSet ∧ x ∈ E ⇒ |x| ≤ M)) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ∉ E) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(2, |a(n)|)))
+15. forall (E), E ⊆ RealSet ∧ (exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (x) (E), x ∈ RealSet ∧ E ⊆ RealSet ∧ x ∈ E ⇒ |x| ≤ M)) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ∉ E) ⇒ (forall (x) (E), x ∈ RealSet ∧ E ⊆ RealSet ∧ x ∈ E ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, x - a(n)))))
+16. forall (E), E ⊆ RealSet ∧ (exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (x) (E), x ∈ RealSet ∧ E ⊆ RealSet ∧ x ∈ E ⇒ |x| ≤ M)) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ∉ E) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n) (p) (x) (E), n ∈ NonNegIntegerSet ∧ p ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ E ⊆ RealSet ∧ n ∈ PosIntegerSet ∧ p ∈ PosIntegerSet ∧ x ∈ E ∧ n > N ⇒ |sum_{ k = n + 1 }^{ n + p } (frac(1, x - a(k)))| < ε)))
+
+GOAL:
+forall (E), E ⊆ RealSet ∧ (exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (x) (E), x ∈ RealSet ∧ E ⊆ RealSet ∧ x ∈ E ⇒ |x| ≤ M)) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ∉ E) ⇒ (forall (x) (E), x ∈ RealSet ∧ E ⊆ RealSet ∧ x ∈ E ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, x - a(n)))))
+
+METHOD:

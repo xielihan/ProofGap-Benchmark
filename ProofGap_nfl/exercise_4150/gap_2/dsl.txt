@@ -1,0 +1,6 @@
+1. destruct_and (hypothesis 13: {φ ∈ RealSet ∧ φ ∈ [0, 2 * π]}) as (hypothesis 14: {φ ∈ RealSet}) (hypothesis 15: {φ ∈ [0, 2 * π]})
+2. get_prop (theorem 'Thm 487. (ClosedIntervalMembership)': {forall (x) (a) (b), x ∈ RealSet => a ∈ RealSet => b ∈ RealSet => (x ∈ [a, b] <==> (x >= a /\ x <= b))}) (x := {φ}) (a := {0}) (b := {2 * π}) as (hypothesis 16: {φ ∈ RealSet => 0 ∈ RealSet => 2 * π ∈ RealSet => (φ ∈ [0, 2 * π] <==> (φ >= 0 /\ φ <= 2 * π))})
+3. use_condition (hypothesis 14: {φ ∈ RealSet}) (obvious: {0 ∈ RealSet}) (obvious: {2 * π ∈ RealSet}) in (hypothesis 16: {φ ∈ RealSet => 0 ∈ RealSet => 2 * π ∈ RealSet => (φ ∈ [0, 2 * π] <==> (φ >= 0 /\ φ <= 2 * π))}) as (hypothesis 17: {φ ∈ [0, 2 * π] <==> (φ >= 0 /\ φ <= 2 * π)})
+4. rewrite (left_to_right, iff) (hypothesis 17: {φ ∈ [0, 2 * π] <==> (φ >= 0 /\ φ <= 2 * π)}); from (hypothesis 15: {φ ∈ [0, 2 * π]}) to (hypothesis 15: {φ >= 0 /\ φ <= 2 * π})
+5. destruct_and (hypothesis 15: {φ >= 0 /\ φ <= 2 * π}) as (hypothesis 18: {φ >= 0}) (hypothesis 19: {φ <= 2 * π})
+6. apply (hypothesis 19: {φ <= 2 * π})

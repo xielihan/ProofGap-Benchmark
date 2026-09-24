@@ -1,0 +1,10 @@
+PROOF GAP @4
+ASSUM:
+1. lim_{ x → 0 } (frac(sqrtn(2, 1 + tan(x)) - sqrtn(2, 1 + sin(x)), x^{3})) = lim_{ x → 0 } (frac(tan(x) - sin(x), x^{3} * (sqrtn(2, 1 + tan(x)) + sqrtn(2, 1 + sin(x)))))
+2. lim_{ x → 0 } (frac(tan(x) - sin(x), x^{3} * (sqrtn(2, 1 + tan(x)) + sqrtn(2, 1 + sin(x))))) = lim_{ x → 0 } (frac(sin(x) * (1 - cos(x)), x^{3} * cos(x) * (sqrtn(2, 1 + tan(x)) + sqrtn(2, 1 + sin(x)))))
+3. lim_{ x → 0 } (frac(sin(x) * (1 - cos(x)), x^{3} * cos(x) * (sqrtn(2, 1 + tan(x)) + sqrtn(2, 1 + sin(x))))) = lim_{ x → 0 } (frac(sin(x), x) * frac(2 * sin(frac(x, 2))^{2}, 4 * frac(x, 2)^{2}) * frac(1, cos(x) * (sqrtn(2, 1 + tan(x)) + sqrtn(2, 1 + sin(x)))))
+
+GOAL:
+lim_{ x → 0 } (frac(sqrtn(2, 1 + tan(x)) - sqrtn(2, 1 + sin(x)), x^{3})) = frac(1, 4)
+
+METHOD:

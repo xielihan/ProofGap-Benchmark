@@ -1,0 +1,16 @@
+PROOF GAP @1
+ASSUM:
+1. p ∈ NonNegIntegerSet
+2. q ∈ NonNegIntegerSet
+3. c : NonNegIntegerSet → RealSet
+4. a : NonNegIntegerSet → RealSet
+5. b : NonNegIntegerSet → RealSet
+6. p ∈ PosIntegerSet
+7. q ∈ PosIntegerSet
+8. forall (k) (j), j ∈ NonNegIntegerSet ∧ k ∈ NonNegIntegerSet ∧ j ∈ PosIntegerSet ∧ j ≤ p ⇒ c((p + q) * k + j) = frac(1, (p + q) * k + j)
+9. forall (k) (j), j ∈ NonNegIntegerSet ∧ k ∈ NonNegIntegerSet ∧ j ∈ PosIntegerSet ∧ j ≤ q ⇒ c((p + q) * k + p + j) = -frac(1, (p + q) * k + p + j)
+
+GOAL:
+p > q ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ a(k) = (sum_{ j = 1 }^{ p } (frac(1, (p + q) * k + j))) - (sum_{ j = 1 }^{ q } (frac(1, (p + q) * k + p + j))) ⇒ (forall (k), k ∈ NonNegIntegerSet ⇒ a(k) > frac(1, (p + q) * k + 1) ∧ frac(1, (p + q) * k + 1) > 0))
+
+METHOD:

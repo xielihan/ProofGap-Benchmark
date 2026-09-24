@@ -1,0 +1,17 @@
+PROOF GAP @8
+ASSUM:
+1. a ∈ RealSet
+2. a > 1
+3. b = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . sqrtn(n, n))
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = sqrtn(n, n)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) > 1
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n)^{n} > frac(n^{2}, 4) * (b(n) - 1)^{2}
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ n > frac(n^{2}, 4) * (sqrtn(n, n) - 1)^{2}
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < sqrtn(n, n) - 1
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ sqrtn(n, n) - 1 < frac(2, sqrtn(2, n))
+10. seqlim_{ n → +∞ } (sqrtn(n, n)) = 1
+
+GOAL:
+seqlim_{ n → +∞ } (b(n)) = 1
+
+METHOD:

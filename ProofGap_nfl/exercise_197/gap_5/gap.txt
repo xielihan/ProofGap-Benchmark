@@ -1,0 +1,17 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. forall (x), x ∈ RealSet ⇒ f(x) = a * x + b
+5. f(0) = -2
+6. f(3) = 5
+7. f(0) = b
+8. b = -2
+9. f(0) = -2
+10. f(3) = 3 * a + b
+
+GOAL:
+3 * a + b = 5
+
+METHOD:

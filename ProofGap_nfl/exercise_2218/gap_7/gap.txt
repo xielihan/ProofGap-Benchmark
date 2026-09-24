@@ -1,0 +1,13 @@
+PROOF GAP @7
+ASSUM:
+1. DefInt(0, 100 * π, (fun x [x ∈ RealSet] . sqrtn(2, 1 - cos(2 * x))) * diff(fun x [x ∈ RealSet] . x)) = sum_{ k = 1 }^{ 100 } (sqrtn(2, 2) * DefInt((k - 1) * π, k * π, (fun x [x ∈ RealSet] . sqrtn(2, sin(x)^{2})) * diff(fun x [x ∈ RealSet] . x)))
+2. sum_{ k = 1 }^{ 100 } (sqrtn(2, 2) * DefInt((k - 1) * π, k * π, (fun x [x ∈ RealSet] . sqrtn(2, sin(x)^{2})) * diff(fun x [x ∈ RealSet] . x))) = sum_{ k = 1 }^{ 100 } (sqrtn(2, 2) * DefInt(0, π, (fun x [x ∈ RealSet] . sqrtn(2, sin(x)^{2})) * diff(fun x [x ∈ RealSet] . x)))
+3. sum_{ k = 1 }^{ 100 } (sqrtn(2, 2) * DefInt(0, π, (fun x [x ∈ RealSet] . sqrtn(2, sin(x)^{2})) * diff(fun x [x ∈ RealSet] . x))) = 100 * sqrtn(2, 2) * DefInt(0, π, (fun x [x ∈ RealSet] . sin(x)) * diff(fun x [x ∈ RealSet] . x))
+4. DefInt(0, 100 * π, (fun x [x ∈ RealSet] . sqrtn(2, 1 - cos(2 * x))) * diff(fun x [x ∈ RealSet] . x)) = 200 * sqrtn(2, 2)
+5. lim_{ n → +∞ } (sum_{ k = 1 }^{ n } (frac(sqrtn(2, n), n + k))) = lim_{ n → +∞ } (sum_{ k = 1 }^{ n } (frac(1, 1 + frac(k, n)) * frac(1, sqrtn(2, n))))
+6. lim_{ n → +∞ } (sum_{ k = 1 }^{ n } (frac(1, 1 + frac(k, n)) * frac(1, n))) = DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1, 1 + x)) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1, 1 + x)) * diff(fun x [x ∈ RealSet] . x)) = ln(2)
+
+METHOD:

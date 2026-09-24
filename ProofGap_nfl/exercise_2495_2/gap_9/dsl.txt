@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 14: {P_{x} = 4 * π * a^{2} * DefInt(0, 2 * π, fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . (t - sin(t)) * sin(frac(t, 2)) * diff(t))}); from (GOAL: {P_{x} = 16 * π^{2} * a^{2}}) to (GOAL: {4 * π * a^{2} * DefInt(0, 2 * π, fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . (t - sin(t)) * sin(frac(t, 2)) * diff(t)) = 16 * π^{2} * a^{2}})
+apply (hypothesis 15: {4 * π * a^{2} * DefInt(0, 2 * π, fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . (t - sin(t)) * sin(frac(t, 2)) * diff(t)) = 16 * π^{2} * a^{2}})

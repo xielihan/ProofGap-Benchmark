@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+
+GOAL:
+lim_{ x → 0 } (frac(sin(5 * x), x)) = 5 * (lim_{ x → 0 } (frac(sin(5 * x), 5 * x)))
+
+METHOD:

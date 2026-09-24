@@ -1,0 +1,16 @@
+PROOF GAP @3
+ASSUM:
+1. Γ : ComplexSet → ComplexSet
+2. x ∈ ComplexSet
+3. n ∈ NonNegIntegerSet
+4. k ∈ NonNegIntegerSet
+5. x ∈ ComplexSet \ { 0, -1, -2, -3, -4, -5, -6, -7, -8, -9, -10 }
+6. forall (n), n ∈ IntegerSet ∧ n ≥ 11 ⇒ x + n ≠ 0
+7. Γ(x) = seqlim_{ n → +∞ } (frac(n! * n^{x}, prod_{ k = 0 }^{ n } (x + k)))
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(n! * n^{x}, prod_{ k = 0 }^{ n } (x + k)) = frac(n^{x}, x) * frac(1, prod_{ k = 1 }^{ n } (1 + frac(x, k)))
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(n! * n^{x}, prod_{ k = 0 }^{ n } (x + k)) = frac(1, x) * frac(prod_{ k = 1 }^{ n } ((1 + frac(1, k))^{x}), prod_{ k = 1 }^{ n } (1 + frac(x, k))) * frac(1, (1 + frac(1, n))^{x})
+
+GOAL:
+Γ(x) = frac(1, x) * (prod_{ n = 1 }^{ +∞ } (frac((1 + frac(1, n))^{x}, 1 + frac(x, n))))
+
+METHOD:

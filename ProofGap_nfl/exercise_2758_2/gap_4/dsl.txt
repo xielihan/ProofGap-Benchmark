@@ -1,0 +1,1 @@
+apply (hypothesis 7: {forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (f(n, x)) = g(x)})

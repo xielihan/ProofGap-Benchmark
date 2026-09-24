@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ z(x, 0) = x - 3}) (x := {u})
+get_condition (hypothesis 9: {u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 1}) in (GOAL: {u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 1 ⇒ z(u, 0) = u - 3})
+get_prop (hypothesis 5: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = x - 2 * y - 3}) (x := {u}) (y := {0}) as (hypothesis 10: {u ∈ RealSet ∧ 0 ∈ RealSet ⇒ z(u, 0) = u - 2 * 0 - 3})
+use_condition (obvious: {u ∈ RealSet ∧ 0 ∈ RealSet}) in (hypothesis 10: {u ∈ RealSet ∧ 0 ∈ RealSet ⇒ z(u, 0) = u - 2 * 0 - 3}) as (hypothesis 11: {z(u, 0) = u - 2 * 0 - 3})
+autosolve all_hypothesis

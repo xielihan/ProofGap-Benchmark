@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ frac(FunDeri(Q, 1, 1)(t), Q(t)) = k}) (t := {u})
+get_condition (hypothesis 8: {u ∈ RealSet ∧ u ≥ 0}) in (GOAL: {u ∈ RealSet ∧ u ≥ 0 ⇒ frac(FunDeri(Q, 1, 1)(u), Q(u)) = k})
+get_prop (hypothesis 4: {forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ Q(t) > 0}) (t := {u}) as (hypothesis 9: {u ∈ RealSet ∧ u ≥ 0 ⇒ Q(u) > 0})
+use_condition (hypothesis 8: {u ∈ RealSet ∧ u ≥ 0}) in (hypothesis 9: {u ∈ RealSet ∧ u ≥ 0 ⇒ Q(u) > 0}) as (hypothesis 10: {Q(u) > 0})
+get_prop (hypothesis 5: {forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ FunDeri(Q, 1, 1)(t) = k * Q(t)}) (t := {u}) as (hypothesis 11: {u ∈ RealSet ∧ u ≥ 0 ⇒ FunDeri(Q, 1, 1)(u) = k * Q(u)})
+use_condition (hypothesis 8: {u ∈ RealSet ∧ u ≥ 0}) in (hypothesis 11: {u ∈ RealSet ∧ u ≥ 0 ⇒ FunDeri(Q, 1, 1)(u) = k * Q(u)}) as (hypothesis 12: {FunDeri(Q, 1, 1)(u) = k * Q(u)})
+rewrite (left_to_right, equation) (hypothesis 12: {FunDeri(Q, 1, 1)(u) = k * Q(u)}); from (GOAL: {frac(FunDeri(Q, 1, 1)(u), Q(u)) = k}) to (GOAL: {frac(k * Q(u), Q(u)) = k})
+autosolve all_hypothesis

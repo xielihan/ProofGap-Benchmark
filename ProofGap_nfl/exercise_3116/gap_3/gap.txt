@@ -1,0 +1,17 @@
+PROOF GAP @3
+ASSUM:
+1. θ ∈ RealSet
+2. `θ_1` ∈ RealSet
+3. `θ_2` ∈ RealSet
+4. |θ| < 1
+5. 0 < `θ_1`
+6. `θ_1` < 1
+7. 0 < `θ_2`
+8. `θ_2` < 1
+9. DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalClose(0, 1)] . (1 - x^{2})^{50}) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalClose(0, 1)] . x)) = DefInt(0, frac(π, 2), (fun t [t ∈ RealSet ∧ t ∈ IntervalClose(0, frac(π, 2))] . cos(t)^{101}) * diff(fun t [t ∈ RealSet ∧ t ∈ IntervalClose(0, frac(π, 2))] . t))
+10. DefInt(0, frac(π, 2), (fun t [t ∈ RealSet ∧ t ∈ IntervalClose(0, frac(π, 2))] . cos(t)^{101}) * diff(fun t [t ∈ RealSet ∧ t ∈ IntervalClose(0, frac(π, 2))] . t)) = frac(100!!, 101!!)
+
+GOAL:
+frac(100!!, 101!!) = frac(2^{100} * (50!)^{2}, 101!)
+
+METHOD:

@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. forall (α) (x), α ∈ RealSet ∧ x ∈ RealSet ∧ a ≤ α ∧ α ≤ b ∧ x ≥ 1 ⇒ 0 < x^{α} * e^{-x}
+4. forall (α) (x), α ∈ RealSet ∧ x ∈ RealSet ∧ a ≤ α ∧ α ≤ b ∧ x ≥ 1 ⇒ x^{α} * e^{-x} ≤ x^{b} * e^{-x}
+5. forall (α) (x), α ∈ RealSet ∧ x ∈ RealSet ∧ a ≤ α ∧ α ≤ b ∧ x ≥ 1 ⇒ 0 < x^{b} * e^{-x}
+
+GOAL:
+lim_{ x → +∞ } (x^{2} * x^{b} * e^{-x}) = lim_{ x → +∞ } (frac(x^{b + 2}, e^{x}))
+
+METHOD:

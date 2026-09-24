@@ -1,0 +1,7 @@
+get_condition (hypothesis 5: {C = (2, 0)}) in (GOAL: {C = (2, 0) ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 1 ∧ x ≠ 2 ∧ x ≠ 3 ⇒ 4 - x ∈ RealSet ∧ 4 - x ≠ 1 ∧ 4 - x ≠ 2 ∧ 4 - x ≠ 3 ∧ y(4 - x) = -y(x))})
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ≠ 1 ∧ x ≠ 2 ∧ x ≠ 3 ⇒ 4 - x ∈ RealSet ∧ 4 - x ≠ 1 ∧ 4 - x ≠ 2 ∧ 4 - x ≠ 3 ∧ y(4 - x) = -y(x)}) (x := {u})
+get_condition (hypothesis 6: {u ∈ RealSet ∧ u ≠ 1 ∧ u ≠ 2 ∧ u ≠ 3}) in (GOAL: {u ∈ RealSet ∧ u ≠ 1 ∧ u ≠ 2 ∧ u ≠ 3 ⇒ 4 - u ∈ RealSet ∧ 4 - u ≠ 1 ∧ 4 - u ≠ 2 ∧ 4 - u ≠ 3 ∧ y(4 - u) = -y(u)})
+get_prop (hypothesis 4: {forall (x), x ∈ RealSet ∧ x ≠ 1 ∧ x ≠ 2 ∧ x ≠ 3 ⇒ y(4 - x) = -y(x)}) (x := {u}) as (hypothesis 7: {u ∈ RealSet ∧ u ≠ 1 ∧ u ≠ 2 ∧ u ≠ 3 ⇒ y(4 - u) = -y(u)})
+use_condition (hypothesis 6: {u ∈ RealSet ∧ u ≠ 1 ∧ u ≠ 2 ∧ u ≠ 3}) in (hypothesis 7: {u ∈ RealSet ∧ u ≠ 1 ∧ u ≠ 2 ∧ u ≠ 3 ⇒ y(4 - u) = -y(u)}) as (hypothesis 8: {y(4 - u) = -y(u)})
+destruct_and (hypothesis 6: {u ∈ RealSet ∧ u ≠ 1 ∧ u ≠ 2 ∧ u ≠ 3}) as (hypothesis 9: {u ∈ RealSet}) (hypothesis 10: {u ≠ 1}) (hypothesis 11: {u ≠ 2}) (hypothesis 12: {u ≠ 3})
+autosolve all_hypothesis

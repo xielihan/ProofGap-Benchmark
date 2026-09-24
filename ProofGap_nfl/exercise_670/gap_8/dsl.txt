@@ -1,0 +1,12 @@
+1. get_forall (GOAL: {forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∉ IntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ |x - x_{0}| < δ ⇒ |x - x_{0}| < δ)))}) (x_{0} := {z})
+2. get_condition (hypothesis 13: {z ∈ RealSet ∧ z ∉ IntegerSet}) in (GOAL: {z ∈ RealSet ∧ z ∉ IntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ |x - z| < δ ⇒ |x - z| < δ)))})
+3. get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ |x - z| < δ ⇒ |x - z| < δ))}) (ε := {eps})
+4. get_condition (hypothesis 14: {eps ∈ RealSet ∧ eps > 0}) in (GOAL: {eps ∈ RealSet ∧ eps > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ |x - z| < δ ⇒ |x - z| < δ))})
+5. exists (δ := {eps})
+6. assert (hypothesis 15: {forall (x), x ∈ RealSet ∧ |x - z| < eps ⇒ |x - z| < eps}) by proof {
+  1. get_forall (GOAL: {forall (x), x ∈ RealSet ∧ |x - z| < eps ⇒ |x - z| < eps}) (x := {y})
+  2. get_condition (hypothesis 15: {y ∈ RealSet ∧ |y - z| < eps}) in (GOAL: {y ∈ RealSet ∧ |y - z| < eps ⇒ |y - z| < eps})
+  3. destruct_and (hypothesis 15: {y ∈ RealSet ∧ |y - z| < eps}) as (hypothesis 16: {y ∈ RealSet}) (hypothesis 17: {|y - z| < eps})
+  4. apply (hypothesis 17: {|y - z| < eps})
+}
+7. autosolve (hypothesis 14: {eps ∈ RealSet ∧ eps > 0}) (hypothesis 15: {forall (x), x ∈ RealSet ∧ |x - z| < eps ⇒ |x - z| < eps})

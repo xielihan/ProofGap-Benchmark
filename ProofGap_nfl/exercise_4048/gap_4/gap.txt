@@ -1,0 +1,24 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet
+2. h ∈ RealSet
+3. x : CartesianProd(RealSet, RealSet) → RealSet
+4. y : CartesianProd(RealSet, RealSet) → RealSet
+5. z : CartesianProd(RealSet, RealSet) → RealSet
+6. E ∈ RealSet
+7. F ∈ RealSet
+8. G ∈ RealSet
+9. S ∈ RealSet
+10. a > 0
+11. h > 0
+12. forall (r) (φ), r ∈ RealSet ∧ φ ∈ RealSet ⇒ x(r, φ) = r * cos(φ)
+13. forall (r) (φ), r ∈ RealSet ∧ φ ∈ RealSet ⇒ y(r, φ) = r * sin(φ)
+14. forall (r) (φ), r ∈ RealSet ∧ φ ∈ RealSet ⇒ z(r, φ) = h * φ
+15. forall (r), r ∈ RealSet ∧ 0 < r ∧ r < a ⇒ 0 < r
+16. forall (r), r ∈ RealSet ∧ 0 < r ∧ r < a ⇒ r < a
+17. forall (φ), φ ∈ RealSet ∧ 0 < φ ∧ φ < 2 * π ⇒ 0 < φ
+
+GOAL:
+forall (φ), φ ∈ RealSet ∧ 0 < φ ∧ φ < 2 * π ⇒ φ < 2 * π
+
+METHOD:

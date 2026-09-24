@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. BoundedSeq(x)
+3. a0 ∈ RealSet ∧ b0 ∈ RealSet ∧ (forall (n), n ∈ PosIntegerSet ⇒ a0 ≤ x(n) ∧ x(n) ≤ b0)
+4. I_{0} = [a0, b0]
+5. a : NonNegIntegerSet → RealSet ∧ b : NonNegIntegerSet → RealSet ∧ (forall (k), k ∈ PosIntegerSet ⇒ a(k) ∈ RealSet ∧ b(k) ∈ RealSet ∧ [a(k), b(k)] ⊆ I_{0} ∧ InfiniteSet({ n | n ∈ PosIntegerSet, x(n) ∈ [a(k), b(k)] }) ∧ b(k) - a(k) = frac(b0 - a0, 2^{k}))
+6. forall (k), k ∈ PosIntegerSet ⇒ [a(k + 1), b(k + 1)] ⊆ [a(k), b(k)]
+
+GOAL:
+exists (c), c ∈ RealSet ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ c ∈ [a(k), b(k)])
+
+METHOD:

@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ x ≠ 0
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ frac(2^{x} * 3^{x}, 9^{x} - 4^{x}) * diff(fun x [x ∈ RealSet] . x) = frac(frac(3, 2)^{x}, (frac(3, 2)^{x})^{2} - 1) * diff(fun x [x ∈ RealSet] . x)
+
+METHOD:

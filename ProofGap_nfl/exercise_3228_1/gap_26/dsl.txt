@@ -1,0 +1,9 @@
+1. get_forall (GOAL: {forall (y) (z) (x), y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ∧ x ∈ RealSet ∧ x > 0 ⇒ y^{z} * ln(y) * (FunDeri(u, 1, 1)(x, y, z) * ln(x) + frac(u(x, y, z), x)) = frac(u(x, y, z) * y^{z} * ln(y) * (y^{z} * ln(x) + 1), x)}) (y := {y0}) (z := {z0}) (x := {x0})
+2. get_condition (hypothesis 28: {y0 ∈ RealSet ∧ y0 > 0 ∧ z0 ∈ RealSet ∧ x0 ∈ RealSet ∧ x0 > 0}) in (GOAL: {y0 ∈ RealSet ∧ y0 > 0 ∧ z0 ∈ RealSet ∧ x0 ∈ RealSet ∧ x0 > 0 ⇒ y0^{z0} * ln(y0) * (FunDeri(u, 1, 1)(x0, y0, z0) * ln(x0) + frac(u(x0, y0, z0), x0)) = frac(u(x0, y0, z0) * y0^{z0} * ln(y0) * (y0^{z0} * ln(x0) + 1), x0)})
+3. get_prop (hypothesis 5: {forall (x) (y) (z), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ⇒ FunDeri(u, 1, 1)(x, y, z) = frac(u(x, y, z) * y^{z}, x)}) (x := {x0}) (y := {y0}) (z := {z0}) as (hypothesis 29: {x0 ∈ RealSet ∧ x0 > 0 ∧ y0 ∈ RealSet ∧ y0 > 0 ∧ z0 ∈ RealSet ⇒ FunDeri(u, 1, 1)(x0, y0, z0) = frac(u(x0, y0, z0) * y0^{z0}, x0)})
+4. assert (hypothesis 30: {x0 ∈ RealSet ∧ x0 > 0 ∧ y0 ∈ RealSet ∧ y0 > 0 ∧ z0 ∈ RealSet}) by proof {
+  1. autosolve all_hypothesis
+}
+5. use_condition (hypothesis 30: {x0 ∈ RealSet ∧ x0 > 0 ∧ y0 ∈ RealSet ∧ y0 > 0 ∧ z0 ∈ RealSet}) in (hypothesis 29: {x0 ∈ RealSet ∧ x0 > 0 ∧ y0 ∈ RealSet ∧ y0 > 0 ∧ z0 ∈ RealSet ⇒ FunDeri(u, 1, 1)(x0, y0, z0) = frac(u(x0, y0, z0) * y0^{z0}, x0)}) as (hypothesis 31: {FunDeri(u, 1, 1)(x0, y0, z0) = frac(u(x0, y0, z0) * y0^{z0}, x0)})
+6. rewrite (left_to_right, equation) (hypothesis 31: {FunDeri(u, 1, 1)(x0, y0, z0) = frac(u(x0, y0, z0) * y0^{z0}, x0)}); from (GOAL: {y0^{z0} * ln(y0) * (FunDeri(u, 1, 1)(x0, y0, z0) * ln(x0) + frac(u(x0, y0, z0), x0)) = frac(u(x0, y0, z0) * y0^{z0} * ln(y0) * (y0^{z0} * ln(x0) + 1), x0)}) to (GOAL: {y0^{z0} * ln(y0) * (frac(u(x0, y0, z0) * y0^{z0}, x0) * ln(x0) + frac(u(x0, y0, z0), x0)) = frac(u(x0, y0, z0) * y0^{z0} * ln(y0) * (y0^{z0} * ln(x0) + 1), x0)})
+7. autosolve all_hypothesis

@@ -1,0 +1,2 @@
+get_forall (GOAL: {forall (α) (β), α ∈ RealSet ∧ β ∈ RealSet ∧ α + β ≠ 0 ∧ α^{2} + β^{2} ≠ 0 ⇒ α - β = frac(α^{4} - β^{4}, (α + β) * (α^{2} + β^{2}))}) (α := {α0}) (β := {β0})
+autosolve all_hypothesis

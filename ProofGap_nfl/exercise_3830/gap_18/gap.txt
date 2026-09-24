@@ -1,0 +1,25 @@
+PROOF GAP @18
+ASSUM:
+1. x ∈ RealSet
+2. forall (x), x ∈ RealSet ∧ x > 0 ⇒ frac(1, sqrtn(2, x)) = frac(2, sqrtn(2, π)) * DefInt(0, +∞, e^{-x * y^{2}} * diff(y))
+3. DefInt(0, +∞, sin(x^{2}) * diff(x)) = frac(1, 2) * DefInt(0, +∞, frac(sin(x), sqrtn(2, x)) * diff(x))
+4. DefInt(0, +∞, cos(x^{2}) * diff(x)) = frac(1, 2) * DefInt(0, +∞, frac(cos(x), sqrtn(2, x)) * diff(x))
+5. forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ 0 < x_{0} ∧ x_{0} ≤ x_{1} ⇒ DefInt(x_{0}, x_{1}, frac(sin(x), sqrtn(2, x)) * diff(x)) = frac(2, sqrtn(2, π)) * DefInt(x_{0}, x_{1}, DefInt(0, +∞, sin(x) * e^{-x * y^{2}} * diff(y)) * diff(x)))
+6. forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ 0 < x_{0} ∧ x_{0} ≤ x_{1} ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x_{0} ≤ x ∧ x ≤ x_{1} ∧ 0 ≤ y ⇒ |sin(x) * e^{-x * y^{2}}| ≤ e^{-x_{0} * y^{2}})))
+7. forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ 0 < x_{0} ∧ x_{0} ≤ x_{1} ⇒ DefInt(0, +∞, e^{-x_{0} * y^{2}} * diff(y)) = frac(1, 2) * sqrtn(2, frac(π, x_{0})))
+8. forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ 0 < x_{0} ∧ x_{0} ≤ x_{1} ⇒ DefInt(x_{0}, x_{1}, frac(sin(x), sqrtn(2, x)) * diff(x)) = frac(2, sqrtn(2, π)) * DefInt(0, +∞, DefInt(x_{0}, x_{1}, sin(x) * e^{-x * y^{2}} * diff(x)) * diff(y)))
+9. forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ 0 < x_{0} ∧ x_{0} ≤ x_{1} ⇒ (forall (y), y ∈ RealSet ∧ 0 ≤ y ⇒ DefInt(x_{0}, x_{1}, sin(x) * e^{-x * y^{2}} * diff(x)) = ((-frac(e^{-x * y^{2}} * (y^{2} * sin(x) + cos(x)), 1 + y^{4}))|_{x_{0}}^{x_{1}})))
+10. forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ 0 < x_{0} ∧ x_{0} ≤ x_{1} ⇒ DefInt(x_{0}, x_{1}, frac(sin(x), sqrtn(2, x)) * diff(x)) = frac(2, sqrtn(2, π)) * sin(x_{0}) * DefInt(0, +∞, frac(y^{2} * e^{-x_{0} * y^{2}}, 1 + y^{4}) * diff(y)) + frac(2, sqrtn(2, π)) * cos(x_{0}) * DefInt(0, +∞, frac(e^{-x_{0} * y^{2}}, 1 + y^{4}) * diff(y)) - frac(2, sqrtn(2, π)) * sin(x_{1}) * DefInt(0, +∞, frac(y^{2} * e^{-x_{1} * y^{2}}, 1 + y^{4}) * diff(y)) - frac(2, sqrtn(2, π)) * cos(x_{1}) * DefInt(0, +∞, frac(e^{-x_{1} * y^{2}}, 1 + y^{4}) * diff(y)))
+11. forall (x_{1}), x_{1} ∈ RealSet ∧ 0 < x_{1} ⇒ lim_{ x_{0} → 0^+ } (DefInt(x_{0}, x_{1}, frac(sin(x), sqrtn(2, x)) * diff(x))) = DefInt(0, x_{1}, frac(sin(x), sqrtn(2, x)) * diff(x))
+12. forall (x_{1}), x_{1} ∈ RealSet ∧ 0 < x_{1} ⇒ DefInt(0, x_{1}, frac(sin(x), sqrtn(2, x)) * diff(x)) = frac(2, sqrtn(2, π)) * DefInt(0, +∞, frac(1, 1 + y^{4}) * diff(y)) - frac(2, sqrtn(2, π)) * sin(x_{1}) * DefInt(0, +∞, frac(y^{2} * e^{-x_{1} * y^{2}}, 1 + y^{4}) * diff(y)) - frac(2, sqrtn(2, π)) * cos(x_{1}) * DefInt(0, +∞, frac(e^{-x_{1} * y^{2}}, 1 + y^{4}) * diff(y))
+13. forall (x_{1}), x_{1} ∈ RealSet ∧ 0 < x_{1} ⇒ DefInt(0, +∞, e^{-x_{1} * y^{2}} * diff(y)) = frac(1, 2) * sqrtn(2, frac(π, x_{1}))
+14. lim_{ x_{1} → +∞ } (sqrtn(2, frac(π, x_{1}))) = 0
+15. DefInt(0, +∞, frac(sin(x), sqrtn(2, x)) * diff(x)) = frac(2, sqrtn(2, π)) * DefInt(0, +∞, frac(1, 1 + y^{4}) * diff(y))
+16. frac(2, sqrtn(2, π)) * DefInt(0, +∞, frac(1, 1 + y^{4}) * diff(y)) = frac(2, sqrtn(2, π)) * frac(π, 2 * sqrtn(2, 2))
+17. frac(2, sqrtn(2, π)) * frac(π, 2 * sqrtn(2, 2)) = sqrtn(2, frac(π, 2))
+18. DefInt(0, +∞, frac(sin(x), sqrtn(2, x)) * diff(x)) = sqrtn(2, frac(π, 2))
+
+GOAL:
+DefInt(0, +∞, sin(x^{2}) * diff(x)) = frac(1, 2) * DefInt(0, +∞, frac(sin(x), sqrtn(2, x)) * diff(x))
+
+METHOD:

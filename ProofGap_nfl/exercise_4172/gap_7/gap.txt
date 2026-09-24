@@ -1,0 +1,20 @@
+PROOF GAP @7
+ASSUM:
+1. p ∈ RealSet
+2. I ∈ RealSet ∨ I = +∞
+3. x : CartesianProd(RealSet, RealSet) → RealSet
+4. y : CartesianProd(RealSet, RealSet) → RealSet
+5. I = DefInt(0, 2 * π, (fun θ [θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ 2 * π] . DefInt(1, +∞, (fun r [r ∈ RealSet ∧ r ≥ 1] . frac(1, r^{2 * p - 1})) * diff(fun r [r ∈ RealSet ∧ r ≥ 1] . r))) * diff(fun θ [θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ 2 * π] . θ))
+6. forall (r), r ∈ RealSet ∧ r ≥ 1 ⇒ (forall (θ), θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ 2 * π ⇒ x(r, θ) = r * cos(θ))
+7. forall (r), r ∈ RealSet ∧ r ≥ 1 ⇒ (forall (θ), θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ 2 * π ⇒ y(r, θ) = r * sin(θ))
+8. forall (r), r ∈ RealSet ∧ r ≥ 1 ⇒ (forall (θ), θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ 2 * π ⇒ x(r, θ)^{2} + y(r, θ)^{2} = r^{2})
+9. diff(x) * diff(y) = (fun r, θ [r ∈ RealSet ∧ r ≥ 1 ∧ θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ 2 * π] . r) * diff(fun r, θ [r ∈ RealSet ∧ r ≥ 1 ∧ θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ 2 * π] . r) * diff(fun r, θ [r ∈ RealSet ∧ r ≥ 1 ∧ θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ 2 * π] . θ)
+10. I = DefInt(0, 2 * π, (fun θ [θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ 2 * π] . DefInt(1, +∞, (fun r [r ∈ RealSet ∧ r ≥ 1] . frac(1, r^{2 * p - 1})) * diff(fun r [r ∈ RealSet ∧ r ≥ 1] . r))) * diff(fun θ [θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ 2 * π] . θ))
+11. p > 1 ⇒ DefInt(1, +∞, (fun r [r ∈ RealSet ∧ r ≥ 1] . frac(1, r^{2 * p - 1})) * diff(fun r [r ∈ RealSet ∧ r ≥ 1] . r)) = frac(1, 2 * p - 2)
+12. p > 1 ⇒ I = 2 * π * frac(1, 2 * p - 2)
+13. p > 1 ⇒ I = frac(π, p - 1)
+
+GOAL:
+p ≤ 1 ⇒ I = +∞
+
+METHOD:

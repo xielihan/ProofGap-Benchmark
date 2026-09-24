@@ -1,0 +1,19 @@
+get_forall (GOAL: {forall (m), m ∈ IntegerSet => FunDeri(z, 2, 2)(2 * m * π, 0) = -1}) (m := {m0})
+get_condition (hypothesis 11: {m0 ∈ IntegerSet}) in (GOAL: {m0 ∈ IntegerSet => FunDeri(z, 2, 2)(2 * m0 * π, 0) = -1})
+get_prop (theorem 'Thm 375. (MinusOneEvenPower)': {forall (n), n ∈ IntegerSet => (-1) ^ (2 * n) = 1}) (n := {m0}) as (hypothesis 12: {m0 ∈ IntegerSet => (-1) ^ (2 * m0) = 1})
+use_condition (hypothesis 11: {m0 ∈ IntegerSet}) in (hypothesis 12: {m0 ∈ IntegerSet => (-1) ^ (2 * m0) = 1}) as (hypothesis 13: {(-1) ^ (2 * m0) = 1})
+assert (hypothesis 14: {2 * m0 ∈ IntegerSet}) by proof {
+get_prop (theorem 'Thm 274. (EvenIntegerDefinition)': {forall (n), Even(n) <==> (n ∈ IntegerSet) /\ (exists (k), (k ∈ IntegerSet) /\ (n = 2*k))}) (n := {2 * m0}) as (hypothesis 14: {Even(2 * m0) <==> (2 * m0 ∈ IntegerSet) /\ (exists (k), (k ∈ IntegerSet) /\ (2 * m0 = 2*k))})
+autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 368. (CosineAtIntegerPi)': {forall (n), n ∈ IntegerSet => cos(n * π) = (-1) ^ n}) (n := {2 * m0}) as (hypothesis 15: {2 * m0 ∈ IntegerSet => cos(2 * m0 * π) = (-1) ^ (2 * m0)})
+use_condition (hypothesis 14: {2 * m0 ∈ IntegerSet}) in (hypothesis 15: {2 * m0 ∈ IntegerSet => cos(2 * m0 * π) = (-1) ^ (2 * m0)}) as (hypothesis 16: {cos(2 * m0 * π) = (-1) ^ (2 * m0)})
+assert (hypothesis 17: {cos(2 * m0 * π) = 1}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 18: {2 * m0 * π ∈ RealSet /\ 0 ∈ RealSet}) by proof {
+autosolve all_hypothesis
+}
+get_prop (hypothesis 8: {forall (x) (y), x ∈ RealSet /\ y ∈ RealSet => FunDeri(z, 2, 2)(x, y) = e^{y} * (cos(x) - 2 - y)}) (x := {2 * m0 * π}) (y := {0}) as (hypothesis 19: {2 * m0 * π ∈ RealSet /\ 0 ∈ RealSet => FunDeri(z, 2, 2)(2 * m0 * π, 0) = e^{0} * (cos(2 * m0 * π) - 2 - 0)})
+use_condition (hypothesis 18: {2 * m0 * π ∈ RealSet /\ 0 ∈ RealSet}) in (hypothesis 19: {2 * m0 * π ∈ RealSet /\ 0 ∈ RealSet => FunDeri(z, 2, 2)(2 * m0 * π, 0) = e^{0} * (cos(2 * m0 * π) - 2 - 0)}) as (hypothesis 20: {FunDeri(z, 2, 2)(2 * m0 * π, 0) = e^{0} * (cos(2 * m0 * π) - 2 - 0)})
+autosolve all_hypothesis

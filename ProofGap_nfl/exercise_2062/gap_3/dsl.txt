@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ 2 + sin(2 * x) = 3 - (sin(x) - cos(x))^{2}}) (x := {x0})
+get_condition (hypothesis 5: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ 2 + sin(2 * x0) = 3 - (sin(x0) - cos(x0))^{2}})
+get_prop (hypothesis 3: {forall (x), x ∈ RealSet ⇒ 2 + sin(2 * x) = 1 + (sin(x) + cos(x))^{2}}) (x := {x0}) as (hypothesis 6: {x0 ∈ RealSet ⇒ 2 + sin(2 * x0) = 1 + (sin(x0) + cos(x0))^{2}})
+get_prop (hypothesis 4: {forall (x), x ∈ RealSet ⇒ 1 + (sin(x) + cos(x))^{2} = 3 - (sin(x) - cos(x))^{2}}) (x := {x0}) as (hypothesis 7: {x0 ∈ RealSet ⇒ 1 + (sin(x0) + cos(x0))^{2} = 3 - (sin(x0) - cos(x0))^{2}})
+use_condition (hypothesis 5: {x0 ∈ RealSet}) in (hypothesis 6: {x0 ∈ RealSet ⇒ 2 + sin(2 * x0) = 1 + (sin(x0) + cos(x0))^{2}}) as (hypothesis 8: {2 + sin(2 * x0) = 1 + (sin(x0) + cos(x0))^{2}})
+use_condition (hypothesis 5: {x0 ∈ RealSet}) in (hypothesis 7: {x0 ∈ RealSet ⇒ 1 + (sin(x0) + cos(x0))^{2} = 3 - (sin(x0) - cos(x0))^{2}}) as (hypothesis 9: {1 + (sin(x0) + cos(x0))^{2} = 3 - (sin(x0) - cos(x0))^{2}})
+rewrite (left_to_right, equation) (hypothesis 8: {2 + sin(2 * x0) = 1 + (sin(x0) + cos(x0))^{2}}); from (GOAL: {2 + sin(2 * x0) = 3 - (sin(x0) - cos(x0))^{2}}) to (GOAL: {1 + (sin(x0) + cos(x0))^{2} = 3 - (sin(x0) - cos(x0))^{2}})
+apply (hypothesis 9: {1 + (sin(x0) + cos(x0))^{2} = 3 - (sin(x0) - cos(x0))^{2}})

@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. u : RealSet → RealSet
+4. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-1, 1) ⇒ (1 - x^{2})^{2} * FunDeri(y, 1, 2)(x) = -y(x)
+5. forall (t), t ∈ RealSet ⇒ x(t) = tanh(t) ∧ y(x(t)) = frac(u(t), cosh(t)) ∧ cosh(t) ≠ 0
+
+GOAL:
+forall (t), t ∈ RealSet ⇒ FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(t) = frac(1, cosh(t)^{2})
+
+METHOD:

@@ -1,0 +1,13 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet ⇒ p(2, n) = n}) (n := {m})
+get_condition (hypothesis 22: {m ∈ NonNegIntegerSet /\ m ∈ PosIntegerSet}) in (GOAL: {m ∈ NonNegIntegerSet /\ m ∈ PosIntegerSet ⇒ p(2, m) = m})
+destruct_and (hypothesis 22: {m ∈ NonNegIntegerSet /\ m ∈ PosIntegerSet}) as (hypothesis 23: {m ∈ NonNegIntegerSet}) (hypothesis 24: {m ∈ PosIntegerSet})
+get_prop (hypothesis 13: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet ⇒ x(2, n) = frac(1, n)}) (n := {m}) as (hypothesis 25: {m ∈ NonNegIntegerSet /\ m ∈ PosIntegerSet ⇒ x(2, m) = frac(1, m)})
+use_condition (hypothesis 22: {m ∈ NonNegIntegerSet /\ m ∈ PosIntegerSet}) in (hypothesis 25: {m ∈ NonNegIntegerSet /\ m ∈ PosIntegerSet ⇒ x(2, m) = frac(1, m)}) as (hypothesis 26: {x(2, m) = frac(1, m)})
+get_prop (hypothesis 14: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet ⇒ y(2, n) = n ^ 2}) (n := {m}) as (hypothesis 27: {m ∈ NonNegIntegerSet /\ m ∈ PosIntegerSet ⇒ y(2, m) = m ^ 2})
+use_condition (hypothesis 22: {m ∈ NonNegIntegerSet /\ m ∈ PosIntegerSet}) in (hypothesis 27: {m ∈ NonNegIntegerSet /\ m ∈ PosIntegerSet ⇒ y(2, m) = m ^ 2}) as (hypothesis 28: {y(2, m) = m ^ 2})
+get_prop (hypothesis 15: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet ⇒ p(2, n) = x(2, n) * y(2, n)}) (n := {m}) as (hypothesis 29: {m ∈ NonNegIntegerSet /\ m ∈ PosIntegerSet ⇒ p(2, m) = x(2, m) * y(2, m)})
+use_condition (hypothesis 22: {m ∈ NonNegIntegerSet /\ m ∈ PosIntegerSet}) in (hypothesis 29: {m ∈ NonNegIntegerSet /\ m ∈ PosIntegerSet ⇒ p(2, m) = x(2, m) * y(2, m)}) as (hypothesis 30: {p(2, m) = x(2, m) * y(2, m)})
+rewrite (left_to_right, equation) (hypothesis 30: {p(2, m) = x(2, m) * y(2, m)}); from (GOAL: {p(2, m) = m}) to (GOAL: {x(2, m) * y(2, m) = m})
+rewrite (left_to_right, equation) (hypothesis 26: {x(2, m) = frac(1, m)}); from (GOAL: {x(2, m) * y(2, m) = m}) to (GOAL: {frac(1, m) * y(2, m) = m})
+rewrite (left_to_right, equation) (hypothesis 28: {y(2, m) = m ^ 2}); from (GOAL: {frac(1, m) * y(2, m) = m}) to (GOAL: {frac(1, m) * m ^ 2 = m})
+autosolve all_hypothesis

@@ -1,0 +1,16 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = frac(1, x) * cos(frac(1, x))
+3. u = (fun k [k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet] . frac(2, (2 * k + 1) * π))
+4. v = (fun k [k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet] . frac(1, k * π))
+5. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ f(u(k)) = 0
+6. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ f(v(k)) = (-1)^{k} * k * π
+7. seqlim_{ k → +∞ } (u(k)) = 0
+8. seqlim_{ k → +∞ } (v(k)) = 0
+9. seqlim_{ k → +∞ } (|(-1)^{k} * k * π|) = +∞
+
+GOAL:
+forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ ¬BoundedFuncOn(f, IntervalLoRo(-δ, δ) \ { 0 })
+
+METHOD:

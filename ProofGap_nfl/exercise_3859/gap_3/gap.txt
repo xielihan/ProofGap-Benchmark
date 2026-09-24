@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. n ∈ RealSet ∧ n > 0
+2. Gamma : RealSet → RealSet
+3. t = x^{n}
+4. 0 ≤ x ∧ x < +∞ ⇒ 0 ≤ t ∧ t < +∞
+5. DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . e^{-x^{n}}) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)) = frac(1, n) * DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ≥ 0] . t^{frac(1, n) - 1} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t ≥ 0] . t))
+
+GOAL:
+frac(1, n) * DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ≥ 0] . t^{frac(1, n) - 1} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t ≥ 0] . t)) = frac(1, n) * Gamma(frac(1, n))
+
+METHOD:

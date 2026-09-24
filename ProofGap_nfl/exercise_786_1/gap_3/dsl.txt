@@ -1,0 +1,7 @@
+1. get_forall (GOAL: {forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x''` ∈ RealSet ∧ `x'` ∈ [-10, 10] ∧ `x''` ∈ [-10, 10] ∧ y(`x'`) ≠ y(`x''`) ⇒ |y(`x'`) - y(`x''`)| = |frac(y(`x'`)^{3} - y(`x''`)^{3}, y(`x'`)^{2} + y(`x'`) * y(`x''`) + y(`x''`)^{2})|)}) (`x'` := {u})
+2. get_condition (hypothesis 7: {u ∈ RealSet}) in (GOAL: {u ∈ RealSet ⇒ (forall (`x''`), `x''` ∈ RealSet ∧ u ∈ [-10, 10] ∧ `x''` ∈ [-10, 10] ∧ y(u) ≠ y(`x''`) ⇒ |y(u) - y(`x''`)| = |frac(y(u)^{3} - y(`x''`)^{3}, y(u)^{2} + y(u) * y(`x''`) + y(`x''`)^{2})|)})
+3. get_forall (GOAL: {forall (`x''`), `x''` ∈ RealSet ∧ u ∈ [-10, 10] ∧ `x''` ∈ [-10, 10] ∧ y(u) ≠ y(`x''`) ⇒ |y(u) - y(`x''`)| = |frac(y(u)^{3} - y(`x''`)^{3}, y(u)^{2} + y(u) * y(`x''`) + y(`x''`)^{2})|}) (`x''` := {v})
+4. get_condition (hypothesis 8: {v ∈ RealSet ∧ u ∈ [-10, 10] ∧ v ∈ [-10, 10] ∧ y(u) ≠ y(v)}) in (GOAL: {v ∈ RealSet ∧ u ∈ [-10, 10] ∧ v ∈ [-10, 10] ∧ y(u) ≠ y(v) ⇒ |y(u) - y(v)| = |frac(y(u)^{3} - y(v)^{3}, y(u)^{2} + y(u) * y(v) + y(v)^{2})|})
+5. destruct_and (hypothesis 8: {v ∈ RealSet ∧ u ∈ [-10, 10] ∧ v ∈ [-10, 10] ∧ y(u) ≠ y(v)}) as (hypothesis 9: {v ∈ RealSet}) (hypothesis 10: {u ∈ [-10, 10]}) (hypothesis 11: {v ∈ [-10, 10]}) (hypothesis 12: {y(u) ≠ y(v)})
+6. autoreplace (hypothesis 12: {y(u) ≠ y(v)}); from (frac(y(u)^{3} - y(v)^{3}, y(u)^{2} + y(u) * y(v) + y(v)^{2})) to (y(u) - y(v)); from (GOAL: {|y(u) - y(v)| = |frac(y(u)^{3} - y(v)^{3}, y(u)^{2} + y(u) * y(v) + y(v)^{2})|}) to (GOAL: {|y(u) - y(v)| = |y(u) - y(v)|})
+7. autosolve all_hypothesis

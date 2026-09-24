@@ -1,0 +1,4 @@
+rewrite (left_to_right, equation) (hypothesis 41: {x_{6} = 0.75}); from (hypothesis 43: {x_{7} = x_{6} + h}) to (hypothesis 44: {x_{7} = 0.75 + h})
+rewrite (left_to_right, equation) (hypothesis 27: {h = 0.125}); from (hypothesis 44: {x_{7} = 0.75 + h}) to (hypothesis 45: {x_{7} = 0.75 + 0.125})
+autoreplace no_hypothesis; from (0.75 + 0.125) to (0.875); from (hypothesis 45: {x_{7} = 0.75 + 0.125}) to (hypothesis 46: {x_{7} = 0.875})
+apply (hypothesis 46: {x_{7} = 0.875})

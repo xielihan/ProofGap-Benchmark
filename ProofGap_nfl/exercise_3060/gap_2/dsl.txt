@@ -1,0 +1,6 @@
+get_prop (hypothesis 1: {forall (x), x ∈ RealSet ⇒ sin(x) = x * (prod_{ n = 1 }^{ +∞ } (1 - frac(x^{2}, n^{2} * π^{2})))}) (x := {frac(π, 3)}) as (hypothesis 2: {frac(π, 3) ∈ RealSet ⇒ sin(frac(π, 3)) = frac(π, 3) * (prod_{ n = 1 }^{ +∞ } (1 - frac(frac(π, 3)^{2}, n^{2} * π^{2})))})
+assert (hypothesis 3: {frac(π, 3) ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 3: {frac(π, 3) ∈ RealSet}) in (hypothesis 2: {frac(π, 3) ∈ RealSet ⇒ sin(frac(π, 3)) = frac(π, 3) * (prod_{ n = 1 }^{ +∞ } (1 - frac(frac(π, 3)^{2}, n^{2} * π^{2})))}) as (hypothesis 4: {sin(frac(π, 3)) = frac(π, 3) * (prod_{ n = 1 }^{ +∞ } (1 - frac(frac(π, 3)^{2}, n^{2} * π^{2})))})
+autosolve all_hypothesis

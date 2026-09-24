@@ -1,0 +1,13 @@
+assert (hypothesis 12: {FunDeri(P, 1, 1)(x, y, z) = 3 * x^{2}}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 9: {P = (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x^{3})}); from (GOAL: {FunDeri(P, 1, 1)(x, y, z) = 3 * x^{2}}) to (GOAL: {FunDeri((fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x^{3}), 1, 1)(x, y, z) = 3 * x^{2}})
+  autosolve all_hypothesis
+}
+assert (hypothesis 13: {FunDeri(Q, 2, 1)(x, y, z) = 3 * y^{2}}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 10: {Q = (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y^{3})}); from (GOAL: {FunDeri(Q, 2, 1)(x, y, z) = 3 * y^{2}}) to (GOAL: {FunDeri((fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y^{3}), 2, 1)(x, y, z) = 3 * y^{2}})
+  autosolve all_hypothesis
+}
+assert (hypothesis 14: {FunDeri(R, 3, 1)(x, y, z) = 3 * z^{2}}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 11: {R = (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z^{3})}); from (GOAL: {FunDeri(R, 3, 1)(x, y, z) = 3 * z^{2}}) to (GOAL: {FunDeri((fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z^{3}), 3, 1)(x, y, z) = 3 * z^{2}})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

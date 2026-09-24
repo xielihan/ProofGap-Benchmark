@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. p : IntegerSet → RealSet
+2. P : IntegerSet → RealSet
+3. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ p(n) = 1 - frac(1, n^{2})
+4. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ P(n) = prod_{ i = 2 }^{ n } (p(i))
+5. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ P(n) = prod_{ i = 2 }^{ n } (1 - frac(1, i^{2}))
+6. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ P(n) = frac(1, 2) * frac(n + 1, n)
+
+GOAL:
+seqlim_{ n → +∞ } (P(n)) = frac(1, 2)
+
+METHOD:

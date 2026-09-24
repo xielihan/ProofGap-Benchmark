@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. x ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ y(x) = 1 / x + 2 / x^{2} + 3 / x^{3}
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ (1 / x + 2 / x^{2} + 3 / x^{3})' = -(1 / x^{2} + 4 / x^{3} + 9 / x^{4})
+
+METHOD:

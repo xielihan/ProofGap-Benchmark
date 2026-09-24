@@ -1,0 +1,28 @@
+PROOF GAP @10
+ASSUM:
+1. F : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. f : RealSet → RealSet
+3. gamma : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+4. X ⊆ RealSet
+5. a ∈ RealSet
+6. b ∈ RealSet
+7. IntervalOo : CartesianProd(RealSet, RealSet) → PowerSet(RealSet)
+8. a < b
+9. X = IntervalOo(a, b)
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ F(n) : X → RealSet
+11. f : X → RealSet
+12. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ X ⇒ gamma(n, x) = |f(x) - F(n, x)|
+13. UniformConvergent(F, X, f) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ IntegerSet ∧ N > 0 ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (forall (x), x ∈ RealSet ∧ x ∈ X ⇒ |F(n, x) - f(x)| < ε))))
+14. UniformConvergent(F, X, f) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ IntegerSet ∧ N > 0 ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (forall (x), x ∈ RealSet ∧ x ∈ X ⇒ gamma(n, x) < ε))))
+15. UniformConvergent(F, X, f) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ IntegerSet ∧ N > 0 ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ sup({ gamma(n, x) | x ∈ X }) ≤ ε)))
+16. UniformConvergent(F, X, f) ⇒ seqlim_{ n → +∞ } (sup({ gamma(n, x) | x ∈ X })) = 0
+17. UniformConvergent(F, X, f) ⇒ seqlim_{ n → +∞ } (sup({ gamma(n, x) | x ∈ X })) = 0
+18. seqlim_{ n → +∞ } (sup({ gamma(n, x) | x ∈ X })) = 0 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ IntegerSet ∧ N > 0 ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ sup({ gamma(n, x) | x ∈ X }) < ε)))
+19. seqlim_{ n → +∞ } (sup({ gamma(n, x) | x ∈ X })) = 0 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ IntegerSet ∧ N > 0 ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (forall (x), x ∈ RealSet ∧ x ∈ X ⇒ |F(n, x) - f(x)| < ε))))
+20. seqlim_{ n → +∞ } (sup({ gamma(n, x) | x ∈ X })) = 0 ⇒ UniformConvergent(F, X, f)
+21. seqlim_{ n → +∞ } (sup({ gamma(n, x) | x ∈ X })) = 0 ⇒ UniformConvergent(F, X, f)
+
+GOAL:
+UniformConvergent(F, X, f) ⇔ seqlim_{ n → +∞ } (sup({ gamma(n, x) | x ∈ X })) = 0
+
+METHOD:

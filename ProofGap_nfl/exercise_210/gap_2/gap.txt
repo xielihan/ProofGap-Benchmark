@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = frac(x, sqrtn(2, 1 + x^{2}))
+3. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ f(n, x) = f(f(n - 1, x))
+4. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n = 1 ⇒ f(n, x) = frac(x, sqrtn(2, 1 + x^{2}))
+
+GOAL:
+forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n = 2 ⇒ f(n, x) = frac(x, sqrtn(2, 1 + 2 * x^{2}))
+
+METHOD:

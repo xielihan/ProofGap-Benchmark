@@ -1,0 +1,8 @@
+get_prop (hypothesis 3: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = 1 + frac(n, n + 1) * cos(frac(n * π, 2))}) (n := {2}) as (hypothesis 5: {2 ∈ NonNegIntegerSet ∧ 2 ∈ PosIntegerSet ⇒ x(2) = 1 + frac(2, 2 + 1) * cos(frac(2 * π, 2))})
+assert (hypothesis 6: {2 ∈ NonNegIntegerSet ∧ 2 ∈ PosIntegerSet})
+assert (hypothesis 7: {x(2) = 1 + frac(2, 2 + 1) * cos(frac(2 * π, 2))})
+get_prop (theorem 'Thm 368. (CosineAtIntegerPi)': {forall (n), n ∈ IntegerSet => cos(n * π) = (-1) ^ n}) (n := {1}) as (hypothesis 8: {1 ∈ IntegerSet => cos(1 * π) = (-1) ^ 1})
+assert (hypothesis 9: {1 ∈ IntegerSet})
+assert (hypothesis 10: {cos(π) = -1})
+assert (hypothesis 11: {x(2) = 1 - frac(2, 3)})
+apply (hypothesis 11: {x(2) = 1 - frac(2, 3)})

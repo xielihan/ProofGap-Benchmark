@@ -1,0 +1,10 @@
+assert (hypothesis 3: {forall (t), (t > -1 ∧ t ≠ 0 ⇒ ln((1 + t)^{frac(1, t)}) = frac(1, t) * ln(1 + t))}) by proof {
+  get_forall (GOAL: {forall (t), (t > -1 ∧ t ≠ 0 ⇒ ln((1 + t)^{frac(1, t)}) = frac(1, t) * ln(1 + t))}) (t := {z})
+  get_condition (hypothesis 3: {z > -1 ∧ z ≠ 0}) in (GOAL: {z > -1 ∧ z ≠ 0 ⇒ ln((1 + z)^{frac(1, z)}) = frac(1, z) * ln(1 + z)})
+  get_prop (theorem 'Thm 203. (NaturalLogarithmPower)': {forall (x) (y), (x > 0 ⇒ ln(x ^ y) = y * ln(x))}) (x := {1 + z}) (y := {frac(1, z)}) as (hypothesis 4: {1 + z > 0 ⇒ ln((1 + z)^{frac(1, z)}) = frac(1, z) * ln(1 + z)})
+  use_condition (obvious: {1 + z > 0}) in (hypothesis 4: {1 + z > 0 ⇒ ln((1 + z)^{frac(1, z)}) = frac(1, z) * ln(1 + z)}) as (hypothesis 5: {ln((1 + z)^{frac(1, z)}) = frac(1, z) * ln(1 + z)})
+  apply (hypothesis 5: {ln((1 + z)^{frac(1, z)}) = frac(1, z) * ln(1 + z)})
+}
+rewrite_in limit (left_to_right, equation) (hypothesis 3: {forall (t), (t > -1 ∧ t ≠ 0 ⇒ ln((1 + t)^{frac(1, t)}) = frac(1, t) * ln(1 + t))}); from (GOAL: {lim_{ x → 0 } (frac(ln(1 + x), x)) = lim_{ x → 0 } (ln((1 + x)^{frac(1, x)}))}) to (GOAL: {lim_{ x → 0 } (frac(ln(1 + x), x)) = lim_{ x → 0 } (frac(1, x) * ln(1 + x))})
+autoreplace no_hypothesis; from (frac(1, x) * ln(1 + x)) to (frac(ln(1 + x), x)); from (GOAL: {lim_{ x → 0 } (frac(ln(1 + x), x)) = lim_{ x → 0 } (frac(1, x) * ln(1 + x))}) to (GOAL: {lim_{ x → 0 } (frac(ln(1 + x), x)) = lim_{ x → 0 } (frac(ln(1 + x), x))})
+autosolve all_hypothesis

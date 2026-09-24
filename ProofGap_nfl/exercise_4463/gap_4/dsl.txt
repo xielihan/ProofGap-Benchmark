@@ -1,0 +1,5 @@
+get_prop (hypothesis 4: {forall (x), x ∈ RealSet ∧ x ≠ y(x) ⇒ FunDeri(y, 1, 1)(x) = frac(1 - x - y(x), x - y(x))}) (x := {2}) as (hypothesis 6: {2 ∈ RealSet ∧ 2 ≠ y(2) ⇒ FunDeri(y, 1, 1)(2) = frac(1 - 2 - y(2), 2 - y(2))})
+assert (hypothesis 7: {2 ∈ RealSet ∧ 2 ≠ y(2)})
+use_condition (hypothesis 7: {2 ∈ RealSet ∧ 2 ≠ y(2)}) in (hypothesis 6: {2 ∈ RealSet ∧ 2 ≠ y(2) ⇒ FunDeri(y, 1, 1)(2) = frac(1 - 2 - y(2), 2 - y(2))}) as (hypothesis 8: {FunDeri(y, 1, 1)(2) = frac(1 - 2 - y(2), 2 - y(2))})
+rewrite (left_to_right, equation) (hypothesis 5: {y(2) = 4}); from (hypothesis 8: {FunDeri(y, 1, 1)(2) = frac(1 - 2 - y(2), 2 - y(2))}) to (hypothesis 9: {FunDeri(y, 1, 1)(2) = frac(1 - 2 - 4, 2 - 4)})
+autosolve all_hypothesis

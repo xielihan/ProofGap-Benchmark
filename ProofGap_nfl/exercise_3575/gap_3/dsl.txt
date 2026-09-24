@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (X) (Y) (Z) (t), X ∈ RealSet ∧ Y ∈ RealSet ∧ Z ∈ RealSet ∧ t ∈ RealSet ∧ f(X, Y, Z, t) = 0 ⇒ (X - R * cos(t))^{2} + (Y - R * sin(t))^{2} + Z^{2} = r^{2}}) (X := {a}) (Y := {b}) (Z := {c}) (t := {u})
+get_condition (hypothesis 8: {a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ u ∈ RealSet ∧ f(a, b, c, u) = 0}) in (GOAL: {a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ u ∈ RealSet ∧ f(a, b, c, u) = 0 ⇒ (a - R * cos(u))^{2} + (b - R * sin(u))^{2} + c^{2} = r^{2}})
+get_prop (hypothesis 5: {forall (X) (Y) (Z) (t), X ∈ RealSet ∧ Y ∈ RealSet ∧ Z ∈ RealSet ∧ t ∈ RealSet ⇒ f(X, Y, Z, t) = (X - R * cos(t))^{2} + (Y - R * sin(t))^{2} + Z^{2} - r^{2}}) (X := {a}) (Y := {b}) (Z := {c}) (t := {u}) as (hypothesis 9: {a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ u ∈ RealSet ⇒ f(a, b, c, u) = (a - R * cos(u))^{2} + (b - R * sin(u))^{2} + c^{2} - r^{2}})
+autosolve all_hypothesis

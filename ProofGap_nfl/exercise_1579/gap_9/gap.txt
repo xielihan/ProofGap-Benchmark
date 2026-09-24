@@ -1,0 +1,21 @@
+PROOF GAP @9
+ASSUM:
+1. S ∈ RealSet
+2. h ∈ RealSet
+3. l : RealSet → RealSet
+4. S > 0
+5. h > 0
+6. forall (φ), φ ∈ RealSet ∧ 0 < φ ∧ φ < π ⇒ l(φ) = 2 * h * csc(φ) + frac(S, h) - h * cot(φ)
+7. forall (φ), φ ∈ RealSet ⇒ (forall (a), a ∈ RealSet ⇒ S = a * h + h^{2} * cot(φ))
+8. forall (φ), φ ∈ RealSet ⇒ (forall (a), a ∈ RealSet ⇒ a = frac(S, h) - h * cot(φ))
+9. forall (φ), φ ∈ RealSet ⇒ (forall (a), a ∈ RealSet ⇒ l(φ) = a + 2 * h * csc(φ))
+10. forall (φ), φ ∈ RealSet ⇒ (forall (a), a ∈ RealSet ⇒ a + 2 * h * csc(φ) = 2 * h * csc(φ) + frac(S, h) - h * cot(φ))
+11. forall (φ), φ ∈ RealSet ⇒ l(φ) = 2 * h * csc(φ) + frac(S, h) - h * cot(φ)
+12. forall (φ), φ ∈ RealSet ∧ 0 < φ ∧ φ < π ⇒ FunDeri(l, 1, 1)(φ) = -frac(2 * h * cos(φ), sin(φ)^{2}) + frac(h, sin(φ)^{2})
+13. forall (φ), φ ∈ RealSet ∧ FunDeri(l, 1, 1)(φ) = 0 ⇒ cos(φ) = frac(1, 2)
+14. cos(frac(π, 3)) = frac(1, 2)
+
+GOAL:
+FunDeri(l, 1, 2)(frac(π, 3)) > 0
+
+METHOD:

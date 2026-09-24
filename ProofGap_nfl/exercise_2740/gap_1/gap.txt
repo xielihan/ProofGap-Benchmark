@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. x_{0} ∈ RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ∈ RealSet
+4. forall (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ ConvergentSeries(sum_{ m = 1 }^{ +∞ } (frac(a(m), m^{x_{0}})))
+
+GOAL:
+forall (y), y ∈ RealSet ∧ y > x_{0} ⇒ sum_{ n = 1 }^{ +∞ } (frac(a(n), n^{y})) = sum_{ n = 1 }^{ +∞ } (frac(a(n), n^{x_{0}}) * frac(1, n^{y - x_{0}}))
+
+METHOD:

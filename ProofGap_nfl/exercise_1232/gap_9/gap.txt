@@ -1,0 +1,15 @@
+PROOF GAP @9
+ASSUM:
+1. forall (n), n ∈ NonNegIntegerSet ∧ n = 1 ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(fun x [x ∈ RealSet] . e^{frac(1, x)}, 1, 1) = -frac(1, x^{2}) * e^{frac(1, x)})
+2. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n = 1 ∧ x ≠ 0 ⇒ FunDeri(fun x [x ∈ RealSet] . x^{n - 1} * e^{frac(1, x)}, 1, n)(x) = frac((-1)^{n}, x^{n + 1}) * e^{frac(1, x)}
+3. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(fun x [x ∈ RealSet] . x^{k - 1} * e^{frac(1, x)}, 1, k)(x) = frac((-1)^{k}, x^{k + 1}) * e^{frac(1, x)}) ∧ n = k + 1 ⇒ FunDeri(fun x [x ∈ RealSet] . x^{k} * e^{frac(1, x)}, 1, k + 1)(x) = FunDeri(FunDeri(fun x [x ∈ RealSet] . x * x^{k - 1} * e^{frac(1, x)}, 1, k)(x), 1, 1))
+4. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(fun x [x ∈ RealSet] . x^{k - 1} * e^{frac(1, x)}, 1, k)(x) = frac((-1)^{k}, x^{k + 1}) * e^{frac(1, x)}) ∧ n = k + 1 ⇒ FunDeri(FunDeri(fun x [x ∈ RealSet] . x * x^{k - 1} * e^{frac(1, x)}, 1, k)(x), 1, 1) = FunDeri(x * FunDeri(fun x [x ∈ RealSet] . x^{k - 1} * e^{frac(1, x)}, 1, k)(x) + k * FunDeri(fun x [x ∈ RealSet] . x^{k - 1} * e^{frac(1, x)}, 1, k - 1)(x), 1, 1))
+5. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(fun x [x ∈ RealSet] . x^{k - 1} * e^{frac(1, x)}, 1, k)(x) = frac((-1)^{k}, x^{k + 1}) * e^{frac(1, x)}) ∧ n = k + 1 ⇒ FunDeri(fun x [x ∈ RealSet] . x^{k} * e^{frac(1, x)}, 1, k + 1)(x) = x * FunDeri(frac((-1)^{k}, x^{k + 1}) * e^{frac(1, x)}, 1, 1) + (k + 1) * frac((-1)^{k}, x^{k + 1}) * e^{frac(1, x)})
+6. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(fun x [x ∈ RealSet] . x^{k - 1} * e^{frac(1, x)}, 1, k)(x) = frac((-1)^{k}, x^{k + 1}) * e^{frac(1, x)}) ∧ n = k + 1 ⇒ FunDeri(fun x [x ∈ RealSet] . x^{k} * e^{frac(1, x)}, 1, k + 1)(x) = frac((-1)^{k + 1} * (k + 1), x^{k + 1}) * e^{frac(1, x)} + frac((-1)^{k + 1}, x^{k + 2}) * e^{frac(1, x)} + frac((-1)^{k} * (k + 1), x^{k + 1}) * e^{frac(1, x)})
+7. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(fun x [x ∈ RealSet] . x^{k - 1} * e^{frac(1, x)}, 1, k)(x) = frac((-1)^{k}, x^{k + 1}) * e^{frac(1, x)}) ∧ n = k + 1 ⇒ FunDeri(fun x [x ∈ RealSet] . x^{k} * e^{frac(1, x)}, 1, k + 1)(x) = frac((-1)^{k + 1}, x^{k + 2}) * e^{frac(1, x)})
+8. forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ≠ 0 ⇒ FunDeri(fun x [x ∈ RealSet] . x^{n - 1} * e^{frac(1, x)}, 1, n)(x) = frac((-1)^{n}, x^{n + 1}) * e^{frac(1, x)}
+
+GOAL:
+forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ≠ 0 ⇒ FunDeri(fun x [x ∈ RealSet] . x^{n - 1} * e^{frac(1, x)}, 1, n)(x) = frac((-1)^{n}, x^{n + 1}) * e^{frac(1, x)}
+
+METHOD:

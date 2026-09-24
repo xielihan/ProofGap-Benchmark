@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. I : RealSet → RealSet
+4. (a, b) ≠ (0, 0)
+5. forall (a), a ∈ RealSet ⇒ I(a) = DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . ln(a^{2} * sin(x)^{2} + b^{2} * cos(x)^{2})) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . x))
+6. a > 0 ⇒ b > 0 ⇒ FunDeri(I, 1, 1)(a) = DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . frac(2 * a * sin(x)^{2}, a^{2} * sin(x)^{2} + b^{2} * cos(x)^{2})) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . x))
+7. a > 0 ⇒ b > 0 ⇒ a = b ⇒ FunDeri(I, 1, 1)(b) = frac(2, b) * DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . sin(x)^{2}) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . x))
+
+GOAL:
+a > 0 ⇒ b > 0 ⇒ a = b ⇒ frac(2, b) * DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . sin(x)^{2}) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . x)) = frac(π, 2 * b)
+
+METHOD:

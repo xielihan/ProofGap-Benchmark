@@ -1,0 +1,8 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 90 ⇒ P(x) = frac(5 * x, 288) * (1 - frac(x, 150)^{2})}) (x := {u})
+2. get_condition (hypothesis 12: {u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 90}) in (GOAL: {u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 90 ⇒ P(u) = frac(5 * u, 288) * (1 - frac(u, 150)^{2})})
+3. get_prop (hypothesis 7: {forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 90 ⇒ P(x) = a * x + b * x^{3}}) (x := {u}) as (hypothesis 13: {u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 90 ⇒ P(u) = a * u + b * u^{3}})
+4. use_condition (hypothesis 12: {u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 90}) in (hypothesis 13: {u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 90 ⇒ P(u) = a * u + b * u^{3}}) as (hypothesis 14: {P(u) = a * u + b * u^{3}})
+5. rewrite (left_to_right, equation) (hypothesis 10: {a = frac(5, 288)}); from (hypothesis 14: {P(u) = a * u + b * u^{3}}) to (hypothesis 15: {P(u) = frac(5, 288) * u + b * u^{3}})
+6. rewrite (left_to_right, equation) (hypothesis 11: {b = -frac(5, 288) * frac(1, 150)^{2}}); from (hypothesis 15: {P(u) = frac(5, 288) * u + b * u^{3}}) to (hypothesis 16: {P(u) = frac(5, 288) * u + (-frac(5, 288) * frac(1, 150)^{2}) * u^{3}})
+7. rewrite (left_to_right, equation) (hypothesis 16: {P(u) = frac(5, 288) * u + (-frac(5, 288) * frac(1, 150)^{2}) * u^{3}}); from (GOAL: {P(u) = frac(5 * u, 288) * (1 - frac(u, 150)^{2})}) to (GOAL: {frac(5, 288) * u + (-frac(5, 288) * frac(1, 150)^{2}) * u^{3} = frac(5 * u, 288) * (1 - frac(u, 150)^{2})})
+8. autosolve all_hypothesis

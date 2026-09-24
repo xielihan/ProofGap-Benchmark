@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. C ∈ RealSet
+3. x ∈ RealSet
+4. y ∈ RealSet
+5. x + y ≠ 0
+6. z(x, y) = DefInt(0, x, (fun x [x ∈ RealSet] . frac(x^{2} + 2 * x * y + 5 * y^{2}, (x + y)^{3})) * diff(fun x [x ∈ RealSet] . x)) + DefInt(1, y, (fun y [y ∈ RealSet] . frac(y^{2}, y^{3})) * diff(fun y [y ∈ RealSet] . y)) + C
+7. z(x, y) = DefInt(0, x, (fun x [x ∈ RealSet] . frac((x + y)^{2} + 4 * y^{2}, (x + y)^{3})) * diff(fun x [x ∈ RealSet] . x)) + DefInt(1, y, (fun y [y ∈ RealSet] . frac(1, y)) * diff(fun y [y ∈ RealSet] . y)) + C
+8. z(x, y) = ln(|x + y|) - frac(2 * y^{2}, (x + y)^{2}) + C
+
+GOAL:
+z(x, y) = ln(|x + y|) - frac(2 * y^{2}, (x + y)^{2}) + C ⇒ diff(z) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(x^{2} + 2 * x * y + 5 * y^{2}, (x + y)^{3})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(x^{2} - 2 * x * y + y^{2}, (x + y)^{3})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+
+METHOD:

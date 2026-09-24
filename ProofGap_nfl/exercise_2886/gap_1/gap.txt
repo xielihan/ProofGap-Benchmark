@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = e^{x} * cos(x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ e^{x} * (cos(x) + __IMAGINARY_UNIT__ * sin(x)) = e^{x} * e^{__IMAGINARY_UNIT__ * x}
+
+METHOD:

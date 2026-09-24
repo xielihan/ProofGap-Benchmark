@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 6: {f = (fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . sin(x))}); from (GOAL: {ContinuousFuncOn(f, [a, b])}) to (GOAL: {ContinuousFuncOn((fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . sin(x)), [a, b])})
+autosolve all_hypothesis

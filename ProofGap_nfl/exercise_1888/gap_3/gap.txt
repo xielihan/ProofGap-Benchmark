@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. A ∈ RealSet
+2. B ∈ RealSet
+3. C ∈ RealSet
+4. D ∈ RealSet
+5. E ∈ RealSet
+6. forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ frac(1, x^{5} - x^{4} + x^{3} - x^{2} + x - 1) = frac(1, (x - 1) * (x^{2} - x + 1) * (x^{2} + x + 1))
+7. frac(1, (x - 1) * (x^{2} - x + 1) * (x^{2} + x + 1)) = frac(A, x - 1) + frac(B * x + C, x^{2} + x + 1) + frac(D * x + E, x^{2} - x + 1)
+8. A ∈ RealSet
+
+GOAL:
+B ∈ RealSet
+
+METHOD:

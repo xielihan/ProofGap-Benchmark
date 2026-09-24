@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = -y(x)}) (x := {z})
+get_condition (hypothesis 7: {z ∈ RealSet}) in (GOAL: {z ∈ RealSet ⇒ FunDeri(y, 1, 2)(z) = -y(z)})
+get_prop (hypothesis 6: {forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = -C_{1} * cos(x) - C_{2} * sin(x)}) (x := {z}) as (hypothesis 8: {z ∈ RealSet ⇒ FunDeri(y, 1, 2)(z) = -C_{1} * cos(z) - C_{2} * sin(z)})
+use_condition (hypothesis 7: {z ∈ RealSet}) in (hypothesis 8: {z ∈ RealSet ⇒ FunDeri(y, 1, 2)(z) = -C_{1} * cos(z) - C_{2} * sin(z)}) as (hypothesis 9: {FunDeri(y, 1, 2)(z) = -C_{1} * cos(z) - C_{2} * sin(z)})
+get_prop (hypothesis 4: {forall (x), x ∈ RealSet ⇒ y(x) = C_{1} * cos(x) + C_{2} * sin(x)}) (x := {z}) as (hypothesis 10: {z ∈ RealSet ⇒ y(z) = C_{1} * cos(z) + C_{2} * sin(z)})
+use_condition (hypothesis 7: {z ∈ RealSet}) in (hypothesis 10: {z ∈ RealSet ⇒ y(z) = C_{1} * cos(z) + C_{2} * sin(z)}) as (hypothesis 11: {y(z) = C_{1} * cos(z) + C_{2} * sin(z)})
+rewrite (left_to_right, equation) (hypothesis 9: {FunDeri(y, 1, 2)(z) = -C_{1} * cos(z) - C_{2} * sin(z)}); from (GOAL: {FunDeri(y, 1, 2)(z) = -y(z)}) to (GOAL: {-C_{1} * cos(z) - C_{2} * sin(z) = -y(z)})
+rewrite (left_to_right, equation) (hypothesis 11: {y(z) = C_{1} * cos(z) + C_{2} * sin(z)}); from (GOAL: {-C_{1} * cos(z) - C_{2} * sin(z) = -y(z)}) to (GOAL: {-C_{1} * cos(z) - C_{2} * sin(z) = -(C_{1} * cos(z) + C_{2} * sin(z))})
+autosolve all_hypothesis

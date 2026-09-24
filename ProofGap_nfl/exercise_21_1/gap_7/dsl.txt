@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ |y| - |x| = -(|x| - |y|))}) (x := {a})
+get_condition (hypothesis 7: {a ∈ RealSet}) in (GOAL: {a ∈ RealSet ⇒ (forall (y), a ∈ RealSet ∧ y ∈ RealSet ⇒ |y| - |a| = -(|a| - |y|))})
+get_forall (GOAL: {forall (y), a ∈ RealSet ∧ y ∈ RealSet ⇒ |y| - |a| = -(|a| - |y|)}) (y := {b})
+get_condition (hypothesis 8: {a ∈ RealSet ∧ b ∈ RealSet}) in (GOAL: {a ∈ RealSet ∧ b ∈ RealSet ⇒ |b| - |a| = -(|a| - |b|)})
+autosolve all_hypothesis

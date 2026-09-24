@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet => f(x + T) = a^{T} * f(x)}) (x := {y})
+get_prop (hypothesis 6: {forall (x), x ∈ RealSet => f(x + T) = k * f(x)}) (x := {y}) as (hypothesis 10: {y ∈ RealSet => f(y + T) = k * f(y)})
+rewrite (left_to_right, equation) (hypothesis 9: {a^{T} = k}); from (GOAL: {y ∈ RealSet => f(y + T) = a^{T} * f(y)}) to (GOAL: {y ∈ RealSet => f(y + T) = k * f(y)})
+apply (hypothesis 10: {y ∈ RealSet => f(y + T) = k * f(y)})

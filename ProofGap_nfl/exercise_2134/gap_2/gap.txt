@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+3. x ≠ 0
+4. x ≠ 1
+5. t(x) = sqrtn(3, frac(1 - x, x))
+6. t(x) ∈ RealSet
+
+GOAL:
+t(x) ≠ -1
+
+METHOD:

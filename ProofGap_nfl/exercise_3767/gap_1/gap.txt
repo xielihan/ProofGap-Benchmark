@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. I : RealSet → RealSet
+2. forall (n), n ∈ RealSet ∧ n ∈ NonNegRealSet ⇒ I(n) = DefInt(0, 1, (fun x [x ∈ RealSet] . frac(x^{n}, sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+forall (x) (n), x ∈ RealSet ∧ n ∈ RealSet ∧ 0 ≤ x ∧ x < 1 ∧ n ∈ NonNegRealSet ∧ n > 0 ⇒ 0 ≤ frac(x^{n}, sqrtn(2, 1 - x^{2})) ∧ frac(x^{n}, sqrtn(2, 1 - x^{2})) < frac(1, sqrtn(2, 1 - x^{2}))
+
+METHOD:

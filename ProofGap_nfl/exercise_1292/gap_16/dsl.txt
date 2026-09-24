@@ -1,0 +1,5 @@
+1. get_condition (hypothesis 36: {q < 1}) in (GOAL: {q < 1 ⇒ phi(q) - psi(q) > 0})
+2. use_condition (hypothesis 36: {q < 1}) in (hypothesis 34: {q < 1 ⇒ (forall (t), t ∈ RealSet ∧ 0 < t ∧ t < 1 ⇒ psi(t) < phi(t))}) as (hypothesis 37: {forall (t), t ∈ RealSet ∧ 0 < t ∧ t < 1 ⇒ psi(t) < phi(t)})
+3. get_prop (hypothesis 37: {forall (t), t ∈ RealSet ∧ 0 < t ∧ t < 1 ⇒ psi(t) < phi(t)}) (t := {q}) as (hypothesis 38: {q ∈ RealSet ∧ 0 < q ∧ q < 1 ⇒ psi(q) < phi(q)})
+4. use_condition (obvious: {q ∈ RealSet ∧ 0 < q ∧ q < 1}) in (hypothesis 38: {q ∈ RealSet ∧ 0 < q ∧ q < 1 ⇒ psi(q) < phi(q)}) as (hypothesis 39: {psi(q) < phi(q)})
+5. autosolve (hypothesis 39: {psi(q) < phi(q)})

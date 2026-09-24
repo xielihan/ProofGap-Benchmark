@@ -1,0 +1,2 @@
+exists (λ := {A}) (x := {0}) (y := {0})
+autosolve all_hypothesis

@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), cos(x) ≠ 0 ⇒ x ∈ RealSet
+2. forall (x), x ∈ RealSet ⇒ cos(x) ≠ 0
+3. forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ frac(1, cos(x)^{4}) * diff(fun x [x ∈ RealSet ∧ cos(x) ≠ 0] . x) = sec(x)^{2} * frac(1, cos(x)^{2}) * diff(fun x [x ∈ RealSet ∧ cos(x) ≠ 0] . x)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ frac(1, cos(x)^{2}) = 1 + tan(x)^{2}
+
+METHOD:

@@ -1,0 +1,16 @@
+PROOF GAP @7
+ASSUM:
+1. θ ∈ RealSet
+2. f = (fun x [x ∈ RealSet ∧ 100 * π ≤ x ∧ x ≤ 200 * π] . sin(x))
+3. φ = (fun x [x ∈ RealSet ∧ 100 * π ≤ x ∧ x ≤ 200 * π] . frac(1, x))
+4. ContinuousFuncOn(f, [100 * π, 200 * π])
+5. ContinuousFuncOn(φ, [100 * π, 200 * π])
+6. MonoDecFuncOn(φ, [100 * π, 200 * π])
+7. forall (x), x ∈ RealSet ∧ x ∈ [100 * π, 200 * π] ⇒ φ(x) ≥ 0
+8. exists (ξ), ξ ∈ RealSet ∧ 100 * π ≤ ξ ∧ ξ ≤ 200 * π ∧ DefInt(100 * π, 200 * π, (fun x [x ∈ RealSet ∧ 100 * π ≤ x ∧ x ≤ 200 * π] . frac(sin(x), x)) * diff(fun x [x ∈ RealSet ∧ 100 * π ≤ x ∧ x ≤ 200 * π] . x)) = frac(1, 100 * π) * DefInt(100 * π, ξ, (fun x [x ∈ RealSet ∧ 100 * π ≤ x ∧ x ≤ ξ] . sin(x)) * diff(fun x [x ∈ RealSet ∧ 100 * π ≤ x ∧ x ≤ ξ] . x))
+9. exists (ξ), ξ ∈ RealSet ∧ 100 * π ≤ ξ ∧ ξ ≤ 200 * π ∧ DefInt(100 * π, ξ, (fun x [x ∈ RealSet ∧ 100 * π ≤ x ∧ x ≤ ξ] . sin(x)) * diff(fun x [x ∈ RealSet ∧ 100 * π ≤ x ∧ x ≤ ξ] . x)) = 1 - cos(ξ)
+
+GOAL:
+exists (ξ), ξ ∈ RealSet ∧ 100 * π ≤ ξ ∧ ξ ≤ 200 * π ∧ 1 - cos(ξ) = 2 * sin(frac(ξ, 2))^{2}
+
+METHOD:

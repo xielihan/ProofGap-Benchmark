@@ -1,0 +1,2 @@
+rewrite (left_to_right, iff) (hypothesis 9: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n) * z^{n})) ⇔ |z| < 1}); from (GOAL: {|z| < 1 ⇔ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n) * z^{n}))}) to (GOAL: {|z| < 1 ⇔ |z| < 1})
+autosolve all_hypothesis

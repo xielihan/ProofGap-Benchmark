@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 2 ⇒ frac(1, n^{2} - 1) = frac(1, 2) * (frac(1, n - 1) - frac(1, n + 1))
+2. sum_{ n = 2 }^{ +∞ } (frac(1, n^{2} - 1)) = seqlim_{ N → +∞ } (sum_{ n = 2 }^{ N } (frac(1, n^{2} - 1)))
+
+GOAL:
+seqlim_{ N → +∞ } (sum_{ n = 2 }^{ N } (frac(1, n^{2} - 1))) = frac(1, 2) * (seqlim_{ N → +∞ } (sum_{ n = 2 }^{ N } (frac(1, n - 1) - frac(1, n + 1))))
+
+METHOD:

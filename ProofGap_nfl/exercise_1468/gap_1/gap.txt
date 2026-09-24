@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. f : RealSet → RealSet
+3. S ⊆ RealSet
+4. forall (x), x ∈ RealSet ∧ x ∈ [0, π] ⇒ f(x) = sin(x)^{3} * cos(x) - a
+5. forall (x), x ∈ RealSet ⇒ (x ∈ S ⇔ x ∈ [0, π] ∧ sin(x)^{3} * cos(x) = a)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ [0, π] ⇒ FunDeri(f, 1, 1)(x) = 3 * sin(x)^{2} * cos(x)^{2} - sin(x)^{4}
+
+METHOD:

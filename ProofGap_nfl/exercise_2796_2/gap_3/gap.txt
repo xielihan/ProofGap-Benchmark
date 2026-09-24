@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. r : NonNegIntegerSet → RealSet ∧ IsSeq(r)
+2. f : RealSet → RealSet
+3. v : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+4. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ r(k) ∈ RationalSet ∧ 0 ≤ r(k) ∧ r(k) ≤ 1
+5. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ f(x) = sum_{ k = 1 }^{ +∞ } (frac(|x - r(k)|, 3^{k})))
+6. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [0, 1] ∧ x_{0} ∉ RationalSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ x ≠ x_{0} ⇒ v(k, x) = frac(|x - r(k)| - |x_{0} - r(k)|, 3^{k} * (x - x_{0}))))
+7. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [0, 1] ∧ x_{0} ∉ RationalSet ⇒ (forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ x ≠ x_{0} ⇒ frac(f(x) - f(x_{0}), x - x_{0}) = sum_{ k = 1 }^{ +∞ } (v(k, x)))
+8. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [0, 1] ∧ x_{0} ∉ RationalSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ x ≠ x_{0} ⇒ ||x - r(k)| - |x_{0} - r(k)|| ≤ |x - r(k) - (x_{0} - r(k))|))
+
+GOAL:
+forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [0, 1] ∧ x_{0} ∉ RationalSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ x ≠ x_{0} ⇒ |x - r(k) - (x_{0} - r(k))| = |x - x_{0}|))
+
+METHOD:

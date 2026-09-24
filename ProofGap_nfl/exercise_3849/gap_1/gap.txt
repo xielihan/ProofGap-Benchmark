@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. B : CartesianProd(RealSet, RealSet) → RealSet
+3. Γ : RealSet → RealSet
+4. n > 1
+5. t = x^{n}
+
+GOAL:
+0 ≤ x
+
+METHOD:

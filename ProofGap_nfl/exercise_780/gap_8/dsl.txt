@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (t), t ∈ RealSet ⇒ tan(x(t)) = cot(frac(π, 2) - x(t))}) (t := {u})
+get_condition (hypothesis 13: {u ∈ RealSet}) in (GOAL: {u ∈ RealSet ⇒ tan(x(u)) = cot(frac(π, 2) - x(u))})
+get_prop (hypothesis 5: {forall (t), t ∈ RealSet ⇒ y(t) = frac(π, 2) - x(t)}) (t := {u}) as (hypothesis 14: {u ∈ RealSet ⇒ y(u) = frac(π, 2) - x(u)})
+use_condition (hypothesis 13: {u ∈ RealSet}) in (hypothesis 14: {u ∈ RealSet ⇒ y(u) = frac(π, 2) - x(u)}) as (hypothesis 15: {y(u) = frac(π, 2) - x(u)})
+get_prop (hypothesis 12: {forall (t), t ∈ RealSet ⇒ cot(y(t)) = tan(x(t))}) (t := {u}) as (hypothesis 16: {u ∈ RealSet ⇒ cot(y(u)) = tan(x(u))})
+use_condition (hypothesis 13: {u ∈ RealSet}) in (hypothesis 16: {u ∈ RealSet ⇒ cot(y(u)) = tan(x(u))}) as (hypothesis 17: {cot(y(u)) = tan(x(u))})
+rewrite (left_to_right, equation) (hypothesis 15: {y(u) = frac(π, 2) - x(u)}); from (hypothesis 17: {cot(y(u)) = tan(x(u))}) to (hypothesis 17: {cot(frac(π, 2) - x(u)) = tan(x(u))})
+autosolve all_hypothesis

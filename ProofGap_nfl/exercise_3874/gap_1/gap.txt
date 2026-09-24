@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. Gamma : RealSet → RealSet
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (m), m ∈ NonNegIntegerSet ∧ 1 ≤ m ∧ m ≤ n ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . x^{m - 1} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, n) * Gamma(frac(m, n)))
+
+METHOD:

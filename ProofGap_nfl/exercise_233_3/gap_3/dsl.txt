@@ -1,0 +1,23 @@
+get_prop (theorem 'Thm 284. (PeriodicFunctionDefinition)': {forall (f) (T), f : RealSet -> RealSet => T ∈ RealSet => (PeriodicFunc(f, T) <==> (T > 0 /\ (forall (x), x ∈ RealSet => f(x + T) = f(x))))}) (f := {f}) (T := {2 * π}) as (hypothesis 5: {f : RealSet -> RealSet => 2 * π ∈ RealSet => (PeriodicFunc(f, 2 * π) <==> (2 * π > 0 /\ (forall (x), x ∈ RealSet => f(x + 2 * π) = f(x))))})
+use_condition (hypothesis 1: {f : RealSet → RealSet}) (obvious: {2 * π ∈ RealSet}) in (hypothesis 5: {f : RealSet -> RealSet => 2 * π ∈ RealSet => (PeriodicFunc(f, 2 * π) <==> (2 * π > 0 /\ (forall (x), x ∈ RealSet => f(x + 2 * π) = f(x))))}) as (hypothesis 6: {PeriodicFunc(f, 2 * π) <==> (2 * π > 0 /\ (forall (x), x ∈ RealSet => f(x + 2 * π) = f(x)))})
+rewrite (left_to_right, iff) (hypothesis 6: {PeriodicFunc(f, 2 * π) <==> (2 * π > 0 /\ (forall (x), x ∈ RealSet => f(x + 2 * π) = f(x)))}); from (hypothesis 3: {PeriodicFunc(f, 2 * π)}) to (hypothesis 7: {2 * π > 0 /\ (forall (x), x ∈ RealSet => f(x + 2 * π) = f(x))})
+destruct_and (hypothesis 7: {2 * π > 0 /\ (forall (x), x ∈ RealSet => f(x + 2 * π) = f(x))}) as (hypothesis 8: {2 * π > 0}) (hypothesis 9: {forall (x), x ∈ RealSet => f(x + 2 * π) = f(x)})
+get_prop (theorem 'Thm 284. (PeriodicFunctionDefinition)': {forall (f) (T), f : RealSet -> RealSet => T ∈ RealSet => (PeriodicFunc(f, T) <==> (T > 0 /\ (forall (x), x ∈ RealSet => f(x + T) = f(x))))}) (f := {f}) (T := {6 * π}) as (hypothesis 10: {f : RealSet -> RealSet => 6 * π ∈ RealSet => (PeriodicFunc(f, 6 * π) <==> (6 * π > 0 /\ (forall (x), x ∈ RealSet => f(x + 6 * π) = f(x))))})
+use_condition (hypothesis 1: {f : RealSet → RealSet}) (obvious: {6 * π ∈ RealSet}) in (hypothesis 10: {f : RealSet -> RealSet => 6 * π ∈ RealSet => (PeriodicFunc(f, 6 * π) <==> (6 * π > 0 /\ (forall (x), x ∈ RealSet => f(x + 6 * π) = f(x))))}) as (hypothesis 11: {PeriodicFunc(f, 6 * π) <==> (6 * π > 0 /\ (forall (x), x ∈ RealSet => f(x + 6 * π) = f(x)))})
+rewrite (left_to_right, iff) (hypothesis 11: {PeriodicFunc(f, 6 * π) <==> (6 * π > 0 /\ (forall (x), x ∈ RealSet => f(x + 6 * π) = f(x)))}); from (GOAL: {PeriodicFunc(f, 6 * π)}) to (GOAL: {6 * π > 0 /\ (forall (x), x ∈ RealSet => f(x + 6 * π) = f(x))})
+assert (hypothesis 12: {forall (x), x ∈ RealSet => f(x + 6 * π) = f(x)}) by proof {
+  get_forall (GOAL: {forall (x), x ∈ RealSet => f(x + 6 * π) = f(x)}) (x := {x0})
+  get_condition (hypothesis 12: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet => f(x0 + 6 * π) = f(x0)})
+  get_prop (hypothesis 9: {forall (x), x ∈ RealSet => f(x + 2 * π) = f(x)}) (x := {x0}) as (hypothesis 13: {x0 ∈ RealSet => f(x0 + 2 * π) = f(x0)})
+  use_condition (hypothesis 12: {x0 ∈ RealSet}) in (hypothesis 13: {x0 ∈ RealSet => f(x0 + 2 * π) = f(x0)}) as (hypothesis 14: {f(x0 + 2 * π) = f(x0)})
+  assert (hypothesis 15: {x0 + 2 * π ∈ RealSet})
+  get_prop (hypothesis 9: {forall (x), x ∈ RealSet => f(x + 2 * π) = f(x)}) (x := {x0 + 2 * π}) as (hypothesis 16: {x0 + 2 * π ∈ RealSet => f((x0 + 2 * π) + 2 * π) = f(x0 + 2 * π)})
+  use_condition (hypothesis 15: {x0 + 2 * π ∈ RealSet}) in (hypothesis 16: {x0 + 2 * π ∈ RealSet => f((x0 + 2 * π) + 2 * π) = f(x0 + 2 * π)}) as (hypothesis 17: {f((x0 + 2 * π) + 2 * π) = f(x0 + 2 * π)})
+  assert (hypothesis 18: {x0 + 4 * π ∈ RealSet})
+  get_prop (hypothesis 9: {forall (x), x ∈ RealSet => f(x + 2 * π) = f(x)}) (x := {x0 + 4 * π}) as (hypothesis 19: {x0 + 4 * π ∈ RealSet => f((x0 + 4 * π) + 2 * π) = f(x0 + 4 * π)})
+  use_condition (hypothesis 18: {x0 + 4 * π ∈ RealSet}) in (hypothesis 19: {x0 + 4 * π ∈ RealSet => f((x0 + 4 * π) + 2 * π) = f(x0 + 4 * π)}) as (hypothesis 20: {f((x0 + 4 * π) + 2 * π) = f(x0 + 4 * π)})
+  autoreplace no_hypothesis; from ((x0 + 2 * π) + 2 * π) to (x0 + 4 * π); from (hypothesis 17: {f((x0 + 2 * π) + 2 * π) = f(x0 + 2 * π)}) to (hypothesis 21: {f(x0 + 4 * π) = f(x0 + 2 * π)})
+  autoreplace no_hypothesis; from ((x0 + 4 * π) + 2 * π) to (x0 + 6 * π); from (hypothesis 20: {f((x0 + 4 * π) + 2 * π) = f(x0 + 4 * π)}) to (hypothesis 22: {f(x0 + 6 * π) = f(x0 + 4 * π)})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

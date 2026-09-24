@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (t), t ∈ RealSet ⇒ cot(y(t)) = tan(x(t))}) (t := {u})
+get_condition (hypothesis 12: {u ∈ RealSet}) in (GOAL: {u ∈ RealSet ⇒ cot(y(u)) = tan(x(u))})
+get_prop (hypothesis 10: {forall (t), t ∈ RealSet ⇒ tan(x(t)) = t}) (t := {u}) as (hypothesis 13: {u ∈ RealSet ⇒ tan(x(u)) = u})
+use_condition (hypothesis 12: {u ∈ RealSet}) in (hypothesis 13: {u ∈ RealSet ⇒ tan(x(u)) = u}) as (hypothesis 14: {tan(x(u)) = u})
+get_prop (hypothesis 11: {forall (t), t ∈ RealSet ⇒ cot(y(t)) = t}) (t := {u}) as (hypothesis 15: {u ∈ RealSet ⇒ cot(y(u)) = u})
+use_condition (hypothesis 12: {u ∈ RealSet}) in (hypothesis 15: {u ∈ RealSet ⇒ cot(y(u)) = u}) as (hypothesis 16: {cot(y(u)) = u})
+autosolve all_hypothesis

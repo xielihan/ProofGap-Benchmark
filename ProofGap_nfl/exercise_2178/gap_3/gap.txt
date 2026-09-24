@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet ∧ DiffableFuncOn(f, IntervalLoRo(0, +∞))
+2. C ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ FunDeri(f, 1, 1)(x^{2}) = frac(1, x)
+4. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ FunDeri(f, 1, 1)(x) = frac(1, sqrtn(2, x))
+5. exists (`f'`), `f'` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ f(x) = { `F_1` | DiffableFuncOn(`F_1`, IntervalLoRo(0, +∞)), forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ FunDeri(`F_1`, 1, 1)(x) = `f'`(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } ∧ { `F_1` | DiffableFuncOn(`F_1`, IntervalLoRo(0, +∞)), forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ FunDeri(`F_1`, 1, 1)(x) = `f'`(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_2` | DiffableFuncOn(`F_2`, IntervalLoRo(0, +∞)), forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, sqrtn(2, x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } ∧ { `F_2` | DiffableFuncOn(`F_2`, IntervalLoRo(0, +∞)), forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, sqrtn(2, x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | DiffableFuncOn(`F_3`, IntervalLoRo(0, +∞)), exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ `F_3`(x) = 2 * sqrtn(2, x) + C) })
+
+GOAL:
+(forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ f(x) = 2 * sqrtn(2, x) + C) ⇒ (forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ FunDeri(f, 1, 1)(x^{2}) = frac(1, x))
+
+METHOD:

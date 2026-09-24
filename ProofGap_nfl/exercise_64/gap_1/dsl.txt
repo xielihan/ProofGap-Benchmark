@@ -1,0 +1,4 @@
+1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = sqrtn(n, n)}) (n := {k})
+2. get_condition (hypothesis 4: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet}) in (GOAL: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ b(k) = sqrtn(k, k)})
+3. rewrite (left_to_right, equation) (hypothesis 3: {b = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . sqrtn(n, n))}); from (GOAL: {b(k) = sqrtn(k, k)}) to (GOAL: {(fun n [n ∈ NonNegIntegerSet ∧ n > 0] . sqrtn(n, n))(k) = sqrtn(k, k)})
+4. autosolve all_hypothesis

@@ -1,0 +1,18 @@
+PROOF GAP @5
+ASSUM:
+1. a : CartesianProd(IntegerSet, RealSet) → RealSet
+2. s : CartesianProd(IntegerSet, RealSet) → RealSet
+3. S : RealSet → RealSet
+4. k ∈ IntegerSet
+5. forall (n) (x), x ∈ RealSet ∧ n ∈ IntegerSet ∧ x ∈ [0, 2 * π] ∧ n ≥ 2 ⇒ a(n, x) = frac((-1)^{n}, n + sin(x))
+6. forall (n) (x), x ∈ RealSet ∧ n ∈ IntegerSet ∧ x ∈ [0, 2 * π] ∧ n ≥ 2 ⇒ s(n, x) = sum_{ k = 2 }^{ n } (a(k, x))
+7. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 2 * π ⇒ MonoDecSeqOn(fun n [n ∈ IntegerSet ∧ n ≥ 2] . frac(1, n + sin(x)), { n | n ∈ IntegerSet, n ≥ 2 })
+8. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 2 * π ⇒ (forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ 0 < frac(1, n + sin(x)) ∧ frac(1, n + sin(x)) < frac(1, n - 1))
+9. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 2 * π ⇒ seqlim_{ n → +∞ } (frac(1, n + sin(x))) = 0
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |sum_{ k = 1 }^{ n } ((-1)^{k})| ≤ 1
+
+GOAL:
+UniformConvergent(s, [0, 2 * π], S)
+
+METHOD:
+[@method 根据 "Dirichlet一致收敛判别法" @]

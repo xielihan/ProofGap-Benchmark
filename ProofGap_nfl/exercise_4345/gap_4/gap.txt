@@ -1,0 +1,23 @@
+PROOF GAP @4
+ASSUM:
+1. S ⊆ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+2. S_{1} ⊆ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+3. S_{2} ⊆ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+4. S_{3} ⊆ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+5. S_{4} ⊆ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+6. x ∈ RealSet
+7. y ∈ RealSet
+8. z ∈ RealSet
+9. S = S_{1} ∪ S_{2} ∪ S_{3} ∪ S_{4}
+10. S_{1} = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, x + y + z = 1, x > 0, y > 0, z > 0 }
+11. S_{2} = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, x = 0, y ≥ 0, z ≥ 0, y + z ≤ 1 }
+12. S_{3} = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, y = 0, x ≥ 0, z ≥ 0, x + z ≤ 1 }
+13. S_{4} = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, z = 0, x ≥ 0, y ≥ 0, x + y ≤ 1 }
+14. ScalarSurfaceInt(S, frac(1, (1 + x + y)^{2}) * diff(S)) = ScalarSurfaceInt(S_{1}, frac(1, (1 + x + y)^{2}) * diff(S)) + ScalarSurfaceInt(S_{2}, frac(1, (1 + x + y)^{2}) * diff(S)) + ScalarSurfaceInt(S_{3}, frac(1, (1 + x + y)^{2}) * diff(S)) + ScalarSurfaceInt(S_{4}, frac(1, (1 + x + y)^{2}) * diff(S))
+15. ScalarSurfaceInt(S, frac(1, (1 + x + y)^{2}) * diff(S)) = sqrtn(2, 3) * DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalClCl(0, 1)] . DefInt(0, 1 - x, (fun y [y ∈ RealSet ∧ y ∈ IntervalClCl(0, 1 - x)] . frac(1, (1 + x + y)^{2})) * diff(fun y [y ∈ RealSet ∧ y ∈ IntervalClCl(0, 1 - x)] . y))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalClCl(0, 1)] . x)) + DefInt(0, 1, (fun y [y ∈ RealSet ∧ y ∈ IntervalClCl(0, 1)] . DefInt(0, 1 - y, (fun z [z ∈ RealSet ∧ z ∈ IntervalClCl(0, 1 - y)] . frac(1, (1 + y)^{2})) * diff(fun z [z ∈ RealSet ∧ z ∈ IntervalClCl(0, 1 - y)] . z))) * diff(fun y [y ∈ RealSet ∧ y ∈ IntervalClCl(0, 1)] . y)) + DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalClCl(0, 1)] . DefInt(0, 1 - x, (fun z [z ∈ RealSet ∧ z ∈ IntervalClCl(0, 1 - x)] . frac(1, (1 + x)^{2})) * diff(fun z [z ∈ RealSet ∧ z ∈ IntervalClCl(0, 1 - x)] . z))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalClCl(0, 1)] . x)) + DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalClCl(0, 1)] . DefInt(0, 1 - x, (fun y [y ∈ RealSet ∧ y ∈ IntervalClCl(0, 1 - x)] . frac(1, (1 + x + y)^{2})) * diff(fun y [y ∈ RealSet ∧ y ∈ IntervalClCl(0, 1 - x)] . y))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalClCl(0, 1)] . x))
+16. ScalarSurfaceInt(S, frac(1, (1 + x + y)^{2}) * diff(S)) = (sqrtn(2, 3) + 1) * DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalClCl(0, 1)] . DefInt(0, 1 - x, (fun y [y ∈ RealSet ∧ y ∈ IntervalClCl(0, 1 - x)] . frac(1, (1 + x + y)^{2})) * diff(fun y [y ∈ RealSet ∧ y ∈ IntervalClCl(0, 1 - x)] . y))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalClCl(0, 1)] . x)) + 2 * DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalClCl(0, 1)] . DefInt(0, 1 - x, (fun z [z ∈ RealSet ∧ z ∈ IntervalClCl(0, 1 - x)] . frac(1, (1 + x)^{2})) * diff(fun z [z ∈ RealSet ∧ z ∈ IntervalClCl(0, 1 - x)] . z))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalClCl(0, 1)] . x))
+
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalClCl(0, 1)] . DefInt(0, 1 - x, (fun y [y ∈ RealSet ∧ y ∈ IntervalClCl(0, 1 - x)] . frac(1, (1 + x + y)^{2})) * diff(fun y [y ∈ RealSet ∧ y ∈ IntervalClCl(0, 1 - x)] . y))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalClCl(0, 1)] . x)) = ln(2) - frac(1, 2)
+
+METHOD:

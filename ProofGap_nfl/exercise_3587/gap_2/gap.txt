@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. y ∈ RealSet
+3. |x| < 1
+4. |y| < 1
+5. cos(y) ≠ 0 ⇒ frac(cos(x), cos(y)) = cos(x) * (1 - sin(y)^{2})^{-frac(1, 2)}
+
+GOAL:
+cos(x) ≈_{ x^{4} } 1 - frac(x^{2}, 2)
+
+METHOD:

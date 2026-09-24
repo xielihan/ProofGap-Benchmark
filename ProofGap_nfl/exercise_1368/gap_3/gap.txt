@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet
+2. x ∈ RealSet
+3. x ≠ 0
+
+GOAL:
+1 + e^{x} > 0
+
+METHOD:

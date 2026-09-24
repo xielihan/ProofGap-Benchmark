@@ -1,0 +1,7 @@
+get_prop (hypothesis 10: {forall (E), E ∈ RealSet ∧ E > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |x_{1}(n)| = n)}) (E := {1}) as (hypothesis 15: {1 ∈ RealSet ∧ 1 > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |x_{1}(n)| = n)})
+use_condition (obvious: {1 ∈ RealSet ∧ 1 > 0}) in (hypothesis 15: {1 ∈ RealSet ∧ 1 > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |x_{1}(n)| = n)}) as (hypothesis 16: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |x_{1}(n)| = n})
+rewrite_in limit (left_to_right, equation) (hypothesis 16: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |x_{1}(n)| = n}); from (GOAL: {seqlim_{ n → +∞ } (|x_{1}(n)|) = +∞}) to (GOAL: {seqlim_{ n → +∞ } (n) = +∞})
+get_prop (theorem 'Thm 471. (PositiveLinearSequenceTendsToInfinity)': {forall (c), c ∈ RealSet => c > 0 => seqlim_{k -> +∞} (c * k) = +∞}) (c := {1}) as (hypothesis 17: {1 ∈ RealSet ⇒ 1 > 0 ⇒ seqlim_{k -> +∞} (1 * k) = +∞})
+use_condition (obvious: {1 ∈ RealSet}) (obvious: {1 > 0}) in (hypothesis 17: {1 ∈ RealSet ⇒ 1 > 0 ⇒ seqlim_{k -> +∞} (1 * k) = +∞}) as (hypothesis 18: {seqlim_{k -> +∞} (1 * k) = +∞})
+autoreplace no_hypothesis; from (1 * k) to (k); from (hypothesis 18: {seqlim_{k -> +∞} (1 * k) = +∞}) to (hypothesis 19: {seqlim_{k -> +∞} (k) = +∞})
+autosolve all_hypothesis

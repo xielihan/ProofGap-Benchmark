@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. lim_{ x → 0^+ } (frac(sqrtn(2, x + sqrtn(2, x + sqrtn(2, x))), x^{frac(1, 8)})) = lim_{ x → 0^+ } (sqrtn(2, x^{frac(3, 4)} + sqrtn(2, x^{frac(1, 2)} + 1)))
+2. lim_{ x → 0^+ } (sqrtn(2, x^{frac(3, 4)} + sqrtn(2, x^{frac(1, 2)} + 1))) = 1
+
+GOAL:
+lim_{ x → 0^+ } (frac(sqrtn(2, x + sqrtn(2, x + sqrtn(2, x))), x^{frac(1, 8)})) = 1
+
+METHOD:

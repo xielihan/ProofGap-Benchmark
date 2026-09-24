@@ -1,0 +1,35 @@
+PROOF GAP @14
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. c ∈ RealSet ∧ c > 0
+4. x ∈ RealSet
+5. y ∈ RealSet
+6. z ∈ RealSet
+7. r ∈ RealSet ∧ 0 ≤ r
+8. φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2)
+9. V ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+10. I_{xy} ∈ RealSet
+11. I_{yz} ∈ RealSet
+12. I_{zx} ∈ RealSet
+13. V = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}) ≤ 1, frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) ≤ frac(x, a) }
+14. x = a * r * cos(φ)
+15. y = b * r * sin(φ)
+16. V = { (r, φ, z) | r ∈ RealSet ∧ φ ∈ RealSet ∧ z ∈ RealSet, -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2), 0 ≤ r ∧ r ≤ cos(φ), -c * sqrtn(2, 1 - r^{2}) ≤ z ∧ z ≤ c * sqrtn(2, 1 - r^{2}) }
+17. I_{xy} = DefInt(-frac(π, 2), frac(π, 2), DefInt(0, cos(φ), DefInt(-c * sqrtn(2, 1 - r^{2}), c * sqrtn(2, 1 - r^{2}), z^{2} * a * b * r * diff(fun z [z ∈ RealSet ∧ -c * sqrtn(2, 1 - r^{2}) ≤ z ∧ z ≤ c * sqrtn(2, 1 - r^{2})] . z)) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ cos(φ)] . r)) * diff(fun φ [φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2)] . φ))
+18. I_{xy} = frac(2, 3) * a * b * c^{3} * DefInt(-frac(π, 2), frac(π, 2), DefInt(0, cos(φ), (1 - r^{2})^{frac(3, 2)} * r * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ cos(φ)] . r)) * diff(fun φ [φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2)] . φ))
+19. I_{xy} = frac(4, 15) * a * b * c^{3} * DefInt(0, frac(π, 2), (1 - sin(φ)^{5}) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . φ))
+20. I_{xy} = frac(2 * a * b * c^{3}, 225) * (15 * π - 16)
+21. I_{yz} = DefInt(-frac(π, 2), frac(π, 2), DefInt(0, cos(φ), DefInt(-c * sqrtn(2, 1 - r^{2}), c * sqrtn(2, 1 - r^{2}), (a * r * cos(φ))^{2} * a * b * r * diff(fun z [z ∈ RealSet ∧ -c * sqrtn(2, 1 - r^{2}) ≤ z ∧ z ≤ c * sqrtn(2, 1 - r^{2})] . z)) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ cos(φ)] . r)) * diff(fun φ [φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2)] . φ))
+22. I_{yz} = 2 * a^{3} * b * c * DefInt(-frac(π, 2), frac(π, 2), cos(φ)^{2} * DefInt(0, cos(φ), sqrtn(2, 1 - r^{2}) * r^{3} * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ cos(φ)] . r)) * diff(fun φ [φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2)] . φ))
+23. I_{yz} = 2 * a^{3} * b * c * (frac(π, 15) - frac(92, 1575))
+24. I_{yz} = frac(2 * a^{3} * b * c, 1575) * (105 * π - 92)
+25. I_{zx} = DefInt(-frac(π, 2), frac(π, 2), DefInt(0, cos(φ), DefInt(-c * sqrtn(2, 1 - r^{2}), c * sqrtn(2, 1 - r^{2}), (b * r * sin(φ))^{2} * a * b * r * diff(fun z [z ∈ RealSet ∧ -c * sqrtn(2, 1 - r^{2}) ≤ z ∧ z ≤ c * sqrtn(2, 1 - r^{2})] . z)) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ cos(φ)] . r)) * diff(fun φ [φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2)] . φ))
+26. I_{zx} = 2 * a * b^{3} * c * DefInt(-frac(π, 2), frac(π, 2), sin(φ)^{2} * DefInt(0, cos(φ), sqrtn(2, 1 - r^{2}) * r^{3} * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ cos(φ)] . r)) * diff(fun φ [φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2)] . φ))
+27. I_{zx} = 2 * a * b^{3} * c * (frac(π, 15) - frac(272, 1575))
+28. I_{zx} = frac(2 * a * b^{3} * c, 1575) * (105 * π - 272)
+
+GOAL:
+(I_{xy}, I_{yz}, I_{zx}) = (frac(2 * a * b * c^{3}, 225) * (15 * π - 16), frac(2 * a^{3} * b * c, 1575) * (105 * π - 92), frac(2 * a * b^{3} * c, 1575) * (105 * π - 272))
+
+METHOD:

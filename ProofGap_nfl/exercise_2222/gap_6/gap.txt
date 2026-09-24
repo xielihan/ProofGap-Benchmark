@@ -1,0 +1,12 @@
+PROOF GAP @6
+ASSUM:
+1. lim_{ n → +∞ } (frac(1, n) * (sum_{ i = 1 }^{ n - 1 } (sin(frac(i * π, n))))) = lim_{ n → +∞ } (sum_{ i = 1 }^{ n - 1 } (frac(1, n) * sin(frac(i * π, n))))
+2. lim_{ n → +∞ } (sum_{ i = 1 }^{ n - 1 } (frac(1, n) * sin(frac(i * π, n)))) = DefInt(0, 1, (fun x [x ∈ RealSet] . sin(π * x)) * diff(fun x [x ∈ RealSet] . x))
+3. DefInt(0, 1, (fun x [x ∈ RealSet] . sin(π * x)) * diff(fun x [x ∈ RealSet] . x)) = ((fun x [x ∈ RealSet] . -(frac(1, π) * cos(π * x)))|_{0}^{1})
+4. ((fun x [x ∈ RealSet] . -(frac(1, π) * cos(π * x)))|_{0}^{1}) = frac(2, π)
+5. DefInt(0, 1, (fun x [x ∈ RealSet] . sin(π * x)) * diff(fun x [x ∈ RealSet] . x)) = frac(2, π)
+
+GOAL:
+lim_{ n → +∞ } (frac(1, n) * (sum_{ i = 1 }^{ n - 1 } (sin(frac(i * π, n))))) = frac(2, π)
+
+METHOD:

@@ -1,0 +1,26 @@
+PROOF GAP @12
+ASSUM:
+1. u_{1} ∈ RealSet
+2. v_{1} ∈ RealSet
+3. u_{2} ∈ RealSet
+4. v_{2} ∈ RealSet
+5. I_{1} ∈ RealSet
+6. I_{2} ∈ RealSet
+7. forall (u) (v), u ∈ RealSet ∧ u ≠ 0 ∧ v ∈ RealSet ⇒ exists (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x = u * cos(frac(v, u)) ∧ y = u * sin(frac(v, u))
+8. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ⇒ exists (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x = e^{u} + u * sin(v) ∧ y = e^{u} - u * cos(v)
+9. `φ_{1}` = (fun u, v [u ∈ RealSet ∧ u ≠ 0 ∧ v ∈ RealSet] . u * cos(frac(v, u)))
+10. `ψ_{1}` = (fun u, v [u ∈ RealSet ∧ u ≠ 0 ∧ v ∈ RealSet] . u * sin(frac(v, u)))
+11. forall (u) (v), u ∈ RealSet ∧ u ≠ 0 ∧ v ∈ RealSet ⇒ FunDeri(`φ_{1}`, 1, 1)(u, v) = cos(frac(v, u)) + frac(v, u) * sin(frac(v, u))
+12. forall (u) (v), u ∈ RealSet ∧ u ≠ 0 ∧ v ∈ RealSet ⇒ FunDeri(`φ_{1}`, 2, 1)(u, v) = -sin(frac(v, u))
+13. forall (u) (v), u ∈ RealSet ∧ u ≠ 0 ∧ v ∈ RealSet ⇒ FunDeri(`ψ_{1}`, 1, 1)(u, v) = sin(frac(v, u)) - frac(v, u) * cos(frac(v, u))
+14. forall (u) (v), u ∈ RealSet ∧ u ≠ 0 ∧ v ∈ RealSet ⇒ FunDeri(`ψ_{1}`, 2, 1)(u, v) = cos(frac(v, u))
+15. forall (u) (v), u ∈ RealSet ∧ u ≠ 0 ∧ v ∈ RealSet ⇒ I_{1} = (cos(frac(v, u)) + frac(v, u) * sin(frac(v, u))) * cos(frac(v, u)) - -sin(frac(v, u)) * (sin(frac(v, u)) - frac(v, u) * cos(frac(v, u)))
+16. forall (u) (v), u ∈ RealSet ∧ u ≠ 0 ∧ v ∈ RealSet ⇒ (cos(frac(v, u)) + frac(v, u) * sin(frac(v, u))) * cos(frac(v, u)) - -sin(frac(v, u)) * (sin(frac(v, u)) - frac(v, u) * cos(frac(v, u))) = 1
+17. I_{1} = 1
+18. `φ_{2}` = (fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . e^{u} + u * sin(v))
+19. `ψ_{2}` = (fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . e^{u} - u * cos(v))
+
+GOAL:
+forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ⇒ FunDeri(`φ_{2}`, 1, 1)(u, v) = e^{u} + sin(v)
+
+METHOD:

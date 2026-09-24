@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (t), t ∈ RealSet ∧ sin(t) * cos(t) ≠ 0 ⇒ frac(-2 * cos(t) * sin(t), 2 * sin(t) * cos(t)) = -1}) (t := {t0})
+get_condition (hypothesis 11: {t0 ∈ RealSet ∧ sin(t0) * cos(t0) ≠ 0}) in (GOAL: {t0 ∈ RealSet ∧ sin(t0) * cos(t0) ≠ 0 ⇒ frac(-2 * cos(t0) * sin(t0), 2 * sin(t0) * cos(t0)) = -1})
+destruct_and (hypothesis 11: {t0 ∈ RealSet ∧ sin(t0) * cos(t0) ≠ 0}) as (hypothesis 12: {t0 ∈ RealSet}) (hypothesis 13: {sin(t0) * cos(t0) ≠ 0})
+autosolve all_hypothesis

@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. p ∈ RealSet
+2. q ∈ RealSet
+3. u : NonNegIntegerSet → RealSet
+4. k ∈ NonNegIntegerSet
+5. p > 0
+6. q > 0
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = frac(prod_{ k = 0 }^{ n - 1 } (p + k), n!) * frac(1, n^{q})
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(u(n), u(n + 1)) = frac(n + 1, n)^{q} * frac(1 + n, p + n)
+
+METHOD:

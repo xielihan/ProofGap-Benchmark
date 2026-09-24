@@ -1,0 +1,13 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet ⇒ p(1, n) = 1}) (n := {m})
+get_condition (hypothesis 18: {m ∈ NonNegIntegerSet /\ m ∈ PosIntegerSet}) in (GOAL: {m ∈ NonNegIntegerSet /\ m ∈ PosIntegerSet ⇒ p(1, m) = 1})
+destruct_and (hypothesis 18: {m ∈ NonNegIntegerSet /\ m ∈ PosIntegerSet}) as (hypothesis 19: {m ∈ NonNegIntegerSet}) (hypothesis 20: {m ∈ PosIntegerSet})
+get_prop (hypothesis 7: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet ⇒ x(1, n) = frac(1, n)}) (n := {m}) as (hypothesis 21: {m ∈ NonNegIntegerSet /\ m ∈ PosIntegerSet ⇒ x(1, m) = frac(1, m)})
+use_condition (hypothesis 18: {m ∈ NonNegIntegerSet /\ m ∈ PosIntegerSet}) in (hypothesis 21: {m ∈ NonNegIntegerSet /\ m ∈ PosIntegerSet ⇒ x(1, m) = frac(1, m)}) as (hypothesis 22: {x(1, m) = frac(1, m)})
+get_prop (hypothesis 8: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet ⇒ y(1, n) = n}) (n := {m}) as (hypothesis 23: {m ∈ NonNegIntegerSet /\ m ∈ PosIntegerSet ⇒ y(1, m) = m})
+use_condition (hypothesis 18: {m ∈ NonNegIntegerSet /\ m ∈ PosIntegerSet}) in (hypothesis 23: {m ∈ NonNegIntegerSet /\ m ∈ PosIntegerSet ⇒ y(1, m) = m}) as (hypothesis 24: {y(1, m) = m})
+get_prop (hypothesis 9: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet ⇒ p(1, n) = x(1, n) * y(1, n)}) (n := {m}) as (hypothesis 25: {m ∈ NonNegIntegerSet /\ m ∈ PosIntegerSet ⇒ p(1, m) = x(1, m) * y(1, m)})
+use_condition (hypothesis 18: {m ∈ NonNegIntegerSet /\ m ∈ PosIntegerSet}) in (hypothesis 25: {m ∈ NonNegIntegerSet /\ m ∈ PosIntegerSet ⇒ p(1, m) = x(1, m) * y(1, m)}) as (hypothesis 26: {p(1, m) = x(1, m) * y(1, m)})
+rewrite (left_to_right, equation) (hypothesis 26: {p(1, m) = x(1, m) * y(1, m)}); from (GOAL: {p(1, m) = 1}) to (GOAL: {x(1, m) * y(1, m) = 1})
+rewrite (left_to_right, equation) (hypothesis 22: {x(1, m) = frac(1, m)}); from (GOAL: {x(1, m) * y(1, m) = 1}) to (GOAL: {frac(1, m) * y(1, m) = 1})
+rewrite (left_to_right, equation) (hypothesis 24: {y(1, m) = m}); from (GOAL: {frac(1, m) * y(1, m) = 1}) to (GOAL: {frac(1, m) * m = 1})
+autosolve all_hypothesis

@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = (1 + e^{y}) * cos(x) - y * e^{y}
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 1)(x, y) = -(1 + e^{y}) * sin(x)
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 2, 1)(x, y) = e^{y} * (cos(x) - 1 - y)
+5. forall (k), k ∈ IntegerSet ⇒ FunDeri(z, 1, 1)(k * π, (-1)^{k} - 1) = 0 ∧ FunDeri(z, 2, 1)(k * π, (-1)^{k} - 1) = 0
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 2)(x, y) = -(1 + e^{y}) * cos(x)
+
+METHOD:

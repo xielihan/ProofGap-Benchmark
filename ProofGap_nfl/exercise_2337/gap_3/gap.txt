@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. (lim_{ ε → 0^+ } (DefInt(-1 + ε, 0, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(-1 + ε, 0)] . frac(1, sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(-1 + ε, 0)] . x)))) + (lim_{ `ε'` → 0^+ } (DefInt(0, 1 - `ε'`, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1 - `ε'`)] . frac(1, sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1 - `ε'`)] . x)))) = (lim_{ ε → 0^+ } (-arcsin(-1 + ε))) + (lim_{ `ε'` → 0^+ } (arcsin(1 - `ε'`)))
+2. (lim_{ ε → 0^+ } (-arcsin(-1 + ε))) + (lim_{ `ε'` → 0^+ } (arcsin(1 - `ε'`))) = π
+
+GOAL:
+(lim_{ ε → 0^+ } (DefInt(-1 + ε, 0, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(-1 + ε, 0)] . frac(1, sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(-1 + ε, 0)] . x)))) + (lim_{ `ε'` → 0^+ } (DefInt(0, 1 - `ε'`, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1 - `ε'`)] . frac(1, sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1 - `ε'`)] . x)))) = π
+
+METHOD:

@@ -1,0 +1,22 @@
+PROOF GAP @6
+ASSUM:
+1. φ : RealSet → RealSet
+2. ψ : RealSet → RealSet
+3. x_{0} ∈ RealSet
+4. n ∈ NonNegIntegerSet
+5. n ∈ PosIntegerSet
+6. FuncOfClassKOn(φ, [x_{0}, +∞), n)
+7. FuncOfClassKOn(ψ, [x_{0}, +∞), n)
+8. forall (k), k ∈ NonNegIntegerSet ∧ k ≤ n - 1 ⇒ FunDeri(φ, 1, k)(x_{0}) = FunDeri(ψ, 1, k)(x_{0})
+9. forall (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(x_{0}, +∞) ⇒ FunDeri(φ, 1, n)(t) > FunDeri(ψ, 1, n)(t)
+10. F = (fun x [x ∈ RealSet] . φ(x) - ψ(x))
+11. Defined(F, [x_{0}, +∞))
+12. forall (k), k ∈ NonNegIntegerSet ∧ k ≤ n - 1 ⇒ FunDeri(F, 1, k)(x_{0}) = FunDeri(φ, 1, k)(x_{0}) - FunDeri(ψ, 1, k)(x_{0}) ∧ FunDeri(φ, 1, k)(x_{0}) - FunDeri(ψ, 1, k)(x_{0}) = 0
+13. forall (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(x_{0}, +∞) ⇒ FunDeri(F, 1, n)(t) = FunDeri(φ, 1, n)(t) - FunDeri(ψ, 1, n)(t) ∧ FunDeri(φ, 1, n)(t) - FunDeri(ψ, 1, n)(t) > 0
+14. StrictMonoIncFuncOn(FunDeri(F, 1, n - 1), IntervalLoRo(x_{0}, +∞))
+15. forall (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(x_{0}, +∞) ⇒ FunDeri(F, 1, n - 1)(t) > FunDeri(F, 1, n - 1)(x_{0}) ∧ FunDeri(F, 1, n - 1)(x_{0}) = 0
+
+GOAL:
+forall (r), r ∈ NonNegIntegerSet ∧ r ≤ n - 1 ⇒ StrictMonoIncFuncOn(FunDeri(F, 1, r), IntervalLoRo(x_{0}, +∞)) ∧ (forall (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(x_{0}, +∞) ⇒ FunDeri(F, 1, r)(t) > FunDeri(F, 1, r)(x_{0}) ∧ FunDeri(F, 1, r)(x_{0}) = 0)
+
+METHOD:

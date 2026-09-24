@@ -1,0 +1,10 @@
+assert (hypothesis 5: {0 ∈ RealSet ∧ 0 ≤ 0 ∧ 0 ≤ 3}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 6: {3 ∈ RealSet ∧ 0 ≤ 3 ∧ 3 ≤ 3}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 7: {f(0) = f(3)}) by proof {
+  autosolve all_hypothesis
+}
+apply (hypothesis 7: {f(0) = f(3)})

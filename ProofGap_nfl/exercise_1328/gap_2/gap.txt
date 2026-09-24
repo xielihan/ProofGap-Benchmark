@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. lim_{ x → 0^+ } (frac(1, x * sqrtn(2, x)) * (sqrtn(2, a) * arctan(sqrtn(2, frac(x, a))) - sqrtn(2, b) * arctan(sqrtn(2, frac(x, b))))) = lim_{ x → 0^+ } (frac(frac(sqrtn(2, a), 1 + frac(x, a)) * frac(1, 2 * sqrtn(2, a) * sqrtn(2, x)) - frac(sqrtn(2, b), 1 + frac(x, b)) * frac(1, 2 * sqrtn(2, b) * sqrtn(2, x)), frac(3, 2) * sqrtn(2, x)))
+
+GOAL:
+lim_{ x → 0^+ } (frac(frac(sqrtn(2, a), 1 + frac(x, a)) * frac(1, 2 * sqrtn(2, a) * sqrtn(2, x)) - frac(sqrtn(2, b), 1 + frac(x, b)) * frac(1, 2 * sqrtn(2, b) * sqrtn(2, x)), frac(3, 2) * sqrtn(2, x))) = lim_{ x → 0^+ } (frac(frac(a, x + a) - frac(b, x + b), 3 * x))
+
+METHOD:

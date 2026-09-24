@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. sqrtn(5, 250) = 3 * (1 + frac(7, 243))^{frac(1, 5)}
+2. (1 + frac(7, 243))^{frac(1, 5)} ≈_{ 3 * frac(frac(1, 5) * frac(4, 5) * frac(9, 5), 3!) * frac(7, 243)^{3} } 1 + frac(1, 5) * frac(7, 243) + frac(frac(1, 5) * (frac(1, 5) - 1), 2!) * frac(7, 243)^{2}
+
+GOAL:
+sqrtn(5, 250) ≈_{ 3.45 * 10^{-6} } 3.0171
+
+METHOD:

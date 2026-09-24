@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = floor(x) * sin(π * x)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∉ IntegerSet ⇒ FunDeri(f, 1, 1)(x) = π * floor(x) * cos(π * x)
+
+METHOD:

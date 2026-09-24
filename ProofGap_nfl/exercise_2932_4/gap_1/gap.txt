@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. Δ ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ cos(x^{2}) = sum_{ n = 0 }^{ +∞ } (frac((-1)^{n} * x^{4 * n}, (2 * n)!))
+
+METHOD:

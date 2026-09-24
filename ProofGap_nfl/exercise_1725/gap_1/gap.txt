@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. C ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ frac((1 + x)^{2}, 1 + x^{2}) = 1 + frac(2 * x, 1 + x^{2})
+
+METHOD:

@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x + n ≠ 0
+3. (exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x = -n) ⇒ (exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x + n = 0)
+
+GOAL:
+(exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x = -n) ⇒ ¬Defined(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . (-1)^{n} / (x + n), PosIntegerSet)
+
+METHOD:

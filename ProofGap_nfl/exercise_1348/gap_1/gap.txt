@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ∧ tan(x) > 0 ∧ cos(2 * x) ≠ 0 ∧ x ≠ frac(π, 4) ⇒ lim_{ x → frac(π, 4) } (tan(2 * x) * ln(tan(x))) = lim_{ x → frac(π, 4) } (frac(ln(tan(x)), cot(2 * x)))
+
+METHOD:

@@ -1,0 +1,17 @@
+PROOF GAP @9
+ASSUM:
+1. p ∈ RealSet
+2. q ∈ RealSet
+3. lim_{ x → 0^+ } (x^{p} * frac(1, sin(x)^{p} * cos(x)^{q})) = (lim_{ x → 0^+ } (frac(x, sin(x))^{p})) * (lim_{ x → 0^+ } (frac(1, cos(x)^{q})))
+4. (lim_{ x → 0^+ } (frac(x, sin(x))^{p})) * (lim_{ x → 0^+ } (frac(1, cos(x)^{q}))) = 1
+5. lim_{ x → 0^+ } (x^{p} * frac(1, sin(x)^{p} * cos(x)^{q})) = 1
+6. exists (I_{1}), I_{1} ∈ RealSet ∧ (DefInt(0, frac(π, 4), (fun x [x ∈ RealSet] . frac(1, sin(x)^{p} * cos(x)^{q})) * diff(fun x [x ∈ RealSet] . x)) = I_{1} ⇔ p < 1)
+7. lim_{ x → frac(π, 2)^- } ((frac(π, 2) - x)^{q} * frac(1, sin(x)^{p} * cos(x)^{q})) = (lim_{ x → frac(π, 2)^- } (frac(frac(π, 2) - x, cos(x))^{q})) * (lim_{ x → frac(π, 2)^- } (frac(1, sin(x)^{p})))
+8. (lim_{ x → frac(π, 2)^- } (frac(frac(π, 2) - x, cos(x))^{q})) * (lim_{ x → frac(π, 2)^- } (frac(1, sin(x)^{p}))) = lim_{ t → 0^+ } (frac(t, sin(t))^{q})
+9. lim_{ t → 0^+ } (frac(t, sin(t))^{q}) = 1
+10. lim_{ x → frac(π, 2)^- } ((frac(π, 2) - x)^{q} * frac(1, sin(x)^{p} * cos(x)^{q})) = 1
+
+GOAL:
+exists (I_{2}), I_{2} ∈ RealSet ∧ (DefInt(frac(π, 4), frac(π, 2), (fun x [x ∈ RealSet] . frac(1, sin(x)^{p} * cos(x)^{q})) * diff(fun x [x ∈ RealSet] . x)) = I_{2} ⇔ q < 1)
+
+METHOD:

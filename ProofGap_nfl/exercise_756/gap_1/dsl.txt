@@ -1,0 +1,4 @@
+get_prop (hypothesis 5: {forall (x), x ∈ RealSet ⇒ f(x) = cases{ sin(frac(1, x - a)) if x ≠ a; 0 if x = a }}) (x := {a}) as (hypothesis 6: {a ∈ RealSet ⇒ f(a) = cases{ sin(frac(1, a - a)) if a ≠ a; 0 if a = a }})
+use_condition (hypothesis 2: {a ∈ RealSet}) in (hypothesis 6: {a ∈ RealSet ⇒ f(a) = cases{ sin(frac(1, a - a)) if a ≠ a; 0 if a = a }}) as (hypothesis 7: {f(a) = cases{ sin(frac(1, a - a)) if a ≠ a; 0 if a = a }})
+rewrite (left_to_right, equation) (hypothesis 7: {f(a) = cases{ sin(frac(1, a - a)) if a ≠ a; 0 if a = a }}); from (GOAL: {f(a) = 0}) to (GOAL: {cases{ sin(frac(1, a - a)) if a ≠ a; 0 if a = a } = 0})
+autosolve all_hypothesis

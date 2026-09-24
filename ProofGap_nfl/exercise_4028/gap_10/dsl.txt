@@ -1,0 +1,3 @@
+destruct_and (hypothesis 8: {x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} ∈ RealSet ∧ x * y = u * a^{2}}) as (hypothesis 15: {x ∈ RealSet}) (hypothesis 16: {y ∈ RealSet}) (hypothesis 17: {x^{2} + y^{2} ∈ RealSet}) (hypothesis 18: {x * y = u * a^{2}})
+exists (z := {x^{2} + y^{2}})
+autosolve (hypothesis 17: {x^{2} + y^{2} ∈ RealSet})

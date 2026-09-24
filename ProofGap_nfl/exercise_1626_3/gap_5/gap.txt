@@ -1,0 +1,17 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. `ξ_3` ∈ RealSet ∧ `ξ_3` ∈ PosRealSet
+3. x_{1} ∈ RealSet
+4. x_{2} ∈ RealSet
+5. x_{3} ∈ RealSet
+6. forall (x), x ∈ RealSet ∧ (forall (k), k ∈ IntegerSet ⇒ x ≠ frac(π, 2) + k * π) ⇒ f(x) = tan(x) - x
+7. f(frac(111 * π, 32)) < 0
+8. f(frac(223 * π, 64)) > 0
+9. ContinuousFuncOn(f, [frac(111 * π, 32), frac(223 * π, 64)])
+10. existsUnique (`ξ_3`), `ξ_3` ∈ RealSet ∧ `ξ_3` ∈ IntervalLoRo(frac(111 * π, 32), frac(223 * π, 64)) ∧ f(`ξ_3`) = 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(frac(111 * π, 32), frac(223 * π, 64)) ⇒ FunDeri(f, 1, 1)(x) > 0 ∧ FunDeri(f, 1, 2)(x) > 0
+
+METHOD:

@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. A ∈ RealSet
+3. b ∈ RealSet
+4. f : IntervalLoRo(A, +∞) → RealSet
+5. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ N > A ∧ (forall (x), x ∈ RealSet ∧ x > N ⇒ 0 < f(x) - b ∧ f(x) - b < ε))
+6. y = (fun x [x ∈ RealSet ∧ x > 0] . frac(1, x))
+7. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x > N ⇒ 0 < y(x) - 0 ∧ y(x) - 0 < ε))
+8. lim_{ x → +∞ } (y(x)) = 0 + 0
+
+GOAL:
+(forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ N > A ∧ (forall (x), x ∈ RealSet ∧ x > N ⇒ 0 < f(x) - b ∧ f(x) - b < ε))) ⇔ lim_{ x → +∞ } (f(x)) = b + 0
+
+METHOD:

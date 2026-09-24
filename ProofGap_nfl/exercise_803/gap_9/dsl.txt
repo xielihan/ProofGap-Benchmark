@@ -1,0 +1,2 @@
+get_condition (hypothesis 12: {n > 1800000}) in (GOAL: {n > 1800000 => frac(180, n) < 0.0001})
+autosolve all_hypothesis

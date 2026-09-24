@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. f = (fun x [x ∈ RealSet] . frac(x + |x|, 2))
+2. g = (fun x [x ∈ RealSet] . frac(x - |x|, 2))
+3. F = (fun x [x ∈ RealSet] . f(x) + g(x))
+4. (fun x [x ∈ RealSet] . f(x) + g(x)) = (fun x [x ∈ RealSet] . x)
+5. ¬DiffableFuncAt(f, 0)
+
+GOAL:
+¬DiffableFuncAt(g, 0)
+
+METHOD:

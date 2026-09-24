@@ -1,0 +1,17 @@
+PROOF GAP @6
+ASSUM:
+1. α ∈ RealSet
+2. n ∈ NonNegIntegerSet ∧ n > 0
+3. i ∈ IntegerSet
+4. |α| ≠ 1
+5. forall (x), x ∈ IntervalCC(0, π) ∧ x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π ⇒ (1 - |α|)^{2} ≤ 1 - 2 * α * cos(x) + α^{2}
+6. ContinuousFuncOn(fun x [x ∈ RealSet ∧ x ∈ IntervalCC(0, π)] . ln(1 - 2 * α * cos(x) + α^{2}), [0, π])
+7. S(n) = frac(π, n) * (sum_{ i = 1 }^{ n } (ln(1 - 2 * α * cos(frac(i * π, n)) + α^{2})))
+8. S(n) = frac(π, n) * ln((1 + α)^{2} * (prod_{ i = 1 }^{ n - 1 } (1 - 2 * α * cos(frac(i * π, n)) + α^{2})))
+9. forall (n) (t), n ∈ NonNegIntegerSet ∧ n > 0 ∧ t ∈ ComplexSet ⇒ t^{2 * n} - 1 = (t^{2} - 1) * (prod_{ i = 1 }^{ n - 1 } (1 - 2 * t * cos(frac(i * π, n)) + t^{2}))
+10. exists (ε), ε : IntegerSet → ComplexSet ∧ (forall (i), i ∈ IntegerSet ∧ 1 ≤ i ∧ i ≤ n ⇒ ε(i) = cos(frac(i * π, n)) + __IMAGINARY_UNIT__ * sin(frac(i * π, n)))
+
+GOAL:
+exists (ε), ε : IntegerSet → ComplexSet ∧ (forall (i), i ∈ IntegerSet ∧ 1 ≤ i ∧ i ≤ n - 1 ⇒ bar(ε(i)) = cos(frac(i * π, n)) - __IMAGINARY_UNIT__ * sin(frac(i * π, n)))
+
+METHOD:

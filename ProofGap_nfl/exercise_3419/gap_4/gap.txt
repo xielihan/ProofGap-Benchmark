@@ -1,0 +1,27 @@
+PROOF GAP @4
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. t : CartesianProd(RealSet, RealSet) → RealSet
+3. f : CartesianProd(RealSet, CartesianProd(RealSet, CartesianProd(RealSet, RealSet))) → RealSet
+4. g : CartesianProd(RealSet, CartesianProd(RealSet, CartesianProd(RealSet, RealSet))) → RealSet
+5. I_{1} : CartesianProd(RealSet, RealSet) → RealSet
+6. I_{2} : CartesianProd(RealSet, RealSet) → RealSet
+7. I_{3} : CartesianProd(RealSet, RealSet) → RealSet
+8. DiffableFunc(z)
+9. DiffableFunc(t)
+10. DiffableFunc(f)
+11. DiffableFunc(g)
+12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x, y, z(x, y), t(x, y)) = 0
+13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ g(x, y, z(x, y), t(x, y)) = 0
+14. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ I_{1}(x, y) = FunDeri(f, 1, 1)(x, y, z(x, y), t(x, y)) * FunDeri(g, 4, 1)(x, y, z(x, y), t(x, y)) - FunDeri(f, 4, 1)(x, y, z(x, y), t(x, y)) * FunDeri(g, 1, 1)(x, y, z(x, y), t(x, y))
+15. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ I_{2}(x, y) = FunDeri(f, 2, 1)(x, y, z(x, y), t(x, y)) * FunDeri(g, 4, 1)(x, y, z(x, y), t(x, y)) - FunDeri(f, 4, 1)(x, y, z(x, y), t(x, y)) * FunDeri(g, 2, 1)(x, y, z(x, y), t(x, y))
+16. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ I_{3}(x, y) = FunDeri(f, 3, 1)(x, y, z(x, y), t(x, y)) * FunDeri(g, 4, 1)(x, y, z(x, y), t(x, y)) - FunDeri(f, 4, 1)(x, y, z(x, y), t(x, y)) * FunDeri(g, 3, 1)(x, y, z(x, y), t(x, y))
+17. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ I_{3}(x, y) ≠ 0
+18. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(f, 1, 1)(x, y, z(x, y), t(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + FunDeri(f, 2, 1)(x, y, z(x, y), t(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) + FunDeri(f, 3, 1)(x, y, z(x, y), t(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y)) + FunDeri(f, 4, 1)(x, y, z(x, y), t(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . t(x, y)) = 0
+19. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(g, 1, 1)(x, y, z(x, y), t(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + FunDeri(g, 2, 1)(x, y, z(x, y), t(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) + FunDeri(g, 3, 1)(x, y, z(x, y), t(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y)) + FunDeri(g, 4, 1)(x, y, z(x, y), t(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . t(x, y)) = 0
+20. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y)) = frac(FunDeri(f, 4, 1)(x, y, z(x, y), t(x, y)) * (FunDeri(g, 1, 1)(x, y, z(x, y), t(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + FunDeri(g, 2, 1)(x, y, z(x, y), t(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) - FunDeri(g, 4, 1)(x, y, z(x, y), t(x, y)) * (FunDeri(f, 1, 1)(x, y, z(x, y), t(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + FunDeri(f, 2, 1)(x, y, z(x, y), t(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)), I_{3}(x, y))
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y)) = -frac(I_{1}(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + I_{2}(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y), I_{3}(x, y))
+
+METHOD:

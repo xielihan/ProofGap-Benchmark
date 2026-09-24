@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. u : NonNegIntegerSet → RealSet
+2. k ∈ NonNegIntegerSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = frac(sqrtn(2, n!), prod_{ k = 1 }^{ n } (2 + sqrtn(2, k)))
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(u(n), u(n + 1)) = frac(2 + sqrtn(2, n + 1), sqrtn(2, n + 1))
+5. seqlim_{ n → +∞ } (n * (frac(u(n), u(n + 1)) - 1)) = seqlim_{ n → +∞ } (n * (frac(2 + sqrtn(2, n + 1), sqrtn(2, n + 1)) - 1))
+6. seqlim_{ n → +∞ } (n * (frac(2 + sqrtn(2, n + 1), sqrtn(2, n + 1)) - 1)) = seqlim_{ n → +∞ } (frac(2 * n, sqrtn(2, n + 1)))
+
+GOAL:
+seqlim_{ n → +∞ } (frac(2 * n, sqrtn(2, n + 1))) = +∞
+
+METHOD:

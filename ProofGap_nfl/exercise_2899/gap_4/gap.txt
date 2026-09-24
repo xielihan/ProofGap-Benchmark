@@ -1,0 +1,21 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. a : NonNegIntegerSet → RealSet
+3. x_{0} ∈ RealSet
+4. M ∈ RealSet ∧ M > 0
+5. L ∈ RealSet
+6. P ∈ RealSet
+7. Rem : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+8. a ∈ RealSet
+9. forall (n), n ∈ NonNegIntegerSet ⇒ a(n) ∈ RealSet
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 0 ⇒ (forall (x), x ∈ RealSet ⇒ f(x) = sum_{ n = 0 }^{ +∞ } (a(n) * (x - x_{0})^{n}))
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |n! * a(n)| < M
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |a(n)| < frac(M, n!)
+13. forall (N), N ∈ RealSet ∧ N > 0 ∧ x_{0} ∈ [-N, N] ⇒ (forall (x) (N) (n), x ∈ RealSet ∧ N ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ x ∈ [-N, N] ∧ n ∈ PosIntegerSet ⇒ |a(n) * (x - x_{0})^{n}| < frac(M, n!) * (2 * N)^{n})
+14. forall (N), N ∈ RealSet ∧ N > 0 ∧ x_{0} ∈ [-N, N] ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac(M, n!) * (2 * N)^{n}))
+
+GOAL:
+forall (N), N ∈ RealSet ∧ N > 0 ∧ x_{0} ∈ [-N, N] ⇒ UniformConvergent(fun n [n ∈ NonNegIntegerSet] . fun x [x ∈ RealSet] . a(n) * (x - x_{0})^{n}, [-N, N], f)
+
+METHOD:

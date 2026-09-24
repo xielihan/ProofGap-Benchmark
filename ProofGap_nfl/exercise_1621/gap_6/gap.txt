@@ -1,0 +1,15 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. forall (t), t ∈ RealSet ∧ t ≠ 0 ⇒ f(t) = t^{2} + frac(1, t^{2}) - 10 * t
+4. f(0.4) = 2.41
+5. f(0.5) = -0.75
+6. forall (t), t ∈ RealSet ∧ 0.4 < t ∧ t < 0.5 ⇒ FunDeri(f, 1, 1)(t) ≠ 0
+7. exists (`ξ_1`), `ξ_1` ∈ RealSet ∧ `ξ_1` ∈ IntervalLoRo(0.4, 0.5) ∧ f(`ξ_1`) = 0 ∧ (forall (`ξ_11`), `ξ_11` ∈ RealSet ∧ `ξ_11` ∈ IntervalLoRo(0.4, 0.5) ∧ f(`ξ_11`) = 0 ⇒ `ξ_11` = `ξ_1`)
+8. forall (t), t ∈ RealSet ∧ 0.4 ≤ t ∧ t ≤ 0.5 ⇒ FunDeri(f, 1, 2)(t) ≠ 0
+
+GOAL:
+f(0.4) * FunDeri(f, 1, 2)(0.4) > 0
+
+METHOD:

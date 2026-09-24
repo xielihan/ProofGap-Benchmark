@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ sqrtn(2, r(φ)^{2} + FunDeri(r, 1, 1)(φ)^{2}) = a * (1 - frac(1, 1 + cosh(φ)))}) (φ := {u})
+get_condition (hypothesis 10: {u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 2 * π}) in (GOAL: {u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 2 * π ⇒ sqrtn(2, r(u)^{2} + FunDeri(r, 1, 1)(u)^{2}) = a * (1 - frac(1, 1 + cosh(u)))})
+get_prop (hypothesis 9: {forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ sqrtn(2, r(φ)^{2} + FunDeri(r, 1, 1)(φ)^{2}) = frac(a * cosh(φ), 1 + cosh(φ))}) (φ := {u}) as (hypothesis 11: {u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 2 * π ⇒ sqrtn(2, r(u)^{2} + FunDeri(r, 1, 1)(u)^{2}) = frac(a * cosh(u), 1 + cosh(u))})
+use_condition (hypothesis 10: {u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 2 * π}) in (hypothesis 11: {u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 2 * π ⇒ sqrtn(2, r(u)^{2} + FunDeri(r, 1, 1)(u)^{2}) = frac(a * cosh(u), 1 + cosh(u))}) as (hypothesis 12: {sqrtn(2, r(u)^{2} + FunDeri(r, 1, 1)(u)^{2}) = frac(a * cosh(u), 1 + cosh(u))})
+autoreplace no_hypothesis; from (frac(a * cosh(u), 1 + cosh(u))) to (a * (1 - frac(1, 1 + cosh(u)))); from (hypothesis 12: {sqrtn(2, r(u)^{2} + FunDeri(r, 1, 1)(u)^{2}) = frac(a * cosh(u), 1 + cosh(u))}) to (hypothesis 13: {sqrtn(2, r(u)^{2} + FunDeri(r, 1, 1)(u)^{2}) = a * (1 - frac(1, 1 + cosh(u)))})
+apply (hypothesis 13: {sqrtn(2, r(u)^{2} + FunDeri(r, 1, 1)(u)^{2}) = a * (1 - frac(1, 1 + cosh(u)))})

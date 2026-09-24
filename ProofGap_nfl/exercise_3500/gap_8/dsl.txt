@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ⇒ 1 + FunDeri(z, y, 1)(x, y) = frac(1, 1 - FunDeri(z, v, 1)(u, v))}) (y := {y1}) (x := {x1})
+get_condition (hypothesis 15: {y1 ∈ RealSet ∧ x1 ∈ RealSet}) in (GOAL: {y1 ∈ RealSet ∧ x1 ∈ RealSet ⇒ 1 + FunDeri(z, y1, 1)(x1, y1) = frac(1, 1 - FunDeri(z, v, 1)(u, v))})
+get_prop (hypothesis 14: {forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ⇒ FunDeri(z, y, 1)(x, y) = frac(FunDeri(z, v, 1)(u, v), 1 - FunDeri(z, v, 1)(u, v))}) (y := {y1}) (x := {x1}) as (hypothesis 16: {y1 ∈ RealSet ∧ x1 ∈ RealSet ⇒ FunDeri(z, y1, 1)(x1, y1) = frac(FunDeri(z, v, 1)(u, v), 1 - FunDeri(z, v, 1)(u, v))})
+use_condition (hypothesis 15: {y1 ∈ RealSet ∧ x1 ∈ RealSet}) in (hypothesis 16: {y1 ∈ RealSet ∧ x1 ∈ RealSet ⇒ FunDeri(z, y1, 1)(x1, y1) = frac(FunDeri(z, v, 1)(u, v), 1 - FunDeri(z, v, 1)(u, v))}) as (hypothesis 17: {FunDeri(z, y1, 1)(x1, y1) = frac(FunDeri(z, v, 1)(u, v), 1 - FunDeri(z, v, 1)(u, v))})
+autosolve all_hypothesis

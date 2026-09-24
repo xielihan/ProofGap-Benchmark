@@ -1,0 +1,21 @@
+PROOF GAP @4
+ASSUM:
+1. R_{1} ∈ RealSet ∧ 0 < R_{1}
+2. R_{2} ∈ RealSet ∧ R_{1} < R_{2}
+3. f : RealSet → RealSet
+4. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+5. x ∈ RealSet
+6. y ∈ RealSet
+7. z ∈ RealSet
+8. r ∈ RealSet ∧ r ≥ 0
+9. ContinuousFuncOn(f, [R_{1}, R_{2}])
+10. r = sqrtn(2, x^{2} + y^{2} + z^{2})
+11. u(x, y, z) = VolumeInt({ (ξ, η, ζ) | ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet, (R_{1})^{2} ≤ ξ^{2} + η^{2} + ζ^{2} ∧ ξ^{2} + η^{2} + ζ^{2} ≤ (R_{2})^{2} }, f(sqrtn(2, ξ^{2} + η^{2} + ζ^{2})) * frac(1, sqrtn(2, (ξ - x)^{2} + (η - y)^{2} + (ζ - z)^{2})) * diff(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . ξ) * diff(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . η) * diff(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . ζ))
+12. u(x, y, z) = VolumeInt({ (ξ, η, ζ) | ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet, (R_{1})^{2} ≤ ξ^{2} + η^{2} + ζ^{2} ∧ ξ^{2} + η^{2} + ζ^{2} ≤ (R_{2})^{2} }, f(sqrtn(2, ξ^{2} + η^{2} + ζ^{2})) * frac(1, sqrtn(2, ξ^{2} + η^{2} + (ζ - r)^{2})) * diff(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . ξ) * diff(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . η) * diff(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . ζ))
+13. u(x, y, z) = DefInt(0, 2 * π, diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . φ)) * DefInt(R_{1}, R_{2}, (fun rho [rho ∈ RealSet ∧ R_{1} ≤ rho ∧ rho ≤ R_{2}] . rho^{2} * f(rho) * DefInt(-frac(π, 2), frac(π, 2), (fun ψ [ψ ∈ RealSet ∧ -frac(π, 2) ≤ ψ ∧ ψ ≤ frac(π, 2)] . cos(ψ) * frac(1, sqrtn(2, rho^{2} + r^{2} - 2 * rho * r * sin(ψ)))) * diff(fun ψ [ψ ∈ RealSet ∧ -frac(π, 2) ≤ ψ ∧ ψ ≤ frac(π, 2)] . ψ))) * diff(fun rho [rho ∈ RealSet ∧ R_{1} ≤ rho ∧ rho ≤ R_{2}] . rho))
+14. u(x, y, z) = 2 * π * DefInt(R_{1}, R_{2}, (fun rho [rho ∈ RealSet ∧ R_{1} ≤ rho ∧ rho ≤ R_{2}] . rho^{2} * f(rho) * DefInt(-frac(π, 2), frac(π, 2), (fun ψ [ψ ∈ RealSet ∧ -frac(π, 2) ≤ ψ ∧ ψ ≤ frac(π, 2)] . cos(ψ) * frac(1, sqrtn(2, rho^{2} + r^{2} - 2 * rho * r * sin(ψ)))) * diff(fun ψ [ψ ∈ RealSet ∧ -frac(π, 2) ≤ ψ ∧ ψ ≤ frac(π, 2)] . ψ))) * diff(fun rho [rho ∈ RealSet ∧ R_{1} ≤ rho ∧ rho ≤ R_{2}] . rho))
+
+GOAL:
+forall (rho), rho ∈ RealSet ∧ R_{1} ≤ rho ∧ rho ≤ R_{2} ∧ r > 0 ⇒ DefInt(-frac(π, 2), frac(π, 2), (fun ψ [ψ ∈ RealSet ∧ -frac(π, 2) ≤ ψ ∧ ψ ≤ frac(π, 2)] . cos(ψ) * frac(1, sqrtn(2, rho^{2} + r^{2} - 2 * rho * r * sin(ψ)))) * diff(fun ψ [ψ ∈ RealSet ∧ -frac(π, 2) ≤ ψ ∧ ψ ≤ frac(π, 2)] . ψ)) = -frac(1, rho * r) * (|rho - r| - (rho + r))
+
+METHOD:

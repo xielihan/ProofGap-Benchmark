@@ -1,0 +1,4 @@
+rewrite (left_to_right, equation) (hypothesis 19: {lim_{ x → x_{0}^- } (FunDeri(F, 1, 1)(x)) = lim_{ x → x_{0}^+ } (FunDeri(F, 1, 1)(x))}); from (hypothesis 16: {lim_{ x → x_{0}^- } (FunDeri(F, 1, 1)(x)) = FunDeri(f, 1, 1)(x_{0})}) to (hypothesis 20: {lim_{ x → x_{0}^+ } (FunDeri(F, 1, 1)(x)) = FunDeri(f, 1, 1)(x_{0})})
+assert (hypothesis 21: {2 * a * (x_{0} - x_{0}) + b = b})
+rewrite (left_to_right, equation) (hypothesis 21: {2 * a * (x_{0} - x_{0}) + b = b}); from (hypothesis 17: {lim_{ x → x_{0}^+ } (FunDeri(F, 1, 1)(x)) = 2 * a * (x_{0} - x_{0}) + b}) to (hypothesis 22: {lim_{ x → x_{0}^+ } (FunDeri(F, 1, 1)(x)) = b})
+autosolve all_hypothesis

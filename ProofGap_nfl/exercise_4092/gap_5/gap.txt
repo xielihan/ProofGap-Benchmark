@@ -1,0 +1,35 @@
+PROOF GAP @5
+ASSUM:
+1. V ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. α ∈ RealSet
+5. β ∈ RealSet
+6. h ∈ RealSet
+7. p ∈ RealSet
+8. q ∈ RealSet
+9. s ∈ RealSet
+10. u ∈ RealSet
+11. v ∈ RealSet
+12. w ∈ RealSet
+13. x : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+14. y : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+15. z : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+16. 0 < a
+17. a < b
+18. 0 < α
+19. α < β
+20. h > 0
+21. V = { (p, q, s) | p ∈ RealSet ∧ q ∈ RealSet ∧ s ∈ RealSet ∧ q > 0 ∧ s ≥ a * q^{2} ∧ s ≤ b * q^{2} ∧ s ≥ α * p ∧ s ≤ β * p ∧ p ≤ h }
+22. u = frac(z, y^{2})
+23. v = frac(z, x)
+24. w = z
+25. x(u, v, w) = frac(w, v)
+26. y(u, v, w) = sqrtn(2, frac(w, u))
+27. z(u, v, w) = w
+28. u > 0
+
+GOAL:
+v ≠ 0
+
+METHOD:

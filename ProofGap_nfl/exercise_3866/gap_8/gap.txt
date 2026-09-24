@@ -1,0 +1,21 @@
+PROOF GAP @8
+ASSUM:
+1. p ∈ RealSet
+2. B : CartesianProd(RealSet, RealSet) → RealSet
+3. Gamma : RealSet → RealSet
+4. 0 < p
+5. p < 1
+6. lim_{ x → 1^- } (frac(x^{p - 1} - x^{-p}, 1 - x)) = 1 - 2 * p
+7. p_{0} = max(p, 1 - p)
+8. forall ((p_{0})_{star}), (p_{0})_{star} ∈ RealSet ∧ p_{0} < (p_{0})_{star} ∧ (p_{0})_{star} < 1 ⇒ lim_{ x → 0^+ } (x^{(p_{0})_{star}} * |frac(x^{p - 1} - x^{-p}, 1 - x)|) = 0
+9. forall ((p_{0})_{star}), (p_{0})_{star} ∈ RealSet ∧ p_{0} < (p_{0})_{star} ∧ (p_{0})_{star} < 1 ⇒ DefInt(0, 1, (fun x [x ∈ RealSet] . frac(x^{p - 1} - x^{-p}, 1 - x)) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet] . frac(x^{p - 1} - x^{-p}, 1 - x)) * diff(fun x [x ∈ RealSet] . x))
+10. I = (fun ε [ε ∈ RealSet] . DefInt(0, 1, (fun x [x ∈ RealSet] . frac(x^{p - 1} - x^{-p}, (1 - x)^{1 - ε})) * diff(fun x [x ∈ RealSet] . x)))
+11. forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < 1 ⇒ I(ε) = B(p, ε) - B(1 - p, ε)
+12. DefInt(0, 1, (fun x [x ∈ RealSet] . frac(x^{p - 1} - x^{-p}, 1 - x)) * diff(fun x [x ∈ RealSet] . x)) = I(0)
+13. I(0) = lim_{ ε → 0^+ } (I(ε))
+14. lim_{ ε → 0^+ } (I(ε)) = lim_{ ε → 0^+ } (B(p, ε) - B(1 - p, ε))
+
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet] . frac(x^{p - 1} - x^{-p}, 1 - x)) * diff(fun x [x ∈ RealSet] . x)) = lim_{ ε → 0^+ } (B(p, ε) - B(1 - p, ε))
+
+METHOD:

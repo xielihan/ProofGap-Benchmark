@@ -1,0 +1,38 @@
+PROOF GAP @16
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. c ∈ RealSet
+4. d ∈ RealSet
+5. f : RealSet → RealSet
+6. φ : RealSet → RealSet
+7. y : RealSet → RealSet
+8. a < b
+9. c < d
+10. ContinuousFuncOn(f, IntervalLoRo(a, b))
+11. StrictMonoIncFuncOn(φ, IntervalLoRo(c, d))
+12. ContinuousFuncOn(φ, IntervalLoRo(c, d))
+13. (exists (x_{0}) (y_{0}), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ∧ y_{0} ∈ IntervalLoRo(c, d) ∧ φ(y_{0}) = f(x_{0})) ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x) (x_{0}) (δ), x ∈ RealSet ∧ x_{0} ∈ RealSet ∧ δ ∈ RealSet ∧ x ∈ IntervalLoRo(x_{0} - δ, x_{0} + δ) ⇒ (exists (x), x ∈ RealSet ∧ y(x) ∈ IntervalLoRo(c, d) ∧ φ(y(x)) = f(x) ∧ (forall (x1), x1 ∈ RealSet ∧ y(x1) ∈ IntervalLoRo(c, d) ∧ φ(y(x1)) = f(x1) ⇒ x1 = x))))
+14. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ∧ (exists (x_{0}) (y_{0}), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ∧ y_{0} ∈ IntervalLoRo(c, d) ∧ φ(y_{0}) = f(x_{0})) ⇒ y(x) = InverseFunc(φ, f(x))
+15. forall (x_{0}) (y_{0}), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ (exists (x_{0}) (y_{0}), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ∧ y_{0} ∈ IntervalLoRo(c, d) ∧ φ(y_{0}) = f(x_{0})) ⇒ y_{0} = InverseFunc(φ, f(x_{0}))
+16. forall (x_{0}), x_{0} ∈ RealSet ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ ((exists (x_{0}) (y_{0}), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ∧ y_{0} ∈ IntervalLoRo(c, d) ∧ φ(y_{0}) = f(x_{0})) ⇒ ContinuousFuncOn(y, IntervalLoRo(x_{0} - δ, x_{0} + δ))))
+17. (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ lim_{ y → c^+ } (φ(y)) < f(x) ∧ f(x) < lim_{ y → d^- } (φ(y))) ⇒ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ (exists (x), x ∈ RealSet ∧ y(x) ∈ IntervalLoRo(c, d) ∧ φ(y(x)) = f(x) ∧ (forall (x2), x2 ∈ RealSet ∧ y(x2) ∈ IntervalLoRo(c, d) ∧ φ(y(x2)) = f(x2) ⇒ x2 = x)))
+18. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ∧ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ lim_{ y → c^+ } (φ(y)) < f(x) ∧ f(x) < lim_{ y → d^- } (φ(y))) ⇒ y(x) = InverseFunc(φ, f(x))
+19. (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ lim_{ y → c^+ } (φ(y)) < f(x) ∧ f(x) < lim_{ y → d^- } (φ(y))) ⇒ ContinuousFuncOn(y, IntervalLoRo(a, b))
+20. `φ_{1}` = (fun t [t ∈ RealSet] . sin(t) + sinh(t))
+21. f_{1} = (fun x [x ∈ RealSet] . x)
+22. forall (t), t ∈ RealSet ⇒ FunDeri(`φ_{1}`, 1, 1)(t) = cos(t) + cosh(t) ∧ cos(t) + cosh(t) > 0
+23. StrictMonoIncFuncOn(`φ_{1}`, IntervalLoRo(-∞, +∞))
+24. lim_{ t → -∞ } (`φ_{1}`(t)) = -∞
+25. lim_{ t → +∞ } (`φ_{1}`(t)) = +∞
+26. forall (x), x ∈ RealSet ⇒ (existsUnique (y ∈ RealSet), sin(y) + sinh(y) = x)
+27. forall (x), x ∈ RealSet ⇒ sin(y(x)) + sinh(y(x)) = x
+28. ContinuousFuncOn(y, RealSet)
+29. `φ_{2}` = (fun t [t ∈ RealSet] . e^{-t})
+30. f_{2} = (fun x [x ∈ RealSet] . -sin(x)^{2})
+31. forall (t), t ∈ RealSet ⇒ `φ_{2}`(t) > 0
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ f_{2}(x) ≤ 0
+
+METHOD:

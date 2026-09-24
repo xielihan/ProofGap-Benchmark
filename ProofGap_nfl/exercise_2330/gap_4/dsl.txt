@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 10: {f = (fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ b^{2}] . sin(t))}); from (GOAL: {ContinuousFuncOn(f, [a^{2}, b^{2}])}) to (GOAL: {ContinuousFuncOn((fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ b^{2}] . sin(t)), [a^{2}, b^{2}])})
+autosolve all_hypothesis

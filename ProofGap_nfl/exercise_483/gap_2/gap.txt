@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. lim_{ x → a } (frac(cos(x) - cos(a), x - a)) = lim_{ x → a } (frac(-sin(frac(x - a, 2)), frac(x - a, 2)) * sin(frac(x + a, 2)))
+
+GOAL:
+lim_{ x → a } (frac(-sin(frac(x - a, 2)), frac(x - a, 2)) * sin(frac(x + a, 2))) = -sin(a)
+
+METHOD:

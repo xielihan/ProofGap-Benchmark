@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. a : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = (1 + frac(1, n))^{n^{2}}
+4. forall (n), n ∈ NonNegIntegerSet ⇒ seqlim_{ n → +∞ } (|frac(a(n), a(n + 1))|) = seqlim_{ n → +∞ } (frac((1 + frac(1, n))^{n}, (1 + frac(1, n + 1))^{n + 1})^{n} * frac(1, (1 + frac(1, n + 1))^{n + 1}))
+5. forall (n), n ∈ NonNegIntegerSet ⇒ seqlim_{ n → +∞ } (frac((1 + frac(1, n))^{n}, (1 + frac(1, n + 1))^{n + 1})^{n} * frac(1, (1 + frac(1, n + 1))^{n + 1})) = frac(1, e)
+6. forall (n), n ∈ NonNegIntegerSet ⇒ seqlim_{ n → +∞ } (|frac(a(n), a(n + 1))|) = frac(1, e)
+
+GOAL:
+RadiusOfConvergence(a) = frac(1, e)
+
+METHOD:

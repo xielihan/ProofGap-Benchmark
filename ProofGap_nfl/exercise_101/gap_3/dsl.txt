@@ -1,0 +1,11 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 ≤ x(n) ∧ x(n) < 1}) (n := {n0})
+get_condition (hypothesis 6: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ 0 ≤ x(n0) ∧ x(n0) < 1})
+destruct_and (hypothesis 6: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) as (hypothesis 7: {n0 ∈ NonNegIntegerSet}) (hypothesis 8: {n0 ∈ PosIntegerSet})
+get_prop (hypothesis 3: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = 1 - frac(1, n)}) (n := {n0}) as (hypothesis 9: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ x(n0) = 1 - frac(1, n0)})
+assert (hypothesis 10: {x(n0) = 1 - frac(1, n0)})
+get_prop (theorem 'Thm 518. (PositiveIntegerIsReal)': {forall (x), x ∈ PosIntegerSet ⇒ x ∈ RealSet}) (x := {n0}) as (hypothesis 11: {n0 ∈ PosIntegerSet ⇒ n0 ∈ RealSet})
+assert (hypothesis 12: {n0 ∈ RealSet})
+assert (hypothesis 13: {n0 >= 1})
+assert (hypothesis 14: {frac(1, n0) > 0})
+assert (hypothesis 15: {frac(1, n0) <= 1})
+autosolve all_hypothesis

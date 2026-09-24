@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. x ∈ RealSet
+3. FuncOfClassK(y, 3)
+4. exists (δ), δ ∈ PosRealSet ∧ (forall (t), t ∈ RealSet ∧ |t - x| < δ ⇒ t^{2} + t * y(t) + y(t)^{2} = 3 ∧ t + 2 * y(t) ≠ 0)
+5. 2 * x + y(x) + x * FunDeri(y, 1, 1)(x) + 2 * y(x) * FunDeri(y, 1, 1)(x) = 0
+
+GOAL:
+FunDeri(y, 1, 1)(x) = -frac(2 * x + y(x), x + 2 * y(x))
+
+METHOD:

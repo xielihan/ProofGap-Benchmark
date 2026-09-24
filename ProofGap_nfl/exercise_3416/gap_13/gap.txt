@@ -1,0 +1,45 @@
+PROOF GAP @13
+ASSUM:
+1. u : RealSet → RealSet
+2. y : RealSet → RealSet
+3. z : RealSet → RealSet
+4. f : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+5. g : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+6. h : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+7. I ∈ RealSet
+8. I_{1} ∈ RealSet
+9. I_{2} ∈ RealSet
+10. I_{3} ∈ RealSet
+11. I_{4} ∈ RealSet
+12. I_{5} ∈ RealSet
+13. forall (x), x ∈ RealSet ⇒ u(x) = f(x, y(x), z(x))
+14. forall (x), x ∈ RealSet ⇒ g(x, y(x), z(x)) = 0
+15. forall (x), x ∈ RealSet ⇒ h(x, y(x), z(x)) = 0
+16. FuncOfClassK(f, 2)
+17. FuncOfClassK(g, 2)
+18. FuncOfClassK(h, 2)
+19. forall (x), x ∈ RealSet ⇒ I_{1} = FunDeri(g, 2, 1)(x, y(x), z(x)) * FunDeri(h, 3, 1)(x, y(x), z(x)) - FunDeri(g, 3, 1)(x, y(x), z(x)) * FunDeri(h, 2, 1)(x, y(x), z(x))
+20. I_{1} ≠ 0
+21. forall (x), x ∈ RealSet ⇒ diff(u(x)) = FunDeri(f, 1, 1)(x, y(x), z(x)) * diff(fun x [x ∈ RealSet] . x) + FunDeri(f, 2, 1)(x, y(x), z(x)) * diff(y(x)) + FunDeri(f, 3, 1)(x, y(x), z(x)) * diff(z(x))
+22. forall (x), x ∈ RealSet ⇒ 0 = FunDeri(g, 1, 1)(x, y(x), z(x)) * diff(fun x [x ∈ RealSet] . x) + FunDeri(g, 2, 1)(x, y(x), z(x)) * diff(y(x)) + FunDeri(g, 3, 1)(x, y(x), z(x)) * diff(z(x))
+23. forall (x), x ∈ RealSet ⇒ 0 = FunDeri(h, 1, 1)(x, y(x), z(x)) * diff(fun x [x ∈ RealSet] . x) + FunDeri(h, 2, 1)(x, y(x), z(x)) * diff(y(x)) + FunDeri(h, 3, 1)(x, y(x), z(x)) * diff(z(x))
+24. forall (x), x ∈ RealSet ⇒ I_{2} = FunDeri(g, 3, 1)(x, y(x), z(x)) * FunDeri(h, 1, 1)(x, y(x), z(x)) - FunDeri(g, 1, 1)(x, y(x), z(x)) * FunDeri(h, 3, 1)(x, y(x), z(x))
+25. forall (x), x ∈ RealSet ⇒ I_{3} = FunDeri(g, 1, 1)(x, y(x), z(x)) * FunDeri(h, 2, 1)(x, y(x), z(x)) - FunDeri(g, 2, 1)(x, y(x), z(x)) * FunDeri(h, 1, 1)(x, y(x), z(x))
+26. forall (x), x ∈ RealSet ⇒ diff(y(x)) = frac(I_{2}, I_{1}) * diff(fun x [x ∈ RealSet] . x)
+27. forall (x), x ∈ RealSet ⇒ diff(z(x)) = frac(I_{3}, I_{1}) * diff(fun x [x ∈ RealSet] . x)
+28. forall (x), x ∈ RealSet ⇒ I = I_{1} * FunDeri(f, 1, 1)(x, y(x), z(x)) + I_{2} * FunDeri(f, 2, 1)(x, y(x), z(x)) + I_{3} * FunDeri(f, 3, 1)(x, y(x), z(x))
+29. forall (x), x ∈ RealSet ⇒ diff(u(x)) = frac(I, I_{1}) * diff(fun x [x ∈ RealSet] . x)
+30. forall (x), x ∈ RealSet ⇒ FunDeri(u, 1, 1)(x) = frac(I, I_{1})
+31. L = (fun F [F : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet] . I_{1} * FunDeri(F, 1, 1)(x, y(x), z(x)) + I_{2} * FunDeri(F, 2, 1)(x, y(x), z(x)) + I_{3} * FunDeri(F, 3, 1)(x, y(x), z(x)))
+32. forall (x), x ∈ RealSet ⇒ diff^{2}(u(x)) = L(L(f)) * diff(fun x [x ∈ RealSet] . x)^{2} + FunDeri(f, 2, 1)(x, y(x), z(x)) * diff^{2}(y(x)) + FunDeri(f, 3, 1)(x, y(x), z(x)) * diff^{2}(z(x))
+33. forall (x), x ∈ RealSet ⇒ 0 = L(L(g)) * diff(fun x [x ∈ RealSet] . x)^{2} + FunDeri(g, 2, 1)(x, y(x), z(x)) * diff^{2}(y(x)) + FunDeri(g, 3, 1)(x, y(x), z(x)) * diff^{2}(z(x))
+34. forall (x), x ∈ RealSet ⇒ 0 = L(L(h)) * diff(fun x [x ∈ RealSet] . x)^{2} + FunDeri(h, 2, 1)(x, y(x), z(x)) * diff^{2}(y(x)) + FunDeri(h, 3, 1)(x, y(x), z(x)) * diff^{2}(z(x))
+35. forall (x), x ∈ RealSet ⇒ diff^{2}(y(x)) = frac(1, I_{1}) * (FunDeri(g, 3, 1)(x, y(x), z(x)) * L(L(h)) - FunDeri(h, 3, 1)(x, y(x), z(x)) * L(L(g))) * diff(fun x [x ∈ RealSet] . x)^{2}
+36. forall (x), x ∈ RealSet ⇒ diff^{2}(z(x)) = frac(1, I_{1}) * (FunDeri(h, 2, 1)(x, y(x), z(x)) * L(L(g)) - FunDeri(g, 2, 1)(x, y(x), z(x)) * L(L(h))) * diff(fun x [x ∈ RealSet] . x)^{2}
+37. forall (x), x ∈ RealSet ⇒ I_{4} = FunDeri(h, 2, 1)(x, y(x), z(x)) * FunDeri(f, 3, 1)(x, y(x), z(x)) - FunDeri(h, 3, 1)(x, y(x), z(x)) * FunDeri(f, 2, 1)(x, y(x), z(x))
+38. forall (x), x ∈ RealSet ⇒ I_{5} = FunDeri(f, 2, 1)(x, y(x), z(x)) * FunDeri(g, 3, 1)(x, y(x), z(x)) - FunDeri(f, 3, 1)(x, y(x), z(x)) * FunDeri(g, 2, 1)(x, y(x), z(x))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ diff^{2}(u(x)) = frac(1, I_{1}) * (I_{1} * L(L(f)) + I_{4} * L(L(g)) + I_{5} * L(L(h))) * diff(fun x [x ∈ RealSet] . x)^{2}
+
+METHOD:

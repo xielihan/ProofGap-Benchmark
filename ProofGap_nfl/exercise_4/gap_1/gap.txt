@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n = 1 ⇒ sum_{ i = 0 }^{ n - 1 } (2^{i}) = 2^{n} - 1
+
+METHOD:

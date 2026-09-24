@@ -1,0 +1,32 @@
+PROOF GAP @14
+ASSUM:
+1. C ∈ RealSet
+2. Q : RealSet → RealSet
+3. Q_{1} : RealSet → RealSet
+4. Q_{2} : RealSet → RealSet
+5. A ∈ RealSet
+6. B ∈ RealSet
+7. C_{1} ∈ RealSet
+8. D ∈ RealSet
+9. E ∈ RealSet
+10. Q = (fun x [x ∈ RealSet] . (x - 1) * (x^{2} + x + 1)^{2})
+11. Q_{1} = (fun x [x ∈ RealSet] . x^{2} + x + 1)
+12. Q_{2} = (fun x [x ∈ RealSet] . (x - 1) * (x^{2} + x + 1))
+13. forall (x), x ∈ RealSet ∧ x ∈ RealSet \ { 1 } ⇒ frac(x^{2} + 3 * x - 2, (x - 1) * (x^{2} + x + 1)^{2}) = FunDeri(frac(A * x + B, x^{2} + x + 1), 1, 1) + frac(C_{1} * x^{2} + D * x + E, (x - 1) * (x^{2} + x + 1))
+14. forall (x), x ∈ RealSet ⇒ x^{2} + 3 * x - 2 ≡ A * (x - 1) * (x^{2} + x + 1) - (2 * x + 1) * (A * x + B) * (x - 1) + (C_{1} * x^{2} + D * x + E) * (x^{2} + x + 1)
+15. C_{1} = 0
+16. -A + C_{1} + D = 0
+17. A - 2 * B + C_{1} + D + E = 1
+18. A + B + D + E = 3
+19. -A + B + E = -2
+20. A = frac(5, 3)
+21. B = frac(2, 3)
+22. C_{1} = 0
+23. D = frac(5, 3)
+24. E = -1
+25. forall (x), x ∈ RealSet ∧ x ∈ RealSet \ { 1 } ⇒ frac(frac(5, 3) * x - 1, (x - 1) * (x^{2} + x + 1)) = frac(2, 9 * (x - 1)) - frac(2 * x - 11, 9 * (x^{2} + x + 1))
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ∧ x ∈ RealSet \ { 1 } ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x^{2} + 3 * x - 2, (x - 1) * (x^{2} + x + 1)^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_9` | exists (`F_3`) (`F_7`), `F_3` : RealSet → RealSet ∧ `F_7` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ RealSet \ { 1 } ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(1, x - 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ FunDeri(`F_7`, 1, 1)(x) = frac(2 * x - 11, x^{2} + x + 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_9`(x) = frac(5 * x + 2, 3 * (x^{2} + x + 1)) + frac(2, 9) * `F_3`(x) - frac(1, 9) * `F_7`(x)) }
+
+METHOD:

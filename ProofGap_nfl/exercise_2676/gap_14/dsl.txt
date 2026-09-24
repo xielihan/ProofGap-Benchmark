@@ -1,0 +1,4 @@
+assert (hypothesis 15: {(p ≤ 0 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} / n^{p + frac(1, n)}))) ∧ (0 < p ⇒ p ≤ 1 ⇒ ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} / n^{p + frac(1, n)}))) ∧ (p > 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} / n^{p + frac(1, n)})))}) by proof {
+  autosolve all_hypothesis
+}
+apply (hypothesis 15: {(p ≤ 0 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} / n^{p + frac(1, n)}))) ∧ (0 < p ⇒ p ≤ 1 ⇒ ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} / n^{p + frac(1, n)}))) ∧ (p > 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} / n^{p + frac(1, n)})))})

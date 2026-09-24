@@ -1,0 +1,5 @@
+assert (hypothesis 10: {DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1, sqrtn(2, 1 + x^{4}))) * diff(fun x [x ∈ RealSet] . x)) = sum_{ n = 0 }^{ +∞ } (frac(b(n), 4 * n + 1))}) by proof {
+  apply (hypothesis 9: {DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1, sqrtn(2, 1 + x^{4}))) * diff(fun x [x ∈ RealSet] . x)) = sum_{ n = 0 }^{ +∞ } (frac(b(n), 4 * n + 1))})
+}
+exists (Δ := {1})
+autosolve all_hypothesis

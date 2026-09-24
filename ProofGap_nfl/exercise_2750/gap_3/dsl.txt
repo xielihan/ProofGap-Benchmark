@@ -1,0 +1,15 @@
+get_forall (GOAL: {forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ |f(n, x) - g(x)| = |frac(n * x, 1 + n + x) - x|}) (n := {m}) (x := {y})
+get_condition (hypothesis 7: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1}) in (GOAL: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 ⇒ |f(m, y) - g(y)| = |frac(m * y, 1 + m + y) - y|})
+get_prop (hypothesis 3: {forall (x) (n), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ f(n, x) = frac(n * x, 1 + n + x)}) (x := {y}) (n := {m}) as (hypothesis 8: {y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 ∧ m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ f(m, y) = frac(m * y, 1 + m + y)})
+assert (hypothesis 9: {y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 ∧ m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 9: {y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 ∧ m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet}) in (hypothesis 8: {y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 ∧ m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ f(m, y) = frac(m * y, 1 + m + y)}) as (hypothesis 10: {f(m, y) = frac(m * y, 1 + m + y)})
+get_prop (hypothesis 4: {forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ g(x) = x}) (x := {y}) as (hypothesis 11: {y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 ⇒ g(y) = y})
+assert (hypothesis 12: {y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 12: {y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1}) in (hypothesis 11: {y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 ⇒ g(y) = y}) as (hypothesis 13: {g(y) = y})
+rewrite (left_to_right, equation) (hypothesis 10: {f(m, y) = frac(m * y, 1 + m + y)}); from (GOAL: {|f(m, y) - g(y)| = |frac(m * y, 1 + m + y) - y|}) to (GOAL: {|frac(m * y, 1 + m + y) - g(y)| = |frac(m * y, 1 + m + y) - y|})
+rewrite (left_to_right, equation) (hypothesis 13: {g(y) = y}); from (GOAL: {|frac(m * y, 1 + m + y) - g(y)| = |frac(m * y, 1 + m + y) - y|}) to (GOAL: {|frac(m * y, 1 + m + y) - y| = |frac(m * y, 1 + m + y) - y|})
+autosolve all_hypothesis

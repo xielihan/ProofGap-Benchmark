@@ -1,0 +1,3 @@
+assert (hypothesis 31: {|a| > 0})
+assert (hypothesis 32: {-1 ≤ frac(x, |a|)})
+apply (hypothesis 32: {-1 ≤ frac(x, |a|)})

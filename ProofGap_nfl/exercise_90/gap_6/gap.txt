@@ -1,0 +1,21 @@
+PROOF GAP @6
+ASSUM:
+1. x : NonNegIntegerSet → RealSet
+2. p : NonNegIntegerSet → NonNegIntegerSet
+3. a ∈ RealSet
+4. IsSeq(x)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ∈ RealSet
+6. MonoIncSeq(x)
+7. IsSubseqIndexFunc(p)
+8. ConvergentSeqTo(x ∘ p, a)
+9. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k > N ⇒ |x(p(k)) - a| < ε))
+10. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ (exists (`N'`), `N'` ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ `N'` = p(N + 1)))
+11. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ (exists (`N'`), `N'` ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ `N'` = p(N + 1) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > `N'` ⇒ (exists (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k > N ∧ p(k) ≤ n ∧ n < p(k + 1)))))
+12. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (`N'`), `N'` ∈ NonNegIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > `N'` ⇒ (exists (k), k ∈ NonNegIntegerSet ∧ |x(p(k)) - a| < ε)))
+13. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (`N'`), `N'` ∈ NonNegIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > `N'` ⇒ (exists (k), k ∈ NonNegIntegerSet ∧ |x(p(k + 1)) - a| < ε)))
+14. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (`N'`), `N'` ∈ NonNegIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > `N'` ⇒ (exists (k), k ∈ NonNegIntegerSet ∧ x(p(k)) ≤ x(n))))
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (`N'`), `N'` ∈ NonNegIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > `N'` ⇒ (exists (k), k ∈ NonNegIntegerSet ∧ x(n) ≤ x(p(k + 1)))))
+
+METHOD:

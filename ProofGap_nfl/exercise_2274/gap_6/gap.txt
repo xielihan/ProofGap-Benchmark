@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 3 ⇒ 1 + x > 0 ∧ 0 ≤ sqrtn(2, frac(x, 1 + x)) ∧ sqrtn(2, frac(x, 1 + x)) ≤ 1
+2. DefInt(0, 3, (fun x [x ∈ RealSet] . arcsin(sqrtn(2, frac(x, 1 + x)))) * diff(fun x [x ∈ RealSet] . x)) = ((fun x [x ∈ RealSet] . x * arcsin(sqrtn(2, frac(x, 1 + x))))|_{0}^{3}) - DefInt(0, 3, (fun x [x ∈ RealSet] . frac(sqrtn(2, x), 2 * (1 + x))) * diff(fun x [x ∈ RealSet] . x))
+3. x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 3
+4. t ∈ RealSet ∧ t = sqrtn(2, x)
+5. 0 ≤ t
+6. t ≤ sqrtn(2, 3)
+7. DefInt(0, 3, (fun x [x ∈ RealSet] . arcsin(sqrtn(2, frac(x, 1 + x)))) * diff(fun x [x ∈ RealSet] . x)) = π - DefInt(0, sqrtn(2, 3), (fun t [t ∈ RealSet] . frac(t^{2}, 1 + t^{2})) * diff(fun t [t ∈ RealSet] . t))
+
+GOAL:
+DefInt(0, 3, (fun x [x ∈ RealSet] . arcsin(sqrtn(2, frac(x, 1 + x)))) * diff(fun x [x ∈ RealSet] . x)) = π - ((fun t [t ∈ RealSet] . t - arctan(t))|_{0}^{sqrtn(2, 3)})
+
+METHOD:

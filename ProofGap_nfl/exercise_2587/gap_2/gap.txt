@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. b : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(n^{n + frac(1, n)}, (n + frac(1, n))^{n})
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = (1 + frac(1, n))^{-n} * sqrtn(n, n)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ n + frac(1, n) ≠ 0
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ≥ frac(n^{n} * n^{frac(1, n)}, (n + 1)^{n}) ∧ frac(n^{n} * n^{frac(1, n)}, (n + 1)^{n}) = b(n) ∧ b(n) > 0
+
+METHOD:

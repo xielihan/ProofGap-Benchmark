@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. I ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 10 ≤ x ∧ x ≤ 100 ⇒ ln(1 + x) = ln(x * (1 + frac(1, x)))
+
+METHOD:

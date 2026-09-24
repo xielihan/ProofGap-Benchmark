@@ -1,0 +1,5 @@
+get_condition (hypothesis 19: {frac(1, 2) < |x|}) (hypothesis 20: {|x| < 2}) (hypothesis 21: {Splus(x) = sum_{ n = 1 }^{ +∞ } (frac(n, 2^{n}) * x^{n})}) (hypothesis 22: {Sminus(x) = sum_{ n = 1 }^{ +∞ } (frac(-n, 2^{n}) * x^{-n})}) in (GOAL: {frac(1, 2) < |x| ⇒ |x| < 2 ⇒ Splus(x) = sum_{ n = 1 }^{ +∞ } (frac(n, 2^{n}) * x^{n}) ⇒ Sminus(x) = sum_{ n = 1 }^{ +∞ } (frac(-n, 2^{n}) * x^{-n}) ⇒ sum_{ n = -∞ }^{ +∞ } (frac(n, 2^{|n|}) * x^{n}) = 2 * x * (frac(1, (2 - x)^{2}) - frac(1, (2 * x - 1)^{2}))})
+assert (hypothesis 23: {frac(2 * x, (2 - x)^{2}) - frac(2 * x, (2 * x - 1)^{2}) = 2 * x * (frac(1, (2 - x)^{2}) - frac(1, (2 * x - 1)^{2}))}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

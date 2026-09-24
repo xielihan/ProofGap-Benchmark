@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x) = e^{x} * ln(x)
+3. forall (x), x ∈ RealSet ∧ x > 0 ⇒ diff^{4}(y) = FunDeri(fun x [x ∈ RealSet ∧ x > 0] . e^{x} * ln(x), 1, 4)(x) * diff(fun x [x ∈ RealSet] . x)^{4}
+
+GOAL:
+diff^{4}(y) = (fun x [x ∈ RealSet ∧ x > 0] . e^{x} * (ln(x) + frac(4, x) - frac(6, x^{2}) + frac(8, x^{3}) - frac(6, x^{4}))) * diff(fun x [x ∈ RealSet] . x)^{4}
+
+METHOD:

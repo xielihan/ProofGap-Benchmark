@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. x : NonNegIntegerSet → RealSet
+4. S : NonNegIntegerSet → RealSet
+5. 0 < a
+6. a < b
+
+GOAL:
+x(0) = a
+
+METHOD:

@@ -1,0 +1,17 @@
+PROOF GAP @6
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. u : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ n + a ≥ 0 ∧ n^{2} + n + b ≥ 0
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = sqrtn(2, n + a) - sqrtn(4, n^{2} + n + b)
+6. forall (α) (β), α ∈ RealSet ∧ β ∈ RealSet ∧ α + β ≠ 0 ∧ α^{2} + β^{2} ≠ 0 ⇒ α - β = frac(α^{4} - β^{4}, (α + β) * (α^{2} + β^{2}))
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = frac((2 * a - 1) * n + a^{2} - b, (sqrtn(2, n + a) + sqrtn(4, n^{2} + n + b)) * (n + a + sqrtn(2, n^{2} + n + b)))
+8. exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ u(n) ≥ 0 ∨ u(n) ≤ 0)
+9. a = frac(1, 2) ⇒ lim_{ n → +∞ } (frac(frac(a^{2} - b, (sqrtn(2, n + a) + sqrtn(4, n^{2} + n + b)) * (n + a + sqrtn(2, n^{2} + n + b))), frac(1, n^{frac(3, 2)}))) = frac(a^{2} - b, 4)
+10. a = frac(1, 2) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{frac(3, 2)})))
+
+GOAL:
+a = frac(1, 2) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (u(n)))
+
+METHOD:

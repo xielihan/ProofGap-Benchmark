@@ -1,0 +1,35 @@
+PROOF GAP @20
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet ∧ a < b
+4. ConvexFuncOn(f, IntervalLoRo(a, b))
+5. BoundedFuncOn(f, IntervalLoRo(a, b))
+6. forall (δ), δ ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ δ = min(x_{0} - a, b - x_{0}))
+7. forall (M), M ∈ RealSet ⇒ (forall (δ), δ ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ M = min(f(x_{0} - δ), f(x_{0} + δ))))
+8. forall (δ), δ ∈ RealSet ⇒ (forall (t), t ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - x_{0}| ∧ |x - x_{0}| < δ ⇒ t = frac(|x - x_{0}|, δ))))
+9. forall (δ), δ ∈ RealSet ⇒ (forall (t), t ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - x_{0}| ∧ |x - x_{0}| < δ ⇒ 0 < t)))
+10. forall (δ), δ ∈ RealSet ⇒ (forall (t), t ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - x_{0}| ∧ |x - x_{0}| < δ ⇒ t < 1)))
+11. forall (δ), δ ∈ RealSet ⇒ (forall (t), t ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - x_{0}| ∧ |x - x_{0}| < δ ∧ x_{0} < x ∧ x < x_{0} + δ ⇒ x = t * (x_{0} + δ) + (1 - t) * x_{0})))
+12. forall (δ), δ ∈ RealSet ⇒ (forall (t), t ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - x_{0}| ∧ |x - x_{0}| < δ ∧ x_{0} < x ∧ x < x_{0} + δ ⇒ x_{0} = frac(1, 1 + t) * x + frac(t, 1 + t) * (x_{0} - δ))))
+13. forall (δ), δ ∈ RealSet ⇒ (forall (t), t ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - x_{0}| ∧ |x - x_{0}| < δ ∧ x_{0} < x ∧ x < x_{0} + δ ⇒ f(x) > t * f(x_{0} + δ) + (1 - t) * f(x_{0}))))
+14. forall (δ), δ ∈ RealSet ⇒ (forall (t), t ∈ RealSet ⇒ (forall (M), M ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - x_{0}| ∧ |x - x_{0}| < δ ∧ x_{0} < x ∧ x < x_{0} + δ ⇒ t * f(x_{0} + δ) + (1 - t) * f(x_{0}) ≥ t * M + (1 - t) * f(x_{0})))))
+15. forall (δ), δ ∈ RealSet ⇒ (forall (t), t ∈ RealSet ⇒ (forall (M), M ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - x_{0}| ∧ |x - x_{0}| < δ ∧ x_{0} < x ∧ x < x_{0} + δ ⇒ f(x) > t * M + (1 - t) * f(x_{0})))))
+16. forall (δ), δ ∈ RealSet ⇒ (forall (t), t ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - x_{0}| ∧ |x - x_{0}| < δ ∧ x_{0} < x ∧ x < x_{0} + δ ⇒ f(x_{0}) > frac(1, 1 + t) * f(x) + frac(t, 1 + t) * f(x_{0} - δ))))
+17. forall (δ), δ ∈ RealSet ⇒ (forall (t), t ∈ RealSet ⇒ (forall (M), M ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - x_{0}| ∧ |x - x_{0}| < δ ∧ x_{0} < x ∧ x < x_{0} + δ ⇒ frac(1, 1 + t) * f(x) + frac(t, 1 + t) * f(x_{0} - δ) ≥ frac(f(x) + t * M, 1 + t)))))
+18. forall (δ), δ ∈ RealSet ⇒ (forall (t), t ∈ RealSet ⇒ (forall (M), M ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - x_{0}| ∧ |x - x_{0}| < δ ∧ x_{0} < x ∧ x < x_{0} + δ ⇒ f(x_{0}) > frac(f(x) + t * M, 1 + t)))))
+19. forall (δ), δ ∈ RealSet ⇒ (forall (t), t ∈ RealSet ⇒ (forall (M), M ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - x_{0}| ∧ |x - x_{0}| < δ ∧ x_{0} < x ∧ x < x_{0} + δ ⇒ f(x) - f(x_{0}) > -t * (f(x_{0}) - M)))))
+20. forall (δ), δ ∈ RealSet ⇒ (forall (t), t ∈ RealSet ⇒ (forall (M), M ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - x_{0}| ∧ |x - x_{0}| < δ ∧ x_{0} < x ∧ x < x_{0} + δ ⇒ t * (f(x_{0}) - M) > f(x) - f(x_{0})))))
+21. forall (δ), δ ∈ RealSet ⇒ (forall (t), t ∈ RealSet ⇒ (forall (M), M ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - x_{0}| ∧ |x - x_{0}| < δ ∧ x_{0} < x ∧ x < x_{0} + δ ⇒ |f(x) - f(x_{0})| < t * (f(x_{0}) - M)))))
+22. forall (δ), δ ∈ RealSet ⇒ (forall (t), t ∈ RealSet ⇒ (forall (M), M ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - x_{0}| ∧ |x - x_{0}| < δ ∧ x_{0} < x ∧ x < x_{0} + δ ⇒ t * (f(x_{0}) - M) = frac(f(x_{0}) - M, δ) * |x - x_{0}|))))
+23. forall (δ), δ ∈ RealSet ⇒ (forall (M), M ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - x_{0}| ∧ |x - x_{0}| < δ ∧ x_{0} < x ∧ x < x_{0} + δ ⇒ |f(x) - f(x_{0})| < frac(f(x_{0}) - M, δ) * |x - x_{0}|)))
+24. forall (δ), δ ∈ RealSet ⇒ (forall (M), M ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - x_{0}| ∧ |x - x_{0}| < δ ∧ x_{0} - δ < x ∧ x < x_{0} ⇒ |f(x) - f(x_{0})| < frac(f(x_{0}) - M, δ) * |x - x_{0}|)))
+25. forall (δ), δ ∈ RealSet ⇒ (forall (M), M ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - x_{0}| ∧ |x - x_{0}| < δ ⇒ |f(x) - f(x_{0})| < frac(|f(x_{0}) - M|, δ) * |x - x_{0}|)))
+26. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ lim_{ x → x_{0} } (f(x)) = f(x_{0})
+27. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ ContinuousFuncAt(f, x_{0})
+28. forall (φ), φ : RealSet → RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ φ = (fun h [h ∈ RealSet] . f(x_{0} + h) - f(x_{0})))
+
+GOAL:
+forall (φ), φ : RealSet → RealSet ⇒ (forall (δ), δ ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ ConvexFuncOn(φ, IntervalLoRo(-δ, δ))))
+
+METHOD:

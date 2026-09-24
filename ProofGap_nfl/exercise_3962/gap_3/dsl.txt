@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 12: {I = frac(-1, 2)}); from (GOAL: {|I| = frac(1, 2)}) to (GOAL: {|frac(-1, 2)| = frac(1, 2)})
+autosolve (hypothesis 3: {I ∈ RealSet})

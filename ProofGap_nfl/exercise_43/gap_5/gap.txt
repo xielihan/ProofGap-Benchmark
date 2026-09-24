@@ -1,0 +1,21 @@
+PROOF GAP @5
+ASSUM:
+1. x_{1} : NonNegIntegerSet → RealSet
+2. x_{2} : NonNegIntegerSet → RealSet
+3. x_{3} : NonNegIntegerSet → RealSet
+4. IsSeq(x_{1})
+5. IsSeq(x_{2})
+6. IsSeq(x_{3})
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x_{1}(n) = (-1)^{n} * n
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x_{2}(n) = 2^{sqrtn(2, n)}
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ x_{3}(n) = lg(lg(n))
+10. forall (E), E ∈ RealSet ∧ E > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |x_{1}(n)| = n)
+11. forall (E), E ∈ RealSet ∧ E > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n > E ⇒ |x_{1}(n)| > E)
+12. forall (E), E ∈ RealSet ∧ E > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n > E ⇒ |x_{1}(n)| > E)
+13. forall (E), E ∈ RealSet ∧ E > 0 ⇒ (exists (N_{1}), N_{1} ∈ NonNegIntegerSet ∧ N_{1} = floor(E))
+14. forall (E), E ∈ RealSet ∧ E > 0 ⇒ (exists (N_{1}), N_{1} ∈ NonNegIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > N_{1} ∧ n ∈ PosIntegerSet ⇒ |x_{1}(n)| > E))
+
+GOAL:
+seqlim_{ n → +∞ } (|x_{1}(n)|) = +∞
+
+METHOD:

@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ (1 + x) * (1 + 2 * x) * (1 + 3 * x) = 1 + 6 * x + 11 * x^{2} + 6 * x^{3}
+
+METHOD:

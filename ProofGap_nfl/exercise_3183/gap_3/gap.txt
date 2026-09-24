@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ 0 ∧ y ≠ 0 ⇒ f(x, y) = (x + y) * sin(frac(1, x)) * sin(frac(1, y))
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ 0 ∧ y ≠ 0 ⇒ 0 ≤ |f(x, y)| ∧ |f(x, y)| ≤ |x + y| ∧ |x + y| ≤ |x| + |y|
+4. lim_{ (x, y) → (0, 0) } (|x| + |y|) = 0
+
+GOAL:
+lim_{ (x, y) → (0, 0) } (f(x, y)) = 0
+
+METHOD:

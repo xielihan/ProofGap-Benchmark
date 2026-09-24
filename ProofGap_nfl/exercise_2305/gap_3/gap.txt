@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet ∧ x ∈ NonNegRealSet
+2. C ∈ RealSet
+3. { `F_2` | forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = floor(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = floor(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_5`(x) = C + `F_3`(x))) }
+4. { `F_6` | forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ FunDeri(`F_6`, 1, 1)(x) = floor(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_7` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ `F_7`(x) = C + (sum_{ k = 0 }^{ floor(x) - 1 } (DefInt(k, k + 1, (fun t [t ∈ RealSet] . floor(t)) * diff(fun t [t ∈ RealSet] . t)))) + DefInt(floor(x), x, (fun t [t ∈ RealSet] . floor(t)) * diff(fun t [t ∈ RealSet] . t))) }
+
+GOAL:
+forall (t), t ∈ RealSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ≤ t ∧ t < k + 1 ⇒ floor(t) = k)
+
+METHOD:

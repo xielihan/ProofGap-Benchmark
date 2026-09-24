@@ -1,0 +1,24 @@
+PROOF GAP @4
+ASSUM:
+1. F : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. f : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+3. z : CartesianProd(RealSet, RealSet) → RealSet
+4. y : CartesianProd(RealSet, RealSet) → RealSet
+5. G : CartesianProd(RealSet, RealSet) → RealSet
+6. H : CartesianProd(RealSet, RealSet) → RealSet
+7. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ F(x, y, z) = x^{2} + y^{2} + z^{2} - 3 * x * y * z
+8. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ f(x, y, z) = x * y^{2} * z^{3}
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ F(x, y, z(x, y)) = 0
+10. forall (x) (z), x ∈ RealSet ∧ z ∈ RealSet ⇒ F(x, y(x, z), z) = 0
+11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ G(x, y) = f(x, y, z(x, y))
+12. forall (x) (z), x ∈ RealSet ∧ z ∈ RealSet ⇒ H(x, z) = f(x, y(x, z), z)
+13. FunDeri(z, 1, 1)(1, 1) = -1
+14. FunDeri(y, 1, 1)(1, 1) = -1
+15. FunDeri(G, 1, 1)(1, 1) = FunDeri(f, 1, 1)(1, 1, 1) + FunDeri(f, 3, 1)(1, 1, 1) * FunDeri(z, 1, 1)(1, 1)
+16. FunDeri(G, 1, 1)(1, 1) = 1 + 3 * -1
+17. FunDeri(G, 1, 1)(1, 1) = -2
+
+GOAL:
+FunDeri(H, 1, 1)(1, 1) = FunDeri(f, 1, 1)(1, 1, 1) + FunDeri(f, 2, 1)(1, 1, 1) * FunDeri(y, 1, 1)(1, 1)
+
+METHOD:

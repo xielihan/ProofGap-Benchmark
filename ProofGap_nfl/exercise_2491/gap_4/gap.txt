@@ -1,0 +1,17 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b ≥ a
+3. P_{x} ∈ RealSet
+4. y_{1} : RealSet → RealSet
+5. y_{2} : RealSet → RealSet
+6. forall (x), x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a ⇒ { y | y ∈ RealSet ∧ x^{2} + (y - b)^{2} = a^{2} } = { y_{1}(x), y_{2}(x) } ∧ y_{1}(x) ≥ y_{2}(x)
+7. P_{x} = 2 * π * lim_{ ε → 0^+ } (DefInt(-a + ε, a - ε, (fun x [x ∈ RealSet ∧ -a < x ∧ x < a] . y_{1}(x) * sqrtn(2, 1 + FunDeri(y_{1}, 1, 1)(x)^{2})) * diff(fun x [x ∈ RealSet ∧ -a < x ∧ x < a] . x))) + 2 * π * lim_{ ε → 0^+ } (DefInt(-a + ε, a - ε, (fun x [x ∈ RealSet ∧ -a < x ∧ x < a] . y_{2}(x) * sqrtn(2, 1 + FunDeri(y_{2}, 1, 1)(x)^{2})) * diff(fun x [x ∈ RealSet ∧ -a < x ∧ x < a] . x)))
+8. forall (x), x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a ⇒ y_{1}(x) = b + sqrtn(2, a^{2} - x^{2})
+9. forall (x), x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a ⇒ y_{2}(x) = b - sqrtn(2, a^{2} - x^{2})
+10. P_{x} = 2 * π * lim_{ ε → 0^+ } (DefInt(-a + ε, a - ε, (b + sqrtn(2, a^{2} - x^{2})) * frac(a, sqrtn(2, a^{2} - x^{2})) * diff(fun x [x ∈ RealSet ∧ -a < x ∧ x < a] . x))) + 2 * π * lim_{ ε → 0^+ } (DefInt(-a + ε, a - ε, (b - sqrtn(2, a^{2} - x^{2})) * frac(a, sqrtn(2, a^{2} - x^{2})) * diff(fun x [x ∈ RealSet ∧ -a < x ∧ x < a] . x)))
+
+GOAL:
+P_{x} = 4 * π^{2} * a * b
+
+METHOD:

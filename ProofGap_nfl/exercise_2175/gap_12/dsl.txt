@@ -1,0 +1,3 @@
+exists (C_{2} := {0})
+assert (hypothesis 16: {0 ∈ RealSet ∧ 0 = 0})
+apply (hypothesis 16: {0 ∈ RealSet ∧ 0 = 0})

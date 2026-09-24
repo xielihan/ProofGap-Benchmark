@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. x = tan(t)
+2. 0 ≤ t
+3. t < frac(π, 2)
+
+GOAL:
+diff(fun x [x ∈ RealSet] . x) = sec(t)^{2} * diff(fun t [t ∈ RealSet ∧ t ∈ [0, frac(π, 2))] . t)
+
+METHOD:

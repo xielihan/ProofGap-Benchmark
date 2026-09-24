@@ -1,0 +1,5 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ -f(x) = -(3 * x - x^{3})}) (x := {x0})
+2. get_condition (hypothesis 6: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ -f(x0) = -(3 * x0 - x0^{3})})
+3. get_prop (hypothesis 2: {forall (x), x ∈ RealSet ⇒ f(x) = 3 * x - x^{3}}) (x := {x0}) as (hypothesis 7: {x0 ∈ RealSet ⇒ f(x0) = 3 * x0 - x0^{3}})
+4. use_condition (hypothesis 6: {x0 ∈ RealSet}) in (hypothesis 7: {x0 ∈ RealSet ⇒ f(x0) = 3 * x0 - x0^{3}}) as (hypothesis 8: {f(x0) = 3 * x0 - x0^{3}})
+5. autosolve all_hypothesis

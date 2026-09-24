@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. α ∈ RealSet
+2. C ∈ RealSet
+3. x ∈ RealSet
+4. forall (k), k ∈ IntegerSet ⇒ α ≠ k * π
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x, x^{2} - 2 * x * cos(α) + 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(x - cos(α) + cos(α), (x - cos(α))^{2} + sin(α)^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+METHOD:

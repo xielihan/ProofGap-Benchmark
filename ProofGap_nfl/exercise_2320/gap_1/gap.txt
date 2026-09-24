@@ -1,0 +1,16 @@
+PROOF GAP @1
+ASSUM:
+1. v : RealSet → RealSet
+2. v_{0} ∈ RealSet
+3. g ∈ RealSet
+4. T ∈ RealSet
+5. v_{T} ∈ RealSet
+6. Avg_{v} ∈ RealSet
+7. T > 0
+8. forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ v(t) = v_{0} + g * t
+9. v_{T} = v(T)
+
+GOAL:
+Avg_{v} = frac(1, T) * DefInt(0, T, (fun t [t ∈ RealSet ∧ t ∈ [0, T]] . v_{0} + g * t) * diff(fun t [t ∈ RealSet ∧ t ∈ [0, T]] . t))
+
+METHOD:

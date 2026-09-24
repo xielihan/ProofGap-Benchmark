@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x) (t), x ∈ RealSet ∧ x ≥ 0 ∧ t ∈ RealSet ∧ t ≥ 0 ∧ sqrtn(2, x) = t ⇒ x = t^{2}
+
+GOAL:
+forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ diff(fun t [t ∈ RealSet ∧ t ≥ 0] . t^{2}) = 2 * t * diff(fun t [t ∈ RealSet ∧ t ≥ 0] . t)
+
+METHOD:

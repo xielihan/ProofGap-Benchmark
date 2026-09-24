@@ -1,0 +1,35 @@
+PROOF GAP @10
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. z : RealSet → RealSet
+4. a ∈ RealSet
+5. α ∈ RealSet
+6. t_{0} ∈ RealSet
+7. x_{0} ∈ RealSet
+8. y_{0} ∈ RealSet
+9. z_{0} ∈ RealSet
+10. v ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+11. L ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+12. P ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+13. forall (t), t ∈ RealSet ⇒ x(t) = a * cos(α) * cos(t) ∧ y(t) = a * sin(α) * cos(t) ∧ z(t) = a * sin(t)
+14. x_{0} = x(t_{0})
+15. y_{0} = y(t_{0})
+16. z_{0} = z(t_{0})
+17. a * cos(α) * sin(t_{0}) ≠ 0
+18. a * sin(α) * sin(t_{0}) ≠ 0
+19. a * cos(t_{0}) ≠ 0
+20. x_{0} = a * cos(α) * cos(t_{0})
+21. y_{0} = a * sin(α) * cos(t_{0})
+22. z_{0} = a * sin(t_{0})
+23. FunDeri(x, 1, 1)(t_{0}) = -a * cos(α) * sin(t_{0})
+24. FunDeri(y, 1, 1)(t_{0}) = -a * sin(α) * sin(t_{0})
+25. FunDeri(z, 1, 1)(t_{0}) = a * cos(t_{0})
+26. v = (-a * cos(α) * sin(t_{0}), -a * sin(α) * sin(t_{0}), a * cos(t_{0}))
+27. L = { (X, Y, Z) | X ∈ RealSet ∧ Y ∈ RealSet ∧ Z ∈ RealSet ∧ frac(X - x_{0}, -a * cos(α) * sin(t_{0})) = frac(Y - y_{0}, -a * sin(α) * sin(t_{0})) ∧ frac(Y - y_{0}, -a * sin(α) * sin(t_{0})) = frac(Z - z_{0}, a * cos(t_{0})) }
+28. L = { (X, Y, Z) | X ∈ RealSet ∧ Y ∈ RealSet ∧ Z ∈ RealSet ∧ frac(X - x_{0}, -cos(α) * sin(t_{0})) = frac(Y - y_{0}, -sin(α) * sin(t_{0})) ∧ frac(Y - y_{0}, -sin(α) * sin(t_{0})) = frac(Z - z_{0}, cos(t_{0})) }
+
+GOAL:
+P = { (X, Y, Z) | X ∈ RealSet ∧ Y ∈ RealSet ∧ Z ∈ RealSet ∧ -a * cos(α) * sin(t_{0}) * (X - x_{0}) + -a * sin(α) * sin(t_{0}) * (Y - y_{0}) + a * cos(t_{0}) * (Z - z_{0}) = 0 }
+
+METHOD:

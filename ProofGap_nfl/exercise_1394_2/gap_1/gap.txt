@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. R_{4} : RealSet → RealSet
+3. |x| ≤ frac(1, 2)
+4. f = (fun t [t ∈ RealSet] . sin(t))
+
+GOAL:
+sin(x) = x - frac(x^{3}, 6) + R_{4}(x)
+
+METHOD:

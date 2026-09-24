@@ -1,0 +1,18 @@
+get_forall (GOAL: {forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [0, 1] ∧ x_{0} ∈ RationalSet ⇒ (exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ (forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ x ≠ x_{0} ⇒ v(m, x) = frac(|x - r(m)| - |x_{0} - r(m)|, 3^{m} * (x - x_{0}))))}) (x_{0} := {u})
+get_condition (hypothesis 26: {u ∈ RealSet ∧ u ∈ [0, 1] ∧ u ∈ RationalSet}) in (GOAL: {u ∈ RealSet ∧ u ∈ [0, 1] ∧ u ∈ RationalSet ⇒ (exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ (forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ x ≠ u ⇒ v(m, x) = frac(|x - r(m)| - |u - r(m)|, 3^{m} * (x - u))))})
+get_prop (hypothesis 22: {forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [0, 1] ∧ x_{0} ∈ RationalSet ⇒ (exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet)}) (x_{0} := {u}) as (hypothesis 27: {u ∈ RealSet ∧ u ∈ [0, 1] ∧ u ∈ RationalSet ⇒ (exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet)})
+assert (hypothesis 28: {exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet}) by proof {
+  autosolve all_hypothesis
+}
+get_exists (hypothesis 28: {exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet}) (m := {q})
+destruct_and (hypothesis 29: {q ∈ NonNegIntegerSet ∧ q ∈ PosIntegerSet}) as (hypothesis 30: {q ∈ NonNegIntegerSet}) (hypothesis 31: {q ∈ PosIntegerSet})
+exists (m := {q})
+get_prop (hypothesis 24: {forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [0, 1] ∧ x_{0} ∈ RationalSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ x ≠ x_{0} ⇒ v(k, x) = frac(|x - r(k)| - |x_{0} - r(k)|, 3^{k} * (x - x_{0}))))}) (x_{0} := {u}) as (hypothesis 32: {u ∈ RealSet ∧ u ∈ [0, 1] ∧ u ∈ RationalSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ x ≠ u ⇒ v(k, x) = frac(|x - r(k)| - |u - r(k)|, 3^{k} * (x - u))))})
+assert (hypothesis 33: {forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ x ≠ u ⇒ v(k, x) = frac(|x - r(k)| - |u - r(k)|, 3^{k} * (x - u)))}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (hypothesis 33: {forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ x ≠ u ⇒ v(k, x) = frac(|x - r(k)| - |u - r(k)|, 3^{k} * (x - u)))}) (k := {q}) as (hypothesis 34: {q ∈ NonNegIntegerSet ∧ q ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ x ≠ u ⇒ v(q, x) = frac(|x - r(q)| - |u - r(q)|, 3^{q} * (x - u)))})
+assert (hypothesis 35: {forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ x ≠ u ⇒ v(q, x) = frac(|x - r(q)| - |u - r(q)|, 3^{q} * (x - u))}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

@@ -1,0 +1,36 @@
+PROOF GAP @11
+ASSUM:
+1. x ∈ RealSet
+2. n ∈ NonNegIntegerSet
+3. f : RealSet → RealSet
+4. Ω ⊆ RealSet
+5. Ω_{1} ⊆ RealSet
+6. Ω_{2} ⊆ RealSet
+7. x_{1} ∈ RealSet
+8. x_{2} ∈ RealSet
+9. x_{n - 1} ∈ RealSet
+10. x_{n} ∈ RealSet
+11. x_{i} ∈ RealSet
+12. ω ∈ RealSet
+13. x ≥ 0
+14. n ∈ PosIntegerSet
+15. n ≥ 2
+16. ContinuousFuncOn(f, Ω)
+17. Ω = { (x_{1}, x_{2}, ..., x_{n}) | forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ 0 ≤ x_{i} ∧ x_{i} ≤ x }
+18. Ω_{1} = { (x_{1}, x_{2}, ..., x_{n}) | forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ 0 ≤ x_{i} ∧ (i = 1 ⇒ x_{i} ≤ x) ∧ (i > 1 ⇒ x_{i} ≤ x_{i - 1}) }
+19. Ω_{2} = { (x_{1}, x_{2}, ..., x_{n}) | forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ 0 ≤ x_{i} ∧ x_{i} ≤ x ∧ (i > 1 ⇒ x_{i} ≤ x_{i - 1}) }
+20. Ω_{1} ⊆ Ω
+21. Ω_{2} ⊆ Ω
+22. ContinuousFuncOn(f, Ω_{1})
+23. ContinuousFuncOn(f, Ω_{2})
+24. VolumeInt(Ω_{1}, (fun x_{1}, x_{2}, x_{n} [x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ x_{n} ∈ RealSet] . f(x_{1}, x_{2}, ..., x_{n})) * diff(fun x_{1}, x_{2}, x_{n} [x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ x_{n} ∈ RealSet] . ω)) = DefInt(0, x, (fun x_{1} [x_{1} ∈ RealSet ∧ x_{1} ∈ [0, x]] . DefInt(0, x_{1}, (fun x_{2} [x_{2} ∈ RealSet ∧ x_{2} ∈ [0, x_{1}]] . DefInt(0, x_{n - 1}, (fun x_{n} [x_{n} ∈ RealSet ∧ x_{n} ≥ 0] . f(x_{1}, x_{2}, ..., x_{n})) * diff(fun x_{n} [x_{n} ∈ RealSet ∧ x_{n} ≥ 0] . x_{n}))) * diff(fun x_{2} [x_{2} ∈ RealSet ∧ x_{2} ∈ [0, x_{1}]] . x_{2}))) * diff(fun x_{1} [x_{1} ∈ RealSet ∧ x_{1} ∈ [0, x]] . x_{1}))
+25. VolumeInt(Ω_{2}, (fun x_{1}, x_{2}, x_{n} [x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ x_{n} ∈ RealSet] . f(x_{1}, x_{2}, ..., x_{n})) * diff(fun x_{1}, x_{2}, x_{n} [x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ x_{n} ∈ RealSet] . ω)) = DefInt(0, x, (fun x_{n} [x_{n} ∈ RealSet ∧ x_{n} ≥ 0] . DefInt(x_{n}, x, (fun x_{n - 1} [x_{n - 1} ∈ RealSet ∧ x_{n - 1} ∈ [x_{n}, x]] . DefInt(x_{2}, x, (fun x_{1} [x_{1} ∈ RealSet ∧ x_{1} ∈ [0, x]] . f(x_{1}, x_{2}, ..., x_{n})) * diff(fun x_{1} [x_{1} ∈ RealSet ∧ x_{1} ∈ [0, x]] . x_{1}))) * diff(fun x_{n - 1} [x_{n - 1} ∈ RealSet ∧ x_{n - 1} ∈ [x_{n}, x]] . x_{n - 1}))) * diff(fun x_{n} [x_{n} ∈ RealSet ∧ x_{n} ≥ 0] . x_{n}))
+26. forall (u), u ∈ RealSet ∧ u ∈ Ω_{1} ⇒ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ 0 ≤ x_{i} ∧ (i = 1 ⇒ x_{i} ≤ x) ∧ (i > 1 ⇒ x_{i} ≤ x_{i - 1}))
+27. forall (u), u ∈ RealSet ∧ u ∈ Ω_{1} ⇒ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ 0 ≤ x_{i} ∧ x_{i} ≤ x ∧ (i > 1 ⇒ x_{i} ≤ x_{i - 1}))
+28. forall (u), u ∈ RealSet ∧ u ∈ Ω_{1} ⇒ u ∈ Ω_{2}
+29. forall (u), u ∈ RealSet ∧ u ∈ Ω_{2} ⇒ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ 0 ≤ x_{i} ∧ x_{i} ≤ x ∧ (i > 1 ⇒ x_{i} ≤ x_{i - 1}))
+
+GOAL:
+forall (u), u ∈ RealSet ∧ u ∈ Ω_{2} ⇒ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ 0 ≤ x_{i} ∧ (i = 1 ⇒ x_{i} ≤ x) ∧ (i > 1 ⇒ x_{i} ≤ x_{i - 1}))
+
+METHOD:

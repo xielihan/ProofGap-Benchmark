@@ -1,0 +1,11 @@
+PROOF GAP @30
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet ∧ a < b
+4. ConvexFuncOn(f, IntervalLoRo(a, b))
+5. BoundedFuncOn(f, IntervalLoRo(a, b))
+GOAL:
+forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ RightDiffableFuncAt(f, x_{0})
+
+METHOD:

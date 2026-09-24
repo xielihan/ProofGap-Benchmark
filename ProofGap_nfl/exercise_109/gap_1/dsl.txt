@@ -1,0 +1,7 @@
+get_prop (hypothesis 2: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = 1 + n * sin(frac(n * π, 2))}) (n := {1}) as (hypothesis 3: {1 ∈ NonNegIntegerSet ∧ 1 ∈ PosIntegerSet ⇒ x(1) = 1 + 1 * sin(frac(1 * π, 2))})
+use_condition (obvious: {1 ∈ NonNegIntegerSet ∧ 1 ∈ PosIntegerSet}) in (hypothesis 3: {1 ∈ NonNegIntegerSet ∧ 1 ∈ PosIntegerSet ⇒ x(1) = 1 + 1 * sin(frac(1 * π, 2))}) as (hypothesis 4: {x(1) = 1 + 1 * sin(frac(1 * π, 2))})
+get_prop (theorem 'Thm 371. (SineAtOddHalfPi)': {forall (n), n ∈ IntegerSet => sin((2 * n + 1) * π / 2) = (-1) ^ n}) (n := {0}) as (hypothesis 5: {0 ∈ IntegerSet => sin((2 * 0 + 1) * π / 2) = (-1) ^ 0})
+use_condition (obvious: {0 ∈ IntegerSet}) in (hypothesis 5: {0 ∈ IntegerSet => sin((2 * 0 + 1) * π / 2) = (-1) ^ 0}) as (hypothesis 6: {sin((2 * 0 + 1) * π / 2) = (-1) ^ 0})
+autoreplace no_hypothesis; from (sin((2 * 0 + 1) * π / 2) = (-1) ^ 0) to (sin(frac(1 * π, 2)) = 1); from (hypothesis 6: {sin((2 * 0 + 1) * π / 2) = (-1) ^ 0}) to (hypothesis 7: {sin(frac(1 * π, 2)) = 1})
+rewrite (left_to_right, equation) (hypothesis 7: {sin(frac(1 * π, 2)) = 1}); from (hypothesis 4: {x(1) = 1 + 1 * sin(frac(1 * π, 2))}) to (hypothesis 8: {x(1) = 1 + 1 * 1})
+autosolve (hypothesis 8: {x(1) = 1 + 1 * 1})

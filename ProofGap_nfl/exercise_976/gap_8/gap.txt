@@ -1,0 +1,17 @@
+PROOF GAP @8
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet ∧ a ∈ PosRealSet
+3. forall (x), x ∈ RealSet ⇒ y(x) = frac(a^{x}, 1 + a^{2 * x}) - frac(1 - a^{2 * x}, 1 + a^{2 * x}) * arccot(a^{-x})
+4. forall (u), u : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ u = (fun x [x ∈ RealSet] . a^{x}) ⇒ u(x) > 0)
+5. forall (u), u : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ u = (fun x [x ∈ RealSet] . a^{x}) ⇒ y(u(x)) = frac(u(x), 1 + u(x)^{2}) - frac(1 - u(x)^{2}, 1 + u(x)^{2}) * arccot(u(x)^{-1}))
+6. forall (u), u : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ u = (fun x [x ∈ RealSet] . a^{x}) ⇒ FunDeri(y, u, 1)(u(x)) = frac(4 * u(x) * arccot(u(x)^{-1}), (1 + u(x)^{2})^{2}))
+7. forall (u), u : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ u = (fun x [x ∈ RealSet] . a^{x}) ⇒ frac(4 * u(x) * arccot(u(x)^{-1}), (1 + u(x)^{2})^{2}) = frac(4 * a^{x} * arccot(a^{-x}), (1 + a^{2 * x})^{2}))
+8. forall (u), u : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ u = (fun x [x ∈ RealSet] . a^{x}) ⇒ FunDeri(y, u, 1)(u(x)) = frac(4 * a^{x} * arccot(a^{-x}), (1 + a^{2 * x})^{2}))
+9. forall (u), u : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ u = (fun x [x ∈ RealSet] . a^{x}) ⇒ FunDeri(u, 1, 1)(x) = a^{x} * ln(a))
+10. forall (u), u : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ u = (fun x [x ∈ RealSet] . a^{x}) ⇒ FunDeri(y, u, 1)(x) = FunDeri(y, u, 1)(u(x)) * FunDeri(u, 1, 1)(x))
+
+GOAL:
+forall (u), u : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ u = (fun x [x ∈ RealSet] . a^{x}) ⇒ FunDeri(y, u, 1)(u(x)) * FunDeri(u, 1, 1)(x) = frac(4 * a^{x} * arccot(a^{-x}), (1 + a^{2 * x})^{2}) * (a^{x} * ln(a)))
+
+METHOD:

@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. C ∈ RealSet
+4. exists (x), x ∈ RealSet ∧ x + a > 0
+5. exists (x), x ∈ RealSet ∧ x + b > 0
+6. { `F_2` | forall (x), x ∈ RealSet ∧ x + a > 0 ∧ x + b > 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(ln((x + a)^{x + a} * (x + b)^{x + b}), (x + a) * (x + b)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | exists (`F_3`) (`F_4`), `F_3` : RealSet → RealSet ∧ `F_4` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x + a > 0 ∧ x + b > 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(ln(x + a), x + b) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ FunDeri(`F_4`, 1, 1)(x) = frac(ln(x + b), x + a) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_5`(x) = `F_3`(x) + `F_4`(x)) }
+7. { `F_6` | forall (x), x ∈ RealSet ∧ x + a > 0 ∧ x + b > 0 ⇒ FunDeri(`F_6`, 1, 1)(x) = frac(ln((x + a)^{x + a} * (x + b)^{x + b}), (x + a) * (x + b)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_9` | exists (`F_7`) (`F_8`), `F_7` : RealSet → RealSet ∧ `F_8` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x + a > 0 ∧ x + b > 0 ⇒ FunDeri(`F_7`, 1, 1)(x) = ln(x + a) * FunDeri(fun x [x ∈ RealSet ∧ x + b > 0] . ln(x + b), 1, 1)(x) ∧ FunDeri(`F_8`, 1, 1)(x) = ln(x + b) * FunDeri(fun x [x ∈ RealSet ∧ x + a > 0] . ln(x + a), 1, 1)(x) ∧ `F_9`(x) = `F_7`(x) + `F_8`(x)) }
+8. { `F_10` | forall (x), x ∈ RealSet ∧ x + a > 0 ∧ x + b > 0 ⇒ FunDeri(`F_10`, 1, 1)(x) = frac(ln((x + a)^{x + a} * (x + b)^{x + b}), (x + a) * (x + b)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_15` | exists (`F_14`) (`F_11`), `F_14` : RealSet → RealSet ∧ `F_11` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x + a > 0 ∧ x + b > 0 ⇒ FunDeri(`F_11`, 1, 1)(x) = ln(x + b) * FunDeri(fun x [x ∈ RealSet ∧ x + a > 0] . ln(x + a), 1, 1)(x) ∧ FunDeri(`F_14`, 1, 1)(x) = ln(x + b) * FunDeri(fun x [x ∈ RealSet ∧ x + a > 0] . ln(x + a), 1, 1)(x) ∧ `F_15`(x) = ln(x + a) * ln(x + b) - `F_11`(x) + `F_14`(x)) }
+
+GOAL:
+{ `F_16` | forall (x), x ∈ RealSet ∧ x + a > 0 ∧ x + b > 0 ⇒ FunDeri(`F_16`, 1, 1)(x) = frac(ln((x + a)^{x + a} * (x + b)^{x + b}), (x + a) * (x + b)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_17` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x + a > 0 ∧ x + b > 0 ⇒ `F_17`(x) = ln(x + a) * ln(x + b) + C) }
+
+METHOD:

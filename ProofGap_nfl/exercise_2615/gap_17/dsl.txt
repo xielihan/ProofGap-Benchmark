@@ -1,0 +1,2 @@
+rewrite_in sum (left_to_right, equation) (hypothesis 17: {forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 2 ⇒ frac(1, n^{1 + frac(ln(ln(n)), ln(n))}) = frac(1, n * ln(n))}); from (GOAL: {DivergentSeries(sum_{ n = 2 }^{ +∞ } (frac(1, n^{1 + frac(ln(ln(n)), ln(n))})))}) to (GOAL: {DivergentSeries(sum_{ n = 2 }^{ +∞ } (frac(1, n * ln(n))))})
+apply (hypothesis 18: {DivergentSeries(sum_{ n = 2 }^{ +∞ } (frac(1, n * ln(n))))})

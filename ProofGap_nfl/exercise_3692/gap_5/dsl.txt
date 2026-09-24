@@ -1,0 +1,2 @@
+exists (x := {frac(p, 2)}) (y := {frac(p, 2)})
+autosolve all_hypothesis

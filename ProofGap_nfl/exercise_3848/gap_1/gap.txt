@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. B : CartesianProd(RealSet, RealSet) → RealSet
+2. Gamma : RealSet → RealSet
+
+GOAL:
+forall (t), t ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ t = sin(x) ∧ x ∈ [0, frac(π, 2)] ⇒ t ∈ [0, 1])
+
+METHOD:

@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. u : IntegerSet → RealSet
+3. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ u(n) = frac(sqrtn(2, n + 2) - sqrtn(2, n - 2), n^{a})
+4. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ 0 < u(n)
+
+GOAL:
+forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ u(n) = frac(4, n^{a} * (sqrtn(2, n + 2) + sqrtn(2, n - 2)))
+
+METHOD:

@@ -1,0 +1,5 @@
+get_condition (hypothesis 7: {n ∈ PosRealSet}) in (GOAL: {n ∈ PosRealSet => lim_{x -> 0} (f(x)) = f(0)})
+use_condition (hypothesis 7: {n ∈ PosRealSet}) in (hypothesis 6: {n ∈ PosRealSet => lim_{x -> 0} (x ^ n * sin(frac(1, x))) = 0}) as (hypothesis 8: {lim_{x -> 0} (x ^ n * sin(frac(1, x))) = 0})
+rewrite_in limit (left_to_right, equation) (hypothesis 3: {forall (x), x ∈ RealSet /\ x != 0 => f(x) = x ^ n * sin(frac(1, x))}); from (GOAL: {lim_{x -> 0} (f(x)) = f(0)}) to (GOAL: {lim_{x -> 0} (x ^ n * sin(frac(1, x))) = f(0)})
+rewrite (left_to_right, equation) (hypothesis 4: {f(0) = 0}); from (GOAL: {lim_{x -> 0} (x ^ n * sin(frac(1, x))) = f(0)}) to (GOAL: {lim_{x -> 0} (x ^ n * sin(frac(1, x))) = 0})
+apply (hypothesis 8: {lim_{x -> 0} (x ^ n * sin(frac(1, x))) = 0})

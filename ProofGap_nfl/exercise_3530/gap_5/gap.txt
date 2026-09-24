@@ -1,0 +1,21 @@
+PROOF GAP @5
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. M ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. L ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+4. P ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+5. M = (1, 1, 1)
+6. forall (X) (Y) (Z), X ∈ RealSet ∧ Y ∈ RealSet ∧ Z ∈ RealSet ⇒ ((X, Y, Z) ∈ C ⇔ Y = X ∧ Z = X^{2})
+7. x = (fun t [t ∈ RealSet] . t)
+8. y = (fun t [t ∈ RealSet] . t)
+9. z = (fun t [t ∈ RealSet] . t^{2})
+10. (x(1), y(1), z(1)) = (1, 1, 1)
+11. v = (FunDeri(x, 1, 1)(1), FunDeri(y, 1, 1)(1), FunDeri(z, 1, 1)(1))
+12. v = (1, 1, 2)
+13. L = { (X, Y, Z) | X ∈ RealSet ∧ Y ∈ RealSet ∧ Z ∈ RealSet ∧ frac(X - 1, 1) = frac(Y - 1, 1) ∧ frac(Y - 1, 1) = frac(Z - 1, 2) }
+14. P = { (X, Y, Z) | X ∈ RealSet ∧ Y ∈ RealSet ∧ Z ∈ RealSet ∧ X - 1 + Y - 1 + 2 * (Z - 1) = 0 }
+
+GOAL:
+P = { (X, Y, Z) | X ∈ RealSet ∧ Y ∈ RealSet ∧ Z ∈ RealSet ∧ X + Y + 2 * Z = 4 }
+
+METHOD:

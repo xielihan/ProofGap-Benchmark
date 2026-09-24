@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 17: {FunDeri(I, 1, 1)(α) = -DefInt(0, +∞, (fun x [x ∈ RealSet] . x * e^{-α * x^{2}}) * diff(fun x [x ∈ RealSet] . x))}); from (GOAL: {FunDeri(I, 1, 1)(α) = -frac(1, 2 * α)}) to (GOAL: {-DefInt(0, +∞, (fun x [x ∈ RealSet] . x * e^{-α * x^{2}}) * diff(fun x [x ∈ RealSet] . x)) = -frac(1, 2 * α)})
+autosolve all_hypothesis

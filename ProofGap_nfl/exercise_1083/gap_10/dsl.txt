@@ -1,0 +1,2 @@
+get_condition (hypothesis 13: {Δx = 0.01}) in (GOAL: {Δx = 0.01 ⇒ f(1 + Δx) - f(1) = 0.010301})
+autosolve all_hypothesis

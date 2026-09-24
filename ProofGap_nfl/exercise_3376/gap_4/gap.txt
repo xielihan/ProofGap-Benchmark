@@ -1,0 +1,16 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. y ∈ RealSet
+3. k ∈ RealSet
+4. DiffableFunc(x)
+5. DiffableFunc(y)
+6. 1 + x * y = k * (x - y)
+7. x * diff(y) + y * diff(x) = k * (diff(x) - diff(y))
+8. (x - y) * (x * diff(y) + y * diff(x)) = k * (x - y) * (diff(x) - diff(y))
+9. k * (x - y) * (diff(x) - diff(y)) = (1 + x * y) * (diff(x) - diff(y))
+
+GOAL:
+(x - y) * (x * diff(y) + y * diff(x)) = (1 + x * y) * (diff(x) - diff(y))
+
+METHOD:

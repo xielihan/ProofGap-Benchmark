@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. n ∈ NonNegIntegerSet ∧ n > 0
+2. x ∈ RealSet
+3. u : RealSet → RealSet
+4. n ∈ PosIntegerSet
+5. forall (x), x ∈ RealSet ⇒ sin(x) = frac(e^{__IMAGINARY_UNIT__ * x} - e^{-__IMAGINARY_UNIT__ * x}, 2 * __IMAGINARY_UNIT__)
+6. u = (fun x [x ∈ RealSet] . frac(sin(n * x), sin(x)))
+7. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < π ⇒ u(x) = frac(e^{__IMAGINARY_UNIT__ * n * x} - e^{-__IMAGINARY_UNIT__ * n * x}, e^{__IMAGINARY_UNIT__ * x} - e^{-__IMAGINARY_UNIT__ * x})
+
+GOAL:
+forall (k), k ∈ NonNegIntegerSet ∧ k > 0 ∧ n = 2 * k ∧ k ∈ PosIntegerSet ⇒ u(x) = sum_{ j = 1 }^{ k } (2 * cos((2 * j - 1) * x))
+
+METHOD:

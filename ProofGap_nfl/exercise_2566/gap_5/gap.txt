@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (b), b : NonNegIntegerSet → RealSet ⇒ (forall (c), c : NonNegIntegerSet → RealSet ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n))) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ≤ c(n) ∧ c(n) ≤ b(n)) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 ≤ c(n) - a(n) ∧ c(n) - a(n) ≤ b(n) - a(n))))
+2. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (b), b : NonNegIntegerSet → RealSet ⇒ (forall (c), c : NonNegIntegerSet → RealSet ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n))) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ≤ c(n) ∧ c(n) ≤ b(n)) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n) - a(n)))))
+3. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (b), b : NonNegIntegerSet → RealSet ⇒ (forall (c), c : NonNegIntegerSet → RealSet ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n))) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ≤ c(n) ∧ c(n) ≤ b(n)) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n) - a(n)))))
+4. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (b), b : NonNegIntegerSet → RealSet ⇒ (forall (c), c : NonNegIntegerSet → RealSet ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n))) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ≤ c(n) ∧ c(n) ≤ b(n)) ⇒ sum_{ n = 1 }^{ +∞ } (c(n)) = sum_{ n = 1 }^{ +∞ } (a(n) + c(n) - a(n))))
+
+GOAL:
+forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (b), b : NonNegIntegerSet → RealSet ⇒ (forall (c), c : NonNegIntegerSet → RealSet ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n))) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ≤ c(n) ∧ c(n) ≤ b(n)) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n)))))
+
+METHOD:

@@ -1,0 +1,20 @@
+PROOF GAP @6
+ASSUM:
+1. E ⊆ RealSet
+2. A ⊆ RealSet
+3. B ⊆ RealSet
+4. `A'` ⊆ RealSet
+5. `B'` ⊆ RealSet
+6. forall (r), r ∈ RealSet ⇒ (r ∈ E ⇔ r ∈ RationalSet ∧ r^{2} < 2)
+7. A = { r | r ∈ RationalSet, r ≤ 0 ∨ r > 0 ∧ r^{2} < 2 }
+8. B = RationalSet \ A
+9. A ∪ B = RationalSet
+10. forall (a), a ∈ RealSet ⇒ (forall (b), b ∈ RealSet ∧ a ∈ A ∧ b ∈ B ⇒ a < b)
+11. ¬(exists (a), a ∈ RealSet ∧ a ∈ A ∧ (forall (x), x ∈ RealSet ∧ x ∈ A ⇒ x ≤ a))
+12. sup(E) = sup(A)
+13. sup(A) = sqrtn(2, 2)
+
+GOAL:
+sup(E) = sqrtn(2, 2)
+
+METHOD:

@@ -1,0 +1,14 @@
+PROOF GAP @5
+ASSUM:
+1. x ∈ RealSet ∧ |x| > 1
+2. t ∈ RealSet
+3. C ∈ RealSet
+4. x > 1 ⇒ x = sec(t) ⇒ 0 < t
+5. x > 1 ⇒ x = sec(t) ⇒ t < frac(π, 2)
+6. x > 1 ⇒ x = sec(t) ⇒ diff(fun x [x ∈ RealSet] . x) = sec(t) * tan(t) * diff(fun t [t ∈ RealSet] . t)
+7. x > 1 ⇒ x = sec(t) ⇒ sqrtn(2, x^{2} - 1) = tan(t)
+
+GOAL:
+x > 1 ⇒ { `F_2` | forall (x), x ∈ RealSet ∧ |x| > 1 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, (x^{2} + 1) * sqrtn(2, x^{2} - 1)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (t), t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2) ⇒ FunDeri(`F_3`, 1, 1)(t) = frac(sec(t), 1 + sec(t)^{2}) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) }
+
+METHOD:

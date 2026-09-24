@@ -1,0 +1,17 @@
+PROOF GAP @1
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. a ∈ RealSet ∧ a > 0
+4. α ∈ RealSet ∧ 0 < α ∧ α ≤ π
+5. ξ ∈ RealSet
+6. η ∈ RealSet
+7. s ∈ RealSet ∧ s > 0
+8. forall (φ), φ ∈ RealSet ∧ φ ∈ [-α, α] ⇒ x(φ) = a * cos(φ)
+9. forall (φ), φ ∈ RealSet ∧ φ ∈ [-α, α] ⇒ y(φ) = a * sin(φ)
+10. s = 2 * a * α
+
+GOAL:
+η = 0
+
+METHOD:

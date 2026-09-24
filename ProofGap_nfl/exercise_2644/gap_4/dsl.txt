@@ -1,0 +1,7 @@
+get_condition (hypothesis 10: {a + b <= 1}) in (GOAL: {a + b ≤ 1 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{a + b})))})
+get_prop (theorem 'Thm 365. (PSeriesDivergesForExponentAtMostOne)': {forall (p), p ∈ RealSet => p <= 1 => DivergentSeries(sum_{n = 1}^{+∞}(1 / n ^ p))}) (p := {a + b}) as (hypothesis 11: {a + b ∈ RealSet => a + b <= 1 => DivergentSeries(sum_{n = 1}^{+∞}(1 / n ^ (a + b)))})
+assert (hypothesis 12: {a + b ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 12: {a + b ∈ RealSet}) (hypothesis 10: {a + b <= 1}) in (hypothesis 11: {a + b ∈ RealSet => a + b <= 1 => DivergentSeries(sum_{n = 1}^{+∞}(1 / n ^ (a + b)))}) as (hypothesis 13: {DivergentSeries(sum_{n = 1}^{+∞}(1 / n ^ (a + b)))})
+autosolve all_hypothesis

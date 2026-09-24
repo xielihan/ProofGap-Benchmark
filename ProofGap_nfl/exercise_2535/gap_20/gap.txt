@@ -1,0 +1,40 @@
+PROOF GAP @20
+ASSUM:
+1. x ∈ RealSet
+2. y ∈ RealSet
+3. h ∈ RealSet
+4. x_{0} ∈ RealSet
+5. x_{1} ∈ RealSet
+6. x_{2} ∈ RealSet
+7. x_{3} ∈ RealSet
+8. x_{4} ∈ RealSet
+9. y_{0} ∈ RealSet
+10. y_{1} ∈ RealSet
+11. y_{2} ∈ RealSet
+12. y_{3} ∈ RealSet
+13. y_{4} ∈ RealSet
+14. forall (x), x ∈ RealSet ∧ x ∈ [1, 9] ⇒ x ≥ 0
+15. h = 2
+16. x_{0} = 1
+17. y_{0} = 1
+18. x_{1} = 3
+19. y_{1} = sqrtn(2, 3)
+20. sqrtn(2, 3) = 1.732
+21. x_{2} = 5
+22. y_{2} = sqrtn(2, 5)
+23. sqrtn(2, 5) = 2.236
+24. x_{3} = 7
+25. y_{3} = sqrtn(2, 7)
+26. sqrtn(2, 7) = 2.646
+27. x_{4} = 9
+28. y_{4} = 3
+29. DefInt(1, 9, (fun x [x ∈ RealSet ∧ 1 ≤ x ∧ x ≤ 9] . sqrtn(2, x)) * diff(fun x [x ∈ RealSet] . x)) ≈_{ 0.011 } frac(h, 3) * (y_{0} + y_{4} + 4 * (y_{1} + y_{3}) + 2 * y_{2})
+30. DefInt(1, 9, (fun x [x ∈ RealSet ∧ 1 ≤ x ∧ x ≤ 9] . sqrtn(2, x)) * diff(fun x [x ∈ RealSet] . x)) ≈_{ 0.011 } frac(2, 3) * (4 + 4 * (1.732 + 2.646) + 2 * 2.236)
+31. frac(2, 3) * (4 + 4 * (1.732 + 2.646) + 2 * 2.236) ≈_{ 0.011 } 17.323
+32. DefInt(1, 9, (fun x [x ∈ RealSet ∧ 1 ≤ x ∧ x ≤ 9] . sqrtn(2, x)) * diff(fun x [x ∈ RealSet] . x)) = ((fun x [x ∈ RealSet ∧ 1 ≤ x ∧ x ≤ 9] . frac(2, 3) * x^{frac(3, 2)})|_{1}^{9})
+33. ((fun x [x ∈ RealSet ∧ 1 ≤ x ∧ x ≤ 9] . frac(2, 3) * x^{frac(3, 2)})|_{1}^{9}) = frac(52, 3)
+
+GOAL:
+|frac(52, 3) - 17.333| ≤ 0.001
+
+METHOD:

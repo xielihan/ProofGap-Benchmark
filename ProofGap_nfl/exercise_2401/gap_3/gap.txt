@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. S ∈ RealSet
+2. S = DefInt(0, π, (fun x [x ∈ RealSet] . x + sin(x)^{2} - x) * diff(fun x [x ∈ RealSet] . x))
+3. S = (frac(π, 2) - frac(1, 4) * sin(2 * π)) - (frac(0, 2) - frac(1, 4) * sin(2 * 0))
+
+GOAL:
+S = frac(π, 2)
+
+METHOD:

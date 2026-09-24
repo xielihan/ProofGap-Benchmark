@@ -1,0 +1,1 @@
+1. apply (hypothesis 2: {forall (x), x ∈ RealSet ⇒ y(x) = frac(1, sqrtn(2, 1 + x^{2}) * (x + sqrtn(2, 1 + x^{2})))})

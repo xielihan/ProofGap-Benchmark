@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. a = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . (-1)^{n - 1} * (2^{n} * sin(x)^{2 * n} / n))
+3. seqlim_{ n → +∞ } (sqrtn(n, |a(n)|)) = (sqrtn(2, 2) * sin(x))^{2}
+
+GOAL:
+(sqrtn(2, 2) * sin(x))^{2} < 1 ⇒ (exists (k), k ∈ IntegerSet ∧ |x - k * π| < frac(π, 4))
+
+METHOD:

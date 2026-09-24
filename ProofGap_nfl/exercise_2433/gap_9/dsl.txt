@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 15: {sinh(frac(b, a)) = frac(1, a) * sqrtn(2, h ^ 2 - a ^ 2)}); from (hypothesis 11: {s = a * sinh(frac(b, a))}) to (hypothesis 16: {s = a * (frac(1, a) * sqrtn(2, h ^ 2 - a ^ 2))})
+autosolve all_hypothesis

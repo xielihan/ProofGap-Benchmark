@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ frac(1 + (-x)^{2}, 1 + (-x)^{4}) = frac(1 + x^{2}, 1 + x^{4})
+
+METHOD:

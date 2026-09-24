@@ -1,0 +1,16 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet ∧ x ∈ PosRealSet
+3. k ∈ RealSet
+4. forall (t), t ∈ RealSet ∧ t ∈ PosRealSet ⇒ f(t) = ln(t) - k * t
+5. k = 0 ⇒ f(1) = 0
+6. k = 0 ⇒ (existsUnique (x), x ∈ RealSet ∧ x ∈ PosRealSet ∧ f(x) = 0)
+7. k = 0 ⇒ x = 1
+8. k > 0 ⇒ (forall (t), t ∈ RealSet ∧ t ∈ PosRealSet ⇒ FunDeri(f, 1, 1)(t) = frac(1, t) - k)
+9. k > 0 ⇒ (FunDeri(f, 1, 1)(x) = 0 ⇔ x = frac(1, k))
+
+GOAL:
+k > 0 ⇒ (forall (t), t ∈ RealSet ∧ t ∈ PosRealSet ⇒ FunDeri(f, 1, 2)(t) = -frac(1, t^{2}) ∧ -frac(1, t^{2}) < 0)
+
+METHOD:

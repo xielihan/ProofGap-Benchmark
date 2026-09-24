@@ -1,0 +1,16 @@
+PROOF GAP @3
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. a ∈ RealSet ∧ a > 0
+3. x ∈ RealSet
+4. y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ a
+5. z ∈ RealSet
+6. s : RealSet → RealSet
+7. C = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x^{2} + y^{2} = z^{2} ∧ y^{2} = a * x ∧ 0 ≤ y ∧ y ≤ a }
+8. z = sqrtn(2, x^{2} + y^{2})
+9. sqrtn(2, x^{2} + y^{2}) = sqrtn(2, frac(y^{4}, a^{2}) + y^{2})
+
+GOAL:
+sqrtn(2, frac(y^{4}, a^{2}) + y^{2}) = frac(y, a) * sqrtn(2, y^{2} + a^{2})
+
+METHOD:

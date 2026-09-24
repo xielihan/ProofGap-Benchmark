@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. H : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. y : RealSet → RealSet
+3. z : RealSet → RealSet
+4. forall (m) (x), m ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ H(m, x) = (-1)^{m} * e^{x^{2}} * FunDeri(fun x [x ∈ RealSet] . e^{-x^{2}}, 1, m)(x)
+5. y = (fun x [x ∈ RealSet] . e^{-x^{2}})
+6. forall (m), m ∈ NonNegIntegerSet ⇒ y = (fun x [x ∈ RealSet] . e^{-x^{2}})
+
+GOAL:
+forall (m) (x), x ∈ RealSet ∧ m ∈ NonNegIntegerSet ⇒ (e^{-x^{2}})' = (-1)^{1} * (2 * x)^{1} * e^{-x^{2}}
+
+METHOD:

@@ -1,0 +1,21 @@
+PROOF GAP @10
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. x ∈ RealSet ∧ a^{2} + x ≥ 0
+3. f = (fun y [y ∈ RealSet ∧ y ≥ 0] . sqrtn(2, y))
+4. y_{0} = a^{2}
+5. Δy = x
+6. y_{0} + Δy = a^{2} + x
+7. f(y_{0} + Δy) ≈_{ |Δy|^{2} } f(y_{0}) + FunDeri(f, 1, 1)(y_{0}) * Δy
+8. FunDeri(f, 1, 1)(y_{0}) = frac(1, 2 * sqrtn(2, y_{0}))
+9. sqrtn(2, y_{0}) = a
+10. sqrtn(2, a^{2} + x) ≈_{ |x|^{2} } a + frac(x, 2 * a)
+11. sqrtn(2, 34) = sqrtn(2, 6^{2} - 2)
+12. sqrtn(2, 6^{2} - 2) ≈_{ |-2|^{2} } 6 - frac(2, 2 * 6)
+13. 6 - frac(2, 2 * 6) = 5.833
+14. sqrtn(2, 34) = 5.831
+
+GOAL:
+sqrtn(2, a^{2} + x) ≈_{ |x|^{2} } a + frac(x, 2 * a)
+
+METHOD:

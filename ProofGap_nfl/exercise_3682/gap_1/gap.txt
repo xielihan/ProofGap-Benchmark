@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. f = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . (x - y^{2}) * (2 * x - y^{2}))
+
+GOAL:
+f(0, 0) = 0
+
+METHOD:

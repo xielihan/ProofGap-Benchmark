@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. a_{1} ∈ RealSet
+2. b_{1} ∈ RealSet
+3. a_{2} ∈ RealSet
+4. b_{2} ∈ RealSet
+5. forall (x), x ∈ RealSet ⇒ lim_{ x → -∞ } (sqrtn(2, x^{2} - x + 1) - a_{1} * x - b_{1}) = 0
+6. forall (x), x ∈ RealSet ⇒ lim_{ x → +∞ } (sqrtn(2, x^{2} - x + 1) - a_{2} * x - b_{2}) = 0
+7. forall (x), x ∈ RealSet ⇒ sqrtn(2, x^{2} - x + 1) - a_{1} * x - b_{1} = frac((1 - (a_{1})^{2}) * x^{2} - (1 + 2 * a_{1} * b_{1}) * x + 1 - (b_{1})^{2}, sqrtn(2, x^{2} - x + 1) + a_{1} * x + b_{1})
+
+GOAL:
+1 - (a_{1})^{2} = 0
+
+METHOD:

@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+lim_{ x → 0^+ } (sin(x) * ln(cot(x))) = lim_{ x → 0^+ } (frac(ln(cot(x)), csc(x)))
+
+METHOD:

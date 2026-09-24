@@ -1,0 +1,60 @@
+PROOF GAP @44
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. y : NonNegIntegerSet → RealSet ∧ IsSeq(y)
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ∈ RealSet ∧ y(n) ∈ RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ seqlim_{ n → +∞ } (x(n)) ∈ RealSet
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ seqlim_{ n → +∞ } (y(n)) ∈ RealSet
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ seqlim_{ n → +∞ } (x(n) + y(n)) ∈ RealSet
+7. α = seqlim_{ n → +∞ } (x(n))
+8. exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ seqlim_{ k → +∞ } (x(p(k))) = α
+9. exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ (exists (β), β ∈ RealSet ∧ (exists (q), q : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(q) ∧ seqlim_{ i → +∞ } (y(p(q(i)))) = β ∧ β = seqlim_{ k → +∞ } (y(p(k)))))
+10. exists (β), β ∈ RealSet ∧ β ≤ seqlim_{ n → +∞ } (y(n))
+11. exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ (exists (q), q : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(q) ∧ (exists (β), β ∈ RealSet ∧ seqlim_{ i → +∞ } (x(p(q(i))) + y(p(q(i)))) = α + β))
+12. exists (β), β ∈ RealSet ∧ α + β ∈ AccumulationPointSet(fun n [n ∈ NonNegIntegerSet] . x(n) + y(n))
+13. exists (β), β ∈ RealSet ∧ α + β ≥ seqlim_{ n → +∞ } (x(n) + y(n))
+14. exists (β), β ∈ RealSet ∧ seqlim_{ n → +∞ } (x(n) + y(n)) ≤ α + β
+15. exists (β), β ∈ RealSet ∧ α + β ≤ (seqlim_{ n → +∞ } (x(n))) + (seqlim_{ n → +∞ } (y(n)))
+16. seqlim_{ n → +∞ } (x(n) + y(n)) ≤ (seqlim_{ n → +∞ } (x(n))) + (seqlim_{ n → +∞ } (y(n)))
+17. seqlim_{ n → +∞ } (x(n) + y(n)) ≤ (seqlim_{ n → +∞ } (x(n))) + (seqlim_{ n → +∞ } (y(n)))
+18. `α'` = seqlim_{ n → +∞ } (x(n) + y(n))
+19. exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ seqlim_{ k → +∞ } (x(p(k)) + y(p(k))) = `α'`
+20. exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ (exists (`β'`), `β'` ∈ RealSet ∧ (exists (q), q : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(q) ∧ seqlim_{ i → +∞ } (x(p(q(i)))) = `β'` ∧ `β'` = seqlim_{ k → +∞ } (x(p(k)))))
+21. exists (`β'`), `β'` ∈ RealSet ∧ `β'` ≥ seqlim_{ n → +∞ } (x(n))
+22. exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ (exists (q), q : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(q) ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ⇒ y(p(q(i))) = x(p(q(i))) + y(p(q(i))) - x(p(q(i)))))
+23. exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ (exists (q), q : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(q) ∧ (exists (`β'`), `β'` ∈ RealSet ∧ seqlim_{ i → +∞ } (x(p(q(i))) + y(p(q(i))) - x(p(q(i)))) = `α'` - `β'`))
+24. exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ (exists (q), q : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(q) ∧ (exists (`β'`), `β'` ∈ RealSet ∧ seqlim_{ i → +∞ } (y(p(q(i)))) = `α'` - `β'`))
+25. exists (`β'`), `β'` ∈ RealSet ∧ `α'` - `β'` ∈ AccumulationPointSet(y)
+26. exists (`β'`), `β'` ∈ RealSet ∧ `α'` - `β'` ≥ seqlim_{ n → +∞ } (y(n))
+27. seqlim_{ n → +∞ } (x(n) + y(n)) = `α'`
+28. exists (`β'`), `β'` ∈ RealSet ∧ `α'` ≥ `β'` + (seqlim_{ n → +∞ } (y(n)))
+29. exists (`β'`), `β'` ∈ RealSet ∧ `β'` + (seqlim_{ n → +∞ } (y(n))) ≥ (seqlim_{ n → +∞ } (x(n))) + (seqlim_{ n → +∞ } (y(n)))
+30. seqlim_{ n → +∞ } (x(n) + y(n)) ≥ (seqlim_{ n → +∞ } (x(n))) + (seqlim_{ n → +∞ } (y(n)))
+31. (seqlim_{ n → +∞ } (x(n))) + (seqlim_{ n → +∞ } (y(n))) ≤ seqlim_{ n → +∞ } (x(n) + y(n))
+32. r = seqlim_{ n → +∞ } (x(n) + y(n))
+33. exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ seqlim_{ k → +∞ } (x(p(k)) + y(p(k))) = r
+34. exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ (exists (τ), τ ∈ RealSet ∧ (exists (q), q : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(q) ∧ seqlim_{ i → +∞ } (x(p(q(i)))) = τ ∧ τ = seqlim_{ k → +∞ } (x(p(k)))))
+35. exists (τ), τ ∈ RealSet ∧ τ ≤ seqlim_{ n → +∞ } (x(n))
+36. exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ (exists (q), q : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(q) ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ⇒ y(p(q(i))) = x(p(q(i))) + y(p(q(i))) - x(p(q(i)))))
+37. exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ (exists (q), q : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(q) ∧ (exists (τ), τ ∈ RealSet ∧ seqlim_{ i → +∞ } (x(p(q(i))) + y(p(q(i))) - x(p(q(i)))) = r - τ))
+38. exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ (exists (q), q : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(q) ∧ (exists (τ), τ ∈ RealSet ∧ seqlim_{ i → +∞ } (y(p(q(i)))) = r - τ))
+39. exists (τ), τ ∈ RealSet ∧ r - τ ∈ AccumulationPointSet(y)
+40. exists (τ), τ ∈ RealSet ∧ r - τ ≤ seqlim_{ n → +∞ } (y(n))
+41. exists (τ), τ ∈ RealSet ∧ r ≤ τ + (seqlim_{ n → +∞ } (y(n)))
+42. exists (τ), τ ∈ RealSet ∧ τ + (seqlim_{ n → +∞ } (y(n))) ≤ (seqlim_{ n → +∞ } (x(n))) + (seqlim_{ n → +∞ } (y(n)))
+43. r ≤ (seqlim_{ n → +∞ } (x(n))) + (seqlim_{ n → +∞ } (y(n)))
+44. seqlim_{ n → +∞ } (x(n) + y(n)) ≤ (seqlim_{ n → +∞ } (x(n))) + (seqlim_{ n → +∞ } (y(n)))
+45. `r'` = seqlim_{ n → +∞ } (y(n))
+46. exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ seqlim_{ k → +∞ } (y(p(k))) = `r'`
+47. exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ (exists (`τ'`), `τ'` ∈ RealSet ∧ (exists (q), q : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(q) ∧ seqlim_{ i → +∞ } (x(p(q(i)))) = `τ'` ∧ `τ'` = seqlim_{ k → +∞ } (x(p(k)))))
+48. exists (`τ'`), `τ'` ∈ RealSet ∧ `τ'` ≥ seqlim_{ n → +∞ } (x(n))
+49. exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ (exists (q), q : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(q) ∧ (exists (`τ'`), `τ'` ∈ RealSet ∧ seqlim_{ i → +∞ } (x(p(q(i))) + y(p(q(i)))) = `r'` + `τ'`))
+50. exists (`τ'`), `τ'` ∈ RealSet ∧ `r'` + `τ'` ∈ AccumulationPointSet(fun n [n ∈ NonNegIntegerSet] . x(n) + y(n))
+51. exists (`τ'`), `τ'` ∈ RealSet ∧ seqlim_{ n → +∞ } (x(n) + y(n)) ≥ `r'` + `τ'`
+52. exists (`τ'`), `τ'` ∈ RealSet ∧ `r'` + `τ'` ≥ (seqlim_{ n → +∞ } (x(n))) + (seqlim_{ n → +∞ } (y(n)))
+53. seqlim_{ n → +∞ } (x(n) + y(n)) ≥ (seqlim_{ n → +∞ } (x(n))) + (seqlim_{ n → +∞ } (y(n)))
+
+GOAL:
+(seqlim_{ n → +∞ } (x(n))) + (seqlim_{ n → +∞ } (y(n))) ≤ seqlim_{ n → +∞ } (x(n) + y(n))
+
+METHOD:

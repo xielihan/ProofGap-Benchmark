@@ -1,0 +1,21 @@
+PROOF GAP @12
+ASSUM:
+1. f : RealSet → RealSet
+2. Δx ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = x^{3} - 2 * x + 1
+4. f(1 + Δx) - f(1) = (1 + Δx)^{3} - 2 * (1 + Δx) + 1 - (1 - 2 + 1)
+5. (1 + Δx)^{3} - 2 * (1 + Δx) + 1 - (1 - 2 + 1) = Δx + 3 * Δx^{2} + Δx^{3}
+6. f(1 + Δx) - f(1) = Δx + 3 * Δx^{2} + Δx^{3}
+7. forall (x), x ∈ RealSet ⇒ FunDeri(f, 1, 1)(x) = 3 * x^{2} - 2
+8. FunDeri(f, 1, 1)(1) * Δx = Δx
+9. Δx = 1 ⇒ f(1 + Δx) - f(1) = 5
+10. Δx = 1 ⇒ FunDeri(f, 1, 1)(1) * Δx = 1
+11. Δx = 0.1 ⇒ f(1 + Δx) - f(1) = 0.131
+12. Δx = 0.1 ⇒ FunDeri(f, 1, 1)(1) * Δx = 0.1
+13. Δx = 0.01 ⇒ f(1 + Δx) - f(1) = 0.010301
+14. Δx = 0.01 ⇒ FunDeri(f, 1, 1)(1) * Δx = 0.01
+
+GOAL:
+forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ (exists (η), η ∈ RealSet ∧ η > 0 ∧ (|Δx| < η ⇒ |f(1 + Δx) - f(1) - FunDeri(f, 1, 1)(1) * Δx| < δ))
+
+METHOD:

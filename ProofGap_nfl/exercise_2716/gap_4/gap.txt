@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. y ∈ RealSet
+3. x ≠ 0
+4. y = frac(1, x)
+5. sum_{ n = 1 }^{ +∞ } (frac(n, x^{n})) = sum_{ n = 1 }^{ +∞ } (n * y^{n})
+6. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . n) = 1
+7. AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (n * y^{n})) ⇔ |y| < 1
+
+GOAL:
+|y| < 1 ⇔ |frac(1, x)| < 1 ⇔ |x| > 1
+
+METHOD:

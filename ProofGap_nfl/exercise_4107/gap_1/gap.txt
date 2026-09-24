@@ -1,0 +1,21 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. Ω ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. Ω_{1} ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+4. x : CartesianProd(RealSet, RealSet) → RealSet
+5. y : CartesianProd(RealSet, RealSet) → RealSet
+6. z ∈ RealSet
+7. r ∈ RealSet ∧ r ≥ 0
+8. φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π
+9. I ∈ RealSet
+10. ω ∈ RealSet
+11. Ω = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x^{2} + y^{2} + z^{2} ≤ 2 * a * z ∧ x^{2} + y^{2} ≤ z^{2} }
+12. x(r, φ) = r * cos(φ)
+13. y(r, φ) = r * sin(φ)
+14. (x(r, φ), y(r, φ), z) ∈ Ω
+
+GOAL:
+r^{2} + z^{2} ≤ 2 * a * z
+
+METHOD:

@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x > frac(π, 4) ∧ cos(frac(π, 8) + x) ≠ 0 ∧ cos(2 * x) ≠ 0 ⇒ 1 < +∞}) (x := {y})
+get_prop (hypothesis 1: {forall (x), x ∈ RealSet ∧ x > frac(π, 4) ∧ cos(frac(π, 8) + x) ≠ 0 ∧ cos(2 * x) ≠ 0 ⇒ 1 < tan(frac(π, 8) + x)}) (x := {y}) as (hypothesis 3: {y ∈ RealSet ∧ y > frac(π, 4) ∧ cos(frac(π, 8) + y) ≠ 0 ∧ cos(2 * y) ≠ 0 ⇒ 1 < tan(frac(π, 8) + y)})
+get_prop (hypothesis 2: {forall (x), x ∈ RealSet ∧ x > frac(π, 4) ∧ cos(frac(π, 8) + x) ≠ 0 ∧ cos(2 * x) ≠ 0 ⇒ tan(frac(π, 8) + x) < +∞}) (x := {y}) as (hypothesis 4: {y ∈ RealSet ∧ y > frac(π, 4) ∧ cos(frac(π, 8) + y) ≠ 0 ∧ cos(2 * y) ≠ 0 ⇒ tan(frac(π, 8) + y) < +∞})
+get_condition (hypothesis 5: {y ∈ RealSet ∧ y > frac(π, 4) ∧ cos(frac(π, 8) + y) ≠ 0 ∧ cos(2 * y) ≠ 0}) in (GOAL: {y ∈ RealSet ∧ y > frac(π, 4) ∧ cos(frac(π, 8) + y) ≠ 0 ∧ cos(2 * y) ≠ 0 ⇒ 1 < +∞})
+use_condition (hypothesis 5: {y ∈ RealSet ∧ y > frac(π, 4) ∧ cos(frac(π, 8) + y) ≠ 0 ∧ cos(2 * y) ≠ 0}) in (hypothesis 3: {y ∈ RealSet ∧ y > frac(π, 4) ∧ cos(frac(π, 8) + y) ≠ 0 ∧ cos(2 * y) ≠ 0 ⇒ 1 < tan(frac(π, 8) + y)}) as (hypothesis 6: {1 < tan(frac(π, 8) + y)})
+use_condition (hypothesis 5: {y ∈ RealSet ∧ y > frac(π, 4) ∧ cos(frac(π, 8) + y) ≠ 0 ∧ cos(2 * y) ≠ 0}) in (hypothesis 4: {y ∈ RealSet ∧ y > frac(π, 4) ∧ cos(frac(π, 8) + y) ≠ 0 ∧ cos(2 * y) ≠ 0 ⇒ tan(frac(π, 8) + y) < +∞}) as (hypothesis 7: {tan(frac(π, 8) + y) < +∞})
+autosolve (hypothesis 6: {1 < tan(frac(π, 8) + y)}) (hypothesis 7: {tan(frac(π, 8) + y) < +∞})

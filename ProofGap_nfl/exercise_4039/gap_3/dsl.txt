@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ z(x, y) ≠ 0 ⇒ sqrtn(2, 1 + frac(y^{2}, z(x, y)^{2}) + frac(x^{2}, z(x, y)^{2})) = sqrtn(2, frac(x^{2} + y^{2} + z(x, y)^{2}, z(x, y)^{2})))}) (x := {xx})
+get_condition (hypothesis 10: {xx ∈ RealSet}) in (GOAL: {xx ∈ RealSet ⇒ forall (y), y ∈ RealSet ∧ z(xx, y) ≠ 0 ⇒ sqrtn(2, 1 + frac(y^{2}, z(xx, y)^{2}) + frac(xx^{2}, z(xx, y)^{2})) = sqrtn(2, frac(xx^{2} + y^{2} + z(xx, y)^{2}, z(xx, y)^{2}))})
+get_forall (GOAL: {forall (y), y ∈ RealSet ∧ z(xx, y) ≠ 0 ⇒ sqrtn(2, 1 + frac(y^{2}, z(xx, y)^{2}) + frac(xx^{2}, z(xx, y)^{2})) = sqrtn(2, frac(xx^{2} + y^{2} + z(xx, y)^{2}, z(xx, y)^{2}))}) (y := {yy})
+get_condition (hypothesis 11: {yy ∈ RealSet ∧ z(xx, yy) ≠ 0}) in (GOAL: {yy ∈ RealSet ∧ z(xx, yy) ≠ 0 ⇒ sqrtn(2, 1 + frac(yy^{2}, z(xx, yy)^{2}) + frac(xx^{2}, z(xx, yy)^{2})) = sqrtn(2, frac(xx^{2} + yy^{2} + z(xx, yy)^{2}, z(xx, yy)^{2}))})
+assert (hypothesis 12: {1 + frac(yy^{2}, z(xx, yy)^{2}) + frac(xx^{2}, z(xx, yy)^{2}) = frac(xx^{2} + yy^{2} + z(xx, yy)^{2}, z(xx, yy)^{2})}) by proof {
+autosolve all_hypothesis using PolyRatSolver
+}
+rewrite (left_to_right, equation) (hypothesis 12: {1 + frac(yy^{2}, z(xx, yy)^{2}) + frac(xx^{2}, z(xx, yy)^{2}) = frac(xx^{2} + yy^{2} + z(xx, yy)^{2}, z(xx, yy)^{2})}); from (GOAL: {sqrtn(2, 1 + frac(yy^{2}, z(xx, yy)^{2}) + frac(xx^{2}, z(xx, yy)^{2})) = sqrtn(2, frac(xx^{2} + yy^{2} + z(xx, yy)^{2}, z(xx, yy)^{2}))}) to (GOAL: {sqrtn(2, frac(xx^{2} + yy^{2} + z(xx, yy)^{2}, z(xx, yy)^{2})) = sqrtn(2, frac(xx^{2} + yy^{2} + z(xx, yy)^{2}, z(xx, yy)^{2}))})
+autosolve all_hypothesis

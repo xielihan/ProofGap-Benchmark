@@ -1,0 +1,37 @@
+PROOF GAP @22
+ASSUM:
+1. f : RealSet → RealSet
+2. m : RealSet → RealSet
+3. M : RealSet → RealSet
+4. a ∈ RealSet
+5. b ∈ RealSet
+6. a < b
+7. ContinuousFuncOn(f, [a, b])
+8. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ (forall (ξ), ξ ∈ RealSet ∧ ξ ∈ [a, x] ⇒ m(x) = inf({ f(ξ) | ξ ∈ RealSet, ξ ∈ [a, x] }))
+9. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ (forall (ξ), ξ ∈ RealSet ∧ ξ ∈ [a, x] ⇒ M(x) = sup({ f(ξ) | ξ ∈ RealSet, ξ ∈ [a, x] }))
+10. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [a, b] ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ [a, b] ∧ |x - x_{0}| < δ ⇒ |f(x) - f(x_{0})| < ε)))
+11. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [a, b] ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ x_{0} < x ∧ x < x_{0} + δ ∧ x ∈ [a, b] ⇒ f(x) > f(x_{0}) - ε)))
+12. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [a, b] ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ x_{0} < x ∧ x < x_{0} + δ ∧ x ∈ [a, b] ⇒ f(x_{0}) ≥ m(x_{0}))))
+13. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [a, b] ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ x_{0} < x ∧ x < x_{0} + δ ∧ x ∈ [a, b] ⇒ m(x) ≥ m(x_{0}) - ε)))
+14. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [a, b] ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ x_{0} < x ∧ x < x_{0} + δ ∧ x ∈ [a, b] ⇒ m(x_{0}) ≥ m(x))))
+15. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [a, b] ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ x_{0} < x ∧ x < x_{0} + δ ∧ x ∈ [a, b] ⇒ m(x_{0}) ≥ m(x))))
+16. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [a, b] ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ x_{0} < x ∧ x < x_{0} + δ ∧ x ∈ [a, b] ⇒ m(x) ≥ m(x_{0}) - ε)))
+17. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [a, b] ⇒ lim_{ x → x_{0}^+ } (m(x)) = m(x_{0})
+18. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [a, b] ∧ m(x_{0}) = f(x_{0}) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ [a, b] ∧ |x - x_{0}| < δ ⇒ |f(x) - f(x_{0})| < ε)))
+19. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [a, b] ∧ m(x_{0}) = f(x_{0}) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ x_{0} - δ < x ∧ x < x_{0} ∧ x ∈ [a, b] ⇒ f(x) < f(x_{0}) + ε)))
+20. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [a, b] ∧ m(x_{0}) = f(x_{0}) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ x_{0} - δ < x ∧ x < x_{0} ∧ x ∈ [a, b] ⇒ m(x) < m(x_{0}) + ε)))
+21. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [a, b] ∧ m(x_{0}) = f(x_{0}) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ x_{0} - δ < x ∧ x < x_{0} ∧ x ∈ [a, b] ⇒ m(x_{0}) ≤ m(x))))
+22. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [a, b] ∧ m(x_{0}) = f(x_{0}) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ x_{0} - δ < x ∧ x < x_{0} ∧ x ∈ [a, b] ⇒ m(x) < m(x_{0}) + ε)))
+23. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [a, b] ∧ m(x_{0}) = f(x_{0}) ⇒ lim_{ x → x_{0}^- } (m(x)) = m(x_{0})
+24. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [a, b] ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ x_{1} ∈ [a, x_{0}] ∧ x_{1} < x_{0} ∧ m(x_{0}) = f(x_{1}) ⇒ (forall (x), x ∈ RealSet ∧ x_{1} < x ∧ x < x_{0} ⇒ m(x) = m(x_{0})))
+25. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [a, b] ∧ (exists (x_{1}), x_{1} ∈ RealSet ∧ x_{1} ∈ [a, x_{0}] ∧ x_{1} < x_{0} ∧ m(x_{0}) = f(x_{1})) ⇒ lim_{ x → x_{0}^- } (m(x)) = m(x_{0})
+26. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [a, b] ⇒ ContinuousFuncAt(m, x_{0})
+27. ContinuousFuncOn(m, [a, b])
+28. ContinuousFuncOn(M, [a, b])
+29. ContinuousFuncOn(m, [a, b])
+30. ContinuousFuncOn(M, [a, b])
+
+GOAL:
+ContinuousFuncOn(m, [a, b]) ∧ ContinuousFuncOn(M, [a, b])
+
+METHOD:

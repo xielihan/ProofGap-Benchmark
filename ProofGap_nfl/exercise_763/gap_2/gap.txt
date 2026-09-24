@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. f = (fun x [x ∈ RealSet] . cases{ x if x ∈ RationalSet; -x if x ∈ RealSet \ RationalSet })
+2. IsFunc(f)
+
+GOAL:
+¬MonoIncFunc(f)
+
+METHOD:

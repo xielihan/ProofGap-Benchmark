@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. α = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . frac(n * sin(frac(π, n)), π) - 1)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ sin(frac(π, n)) = frac(π, n) * (1 + α(n))
+
+METHOD:

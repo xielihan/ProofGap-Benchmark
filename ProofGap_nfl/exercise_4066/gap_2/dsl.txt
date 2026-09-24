@@ -1,0 +1,13 @@
+assert (hypothesis 9: {φ ∈ RealSet}) by proof {
+autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 168. (PythagoreanTrigonometricIdentity)': {forall (x), x ∈ RealSet => (sin(x)) ^ 2 + (cos(x)) ^ 2 = 1}) (x := {φ}) as (hypothesis 10: {φ ∈ RealSet => (sin(φ)) ^ 2 + (cos(φ)) ^ 2 = 1})
+use_condition (hypothesis 9: {φ ∈ RealSet}) in (hypothesis 10: {φ ∈ RealSet => (sin(φ)) ^ 2 + (cos(φ)) ^ 2 = 1}) as (hypothesis 11: {(sin(φ)) ^ 2 + (cos(φ)) ^ 2 = 1})
+assert (hypothesis 12: {(r * cos(φ))^{2} + (r * sin(φ))^{2} = r^{2} * ((sin(φ))^{2} + (cos(φ))^{2})}) by proof {
+autosolve all_hypothesis using PolyRatSolver
+}
+rewrite (left_to_right, equation) (hypothesis 6: {x = r * cos(φ)}); from (GOAL: {x^{2} + y^{2} = r^{2}}) to (GOAL: {(r * cos(φ))^{2} + y^{2} = r^{2}})
+rewrite (left_to_right, equation) (hypothesis 7: {y = r * sin(φ)}); from (GOAL: {(r * cos(φ))^{2} + y^{2} = r^{2}}) to (GOAL: {(r * cos(φ))^{2} + (r * sin(φ))^{2} = r^{2}})
+rewrite (left_to_right, equation) (hypothesis 12: {(r * cos(φ))^{2} + (r * sin(φ))^{2} = r^{2} * ((sin(φ))^{2} + (cos(φ))^{2})}); from (GOAL: {(r * cos(φ))^{2} + (r * sin(φ))^{2} = r^{2}}) to (GOAL: {r^{2} * ((sin(φ))^{2} + (cos(φ))^{2}) = r^{2}})
+rewrite (left_to_right, equation) (hypothesis 11: {(sin(φ)) ^ 2 + (cos(φ)) ^ 2 = 1}); from (GOAL: {r^{2} * ((sin(φ))^{2} + (cos(φ))^{2}) = r^{2}}) to (GOAL: {r^{2} * 1 = r^{2}})
+autosolve all_hypothesis using PolyRatSolver

@@ -1,0 +1,7 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x > 0 => FunDeri(h, 1, 2)(x) > 0}) (x := {z})
+2. get_condition (hypothesis 20: {z ∈ RealSet ∧ z > 0}) in (GOAL: {z ∈ RealSet ∧ z > 0 => FunDeri(h, 1, 2)(z) > 0})
+3. destruct_and (hypothesis 20: {z ∈ RealSet ∧ z > 0}) as (hypothesis 21: {z ∈ RealSet}) (hypothesis 22: {z > 0})
+4. get_prop (hypothesis 19: {forall (x), x ∈ RealSet ∧ x > 0 => FunDeri(h, 1, 2)(x) = frac(1, x)}) (x := {z}) as (hypothesis 23: {z ∈ RealSet ∧ z > 0 => FunDeri(h, 1, 2)(z) = frac(1, z)})
+5. use_condition (hypothesis 20: {z ∈ RealSet ∧ z > 0}) in (hypothesis 23: {z ∈ RealSet ∧ z > 0 => FunDeri(h, 1, 2)(z) = frac(1, z)}) as (hypothesis 24: {FunDeri(h, 1, 2)(z) = frac(1, z)})
+6. assert (hypothesis 25: {frac(1, z) > 0})
+7. autosolve all_hypothesis

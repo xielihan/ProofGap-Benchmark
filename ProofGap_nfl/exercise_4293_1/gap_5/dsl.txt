@@ -1,0 +1,4 @@
+rewrite (left_to_right, equation) (hypothesis 20: {diff(A) = F · diff(s)}); from (GOAL: {diff(A) = diff(fun z [z ∈ RealSet] . -m * g * z)}) to (GOAL: {F · diff(s) = diff(fun z [z ∈ RealSet] . -m * g * z)})
+rewrite (left_to_right, equation) (hypothesis 21: {F · diff(s) = (fun z [z ∈ RealSet] . -m * g) * diff(fun z [z ∈ RealSet] . z)}); from (GOAL: {F · diff(s) = diff(fun z [z ∈ RealSet] . -m * g * z)}) to (GOAL: {(fun z [z ∈ RealSet] . -m * g) * diff(fun z [z ∈ RealSet] . z) = diff(fun z [z ∈ RealSet] . -m * g * z)})
+rewrite (left_to_right, equation) (hypothesis 22: {(fun z [z ∈ RealSet] . -m * g) * diff(fun z [z ∈ RealSet] . z) = diff(fun z [z ∈ RealSet] . -m * g * z)}); from (GOAL: {(fun z [z ∈ RealSet] . -m * g) * diff(fun z [z ∈ RealSet] . z) = diff(fun z [z ∈ RealSet] . -m * g * z)}) to (GOAL: {diff(fun z [z ∈ RealSet] . -m * g * z) = diff(fun z [z ∈ RealSet] . -m * g * z)})
+autosolve all_hypothesis

@@ -1,0 +1,4 @@
+assert (hypothesis 16: {2 < 2.718282 ∧ 2.718282 < 3}) by proof {
+  autosolve all_hypothesis
+}
+apply (hypothesis 16: {2 < 2.718282 ∧ 2.718282 < 3})

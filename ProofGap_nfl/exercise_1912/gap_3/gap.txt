@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet
+2. n ∈ IntegerSet
+3. C ∈ RealSet
+4. n > 0 ∨ x ≠ 0
+5. n ≠ 0 ⇒ { `F_2` | forall (x), x ∈ RealSet ∧ (n > 0 ∨ x ≠ 0) ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x^{3 * n - 1}, (x^{2 * n} + 1)^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ (n > 0 ∨ x ≠ 0) ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(x^{2 * n} * x^{n - 1}, (x^{2 * n} + 1)^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+6. n ≠ 0 ⇒ { `F_4` | forall (x), x ∈ RealSet ∧ (n > 0 ∨ x ≠ 0) ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(x^{2 * n} * x^{n - 1}, (x^{2 * n} + 1)^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_6` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ (n > 0 ∨ x ≠ 0) ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(x^{2 * n}, (x^{2 * n} + 1)^{2}) * FunDeri(fun x [x ∈ RealSet ∧ (n > 0 ∨ x ≠ 0)] . x^{n}, 1, 1)(x) ∧ `F_6`(x) = frac(1, n) * `F_5`(x)) }
+
+GOAL:
+n ≠ 0 ⇒ { `F_8` | exists (`F_7`), `F_7` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ (n > 0 ∨ x ≠ 0) ⇒ FunDeri(`F_7`, 1, 1)(x) = frac(x^{2 * n}, (x^{2 * n} + 1)^{2}) * FunDeri(fun x [x ∈ RealSet ∧ (n > 0 ∨ x ≠ 0)] . x^{n}, 1, 1)(x) ∧ `F_8`(x) = frac(1, n) * `F_7`(x)) } = { `F_10` | exists (`F_9`), `F_9` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ (n > 0 ∨ x ≠ 0) ⇒ FunDeri(`F_9`, 1, 1)(x) = frac(x^{2 * n} + 1 - 1, (x^{2 * n} + 1)^{2}) * FunDeri(fun x [x ∈ RealSet ∧ (n > 0 ∨ x ≠ 0)] . x^{n}, 1, 1)(x) ∧ `F_10`(x) = frac(1, n) * `F_9`(x)) }
+
+METHOD:

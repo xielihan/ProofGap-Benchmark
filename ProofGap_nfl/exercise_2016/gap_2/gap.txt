@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. C ∈ RealSet
+5. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = sin(x) * sin(x + a) * sin(x + b) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_4` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = sin(x) * (cos(a - b) - cos(2 * x + a + b)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_4`(x) = frac(1, 2) * `F_3`(x)) }
+
+GOAL:
+{ `F_6` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = sin(x) * (cos(a - b) - cos(2 * x + a + b)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_6`(x) = frac(1, 2) * `F_5`(x)) } = { `F_10` | exists (`F_7`), `F_7` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_7`, 1, 1)(x) = (sin(3 * x + a + b) - sin(x + a + b)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_10`(x) = -frac(1, 2) * cos(x) * cos(a - b) - frac(1, 4) * `F_7`(x)) }
+
+METHOD:

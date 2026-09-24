@@ -1,0 +1,4 @@
+get_prop (hypothesis 2: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = x^{2} - x * y + y^{2} - 2 * x + y}) (x := {1}) (y := {0}) as (hypothesis 15: {1 ∈ RealSet ∧ 0 ∈ RealSet ⇒ z(1, 0) = 1^{2} - 1 * 0 + 0^{2} - 2 * 1 + 0})
+use_condition (obvious: {1 ∈ RealSet ∧ 0 ∈ RealSet}) in (hypothesis 15: {1 ∈ RealSet ∧ 0 ∈ RealSet ⇒ z(1, 0) = 1^{2} - 1 * 0 + 0^{2} - 2 * 1 + 0}) as (hypothesis 16: {z(1, 0) = 1^{2} - 1 * 0 + 0^{2} - 2 * 1 + 0})
+rewrite (left_to_right, equation) (hypothesis 16: {z(1, 0) = 1^{2} - 1 * 0 + 0^{2} - 2 * 1 + 0}); from (GOAL: {z(1, 0) = -1}) to (GOAL: {1^{2} - 1 * 0 + 0^{2} - 2 * 1 + 0 = -1})
+autosolve all_hypothesis using PolyRatSolver

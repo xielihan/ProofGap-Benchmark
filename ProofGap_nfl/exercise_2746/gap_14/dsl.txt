@@ -1,0 +1,11 @@
+get_forall (GOAL: {forall (ε_{0}), ε_{0} ∈ RealSet ∧ 0 < ε_{0} ∧ ε_{0} < frac(1, 2) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (x), x ∈ RealSet ∧ |f(n, x) - g_{2}(x)| > ε_{0}))}) (ε_{0} := {e0})
+get_condition (hypothesis 22: {e0 ∈ RealSet ∧ 0 < e0 ∧ e0 < frac(1, 2)}) in (GOAL: {e0 ∈ RealSet ∧ 0 < e0 ∧ e0 < frac(1, 2) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (x), x ∈ RealSet ∧ |f(n, x) - g_{2}(x)| > e0))})
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (x), x ∈ RealSet ∧ |f(n, x) - g_{2}(x)| > e0)}) (n := {n0})
+get_condition (hypothesis 23: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ (exists (x), x ∈ RealSet ∧ |f(n0, x) - g_{2}(x)| > e0)})
+get_prop (hypothesis 20: {forall (ε_{0}), ε_{0} ∈ RealSet ∧ 0 < ε_{0} ∧ ε_{0} < frac(1, 2) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (x), x ∈ RealSet ∧ |f(n, x) - g_{2}(x)| = frac(1, 2)))}) (ε_{0} := {e0}) as (hypothesis 24: {e0 ∈ RealSet ∧ 0 < e0 ∧ e0 < frac(1, 2) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (x), x ∈ RealSet ∧ |f(n, x) - g_{2}(x)| = frac(1, 2)))})
+use_condition (hypothesis 22: {e0 ∈ RealSet ∧ 0 < e0 ∧ e0 < frac(1, 2)}) in (hypothesis 24: {e0 ∈ RealSet ∧ 0 < e0 ∧ e0 < frac(1, 2) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (x), x ∈ RealSet ∧ |f(n, x) - g_{2}(x)| = frac(1, 2)))}) as (hypothesis 25: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (x), x ∈ RealSet ∧ |f(n, x) - g_{2}(x)| = frac(1, 2))})
+get_prop (hypothesis 25: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (x), x ∈ RealSet ∧ |f(n, x) - g_{2}(x)| = frac(1, 2))}) (n := {n0}) as (hypothesis 26: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ (exists (x), x ∈ RealSet ∧ |f(n0, x) - g_{2}(x)| = frac(1, 2))})
+use_condition (hypothesis 23: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (hypothesis 26: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ (exists (x), x ∈ RealSet ∧ |f(n0, x) - g_{2}(x)| = frac(1, 2))}) as (hypothesis 27: {exists (x), x ∈ RealSet ∧ |f(n0, x) - g_{2}(x)| = frac(1, 2)})
+get_exists (hypothesis 27: {exists (x), x ∈ RealSet ∧ |f(n0, x) - g_{2}(x)| = frac(1, 2)}) (x := {x0})
+exists (x := {x0})
+autosolve all_hypothesis

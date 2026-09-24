@@ -1,0 +1,27 @@
+PROOF GAP @9
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. z : RealSet → RealSet
+4. a ∈ RealSet
+5. b ∈ RealSet
+6. c ∈ RealSet
+7. L ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+8. P ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+9. forall (t), t ∈ RealSet ⇒ x(t) = a * sin(t)^{2}
+10. forall (t), t ∈ RealSet ⇒ y(t) = b * sin(t) * cos(t)
+11. forall (t), t ∈ RealSet ⇒ z(t) = c * cos(t)^{2}
+12. x(frac(π, 4)) = frac(a, 2)
+13. y(frac(π, 4)) = frac(b, 2)
+14. z(frac(π, 4)) = frac(c, 2)
+15. v = (FunDeri(x, 1, 1)(frac(π, 4)), FunDeri(y, 1, 1)(frac(π, 4)), FunDeri(z, 1, 1)(frac(π, 4)))
+16. v = (a, 0, -c)
+17. a ≠ 0 ⇒ c ≠ 0 ⇒ L = { (X, Y, Z) | X ∈ RealSet ∧ Y ∈ RealSet ∧ Z ∈ RealSet ∧ frac(X - frac(a, 2), a) = frac(Z - frac(c, 2), -c) ∧ Y = frac(b, 2) }
+18. a ≠ 0 ⇒ c ≠ 0 ⇒ L = { (X, Y, Z) | X ∈ RealSet ∧ Y ∈ RealSet ∧ Z ∈ RealSet ∧ frac(X, a) + frac(Z, c) = 1 ∧ Y = frac(b, 2) }
+19. a ≠ 0 ⇒ c ≠ 0 ⇒ P = { (X, Y, Z) | X ∈ RealSet ∧ Y ∈ RealSet ∧ Z ∈ RealSet ∧ a * (X - frac(a, 2)) + -c * (Z - frac(c, 2)) = 0 }
+20. a ≠ 0 ⇒ c ≠ 0 ⇒ P = { (X, Y, Z) | X ∈ RealSet ∧ Y ∈ RealSet ∧ Z ∈ RealSet ∧ a * X - c * Z = frac(1, 2) * (a^{2} - c^{2}) }
+
+GOAL:
+a ≠ 0 ∧ c ≠ 0 ⇒ L = { (X, Y, Z) | X ∈ RealSet ∧ Y ∈ RealSet ∧ Z ∈ RealSet ∧ frac(X, a) + frac(Z, c) = 1 ∧ Y = frac(b, 2) } ∧ P = { (X, Y, Z) | X ∈ RealSet ∧ Y ∈ RealSet ∧ Z ∈ RealSet ∧ a * X - c * Z = frac(1, 2) * (a^{2} - c^{2}) }
+
+METHOD:

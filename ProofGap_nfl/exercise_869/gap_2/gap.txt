@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. n ∈ NonNegIntegerSet
+3. n ∈ PosIntegerSet
+4. forall (x) (k), x ∈ RealSet ∧ k ∈ IntegerSet ∧ x ≠ frac(2 * k - 1, 2) * π ⇒ y(x) = frac(1, cos(x)^{n})
+5. forall (x) (k), x ∈ RealSet ∧ k ∈ IntegerSet ∧ x ≠ frac(2 * k - 1, 2) * π ⇒ FunDeri(y, x, 1)(x) = -frac(1, cos(x)^{2 * n}) * -n * cos(x)^{n - 1} * sin(x) ∧ -frac(1, cos(x)^{2 * n}) * -n * cos(x)^{n - 1} * sin(x) = frac(n * sin(x), cos(x)^{n + 1})
+
+GOAL:
+forall (x) (k), x ∈ RealSet ∧ k ∈ IntegerSet ∧ x ≠ frac(2 * k - 1, 2) * π ⇒ FunDeri(y, x, 1)(x) = frac(n * sin(x), cos(x)^{n + 1})
+
+METHOD:

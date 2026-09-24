@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. forall (x), x ∈ RealSet
+2. forall (x), x ∈ RealSet ⇒ x ≠ -2
+3. lim_{ x → -2 } (frac(sqrtn(3, x - 6) + 2, x^{3} + 8)) = lim_{ x → -2 } (frac((sqrtn(3, x - 6) + 2) * (sqrtn(3, (x - 6)^{2}) - 2 * sqrtn(3, x - 6) + 4), (x^{3} + 8) * (sqrtn(3, (x - 6)^{2}) - 2 * sqrtn(3, x - 6) + 4)))
+4. lim_{ x → -2 } (frac(sqrtn(3, x - 6) + 2, x^{3} + 8)) = lim_{ x → -2 } (frac(1, (x^{2} - 2 * x + 4) * (sqrtn(3, (x - 6)^{2}) - 2 * sqrtn(3, x - 6) + 4)))
+
+GOAL:
+lim_{ x → -2 } (frac(sqrtn(3, x - 6) + 2, x^{3} + 8)) = frac(1, 144)
+
+METHOD:

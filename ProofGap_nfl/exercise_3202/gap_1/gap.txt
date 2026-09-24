@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. IsFunc(f)
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x, y) = cases{ frac(2 * x * y, x^{2} + y^{2}) if x^{2} + y^{2} ≠ 0; 0 if x^{2} + y^{2} = 0 }
+
+GOAL:
+forall (g) (a), g : RealSet → RealSet ∧ a ∈ RealSet ∧ a ≠ 0 ∧ g = (fun x [x ∈ RealSet] . f(x, a)) ⇒ (forall (x), x ∈ RealSet ⇒ g(x) = frac(2 * a * x, x^{2} + a^{2}))
+
+METHOD:

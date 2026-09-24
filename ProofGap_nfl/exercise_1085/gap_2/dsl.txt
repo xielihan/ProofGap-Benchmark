@@ -1,0 +1,7 @@
+get_condition (hypothesis 5: {1 + Δx ≠ 0}) in (GOAL: {1 + Δx ≠ 0 ⇒ y(1 + Δx) - y(1) = frac(1, 1 + Δx) - 1})
+assert (hypothesis 6: {1 + Δx ∈ RealSet ∧ 1 + Δx ≠ 0})
+get_prop (hypothesis 3: {forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ y(x) = frac(1, x)}) (x := {1 + Δx}) as (hypothesis 7: {1 + Δx ∈ RealSet ∧ 1 + Δx ≠ 0 ⇒ y(1 + Δx) = frac(1, 1 + Δx)})
+use_condition (hypothesis 6: {1 + Δx ∈ RealSet ∧ 1 + Δx ≠ 0}) in (hypothesis 7: {1 + Δx ∈ RealSet ∧ 1 + Δx ≠ 0 ⇒ y(1 + Δx) = frac(1, 1 + Δx)}) as (hypothesis 8: {y(1 + Δx) = frac(1, 1 + Δx)})
+get_prop (hypothesis 3: {forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ y(x) = frac(1, x)}) (x := {1}) as (hypothesis 9: {1 ∈ RealSet ∧ 1 ≠ 0 ⇒ y(1) = frac(1, 1)})
+use_condition (obvious: {1 ∈ RealSet ∧ 1 ≠ 0}) in (hypothesis 9: {1 ∈ RealSet ∧ 1 ≠ 0 ⇒ y(1) = frac(1, 1)}) as (hypothesis 10: {y(1) = frac(1, 1)})
+autosolve all_hypothesis

@@ -1,0 +1,15 @@
+PROOF GAP @8
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ frac(arctan(x), x) = DefInt(0, 1, (fun y [y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1] . frac(1, 1 + x^{2} * y^{2})) * diff(fun y [y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1] . y))
+2. DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 < x ∧ x < 1] . frac(arctan(x), x) * frac(1, sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet ∧ 0 < x ∧ x < 1] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 < x ∧ x < 1] . frac(1, sqrtn(2, 1 - x^{2})) * DefInt(0, 1, (fun y [y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1] . frac(1, 1 + x^{2} * y^{2})) * diff(fun y [y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1] . y))) * diff(fun x [x ∈ RealSet ∧ 0 < x ∧ x < 1] . x))
+3. ContinuousFuncOn(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, 1 + x^{2} * y^{2}), CartesianProd([0, 1], [0, 1]))
+4. IntegrableFuncOn(fun x [x ∈ RealSet ∧ 0 < x ∧ x < 1] . frac(1, sqrtn(2, 1 - x^{2})), [0, 1])
+5. DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 < x ∧ x < 1] . frac(arctan(x), x) * frac(1, sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet ∧ 0 < x ∧ x < 1] . x)) = DefInt(0, 1, (fun y [y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1] . DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 < x ∧ x < 1] . frac(1, sqrtn(2, 1 - x^{2}) * (1 + x^{2} * y^{2}))) * diff(fun x [x ∈ RealSet ∧ 0 < x ∧ x < 1] . x))) * diff(fun y [y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1] . y))
+6. forall (y) (t) (x), y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 ∧ t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2) ∧ x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ x = cos(t) ⇒ DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 < x ∧ x < 1] . frac(1, sqrtn(2, 1 - x^{2}) * (1 + x^{2} * y^{2}))) * diff(fun x [x ∈ RealSet ∧ 0 < x ∧ x < 1] . x)) = DefInt(0, frac(π, 2), (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2)] . frac(1, 1 + y^{2} * cos(t)^{2})) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2)] . t))
+7. forall (y) (t) (x), y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 ∧ t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2) ∧ x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ x = cos(t) ⇒ DefInt(0, frac(π, 2), (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2)] . frac(1, 1 + y^{2} * cos(t)^{2})) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2)] . t)) = lim_{ u → frac(π, 2)^- } (frac(1, sqrtn(2, 1 + y^{2})) * arctan(frac(tan(u), sqrtn(2, 1 + y^{2})))) - frac(1, sqrtn(2, 1 + y^{2})) * arctan(frac(tan(0), sqrtn(2, 1 + y^{2})))
+8. forall (y) (t) (x), y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 ∧ t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2) ∧ x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ x = cos(t) ⇒ lim_{ u → frac(π, 2)^- } (frac(1, sqrtn(2, 1 + y^{2})) * arctan(frac(tan(u), sqrtn(2, 1 + y^{2})))) - frac(1, sqrtn(2, 1 + y^{2})) * arctan(frac(tan(0), sqrtn(2, 1 + y^{2}))) = frac(π, 2 * sqrtn(2, 1 + y^{2}))
+
+GOAL:
+forall (y) (t) (x), y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 ∧ t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2) ∧ x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ x = cos(t) ⇒ DefInt(0, frac(π, 2), (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2)] . frac(1, 1 + y^{2} * cos(t)^{2})) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2)] . t)) = frac(π, 2 * sqrtn(2, 1 + y^{2}))
+
+METHOD:

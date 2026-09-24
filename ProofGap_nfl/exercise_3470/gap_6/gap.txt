@@ -1,0 +1,16 @@
+PROOF GAP @6
+ASSUM:
+1. x : CartesianProd(RealSet, RealSet) → RealSet
+2. z : CartesianProd(RealSet, RealSet) → RealSet
+3. forall (y) (z), y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(x, 2, 1)(y, z) ≠ 0
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ (x - z(x, y)) * FunDeri(z, 1, 1)(x, y) + y * FunDeri(z, 2, 1)(x, y) = 0
+5. forall (y), y ∈ RealSet ⇒ diff(fun y, z [y ∈ RealSet ∧ z ∈ RealSet] . x(y, z)) = FunDeri(x, 1, 1)(y, z) * diff(fun y, z [y ∈ RealSet ∧ z ∈ RealSet] . y) + FunDeri(x, 2, 1)(y, z) * diff(fun y, z [y ∈ RealSet ∧ z ∈ RealSet] . z)
+6. forall (y), y ∈ RealSet ⇒ diff(fun y, z [y ∈ RealSet ∧ z ∈ RealSet ∧ FunDeri(x, 2, 1)(y, z) ≠ 0] . z) = frac(1, FunDeri(x, 2, 1)(y, z)) * diff(fun y, z [y ∈ RealSet ∧ z ∈ RealSet] . x(y, z)) - frac(FunDeri(x, 1, 1)(y, z), FunDeri(x, 2, 1)(y, z)) * diff(fun y, z [y ∈ RealSet ∧ z ∈ RealSet] . y)
+7. forall (y), y ∈ RealSet ⇒ FunDeri(z, 1, 1)(x, y) = frac(1, FunDeri(x, 2, 1)(y, z))
+8. forall (y), y ∈ RealSet ⇒ FunDeri(z, 2, 1)(x, y) = -frac(FunDeri(x, 1, 1)(y, z), FunDeri(x, 2, 1)(y, z))
+9. forall (y), y ∈ RealSet ⇒ (x(y, z) - z) * frac(1, FunDeri(x, 2, 1)(y, z)) - y * frac(FunDeri(x, 1, 1)(y, z), FunDeri(x, 2, 1)(y, z)) = 0
+
+GOAL:
+forall (y), y ∈ RealSet ⇒ y * FunDeri(x, 1, 1)(y, z) = x(y, z) - z
+
+METHOD:

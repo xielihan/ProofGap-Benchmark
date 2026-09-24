@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. F : RealSet → RealSet
+3. D ⊆ RealSet
+4. ContinuousFuncOn(f, D)
+5. forall (x), x ∈ RealSet ∧ x ∈ D ⇒ F(x) = |f(x)|
+6. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ D ⇒ ContinuousFuncAt(f, x_{0})
+7. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ D ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x - x_{0}| < δ ⇒ |f(x) - f(x_{0})| < ε)))
+
+GOAL:
+forall (u) (v), u ∈ RealSet ⇒ v ∈ RealSet ⇒ |u + v| ≥ ||u| - |v||
+
+METHOD:

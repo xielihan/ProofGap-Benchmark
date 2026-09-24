@@ -1,0 +1,20 @@
+PROOF GAP @12
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ f(n, x) = n * x * e^{-n * x^{2}}
+3. forall (x), x ∈ RealSet ∧ x = 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ f(n, x) = 0)
+4. forall (x), x ∈ RealSet ∧ x = 0 ⇒ seqlim_{ n → +∞ } (f(n, x)) = 0
+5. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ∧ x ≠ 0 ⇒ seqlim_{ n → +∞ } (f(n, x)) = 0
+6. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ seqlim_{ n → +∞ } (f(n, x)) = 0
+7. DefInt(0, 1, (fun x [x ∈ RealSet] . seqlim_{ n → +∞ } (f(n, x))) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet] . 0) * diff(fun x [x ∈ RealSet] . x))
+8. DefInt(0, 1, (fun x [x ∈ RealSet] . 0) * diff(fun x [x ∈ RealSet] . x)) = 0
+9. DefInt(0, 1, (fun x [x ∈ RealSet] . seqlim_{ n → +∞ } (f(n, x))) * diff(fun x [x ∈ RealSet] . x)) = 0
+10. seqlim_{ n → +∞ } (DefInt(0, 1, (fun x [x ∈ RealSet] . f(n, x)) * diff(fun x [x ∈ RealSet] . x))) = seqlim_{ n → +∞ } (DefInt(0, 1, (fun x [x ∈ RealSet] . n * x * e^{-n * x^{2}}) * diff(fun x [x ∈ RealSet] . x)))
+11. seqlim_{ n → +∞ } (DefInt(0, 1, (fun x [x ∈ RealSet] . n * x * e^{-n * x^{2}}) * diff(fun x [x ∈ RealSet] . x))) = seqlim_{ n → +∞ } ((fun x [x ∈ RealSet] . -frac(1, 2) * e^{-n * x^{2}})|_{0}^{1})
+12. seqlim_{ n → +∞ } ((fun x [x ∈ RealSet] . -frac(1, 2) * e^{-n * x^{2}})|_{0}^{1}) = seqlim_{ n → +∞ } (frac(1, 2) - frac(1, 2) * e^{-n})
+13. seqlim_{ n → +∞ } (frac(1, 2) - frac(1, 2) * e^{-n}) = frac(1, 2)
+
+GOAL:
+seqlim_{ n → +∞ } (DefInt(0, 1, (fun x [x ∈ RealSet] . f(n, x)) * diff(fun x [x ∈ RealSet] . x))) = frac(1, 2)
+
+METHOD:

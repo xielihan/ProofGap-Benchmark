@@ -1,0 +1,2 @@
+1. get_prop (theorem 'Thm 386. (NthRootNSequenceLimit)': {seqlim_{n -> +∞} (sqrtn(n + 1, n + 1)) = 1}) as (hypothesis 4: {seqlim_{n -> +∞} (sqrtn(n + 1, n + 1)) = 1})
+2. apply (hypothesis 4: {seqlim_{n -> +∞} (sqrtn(n + 1, n + 1)) = 1})

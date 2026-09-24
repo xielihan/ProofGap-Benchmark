@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+exists (x), x ∈ RealSet ∧ x > 0
+
+METHOD:

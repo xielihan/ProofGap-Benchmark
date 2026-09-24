@@ -1,0 +1,16 @@
+PROOF GAP @8
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. forall (k), k ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = sum_{ k = 1 }^{ n } (frac(cos(k!), k * (k + 1))))
+3. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ m > n ⇒ |x(m) - x(n)| = |sum_{ k = n + 1 }^{ m } (frac(cos(k!), k * (k + 1)))|)
+4. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ m > n ⇒ |x(m) - x(n)| < sum_{ k = n + 1 }^{ m } (frac(1, k^{2})))
+5. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ m > n ⇒ sum_{ k = n + 1 }^{ m } (frac(1, k^{2})) < sum_{ k = n + 1 }^{ m } (frac(1, k - 1) - frac(1, k)))
+6. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ m > n ⇒ sum_{ k = n + 1 }^{ m } (frac(1, k - 1) - frac(1, k)) = frac(1, n) - frac(1, m))
+7. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ m > n ⇒ |x(m) - x(n)| < frac(1, n))
+8. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N = floor(frac(1, ε)) ∧ (forall (m), m ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ m > n ∧ n > N ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ⇒ |x(m) - x(n)| < ε)))
+9. CauchySeq(x)
+
+GOAL:
+ConvergentSeq(x)
+
+METHOD:

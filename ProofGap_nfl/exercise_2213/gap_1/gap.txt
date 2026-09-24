@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. ε ∈ RealSet ∧ 0 ≤ ε ∧ ε < 1
+2. t = (fun x [x ∈ RealSet ∧ cos(frac(x, 2)) ≠ 0] . tan(frac(x, 2)))
+3. a = sqrtn(2, frac(1 - ε, 1 + ε))
+
+GOAL:
+a > 0
+
+METHOD:

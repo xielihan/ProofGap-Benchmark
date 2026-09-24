@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. x = tan(t)
+
+GOAL:
+0 ≤ t
+
+METHOD:

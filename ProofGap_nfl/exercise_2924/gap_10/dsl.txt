@@ -1,0 +1,1 @@
+apply (hypothesis 14: {Δ(9) < 10^{-6}})

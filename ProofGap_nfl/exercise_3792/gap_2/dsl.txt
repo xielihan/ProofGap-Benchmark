@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ f(x) > 0}) (x := {x})
+get_condition (hypothesis 5: {x ∈ RealSet ∧ x ≥ 0}) in (GOAL: {x ∈ RealSet ∧ x ≥ 0 ⇒ f(x) > 0})
+destruct_and (hypothesis 5: {x ∈ RealSet ∧ x ≥ 0}) as (hypothesis 6: {x ∈ RealSet}) (hypothesis 7: {x ≥ 0})
+assert (hypothesis 8: {f(x) = frac(π, 2) - arctan(x)})
+rewrite (left_to_right, equation) (hypothesis 8: {f(x) = frac(π, 2) - arctan(x)}); from (GOAL: {f(x) > 0}) to (GOAL: {frac(π, 2) - arctan(x) > 0})
+get_prop (theorem 'Thm 389. (TangentArctangentInverseRange)': {forall (u), u ∈ RealSet => (arctan(u) ∈ (-(π / 2), (π / 2)) ∧ tan(arctan(u)) = u)}) (u := {x}) as (hypothesis 9: {x ∈ RealSet => (arctan(x) ∈ (-(π / 2), (π / 2)) ∧ tan(arctan(x)) = x)})
+use_condition (hypothesis 6: {x ∈ RealSet}) in (hypothesis 9: {x ∈ RealSet => (arctan(x) ∈ (-(π / 2), (π / 2)) ∧ tan(arctan(x)) = x)}) as (hypothesis 10: {arctan(x) ∈ (-(π / 2), (π / 2)) ∧ tan(arctan(x)) = x})
+destruct_and (hypothesis 10: {arctan(x) ∈ (-(π / 2), (π / 2)) ∧ tan(arctan(x)) = x}) as (hypothesis 11: {arctan(x) ∈ (-(π / 2), (π / 2))}) (hypothesis 12: {tan(arctan(x)) = x})
+autosolve all_hypothesis

@@ -1,0 +1,28 @@
+PROOF GAP @11
+ASSUM:
+1. S : RealSet → RealSet
+2. D ⊆ RealSet
+3. x ∈ RealSet
+4. t ∈ RealSet
+5. n ∈ NonNegIntegerSet
+6. a : NonNegIntegerSet → RealSet
+7. F : RealSet → RealSet
+8. G : RealSet → RealSet
+9. g : RealSet → RealSet
+10. C ∈ RealSet
+11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
+12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
+13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
+14. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
+15. |x| < 4 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
+16. |x| > 4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
+17. a(n) = frac((n!)^{2}, (2 * n)!) * (±4)^{n}
+18. |frac(a(n + 1), a(n))| = frac(2 * n + 2, 2 * n + 1)
+19. frac(2 * n + 2, 2 * n + 1) > 1
+20. |frac(a(n + 1), a(n))| > 1
+21. ¬seqlim_{ n → +∞ } (a(n)) = 0
+
+GOAL:
+x = 4 ∨ x = -4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
+
+METHOD:

@@ -1,0 +1,7 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ∧ 0 < x ∧ x < frac(1, 2) ⇒ 0 < y(x)}) (x := {z})
+2. get_condition (hypothesis 5: {z ∈ RealSet ∧ 0 < z ∧ z < frac(1, 2)}) in (GOAL: {z ∈ RealSet ∧ 0 < z ∧ z < frac(1, 2) ⇒ 0 < y(z)})
+3. destruct_and (hypothesis 5: {z ∈ RealSet ∧ 0 < z ∧ z < frac(1, 2)}) as (hypothesis 6: {z ∈ RealSet}) (hypothesis 7: {0 < z}) (hypothesis 8: {z < frac(1, 2)})
+4. get_prop (hypothesis 4: {forall (x), x ∈ RealSet ∧ 0 < x ∧ x < frac(1, 2) ⇒ y(x) = x}) (x := {z}) as (hypothesis 9: {z ∈ RealSet ∧ 0 < z ∧ z < frac(1, 2) ⇒ y(z) = z})
+5. use_condition (hypothesis 5: {z ∈ RealSet ∧ 0 < z ∧ z < frac(1, 2)}) in (hypothesis 9: {z ∈ RealSet ∧ 0 < z ∧ z < frac(1, 2) ⇒ y(z) = z}) as (hypothesis 10: {y(z) = z})
+6. rewrite (left_to_right, equation) (hypothesis 10: {y(z) = z}); from (GOAL: {0 < y(z)}) to (GOAL: {0 < z})
+7. apply (hypothesis 7: {0 < z})

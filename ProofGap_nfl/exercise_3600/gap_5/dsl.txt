@@ -1,0 +1,1 @@
+apply (hypothesis 6: {forall (x) (y), x ∈ RealSet ∧ |x| < 1 ∧ y ∈ RealSet ∧ |y| < 1 ⇒ f(x, y) = sum_{ m = 1 }^{ +∞ } (sum_{ n = 1 }^{ +∞ } ((-1)^{m + n} * frac(x^{m} * y^{n}, m * n)))})

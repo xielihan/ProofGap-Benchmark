@@ -1,0 +1,25 @@
+PROOF GAP @9
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. D ⊆ CartesianProd(RealSet, RealSet)
+3. a ∈ RealSet ∧ a > 0
+4. b ∈ RealSet ∧ b > 0
+5. x ∈ RealSet
+6. y ∈ RealSet
+7. C = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet, frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) = 1 }
+8. D = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet, frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) ≤ 1 }
+9. P = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x + y)
+10. Q = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . -(x - y))
+11. VectorCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x + y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x - y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . FunDeri(Q, 1, 1)(x, y) - FunDeri(P, 2, 1)(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(Q, 1, 1)(x, y) = -1
+13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(P, 2, 1)(x, y) = 1
+14. VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . -1 - 1) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = -2 * π * a * b
+15. VectorCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x + y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x - y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = DefInt(0, 2 * π, (fun t [t ∈ RealSet ∧ t ∈ [0, 2 * π)] . (a * cos(t) + b * sin(t)) * -a * sin(t) - (a * cos(t) - b * sin(t)) * b * cos(t)) * diff(fun t [t ∈ RealSet ∧ t ∈ [0, 2 * π)] . t))
+16. DefInt(0, 2 * π, (fun t [t ∈ RealSet ∧ t ∈ [0, 2 * π)] . (a * cos(t) + b * sin(t)) * -a * sin(t) - (a * cos(t) - b * sin(t)) * b * cos(t)) * diff(fun t [t ∈ RealSet ∧ t ∈ [0, 2 * π)] . t)) = DefInt(0, 2 * π, (fun t [t ∈ RealSet ∧ t ∈ [0, 2 * π)] . (b^{2} - a^{2}) * cos(t) * sin(t) - a * b) * diff(fun t [t ∈ RealSet ∧ t ∈ [0, 2 * π)] . t))
+17. DefInt(0, 2 * π, (fun t [t ∈ RealSet ∧ t ∈ [0, 2 * π)] . (b^{2} - a^{2}) * cos(t) * sin(t) - a * b) * diff(fun t [t ∈ RealSet ∧ t ∈ [0, 2 * π)] . t)) = -2 * π * a * b
+18. DefInt(0, 2 * π, (fun t [t ∈ RealSet ∧ t ∈ [0, 2 * π)] . (a * cos(t) + b * sin(t)) * -a * sin(t) - (a * cos(t) - b * sin(t)) * b * cos(t)) * diff(fun t [t ∈ RealSet ∧ t ∈ [0, 2 * π)] . t)) = -2 * π * a * b
+
+GOAL:
+VectorCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x + y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x - y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = -2 * π * a * b
+
+METHOD:

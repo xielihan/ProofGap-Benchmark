@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. |x| < 1 ⇒ frac(1, 1 + x + x^{2}) = frac(1, __IMAGINARY_UNIT__ * sqrtn(2, 3)) * (frac(1, x + frac(1 - __IMAGINARY_UNIT__ * sqrtn(2, 3), 2)) - frac(1, x + frac(1 + __IMAGINARY_UNIT__ * sqrtn(2, 3), 2)))
+
+GOAL:
+|x| < 1 ⇒ frac(1, 1 + x + x^{2}) = frac(1, __IMAGINARY_UNIT__ * sqrtn(2, 3)) * (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * (frac(1 + __IMAGINARY_UNIT__ * sqrtn(2, 3), 2)^{n + 1} - frac(1 - __IMAGINARY_UNIT__ * sqrtn(2, 3), 2)^{n + 1}) * x^{n}))
+
+METHOD:

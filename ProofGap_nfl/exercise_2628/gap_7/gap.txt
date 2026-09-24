@@ -1,0 +1,20 @@
+PROOF GAP @7
+ASSUM:
+1. u : NonNegIntegerSet → RealSet
+2. v : NonNegIntegerSet → RealSet
+3. w : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 4 * n - 2 ≠ 0 ∧ 2 * n + 1 ≠ 0 ∧ sin(frac(n * π, 4 * n - 2)) ≠ 0
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = cot(frac(n * π, 4 * n - 2)) - sin(frac(n * π, 2 * n + 1))
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ v(n) = 1 - cot(frac(n * π, 4 * n - 2))
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ w(n) = 1 - sin(frac(n * π, 2 * n + 1))
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = cot(frac(n * π, 4 * n - 2)) - 1 + 1 - sin(frac(n * π, 2 * n + 1))
+9. PosSeq(v)
+10. PosSeq(w)
+11. lim_{ n → +∞ } (frac(v(n), frac(1, n))) = frac(π, 4)
+12. lim_{ n → +∞ } (frac(w(n), frac(1, n^{2}))) = frac(π^{2}, 32)
+13. DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n)))
+
+GOAL:
+ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{2})))
+
+METHOD:

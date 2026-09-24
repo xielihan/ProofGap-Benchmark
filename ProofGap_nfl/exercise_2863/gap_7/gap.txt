@@ -1,0 +1,15 @@
+PROOF GAP @7
+ASSUM:
+1. x ∈ RealSet
+2. α ∈ RealSet
+3. |x| < 1 ⇒ frac(x * cos(α) - x^{2}, 1 - 2 * x * cos(α) + x^{2}) = -1 - frac(1, 2) * (frac(cos(α) + __IMAGINARY_UNIT__ * sin(α), x - (cos(α) + __IMAGINARY_UNIT__ * sin(α))) + frac(cos(α) - __IMAGINARY_UNIT__ * sin(α), x - (cos(α) - __IMAGINARY_UNIT__ * sin(α))))
+4. |x| < 1 ⇒ frac(x * cos(α) - x^{2}, 1 - 2 * x * cos(α) + x^{2}) = -1 + frac(1, 2) * (frac(1, 1 - x * (cos(α) - __IMAGINARY_UNIT__ * sin(α))) + frac(1, 1 - x * (cos(α) + __IMAGINARY_UNIT__ * sin(α))))
+5. |x| < 1 ⇒ frac(x * cos(α) - x^{2}, 1 - 2 * x * cos(α) + x^{2}) = -1 + frac(1, 2) * ((sum_{ n = 0 }^{ +∞ } (x^{n} * (cos(α) - __IMAGINARY_UNIT__ * sin(α))^{n})) + (sum_{ n = 0 }^{ +∞ } (x^{n} * (cos(α) + __IMAGINARY_UNIT__ * sin(α))^{n})))
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (cos(α) - __IMAGINARY_UNIT__ * sin(α))^{n} + (cos(α) + __IMAGINARY_UNIT__ * sin(α))^{n} = 2 * cos(n * α)
+7. |x| < min(frac(1, |cos(α) + __IMAGINARY_UNIT__ * sin(α)|), frac(1, |cos(α) - __IMAGINARY_UNIT__ * sin(α)|))
+8. min(frac(1, |cos(α) + __IMAGINARY_UNIT__ * sin(α)|), frac(1, |cos(α) - __IMAGINARY_UNIT__ * sin(α)|)) = 1
+
+GOAL:
+|x| < 1
+
+METHOD:

@@ -1,0 +1,2 @@
+exists (ξ := {100 * π})
+autosolve all_hypothesis

@@ -1,0 +1,17 @@
+PROOF GAP @3
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. v : CartesianProd(RealSet, RealSet) → RealSet
+3. D ⊆ CartesianProd(RealSet, RealSet)
+4. FuncOfClassKOn(u, D, 2)
+5. forall (xi) (eta), xi ∈ RealSet ∧ eta ∈ RealSet ∧ (xi, eta) ∈ D ⇒ FunDeri(u, 1, 2)(xi, eta) + FunDeri(u, 2, 2)(xi, eta) = 0
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} ≠ 0 ∧ (frac(x, x^{2} + y^{2}), frac(y, x^{2} + y^{2})) ∈ D ⇒ v(x, y) = u(frac(x, x^{2} + y^{2}), frac(y, x^{2} + y^{2}))
+7. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x^{2} + y^{2} ≠ 0 ∧ (frac(x, x^{2} + y^{2}), frac(y, x^{2} + y^{2})) ∈ D ⇒ (exists (xi), xi ∈ RealSet ∧ xi = frac(x, x^{2} + y^{2})))
+8. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x^{2} + y^{2} ≠ 0 ∧ (frac(x, x^{2} + y^{2}), frac(y, x^{2} + y^{2})) ∈ D ⇒ (exists (eta), eta ∈ RealSet ∧ eta = frac(y, x^{2} + y^{2})))
+9. forall (xi), xi ∈ RealSet ⇒ (forall (eta), eta ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x^{2} + y^{2} ≠ 0 ∧ (frac(x, x^{2} + y^{2}), frac(y, x^{2} + y^{2})) ∈ D ∧ xi = frac(x, x^{2} + y^{2}) ∧ eta = frac(y, x^{2} + y^{2}) ⇒ v(x, y) = u(xi, eta))))
+10. forall (xi), xi ∈ RealSet ⇒ (forall (eta), eta ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x^{2} + y^{2} ≠ 0 ∧ (frac(x, x^{2} + y^{2}), frac(y, x^{2} + y^{2})) ∈ D ∧ xi = frac(x, x^{2} + y^{2}) ∧ eta = frac(y, x^{2} + y^{2}) ⇒ FunDeri(v, 1, 2)(x, y) = FunDeri(u, 1, 2)(xi, eta) * FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . xi, 1, 1)(x, y)^{2} + FunDeri(u, 2, 2)(xi, eta) * FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . eta, 1, 1)(x, y)^{2} + 2 * FunDeri(FunDeri(u, 1, 1), 2, 1)(xi, eta) * FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . xi, 1, 1)(x, y) * FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . eta, 1, 1)(x, y) + FunDeri(u, 1, 1)(xi, eta) * FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . xi, 1, 2)(x, y) + FunDeri(u, 2, 1)(xi, eta) * FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . eta, 1, 2)(x, y))))
+
+GOAL:
+forall (xi), xi ∈ RealSet ⇒ (forall (eta), eta ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x^{2} + y^{2} ≠ 0 ∧ (frac(x, x^{2} + y^{2}), frac(y, x^{2} + y^{2})) ∈ D ∧ xi = frac(x, x^{2} + y^{2}) ∧ eta = frac(y, x^{2} + y^{2}) ⇒ FunDeri(v, 2, 2)(x, y) = FunDeri(u, 1, 2)(xi, eta) * FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . xi, 2, 1)(x, y)^{2} + FunDeri(u, 2, 2)(xi, eta) * FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . eta, 2, 1)(x, y)^{2} + 2 * FunDeri(FunDeri(u, 1, 1), 2, 1)(xi, eta) * FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . xi, 2, 1)(x, y) * FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . eta, 2, 1)(x, y) + FunDeri(u, 1, 1)(xi, eta) * FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . xi, 2, 2)(x, y) + FunDeri(u, 2, 1)(xi, eta) * FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . eta, 2, 2)(x, y))))
+
+METHOD:

@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. y : NonNegIntegerSet → RealSet ∧ IsSeq(y)
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = (1 + frac(1, n))^{n}
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n) = (1 + frac(1, n))^{n + 1}
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = (1 + frac(1, n))^{n}
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = 2 + (sum_{ k = 2 }^{ n } (frac(1, k!) * (prod_{ i = 1 }^{ k - 1 } (1 - frac(i, n)))))
+
+METHOD:

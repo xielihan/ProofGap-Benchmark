@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. ε ∈ RealSet
+2. C ∈ RealSet
+3. t : RealSet → RealSet
+4. forall (x), x ∈ RealSet ⇒ 1 + ε * cos(x) ≠ 0
+5. forall (x), x ∈ RealSet ⇒ t(x) = tan(frac(x, 2))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ cos(x) = frac(1 - t(x)^{2}, 1 + t(x)^{2})
+
+METHOD:

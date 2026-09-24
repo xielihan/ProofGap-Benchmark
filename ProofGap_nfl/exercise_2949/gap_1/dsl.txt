@@ -1,0 +1,4 @@
+assert (hypothesis 9: {A(0) = frac(1, l) * DefInt(a, a + 2 * l, (fun x [x ∈ RealSet] . x) * diff(fun x [x ∈ RealSet] . x))}) by proof {
+ autosolve all_hypothesis
+}
+autosolve all_hypothesis

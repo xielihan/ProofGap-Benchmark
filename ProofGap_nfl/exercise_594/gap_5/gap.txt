@@ -1,0 +1,12 @@
+PROOF GAP @5
+ASSUM:
+1. forall (x), x ∈ RealSet
+2. forall (x), x ∈ RealSet ⇒ sqrtn(2, 1 + x + x^{2}) - sqrtn(2, 1 - x + x^{2}) = frac(2 * x, sqrtn(2, 1 + x + x^{2}) + sqrtn(2, 1 - x + x^{2}))
+3. lim_{ x → -∞ } (sqrtn(2, 1 + x + x^{2}) - sqrtn(2, 1 - x + x^{2})) = lim_{ x → -∞ } (frac(-2, sqrtn(2, frac(1, x^{2}) + frac(1, x) + 1) + sqrtn(2, frac(1, x^{2}) - frac(1, x) + 1)))
+4. lim_{ x → -∞ } (frac(-2, sqrtn(2, frac(1, x^{2}) + frac(1, x) + 1) + sqrtn(2, frac(1, x^{2}) - frac(1, x) + 1))) = -1
+5. lim_{ x → -∞ } (sqrtn(2, 1 + x + x^{2}) - sqrtn(2, 1 - x + x^{2})) = -1
+
+GOAL:
+lim_{ x → +∞ } (sqrtn(2, 1 + x + x^{2}) - sqrtn(2, 1 - x + x^{2})) = lim_{ x → +∞ } (frac(2, sqrtn(2, frac(1, x^{2}) + frac(1, x) + 1) + sqrtn(2, frac(1, x^{2}) - frac(1, x) + 1)))
+
+METHOD:

@@ -1,0 +1,17 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet
+3. c ∈ RealSet
+4. a_{1} ∈ RealSet
+5. b_{1} ∈ RealSet
+6. c_{1} ∈ RealSet
+7. a * c - b^{2} > 0
+8. forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ t = frac(a * x + b, sqrtn(2, a)))
+9. forall (t), t ∈ RealSet ⇒ (exists (x), x ∈ RealSet ∧ x = frac(sqrtn(2, a) * t - b, a))
+
+GOAL:
+DefInt(-∞, +∞, (fun x [x ∈ RealSet] . (a_{1} * x^{2} + 2 * b_{1} * x + c_{1}) * e^{-(a * x^{2} + 2 * b * x + c)}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, sqrtn(2, a)) * e^{frac(b^{2}, a) - c} * DefInt(-∞, +∞, (fun t [t ∈ RealSet] . (frac(a_{1}, a) * t^{2} + frac(2 * (a * b_{1} - a_{1} * b), a * sqrtn(2, a)) * t + frac(a_{1} * b^{2} - 2 * a * b * b_{1}, a^{2}) + c_{1}) * e^{-t^{2}}) * diff(fun t [t ∈ RealSet] . t))
+
+METHOD:
+[@method 代入 x = frac(sqrtn(2, a) * t - b, a) 到 DefInt(-∞, +∞, (a_{1} * x^{2} + 2 * b_{1} * x + c_{1}) * e^{-(a * x^{2} + 2 * b * x + c)} * diff(x)) @]

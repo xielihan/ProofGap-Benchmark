@@ -1,0 +1,5 @@
+1. get_prop (hypothesis 3: {forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = -frac(x, y(x))}) (x := {3}) as (hypothesis 13: {3 ∈ RealSet ⇒ FunDeri(y, 1, 1)(3) = -frac(3, y(3))})
+2. assert (hypothesis 14: {3 ∈ RealSet})
+3. use_condition (hypothesis 14: {3 ∈ RealSet}) in (hypothesis 13: {3 ∈ RealSet ⇒ FunDeri(y, 1, 1)(3) = -frac(3, y(3))}) as (hypothesis 15: {FunDeri(y, 1, 1)(3) = -frac(3, y(3))})
+4. rewrite (left_to_right, equation) (hypothesis 12: {y(3) = 4}); from (hypothesis 15: {FunDeri(y, 1, 1)(3) = -frac(3, y(3))}) to (hypothesis 15: {FunDeri(y, 1, 1)(3) = -frac(3, 4)})
+5. apply (hypothesis 15: {FunDeri(y, 1, 1)(3) = -frac(3, 4)})

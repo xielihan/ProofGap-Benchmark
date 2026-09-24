@@ -1,0 +1,5 @@
+get_condition (hypothesis 3: {p ≤ q}) in (GOAL: {p ≤ q ⇒ min(p, q) = p})
+get_prop (theorem 'Thm 400. (MinimumOfTwoRealsDefinition)': {forall (a) (b), a ∈ RealSet => b ∈ RealSet => ((min(a, b) = a <==> a <= b) /\ (min(a, b) = b <==> b <= a))}) (a := {p}) (b := {q}) as (hypothesis 4: {p ∈ RealSet => q ∈ RealSet => ((min(p, q) = p ⇔ p ≤ q) ∧ (min(p, q) = q ⇔ q ≤ p))})
+use_condition (hypothesis 1: {p ∈ RealSet}) (hypothesis 2: {q ∈ RealSet}) in (hypothesis 4: {p ∈ RealSet => q ∈ RealSet => ((min(p, q) = p ⇔ p ≤ q) ∧ (min(p, q) = q ⇔ q ≤ p))}) as (hypothesis 5: {(min(p, q) = p ⇔ p ≤ q) ∧ (min(p, q) = q ⇔ q ≤ p)})
+destruct_and (hypothesis 5: {(min(p, q) = p ⇔ p ≤ q) ∧ (min(p, q) = q ⇔ q ≤ p)}) as (hypothesis 6: {min(p, q) = p ⇔ p ≤ q}) (hypothesis 7: {min(p, q) = q ⇔ q ≤ p})
+autosolve all_hypothesis

@@ -1,0 +1,7 @@
+assert (hypothesis 16: {frac(1, 2) ∈ RealSet ∧ frac(1, 2) ∈ RealSet}) by proof {
+autosolve all_hypothesis
+}
+get_prop (hypothesis 3: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet => z(x, y) = x * y}) (x := {frac(1, 2)}) (y := {frac(1, 2)}) as (hypothesis 17: {frac(1, 2) ∈ RealSet ∧ frac(1, 2) ∈ RealSet => z(frac(1, 2), frac(1, 2)) = frac(1, 2) * frac(1, 2)})
+use_condition (hypothesis 16: {frac(1, 2) ∈ RealSet ∧ frac(1, 2) ∈ RealSet}) in (hypothesis 17: {frac(1, 2) ∈ RealSet ∧ frac(1, 2) ∈ RealSet => z(frac(1, 2), frac(1, 2)) = frac(1, 2) * frac(1, 2)}) as (hypothesis 18: {z(frac(1, 2), frac(1, 2)) = frac(1, 2) * frac(1, 2)})
+rewrite (left_to_right, equation) (hypothesis 18: {z(frac(1, 2), frac(1, 2)) = frac(1, 2) * frac(1, 2)}); from (GOAL: {z(frac(1, 2), frac(1, 2)) = frac(1, 4)}) to (GOAL: {frac(1, 2) * frac(1, 2) = frac(1, 4)})
+autosolve all_hypothesis using PolyRatSolver

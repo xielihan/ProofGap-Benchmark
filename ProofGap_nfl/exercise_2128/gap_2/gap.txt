@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ 1 + x^{4} + x^{8} = (x^{4} + 1)^{2} - x^{4}
+
+METHOD:

@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ (exists (h), h ∈ RealSet ∧ h = frac(x, n))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ (exists (h), h ∈ RealSet ∧ h = frac(x, n))
+
+METHOD:

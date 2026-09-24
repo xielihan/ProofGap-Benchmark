@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet ∧ a ≠ 0
+3. x ∈ RealSet ∧ x ≠ -a ∧ x ≠ a
+4. forall (x), x ∈ RealSet ∧ x ≠ -a ∧ x ≠ a ⇒ y(x) = frac(1, 2 * a) * ln(|frac(x - a, x + a)|)
+
+GOAL:
+FunDeri(fun t . frac(1, 2 * a) * ln(|frac(t - a, t + a)|), 1, 1)(x) = frac(1, 2 * a) * (frac(1, x - a) - frac(1, x + a))
+
+METHOD:

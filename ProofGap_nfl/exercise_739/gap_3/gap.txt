@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ f(x) = frac(1, 1 - x)
+3. forall (a), a ∈ RealSet ∧ f(1) = a ⇒ lim_{ x → 1^+ } (f(x)) = -∞
+4. forall (a), a ∈ RealSet ∧ f(1) = a ⇒ lim_{ x → 1^- } (f(x)) = +∞
+
+GOAL:
+forall (a), a ∈ RealSet ∧ f(1) = a ⇒ ¬ContinuousFuncAt(f, 1)
+
+METHOD:

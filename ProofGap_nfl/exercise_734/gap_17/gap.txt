@@ -1,0 +1,27 @@
+PROOF GAP @17
+ASSUM:
+1. χ : RealSet → RealSet
+2. f : CartesianProd(NonNegIntegerSet, CartesianProd(NonNegIntegerSet, RealSet)) → RealSet
+3. forall (m) (n) (x), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ χ(x) = seqlim_{ m → +∞ } (seqlim_{ n → +∞ } (cos(π * m! * x)^{n}))
+4. forall (m) (n) (x), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ f(m, n, x) = cos(π * m! * x)^{n}
+5. forall (x), x ∈ RealSet ∧ x ∈ RationalSet ⇒ (exists (q) (p), q ∈ IntegerSet ∧ x = frac(q, p) ∧ p ∈ IntegerSet)
+6. forall (x), x ∈ RealSet ∧ x ∈ RationalSet ⇒ (exists (q) (p), p ∈ IntegerSet ∧ x = frac(q, p) ∧ q ∈ IntegerSet)
+7. forall (x), x ∈ RealSet ∧ x ∈ RationalSet ⇒ (exists (q) (p), q ∈ IntegerSet ∧ p ∈ IntegerSet ∧ x = frac(q, p) ∧ p ≠ 0)
+8. forall (x), x ∈ RealSet ∧ x ∈ RationalSet ⇒ (exists (q) (p), q ∈ IntegerSet ∧ p ∈ IntegerSet ∧ x = frac(q, p) ∧ q ≠ 0)
+9. forall (x), x ∈ RealSet ∧ x ∈ RationalSet ⇒ (exists (q) (p), q ∈ IntegerSet ∧ p ∈ IntegerSet ∧ x = frac(q, p) ∧ gcd(p, q) = 1)
+10. forall (x), x ∈ RealSet ∧ x ∈ RationalSet ⇒ (exists (q) (p) (m) (n), q ∈ IntegerSet ∧ p ∈ NonNegIntegerSet ∧ m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ x = frac(q, p) ∧ m > p ∧ n ∈ PosIntegerSet ∧ f(m, n, x) = 1)
+11. forall (x), x ∈ RealSet ∧ x ∈ RationalSet ⇒ (exists (q) (p) (m), q ∈ IntegerSet ∧ p ∈ NonNegIntegerSet ∧ m ∈ NonNegIntegerSet ∧ x = frac(q, p) ∧ m > p ∧ χ(x) = 1)
+12. forall (x), x ∈ RealSet ∧ x ∉ RationalSet ⇒ (forall (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ |cos(π * m! * x)| < 1)
+13. forall (x), x ∈ RealSet ∧ x ∉ RationalSet ⇒ (forall (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ seqlim_{ n → +∞ } (cos(π * m! * x)^{n}) = 0)
+14. forall (x), x ∈ RealSet ∧ x ∉ RationalSet ⇒ χ(x) = 0
+15. forall (x), x ∈ RealSet ⇒ χ(x) = cases{ 1 if x ∈ RationalSet; 0 if x ∈ RealSet ∧ x ∉ RationalSet }
+16. forall (a), a ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (r), r ∈ RealSet ∧ r ∈ RationalSet ∧ |r - a| < ε ∧ χ(r) = 1))
+17. forall (a), a ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (s), s ∈ RealSet ∧ s ∉ RationalSet ∧ |s - a| < ε ∧ χ(s) = 0))
+18. forall (a), a ∈ RealSet ⇒ ¬(exists (L), L ∈ RealSet ∧ lim_{ x → a } (χ(x)) = L)
+19. forall (a), a ∈ RealSet ⇒ ¬ContinuousFuncAt(χ, a)
+20. forall (x), x ∈ RealSet ⇒ ¬ContinuousFuncAt(χ, x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ ¬ContinuousFuncAt(χ, x)
+
+METHOD:

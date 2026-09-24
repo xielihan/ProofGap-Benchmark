@@ -1,0 +1,20 @@
+PROOF GAP @5
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. w : CartesianProd(RealSet, RealSet) → RealSet
+3. x : CartesianProd(RealSet, RealSet) → RealSet
+4. y : CartesianProd(RealSet, RealSet) → RealSet
+5. r ∈ RealSet ∧ r > 0
+6. φ ∈ RealSet
+7. x(r, φ) = r * cos(φ)
+8. y(r, φ) = r * sin(φ)
+9. w(r, φ) = x(r, φ) * FunDeri(u, 2, 1)(x(r, φ), y(r, φ)) - y(r, φ) * FunDeri(u, 1, 1)(x(r, φ), y(r, φ))
+10. diff(fun r, φ [r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet] . x(r, φ)) = cos(φ) * diff(fun r, φ [r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet] . r) - r * sin(φ) * diff(fun r, φ [r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet] . φ)
+11. diff(fun r, φ [r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet] . y(r, φ)) = sin(φ) * diff(fun r, φ [r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet] . r) + r * cos(φ) * diff(fun r, φ [r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet] . φ)
+12. diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . r) = frac(x, r) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + frac(y, r) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+13. diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . φ) = frac(x, r^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) - frac(y, r^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)
+
+GOAL:
+diff(fun r, φ [r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet] . u(r, φ)) = FunDeri(u, 1, 1)(r, φ) * diff(fun r, φ [r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet] . r) + FunDeri(u, 2, 1)(r, φ) * diff(fun r, φ [r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet] . φ)
+
+METHOD:

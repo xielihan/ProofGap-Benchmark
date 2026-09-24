@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (n), n ∈ IntegerSet ∧ n ≥ 3 ⇒ 0 < frac(2^{n}, n!)
+
+GOAL:
+forall (n), n ∈ IntegerSet ∧ n ≥ 3 ⇒ frac(2^{n}, n!) = prod_{ k = 1 }^{ n } (frac(2, k))
+
+METHOD:

@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. forall (x), x ∈ RealSet
+2. forall (y), y ∈ RealSet
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ x^{2} - x * y + y^{2} ≠ 0
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ x^{2} + y^{2} ≥ 2 * |x * y|
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ 0 ≤ |frac(x + y, x^{2} - x * y + y^{2})|
+
+METHOD:

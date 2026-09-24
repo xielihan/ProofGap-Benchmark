@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. x : NonNegIntegerSet → PosRealSet
+3. a ∈ PosRealSet
+4. x(0) ∈ PosRealSet
+5. forall (n), n ∈ NonNegIntegerSet ⇒ x(n + 1) = frac(1, 2) * (x(n) + frac(a, x(n)))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ x(n) ∈ RealSet ∧ x(n) > 0 ⇒ x(n + 1) = frac(1, 2) * (sqrtn(2, x(n)) - frac(sqrtn(2, a), sqrtn(2, x(n))))^{2} + sqrtn(2, a)
+
+METHOD:

@@ -1,0 +1,13 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(1, +∞) ⇒ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ (forall (j), j ∈ NonNegIntegerSet ∧ j ∈ PosIntegerSet ∧ j ≤ N ⇒ j ∈ { k | k ∈ PosIntegerSet ∧ (forall (q), q ∈ NonNegIntegerSet ∧ q ∈ PrimeSet ∧ q | k ⇒ q ≤ N) }))}) (x := {x0})
+2. get_condition (hypothesis 8: {x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(1, +∞)}) in (GOAL: {x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(1, +∞) ⇒ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ (forall (j), j ∈ NonNegIntegerSet ∧ j ∈ PosIntegerSet ∧ j ≤ N ⇒ j ∈ { k | k ∈ PosIntegerSet ∧ (forall (q), q ∈ NonNegIntegerSet ∧ q ∈ PrimeSet ∧ q | k ⇒ q ≤ N) }))})
+3. get_forall (GOAL: {forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ (forall (j), j ∈ NonNegIntegerSet ∧ j ∈ PosIntegerSet ∧ j ≤ N ⇒ j ∈ { k | k ∈ PosIntegerSet ∧ (forall (q), q ∈ NonNegIntegerSet ∧ q ∈ PrimeSet ∧ q | k ⇒ q ≤ N) })}) (N := {N0})
+4. get_condition (hypothesis 9: {N0 ∈ NonNegIntegerSet ∧ N0 ∈ PosIntegerSet}) in (GOAL: {N0 ∈ NonNegIntegerSet ∧ N0 ∈ PosIntegerSet ⇒ (forall (j), j ∈ NonNegIntegerSet ∧ j ∈ PosIntegerSet ∧ j ≤ N0 ⇒ j ∈ { k | k ∈ PosIntegerSet ∧ (forall (q), q ∈ NonNegIntegerSet ∧ q ∈ PrimeSet ∧ q | k ⇒ q ≤ N0) })})
+5. get_forall (GOAL: {forall (j), j ∈ NonNegIntegerSet ∧ j ∈ PosIntegerSet ∧ j ≤ N0 ⇒ j ∈ { k | k ∈ PosIntegerSet ∧ (forall (q), q ∈ NonNegIntegerSet ∧ q ∈ PrimeSet ∧ q | k ⇒ q ≤ N0) }}) (j := {j0})
+6. get_condition (hypothesis 10: {j0 ∈ NonNegIntegerSet ∧ j0 ∈ PosIntegerSet ∧ j0 ≤ N0}) in (GOAL: {j0 ∈ NonNegIntegerSet ∧ j0 ∈ PosIntegerSet ∧ j0 ≤ N0 ⇒ j0 ∈ { k | k ∈ PosIntegerSet ∧ (forall (q), q ∈ NonNegIntegerSet ∧ q ∈ PrimeSet ∧ q | k ⇒ q ≤ N0) }})
+7. assert (hypothesis 11: {forall (q), q ∈ NonNegIntegerSet ∧ q ∈ PrimeSet ∧ q | j0 ⇒ q ≤ j0}) by proof {
+8. autosolve all_hypothesis
+}
+9. assert (hypothesis 12: {j0 ∈ { k | k ∈ PosIntegerSet ∧ (forall (q), q ∈ NonNegIntegerSet ∧ q ∈ PrimeSet ∧ q | k ⇒ q ≤ N0) }}) by proof {
+10. autosolve all_hypothesis
+}
+11. apply (hypothesis 12: {j0 ∈ { k | k ∈ PosIntegerSet ∧ (forall (q), q ∈ NonNegIntegerSet ∧ q ∈ PrimeSet ∧ q | k ⇒ q ≤ N0) }})

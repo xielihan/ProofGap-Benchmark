@@ -1,0 +1,4 @@
+get_prop (hypothesis 3: {forall (x), x ∈ RealSet ∧ x ≠ -1 ⇒ f(x) = frac(1 - x, 1 + x)}) (x := {0}) as (hypothesis 4: {0 ∈ RealSet ∧ 0 ≠ -1 ⇒ f(0) = frac(1 - 0, 1 + 0)})
+use_condition (obvious: {0 ∈ RealSet ∧ 0 ≠ -1}) in (hypothesis 4: {0 ∈ RealSet ∧ 0 ≠ -1 ⇒ f(0) = frac(1 - 0, 1 + 0)}) as (hypothesis 5: {f(0) = frac(1 - 0, 1 + 0)})
+autoreplace no_hypothesis; from (frac(1 - 0, 1 + 0)) to (1); from (hypothesis 5: {f(0) = frac(1 - 0, 1 + 0)}) to (hypothesis 6: {f(0) = 1})
+apply (hypothesis 6: {f(0) = 1})

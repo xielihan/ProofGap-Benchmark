@@ -1,0 +1,12 @@
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ 0 < 0 - x ∧ 0 - x < δ ⇒ 0 < 0 - x ∧ 0 - x < ε))}) (ε := {e0})
+get_condition (hypothesis 7: {e0 ∈ RealSet ∧ e0 > 0}) in (GOAL: {e0 ∈ RealSet ∧ e0 > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ 0 < 0 - x ∧ 0 - x < δ ⇒ 0 < 0 - x ∧ 0 - x < e0))})
+destruct_and (hypothesis 7: {e0 ∈ RealSet ∧ e0 > 0}) as (hypothesis 8: {e0 ∈ RealSet}) (hypothesis 9: {e0 > 0})
+exists (δ := {e0})
+assert (hypothesis 10: {forall (x), x ∈ RealSet ∧ 0 < 0 - x ∧ 0 - x < e0 ⇒ 0 < 0 - x ∧ 0 - x < e0}) by proof {
+  get_forall (GOAL: {forall (x), x ∈ RealSet ∧ 0 < 0 - x ∧ 0 - x < e0 ⇒ 0 < 0 - x ∧ 0 - x < e0}) (x := {x0})
+  get_condition (hypothesis 10: {x0 ∈ RealSet ∧ 0 < 0 - x0 ∧ 0 - x0 < e0}) in (GOAL: {x0 ∈ RealSet ∧ 0 < 0 - x0 ∧ 0 - x0 < e0 ⇒ 0 < 0 - x0 ∧ 0 - x0 < e0})
+  destruct_and (hypothesis 10: {x0 ∈ RealSet ∧ 0 < 0 - x0 ∧ 0 - x0 < e0}) as (hypothesis 11: {x0 ∈ RealSet}) (hypothesis 12: {0 < 0 - x0}) (hypothesis 13: {0 - x0 < e0})
+  assert (hypothesis 14: {0 < 0 - x0 ∧ 0 - x0 < e0})
+  apply (hypothesis 14: {0 < 0 - x0 ∧ 0 - x0 < e0})
+}
+autosolve all_hypothesis

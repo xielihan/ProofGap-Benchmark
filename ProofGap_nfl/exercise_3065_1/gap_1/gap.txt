@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. p = (fun n [n ∈ NonNegIntegerSet ∧ n ≥ 1] . 1 - frac(1, n^{2}))
+2. q = (fun n [n ∈ NonNegIntegerSet ∧ n ≥ 1] . 1 + frac(1, n^{2}))
+
+GOAL:
+ConvergentSeq(fun n [n ∈ NonNegIntegerSet ∧ n ≥ 1] . prod_{ k = 1 }^{ n } (p(k)))
+
+METHOD:

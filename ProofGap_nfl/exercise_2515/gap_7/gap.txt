@@ -1,0 +1,23 @@
+PROOF GAP @7
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. x : RealSet → RealSet
+3. S ⊆ RealSet
+4. y ∈ RealSet
+5. z ∈ RealSet
+6. ξ ∈ RealSet
+7. η ∈ RealSet
+8. ζ ∈ RealSet
+9. S = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, x^{2} + y^{2} + z^{2} = a^{2}, z ≥ 0 }
+10. forall (z), z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a ⇒ x(z)^{2} + z^{2} = a^{2}
+11. ξ = 0
+12. η = 0
+13. ζ = frac(DefInt(0, a, (fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a] . z * 2 * π * x(z) * sqrtn(2, 1 + FunDeri(x, 1, 1)(z)^{2})) * diff(fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a] . z)), DefInt(0, a, (fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a] . 2 * π * x(z) * sqrtn(2, 1 + FunDeri(x, 1, 1)(z)^{2})) * diff(fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a] . z)))
+14. forall (z), z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a ⇒ x(z) = sqrtn(2, a^{2} - z^{2})
+15. forall (z), z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a ⇒ sqrtn(2, 1 + FunDeri(x, 1, 1)(z)^{2}) = frac(a, sqrtn(2, a^{2} - z^{2}))
+16. ζ = frac(DefInt(0, a, (fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a] . 2 * π * z * sqrtn(2, a^{2} - z^{2}) * frac(a, sqrtn(2, a^{2} - z^{2}))) * diff(fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a] . z)), DefInt(0, a, (fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a] . 2 * π * sqrtn(2, a^{2} - z^{2}) * frac(a, sqrtn(2, a^{2} - z^{2}))) * diff(fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a] . z)))
+
+GOAL:
+frac(DefInt(0, a, (fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a] . 2 * π * z * sqrtn(2, a^{2} - z^{2}) * frac(a, sqrtn(2, a^{2} - z^{2}))) * diff(fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a] . z)), DefInt(0, a, (fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a] . 2 * π * sqrtn(2, a^{2} - z^{2}) * frac(a, sqrtn(2, a^{2} - z^{2}))) * diff(fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a] . z))) = frac(2 * π * a * DefInt(0, a, (fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a] . z) * diff(fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a] . z)), 2 * π * a * DefInt(0, a, diff(fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a] . z)))
+
+METHOD:

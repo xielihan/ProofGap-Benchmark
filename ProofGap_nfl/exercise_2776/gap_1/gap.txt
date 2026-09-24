@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. u : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. S_{n} : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+3. S : RealSet → RealSet
+4. k ∈ NonNegIntegerSet
+5. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ u(n, x) = 2^{n} * sin(frac(1, 3^{n} * x))
+6. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ S_{n}(n, x) = sum_{ k = 1 }^{ n } (u(k, x))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ |u(n, x)| ≤ 2^{n} * frac(1, 3^{n} * x))
+
+METHOD:

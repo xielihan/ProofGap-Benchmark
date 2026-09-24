@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (t), t ∈ RealSet ⇒ δ^{2}(y) = (e^{-t} * D)^{2}(y)}) (t := {t0})
+get_condition (hypothesis 18: {t0 ∈ RealSet}) in (GOAL: {t0 ∈ RealSet ⇒ δ^{2}(y) = (e^{-t0} * D)^{2}(y)})
+get_prop (hypothesis 17: {forall (t), t ∈ RealSet ⇒ δ = e^{-t} * D}) (t := {t0}) as (hypothesis 19: {t0 ∈ RealSet ⇒ δ = e^{-t0} * D})
+use_condition (hypothesis 18: {t0 ∈ RealSet}) in (hypothesis 19: {t0 ∈ RealSet ⇒ δ = e^{-t0} * D}) as (hypothesis 20: {δ = e^{-t0} * D})
+rewrite (left_to_right, equation) (hypothesis 20: {δ = e^{-t0} * D}); from (GOAL: {δ^{2}(y) = (e^{-t0} * D)^{2}(y)}) to (GOAL: {(e^{-t0} * D)^{2}(y) = (e^{-t0} * D)^{2}(y)})
+autosolve all_hypothesis

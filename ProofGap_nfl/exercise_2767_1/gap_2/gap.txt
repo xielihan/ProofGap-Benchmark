@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. q ∈ RealSet
+2. 0 < q
+3. q < 1
+4. forall (x), x ∈ RealSet ∧ |x| < q ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ |x^{n}| < q^{n})
+
+GOAL:
+ConvergentSeries(sum_{ n = 0 }^{ +∞ } (q^{n}))
+
+METHOD:

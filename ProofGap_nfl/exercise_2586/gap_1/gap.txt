@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(n^{2}, (2 + frac(1, n))^{n})
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 2 + frac(1, n) ≠ 0
+
+METHOD:

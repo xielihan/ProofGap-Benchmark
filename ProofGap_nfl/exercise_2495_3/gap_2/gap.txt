@@ -1,0 +1,19 @@
+PROOF GAP @2
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. `bar_y` : RealSet → RealSet
+4. s : RealSet → RealSet
+5. a ∈ RealSet ∧ a > 0
+6. (P_{hat})_{x} ∈ RealSet
+7. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ x(t) = a * (t - sin(t))
+8. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ y(t) = a * (1 - cos(t))
+9. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ s(t) = DefInt(0, t, (fun u [u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ t] . sqrtn(2, FunDeri(x, 1, 1)(u)^{2} + FunDeri(y, 1, 1)(u)^{2})) * diff(fun u [u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ t] . u))
+10. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ `bar_y`(t) = y(t) - 2 * a
+11. (P_{hat})_{x} = |2 * π * DefInt(0, 2 * π, (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . `bar_y`(t) * sqrtn(2, FunDeri(x, 1, 1)(t)^{2} + FunDeri(y, 1, 1)(t)^{2})) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . t))|
+12. diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . s(t)) = (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . sqrtn(2, FunDeri(x, 1, 1)(t)^{2} + FunDeri(y, 1, 1)(t)^{2})) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . t)
+
+GOAL:
+(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . sqrtn(2, FunDeri(x, 1, 1)(t)^{2} + FunDeri(y, 1, 1)(t)^{2})) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . t) = (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . 2 * a * sin(frac(t, 2))) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . t)
+
+METHOD:

@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. g : RealSet → RealSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = sgn(x)
+4. forall (x), x ∈ RealSet ⇒ g(x) = 1 + x^{2}
+5. forall (x), x ∈ RealSet ⇒ f ∘ g(x) = f(g(x)) ∧ f(g(x)) = 1
+6. ContinuousFunc(f ∘ g)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (g ∘ f)(x) = g(f(x)) ∧ g(f(x)) = cases{ 2 if x ≠ 0; 1 if x = 0 }
+
+METHOD:

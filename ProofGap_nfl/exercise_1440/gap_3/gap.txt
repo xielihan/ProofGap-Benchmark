@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = cos(x) + frac(1, 2) * cos(2 * x)
+3. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = -sin(x) * (1 + 2 * cos(x))
+4. forall (x), x ∈ RealSet ∧ FunDeri(y, 1, 1)(x) = 0 ⇒ (exists (k), k ∈ IntegerSet ∧ (x = k * π ∨ x = frac(2 * π, 3) + 2 * k * π ∨ x = -frac(2 * π, 3) + 2 * k * π))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = -cos(x) - 2 * cos(2 * x)
+
+METHOD:

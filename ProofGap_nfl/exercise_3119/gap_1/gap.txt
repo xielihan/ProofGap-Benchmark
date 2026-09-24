@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. n ∈ NonNegIntegerSet ∧ n > 0
+2. θ ∈ RealSet ∧ |θ| < 1
+3. `θ_1` ∈ RealSet ∧ 0 < `θ_1` ∧ `θ_1` < 1
+4. `θ_2` ∈ RealSet ∧ 0 < `θ_2` ∧ `θ_2` < 1
+5. n ∈ PosIntegerSet
+
+GOAL:
+Combination(2 * n, n) = frac(prod_{ k = 0 }^{ n - 1 } (2 * n - k), n!)
+
+METHOD:

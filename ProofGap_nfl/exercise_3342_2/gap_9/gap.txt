@@ -1,0 +1,21 @@
+PROOF GAP @9
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. l ∈ RealSet
+3. α ∈ RealSet
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = x^{2} - x * y + y^{2}
+5. 0 ≤ α
+6. α < 2 * π
+7. FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), 1, 1)(1, 1) = 1
+8. FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), 2, 1)(1, 1) = 1
+9. FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . l, 1)(1, 1) = cos(α) + cos(frac(π, 2) - α)
+10. cos(α) + cos(frac(π, 2) - α) = cos(α) + sin(α)
+11. cos(α) + sin(α) = sqrtn(2, 2) * sin(α + frac(π, 4))
+12. FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . l, 1)(1, 1) = sqrtn(2, 2) * sin(α + frac(π, 4))
+13. sin(α + frac(π, 4)) = -1 ⇔ α = frac(5 * π, 4)
+14. MinimumPoint(fun α [α ∈ RealSet ∧ 0 ≤ α ∧ α < 2 * π] . FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . l, 1)(1, 1)) = { frac(5 * π, 4) }
+
+GOAL:
+α = frac(5 * π, 4) ⇒ MinimumPoint(fun α [α ∈ RealSet ∧ 0 ≤ α ∧ α < 2 * π] . FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . l, 1)(1, 1)) = { α }
+
+METHOD:

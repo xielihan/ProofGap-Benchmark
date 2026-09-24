@@ -1,0 +1,14 @@
+PROOF GAP @7
+ASSUM:
+1. a > 0
+2. forall (x), x ∈ RealSet ∧ x > 0 ⇒ { `F_1` | forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_1`, 1, 1)(x) = frac(x * ln(x), (1 + x^{2})^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | exists (`F_2`), `F_2` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = ln(x) * FunDeri(fun x [x ∈ RealSet ∧ x > 0] . frac(1, 1 + x^{2}), 1, 1)(x) ∧ `F_3`(x) = -frac(1, 2) * `F_2`(x)) }
+3. { `F_4` | forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(x * ln(x), (1 + x^{2})^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_8` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(1, x * (1 + x^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_8`(x) = -frac(ln(x), 2 * (1 + x^{2})) + frac(1, 2) * `F_5`(x)) }
+4. { `F_9` | forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_9`, 1, 1)(x) = frac(x * ln(x), (1 + x^{2})^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_13` | exists (`F_10`), `F_10` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_10`, 1, 1)(x) = (frac(1, x) - frac(x, 1 + x^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_13`(x) = -frac(ln(x), 2 * (1 + x^{2})) + frac(1, 2) * `F_10`(x)) }
+5. { `F_14` | forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_14`, 1, 1)(x) = frac(x * ln(x), (1 + x^{2})^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_15` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ `F_15`(x) = -frac(ln(x), 2 * (1 + x^{2})) + frac(1, 4) * ln(frac(x^{2}, 1 + x^{2})) + C) }
+6. forall (b), b ∈ RealSet ∧ a > 0 ∧ b > a ⇒ DefInt(a, +∞, (fun x [x ∈ RealSet ∧ x > 0] . frac(x * ln(x), (1 + x^{2})^{2})) * diff(fun x [x ∈ RealSet] . x)) = lim_{ b → +∞ } (DefInt(a, b, (fun x [x ∈ RealSet ∧ x > 0] . frac(x * ln(x), (1 + x^{2})^{2})) * diff(fun x [x ∈ RealSet] . x)))
+7. lim_{ b → +∞ } (DefInt(a, b, (fun x [x ∈ RealSet ∧ x > 0] . frac(x * ln(x), (1 + x^{2})^{2})) * diff(fun x [x ∈ RealSet] . x))) = lim_{ b → +∞ } ((fun x [x ∈ RealSet ∧ x > 0] . -frac(ln(x), 2 * (1 + x^{2})) + frac(1, 4) * ln(frac(x^{2}, 1 + x^{2})))|_{a}^{b})
+
+GOAL:
+exists (L), L ∈ RealSet ∧ DefInt(a, +∞, (fun x [x ∈ RealSet ∧ x > 0] . frac(x * ln(x), (1 + x^{2})^{2})) * diff(fun x [x ∈ RealSet] . x)) = L
+
+METHOD:

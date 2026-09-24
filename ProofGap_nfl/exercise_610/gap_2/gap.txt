@@ -1,0 +1,27 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. n ∈ NonNegIntegerSet
+4. l ∈ RealSet
+5. x ∈ RealSet
+6. F : RealSet → RealSet
+7. g : RealSet → RealSet
+8. α ∈ RealSet
+9. L ∈ RealSet
+10. ε ∈ RealSet ∧ ε > 0
+11. G ∈ RealSet ∧ G > 0
+12. X_{0} ∈ RealSet
+13. X_{1} ∈ RealSet
+14. X ∈ RealSet
+15. τ ∈ RealSet
+16. m ∈ NonNegIntegerSet
+17. n ∈ PosIntegerSet
+18. Defined(f, (a, +∞))
+19. forall (b), b ∈ RealSet ∧ b > a ⇒ BoundedFuncOn(f, IntervalLoRo(a, b))
+20. l ∈ RealSet ∨ l = +∞ ∨ l = -∞
+21. lim_{ x → +∞ } (frac(f(x + 1) - f(x), x^{n})) = l
+GOAL:
+L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ x > X_{0} + 1 ⇒ (exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ m ≤ x - X_{0} ∧ x - X_{0} < m + 1))
+
+METHOD:

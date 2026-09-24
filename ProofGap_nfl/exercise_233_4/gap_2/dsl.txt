@@ -1,0 +1,12 @@
+get_prop (theorem 'Thm 284. (PeriodicFunctionDefinition)': {forall (f) (T), f : RealSet -> RealSet => T ∈ RealSet => (PeriodicFunc(f, T) <==> (T > 0 /\ (forall (x), x ∈ RealSet => f(x + T) = f(x))))}) (f := {f}) (T := {π}) as (hypothesis 4: {f : RealSet -> RealSet => π ∈ RealSet => (PeriodicFunc(f, π) <==> (π > 0 /\ (forall (x), x ∈ RealSet => f(x + π) = f(x))))})
+use_condition (hypothesis 1: {f : RealSet → RealSet}) (obvious: {π ∈ RealSet}) in (hypothesis 4: {f : RealSet -> RealSet => π ∈ RealSet => (PeriodicFunc(f, π) <==> (π > 0 /\ (forall (x), x ∈ RealSet => f(x + π) = f(x))))}) as (hypothesis 5: {PeriodicFunc(f, π) <==> (π > 0 /\ (forall (x), x ∈ RealSet => f(x + π) = f(x)))})
+rewrite (left_to_right, iff) (hypothesis 5: {PeriodicFunc(f, π) <==> (π > 0 /\ (forall (x), x ∈ RealSet => f(x + π) = f(x)))}); from (GOAL: {PeriodicFunc(f, π)}) to (GOAL: {π > 0 /\ (forall (x), x ∈ RealSet => f(x + π) = f(x))})
+assert (hypothesis 6: {forall (x), x ∈ RealSet => f(x + π) = f(x)}) by proof {
+  get_forall (GOAL: {forall (x), x ∈ RealSet => f(x + π) = f(x)}) (x := {x0})
+  get_condition (hypothesis 6: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet => f(x0 + π) = f(x0)})
+  get_prop (hypothesis 3: {forall (x), x ∈ RealSet => f(x + π) = sin(x + π) ^ 2 /\ sin(x + π) ^ 2 = sin(x) ^ 2 /\ sin(x) ^ 2 = f(x)}) (x := {x0}) as (hypothesis 7: {x0 ∈ RealSet => f(x0 + π) = sin(x0 + π) ^ 2 /\ sin(x0 + π) ^ 2 = sin(x0) ^ 2 /\ sin(x0) ^ 2 = f(x0)})
+  use_condition (hypothesis 6: {x0 ∈ RealSet}) in (hypothesis 7: {x0 ∈ RealSet => f(x0 + π) = sin(x0 + π) ^ 2 /\ sin(x0 + π) ^ 2 = sin(x0) ^ 2 /\ sin(x0) ^ 2 = f(x0)}) as (hypothesis 8: {f(x0 + π) = sin(x0 + π) ^ 2 /\ sin(x0 + π) ^ 2 = sin(x0) ^ 2 /\ sin(x0) ^ 2 = f(x0)})
+  destruct_and (hypothesis 8: {f(x0 + π) = sin(x0 + π) ^ 2 /\ sin(x0 + π) ^ 2 = sin(x0) ^ 2 /\ sin(x0) ^ 2 = f(x0)}) as (hypothesis 9: {f(x0 + π) = sin(x0 + π) ^ 2}) (hypothesis 10: {sin(x0 + π) ^ 2 = sin(x0) ^ 2}) (hypothesis 11: {sin(x0) ^ 2 = f(x0)})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

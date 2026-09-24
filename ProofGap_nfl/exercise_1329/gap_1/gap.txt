@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+
+GOAL:
+lim_{ x → 0 } (frac(a^{x} - a^{sin(x)}, x^{3})) = lim_{ x → 0 } (frac((a^{x} - a^{sin(x)} * cos(x)) * ln(a), 3 * x^{2}))
+
+METHOD:

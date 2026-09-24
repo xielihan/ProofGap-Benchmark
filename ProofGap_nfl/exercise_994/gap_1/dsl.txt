@@ -1,0 +1,6 @@
+1. get_exists (hypothesis 4: {exists (δ), δ ∈ RealSet /\ δ > 0 /\ (forall (x), x ∈ RealSet /\ (x > a - δ /\ x < a + δ) => f(x) = (x - a) * φ(x))}) (δ := {d})
+2. destruct_and (hypothesis 6: {d ∈ RealSet /\ d > 0 /\ (forall (x), x ∈ RealSet /\ (x > a - d /\ x < a + d) => f(x) = (x - a) * φ(x))}) as (hypothesis 7: {d ∈ RealSet}) (hypothesis 8: {d > 0}) (hypothesis 9: {forall (x), x ∈ RealSet /\ (x > a - d /\ x < a + d) => f(x) = (x - a) * φ(x)})
+3. get_prop (hypothesis 9: {forall (x), x ∈ RealSet /\ (x > a - d /\ x < a + d) => f(x) = (x - a) * φ(x)}) (x := {a}) as (hypothesis 10: {a ∈ RealSet /\ (a > a - d /\ a < a + d) => f(a) = (a - a) * φ(a)})
+4. assert (hypothesis 11: {a ∈ RealSet /\ (a > a - d /\ a < a + d)})
+5. use_condition (hypothesis 11: {a ∈ RealSet /\ (a > a - d /\ a < a + d)}) in (hypothesis 10: {a ∈ RealSet /\ (a > a - d /\ a < a + d) => f(a) = (a - a) * φ(a)}) as (hypothesis 12: {f(a) = (a - a) * φ(a)})
+6. autosolve (hypothesis 12: {f(a) = (a - a) * φ(a)})

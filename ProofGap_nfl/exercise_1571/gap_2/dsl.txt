@@ -1,0 +1,6 @@
+get_prop (hypothesis 6: {forall (x), x ∈ RealSet ∧ x > R ⇒ V(x) = frac(1, 3) * π * x^{2} * h(x)}) (x := {x}) as (hypothesis 8: {x ∈ RealSet ∧ x > R ⇒ V(x) = frac(1, 3) * π * x^{2} * h(x)})
+use_condition (hypothesis 4: {x ∈ RealSet ∧ x > R}) in (hypothesis 8: {x ∈ RealSet ∧ x > R ⇒ V(x) = frac(1, 3) * π * x^{2} * h(x)}) as (hypothesis 9: {V(x) = frac(1, 3) * π * x^{2} * h(x)})
+rewrite (left_to_right, equation) (hypothesis 9: {V(x) = frac(1, 3) * π * x^{2} * h(x)}); from (GOAL: {V(x) = frac(1, 3) * π * x^{2} * frac(2 * R * x^{2}, x^{2} - R^{2})}) to (GOAL: {frac(1, 3) * π * x^{2} * h(x) = frac(1, 3) * π * x^{2} * frac(2 * R * x^{2}, x^{2} - R^{2})})
+rewrite (left_to_right, equation) (hypothesis 7: {h(x) = frac(2 * R * x^{2}, x^{2} - R^{2})}); from (GOAL: {frac(1, 3) * π * x^{2} * h(x) = frac(1, 3) * π * x^{2} * frac(2 * R * x^{2}, x^{2} - R^{2})}) to (GOAL: {frac(1, 3) * π * x^{2} * frac(2 * R * x^{2}, x^{2} - R^{2}) = frac(1, 3) * π * x^{2} * frac(2 * R * x^{2}, x^{2} - R^{2})})
+assert (hypothesis 10: {frac(1, 3) * π * x^{2} * frac(2 * R * x^{2}, x^{2} - R^{2}) = frac(1, 3) * π * x^{2} * frac(2 * R * x^{2}, x^{2} - R^{2})})
+apply (hypothesis 10: {frac(1, 3) * π * x^{2} * frac(2 * R * x^{2}, x^{2} - R^{2}) = frac(1, 3) * π * x^{2} * frac(2 * R * x^{2}, x^{2} - R^{2})})

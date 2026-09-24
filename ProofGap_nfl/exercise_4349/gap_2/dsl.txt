@@ -1,0 +1,21 @@
+get_forall (GOAL: {forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ cos(φ)^{2} * sin(α)^{2} + sin(φ)^{2} * sin(α)^{2} + cos(α)^{2} = 1}) (φ := {p})
+get_condition (hypothesis 12: {p ∈ RealSet ∧ 0 ≤ p ∧ p ≤ 2 * π}) in (GOAL: {p ∈ RealSet ∧ 0 ≤ p ∧ p ≤ 2 * π ⇒ cos(p)^{2} * sin(α)^{2} + sin(p)^{2} * sin(α)^{2} + cos(α)^{2} = 1})
+get_prop (theorem 'Thm 168. (PythagoreanTrigonometricIdentity)': {forall (x), x ∈ RealSet => (sin(x)) ^ 2 + (cos(x)) ^ 2 = 1}) (x := {p}) as (hypothesis 13: {p ∈ RealSet => (sin(p)) ^ 2 + (cos(p)) ^ 2 = 1})
+get_prop (theorem 'Thm 168. (PythagoreanTrigonometricIdentity)': {forall (x), x ∈ RealSet => (sin(x)) ^ 2 + (cos(x)) ^ 2 = 1}) (x := {α}) as (hypothesis 14: {α ∈ RealSet => (sin(α)) ^ 2 + (cos(α)) ^ 2 = 1})
+assert (hypothesis 15: {p ∈ RealSet}) by proof {
+  autosolve (hypothesis 12: {p ∈ RealSet ∧ 0 ≤ p ∧ p ≤ 2 * π})
+}
+assert (hypothesis 16: {α ∈ RealSet}) by proof {
+  autosolve (hypothesis 9: {α ∈ RealSet ∧ 0 < α ∧ α < frac(π, 2)})
+}
+use_condition (hypothesis 15: {p ∈ RealSet}) in (hypothesis 13: {p ∈ RealSet => (sin(p)) ^ 2 + (cos(p)) ^ 2 = 1}) as (hypothesis 17: {(sin(p)) ^ 2 + (cos(p)) ^ 2 = 1})
+use_condition (hypothesis 16: {α ∈ RealSet}) in (hypothesis 14: {α ∈ RealSet => (sin(α)) ^ 2 + (cos(α)) ^ 2 = 1}) as (hypothesis 18: {(sin(α)) ^ 2 + (cos(α)) ^ 2 = 1})
+assert (hypothesis 19: {cos(p)^{2} * sin(α)^{2} + sin(p)^{2} * sin(α)^{2} = (cos(p)^{2} + sin(p)^{2}) * sin(α)^{2}}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 20: {cos(p)^{2} + sin(p)^{2} = 1}) by proof {
+  autosolve (hypothesis 17: {(sin(p)) ^ 2 + (cos(p)) ^ 2 = 1})
+}
+rewrite (left_to_right, equation) (hypothesis 19: {cos(p)^{2} * sin(α)^{2} + sin(p)^{2} * sin(α)^{2} = (cos(p)^{2} + sin(p)^{2}) * sin(α)^{2}}); from (GOAL: {cos(p)^{2} * sin(α)^{2} + sin(p)^{2} * sin(α)^{2} + cos(α)^{2} = 1}) to (GOAL: {(cos(p)^{2} + sin(p)^{2}) * sin(α)^{2} + cos(α)^{2} = 1})
+rewrite (left_to_right, equation) (hypothesis 20: {cos(p)^{2} + sin(p)^{2} = 1}); from (GOAL: {(cos(p)^{2} + sin(p)^{2}) * sin(α)^{2} + cos(α)^{2} = 1}) to (GOAL: {1 * sin(α)^{2} + cos(α)^{2} = 1})
+autosolve (hypothesis 18: {(sin(α)) ^ 2 + (cos(α)) ^ 2 = 1})

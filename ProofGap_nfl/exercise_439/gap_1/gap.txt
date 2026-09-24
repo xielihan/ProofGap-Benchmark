@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > a ⇒ x > a
+
+METHOD:

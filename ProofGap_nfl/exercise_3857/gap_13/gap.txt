@@ -1,0 +1,24 @@
+PROOF GAP @13
+ASSUM:
+1. n ∈ RealSet
+2. B : CartesianProd(RealSet, RealSet) → RealSet
+3. Gamma : RealSet → RealSet
+4. t = sin(x)
+5. 0 ≤ t
+6. t ≤ 1
+7. u = t^{2}
+8. 0 ≤ u
+9. u ≤ 1
+10. DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . tan(x)^{n}) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun t [t ∈ RealSet] . t^{n} * (1 - t^{2})^{-frac(n + 1, 2)}) * diff(fun t [t ∈ RealSet] . t))
+11. DefInt(0, 1, (fun t [t ∈ RealSet] . t^{n} * (1 - t^{2})^{-frac(n + 1, 2)}) * diff(fun t [t ∈ RealSet] . t)) = frac(1, 2) * DefInt(0, 1, (fun u [u ∈ RealSet] . u^{frac(n - 1, 2)} * (1 - u)^{-frac(n + 1, 2)}) * diff(fun u [u ∈ RealSet] . u))
+12. DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . tan(x)^{n}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 2) * DefInt(0, 1, (fun u [u ∈ RealSet] . u^{frac(n - 1, 2)} * (1 - u)^{-frac(n + 1, 2)}) * diff(fun u [u ∈ RealSet] . u))
+13. frac(1, 2) * DefInt(0, 1, (fun u [u ∈ RealSet] . u^{frac(n - 1, 2)} * (1 - u)^{-frac(n + 1, 2)}) * diff(fun u [u ∈ RealSet] . u)) = frac(1, 2) * B(frac(n + 1, 2), frac(1 - n, 2))
+14. frac(1, 2) * B(frac(n + 1, 2), frac(1 - n, 2)) = frac(1, 2) * frac(Gamma(frac(n + 1, 2)) * Gamma(1 - frac(n + 1, 2)), Gamma(1))
+15. frac(1, 2) * frac(Gamma(frac(n + 1, 2)) * Gamma(1 - frac(n + 1, 2)), Gamma(1)) = frac(1, 2) * frac(π, sin(frac(n + 1, 2) * π))
+16. frac(1, 2) * frac(π, sin(frac(n + 1, 2) * π)) = frac(π, 2 * cos(frac(n * π, 2)))
+17. frac(1, 2) * B(frac(n + 1, 2), frac(1 - n, 2)) = frac(π, 2 * cos(frac(n * π, 2)))
+
+GOAL:
+frac(n + 1, 2) > 0 ∧ frac(1 - n, 2) > 0 ⇔ |n| < 1
+
+METHOD:

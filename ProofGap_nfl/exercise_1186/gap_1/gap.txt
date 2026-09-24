@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ (forall (a), a ∈ RealSet ⇒ (forall (b), b ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (f), f : RealSet → RealSet ⇒ (forall (I), I ⊆ RealSet ∧ n ∈ PosIntegerSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ x ∈ RealSet ∧ a * x + b ∈ Interior(I) ∧ FuncOfClassKOn(f, I, n) ⇒ FunDeri(fun t [t ∈ RealSet] . a * t + b, 1, 1)(x) = a)))))
+
+METHOD:

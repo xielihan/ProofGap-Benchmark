@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ y(x) = lg(x)
+3. ContinuousFuncOn(y, IntervalLoRo(10, 1000))
+4. MonoIncFuncOn(y, IntervalLoRo(10, 1000))
+5. lim_{ x → 10^+ } (y(x)) = lg(10)
+6. lg(10) = 1
+
+GOAL:
+lim_{ x → 10^+ } (y(x)) = 1
+
+METHOD:

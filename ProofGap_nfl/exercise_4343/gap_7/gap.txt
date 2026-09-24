@@ -1,0 +1,20 @@
+PROOF GAP @7
+ASSUM:
+1. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. a ∈ RealSet ∧ a > 0
+3. x ∈ RealSet
+4. y ∈ RealSet
+5. z : CartesianProd(RealSet, RealSet) → RealSet
+6. S = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} + z^{2} = a^{2} ∧ z ≥ 0 }
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} < a^{2} ⇒ z(x, y) = sqrtn(2, a^{2} - x^{2} - y^{2})
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} < a^{2} ⇒ sqrtn(2, 1 + FunDeri(z, 1, 1)^{2} + FunDeri(z, 2, 1)^{2}) = sqrtn(2, 1 + frac(x^{2}, z(x, y)^{2}) + frac(y^{2}, z(x, y)^{2}))
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} < a^{2} ⇒ sqrtn(2, 1 + frac(x^{2}, z(x, y)^{2}) + frac(y^{2}, z(x, y)^{2})) = frac(a, sqrtn(2, a^{2} - x^{2} - y^{2}))
+10. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} < a^{2} ⇒ sqrtn(2, 1 + FunDeri(z, 1, 1)^{2} + FunDeri(z, 2, 1)^{2}) = frac(a, sqrtn(2, a^{2} - x^{2} - y^{2}))
+11. ScalarSurfaceInt(S, (x + y + z) * diff(S)) = DefInt(-a, a, fun x [x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a] . DefInt(-sqrtn(2, a^{2} - x^{2}), sqrtn(2, a^{2} - x^{2}), (fun y [y ∈ RealSet ∧ -sqrtn(2, a^{2} - x^{2}) ≤ y ∧ y ≤ sqrtn(2, a^{2} - x^{2})] . frac(a, sqrtn(2, a^{2} - x^{2} - y^{2})) * (x + y + sqrtn(2, a^{2} - x^{2} - y^{2}))) * diff(fun y [y ∈ RealSet] . y)) * diff(fun x [x ∈ RealSet] . x))
+12. ScalarSurfaceInt(S, (x + y + z) * diff(S)) = DefInt(-a, a, (fun x [x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a] . π * a * x + 2 * a * sqrtn(2, a^{2} - x^{2})) * diff(fun x [x ∈ RealSet] . x))
+13. DefInt(-a, a, (fun x [x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a] . π * a * x + 2 * a * sqrtn(2, a^{2} - x^{2})) * diff(fun x [x ∈ RealSet] . x)) = 4 * a * DefInt(0, a, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . sqrtn(2, a^{2} - x^{2})) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+4 * a * DefInt(0, a, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . sqrtn(2, a^{2} - x^{2})) * diff(fun x [x ∈ RealSet] . x)) = 4 * a * frac(π * a^{2}, 4)
+
+METHOD:

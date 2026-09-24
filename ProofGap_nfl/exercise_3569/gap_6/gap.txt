@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. f : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (p), p ∈ RealSet ⇒ f(x, y, p) = y^{2} - 2 * p * x - p^{2}))
+3. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (p), p ∈ RealSet ⇒ f(x, y, p) = y^{2} - 2 * p * x - p^{2}))
+4. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (p), p ∈ RealSet ⇒ FunDeri(f, 3, 1)(x, y, p) = -2 * x - 2 * p))
+5. forall (y), y ∈ RealSet ⇒ (forall (p), p ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ y^{2} - 2 * p * x - p^{2} = 0))
+6. forall (x), x ∈ RealSet ⇒ (forall (p), p ∈ RealSet ⇒ -2 * x - 2 * p = 0)
+7. forall (p), p ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ 2 * p * x - y^{2} + p^{2} = 0))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (p), p ∈ RealSet ⇒ x + p = 0)
+
+METHOD:

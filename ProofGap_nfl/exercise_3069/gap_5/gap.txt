@@ -1,0 +1,15 @@
+PROOF GAP @5
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. P : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ a(n) = 1 - frac(1, n)
+4. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (i), i ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ P(n) = prod_{ i ∈ PosIntegerSet ∧ i ≥ 2 ∧ i ≤ n } (a(i)))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ a(n) - 1 = -frac(1, n)
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ -frac(1, n) < 0
+7. DivergentSeries(sum_{ n ∈ PosIntegerSet } (-frac(1, n)))
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ P(n) = frac(1, n)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ seqlim_{ n → +∞ } (P(n)) = 0
+
+METHOD:

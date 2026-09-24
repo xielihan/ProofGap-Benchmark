@@ -1,0 +1,2 @@
+rewrite_in limit (left_to_right, equation) (hypothesis 2: {forall (n), n ∈ NonNegIntegerSet ⇒ sin(π * sqrtn(2, n^{2} + 1)) = (-1)^{n} * sin(frac(π, sqrtn(2, n^{2} + 1) + n))}); from (GOAL: {seqlim_{ n → +∞ } (sin(π * sqrtn(2, n^{2} + 1))) = 0}) to (GOAL: {seqlim_{ n → +∞ } ((-1)^{n} * sin(frac(π, sqrtn(2, n^{2} + 1) + n))) = 0})
+apply (hypothesis 3: {seqlim_{ n → +∞ } ((-1)^{n} * sin(frac(π, sqrtn(2, n^{2} + 1) + n))) = 0})

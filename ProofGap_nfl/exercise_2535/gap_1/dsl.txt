@@ -1,0 +1,3 @@
+rewrite (left_to_right, equation) (hypothesis 3: {h = frac(9 - 1, 4)}); from (GOAL: {h = 2}) to (GOAL: {frac(9 - 1, 4) = 2})
+autoreplace no_hypothesis; from (frac(9 - 1, 4)) to (2); from (GOAL: {frac(9 - 1, 4) = 2}) to (GOAL: {2 = 2})
+autosolve all_hypothesis

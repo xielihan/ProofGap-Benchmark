@@ -1,0 +1,19 @@
+1. get_condition (hypothesis 10: {(a > 0 ⇒ MonoIncFunc(f)) ∧ (a < 0 ⇒ MonoDecFunc(f))}) in (GOAL: {(a > 0 ⇒ MonoIncFunc(f)) ∧ (a < 0 ⇒ MonoDecFunc(f)) ⇒ MonoIncFunc(f) ∨ MonoDecFunc(f)})
+2. destruct_and (hypothesis 10: {(a > 0 ⇒ MonoIncFunc(f)) ∧ (a < 0 ⇒ MonoDecFunc(f))}) as (hypothesis 11: {a > 0 ⇒ MonoIncFunc(f)}) (hypothesis 12: {a < 0 ⇒ MonoDecFunc(f)})
+3. assert (hypothesis 13: {a = 0 ⇒ MonoIncFunc(f)}) by proof {
+  1. get_condition (hypothesis 13: {a = 0}) in (GOAL: {a = 0 ⇒ MonoIncFunc(f)})
+  2. get_prop (theorem 'Thm 296. (MonotoneIncreasingFunctionDefinition)': {forall (f), f : RealSet -> RealSet => (MonoIncFunc(f) <==> (forall (x) (y), x ∈ RealSet => y ∈ RealSet => x <= y => f(x) <= f(y)))}) (f := {f}) as (hypothesis 14: {f : RealSet -> RealSet => (MonoIncFunc(f) <==> (forall (x) (y), x ∈ RealSet => y ∈ RealSet => x <= y => f(x) <= f(y)))})
+  3. use_condition (hypothesis 1: {f : RealSet → RealSet}) in (hypothesis 14: {f : RealSet -> RealSet => (MonoIncFunc(f) <==> (forall (x) (y), x ∈ RealSet => y ∈ RealSet => x <= y => f(x) <= f(y)))}) as (hypothesis 15: {MonoIncFunc(f) <==> (forall (x) (y), x ∈ RealSet => y ∈ RealSet => x <= y => f(x) <= f(y))})
+  4. rewrite (left_to_right, iff) (hypothesis 15: {MonoIncFunc(f) <==> (forall (x) (y), x ∈ RealSet => y ∈ RealSet => x <= y => f(x) <= f(y))}); from (GOAL: {MonoIncFunc(f)}) to (GOAL: {forall (x) (y), x ∈ RealSet => y ∈ RealSet => x <= y => f(x) <= f(y)})
+  5. get_forall (GOAL: {forall (x) (y), x ∈ RealSet => y ∈ RealSet => x <= y => f(x) <= f(y)}) (x := {p}) (y := {q})
+  6. get_condition (hypothesis 16: {p ∈ RealSet}) (hypothesis 17: {q ∈ RealSet}) (hypothesis 18: {p <= q}) in (GOAL: {p ∈ RealSet => q ∈ RealSet => p <= q => f(p) <= f(q)})
+  7. get_prop (hypothesis 4: {forall (x), x ∈ RealSet ⇒ f(x) = a * x + b}) (x := {p}) as (hypothesis 19: {p ∈ RealSet ⇒ f(p) = a * p + b})
+  8. get_prop (hypothesis 4: {forall (x), x ∈ RealSet ⇒ f(x) = a * x + b}) (x := {q}) as (hypothesis 20: {q ∈ RealSet ⇒ f(q) = a * q + b})
+  9. use_condition (hypothesis 16: {p ∈ RealSet}) in (hypothesis 19: {p ∈ RealSet ⇒ f(p) = a * p + b}) as (hypothesis 21: {f(p) = a * p + b})
+  10. use_condition (hypothesis 17: {q ∈ RealSet}) in (hypothesis 20: {q ∈ RealSet ⇒ f(q) = a * q + b}) as (hypothesis 22: {f(q) = a * q + b})
+  11. rewrite (left_to_right, equation) (hypothesis 21: {f(p) = a * p + b}); from (GOAL: {f(p) <= f(q)}) to (GOAL: {a * p + b <= f(q)})
+  12. rewrite (left_to_right, equation) (hypothesis 22: {f(q) = a * q + b}); from (GOAL: {a * p + b <= f(q)}) to (GOAL: {a * p + b <= a * q + b})
+  13. rewrite (left_to_right, equation) (hypothesis 13: {a = 0}); from (GOAL: {a * p + b <= a * q + b}) to (GOAL: {0 * p + b <= 0 * q + b})
+  14. autosolve all_hypothesis
+}
+4. autosolve all_hypothesis

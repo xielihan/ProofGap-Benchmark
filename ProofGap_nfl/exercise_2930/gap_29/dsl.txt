@@ -1,0 +1,5 @@
+assert (hypothesis 36: {16 * arctan(frac(1, 5)) ≤ S_{1} + Δ_{1}}) by proof {
+  autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 2: {α = arctan(frac(1, 5))}); from (GOAL: {16 * α < 3.1583289577}) to (GOAL: {16 * arctan(frac(1, 5)) < 3.1583289577})
+autosolve all_hypothesis

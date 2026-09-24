@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet ∧ a > 0
+3. forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x) = x^{a^{a}} + a^{x^{a}} + a^{a^{x}}
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(y, 1, 1)(x) = a^{a} * x^{a^{a} - 1} + a * x^{a - 1} * a^{x^{a}} * ln(a) + a^{x} * a^{a^{x}} * ln(a)^{2}
+
+METHOD:

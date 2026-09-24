@@ -1,0 +1,42 @@
+PROOF GAP @29
+ASSUM:
+1. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y < 1 ⇒ arctan(x) + arctan(y) = arctan(frac(x + y, 1 - x * y))
+2. α = arctan(frac(1, 5))
+3. tan(α) = frac(1, 5)
+4. tan(2 * α) = frac(frac(2, 5), 1 - frac(1, 25))
+5. frac(frac(2, 5), 1 - frac(1, 25)) = frac(5, 12)
+6. tan(2 * α) = frac(5, 12)
+7. tan(4 * α) = frac(frac(10, 12), 1 - frac(25, 144))
+8. frac(frac(10, 12), 1 - frac(25, 144)) = frac(120, 119)
+9. tan(4 * α) = frac(120, 119)
+10. β = 4 * α - frac(π, 4)
+11. tan(β) = frac(frac(120, 119) - 1, 1 + frac(120, 119))
+12. frac(frac(120, 119) - 1, 1 + frac(120, 119)) = frac(1, 239)
+13. tan(β) = frac(1, 239)
+14. β = arctan(frac(1, 239))
+15. frac(π, 4) = 4 * arctan(frac(1, 5)) - arctan(frac(1, 239))
+16. π = 16 * arctan(frac(1, 5)) - 4 * arctan(frac(1, 239))
+17. arctan(frac(1, 5)) = sum_{ k = 0 }^{ +∞ } ((-1)^{k} * frac(1, 2 * k + 1) * frac(1, 5)^{2 * k + 1})
+18. arctan(frac(1, 239)) = sum_{ k = 0 }^{ +∞ } ((-1)^{k} * frac(1, 2 * k + 1) * frac(1, 239)^{2 * k + 1})
+19. S_{1} = frac(16, 5) - frac(16, 3 * 5^{3}) + frac(16, 5 * 5^{5}) - frac(16, 7 * 5^{7}) + frac(16, 9 * 5^{9}) - frac(16, 11 * 5^{11}) + frac(16, 13 * 5^{13})
+20. S_{2} = frac(4, 239) - frac(4, 3 * 239^{3})
+21. Δ_{1} = |16 * arctan(frac(1, 5)) - S_{1}|
+22. Δ_{2} = |4 * arctan(frac(1, 239)) - S_{2}|
+23. 0 < Δ_{1}
+24. Δ_{1} < frac(16, 15 * 5^{15})
+25. frac(16, 15 * 5^{15}) < frac(1, 2) * frac(1, 10^{9})
+26. 0 < frac(1, 2) * frac(1, 10^{9})
+27. 0 < Δ_{2}
+28. Δ_{2} < frac(4, 5 * 239^{5})
+29. frac(4, 5 * 239^{5}) < frac(1, 2) * frac(1, 10^{9})
+30. 0 < frac(1, 2) * frac(1, 10^{9})
+31. Δ = |π - (S_{1} - S_{2})|
+32. Δ ≤ Δ_{1} + Δ_{2}
+33. Δ_{1} + Δ_{2} < frac(1, 10^{9})
+34. Δ < frac(1, 10^{9})
+35. 3.1583289576 < 16 * α
+
+GOAL:
+16 * α < 3.1583289577
+
+METHOD:

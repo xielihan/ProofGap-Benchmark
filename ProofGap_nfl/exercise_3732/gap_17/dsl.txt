@@ -1,0 +1,8 @@
+get_condition (hypothesis 22: {a > 0}) (hypothesis 23: {b > 0}) in (GOAL: {a > 0 ⇒ b > 0 ⇒ π * ln(a + b) + π * ln(frac(1, 2)) = π * ln(frac(a + b, 2))})
+get_prop (theorem 'Thm 201. (NaturalLogarithmProduct)': {forall (x) (y), x ∈ RealSet ⇒ y ∈ RealSet ⇒ (x > 0 ⇒ y > 0 ⇒ ln (x * y) = ln(x) + ln(y))}) (x := {a + b}) (y := {frac(1, 2)}) as (hypothesis 24: {a + b ∈ RealSet ⇒ frac(1, 2) ∈ RealSet ⇒ (a + b > 0 ⇒ frac(1, 2) > 0 ⇒ ln((a + b) * frac(1, 2)) = ln(a + b) + ln(frac(1, 2)))})
+use_condition (obvious: {a + b ∈ RealSet}) (obvious: {frac(1, 2) ∈ RealSet}) (obvious: {a + b > 0}) (obvious: {frac(1, 2) > 0}) in (hypothesis 24: {a + b ∈ RealSet ⇒ frac(1, 2) ∈ RealSet ⇒ a + b > 0 ⇒ frac(1, 2) > 0 ⇒ ln((a + b) * frac(1, 2)) = ln(a + b) + ln(frac(1, 2))}) as (hypothesis 25: {ln((a + b) * frac(1, 2)) = ln(a + b) + ln(frac(1, 2))})
+assert (hypothesis 26: {(a + b) * frac(1, 2) = frac(a + b, 2)})
+rewrite (left_to_right, equation) (hypothesis 26: {(a + b) * frac(1, 2) = frac(a + b, 2)}); from (hypothesis 25: {ln((a + b) * frac(1, 2)) = ln(a + b) + ln(frac(1, 2))}) to (hypothesis 27: {ln(frac(a + b, 2)) = ln(a + b) + ln(frac(1, 2))})
+assert (hypothesis 28: {π * ln(a + b) + π * ln(frac(1, 2)) = π * (ln(a + b) + ln(frac(1, 2)))})
+rewrite (left_to_right, equation) (hypothesis 27: {ln(frac(a + b, 2)) = ln(a + b) + ln(frac(1, 2))}); from (GOAL: {π * ln(a + b) + π * ln(frac(1, 2)) = π * ln(frac(a + b, 2))}) to (GOAL: {π * ln(a + b) + π * ln(frac(1, 2)) = π * (ln(a + b) + ln(frac(1, 2)))})
+apply (hypothesis 28: {π * ln(a + b) + π * ln(frac(1, 2)) = π * (ln(a + b) + ln(frac(1, 2)))})

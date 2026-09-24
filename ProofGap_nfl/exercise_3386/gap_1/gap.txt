@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. r : CartesianProd(RealSet, RealSet) → RealSet
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} - y^{2} > 0 ⇒ z(x, y) = sqrtn(2, x^{2} - y^{2}) * tan(frac(z(x, y), sqrtn(2, x^{2} - y^{2})))
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} - y^{2} > 0 ⇒ r(x, y) = sqrtn(2, x^{2} - y^{2})
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} - y^{2} > 0 ⇒ r(x, y) > 0
+
+METHOD:

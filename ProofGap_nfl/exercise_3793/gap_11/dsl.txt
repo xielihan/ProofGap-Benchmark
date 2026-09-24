@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (`α₀`), `α₀` ∈ RealSet ∧ `α₀` > 0 ∧ α ≥ `α₀` ⇒ (forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ 0 ≤ x * e^{-`α₀` * x^{2}})}) (`α₀` := {`α₀`})
+get_condition (hypothesis 14: {`α₀` ∈ RealSet ∧ `α₀` > 0 ∧ α ≥ `α₀`}) in (GOAL: {`α₀` ∈ RealSet ∧ `α₀` > 0 ∧ α ≥ `α₀` ⇒ (forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ 0 ≤ x * e^{-`α₀` * x^{2}})})
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ 0 ≤ x * e^{-`α₀` * x^{2}}}) (x := {x})
+get_condition (hypothesis 15: {x ∈ RealSet ∧ x ≥ 0}) in (GOAL: {x ∈ RealSet ∧ x ≥ 0 ⇒ 0 ≤ x * e^{-`α₀` * x^{2}}})
+autosolve all_hypothesis

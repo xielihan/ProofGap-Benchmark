@@ -1,0 +1,5 @@
+1. get_condition (hypothesis 10: {n ≤ 1}) in (GOAL: {n ≤ 1 ⇒ lim_{ x → +∞ } (x^{n} * frac(ln(1 + x), x^{n})) = +∞})
+2. use_condition (hypothesis 10: {n ≤ 1}) in (hypothesis 8: {n ≤ 1 ⇒ (forall (x), x ∈ RealSet ∧ x > 1 ⇒ x^{n} * frac(ln(1 + x), x^{n}) = ln(1 + x))}) as (hypothesis 11: {forall (x), x ∈ RealSet ∧ x > 1 ⇒ x^{n} * frac(ln(1 + x), x^{n}) = ln(1 + x)})
+3. rewrite_in limit (left_to_right, equation) (hypothesis 11: {forall (x), x ∈ RealSet ∧ x > 1 ⇒ x^{n} * frac(ln(1 + x), x^{n}) = ln(1 + x)}); from (GOAL: {lim_{ x → +∞ } (x^{n} * frac(ln(1 + x), x^{n})) = +∞}) to (GOAL: {lim_{ x → +∞ } (ln(1 + x)) = +∞})
+4. use_condition (hypothesis 10: {n ≤ 1}) in (hypothesis 9: {n ≤ 1 ⇒ lim_{ x → +∞ } (ln(1 + x)) = +∞}) as (hypothesis 12: {lim_{ x → +∞ } (ln(1 + x)) = +∞})
+5. apply (hypothesis 12: {lim_{ x → +∞ } (ln(1 + x)) = +∞})

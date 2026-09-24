@@ -1,0 +1,3 @@
+get_prop (hypothesis 5: {forall (r), r ∈ RealSet ∧ 0 < r ∧ r < R ⇒ h(r) = sqrtn(2, R^{2} - r^{2})}) (r := {r}) as (hypothesis 8: {r ∈ RealSet ∧ 0 < r ∧ r < R ⇒ h(r) = sqrtn(2, R^{2} - r^{2})})
+use_condition (hypothesis 4: {r ∈ RealSet ∧ 0 < r ∧ r < R}) in (hypothesis 8: {r ∈ RealSet ∧ 0 < r ∧ r < R ⇒ h(r) = sqrtn(2, R^{2} - r^{2})}) as (hypothesis 9: {h(r) = sqrtn(2, R^{2} - r^{2})})
+apply (hypothesis 9: {h(r) = sqrtn(2, R^{2} - r^{2})})

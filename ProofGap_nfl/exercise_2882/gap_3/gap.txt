@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = (1 + x) * e^{-x}
+3. forall (x), x ∈ RealSet ⇒ e^{-x} = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x^{n}, n!))
+4. forall (x), x ∈ RealSet ⇒ f(x) = (1 + x) * (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x^{n}, n!)))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ f(x) = 1 + (sum_{ n = 2 }^{ +∞ } ((frac((-1)^{n}, n!) + frac((-1)^{n - 1}, (n - 1)!)) * x^{n}))
+
+METHOD:

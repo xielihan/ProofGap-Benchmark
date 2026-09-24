@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. f : IntervalLoRo(0, +∞) → RealSet
+3. IntegrableFuncOn(fun x [x ∈ RealSet] . |f(x)|, IntervalLoRo(0, +∞))
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (A), A ∈ RealSet ∧ A > 0 ∧ DefInt(A, +∞, (fun x [x ∈ RealSet] . |f(x)|) * diff(fun x [x ∈ RealSet] . x)) < frac(ε, 3))
+
+METHOD:

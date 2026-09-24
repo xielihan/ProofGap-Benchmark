@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. forall (k), k ∈ IntegerSet ⇒ a ≠ frac(k * π, 2)
+
+GOAL:
+lim_{ x → a } (cot(x - a) * ln(frac(tan(x), tan(a)))) = lim_{ x → a } (frac(ln(tan(x)) - ln(tan(a)), tan(x - a)))
+
+METHOD:

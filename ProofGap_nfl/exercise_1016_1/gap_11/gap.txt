@@ -1,0 +1,23 @@
+PROOF GAP @11
+ASSUM:
+1. f_{1} = (fun x [x ∈ RealSet] . x^{2})
+2. g_{1} = (fun x [x ∈ RealSet] . |x|)
+3. F_{1} = (fun x [x ∈ RealSet] . f_{1}(g_{1}(x)))
+4. g_{1}(0) = 0
+5. DiffableFuncAt(f_{1}, 0)
+6. FunDeri(f_{1}, 1, 1)(0) = 0
+7. ¬DiffableFuncAt(g_{1}, 0)
+8. forall (x), x ∈ RealSet ⇒ F_{1}(x) = f_{1}(g_{1}(x)) ∧ f_{1}(g_{1}(x)) = x^{2}
+9. DiffableFuncAt(F_{1}, 0)
+10. FunDeri(F_{1}, 1, 1)(0) = 0
+11. f_{2} = (fun x [x ∈ RealSet] . x)
+12. g_{2} = (fun x [x ∈ RealSet] . |x|)
+13. F_{2} = (fun x [x ∈ RealSet] . f_{2}(g_{2}(x)))
+14. g_{2}(0) = 0
+15. DiffableFuncAt(f_{2}, 0)
+16. FunDeri(f_{2}, 1, 1)(0) = 1
+
+GOAL:
+¬DiffableFuncAt(g_{2}, 0)
+
+METHOD:

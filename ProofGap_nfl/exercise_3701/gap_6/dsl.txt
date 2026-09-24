@@ -1,0 +1,5 @@
+assert (hypothesis 10: {0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet})
+get_prop (hypothesis 6: {forall (x_{1}) (x_{2}) (y_{1}) (y_{2}) (`λ_1`) (`λ_2`), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ y_{1} ∈ RealSet ∧ y_{2} ∈ RealSet ∧ `λ_1` ∈ RealSet ∧ `λ_2` ∈ RealSet ⇒ FunDeri(F, 2, 1)(x_{1}, x_{2}, y_{1}, y_{2}, `λ_1`, `λ_2`) = 2 * (x_{2} - x_{1}) + `λ_2`}) (x_{1} := {0}) (x_{2} := {0}) (y_{1} := {0}) (y_{2} := {0}) (`λ_1` := {0}) (`λ_2` := {0}) as (hypothesis 11: {0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet ⇒ FunDeri(F, 2, 1)(0, 0, 0, 0, 0, 0) = 2 * (0 - 0) + 0})
+use_condition (hypothesis 10: {0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet}) in (hypothesis 11: {0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet ⇒ FunDeri(F, 2, 1)(0, 0, 0, 0, 0, 0) = 2 * (0 - 0) + 0}) as (hypothesis 12: {FunDeri(F, 2, 1)(0, 0, 0, 0, 0, 0) = 2 * (0 - 0) + 0})
+exists (x_{1} := {0}) (x_{2} := {0}) (y_{1} := {0}) (y_{2} := {0}) (`λ_1` := {0}) (`λ_2` := {0})
+autosolve all_hypothesis

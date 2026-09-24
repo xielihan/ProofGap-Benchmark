@@ -1,0 +1,20 @@
+PROOF GAP @10
+ASSUM:
+1. L : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. forall (m) (x), m ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ L(m, x) = e^{x} * FunDeri(fun x [x ∈ RealSet] . x^{m} * e^{-x}, 1, m)(x)
+3. forall (m) (x), m ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ L(m, x) = sum_{ k = 0 }^{ m } ((-1)^{k} * Combination(m, k) * frac(m!, k!) * x^{k})
+4. exists (y), y : RealSet → RealSet ∧ (forall (m), m ∈ NonNegIntegerSet ⇒ y = (fun x [x ∈ RealSet] . x^{m} * e^{-x}))
+5. forall (y) (m) (x), y : RealSet → RealSet ∧ m ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = m * x^{m - 1} * e^{-x} - x^{m} * e^{-x}
+6. forall (y) (m) (x), y : RealSet → RealSet ∧ m ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ x * FunDeri(y, 1, 1)(x) + (x - m) * y(x) = 0
+7. forall (y) (m) (x), y : RealSet → RealSet ∧ m ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ x * FunDeri(y, 1, m + 2)(x) + (m + 1) * FunDeri(y, 1, m + 1)(x) + (x - m) * FunDeri(y, 1, m + 1)(x) + (m + 1) * FunDeri(y, 1, m)(x) = 0
+8. forall (y) (m) (x), y : RealSet → RealSet ∧ m ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ x * FunDeri(y, 1, m + 2)(x) + (1 + x) * FunDeri(y, 1, m + 1)(x) + (m + 1) * FunDeri(y, 1, m)(x) = 0
+9. forall (y) (m), y : RealSet → RealSet ∧ m ∈ NonNegIntegerSet ⇒ (exists (z), z : RealSet → RealSet ∧ z = FunDeri(y, 1, m))
+10. forall (z) (m) (x), z : RealSet → RealSet ∧ m ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ x * FunDeri(z, 1, 2)(x) + (1 + x) * FunDeri(z, 1, 1)(x) + (m + 1) * z(x) = 0
+11. forall (z) (m) (x), z : RealSet → RealSet ∧ m ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ L(m, x) = e^{x} * z(x)
+12. forall (z) (m) (x), z : RealSet → RealSet ∧ m ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ FunDeri(fun x [x ∈ RealSet] . L(m, x), 1, 1)(x) = e^{x} * (z(x) + FunDeri(z, 1, 1)(x))
+13. forall (z) (m) (x), z : RealSet → RealSet ∧ m ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ FunDeri(fun x [x ∈ RealSet] . L(m, x), 1, 2)(x) = e^{x} * (z(x) + 2 * FunDeri(z, 1, 1)(x) + FunDeri(z, 1, 2)(x))
+
+GOAL:
+forall (z) (m) (x), z : RealSet → RealSet ∧ m ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ x * FunDeri(fun x [x ∈ RealSet] . L(m, x), 1, 2)(x) + (1 - x) * FunDeri(fun x [x ∈ RealSet] . L(m, x), 1, 1)(x) + m * L(m, x) = e^{x} * (x * FunDeri(z, 1, 2)(x) + (x + 1) * FunDeri(z, 1, 1)(x) + (m + 1) * z(x))
+
+METHOD:

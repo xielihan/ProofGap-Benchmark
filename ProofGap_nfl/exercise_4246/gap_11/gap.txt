@@ -1,0 +1,27 @@
+PROOF GAP @11
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. z : RealSet → RealSet
+4. M ∈ RealSet
+5. x_{0} ∈ RealSet
+6. y_{0} ∈ RealSet
+7. z_{0} ∈ RealSet
+8. forall (t), t ∈ RealSet ∧ t ≤ 0 ⇒ x(t) = e^{t} * cos(t)
+9. forall (t), t ∈ RealSet ∧ t ≤ 0 ⇒ y(t) = e^{t} * sin(t)
+10. forall (t), t ∈ RealSet ∧ t ≤ 0 ⇒ z(t) = e^{t}
+11. forall (t), t ∈ RealSet ∧ t ≤ 0 ⇒ (exists (s), s ∈ RealSet ∧ diff(s) = sqrtn(2, e^{2 * t} * (cos(t) - sin(t))^{2} + e^{2 * t} * (sin(t) + cos(t))^{2} + e^{2 * t}) * diff(fun t [t ∈ RealSet ∧ t ≤ 0] . t))
+12. forall (t), t ∈ RealSet ∧ t ≤ 0 ⇒ sqrtn(2, e^{2 * t} * (cos(t) - sin(t))^{2} + e^{2 * t} * (sin(t) + cos(t))^{2} + e^{2 * t}) * diff(fun t [t ∈ RealSet ∧ t ≤ 0] . t) = sqrtn(2, 3) * e^{t} * diff(fun t [t ∈ RealSet ∧ t ≤ 0] . t)
+13. forall (t), t ∈ RealSet ∧ t ≤ 0 ⇒ (exists (s), s ∈ RealSet ∧ diff(s) = sqrtn(2, 3) * e^{t} * diff(fun t [t ∈ RealSet ∧ t ≤ 0] . t))
+14. M = DefInt(-∞, 0, (fun t [t ∈ RealSet ∧ t ≤ 0] . sqrtn(2, 3) * e^{t}) * diff(fun t [t ∈ RealSet ∧ t ≤ 0] . t))
+15. DefInt(-∞, 0, (fun t [t ∈ RealSet ∧ t ≤ 0] . sqrtn(2, 3) * e^{t}) * diff(fun t [t ∈ RealSet ∧ t ≤ 0] . t)) = sqrtn(2, 3)
+16. M = sqrtn(2, 3)
+17. x_{0} = frac(1, M) * DefInt(-∞, 0, (fun t [t ∈ RealSet ∧ t ≤ 0] . e^{t} * cos(t) * sqrtn(2, 3) * e^{t}) * diff(fun t [t ∈ RealSet ∧ t ≤ 0] . t))
+18. frac(1, M) * DefInt(-∞, 0, (fun t [t ∈ RealSet ∧ t ≤ 0] . e^{t} * cos(t) * sqrtn(2, 3) * e^{t}) * diff(fun t [t ∈ RealSet ∧ t ≤ 0] . t)) = DefInt(-∞, 0, (fun t [t ∈ RealSet ∧ t ≤ 0] . e^{2 * t} * cos(t)) * diff(fun t [t ∈ RealSet ∧ t ≤ 0] . t))
+19. x_{0} = DefInt(-∞, 0, (fun t [t ∈ RealSet ∧ t ≤ 0] . e^{2 * t} * cos(t)) * diff(fun t [t ∈ RealSet ∧ t ≤ 0] . t))
+20. x_{0} = ((fun t [t ∈ RealSet ∧ t ≤ 0] . frac(2 * cos(t) + sin(t), 5) * e^{2 * t})|_{-∞}^{0})
+
+GOAL:
+((fun t [t ∈ RealSet ∧ t ≤ 0] . frac(2 * cos(t) + sin(t), 5) * e^{2 * t})|_{-∞}^{0}) = frac(2, 5)
+
+METHOD:

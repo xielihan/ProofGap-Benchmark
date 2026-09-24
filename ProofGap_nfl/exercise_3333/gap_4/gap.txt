@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. φ : RealSet → RealSet
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ z(x, y) = φ(sqrtn(2, x^{2} + y^{2}))
+4. DiffableFuncOn(φ, IntervalLoRo(0, +∞))
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ FunDeri(z, 1, 1)(x, y) = frac(x * FunDeri(φ, fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . sqrtn(2, x^{2} + y^{2}), 1)(sqrtn(2, x^{2} + y^{2})), sqrtn(2, x^{2} + y^{2}))
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ FunDeri(z, 2, 1)(x, y) = frac(y * FunDeri(φ, fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . sqrtn(2, x^{2} + y^{2}), 1)(sqrtn(2, x^{2} + y^{2})), sqrtn(2, x^{2} + y^{2}))
+7. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ y * FunDeri(z, 1, 1)(x, y) - x * FunDeri(z, 2, 1)(x, y) = 0
+
+GOAL:
+forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ y * FunDeri(z, 1, 1)(x, y) - x * FunDeri(z, 2, 1)(x, y) = 0
+
+METHOD:

@@ -1,0 +1,21 @@
+PROOF GAP @10
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. g : RealSet → RealSet
+3. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ f(n, x) = e^{n * (x - 1)}
+4. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ g(x) = 0
+5. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ seqlim_{ n → +∞ } (f(n, x)) = 0
+6. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ 0 = g(x)
+7. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ seqlim_{ n → +∞ } (f(n, x)) = g(x)
+8. ConvergentSeq(f)
+9. ε_{0} = frac(1, 2 * e)
+10. 0 < ε_{0}
+11. ε_{0} < e^{-1}
+12. 0 < e^{-1}
+13. forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > 1 ∧ x = 1 - frac(1, n) ⇒ x ∈ IntervalLoRo(0, 1)
+14. forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > 1 ∧ x = 1 - frac(1, n) ⇒ |f(n, x) - g(x)| = |f(n, 1 - frac(1, n)) - g(1 - frac(1, n))|
+
+GOAL:
+forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > 1 ∧ x = 1 - frac(1, n) ⇒ |f(n, 1 - frac(1, n)) - g(1 - frac(1, n))| = e^{n * (1 - frac(1, n) - 1)}
+
+METHOD:

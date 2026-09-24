@@ -1,0 +1,3 @@
+exists (x_{2} := {2.080})
+assert (hypothesis 9: {2.080 ∈ RealSet ∧ 2.080 = 2.080})
+apply (hypothesis 9: {2.080 ∈ RealSet ∧ 2.080 = 2.080})

@@ -1,0 +1,22 @@
+PROOF GAP @6
+ASSUM:
+1. p ∈ RealSet ∧ p > 0
+2. q ∈ RealSet ∧ q > 0
+3. r ∈ RealSet ∧ r > 0
+4. `Ω_1` ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+5. `Ω_2` ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+6. `Ω_3` ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+7. B : CartesianProd(RealSet, RealSet) → RealSet
+8. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ `Ω_1` = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, x ≥ 0, y ≥ 0, z ≥ 0, x + y + z > 1, x^{p} + y^{q} + z^{r} ≤ 3 }))
+9. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ `Ω_2` = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, x ≥ 0, y ≥ 0, z ≥ 0, x + y + z > 1, x^{p} + y^{q} + z^{r} > 3 }))
+10. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ `Ω_3` = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, x ≥ 0, y ≥ 0, z ≥ 0, x^{p} + y^{q} + z^{r} > 3 }))
+11. VolumeInt({ (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, |x| + |y| + |z| > 1 }, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . frac(1, |x|^{p} + |y|^{q} + |z|^{r})) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)) = 8 * VolumeInt({ (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, x ≥ 0, y ≥ 0, z ≥ 0, x + y + z > 1 }, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . frac(1, x^{p} + y^{q} + z^{r})) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z))
+12. VolumeInt({ (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, x ≥ 0, y ≥ 0, z ≥ 0, x + y + z > 1 }, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . frac(1, x^{p} + y^{q} + z^{r})) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)) = VolumeInt(`Ω_1`, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . frac(1, x^{p} + y^{q} + z^{r})) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)) + VolumeInt(`Ω_2`, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . frac(1, x^{p} + y^{q} + z^{r})) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z))
+13. `Ω_2` = `Ω_3`
+14. ConvergentSeries(VolumeInt(`Ω_1`, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . frac(1, x^{p} + y^{q} + z^{r})) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)))
+15. ConvergentSeries(VolumeInt({ (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, |x| + |y| + |z| > 1 }, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . frac(1, |x|^{p} + |y|^{q} + |z|^{r})) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z))) ⇔ ConvergentSeries(VolumeInt(`Ω_3`, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . frac(1, x^{p} + y^{q} + z^{r})) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)))
+
+GOAL:
+forall (R), R ∈ RealSet ∧ R > 0 ⇒ (forall (`ϕ`), `ϕ` ∈ RealSet ⇒ (forall (ψ), ψ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ x = R^{frac(2, p)} * cos(`ϕ`)^{frac(2, p)} * cos(ψ)^{frac(2, p)})))
+
+METHOD:

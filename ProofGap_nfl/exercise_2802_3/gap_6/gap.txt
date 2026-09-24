@@ -1,0 +1,16 @@
+PROOF GAP @6
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. α ∈ RealSet
+3. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ f(n, x) = n^{α} * x * e^{-n * x}
+4. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ seqlim_{ n → +∞ } (f(n, x)) = 0
+5. DefInt(0, 1, (fun x [x ∈ RealSet] . seqlim_{ n → +∞ } (f(n, x))) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet] . 0) * diff(fun x [x ∈ RealSet] . x))
+6. DefInt(0, 1, (fun x [x ∈ RealSet] . 0) * diff(fun x [x ∈ RealSet] . x)) = 0
+7. DefInt(0, 1, (fun x [x ∈ RealSet] . seqlim_{ n → +∞ } (f(n, x))) * diff(fun x [x ∈ RealSet] . x)) = 0
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ DefInt(0, 1, (fun x [x ∈ RealSet] . f(n, x)) * diff(fun x [x ∈ RealSet] . x)) = n^{α} * DefInt(0, 1, (fun x [x ∈ RealSet] . x * e^{-n * x}) * diff(fun x [x ∈ RealSet] . x))
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ DefInt(0, 1, (fun x [x ∈ RealSet] . x * e^{-n * x}) * diff(fun x [x ∈ RealSet] . x)) = -frac(1, n) * e^{-n} - frac(1, n^{2}) * e^{-n} + frac(1, n^{2})
+
+GOAL:
+seqlim_{ n → +∞ } (DefInt(0, 1, (fun x [x ∈ RealSet] . f(n, x)) * diff(fun x [x ∈ RealSet] . x))) = seqlim_{ n → +∞ } (n^{α - 2} * (1 - e^{-n} - n * e^{-n}))
+
+METHOD:

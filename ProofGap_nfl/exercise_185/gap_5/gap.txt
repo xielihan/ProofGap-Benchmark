@@ -1,0 +1,16 @@
+PROOF GAP @5
+ASSUM:
+1. x ∈ RealSet
+2. y : RealSet → RealSet
+3. E_{x} ⊆ RealSet
+4. E_{x} = { x | x ∈ RealSet, 0 < x ∧ x < 1 ∧ x ≠ frac(1, 2) }
+5. forall (x), x ∈ RealSet ∧ x ∈ E_{x} ⇒ y(x) = frac(x, 2 * x - 1)
+6. forall (x), x ∈ RealSet ∧ x ≠ frac(1, 2) ⇒ y(x) = frac(1, 2) + frac(1, 2) * frac(1, 2 * x - 1)
+7. E_{x} = IntervalLoRo(0, frac(1, 2)) ∪ IntervalLoRo(frac(1, 2), 1)
+8. lim_{ x → 0^+ } (y(x)) = 0
+9. lim_{ x → frac(1, 2)^- } (y(x)) = -∞
+
+GOAL:
+ImageOn(y, IntervalLoRo(0, frac(1, 2))) = IntervalLoRo(-∞, 0)
+
+METHOD:

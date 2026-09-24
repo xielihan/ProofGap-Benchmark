@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ∧ x ≠ 0 ⇒ frac(2 * x - x^{2}, x) = 2 - x
+
+METHOD:

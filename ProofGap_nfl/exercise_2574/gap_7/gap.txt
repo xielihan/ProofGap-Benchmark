@@ -1,0 +1,17 @@
+PROOF GAP @7
+ASSUM:
+1. x ∈ RealSet
+2. S : NonNegIntegerSet → RealSet
+3. k ∈ NonNegIntegerSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ S(n) = sum_{ k = 1 }^{ n } (frac(sin(k * x), 2^{k}))
+5. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (p), p ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ p ∈ PosIntegerSet ⇒ |S(n + p) - S(n)| = |sum_{ k = n + 1 }^{ n + p } (frac(sin(k * x), 2^{k}))|)
+6. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (p), p ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ p ∈ PosIntegerSet ⇒ |S(n + p) - S(n)| ≤ sum_{ k = n + 1 }^{ n + p } (frac(1, 2^{k})))
+7. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, 2^{n})))
+8. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n) (p), n ∈ NonNegIntegerSet ∧ p ∈ NonNegIntegerSet ∧ n > N ∧ p ∈ PosIntegerSet ⇒ sum_{ k = n + 1 }^{ n + p } (frac(1, 2^{k})) < ε))
+9. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > N ⇒ (forall (p), p ∈ NonNegIntegerSet ∧ p ∈ PosIntegerSet ⇒ |S(n + p) - S(n)| < ε)))
+10. CauchySeq(S)
+
+GOAL:
+ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(sin(n * x), 2^{n})))
+
+METHOD:

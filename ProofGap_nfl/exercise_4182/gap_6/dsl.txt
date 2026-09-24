@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (θ), θ ∈ RealSet ∧ θ ∈ [0, 2 * π] ⇒ 1 + frac(1, 2) * sin(2 * θ) ≥ frac(1, 2) ∧ frac(1, 2) > 0}) (θ := {θ0})
+get_condition (hypothesis 19: {θ0 ∈ RealSet ∧ θ0 ∈ [0, 2 * π]}) in (GOAL: {θ0 ∈ RealSet ∧ θ0 ∈ [0, 2 * π] ⇒ 1 + frac(1, 2) * sin(2 * θ0) ≥ frac(1, 2) ∧ frac(1, 2) > 0})
+assert (hypothesis 20: {2 * θ0 ∈ RealSet}) by proof {
+  1. autosolve (hypothesis 19: {θ0 ∈ RealSet ∧ θ0 ∈ [0, 2 * π]})
+}
+get_prop (theorem 166: {forall (x), x ∈ RealSet ⇒ -1 ≤ sin(x) ∧ sin(x) ≤ 1}) (x := {2 * θ0}) as (hypothesis 21: {2 * θ0 ∈ RealSet ⇒ -1 ≤ sin(2 * θ0) ∧ sin(2 * θ0) ≤ 1})
+use_condition (hypothesis 20: {2 * θ0 ∈ RealSet}) in (hypothesis 21: {2 * θ0 ∈ RealSet ⇒ -1 ≤ sin(2 * θ0) ∧ sin(2 * θ0) ≤ 1}) as (hypothesis 22: {-1 ≤ sin(2 * θ0) ∧ sin(2 * θ0) ≤ 1})
+autosolve (hypothesis 22: {-1 ≤ sin(2 * θ0) ∧ sin(2 * θ0) ≤ 1})

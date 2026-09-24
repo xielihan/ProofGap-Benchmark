@@ -1,0 +1,23 @@
+PROOF GAP @14
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. y : NonNegIntegerSet → RealSet ∧ IsSeq(y)
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n) = x(n) * sqrtn(n, n)
+4. seqlim_{ n → +∞ } (sqrtn(n, n)) = 1
+5. forall (a), a ∈ RealSet ∧ a ∈ AccumulationPointSet(x) ⇒ (exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ seqlim_{ k → +∞ } (x(p(k))) = a)
+6. forall (a), a ∈ RealSet ∧ a ∈ AccumulationPointSet(x) ⇒ (exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ seqlim_{ k → +∞ } (sqrtn(p(k), p(k))) = 1)
+7. forall (a), a ∈ RealSet ∧ a ∈ AccumulationPointSet(x) ⇒ (exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ seqlim_{ k → +∞ } (y(p(k))) = seqlim_{ k → +∞ } (x(p(k)) * sqrtn(p(k), p(k))))
+8. forall (a), a ∈ RealSet ∧ a ∈ AccumulationPointSet(x) ⇒ (exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ seqlim_{ k → +∞ } (x(p(k)) * sqrtn(p(k), p(k))) = a)
+9. forall (a), a ∈ RealSet ∧ a ∈ AccumulationPointSet(x) ⇒ (exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ seqlim_{ k → +∞ } (y(p(k))) = a)
+10. forall (a), a ∈ RealSet ∧ a ∈ AccumulationPointSet(x) ⇒ a ∈ AccumulationPointSet(y)
+11. forall (a), a ∈ RealSet ∧ a ∈ AccumulationPointSet(y) ⇒ (exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ seqlim_{ k → +∞ } (y(p(k))) = a)
+12. forall (a), a ∈ RealSet ∧ a ∈ AccumulationPointSet(y) ⇒ (exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ seqlim_{ k → +∞ } (sqrtn(p(k), p(k))) = 1)
+13. forall (a), a ∈ RealSet ∧ a ∈ AccumulationPointSet(y) ⇒ (exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ seqlim_{ k → +∞ } (x(p(k))) = seqlim_{ k → +∞ } (frac(y(p(k)), sqrtn(p(k), p(k)))))
+14. forall (a), a ∈ RealSet ∧ a ∈ AccumulationPointSet(y) ⇒ (exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ seqlim_{ k → +∞ } (frac(y(p(k)), sqrtn(p(k), p(k)))) = a)
+15. forall (a), a ∈ RealSet ∧ a ∈ AccumulationPointSet(y) ⇒ (exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ seqlim_{ k → +∞ } (x(p(k))) = a)
+16. forall (a), a ∈ RealSet ∧ a ∈ AccumulationPointSet(y) ⇒ a ∈ AccumulationPointSet(x)
+
+GOAL:
+AccumulationPointSet(x) = AccumulationPointSet(y)
+
+METHOD:

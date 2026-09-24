@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. x ≠ 0
+3. sin(x) ≠ 0
+4. cos(x) ≠ 0
+5. tan(x) ≠ 0
+6. lim_{ x → 0 } (frac(x * cot(x) - 1, x^{2})) = lim_{ x → 0 } (frac(x - tan(x), x^{2} * tan(x)))
+
+GOAL:
+lim_{ x → 0 } (frac(x - tan(x), x^{2} * tan(x))) = lim_{ x → 0 } (frac(1 - sec(x)^{2}, 2 * x * tan(x) + x^{2} * sec(x)^{2}))
+
+METHOD:
+[@method 根据 "洛必达法则" @]

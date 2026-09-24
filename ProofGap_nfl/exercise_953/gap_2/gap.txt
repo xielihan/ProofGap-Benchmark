@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. α ∈ RealSet
+2. y : RealSet → RealSet
+3. forall (x), x ∈ RealSet ∧ 1 - cos(α) * cos(x) ≠ 0 ⇒ y(x) = arcsin(frac(sin(α) * sin(x), 1 - cos(α) * cos(x)))
+4. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = frac(1, sqrtn(2, 1 - frac(sin(α) * sin(x), 1 - cos(α) * cos(x))^{2})) * frac(sin(α) * cos(x) * (1 - cos(α) * cos(x)) - sin(α) * cos(α) * sin(x)^{2}, (1 - cos(α) * cos(x))^{2})
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = frac(1 - cos(α) * cos(x), sqrtn(2, (cos(x) - cos(α))^{2})) * frac(sin(α) * (cos(x) - cos(α)), (1 - cos(α) * cos(x))^{2})
+
+METHOD:

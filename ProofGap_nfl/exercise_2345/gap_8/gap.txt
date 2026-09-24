@@ -1,0 +1,15 @@
+PROOF GAP @8
+ASSUM:
+1. x = tan(t)
+2. 0 ≤ t
+3. t < frac(π, 2)
+4. diff(fun x [x ∈ RealSet] . x) = sec(t)^{2} * diff(fun t [t ∈ RealSet ∧ t ∈ [0, frac(π, 2))] . t)
+5. 1 + x^{2} = sec(t)^{2}
+6. arctan(x) = t
+7. DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(arctan(x), (1 + x^{2})^{frac(3, 2)})) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, frac(π, 2), (fun t [t ∈ RealSet ∧ t ∈ [0, frac(π, 2))] . frac(t * sec(t)^{2}, sec(t)^{3})) * diff(fun t [t ∈ RealSet ∧ t ∈ [0, frac(π, 2))] . t))
+8. DefInt(0, frac(π, 2), (fun t [t ∈ RealSet ∧ t ∈ [0, frac(π, 2))] . frac(t * sec(t)^{2}, sec(t)^{3})) * diff(fun t [t ∈ RealSet ∧ t ∈ [0, frac(π, 2))] . t)) = ((fun t [t ∈ RealSet ∧ t ∈ [0, frac(π, 2)]] . t * sin(t) + cos(t))|_{0}^{frac(π, 2)})
+
+GOAL:
+((fun t [t ∈ RealSet ∧ t ∈ [0, frac(π, 2)]] . t * sin(t) + cos(t))|_{0}^{frac(π, 2)}) = frac(π, 2) - 1
+
+METHOD:

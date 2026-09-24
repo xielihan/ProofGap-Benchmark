@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. f = (fun x [x ∈ RealSet] . 0)
+2. g = (fun x [x ∈ RealSet] . cases{ 1 if x ≥ 0; -1 if x < 0 })
+3. ContinuousFunc(f)
+
+GOAL:
+¬ContinuousFuncAt(g, 0)
+
+METHOD:

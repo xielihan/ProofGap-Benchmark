@@ -1,0 +1,19 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. c ∈ RealSet
+5. d ∈ RealSet
+6. x_{0} ∈ RealSet
+7. y_{0} ∈ RealSet
+8. c ≠ 0
+9. a * d - b * c ≠ 0
+10. forall (x), x ∈ RealSet ∧ c * x + d ≠ 0 ⇒ y(x) = frac(a * x + b, c * x + d)
+11. forall (t), t ∈ RealSet ∧ c * (x_{0} + t) + d ≠ 0 ∧ c * (x_{0} - t) + d ≠ 0 ⇒ y(x_{0} + t) + y(x_{0} - t) = frac(a * (x_{0} + t) + b, c * (x_{0} + t) + d) + frac(a * (x_{0} - t) + b, c * (x_{0} - t) + d)
+12. x_{0} = -frac(d, c) ⇒ (forall (t), t ∈ RealSet ⇒ y(x_{0} + t) + y(x_{0} - t) = 2 * y_{0})
+
+GOAL:
+(y_{0} = frac(a, c) ∧ x_{0} = -frac(d, c)) ⇒ x_{0} = -frac(d, c)
+
+METHOD:

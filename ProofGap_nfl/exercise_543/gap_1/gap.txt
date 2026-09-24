@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ∧ x ≠ a ⇒ frac(x^{x} - a^{a}, x - a) = a^{a} * frac(e^{x * ln(x) - a * ln(a)} - 1, x * ln(x) - a * ln(a)) * frac(x * ln(x) - a * ln(a), x - a)
+
+METHOD:

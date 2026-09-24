@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. z : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ z(x) = sqrtn(2, 1 - x^{2})
+3. C ∈ RealSet
+4. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ frac(x^{5}, sqrtn(2, 1 - x^{2})) = x^{5} * (1 - x^{2})^{-frac(1, 2)}
+5. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ 0 < z(x)
+6. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ z(x) ≤ 1
+
+GOAL:
+forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ x^{2} = 1 - z(x)^{2}
+
+METHOD:

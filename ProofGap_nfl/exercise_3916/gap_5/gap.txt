@@ -1,0 +1,18 @@
+PROOF GAP @5
+ASSUM:
+1. Ω ⊆ CartesianProd(RealSet, RealSet)
+2. f : CartesianProd(RealSet, RealSet) → RealSet
+3. I ∈ RealSet
+4. TriangularDomain : CartesianProd(RealSet, RealSet) → PowerSet(CartesianProd(RealSet, RealSet))
+5. Ω = TriangularDomain(0, 1)
+6. IntegrableFuncOn(f, Ω)
+7. I = VolumeInt(Ω, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . f(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+8. I = VolumeInt(Ω, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . f(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+9. I = DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . DefInt(0, x, (fun y [y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ x] . f(x, y)) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+10. I = DefInt(0, 1, (fun y [y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1] . DefInt(y, 1, (fun x [x ∈ RealSet ∧ y ≤ x ∧ x ≤ 1] . f(x, y)) * diff(fun x [x ∈ RealSet] . x))) * diff(fun y [y ∈ RealSet] . y))
+11. VolumeInt(Ω, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . f(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . DefInt(0, x, (fun y [y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ x] . f(x, y)) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . DefInt(0, x, (fun y [y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ x] . f(x, y)) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun y [y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1] . DefInt(y, 1, (fun x [x ∈ RealSet ∧ y ≤ x ∧ x ≤ 1] . f(x, y)) * diff(fun x [x ∈ RealSet] . x))) * diff(fun y [y ∈ RealSet] . y))
+
+METHOD:

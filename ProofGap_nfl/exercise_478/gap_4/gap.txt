@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. p ∈ RealSet
+2. x ∈ RealSet
+3. p ≠ 0
+4. x ≠ 0
+5. lim_{ x → 0 } (frac(1 + sin(x) - cos(x), 1 + sin(p * x) - cos(p * x))) = lim_{ x → 0 } (frac(2 * sin(frac(x, 2))^{2} + sin(x), 2 * sin(frac(p * x, 2))^{2} + sin(p * x)))
+6. lim_{ x → 0 } (frac(2 * sin(frac(x, 2))^{2} + sin(x), 2 * sin(frac(p * x, 2))^{2} + sin(p * x))) = lim_{ x → 0 } (frac(sin(frac(x, 2)) * (sin(frac(x, 2)) + cos(frac(x, 2))), sin(frac(p * x, 2)) * (sin(frac(p * x, 2)) + cos(frac(p * x, 2)))))
+7. lim_{ x → 0 } (frac(sin(frac(x, 2)) * (sin(frac(x, 2)) + cos(frac(x, 2))), sin(frac(p * x, 2)) * (sin(frac(p * x, 2)) + cos(frac(p * x, 2))))) = lim_{ x → 0 } (frac(sin(frac(x, 2)), frac(x, 2)) * frac(frac(p * x, 2), sin(frac(p * x, 2))) * frac(1, p) * frac(sin(frac(x, 2)) + cos(frac(x, 2)), sin(frac(p * x, 2)) + cos(frac(p * x, 2))))
+
+GOAL:
+lim_{ x → 0 } (frac(sin(frac(x, 2)), frac(x, 2)) * frac(frac(p * x, 2), sin(frac(p * x, 2))) * frac(1, p) * frac(sin(frac(x, 2)) + cos(frac(x, 2)), sin(frac(p * x, 2)) + cos(frac(p * x, 2)))) = frac(1, p)
+
+METHOD:

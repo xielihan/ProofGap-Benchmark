@@ -1,0 +1,2 @@
+1. rewrite (left_to_right, equation) (hypothesis 2: {B = 1 + x}); from (GOAL: {1 + 5 * x - B^{5} = 1 + 5 * x - (1 + x)^{5}}) to (GOAL: {1 + 5 * x - (1 + x)^{5} = 1 + 5 * x - (1 + x)^{5}})
+2. autosolve all_hypothesis

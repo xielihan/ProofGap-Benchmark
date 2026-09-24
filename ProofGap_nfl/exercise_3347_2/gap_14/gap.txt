@@ -1,0 +1,26 @@
+PROOF GAP @14
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. v : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+3. r : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+4. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = x + y + z
+5. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ v(x, y, z) = x + y + z + 0.001 * sin(10^{6} * π * sqrtn(2, x^{2} + y^{2} + z^{2}))
+6. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ r(x, y, z) = sqrtn(2, x^{2} + y^{2} + z^{2})
+7. grad(u, 1, 2, 2) = (1, 1, 1)
+8. |grad(u, 1, 2, 2)| = sqrtn(2, 3)
+9. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(v, 1, 1)(x, y, z) = 1 - 1000 * π * frac(x, r(x, y, z)) * cos(10^{6} * π * r(x, y, z))
+10. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(v, 2, 1)(x, y, z) = 1 - 1000 * π * frac(y, r(x, y, z)) * cos(10^{6} * π * r(x, y, z))
+11. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(v, 3, 1)(x, y, z) = 1 - 1000 * π * frac(z, r(x, y, z)) * cos(10^{6} * π * r(x, y, z))
+12. r(1, 2, 2) = 3
+13. FunDeri(v, 1, 1)(1, 2, 2) = frac(1000 * π, 3) + 1
+14. frac(1000 * π, 3) + 1 ≈_{ 1 } frac(1000 * π, 3)
+15. FunDeri(v, 2, 1)(1, 2, 2) = frac(2000 * π, 3) + 1
+16. frac(2000 * π, 3) + 1 ≈_{ 1 } frac(2000 * π, 3)
+17. FunDeri(v, 3, 1)(1, 2, 2) = frac(2000 * π, 3) + 1
+18. frac(2000 * π, 3) + 1 ≈_{ 1 } frac(2000 * π, 3)
+19. |grad(v, 1, 2, 2)| ≈_{ 1 } 1000 * π * sqrtn(2, frac(1, 3)^{2} + frac(2, 3)^{2} + frac(2, 3)^{2})
+
+GOAL:
+1000 * π * sqrtn(2, frac(1, 3)^{2} + frac(2, 3)^{2} + frac(2, 3)^{2}) = 1000 * π
+
+METHOD:

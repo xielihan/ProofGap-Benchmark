@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. x : RealSet → RealSet
+2. s ∈ RealSet
+3. forall (y), y ∈ RealSet ∧ 1 ≤ y ∧ y ≤ e ⇒ x(y) = frac(1, 4) * y^{2} - frac(1, 2) * ln(y)
+4. s = DefInt(1, e, (fun y [y ∈ RealSet] . frac(1 + y^{2}, 2 * y)) * diff(fun y [y ∈ RealSet] . y))
+
+GOAL:
+s = frac(e^{2} + 1, 4)
+
+METHOD:

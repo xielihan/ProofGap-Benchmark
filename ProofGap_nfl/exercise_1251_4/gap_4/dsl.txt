@@ -1,0 +1,13 @@
+get_exists (hypothesis 7: {exists (ξ), ξ ∈ RealSet ∧ b < ξ ∧ ξ < a ∧ frac(a - b, a) < frac(a - b, ξ)}) (ξ := {z})
+destruct_and (hypothesis 8: {z ∈ RealSet ∧ b < z ∧ z < a ∧ frac(a - b, a) < frac(a - b, z)}) as (hypothesis 9: {z ∈ RealSet}) (hypothesis 10: {b < z}) (hypothesis 11: {z < a}) (hypothesis 12: {frac(a - b, a) < frac(a - b, z)})
+assert (hypothesis 13: {a - b > 0})
+assert (hypothesis 14: {z > 0})
+assert (hypothesis 15: {z - b > 0})
+assert (hypothesis 16: {a - b ∈ RealSet})
+assert (hypothesis 17: {z - b ∈ RealSet})
+assert (hypothesis 18: {z - (z - b) > 0})
+get_prop (theorem 'Thm 469. (SmallerPositiveDenominatorIncreasesFraction)': {forall (a) (b) (c), a ∈ RealSet ⇒ b ∈ RealSet ⇒ c ∈ RealSet ⇒ a > 0 ⇒ b > 0 ⇒ c > 0 ⇒ b - c > 0 ⇒ frac(a, b) < frac(a, b - c)}) (a := {a - b}) (b := {z}) (c := {z - b}) as (hypothesis 19: {a - b ∈ RealSet ⇒ z ∈ RealSet ⇒ z - b ∈ RealSet ⇒ a - b > 0 ⇒ z > 0 ⇒ z - b > 0 ⇒ z - (z - b) > 0 ⇒ frac(a - b, z) < frac(a - b, z - (z - b))})
+use_condition (hypothesis 16: {a - b ∈ RealSet}) (hypothesis 9: {z ∈ RealSet}) (hypothesis 17: {z - b ∈ RealSet}) (hypothesis 13: {a - b > 0}) (hypothesis 14: {z > 0}) (hypothesis 15: {z - b > 0}) (hypothesis 18: {z - (z - b) > 0}) in (hypothesis 19: {a - b ∈ RealSet ⇒ z ∈ RealSet ⇒ z - b ∈ RealSet ⇒ a - b > 0 ⇒ z > 0 ⇒ z - b > 0 ⇒ z - (z - b) > 0 ⇒ frac(a - b, z) < frac(a - b, z - (z - b))}) as (hypothesis 20: {frac(a - b, z) < frac(a - b, z - (z - b))})
+autoreplace no_hypothesis; from (z - (z - b)) to (b); from (hypothesis 20: {frac(a - b, z) < frac(a - b, z - (z - b))}) to (hypothesis 21: {frac(a - b, z) < frac(a - b, b)})
+exists (ξ := {z})
+autosolve all_hypothesis

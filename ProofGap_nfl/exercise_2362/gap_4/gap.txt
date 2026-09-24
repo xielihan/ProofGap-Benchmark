@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. p ∈ RealSet
+2. q ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ DefInt(0, 1, x^{p} * ln(frac(1, x))^{q} * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, frac(1, 2), x^{p} * ln(frac(1, x))^{q} * diff(fun x [x ∈ RealSet] . x)) + DefInt(frac(1, 2), 1, x^{p} * ln(frac(1, x))^{q} * diff(fun x [x ∈ RealSet] . x))
+4. lim_{ x → 1^- } ((1 - x)^{-q} * x^{p} * ln(frac(1, x))^{q}) = lim_{ x → 1^- } (x^{p} * frac(ln(frac(1, x)), 1 - x)^{q})
+5. lim_{ x → 1^- } (x^{p} * frac(ln(frac(1, x)), 1 - x)^{q}) = 1
+
+GOAL:
+lim_{ x → 1^- } ((1 - x)^{-q} * x^{p} * ln(frac(1, x))^{q}) = 1
+
+METHOD:

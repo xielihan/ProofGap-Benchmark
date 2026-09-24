@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. t = cos(x)^{2}
+
+GOAL:
+sin(x) * cos(x) * diff(fun x [x ∈ RealSet] . x) = -frac(1, 2) * diff(fun t [t ∈ RealSet] . t)
+
+METHOD:

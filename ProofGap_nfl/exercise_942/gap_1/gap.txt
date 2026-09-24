@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = frac(x^{6}, 1 + x^{12}) - arccot(x^{6})
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = frac(6 * x^{5} * (1 + x^{12}) - 12 * x^{17}, (1 + x^{12})^{2}) + frac(6 * x^{5}, 1 + x^{12}) ∧ frac(6 * x^{5} * (1 + x^{12}) - 12 * x^{17}, (1 + x^{12})^{2}) + frac(6 * x^{5}, 1 + x^{12}) = frac(12 * x^{5}, (1 + x^{12})^{2})
+
+METHOD:

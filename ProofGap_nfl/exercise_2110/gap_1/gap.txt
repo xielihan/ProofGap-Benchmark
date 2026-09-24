@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet ∧ x > 0 ∧ x ≠ 1
+2. C ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ∧ x ≠ 1 ⇒ FunDeri(fun x [x ∈ RealSet ∧ x > 0] . arcsin(frac(2 * sqrtn(2, x), 1 + x)), 1, 1)(x) = frac(frac(1, (1 + x)^{2}) * ((1 + x) * frac(1, sqrtn(2, x)) - 2 * sqrtn(2, x)), sqrtn(2, 1 - frac(4 * x, (1 + x)^{2})))
+
+METHOD:

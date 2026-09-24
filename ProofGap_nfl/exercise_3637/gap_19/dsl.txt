@@ -1,0 +1,15 @@
+get_prop (hypothesis 19: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet => FunDeri(z, 1, 2)(x, y) = 2 * sin(y) * cos(2 * x + y)}) (x := {frac(2 * π, 3)}) (y := {frac(2 * π, 3)}) as (hypothesis 29: {frac(2 * π, 3) ∈ RealSet ∧ frac(2 * π, 3) ∈ RealSet => FunDeri(z, 1, 2)(frac(2 * π, 3), frac(2 * π, 3)) = 2 * sin(frac(2 * π, 3)) * cos(2 * frac(2 * π, 3) + frac(2 * π, 3))})
+use_condition (obvious: {frac(2 * π, 3) ∈ RealSet ∧ frac(2 * π, 3) ∈ RealSet}) in (hypothesis 29: {frac(2 * π, 3) ∈ RealSet ∧ frac(2 * π, 3) ∈ RealSet => FunDeri(z, 1, 2)(frac(2 * π, 3), frac(2 * π, 3)) = 2 * sin(frac(2 * π, 3)) * cos(2 * frac(2 * π, 3) + frac(2 * π, 3))}) as (hypothesis 30: {FunDeri(z, 1, 2)(frac(2 * π, 3), frac(2 * π, 3)) = 2 * sin(frac(2 * π, 3)) * cos(2 * frac(2 * π, 3) + frac(2 * π, 3))})
+assert (hypothesis 31: {sin(frac(2 * π, 3)) = frac(sqrtn(2, 3), 2)}) by proof {
+  autosolve
+}
+assert (hypothesis 32: {2 * frac(2 * π, 3) + frac(2 * π, 3) = 2 * π}) by proof {
+  autosolve
+}
+assert (hypothesis 33: {cos(2 * π) = 1}) by proof {
+  autosolve
+}
+rewrite (left_to_right, equation) (hypothesis 31: {sin(frac(2 * π, 3)) = frac(sqrtn(2, 3), 2)}); from (hypothesis 30: {FunDeri(z, 1, 2)(frac(2 * π, 3), frac(2 * π, 3)) = 2 * sin(frac(2 * π, 3)) * cos(2 * frac(2 * π, 3) + frac(2 * π, 3))}) to (hypothesis 34: {FunDeri(z, 1, 2)(frac(2 * π, 3), frac(2 * π, 3)) = 2 * frac(sqrtn(2, 3), 2) * cos(2 * frac(2 * π, 3) + frac(2 * π, 3))})
+rewrite (left_to_right, equation) (hypothesis 32: {2 * frac(2 * π, 3) + frac(2 * π, 3) = 2 * π}); from (hypothesis 34: {FunDeri(z, 1, 2)(frac(2 * π, 3), frac(2 * π, 3)) = 2 * frac(sqrtn(2, 3), 2) * cos(2 * frac(2 * π, 3) + frac(2 * π, 3))}) to (hypothesis 35: {FunDeri(z, 1, 2)(frac(2 * π, 3), frac(2 * π, 3)) = 2 * frac(sqrtn(2, 3), 2) * cos(2 * π)})
+rewrite (left_to_right, equation) (hypothesis 33: {cos(2 * π) = 1}); from (hypothesis 35: {FunDeri(z, 1, 2)(frac(2 * π, 3), frac(2 * π, 3)) = 2 * frac(sqrtn(2, 3), 2) * cos(2 * π)}) to (hypothesis 36: {FunDeri(z, 1, 2)(frac(2 * π, 3), frac(2 * π, 3)) = 2 * frac(sqrtn(2, 3), 2) * 1})
+autosolve (hypothesis 36: {FunDeri(z, 1, 2)(frac(2 * π, 3), frac(2 * π, 3)) = 2 * frac(sqrtn(2, 3), 2) * 1})

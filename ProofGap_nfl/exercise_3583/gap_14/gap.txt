@@ -1,0 +1,31 @@
+PROOF GAP @14
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. A ∈ CartesianProd(RealSet, RealSet)
+3. P ∈ CartesianProd(RealSet, RealSet)
+4. h ∈ RealSet
+5. k ∈ RealSet
+6. Δf ∈ RealSet
+7. R_{3} : CartesianProd(RealSet, RealSet) → RealSet
+8. A = (1, -1)
+9. P = (1 + h, -1 + k)
+10. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x, y) = x^{2} * y + x * y^{2} - 2 * x * y
+11. Δf = f(1 + h, -1 + k) - f(1, -1)
+12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(f, 1, 1)(x, y) = 2 * x * y + y^{2} - 2 * y
+13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(f, 2, 1)(x, y) = x^{2} + 2 * x * y - 2 * x
+14. FunDeri(f, 1, 1)(1, -1) = 1
+15. FunDeri(f, 2, 1)(1, -1) = -3
+16. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(f, 1, 2)(x, y) = 2 * y
+17. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(f, 2, 2)(x, y) = 2 * x
+18. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(FunDeri(f, 1, 1), 2, 1)(x, y) = 2 * x + 2 * y - 2
+19. FunDeri(f, 1, 2)(1, -1) = -2
+20. FunDeri(f, 2, 2)(1, -1) = 2
+21. FunDeri(FunDeri(f, 1, 1), 2, 1)(1, -1) = -2
+22. FunDeri(f, 1, 3)(1, -1) = 0
+23. FunDeri(f, 2, 3)(1, -1) = 0
+24. FunDeri(FunDeri(f, 1, 2), 2, 1)(1, -1) = 2
+
+GOAL:
+FunDeri(FunDeri(f, 1, 1), 2, 2)(1, -1) = 2
+
+METHOD:

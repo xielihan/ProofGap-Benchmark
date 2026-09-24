@@ -1,0 +1,4 @@
+1. get_condition (hypothesis 15: {m ∈ NegIntegerSet}) (hypothesis 16: {n ∈ NegIntegerSet}) in (GOAL: {m ∈ NegIntegerSet ⇒ n ∈ NegIntegerSet ⇒ `n'` ∈ PosIntegerSet})
+2. use_condition (hypothesis 15: {m ∈ NegIntegerSet}) (hypothesis 16: {n ∈ NegIntegerSet}) in (hypothesis 13: {m ∈ NegIntegerSet ⇒ n ∈ NegIntegerSet ⇒ `n'` = -n}) as (hypothesis 17: {`n'` = -n})
+3. rewrite (left_to_right, equation) (hypothesis 17: {`n'` = -n}); from (GOAL: {`n'` ∈ PosIntegerSet}) to (GOAL: {-n ∈ PosIntegerSet})
+4. autosolve all_hypothesis

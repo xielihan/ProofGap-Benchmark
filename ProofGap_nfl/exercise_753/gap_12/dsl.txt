@@ -1,0 +1,8 @@
+1. get_forall (GOAL: {forall (p), p ∈ RealSet ∧ p > 0 ∧ PeriodicFunc(φ, p) ⇒ PeriodicFunc(ψ, p)}) (p := {r})
+2. get_condition (hypothesis 26: {r ∈ RealSet ∧ r > 0 ∧ PeriodicFunc(φ, r)}) in (GOAL: {r ∈ RealSet ∧ r > 0 ∧ PeriodicFunc(φ, r) ⇒ PeriodicFunc(ψ, r)})
+3. not_normalize from (GOAL: {PeriodicFunc(ψ, r)}) to (GOAL: {¬PeriodicFunc(ψ, r) ⇒ False})
+4. get_condition (hypothesis 27: {¬PeriodicFunc(ψ, r)}) in (GOAL: {¬PeriodicFunc(ψ, r) ⇒ False})
+5. assert (hypothesis 28: {r ∈ RealSet ∧ r > 0 ∧ PeriodicFunc(φ, r) ∧ ¬PeriodicFunc(ψ, r)})
+6. get_prop (hypothesis 25: {forall (p), p ∈ RealSet ∧ p > 0 ∧ PeriodicFunc(φ, p) ∧ ¬PeriodicFunc(ψ, p) ⇒ False}) (p := {r}) as (hypothesis 29: {r ∈ RealSet ∧ r > 0 ∧ PeriodicFunc(φ, r) ∧ ¬PeriodicFunc(ψ, r) ⇒ False})
+7. use_condition (hypothesis 28: {r ∈ RealSet ∧ r > 0 ∧ PeriodicFunc(φ, r) ∧ ¬PeriodicFunc(ψ, r)}) in (hypothesis 29: {r ∈ RealSet ∧ r > 0 ∧ PeriodicFunc(φ, r) ∧ ¬PeriodicFunc(ψ, r) ⇒ False}) as (hypothesis 30: {False})
+8. apply (hypothesis 30: {False})

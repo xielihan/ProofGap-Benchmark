@@ -1,0 +1,2 @@
+1. assert (hypothesis 1: {1 = 1})
+2. autosolve all_hypothesis

@@ -1,0 +1,20 @@
+destruct_and (hypothesis 3: {k ∈ RealSet ∧ 0 ≤ k ∧ k < 1}) as (hypothesis 16: {k ∈ RealSet}) (hypothesis 17: {0 ≤ k}) (hypothesis 18: {k < 1})
+get_prop (theorem 'Thm 76. (FunctionValueExists)': {forall (A) (B) (f), f : A -> B ⇒ (forall (x), x ∈ A ⇒ (exists (y), y ∈ B ∧ f(x) = y))}) (A := {RealSet}) (B := {RealSet}) (f := {E}) as (hypothesis 19: {E : RealSet -> RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (exists (y), y ∈ RealSet ∧ E(x) = y))})
+use_condition (hypothesis 2: {E : RealSet → RealSet}) in (hypothesis 19: {E : RealSet -> RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (exists (y), y ∈ RealSet ∧ E(x) = y))}) as (hypothesis 20: {forall (x), x ∈ RealSet ⇒ (exists (y), y ∈ RealSet ∧ E(x) = y)})
+get_prop (hypothesis 20: {forall (x), x ∈ RealSet ⇒ (exists (y), y ∈ RealSet ∧ E(x) = y)}) (x := {k}) as (hypothesis 21: {k ∈ RealSet ⇒ (exists (y), y ∈ RealSet ∧ E(k) = y)})
+use_condition (hypothesis 16: {k ∈ RealSet}) in (hypothesis 21: {k ∈ RealSet ⇒ (exists (y), y ∈ RealSet ∧ E(k) = y)}) as (hypothesis 22: {exists (y), y ∈ RealSet ∧ E(k) = y})
+get_exists (hypothesis 22: {exists (y), y ∈ RealSet ∧ E(k) = y}) (y := {yE})
+destruct_and (hypothesis 23: {yE ∈ RealSet ∧ E(k) = yE}) as (hypothesis 24: {yE ∈ RealSet}) (hypothesis 25: {E(k) = yE})
+get_prop (theorem 'Thm 76. (FunctionValueExists)': {forall (A) (B) (f), f : A -> B ⇒ (forall (x), x ∈ A ⇒ (exists (y), y ∈ B ∧ f(x) = y))}) (A := {RealSet}) (B := {RealSet}) (f := {F}) as (hypothesis 26: {F : RealSet -> RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (exists (y), y ∈ RealSet ∧ F(x) = y))})
+use_condition (hypothesis 1: {F : RealSet → RealSet}) in (hypothesis 26: {F : RealSet -> RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (exists (y), y ∈ RealSet ∧ F(x) = y))}) as (hypothesis 27: {forall (x), x ∈ RealSet ⇒ (exists (y), y ∈ RealSet ∧ F(x) = y)})
+get_prop (hypothesis 27: {forall (x), x ∈ RealSet ⇒ (exists (y), y ∈ RealSet ∧ F(x) = y)}) (x := {k}) as (hypothesis 28: {k ∈ RealSet ⇒ (exists (y), y ∈ RealSet ∧ F(k) = y)})
+use_condition (hypothesis 16: {k ∈ RealSet}) in (hypothesis 28: {k ∈ RealSet ⇒ (exists (y), y ∈ RealSet ∧ F(k) = y)}) as (hypothesis 29: {exists (y), y ∈ RealSet ∧ F(k) = y})
+get_exists (hypothesis 29: {exists (y), y ∈ RealSet ∧ F(k) = y}) (y := {yF})
+destruct_and (hypothesis 30: {yF ∈ RealSet ∧ F(k) = yF}) as (hypothesis 31: {yF ∈ RealSet}) (hypothesis 32: {F(k) = yF})
+assert (hypothesis 33: {E(k) - (k_{1})^{2} * F(k) = yE - (k_{1})^{2} * yF}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 25: {E(k) = yE}); from (GOAL: {E(k) - (k_{1})^{2} * F(k) = yE - (k_{1})^{2} * yF}) to (GOAL: {yE - (k_{1})^{2} * F(k) = yE - (k_{1})^{2} * yF})
+  rewrite (left_to_right, equation) (hypothesis 32: {F(k) = yF}); from (GOAL: {yE - (k_{1})^{2} * F(k) = yE - (k_{1})^{2} * yF}) to (GOAL: {yE - (k_{1})^{2} * yF = yE - (k_{1})^{2} * yF})
+  autosolve
+}
+exists (C_{1} := {yE - (k_{1})^{2} * yF - DefInt(0, k, (fun t [t ∈ RealSet ∧ t ∈ IntervalClCl(0, k)] . t * F(t)) * diff(fun t [t ∈ RealSet] . t))})
+autosolve all_hypothesis

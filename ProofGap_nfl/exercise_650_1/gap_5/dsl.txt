@@ -1,0 +1,2 @@
+exists (C := {2})
+autosolve (hypothesis 2: {lim_{ x → 0^+ } (frac(2 * x - x^{2}, x)) = 2}) (hypothesis 3: {2 ∈ RealSet}) (hypothesis 4: {2 ≠ 0})

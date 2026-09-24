@@ -1,0 +1,4 @@
+1. rewrite (left_to_right, equation) (hypothesis 3: {y = (fun u . e^{u})}); from (GOAL: {FunDeri(y, 1, 1)(x) = e^{x}}) to (GOAL: {FunDeri(fun u . e^{u}, 1, 1)(x) = e^{x}})
+2. get_prop (theorem 'Thm 176. (NaturalExponentialDerivative)': {forall (x), x ∈ RealSet => FunDeri(fun x . e ^ x, 1, 1)(x) = e ^ x}) (x := {x}) as (hypothesis 4: {x ∈ RealSet => FunDeri(fun u . e ^ u, 1, 1)(x) = e ^ x})
+3. use_condition (hypothesis 1: {x ∈ RealSet}) in (hypothesis 4: {x ∈ RealSet => FunDeri(fun u . e ^ u, 1, 1)(x) = e ^ x}) as (hypothesis 5: {FunDeri(fun u . e ^ u, 1, 1)(x) = e ^ x})
+4. apply (hypothesis 5: {FunDeri(fun u . e ^ u, 1, 1)(x) = e ^ x})

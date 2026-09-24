@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. B : CartesianProd(RealSet, RealSet) → RealSet
+2. Gamma : RealSet → RealSet
+3. forall (t), t ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ t = x^{4} ∧ x ∈ [0, +∞) ⇒ t ∈ [0, +∞))
+
+GOAL:
+forall (t), t ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ t = x^{4} ∧ x ∈ [0, +∞) ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ∈ [0, +∞)] . frac(x^{2}, 1 + x^{4})) * diff(fun x [x ∈ RealSet ∧ x ∈ [0, +∞)] . x)) = frac(1, 4) * DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ∈ [0, +∞)] . frac(t^{-frac(1, 4)}, 1 + t)) * diff(fun t [t ∈ RealSet ∧ t ∈ [0, +∞)] . t)))
+
+METHOD:

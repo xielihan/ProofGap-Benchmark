@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. n ∈ IntegerSet
+3. C ∈ RealSet
+4. n > 0 ∨ x ≠ 0
+
+GOAL:
+n ≠ 0 ⇒ { `F_2` | forall (x), x ∈ RealSet ∧ (n > 0 ∨ x ≠ 0) ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x^{3 * n - 1}, (x^{2 * n} + 1)^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ (n > 0 ∨ x ≠ 0) ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(x^{2 * n} * x^{n - 1}, (x^{2 * n} + 1)^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+METHOD:

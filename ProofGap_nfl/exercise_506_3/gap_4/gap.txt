@@ -1,0 +1,10 @@
+PROOF GAP @4
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x ≥ 0 ∧ x ≠ 1 ∧ x ≠ -2 ∧ frac(1 + x, 2 + x) > 0 ⇒ frac(1 + x, 2 + x)^{frac(1 - sqrtn(2, x), 1 - x)} = frac(1 + x, 2 + x)^{frac(1, 1 + sqrtn(2, x))}
+2. lim_{ x → +∞ } (frac(1 + x, 2 + x)^{frac(1 - sqrtn(2, x), 1 - x)}) = lim_{ x → +∞ } (frac(1 + x, 2 + x)^{frac(1, 1 + sqrtn(2, x))})
+3. lim_{ x → +∞ } (frac(1 + x, 2 + x)^{frac(1, 1 + sqrtn(2, x))}) = 1^{0}
+
+GOAL:
+1^{0} = 1
+
+METHOD:

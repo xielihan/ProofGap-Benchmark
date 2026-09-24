@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ |x + 1| ≤ sqrtn(2, 2) ⇒ y(x) = frac(3 - x, 2) * sqrtn(2, 1 - 2 * x - x^{2}) + 2 * arcsin(frac(1 + x, sqrtn(2, 2)))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x + 1| < sqrtn(2, 2) ⇒ FunDeri(y, 1, 1)(x) = -frac(1, 2) * sqrtn(2, 1 - 2 * x - x^{2}) - frac(3 - x, 2) * frac(1 + x, sqrtn(2, 1 - 2 * x - x^{2})) + 2 * frac(1, sqrtn(2, 2) * sqrtn(2, 1 - frac(1 + x, sqrtn(2, 2))^{2})) ∧ -frac(1, 2) * sqrtn(2, 1 - 2 * x - x^{2}) - frac(3 - x, 2) * frac(1 + x, sqrtn(2, 1 - 2 * x - x^{2})) + 2 * frac(1, sqrtn(2, 2) * sqrtn(2, 1 - frac(1 + x, sqrtn(2, 2))^{2})) = frac(x^{2}, sqrtn(2, 1 - 2 * x - x^{2}))
+
+METHOD:

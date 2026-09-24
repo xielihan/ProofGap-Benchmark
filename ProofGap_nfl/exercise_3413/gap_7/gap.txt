@@ -1,0 +1,30 @@
+PROOF GAP @7
+ASSUM:
+1. φ : CartesianProd(RealSet, RealSet) → RealSet
+2. ψ : CartesianProd(RealSet, RealSet) → RealSet
+3. χ : CartesianProd(RealSet, RealSet) → RealSet
+4. z : CartesianProd(RealSet, RealSet) → RealSet
+5. U : CartesianProd(RealSet, RealSet) → RealSet
+6. V : CartesianProd(RealSet, RealSet) → RealSet
+7. J : CartesianProd(RealSet, RealSet) → RealSet
+8. DiffableFunc(φ)
+9. DiffableFunc(ψ)
+10. DiffableFunc(χ)
+11. DiffableFunc(z)
+12. DiffableFunc(U)
+13. DiffableFunc(V)
+14. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ⇒ J(u, v) = FunDeri(φ, 1, 1)(u, v) * FunDeri(ψ, 2, 1)(u, v) - FunDeri(ψ, 1, 1)(u, v) * FunDeri(φ, 2, 1)(u, v)
+15. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ⇒ J(u, v) ≠ 0
+16. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ⇒ U(φ(u, v), ψ(u, v)) = u ∧ V(φ(u, v), ψ(u, v)) = v
+17. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ⇒ z(φ(u, v), ψ(u, v)) = χ(u, v)
+18. forall (u) (v) (x) (y), u ∈ RealSet ∧ v ∈ RealSet ∧ x ∈ RealSet ∧ x = φ(u, v) ∧ y ∈ RealSet ∧ y = ψ(u, v) ⇒ 1 = FunDeri(φ, 1, 1)(u, v) * FunDeri(U, 1, 1)(x, y) + FunDeri(φ, 2, 1)(u, v) * FunDeri(V, 1, 1)(x, y)
+19. forall (u) (v) (x) (y), u ∈ RealSet ∧ v ∈ RealSet ∧ x ∈ RealSet ∧ x = φ(u, v) ∧ y ∈ RealSet ∧ y = ψ(u, v) ⇒ 0 = FunDeri(ψ, 1, 1)(u, v) * FunDeri(U, 1, 1)(x, y) + FunDeri(ψ, 2, 1)(u, v) * FunDeri(V, 1, 1)(x, y)
+20. forall (u) (v) (x) (y), u ∈ RealSet ∧ v ∈ RealSet ∧ x ∈ RealSet ∧ x = φ(u, v) ∧ y ∈ RealSet ∧ y = ψ(u, v) ⇒ FunDeri(z, 1, 1)(x, y) = FunDeri(χ, 1, 1)(u, v) * FunDeri(U, 1, 1)(x, y) + FunDeri(χ, 2, 1)(u, v) * FunDeri(V, 1, 1)(x, y)
+21. forall (u) (v) (x) (y), u ∈ RealSet ∧ v ∈ RealSet ∧ x ∈ RealSet ∧ x = φ(u, v) ∧ y ∈ RealSet ∧ y = ψ(u, v) ⇒ FunDeri(U, 1, 1)(x, y) = frac(FunDeri(ψ, 2, 1)(u, v), J(u, v))
+22. forall (u) (v) (x) (y), u ∈ RealSet ∧ v ∈ RealSet ∧ x ∈ RealSet ∧ x = φ(u, v) ∧ y ∈ RealSet ∧ y = ψ(u, v) ⇒ FunDeri(V, 1, 1)(x, y) = -frac(FunDeri(ψ, 1, 1)(u, v), J(u, v))
+23. forall (u) (v) (x) (y), u ∈ RealSet ∧ v ∈ RealSet ∧ x ∈ RealSet ∧ x = φ(u, v) ∧ y ∈ RealSet ∧ y = ψ(u, v) ⇒ FunDeri(z, 1, 1)(x, y) = frac(FunDeri(ψ, 2, 1)(u, v) * FunDeri(χ, 1, 1)(u, v) - FunDeri(ψ, 1, 1)(u, v) * FunDeri(χ, 2, 1)(u, v), J(u, v))
+
+GOAL:
+forall (u) (v) (x) (y), u ∈ RealSet ∧ v ∈ RealSet ∧ x ∈ RealSet ∧ x = φ(u, v) ∧ y ∈ RealSet ∧ y = ψ(u, v) ⇒ FunDeri(z, 2, 1)(x, y) = frac(FunDeri(φ, 1, 1)(u, v) * FunDeri(χ, 2, 1)(u, v) - FunDeri(φ, 2, 1)(u, v) * FunDeri(χ, 1, 1)(u, v), J(u, v))
+
+METHOD:

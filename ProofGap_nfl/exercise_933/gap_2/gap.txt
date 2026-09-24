@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet ∧ b ≠ 0
+4. forall (x), x ∈ RealSet ∧ x > -a ⇒ y(x) = ln(frac(x + a, sqrtn(2, x^{2} + b^{2}))) + frac(a, b) * arctan(frac(x, b))
+5. forall (x), x ∈ RealSet ∧ x > -a ⇒ FunDeri(y, 1, 1)(x) = frac(1, x + a) - frac(x, x^{2} + b^{2}) + frac(a, b) * frac(1, b * (1 + frac(x^{2}, b^{2})))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > -a ⇒ frac(1, x + a) - frac(x, x^{2} + b^{2}) + frac(a, b) * frac(1, b * (1 + frac(x^{2}, b^{2}))) = frac(a^{2} + b^{2}, (x + a) * (b^{2} + x^{2}))
+
+METHOD:

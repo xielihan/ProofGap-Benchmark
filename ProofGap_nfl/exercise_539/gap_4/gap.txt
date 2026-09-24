@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. a * b ≠ 0
+4. lim_{ x → 0 } (frac(ln(cos(a * x)), ln(cos(b * x)))) = lim_{ x → 0 } (frac(ln(cos(a * x)), cos(a * x) - 1) * frac(cos(b * x) - 1, ln(cos(b * x))) * frac(cos(a * x) - 1, cos(b * x) - 1))
+5. lim_{ x → 0 } (frac(ln(cos(a * x)), ln(cos(b * x)))) = lim_{ x → 0 } (frac(2 * sin(frac(a * x, 2))^{2}, 2 * sin(frac(b * x, 2))^{2}))
+6. lim_{ x → 0 } (frac(2 * sin(frac(a * x, 2))^{2}, 2 * sin(frac(b * x, 2))^{2})) = frac(a^{2}, b^{2})
+
+GOAL:
+lim_{ x → 0 } (frac(ln(cos(a * x)), ln(cos(b * x)))) = frac(a^{2}, b^{2})
+
+METHOD:

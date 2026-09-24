@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. v : RealSet → RealSet
+2. v_{0} ∈ RealSet
+3. a ∈ RealSet
+4. T ∈ RealSet ∧ T > 0
+5. s : RealSet → RealSet
+6. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ T ⇒ v(t) = v_{0} + a * t
+7. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ T ⇒ FunDeri(s, 1, 1)(t) = v(t) ∧ v(t) = v_{0} + a * t
+8. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ T ⇒ diff(s) = (v_{0} + a * t) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ T] . t)
+
+GOAL:
+s(T) - s(0) = DefInt(0, T, (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ T] . v_{0} + a * t) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ T] . t))
+
+METHOD:

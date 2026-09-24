@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ⇒ sin(π * sqrtn(2, n^{2} + n))^{2} = frac(1, 2) * (1 - cos(2 * π * sqrtn(2, n^{2} + n)))}) (n := {k})
+get_condition (hypothesis 1: {k ∈ NonNegIntegerSet}) in (GOAL: {k ∈ NonNegIntegerSet ⇒ sin(π * sqrtn(2, k^{2} + k))^{2} = frac(1, 2) * (1 - cos(2 * π * sqrtn(2, k^{2} + k)))})
+get_prop (theorem 'Thm 193. (CosineDoubleAngleSquareSine)': {forall (x), x ∈ RealSet => cos (2 * x) = 1 - 2 * (sin(x)) ^ 2}) (x := {π * sqrtn(2, k^{2} + k)}) as (hypothesis 2: {π * sqrtn(2, k^{2} + k) ∈ RealSet => cos(2 * (π * sqrtn(2, k^{2} + k))) = 1 - 2 * sin(π * sqrtn(2, k^{2} + k))^2})
+use_condition (obvious: {π * sqrtn(2, k^{2} + k) ∈ RealSet}) in (hypothesis 2: {π * sqrtn(2, k^{2} + k) ∈ RealSet => cos(2 * (π * sqrtn(2, k^{2} + k))) = 1 - 2 * sin(π * sqrtn(2, k^{2} + k))^2}) as (hypothesis 3: {cos(2 * (π * sqrtn(2, k^{2} + k))) = 1 - 2 * sin(π * sqrtn(2, k^{2} + k))^2})
+rewrite (left_to_right, equation) (hypothesis 3: {cos(2 * (π * sqrtn(2, k^{2} + k))) = 1 - 2 * sin(π * sqrtn(2, k^{2} + k))^2}); from (GOAL: {sin(π * sqrtn(2, k^{2} + k))^{2} = frac(1, 2) * (1 - cos(2 * π * sqrtn(2, k^{2} + k)))}) to (GOAL: {sin(π * sqrtn(2, k^{2} + k))^{2} = frac(1, 2) * (1 - (1 - 2 * sin(π * sqrtn(2, k^{2} + k))^2))})
+autosolve all_hypothesis

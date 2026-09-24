@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. x_{0} ∈ RealSet ∧ x_{0} ≥ 0
+3. s ∈ RealSet
+4. forall (x), x ∈ RealSet ⇒ y(x) = e^{x}
+5. s = DefInt(0, x_{0}, (fun x [x ∈ RealSet] . sqrtn(2, 1 + e^{2 * x})) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+s = ((fun x [x ∈ RealSet] . sqrtn(2, 1 + e^{2 * x}) + frac(1, 2) * ln(frac(sqrtn(2, 1 + e^{2 * x}) - 1, sqrtn(2, 1 + e^{2 * x}) + 1)))|_{0}^{x_{0}})
+
+METHOD:

@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ sum_{ k = 1 }^{ n - 1 } (frac(k, n^{2})) = frac((n - 1) * n, 2 * n^{2})
+
+METHOD:

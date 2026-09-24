@@ -1,0 +1,1 @@
+apply (hypothesis 10: {forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [a, b] => (forall (ε), ε ∈ RealSet ∧ ε > 0 => (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ [a, b] ∧ |x - x_{0}| < δ => |f(x) - f(x_{0})| < ε)))})

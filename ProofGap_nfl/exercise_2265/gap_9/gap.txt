@@ -1,0 +1,20 @@
+PROOF GAP @9
+ASSUM:
+1. f : RealSet → RealSet ∧ Defined(f, RealSet)
+2. T ∈ RealSet ∧ T > 0
+3. a ∈ RealSet
+4. ContinuousFunc(f)
+5. PeriodicFunc(f, T)
+6. DefInt(a, a + T, (fun x [x ∈ RealSet] . f(x)) * diff(fun x [x ∈ RealSet] . x)) = DefInt(a, 0, (fun x [x ∈ RealSet] . f(x)) * diff(fun x [x ∈ RealSet] . x)) + DefInt(0, T, (fun x [x ∈ RealSet] . f(x)) * diff(fun x [x ∈ RealSet] . x)) + DefInt(T, a + T, (fun x [x ∈ RealSet] . f(x)) * diff(fun x [x ∈ RealSet] . x))
+7. forall (x), x : RealSet → RealSet ⇒ (forall (t), t ∈ RealSet ∧ t ≥ 0 ∧ x(t) = t + T ⇒ 0 ≤ t)
+8. forall (x), x : RealSet → RealSet ⇒ (forall (t), t ∈ RealSet ∧ t ≤ a ∧ x(t) = t + T ⇒ t ≤ a)
+9. forall (x), x : RealSet → RealSet ⇒ (forall (t), t ∈ RealSet ∧ x(t) = t + T ⇒ 0 ≤ a)
+10. forall (x), x : RealSet → RealSet ⇒ (forall (t), t ∈ RealSet ∧ x(t) = t + T ⇒ diff(x) = diff(fun t [t ∈ RealSet] . t))
+11. forall (x), x : RealSet → RealSet ⇒ (forall (t), t ∈ RealSet ∧ x(t) = t + T ⇒ DefInt(T, a + T, (fun x [x ∈ RealSet] . f(x)) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, a, (fun t [t ∈ RealSet] . f(t + T)) * diff(fun t [t ∈ RealSet] . t)))
+12. forall (x), x : RealSet → RealSet ⇒ (forall (t), t ∈ RealSet ∧ x(t) = t + T ⇒ f(t + T) = f(t))
+13. forall (x), x : RealSet → RealSet ⇒ (forall (t), t ∈ RealSet ∧ x(t) = t + T ⇒ DefInt(0, a, (fun t [t ∈ RealSet] . f(t + T)) * diff(fun t [t ∈ RealSet] . t)) = DefInt(0, a, (fun t [t ∈ RealSet] . f(t)) * diff(fun t [t ∈ RealSet] . t)))
+
+GOAL:
+DefInt(a, a + T, (fun x [x ∈ RealSet] . f(x)) * diff(fun x [x ∈ RealSet] . x)) = DefInt(a, 0, (fun x [x ∈ RealSet] . f(x)) * diff(fun x [x ∈ RealSet] . x)) + DefInt(0, T, (fun x [x ∈ RealSet] . f(x)) * diff(fun x [x ∈ RealSet] . x)) + DefInt(0, a, (fun t [t ∈ RealSet] . f(t)) * diff(fun t [t ∈ RealSet] . t))
+
+METHOD:

@@ -1,0 +1,6 @@
+get_prop (hypothesis 20: {forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(f, 1, 2)(x) = frac(FunDeri(P_{1}, 1, 1)(x) * Q(x)^{2} - 2 * Q(x) * FunDeri(Q, 1, 1)(x) * P_{1}(x), Q(x)^{4})}) (x := {x_{0}}) as (hypothesis 21: {x_{0} ∈ RealSet ∧ x_{0} ∈ I ⇒ FunDeri(f, 1, 2)(x_{0}) = frac(FunDeri(P_{1}, 1, 1)(x_{0}) * Q(x_{0})^{2} - 2 * Q(x_{0}) * FunDeri(Q, 1, 1)(x_{0}) * P_{1}(x_{0}), Q(x_{0})^{4})})
+assert (hypothesis 22: {x_{0} ∈ RealSet ∧ x_{0} ∈ I}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 22: {x_{0} ∈ RealSet ∧ x_{0} ∈ I}) in (hypothesis 21: {x_{0} ∈ RealSet ∧ x_{0} ∈ I ⇒ FunDeri(f, 1, 2)(x_{0}) = frac(FunDeri(P_{1}, 1, 1)(x_{0}) * Q(x_{0})^{2} - 2 * Q(x_{0}) * FunDeri(Q, 1, 1)(x_{0}) * P_{1}(x_{0}), Q(x_{0})^{4})}) as (hypothesis 23: {FunDeri(f, 1, 2)(x_{0}) = frac(FunDeri(P_{1}, 1, 1)(x_{0}) * Q(x_{0})^{2} - 2 * Q(x_{0}) * FunDeri(Q, 1, 1)(x_{0}) * P_{1}(x_{0}), Q(x_{0})^{4})})
+apply (hypothesis 23: {FunDeri(f, 1, 2)(x_{0}) = frac(FunDeri(P_{1}, 1, 1)(x_{0}) * Q(x_{0})^{2} - 2 * Q(x_{0}) * FunDeri(Q, 1, 1)(x_{0}) * P_{1}(x_{0}), Q(x_{0})^{4})})

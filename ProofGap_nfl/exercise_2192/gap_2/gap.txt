@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. α ∈ RealSet
+2. n ∈ NonNegIntegerSet ∧ n > 0
+3. i ∈ IntegerSet
+4. |α| ≠ 1
+5. forall (x), x ∈ IntervalCC(0, π) ∧ x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π ⇒ (1 - |α|)^{2} ≤ 1 - 2 * α * cos(x) + α^{2}
+
+GOAL:
+ContinuousFuncOn(fun x [x ∈ RealSet ∧ x ∈ IntervalCC(0, π)] . ln(1 - 2 * α * cos(x) + α^{2}), [0, π])
+
+METHOD:

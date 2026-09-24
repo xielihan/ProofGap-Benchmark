@@ -1,0 +1,17 @@
+PROOF GAP @8
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. IsFunc(f)
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x, y) = cases{ frac(2 * x * y, x^{2} + y^{2}) if x^{2} + y^{2} ≠ 0; 0 if x^{2} + y^{2} = 0 }
+4. forall (g) (a), g : RealSet → RealSet ∧ a ∈ RealSet ∧ a ≠ 0 ∧ g = (fun x [x ∈ RealSet] . f(x, a)) ⇒ (forall (x), x ∈ RealSet ⇒ g(x) = frac(2 * a * x, x^{2} + a^{2}))
+5. forall (g) (a), g : RealSet → RealSet ∧ a ∈ RealSet ∧ a ≠ 0 ∧ g = (fun x [x ∈ RealSet] . f(x, a)) ⇒ ContinuousFunc(g)
+6. forall (a) (g), a ∈ RealSet ∧ g : RealSet → RealSet ∧ a = 0 ∧ g = (fun x [x ∈ RealSet] . f(x, 0)) ⇒ (forall (x), x ∈ RealSet ⇒ g(x) = 0)
+7. forall (a) (g), a ∈ RealSet ∧ g : RealSet → RealSet ∧ a = 0 ∧ g = (fun x [x ∈ RealSet] . f(x, 0)) ⇒ ContinuousFunc(g)
+8. forall (a), a ∈ RealSet ⇒ ContinuousFunc(fun x [x ∈ RealSet] . f(x, a))
+9. forall (a), a ∈ RealSet ⇒ ContinuousFunc(fun y [y ∈ RealSet] . f(a, y))
+10. forall (x) (y) (k), x ∈ RealSet ∧ y ∈ RealSet ∧ k ∈ RealSet ∧ y = k * x ⇒ lim_{ x → 0 } (f(x, y)) = lim_{ x → 0 } (frac(2 * k * x^{2}, x^{2} * (1 + k^{2})))
+
+GOAL:
+forall (x) (y) (k), x ∈ RealSet ∧ y ∈ RealSet ∧ k ∈ RealSet ∧ y = k * x ⇒ lim_{ x → 0 } (frac(2 * k * x^{2}, x^{2} * (1 + k^{2}))) = frac(2 * k, 1 + k^{2})
+
+METHOD:

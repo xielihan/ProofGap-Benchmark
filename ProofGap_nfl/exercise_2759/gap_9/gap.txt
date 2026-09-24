@@ -1,0 +1,19 @@
+PROOF GAP @9
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. g : RealSet → RealSet
+3. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ f(n, x) = frac(x, n) * ln(frac(x, n))
+4. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ g(x) = 0
+5. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ seqlim_{ n → +∞ } (frac(x, n)) = 0
+6. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ lim_{ t → 0^+ } (t * ln(t)) = 0
+7. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ seqlim_{ n → +∞ } (f(n, x)) = 0
+8. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ 0 = g(x)
+9. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ seqlim_{ n → +∞ } (f(n, x)) = g(x)
+10. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ |f(n, x) - g(x)| = |frac(x, n) * ln(frac(x, n))|
+11. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (t), t ∈ RealSet ∧ 0 < t ∧ t < δ ⇒ |t * ln(t)| < ε))
+12. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ (exists (N), N ∈ NonNegIntegerSet ∧ δ > 0 ∧ N = floor(frac(1, δ))))
+
+GOAL:
+forall (ε) (δ) (N) (n), ε ∈ RealSet ∧ δ ∈ RealSet ∧ N ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ ε > 0 ∧ δ > 0 ∧ N = floor(frac(1, δ)) ∧ n > N ∧ n ∈ PosIntegerSet ⇒ frac(1, n) < δ
+
+METHOD:

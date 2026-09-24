@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, sinh(x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(frac(1, 2 * cosh(frac(x, 2))^{2}), tanh(frac(x, 2))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } ∧ { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(frac(1, 2 * cosh(frac(x, 2))^{2}), tanh(frac(x, 2))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_4` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . tanh(frac(x, 2)), 1, 1)(x), tanh(frac(x, 2))) } ∧ { `F_4` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . tanh(frac(x, 2)), 1, 1)(x), tanh(frac(x, 2))) } = { `F_5` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_5`(x) = ln(|tanh(frac(x, 2))|) + C) }
+
+METHOD:

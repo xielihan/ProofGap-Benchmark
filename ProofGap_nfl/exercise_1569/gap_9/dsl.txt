@@ -1,0 +1,6 @@
+get_condition (hypothesis 15: {(r, 2 * h(r), f(r)) = (sqrtn(2, frac(2, 3)) * R, frac(2 * R, sqrtn(2, 3)), frac(4 * π * R^{3}, 3 * sqrtn(2, 3)))}) in (GOAL: {(r, 2 * h(r), f(r)) = (sqrtn(2, frac(2, 3)) * R, frac(2 * R, sqrtn(2, 3)), frac(4 * π * R^{3}, 3 * sqrtn(2, 3))) ⇒ MaximumPointOn(f, IntervalLoRo(0, R)) = { r }})
+assert (hypothesis 16: {r = sqrtn(2, frac(2, 3)) * R}) by proof {
+  1. autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 16: {r = sqrtn(2, frac(2, 3)) * R}); from (GOAL: {MaximumPointOn(f, IntervalLoRo(0, R)) = { r }}) to (GOAL: {MaximumPointOn(f, IntervalLoRo(0, R)) = { sqrtn(2, frac(2, 3)) * R }})
+apply (hypothesis 12: {MaximumPointOn(f, IntervalLoRo(0, R)) = { sqrtn(2, frac(2, 3)) * R }})

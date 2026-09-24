@@ -1,0 +1,2 @@
+rewrite (left_to_right, iff) (hypothesis 6: {DefInt(0, 1, (fun x [x ∈ RealSet] . frac(x^{m}, 1 + x^{n})) * diff(fun x [x ∈ RealSet] . x)) ∈ RealSet ⇔ -m < 1}); from (GOAL: {DefInt(0, 1, (fun x [x ∈ RealSet] . frac(x^{m}, 1 + x^{n})) * diff(fun x [x ∈ RealSet] . x)) ∈ RealSet ⇔ m > -1}) to (GOAL: {-m < 1 ⇔ m > -1})
+autosolve all_hypothesis

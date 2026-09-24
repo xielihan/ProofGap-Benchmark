@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. f = (fun x [x ∈ RealSet] . cases{ 2 - x^{2} * (2 + sin(frac(1, x))) if x ≠ 0; 2 if x = 0 })
+2. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) - f(0) = -x^{2} * (2 + sin(frac(1, x)))
+3. forall (δ), δ ∈ RealSet ∧ 0 < δ ∧ δ < 1 ⇒ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-δ, δ) ∧ x ≠ 0 ⇒ f(x) < f(0))
+4. 0 ∈ MaximumPoint(f)
+
+GOAL:
+f(0) = 2
+
+METHOD:

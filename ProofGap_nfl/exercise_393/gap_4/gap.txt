@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. m_{0} ∈ RealSet
+3. M_{0} ∈ RealSet
+4. forall (x), x ∈ RealSet ∧ x ∈ [0, 2 * π] ⇒ f(x) = sin(x) + cos(x)
+5. forall (x), x ∈ RealSet ∧ x ∈ [0, 2 * π] ⇒ f(x) = sqrtn(2, 2) * sin(x + frac(π, 4))
+6. inf(ImageOn(f, [0, 2 * π])) = -sqrtn(2, 2)
+7. sup(ImageOn(f, [0, 2 * π])) = sqrtn(2, 2)
+
+GOAL:
+(m_{0}, M_{0}) = (-sqrtn(2, 2), sqrtn(2, 2)) ⇒ inf(ImageOn(f, [0, 2 * π])) = m_{0} ∧ sup(ImageOn(f, [0, 2 * π])) = M_{0}
+
+METHOD:

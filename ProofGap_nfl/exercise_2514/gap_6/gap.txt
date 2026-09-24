@@ -1,0 +1,21 @@
+PROOF GAP @6
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. p ∈ RealSet ∧ p > 0
+3. C ∈ CartesianProd(RealSet, RealSet)
+4. R ⊆ CartesianProd(RealSet, RealSet)
+5. x ∈ RealSet
+6. y ∈ RealSet
+7. ξ ∈ RealSet
+8. η ∈ RealSet
+9. R = { (x, y) | x ∈ RealSet, y ∈ RealSet, 0 ≤ x ∧ x ≤ a, y^{2} ≤ 2 * p * x }
+10. η = 0
+11. ξ = frac(DefInt(0, a, (fun x [x ∈ RealSet] . x * π * y^{2}) * diff(fun x [x ∈ RealSet] . x)), DefInt(0, a, (fun x [x ∈ RealSet] . π * y^{2}) * diff(fun x [x ∈ RealSet] . x)))
+12. frac(DefInt(0, a, (fun x [x ∈ RealSet] . x * π * y^{2}) * diff(fun x [x ∈ RealSet] . x)), DefInt(0, a, (fun x [x ∈ RealSet] . π * y^{2}) * diff(fun x [x ∈ RealSet] . x))) = frac(DefInt(0, a, (fun x [x ∈ RealSet] . 2 * p * x^{2}) * diff(fun x [x ∈ RealSet] . x)), DefInt(0, a, (fun x [x ∈ RealSet] . 2 * p * x) * diff(fun x [x ∈ RealSet] . x)))
+13. frac(DefInt(0, a, (fun x [x ∈ RealSet] . 2 * p * x^{2}) * diff(fun x [x ∈ RealSet] . x)), DefInt(0, a, (fun x [x ∈ RealSet] . 2 * p * x) * diff(fun x [x ∈ RealSet] . x))) = frac(2, 3) * a
+14. ξ = frac(2, 3) * a
+
+GOAL:
+C = (frac(2, 3) * a, 0) ⇒ C = (frac(2, 3) * a, 0)
+
+METHOD:

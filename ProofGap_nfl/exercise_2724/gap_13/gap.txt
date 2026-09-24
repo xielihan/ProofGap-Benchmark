@@ -1,0 +1,21 @@
+PROOF GAP @13
+ASSUM:
+1. x ∈ RealSet
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ∧ n ∈ PosIntegerSet ⇒ 1 - x^{n} ≠ 0
+3. |x| < 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (x^{n}))
+4. |x| < 1 ⇒ MonoDecSeq(fun n [n ∈ NonNegIntegerSet ∧ n ≥ 1] . frac(1, 1 - x^{2 * n}))
+5. |x| < 1 ⇒ BoundedBelowSeq(fun n [n ∈ NonNegIntegerSet ∧ n ≥ 1] . frac(1, 1 - x^{2 * n}))
+6. |x| < 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(x^{n}, 1 - x^{2 * n})))
+7. |x| < 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(x^{2 * n}, 1 - x^{2 * n})))
+8. |x| < 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ∧ n ∈ PosIntegerSet ⇒ frac(x^{n}, 1 - x^{n}) = frac(x^{n}, 1 - x^{2 * n}) + frac(x^{2 * n}, 1 - x^{2 * n}))
+9. |x| < 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(x^{n}, 1 - x^{n})))
+10. |x| = 1 ⇒ (exists (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ∧ n ∈ PosIntegerSet ∧ 1 - x^{n} = 0)
+11. |x| = 1 ⇒ ¬ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(x^{n}, 1 - x^{n})))
+12. |x| > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(x^{n}, 1 - x^{n}))) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (-frac(1, 1 - frac(1, x)^{n})))
+13. |x| > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(x^{n}, 1 - x^{n}))) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(frac(1, x)^{n}, 1 - frac(1, x)^{n})))
+14. |x| > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(x^{n}, 1 - x^{n}))) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, 1 - frac(1, x)^{n}) - frac(frac(1, x)^{n}, 1 - frac(1, x)^{n})))
+
+GOAL:
+|x| > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(x^{n}, 1 - x^{n}))) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1))
+
+METHOD:

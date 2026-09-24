@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. x ∈ RealSet ∧ a^{2} + x ≥ 0
+3. f = (fun y [y ∈ RealSet ∧ y ≥ 0] . sqrtn(2, y))
+4. y_{0} = a^{2}
+5. Δy = x
+
+GOAL:
+y_{0} + Δy = a^{2} + x
+
+METHOD:

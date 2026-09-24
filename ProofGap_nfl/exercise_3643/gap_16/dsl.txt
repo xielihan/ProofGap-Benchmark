@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) = (24, -144, -1) ⇒ u(24, -144, -1) = -6913}) (x := {x0}) (y := {y0}) (z := {z0})
+get_condition (hypothesis 18: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet ∧ (x0, y0, z0) = (24, -144, -1)}) in (GOAL: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet ∧ (x0, y0, z0) = (24, -144, -1) ⇒ u(24, -144, -1) = -6913})
+get_prop (hypothesis 2: {forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = x^{3} + y^{2} + z^{2} + 12 * x * y + 2 * z}) (x := {24}) (y := {-144}) (z := {-1}) as (hypothesis 19: {24 ∈ RealSet ∧ -144 ∈ RealSet ∧ -1 ∈ RealSet ⇒ u(24, -144, -1) = 24^{3} + (-144)^{2} + (-1)^{2} + 12 * 24 * (-144) + 2 * (-1)})
+use_condition (obvious: {24 ∈ RealSet ∧ -144 ∈ RealSet ∧ -1 ∈ RealSet}) in (hypothesis 19: {24 ∈ RealSet ∧ -144 ∈ RealSet ∧ -1 ∈ RealSet ⇒ u(24, -144, -1) = 24^{3} + (-144)^{2} + (-1)^{2} + 12 * 24 * (-144) + 2 * (-1)}) as (hypothesis 20: {u(24, -144, -1) = 24^{3} + (-144)^{2} + (-1)^{2} + 12 * 24 * (-144) + 2 * (-1)})
+autosolve (hypothesis 20: {u(24, -144, -1) = 24^{3} + (-144)^{2} + (-1)^{2} + 12 * 24 * (-144) + 2 * (-1)})

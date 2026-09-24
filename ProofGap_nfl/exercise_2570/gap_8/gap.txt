@@ -1,0 +1,21 @@
+PROOF GAP @8
+ASSUM:
+1. a ∈ RealSet
+2. A : NonNegIntegerSet → RealSet ∧ IsSeq(A)
+3. c : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ A(n) ∈ RealSet
+5. a ≠ 0
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ seqlim_{ n → +∞ } (n * A(n)) = a
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ n * A(n) = frac(A(n), frac(1, n))
+8. a > 0 ⇒ (forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < a ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ frac(A(n), frac(1, n)) > a - ε ∧ a - ε > 0)))
+9. a > 0 ⇒ (forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < a ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ A(n) > (a - ε) * frac(1, n) ∧ A(n) > 0)))
+10. a > 0 ⇒ (forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < a ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ⇒ ConvergentSeries(sum_{ n = n_{0} }^{ +∞ } (A(n))))))
+11. a > 0 ⇒ (forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < a ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ⇒ ConvergentSeries(sum_{ n = n_{0} }^{ +∞ } (frac(1, n))))))
+12. a > 0 ⇒ (forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < a ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ⇒ DivergentSeries(sum_{ n = n_{0} }^{ +∞ } (frac(1, n))))))
+13. a > 0 ⇒ (forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < a ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ⇒ False)
+14. forall (u) (N), DivergentSeries(sum_{ n = N }^{ +∞ } (u(n))) ⇔ ¬ ConvergentSeries(sum_{ n = N }^{ +∞ } (u(n)))
+
+GOAL:
+a > 0 ⇒ (forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < a ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))))
+
+METHOD:

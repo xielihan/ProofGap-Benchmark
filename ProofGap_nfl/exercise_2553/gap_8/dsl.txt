@@ -1,0 +1,8 @@
+1. get_condition (hypothesis 9: {¬(exists (k), k ∈ IntegerSet ∧ x = k * π)}) (hypothesis 10: {seqlim_{ n → +∞ } (sin(n * x)) = 0}) in (GOAL: {¬(exists (k), k ∈ IntegerSet ∧ x = k * π) ⇒ seqlim_{ n → +∞ } (sin(n * x)) = 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 1 = sin(n * x)^{2} + cos(n * x)^{2})})
+2. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 1 = sin(n * x)^{2} + cos(n * x)^{2}}) (n := {m})
+3. get_condition (hypothesis 11: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet}) in (GOAL: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ 1 = sin(m * x)^{2} + cos(m * x)^{2}})
+4. destruct_and (hypothesis 11: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet}) as (hypothesis 12: {m ∈ NonNegIntegerSet}) (hypothesis 13: {m ∈ PosIntegerSet})
+5. assert (hypothesis 14: {m * x ∈ RealSet})
+6. get_prop (theorem 'Thm 168. (PythagoreanTrigonometricIdentity)': {forall (x), x ∈ RealSet => (sin(x)) ^ 2 + (cos(x)) ^ 2 = 1}) (x := {m * x}) as (hypothesis 15: {m * x ∈ RealSet => (sin(m * x)) ^ 2 + (cos(m * x)) ^ 2 = 1})
+7. use_condition (hypothesis 14: {m * x ∈ RealSet}) in (hypothesis 15: {m * x ∈ RealSet => (sin(m * x)) ^ 2 + (cos(m * x)) ^ 2 = 1}) as (hypothesis 16: {(sin(m * x)) ^ 2 + (cos(m * x)) ^ 2 = 1})
+8. autosolve (hypothesis 16: {(sin(m * x)) ^ 2 + (cos(m * x)) ^ 2 = 1})

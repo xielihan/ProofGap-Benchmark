@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ sin(π * x) ≠ 0 ⇒ cot(π * x) = frac(1, sin(π * x)) * cos(π * x)
+
+GOAL:
+lim_{ x → 1 } ((1 + sin(π * x))^{frac(1, sin(π * x))}) = e
+
+METHOD:

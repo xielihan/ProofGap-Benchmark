@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. α ∈ RealSet
+2. β ∈ RealSet
+3. γ ∈ RealSet
+4. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+5. cos(α)^{2} + cos(β)^{2} + cos(γ)^{2} = 1
+6. forall (x) (y) (z) (t), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ t ∈ RealSet ⇒ (x - t * cos(α))^{2} + (y - t * cos(β))^{2} + (z - t * cos(γ))^{2} - 1 = 0
+
+GOAL:
+forall (x) (t) (y) (z), x ∈ RealSet ∧ t ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ -2 * cos(α) * (x - t * cos(α)) - 2 * cos(β) * (y - t * cos(β)) - 2 * cos(γ) * (z - t * cos(γ)) = 0
+
+METHOD:

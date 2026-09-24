@@ -1,0 +1,24 @@
+PROOF GAP @6
+ASSUM:
+1. a ∈ RealSet ∧ 0 < a
+2. b ∈ RealSet ∧ a < b
+3. α ∈ RealSet ∧ 0 < α
+4. β ∈ RealSet ∧ α < β
+5. f : CartesianProd(RealSet, RealSet) → RealSet
+6. Ω ⊆ CartesianProd(RealSet, RealSet)
+7. Ω' ⊆ CartesianProd(RealSet, RealSet)
+8. D : CartesianProd(RealSet, RealSet) → RealSet
+9. Ω = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet ∧ a ≤ x ∧ x ≤ b ∧ α * x ≤ y ∧ y ≤ β * x }
+10. ContinuousFuncOn(f, Ω)
+11. x ∈ RealSet ∧ a ≤ x ∧ x ≤ b ∧ u ∈ RealSet ∧ u = x
+12. y ∈ RealSet ∧ α * x ≤ y ∧ y ≤ β * x ∧ v ∈ RealSet ∧ v = frac(y, x)
+13. Ω' = { (u, v) | u ∈ RealSet ∧ v ∈ RealSet ∧ a ≤ u ∧ u ≤ b ∧ α ≤ v ∧ v ≤ β }
+14. x = u
+15. y = u * v
+16. frac(D(x, y), D(u, v)) = u
+17. u > 0
+
+GOAL:
+DefInt(a, b, DefInt(α * x, β * x, f(x, y) * diff(fun y [y ∈ RealSet] . y)) * diff(fun x [x ∈ RealSet] . x)) = DefInt(a, b, u * DefInt(α, β, f(u, u * v) * diff(fun v [v ∈ RealSet] . v)) * diff(fun u [u ∈ RealSet] . u))
+
+METHOD:

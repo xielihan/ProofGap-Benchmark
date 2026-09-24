@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x + 1) = x^{2} - 3 * x + 2
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ f(x + 1) = (x + 1)^{2} - 5 * (x + 1) + 6
+
+METHOD:

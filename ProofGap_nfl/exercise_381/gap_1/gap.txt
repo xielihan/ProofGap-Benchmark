@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (m) (n), n ∈ NonNegIntegerSet ∧ m ∈ IntegerSet ∧ n ∈ PosIntegerSet ∧ gcd(m, n) = 1 ⇒ f(frac(m, n)) = n
+3. forall (x), x ∈ RealSet ∧ x ∉ RationalSet ⇒ f(x) = 0
+
+GOAL:
+forall (x_{0}), x_{0} ∈ RealSet ⇒ f(x_{0}) ∈ RealSet
+
+METHOD:

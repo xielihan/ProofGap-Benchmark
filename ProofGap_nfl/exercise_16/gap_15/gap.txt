@@ -1,0 +1,23 @@
+PROOF GAP @15
+ASSUM:
+1. E ⊆ RealSet
+2. forall (x), x ∈ RealSet ⇒ (x ∈ E ⇔ (exists (m), m ∈ NonNegIntegerSet ∧ (exists (n), n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ 0 < m ∧ m < n ∧ x = frac(m, n))))
+3. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ 0 < m ∧ m < n ⇒ frac(m, n) ∈ E)
+4. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ 0 < m ∧ m < n ⇒ frac(m + 1, n + 1) ∈ E)
+5. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ 0 < m ∧ m < n ⇒ frac(m + 1, n + 1) > frac(m, n))
+6. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ 0 < m ∧ m < n ⇒ frac(m^{2}, n^{2}) ∈ E)
+7. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ 0 < m ∧ m < n ⇒ frac(m^{2}, n^{2}) < frac(m, n))
+8. forall (x), x ∈ RealSet ∧ x ∈ E ⇒ (exists (y), y ∈ RealSet ∧ y ∈ E ∧ y > x)
+9. forall (x), x ∈ RealSet ∧ x ∈ E ⇒ (exists (y), y ∈ RealSet ∧ y ∈ E ∧ y < x)
+10. ¬(exists (M), M ∈ RealSet ∧ M ∈ E ∧ (forall (x), x ∈ RealSet ∧ x ∈ E ⇒ x ≤ M))
+11. ¬(exists (L), L ∈ RealSet ∧ L ∈ E ∧ (forall (x), x ∈ RealSet ∧ x ∈ E ⇒ L ≤ x))
+12. forall (x), x ∈ RealSet ∧ x ∈ E ⇒ x < 1 ∧ x > 0
+13. sup(E) = 1
+14. inf(E) = 0
+15. ¬(exists (M), M ∈ RealSet ∧ M ∈ E ∧ (forall (x), x ∈ RealSet ∧ x ∈ E ⇒ x ≤ M))
+16. ¬(exists (L), L ∈ RealSet ∧ L ∈ E ∧ (forall (x), x ∈ RealSet ∧ x ∈ E ⇒ L ≤ x))
+
+GOAL:
+sup(E) = 1
+
+METHOD:

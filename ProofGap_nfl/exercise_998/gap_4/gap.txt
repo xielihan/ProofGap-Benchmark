@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = cases{ x^{2} if x ∈ RationalSet; 0 if x ∉ RationalSet }
+3. f(0) = 0
+4. forall (Δx), Δx ∈ RealSet ∧ Δx ≠ 0 ⇒ frac(f(0 + Δx) - f(0), Δx) = cases{ Δx if Δx ∈ RationalSet; 0 if Δx ∉ RationalSet }
+5. lim_{ Δx → 0 } (frac(f(0 + Δx) - f(0), Δx)) = 0
+
+GOAL:
+DiffableFuncAt(f, 0)
+
+METHOD:

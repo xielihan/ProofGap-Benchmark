@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x + y ≠ 0 ⇒ f(x, y) = frac(x - y, x + y)
+3. lim_{ x → 0 } (lim_{ y → 0 } (f(x, y))) = lim_{ x → 0 } (lim_{ y → 0 } (frac(x - y, x + y)))
+4. lim_{ x → 0 } (lim_{ y → 0 } (frac(x - y, x + y))) = lim_{ x → 0 } (frac(x, x))
+5. lim_{ x → 0 } (frac(x, x)) = 1
+6. lim_{ x → 0 } (lim_{ y → 0 } (f(x, y))) = 1
+
+GOAL:
+lim_{ y → 0 } (lim_{ x → 0 } (f(x, y))) = lim_{ y → 0 } (lim_{ x → 0 } (frac(x - y, x + y)))
+
+METHOD:

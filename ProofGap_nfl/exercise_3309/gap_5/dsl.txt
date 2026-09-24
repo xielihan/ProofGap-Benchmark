@@ -1,0 +1,13 @@
+1. get_forall (GOAL: {forall (x) (t), x ∈ RealSet ∧ t ∈ RealSet ∧ t > 0 ⇒ FunDeri(u, 2, 1)(x, t) = a^{2} * FunDeri(u, 1, 2)(x, t)}) (x := {x0}) (t := {t0})
+2. get_condition (hypothesis 10: {x0 ∈ RealSet ∧ t0 ∈ RealSet ∧ t0 > 0}) in (GOAL: {x0 ∈ RealSet ∧ t0 ∈ RealSet ∧ t0 > 0 ⇒ FunDeri(u, 2, 1)(x0, t0) = a^{2} * FunDeri(u, 1, 2)(x0, t0)})
+3. get_prop (hypothesis 9: {forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ FunDeri(u, 2, 1)(x, t) = a^{2} * FunDeri(u, 1, 2)(x, t))}) (x := {x0}) as (hypothesis 11: {x0 ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ FunDeri(u, 2, 1)(x0, t) = a^{2} * FunDeri(u, 1, 2)(x0, t))})
+4. assert (hypothesis 12: {x0 ∈ RealSet}) by proof {
+  1. autosolve all_hypothesis
+}
+5. use_condition (hypothesis 12: {x0 ∈ RealSet}) in (hypothesis 11: {x0 ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ FunDeri(u, 2, 1)(x0, t) = a^{2} * FunDeri(u, 1, 2)(x0, t))}) as (hypothesis 13: {forall (t), t ∈ RealSet ∧ t > 0 ⇒ FunDeri(u, 2, 1)(x0, t) = a^{2} * FunDeri(u, 1, 2)(x0, t)})
+6. get_prop (hypothesis 13: {forall (t), t ∈ RealSet ∧ t > 0 ⇒ FunDeri(u, 2, 1)(x0, t) = a^{2} * FunDeri(u, 1, 2)(x0, t)}) (t := {t0}) as (hypothesis 14: {t0 ∈ RealSet ∧ t0 > 0 ⇒ FunDeri(u, 2, 1)(x0, t0) = a^{2} * FunDeri(u, 1, 2)(x0, t0)})
+7. assert (hypothesis 15: {t0 ∈ RealSet ∧ t0 > 0}) by proof {
+  1. autosolve all_hypothesis
+}
+8. use_condition (hypothesis 15: {t0 ∈ RealSet ∧ t0 > 0}) in (hypothesis 14: {t0 ∈ RealSet ∧ t0 > 0 ⇒ FunDeri(u, 2, 1)(x0, t0) = a^{2} * FunDeri(u, 1, 2)(x0, t0)}) as (hypothesis 16: {FunDeri(u, 2, 1)(x0, t0) = a^{2} * FunDeri(u, 1, 2)(x0, t0)})
+9. apply (hypothesis 16: {FunDeri(u, 2, 1)(x0, t0) = a^{2} * FunDeri(u, 1, 2)(x0, t0)})

@@ -1,0 +1,25 @@
+PROOF GAP @16
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. IsFunc(f)
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x, y) = cases{ frac(x^{2} * y, x^{4} + y^{2}) if x^{2} + y^{2} ≠ 0; 0 if x^{2} + y^{2} = 0 }
+4. f(0, 0) = 0
+5. forall (α), α ∈ RealSet ∧ sin(α) = 0 ⇒ cos(α) = 1 ∨ cos(α) = -1
+6. forall (α), α ∈ RealSet ∧ sin(α) = 0 ⇒ (forall (t), t ∈ RealSet ∧ t ≠ 0 ⇒ f(t * cos(α), t * sin(α)) = frac(t^{2} * 0, t^{4} + 0) ∧ frac(t^{2} * 0, t^{4} + 0) = 0)
+7. forall (α), α ∈ RealSet ∧ sin(α) = 0 ⇒ lim_{ t → 0 } (f(t * cos(α), t * sin(α))) = f(0, 0)
+8. forall (α), α ∈ RealSet ∧ sin(α) ≠ 0 ⇒ lim_{ t → 0 } (f(t * cos(α), t * sin(α))) = lim_{ t → 0 } (frac(t^{3} * cos(α)^{2} * sin(α), t^{4} * cos(α)^{4} + t^{2} * sin(α)^{2}))
+9. forall (α), α ∈ RealSet ∧ sin(α) ≠ 0 ⇒ lim_{ t → 0 } (frac(t^{3} * cos(α)^{2} * sin(α), t^{4} * cos(α)^{4} + t^{2} * sin(α)^{2})) = lim_{ t → 0 } (frac(t * cos(α)^{2} * sin(α), t^{2} * cos(α)^{4} + sin(α)^{2}))
+10. forall (α), α ∈ RealSet ∧ sin(α) ≠ 0 ⇒ lim_{ t → 0 } (frac(t * cos(α)^{2} * sin(α), t^{2} * cos(α)^{4} + sin(α)^{2})) = 0
+11. forall (α), α ∈ RealSet ∧ sin(α) ≠ 0 ⇒ lim_{ t → 0 } (f(t * cos(α), t * sin(α))) = 0
+12. forall (α), α ∈ RealSet ∧ sin(α) ≠ 0 ⇒ lim_{ t → 0 } (f(t * cos(α), t * sin(α))) = f(0, 0)
+13. forall (α), α ∈ RealSet ⇒ lim_{ t → 0 } (f(t * cos(α), t * sin(α))) = f(0, 0)
+14. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y = x^{2} ⇒ lim_{ x → 0 } (f(x, y)) = lim_{ x → 0 } (frac(x^{4}, x^{4} + x^{4}))
+15. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y = x^{2} ⇒ lim_{ x → 0 } (frac(x^{4}, x^{4} + x^{4})) = frac(1, 2)
+16. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y = x^{2} ⇒ lim_{ x → 0 } (f(x, y)) = frac(1, 2)
+17. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y = x^{2} ⇒ frac(1, 2) ≠ f(0, 0)
+18. ¬ContinuousFuncAt(f, (0, 0))
+
+GOAL:
+(forall (α), α ∈ RealSet ⇒ lim_{ t → 0 } (f(t * cos(α), t * sin(α))) = f(0, 0)) ∧ ¬ContinuousFuncAt(f, (0, 0))
+
+METHOD:

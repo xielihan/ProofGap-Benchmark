@@ -1,0 +1,11 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ a^{x^{2}} + b^{x^{2}} - a^{x} - b^{x} ≠ 0 ⇒ frac(a^{x^{2}} + b^{x^{2}}, a^{x} + b^{x})^{frac(1, x)} = (1 + frac(a^{x^{2}} + b^{x^{2}} - a^{x} - b^{x}, a^{x} + b^{x}))^{frac(1, x)}}) (x := {t})
+2. get_condition (hypothesis 3: {t ∈ RealSet ∧ t ≠ 0 ∧ a^{t^{2}} + b^{t^{2}} - a^{t} - b^{t} ≠ 0}) in (GOAL: {t ∈ RealSet ∧ t ≠ 0 ∧ a^{t^{2}} + b^{t^{2}} - a^{t} - b^{t} ≠ 0 ⇒ frac(a^{t^{2}} + b^{t^{2}}, a^{t} + b^{t})^{frac(1, t)} = (1 + frac(a^{t^{2}} + b^{t^{2}} - a^{t} - b^{t}, a^{t} + b^{t}))^{frac(1, t)}})
+3. destruct_and (hypothesis 1: {a ∈ RealSet ∧ a > 0}) as (hypothesis 4: {a ∈ RealSet}) (hypothesis 5: {a > 0})
+4. destruct_and (hypothesis 2: {b ∈ RealSet ∧ b > 0}) as (hypothesis 6: {b ∈ RealSet}) (hypothesis 7: {b > 0})
+5. destruct_and (hypothesis 3: {t ∈ RealSet ∧ t ≠ 0 ∧ a^{t^{2}} + b^{t^{2}} - a^{t} - b^{t} ≠ 0}) as (hypothesis 8: {t ∈ RealSet}) (hypothesis 9: {t ≠ 0}) (hypothesis 10: {a^{t^{2}} + b^{t^{2}} - a^{t} - b^{t} ≠ 0})
+6. get_prop (theorem 'Thm 387. (PositiveBasePowerPositive)': {forall (a) (u), a ∈ RealSet => u ∈ RealSet => a > 0 => a ^ u > 0}) (a := {a}) (u := {t}) as (hypothesis 11: {a ∈ RealSet => t ∈ RealSet => a > 0 => a ^ t > 0})
+7. get_prop (theorem 'Thm 387. (PositiveBasePowerPositive)': {forall (a) (u), a ∈ RealSet => u ∈ RealSet => a > 0 => a ^ u > 0}) (a := {b}) (u := {t}) as (hypothesis 12: {b ∈ RealSet => t ∈ RealSet => b > 0 => b ^ t > 0})
+8. use_condition (hypothesis 4: {a ∈ RealSet}) (hypothesis 8: {t ∈ RealSet}) (hypothesis 5: {a > 0}) in (hypothesis 11: {a ∈ RealSet => t ∈ RealSet => a > 0 => a ^ t > 0}) as (hypothesis 13: {a ^ t > 0})
+9. use_condition (hypothesis 6: {b ∈ RealSet}) (hypothesis 8: {t ∈ RealSet}) (hypothesis 7: {b > 0}) in (hypothesis 12: {b ∈ RealSet => t ∈ RealSet => b > 0 => b ^ t > 0}) as (hypothesis 14: {b ^ t > 0})
+10. assert (hypothesis 15: {a ^ t + b ^ t ≠ 0})
+11. autosolve all_hypothesis

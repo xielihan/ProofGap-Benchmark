@@ -1,0 +1,17 @@
+PROOF GAP @7
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, CartesianProd(RealSet, RealSet))) → RealSet
+2. r : CartesianProd(RealSet, CartesianProd(RealSet, CartesianProd(RealSet, RealSet))) → RealSet
+3. forall (x) (y) (ξ) (η), x ∈ RealSet ∧ y ∈ RealSet ∧ ξ ∈ RealSet ∧ η ∈ RealSet ∧ (x, y) ≠ (ξ, η) ⇒ u(x, y, ξ, η) = ln(frac(1, sqrtn(2, (x - ξ)^{2} + (y - η)^{2})))
+4. r = (fun x, y, ξ, η [x ∈ RealSet ∧ y ∈ RealSet ∧ ξ ∈ RealSet ∧ η ∈ RealSet] . sqrtn(2, (x - ξ)^{2} + (y - η)^{2}))
+5. forall (x) (y) (ξ) (η), x ∈ RealSet ∧ y ∈ RealSet ∧ ξ ∈ RealSet ∧ η ∈ RealSet ∧ (x, y) ≠ (ξ, η) ⇒ u(x, y, ξ, η) = -ln(r(x, y, ξ, η))
+6. forall (x) (y) (ξ) (η), x ∈ RealSet ∧ y ∈ RealSet ∧ ξ ∈ RealSet ∧ η ∈ RealSet ∧ (x, y) ≠ (ξ, η) ⇒ FunDeri(u, 1, 1)(x, y, ξ, η) = -frac(1, r(x, y, ξ, η)) * FunDeri(r, 1, 1)(x, y, ξ, η)
+7. forall (x) (y) (ξ) (η), x ∈ RealSet ∧ y ∈ RealSet ∧ ξ ∈ RealSet ∧ η ∈ RealSet ∧ (x, y) ≠ (ξ, η) ⇒ -frac(1, r(x, y, ξ, η)) * FunDeri(r, 1, 1)(x, y, ξ, η) = -frac(x - ξ, r(x, y, ξ, η)^{2})
+8. forall (x) (y) (ξ) (η), x ∈ RealSet ∧ y ∈ RealSet ∧ ξ ∈ RealSet ∧ η ∈ RealSet ∧ (x, y) ≠ (ξ, η) ⇒ FunDeri(u, 1, 1)(x, y, ξ, η) = -frac(x - ξ, r(x, y, ξ, η)^{2})
+9. forall (x) (y) (ξ) (η), x ∈ RealSet ∧ y ∈ RealSet ∧ ξ ∈ RealSet ∧ η ∈ RealSet ∧ (x, y) ≠ (ξ, η) ⇒ FunDeri(FunDeri(u, 1, 1), 2, 1)(x, y, ξ, η) = frac(2 * (x - ξ) * (y - η), r(x, y, ξ, η)^{4})
+10. forall (x) (y) (ξ) (η), x ∈ RealSet ∧ y ∈ RealSet ∧ ξ ∈ RealSet ∧ η ∈ RealSet ∧ (x, y) ≠ (ξ, η) ⇒ FunDeri(FunDeri(FunDeri(u, 1, 1), 2, 1), 3, 1)(x, y, ξ, η) = -frac(2 * (y - η), r(x, y, ξ, η)^{4}) + frac(8 * (x - ξ)^{2} * (y - η), r(x, y, ξ, η)^{6})
+
+GOAL:
+forall (x) (y) (ξ) (η), x ∈ RealSet ∧ y ∈ RealSet ∧ ξ ∈ RealSet ∧ η ∈ RealSet ∧ (x, y) ≠ (ξ, η) ⇒ FunDeri(FunDeri(FunDeri(FunDeri(u, 1, 1), 2, 1), 3, 1), 4, 1)(x, y, ξ, η) = frac(2, r(x, y, ξ, η)^{4}) - frac(8 * (y - η)^{2}, r(x, y, ξ, η)^{6}) - frac(8 * (x - ξ)^{2}, r(x, y, ξ, η)^{6}) + frac(48 * (x - ξ)^{2} * (y - η)^{2}, r(x, y, ξ, η)^{8})
+
+METHOD:

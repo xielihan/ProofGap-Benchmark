@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ 0 ⇒ u(x, y) = arctan(frac(y, x))
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(u, 1, 1)(x, y) = frac(1, 1 + frac(y, x)^{2}) * -frac(y, x^{2}) ∧ frac(1, 1 + frac(y, x)^{2}) * -frac(y, x^{2}) = -frac(y, x^{2} + y^{2})
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(u, 2, 1)(x, y) = frac(1, 1 + frac(y, x)^{2}) * frac(1, x) ∧ frac(1, 1 + frac(y, x)^{2}) * frac(1, x) = frac(x, x^{2} + y^{2})
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(u, 1, 2)(x, y) = frac(2 * x * y, (x^{2} + y^{2})^{2})
+
+METHOD:

@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. (lim_{ a → -∞ } (DefInt(a, 0, (fun x [x ∈ RealSet] . frac(1, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x)))) + (lim_{ b → +∞ } (DefInt(0, b, (fun x [x ∈ RealSet] . frac(1, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x)))) = π
+
+GOAL:
+DefInt(-∞, +∞, (fun x [x ∈ RealSet] . frac(1, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x)) = π
+
+METHOD:

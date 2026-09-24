@@ -1,0 +1,2 @@
+rewrite_in limit (left_to_right, equation) (hypothesis 2: {forall (x), x ∈ RealSet ∧ -1 <= x ∧ x <= 1 ⇒ f(x) = sqrtn(2, 1 + x) - sqrtn(2, 1 - x)}); from (GOAL: {lim_{ x → 0 } (frac(f(x), x)) = 1}) to (GOAL: {lim_{ x → 0 } (frac(sqrtn(2, 1 + x) - sqrtn(2, 1 - x), x)) = 1})
+apply (hypothesis 6: {lim_{ x → 0 } (frac(sqrtn(2, 1 + x) - sqrtn(2, 1 - x), x)) = 1})

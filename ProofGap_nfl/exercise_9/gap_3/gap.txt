@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (n), n ∈ IntegerSet ∧ n = 2 ⇒ prod_{ i = 1 }^{ n } ((2 * i)!) = 2! * 4!
+2. forall (n), n ∈ IntegerSet ∧ n = 2 ⇒ 2! * 4! = 48
+
+GOAL:
+forall (n), n ∈ IntegerSet ∧ n = 2 ⇒ prod_{ i = 1 }^{ n } ((2 * i)!) = 48
+
+METHOD:

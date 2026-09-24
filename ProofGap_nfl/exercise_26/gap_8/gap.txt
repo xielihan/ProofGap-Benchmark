@@ -1,0 +1,15 @@
+PROOF GAP @8
+ASSUM:
+1. x ∈ RealSet
+2. forall (t), t ∈ RealSet ∧ t = x - 2 ⇒ t ∈ RealSet
+3. forall (t), t ∈ RealSet ∧ t = x - 2 ⇒ |t + 4| + |t| ≤ 12
+4. forall (t), t ∈ RealSet ∧ t = x - 2 ⇒ |t + 4| ≤ 12 - |t|
+5. forall (t), t ∈ RealSet ∧ t = x - 2 ⇒ (t + 4)^{2} ≤ (12 - |t|)^{2}
+6. forall (t), t ∈ RealSet ∧ t = x - 2 ⇒ t^{2} + 8 * t + 16 ≤ 144 - 24 * |t| + t^{2}
+7. forall (t), t ∈ RealSet ∧ t = x - 2 ⇒ 3 * |t| ≤ 16 - t
+8. forall (t), t ∈ RealSet ∧ t = x - 2 ⇒ 9 * t^{2} ≤ (16 - t)^{2}
+
+GOAL:
+forall (t), t ∈ RealSet ∧ t = x - 2 ⇒ t^{2} + 4 * t - 32 ≤ 0
+
+METHOD:

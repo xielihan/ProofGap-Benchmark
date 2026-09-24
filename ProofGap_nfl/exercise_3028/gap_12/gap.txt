@@ -1,0 +1,25 @@
+PROOF GAP @12
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. n ∈ NonNegIntegerSet ∧ n ≥ 1
+4. a : NonNegIntegerSet → RealSet
+5. C ∈ RealSet
+6. C_{1} ∈ RealSet
+7. seqlim_{ n → +∞ } (frac(frac((n!)^{2}, (2 * n + 2)!) * (2 * x)^{2 * n + 2}, frac(((n - 1)!)^{2}, (2 * n)!) * (2 * x)^{2 * n})) = seqlim_{ n → +∞ } (frac(4 * n^{2} * x^{2}, (2 * n + 2) * (2 * n + 1)))
+8. seqlim_{ n → +∞ } (frac(4 * n^{2} * x^{2}, (2 * n + 2) * (2 * n + 1))) = x^{2}
+9. seqlim_{ n → +∞ } (frac(frac((n!)^{2}, (2 * n + 2)!) * (2 * x)^{2 * n + 2}, frac(((n - 1)!)^{2}, (2 * n)!) * (2 * x)^{2 * n})) = x^{2}
+10. |x| < 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(((n - 1)!)^{2}, (2 * n)!) * (2 * x)^{2 * n}))
+11. |x| > 1 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(((n - 1)!)^{2}, (2 * n)!) * (2 * x)^{2 * n}))
+12. a(n) = frac(((n - 1)!)^{2} * 4^{n}, (2 * n)!)
+13. seqlim_{ n → +∞ } (n * (frac(a(n), a(n + 1)) - 1)) = seqlim_{ n → +∞ } (frac(3 * n + 1, 2 * n))
+14. seqlim_{ n → +∞ } (frac(3 * n + 1, 2 * n)) = frac(3, 2)
+15. frac(3, 2) > 1
+16. seqlim_{ n → +∞ } (n * (frac(a(n), a(n + 1)) - 1)) > 1
+17. |x| = 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(((n - 1)!)^{2}, (2 * n)!) * (2 * x)^{2 * n}))
+18. ContinuousFuncOn(f, [-1, 1])
+
+GOAL:
+-1 < x ∧ x < 1 ⇒ FunDeri(f, 1, 1)(x) = sum_{ n = 1 }^{ +∞ } (frac(((n - 1)!)^{2}, (2 * n)!) * 4 * n * (2 * x)^{2 * n - 1})
+
+METHOD:

@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ⇒ f(y / x) = frac(sqrtn(2, x^{2} + y^{2}), x)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ⇒ f(y / x) = sqrtn(2, 1 + (y / x)^{2})
+
+METHOD:

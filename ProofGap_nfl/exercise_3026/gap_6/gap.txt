@@ -1,0 +1,16 @@
+PROOF GAP @6
+ASSUM:
+1. S : RealSet → RealSet
+2. z : RealSet → ComplexSet
+3. forall (x), x ∈ RealSet ⇒ z(x) = e^{__IMAGINARY_UNIT__ * x}
+4. forall (x), x ∈ RealSet ⇒ sum_{ n = 0 }^{ +∞ } (frac(z(x)^{n}, n!)) = e^{z(x)}
+5. forall (x), x ∈ RealSet ⇒ sum_{ n = 0 }^{ +∞ } (frac(z(x)^{n}, n!)) = (sum_{ n = 0 }^{ +∞ } (frac(cos(n * x), n!))) + __IMAGINARY_UNIT__ * (sum_{ n = 0 }^{ +∞ } (frac(sin(n * x), n!)))
+6. forall (x), x ∈ RealSet ⇒ e^{z(x)} = e^{cos(x) + __IMAGINARY_UNIT__ * sin(x)}
+7. forall (x), x ∈ RealSet ⇒ e^{cos(x) + __IMAGINARY_UNIT__ * sin(x)} = e^{cos(x)} * (cos(sin(x)) + __IMAGINARY_UNIT__ * sin(sin(x)))
+8. forall (x), x ∈ RealSet ⇒ e^{z(x)} = e^{cos(x)} * (cos(sin(x)) + __IMAGINARY_UNIT__ * sin(sin(x)))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ sum_{ n = 0 }^{ +∞ } (frac(cos(n * x), n!)) = e^{cos(x)} * cos(sin(x))
+
+METHOD:
+[@method 根据 "复数相等则实部相等" @]

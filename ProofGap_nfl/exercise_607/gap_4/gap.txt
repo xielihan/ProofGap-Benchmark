@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. (forall (x) (p) (q), x ∈ RationalSet ∧ p ∈ IntegerSet ∧ q ∈ PosIntegerSet ∧ gcd(p, q) = 1 ∧ x = frac(p, q) ⇒ φ(x) = frac(1, q)) ∧ (forall (x), x ∈ RealSet ∧ x ∉ RationalSet ⇒ φ(x) = 0)
+2. ψ = (fun x [x ∈ RealSet] . cases{ 1 if x ≠ 0; 0 if x = 0 })
+3. lim_{ x → 0 } (φ(x)) = 0
+4. lim_{ x → 0 } (ψ(x)) = 1
+5. u = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(sqrtn(2, 2), n))
+6. v = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(1, n))
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) ∈ RealSet ∧ u(n) ∉ RationalSet ∧ v(n) ∈ RationalSet
+
+GOAL:
+seqlim_{ n → +∞ } (frac(sqrtn(2, 2), n)) = 0
+
+METHOD:

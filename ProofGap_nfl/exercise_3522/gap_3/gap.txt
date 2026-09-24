@@ -1,0 +1,18 @@
+PROOF GAP @3
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. U : CartesianProd(RealSet, RealSet) → RealSet
+3. xp : CartesianProd(RealSet, RealSet) → RealSet
+4. yp : CartesianProd(RealSet, RealSet) → RealSet
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y > 0 ⇒ xp(x, y) = frac(x, y) ∧ yp(x, y) = -frac(1, y) ∧ u(x, y) = frac(U(xp(x, y), yp(x, y)), sqrtn(2, y)) * e^{-frac(x^{2}, 4 * y)}
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y > 0 ⇒ FunDeri(u, 1, 2)(x, y) = FunDeri(u, 2, 1)(x, y)
+7. ContinuouslyDiffableFunc(u)
+8. ContinuouslyDiffableFunc(U)
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ U(xp(x, y), yp(x, y)) > 0
+10. forall (y) (x), y ∈ RealSet ∧ y > 0 ∧ x ∈ RealSet ⇒ diff(xp) = frac(diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x), y) - frac(x, y^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+11. forall (y), y ∈ RealSet ∧ y > 0 ⇒ diff(yp) = frac(1, y^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y > 0 ⇒ ln(U(xp(x, y), yp(x, y))) = ln(u(x, y)) + frac(1, 2) * ln(y) + frac(x^{2}, 4 * y)
+
+METHOD:

@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ cos(x) + x * sin(x) ≠ 0 ⇒ y(x) = frac(sin(x) - x * cos(x), cos(x) + x * sin(x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ cos(x) + x * sin(x) ≠ 0 ⇒ FunDeri(y, 1, 1)(x) = frac((x * sin(x) - cos(x) + cos(x)) * (cos(x) + x * sin(x)) - (sin(x) - sin(x) + x * cos(x)) * (sin(x) - x * cos(x)), (cos(x) + x * sin(x))^{2})
+
+METHOD:

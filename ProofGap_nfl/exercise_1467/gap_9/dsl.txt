@@ -1,0 +1,18 @@
+get_exists (hypothesis 13: {exists (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-∞, 0) ∧ f(x) = 0}) (x := {x0})
+exists (x := {x0})
+assert (hypothesis 17: {IsSet(IntervalLoRo(-∞, 0))})
+get_prop (theorem 'Thm 302. (StrictlyIncreasingOnSetDefinition)': {forall (f) (S), f : RealSet -> RealSet => IsSet(S) => (StrictMonoIncFuncOn(f, S) <==> (forall (x) (y), x ∈ S => y ∈ S => x < y => f(x) < f(y)))}) (f := {f}) (S := {IntervalLoRo(-∞, 0)}) as (hypothesis 18: {f : RealSet -> RealSet => IsSet(IntervalLoRo(-∞, 0)) => (StrictMonoIncFuncOn(f, IntervalLoRo(-∞, 0)) <==> (forall (x) (y), x ∈ IntervalLoRo(-∞, 0) => y ∈ IntervalLoRo(-∞, 0) => x < y => f(x) < f(y)))})
+use_condition (hypothesis 2: {f : RealSet → RealSet}) (hypothesis 17: {IsSet(IntervalLoRo(-∞, 0))}) in (hypothesis 18: {f : RealSet -> RealSet => IsSet(IntervalLoRo(-∞, 0)) => (StrictMonoIncFuncOn(f, IntervalLoRo(-∞, 0)) <==> (forall (x) (y), x ∈ IntervalLoRo(-∞, 0) => y ∈ IntervalLoRo(-∞, 0) => x < y => f(x) < f(y)))}) as (hypothesis 19: {StrictMonoIncFuncOn(f, IntervalLoRo(-∞, 0)) <==> (forall (x) (y), x ∈ IntervalLoRo(-∞, 0) => y ∈ IntervalLoRo(-∞, 0) => x < y => f(x) < f(y))})
+rewrite (left_to_right, iff) (hypothesis 19: {StrictMonoIncFuncOn(f, IntervalLoRo(-∞, 0)) <==> (forall (x) (y), x ∈ IntervalLoRo(-∞, 0) => y ∈ IntervalLoRo(-∞, 0) => x < y => f(x) < f(y))}); from (hypothesis 15: {StrictMonoIncFuncOn(f, IntervalLoRo(-∞, 0))}) to (hypothesis 15: {forall (x) (y), x ∈ IntervalLoRo(-∞, 0) => y ∈ IntervalLoRo(-∞, 0) => x < y => f(x) < f(y)})
+assert (hypothesis 20: {forall (x1), x1 ∈ RealSet ∧ x1 ∈ IntervalLoRo(-∞, 0) ∧ f(x1) = 0 ⇒ x1 = x0}) by proof {
+  get_forall (GOAL: {forall (x1), x1 ∈ RealSet ∧ x1 ∈ IntervalLoRo(-∞, 0) ∧ f(x1) = 0 ⇒ x1 = x0}) (x1 := {x2})
+  get_condition (hypothesis 20: {x2 ∈ RealSet ∧ x2 ∈ IntervalLoRo(-∞, 0) ∧ f(x2) = 0}) in (GOAL: {x2 ∈ RealSet ∧ x2 ∈ IntervalLoRo(-∞, 0) ∧ f(x2) = 0 ⇒ x2 = x0})
+  get_prop (hypothesis 15: {forall (x) (y), x ∈ IntervalLoRo(-∞, 0) => y ∈ IntervalLoRo(-∞, 0) => x < y => f(x) < f(y)}) (x := {x0}) (y := {x2}) as (hypothesis 21: {x0 ∈ IntervalLoRo(-∞, 0) => x2 ∈ IntervalLoRo(-∞, 0) => x0 < x2 => f(x0) < f(x2)})
+  get_prop (hypothesis 15: {forall (x) (y), x ∈ IntervalLoRo(-∞, 0) => y ∈ IntervalLoRo(-∞, 0) => x < y => f(x) < f(y)}) (x := {x2}) (y := {x0}) as (hypothesis 22: {x2 ∈ IntervalLoRo(-∞, 0) => x0 ∈ IntervalLoRo(-∞, 0) => x2 < x0 => f(x2) < f(x0)})
+  assert (hypothesis 23: {x0 ∈ IntervalLoRo(-∞, 0)})
+  assert (hypothesis 24: {x2 ∈ IntervalLoRo(-∞, 0)})
+  use_condition (hypothesis 23: {x0 ∈ IntervalLoRo(-∞, 0)}) (hypothesis 24: {x2 ∈ IntervalLoRo(-∞, 0)}) in (hypothesis 21: {x0 ∈ IntervalLoRo(-∞, 0) => x2 ∈ IntervalLoRo(-∞, 0) => x0 < x2 => f(x0) < f(x2)}) as (hypothesis 25: {x0 < x2 => f(x0) < f(x2)})
+  use_condition (hypothesis 24: {x2 ∈ IntervalLoRo(-∞, 0)}) (hypothesis 23: {x0 ∈ IntervalLoRo(-∞, 0)}) in (hypothesis 22: {x2 ∈ IntervalLoRo(-∞, 0) => x0 ∈ IntervalLoRo(-∞, 0) => x2 < x0 => f(x2) < f(x0)}) as (hypothesis 26: {x2 < x0 => f(x2) < f(x0)})
+  autosolve all_hypothesis using SmtLraSolver
+}
+autosolve (hypothesis 16: {x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(-∞, 0) ∧ f(x0) = 0}) (hypothesis 20: {forall (x1), x1 ∈ RealSet ∧ x1 ∈ IntervalLoRo(-∞, 0) ∧ f(x1) = 0 ⇒ x1 = x0})

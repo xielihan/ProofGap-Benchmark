@@ -1,0 +1,22 @@
+PROOF GAP @4
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. z : RealSet → RealSet
+4. a ∈ RealSet ∧ a > 0
+5. h ∈ RealSet ∧ h > 0
+6. C ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+7. I_{x} ∈ RealSet
+8. I_{y} ∈ RealSet
+9. I_{z} ∈ RealSet
+10. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ x(t) = a * cos(t)
+11. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ y(t) = a * sin(t)
+12. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ z(t) = frac(h, 2 * π) * t
+13. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ (exists (s), s ∈ RealSet ∧ diff(s) = sqrtn(2, a^{2} * sin(t)^{2} + a^{2} * cos(t)^{2} + frac(h^{2}, 4 * π^{2})) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . t))
+14. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ sqrtn(2, a^{2} * sin(t)^{2} + a^{2} * cos(t)^{2} + frac(h^{2}, 4 * π^{2})) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . t) = frac(sqrtn(2, 4 * π^{2} * a^{2} + h^{2}), 2 * π) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . t)
+15. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ (exists (s), s ∈ RealSet ∧ diff(s) = frac(sqrtn(2, 4 * π^{2} * a^{2} + h^{2}), 2 * π) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . t))
+
+GOAL:
+I_{x} = ScalarCurveInt(C, (y^{2} + z^{2}) * diff(s))
+
+METHOD:

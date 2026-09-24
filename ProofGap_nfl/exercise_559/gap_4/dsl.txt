@@ -1,0 +1,6 @@
+1. destruct_and (hypothesis 1: {a ∈ RealSet /\ a > 0}) as (hypothesis 7: {a ∈ RealSet}) (hypothesis 8: {a > 0})
+2. destruct_and (hypothesis 2: {b ∈ RealSet /\ b > 0}) as (hypothesis 9: {b ∈ RealSet}) (hypothesis 10: {b > 0})
+3. get_prop (theorem 'Thm 202. (NaturalLogarithmQuotient)': {forall (x) (y), x ∈ RealSet => y ∈ RealSet => (x > 0 => y > 0 => ln (x / y) = ln(x) - ln(y))}) (x := {a}) (y := {b}) as (hypothesis 11: {a ∈ RealSet => b ∈ RealSet => a > 0 => b > 0 => ln (a / b) = ln(a) - ln(b)})
+4. use_condition (hypothesis 7: {a ∈ RealSet}) (hypothesis 9: {b ∈ RealSet}) (hypothesis 8: {a > 0}) (hypothesis 10: {b > 0}) in (hypothesis 11: {a ∈ RealSet => b ∈ RealSet => a > 0 => b > 0 => ln (a / b) = ln(a) - ln(b)}) as (hypothesis 12: {ln (a / b) = ln(a) - ln(b)})
+5. rewrite (left_to_right, equation) (hypothesis 12: {ln (a / b) = ln(a) - ln(b)}); from (GOAL: {lim_{ x → 0 } (frac(a^{x^{2}} - b^{x^{2}}, (a^{x} - b^{x})^{2})) = ln(frac(a, b))^{-1}}) to (GOAL: {lim_{ x → 0 } (frac(a^{x^{2}} - b^{x^{2}}, (a^{x} - b^{x})^{2})) = (ln(a) - ln(b))^{-1}})
+6. autosolve all_hypothesis

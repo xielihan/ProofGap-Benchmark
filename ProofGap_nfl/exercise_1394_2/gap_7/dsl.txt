@@ -1,0 +1,10 @@
+get_exists (hypothesis 9: {exists (θ), θ ∈ RealSet ∧ 0 < θ ∧ θ < 1 ∧ |FunDeri(f, 1, 5)(θ * x)| = |sin(θ * x + frac(5, 2) * π)|}) (θ := {θ0})
+destruct_and (hypothesis 11: {θ0 ∈ RealSet ∧ 0 < θ0 ∧ θ0 < 1 ∧ |FunDeri(f, 1, 5)(θ0 * x)| = |sin(θ0 * x + frac(5, 2) * π)|}) as (hypothesis 12: {θ0 ∈ RealSet}) (hypothesis 13: {0 < θ0}) (hypothesis 14: {θ0 < 1}) (hypothesis 15: {|FunDeri(f, 1, 5)(θ0 * x)| = |sin(θ0 * x + frac(5, 2) * π)|})
+get_prop (theorem 'Thm 166. (SineBounded)': {forall (x), x ∈ RealSet => -1 <= sin(x) /\ sin(x) <= 1}) (x := {θ0 * x + frac(5, 2) * π}) as (hypothesis 16: {θ0 * x + frac(5, 2) * π ∈ RealSet => -1 <= sin(θ0 * x + frac(5, 2) * π) /\ sin(θ0 * x + frac(5, 2) * π) <= 1})
+use_condition (obvious: {θ0 * x + frac(5, 2) * π ∈ RealSet}) in (hypothesis 16: {θ0 * x + frac(5, 2) * π ∈ RealSet => -1 <= sin(θ0 * x + frac(5, 2) * π) /\ sin(θ0 * x + frac(5, 2) * π) <= 1}) as (hypothesis 17: {-1 <= sin(θ0 * x + frac(5, 2) * π) /\ sin(θ0 * x + frac(5, 2) * π) <= 1})
+assert (hypothesis 18: {|sin(θ0 * x + frac(5, 2) * π)| <= 1}) by proof {
+  autosolve (hypothesis 17: {-1 <= sin(θ0 * x + frac(5, 2) * π) /\ sin(θ0 * x + frac(5, 2) * π) <= 1}) using SgnSolver
+}
+rewrite (right_to_left, equation) (hypothesis 15: {|FunDeri(f, 1, 5)(θ0 * x)| = |sin(θ0 * x + frac(5, 2) * π)|}); from (hypothesis 18: {|sin(θ0 * x + frac(5, 2) * π)| <= 1}) to (hypothesis 19: {|FunDeri(f, 1, 5)(θ0 * x)| <= 1})
+exists (θ := {θ0})
+autosolve (hypothesis 12: {θ0 ∈ RealSet}) (hypothesis 13: {0 < θ0}) (hypothesis 14: {θ0 < 1}) (hypothesis 19: {|FunDeri(f, 1, 5)(θ0 * x)| <= 1})

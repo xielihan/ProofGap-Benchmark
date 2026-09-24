@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. m ∈ NonNegIntegerSet
+2. n ∈ NonNegIntegerSet
+3. m ∈ PosIntegerSet
+4. n ∈ PosIntegerSet
+5. forall (x), x ∈ RealSet ∧ x^{n} ≠ 1 ⇒ frac(x^{m} - 1, x^{n} - 1) = frac(sum_{ i = 0 }^{ m - 1 } (x^{i}), sum_{ j = 0 }^{ n - 1 } (x^{j}))
+6. lim_{ x → 1 } (frac(x^{m} - 1, x^{n} - 1)) = lim_{ x → 1 } (frac(sum_{ i = 0 }^{ m - 1 } (x^{i}), sum_{ j = 0 }^{ n - 1 } (x^{j})))
+
+GOAL:
+lim_{ x → 1 } (frac(sum_{ i = 0 }^{ m - 1 } (x^{i}), sum_{ j = 0 }^{ n - 1 } (x^{j}))) = frac(m, n)
+
+METHOD:

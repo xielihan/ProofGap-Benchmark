@@ -1,0 +1,36 @@
+PROOF GAP @27
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. forall (t), t ∈ RealSet ∧ t ≠ 0 ⇒ f(t) = t^{2} + frac(1, t^{2}) - 10 * t
+4. f(0.4) = 2.41
+5. f(0.5) = -0.75
+6. forall (t), t ∈ RealSet ∧ 0.4 < t ∧ t < 0.5 ⇒ FunDeri(f, 1, 1)(t) ≠ 0
+7. exists (`ξ_1`), `ξ_1` ∈ RealSet ∧ `ξ_1` ∈ IntervalLoRo(0.4, 0.5) ∧ f(`ξ_1`) = 0 ∧ (forall (`ξ_11`), `ξ_11` ∈ RealSet ∧ `ξ_11` ∈ IntervalLoRo(0.4, 0.5) ∧ f(`ξ_11`) = 0 ⇒ `ξ_11` = `ξ_1`)
+8. forall (t), t ∈ RealSet ∧ 0.4 ≤ t ∧ t ≤ 0.5 ⇒ FunDeri(f, 1, 2)(t) ≠ 0
+9. f(0.4) * FunDeri(f, 1, 2)(0.4) > 0
+10. exists (x_{1}), x_{1} ∈ RealSet ∧ x_{1} = 0.4 - frac(f(0.4), FunDeri(f, 1, 1)(0.4))
+11. 0.4 - frac(f(0.4), FunDeri(f, 1, 1)(0.4)) = 0.459
+12. exists (x_{1}), x_{1} ∈ RealSet ∧ x_{1} = 0.459
+13. exists (x_{2}), x_{2} ∈ RealSet ∧ x_{2} = 0.459 - frac(f(0.459), FunDeri(f, 1, 1)(0.459))
+14. 0.459 - frac(f(0.459), FunDeri(f, 1, 1)(0.459)) = 0.471
+15. exists (x_{2}), x_{2} ∈ RealSet ∧ x_{2} = 0.471
+16. exists (x_{3}), x_{3} ∈ RealSet ∧ x_{3} = 0.471 - frac(f(0.471), FunDeri(f, 1, 1)(0.471))
+17. 0.471 - frac(f(0.471), FunDeri(f, 1, 1)(0.471)) = 0.472
+18. exists (x_{3}), x_{3} ∈ RealSet ∧ x_{3} = 0.472
+19. f(0.472) = -0.013
+20. forall (t), t ∈ RealSet ∧ 0.4 < t ∧ t < 0.5 ⇒ FunDeri(f, 1, 1)(t) < 0
+21. exists (m), m ∈ RealSet ∧ m = inf({ |FunDeri(f, 1, 1)(t)| | t ∈ RealSet, 0.4 < t ∧ t < 0.5 })
+22. inf({ |FunDeri(f, 1, 1)(t)| | t ∈ RealSet, 0.4 < t ∧ t < 0.5 }) = |FunDeri(f, 1, 1)(0.5)|
+23. |FunDeri(f, 1, 1)(0.5)| = 25
+24. exists (m), m ∈ RealSet ∧ m = 25
+25. exists (`ξ_1`), `ξ_1` ∈ RealSet ∧ (exists (m), m ∈ RealSet ∧ |0.472 - `ξ_1`| ≤ frac(|f(0.472)|, m))
+26. exists (m), m ∈ RealSet ∧ frac(|f(0.472)|, m) < 0.001
+27. exists (`ξ_1`), `ξ_1` ∈ RealSet ∧ |0.472 - `ξ_1`| < 0.001
+28. f(9.9) = -0.98
+29. f(9.99) = -0.09
+
+GOAL:
+f(10) = 0.001
+
+METHOD:

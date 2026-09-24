@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. n ∈ IntegerSet
+2. n ≥ 2
+3. forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ∧ x = t^{n!} ⇒ t > 0)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ∧ x = t^{n!} ⇒ frac(prod_{ k = 2 }^{ n } (1 - sqrtn(k, x)), (1 - x)^{n - 1}) = frac(prod_{ k = 2 }^{ n } (1 - sqrtn(k, t^{n!})), (1 - t^{n!})^{n - 1}))
+
+METHOD:

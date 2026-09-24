@@ -1,0 +1,9 @@
+assert (hypothesis 11: {2 * p > 1 ⇒ p > frac(1, 2)}) by proof {
+  get_condition (hypothesis 12: {2 * p > 1}) in (GOAL: {2 * p > 1 ⇒ p > frac(1, 2)})
+  autosolve all_hypothesis
+}
+assert (hypothesis 13: {p > frac(1, 2) ⇒ 2 * p > 1}) by proof {
+  get_condition (hypothesis 14: {p > frac(1, 2)}) in (GOAL: {p > frac(1, 2) ⇒ 2 * p > 1})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

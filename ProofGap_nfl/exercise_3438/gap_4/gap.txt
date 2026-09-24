@@ -1,0 +1,21 @@
+PROOF GAP @4
+ASSUM:
+1. y : RealSet → RealSet
+2. u : RealSet → RealSet
+3. p : RealSet → RealSet
+4. q : RealSet → RealSet
+5. I ⊆ RealSet
+6. x_{0} ∈ RealSet ∧ x_{0} ∈ I
+7. ContinuousFuncOn(p, I)
+8. ContinuousFuncOn(q, I)
+9. DiffableFuncOn(p, I)
+10. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(y, 1, 2)(x) + p(x) * FunDeri(y, 1, 1)(x) + q(x) * y(x) = 0
+11. forall (ξ), ξ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ I ⇒ y(x) = u(x) * e^{-frac(1, 2) * DefInt(x_{0}, x, p(ξ) * diff(fun ξ [ξ ∈ RealSet] . ξ))})
+12. forall (ξ), ξ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(y, 1, 1)(x) = FunDeri(u, 1, 1)(x) * e^{-frac(1, 2) * DefInt(x_{0}, x, p(ξ) * diff(fun ξ [ξ ∈ RealSet] . ξ))} - frac(1, 2) * u(x) * p(x) * e^{-frac(1, 2) * DefInt(x_{0}, x, p(ξ) * diff(fun ξ [ξ ∈ RealSet] . ξ))})
+13. forall (ξ), ξ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(y, 1, 2)(x) = FunDeri(u, 1, 2)(x) * e^{-frac(1, 2) * DefInt(x_{0}, x, p(ξ) * diff(fun ξ [ξ ∈ RealSet] . ξ))} - p(x) * FunDeri(u, 1, 1)(x) * e^{-frac(1, 2) * DefInt(x_{0}, x, p(ξ) * diff(fun ξ [ξ ∈ RealSet] . ξ))} + frac(1, 4) * u(x) * p(x)^{2} * e^{-frac(1, 2) * DefInt(x_{0}, x, p(ξ) * diff(fun ξ [ξ ∈ RealSet] . ξ))} - frac(1, 2) * u(x) * FunDeri(p, 1, 1)(x) * e^{-frac(1, 2) * DefInt(x_{0}, x, p(ξ) * diff(fun ξ [ξ ∈ RealSet] . ξ))})
+14. forall (ξ), ξ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ I ⇒ (FunDeri(u, 1, 2)(x) + (q(x) - frac(1, 4) * p(x)^{2} - frac(1, 2) * FunDeri(p, 1, 1)(x)) * u(x)) * e^{-frac(1, 2) * DefInt(x_{0}, x, p(ξ) * diff(fun ξ [ξ ∈ RealSet] . ξ))} = 0)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(u, 1, 2)(x) + (q(x) - frac(1, 4) * p(x)^{2} - frac(1, 2) * FunDeri(p, 1, 1)(x)) * u(x) = 0
+
+METHOD:

@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. l ∈ RealSet ∧ l ∈ PosRealSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = x^{2}
+4. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ IntervalLoRo(-l, l) ∧ x_{2} ∈ IntervalLoRo(-l, l) ⇒ |f(x_{1}) - f(x_{2})| = |(x_{1})^{2} - (x_{2})^{2}|)
+
+GOAL:
+forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ IntervalLoRo(-l, l) ∧ x_{2} ∈ IntervalLoRo(-l, l) ⇒ |f(x_{1}) - f(x_{2})| ≤ 2 * l * |x_{1} - x_{2}|)
+
+METHOD:

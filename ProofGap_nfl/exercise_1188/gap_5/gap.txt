@@ -1,0 +1,20 @@
+PROOF GAP @5
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. c ∈ RealSet
+5. d ∈ RealSet
+6. n ∈ NonNegIntegerSet
+7. c ≠ 0
+8. n ∈ PosIntegerSet
+9. forall (x), x ∈ RealSet ∧ x ≠ -frac(d, c) ⇒ y(x) = frac(a * x + b, c * x + d)
+10. forall (x), x ∈ RealSet ∧ x ≠ -frac(d, c) ⇒ FunDeri(y, 1, 1)(x) = frac(a * (c * x + d) - c * (a * x + b), (c * x + d)^{2})
+11. forall (x), x ∈ RealSet ∧ x ≠ -frac(d, c) ⇒ frac(a * (c * x + d) - c * (a * x + b), (c * x + d)^{2}) = frac(a * d - b * c, (c * x + d)^{2})
+12. forall (x), x ∈ RealSet ∧ x ≠ -frac(d, c) ⇒ FunDeri(y, 1, 1)(x) = frac(a * d - b * c, (c * x + d)^{2})
+13. forall (x), x ∈ RealSet ∧ x ≠ -frac(d, c) ⇒ FunDeri(y, 1, 2)(x) = -frac(2 * c * (a * d - b * c), (c * x + d)^{3})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ -frac(d, c) ∧ n = 2 ⇒ FunDeri(y, 1, n)(x) = frac((-1)^{n - 1} * c^{n - 1} * (a * d - b * c) * n!, (c * x + d)^{n + 1})
+
+METHOD:

@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ x^{3} * e^{-x^{2}} * diff(fun x [x ∈ RealSet] . x) = -frac(1, 2) * x^{2} * diff(fun x [x ∈ RealSet] . e^{-x^{2}})
+
+METHOD:

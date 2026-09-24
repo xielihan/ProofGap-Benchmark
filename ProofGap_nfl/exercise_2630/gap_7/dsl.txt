@@ -1,0 +1,10 @@
+get_condition (hypothesis 12: {a > 2}) in (GOAL: {a > 2 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{a - 1})))})
+get_prop (theorem 'Thm 366. (PSeriesConvergesForExponentAboveOne)': {forall (p), p ∈ RealSet => p > 1 => ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ p))}) (p := {a - 1}) as (hypothesis 13: {a - 1 ∈ RealSet => a - 1 > 1 => ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ (a - 1)))})
+assert (hypothesis 14: {a - 1 ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 15: {a - 1 > 1}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 14: {a - 1 ∈ RealSet}) (hypothesis 15: {a - 1 > 1}) in (hypothesis 13: {a - 1 ∈ RealSet => a - 1 > 1 => ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ (a - 1)))}) as (hypothesis 16: {ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ (a - 1)))})
+autosolve all_hypothesis

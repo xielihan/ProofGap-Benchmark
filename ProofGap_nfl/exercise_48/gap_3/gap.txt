@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. forall (n), n ∈ NonNegIntegerSet ⇒ |sin(n!)| ≤ 1
+2. seqlim_{ n → +∞ } (frac(sqrtn(3, n^{2}), n + 1)) = 0
+
+GOAL:
+seqlim_{ n → +∞ } (frac(sqrtn(3, n^{2}) * sin(n!), n + 1)) = 0
+
+METHOD:
+[@method 根据 "夹逼定理" @]

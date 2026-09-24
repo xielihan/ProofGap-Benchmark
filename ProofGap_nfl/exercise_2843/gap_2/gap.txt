@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = sin(x)^{2}
+3. forall (x), x ∈ RealSet ⇒ f(x) = frac(1 - cos(2 * x), 2)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ f(x) = frac(1, 2) * (1 - (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(2^{2 * n} * x^{2 * n}, (2 * n)!))))
+
+METHOD:

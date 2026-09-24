@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 15: {I_{1} = k * DefInt(-a, a, (fun x [x ∈ RealSet] . sqrtn(2, 2 * a) * (a - x) * sqrtn(2, a + x)) * diff(fun x [x ∈ RealSet] . x))}); from (GOAL: {I_{1} = frac(32, 15) * k * a^{3}}) to (GOAL: {k * DefInt(-a, a, (fun x [x ∈ RealSet] . sqrtn(2, 2 * a) * (a - x) * sqrtn(2, a + x)) * diff(fun x [x ∈ RealSet] . x)) = frac(32, 15) * k * a^{3}})
+apply (hypothesis 16: {k * DefInt(-a, a, (fun x [x ∈ RealSet] . sqrtn(2, 2 * a) * (a - x) * sqrtn(2, a + x)) * diff(fun x [x ∈ RealSet] . x)) = frac(32, 15) * k * a^{3}})

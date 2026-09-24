@@ -1,0 +1,7 @@
+not_normalize from (GOAL: {not (forall (f) (x_{0}), f : RealSet -> RealSet /\ x_{0} ∈ RealSet /\ BoundedFuncOn(f, IntervalLoRo(x_{0}, +infty)) /\ DiffableFuncOn(f, IntervalLoRo(x_{0}, +infty)) /\ (exists (M), M ∈ RealSet /\ lim_{ x -> +infty } (FunDeri(f, 1, 1)(x)) = M) => (exists (L), L ∈ RealSet /\ L ∈ RealSet ∪ {-infty, +infty} /\ lim_{ x -> +infty } (f(x)) = L))}) to (GOAL: {exists (f) (x_{0}), (f : RealSet -> RealSet /\ x_{0} ∈ RealSet /\ BoundedFuncOn(f, IntervalLoRo(x_{0}, +infty)) /\ DiffableFuncOn(f, IntervalLoRo(x_{0}, +infty)) /\ (exists (M), M ∈ RealSet /\ lim_{ x -> +infty } (FunDeri(f, 1, 1)(x)) = M)) /\ not (exists (L), L ∈ RealSet /\ L ∈ RealSet ∪ {-infty, +infty} /\ lim_{ x -> +infty } (f(x)) = L)})
+exists (f := {f}) (x_{0} := {0})
+assert (hypothesis 9: {exists (M), M ∈ RealSet /\ lim_{ x -> +infty } (FunDeri(f, 1, 1)(x)) = M}) by proof {
+  exists (M := {0})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. n ∈ NonNegIntegerSet
+3. forall (x), x ∈ RealSet ∧ x ≠ -1 ∧ x ≠ frac(1, 2) ⇒ f(x) = frac(1, (1 - 2 * x) * (1 + x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ -1 ∧ x ≠ frac(1, 2) ⇒ FunDeri(f, 1, n)(x) = frac(1, 3) * (frac((-1)^{n} * n!, (1 + x)^{n + 1}) + frac(2^{n + 1} * n!, (1 - 2 * x)^{n + 1}))
+
+METHOD:

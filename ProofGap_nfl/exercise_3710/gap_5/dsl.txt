@@ -1,0 +1,3 @@
+get_prop (hypothesis 9: {forall (x) (a) (b), x ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ⇒ f(x, a, b) = x^{2} - (a * x + b)}) (x := {1}) (a := {a}) (b := {b}) as (hypothesis 16: {1 ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ⇒ f(1, a, b) = 1^{2} - (a * 1 + b)})
+use_condition (obvious: {1 ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet}) in (hypothesis 16: {1 ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ⇒ f(1, a, b) = 1^{2} - (a * 1 + b)}) as (hypothesis 17: {f(1, a, b) = 1^{2} - (a * 1 + b)})
+autosolve (hypothesis 17: {f(1, a, b) = 1^{2} - (a * 1 + b)})

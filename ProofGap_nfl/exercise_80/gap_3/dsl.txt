@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n + 1) > x(n)}) (n := {m})
+get_condition (hypothesis 5: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet}) in (GOAL: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ x(m + 1) > x(m)})
+get_prop (hypothesis 3: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n + 1) = x(n) * (1 + frac(1, 2^{n + 1}))}) (n := {m}) as (hypothesis 6: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ x(m + 1) = x(m) * (1 + frac(1, 2^{m + 1}))})
+use_condition (hypothesis 5: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet}) in (hypothesis 6: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ x(m + 1) = x(m) * (1 + frac(1, 2^{m + 1}))}) as (hypothesis 7: {x(m + 1) = x(m) * (1 + frac(1, 2^{m + 1}))})
+get_prop (hypothesis 4: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) * (1 + frac(1, 2^{n + 1})) > x(n)}) (n := {m}) as (hypothesis 8: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ x(m) * (1 + frac(1, 2^{m + 1})) > x(m)})
+use_condition (hypothesis 5: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet}) in (hypothesis 8: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ x(m) * (1 + frac(1, 2^{m + 1})) > x(m)}) as (hypothesis 9: {x(m) * (1 + frac(1, 2^{m + 1})) > x(m)})
+rewrite (left_to_right, equation) (hypothesis 7: {x(m + 1) = x(m) * (1 + frac(1, 2^{m + 1}))}); from (GOAL: {x(m + 1) > x(m)}) to (GOAL: {x(m) * (1 + frac(1, 2^{m + 1})) > x(m)})
+apply (hypothesis 9: {x(m) * (1 + frac(1, 2^{m + 1})) > x(m)})

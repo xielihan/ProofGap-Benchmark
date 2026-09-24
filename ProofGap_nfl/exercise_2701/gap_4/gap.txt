@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. a : NonNegIntegerSet → RealSet ∧ a = (fun n [n ∈ NonNegIntegerSet ∧ n ≥ 1] . frac((-1)^{n}, sqrtn(2, n)))
+2. b : NonNegIntegerSet → RealSet ∧ b = (fun n [n ∈ NonNegIntegerSet ∧ n ≥ 1] . frac((-1)^{n}, sqrtn(2, n)) + frac(1, n))
+3. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+4. seqlim_{ n → +∞ } (frac(b(n), a(n))) = 1
+5. DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n)))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = a(n) + frac(1, n)
+
+METHOD:

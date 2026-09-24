@@ -1,0 +1,1 @@
+apply (hypothesis 6: {forall (n) (x) (j) (i), n ∈ NonNegIntegerSet ∧ j ∈ NonNegIntegerSet ∧ i ∈ NonNegIntegerSet ∧ n = 1 ∧ x ∈ RealSet ⇒ FunDeri(y, 1, n)(x) = sum_{ j = 0 }^{ floor(n / 2) } (frac(prod_{ i = 0 }^{ 2 * j - 1 } (n - i), j!) * (2 * x)^{n - 2 * j} * FunDeri(f, fun x [x ∈ RealSet] . x^{2}, n - j)(x^{2}))})

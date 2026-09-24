@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. P : NonNegIntegerSet → RealSet
+3. p ∈ RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ a(n) = frac(n^{2} - 1, n^{2} + 1)^{p}
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ a(n) = (1 - frac(2, n^{2} + 1))^{p}
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ 1 - frac(2, n^{2} + 1) > 0
+
+METHOD:

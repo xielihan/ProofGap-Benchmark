@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. p ∈ RealSet
+2. q ∈ RealSet
+
+GOAL:
+q < 1
+
+METHOD:

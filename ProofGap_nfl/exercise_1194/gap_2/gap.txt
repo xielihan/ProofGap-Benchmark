@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. n ∈ NonNegIntegerSet
+3. forall (x), x ∈ RealSet ⇒ y(x) = cos(x)^{2}
+4. n ∈ PosIntegerSet
+5. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = -2 * cos(x) * sin(x) ∧ -2 * cos(x) * sin(x) = -sin(2 * x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, n)(x) = -FunDeri(fun x [x ∈ RealSet] . sin(2 * x), 1, n - 1)(x) ∧ -FunDeri(fun x [x ∈ RealSet] . sin(2 * x), 1, n - 1)(x) = -2^{n - 1} * sin(2 * x + frac(n - 1, 2) * π) ∧ -2^{n - 1} * sin(2 * x + frac(n - 1, 2) * π) = 2^{n - 1} * cos(2 * x + frac(n, 2) * π)
+
+METHOD:

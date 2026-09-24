@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x^{2} + y^{2} > 0 ⇒ |x^{2} * y^{2} * ln(x^{2} + y^{2})| ≤ frac((x^{2} + y^{2})^{2}, 4) * |ln(x^{2} + y^{2})|)
+2. t = x^{2} + y^{2}
+
+GOAL:
+lim_{ t → 0^+ } (frac(1, 4) * t^{2} * ln(t)) = 0
+
+METHOD:

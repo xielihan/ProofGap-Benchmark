@@ -1,0 +1,2 @@
+exists (φ := {φ})
+autosolve all_hypothesis

@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ x ≠ 0
+4. forall (x), x ∈ RealSet ⇒ 1 + x^{7} ≠ 0
+5. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ 1 + x^{7} ≠ 0 ⇒ frac(1 - x^{7}, x * (1 + x^{7})) = frac(1, x) - frac(2 * x^{6}, 1 + x^{7})
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ 1 + x^{7} ≠ 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1 - x^{7}, x * (1 + x^{7})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ 1 + x^{7} ≠ 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = (frac(1, x) - frac(2 * x^{6}, 1 + x^{7})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+METHOD:

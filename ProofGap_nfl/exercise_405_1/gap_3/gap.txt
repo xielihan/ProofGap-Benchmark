@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. lim_{ x → a } (f(x)) = ∞ ⇔ (forall (E), E ∈ RealSet ∧ E > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ Dom(f) ∧ 0 < |x - a| ∧ |x - a| < δ ⇒ |f(x)| > E)))
+4. forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ f(x) = frac(1, x - 1)
+
+GOAL:
+lim_{ x → 1 } (f(x)) = ∞
+
+METHOD:

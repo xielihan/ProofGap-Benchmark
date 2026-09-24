@@ -1,0 +1,20 @@
+PROOF GAP @3
+ASSUM:
+1. y : CartesianProd(RealSet, RealSet) → RealSet
+2. u : RealSet → RealSet
+3. v : RealSet → RealSet
+4. m ∈ RealSet
+5. n ∈ RealSet
+6. forall (x), x ∈ RealSet ⇒ u(x) > 0
+7. forall (x), x ∈ RealSet ⇒ v(x) > 0
+8. DiffableFunc(u)
+9. DiffableFunc(v)
+10. DiffableFunc(FunDeri(u, 1, 1))
+11. DiffableFunc(FunDeri(v, 1, 1))
+12. forall (x), x ∈ RealSet ∧ u(x) > 0 ∧ v(x) > 0 ⇒ y(u(x), v(x)) = u(x)^{m} * v(x)^{n}
+13. forall (x), x ∈ RealSet ∧ u(x) > 0 ∧ v(x) > 0 ⇒ FunDeri(fun t . y(u(t), v(t)), 1, 1)(x) = m * u(x)^{m - 1} * v(x)^{n} * FunDeri(u, 1, 1)(x) + n * u(x)^{m} * v(x)^{n - 1} * FunDeri(v, 1, 1)(x)
+14. forall (x), x ∈ RealSet ∧ u(x) > 0 ∧ v(x) > 0 ⇒ FunDeri(fun t . y(u(t), v(t)), 1, 2)(x) = m * (m - 1) * u(x)^{m - 2} * v(x)^{n} * FunDeri(u, 1, 1)(x)^{2} + m * u(x)^{m - 1} * (v(x)^{n} * FunDeri(u, 1, 2)(x) + n * v(x)^{n - 1} * FunDeri(u, 1, 1)(x) * FunDeri(v, 1, 1)(x)) + m * n * u(x)^{m - 1} * v(x)^{n - 1} * FunDeri(u, 1, 1)(x) * FunDeri(v, 1, 1)(x) + n * (n - 1) * u(x)^{m} * v(x)^{n - 2} * FunDeri(v, 1, 1)(x)^{2} + n * u(x)^{m} * v(x)^{n - 1} * FunDeri(v, 1, 2)(x)
+GOAL:
+forall (x), x ∈ RealSet ∧ u(x) > 0 ∧ v(x) > 0 ⇒ FunDeri(fun t . y(u(t), v(t)), 1, 2)(x) = u(x)^{m - 2} * v(x)^{n - 2} * (m * (m - 1) * v(x)^{2} * FunDeri(u, 1, 1)(x)^{2} + 2 * m * n * u(x) * v(x) * FunDeri(u, 1, 1)(x) * FunDeri(v, 1, 1)(x) + n * (n - 1) * u(x)^{2} * FunDeri(v, 1, 1)(x)^{2} + u(x) * v(x) * (m * v(x) * FunDeri(u, 1, 2)(x) + n * u(x) * FunDeri(v, 1, 2)(x)))
+
+METHOD:

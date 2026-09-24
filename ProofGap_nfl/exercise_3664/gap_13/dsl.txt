@@ -1,0 +1,5 @@
+assert (hypothesis 17: {frac(π, 6) ∈ RealSet})
+assert (hypothesis 18: {u(frac(π, 6), frac(π, 6), frac(π, 6)) = sin(frac(π, 6)) * sin(frac(π, 6)) * sin(frac(π, 6))})
+assert (hypothesis 19: {sin(frac(π, 6)) = frac(1, 2)})
+assert (hypothesis 20: {frac(1, 2) * frac(1, 2) * frac(1, 2) = frac(1, 8)})
+autosolve all_hypothesis

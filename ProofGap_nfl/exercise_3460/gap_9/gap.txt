@@ -1,0 +1,24 @@
+PROOF GAP @9
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. ξ : CartesianProd(RealSet, RealSet) → RealSet
+4. η : CartesianProd(RealSet, RealSet) → RealSet
+5. z : CartesianProd(RealSet, RealSet) → RealSet
+6. a ≠ 0
+7. ContinuouslyDiffableFunc(z)
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ ξ(x, y) = x ∧ η(x, y) = y - b * z(x, y)
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ a * FunDeri(z, 1, 1)(x, y) + b * FunDeri(z, 2, 1)(x, y) = 1
+10. diff(ξ) = diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)
+11. diff(η) = diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) - b * diff(z)
+12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ diff(z) = FunDeri(z, ξ, 1)(x, y) * diff(ξ) + FunDeri(z, η, 1)(x, y) * diff(η)
+13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ diff(z) = FunDeri(z, ξ, 1)(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + FunDeri(z, η, 1)(x, y) * (diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) - b * diff(z))
+14. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ (1 + b * FunDeri(z, η, 1)(x, y)) * diff(z) = FunDeri(z, ξ, 1)(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + FunDeri(z, η, 1)(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+15. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ 1 + b * FunDeri(z, η, 1)(x, y) ≠ 0 ⇒ diff(z) = frac(FunDeri(z, ξ, 1)(x, y), 1 + b * FunDeri(z, η, 1)(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + frac(FunDeri(z, η, 1)(x, y), 1 + b * FunDeri(z, η, 1)(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+16. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ 1 + b * FunDeri(z, η, 1)(x, y) ≠ 0 ⇒ FunDeri(z, 1, 1)(x, y) = frac(FunDeri(z, ξ, 1)(x, y), 1 + b * FunDeri(z, η, 1)(x, y))
+17. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ 1 + b * FunDeri(z, η, 1)(x, y) ≠ 0 ⇒ FunDeri(z, 2, 1)(x, y) = frac(FunDeri(z, η, 1)(x, y), 1 + b * FunDeri(z, η, 1)(x, y))
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ a * FunDeri(z, ξ, 1)(x, y) + b * FunDeri(z, η, 1)(x, y) = 1 + b * FunDeri(z, η, 1)(x, y)
+
+METHOD:

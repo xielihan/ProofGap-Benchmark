@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b ≥ 0
+3. y : RealSet → RealSet
+4. P_{x} ∈ RealSet
+5. P_{y} ∈ RealSet
+6. forall (x), x ∈ RealSet ∧ |x| ≤ b ⇒ y(x) = a * cosh(frac(x, a))
+7. forall (x), x ∈ RealSet ∧ |x| ≤ b ⇒ sqrtn(2, 1 + FunDeri(y, 1, 1)(x)^{2}) = sqrtn(2, sinh(frac(x, a))^{2} + 1)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| ≤ b ⇒ sqrtn(2, sinh(frac(x, a))^{2} + 1) = cosh(frac(x, a))
+
+METHOD:

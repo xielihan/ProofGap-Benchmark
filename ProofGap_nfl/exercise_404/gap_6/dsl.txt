@@ -1,0 +1,2 @@
+rewrite_in limit (left_to_right, equation) (hypothesis 6: {forall (x), x ∈ RealSet /\ x ≠ 0 => f(x) = frac(1, x^{2})}); from (GOAL: {lim_{ x -> +infty } (f(x)) = 0}) to (GOAL: {lim_{ x -> +infty } (frac(1, x^{2})) = 0})
+autosolve all_hypothesis using LimitCalcSolver

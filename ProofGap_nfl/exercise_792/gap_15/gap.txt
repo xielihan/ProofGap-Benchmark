@@ -1,0 +1,23 @@
+PROOF GAP @15
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = x + sin(x)
+3. ¬BoundedFuncOn(f, RealSet)
+4. forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ⇒ |f(`x'`) - f(`x''`)| = |`x'` - `x''` + sin(`x'`) - sin(`x''`)|)
+5. forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ⇒ |`x'` - `x''` + sin(`x'`) - sin(`x''`)| ≤ |`x'` - `x''`| + |sin(`x'`) - sin(`x''`)|)
+6. forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ⇒ |sin(`x'`) - sin(`x''`)| ≤ |`x'` - `x''`|)
+7. forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ⇒ |f(`x'`) - f(`x''`)| ≤ 2 * |`x'` - `x''`|)
+8. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ δ = frac(ε, 2))
+9. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0)
+10. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ |`x'` - `x''`| < δ ⇒ |f(`x'`) - f(`x''`)| ≤ 2 * |`x'` - `x''`|)))
+11. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ |`x'` - `x''`| < δ ⇒ 2 * |`x'` - `x''`| < 2 * δ)))
+12. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ |`x'` - `x''`| < δ ⇒ 2 * δ = ε)))
+13. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ |`x'` - `x''`| < δ ⇒ |f(`x'`) - f(`x''`)| < ε)))
+14. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ |`x'` - `x''`| < δ ⇒ |f(`x'`) - f(`x''`)| < ε)))
+15. UniformContinuousFuncOn(f, RealSet)
+16. ¬BoundedFuncOn(f, RealSet)
+
+GOAL:
+UniformContinuousFuncOn(f, RealSet)
+
+METHOD:

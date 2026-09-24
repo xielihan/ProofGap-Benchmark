@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ≤ 0 ⇒ y(x) = x^{2}
+3. Dom(y) = (-∞, 0]
+4. forall (z), z ∈ RealSet ∧ z ∈ NonNegRealSet ⇒ InverseFunc(y, z) = -sqrtn(2, z)
+
+GOAL:
+Dom(InverseFunc(y)) = NonNegRealSet
+
+METHOD:

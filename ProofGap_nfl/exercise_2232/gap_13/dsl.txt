@@ -1,0 +1,5 @@
+get_prop (theorem 'Thm 168. (PythagoreanTrigonometricIdentity)': {forall (x), x ∈ RealSet => (sin(x)) ^ 2 + (cos(x)) ^ 2 = 1}) (x := {x}) as (hypothesis 14: {x ∈ RealSet => sin(x) ^ 2 + cos(x) ^ 2 = 1})
+use_condition (hypothesis 1: {x ∈ RealSet}) in (hypothesis 14: {x ∈ RealSet => sin(x) ^ 2 + cos(x) ^ 2 = 1}) as (hypothesis 15: {sin(x) ^ 2 + cos(x) ^ 2 = 1})
+assert (hypothesis 16: {cos(x)^{2} = 1 - sin(x)^{2}})
+rewrite (left_to_right, equation) (hypothesis 16: {cos(x)^{2} = 1 - sin(x)^{2}}); from (GOAL: {cos(π * cos(x)^{2}) = cos(π - π * sin(x)^{2})}) to (GOAL: {cos(π * (1 - sin(x)^{2})) = cos(π - π * sin(x)^{2})})
+autosolve all_hypothesis

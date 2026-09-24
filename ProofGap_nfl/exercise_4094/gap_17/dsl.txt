@@ -1,0 +1,3 @@
+rewrite (left_to_right, equation) (hypothesis 33: {A = frac(1, V) * frac(3 * sqrtn(2, 3) * π, 5)}); from (GOAL: {A = frac(2, sqrtn(2, 3) * π) * frac(3 * sqrtn(2, 3) * π, 5)}) to (GOAL: {frac(1, V) * frac(3 * sqrtn(2, 3) * π, 5) = frac(2, sqrtn(2, 3) * π) * frac(3 * sqrtn(2, 3) * π, 5)})
+rewrite (left_to_right, equation) (hypothesis 18: {V = frac(sqrtn(2, 3), 2) * π}); from (GOAL: {frac(1, V) * frac(3 * sqrtn(2, 3) * π, 5) = frac(2, sqrtn(2, 3) * π) * frac(3 * sqrtn(2, 3) * π, 5)}) to (GOAL: {frac(1, frac(sqrtn(2, 3), 2) * π) * frac(3 * sqrtn(2, 3) * π, 5) = frac(2, sqrtn(2, 3) * π) * frac(3 * sqrtn(2, 3) * π, 5)})
+autosolve all_hypothesis

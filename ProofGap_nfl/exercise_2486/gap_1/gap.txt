@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet ∧ a > 0
+3. P_{x} ∈ RealSet
+4. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ⇒ y(x) = x * sqrtn(2, frac(x, a))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ⇒ sqrtn(2, 1 + FunDeri(y, 1, 1)(x)^{2}) = sqrtn(2, 1 + frac(9 * x, 4 * a))
+
+METHOD:

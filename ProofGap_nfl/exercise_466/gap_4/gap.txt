@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. n ∈ PosIntegerSet
+3. forall (x), x ∈ RealSet
+4. forall (x), x ∈ RealSet ∧ x ≥ 1 ⇒ x ≠ 0
+5. forall (x), x ∈ RealSet ∧ x ≥ 1 ⇒ x^{2} - 1 ≥ 0
+
+GOAL:
+lim_{ x → +∞ } (frac((x - sqrtn(2, x^{2} - 1))^{n} + (x + sqrtn(2, x^{2} - 1))^{n}, x^{n})) = lim_{ x → +∞ } ((1 - sqrtn(2, 1 - frac(1, x^{2})))^{n} + (1 + sqrtn(2, 1 - frac(1, x^{2})))^{n})
+
+METHOD:

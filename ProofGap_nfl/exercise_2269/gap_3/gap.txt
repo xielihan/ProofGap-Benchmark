@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. DefInt(-1, 1, (fun x [x ∈ RealSet] . frac(x, x^{2} + x + 1)) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 2) * DefInt(-1, 1, (fun x [x ∈ RealSet] . frac(2 * x + 1, x^{2} + x + 1)) * diff(fun x [x ∈ RealSet] . x)) - frac(1, 2) * DefInt(-1, 1, (fun x [x ∈ RealSet] . frac(1, frac(3, 4) + (x + frac(1, 2))^{2})) * diff(fun x [x ∈ RealSet] . x))
+2. DefInt(-1, 1, (fun x [x ∈ RealSet] . frac(x, x^{2} + x + 1)) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 2) * ((fun x [x ∈ RealSet] . ln(x^{2} + x + 1))|_{-1}^{1}) - frac(1, sqrtn(2, 3)) * ((fun x [x ∈ RealSet] . arctan(frac(2 * x + 1, sqrtn(2, 3))))|_{-1}^{1})
+
+GOAL:
+DefInt(-1, 1, (fun x [x ∈ RealSet] . frac(x, x^{2} + x + 1)) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 2) * ln(3) - frac(π, 2 * sqrtn(2, 3))
+
+METHOD:

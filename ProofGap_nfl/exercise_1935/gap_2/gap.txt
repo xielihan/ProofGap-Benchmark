@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet ∧ x > 0
+2. C ∈ RealSet
+3. C_{1} ∈ RealSet
+4. exists (t), t : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ sqrtn(2, x) = frac(t(x)^{2} - 1, 2 * t(x)))
+
+GOAL:
+exists (t), t : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ t(x) > 1)
+
+METHOD:

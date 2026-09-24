@@ -1,0 +1,3 @@
+get_exists (hypothesis 11: {exists (ξ), ξ ∈ RealSet ∧ 100 * π <= ξ ∧ ξ <= 200 * π ∧ θ = sin(frac(ξ, 2))^{2}}) (ξ := {xi0})
+destruct_and (hypothesis 12: {xi0 ∈ RealSet ∧ 100 * π <= xi0 ∧ xi0 <= 200 * π ∧ θ = sin(frac(xi0, 2))^{2}}) as (hypothesis 13: {xi0 ∈ RealSet}) (hypothesis 14: {100 * π <= xi0}) (hypothesis 15: {xi0 <= 200 * π}) (hypothesis 16: {θ = sin(frac(xi0, 2))^{2}})
+autosolve (hypothesis 16: {θ = sin(frac(xi0, 2))^{2}})

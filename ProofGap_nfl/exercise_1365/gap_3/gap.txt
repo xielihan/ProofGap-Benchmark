@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet ∧ x ∈ IntervalLoRo(-1, 1)
+2. x ∈ IntervalLoRo(-1, 1)
+3. x ≠ 0
+
+GOAL:
+lim_{ x → 0 } (ln(frac(2, π) * arccos(x)) / x) = lim_{ x → 0 } (frac(-1, sqrtn(2, 1 - x^{2}) * arccos(x)))
+
+METHOD:
+[@method 洛必达法则 @]

@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. V ∈ RealSet
+2. x = r * cos(φ)
+3. y = r * sin(φ)
+
+GOAL:
+r ≥ 0
+
+METHOD:

@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. C ∈ RealSet
+3. x = a * sinh(t)
+
+GOAL:
+t ∈ RealSet
+
+METHOD:

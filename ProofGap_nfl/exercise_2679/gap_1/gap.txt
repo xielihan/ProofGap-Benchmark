@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x + n ≠ 0
+
+GOAL:
+(exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x = -n) ⇒ (exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x + n = 0)
+
+METHOD:

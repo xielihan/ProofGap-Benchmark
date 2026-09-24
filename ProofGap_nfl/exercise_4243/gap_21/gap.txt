@@ -1,0 +1,43 @@
+PROOF GAP @21
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet ∧ a > 0
+3. b ∈ RealSet ∧ b ≥ 0
+4. h ∈ RealSet
+5. A ∈ CartesianProd(RealSet, RealSet)
+6. B ∈ CartesianProd(RealSet, RealSet)
+7. M ∈ RealSet
+8. `ρ_0` ∈ RealSet
+9. x_{0} ∈ RealSet
+10. y_{0} ∈ RealSet
+11. s ∈ RealSet
+12. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b ⇒ y(x) = a * cosh(frac(x, a))
+13. A = (0, a)
+14. B = (b, h)
+15. h = a * cosh(frac(b, a))
+16. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b ⇒ diff(s) = sqrtn(2, 1 + sinh(frac(x, a))^{2}) * diff(fun x [x ∈ RealSet] . x)
+17. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b ⇒ sqrtn(2, 1 + sinh(frac(x, a))^{2}) * diff(fun x [x ∈ RealSet] . x) = cosh(frac(x, a)) * diff(fun x [x ∈ RealSet] . x)
+18. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b ⇒ diff(s) = cosh(frac(x, a)) * diff(fun x [x ∈ RealSet] . x)
+19. M = `ρ_0` * DefInt(0, b, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b] . cosh(frac(x, a))) * diff(fun x [x ∈ RealSet] . x))
+20. `ρ_0` * DefInt(0, b, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b] . cosh(frac(x, a))) * diff(fun x [x ∈ RealSet] . x)) = a * `ρ_0` * sinh(frac(b, a))
+21. a * `ρ_0` * sinh(frac(b, a)) = `ρ_0` * sqrtn(2, h^{2} - a^{2})
+22. M = `ρ_0` * sqrtn(2, h^{2} - a^{2})
+23. cosh(frac(b, a)) = frac(h, a)
+24. sinh(frac(b, a)) = sqrtn(2, cosh(frac(b, a))^{2} - 1)
+25. sqrtn(2, cosh(frac(b, a))^{2} - 1) = frac(sqrtn(2, h^{2} - a^{2}), a)
+26. sinh(frac(b, a)) = frac(sqrtn(2, h^{2} - a^{2}), a)
+27. x_{0} = frac(`ρ_0`, M) * DefInt(0, b, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b] . x * cosh(frac(x, a))) * diff(fun x [x ∈ RealSet] . x))
+28. frac(`ρ_0`, M) * DefInt(0, b, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b] . x * cosh(frac(x, a))) * diff(fun x [x ∈ RealSet] . x)) = frac(`ρ_0`, M) * (a * b * sinh(frac(b, a)) - a^{2} * (cosh(frac(b, a)) - 1))
+29. frac(`ρ_0`, M) * (a * b * sinh(frac(b, a)) - a^{2} * (cosh(frac(b, a)) - 1)) = b - a * sqrtn(2, frac(h - a, h + a))
+30. x_{0} = b - a * sqrtn(2, frac(h - a, h + a))
+31. y_{0} = frac(`ρ_0`, M) * DefInt(0, b, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b] . y(x) * cosh(frac(x, a))) * diff(fun x [x ∈ RealSet] . x))
+32. frac(`ρ_0`, M) * DefInt(0, b, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b] . y(x) * cosh(frac(x, a))) * diff(fun x [x ∈ RealSet] . x)) = frac(a * `ρ_0`, M) * DefInt(0, b, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b] . cosh(frac(x, a))^{2}) * diff(fun x [x ∈ RealSet] . x))
+33. frac(a * `ρ_0`, M) * DefInt(0, b, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b] . cosh(frac(x, a))^{2}) * diff(fun x [x ∈ RealSet] . x)) = frac(a * `ρ_0`, M) * DefInt(0, b, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b] . frac(1 + cosh(frac(2 * x, a)), 2)) * diff(fun x [x ∈ RealSet] . x))
+34. y_{0} = frac(a * `ρ_0`, M) * DefInt(0, b, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b] . frac(1 + cosh(frac(2 * x, a)), 2)) * diff(fun x [x ∈ RealSet] . x))
+35. y_{0} = frac(a * `ρ_0`, M) * (frac(b, 2) + frac(a, 4) * sinh(frac(2 * b, a)))
+36. M != 0
+
+GOAL:
+frac(a * `ρ_0`, M) * (frac(b, 2) + frac(a, 4) * sinh(frac(2 * b, a))) = frac(h, 2) + frac(a * b, 2 * sqrtn(2, h^{2} - a^{2}))
+
+METHOD:

@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+prod_{ k = 1 }^{ +∞ } (frac(2 * k, 2 * k - 1) * frac(2 * k, 2 * k + 1)) = frac(π, 2)
+
+METHOD:
+[@method 根据 "沃利斯公式" @]

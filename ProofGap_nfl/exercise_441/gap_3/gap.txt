@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ∈ RealSet
+2. forall (x), x ∈ RealSet ⇒ x ≠ -2
+
+GOAL:
+lim_{ x → -2 } (frac(sqrtn(3, x - 6) + 2, x^{3} + 8)) = lim_{ x → -2 } (frac((sqrtn(3, x - 6) + 2) * (sqrtn(3, (x - 6)^{2}) - 2 * sqrtn(3, x - 6) + 4), (x^{3} + 8) * (sqrtn(3, (x - 6)^{2}) - 2 * sqrtn(3, x - 6) + 4)))
+
+METHOD:
+[@method 分子分母同乘 cbrt((x - 6)^{2}) - 2 * cbrt(x - 6) + 4 @]

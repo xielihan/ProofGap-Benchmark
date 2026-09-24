@@ -1,0 +1,16 @@
+PROOF GAP @6
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. m ∈ RealSet
+3. n ∈ RealSet
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0 ⇒ u(x, y) = x^{m} * y^{n}
+5. forall (x) (y), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ⇒ FunDeri(u, 1, 1)(x, y) = m * x^{m - 1} * y^{n}
+6. forall (x) (y), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ⇒ FunDeri(u, 2, 1)(x, y) = n * x^{m} * y^{n - 1}
+7. diff(u) = (fun x, y [x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0] . x^{m - 1} * y^{n - 1} * m * y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0] . x^{m - 1} * y^{n - 1} * n * x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+8. forall (x) (y), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ⇒ FunDeri(u, 1, 2)(x, y) = m * (m - 1) * x^{m - 2} * y^{n}
+9. forall (x) (y), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ⇒ FunDeri(FunDeri(u, 1, 1), 2, 1)(x, y) = m * n * x^{m - 1} * y^{n - 1}
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ⇒ FunDeri(u, 2, 2)(x, y) = n * (n - 1) * x^{m} * y^{n - 2}
+
+METHOD:

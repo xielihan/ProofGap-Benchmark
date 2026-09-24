@@ -1,0 +1,16 @@
+PROOF GAP @1
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. C_{1} ⊆ CartesianProd(RealSet, RealSet)
+3. C_{2} ⊆ CartesianProd(RealSet, RealSet)
+4. C_{3} ⊆ CartesianProd(RealSet, RealSet)
+5. a ∈ RealSet ∧ a > 0
+6. C = C_{1} ∪ C_{2} ∪ C_{3}
+7. C_{1} = { (x, y) | x ∈ RealSet, y ∈ RealSet, y = 0 ∧ 0 ≤ x ∧ x ≤ a }
+8. C_{2} = { (x, y) | x ∈ RealSet, y ∈ RealSet, x^{2} + y^{2} = a^{2} ∧ x ≥ 0 ∧ y ≥ 0 ∧ y ≤ x }
+9. C_{3} = { (x, y) | x ∈ RealSet, y ∈ RealSet, x = y ∧ x ≥ 0 ∧ x^{2} + y^{2} ≤ a^{2} }
+
+GOAL:
+forall (x) (y) (r) (φ), x ∈ RealSet ∧ y ∈ RealSet ∧ r ∈ RealSet ∧ φ ∈ RealSet ∧ r ≥ 0 ∧ x = r * cos(φ) ∧ y = r * sin(φ) ⇒ sqrtn(2, x^{2} + y^{2}) = r
+
+METHOD:

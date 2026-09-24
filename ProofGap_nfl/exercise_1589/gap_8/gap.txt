@@ -1,0 +1,25 @@
+PROOF GAP @8
+ASSUM:
+1. P ∈ RealSet
+2. k ∈ RealSet
+3. F : RealSet → RealSet
+4. α ∈ RealSet
+5. y : RealSet → RealSet
+6. P > 0
+7. k > 0
+8. 0 ≤ α
+9. α < frac(π, 2)
+10. F(α) * cos(α) = k * (P - F(α) * sin(α))
+11. y(α) = cos(α) + k * sin(α)
+12. F(α) = frac(k * P, cos(α) + k * sin(α))
+13. y(α) = cos(α) + k * sin(α)
+14. FunDeri(y, 1, 1)(α) = -sin(α) + k * cos(α)
+15. FunDeri(y, 1, 1)(α) = 0 ⇒ α ∈ MaximumPointOn(y, [0, frac(π, 2)))
+16. α = arctan(k) ⇒ FunDeri(y, 1, 1)(α) = 0
+17. α = arctan(k) ⇒ α ∈ MaximumPointOn(y, [0, frac(π, 2)))
+18. FunDeri(y, 1, 2)(arctan(k)) = -sqrtn(2, 1 + k^{2})
+
+GOAL:
+-sqrtn(2, 1 + k^{2}) < 0
+
+METHOD:

@@ -1,0 +1,15 @@
+PROOF GAP @8
+ASSUM:
+1. Δ ∈ RealSet
+2. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ cos(x^{2}) = sum_{ n = 0 }^{ +∞ } (frac((-1)^{n} * x^{4 * n}, (2 * n)!))
+3. DefInt(0, 1, (fun x [x ∈ RealSet] . cos(x^{2})) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet] . 1 - frac(x^{4}, 2!) + frac(x^{8}, 4!) - ...) * diff(fun x [x ∈ RealSet] . x))
+4. DefInt(0, 1, (fun x [x ∈ RealSet] . cos(x^{2})) * diff(fun x [x ∈ RealSet] . x)) = 1 - frac(1, 5 * 2!) + frac(1, 9 * 4!) - Δ
+5. 0 < Δ
+6. Δ < frac(1, 13 * 6!)
+7. frac(1, 13 * 6!) < frac(1, 10^{3})
+8. 0 < frac(1, 10^{3})
+
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet] . cos(x^{2})) * diff(fun x [x ∈ RealSet] . x)) ≈_{ 0.0001 } 0.9046
+
+METHOD:

@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. exists (x), x ∈ RealSet ∧ 0 < x ∧ x < frac(π, 2)
+
+GOAL:
+lim_{ x → 0^+ } (frac(DefInt(0, sin(x), (fun t [t ∈ RealSet] . sqrtn(2, tan(t))) * diff(fun t [t ∈ RealSet] . t)), DefInt(0, tan(x), (fun t [t ∈ RealSet] . sqrtn(2, sin(t))) * diff(fun t [t ∈ RealSet] . t)))) = lim_{ x → 0^+ } (frac(sqrtn(2, tan(sin(x))) * FunDeri(fun x [x ∈ RealSet] . sin(x), 1, 1)(x), sqrtn(2, sin(tan(x))) * FunDeri(fun x [x ∈ RealSet] . tan(x), 1, 1)(x)))
+
+METHOD:
+[@method 使用洛必达法则和变上限积分求导法则 @]

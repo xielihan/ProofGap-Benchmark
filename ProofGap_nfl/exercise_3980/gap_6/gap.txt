@@ -1,0 +1,20 @@
+PROOF GAP @6
+ASSUM:
+1. F : RealSet → RealSet
+2. h : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+3. Ω : RealSet → PowerSet(RealSet)
+4. D ⊆ RealSet
+5. forall (t), t ∈ RealSet ⇒ (forall (p), p ∈ RealSet ⇒ (p ∈ Ω(t) ⇔ (exists (x), x ∈ RealSet ∧ (exists (y), y ∈ RealSet ∧ p = (x, y) ∧ (x - t)^{2} + (y - t)^{2} ≤ 1))))
+6. forall (t), t ∈ RealSet ⇒ F(t) = VolumeInt(Ω(t), (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . sqrtn(2, x^{2} + y^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+7. forall (p), p ∈ RealSet ⇒ (p ∈ D ⇔ (exists (u), u ∈ RealSet ∧ (exists (v), v ∈ RealSet ∧ p = (u, v) ∧ u^{2} + v^{2} ≤ 1)))
+8. forall (t), t ∈ RealSet ⇒ F(t) = VolumeInt(D, (fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . sqrtn(2, (u + t)^{2} + (v + t)^{2})) * diff(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . u) * diff(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . v))
+9. forall (u) (v) (t), u ∈ RealSet ∧ v ∈ RealSet ∧ t ∈ RealSet ⇒ h(u, v, t) = sqrtn(2, (u + t)^{2} + (v + t)^{2})
+10. forall (u) (v) (t), u ∈ RealSet ∧ v ∈ RealSet ∧ t ∈ RealSet ∧ (u, v) ≠ (-t, -t) ⇒ FunDeri(h, 3, 1)(u, v, t) = frac(u + t + v + t, sqrtn(2, (u + t)^{2} + (v + t)^{2}))
+11. forall (u) (v) (t), u ∈ RealSet ∧ v ∈ RealSet ∧ t ∈ RealSet ∧ (u, v) ≠ (-t, -t) ⇒ |FunDeri(h, 3, 1)(u, v, t)| ≤ sqrtn(2, 2)
+12. forall (t), t ∈ RealSet ⇒ FunDeri(F, 1, 1)(t) = VolumeInt(D, (fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . FunDeri(h, 3, 1)(u, v, t)) * diff(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . u) * diff(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . v))
+13. forall (t), t ∈ RealSet ⇒ FunDeri(F, 1, 1)(t) = VolumeInt(D, (fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . frac(u + t + v + t, sqrtn(2, (u + t)^{2} + (v + t)^{2}))) * diff(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . u) * diff(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . v))
+
+GOAL:
+forall (t), t ∈ RealSet ⇒ FunDeri(F, 1, 1)(t) = VolumeInt(Ω(t), (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(x + y, sqrtn(2, x^{2} + y^{2}))) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+
+METHOD:

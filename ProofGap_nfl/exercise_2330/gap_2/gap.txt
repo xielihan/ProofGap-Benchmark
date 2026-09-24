@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. 0 < a
+4. a < b
+5. x : RealSet → RealSet ∧ x = (fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ b^{2}] . sqrtn(2, t))
+6. forall (t), t ∈ RealSet ∧ t ∈ [a^{2}, b^{2}] ⇒ a^{2} ≤ t
+
+GOAL:
+forall (t), t ∈ RealSet ∧ t ∈ [a^{2}, b^{2}] ⇒ t ≤ b^{2}
+
+METHOD:

@@ -1,0 +1,6 @@
+get_exists (hypothesis 13: {exists (ξ), ξ ∈ RealSet ∧ a ≤ ξ ∧ ξ ≤ b ∧ DefInt(a, ξ, (fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ ξ] . sin(x)) * diff(fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ ξ] . x)) = cos(a) - cos(ξ)}) (ξ := {xi0})
+destruct_and (hypothesis 14: {xi0 ∈ RealSet ∧ a ≤ xi0 ∧ xi0 ≤ b ∧ DefInt(a, xi0, (fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ xi0] . sin(x)) * diff(fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ xi0] . x)) = cos(a) - cos(xi0)}) as (hypothesis 15: {xi0 ∈ RealSet}) (hypothesis 16: {a ≤ xi0}) (hypothesis 17: {xi0 ≤ b}) (hypothesis 18: {DefInt(a, xi0, (fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ xi0] . sin(x)) * diff(fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ xi0] . x)) = cos(a) - cos(xi0)})
+exists (ξ := {xi0})
+get_prop (theorem 'Thm 200. (SumToProductCosineDifference)': {forall (x) (y), x ∈ RealSet => y ∈ RealSet => cos(x) - cos(y) = -2 * sin ((x + y) / 2) * sin ((x - y) / 2)}) (x := {a}) (y := {xi0}) as (hypothesis 19: {a ∈ RealSet => xi0 ∈ RealSet => cos(a) - cos(xi0) = -2 * sin ((a + xi0) / 2) * sin ((a - xi0) / 2)})
+use_condition (hypothesis 1: {a ∈ RealSet}) (hypothesis 15: {xi0 ∈ RealSet}) in (hypothesis 19: {a ∈ RealSet => xi0 ∈ RealSet => cos(a) - cos(xi0) = -2 * sin ((a + xi0) / 2) * sin ((a - xi0) / 2)}) as (hypothesis 20: {cos(a) - cos(xi0) = -2 * sin ((a + xi0) / 2) * sin ((a - xi0) / 2)})
+autosolve all_hypothesis

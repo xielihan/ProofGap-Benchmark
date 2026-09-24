@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a < b}) (n := {n0})
+get_condition (hypothesis 18: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ a < b})
+assert (hypothesis 19: {a < b})
+apply (hypothesis 19: {a < b})

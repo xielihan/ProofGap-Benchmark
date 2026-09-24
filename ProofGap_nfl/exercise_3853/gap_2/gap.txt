@@ -1,0 +1,16 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. m ∈ RealSet
+4. n ∈ RealSet ∧ n > 0
+5. p ∈ RealSet
+6. B : CartesianProd(RealSet, RealSet) → RealSet
+7. t = frac(b * x^{n}, a + b * x^{n})
+8. 0 < t
+9. x ∈ RealSet ∧ x > 0
+
+GOAL:
+t < 1
+
+METHOD:

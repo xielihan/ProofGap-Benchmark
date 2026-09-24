@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. y = fun x . (ln(cosh(x)) + frac(1, 2 * cosh(x)^{2}))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (ln(cosh(x)) + frac(1, 2 * cosh(x)^{2}))' = tanh(x) - frac(sinh(x), cosh(x)^{3}) ∧ tanh(x) - frac(sinh(x), cosh(x)^{3}) = tanh(x)^{3}
+
+METHOD:

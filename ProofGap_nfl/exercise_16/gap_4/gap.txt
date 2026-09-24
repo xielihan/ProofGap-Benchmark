@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. E ⊆ RealSet
+2. forall (x), x ∈ RealSet ⇒ (x ∈ E ⇔ (exists (m), m ∈ NonNegIntegerSet ∧ (exists (n), n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ 0 < m ∧ m < n ∧ x = frac(m, n))))
+3. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ 0 < m ∧ m < n ⇒ frac(m, n) ∈ E)
+4. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ 0 < m ∧ m < n ⇒ frac(m + 1, n + 1) ∈ E)
+5. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ 0 < m ∧ m < n ⇒ frac(m + 1, n + 1) > frac(m, n))
+
+GOAL:
+forall (m), m ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ 0 < m ∧ m < n ⇒ frac(m^{2}, n^{2}) ∈ E)
+
+METHOD:

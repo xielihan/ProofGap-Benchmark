@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. n ∈ RealSet
+
+GOAL:
+DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . frac(ln(1 + x), x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet ∧ x > 0] . frac(ln(1 + x), x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) + DefInt(1, +∞, (fun x [x ∈ RealSet ∧ x > 1] . frac(ln(1 + x), x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 1] . x))
+
+METHOD:

@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (t), t ∈ RealSet ∧ t ≠ 1 ⇒ FunDeri(y, x, 1)(t) = frac(3, 2) * (t + 1)}) (t := {z})
+get_condition (hypothesis 8: {z ∈ RealSet ∧ z ≠ 1}) in (GOAL: {z ∈ RealSet ∧ z ≠ 1 ⇒ FunDeri(y, x, 1)(z) = frac(3, 2) * (z + 1)})
+get_prop (hypothesis 5: {forall (t), t ∈ RealSet ∧ t ≠ 1 ⇒ FunDeri(y, x, 1)(t) = frac(FunDeri(y, 1, 1)(t), FunDeri(x, 1, 1)(t))}) (t := {z}) as (hypothesis 9: {z ∈ RealSet ∧ z ≠ 1 ⇒ FunDeri(y, x, 1)(z) = frac(FunDeri(y, 1, 1)(z), FunDeri(x, 1, 1)(z))})
+get_prop (hypothesis 6: {forall (t), t ∈ RealSet ∧ t ≠ 1 ⇒ frac(FunDeri(y, 1, 1)(t), FunDeri(x, 1, 1)(t)) = frac(3 - 3 * t^{2}, 2 - 2 * t)}) (t := {z}) as (hypothesis 10: {z ∈ RealSet ∧ z ≠ 1 ⇒ frac(FunDeri(y, 1, 1)(z), FunDeri(x, 1, 1)(z)) = frac(3 - 3 * z^{2}, 2 - 2 * z)})
+get_prop (hypothesis 7: {forall (t), t ∈ RealSet ∧ t ≠ 1 ⇒ frac(3 - 3 * t^{2}, 2 - 2 * t) = frac(3, 2) * (t + 1)}) (t := {z}) as (hypothesis 11: {z ∈ RealSet ∧ z ≠ 1 ⇒ frac(3 - 3 * z^{2}, 2 - 2 * z) = frac(3, 2) * (z + 1)})
+use_condition (hypothesis 8: {z ∈ RealSet ∧ z ≠ 1}) in (hypothesis 9: {z ∈ RealSet ∧ z ≠ 1 ⇒ FunDeri(y, x, 1)(z) = frac(FunDeri(y, 1, 1)(z), FunDeri(x, 1, 1)(z))}) as (hypothesis 12: {FunDeri(y, x, 1)(z) = frac(FunDeri(y, 1, 1)(z), FunDeri(x, 1, 1)(z))})
+use_condition (hypothesis 8: {z ∈ RealSet ∧ z ≠ 1}) in (hypothesis 10: {z ∈ RealSet ∧ z ≠ 1 ⇒ frac(FunDeri(y, 1, 1)(z), FunDeri(x, 1, 1)(z)) = frac(3 - 3 * z^{2}, 2 - 2 * z)}) as (hypothesis 13: {frac(FunDeri(y, 1, 1)(z), FunDeri(x, 1, 1)(z)) = frac(3 - 3 * z^{2}, 2 - 2 * z)})
+use_condition (hypothesis 8: {z ∈ RealSet ∧ z ≠ 1}) in (hypothesis 11: {z ∈ RealSet ∧ z ≠ 1 ⇒ frac(3 - 3 * z^{2}, 2 - 2 * z) = frac(3, 2) * (z + 1)}) as (hypothesis 14: {frac(3 - 3 * z^{2}, 2 - 2 * z) = frac(3, 2) * (z + 1)})
+autosolve all_hypothesis

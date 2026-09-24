@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. S : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. T : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+3. forall (n) (x) (k), n ∈ NonNegIntegerSet ∧ k ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ k ∈ PosIntegerSet ⇒ S(n, x) = sum_{ k = 1 }^{ n } (sin(k * x))
+4. forall (n) (x) (k), n ∈ NonNegIntegerSet ∧ k ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ k ∈ PosIntegerSet ⇒ T(n, x) = sum_{ k = 1 }^{ n } (k * cos(k * x))
+5. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ 2 * sin(frac(x, 2)) * S(n, x) = sum_{ k = 1 }^{ n } (2 * sin(frac(x, 2)) * sin(k * x))
+6. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ sum_{ k = 1 }^{ n } (2 * sin(frac(x, 2)) * sin(k * x)) = sum_{ k = 1 }^{ n } (cos(frac((2 * k - 1) * x, 2)) - cos(frac((2 * k + 1) * x, 2)))
+7. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ 2 * sin(frac(x, 2)) * S(n, x) = cos(frac(x, 2)) - cos(frac((2 * n + 1) * x, 2))
+
+GOAL:
+forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ cos(frac(x, 2)) - cos(frac((2 * n + 1) * x, 2)) = -2 * sin((frac(x, 2) + frac((2 * n + 1) * x, 2)) / 2) * sin((frac(x, 2) - frac((2 * n + 1) * x, 2)) / 2)
+
+METHOD:

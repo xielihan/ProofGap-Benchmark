@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x < 1 ⇒ sqrtn(2, 1 - x) > 0
+2. t = sqrtn(2, 1 - x)
+
+GOAL:
+x = 1 - t^{2}
+
+METHOD:

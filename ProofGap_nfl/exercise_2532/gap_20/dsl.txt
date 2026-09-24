@@ -1,0 +1,4 @@
+rewrite (left_to_right, equation) (hypothesis 44: {y_{7} = frac(1, 1 + x_{7})}); from (GOAL: {|y_{7} - 0.53333| < 0.00001}) to (GOAL: {|frac(1, 1 + x_{7}) - 0.53333| < 0.00001})
+rewrite (left_to_right, equation) (hypothesis 43: {x_{7} = 0.875}); from (GOAL: {|frac(1, 1 + x_{7}) - 0.53333| < 0.00001}) to (GOAL: {|frac(1, 1 + 0.875) - 0.53333| < 0.00001})
+autoreplace no_hypothesis; from (frac(1, 1 + 0.875)) to (frac(8, 15)); from (GOAL: {|frac(1, 1 + 0.875) - 0.53333| < 0.00001}) to (GOAL: {|frac(8, 15) - 0.53333| < 0.00001})
+autosolve all_hypothesis

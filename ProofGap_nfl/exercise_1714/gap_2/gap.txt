@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+3. C_{1} ∈ RealSet
+4. x ≠ -1
+5. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x ≠ -1 ⇒ frac(x^{14}, (x^{5} + 1)^{4}) * diff(fun x [x ∈ RealSet] . x) = frac(x^{14}, x^{20} * (1 + x^{-5})^{4}) * diff(fun x [x ∈ RealSet] . x) ∧ frac(x^{14}, x^{20} * (1 + x^{-5})^{4}) * diff(fun x [x ∈ RealSet] . x) = -frac(1, 5) * (1 + x^{-5})^{-4} * diff(fun x [x ∈ RealSet ∧ x ≠ 0] . 1 + x^{-5})
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x ≠ -1 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x^{14}, (x^{5} + 1)^{4}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x ≠ -1 ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(x^{14}, x^{20} * (1 + x^{-5})^{4}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+METHOD:

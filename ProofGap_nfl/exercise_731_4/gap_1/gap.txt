@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = cases{ cot(π * x)^{2} if x ∉ IntegerSet; 0 if x ∈ IntegerSet }
+
+GOAL:
+forall (k), k ∈ IntegerSet ⇒ lim_{ x → k } (cot(π * x)^{2}) = ∞
+
+METHOD:

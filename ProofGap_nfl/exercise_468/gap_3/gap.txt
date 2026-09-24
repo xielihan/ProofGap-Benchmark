@@ -1,0 +1,16 @@
+PROOF GAP @3
+ASSUM:
+1. b ∈ RealSet
+2. c ∈ RealSet
+3. x_{1} : RealSet → RealSet
+4. x_{2} : RealSet → RealSet
+5. b ≠ 0
+6. forall (a), a ∈ RealSet ∧ a ≠ 0 ∧ b^{2} - 4 * a * c ≥ 0 ⇒ x_{1}(a) = frac(-b + sqrtn(2, b^{2} - 4 * a * c), 2 * a)
+7. forall (a), a ∈ RealSet ∧ a ≠ 0 ∧ b^{2} - 4 * a * c ≥ 0 ⇒ x_{2}(a) = frac(-b - sqrtn(2, b^{2} - 4 * a * c), 2 * a)
+8. b > 0 ⇒ lim_{ a → 0^- } (x_{2}(a)) = ∞ ∧ lim_{ a → 0^+ } (x_{2}(a)) = -∞
+9. b > 0 ⇒ lim_{ a → 0 } (x_{1}(a)) = lim_{ a → 0 } (frac((-b + sqrtn(2, b^{2} - 4 * a * c)) * (-b - sqrtn(2, b^{2} - 4 * a * c)), 2 * a * (-b - sqrtn(2, b^{2} - 4 * a * c))))
+
+GOAL:
+b > 0 ⇒ lim_{ a → 0 } (frac((-b + sqrtn(2, b^{2} - 4 * a * c)) * (-b - sqrtn(2, b^{2} - 4 * a * c)), 2 * a * (-b - sqrtn(2, b^{2} - 4 * a * c)))) = -2 * c * (lim_{ a → 0 } (frac(1, b + sqrtn(2, b^{2} - 4 * a * c))))
+
+METHOD:

@@ -1,0 +1,20 @@
+PROOF GAP @4
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. A : NonNegIntegerSet → PowerSet(NonNegIntegerSet)
+3. p : NonNegIntegerSet → NonNegIntegerSet
+4. n : NonNegIntegerSet → NonNegIntegerSet
+5. u : NonNegIntegerSet → RealSet
+6. v : NonNegIntegerSet → RealSet
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac((-1)^{floor(ln(n))}, n)
+8. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ A(k) = { n | n ∈ PosIntegerSet, floor(ln(n)) = k }
+9. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ u(k) = sum_{ n ∈ A(k) } (a(n))
+10. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ v(k) = sum_{ n ∈ A(k) } (frac(1, n))
+11. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ A(k) = { n | n ∈ PosIntegerSet, e^{k} ≤ n ∧ n < e * e^{k} }
+12. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ p(k) = floor((e - 1) * e^{k})
+13. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ u(k) = (-1)^{k} * v(k)
+
+GOAL:
+forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ v(k) = sum_{ i = 0 }^{ p(k) - 1 } (frac(1, n(k) + i)) ∧ sum_{ i = 0 }^{ p(k) - 1 } (frac(1, n(k) + i)) ≥ frac(p(k), e * e^{k}) ∧ frac(p(k), e * e^{k}) ≥ frac(e - 1, 2 * e)
+
+METHOD:

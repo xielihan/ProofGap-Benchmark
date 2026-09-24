@@ -1,0 +1,13 @@
+PROOF GAP @6
+ASSUM:
+1. f = (fun x [x ∈ RealSet] . x + sin(x))
+2. MonoIncFuncOn(f, IntervalLoRo(0, +∞))
+3. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, +∞) ⇒ FunDeri(f, 1, 1)(x) = 1 + cos(x)
+4. FunDeri(f, 1, 1)(frac(π, 2)) = 1
+5. FunDeri(f, 1, 1)(π) = 0
+6. FunDeri(f, 1, 1)(frac(3 * π, 2)) = 1
+
+GOAL:
+¬MonoIncFuncOn(FunDeri(f, 1, 1), IntervalLoRo(0, +∞))
+
+METHOD:

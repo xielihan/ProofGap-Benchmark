@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet ∧ x ∈ RealSet \ { -frac(3, 2) }
+2. C ∈ RealSet
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ∧ x ∈ RealSet \ { -frac(3, 2) } ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x^{2}, (8 * x^{3} + 27)^{frac(2, 3)}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_4` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ RealSet \ { -frac(3, 2) } ⇒ FunDeri(`F_3`, 1, 1)(x) = (8 * x^{3} + 27)^{-frac(2, 3)} * FunDeri(fun x [x ∈ RealSet] . 8 * x^{3} + 27, 1, 1)(x) ∧ `F_4`(x) = frac(1, 24) * `F_3`(x)) }
+
+METHOD:

@@ -1,0 +1,32 @@
+PROOF GAP @17
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+3. C_{1} ∈ RealSet
+4. C_{2} ∈ RealSet
+5. I_{1} ∈ RealSet
+6. I_{2} ∈ RealSet
+7. x < 0
+8. x < 0 ⇒ { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, sqrtn(2, 1 + e^{x}) + sqrtn(2, 1 - e^{x})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_4` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = e^{-x} * (sqrtn(2, 1 + e^{x}) - sqrtn(2, 1 - e^{x})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_4`(x) = frac(1, 2) * `F_3`(x)) }
+9. x < 0 ⇒ { `F_6` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = e^{-x} * (sqrtn(2, 1 + e^{x}) - sqrtn(2, 1 - e^{x})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_6`(x) = frac(1, 2) * `F_5`(x)) } = { `F_8` | exists (`F_7`), `F_7` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_7`, 1, 1)(x) = (sqrtn(2, 1 + e^{x}) - sqrtn(2, 1 - e^{x})) * FunDeri(fun x [x ∈ RealSet] . e^{-x}, 1, 1)(x) ∧ `F_8`(x) = -frac(1, 2) * `F_7`(x)) }
+10. x < 0 ⇒ { `F_10` | exists (`F_9`), `F_9` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_9`, 1, 1)(x) = (sqrtn(2, 1 + e^{x}) - sqrtn(2, 1 - e^{x})) * FunDeri(fun x [x ∈ RealSet] . e^{-x}, 1, 1)(x) ∧ `F_10`(x) = -frac(1, 2) * `F_9`(x)) } = { `F_14` | exists (`F_11`), `F_11` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_11`, 1, 1)(x) = (frac(1, sqrtn(2, 1 + e^{x})) + frac(1, sqrtn(2, 1 - e^{x}))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_14`(x) = -frac(e^{-x}, 2) * (sqrtn(2, 1 + e^{x}) - sqrtn(2, 1 - e^{x})) + frac(1, 4) * `F_11`(x)) }
+11. I_{1} = { `F_15` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_15`, 1, 1)(x) = frac(1, sqrtn(2, 1 + e^{x})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+12. I_{2} = { `F_16` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_16`, 1, 1)(x) = frac(1, sqrtn(2, 1 - e^{x})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+13. x < 0 ⇒ { `F_17` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_17`, 1, 1)(x) = frac(1, sqrtn(2, 1 + e^{x}) + sqrtn(2, 1 - e^{x})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = -frac(e^{-x}, 2) * (sqrtn(2, 1 + e^{x}) - sqrtn(2, 1 - e^{x})) + frac(1, 4) * I_{1} + frac(1, 4) * I_{2}
+14. forall (t), t ∈ RealSet ∧ t > 1 ∧ sqrtn(2, 1 + e^{x}) = t ⇒ x = ln(t^{2} - 1)
+15. forall (t), t ∈ RealSet ∧ t > 1 ∧ sqrtn(2, 1 + e^{x}) = t ⇒ diff(fun x [x ∈ RealSet] . x) = frac(2 * t, t^{2} - 1) * diff(fun t [t ∈ RealSet] . t)
+16. forall (t), t ∈ RealSet ∧ t > 1 ∧ sqrtn(2, 1 + e^{x}) = t ⇒ I_{1} = { `F_19` | exists (`F_18`), `F_18` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ⇒ FunDeri(`F_18`, 1, 1)(t) = frac(1, t^{2} - 1) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_19`(t) = 2 * `F_18`(t)) }
+17. forall (t), t ∈ RealSet ∧ t > 1 ∧ sqrtn(2, 1 + e^{x}) = t ⇒ { `F_19` | exists (`F_18`), `F_18` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ⇒ FunDeri(`F_18`, 1, 1)(t) = frac(1, t^{2} - 1) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_19`(t) = 2 * `F_18`(t)) } = { `F_20` | exists (C_{1}), C_{1} ∈ RealSet ∧ (forall (t), t ∈ RealSet ⇒ `F_20`(t) = ln(frac(t - 1, t + 1)) + C_{1}) }
+18. forall (t), t ∈ RealSet ∧ t > 1 ∧ sqrtn(2, 1 + e^{x}) = t ⇒ I_{1} = { `F_20` | exists (C_{1}), C_{1} ∈ RealSet ∧ (forall (t), t ∈ RealSet ⇒ `F_20`(t) = ln(frac(t - 1, t + 1)) + C_{1}) }
+19. forall (t), t ∈ RealSet ∧ t > 1 ∧ sqrtn(2, 1 + e^{x}) = t ⇒ I_{1} = ln(frac(sqrtn(2, 1 + e^{x}) - 1, sqrtn(2, 1 + e^{x}) + 1)) + C_{1}
+20. forall (t), t ∈ RealSet ∧ 0 < t ∧ t < 1 ∧ sqrtn(2, 1 - e^{x}) = t ⇒ x = ln(1 - t^{2})
+21. forall (t), t ∈ RealSet ∧ 0 < t ∧ t < 1 ∧ sqrtn(2, 1 - e^{x}) = t ⇒ diff(fun x [x ∈ RealSet] . x) = -frac(2 * t, 1 - t^{2}) * diff(fun t [t ∈ RealSet] . t)
+22. forall (t), t ∈ RealSet ∧ 0 < t ∧ t < 1 ∧ sqrtn(2, 1 - e^{x}) = t ⇒ I_{2} = { `F_22` | exists (`F_21`), `F_21` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ⇒ FunDeri(`F_21`, 1, 1)(t) = frac(1, 1 - t^{2}) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_22`(t) = -2 * `F_21`(t)) }
+23. forall (t), t ∈ RealSet ∧ 0 < t ∧ t < 1 ∧ sqrtn(2, 1 - e^{x}) = t ⇒ { `F_22` | exists (`F_21`), `F_21` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ⇒ FunDeri(`F_21`, 1, 1)(t) = frac(1, 1 - t^{2}) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_22`(t) = -2 * `F_21`(t)) } = { `F_23` | exists (C_{2}), C_{2} ∈ RealSet ∧ (forall (t), t ∈ RealSet ⇒ `F_23`(t) = -ln(frac(1 + t, 1 - t)) + C_{2}) }
+24. forall (t), t ∈ RealSet ∧ 0 < t ∧ t < 1 ∧ sqrtn(2, 1 - e^{x}) = t ⇒ I_{2} = { `F_23` | exists (C_{2}), C_{2} ∈ RealSet ∧ (forall (t), t ∈ RealSet ⇒ `F_23`(t) = -ln(frac(1 + t, 1 - t)) + C_{2}) }
+25. forall (t), t ∈ RealSet ∧ 0 < t ∧ t < 1 ∧ sqrtn(2, 1 - e^{x}) = t ⇒ I_{2} = -ln(frac(1 + sqrtn(2, 1 - e^{x}), 1 - sqrtn(2, 1 - e^{x}))) + C_{2}
+
+GOAL:
+C ∈ RealSet ∧ x < 0 ⇒ { `F_24` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_24`, 1, 1)(x) = frac(1, sqrtn(2, 1 + e^{x}) + sqrtn(2, 1 - e^{x})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_25` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_25`(x) = -frac(e^{-x}, 2) * (sqrtn(2, 1 + e^{x}) - sqrtn(2, 1 - e^{x})) + frac(1, 4) * ln(frac((sqrtn(2, 1 + e^{x}) - 1) * (1 - sqrtn(2, 1 - e^{x})), (sqrtn(2, 1 + e^{x}) + 1) * (1 + sqrtn(2, 1 - e^{x})))) + C) }
+
+METHOD:

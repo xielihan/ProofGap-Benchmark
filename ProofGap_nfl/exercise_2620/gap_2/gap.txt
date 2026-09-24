@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. p ∈ RealSet
+3. q ∈ RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 3 ⇒ a(n) = frac(1, n * ln(n)^{p} * ln(ln(n))^{q})
+5. f = (fun x [x ∈ RealSet ∧ x > e] . frac(1, x * ln(x)^{p} * ln(ln(x))^{q}))
+6. forall (x), x ∈ RealSet ∧ x > e ⇒ f(x) ≥ 0
+
+GOAL:
+exists (M), M ∈ RealSet ∧ M > e ∧ MonoDecFuncOn(f, [M, +∞))
+
+METHOD:

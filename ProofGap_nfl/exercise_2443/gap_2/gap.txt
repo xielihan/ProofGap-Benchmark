@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. x : RealSet → RealSet
+3. y : RealSet → RealSet
+4. s ∈ RealSet
+5. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ x(t) = a * (t - sin(t))
+6. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ y(t) = a * (1 - cos(t))
+7. forall (t), t ∈ RealSet ⇒ s = DefInt(0, 2 * π, sqrtn(2, a^{2} * (1 - cos(t))^{2} + a^{2} * sin(t)^{2}) * diff(fun t [t ∈ RealSet] . t))
+
+GOAL:
+forall (t), t ∈ RealSet ⇒ s = 2 * a * DefInt(0, 2 * π, sin(frac(t, 2)) * diff(fun t [t ∈ RealSet] . t))
+
+METHOD:

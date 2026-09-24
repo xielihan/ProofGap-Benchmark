@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. P = (fun n [n ∈ NonNegIntegerSet ∧ n ≥ 1] . prod_{ k = 1 }^{ n } (frac((2 * k + 1) * (2 * k + 7), (2 * k + 3) * (2 * k + 5))))
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ⇒ P(n) = frac(3, 7) * frac(2 * n + 7, 2 * n + 3)
+
+GOAL:
+seqlim_{ n → +∞ } (P(n)) = frac(3, 7)
+
+METHOD:

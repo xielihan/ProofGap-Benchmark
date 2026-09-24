@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ Defined(f, (a - δ, a + δ))
+4. DiffableFuncAt(f, a)
+5. h = x - a
+6. x ≠ a ⇒ h ≠ 0
+
+GOAL:
+lim_{ x → a } (x) = a ⇒ lim_{ x → a } (x - a) = 0
+
+METHOD:

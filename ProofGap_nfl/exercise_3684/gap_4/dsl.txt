@@ -1,0 +1,4 @@
+assert (hypothesis 14: {1 ∈ NonNegIntegerSet ∧ 1 ∈ PosIntegerSet ∧ 1 ≤ n})
+get_prop (hypothesis 8: {forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ sum_{ i = 1 }^{ n } (x(i)) = a}) (i := {1}) as (hypothesis 15: {1 ∈ NonNegIntegerSet ∧ 1 ∈ PosIntegerSet ∧ 1 ≤ n ⇒ sum_{ i = 1 }^{ n } (x(i)) = a})
+use_condition (hypothesis 14: {1 ∈ NonNegIntegerSet ∧ 1 ∈ PosIntegerSet ∧ 1 ≤ n}) in (hypothesis 15: {1 ∈ NonNegIntegerSet ∧ 1 ∈ PosIntegerSet ∧ 1 ≤ n ⇒ sum_{ i = 1 }^{ n } (x(i)) = a}) as (hypothesis 16: {sum_{ i = 1 }^{ n } (x(i)) = a})
+autosolve all_hypothesis

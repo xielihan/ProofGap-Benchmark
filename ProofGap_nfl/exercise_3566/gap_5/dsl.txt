@@ -1,0 +1,51 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ x^{2} + y^{2} = p^{2})}) (x := {u})
+get_condition (hypothesis 8: {u ∈ RealSet}) in (GOAL: {u ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ u^{2} + y^{2} = p^{2})})
+get_forall (GOAL: {forall (y), y ∈ RealSet ⇒ u^{2} + y^{2} = p^{2}}) (y := {v})
+get_condition (hypothesis 9: {v ∈ RealSet}) in (GOAL: {v ∈ RealSet ⇒ u^{2} + v^{2} = p^{2}})
+get_prop (hypothesis 6: {forall (x), x ∈ RealSet ⇒ (forall (α), α ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ x * cos(α) + y * sin(α) - p = 0))}) (x := {u}) as (hypothesis 10: {u ∈ RealSet ⇒ (forall (α), α ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ u * cos(α) + y * sin(α) - p = 0))})
+use_condition (hypothesis 8: {u ∈ RealSet}) in (hypothesis 10: {u ∈ RealSet ⇒ (forall (α), α ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ u * cos(α) + y * sin(α) - p = 0))}) as (hypothesis 11: {forall (α), α ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ u * cos(α) + y * sin(α) - p = 0)})
+get_prop (hypothesis 11: {forall (α), α ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ u * cos(α) + y * sin(α) - p = 0)}) (α := {p}) as (hypothesis 12: {p ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ u * cos(p) + y * sin(p) - p = 0)})
+use_condition (hypothesis 2: {p ∈ RealSet}) in (hypothesis 12: {p ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ u * cos(p) + y * sin(p) - p = 0)}) as (hypothesis 13: {forall (y), y ∈ RealSet ⇒ u * cos(p) + y * sin(p) - p = 0})
+get_prop (hypothesis 13: {forall (y), y ∈ RealSet ⇒ u * cos(p) + y * sin(p) - p = 0}) (y := {v}) as (hypothesis 14: {v ∈ RealSet ⇒ u * cos(p) + v * sin(p) - p = 0})
+use_condition (hypothesis 9: {v ∈ RealSet}) in (hypothesis 14: {v ∈ RealSet ⇒ u * cos(p) + v * sin(p) - p = 0}) as (hypothesis 15: {u * cos(p) + v * sin(p) - p = 0})
+get_prop (hypothesis 7: {forall (x), x ∈ RealSet ⇒ (forall (α), α ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ -x * sin(α) + y * cos(α) = 0))}) (x := {u}) as (hypothesis 16: {u ∈ RealSet ⇒ (forall (α), α ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ -u * sin(α) + y * cos(α) = 0))})
+use_condition (hypothesis 8: {u ∈ RealSet}) in (hypothesis 16: {u ∈ RealSet ⇒ (forall (α), α ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ -u * sin(α) + y * cos(α) = 0))}) as (hypothesis 17: {forall (α), α ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ -u * sin(α) + y * cos(α) = 0)})
+get_prop (hypothesis 17: {forall (α), α ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ -u * sin(α) + y * cos(α) = 0)}) (α := {p}) as (hypothesis 18: {p ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ -u * sin(p) + y * cos(p) = 0)})
+use_condition (hypothesis 2: {p ∈ RealSet}) in (hypothesis 18: {p ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ -u * sin(p) + y * cos(p) = 0)}) as (hypothesis 19: {forall (y), y ∈ RealSet ⇒ -u * sin(p) + y * cos(p) = 0})
+get_prop (hypothesis 19: {forall (y), y ∈ RealSet ⇒ -u * sin(p) + y * cos(p) = 0}) (y := {v}) as (hypothesis 20: {v ∈ RealSet ⇒ -u * sin(p) + v * cos(p) = 0})
+use_condition (hypothesis 9: {v ∈ RealSet}) in (hypothesis 20: {v ∈ RealSet ⇒ -u * sin(p) + v * cos(p) = 0}) as (hypothesis 21: {-u * sin(p) + v * cos(p) = 0})
+get_prop (theorem 168: {forall (x), x ∈ RealSet ⇒ (sin(x)) ^ 2 + (cos(x)) ^ 2 = 1}) (x := {p}) as (hypothesis 22: {p ∈ RealSet ⇒ (sin(p)) ^ 2 + (cos(p)) ^ 2 = 1})
+use_condition (hypothesis 2: {p ∈ RealSet}) in (hypothesis 22: {p ∈ RealSet ⇒ (sin(p)) ^ 2 + (cos(p)) ^ 2 = 1}) as (hypothesis 23: {(sin(p)) ^ 2 + (cos(p)) ^ 2 = 1})
+assert (hypothesis 24: {u * cos(p) + v * sin(p) = p}) by proof {
+autosolve (hypothesis 15: {u * cos(p) + v * sin(p) - p = 0})
+}
+assert (hypothesis 25: {(u * cos(p) + v * sin(p))^{2} = p^{2}}) by proof {
+get_prop (theorem 354: {forall (x) (y), x ∈ RealSet ⇒ y ∈ RealSet ⇒ (x = y ⇒ x^2 = y^2)}) (x := {u * cos(p) + v * sin(p)}) (y := {p}) as (hypothesis 25: {u * cos(p) + v * sin(p) ∈ RealSet ⇒ p ∈ RealSet ⇒ (u * cos(p) + v * sin(p) = p ⇒ (u * cos(p) + v * sin(p))^2 = p^2)})
+autosolve all_hypothesis
+}
+assert (hypothesis 26: {(-u * sin(p) + v * cos(p))^{2} = 0^{2}}) by proof {
+get_prop (theorem 354: {forall (x) (y), x ∈ RealSet ⇒ y ∈ RealSet ⇒ (x = y ⇒ x^2 = y^2)}) (x := {-u * sin(p) + v * cos(p)}) (y := {0}) as (hypothesis 26: {-u * sin(p) + v * cos(p) ∈ RealSet ⇒ 0 ∈ RealSet ⇒ (-u * sin(p) + v * cos(p) = 0 ⇒ (-u * sin(p) + v * cos(p))^2 = 0^2)})
+autosolve all_hypothesis
+}
+assert (hypothesis 27: {(u * cos(p) + v * sin(p))^{2} + (-u * sin(p) + v * cos(p))^{2} = p^{2}}) by proof {
+rewrite (left_to_right, equation) (hypothesis 25: {(u * cos(p) + v * sin(p))^{2} = p^{2}}); from (GOAL: {(u * cos(p) + v * sin(p))^{2} + (-u * sin(p) + v * cos(p))^{2} = p^{2}}) to (GOAL: {p^{2} + (-u * sin(p) + v * cos(p))^{2} = p^{2}})
+rewrite (left_to_right, equation) (hypothesis 26: {(-u * sin(p) + v * cos(p))^{2} = 0^{2}}); from (GOAL: {p^{2} + (-u * sin(p) + v * cos(p))^{2} = p^{2}}) to (GOAL: {p^{2} + 0^{2} = p^{2}})
+autosolve all_hypothesis
+}
+assert (hypothesis 28: {(u * cos(p) + v * sin(p))^{2} + (-u * sin(p) + v * cos(p))^{2} = u^{2} * (cos(p)^{2} + sin(p)^{2}) + v^{2} * (sin(p)^{2} + cos(p)^{2})}) by proof {
+autosolve (hypothesis 2: {p ∈ RealSet}) (hypothesis 8: {u ∈ RealSet}) (hypothesis 9: {v ∈ RealSet})
+}
+assert (hypothesis 29: {cos(p)^{2} + sin(p)^{2} = 1}) by proof {
+autosolve (hypothesis 23: {sin(p)^{2} + cos(p)^{2} = 1})
+}
+assert (hypothesis 30: {u^{2} * (cos(p)^{2} + sin(p)^{2}) + v^{2} * (sin(p)^{2} + cos(p)^{2}) = u^{2} + v^{2}}) by proof {
+rewrite (left_to_right, equation) (hypothesis 29: {cos(p)^{2} + sin(p)^{2} = 1}); from (GOAL: {u^{2} * (cos(p)^{2} + sin(p)^{2}) + v^{2} * (sin(p)^{2} + cos(p)^{2}) = u^{2} + v^{2}}) to (GOAL: {u^{2} * 1 + v^{2} * (sin(p)^{2} + cos(p)^{2}) = u^{2} + v^{2}})
+rewrite (left_to_right, equation) (hypothesis 23: {sin(p)^{2} + cos(p)^{2} = 1}); from (GOAL: {u^{2} * 1 + v^{2} * (sin(p)^{2} + cos(p)^{2}) = u^{2} + v^{2}}) to (GOAL: {u^{2} * 1 + v^{2} * 1 = u^{2} + v^{2}})
+autosolve all_hypothesis
+}
+assert (hypothesis 31: {(u * cos(p) + v * sin(p))^{2} + (-u * sin(p) + v * cos(p))^{2} = u^{2} + v^{2}}) by proof {
+rewrite (left_to_right, equation) (hypothesis 28: {(u * cos(p) + v * sin(p))^{2} + (-u * sin(p) + v * cos(p))^{2} = u^{2} * (cos(p)^{2} + sin(p)^{2}) + v^{2} * (sin(p)^{2} + cos(p)^{2})}); from (GOAL: {(u * cos(p) + v * sin(p))^{2} + (-u * sin(p) + v * cos(p))^{2} = u^{2} + v^{2}}) to (GOAL: {u^{2} * (cos(p)^{2} + sin(p)^{2}) + v^{2} * (sin(p)^{2} + cos(p)^{2}) = u^{2} + v^{2}})
+apply (hypothesis 30: {u^{2} * (cos(p)^{2} + sin(p)^{2}) + v^{2} * (sin(p)^{2} + cos(p)^{2}) = u^{2} + v^{2}})
+}
+rewrite (right_to_left, equation) (hypothesis 31: {(u * cos(p) + v * sin(p))^{2} + (-u * sin(p) + v * cos(p))^{2} = u^{2} + v^{2}}); from (GOAL: {u^{2} + v^{2} = p^{2}}) to (GOAL: {(u * cos(p) + v * sin(p))^{2} + (-u * sin(p) + v * cos(p))^{2} = p^{2}})
+apply (hypothesis 27: {(u * cos(p) + v * sin(p))^{2} + (-u * sin(p) + v * cos(p))^{2} = p^{2}})

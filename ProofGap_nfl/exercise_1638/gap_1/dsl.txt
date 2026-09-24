@@ -1,0 +1,4 @@
+assert (hypothesis 3: {x^{4} + x^{-4} + 2 = (x^{2} + frac(1, x^{2}))^{2}})
+rewrite (left_to_right, equation) (hypothesis 3: {x^{4} + x^{-4} + 2 = (x^{2} + frac(1, x^{2}))^{2}}); from (GOAL: {sqrtn(2, x^{4} + x^{-4} + 2) = x^{2} + frac(1, x^{2})}) to (GOAL: {sqrtn(2, (x^{2} + frac(1, x^{2}))^{2}) = x^{2} + frac(1, x^{2})})
+assert (hypothesis 4: {sqrtn(2, (x^{2} + frac(1, x^{2}))^{2}) = x^{2} + frac(1, x^{2})})
+apply (hypothesis 4: {sqrtn(2, (x^{2} + frac(1, x^{2}))^{2}) = x^{2} + frac(1, x^{2})})

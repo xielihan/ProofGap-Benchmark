@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. x ∈ RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(1, 2^{n})
+
+GOAL:
+seqlim_{ n → +∞ } (sqrtn(n, a(n))) = frac(1, 2)
+
+METHOD:

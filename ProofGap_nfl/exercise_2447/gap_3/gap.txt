@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. r : RealSet → RealSet
+2. a ∈ RealSet ∧ a > 0
+3. m ∈ RealSet ∧ m > 0
+4. s ∈ RealSet
+5. forall (φ), φ ∈ RealSet ⇒ r(φ) = a * e^{m * φ}
+6. s = DefInt(-∞, 0, (fun φ [φ ∈ RealSet] . sqrtn(2, r(φ)^{2} + FunDeri(r, 1, 1)(φ)^{2})) * diff(fun φ [φ ∈ RealSet] . φ))
+7. forall (φ), φ ∈ RealSet ∧ 0 < r(φ) ∧ r(φ) < a ⇒ -∞ < φ ∧ φ < 0
+8. s = DefInt(-∞, 0, (fun φ [φ ∈ RealSet] . sqrtn(2, a^{2} * e^{2 * m * φ} + a^{2} * m^{2} * e^{2 * m * φ})) * diff(fun φ [φ ∈ RealSet] . φ))
+
+GOAL:
+s = a * sqrtn(2, m^{2} + 1) * DefInt(-∞, 0, (fun φ [φ ∈ RealSet] . e^{m * φ}) * diff(fun φ [φ ∈ RealSet] . φ))
+
+METHOD:

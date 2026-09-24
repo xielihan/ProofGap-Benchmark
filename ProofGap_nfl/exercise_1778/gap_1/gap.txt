@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. C ∈ RealSet
+2. x ∈ RealSet ∧ -1 < x ∧ x < 1
+
+GOAL:
+forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ (forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ∧ x = sin(t) ⇒ -frac(π, 2) < t)
+
+METHOD:

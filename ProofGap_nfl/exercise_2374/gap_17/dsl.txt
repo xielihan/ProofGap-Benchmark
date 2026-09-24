@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ p ≤ 1 ∧ q < 1 ⇒ DefInt(2, +∞, frac(1, x * ln(x)^{q}) * diff(fun x [x ∈ RealSet] . x)) = +∞}) (x := {y})
+get_condition (hypothesis 19: {y ∈ RealSet ∧ p ≤ 1 ∧ q < 1}) in (GOAL: {y ∈ RealSet ∧ p ≤ 1 ∧ q < 1 ⇒ DefInt(2, +∞, frac(1, y * ln(y)^{q}) * diff(fun x [x ∈ RealSet] . x)) = +∞})
+get_prop (hypothesis 17: {forall (x), x ∈ RealSet ∧ p ≤ 1 ∧ q < 1 ⇒ DefInt(2, +∞, frac(1, x * ln(x)^{q}) * diff(fun x [x ∈ RealSet] . x)) = (frac(ln(x)^{1 - q}, 1 - q)|_{2}^{+∞})}) (x := {y}) as (hypothesis 20: {y ∈ RealSet ∧ p ≤ 1 ∧ q < 1 ⇒ DefInt(2, +∞, frac(1, y * ln(y)^{q}) * diff(fun x [x ∈ RealSet] . x)) = (frac(ln(y)^{1 - q}, 1 - q)|_{2}^{+∞})})
+use_condition (hypothesis 19: {y ∈ RealSet ∧ p ≤ 1 ∧ q < 1}) in (hypothesis 20: {y ∈ RealSet ∧ p ≤ 1 ∧ q < 1 ⇒ DefInt(2, +∞, frac(1, y * ln(y)^{q}) * diff(fun x [x ∈ RealSet] . x)) = (frac(ln(y)^{1 - q}, 1 - q)|_{2}^{+∞})}) as (hypothesis 21: {DefInt(2, +∞, frac(1, y * ln(y)^{q}) * diff(fun x [x ∈ RealSet] . x)) = (frac(ln(y)^{1 - q}, 1 - q)|_{2}^{+∞})})
+get_prop (hypothesis 18: {forall (x), x ∈ RealSet ∧ p ≤ 1 ∧ q < 1 ⇒ (frac(ln(x)^{1 - q}, 1 - q)|_{2}^{+∞}) = +∞}) (x := {y}) as (hypothesis 22: {y ∈ RealSet ∧ p ≤ 1 ∧ q < 1 ⇒ (frac(ln(y)^{1 - q}, 1 - q)|_{2}^{+∞}) = +∞})
+use_condition (hypothesis 19: {y ∈ RealSet ∧ p ≤ 1 ∧ q < 1}) in (hypothesis 22: {y ∈ RealSet ∧ p ≤ 1 ∧ q < 1 ⇒ (frac(ln(y)^{1 - q}, 1 - q)|_{2}^{+∞}) = +∞}) as (hypothesis 23: {(frac(ln(y)^{1 - q}, 1 - q)|_{2}^{+∞}) = +∞})
+autosolve all_hypothesis

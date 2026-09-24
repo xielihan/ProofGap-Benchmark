@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet ∧ x > 0
+2. C ∈ RealSet
+3. t : RealSet → RealSet
+4. forall (x), x ∈ RealSet ∧ x > 0 ⇒ t(x) = sqrtn(6, x)
+5. forall (x), x ∈ RealSet ∧ x > 0 ⇒ sqrtn(2, x) = t(x)^{3}
+6. forall (x), x ∈ RealSet ∧ x > 0 ⇒ sqrtn(3, x) = t(x)^{2}
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ diff(fun x [x ∈ RealSet ∧ x > 0] . x) = (fun x [x ∈ RealSet ∧ x > 0] . 6 * t(x)^{5}) * diff(fun x [x ∈ RealSet ∧ x > 0] . t(x))
+
+METHOD:

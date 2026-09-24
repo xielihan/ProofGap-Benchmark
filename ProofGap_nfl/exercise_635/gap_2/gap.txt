@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. y = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . prod_{ k = 1 }^{ n } (1 + frac(k, n^{2})))
+2. φ = (fun x [x ∈ RealSet] . ln(1 + x))
+3. ψ = (fun x [x ∈ RealSet] . x)
+4. α = (fun k, n [k ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ n > 0] . frac(k, n^{2}))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ln(y(n)) = sum_{ k = 1 }^{ n } (ln(1 + frac(k, n^{2})))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > -1 ∧ x ≠ 0 ⇒ lim_{ x → 0 } (frac(φ(x), ψ(x))) = 1
+
+METHOD:

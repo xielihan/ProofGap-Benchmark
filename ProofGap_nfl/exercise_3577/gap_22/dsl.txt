@@ -1,0 +1,7 @@
+get_prop (hypothesis 5: {forall (a) (b) (c), a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ⇒ a * b * c = frac(3 * V, 4 * π)}) (a := {0}) (b := {0}) (c := {0}) as (hypothesis 26: {0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet ⇒ 0 * 0 * 0 = frac(3 * V, 4 * π)})
+use_condition (obvious: {0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet}) in (hypothesis 26: {0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet ⇒ 0 * 0 * 0 = frac(3 * V, 4 * π)}) as (hypothesis 27: {0 * 0 * 0 = frac(3 * V, 4 * π)})
+get_prop (hypothesis 5: {forall (a) (b) (c), a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ⇒ a * b * c = frac(3 * V, 4 * π)}) (a := {1}) (b := {1}) (c := {1}) as (hypothesis 28: {1 ∈ RealSet ∧ 1 ∈ RealSet ∧ 1 ∈ RealSet ⇒ 1 * 1 * 1 = frac(3 * V, 4 * π)})
+use_condition (obvious: {1 ∈ RealSet ∧ 1 ∈ RealSet ∧ 1 ∈ RealSet}) in (hypothesis 28: {1 ∈ RealSet ∧ 1 ∈ RealSet ∧ 1 ∈ RealSet ⇒ 1 * 1 * 1 = frac(3 * V, 4 * π)}) as (hypothesis 29: {1 * 1 * 1 = frac(3 * V, 4 * π)})
+get_forall (GOAL: {forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ |x * y * z| = frac(V, 4 * π * sqrtn(2, 3))}) (x := {x0}) (y := {y0}) (z := {z0})
+get_condition (hypothesis 30: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet ⇒ |x0 * y0 * z0| = frac(V, 4 * π * sqrtn(2, 3))})
+autosolve (hypothesis 27: {0 * 0 * 0 = frac(3 * V, 4 * π)}) (hypothesis 29: {1 * 1 * 1 = frac(3 * V, 4 * π)})

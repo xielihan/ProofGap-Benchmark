@@ -1,0 +1,2 @@
+rewrite (right_to_left, equation) (hypothesis 35: {r = seqlim_{ n → +∞ } (y(n))}); from (GOAL: {(seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (y(n))) ≤ τ * r}) to (GOAL: {(seqlim_{ n → +∞ } (x(n))) * r ≤ τ * r})
+autosolve (hypothesis 36: {r ≥ 0}) (hypothesis 39: {τ ≥ seqlim_{ n → +∞ } (x(n))})

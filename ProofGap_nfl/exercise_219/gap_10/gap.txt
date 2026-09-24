@@ -1,0 +1,18 @@
+PROOF GAP @10
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ [0, π] ⇒ f(x) = cos(x)
+3. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ 0 < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < π ⇒ f(x_{2}) - f(x_{1}) = cos(x_{2}) - cos(x_{1}))
+4. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ 0 < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < π ⇒ cos(x_{2}) - cos(x_{1}) = -2 * sin(frac(x_{2} + x_{1}, 2)) * sin(frac(x_{2} - x_{1}, 2)))
+5. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ 0 < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < π ⇒ f(x_{2}) - f(x_{1}) = -2 * sin(frac(x_{2} + x_{1}, 2)) * sin(frac(x_{2} - x_{1}, 2)))
+6. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ 0 < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < π ⇒ 0 < frac(x_{1} + x_{2}, 2))
+7. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ 0 < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < π ⇒ frac(x_{1} + x_{2}, 2) < π)
+8. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ 0 < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < π ⇒ 0 < frac(x_{2} - x_{1}, 2))
+9. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ 0 < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < π ⇒ frac(x_{2} - x_{1}, 2) < frac(π, 2))
+10. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ 0 < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < π ⇒ sin(frac(x_{1} + x_{2}, 2)) > 0)
+11. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ 0 < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < π ⇒ sin(frac(x_{2} - x_{1}, 2)) > 0)
+
+GOAL:
+forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ 0 < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < π ⇒ f(x_{2}) - f(x_{1}) < 0)
+
+METHOD:

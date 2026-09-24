@@ -1,0 +1,27 @@
+PROOF GAP @8
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. a ∈ RealSet ∧ a > 0
+3. b ∈ RealSet ∧ b > 0
+4. c ∈ RealSet ∧ c > 0
+5. x_{0} ∈ RealSet
+6. y_{0} ∈ RealSet
+7. z_{0} ∈ RealSet
+8. Δ ∈ RealSet
+9. n ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+10. n_{0} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+11. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ u(x, y, z) = x^{2} + y^{2} + z^{2}))
+12. frac((x_{0})^{2}, a^{2}) + frac((y_{0})^{2}, b^{2}) + frac((z_{0})^{2}, c^{2}) = 1
+13. n = (frac(2 * x_{0}, a^{2}), frac(2 * y_{0}, b^{2}), frac(2 * z_{0}, c^{2}))
+14. Δ = sqrtn(2, frac((x_{0})^{2}, a^{4}) + frac((y_{0})^{2}, b^{4}) + frac((z_{0})^{2}, c^{4}))
+15. Δ > 0
+16. n_{0} = (frac(x_{0}, a^{2} * Δ), frac(y_{0}, b^{2} * Δ), frac(z_{0}, c^{2} * Δ))
+17. grad(u, x_{0}, y_{0}, z_{0}) = (2 * x_{0}, 2 * y_{0}, 2 * z_{0})
+18. FunDeri(u, n, 1)(x_{0}, y_{0}, z_{0}) = grad(u, x_{0}, y_{0}, z_{0}) · n_{0}
+19. FunDeri(u, n, 1)(x_{0}, y_{0}, z_{0}) = frac(x_{0}, a^{2} * Δ) * 2 * x_{0} + frac(y_{0}, b^{2} * Δ) * 2 * y_{0} + frac(z_{0}, c^{2} * Δ) * 2 * z_{0}
+20. FunDeri(u, n, 1)(x_{0}, y_{0}, z_{0}) = frac(2, Δ) * (frac((x_{0})^{2}, a^{2}) + frac((y_{0})^{2}, b^{2}) + frac((z_{0})^{2}, c^{2}))
+
+GOAL:
+FunDeri(u, n, 1)(x_{0}, y_{0}, z_{0}) = frac(2, Δ)
+
+METHOD:

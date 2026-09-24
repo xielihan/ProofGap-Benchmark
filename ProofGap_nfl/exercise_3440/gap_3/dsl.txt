@@ -1,0 +1,2 @@
+1. get_forall (GOAL: {forall (t), (Impl(And(And(Belong(t, RealSet), Lt(Neg(frac(π, 2)), t)), Lt(t, frac(π, 2))), Eq(frac(frac(Plus(Mult(FunDeri(u, 1, 1)(t), cos(t)), Mult(u(t), sin(t))), Power(cos(t), 2)), frac(1, Power(cos(t), 2))), Plus(Mult(FunDeri(u, 1, 1)(t), cos(t)), Mult(u(t), sin(t))))))}) (t := {t})
+2. autosolve all_hypothesis

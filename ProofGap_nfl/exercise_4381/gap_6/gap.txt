@@ -1,0 +1,22 @@
+PROOF GAP @6
+ASSUM:
+1. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. V ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. l ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+4. n ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+5. l_{x} : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+6. l_{y} : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+7. l_{z} : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+8. l = (l_{x}, l_{y}, l_{z})
+9. l ∈ RealSet^{3}
+10. |l| = 1
+11. exists (α) (β) (γ), α ∈ RealSet ∧ β ∈ RealSet ∧ γ ∈ RealSet ∧ (forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ cos(n, l) = cos(α) * l_{x}(x, y, z) + cos(β) * l_{y}(x, y, z) + cos(γ) * l_{z}(x, y, z))
+12. ScalarSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . cos(n, l)) * diff(S)) = VectorSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . l_{x}(x, y, z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . l_{y}(x, y, z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . l_{z}(x, y, z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y))
+13. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(l_{x}, 1, 1)(x, y, z) + FunDeri(l_{y}, 2, 1)(x, y, z) + FunDeri(l_{z}, 3, 1)(x, y, z) = 0
+14. VectorSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . l_{x}(x, y, z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . l_{y}(x, y, z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . l_{z}(x, y, z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y)) = VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . 0) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z))
+15. VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . 0) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)) = 0
+
+GOAL:
+VectorSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . l_{x}(x, y, z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . l_{y}(x, y, z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . l_{z}(x, y, z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y)) = 0
+
+METHOD:

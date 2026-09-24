@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ e^{-(x^{2} + y^{2})} ≥ 0)
+
+GOAL:
+DefInt(-∞, +∞, (fun y [y ∈ RealSet] . DefInt(-∞, +∞, (fun x [x ∈ RealSet] . e^{-(x^{2} + y^{2})}) * diff(fun x [x ∈ RealSet] . x))) * diff(fun y [y ∈ RealSet] . y)) = DefInt(0, 2 * π, (fun θ [θ ∈ RealSet] . DefInt(0, +∞, (fun r [r ∈ RealSet ∧ r ≥ 0] . r * e^{-r^{2}}) * diff(fun r [r ∈ RealSet] . r))) * diff(fun θ [θ ∈ RealSet] . θ))
+
+METHOD:
+[@method 根据 "极坐标变换" @]

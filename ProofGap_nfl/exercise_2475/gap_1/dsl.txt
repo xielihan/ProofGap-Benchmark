@@ -1,0 +1,8 @@
+get_prop (hypothesis 9: {forall (x), x ∈ RealSet ⇒ f(x) = b * frac(x, a)^{2}}) (x := {a}) as (hypothesis 11: {a ∈ RealSet ⇒ f(a) = b * frac(a, a)^{2}})
+use_condition (hypothesis 1: {a ∈ RealSet}) in (hypothesis 11: {a ∈ RealSet ⇒ f(a) = b * frac(a, a)^{2}}) as (hypothesis 12: {f(a) = b * frac(a, a)^{2}})
+get_prop (hypothesis 10: {forall (x), x ∈ RealSet ⇒ g(x) = b * |frac(x, a)|}) (x := {a}) as (hypothesis 13: {a ∈ RealSet ⇒ g(a) = b * |frac(a, a)|})
+use_condition (hypothesis 1: {a ∈ RealSet}) in (hypothesis 13: {a ∈ RealSet ⇒ g(a) = b * |frac(a, a)|}) as (hypothesis 14: {g(a) = b * |frac(a, a)|})
+rewrite (left_to_right, equation) (hypothesis 12: {f(a) = b * frac(a, a)^{2}}); from (GOAL: {f(a) = g(a)}) to (GOAL: {b * frac(a, a)^{2} = g(a)})
+rewrite (left_to_right, equation) (hypothesis 14: {g(a) = b * |frac(a, a)|}); from (GOAL: {b * frac(a, a)^{2} = g(a)}) to (GOAL: {b * frac(a, a)^{2} = b * |frac(a, a)|})
+autoreplace (hypothesis 7: {a > 0}); from (frac(a, a)) to (1); from (GOAL: {b * frac(a, a)^{2} = b * |frac(a, a)|}) to (GOAL: {b * 1^{2} = b * |1|})
+autosolve all_hypothesis

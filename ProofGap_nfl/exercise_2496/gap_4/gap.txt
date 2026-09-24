@@ -1,0 +1,17 @@
+PROOF GAP @4
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. a ∈ RealSet ∧ a > 0
+4. P ∈ RealSet
+5. s ∈ RealSet
+6. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ x(t) = a * cos(t)^{3}
+7. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ y(t) = a * sin(t)^{3}
+8. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ diff(s) = sqrtn(2, FunDeri(x, 1, 1)(t)^{2} + FunDeri(y, 1, 1)(t)^{2}) * diff(t)
+9. forall (t), t ∈ RealSet ∧ frac(π, 4) ≤ t ∧ t ≤ frac(3 * π, 4) ⇒ diff(s) = cases{ 3 * a * sin(t) * cos(t) * diff(t) if frac(π, 4) ≤ t ∧ t ≤ frac(π, 2); -3 * a * sin(t) * cos(t) * diff(t) if frac(π, 2) ≤ t ∧ t ≤ frac(3 * π, 4) }
+10. P = 2 * (2 * π * DefInt(frac(π, 4), frac(π, 2), fun t [t ∈ RealSet ∧ frac(π, 4) ≤ t ∧ t ≤ frac(π, 2)] . frac(y(t) - x(t), sqrtn(2, 2)) * sqrtn(2, FunDeri(x, 1, 1)(t)^{2} + FunDeri(y, 1, 1)(t)^{2}) * diff(t)) + 2 * π * DefInt(frac(π, 2), frac(3 * π, 4), fun t [t ∈ RealSet ∧ frac(π, 2) ≤ t ∧ t ≤ frac(3 * π, 4)] . frac(y(t) - x(t), sqrtn(2, 2)) * sqrtn(2, FunDeri(x, 1, 1)(t)^{2} + FunDeri(y, 1, 1)(t)^{2}) * diff(t)))
+
+GOAL:
+P = frac(4 * π, sqrtn(2, 2)) * (DefInt(frac(π, 4), frac(π, 2), fun t [t ∈ RealSet ∧ frac(π, 4) ≤ t ∧ t ≤ frac(π, 2)] . (a * sin(t)^{3} - a * cos(t)^{3}) * 3 * a * sin(t) * cos(t) * diff(t)) - DefInt(frac(π, 2), frac(3 * π, 4), fun t [t ∈ RealSet ∧ frac(π, 2) ≤ t ∧ t ≤ frac(3 * π, 4)] . (a * sin(t)^{3} - a * cos(t)^{3}) * 3 * a * sin(t) * cos(t) * diff(t)))
+
+METHOD:

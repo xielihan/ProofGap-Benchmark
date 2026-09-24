@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. V_{x} ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ (exists (n), n ∈ NonNegIntegerSet ∧ 2 * n * π ≤ x ∧ x ≤ (2 * n + 1) * π) ⇒ y(x) = e^{-x} * sqrtn(2, sin(x))
+
+GOAL:
+Dom(y) = union_{ n ∈ NonNegIntegerSet } ([2 * n * π, (2 * n + 1) * π])
+
+METHOD:

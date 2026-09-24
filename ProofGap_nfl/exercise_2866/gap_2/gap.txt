@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. 1 - x^{2} > 0
+3. 1 - x^{2} > 0 ⇒ frac(1, (1 - x^{2}) * sqrtn(2, 1 - x^{2})) = (1 - x^{2})^{-frac(3, 2)}
+
+GOAL:
+(1 - x^{2})^{-frac(3, 2)} = sum_{ n = 0 }^{ +∞ } (frac(prod_{ k = 0 }^{ n - 1 } (-frac(3, 2) - k), n!) * (-x^{2})^{n})
+
+METHOD:

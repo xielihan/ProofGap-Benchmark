@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. n ∈ RealSet ∧ n > 0 ∧ x ∈ RealSet ∧ t ∈ RealSet
+2. Gamma : RealSet → RealSet
+3. t = x^{n}
+
+GOAL:
+0 ≤ x ∧ x < +∞ ⇒ 0 ≤ t ∧ t < +∞
+
+METHOD:

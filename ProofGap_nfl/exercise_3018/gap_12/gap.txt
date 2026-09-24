@@ -1,0 +1,22 @@
+PROOF GAP @12
+ASSUM:
+1. x ∈ RealSet
+2. z : RealSet → ComplexSet
+3. S : RealSet → RealSet
+4. 0 < x ⇒ x < 2 * π ⇒ z(x) = e^{__IMAGINARY_UNIT__ * x}
+5. 0 < x ⇒ x < 2 * π ⇒ sum_{ n = 1 }^{ +∞ } (frac(z(x)^{n}, n)) = ln(frac(1, 1 - z(x)))
+6. 0 < x ⇒ x < 2 * π ⇒ ln(frac(1, 1 - z(x))) = -ln(1 - cos(x) - __IMAGINARY_UNIT__ * sin(x))
+7. 0 < x ⇒ x < 2 * π ⇒ -ln(1 - cos(x) - __IMAGINARY_UNIT__ * sin(x)) = -frac(1, 2) * ln(2 - 2 * cos(x)) + __IMAGINARY_UNIT__ * arctan(frac(sin(x), 1 - cos(x)))
+8. 0 < x ⇒ x < 2 * π ⇒ -frac(1, 2) * ln(2 - 2 * cos(x)) + __IMAGINARY_UNIT__ * arctan(frac(sin(x), 1 - cos(x))) = -ln(|2 * sin(frac(x, 2))|) + __IMAGINARY_UNIT__ * arctan(frac(sin(x), 1 - cos(x)))
+9. 0 < x ⇒ x < 2 * π ⇒ sum_{ n = 1 }^{ +∞ } (frac(z(x)^{n}, n)) = (sum_{ n = 1 }^{ +∞ } (frac(cos(n * x), n))) + __IMAGINARY_UNIT__ * (sum_{ n = 1 }^{ +∞ } (frac(sin(n * x), n)))
+10. 0 < x ⇒ x < 2 * π ⇒ sum_{ n = 1 }^{ +∞ } (frac(sin(n * x), n)) = arctan(frac(sin(x), 1 - cos(x)))
+11. 0 < x ⇒ x < 2 * π ⇒ arctan(frac(sin(x), 1 - cos(x))) = arctan(cot(frac(x, 2)))
+12. 0 < x ⇒ x < 2 * π ⇒ arctan(cot(frac(x, 2))) = arctan(tan(frac(π - x, 2)))
+13. 0 < x ⇒ x < 2 * π ⇒ arctan(tan(frac(π - x, 2))) = frac(π - x, 2)
+14. 0 < x ⇒ x < 2 * π ⇒ arctan(frac(sin(x), 1 - cos(x))) = frac(π - x, 2)
+15. 0 < x ⇒ x < 2 * π ⇒ sum_{ n = 1 }^{ +∞ } (frac(sin(n * x), n)) = frac(π - x, 2)
+
+GOAL:
+(exists (k), k ∈ IntegerSet ∧ x = 2 * k * π) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ sin(n * x) = 0)
+
+METHOD:

@@ -1,0 +1,10 @@
+get_forall (GOAL: {forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ 0 ≤ x ∧ x ≤ 2 ⇒ |F(n, x) - f(x)| ≤ frac(1, n)}) (n := {n0}) (x := {x0})
+get_condition (hypothesis 14: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ 0 ≤ x0 ∧ x0 ≤ 2}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ 0 ≤ x0 ∧ x0 ≤ 2 ⇒ |F(n0, x0) - f(x0)| ≤ frac(1, n0)})
+get_prop (hypothesis 8: {forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ |F(n, x) - f(x)| ≤ frac(1, n)}) (n := {n0}) as (hypothesis 15: {forall (x), n0 ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ |F(n0, x) - f(x)| ≤ frac(1, n0)})
+get_prop (hypothesis 15: {forall (x), n0 ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ |F(n0, x) - f(x)| ≤ frac(1, n0)}) (x := {x0}) as (hypothesis 16: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ 0 ≤ x0 ∧ x0 ≤ 1 ⇒ |F(n0, x0) - f(x0)| ≤ frac(1, n0)})
+get_prop (hypothesis 13: {forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ 1 < x ∧ x ≤ 2 ⇒ |F(n, x) - f(x)| ≤ frac(1, n)}) (n := {n0}) as (hypothesis 17: {forall (x), n0 ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ 1 < x ∧ x ≤ 2 ⇒ |F(n0, x) - f(x)| ≤ frac(1, n0)})
+get_prop (hypothesis 17: {forall (x), n0 ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ 1 < x ∧ x ≤ 2 ⇒ |F(n0, x) - f(x)| ≤ frac(1, n0)}) (x := {x0}) as (hypothesis 18: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ 1 < x0 ∧ x0 ≤ 2 ⇒ |F(n0, x0) - f(x0)| ≤ frac(1, n0)})
+assert (hypothesis 19: {x0 ≤ 1 ∨ 1 < x0}) by proof {
+  autosolve
+}
+autosolve all_hypothesis

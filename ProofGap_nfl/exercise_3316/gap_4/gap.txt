@@ -1,0 +1,16 @@
+PROOF GAP @4
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. f : RealSet → RealSet
+3. x ∈ RealSet
+4. y ∈ RealSet ∧ cos(x) ≠ 0 ∧ cos(y) ≠ 0
+5. DiffableFunc(f)
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ cos(x) ≠ 0 ∧ cos(y) ≠ 0 ⇒ z(x, y) = sin(y) + f(sin(x) - sin(y))
+7. FunDeri(z, 1, 1)(x, y) = cos(x) * FunDeri(f, 1, 1)(sin(x) - sin(y))
+8. FunDeri(z, 2, 1)(x, y) = cos(y) - cos(y) * FunDeri(f, 1, 1)(sin(x) - sin(y))
+9. sec(x) * FunDeri(z, 1, 1)(x, y) + sec(y) * FunDeri(z, 2, 1)(x, y) = sec(x) * cos(x) * FunDeri(f, 1, 1)(sin(x) - sin(y)) + sec(y) * (cos(y) - cos(y) * FunDeri(f, 1, 1)(sin(x) - sin(y)))
+
+GOAL:
+sec(x) * FunDeri(z, 1, 1)(x, y) + sec(y) * FunDeri(z, 2, 1)(x, y) = FunDeri(f, 1, 1)(sin(x) - sin(y)) + 1 - FunDeri(f, 1, 1)(sin(x) - sin(y))
+
+METHOD:

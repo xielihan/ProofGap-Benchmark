@@ -1,0 +1,19 @@
+PROOF GAP @10
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = x^{2}
+3. forall (x), x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |x^{2} - 25| < ε ⇒ |f(x) - f(5)| < ε)
+4. forall (x), x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |x - 5| * |x + 5| < ε ⇒ |x^{2} - 25| < ε)
+5. forall (x), x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |x - 5| * |x + 5| < ε ⇒ |f(x) - f(5)| < ε)
+6. forall (x), x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |x - 5| < 1 ⇒ 4 < x)
+7. forall (x), x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |x - 5| < 1 ⇒ x < 6)
+8. forall (x), x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |x - 5| < 1 ⇒ 9 < x + 5)
+9. forall (x), x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |x - 5| < 1 ⇒ x + 5 < 11)
+10. forall (x), x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |x - 5| < 1 ∧ |x - 5| < frac(ε, 11) ⇒ |x - 5| * |x + 5| < ε)
+11. forall (x), x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |x - 5| < 1 ∧ |x - 5| < frac(ε, 11) ⇒ |x - 5| * |x + 5| < ε)
+12. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ δ = min(frac(ε, 11), 1))
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ |x - 5| < δ ⇒ |f(x) - f(5)| < ε))
+
+METHOD:

@@ -1,0 +1,5 @@
+assert (hypothesis 19: {`A'` ≠ 0}) by proof {
+  not_normalize from (GOAL: {`A'` ≠ 0}) to (GOAL: {`A'` = 0 => False})
+  apply (hypothesis 18: {`A'` = 0 => False})
+}
+autosolve all_hypothesis

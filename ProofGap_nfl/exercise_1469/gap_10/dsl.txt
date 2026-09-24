@@ -1,0 +1,13 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ FunDeri(g, 1, 1)(x) = -x * cosh(x) ∧ -x * cosh(x) < 0}) (x := {x0})
+get_condition (hypothesis 19: {x0 ∈ RealSet ∧ x0 ∈ PosRealSet}) in (GOAL: {x0 ∈ RealSet ∧ x0 ∈ PosRealSet ⇒ FunDeri(g, 1, 1)(x0) = -x0 * cosh(x0) ∧ -x0 * cosh(x0) < 0})
+assert (hypothesis 20: {FunDeri(g, 1, 1)(x0) = -x0 * cosh(x0)}) by proof {
+  autosolve (hypothesis 8: {forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ g(x) = cosh(x) - x * sinh(x)}) (hypothesis 19: {x0 ∈ RealSet ∧ x0 ∈ PosRealSet}) using DerivSolver
+}
+get_prop (hypothesis 12: {forall (x), x ∈ RealSet ⇒ FunDeri(f, 1, 2)(x) = cosh(x) ∧ cosh(x) > 0}) (x := {x0}) as (hypothesis 21: {x0 ∈ RealSet ⇒ FunDeri(f, 1, 2)(x0) = cosh(x0) ∧ cosh(x0) > 0})
+assert (hypothesis 22: {x0 ∈ RealSet})
+use_condition (hypothesis 22: {x0 ∈ RealSet}) in (hypothesis 21: {x0 ∈ RealSet ⇒ FunDeri(f, 1, 2)(x0) = cosh(x0) ∧ cosh(x0) > 0}) as (hypothesis 23: {FunDeri(f, 1, 2)(x0) = cosh(x0) ∧ cosh(x0) > 0})
+assert (hypothesis 24: {-x0 * cosh(x0) < 0}) by proof {
+  autosolve (hypothesis 19: {x0 ∈ RealSet ∧ x0 ∈ PosRealSet}) (hypothesis 23: {FunDeri(f, 1, 2)(x0) = cosh(x0) ∧ cosh(x0) > 0}) using SgnSolver
+}
+assert (hypothesis 25: {FunDeri(g, 1, 1)(x0) = -x0 * cosh(x0) ∧ -x0 * cosh(x0) < 0})
+apply (hypothesis 25: {FunDeri(g, 1, 1)(x0) = -x0 * cosh(x0) ∧ -x0 * cosh(x0) < 0})

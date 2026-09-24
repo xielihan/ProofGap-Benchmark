@@ -1,0 +1,4 @@
+rewrite (right_to_left, equation) (hypothesis 12: {t = 2 * a * x + b}); from (GOAL: {(2 * a * x + b)^{2} + 4 * a * c - b^{2} = t^{2} + Delta}) to (GOAL: {t^{2} + 4 * a * c - b^{2} = t^{2} + Delta})
+rewrite (left_to_right, equation) (hypothesis 13: {Delta = 4 * a * c - b^{2}}); from (GOAL: {t^{2} + 4 * a * c - b^{2} = t^{2} + Delta}) to (GOAL: {t^{2} + 4 * a * c - b^{2} = t^{2} + (4 * a * c - b^{2})})
+assert (hypothesis 15: {t^{2} + 4 * a * c - b^{2} = t^{2} + (4 * a * c - b^{2})})
+apply (hypothesis 15: {t^{2} + 4 * a * c - b^{2} = t^{2} + (4 * a * c - b^{2})})

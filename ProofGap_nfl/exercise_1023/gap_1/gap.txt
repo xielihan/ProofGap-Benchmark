@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. I = (-∞, 0)
+2. f = (fun x [x ∈ RealSet] . 2 * x)
+3. g = (fun x [x ∈ RealSet] . x^{2} + 1)
+
+GOAL:
+forall (x), x ∈ I => DiffableFuncAt(f, x)
+
+METHOD:

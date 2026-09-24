@@ -1,0 +1,20 @@
+PROOF GAP @11
+ASSUM:
+1. y : RealSet → RealSet ∧ Dom(y) = RealSet \ { 0 }
+2. x ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ y(x) = x + frac(1, x)
+4. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(y, 1, 1)(x) = 1 - frac(1, x^{2})
+5. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ (FunDeri(y, 1, 1)(x) = 0 ⇔ x = -1 ∨ x = 1)
+6. forall (x), x ∈ RealSet ∧ x < -1 ⇒ FunDeri(y, 1, 1)(x) > 0
+7. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 0 ⇒ FunDeri(y, 1, 1)(x) < 0
+8. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < 1 ⇒ FunDeri(y, 1, 1)(x) < 0
+9. forall (x), x ∈ RealSet ∧ x > 1 ⇒ FunDeri(y, 1, 1)(x) > 0
+10. -1 ∈ MaximumPointOn(y, IntervalLoRo(-∞, 0))
+11. y(-1) = -2
+12. 1 ∈ MinimumPointOn(y, IntervalLoRo(0, +∞))
+13. y(1) = 2
+
+GOAL:
+MaximumPointOn(y, IntervalLoRo(-∞, 0)) = { -1 } ∧ MinimumPointOn(y, IntervalLoRo(0, +∞)) = { 1 }
+
+METHOD:

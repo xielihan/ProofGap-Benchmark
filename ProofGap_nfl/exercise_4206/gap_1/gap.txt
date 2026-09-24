@@ -1,0 +1,16 @@
+PROOF GAP @1
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. I ∈ RealSet
+3. x : NonNegIntegerSet → RealSet
+4. i ∈ NonNegIntegerSet
+5. k ∈ NonNegIntegerSet
+6. τ ∈ RealSet
+7. n ∈ PosIntegerSet
+8. I = DefInt(0, 1, DefInt(0, x(1), DefInt(0, x(n - 1), (prod_{ i = 1 }^{ n } (x(i))) * diff(x(n))) * diff(x(2))) * diff(x(1)))
+
+GOAL:
+I = DefInt(0, 1, DefInt(0, x(1), DefInt(0, x(n - 1), (prod_{ i = 1 }^{ n } (x(i))) * diff(x(n))) * diff(x(2))) * diff(x(1)))
+
+METHOD:
+[@method 化为累次积分 @]

@@ -1,0 +1,9 @@
+1. get_forall (GOAL: {forall (p), p ∈ IntegerSet => (forall (q), q ∈ IntegerSet /\ m ∈ NegIntegerSet /\ n ∈ NegIntegerSet /\ p = -m /\ q = -n => frac(q, p) = frac(n, m))}) (p := {a})
+2. get_condition (hypothesis 11: {a ∈ IntegerSet}) in (GOAL: {a ∈ IntegerSet => (forall (q), q ∈ IntegerSet /\ m ∈ NegIntegerSet /\ n ∈ NegIntegerSet /\ a = -m /\ q = -n => frac(q, a) = frac(n, m))})
+3. get_forall (GOAL: {forall (q), q ∈ IntegerSet /\ m ∈ NegIntegerSet /\ n ∈ NegIntegerSet /\ a = -m /\ q = -n => frac(q, a) = frac(n, m)}) (q := {b})
+4. get_condition (hypothesis 12: {b ∈ IntegerSet /\ m ∈ NegIntegerSet /\ n ∈ NegIntegerSet /\ a = -m /\ b = -n}) in (GOAL: {b ∈ IntegerSet /\ m ∈ NegIntegerSet /\ n ∈ NegIntegerSet /\ a = -m /\ b = -n => frac(b, a) = frac(n, m)})
+5. destruct_and (hypothesis 12: {b ∈ IntegerSet /\ m ∈ NegIntegerSet /\ n ∈ NegIntegerSet /\ a = -m /\ b = -n}) as (hypothesis 13: {b ∈ IntegerSet}) (hypothesis 14: {m ∈ NegIntegerSet}) (hypothesis 15: {n ∈ NegIntegerSet}) (hypothesis 16: {a = -m}) (hypothesis 17: {b = -n})
+6. rewrite (left_to_right, equation) (hypothesis 16: {a = -m}); from (GOAL: {frac(b, a) = frac(n, m)}) to (GOAL: {frac(b, -m) = frac(n, m)})
+7. rewrite (left_to_right, equation) (hypothesis 17: {b = -n}); from (GOAL: {frac(b, -m) = frac(n, m)}) to (GOAL: {frac(-n, -m) = frac(n, m)})
+8. autoreplace no_hypothesis; from (frac(-n, -m)) to (frac(n, m)); from (GOAL: {frac(-n, -m) = frac(n, m)}) to (GOAL: {frac(n, m) = frac(n, m)})
+9. autosolve all_hypothesis

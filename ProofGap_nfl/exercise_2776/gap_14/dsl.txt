@@ -1,0 +1,19 @@
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ⇒ (forall (N), N ∈ NonNegIntegerSet ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ (UniformConvergent(S_{n}, PosRealSet, S) ⇒ ε = 1 ⇒ x_{0} = frac(2, 3^{N + 1} * π) ⇒ 2^{N + 1} > 1)))}) (ε := {ε0})
+get_condition (hypothesis 20: {ε0 ∈ RealSet}) in (GOAL: {ε0 ∈ RealSet ⇒ (forall (N), N ∈ NonNegIntegerSet ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ (UniformConvergent(S_{n}, PosRealSet, S) ⇒ ε0 = 1 ⇒ x_{0} = frac(2, 3^{N + 1} * π) ⇒ 2^{N + 1} > 1)))})
+get_forall (GOAL: {forall (N), N ∈ NonNegIntegerSet ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ (UniformConvergent(S_{n}, PosRealSet, S) ⇒ ε0 = 1 ⇒ x_{0} = frac(2, 3^{N + 1} * π) ⇒ 2^{N + 1} > 1))}) (N := {N0})
+get_condition (hypothesis 21: {N0 ∈ NonNegIntegerSet}) in (GOAL: {N0 ∈ NonNegIntegerSet ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ (UniformConvergent(S_{n}, PosRealSet, S) ⇒ ε0 = 1 ⇒ x_{0} = frac(2, 3^{N0 + 1} * π) ⇒ 2^{N0 + 1} > 1))})
+exists (x_{0} := {frac(2, 3^{N0 + 1} * π)})
+assert (hypothesis 22: {frac(2, 3^{N0 + 1} * π) ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 23: {UniformConvergent(S_{n}, PosRealSet, S) ⇒ ε0 = 1 ⇒ frac(2, 3^{N0 + 1} * π) = frac(2, 3^{N0 + 1} * π) ⇒ 2^{N0 + 1} > 1}) by proof {
+  get_condition (hypothesis 23: {UniformConvergent(S_{n}, PosRealSet, S)}) in (GOAL: {UniformConvergent(S_{n}, PosRealSet, S) ⇒ ε0 = 1 ⇒ frac(2, 3^{N0 + 1} * π) = frac(2, 3^{N0 + 1} * π) ⇒ 2^{N0 + 1} > 1})
+  get_condition (hypothesis 24: {ε0 = 1}) in (GOAL: {ε0 = 1 ⇒ frac(2, 3^{N0 + 1} * π) = frac(2, 3^{N0 + 1} * π) ⇒ 2^{N0 + 1} > 1})
+  get_condition (hypothesis 25: {frac(2, 3^{N0 + 1} * π) = frac(2, 3^{N0 + 1} * π)}) in (GOAL: {frac(2, 3^{N0 + 1} * π) = frac(2, 3^{N0 + 1} * π) ⇒ 2^{N0 + 1} > 1})
+  get_prop (theorem 'Thm 493. (PositivePowerPreservesStrictNonnegativeOrder)': {forall (a) (b) (t), a ∈ RealSet => b ∈ RealSet => t ∈ RealSet => a >= 0 => b >= 0 => t > 0 => a < b => a ^ t < b ^ t}) (a := {1}) (b := {2}) (t := {N0 + 1}) as (hypothesis 26: {1 ∈ RealSet ⇒ 2 ∈ RealSet ⇒ N0 + 1 ∈ RealSet ⇒ 1 ≥ 0 ⇒ 2 ≥ 0 ⇒ N0 + 1 > 0 ⇒ 1 < 2 ⇒ 1^{N0 + 1} < 2^{N0 + 1}})
+  use_condition (obvious: {1 ∈ RealSet}) (obvious: {2 ∈ RealSet}) (obvious: {N0 + 1 ∈ RealSet}) (obvious: {1 ≥ 0}) (obvious: {2 ≥ 0}) (obvious: {N0 + 1 > 0}) (obvious: {1 < 2}) in (hypothesis 26: {1 ∈ RealSet ⇒ 2 ∈ RealSet ⇒ N0 + 1 ∈ RealSet ⇒ 1 ≥ 0 ⇒ 2 ≥ 0 ⇒ N0 + 1 > 0 ⇒ 1 < 2 ⇒ 1^{N0 + 1} < 2^{N0 + 1}}) as (hypothesis 27: {1^{N0 + 1} < 2^{N0 + 1}})
+  get_prop (theorem 'Thm 374. (OneRaisedToRealPower)': {forall (x), x ∈ RealSet => (1 ^ x = 1)}) (x := {N0 + 1}) as (hypothesis 28: {N0 + 1 ∈ RealSet ⇒ 1^{N0 + 1} = 1})
+  use_condition (obvious: {N0 + 1 ∈ RealSet}) in (hypothesis 28: {N0 + 1 ∈ RealSet ⇒ 1^{N0 + 1} = 1}) as (hypothesis 29: {1^{N0 + 1} = 1})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

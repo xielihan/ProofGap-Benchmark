@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (F) (x_{0}) (f) (g) (Δx), F : RealSet → RealSet ∧ x_{0} ∈ RealSet ∧ f : RealSet → RealSet ∧ g : RealSet → RealSet ∧ Δx ∈ RealSet ∧ Δx ≠ 0 ⇒ frac((f(x_{0} + Δx) + g(x_{0} + Δx)) - (f(x_{0}) + g(x_{0})), Δx) = frac(f(x_{0} + Δx) - f(x_{0}), Δx) + frac(g(x_{0} + Δx) - g(x_{0}), Δx)
+
+GOAL:
+forall (f) (x_{0}), f : RealSet → RealSet ∧ x_{0} ∈ RealSet ∧ DiffableFuncAt(f, x_{0}) ⇒ lim_{ Δx → 0 } (frac(f(x_{0} + Δx) - f(x_{0}), Δx)) ∈ RealSet
+
+METHOD:

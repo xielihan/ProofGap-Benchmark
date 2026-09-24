@@ -1,0 +1,16 @@
+PROOF GAP @9
+ASSUM:
+1. x ∈ RealSet
+2. x ∈ RealSet
+3. x ≠ 0
+4. 1 + e^{x} > 0
+5. tanh(x) ≠ 0
+6. lim_{ x → 0 } ((ln(1 + e^{x}) - ln(2)) / tanh(x)) = lim_{ x → 0 } (frac(e^{x}, 1 + e^{x}) / frac(1, cosh(x)^{2}))
+7. lim_{ x → 0 } (frac(e^{x}, 1 + e^{x}) / frac(1, cosh(x)^{2})) = frac(1, 2)
+8. lim_{ x → 0 } (frac(1 + e^{x}, 2)^{coth(x)}) = e^{frac(1, 2)}
+9. e^{frac(1, 2)} = sqrtn(2, e)
+
+GOAL:
+lim_{ x → 0 } (frac(1 + e^{x}, 2)^{coth(x)}) = sqrtn(2, e)
+
+METHOD:

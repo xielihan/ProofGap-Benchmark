@@ -1,0 +1,4 @@
+get_prop (hypothesis 10: {forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ Π = 2 * (x - 1) + 4 * (y - 2) - (z - 5)}) (x := {1}) (y := {2}) (z := {5}) as (hypothesis 12: {1 ∈ RealSet ∧ 2 ∈ RealSet ∧ 5 ∈ RealSet ⇒ Π = 2 * (1 - 1) + 4 * (2 - 2) - (5 - 5)})
+assert (hypothesis 13: {1 ∈ RealSet ∧ 2 ∈ RealSet ∧ 5 ∈ RealSet})
+use_condition (hypothesis 13: {1 ∈ RealSet ∧ 2 ∈ RealSet ∧ 5 ∈ RealSet}) in (hypothesis 12: {1 ∈ RealSet ∧ 2 ∈ RealSet ∧ 5 ∈ RealSet ⇒ Π = 2 * (1 - 1) + 4 * (2 - 2) - (5 - 5)}) as (hypothesis 14: {Π = 2 * (1 - 1) + 4 * (2 - 2) - (5 - 5)})
+autosolve all_hypothesis

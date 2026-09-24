@@ -1,0 +1,26 @@
+PROOF GAP @13
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. ξ ∈ RealSet ∧ ξ > 0
+4. x_{1} ∈ RealSet
+5. x_{2} ∈ RealSet
+6. x_{3} ∈ RealSet
+7. forall (t), t ∈ RealSet ∧ t ≠ 0 ⇒ f(t) = tanh(t) - frac(1, t)
+8. tanh(x) = frac(1, x) ⇔ x * tanh(x) = 1
+9. ξ > 0 ∧ (forall (x0), x0 ∈ RealSet ⇒ (x0 * tanh(x0) = 1 ⇔ x0 = ξ ∨ x0 = -ξ))
+10. forall (t), t ∈ RealSet ∧ t ≠ 0 ⇒ FunDeri(f, 1, 1)(t) = frac(1, cosh(t)^{2}) + frac(1, t^{2}) ∧ frac(1, cosh(t)^{2}) + frac(1, t^{2}) > 0
+11. StrictMonoIncFuncOn(f, PosRealSet)
+12. f(1) = -0.2384
+13. f(2) = 0.4640
+14. ξ ∈ IntervalLoRo(1, 2) ∧ f(ξ) = 0 ∧ (forall (ξ1), ξ1 ∈ RealSet ∧ ξ1 ∈ IntervalLoRo(1, 2) ∧ f(ξ1) = 0 ⇒ ξ1 = ξ)
+15. forall (t), t ∈ RealSet ∧ t > 0 ⇒ FunDeri(f, 1, 2)(t) = -frac(2 * sinh(t), cosh(t)^{3}) - frac(2, t^{3}) ∧ -frac(2 * sinh(t), cosh(t)^{3}) - frac(2, t^{3}) < 0
+16. f(1) * FunDeri(f, 1, 2)(1) > 0
+17. FunDeri(x, fun x0 [x0 ∈ RealSet] . 1, 1)(x) = 1.339
+18. x_{1} = 1.168
+19. 1.168 < ξ
+
+GOAL:
+ξ < 1.339
+
+METHOD:

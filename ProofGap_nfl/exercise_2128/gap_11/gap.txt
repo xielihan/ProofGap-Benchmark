@@ -1,0 +1,17 @@
+PROOF GAP @11
+ASSUM:
+1. forall (x), x ∈ RealSet
+2. forall (x), x ∈ RealSet ⇒ 1 + x^{4} + x^{8} = (x^{4} + 1)^{2} - x^{4}
+3. forall (x), x ∈ RealSet ⇒ (x^{4} + 1)^{2} - x^{4} = (x^{4} + x^{2} + 1) * (x^{4} - x^{2} + 1)
+4. forall (x), x ∈ RealSet ⇒ 1 + x^{4} + x^{8} = (x^{4} + x^{2} + 1) * (x^{4} - x^{2} + 1)
+5. forall (x), x ∈ RealSet ⇒ x^{4} + x^{2} + 1 = (x^{2} + 1)^{2} - x^{2}
+6. forall (x), x ∈ RealSet ⇒ (x^{2} + 1)^{2} - x^{2} = (x^{2} + x + 1) * (x^{2} - x + 1)
+7. forall (x), x ∈ RealSet ⇒ x^{4} + x^{2} + 1 = (x^{2} + x + 1) * (x^{2} - x + 1)
+8. forall (x), x ∈ RealSet ⇒ x^{4} - x^{2} + 1 = (x^{2} + 1)^{2} - 3 * x^{2}
+9. forall (x), x ∈ RealSet ⇒ (x^{2} + 1)^{2} - 3 * x^{2} = (x^{2} + x * sqrtn(2, 3) + 1) * (x^{2} - x * sqrtn(2, 3) + 1)
+10. forall (x), x ∈ RealSet ⇒ x^{4} - x^{2} + 1 = (x^{2} + x * sqrtn(2, 3) + 1) * (x^{2} - x * sqrtn(2, 3) + 1)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ frac(1, 1 + x^{4} + x^{8}) = frac(1, 2) * (frac(x^{2} + 1, x^{4} + x^{2} + 1) - frac(x^{2} - 1, x^{4} - x^{2} + 1))
+
+METHOD:

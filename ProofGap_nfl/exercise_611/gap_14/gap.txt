@@ -1,0 +1,22 @@
+PROOF GAP @14
+ASSUM:
+1. y : NonNegIntegerSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x = 0 ⇒ seqlim_{ n → +∞ } ((1 + frac(x, n))^{n}) = e^{x}
+3. forall (x), x ∈ RealSet ∧ x = 0 ⇒ seqlim_{ n → +∞ } (sum_{ k = 0 }^{ n } (frac(x^{k}, k!))) = e^{x}
+4. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n) = frac(n, x))
+5. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ seqlim_{ n → +∞ } ((1 + frac(x, n))^{n}) = seqlim_{ n → +∞ } ((1 + frac(1, y(n)))^{y(n) * x})
+6. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ seqlim_{ n → +∞ } ((1 + frac(1, y(n)))^{y(n) * x}) = e^{x}
+7. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ seqlim_{ n → +∞ } ((1 + frac(x, n))^{n}) = e^{x}
+8. forall (x), x ∈ RealSet ∧ x > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (1 + frac(x, n))^{n} ≤ sum_{ k = 0 }^{ n } (frac(x^{k}, k!)))
+9. forall (x), x ∈ RealSet ∧ x > 0 ⇒ (forall (m) (n), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ m > n ⇒ (1 + frac(x, m))^{m} > sum_{ k = 0 }^{ n } (frac(x^{k}, k!) * (prod_{ i = 0 }^{ k - 1 } (1 - frac(i, m)))))
+10. forall (x), x ∈ RealSet ∧ x > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ e^{x} ≥ sum_{ k = 0 }^{ n } (frac(x^{k}, k!)))
+11. forall (x), x ∈ RealSet ∧ x > 0 ⇒ seqlim_{ n → +∞ } (sum_{ k = 0 }^{ n } (frac(x^{k}, k!))) = e^{x}
+12. forall (x), x ∈ RealSet ∧ x < 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (sum_{ k = 0 }^{ n } (frac(x^{k}, k!))) * (sum_{ k = 0 }^{ n } (frac((-x)^{k}, k!))) = 1 + (-1)^{n} * frac(x^{n}, n!)^{2})
+13. forall (x), x ∈ RealSet ∧ x < 0 ⇒ seqlim_{ n → +∞ } (frac(x^{n}, n!)) = 0
+14. forall (x), x ∈ RealSet ∧ x < 0 ⇒ seqlim_{ n → +∞ } (sum_{ k = 0 }^{ n } (frac(x^{k}, k!))) = e^{x}
+15. forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } ((1 + frac(x, n))^{n}) = e^{x}
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (sum_{ k = 0 }^{ n } (frac(x^{k}, k!))) = e^{x}
+
+METHOD:

@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. p ∈ RealSet
+3. t ∈ RealSet
+4. t = -(1 + x)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ prod_{ k = 0 }^{ n - 1 } (x - k) = -(-1)^{n - 1} * (prod_{ k = 1 }^{ n } (k + t))
+
+GOAL:
+sum_{ n = 1 }^{ +∞ } (frac(1, n^{p}) * frac(prod_{ k = 0 }^{ n - 1 } (x - k), n!)) = -(sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(prod_{ k = 1 }^{ n } (k + t), n! * n^{p})))
+
+METHOD:

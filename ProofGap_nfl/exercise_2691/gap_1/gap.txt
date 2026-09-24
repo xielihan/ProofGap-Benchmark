@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+seqlim_{ n → +∞ } (sin(n^{2})) = 0 ⇒ seqlim_{ n → +∞ } (sin(n^{2})^{2}) = 0
+
+METHOD:

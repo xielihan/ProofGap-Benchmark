@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. |x| > |x + 1|
+
+GOAL:
+x^{2} > (x + 1)^{2}
+
+METHOD:
+[@method 两边同时平方 @]

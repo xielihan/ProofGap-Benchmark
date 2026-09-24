@@ -1,0 +1,21 @@
+PROOF GAP @12
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = arctan(x)
+4. arctan(x) = DefInt(0, x, (fun t [t ∈ RealSet] . frac(1, 1 + t^{2})) * diff(fun t [t ∈ RealSet] . t))
+5. forall (t), t ∈ RealSet ∧ |t| < 1 ⇒ frac(1, 1 + t^{2}) = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * t^{2 * n})
+6. arctan(x) = DefInt(0, x, (fun t [t ∈ RealSet] . sum_{ n = 0 }^{ +∞ } ((-1)^{n} * t^{2 * n})) * diff(fun t [t ∈ RealSet] . t))
+7. DefInt(0, x, (fun t [t ∈ RealSet] . sum_{ n = 0 }^{ +∞ } ((-1)^{n} * t^{2 * n})) * diff(fun t [t ∈ RealSet] . t)) = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x^{2 * n + 1}, 2 * n + 1))
+8. arctan(x) = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x^{2 * n + 1}, 2 * n + 1))
+9. |x| < 1 ⇒ UniformConvergent(fun t [t ∈ RealSet] . sum_{ n = 0 }^{ +∞ } ((-1)^{n} * t^{2 * n}), [0, x], fun t [t ∈ RealSet] . frac(1, 1 + t^{2}))
+10. |x| = 1 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x^{2 * n + 1}, 2 * n + 1)))
+11. |x| ≤ 1 ⇒ arctan(x) = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x^{2 * n + 1}, 2 * n + 1))
+12. x = 1 ⇒ sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(1, 2 * n + 1)) = sum_{ n = 1 }^{ +∞ } (frac((-1)^{n - 1}, 2 * n - 1))
+13. x = 1 ⇒ sum_{ n = 1 }^{ +∞ } (frac((-1)^{n - 1}, 2 * n - 1)) = arctan(1)
+14. x = 1 ⇒ arctan(1) = frac(π, 4)
+
+GOAL:
+x = 1 ⇒ sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(1, 2 * n + 1)) = frac(π, 4)
+
+METHOD:

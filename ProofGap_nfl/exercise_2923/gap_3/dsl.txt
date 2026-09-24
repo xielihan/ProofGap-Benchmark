@@ -1,0 +1,6 @@
+exists (n := {2})
+assert (hypothesis 3: {exists (Δ), Δ ∈ RealSet ∧ Δ ≥ 0 ∧ 2 = 2 ∧ Δ = 0}) by proof {
+  exists (Δ := {0})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

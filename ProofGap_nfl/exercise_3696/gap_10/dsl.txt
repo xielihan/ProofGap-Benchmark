@@ -1,0 +1,2 @@
+exists (z := {frac(c, sqrtn(2, 3))})
+autosolve all_hypothesis

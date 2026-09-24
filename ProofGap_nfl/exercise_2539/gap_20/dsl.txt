@@ -1,0 +1,5 @@
+get_prop (hypothesis 9: {forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ 10 => x(i) = i * h ∧ y(i) = f(x(i))}) (i := {9}) as (hypothesis 28: {9 ∈ IntegerSet ∧ 0 ≤ 9 ∧ 9 ≤ 10 => x(9) = 9 * h ∧ y(9) = f(x(9))})
+use_condition (obvious: {9 ∈ IntegerSet ∧ 0 ≤ 9 ∧ 9 ≤ 10}) in (hypothesis 28: {9 ∈ IntegerSet ∧ 0 ≤ 9 ∧ 9 ≤ 10 => x(9) = 9 * h ∧ y(9) = f(x(9))}) as (hypothesis 29: {x(9) = 9 * h ∧ y(9) = f(x(9))})
+destruct_and (hypothesis 29: {x(9) = 9 * h ∧ y(9) = f(x(9))}) as (hypothesis 30: {x(9) = 9 * h}) (hypothesis 31: {y(9) = f(x(9))})
+rewrite (left_to_right, equation) (hypothesis 7: {h = frac(1, 10)}); from (hypothesis 30: {x(9) = 9 * h}) to (hypothesis 30: {x(9) = 9 * frac(1, 10)})
+autosolve (hypothesis 30: {x(9) = 9 * frac(1, 10)})

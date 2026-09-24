@@ -1,0 +1,31 @@
+PROOF GAP @11
+ASSUM:
+1. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. V ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. x ∈ RealSet
+4. y ∈ RealSet
+5. z ∈ RealSet
+6. r : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+7. R : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+8. n ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+9. Boundary : PowerSet(CartesianProd(RealSet, CartesianProd(RealSet, RealSet))) → PowerSet(CartesianProd(RealSet, CartesianProd(RealSet, RealSet)))
+10. S = Boundary(V)
+11. forall (ξ), ξ ∈ RealSet ⇒ (forall (η), η ∈ RealSet ⇒ (forall (ζ), ζ ∈ RealSet ⇒ r(ξ, η, ζ) = sqrtn(2, (ξ - x)^{2} + (η - y)^{2} + (ζ - z)^{2})))
+12. forall (ξ), ξ ∈ RealSet ⇒ (forall (η), η ∈ RealSet ⇒ (forall (ζ), ζ ∈ RealSet ⇒ R(ξ, η, ζ) = (ξ - x, η - y, ζ - z)))
+13. forall (ξ), ξ ∈ RealSet ⇒ (forall (η), η ∈ RealSet ⇒ (forall (ζ), ζ ∈ RealSet ⇒ (forall (α), α ∈ RealSet ⇒ (forall (β), β ∈ RealSet ⇒ (forall (γ), γ ∈ RealSet ∧ (x, y, z) ∉ V ⇒ cos(R(ξ, η, ζ), n) = frac(ξ - x, r(ξ, η, ζ)) * cos(α) + frac(η - y, r(ξ, η, ζ)) * cos(β) + frac(ζ - z, r(ξ, η, ζ)) * cos(γ))))))
+14. (x, y, z) ∉ V ⇒ ScalarSurfaceInt(S, (fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . cos(R(ξ, η, ζ), n)) * diff(S)) = VolumeInt(V, (fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . FunDeri(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(ξ - x, r(ξ, η, ζ)), 1, 1)(ξ, η, ζ) + FunDeri(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(η - y, r(ξ, η, ζ)), 2, 1)(ξ, η, ζ) + FunDeri(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(ζ - z, r(ξ, η, ζ)), 3, 1)(ξ, η, ζ)) * diff(ω))
+15. forall (ξ), ξ ∈ RealSet ⇒ (forall (η), η ∈ RealSet ⇒ (forall (ζ), ζ ∈ RealSet ∧ (x, y, z) ∉ V ⇒ FunDeri(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(ξ - x, r(ξ, η, ζ)), 1, 1)(ξ, η, ζ) + FunDeri(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(η - y, r(ξ, η, ζ)), 2, 1)(ξ, η, ζ) + FunDeri(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(ζ - z, r(ξ, η, ζ)), 3, 1)(ξ, η, ζ) = frac(2, r(ξ, η, ζ))))
+16. (x, y, z) ∉ V ⇒ ScalarSurfaceInt(S, (fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . cos(R(ξ, η, ζ), n)) * diff(S)) = 2 * VolumeInt(V, (fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(1, r(ξ, η, ζ))) * diff(ω))
+17. (x, y, z) ∉ V ⇒ VolumeInt(V, (fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(1, r(ξ, η, ζ))) * diff(ω)) = frac(1, 2) * ScalarSurfaceInt(S, (fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . cos(R(ξ, η, ζ), n)) * diff(S))
+18. forall (eps), eps ∈ RealSet ∧ eps > 0 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (ξ), ξ ∈ RealSet ⇒ (forall (η), η ∈ RealSet ⇒ (forall (ζ), ζ ∈ RealSet ∧ (x, y, z) ∈ V ⇒ V(eps) = { (ξ, η, ζ) | (ξ, η, ζ) ∈ V ∧ r(ξ, η, ζ) > ε }))))
+19. forall (eps), eps ∈ RealSet ∧ eps > 0 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (ξ), ξ ∈ RealSet ⇒ (forall (η), η ∈ RealSet ⇒ (forall (ζ), ζ ∈ RealSet ∧ (x, y, z) ∈ V ⇒ S(eps) = Boundary({ (ξ, η, ζ) | r(ξ, η, ζ) < ε })))))
+20. forall (eps), eps ∈ RealSet ∧ eps > 0 ∧ (x, y, z) ∈ V ⇒ ScalarSurfaceInt(S, (fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . cos(R(ξ, η, ζ), n)) * diff(S)) + ScalarSurfaceInt(S(eps), (fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . cos(R(ξ, η, ζ), n)) * diff(S)) = 2 * VolumeInt(V(eps), (fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(1, r(ξ, η, ζ))) * diff(ω))
+21. forall (eps), eps ∈ RealSet ∧ eps > 0 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ (x, y, z) ∈ V ⇒ ScalarSurfaceInt(S(eps), (fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . cos(R(ξ, η, ζ), n)) * diff(S)) = -4 * π * ε^{2})
+22. forall (eps), eps ∈ RealSet ∧ eps > 0 ∧ (x, y, z) ∈ V ⇒ lim_{ ε → 0^+ } (ScalarSurfaceInt(S(eps), (fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . cos(R(ξ, η, ζ), n)) * diff(S))) = 0
+23. forall (eps), eps ∈ RealSet ∧ eps > 0 ∧ (x, y, z) ∈ V ⇒ VolumeInt(V, (fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(1, r(ξ, η, ζ))) * diff(ω)) = lim_{ ε → 0^+ } (VolumeInt(V(eps), (fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(1, r(ξ, η, ζ))) * diff(ω)))
+24. (x, y, z) ∈ V ⇒ VolumeInt(V, (fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(1, r(ξ, η, ζ))) * diff(ω)) = frac(1, 2) * ScalarSurfaceInt(S, (fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . cos(R(ξ, η, ζ), n)) * diff(S))
+
+GOAL:
+VolumeInt(V, (fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(1, r(ξ, η, ζ))) * diff(ω)) = frac(1, 2) * ScalarSurfaceInt(S, (fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . cos(R(ξ, η, ζ), n)) * diff(S))
+
+METHOD:

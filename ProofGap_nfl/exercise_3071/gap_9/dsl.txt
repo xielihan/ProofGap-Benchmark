@@ -1,0 +1,2 @@
+get_prop (theorem 345: {forall (a), (DivergentSeq(a) ⇔ ¬ConvergentSeq(a))}) (a := {P}) as (hypothesis 22: {DivergentSeq(P) ⇔ ¬ConvergentSeq(P)})
+autosolve all_hypothesis

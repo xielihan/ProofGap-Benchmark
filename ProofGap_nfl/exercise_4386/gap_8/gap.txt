@@ -1,0 +1,22 @@
+PROOF GAP @8
+ASSUM:
+1. f : CartesianProd(RealSet, CartesianProd(RealSet, CartesianProd(RealSet, RealSet))) → RealSet
+2. B : RealSet → PowerSet(CartesianProd(RealSet, CartesianProd(RealSet, RealSet)))
+3. S : RealSet → PowerSet(CartesianProd(RealSet, CartesianProd(RealSet, RealSet)))
+4. Phi : RealSet → RealSet
+5. FuncOfClassK(f, 1)
+6. forall (t), t ∈ RealSet ∧ t > 0 ⇒ (forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ ((x, y, z) ∈ B(t) ⇔ x^{2} + y^{2} + z^{2} ≤ t^{2}))
+7. forall (t), t ∈ RealSet ∧ t > 0 ⇒ (forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ ((x, y, z) ∈ S(t) ⇔ x^{2} + y^{2} + z^{2} = t^{2}))
+8. forall (t), t ∈ RealSet ∧ t > 0 ⇒ Phi(t) = VolumeInt(B(t), (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . f(x, y, z, t)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z))
+9. forall (t), t ∈ RealSet ∧ t > 0 ⇒ Phi(t) = VolumeInt({ (u, v, w) | u^{2} + v^{2} + w^{2} ≤ 1 }, (fun u, v, w [u ∈ RealSet ∧ v ∈ RealSet ∧ w ∈ RealSet] . t^{3} * f(t * u, t * v, t * w, t)) * diff(fun u, v, w [u ∈ RealSet ∧ v ∈ RealSet ∧ w ∈ RealSet] . u) * diff(fun u, v, w [u ∈ RealSet ∧ v ∈ RealSet ∧ w ∈ RealSet] . v) * diff(fun u, v, w [u ∈ RealSet ∧ v ∈ RealSet ∧ w ∈ RealSet] . w))
+10. forall (t), t ∈ RealSet ∧ t > 0 ⇒ FunDeri(Phi, 1, 1)(t) = VolumeInt({ (u, v, w) | u^{2} + v^{2} + w^{2} ≤ 1 }, (fun u, v, w [u ∈ RealSet ∧ v ∈ RealSet ∧ w ∈ RealSet] . t^{3} * (FunDeri(f, 1, 1)(t * u, t * v, t * w, t) * u + FunDeri(f, 2, 1)(t * u, t * v, t * w, t) * v + FunDeri(f, 3, 1)(t * u, t * v, t * w, t) * w + FunDeri(f, 4, 1)(t * u, t * v, t * w, t)) + 3 * t^{2} * f(t * u, t * v, t * w, t)) * diff(fun u, v, w [u ∈ RealSet ∧ v ∈ RealSet ∧ w ∈ RealSet] . u) * diff(fun u, v, w [u ∈ RealSet ∧ v ∈ RealSet ∧ w ∈ RealSet] . v) * diff(fun u, v, w [u ∈ RealSet ∧ v ∈ RealSet ∧ w ∈ RealSet] . w))
+11. forall (t), t ∈ RealSet ∧ t > 0 ⇒ FunDeri(Phi, 1, 1)(t) = frac(1, t) * VolumeInt(B(t), (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . FunDeri(fun x, y, z, t [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ t ∈ RealSet] . f(x, y, z, t) * x, 1, 1)(x, y, z, t) + FunDeri(fun x, y, z, t [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ t ∈ RealSet] . f(x, y, z, t) * y, 2, 1)(x, y, z, t) + FunDeri(fun x, y, z, t [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ t ∈ RealSet] . f(x, y, z, t) * z, 3, 1)(x, y, z, t)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)) + VolumeInt(B(t), (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . FunDeri(f, 4, 1)(x, y, z, t)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z))
+12. forall (t), t ∈ RealSet ∧ t > 0 ⇒ VolumeInt(B(t), (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . FunDeri(fun x, y, z, t [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ t ∈ RealSet] . f(x, y, z, t) * x, 1, 1)(x, y, z, t) + FunDeri(fun x, y, z, t [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ t ∈ RealSet] . f(x, y, z, t) * y, 2, 1)(x, y, z, t) + FunDeri(fun x, y, z, t [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ t ∈ RealSet] . f(x, y, z, t) * z, 3, 1)(x, y, z, t)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)) = ScalarSurfaceInt(S(t), (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . t * f(x, y, z, t)) * diff(S(t)))
+13. forall (t), t ∈ RealSet ∧ t > 0 ⇒ (forall (x), x ∈ RealSet ∧ |x| ≤ t ⇒ (exists (α), α ∈ RealSet ∧ cos(α) = frac(x, t)))
+14. forall (t), t ∈ RealSet ∧ t > 0 ⇒ (forall (y), y ∈ RealSet ∧ |y| ≤ t ⇒ (exists (β), β ∈ RealSet ∧ cos(β) = frac(y, t)))
+15. forall (t), t ∈ RealSet ∧ t > 0 ⇒ (forall (z), z ∈ RealSet ∧ |z| ≤ t ⇒ (exists (γ), γ ∈ RealSet ∧ cos(γ) = frac(z, t)))
+
+GOAL:
+forall (t), t ∈ RealSet ∧ t > 0 ⇒ ScalarSurfaceInt(S(t), (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . t * f(x, y, z, t)) * diff(S(t))) = t * ScalarSurfaceInt(S(t), (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . f(x, y, z, t)) * diff(S(t)))
+
+METHOD:

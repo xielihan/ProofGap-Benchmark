@@ -1,0 +1,8 @@
+assert (hypothesis 24: {3 != 0})
+assert (hypothesis 25: {2 * b = -7})
+assert (hypothesis 26: {2 * a + 2 * c = -3})
+assert (hypothesis 27: {8 * a + 2 * c = 17})
+assert (hypothesis 28: {6 * a = 20})
+assert (hypothesis 29: {3 * a = 10})
+assert (hypothesis 30: {a = frac(10, 3)})
+apply (hypothesis 30: {a = frac(10, 3)})

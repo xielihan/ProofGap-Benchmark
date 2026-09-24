@@ -1,0 +1,13 @@
+get_forall (GOAL: {forall (n_{1}), n_{1} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (y_{1}), y_{1} ∈ RealSet ⇒ n_{1} = (2 * x_{1}, 2 * y_{1}, 1)))}) (n_{1} := {m})
+get_condition (hypothesis 5: {m ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))}) in (GOAL: {m ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (y_{1}), y_{1} ∈ RealSet ⇒ m = (2 * x_{1}, 2 * y_{1}, 1)))})
+get_forall (GOAL: {forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (y_{1}), y_{1} ∈ RealSet ⇒ m = (2 * x_{1}, 2 * y_{1}, 1))}) (x_{1} := {a})
+get_condition (hypothesis 6: {a ∈ RealSet}) in (GOAL: {a ∈ RealSet ⇒ (forall (y_{1}), y_{1} ∈ RealSet ⇒ m = (2 * a, 2 * y_{1}, 1))})
+get_forall (GOAL: {forall (y_{1}), y_{1} ∈ RealSet ⇒ m = (2 * a, 2 * y_{1}, 1)}) (y_{1} := {b})
+get_condition (hypothesis 7: {b ∈ RealSet}) in (GOAL: {b ∈ RealSet ⇒ m = (2 * a, 2 * b, 1)})
+get_prop (hypothesis 4: {forall (n), n ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ n = (2 * x, 2 * y, 1)))}) (n := {m}) as (hypothesis 8: {m ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ m = (2 * x, 2 * y, 1)))})
+use_condition (hypothesis 5: {m ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))}) in (hypothesis 8: {m ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ m = (2 * x, 2 * y, 1)))}) as (hypothesis 9: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ m = (2 * x, 2 * y, 1))})
+get_prop (hypothesis 9: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ m = (2 * x, 2 * y, 1))}) (x := {a}) as (hypothesis 10: {a ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ m = (2 * a, 2 * y, 1))})
+use_condition (hypothesis 6: {a ∈ RealSet}) in (hypothesis 10: {a ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ m = (2 * a, 2 * y, 1))}) as (hypothesis 11: {forall (y), y ∈ RealSet ⇒ m = (2 * a, 2 * y, 1)})
+get_prop (hypothesis 11: {forall (y), y ∈ RealSet ⇒ m = (2 * a, 2 * y, 1)}) (y := {b}) as (hypothesis 12: {b ∈ RealSet ⇒ m = (2 * a, 2 * b, 1)})
+use_condition (hypothesis 7: {b ∈ RealSet}) in (hypothesis 12: {b ∈ RealSet ⇒ m = (2 * a, 2 * b, 1)}) as (hypothesis 13: {m = (2 * a, 2 * b, 1)})
+autosolve all_hypothesis

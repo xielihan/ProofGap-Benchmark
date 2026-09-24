@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. p ∈ RealSet
+3. q ∈ RealSet
+4. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < 1 ⇒ y(x) = frac(x^{p} * (1 - x)^{q}, 1 + x)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 < x ∧ x < 1 ⇒ FunDeri(fun t . frac(t^{p} * (1 - t)^{q}, 1 + t), 1, 1)(x) = frac((p * x^{p - 1} * (1 - x)^{q} - q * x^{p} * (1 - x)^{q - 1}) * (1 + x) - x^{p} * (1 - x)^{q}, (1 + x)^{2}) ∧ frac((p * x^{p - 1} * (1 - x)^{q} - q * x^{p} * (1 - x)^{q - 1}) * (1 + x) - x^{p} * (1 - x)^{q}, (1 + x)^{2}) = frac(x^{p - 1} * (1 - x)^{q - 1}, (1 + x)^{2}) * (p - (q + 1) * x - (p + q - 1) * x^{2})
+
+METHOD:

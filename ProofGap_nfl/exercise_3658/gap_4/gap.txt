@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. F : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = cos(x)^{2} + cos(y)^{2}
+4. F = (fun x, y, λ [x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet] . cos(x)^{2} + cos(y)^{2} + λ * (x - y - frac(π, 4)))
+5. forall (x) (y) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 1, 1)(x, y, λ) = -sin(2 * x) + λ
+6. forall (x) (y) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 2, 1)(x, y, λ) = -sin(2 * y) - λ
+7. exists (x) (λ), x ∈ RealSet ∧ λ ∈ RealSet ∧ -sin(2 * x) + λ = 0
+
+GOAL:
+exists (y) (λ), y ∈ RealSet ∧ λ ∈ RealSet ∧ -sin(2 * y) - λ = 0
+
+METHOD:

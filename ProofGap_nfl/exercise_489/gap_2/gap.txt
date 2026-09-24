@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. forall (x), x ∈ RealSet ⇒ cos(a + 2 * x) - 2 * cos(a + x) + cos(a) = cos(a + 2 * x) - cos(a + x) - (cos(a + x) - cos(a))
+
+GOAL:
+lim_{ x → 0 } (frac(cos(a + 2 * x) - 2 * cos(a + x) + cos(a), x^{2})) = lim_{ x → 0 } (frac(cos(a + 2 * x) - cos(a + x) - (cos(a + x) - cos(a)), x^{2}))
+
+METHOD:

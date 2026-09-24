@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+3. forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ⇒ f(x) = arcsin(x)^{2}
+
+GOAL:
+forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ FunDeri(f, 1, 1)(x) = frac(2, sqrtn(2, 1 - x^{2})) * arcsin(x)
+
+METHOD:

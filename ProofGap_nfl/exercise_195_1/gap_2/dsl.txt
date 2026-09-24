@@ -1,0 +1,13 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ φ(x) = frac(a * (x + h) + b - (a * x + b), h)}) (x := {y})
+2. get_condition (hypothesis 9: {y ∈ RealSet}) in (GOAL: {y ∈ RealSet ⇒ φ(y) = frac(a * (y + h) + b - (a * y + b), h)})
+3. assert (hypothesis 10: {y + h ∈ RealSet})
+4. get_prop (hypothesis 8: {forall (x), x ∈ RealSet ⇒ φ(x) = frac(f(x + h) - f(x), h)}) (x := {y}) as (hypothesis 11: {y ∈ RealSet ⇒ φ(y) = frac(f(y + h) - f(y), h)})
+5. use_condition (hypothesis 9: {y ∈ RealSet}) in (hypothesis 11: {y ∈ RealSet ⇒ φ(y) = frac(f(y + h) - f(y), h)}) as (hypothesis 12: {φ(y) = frac(f(y + h) - f(y), h)})
+6. get_prop (hypothesis 7: {forall (x), x ∈ RealSet ⇒ f(x) = a * x + b}) (x := {y + h}) as (hypothesis 13: {y + h ∈ RealSet ⇒ f(y + h) = a * (y + h) + b})
+7. use_condition (hypothesis 10: {y + h ∈ RealSet}) in (hypothesis 13: {y + h ∈ RealSet ⇒ f(y + h) = a * (y + h) + b}) as (hypothesis 14: {f(y + h) = a * (y + h) + b})
+8. get_prop (hypothesis 7: {forall (x), x ∈ RealSet ⇒ f(x) = a * x + b}) (x := {y}) as (hypothesis 15: {y ∈ RealSet ⇒ f(y) = a * y + b})
+9. use_condition (hypothesis 9: {y ∈ RealSet}) in (hypothesis 15: {y ∈ RealSet ⇒ f(y) = a * y + b}) as (hypothesis 16: {f(y) = a * y + b})
+10. rewrite (left_to_right, equation) (hypothesis 12: {φ(y) = frac(f(y + h) - f(y), h)}); from (GOAL: {φ(y) = frac(a * (y + h) + b - (a * y + b), h)}) to (GOAL: {frac(f(y + h) - f(y), h) = frac(a * (y + h) + b - (a * y + b), h)})
+11. rewrite (left_to_right, equation) (hypothesis 14: {f(y + h) = a * (y + h) + b}); from (GOAL: {frac(f(y + h) - f(y), h) = frac(a * (y + h) + b - (a * y + b), h)}) to (GOAL: {frac(a * (y + h) + b - f(y), h) = frac(a * (y + h) + b - (a * y + b), h)})
+12. rewrite (left_to_right, equation) (hypothesis 16: {f(y) = a * y + b}); from (GOAL: {frac(a * (y + h) + b - f(y), h) = frac(a * (y + h) + b - (a * y + b), h)}) to (GOAL: {frac(a * (y + h) + b - (a * y + b), h) = frac(a * (y + h) + b - (a * y + b), h)})
+13. autosolve all_hypothesis

@@ -1,0 +1,15 @@
+PROOF GAP @8
+ASSUM:
+1. n ∈ RealSet
+2. lim_{ x → 0^+ } (x^{-n} * frac(x^{n}, sqrtn(2, 1 - x^{2}))) = 1
+3. exists (I_{1}), I_{1} ∈ RealSet ∧ (DefInt(0, frac(1, 2), (fun x [x ∈ RealSet] . frac(x^{n}, sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x)) = I_{1} ⇔ -n < 1)
+4. -n < 1 ⇔ n > -1
+5. lim_{ x → 1^- } (sqrtn(2, 1 - x) * frac(x^{n}, sqrtn(2, 1 - x^{2}))) = lim_{ x → 1^- } (frac(x^{n}, sqrtn(2, 1 + x)))
+6. lim_{ x → 1^- } (frac(x^{n}, sqrtn(2, 1 + x))) = frac(1, sqrtn(2, 2))
+7. lim_{ x → 1^- } (sqrtn(2, 1 - x) * frac(x^{n}, sqrtn(2, 1 - x^{2}))) = frac(1, sqrtn(2, 2))
+8. forall (n), n ∈ RealSet ⇒ (exists (I_{2}), I_{2} ∈ RealSet ∧ DefInt(frac(1, 2), 1, (fun x [x ∈ RealSet] . frac(x^{n}, sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x)) = I_{2})
+
+GOAL:
+n ∈ { n | n > -1 } ⇔ (exists (I), I ∈ RealSet ∧ DefInt(0, 1, (fun x [x ∈ RealSet] . frac(x^{n}, sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x)) = I)
+
+METHOD:

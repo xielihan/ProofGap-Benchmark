@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. f = (fun x [x ∈ RealSet] . x + sin(x))
+2. MonoIncFuncOn(f, IntervalLoRo(0, +∞))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, +∞) ⇒ (x + sin(x))' = 1 + cos(x)
+
+METHOD:

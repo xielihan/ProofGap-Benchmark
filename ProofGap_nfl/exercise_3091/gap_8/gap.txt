@@ -1,0 +1,16 @@
+PROOF GAP @8
+ASSUM:
+1. P : NonNegIntegerSet → RealSet
+2. forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N ≥ 2 ⇒ P(N) = prod_{ n = 2 }^{ N } (1 + frac((-1)^{n}, ln(n)))
+3. ConditionalConvergentSeries(sum_{ n = 2 }^{ +∞ } (frac((-1)^{n}, ln(n))))
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ frac((-1)^{n}, ln(n))^{2} = frac(1, ln(n)^{2})
+5. exists (N_{0}), N_{0} ∈ NonNegIntegerSet ∧ N_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N_{0} ⇒ n > ln(n)^{2})
+6. exists (N_{0}), N_{0} ∈ NonNegIntegerSet ∧ N_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N_{0} ⇒ frac(1, ln(n)^{2}) > frac(1, n))
+7. DivergentSeries(sum_{ n = 2 }^{ +∞ } (frac(1, n)))
+8. DivergentSeries(sum_{ n = 2 }^{ +∞ } (frac(1, ln(n)^{2})))
+9. DivergentSeries(sum_{ n = 2 }^{ +∞ } (frac((-1)^{n}, ln(n))^{2}))
+
+GOAL:
+seqlim_{ N → +∞ } (P(N)) = 0
+
+METHOD:

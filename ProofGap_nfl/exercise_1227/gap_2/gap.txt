@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. P : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. forall (m) (x), m ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ P(m, x) = frac(1, 2^{m} * m!) * FunDeri(fun x [x ∈ RealSet] . (x^{2} - 1)^{m}, 1, m)(x)
+3. exists (y), y : RealSet → RealSet ∧ (forall (m), m ∈ NonNegIntegerSet ⇒ y = (fun x [x ∈ RealSet] . (x^{2} - 1)^{m}))
+4. forall (y) (m) (x), y = (fun t [t ∈ RealSet] . (t^{2} - 1)^{m}) ∧ m ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = 2 * m * x * (x^{2} - 1)^{m - 1}
+
+GOAL:
+forall (y) (m) (x), y = (fun t [t ∈ RealSet] . (t^{2} - 1)^{m}) ∧ m ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ (x^{2} - 1) * FunDeri(y, 1, 1)(x) = 2 * m * x * y(x)
+
+METHOD:

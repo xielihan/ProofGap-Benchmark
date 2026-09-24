@@ -1,0 +1,12 @@
+get_forall (GOAL: {forall (x_{0}), x_{0} ∈ RealSet => (forall (t), t ∈ RealSet => y(x_{0} + t) + y(x_{0} - t) = 2 * y(x_{0}))}) (x_{0} := {z})
+get_condition (hypothesis 9: {z ∈ RealSet}) in (GOAL: {z ∈ RealSet => (forall (t), t ∈ RealSet => y(z + t) + y(z - t) = 2 * y(z))})
+get_forall (GOAL: {forall (t), t ∈ RealSet => y(z + t) + y(z - t) = 2 * y(z)}) (t := {u})
+get_condition (hypothesis 10: {u ∈ RealSet}) in (GOAL: {u ∈ RealSet => y(z + u) + y(z - u) = 2 * y(z)})
+get_prop (hypothesis 8: {forall (x_{0}), x_{0} ∈ RealSet => (forall (t), t ∈ RealSet => y(x_{0} + t) + y(x_{0} - t) = a * (x_{0} + t) + b + a * (x_{0} - t) + b /\ a * (x_{0} + t) + b + a * (x_{0} - t) + b = 2 * (a * x_{0} + b))}) (x_{0} := {z}) as (hypothesis 11: {z ∈ RealSet => (forall (t), t ∈ RealSet => y(z + t) + y(z - t) = a * (z + t) + b + a * (z - t) + b /\ a * (z + t) + b + a * (z - t) + b = 2 * (a * z + b))})
+use_condition (hypothesis 9: {z ∈ RealSet}) in (hypothesis 11: {z ∈ RealSet => (forall (t), t ∈ RealSet => y(z + t) + y(z - t) = a * (z + t) + b + a * (z - t) + b /\ a * (z + t) + b + a * (z - t) + b = 2 * (a * z + b))}) as (hypothesis 12: {forall (t), t ∈ RealSet => y(z + t) + y(z - t) = a * (z + t) + b + a * (z - t) + b /\ a * (z + t) + b + a * (z - t) + b = 2 * (a * z + b)})
+get_prop (hypothesis 12: {forall (t), t ∈ RealSet => y(z + t) + y(z - t) = a * (z + t) + b + a * (z - t) + b /\ a * (z + t) + b + a * (z - t) + b = 2 * (a * z + b)}) (t := {u}) as (hypothesis 13: {u ∈ RealSet => y(z + u) + y(z - u) = a * (z + u) + b + a * (z - u) + b /\ a * (z + u) + b + a * (z - u) + b = 2 * (a * z + b)})
+use_condition (hypothesis 10: {u ∈ RealSet}) in (hypothesis 13: {u ∈ RealSet => y(z + u) + y(z - u) = a * (z + u) + b + a * (z - u) + b /\ a * (z + u) + b + a * (z - u) + b = 2 * (a * z + b)}) as (hypothesis 14: {y(z + u) + y(z - u) = a * (z + u) + b + a * (z - u) + b /\ a * (z + u) + b + a * (z - u) + b = 2 * (a * z + b)})
+destruct_and (hypothesis 14: {y(z + u) + y(z - u) = a * (z + u) + b + a * (z - u) + b /\ a * (z + u) + b + a * (z - u) + b = 2 * (a * z + b)}) as (hypothesis 15: {y(z + u) + y(z - u) = a * (z + u) + b + a * (z - u) + b}) (hypothesis 16: {a * (z + u) + b + a * (z - u) + b = 2 * (a * z + b)})
+get_prop (hypothesis 7: {forall (x_{0}), x_{0} ∈ RealSet => y(x_{0}) = a * x_{0} + b}) (x_{0} := {z}) as (hypothesis 17: {z ∈ RealSet => y(z) = a * z + b})
+use_condition (hypothesis 9: {z ∈ RealSet}) in (hypothesis 17: {z ∈ RealSet => y(z) = a * z + b}) as (hypothesis 18: {y(z) = a * z + b})
+autosolve all_hypothesis

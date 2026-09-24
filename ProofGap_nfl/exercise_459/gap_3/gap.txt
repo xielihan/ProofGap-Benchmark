@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x > 0 ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ∧ x = frac(1, t) ⇒ t > 0)
+2. forall (x), x ∈ RealSet ∧ x > 0 ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ∧ x = frac(1, t) ⇒ x * (sqrtn(2, x^{2} + 2 * x) - 2 * sqrtn(2, x^{2} + x) + x) = frac(sqrtn(2, 1 + 2 * t) - 2 * sqrtn(2, 1 + t) + 1, t^{2}))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ∧ x = frac(1, t) ⇒ frac(sqrtn(2, 1 + 2 * t) - 2 * sqrtn(2, 1 + t) + 1, t^{2}) = frac((sqrtn(2, 1 + 2 * t) + 1)^{2} - 4 * (1 + t), t^{2} * (sqrtn(2, 1 + 2 * t) + 1 + 2 * sqrtn(2, 1 + t))))
+
+METHOD:

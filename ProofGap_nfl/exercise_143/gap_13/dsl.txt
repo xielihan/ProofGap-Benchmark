@@ -1,0 +1,4 @@
+1. get_exists (hypothesis 7: {exists (a), a ∈ RealSet ∧ seqlim_{ n → +∞ } (frac(x(n + 1) - x(n), y(n + 1) - y(n))) = a}) (a := {b})
+2. destruct_and (hypothesis 21: {b ∈ RealSet ∧ seqlim_{ n → +∞ } (frac(x(n + 1) - x(n), y(n + 1) - y(n))) = b}) as (hypothesis 22: {b ∈ RealSet}) (hypothesis 23: {seqlim_{ n → +∞ } (frac(x(n + 1) - x(n), y(n + 1) - y(n))) = b})
+3. exists (a := {b})
+4. autosolve all_hypothesis

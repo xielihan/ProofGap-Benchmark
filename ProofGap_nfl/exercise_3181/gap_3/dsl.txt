@@ -1,0 +1,7 @@
+1. assert (hypothesis 5: {forall (a), a ∈ RealSet ∧ a ≠ 0 ⇒ frac(a, a) = 1}) by proof {
+2. get_forall (GOAL: {forall (a), a ∈ RealSet ∧ a ≠ 0 ⇒ frac(a, a) = 1}) (a := {a0})
+3. get_condition (hypothesis 5: {a0 ∈ RealSet ∧ a0 ≠ 0}) in (GOAL: {a0 ∈ RealSet ∧ a0 ≠ 0 ⇒ frac(a0, a0) = 1})
+4. autosolve all_hypothesis
+}
+5. rewrite_in limit (left_to_right, equation) (hypothesis 5: {forall (a), a ∈ RealSet ∧ a ≠ 0 ⇒ frac(a, a) = 1}); from (GOAL: {lim_{ x → 0 } (frac(x, x)) = 1}) to (GOAL: {lim_{ x → 0 } (1) = 1})
+6. autosolve all_hypothesis

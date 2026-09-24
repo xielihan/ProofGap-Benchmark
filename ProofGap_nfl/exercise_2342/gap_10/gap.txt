@@ -1,0 +1,17 @@
+PROOF GAP @10
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x < 1 ⇒ sqrtn(2, 1 - x) > 0
+2. t = sqrtn(2, 1 - x)
+3. x = 1 - t^{2}
+4. diff(fun x [x ∈ RealSet] . x) = -2 * t * diff(fun t [t ∈ RealSet] . t)
+5. 2 - x = 1 + t^{2}
+6. { `F_1` | forall (x), x ∈ RealSet ∧ x < 1 ⇒ FunDeri(`F_1`, 1, 1)(x) = frac(1, (2 - x) * sqrtn(2, 1 - x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | exists (`F_2`), `F_2` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(t) = frac(1, 1 + t^{2}) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_3`(t) = -2 * `F_2`(t)) }
+7. { `F_3` | exists (`F_2`), `F_2` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(t) = frac(1, 1 + t^{2}) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_3`(t) = -2 * `F_2`(t)) } = { `F_4` | exists (C), C ∈ RealSet ∧ (forall (t), t ∈ RealSet ⇒ `F_4`(t) = -2 * arctan(t) + C) }
+8. { `F_4` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x < 1 ⇒ `F_4`(x) = -2 * arctan(sqrtn(2, 1 - x)) + C) } = { `F_5` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x < 1 ⇒ `F_5`(x) = -2 * arctan(sqrtn(2, 1 - x)) + C) }
+9. { `F_1` | forall (x), x ∈ RealSet ∧ x < 1 ⇒ FunDeri(`F_1`, 1, 1)(x) = frac(1, (2 - x) * sqrtn(2, 1 - x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x < 1 ⇒ `F_5`(x) = -2 * arctan(sqrtn(2, 1 - x)) + C) }
+10. forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < 1 ⇒ DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . frac(1, (2 - x) * sqrtn(2, 1 - x))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . x)) = lim_{ ε → 0^+ } (DefInt(0, 1 - ε, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1 - ε)] . frac(1, (2 - x) * sqrtn(2, 1 - x))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1 - ε)] . x)))
+
+GOAL:
+lim_{ ε → 0^+ } (DefInt(0, 1 - ε, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1 - ε)] . frac(1, (2 - x) * sqrtn(2, 1 - x))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1 - ε)] . x))) = lim_{ ε → 0^+ } ((fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . -2 * arctan(sqrtn(2, 1 - x)))|_{0}^{1 - ε})
+
+METHOD:

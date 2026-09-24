@@ -1,0 +1,4 @@
+get_prop (hypothesis 3: {forall (β), β ∈ RealSet => I(β) = DefInt(0, +∞, frac(sin(β * x), x)^{2} * diff(x))}) (β := {α}) as (hypothesis 23: {α ∈ RealSet => I(α) = DefInt(0, +∞, frac(sin(α * x), x)^{2} * diff(x))})
+use_condition (hypothesis 1: {α ∈ RealSet}) in (hypothesis 23: {α ∈ RealSet => I(α) = DefInt(0, +∞, frac(sin(α * x), x)^{2} * diff(x))}) as (hypothesis 24: {I(α) = DefInt(0, +∞, frac(sin(α * x), x)^{2} * diff(x))})
+rewrite (right_to_left, equation) (hypothesis 24: {I(α) = DefInt(0, +∞, frac(sin(α * x), x)^{2} * diff(x))}); from (GOAL: {DefInt(0, +∞, frac(sin(α * x), x)^{2} * diff(x)) = frac(π, 2) * |α|}) to (GOAL: {I(α) = frac(π, 2) * |α|})
+apply (hypothesis 22: {I(α) = frac(π, 2) * |α|})

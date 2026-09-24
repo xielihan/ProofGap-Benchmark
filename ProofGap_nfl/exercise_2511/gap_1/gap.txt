@@ -1,0 +1,17 @@
+PROOF GAP @1
+ASSUM:
+1. r : RealSet → RealSet
+2. a ∈ RealSet ∧ a > 0
+3. m ∈ RealSet ∧ m > 0
+4. φ ∈ RealSet
+5. ξ : RealSet → RealSet
+6. η : RealSet → RealSet
+7. `r_0` : RealSet → RealSet
+8. `φ_0` : RealSet → RealSet
+9. α ∈ RealSet
+10. forall (t), t ∈ RealSet ⇒ r(t) = a * e^{m * t}
+
+GOAL:
+ξ(φ) = frac(DefInt(-∞, φ, r(t) * cos(t) * sqrtn(2, a^{2} * (1 + m^{2})) * e^{m * t} * diff(t)), DefInt(-∞, φ, sqrtn(2, a^{2} * (1 + m^{2})) * e^{m * t} * diff(t)))
+
+METHOD:

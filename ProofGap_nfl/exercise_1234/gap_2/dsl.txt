@@ -1,0 +1,1 @@
+apply (hypothesis 13: {D(y) = FunDeri(y, 1, 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)})

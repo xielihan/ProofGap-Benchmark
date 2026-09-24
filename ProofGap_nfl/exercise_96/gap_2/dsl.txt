@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n = 3 ⇒ x(3) = frac(9, 8)}) (n := {n0})
+get_condition (hypothesis 4: {n0 ∈ NonNegIntegerSet ∧ n0 = 3}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 = 3 ⇒ x(3) = frac(9, 8)})
+get_prop (hypothesis 2: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = frac(n^{2}, 2^{n})}) (n := {3}) as (hypothesis 5: {3 ∈ NonNegIntegerSet ∧ 3 ∈ PosIntegerSet ⇒ x(3) = frac(3^{2}, 2^{3})})
+use_condition (obvious: {3 ∈ NonNegIntegerSet ∧ 3 ∈ PosIntegerSet}) in (hypothesis 5: {3 ∈ NonNegIntegerSet ∧ 3 ∈ PosIntegerSet ⇒ x(3) = frac(3^{2}, 2^{3})}) as (hypothesis 6: {x(3) = frac(3^{2}, 2^{3})})
+autosolve all_hypothesis

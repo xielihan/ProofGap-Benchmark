@@ -1,0 +1,8 @@
+get_condition (hypothesis 17: {cos(ξ)^{2} + cos(η)^{2} = 2}) in (GOAL: {cos(ξ)^{2} + cos(η)^{2} = 2 ⇒ (forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D ⇒ frac(1, 100 + cos(x)^{2} + cos(y)^{2}) - frac(1, 102) ≥ 0)})
+get_forall (GOAL: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D ⇒ frac(1, 100 + cos(x)^{2} + cos(y)^{2}) - frac(1, 102) ≥ 0}) (x := {x0}) (y := {y0})
+get_condition (hypothesis 18: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ (x0, y0) ∈ D}) in (GOAL: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ (x0, y0) ∈ D ⇒ frac(1, 100 + cos(x0)^{2} + cos(y0)^{2}) - frac(1, 102) ≥ 0})
+get_prop (hypothesis 13: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D ⇒ frac(1, 102) ≤ f(x, y) ∧ f(x, y) ≤ frac(1, 100)}) (x := {x0}) (y := {y0}) as (hypothesis 19: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ (x0, y0) ∈ D ⇒ frac(1, 102) ≤ f(x0, y0) ∧ f(x0, y0) ≤ frac(1, 100)})
+use_condition (hypothesis 18: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ (x0, y0) ∈ D}) in (hypothesis 19: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ (x0, y0) ∈ D ⇒ frac(1, 102) ≤ f(x0, y0) ∧ f(x0, y0) ≤ frac(1, 100)}) as (hypothesis 20: {frac(1, 102) ≤ f(x0, y0) ∧ f(x0, y0) ≤ frac(1, 100)})
+get_prop (hypothesis 9: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D ⇒ f(x, y) = frac(1, 100 + cos(x)^{2} + cos(y)^{2})}) (x := {x0}) (y := {y0}) as (hypothesis 21: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ (x0, y0) ∈ D ⇒ f(x0, y0) = frac(1, 100 + cos(x0)^{2} + cos(y0)^{2})})
+use_condition (hypothesis 18: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ (x0, y0) ∈ D}) in (hypothesis 21: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ (x0, y0) ∈ D ⇒ f(x0, y0) = frac(1, 100 + cos(x0)^{2} + cos(y0)^{2})}) as (hypothesis 22: {f(x0, y0) = frac(1, 100 + cos(x0)^{2} + cos(y0)^{2})})
+autosolve all_hypothesis

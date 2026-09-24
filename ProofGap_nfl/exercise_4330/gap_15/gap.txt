@@ -1,0 +1,31 @@
+PROOF GAP @15
+ASSUM:
+1. K_{1} ∈ RealSet
+2. K_{2} ∈ RealSet
+3. ρ ∈ RealSet ∧ ρ ≥ 0
+4. φ ∈ RealSet
+5. m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet
+6. r ∈ RealSet
+7. n ∈ RealSet
+8. K_{1} = DefInt(0, 2 * π, (fun ψ [ψ ∈ RealSet] . cos(m * ψ) * frac(cos(r, n), r)) * diff(fun ψ [ψ ∈ RealSet] . ψ))
+9. K_{2} = DefInt(0, 2 * π, (fun ψ [ψ ∈ RealSet] . sin(m * ψ) * frac(cos(r, n), r)) * diff(fun ψ [ψ ∈ RealSet] . ψ))
+10. forall (ψ), ψ ∈ RealSet ⇒ frac(cos(r, n), r) = frac(1 - ρ * cos(ψ - φ), 1 + ρ^{2} - 2 * ρ * cos(ψ - φ))
+11. ρ = 1 ⇒ frac(cos(r, n), r) = frac(1, 2)
+12. ρ = 1 ⇒ K_{1} = frac(1, 2) * DefInt(0, 2 * π, (fun ψ [ψ ∈ RealSet] . cos(m * ψ)) * diff(fun ψ [ψ ∈ RealSet] . ψ))
+13. ρ = 1 ⇒ frac(1, 2) * DefInt(0, 2 * π, (fun ψ [ψ ∈ RealSet] . cos(m * ψ)) * diff(fun ψ [ψ ∈ RealSet] . ψ)) = 0
+14. ρ = 1 ⇒ K_{1} = 0
+15. ρ = 1 ⇒ K_{2} = frac(1, 2) * DefInt(0, 2 * π, (fun ψ [ψ ∈ RealSet] . sin(m * ψ)) * diff(fun ψ [ψ ∈ RealSet] . ψ))
+16. ρ = 1 ⇒ frac(1, 2) * DefInt(0, 2 * π, (fun ψ [ψ ∈ RealSet] . sin(m * ψ)) * diff(fun ψ [ψ ∈ RealSet] . ψ)) = 0
+17. ρ = 1 ⇒ K_{2} = 0
+18. forall (ψ), ψ ∈ RealSet ∧ ρ < 1 ⇒ frac(1 - ρ * cos(ψ - φ), 1 + ρ^{2} - 2 * ρ * cos(ψ - φ)) = 1 + (sum_{ n = 1 }^{ +∞ } (ρ^{n} * cos(n * (ψ - φ))))
+19. ρ < 1 ⇒ K_{1} = DefInt(0, 2 * π, (fun ψ [ψ ∈ RealSet] . cos(m * ψ) * frac(1 - ρ * cos(ψ - φ), 1 + ρ^{2} - 2 * ρ * cos(ψ - φ))) * diff(fun ψ [ψ ∈ RealSet] . ψ))
+20. ρ < 1 ⇒ K_{1} = π * ρ^{m} * cos(m * φ)
+21. ρ < 1 ⇒ K_{2} = DefInt(0, 2 * π, (fun ψ [ψ ∈ RealSet] . sin(m * ψ) * frac(1 - ρ * cos(ψ - φ), 1 + ρ^{2} - 2 * ρ * cos(ψ - φ))) * diff(fun ψ [ψ ∈ RealSet] . ψ))
+22. ρ < 1 ⇒ K_{2} = π * ρ^{m} * sin(m * φ)
+23. ρ > 1 ⇒ r = ρ^{-1}
+24. ρ > 1 ⇒ r < 1
+
+GOAL:
+ρ > 1 ⇒ K_{1} = -π * r^{m} * cos(m * φ)
+
+METHOD:

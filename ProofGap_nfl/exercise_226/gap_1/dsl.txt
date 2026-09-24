@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ≠ -1 ⇒ y(x) + x * y(x) = 1 - x}) (x := {a})
+get_condition (hypothesis 3: {a ∈ RealSet ∧ a ≠ -1}) in (GOAL: {a ∈ RealSet ∧ a ≠ -1 ⇒ y(a) + a * y(a) = 1 - a})
+get_prop (hypothesis 2: {forall (x), x ∈ RealSet ∧ x ≠ -1 ⇒ y(x) = frac(1 - x, 1 + x)}) (x := {a}) as (hypothesis 4: {a ∈ RealSet ∧ a ≠ -1 ⇒ y(a) = frac(1 - a, 1 + a)})
+use_condition (hypothesis 3: {a ∈ RealSet ∧ a ≠ -1}) in (hypothesis 4: {a ∈ RealSet ∧ a ≠ -1 ⇒ y(a) = frac(1 - a, 1 + a)}) as (hypothesis 5: {y(a) = frac(1 - a, 1 + a)})
+rewrite (left_to_right, equation) (hypothesis 5: {y(a) = frac(1 - a, 1 + a)}); from (GOAL: {y(a) + a * y(a) = 1 - a}) to (GOAL: {frac(1 - a, 1 + a) + a * frac(1 - a, 1 + a) = 1 - a})
+autosolve all_hypothesis

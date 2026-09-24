@@ -1,0 +1,18 @@
+PROOF GAP @5
+ASSUM:
+1. P : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. P(0) = 0
+5. P(30) = frac(1, 2)
+6. P(90) = 1
+7. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 90 ⇒ P(x) = a * x + b * x^{3}
+8. 30 * a + 27000 * b = frac(1, 2)
+9. 90 * a + 729000 * b = 1
+10. a = frac(5, 288)
+11. b = -frac(5, 288) * frac(1, 150)^{2}
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 90 ⇒ P(x) = frac(5 * x, 288) * (1 - frac(x, 150)^{2})
+
+METHOD:

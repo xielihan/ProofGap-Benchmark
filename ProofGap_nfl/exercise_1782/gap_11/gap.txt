@@ -1,0 +1,21 @@
+PROOF GAP @11
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. C ∈ RealSet
+3. F : RealSet → RealSet
+4. f : RealSet → RealSet
+5. forall (x), x ∈ RealSet ∧ -a ≤ x ∧ x < a ⇒ f(x) = sqrtn(2, frac(a + x, a - x))
+6. forall (x), x ∈ RealSet ∧ -a ≤ x ∧ x < a ⇒ (exists (t), t ∈ RealSet ∧ -frac(π, 2) ≤ t ∧ t < frac(π, 2) ∧ x = a * sin(t))
+7. forall (t), t ∈ RealSet ∧ t < frac(π, 2) ⇒ -frac(π, 2) < t
+8. forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ⇒ t < frac(π, 2)
+9. forall (x), x ∈ RealSet ∧ -a ≤ x ∧ x < a ⇒ (forall (t), t ∈ RealSet ∧ -frac(π, 2) ≤ t ∧ t < frac(π, 2) ∧ x = a * sin(t) ⇒ sqrtn(2, frac(a + x, a - x)) = sqrtn(2, frac(1 + sin(t), 1 - sin(t))))
+10. forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ⇒ sqrtn(2, frac(1 + sin(t), 1 - sin(t))) = frac(1 + sin(t), cos(t))
+11. forall (x), x ∈ RealSet ∧ -a ≤ x ∧ x < a ⇒ (forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ∧ x = a * sin(t) ⇒ sqrtn(2, frac(a + x, a - x)) = frac(1 + sin(t), cos(t)))
+12. forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ⇒ diff(fun x [x ∈ RealSet] . x) = a * cos(t) * diff(fun t [t ∈ RealSet] . t)
+13. { `F_2` | forall (x), x ∈ RealSet ∧ -a ≤ x ∧ x < a ⇒ FunDeri(`F_2`, 1, 1)(x) = sqrtn(2, frac(a + x, a - x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_4` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ⇒ FunDeri(`F_3`, 1, 1)(t) = (1 + sin(t)) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_4`(t) = a * `F_3`(t)) }
+14. { `F_6` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ⇒ FunDeri(`F_5`, 1, 1)(t) = (1 + sin(t)) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_6`(t) = a * `F_5`(t)) } = { `F_7` | exists (C), C ∈ RealSet ∧ (forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ⇒ `F_7`(t) = a * (t - cos(t)) + C) }
+
+GOAL:
+forall (x), x ∈ RealSet ∧ -a ≤ x ∧ x < a ⇒ (forall (t), t ∈ RealSet ∧ -frac(π, 2) ≤ t ∧ t < frac(π, 2) ∧ x = a * sin(t) ⇒ t = arcsin(frac(x, a)))
+
+METHOD:

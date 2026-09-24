@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. u : CartesianProd(CartesianProd(RealSet, RealSet), RealSet) → RealSet
+2. φ : CartesianProd(RealSet, RealSet) → RealSet
+3. ψ : CartesianProd(RealSet, RealSet) → RealSet
+4. χ : CartesianProd(RealSet, RealSet) → RealSet
+5. FuncOfClassKOn(u, CartesianProd(CartesianProd(RealSet, RealSet), RealSet), 3)
+
+GOAL:
+exists (`φ_1`), `φ_1` : CartesianProd(RealSet, RealSet) → RealSet ∧ (forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(FunDeri(u, 1, 1), 2, 1)(x, y, z) = `φ_1`(x, y))
+
+METHOD:

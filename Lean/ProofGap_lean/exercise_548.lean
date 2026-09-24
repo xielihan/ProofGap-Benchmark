@@ -1,0 +1,103 @@
+import Mathlib
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
+-- exercise: exercise_548
+
+theorem proof_gap_exercise_548_1
+  (a : ℝ)
+  (v_uCE_uB1 : ℝ)
+  (v_uCE_uB2 : ℝ)
+  (h1 : (a ∈ (Set.univ : Set ℝ)) ∧ (a > 0))
+  (h2 : v_uCE_uB1 ∈ (Set.univ : Set ℝ))
+  (h3 : (v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB2 ≠ 0))
+  : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (x > 0)) ∧ (x ≠ a)) → ((((Real.rpow x v_uCE_uB1) - (Real.rpow a v_uCE_uB1)) /. ((Real.rpow x v_uCE_uB2) - (Real.rpow a v_uCE_uB2))) = ((Real.rpow a (v_uCE_uB1 - v_uCE_uB2)) * (((Real.rpow (x /. a) v_uCE_uB1) - 1) /. ((Real.rpow (x /. a) v_uCE_uB2) - 1)))))) := by
+  sorry
+
+theorem proof_gap_exercise_548_2
+  (a : ℝ)
+  (v_uCE_uB1 : ℝ)
+  (v_uCE_uB2 : ℝ)
+  (h1 : (a ∈ (Set.univ : Set ℝ)) ∧ (a > 0))
+  (h2 : v_uCE_uB1 ∈ (Set.univ : Set ℝ))
+  (h3 : (v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB2 ≠ 0))
+  (h4 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (x > 0)) ∧ (x ≠ a)) → ((((Real.rpow x v_uCE_uB1) - (Real.rpow a v_uCE_uB1)) /. ((Real.rpow x v_uCE_uB2) - (Real.rpow a v_uCE_uB2))) = ((Real.rpow a (v_uCE_uB1 - v_uCE_uB2)) * (((Real.rpow (x /. a) v_uCE_uB1) - 1) /. ((Real.rpow (x /. a) v_uCE_uB2) - 1)))))))
+  : (forall (x : ℝ), ((((((x ∈ (Set.univ : Set ℝ)) ∧ (x > 0)) ∧ (x ≠ a)) ∧ (v_uCE_uB1 ≠ 0)) ∧ ((Real.log (x /. a)) ≠ 0)) → ((((Real.rpow x v_uCE_uB1) - (Real.rpow a v_uCE_uB1)) /. ((Real.rpow x v_uCE_uB2) - (Real.rpow a v_uCE_uB2))) = ((((Real.rpow a (v_uCE_uB1 - v_uCE_uB2)) * (((Real.exp (v_uCE_uB1 * (Real.log (x /. a)))) - 1) /. (v_uCE_uB1 * (Real.log (x /. a))))) * ((v_uCE_uB2 * (Real.log (x /. a))) /. ((Real.exp (v_uCE_uB2 * (Real.log (x /. a)))) - 1))) * (v_uCE_uB1 /. v_uCE_uB2))))) := by
+  sorry
+
+theorem proof_gap_exercise_548_3
+  (a : ℝ)
+  (v_uCE_uB1 : ℝ)
+  (v_uCE_uB2 : ℝ)
+  (h1 : (a ∈ (Set.univ : Set ℝ)) ∧ (a > 0))
+  (h2 : v_uCE_uB1 ∈ (Set.univ : Set ℝ))
+  (h3 : (v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB2 ≠ 0))
+  (h4 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (x > 0)) ∧ (x ≠ a)) → ((((Real.rpow x v_uCE_uB1) - (Real.rpow a v_uCE_uB1)) /. ((Real.rpow x v_uCE_uB2) - (Real.rpow a v_uCE_uB2))) = ((Real.rpow a (v_uCE_uB1 - v_uCE_uB2)) * (((Real.rpow (x /. a) v_uCE_uB1) - 1) /. ((Real.rpow (x /. a) v_uCE_uB2) - 1)))))))
+  (h5 : (forall (x : ℝ), ((((((x ∈ (Set.univ : Set ℝ)) ∧ (x > 0)) ∧ (x ≠ a)) ∧ (v_uCE_uB1 ≠ 0)) ∧ ((Real.log (x /. a)) ≠ 0)) → ((((Real.rpow x v_uCE_uB1) - (Real.rpow a v_uCE_uB1)) /. ((Real.rpow x v_uCE_uB2) - (Real.rpow a v_uCE_uB2))) = ((((Real.rpow a (v_uCE_uB1 - v_uCE_uB2)) * (((Real.exp (v_uCE_uB1 * (Real.log (x /. a)))) - 1) /. (v_uCE_uB1 * (Real.log (x /. a))))) * ((v_uCE_uB2 * (Real.log (x /. a))) /. ((Real.exp (v_uCE_uB2 * (Real.log (x /. a)))) - 1))) * (v_uCE_uB1 /. v_uCE_uB2))))))
+  : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun x_1 : ℝ => x_1) (𝓝[≠] a) (𝓝 a))) ∧ (x > 0)) → (Tendsto (fun x_1 : ℝ => (Real.log (x_1 /. a))) (𝓝[≠] a) (𝓝 0)))) := by
+  sorry
+
+theorem proof_gap_exercise_548_4
+  (a : ℝ)
+  (v_uCE_uB1 : ℝ)
+  (v_uCE_uB2 : ℝ)
+  (h1 : (a ∈ (Set.univ : Set ℝ)) ∧ (a > 0))
+  (h2 : v_uCE_uB1 ∈ (Set.univ : Set ℝ))
+  (h3 : (v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB2 ≠ 0))
+  (h4 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (x > 0)) ∧ (x ≠ a)) → ((((Real.rpow x v_uCE_uB1) - (Real.rpow a v_uCE_uB1)) /. ((Real.rpow x v_uCE_uB2) - (Real.rpow a v_uCE_uB2))) = ((Real.rpow a (v_uCE_uB1 - v_uCE_uB2)) * (((Real.rpow (x /. a) v_uCE_uB1) - 1) /. ((Real.rpow (x /. a) v_uCE_uB2) - 1)))))))
+  (h5 : (forall (x : ℝ), ((((((x ∈ (Set.univ : Set ℝ)) ∧ (x > 0)) ∧ (x ≠ a)) ∧ (v_uCE_uB1 ≠ 0)) ∧ ((Real.log (x /. a)) ≠ 0)) → ((((Real.rpow x v_uCE_uB1) - (Real.rpow a v_uCE_uB1)) /. ((Real.rpow x v_uCE_uB2) - (Real.rpow a v_uCE_uB2))) = ((((Real.rpow a (v_uCE_uB1 - v_uCE_uB2)) * (((Real.exp (v_uCE_uB1 * (Real.log (x /. a)))) - 1) /. (v_uCE_uB1 * (Real.log (x /. a))))) * ((v_uCE_uB2 * (Real.log (x /. a))) /. ((Real.exp (v_uCE_uB2 * (Real.log (x /. a)))) - 1))) * (v_uCE_uB1 /. v_uCE_uB2))))))
+  (h6 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun x_1 : ℝ => x_1) (𝓝[≠] a) (𝓝 a))) ∧ (x > 0)) → (Tendsto (fun x_1 : ℝ => (Real.log (x_1 /. a))) (𝓝[≠] a) (𝓝 0)))))
+  : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun x_1 : ℝ => x_1) (𝓝[≠] a) (𝓝 a))) ∧ (x > 0)) → (Tendsto (fun x_1 : ℝ => (((Real.rpow x_1 v_uCE_uB1) - (Real.rpow a v_uCE_uB1)) /. ((Real.rpow x_1 v_uCE_uB2) - (Real.rpow a v_uCE_uB2)))) (𝓝[≠] a) (𝓝 ((v_uCE_uB1 /. v_uCE_uB2) * (Real.rpow a (v_uCE_uB1 - v_uCE_uB2))))))) := by
+  sorry
+
+theorem proof_gap_exercise_548_5
+  (a : ℝ)
+  (v_uCE_uB1 : ℝ)
+  (v_uCE_uB2 : ℝ)
+  (h1 : (a ∈ (Set.univ : Set ℝ)) ∧ (a > 0))
+  (h2 : v_uCE_uB1 ∈ (Set.univ : Set ℝ))
+  (h3 : (v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB2 ≠ 0))
+  (h4 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (x > 0)) ∧ (x ≠ a)) → ((((Real.rpow x v_uCE_uB1) - (Real.rpow a v_uCE_uB1)) /. ((Real.rpow x v_uCE_uB2) - (Real.rpow a v_uCE_uB2))) = ((Real.rpow a (v_uCE_uB1 - v_uCE_uB2)) * (((Real.rpow (x /. a) v_uCE_uB1) - 1) /. ((Real.rpow (x /. a) v_uCE_uB2) - 1)))))))
+  (h5 : (forall (x : ℝ), ((((((x ∈ (Set.univ : Set ℝ)) ∧ (x > 0)) ∧ (x ≠ a)) ∧ (v_uCE_uB1 ≠ 0)) ∧ ((Real.log (x /. a)) ≠ 0)) → ((((Real.rpow x v_uCE_uB1) - (Real.rpow a v_uCE_uB1)) /. ((Real.rpow x v_uCE_uB2) - (Real.rpow a v_uCE_uB2))) = ((((Real.rpow a (v_uCE_uB1 - v_uCE_uB2)) * (((Real.exp (v_uCE_uB1 * (Real.log (x /. a)))) - 1) /. (v_uCE_uB1 * (Real.log (x /. a))))) * ((v_uCE_uB2 * (Real.log (x /. a))) /. ((Real.exp (v_uCE_uB2 * (Real.log (x /. a)))) - 1))) * (v_uCE_uB1 /. v_uCE_uB2))))))
+  (h6 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun x_1 : ℝ => x_1) (𝓝[≠] a) (𝓝 a))) ∧ (x > 0)) → (Tendsto (fun x_1 : ℝ => (Real.log (x_1 /. a))) (𝓝[≠] a) (𝓝 0)))))
+  (h7 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun x_1 : ℝ => x_1) (𝓝[≠] a) (𝓝 a))) ∧ (x > 0)) → (Tendsto (fun x_1 : ℝ => (((Real.rpow x_1 v_uCE_uB1) - (Real.rpow a v_uCE_uB1)) /. ((Real.rpow x_1 v_uCE_uB2) - (Real.rpow a v_uCE_uB2)))) (𝓝[≠] a) (𝓝 ((v_uCE_uB1 /. v_uCE_uB2) * (Real.rpow a (v_uCE_uB1 - v_uCE_uB2))))))))
+  : Tendsto (fun x : ℝ => (((Real.rpow x v_uCE_uB1) - (Real.rpow a v_uCE_uB1)) /. ((Real.rpow x v_uCE_uB2) - (Real.rpow a v_uCE_uB2)))) (𝓝[≠] a) (𝓝 ((v_uCE_uB1 /. v_uCE_uB2) * (Real.rpow a (v_uCE_uB1 - v_uCE_uB2)))) := by
+  sorry

@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. x ∈ RealSet ∧ x ≠ 0
+3. C ∈ RealSet
+
+GOAL:
+C ∈ RealSet
+
+METHOD:

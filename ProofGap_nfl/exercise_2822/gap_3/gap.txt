@@ -1,0 +1,20 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. c : NonNegIntegerSet → RealSet
+5. θ ∈ RealSet
+6. a > 0
+7. b > 0
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ c(n) = frac(1, a^{n} + b^{n})
+9. θ = frac(min(a, b), max(a, b))
+10. 0 < θ
+11. θ ≤ 1
+12. seqlim_{ n → +∞ } (|frac(c(n), c(n + 1))|) = seqlim_{ n → +∞ } (max(a, b) * frac(1 + θ^{n + 1}, 1 + θ^{n}))
+13. seqlim_{ n → +∞ } (max(a, b) * frac(1 + θ^{n + 1}, 1 + θ^{n})) = max(a, b)
+
+GOAL:
+seqlim_{ n → +∞ } (|frac(c(n), c(n + 1))|) = max(a, b)
+
+METHOD:

@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. x ∈ RealSet
+3. x ≠ -1
+4. forall (n), n ∈ NonNegIntegerSet ⇒ a(n) = frac(1, 2 * n + 1)
+
+GOAL:
+lim_{ n → +∞ } (|frac(a(n), a(n + 1))|) = 1
+
+METHOD:

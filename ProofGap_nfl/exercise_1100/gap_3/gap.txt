@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. x_{0} ∈ RealSet
+3. Δx ∈ RealSet
+4. f = (fun x [x ∈ RealSet] . sin(x))
+5. x_{0} = frac(π, 6)
+6. Δx = -frac(π, 180)
+7. frac(29 * π, 180) = x_{0} + Δx
+8. FunDeri(f, 1, 1)(x_{0}) = cos(x_{0})
+
+GOAL:
+cos(x_{0}) = cos(frac(π, 6))
+
+METHOD:

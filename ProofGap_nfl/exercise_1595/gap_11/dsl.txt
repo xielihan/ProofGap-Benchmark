@@ -1,0 +1,6 @@
+get_prop (hypothesis 6: {forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ y(x) = frac(1, x)}) (x := {100}) as (hypothesis 17: {100 ∈ RealSet ∧ 100 ≠ 0 ⇒ y(100) = frac(1, 100)})
+assert (hypothesis 18: {100 ∈ RealSet ∧ 100 ≠ 0})
+use_condition (hypothesis 18: {100 ∈ RealSet ∧ 100 ≠ 0}) in (hypothesis 17: {100 ∈ RealSet ∧ 100 ≠ 0 ⇒ y(100) = frac(1, 100)}) as (hypothesis 19: {y(100) = frac(1, 100)})
+assert (hypothesis 20: {frac(1, 100) = 0.01})
+rewrite (left_to_right, equation) (hypothesis 19: {y(100) = frac(1, 100)}); from (GOAL: {y(100) = 0.01}) to (GOAL: {frac(1, 100) = 0.01})
+apply (hypothesis 20: {frac(1, 100) = 0.01})

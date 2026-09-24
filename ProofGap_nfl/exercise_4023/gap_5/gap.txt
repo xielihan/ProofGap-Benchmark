@@ -1,0 +1,18 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. c ∈ RealSet ∧ c > 0
+4. V ∈ RealSet
+5. D = { (x, y) | x ∈ RealSet, y ∈ RealSet, (frac(x, a) - frac(1, 2))^{2} + (frac(y, b) - frac(1, 2))^{2} ≤ frac(1, 2) }
+6. exists (z), z ∈ RealSet ∧ frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) = frac(z, c)
+7. frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) = frac(x, a) + frac(y, b) ⇔ (frac(x, a) - frac(1, 2))^{2} + (frac(y, b) - frac(1, 2))^{2} = frac(1, 2)
+8. D = { (x, y) | x ∈ RealSet, y ∈ RealSet, (frac(x, a) - frac(1, 2))^{2} + (frac(y, b) - frac(1, 2))^{2} ≤ frac(1, 2) }
+9. frac(x, a) = frac(1, 2) + r * cos(φ)
+10. frac(y, b) = frac(1, 2) + r * sin(φ)
+11. 0 ≤ φ
+
+GOAL:
+φ ≤ 2 * π
+
+METHOD:

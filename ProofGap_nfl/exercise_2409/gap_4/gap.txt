@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. S ∈ RealSet
+2. n ∈ RealSet ∧ n > -2
+3. t ∈ RealSet
+4. forall (x), x ∈ RealSet ∧ x > 0 ⇒ (exists (y), y ∈ RealSet ∧ y^{2} = frac(x^{n}, (1 + x^{n + 2})^{2}))
+5. S = 2 * DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . frac(x^{frac(n, 2)}, 1 + x^{n + 2})) * diff(fun x [x ∈ RealSet] . x))
+6. forall (x), x ∈ RealSet ∧ x > 0 ⇒ t = x^{frac(n + 2, 2)}
+7. forall (x), x ∈ RealSet ∧ x > 0 ⇒ diff(t) = frac(n + 2, 2) * x^{frac(n, 2)} * diff(fun x [x ∈ RealSet] . x)
+8. S = 2 * (lim_{ b → +∞ } (DefInt(0, b, (fun t [t ∈ RealSet ∧ t ≥ 0] . frac(2, n + 2) * frac(1, 1 + t^{2})) * diff(fun t [t ∈ RealSet] . t))))
+
+GOAL:
+S = 2 * frac(2, n + 2) * (lim_{ b → +∞ } (arctan(b) - arctan(0)))
+
+METHOD:

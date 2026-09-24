@@ -1,0 +1,2 @@
+rewrite_in limit (left_to_right, equation) (hypothesis 4: {forall (x), x ∈ RealSet ⇒ f(x) = 2 * x - 3 * x^{3} + x^{5}}); from (GOAL: {lim_{ x → 0 } (frac(f(x), 2 * x)) = 1}) to (GOAL: {lim_{ x → 0 } (frac(2 * x - 3 * x^{3} + x^{5}, 2 * x)) = 1})
+apply (hypothesis 5: {lim_{ x → 0 } (frac(2 * x - 3 * x^{3} + x^{5}, 2 * x)) = 1})

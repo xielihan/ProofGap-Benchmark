@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. C ∈ RealSet
+5. sin(a - b) ≠ 0
+6. sin(x + a) ≠ 0
+7. sin(x + b) ≠ 0
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ∧ sin(x + a) ≠ 0 ∧ sin(x + b) ≠ 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, sin(x + a) * sin(x + b)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_4` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ sin(x + a) ≠ 0 ∧ sin(x + b) ≠ 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(sin(x + a - (x + b)), sin(x + a) * sin(x + b)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_4`(x) = frac(1, sin(a - b)) * `F_3`(x)) }
+
+METHOD:

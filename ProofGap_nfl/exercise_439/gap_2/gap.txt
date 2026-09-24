@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. forall (x), x ∈ RealSet ⇒ x > a
+
+GOAL:
+lim_{ x → a^+ } (frac(sqrtn(2, x) - sqrtn(2, a) + sqrtn(2, x - a), sqrtn(2, x^{2} - a^{2}))) = lim_{ x → a^+ } (frac((sqrtn(2, x) - sqrtn(2, a) + sqrtn(2, x - a)) * (sqrtn(2, x) + sqrtn(2, a)), sqrtn(2, x^{2} - a^{2}) * (sqrtn(2, x) + sqrtn(2, a))))
+
+METHOD:
+[@method 分子分母同乘 sqrt(x) + sqrt(a) @]

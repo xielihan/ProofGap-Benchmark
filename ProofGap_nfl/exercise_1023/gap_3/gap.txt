@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. I = (-∞, 0)
+2. f : RealSet -> RealSet
+3. forall (x), x ∈ RealSet => f(x) = 2 * x
+4. g : RealSet -> RealSet
+5. forall (x), x ∈ RealSet => g(x) = x^{2} + 1
+6. DiffableFuncOn(f, I)
+7. DiffableFuncOn(g, I)
+
+GOAL:
+forall (x) (I), x ∈ RealSet ∧ I ⊆ RealSet ∧ x ∈ I ⇒ f(x) ≤ g(x)
+
+METHOD:

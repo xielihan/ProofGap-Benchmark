@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. p ∈ RealSet
+2. q ∈ RealSet
+3. a : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = cases{ frac(1, n^{p}) if Odd(n); -frac(1, n^{q}) if Even(n) }
+5. p > 1 ⇒ q > 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+GOAL:
+p > 1 ⇒ q > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+METHOD:

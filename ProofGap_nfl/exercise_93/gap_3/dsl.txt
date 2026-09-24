@@ -1,0 +1,8 @@
+destruct_and (hypothesis 6: {N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ |x(n)| < |a| + 1)}) as (hypothesis 8: {N ∈ NonNegIntegerSet}) (hypothesis 9: {N ∈ PosIntegerSet}) (hypothesis 10: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ |x(n)| < |a| + 1})
+destruct_and (hypothesis 7: {M ∈ RealSet ∧ |a| + 1 ≤ M ∧ (forall (i), i ∈ PosIntegerSet ∧ i ≤ N ⇒ |x(i)| ≤ M)}) as (hypothesis 11: {M ∈ RealSet}) (hypothesis 12: {|a| + 1 ≤ M}) (hypothesis 13: {forall (i), i ∈ PosIntegerSet ∧ i ≤ N ⇒ |x(i)| ≤ M})
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |x(n)| ≤ M}) (n := {n0})
+get_condition (hypothesis 14: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ |x(n0)| ≤ M})
+get_prop (hypothesis 10: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ |x(n)| < |a| + 1}) (n := {n0}) as (hypothesis 15: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 > N ⇒ |x(n0)| < |a| + 1})
+get_prop (hypothesis 13: {forall (i), i ∈ PosIntegerSet ∧ i ≤ N ⇒ |x(i)| ≤ M}) (i := {n0}) as (hypothesis 16: {n0 ∈ PosIntegerSet ∧ n0 ≤ N ⇒ |x(n0)| ≤ M})
+assert (hypothesis 17: {n0 > N ∨ n0 ≤ N})
+autosolve all_hypothesis

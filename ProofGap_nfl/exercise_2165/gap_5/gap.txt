@@ -1,0 +1,16 @@
+PROOF GAP @5
+ASSUM:
+1. x ∈ RealSet
+2. I ⊆ RealSet
+3. C ∈ RealSet
+4. x ∈ I
+5. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ 1 + cos(x) ≠ 0
+6. { `F_2` | forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1 + sin(x), 1 + cos(x)) * e^{x} * FunDeri(fun x [x ∈ RealSet ∧ x ∈ I] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(1 + 2 * sin(frac(x, 2)) * cos(frac(x, 2)), 2 * cos(frac(x, 2))^{2}) * e^{x} * FunDeri(fun x [x ∈ RealSet ∧ x ∈ I] . x, 1, 1)(x) }
+7. { `F_4` | forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(1 + sin(x), 1 + cos(x)) * e^{x} * FunDeri(fun x [x ∈ RealSet ∧ x ∈ I] . x, 1, 1)(x) } = { `F_7` | exists (`F_5`) (`F_6`), `F_5` : RealSet → RealSet ∧ `F_6` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(e^{x}, 2 * cos(frac(x, 2))^{2}) * FunDeri(fun x [x ∈ RealSet ∧ x ∈ I] . x, 1, 1)(x) ∧ FunDeri(`F_6`, 1, 1)(x) = e^{x} * tan(frac(x, 2)) * FunDeri(fun x [x ∈ RealSet ∧ x ∈ I] . x, 1, 1)(x) ∧ `F_7`(x) = `F_5`(x) + `F_6`(x)) }
+8. { `F_8` | forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(`F_8`, 1, 1)(x) = frac(1 + sin(x), 1 + cos(x)) * e^{x} * FunDeri(fun x [x ∈ RealSet ∧ x ∈ I] . x, 1, 1)(x) } = { `F_11` | exists (`F_9`) (`F_10`), `F_9` : RealSet → RealSet ∧ `F_10` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(`F_9`, 1, 1)(x) = e^{x} * FunDeri(fun x [x ∈ RealSet ∧ x ∈ I] . tan(frac(x, 2)), 1, 1)(x) ∧ FunDeri(`F_10`, 1, 1)(x) = tan(frac(x, 2)) * FunDeri(fun x [x ∈ RealSet ∧ x ∈ I] . e^{x}, 1, 1)(x) ∧ `F_11`(x) = `F_9`(x) + `F_10`(x)) }
+9. { `F_12` | forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(`F_12`, 1, 1)(x) = e^{x} * FunDeri(fun x [x ∈ RealSet ∧ x ∈ I] . tan(frac(x, 2)), 1, 1)(x) } = { `F_15` | exists (`F_13`), `F_13` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(`F_13`, 1, 1)(x) = tan(frac(x, 2)) * FunDeri(fun x [x ∈ RealSet ∧ x ∈ I] . e^{x}, 1, 1)(x) ∧ `F_15`(x) = e^{x} * tan(frac(x, 2)) - `F_13`(x)) }
+
+GOAL:
+{ `F_16` | forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(`F_16`, 1, 1)(x) = frac(1 + sin(x), 1 + cos(x)) * e^{x} * FunDeri(fun x [x ∈ RealSet ∧ x ∈ I] . x, 1, 1)(x) } = { `F_17` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ I ⇒ `F_17`(x) = e^{x} * tan(frac(x, 2)) + C) }
+
+METHOD:

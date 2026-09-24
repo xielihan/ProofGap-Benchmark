@@ -1,0 +1,15 @@
+PROOF GAP @7
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ f(x) = x * e^{-0.01 * x}
+3. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ f(x) > 0
+4. lim_{ x → 0^+ } (f(x)) = 0
+5. inf(ImageOn(f, IntervalLoRo(0, +∞))) = 0
+6. MaximumPointOn(f, IntervalLoRo(0, +∞)) = { 100 }
+7. f(100) = frac(100, e)
+8. sup(ImageOn(f, IntervalLoRo(0, +∞))) = frac(100, e)
+
+GOAL:
+frac(100, e) ≈_{ 0.1 } 36.8
+
+METHOD:

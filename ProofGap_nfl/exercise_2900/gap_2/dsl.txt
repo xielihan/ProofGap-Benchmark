@@ -1,0 +1,7 @@
+get_prop (hypothesis 8: {forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ R ⇒ f(x) = sum_{ n = 0 }^{ +∞ } (a(n) * x^{n})}) (x := {R}) as (hypothesis 11: {R ∈ RealSet ∧ 0 ≤ R ∧ R ≤ R ⇒ f(R) = sum_{ n = 0 }^{ +∞ } (a(n) * R^{n})})
+assert (hypothesis 12: {R ∈ RealSet ∧ 0 ≤ R ∧ R ≤ R}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 12: {R ∈ RealSet ∧ 0 ≤ R ∧ R ≤ R}) in (hypothesis 11: {R ∈ RealSet ∧ 0 ≤ R ∧ R ≤ R ⇒ f(R) = sum_{ n = 0 }^{ +∞ } (a(n) * R^{n})}) as (hypothesis 13: {f(R) = sum_{ n = 0 }^{ +∞ } (a(n) * R^{n})})
+get_condition (hypothesis 14: {ConvergentSeries(sum_{ n = 0 }^{ +∞ } (a(n) * R^{n}))}) in (GOAL: {ConvergentSeries(sum_{ n = 0 }^{ +∞ } (a(n) * R^{n})) ⇒ f(R) = sum_{ n = 0 }^{ +∞ } (a(n) * R^{n})})
+apply (hypothesis 13: {f(R) = sum_{ n = 0 }^{ +∞ } (a(n) * R^{n})})

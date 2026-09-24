@@ -1,0 +1,22 @@
+PROOF GAP @8
+ASSUM:
+1. f : RealSet → RealSet
+2. g : RealSet → RealSet
+3. a ∈ RealSet
+4. C_{1} ∈ RealSet
+5. C_{2} ∈ RealSet
+6. a ∈ RealSet \ { 0 }
+7. forall (x), x ∈ RealSet ∧ 1 - a * x ≠ 0 ⇒ f(x) = arctan(frac(x + a, 1 - a * x))
+8. forall (x), x ∈ RealSet ⇒ g(x) = arctan(x)
+9. forall (x), x ∈ RealSet ∧ a * x < 1 ⇒ FunDeri(f, 1, 1)(x) = frac(1, 1 + frac(x + a, 1 - a * x)^{2}) * frac(1 - a * x + a * (x + a), (1 - a * x)^{2})
+10. forall (x), x ∈ RealSet ∧ a * x < 1 ⇒ frac(1, 1 + frac(x + a, 1 - a * x)^{2}) * frac(1 - a * x + a * (x + a), (1 - a * x)^{2}) = frac(1, 1 + x^{2})
+11. forall (x), x ∈ RealSet ∧ a * x < 1 ⇒ FunDeri(f, 1, 1)(x) = frac(1, 1 + x^{2})
+12. forall (x), x ∈ RealSet ∧ a * x < 1 ⇒ FunDeri(g, 1, 1)(x) = frac(1, 1 + x^{2})
+13. forall (x), x ∈ RealSet ∧ a * x < 1 ⇒ FunDeri(f, 1, 1)(x) = FunDeri(g, 1, 1)(x)
+14. forall (x), x ∈ RealSet ∧ a * x < 1 ⇒ f(x) - g(x) = C_{1}
+15. forall (x), x ∈ RealSet ∧ a * x > 1 ⇒ FunDeri(f, 1, 1)(x) = frac(1, 1 + frac(x + a, 1 - a * x)^{2}) * frac(1 - a * x + a * (x + a), (1 - a * x)^{2})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ a * x > 1 ⇒ frac(1, 1 + frac(x + a, 1 - a * x)^{2}) * frac(1 - a * x + a * (x + a), (1 - a * x)^{2}) = frac(1, 1 + x^{2})
+
+METHOD:

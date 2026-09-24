@@ -1,0 +1,35 @@
+PROOF GAP @14
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. c ∈ RealSet ∧ c > 0
+4. x ∈ RealSet
+5. y ∈ RealSet
+6. z ∈ RealSet
+7. r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1
+8. φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π
+9. E ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+10. I_{xy} ∈ RealSet
+11. I_{yz} ∈ RealSet
+12. I_{zx} ∈ RealSet
+13. E = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) ≤ frac(z^{2}, c^{2}), z ≤ c, z ≥ 0 }
+14. x = a * r * cos(φ)
+15. y = b * r * sin(φ)
+16. 0 ≤ r
+17. r ≤ 1
+18. 0 ≤ φ
+19. φ ≤ 2 * π
+20. c * r ≤ z
+21. z ≤ c
+22. diff(fun r, φ [r ∈ RealSet ∧ φ ∈ RealSet] . x) * diff(fun r, φ [r ∈ RealSet ∧ φ ∈ RealSet] . y) = a * b * r * diff(fun r [r ∈ RealSet] . r) * diff(fun φ [φ ∈ RealSet] . φ)
+23. I_{xy} = DefInt(0, 2 * π, DefInt(0, 1, DefInt(c * r, c, a * b * r * z^{2} * diff(fun z [z ∈ RealSet] . z)) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1] . r)) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . φ))
+24. DefInt(0, 2 * π, DefInt(0, 1, DefInt(c * r, c, a * b * r * z^{2} * diff(fun z [z ∈ RealSet ∧ c * r ≤ z ∧ z ≤ c] . z)) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1] . r)) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . φ)) = frac(1, 5) * π * a * b * c^{3}
+25. I_{xy} = frac(1, 5) * π * a * b * c^{3}
+26. I_{yz} = DefInt(0, 2 * π, DefInt(0, 1, DefInt(c * r, c, a * b * r * (a * r * cos(φ))^{2} * diff(fun z [z ∈ RealSet ∧ c * r ≤ z ∧ z ≤ c] . z)) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1] . r)) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . φ))
+27. I_{yz} = a^{3} * b * c * DefInt(0, 2 * π, cos(φ)^{2} * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . φ)) * DefInt(0, 1, (1 - r) * r^{3} * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1] . r))
+28. a^{3} * b * c * DefInt(0, 2 * π, cos(φ)^{2} * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . φ)) * DefInt(0, 1, (1 - r) * r^{3} * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1] . r)) = frac(1, 20) * π * a^{3} * b * c
+
+GOAL:
+I_{yz} = frac(1, 20) * π * a^{3} * b * c
+
+METHOD:

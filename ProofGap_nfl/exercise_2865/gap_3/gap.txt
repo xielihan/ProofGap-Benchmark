@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet
+2. α ∈ RealSet
+3. 1 - 2 * x * cosh(α) + x^{2} ≠ 0 ⇒ frac(x * sinh(α), 1 - 2 * x * cosh(α) + x^{2}) = frac(1, 2) * (frac(cosh(α) + sinh(α), x - (cosh(α) + sinh(α))) - frac(cosh(α) - sinh(α), x - (cosh(α) - sinh(α))))
+4. cosh(α) + sinh(α) = e^{α}
+
+GOAL:
+cosh(α) - sinh(α) = e^{-α}
+
+METHOD:

@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ frac(1 + x, 1 - x) = -1 + frac(2, 1 - x)}) (x := {x0})
+get_condition (hypothesis 4: {x0 ∈ RealSet ∧ x0 ≠ 1}) in (GOAL: {x0 ∈ RealSet ∧ x0 ≠ 1 ⇒ frac(1 + x0, 1 - x0) = -1 + frac(2, 1 - x0)})
+autoreplace (hypothesis 4: {x0 ∈ RealSet ∧ x0 ≠ 1}); from (frac(1 + x0, 1 - x0)) to (-1 + frac(2, 1 - x0)); from (GOAL: {frac(1 + x0, 1 - x0) = -1 + frac(2, 1 - x0)}) to (GOAL: {-1 + frac(2, 1 - x0) = -1 + frac(2, 1 - x0)})
+assert (hypothesis 5: {-1 + frac(2, 1 - x0) = -1 + frac(2, 1 - x0)})
+apply (hypothesis 5: {-1 + frac(2, 1 - x0) = -1 + frac(2, 1 - x0)})

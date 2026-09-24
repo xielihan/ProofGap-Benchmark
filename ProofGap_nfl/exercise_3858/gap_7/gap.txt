@@ -1,0 +1,20 @@
+PROOF GAP @7
+ASSUM:
+1. n ∈ RealSet ∧ x ∈ RealSet ∧ t ∈ RealSet
+2. k ∈ RealSet
+3. B : CartesianProd(RealSet, RealSet) → RealSet
+4. n > 0
+5. 0 < |k|
+6. |k| < 1
+7. tan(frac(t, 2)) = sqrtn(2, frac(1 - k, 1 + k)) * tan(frac(x, 2))
+8. 0 ≤ x ∧ x ≤ π ⇒ 0 ≤ t ∧ t ≤ π
+9. tan(frac(x, 2)) = sqrtn(2, frac(1 + k, 1 - k)) * tan(frac(t, 2))
+10. sin(x) = frac(sqrtn(2, 1 - k^{2}) * sin(t), 1 - k * cos(t))
+11. cos(x) = frac(cos(t) - k, 1 - k * cos(t))
+12. 1 + k * cos(x) = frac(1 - k^{2}, 1 - k * cos(t))
+13. diff(x) = (fun t [t ∈ RealSet] . frac(sqrtn(2, 1 - k^{2}), 1 - k * cos(t))) * diff(fun t [t ∈ RealSet] . t)
+
+GOAL:
+DefInt(0, π, (fun x [x ∈ RealSet] . frac(sin(x)^{n - 1}, (1 + k * cos(x))^{n})) * diff(fun x [x ∈ RealSet] . x)) = (1 - k^{2})^{-frac(n, 2)} * DefInt(0, π, (fun t [t ∈ RealSet] . sin(t)^{n - 1}) * diff(fun t [t ∈ RealSet] . t))
+
+METHOD:

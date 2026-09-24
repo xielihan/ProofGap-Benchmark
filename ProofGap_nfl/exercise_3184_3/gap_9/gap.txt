@@ -1,0 +1,17 @@
+PROOF GAP @9
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ 2 * x + y ≠ 0 ⇒ f(x, y) = sin(frac(π * x, 2 * x + y))
+3. forall (x), x ∈ RealSet ⇒ lim_{ y → +∞ } (f(x, y)) = lim_{ y → +∞ } (sin(frac(π * x, 2 * x + y)))
+4. forall (x), x ∈ RealSet ⇒ lim_{ y → +∞ } (sin(frac(π * x, 2 * x + y))) = 0
+5. forall (x), x ∈ RealSet ⇒ lim_{ y → +∞ } (f(x, y)) = 0
+6. lim_{ x → +∞ } (lim_{ y → +∞ } (f(x, y))) = lim_{ x → +∞ } (0)
+7. lim_{ x → +∞ } (0) = 0
+8. lim_{ x → +∞ } (lim_{ y → +∞ } (f(x, y))) = 0
+9. forall (y), y ∈ RealSet ⇒ lim_{ x → +∞ } (f(x, y)) = lim_{ x → +∞ } (sin(frac(π * x, 2 * x + y)))
+10. forall (y), y ∈ RealSet ⇒ lim_{ x → +∞ } (sin(frac(π * x, 2 * x + y))) = 1
+
+GOAL:
+forall (y), y ∈ RealSet ⇒ lim_{ x → +∞ } (f(x, y)) = 1
+
+METHOD:

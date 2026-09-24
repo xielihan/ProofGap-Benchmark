@@ -1,0 +1,4 @@
+get_prop (theorem 'Thm 422. (FloorEquivalentDefinition)': {forall (x) (n), x ∈ RealSet => n ∈ RealSet => (floor(x) = n <==> (n ∈ IntegerSet) /\ (n <= x) /\ (x < n + 1))}) (x := {1}) (n := {1}) as (hypothesis 6: {1 ∈ RealSet => 1 ∈ RealSet => (floor(1) = 1 <==> (1 ∈ IntegerSet) /\ (1 <= 1) /\ (1 < 1 + 1))})
+use_condition (obvious: {1 ∈ RealSet}) (obvious: {1 ∈ RealSet}) in (hypothesis 6: {1 ∈ RealSet => 1 ∈ RealSet => (floor(1) = 1 <==> (1 ∈ IntegerSet) /\ (1 <= 1) /\ (1 < 1 + 1))}) as (hypothesis 7: {floor(1) = 1 <==> (1 ∈ IntegerSet) /\ (1 <= 1) /\ (1 < 1 + 1)})
+rewrite (left_to_right, iff) (hypothesis 7: {floor(1) = 1 <==> (1 ∈ IntegerSet) /\ (1 <= 1) /\ (1 < 1 + 1)}); from (GOAL: {floor(1) = 1}) to (GOAL: {(1 ∈ IntegerSet) /\ (1 <= 1) /\ (1 < 1 + 1)})
+autosolve all_hypothesis

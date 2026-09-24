@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = frac(ln(3) * sin(x) + cos(x), 3^{x})
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (frac(ln(3) * sin(x) + cos(x), 3^{x}))' = frac(3^{x} * (ln(3) * cos(x) - sin(x)) - 3^{x} * ln(3) * (ln(3) * sin(x) + cos(x)), 3^{2 * x}) ∧ frac(3^{x} * (ln(3) * cos(x) - sin(x)) - 3^{x} * ln(3) * (ln(3) * sin(x) + cos(x)), 3^{2 * x}) = -frac((1 + ln(3)^{2}) * sin(x), 3^{x})
+
+METHOD:

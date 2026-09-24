@@ -1,0 +1,16 @@
+PROOF GAP @4
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. φ : RealSet → RealSet
+3. ψ : RealSet → RealSet
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = φ(x + y) + ψ(x - y)
+5. FuncOfClassK(fun x [x ∈ RealSet] . φ(x), 2)
+6. FuncOfClassK(fun x [x ∈ RealSet] . ψ(x), 2)
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), 1, 1)(x, y) = FunDeri(fun x [x ∈ RealSet] . φ(x), 1, 1)(x + y) + FunDeri(fun x [x ∈ RealSet] . ψ(x), 1, 1)(x - y)
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), 2, 1)(x, y) = FunDeri(fun x [x ∈ RealSet] . φ(x), 1, 1)(x + y) - FunDeri(fun x [x ∈ RealSet] . ψ(x), 1, 1)(x - y)
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), 1, 2)(x, y) = FunDeri(fun x [x ∈ RealSet] . φ(x), 1, 2)(x + y) + FunDeri(fun x [x ∈ RealSet] . ψ(x), 1, 2)(x - y)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), 2, 2)(x, y) = FunDeri(fun x [x ∈ RealSet] . φ(x), 1, 2)(x + y) + FunDeri(fun x [x ∈ RealSet] . ψ(x), 1, 2)(x - y)
+
+METHOD:

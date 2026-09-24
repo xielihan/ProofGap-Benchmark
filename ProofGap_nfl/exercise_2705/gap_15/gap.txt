@@ -1,0 +1,30 @@
+PROOF GAP @15
+ASSUM:
+1. p ∈ NonNegIntegerSet
+2. q ∈ NonNegIntegerSet
+3. c : NonNegIntegerSet → RealSet
+4. a : NonNegIntegerSet → RealSet
+5. b : NonNegIntegerSet → RealSet
+6. p ∈ PosIntegerSet
+7. q ∈ PosIntegerSet
+8. forall (k) (j), j ∈ NonNegIntegerSet ∧ k ∈ NonNegIntegerSet ∧ j ∈ PosIntegerSet ∧ j ≤ p ⇒ c((p + q) * k + j) = frac(1, (p + q) * k + j)
+9. forall (k) (j), j ∈ NonNegIntegerSet ∧ k ∈ NonNegIntegerSet ∧ j ∈ PosIntegerSet ∧ j ≤ q ⇒ c((p + q) * k + p + j) = -frac(1, (p + q) * k + p + j)
+10. p > q ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ a(k) = (sum_{ j = 1 }^{ p } (frac(1, (p + q) * k + j))) - (sum_{ j = 1 }^{ q } (frac(1, (p + q) * k + p + j))) ⇒ (forall (k), k ∈ NonNegIntegerSet ⇒ a(k) > frac(1, (p + q) * k + 1) ∧ frac(1, (p + q) * k + 1) > 0))
+11. p > q ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ a(k) = (sum_{ j = 1 }^{ p } (frac(1, (p + q) * k + j))) - (sum_{ j = 1 }^{ q } (frac(1, (p + q) * k + p + j))) ⇒ DivergentSeries(sum_{ k = 0 }^{ +∞ } (frac(1, (p + q) * k + 1))))
+12. p > q ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ a(k) = (sum_{ j = 1 }^{ p } (frac(1, (p + q) * k + j))) - (sum_{ j = 1 }^{ q } (frac(1, (p + q) * k + p + j))) ⇒ DivergentSeries(sum_{ k = 0 }^{ +∞ } (a(k))))
+13. p > q ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ a(k) = (sum_{ j = 1 }^{ p } (frac(1, (p + q) * k + j))) - (sum_{ j = 1 }^{ q } (frac(1, (p + q) * k + p + j))) ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (c(n))))
+14. p < q ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ a(k) = (sum_{ j = 1 }^{ p } (frac(1, (p + q) * k + j))) - (sum_{ j = 1 }^{ q } (frac(1, (p + q) * k + p + j))) ⇒ (forall (k), k ∈ NonNegIntegerSet ⇒ a(k) < -frac(1, (p + q) * k + p + q) ∧ -frac(1, (p + q) * k + p + q) < 0))
+15. p < q ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ a(k) = (sum_{ j = 1 }^{ p } (frac(1, (p + q) * k + j))) - (sum_{ j = 1 }^{ q } (frac(1, (p + q) * k + p + j))) ⇒ DivergentSeries(sum_{ k = 0 }^{ +∞ } (frac(1, (p + q) * k + p + q))))
+16. p < q ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ a(k) = (sum_{ j = 1 }^{ p } (frac(1, (p + q) * k + j))) - (sum_{ j = 1 }^{ q } (frac(1, (p + q) * k + p + j))) ⇒ DivergentSeries(sum_{ k = 0 }^{ +∞ } (a(k))))
+17. p < q ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ a(k) = (sum_{ j = 1 }^{ p } (frac(1, (p + q) * k + j))) - (sum_{ j = 1 }^{ q } (frac(1, (p + q) * k + p + j))) ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (c(n))))
+18. p ≠ q ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (c(n)))
+19. p = q ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ b(k) = sum_{ j = 1 }^{ p } (frac(1, k * p + j)) ⇒ (forall (k), k ∈ NonNegIntegerSet ⇒ b(k) > 0))
+20. p = q ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ b(k) = sum_{ j = 1 }^{ p } (frac(1, k * p + j)) ⇒ (forall (k), k ∈ NonNegIntegerSet ⇒ b(k) > b(k + 1)))
+21. p = q ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ b(k) = sum_{ j = 1 }^{ p } (frac(1, k * p + j)) ⇒ seqlim_{ k → +∞ } (b(k)) = 0)
+22. p = q ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ b(k) = sum_{ j = 1 }^{ p } (frac(1, k * p + j)) ⇒ ConvergentSeries(sum_{ k = 0 }^{ +∞ } ((-1)^{k} * b(k))))
+23. p = q ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ b(k) = sum_{ j = 1 }^{ p } (frac(1, k * p + j)) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n))))
+
+GOAL:
+p = q ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n)))
+
+METHOD:

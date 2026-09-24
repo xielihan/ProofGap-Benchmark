@@ -1,0 +1,12 @@
+get_forall (GOAL: {forall (l), l ∈ RealSet ∧ l ∈ RationalSet ⇒ (forall (x), x ∈ RealSet ∧ x ∉ RationalSet ⇒ χ(x + l) = 0)}) (l := {l0})
+get_condition (hypothesis 8: {l0 ∈ RealSet ∧ l0 ∈ RationalSet}) in (GOAL: {l0 ∈ RealSet ∧ l0 ∈ RationalSet ⇒ (forall (x), x ∈ RealSet ∧ x ∉ RationalSet ⇒ χ(x + l0) = 0)})
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∉ RationalSet ⇒ χ(x + l0) = 0}) (x := {x0})
+get_condition (hypothesis 9: {x0 ∈ RealSet ∧ x0 ∉ RationalSet}) in (GOAL: {x0 ∈ RealSet ∧ x0 ∉ RationalSet ⇒ χ(x0 + l0) = 0})
+get_prop (hypothesis 7: {forall (l), l ∈ RealSet ∧ l ∈ RationalSet ⇒ (forall (x), x ∈ RealSet ∧ x ∉ RationalSet ⇒ x + l ∉ RationalSet)}) (l := {l0}) as (hypothesis 10: {l0 ∈ RealSet ∧ l0 ∈ RationalSet ⇒ (forall (x), x ∈ RealSet ∧ x ∉ RationalSet ⇒ x + l0 ∉ RationalSet)})
+use_condition (hypothesis 8: {l0 ∈ RealSet ∧ l0 ∈ RationalSet}) in (hypothesis 10: {l0 ∈ RealSet ∧ l0 ∈ RationalSet ⇒ (forall (x), x ∈ RealSet ∧ x ∉ RationalSet ⇒ x + l0 ∉ RationalSet)}) as (hypothesis 11: {forall (x), x ∈ RealSet ∧ x ∉ RationalSet ⇒ x + l0 ∉ RationalSet})
+get_prop (hypothesis 11: {forall (x), x ∈ RealSet ∧ x ∉ RationalSet ⇒ x + l0 ∉ RationalSet}) (x := {x0}) as (hypothesis 12: {x0 ∈ RealSet ∧ x0 ∉ RationalSet ⇒ x0 + l0 ∉ RationalSet})
+use_condition (hypothesis 9: {x0 ∈ RealSet ∧ x0 ∉ RationalSet}) in (hypothesis 12: {x0 ∈ RealSet ∧ x0 ∉ RationalSet ⇒ x0 + l0 ∉ RationalSet}) as (hypothesis 13: {x0 + l0 ∉ RationalSet})
+assert (hypothesis 14: {x0 + l0 ∈ RealSet})
+get_prop (hypothesis 2: {forall (x), x ∈ RealSet ⇒ χ(x) = cases{ 1 if x ∈ RationalSet; 0 if x ∈ RealSet ∧ x ∉ RationalSet }}) (x := {x0 + l0}) as (hypothesis 15: {x0 + l0 ∈ RealSet ⇒ χ(x0 + l0) = cases{ 1 if x0 + l0 ∈ RationalSet; 0 if x0 + l0 ∈ RealSet ∧ x0 + l0 ∉ RationalSet }})
+use_condition (hypothesis 14: {x0 + l0 ∈ RealSet}) in (hypothesis 15: {x0 + l0 ∈ RealSet ⇒ χ(x0 + l0) = cases{ 1 if x0 + l0 ∈ RationalSet; 0 if x0 + l0 ∈ RealSet ∧ x0 + l0 ∉ RationalSet }}) as (hypothesis 16: {χ(x0 + l0) = cases{ 1 if x0 + l0 ∈ RationalSet; 0 if x0 + l0 ∈ RealSet ∧ x0 + l0 ∉ RationalSet }})
+autosolve all_hypothesis

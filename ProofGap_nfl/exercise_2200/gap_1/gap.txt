@@ -1,0 +1,20 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. g : RealSet → RealSet
+5. x : NonNegIntegerSet → RealSet
+6. ω : NonNegIntegerSet → RealSet
+7. `ω_*` : NonNegIntegerSet → RealSet
+8. a < b
+9. BoundedFuncOn(f, [a, b])
+10. IntegrableFuncOn(f, [a, b])
+11. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ g(x) = |f(x)|
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(0) = a
+13. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = b
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (k), k ∈ IntegerSet ∧ 0 ≤ k ∧ k < n ⇒ x(k) < x(k + 1))
+
+METHOD:

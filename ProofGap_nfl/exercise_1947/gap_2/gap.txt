@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet ∧ x ≠ 0
+2. t ∈ RealSet ∧ t > 0
+3. s ∈ {-1, 1}
+4. C ∈ RealSet
+5. x = frac(s, t)
+6. diff(fun t [t ∈ RealSet ∧ t > 0] . frac(s, t)) = -frac(s, t^{2}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t)
+
+GOAL:
+sqrtn(2, x^{2} + 1) = frac(sqrtn(2, t^{2} + 1), t)
+
+METHOD:

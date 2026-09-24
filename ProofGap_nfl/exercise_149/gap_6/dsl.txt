@@ -1,0 +1,10 @@
+assert (hypothesis 11: {forall (n), n ∈ NonNegIntegerSet => x(n + 1) <= x(n)}) by proof {
+  get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet => x(n + 1) <= x(n)}) (n := {k})
+  get_condition (hypothesis 11: {k ∈ NonNegIntegerSet}) in (GOAL: {k ∈ NonNegIntegerSet => x(k + 1) <= x(k)})
+  get_prop (hypothesis 10: {forall (n), n ∈ NonNegIntegerSet ⇒ x(n + 1) - x(n) ≤ 0}) (n := {k}) as (hypothesis 12: {k ∈ NonNegIntegerSet ⇒ x(k + 1) - x(k) ≤ 0})
+  use_condition (hypothesis 11: {k ∈ NonNegIntegerSet}) in (hypothesis 12: {k ∈ NonNegIntegerSet ⇒ x(k + 1) - x(k) ≤ 0}) as (hypothesis 13: {x(k + 1) - x(k) ≤ 0})
+  autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 475. (AdjacentNonincreaseImpliesMonotoneSequence)': {forall (a), (forall (n), n ∈ NonNegIntegerSet => a(n + 1) <= a(n)) => MonoDecSeq(a)}) (a := {x}) as (hypothesis 12: {(forall (n), n ∈ NonNegIntegerSet => x(n + 1) <= x(n)) => MonoDecSeq(x)})
+use_condition (hypothesis 11: {forall (n), n ∈ NonNegIntegerSet => x(n + 1) <= x(n)}) in (hypothesis 12: {(forall (n), n ∈ NonNegIntegerSet => x(n + 1) <= x(n)) => MonoDecSeq(x)}) as (hypothesis 13: {MonoDecSeq(x)})
+apply (hypothesis 13: {MonoDecSeq(x)})

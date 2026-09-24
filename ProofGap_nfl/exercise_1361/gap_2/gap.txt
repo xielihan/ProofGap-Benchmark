@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x > 0 ⇒ frac(2, π) * arctan(x) > 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ arctan(x) ≠ 0
+
+METHOD:

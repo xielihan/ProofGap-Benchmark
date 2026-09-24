@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. C ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ a^{2} + x^{2} ≠ 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ a = 0 ⇒ x ≠ 0
+
+METHOD:

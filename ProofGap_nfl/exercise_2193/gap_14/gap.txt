@@ -1,0 +1,42 @@
+PROOF GAP @14
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. f : RealSet → RealSet
+4. φ : RealSet → RealSet
+5. x : NonNegIntegerSet → RealSet
+6. ξ : IntegerSet → RealSet
+7. θ : IntegerSet → RealSet
+8. Δx : IntegerSet → RealSet
+9. d ∈ RealSet ∧ d > 0
+10. n ∈ NonNegIntegerSet ∧ n > 0
+11. i ∈ IntegerSet
+12. M ∈ RealSet ∧ M > 0
+13. δ ∈ RealSet ∧ δ > 0
+14. a < b
+15. ContinuousFuncOn(f, [a, b])
+16. ContinuousFuncOn(φ, [a, b])
+17. forall (n) (i), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n ∈ PosIntegerSet ∧ i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n ⇒ x(i) ∈ [a, b]
+18. forall (n) (i), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n ∈ PosIntegerSet ∧ i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ x(i) < x(i + 1)
+19. forall (n) (i), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n ∈ PosIntegerSet ∧ i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ x(i) ≤ ξ(i) ∧ ξ(i) ≤ x(i + 1) ∧ x(i) ≤ θ(i) ∧ θ(i) ≤ x(i + 1)
+20. forall (n) (i), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n ∈ PosIntegerSet ∧ i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ Δx(i) = x(i + 1) - x(i)
+21. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n ∈ PosIntegerSet ⇒ x(0) = a ∧ x(n) = b
+22. d = max({ |Δx(i)| | i ∈ IntegerSet, 0 ≤ i ∧ i ≤ n - 1 })
+23. ContinuousFuncOn(fun t [t ∈ RealSet ∧ t ∈ [a, b]] . f(t) * φ(t), [a, b])
+24. DefInt(a, b, fun t [t ∈ RealSet ∧ t ∈ [a, b]] . f(t) * φ(t) * diff(fun t [t ∈ RealSet ∧ t ∈ [a, b]] . t)) = lim_{ d → 0 } (sum_{ i = 0 }^{ n - 1 } (f(ξ(i)) * φ(ξ(i)) * Δx(i)))
+25. BoundedFuncOn(f, [a, b])
+26. exists (M), M ∈ RealSet ∧ M > 0 ∧ M ∈ PosRealSet ∧ (forall (t), t ∈ RealSet ∧ t ∈ [a, b] ⇒ |f(t)| ≤ M)
+27. UniformContinuousFuncOn(φ, [a, b])
+28. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (d < δ ⇒ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ |φ(θ(i)) - φ(ξ(i))| < frac(ε, M * (b - a)))))
+29. forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ d < δ ⇒ |sum_{ i = 0 }^{ n - 1 } ((f(ξ(i)) * φ(θ(i)) - f(ξ(i)) * φ(ξ(i))) * Δx(i))| ≤ sum_{ i = 0 }^{ n - 1 } (|f(ξ(i))| * |φ(θ(i)) - φ(ξ(i))| * |Δx(i)|)
+30. forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ d < δ ⇒ sum_{ i = 0 }^{ n - 1 } (|f(ξ(i))| * |φ(θ(i)) - φ(ξ(i))| * |Δx(i)|) < sum_{ i = 0 }^{ n - 1 } (M * frac(ε, M * (b - a)) * |Δx(i)|)
+31. forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ d < δ ⇒ sum_{ i = 0 }^{ n - 1 } (M * frac(ε, M * (b - a)) * |Δx(i)|) = ε
+32. forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ d < δ ⇒ sum_{ i = 0 }^{ n - 1 } (|f(ξ(i))| * |φ(θ(i)) - φ(ξ(i))| * |Δx(i)|) < ε
+33. forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ d < δ ⇒ |sum_{ i = 0 }^{ n - 1 } ((f(ξ(i)) * φ(θ(i)) - f(ξ(i)) * φ(ξ(i))) * Δx(i))| < ε
+34. lim_{ d → 0 } (sum_{ i = 0 }^{ n - 1 } ((f(ξ(i)) * φ(θ(i)) - f(ξ(i)) * φ(ξ(i))) * Δx(i))) = 0
+35. lim_{ d → 0 } (sum_{ i = 0 }^{ n - 1 } (f(ξ(i)) * φ(θ(i)) * Δx(i))) = DefInt(a, b, fun t [t ∈ RealSet ∧ t ∈ [a, b]] . f(t) * φ(t) * diff(fun t [t ∈ RealSet ∧ t ∈ [a, b]] . t))
+
+GOAL:
+lim_{ d → 0 } (sum_{ i = 0 }^{ n - 1 } (f(ξ(i)) * φ(θ(i)) * Δx(i))) = DefInt(a, b, fun t [t ∈ RealSet ∧ t ∈ [a, b]] . f(t) * φ(t) * diff(fun t [t ∈ RealSet ∧ t ∈ [a, b]] . t))
+
+METHOD:

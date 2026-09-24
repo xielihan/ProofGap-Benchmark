@@ -1,0 +1,2 @@
+get_prop (theorem 'Thm 416. (ArctangentLimitAtPositiveInfinity)': {lim_{x -> +∞} (arctan(x)) = π / 2}) as (hypothesis 5: {lim_{x -> +∞} (arctan(x)) = π / 2})
+autosolve (hypothesis 5: {lim_{x -> +∞} (arctan(x)) = π / 2})

@@ -1,0 +1,11 @@
+1. destruct_and (hypothesis 1: {h ∈ RealSet ∧ h ≠ 0}) as (hypothesis 5: {h ∈ RealSet}) (hypothesis 6: {h ≠ 0})
+2. get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ frac(f(x + h) - f(x), h) = 2 * x + h}) (x := {y})
+3. get_condition (hypothesis 7: {y ∈ RealSet}) in (GOAL: {y ∈ RealSet ⇒ frac(f(y + h) - f(y), h) = 2 * y + h})
+4. assert (hypothesis 8: {y + h ∈ RealSet})
+5. get_prop (hypothesis 4: {forall (x), x ∈ RealSet ⇒ f(x) = x ^ 2}) (x := {y + h}) as (hypothesis 9: {y + h ∈ RealSet ⇒ f(y + h) = (y + h) ^ 2})
+6. use_condition (hypothesis 8: {y + h ∈ RealSet}) in (hypothesis 9: {y + h ∈ RealSet ⇒ f(y + h) = (y + h) ^ 2}) as (hypothesis 10: {f(y + h) = (y + h) ^ 2})
+7. get_prop (hypothesis 4: {forall (x), x ∈ RealSet ⇒ f(x) = x ^ 2}) (x := {y}) as (hypothesis 11: {y ∈ RealSet ⇒ f(y) = y ^ 2})
+8. use_condition (hypothesis 7: {y ∈ RealSet}) in (hypothesis 11: {y ∈ RealSet ⇒ f(y) = y ^ 2}) as (hypothesis 12: {f(y) = y ^ 2})
+9. rewrite (left_to_right, equation) (hypothesis 10: {f(y + h) = (y + h) ^ 2}); from (GOAL: {frac(f(y + h) - f(y), h) = 2 * y + h}) to (GOAL: {frac((y + h) ^ 2 - f(y), h) = 2 * y + h})
+10. rewrite (left_to_right, equation) (hypothesis 12: {f(y) = y ^ 2}); from (GOAL: {frac((y + h) ^ 2 - f(y), h) = 2 * y + h}) to (GOAL: {frac((y + h) ^ 2 - y ^ 2, h) = 2 * y + h})
+11. autosolve all_hypothesis

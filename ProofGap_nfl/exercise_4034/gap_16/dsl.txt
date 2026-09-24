@@ -1,0 +1,3 @@
+get_prop (hypothesis 34: {forall (p)(q), B(p, q) = frac(Gamma(p) * Gamma(q), Gamma(p + q))}) (p := {frac(1, n)}) (q := {frac(1, n)}) as (hypothesis 35: {B(frac(1, n), frac(1, n)) = frac(Gamma(frac(1, n)) * Gamma(frac(1, n)), Gamma(frac(1, n) + frac(1, n)))})
+rewrite (left_to_right, equation) (hypothesis 35: {B(frac(1, n), frac(1, n)) = frac(Gamma(frac(1, n)) * Gamma(frac(1, n)), Gamma(frac(1, n) + frac(1, n)))}); from (GOAL: {frac(1, 2 * n) * B(frac(1, n), frac(1, n)) = frac(1, 2 * n) * frac(Gamma(frac(1, n))^{2}, Gamma(frac(2, n)))}) to (GOAL: {frac(1, 2 * n) * frac(Gamma(frac(1, n)) * Gamma(frac(1, n)), Gamma(frac(1, n) + frac(1, n))) = frac(1, 2 * n) * frac(Gamma(frac(1, n))^{2}, Gamma(frac(2, n)))})
+autosolve all_hypothesis

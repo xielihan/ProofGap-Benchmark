@@ -1,0 +1,10 @@
+PROOF GAP @4
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x > 0 ∧ x ≠ 0 ⇒ frac(2 * x - x^{2}, x) = 2 - x
+2. lim_{ x → 0^+ } (frac(2 * x - x^{2}, x)) = 2
+3. 2 ∈ RealSet
+
+GOAL:
+2 ≠ 0
+
+METHOD:

@@ -1,0 +1,4 @@
+get_exists (hypothesis 10: {exists (β), β ∈ RealSet ∧ β ≤ seqlim_{ n → +∞ } (y(n))}) (β := {β1})
+destruct_and (hypothesis 15: {β1 ∈ RealSet ∧ β1 ≤ seqlim_{ n → +∞ } (y(n))}) as (hypothesis 16: {β1 ∈ RealSet}) (hypothesis 17: {β1 ≤ seqlim_{ n → +∞ } (y(n))})
+exists (β := {β1})
+autosolve all_hypothesis

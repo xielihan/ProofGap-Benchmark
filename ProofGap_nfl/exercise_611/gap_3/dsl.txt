@@ -1,0 +1,18 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ seqlim_{ n → +∞ } ((1 + frac(x, n))^{n}) = seqlim_{ n → +∞ } ((1 + frac(1, y(n)))^{y(n) * x})}) (x := {a})
+get_condition (hypothesis 5: {a ∈ RealSet ∧ a ≠ 0}) in (GOAL: {a ∈ RealSet ∧ a ≠ 0 ⇒ seqlim_{ n → +∞ } ((1 + frac(a, n))^{n}) = seqlim_{ n → +∞ } ((1 + frac(1, y(n)))^{y(n) * a})})
+get_prop (hypothesis 4: {forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n) = frac(n, x))}) (x := {a}) as (hypothesis 6: {a ∈ RealSet ∧ a ≠ 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n) = frac(n, a))})
+use_condition (hypothesis 5: {a ∈ RealSet ∧ a ≠ 0}) in (hypothesis 6: {a ∈ RealSet ∧ a ≠ 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n) = frac(n, a))}) as (hypothesis 7: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n) = frac(n, a)})
+assert (hypothesis 8: {forall (j), j ∈ PosIntegerSet ⇒ (1 + frac(1, y(j)))^{y(j) * a} = (1 + frac(a, j))^{j}}) by proof {
+  get_forall (GOAL: {forall (j), j ∈ PosIntegerSet ⇒ (1 + frac(1, y(j)))^{y(j) * a} = (1 + frac(a, j))^{j}}) (j := {k})
+  get_condition (hypothesis 8: {k ∈ PosIntegerSet}) in (GOAL: {k ∈ PosIntegerSet ⇒ (1 + frac(1, y(k)))^{y(k) * a} = (1 + frac(a, k))^{k}})
+  get_prop (hypothesis 7: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n) = frac(n, a)}) (n := {k}) as (hypothesis 9: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ y(k) = frac(k, a)})
+  destruct_and (hypothesis 5: {a ∈ RealSet ∧ a ≠ 0}) as (hypothesis 10: {a ∈ RealSet}) (hypothesis 11: {a ≠ 0})
+  assert (hypothesis 12: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet})
+  use_condition (hypothesis 12: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet}) in (hypothesis 9: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ y(k) = frac(k, a)}) as (hypothesis 13: {y(k) = frac(k, a)})
+  rewrite (left_to_right, equation) (hypothesis 13: {y(k) = frac(k, a)}); from (GOAL: {(1 + frac(1, y(k)))^{y(k) * a} = (1 + frac(a, k))^{k}}) to (GOAL: {(1 + frac(1, frac(k, a)))^{frac(k, a) * a} = (1 + frac(a, k))^{k}})
+  autoreplace all_hypothesis; from (frac(1, frac(k, a))) to (frac(a, k)); from (GOAL: {(1 + frac(1, frac(k, a)))^{frac(k, a) * a} = (1 + frac(a, k))^{k}}) to (GOAL: {(1 + frac(a, k))^{frac(k, a) * a} = (1 + frac(a, k))^{k}})
+  autoreplace all_hypothesis; from (frac(k, a) * a) to (k); from (GOAL: {(1 + frac(a, k))^{frac(k, a) * a} = (1 + frac(a, k))^{k}}) to (GOAL: {(1 + frac(a, k))^{k} = (1 + frac(a, k))^{k}})
+  autosolve all_hypothesis
+}
+rewrite_in limit (left_to_right, equation) (hypothesis 8: {forall (j), j ∈ PosIntegerSet ⇒ (1 + frac(1, y(j)))^{y(j) * a} = (1 + frac(a, j))^{j}}); from (GOAL: {seqlim_{ n → +∞ } ((1 + frac(a, n))^{n}) = seqlim_{ n → +∞ } ((1 + frac(1, y(n)))^{y(n) * a})}) to (GOAL: {seqlim_{ n → +∞ } ((1 + frac(a, n))^{n}) = seqlim_{ n → +∞ } ((1 + frac(a, n))^{n})})
+autosolve all_hypothesis

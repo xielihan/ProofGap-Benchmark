@@ -1,0 +1,1 @@
+apply (hypothesis 36: {-4 < x ⇒ x < 0 ⇒ 1 - (1 + t^{2}) * G(t) = t * g(t)})

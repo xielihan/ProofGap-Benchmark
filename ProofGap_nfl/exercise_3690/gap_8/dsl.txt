@@ -1,0 +1,24 @@
+get_condition (hypothesis 18: {R > 0}) in (GOAL: {R > 0 => λ = frac(3, 2) * R})
+assert (hypothesis 19: {FunDeri(F, 2, 1)(α, h, R, λ) = 0}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 20: {FunDeri(F, 2, 1)(α, h, R, λ) = 3 * R^{2} - 2 * R * λ}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 21: {3 * R^{2} - 2 * R * λ = 0}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 22: {R != 0}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 23: {frac(3 * R^{2} - 2 * R * λ, R) = 0}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 24: {3 * R - 2 * λ = 0}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 25: {3 = 2 * frac(3, 2)}) by proof {
+get_prop (theorem 'Thm 409. (FractionEqualityToCrossProduct)': {forall (A) (B) (C), A ∈ RealSet => B ∈ RealSet => C ∈ RealSet => B != 0 => frac(A, B) = C => A = B * C}) (A := {3}) (B := {2}) (C := {frac(3, 2)}) as (hypothesis 25: {3 ∈ RealSet => 2 ∈ RealSet => frac(3, 2) ∈ RealSet => 2 != 0 => frac(3, 2) = frac(3, 2) => 3 = 2 * frac(3, 2)})
+autosolve all_hypothesis
+}
+autosolve all_hypothesis

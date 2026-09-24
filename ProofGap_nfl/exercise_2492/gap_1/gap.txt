@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. P_{x} ∈ RealSet
+3. y : RealSet → RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 < x ∧ x < a ⇒ y(x)^{frac(2, 3)} + x^{frac(2, 3)} = a^{frac(2, 3)}
+
+METHOD:

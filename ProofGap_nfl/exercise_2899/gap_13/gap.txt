@@ -1,0 +1,33 @@
+PROOF GAP @13
+ASSUM:
+1. f : RealSet → RealSet
+2. a : NonNegIntegerSet → RealSet
+3. x_{0} ∈ RealSet
+4. M ∈ RealSet ∧ M > 0
+5. L ∈ RealSet
+6. P ∈ RealSet
+7. Rem : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+8. a ∈ RealSet
+9. forall (n), n ∈ NonNegIntegerSet ⇒ a(n) ∈ RealSet
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 0 ⇒ (forall (x), x ∈ RealSet ⇒ f(x) = sum_{ n = 0 }^{ +∞ } (a(n) * (x - x_{0})^{n}))
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |n! * a(n)| < M
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |a(n)| < frac(M, n!)
+13. forall (N), N ∈ RealSet ∧ N > 0 ∧ x_{0} ∈ [-N, N] ⇒ (forall (x) (N) (n), x ∈ RealSet ∧ N ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ x ∈ [-N, N] ∧ n ∈ PosIntegerSet ⇒ |a(n) * (x - x_{0})^{n}| < frac(M, n!) * (2 * N)^{n})
+14. forall (N), N ∈ RealSet ∧ N > 0 ∧ x_{0} ∈ [-N, N] ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac(M, n!) * (2 * N)^{n}))
+15. forall (N), N ∈ RealSet ∧ N > 0 ∧ x_{0} ∈ [-N, N] ⇒ UniformConvergent(fun n [n ∈ NonNegIntegerSet] . fun x [x ∈ RealSet] . a(n) * (x - x_{0})^{n}, [-N, N], f)
+16. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . a(n)) = +∞
+17. forall (c) (m), m ∈ NonNegIntegerSet ∧ c ∈ RealSet ∧ m ∈ PosIntegerSet ⇒ DiffableFuncAt(FunDeri(f, 1, m), c)
+18. forall (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ⇒ FunDeri(f, 1, m)(x) = sum_{ n = m }^{ +∞ } (frac(n!, (n - m)!) * a(n) * (x - x_{0})^{n - m}))
+19. forall (R), R ∈ RealSet ∧ R > 0 ⇒ (forall (x), x ∈ RealSet ∧ |x - a| < R ⇒ L = R + |a - x_{0}|)
+20. forall (R), R ∈ RealSet ∧ R > 0 ⇒ (forall (x), x ∈ RealSet ∧ |x - a| < R ⇒ |x - x_{0}| ≤ |x - a| + |a - x_{0}|)
+21. forall (R), R ∈ RealSet ∧ R > 0 ⇒ (forall (x), x ∈ RealSet ∧ |x - a| < R ⇒ |x - a| + |a - x_{0}| < L)
+22. forall (R), R ∈ RealSet ∧ R > 0 ⇒ (forall (x), x ∈ RealSet ∧ |x - a| < R ⇒ |x - x_{0}| < L)
+23. forall (s), s ∈ NonNegIntegerSet ∧ s ≥ 0 ⇒ (forall (R), R ∈ RealSet ∧ R > 0 ⇒ (forall (x), x ∈ RealSet ∧ |x - a| < R ⇒ P = sum_{ s = 0 }^{ +∞ } (frac(L^{s}, s!))))
+24. forall (R), R ∈ RealSet ∧ R > 0 ⇒ (forall (x), x ∈ RealSet ∧ |x - a| < R ⇒ P < +∞)
+25. forall (R), R ∈ RealSet ∧ R > 0 ⇒ (forall (x), x ∈ RealSet ∧ |x - a| < R ⇒ (forall (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ |FunDeri(f, 1, m)(x)| ≤ M * P))
+26. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 0 ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ≥ 0 ⇒ (forall (R), R ∈ RealSet ∧ R > 0 ⇒ (forall (x), x ∈ RealSet ∧ |x - a| < R ⇒ Rem(n, x) = f(x) - (sum_{ k = 0 }^{ n } (frac(FunDeri(f, 1, k)(a), k!) * (x - a)^{k})))))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 0 ⇒ (forall (R), R ∈ RealSet ∧ R > 0 ⇒ (forall (x), x ∈ RealSet ∧ |x - a| < R ⇒ (exists (θ), θ ∈ RealSet ∧ 0 < θ ∧ θ < 1 ∧ Rem(n, x) = frac(FunDeri(f, 1, n + 1)(a + θ * (x - a)), (n + 1)!) * (x - a)^{n + 1})))
+
+METHOD:

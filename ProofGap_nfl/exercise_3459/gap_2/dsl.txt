@@ -1,0 +1,3 @@
+1. get_forall (GOAL: {forall (x) (y), (Impl(And(Belong(x, RealSet), Belong(y, RealSet)), Eq(FunDeri(ξ, 2, 1)(x, y), 0)))}) (x := {x})
+2. get_forall (GOAL: {forall (y), (Impl(And(Belong(x, RealSet), Belong(y, RealSet)), Eq(FunDeri(ξ, 2, 1)(x, y), 0)))}) (y := {y})
+3. autosolve all_hypothesis

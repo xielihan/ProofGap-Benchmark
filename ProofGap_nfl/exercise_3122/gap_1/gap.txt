@@ -1,0 +1,17 @@
+PROOF GAP @1
+ASSUM:
+1. x_{0} ∈ RealSet
+2. h ∈ RealSet ∧ h ≠ 0
+3. y : RealSet → RealSet
+4. y_{-1} ∈ RealSet
+5. y_{0} ∈ RealSet
+6. y_{1} ∈ RealSet
+7. y(x_{0} - h) = y_{-1}
+8. y(x_{0}) = y_{0}
+9. y(x_{0} + h) = y_{1}
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ y(x) = frac((x - x_{0}) * (x - x_{0} - h), (x_{0} - h - x_{0}) * (x_{0} - h - (x_{0} + h))) * y_{-1} + frac((x - x_{0} + h) * (x - x_{0} - h), (x_{0} - (x_{0} - h)) * (x_{0} - (x_{0} + h))) * y_{0} + frac((x - x_{0} + h) * (x - x_{0}), (x_{0} + h - (x_{0} - h)) * (x_{0} + h - x_{0})) * y_{1}
+
+METHOD:
+[@method 根据 "Lagrange插值公式" @]

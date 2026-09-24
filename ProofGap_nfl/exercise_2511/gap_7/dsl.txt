@@ -1,0 +1,4 @@
+get_prop (hypothesis 10: {forall (t), t ∈ RealSet => r(t) = a * e^{m * t}}) (t := {φ}) as (hypothesis 17: {φ ∈ RealSet => r(φ) = a * e^{m * φ}})
+use_condition (hypothesis 4: {φ ∈ RealSet}) in (hypothesis 17: {φ ∈ RealSet => r(φ) = a * e^{m * φ}}) as (hypothesis 18: {r(φ) = a * e^{m * φ}})
+rewrite (left_to_right, equation) (hypothesis 18: {r(φ) = a * e^{m * φ}}); from (GOAL: {frac(m * a, 4 * m^{2} + 1) * sqrtn(2, 4 * m^{2} + 1) * e^{m * φ} = frac(m * r(φ), sqrtn(2, 4 * m^{2} + 1))}) to (GOAL: {frac(m * a, 4 * m^{2} + 1) * sqrtn(2, 4 * m^{2} + 1) * e^{m * φ} = frac(m * (a * e^{m * φ}), sqrtn(2, 4 * m^{2} + 1))})
+autosolve all_hypothesis

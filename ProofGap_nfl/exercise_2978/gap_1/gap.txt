@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. a : NonNegIntegerSet → RealSet
+3. b : NonNegIntegerSet → RealSet
+4. forall (x), x ∈ RealSet ⇒ f(x + π) = -f(x)
+5. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ a(n) = frac(1, π) * DefInt(-π, π, f(x) * cos(n * x) * diff(fun x [x ∈ RealSet] . x)))
+6. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = frac(1, π) * DefInt(-π, π, f(x) * sin(n * x) * diff(fun x [x ∈ RealSet] . x)))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ a(n) = frac(1, π) * (-DefInt(-π, 0, f(π + x) * cos(n * x) * diff(fun x [x ∈ RealSet] . x)) + DefInt(0, π, f(x) * cos(n * x) * diff(fun x [x ∈ RealSet] . x))))
+
+METHOD:

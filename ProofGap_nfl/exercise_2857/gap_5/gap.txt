@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ f(x) = ln(sqrtn(2, frac(1 + x, 1 - x)))
+3. forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ f(x) = frac(1, 2) * (ln(1 + x) - ln(1 - x))
+4. forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ ln(1 + x) = sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(x^{n}, n))
+5. forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ ln(1 - x) = sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac((-x)^{n}, n))
+6. forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ f(x) = frac(1, 2) * ((sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(x^{n}, n))) - (sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac((-x)^{n}, n))))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ f(x) = sum_{ n = 0 }^{ +∞ } (frac(x^{2 * n + 1}, 2 * n + 1))
+
+METHOD:

@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. I : RealSet → RealSet
+2. forall (α), α ∈ RealSet ⇒ I(α) = DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . frac(sin(α * x), x)) * diff(fun x [x ∈ RealSet ∧ x > 0] . x))
+
+GOAL:
+forall (α), α ∈ RealSet ∧ α > 0 ⇒ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ (exists (y), y ∈ RealSet ∧ y = α * x))
+
+METHOD:

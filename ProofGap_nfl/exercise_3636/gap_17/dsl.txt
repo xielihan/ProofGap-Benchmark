@@ -1,0 +1,5 @@
+assert (hypothesis 22: {sqrtn(2, 3) * sqrtn(2, 3) = 3}) by proof {
+  autosolve
+}
+rewrite (left_to_right, equation) (hypothesis 22: {sqrtn(2, 3) * sqrtn(2, 3) = 3}) from (GOAL: {-sqrtn(2, 3) * -sqrtn(2, 3) - frac(sqrtn(2, 3), 2)^{2} = frac(9, 4)}) to (GOAL: {3 - frac(sqrtn(2, 3), 2)^{2} = frac(9, 4)})
+autosolve

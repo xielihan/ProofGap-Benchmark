@@ -1,0 +1,2 @@
+1. rewrite (left_to_right, equation) (hypothesis 10: {diff(s) = sqrtn(2, diff(x)^{2} + diff(y)^{2})}); from (GOAL: {diff(s) = sqrtn(2, a^{2} * (1 - cos(t))^{2} + a^{2} * sin(t)^{2}) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . t)}) to (GOAL: {sqrtn(2, diff(x)^{2} + diff(y)^{2}) = sqrtn(2, a^{2} * (1 - cos(t))^{2} + a^{2} * sin(t)^{2}) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . t)})
+2. apply (hypothesis 11: {sqrtn(2, diff(x)^{2} + diff(y)^{2}) = sqrtn(2, a^{2} * (1 - cos(t))^{2} + a^{2} * sin(t)^{2}) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . t)})

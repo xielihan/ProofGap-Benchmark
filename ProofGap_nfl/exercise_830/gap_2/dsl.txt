@@ -1,0 +1,4 @@
+get_prop (hypothesis 3: {forall (x), x ∈ RealSet => FunDeri(f, 1, 1)(x) = 2 * x * sin(x - 2) + x^{2} * cos(x - 2)}) (x := {2}) as (hypothesis 4: {2 ∈ RealSet => FunDeri(f, 1, 1)(2) = 2 * 2 * sin(2 - 2) + 2^{2} * cos(2 - 2)})
+use_condition (obvious: {2 ∈ RealSet}) in (hypothesis 4: {2 ∈ RealSet => FunDeri(f, 1, 1)(2) = 2 * 2 * sin(2 - 2) + 2^{2} * cos(2 - 2)}) as (hypothesis 5: {FunDeri(f, 1, 1)(2) = 2 * 2 * sin(2 - 2) + 2^{2} * cos(2 - 2)})
+rewrite (left_to_right, equation) (hypothesis 5: {FunDeri(f, 1, 1)(2) = 2 * 2 * sin(2 - 2) + 2^{2} * cos(2 - 2)}); from (GOAL: {FunDeri(f, 1, 1)(2) = 4}) to (GOAL: {2 * 2 * sin(2 - 2) + 2^{2} * cos(2 - 2) = 4})
+autosolve all_hypothesis

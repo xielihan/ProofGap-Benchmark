@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. x ∈ RealSet
+2. α ∈ RealSet
+3. |x| < 1 ⇒ frac(x * sin(α), 1 - 2 * x * cos(α) + x^{2}) = frac(__IMAGINARY_UNIT__ * x, 2) * (frac(1, x - (cos(α) - __IMAGINARY_UNIT__ * sin(α))) - frac(1, x - (cos(α) + __IMAGINARY_UNIT__ * sin(α))))
+4. |x| < 1 ⇒ frac(x * sin(α), 1 - 2 * x * cos(α) + x^{2}) = frac(__IMAGINARY_UNIT__ * x, 2) * (-frac(cos(α) + __IMAGINARY_UNIT__ * sin(α), 1 - x * (cos(α) + __IMAGINARY_UNIT__ * sin(α))) + frac(cos(α) - __IMAGINARY_UNIT__ * sin(α), 1 - x * (cos(α) - __IMAGINARY_UNIT__ * sin(α))))
+5. |x| < 1 ⇒ frac(x * sin(α), 1 - 2 * x * cos(α) + x^{2}) = frac(__IMAGINARY_UNIT__ * x, 2) * (-(sum_{ n = 0 }^{ +∞ } (x^{n} * (cos(α) + __IMAGINARY_UNIT__ * sin(α))^{n + 1})) + (sum_{ n = 0 }^{ +∞ } (x^{n} * (cos(α) - __IMAGINARY_UNIT__ * sin(α))^{n + 1})))
+6. forall (n), n ∈ NonNegIntegerSet ⇒ frac(__IMAGINARY_UNIT__, 2) * (-(cos(α) + __IMAGINARY_UNIT__ * sin(α))^{n + 1} + (cos(α) - __IMAGINARY_UNIT__ * sin(α))^{n + 1}) = sin((n + 1) * α)
+7. |x| < 1
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ frac(x * sin(α), 1 - 2 * x * cos(α) + x^{2}) = sum_{ n = 0 }^{ +∞ } (x^{n + 1} * sin((n + 1) * α)) ∧ sum_{ n = 0 }^{ +∞ } (x^{n + 1} * sin((n + 1) * α)) = sum_{ n = 0 }^{ +∞ } (x^{n} * sin(n * α))
+
+METHOD:

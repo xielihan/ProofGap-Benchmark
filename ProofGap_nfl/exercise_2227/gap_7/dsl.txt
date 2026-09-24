@@ -1,0 +1,10 @@
+1. get_forall (GOAL: {forall (k), k ∈ IntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ k ∈ IntegerSet ∧ n ∈ PosIntegerSet ∧ 1 ≤ k ∧ k < n ∧ n > 3 ⇒ 0 ≤ frac(2 * k * π, n^{2}) * (1 - cos(frac(π, n))))}) (k := {k0})
+2. get_condition (hypothesis 7: {k0 ∈ IntegerSet}) in (GOAL: {k0 ∈ IntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ k0 ∈ IntegerSet ∧ n ∈ PosIntegerSet ∧ 1 ≤ k0 ∧ k0 < n ∧ n > 3 ⇒ 0 ≤ frac(2 * k0 * π, n^{2}) * (1 - cos(frac(π, n))))})
+3. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ k0 ∈ IntegerSet ∧ n ∈ PosIntegerSet ∧ 1 ≤ k0 ∧ k0 < n ∧ n > 3 ⇒ 0 ≤ frac(2 * k0 * π, n^{2}) * (1 - cos(frac(π, n)))}) (n := {n0})
+4. get_condition (hypothesis 8: {n0 ∈ NonNegIntegerSet ∧ k0 ∈ IntegerSet ∧ n0 ∈ PosIntegerSet ∧ 1 ≤ k0 ∧ k0 < n0 ∧ n0 > 3}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ k0 ∈ IntegerSet ∧ n0 ∈ PosIntegerSet ∧ 1 ≤ k0 ∧ k0 < n0 ∧ n0 > 3 ⇒ 0 ≤ frac(2 * k0 * π, n0^{2}) * (1 - cos(frac(π, n0)))})
+5. destruct_and (hypothesis 8: {n0 ∈ NonNegIntegerSet ∧ k0 ∈ IntegerSet ∧ n0 ∈ PosIntegerSet ∧ 1 ≤ k0 ∧ k0 < n0 ∧ n0 > 3}) as (hypothesis 9: {n0 ∈ NonNegIntegerSet}) (hypothesis 10: {k0 ∈ IntegerSet}) (hypothesis 11: {n0 ∈ PosIntegerSet}) (hypothesis 12: {1 ≤ k0}) (hypothesis 13: {k0 < n0}) (hypothesis 14: {n0 > 3})
+6. assert (hypothesis 15: {frac(π, n0) ∈ RealSet})
+7. get_prop (theorem 'Thm 167. (CosineBounded)': {forall (x), x ∈ RealSet => -1 <= cos(x) /\ cos(x) <= 1}) (x := {frac(π, n0)}) as (hypothesis 16: {frac(π, n0) ∈ RealSet => -1 <= cos(frac(π, n0)) /\ cos(frac(π, n0)) <= 1})
+8. use_condition (hypothesis 15: {frac(π, n0) ∈ RealSet}) in (hypothesis 16: {frac(π, n0) ∈ RealSet => -1 <= cos(frac(π, n0)) /\ cos(frac(π, n0)) <= 1}) as (hypothesis 17: {-1 <= cos(frac(π, n0)) /\ cos(frac(π, n0)) <= 1})
+9. destruct_and (hypothesis 17: {-1 <= cos(frac(π, n0)) /\ cos(frac(π, n0)) <= 1}) as (hypothesis 18: {-1 <= cos(frac(π, n0))}) (hypothesis 19: {cos(frac(π, n0)) <= 1})
+10. autosolve all_hypothesis

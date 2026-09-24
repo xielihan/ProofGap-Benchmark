@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ y(x) = 4 * sqrtn(3, cot(x)^{2}) + sqrtn(3, cot(x)^{8})
+GOAL:
+forall (x), x ∈ RealSet ∧ (forall (k), k ∈ IntegerSet ⇒ x ≠ k * π ∧ x ≠ (2 * k + 1) * frac(π, 2)) ⇒ FunDeri(y, x, 1)(x) = frac(8, 3) * cot(x)^{-frac(1, 3)} * -csc(x)^{2} + frac(8, 3) * cot(x)^{frac(5, 3)} * -csc(x)^{2} ∧ frac(8, 3) * cot(x)^{-frac(1, 3)} * -csc(x)^{2} + frac(8, 3) * cot(x)^{frac(5, 3)} * -csc(x)^{2} = -frac(8, 3 * sin(x)^{4} * sqrtn(3, cot(x)))
+
+METHOD:

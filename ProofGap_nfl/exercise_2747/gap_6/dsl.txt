@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ∈ [0, 1] ⇒ |f(n, x) - h(x)| = g(n, x)}) (n := {n0}) (x := {x0})
+get_condition (hypothesis 12: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet ∧ x0 ∈ [0, 1]}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet ∧ x0 ∈ [0, 1] ⇒ |f(n0, x0) - h(x0)| = g(n0, x0)})
+get_prop (hypothesis 10: {forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ∈ [0, 1] ⇒ |f(n, x) - h(x)| = x^{n} - x^{n + 1}}) (n := {n0}) (x := {x0}) as (hypothesis 13: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet ∧ x0 ∈ [0, 1] ⇒ |f(n0, x0) - h(x0)| = x0^{n0} - x0^{n0 + 1}})
+get_prop (hypothesis 11: {forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ x^{n} - x^{n + 1} = g(n, x)}) (n := {n0}) (x := {x0}) as (hypothesis 14: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ⇒ x0^{n0} - x0^{n0 + 1} = g(n0, x0)})
+autosolve all_hypothesis

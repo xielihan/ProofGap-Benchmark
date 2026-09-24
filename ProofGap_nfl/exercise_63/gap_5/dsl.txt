@@ -1,0 +1,23 @@
+get_condition (hypothesis 8: {a > 1}) in (GOAL: {a > 1 => (forall (ε), ε ∈ RealSet ∧ ε > 0 => (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N ∧ n ∈ NonNegIntegerSet ∧ n > 0 => (1 + ε) ^ n > a)))})
+use_condition (hypothesis 8: {a > 1}) in (hypothesis 5: {a > 1 => (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 => (forall (ε), ε ∈ RealSet ∧ ε > 0 => (1 + ε) ^ n > 1 + n * ε))}) as (hypothesis 9: {forall (n), n ∈ NonNegIntegerSet ∧ n > 0 => (forall (ε), ε ∈ RealSet ∧ ε > 0 => (1 + ε) ^ n > 1 + n * ε)})
+use_condition (hypothesis 8: {a > 1}) in (hypothesis 7: {a > 1 => (forall (ε), ε ∈ RealSet ∧ ε > 0 => (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N => 1 + n * ε > a)))}) as (hypothesis 10: {forall (ε), ε ∈ RealSet ∧ ε > 0 => (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N => 1 + n * ε > a))})
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 => (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N ∧ n ∈ NonNegIntegerSet ∧ n > 0 => (1 + ε) ^ n > a))}) (ε := {eps0})
+get_condition (hypothesis 11: {eps0 ∈ RealSet ∧ eps0 > 0}) in (GOAL: {eps0 ∈ RealSet ∧ eps0 > 0 => (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N ∧ n ∈ NonNegIntegerSet ∧ n > 0 => (1 + eps0) ^ n > a))})
+get_prop (hypothesis 10: {forall (ε), ε ∈ RealSet ∧ ε > 0 => (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N => 1 + n * ε > a))}) (ε := {eps0}) as (hypothesis 12: {eps0 ∈ RealSet ∧ eps0 > 0 => (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N => 1 + n * eps0 > a))})
+use_condition (hypothesis 11: {eps0 ∈ RealSet ∧ eps0 > 0}) in (hypothesis 12: {eps0 ∈ RealSet ∧ eps0 > 0 => (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N => 1 + n * eps0 > a))}) as (hypothesis 13: {exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N => 1 + n * eps0 > a)})
+get_exists (hypothesis 13: {exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N => 1 + n * eps0 > a)}) (N := {N0})
+destruct_and (hypothesis 14: {N0 ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N0 => 1 + n * eps0 > a)}) as (hypothesis 15: {N0 ∈ IntegerSet}) (hypothesis 16: {forall (n), n ∈ IntegerSet ∧ n > N0 => 1 + n * eps0 > a})
+exists (N := {N0})
+assert (hypothesis 17: {forall (n), n ∈ IntegerSet ∧ n > N0 ∧ n ∈ NonNegIntegerSet ∧ n > 0 => (1 + eps0) ^ n > a}) by proof {
+  get_forall (GOAL: {forall (n), n ∈ IntegerSet ∧ n > N0 ∧ n ∈ NonNegIntegerSet ∧ n > 0 => (1 + eps0) ^ n > a}) (n := {n0})
+  get_condition (hypothesis 17: {n0 ∈ IntegerSet ∧ n0 > N0 ∧ n0 ∈ NonNegIntegerSet ∧ n0 > 0}) in (GOAL: {n0 ∈ IntegerSet ∧ n0 > N0 ∧ n0 ∈ NonNegIntegerSet ∧ n0 > 0 => (1 + eps0) ^ n0 > a})
+  destruct_and (hypothesis 17: {n0 ∈ IntegerSet ∧ n0 > N0 ∧ n0 ∈ NonNegIntegerSet ∧ n0 > 0}) as (hypothesis 18: {n0 ∈ IntegerSet}) (hypothesis 19: {n0 > N0}) (hypothesis 20: {n0 ∈ NonNegIntegerSet}) (hypothesis 21: {n0 > 0})
+  get_prop (hypothesis 16: {forall (n), n ∈ IntegerSet ∧ n > N0 => 1 + n * eps0 > a}) (n := {n0}) as (hypothesis 22: {n0 ∈ IntegerSet ∧ n0 > N0 => 1 + n0 * eps0 > a})
+  use_condition (obvious: {n0 ∈ IntegerSet ∧ n0 > N0}) in (hypothesis 22: {n0 ∈ IntegerSet ∧ n0 > N0 => 1 + n0 * eps0 > a}) as (hypothesis 23: {1 + n0 * eps0 > a})
+  get_prop (hypothesis 9: {forall (n), n ∈ NonNegIntegerSet ∧ n > 0 => (forall (ε), ε ∈ RealSet ∧ ε > 0 => (1 + ε) ^ n > 1 + n * ε)}) (n := {n0}) as (hypothesis 24: {n0 ∈ NonNegIntegerSet ∧ n0 > 0 => (forall (ε), ε ∈ RealSet ∧ ε > 0 => (1 + ε) ^ n0 > 1 + n0 * ε)})
+  use_condition (obvious: {n0 ∈ NonNegIntegerSet ∧ n0 > 0}) in (hypothesis 24: {n0 ∈ NonNegIntegerSet ∧ n0 > 0 => (forall (ε), ε ∈ RealSet ∧ ε > 0 => (1 + ε) ^ n0 > 1 + n0 * ε)}) as (hypothesis 25: {forall (ε), ε ∈ RealSet ∧ ε > 0 => (1 + ε) ^ n0 > 1 + n0 * ε})
+  get_prop (hypothesis 25: {forall (ε), ε ∈ RealSet ∧ ε > 0 => (1 + ε) ^ n0 > 1 + n0 * ε}) (ε := {eps0}) as (hypothesis 26: {eps0 ∈ RealSet ∧ eps0 > 0 => (1 + eps0) ^ n0 > 1 + n0 * eps0})
+  use_condition (hypothesis 11: {eps0 ∈ RealSet ∧ eps0 > 0}) in (hypothesis 26: {eps0 ∈ RealSet ∧ eps0 > 0 => (1 + eps0) ^ n0 > 1 + n0 * eps0}) as (hypothesis 27: {(1 + eps0) ^ n0 > 1 + n0 * eps0})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

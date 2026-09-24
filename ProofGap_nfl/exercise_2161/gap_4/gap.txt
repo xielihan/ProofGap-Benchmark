@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. C ∈ RealSet
+3. { `F_2` | forall (x), x ∈ RealSet ∧ x < 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(arcsin(e^{x}), e^{x}) * FunDeri(fun x [x ∈ RealSet ∧ x < 0] . x, 1, 1)(x) } = { `F_4` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x < 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = arcsin(e^{x}) * FunDeri(fun x [x ∈ RealSet ∧ x < 0] . e^{-x}, 1, 1)(x) ∧ `F_4`(x) = -`F_3`(x)) }
+4. { `F_6` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x < 0 ⇒ FunDeri(`F_5`, 1, 1)(x) = arcsin(e^{x}) * FunDeri(fun x [x ∈ RealSet ∧ x < 0] . e^{-x}, 1, 1)(x) ∧ `F_6`(x) = -`F_5`(x)) } = { `F_9` | exists (`F_7`), `F_7` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x < 0 ⇒ FunDeri(`F_7`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet ∧ x < 0] . x, 1, 1)(x), sqrtn(2, 1 - e^{2 * x})) ∧ `F_9`(x) = -e^{-x} * arcsin(e^{x}) + `F_7`(x)) }
+5. { `F_10` | forall (x), x ∈ RealSet ∧ x < 0 ⇒ FunDeri(`F_10`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet ∧ x < 0] . x, 1, 1)(x), sqrtn(2, 1 - e^{2 * x})) } = { `F_12` | exists (`F_11`), `F_11` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x < 0 ⇒ FunDeri(`F_11`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet ∧ x < 0] . e^{-x}, 1, 1)(x), sqrtn(2, (e^{-x})^{2} - 1)) ∧ `F_12`(x) = -`F_11`(x)) }
+
+GOAL:
+{ `F_15` | exists (`F_13`), `F_13` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x < 0 ⇒ FunDeri(`F_13`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet ∧ x < 0] . e^{-x}, 1, 1)(x), sqrtn(2, (e^{-x})^{2} - 1)) ∧ `F_15`(x) = -e^{-x} * arcsin(e^{x}) - `F_13`(x)) } = { `F_16` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x < 0 ⇒ `F_16`(x) = -e^{-x} * arcsin(e^{x}) - ln(e^{-x} + sqrtn(2, e^{-2 * x} - 1)) + C) }
+
+METHOD:

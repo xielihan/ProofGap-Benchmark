@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ [-π, π] ⇒ p(x) = sum_{ i = 0 }^{ N } (α(i) * cos(i * x) + β(i) * sin(i * x))}) (x := {x0})
+get_condition (hypothesis 25: {x0 ∈ RealSet ∧ x0 ∈ [-π, π]}) in (GOAL: {x0 ∈ RealSet ∧ x0 ∈ [-π, π] ⇒ p(x0) = sum_{ i = 0 }^{ N } (α(i) * cos(i * x0) + β(i) * sin(i * x0))})
+destruct_and (hypothesis 25: {x0 ∈ RealSet ∧ x0 ∈ [-π, π]}) as (hypothesis 26: {x0 ∈ RealSet}) (hypothesis 27: {x0 ∈ [-π, π]})
+get_prop (hypothesis 10: {forall (x), x ∈ RealSet ⇒ p(x) = sum_{ j = 0 }^{ N } (α(j) * cos(j * x) + β(j) * sin(j * x))}) (x := {x0}) as (hypothesis 28: {x0 ∈ RealSet ⇒ p(x0) = sum_{ j = 0 }^{ N } (α(j) * cos(j * x0) + β(j) * sin(j * x0))})
+use_condition (hypothesis 26: {x0 ∈ RealSet}) in (hypothesis 28: {x0 ∈ RealSet ⇒ p(x0) = sum_{ j = 0 }^{ N } (α(j) * cos(j * x0) + β(j) * sin(j * x0))}) as (hypothesis 29: {p(x0) = sum_{ j = 0 }^{ N } (α(j) * cos(j * x0) + β(j) * sin(j * x0))})
+apply (hypothesis 29: {p(x0) = sum_{ j = 0 }^{ N } (α(j) * cos(j * x0) + β(j) * sin(j * x0))})

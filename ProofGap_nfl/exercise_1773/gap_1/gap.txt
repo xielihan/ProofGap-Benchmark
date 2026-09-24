@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. t = tan(x)
+
+GOAL:
+cos(x) ≠ 0
+
+METHOD:

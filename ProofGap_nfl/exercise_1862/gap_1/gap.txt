@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+
+GOAL:
+2 + x + x^{2} = frac(7, 4) + (x + frac(1, 2))^{2}
+
+METHOD:

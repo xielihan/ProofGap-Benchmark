@@ -1,0 +1,27 @@
+PROOF GAP @6
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. f : RealSet → RealSet
+3. I ⊆ RealSet
+4. x_{1} ∈ RealSet
+5. y_{1} ∈ RealSet
+6. z_{1} ∈ RealSet
+7. x_{2} ∈ RealSet
+8. y_{2} ∈ RealSet
+9. z_{2} ∈ RealSet
+10. 0 ∈ I
+11. ContinuousFuncOn(f, I)
+12. (x_{1}, y_{1}, z_{1}) ∈ C
+13. (x_{2}, y_{2}, z_{2}) ∈ C
+14. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ∈ C ⇒ x + y + z ∈ I
+15. F = (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . DefInt(0, x + y + z, (fun u [u ∈ RealSet] . f(u)) * diff(fun u [u ∈ RealSet] . u)))
+16. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ∈ C ⇒ FunDeri(F, 1, 1)(x, y, z) = f(x + y + z) ∧ FunDeri(F, 2, 1)(x, y, z) = f(x + y + z) ∧ FunDeri(F, 3, 1)(x, y, z) = f(x + y + z)
+17. diff(F) = (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . f(x + y + z)) * (diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) + diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z))
+18. VectorCurveInt(C, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . f(x + y + z)) * (diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) + diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z))) = (F|_{(x_{1}, y_{1}, z_{1})}^{(x_{2}, y_{2}, z_{2})})
+19. (F|_{(x_{1}, y_{1}, z_{1})}^{(x_{2}, y_{2}, z_{2})}) = F(x_{2}, y_{2}, z_{2}) - F(x_{1}, y_{1}, z_{1})
+20. F(x_{2}, y_{2}, z_{2}) - F(x_{1}, y_{1}, z_{1}) = DefInt(x_{1} + y_{1} + z_{1}, x_{2} + y_{2} + z_{2}, (fun u [u ∈ RealSet] . f(u)) * diff(fun u [u ∈ RealSet] . u))
+
+GOAL:
+VectorCurveInt(C, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . f(x + y + z)) * (diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) + diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z))) = DefInt(x_{1} + y_{1} + z_{1}, x_{2} + y_{2} + z_{2}, (fun u [u ∈ RealSet] . f(u)) * diff(fun u [u ∈ RealSet] . u))
+
+METHOD:

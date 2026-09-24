@@ -1,0 +1,18 @@
+PROOF GAP @8
+ASSUM:
+1. x ∈ RealSet ∧ 1 - x - x^{2} > 0 ∧ 1 + x ≠ 0
+2. C ∈ RealSet
+3. t : RealSet → RealSet
+4. 1 + x = frac(1, t(x))
+5. t(x) ∈ RealSet
+6. t(x) ≠ 0
+7. x = frac(1 - t(x), t(x))
+8. diff(fun x [x ∈ RealSet ∧ 1 - x - x^{2} > 0 ∧ 1 + x ≠ 0] . x) = -frac(1, t(x)^{2}) * diff(fun x [x ∈ RealSet ∧ 1 - x - x^{2} > 0 ∧ 1 + x ≠ 0] . t(x))
+9. sqrtn(2, 1 - x - x^{2}) = frac(sqrtn(2, t(x)^{2} + t(x) - 1), |t(x)|)
+10. frac(sqrtn(2, t(x)^{2} + t(x) - 1), |t(x)|) = sgn(t(x)) * frac(sqrtn(2, t(x)^{2} + t(x) - 1), t(x))
+11. sqrtn(2, 1 - x - x^{2}) = sgn(t(x)) * frac(sqrtn(2, t(x)^{2} + t(x) - 1), t(x))
+
+GOAL:
+t(x)^{2} + t(x) - 1 > 0
+
+METHOD:

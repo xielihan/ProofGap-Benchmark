@@ -1,0 +1,2 @@
+assert (hypothesis 9: {a ∈ IntervalLoRo(0, +∞)})
+autosolve all_hypothesis

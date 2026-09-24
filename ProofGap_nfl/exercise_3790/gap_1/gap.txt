@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. J ∈ RealSet
+
+GOAL:
+J = DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(cos(a * x) - cos(b * x), x)) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

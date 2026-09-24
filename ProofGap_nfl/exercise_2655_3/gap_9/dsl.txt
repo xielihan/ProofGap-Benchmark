@@ -1,0 +1,33 @@
+get_forall (GOAL: {forall (N), N ∈ NonNegIntegerSet ∧ N = 5 ⇒ 10^{-6.6374} < 10^{-5}}) (N := {N0})
+get_condition (hypothesis 11: {N0 ∈ NonNegIntegerSet ∧ N0 = 5}) in (GOAL: {N0 ∈ NonNegIntegerSet ∧ N0 = 5 ⇒ 10^{-6.6374} < 10^{-5}})
+assert (hypothesis 12: {-6.6374 ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 13: {-5 ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 14: {10 ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 15: {10 > 0}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 16: {10 ≠ 1}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 17: {-6.6374 < -5}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 18: {10 > 1}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 172. (ExponentialMonotonicity)': {forall (x) (y) (a), x ∈ RealSet => y ∈ RealSet => a ∈ RealSet => (a > 0 => a ≠ 1 => x < y => ((a > 1 => a ^ x < a ^ y) ∧ (a < 1 => a ^ x > a ^ y)))}) (x := {-6.6374}) (y := {-5}) (a := {10}) as (hypothesis 19: {-6.6374 ∈ RealSet => -5 ∈ RealSet => 10 ∈ RealSet => (10 > 0 => 10 ≠ 1 => -6.6374 < -5 => ((10 > 1 => 10^{-6.6374} < 10^{-5}) ∧ (10 < 1 => 10^{-6.6374} > 10^{-5})))})
+use_condition (hypothesis 12: {-6.6374 ∈ RealSet}) in (hypothesis 19: {-6.6374 ∈ RealSet => -5 ∈ RealSet => 10 ∈ RealSet => (10 > 0 => 10 ≠ 1 => -6.6374 < -5 => ((10 > 1 => 10^{-6.6374} < 10^{-5}) ∧ (10 < 1 => 10^{-6.6374} > 10^{-5})))}) as (hypothesis 20: {-5 ∈ RealSet => 10 ∈ RealSet => (10 > 0 => 10 ≠ 1 => -6.6374 < -5 => ((10 > 1 => 10^{-6.6374} < 10^{-5}) ∧ (10 < 1 => 10^{-6.6374} > 10^{-5})))})
+use_condition (hypothesis 13: {-5 ∈ RealSet}) in (hypothesis 20: {-5 ∈ RealSet => 10 ∈ RealSet => (10 > 0 => 10 ≠ 1 => -6.6374 < -5 => ((10 > 1 => 10^{-6.6374} < 10^{-5}) ∧ (10 < 1 => 10^{-6.6374} > 10^{-5})))}) as (hypothesis 21: {10 ∈ RealSet => (10 > 0 => 10 ≠ 1 => -6.6374 < -5 => ((10 > 1 => 10^{-6.6374} < 10^{-5}) ∧ (10 < 1 => 10^{-6.6374} > 10^{-5})))})
+use_condition (hypothesis 14: {10 ∈ RealSet}) in (hypothesis 21: {10 ∈ RealSet => (10 > 0 => 10 ≠ 1 => -6.6374 < -5 => ((10 > 1 => 10^{-6.6374} < 10^{-5}) ∧ (10 < 1 => 10^{-6.6374} > 10^{-5})))}) as (hypothesis 22: {10 > 0 => 10 ≠ 1 => -6.6374 < -5 => ((10 > 1 => 10^{-6.6374} < 10^{-5}) ∧ (10 < 1 => 10^{-6.6374} > 10^{-5}))})
+use_condition (hypothesis 15: {10 > 0}) in (hypothesis 22: {10 > 0 => 10 ≠ 1 => -6.6374 < -5 => ((10 > 1 => 10^{-6.6374} < 10^{-5}) ∧ (10 < 1 => 10^{-6.6374} > 10^{-5}))}) as (hypothesis 23: {10 ≠ 1 => -6.6374 < -5 => ((10 > 1 => 10^{-6.6374} < 10^{-5}) ∧ (10 < 1 => 10^{-6.6374} > 10^{-5}))})
+use_condition (hypothesis 16: {10 ≠ 1}) in (hypothesis 23: {10 ≠ 1 => -6.6374 < -5 => ((10 > 1 => 10^{-6.6374} < 10^{-5}) ∧ (10 < 1 => 10^{-6.6374} > 10^{-5}))}) as (hypothesis 24: {-6.6374 < -5 => ((10 > 1 => 10^{-6.6374} < 10^{-5}) ∧ (10 < 1 => 10^{-6.6374} > 10^{-5}))})
+use_condition (hypothesis 17: {-6.6374 < -5}) in (hypothesis 24: {-6.6374 < -5 => ((10 > 1 => 10^{-6.6374} < 10^{-5}) ∧ (10 < 1 => 10^{-6.6374} > 10^{-5}))}) as (hypothesis 25: {(10 > 1 => 10^{-6.6374} < 10^{-5}) ∧ (10 < 1 => 10^{-6.6374} > 10^{-5})})
+destruct_and (hypothesis 25: {(10 > 1 => 10^{-6.6374} < 10^{-5}) ∧ (10 < 1 => 10^{-6.6374} > 10^{-5})}) as (hypothesis 26: {10 > 1 => 10^{-6.6374} < 10^{-5}}) (hypothesis 27: {10 < 1 => 10^{-6.6374} > 10^{-5}})
+use_condition (hypothesis 18: {10 > 1}) in (hypothesis 26: {10 > 1 => 10^{-6.6374} < 10^{-5}}) as (hypothesis 28: {10^{-6.6374} < 10^{-5}})
+apply (hypothesis 28: {10^{-6.6374} < 10^{-5}})

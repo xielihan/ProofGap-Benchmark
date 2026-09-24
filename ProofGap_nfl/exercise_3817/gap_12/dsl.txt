@@ -1,0 +1,8 @@
+get_prop (theorem 'Thm 76. (FunctionValueExists)': {forall (A) (B) (f), f : A -> B ⇒ (forall (x), x ∈ A ⇒ (exists (y), y ∈ B ∧ f(x) = y))}) (A := {RealSet}) (B := {RealSet}) (f := {I}) as (hypothesis 15: {I : RealSet -> RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (exists (y), y ∈ RealSet ∧ I(x) = y))})
+use_condition (hypothesis 2: {I : RealSet -> RealSet}) in (hypothesis 15: {I : RealSet -> RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (exists (y), y ∈ RealSet ∧ I(x) = y))}) as (hypothesis 16: {forall (x), x ∈ RealSet ⇒ (exists (y), y ∈ RealSet ∧ I(x) = y)})
+get_prop (hypothesis 16: {forall (x), x ∈ RealSet ⇒ (exists (y), y ∈ RealSet ∧ I(x) = y)}) (x := {α}) as (hypothesis 17: {α ∈ RealSet ⇒ (exists (y), y ∈ RealSet ∧ I(α) = y)})
+use_condition (hypothesis 1: {α ∈ RealSet}) in (hypothesis 17: {α ∈ RealSet ⇒ (exists (y), y ∈ RealSet ∧ I(α) = y)}) as (hypothesis 18: {exists (y), y ∈ RealSet ∧ I(α) = y})
+get_exists (hypothesis 18: {exists (y), y ∈ RealSet ∧ I(α) = y}) (y := {y0})
+destruct_and (hypothesis 19: {y0 ∈ RealSet ∧ I(α) = y0}) as (hypothesis 20: {y0 ∈ RealSet}) (hypothesis 21: {I(α) = y0})
+exists (C := {y0 - frac(π, 2) * α})
+autosolve all_hypothesis

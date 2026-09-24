@@ -1,0 +1,27 @@
+PROOF GAP @10
+ASSUM:
+1. x_{0} ∈ RealSet
+2. y_{0} ∈ RealSet
+3. z_{0} ∈ RealSet
+4. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+5. x ∈ RealSet
+6. y ∈ RealSet
+7. z ∈ RealSet
+8. p ∈ RealSet
+9. q ∈ RealSet
+10. λ ∈ RealSet
+11. p ∈ RealSet
+12. q ∈ RealSet
+13. p^{2} + q^{2} = 1
+14. z - z_{0} = p * (x - x_{0}) + q * (y - y_{0})
+15. F = (fun x, y, z, p, q, λ [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ p ∈ RealSet ∧ q ∈ RealSet ∧ λ ∈ RealSet] . z - z_{0} - p * (x - x_{0}) - q * (y - y_{0}) + λ * (p^{2} + q^{2} - 1))
+16. FunDeri(F, 4, 1)(x, y, z, p, q, λ) = -(x - x_{0}) + 2 * λ * p
+17. -(x - x_{0}) + 2 * λ * p = 0
+18. FunDeri(F, 4, 1)(x, y, z, p, q, λ) = 0
+19. FunDeri(F, 5, 1)(x, y, z, p, q, λ) = -(y - y_{0}) + 2 * λ * q
+20. -(y - y_{0}) + 2 * λ * q = 0
+
+GOAL:
+FunDeri(F, 5, 1)(x, y, z, p, q, λ) = 0
+
+METHOD:

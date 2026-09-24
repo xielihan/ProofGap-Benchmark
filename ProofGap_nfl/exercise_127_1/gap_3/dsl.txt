@@ -1,0 +1,5 @@
+get_prop (theorem 'Thm 345. (DivergentSequenceDefinition)': {forall (a), (DivergentSeq(a) <==> Not(ConvergentSeq(a)))}) (a := {y}) as (hypothesis 9: {DivergentSeq(y) <==> Not(ConvergentSeq(y))})
+rewrite (left_to_right, iff) (hypothesis 9: {DivergentSeq(y) <==> Not(ConvergentSeq(y))}); from (hypothesis 6: {DivergentSeq(y)}) to (hypothesis 6: {Not(ConvergentSeq(y))})
+get_condition (hypothesis 10: {ConvergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n) + y(n))}) in (GOAL: {ConvergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n) + y(n)) ⇒ False})
+use_condition (hypothesis 10: {ConvergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n) + y(n))}) in (hypothesis 8: {ConvergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n) + y(n)) ⇒ ConvergentSeq(y)}) as (hypothesis 11: {ConvergentSeq(y)})
+autosolve all_hypothesis

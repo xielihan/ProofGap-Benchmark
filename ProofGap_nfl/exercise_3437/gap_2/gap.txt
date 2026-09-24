@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. m ∈ RealSet
+4. forall (t), t ∈ RealSet ∧ 0 < t ∧ t < π ⇒ x(t) = ln(tan(frac(t, 2)))
+5. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) + FunDeri(y, 1, 1)(x) * tanh(x) + frac(m^{2}, cosh(x)^{2}) * y(x) = 0
+6. forall (t), t ∈ RealSet ∧ 0 < t ∧ t < π ⇒ FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(t) = frac(1, sin(t))
+
+GOAL:
+forall (t), t ∈ RealSet ∧ 0 < t ∧ t < π ⇒ FunDeri(x, 1, 2)(t) = frac(-cos(t), sin(t)^{2})
+
+METHOD:

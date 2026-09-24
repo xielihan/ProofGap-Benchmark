@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. θ ∈ RealSet
+2. θ_{1} ∈ RealSet
+3. θ_{2} ∈ RealSet
+4. θ_{3} ∈ RealSet
+5. θ_{4} ∈ RealSet
+
+GOAL:
+100! = sqrtn(2, 2 * π * 100) * 100^{100} * e^{-100} * e^{frac(θ_{1}, 1200)}
+
+METHOD:
+[@method 根据 "斯特林公式" @]

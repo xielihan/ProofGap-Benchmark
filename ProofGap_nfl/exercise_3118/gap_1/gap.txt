@@ -1,0 +1,17 @@
+PROOF GAP @1
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. θ ∈ RealSet
+3. `θ_1` ∈ RealSet
+4. `θ_2` ∈ RealSet
+5. n ∈ PosIntegerSet
+6. |θ| < 1
+7. 0 < `θ_1`
+8. `θ_1` < 1
+9. 0 < `θ_2`
+10. `θ_2` < 1
+
+GOAL:
+(2 * n - 1)!! = prod_{ k = 1 }^{ n } (2 * k - 1)
+
+METHOD:

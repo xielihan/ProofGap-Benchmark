@@ -1,0 +1,16 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. θ ∈ RealSet
+4. 0 < a
+5. a < b
+6. f = (fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . sin(x))
+7. φ = (fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . frac(e^{-a * x}, x))
+8. ContinuousFuncOn(f, [a, b])
+9. ContinuousFuncOn(φ, [a, b])
+
+GOAL:
+MonoDecFuncOn(φ, [a, b])
+
+METHOD:

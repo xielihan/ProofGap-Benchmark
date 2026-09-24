@@ -1,0 +1,2 @@
+rewrite_in limit (left_to_right, equation) (hypothesis 5: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet => x(n) = (sum_{ k = 1 }^{ n } (frac(1, k))) - ln(n)}); from (hypothesis 17: {C = seqlim_{ n -> +infty } (x(n))}) to (hypothesis 18: {C = seqlim_{ n -> +infty } ((sum_{ k = 1 }^{ n } (frac(1, k))) - ln(n))})
+apply (hypothesis 18: {C = seqlim_{ n -> +infty } ((sum_{ k = 1 }^{ n } (frac(1, k))) - ln(n))})

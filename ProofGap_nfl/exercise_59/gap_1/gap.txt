@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (n), n ∈ IntegerSet ∧ n ≥ 3 ⇒ 0 < frac(2^{n}, n!)
+
+METHOD:

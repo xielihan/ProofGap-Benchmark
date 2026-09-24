@@ -1,0 +1,30 @@
+PROOF GAP @8
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. Ω ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. Ω_{1} ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+4. Ω_{2} ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+5. V ∈ RealSet
+6. V_{1} ∈ RealSet
+7. V_{2} ∈ RealSet
+8. x ∈ RealSet
+9. y ∈ RealSet
+10. z ∈ RealSet
+11. r ∈ RealSet
+12. φ ∈ RealSet
+13. ω ∈ RealSet
+14. Ω = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, a * z = a^{2} - x^{2} - y^{2} ∧ z = a - x - y ∧ x = 0 ∧ y = 0 ∧ z = 0 }
+15. Ω_{1} = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x^{2} + y^{2} ≤ a^{2} ∧ x ≥ 0 ∧ y ≥ 0 ∧ 0 ≤ z ∧ z ≤ frac(a^{2} - x^{2} - y^{2}, a) }
+16. Ω_{2} = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x + y ≤ a ∧ x ≥ 0 ∧ y ≥ 0 ∧ z ≥ 0 ∧ z ≤ a - x - y }
+17. V_{1} = VolumeInt(Ω_{1}, diff(ω))
+18. VolumeInt(Ω_{1}, diff(ω)) = DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . DefInt(0, a, (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a] . frac(a^{2} - r^{2}, a) * r) * diff(fun r [r ∈ RealSet] . r))) * diff(fun φ [φ ∈ RealSet] . φ))
+19. DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . DefInt(0, a, (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a] . frac(a^{2} - r^{2}, a) * r) * diff(fun r [r ∈ RealSet] . r))) * diff(fun φ [φ ∈ RealSet] . φ)) = frac(π * a^{3}, 8)
+20. V_{1} = frac(π * a^{3}, 8)
+21. V_{2} = VolumeInt(Ω_{2}, diff(ω))
+22. VolumeInt(Ω_{2}, diff(ω)) = DefInt(0, a, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . DefInt(0, a - x, (fun y [y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ a - x] . DefInt(0, a - x - y, diff(fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a - x - y] . z))) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+23. DefInt(0, a, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . DefInt(0, a - x, (fun y [y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ a - x] . DefInt(0, a - x - y, diff(fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a - x - y] . z))) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x)) = frac(a^{3}, 6)
+
+GOAL:
+V_{2} = frac(a^{3}, 6)
+
+METHOD:

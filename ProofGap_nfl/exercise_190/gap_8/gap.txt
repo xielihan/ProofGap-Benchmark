@@ -1,0 +1,16 @@
+PROOF GAP @8
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = log(10, x^{2})
+3. f(-1) = log(10, 1)
+4. log(10, 1) = 0
+5. f(-1) = 0
+6. f(-0.001) = log(10, 0.000001)
+7. log(10, 0.000001) = -6
+8. f(-0.001) = -6
+9. f(100) = log(10, 10000)
+
+GOAL:
+log(10, 10000) = 4
+
+METHOD:

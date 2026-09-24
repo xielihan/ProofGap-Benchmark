@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. a > 0
+3. φ = (fun x [x ∈ RealSet] . a^{x} - 1)
+4. ψ = (fun x [x ∈ RealSet] . x * ln(a))
+5. α = (fun k, n [k ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ n > 0] . frac(k, n^{2}))
+
+GOAL:
+a > 0 ∧ a ≠ 1 ⇒ lim_{ x → 0 } (frac(a^{x} - 1, x * ln(a))) = 1
+
+METHOD:

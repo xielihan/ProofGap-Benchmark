@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet => φ(x + T) = a^{-x} * f(x)}) (x := {y})
+get_prop (hypothesis 13: {forall (x), x ∈ RealSet => φ(x + T) = a^{-x} * a^{-T} * a^{T} * f(x)}) (x := {y}) as (hypothesis 14: {y ∈ RealSet => φ(y + T) = a^{-y} * a^{-T} * a^{T} * f(y)})
+get_condition (hypothesis 15: {y ∈ RealSet}) in (GOAL: {y ∈ RealSet => φ(y + T) = a^{-y} * f(y)})
+use_condition (hypothesis 15: {y ∈ RealSet}) in (hypothesis 14: {y ∈ RealSet => φ(y + T) = a^{-y} * a^{-T} * a^{T} * f(y)}) as (hypothesis 16: {φ(y + T) = a^{-y} * a^{-T} * a^{T} * f(y)})
+rewrite (left_to_right, equation) (hypothesis 16: {φ(y + T) = a^{-y} * a^{-T} * a^{T} * f(y)}); from (GOAL: {φ(y + T) = a^{-y} * f(y)}) to (GOAL: {a^{-y} * a^{-T} * a^{T} * f(y) = a^{-y} * f(y)})
+autoreplace no_hypothesis; from (a^{-y} * a^{-T} * a^{T} * f(y)) to (a^{-y} * (a^{-T} * a^{T}) * f(y)); from (GOAL: {a^{-y} * a^{-T} * a^{T} * f(y) = a^{-y} * f(y)}) to (GOAL: {a^{-y} * (a^{-T} * a^{T}) * f(y) = a^{-y} * f(y)})
+autoreplace (hypothesis 3: {T ∈ RealSet}) (hypothesis 8: {a > 0}); from (a^{-T} * a^{T}) to (1); from (GOAL: {a^{-y} * (a^{-T} * a^{T}) * f(y) = a^{-y} * f(y)}) to (GOAL: {a^{-y} * 1 * f(y) = a^{-y} * f(y)})
+autosolve all_hypothesis

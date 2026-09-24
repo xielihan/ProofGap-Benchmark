@@ -1,0 +1,5 @@
+1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 2 * frac(n, 2)^{n} < e * frac(n, 2)^{n}}) (n := {m})
+2. get_condition (hypothesis 7: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet}) in (GOAL: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ 2 * frac(m, 2)^{m} < e * frac(m, 2)^{m}})
+3. assert (hypothesis 8: {frac(m, 2)^{m} > 0})
+4. assert (hypothesis 9: {e > 2})
+5. autosolve all_hypothesis

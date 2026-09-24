@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = arccos(cos(x)^{2})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ (forall (k), k ∈ IntegerSet ⇒ x ≠ k * π) ⇒ FunDeri(y, 1, 1)(x) = frac(sin(2 * x), sqrtn(2, 1 - cos(x)^{4})) ∧ frac(sin(2 * x), sqrtn(2, 1 - cos(x)^{4})) = frac(sin(2 * x), sqrtn(2, sin(x)^{2} * (1 + cos(x)^{2}))) ∧ frac(sin(2 * x), sqrtn(2, sin(x)^{2} * (1 + cos(x)^{2}))) = frac(2 * sgn(sin(x)) * cos(x), sqrtn(2, 1 + cos(x)^{2}))
+
+METHOD:

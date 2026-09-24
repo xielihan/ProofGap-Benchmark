@@ -1,0 +1,33 @@
+PROOF GAP @15
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. a : IntegerSet → RealSet
+3. y : RealSet → RealSet
+4. D ∈ RealSet
+5. δ ∈ RealSet
+6. k ∈ IntegerSet
+7. forall (k), k ∈ IntegerSet ∧ 0 ≤ k ∧ k ≤ n ⇒ a(k) ∈ RealSet
+8. FuncOfClassKOn(y, PosRealSet, n)
+9. forall (t) (x), t ∈ RealSet ∧ x ∈ RealSet ⇒ x = e^{t}
+10. D = frac(diff, diff(fun t [t ∈ RealSet] . t))
+11. δ = frac(diff, diff(fun x [x ∈ RealSet] . x))
+12. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ sum_{ k = 0 }^{ n } (a(k) * x^{k} * FunDeri(y, 1, k)(x)) = 0
+13. D(y) = FunDeri(y, 1, 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)
+14. forall (t), t ∈ RealSet ⇒ FunDeri(y, 1, 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1) = e^{t} * δ(y)
+15. forall (t), t ∈ RealSet ⇒ D(y) = e^{t} * δ(y)
+16. forall (t), t ∈ RealSet ⇒ δ(y) = e^{-t} * D(y)
+17. forall (t), t ∈ RealSet ⇒ δ = e^{-t} * D
+18. forall (t), t ∈ RealSet ⇒ δ^{2}(y) = e^{-t} * D(e^{-t} * D(y))
+19. forall (t), t ∈ RealSet ⇒ δ^{2}(y) = e^{-t} * (-e^{-t} * D(y) + e^{-t} * D^{2}(y))
+20. forall (t), t ∈ RealSet ⇒ δ^{2}(y) = e^{-2 * t} * D * D - 1(y)
+21. forall (k) (t), k ∈ IntegerSet ∧ t ∈ RealSet ∧ k = 1 ⇒ δ^{k}(y) = e^{-(k * t)} * prod_{ i = 0 }^{ k - 1 } (D - i)(y)
+22. forall (t), t ∈ RealSet ⇒ (forall (m), m ∈ IntegerSet ∧ m ∈ PosIntegerSet ∧ δ^{m}(y) = e^{-(m * t)} * prod_{ i = 0 }^{ m - 1 } (D - i)(y) ⇒ δ^{m + 1}(y) = δ(δ^{m}(y)))
+23. forall (t), t ∈ RealSet ⇒ (forall (m), m ∈ IntegerSet ∧ m ∈ PosIntegerSet ∧ δ^{m}(y) = e^{-(m * t)} * prod_{ i = 0 }^{ m - 1 } (D - i)(y) ⇒ δ^{m + 1}(y) = e^{-t} * D(e^{-(m * t)} * prod_{ i = 0 }^{ m - 1 } (D - i)(y)))
+24. forall (t), t ∈ RealSet ⇒ (forall (m), m ∈ IntegerSet ∧ m ∈ PosIntegerSet ∧ δ^{m}(y) = e^{-(m * t)} * prod_{ i = 0 }^{ m - 1 } (D - i)(y) ⇒ δ^{m + 1}(y) = e^{-t} * (-m * e^{-(m * t)} * prod_{ i = 0 }^{ m - 1 } (D - i)(y) + e^{-(m * t)} * D * prod_{ i = 0 }^{ m - 1 } (D - i)(y)))
+25. forall (t), t ∈ RealSet ⇒ (forall (m), m ∈ IntegerSet ∧ m ∈ PosIntegerSet ∧ δ^{m}(y) = e^{-(m * t)} * prod_{ i = 0 }^{ m - 1 } (D - i)(y) ⇒ δ^{m + 1}(y) = e^{-((m + 1) * t)} * prod_{ i = 0 }^{ m } (D - i)(y))
+26. forall (t), t ∈ RealSet ⇒ (forall (k), k ∈ IntegerSet ∧ k ∈ PosIntegerSet ⇒ δ^{k}(y) = e^{-(k * t)} * prod_{ i = 0 }^{ k - 1 } (D - i)(y))
+
+GOAL:
+forall (t), t ∈ RealSet ⇒ (forall (k), k ∈ IntegerSet ∧ k ∈ PosIntegerSet ⇒ δ^{k}(y) = e^{-(k * t)} * prod_{ i = 0 }^{ k - 1 } (D - i)(y))
+
+METHOD:

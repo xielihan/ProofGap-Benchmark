@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 14: {M = DefInt(-∞, 0, (fun t [t ∈ RealSet ∧ t ≤ 0] . sqrtn(2, 3) * e^{t}) * diff(fun t [t ∈ RealSet ∧ t ≤ 0] . t))}); from (GOAL: {M = sqrtn(2, 3)}) to (GOAL: {DefInt(-∞, 0, (fun t [t ∈ RealSet ∧ t ≤ 0] . sqrtn(2, 3) * e^{t}) * diff(fun t [t ∈ RealSet ∧ t ≤ 0] . t)) = sqrtn(2, 3)})
+apply (hypothesis 15: {DefInt(-∞, 0, (fun t [t ∈ RealSet ∧ t ≤ 0] . sqrtn(2, 3) * e^{t}) * diff(fun t [t ∈ RealSet ∧ t ≤ 0] . t)) = sqrtn(2, 3)})

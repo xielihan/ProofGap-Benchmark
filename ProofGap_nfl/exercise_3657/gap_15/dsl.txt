@@ -1,0 +1,18 @@
+get_condition (hypothesis 24: {(A - C)^{2} + 4 * B^{2} ≠ 0}) in (GOAL: {(A - C)^{2} + 4 * B^{2} ≠ 0 ⇒ (λ_{2})^{2} - (A + C) * λ_{2} + A * C - B^{2} = 0})
+use_condition (hypothesis 24: {(A - C)^{2} + 4 * B^{2} ≠ 0}) in (hypothesis 21: {(A - C)^{2} + 4 * B^{2} ≠ 0 ⇒ λ_{2} = frac(A + C - sqrtn(2, (A - C)^{2} + 4 * B^{2}), 2)}) as (hypothesis 25: {λ_{2} = frac(A + C - sqrtn(2, (A - C)^{2} + 4 * B^{2}), 2)})
+assert (hypothesis 26: {(A - C)^{2} + 4 * B^{2} ∈ RealSet}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 27: {(A - C)^{2} + 4 * B^{2} >= 0}) by proof {
+autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 450. (SquareRootSquareCancellation)': {forall (u), u ∈ RealSet => u >= 0 => sqrtn(2, u)^2 = u}) (u := {(A - C)^{2} + 4 * B^{2}}) as (hypothesis 28: {(A - C)^{2} + 4 * B^{2} ∈ RealSet => (A - C)^{2} + 4 * B^{2} >= 0 => sqrtn(2, (A - C)^{2} + 4 * B^{2})^2 = (A - C)^{2} + 4 * B^{2}})
+use_condition (hypothesis 26: {(A - C)^{2} + 4 * B^{2} ∈ RealSet}) in (hypothesis 28: {(A - C)^{2} + 4 * B^{2} ∈ RealSet => (A - C)^{2} + 4 * B^{2} >= 0 => sqrtn(2, (A - C)^{2} + 4 * B^{2})^2 = (A - C)^{2} + 4 * B^{2}}) as (hypothesis 29: {(A - C)^{2} + 4 * B^{2} >= 0 => sqrtn(2, (A - C)^{2} + 4 * B^{2})^2 = (A - C)^{2} + 4 * B^{2}})
+use_condition (hypothesis 27: {(A - C)^{2} + 4 * B^{2} >= 0}) in (hypothesis 29: {(A - C)^{2} + 4 * B^{2} >= 0 => sqrtn(2, (A - C)^{2} + 4 * B^{2})^2 = (A - C)^{2} + 4 * B^{2}}) as (hypothesis 30: {sqrtn(2, (A - C)^{2} + 4 * B^{2})^2 = (A - C)^{2} + 4 * B^{2}})
+rewrite (left_to_right, equation) (hypothesis 25: {λ_{2} = frac(A + C - sqrtn(2, (A - C)^{2} + 4 * B^{2}), 2)}); from (GOAL: {(λ_{2})^{2} - (A + C) * λ_{2} + A * C - B^{2} = 0}) to (GOAL: {(frac(A + C - sqrtn(2, (A - C)^{2} + 4 * B^{2}), 2))^{2} - (A + C) * frac(A + C - sqrtn(2, (A - C)^{2} + 4 * B^{2}), 2) + A * C - B^{2} = 0})
+assert (hypothesis 31: {(frac(A + C - sqrtn(2, (A - C)^{2} + 4 * B^{2}), 2))^{2} - (A + C) * frac(A + C - sqrtn(2, (A - C)^{2} + 4 * B^{2}), 2) + A * C - B^{2} = frac(sqrtn(2, (A - C)^{2} + 4 * B^{2})^2 - ((A - C)^{2} + 4 * B^{2}), 4)}) by proof {
+autosolve all_hypothesis using PolyRatSolver
+}
+rewrite (left_to_right, equation) (hypothesis 31: {(frac(A + C - sqrtn(2, (A - C)^{2} + 4 * B^{2}), 2))^{2} - (A + C) * frac(A + C - sqrtn(2, (A - C)^{2} + 4 * B^{2}), 2) + A * C - B^{2} = frac(sqrtn(2, (A - C)^{2} + 4 * B^{2})^2 - ((A - C)^{2} + 4 * B^{2}), 4)}); from (GOAL: {(frac(A + C - sqrtn(2, (A - C)^{2} + 4 * B^{2}), 2))^{2} - (A + C) * frac(A + C - sqrtn(2, (A - C)^{2} + 4 * B^{2}), 2) + A * C - B^{2} = 0}) to (GOAL: {frac(sqrtn(2, (A - C)^{2} + 4 * B^{2})^2 - ((A - C)^{2} + 4 * B^{2}), 4) = 0})
+rewrite (left_to_right, equation) (hypothesis 30: {sqrtn(2, (A - C)^{2} + 4 * B^{2})^2 = (A - C)^{2} + 4 * B^{2}}); from (GOAL: {frac(sqrtn(2, (A - C)^{2} + 4 * B^{2})^2 - ((A - C)^{2} + 4 * B^{2}), 4) = 0}) to (GOAL: {frac(((A - C)^{2} + 4 * B^{2}) - ((A - C)^{2} + 4 * B^{2}), 4) = 0})
+autosolve all_hypothesis using PolyRatSolver

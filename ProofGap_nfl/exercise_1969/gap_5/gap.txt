@@ -1,0 +1,16 @@
+PROOF GAP @5
+ASSUM:
+1. C ∈ RealSet
+2. x ∈ RealSet
+3. z ∈ RealSet
+4. x^{2} + 3 * x + 2 ≥ 0
+5. x + sqrtn(2, x^{2} + 3 * x + 2) ≠ 0
+6. sqrtn(2, x^{2} + 3 * x + 2) = z * (x + 1) ⇒ z ∈ RealSet
+7. sqrtn(2, x^{2} + 3 * x + 2) = z * (x + 1) ⇒ x + 1 ≠ 0
+8. sqrtn(2, x^{2} + 3 * x + 2) = z * (x + 1) ⇒ x = frac(2 - z^{2}, z^{2} - 1)
+9. sqrtn(2, x^{2} + 3 * x + 2) = z * (x + 1) ⇒ diff(fun x [x ∈ RealSet] . x) = -frac(2 * z, (z^{2} - 1)^{2}) * diff(fun z [z ∈ RealSet] . z)
+
+GOAL:
+sqrtn(2, x^{2} + 3 * x + 2) = z * (x + 1) ⇒ sqrtn(2, x^{2} + 3 * x + 2) = frac(z, z^{2} - 1)
+
+METHOD:

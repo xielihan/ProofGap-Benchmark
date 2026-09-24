@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (n), n ∈ NonNegIntegerSet ∧ n > 1 ⇒ tan(frac(π, 4) + frac(1, n))^{n} = frac(1 + tan(frac(1, n)), 1 - tan(frac(1, n)))^{n}
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n > 1 ⇒ frac(1 + tan(frac(1, n)), 1 - tan(frac(1, n)))^{n} = (1 + frac(1, frac(1 - tan(frac(1, n)), 2 * tan(frac(1, n)))))^{frac(1 - tan(frac(1, n)), 2 * tan(frac(1, n))) * frac(2 * tan(frac(1, n)), frac(1, n)) * frac(1, 1 - tan(frac(1, n)))}
+
+METHOD:

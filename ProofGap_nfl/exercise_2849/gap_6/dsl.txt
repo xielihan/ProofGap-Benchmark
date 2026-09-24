@@ -1,0 +1,1 @@
+apply (hypothesis 4: {sin(x + h) = sin(x) + h * cos(x) - frac(h^{2}, 2!) * sin(x) - frac(h^{3}, 3!) * cos(x) + (sum_{ n = 4 }^{ +∞ } (frac(FunDeri(fun t [t ∈ RealSet] . sin(x + t), 1, n)(0), n!) * h^{n}))})

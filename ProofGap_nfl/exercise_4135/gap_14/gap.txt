@@ -1,0 +1,30 @@
+PROOF GAP @14
+ASSUM:
+1. p ∈ RealSet ∧ p ∈ PosRealSet
+2. ρ : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+3. V ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+4. M ∈ RealSet
+5. x_{0} ∈ RealSet
+6. y_{0} ∈ RealSet
+7. z_{0} ∈ RealSet
+8. Region4135 : RealSet → PowerSet(CartesianProd(RealSet, CartesianProd(RealSet, RealSet)))
+9. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ ρ(x, y, z) = 1))
+10. V = Region4135(p)
+11. M = VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(p, 2) ∧ y ∈ RealSet ∧ -sqrtn(2, 2 * p * x) ≤ y ∧ y ≤ sqrtn(2, 2 * p * x) ∧ z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ frac(x^{2}, 2 * p)] . ρ(x, y, z)) * diff(ω))
+12. M = DefInt(0, frac(p, 2), (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(p, 2)] . DefInt(-sqrtn(2, 2 * p * x), sqrtn(2, 2 * p * x), (fun y [y ∈ RealSet ∧ -sqrtn(2, 2 * p * x) ≤ y ∧ y ≤ sqrtn(2, 2 * p * x)] . DefInt(0, frac(x^{2}, 2 * p), diff(fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ frac(x^{2}, 2 * p)] . z))) * diff(fun y [y ∈ RealSet ∧ -sqrtn(2, 2 * p * x) ≤ y ∧ y ≤ sqrtn(2, 2 * p * x)] . y))) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(p, 2)] . x))
+13. M = sqrtn(2, frac(2, p)) * DefInt(0, frac(p, 2), (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(p, 2)] . x^{frac(5, 2)}) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(p, 2)] . x))
+14. M = frac(p^{3}, 28)
+15. x_{0} = frac(1, M) * DefInt(0, frac(p, 2), (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(p, 2)] . x * DefInt(-sqrtn(2, 2 * p * x), sqrtn(2, 2 * p * x), (fun y [y ∈ RealSet ∧ -sqrtn(2, 2 * p * x) ≤ y ∧ y ≤ sqrtn(2, 2 * p * x)] . DefInt(0, frac(x^{2}, 2 * p), diff(fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ frac(x^{2}, 2 * p)] . z))) * diff(fun y [y ∈ RealSet ∧ -sqrtn(2, 2 * p * x) ≤ y ∧ y ≤ sqrtn(2, 2 * p * x)] . y))) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(p, 2)] . x))
+16. x_{0} = frac(p^{4}, 72) * frac(28, p^{3})
+17. frac(p^{4}, 72) * frac(28, p^{3}) = frac(7, 18) * p
+18. x_{0} = frac(7, 18) * p
+19. y_{0} = frac(1, M) * DefInt(0, frac(p, 2), (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(p, 2)] . DefInt(-sqrtn(2, 2 * p * x), sqrtn(2, 2 * p * x), (fun y [y ∈ RealSet ∧ -sqrtn(2, 2 * p * x) ≤ y ∧ y ≤ sqrtn(2, 2 * p * x)] . y * DefInt(0, frac(x^{2}, 2 * p), diff(fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ frac(x^{2}, 2 * p)] . z))) * diff(fun y [y ∈ RealSet ∧ -sqrtn(2, 2 * p * x) ≤ y ∧ y ≤ sqrtn(2, 2 * p * x)] . y))) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(p, 2)] . x))
+20. y_{0} = 0
+21. z_{0} = frac(1, M) * DefInt(0, frac(p, 2), (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(p, 2)] . DefInt(-sqrtn(2, 2 * p * x), sqrtn(2, 2 * p * x), (fun y [y ∈ RealSet ∧ -sqrtn(2, 2 * p * x) ≤ y ∧ y ≤ sqrtn(2, 2 * p * x)] . DefInt(0, frac(x^{2}, 2 * p), (fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ frac(x^{2}, 2 * p)] . z) * diff(fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ frac(x^{2}, 2 * p)] . z))) * diff(fun y [y ∈ RealSet ∧ -sqrtn(2, 2 * p * x) ≤ y ∧ y ≤ sqrtn(2, 2 * p * x)] . y))) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(p, 2)] . x))
+22. z_{0} = frac(p^{4}, 704) * frac(28, p^{3})
+23. frac(p^{4}, 704) * frac(28, p^{3}) = frac(7, 176) * p
+
+GOAL:
+z_{0} = frac(7, 176) * p
+
+METHOD:

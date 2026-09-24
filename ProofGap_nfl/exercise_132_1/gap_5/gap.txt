@@ -1,0 +1,26 @@
+PROOF GAP @5
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. y : NonNegIntegerSet → RealSet ∧ IsSeq(y)
+3. n ∈ NonNegIntegerSet
+4. k ∈ NonNegIntegerSet
+5. i ∈ NonNegIntegerSet
+6. p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p)
+7. q : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(q)
+8. β ∈ RealSet
+9. β_{star} ∈ RealSet
+10. β_{p} ∈ RealSet
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ∈ NonNegRealSet ∧ y(n) ∈ NonNegRealSet
+12. seqlim_{ n → +∞ } (x(n)) ∈ NonNegRealSet
+13. seqlim_{ n → +∞ } (y(n)) ∈ NonNegRealSet
+14. seqlim_{ n → +∞ } (x(n) * y(n)) ∈ NonNegRealSet
+15. α = seqlim_{ n → +∞ } (x(n))
+16. α ≥ 0
+17. exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ seqlim_{ k → +∞ } (x(p(k))) = α
+18. exists (q), q : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(q) ∧ seqlim_{ i → +∞ } (y(p(q(i)))) = β ∧ β = seqlim_{ k → +∞ } (y(p(k)))
+19. β ≥ 0
+
+GOAL:
+β ≤ seqlim_{ n → +∞ } (y(n))
+
+METHOD:

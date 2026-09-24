@@ -1,0 +1,17 @@
+PROOF GAP @9
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = 1 - sqrtn(3, x^{2})
+3. f(-1) = 1 - sqrtn(3, (-1)^{2})
+4. 1 - sqrtn(3, (-1)^{2}) = 0
+5. f(-1) = 0
+6. f(1) = 1 - sqrtn(3, 1^{2})
+7. 1 - sqrtn(3, 1^{2}) = 0
+8. f(1) = 0
+9. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(f, 1, 1)(x) = -frac(2, 3 * sqrtn(3, x))
+10. forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ∧ x ≠ 0 ⇒ FunDeri(f, 1, 1)(x) ≠ 0
+
+GOAL:
+¬DiffableFuncAt(f, 0)
+
+METHOD:

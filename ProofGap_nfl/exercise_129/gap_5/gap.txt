@@ -1,0 +1,17 @@
+PROOF GAP @5
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. y : NonNegIntegerSet → RealSet ∧ IsSeq(y)
+3. p : NonNegIntegerSet → RealSet ∧ IsSeq(p)
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = frac(1, n)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n) = n
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(n) = x(n) * y(n)
+7. seqlim_{ n → +∞ } (x(n)) = 0
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(n) = 1
+9. seqlim_{ n → +∞ } (p(n)) = 1
+10. ¬seqlim_{ n → +∞ } (p(n)) = 0
+
+GOAL:
+seqlim_{ n → +∞ } (x(n)) = 0 ∧ seqlim_{ n → +∞ } (p(n)) = 1 ∧ ¬seqlim_{ n → +∞ } (p(n)) = 0
+
+METHOD:

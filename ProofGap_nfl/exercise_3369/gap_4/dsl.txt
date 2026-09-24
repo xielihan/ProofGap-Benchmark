@@ -1,0 +1,6 @@
+1. get_prop (hypothesis 10: {forall (x) (y), y ∈ RealSet ∧ x ∈ RealSet ∧ y ∈ IntervalLoRo(-a, a) ⇒ FunDeri(F, 2, 1)(x, y) = -1 - FunDeri(φ, 1, 1)(y)}) (x := {0}) (y := {0}) as (hypothesis 11: {0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ IntervalLoRo(-a, a) ⇒ FunDeri(F, 2, 1)(0, 0) = -1 - FunDeri(φ, 1, 1)(0)})
+2. assert (hypothesis 12: {0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ IntervalLoRo(-a, a)}) by proof {
+  1. autosolve all_hypothesis
+}
+3. use_condition (hypothesis 12: {0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ IntervalLoRo(-a, a)}) in (hypothesis 11: {0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ IntervalLoRo(-a, a) ⇒ FunDeri(F, 2, 1)(0, 0) = -1 - FunDeri(φ, 1, 1)(0)}) as (hypothesis 13: {FunDeri(F, 2, 1)(0, 0) = -1 - FunDeri(φ, 1, 1)(0)})
+4. apply (hypothesis 13: {FunDeri(F, 2, 1)(0, 0) = -1 - FunDeri(φ, 1, 1)(0)})

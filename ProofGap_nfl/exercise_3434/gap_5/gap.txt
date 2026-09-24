@@ -1,0 +1,15 @@
+PROOF GAP @5
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. forall (t), t ∈ RealSet ⇒ x(t) = e^{t}
+4. forall (x), x ∈ RealSet ∧ x > 0 ⇒ x^{2} * FunDeri(y, 1, 2)(x) + x * FunDeri(y, 1, 1)(x) + y(x) = 0
+5. forall (t), t ∈ RealSet ⇒ FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(t) = e^{t} ∧ e^{t} = x(t)
+6. forall (t), t ∈ RealSet ⇒ FunDeri(x, 1, 2)(t) = e^{t} ∧ e^{t} = x(t)
+7. forall (t), t ∈ RealSet ⇒ FunDeri(y, 1, 1)(x(t)) = frac(FunDeri(y, 1, 1)(t), FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(t)) ∧ frac(FunDeri(y, 1, 1)(t), FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(t)) = frac(FunDeri(y, 1, 1)(t), x(t))
+8. forall (t), t ∈ RealSet ⇒ FunDeri(y, 1, 2)(x(t)) = frac(FunDeri(y, 1, 2)(t) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(t) - FunDeri(y, 1, 1)(t) * FunDeri(x, 1, 2)(t), FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(t)^{3}) ∧ frac(FunDeri(y, 1, 2)(t) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(t) - FunDeri(y, 1, 1)(t) * FunDeri(x, 1, 2)(t), FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(t)^{3}) = frac(FunDeri(y, 1, 2)(t) - FunDeri(y, 1, 1)(t), x(t)^{2})
+
+GOAL:
+forall (t), t ∈ RealSet ⇒ x(t)^{2} * frac(FunDeri(y, 1, 2)(t) - FunDeri(y, 1, 1)(t), x(t)^{2}) + x(t) * frac(FunDeri(y, 1, 1)(t), x(t)) + y(t) = 0
+
+METHOD:

@@ -1,0 +1,29 @@
+PROOF GAP @6
+ASSUM:
+1. V ⊆ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. c ∈ RealSet
+5. P : RealSet → PowerSet(CartesianProd(RealSet, RealSet))
+6. Q : RealSet → PowerSet(CartesianProd(RealSet, RealSet))
+7. R : RealSet → PowerSet(CartesianProd(RealSet, RealSet))
+8. x ∈ RealSet
+9. y ∈ RealSet
+10. z ∈ RealSet
+11. a > 0
+12. b > 0
+13. c > 0
+14. V = { (x, y, z) | frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}) ≤ 1 }
+15. forall (x), x ∈ RealSet ⇒ P(x) = { (y, z) | frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}) ≤ 1 - frac(x^{2}, a^{2}) }
+16. forall (y), y ∈ RealSet ⇒ Q(y) = { (z, x) | frac(z^{2}, c^{2}) + frac(x^{2}, a^{2}) ≤ 1 - frac(y^{2}, b^{2}) }
+17. forall (z), z ∈ RealSet ⇒ R(z) = { (x, y) | frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) ≤ 1 - frac(z^{2}, c^{2}) }
+18. forall (x), x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a ⇒ VolumeInt(P(x), diff(fun y [y ∈ RealSet] . y) * diff(fun z [z ∈ RealSet] . z)) = π * b * c * (1 - frac(x^{2}, a^{2}))
+19. forall (y), y ∈ RealSet ∧ -b ≤ y ∧ y ≤ b ⇒ VolumeInt(Q(y), diff(fun z [z ∈ RealSet] . z) * diff(fun x [x ∈ RealSet] . x)) = π * a * c * (1 - frac(y^{2}, b^{2}))
+20. forall (z), z ∈ RealSet ∧ -c ≤ z ∧ z ≤ c ⇒ VolumeInt(R(z), diff(fun x [x ∈ RealSet] . x) * diff(fun y [y ∈ RealSet] . y)) = π * a * b * (1 - frac(z^{2}, c^{2}))
+21. VolumeInt(V, (frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2})) * diff(fun x [x ∈ RealSet] . x) * diff(fun y [y ∈ RealSet] . y) * diff(fun z [z ∈ RealSet] . z)) = DefInt(-a, a, frac(x^{2}, a^{2}) * VolumeInt(P(x), diff(fun y [y ∈ RealSet] . y) * diff(fun z [z ∈ RealSet] . z)) * diff(fun x [x ∈ RealSet] . x)) + DefInt(-b, b, frac(y^{2}, b^{2}) * VolumeInt(Q(y), diff(fun z [z ∈ RealSet] . z) * diff(fun x [x ∈ RealSet] . x)) * diff(fun y [y ∈ RealSet] . y)) + DefInt(-c, c, frac(z^{2}, c^{2}) * VolumeInt(R(z), diff(fun x [x ∈ RealSet] . x) * diff(fun y [y ∈ RealSet] . y)) * diff(fun z [z ∈ RealSet] . z)
+22. DefInt(-a, a, frac(x^{2}, a^{2}) * π * b * c * (1 - frac(x^{2}, a^{2})) * diff(fun x [x ∈ RealSet] . x)) = frac(4 * π * a * b * c, 15)
+
+GOAL:
+DefInt(-b, b, frac(y^{2}, b^{2}) * π * a * c * (1 - frac(y^{2}, b^{2})) * diff(fun y [y ∈ RealSet] . y)) = frac(4 * π * a * b * c, 15)
+
+METHOD:

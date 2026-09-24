@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet ∧ Dom(f) = [-1, +∞)
+2. z : CartesianProd(RealSet, RealSet) → RealSet
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≥ 0 ∧ y ≥ 0 ⇒ z(x, y) = sqrtn(2, y) + f(sqrtn(2, x) - 1)
+4. forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ z(x, 1) = x
+5. forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ f(sqrtn(2, x) - 1) = x - 1
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ f(sqrtn(2, x) - 1) = (sqrtn(2, x) - 1) * (sqrtn(2, x) + 1) ∧ (sqrtn(2, x) - 1) * (sqrtn(2, x) + 1) = (sqrtn(2, x) - 1) * (sqrtn(2, x) - 1 + 2)
+
+METHOD:

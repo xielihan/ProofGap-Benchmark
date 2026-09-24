@@ -1,0 +1,19 @@
+PROOF GAP @3
+ASSUM:
+1. x_{0} ∈ RealSet
+2. y_{0} ∈ RealSet
+3. z_{0} ∈ RealSet
+4. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+5. x ∈ RealSet
+6. y ∈ RealSet
+7. z ∈ RealSet
+8. p ∈ RealSet
+9. q ∈ RealSet
+10. λ ∈ RealSet
+11. p ∈ RealSet
+12. q ∈ RealSet
+
+GOAL:
+p^{2} + q^{2} = 1
+
+METHOD:

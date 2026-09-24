@@ -1,0 +1,14 @@
+PROOF GAP @5
+ASSUM:
+1. x ∈ RealSet
+2. a : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = (1 + frac(1, n))^{-n^{2}}
+4. sum_{ n = 1 }^{ +∞ } ((1 + frac(1, n))^{-n^{2}} * e^{-(n * x)}) = sum_{ n = 1 }^{ +∞ } (a(n) * (e^{-x})^{n})
+5. seqlim_{ n → +∞ } (sqrtn(n, |a(n)|)) = seqlim_{ n → +∞ } ((1 + frac(1, n))^{-n})
+6. seqlim_{ n → +∞ } ((1 + frac(1, n))^{-n}) = e^{-1}
+7. seqlim_{ n → +∞ } (sqrtn(n, |a(n)|)) = e^{-1}
+
+GOAL:
+|e^{-x}| < frac(1, e^{-1}) ⇒ x > -1
+
+METHOD:

@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (sum_{ k = 0 }^{ n } (frac(x^{k}, k!))) = e^{x}}) (x := {x0})
+get_condition (hypothesis 16: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ seqlim_{ n → +∞ } (sum_{ k = 0 }^{ n } (frac(x0^{k}, k!))) = e^{x0}})
+assert (hypothesis 17: {x0 = 0 \/ x0 > 0 \/ x0 < 0})
+get_prop (hypothesis 3: {forall (x), x ∈ RealSet ∧ x = 0 ⇒ seqlim_{ n → +∞ } (sum_{ k = 0 }^{ n } (frac(x^{k}, k!))) = e^{x}}) (x := {x0}) as (hypothesis 18: {x0 ∈ RealSet ∧ x0 = 0 ⇒ seqlim_{ n → +∞ } (sum_{ k = 0 }^{ n } (frac(x0^{k}, k!))) = e^{x0}})
+get_prop (hypothesis 11: {forall (x), x ∈ RealSet ∧ x > 0 ⇒ seqlim_{ n → +∞ } (sum_{ k = 0 }^{ n } (frac(x^{k}, k!))) = e^{x}}) (x := {x0}) as (hypothesis 19: {x0 ∈ RealSet ∧ x0 > 0 ⇒ seqlim_{ n → +∞ } (sum_{ k = 0 }^{ n } (frac(x0^{k}, k!))) = e^{x0}})
+get_prop (hypothesis 14: {forall (x), x ∈ RealSet ∧ x < 0 ⇒ seqlim_{ n → +∞ } (sum_{ k = 0 }^{ n } (frac(x^{k}, k!))) = e^{x}}) (x := {x0}) as (hypothesis 20: {x0 ∈ RealSet ∧ x0 < 0 ⇒ seqlim_{ n → +∞ } (sum_{ k = 0 }^{ n } (frac(x0^{k}, k!))) = e^{x0}})
+autosolve all_hypothesis

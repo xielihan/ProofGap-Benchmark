@@ -1,0 +1,16 @@
+PROOF GAP @2
+ASSUM:
+1. x : CartesianProd(RealSet, RealSet) → RealSet
+2. y : CartesianProd(RealSet, RealSet) → RealSet
+3. u : CartesianProd(RealSet, RealSet) → RealSet
+4. w : CartesianProd(RealSet, RealSet) → RealSet
+5. forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ x(r, φ) = r * cos(φ)
+6. forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ y(r, φ) = r * sin(φ)
+7. FuncOfClassK(u, 2)
+8. forall (r) (φ), r ∈ RealSet ∧ φ ∈ RealSet ⇒ w(r, φ) = FunDeri(u, x, 2)(r, φ) + FunDeri(u, y, 2)(r, φ)
+9. forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ FunDeri(u, x, 2)(r, φ) = frac(x(r, φ)^{2}, r^{2}) * FunDeri(u, 1, 2)(r, φ) - frac(2 * x(r, φ) * y(r, φ), r^{3}) * FunDeri(FunDeri(u, 1, 1), 2, 1)(r, φ) + frac(y(r, φ)^{2}, r^{4}) * FunDeri(u, 2, 2)(r, φ) + frac(y(r, φ)^{2}, r^{3}) * FunDeri(u, 1, 1)(r, φ) + frac(2 * x(r, φ) * y(r, φ), r^{4}) * FunDeri(u, 2, 1)(r, φ)
+
+GOAL:
+forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ FunDeri(u, y, 2)(r, φ) = frac(y(r, φ)^{2}, r^{2}) * FunDeri(u, 1, 2)(r, φ) + frac(2 * x(r, φ) * y(r, φ), r^{3}) * FunDeri(FunDeri(u, 1, 1), 2, 1)(r, φ) + frac(x(r, φ)^{2}, r^{4}) * FunDeri(u, 2, 2)(r, φ) + frac(x(r, φ)^{2}, r^{3}) * FunDeri(u, 1, 1)(r, φ) - frac(2 * x(r, φ) * y(r, φ), r^{4}) * FunDeri(u, 2, 1)(r, φ)
+
+METHOD:

@@ -1,0 +1,30 @@
+PROOF GAP @19
+ASSUM:
+1. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+2. F : RealSet → RealSet
+3. G : RealSet → RealSet
+4. forall (x), x ∈ RealSet ⇒ F(x) = DefInt(0, x, (fun t [t ∈ RealSet] . sin(t)^{n}) * diff(fun t [t ∈ RealSet] . t))
+5. forall (x), x ∈ RealSet ⇒ G(x) = DefInt(0, x, (fun t [t ∈ RealSet] . cos(t)^{n}) * diff(fun t [t ∈ RealSet] . t))
+6. Odd(n) ⇒ OddFunc(fun x [x ∈ RealSet] . sin(x)^{n})
+7. Odd(n) ⇒ PeriodicFunc(fun x [x ∈ RealSet] . sin(x)^{n}, 2 * π)
+8. Odd(n) ⇒ (forall (x), x ∈ RealSet ⇒ F(x + 2 * π) = DefInt(0, x + 2 * π, (fun t [t ∈ RealSet] . sin(t)^{n}) * diff(fun t [t ∈ RealSet] . t)))
+9. forall (x), x ∈ RealSet ∧ Odd(n) ⇒ DefInt(0, x + 2 * π, (fun t [t ∈ RealSet] . sin(t)^{n}) * diff(fun t [t ∈ RealSet] . t)) = DefInt(0, 2 * π, (fun t [t ∈ RealSet] . sin(t)^{n}) * diff(fun t [t ∈ RealSet] . t)) + DefInt(2 * π, 2 * π + x, (fun t [t ∈ RealSet] . sin(t)^{n}) * diff(fun t [t ∈ RealSet] . t))
+10. Odd(n) ⇒ DefInt(0, 2 * π, (fun t [t ∈ RealSet] . sin(t)^{n}) * diff(fun t [t ∈ RealSet] . t)) = DefInt(-π, π, (fun t [t ∈ RealSet] . sin(π - t)^{n}) * diff(fun t [t ∈ RealSet] . t))
+11. Odd(n) ⇒ DefInt(-π, π, (fun t [t ∈ RealSet] . sin(π - t)^{n}) * diff(fun t [t ∈ RealSet] . t)) = 0
+12. Odd(n) ⇒ DefInt(0, 2 * π, (fun t [t ∈ RealSet] . sin(t)^{n}) * diff(fun t [t ∈ RealSet] . t)) = 0
+13. forall (x), x ∈ RealSet ∧ Odd(n) ⇒ DefInt(2 * π, 2 * π + x, (fun t [t ∈ RealSet] . sin(t)^{n}) * diff(fun t [t ∈ RealSet] . t)) = DefInt(0, x, (fun t [t ∈ RealSet] . sin(t)^{n}) * diff(fun t [t ∈ RealSet] . t))
+14. Odd(n) ⇒ (forall (x), x ∈ RealSet ⇒ F(x + 2 * π) = F(x))
+15. Odd(n) ⇒ (forall (x), x ∈ RealSet ⇒ G(x + 2 * π) = G(x) + DefInt(0, 2 * π, (fun t [t ∈ RealSet] . cos(t)^{n}) * diff(fun t [t ∈ RealSet] . t)))
+16. Odd(n) ⇒ DefInt(0, 2 * π, (fun t [t ∈ RealSet] . cos(t)^{n}) * diff(fun t [t ∈ RealSet] . t)) = DefInt(0, π, (fun t [t ∈ RealSet] . cos(t)^{n}) * diff(fun t [t ∈ RealSet] . t)) + DefInt(0, π, (fun t [t ∈ RealSet] . cos(t + π)^{n}) * diff(fun t [t ∈ RealSet] . t))
+17. Odd(n) ⇒ DefInt(0, π, (fun t [t ∈ RealSet] . cos(t)^{n}) * diff(fun t [t ∈ RealSet] . t)) + DefInt(0, π, (fun t [t ∈ RealSet] . cos(t + π)^{n}) * diff(fun t [t ∈ RealSet] . t)) = 0
+18. Odd(n) ⇒ DefInt(0, 2 * π, (fun t [t ∈ RealSet] . cos(t)^{n}) * diff(fun t [t ∈ RealSet] . t)) = 0
+19. Odd(n) ⇒ (forall (x), x ∈ RealSet ⇒ G(x + 2 * π) = G(x))
+20. Odd(n) ⇒ PeriodicFunc(F, 2 * π)
+21. Odd(n) ⇒ PeriodicFunc(G, 2 * π)
+22. forall (a), a ∈ RealSet ∧ Even(n) ∧ a = DefInt(0, 2 * π, (fun t [t ∈ RealSet] . sin(t)^{n}) * diff(fun t [t ∈ RealSet] . t)) ⇒ a = DefInt(0, 2 * π, (fun t [t ∈ RealSet] . cos(t)^{n}) * diff(fun t [t ∈ RealSet] . t))
+23. forall (a), a ∈ RealSet ∧ Even(n) ∧ a = DefInt(0, 2 * π, (fun t [t ∈ RealSet] . sin(t)^{n}) * diff(fun t [t ∈ RealSet] . t)) ⇒ a > 0
+
+GOAL:
+forall (a), a ∈ RealSet ∧ Even(n) ∧ a = DefInt(0, 2 * π, (fun t [t ∈ RealSet] . sin(t)^{n}) * diff(fun t [t ∈ RealSet] . t)) ⇒ (forall (x), x ∈ RealSet ⇒ F(x + 2 * π) = F(x) + a)
+
+METHOD:

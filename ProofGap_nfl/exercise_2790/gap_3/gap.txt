@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. a : NonNegIntegerSet → RealSet ∧ IsSeq(a)
+2. n ∈ NonNegIntegerSet
+3. k ∈ NonNegIntegerSet
+4. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+5. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, +∞) ⇒ 0 < frac(1, n^{x}))
+6. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, +∞) ⇒ frac(1, n^{x}) ≤ 1)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ [0, +∞) ⇒ MonoDecSeq(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(1, n^{x}))
+
+METHOD:

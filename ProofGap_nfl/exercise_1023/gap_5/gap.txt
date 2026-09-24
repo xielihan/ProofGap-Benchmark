@@ -1,0 +1,14 @@
+PROOF GAP @5
+ASSUM:
+1. I = (-∞, 0)
+2. f = (fun x [x ∈ RealSet] . 2 * x)
+3. g = (fun x [x ∈ RealSet] . x^{2} + 1)
+4. DiffableFuncOn(f, I)
+5. DiffableFuncOn(g, I)
+6. forall (x) (I), x ∈ RealSet ∧ I ⊆ RealSet ∧ x ∈ I ⇒ f(x) ≤ g(x)
+7. forall (x) (I), x ∈ RealSet ∧ I ⊆ RealSet ∧ x ∈ I ⇒ FunDeri(f, 1, 1)(x) = 2 ∧ FunDeri(g, 1, 1)(x) = 2 * x
+
+GOAL:
+¬(forall (x) (I), x ∈ RealSet ∧ I ⊆ RealSet ∧ x ∈ I ⇒ 2 ≤ 2 * x)
+
+METHOD:

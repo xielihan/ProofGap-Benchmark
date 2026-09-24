@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. k ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ∧ x ≠ e^{-1} ⇒ lim_{ x → 0^+ } (frac(k, 1 + ln(x)) * ln(x)) = k * (lim_{ x → 0^+ } (frac(ln(x), 1 + ln(x))))
+
+METHOD:

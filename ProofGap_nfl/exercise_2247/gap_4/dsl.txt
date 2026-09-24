@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ IntervalCC(0, 0.75) ∧ t(x) = frac(1, x + 1) ⇒ t(x) ≤ 1}) (x := {x0})
+get_condition (hypothesis 5: {x0 ∈ RealSet ∧ x0 ∈ IntervalCC(0, 0.75) ∧ t(x0) = frac(1, x0 + 1)}) in (GOAL: {x0 ∈ RealSet ∧ x0 ∈ IntervalCC(0, 0.75) ∧ t(x0) = frac(1, x0 + 1) ⇒ t(x0) ≤ 1})
+destruct_and (hypothesis 5: {x0 ∈ RealSet ∧ x0 ∈ IntervalCC(0, 0.75) ∧ t(x0) = frac(1, x0 + 1)}) as (hypothesis 6: {x0 ∈ RealSet}) (hypothesis 7: {x0 ∈ IntervalCC(0, 0.75)}) (hypothesis 8: {t(x0) = frac(1, x0 + 1)})
+get_prop (hypothesis 2: {forall (x), x ∈ RealSet ∧ x ∈ IntervalCC(0, 0.75) ∧ t(x) = frac(1, x + 1) ⇒ 0 ≤ x}) (x := {x0}) as (hypothesis 9: {x0 ∈ RealSet ∧ x0 ∈ IntervalCC(0, 0.75) ∧ t(x0) = frac(1, x0 + 1) ⇒ 0 ≤ x0})
+use_condition (hypothesis 5: {x0 ∈ RealSet ∧ x0 ∈ IntervalCC(0, 0.75) ∧ t(x0) = frac(1, x0 + 1)}) in (hypothesis 9: {x0 ∈ RealSet ∧ x0 ∈ IntervalCC(0, 0.75) ∧ t(x0) = frac(1, x0 + 1) ⇒ 0 ≤ x0}) as (hypothesis 10: {0 ≤ x0})
+assert (hypothesis 11: {x0 + 1 > 0})
+autosolve all_hypothesis

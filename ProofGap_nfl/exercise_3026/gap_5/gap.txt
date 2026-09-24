@@ -1,0 +1,14 @@
+PROOF GAP @5
+ASSUM:
+1. S : RealSet → RealSet
+2. x ∈ RealSet
+3. z = e^{__IMAGINARY_UNIT__ * x}
+4. sum_{ n = 0 }^{ +∞ } (frac(z^{n}, n!)) = e^{z}
+5. sum_{ n = 0 }^{ +∞ } (frac(z^{n}, n!)) = (sum_{ n = 0 }^{ +∞ } (frac(cos(n * x), n!))) + __IMAGINARY_UNIT__ * (sum_{ n = 0 }^{ +∞ } (frac(sin(n * x), n!)))
+6. e^{z} = e^{cos(x) + __IMAGINARY_UNIT__ * sin(x)}
+7. e^{cos(x) + __IMAGINARY_UNIT__ * sin(x)} = e^{cos(x)} * (cos(sin(x)) + __IMAGINARY_UNIT__ * sin(sin(x)))
+
+GOAL:
+e^{z} = e^{cos(x)} * (cos(sin(x)) + __IMAGINARY_UNIT__ * sin(sin(x)))
+
+METHOD:

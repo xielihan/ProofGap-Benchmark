@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet ∧ x ≠ -1 ∧ x ≠ -2 ∧ x ≠ -3
+2. C ∈ RealSet
+3. A = -frac(1, 2)
+4. B = 2
+5. D = -frac(3, 2)
+6. frac(x, (x + 1) * (x + 2) * (x + 3)) = frac(A, x + 1) + frac(B, x + 2) + frac(D, x + 3)
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ∧ x ≠ -1 ∧ x ≠ -2 ∧ x ≠ -3 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x, (x + 1) * (x + 2) * (x + 3)) * FunDeri(fun x [x ∈ RealSet ∧ x ≠ -1 ∧ x ≠ -2 ∧ x ≠ -3] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ x ≠ -1 ∧ x ≠ -2 ∧ x ≠ -3 ⇒ FunDeri(`F_3`, 1, 1)(x) = (frac(-frac(1, 2), x + 1) + frac(2, x + 2) + frac(-frac(3, 2), x + 3)) * FunDeri(fun x [x ∈ RealSet ∧ x ≠ -1 ∧ x ≠ -2 ∧ x ≠ -3] . x, 1, 1)(x) }
+
+METHOD:

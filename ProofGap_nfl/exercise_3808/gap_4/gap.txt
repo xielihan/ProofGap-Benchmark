@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. α ∈ RealSet ∧ α > 0
+2. β ∈ RealSet ∧ β > 0
+3. DefInt(0, +∞, frac(e^{-α * x^{2}} - e^{-β * x^{2}}, x^{2}) * diff(x)) = DefInt(0, +∞, (e^{-α * x^{2}} - e^{-β * x^{2}}) * frac(1, x^{2}) * diff(x))
+4. DefInt(0, +∞, frac(e^{-α * x^{2}} - e^{-β * x^{2}}, x^{2}) * diff(x)) = -2 * DefInt(0, +∞, (α * e^{-α * x^{2}} - β * e^{-β * x^{2}}) * diff(x))
+5. DefInt(0, +∞, α * e^{-α * x^{2}} * diff(x)) = sqrtn(2, α) * DefInt(0, +∞, e^{-u^{2}} * diff(u))
+
+GOAL:
+DefInt(0, +∞, β * e^{-β * x^{2}} * diff(x)) = sqrtn(2, β) * DefInt(0, +∞, e^{-v^{2}} * diff(v))
+
+METHOD:

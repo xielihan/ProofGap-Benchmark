@@ -1,0 +1,21 @@
+PROOF GAP @2
+ASSUM:
+1. V ∈ RealSet
+2. Ω ⊆ CartesianProd(RealSet, RealSet)
+3. z : CartesianProd(RealSet, RealSet) → RealSet
+4. a ∈ RealSet ∧ a > 0
+5. c ∈ RealSet ∧ c > 0
+6. α ∈ RealSet ∧ 0 < α
+7. β ∈ RealSet ∧ α < β
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = c * sin(frac(π * x * y, a^{2}))
+9. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ Ω = { (x, y) | x ∈ RealSet, y ∈ RealSet, x > 0, x * y ≤ a^{2}, y ≥ α * x, y ≤ β * x })
+10. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (t), t ∈ RealSet ⇒ V = VolumeInt({ (x, y, t) | x ∈ RealSet, y ∈ RealSet, t ∈ RealSet, (x, y) ∈ Ω, 0 ≤ t, t ≤ z(x, y) }, 1 * diff(ω))))
+11. V = c * VolumeInt(Ω, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . sin(frac(π * x * y, a^{2}))) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+12. x = a * r * cos(φ)
+13. y = a * r * sin(φ)
+14. x ∈ RealSet ∧ y ∈ RealSet ∧ r ∈ RealSet ∧ φ ∈ RealSet ∧ r > 0 ∧ x > 0 ∧ x * y ≤ a^{2} ∧ y ≥ α * x ∧ y ≤ β * x
+
+GOAL:
+exists (I), I ∈ RealSet ∧ |I| = a^{2} * r
+
+METHOD:

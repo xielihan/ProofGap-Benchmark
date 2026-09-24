@@ -1,0 +1,26 @@
+PROOF GAP @11
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. c ∈ RealSet
+5. forall (x), x ∈ RealSet ⇒ f(x) = a + b * c^{x}
+6. c > 0
+7. f(0) = 15
+8. f(2) = 30
+9. f(4) = 90
+10. f(0) = a + b
+11. a + b = 15
+12. f(0) = 15
+13. f(2) = a + b * c^{2}
+14. a + b * c^{2} = 30
+15. f(2) = 30
+16. f(4) = a + b * c^{4}
+17. a + b * c^{4} = 90
+18. f(4) = 90
+19. a = 10
+
+GOAL:
+b = 5
+
+METHOD:

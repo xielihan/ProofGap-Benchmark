@@ -1,0 +1,29 @@
+PROOF GAP @14
+ASSUM:
+1. S ⊆ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+2. x ∈ RealSet
+3. y ∈ RealSet
+4. z ∈ RealSet
+5. r ∈ RealSet
+6. φ ∈ RealSet
+7. t ∈ RealSet
+8. u ∈ RealSet
+9. S = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, z = x^{2} + y^{2}, z ≤ 1 }
+10. sqrtn(2, 1 + FunDeri(z, 1, 1)^{2} + FunDeri(z, 2, 1)^{2}) = sqrtn(2, 1 + 4 * (x^{2} + y^{2}))
+11. x = r * cos(φ)
+12. y = r * sin(φ)
+13. z = r^{2}
+14. 0 ≤ r
+15. r ≤ 1
+16. 0 ≤ φ
+17. φ ≤ 2 * π
+18. ScalarSurfaceInt(S, |x * y * z| * diff(S)) = 4 * DefInt(0, frac(π, 2), fun φ [φ ∈ RealSet ∧ φ ∈ IntervalClCl(0, frac(π, 2))] . DefInt(0, 1, (fun r [r ∈ RealSet ∧ r ∈ IntervalClCl(0, 1)] . r^{4} * cos(φ) * sin(φ) * sqrtn(2, 1 + 4 * r^{2}) * r) * diff(fun r [r ∈ RealSet ∧ r ∈ IntervalClCl(0, 1)] . r)) * diff(fun φ [φ ∈ RealSet ∧ φ ∈ IntervalClCl(0, frac(π, 2))] . φ))
+19. ScalarSurfaceInt(S, |x * y * z| * diff(S)) = 2 * DefInt(0, 1, (fun r [r ∈ RealSet ∧ r ∈ IntervalClCl(0, 1)] . r^{5} * sqrtn(2, 1 + 4 * r^{2})) * diff(fun r [r ∈ RealSet ∧ r ∈ IntervalClCl(0, 1)] . r))
+20. ScalarSurfaceInt(S, |x * y * z| * diff(S)) = DefInt(0, 1, (fun t [t ∈ RealSet ∧ t ∈ IntervalClCl(0, 1)] . t^{2} * sqrtn(2, 1 + 4 * t)) * diff(fun t [t ∈ RealSet ∧ t ∈ IntervalClCl(0, 1)] . t))
+21. ScalarSurfaceInt(S, |x * y * z| * diff(S)) = DefInt(1, sqrtn(2, 5), (fun u [u ∈ RealSet ∧ u ∈ IntervalClCl(1, sqrtn(2, 5))] . frac(1, 32) * (u^{2} - 1)^{2} * u^{2}) * diff(fun u [u ∈ RealSet ∧ u ∈ IntervalClCl(1, sqrtn(2, 5))] . u))
+22. ScalarSurfaceInt(S, |x * y * z| * diff(S)) = frac(1, 32) * ((fun u [u ∈ RealSet ∧ u ∈ IntervalClCl(1, sqrtn(2, 5))] . frac(u^{7}, 7) - frac(2 * u^{5}, 5) + frac(u^{3}, 3))|_{1}^{sqrtn(2, 5)})
+
+GOAL:
+ScalarSurfaceInt(S, |x * y * z| * diff(S)) = frac(125 * sqrtn(2, 5) - 1, 420)
+
+METHOD:

@@ -1,0 +1,7 @@
+assert (hypothesis 16: {π = 4 * (4 * arctan(frac(1, 5)) - arctan(frac(1, 239))) => π = 16 * arctan(frac(1, 5)) - 4 * arctan(frac(1, 239))}) by proof {
+  get_condition (hypothesis 17: {π = 4 * (4 * arctan(frac(1, 5)) - arctan(frac(1, 239)))}) in (GOAL: {π = 4 * (4 * arctan(frac(1, 5)) - arctan(frac(1, 239))) => π = 16 * arctan(frac(1, 5)) - 4 * arctan(frac(1, 239))})
+  autosolve all_hypothesis
+}
+apply (hypothesis 16: {π = 4 * (4 * arctan(frac(1, 5)) - arctan(frac(1, 239))) => π = 16 * arctan(frac(1, 5)) - 4 * arctan(frac(1, 239))})
+rewrite (right_to_left, equation) (hypothesis 15: {frac(π, 4) = 4 * arctan(frac(1, 5)) - arctan(frac(1, 239))}); from (GOAL: {π = 4 * (4 * arctan(frac(1, 5)) - arctan(frac(1, 239)))}) to (GOAL: {π = 4 * frac(π, 4)})
+autosolve all_hypothesis

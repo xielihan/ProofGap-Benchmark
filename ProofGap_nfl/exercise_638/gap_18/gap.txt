@@ -1,0 +1,29 @@
+PROOF GAP @18
+ASSUM:
+1. y : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1
+3. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ y(1, x) = frac(x, 2)
+4. forall (x) (n), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ∧ 0 ≤ x ∧ x ≤ 1 ⇒ y(n, x) = frac(x, 2) - frac(y(n - 1, x)^{2}, 2)
+5. forall (x), x ∈ RealSet ∧ x = 0 ⇒ (forall (n), n ∈ PosIntegerSet ⇒ y(n, x) = 0)
+6. forall (x), x ∈ RealSet ∧ x = 0 ⇒ seqlim_{ n → +∞ } (y(n, x)) = 0
+7. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ (forall (n), n ∈ PosIntegerSet ⇒ y(n, x) > 0)
+8. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ (forall (k), k ∈ PosIntegerSet ∧ k ≥ 2 ⇒ x > y(k - 1, x)^{2})
+9. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ (forall (k), k ∈ PosIntegerSet ∧ k ≥ 2 ⇒ y(k + 1, x) = frac(x, 2) - frac(y(k, x)^{2}, 2) ∧ frac(x, 2) - frac(y(k, x)^{2}, 2) = frac(4 * x - (x - y(k - 1, x)^{2})^{2}, 8) ∧ frac(4 * x - (x - y(k - 1, x)^{2})^{2}, 8) ≥ frac(3 * x, 8) ∧ frac(3 * x, 8) > 0)
+10. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ (forall (n), n ∈ PosIntegerSet ⇒ y(2 * n, x) - y(2 * n + 2, x) < 0)
+11. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ (forall (n), n ∈ PosIntegerSet ⇒ y(2 * n + 1, x) - y(2 * n + 3, x) > 0)
+12. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ y(1, x) > y(3, x)
+13. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ y(3, x) > 0
+14. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ y(2, x) < y(4, x)
+15. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ y(2, x) > 0
+16. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ y(4, x) < frac(x, 2)
+17. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ ConvergentSeq(fun n [n ∈ NonNegIntegerSet] . y(2 * n + 1, x))
+18. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ ConvergentSeq(fun n [n ∈ NonNegIntegerSet] . y(2 * n, x))
+19. 0 < x ⇒ x ≤ 1 ⇒ A_{1} = seqlim_{ n → +∞ } (y(2 * n + 1, x))
+20. 0 < x ⇒ x ≤ 1 ⇒ A_{2} = seqlim_{ n → +∞ } (y(2 * n, x))
+21. 0 < x ⇒ x ≤ 1 ⇒ A_{2} = frac(x, 2) - frac((A_{1})^{2}, 2)
+22. 0 < x ⇒ x ≤ 1 ⇒ A_{1} = frac(x, 2) - frac((A_{2})^{2}, 2)
+23. 0 < x ⇒ x ≤ 1 ⇒ A_{1} - A_{2} = (A_{1} - A_{2}) * frac(A_{1} + A_{2}, 2)
+GOAL:
+0 < x ⇒ x ≤ 1 ⇒ 0 ≤ A_{1}
+
+METHOD:

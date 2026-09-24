@@ -1,0 +1,5 @@
+1. get_exists (hypothesis 21: {exists (`β'`), `β'` ∈ RealSet ∧ `β'` ≥ seqlim_{ n → +∞ } (x(n))}) (`β'` := {beta0})
+2. destruct_and (hypothesis 29: {beta0 ∈ RealSet ∧ beta0 ≥ seqlim_{ n → +∞ } (x(n))}) as (hypothesis 30: {beta0 ∈ RealSet}) (hypothesis 31: {beta0 ≥ seqlim_{ n → +∞ } (x(n))})
+3. assert (hypothesis 32: {beta0 + seqlim_{ n → +∞ } (y(n)) ≥ (seqlim_{ n → +∞ } (x(n))) + (seqlim_{ n → +∞ } (y(n)))})
+4. exists (`β'` := {beta0})
+5. autosolve all_hypothesis

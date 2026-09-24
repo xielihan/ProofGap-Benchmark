@@ -1,0 +1,2 @@
+1. get_condition (hypothesis 8: {Lt(Neg(1), x)}) (hypothesis 9: {Le(x, 1)}) in (GOAL: {Impl(Lt(Neg(1), x), Impl(Le(x, 1), Eq(ln(Plus(Plus(Plus(1, x), Power(x, 2)), Power(x, 3))), Plus(BigSumSup(Eq(n, 1), PosInfty, Mult(Power(Neg(1), Minus(n, 1)), frac(Power(x, n), n))), BigSumSup(Eq(n, 1), PosInfty, Mult(Power(Neg(1), Minus(n, 1)), frac(Power(x, Mult(2, n)), n)))))))})
+2. autosolve all_hypothesis

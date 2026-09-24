@@ -1,0 +1,11 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ f(t * x, t * y, t * z) = t^{n} * f(x, y, z))))}) (x := {x1})
+2. get_condition (hypothesis 5: {x1 ∈ RealSet}) in (GOAL: {x1 ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ f(t * x1, t * y, t * z) = t^{n} * f(x1, y, z))))})
+3. get_forall (GOAL: {forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ f(t * x1, t * y, t * z) = t^{n} * f(x1, y, z)))}) (y := {y1})
+4. get_condition (hypothesis 6: {y1 ∈ RealSet}) in (GOAL: {y1 ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ f(t * x1, t * y1, t * z) = t^{n} * f(x1, y1, z)))})
+5. get_forall (GOAL: {forall (z), z ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ f(t * x1, t * y1, t * z) = t^{n} * f(x1, y1, z))}) (z := {z1})
+6. get_condition (hypothesis 7: {z1 ∈ RealSet}) in (GOAL: {z1 ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ f(t * x1, t * y1, t * z1) = t^{n} * f(x1, y1, z1))})
+7. get_forall (GOAL: {forall (t), t ∈ RealSet ∧ t > 0 ⇒ f(t * x1, t * y1, t * z1) = t^{n} * f(x1, y1, z1)}) (t := {t1})
+8. get_condition (hypothesis 8: {t1 ∈ RealSet ∧ t1 > 0}) in (GOAL: {t1 ∈ RealSet ∧ t1 > 0 ⇒ f(t1 * x1, t1 * y1, t1 * z1) = t1^{n} * f(x1, y1, z1)})
+9. get_prop (hypothesis 4: {forall (x) (y) (z) (t), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ t ∈ RealSet ∧ t > 0 ⇒ f(t * x, t * y, t * z) = t^{n} * f(x, y, z)}) (x := {x1}) (y := {y1}) (z := {z1}) (t := {t1}) as (hypothesis 9: {x1 ∈ RealSet ∧ y1 ∈ RealSet ∧ z1 ∈ RealSet ∧ t1 ∈ RealSet ∧ t1 > 0 ⇒ f(t1 * x1, t1 * y1, t1 * z1) = t1^{n} * f(x1, y1, z1)})
+10. apply (hypothesis 9: {x1 ∈ RealSet ∧ y1 ∈ RealSet ∧ z1 ∈ RealSet ∧ t1 ∈ RealSet ∧ t1 > 0 ⇒ f(t1 * x1, t1 * y1, t1 * z1) = t1^{n} * f(x1, y1, z1)})
+11. autosolve all_hypothesis

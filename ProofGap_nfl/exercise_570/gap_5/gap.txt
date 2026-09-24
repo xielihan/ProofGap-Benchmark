@@ -1,0 +1,12 @@
+PROOF GAP @5
+ASSUM:
+1. x ∈ RealSet ∧ x > 1
+2. lim_{ x → +∞ } (frac(ln(frac(x + sqrtn(2, x^{2} + 1), x + sqrtn(2, x^{2} - 1))), ln(frac(x + 1, x - 1))^{2})) = lim_{ x → +∞ } (frac(ln(1 + frac(sqrtn(2, x^{2} + 1) - sqrtn(2, x^{2} - 1), x + sqrtn(2, x^{2} - 1))), ln(1 + frac(2, x - 1))^{2}))
+3. lim_{ x → +∞ } (frac(ln(frac(x + sqrtn(2, x^{2} + 1), x + sqrtn(2, x^{2} - 1))), ln(frac(x + 1, x - 1))^{2})) = lim_{ x → +∞ } (frac((x - 1)^{2}, 2 * (x + sqrtn(2, x^{2} - 1)) * (sqrtn(2, x^{2} + 1) + sqrtn(2, x^{2} - 1))))
+4. lim_{ x → +∞ } (frac(ln(frac(x + sqrtn(2, x^{2} + 1), x + sqrtn(2, x^{2} - 1))), ln(frac(x + 1, x - 1))^{2})) = lim_{ x → +∞ } (frac((1 - frac(1, x))^{2}, 2 * (1 + sqrtn(2, 1 - frac(1, x^{2}))) * (sqrtn(2, 1 + frac(1, x^{2})) + sqrtn(2, 1 - frac(1, x^{2})))))
+5. lim_{ x → +∞ } (frac((1 - frac(1, x))^{2}, 2 * (1 + sqrtn(2, 1 - frac(1, x^{2}))) * (sqrtn(2, 1 + frac(1, x^{2})) + sqrtn(2, 1 - frac(1, x^{2}))))) = frac(1, 8)
+
+GOAL:
+lim_{ x → +∞ } (frac(ln(frac(x + sqrtn(2, x^{2} + 1), x + sqrtn(2, x^{2} - 1))), ln(frac(x + 1, x - 1))^{2})) = frac(1, 8)
+
+METHOD:

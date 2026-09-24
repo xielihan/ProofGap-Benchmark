@@ -1,0 +1,21 @@
+1. get_forall (GOAL: {forall (a), a ∈ RealSet ⇒ ¬ContinuousFuncAt(χ, a)}) (a := {a1})
+2. get_condition (hypothesis 19: {a1 ∈ RealSet}) in (GOAL: {a1 ∈ RealSet ⇒ ¬ContinuousFuncAt(χ, a1)})
+3. not_normalize from (GOAL: {¬ContinuousFuncAt(χ, a1)}) to (GOAL: {ContinuousFuncAt(χ, a1) ⇒ False})
+4. get_condition (hypothesis 20: {ContinuousFuncAt(χ, a1)}) in (GOAL: {ContinuousFuncAt(χ, a1) ⇒ False})
+5. get_prop (theorem 'Thm 381. (ContinuityAtPointAsLimit)': {forall (f) (x), f : RealSet -> RealSet ⇒ x ∈ RealSet ⇒ (ContinuousFuncAt(f, x) <==> lim_{t -> x} (f(t)) = f(x))}) (f := {χ}) (x := {a1}) as (hypothesis 21: {χ : RealSet -> RealSet ⇒ a1 ∈ RealSet ⇒ (ContinuousFuncAt(χ, a1) <==> lim_{t -> a1} (χ(t)) = χ(a1))})
+6. use_condition (hypothesis 1: {χ : RealSet → RealSet}) (hypothesis 19: {a1 ∈ RealSet}) in (hypothesis 21: {χ : RealSet -> RealSet ⇒ a1 ∈ RealSet ⇒ (ContinuousFuncAt(χ, a1) <==> lim_{t -> a1} (χ(t)) = χ(a1))}) as (hypothesis 22: {ContinuousFuncAt(χ, a1) <==> lim_{t -> a1} (χ(t)) = χ(a1)})
+7. rewrite (left_to_right, iff) (hypothesis 22: {ContinuousFuncAt(χ, a1) <==> lim_{t -> a1} (χ(t)) = χ(a1)}); from (hypothesis 20: {ContinuousFuncAt(χ, a1)}) to (hypothesis 23: {lim_{t -> a1} (χ(t)) = χ(a1)})
+8. get_prop (hypothesis 18: {forall (a), a ∈ RealSet ⇒ ¬(exists (L), L ∈ RealSet ∧ lim_{ x → a } (χ(x)) = L)}) (a := {a1}) as (hypothesis 24: {a1 ∈ RealSet ⇒ ¬(exists (L), L ∈ RealSet ∧ lim_{ x → a1 } (χ(x)) = L)})
+9. use_condition (hypothesis 19: {a1 ∈ RealSet}) in (hypothesis 24: {a1 ∈ RealSet ⇒ ¬(exists (L), L ∈ RealSet ∧ lim_{ x → a1 } (χ(x)) = L)}) as (hypothesis 25: {¬(exists (L), L ∈ RealSet ∧ lim_{ x → a1 } (χ(x)) = L)})
+10. get_prop (theorem 'Thm 76. (FunctionValueExists)': {forall (A) (B) (f), f : A -> B ⇒ (forall (x), x ∈ A ⇒ (exists (y), y ∈ B /\ f(x) = y))}) (A := {RealSet}) (B := {RealSet}) (f := {χ}) as (hypothesis 26: {χ : RealSet -> RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (exists (y), y ∈ RealSet /\ χ(x) = y))})
+11. use_condition (hypothesis 1: {χ : RealSet → RealSet}) in (hypothesis 26: {χ : RealSet -> RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (exists (y), y ∈ RealSet /\ χ(x) = y))}) as (hypothesis 27: {forall (x), x ∈ RealSet ⇒ (exists (y), y ∈ RealSet /\ χ(x) = y)})
+12. get_prop (hypothesis 27: {forall (x), x ∈ RealSet ⇒ (exists (y), y ∈ RealSet /\ χ(x) = y)}) (x := {a1}) as (hypothesis 28: {a1 ∈ RealSet ⇒ (exists (y), y ∈ RealSet /\ χ(a1) = y)})
+13. use_condition (hypothesis 19: {a1 ∈ RealSet}) in (hypothesis 28: {a1 ∈ RealSet ⇒ (exists (y), y ∈ RealSet /\ χ(a1) = y)}) as (hypothesis 29: {exists (y), y ∈ RealSet /\ χ(a1) = y})
+14. get_exists (hypothesis 29: {exists (y), y ∈ RealSet /\ χ(a1) = y}) (y := {y1})
+15. destruct_and (hypothesis 30: {y1 ∈ RealSet /\ χ(a1) = y1}) as (hypothesis 31: {y1 ∈ RealSet}) (hypothesis 32: {χ(a1) = y1})
+16. rewrite (left_to_right, equation) (hypothesis 32: {χ(a1) = y1}); from (hypothesis 23: {lim_{t -> a1} (χ(t)) = χ(a1)}) to (hypothesis 33: {lim_{t -> a1} (χ(t)) = y1})
+17. assert (hypothesis 34: {exists (L), L ∈ RealSet ∧ lim_{ x → a1 } (χ(x)) = L}) by proof {
+  1. exists (L := {y1})
+  2. autosolve all_hypothesis
+}
+18. autosolve all_hypothesis

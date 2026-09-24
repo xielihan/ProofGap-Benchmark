@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+lim_{ x → +∞ } (frac(1 + frac(ln(1 + x^{2} * e^{-x}), x), 2 + frac(ln(1 + x^{4} * e^{-2 * x}), x))) = lim_{ x → +∞ } (frac(1 + frac(ln(1 + x^{2} * e^{-x}), x), 2 + frac(ln(1 + x^{4} * e^{-2 * x}), x)))
+
+METHOD:

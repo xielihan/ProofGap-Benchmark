@@ -1,0 +1,23 @@
+PROOF GAP @14
+ASSUM:
+1. α ∈ RealSet
+2. a : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = n^{n^{α}} - 1
+4. α ≥ 0 ⇒ seqlim_{ n → +∞ } (a(n)) = +∞
+5. α ≥ 0 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+6. -1 ≤ α ⇒ α < 0 ⇒ seqlim_{ n → +∞ } (frac(a(n), frac(1, n^{|α|}))) = +∞
+7. -1 ≤ α ⇒ α < 0 ⇒ (exists (k), k ∈ RealSet ∧ k > 0 ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ≥ k * frac(1, n^{|α|})))
+8. -1 ≤ α ⇒ α < 0 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{|α|})))
+9. -1 ≤ α ⇒ α < 0 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+10. α < -1 ⇒ (exists (β), β ∈ RealSet ∧ α < β ∧ β < -1 ∧ (β = β ⇒ α < β))
+11. α < -1 ⇒ (exists (β), β ∈ RealSet ∧ α < β ∧ β < -1 ∧ (β = β ⇒ β < -1))
+12. α < -1 ⇒ (exists (β), β ∈ RealSet ∧ α < β ∧ β < -1 ∧ (β = β ⇒ |α| > |β|))
+13. α < -1 ⇒ (exists (β), β ∈ RealSet ∧ α < β ∧ β < -1 ∧ (β = β ⇒ |β| > 1))
+14. α < -1 ⇒ (exists (β), β ∈ RealSet ∧ α < β ∧ β < -1 ∧ (β = β ⇒ seqlim_{ n → +∞ } (frac(a(n), frac(1, n^{|β|}))) = 0))
+15. α < -1 ⇒ (exists (β), β ∈ RealSet ∧ α < β ∧ β < -1 ∧ (β = β ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{|β|})))))
+16. α < -1 ⇒ (exists (β), β ∈ RealSet ∧ α < β ∧ β < -1 ∧ (β = β ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))))
+
+GOAL:
+α ∈ { α | α ∈ RealSet, α < -1 } ⇔ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+METHOD:

@@ -1,0 +1,6 @@
+get_condition (hypothesis 21: {Odd(n)}) in (GOAL: {Odd(n) => PeriodicFunc(G, 2 * π)})
+use_condition (hypothesis 21: {Odd(n)}) in (hypothesis 19: {Odd(n) => (forall (x), x ∈ RealSet => G(x + 2 * π) = G(x))}) as (hypothesis 22: {forall (x), x ∈ RealSet => G(x + 2 * π) = G(x)})
+get_prop (theorem 'Thm 284. (PeriodicFunctionDefinition)': {forall (f) (T), f : RealSet -> RealSet => T ∈ RealSet => (PeriodicFunc(f, T) <==> (T > 0 /\ (forall (x), x ∈ RealSet => f(x + T) = f(x))))}) (f := {G}) (T := {2 * π}) as (hypothesis 23: {G : RealSet -> RealSet => 2 * π ∈ RealSet => (PeriodicFunc(G, 2 * π) <==> (2 * π > 0 /\ (forall (x), x ∈ RealSet => G(x + 2 * π) = G(x))))})
+use_condition (hypothesis 3: {G : RealSet -> RealSet}) (obvious: {2 * π ∈ RealSet}) in (hypothesis 23: {G : RealSet -> RealSet => 2 * π ∈ RealSet => (PeriodicFunc(G, 2 * π) <==> (2 * π > 0 /\ (forall (x), x ∈ RealSet => G(x + 2 * π) = G(x))))}) as (hypothesis 24: {PeriodicFunc(G, 2 * π) <==> (2 * π > 0 /\ (forall (x), x ∈ RealSet => G(x + 2 * π) = G(x)))})
+rewrite (left_to_right, iff) (hypothesis 24: {PeriodicFunc(G, 2 * π) <==> (2 * π > 0 /\ (forall (x), x ∈ RealSet => G(x + 2 * π) = G(x)))}); from (GOAL: {PeriodicFunc(G, 2 * π)}) to (GOAL: {2 * π > 0 /\ (forall (x), x ∈ RealSet => G(x + 2 * π) = G(x))})
+autosolve (hypothesis 22: {forall (x), x ∈ RealSet => G(x + 2 * π) = G(x)})

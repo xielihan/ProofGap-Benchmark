@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet ∧ Defined(f, [1, +∞))
+2. R : NonNegIntegerSet → RealSet
+3. forall (x), x ∈ RealSet ∧ x ∈ [1, +∞) ⇒ f(x) > 0
+4. MonoDecFuncOn(f, [1, +∞))
+5. IntegrableFuncOn(f, [1, +∞))
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (f(n)))
+7. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ k ≥ n + 1 ⇒ R(n) = sum_{ k = n + 1 }^{ +∞ } (f(k)))
+
+GOAL:
+ConvergentSeries(DefInt(1, +∞, (fun x [x ∈ RealSet ∧ x ≥ 1] . f(x)) * diff(fun x [x ∈ RealSet ∧ x ≥ 1] . x)))
+
+METHOD:

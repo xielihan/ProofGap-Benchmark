@@ -1,0 +1,22 @@
+PROOF GAP @1
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. x_{0} ∈ RealSet
+3. l ∈ RealSet
+4. L ∈ RealSet
+5. R ∈ RealSet
+6. forall (n), n ∈ NonNegIntegerSet ⇒ a(n) ∈ RealSet
+7. exists (m_{0}), m_{0} ∈ NonNegIntegerSet ∧ m_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > m_{0} ⇒ a(n) * a(n + 1) ≠ 0)
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 0 ⇒ l = seqliminf_{ n → +∞ } (|frac(a(n), a(n + 1))|)
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 0 ⇒ L = seqlimsup_{ n → +∞ } (|frac(a(n), a(n + 1))|)
+10. 0 ≤ l
+11. l ≤ L
+12. L ≤ +∞
+13. R = RadiusOfConvergence(a)
+14. l_{1} = frac(1, l)
+15. L_{1} = frac(1, L)
+
+GOAL:
+L_{1} ≤ l_{1}
+
+METHOD:

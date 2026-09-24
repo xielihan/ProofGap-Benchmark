@@ -1,0 +1,5 @@
+1. get_prop (hypothesis 9: {forall (z), z ∈ RealSet ⇒ 2 * x(z) * FunDeri(x, 1, 1)(z) + 2 * y(z) * FunDeri(y, 1, 1)(z) = z}) (z := {2}) as (hypothesis 13: {2 ∈ RealSet ⇒ 2 * x(2) * FunDeri(x, 1, 1)(2) + 2 * y(2) * FunDeri(y, 1, 1)(2) = 2})
+2. use_condition (obvious: {2 ∈ RealSet}) in (hypothesis 13: {2 ∈ RealSet ⇒ 2 * x(2) * FunDeri(x, 1, 1)(2) + 2 * y(2) * FunDeri(y, 1, 1)(2) = 2}) as (hypothesis 14: {2 * x(2) * FunDeri(x, 1, 1)(2) + 2 * y(2) * FunDeri(y, 1, 1)(2) = 2})
+3. rewrite (left_to_right, equation) (hypothesis 7: {x(2) = 1}); from (hypothesis 14: {2 * x(2) * FunDeri(x, 1, 1)(2) + 2 * y(2) * FunDeri(y, 1, 1)(2) = 2}) to (hypothesis 15: {2 * 1 * FunDeri(x, 1, 1)(2) + 2 * y(2) * FunDeri(y, 1, 1)(2) = 2})
+4. rewrite (left_to_right, equation) (hypothesis 8: {y(2) = -1}); from (hypothesis 15: {2 * 1 * FunDeri(x, 1, 1)(2) + 2 * y(2) * FunDeri(y, 1, 1)(2) = 2}) to (hypothesis 16: {2 * 1 * FunDeri(x, 1, 1)(2) + 2 * (-1) * FunDeri(y, 1, 1)(2) = 2})
+5. autosolve all_hypothesis

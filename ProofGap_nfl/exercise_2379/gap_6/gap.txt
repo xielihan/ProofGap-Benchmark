@@ -1,0 +1,12 @@
+PROOF GAP @6
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ (forall (A), A ∈ RealSet ∧ A > 0 ⇒ |DefInt(0, A, cos(x) * diff(fun x [x ∈ RealSet] . x))| ≤ 2)
+2. Defined(fun x [x ∈ RealSet] . frac(sqrtn(2, x), x + 100), NonNegRealSet)
+3. MonoDecFuncOn(fun x [x ∈ RealSet] . frac(sqrtn(2, x), x + 100), PosRealSet)
+4. lim_{ x → +∞ } (frac(sqrtn(2, x), x + 100)) = 0
+5. forall (x), x ∈ RealSet ⇒ DefInt(0, +∞, frac(sqrtn(2, x) * cos(x), x + 100) * diff(fun x [x ∈ RealSet] . x)) < +∞
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ frac(sqrtn(2, x) * |cos(x)|, x + 100) ≥ frac(sqrtn(2, x) * cos(x)^{2}, x + 100)
+
+METHOD:

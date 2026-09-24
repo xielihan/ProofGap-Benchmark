@@ -1,0 +1,2 @@
+1. rewrite_in limit (left_to_right, equation) (hypothesis 3: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet => a(n) = frac(n, 2 * n - 1)}); from (GOAL: {seqlim_{ n -> +infty } (a(n)) = frac(1, 2)}) to (GOAL: {seqlim_{ n -> +infty } (frac(n, 2 * n - 1)) = frac(1, 2)})
+2. autosolve all_hypothesis using LimitCalcSolver

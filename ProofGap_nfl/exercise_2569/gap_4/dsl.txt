@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet => (a(n) + b(n)) ^ 2 = a(n) ^ 2 + b(n) ^ 2 + 2 * a(n) * b(n)}) (n := {k})
+get_condition (hypothesis 10: {k ∈ NonNegIntegerSet /\ k ∈ PosIntegerSet}) in (GOAL: {k ∈ NonNegIntegerSet /\ k ∈ PosIntegerSet => (a(k) + b(k)) ^ 2 = a(k) ^ 2 + b(k) ^ 2 + 2 * a(k) * b(k)})
+autoreplace no_hypothesis; from ((a(k) + b(k)) ^ 2) to (a(k) ^ 2 + b(k) ^ 2 + 2 * a(k) * b(k)); from (GOAL: {(a(k) + b(k)) ^ 2 = a(k) ^ 2 + b(k) ^ 2 + 2 * a(k) * b(k)}) to (GOAL: {a(k) ^ 2 + b(k) ^ 2 + 2 * a(k) * b(k) = a(k) ^ 2 + b(k) ^ 2 + 2 * a(k) * b(k)})
+autosolve all_hypothesis

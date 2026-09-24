@@ -1,0 +1,2 @@
+get_condition (hypothesis 12: {(m_{0}, M_{0}) = (0, 1)}) in (GOAL: {(m_{0}, M_{0}) = (0, 1) => inf(ImageOn(f, { x | x ∈ RealSet, 0 < x, x < +infty })) = m_{0} ∧ sup(ImageOn(f, { x | x ∈ RealSet, 0 < x, x < +infty })) = M_{0}})
+autosolve all_hypothesis

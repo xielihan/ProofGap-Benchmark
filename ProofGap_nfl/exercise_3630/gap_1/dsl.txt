@@ -1,0 +1,3 @@
+rewrite (left_to_right, equation) (hypothesis 7: {x = r * cos(φ)}); from (GOAL: {z(x, y) = z(r * cos(φ), r * sin(φ))}) to (GOAL: {z(r * cos(φ), y) = z(r * cos(φ), r * sin(φ))})
+rewrite (left_to_right, equation) (hypothesis 8: {y = r * sin(φ)}); from (GOAL: {z(r * cos(φ), y) = z(r * cos(φ), r * sin(φ))}) to (GOAL: {z(r * cos(φ), r * sin(φ)) = z(r * cos(φ), r * sin(φ))})
+autosolve all_hypothesis

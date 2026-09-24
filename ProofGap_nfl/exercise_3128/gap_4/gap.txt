@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. f : RealSet → RealSet ∧ Defined(f, [a, b])
+4. B : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+5. a < b
+6. forall (y) (x), y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 ∧ x ∈ RealSet ∧ x = a + (b - a) * y ⇒ a ≤ x
+7. forall (y) (x), y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 ∧ x ∈ RealSet ∧ x = a + (b - a) * y ⇒ x ≤ b
+8. forall (y) (x), y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 ∧ x ∈ RealSet ∧ x = a + (b - a) * y ⇒ y = frac(x - a, b - a)
+
+GOAL:
+forall (y) (x), y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 ∧ x ∈ RealSet ∧ x = a + (b - a) * y ⇒ 1 - y = frac(b - x, b - a)
+
+METHOD:

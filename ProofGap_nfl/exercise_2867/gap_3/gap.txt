@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet
+2. 1 + x + x^{2} + x^{3} > 0
+3. ln(1 + x + x^{2} + x^{3}) = ln((1 + x) * (1 + x^{2}))
+4. ln((1 + x) * (1 + x^{2})) = ln(1 + x) + ln(1 + x^{2})
+
+GOAL:
+ln(1 + x + x^{2} + x^{3}) = ln(1 + x) + ln(1 + x^{2})
+
+METHOD:

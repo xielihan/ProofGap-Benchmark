@@ -1,0 +1,12 @@
+PROOF GAP @6
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ sin(x) * sin(2 * x) * sin(3 * x) = frac(1, 2) * (cos(2 * x) - cos(4 * x)) * sin(2 * x)
+2. forall (x), x ∈ RealSet ⇒ frac(1, 2) * (cos(2 * x) - cos(4 * x)) * sin(2 * x) = frac(1, 4) * sin(4 * x) - frac(1, 4) * (sin(6 * x) - sin(2 * x))
+3. DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . sin(x) * sin(2 * x) * sin(3 * x)) * diff(fun x [x ∈ RealSet] . x)) = ((fun x [x ∈ RealSet] . -frac(1, 16) * cos(4 * x) + frac(1, 24) * cos(6 * x) - frac(1, 8) * cos(2 * x))|_{0}^{frac(π, 2)})
+4. ((fun x [x ∈ RealSet] . -frac(1, 16) * cos(4 * x) + frac(1, 24) * cos(6 * x) - frac(1, 8) * cos(2 * x))|_{0}^{frac(π, 2)}) = frac(1, 6)
+5. DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . sin(x) * sin(2 * x) * sin(3 * x)) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 6)
+
+GOAL:
+DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . sin(x) * sin(2 * x) * sin(3 * x)) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 6)
+
+METHOD:

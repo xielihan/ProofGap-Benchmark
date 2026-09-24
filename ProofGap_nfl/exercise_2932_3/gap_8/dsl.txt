@@ -1,0 +1,5 @@
+rewrite (left_to_right, equation) (hypothesis 4: {DefInt(0, 2, (fun x [x ∈ RealSet] . cases{ frac(sin(x), x) if x ≠ 0; 1 if x = 0 }) * diff(fun x [x ∈ RealSet] . x)) = 2 - frac(2^{3}, 3 * 3!) + frac(2^{5}, 5 * 5!) - frac(2^{7}, 7 * 7!) + Δ}); from (GOAL: {1.6051 < DefInt(0, 2, (fun x [x ∈ RealSet] . cases{ frac(sin(x), x) if x ≠ 0; 1 if x = 0 }) * diff(fun x [x ∈ RealSet] . x))}) to (GOAL: {1.6051 < 2 - frac(2^{3}, 3 * 3!) + frac(2^{5}, 5 * 5!) - frac(2^{7}, 7 * 7!) + Δ})
+assert (hypothesis 9: {1.6051 < 2 - frac(2^{3}, 3 * 3!) + frac(2^{5}, 5 * 5!) - frac(2^{7}, 7 * 7!)}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

@@ -1,0 +1,17 @@
+PROOF GAP @2
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. v : CartesianProd(RealSet, RealSet) → RealSet
+3. z : CartesianProd(RealSet, RealSet) → RealSet
+4. a ∈ RealSet
+5. b ∈ RealSet
+6. c ∈ RealSet
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ∈ PosRealSet ∧ y ∈ PosRealSet ⇒ u(x, y) = ln(x) ∧ v(x, y) = ln(y)
+8. ContinuouslyDiffableFunc(z)
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ∈ PosRealSet ∧ y ∈ PosRealSet ⇒ a * x^{2} * FunDeri(z, 1, 2)(x, y) + 2 * b * x * y * FunDeri(FunDeri(z, 1, 1), 2, 1)(x, y) + c * y^{2} * FunDeri(z, 2, 2)(x, y) = 0
+10. forall (x) (y), x ∈ RealSet ∧ x ∈ PosRealSet ∧ y ∈ RealSet ∧ y ∈ PosRealSet ⇒ FunDeri(z, 1, 1)(x, y) = frac(1, x) * FunDeri(z, u, 1)(x, y)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ x ∈ PosRealSet ∧ y ∈ RealSet ∧ y ∈ PosRealSet ⇒ FunDeri(z, 2, 1)(x, y) = frac(1, y) * FunDeri(z, v, 1)(x, y)
+
+METHOD:

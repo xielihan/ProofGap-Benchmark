@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. a ∈ RealSet
+3. a > 0
+4. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = x * y^{2} * z^{3} * (a - x - 2 * y - 3 * z)
+
+GOAL:
+diff(u) = (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y^{2} * z^{3} * (a - 2 * x - 2 * y - 3 * z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . 2 * x * y * z^{3} * (a - x - 3 * y - 3 * z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . 3 * x * y^{2} * z^{2} * (a - x - 2 * y - 4 * z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)
+
+METHOD:

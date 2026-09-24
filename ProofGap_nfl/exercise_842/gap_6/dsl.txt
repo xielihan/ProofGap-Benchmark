@@ -1,0 +1,6 @@
+get_prop (hypothesis 7: {forall (x), x ∈ RealSet => (FunDeri(y, 1, 1)(x) = 0 <==> x = 1 \/ x = -1 \/ x = -frac(1, 2) \/ 1 + 4 * x + 7 * x^2 = 0 \/ 1 + x + x^2 = 0)}) (x := {x}) as (hypothesis 9: {x ∈ RealSet => (FunDeri(y, 1, 1)(x) = 0 <==> x = 1 \/ x = -1 \/ x = -frac(1, 2) \/ 1 + 4 * x + 7 * x^2 = 0 \/ 1 + x + x^2 = 0)})
+get_prop (hypothesis 8: {forall (x), x ∈ RealSet => ¬1 + 4 * x + 7 * x^2 = 0 /\ ¬1 + x + x^2 = 0}) (x := {x}) as (hypothesis 10: {x ∈ RealSet => ¬1 + 4 * x + 7 * x^2 = 0 /\ ¬1 + x + x^2 = 0})
+use_condition (hypothesis 2: {x ∈ RealSet}) in (hypothesis 9: {x ∈ RealSet => (FunDeri(y, 1, 1)(x) = 0 <==> x = 1 \/ x = -1 \/ x = -frac(1, 2) \/ 1 + 4 * x + 7 * x^2 = 0 \/ 1 + x + x^2 = 0)}) as (hypothesis 11: {FunDeri(y, 1, 1)(x) = 0 <==> x = 1 \/ x = -1 \/ x = -frac(1, 2) \/ 1 + 4 * x + 7 * x^2 = 0 \/ 1 + x + x^2 = 0})
+use_condition (hypothesis 2: {x ∈ RealSet}) in (hypothesis 10: {x ∈ RealSet => ¬1 + 4 * x + 7 * x^2 = 0 /\ ¬1 + x + x^2 = 0}) as (hypothesis 12: {¬1 + 4 * x + 7 * x^2 = 0 /\ ¬1 + x + x^2 = 0})
+destruct_and (hypothesis 12: {¬1 + 4 * x + 7 * x^2 = 0 /\ ¬1 + x + x^2 = 0}) as (hypothesis 13: {¬1 + 4 * x + 7 * x^2 = 0}) (hypothesis 14: {¬1 + x + x^2 = 0})
+autosolve all_hypothesis

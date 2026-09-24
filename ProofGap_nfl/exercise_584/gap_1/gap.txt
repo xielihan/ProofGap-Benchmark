@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+lim_{ x → -∞ } (arccot(frac(x, sqrtn(2, 1 + x^{2})))) = arccot(-1)
+
+METHOD:

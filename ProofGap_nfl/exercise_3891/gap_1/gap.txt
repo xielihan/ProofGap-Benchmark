@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. A : RealSet → RealSet
+3. α ∈ RealSet ∧ α > 0
+4. β ∈ RealSet
+5. forall (x), x ∈ RealSet ⇒ f(x) = e^{-α * |x|} * cos(β * x)
+
+GOAL:
+EvenFunc(f)
+
+METHOD:

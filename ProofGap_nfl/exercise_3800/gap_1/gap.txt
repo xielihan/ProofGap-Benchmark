@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. α ∈ RealSet
+2. β ∈ RealSet ∧ β ≠ 0
+3. I : RealSet → RealSet
+4. J : RealSet → RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≥ 0 ∧ α ≥ 0 ∧ β > 0 ∧ I(α) = DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(ln(1 + α^{2} * x^{2}), β^{2} + x^{2})) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)) ⇒ (forall (α_{1}), α_{1} ∈ RealSet ∧ α_{1} > 0 ∧ 0 ≤ α ∧ α ≤ α_{1} ⇒ 0 ≤ frac(ln(1 + α^{2} * x^{2}), β^{2} + x^{2}))
+
+METHOD:

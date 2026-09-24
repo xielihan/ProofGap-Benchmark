@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. a ∈ RealSet ∧ a > 0
+3. `ρ_{0}` ∈ RealSet ∧ `ρ_{0}` > 0
+4. I_{z} ∈ RealSet
+5. S = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x^{2} + y^{2} + z^{2} = a^{2} ∧ z ≥ 0 }
+6. I_{z} = ScalarSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . (x^{2} + y^{2}) * `ρ_{0}`) * diff(S))
+
+GOAL:
+I_{z} = `ρ_{0}` * VolumeInt({ (x, y) | x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} ≤ a^{2} }, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} < a^{2}] . (x^{2} + y^{2}) * frac(a, sqrtn(2, a^{2} - x^{2} - y^{2}))) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+
+METHOD:

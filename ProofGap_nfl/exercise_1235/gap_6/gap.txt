@@ -1,0 +1,16 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. c_{1} ∈ RealSet
+3. c_{2} ∈ RealSet
+4. forall (x), x ∈ RealSet ⇒ f(x) = (x - 1) * (x - 2) * (x - 3)
+5. ContinuousFuncOn(f, [1, 2])
+6. ContinuousFuncOn(f, [2, 3])
+7. DiffableFuncOn(f, IntervalLoRo(1, 2))
+8. DiffableFuncOn(f, IntervalLoRo(2, 3))
+9. f(1) = f(2)
+
+GOAL:
+f(2) = f(3)
+
+METHOD:

@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ f(x, y) = frac(x^{2} * y^{2}, x^{2} * y^{2} + (x - y)^{2})
+3. lim_{ x → 0 } (lim_{ y → 0 } (f(x, y))) = lim_{ x → 0 } (lim_{ y → 0 } (frac(x^{2} * y^{2}, x^{2} * y^{2} + (x - y)^{2})))
+4. lim_{ x → 0 } (lim_{ y → 0 } (frac(x^{2} * y^{2}, x^{2} * y^{2} + (x - y)^{2}))) = lim_{ x → 0 } (0)
+5. lim_{ x → 0 } (0) = 0
+
+GOAL:
+lim_{ x → 0 } (lim_{ y → 0 } (f(x, y))) = 0
+
+METHOD:

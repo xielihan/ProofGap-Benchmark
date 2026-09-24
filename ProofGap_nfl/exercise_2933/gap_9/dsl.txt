@@ -1,0 +1,13 @@
+exists (Δ := {0})
+assert (hypothesis 10: {π ∈ RealSet ∧ π > 0}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 11: {frac(3 * 5 * 2 * π, 4! * 2^{4}) * frac(8!, 2^{9} * 4! * 4!) = frac(175 * π, 16384)}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 12: {0 ∈ RealSet})
+assert (hypothesis 13: {0 < frac(3 * 5 * 2 * π, 4! * 2^{4}) * frac(8!, 2^{9} * 4! * 4!)}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 11: {frac(3 * 5 * 2 * π, 4! * 2^{4}) * frac(8!, 2^{9} * 4! * 4!) = frac(175 * π, 16384)}); from (GOAL: {0 < frac(3 * 5 * 2 * π, 4! * 2^{4}) * frac(8!, 2^{9} * 4! * 4!)}) to (GOAL: {0 < frac(175 * π, 16384)})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

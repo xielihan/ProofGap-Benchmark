@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+ln(1.1) = ln(1 + 0.1)
+
+METHOD:
+[@method 根据 "ln(1 + x) 的 Taylor 公式" @]

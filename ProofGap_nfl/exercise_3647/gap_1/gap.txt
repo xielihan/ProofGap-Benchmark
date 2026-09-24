@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. forall (x) (y) (z), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ π ∧ z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ π ⇒ u(x, y, z) = sin(x) + sin(y) + sin(z) - sin(x + y + z)
+
+GOAL:
+diff(u) = (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . cos(x) - cos(x + y + z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . cos(y) - cos(x + y + z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . cos(z) - cos(x + y + z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)
+
+METHOD:

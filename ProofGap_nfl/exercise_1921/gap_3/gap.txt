@@ -1,0 +1,22 @@
+PROOF GAP @3
+ASSUM:
+1. I : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. B : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+3. x ∈ RealSet
+4. a ∈ RealSet ∧ a ≠ 0
+5. b ∈ RealSet
+6. c ∈ RealSet
+7. t ∈ RealSet
+8. Delta ∈ RealSet
+9. C ∈ RealSet
+10. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (`F_1`), `F_1` : RealSet → RealSet ∧ I(n) = { `F_1` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_1`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), (a * x^{2} + b * x + c)^{n}) })
+12. t = 2 * a * x + b
+13. Delta = 4 * a * c - b^{2}
+14. 4 * a * (a * x^{2} + b * x + c) = (2 * a * x + b)^{2} + 4 * a * c - b^{2}
+15. (2 * a * x + b)^{2} + 4 * a * c - b^{2} = t^{2} + Delta
+
+GOAL:
+4 * a * (a * x^{2} + b * x + c) = t^{2} + Delta
+
+METHOD:

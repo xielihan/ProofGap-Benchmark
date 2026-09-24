@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet ∧ a < b
+3. C ∈ RealSet
+4. forall (x), x ∈ RealSet ∧ x < b ⇒ a < x
+5. forall (x), x ∈ RealSet ∧ a < x ⇒ x < b
+6. forall (x), x ∈ RealSet ∧ a < x ∧ x < b ⇒ (exists (t), t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2) ∧ x - a = (b - a) * sin(t)^{2})
+
+GOAL:
+forall (t), t ∈ RealSet ∧ t < frac(π, 2) ⇒ 0 < t
+
+METHOD:

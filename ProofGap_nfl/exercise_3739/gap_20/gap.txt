@@ -1,0 +1,35 @@
+PROOF GAP @20
+ASSUM:
+1. F : RealSet → RealSet
+2. E : RealSet → RealSet
+3. k ∈ RealSet ∧ 0 ≤ k ∧ k < 1
+4. k_{1} ∈ RealSet
+5. (k_{1})^{2} = 1 - k^{2}
+6. E(0) = frac(π, 2)
+7. F(0) = frac(π, 2)
+8. forall (u), u ∈ RealSet ∧ u ∈ IntervalLoRo(0, 1) ∧ 0 < u ∧ u < 1 ⇒ FunDeri(E, 1, 1)(u) = frac(E(u) - F(u), u)
+9. forall (u), u ∈ RealSet ∧ u ∈ IntervalLoRo(0, 1) ∧ 0 < u ∧ u < 1 ⇒ FunDeri(F, 1, 1)(u) = frac(E(u), u * (1 - u^{2})) - frac(F(u), u)
+10. 0 < k ⇒ k < 1 ⇒ FunDeri(fun k [k ∈ RealSet ∧ k ∈ IntervalLoRo(0, 1)] . E(k) - (k_{1})^{2} * F(k), 1, 1)(k) = FunDeri(E, 1, 1)(k) + 2 * k * F(k) - (1 - k^{2}) * FunDeri(F, 1, 1)(k)
+11. 0 < k ⇒ k < 1 ⇒ FunDeri(E, 1, 1)(k) + 2 * k * F(k) - (1 - k^{2}) * FunDeri(F, 1, 1)(k) = frac(E(k) - F(k), k) + 2 * k * F(k) - (1 - k^{2}) * (frac(E(k), k * (1 - k^{2})) - frac(F(k), k))
+12. 0 < k ⇒ k < 1 ⇒ frac(E(k) - F(k), k) + 2 * k * F(k) - (1 - k^{2}) * (frac(E(k), k * (1 - k^{2})) - frac(F(k), k)) = k * F(k)
+13. 0 < k ⇒ k < 1 ⇒ FunDeri(E, 1, 1)(k) + 2 * k * F(k) - (1 - k^{2}) * FunDeri(F, 1, 1)(k) = k * F(k)
+14. 0 < k ⇒ k < 1 ⇒ FunDeri(fun k [k ∈ RealSet ∧ k ∈ IntervalLoRo(0, 1)] . E(k) - (k_{1})^{2} * F(k), 1, 1)(k) = k * F(k)
+15. exists (C_{1}), C_{1} ∈ RealSet ∧ (0 < k ⇒ k < 1 ⇒ E(k) - (k_{1})^{2} * F(k) = DefInt(0, k, (fun t [t ∈ RealSet ∧ t ∈ IntervalClCl(0, k)] . t * F(t)) * diff(fun t [t ∈ RealSet] . t)) + C_{1})
+16. 0 < k ⇒ k < 1 ⇒ k = 0 ⇒ E(0) - F(0) = frac(π, 2) - frac(π, 2)
+17. 0 < k ⇒ k < 1 ⇒ k = 0 ⇒ frac(π, 2) - frac(π, 2) = 0
+18. 0 < k ⇒ k < 1 ⇒ k = 0 ⇒ E(0) - F(0) = 0
+19. exists (C_{1}), C_{1} ∈ RealSet ∧ (0 < k ⇒ k < 1 ⇒ k = 0 ⇒ C_{1} = 0)
+20. 0 < k ⇒ k < 1 ⇒ DefInt(0, k, (fun t [t ∈ RealSet ∧ t ∈ IntervalClCl(0, k)] . t * F(t)) * diff(fun t [t ∈ RealSet] . t)) = E(k) - (k_{1})^{2} * F(k)
+21. 0 < k ⇒ k < 1 ⇒ FunDeri(fun k [k ∈ RealSet ∧ k ∈ IntervalLoRo(0, 1)] . frac(1, 3) * ((1 + k^{2}) * E(k) - (k_{1})^{2} * F(k)), 1, 1)(k) = frac(1, 3) * (2 * k * E(k) + (1 + k^{2}) * FunDeri(E, 1, 1)(k) + 2 * k * F(k) - (1 - k^{2}) * FunDeri(F, 1, 1)(k))
+22. 0 < k ⇒ k < 1 ⇒ frac(1, 3) * (2 * k * E(k) + (1 + k^{2}) * FunDeri(E, 1, 1)(k) + 2 * k * F(k) - (1 - k^{2}) * FunDeri(F, 1, 1)(k)) = k * E(k)
+23. 0 < k ⇒ k < 1 ⇒ FunDeri(fun k [k ∈ RealSet ∧ k ∈ IntervalLoRo(0, 1)] . frac(1, 3) * ((1 + k^{2}) * E(k) - (k_{1})^{2} * F(k)), 1, 1)(k) = k * E(k)
+24. exists (C_{2}), C_{2} ∈ RealSet ∧ (0 < k ⇒ k < 1 ⇒ frac(1, 3) * ((1 + k^{2}) * E(k) - (k_{1})^{2} * F(k)) = DefInt(0, k, (fun t [t ∈ RealSet ∧ t ∈ IntervalClCl(0, k)] . t * E(t)) * diff(fun t [t ∈ RealSet] . t)) + C_{2})
+25. exists (C_{2}), C_{2} ∈ RealSet ∧ (0 < k ⇒ k < 1 ⇒ k = 0 ⇒ C_{2} = 0)
+26. 0 < k ⇒ k < 1 ⇒ DefInt(0, k, (fun t [t ∈ RealSet ∧ t ∈ IntervalClCl(0, k)] . t * E(t)) * diff(fun t [t ∈ RealSet] . t)) = frac(1, 3) * ((1 + k^{2}) * E(k) - (k_{1})^{2} * F(k))
+27. DefInt(0, k, (fun t [t ∈ RealSet ∧ t ∈ IntervalClCl(0, k)] . t * F(t)) * diff(fun t [t ∈ RealSet] . t)) = E(k) - (k_{1})^{2} * F(k)
+28. DefInt(0, k, (fun t [t ∈ RealSet ∧ t ∈ IntervalClCl(0, k)] . t * E(t)) * diff(fun t [t ∈ RealSet] . t)) = frac(1, 3) * ((1 + k^{2}) * E(k) - (k_{1})^{2} * F(k))
+
+GOAL:
+DefInt(0, k, (fun t [t ∈ RealSet ∧ t ∈ IntervalClCl(0, k)] . t * F(t)) * diff(fun t [t ∈ RealSet] . t)) = E(k) - (k_{1})^{2} * F(k) ∧ DefInt(0, k, (fun t [t ∈ RealSet ∧ t ∈ IntervalClCl(0, k)] . t * E(t)) * diff(fun t [t ∈ RealSet] . t)) = frac(1, 3) * ((1 + k^{2}) * E(k) - (k_{1})^{2} * F(k))
+
+METHOD:

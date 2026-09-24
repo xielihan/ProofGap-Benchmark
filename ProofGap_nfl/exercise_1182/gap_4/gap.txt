@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. y : RealSet → RealSet
+2. C_{1} ∈ RealSet
+3. C_{2} ∈ RealSet
+4. forall (x), x ∈ RealSet ⇒ y(x) = C_{1} * cosh(x) + C_{2} * sinh(x)
+5. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = C_{1} * sinh(x) + C_{2} * cosh(x)
+6. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = C_{1} * cosh(x) + C_{2} * sinh(x) ∧ C_{1} * cosh(x) + C_{2} * sinh(x) = y(x)
+7. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) - y(x) = 0
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) - y(x) = 0
+
+METHOD:

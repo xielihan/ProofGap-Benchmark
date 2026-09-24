@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. a : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac((n + x)^{n}, n^{n + x})
+4. exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > N ⇒ a(n) > 0)
+
+GOAL:
+seqlim_{ n → +∞ } (frac(a(n), frac(1, n^{x}))) = seqlim_{ n → +∞ } ((1 + frac(x, n))^{n})
+
+METHOD:

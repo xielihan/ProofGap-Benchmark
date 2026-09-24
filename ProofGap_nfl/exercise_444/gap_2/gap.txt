@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. n ∈ PosIntegerSet
+3. lim_{ x → 0 } (frac(sqrtn(n, 1 + x) - 1, x)) = lim_{ x → 0 } (frac(1, sum_{ k = 0 }^{ n - 1 } (sqrtn(n, (1 + x)^{k}))))
+
+GOAL:
+lim_{ x → 0 } (frac(1, sum_{ k = 0 }^{ n - 1 } (sqrtn(n, (1 + x)^{k})))) = frac(1, n)
+
+METHOD:

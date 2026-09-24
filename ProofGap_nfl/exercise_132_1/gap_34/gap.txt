@@ -1,0 +1,56 @@
+PROOF GAP @34
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. y : NonNegIntegerSet → RealSet ∧ IsSeq(y)
+3. n ∈ NonNegIntegerSet
+4. k ∈ NonNegIntegerSet
+5. i ∈ NonNegIntegerSet
+6. p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p)
+7. q : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(q)
+8. β ∈ RealSet
+9. β_{star} ∈ RealSet
+10. β_{p} ∈ RealSet
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ∈ NonNegRealSet ∧ y(n) ∈ NonNegRealSet
+12. seqlim_{ n → +∞ } (x(n)) ∈ NonNegRealSet
+13. seqlim_{ n → +∞ } (y(n)) ∈ NonNegRealSet
+14. seqlim_{ n → +∞ } (x(n) * y(n)) ∈ NonNegRealSet
+15. α = seqlim_{ n → +∞ } (x(n))
+16. α ≥ 0
+17. exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ seqlim_{ k → +∞ } (x(p(k))) = α
+18. exists (q), q : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(q) ∧ seqlim_{ i → +∞ } (y(p(q(i)))) = β ∧ β = seqlim_{ k → +∞ } (y(p(k)))
+19. β ≥ 0
+20. β ≤ seqlim_{ n → +∞ } (y(n))
+21. seqlim_{ i → +∞ } (x(p(q(i))) * y(p(q(i)))) = α * β
+22. α * β ∈ AccumulationPointSet(fun n [n ∈ NonNegIntegerSet] . x(n) * y(n))
+23. seqlim_{ n → +∞ } (x(n) * y(n)) ≤ α * β
+24. seqlim_{ n → +∞ } (x(n) * y(n)) ≤ α * β
+25. α * β ≤ α * (seqlim_{ n → +∞ } (y(n)))
+26. α * (seqlim_{ n → +∞ } (y(n))) = (seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (y(n)))
+27. seqlim_{ n → +∞ } (x(n) * y(n)) ≤ (seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (y(n)))
+28. seqlim_{ n → +∞ } (x(n) * y(n)) ≤ (seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (y(n)))
+29. seqlim_{ n → +∞ } (x(n)) = 0 ⇒ (seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (y(n))) = 0
+30. seqlim_{ n → +∞ } (x(n)) = 0 ⇒ (seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (y(n))) ≤ seqlim_{ n → +∞ } (x(n) * y(n))
+31. seqlim_{ n → +∞ } (x(n)) = β_{star} ⇒ β_{star} > 0 ⇒ (exists (N_{0}), N_{0} ∈ NonNegIntegerSet ∧ N_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N_{0} ⇒ x(n) > 0))
+32. seqlim_{ n → +∞ } (x(n)) = β_{star} ⇒ β_{star} > 0 ⇒ α_{p} = seqlim_{ n → +∞ } (x(n) * y(n))
+33. seqlim_{ n → +∞ } (x(n)) = β_{star} ⇒ β_{star} > 0 ⇒ α_{p} ≥ 0
+34. seqlim_{ n → +∞ } (x(n)) = β_{star} ⇒ β_{star} > 0 ⇒ (exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ seqlim_{ k → +∞ } (x(p(k)) * y(p(k))) = α_{p})
+35. seqlim_{ n → +∞ } (x(n)) = β_{star} ⇒ β_{star} > 0 ⇒ (exists (q), q : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(q) ∧ seqlim_{ i → +∞ } (x(p(q(i)))) = β_{p} ∧ β_{p} = seqlim_{ k → +∞ } (x(p(k))))
+36. seqlim_{ n → +∞ } (x(n)) = β_{star} ⇒ β_{star} > 0 ⇒ β_{p} ≥ seqlim_{ n → +∞ } (x(n))
+37. seqlim_{ n → +∞ } (x(n)) = β_{star} ⇒ β_{star} > 0 ⇒ β_{p} > 0
+38. seqlim_{ n → +∞ } (x(n)) = β_{star} ⇒ β_{star} > 0 ⇒ y(p(q(i))) = x(p(q(i))) * y(p(q(i))) * frac(1, x(p(q(i))))
+39. seqlim_{ n → +∞ } (x(n)) = β_{star} ⇒ β_{star} > 0 ⇒ seqlim_{ i → +∞ } (y(p(q(i)))) = frac(α_{p}, β_{p})
+40. seqlim_{ n → +∞ } (x(n)) = β_{star} ⇒ β_{star} > 0 ⇒ frac(α_{p}, β_{p}) ∈ AccumulationPointSet(y)
+41. seqlim_{ n → +∞ } (x(n)) = β_{star} ⇒ β_{star} > 0 ⇒ frac(α_{p}, β_{p}) ≥ seqlim_{ n → +∞ } (y(n))
+42. seqlim_{ n → +∞ } (x(n)) = β_{star} ⇒ β_{star} > 0 ⇒ seqlim_{ n → +∞ } (x(n) * y(n)) = α_{p}
+43. seqlim_{ n → +∞ } (x(n)) = β_{star} ⇒ β_{star} > 0 ⇒ α_{p} ≥ β_{p} * (seqlim_{ n → +∞ } (y(n)))
+44. seqlim_{ n → +∞ } (x(n)) = β_{star} ⇒ β_{star} > 0 ⇒ β_{p} * (seqlim_{ n → +∞ } (y(n))) ≥ (seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (y(n)))
+45. seqlim_{ n → +∞ } (x(n)) = β_{star} ⇒ β_{star} > 0 ⇒ seqlim_{ n → +∞ } (x(n) * y(n)) ≥ (seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (y(n)))
+46. (seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (y(n))) ≤ seqlim_{ n → +∞ } (x(n) * y(n))
+47. (seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (y(n))) ≤ seqlim_{ n → +∞ } (x(n) * y(n))
+48. (seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (y(n))) ≤ seqlim_{ n → +∞ } (x(n) * y(n))
+49. seqlim_{ n → +∞ } (x(n) * y(n)) ≤ (seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (y(n)))
+
+GOAL:
+(seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (y(n))) ≤ seqlim_{ n → +∞ } (x(n) * y(n)) ∧ seqlim_{ n → +∞ } (x(n) * y(n)) ≤ (seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (y(n)))
+
+METHOD:

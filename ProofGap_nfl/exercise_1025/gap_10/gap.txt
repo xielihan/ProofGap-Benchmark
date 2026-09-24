@@ -1,0 +1,20 @@
+PROOF GAP @10
+ASSUM:
+1. S : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. T : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+3. forall (n) (x) (k), n ∈ NonNegIntegerSet ∧ k ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ k ∈ PosIntegerSet ⇒ S(n, x) = sum_{ k = 1 }^{ n } (sin(k * x))
+4. forall (n) (x) (k), n ∈ NonNegIntegerSet ∧ k ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ k ∈ PosIntegerSet ⇒ T(n, x) = sum_{ k = 1 }^{ n } (k * cos(k * x))
+5. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ 2 * sin(frac(x, 2)) * S(n, x) = sum_{ k = 1 }^{ n } (2 * sin(frac(x, 2)) * sin(k * x))
+6. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ sum_{ k = 1 }^{ n } (2 * sin(frac(x, 2)) * sin(k * x)) = sum_{ k = 1 }^{ n } (cos(frac((2 * k - 1) * x, 2)) - cos(frac((2 * k + 1) * x, 2)))
+7. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ 2 * sin(frac(x, 2)) * S(n, x) = cos(frac(x, 2)) - cos(frac((2 * n + 1) * x, 2))
+8. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ cos(frac(x, 2)) - cos(frac((2 * n + 1) * x, 2)) = 2 * sin(frac(n * x, 2)) * sin(frac((n + 1) * x, 2))
+9. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ sin(frac(x, 2)) ≠ 0 ⇒ S(n, x) = frac(sin(frac(n * x, 2)) * sin(frac((n + 1) * x, 2)), sin(frac(x, 2)))
+10. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ T(n, x) = FunDeri(fun x [x ∈ RealSet] . S(n, x), 1, 1)(x)
+11. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ sin(frac(x, 2)) ≠ 0 ⇒ T(n, x) = FunDeri(fun x [x ∈ RealSet] . frac(sin(frac(n * x, 2)) * sin(frac((n + 1) * x, 2)), sin(frac(x, 2))), 1, 1)(x)
+12. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ sin(frac(x, 2)) ≠ 0 ⇒ T(n, x) = frac((n * cos(frac(n * x, 2)) * sin(frac((n + 1) * x, 2)) + (n + 1) * cos(frac((n + 1) * x, 2)) * sin(frac(n * x, 2))) * sin(frac(x, 2)), 2 * sin(frac(x, 2))^{2}) - frac(cos(frac(x, 2)) * sin(frac(n * x, 2)) * sin(frac((n + 1) * x, 2)), 2 * sin(frac(x, 2))^{2})
+13. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ sin(frac(x, 2)) ≠ 0 ⇒ T(n, x) = frac(n * sin(frac(x, 2)) * sin(frac((2 * n + 1) * x, 2)) - sin(frac(n * x, 2))^{2}, 2 * sin(frac(x, 2))^{2})
+
+GOAL:
+forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ sin(frac(x, 2)) ≠ 0 ⇒ S(n, x) = frac(sin(frac(n * x, 2)) * sin(frac((n + 1) * x, 2)), sin(frac(x, 2))) ∧ T(n, x) = frac(n * sin(frac(x, 2)) * sin(frac((2 * n + 1) * x, 2)) - sin(frac(n * x, 2))^{2}, 2 * sin(frac(x, 2))^{2})
+
+METHOD:

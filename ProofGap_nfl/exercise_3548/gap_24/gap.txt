@@ -1,0 +1,48 @@
+PROOF GAP @24
+ASSUM:
+1. u_{0} ∈ RealSet
+2. v_{0} ∈ RealSet
+3. x ∈ RealSet
+4. y ∈ RealSet
+5. z ∈ RealSet
+6. PlaneEq ∈ RealSet
+7. X : CartesianProd(RealSet, RealSet) → RealSet
+8. Y : CartesianProd(RealSet, RealSet) → RealSet
+9. Z : CartesianProd(RealSet, RealSet) → RealSet
+10. M : CartesianProd(RealSet, RealSet) → CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+11. v_{1} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+12. v_{2} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+13. n : CartesianProd(RealSet, RealSet) → CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+14. l : CartesianProd(RealSet, RealSet) → RealSet
+15. n_{0} : CartesianProd(RealSet, RealSet) → CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+16. l_{0} ∈ RealSet
+17. M_{0} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+18. u_{0} = v_{0}
+19. forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ⇒ X(u, v) = u + v)
+20. forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ⇒ Y(u, v) = u^{2} + v^{2})
+21. forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ⇒ Z(u, v) = u^{3} + v^{3})
+22. forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ⇒ M(u, v) = (u + v, u^{2} + v^{2}, u^{3} + v^{3}))
+23. forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ⇒ v_{1} = (FunDeri(X, 1, 1)(u, v), FunDeri(Y, 1, 1)(u, v), FunDeri(Z, 1, 1)(u, v)))
+24. forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ⇒ (FunDeri(X, 1, 1)(u, v), FunDeri(Y, 1, 1)(u, v), FunDeri(Z, 1, 1)(u, v)) = (1, 2 * u, 3 * u^{2}))
+25. forall (u), u ∈ RealSet ⇒ v_{1} = (1, 2 * u, 3 * u^{2})
+26. forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ⇒ v_{2} = (FunDeri(X, 2, 1)(u, v), FunDeri(Y, 2, 1)(u, v), FunDeri(Z, 2, 1)(u, v)))
+27. forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ⇒ (FunDeri(X, 2, 1)(u, v), FunDeri(Y, 2, 1)(u, v), FunDeri(Z, 2, 1)(u, v)) = (1, 2 * v, 3 * v^{2}))
+28. forall (v), v ∈ RealSet ⇒ v_{2} = (1, 2 * v, 3 * v^{2})
+29. forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ⇒ n(u, v) = (v - u) * (6 * u * v, -3 * (u + v), 2))
+30. forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ⇒ l(u, v) = sqrtn(2, 36 * u^{2} * v^{2} + 9 * (u + v)^{2} + 4))
+31. forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ⇒ n_{0}(u, v) = (frac(6 * u * v, l(u, v)), frac(-3 * (u + v), l(u, v)), frac(2, l(u, v))))
+32. l_{0} = sqrtn(2, 36 * (u_{0})^{4} + 36 * (u_{0})^{2} + 4)
+33. lim_{ u → u_{0} } (lim_{ v → v_{0} } (n_{0}(u, v))) = (frac(6 * (u_{0})^{2}, l_{0}), frac(-6 * u_{0}, l_{0}), frac(2, l_{0}))
+34. M_{0} = (2 * u_{0}, 2 * (u_{0})^{2}, 2 * (u_{0})^{3})
+35. PlaneEq = 3 * (u_{0})^{2} * (x - 2 * u_{0}) - 3 * u_{0} * (y - 2 * (u_{0})^{2}) + z - 2 * (u_{0})^{3}
+36. 3 * (u_{0})^{2} * (x - 2 * u_{0}) - 3 * u_{0} * (y - 2 * (u_{0})^{2}) + z - 2 * (u_{0})^{3} = 0
+37. PlaneEq = 0
+38. PlaneEq = 3 * (u_{0})^{2} * x - 3 * u_{0} * y + z
+39. 3 * (u_{0})^{2} * x - 3 * u_{0} * y + z = 2 * (u_{0})^{3}
+40. PlaneEq = 2 * (u_{0})^{3}
+41. u_{0} ≠ 0 ⇒ PlaneEq = frac(3 * x, u_{0}) - frac(3 * y, (u_{0})^{2}) + frac(z, (u_{0})^{3})
+
+GOAL:
+u_{0} ≠ 0 ⇒ frac(3 * x, u_{0}) - frac(3 * y, (u_{0})^{2}) + frac(z, (u_{0})^{3}) = 2
+
+METHOD:

@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ x ≠ 1
+4. forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ frac(1 + x, 1 - x) = -1 + frac(2, 1 - x)
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1 + x, 1 - x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ FunDeri(`F_3`, 1, 1)(x) = (-1 + frac(2, 1 - x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+METHOD:

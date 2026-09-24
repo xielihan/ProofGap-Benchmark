@@ -1,0 +1,4 @@
+1. get_condition (hypothesis 13: {b > 0}) in (GOAL: {b > 0 => lim_{ a -> 0 } (x_{2}(a)) = +infty \/ lim_{ a -> 0 } (x_{2}(a)) = -infty})
+2. or_intro left
+3. use_condition (hypothesis 13: {b > 0}) in (hypothesis 8: {b > 0 => lim_{ a -> 0 } (x_{2}(a)) = +infty}) as (hypothesis 14: {lim_{ a -> 0 } (x_{2}(a)) = +infty})
+4. apply (hypothesis 14: {lim_{ a -> 0 } (x_{2}(a)) = +infty})

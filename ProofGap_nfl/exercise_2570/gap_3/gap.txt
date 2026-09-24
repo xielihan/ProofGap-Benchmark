@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet
+2. A : NonNegIntegerSet → RealSet ∧ IsSeq(A)
+3. c : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ A(n) ∈ RealSet
+5. a ≠ 0
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ seqlim_{ n → +∞ } (n * A(n)) = a
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ n * A(n) = frac(A(n), frac(1, n))
+8. a > 0 ⇒ (forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < a ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ frac(A(n), frac(1, n)) > a - ε ∧ a - ε > 0)))
+
+GOAL:
+a > 0 ⇒ (forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < a ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ A(n) > (a - ε) * frac(1, n) ∧ A(n) > 0)))
+
+METHOD:

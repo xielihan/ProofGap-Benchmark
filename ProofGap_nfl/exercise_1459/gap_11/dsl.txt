@@ -1,0 +1,6 @@
+get_prop (hypothesis 4: {forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ f(x) = x^{2}}) (x := {frac(2, 3)}) as (hypothesis 17: {frac(2, 3) ∈ RealSet ∧ frac(2, 3) ∈ [0, 1] ⇒ f(frac(2, 3)) = frac(2, 3)^{2}})
+get_prop (hypothesis 5: {forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ g(x) = x^{3}}) (x := {frac(2, 3)}) as (hypothesis 18: {frac(2, 3) ∈ RealSet ∧ frac(2, 3) ∈ [0, 1] ⇒ g(frac(2, 3)) = frac(2, 3)^{3}})
+assert (hypothesis 19: {frac(2, 3) ∈ RealSet ∧ frac(2, 3) ∈ [0, 1]})
+use_condition (hypothesis 19: {frac(2, 3) ∈ RealSet ∧ frac(2, 3) ∈ [0, 1]}) in (hypothesis 17: {frac(2, 3) ∈ RealSet ∧ frac(2, 3) ∈ [0, 1] ⇒ f(frac(2, 3)) = frac(2, 3)^{2}}) as (hypothesis 20: {f(frac(2, 3)) = frac(2, 3)^{2}})
+use_condition (hypothesis 19: {frac(2, 3) ∈ RealSet ∧ frac(2, 3) ∈ [0, 1]}) in (hypothesis 18: {frac(2, 3) ∈ RealSet ∧ frac(2, 3) ∈ [0, 1] ⇒ g(frac(2, 3)) = frac(2, 3)^{3}}) as (hypothesis 21: {g(frac(2, 3)) = frac(2, 3)^{3}})
+autosolve all_hypothesis

@@ -1,0 +1,16 @@
+PROOF GAP @1
+ASSUM:
+1. F : RealSet → RealSet
+2. f : RealSet → RealSet
+3. a ∈ RealSet
+4. α ∈ RealSet
+5. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+6. p ∈ RealSet ∧ p > 0
+7. t ∈ RealSet
+8. M ∈ RealSet ∧ M > 0
+9. C ∈ RealSet
+
+GOAL:
+F(p) = DefInt(0, +∞, e^{-p * t} * f(t) * diff(t))
+
+METHOD:

@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. n ∈ RealSet
+2. forall (x), x ∈ RealSet ∧ n ≤ 0 ⇒ ¬(exists (L), L ∈ RealSet ∧ DefInt(0, +∞, frac(sin(x + frac(1, x)), x^{n}) * diff(fun x [x ∈ RealSet] . x)) = L)
+3. forall (x), x ∈ RealSet ∧ n > 0 ⇒ (forall (a), a ∈ RealSet ∧ a > 1 ⇒ DefInt(a, +∞, frac(sin(x + frac(1, x)), x^{n}) * diff(fun x [x ∈ RealSet] . x)) = DefInt(a, +∞, frac((1 - frac(1, x^{2})) * sin(x + frac(1, x)), x^{n} * (1 - frac(1, x^{2}))) * diff(fun x [x ∈ RealSet] . x)))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ n > 0 ⇒ (forall (a), a ∈ RealSet ∧ a > 1 ⇒ (forall (A), A ∈ RealSet ∧ A > a ⇒ |DefInt(a, A, (1 - frac(1, x^{2})) * sin(x + frac(1, x)) * diff(fun x [x ∈ RealSet] . x))| = |cos(a + frac(1, a)) - cos(A + frac(1, A))| ∧ |cos(a + frac(1, a)) - cos(A + frac(1, A))| ≤ 2))
+
+METHOD:

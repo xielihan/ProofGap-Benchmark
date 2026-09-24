@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. ConvergentSeries(DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, frac(π, 2))] . ln(sin(x))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, frac(π, 2))] . x)))
+2. ConvergentSeries(DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, frac(π, 2))] . ln(cos(x))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, frac(π, 2))] . x)))
+3. A = DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, frac(π, 2))] . ln(sin(x))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, frac(π, 2))] . x))
+4. DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, frac(π, 2))] . ln(cos(x))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, frac(π, 2))] . x)) = DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, frac(π, 2))] . ln(sin(x))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, frac(π, 2))] . x))
+
+GOAL:
+DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, frac(π, 2))] . ln(sin(x))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, frac(π, 2))] . x)) = A
+
+METHOD:

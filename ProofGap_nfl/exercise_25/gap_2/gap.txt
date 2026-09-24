@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. (2 * x - 1)^{2} < (x - 1)^{2}
+
+GOAL:
+3 * x^{2} - 2 * x < 0
+
+METHOD:

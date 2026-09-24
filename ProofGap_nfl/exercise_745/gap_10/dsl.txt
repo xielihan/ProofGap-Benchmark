@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∉ RationalSet ∧ 0 < x ∧ x < 1 => f(φ(x)) = 2 - φ(x)}) (x := {x0})
+get_condition (hypothesis 18: {x0 ∈ RealSet ∧ x0 ∉ RationalSet ∧ 0 < x0 ∧ x0 < 1}) in (GOAL: {x0 ∈ RealSet ∧ x0 ∉ RationalSet ∧ 0 < x0 ∧ x0 < 1 => f(φ(x0)) = 2 - φ(x0)})
+get_prop (hypothesis 2: {forall (x), x ∈ RealSet => φ(x) ∈ RealSet}) (x := {x0}) as (hypothesis 19: {x0 ∈ RealSet => φ(x0) ∈ RealSet})
+get_prop (hypothesis 15: {forall (x), x ∈ RealSet ∧ x ∉ RationalSet ∧ 0 < x ∧ x < 1 => 1 < φ(x)}) (x := {x0}) as (hypothesis 20: {x0 ∈ RealSet ∧ x0 ∉ RationalSet ∧ 0 < x0 ∧ x0 < 1 => 1 < φ(x0)})
+get_prop (hypothesis 16: {forall (x), x ∈ RealSet ∧ x ∉ RationalSet ∧ 0 < x ∧ x < 1 => φ(x) < 2}) (x := {x0}) as (hypothesis 21: {x0 ∈ RealSet ∧ x0 ∉ RationalSet ∧ 0 < x0 ∧ x0 < 1 => φ(x0) < 2})
+get_prop (hypothesis 5: {forall (u), u ∈ RealSet ∧ 1 < u ∧ u < 2 => f(u) = 2 - u}) (u := {φ(x0)}) as (hypothesis 22: {φ(x0) ∈ RealSet ∧ 1 < φ(x0) ∧ φ(x0) < 2 => f(φ(x0)) = 2 - φ(x0)})
+autosolve all_hypothesis

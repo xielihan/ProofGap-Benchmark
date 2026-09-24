@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet ∧ t ∈ RealSet ∧ t = e^{frac(x, 2)}
+2. t > 0
+
+GOAL:
+e^{x} = t^{2}
+
+METHOD:

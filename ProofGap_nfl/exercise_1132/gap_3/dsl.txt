@@ -1,0 +1,1 @@
+1. apply (hypothesis 4: {forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(y, 1, 2)(x) = frac(2 * ln(x) - 3, x^{3})})

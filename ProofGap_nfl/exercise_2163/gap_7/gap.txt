@@ -1,0 +1,15 @@
+PROOF GAP @7
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet
+3. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), (e^{x + 1} + 1)^{2} - (e^{x - 1} + 1)^{2}) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), (e^{x + 1} - e^{x - 1}) * (e^{x + 1} + e^{x - 1} + 2)) }
+4. { `F_4` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), (e^{x + 1} - e^{x - 1}) * (e^{x + 1} + e^{x - 1} + 2)) } = { `F_5` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), e^{2 * x} * (e^{-x} - e^{-1}) * (e^{x} * e^{-1} + 2 * e^{-x})) }
+5. { `F_6` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_6`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), e^{2 * x} * (e^{-x} - e^{-1}) * (e^{x} * e^{-1} + 2 * e^{-x})) } = { `F_7` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_7`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), e^{2 * x} * 2 * sinh(1) * (2 * cosh(1) + 2 * e^{-x})) }
+6. { `F_8` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_8`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), e^{2 * x} * 2 * sinh(1) * (2 * cosh(1) + 2 * e^{-x})) } = { `F_9` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_9`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), 4 * e^{x} * sinh(1) * (1 + e^{x} * cosh(1))) }
+7. { `F_10` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_10`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), 4 * e^{x} * sinh(1) * (1 + e^{x} * cosh(1))) } = { `F_12` | exists (`F_11`), `F_11` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_11`, 1, 1)(x) = (frac(1, e^{x}) - frac(cosh(1), 1 + e^{x} * cosh(1))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_12`(x) = frac(1, 4 * sinh(1)) * `F_11`(x)) }
+8. { `F_14` | exists (`F_13`), `F_13` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_13`, 1, 1)(x) = (frac(1, e^{x}) - frac(cosh(1), 1 + e^{x} * cosh(1))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_14`(x) = frac(1, 4 * sinh(1)) * `F_13`(x)) } = { `F_18` | exists (`F_15`), `F_15` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_15`, 1, 1)(x) = (1 - frac(e^{x} * cosh(1), 1 + e^{x} * cosh(1))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_18`(x) = -frac(e^{-x}, 4 * sinh(1)) - frac(cosh(1), 4 * sinh(1)) * `F_15`(x)) }
+
+GOAL:
+{ `F_22` | exists (`F_19`), `F_19` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_19`, 1, 1)(x) = (1 - frac(e^{x} * cosh(1), 1 + e^{x} * cosh(1))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_22`(x) = -frac(e^{-x}, 4 * sinh(1)) - frac(cosh(1), 4 * sinh(1)) * `F_19`(x)) } = { `F_23` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_23`(x) = -frac(e^{-x}, 4 * sinh(1)) - frac(coth(1), 4) * (x - ln(1 + e^{x} * cosh(1))) + C) }
+
+METHOD:

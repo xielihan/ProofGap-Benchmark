@@ -1,0 +1,2 @@
+rewrite_in limit (left_to_right, equation) (hypothesis 2: {forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = frac(1 - cos(x), x^{2})}); from (GOAL: {lim_{ x → 0 } (f(x)) = frac(1, 2)}) to (GOAL: {lim_{ x → 0 } (frac(1 - cos(x), x^{2})) = frac(1, 2)})
+apply (hypothesis 3: {lim_{ x → 0 } (frac(1 - cos(x), x^{2})) = frac(1, 2)})

@@ -1,0 +1,26 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. c ∈ RealSet
+4. `φ_{0}` ∈ RealSet
+5. `ψ_{0}` ∈ RealSet
+6. PlaneEq ∈ RealSet
+7. NormalEq ∈ RealSet
+8. X : CartesianProd(RealSet, RealSet) → RealSet
+9. Y : CartesianProd(RealSet, RealSet) → RealSet
+10. Z : CartesianProd(RealSet, RealSet) → RealSet
+11. M_{0} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+12. v_{1} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+13. v_{2} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+14. n ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+15. a ≠ 0
+16. b ≠ 0
+17. c ≠ 0
+18. forall (φ) (ψ), φ ∈ RealSet ∧ ψ ∈ RealSet ⇒ X(φ, ψ) = a * cos(ψ) * cos(φ)
+19. forall (φ) (ψ), φ ∈ RealSet ∧ ψ ∈ RealSet ⇒ Y(φ, ψ) = b * cos(ψ) * sin(φ)
+
+GOAL:
+forall (φ) (ψ), φ ∈ RealSet ∧ ψ ∈ RealSet ⇒ Z(φ, ψ) = c * sin(ψ)
+
+METHOD:

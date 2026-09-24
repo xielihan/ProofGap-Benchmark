@@ -1,0 +1,38 @@
+PROOF GAP @30
+ASSUM:
+1. p ∈ RealSet
+2. q ∈ RealSet ∧ q ≥ 0
+3. lim_{ x → 0^+ } (x^{-1 - p} * frac(x^{p} * sin(x), 1 + x^{q})) = lim_{ x → 0^+ } (frac(sin(x), x) * frac(1, 1 + x^{q}))
+4. lim_{ x → 0^+ } (frac(sin(x), x) * frac(1, 1 + x^{q})) = 1
+5. lim_{ x → 0^+ } (x^{-1 - p} * frac(x^{p} * sin(x), 1 + x^{q})) = 1
+6. forall (x), x ∈ RealSet ∧ p > -2 ⇒ DefInt(0, 1, frac(x^{p} * sin(x), 1 + x^{q}) * diff(fun x [x ∈ RealSet] . x)) < +∞
+7. forall (x), x ∈ RealSet ∧ p > -2 ⇒ DefInt(0, 1, |frac(x^{p} * sin(x), 1 + x^{q})| * diff(fun x [x ∈ RealSet] . x)) < +∞
+8. p ≥ q ⇒ (forall (A), A ∈ RealSet ∧ A > 1 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ 2 * N * π + frac(π, 4) > A))
+9. forall (x), x ∈ RealSet ∧ p ≥ q ⇒ (forall (A), A ∈ RealSet ∧ A > 1 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ frac(x^{p}, 1 + x^{q}) > frac(1, 3)))
+10. forall (x), x ∈ RealSet ∧ p ≥ q ⇒ (forall (A), A ∈ RealSet ∧ A > 1 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ |DefInt(2 * N * π + frac(π, 4), 2 * N * π + frac(π, 2), frac(x^{p}, 1 + x^{q}) * sin(x) * diff(fun x [x ∈ RealSet] . x))| > frac(1, 3) * DefInt(2 * N * π + frac(π, 4), 2 * N * π + frac(π, 2), sin(x) * diff(fun x [x ∈ RealSet] . x))))
+11. forall (x), x ∈ RealSet ∧ p ≥ q ⇒ (forall (A), A ∈ RealSet ∧ A > 1 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ frac(1, 3) * DefInt(2 * N * π + frac(π, 4), 2 * N * π + frac(π, 2), sin(x) * diff(fun x [x ∈ RealSet] . x)) = frac(sqrtn(2, 2), 6)))
+12. forall (x), x ∈ RealSet ∧ p ≥ q ⇒ (forall (A), A ∈ RealSet ∧ A > 1 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ |DefInt(2 * N * π + frac(π, 4), 2 * N * π + frac(π, 2), frac(x^{p}, 1 + x^{q}) * sin(x) * diff(fun x [x ∈ RealSet] . x))| > frac(sqrtn(2, 2), 6)))
+13. forall (x), x ∈ RealSet ∧ p ≥ q ⇒ DefInt(1, +∞, frac(x^{p} * sin(x), 1 + x^{q}) * diff(fun x [x ∈ RealSet] . x)) = +∞
+14. p < q - 1 ⇒ (exists (α), α ∈ RealSet ∧ α > 0 ∧ (exists (a), a ∈ RealSet ∧ a = α ∧ a > 0))
+15. p < q - 1 ⇒ (exists (α), α ∈ RealSet ∧ α > 0 ∧ (exists (a), a ∈ RealSet ∧ a = α ∧ p + a < q - 1))
+16. p < q - 1 ⇒ (exists (α), α ∈ RealSet ∧ α > 0 ∧ (exists (a), a ∈ RealSet ∧ a = α ∧ q - p - a > 1))
+17. p < q - 1 ⇒ (exists (α), α ∈ RealSet ∧ α > 0 ∧ (exists (a), a ∈ RealSet ∧ a = α ∧ lim_{ x → +∞ } (x^{q - p - a} * frac(x^{p}, 1 + x^{q}) * |sin(x)|) = lim_{ x → +∞ } (frac(x^{q}, 1 + x^{q}) * frac(|sin(x)|, x^{a}))))
+18. p < q - 1 ⇒ (exists (α), α ∈ RealSet ∧ α > 0 ∧ (exists (a), a ∈ RealSet ∧ a = α ∧ lim_{ x → +∞ } (frac(x^{q}, 1 + x^{q}) * frac(|sin(x)|, x^{a})) = 0))
+19. p < q - 1 ⇒ (exists (α), α ∈ RealSet ∧ α > 0 ∧ (exists (a), a ∈ RealSet ∧ a = α ∧ lim_{ x → +∞ } (x^{q - p - a} * frac(x^{p}, 1 + x^{q}) * |sin(x)|) = 0))
+20. forall (x), x ∈ RealSet ∧ p < q - 1 ⇒ (exists (α), α ∈ RealSet ∧ α > 0 ∧ (exists (a), a ∈ RealSet ∧ a = α ∧ DefInt(1, +∞, |frac(x^{p} * sin(x), 1 + x^{q})| * diff(fun x [x ∈ RealSet] . x)) < +∞))
+21. q - 1 ≤ p ⇒ p < q ⇒ (exists (A_{0}), A_{0} ∈ RealSet ∧ A_{0} > 1 ∧ A_{0} = A_{0})
+22. forall (x), x ∈ RealSet ∧ q - 1 ≤ p ∧ p < q ⇒ (exists (A_{0}), A_{0} ∈ RealSet ∧ A_{0} > 1 ∧ (x ≥ A_{0} ⇒ frac(x^{p + 1}, 1 + x^{q}) > frac(1, 3)))
+23. forall (x), x ∈ RealSet ∧ q - 1 ≤ p ∧ p < q ⇒ (exists (A_{0}), A_{0} ∈ RealSet ∧ A_{0} > 1 ∧ DefInt(A_{0}, +∞, frac(x^{p} * |sin(x)|, 1 + x^{q}) * diff(fun x [x ∈ RealSet] . x)) = DefInt(A_{0}, +∞, frac(x^{p + 1}, 1 + x^{q}) * |frac(sin(x), x)| * diff(fun x [x ∈ RealSet] . x)))
+24. forall (x), x ∈ RealSet ∧ q - 1 ≤ p ∧ p < q ⇒ (exists (A_{0}), A_{0} ∈ RealSet ∧ A_{0} > 1 ∧ DefInt(A_{0}, +∞, frac(x^{p + 1}, 1 + x^{q}) * |frac(sin(x), x)| * diff(fun x [x ∈ RealSet] . x)) ≥ frac(1, 3) * DefInt(A_{0}, +∞, |frac(sin(x), x)| * diff(fun x [x ∈ RealSet] . x)))
+25. forall (x), x ∈ RealSet ∧ q - 1 ≤ p ∧ p < q ⇒ (exists (A_{0}), A_{0} ∈ RealSet ∧ A_{0} > 1 ∧ frac(1, 3) * DefInt(A_{0}, +∞, |frac(sin(x), x)| * diff(fun x [x ∈ RealSet] . x)) = +∞)
+26. forall (x), x ∈ RealSet ∧ q - 1 ≤ p ∧ p < q ⇒ (exists (A_{0}), A_{0} ∈ RealSet ∧ A_{0} > 1 ∧ DefInt(A_{0}, +∞, frac(x^{p} * |sin(x)|, 1 + x^{q}) * diff(fun x [x ∈ RealSet] . x)) ≥ +∞)
+27. forall (x), x ∈ RealSet ∧ q - 1 ≤ p ∧ p < q ∧ q = 0 ⇒ DefInt(1, +∞, frac(x^{p} * sin(x), 1 + x^{q}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 2) * DefInt(1, +∞, x^{p} * sin(x) * diff(fun x [x ∈ RealSet] . x))
+28. forall (x), x ∈ RealSet ∧ q - 1 ≤ p ∧ p < q ∧ q = 0 ⇒ DefInt(1, +∞, frac(x^{p} * sin(x), 1 + x^{q}) * diff(fun x [x ∈ RealSet] . x)) < +∞
+29. forall (x), x ∈ RealSet ∧ q - 1 ≤ p ∧ p < q ∧ q > 0 ⇒ FunDeri(fun x [x ∈ RealSet] . frac(x^{p}, 1 + x^{q}), 1, 1)(x) = frac(x^{p - 1} * (p - (q - p) * x^{q}), (1 + x^{q})^{2})
+30. forall (x), x ∈ RealSet ∧ q - 1 ≤ p ∧ p < q ∧ q > 0 ⇒ FunDeri(fun x [x ∈ RealSet] . frac(x^{p}, 1 + x^{q}), 1, 1)(x) < 0
+31. q - 1 ≤ p ⇒ p < q ⇒ q > 0 ⇒ lim_{ x → +∞ } (frac(x^{p}, 1 + x^{q})) = 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ q - 1 ≤ p ∧ p < q ∧ q > 0 ⇒ (forall (A), A ∈ RealSet ∧ A > 1 ⇒ |DefInt(1, A, sin(x) * diff(fun x [x ∈ RealSet] . x))| = |cos(1) - cos(A)|)
+
+METHOD:

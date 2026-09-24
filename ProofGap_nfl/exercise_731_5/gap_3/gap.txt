@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = cases{ sin(π * x) if x ∈ RationalSet; 0 if x ∈ RealSet ∧ x ∉ RationalSet }
+3. forall (a), a ∈ RealSet ∧ a ∉ IntegerSet ⇒ sin(π * a) ≠ 0
+4. forall (a), a ∈ RealSet ∧ a ∉ IntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (x), x ∈ RealSet ∧ x ∈ RationalSet ∧ |x - a| < ε ∧ f(x) = sin(π * x)))
+
+GOAL:
+forall (a), a ∈ RealSet ∧ a ∉ IntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (x), x ∈ RealSet ∧ x ∉ RationalSet ∧ |x - a| < ε ∧ f(x) = 0))
+
+METHOD:

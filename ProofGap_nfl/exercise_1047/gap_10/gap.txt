@@ -1,0 +1,24 @@
+PROOF GAP @10
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. F : RealSet → RealSet
+4. forall (t), t ∈ RealSet ⇒ x(t) = 2 * t + |t|
+5. forall (t), t ∈ RealSet ⇒ y(t) = 5 * t^{2} + 4 * t * |t|
+6. forall (t), t ∈ RealSet ∧ x(t) ∈ Dom(F) ⇒ y(t) = F(x(t))
+7. x(0) = 0
+8. y(0) = 0
+9. forall (Δt), Δt ∈ RealSet ∧ Δt ≠ 0 ⇒ (exists (Δx), Δx ∈ RealSet ∧ Δx = x(Δt) - x(0))
+10. forall (Δt), Δt ∈ RealSet ∧ Δt ≠ 0 ⇒ (exists (Δy), Δy ∈ RealSet ∧ Δy = y(Δt) - y(0))
+11. forall (Δt), Δt ∈ RealSet ∧ Δt ≠ 0 ⇒ (exists (Δx), Δx ∈ RealSet ∧ Δx = 2 * Δt + |Δt|)
+12. forall (Δt), Δt ∈ RealSet ∧ Δt ≠ 0 ⇒ (exists (Δy), Δy ∈ RealSet ∧ Δy = 5 * Δt^{2} + 4 * Δt * |Δt|)
+13. forall (Δt), Δt ∈ RealSet ∧ Δt ≠ 0 ⇒ (exists (Δx), Δx ∈ RealSet ∧ (exists (Δy), Δy ∈ RealSet ∧ Δx = 2 * Δt + |Δt| ∧ Δy = 5 * Δt^{2} + 4 * Δt * |Δt| ∧ frac(Δy, Δx) = frac(5 * Δt^{2} + 4 * Δt * |Δt|, 2 * Δt + |Δt|)))
+14. forall (Δt), Δt ∈ RealSet ∧ Δt ≠ 0 ⇒ (exists (Δx), Δx ∈ RealSet ∧ (exists (Δy), Δy ∈ RealSet ∧ Δx = 2 * Δt + |Δt| ∧ Δy = 5 * Δt^{2} + 4 * Δt * |Δt| ∧ frac(Δy, Δx) = cases{ 3 * Δt if Δt > 0; Δt if Δt < 0 }))
+15. lim_{ Δt → 0 } (cases{ 3 * Δt if Δt > 0; Δt if Δt < 0 }) = 0
+16. DiffableFuncAt(F, x(0))
+17. FunDeri(F, x, 1)(x(0)) = 0
+
+GOAL:
+¬DiffableFuncAt(fun t [t ∈ RealSet] . |t|, 0)
+
+METHOD:

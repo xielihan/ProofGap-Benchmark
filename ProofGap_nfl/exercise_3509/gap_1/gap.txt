@@ -1,0 +1,19 @@
+PROOF GAP @1
+ASSUM:
+1. x_{1} ∈ RealSet
+2. x_{2} ∈ RealSet
+3. x_{3} ∈ RealSet
+4. y_{1} ∈ RealSet
+5. y_{2} ∈ RealSet
+6. y_{3} ∈ RealSet
+7. z : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+8. FuncOfClassK(z, 2)
+9. y_{1} = x_{2} + x_{3} - x_{1}
+10. y_{2} = x_{1} + x_{3} - x_{2}
+11. y_{3} = x_{1} + x_{2} - x_{3}
+12. FunDeri(z, x_{1}, 2)(x_{1}, x_{2}, x_{3}) + FunDeri(z, x_{2}, 2)(x_{1}, x_{2}, x_{3}) + FunDeri(z, x_{3}, 2)(x_{1}, x_{2}, x_{3}) + FunDeri(FunDeri(z, x_{1}, 1), x_{2}, 1)(x_{1}, x_{2}, x_{3}) + FunDeri(FunDeri(z, x_{1}, 1), x_{3}, 1)(x_{1}, x_{2}, x_{3}) + FunDeri(FunDeri(z, x_{2}, 1), x_{3}, 1)(x_{1}, x_{2}, x_{3}) = 0
+
+GOAL:
+FunDeri(z, x_{1}, 1)(x_{1}, x_{2}, x_{3}) = -FunDeri(z, y_{1}, 1)(y_{1}, y_{2}, y_{3}) + FunDeri(z, y_{2}, 1)(y_{1}, y_{2}, y_{3}) + FunDeri(z, y_{3}, 1)(y_{1}, y_{2}, y_{3})
+
+METHOD:

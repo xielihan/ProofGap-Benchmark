@@ -1,0 +1,4 @@
+get_condition (hypothesis 19: {x = 2 * π * sqrtn(2, frac(2, 3))}) in (GOAL: {x = 2 * π * sqrtn(2, frac(2, 3)) ⇒ FunDeri(f, 1, 1)(x) = 0})
+rewrite (left_to_right, equation) (hypothesis 17: {FunDeri(f, 1, 1)(x) = 16 * π^{2} * x^{3} - 6 * x^{5}}); from (GOAL: {FunDeri(f, 1, 1)(x) = 0}) to (GOAL: {16 * π^{2} * x^{3} - 6 * x^{5} = 0})
+rewrite (left_to_right, equation) (hypothesis 19: {x = 2 * π * sqrtn(2, frac(2, 3))}); from (GOAL: {16 * π^{2} * x^{3} - 6 * x^{5} = 0}) to (GOAL: {16 * π^{2} * (2 * π * sqrtn(2, frac(2, 3)))^{3} - 6 * (2 * π * sqrtn(2, frac(2, 3)))^{5} = 0})
+autosolve all_hypothesis

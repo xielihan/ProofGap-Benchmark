@@ -1,0 +1,19 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. x ∈ RealSet
+3. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+4. ε ∈ RealSet ∧ ε > 0
+5. f : RealSet → RealSet
+6. a^{n} + x > 0
+7. |x| ≈_{ ε } 0
+8. f = (fun y [y ∈ RealSet] . sqrtn(n, y))
+9. y_{0} = a^{n}
+10. Δy = x
+11. forall (y), y ∈ RealSet ∧ y > 0 ⇒ f(y) = sqrtn(n, y)
+12. DiffableFuncOn(f, IntervalLoRo(0, +∞))
+
+GOAL:
+f(y_{0} + Δy) ≈_{ ε } f(y_{0}) + FunDeri(f, 1, 1)(y_{0}) * Δy
+
+METHOD:

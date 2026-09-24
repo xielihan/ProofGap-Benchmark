@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. a : NonNegIntegerSet → RealSet
+3. b : NonNegIntegerSet → RealSet
+4. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 2 * π) ⇒ f(x) = frac(π - x, 2)
+
+GOAL:
+a(0) = frac(1, π) * DefInt(0, 2 * π, (fun x [x ∈ RealSet] . frac(π - x, 2)) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

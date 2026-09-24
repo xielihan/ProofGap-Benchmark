@@ -1,0 +1,5 @@
+1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ y(n) - y(n - 1) = a * d}) (n := {k})
+2. get_condition (hypothesis 14: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2}) in (GOAL: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2 ⇒ y(k) - y(k - 1) = a * d})
+3. get_prop (hypothesis 13: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ y(n) - y(n - 1) = a * (x(1) + (n - 1) * d) + b - (a * (x(1) + (n - 2) * d) + b)}) (n := {k}) as (hypothesis 15: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2 ⇒ y(k) - y(k - 1) = a * (x(1) + (k - 1) * d) + b - (a * (x(1) + (k - 2) * d) + b)})
+4. use_condition (hypothesis 14: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2}) in (hypothesis 15: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2 ⇒ y(k) - y(k - 1) = a * (x(1) + (k - 1) * d) + b - (a * (x(1) + (k - 2) * d) + b)}) as (hypothesis 16: {y(k) - y(k - 1) = a * (x(1) + (k - 1) * d) + b - (a * (x(1) + (k - 2) * d) + b)})
+5. autosolve all_hypothesis

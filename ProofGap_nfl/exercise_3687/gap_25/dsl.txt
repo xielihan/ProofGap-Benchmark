@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 9: {S(x, y, h) = 2 * (x + y) * h + x * y}); from (GOAL: {S(x, y, h) > x * y}) to (GOAL: {2 * (x + y) * h + x * y > x * y})
+autosolve all_hypothesis

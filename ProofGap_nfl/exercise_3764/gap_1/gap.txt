@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (exists (L), L ∈ RealSet ∧ DefInt(0, +∞, (fun y [y ∈ RealSet] . e^{-x^{2} * (1 + y^{2})} * sin(x)) * diff(fun y [y ∈ RealSet] . y)) = L)
+
+METHOD:

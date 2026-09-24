@@ -1,0 +1,1 @@
+apply (hypothesis 4: {forall (t), t ∈ RealSet ∧ t ∈ NonNegRealSet ⇒ InverseFunc(y, t) = sqrtn(2, t)})

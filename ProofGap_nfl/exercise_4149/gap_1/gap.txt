@@ -1,0 +1,17 @@
+PROOF GAP @1
+ASSUM:
+1. V ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. I_{z} ∈ RealSet
+3. x ∈ RealSet
+4. y ∈ RealSet
+5. z ∈ RealSet ∧ z > 0
+6. r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1
+7. φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π
+8. V = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x^{2} + y^{2} + z^{2} ≤ 2, x^{2} + y^{2} ≤ z^{2}, z > 0 }
+9. x = r * cos(φ)
+10. y = r * sin(φ)
+
+GOAL:
+0 ≤ φ
+
+METHOD:

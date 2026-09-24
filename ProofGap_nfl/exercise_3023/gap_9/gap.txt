@@ -1,0 +1,17 @@
+PROOF GAP @9
+ASSUM:
+1. S : RealSet → RealSet
+2. forall (z), z ∈ ComplexSet ∧ |z| < 1 ⇒ sum_{ n = 1 }^{ +∞ } (frac(z^{n}, n)) = ln(frac(1, 1 - z))
+3. forall (x), x ∈ RealSet ⇒ (exists (z), z ∈ ComplexSet ∧ z = -e^{__IMAGINARY_UNIT__ * x})
+4. forall (x), x ∈ RealSet ∧ |x| < π ⇒ sum_{ n = 1 }^{ +∞ } ((-1)^{n} * frac(sin(n * x), n)) = -frac(x, 2)
+5. forall (x), x ∈ RealSet ∧ |x| < π ⇒ sum_{ n = 1 }^{ +∞ } ((-1)^{n} * frac(cos(n * x), n)) = -ln(2 * cos(frac(x, 2)))
+6. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ frac(1, n^{2} - 1) = frac(1, 2) * (frac(1, n - 1) - frac(1, n + 1))
+7. forall (x), x ∈ RealSet ⇒ S(x) = frac(1, 2) * (sum_{ n = 2 }^{ +∞ } ((-1)^{n} * frac(cos(n * x), n - 1))) - frac(1, 2) * (sum_{ n = 2 }^{ +∞ } ((-1)^{n} * frac(cos(n * x), n + 1)))
+8. forall (x), x ∈ RealSet ⇒ S(x) = -frac(1, 2) * (sum_{ m = 1 }^{ +∞ } ((-1)^{m} * frac(cos((m + 1) * x), m))) + frac(1, 2) * (sum_{ m = 3 }^{ +∞ } ((-1)^{m} * frac(cos((m - 1) * x), m)))
+9. forall (x), x ∈ RealSet ⇒ S(x) = frac(1, 2) * (sum_{ m = 1 }^{ +∞ } ((-1)^{m} * frac(cos((m - 1) * x) - cos((m + 1) * x), m))) - (-frac(1, 2) + frac(1, 2) * frac(1, 2) * cos(x))
+10. forall (x), x ∈ RealSet ⇒ S(x) = frac(1, 2) * (1 - frac(cos(x), 2)) + (sum_{ m = 1 }^{ +∞ } ((-1)^{m} * frac(sin(m * x) * sin(x), m)))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| < π ⇒ S(x) = frac(1, 2) * (1 - frac(cos(x), 2)) - frac(x, 2) * sin(x)
+
+METHOD:

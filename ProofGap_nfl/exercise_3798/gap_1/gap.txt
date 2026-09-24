@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. α ∈ RealSet ∧ |α| ≤ 1
+2. I = (fun α [α ∈ RealSet ∧ |α| ≤ 1] . DefInt(0, 1, (fun x [x ∈ RealSet] . frac(ln(1 - α^{2} * x^{2}), sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x)))
+
+GOAL:
+ContinuousFuncOn(I, [-1, 1])
+
+METHOD:
+[@method 根据 "3797题同理" @]

@@ -1,0 +1,24 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. c ∈ RealSet
+4. x : RealSet → RealSet
+5. y : RealSet → RealSet
+6. s_{1} ∈ RealSet
+7. s_{2} ∈ RealSet
+8. a > b
+9. b > 0
+10. c = sqrtn(2, a^{2} - b^{2})
+11. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ x(t) = a * cos(t)
+12. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ y(t) = b * sin(t)
+13. ε ∈ RealSet ∧ ε = frac(c, a)
+14. s_{1} = DefInt(0, 2 * π, (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . sqrtn(2, FunDeri(x, 1, 1)(t)^{2} + FunDeri(y, 1, 1)(t)^{2})) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . t))
+15. s_{2} = DefInt(0, 2 * π * b, (fun u [u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 2 * π * b] . sqrtn(2, 1 + frac(c^{2}, b^{2}) * cos(frac(u, b))^{2})) * diff(fun u [u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 2 * π * b] . u))
+16. s_{1} = DefInt(0, 2 * π, sqrtn(2, a^{2} * sin(t)^{2} + b^{2} * cos(t)^{2}) * diff(fun t [t ∈ RealSet] . t))
+17. DefInt(0, 2 * π, sqrtn(2, a^{2} * sin(t)^{2} + b^{2} * cos(t)^{2}) * diff(fun t [t ∈ RealSet] . t)) = DefInt(0, 2 * π, sqrtn(2, a^{2} - c^{2} * cos(t)^{2}) * diff(fun t [t ∈ RealSet] . t))
+
+GOAL:
+DefInt(0, 2 * π, sqrtn(2, a^{2} - c^{2} * cos(t)^{2}) * diff(fun t [t ∈ RealSet] . t)) = a * DefInt(0, 2 * π, sqrtn(2, 1 - ε^{2} * cos(t)^{2}) * diff(fun t [t ∈ RealSet] . t))
+
+METHOD:

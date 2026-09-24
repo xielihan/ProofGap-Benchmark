@@ -1,0 +1,28 @@
+PROOF GAP @7
+ASSUM:
+1. V ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. ρ ∈ RealSet ∧ ρ > 0
+4. P_{x} ∈ RealSet
+5. P_{y} ∈ RealSet
+6. P_{z} ∈ RealSet
+7. Boundary : PowerSet(CartesianProd(RealSet, CartesianProd(RealSet, RealSet))) → PowerSet(CartesianProd(RealSet, CartesianProd(RealSet, RealSet)))
+8. α ∈ RealSet
+9. β ∈ RealSet
+10. γ ∈ RealSet
+11. S = Boundary(V)
+12. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ∈ V ⇒ z ≥ 0
+13. P_{x} = -ρ * ScalarSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z * cos(α)) * diff(S))
+14. P_{y} = -ρ * ScalarSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z * cos(β)) * diff(S))
+15. P_{z} = -ρ * ScalarSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z * cos(γ)) * diff(S))
+16. ScalarSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z * cos(α)) * diff(S)) = VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . 0) * diff(ω))
+17. VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . 0) * diff(ω)) = 0
+18. ScalarSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z * cos(α)) * diff(S)) = 0
+19. P_{x} = -ρ * ScalarSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z * cos(α)) * diff(S))
+20. -ρ * ScalarSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z * cos(α)) * diff(S)) = -ρ * VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . 0) * diff(ω))
+21. -ρ * VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . 0) * diff(ω)) = 0
+
+GOAL:
+P_{x} = 0
+
+METHOD:

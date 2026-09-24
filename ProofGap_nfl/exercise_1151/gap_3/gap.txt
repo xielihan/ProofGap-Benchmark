@@ -1,0 +1,18 @@
+PROOF GAP @3
+ASSUM:
+1. x_{0} ∈ RealSet
+2. f : RealSet → RealSet
+3. F : RealSet → RealSet
+4. a ∈ RealSet
+5. b ∈ RealSet
+6. c ∈ RealSet
+7. forall (x), x ∈ RealSet ∧ x ≤ x_{0} ⇒ DiffableFuncAt(f, x)
+8. forall (x), x ∈ RealSet ∧ x ≤ x_{0} ⇒ DiffableFuncAt(FunDeri(f, 1, 1), x)
+9. forall (x), x ∈ RealSet ⇒ F(x) = cases{ f(x) if x ≤ x_{0}; a * (x - x_{0})^{2} + b * (x - x_{0}) + c if x > x_{0} }
+10. lim_{ x → x_{0}^- } (F(x)) = lim_{ x → x_{0}^+ } (F(x))
+11. lim_{ x → x_{0}^+ } (F(x)) = F(x_{0})
+
+GOAL:
+lim_{ x → x_{0}^- } (F(x)) = F(x_{0})
+
+METHOD:

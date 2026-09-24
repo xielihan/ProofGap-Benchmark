@@ -1,0 +1,18 @@
+PROOF GAP @1
+ASSUM:
+1. x : CartesianProd(RealSet, RealSet) → RealSet
+2. y : CartesianProd(RealSet, RealSet) → RealSet
+3. z : CartesianProd(RealSet, RealSet) → RealSet
+4. a ∈ RealSet ∧ a > 0
+5. V ∈ RealSet
+6. D ⊆ CartesianProd(RealSet, RealSet)
+7. Omega ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+8. forall (u) (v), u ∈ RealSet ∧ u ≥ 0 ∧ v ∈ RealSet ⇒ x(u, v) = u * cos(v)
+9. forall (u) (v), u ∈ RealSet ∧ u ≥ 0 ∧ v ∈ RealSet ⇒ y(u, v) = u * sin(v)
+10. forall (u) (v), u ∈ RealSet ∧ u ≥ 0 ∧ v ∈ RealSet ⇒ z(u, v) = -u + a * cos(v)
+11. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ⇒ ((u, v) ∈ D ⇔ -frac(π, 2) ≤ v ∧ v ≤ frac(π, 2) ∧ 0 ≤ u ∧ u ≤ a * cos(v))
+
+GOAL:
+forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ∧ (u, v) ∈ D ⇒ z(u, v) ≥ 0
+
+METHOD:

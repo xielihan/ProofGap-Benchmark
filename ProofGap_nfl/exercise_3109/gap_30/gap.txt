@@ -1,0 +1,48 @@
+PROOF GAP @30
+ASSUM:
+1. F : RealSet → RealSet
+2. G : RealSet → RealSet
+3. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+4. a ∈ RealSet
+5. b ∈ RealSet
+6. c : NonNegIntegerSet → RealSet
+7. a < b
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ f(n) : IntervalLoRo(a, b) → RealSet
+9. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ F(x) = prod_{ n = 1 }^{ +∞ } (1 + f(n, x)))
+10. forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ x ∈ IntervalLoRo(a, b) ∧ n ∈ PosIntegerSet ⇒ 1 + f(n, x) ≠ 0
+11. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (|f(n, x)|))
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ DiffableFuncOn(f(n), IntervalLoRo(a, b))
+13. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ c(n) ≥ 0
+14. forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ x ∈ IntervalLoRo(a, b) ∧ n ∈ PosIntegerSet ⇒ |FunDeri(f(n), 1, 1)(x)| ≤ c(n)
+15. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n)))
+16. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ ConvergentSeries(prod_{ n = 1 }^{ +∞ } (1 + f(n, x))) ∧ F(x) ≠ 0
+17. G = (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b)] . ln(|F(x)|))
+18. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ FunDeri(G, 1, 1)(x) = frac(FunDeri(F, 1, 1)(x), F(x))
+19. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ G(x) = sum_{ n = 1 }^{ +∞ } (ln(|1 + f(n, x)|))
+20. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ FunDeri(G, 1, 1)(x) = sum_{ n = 1 }^{ +∞ } (frac(FunDeri(f(n), 1, 1)(x), 1 + f(n, x)))
+21. exists (a_{1}), a_{1} ∈ RealSet ∧ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ a_{1} = a_{1})
+22. exists (b_{1}), b_{1} ∈ RealSet ∧ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ b_{1} = b_{1})
+23. forall (a_{1}), a_{1} ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ a < a_{1})
+24. forall (a_{1}), a_{1} ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ a_{1} < x_{0})
+25. forall (b_{1}), b_{1} ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ x_{0} < b_{1})
+26. forall (b_{1}), b_{1} ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ b_{1} < b)
+27. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ a < b
+28. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (|f(n, x_{0})|))
+29. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ (forall (x) (a_{1}) (b_{1}) (n), x ∈ RealSet ∧ a_{1} ∈ RealSet ∧ b_{1} ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ x ∈ IntervalLoRo(a_{1}, b_{1}) ∧ n ∈ PosIntegerSet ⇒ (exists (ξ) (a_{1}) (b_{1}), ξ ∈ RealSet ∧ a_{1} ∈ RealSet ∧ b_{1} ∈ RealSet ∧ ξ ∈ IntervalLoRo(a_{1}, b_{1}) ∧ |f(n, x) - f(n, x_{0})| = |FunDeri(f(n), 1, 1)(ξ) * (x - x_{0})| ∧ |FunDeri(f(n), 1, 1)(ξ) * (x - x_{0})| ≤ (b_{1} - a_{1}) * c(n)))
+30. forall (a_{1}), a_{1} ∈ RealSet ⇒ (forall (b_{1}), b_{1} ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ UniformConvergent(fun m [m ∈ NonNegIntegerSet] . fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(a_{1}, b_{1})] . sum_{ n = 1 }^{ m } (|f(n, x) - f(n, x_{0})|), IntervalLoRo(a_{1}, b_{1}), fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(a_{1}, b_{1})] . sum_{ n = 1 }^{ +∞ } (|f(n, x) - f(n, x_{0})|))))
+31. forall (a_{1}), a_{1} ∈ RealSet ⇒ (forall (b_{1}), b_{1} ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ UniformConvergent(fun m [m ∈ NonNegIntegerSet] . fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(a_{1}, b_{1})] . sum_{ n = 1 }^{ m } (|f(n, x)|), IntervalLoRo(a_{1}, b_{1}), fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(a_{1}, b_{1})] . sum_{ n = 1 }^{ +∞ } (|f(n, x)|))))
+32. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n) (x) (a_{1}) (b_{1}), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ a_{1} ∈ RealSet ∧ b_{1} ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ IntervalLoRo(a_{1}, b_{1}) ∧ n > N ⇒ |f(n, x)| < frac(1, 2) ∧ |ln(1 + f(n, x))| ≤ 2 * |f(n, x)|))
+33. forall (N), N ∈ NonNegIntegerSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ (forall (n) (x) (a_{1}) (b_{1}), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ a_{1} ∈ RealSet ∧ b_{1} ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ IntervalLoRo(a_{1}, b_{1}) ∧ n > N ⇒ |frac(FunDeri(f(n), 1, 1)(x), 1 + f(n, x))| ≤ 2 * c(n)))
+34. forall (a_{1}), a_{1} ∈ RealSet ⇒ (forall (b_{1}), b_{1} ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ UniformConvergent(fun m [m ∈ NonNegIntegerSet] . fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(a_{1}, b_{1})] . sum_{ n = 1 }^{ m } (ln(|1 + f(n, x)|)), IntervalLoRo(a_{1}, b_{1}), G)))
+35. forall (a_{1}), a_{1} ∈ RealSet ⇒ (forall (b_{1}), b_{1} ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ UniformConvergent(fun m [m ∈ NonNegIntegerSet] . fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(a_{1}, b_{1})] . sum_{ n = 1 }^{ m } (frac(FunDeri(f(n), 1, 1)(x), 1 + f(n, x))), IntervalLoRo(a_{1}, b_{1}), fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(a_{1}, b_{1})] . sum_{ n = 1 }^{ +∞ } (frac(FunDeri(f(n), 1, 1)(x), 1 + f(n, x))))))
+36. forall (a_{1}), a_{1} ∈ RealSet ⇒ (forall (b_{1}), b_{1} ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ DiffableFuncOn(G, IntervalLoRo(a_{1}, b_{1}))))
+37. forall (a_{1}), a_{1} ∈ RealSet ⇒ (forall (b_{1}), b_{1} ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ⇒ ContinuousFuncOn(F, IntervalLoRo(a_{1}, b_{1}))))
+38. forall (x), x ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ∧ (forall (x) (a_{1}) (b_{1}), x ∈ RealSet ∧ a_{1} ∈ RealSet ∧ b_{1} ∈ RealSet ∧ x ∈ IntervalLoRo(a_{1}, b_{1}) ⇒ F(x) > 0) ⇒ F(x) = e^{G(x)})
+39. forall (x), x ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ∧ (forall (x) (a_{1}) (b_{1}), x ∈ RealSet ∧ a_{1} ∈ RealSet ∧ b_{1} ∈ RealSet ∧ x ∈ IntervalLoRo(a_{1}, b_{1}) ⇒ F(x) > 0) ⇒ FunDeri(F, 1, 1)(x) = e^{G(x)} * FunDeri(G, 1, 1)(x))
+40. forall (x), x ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ∧ (forall (x) (a_{1}) (b_{1}), x ∈ RealSet ∧ a_{1} ∈ RealSet ∧ b_{1} ∈ RealSet ∧ x ∈ IntervalLoRo(a_{1}, b_{1}) ⇒ F(x) > 0) ⇒ e^{G(x)} * FunDeri(G, 1, 1)(x) = F(x) * (sum_{ n = 1 }^{ +∞ } (frac(FunDeri(f(n), 1, 1)(x), 1 + f(n, x)))))
+41. forall (x), x ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ∧ (forall (x) (a_{1}) (b_{1}), x ∈ RealSet ∧ a_{1} ∈ RealSet ∧ b_{1} ∈ RealSet ∧ x ∈ IntervalLoRo(a_{1}, b_{1}) ⇒ F(x) > 0) ⇒ FunDeri(F, 1, 1)(x) = F(x) * (sum_{ n = 1 }^{ +∞ } (frac(FunDeri(f(n), 1, 1)(x), 1 + f(n, x)))))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ∧ (forall (x) (a_{1}) (b_{1}), x ∈ RealSet ∧ a_{1} ∈ RealSet ∧ b_{1} ∈ RealSet ∧ x ∈ IntervalLoRo(a_{1}, b_{1}) ⇒ F(x) < 0) ⇒ F(x) = -e^{G(x)})
+
+METHOD:

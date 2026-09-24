@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. z : RealSet → RealSet
+4. forall (t), t ∈ RealSet ∧ t ≠ 0 ⇒ x(t) = t + t^{-1}
+5. forall (t), t ∈ RealSet ∧ t ≠ 0 ⇒ y(t) = t^{2} + t^{-2}
+6. forall (t), t ∈ RealSet ∧ t ≠ 0 ⇒ z(t) = t^{3} + t^{-3}
+7. forall (t), t ∈ RealSet ∧ t ≠ 0 ∧ t ≠ 1 ∧ t ≠ -1 ⇒ FunDeri(x, 1, 1)(t) = 1 - frac(1, t^{2})
+
+GOAL:
+forall (t), t ∈ RealSet ∧ t ≠ 0 ∧ t ≠ 1 ∧ t ≠ -1 ⇒ FunDeri(y, 1, 1)(t) = 2 * t - frac(2, t^{3})
+
+METHOD:

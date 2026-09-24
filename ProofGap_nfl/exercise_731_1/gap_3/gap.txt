@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ [0, 2] ∧ 0 ≤ x ∧ x ≤ 1 ⇒ f(x) = x^{2}
+3. forall (x), x ∈ RealSet ∧ x ∈ [0, 2] ∧ 1 < x ∧ x ≤ 2 ⇒ f(x) = 2 - x
+4. ContinuousFuncOn(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x^{2}, [0, 1])
+5. ContinuousFuncOn(fun x [x ∈ RealSet ∧ 1 < x ∧ x ≤ 2] . 2 - x, (1, 2])
+
+GOAL:
+f(1) = 1
+
+METHOD:

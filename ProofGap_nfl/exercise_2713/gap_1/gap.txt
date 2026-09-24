@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. c : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac((-1)^{n + 1}, sqrtn(2, n))
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+5. forall (n) (k), n ∈ NonNegIntegerSet ∧ k ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≤ n ⇒ c(n) = sum_{ k = 1 }^{ n } (a(k) * a(n - k + 1))
+
+GOAL:
+ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n))) ⇒ (sum_{ n = 1 }^{ +∞ } (frac((-1)^{n + 1}, sqrtn(2, n))))^{2} = sum_{ n = 1 }^{ +∞ } (c(n))
+
+METHOD:

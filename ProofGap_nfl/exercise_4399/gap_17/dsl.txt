@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 30: {ScalarSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z * cos(γ)) * diff(S)) = VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . 1) * diff(ω))}); from (GOAL: {ScalarSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z * cos(γ)) * diff(S)) = |V|}) to (GOAL: {VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . 1) * diff(ω)) = |V|})
+apply (hypothesis 31: {VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . 1) * diff(ω)) = |V|})

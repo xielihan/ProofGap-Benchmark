@@ -1,0 +1,6 @@
+destruct_and (hypothesis 2: {ε ∈ RealSet ∧ ε > 0}) as (hypothesis 14: {ε ∈ RealSet}) (hypothesis 15: {ε > 0})
+assert (hypothesis 16: {x_{0} > 0})
+assert (hypothesis 17: {|x_{0}| > 0})
+assert (hypothesis 18: {(x_{0})^{2} > 0})
+assert (hypothesis 19: {1 + ε * |x_{0}| > 0})
+autosolve all_hypothesis

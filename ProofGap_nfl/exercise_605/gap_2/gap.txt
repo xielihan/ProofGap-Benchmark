@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (n), n ∈ NonNegIntegerSet ⇒ sin(π * sqrtn(2, n^{2} + n))^{2} = frac(1, 2) * (1 - cos(2 * π * sqrtn(2, n^{2} + n)))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ cos(2 * π * sqrtn(2, n^{2} + n)) = cos(2 * π * (sqrtn(2, n^{2} + n) - n))
+
+METHOD:

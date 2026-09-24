@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. I : RealSet → RealSet
+2. a ∈ RealSet ∧ 0 < a
+3. b ∈ RealSet ∧ a ≤ b
+4. forall (α), α ∈ RealSet ∧ α ≥ 0 ⇒ I(α) = DefInt(0, +∞, α * e^{-α * x} * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+forall (α), α ∈ RealSet ∧ α = 0 ⇒ DefInt(0, +∞, α * e^{-α * x} * diff(fun x [x ∈ RealSet] . x)) = 0
+
+METHOD:

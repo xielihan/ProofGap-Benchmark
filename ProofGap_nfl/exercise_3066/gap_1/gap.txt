@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. P : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(1, n)
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ P(n) = prod_{ i ∈ PosIntegerSet ∧ i ≤ n } (a(i))
+
+GOAL:
+seqlim_{ n → +∞ } (a(n)) = 0
+
+METHOD:

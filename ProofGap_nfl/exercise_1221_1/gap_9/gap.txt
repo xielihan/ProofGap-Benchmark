@@ -1,0 +1,21 @@
+PROOF GAP @9
+ASSUM:
+1. f : RealSet → RealSet
+2. y : RealSet → RealSet
+3. m ∈ RealSet
+4. n ∈ NonNegIntegerSet
+5. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ f(x) = cos(m * arcsin(x))
+6. y = f
+7. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ FunDeri(y, 1, 1)(x) = FunDeri(f, 1, 1)(x)
+8. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ FunDeri(f, 1, 1)(x) = -frac(m, sqrtn(2, 1 - x^{2})) * sin(m * arcsin(x))
+9. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ FunDeri(y, 1, 1)(x) = -frac(m, sqrtn(2, 1 - x^{2})) * sin(m * arcsin(x))
+10. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ FunDeri(y, 1, 2)(x) = -frac(m^{2}, 1 - x^{2}) * cos(m * arcsin(x)) - frac(m * x, (1 - x^{2})^{frac(3, 2)}) * sin(m * arcsin(x))
+11. FunDeri(y, 1, 1)(0) = FunDeri(f, 1, 1)(0)
+12. FunDeri(f, 1, 1)(0) = 0
+13. FunDeri(y, 1, 1)(0) = 0
+14. FunDeri(y, 1, 2)(0) = FunDeri(f, 1, 2)(0)
+
+GOAL:
+FunDeri(f, 1, 2)(0) = -m^{2}
+
+METHOD:

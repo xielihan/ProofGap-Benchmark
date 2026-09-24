@@ -1,0 +1,547 @@
+import Mathlib
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
+-- exercise: exercise_2490
+
+theorem proof_gap_exercise_2490_1
+  (y : (ℝ -> ℝ))
+  (a : ℝ)
+  (b : ℝ)
+  (v_uCE_uB5 : ℝ)
+  (c : ℝ)
+  (P_x : ℝ)
+  (P_y : ℝ)
+  (h1 : a ∈ (Set.univ : Set ℝ))
+  (h2 : (b ∈ (Set.univ : Set ℝ)) ∧ (b > 0))
+  (h3 : v_uCE_uB5 ∈ (Set.univ : Set ℝ))
+  (h4 : c ∈ (Set.univ : Set ℝ))
+  (h5 : P_x ∈ (Set.univ : Set ℝ))
+  (h6 : P_y ∈ (Set.univ : Set ℝ))
+  (h7 : 0 < b)
+  (h8 : b ≤ a)
+  (h9 : v_uCE_uB5 = ((Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) /. a))
+  (h10 : c = (Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))
+  (h11 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (iteratedDeriv 1 (fun t => y t) x)) = ((-((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ)))) * x)))))
+  : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) ^ (2 : ℕ)) = ((b ^ (2 : ℕ)) - (((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ))))))) := by
+  sorry
+
+theorem proof_gap_exercise_2490_2
+  (y : (ℝ -> ℝ))
+  (a : ℝ)
+  (b : ℝ)
+  (v_uCE_uB5 : ℝ)
+  (c : ℝ)
+  (P_x : ℝ)
+  (P_y : ℝ)
+  (h1 : a ∈ (Set.univ : Set ℝ))
+  (h2 : (b ∈ (Set.univ : Set ℝ)) ∧ (b > 0))
+  (h3 : v_uCE_uB5 ∈ (Set.univ : Set ℝ))
+  (h4 : c ∈ (Set.univ : Set ℝ))
+  (h5 : P_x ∈ (Set.univ : Set ℝ))
+  (h6 : P_y ∈ (Set.univ : Set ℝ))
+  (h7 : 0 < b)
+  (h8 : b ≤ a)
+  (h9 : v_uCE_uB5 = ((Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) /. a))
+  (h10 : c = (Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))
+  (h11 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) ^ (2 : ℕ)) = ((b ^ (2 : ℕ)) - (((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ))))))))
+  (h12 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = (Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))))
+  : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (iteratedDeriv 1 (fun t => y t) x)) = ((-((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ)))) * x)))) := by
+  sorry
+
+theorem proof_gap_exercise_2490_3
+  (y : (ℝ -> ℝ))
+  (a : ℝ)
+  (b : ℝ)
+  (v_uCE_uB5 : ℝ)
+  (c : ℝ)
+  (P_x : ℝ)
+  (P_y : ℝ)
+  (h1 : a ∈ (Set.univ : Set ℝ))
+  (h2 : (b ∈ (Set.univ : Set ℝ)) ∧ (b > 0))
+  (h3 : v_uCE_uB5 ∈ (Set.univ : Set ℝ))
+  (h4 : c ∈ (Set.univ : Set ℝ))
+  (h5 : P_x ∈ (Set.univ : Set ℝ))
+  (h6 : P_y ∈ (Set.univ : Set ℝ))
+  (h7 : 0 < b)
+  (h8 : b ≤ a)
+  (h9 : v_uCE_uB5 = ((Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) /. a))
+  (h10 : c = (Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))
+  (h11 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) ^ (2 : ℕ)) = ((b ^ (2 : ℕ)) - (((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ))))))))
+  (h12 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (iteratedDeriv 1 (fun t => y t) x)) = ((-((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ)))) * x)))))
+  (h13 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → ((Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = (Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))) := by
+  sorry
+
+theorem proof_gap_exercise_2490_4
+  (y : (ℝ -> ℝ))
+  (a : ℝ)
+  (b : ℝ)
+  (v_uCE_uB5 : ℝ)
+  (c : ℝ)
+  (P_x : ℝ)
+  (P_y : ℝ)
+  (h1 : a ∈ (Set.univ : Set ℝ))
+  (h2 : (b ∈ (Set.univ : Set ℝ)) ∧ (b > 0))
+  (h3 : v_uCE_uB5 ∈ (Set.univ : Set ℝ))
+  (h4 : c ∈ (Set.univ : Set ℝ))
+  (h5 : P_x ∈ (Set.univ : Set ℝ))
+  (h6 : P_y ∈ (Set.univ : Set ℝ))
+  (h7 : 0 < b)
+  (h8 : b ≤ a)
+  (h9 : v_uCE_uB5 = ((Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) /. a))
+  (h10 : c = (Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))
+  (h11 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) ^ (2 : ℕ)) = ((b ^ (2 : ℕ)) - (((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ))))))))
+  (h12 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (iteratedDeriv 1 (fun t => y t) x)) = ((-((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ)))) * x)))))
+  (h13 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = (Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))))
+  (h14 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → ((Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))) := by
+  sorry
+
+theorem proof_gap_exercise_2490_5
+  (y : (ℝ -> ℝ))
+  (a : ℝ)
+  (b : ℝ)
+  (v_uCE_uB5 : ℝ)
+  (c : ℝ)
+  (P_x : ℝ)
+  (P_y : ℝ)
+  (h1 : a ∈ (Set.univ : Set ℝ))
+  (h2 : (b ∈ (Set.univ : Set ℝ)) ∧ (b > 0))
+  (h3 : v_uCE_uB5 ∈ (Set.univ : Set ℝ))
+  (h4 : c ∈ (Set.univ : Set ℝ))
+  (h5 : P_x ∈ (Set.univ : Set ℝ))
+  (h6 : P_y ∈ (Set.univ : Set ℝ))
+  (h7 : 0 < b)
+  (h8 : b ≤ a)
+  (h9 : v_uCE_uB5 = ((Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) /. a))
+  (h10 : c = (Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))
+  (h11 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) ^ (2 : ℕ)) = ((b ^ (2 : ℕ)) - (((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ))))))))
+  (h12 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (iteratedDeriv 1 (fun t => y t) x)) = ((-((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ)))) * x)))))
+  (h13 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = (Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))))
+  (h14 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → ((Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h15 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))) := by
+  sorry
+
+theorem proof_gap_exercise_2490_6
+  (y : (ℝ -> ℝ))
+  (a : ℝ)
+  (b : ℝ)
+  (v_uCE_uB5 : ℝ)
+  (c : ℝ)
+  (P_x : ℝ)
+  (P_y : ℝ)
+  (h1 : a ∈ (Set.univ : Set ℝ))
+  (h2 : (b ∈ (Set.univ : Set ℝ)) ∧ (b > 0))
+  (h3 : v_uCE_uB5 ∈ (Set.univ : Set ℝ))
+  (h4 : c ∈ (Set.univ : Set ℝ))
+  (h5 : P_x ∈ (Set.univ : Set ℝ))
+  (h6 : P_y ∈ (Set.univ : Set ℝ))
+  (h7 : 0 < b)
+  (h8 : b ≤ a)
+  (h9 : v_uCE_uB5 = ((Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) /. a))
+  (h10 : c = (Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))
+  (h11 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) ^ (2 : ℕ)) = ((b ^ (2 : ℕ)) - (((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ))))))))
+  (h12 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (iteratedDeriv 1 (fun t => y t) x)) = ((-((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ)))) * x)))))
+  (h13 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = (Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))))
+  (h14 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → ((Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h15 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))) := by
+  sorry
+
+theorem proof_gap_exercise_2490_7
+  (y : (ℝ -> ℝ))
+  (a : ℝ)
+  (b : ℝ)
+  (v_uCE_uB5 : ℝ)
+  (c : ℝ)
+  (P_x : ℝ)
+  (P_y : ℝ)
+  (h1 : a ∈ (Set.univ : Set ℝ))
+  (h2 : (b ∈ (Set.univ : Set ℝ)) ∧ (b > 0))
+  (h3 : v_uCE_uB5 ∈ (Set.univ : Set ℝ))
+  (h4 : c ∈ (Set.univ : Set ℝ))
+  (h5 : P_x ∈ (Set.univ : Set ℝ))
+  (h6 : P_y ∈ (Set.univ : Set ℝ))
+  (h7 : 0 < b)
+  (h8 : b ≤ a)
+  (h9 : v_uCE_uB5 = ((Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) /. a))
+  (h10 : c = (Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))
+  (h11 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) ^ (2 : ℕ)) = ((b ^ (2 : ℕ)) - (((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ))))))))
+  (h12 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (iteratedDeriv 1 (fun t => y t) x)) = ((-((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ)))) * x)))))
+  (h13 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = (Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))))
+  (h14 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → ((Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h15 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h16 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h17 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-b) ≤ x)) ∧ (x ≤ b)) → ((((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = ((a /. b) * (Real.rpow ((b ^ (2 : ℕ)) + ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (b ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))) ∧ (((a /. b) * (Real.rpow ((b ^ (2 : ℕ)) + ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (b ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) = ((a /. b) * (Real.rpow ((b ^ (2 : ℕ)) + (((c ^ (2 : ℕ)) /. (b ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))))))))
+  : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (P_x = (((2 * Real.pi) * (b /. a)) * (∫ x_1 in (-a)..a, ((Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x_1 ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)) * (1 : ℝ))))))) := by
+  sorry
+
+theorem proof_gap_exercise_2490_8
+  (y : (ℝ -> ℝ))
+  (a : ℝ)
+  (b : ℝ)
+  (v_uCE_uB5 : ℝ)
+  (c : ℝ)
+  (P_x : ℝ)
+  (P_y : ℝ)
+  (h1 : a ∈ (Set.univ : Set ℝ))
+  (h2 : (b ∈ (Set.univ : Set ℝ)) ∧ (b > 0))
+  (h3 : v_uCE_uB5 ∈ (Set.univ : Set ℝ))
+  (h4 : c ∈ (Set.univ : Set ℝ))
+  (h5 : P_x ∈ (Set.univ : Set ℝ))
+  (h6 : P_y ∈ (Set.univ : Set ℝ))
+  (h7 : 0 < b)
+  (h8 : b < a)
+  (h9 : v_uCE_uB5 = ((Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) /. a))
+  (h10 : c = (Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))
+  (h11 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) ^ (2 : ℕ)) = ((b ^ (2 : ℕ)) - (((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ))))))))
+  (h12 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (iteratedDeriv 1 (fun t => y t) x)) = ((-((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ)))) * x)))))
+  (h13 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = (Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))))
+  (h14 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → ((Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h15 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h16 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h17 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (P_x = (((2 * Real.pi) * (b /. a)) * (∫ x_1 in (-a)..a, ((Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x_1 ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)) * (1 : ℝ))))))))
+  : P_x = ((((2 * Real.pi) * b) /. a) * ((a * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (a ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) + (((a ^ (2 : ℕ)) /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))) := by
+  sorry
+
+theorem proof_gap_exercise_2490_9
+  (y : (ℝ -> ℝ))
+  (a : ℝ)
+  (b : ℝ)
+  (v_uCE_uB5 : ℝ)
+  (c : ℝ)
+  (P_x : ℝ)
+  (P_y : ℝ)
+  (h1 : a ∈ (Set.univ : Set ℝ))
+  (h2 : (b ∈ (Set.univ : Set ℝ)) ∧ (b > 0))
+  (h3 : v_uCE_uB5 ∈ (Set.univ : Set ℝ))
+  (h4 : c ∈ (Set.univ : Set ℝ))
+  (h5 : P_x ∈ (Set.univ : Set ℝ))
+  (h6 : P_y ∈ (Set.univ : Set ℝ))
+  (h7 : 0 < b)
+  (h8 : b ≤ a)
+  (h9 : v_uCE_uB5 = ((Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) /. a))
+  (h10 : c = (Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))
+  (h11 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) ^ (2 : ℕ)) = ((b ^ (2 : ℕ)) - (((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ))))))))
+  (h12 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (iteratedDeriv 1 (fun t => y t) x)) = ((-((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ)))) * x)))))
+  (h13 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = (Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))))
+  (h14 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → ((Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h15 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h16 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h17 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (P_x = (((2 * Real.pi) * (b /. a)) * (∫ x_1 in (-a)..a, ((Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x_1 ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)) * (1 : ℝ))))))))
+  (h18 : P_x = ((((2 * Real.pi) * b) /. a) * ((a * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (a ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) + (((a ^ (2 : ℕ)) /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))))
+  (h19 : P_x = (((2 * Real.pi) * b) * (b + ((a /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))))
+  : ((((2 * Real.pi) * b) /. a) * ((a * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (a ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) + (((a ^ (2 : ℕ)) /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))) = (((2 * Real.pi) * b) * (b + ((a /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))) := by
+  sorry
+
+theorem proof_gap_exercise_2490_10
+  (y : (ℝ -> ℝ))
+  (a : ℝ)
+  (b : ℝ)
+  (v_uCE_uB5 : ℝ)
+  (c : ℝ)
+  (P_x : ℝ)
+  (P_y : ℝ)
+  (h1 : a ∈ (Set.univ : Set ℝ))
+  (h2 : (b ∈ (Set.univ : Set ℝ)) ∧ (b > 0))
+  (h3 : v_uCE_uB5 ∈ (Set.univ : Set ℝ))
+  (h4 : c ∈ (Set.univ : Set ℝ))
+  (h5 : P_x ∈ (Set.univ : Set ℝ))
+  (h6 : P_y ∈ (Set.univ : Set ℝ))
+  (h7 : 0 < b)
+  (h8 : b ≤ a)
+  (h9 : v_uCE_uB5 = ((Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) /. a))
+  (h10 : c = (Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))
+  (h11 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) ^ (2 : ℕ)) = ((b ^ (2 : ℕ)) - (((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ))))))))
+  (h12 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (iteratedDeriv 1 (fun t => y t) x)) = ((-((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ)))) * x)))))
+  (h13 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = (Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))))
+  (h14 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → ((Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h15 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h16 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h17 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (P_x = (((2 * Real.pi) * (b /. a)) * (∫ x_1 in (-a)..a, ((Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x_1 ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)) * (1 : ℝ))))))))
+  (h18 : P_x = ((((2 * Real.pi) * b) /. a) * ((a * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (a ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) + (((a ^ (2 : ℕ)) /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))))
+  (h19 : ((((2 * Real.pi) * b) /. a) * ((a * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (a ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) + (((a ^ (2 : ℕ)) /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))) = (((2 * Real.pi) * b) * (b + ((a /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))))
+  : P_x = (((2 * Real.pi) * b) * (b + ((a /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))) := by
+  sorry
+
+theorem proof_gap_exercise_2490_11
+  (y : (ℝ -> ℝ))
+  (a : ℝ)
+  (b : ℝ)
+  (v_uCE_uB5 : ℝ)
+  (c : ℝ)
+  (P_x : ℝ)
+  (P_y : ℝ)
+  (h1 : a ∈ (Set.univ : Set ℝ))
+  (h2 : (b ∈ (Set.univ : Set ℝ)) ∧ (b > 0))
+  (h3 : v_uCE_uB5 ∈ (Set.univ : Set ℝ))
+  (h4 : c ∈ (Set.univ : Set ℝ))
+  (h5 : P_x ∈ (Set.univ : Set ℝ))
+  (h6 : P_y ∈ (Set.univ : Set ℝ))
+  (h7 : 0 < b)
+  (h8 : b ≤ a)
+  (h9 : v_uCE_uB5 = ((Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) /. a))
+  (h10 : c = (Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))
+  (h11 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) ^ (2 : ℕ)) = ((b ^ (2 : ℕ)) - (((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ))))))))
+  (h12 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (iteratedDeriv 1 (fun t => y t) x)) = ((-((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ)))) * x)))))
+  (h13 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = (Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))))
+  (h14 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → ((Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h15 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h16 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h17 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (P_x = (((2 * Real.pi) * (b /. a)) * (∫ x_1 in (-a)..a, ((Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x_1 ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)) * (1 : ℝ))))))))
+  (h18 : P_x = ((((2 * Real.pi) * b) /. a) * ((a * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (a ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) + (((a ^ (2 : ℕ)) /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))))
+  (h19 : ((((2 * Real.pi) * b) /. a) * ((a * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (a ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) + (((a ^ (2 : ℕ)) /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))) = (((2 * Real.pi) * b) * (b + ((a /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))))
+  (h20 : P_x = (((2 * Real.pi) * b) * (b + ((a /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))))
+  (h21 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-b) ≤ x)) ∧ (x ≤ b)) → (P_y = (((2 * Real.pi) * (a /. b)) * (∫ x_1 in (-b)..b, ((Real.rpow ((b ^ (2 : ℕ)) + (((c ^ (2 : ℕ)) /. (b ^ (2 : ℕ))) * (x_1 ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)) * (1 : ℝ))))))))
+  : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-b) ≤ x)) ∧ (x ≤ b)) → ((((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = ((a /. b) * (Real.rpow ((b ^ (2 : ℕ)) + ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (b ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))) ∧ (((a /. b) * (Real.rpow ((b ^ (2 : ℕ)) + ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (b ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) = ((a /. b) * (Real.rpow ((b ^ (2 : ℕ)) + (((c ^ (2 : ℕ)) /. (b ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))))))) := by
+  sorry
+
+theorem proof_gap_exercise_2490_12
+  (y : (ℝ -> ℝ))
+  (a : ℝ)
+  (b : ℝ)
+  (v_uCE_uB5 : ℝ)
+  (c : ℝ)
+  (P_x : ℝ)
+  (P_y : ℝ)
+  (h1 : a ∈ (Set.univ : Set ℝ))
+  (h2 : (b ∈ (Set.univ : Set ℝ)) ∧ (b > 0))
+  (h3 : v_uCE_uB5 ∈ (Set.univ : Set ℝ))
+  (h4 : c ∈ (Set.univ : Set ℝ))
+  (h5 : P_x ∈ (Set.univ : Set ℝ))
+  (h6 : P_y ∈ (Set.univ : Set ℝ))
+  (h7 : 0 < b)
+  (h8 : b ≤ a)
+  (h9 : v_uCE_uB5 = ((Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) /. a))
+  (h10 : c = (Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))
+  (h11 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) ^ (2 : ℕ)) = ((b ^ (2 : ℕ)) - (((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ))))))))
+  (h12 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (iteratedDeriv 1 (fun t => y t) x)) = ((-((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ)))) * x)))))
+  (h13 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = (Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))))
+  (h14 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → ((Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h15 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h16 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h17 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (P_x = (((2 * Real.pi) * (b /. a)) * (∫ x_1 in (-a)..a, ((Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x_1 ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)) * (1 : ℝ))))))))
+  (h18 : P_x = ((((2 * Real.pi) * b) /. a) * ((a * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (a ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) + (((a ^ (2 : ℕ)) /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))))
+  (h19 : ((((2 * Real.pi) * b) /. a) * ((a * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (a ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) + (((a ^ (2 : ℕ)) /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))) = (((2 * Real.pi) * b) * (b + ((a /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))))
+  (h20 : P_x = (((2 * Real.pi) * b) * (b + ((a /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))))
+  (h21 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-b) ≤ x)) ∧ (x ≤ b)) → ((((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = ((a /. b) * (Real.rpow ((b ^ (2 : ℕ)) + ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (b ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))) ∧ (((a /. b) * (Real.rpow ((b ^ (2 : ℕ)) + ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (b ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) = ((a /. b) * (Real.rpow ((b ^ (2 : ℕ)) + (((c ^ (2 : ℕ)) /. (b ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))))))))
+  (h22 : P_y = (((2 * Real.pi) * a) * (a + (((b ^ (2 : ℕ)) /. (2 * c)) * (Real.log ((a + c) /. (a - c)))))))
+  : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-b) ≤ x)) ∧ (x ≤ b)) → (P_y = (((2 * Real.pi) * (a /. b)) * (∫ x_1 in (-b)..b, ((Real.rpow ((b ^ (2 : ℕ)) + (((c ^ (2 : ℕ)) /. (b ^ (2 : ℕ))) * (x_1 ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)) * (1 : ℝ))))))) := by
+  sorry
+
+theorem proof_gap_exercise_2490_13
+  (y : (ℝ -> ℝ))
+  (a : ℝ)
+  (b : ℝ)
+  (v_uCE_uB5 : ℝ)
+  (c : ℝ)
+  (P_x : ℝ)
+  (P_y : ℝ)
+  (h1 : a ∈ (Set.univ : Set ℝ))
+  (h2 : (b ∈ (Set.univ : Set ℝ)) ∧ (b > 0))
+  (h3 : v_uCE_uB5 ∈ (Set.univ : Set ℝ))
+  (h4 : c ∈ (Set.univ : Set ℝ))
+  (h5 : P_x ∈ (Set.univ : Set ℝ))
+  (h6 : P_y ∈ (Set.univ : Set ℝ))
+  (h7 : 0 < b)
+  (h8 : b ≤ a)
+  (h9 : v_uCE_uB5 = ((Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) /. a))
+  (h10 : c = (Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))
+  (h11 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) ^ (2 : ℕ)) = ((b ^ (2 : ℕ)) - (((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ))))))))
+  (h12 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (iteratedDeriv 1 (fun t => y t) x)) = ((-((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ)))) * x)))))
+  (h13 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = (Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))))
+  (h14 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → ((Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h15 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h16 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h17 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (P_x = (((2 * Real.pi) * (b /. a)) * (∫ x_1 in (-a)..a, ((Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x_1 ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)) * (1 : ℝ))))))))
+  (h18 : P_x = ((((2 * Real.pi) * b) /. a) * ((a * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (a ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) + (((a ^ (2 : ℕ)) /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))))
+  (h19 : ((((2 * Real.pi) * b) /. a) * ((a * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (a ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) + (((a ^ (2 : ℕ)) /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))) = (((2 * Real.pi) * b) * (b + ((a /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))))
+  (h20 : P_x = (((2 * Real.pi) * b) * (b + ((a /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))))
+  (h21 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-b) ≤ x)) ∧ (x ≤ b)) → ((((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = ((a /. b) * (Real.rpow ((b ^ (2 : ℕ)) + ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (b ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))) ∧ (((a /. b) * (Real.rpow ((b ^ (2 : ℕ)) + ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (b ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) = ((a /. b) * (Real.rpow ((b ^ (2 : ℕ)) + (((c ^ (2 : ℕ)) /. (b ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))))))))
+  (h22 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-b) ≤ x)) ∧ (x ≤ b)) → (P_y = (((2 * Real.pi) * (a /. b)) * (∫ x_1 in (-b)..b, ((Real.rpow ((b ^ (2 : ℕ)) + (((c ^ (2 : ℕ)) /. (b ^ (2 : ℕ))) * (x_1 ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)) * (1 : ℝ))))))))
+  (h23 : P_y = (((2 * Real.pi) * a) * (a + ((((b ^ (2 : ℕ)) /. (2 * a)) * (1 /. v_uCE_uB5)) * (Real.log ((1 + v_uCE_uB5) /. (1 - v_uCE_uB5)))))))
+  : P_y = (((2 * Real.pi) * a) * (a + (((b ^ (2 : ℕ)) /. (2 * c)) * (Real.log ((a + c) /. (a - c)))))) := by
+  sorry
+
+theorem proof_gap_exercise_2490_14
+  (y : (ℝ -> ℝ))
+  (a : ℝ)
+  (b : ℝ)
+  (v_uCE_uB5 : ℝ)
+  (c : ℝ)
+  (P_x : ℝ)
+  (P_y : ℝ)
+  (h1 : a ∈ (Set.univ : Set ℝ))
+  (h2 : (b ∈ (Set.univ : Set ℝ)) ∧ (b > 0))
+  (h3 : v_uCE_uB5 ∈ (Set.univ : Set ℝ))
+  (h4 : c ∈ (Set.univ : Set ℝ))
+  (h5 : P_x ∈ (Set.univ : Set ℝ))
+  (h6 : P_y ∈ (Set.univ : Set ℝ))
+  (h7 : 0 < b)
+  (h8 : b ≤ a)
+  (h9 : v_uCE_uB5 = ((Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) /. a))
+  (h10 : c = (Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))
+  (h11 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) ^ (2 : ℕ)) = ((b ^ (2 : ℕ)) - (((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ))))))))
+  (h12 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (iteratedDeriv 1 (fun t => y t) x)) = ((-((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ)))) * x)))))
+  (h13 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = (Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))))
+  (h14 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → ((Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h15 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h16 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h17 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (P_x = (((2 * Real.pi) * (b /. a)) * (∫ x_1 in (-a)..a, ((Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x_1 ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)) * (1 : ℝ))))))))
+  (h18 : P_x = ((((2 * Real.pi) * b) /. a) * ((a * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (a ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) + (((a ^ (2 : ℕ)) /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))))
+  (h19 : ((((2 * Real.pi) * b) /. a) * ((a * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (a ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) + (((a ^ (2 : ℕ)) /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))) = (((2 * Real.pi) * b) * (b + ((a /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))))
+  (h20 : P_x = (((2 * Real.pi) * b) * (b + ((a /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))))
+  (h21 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-b) ≤ x)) ∧ (x ≤ b)) → ((((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = ((a /. b) * (Real.rpow ((b ^ (2 : ℕ)) + ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (b ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))) ∧ (((a /. b) * (Real.rpow ((b ^ (2 : ℕ)) + ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (b ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) = ((a /. b) * (Real.rpow ((b ^ (2 : ℕ)) + (((c ^ (2 : ℕ)) /. (b ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))))))))
+  (h22 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-b) ≤ x)) ∧ (x ≤ b)) → (P_y = (((2 * Real.pi) * (a /. b)) * (∫ x_1 in (-b)..b, ((Real.rpow ((b ^ (2 : ℕ)) + (((c ^ (2 : ℕ)) /. (b ^ (2 : ℕ))) * (x_1 ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)) * (1 : ℝ))))))))
+  (h23 : P_y = (((2 * Real.pi) * a) * (a + (((b ^ (2 : ℕ)) /. (2 * c)) * (Real.log ((a + c) /. (a - c)))))))
+  (h24 : P_y = (((2 * Real.pi) * a) * (a + ((((b ^ (2 : ℕ)) /. a) * (1 /. v_uCE_uB5)) * (Real.log ((a /. b) * (1 + v_uCE_uB5)))))))
+  : P_y = (((2 * Real.pi) * a) * (a + ((((b ^ (2 : ℕ)) /. (2 * a)) * (1 /. v_uCE_uB5)) * (Real.log ((1 + v_uCE_uB5) /. (1 - v_uCE_uB5)))))) := by
+  sorry
+
+theorem proof_gap_exercise_2490_15
+  (y : (ℝ -> ℝ))
+  (a : ℝ)
+  (b : ℝ)
+  (v_uCE_uB5 : ℝ)
+  (c : ℝ)
+  (P_x : ℝ)
+  (P_y : ℝ)
+  (h1 : a ∈ (Set.univ : Set ℝ))
+  (h2 : (b ∈ (Set.univ : Set ℝ)) ∧ (b > 0))
+  (h3 : v_uCE_uB5 ∈ (Set.univ : Set ℝ))
+  (h4 : c ∈ (Set.univ : Set ℝ))
+  (h5 : P_x ∈ (Set.univ : Set ℝ))
+  (h6 : P_y ∈ (Set.univ : Set ℝ))
+  (h7 : 0 < b)
+  (h8 : b ≤ a)
+  (h9 : v_uCE_uB5 = ((Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) /. a))
+  (h10 : c = (Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))
+  (h11 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) ^ (2 : ℕ)) = ((b ^ (2 : ℕ)) - (((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ))))))))
+  (h12 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) < x)) ∧ (x < a)) → (((y x) * (iteratedDeriv 1 (fun t => y t) x)) = ((-((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ)))) * x)))))
+  (h13 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = (Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))))
+  (h14 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → ((Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h15 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h16 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h17 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (P_x = (((2 * Real.pi) * (b /. a)) * (∫ x_1 in (-a)..a, ((Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x_1 ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)) * (1 : ℝ))))))))
+  (h18 : P_x = ((((2 * Real.pi) * b) /. a) * ((a * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (a ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) + (((a ^ (2 : ℕ)) /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))))
+  (h19 : ((((2 * Real.pi) * b) /. a) * ((a * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (a ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) + (((a ^ (2 : ℕ)) /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))) = (((2 * Real.pi) * b) * (b + ((a /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))))
+  (h20 : P_x = (((2 * Real.pi) * b) * (b + ((a /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))))
+  (h21 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-b) ≤ x)) ∧ (x ≤ b)) → ((((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = ((a /. b) * (Real.rpow ((b ^ (2 : ℕ)) + ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (b ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))) ∧ (((a /. b) * (Real.rpow ((b ^ (2 : ℕ)) + ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (b ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) = ((a /. b) * (Real.rpow ((b ^ (2 : ℕ)) + (((c ^ (2 : ℕ)) /. (b ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))))))))
+  (h22 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-b) ≤ x)) ∧ (x ≤ b)) → (P_y = (((2 * Real.pi) * (a /. b)) * (∫ x_1 in (-b)..b, ((Real.rpow ((b ^ (2 : ℕ)) + (((c ^ (2 : ℕ)) /. (b ^ (2 : ℕ))) * (x_1 ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)) * (1 : ℝ))))))))
+  (h23 : P_y = (((2 * Real.pi) * a) * (a + (((b ^ (2 : ℕ)) /. (2 * c)) * (Real.log ((a + c) /. (a - c)))))))
+  (h24 : P_y = (((2 * Real.pi) * a) * (a + ((((b ^ (2 : ℕ)) /. (2 * a)) * (1 /. v_uCE_uB5)) * (Real.log ((1 + v_uCE_uB5) /. (1 - v_uCE_uB5)))))))
+  : P_y = (((2 * Real.pi) * a) * (a + ((((b ^ (2 : ℕ)) /. a) * (1 /. v_uCE_uB5)) * (Real.log ((a /. b) * (1 + v_uCE_uB5)))))) := by
+  sorry
+
+theorem proof_gap_exercise_2490_16
+  (y : (ℝ -> ℝ))
+  (a : ℝ)
+  (b : ℝ)
+  (v_uCE_uB5 : ℝ)
+  (c : ℝ)
+  (P_x : ℝ)
+  (P_y : ℝ)
+  (h1 : a ∈ (Set.univ : Set ℝ))
+  (h2 : (b ∈ (Set.univ : Set ℝ)) ∧ (b > 0))
+  (h3 : v_uCE_uB5 ∈ (Set.univ : Set ℝ))
+  (h4 : c ∈ (Set.univ : Set ℝ))
+  (h5 : P_x ∈ (Set.univ : Set ℝ))
+  (h6 : P_y ∈ (Set.univ : Set ℝ))
+  (h7 : 0 < b)
+  (h8 : b ≤ a)
+  (h9 : v_uCE_uB5 = ((Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) /. a))
+  (h10 : c = (Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))
+  (h11 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) ^ (2 : ℕ)) = ((b ^ (2 : ℕ)) - (((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ))))))))
+  (h12 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (iteratedDeriv 1 (fun t => y t) x)) = ((-((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ)))) * x)))))
+  (h13 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = (Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))))
+  (h14 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → ((Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h15 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h16 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h17 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (P_x = (((2 * Real.pi) * (b /. a)) * (∫ x_1 in (-a)..a, ((Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x_1 ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)) * (1 : ℝ))))))))
+  (h18 : P_x = ((((2 * Real.pi) * b) /. a) * ((a * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (a ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) + (((a ^ (2 : ℕ)) /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))))
+  (h19 : ((((2 * Real.pi) * b) /. a) * ((a * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (a ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) + (((a ^ (2 : ℕ)) /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))) = (((2 * Real.pi) * b) * (b + ((a /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))))
+  (h20 : P_x = (((2 * Real.pi) * b) * (b + ((a /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))))
+  (h21 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-b) ≤ x)) ∧ (x ≤ b)) → ((((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = ((a /. b) * (Real.rpow ((b ^ (2 : ℕ)) + ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (b ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))) ∧ (((a /. b) * (Real.rpow ((b ^ (2 : ℕ)) + ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (b ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) = ((a /. b) * (Real.rpow ((b ^ (2 : ℕ)) + (((c ^ (2 : ℕ)) /. (b ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))))))))
+  (h22 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-b) ≤ x)) ∧ (x ≤ b)) → (P_y = (((2 * Real.pi) * (a /. b)) * (∫ x_1 in (-b)..b, ((Real.rpow ((b ^ (2 : ℕ)) + (((c ^ (2 : ℕ)) /. (b ^ (2 : ℕ))) * (x_1 ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)) * (1 : ℝ))))))))
+  (h23 : P_y = (((2 * Real.pi) * a) * (a + (((b ^ (2 : ℕ)) /. (2 * c)) * (Real.log ((a + c) /. (a - c)))))))
+  (h24 : P_y = (((2 * Real.pi) * a) * (a + ((((b ^ (2 : ℕ)) /. (2 * a)) * (1 /. v_uCE_uB5)) * (Real.log ((1 + v_uCE_uB5) /. (1 - v_uCE_uB5)))))))
+  (h25 : P_y = (((2 * Real.pi) * a) * (a + ((((b ^ (2 : ℕ)) /. a) * (1 /. v_uCE_uB5)) * (Real.log ((a /. b) * (1 + v_uCE_uB5)))))))
+  : P_x = (((2 * Real.pi) * b) * (b + ((a /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))) := by
+  sorry
+
+theorem proof_gap_exercise_2490_17
+  (y : (ℝ -> ℝ))
+  (a : ℝ)
+  (b : ℝ)
+  (v_uCE_uB5 : ℝ)
+  (c : ℝ)
+  (P_x : ℝ)
+  (P_y : ℝ)
+  (h1 : a ∈ (Set.univ : Set ℝ))
+  (h2 : (b ∈ (Set.univ : Set ℝ)) ∧ (b > 0))
+  (h3 : v_uCE_uB5 ∈ (Set.univ : Set ℝ))
+  (h4 : c ∈ (Set.univ : Set ℝ))
+  (h5 : P_x ∈ (Set.univ : Set ℝ))
+  (h6 : P_y ∈ (Set.univ : Set ℝ))
+  (h7 : 0 < b)
+  (h8 : b ≤ a)
+  (h9 : v_uCE_uB5 = ((Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) /. a))
+  (h10 : c = (Real.rpow ((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))
+  (h11 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) ^ (2 : ℕ)) = ((b ^ (2 : ℕ)) - (((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ))))))))
+  (h12 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (iteratedDeriv 1 (fun t => y t) x)) = ((-((b ^ (2 : ℕ)) /. (a ^ (2 : ℕ)))) * x)))))
+  (h13 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = (Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))))
+  (h14 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → ((Real.rpow (((y x) ^ (2 : ℕ)) + (((y x) * (iteratedDeriv 1 (fun t => y t) x)) ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h15 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (a ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h16 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = ((b /. a) * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))))))
+  (h17 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-a) ≤ x)) ∧ (x ≤ a)) → (P_x = (((2 * Real.pi) * (b /. a)) * (∫ x_1 in (-a)..a, ((Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (x_1 ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)) * (1 : ℝ))))))))
+  (h18 : P_x = ((((2 * Real.pi) * b) /. a) * ((a * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (a ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) + (((a ^ (2 : ℕ)) /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))))
+  (h19 : ((((2 * Real.pi) * b) /. a) * ((a * (Real.rpow ((a ^ (2 : ℕ)) - ((v_uCE_uB5 ^ (2 : ℕ)) * (a ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) + (((a ^ (2 : ℕ)) /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))) = (((2 * Real.pi) * b) * (b + ((a /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))))
+  (h20 : P_x = (((2 * Real.pi) * b) * (b + ((a /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))))
+  (h21 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-b) ≤ x)) ∧ (x ≤ b)) → ((((y x) * (Real.rpow (1 + ((iteratedDeriv 1 (fun t => y t) x) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) = ((a /. b) * (Real.rpow ((b ^ (2 : ℕ)) + ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (b ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)))) ∧ (((a /. b) * (Real.rpow ((b ^ (2 : ℕ)) + ((((a ^ (2 : ℕ)) - (b ^ (2 : ℕ))) /. (b ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))) = ((a /. b) * (Real.rpow ((b ^ (2 : ℕ)) + (((c ^ (2 : ℕ)) /. (b ^ (2 : ℕ))) * (x ^ (2 : ℕ)))) (((2 : ℝ))⁻¹))))))))
+  (h22 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((-b) ≤ x)) ∧ (x ≤ b)) → (P_y = (((2 * Real.pi) * (a /. b)) * (∫ x_1 in (-b)..b, ((Real.rpow ((b ^ (2 : ℕ)) + (((c ^ (2 : ℕ)) /. (b ^ (2 : ℕ))) * (x_1 ^ (2 : ℕ)))) (((2 : ℝ))⁻¹)) * (1 : ℝ))))))))
+  (h23 : P_y = (((2 * Real.pi) * a) * (a + (((b ^ (2 : ℕ)) /. (2 * c)) * (Real.log ((a + c) /. (a - c)))))))
+  (h24 : P_y = (((2 * Real.pi) * a) * (a + ((((b ^ (2 : ℕ)) /. (2 * a)) * (1 /. v_uCE_uB5)) * (Real.log ((1 + v_uCE_uB5) /. (1 - v_uCE_uB5)))))))
+  (h25 : P_y = (((2 * Real.pi) * a) * (a + ((((b ^ (2 : ℕ)) /. a) * (1 /. v_uCE_uB5)) * (Real.log ((a /. b) * (1 + v_uCE_uB5)))))))
+  (h26 : P_x = (((2 * Real.pi) * b) * (b + ((a /. v_uCE_uB5) * (Real.arcsin v_uCE_uB5)))))
+  : P_y = (((2 * Real.pi) * a) * (a + (((b ^ (2 : ℕ)) /. (2 * c)) * (Real.log ((a + c) /. (a - c)))))) := by
+  sorry

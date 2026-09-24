@@ -1,0 +1,22 @@
+PROOF GAP @8
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. y : NonNegIntegerSet → RealSet ∧ IsSeq(y)
+3. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ∈ RealSet ∧ y(n) ∈ RealSet
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n + 1) > y(n)
+6. seqlim_{ n → +∞ } (y(n)) = +∞
+7. exists (a), a ∈ RealSet ∧ seqlim_{ n → +∞ } (frac(x(n + 1) - x(n), y(n + 1) - y(n))) = a
+8. a = seqlim_{ n → +∞ } (frac(x(n + 1) - x(n), y(n + 1) - y(n)))
+9. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ |frac(x(n + 1) - x(n), y(n + 1) - y(n)) - a| < frac(ε, 2) ∧ y(n) > 0))
+10. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ N + 1 ≤ k ∧ k ≤ n ⇒ a - frac(ε, 2) < frac(x(k + 1) - x(k), y(k + 1) - y(k)) ∧ frac(x(k + 1) - x(k), y(k + 1) - y(k)) < a + frac(ε, 2))))
+11. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ N + 1 ≤ k ∧ k ≤ n ⇒ y(k + 1) - y(k) > 0)))
+12. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ N + 1 ≤ k ∧ k ≤ n ⇒ (a - frac(ε, 2)) * (y(k + 1) - y(k)) < x(k + 1) - x(k) ∧ x(k + 1) - x(k) < (a + frac(ε, 2)) * (y(k + 1) - y(k)))))
+13. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (a - frac(ε, 2)) * (y(n + 1) - y(N + 1)) < x(n + 1) - x(N + 1)))
+14. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ x(n + 1) - x(N + 1) < (a + frac(ε, 2)) * (y(n + 1) - y(N + 1))))
+15. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ |frac(x(n + 1) - x(N + 1), y(n + 1) - y(N + 1)) - a| < frac(ε, 2)))
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (exists (`N'`), `N'` ∈ NonNegIntegerSet ∧ `N'` ∈ PosIntegerSet ∧ `N'` > N ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > `N'` ⇒ frac(|x(N + 1) - a * y(N + 1)|, y(n)) < frac(ε, 2))))
+
+METHOD:

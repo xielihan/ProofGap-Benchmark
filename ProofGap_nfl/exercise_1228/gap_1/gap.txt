@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. L : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. forall (m) (x), m ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ L(m, x) = e^{x} * FunDeri(fun x [x ∈ RealSet] . x^{m} * e^{-x}, 1, m)(x)
+
+GOAL:
+forall (m) (x), m ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ L(m, x) = sum_{ k = 0 }^{ m } ((-1)^{k} * Combination(m, k) * frac(m!, k!) * x^{k})
+
+METHOD:
+[@method 根据 "莱布尼茨公式" @]

@@ -1,0 +1,3 @@
+1. rewrite (left_to_right, equation) (hypothesis 12: {x = 1 + r * cos(θ)}); from (GOAL: {x + y = 2 + r * (cos(θ) + sin(θ))}) to (GOAL: {(1 + r * cos(θ)) + y = 2 + r * (cos(θ) + sin(θ))})
+2. rewrite (left_to_right, equation) (hypothesis 13: {y = 1 + r * sin(θ)}); from (GOAL: {(1 + r * cos(θ)) + y = 2 + r * (cos(θ) + sin(θ))}) to (GOAL: {(1 + r * cos(θ)) + (1 + r * sin(θ)) = 2 + r * (cos(θ) + sin(θ))})
+3. autosolve all_hypothesis

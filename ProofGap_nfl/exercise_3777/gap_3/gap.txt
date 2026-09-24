@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. F : RealSet → RealSet
+2. forall (a), a ∈ RealSet ⇒ F(a) = DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-(x - a)^{2}}) * diff(fun x [x ∈ RealSet] . x))
+3. forall (a), a ∈ RealSet ⇒ F(a) = DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-(x - a)^{2}}) * diff(fun x [x ∈ RealSet] . x))
+4. forall (a), a ∈ RealSet ⇒ F(a) = DefInt(-a, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+forall (a), a ∈ RealSet ⇒ F(a) = DefInt(-a, 0, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x)) + DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

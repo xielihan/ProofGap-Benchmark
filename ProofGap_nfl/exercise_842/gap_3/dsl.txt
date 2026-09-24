@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = -(1 - x)^{5} * (1 + x) * (1 + 2 * x) * (1 + 4 * x + 7 * x^{2}) * (1 + x + x^{2})^{2}}) (x := {z})
+get_condition (hypothesis 6: {z ∈ RealSet}) in (GOAL: {z ∈ RealSet ⇒ FunDeri(y, 1, 1)(z) = -(1 - z)^{5} * (1 + z) * (1 + 2 * z) * (1 + 4 * z + 7 * z^{2}) * (1 + z + z^{2})^{2}})
+get_prop (hypothesis 5: {forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = -(1 - x)^{2} * (1 - x^{2}) * (1 - x^{3})^{2} * (1 + 6 * x + 15 * x^{2} + 14 * x^{3})}) (x := {z}) as (hypothesis 7: {z ∈ RealSet ⇒ FunDeri(y, 1, 1)(z) = -(1 - z)^{2} * (1 - z^{2}) * (1 - z^{3})^{2} * (1 + 6 * z + 15 * z^{2} + 14 * z^{3})})
+use_condition (hypothesis 6: {z ∈ RealSet}) in (hypothesis 7: {z ∈ RealSet ⇒ FunDeri(y, 1, 1)(z) = -(1 - z)^{2} * (1 - z^{2}) * (1 - z^{3})^{2} * (1 + 6 * z + 15 * z^{2} + 14 * z^{3})}) as (hypothesis 8: {FunDeri(y, 1, 1)(z) = -(1 - z)^{2} * (1 - z^{2}) * (1 - z^{3})^{2} * (1 + 6 * z + 15 * z^{2} + 14 * z^{3})})
+autosolve all_hypothesis

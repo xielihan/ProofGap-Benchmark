@@ -1,0 +1,11 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet => sin(x)^{4} = frac(1, 8) * (cos(4 * x) - 4 * cos(2 * x) + 3)}) (x := {x0})
+get_condition (hypothesis 3: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet => sin(x0)^{4} = frac(1, 8) * (cos(4 * x0) - 4 * cos(2 * x0) + 3)})
+get_prop (theorem 'Thm 193. (CosineDoubleAngleSquareSine)': {forall (x), x ∈ RealSet => cos (2 * x) = 1 - 2 * (sin(x)) ^ 2}) (x := {x0}) as (hypothesis 4: {x0 ∈ RealSet => cos(2 * x0) = 1 - 2 * sin(x0)^2})
+use_condition (hypothesis 3: {x0 ∈ RealSet}) in (hypothesis 4: {x0 ∈ RealSet => cos(2 * x0) = 1 - 2 * sin(x0)^2}) as (hypothesis 5: {cos(2 * x0) = 1 - 2 * sin(x0)^2})
+get_prop (theorem 'Thm 192. (CosineDoubleAngleSquareCosine)': {forall (x), x ∈ RealSet => cos (2 * x) = 2 * (cos(x)) ^ 2 - 1}) (x := {2 * x0}) as (hypothesis 6: {2 * x0 ∈ RealSet => cos(2 * (2 * x0)) = 2 * cos(2 * x0)^2 - 1})
+use_condition (obvious: {2 * x0 ∈ RealSet}) in (hypothesis 6: {2 * x0 ∈ RealSet => cos(2 * (2 * x0)) = 2 * cos(2 * x0)^2 - 1}) as (hypothesis 7: {cos(2 * (2 * x0)) = 2 * cos(2 * x0)^2 - 1})
+assert (hypothesis 8: {2 * (2 * x0) = 4 * x0})
+rewrite (left_to_right, equation) (hypothesis 8: {2 * (2 * x0) = 4 * x0}); from (hypothesis 7: {cos(2 * (2 * x0)) = 2 * cos(2 * x0)^2 - 1}) to (hypothesis 7: {cos(4 * x0) = 2 * cos(2 * x0)^2 - 1})
+rewrite (left_to_right, equation) (hypothesis 7: {cos(4 * x0) = 2 * cos(2 * x0)^2 - 1}); from (GOAL: {sin(x0)^4 = frac(1, 8) * (cos(4 * x0) - 4 * cos(2 * x0) + 3)}) to (GOAL: {sin(x0)^4 = frac(1, 8) * ((2 * cos(2 * x0)^2 - 1) - 4 * cos(2 * x0) + 3)})
+rewrite (left_to_right, equation) (hypothesis 5: {cos(2 * x0) = 1 - 2 * sin(x0)^2}); from (GOAL: {sin(x0)^4 = frac(1, 8) * ((2 * cos(2 * x0)^2 - 1) - 4 * cos(2 * x0) + 3)}) to (GOAL: {sin(x0)^4 = frac(1, 8) * ((2 * (1 - 2 * sin(x0)^2)^2 - 1) - 4 * (1 - 2 * sin(x0)^2) + 3)})
+autosolve

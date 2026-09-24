@@ -1,0 +1,3 @@
+get_prop (hypothesis 12: {forall (x), x ∈ RealSet => g_{2}(x) = x}) (x := {0}) as (hypothesis 14: {0 ∈ RealSet => g_{2}(0) = 0})
+use_condition (obvious: {0 ∈ RealSet}) in (hypothesis 14: {0 ∈ RealSet => g_{2}(0) = 0}) as (hypothesis 15: {g_{2}(0) = 0})
+apply (hypothesis 15: {g_{2}(0) = 0})

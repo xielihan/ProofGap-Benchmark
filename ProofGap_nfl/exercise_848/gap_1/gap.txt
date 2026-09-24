@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ y(x) = frac((2 - x^{2}) * (3 - x^{3}), (1 - x)^{2})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ FunDeri(y, 1, 1)(x) = frac((1 - x)^{2} * (-2 * x * (3 - x^{3}) - 3 * x^{2} * (2 - x^{2})) + 2 * (1 - x) * (2 - x^{2}) * (3 - x^{3}), (1 - x)^{4}) ∧ frac((1 - x)^{2} * (-2 * x * (3 - x^{3}) - 3 * x^{2} * (2 - x^{2})) + 2 * (1 - x) * (2 - x^{2}) * (3 - x^{3}), (1 - x)^{4}) = frac(12 - 6 * x - 6 * x^{2} + 2 * x^{3} + 5 * x^{4} - 3 * x^{5}, (1 - x)^{3})
+
+METHOD:

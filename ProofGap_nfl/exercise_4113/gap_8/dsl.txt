@@ -1,0 +1,3 @@
+1. get_prop (hypothesis 10: {forall (r), r ∈ RealSet => r^{4} + r^{2} - 1 = 0}) (r := {0}) as (hypothesis 17: {0 ∈ RealSet => 0^{4} + 0^{2} - 1 = 0})
+2. use_condition (obvious: {0 ∈ RealSet}) in (hypothesis 17: {0 ∈ RealSet => 0^{4} + 0^{2} - 1 = 0}) as (hypothesis 18: {0^{4} + 0^{2} - 1 = 0})
+3. autosolve (hypothesis 18: {0^{4} + 0^{2} - 1 = 0})

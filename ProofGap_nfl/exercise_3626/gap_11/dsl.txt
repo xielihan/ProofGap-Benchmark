@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 16: {A_{1} = FunDeri(z, 1, 2)(1, 1)}); from (GOAL: {A_{1} = 6}) to (GOAL: {FunDeri(z, 1, 2)(1, 1) = 6})
+autosolve all_hypothesis using DerivSolver

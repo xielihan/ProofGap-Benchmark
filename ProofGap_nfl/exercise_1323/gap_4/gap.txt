@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. x ≠ 0
+3. sin(x) ≠ 0
+4. cos(x) ≠ 0
+5. tan(x) ≠ 0
+6. lim_{ x → 0 } (frac(x * cot(x) - 1, x^{2})) = lim_{ x → 0 } (frac(x - tan(x), x^{2} * tan(x)))
+7. lim_{ x → 0 } (frac(x - tan(x), x^{2} * tan(x))) = lim_{ x → 0 } (frac(1 - sec(x)^{2}, 2 * x * tan(x) + x^{2} * sec(x)^{2}))
+8. lim_{ x → 0 } (frac(1 - sec(x)^{2}, 2 * x * tan(x) + x^{2} * sec(x)^{2})) = -(lim_{ x → 0 } (frac(tan(x)^{2}, x^{2} * tan(x)^{2} + 2 * x * tan(x) + x^{2})))
+
+GOAL:
+-(lim_{ x → 0 } (frac(tan(x)^{2}, x^{2} * tan(x)^{2} + 2 * x * tan(x) + x^{2}))) = -(lim_{ x → 0 } (frac(1, x^{2} + 2 * frac(x, tan(x)) + frac(x, tan(x))^{2})))
+
+METHOD:

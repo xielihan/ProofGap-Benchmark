@@ -1,0 +1,19 @@
+PROOF GAP @9
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. a ∈ RealSet
+3. FuncOfClassK(z, 2)
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ x^{2} + y^{2} + z(x, y)^{2} = a^{2} ∧ z(x, y) ≠ 0
+5. (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y)) * diff(z) = 0
+6. diff(z) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . -frac(x, z(x, y))) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(y, z(x, y))) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 1)(x, y) = -frac(x, z(x, y))
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 2, 1)(x, y) = -frac(y, z(x, y))
+9. diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{2} + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{2} + diff(z)^{2} + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y)) * diff^{2}(z) = 0
+10. diff^{2}(z) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . -frac(1, z(x, y))) * (diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{2} + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{2} + diff(z)^{2})
+11. diff^{2}(z) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . -frac(z(x, y)^{2} + x^{2}, z(x, y)^{3})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{2} - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(2 * x * y, z(x, y)^{3})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(z(x, y)^{2} + y^{2}, z(x, y)^{3})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{2}
+12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 2)(x, y) = -frac(z(x, y)^{2} + x^{2}, z(x, y)^{3})
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(FunDeri(z, 1, 1), 2, 1)(x, y) = -frac(x * y, z(x, y)^{3})
+
+METHOD:

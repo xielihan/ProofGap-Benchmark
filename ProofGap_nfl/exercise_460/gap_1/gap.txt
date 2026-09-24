@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+lim_{ x → 0^+ } (sqrtn(2, frac(1, x) + sqrtn(2, frac(1, x) + sqrtn(2, frac(1, x)))) - sqrtn(2, frac(1, x) - sqrtn(2, frac(1, x) + sqrtn(2, frac(1, x))))) = lim_{ x → 0^+ } (frac(frac(1, x) + sqrtn(2, frac(1, x) + sqrtn(2, frac(1, x))) - (frac(1, x) - sqrtn(2, frac(1, x) + sqrtn(2, frac(1, x)))), sqrtn(2, frac(1, x) + sqrtn(2, frac(1, x) + sqrtn(2, frac(1, x)))) + sqrtn(2, frac(1, x) - sqrtn(2, frac(1, x) + sqrtn(2, frac(1, x))))))
+
+METHOD:

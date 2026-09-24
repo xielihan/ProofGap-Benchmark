@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. VP ∈ RealSet
+2. b ∈ RealSet
+3. VP = lim_{ b → +∞ } (DefInt(-b, b, (fun x [x ∈ RealSet] . sin(x)) * diff(fun x [x ∈ RealSet] . x)))
+4. forall (b), b ∈ RealSet ∧ b > 0 ⇒ DefInt(-b, b, (fun x [x ∈ RealSet] . sin(x)) * diff(fun x [x ∈ RealSet] . x)) = -cos(b) + cos(b)
+5. forall (b), b ∈ RealSet ∧ b > 0 ⇒ -cos(b) + cos(b) = 0
+
+GOAL:
+lim_{ b → +∞ } (DefInt(-b, b, (fun x [x ∈ RealSet] . sin(x)) * diff(fun x [x ∈ RealSet] . x))) = 0
+
+METHOD:

@@ -1,0 +1,15 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. a : NonNegIntegerSet → RealSet
+3. b : NonNegIntegerSet → RealSet
+4. forall (x), x ∈ RealSet ∧ -frac(π, 4) < x ∧ x < frac(π, 4) ⇒ f(x) = sec(x)
+5. ContinuousFuncOn(f, IntervalLoRo(-frac(π, 4), frac(π, 4)))
+6. EvenFunc(f)
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = 0
+8. a(0) = frac(8, π) * DefInt(0, frac(π, 4), (fun x [x ∈ RealSet ∧ x ∈ IntervalClCl(0, frac(π, 4))] . sec(x)) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalClCl(0, frac(π, 4))] . x))
+
+GOAL:
+frac(8, π) * DefInt(0, frac(π, 4), (fun x [x ∈ RealSet ∧ x ∈ IntervalClCl(0, frac(π, 4))] . sec(x)) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalClCl(0, frac(π, 4))] . x)) = ((fun x [x ∈ RealSet ∧ x ∈ IntervalClCl(0, frac(π, 4))] . frac(8, π) * ln(|tan(frac(x, 2) + frac(π, 4))|))|_{0}^{frac(π, 4)})
+
+METHOD:

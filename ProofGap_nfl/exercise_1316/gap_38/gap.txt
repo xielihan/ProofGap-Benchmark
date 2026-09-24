@@ -1,0 +1,56 @@
+PROOF GAP @38
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. ξ ∈ RealSet ∧ ξ ∈ IntervalLoRo(a, b)
+5. a < b
+6. FuncOfClassKOn(f, IntervalLoRo(a, b), 2)
+7. FunDeri(f, 1, 2)(ξ) ≠ 0
+8. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ ξ ∈ MinimumPointOn(f, IntervalLoRo(a, b))
+9. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ ξ - δ > a ∧ ξ + δ < b ∧ StrictMonoDecFuncOn(f, IntervalLoRo(ξ - δ, ξ)) ∧ StrictMonoIncFuncOn(f, IntervalLoRo(ξ, ξ + δ)))
+10. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) = f(ξ + δ) ⇒ x_{1} = ξ - δ
+11. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) = f(ξ + δ) ⇒ x_{2} = ξ + δ
+12. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) = f(ξ + δ) ⇒ x_{1} ∈ IntervalLoRo(a, b)
+13. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) = f(ξ + δ) ⇒ x_{2} ∈ IntervalLoRo(a, b)
+14. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) = f(ξ + δ) ⇒ x_{1} ≠ x_{2}
+15. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) = f(ξ + δ) ⇒ f(x_{1}) = f(x_{2})
+16. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) = f(ξ + δ) ⇒ frac(f(x_{2}) - f(x_{1}), x_{2} - x_{1}) = 0
+17. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) = f(ξ + δ) ⇒ 0 = FunDeri(f, 1, 1)(ξ)
+18. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) = f(ξ + δ) ⇒ frac(f(x_{2}) - f(x_{1}), x_{2} - x_{1}) = FunDeri(f, 1, 1)(ξ)
+19. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) < f(ξ + δ) ⇒ x_{1} = ξ - δ
+20. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) < f(ξ + δ) ⇒ f(ξ) < f(x_{1})
+21. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) < f(ξ + δ) ⇒ f(x_{1}) < f(ξ + δ)
+22. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) < f(ξ + δ) ⇒ (exists (x_{2}) (δ), x_{2} ∈ RealSet ∧ δ ∈ RealSet ∧ δ > 0 ∧ x_{2} ∈ IntervalLoRo(ξ, ξ + δ) ∧ f(x_{2}) = f(x_{1}))
+23. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) < f(ξ + δ) ⇒ x_{1} ∈ IntervalLoRo(a, b)
+24. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) < f(ξ + δ) ⇒ x_{2} ∈ IntervalLoRo(a, b)
+25. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) < f(ξ + δ) ⇒ x_{1} ≠ x_{2}
+26. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) < f(ξ + δ) ⇒ frac(f(x_{2}) - f(x_{1}), x_{2} - x_{1}) = 0
+27. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) < f(ξ + δ) ⇒ 0 = FunDeri(f, 1, 1)(ξ)
+28. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) < f(ξ + δ) ⇒ frac(f(x_{2}) - f(x_{1}), x_{2} - x_{1}) = FunDeri(f, 1, 1)(ξ)
+29. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) > f(ξ + δ) ⇒ x_{2} = ξ + δ
+30. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) > f(ξ + δ) ⇒ f(ξ) < f(x_{2})
+31. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) > f(ξ + δ) ⇒ f(x_{2}) < f(ξ - δ)
+32. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) > f(ξ + δ) ⇒ (exists (x_{1}) (δ), x_{1} ∈ RealSet ∧ δ ∈ RealSet ∧ δ > 0 ∧ x_{1} ∈ IntervalLoRo(ξ - δ, ξ) ∧ f(x_{1}) = f(x_{2}))
+33. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) > f(ξ + δ) ⇒ x_{1} ∈ IntervalLoRo(a, b)
+34. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) > f(ξ + δ) ⇒ x_{2} ∈ IntervalLoRo(a, b)
+35. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) > f(ξ + δ) ⇒ x_{1} ≠ x_{2}
+36. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) > f(ξ + δ) ⇒ frac(f(x_{2}) - f(x_{1}), x_{2} - x_{1}) = 0
+37. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) > f(ξ + δ) ⇒ 0 = FunDeri(f, 1, 1)(ξ)
+38. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ f(ξ - δ) > f(ξ + δ) ⇒ frac(f(x_{2}) - f(x_{1}), x_{2} - x_{1}) = FunDeri(f, 1, 1)(ξ)
+39. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ (exists (x_{1}) (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ x_{1} ∈ IntervalLoRo(a, b) ∧ x_{2} ∈ IntervalLoRo(a, b) ∧ x_{1} ≠ x_{2} ∧ frac(f(x_{2}) - f(x_{1}), x_{2} - x_{1}) = FunDeri(f, 1, 1)(ξ))
+40. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) ≠ 0 ⇒ F = (fun x [x ∈ RealSet] . f(x) - FunDeri(f, 1, 1)(ξ) * x)
+41. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) ≠ 0 ⇒ FunDeri(F, 1, 1)(ξ) = FunDeri(f, 1, 1)(ξ) - FunDeri(f, 1, 1)(ξ)
+42. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) ≠ 0 ⇒ FunDeri(f, 1, 1)(ξ) - FunDeri(f, 1, 1)(ξ) = 0
+43. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) ≠ 0 ⇒ FunDeri(F, 1, 1)(ξ) = 0
+44. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) ≠ 0 ⇒ FunDeri(F, 1, 2)(ξ) = FunDeri(f, 1, 2)(ξ)
+45. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) ≠ 0 ⇒ FunDeri(f, 1, 2)(ξ) > 0
+46. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) ≠ 0 ⇒ FunDeri(F, 1, 2)(ξ) > 0
+47. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) ≠ 0 ⇒ (exists (x_{1}) (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ x_{1} ∈ IntervalLoRo(a, b) ∧ x_{2} ∈ IntervalLoRo(a, b) ∧ x_{1} ≠ x_{2} ∧ F(x_{1}) = F(x_{2}))
+48. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) ≠ 0 ⇒ f(x_{1}) - FunDeri(f, 1, 1)(ξ) * x_{1} = f(x_{2}) - FunDeri(f, 1, 1)(ξ) * x_{2}
+49. FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) ≠ 0 ⇒ FunDeri(f, 1, 1)(ξ) = frac(f(x_{2}) - f(x_{1}), x_{2} - x_{1})
+
+GOAL:
+FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) ≠ 0 ⇒ (exists (x_{1}) (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ x_{1} ∈ IntervalLoRo(a, b) ∧ x_{2} ∈ IntervalLoRo(a, b) ∧ x_{1} ≠ x_{2} ∧ frac(f(x_{2}) - f(x_{1}), x_{2} - x_{1}) = FunDeri(f, 1, 1)(ξ))
+
+METHOD:

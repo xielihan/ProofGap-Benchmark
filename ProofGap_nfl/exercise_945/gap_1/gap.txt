@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet ∧ a > 0
+3. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < a ⇒ y(x) = arccot(frac(a - 2 * x, 2 * sqrtn(2, a * x - x^{2})))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 < x ∧ x < a ⇒ FunDeri(y, 1, 1)(x) = -frac(1, 1 + frac((a - 2 * x)^{2}, 4 * (a * x - x^{2}))) * frac(1, 2) * frac(-2 * sqrtn(2, a * x - x^{2}) - frac((a - 2 * x)^{2}, 2 * sqrtn(2, a * x - x^{2})), a * x - x^{2}) ∧ -frac(1, 1 + frac((a - 2 * x)^{2}, 4 * (a * x - x^{2}))) * frac(1, 2) * frac(-2 * sqrtn(2, a * x - x^{2}) - frac((a - 2 * x)^{2}, 2 * sqrtn(2, a * x - x^{2})), a * x - x^{2}) = frac(1, sqrtn(2, a * x - x^{2}))
+
+METHOD:

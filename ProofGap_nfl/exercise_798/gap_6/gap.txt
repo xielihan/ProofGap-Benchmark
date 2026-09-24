@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = arctan(x)
+3. ContinuousFuncOn(f, (-∞, 1])
+4. ContinuousFuncOn(f, [0, +∞))
+5. lim_{ x → +∞ } (arctan(x)) = frac(π, 2)
+6. lim_{ x → -∞ } (arctan(x)) = -frac(π, 2)
+7. UniformContinuousFuncOn(f, [0, +∞))
+
+GOAL:
+UniformContinuousFuncOn(f, (-∞, 1])
+
+METHOD:

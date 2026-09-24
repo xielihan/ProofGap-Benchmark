@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. f = (fun x [x ∈ RealSet] . x)
+2. ContinuousFuncOn(f, [0, 1])
+
+GOAL:
+lim_{ n → +∞ } (sum_{ i = 1 }^{ n - 1 } (frac(i, n^{2}))) = lim_{ n → +∞ } (sum_{ i = 0 }^{ n - 1 } (frac(i, n) * frac(1, n)))
+
+METHOD:

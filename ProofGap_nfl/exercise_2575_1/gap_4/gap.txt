@@ -1,0 +1,16 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. S : NonNegIntegerSet → RealSet
+3. N : RealSet → NonNegIntegerSet
+4. k ∈ NonNegIntegerSet
+5. i ∈ NonNegIntegerSet
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ S(n) = sum_{ k = 1 }^{ n } (frac(cos(k * x) - cos((k + 1) * x), k))
+7. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (p), p ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ p ∈ PosIntegerSet ⇒ S(n + p) - S(n) = sum_{ i = n + 1 }^{ n + p } (frac(cos(i * x) - cos((i + 1) * x), i)))
+8. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (p), p ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ p ∈ PosIntegerSet ⇒ S(n + p) - S(n) = frac(cos((n + 1) * x), n + 1) - (sum_{ i = n + 1 }^{ n + p - 1 } ((frac(1, i) - frac(1, i + 1)) * cos((i + 1) * x))) - frac(cos((n + p + 1) * x), n + p))
+9. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (p), p ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ p ∈ PosIntegerSet ⇒ |S(n + p) - S(n)| ≤ frac(1, n + 1) + (sum_{ i = n + 1 }^{ n + p - 1 } (frac(1, i) - frac(1, i + 1))) + frac(1, n + p))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ (forall (p), p ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ p ∈ PosIntegerSet ⇒ frac(1, n + 1) + (sum_{ i = n + 1 }^{ n + p - 1 } (frac(1, i) - frac(1, i + 1))) + frac(1, n + p) = frac(2, n + 1))
+
+METHOD:

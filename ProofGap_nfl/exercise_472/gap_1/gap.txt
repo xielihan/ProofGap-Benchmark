@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+lim_{ x → +∞ } (frac(1, x)) = 0
+
+METHOD:

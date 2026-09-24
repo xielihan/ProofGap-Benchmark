@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet ∧ x > 0
+2. C ∈ RealSet
+3. t : RealSet → RealSet
+4. forall (x), x ∈ RealSet ∧ x > 0 ⇒ t(x) = sqrtn(6, x)
+5. forall (x), x ∈ RealSet ∧ x > 0 ⇒ sqrtn(2, x) = t(x)^{3}
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ sqrtn(3, x) = t(x)^{2}
+
+METHOD:

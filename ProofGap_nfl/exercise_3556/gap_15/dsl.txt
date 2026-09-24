@@ -1,0 +1,17 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ P_{xz} = { (x, 0, z) | x ∈ RealSet ∧ z ∈ RealSet, frac(3 * x^{2}, 4) + z^{2} ≤ 1 })}) (x := {x0})
+get_condition (hypothesis 23: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ P_{xz} = { (x, 0, z) | x ∈ RealSet ∧ z ∈ RealSet, frac(3 * x^{2}, 4) + z^{2} ≤ 1 })})
+get_forall (GOAL: {forall (z), z ∈ RealSet ⇒ P_{xz} = { (x, 0, z) | x ∈ RealSet ∧ z ∈ RealSet, frac(3 * x^{2}, 4) + z^{2} ≤ 1 }}) (z := {z0})
+get_condition (hypothesis 24: {z0 ∈ RealSet}) in (GOAL: {z0 ∈ RealSet ⇒ P_{xz} = { (x, 0, z) | x ∈ RealSet ∧ z ∈ RealSet, frac(3 * x^{2}, 4) + z^{2} ≤ 1 }})
+assert (hypothesis 25: {0 ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (hypothesis 17: {forall (y), y ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (z), z ∈ RealSet ∧ 2 * y - x = 0 ⇒ P_{xz} = { (x, 0, z) | x ∈ RealSet ∧ z ∈ RealSet, frac(3 * x^{2}, 4) + z^{2} ≤ 1 }))}) (y := {0}) as (hypothesis 26: {0 ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (z), z ∈ RealSet ∧ 2 * 0 - x = 0 ⇒ P_{xz} = { (x, 0, z) | x ∈ RealSet ∧ z ∈ RealSet, frac(3 * x^{2}, 4) + z^{2} ≤ 1 }))})
+use_condition (hypothesis 25: {0 ∈ RealSet}) in (hypothesis 26: {0 ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (z), z ∈ RealSet ∧ 2 * 0 - x = 0 ⇒ P_{xz} = { (x, 0, z) | x ∈ RealSet ∧ z ∈ RealSet, frac(3 * x^{2}, 4) + z^{2} ≤ 1 }))}) as (hypothesis 27: {forall (x), x ∈ RealSet ⇒ (forall (z), z ∈ RealSet ∧ 2 * 0 - x = 0 ⇒ P_{xz} = { (x, 0, z) | x ∈ RealSet ∧ z ∈ RealSet, frac(3 * x^{2}, 4) + z^{2} ≤ 1 })})
+get_prop (hypothesis 27: {forall (x), x ∈ RealSet ⇒ (forall (z), z ∈ RealSet ∧ 2 * 0 - x = 0 ⇒ P_{xz} = { (a, 0, c) | a ∈ RealSet ∧ c ∈ RealSet, frac(3 * a^{2}, 4) + c^{2} ≤ 1 })}) (x := {0}) as (hypothesis 28: {0 ∈ RealSet ⇒ (forall (z), z ∈ RealSet ∧ 2 * 0 - 0 = 0 ⇒ P_{xz} = { (a, 0, c) | a ∈ RealSet ∧ c ∈ RealSet, frac(3 * a^{2}, 4) + c^{2} ≤ 1 })})
+use_condition (hypothesis 25: {0 ∈ RealSet}) in (hypothesis 28: {0 ∈ RealSet ⇒ (forall (z), z ∈ RealSet ∧ 2 * 0 - 0 = 0 ⇒ P_{xz} = { (a, 0, c) | a ∈ RealSet ∧ c ∈ RealSet, frac(3 * a^{2}, 4) + c^{2} ≤ 1 })}) as (hypothesis 29: {forall (z), z ∈ RealSet ∧ 2 * 0 - 0 = 0 ⇒ P_{xz} = { (a, 0, c) | a ∈ RealSet ∧ c ∈ RealSet, frac(3 * a^{2}, 4) + c^{2} ≤ 1 }})
+get_prop (hypothesis 29: {forall (z), z ∈ RealSet ∧ 2 * 0 - 0 = 0 ⇒ P_{xz} = { (a, 0, c) | a ∈ RealSet ∧ c ∈ RealSet, frac(3 * a^{2}, 4) + c^{2} ≤ 1 }}) (z := {0}) as (hypothesis 30: {0 ∈ RealSet ∧ 2 * 0 - 0 = 0 ⇒ P_{xz} = { (a, 0, c) | a ∈ RealSet ∧ c ∈ RealSet, frac(3 * a^{2}, 4) + c^{2} ≤ 1 }})
+assert (hypothesis 31: {0 ∈ RealSet ∧ 2 * 0 - 0 = 0}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 31: {0 ∈ RealSet ∧ 2 * 0 - 0 = 0}) in (hypothesis 30: {0 ∈ RealSet ∧ 2 * 0 - 0 = 0 ⇒ P_{xz} = { (a, 0, c) | a ∈ RealSet ∧ c ∈ RealSet, frac(3 * a^{2}, 4) + c^{2} ≤ 1 }}) as (hypothesis 32: {P_{xz} = { (a, 0, c) | a ∈ RealSet ∧ c ∈ RealSet, frac(3 * a^{2}, 4) + c^{2} ≤ 1 }})
+autosolve all_hypothesis

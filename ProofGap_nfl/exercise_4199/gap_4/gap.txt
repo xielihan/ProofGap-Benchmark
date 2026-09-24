@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. Γ : RealSet → RealSet
+2. DefInt(-∞, +∞, DefInt(-∞, +∞, DefInt(-∞, +∞, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . e^{-(x^{2} + y^{2} + z^{2})}) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)))) = DefInt(0, 2 * π, diff(fun φ [φ ∈ RealSet] . φ)) * DefInt(-frac(π, 2), frac(π, 2), (fun ψ [ψ ∈ RealSet] . cos(ψ)) * diff(fun ψ [ψ ∈ RealSet] . ψ)) * DefInt(0, +∞, (fun r [r ∈ RealSet ∧ r ≥ 0] . r^{2} * e^{-r^{2}}) * diff(fun r [r ∈ RealSet ∧ r ≥ 0] . r))
+3. DefInt(0, 2 * π, diff(fun φ [φ ∈ RealSet] . φ)) * DefInt(-frac(π, 2), frac(π, 2), (fun ψ [ψ ∈ RealSet] . cos(ψ)) * diff(fun ψ [ψ ∈ RealSet] . ψ)) * DefInt(0, +∞, (fun r [r ∈ RealSet ∧ r ≥ 0] . r^{2} * e^{-r^{2}}) * diff(fun r [r ∈ RealSet ∧ r ≥ 0] . r)) = 4 * π * DefInt(0, +∞, (fun r [r ∈ RealSet ∧ r ≥ 0] . r^{2} * e^{-r^{2}}) * diff(fun r [r ∈ RealSet ∧ r ≥ 0] . r))
+4. forall (a), a ∈ RealSet ⇒ Γ(a + 1) = DefInt(0, +∞, (fun u [u ∈ RealSet ∧ u ≥ 0] . u^{a} * e^{-u}) * diff(fun u [u ∈ RealSet ∧ u ≥ 0] . u))
+5. DefInt(0, +∞, (fun r [r ∈ RealSet ∧ r ≥ 0] . r^{2} * e^{-r^{2}}) * diff(fun r [r ∈ RealSet ∧ r ≥ 0] . r)) = frac(1, 2) * DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ≥ 0] . t^{frac(1, 2)} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t ≥ 0] . t))
+
+GOAL:
+frac(1, 2) * DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ≥ 0] . t^{frac(1, 2)} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t ≥ 0] . t)) = frac(1, 2) * Γ(frac(3, 2))
+
+METHOD:
+[@method Use the Euler Gamma integral definition; the prior substitution is t = r^{2}. @]

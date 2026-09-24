@@ -1,0 +1,33 @@
+PROOF GAP @23
+ASSUM:
+1. V ∈ RealSet ∧ V > 0
+2. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. F = (fun x, y, z, a, b, c, λ [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet] . frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}) + λ * (a * b * c - frac(3 * V, 4 * π)))
+4. forall (x) (a) (y) (b) (z) (c), x ∈ RealSet ∧ a ∈ RealSet ∧ y ∈ RealSet ∧ b ∈ RealSet ∧ z ∈ RealSet ∧ c ∈ RealSet ⇒ frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}) = 1
+5. forall (a) (b) (c), a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ⇒ a * b * c = frac(3 * V, 4 * π)
+6. forall (x) (y) (z) (a) (b) (c) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 4, 1)(x, y, z, a, b, c, λ) = -frac(2 * x^{2}, a^{3}) + λ * b * c
+7. forall (x) (a) (λ) (b) (c), x ∈ RealSet ∧ a ∈ RealSet ∧ λ ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ⇒ -frac(2 * x^{2}, a^{3}) + λ * b * c = 0
+8. forall (x) (y) (z) (a) (b) (c) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 4, 1)(x, y, z, a, b, c, λ) = 0
+9. forall (x) (y) (z) (a) (b) (c) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 5, 1)(x, y, z, a, b, c, λ) = -frac(2 * y^{2}, b^{3}) + λ * a * c
+10. forall (y) (b) (λ) (a) (c), y ∈ RealSet ∧ b ∈ RealSet ∧ λ ∈ RealSet ∧ a ∈ RealSet ∧ c ∈ RealSet ⇒ -frac(2 * y^{2}, b^{3}) + λ * a * c = 0
+11. forall (x) (y) (z) (a) (b) (c) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 5, 1)(x, y, z, a, b, c, λ) = 0
+12. forall (x) (y) (z) (a) (b) (c) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 6, 1)(x, y, z, a, b, c, λ) = -frac(2 * z^{2}, c^{3}) + λ * a * b
+13. forall (z) (c) (λ) (a) (b), z ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ⇒ -frac(2 * z^{2}, c^{3}) + λ * a * b = 0
+14. forall (x) (y) (z) (a) (b) (c) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 6, 1)(x, y, z, a, b, c, λ) = 0
+15. forall (x) (a) (y) (b), x ∈ RealSet ∧ a ∈ RealSet ∧ y ∈ RealSet ∧ b ∈ RealSet ⇒ frac(x^{2}, a^{2}) = frac(y^{2}, b^{2})
+16. forall (y) (b) (z) (c), y ∈ RealSet ∧ b ∈ RealSet ∧ z ∈ RealSet ∧ c ∈ RealSet ⇒ frac(y^{2}, b^{2}) = frac(z^{2}, c^{2})
+17. forall (z) (c) (λ) (a) (b), z ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ⇒ frac(z^{2}, c^{2}) = frac(λ * a * b * c, 2)
+18. μ = frac(λ * a * b * c, 2)
+19. forall (x) (y) (a) (b), x ∈ RealSet ∧ y ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ⇒ frac(x^{2}, a^{2}) = frac(y^{2}, b^{2})
+20. forall (y) (z) (b) (c), y ∈ RealSet ∧ z ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ⇒ frac(y^{2}, b^{2}) = frac(z^{2}, c^{2})
+21. forall (z) (c), z ∈ RealSet ∧ c ∈ RealSet ⇒ frac(z^{2}, c^{2}) = μ
+22. μ = frac(1, 3)
+23. forall (x) (a), x ∈ RealSet ∧ a ∈ RealSet ⇒ a = sqrtn(2, 3) * |x|
+24. forall (y) (b), y ∈ RealSet ∧ b ∈ RealSet ⇒ b = sqrtn(2, 3) * |y|
+25. forall (z) (c), z ∈ RealSet ∧ c ∈ RealSet ⇒ c = sqrtn(2, 3) * |z|
+26. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ |x * y * z| = frac(V, 4 * π * sqrtn(2, 3))
+
+GOAL:
+S = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, |x * y * z| = frac(V, 4 * π * sqrtn(2, 3)) } ⇒ S = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, |x * y * z| = frac(V, 4 * π * sqrtn(2, 3)) }
+
+METHOD:

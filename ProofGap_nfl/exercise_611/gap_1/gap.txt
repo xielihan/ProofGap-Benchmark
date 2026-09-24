@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. y : NonNegIntegerSet → RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x = 0 ⇒ seqlim_{ n → +∞ } ((1 + frac(x, n))^{n}) = e^{x}
+
+METHOD:

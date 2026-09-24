@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet
+2. 1 + |x| < |x + 2|
+3. (1 + |x|)^{2} < (x + 2)^{2}
+
+GOAL:
+2 * |x| < 4 * x + 3
+
+METHOD:

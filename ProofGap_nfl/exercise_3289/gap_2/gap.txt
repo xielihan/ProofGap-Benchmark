@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. t : CartesianProd(RealSet, RealSet) → RealSet
+3. f : RealSet → RealSet
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ 0 ⇒ t(x, y) = frac(y, x)
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ 0 ⇒ u(x, y) = f(t(x, y))
+6. FuncOfClassK(f, 2)
+7. forall (x) (y), x ∈ RealSet ∧ x ≠ 0 ∧ y ∈ RealSet ⇒ diff(u) = FunDeri(f, 1, 1)(t(x, y)) * frac(x * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) - y * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x), x^{2})
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ x ≠ 0 ∧ y ∈ RealSet ⇒ diff^{2}(u) = FunDeri(f, 1, 2)(t(x, y)) * frac((x * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) - y * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x))^{2}, x^{4}) - 2 * FunDeri(f, 1, 1)(t(x, y)) * frac(diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * (x * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) - y * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)), x^{3})
+
+METHOD:

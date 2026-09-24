@@ -1,0 +1,19 @@
+PROOF GAP @5
+ASSUM:
+1. C ⊆ RealSet
+2. x : RealSet → RealSet
+3. y : RealSet → RealSet
+4. z : RealSet → RealSet
+5. a ∈ RealSet
+6. a > 0
+7. forall (x) (y) (z), x ∈ RealSet ∧ x ∈ C ∧ y ∈ RealSet ∧ y ∈ C ∧ z ∈ RealSet ∧ z ∈ C ⇒ x^{2} + y^{2} + z^{2} = a^{2} ∧ x^{2} + y^{2} = a * x ∧ z ≥ 0
+8. (x - frac(a, 2))^{2} + y^{2} = frac(a, 2)^{2}
+9. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ x(t) = frac(a * (1 + cos(t)), 2) ∧ y(t) = frac(a * sin(t), 2) ∧ z(t) = a * sin(frac(t, 2))
+10. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ x(t) = frac(a * (1 + cos(t)), 2) ∧ y(t) = frac(a * sin(t), 2) ∧ z(t) = a * sin(frac(t, 2))
+11. VectorCurveInt(C, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y^{2}) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z^{2}) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x^{2}) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)) = DefInt(0, 2 * π, (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . -frac(a^{3} * sin(t)^{3}, 8) + frac(a^{3} * sin(frac(t, 2))^{2} * cos(t), 2) + frac(a^{3} * cos(frac(t, 2))^{3}, 2)) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . t))
+12. DefInt(0, 2 * π, (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . -frac(a^{3} * sin(t)^{3}, 8) + frac(a^{3} * sin(frac(t, 2))^{2} * cos(t), 2) + frac(a^{3} * cos(frac(t, 2))^{3}, 2)) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . t)) = -frac(π * a^{3}, 4)
+
+GOAL:
+VectorCurveInt(C, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y^{2}) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z^{2}) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x^{2}) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)) = -frac(π * a^{3}, 4)
+
+METHOD:

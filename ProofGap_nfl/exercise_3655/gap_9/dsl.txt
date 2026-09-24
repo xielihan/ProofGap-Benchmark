@@ -1,0 +1,146 @@
+get_exists (hypothesis 16: {exists (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ ((x, y) = (-frac(b * ε, sqrtn(2, a^{2} + b^{2})), -frac(a * ε, sqrtn(2, a^{2} + b^{2}))) ∨ (x, y) = (frac(b * ε, sqrtn(2, a^{2} + b^{2})), frac(a * ε, sqrtn(2, a^{2} + b^{2}))))}) (x := {u}) (y := {v})
+destruct_and (hypothesis 17: {u ∈ RealSet ∧ v ∈ RealSet ∧ ((u, v) = (-frac(b * ε, sqrtn(2, a^{2} + b^{2})), -frac(a * ε, sqrtn(2, a^{2} + b^{2}))) ∨ (u, v) = (frac(b * ε, sqrtn(2, a^{2} + b^{2})), frac(a * ε, sqrtn(2, a^{2} + b^{2}))))}) as (hypothesis 18: {u ∈ RealSet}) (hypothesis 19: {v ∈ RealSet}) (hypothesis 20: {(u, v) = (-frac(b * ε, sqrtn(2, a^{2} + b^{2})), -frac(a * ε, sqrtn(2, a^{2} + b^{2}))) ∨ (u, v) = (frac(b * ε, sqrtn(2, a^{2} + b^{2})), frac(a * ε, sqrtn(2, a^{2} + b^{2})))})
+assert (hypothesis 21: {(u, v) = (-frac(b * ε, sqrtn(2, a^{2} + b^{2})), -frac(a * ε, sqrtn(2, a^{2} + b^{2}))) ⇒ -frac(b * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet ∧ -frac(a * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet}) by proof {
+  get_condition (hypothesis 21: {(u, v) = (-frac(b * ε, sqrtn(2, a^{2} + b^{2})), -frac(a * ε, sqrtn(2, a^{2} + b^{2})))}) in (GOAL: {(u, v) = (-frac(b * ε, sqrtn(2, a^{2} + b^{2})), -frac(a * ε, sqrtn(2, a^{2} + b^{2}))) ⇒ -frac(b * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet ∧ -frac(a * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet})
+  assert (hypothesis 22: {u = -frac(b * ε, sqrtn(2, a^{2} + b^{2}))}) by proof {
+    autosolve all_hypothesis
+  }
+  assert (hypothesis 23: {v = -frac(a * ε, sqrtn(2, a^{2} + b^{2}))}) by proof {
+    autosolve all_hypothesis
+  }
+  rewrite (right_to_left, equation) (hypothesis 22: {u = -frac(b * ε, sqrtn(2, a^{2} + b^{2}))}); from (GOAL: {-frac(b * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet ∧ -frac(a * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet}) to (GOAL: {u ∈ RealSet ∧ -frac(a * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet})
+  rewrite (right_to_left, equation) (hypothesis 23: {v = -frac(a * ε, sqrtn(2, a^{2} + b^{2}))}); from (GOAL: {u ∈ RealSet ∧ -frac(a * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet}) to (GOAL: {u ∈ RealSet ∧ v ∈ RealSet})
+  autosolve all_hypothesis
+}
+assert (hypothesis 22: {(u, v) = (frac(b * ε, sqrtn(2, a^{2} + b^{2})), frac(a * ε, sqrtn(2, a^{2} + b^{2}))) ⇒ -frac(b * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet ∧ -frac(a * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet}) by proof {
+  get_condition (hypothesis 22: {(u, v) = (frac(b * ε, sqrtn(2, a^{2} + b^{2})), frac(a * ε, sqrtn(2, a^{2} + b^{2})))}) in (GOAL: {(u, v) = (frac(b * ε, sqrtn(2, a^{2} + b^{2})), frac(a * ε, sqrtn(2, a^{2} + b^{2}))) ⇒ -frac(b * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet ∧ -frac(a * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet})
+  assert (hypothesis 23: {u = frac(b * ε, sqrtn(2, a^{2} + b^{2}))}) by proof {
+    autosolve all_hypothesis
+  }
+  assert (hypothesis 24: {v = frac(a * ε, sqrtn(2, a^{2} + b^{2}))}) by proof {
+    autosolve all_hypothesis
+  }
+  assert (hypothesis 25: {frac(b * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet ∧ frac(a * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet}) by proof {
+    rewrite (right_to_left, equation) (hypothesis 23: {u = frac(b * ε, sqrtn(2, a^{2} + b^{2}))}); from (GOAL: {frac(b * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet ∧ frac(a * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet}) to (GOAL: {u ∈ RealSet ∧ frac(a * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet})
+    rewrite (right_to_left, equation) (hypothesis 24: {v = frac(a * ε, sqrtn(2, a^{2} + b^{2}))}); from (GOAL: {u ∈ RealSet ∧ frac(a * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet}) to (GOAL: {u ∈ RealSet ∧ v ∈ RealSet})
+    autosolve all_hypothesis
+  }
+  autosolve all_hypothesis
+}
+assert (hypothesis 23: {-frac(b * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet ∧ -frac(a * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (hypothesis 6: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = frac(x, a) + frac(y, b)}) (x := {-frac(b * ε, sqrtn(2, a^{2} + b^{2}))}) (y := {-frac(a * ε, sqrtn(2, a^{2} + b^{2}))}) as (hypothesis 24: {-frac(b * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet ∧ -frac(a * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet ⇒ z(-frac(b * ε, sqrtn(2, a^{2} + b^{2})), -frac(a * ε, sqrtn(2, a^{2} + b^{2}))) = frac(-frac(b * ε, sqrtn(2, a^{2} + b^{2})), a) + frac(-frac(a * ε, sqrtn(2, a^{2} + b^{2})), b)})
+use_condition (hypothesis 23: {-frac(b * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet ∧ -frac(a * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet}) in (hypothesis 24: {-frac(b * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet ∧ -frac(a * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet ⇒ z(-frac(b * ε, sqrtn(2, a^{2} + b^{2})), -frac(a * ε, sqrtn(2, a^{2} + b^{2}))) = frac(-frac(b * ε, sqrtn(2, a^{2} + b^{2})), a) + frac(-frac(a * ε, sqrtn(2, a^{2} + b^{2})), b)}) as (hypothesis 25: {z(-frac(b * ε, sqrtn(2, a^{2} + b^{2})), -frac(a * ε, sqrtn(2, a^{2} + b^{2}))) = frac(-frac(b * ε, sqrtn(2, a^{2} + b^{2})), a) + frac(-frac(a * ε, sqrtn(2, a^{2} + b^{2})), b)})
+destruct_and (hypothesis 3: {a ∈ RealSet ∧ a ≠ 0}) as (hypothesis 26: {a ∈ RealSet}) (hypothesis 27: {a ≠ 0})
+destruct_and (hypothesis 4: {b ∈ RealSet ∧ b ≠ 0}) as (hypothesis 28: {b ∈ RealSet}) (hypothesis 29: {b ≠ 0})
+assert (hypothesis 30: {a * b ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 248. (SignFunctionDefinition)': {forall (x), x ∈ RealSet ⇒ ((x > 0 ⇒ sgn(x) = 1) ∧ (x = 0 ⇒ sgn(x) = 0) ∧ (x < 0 ⇒ sgn(x) = -1))}) (x := {a * b}) as (hypothesis 31: {a * b ∈ RealSet ⇒ ((a * b > 0 ⇒ sgn(a * b) = 1) ∧ (a * b = 0 ⇒ sgn(a * b) = 0) ∧ (a * b < 0 ⇒ sgn(a * b) = -1))})
+use_condition (hypothesis 30: {a * b ∈ RealSet}) in (hypothesis 31: {a * b ∈ RealSet ⇒ ((a * b > 0 ⇒ sgn(a * b) = 1) ∧ (a * b = 0 ⇒ sgn(a * b) = 0) ∧ (a * b < 0 ⇒ sgn(a * b) = -1))}) as (hypothesis 32: {(a * b > 0 ⇒ sgn(a * b) = 1) ∧ (a * b = 0 ⇒ sgn(a * b) = 0) ∧ (a * b < 0 ⇒ sgn(a * b) = -1)})
+destruct_and (hypothesis 32: {(a * b > 0 ⇒ sgn(a * b) = 1) ∧ (a * b = 0 ⇒ sgn(a * b) = 0) ∧ (a * b < 0 ⇒ sgn(a * b) = -1)}) as (hypothesis 33: {a * b > 0 ⇒ sgn(a * b) = 1}) (hypothesis 34: {a * b = 0 ⇒ sgn(a * b) = 0}) (hypothesis 35: {a * b < 0 ⇒ sgn(a * b) = -1})
+assert (hypothesis 36: {a^{2} + b^{2} ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 37: {a^{2} + b^{2} >= 0}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 38: {a^{2} + b^{2} > 0}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 450. (SquareRootSquareCancellation)': {forall (u), u ∈ RealSet ⇒ u >= 0 ⇒ sqrtn(2, u)^2 = u}) (u := {a^{2} + b^{2}}) as (hypothesis 39: {a^{2} + b^{2} ∈ RealSet ⇒ a^{2} + b^{2} >= 0 ⇒ sqrtn(2, a^{2} + b^{2})^2 = a^{2} + b^{2}})
+use_condition (hypothesis 36: {a^{2} + b^{2} ∈ RealSet}) (hypothesis 37: {a^{2} + b^{2} >= 0}) in (hypothesis 39: {a^{2} + b^{2} ∈ RealSet ⇒ a^{2} + b^{2} >= 0 ⇒ sqrtn(2, a^{2} + b^{2})^2 = a^{2} + b^{2}}) as (hypothesis 40: {sqrtn(2, a^{2} + b^{2})^2 = a^{2} + b^{2}})
+assert (hypothesis 41: {sqrtn(2, a^{2} + b^{2}) ≠ 0}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 42: {a * b > 0 ∨ a * b < 0}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 43: {a * b > 0 ⇒ z(-frac(b * ε, sqrtn(2, a^{2} + b^{2})), -frac(a * ε, sqrtn(2, a^{2} + b^{2}))) = -frac(sqrtn(2, a^{2} + b^{2}), |a * b|)}) by proof {
+  get_condition (hypothesis 43: {a * b > 0}) in (GOAL: {a * b > 0 ⇒ z(-frac(b * ε, sqrtn(2, a^{2} + b^{2})), -frac(a * ε, sqrtn(2, a^{2} + b^{2}))) = -frac(sqrtn(2, a^{2} + b^{2}), |a * b|)})
+  use_condition (hypothesis 43: {a * b > 0}) in (hypothesis 33: {a * b > 0 ⇒ sgn(a * b) = 1}) as (hypothesis 44: {sgn(a * b) = 1})
+  assert (hypothesis 45: {ε = 1}) by proof {
+    autosolve all_hypothesis
+  }
+  assert (hypothesis 46: {|a * b| = a * b}) by proof {
+    get_prop (theorem 'Thm 490. (AbsoluteValueOfNonnegativeReal)': {forall (x), x ∈ RealSet ⇒ (x >= 0 <==> |x| = x)}) (x := {a * b}) as (hypothesis 46: {a * b ∈ RealSet ⇒ (a * b >= 0 <==> |a * b| = a * b)})
+    autosolve all_hypothesis
+  }
+  rewrite (left_to_right, equation) (hypothesis 25: {z(-frac(b * ε, sqrtn(2, a^{2} + b^{2})), -frac(a * ε, sqrtn(2, a^{2} + b^{2}))) = frac(-frac(b * ε, sqrtn(2, a^{2} + b^{2})), a) + frac(-frac(a * ε, sqrtn(2, a^{2} + b^{2})), b)}); from (GOAL: {z(-frac(b * ε, sqrtn(2, a^{2} + b^{2})), -frac(a * ε, sqrtn(2, a^{2} + b^{2}))) = -frac(sqrtn(2, a^{2} + b^{2}), |a * b|)}) to (GOAL: {frac(-frac(b * ε, sqrtn(2, a^{2} + b^{2})), a) + frac(-frac(a * ε, sqrtn(2, a^{2} + b^{2})), b) = -frac(sqrtn(2, a^{2} + b^{2}), |a * b|)})
+  rewrite (left_to_right, equation) (hypothesis 45: {ε = 1}); from (GOAL: {frac(-frac(b * ε, sqrtn(2, a^{2} + b^{2})), a) + frac(-frac(a * ε, sqrtn(2, a^{2} + b^{2})), b) = -frac(sqrtn(2, a^{2} + b^{2}), |a * b|)}) to (GOAL: {frac(-frac(b * 1, sqrtn(2, a^{2} + b^{2})), a) + frac(-frac(a * 1, sqrtn(2, a^{2} + b^{2})), b) = -frac(sqrtn(2, a^{2} + b^{2}), |a * b|)})
+  rewrite (left_to_right, equation) (hypothesis 46: {|a * b| = a * b}); from (GOAL: {frac(-frac(b * 1, sqrtn(2, a^{2} + b^{2})), a) + frac(-frac(a * 1, sqrtn(2, a^{2} + b^{2})), b) = -frac(sqrtn(2, a^{2} + b^{2}), |a * b|)}) to (GOAL: {frac(-frac(b * 1, sqrtn(2, a^{2} + b^{2})), a) + frac(-frac(a * 1, sqrtn(2, a^{2} + b^{2})), b) = -frac(sqrtn(2, a^{2} + b^{2}), a * b)})
+  rewrite (left_to_right, equation) (hypothesis 45: {ε = 1}); from (hypothesis 23: {-frac(b * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet ∧ -frac(a * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet}) to (hypothesis 47: {-frac(b * 1, sqrtn(2, a^{2} + b^{2})) ∈ RealSet ∧ -frac(a * 1, sqrtn(2, a^{2} + b^{2})) ∈ RealSet})
+  destruct_and (hypothesis 47: {-frac(b * 1, sqrtn(2, a^{2} + b^{2})) ∈ RealSet ∧ -frac(a * 1, sqrtn(2, a^{2} + b^{2})) ∈ RealSet}) as (hypothesis 48: {-frac(b * 1, sqrtn(2, a^{2} + b^{2})) ∈ RealSet}) (hypothesis 49: {-frac(a * 1, sqrtn(2, a^{2} + b^{2})) ∈ RealSet})
+  assert (hypothesis 50: {frac((-frac(b * 1, sqrtn(2, a^{2} + b^{2}))) * b, a * b) = frac(-frac(b * 1, sqrtn(2, a^{2} + b^{2})), a)}) by proof {
+    get_prop (theorem 'Thm 408. (FractionScalingByNonzeroFactor)': {forall (a) (b) (c), a ∈ RealSet ⇒ b ∈ RealSet ⇒ c ∈ RealSet ⇒ b ≠ 0 ⇒ c ≠ 0 ⇒ frac(a * c, b * c) = frac(a, b)}) (a := {-frac(b * 1, sqrtn(2, a^{2} + b^{2}))}) (b := {a}) (c := {b}) as (hypothesis 50: {-frac(b * 1, sqrtn(2, a^{2} + b^{2})) ∈ RealSet ⇒ a ∈ RealSet ⇒ b ∈ RealSet ⇒ a ≠ 0 ⇒ b ≠ 0 ⇒ frac((-frac(b * 1, sqrtn(2, a^{2} + b^{2}))) * b, a * b) = frac(-frac(b * 1, sqrtn(2, a^{2} + b^{2})), a)})
+    autosolve all_hypothesis
+  }
+  assert (hypothesis 51: {frac((-frac(a * 1, sqrtn(2, a^{2} + b^{2}))) * a, b * a) = frac(-frac(a * 1, sqrtn(2, a^{2} + b^{2})), b)}) by proof {
+    get_prop (theorem 'Thm 408. (FractionScalingByNonzeroFactor)': {forall (a) (b) (c), a ∈ RealSet ⇒ b ∈ RealSet ⇒ c ∈ RealSet ⇒ b ≠ 0 ⇒ c ≠ 0 ⇒ frac(a * c, b * c) = frac(a, b)}) (a := {-frac(a * 1, sqrtn(2, a^{2} + b^{2}))}) (b := {b}) (c := {a}) as (hypothesis 51: {-frac(a * 1, sqrtn(2, a^{2} + b^{2})) ∈ RealSet ⇒ b ∈ RealSet ⇒ a ∈ RealSet ⇒ b ≠ 0 ⇒ a ≠ 0 ⇒ frac((-frac(a * 1, sqrtn(2, a^{2} + b^{2}))) * a, b * a) = frac(-frac(a * 1, sqrtn(2, a^{2} + b^{2})), b)})
+    autosolve all_hypothesis
+  }
+  assert (hypothesis 52: {frac(a^{2} + b^{2}, sqrtn(2, a^{2} + b^{2})) = sqrtn(2, a^{2} + b^{2})}) by proof {
+    autosolve all_hypothesis
+  }
+  rewrite (right_to_left, equation) (hypothesis 50: {frac((-frac(b * 1, sqrtn(2, a^{2} + b^{2}))) * b, a * b) = frac(-frac(b * 1, sqrtn(2, a^{2} + b^{2})), a)}); from (GOAL: {frac(-frac(b * 1, sqrtn(2, a^{2} + b^{2})), a) + frac(-frac(a * 1, sqrtn(2, a^{2} + b^{2})), b) = -frac(sqrtn(2, a^{2} + b^{2}), a * b)}) to (GOAL: {frac((-frac(b * 1, sqrtn(2, a^{2} + b^{2}))) * b, a * b) + frac(-frac(a * 1, sqrtn(2, a^{2} + b^{2})), b) = -frac(sqrtn(2, a^{2} + b^{2}), a * b)})
+  rewrite (right_to_left, equation) (hypothesis 51: {frac((-frac(a * 1, sqrtn(2, a^{2} + b^{2}))) * a, b * a) = frac(-frac(a * 1, sqrtn(2, a^{2} + b^{2})), b)}); from (GOAL: {frac((-frac(b * 1, sqrtn(2, a^{2} + b^{2}))) * b, a * b) + frac(-frac(a * 1, sqrtn(2, a^{2} + b^{2})), b) = -frac(sqrtn(2, a^{2} + b^{2}), a * b)}) to (GOAL: {frac((-frac(b * 1, sqrtn(2, a^{2} + b^{2}))) * b, a * b) + frac((-frac(a * 1, sqrtn(2, a^{2} + b^{2}))) * a, b * a) = -frac(sqrtn(2, a^{2} + b^{2}), a * b)})
+  assert (hypothesis 53: {b * a = a * b}) by proof {
+    autosolve all_hypothesis
+  }
+  rewrite (left_to_right, equation) (hypothesis 53: {b * a = a * b}); from (GOAL: {frac((-frac(b * 1, sqrtn(2, a^{2} + b^{2}))) * b, a * b) + frac((-frac(a * 1, sqrtn(2, a^{2} + b^{2}))) * a, b * a) = -frac(sqrtn(2, a^{2} + b^{2}), a * b)}) to (GOAL: {frac((-frac(b * 1, sqrtn(2, a^{2} + b^{2}))) * b, a * b) + frac((-frac(a * 1, sqrtn(2, a^{2} + b^{2}))) * a, a * b) = -frac(sqrtn(2, a^{2} + b^{2}), a * b)})
+  assert (hypothesis 54: {(-frac(b * 1, sqrtn(2, a^{2} + b^{2}))) * b + (-frac(a * 1, sqrtn(2, a^{2} + b^{2}))) * a = -frac(a^{2} + b^{2}, sqrtn(2, a^{2} + b^{2}))}) by proof {
+    autosolve all_hypothesis
+  }
+  assert (hypothesis 55: {frac((-frac(b * 1, sqrtn(2, a^{2} + b^{2}))) * b, a * b) + frac((-frac(a * 1, sqrtn(2, a^{2} + b^{2}))) * a, a * b) = frac((-frac(b * 1, sqrtn(2, a^{2} + b^{2}))) * b + (-frac(a * 1, sqrtn(2, a^{2} + b^{2}))) * a, a * b)}) by proof {
+    autosolve all_hypothesis
+  }
+  rewrite (left_to_right, equation) (hypothesis 55: {frac((-frac(b * 1, sqrtn(2, a^{2} + b^{2}))) * b, a * b) + frac((-frac(a * 1, sqrtn(2, a^{2} + b^{2}))) * a, a * b) = frac((-frac(b * 1, sqrtn(2, a^{2} + b^{2}))) * b + (-frac(a * 1, sqrtn(2, a^{2} + b^{2}))) * a, a * b)}); from (GOAL: {frac((-frac(b * 1, sqrtn(2, a^{2} + b^{2}))) * b, a * b) + frac((-frac(a * 1, sqrtn(2, a^{2} + b^{2}))) * a, a * b) = -frac(sqrtn(2, a^{2} + b^{2}), a * b)}) to (GOAL: {frac((-frac(b * 1, sqrtn(2, a^{2} + b^{2}))) * b + (-frac(a * 1, sqrtn(2, a^{2} + b^{2}))) * a, a * b) = -frac(sqrtn(2, a^{2} + b^{2}), a * b)})
+  rewrite (left_to_right, equation) (hypothesis 54: {(-frac(b * 1, sqrtn(2, a^{2} + b^{2}))) * b + (-frac(a * 1, sqrtn(2, a^{2} + b^{2}))) * a = -frac(a^{2} + b^{2}, sqrtn(2, a^{2} + b^{2}))}); from (GOAL: {frac((-frac(b * 1, sqrtn(2, a^{2} + b^{2}))) * b + (-frac(a * 1, sqrtn(2, a^{2} + b^{2}))) * a, a * b) = -frac(sqrtn(2, a^{2} + b^{2}), a * b)}) to (GOAL: {frac(-frac(a^{2} + b^{2}, sqrtn(2, a^{2} + b^{2})), a * b) = -frac(sqrtn(2, a^{2} + b^{2}), a * b)})
+  rewrite (left_to_right, equation) (hypothesis 52: {frac(a^{2} + b^{2}, sqrtn(2, a^{2} + b^{2})) = sqrtn(2, a^{2} + b^{2})}); from (GOAL: {frac(-frac(a^{2} + b^{2}, sqrtn(2, a^{2} + b^{2})), a * b) = -frac(sqrtn(2, a^{2} + b^{2}), a * b)}) to (GOAL: {frac(-sqrtn(2, a^{2} + b^{2}), a * b) = -frac(sqrtn(2, a^{2} + b^{2}), a * b)})
+  autosolve all_hypothesis
+}
+assert (hypothesis 44: {a * b < 0 ⇒ z(-frac(b * ε, sqrtn(2, a^{2} + b^{2})), -frac(a * ε, sqrtn(2, a^{2} + b^{2}))) = -frac(sqrtn(2, a^{2} + b^{2}), |a * b|)}) by proof {
+  get_condition (hypothesis 44: {a * b < 0}) in (GOAL: {a * b < 0 ⇒ z(-frac(b * ε, sqrtn(2, a^{2} + b^{2})), -frac(a * ε, sqrtn(2, a^{2} + b^{2}))) = -frac(sqrtn(2, a^{2} + b^{2}), |a * b|)})
+  use_condition (hypothesis 44: {a * b < 0}) in (hypothesis 35: {a * b < 0 ⇒ sgn(a * b) = -1}) as (hypothesis 45: {sgn(a * b) = -1})
+  assert (hypothesis 46: {ε = -1}) by proof {
+    autosolve all_hypothesis
+  }
+  assert (hypothesis 47: {|a * b| = -(a * b)}) by proof {
+    get_prop (theorem 'Thm 489. (AbsoluteValueOfNonpositiveReal)': {forall (x), x ∈ RealSet ⇒ (x <= 0 <==> |x| = -x)}) (x := {a * b}) as (hypothesis 47: {a * b ∈ RealSet ⇒ (a * b <= 0 <==> |a * b| = -(a * b))})
+    autosolve all_hypothesis
+  }
+  rewrite (left_to_right, equation) (hypothesis 25: {z(-frac(b * ε, sqrtn(2, a^{2} + b^{2})), -frac(a * ε, sqrtn(2, a^{2} + b^{2}))) = frac(-frac(b * ε, sqrtn(2, a^{2} + b^{2})), a) + frac(-frac(a * ε, sqrtn(2, a^{2} + b^{2})), b)}); from (GOAL: {z(-frac(b * ε, sqrtn(2, a^{2} + b^{2})), -frac(a * ε, sqrtn(2, a^{2} + b^{2}))) = -frac(sqrtn(2, a^{2} + b^{2}), |a * b|)}) to (GOAL: {frac(-frac(b * ε, sqrtn(2, a^{2} + b^{2})), a) + frac(-frac(a * ε, sqrtn(2, a^{2} + b^{2})), b) = -frac(sqrtn(2, a^{2} + b^{2}), |a * b|)})
+  rewrite (left_to_right, equation) (hypothesis 46: {ε = -1}); from (GOAL: {frac(-frac(b * ε, sqrtn(2, a^{2} + b^{2})), a) + frac(-frac(a * ε, sqrtn(2, a^{2} + b^{2})), b) = -frac(sqrtn(2, a^{2} + b^{2}), |a * b|)}) to (GOAL: {frac(-frac(b * -1, sqrtn(2, a^{2} + b^{2})), a) + frac(-frac(a * -1, sqrtn(2, a^{2} + b^{2})), b) = -frac(sqrtn(2, a^{2} + b^{2}), |a * b|)})
+  rewrite (left_to_right, equation) (hypothesis 47: {|a * b| = -(a * b)}); from (GOAL: {frac(-frac(b * -1, sqrtn(2, a^{2} + b^{2})), a) + frac(-frac(a * -1, sqrtn(2, a^{2} + b^{2})), b) = -frac(sqrtn(2, a^{2} + b^{2}), |a * b|)}) to (GOAL: {frac(-frac(b * -1, sqrtn(2, a^{2} + b^{2})), a) + frac(-frac(a * -1, sqrtn(2, a^{2} + b^{2})), b) = -frac(sqrtn(2, a^{2} + b^{2}), -(a * b))})
+  rewrite (left_to_right, equation) (hypothesis 46: {ε = -1}); from (hypothesis 23: {-frac(b * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet ∧ -frac(a * ε, sqrtn(2, a^{2} + b^{2})) ∈ RealSet}) to (hypothesis 48: {-frac(b * -1, sqrtn(2, a^{2} + b^{2})) ∈ RealSet ∧ -frac(a * -1, sqrtn(2, a^{2} + b^{2})) ∈ RealSet})
+  destruct_and (hypothesis 48: {-frac(b * -1, sqrtn(2, a^{2} + b^{2})) ∈ RealSet ∧ -frac(a * -1, sqrtn(2, a^{2} + b^{2})) ∈ RealSet}) as (hypothesis 49: {-frac(b * -1, sqrtn(2, a^{2} + b^{2})) ∈ RealSet}) (hypothesis 50: {-frac(a * -1, sqrtn(2, a^{2} + b^{2})) ∈ RealSet})
+  assert (hypothesis 51: {frac((-frac(b * -1, sqrtn(2, a^{2} + b^{2}))) * b, a * b) = frac(-frac(b * -1, sqrtn(2, a^{2} + b^{2})), a)}) by proof {
+    get_prop (theorem 'Thm 408. (FractionScalingByNonzeroFactor)': {forall (a) (b) (c), a ∈ RealSet ⇒ b ∈ RealSet ⇒ c ∈ RealSet ⇒ b ≠ 0 ⇒ c ≠ 0 ⇒ frac(a * c, b * c) = frac(a, b)}) (a := {-frac(b * -1, sqrtn(2, a^{2} + b^{2}))}) (b := {a}) (c := {b}) as (hypothesis 51: {-frac(b * -1, sqrtn(2, a^{2} + b^{2})) ∈ RealSet ⇒ a ∈ RealSet ⇒ b ∈ RealSet ⇒ a ≠ 0 ⇒ b ≠ 0 ⇒ frac((-frac(b * -1, sqrtn(2, a^{2} + b^{2}))) * b, a * b) = frac(-frac(b * -1, sqrtn(2, a^{2} + b^{2})), a)})
+    autosolve all_hypothesis
+  }
+  assert (hypothesis 52: {frac((-frac(a * -1, sqrtn(2, a^{2} + b^{2}))) * a, b * a) = frac(-frac(a * -1, sqrtn(2, a^{2} + b^{2})), b)}) by proof {
+    get_prop (theorem 'Thm 408. (FractionScalingByNonzeroFactor)': {forall (a) (b) (c), a ∈ RealSet ⇒ b ∈ RealSet ⇒ c ∈ RealSet ⇒ b ≠ 0 ⇒ c ≠ 0 ⇒ frac(a * c, b * c) = frac(a, b)}) (a := {-frac(a * -1, sqrtn(2, a^{2} + b^{2}))}) (b := {b}) (c := {a}) as (hypothesis 52: {-frac(a * -1, sqrtn(2, a^{2} + b^{2})) ∈ RealSet ⇒ b ∈ RealSet ⇒ a ∈ RealSet ⇒ b ≠ 0 ⇒ a ≠ 0 ⇒ frac((-frac(a * -1, sqrtn(2, a^{2} + b^{2}))) * a, b * a) = frac(-frac(a * -1, sqrtn(2, a^{2} + b^{2})), b)})
+    autosolve all_hypothesis
+  }
+  assert (hypothesis 53: {frac(a^{2} + b^{2}, sqrtn(2, a^{2} + b^{2})) = sqrtn(2, a^{2} + b^{2})}) by proof {
+    autosolve all_hypothesis
+  }
+  rewrite (right_to_left, equation) (hypothesis 51: {frac((-frac(b * -1, sqrtn(2, a^{2} + b^{2}))) * b, a * b) = frac(-frac(b * -1, sqrtn(2, a^{2} + b^{2})), a)}); from (GOAL: {frac(-frac(b * -1, sqrtn(2, a^{2} + b^{2})), a) + frac(-frac(a * -1, sqrtn(2, a^{2} + b^{2})), b) = -frac(sqrtn(2, a^{2} + b^{2}), -(a * b))}) to (GOAL: {frac((-frac(b * -1, sqrtn(2, a^{2} + b^{2}))) * b, a * b) + frac(-frac(a * -1, sqrtn(2, a^{2} + b^{2})), b) = -frac(sqrtn(2, a^{2} + b^{2}), -(a * b))})
+  rewrite (right_to_left, equation) (hypothesis 52: {frac((-frac(a * -1, sqrtn(2, a^{2} + b^{2}))) * a, b * a) = frac(-frac(a * -1, sqrtn(2, a^{2} + b^{2})), b)}); from (GOAL: {frac((-frac(b * -1, sqrtn(2, a^{2} + b^{2}))) * b, a * b) + frac(-frac(a * -1, sqrtn(2, a^{2} + b^{2})), b) = -frac(sqrtn(2, a^{2} + b^{2}), -(a * b))}) to (GOAL: {frac((-frac(b * -1, sqrtn(2, a^{2} + b^{2}))) * b, a * b) + frac((-frac(a * -1, sqrtn(2, a^{2} + b^{2}))) * a, b * a) = -frac(sqrtn(2, a^{2} + b^{2}), -(a * b))})
+  assert (hypothesis 54: {b * a = a * b}) by proof {
+    autosolve all_hypothesis
+  }
+  rewrite (left_to_right, equation) (hypothesis 54: {b * a = a * b}); from (GOAL: {frac((-frac(b * -1, sqrtn(2, a^{2} + b^{2}))) * b, a * b) + frac((-frac(a * -1, sqrtn(2, a^{2} + b^{2}))) * a, b * a) = -frac(sqrtn(2, a^{2} + b^{2}), -(a * b))}) to (GOAL: {frac((-frac(b * -1, sqrtn(2, a^{2} + b^{2}))) * b, a * b) + frac((-frac(a * -1, sqrtn(2, a^{2} + b^{2}))) * a, a * b) = -frac(sqrtn(2, a^{2} + b^{2}), -(a * b))})
+  assert (hypothesis 55: {(-frac(b * -1, sqrtn(2, a^{2} + b^{2}))) * b + (-frac(a * -1, sqrtn(2, a^{2} + b^{2}))) * a = frac(a^{2} + b^{2}, sqrtn(2, a^{2} + b^{2}))}) by proof {
+    autosolve all_hypothesis
+  }
+  assert (hypothesis 56: {frac((-frac(b * -1, sqrtn(2, a^{2} + b^{2}))) * b, a * b) + frac((-frac(a * -1, sqrtn(2, a^{2} + b^{2}))) * a, a * b) = frac((-frac(b * -1, sqrtn(2, a^{2} + b^{2}))) * b + (-frac(a * -1, sqrtn(2, a^{2} + b^{2}))) * a, a * b)}) by proof {
+    autosolve all_hypothesis
+  }
+  rewrite (left_to_right, equation) (hypothesis 56: {frac((-frac(b * -1, sqrtn(2, a^{2} + b^{2}))) * b, a * b) + frac((-frac(a * -1, sqrtn(2, a^{2} + b^{2}))) * a, a * b) = frac((-frac(b * -1, sqrtn(2, a^{2} + b^{2}))) * b + (-frac(a * -1, sqrtn(2, a^{2} + b^{2}))) * a, a * b)}); from (GOAL: {frac((-frac(b * -1, sqrtn(2, a^{2} + b^{2}))) * b, a * b) + frac((-frac(a * -1, sqrtn(2, a^{2} + b^{2}))) * a, a * b) = -frac(sqrtn(2, a^{2} + b^{2}), -(a * b))}) to (GOAL: {frac((-frac(b * -1, sqrtn(2, a^{2} + b^{2}))) * b + (-frac(a * -1, sqrtn(2, a^{2} + b^{2}))) * a, a * b) = -frac(sqrtn(2, a^{2} + b^{2}), -(a * b))})
+  rewrite (left_to_right, equation) (hypothesis 55: {(-frac(b * -1, sqrtn(2, a^{2} + b^{2}))) * b + (-frac(a * -1, sqrtn(2, a^{2} + b^{2}))) * a = frac(a^{2} + b^{2}, sqrtn(2, a^{2} + b^{2}) )}); from (GOAL: {frac((-frac(b * -1, sqrtn(2, a^{2} + b^{2}))) * b + (-frac(a * -1, sqrtn(2, a^{2} + b^{2}))) * a, a * b) = -frac(sqrtn(2, a^{2} + b^{2}), -(a * b))}) to (GOAL: {frac(frac(a^{2} + b^{2}, sqrtn(2, a^{2} + b^{2})), a * b) = -frac(sqrtn(2, a^{2} + b^{2}), -(a * b))})
+  rewrite (left_to_right, equation) (hypothesis 53: {frac(a^{2} + b^{2}, sqrtn(2, a^{2} + b^{2})) = sqrtn(2, a^{2} + b^{2})}); from (GOAL: {frac(frac(a^{2} + b^{2}, sqrtn(2, a^{2} + b^{2})), a * b) = -frac(sqrtn(2, a^{2} + b^{2}), -(a * b))}) to (GOAL: {frac(sqrtn(2, a^{2} + b^{2}), a * b) = -frac(sqrtn(2, a^{2} + b^{2}), -(a * b))})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

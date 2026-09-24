@@ -1,0 +1,4 @@
+get_prop (hypothesis 2: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = x^{2} * y^{3} * (6 - x - y)}) (x := {2}) (y := {3}) as (hypothesis 13: {2 ∈ RealSet ∧ 3 ∈ RealSet ⇒ z(2, 3) = 2^{2} * 3^{3} * (6 - 2 - 3)})
+use_condition (obvious: {2 ∈ RealSet ∧ 3 ∈ RealSet}) in (hypothesis 13: {2 ∈ RealSet ∧ 3 ∈ RealSet ⇒ z(2, 3) = 2^{2} * 3^{3} * (6 - 2 - 3)}) as (hypothesis 14: {z(2, 3) = 2^{2} * 3^{3} * (6 - 2 - 3)})
+rewrite (left_to_right, equation) (hypothesis 14: {z(2, 3) = 2^{2} * 3^{3} * (6 - 2 - 3)}); from (GOAL: {z(2, 3) = 108}) to (GOAL: {2^{2} * 3^{3} * (6 - 2 - 3) = 108})
+autosolve all_hypothesis using PolyRatSolver

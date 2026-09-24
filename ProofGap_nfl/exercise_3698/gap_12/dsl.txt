@@ -1,0 +1,2 @@
+exists (z := {frac(c, 2)})
+autosolve all_hypothesis

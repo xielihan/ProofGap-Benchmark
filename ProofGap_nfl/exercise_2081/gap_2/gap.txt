@@ -1,0 +1,15 @@
+PROOF GAP @2
+ASSUM:
+1. n ∈ NonNegIntegerSet ∧ n > 0
+2. R : RealSet → RealSet
+3. a : NonNegIntegerSet → RealSet
+4. n ∈ PosIntegerSet
+5. IsFunc(R)
+6. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ a(i) ∈ RealSet
+7. exists (α), α ∈ RealSet ∧ α ≠ 0 ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ (exists (k), k : NonNegIntegerSet → IntegerSet ∧ k(i) ∈ IntegerSet ∧ a(i) = k(i) * α))
+8. exists (α), α ∈ RealSet ∧ α ≠ 0 ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ (exists (k), k : NonNegIntegerSet → IntegerSet ∧ k(i) ∈ IntegerSet ∧ a(i) = k(i) * α))
+
+GOAL:
+forall (x) (t), x ∈ RealSet ∧ t ∈ RealSet ∧ t > 0 ⇒ (forall (α), α ∈ RealSet ∧ α ≠ 0 ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ (exists (k), k : NonNegIntegerSet → IntegerSet ∧ k(i) ∈ IntegerSet ∧ a(i) = k(i) * α)) ∧ e^{α * x} = t ⇒ t > 0)
+
+METHOD:

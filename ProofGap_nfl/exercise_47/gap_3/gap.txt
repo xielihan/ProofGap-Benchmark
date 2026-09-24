@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. seqlim_{ n → +∞ } (sqrtn(2, n + 1) - sqrtn(2, n)) = seqlim_{ n → +∞ } (frac((sqrtn(2, n + 1) - sqrtn(2, n)) * (sqrtn(2, n + 1) + sqrtn(2, n)), sqrtn(2, n + 1) + sqrtn(2, n)))
+2. seqlim_{ n → +∞ } (frac((sqrtn(2, n + 1) - sqrtn(2, n)) * (sqrtn(2, n + 1) + sqrtn(2, n)), sqrtn(2, n + 1) + sqrtn(2, n))) = seqlim_{ n → +∞ } (frac(1, sqrtn(2, n + 1) + sqrtn(2, n)))
+
+GOAL:
+seqlim_{ n → +∞ } (frac(1, sqrtn(2, n + 1) + sqrtn(2, n))) = 0
+
+METHOD:

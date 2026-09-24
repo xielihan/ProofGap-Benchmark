@@ -1,0 +1,19 @@
+PROOF GAP @11
+ASSUM:
+1. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 1 ⇒ arctan(x) + arctan(y) = arctan(frac(x + y, 1 - x * y))
+2. α = arctan(frac(1, 5))
+3. tan(α) = frac(1, 5)
+4. tan(2 * α) = frac(frac(2, 5), 1 - frac(1, 25))
+5. frac(frac(2, 5), 1 - frac(1, 25)) = frac(5, 12)
+6. tan(2 * α) = frac(5, 12)
+7. tan(4 * α) = frac(frac(10, 12), 1 - frac(25, 144))
+8. frac(frac(10, 12), 1 - frac(25, 144)) = frac(120, 119)
+9. tan(4 * α) = frac(120, 119)
+10. β = 4 * α - frac(π, 4)
+11. tan(β) = frac(frac(120, 119) - 1, 1 + frac(120, 119))
+12. frac(frac(120, 119) - 1, 1 + frac(120, 119)) = frac(1, 239)
+
+GOAL:
+tan(β) = frac(1, 239)
+
+METHOD:

@@ -1,0 +1,13 @@
+assert (hypothesis 19: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet => a(n) ≥ 0 ∧ b(n) ≥ 0 ∧ c(n) ≥ 0 ∧ d(n) ≥ 0}) by proof {
+  get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet => a(n) ≥ 0 ∧ b(n) ≥ 0 ∧ c(n) ≥ 0 ∧ d(n) ≥ 0}) (n := {k})
+  get_condition (hypothesis 19: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet}) in (GOAL: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet => a(k) ≥ 0 ∧ b(k) ≥ 0 ∧ c(k) ≥ 0 ∧ d(k) ≥ 0})
+  get_prop (hypothesis 3: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet => a(n) ≥ 0 ∧ b(n) ≥ 0}) (n := {k}) as (hypothesis 20: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet => a(k) ≥ 0 ∧ b(k) ≥ 0})
+  use_condition (hypothesis 19: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet}) in (hypothesis 20: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet => a(k) ≥ 0 ∧ b(k) ≥ 0}) as (hypothesis 21: {a(k) ≥ 0 ∧ b(k) ≥ 0})
+  get_prop (hypothesis 10: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet => c(n) ≥ 0 ∧ d(n) ≥ 0}) (n := {k}) as (hypothesis 22: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet => c(k) ≥ 0 ∧ d(k) ≥ 0})
+  use_condition (hypothesis 19: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet}) in (hypothesis 22: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet => c(k) ≥ 0 ∧ d(k) ≥ 0}) as (hypothesis 23: {c(k) ≥ 0 ∧ d(k) ≥ 0})
+  destruct_and (hypothesis 21: {a(k) ≥ 0 ∧ b(k) ≥ 0}) as (hypothesis 24: {a(k) ≥ 0}) (hypothesis 25: {b(k) ≥ 0})
+  destruct_and (hypothesis 23: {c(k) ≥ 0 ∧ d(k) ≥ 0}) as (hypothesis 26: {c(k) ≥ 0}) (hypothesis 27: {d(k) ≥ 0})
+  autosolve all_hypothesis
+}
+exists (a := {a}) (b := {b}) (c := {c}) (d := {d})
+autosolve all_hypothesis

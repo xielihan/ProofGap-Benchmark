@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+
+GOAL:
+(exists (ε_{0}), ε_{0} ∈ RealSet ∧ ε_{0} > 0 ∧ (forall (N), N ∉ NonNegIntegerSet ∨ (exists (m_{0}), m_{0} ∈ NonNegIntegerSet ∧ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ (m_{0} ≥ N ∧ n_{0} ≥ N) ∧ |x(m_{0}) - x(n_{0})| ≥ ε_{0})))) ⇒ ¬CauchySeq(x)
+
+METHOD:

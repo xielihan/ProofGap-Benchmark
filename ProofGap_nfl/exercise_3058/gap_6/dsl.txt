@@ -1,0 +1,9 @@
+get_prop (hypothesis 8: {forall (y), y ∈ RealSet ⇒ |y| < 1 ⇒ prod_{ n = 0 }^{ +∞ } (1 + y^{2^{n}}) = frac(1, 1 - y)}) (y := {frac(1, 2)}) as (hypothesis 9: {frac(1, 2) ∈ RealSet ⇒ |frac(1, 2)| < 1 ⇒ prod_{ n = 0 }^{ +∞ } (1 + frac(1, 2)^{2^{n}}) = frac(1, 1 - frac(1, 2))})
+assert (hypothesis 10: {frac(1, 2) ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 11: {|frac(1, 2)| < 1}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 10: {frac(1, 2) ∈ RealSet}) (hypothesis 11: {|frac(1, 2)| < 1}) in (hypothesis 9: {frac(1, 2) ∈ RealSet ⇒ |frac(1, 2)| < 1 ⇒ prod_{ n = 0 }^{ +∞ } (1 + frac(1, 2)^{2^{n}}) = frac(1, 1 - frac(1, 2))}) as (hypothesis 12: {prod_{ n = 0 }^{ +∞ } (1 + frac(1, 2)^{2^{n}}) = frac(1, 1 - frac(1, 2))})
+apply (hypothesis 12: {prod_{ n = 0 }^{ +∞ } (1 + frac(1, 2)^{2^{n}}) = frac(1, 1 - frac(1, 2))})

@@ -1,0 +1,17 @@
+PROOF GAP @7
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet
+3. I : RealSet → RealSet
+4. I = (fun b [b ∈ RealSet] . DefInt(0, +∞, e^{-a * x^{2}} * cos(b * x) * diff(x)))
+5. ContinuousFuncOn(fun x [x ∈ RealSet ∧ x ≥ 0] . e^{-a * x^{2}} * cos(b * x), [0, +∞))
+6. ContinuousFuncOn(fun x [x ∈ RealSet ∧ x ≥ 0] . -x * e^{-a * x^{2}} * sin(b * x), [0, +∞))
+7. forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ |e^{-a * x^{2}} * cos(b * x)| ≤ e^{-a * x^{2}}
+8. forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ |x * e^{-a * x^{2}} * sin(b * x)| ≤ x * e^{-a * x^{2}}
+9. ConvergentSeries(DefInt(0, +∞, e^{-a * x^{2}} * diff(x)))
+10. ConvergentSeries(DefInt(0, +∞, x * e^{-a * x^{2}} * diff(x)))
+
+GOAL:
+UniformConvergent(fun b [b ∈ RealSet] . DefInt(0, +∞, e^{-a * x^{2}} * cos(b * x) * diff(x)), RealSet, I)
+
+METHOD:

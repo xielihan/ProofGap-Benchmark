@@ -1,0 +1,35 @@
+get_condition (hypothesis 12: {`A'` = 0}) in (GOAL: {`A'` = 0 ⇒ (exists (X_{0}), X_{0} ∈ RealSet ∧ X_{0} ∈ PosRealSet ∧ X_{0} > a ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac(f(X_{0} + n), f(X_{0})))})
+use_condition (hypothesis 12: {`A'` = 0}) in (hypothesis 11: {`A'` = 0 ⇒ (exists (X_{0}), X_{0} ∈ RealSet ∧ X_{0} ∈ PosRealSet ∧ X_{0} > a ∧ (forall (x), x ∈ RealSet ∧ x ≥ X_{0} ⇒ 0 < frac(f(x + 1), f(x)) ∧ frac(f(x + 1), f(x)) < frac(1, 2)))}) as (hypothesis 13: {exists (X_{0}), X_{0} ∈ RealSet ∧ X_{0} ∈ PosRealSet ∧ X_{0} > a ∧ (forall (x), x ∈ RealSet ∧ x ≥ X_{0} ⇒ 0 < frac(f(x + 1), f(x)) ∧ frac(f(x + 1), f(x)) < frac(1, 2))})
+get_exists (hypothesis 13: {exists (X_{0}), X_{0} ∈ RealSet ∧ X_{0} ∈ PosRealSet ∧ X_{0} > a ∧ (forall (x), x ∈ RealSet ∧ x ≥ X_{0} ⇒ 0 < frac(f(x + 1), f(x)) ∧ frac(f(x + 1), f(x)) < frac(1, 2))}) (X_{0} := {X0})
+destruct_and (hypothesis 14: {X0 ∈ RealSet ∧ X0 ∈ PosRealSet ∧ X0 > a ∧ (forall (x), x ∈ RealSet ∧ x ≥ X0 ⇒ 0 < frac(f(x + 1), f(x)) ∧ frac(f(x + 1), f(x)) < frac(1, 2))}) as (hypothesis 15: {X0 ∈ RealSet}) (hypothesis 16: {X0 ∈ PosRealSet}) (hypothesis 17: {X0 > a}) (hypothesis 18: {forall (x), x ∈ RealSet ∧ x ≥ X0 ⇒ 0 < frac(f(x + 1), f(x)) ∧ frac(f(x + 1), f(x)) < frac(1, 2)})
+destruct_and (hypothesis 3: {c ∈ RealSet ∧ c > 0}) as (hypothesis 19: {c ∈ RealSet}) (hypothesis 20: {c > 0})
+assert (hypothesis 21: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac(f(X0 + n), f(X0))}) by proof {
+  get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac(f(X0 + n), f(X0))}) (n := {k})
+  get_condition (hypothesis 21: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet}) in (GOAL: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ 0 < frac(f(X0 + k), f(X0))})
+  destruct_and (hypothesis 21: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet}) as (hypothesis 22: {k ∈ NonNegIntegerSet}) (hypothesis 23: {k ∈ PosIntegerSet})
+  get_prop (hypothesis 7: {forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, +∞) ⇒ f(x) ≥ c}) (x := {X0}) as (hypothesis 24: {X0 ∈ RealSet ∧ X0 ∈ IntervalLoRo(a, +∞) ⇒ f(X0) ≥ c})
+  get_prop (theorem 'Thm 421. (RightUnboundedOpenIntervalMembership)': {forall (x) (a), x ∈ RealSet => a ∈ RealSet => (x ∈ (a, +∞) <==> x > a)}) (x := {X0}) (a := {a}) as (hypothesis 25: {X0 ∈ RealSet => a ∈ RealSet => (X0 ∈ IntervalLoRo(a, +∞) <==> X0 > a)})
+  use_condition (hypothesis 15: {X0 ∈ RealSet}) (hypothesis 2: {a ∈ RealSet}) in (hypothesis 25: {X0 ∈ RealSet => a ∈ RealSet => (X0 ∈ IntervalLoRo(a, +∞) <==> X0 > a)}) as (hypothesis 26: {X0 ∈ IntervalLoRo(a, +∞) <==> X0 > a})
+  rewrite (right_to_left, iff) (hypothesis 26: {X0 ∈ IntervalLoRo(a, +∞) <==> X0 > a}); from (hypothesis 17: {X0 > a}) to (hypothesis 27: {X0 ∈ IntervalLoRo(a, +∞)})
+  assert (hypothesis 28: {X0 ∈ RealSet ∧ X0 ∈ IntervalLoRo(a, +∞)}) by proof {
+    autosolve (hypothesis 15: {X0 ∈ RealSet}) (hypothesis 27: {X0 ∈ IntervalLoRo(a, +∞)})
+  }
+  use_condition (hypothesis 28: {X0 ∈ RealSet ∧ X0 ∈ IntervalLoRo(a, +∞)}) in (hypothesis 24: {X0 ∈ RealSet ∧ X0 ∈ IntervalLoRo(a, +∞) ⇒ f(X0) ≥ c}) as (hypothesis 29: {f(X0) ≥ c})
+  get_prop (hypothesis 7: {forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, +∞) ⇒ f(x) ≥ c}) (x := {X0 + k}) as (hypothesis 30: {X0 + k ∈ RealSet ∧ X0 + k ∈ IntervalLoRo(a, +∞) ⇒ f(X0 + k) ≥ c})
+  assert (hypothesis 31: {X0 + k ∈ RealSet}) by proof {
+    autosolve (hypothesis 15: {X0 ∈ RealSet}) (hypothesis 22: {k ∈ NonNegIntegerSet}) (hypothesis 23: {k ∈ PosIntegerSet})
+  }
+  get_prop (theorem 'Thm 421. (RightUnboundedOpenIntervalMembership)': {forall (x) (a), x ∈ RealSet => a ∈ RealSet => (x ∈ (a, +∞) <==> x > a)}) (x := {X0 + k}) (a := {a}) as (hypothesis 32: {X0 + k ∈ RealSet => a ∈ RealSet => (X0 + k ∈ IntervalLoRo(a, +∞) <==> X0 + k > a)})
+  use_condition (hypothesis 31: {X0 + k ∈ RealSet}) (hypothesis 2: {a ∈ RealSet}) in (hypothesis 32: {X0 + k ∈ RealSet => a ∈ RealSet => (X0 + k ∈ IntervalLoRo(a, +∞) <==> X0 + k > a)}) as (hypothesis 33: {X0 + k ∈ IntervalLoRo(a, +∞) <==> X0 + k > a})
+  assert (hypothesis 34: {X0 + k > a}) by proof {
+    autosolve (hypothesis 17: {X0 > a}) (hypothesis 22: {k ∈ NonNegIntegerSet}) (hypothesis 23: {k ∈ PosIntegerSet})
+  }
+  rewrite (right_to_left, iff) (hypothesis 33: {X0 + k ∈ IntervalLoRo(a, +∞) <==> X0 + k > a}); from (hypothesis 34: {X0 + k > a}) to (hypothesis 35: {X0 + k ∈ IntervalLoRo(a, +∞)})
+  assert (hypothesis 36: {X0 + k ∈ RealSet ∧ X0 + k ∈ IntervalLoRo(a, +∞)}) by proof {
+    autosolve (hypothesis 31: {X0 + k ∈ RealSet}) (hypothesis 35: {X0 + k ∈ IntervalLoRo(a, +∞)})
+  }
+  use_condition (hypothesis 36: {X0 + k ∈ RealSet ∧ X0 + k ∈ IntervalLoRo(a, +∞)}) in (hypothesis 30: {X0 + k ∈ RealSet ∧ X0 + k ∈ IntervalLoRo(a, +∞) ⇒ f(X0 + k) ≥ c}) as (hypothesis 37: {f(X0 + k) ≥ c})
+  autosolve (hypothesis 19: {c ∈ RealSet}) (hypothesis 20: {c > 0}) (hypothesis 29: {f(X0) ≥ c}) (hypothesis 37: {f(X0 + k) ≥ c})
+}
+exists (X_{0} := {X0})
+autosolve (hypothesis 15: {X0 ∈ RealSet}) (hypothesis 16: {X0 ∈ PosRealSet}) (hypothesis 17: {X0 > a}) (hypothesis 21: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac(f(X0 + n), f(X0))})

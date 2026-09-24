@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. V_{x} ∈ RealSet
+3. V_{y} ∈ RealSet
+4. forall (x), x ∈ RealSet ∧ 0 ≤ x ⇒ y(x) = e^{-x}
+5. V_{x} = π * DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-2 * x}) * diff(fun x [x ∈ RealSet] . x))
+6. V_{x} = frac(π, 2)
+
+GOAL:
+V_{y} = π * DefInt(0, 1, (fun y [y ∈ RealSet] . (-ln(y))^{2}) * diff(fun y [y ∈ RealSet] . y))
+
+METHOD:

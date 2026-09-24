@@ -1,0 +1,18 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. c_{1} ∈ RealSet
+5. c_{2} ∈ RealSet
+6. a < b
+7. f : [a, b] → RealSet
+8. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ FunDeri(f, 1, 2)(x) ∈ RealSet
+9. FunDeri(f, 1, 1)(a) = 0
+10. FunDeri(f, 1, 1)(b) = 0
+
+GOAL:
+forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x_{0} ∈ [a, b] ∧ x ∈ [a, b] ∧ x ≠ x_{0} ⇒ (exists (ξ), ξ ∈ RealSet ∧ (x_{0} < ξ ∧ ξ < x ∨ x < ξ ∧ ξ < x_{0}) ∧ f(x) = f(x_{0}) + FunDeri(f, 1, 1)(x_{0}) * (x - x_{0}) + frac(1, 2) * (x - x_{0})^{2} * FunDeri(f, 1, 2)(ξ)))
+
+METHOD:
+[@method 根据 "Taylor公式的Cauchy余项" @]

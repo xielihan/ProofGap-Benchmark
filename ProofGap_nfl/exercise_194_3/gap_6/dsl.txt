@@ -1,0 +1,4 @@
+1. get_condition (hypothesis 9: {f(x) < 0}) in (GOAL: {f(x) < 0 ⇒ x ∈ RealSet ∧ 1 < x ∧ x < +∞})
+2. use_condition (hypothesis 9: {f(x) < 0}) in (hypothesis 8: {f(x) < 0 ⇒ x + |x| > 0 ∧ 1 - x < 0}) as (hypothesis 10: {x + |x| > 0 ∧ 1 - x < 0})
+3. destruct_and (hypothesis 10: {x + |x| > 0 ∧ 1 - x < 0}) as (hypothesis 11: {x + |x| > 0}) (hypothesis 12: {1 - x < 0})
+4. autosolve all_hypothesis

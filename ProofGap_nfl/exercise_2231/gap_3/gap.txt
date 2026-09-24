@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. x ∈ RealSet
+4. ContinuousFunc(fun t [t ∈ RealSet] . sin(t^{2}))
+5. FunDeri(fun x [x ∈ RealSet] . DefInt(a, b, (fun t [t ∈ RealSet] . sin(t^{2})) * diff(fun t [t ∈ RealSet] . t)), 1, 1) = 0
+
+GOAL:
+FunDeri(fun a [a ∈ RealSet] . DefInt(a, b, (fun t [t ∈ RealSet] . sin(t^{2})) * diff(fun t [t ∈ RealSet] . t)), 1, 1) = -FunDeri(fun a [a ∈ RealSet] . DefInt(b, a, (fun t [t ∈ RealSet] . sin(t^{2})) * diff(fun t [t ∈ RealSet] . t)), 1, 1)
+
+METHOD:

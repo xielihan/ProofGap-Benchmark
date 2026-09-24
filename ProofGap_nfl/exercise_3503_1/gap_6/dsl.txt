@@ -1,0 +1,10 @@
+get_forall (GOAL: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ r(x, y) > 0 => FunDeri(f, r, 2)(r(x, y)) + frac(1, r(x, y)) * FunDeri(f, r, 1)(r(x, y)) = 0}) (x := {a}) (y := {b})
+get_condition (hypothesis 13: {a ∈ RealSet ∧ b ∈ RealSet ∧ r(a, b) > 0}) in (GOAL: {a ∈ RealSet ∧ b ∈ RealSet ∧ r(a, b) > 0 => FunDeri(f, r, 2)(r(a, b)) + frac(1, r(a, b)) * FunDeri(f, r, 1)(r(a, b)) = 0})
+get_prop (hypothesis 7: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet => FunDeri(u, x, 2)(x, y) + FunDeri(u, y, 2)(x, y) = 0}) (x := {a}) (y := {b}) as (hypothesis 14: {a ∈ RealSet ∧ b ∈ RealSet => FunDeri(u, a, 2)(a, b) + FunDeri(u, b, 2)(a, b) = 0})
+assert (hypothesis 15: {a ∈ RealSet ∧ b ∈ RealSet}) by proof {
+autosolve all_hypothesis
+}
+use_condition (hypothesis 15: {a ∈ RealSet ∧ b ∈ RealSet}) in (hypothesis 14: {a ∈ RealSet ∧ b ∈ RealSet => FunDeri(u, a, 2)(a, b) + FunDeri(u, b, 2)(a, b) = 0}) as (hypothesis 16: {FunDeri(u, a, 2)(a, b) + FunDeri(u, b, 2)(a, b) = 0})
+get_prop (hypothesis 12: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ r(x, y) > 0 => FunDeri(u, x, 2)(x, y) + FunDeri(u, y, 2)(x, y) = FunDeri(f, r, 2)(r(x, y)) + frac(1, r(x, y)) * FunDeri(f, r, 1)(r(x, y))}) (x := {a}) (y := {b}) as (hypothesis 17: {a ∈ RealSet ∧ b ∈ RealSet ∧ r(a, b) > 0 => FunDeri(u, a, 2)(a, b) + FunDeri(u, b, 2)(a, b) = FunDeri(f, r, 2)(r(a, b)) + frac(1, r(a, b)) * FunDeri(f, r, 1)(r(a, b))})
+use_condition (hypothesis 13: {a ∈ RealSet ∧ b ∈ RealSet ∧ r(a, b) > 0}) in (hypothesis 17: {a ∈ RealSet ∧ b ∈ RealSet ∧ r(a, b) > 0 => FunDeri(u, a, 2)(a, b) + FunDeri(u, b, 2)(a, b) = FunDeri(f, r, 2)(r(a, b)) + frac(1, r(a, b)) * FunDeri(f, r, 1)(r(a, b))}) as (hypothesis 18: {FunDeri(u, a, 2)(a, b) + FunDeri(u, b, 2)(a, b) = FunDeri(f, r, 2)(r(a, b)) + frac(1, r(a, b)) * FunDeri(f, r, 1)(r(a, b))})
+autosolve all_hypothesis

@@ -1,0 +1,24 @@
+PROOF GAP @12
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet ∧ a > b
+4. c ∈ RealSet ∧ b > c ∧ c > 0
+5. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = x^{2} + y^{2} + z^{2}
+6. F = (fun x, y, z, λ [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet] . x^{2} + y^{2} + z^{2} + λ * (frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}) - 1))
+7. forall (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 1, 1)(x, y, z, λ) = 2 * x * (1 + frac(λ, a^{2}))
+8. forall (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 2, 1)(x, y, z, λ) = 2 * y * (1 + frac(λ, b^{2}))
+9. forall (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 3, 1)(x, y, z, λ) = 2 * z * (1 + frac(λ, c^{2}))
+10. exists (x) (λ), x ∈ RealSet ∧ λ ∈ RealSet ∧ 2 * x * (1 + frac(λ, a^{2})) = 0
+11. exists (y) (λ), y ∈ RealSet ∧ λ ∈ RealSet ∧ 2 * y * (1 + frac(λ, b^{2})) = 0
+12. exists (z) (λ), z ∈ RealSet ∧ λ ∈ RealSet ∧ 2 * z * (1 + frac(λ, c^{2})) = 0
+13. exists (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}) = 1
+14. exists (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x = a ∧ y = 0 ∧ z = 0 ∨ x = -a ∧ y = 0 ∧ z = 0 ∨ x = 0 ∧ y = b ∧ z = 0 ∨ x = 0 ∧ y = -b ∧ z = 0 ∨ x = 0 ∧ y = 0 ∧ z = c ∨ x = 0 ∧ y = 0 ∧ z = -c)
+15. u(a, 0, 0) = a^{2}
+16. u(-a, 0, 0) = a^{2}
+17. u(0, b, 0) = b^{2}
+
+GOAL:
+u(0, -b, 0) = b^{2}
+
+METHOD:

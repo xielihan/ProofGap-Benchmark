@@ -1,0 +1,1 @@
+autosolve (hypothesis 7: {UniformContinuousFuncOn(f, [0, +∞))}) (hypothesis 8: {UniformContinuousFuncOn(f, (-∞, 1])})

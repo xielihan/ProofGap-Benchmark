@@ -1,0 +1,16 @@
+PROOF GAP @3
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. x_{0} ∈ RealSet
+3. y_{0} ∈ RealSet
+4. A ∈ RealSet
+5. B ∈ RealSet
+6. C ∈ RealSet
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = x + y + 4 * sin(x) * sin(y)
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 1)(x, y) = 1 + 4 * cos(x) * sin(y)
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 2, 1)(x, y) = 1 + 4 * sin(x) * cos(y)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ FunDeri(z, 1, 1)(x, y) = 0 ∧ FunDeri(z, 2, 1)(x, y) = 0 ⇒ sin(x - y) = 0 ∧ sin(x + y) = -frac(1, 2)
+
+METHOD:

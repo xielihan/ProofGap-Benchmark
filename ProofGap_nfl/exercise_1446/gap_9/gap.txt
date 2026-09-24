@@ -1,0 +1,17 @@
+PROOF GAP @9
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = x^{2} - 4 * x + 6
+3. forall (x), x ∈ RealSet ∧ x ∈ [-3, 10] ⇒ FunDeri(f, 1, 1)(x) = 2 * x - 4
+4. forall (x), x ∈ RealSet ∧ x ∈ [-3, 10] ⇒ FunDeri(f, 1, 2)(x) = 2
+5. forall (x), x ∈ RealSet ⇒ (FunDeri(f, 1, 1)(x) = 0 ⇔ x = 2)
+6. FunDeri(f, 1, 2)(2) = 2
+7. FunDeri(f, 1, 2)(2) > 0
+8. MinimumPointOn(f, [-3, 10]) = { 2 }
+9. f(2) = 2
+10. f(-3) = 27
+
+GOAL:
+f(10) = 66
+
+METHOD:

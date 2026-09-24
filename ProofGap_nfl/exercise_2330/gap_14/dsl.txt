@@ -1,0 +1,4 @@
+get_exists (hypothesis 19: {exists (ξ), ξ ∈ RealSet ∧ a^{2} ≤ ξ ∧ ξ ≤ b^{2} ∧ θ = sin(frac(ξ + a^{2}, 2)) * sin(frac(ξ - a^{2}, 2))}) (ξ := {u})
+destruct_and (hypothesis 22: {u ∈ RealSet ∧ a^{2} ≤ u ∧ u ≤ b^{2} ∧ θ = sin(frac(u + a^{2}, 2)) * sin(frac(u - a^{2}, 2))}) as (hypothesis 23: {u ∈ RealSet}) (hypothesis 24: {a^{2} ≤ u}) (hypothesis 25: {u ≤ b^{2}}) (hypothesis 26: {θ = sin(frac(u + a^{2}, 2)) * sin(frac(u - a^{2}, 2))})
+exists (ξ := {u})
+autosolve all_hypothesis

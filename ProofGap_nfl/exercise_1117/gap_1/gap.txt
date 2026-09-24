@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x) = x * ln(x)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(fun u . u * ln(u), 1, 1)(x) = 1 + ln(x)
+
+METHOD:

@@ -1,0 +1,2 @@
+rewrite_in limit (left_to_right, equation) (hypothesis 1: {forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ sum_{ k = 1 }^{ n - 1 } (frac(k, n^{2})) = frac((n - 1) * n, 2 * n^{2})}); from (GOAL: {seqlim_{ n → +∞ } (sum_{ k = 1 }^{ n - 1 } (frac(k, n^{2}))) = frac(1, 2)}) to (GOAL: {seqlim_{ n → +∞ } (frac((n - 1) * n, 2 * n^{2})) = frac(1, 2)})
+apply (hypothesis 2: {seqlim_{ n → +∞ } (frac((n - 1) * n, 2 * n^{2})) = frac(1, 2)})

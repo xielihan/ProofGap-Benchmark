@@ -1,0 +1,2 @@
+assert (hypothesis 24: {(forall (u) (x_{1}) (x_{2}), u ∈ RealSet ∧ x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ u ∈ IntervalLoRo(A, B) ∧ x_{1} ∈ IntervalLoRo(a, b) ∧ x_{2} ∈ IntervalLoRo(a, b) ∧ φ(x_{1}) = u ∧ φ(x_{2}) = u ⇒ ψ(x_{1}) = ψ(x_{2})) ⇒ (exists (f), f : RealSet → RealSet ∧ Defined(f, (A, B)) ∧ (forall (x), x ∈ RealSet ∧ a < x ∧ x < b ∧ φ(x) ∈ IntervalLoRo(A, B) ⇒ ψ(x) = f(φ(x))))})
+autosolve all_hypothesis

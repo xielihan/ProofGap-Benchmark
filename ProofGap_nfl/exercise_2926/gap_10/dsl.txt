@@ -1,0 +1,16 @@
+get_prop (hypothesis 6: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ Δ(n) = |ln(1.2) - S(n)|}) (n := {4}) as (hypothesis 15: {4 ∈ NonNegIntegerSet ∧ 4 ∈ PosIntegerSet ⇒ Δ(4) = |ln(1.2) - S(4)|})
+use_condition (obvious: {4 ∈ NonNegIntegerSet ∧ 4 ∈ PosIntegerSet}) in (hypothesis 15: {4 ∈ NonNegIntegerSet ∧ 4 ∈ PosIntegerSet ⇒ Δ(4) = |ln(1.2) - S(4)|}) as (hypothesis 16: {Δ(4) = |ln(1.2) - S(4)|})
+assert (hypothesis 17: {|ln(1.2) - S(4)| < frac(1, 5) * 0.2^{5}}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 18: {|S(4) - 0.1823| < 0.000034}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 14: {S(4) = 0.2 - frac(1, 2) * 0.2^{2} + frac(1, 3) * 0.2^{3} - frac(1, 4) * 0.2^{4}}); from (GOAL: {|S(4) - 0.1823| < 0.000034}) to (GOAL: {|0.2 - frac(1, 2) * 0.2^{2} + frac(1, 3) * 0.2^{3} - frac(1, 4) * 0.2^{4} - 0.1823| < 0.000034})
+  autosolve all_hypothesis
+}
+assert (hypothesis 19: {|ln(1.2) - 0.1823| <= |ln(1.2) - S(4)| + |S(4) - 0.1823|}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 20: {frac(1, 5) * 0.2^{5} + 0.000034 < 10^{-4}}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

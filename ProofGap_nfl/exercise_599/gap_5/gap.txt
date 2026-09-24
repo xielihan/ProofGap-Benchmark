@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x < 0 ⇒ 0 < 2^{x}
+2. forall (x), x ∈ RealSet ∧ x < 0 ⇒ 2^{x} < 1
+3. forall (x), x ∈ RealSet ∧ x < 0 ⇒ 0 < 1
+4. lim_{ x → 0^- } (2^{x}) = 1
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ 2^{x} > 1
+
+METHOD:

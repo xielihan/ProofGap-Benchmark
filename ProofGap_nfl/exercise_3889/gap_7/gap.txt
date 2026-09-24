@@ -1,0 +1,22 @@
+PROOF GAP @7
+ASSUM:
+1. f : RealSet → RealSet
+2. A ∈ RealSet
+3. ω ∈ RealSet
+4. n ∈ NonNegIntegerSet
+5. B : RealSet → RealSet
+6. ω > 0
+7. n ∈ PosIntegerSet
+8. forall (t), t ∈ RealSet ⇒ f(t) = cases{ A * sin(ω * t) if |t| ≤ frac(2 * π * n, ω); 0 if |t| > frac(2 * π * n, ω) }
+9. ContinuousFunc(f)
+10. OddFunc(f)
+11. forall (λ), λ ∈ RealSet ⇒ B(λ) = frac(2, π) * DefInt(0, +∞, (fun ξ [ξ ∈ RealSet] . f(ξ) * sin(λ * ξ)) * diff(fun ξ [ξ ∈ RealSet] . ξ))
+12. forall (λ), λ ∈ RealSet ⇒ B(λ) = frac(2 * A, π) * DefInt(0, frac(2 * π * n, ω), (fun ξ [ξ ∈ RealSet] . sin(ω * ξ) * sin(λ * ξ)) * diff(fun ξ [ξ ∈ RealSet] . ξ))
+13. forall (λ), λ ∈ RealSet ∧ λ ≠ ω ∧ λ ≠ -ω ⇒ frac(2 * A, π) * DefInt(0, frac(2 * π * n, ω), (fun ξ [ξ ∈ RealSet] . sin(ω * ξ) * sin(λ * ξ)) * diff(fun ξ [ξ ∈ RealSet] . ξ)) = frac(2 * A * ω * sin(frac(2 * π * n * λ, ω)), π * (λ^{2} - ω^{2}))
+14. forall (λ), λ ∈ RealSet ∧ λ ≠ ω ∧ λ ≠ -ω ⇒ B(λ) = frac(2 * A * ω * sin(frac(2 * π * n * λ, ω)), π * (λ^{2} - ω^{2}))
+15. forall (t), t ∈ RealSet ⇒ f(t) = frac(2 * A * ω, π) * DefInt(0, +∞, (fun λ [λ ∈ RealSet] . frac(sin(frac(2 * π * n * λ, ω)), λ^{2} - ω^{2}) * sin(λ * t)) * diff(fun λ [λ ∈ RealSet] . λ))
+
+GOAL:
+forall (t), t ∈ RealSet ⇒ lim_{ λ → ω } (frac(sin(frac(2 * π * n * λ, ω)), λ^{2} - ω^{2}) * sin(λ * t)) = frac(π * n, ω^{2}) * sin(ω * t)
+
+METHOD:

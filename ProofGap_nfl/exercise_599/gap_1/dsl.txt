@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x < 0 ⇒ 0 < 2 ^ x}) (x := {z})
+get_condition (hypothesis 1: {z ∈ RealSet ∧ z < 0}) in (GOAL: {z ∈ RealSet ∧ z < 0 ⇒ 0 < 2 ^ z})
+destruct_and (hypothesis 1: {z ∈ RealSet ∧ z < 0}) as (hypothesis 2: {z ∈ RealSet}) (hypothesis 3: {z < 0})
+get_prop (theorem 'Thm 387. (PositiveBasePowerPositive)': {forall (a) (u), a ∈ RealSet ⇒ u ∈ RealSet ⇒ a > 0 ⇒ a ^ u > 0}) (a := {2}) (u := {z}) as (hypothesis 4: {2 ∈ RealSet ⇒ z ∈ RealSet ⇒ 2 > 0 ⇒ 2 ^ z > 0})
+use_condition (obvious: {2 ∈ RealSet}) (hypothesis 2: {z ∈ RealSet}) (obvious: {2 > 0}) in (hypothesis 4: {2 ∈ RealSet ⇒ z ∈ RealSet ⇒ 2 > 0 ⇒ 2 ^ z > 0}) as (hypothesis 5: {2 ^ z > 0})
+autosolve (hypothesis 5: {2 ^ z > 0})

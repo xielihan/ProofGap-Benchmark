@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ⇒ y(x) = sqrtn(2, 1 - x^{2})
+
+GOAL:
+forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 1 ⇒ InverseFunc(RestrictFunc(y, [-1, 0]), t) = -sqrtn(2, 1 - t^{2})
+
+METHOD:

@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (t), t ∈ RealSet ∧ t ≠ 0 ⇒ frac(b * cosh(t), a * sinh(t)) = frac(b, a) * coth(t)}) (t := {u})
+get_condition (hypothesis 14: {u ∈ RealSet ∧ u ≠ 0}) in (GOAL: {u ∈ RealSet ∧ u ≠ 0 ⇒ frac(b * cosh(u), a * sinh(u)) = frac(b, a) * coth(u)})
+destruct_and (hypothesis 14: {u ∈ RealSet ∧ u ≠ 0}) as (hypothesis 15: {u ∈ RealSet}) (hypothesis 16: {u ≠ 0})
+get_prop (theorem 'Thm 245. (HyperbolicCotangentDefinition)': {forall (x), x ∈ RealSet => x ≠ 0 => coth(x) = cosh(x) / sinh(x)}) (x := {u}) as (hypothesis 17: {u ∈ RealSet => u ≠ 0 => coth(u) = cosh(u) / sinh(u)})
+use_condition (hypothesis 15: {u ∈ RealSet}) (hypothesis 16: {u ≠ 0}) in (hypothesis 17: {u ∈ RealSet => u ≠ 0 => coth(u) = cosh(u) / sinh(u)}) as (hypothesis 18: {coth(u) = cosh(u) / sinh(u)})
+rewrite (left_to_right, equation) (hypothesis 18: {coth(u) = cosh(u) / sinh(u)}); from (GOAL: {frac(b * cosh(u), a * sinh(u)) = frac(b, a) * coth(u)}) to (GOAL: {frac(b * cosh(u), a * sinh(u)) = frac(b, a) * (cosh(u) / sinh(u))})
+autosolve all_hypothesis

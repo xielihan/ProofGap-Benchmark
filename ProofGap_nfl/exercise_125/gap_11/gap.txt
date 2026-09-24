@@ -1,0 +1,20 @@
+PROOF GAP @11
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. BoundedSeq(x)
+3. exists (a) (b), a ∈ RealSet ∧ b ∈ RealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a ≤ x(n) ∧ x(n) ≤ b)
+4. I_{0} = [a, b]
+5. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (exists (a) (k) (b), a : NonNegIntegerSet → RealSet ∧ k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ b : NonNegIntegerSet → RealSet ∧ a(k) ∈ RealSet ∧ b(k) ∈ RealSet ∧ [a(k), b(k)] ⊆ I_{0} ∧ InfiniteSet({ n | n ∈ PosIntegerSet, x(n) ∈ [a(k), b(k)] }) ∧ b(k) - a(k) = frac(b - a, 2^{k}))
+6. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ [a(k + 1), b(k + 1)] ⊆ [a(k), b(k)]
+7. exists (c), c ∈ RealSet ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ c ∈ [a(k), b(k)])
+8. exists (c), c ∈ RealSet ∧ seqlim_{ k → +∞ } (a(k)) = c
+9. exists (c), c ∈ RealSet ∧ seqlim_{ k → +∞ } (b(k)) = c
+10. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (exists (p) (k), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ p(k) ∈ PosIntegerSet ∧ p(k) < p(k + 1) ∧ x(p(k)) ∈ [a(k), b(k)])
+11. exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ a(k) ≤ x(p(k)))
+12. exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ x(p(k)) ≤ b(k))
+13. exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ (exists (c), c ∈ RealSet ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ |x(p(k)) - c| ≤ b(k) - a(k)))
+
+GOAL:
+exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p)
+
+METHOD:

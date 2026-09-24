@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ lim_{ x → +∞ } (frac(f(n, x), f(n - 1, x))) = +∞}) (n := {n1})
+get_condition (hypothesis 8: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet ∧ n1 ≥ 2}) in (GOAL: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet ∧ n1 ≥ 2 ⇒ lim_{ x → +∞ } (frac(f(n1, x), f(n1 - 1, x))) = +∞})
+get_prop (hypothesis 6: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ lim_{ x → +∞ } (frac(f(n, x), f(n - 1, x))) = lim_{ x → +∞ } (x)}) (n := {n1}) as (hypothesis 9: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet ∧ n1 ≥ 2 ⇒ lim_{ x → +∞ } (frac(f(n1, x), f(n1 - 1, x))) = lim_{ x → +∞ } (x)})
+get_prop (hypothesis 7: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ lim_{ x → +∞ } (x) = +∞}) (n := {n1}) as (hypothesis 10: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet ∧ n1 ≥ 2 ⇒ lim_{ x → +∞ } (x) = +∞})
+use_condition (hypothesis 8: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet ∧ n1 ≥ 2}) in (hypothesis 9: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet ∧ n1 ≥ 2 ⇒ lim_{ x → +∞ } (frac(f(n1, x), f(n1 - 1, x))) = lim_{ x → +∞ } (x)}) as (hypothesis 11: {lim_{ x → +∞ } (frac(f(n1, x), f(n1 - 1, x))) = lim_{ x → +∞ } (x)})
+use_condition (hypothesis 8: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet ∧ n1 ≥ 2}) in (hypothesis 10: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet ∧ n1 ≥ 2 ⇒ lim_{ x → +∞ } (x) = +∞}) as (hypothesis 12: {lim_{ x → +∞ } (x) = +∞})
+rewrite (left_to_right, equation) (hypothesis 11: {lim_{ x → +∞ } (frac(f(n1, x), f(n1 - 1, x))) = lim_{ x → +∞ } (x)}); from (GOAL: {lim_{ x → +∞ } (frac(f(n1, x), f(n1 - 1, x))) = +∞}) to (GOAL: {lim_{ x → +∞ } (x) = +∞})
+apply (hypothesis 12: {lim_{ x → +∞ } (x) = +∞})

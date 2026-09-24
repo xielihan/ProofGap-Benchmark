@@ -1,0 +1,13 @@
+get_prop (hypothesis 3: {forall (m), m ∈ RealSet ⇒ (forall (n), n ∈ RealSet ∧ m > -1 ∧ n > 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . x^{m} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, n) * Gamma(frac(m + 1, n)))}) (m := {0}) as (hypothesis 4: {0 ∈ RealSet ⇒ (forall (n), n ∈ RealSet ∧ 0 > -1 ∧ n > 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . x^{0} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, n) * Gamma(frac(0 + 1, n)))})
+assert (hypothesis 5: {0 ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 5: {0 ∈ RealSet}) in (hypothesis 4: {0 ∈ RealSet ⇒ (forall (n), n ∈ RealSet ∧ 0 > -1 ∧ n > 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . x^{0} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, n) * Gamma(frac(0 + 1, n)))}) as (hypothesis 6: {forall (n), n ∈ RealSet ∧ 0 > -1 ∧ n > 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . x^{0} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, n) * Gamma(frac(0 + 1, n))})
+get_prop (hypothesis 6: {forall (n), n ∈ RealSet ∧ 0 > -1 ∧ n > 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . x^{0} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, n) * Gamma(frac(0 + 1, n))}) (n := {4}) as (hypothesis 7: {4 ∈ RealSet ∧ 0 > -1 ∧ 4 > 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . x^{0} * e^{-x^{4}}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 4) * Gamma(frac(0 + 1, 4))})
+assert (hypothesis 8: {4 ∈ RealSet ∧ 0 > -1 ∧ 4 > 0}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 8: {4 ∈ RealSet ∧ 0 > -1 ∧ 4 > 0}) in (hypothesis 7: {4 ∈ RealSet ∧ 0 > -1 ∧ 4 > 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . x^{0} * e^{-x^{4}}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 4) * Gamma(frac(0 + 1, 4))}) as (hypothesis 9: {DefInt(0, +∞, (fun x [x ∈ RealSet] . x^{0} * e^{-x^{4}}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 4) * Gamma(frac(0 + 1, 4))})
+autoreplace no_hypothesis; from (x^{0} * e^{-x^{4}}) to (e^{-x^{4}}); from (hypothesis 9: {DefInt(0, +∞, (fun x [x ∈ RealSet] . x^{0} * e^{-x^{4}}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 4) * Gamma(frac(0 + 1, 4))}) to (hypothesis 10: {DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{4}}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 4) * Gamma(frac(0 + 1, 4))})
+autoreplace no_hypothesis; from (frac(0 + 1, 4)) to (frac(1, 4)); from (hypothesis 10: {DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{4}}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 4) * Gamma(frac(0 + 1, 4))}) to (hypothesis 11: {DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{4}}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 4) * Gamma(frac(1, 4))})
+apply (hypothesis 11: {DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{4}}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 4) * Gamma(frac(1, 4))})

@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = e^{x} + e^{e^{x}} + e^{e^{e^{x}}}
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (e^{x} + e^{e^{x}} + e^{e^{e^{x}}})' = e^{x} * (1 + e^{e^{x}} * (1 + e^{e^{e^{x}}}))
+
+METHOD:

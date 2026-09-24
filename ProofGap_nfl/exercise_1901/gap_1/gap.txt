@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. C_{0} ∈ RealSet
+2. A ∈ RealSet
+3. B ∈ RealSet
+4. C ∈ RealSet
+5. D ∈ RealSet
+6. Q = (fun x [x ∈ RealSet] . x^{4} + 2 * x^{3} + 3 * x^{2} + 2 * x + 1)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ Q(x) = (x^{2} + x + 1)^{2}
+
+METHOD:

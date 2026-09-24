@@ -1,0 +1,30 @@
+PROOF GAP @14
+ASSUM:
+1. r : RealSet → RealSet
+2. a ∈ RealSet ∧ a > 0
+3. m ∈ RealSet ∧ m > 0
+4. φ ∈ RealSet
+5. ξ : RealSet → RealSet
+6. η : RealSet → RealSet
+7. `r_0` : RealSet → RealSet
+8. `φ_0` : RealSet → RealSet
+9. α ∈ RealSet
+10. forall (t), t ∈ RealSet ⇒ r(t) = a * e^{m * t}
+11. ξ(φ) = frac(DefInt(-∞, φ, r(t) * cos(t) * sqrtn(2, a^{2} * (1 + m^{2})) * e^{m * t} * diff(t)), DefInt(-∞, φ, sqrtn(2, a^{2} * (1 + m^{2})) * e^{m * t} * diff(t)))
+12. ξ(φ) = frac(a * DefInt(-∞, φ, e^{2 * m * t} * cos(t) * diff(t)), DefInt(-∞, φ, e^{m * t} * diff(t)))
+13. ξ(φ) = frac(m * a * e^{m * φ} * (sin(φ) + 2 * m * cos(φ)), 4 * m^{2} + 1)
+14. η(φ) = frac(m * a * e^{m * φ} * (2 * m * sin(φ) - cos(φ)), 4 * m^{2} + 1)
+15. `r_0`(φ) = sqrtn(2, ξ(φ)^{2} + η(φ)^{2})
+16. sqrtn(2, ξ(φ)^{2} + η(φ)^{2}) = frac(m * a, 4 * m^{2} + 1) * sqrtn(2, 4 * m^{2} + 1) * e^{m * φ}
+17. frac(m * a, 4 * m^{2} + 1) * sqrtn(2, 4 * m^{2} + 1) * e^{m * φ} = frac(m * r(φ), sqrtn(2, 4 * m^{2} + 1))
+18. `r_0`(φ) = frac(m * r(φ), sqrtn(2, 4 * m^{2} + 1))
+19. tan(`φ_0`(φ)) = frac(η(φ), ξ(φ))
+20. frac(η(φ), ξ(φ)) = frac(2 * m * tan(φ) - 1, tan(φ) + 2 * m)
+21. frac(2 * m * tan(φ) - 1, tan(φ) + 2 * m) = frac(tan(φ) - frac(1, 2 * m), 1 + frac(1, 2 * m) * tan(φ))
+22. tan(`φ_0`(φ)) = frac(tan(φ) - frac(1, 2 * m), 1 + frac(1, 2 * m) * tan(φ))
+23. α = arctan(frac(1, 2 * m))
+
+GOAL:
+`φ_0`(φ) = φ - α
+
+METHOD:

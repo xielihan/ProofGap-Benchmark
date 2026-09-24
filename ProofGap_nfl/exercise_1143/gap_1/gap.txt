@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. forall (t), t ∈ RealSet ⇒ x(t) = e^{t} * cos(t) ∧ y(t) = e^{t} * sin(t)
+
+GOAL:
+forall (t), t ∈ RealSet ∧ cos(frac(π, 4) + t) ≠ 0 ⇒ FunDeri(y, x, 1)(t) = frac(e^{t} * (sin(t) + cos(t)), e^{t} * (cos(t) - sin(t)))
+
+METHOD:

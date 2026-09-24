@@ -1,0 +1,19 @@
+PROOF GAP @1
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. ξ ∈ RealSet
+3. η ∈ RealSet
+4. ζ ∈ RealSet
+5. forall (x), x ∈ RealSet ⇒ x = η * ζ
+6. forall (y), y ∈ RealSet ⇒ y = ξ * ζ
+7. forall (z), z ∈ RealSet ⇒ z = ξ * η
+8. ξ ≠ 0
+9. η ≠ 0
+10. ζ ≠ 0
+11. FuncOfClassK(u, 2)
+12. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ x * y * FunDeri(FunDeri(u, x, 1), y, 1)(x, y, z) + y * z * FunDeri(FunDeri(u, y, 1), z, 1)(x, y, z) + x * z * FunDeri(FunDeri(u, x, 1), z, 1)(x, y, z) = 0))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ 1 = ζ * FunDeri(η, x, 1)(x, y, z) + η * FunDeri(ζ, x, 1)(x, y, z)))
+
+METHOD:

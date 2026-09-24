@@ -1,0 +1,24 @@
+PROOF GAP @15
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. forall (t), t ∈ RealSet ∧ t > 0 ⇒ f(t) = t * lg(t) - 1
+4. forall (t), t ∈ RealSet ∧ t > 0 ⇒ (lg(t) = frac(1, t) ⇔ t * lg(t) = 1)
+5. exists (ξ), ξ ∈ RealSet ∧ ξ ∈ PosRealSet ∧ ξ * lg(ξ) = 1 ∧ (forall (ξ1), ξ1 ∈ RealSet ∧ ξ1 ∈ PosRealSet ∧ ξ1 * lg(ξ1) = 1 ⇒ ξ1 = ξ)
+6. f(2.506) = -0.0004
+7. f(2.507) = 0.0005
+8. forall (t), t ∈ RealSet ∧ 2.506 < t ∧ t < 2.507 ⇒ FunDeri(f, 1, 1)(t) > 0 ∧ FunDeri(f, 1, 2)(t) > 0
+9. exists (ξ), ξ ∈ RealSet ∧ ξ ∈ IntervalLoRo(2.506, 2.507) ∧ f(ξ) = 0 ∧ (forall (ξ2), ξ2 ∈ RealSet ∧ ξ2 ∈ IntervalLoRo(2.506, 2.507) ∧ f(ξ2) = 0 ⇒ ξ2 = ξ)
+10. f(2.507) * FunDeri(f, 1, 2)(2.507) > 0
+11. exists (x_{1}), x_{1} ∈ RealSet ∧ x_{1} = 2.5064
+12. exists (x_{2}), x_{2} ∈ RealSet ∧ x_{2} = 2.5062
+13. f(2.5062) = 0.00002
+14. exists (m), m ∈ RealSet ∧ m = inf({ |FunDeri(f, 1, 1)(t)| | t ∈ RealSet, 2.506 < t ∧ t < 2.507 })
+15. inf({ |FunDeri(f, 1, 1)(t)| | t ∈ RealSet, 2.506 < t ∧ t < 2.507 }) = |FunDeri(f, 1, 1)(2.506)|
+16. |FunDeri(f, 1, 1)(2.506)| = 0.84
+17. exists (m), m ∈ RealSet ∧ m = 0.84
+
+GOAL:
+exists (ξ), ξ ∈ RealSet ∧ (exists (m), m ∈ RealSet ∧ |2.5062 - ξ| ≤ frac(|f(2.5062)|, m))
+
+METHOD:

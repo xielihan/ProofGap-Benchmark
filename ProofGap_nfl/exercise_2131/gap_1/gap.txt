@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+3. 0 < |x|
+4. |x| < 1
+5. x = sin(t(x))
+
+GOAL:
+-frac(π, 2) < t(x)
+
+METHOD:

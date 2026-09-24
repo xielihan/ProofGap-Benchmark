@@ -1,0 +1,29 @@
+PROOF GAP @16
+ASSUM:
+1. Γ : RealSet → RealSet
+2. x ∈ RealSet ∧ x > 0
+3. t ∈ RealSet ∧ t > 0
+4. x_{0} ∈ RealSet ∧ x_{0} > 0
+5. x_{1} ∈ RealSet
+6. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+7. forall (x), x ∈ RealSet ∧ x > 0 ⇒ Γ(x) = DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))
+8. forall (x), x ∈ RealSet ∧ x > 0 ⇒ Γ(x) = DefInt(0, 1, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t)) + DefInt(1, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))
+9. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ x_{1} > x_{0} ∧ x_{0} > 0 ∧ x ≥ x_{0} ∧ 0 < t ∧ t < 1 ⇒ 0 < t^{x - 1} * e^{-t})
+10. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ x_{1} > x_{0} ∧ x_{0} > 0 ∧ x ≥ x_{0} ∧ 0 < t ∧ t < 1 ⇒ t^{x - 1} * e^{-t} ≤ t^{x_{0} - 1} * e^{-t})
+11. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ x_{1} > x_{0} ∧ x_{0} > 0 ⇒ ConvergentSeries(DefInt(0, 1, (fun t [t ∈ RealSet ∧ t > 0] . t^{x_{0} - 1} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))))
+12. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ x_{1} > x_{0} ∧ x_{0} > 0 ⇒ ConvergentSeries(DefInt(0, 1, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))))
+13. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ x_{1} > x_{0} ∧ x_{0} > 0 ∧ x ≤ x_{1} ∧ t ≥ 1 ⇒ t^{x - 1} * e^{-t} ≤ t^{x_{1} - 1} * e^{-t})
+14. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ x_{1} > x_{0} ∧ x_{0} > 0 ⇒ ConvergentSeries(DefInt(1, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{x_{1} - 1} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))))
+15. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ x_{1} > x_{0} ∧ x_{0} > 0 ⇒ ConvergentSeries(DefInt(1, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))))
+16. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ x_{1} > x_{0} ∧ x_{0} > 0 ⇒ ConvergentSeries(DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))))
+17. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ x_{1} > x_{0} ∧ x_{0} > 0 ⇒ ContinuousFuncOn(Γ, [x_{0}, x_{1}]))
+18. ContinuousFuncOn(Γ, PosRealSet)
+19. FunDeri(fun x, t [x ∈ RealSet ∧ x > 0 ∧ t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-t}, 1, 1) = t^{x - 1} * ln(t) * e^{-t}
+20. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ x_{1} > x_{0} ∧ x_{0} > 0 ∧ x ≥ x_{0} ∧ 0 < t ∧ t ≤ 1 ⇒ |t^{x - 1} * ln(t) * e^{-t}| ≤ t^{x_{0} - 1} * |ln(t)|)
+21. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ x_{1} > x_{0} ∧ x_{0} > 0 ⇒ ConvergentSeries(DefInt(0, 1, (fun t [t ∈ RealSet ∧ t > 0] . t^{x_{0} - 1} * |ln(t)|) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))))
+22. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ x_{1} > x_{0} ∧ x_{0} > 0 ⇒ ConvergentSeries(DefInt(0, 1, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * ln(t) * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))))
+
+GOAL:
+forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ x_{1} > x_{0} ∧ x_{0} > 0 ∧ x ≤ x_{1} ∧ t ≥ 1 ⇒ |t^{x - 1} * ln(t) * e^{-t}| ≤ t^{x_{1}} * e^{-t})
+
+METHOD:

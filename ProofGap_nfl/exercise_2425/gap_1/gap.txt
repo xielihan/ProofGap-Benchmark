@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. r : RealSet → RealSet
+2. φ : RealSet → RealSet
+3. a ∈ RealSet
+4. S ∈ RealSet
+5. a > 0
+6. forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ r(t) = frac(2 * a * t, 1 + t^{2}) ∧ φ(t) = frac(π * t, 1 + t)
+
+GOAL:
+S = frac(1, 2) * DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ≥ 0] . r(t)^{2}) * diff(fun t [t ∈ RealSet ∧ t ≥ 0] . φ(t)))
+
+METHOD:

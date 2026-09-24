@@ -1,0 +1,26 @@
+PROOF GAP @16
+ASSUM:
+1. f : RealSet → RealSet
+2. F : RealSet → RealSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = cases{ 1 if x < 0; x + 1 if 0 ≤ x ∧ x ≤ 1; 2 * x if x > 1 }
+4. F(0) = 0
+5. forall (x), x ∈ RealSet ∧ x < 0 ⇒ { `F_1` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_1`, 1, 1)(x) = f(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = 1 * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+6. forall (x), x ∈ RealSet ∧ x < 0 ⇒ { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = 1 * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | exists (C_{1}), C_{1} ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_3`(x) = x + C_{1}) }
+7. forall (x), x ∈ RealSet ∧ x < 0 ⇒ { `F_1` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_1`, 1, 1)(x) = f(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | exists (C_{1}), C_{1} ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_3`(x) = x + C_{1}) }
+8. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ { `F_4` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = f(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = (x + 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+9. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ { `F_5` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = (x + 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_6` | exists (C_{2}), C_{2} ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_6`(x) = frac(x^{2}, 2) + x + C_{2}) }
+10. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ { `F_4` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = f(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_6` | exists (C_{2}), C_{2} ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_6`(x) = frac(x^{2}, 2) + x + C_{2}) }
+11. forall (x), x ∈ RealSet ∧ x > 1 ⇒ { `F_7` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_7`, 1, 1)(x) = f(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_8` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_8`, 1, 1)(x) = 2 * x * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+12. forall (x), x ∈ RealSet ∧ x > 1 ⇒ { `F_8` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_8`, 1, 1)(x) = 2 * x * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_9` | exists (C_{3}), C_{3} ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_9`(x) = x^{2} + C_{3}) }
+13. forall (x), x ∈ RealSet ∧ x > 1 ⇒ { `F_7` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_7`, 1, 1)(x) = f(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_9` | exists (C_{3}), C_{3} ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_9`(x) = x^{2} + C_{3}) }
+14. exists (C_{1}), C_{1} ∈ RealSet ∧ (exists (C_{2}), C_{2} ∈ RealSet ∧ (exists (C_{3}), C_{3} ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ F(x) = cases{ x + C_{1} if x < 0; frac(x^{2}, 2) + x + C_{2} if 0 ≤ x ∧ x ≤ 1; x^{2} + C_{3} if x > 1 })))
+15. exists (C_{2}), C_{2} ∈ RealSet ∧ F(0) = C_{2}
+16. exists (C_{2}), C_{2} ∈ RealSet ∧ C_{2} = 0
+17. lim_{ x → 0^- } (F(x)) = F(0)
+18. exists (C_{1}), C_{1} ∈ RealSet ∧ C_{1} = 0
+19. lim_{ x → 1^+ } (F(x)) = F(1)
+
+GOAL:
+exists (C_{3}), C_{3} ∈ RealSet ∧ 1 + C_{3} = frac(1, 2) + 1
+
+METHOD:

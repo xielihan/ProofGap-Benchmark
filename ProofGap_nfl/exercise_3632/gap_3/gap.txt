@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = e^{2 * x + 3 * y} * (8 * x^{2} - 6 * x * y + 3 * y^{2})
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 1)(x, y) = 2 * e^{2 * x + 3 * y} * (8 * x^{2} - 6 * x * y + 3 * y^{2} + 8 * x - 3 * y)
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 2, 1)(x, y) = 3 * e^{2 * x + 3 * y} * (8 * x^{2} - 6 * x * y + 3 * y^{2} - 2 * x + 2 * y)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ FunDeri(z, 1, 1)(x, y) = 0 ∧ FunDeri(z, 2, 1)(x, y) = 0 ⇒ (x, y) ∈ { (0, 0), (-frac(1, 4), -frac(1, 2)) }
+
+METHOD:

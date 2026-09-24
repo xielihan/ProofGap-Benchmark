@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ |4 - x^{2}| ≠ 0 ∧ frac(1 - cos(π * x), |4 - x^{2}|) ≥ 0 ⇒ y(x) = sqrtn(2, frac(1 - cos(π * x), |4 - x^{2}|))
+GOAL:
+lim_{ x → 2 } (y(x)) = 0
+
+METHOD:

@@ -1,0 +1,4 @@
+1. destruct_and (hypothesis 2: {a ∈ RealSet ∧ a > 0}) as (hypothesis 23: {a ∈ RealSet}) (hypothesis 24: {a > 0})
+2. assert (hypothesis 25: {a != 0})
+3. rewrite (left_to_right, equation) (hypothesis 15: {h = a * cosh(frac(b, a))}); from (GOAL: {cosh(frac(b, a)) = frac(h, a)}) to (GOAL: {cosh(frac(b, a)) = frac(a * cosh(frac(b, a)), a)})
+4. autosolve (hypothesis 25: {a != 0})

@@ -1,0 +1,4 @@
+1. get_condition (hypothesis 15: {n = 2}) in (GOAL: {n = 2 ⇒ 98.8001 < x})
+2. rewrite (left_to_right, equation) (hypothesis 15: {n = 2}); from (hypothesis 9: {100 * (1 - 10^{-(n + 1)})^{2} < x}) to (hypothesis 16: {100 * (1 - 10^{-(2 + 1)})^{2} < x})
+3. autoreplace no_hypothesis; from (100 * (1 - 10^{-(2 + 1)})^{2}) to (99.8001); from (hypothesis 16: {100 * (1 - 10^{-(2 + 1)})^{2} < x}) to (hypothesis 17: {99.8001 < x})
+4. autosolve (hypothesis 17: {99.8001 < x})

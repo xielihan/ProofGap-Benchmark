@@ -1,0 +1,7 @@
+1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (`θ_n`), `θ_n` ∈ RealSet ∧ 0 < `θ_n` ∧ `θ_n` < 1 ∧ e = (sum_{ k = 0 }^{ n } (frac(1, k!))) + frac(`θ_n`, n! * n) ∧ 2.71827 < e ∧ e < 2.71829)}) (n := {q})
+2. get_condition (hypothesis 30: {q ∈ NonNegIntegerSet ∧ q ∈ PosIntegerSet}) in (GOAL: {q ∈ NonNegIntegerSet ∧ q ∈ PosIntegerSet ⇒ (exists (`θ_n`), `θ_n` ∈ RealSet ∧ 0 < `θ_n` ∧ `θ_n` < 1 ∧ e = (sum_{ k = 0 }^{ q } (frac(1, k!))) + frac(`θ_n`, q! * q) ∧ 2.71827 < e ∧ e < 2.71829)})
+3. get_prop (hypothesis 25: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (`θ_n`), `θ_n` ∈ RealSet ∧ 0 < `θ_n` ∧ `θ_n` < 1 ∧ e = (sum_{ k = 0 }^{ n } (frac(1, k!))) + frac(`θ_n`, n! * n))}) (n := {q}) as (hypothesis 31: {q ∈ NonNegIntegerSet ∧ q ∈ PosIntegerSet ⇒ (exists (`θ_n`), `θ_n` ∈ RealSet ∧ 0 < `θ_n` ∧ `θ_n` < 1 ∧ e = (sum_{ k = 0 }^{ q } (frac(1, k!))) + frac(`θ_n`, q! * q))})
+4. use_condition (hypothesis 30: {q ∈ NonNegIntegerSet ∧ q ∈ PosIntegerSet}) in (hypothesis 31: {q ∈ NonNegIntegerSet ∧ q ∈ PosIntegerSet ⇒ (exists (`θ_n`), `θ_n` ∈ RealSet ∧ 0 < `θ_n` ∧ `θ_n` < 1 ∧ e = (sum_{ k = 0 }^{ q } (frac(1, k!))) + frac(`θ_n`, q! * q))}) as (hypothesis 32: {exists (`θ_n`), `θ_n` ∈ RealSet ∧ 0 < `θ_n` ∧ `θ_n` < 1 ∧ e = (sum_{ k = 0 }^{ q } (frac(1, k!))) + frac(`θ_n`, q! * q)})
+5. get_exists (hypothesis 32: {exists (`θ_n`), `θ_n` ∈ RealSet ∧ 0 < `θ_n` ∧ `θ_n` < 1 ∧ e = (sum_{ k = 0 }^{ q } (frac(1, k!))) + frac(`θ_n`, q! * q)}) (`θ_n` := {t})
+6. exists (`θ_n` := {t})
+7. autosolve all_hypothesis

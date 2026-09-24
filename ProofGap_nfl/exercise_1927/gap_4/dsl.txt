@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (t), t ∈ RealSet ⇒ 1 + 2 * t^{3} + t^{2} = (1 + t) * (2 * t^{2} - t + 1)}) (t := {t0})
+get_condition (hypothesis 7: {t0 ∈ RealSet}) in (GOAL: {t0 ∈ RealSet ⇒ 1 + 2 * t0^{3} + t0^{2} = (1 + t0) * (2 * t0^{2} - t0 + 1)})
+assert (hypothesis 8: {1 + 2 * t0^{3} + t0^{2} = (1 + t0) * (2 * t0^{2} - t0 + 1)})
+apply (hypothesis 8: {1 + 2 * t0^{3} + t0^{2} = (1 + t0) * (2 * t0^{2} - t0 + 1)})

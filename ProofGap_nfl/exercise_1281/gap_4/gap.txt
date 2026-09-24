@@ -1,0 +1,16 @@
+PROOF GAP @4
+ASSUM:
+1. P : RealSet → RealSet
+2. a : NonNegIntegerSet → RealSet
+3. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+4. a(n) ≠ 0
+5. forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n ⇒ a(i) ∈ RealSet
+6. forall (i), i ∈ NonNegIntegerSet ∧ 0 ≤ i ∧ i ≤ n ⇒ (forall (x), x ∈ RealSet ⇒ P(x) = sum_{ i = 0 }^{ n } (a(i) * x^{i}))
+7. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(P, 1, 1)(x) = sum_{ i = 1 }^{ n } (i * a(i) * x^{i - 1})
+8. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(P, 1, 1)(x) = x^{n - 1} * (n * a(n) + (sum_{ i = 1 }^{ n - 1 } (frac(i * a(i), x^{n - i}))))
+9. lim_{ x → +∞ } (sum_{ i = 1 }^{ n - 1 } (frac(i * a(i), x^{n - i}))) = 0
+
+GOAL:
+lim_{ x → -∞ } (sum_{ i = 1 }^{ n - 1 } (frac(i * a(i), x^{n - i}))) = 0
+
+METHOD:

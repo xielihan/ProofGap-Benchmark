@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (2^{x})^{2} = 2^{2 * x}}) (x := {x0})
+get_condition (hypothesis 9: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ (2^{x0})^{2} = 2^{2 * x0}})
+get_prop (theorem 'Thm 206. (PowerOfPowerLaw)': {forall (a) (x) (y), a ∈ RealSet ⇒ x ∈ RealSet ⇒ y ∈ RealSet ⇒ (a > 0 ⇒ (a ^ x) ^ y = a ^ (x * y))}) (a := {2}) (x := {x0}) (y := {2}) as (hypothesis 10: {2 ∈ RealSet ⇒ x0 ∈ RealSet ⇒ 2 ∈ RealSet ⇒ (2 > 0 ⇒ (2 ^ x0) ^ 2 = 2 ^ (x0 * 2))})
+use_condition (obvious: {2 ∈ RealSet}) (hypothesis 9: {x0 ∈ RealSet}) (obvious: {2 ∈ RealSet}) (obvious: {2 > 0}) in (hypothesis 10: {2 ∈ RealSet ⇒ x0 ∈ RealSet ⇒ 2 ∈ RealSet ⇒ (2 > 0 ⇒ (2 ^ x0) ^ 2 = 2 ^ (x0 * 2))}) as (hypothesis 11: {(2 ^ x0) ^ 2 = 2 ^ (x0 * 2)})
+assert (hypothesis 12: {x0 * 2 = 2 * x0})
+rewrite (right_to_left, equation) (hypothesis 12: {x0 * 2 = 2 * x0}); from (GOAL: {(2^{x0})^{2} = 2^{2 * x0}}) to (GOAL: {(2^{x0})^{2} = 2^{x0 * 2}})
+apply (hypothesis 11: {(2 ^ x0) ^ 2 = 2 ^ (x0 * 2)})

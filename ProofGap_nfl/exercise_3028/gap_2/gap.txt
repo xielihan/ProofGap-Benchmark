@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. n ∈ NonNegIntegerSet ∧ n ≥ 1
+4. a : NonNegIntegerSet → RealSet
+5. C ∈ RealSet
+6. C_{1} ∈ RealSet
+7. seqlim_{ n → +∞ } (frac(frac((n!)^{2}, (2 * n + 2)!) * (2 * x)^{2 * n + 2}, frac(((n - 1)!)^{2}, (2 * n)!) * (2 * x)^{2 * n})) = seqlim_{ n → +∞ } (frac(4 * n^{2} * x^{2}, (2 * n + 2) * (2 * n + 1)))
+
+GOAL:
+seqlim_{ n → +∞ } (frac(4 * n^{2} * x^{2}, (2 * n + 2) * (2 * n + 1))) = x^{2}
+
+METHOD:

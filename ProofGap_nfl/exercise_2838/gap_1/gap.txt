@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = x^{3}
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ f(x) = (x + 1 - 1)^{3}
+
+METHOD:

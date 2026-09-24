@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. p : NonNegIntegerSet → RealSet
+2. α : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ α(n) = frac((-1)^{n + 1}, n)
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(n) = 1 + α(n)
+5. ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } (α(n)))
+6. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (α(n)^{2}))
+7. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (ln(p(n))))
+
+GOAL:
+¬AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (ln(p(n))))
+
+METHOD:

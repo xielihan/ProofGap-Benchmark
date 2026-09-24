@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. Δu : CartesianProd(RealSet, RealSet) → RealSet
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ RealSet \ { IntervalLoRo(0, 0) } ⇒ u(x, y) = ln(sqrtn(2, x^{2} + y^{2}))
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ RealSet \ { IntervalLoRo(0, 0) } ⇒ Δu(x, y) = FunDeri(u, 1, 2)(x, y) + FunDeri(u, 2, 2)(x, y)
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ RealSet \ { IntervalLoRo(0, 0) } ⇒ FunDeri(u, 1, 1)(x, y) = frac(x, x^{2} + y^{2})
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ RealSet \ { IntervalLoRo(0, 0) } ⇒ FunDeri(u, 1, 2)(x, y) = frac(y^{2} - x^{2}, (x^{2} + y^{2})^{2})
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ RealSet \ { IntervalLoRo(0, 0) } ⇒ FunDeri(u, 2, 2)(x, y) = frac(x^{2} - y^{2}, (x^{2} + y^{2})^{2})
+
+METHOD:
+[@method 同理 @]

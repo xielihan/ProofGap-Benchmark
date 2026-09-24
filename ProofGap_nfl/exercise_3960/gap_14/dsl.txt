@@ -1,0 +1,6 @@
+get_condition (hypothesis 20: {0 ≤ x}) in (GOAL: {0 ≤ x ⇒ x ≤ 1 ⇒ 0 ≤ y ⇒ y ≤ 1 - x ⇒ ξ > 0 ⇒ 0 ≤ η})
+get_condition (hypothesis 21: {x ≤ 1}) in (GOAL: {x ≤ 1 ⇒ 0 ≤ y ⇒ y ≤ 1 - x ⇒ ξ > 0 ⇒ 0 ≤ η})
+get_condition (hypothesis 22: {0 ≤ y}) in (GOAL: {0 ≤ y ⇒ y ≤ 1 - x ⇒ ξ > 0 ⇒ 0 ≤ η})
+get_condition (hypothesis 23: {y ≤ 1 - x}) in (GOAL: {y ≤ 1 - x ⇒ ξ > 0 ⇒ 0 ≤ η})
+get_condition (hypothesis 24: {ξ > 0}) in (GOAL: {ξ > 0 ⇒ 0 ≤ η})
+autosolve (hypothesis 6: {y = ξ * η}) (hypothesis 22: {0 ≤ y}) (hypothesis 24: {ξ > 0})

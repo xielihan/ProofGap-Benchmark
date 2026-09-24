@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet ∧ a ∈ PosRealSet
+2. a > 1 ⇒ b = (fun n [n ∈ NonNegIntegerSet] . a^{frac(1, n)} - 1)
+3. a > 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) > 0)
+
+GOAL:
+a > 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(ln(a), n) = ln(1 + b(n)))
+
+METHOD:

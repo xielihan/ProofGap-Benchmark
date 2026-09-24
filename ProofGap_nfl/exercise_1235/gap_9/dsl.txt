@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ FunDeri(f, 1, 1)(x) = (x - 2) * (x - 3) + (x - 1) * (x - 3) + (x - 1) * (x - 2)}) (x := {x0})
+get_condition (hypothesis 13: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ FunDeri(f, 1, 1)(x0) = (x0 - 2) * (x0 - 3) + (x0 - 1) * (x0 - 3) + (x0 - 1) * (x0 - 2)})
+assert (hypothesis 14: {FunDeri(f, 1, 1)(x0) = (x0 - 2) * (x0 - 3) + (x0 - 1) * (x0 - 3) + (x0 - 1) * (x0 - 2)})
+apply (hypothesis 14: {FunDeri(f, 1, 1)(x0) = (x0 - 2) * (x0 - 3) + (x0 - 1) * (x0 - 3) + (x0 - 1) * (x0 - 2)})

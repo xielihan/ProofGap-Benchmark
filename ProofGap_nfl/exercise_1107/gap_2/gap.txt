@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. V : RealSet → RealSet
+2. R ∈ RealSet ∧ R > 0
+3. δ_{V} ∈ RealSet ∧ δ_{V} ≥ 0
+4. δ_{R} ∈ RealSet ∧ δ_{R} ≥ 0
+5. forall (R), R ∈ RealSet ⇒ V(R) = frac(4, 3) * π * R^{3}
+6. δ_{V} ≤ 0.01
+7. diff(V) = (fun R [R ∈ RealSet] . frac(4, 3) * π * 3 * R^{2}) * diff(fun R [R ∈ RealSet] . R)
+GOAL:
+diff(V) = V(R) * frac(3 * diff(fun R [R ∈ RealSet] . R), R)
+
+METHOD:

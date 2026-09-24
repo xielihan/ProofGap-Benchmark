@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+
+GOAL:
+(fun x [x ∈ RealSet] . frac(x, 4 + x^{4})) * diff(fun x [x ∈ RealSet] . x) = frac(1, 2) * frac(diff(fun x [x ∈ RealSet] . x^{2}), 2^{2} + (x^{2})^{2})
+
+METHOD:

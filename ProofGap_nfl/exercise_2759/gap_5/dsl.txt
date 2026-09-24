@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ seqlim_{ n → +∞ } (f(n, x)) = g(x)}) (x := {x0})
+get_condition (hypothesis 9: {x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(0, 1)}) in (GOAL: {x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(0, 1) ⇒ seqlim_{ n → +∞ } (f(n, x0)) = g(x0)})
+get_prop (hypothesis 7: {forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ seqlim_{ n → +∞ } (f(n, x)) = 0}) (x := {x0}) as (hypothesis 10: {x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(0, 1) ⇒ seqlim_{ n → +∞ } (f(n, x0)) = 0})
+use_condition (hypothesis 9: {x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(0, 1)}) in (hypothesis 10: {x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(0, 1) ⇒ seqlim_{ n → +∞ } (f(n, x0)) = 0}) as (hypothesis 11: {seqlim_{ n → +∞ } (f(n, x0)) = 0})
+get_prop (hypothesis 8: {forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ 0 = g(x)}) (x := {x0}) as (hypothesis 12: {x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(0, 1) ⇒ 0 = g(x0)})
+use_condition (hypothesis 9: {x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(0, 1)}) in (hypothesis 12: {x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(0, 1) ⇒ 0 = g(x0)}) as (hypothesis 13: {0 = g(x0)})
+autosolve all_hypothesis

@@ -1,0 +1,3 @@
+exists (C_{3} := {-frac(2, 3)})
+assert (hypothesis 23: {-frac(2, 3) ∈ RealSet ∧ -1 = -frac(1, 3) + -frac(2, 3)})
+apply (hypothesis 23: {-frac(2, 3) ∈ RealSet ∧ -1 = -frac(1, 3) + -frac(2, 3)})

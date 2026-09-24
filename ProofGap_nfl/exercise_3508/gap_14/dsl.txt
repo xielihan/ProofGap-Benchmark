@@ -1,0 +1,5 @@
+get_prop (hypothesis 5: {forall (x), x ∈ RealSet ⇒ x = η * ζ}) (x := {0}) as (hypothesis 26: {0 ∈ RealSet ⇒ 0 = η * ζ})
+use_condition (obvious: {0 ∈ RealSet}) in (hypothesis 26: {0 ∈ RealSet ⇒ 0 = η * ζ}) as (hypothesis 27: {0 = η * ζ})
+get_prop (hypothesis 5: {forall (x), x ∈ RealSet ⇒ x = η * ζ}) (x := {1}) as (hypothesis 28: {1 ∈ RealSet ⇒ 1 = η * ζ})
+use_condition (obvious: {1 ∈ RealSet}) in (hypothesis 28: {1 ∈ RealSet ⇒ 1 = η * ζ}) as (hypothesis 29: {1 = η * ζ})
+autosolve (hypothesis 27: {0 = η * ζ}) (hypothesis 29: {1 = η * ζ})

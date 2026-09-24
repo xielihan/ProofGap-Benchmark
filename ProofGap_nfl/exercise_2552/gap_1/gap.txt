@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. S : NonNegIntegerSet → RealSet
+2. forall (i), i ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ S(n) = sum_{ i = 1 }^{ n } (sqrtn(2, i + 2) - 2 * sqrtn(2, i + 1) + sqrtn(2, i)))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ S(n) = sum_{ k = 1 }^{ n } (sqrtn(2, k + 2) - 2 * sqrtn(2, k + 1) + sqrtn(2, k))
+
+METHOD:

@@ -1,0 +1,22 @@
+PROOF GAP @8
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. c ∈ RealSet
+4. a_{1} ∈ RealSet
+5. b_{1} ∈ RealSet
+6. c_{1} ∈ RealSet
+7. forall (x), x ∈ RealSet ⇒ a * x^{2} + b * x + c > 0
+8. I = { `F_1` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_1`, 1, 1)(x) = frac(a_{1} * x^{2} + b_{1} * x + c_{1}, sqrtn(2, a * x^{2} + b * x + c)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+9. exists (A), A ∈ RealSet ∧ (exists (B), B ∈ RealSet ∧ (exists (λ), λ ∈ RealSet ∧ I = { `F_5` | exists (`F_2`), `F_2` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, sqrtn(2, a * x^{2} + b * x + c)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_5`(x) = (A * x + B) * sqrtn(2, a * x^{2} + b * x + c) + λ * `F_2`(x)) }))
+10. exists (A), A ∈ RealSet ∧ (exists (B), B ∈ RealSet ∧ (exists (λ), λ ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ a_{1} * x^{2} + b_{1} * x + c_{1} ≡ A * (a * x^{2} + b * x + c) + (a * x + frac(b, 2)) * (A * x + B) + λ)))
+11. exists (A), A ∈ RealSet ∧ (a ≠ 0 ⇒ A = frac(a_{1}, 2 * a))
+12. exists (B), B ∈ RealSet ∧ (a ≠ 0 ⇒ B = frac(4 * a * b_{1} - 3 * a_{1} * b, 4 * a^{2}))
+13. exists (λ), λ ∈ RealSet ∧ (a ≠ 0 ⇒ λ = frac(8 * a^{2} * c_{1} + 3 * a_{1} * b^{2} - 4 * a * (a_{1} * c + b * b_{1}), 8 * a^{2}))
+14. exists (λ), λ ∈ RealSet ∧ (a ≠ 0 ⇒ 8 * a^{2} * c_{1} + 3 * a_{1} * b^{2} = 4 * a * (a_{1} * c + b * b_{1}) ⇒ λ = 0)
+15. exists (A), A ∈ RealSet ∧ (exists (B), B ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ a ≠ 0 ∧ 8 * a^{2} * c_{1} + 3 * a_{1} * b^{2} = 4 * a * (a_{1} * c + b * b_{1}) ⇒ I = (A * x + B) * sqrtn(2, a * x^{2} + b * x + c)))
+
+GOAL:
+a = 0 ⇒ I = { `F_6` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_6`, 1, 1)(x) = frac(a_{1} * x^{2} + b_{1} * x + c_{1}, sqrtn(2, b * x + c)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+METHOD:

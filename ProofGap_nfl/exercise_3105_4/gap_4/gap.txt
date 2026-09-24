@@ -1,0 +1,16 @@
+PROOF GAP @4
+ASSUM:
+1. Γ : RealSet → RealSet
+2. n ∈ NonNegIntegerSet
+3. n ∈ PosIntegerSet
+4. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ≤ m ⇒ Γ(n) = seqlim_{ m → +∞ } (frac(m! * m^{n}, prod_{ k = 0 }^{ m } (n + k))))
+5. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ Γ(x + 1) = x * Γ(x)
+6. Γ(1) = 1
+7. n = 1 ⇒ Γ(n) = 1
+8. n ≥ 2 ⇒ Γ(n) = (n - 1) * Γ(n - 1)
+9. n ≥ 2 ⇒ Γ(n) = (n - 1) * (n - 2) * Γ(n - 2)
+
+GOAL:
+n ≥ 2 ⇒ Γ(n) = (n - 1)! * Γ(1)
+
+METHOD:

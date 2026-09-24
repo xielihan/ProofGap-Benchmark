@@ -1,0 +1,5 @@
+get_condition (hypothesis 15: {p = q}) in (GOAL: {p = q ⇒ FunDeri(f, 1, p)(a) = 0})
+get_prop (hypothesis 10: {forall (i), i ∈ NonNegIntegerSet ∧ i ≤ p ⇒ FunDeri(f, 1, i)(a) = 0}) (i := {p}) as (hypothesis 16: {p ∈ NonNegIntegerSet ∧ p ≤ p ⇒ FunDeri(f, 1, p)(a) = 0})
+assert (hypothesis 17: {p ∈ NonNegIntegerSet ∧ p ≤ p})
+use_condition (hypothesis 17: {p ∈ NonNegIntegerSet ∧ p ≤ p}) in (hypothesis 16: {p ∈ NonNegIntegerSet ∧ p ≤ p ⇒ FunDeri(f, 1, p)(a) = 0}) as (hypothesis 18: {FunDeri(f, 1, p)(a) = 0})
+apply (hypothesis 18: {FunDeri(f, 1, p)(a) = 0})

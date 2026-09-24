@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. f : RealSet → RealSet
+3. b ∈ RealSet
+4. y = f
+5. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x < -N ⇒ 0 < y(x) - b ∧ y(x) - b < ε))
+
+GOAL:
+lim_{ x → -∞ } (y(x)) = b + 0
+
+METHOD:

@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ x + e^{x} > 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ (x + e^{x})^{frac(1, x)} = e * (1 + frac(x, e^{x}))^{frac(e^{x}, x) * e^{-x}}
+
+METHOD:

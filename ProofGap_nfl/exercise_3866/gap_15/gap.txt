@@ -1,0 +1,28 @@
+PROOF GAP @15
+ASSUM:
+1. p ∈ RealSet
+2. B : CartesianProd(RealSet, RealSet) → RealSet
+3. Gamma : RealSet → RealSet
+4. 0 < p
+5. p < 1
+6. lim_{ x → 1^- } (frac(x^{p - 1} - x^{-p}, 1 - x)) = 1 - 2 * p
+7. p_{0} = max(p, 1 - p)
+8. forall ((p_{0})_{star}), (p_{0})_{star} ∈ RealSet ∧ p_{0} < (p_{0})_{star} ∧ (p_{0})_{star} < 1 ⇒ lim_{ x → 0^+ } (x^{(p_{0})_{star}} * |frac(x^{p - 1} - x^{-p}, 1 - x)|) = 0
+9. forall ((p_{0})_{star}), (p_{0})_{star} ∈ RealSet ∧ p_{0} < (p_{0})_{star} ∧ (p_{0})_{star} < 1 ⇒ DefInt(0, 1, (fun x [x ∈ RealSet] . frac(x^{p - 1} - x^{-p}, 1 - x)) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet] . frac(x^{p - 1} - x^{-p}, 1 - x)) * diff(fun x [x ∈ RealSet] . x))
+10. I = (fun ε [ε ∈ RealSet] . DefInt(0, 1, (fun x [x ∈ RealSet] . frac(x^{p - 1} - x^{-p}, (1 - x)^{1 - ε})) * diff(fun x [x ∈ RealSet] . x)))
+11. forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < 1 ⇒ I(ε) = B(p, ε) - B(1 - p, ε)
+12. DefInt(0, 1, (fun x [x ∈ RealSet] . frac(x^{p - 1} - x^{-p}, 1 - x)) * diff(fun x [x ∈ RealSet] . x)) = I(0)
+13. I(0) = lim_{ ε → 0^+ } (I(ε))
+14. lim_{ ε → 0^+ } (I(ε)) = lim_{ ε → 0^+ } (B(p, ε) - B(1 - p, ε))
+15. DefInt(0, 1, (fun x [x ∈ RealSet] . frac(x^{p - 1} - x^{-p}, 1 - x)) * diff(fun x [x ∈ RealSet] . x)) = lim_{ ε → 0^+ } (B(p, ε) - B(1 - p, ε))
+16. lim_{ ε → 0^+ } (B(p, ε) - B(1 - p, ε)) = lim_{ ε → 0^+ } (frac(Gamma(ε) * (Gamma(p) * Gamma(1 - p + ε) - Gamma(1 - p) * Gamma(p + ε)), Gamma(p + ε) * Gamma(1 - p + ε)))
+17. lim_{ ε → 0^+ } (B(p, ε) - B(1 - p, ε)) = frac(sin(π * p), π) * (Gamma(p) * FunDeri(Gamma, 1, 1)(1 - p) - Gamma(1 - p) * FunDeri(Gamma, 1, 1)(p))
+18. Gamma(p) * FunDeri(Gamma, 1, 1)(1 - p) - Gamma(1 - p) * FunDeri(Gamma, 1, 1)(p) = -FunDeri(fun p [p ∈ RealSet] . Gamma(p) * Gamma(1 - p), 1, 1)(p)
+19. -FunDeri(fun p [p ∈ RealSet] . Gamma(p) * Gamma(1 - p), 1, 1)(p) = -FunDeri(fun p [p ∈ RealSet] . frac(π, sin(p * π)), 1, 1)(p)
+20. -FunDeri(fun p [p ∈ RealSet] . frac(π, sin(p * π)), 1, 1)(p) = frac(π^{2} * cos(p * π), sin(p * π)^{2})
+21. Gamma(p) * FunDeri(Gamma, 1, 1)(1 - p) - Gamma(1 - p) * FunDeri(Gamma, 1, 1)(p) = frac(π^{2} * cos(p * π), sin(p * π)^{2})
+
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet] . frac(x^{p - 1} - x^{-p}, 1 - x)) * diff(fun x [x ∈ RealSet] . x)) = π * cot(p * π)
+
+METHOD:

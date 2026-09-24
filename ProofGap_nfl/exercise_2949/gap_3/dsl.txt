@@ -1,0 +1,2 @@
+rewrite (right_to_left, equation) (hypothesis 9: {frac(1, l) * DefInt(a, a + 2 * l, (fun x [x ∈ RealSet] . x) * diff(fun x [x ∈ RealSet] . x)) = 2 * (a + l)}); from (GOAL: {A(0) = 2 * (a + l)}) to (GOAL: {A(0) = frac(1, l) * DefInt(a, a + 2 * l, (fun x [x ∈ RealSet] . x) * diff(fun x [x ∈ RealSet] . x))})
+apply (hypothesis 8: {A(0) = frac(1, l) * DefInt(a, a + 2 * l, (fun x [x ∈ RealSet] . x) * diff(fun x [x ∈ RealSet] . x))})

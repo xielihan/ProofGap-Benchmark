@@ -1,0 +1,32 @@
+PROOF GAP @21
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. D ⊆ CartesianProd(RealSet, RealSet)
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ D = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2) ∧ 0 ≤ y ∧ y ≤ frac(π, 2) }
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D ⇒ z(x, y) = sin(x) + cos(y) + cos(x - y)
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 1)(x, y) = cos(x) - sin(x - y)
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 2, 1)(x, y) = -sin(y) + sin(x - y)
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ FunDeri(z, 1, 1)(x, y) = 0 ∧ FunDeri(z, 2, 1)(x, y) = 0 ⇒ cos(x) = sin(y)
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2) ∧ 0 ≤ y ∧ y ≤ frac(π, 2) ∧ cos(x) = sin(y) ⇒ y = frac(π, 2) - x
+9. forall (x), x ∈ RealSet ⇒ cos(x) - sin(2 * x - frac(π, 2)) = cos(x) + cos(2 * x)
+10. forall (x), x ∈ RealSet ⇒ cos(x) + cos(2 * x) = 2 * cos(frac(x, 2)) * cos(frac(3 * x, 2))
+11. forall (x), x ∈ RealSet ⇒ 2 * cos(frac(x, 2)) * cos(frac(3 * x, 2)) = 0
+12. forall (x), x ∈ RealSet ⇒ cos(x) - sin(2 * x - frac(π, 2)) = 0
+13. forall (x), x ∈ RealSet ⇒ cos(frac(x, 2)) ≠ 0
+14. forall (x), x ∈ RealSet ⇒ cos(frac(3 * x, 2)) = 0
+15. P_{0} = (frac(π, 3), frac(π, 6))
+16. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 2)(x, y) = -sin(x) - cos(x - y)
+17. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 2, 2)(x, y) = -cos(y) - cos(x - y)
+18. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(FunDeri(z, 1, 1), 2, 1)(x, y) = cos(x - y)
+19. FunDeri(z, 1, 2)(P_{0}) = -sqrtn(2, 3)
+20. FunDeri(FunDeri(z, 1, 1), 2, 1)(P_{0}) = frac(sqrtn(2, 3), 2)
+21. FunDeri(z, 2, 2)(P_{0}) = -sqrtn(2, 3)
+22. -sqrtn(2, 3) * -sqrtn(2, 3) - frac(sqrtn(2, 3), 2)^{2} = frac(9, 4)
+23. frac(9, 4) > 0
+24. -sqrtn(2, 3) * -sqrtn(2, 3) - frac(sqrtn(2, 3), 2)^{2} > 0
+25. FunDeri(z, 1, 2)(P_{0}) < 0
+
+GOAL:
+MaximumPointOn(z, D) = { P_{0} }
+
+METHOD:

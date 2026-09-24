@@ -1,0 +1,5 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ∧ 0 < x ∧ x < 1 ⇒ ContinuousFuncAt(y, x)}) (x := {x0})
+2. get_condition (hypothesis 22: {x0 ∈ RealSet ∧ 0 < x0 ∧ x0 < 1}) in (GOAL: {x0 ∈ RealSet ∧ 0 < x0 ∧ x0 < 1 ⇒ ContinuousFuncAt(y, x0)})
+3. get_prop (hypothesis 21: {forall (x), x ∈ RealSet ∧ 0 < x ∧ x < 1 ⇒ y(x) = x}) (x := {x0}) as (hypothesis 23: {x0 ∈ RealSet ∧ 0 < x0 ∧ x0 < 1 ⇒ y(x0) = x0})
+4. use_condition (hypothesis 22: {x0 ∈ RealSet ∧ 0 < x0 ∧ x0 < 1}) in (hypothesis 23: {x0 ∈ RealSet ∧ 0 < x0 ∧ x0 < 1 ⇒ y(x0) = x0}) as (hypothesis 24: {y(x0) = x0})
+5. autosolve all_hypothesis

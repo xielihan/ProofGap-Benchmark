@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. V_{x} ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ y(x) = 2 * x - x^{2}
+4. V_{x} = π * DefInt(0, 2, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 2] . y(x)^{2}) * diff(fun x [x ∈ RealSet] . x))
+5. forall (x), x ∈ RealSet ⇒ (y(x) = 0 ⇔ x = 0 ∨ x = 2)
+6. V_{x} = π * DefInt(0, 2, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 2] . (2 * x - x^{2})^{2}) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+V_{x} = frac(16 * π, 15)
+
+METHOD:

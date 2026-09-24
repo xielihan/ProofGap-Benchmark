@@ -1,0 +1,27 @@
+PROOF GAP @14
+ASSUM:
+1. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. a ∈ RealSet ∧ a > 0
+3. x ∈ RealSet
+4. y ∈ RealSet
+5. z ∈ RealSet
+6. Beta : CartesianProd(RealSet, RealSet) → RealSet
+7. S = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x^{2} + z^{2} = 2 * a * z ∧ z ≤ sqrtn(2, x^{2} + y^{2}) }
+8. forall (x) (r) (θ) (z), x ∈ RealSet ∧ r ∈ RealSet ∧ θ ∈ RealSet ∧ z ∈ RealSet ∧ x = a * r * sin(θ) ∧ z = a + a * r * cos(θ) ⇒ 0 ≤ r
+9. forall (x) (r) (θ) (z), x ∈ RealSet ∧ r ∈ RealSet ∧ θ ∈ RealSet ∧ z ∈ RealSet ∧ x = a * r * sin(θ) ∧ z = a + a * r * cos(θ) ⇒ r ≤ 1
+10. forall (x) (r) (θ) (z), x ∈ RealSet ∧ r ∈ RealSet ∧ θ ∈ RealSet ∧ z ∈ RealSet ∧ x = a * r * sin(θ) ∧ z = a + a * r * cos(θ) ⇒ -frac(π, 2) ≤ θ
+11. forall (x) (r) (θ) (z), x ∈ RealSet ∧ r ∈ RealSet ∧ θ ∈ RealSet ∧ z ∈ RealSet ∧ x = a * r * sin(θ) ∧ z = a + a * r * cos(θ) ⇒ θ ≤ frac(π, 2)
+12. forall (x) (r) (θ) (z), x ∈ RealSet ∧ r ∈ RealSet ∧ θ ∈ RealSet ∧ z ∈ RealSet ∧ x = a * r * sin(θ) ∧ z = a + a * r * cos(θ) ⇒ r = 1
+13. forall (x) (r) (θ) (z) (y), x ∈ RealSet ∧ r ∈ RealSet ∧ θ ∈ RealSet ∧ z ∈ RealSet ∧ y ∈ RealSet ∧ x = a * r * sin(θ) ∧ z = a + a * r * cos(θ) ⇒ y^{2} = 2 * a^{2} * cos(θ) * (1 + cos(θ))
+14. forall (x) (r) (θ) (z), x ∈ RealSet ∧ r ∈ RealSet ∧ θ ∈ RealSet ∧ z ∈ RealSet ∧ x = a * r * sin(θ) ∧ z = a + a * r * cos(θ) ⇒ x = a * sin(θ)
+15. forall (x) (r) (θ) (z) (y), x ∈ RealSet ∧ r ∈ RealSet ∧ θ ∈ RealSet ∧ z ∈ RealSet ∧ y ∈ RealSet ∧ x = a * r * sin(θ) ∧ z = a + a * r * cos(θ) ⇒ y = sqrtn(2, 2) * a * sqrtn(2, cos(θ) * (1 + cos(θ))) ∨ y = -sqrtn(2, 2) * a * sqrtn(2, cos(θ) * (1 + cos(θ)))
+16. forall (x) (r) (θ) (z), x ∈ RealSet ∧ r ∈ RealSet ∧ θ ∈ RealSet ∧ z ∈ RealSet ∧ x = a * r * sin(θ) ∧ z = a + a * r * cos(θ) ⇒ z = a + a * cos(θ)
+17. ScalarSurfaceInt(S, z * diff(S)) = DefInt(-frac(π, 2), frac(π, 2), fun θ [θ ∈ RealSet ∧ -frac(π, 2) ≤ θ ∧ θ ≤ frac(π, 2)] . DefInt(-sqrtn(2, 2) * a * sqrtn(2, cos(θ) * (1 + cos(θ))), sqrtn(2, 2) * a * sqrtn(2, cos(θ) * (1 + cos(θ))), (fun y [y ∈ RealSet ∧ -sqrtn(2, 2) * a * sqrtn(2, cos(θ) * (1 + cos(θ))) ≤ y ∧ y ≤ sqrtn(2, 2) * a * sqrtn(2, cos(θ) * (1 + cos(θ)))] . (a + a * cos(θ)) * a) * diff(fun y [y ∈ RealSet] . y)) * diff(fun θ [θ ∈ RealSet] . θ))
+18. ScalarSurfaceInt(S, z * diff(S)) = DefInt(-frac(π, 2), frac(π, 2), (fun θ [θ ∈ RealSet ∧ -frac(π, 2) ≤ θ ∧ θ ≤ frac(π, 2)] . 2 * sqrtn(2, 2) * a^{3} * sqrtn(2, cos(θ)) * sqrtn(2, (1 + cos(θ))^{3})) * diff(fun θ [θ ∈ RealSet] . θ))
+19. ScalarSurfaceInt(S, z * diff(S)) = 4 * sqrtn(2, 2) * a^{3} * DefInt(0, 1, (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 1] . t^{frac(1, 2)} * (1 - t)^{frac(1, 2)} + t^{frac(3, 2)} * (1 - t)^{-frac(1, 2)}) * diff(fun t [t ∈ RealSet] . t))
+20. DefInt(0, 1, (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 1] . t^{frac(1, 2)} * (1 - t)^{frac(1, 2)} + t^{frac(3, 2)} * (1 - t)^{-frac(1, 2)}) * diff(fun t [t ∈ RealSet] . t)) = Beta(frac(3, 2), frac(3, 2)) + Beta(frac(5, 2), frac(1, 2))
+
+GOAL:
+ScalarSurfaceInt(S, z * diff(S)) = frac(7, 2) * sqrtn(2, 2) * π * a^{3}
+
+METHOD:

@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. lim_{ u → 0 } (frac(arctan(u), u)) = 1
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ frac(π, 4) - arctan(frac(x, x + 1)) = arctan(frac(1, 2 * x + 1))
+
+METHOD:

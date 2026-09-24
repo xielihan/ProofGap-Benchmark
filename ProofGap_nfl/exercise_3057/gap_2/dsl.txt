@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ P(n) = frac(sinh(x), x) * frac(frac(x, 2^{n}), sinh(frac(x, 2^{n})))}) (n := {n0})
+get_condition (hypothesis 5: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ P(n0) = frac(sinh(x), x) * frac(frac(x, 2^{n0}), sinh(frac(x, 2^{n0})))})
+get_prop (hypothesis 4: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ P(n) = frac(sinh(x), 2^{n} * sinh(frac(x, 2^{n})))}) (n := {n0}) as (hypothesis 6: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ P(n0) = frac(sinh(x), 2^{n0} * sinh(frac(x, 2^{n0})))})
+use_condition (hypothesis 5: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (hypothesis 6: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ P(n0) = frac(sinh(x), 2^{n0} * sinh(frac(x, 2^{n0})))}) as (hypothesis 7: {P(n0) = frac(sinh(x), 2^{n0} * sinh(frac(x, 2^{n0})))})
+autosolve all_hypothesis

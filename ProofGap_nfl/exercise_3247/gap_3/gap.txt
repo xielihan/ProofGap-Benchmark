@@ -1,0 +1,16 @@
+PROOF GAP @3
+ASSUM:
+1. A : CartesianProd(RealSet, RealSet) → RealSet
+2. R ∈ RealSet
+3. α ∈ RealSet
+4. R = 20
+5. α = frac(π, 3)
+6. diff(α) = frac(π, 180)
+7. A(R, α) = frac(1, 2) * R^{2} * α
+8. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ diff(A) ≈_{ ε } (fun R, α [R ∈ RealSet ∧ α ∈ RealSet] . R * α) * diff(fun R, α [R ∈ RealSet ∧ α ∈ RealSet] . R) + (fun R, α [R ∈ RealSet ∧ α ∈ RealSet] . frac(1, 2) * R^{2}) * diff(fun R, α [R ∈ RealSet ∧ α ∈ RealSet] . α)
+9. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ 20 * frac(π, 3) * diff(fun R, α [R ∈ RealSet ∧ α ∈ RealSet] . R) + frac(1, 2) * 20^{2} * frac(π, 180) ≈_{ ε } 0
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ diff(fun R, α [R ∈ RealSet ∧ α ∈ RealSet] . R) ≈_{ ε } -frac(1, 6)
+
+METHOD:

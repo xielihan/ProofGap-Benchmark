@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. IsFunc(f) ∧ IsFuncOn(g, RealSet, RealSet)
+2. forall (x), x ∈ RealSet ⇒ g(x) = frac(x, sqrtn(2, 1 + x^{2}))
+3. forall (n) (x), n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ ((n = 1 ⇒ f(n, x) = g(x)) ∧ (n > 1 ⇒ f(n, x) = g(f(n - 1, x))))
+
+GOAL:
+forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n = 1 ⇒ f(n, x) = frac(x, sqrtn(2, 1 + x^{2}))
+
+METHOD:

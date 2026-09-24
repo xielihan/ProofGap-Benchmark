@@ -1,0 +1,23 @@
+PROOF GAP @13
+ASSUM:
+1. I : RealSet → RealSet
+2. a ∈ RealSet ∧ 0 < a
+3. b ∈ RealSet ∧ a ≤ b
+4. forall (α), α ∈ RealSet ∧ α ≥ 0 ⇒ I(α) = DefInt(0, +∞, α * e^{-α * x} * diff(fun x [x ∈ RealSet] . x))
+5. forall (α), α ∈ RealSet ∧ α = 0 ⇒ DefInt(0, +∞, α * e^{-α * x} * diff(fun x [x ∈ RealSet] . x)) = 0
+6. forall (α), α ∈ RealSet ∧ α > 0 ⇒ DefInt(0, +∞, α * e^{-α * x} * diff(fun x [x ∈ RealSet] . x)) = -(e^{-α * x}|_{0}^{+∞})
+7. forall (α), α ∈ RealSet ∧ α > 0 ⇒ -(e^{-α * x}|_{0}^{+∞}) = 1
+8. forall (α), α ∈ RealSet ∧ α > 0 ⇒ DefInt(0, +∞, α * e^{-α * x} * diff(fun x [x ∈ RealSet] . x)) = 1
+9. forall (α), α ∈ RealSet ∧ α ≥ 0 ⇒ DefInt(0, +∞, α * e^{-α * x} * diff(fun x [x ∈ RealSet] . x)) < +∞
+10. forall (A), A ∈ RealSet ∧ A > 0 ⇒ (forall (α), α ∈ RealSet ∧ a ≤ α ∧ α ≤ b ⇒ 0 < DefInt(A, +∞, α * e^{-α * x} * diff(fun x [x ∈ RealSet] . x)))
+11. forall (A), A ∈ RealSet ∧ A > 0 ⇒ (forall (α), α ∈ RealSet ∧ a ≤ α ∧ α ≤ b ⇒ DefInt(A, +∞, α * e^{-α * x} * diff(fun x [x ∈ RealSet] . x)) = e^{-α * A})
+12. forall (A), A ∈ RealSet ∧ A > 0 ⇒ (forall (α), α ∈ RealSet ∧ a ≤ α ∧ α ≤ b ⇒ e^{-α * A} ≤ e^{-a * A})
+13. forall (A) (A_{0}), A ∈ RealSet ∧ A_{0} ∈ RealSet ∧ A_{0} > 0 ∧ A > A_{0} ⇒ e^{-a * A} < e^{-a * A_{0}}
+14. forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < 1 ⇒ (exists (A_{0}), A_{0} ∈ RealSet ∧ A_{0} > 0 ∧ A_{0} = frac(1, a) * ln(frac(1, ε)) ∧ e^{-a * A_{0}} = ε)
+15. forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < 1 ⇒ (exists (A_{0}), A_{0} ∈ RealSet ∧ A_{0} > 0 ∧ A_{0} = frac(1, a) * ln(frac(1, ε)) ∧ (forall (A), A ∈ RealSet ∧ A > A_{0} ⇒ e^{-a * A} < ε))
+16. forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < 1 ⇒ (exists (A_{0}), A_{0} ∈ RealSet ∧ A_{0} > 0 ∧ A_{0} = frac(1, a) * ln(frac(1, ε)) ∧ (forall (A), A ∈ RealSet ∧ A > A_{0} ⇒ (forall (α), α ∈ RealSet ∧ a ≤ α ∧ α ≤ b ⇒ DefInt(A, +∞, α * e^{-α * x} * diff(fun x [x ∈ RealSet] . x)) < ε)))
+
+GOAL:
+UniformConvergent(fun A [A ∈ RealSet ∧ A > 0] . (fun α [α ∈ [a, b]] . DefInt(0, A, α * e^{-α * x} * diff(fun x [x ∈ RealSet] . x))), [a, b], I)
+
+METHOD:

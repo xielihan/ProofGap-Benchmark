@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. f = (fun t [t ∈ RealSet ∧ t ∈ IntervalLoRo(0, π)] . frac(cot(t), t))
+
+GOAL:
+ContinuousFuncOn(cot, IntervalLoRo(0, π))
+
+METHOD:

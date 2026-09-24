@@ -1,0 +1,16 @@
+PROOF GAP @7
+ASSUM:
+1. x ∈ ComplexSet ∧ x ≠ 0
+2. Splus : ComplexSet → ComplexSet
+3. Sminus : ComplexSet → ComplexSet
+4. sum_{ n = -∞ }^{ +∞ } (frac(n, 2^{|n|}) * x^{n}) = (sum_{ n = 1 }^{ +∞ } (frac(n, 2^{n}) * x^{n})) + (sum_{ n = 1 }^{ +∞ } (frac(-n, 2^{n}) * x^{-n}))
+5. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(n, 2^{n}) * x^{n})) ⇔ |x| < 2
+6. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(-n, 2^{n}) * x^{-n})) ⇔ |x| > frac(1, 2)
+7. ConvergentSeries(sum_{ n = -∞ }^{ +∞ } (frac(n, 2^{|n|}) * x^{n})) ⇔ frac(1, 2) < |x| ∧ |x| < 2
+8. frac(1, 2) < |x| ⇒ |x| < 2 ⇒ Splus(x) = sum_{ n = 1 }^{ +∞ } (frac(n, 2^{n}) * x^{n}) ⇒ Sminus(x) = sum_{ n = 1 }^{ +∞ } (frac(-n, 2^{n}) * x^{-n}) ⇒ Sminus(x) = -(sum_{ n = 1 }^{ +∞ } (frac(n, 2^{n}) * x^{-n}))
+9. frac(1, 2) < |x| ⇒ |x| < 2 ⇒ Splus(x) = sum_{ n = 1 }^{ +∞ } (frac(n, 2^{n}) * x^{n}) ⇒ Sminus(x) = sum_{ n = 1 }^{ +∞ } (frac(-n, 2^{n}) * x^{-n}) ⇒ -(sum_{ n = 1 }^{ +∞ } (frac(n, 2^{n}) * x^{-n})) = -Splus(frac(1, x))
+
+GOAL:
+frac(1, 2) < |x| ⇒ |x| < 2 ⇒ Splus(x) = sum_{ n = 1 }^{ +∞ } (frac(n, 2^{n}) * x^{n}) ⇒ Sminus(x) = sum_{ n = 1 }^{ +∞ } (frac(-n, 2^{n}) * x^{-n}) ⇒ Sminus(x) = -Splus(frac(1, x))
+
+METHOD:

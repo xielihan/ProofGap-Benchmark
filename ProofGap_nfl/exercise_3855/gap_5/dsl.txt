@@ -1,0 +1,31 @@
+assert (hypothesis 11: {n < 0 ∨ n > 0}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 12: {1 - frac(1, n) > 0 ⇒ n < 0 ∨ n > 1}) by proof {
+  get_condition (hypothesis 12: {1 - frac(1, n) > 0}) in (GOAL: {1 - frac(1, n) > 0 ⇒ n < 0 ∨ n > 1})
+  assert (hypothesis 13: {n < 0 ⇒ n < 0 ∨ n > 1}) by proof {
+    get_condition (hypothesis 13: {n < 0}) in (GOAL: {n < 0 ⇒ n < 0 ∨ n > 1})
+    autosolve all_hypothesis
+  }
+  assert (hypothesis 14: {n > 0 ⇒ n < 0 ∨ n > 1}) by proof {
+    get_condition (hypothesis 14: {n > 0}) in (GOAL: {n > 0 ⇒ n < 0 ∨ n > 1})
+    autosolve all_hypothesis
+  }
+  autosolve all_hypothesis
+}
+assert (hypothesis 13: {n < 0 ∨ n > 1 ⇒ 1 - frac(1, n) > 0}) by proof {
+  get_condition (hypothesis 13: {n < 0 ∨ n > 1}) in (GOAL: {n < 0 ∨ n > 1 ⇒ 1 - frac(1, n) > 0})
+  assert (hypothesis 14: {n < 0 ⇒ 1 - frac(1, n) > 0}) by proof {
+    get_condition (hypothesis 14: {n < 0}) in (GOAL: {n < 0 ⇒ 1 - frac(1, n) > 0})
+    autosolve all_hypothesis
+  }
+  assert (hypothesis 15: {n > 1 ⇒ 1 - frac(1, n) > 0}) by proof {
+    get_condition (hypothesis 15: {n > 1}) in (GOAL: {n > 1 ⇒ 1 - frac(1, n) > 0})
+    autosolve all_hypothesis
+  }
+  autosolve all_hypothesis
+}
+assert (hypothesis 14: {1 - frac(1, n) > 0 ⇔ n < 0 ∨ n > 1}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

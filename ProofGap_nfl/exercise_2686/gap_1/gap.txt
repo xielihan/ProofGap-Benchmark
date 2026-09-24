@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+MonoDecSeq(fun n [n ∈ NonNegIntegerSet ∧ n ≥ 2] . frac(1, ln(n)))
+
+METHOD:

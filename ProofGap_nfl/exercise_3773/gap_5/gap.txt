@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. IntegrableFuncOn(f, IntervalLoRo(0, +∞))
+3. forall (α), α ∈ RealSet ∧ α ∈ [0, 1] ⇒ ConvergentSeries(DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-(α * x)} * f(x)) * diff(fun x [x ∈ RealSet] . x)))
+4. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (η) (A_{0}), η ∈ RealSet ∧ A_{0} ∈ RealSet ∧ η > 0 ∧ A_{0} > 0 ∧ η < A_{0} ∧ (forall (α), α ∈ RealSet ∧ α ∈ [0, 1] ⇒ |DefInt(0, η, (fun x [x ∈ RealSet] . e^{-(α * x)} * f(x)) * diff(fun x [x ∈ RealSet] . x))| < frac(ε, 5) ∧ |DefInt(A_{0}, +∞, (fun x [x ∈ RealSet] . e^{-(α * x)} * f(x)) * diff(fun x [x ∈ RealSet] . x))| < frac(ε, 5)))
+5. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (η) (A_{0}) (M_{0}), η ∈ RealSet ∧ A_{0} ∈ RealSet ∧ M_{0} ∈ RealSet ∧ η > 0 ∧ A_{0} > 0 ∧ η < A_{0} ∧ M_{0} > 0 ∧ (forall (x), x ∈ RealSet ∧ η ≤ x ∧ x ≤ A_{0} ⇒ |f(x)| ≤ M_{0}))
+6. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (η) (A_{0}) (M_{0}) (δ), η ∈ RealSet ∧ A_{0} ∈ RealSet ∧ M_{0} ∈ RealSet ∧ δ ∈ RealSet ∧ η > 0 ∧ A_{0} > 0 ∧ η < A_{0} ∧ M_{0} > 0 ∧ δ > 0 ∧ δ < 1 ∧ (forall (α) (x), α ∈ RealSet ∧ x ∈ RealSet ∧ 0 < α ∧ α < δ ∧ η ≤ x ∧ x ≤ A_{0} ⇒ 0 ≤ 1 - e^{-(α * x)} ∧ 1 - e^{-(α * x)} < frac(ε, 5 * A_{0} * M_{0})))
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (η) (A_{0}) (δ), η ∈ RealSet ∧ A_{0} ∈ RealSet ∧ δ ∈ RealSet ∧ η > 0 ∧ A_{0} > 0 ∧ η < A_{0} ∧ δ > 0 ∧ (forall (α), α ∈ RealSet ∧ 0 < α ∧ α < δ ⇒ |DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-(α * x)} * f(x)) * diff(fun x [x ∈ RealSet] . x)) - DefInt(0, +∞, f * diff(fun x [x ∈ RealSet] . x))| = |DefInt(η, A_{0}, (fun x [x ∈ RealSet] . (e^{-(α * x)} - 1) * f(x)) * diff(fun x [x ∈ RealSet] . x)) + DefInt(A_{0}, +∞, (fun x [x ∈ RealSet] . e^{-(α * x)} * f(x)) * diff(fun x [x ∈ RealSet] . x)) - DefInt(A_{0}, +∞, f * diff(fun x [x ∈ RealSet] . x)) + DefInt(0, η, (fun x [x ∈ RealSet] . e^{-(α * x)} * f(x)) * diff(fun x [x ∈ RealSet] . x)) - DefInt(0, η, f * diff(fun x [x ∈ RealSet] . x))|))
+
+METHOD:

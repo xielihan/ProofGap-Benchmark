@@ -1,0 +1,2 @@
+exists (ξ := {a})
+autosolve all_hypothesis

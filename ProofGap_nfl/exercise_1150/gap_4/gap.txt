@@ -1,0 +1,16 @@
+PROOF GAP @4
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet ∧ a > 0
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ sqrtn(2, x^{2} + y(x)^{2}) = a * e^{arctan(frac(y(x), x))}
+4. DiffableFunc(y)
+5. DiffableFunc(FunDeri(y, 1, 1))
+6. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ frac(1, 2) * ln(x^{2} + y(x)^{2}) = ln(a) + arctan(frac(y(x), x))
+7. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ frac(x + y(x) * FunDeri(y, 1, 1)(x), x^{2} + y(x)^{2}) = frac(x * FunDeri(y, 1, 1)(x) - y(x), x^{2} + y(x)^{2})
+8. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x ≠ y(x) ⇒ FunDeri(y, 1, 1)(x) = frac(x + y(x), x - y(x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x ≠ y(x) ⇒ FunDeri(y, 1, 2)(x) = frac((1 + FunDeri(y, 1, 1)(x)) * (x - y(x)) - (1 - FunDeri(y, 1, 1)(x)) * (x + y(x)), (x - y(x))^{2})
+
+METHOD:
+[@method 两边同时对 x 求 导数 @]

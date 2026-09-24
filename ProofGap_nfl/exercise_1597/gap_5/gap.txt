@@ -1,0 +1,21 @@
+PROOF GAP @5
+ASSUM:
+1. x ∈ RealSet
+2. y : RealSet → RealSet
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. R ∈ RealSet
+6. ε ∈ RealSet
+7. a > b
+8. b > 0
+9. frac(x^{2}, a^{2}) + frac(y(x)^{2}, b^{2}) = 1
+10. ε = frac(sqrtn(2, a^{2} - b^{2}), a)
+11. y(x) ≠ 0 ⇒ FunDeri(y, 1, 1) = -frac(b^{2} * x, a^{2} * y(x))
+12. y(x) ≠ 0 ⇒ FunDeri(y, 1, 2) = -frac(b^{4}, a^{2} * y(x)^{3})
+13. R = frac((1 + frac(b^{4} * x^{2}, a^{4} * y(x)^{2}))^{frac(3, 2)}, |FunDeri(y, 1, 2)|)
+14. R = frac((1 + frac(b^{4} * x^{2}, a^{4} * y(x)^{2}))^{frac(3, 2)}, frac(b^{4}, a^{2} * |y(x)|^{3}))
+
+GOAL:
+R = frac((a^{4} * y(x)^{2} + b^{4} * x^{2})^{frac(3, 2)}, a^{4} * b^{4})
+
+METHOD:

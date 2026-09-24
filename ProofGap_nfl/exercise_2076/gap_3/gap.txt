@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet
+3. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = x * e^{x} * sin(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = x * sin(x) * FunDeri(fun x [x ∈ RealSet] . e^{x}, 1, 1)(x) }
+4. { `F_4` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = x * e^{x} * sin(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_7` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = e^{x} * (sin(x) + x * cos(x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_7`(x) = x * e^{x} * sin(x) - `F_5`(x)) }
+
+GOAL:
+{ `F_8` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_8`, 1, 1)(x) = x * e^{x} * sin(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_11` | exists (`F_9`), `F_9` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_9`, 1, 1)(x) = (sin(x) + x * cos(x)) * FunDeri(fun x [x ∈ RealSet] . e^{x}, 1, 1)(x) ∧ `F_11`(x) = x * e^{x} * sin(x) - `F_9`(x)) }
+
+METHOD:

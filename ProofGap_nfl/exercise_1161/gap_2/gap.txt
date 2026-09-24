@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = x^{2} * e^{2 * x}
+3. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 20)(x) = x^{2} * FunDeri(fun x [x ∈ RealSet] . e^{2 * x}, 1, 20)(x) + 2 * x * Combination(20, 1) * FunDeri(fun x [x ∈ RealSet] . e^{2 * x}, 1, 19)(x) + 2 * Combination(20, 2) * FunDeri(fun x [x ∈ RealSet] . e^{2 * x}, 1, 18)(x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 20)(x) = 2^{20} * e^{2 * x} * (x^{2} + 20 * x + 95)
+
+METHOD:

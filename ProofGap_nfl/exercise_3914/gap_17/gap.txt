@@ -1,0 +1,32 @@
+PROOF GAP @17
+ASSUM:
+1. I ∈ RealSet
+2. D ⊆ CartesianProd(RealSet, RealSet)
+3. f : CartesianProd(RealSet, RealSet) → RealSet
+4. ξ ∈ RealSet
+5. η ∈ RealSet
+6. DiamondDomain : RealSet → PowerSet(CartesianProd(RealSet, RealSet))
+7. D = DiamondDomain(10)
+8. I = VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, 100 + cos(x)^{2} + cos(y)^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D ⇒ f(x, y) = frac(1, 100 + cos(x)^{2} + cos(y)^{2})
+10. VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . 1) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = 200
+11. exists (ξ) (η), ξ ∈ RealSet ∧ η ∈ RealSet ∧ (ξ, η) ∈ D ∧ I = frac(200, 100 + cos(ξ)^{2} + cos(η)^{2})
+12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D ⇒ 0 ≤ cos(x)^{2} + cos(y)^{2} ∧ cos(x)^{2} + cos(y)^{2} ≤ 2
+13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D ⇒ frac(1, 102) ≤ f(x, y) ∧ f(x, y) ≤ frac(1, 100)
+14. cos(ξ)^{2} + cos(η)^{2} = 2 ⇒ VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, 100 + cos(x)^{2} + cos(y)^{2}) - frac(1, 102)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = I - I
+15. cos(ξ)^{2} + cos(η)^{2} = 2 ⇒ I - I = 0
+16. cos(ξ)^{2} + cos(η)^{2} = 2 ⇒ VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, 100 + cos(x)^{2} + cos(y)^{2}) - frac(1, 102)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = 0
+17. cos(ξ)^{2} + cos(η)^{2} = 2 ⇒ (forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D ⇒ frac(1, 100 + cos(x)^{2} + cos(y)^{2}) - frac(1, 102) ≥ 0)
+18. cos(ξ)^{2} + cos(η)^{2} = 2 ⇒ (forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D ⇒ frac(1, 100 + cos(x)^{2} + cos(y)^{2}) - frac(1, 102) = 0)
+19. cos(ξ)^{2} + cos(η)^{2} = 2 ⇒ (forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D ⇒ cos(x)^{2} + cos(y)^{2} = 2)
+20. cos(ξ)^{2} + cos(η)^{2} = 2 ⇒ False
+21. cos(ξ)^{2} + cos(η)^{2} < 2
+22. cos(ξ)^{2} + cos(η)^{2} > 0
+23. frac(200, 102) < I
+24. I < frac(200, 100)
+25. 1.96 < I
+
+GOAL:
+I < 2
+
+METHOD:

@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ∧ ε = frac(e - 1, 4 * e) ⇒ frac(e - 1, 2 * e) = 2 * ε}) (ε := {eps0})
+get_condition (hypothesis 23: {eps0 ∈ RealSet ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ∧ eps0 = frac(e - 1, 4 * e)}) in (GOAL: {eps0 ∈ RealSet ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ∧ eps0 = frac(e - 1, 4 * e) ⇒ frac(e - 1, 2 * e) = 2 * eps0})
+destruct_and (hypothesis 23: {eps0 ∈ RealSet ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ∧ eps0 = frac(e - 1, 4 * e)}) as (hypothesis 24: {eps0 ∈ RealSet}) (hypothesis 25: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))}) (hypothesis 26: {eps0 = frac(e - 1, 4 * e)})
+rewrite (left_to_right, equation) (hypothesis 26: {eps0 = frac(e - 1, 4 * e)}); from (GOAL: {frac(e - 1, 2 * e) = 2 * eps0}) to (GOAL: {frac(e - 1, 2 * e) = 2 * frac(e - 1, 4 * e)})
+autosolve all_hypothesis

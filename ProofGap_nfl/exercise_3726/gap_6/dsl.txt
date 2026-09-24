@@ -1,0 +1,39 @@
+get_forall (GOAL: {forall (n), n ∈ IntegerSet ⇒ (forall (x), n ∈ IntegerSet /\ x ∈ RealSet ⇒ -frac(1, π) * ((fun φ [φ ∈ RealSet] . (n + x * cos(φ)) * sin(n * φ - x * sin(φ)))|_{0}^{π}) = 0)}) (n := {n0})
+get_condition (hypothesis 8: {n0 ∈ IntegerSet}) in (GOAL: {n0 ∈ IntegerSet ⇒ (forall (x), n0 ∈ IntegerSet /\ x ∈ RealSet ⇒ -frac(1, π) * ((fun φ [φ ∈ RealSet] . (n0 + x * cos(φ)) * sin(n0 * φ - x * sin(φ)))|_{0}^{π}) = 0)})
+get_forall (GOAL: {forall (x), n0 ∈ IntegerSet /\ x ∈ RealSet ⇒ -frac(1, π) * ((fun φ [φ ∈ RealSet] . (n0 + x * cos(φ)) * sin(n0 * φ - x * sin(φ)))|_{0}^{π}) = 0}) (x := {x0})
+get_condition (hypothesis 9: {n0 ∈ IntegerSet /\ x0 ∈ RealSet}) in (GOAL: {n0 ∈ IntegerSet /\ x0 ∈ RealSet ⇒ -frac(1, π) * ((fun φ [φ ∈ RealSet] . (n0 + x0 * cos(φ)) * sin(n0 * φ - x0 * sin(φ)))|_{0}^{π}) = 0})
+get_prop (theorem 'Thm 370. (SineAtIntegerPi)': {forall (n), n ∈ IntegerSet ⇒ sin(n * π) = 0}) (n := {n0}) as (hypothesis 10: {n0 ∈ IntegerSet ⇒ sin(n0 * π) = 0})
+assert (hypothesis 11: {sin(n0 * π) = 0}) by proof {
+apply (hypothesis 10: {n0 ∈ IntegerSet ⇒ sin(n0 * π) = 0})
+apply (hypothesis 8: {n0 ∈ IntegerSet})
+}
+get_prop (theorem 'Thm 370. (SineAtIntegerPi)': {forall (n), n ∈ IntegerSet ⇒ sin(n * π) = 0}) (n := {1}) as (hypothesis 12: {1 ∈ IntegerSet ⇒ sin(1 * π) = 0})
+assert (hypothesis 13: {sin(1 * π) = 0}) by proof {
+apply (hypothesis 12: {1 ∈ IntegerSet ⇒ sin(1 * π) = 0})
+autosolve all_hypothesis using ConstTypeSolver
+}
+autoreplace no_hypothesis; from (1 * π) to (π); from (hypothesis 13: {sin(1 * π) = 0}) to (hypothesis 14: {sin(π) = 0})
+get_prop (theorem 'Thm 370. (SineAtIntegerPi)': {forall (n), n ∈ IntegerSet ⇒ sin(n * π) = 0}) (n := {0}) as (hypothesis 15: {0 ∈ IntegerSet ⇒ sin(0 * π) = 0})
+assert (hypothesis 16: {sin(0 * π) = 0}) by proof {
+apply (hypothesis 15: {0 ∈ IntegerSet ⇒ sin(0 * π) = 0})
+autosolve all_hypothesis using ConstTypeSolver
+}
+autoreplace no_hypothesis; from (0 * π) to (0); from (hypothesis 16: {sin(0 * π) = 0}) to (hypothesis 17: {sin(0) = 0})
+assert (hypothesis 18: {sin(n0 * π - x0 * sin(π)) = 0}) by proof {
+rewrite (left_to_right, equation) (hypothesis 14: {sin(π) = 0}); from (GOAL: {sin(n0 * π - x0 * sin(π)) = 0}) to (GOAL: {sin(n0 * π - x0 * 0) = 0})
+autoreplace no_hypothesis; from (n0 * π - x0 * 0) to (n0 * π); from (GOAL: {sin(n0 * π - x0 * 0) = 0}) to (GOAL: {sin(n0 * π) = 0})
+apply (hypothesis 11: {sin(n0 * π) = 0})
+}
+assert (hypothesis 19: {sin(n0 * 0 - x0 * sin(0)) = 0}) by proof {
+rewrite (left_to_right, equation) (hypothesis 17: {sin(0) = 0}); from (GOAL: {sin(n0 * 0 - x0 * sin(0)) = 0}) to (GOAL: {sin(n0 * 0 - x0 * 0) = 0})
+autoreplace no_hypothesis; from (n0 * 0 - x0 * 0) to (0); from (GOAL: {sin(n0 * 0 - x0 * 0) = 0}) to (GOAL: {sin(0) = 0})
+apply (hypothesis 17: {sin(0) = 0})
+}
+assert (hypothesis 20: {((fun φ [φ ∈ RealSet] . (n0 + x0 * cos(φ)) * sin(n0 * φ - x0 * sin(φ)))|_{0}^{π}) = (n0 + x0 * cos(π)) * sin(n0 * π - x0 * sin(π)) - (n0 + x0 * cos(0)) * sin(n0 * 0 - x0 * sin(0))}) by proof {
+autosolve all_hypothesis using EvalBarSolver
+}
+rewrite (left_to_right, equation) (hypothesis 20: {((fun φ [φ ∈ RealSet] . (n0 + x0 * cos(φ)) * sin(n0 * φ - x0 * sin(φ)))|_{0}^{π}) = (n0 + x0 * cos(π)) * sin(n0 * π - x0 * sin(π)) - (n0 + x0 * cos(0)) * sin(n0 * 0 - x0 * sin(0))}); from (GOAL: {-frac(1, π) * ((fun φ [φ ∈ RealSet] . (n0 + x0 * cos(φ)) * sin(n0 * φ - x0 * sin(φ)))|_{0}^{π}) = 0}) to (GOAL: {-frac(1, π) * ((n0 + x0 * cos(π)) * sin(n0 * π - x0 * sin(π)) - (n0 + x0 * cos(0)) * sin(n0 * 0 - x0 * sin(0))) = 0})
+rewrite (left_to_right, equation) (hypothesis 18: {sin(n0 * π - x0 * sin(π)) = 0}); from (GOAL: {-frac(1, π) * ((n0 + x0 * cos(π)) * sin(n0 * π - x0 * sin(π)) - (n0 + x0 * cos(0)) * sin(n0 * 0 - x0 * sin(0))) = 0}) to (GOAL: {-frac(1, π) * ((n0 + x0 * cos(π)) * 0 - (n0 + x0 * cos(0)) * sin(n0 * 0 - x0 * sin(0))) = 0})
+rewrite (left_to_right, equation) (hypothesis 19: {sin(n0 * 0 - x0 * sin(0)) = 0}); from (GOAL: {-frac(1, π) * ((n0 + x0 * cos(π)) * 0 - (n0 + x0 * cos(0)) * sin(n0 * 0 - x0 * sin(0))) = 0}) to (GOAL: {-frac(1, π) * ((n0 + x0 * cos(π)) * 0 - (n0 + x0 * cos(0)) * 0) = 0})
+autoreplace no_hypothesis; from (-frac(1, π) * ((n0 + x0 * cos(π)) * 0 - (n0 + x0 * cos(0)) * 0)) to (0); from (GOAL: {-frac(1, π) * ((n0 + x0 * cos(π)) * 0 - (n0 + x0 * cos(0)) * 0) = 0}) to (GOAL: {0 = 0})
+autosolve all_hypothesis

@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. n ∈ NonNegIntegerSet
+3. forall (x), x ∈ RealSet ∧ x ≠ -1 ⇒ y(x) = frac(x, sqrtn(3, 1 + x))
+4. n ∈ PosIntegerSet
+5. forall (x), x ∈ RealSet ∧ x ≠ -1 ⇒ y(x) = (1 + x)^{frac(2, 3)} - (1 + x)^{-frac(1, 3)}
+
+GOAL:
+forall (x), x ∈ RealSet ∧ n ≥ 2 ∧ x ≠ -1 ⇒ FunDeri(y, 1, n)(x) = frac((-1)^{n + 1} * (prod_{ k = 1 }^{ n - 1 } (3 * k - 2)) * (3 * n + 2 * x), 3^{n} * (1 + x)^{n + frac(1, 3)})
+
+METHOD:

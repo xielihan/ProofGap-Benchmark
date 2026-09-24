@@ -1,0 +1,17 @@
+PROOF GAP @5
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. v : CartesianProd(RealSet, RealSet) → RealSet
+3. z : CartesianProd(RealSet, RealSet) → RealSet
+4. forall (x) (y), y ∈ RealSet ∧ x ∈ RealSet ∧ y ∈ PosRealSet ⇒ u(x, y) = x - 2 * sqrtn(2, y) ∧ v(x, y) = x + 2 * sqrtn(2, y)
+5. ContinuouslyDiffableFunc(z)
+6. forall (x) (y), y ∈ RealSet ∧ x ∈ RealSet ∧ y ∈ PosRealSet ⇒ FunDeri(z, 1, 2)(x, y) - y * FunDeri(z, 2, 2)(x, y) = frac(1, 2) * FunDeri(z, 2, 1)(x, y)
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ∈ PosRealSet ⇒ FunDeri(u, 1, 1)(x, y) = 1
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ∈ PosRealSet ⇒ FunDeri(v, 1, 1)(x, y) = 1
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ∈ PosRealSet ⇒ FunDeri(u, 2, 1)(x, y) = -frac(1, sqrtn(2, y))
+10. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ∈ PosRealSet ⇒ FunDeri(v, 2, 1)(x, y) = frac(1, sqrtn(2, y))
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ∈ PosRealSet ⇒ FunDeri(u, 1, 2)(x, y) = 0
+
+METHOD:

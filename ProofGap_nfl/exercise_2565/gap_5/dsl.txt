@@ -1,0 +1,13 @@
+1. get_condition (hypothesis 8: {d > 0}) in (GOAL: {d > 0 ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ a < (n_{0} - 1) * d ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ≥ n_{0} ∧ n ∈ PosIntegerSet ⇒ frac(1, 2 * n * d) > 0))})
+2. use_condition (hypothesis 8: {d > 0}) in (hypothesis 5: {d > 0 ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ a < (n_{0} - 1) * d ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ≥ n_{0} ∧ n ∈ PosIntegerSet ⇒ a + (n - 1) * d < 2 * (n - 1) * d))}) as (hypothesis 9: {exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ a < (n_{0} - 1) * d ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ≥ n_{0} ∧ n ∈ PosIntegerSet ⇒ a + (n - 1) * d < 2 * (n - 1) * d)})
+3. get_exists (hypothesis 9: {exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ a < (n_{0} - 1) * d ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ≥ n_{0} ∧ n ∈ PosIntegerSet ⇒ a + (n - 1) * d < 2 * (n - 1) * d)}) (n_{0} := {k})
+4. destruct_and (hypothesis 10: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ a < (k - 1) * d ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ≥ k ∧ n ∈ PosIntegerSet ⇒ a + (n - 1) * d < 2 * (n - 1) * d)}) as (hypothesis 11: {k ∈ NonNegIntegerSet}) (hypothesis 12: {k ∈ PosIntegerSet}) (hypothesis 13: {a < (k - 1) * d}) (hypothesis 14: {forall (n), n ∈ NonNegIntegerSet ∧ n ≥ k ∧ n ∈ PosIntegerSet ⇒ a + (n - 1) * d < 2 * (n - 1) * d})
+5. assert (hypothesis 15: {forall (n), n ∈ NonNegIntegerSet ∧ n ≥ k ∧ n ∈ PosIntegerSet ⇒ frac(1, 2 * n * d) > 0}) by proof {
+  1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ≥ k ∧ n ∈ PosIntegerSet ⇒ frac(1, 2 * n * d) > 0}) (n := {m})
+  2. get_condition (hypothesis 15: {m ∈ NonNegIntegerSet ∧ m ≥ k ∧ m ∈ PosIntegerSet}) in (GOAL: {m ∈ NonNegIntegerSet ∧ m ≥ k ∧ m ∈ PosIntegerSet ⇒ frac(1, 2 * m * d) > 0})
+  3. destruct_and (hypothesis 15: {m ∈ NonNegIntegerSet ∧ m ≥ k ∧ m ∈ PosIntegerSet}) as (hypothesis 16: {m ∈ NonNegIntegerSet}) (hypothesis 17: {m ≥ k}) (hypothesis 18: {m ∈ PosIntegerSet})
+  4. assert (hypothesis 19: {2 * m * d > 0})
+  5. autosolve (hypothesis 19: {2 * m * d > 0})
+}
+6. exists (n_{0} := {k})
+7. autosolve (hypothesis 11: {k ∈ NonNegIntegerSet}) (hypothesis 12: {k ∈ PosIntegerSet}) (hypothesis 13: {a < (k - 1) * d}) (hypothesis 15: {forall (n), n ∈ NonNegIntegerSet ∧ n ≥ k ∧ n ∈ PosIntegerSet ⇒ frac(1, 2 * n * d) > 0})

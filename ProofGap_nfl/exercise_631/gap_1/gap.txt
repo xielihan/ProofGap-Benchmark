@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. φ = (fun t [t ∈ RealSet ∧ cos(t) > 0] . ln(cos(t)))
+3. ψ = (fun t [t ∈ RealSet] . -frac(t^{2}, 2))
+4. α = (fun m, n [m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet] . frac(x, sqrtn(2, 3 * n)))
+
+GOAL:
+lim_{ t → 0 } (frac(φ(t), ψ(t))) = 1
+
+METHOD:

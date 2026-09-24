@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet ∧ a > 0
+3. forall (x), x ∈ RealSet ⇒ y(x) = frac(a^{2}, a^{2} + x^{2})
+4. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = -frac(2 * a^{2} * x, (a^{2} + x^{2})^{2})
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = -frac(2 * a^{2} * (a^{2} - 3 * x^{2}), (a^{2} + x^{2})^{3})
+
+METHOD:

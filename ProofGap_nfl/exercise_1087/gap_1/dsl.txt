@@ -1,0 +1,2 @@
+assert (hypothesis 5: {FunDeri(fun t . frac(1, 2 * a) * ln(|frac(t - a, t + a)|), 1, 1)(x) = frac(1, 2 * a) * (frac(1, x - a) - frac(1, x + a))})
+apply (hypothesis 5: {FunDeri(fun t . frac(1, 2 * a) * ln(|frac(t - a, t + a)|), 1, 1)(x) = frac(1, 2 * a) * (frac(1, x - a) - frac(1, x + a))})

@@ -1,0 +1,36 @@
+PROOF GAP @20
+ASSUM:
+1. y : RealSet → RealSet
+2. φ : RealSet → RealSet
+3. k ∈ RealSet ∧ k ≠ 0
+4. ω ∈ RealSet ∧ ω > 0
+5. DiffableFunc(φ)
+6. PeriodicFunc(φ, ω)
+7. forall (t), t ∈ RealSet ⇒ |FunDeri(φ, 1, 1)(t)| < |k|
+8. forall (x), x ∈ RealSet ⇒ x = k * y(x) + φ(y(x))
+9. X = (fun t [t ∈ RealSet] . k * t + φ(t))
+10. forall (t), t ∈ RealSet ⇒ FunDeri(X, 1, 1)(t) = k + FunDeri(φ, 1, 1)(t)
+11. forall (t), t ∈ RealSet ⇒ |FunDeri(φ, 1, 1)(t)| < |k|
+12. forall (t), t ∈ RealSet ⇒ (k > 0 ⇒ FunDeri(X, 1, 1)(t) > 0) ∧ (k < 0 ⇒ FunDeri(X, 1, 1)(t) < 0)
+13. StrictMonoIncFunc(X) ∨ StrictMonoDecFunc(X)
+14. ContinuousFunc(X)
+15. BoundedFunc(φ)
+16. k > 0 ⇒ lim_{ t → -∞ } (X(t)) = -∞
+17. k > 0 ⇒ lim_{ t → +∞ } (X(t)) = +∞
+18. k < 0 ⇒ lim_{ t → -∞ } (X(t)) = +∞
+19. k < 0 ⇒ lim_{ t → +∞ } (X(t)) = -∞
+20. exists (y), y : RealSet → RealSet ∧ InverseFunc(X) = y ∧ Dom(y) = RealSet ∧ DiffableFunc(y) ∧ (forall (y1), y1 : RealSet → RealSet ∧ InverseFunc(X) = y1 ∧ Dom(y1) = RealSet ∧ DiffableFunc(y1) ⇒ y1 = y)
+21. ψ = (fun x [x ∈ RealSet] . y(x) - frac(x, k))
+22. forall (x), x ∈ RealSet ⇒ ψ(x) = y(x) - frac(x, k)
+23. forall (x), x ∈ RealSet ⇒ X(y(x)) = x
+24. forall (x), x ∈ RealSet ⇒ φ(y(x) + ω) = φ(y(x))
+25. forall (x), x ∈ RealSet ⇒ x + k * ω = k * (y(x) + ω) + φ(y(x) + ω)
+26. forall (x), x ∈ RealSet ⇒ y(x + k * ω) = y(x) + ω
+27. forall (x), x ∈ RealSet ⇒ ψ(x + k * ω) = y(x + k * ω) - frac(x + k * ω, k) ∧ y(x + k * ω) - frac(x + k * ω, k) = y(x) - frac(x, k) ∧ y(x) - frac(x, k) = ψ(x)
+28. forall (x), x ∈ RealSet ⇒ ψ(x - k * ω) = ψ(x)
+29. PeriodicFunc(ψ, |k| * ω)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ y(x) = frac(x, k) + ψ(x)
+
+METHOD:

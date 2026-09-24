@@ -1,0 +1,2 @@
+apply (hypothesis 27: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ DefInt(n + 1, +∞, (fun x [x ∈ RealSet ∧ x ≥ n + 1] . f(x)) * diff(fun x [x ∈ RealSet ∧ x ≥ n + 1] . x)) ≤ R(n) ∧ R(n) ≤ f(n + 1) + DefInt(n + 1, +∞, (fun x [x ∈ RealSet ∧ x ≥ n + 1] . f(x)) * diff(fun x [x ∈ RealSet ∧ x ≥ n + 1] . x))})
+autosolve all_hypothesis

@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. DefInt(0, π, (fun x [x ∈ RealSet] . (x * sin(x))^{2}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 2) * DefInt(0, π, (fun x [x ∈ RealSet] . x^{2} * (1 - cos(2 * x))) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+frac(1, 2) * DefInt(0, π, (fun x [x ∈ RealSet] . x^{2} * (1 - cos(2 * x))) * diff(fun x [x ∈ RealSet] . x)) = ((fun x [x ∈ RealSet] . frac(1, 6) * x^{3})|_{0}^{π}) - frac(1, 2) * DefInt(0, π, (fun x [x ∈ RealSet] . x^{2} * cos(2 * x)) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

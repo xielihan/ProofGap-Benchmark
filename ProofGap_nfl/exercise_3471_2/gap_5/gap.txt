@@ -1,0 +1,19 @@
+PROOF GAP @5
+ASSUM:
+1. A ∈ RealSet
+2. X : CartesianProd(RealSet, RealSet) → RealSet
+3. Z : CartesianProd(RealSet, RealSet) → RealSet
+4. U : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+5. V : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+6. forall (a) (b) (c), a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ⇒ U(a, b, c) = a * c ∧ V(a, b, c) = b * c
+7. forall (a) (b), a ∈ RealSet ∧ b ∈ RealSet ⇒ A = FunDeri(Z, 1, 1)(a, b)^{2} + FunDeri(Z, 2, 1)(a, b)^{2}
+8. forall (a) (b) (c), a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ⇒ a * FunDeri(X, 1, 1)(U(a, b, c), V(a, b, c)) + b * FunDeri(X, 2, 1)(U(a, b, c), V(a, b, c)) ≠ 0
+9. forall (a) (b) (c), a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ⇒ diff(fun p, q, r [p ∈ RealSet ∧ q ∈ RealSet ∧ r ∈ RealSet] . U(p, q, r)) = a * diff(fun p, q, r [p ∈ RealSet ∧ q ∈ RealSet ∧ r ∈ RealSet] . r) + c * diff(fun p, q, r [p ∈ RealSet ∧ q ∈ RealSet ∧ r ∈ RealSet] . p)
+10. forall (a) (b) (c), a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ⇒ diff(fun p, q, r [p ∈ RealSet ∧ q ∈ RealSet ∧ r ∈ RealSet] . V(p, q, r)) = b * diff(fun p, q, r [p ∈ RealSet ∧ q ∈ RealSet ∧ r ∈ RealSet] . r) + c * diff(fun p, q, r [p ∈ RealSet ∧ q ∈ RealSet ∧ r ∈ RealSet] . q)
+11. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ⇒ diff(fun s, t [s ∈ RealSet ∧ t ∈ RealSet] . X(s, t)) = FunDeri(X, 1, 1)(u, v) * diff(fun s, t [s ∈ RealSet ∧ t ∈ RealSet] . s) + FunDeri(X, 2, 1)(u, v) * diff(fun s, t [s ∈ RealSet ∧ t ∈ RealSet] . t)
+12. forall (a) (b) (c), a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ⇒ diff(fun p, q, r [p ∈ RealSet ∧ q ∈ RealSet ∧ r ∈ RealSet] . p) = FunDeri(X, 1, 1)(U(a, b, c), V(a, b, c)) * (a * diff(fun p, q, r [p ∈ RealSet ∧ q ∈ RealSet ∧ r ∈ RealSet] . r) + c * diff(fun p, q, r [p ∈ RealSet ∧ q ∈ RealSet ∧ r ∈ RealSet] . p)) + FunDeri(X, 2, 1)(U(a, b, c), V(a, b, c)) * (b * diff(fun p, q, r [p ∈ RealSet ∧ q ∈ RealSet ∧ r ∈ RealSet] . r) + c * diff(fun p, q, r [p ∈ RealSet ∧ q ∈ RealSet ∧ r ∈ RealSet] . q))
+
+GOAL:
+forall (a) (b) (c), a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ⇒ (a * FunDeri(X, 1, 1)(U(a, b, c), V(a, b, c)) + b * FunDeri(X, 2, 1)(U(a, b, c), V(a, b, c))) * diff(fun p, q, r [p ∈ RealSet ∧ q ∈ RealSet ∧ r ∈ RealSet] . r) = (1 - c * FunDeri(X, 1, 1)(U(a, b, c), V(a, b, c))) * diff(fun p, q, r [p ∈ RealSet ∧ q ∈ RealSet ∧ r ∈ RealSet] . p) - c * FunDeri(X, 2, 1)(U(a, b, c), V(a, b, c)) * diff(fun p, q, r [p ∈ RealSet ∧ q ∈ RealSet ∧ r ∈ RealSet] . q)
+
+METHOD:

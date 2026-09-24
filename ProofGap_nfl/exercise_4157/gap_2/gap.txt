@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. h ∈ RealSet ∧ h > 0
+3. `ρ_0` ∈ RealSet ∧ `ρ_0` > 0
+4. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+5. z ∈ RealSet
+6. F : RealSet → RealSet
+7. forall (z) (r) (ζ), z ∈ RealSet ∧ r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ∧ ζ ∈ RealSet ∧ 0 ≤ ζ ∧ ζ ≤ h ⇒ u(0, 0, z) = `ρ_0` * DefInt(0, 2 * π, diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . φ)) * DefInt(0, h, diff(fun ζ [ζ ∈ RealSet ∧ 0 ≤ ζ ∧ ζ ≤ h] . ζ)) * DefInt(0, a, frac(r, sqrtn(2, r^{2} + (ζ - z)^{2})) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a] . r))
+
+GOAL:
+forall (z) (ζ), z ∈ RealSet ∧ ζ ∈ RealSet ∧ 0 ≤ ζ ∧ ζ ≤ h ⇒ u(0, 0, z) = 2 * π * `ρ_0` * DefInt(0, h, ((fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a] . sqrtn(2, r^{2} + (ζ - z)^{2}))|_{0}^{a}) * diff(fun ζ [ζ ∈ RealSet ∧ 0 ≤ ζ ∧ ζ ≤ h] . ζ))
+
+METHOD:

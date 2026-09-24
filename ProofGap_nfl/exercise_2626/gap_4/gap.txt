@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet
+2. u : IntegerSet → RealSet
+3. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ u(n) = frac(sqrtn(2, n + 2) - sqrtn(2, n - 2), n^{a})
+4. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ 0 < u(n)
+5. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ u(n) = frac(4, n^{a} * (sqrtn(2, n + 2) + sqrtn(2, n - 2)))
+6. lim_{ n → +∞ } (frac(u(n), frac(1, n^{a + frac(1, 2)}))) = 2
+
+GOAL:
+ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{a + frac(1, 2)}))) ⇔ a + frac(1, 2) > 1
+
+METHOD:

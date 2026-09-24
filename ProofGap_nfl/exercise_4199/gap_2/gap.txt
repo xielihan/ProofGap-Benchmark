@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. Γ : RealSet → RealSet
+2. DefInt(-∞, +∞, DefInt(-∞, +∞, DefInt(-∞, +∞, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . e^{-(x^{2} + y^{2} + z^{2})}) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)))) = DefInt(0, 2 * π, diff(fun φ [φ ∈ RealSet] . φ)) * DefInt(-frac(π, 2), frac(π, 2), (fun ψ [ψ ∈ RealSet] . cos(ψ)) * diff(fun ψ [ψ ∈ RealSet] . ψ)) * DefInt(0, +∞, (fun r [r ∈ RealSet ∧ r ≥ 0] . r^{2} * e^{-r^{2}}) * diff(fun r [r ∈ RealSet ∧ r ≥ 0] . r))
+
+GOAL:
+DefInt(0, 2 * π, diff(fun φ [φ ∈ RealSet] . φ)) * DefInt(-frac(π, 2), frac(π, 2), (fun ψ [ψ ∈ RealSet] . cos(ψ)) * diff(fun ψ [ψ ∈ RealSet] . ψ)) * DefInt(0, +∞, (fun r [r ∈ RealSet ∧ r ≥ 0] . r^{2} * e^{-r^{2}}) * diff(fun r [r ∈ RealSet ∧ r ≥ 0] . r)) = 4 * π * DefInt(0, +∞, (fun r [r ∈ RealSet ∧ r ≥ 0] . r^{2} * e^{-r^{2}}) * diff(fun r [r ∈ RealSet ∧ r ≥ 0] . r))
+
+METHOD:

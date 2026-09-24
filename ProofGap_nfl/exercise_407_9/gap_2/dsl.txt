@@ -1,0 +1,2 @@
+1. rewrite (left_to_right, equation) (hypothesis 7: {a = 0}); from (hypothesis 4: {Defined(f, (a, +∞))}) to (hypothesis 9: {Defined(f, (0, +∞))})
+2. apply (hypothesis 9: {Defined(f, (0, +∞))})

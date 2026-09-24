@@ -1,0 +1,16 @@
+PROOF GAP @6
+ASSUM:
+1. y : RealSet → RealSet
+2. g_{1} : RealSet → RealSet
+3. g_{2} : RealSet → RealSet
+4. forall (x), x ∈ RealSet ⇒ y(x) = frac(2 * x, 1 + x^{2})
+5. forall (t), t ∈ RealSet ∧ t ∈ [-1, 1] ⇒ (forall (x), x ∈ RealSet ∧ y(x) = t ⇒ x^{2} * t - 2 * x + t = 0)
+6. forall (t), t ∈ RealSet ∧ t ∈ [-1, 1] ∧ t ≠ 0 ⇒ (forall (x), x ∈ RealSet ∧ x^{2} * t - 2 * x + t = 0 ⇒ x = frac(1 - sqrtn(2, 1 - t^{2}), t) ∨ x = frac(1 + sqrtn(2, 1 - t^{2}), t))
+7. lim_{ t → 0 } (frac(1 - sqrtn(2, 1 - t^{2}), t)) = 0
+8. lim_{ t → 0^- } (frac(1 + sqrtn(2, 1 - t^{2}), t)) = -∞ ∧ lim_{ t → 0^+ } (frac(1 + sqrtn(2, 1 - t^{2}), t)) = +∞
+9. forall (t), t ∈ RealSet ∧ t ∈ [-1, 1] ⇒ g_{1}(t) = cases{ frac(1 - sqrtn(2, 1 - t^{2}), t) if t ≠ 0; 0 if t = 0 }
+10. forall (x), x ∈ RealSet ∧ x ∈ (-∞, -1] ∪ [1, +∞) ⇒ g_{2}(y(x)) = x
+GOAL:
+forall (t), t ∈ RealSet ∧ t ∈ [-1, 0) ∪ (0, 1] ⇒ g_{2}(t) = frac(1 + sqrtn(2, 1 - t^{2}), t)
+
+METHOD:

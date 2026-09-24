@@ -1,0 +1,29 @@
+PROOF GAP @16
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. a < b
+5. Defined(f, (a, b))
+6. forall (c), c ∈ RealSet ∧ c ∈ IntervalLoRo(a, b) ⇒ (exists (δ), δ ∈ RealSet ∧ δ ∈ PosRealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ∧ 0 < |x - c| ∧ |x - c| < δ ⇒ frac(f(x) - f(c), x - c) > 0))
+7. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < b ⇒ (forall (c) (x_{1}) (x_{2}), c ∈ RealSet ∧ x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ c ∈ [x_{1}, x_{2}] ⇒ (exists (`δ_c`), `δ_c` ∈ RealSet ∧ `δ_c` ∈ PosRealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ∧ 0 < |x - c| ∧ |x - c| < `δ_c` ⇒ frac(f(x) - f(c), x - c) > 0))))
+8. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < b ⇒ (exists (`δ_c`), `δ_c` : RealSet → RealSet ∧ (exists (Δ), Δ : RealSet → PowerSet(RealSet) ∧ (forall (c), c ∈ RealSet ∧ c ∈ [x_{1}, x_{2}] ⇒ `δ_c`(c) ∈ PosRealSet) ∧ Δ = (fun c [c ∈ RealSet] . (c - `δ_c`(c), c + `δ_c`(c))))))
+9. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < b ⇒ (exists (Δ), Δ : RealSet → PowerSet(RealSet) ∧ (forall (c) (x_{1}) (x_{2}), c ∈ RealSet ∧ x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ c ∈ [x_{1}, x_{2}] ⇒ c ∈ Δ(c))))
+10. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < b ⇒ (exists (Δ), Δ : RealSet → PowerSet(RealSet) ∧ [x_{1}, x_{2}] ⊆ union_{ c ∈ [x_{1}, x_{2}] } (Δ(c))))
+11. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < b ⇒ (exists (Δ), Δ : RealSet → PowerSet(RealSet) ∧ (exists (m) (c), m ∈ NonNegIntegerSet ∧ c : NonNegIntegerSet → RealSet ∧ m ∈ PosIntegerSet ∧ c ∈ (fun i [i ∈ NonNegIntegerSet] . c(i)) ∧ [x_{1}, x_{2}] ⊆ union_{ i = 1 }^{ m } (Δ(c(i))))))
+12. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < b ⇒ (exists (c), c : NonNegIntegerSet → RealSet ∧ x_{1} < c(1)))
+13. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < b ⇒ (exists (c), c : NonNegIntegerSet → RealSet ∧ c(1) < c(2)))
+14. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < b ⇒ (exists (m) (c), m ∈ NonNegIntegerSet ∧ c : NonNegIntegerSet → RealSet ∧ m ∈ PosIntegerSet ∧ c(2) < c(m)))
+15. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < b ⇒ (exists (m) (c), m ∈ NonNegIntegerSet ∧ c : NonNegIntegerSet → RealSet ∧ m ∈ PosIntegerSet ∧ c(m) < x_{2}))
+16. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < b ⇒ x_{1} < x_{2})
+17. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < b ⇒ (exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i < m ⇒ (exists (`x_bar`) (Δ) (c), `x_bar` : NonNegIntegerSet → RealSet ∧ Δ : RealSet → PowerSet(RealSet) ∧ c : NonNegIntegerSet → RealSet ∧ `x_bar`(i) ∈ Δ(c(i)) ∩ Δ(c(i + 1)) ∧ c(i) < `x_bar`(i) ∧ `x_bar`(i) < c(i + 1)))))
+18. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < b ⇒ (exists (m) (c) (`x_bar`), m ∈ NonNegIntegerSet ∧ c : NonNegIntegerSet → RealSet ∧ `x_bar` : NonNegIntegerSet → RealSet ∧ m ∈ PosIntegerSet ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i < m ⇒ f(c(i)) < f(`x_bar`(i)) ∧ f(`x_bar`(i)) < f(c(i + 1)))))
+19. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < b ⇒ (exists (c), c : NonNegIntegerSet → RealSet ∧ f(x_{1}) < f(c(1))))
+20. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < b ⇒ (exists (c) (m), c : NonNegIntegerSet → RealSet ∧ m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ f(c(m)) < f(x_{2})))
+21. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < b ⇒ f(x_{1}) < f(x_{2}))
+22. StrictMonoIncFuncOn(f, IntervalLoRo(a, b))
+
+GOAL:
+StrictMonoIncFuncOn(f, IntervalLoRo(a, b))
+
+METHOD:

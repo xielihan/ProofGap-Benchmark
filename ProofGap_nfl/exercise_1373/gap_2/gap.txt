@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. δ ∈ RealSet
+4. h ∈ RealSet
+5. δ > 0 ∧ Defined(f, (x - δ, x + δ))
+6. exists (A), A ∈ RealSet ∧ FunDeri(f, 1, 2)(x) = A
+7. lim_{ h → 0 } (f(x + h) + f(x - h) - 2 * f(x)) = 0
+
+GOAL:
+lim_{ h → 0 } (h^{2}) = 0
+
+METHOD:

@@ -1,0 +1,8 @@
+1. get_forall (GOAL: {forall (ξ), ξ ∈ RealSet ∧ ξ ∈ IntervalLoRo(-1, 1) ∧ ξ ≠ 0 ⇒ frac(FunDeri(f, 1, 1)(ξ), FunDeri(g, 1, 1)(ξ)) = frac(2 * ξ, 3 * ξ^{2})}) (ξ := {xi})
+2. get_condition (hypothesis 14: {xi ∈ RealSet ∧ xi ∈ IntervalLoRo(-1, 1) ∧ xi ≠ 0}) in (GOAL: {xi ∈ RealSet ∧ xi ∈ IntervalLoRo(-1, 1) ∧ xi ≠ 0 ⇒ frac(FunDeri(f, 1, 1)(xi), FunDeri(g, 1, 1)(xi)) = frac(2 * xi, 3 * xi^{2})})
+3. destruct_and (hypothesis 14: {xi ∈ RealSet ∧ xi ∈ IntervalLoRo(-1, 1) ∧ xi ≠ 0}) as (hypothesis 15: {xi ∈ RealSet}) (hypothesis 16: {xi ∈ IntervalLoRo(-1, 1)}) (hypothesis 17: {xi ≠ 0})
+4. assert (hypothesis 18: {FunDeri(f, 1, 1)(xi) = 2 * xi})
+5. assert (hypothesis 19: {FunDeri(g, 1, 1)(xi) = 3 * xi^{2}})
+6. rewrite (left_to_right, equation) (hypothesis 18: {FunDeri(f, 1, 1)(xi) = 2 * xi}); from (GOAL: {frac(FunDeri(f, 1, 1)(xi), FunDeri(g, 1, 1)(xi)) = frac(2 * xi, 3 * xi^{2})}) to (GOAL: {frac(2 * xi, FunDeri(g, 1, 1)(xi)) = frac(2 * xi, 3 * xi^{2})})
+7. rewrite (left_to_right, equation) (hypothesis 19: {FunDeri(g, 1, 1)(xi) = 3 * xi^{2}}); from (GOAL: {frac(2 * xi, FunDeri(g, 1, 1)(xi)) = frac(2 * xi, 3 * xi^{2})}) to (GOAL: {frac(2 * xi, 3 * xi^{2}) = frac(2 * xi, 3 * xi^{2})})
+8. autosolve all_hypothesis

@@ -1,0 +1,16 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ 0 < x ∧ x < +∞ ⇒ MonoDecSeq(fun n [n ∈ NonNegIntegerSet] . frac(1, n + x))}) (x := {x0})
+get_condition (hypothesis 9: {x0 ∈ RealSet ∧ 0 < x0 ∧ x0 < +∞}) in (GOAL: {x0 ∈ RealSet ∧ 0 < x0 ∧ x0 < +∞ ⇒ MonoDecSeq(fun n [n ∈ NonNegIntegerSet] . frac(1, n + x0))})
+get_prop (theorem 'Thm 475. (AdjacentNonincreaseImpliesMonotoneSequence)': {forall (a), (forall (n), n ∈ NonNegIntegerSet => a(n + 1) <= a(n)) => MonoDecSeq(a)}) (a := {fun n [n ∈ NonNegIntegerSet] . frac(1, n + x0)}) as (hypothesis 10: {(forall (n), n ∈ NonNegIntegerSet => frac(1, n + 1 + x0) <= frac(1, n + x0)) => MonoDecSeq(fun n [n ∈ NonNegIntegerSet] . frac(1, n + x0))})
+assert (hypothesis 11: {forall (n), n ∈ NonNegIntegerSet ⇒ frac(1, n + 1 + x0) ≤ frac(1, n + x0)}) by proof {
+  get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ⇒ frac(1, n + 1 + x0) ≤ frac(1, n + x0)}) (n := {n0})
+  get_condition (hypothesis 11: {n0 ∈ NonNegIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ⇒ frac(1, n0 + 1 + x0) ≤ frac(1, n0 + x0)})
+  assert (hypothesis 12: {n0 + x0 > 0}) by proof {
+    autosolve all_hypothesis
+  }
+  assert (hypothesis 13: {n0 + 1 + x0 > n0 + x0}) by proof {
+    autosolve all_hypothesis
+  }
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 11: {forall (n), n ∈ NonNegIntegerSet ⇒ frac(1, n + 1 + x0) ≤ frac(1, n + x0)}) in (hypothesis 10: {(forall (n), n ∈ NonNegIntegerSet ⇒ frac(1, n + 1 + x0) ≤ frac(1, n + x0)) ⇒ MonoDecSeq(fun n [n ∈ NonNegIntegerSet] . frac(1, n + x0))}) as (hypothesis 12: {MonoDecSeq(fun n [n ∈ NonNegIntegerSet] . frac(1, n + x0))})
+apply (hypothesis 12: {MonoDecSeq(fun n [n ∈ NonNegIntegerSet] . frac(1, n + x0))})

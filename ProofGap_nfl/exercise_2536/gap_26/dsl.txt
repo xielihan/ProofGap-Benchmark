@@ -1,0 +1,8 @@
+get_prop (hypothesis 24: {forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ 6 ⇒ x_{i} = i * h ∧ y_{i} = f(x_{i})}) (i := {6}) as (hypothesis 48: {6 ∈ IntegerSet ∧ 0 ≤ 6 ∧ 6 ≤ 6 ⇒ x_{6} = 6 * h ∧ y_{6} = f(x_{6})})
+use_condition (obvious: {6 ∈ IntegerSet ∧ 0 ≤ 6 ∧ 6 ≤ 6}) in (hypothesis 48: {6 ∈ IntegerSet ∧ 0 ≤ 6 ∧ 6 ≤ 6 ⇒ x_{6} = 6 * h ∧ y_{6} = f(x_{6})}) as (hypothesis 49: {x_{6} = 6 * h ∧ y_{6} = f(x_{6})})
+destruct_and (hypothesis 49: {x_{6} = 6 * h ∧ y_{6} = f(x_{6})}) as (hypothesis 50: {x_{6} = 6 * h}) (hypothesis 51: {y_{6} = f(x_{6})})
+rewrite (left_to_right, equation) (hypothesis 47: {x_{6} = π}); from (hypothesis 51: {y_{6} = f(x_{6})}) to (hypothesis 51: {y_{6} = f(π)})
+get_prop (hypothesis 22: {forall (x), x ∈ RealSet ∧ x ∈ [0, π] ⇒ f(x) = sqrtn(2, 3 + cos(x))}) (x := {π}) as (hypothesis 52: {π ∈ RealSet ∧ π ∈ [0, π] ⇒ f(π) = sqrtn(2, 3 + cos(π))})
+use_condition (obvious: {π ∈ RealSet ∧ π ∈ [0, π]}) in (hypothesis 52: {π ∈ RealSet ∧ π ∈ [0, π] ⇒ f(π) = sqrtn(2, 3 + cos(π))}) as (hypothesis 53: {f(π) = sqrtn(2, 3 + cos(π))})
+rewrite (right_to_left, equation) (hypothesis 53: {f(π) = sqrtn(2, 3 + cos(π))}); from (GOAL: {y_{6} = sqrtn(2, 3 + cos(π))}) to (GOAL: {y_{6} = f(π)})
+apply (hypothesis 51: {y_{6} = f(π)})

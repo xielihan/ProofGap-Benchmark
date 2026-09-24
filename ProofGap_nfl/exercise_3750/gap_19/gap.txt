@@ -1,0 +1,31 @@
+PROOF GAP @19
+ASSUM:
+1. n ∈ RealSet
+2. x ∈ RealSet
+3. ξ : NonNegIntegerSet → RealSet
+4. η : NonNegIntegerSet → RealSet
+5. DefInt(0, +∞, frac(sin(x + x^{2}), x^{n}) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)) = DefInt(0, 1, frac(sin(x + x^{2}), x^{n}) * diff(fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . x)) + DefInt(1, +∞, frac(sin(x + x^{2}), x^{n}) * diff(fun x [x ∈ RealSet ∧ x ≥ 1] . x))
+6. ConvergentSeries(DefInt(0, 1, frac(sin(x + x^{2}), x^{n}) * diff(fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . x))) ⇔ n < 2
+7. forall (k), k ∈ NonNegIntegerSet ⇒ (forall (a), a : NonNegIntegerSet → RealSet ∧ IsSeq(a) ∧ a(0) = 1 ∧ (forall (k), k ∈ NonNegIntegerSet ⇒ a(k) > 0 ∧ a(k) < a(k + 1)) ∧ seqlim_{ k → +∞ } (a(k)) = +∞ ∧ n > -1 ⇒ DefInt(a(k), a(k + 1), frac(sin(x + x^{2}), x^{n}) * diff(fun x [x ∈ RealSet] . x)) = -DefInt(a(k), a(k + 1), frac(diff(fun x [x ∈ RealSet] . cos(x + x^{2})), x^{n} * (1 + 2 * x))))
+8. forall (k), k ∈ NonNegIntegerSet ⇒ (forall (a), a : NonNegIntegerSet → RealSet ∧ IsSeq(a) ∧ a(0) = 1 ∧ (forall (k), k ∈ NonNegIntegerSet ⇒ a(k) > 0 ∧ a(k) < a(k + 1)) ∧ seqlim_{ k → +∞ } (a(k)) = +∞ ∧ n > -1 ⇒ DefInt(a(k), a(k + 1), frac(sin(x + x^{2}), x^{n}) * diff(fun x [x ∈ RealSet] . x)) = -(frac(cos(x + x^{2}), x^{n} * (1 + 2 * x))|_{a(k)}^{a(k + 1)}) - DefInt(a(k), a(k + 1), frac((2 * (n + 1) * x + n) * cos(x + x^{2}), x^{n + 1} * (1 + 2 * x)^{2}) * diff(fun x [x ∈ RealSet] . x)))
+9. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (p), p ∈ NonNegIntegerSet ∧ p > 0 ⇒ (forall (a), a : NonNegIntegerSet → RealSet ∧ IsSeq(a) ∧ a(0) = 1 ∧ (forall (k), k ∈ NonNegIntegerSet ⇒ a(k) > 0 ∧ a(k) < a(k + 1)) ∧ seqlim_{ k → +∞ } (a(k)) = +∞ ∧ n > -1 ⇒ |sum_{ k = m }^{ m + p - 1 } (DefInt(a(k), a(k + 1), frac(sin(x + x^{2}), x^{n}) * diff(fun x [x ∈ RealSet] . x)))| ≤ frac(1, 2 * a(m)^{n + 1}) + frac(1, 2 * a(m + p)^{n + 1}) + DefInt(a(m), a(m + p), frac(2 * (n + 1) * x + |n|, x^{n + 1} * (1 + 2 * x)^{2}) * diff(fun x [x ∈ RealSet] . x))))
+10. forall (a), a : NonNegIntegerSet → RealSet ∧ IsSeq(a) ∧ a(0) = 1 ∧ (forall (k), k ∈ NonNegIntegerSet ⇒ a(k) > 0 ∧ a(k) < a(k + 1)) ∧ seqlim_{ k → +∞ } (a(k)) = +∞ ∧ n > -1 ⇒ lim_{ x → +∞ } (x^{n + 2} * frac(2 * (n + 1) * x + |n|, x^{n + 1} * (1 + 2 * x)^{2})) = frac(n + 1, 2)
+11. forall (a), a : NonNegIntegerSet → RealSet ∧ IsSeq(a) ∧ a(0) = 1 ∧ (forall (k), k ∈ NonNegIntegerSet ⇒ a(k) > 0 ∧ a(k) < a(k + 1)) ∧ seqlim_{ k → +∞ } (a(k)) = +∞ ∧ n > -1 ⇒ n + 2 > 1
+12. forall (a), a : NonNegIntegerSet → RealSet ∧ IsSeq(a) ∧ a(0) = 1 ∧ (forall (k), k ∈ NonNegIntegerSet ⇒ a(k) > 0 ∧ a(k) < a(k + 1)) ∧ seqlim_{ k → +∞ } (a(k)) = +∞ ∧ n > -1 ⇒ ConvergentSeries(DefInt(1, +∞, frac(2 * (n + 1) * x + |n|, x^{n + 1} * (1 + 2 * x)^{2}) * diff(fun x [x ∈ RealSet ∧ x ≥ 1] . x)))
+13. forall (a), a : NonNegIntegerSet → RealSet ∧ IsSeq(a) ∧ a(0) = 1 ∧ (forall (k), k ∈ NonNegIntegerSet ⇒ a(k) > 0 ∧ a(k) < a(k + 1)) ∧ seqlim_{ k → +∞ } (a(k)) = +∞ ∧ n > -1 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N > 0 ∧ N ∈ PosIntegerSet ∧ (forall (m), m ∈ NonNegIntegerSet ⇒ (forall (p), p ∈ NonNegIntegerSet ∧ p > 0 ∧ m > N ∧ p ∈ PosIntegerSet ⇒ |sum_{ k = m }^{ m + p - 1 } (DefInt(a(k), a(k + 1), frac(sin(x + x^{2}), x^{n}) * diff(fun x [x ∈ RealSet] . x)))| < ε))))
+14. forall (a), a : NonNegIntegerSet → RealSet ∧ IsSeq(a) ∧ a(0) = 1 ∧ (forall (k), k ∈ NonNegIntegerSet ⇒ a(k) > 0 ∧ a(k) < a(k + 1)) ∧ seqlim_{ k → +∞ } (a(k)) = +∞ ∧ n > -1 ⇒ ConvergentSeries(sum_{ k = 0 }^{ +∞ } (DefInt(a(k), a(k + 1), frac(sin(x + x^{2}), x^{n}) * diff(fun x [x ∈ RealSet] . x))))
+15. forall (a), a : NonNegIntegerSet → RealSet ∧ IsSeq(a) ∧ a(0) = 1 ∧ (forall (k), k ∈ NonNegIntegerSet ⇒ a(k) > 0 ∧ a(k) < a(k + 1)) ∧ seqlim_{ k → +∞ } (a(k)) = +∞ ∧ n > -1 ⇒ ConvergentSeries(DefInt(1, +∞, frac(sin(x + x^{2}), x^{n}) * diff(fun x [x ∈ RealSet ∧ x ≥ 1] . x)))
+16. n ≤ -1 ⇒ ξ = (fun k [k ∈ NonNegIntegerSet ∧ k > 0] . frac(sqrtn(2, 1 + 8 * k * π + π) - 1, 2))
+17. n ≤ -1 ⇒ η = (fun k [k ∈ NonNegIntegerSet ∧ k > 0] . frac(sqrtn(2, 1 + 8 * k * π + 2 * π) - 1, 2))
+18. n ≤ -1 ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k > 0 ∧ k ∈ PosIntegerSet ⇒ ξ(k)^{2} + ξ(k) = 2 * k * π + frac(π, 4) ∧ η(k)^{2} + η(k) = 2 * k * π + frac(π, 2))
+19. n ≤ -1 ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k > 0 ∧ k ∈ PosIntegerSet ⇒ η(k) > ξ(k))
+20. n ≤ -1 ⇒ seqlim_{ k → +∞ } (ξ(k)) = +∞
+21. forall (k), k ∈ NonNegIntegerSet ∧ k > 0 ∧ n ≤ -1 ⇒ DefInt(ξ(k), η(k), frac(sin(x + x^{2}), x^{n}) * diff(fun x [x ∈ RealSet] . x)) > frac(1, sqrtn(2, 2)) * DefInt(ξ(k), η(k), x^{-n} * diff(fun x [x ∈ RealSet] . x))
+22. forall (k), k ∈ NonNegIntegerSet ∧ k > 0 ∧ n ≤ -1 ⇒ frac(1, sqrtn(2, 2)) * DefInt(ξ(k), η(k), x^{-n} * diff(fun x [x ∈ RealSet] . x)) ≥ frac(1, sqrtn(2, 2)) * DefInt(ξ(k), η(k), x * diff(fun x [x ∈ RealSet] . x))
+23. forall (k), k ∈ NonNegIntegerSet ∧ k > 0 ∧ n ≤ -1 ⇒ frac(1, sqrtn(2, 2)) * DefInt(ξ(k), η(k), x * diff(fun x [x ∈ RealSet] . x)) > frac(1, sqrtn(2, 2)) * ξ(k) * (η(k) - ξ(k))
+24. forall (k), k ∈ NonNegIntegerSet ∧ k > 0 ∧ n ≤ -1 ⇒ DefInt(ξ(k), η(k), frac(sin(x + x^{2}), x^{n}) * diff(fun x [x ∈ RealSet] . x)) > frac(1, sqrtn(2, 2)) * ξ(k) * (η(k) - ξ(k))
+
+GOAL:
+forall (k), k ∈ NonNegIntegerSet ∧ k > 0 ∧ n ≤ -1 ⇒ frac(1, sqrtn(2, 2)) * ξ(k) * (η(k) - ξ(k)) = frac(π, 4 * sqrtn(2, 2)) * frac(sqrtn(2, 1 + 8 * k * π + π) - 1, sqrtn(2, 1 + 8 * k * π + 2 * π) + sqrtn(2, 1 + 8 * k * π + π))
+
+METHOD:

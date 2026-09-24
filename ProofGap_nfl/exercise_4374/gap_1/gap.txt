@@ -1,0 +1,18 @@
+PROOF GAP @1
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. a ∈ RealSet
+4. x ∈ RealSet
+5. y ∈ RealSet
+6. z ∈ RealSet
+7. u ∈ RealSet
+8. t ∈ RealSet
+9. a ∈ PosRealSet
+10. C = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, exists (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ∧ x = a * cos(t) ∧ y = a * cos(2 * t) ∧ z = a * cos(3 * t) }
+11. S = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, exists (u) (t), u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ a ∧ t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ∧ x = u * cos(t) ∧ y = u * cos(2 * t) ∧ z = u * cos(3 * t) }
+
+GOAL:
+C = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, exists (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ∧ x = a * cos(t) ∧ y = a * cos(2 * t) ∧ z = a * cos(3 * t) }
+
+METHOD:

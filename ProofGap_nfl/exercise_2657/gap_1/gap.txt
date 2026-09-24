@@ -1,0 +1,25 @@
+PROOF GAP @1
+ASSUM:
+1. a : NonNegIntegerSet → RealSet ∧ IsSeq(a)
+2. A : NonNegIntegerSet → RealSet ∧ IsSeq(A)
+3. p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSeq(p)
+4. m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet
+5. ε_{1} ∈ RealSet
+6. `N'` ∈ NonNegIntegerSet
+7. N_{1} ∈ NonNegIntegerSet
+8. N ∈ NonNegIntegerSet
+9. Δ : CartesianProd(NonNegIntegerSet, NonNegIntegerSet) → RealSet
+10. B ∈ RealSet
+11. `B'` ∈ RealSet
+12. r ∈ NonNegIntegerSet
+13. q ∈ NonNegIntegerSet
+14. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ seqlim_{ n → +∞ } (a(n)) = 0
+15. forall (n), n ∈ NonNegIntegerSet ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n)))
+16. p(1) = 1
+17. forall (i), i ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(n) ∈ PosIntegerSet ∧ p(n + 1) > p(n) ∧ A(n) = sum_{ i = p(n) }^{ p(n + 1) - 1 } (a(i)))
+18. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(n + 1) - p(n) ≤ m
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε_{1} = frac(ε, 2 * m + 1) ⇒ ε_{1} > 0
+
+METHOD:

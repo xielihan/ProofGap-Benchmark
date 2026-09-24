@@ -1,0 +1,3 @@
+1. get_forall (GOAL: {forall (u) (v), (Impl(And(And(Belong(u, RealSet), Neq(u, 0)), Belong(v, RealSet)), Eq(FunDeri(`φ_{1}`, 2, 1)(u, v), Neg(sin(frac(v, u))))))}) (u := {u})
+2. get_forall (GOAL: {forall (v), (Impl(And(And(Belong(u, RealSet), Neq(u, 0)), Belong(v, RealSet)), Eq(FunDeri(`φ_{1}`, 2, 1)(u, v), Neg(sin(frac(v, u))))))}) (v := {v})
+3. autosolve all_hypothesis

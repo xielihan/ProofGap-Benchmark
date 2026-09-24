@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x) = x * (sin(ln(x)) + cos(ln(x)))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ sin(ln(x)) + cos(ln(x)) + x * (1 / x) * (cos(ln(x)) - sin(ln(x))) = 2 * cos(ln(x))
+
+METHOD:

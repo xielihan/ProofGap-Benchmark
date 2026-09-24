@@ -1,0 +1,8 @@
+get_condition (hypothesis 15: {|x| > 1}) (hypothesis 16: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(x^{n}, 1 - x^{n})))}) in (GOAL: {|x| > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(x^{n}, 1 - x^{n}))) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1))})
+use_condition (hypothesis 15: {|x| > 1}) in (hypothesis 14: {|x| > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(x^{n}, 1 - x^{n}))) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, 1 - frac(1, x)^{n}) - frac(frac(1, x)^{n}, 1 - frac(1, x)^{n})))}) as (hypothesis 17: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(x^{n}, 1 - x^{n}))) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, 1 - frac(1, x)^{n}) - frac(frac(1, x)^{n}, 1 - frac(1, x)^{n})))})
+use_condition (hypothesis 16: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(x^{n}, 1 - x^{n})))}) in (hypothesis 17: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(x^{n}, 1 - x^{n}))) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, 1 - frac(1, x)^{n}) - frac(frac(1, x)^{n}, 1 - frac(1, x)^{n})))}) as (hypothesis 18: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, 1 - frac(1, x)^{n}) - frac(frac(1, x)^{n}, 1 - frac(1, x)^{n})))})
+assert (hypothesis 19: {sum_{ n = 1 }^{ +∞ } (frac(1, 1 - frac(1, x)^{n}) - frac(frac(1, x)^{n}, 1 - frac(1, x)^{n})) = sum_{ n = 1 }^{ +∞ } (1)}) by proof {
+  autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 19: {sum_{ n = 1 }^{ +∞ } (frac(1, 1 - frac(1, x)^{n}) - frac(frac(1, x)^{n}, 1 - frac(1, x)^{n})) = sum_{ n = 1 }^{ +∞ } (1)}); from (hypothesis 18: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, 1 - frac(1, x)^{n}) - frac(frac(1, x)^{n}, 1 - frac(1, x)^{n})))}) to (hypothesis 20: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1))})
+apply (hypothesis 20: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1))})

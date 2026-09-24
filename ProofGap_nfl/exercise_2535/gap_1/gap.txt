@@ -1,0 +1,21 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. y ∈ RealSet
+3. h = frac(9 - 1, 4)
+4. x_{0} ∈ RealSet
+5. x_{1} ∈ RealSet
+6. x_{2} ∈ RealSet
+7. x_{3} ∈ RealSet
+8. x_{4} ∈ RealSet
+9. y_{0} ∈ RealSet
+10. y_{1} ∈ RealSet
+11. y_{2} ∈ RealSet
+12. y_{3} ∈ RealSet
+13. y_{4} ∈ RealSet
+14. forall (x), x ∈ RealSet ∧ x ∈ [1, 9] ⇒ x ≥ 0
+
+GOAL:
+h = 2
+
+METHOD:

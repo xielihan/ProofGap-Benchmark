@@ -1,0 +1,6 @@
+assert (hypothesis 8: {3 ∈ RealSet ∧ 3 > 1}) by proof {
+  autosolve all_hypothesis
+}
+destruct_and (hypothesis 8: {3 ∈ RealSet ∧ 3 > 1}) as (hypothesis 9: {3 ∈ RealSet}) (hypothesis 10: {3 > 1})
+get_prop (theorem 'Thm 366. (PSeriesConvergesForExponentAboveOne)': {forall (p), p ∈ RealSet => p > 1 => ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ p))}) (p := {3}) as (hypothesis 11: {3 ∈ RealSet => 3 > 1 => ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ 3))})
+autosolve all_hypothesis

@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. f : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. n ∈ RealSet
+3. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ DiffableFuncAt(f, (x, y, z))
+4. forall (x) (y) (z) (t), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ t ∈ RealSet ∧ t > 0 ⇒ f(t * x, t * y, t * z) = t^{n} * f(x, y, z)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ f(t * x, t * y, t * z) = t^{n} * f(x, y, z))))
+
+METHOD:

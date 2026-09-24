@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+lim_{ x → 0 } (frac((1 + x)^{frac(1, x)} - e, x)) = lim_{ x → 0 } ((1 + x)^{frac(1, x)} * (frac(1, x * (1 + x)) - frac(ln(1 + x), x^{2})))
+
+METHOD:

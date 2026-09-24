@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. B ⊆ CartesianProd(RealSet, RealSet)
+3. forall (x), x ∈ RealSet ∧ x ∈ [-1, 1] ⇒ (x^{2} + y(x)^{2})^{2} = x^{2} - y(x)^{2}
+4. forall (x), x ∈ RealSet ∧ x ∈ [-1, 1] ⇒ y(x)^{2} = frac(-(1 + 2 * x^{2}) + sqrtn(2, 8 * x^{2} + 1), 2) ∨ y(x)^{2} = frac(-(1 + 2 * x^{2}) - sqrtn(2, 8 * x^{2} + 1), 2)
+5. forall (x), x ∈ RealSet ∧ x ∈ [-1, 1] ⇒ sqrtn(2, 8 * x^{2} + 1) ≥ 1 + 2 * x^{2}
+
+GOAL:
+y ∈ { fun x [x ∈ RealSet ∧ x ∈ [-1, 1]] . sqrtn(2, frac(sqrtn(2, 8 * x^{2} + 1) - (1 + 2 * x^{2}), 2)), fun x [x ∈ RealSet ∧ x ∈ [-1, 1]] . -sqrtn(2, frac(sqrtn(2, 8 * x^{2} + 1) - (1 + 2 * x^{2}), 2)), fun x [x ∈ RealSet ∧ x ∈ [-1, 1]] . sgn(x) * sqrtn(2, frac(sqrtn(2, 8 * x^{2} + 1) - (1 + 2 * x^{2}), 2)), fun x [x ∈ RealSet ∧ x ∈ [-1, 1]] . -sgn(x) * sqrtn(2, frac(sqrtn(2, 8 * x^{2} + 1) - (1 + 2 * x^{2}), 2)) }
+
+METHOD:

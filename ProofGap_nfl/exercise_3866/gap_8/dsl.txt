@@ -1,0 +1,3 @@
+rewrite (left_to_right, equation) (hypothesis 12: {DefInt(0, 1, (fun x [x ∈ RealSet] . frac(x^{p - 1} - x^{-p}, 1 - x)) * diff(fun x [x ∈ RealSet] . x)) = I(0)}); from (GOAL: {DefInt(0, 1, (fun x [x ∈ RealSet] . frac(x^{p - 1} - x^{-p}, 1 - x)) * diff(fun x [x ∈ RealSet] . x)) = lim_{ ε → 0^+ } (B(p, ε) - B(1 - p, ε))}) to (GOAL: {I(0) = lim_{ ε → 0^+ } (B(p, ε) - B(1 - p, ε))})
+rewrite (left_to_right, equation) (hypothesis 13: {I(0) = lim_{ ε → 0^+ } (I(ε))}); from (GOAL: {I(0) = lim_{ ε → 0^+ } (B(p, ε) - B(1 - p, ε))}) to (GOAL: {lim_{ ε → 0^+ } (I(ε)) = lim_{ ε → 0^+ } (B(p, ε) - B(1 - p, ε))})
+autosolve all_hypothesis

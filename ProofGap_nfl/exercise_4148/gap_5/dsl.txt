@@ -1,0 +1,7 @@
+1. get_prop (theorem 'Thm 489. (AbsoluteValueOfNonpositiveReal)': {forall (x), x ∈ RealSet => (x <= 0 <==> |x| = -x)}) (x := {J}) as (hypothesis 19: {J ∈ RealSet => (J <= 0 <==> |J| = -J)})
+2. use_condition (hypothesis 10: {J ∈ RealSet}) in (hypothesis 19: {J ∈ RealSet => (J <= 0 <==> |J| = -J)}) as (hypothesis 20: {J <= 0 <==> |J| = -J})
+3. assert (hypothesis 21: {J <= 0}) by proof {
+  1. autosolve (hypothesis 10: {J ∈ RealSet}) (hypothesis 18: {J = -frac(1, 2)})
+}
+4. rewrite (left_to_right, iff) (hypothesis 20: {J <= 0 <==> |J| = -J}); from (hypothesis 21: {J <= 0}) to (hypothesis 21: {|J| = -J})
+5. autosolve (hypothesis 10: {J ∈ RealSet}) (hypothesis 18: {J = -frac(1, 2)}) (hypothesis 21: {|J| = -J})

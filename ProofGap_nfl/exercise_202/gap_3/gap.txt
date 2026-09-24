@@ -1,0 +1,17 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+3. y : NonNegIntegerSet → RealSet ∧ IsSeq(y)
+4. a ∈ RealSet ∧ a ∈ PosRealSet
+5. d ∈ RealSet
+6. forall (t), t ∈ RealSet ⇒ f(t) = a^{t}
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ∈ RealSet ∧ y(n) = f(x(n))
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ x(n) - x(n - 1) = d
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ y(n) = f(x(n))
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ f(x(n)) = a^{x(n)}
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ y(n) = a^{x(n)}
+
+METHOD:

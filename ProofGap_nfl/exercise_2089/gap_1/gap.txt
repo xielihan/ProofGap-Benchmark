@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+3. x > ln(sqrtn(2, 5) - 2)
+
+GOAL:
+x > ln(sqrtn(2, 5) - 2) ⇒ { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = sqrtn(2, e^{2 * x} + 4 * e^{x} - 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(e^{2 * x} + 4 * e^{x} - 1, sqrtn(2, e^{2 * x} + 4 * e^{x} - 1)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+METHOD:

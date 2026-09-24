@@ -1,0 +1,23 @@
+1. assert (hypothesis 7: {forall (y), y ∈ RealSet => lim_{ x → 0 } (f(x, y)) = lim_{ x → 0 } (frac(x^{2} * y^{2}, x^{2} * y^{2} + (x - y)^{2}))}) by proof {
+  1. get_forall (GOAL: {forall (y), y ∈ RealSet => lim_{ x → 0 } (f(x, y)) = lim_{ x → 0 } (frac(x^{2} * y^{2}, x^{2} * y^{2} + (x - y)^{2}))}) (y := {y0})
+  2. get_condition (hypothesis 7: {y0 ∈ RealSet}) in (GOAL: {y0 ∈ RealSet => lim_{ x → 0 } (f(x, y0)) = lim_{ x → 0 } (frac(x^{2} * y0^{2}, x^{2} * y0^{2} + (x - y0)^{2}))})
+  3. assert (hypothesis 8: {forall (x), (x ∈ RealSet /\ x != 0) => f(x, y0) = frac(x^{2} * y0^{2}, x^{2} * y0^{2} + (x - y0)^{2})}) by proof {
+    1. get_forall (GOAL: {forall (x), (x ∈ RealSet /\ x != 0) => f(x, y0) = frac(x^{2} * y0^{2}, x^{2} * y0^{2} + (x - y0)^{2})}) (x := {x0})
+    2. get_condition (hypothesis 8: {x0 ∈ RealSet /\ x0 != 0}) in (GOAL: {(x0 ∈ RealSet /\ x0 != 0) => f(x0, y0) = frac(x0^{2} * y0^{2}, x0^{2} * y0^{2} + (x0 - y0)^{2})})
+    3. destruct_and (hypothesis 8: {x0 ∈ RealSet /\ x0 != 0}) as (hypothesis 9: {x0 ∈ RealSet}) (hypothesis 10: {x0 != 0})
+    4. get_prop (theorem 'Thm 18. (OrderedPairEqualityFirst)': {forall (a) (b) (c) (d), ((a, b) = (c, d)) => (a = c)}) (a := {x0}) (b := {y0}) (c := {0}) (d := {0}) as (hypothesis 11: {((x0, y0) = (0, 0)) => (x0 = 0)})
+    5. assert (hypothesis 12: {(x0, y0) != (0, 0)}) by proof {
+      1. autosolve all_hypothesis
+    }
+    6. get_prop (hypothesis 2: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ f(x, y) = frac(x^{2} * y^{2}, x^{2} * y^{2} + (x - y)^{2})}) (x := {x0}) (y := {y0}) as (hypothesis 13: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ (x0, y0) ≠ (0, 0) ⇒ f(x0, y0) = frac(x0^{2} * y0^{2}, x0^{2} * y0^{2} + (x0 - y0)^{2})})
+    7. assert (hypothesis 14: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ (x0, y0) ≠ (0, 0)}) by proof {
+      1. autosolve all_hypothesis
+    }
+    8. use_condition (hypothesis 14: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ (x0, y0) ≠ (0, 0)}) in (hypothesis 13: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ (x0, y0) ≠ (0, 0) ⇒ f(x0, y0) = frac(x0^{2} * y0^{2}, x0^{2} * y0^{2} + (x0 - y0)^{2})}) as (hypothesis 15: {f(x0, y0) = frac(x0^{2} * y0^{2}, x0^{2} * y0^{2} + (x0 - y0)^{2})})
+    9. apply (hypothesis 15: {f(x0, y0) = frac(x0^{2} * y0^{2}, x0^{2} * y0^{2} + (x0 - y0)^{2})})
+  }
+  4. rewrite_in limit (left_to_right, equation) (hypothesis 8: {forall (x), (x ∈ RealSet /\ x != 0) => f(x, y0) = frac(x^{2} * y0^{2}, x^{2} * y0^{2} + (x - y0)^{2})}); from (GOAL: {lim_{ x → 0 } (f(x, y0)) = lim_{ x → 0 } (frac(x^{2} * y0^{2}, x^{2} * y0^{2} + (x - y0)^{2}))}) to (GOAL: {lim_{ x → 0 } (frac(x^{2} * y0^{2}, x^{2} * y0^{2} + (x - y0)^{2})) = lim_{ x → 0 } (frac(x^{2} * y0^{2}, x^{2} * y0^{2} + (x - y0)^{2}))})
+  5. autosolve all_hypothesis
+}
+2. rewrite_in limit (left_to_right, equation) (hypothesis 7: {forall (y), y ∈ RealSet => lim_{ x → 0 } (f(x, y)) = lim_{ x → 0 } (frac(x^{2} * y^{2}, x^{2} * y^{2} + (x - y)^{2}))}); from (GOAL: {lim_{ y → 0 } (lim_{ x → 0 } (f(x, y))) = lim_{ y → 0 } (lim_{ x → 0 } (frac(x^{2} * y^{2}, x^{2} * y^{2} + (x - y)^{2})))}) to (GOAL: {lim_{ y → 0 } (lim_{ x → 0 } (frac(x^{2} * y^{2}, x^{2} * y^{2} + (x - y)^{2}))) = lim_{ y → 0 } (lim_{ x → 0 } (frac(x^{2} * y^{2}, x^{2} * y^{2} + (x - y)^{2})))})
+3. autosolve all_hypothesis

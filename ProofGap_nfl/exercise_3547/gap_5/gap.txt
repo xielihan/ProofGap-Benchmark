@@ -1,0 +1,23 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet
+2. u_{0} ∈ RealSet
+3. v_{0} ∈ RealSet
+4. PlaneEq ∈ RealSet
+5. NormalEq ∈ RealSet
+6. X : CartesianProd(RealSet, RealSet) → RealSet
+7. Y : CartesianProd(RealSet, RealSet) → RealSet
+8. Z : CartesianProd(RealSet, RealSet) → RealSet
+9. M_{0} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+10. v_{1} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+11. v_{2} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+12. n ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+13. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ⇒ X(u, v) = u * cos(v)
+14. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ⇒ Y(u, v) = u * sin(v)
+15. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ⇒ Z(u, v) = a * v
+16. M_{0} = (u_{0} * cos(v_{0}), u_{0} * sin(v_{0}), a * v_{0})
+
+GOAL:
+v_{1} = (FunDeri(X, 1, 1)(u_{0}, v_{0}), FunDeri(Y, 1, 1)(u_{0}, v_{0}), FunDeri(Z, 1, 1)(u_{0}, v_{0}))
+
+METHOD:

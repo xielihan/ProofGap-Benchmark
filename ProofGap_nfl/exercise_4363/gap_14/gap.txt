@@ -1,0 +1,36 @@
+PROOF GAP @14
+ASSUM:
+1. f : RealSet → RealSet
+2. g : RealSet → RealSet
+3. h : RealSet → RealSet
+4. S ⊆ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+5. a ∈ RealSet ∧ a > 0
+6. b ∈ RealSet ∧ b > 0
+7. c ∈ RealSet ∧ c > 0
+8. I ∈ RealSet
+9. I_{x} ∈ RealSet
+10. I_{y} ∈ RealSet
+11. I_{z} ∈ RealSet
+12. ContinuousFuncOn(f, [0, a])
+13. ContinuousFuncOn(g, [0, b])
+14. ContinuousFuncOn(h, [0, c])
+15. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ S = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, 0 ≤ x ∧ x ≤ a ∧ 0 ≤ y ∧ y ≤ b ∧ 0 ≤ z ∧ z ≤ c }))
+16. I = VectorSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . f(x)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . g(y)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . h(z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y))
+17. I_{z} = VectorSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . h(z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y))
+18. I_{z} = DefInt(0, a, diff(fun x [x ∈ RealSet] . x)) * DefInt(0, b, (fun y [y ∈ RealSet] . h(c)) * diff(fun y [y ∈ RealSet] . y)) - DefInt(0, a, diff(fun x [x ∈ RealSet] . x)) * DefInt(0, b, (fun y [y ∈ RealSet] . h(0)) * diff(fun y [y ∈ RealSet] . y))
+19. DefInt(0, a, diff(fun x [x ∈ RealSet] . x)) * DefInt(0, b, (fun y [y ∈ RealSet] . h(c)) * diff(fun y [y ∈ RealSet] . y)) - DefInt(0, a, diff(fun x [x ∈ RealSet] . x)) * DefInt(0, b, (fun y [y ∈ RealSet] . h(0)) * diff(fun y [y ∈ RealSet] . y)) = a * b * (h(c) - h(0))
+20. a * b * (h(c) - h(0)) = a * b * c * frac(h(c) - h(0), c)
+21. I_{z} = a * b * c * frac(h(c) - h(0), c)
+22. I_{x} = VectorSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . f(x)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z))
+23. VectorSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . f(x)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)) = b * c * (f(a) - f(0))
+24. b * c * (f(a) - f(0)) = a * b * c * frac(f(a) - f(0), a)
+25. I_{x} = a * b * c * frac(f(a) - f(0), a)
+26. I_{y} = VectorSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . g(y)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x))
+27. VectorSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . g(y)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x)) = a * c * (g(b) - g(0))
+28. a * c * (g(b) - g(0)) = a * b * c * frac(g(b) - g(0), b)
+
+GOAL:
+I_{y} = a * b * c * frac(g(b) - g(0), b)
+
+METHOD:
+[@method 同理 @]

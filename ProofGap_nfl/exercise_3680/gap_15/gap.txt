@@ -1,0 +1,27 @@
+PROOF GAP @15
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. T ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+4. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = (x + y + z) * e^{-(x + 2 * y + 3 * z)}
+5. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ ((x, y, z) ∈ S ⇔ x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x > 0 ∧ y > 0 ∧ z > 0)
+6. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ ((x, y, z) ∈ T ⇔ x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x ≥ 0 ∧ y ≥ 0 ∧ z ≥ 0)
+7. ContinuousFuncOn(u, T)
+8. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ∈ T ⇒ u(x, y, z) ≥ 0
+9. u(0, 0, 0) = 0
+10. inf(ImageOn(u, S)) = 0
+11. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(u, 1, 1)(x, y, z) = e^{-(x + 2 * y + 3 * z)} * (1 - (x + y + z))
+12. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(u, 2, 1)(x, y, z) = e^{-(x + 2 * y + 3 * z)} * (1 - 2 * (x + y + z))
+13. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(u, 3, 1)(x, y, z) = e^{-(x + 2 * y + 3 * z)} * (1 - 3 * (x + y + z))
+14. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ∈ S ⇒ e^{-(x + 2 * y + 3 * z)} ≠ 0
+15. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ∈ S ⇒ ¬(FunDeri(u, 1, 1)(x, y, z) = 0 ∧ FunDeri(u, 2, 1)(x, y, z) = 0 ∧ FunDeri(u, 3, 1)(x, y, z) = 0)
+16. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ∈ T ⇒ u(x, y, z) = (x + y + z) * e^{-(x + y + z)} * e^{-(y + 2 * z)} ∧ (x + y + z) * e^{-(x + y + z)} * e^{-(y + 2 * z)} ≤ (x + y + z) * e^{-(x + y + z)}
+17. lim_{ x + y + z → +∞ } ((x + y + z) * e^{-(x + y + z)}) = 0
+18. forall (z), z ∈ RealSet ⇒ u(0, 0, z) = z * e^{-(3 * z)}
+19. forall (y), y ∈ RealSet ⇒ u(0, y, 0) = y * e^{-(2 * y)}
+20. forall (x), x ∈ RealSet ⇒ u(x, 0, 0) = x * e^{-x}
+
+GOAL:
+u(0, 0, frac(1, 3)) = frac(1, 3) * e^{-1}
+
+METHOD:

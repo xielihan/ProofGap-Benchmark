@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+lim_{ x → +∞ } (frac(ln(x^{2} - x + 1), ln(x^{10} + x + 1))) = frac(1, 5)
+
+METHOD:

@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. V ∈ RealSet
+2. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ π ⇒ (forall (y), y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ x ⇒ (exists (z), z ∈ RealSet ∧ z = sin(frac(π * y, 2 * x))))
+
+GOAL:
+V = DefInt(0, π, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π] . DefInt(0, x, (fun y [y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ x] . sin(frac(π * y, 2 * x))) * diff(fun y [y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ x] . y))) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π] . x))
+
+METHOD:

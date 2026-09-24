@@ -1,0 +1,23 @@
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ |frac(x(n + 1) - x(n), y(n + 1) - y(n)) - a| < frac(ε, 2) ∧ y(n) > 0))}) (ε := {eps1})
+get_condition (hypothesis 9: {eps1 ∈ RealSet ∧ eps1 > 0}) in (GOAL: {eps1 ∈ RealSet ∧ eps1 > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ |frac(x(n + 1) - x(n), y(n + 1) - y(n)) - a| < frac(eps1, 2) ∧ y(n) > 0))})
+get_prop (hypothesis 8: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (Nx), Nx ∈ NonNegIntegerSet ∧ Nx ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > Nx ⇒ |frac(x(n + 1) - x(n), y(n + 1) - y(n)) - a| < frac(ε, 2)))}) (ε := {eps1}) as (hypothesis 10: {eps1 ∈ RealSet ∧ eps1 > 0 ⇒ (exists (Nx), Nx ∈ NonNegIntegerSet ∧ Nx ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > Nx ⇒ |frac(x(n + 1) - x(n), y(n + 1) - y(n)) - a| < frac(eps1, 2)))})
+use_condition (hypothesis 9: {eps1 ∈ RealSet ∧ eps1 > 0}) in (hypothesis 10: {eps1 ∈ RealSet ∧ eps1 > 0 ⇒ (exists (Nx), Nx ∈ NonNegIntegerSet ∧ Nx ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > Nx ⇒ |frac(x(n + 1) - x(n), y(n + 1) - y(n)) - a| < frac(eps1, 2)))}) as (hypothesis 11: {exists (Nx), Nx ∈ NonNegIntegerSet ∧ Nx ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > Nx ⇒ |frac(x(n + 1) - x(n), y(n + 1) - y(n)) - a| < frac(eps1, 2))})
+get_exists (hypothesis 11: {exists (Nx), Nx ∈ NonNegIntegerSet ∧ Nx ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > Nx ⇒ |frac(x(n + 1) - x(n), y(n + 1) - y(n)) - a| < frac(eps1, 2))}) (Nx := {Nx1})
+get_exists (hypothesis 6: {exists (Ny), Ny ∈ NonNegIntegerSet ∧ Ny ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > Ny ⇒ y(n) > 0)}) (Ny := {Ny1})
+destruct_and (hypothesis 12: {Nx1 ∈ NonNegIntegerSet ∧ Nx1 ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > Nx1 ⇒ |frac(x(n + 1) - x(n), y(n + 1) - y(n)) - a| < frac(eps1, 2))}) as (hypothesis 14: {Nx1 ∈ NonNegIntegerSet}) (hypothesis 15: {Nx1 ∈ PosIntegerSet}) (hypothesis 16: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > Nx1 ⇒ |frac(x(n + 1) - x(n), y(n + 1) - y(n)) - a| < frac(eps1, 2)})
+destruct_and (hypothesis 13: {Ny1 ∈ NonNegIntegerSet ∧ Ny1 ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > Ny1 ⇒ y(n) > 0)}) as (hypothesis 17: {Ny1 ∈ NonNegIntegerSet}) (hypothesis 18: {Ny1 ∈ PosIntegerSet}) (hypothesis 19: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > Ny1 ⇒ y(n) > 0})
+exists (N := {Nx1 + Ny1})
+assert (hypothesis 20: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > Nx1 + Ny1 ⇒ |frac(x(n + 1) - x(n), y(n + 1) - y(n)) - a| < frac(eps1, 2) ∧ y(n) > 0}) by proof {
+  get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > Nx1 + Ny1 ⇒ |frac(x(n + 1) - x(n), y(n + 1) - y(n)) - a| < frac(eps1, 2) ∧ y(n) > 0}) (n := {n1})
+  get_condition (hypothesis 20: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet ∧ n1 > Nx1 + Ny1}) in (GOAL: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet ∧ n1 > Nx1 + Ny1 ⇒ |frac(x(n1 + 1) - x(n1), y(n1 + 1) - y(n1)) - a| < frac(eps1, 2) ∧ y(n1) > 0})
+  assert (hypothesis 21: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet ∧ n1 > Nx1})
+  assert (hypothesis 22: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet ∧ n1 > Ny1})
+  get_prop (hypothesis 16: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > Nx1 ⇒ |frac(x(n + 1) - x(n), y(n + 1) - y(n)) - a| < frac(eps1, 2)}) (n := {n1}) as (hypothesis 23: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet ∧ n1 > Nx1 ⇒ |frac(x(n1 + 1) - x(n1), y(n1 + 1) - y(n1)) - a| < frac(eps1, 2)})
+  use_condition (hypothesis 21: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet ∧ n1 > Nx1}) in (hypothesis 23: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet ∧ n1 > Nx1 ⇒ |frac(x(n1 + 1) - x(n1), y(n1 + 1) - y(n1)) - a| < frac(eps1, 2)}) as (hypothesis 24: {|frac(x(n1 + 1) - x(n1), y(n1 + 1) - y(n1)) - a| < frac(eps1, 2)})
+  get_prop (hypothesis 19: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > Ny1 ⇒ y(n) > 0}) (n := {n1}) as (hypothesis 25: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet ∧ n1 > Ny1 ⇒ y(n1) > 0})
+  use_condition (hypothesis 22: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet ∧ n1 > Ny1}) in (hypothesis 25: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet ∧ n1 > Ny1 ⇒ y(n1) > 0}) as (hypothesis 26: {y(n1) > 0})
+  autosolve all_hypothesis
+}
+assert (hypothesis 21: {Nx1 + Ny1 ∈ NonNegIntegerSet})
+assert (hypothesis 22: {Nx1 + Ny1 ∈ PosIntegerSet})
+autosolve all_hypothesis

@@ -1,0 +1,6 @@
+get_prop (hypothesis 5: {forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x) = x^{2}}) (x := {x}) as (hypothesis 8: {x ∈ RealSet ∧ x > 0 ⇒ y(x) = x^{2}})
+assert (hypothesis 9: {x ∈ RealSet ∧ x > 0})
+use_condition (hypothesis 9: {x ∈ RealSet ∧ x > 0}) in (hypothesis 8: {x ∈ RealSet ∧ x > 0 ⇒ y(x) = x^{2}}) as (hypothesis 10: {y(x) = x^{2}})
+rewrite (left_to_right, equation) (hypothesis 10: {y(x) = x^{2}}); from (GOAL: {|y(x) - 100| < 1 ⇒ 99 < x^{2} ∧ x^{2} < 101}) to (GOAL: {|x^{2} - 100| < 1 ⇒ 99 < x^{2} ∧ x^{2} < 101})
+get_condition (hypothesis 11: {|x^{2} - 100| < 1}) in (GOAL: {|x^{2} - 100| < 1 ⇒ 99 < x^{2} ∧ x^{2} < 101})
+autosolve all_hypothesis

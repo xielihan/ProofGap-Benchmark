@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. C ∈ RealSet
+2. forall (k), k ∈ IntegerSet ⇒ ({ `F_2` | forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-frac(π, 2) + k * π, frac(π, 2) + k * π) ⇒ FunDeri(`F_2`, 1, 1)(x) = tan(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-frac(π, 2) + k * π, frac(π, 2) + k * π) ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(sin(x), cos(x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) })
+3. forall (k), k ∈ IntegerSet ⇒ ({ `F_4` | forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-frac(π, 2) + k * π, frac(π, 2) + k * π) ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(sin(x), cos(x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_6` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-frac(π, 2) + k * π, frac(π, 2) + k * π) ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . cos(x), 1, 1)(x), cos(x)) ∧ `F_6`(x) = -`F_5`(x)) })
+4. forall (k), k ∈ IntegerSet ⇒ ({ `F_8` | exists (`F_7`), `F_7` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-frac(π, 2) + k * π, frac(π, 2) + k * π) ⇒ FunDeri(`F_7`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . cos(x), 1, 1)(x), cos(x)) ∧ `F_8`(x) = -`F_7`(x)) } = { `F_9` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-frac(π, 2) + k * π, frac(π, 2) + k * π) ⇒ `F_9`(x) = -ln(|cos(x)|) + C) })
+
+GOAL:
+forall (k), k ∈ IntegerSet ⇒ ({ `F_10` | forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-frac(π, 2) + k * π, frac(π, 2) + k * π) ⇒ FunDeri(`F_10`, 1, 1)(x) = tan(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_11` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-frac(π, 2) + k * π, frac(π, 2) + k * π) ⇒ `F_11`(x) = -ln(|cos(x)|) + C) })
+
+METHOD:

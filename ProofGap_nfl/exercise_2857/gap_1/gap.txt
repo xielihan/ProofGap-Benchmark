@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ f(x) = ln(sqrtn(2, frac(1 + x, 1 - x)))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ f(x) = frac(1, 2) * (ln(1 + x) - ln(1 - x))
+
+METHOD:

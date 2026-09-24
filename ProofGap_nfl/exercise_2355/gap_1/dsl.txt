@@ -1,0 +1,2 @@
+get_condition (hypothesis 9: {0 < x ∧ x < +∞}) in (GOAL: {0 < x ∧ x < +∞ ⇒ -∞ < t ∧ t < +∞ ∧ a * x + frac(b, x) = sqrtn(2, t^{2} + 4 * a * b)})
+autosolve all_hypothesis

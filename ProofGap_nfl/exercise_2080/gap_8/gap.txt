@@ -1,0 +1,14 @@
+PROOF GAP @8
+ASSUM:
+1. forall (x) (t), x ∈ RealSet ∧ x ≥ 0 ∧ t ∈ RealSet ∧ t ≥ 0 ∧ sqrtn(2, x) = t ⇒ x = t^{2}
+2. forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ diff(fun t [t ∈ RealSet ∧ t ≥ 0] . t^{2}) = 2 * t * diff(fun t [t ∈ RealSet ∧ t ≥ 0] . t)
+3. { `F_2` | forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = cos(sqrtn(2, x))^{2} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_4` | exists (`G`), `G` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ FunDeri(`G`, 1, 1)(t) = t * cos(t)^{2} * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t)) ∧ (forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ `F_4`(x) = 2 * `G`(sqrtn(2, x))) }
+4. { `F_6` | forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ FunDeri(`F_6`, 1, 1)(t) = 2 * t * cos(t)^{2} * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) } = { `F_7` | forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ FunDeri(`F_7`, 1, 1)(t) = t * (1 + cos(2 * t)) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) }
+5. { `F_8` | forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ FunDeri(`F_8`, 1, 1)(t) = t * (1 + cos(2 * t)) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) } = { `F_12` | exists (`G`), `G` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ FunDeri(`G`, 1, 1)(t) = t * FunDeri(fun t [t ∈ RealSet] . sin(2 * t), 1, 1)(t) ∧ `F_12`(t) = frac(t^{2}, 2) + frac(1, 2) * `G`(t)) }
+6. { `F_16` | exists (`G`), `G` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ FunDeri(`G`, 1, 1)(t) = t * FunDeri(fun t [t ∈ RealSet] . sin(2 * t), 1, 1)(t) ∧ `F_16`(t) = frac(t^{2}, 2) + frac(1, 2) * `G`(t)) } = { `F_20` | exists (`H`), `H` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ FunDeri(`H`, 1, 1)(t) = sin(2 * t) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_20`(t) = frac(t^{2}, 2) + frac(1, 2) * t * sin(2 * t) - frac(1, 2) * `H`(t)) }
+7. { `F_21` | forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ FunDeri(`F_21`, 1, 1)(t) = t * (1 + cos(2 * t)) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) } = { `F_22` | exists (C), C ∈ RealSet ∧ (forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ `F_22`(t) = frac(t^{2}, 2) + frac(1, 2) * t * sin(2 * t) + frac(1, 4) * cos(2 * t) + C) }
+
+GOAL:
+{ `F_23` | forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ FunDeri(`F_23`, 1, 1)(x) = cos(sqrtn(2, x))^{2} * FunDeri(fun x [x ∈ RealSet ∧ x ≥ 0] . x, 1, 1)(x) } = { `F_24` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ `F_24`(x) = frac(x, 2) + frac(1, 2) * sqrtn(2, x) * sin(2 * sqrtn(2, x)) + frac(1, 4) * cos(2 * sqrtn(2, x)) + C) }
+
+METHOD:

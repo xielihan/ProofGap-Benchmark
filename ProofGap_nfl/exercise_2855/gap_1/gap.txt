@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. x ≠ 1
+
+GOAL:
+frac(1, (1 - x)^{2}) = (1 - x)^{-2}
+
+METHOD:

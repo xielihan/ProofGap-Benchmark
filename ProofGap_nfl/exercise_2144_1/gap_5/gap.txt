@@ -1,0 +1,12 @@
+PROOF GAP @5
+ASSUM:
+1. C ∈ RealSet
+2. { `F_2` | forall (x), x ∈ RealSet ∧ x^{2} > 1 ⇒ FunDeri(`F_2`, 1, 1)(x) = x * sqrtn(2, x^{2} + 1) * ln(sqrtn(2, x^{2} - 1)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_4` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x^{2} > 1 ⇒ FunDeri(`F_3`, 1, 1)(x) = ln(sqrtn(2, x^{2} - 1)) * FunDeri(fun x [x ∈ RealSet] . (x^{2} + 1)^{frac(3, 2)}, 1, 1)(x) ∧ `F_4`(x) = frac(1, 3) * `F_3`(x)) }
+3. { `F_6` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x^{2} > 1 ⇒ FunDeri(`F_5`, 1, 1)(x) = ln(sqrtn(2, x^{2} - 1)) * FunDeri(fun x [x ∈ RealSet] . (x^{2} + 1)^{frac(3, 2)}, 1, 1)(x) ∧ `F_6`(x) = frac(1, 3) * `F_5`(x)) } = { `F_10` | exists (`F_7`), `F_7` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x^{2} > 1 ⇒ FunDeri(`F_7`, 1, 1)(x) = (x^{2} + 1)^{frac(3, 2)} * frac(x, x^{2} - 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_10`(x) = frac(1, 3) * (x^{2} + 1)^{frac(3, 2)} * ln(sqrtn(2, x^{2} - 1)) - frac(1, 3) * `F_7`(x)) }
+4. forall (t), t : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ x^{2} > 1 ∧ t(x) = sqrtn(2, x^{2} + 1) ⇒ t(x) > sqrtn(2, 2))
+5. forall (t), t : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ x^{2} > 1 ∧ t(x) = sqrtn(2, x^{2} + 1) ⇒ x^{2} + 1 = t(x)^{2})
+
+GOAL:
+forall (t), t : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ x^{2} > 1 ∧ t(x) = sqrtn(2, x^{2} + 1) ⇒ x * diff(fun x [x ∈ RealSet] . x) = t(x) * diff(fun x [x ∈ RealSet] . t(x)))
+
+METHOD:

@@ -1,0 +1,15 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. a : NonNegIntegerSet → RealSet
+3. b : NonNegIntegerSet → RealSet
+4. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-π, π) ⇒ f(x) = x
+5. OddFunc(f)
+6. a(0) = 0
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = 0
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = frac(1, π) * DefInt(-π, π, (fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . x * sin(n * x)) * diff(fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . x))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = frac(2, π) * DefInt(0, π, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π] . x * sin(n * x)) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π] . x))
+
+METHOD:

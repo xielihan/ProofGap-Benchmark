@@ -1,0 +1,12 @@
+PROOF GAP @5
+ASSUM:
+1. forall (x), x ∈ RealSet
+2. forall (x), x ∈ RealSet ⇒ x ≠ 0
+3. forall (x), x ∈ RealSet ⇒ 1 + x > 0
+4. lim_{ x → 0 } ((frac(1, x) * ln(1 + x) - 1) / x) = lim_{ x → 0 } ((ln(1 + x) - x) / x^{2})
+
+GOAL:
+lim_{ x → 0 } ((ln(1 + x) - x) / x^{2}) = lim_{ x → 0 } ((frac(1, 1 + x) - 1) / (2 * x))
+
+METHOD:
+[@method 洛必达法则 @]

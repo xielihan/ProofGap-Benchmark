@@ -1,0 +1,2 @@
+rewrite_in limit (right_to_left, equation) (hypothesis 20: {forall (x), x ∈ RealSet ∧ x > a ⇒ g(x) = ln(f(x))}); from (GOAL: {lim_{ x → +∞ } (frac(ln(f(x)), x)) = ln(`A'`)}) to (GOAL: {lim_{ x → +∞ } (frac(g(x), x)) = ln(`A'`)})
+apply (hypothesis 26: {lim_{ x → +∞ } (frac(g(x), x)) = ln(`A'`)})

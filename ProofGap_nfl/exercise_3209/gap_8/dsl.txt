@@ -1,0 +1,21 @@
+1. get_forall (GOAL: {forall (x_{0}) (η) (x), x_{0} ∈ RealSet ∧ η ∈ RealSet ∧ x ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, A) ∧ η > 0 ∧ x ∈ IntervalLoRo(a, A) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |x - x_{0}| < η ⇒ |F(x) - F(x_{0})| < ε)}) (x_{0} := {xzero1}) (η := {eta1}) (x := {x1})
+2. get_condition (hypothesis 22: {xzero1 ∈ RealSet ∧ eta1 ∈ RealSet ∧ x1 ∈ RealSet ∧ xzero1 ∈ IntervalLoRo(a, A) ∧ eta1 > 0 ∧ x1 ∈ IntervalLoRo(a, A)}) in (GOAL: {xzero1 ∈ RealSet ∧ eta1 ∈ RealSet ∧ x1 ∈ RealSet ∧ xzero1 ∈ IntervalLoRo(a, A) ∧ eta1 > 0 ∧ x1 ∈ IntervalLoRo(a, A) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |x1 - xzero1| < eta1 ⇒ |F(x1) - F(xzero1)| < ε)})
+3. get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |x1 - xzero1| < eta1 ⇒ |F(x1) - F(xzero1)| < ε}) (ε := {eps1})
+4. get_condition (hypothesis 23: {eps1 ∈ RealSet ∧ eps1 > 0 ∧ |x1 - xzero1| < eta1}) in (GOAL: {eps1 ∈ RealSet ∧ eps1 > 0 ∧ |x1 - xzero1| < eta1 ⇒ |F(x1) - F(xzero1)| < eps1})
+5. get_prop (hypothesis 13: {forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, A) ⇒ F(x) = f(x, φ(x))}) (x := {x1}) as (hypothesis 24: {x1 ∈ RealSet ∧ x1 ∈ IntervalLoRo(a, A) ⇒ F(x1) = f(x1, φ(x1))})
+6. assert (hypothesis 25: {x1 ∈ RealSet ∧ x1 ∈ IntervalLoRo(a, A)}) by proof {
+  1. autosolve all_hypothesis
+}
+7. use_condition (hypothesis 25: {x1 ∈ RealSet ∧ x1 ∈ IntervalLoRo(a, A)}) in (hypothesis 24: {x1 ∈ RealSet ∧ x1 ∈ IntervalLoRo(a, A) ⇒ F(x1) = f(x1, φ(x1))}) as (hypothesis 26: {F(x1) = f(x1, φ(x1))})
+8. get_prop (hypothesis 13: {forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, A) ⇒ F(x) = f(x, φ(x))}) (x := {xzero1}) as (hypothesis 27: {xzero1 ∈ RealSet ∧ xzero1 ∈ IntervalLoRo(a, A) ⇒ F(xzero1) = f(xzero1, φ(xzero1))})
+9. assert (hypothesis 28: {xzero1 ∈ RealSet ∧ xzero1 ∈ IntervalLoRo(a, A)}) by proof {
+  1. autosolve all_hypothesis
+}
+10. use_condition (hypothesis 28: {xzero1 ∈ RealSet ∧ xzero1 ∈ IntervalLoRo(a, A)}) in (hypothesis 27: {xzero1 ∈ RealSet ∧ xzero1 ∈ IntervalLoRo(a, A) ⇒ F(xzero1) = f(xzero1, φ(xzero1))}) as (hypothesis 29: {F(xzero1) = f(xzero1, φ(xzero1))})
+11. get_prop (hypothesis 21: {forall (x_{0}) (η) (x), x_{0} ∈ RealSet ∧ η ∈ RealSet ∧ x ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, A) ∧ η > 0 ∧ x ∈ IntervalLoRo(a, A) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |x - x_{0}| < η ⇒ |f(x, φ(x)) - f(x_{0}, φ(x_{0}))| < ε)}) (x_{0} := {xzero1}) (η := {eta1}) (x := {x1}) as (hypothesis 30: {xzero1 ∈ RealSet ∧ eta1 ∈ RealSet ∧ x1 ∈ RealSet ∧ xzero1 ∈ IntervalLoRo(a, A) ∧ eta1 > 0 ∧ x1 ∈ IntervalLoRo(a, A) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |x1 - xzero1| < eta1 ⇒ |f(x1, φ(x1)) - f(xzero1, φ(xzero1))| < ε)})
+12. use_condition (hypothesis 22: {xzero1 ∈ RealSet ∧ eta1 ∈ RealSet ∧ x1 ∈ RealSet ∧ xzero1 ∈ IntervalLoRo(a, A) ∧ eta1 > 0 ∧ x1 ∈ IntervalLoRo(a, A)}) in (hypothesis 30: {xzero1 ∈ RealSet ∧ eta1 ∈ RealSet ∧ x1 ∈ RealSet ∧ xzero1 ∈ IntervalLoRo(a, A) ∧ eta1 > 0 ∧ x1 ∈ IntervalLoRo(a, A) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |x1 - xzero1| < eta1 ⇒ |f(x1, φ(x1)) - f(xzero1, φ(xzero1))| < ε)}) as (hypothesis 31: {forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |x1 - xzero1| < eta1 ⇒ |f(x1, φ(x1)) - f(xzero1, φ(xzero1))| < ε})
+13. get_prop (hypothesis 31: {forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |x1 - xzero1| < eta1 ⇒ |f(x1, φ(x1)) - f(xzero1, φ(xzero1))| < ε}) (ε := {eps1}) as (hypothesis 32: {eps1 ∈ RealSet ∧ eps1 > 0 ∧ |x1 - xzero1| < eta1 ⇒ |f(x1, φ(x1)) - f(xzero1, φ(xzero1))| < eps1})
+14. use_condition (hypothesis 23: {eps1 ∈ RealSet ∧ eps1 > 0 ∧ |x1 - xzero1| < eta1}) in (hypothesis 32: {eps1 ∈ RealSet ∧ eps1 > 0 ∧ |x1 - xzero1| < eta1 ⇒ |f(x1, φ(x1)) - f(xzero1, φ(xzero1))| < eps1}) as (hypothesis 33: {|f(x1, φ(x1)) - f(xzero1, φ(xzero1))| < eps1})
+15. rewrite (left_to_right, equation) (hypothesis 26: {F(x1) = f(x1, φ(x1))}); from (GOAL: {|F(x1) - F(xzero1)| < eps1}) to (GOAL: {|f(x1, φ(x1)) - F(xzero1)| < eps1})
+16. rewrite (left_to_right, equation) (hypothesis 29: {F(xzero1) = f(xzero1, φ(xzero1))}); from (GOAL: {|f(x1, φ(x1)) - F(xzero1)| < eps1}) to (GOAL: {|f(x1, φ(x1)) - f(xzero1, φ(xzero1))| < eps1})
+17. apply (hypothesis 33: {|f(x1, φ(x1)) - f(xzero1, φ(xzero1))| < eps1})

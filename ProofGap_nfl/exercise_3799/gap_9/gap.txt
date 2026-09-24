@@ -1,0 +1,17 @@
+PROOF GAP @9
+ASSUM:
+1. α ∈ RealSet
+2. I = (fun α [α ∈ RealSet] . DefInt(1, +∞, (fun x [x ∈ RealSet ∧ x ≥ 1] . frac(arctan(α * x), x^{2} * sqrtn(2, x^{2} - 1))) * diff(fun x [x ∈ RealSet] . x)))
+3. I(0) = 0
+4. α > 0 ⇒ lim_{ x → +∞ } (x^{3} * frac(arctan(α * x), x^{2} * sqrtn(2, x^{2} - 1))) = frac(π, 2)
+5. α > 0 ⇒ ConvergentSeries(DefInt(1, +∞, (fun x [x ∈ RealSet ∧ x ≥ 1] . frac(arctan(α * x), x^{2} * sqrtn(2, x^{2} - 1))) * diff(fun x [x ∈ RealSet] . x)))
+6. DefInt(1, +∞, (fun x [x ∈ RealSet ∧ x ≥ 1] . FunDeri(fun α [α ∈ RealSet] . frac(arctan(α * x), x^{2} * sqrtn(2, x^{2} - 1)), 1, 1)) * diff(fun x [x ∈ RealSet] . x)) = DefInt(1, +∞, (fun x [x ∈ RealSet ∧ x ≥ 1] . frac(1, x * (1 + α^{2} * x^{2}) * sqrtn(2, x^{2} - 1))) * diff(fun x [x ∈ RealSet] . x))
+7. DefInt(1, +∞, (fun x [x ∈ RealSet ∧ x ≥ 1] . frac(1, x * (1 + α^{2} * x^{2}) * sqrtn(2, x^{2} - 1))) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun t [t ∈ RealSet ∧ 0 < t ∧ t < 1] . frac(t^{2}, sqrtn(2, 1 - t^{2}) * (t^{2} + α^{2}))) * diff(fun t [t ∈ RealSet] . t))
+8. forall (t), t ∈ RealSet ∧ 0 < t ∧ t < 1 ∧ α ≥ 0 ⇒ |frac(t^{2}, sqrtn(2, 1 - t^{2}) * (t^{2} + α^{2}))| ≤ frac(1, sqrtn(2, 1 - t^{2}))
+9. DefInt(0, 1, (fun t [t ∈ RealSet ∧ 0 < t ∧ t < 1] . frac(1, sqrtn(2, 1 - t^{2}))) * diff(fun t [t ∈ RealSet] . t)) = frac(π, 2)
+10. α ≥ 0 ⇒ FunDeri(I, 1, 1)(α) = DefInt(0, 1, (fun t [t ∈ RealSet ∧ 0 < t ∧ t < 1] . frac(t^{2}, sqrtn(2, 1 - t^{2}) * (t^{2} + α^{2}))) * diff(fun t [t ∈ RealSet] . t))
+
+GOAL:
+α ≥ 0 ⇒ FunDeri(I, 1, 1)(α) = DefInt(0, 1, (fun t [t ∈ RealSet ∧ 0 < t ∧ t < 1] . frac(t^{2} + α^{2} - α^{2}, sqrtn(2, 1 - t^{2}) * (t^{2} + α^{2}))) * diff(fun t [t ∈ RealSet] . t))
+
+METHOD:

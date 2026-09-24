@@ -1,0 +1,17 @@
+PROOF GAP @8
+ASSUM:
+1. f : RealSet → RealSet
+2. B : RealSet → RealSet
+3. forall (x), x ∈ RealSet ∧ x > 0 ⇒ f(x) = e^{-x}
+4. ContinuousFuncOn(f, [0, +∞))
+5. DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x}) * diff(fun x [x ∈ RealSet] . x)) = 1
+6. 1 < +∞
+7. OddFunc(f)
+8. forall (λ), λ ∈ RealSet ∧ λ ≥ 0 ⇒ B(λ) = frac(2, π) * DefInt(0, +∞, (fun ξ [ξ ∈ RealSet] . f(ξ) * sin(λ * ξ)) * diff(fun ξ [ξ ∈ RealSet] . ξ))
+9. forall (λ), λ ∈ RealSet ∧ λ ≥ 0 ⇒ B(λ) = frac(2, π) * DefInt(0, +∞, (fun ξ [ξ ∈ RealSet] . e^{-ξ} * sin(λ * ξ)) * diff(fun ξ [ξ ∈ RealSet] . ξ))
+10. forall (λ), λ ∈ RealSet ∧ λ ≥ 0 ⇒ B(λ) = frac(2 * λ, π * (1 + λ^{2}))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ e^{-x} = frac(2, π) * DefInt(0, +∞, (fun λ [λ ∈ RealSet] . frac(λ * sin(λ * x), 1 + λ^{2})) * diff(fun λ [λ ∈ RealSet] . λ))
+
+METHOD:

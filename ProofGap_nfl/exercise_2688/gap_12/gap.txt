@@ -1,0 +1,28 @@
+PROOF GAP @12
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. A : NonNegIntegerSet → PowerSet(NonNegIntegerSet)
+3. p : NonNegIntegerSet → NonNegIntegerSet
+4. n : NonNegIntegerSet → NonNegIntegerSet
+5. u : NonNegIntegerSet → RealSet
+6. v : NonNegIntegerSet → RealSet
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac((-1)^{floor(ln(n))}, n)
+8. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ A(k) = { n | n ∈ PosIntegerSet, floor(ln(n)) = k }
+9. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ u(k) = sum_{ n ∈ A(k) } (a(n))
+10. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ v(k) = sum_{ n ∈ A(k) } (frac(1, n))
+11. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ A(k) = { n | n ∈ PosIntegerSet, e^{k} ≤ n ∧ n < e * e^{k} }
+12. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ p(k) = floor((e - 1) * e^{k})
+13. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ u(k) = (-1)^{k} * v(k)
+14. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ v(k) = sum_{ i = 0 }^{ p(k) - 1 } (frac(1, n(k) + i)) ∧ sum_{ i = 0 }^{ p(k) - 1 } (frac(1, n(k) + i)) ≥ frac(p(k), e * e^{k}) ∧ frac(p(k), e * e^{k}) ≥ frac(e - 1, 2 * e)
+15. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N_{0}), N_{0} ∈ NonNegIntegerSet ∧ N_{0} ∈ PosIntegerSet ∧ (forall (q), q ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ q ∈ PosIntegerSet ∧ n ≥ N_{0} ⇒ |sum_{ i = 0 }^{ q } (a(n + i))| < ε)))
+16. forall (ε), ε ∈ RealSet ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ∧ ε = frac(e - 1, 4 * e) ⇒ ε > 0
+17. forall (ε), ε ∈ RealSet ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ∧ ε = frac(e - 1, 4 * e) ⇒ (exists (N_{0}), N_{0} ∈ NonNegIntegerSet ∧ N_{0} ∈ PosIntegerSet ∧ (forall (q), q ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ q ∈ PosIntegerSet ∧ n ≥ N_{0} ⇒ |sum_{ i = 0 }^{ q } (a(n + i))| < ε))
+18. forall (ε), ε ∈ RealSet ⇒ (forall (N_{0}), N_{0} ∈ NonNegIntegerSet ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ∧ ε = frac(e - 1, 4 * e) ⇒ (exists (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ n(k) ≥ N_{0} ∧ n(k) ∈ A(k)))
+19. forall (ε), ε ∈ RealSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ∧ ε = frac(e - 1, 4 * e) ⇒ |sum_{ i = 0 }^{ p(k) - 1 } (a(n(k) + i))| < ε)
+20. forall (ε), ε ∈ RealSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ∧ ε = frac(e - 1, 4 * e) ⇒ |sum_{ i = 0 }^{ p(k) - 1 } (a(n(k) + i))| = |u(k)|)
+21. forall (ε), ε ∈ RealSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ∧ ε = frac(e - 1, 4 * e) ⇒ |u(k)| = v(k))
+
+GOAL:
+forall (ε), ε ∈ RealSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ∧ ε = frac(e - 1, 4 * e) ⇒ v(k) ≥ frac(e - 1, 2 * e))
+
+METHOD:

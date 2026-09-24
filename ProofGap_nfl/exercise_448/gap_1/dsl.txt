@@ -1,0 +1,6 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ∧ x ≠ 0 ⇒ sqrtn(2, 1 + x) + sqrtn(2, 1 - x) ≠ 0}) (x := {x0})
+2. get_condition (hypothesis 1: {x0 ∈ RealSet ∧ -1 < x0 ∧ x0 < 1 ∧ x0 ≠ 0}) in (GOAL: {x0 ∈ RealSet ∧ -1 < x0 ∧ x0 < 1 ∧ x0 ≠ 0 ⇒ sqrtn(2, 1 + x0) + sqrtn(2, 1 - x0) ≠ 0})
+3. destruct_and (hypothesis 1: {x0 ∈ RealSet ∧ -1 < x0 ∧ x0 < 1 ∧ x0 ≠ 0}) as (hypothesis 2: {x0 ∈ RealSet}) (hypothesis 3: {-1 < x0}) (hypothesis 4: {x0 < 1}) (hypothesis 5: {x0 ≠ 0})
+4. get_prop (theorem 'Thm 450. (SquareRootSquareCancellation)': {forall (u), u ∈ RealSet => u >= 0 => sqrtn(2, u)^2 = u}) (u := {1 + x0}) as (hypothesis 6: {1 + x0 ∈ RealSet => 1 + x0 >= 0 => sqrtn(2, 1 + x0)^2 = 1 + x0})
+5. get_prop (theorem 'Thm 450. (SquareRootSquareCancellation)': {forall (u), u ∈ RealSet => u >= 0 => sqrtn(2, u)^2 = u}) (u := {1 - x0}) as (hypothesis 7: {1 - x0 ∈ RealSet => 1 - x0 >= 0 => sqrtn(2, 1 - x0)^2 = 1 - x0})
+6. autosolve all_hypothesis

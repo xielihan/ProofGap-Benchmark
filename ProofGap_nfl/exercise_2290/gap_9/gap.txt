@@ -1,0 +1,25 @@
+PROOF GAP @9
+ASSUM:
+1. I : CartesianProd(NonNegIntegerSet, NonNegIntegerSet) → RealSet
+2. m ∈ NonNegIntegerSet ∧ m > 0
+3. n ∈ NonNegIntegerSet ∧ n > 0
+4. x ∈ RealSet
+5. m ∈ PosIntegerSet
+6. n ∈ PosIntegerSet
+7. forall (x), x ∈ RealSet ⇒ sin(x) = frac(e^{__IMAGINARY_UNIT__ * x} - e^{-__IMAGINARY_UNIT__ * x}, 2 * __IMAGINARY_UNIT__)
+8. forall (x), x ∈ RealSet ⇒ cos(x) = frac(e^{__IMAGINARY_UNIT__ * x} + e^{-__IMAGINARY_UNIT__ * x}, 2)
+9. I(m, n) = DefInt(0, frac(π, 2), sin(x)^{2 * m} * cos(x)^{2 * n} * diff(fun x [x ∈ RealSet] . x))
+10. J = DefInt(0, 2 * π, sin(x)^{2 * m} * cos(x)^{2 * n} * diff(fun x [x ∈ RealSet] . x))
+11. I(m, n) = frac(1, 4) * J
+12. sin(x)^{2 * m} * cos(x)^{2 * n} = frac(e^{__IMAGINARY_UNIT__ * x} - e^{-__IMAGINARY_UNIT__ * x}, 2 * __IMAGINARY_UNIT__)^{2 * m} * frac(e^{__IMAGINARY_UNIT__ * x} + e^{-__IMAGINARY_UNIT__ * x}, 2)^{2 * n}
+13. sin(x)^{2 * m} * cos(x)^{2 * n} = frac((-1)^{m}, 2^{2 * m + 2 * n}) * (sum_{ k = 0 }^{ 2 * m } (sum_{ l = 0 }^{ 2 * n } ((-1)^{k} * Combination(2 * m, k) * Combination(2 * n, l) * e^{2 * (m + n - k - l) * __IMAGINARY_UNIT__ * x})))
+14. J = frac((-1)^{m}, 2^{2 * m + 2 * n}) * (sum_{ k = 0 }^{ 2 * m } (sum_{ l = 0 }^{ 2 * n } ((-1)^{k} * Combination(2 * m, k) * Combination(2 * n, l) * DefInt(0, 2 * π, e^{2 * (m + n - k - l) * __IMAGINARY_UNIT__ * x} * diff(fun x [x ∈ RealSet] . x)))))
+15. forall (k) (l), k ∈ NonNegIntegerSet ∧ l ∈ NonNegIntegerSet ⇒ DefInt(0, 2 * π, e^{2 * (m + n - k - l) * __IMAGINARY_UNIT__ * x} * diff(fun x [x ∈ RealSet] . x)) = cases{ 2 * π if k + l = m + n; 0 if k + l ≠ m + n }
+16. J = frac((-1)^{m} * 2 * π, 2^{2 * m + 2 * n}) * (sum_{ k = 0 }^{ 2 * m } ((-1)^{k} * Combination(2 * m, k) * Combination(2 * n, m + n - k)))
+17. (-1)^{m} * (sum_{ k = 0 }^{ 2 * m } ((-1)^{k} * Combination(2 * m, k) * Combination(2 * n, m + n - k))) = frac((2 * m)! * (2 * n)!, m! * n! * (m + n)!)
+18. J = frac(π * (2 * m)! * (2 * n)!, 2^{2 * m + 2 * n - 1} * m! * n! * (m + n)!)
+
+GOAL:
+I(m, n) = frac(π * (2 * m)! * (2 * n)!, 2^{2 * m + 2 * n + 1} * m! * n! * (m + n)!)
+
+METHOD:

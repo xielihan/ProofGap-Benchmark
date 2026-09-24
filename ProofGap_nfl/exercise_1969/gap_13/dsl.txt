@@ -1,0 +1,10 @@
+get_condition (hypothesis 18: {sqrtn(2, x^{2} + 3 * x + 2) = z * (x + 1)}) in (GOAL: {sqrtn(2, x^{2} + 3 * x + 2) = z * (x + 1) ⇒ z ≠ 2})
+use_condition (hypothesis 18: {sqrtn(2, x^{2} + 3 * x + 2) = z * (x + 1)}) in (hypothesis 13: {sqrtn(2, x^{2} + 3 * x + 2) = z * (x + 1) ⇒ z^{2} - z - 2 ≠ 0}) as (hypothesis 19: {z^{2} - z - 2 ≠ 0})
+assert (hypothesis 20: {z = 2 ⇒ z^{2} - z - 2 = 0}) by proof {
+  get_condition (hypothesis 20: {z = 2}) in (GOAL: {z = 2 ⇒ z^{2} - z - 2 = 0})
+  rewrite (left_to_right, equation) (hypothesis 20: {z = 2}); from (GOAL: {z^{2} - z - 2 = 0}) to (GOAL: {2^{2} - 2 - 2 = 0})
+  assert (hypothesis 21: {2^{2} - 2 - 2 = 0})
+  apply (hypothesis 21: {2^{2} - 2 - 2 = 0})
+}
+assert (hypothesis 21: {z ≠ 2})
+apply (hypothesis 21: {z ≠ 2})

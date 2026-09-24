@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ y(x) = frac(1, 4) * ln(frac(sqrtn(4, 1 + x^{4}) + x, sqrtn(4, 1 + x^{4}) - x)) - frac(1, 2) * arctan(frac(sqrtn(4, 1 + x^{4}), x))
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(y, 1, 1)(x) = frac(1, 4) * (frac(1, sqrtn(4, 1 + x^{4}) + x) * (1 + frac(x^{3}, sqrtn(4, (1 + x^{4})^{3}))) - frac(1, sqrtn(4, 1 + x^{4}) - x) * (frac(x^{3}, sqrtn(4, (1 + x^{4})^{3})) - 1)) - frac(1, 2) * frac(1, 1 + frac(sqrtn(4, 1 + x^{4}), x)^{2}) * frac(1, x^{2}) * (frac(x^{4}, sqrtn(4, (1 + x^{4})^{3})) - sqrtn(4, 1 + x^{4}))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(y, 1, 1)(x) = frac(1, sqrtn(4, 1 + x^{4}))
+
+METHOD:

@@ -1,0 +1,12 @@
+1. get_forall (GOAL: {forall (M), M ∈ RealSet /\ M > 0 => (forall (x), x ∈ RealSet /\ |x| > E => |x| > E_{1})}) (M := {M0})
+2. get_condition (hypothesis 19: {M0 ∈ RealSet /\ M0 > 0}) in (GOAL: {M0 ∈ RealSet /\ M0 > 0 => (forall (x), x ∈ RealSet /\ |x| > E => |x| > E_{1})})
+3. get_prop (hypothesis 18: {forall (M), M ∈ RealSet /\ M > 0 => E = frac(E_{1} + E_{2} + |E_{1} - E_{2}|, 2)}) (M := {M0}) as (hypothesis 20: {M0 ∈ RealSet /\ M0 > 0 => E = frac(E_{1} + E_{2} + |E_{1} - E_{2}|, 2)})
+4. use_condition (hypothesis 19: {M0 ∈ RealSet /\ M0 > 0}) in (hypothesis 20: {M0 ∈ RealSet /\ M0 > 0 => E = frac(E_{1} + E_{2} + |E_{1} - E_{2}|, 2)}) as (hypothesis 21: {E = frac(E_{1} + E_{2} + |E_{1} - E_{2}|, 2)})
+5. assert (hypothesis 22: {|E_{1} - E_{2}| ≥ E_{1} - E_{2}})
+6. assert (hypothesis 23: {frac(E_{1} + E_{2} + |E_{1} - E_{2}|, 2) = E})
+7. get_prop (theorem 'Thm 409. (FractionEqualityToCrossProduct)': {forall (A) (B) (C), A ∈ RealSet => B ∈ RealSet => C ∈ RealSet => B != 0 => frac(A, B) = C => A = B * C}) (A := {E_{1} + E_{2} + |E_{1} - E_{2}|}) (B := {2}) (C := {E}) as (hypothesis 24: {E_{1} + E_{2} + |E_{1} - E_{2}| ∈ RealSet => 2 ∈ RealSet => E ∈ RealSet => 2 != 0 => frac(E_{1} + E_{2} + |E_{1} - E_{2}|, 2) = E => E_{1} + E_{2} + |E_{1} - E_{2}| = 2 * E})
+8. use_condition (obvious: {E_{1} + E_{2} + |E_{1} - E_{2}| ∈ RealSet}) (obvious: {2 ∈ RealSet}) (hypothesis 7: {E ∈ RealSet}) (obvious: {2 != 0}) (hypothesis 23: {frac(E_{1} + E_{2} + |E_{1} - E_{2}|, 2) = E}) in (hypothesis 24: {E_{1} + E_{2} + |E_{1} - E_{2}| ∈ RealSet => 2 ∈ RealSet => E ∈ RealSet => 2 != 0 => frac(E_{1} + E_{2} + |E_{1} - E_{2}|, 2) = E => E_{1} + E_{2} + |E_{1} - E_{2}| = 2 * E}) as (hypothesis 25: {E_{1} + E_{2} + |E_{1} - E_{2}| = 2 * E})
+9. assert (hypothesis 26: {E ≥ E_{1}})
+10. get_forall (GOAL: {forall (x), x ∈ RealSet /\ |x| > E => |x| > E_{1}}) (x := {x0})
+11. get_condition (hypothesis 27: {x0 ∈ RealSet /\ |x0| > E}) in (GOAL: {x0 ∈ RealSet /\ |x0| > E => |x0| > E_{1}})
+12. autosolve all_hypothesis

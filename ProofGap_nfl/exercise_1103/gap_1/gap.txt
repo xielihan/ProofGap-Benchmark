@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. f = (fun x [x ∈ RealSet ∧ x > 0] . lg(x))
+2. x_{0} = 1
+3. Δx = 0.1
+
+GOAL:
+log(10, 11) = log(10, 10) + log(10, 1.1)
+
+METHOD:

@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. x : NonNegIntegerSet → RealSet
+3. Δx : NonNegIntegerSet → RealSet
+4. ω : NonNegIntegerSet → RealSet
+5. d ∈ RealSet
+6. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ∧ x ≠ 0 ⇒ f(x) = frac(1, x) * floor(frac(1, x))
+7. f(0) = 0
+
+GOAL:
+BoundedFuncOn(f, [0, 1])
+
+METHOD:

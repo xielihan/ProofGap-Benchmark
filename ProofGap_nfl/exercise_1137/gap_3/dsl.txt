@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ diff^{2}(y) = a^{u(x)} * ln(a) * (ln(a) * diff(u)^{2} + diff^{2}(u))}) (x := {z})
+get_condition (hypothesis 10: {z ∈ RealSet}) in (GOAL: {z ∈ RealSet ⇒ diff^{2}(y) = a^{u(z)} * ln(a) * (ln(a) * diff(u)^{2} + diff^{2}(u))})
+get_prop (hypothesis 9: {forall (x), x ∈ RealSet ⇒ diff^{2}(y) = a^{u(x)} * ln(a)^{2} * diff(u)^{2} + a^{u(x)} * ln(a) * diff^{2}(u)}) (x := {z}) as (hypothesis 11: {z ∈ RealSet ⇒ diff^{2}(y) = a^{u(z)} * ln(a)^{2} * diff(u)^{2} + a^{u(z)} * ln(a) * diff^{2}(u)})
+use_condition (hypothesis 10: {z ∈ RealSet}) in (hypothesis 11: {z ∈ RealSet ⇒ diff^{2}(y) = a^{u(z)} * ln(a)^{2} * diff(u)^{2} + a^{u(z)} * ln(a) * diff^{2}(u)}) as (hypothesis 12: {diff^{2}(y) = a^{u(z)} * ln(a)^{2} * diff(u)^{2} + a^{u(z)} * ln(a) * diff^{2}(u)})
+autosolve all_hypothesis

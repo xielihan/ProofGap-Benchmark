@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet ∧ Defined(f, RealSet)
+2. F : RealSet → RealSet
+3. T ∈ RealSet ∧ T > 0
+4. x_{0} ∈ RealSet
+5. ContinuousFunc(f)
+6. PeriodicFunc(f, T)
+7. forall (x), x ∈ RealSet ⇒ F(x) = DefInt(x_{0}, x, (fun t [t ∈ RealSet] . f(t)) * diff(fun t [t ∈ RealSet] . t))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ F(x + T) - F(x) = DefInt(x, x + T, (fun t [t ∈ RealSet] . f(t)) * diff(fun t [t ∈ RealSet] . t))
+
+METHOD:

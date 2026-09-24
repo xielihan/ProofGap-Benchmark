@@ -1,0 +1,27 @@
+PROOF GAP @7
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. Ω ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. Ω_{1} ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+4. x : CartesianProd(RealSet, RealSet) → RealSet
+5. y : CartesianProd(RealSet, RealSet) → RealSet
+6. z ∈ RealSet
+7. r ∈ RealSet ∧ r ≥ 0
+8. φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π
+9. I ∈ RealSet
+10. ω ∈ RealSet
+11. Ω = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x^{2} + y^{2} + z^{2} ≤ 2 * a * z ∧ x^{2} + y^{2} ≤ z^{2} }
+12. x(r, φ) = r * cos(φ)
+13. y(r, φ) = r * sin(φ)
+14. (x(r, φ), y(r, φ), z) ∈ Ω
+15. r^{2} + z^{2} ≤ 2 * a * z
+16. r^{2} ≤ z^{2}
+17. 0 ≤ r ∧ r ≤ a ∧ r ≤ z ∧ z ≤ a + sqrtn(2, a^{2} - r^{2})
+18. Ω_{1} = { (r, φ, z) | r ∈ RealSet ∧ φ ∈ RealSet ∧ z ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ∧ 0 ≤ r ∧ r ≤ a ∧ r ≤ z ∧ z ≤ a + sqrtn(2, a^{2} - r^{2}) }
+19. |I| = r
+20. VolumeInt(Ω, diff(ω)) = DefInt(0, 2 * π, (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . DefInt(0, a, (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a] . r * DefInt(r, a + sqrtn(2, a^{2} - r^{2}), diff(fun z [z ∈ RealSet ∧ r ≤ z ∧ z ≤ a + sqrtn(2, a^{2} - r^{2})] . z))) * diff(fun r [r ∈ RealSet] . r))) * diff(fun φ [φ ∈ RealSet] . φ))
+
+GOAL:
+DefInt(0, 2 * π, (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . DefInt(0, a, (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a] . r * DefInt(r, a + sqrtn(2, a^{2} - r^{2}), diff(fun z [z ∈ RealSet ∧ r ≤ z ∧ z ≤ a + sqrtn(2, a^{2} - r^{2})] . z))) * diff(fun r [r ∈ RealSet] . r))) * diff(fun φ [φ ∈ RealSet] . φ)) = 2 * π * DefInt(0, a, (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a] . r * (a + sqrtn(2, a^{2} - r^{2}) - r)) * diff(fun r [r ∈ RealSet] . r))
+
+METHOD:

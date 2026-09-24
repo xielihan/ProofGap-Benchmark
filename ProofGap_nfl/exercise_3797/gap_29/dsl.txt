@@ -1,0 +1,26 @@
+assert (hypothesis 32: {|α| < 1 ∨ α = 1 ∨ α = -1}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 33: {α = 1 ⇒ I(α) = -π * (1 - sqrtn(2, 1 - α^{2}))}) by proof {
+  get_condition (hypothesis 33: {α = 1}) in (GOAL: {α = 1 ⇒ I(α) = -π * (1 - sqrtn(2, 1 - α^{2}))})
+  rewrite (left_to_right, equation) (hypothesis 33: {α = 1}); from (GOAL: {I(α) = -π * (1 - sqrtn(2, 1 - α^{2}))}) to (GOAL: {I(1) = -π * (1 - sqrtn(2, 1 - 1^{2}))})
+  autosolve all_hypothesis
+}
+assert (hypothesis 34: {I(-1) = I(1)}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 35: {α = -1 ⇒ I(α) = -π * (1 - sqrtn(2, 1 - α^{2}))}) by proof {
+  get_condition (hypothesis 35: {α = -1}) in (GOAL: {α = -1 ⇒ I(α) = -π * (1 - sqrtn(2, 1 - α^{2}))})
+  rewrite (left_to_right, equation) (hypothesis 35: {α = -1}); from (GOAL: {I(α) = -π * (1 - sqrtn(2, 1 - α^{2}))}) to (GOAL: {I(-1) = -π * (1 - sqrtn(2, 1 - (-1)^{2}))})
+  rewrite (left_to_right, equation) (hypothesis 34: {I(-1) = I(1)}); from (GOAL: {I(-1) = -π * (1 - sqrtn(2, 1 - (-1)^{2}))}) to (GOAL: {I(1) = -π * (1 - sqrtn(2, 1 - (-1)^{2}))})
+  autosolve all_hypothesis
+}
+assert (hypothesis 36: {I(α) = -π * (1 - sqrtn(2, 1 - α^{2}))}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 37: {DefInt(0, 1, (fun x [x ∈ RealSet] . frac(ln(1 - α^{2} * x^{2}), x^{2} * sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x)) = I(α)}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 10: {I = (fun α [α ∈ RealSet ∧ |α| ≤ 1] . DefInt(0, 1, (fun x [x ∈ RealSet] . frac(ln(1 - α^{2} * x^{2}), x^{2} * sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x)))}); from (GOAL: {DefInt(0, 1, (fun x [x ∈ RealSet] . frac(ln(1 - α^{2} * x^{2}), x^{2} * sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x)) = I(α)}) to (GOAL: {DefInt(0, 1, (fun x [x ∈ RealSet] . frac(ln(1 - α^{2} * x^{2}), x^{2} * sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x)) = (fun α [α ∈ RealSet ∧ |α| ≤ 1] . DefInt(0, 1, (fun x [x ∈ RealSet] . frac(ln(1 - α^{2} * x^{2}), x^{2} * sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x)))(α)})
+  autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 37: {DefInt(0, 1, (fun x [x ∈ RealSet] . frac(ln(1 - α^{2} * x^{2}), x^{2} * sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x)) = I(α)}); from (GOAL: {DefInt(0, 1, (fun x [x ∈ RealSet] . frac(ln(1 - α^{2} * x^{2}), x^{2} * sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x)) = -π * (1 - sqrtn(2, 1 - α^{2}))}) to (GOAL: {I(α) = -π * (1 - sqrtn(2, 1 - α^{2}))})
+autosolve all_hypothesis

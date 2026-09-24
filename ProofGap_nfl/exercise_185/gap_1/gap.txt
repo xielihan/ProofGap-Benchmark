@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. y : RealSet → RealSet
+3. E_{x} ⊆ RealSet
+4. E_{x} = { x | x ∈ RealSet, 0 < x ∧ x < 1 ∧ x ≠ frac(1, 2) }
+5. forall (x), x ∈ RealSet ∧ x ∈ E_{x} ⇒ y(x) = frac(x, 2 * x - 1)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ y(x) = frac(1, 2) + frac(1, 2) * frac(1, 2 * x - 1)
+
+METHOD:

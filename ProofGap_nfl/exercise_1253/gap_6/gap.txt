@@ -1,0 +1,20 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. x_{1} ∈ RealSet
+3. x_{2} ∈ RealSet
+4. x_{1} < x_{2}
+5. x_{1} * x_{2} > 0
+6. DiffableFuncOn(f, [x_{1}, x_{2}])
+7. g = (fun x [x ∈ RealSet ∧ x ≠ 0] . frac(1, x))
+8. F = (fun x [x ∈ RealSet ∧ x ≠ 0] . frac(f(x), x))
+9. 0 ∉ [x_{1}, x_{2}]
+10. DiffableFuncOn(g, [x_{1}, x_{2}])
+11. DiffableFuncOn(F, [x_{1}, x_{2}])
+12. forall (t), t ∈ RealSet ∧ t ∈ [x_{1}, x_{2}] ⇒ FunDeri(g, 1, 1)(t)^{2} + FunDeri(F, 1, 1)(t)^{2} = frac(1, t^{4}) * (1 + (t * FunDeri(f, 1, 1)(t) - f(t))^{2})
+13. forall (t), t ∈ RealSet ∧ t ∈ [x_{1}, x_{2}] ⇒ frac(1, t^{4}) * (1 + (t * FunDeri(f, 1, 1)(t) - f(t))^{2}) ≠ 0
+
+GOAL:
+forall (t), t ∈ RealSet ∧ t ∈ [x_{1}, x_{2}] ⇒ FunDeri(g, 1, 1)(t)^{2} + FunDeri(F, 1, 1)(t)^{2} ≠ 0
+
+METHOD:

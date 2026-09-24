@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. |a| < 1
+4. |b| < 1
+5. forall (n), n ∈ NonNegIntegerSet ⇒ frac(sum_{ k = 0 }^{ n } (a^{k}), sum_{ k = 0 }^{ n } (b^{k})) = frac(frac(1 - a^{n + 1}, 1 - a), frac(1 - b^{n + 1}, 1 - b))
+6. seqlim_{ n → +∞ } (a^{n + 1}) = 0
+7. seqlim_{ n → +∞ } (b^{n + 1}) = 0
+
+GOAL:
+seqlim_{ n → +∞ } (frac(sum_{ k = 0 }^{ n } (a^{k}), sum_{ k = 0 }^{ n } (b^{k}))) = frac(1 - b, 1 - a)
+
+METHOD:

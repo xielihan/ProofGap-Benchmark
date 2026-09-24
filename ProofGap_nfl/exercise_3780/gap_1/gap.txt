@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. F : RealSet → RealSet
+2. forall (α), α ∈ RealSet ∧ α > 0 ⇒ F(α) = DefInt(1, +∞, (fun x [x ∈ RealSet ∧ x ≥ 1] . frac(cos(x), x^{α})) * diff(fun x [x ∈ RealSet ∧ x ≥ 1] . x))
+
+GOAL:
+forall (`α_0`), `α_0` ∈ RealSet ∧ `α_0` > 0 ⇒ (forall (A), A ∈ RealSet ∧ A > 1 ⇒ |DefInt(1, A, (fun x [x ∈ RealSet ∧ x ≥ 1] . cos(x)) * diff(fun x [x ∈ RealSet ∧ x ≥ 1] . x))| ≤ 2)
+
+METHOD:

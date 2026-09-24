@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (x_{0}), x_{0} ∈ RealSet ⇒ f(x_{0}) ∈ RealSet ∧ (forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ ¬BoundedFuncOn(f, IntervalLoRo(x_{0} - δ, x_{0} + δ)))}) (x_{0} := {a})
+get_condition (hypothesis 12: {a ∈ RealSet}) in (GOAL: {a ∈ RealSet ⇒ f(a) ∈ RealSet ∧ (forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ ¬BoundedFuncOn(f, IntervalLoRo(a - δ, a + δ)))})
+get_prop (hypothesis 4: {forall (x_{0}), x_{0} ∈ RealSet ⇒ f(x_{0}) ∈ RealSet}) (x_{0} := {a}) as (hypothesis 13: {a ∈ RealSet ⇒ f(a) ∈ RealSet})
+use_condition (hypothesis 12: {a ∈ RealSet}) in (hypothesis 13: {a ∈ RealSet ⇒ f(a) ∈ RealSet}) as (hypothesis 14: {f(a) ∈ RealSet})
+get_prop (hypothesis 11: {forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ ¬BoundedFuncOn(f, IntervalLoRo(x_{0} - δ, x_{0} + δ)))}) (x_{0} := {a}) as (hypothesis 15: {a ∈ RealSet ⇒ (forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ ¬BoundedFuncOn(f, IntervalLoRo(a - δ, a + δ)))})
+use_condition (hypothesis 12: {a ∈ RealSet}) in (hypothesis 15: {a ∈ RealSet ⇒ (forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ ¬BoundedFuncOn(f, IntervalLoRo(a - δ, a + δ)))}) as (hypothesis 16: {forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ ¬BoundedFuncOn(f, IntervalLoRo(a - δ, a + δ))})
+assert (hypothesis 17: {f(a) ∈ RealSet ∧ (forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ ¬BoundedFuncOn(f, IntervalLoRo(a - δ, a + δ)))})
+apply (hypothesis 17: {f(a) ∈ RealSet ∧ (forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ ¬BoundedFuncOn(f, IntervalLoRo(a - δ, a + δ)))})

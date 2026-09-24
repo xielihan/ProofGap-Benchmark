@@ -1,0 +1,21 @@
+PROOF GAP @11
+ASSUM:
+1. A ⊆ RealSet
+2. C ⊆ RealSet
+3. u : CartesianProd(RealSet, NonNegIntegerSet) → RealSet
+4. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ⇒ u(x, n) = frac(2^{n} * sin(x)^{n}, n^{2}))
+5. seqlim_{ n → +∞ } (frac(frac(2^{n}, n^{2}), frac(2^{n + 1}, (n + 1)^{2}))) = seqlim_{ n → +∞ } (frac(1, 2) * (1 + frac(1, n))^{2})
+6. seqlim_{ n → +∞ } (frac(1, 2) * (1 + frac(1, n))^{2}) = frac(1, 2)
+7. seqlim_{ n → +∞ } (frac(frac(2^{n}, n^{2}), frac(2^{n + 1}, (n + 1)^{2}))) = frac(1, 2)
+8. forall (x), x ∈ RealSet ⇒ (AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (u(x, n))) ⇔ |sin(x)| ≤ frac(1, 2))
+9. forall (x), x ∈ RealSet ⇒ (|sin(x)| < frac(1, 2) ⇔ (exists (k), k ∈ IntegerSet ∧ |x - k * π| < frac(π, 6)))
+10. forall (x), x ∈ RealSet ∧ (exists (k), k ∈ IntegerSet ∧ |x - k * π| = frac(π, 6)) ⇒ sum_{ n = 1 }^{ +∞ } (|u(x, n)|) = sum_{ n = 1 }^{ +∞ } (frac(1, n^{2}))
+11. forall (x), x ∈ RealSet ∧ (exists (k), k ∈ IntegerSet ∧ |x - k * π| = frac(π, 6)) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{2})))
+12. forall (x), x ∈ RealSet ∧ (exists (k), k ∈ IntegerSet ∧ |x - k * π| = frac(π, 6)) ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (u(x, n)))
+13. forall (x), x ∈ RealSet ⇒ (|sin(x)| ≤ frac(1, 2) ⇔ (exists (k), k ∈ IntegerSet ∧ |x - k * π| ≤ frac(π, 6)))
+14. forall (x), x ∈ RealSet ∧ ¬(exists (k), k ∈ IntegerSet ∧ |x - k * π| ≤ frac(π, 6)) ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (u(x, n)))
+
+GOAL:
+A = { x | x ∈ RealSet, exists (k), k ∈ IntegerSet ∧ |x - k * π| ≤ frac(π, 6) } ∧ C = ∅ ⇒ A = { x | x ∈ RealSet, AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (u(x, n))) } ∧ C = { x | x ∈ RealSet, ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } (u(x, n))) }
+
+METHOD:

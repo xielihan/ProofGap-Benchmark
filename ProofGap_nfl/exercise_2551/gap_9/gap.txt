@@ -1,0 +1,19 @@
+PROOF GAP @9
+ASSUM:
+1. q ∈ RealSet
+2. α ∈ RealSet
+3. |q| < 1
+4. z = q * (cos(α) + __IMAGINARY_UNIT__ * sin(α))
+5. z = q * e^{__IMAGINARY_UNIT__ * α}
+6. |z| = |q|
+7. |q| < 1
+8. |z| < 1
+9. sum_{ n = 0 }^{ +∞ } (z^{n}) = (sum_{ n = 0 }^{ +∞ } (q^{n} * cos(n * α))) + __IMAGINARY_UNIT__ * (sum_{ n = 0 }^{ +∞ } (q^{n} * sin(n * α)))
+10. sum_{ n = 0 }^{ +∞ } (z^{n}) = frac(1, 1 - z)
+11. frac(1, 1 - z) = frac(1, 1 - q * cos(α) - __IMAGINARY_UNIT__ * q * sin(α))
+12. frac(1, 1 - q * cos(α) - __IMAGINARY_UNIT__ * q * sin(α)) = frac(1 - q * cos(α) + __IMAGINARY_UNIT__ * q * sin(α), 1 - 2 * q * cos(α) + q^{2})
+
+GOAL:
+sum_{ n = 0 }^{ +∞ } (z^{n}) = frac(1 - q * cos(α) + __IMAGINARY_UNIT__ * q * sin(α), 1 - 2 * q * cos(α) + q^{2})
+
+METHOD:

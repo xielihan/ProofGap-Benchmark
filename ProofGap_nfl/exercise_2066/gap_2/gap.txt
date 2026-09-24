@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. P : RealSet → RealSet
+2. a ∈ RealSet ∧ a ≠ 0
+3. n ∈ NonNegIntegerSet
+4. C ∈ RealSet
+5. forall (x), x ∈ RealSet ⇒ FunDeri(fun x [x ∈ RealSet] . P(x), 1, n + 1)(x) = 0
+6. { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = P(x) * e^{a * x} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | exists (`F_4`), `F_4` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = P(x) * FunDeri(fun x [x ∈ RealSet] . e^{a * x}, 1, 1)(x) ∧ `F_5`(x) = frac(1, a) * `F_4`(x)) }
+
+GOAL:
+{ `F_6` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_6`, 1, 1)(x) = P(x) * e^{a * x} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_10` | exists (`F_7`), `F_7` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_7`, 1, 1)(x) = e^{a * x} * frac(FunDeri(fun x [x ∈ RealSet] . P(x), 1, 1)(x), FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x))(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_10`(x) = frac(1, a) * P(x) * e^{a * x} - frac(1, a) * `F_7`(x)) }
+
+METHOD:

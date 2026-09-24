@@ -1,0 +1,26 @@
+PROOF GAP @6
+ASSUM:
+1. f_{1} : RealSet → RealSet
+2. f_{2} : RealSet → RealSet
+3. f_{3} : RealSet → RealSet
+4. f_{4} : RealSet → RealSet
+5. f_{5} : RealSet → RealSet
+6. f_{6} : RealSet → RealSet
+7. f_{7} : RealSet → RealSet
+8. forall (x), x ∈ RealSet ∧ x ≥ -1 ∧ x ≠ 0 ⇒ f_{1}(x) = frac(sqrtn(2, 1 + x) - 1, sqrtn(3, 1 + x) - 1)
+9. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ cos(2 * x) ≠ 0 ⇒ f_{2}(x) = frac(tan(2 * x), x)
+10. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f_{3}(x) = sin(x) * sin(frac(1, x))
+11. forall (x), x ∈ RealSet ∧ 1 + x > 0 ∧ x ≠ 0 ⇒ f_{4}(x) = (1 + x)^{frac(1, x)}
+12. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f_{5}(x) = frac(1, x^{2}) * e^{-frac(1, x^{2})}
+13. forall (x), x ∈ RealSet ∧ x > 0 ⇒ f_{6}(x) = x^{x}
+14. forall (x), x ∈ RealSet ∧ x > 0 ⇒ f_{7}(x) = x * ln(x)^{2}
+15. lim_{ x → 0 } (frac(sqrtn(2, 1 + x) - 1, sqrtn(3, 1 + x) - 1)) = frac(3, 2)
+16. lim_{ x → 0 } (frac(tan(2 * x), x)) = 2
+17. lim_{ x → 0 } (sin(x) * sin(frac(1, x))) = 0
+18. lim_{ x → 0 } ((1 + x)^{frac(1, x)}) = e
+19. lim_{ x → 0 } (frac(1, x^{2}) * e^{-frac(1, x^{2})}) = 0
+
+GOAL:
+lim_{ x → 0^+ } (x^{x}) = 1
+
+METHOD:

@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. f : RealSet → RealSet ∧ FuncOfClassKOn(f, IntervalLoRo(0, +∞), 2)
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} > 0 ⇒ u(x, y) = f(sqrtn(2, x^{2} + y^{2}))
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} > 0 ⇒ diff(u) = FunDeri(f, fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . sqrtn(2, x^{2} + y^{2}), 1)(sqrtn(2, x^{2} + y^{2})) * frac(x * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + y * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y), sqrtn(2, x^{2} + y^{2}))
+
+METHOD:

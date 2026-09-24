@@ -1,0 +1,3 @@
+get_prop (hypothesis 12: {forall (r), r ∈ RealSet ⇒ (P(r) = 0 ⇔ FunDeri(Q, 1, n)(r) = 0)}) (r := {1}) as (hypothesis 19: {1 ∈ RealSet ⇒ (P(1) = 0 ⇔ FunDeri(Q, 1, n)(1) = 0)})
+use_condition (obvious: {1 ∈ RealSet}) in (hypothesis 19: {1 ∈ RealSet ⇒ (P(1) = 0 ⇔ FunDeri(Q, 1, n)(1) = 0)}) as (hypothesis 20: {P(1) = 0 ⇔ FunDeri(Q, 1, n)(1) = 0})
+autosolve (hypothesis 18: {FunDeri(Q, 1, n)(1) ≠ 0}) (hypothesis 20: {P(1) = 0 ⇔ FunDeri(Q, 1, n)(1) = 0})

@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (a), a ∈ RealSet ⇒ (forall (n), n ∈ IntegerSet ∧ a ∈ PosRealSet ∧ n ∈ PosIntegerSet ⇒ lim_{ x → +∞ } (frac(x^{n}, e^{a * x})) = lim_{ x → +∞ } (frac(n * x^{n - 1}, a * e^{a * x})))
+
+METHOD:
+[@method 根据 "洛必达法则" @]

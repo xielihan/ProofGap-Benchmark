@@ -1,0 +1,34 @@
+PROOF GAP @16
+ASSUM:
+1. a ∈ RealSet
+2. u_{0} ∈ RealSet
+3. v_{0} ∈ RealSet
+4. PlaneEq ∈ RealSet
+5. NormalEq ∈ RealSet
+6. X : CartesianProd(RealSet, RealSet) → RealSet
+7. Y : CartesianProd(RealSet, RealSet) → RealSet
+8. Z : CartesianProd(RealSet, RealSet) → RealSet
+9. M_{0} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+10. v_{1} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+11. v_{2} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+12. n ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+13. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ⇒ X(u, v) = u * cos(v)
+14. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ⇒ Y(u, v) = u * sin(v)
+15. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ⇒ Z(u, v) = a * v
+16. M_{0} = (u_{0} * cos(v_{0}), u_{0} * sin(v_{0}), a * v_{0})
+17. v_{1} = (FunDeri(X, 1, 1)(u_{0}, v_{0}), FunDeri(Y, 1, 1)(u_{0}, v_{0}), FunDeri(Z, 1, 1)(u_{0}, v_{0}))
+18. (FunDeri(X, 1, 1)(u_{0}, v_{0}), FunDeri(Y, 1, 1)(u_{0}, v_{0}), FunDeri(Z, 1, 1)(u_{0}, v_{0})) = (cos(v_{0}), sin(v_{0}), 0)
+19. v_{1} = (cos(v_{0}), sin(v_{0}), 0)
+20. v_{2} = (FunDeri(X, 2, 1)(u_{0}, v_{0}), FunDeri(Y, 2, 1)(u_{0}, v_{0}), FunDeri(Z, 2, 1)(u_{0}, v_{0}))
+21. (FunDeri(X, 2, 1)(u_{0}, v_{0}), FunDeri(Y, 2, 1)(u_{0}, v_{0}), FunDeri(Z, 2, 1)(u_{0}, v_{0})) = (-u_{0} * sin(v_{0}), u_{0} * cos(v_{0}), a)
+22. v_{2} = (-u_{0} * sin(v_{0}), u_{0} * cos(v_{0}), a)
+23. n = (a * sin(v_{0}), -a * cos(v_{0}), u_{0})
+24. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ PlaneEq = a * sin(v_{0}) * (x - u_{0} * cos(v_{0})) - a * cos(v_{0}) * (y - u_{0} * sin(v_{0})) + u_{0} * (z - a * v_{0})
+25. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ a * sin(v_{0}) * (x - u_{0} * cos(v_{0})) - a * cos(v_{0}) * (y - u_{0} * sin(v_{0})) + u_{0} * (z - a * v_{0}) = 0
+26. PlaneEq = 0
+27. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ PlaneEq = a * x * sin(v_{0}) - a * y * cos(v_{0}) + u_{0} * z
+
+GOAL:
+forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ a * x * sin(v_{0}) - a * y * cos(v_{0}) + u_{0} * z = a * u_{0} * v_{0}
+
+METHOD:

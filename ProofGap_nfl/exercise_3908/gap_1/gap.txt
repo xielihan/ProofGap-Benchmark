@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. a > 0
+
+GOAL:
+DefInt(0, 2 * π, (fun φ [φ ∈ RealSet] . DefInt(0, a, (fun r [r ∈ RealSet] . r^{2} * sin(φ)^{2}) * diff(fun r [r ∈ RealSet] . r))) * diff(fun φ [φ ∈ RealSet] . φ)) = frac(a^{3}, 3) * DefInt(0, 2 * π, (fun φ [φ ∈ RealSet] . sin(φ)^{2}) * diff(fun φ [φ ∈ RealSet] . φ))
+
+METHOD:

@@ -1,0 +1,14 @@
+PROOF GAP @7
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ frac(1 + (-x)^{2}, 1 + (-x)^{4}) = frac(1 + x^{2}, 1 + x^{4})
+2. DefInt(-1, 1, (fun x [x ∈ RealSet] . frac(1 + x^{2}, 1 + x^{4})) * diff(fun x [x ∈ RealSet] . x)) = 2 * DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1 + x^{2}, 1 + x^{4})) * diff(fun x [x ∈ RealSet] . x))
+3. t = (fun x [x ∈ RealSet ∧ x > 0] . x - frac(1, x))
+4. diff(fun x [x ∈ RealSet ∧ x > 0] . t(x)) = (fun x [x ∈ RealSet ∧ x > 0] . 1 + frac(1, x^{2})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)
+5. 2 * DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1 + x^{2}, 1 + x^{4})) * diff(fun x [x ∈ RealSet] . x)) = lim_{ N → -∞ } (2 * DefInt(N, 0, (fun t [t ∈ RealSet] . frac(1, t^{2} + 2)) * diff(fun t [t ∈ RealSet] . t)))
+6. lim_{ N → -∞ } (2 * DefInt(N, 0, (fun t [t ∈ RealSet] . frac(1, t^{2} + 2)) * diff(fun t [t ∈ RealSet] . t))) = lim_{ N → -∞ } ((fun t [t ∈ RealSet] . sqrtn(2, 2) * arctan(frac(t, sqrtn(2, 2))))|_{N}^{0})
+7. lim_{ N → -∞ } ((fun t [t ∈ RealSet] . sqrtn(2, 2) * arctan(frac(t, sqrtn(2, 2))))|_{N}^{0}) = frac(π, sqrtn(2, 2))
+
+GOAL:
+DefInt(-1, 1, (fun x [x ∈ RealSet] . frac(1 + x^{2}, 1 + x^{4})) * diff(fun x [x ∈ RealSet] . x)) = frac(π, sqrtn(2, 2))
+
+METHOD:

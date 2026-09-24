@@ -1,0 +1,24 @@
+PROOF GAP @12
+ASSUM:
+1. x ∈ RealSet
+2. y ∈ RealSet
+3. a : NonNegIntegerSet → RealSet
+4. x ∈ PosRealSet
+5. y ∈ PosRealSet
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(x^{n} * y^{n}, x^{n} + y^{n})
+7. x < 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(x^{n}, 1 + frac(x, y)^{n}))
+8. x < 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < a(n) ∧ a(n) ≤ x^{n})
+9. x < 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (x^{n}))
+10. x < 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+11. y < 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(y^{n}, 1 + frac(y, x)^{n}))
+12. y < 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < a(n) ∧ a(n) ≤ y^{n})
+13. y < 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (y^{n}))
+14. y < 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+15. x ≥ 1 ⇒ y ≥ 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ≥ frac(1, 2))
+16. x ≥ 1 ⇒ y ≥ 1 ⇒ ¬seqlim_{ n → +∞ } (a(n)) = 0
+17. x ≥ 1 ⇒ y ≥ 1 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+GOAL:
+(x, y) ∈ { (x, y) | x ∈ PosRealSet ∧ y ∈ PosRealSet ∧ min(x, y) < 1 } ⇔ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+METHOD:

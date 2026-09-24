@@ -1,0 +1,6 @@
+1. get_forall (GOAL: {forall (k) (t), k ∈ IntegerSet ∧ t ∈ RealSet ∧ k = 1 ⇒ δ(y) = e^{-t} * D(y)}) (k := {k0}) (t := {t0})
+2. get_condition (hypothesis 21: {k0 ∈ IntegerSet ∧ t0 ∈ RealSet ∧ k0 = 1}) in (GOAL: {k0 ∈ IntegerSet ∧ t0 ∈ RealSet ∧ k0 = 1 ⇒ δ(y) = e^{-t0} * D(y)})
+3. destruct_and (hypothesis 21: {k0 ∈ IntegerSet ∧ t0 ∈ RealSet ∧ k0 = 1}) as (hypothesis 22: {k0 ∈ IntegerSet}) (hypothesis 23: {t0 ∈ RealSet}) (hypothesis 24: {k0 = 1})
+4. get_prop (hypothesis 16: {forall (t), t ∈ RealSet ⇒ δ(y) = e^{-t} * D(y)}) (t := {t0}) as (hypothesis 25: {t0 ∈ RealSet ⇒ δ(y) = e^{-t0} * D(y)})
+5. use_condition (hypothesis 23: {t0 ∈ RealSet}) in (hypothesis 25: {t0 ∈ RealSet ⇒ δ(y) = e^{-t0} * D(y)}) as (hypothesis 26: {δ(y) = e^{-t0} * D(y)})
+6. apply (hypothesis 26: {δ(y) = e^{-t0} * D(y)})

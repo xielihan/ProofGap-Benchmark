@@ -1,0 +1,3 @@
+rewrite (left_to_right, equation) (hypothesis 5: {x_{0} = frac(π, 6)}); from (GOAL: {frac(29 * π, 180) = x_{0} + Δx}) to (GOAL: {frac(29 * π, 180) = frac(π, 6) + Δx})
+rewrite (left_to_right, equation) (hypothesis 6: {Δx = -frac(π, 180)}); from (GOAL: {frac(29 * π, 180) = frac(π, 6) + Δx}) to (GOAL: {frac(29 * π, 180) = frac(π, 6) + -frac(π, 180)})
+autosolve all_hypothesis

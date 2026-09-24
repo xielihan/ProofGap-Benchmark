@@ -1,0 +1,13 @@
+get_forall (GOAL: {forall (M), M ∈ RealSet ∧ M > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ frac(s(n), n) = frac(s(N), n) + frac(s(n) - s(N), n - N) * (1 - frac(N, n))))}) (M := {M1})
+get_condition (hypothesis 9: {M1 ∈ RealSet ∧ M1 > 0}) in (GOAL: {M1 ∈ RealSet ∧ M1 > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ frac(s(n), n) = frac(s(N), n) + frac(s(n) - s(N), n - N) * (1 - frac(N, n))))})
+get_prop (hypothesis 8: {forall (M), M ∈ RealSet ∧ M > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ x(n) > 3 * M))}) (M := {M1}) as (hypothesis 10: {M1 ∈ RealSet ∧ M1 > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ x(n) > 3 * M1))})
+use_condition (hypothesis 9: {M1 ∈ RealSet ∧ M1 > 0}) in (hypothesis 10: {M1 ∈ RealSet ∧ M1 > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ x(n) > 3 * M1))}) as (hypothesis 11: {exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ x(n) > 3 * M1)})
+get_exists (hypothesis 11: {exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ x(n) > 3 * M1)}) (N := {N1})
+exists (N := {N1})
+assert (hypothesis 13: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N1 ⇒ frac(s(n), n) = frac(s(N1), n) + frac(s(n) - s(N1), n - N1) * (1 - frac(N1, n))}) by proof {
+  get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N1 ⇒ frac(s(n), n) = frac(s(N1), n) + frac(s(n) - s(N1), n - N1) * (1 - frac(N1, n))}) (n := {n1})
+  get_condition (hypothesis 13: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet ∧ n1 > N1}) in (GOAL: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet ∧ n1 > N1 ⇒ frac(s(n1), n1) = frac(s(N1), n1) + frac(s(n1) - s(N1), n1 - N1) * (1 - frac(N1, n1))})
+  autoreplace (hypothesis 13: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet ∧ n1 > N1}); from (frac(s(N1), n1) + frac(s(n1) - s(N1), n1 - N1) * (1 - frac(N1, n1))) to (frac(s(n1), n1)); from (GOAL: {frac(s(n1), n1) = frac(s(N1), n1) + frac(s(n1) - s(N1), n1 - N1) * (1 - frac(N1, n1))}) to (GOAL: {frac(s(n1), n1) = frac(s(n1), n1)})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

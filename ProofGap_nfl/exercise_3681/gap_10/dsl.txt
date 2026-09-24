@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (m), m ∈ IntegerSet ⇒ -2 * -1 - 0^{2} = 2}) (m := {k})
+get_condition (hypothesis 12: {k ∈ IntegerSet}) in (GOAL: {k ∈ IntegerSet ⇒ -2 * -1 - 0^{2} = 2})
+assert (hypothesis 13: {-2 * -1 - 0^{2} = 2})
+apply (hypothesis 13: {-2 * -1 - 0^{2} = 2})

@@ -1,0 +1,20 @@
+PROOF GAP @7
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. a ∈ RealSet ∧ a > 0
+4. P_{x} ∈ RealSet
+5. s ∈ RealSet
+6. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ x(t) = a * (t - sin(t))
+7. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ y(t) = a * (1 - cos(t))
+8. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ diff(s) = sqrtn(2, FunDeri(x, 1, 1)(t)^{2} + FunDeri(y, 1, 1)(t)^{2}) * diff(t)
+9. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ sqrtn(2, FunDeri(x, 1, 1)(t)^{2} + FunDeri(y, 1, 1)(t)^{2}) * diff(t) = 2 * a * sin(frac(t, 2)) * diff(t)
+10. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ diff(s) = 2 * a * sin(frac(t, 2)) * diff(t)
+11. P_{x} = 2 * π * DefInt(0, 2 * π, fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . x(t) * diff(s))
+12. 2 * π * DefInt(0, 2 * π, fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . x(t) * diff(s)) = 2 * π * DefInt(0, 2 * π, fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . a * (t - sin(t)) * 2 * a * sin(frac(t, 2)) * diff(t))
+13. P_{x} = 2 * π * DefInt(0, 2 * π, fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . a * (t - sin(t)) * 2 * a * sin(frac(t, 2)) * diff(t))
+
+GOAL:
+P_{x} = 2 * π * DefInt(0, 2 * π, fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . a * (t - sin(t)) * 2 * a * sin(frac(t, 2)) * diff(t))
+
+METHOD:

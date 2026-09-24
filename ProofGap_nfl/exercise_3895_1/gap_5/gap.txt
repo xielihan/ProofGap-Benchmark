@@ -1,0 +1,14 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. A : RealSet → RealSet
+3. forall (x), x ∈ RealSet ∧ x > 0 ⇒ f(x) = e^{-x}
+4. ContinuousFuncOn(f, [0, +∞))
+5. DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x}) * diff(fun x [x ∈ RealSet] . x)) = 1
+6. 1 < +∞
+7. EvenFunc(f)
+
+GOAL:
+forall (λ), λ ∈ RealSet ∧ λ ≥ 0 ⇒ A(λ) = frac(2, π) * DefInt(0, +∞, (fun ξ [ξ ∈ RealSet] . f(ξ) * cos(λ * ξ)) * diff(fun ξ [ξ ∈ RealSet] . ξ))
+
+METHOD:

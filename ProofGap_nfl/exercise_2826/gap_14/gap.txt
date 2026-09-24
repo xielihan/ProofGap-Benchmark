@@ -1,0 +1,22 @@
+PROOF GAP @14
+ASSUM:
+1. x ∈ RealSet
+2. a = (fun n [n ∈ NonNegIntegerSet ∧ n ≥ 1] . frac((-1)^{n}, n!) * frac(n, e)^{n})
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac((-1)^{n}, n!) * frac(n, e)^{n}
+4. seqlim_{ n → +∞ } (|frac(a(n), a(n + 1))|) = seqlim_{ n → +∞ } (frac(e, (1 + frac(1, n))^{n}))
+5. seqlim_{ n → +∞ } (frac(e, (1 + frac(1, n))^{n})) = 1
+6. seqlim_{ n → +∞ } (|frac(a(n), a(n + 1))|) = 1
+7. RadiusOfConvergence(a) = 1
+8. forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac((-1)^{n}, n!) * frac(n, e)^{n} * x^{n}))
+9. x = -1 ⇒ sum_{ n = 1 }^{ +∞ } (frac((-1)^{n}, n!) * frac(n, e)^{n} * x^{n}) = sum_{ n = 1 }^{ +∞ } (frac(1, n!) * frac(n, e)^{n})
+10. x = -1 ⇒ frac(1, n!) * frac(n, e)^{n} ∼_{ n → +∞ } (frac(1, sqrtn(2, 2 * π * n)))
+11. x = -1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, sqrtn(2, 2 * π * n)) ≥ frac(1, 2 * π) * frac(1, n))
+12. x = -1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, 2 * π) * frac(1, n) > 0)
+13. x = -1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, sqrtn(2, 2 * π * n)) > 0)
+14. x = -1 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n)))
+15. x = -1 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n!) * frac(n, e)^{n}))
+
+GOAL:
+x = 1 ⇒ sum_{ n = 1 }^{ +∞ } (frac((-1)^{n}, n!) * frac(n, e)^{n} * x^{n}) = sum_{ n = 1 }^{ +∞ } ((-1)^{n} * frac(1, n!) * frac(n, e)^{n})
+
+METHOD:

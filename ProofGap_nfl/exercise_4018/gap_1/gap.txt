@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. R ∈ RealSet ∧ R > 0
+2. V ∈ RealSet
+3. Ω ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+4. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ Ω = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ e^{-(x^{2} - y^{2})} ∧ x^{2} + y^{2} ≤ R^{2} }))
+
+GOAL:
+V = VolumeInt(Ω, 1 * diff(ω))
+
+METHOD:

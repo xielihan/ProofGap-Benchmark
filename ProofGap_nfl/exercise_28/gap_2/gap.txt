@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. x^{2} + frac(1, 2) < |x^{2} - 1|
+
+GOAL:
+x^{2} - 1 > x^{2} + frac(1, 2) ∨ x^{2} - 1 < -(x^{2} + frac(1, 2))
+
+METHOD:

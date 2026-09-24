@@ -1,0 +1,52 @@
+PROOF GAP @13
+ASSUM:
+1. x_{1} ∈ RealSet
+2. y_{1} ∈ RealSet
+3. z_{1} ∈ RealSet
+4. x_{2} ∈ RealSet
+5. y_{2} ∈ RealSet
+6. z_{2} ∈ RealSet
+7. m_{1} ∈ RealSet
+8. n_{1} ∈ RealSet
+9. p_{1} ∈ RealSet
+10. m_{2} ∈ RealSet
+11. n_{2} ∈ RealSet
+12. p_{2} ∈ RealSet
+13. l_{1} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+14. l_{2} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+15. r_{10} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+16. r_{20} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+17. r_{0} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+18. r_{1} : RealSet → CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+19. r_{2} : RealSet → CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+20. u : CartesianProd(RealSet, RealSet) → CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+21. w : CartesianProd(RealSet, RealSet) → RealSet
+22. m_{1} * n_{1} * p_{1} * m_{2} * n_{2} * p_{2} ≠ 0
+23. l_{1} = (m_{1}, n_{1}, p_{1})
+24. l_{2} = (m_{2}, n_{2}, p_{2})
+25. |(n_{1} * p_{2} - p_{1} * n_{2}, p_{1} * m_{2} - m_{1} * p_{2}, m_{1} * n_{2} - n_{1} * m_{2})| > 0
+26. r_{10} = (x_{1}, y_{1}, z_{1})
+27. r_{20} = (x_{2}, y_{2}, z_{2})
+28. r_{0} = r_{10} - r_{20}
+29. forall (t), t ∈ RealSet ⇒ r_{1}(t) = l_{1} * t + r_{10}
+30. forall (s), s ∈ RealSet ⇒ r_{2}(s) = l_{2} * s + r_{20}
+31. forall (t) (s), t ∈ RealSet ∧ s ∈ RealSet ⇒ u(t, s) = r_{1}(t) - r_{2}(s)
+32. forall (t) (s), t ∈ RealSet ∧ s ∈ RealSet ⇒ w(t, s) = |u(t, s)|^{2}
+33. forall (t) (s), t ∈ RealSet ∧ s ∈ RealSet ⇒ u(t, s) = l_{1} * t - l_{2} * s + r_{0}
+34. forall (t) (s), t ∈ RealSet ∧ s ∈ RealSet ⇒ w(t, s) = l_{1} · l_{1} * t^{2} + l_{2} · l_{2} * s^{2} + r_{0} · r_{0} - 2 * l_{1} · l_{2} * s * t + 2 * l_{1} · r_{0} * t - 2 * l_{2} · r_{0} * s
+35. forall (t) (s), t ∈ RealSet ∧ s ∈ RealSet ⇒ FunDeri(w, 1, 1)(t, s) = 2 * (l_{1} · l_{1} * t - l_{1} · l_{2} * s + l_{1} · r_{0})
+36. forall (t) (s), t ∈ RealSet ∧ s ∈ RealSet ⇒ FunDeri(w, 2, 1)(t, s) = 2 * (l_{2} · l_{2} * s - l_{1} · l_{2} * t - l_{2} · r_{0})
+37. exists (t) (s), t ∈ RealSet ∧ s ∈ RealSet ∧ FunDeri(w, 1, 1)(t, s) = 0
+38. exists (t) (s), t ∈ RealSet ∧ s ∈ RealSet ∧ FunDeri(w, 2, 1)(t, s) = 0
+39. Δ = sqrtn(2, l_{1} · l_{1} * l_{2} · l_{2} - (l_{1} · l_{2})^{2})
+40. Δ = |(n_{1} * p_{2} - p_{1} * n_{2}, p_{1} * m_{2} - m_{1} * p_{2}, m_{1} * n_{2} - n_{1} * m_{2})|
+41. exists (t), t ∈ RealSet ∧ t = -frac(l_{2} · l_{2} * l_{1} · r_{0} - l_{1} · l_{2} * l_{2} · r_{0}, l_{1} · l_{1} * l_{2} · l_{2} - (l_{1} · l_{2})^{2})
+42. exists (s), s ∈ RealSet ∧ s = frac(l_{1} · l_{1} * l_{2} · r_{0} - l_{1} · l_{2} * l_{1} · r_{0}, l_{1} · l_{1} * l_{2} · l_{2} - (l_{1} · l_{2})^{2})
+43. exists (t) (s), t ∈ RealSet ∧ s ∈ RealSet ∧ u(t, s) · l_{1} = 0
+44. exists (t) (s), t ∈ RealSet ∧ s ∈ RealSet ∧ u(t, s) · l_{2} = 0
+45. exists (t) (s), t ∈ RealSet ∧ s ∈ RealSet ∧ |u(t, s)| = frac(|r_{0} · (n_{1} * p_{2} - p_{1} * n_{2}, p_{1} * m_{2} - m_{1} * p_{2}, m_{1} * n_{2} - n_{1} * m_{2})|, Δ)
+
+GOAL:
+exists (t) (s), t ∈ RealSet ∧ s ∈ RealSet ∧ (|u(t, s)| = frac(|(x_{1} - x_{2}, y_{1} - y_{2}, z_{1} - z_{2}) · (n_{1} * p_{2} - p_{1} * n_{2}, p_{1} * m_{2} - m_{1} * p_{2}, m_{1} * n_{2} - n_{1} * m_{2})|, |(n_{1} * p_{2} - p_{1} * n_{2}, p_{1} * m_{2} - m_{1} * p_{2}, m_{1} * n_{2} - n_{1} * m_{2})|) ⇒ MinimumPoint(w) = (t, s))
+
+METHOD:

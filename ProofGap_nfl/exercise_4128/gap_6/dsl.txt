@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 20: {VolumeInt(V, diff(ω)) = frac(4 * π * h^{3}, 3)}); from (GOAL: {frac(1, |Δ|) * VolumeInt(V, diff(ω)) = frac(4 * π * h^{3}, 3 * |Δ|)}) to (GOAL: {frac(1, |Δ|) * frac(4 * π * h^{3}, 3) = frac(4 * π * h^{3}, 3 * |Δ|)})
+autosolve (hypothesis 11: {Δ ∈ RealSet ∧ Δ ≠ 0})

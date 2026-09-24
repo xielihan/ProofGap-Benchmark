@@ -1,0 +1,27 @@
+get_forall (GOAL: {forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ x_{1} > x_{0} ∧ x_{0} > 0 ∧ x ≥ x_{0} ∧ 0 < t ∧ t < 1 ⇒ t^{x - 1} * e^{-t} ≤ t^{x_{0} - 1} * e^{-t})}) (x_{0} := {y0})
+get_condition (hypothesis 10: {y0 ∈ RealSet ∧ y0 > 0}) in (GOAL: {y0 ∈ RealSet ∧ y0 > 0 ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ x_{1} > y0 ∧ y0 > 0 ∧ x ≥ y0 ∧ 0 < t ∧ t < 1 ⇒ t^{x - 1} * e^{-t} ≤ t^{y0 - 1} * e^{-t})})
+get_forall (GOAL: {forall (x_{1}), x_{1} ∈ RealSet ∧ x_{1} > y0 ∧ y0 > 0 ∧ x ≥ y0 ∧ 0 < t ∧ t < 1 ⇒ t^{x - 1} * e^{-t} ≤ t^{y0 - 1} * e^{-t}}) (x_{1} := {y1})
+get_condition (hypothesis 11: {y1 ∈ RealSet ∧ y1 > y0 ∧ y0 > 0 ∧ x ≥ y0 ∧ 0 < t ∧ t < 1}) in (GOAL: {y1 ∈ RealSet ∧ y1 > y0 ∧ y0 > 0 ∧ x ≥ y0 ∧ 0 < t ∧ t < 1 ⇒ t^{x - 1} * e^{-t} ≤ t^{y0 - 1} * e^{-t}})
+destruct_and (hypothesis 2: {x ∈ RealSet ∧ x > 0}) as (hypothesis 12: {x ∈ RealSet}) (hypothesis 13: {x > 0})
+destruct_and (hypothesis 3: {t ∈ RealSet ∧ t > 0}) as (hypothesis 14: {t ∈ RealSet}) (hypothesis 15: {t > 0})
+destruct_and (hypothesis 10: {y0 ∈ RealSet ∧ y0 > 0}) as (hypothesis 16: {y0 ∈ RealSet}) (hypothesis 17: {y0 > 0})
+destruct_and (hypothesis 11: {y1 ∈ RealSet ∧ y1 > y0 ∧ y0 > 0 ∧ x ≥ y0 ∧ 0 < t ∧ t < 1}) as (hypothesis 18: {y1 ∈ RealSet}) (hypothesis 19: {y1 > y0}) (hypothesis 20: {y0 > 0}) (hypothesis 21: {x ≥ y0}) (hypothesis 22: {0 < t}) (hypothesis 23: {t < 1})
+get_prop (theorem 'Thm 172. (ExponentialMonotonicity)': {forall (x) (y) (a), x ∈ RealSet ⇒ y ∈ RealSet ⇒ a ∈ RealSet ⇒ (a > 0 ⇒ a ≠ 1 ⇒ x < y ⇒ ((a > 1 ⇒ a ^ x < a ^ y) ∧ (a < 1 ⇒ a ^ x > a ^ y)))}) (x := {y0 - 1}) (y := {x - 1}) (a := {t}) as (hypothesis 24: {y0 - 1 ∈ RealSet ⇒ x - 1 ∈ RealSet ⇒ t ∈ RealSet ⇒ (t > 0 ⇒ t ≠ 1 ⇒ y0 - 1 < x - 1 ⇒ ((t > 1 ⇒ t ^ (y0 - 1) < t ^ (x - 1)) ∧ (t < 1 ⇒ t ^ (y0 - 1) > t ^ (x - 1))))})
+use_condition (obvious: {y0 - 1 ∈ RealSet}) (obvious: {x - 1 ∈ RealSet}) (hypothesis 14: {t ∈ RealSet}) (hypothesis 15: {t > 0}) (obvious: {t ≠ 1}) in (hypothesis 24: {y0 - 1 ∈ RealSet ⇒ x - 1 ∈ RealSet ⇒ t ∈ RealSet ⇒ (t > 0 ⇒ t ≠ 1 ⇒ y0 - 1 < x - 1 ⇒ ((t > 1 ⇒ t ^ (y0 - 1) < t ^ (x - 1)) ∧ (t < 1 ⇒ t ^ (y0 - 1) > t ^ (x - 1))))}) as (hypothesis 25: {y0 - 1 < x - 1 ⇒ ((t > 1 ⇒ t ^ (y0 - 1) < t ^ (x - 1)) ∧ (t < 1 ⇒ t ^ (y0 - 1) > t ^ (x - 1)))})
+get_prop (theorem 'Thm 387. (PositiveBasePowerPositive)': {forall (a) (u), a ∈ RealSet ⇒ u ∈ RealSet ⇒ a > 0 ⇒ a ^ u > 0}) (a := {e}) (u := {-t}) as (hypothesis 26: {e ∈ RealSet ⇒ -t ∈ RealSet ⇒ e > 0 ⇒ e ^ (-t) > 0})
+use_condition (obvious: {e ∈ RealSet}) (obvious: {-t ∈ RealSet}) (obvious: {e > 0}) in (hypothesis 26: {e ∈ RealSet ⇒ -t ∈ RealSet ⇒ e > 0 ⇒ e ^ (-t) > 0}) as (hypothesis 27: {e ^ (-t) > 0})
+assert (hypothesis 28: {x = y0 ⇒ t ^ (x - 1) = t ^ (y0 - 1)}) by proof {
+  get_condition (hypothesis 28: {x = y0}) in (GOAL: {x = y0 ⇒ t ^ (x - 1) = t ^ (y0 - 1)})
+  autosolve (hypothesis 28: {x = y0})
+}
+assert (hypothesis 29: {x > y0 ⇒ t ^ (x - 1) < t ^ (y0 - 1)}) by proof {
+  get_condition (hypothesis 29: {x > y0}) in (GOAL: {x > y0 ⇒ t ^ (x - 1) < t ^ (y0 - 1)})
+  use_condition (obvious: {y0 - 1 < x - 1}) in (hypothesis 25: {y0 - 1 < x - 1 ⇒ ((t > 1 ⇒ t ^ (y0 - 1) < t ^ (x - 1)) ∧ (t < 1 ⇒ t ^ (y0 - 1) > t ^ (x - 1)))}) as (hypothesis 30: {(t > 1 ⇒ t ^ (y0 - 1) < t ^ (x - 1)) ∧ (t < 1 ⇒ t ^ (y0 - 1) > t ^ (x - 1))})
+  destruct_and (hypothesis 30: {(t > 1 ⇒ t ^ (y0 - 1) < t ^ (x - 1)) ∧ (t < 1 ⇒ t ^ (y0 - 1) > t ^ (x - 1))}) as (hypothesis 31: {t > 1 ⇒ t ^ (y0 - 1) < t ^ (x - 1)}) (hypothesis 32: {t < 1 ⇒ t ^ (y0 - 1) > t ^ (x - 1)})
+  use_condition (hypothesis 23: {t < 1}) in (hypothesis 32: {t < 1 ⇒ t ^ (y0 - 1) > t ^ (x - 1)}) as (hypothesis 33: {t ^ (y0 - 1) > t ^ (x - 1)})
+  autosolve (hypothesis 33: {t ^ (y0 - 1) > t ^ (x - 1)})
+}
+assert (hypothesis 30: {t ^ (x - 1) ≤ t ^ (y0 - 1)}) by proof {
+  autosolve (hypothesis 21: {x ≥ y0}) (hypothesis 28: {x = y0 ⇒ t ^ (x - 1) = t ^ (y0 - 1)}) (hypothesis 29: {x > y0 ⇒ t ^ (x - 1) < t ^ (y0 - 1)})
+}
+autosolve (hypothesis 27: {e ^ (-t) > 0}) (hypothesis 30: {t ^ (x - 1) ≤ t ^ (y0 - 1)})

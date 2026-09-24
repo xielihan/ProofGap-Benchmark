@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. n ∈ NonNegIntegerSet ∧ n > 0
+3. n ∈ PosIntegerSet
+4. forall (x), x ∈ RealSet ⇒ y(x) = sin(x)^{4} + cos(x)^{4}
+5. forall (x), x ∈ RealSet ⇒ y(x) = frac(3, 4) + frac(1, 4) * cos(4 * x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, n)(x) = 4^{n - 1} * cos(4 * x + frac(n, 2) * π)
+
+METHOD:

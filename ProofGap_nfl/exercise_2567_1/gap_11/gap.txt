@@ -1,0 +1,25 @@
+PROOF GAP @11
+ASSUM:
+1. a = (fun n [n ∈ NonNegIntegerSet] . frac(1 + (-1)^{n}, 2))
+2. b = (fun n [n ∈ NonNegIntegerSet] . frac(1 - (-1)^{n}, 2))
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ≥ 0 ∧ b(n) ≥ 0
+4. DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+5. DivergentSeries(sum_{ n = 1 }^{ +∞ } (b(n)))
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ min(a(n), b(n)) = 0
+7. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (min(a(n), b(n))))
+8. c : NonNegIntegerSet → RealSet
+9. d : NonNegIntegerSet → RealSet
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ c(n) ≥ 0 ∧ d(n) ≥ 0
+11. DivergentSeries(sum_{ n = 1 }^{ +∞ } (c(n)))
+12. DivergentSeries(sum_{ n = 1 }^{ +∞ } (d(n)))
+13. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ min(c(n), d(n)) = d(n)
+14. DivergentSeries(sum_{ n = 1 }^{ +∞ } (min(c(n), d(n))))
+15. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ c(n) = frac(1, n)
+16. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ d(n) = frac(1, 2 * n)
+17. a : NonNegIntegerSet → RealSet
+18. b : NonNegIntegerSet → RealSet
+
+GOAL:
+exists (a) (b) (c) (d), a : NonNegIntegerSet → RealSet ∧ b : NonNegIntegerSet → RealSet ∧ c : NonNegIntegerSet → RealSet ∧ d : NonNegIntegerSet → RealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ≥ 0 ∧ b(n) ≥ 0 ∧ c(n) ≥ 0 ∧ d(n) ≥ 0) ∧ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ∧ DivergentSeries(sum_{ n = 1 }^{ +∞ } (b(n))) ∧ DivergentSeries(sum_{ n = 1 }^{ +∞ } (c(n))) ∧ DivergentSeries(sum_{ n = 1 }^{ +∞ } (d(n))) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (min(a(n), b(n)))) ∧ DivergentSeries(sum_{ n = 1 }^{ +∞ } (min(c(n), d(n))))
+
+METHOD:

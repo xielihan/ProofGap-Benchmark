@@ -1,0 +1,2 @@
+get_prop (theorem 'Thm 459. (FiniteSeriesTermsDoNotAffectConvergence)': {forall (a) (N) (M), N ∈ NonNegIntegerSet ⇒ M ∈ NonNegIntegerSet ⇒ (ConvergentSeries(sum_{ n = N }^{ +∞ } (a(n))) ⇔ ConvergentSeries(sum_{ n = M }^{ +∞ } (a(n))))}) (a := {fun n . frac(1, n * ln(n)^{2})}) (N := {2}) (M := {3}) as (hypothesis 21: {2 ∈ NonNegIntegerSet ⇒ 3 ∈ NonNegIntegerSet ⇒ (ConvergentSeries(sum_{ n = 2 }^{ +∞ } (frac(1, n * ln(n)^{2}))) ⇔ ConvergentSeries(sum_{ n = 3 }^{ +∞ } (frac(1, n * ln(n)^{2}))))})
+autosolve all_hypothesis

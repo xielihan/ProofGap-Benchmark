@@ -1,0 +1,22 @@
+PROOF GAP @4
+ASSUM:
+1. P : RealSet → RealSet
+2. y : RealSet → RealSet
+3. n ∈ NonNegIntegerSet
+4. a ∈ RealSet
+5. b ∈ RealSet
+6. c : NonNegIntegerSet → RealSet
+7. i ∈ NonNegIntegerSet
+8. n ∈ PosIntegerSet
+9. forall (i), i ∈ NonNegIntegerSet ∧ i ≤ n ⇒ c(i) ∈ RealSet
+10. forall (x), x ∈ RealSet ⇒ P(x) = sum_{ i = 0 }^{ n } (c(i) * x^{n - i})
+11. forall (x), x ∈ RealSet ⇒ y(x) = P(a * x + b)
+12. forall (x), x ∈ RealSet ⇒ FunDeri(P, 1, 1)(x) = sum_{ i = 0 }^{ n - 1 } (c(i) * (n - i) * x^{n - i - 1})
+13. forall (x), x ∈ RealSet ⇒ FunDeri(P, 1, 2)(x) = sum_{ i = 0 }^{ n - 2 } (c(i) * (n - i) * (n - i - 1) * x^{n - i - 2})
+14. forall (x), x ∈ RealSet ⇒ FunDeri(P, 1, n)(x) = n! * c(0)
+15. FuncOfClassK(P, n)
+16. FuncOfClassK(y, n)
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, n)(x) = a^{n} * FunDeri(P, 1, n)(a * x + b)
+
+METHOD:

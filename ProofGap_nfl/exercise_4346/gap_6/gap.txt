@@ -1,0 +1,21 @@
+PROOF GAP @6
+ASSUM:
+1. S ⊆ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+2. x ∈ RealSet
+3. y ∈ RealSet
+4. z ∈ RealSet
+5. r ∈ RealSet
+6. φ ∈ RealSet
+7. t ∈ RealSet
+8. u ∈ RealSet
+9. S = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, z = x^{2} + y^{2}, z ≤ 1 }
+10. sqrtn(2, 1 + FunDeri(z, 1, 1)^{2} + FunDeri(z, 2, 1)^{2}) = sqrtn(2, 1 + 4 * (x^{2} + y^{2}))
+11. x = r * cos(φ)
+12. y = r * sin(φ)
+13. z = r^{2}
+14. 0 ≤ r
+
+GOAL:
+r ≤ 1
+
+METHOD:

@@ -1,0 +1,26 @@
+PROOF GAP @17
+ASSUM:
+1. x ∈ RealSet
+2. a : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(3^{n} + (-2)^{n}, n)
+4. forall (n), n ∈ NonNegIntegerSet ⇒ seqlim_{ n → +∞ } (|frac(a(n), a(n + 1))|) = frac(1, 3)
+5. RadiusOfConvergence(a) = frac(1, 3)
+6. forall (n), n ∈ NonNegIntegerSet ∧ -1 - frac(1, 3) < x ∧ x < -1 + frac(1, 3) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n) * (x + 1)^{n}))
+7. (-1 - frac(1, 3), -1 + frac(1, 3)) = (-frac(4, 3), -frac(2, 3))
+8. forall (n), n ∈ NonNegIntegerSet ∧ x = -frac(4, 3) ⇒ sum_{ n = 1 }^{ +∞ } (frac(3^{n} + (-2)^{n}, n) * (x + 1)^{n}) = sum_{ n = 1 }^{ +∞ } (frac((-1)^{n} + frac(2, 3)^{n}, n))
+9. forall (n), n ∈ NonNegIntegerSet ∧ x = -frac(4, 3) ⇒ sum_{ n = 1 }^{ +∞ } (frac((-1)^{n} + frac(2, 3)^{n}, n)) = (sum_{ n = 1 }^{ +∞ } (frac((-1)^{n}, n))) + (sum_{ n = 1 }^{ +∞ } (frac(frac(2, 3)^{n}, n)))
+10. forall (n), n ∈ NonNegIntegerSet ∧ x = -frac(4, 3) ⇒ ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac((-1)^{n}, n)))
+11. forall (n), n ∈ NonNegIntegerSet ∧ x = -frac(4, 3) ⇒ seqlim_{ n → +∞ } (frac(frac(frac(2, 3)^{n + 1}, n + 1), frac(frac(2, 3)^{n}, n))) = frac(2, 3)
+12. x = -frac(4, 3) ⇒ frac(2, 3) < 1
+13. forall (n), n ∈ NonNegIntegerSet ∧ x = -frac(4, 3) ⇒ seqlim_{ n → +∞ } (frac(frac(frac(2, 3)^{n + 1}, n + 1), frac(frac(2, 3)^{n}, n))) < 1
+14. forall (n), n ∈ NonNegIntegerSet ∧ x = -frac(4, 3) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(frac(2, 3)^{n}, n)))
+15. forall (n), n ∈ NonNegIntegerSet ∧ x = -frac(4, 3) ⇒ ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(3^{n} + (-2)^{n}, n) * (x + 1)^{n}))
+16. forall (n), n ∈ NonNegIntegerSet ∧ x = -frac(2, 3) ⇒ sum_{ n = 1 }^{ +∞ } (frac(3^{n} + (-2)^{n}, n) * (x + 1)^{n}) = (sum_{ n = 1 }^{ +∞ } (frac(1, n))) + (sum_{ n = 1 }^{ +∞ } (frac((-frac(2, 3))^{n}, n)))
+17. forall (n), n ∈ NonNegIntegerSet ∧ x = -frac(2, 3) ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n)))
+18. forall (n), n ∈ NonNegIntegerSet ∧ x = -frac(2, 3) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac((-frac(2, 3))^{n}, n)))
+19. forall (n), n ∈ NonNegIntegerSet ∧ x = -frac(2, 3) ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(3^{n} + (-2)^{n}, n) * (x + 1)^{n}))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ (x ∈ [-frac(4, 3), -frac(2, 3)) ⇔ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(3^{n} + (-2)^{n}, n) * (x + 1)^{n})))
+
+METHOD:

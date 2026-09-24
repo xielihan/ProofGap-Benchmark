@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. C ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x + 3 ≠ 0 ⇒ frac(x^{3}, 3 + x) = x^{2} - 3 * x + 9 - frac(27, 3 + x)
+
+METHOD:

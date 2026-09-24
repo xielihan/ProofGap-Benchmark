@@ -1,0 +1,11 @@
+get_prop (hypothesis 18: {forall (α) (p), α ∈ RealSet ∧ p ∈ RealSet ⇒ M(α, p) = sum_{ i = 1 }^{ n } ((x(i) * cos(α) + y(i) * sin(α) - p)^{2})}) (α := {`α_1`}) (p := {p_{1}}) as (hypothesis 41: {`α_1` ∈ RealSet ∧ p_{1} ∈ RealSet ⇒ M(`α_1`, p_{1}) = sum_{ i = 1 }^{ n } ((x(i) * cos(`α_1`) + y(i) * sin(`α_1`) - p_{1})^{2})})
+assert (hypothesis 42: {`α_1` ∈ RealSet ∧ p_{1} ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 42: {`α_1` ∈ RealSet ∧ p_{1} ∈ RealSet}) in (hypothesis 41: {`α_1` ∈ RealSet ∧ p_{1} ∈ RealSet ⇒ M(`α_1`, p_{1}) = sum_{ i = 1 }^{ n } ((x(i) * cos(`α_1`) + y(i) * sin(`α_1`) - p_{1})^{2})}) as (hypothesis 43: {M(`α_1`, p_{1}) = sum_{ i = 1 }^{ n } ((x(i) * cos(`α_1`) + y(i) * sin(`α_1`) - p_{1})^{2})})
+get_prop (hypothesis 18: {forall (α) (p), α ∈ RealSet ∧ p ∈ RealSet ⇒ M(α, p) = sum_{ i = 1 }^{ n } ((x(i) * cos(α) + y(i) * sin(α) - p)^{2})}) (α := {`α_2`}) (p := {p_{2}}) as (hypothesis 44: {`α_2` ∈ RealSet ∧ p_{2} ∈ RealSet ⇒ M(`α_2`, p_{2}) = sum_{ i = 1 }^{ n } ((x(i) * cos(`α_2`) + y(i) * sin(`α_2`) - p_{2})^{2})})
+assert (hypothesis 45: {`α_2` ∈ RealSet ∧ p_{2} ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 45: {`α_2` ∈ RealSet ∧ p_{2} ∈ RealSet}) in (hypothesis 44: {`α_2` ∈ RealSet ∧ p_{2} ∈ RealSet ⇒ M(`α_2`, p_{2}) = sum_{ i = 1 }^{ n } ((x(i) * cos(`α_2`) + y(i) * sin(`α_2`) - p_{2})^{2})}) as (hypothesis 46: {M(`α_2`, p_{2}) = sum_{ i = 1 }^{ n } ((x(i) * cos(`α_2`) + y(i) * sin(`α_2`) - p_{2})^{2})})
+autosolve all_hypothesis

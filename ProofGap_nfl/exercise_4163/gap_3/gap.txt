@@ -1,0 +1,18 @@
+PROOF GAP @3
+ASSUM:
+1. p ∈ RealSet
+2. φ : CartesianProd(RealSet, RealSet) → RealSet
+3. I ∈ RealSet
+4. J ∈ RealSet
+5. Defined(φ, CartesianProd(RealSet, [0, 1]))
+6. BoundedFuncOn(φ, CartesianProd(RealSet, [0, 1]))
+7. ContinuousFuncOn(φ, CartesianProd(RealSet, [0, 1]))
+8. I = DefInt(0, 1, (fun y [y ∈ RealSet ∧ y ∈ Interval(0, 1)] . DefInt(-∞, +∞, (fun x [x ∈ RealSet] . frac(φ(x, y), (1 + x^{2} + y^{2})^{p})) * diff(fun x [x ∈ RealSet] . x))) * diff(fun y [y ∈ RealSet ∧ y ∈ Interval(0, 1)] . y))
+9. J = DefInt(0, 1, (fun y [y ∈ RealSet ∧ y ∈ Interval(0, 1)] . DefInt(-∞, +∞, (fun x [x ∈ RealSet] . frac(1, (1 + x^{2} + y^{2})^{p})) * diff(fun x [x ∈ RealSet] . x))) * diff(fun y [y ∈ RealSet ∧ y ∈ Interval(0, 1)] . y))
+10. I < +∞ ⇔ J < +∞
+11. J = DefInt(0, 1, (fun y [y ∈ RealSet ∧ y ∈ Interval(0, 1)] . DefInt(-∞, +∞, (fun x [x ∈ RealSet] . frac(1, (1 + x^{2} + y^{2})^{p})) * diff(fun x [x ∈ RealSet] . x))) * diff(fun y [y ∈ RealSet ∧ y ∈ Interval(0, 1)] . y))
+
+GOAL:
+DefInt(0, 1, (fun y [y ∈ RealSet ∧ y ∈ Interval(0, 1)] . DefInt(-∞, +∞, (fun x [x ∈ RealSet] . frac(1, (1 + x^{2} + y^{2})^{p})) * diff(fun x [x ∈ RealSet] . x))) * diff(fun y [y ∈ RealSet ∧ y ∈ Interval(0, 1)] . y)) = 2 * DefInt(0, 1, (fun y [y ∈ RealSet ∧ y ∈ Interval(0, 1)] . DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, (1 + x^{2} + y^{2})^{p})) * diff(fun x [x ∈ RealSet] . x))) * diff(fun y [y ∈ RealSet ∧ y ∈ Interval(0, 1)] . y))
+
+METHOD:

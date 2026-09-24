@@ -1,0 +1,25 @@
+PROOF GAP @7
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. δ ∈ RealSet
+5. -∞ ≤ a
+6. a < b
+7. b ≤ +∞
+8. ContinuousFuncOn(f, IntervalLoRo(a, b))
+9. BoundedFuncOn(f, IntervalLoRo(a, b))
+10. MonoIncFuncOn(f, IntervalLoRo(a, b)) ∨ MonoDecFuncOn(f, IntervalLoRo(a, b))
+11. a ∈ RealSet ⇒ b ∈ RealSet ⇒ (exists (A), A ∈ RealSet ∧ lim_{ x → a^+ } (f(x)) = A)
+12. a ∈ RealSet ⇒ b ∈ RealSet ⇒ (exists (B), B ∈ RealSet ∧ lim_{ x → b^- } (f(x)) = B)
+13. a ∈ RealSet ⇒ b ∈ RealSet ⇒ f_{star} = (fun x [x ∈ RealSet] . cases{ f(x) if x ∈ IntervalLoRo(a, b); A if x = a; B if x = b })
+14. a ∈ RealSet ⇒ b ∈ RealSet ⇒ ContinuousFuncOn(f_{star}, [a, b])
+15. a ∈ RealSet ⇒ b ∈ RealSet ⇒ UniformContinuousFuncOn(f_{star}, [a, b])
+16. a ∈ RealSet ⇒ b ∈ RealSet ⇒ UniformContinuousFuncOn(f, IntervalLoRo(a, b))
+17. a ∈ RealSet ⇒ b = +∞ ⇒ (exists (A), A ∈ RealSet ∧ lim_{ x → a^+ } (f(x)) = A)
+18. a ∈ RealSet ⇒ b = +∞ ⇒ f_{star} = (fun x [x ∈ RealSet] . cases{ f(x) if x ∈ IntervalLoRo(a, +∞); A if x = a })
+
+GOAL:
+a ∈ RealSet ⇒ b = +∞ ⇒ ContinuousFuncOn(f_{star}, [a, +∞))
+
+METHOD:

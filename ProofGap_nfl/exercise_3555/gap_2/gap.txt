@@ -1,0 +1,15 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. Oz ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+4. DiffableFuncOn(f, PosRealSet)
+5. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ S = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x^{2} + y^{2} ≠ 0, z = f(sqrtn(2, x^{2} + y^{2})) }
+6. forall (z), z ∈ RealSet ⇒ Oz = { (0, 0, z) | z ∈ RealSet }
+7. forall (r), r ∈ RealSet ∧ r ∈ PosRealSet ⇒ FunDeri(f, 1, 1)(r) ≠ 0
+8. forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ (x_{0}, y_{0}, z_{0}) ∈ S ⇒ z_{0} = f(sqrtn(2, (x_{0})^{2} + (y_{0})^{2}))))
+
+GOAL:
+forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ (x_{0}, y_{0}, z_{0}) ∈ S ⇒ (x_{0})^{2} + (y_{0})^{2} ≠ 0))
+
+METHOD:

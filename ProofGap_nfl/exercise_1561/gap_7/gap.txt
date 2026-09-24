@@ -1,0 +1,16 @@
+PROOF GAP @7
+ASSUM:
+1. S ∈ RealSet ∧ S > 0
+2. f : RealSet → RealSet
+3. forall (x), x ∈ RealSet ∧ x > 0 ⇒ f(x) = 2 * (x + frac(S, x))
+4. forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(f, 1, 1)(x) = 2 * (1 - frac(S, x^{2}))
+5. forall (x), x ∈ RealSet ∧ FunDeri(f, 1, 1)(x) = 0 ⇒ x = sqrtn(2, S)
+6. FunDeri(f, 1, 2)(sqrtn(2, S)) > 0
+7. MinimumPointOn(f, IntervalLoRo(0, +∞)) = { sqrtn(2, S) }
+8. min(ImageOn(f, IntervalLoRo(0, +∞))) = f(sqrtn(2, S))
+9. f(sqrtn(2, S)) = 4 * sqrtn(2, S)
+
+GOAL:
+min(ImageOn(f, IntervalLoRo(0, +∞))) = 4 * sqrtn(2, S)
+
+METHOD:

@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet => w(r, φ) = r * FunDeri(u, 1, 1)(r, φ)}) (r := {a}) (φ := {b})
+get_condition (hypothesis 14: {a ∈ RealSet ∧ a > 0 ∧ b ∈ RealSet}) in (GOAL: {a ∈ RealSet ∧ a > 0 ∧ b ∈ RealSet => w(a, b) = a * FunDeri(u, 1, 1)(a, b)})
+get_prop (hypothesis 12: {forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet => w(r, φ) = frac(x(r, φ)^{2} + y(r, φ)^{2}, r) * FunDeri(u, 1, 1)(r, φ)}) (r := {a}) (φ := {b}) as (hypothesis 15: {a ∈ RealSet ∧ a > 0 ∧ b ∈ RealSet => w(a, b) = frac(x(a, b)^{2} + y(a, b)^{2}, a) * FunDeri(u, 1, 1)(a, b)})
+use_condition (hypothesis 14: {a ∈ RealSet ∧ a > 0 ∧ b ∈ RealSet}) in (hypothesis 15: {a ∈ RealSet ∧ a > 0 ∧ b ∈ RealSet => w(a, b) = frac(x(a, b)^{2} + y(a, b)^{2}, a) * FunDeri(u, 1, 1)(a, b)}) as (hypothesis 16: {w(a, b) = frac(x(a, b)^{2} + y(a, b)^{2}, a) * FunDeri(u, 1, 1)(a, b)})
+get_prop (hypothesis 13: {forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet => x(r, φ)^{2} + y(r, φ)^{2} = r^{2}}) (r := {a}) (φ := {b}) as (hypothesis 17: {a ∈ RealSet ∧ a > 0 ∧ b ∈ RealSet => x(a, b)^{2} + y(a, b)^{2} = a^{2}})
+use_condition (hypothesis 14: {a ∈ RealSet ∧ a > 0 ∧ b ∈ RealSet}) in (hypothesis 17: {a ∈ RealSet ∧ a > 0 ∧ b ∈ RealSet => x(a, b)^{2} + y(a, b)^{2} = a^{2}}) as (hypothesis 18: {x(a, b)^{2} + y(a, b)^{2} = a^{2}})
+rewrite (left_to_right, equation) (hypothesis 16: {w(a, b) = frac(x(a, b)^{2} + y(a, b)^{2}, a) * FunDeri(u, 1, 1)(a, b)}); from (GOAL: {w(a, b) = a * FunDeri(u, 1, 1)(a, b)}) to (GOAL: {frac(x(a, b)^{2} + y(a, b)^{2}, a) * FunDeri(u, 1, 1)(a, b) = a * FunDeri(u, 1, 1)(a, b)})
+rewrite (left_to_right, equation) (hypothesis 18: {x(a, b)^{2} + y(a, b)^{2} = a^{2}}); from (GOAL: {frac(x(a, b)^{2} + y(a, b)^{2}, a) * FunDeri(u, 1, 1)(a, b) = a * FunDeri(u, 1, 1)(a, b)}) to (GOAL: {frac(a^{2}, a) * FunDeri(u, 1, 1)(a, b) = a * FunDeri(u, 1, 1)(a, b)})
+autosolve all_hypothesis using PolyRatSolver

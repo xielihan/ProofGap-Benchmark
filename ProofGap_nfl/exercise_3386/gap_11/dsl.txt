@@ -1,0 +1,15 @@
+1. get_forall (GOAL: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} - y^{2} > 0 ⇒ -frac(y * z(x, y), r(x, y)^{2}) = -frac(y * z(x, y), x^{2} - y^{2})}) (x := {x0}) (y := {y0})
+2. get_condition (hypothesis 15: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ x0^{2} - y0^{2} > 0}) in (GOAL: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ x0^{2} - y0^{2} > 0 ⇒ -frac(y0 * z(x0, y0), r(x0, y0)^{2}) = -frac(y0 * z(x0, y0), x0^{2} - y0^{2})})
+3. get_prop (hypothesis 4: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} - y^{2} > 0 ⇒ r(x, y) = sqrtn(2, x^{2} - y^{2})}) (x := {x0}) (y := {y0}) as (hypothesis 16: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ x0^{2} - y0^{2} > 0 ⇒ r(x0, y0) = sqrtn(2, x0^{2} - y0^{2})})
+4. use_condition (hypothesis 15: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ x0^{2} - y0^{2} > 0}) in (hypothesis 16: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ x0^{2} - y0^{2} > 0 ⇒ r(x0, y0) = sqrtn(2, x0^{2} - y0^{2})}) as (hypothesis 17: {r(x0, y0) = sqrtn(2, x0^{2} - y0^{2})})
+5. assert (hypothesis 18: {x0^{2} - y0^{2} ∈ RealSet}) by proof {
+1. autosolve all_hypothesis
+}
+6. assert (hypothesis 19: {x0^{2} - y0^{2} >= 0}) by proof {
+1. autosolve all_hypothesis
+}
+7. get_prop (theorem 'Thm 450. (SquareRootSquareCancellation)': {forall (u), u ∈ RealSet => u >= 0 => sqrtn(2, u)^2 = u}) (u := {x0^{2} - y0^{2}}) as (hypothesis 20: {x0^{2} - y0^{2} ∈ RealSet => x0^{2} - y0^{2} >= 0 => sqrtn(2, x0^{2} - y0^{2})^2 = x0^{2} - y0^{2}})
+8. use_condition (hypothesis 18: {x0^{2} - y0^{2} ∈ RealSet}) (hypothesis 19: {x0^{2} - y0^{2} >= 0}) in (hypothesis 20: {x0^{2} - y0^{2} ∈ RealSet => x0^{2} - y0^{2} >= 0 => sqrtn(2, x0^{2} - y0^{2})^2 = x0^{2} - y0^{2}}) as (hypothesis 21: {sqrtn(2, x0^{2} - y0^{2})^2 = x0^{2} - y0^{2}})
+9. rewrite (left_to_right, equation) (hypothesis 17: {r(x0, y0) = sqrtn(2, x0^{2} - y0^{2})}); from (GOAL: {-frac(y0 * z(x0, y0), r(x0, y0)^{2}) = -frac(y0 * z(x0, y0), x0^{2} - y0^{2})}) to (GOAL: {-frac(y0 * z(x0, y0), sqrtn(2, x0^{2} - y0^{2})^{2}) = -frac(y0 * z(x0, y0), x0^{2} - y0^{2})})
+10. rewrite (left_to_right, equation) (hypothesis 21: {sqrtn(2, x0^{2} - y0^{2})^2 = x0^{2} - y0^{2}}); from (GOAL: {-frac(y0 * z(x0, y0), sqrtn(2, x0^{2} - y0^{2})^{2}) = -frac(y0 * z(x0, y0), x0^{2} - y0^{2})}) to (GOAL: {-frac(y0 * z(x0, y0), x0^{2} - y0^{2}) = -frac(y0 * z(x0, y0), x0^{2} - y0^{2})})
+11. autosolve all_hypothesis

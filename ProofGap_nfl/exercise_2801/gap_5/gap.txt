@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ f(n, x) = x^{2} + frac(1, n) * sin(n * (x + frac(π, 2))))
+3. forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (f(n, x)) = x^{2}
+4. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ |f(n, x) - x^{2}| = |frac(1, n) * sin(n * (x + frac(π, 2)))| ∧ |frac(1, n) * sin(n * (x + frac(π, 2)))| ≤ frac(1, n))
+5. forall (N), N : RealSet → NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ N(ε) = floor(frac(1, ε)) ∧ n > N(ε) ∧ x ∈ RealSet ⇒ |f(n, x) - x^{2}| < ε)))
+6. UniformConvergent(f, IntervalLoRo(-∞, +∞), fun x [x ∈ RealSet] . x^{2})
+
+GOAL:
+FunDeri(fun x [x ∈ RealSet] . seqlim_{ n → +∞ } (f(n, x)), 1, 1) = (fun x [x ∈ RealSet] . 2 * x)
+
+METHOD:

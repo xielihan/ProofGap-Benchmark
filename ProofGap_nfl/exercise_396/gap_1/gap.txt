@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. m_{0} ∈ RealSet
+3. M_{0} ∈ RealSet
+4. forall (x), x ∈ RealSet ⇒ f(x) = x - floor(x)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ 0 ≤ f(x) ∧ f(x) ≤ 1
+
+METHOD:

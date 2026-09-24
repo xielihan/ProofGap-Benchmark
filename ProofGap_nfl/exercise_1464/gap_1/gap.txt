@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. forall (t), t ∈ RealSet ⇒ f(t) = 3 * t^{4} - 4 * t^{3} - 6 * t^{2} + 12 * t - 20
+
+GOAL:
+forall (t), t ∈ RealSet ⇒ FunDeri(f, 1, 1)(t) = 12 * t^{3} - 12 * t^{2} - 12 * t + 12
+
+METHOD:

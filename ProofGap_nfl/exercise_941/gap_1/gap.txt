@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ |x| ≠ frac(1, sqrtn(2, 2)) ⇒ y(x) = frac(1, 12) * ln(frac(x^{4} - x^{2} + 1, (x^{2} + 1)^{2})) - frac(1, 2 * sqrtn(2, 3)) * arctan(frac(sqrtn(2, 3), 2 * x^{2} - 1))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| ≠ frac(1, sqrtn(2, 2)) ⇒ FunDeri(y, 1, 1)(x) = frac(1, 12) * (frac(4 * x^{3} - 2 * x, x^{4} - x^{2} + 1) - frac(4 * x, x^{2} + 1)) - frac(1, 2 * sqrtn(2, 3)) * frac(1, 1 + frac(sqrtn(2, 3), 2 * x^{2} - 1)^{2}) * frac(-4 * sqrtn(2, 3) * x, (2 * x^{2} - 1)^{2}) ∧ frac(1, 12) * (frac(4 * x^{3} - 2 * x, x^{4} - x^{2} + 1) - frac(4 * x, x^{2} + 1)) - frac(1, 2 * sqrtn(2, 3)) * frac(1, 1 + frac(sqrtn(2, 3), 2 * x^{2} - 1)^{2}) * frac(-4 * sqrtn(2, 3) * x, (2 * x^{2} - 1)^{2}) = frac(x^{3}, 1 + x^{6})
+
+METHOD:

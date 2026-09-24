@@ -1,0 +1,15 @@
+PROOF GAP @6
+ASSUM:
+1. IsFunc(y)
+2. forall (x), x ∈ RealSet ∧ x = 0 ⇒ seqlim_{ n → +∞ } ((1 + frac(x, n))^{n}) = e^{x}
+3. forall (x), x ∈ RealSet ∧ x = 0 ⇒ seqlim_{ n → +∞ } (sum_{ k = 0 }^{ n } (frac(x^{k}, k!))) = e^{x}
+4. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ (forall (n), n ∈ PosIntegerSet ⇒ y(x, n) = frac(n, x))
+5. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ seqlim_{ n → +∞ } ((1 + frac(x, n))^{n}) = seqlim_{ n → +∞ } ((1 + frac(1, y(x, n)))^{y(x, n) * x})
+6. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ seqlim_{ n → +∞ } ((1 + frac(1, y(x, n)))^{y(x, n) * x}) = e^{x}
+7. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ seqlim_{ n → +∞ } ((1 + frac(x, n))^{n}) = e^{x}
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (1 + frac(x, n))^{n} ≤ sum_{ k = 0 }^{ n } (frac(x^{k}, k!)))
+
+METHOD:
+[@method 根据 "牛顿二项式定理" @]

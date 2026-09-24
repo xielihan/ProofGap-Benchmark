@@ -1,0 +1,21 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet => (forall (y), y ∈ RealSet ∧ (x, y) ∈ D ∧ (x, y) ≠ (0, 0) => ln(x^{2} + y^{2}) ≤ 0)}) (x := {x})
+get_condition (hypothesis 9: {x ∈ RealSet}) in (GOAL: {x ∈ RealSet => (forall (y), y ∈ RealSet ∧ (x, y) ∈ D ∧ (x, y) ≠ (0, 0) => ln(x^{2} + y^{2}) ≤ 0)})
+get_forall (GOAL: {forall (y), y ∈ RealSet ∧ (x, y) ∈ D ∧ (x, y) ≠ (0, 0) => ln(x^{2} + y^{2}) ≤ 0}) (y := {y})
+get_condition (hypothesis 10: {y ∈ RealSet ∧ (x, y) ∈ D ∧ (x, y) ≠ (0, 0)}) in (GOAL: {y ∈ RealSet ∧ (x, y) ∈ D ∧ (x, y) ≠ (0, 0) => ln(x^{2} + y^{2}) ≤ 0})
+get_prop (hypothesis 7: {forall (x), x ∈ RealSet => (forall (y), y ∈ RealSet ∧ (x, y) ∈ D ∧ (x, y) ≠ (0, 0) => ln(x^{2} + y^{2}) ≤ ln(1))}) (x := {x}) as (hypothesis 11: {x ∈ RealSet => (forall (y), y ∈ RealSet ∧ (x, y) ∈ D ∧ (x, y) ≠ (0, 0) => ln(x^{2} + y^{2}) ≤ ln(1))})
+assert (hypothesis 12: {forall (y), y ∈ RealSet ∧ (x, y) ∈ D ∧ (x, y) ≠ (0, 0) => ln(x^{2} + y^{2}) ≤ ln(1)}) by proof {
+  autosolve (hypothesis 9: {x ∈ RealSet}) (hypothesis 11: {x ∈ RealSet => (forall (y), y ∈ RealSet ∧ (x, y) ∈ D ∧ (x, y) ≠ (0, 0) => ln(x^{2} + y^{2}) ≤ ln(1))})
+}
+get_prop (hypothesis 12: {forall (y), y ∈ RealSet ∧ (x, y) ∈ D ∧ (x, y) ≠ (0, 0) => ln(x^{2} + y^{2}) ≤ ln(1)}) (y := {y}) as (hypothesis 13: {y ∈ RealSet ∧ (x, y) ∈ D ∧ (x, y) ≠ (0, 0) => ln(x^{2} + y^{2}) ≤ ln(1)})
+assert (hypothesis 14: {ln(x^{2} + y^{2}) ≤ ln(1)}) by proof {
+  autosolve (hypothesis 10: {y ∈ RealSet ∧ (x, y) ∈ D ∧ (x, y) ≠ (0, 0)}) (hypothesis 13: {y ∈ RealSet ∧ (x, y) ∈ D ∧ (x, y) ≠ (0, 0) => ln(x^{2} + y^{2}) ≤ ln(1)})
+}
+get_prop (hypothesis 8: {forall (x), x ∈ RealSet => (forall (y), y ∈ RealSet ∧ (x, y) ∈ D ∧ (x, y) ≠ (0, 0) => ln(1) = 0)}) (x := {x}) as (hypothesis 15: {x ∈ RealSet => (forall (y), y ∈ RealSet ∧ (x, y) ∈ D ∧ (x, y) ≠ (0, 0) => ln(1) = 0)})
+assert (hypothesis 16: {forall (y), y ∈ RealSet ∧ (x, y) ∈ D ∧ (x, y) ≠ (0, 0) => ln(1) = 0}) by proof {
+  autosolve (hypothesis 9: {x ∈ RealSet}) (hypothesis 15: {x ∈ RealSet => (forall (y), y ∈ RealSet ∧ (x, y) ∈ D ∧ (x, y) ≠ (0, 0) => ln(1) = 0)})
+}
+get_prop (hypothesis 16: {forall (y), y ∈ RealSet ∧ (x, y) ∈ D ∧ (x, y) ≠ (0, 0) => ln(1) = 0}) (y := {y}) as (hypothesis 17: {y ∈ RealSet ∧ (x, y) ∈ D ∧ (x, y) ≠ (0, 0) => ln(1) = 0})
+assert (hypothesis 18: {ln(1) = 0}) by proof {
+  autosolve (hypothesis 10: {y ∈ RealSet ∧ (x, y) ∈ D ∧ (x, y) ≠ (0, 0)}) (hypothesis 17: {y ∈ RealSet ∧ (x, y) ∈ D ∧ (x, y) ≠ (0, 0) => ln(1) = 0})
+}
+autosolve (hypothesis 14: {ln(x^{2} + y^{2}) ≤ ln(1)}) (hypothesis 18: {ln(1) = 0})

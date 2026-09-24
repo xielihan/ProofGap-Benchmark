@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ |x| < |a| ⇒ y(x) = frac(x, sqrtn(2, a^{2} - x^{2}))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| < |a| ⇒ FunDeri(fun t . frac(t, sqrtn(2, a^{2} - t^{2})), 1, 1)(x) = frac(sqrtn(2, a^{2} - x^{2}) + frac(x^{2}, sqrtn(2, a^{2} - x^{2})), a^{2} - x^{2}) ∧ frac(sqrtn(2, a^{2} - x^{2}) + frac(x^{2}, sqrtn(2, a^{2} - x^{2})), a^{2} - x^{2}) = frac(a^{2}, sqrtn(2, (a^{2} - x^{2})^{3}))
+
+METHOD:

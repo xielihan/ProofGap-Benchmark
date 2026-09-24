@@ -1,0 +1,20 @@
+PROOF GAP @12
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. forall (k), k ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = prod_{ k = 1 }^{ n } (1 + frac(1, 2^{k})))
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n + 1) = x(n) * (1 + frac(1, 2^{n + 1}))
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) * (1 + frac(1, 2^{n + 1})) > x(n)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n + 1) > x(n)
+6. MonoIncSeq(x)
+7. forall (a), a ∈ RealSet ∧ a > 0 ⇒ 1 + a < e^{a}
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < x(n)
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) < prod_{ k = 1 }^{ n } (e^{frac(1, 2^{k})})
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ prod_{ k = 1 }^{ n } (e^{frac(1, 2^{k})}) = e^{sum_{ k = 1 }^{ n } (frac(1, 2^{k}))}
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ e^{sum_{ k = 1 }^{ n } (frac(1, 2^{k}))} < e
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < e
+13. BoundedSeq(x)
+
+GOAL:
+ConvergentSeq(x)
+
+METHOD:

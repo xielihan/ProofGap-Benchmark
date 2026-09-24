@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. P : NonNegIntegerSet → RealSet
+2. p ∈ RealSet
+3. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ P(N) = prod_{ n = 1 }^{ N } (1 + frac((-1)^{n - 1}, n^{p})))
+4. p > 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac((-1)^{n + 1}, n^{p})))
+5. p > 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 1 + frac((-1)^{n - 1}, n^{p}) ≠ 0)
+6. p > 1 ⇒ ConvergentSeq(P)
+
+GOAL:
+frac(1, 2) < p ⇒ p ≤ 1 ⇒ ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac((-1)^{n + 1}, n^{p})))
+
+METHOD:

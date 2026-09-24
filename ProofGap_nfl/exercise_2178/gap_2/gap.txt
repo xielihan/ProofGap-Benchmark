@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet ∧ DiffableFuncOn(f, IntervalLoRo(0, +∞))
+2. C ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ FunDeri(f, 1, 1)(x^{2}) = frac(1, x)
+4. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ FunDeri(f, 1, 1)(x) = frac(1, sqrtn(2, x))
+
+GOAL:
+exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ f(x) = 2 * sqrtn(2, x) + C)
+
+METHOD:

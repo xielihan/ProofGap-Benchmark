@@ -1,0 +1,11 @@
+get_condition (hypothesis 11: {a > 1}) in (GOAL: {a > 1 => (forall (ε), ε ∈ RealSet ∧ ε > 0 => (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N => 1 < 1 + ε)))})
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 => (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N => 1 < 1 + ε))}) (ε := {eps0})
+get_condition (hypothesis 12: {eps0 ∈ RealSet ∧ eps0 > 0}) in (GOAL: {eps0 ∈ RealSet ∧ eps0 > 0 => (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N => 1 < 1 + eps0))})
+exists (N := {0})
+assert (hypothesis 13: {forall (n), n ∈ IntegerSet ∧ n > 0 => 1 < 1 + eps0}) by proof {
+  get_forall (GOAL: {forall (n), n ∈ IntegerSet ∧ n > 0 => 1 < 1 + eps0}) (n := {n0})
+  get_condition (hypothesis 13: {n0 ∈ IntegerSet ∧ n0 > 0}) in (GOAL: {n0 ∈ IntegerSet ∧ n0 > 0 => 1 < 1 + eps0})
+  destruct_and (hypothesis 12: {eps0 ∈ RealSet ∧ eps0 > 0}) as (hypothesis 14: {eps0 ∈ RealSet}) (hypothesis 15: {eps0 > 0})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

@@ -1,0 +1,8 @@
+1. get_forall (GOAL: {forall (x_{1}), x_{1} ∈ RealSet => (forall (x_{2}), x_{1} ∈ RealSet /\ x_{2} ∈ RealSet /\ x_{2} > x_{1} => f(x_{2}) - f(x_{1}) = (x_{2})^{3} - (x_{1})^{3})}) (x_{1} := {u})
+2. get_condition (hypothesis 3: {u ∈ RealSet}) in (GOAL: {u ∈ RealSet => (forall (x_{2}), u ∈ RealSet /\ x_{2} ∈ RealSet /\ x_{2} > u => f(x_{2}) - f(u) = (x_{2})^{3} - u^{3})})
+3. get_forall (GOAL: {forall (x_{2}), u ∈ RealSet /\ x_{2} ∈ RealSet /\ x_{2} > u => f(x_{2}) - f(u) = (x_{2})^{3} - u^{3}}) (x_{2} := {v})
+4. get_condition (hypothesis 4: {u ∈ RealSet /\ v ∈ RealSet /\ v > u}) in (GOAL: {u ∈ RealSet /\ v ∈ RealSet /\ v > u => f(v) - f(u) = v^{3} - u^{3}})
+5. destruct_and (hypothesis 4: {u ∈ RealSet /\ v ∈ RealSet /\ v > u}) as (hypothesis 5: {u ∈ RealSet}) (hypothesis 6: {v ∈ RealSet}) (hypothesis 7: {v > u})
+6. get_prop (hypothesis 2: {forall (x), x ∈ RealSet ⇒ f(x) = x^{3}}) (x := {u}) as (hypothesis 8: {u ∈ RealSet => f(u) = u^{3}})
+7. get_prop (hypothesis 2: {forall (x), x ∈ RealSet ⇒ f(x) = x^{3}}) (x := {v}) as (hypothesis 9: {v ∈ RealSet => f(v) = v^{3}})
+8. autosolve all_hypothesis

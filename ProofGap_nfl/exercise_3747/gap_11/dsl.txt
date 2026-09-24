@@ -1,0 +1,8 @@
+get_condition (hypothesis 18: {a < 0}) in (GOAL: {a < 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ a ≠ -(n + frac(1, 2)) * π) ⇒ cos(-a) ≠ 0})
+get_condition (hypothesis 19: {forall (n), n ∈ NonNegIntegerSet ⇒ a ≠ -(n + frac(1, 2)) * π}) in (GOAL: {(forall (n), n ∈ NonNegIntegerSet ⇒ a ≠ -(n + frac(1, 2)) * π) ⇒ cos(-a) ≠ 0})
+use_condition (hypothesis 18: {a < 0}) in (hypothesis 15: {a < 0 ⇒ (exists (n), n ∈ NonNegIntegerSet ∧ a = -(n + frac(1, 2)) * π ∧ lim_{ x → -a } (frac(cos(x), x + a)) = (-1)^{n + 1})}) as (hypothesis 20: {exists (n), n ∈ NonNegIntegerSet ∧ a = -(n + frac(1, 2)) * π ∧ lim_{ x → -a } (frac(cos(x), x + a)) = (-1)^{n + 1}})
+get_exists (hypothesis 20: {exists (n), n ∈ NonNegIntegerSet ∧ a = -(n + frac(1, 2)) * π ∧ lim_{ x → -a } (frac(cos(x), x + a)) = (-1)^{n + 1}}) (n := {nn})
+destruct_and (hypothesis 21: {nn ∈ NonNegIntegerSet ∧ a = -(nn + frac(1, 2)) * π ∧ lim_{ x → -a } (frac(cos(x), x + a)) = (-1)^{nn + 1}}) as (hypothesis 22: {nn ∈ NonNegIntegerSet}) (hypothesis 23: {a = -(nn + frac(1, 2)) * π}) (hypothesis 24: {lim_{ x → -a } (frac(cos(x), x + a)) = (-1)^{nn + 1}})
+get_prop (hypothesis 19: {forall (n), n ∈ NonNegIntegerSet ⇒ a ≠ -(n + frac(1, 2)) * π}) (n := {nn}) as (hypothesis 25: {nn ∈ NonNegIntegerSet ⇒ a ≠ -(nn + frac(1, 2)) * π})
+use_condition (hypothesis 22: {nn ∈ NonNegIntegerSet}) in (hypothesis 25: {nn ∈ NonNegIntegerSet ⇒ a ≠ -(nn + frac(1, 2)) * π}) as (hypothesis 26: {a ≠ -(nn + frac(1, 2)) * π})
+autosolve all_hypothesis

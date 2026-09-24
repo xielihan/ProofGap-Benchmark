@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. x ≠ 0
+3. frac((1 - x)^{3}, x * sqrtn(3, x)) = x^{-frac(4, 3)} - 3 * x^{-frac(1, 3)} + 3 * x^{frac(2, 3)} - x^{frac(5, 3)}
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac((1 - x)^{3}, x * sqrtn(3, x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = (x^{-frac(4, 3)} - 3 * x^{-frac(1, 3)} + 3 * x^{frac(2, 3)} - x^{frac(5, 3)}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+METHOD:

@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet
+3. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(arctan(e^{frac(x, 2)}), e^{frac(x, 2)} * (1 + e^{x})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = (e^{-frac(x, 2)} - frac(e^{frac(x, 2)}, 1 + e^{x})) * arctan(e^{frac(x, 2)}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+4. { `F_4` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = (e^{-frac(x, 2)} - frac(e^{frac(x, 2)}, 1 + e^{x})) * arctan(e^{frac(x, 2)}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_9` | exists (`F_5`) (`F_7`), `F_5` : RealSet → RealSet ∧ `F_7` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = arctan(e^{frac(x, 2)}) * FunDeri(fun x [x ∈ RealSet] . e^{-frac(x, 2)}, 1, 1)(x) ∧ FunDeri(`F_7`, 1, 1)(x) = arctan(e^{frac(x, 2)}) * FunDeri(fun x [x ∈ RealSet] . arctan(e^{frac(x, 2)}), 1, 1)(x) ∧ `F_9`(x) = -2 * `F_5`(x) - 2 * `F_7`(x)) }
+
+GOAL:
+{ `F_14` | exists (`F_10`) (`F_12`), `F_10` : RealSet → RealSet ∧ `F_12` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_10`, 1, 1)(x) = arctan(e^{frac(x, 2)}) * FunDeri(fun x [x ∈ RealSet] . e^{-frac(x, 2)}, 1, 1)(x) ∧ FunDeri(`F_12`, 1, 1)(x) = arctan(e^{frac(x, 2)}) * FunDeri(fun x [x ∈ RealSet] . arctan(e^{frac(x, 2)}), 1, 1)(x) ∧ `F_14`(x) = -2 * `F_10`(x) - 2 * `F_12`(x)) } = { `F_19` | exists (`F_15`), `F_15` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_15`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), 1 + e^{x}) ∧ `F_19`(x) = -2 * e^{-frac(x, 2)} * arctan(e^{frac(x, 2)}) + `F_15`(x) - arctan(e^{frac(x, 2)})^{2}) }
+
+METHOD:

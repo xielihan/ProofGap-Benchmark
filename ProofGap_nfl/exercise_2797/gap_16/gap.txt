@@ -1,0 +1,24 @@
+PROOF GAP @16
+ASSUM:
+1. ζ : RealSet → RealSet
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x > 1 ⇒ ζ(x) = sum_{ n = 1 }^{ +∞ } (frac(1, n^{x})))
+3. forall (x), x ∈ RealSet ∧ x > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{x})))
+4. ContinuousFuncOn(ζ, IntervalLoRo(1, +∞))
+5. forall (x), x ∈ RealSet ∧ x > 1 ⇒ FunDeri(ζ, 1, 1)(x) = -(sum_{ n = 1 }^{ +∞ } (frac(ln(n), n^{x})))
+6. forall (a), a ∈ RealSet ∧ a > 1 ⇒ (forall (x), x ∈ RealSet ∧ a ≤ x ∧ x < +∞ ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac(ln(n), n^{x})))
+7. forall (a), a ∈ RealSet ∧ a > 1 ⇒ (forall (x), x ∈ RealSet ∧ a ≤ x ∧ x < +∞ ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(ln(n), n^{x}) ≤ frac(ln(n), n^{a})))
+8. forall (a), a ∈ RealSet ∧ a > 1 ⇒ (forall (x), x ∈ RealSet ∧ a ≤ x ∧ x < +∞ ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac(ln(n), n^{a})))
+9. forall (a), a ∈ RealSet ∧ a > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(ln(n), n^{a})))
+10. forall (a), a ∈ RealSet ∧ a > 1 ⇒ (forall (x), x ∈ RealSet ∧ a ≤ x ⇒ UniformConvergent(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(ln(n), n^{x}), [a, +∞), sum_{ n = 1 }^{ +∞ } (frac(ln(n), n^{x}))))
+11. forall (a), a ∈ RealSet ∧ a > 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ContinuousFuncOn(fun x [x ∈ RealSet ∧ x ∈ [a, +∞)] . frac(ln(n), n^{x}), [a, +∞)))
+12. forall (a), a ∈ RealSet ∧ a > 1 ⇒ (forall (x), x ∈ RealSet ∧ a ≤ x ⇒ FunDeri(ζ, 1, 1)(x) = -(sum_{ n = 1 }^{ +∞ } (frac(ln(n), n^{x}))))
+13. forall (a), a ∈ RealSet ∧ a > 1 ⇒ ContinuousFuncOn(FunDeri(ζ, 1, 1), [a, +∞))
+14. ContinuousFuncOn(FunDeri(ζ, 1, 1), IntervalLoRo(1, +∞))
+15. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (forall (a), a ∈ RealSet ∧ a > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(ln(n)^{k}, n^{a}))))
+16. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (forall (a), a ∈ RealSet ∧ a > 1 ⇒ (forall (x), x ∈ RealSet ∧ a ≤ x ⇒ UniformConvergent(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(ln(n)^{k}, n^{x}), [a, +∞), sum_{ n = 1 }^{ +∞ } (frac(ln(n)^{k}, n^{x})))))
+17. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x > 1 ⇒ FunDeri(ζ, 1, k)(x) = (-1)^{k} * (sum_{ n = 1 }^{ +∞ } (frac(ln(n)^{k}, n^{x}))))
+
+GOAL:
+forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ ContinuousFuncOn(FunDeri(ζ, 1, k), IntervalLoRo(1, +∞))
+
+METHOD:

@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. I : CartesianProd(IntegerSet, RealSet) → RealSet
+2. K : CartesianProd(IntegerSet, RealSet) → RealSet
+3. C ∈ RealSet
+4. exists (`F_1`), `F_1` : RealSet → RealSet ∧ (forall (n) (x), n ∈ IntegerSet ∧ n ≥ 2 ∧ x ∈ RealSet ⇒ I(n, x) = { `F_1` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_1`, 1, 1)(x) = sin(x)^{n} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) })
+5. exists (`F_2`), `F_2` : RealSet → RealSet ∧ (forall (n) (x), n ∈ IntegerSet ∧ n > 2 ∧ x ∈ RealSet ⇒ K(n, x) = { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = cos(x)^{n} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) })
+
+GOAL:
+forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ (forall (x), x ∈ RealSet ⇒ I(n, x) = { `F_5` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = sin(x)^{n} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) })
+
+METHOD:

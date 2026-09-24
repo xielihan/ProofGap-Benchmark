@@ -1,0 +1,21 @@
+PROOF GAP @9
+ASSUM:
+1. f : RealSet → RealSet
+2. F : RealSet → ComplexSet
+3. I : RealSet → RealSet
+4. α ∈ RealSet ∧ α > 0
+5. forall (x), x ∈ RealSet ⇒ f(x) = x * e^{-α * |x|}
+6. forall (x), x ∈ RealSet ⇒ F(x) = frac(1, sqrtn(2, 2 * π)) * DefInt(-∞, +∞, (fun t [t ∈ RealSet] . t * e^{-α * |t|} * e^{-__IMAGINARY_UNIT__ * t * x}) * diff(fun t [t ∈ RealSet] . t))
+7. forall (x), x ∈ RealSet ⇒ F(x) = frac(1, sqrtn(2, 2 * π)) * DefInt(-∞, +∞, (fun t [t ∈ RealSet] . t * e^{-α * |t|} * (cos(t * x) - __IMAGINARY_UNIT__ * sin(t * x))) * diff(fun t [t ∈ RealSet] . t))
+8. forall (x), x ∈ RealSet ⇒ F(x) = -sqrtn(2, frac(2, π)) * __IMAGINARY_UNIT__ * DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ≥ 0] . t * e^{-α * t} * sin(t * x)) * diff(fun t [t ∈ RealSet] . t))
+9. forall (x), x ∈ RealSet ⇒ I(x) = DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ≥ 0] . t * e^{-α * t} * sin(t * x)) * diff(fun t [t ∈ RealSet] . t))
+10. forall (x), x ∈ RealSet ⇒ I(x) = -frac(1, α) * ((fun t [t ∈ RealSet ∧ t ≥ 0] . e^{-α * t} * t * sin(t * x))|_{0}^{+∞}) + frac(1, α) * DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ≥ 0] . e^{-α * t} * (sin(t * x) + t * x * cos(t * x))) * diff(fun t [t ∈ RealSet] . t))
+11. forall (x), x ∈ RealSet ⇒ I(x) = frac(1, α) * DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ≥ 0] . e^{-α * t} * sin(t * x)) * diff(fun t [t ∈ RealSet] . t)) + frac(x, α) * DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ≥ 0] . t * e^{-α * t} * cos(t * x)) * diff(fun t [t ∈ RealSet] . t))
+12. forall (x), x ∈ RealSet ⇒ I(x) = frac(x, α * (α^{2} + x^{2})) - frac(x, α^{2}) * ((fun t [t ∈ RealSet ∧ t ≥ 0] . e^{-α * t} * t * cos(t * x))|_{0}^{+∞}) + frac(x, α^{2}) * DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ≥ 0] . e^{-α * t} * (cos(t * x) - t * x * sin(t * x))) * diff(fun t [t ∈ RealSet] . t))
+13. forall (x), x ∈ RealSet ⇒ I(x) = frac(x, α * (α^{2} + x^{2})) + frac(x * α, α^{2} * (α^{2} + x^{2})) - frac(x^{2}, α^{2}) * I(x)
+14. forall (x), x ∈ RealSet ⇒ (1 + frac(x^{2}, α^{2})) * I(x) = frac(2 * x, α * (α^{2} + x^{2}))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ I(x) = frac(2 * α * x, (α^{2} + x^{2})^{2})
+
+METHOD:

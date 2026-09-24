@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ≥ 20}) (n := {k})
+get_condition (hypothesis 5: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet}) in (GOAL: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ x(k) ≥ 20})
+get_prop (hypothesis 4: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = (sqrtn(2, n) - frac(10, sqrtn(2, n)))^{2} + 20}) (n := {k}) as (hypothesis 6: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ x(k) = (sqrtn(2, k) - frac(10, sqrtn(2, k)))^{2} + 20})
+use_condition (hypothesis 5: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet}) in (hypothesis 6: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ x(k) = (sqrtn(2, k) - frac(10, sqrtn(2, k)))^{2} + 20}) as (hypothesis 7: {x(k) = (sqrtn(2, k) - frac(10, sqrtn(2, k)))^{2} + 20})
+rewrite (left_to_right, equation) (hypothesis 7: {x(k) = (sqrtn(2, k) - frac(10, sqrtn(2, k)))^{2} + 20}); from (GOAL: {x(k) ≥ 20}) to (GOAL: {(sqrtn(2, k) - frac(10, sqrtn(2, k)))^{2} + 20 ≥ 20})
+autosolve all_hypothesis

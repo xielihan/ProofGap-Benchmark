@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ⇒ cos(2 * π * sqrtn(2, n^{2} + n)) = cos(2 * π * (sqrtn(2, n^{2} + n) - n))}) (n := {k})
+get_condition (hypothesis 2: {k ∈ NonNegIntegerSet}) in (GOAL: {k ∈ NonNegIntegerSet ⇒ cos(2 * π * sqrtn(2, k^{2} + k)) = cos(2 * π * (sqrtn(2, k^{2} + k) - k))})
+get_prop (theorem 'Thm 170. (CosinePeriodicity)': {forall (x) (k), x ∈ RealSet => k ∈ IntegerSet => cos (x + 2 * k * π) = cos(x)}) (x := {2 * π * (sqrtn(2, k^{2} + k) - k)}) (k := {k}) as (hypothesis 3: {2 * π * (sqrtn(2, k^{2} + k) - k) ∈ RealSet => k ∈ IntegerSet => cos(2 * π * (sqrtn(2, k^{2} + k) - k) + 2 * k * π) = cos(2 * π * (sqrtn(2, k^{2} + k) - k))})
+use_condition (obvious: {2 * π * (sqrtn(2, k^{2} + k) - k) ∈ RealSet}) (obvious: {k ∈ IntegerSet}) in (hypothesis 3: {2 * π * (sqrtn(2, k^{2} + k) - k) ∈ RealSet => k ∈ IntegerSet => cos(2 * π * (sqrtn(2, k^{2} + k) - k) + 2 * k * π) = cos(2 * π * (sqrtn(2, k^{2} + k) - k))}) as (hypothesis 4: {cos(2 * π * (sqrtn(2, k^{2} + k) - k) + 2 * k * π) = cos(2 * π * (sqrtn(2, k^{2} + k) - k))})
+autosolve all_hypothesis

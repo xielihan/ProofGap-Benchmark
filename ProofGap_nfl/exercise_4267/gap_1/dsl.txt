@@ -1,0 +1,14 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x > y ⇒ FunDeri(Q, 1, 1)(x, y) = FunDeri(P, 2, 1)(x, y))}) (x := {a})
+get_condition (hypothesis 10: {a ∈ RealSet}) in (GOAL: {a ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ a > y ⇒ FunDeri(Q, 1, 1)(a, y) = FunDeri(P, 2, 1)(a, y))})
+get_forall (GOAL: {forall (y), y ∈ RealSet ∧ a > y ⇒ FunDeri(Q, 1, 1)(a, y) = FunDeri(P, 2, 1)(a, y)}) (y := {b})
+get_condition (hypothesis 11: {b ∈ RealSet ∧ a > b}) in (GOAL: {b ∈ RealSet ∧ a > b ⇒ FunDeri(Q, 1, 1)(a, b) = FunDeri(P, 2, 1)(a, b)})
+destruct_and (hypothesis 11: {b ∈ RealSet ∧ a > b}) as (hypothesis 12: {b ∈ RealSet}) (hypothesis 13: {a > b})
+assert (hypothesis 14: {FunDeri(Q, 1, 1)(a, b) = frac(-(a + b), (a - b)^{3})}) by proof {
+  1. autosolve all_hypothesis using DerivSolver
+}
+assert (hypothesis 15: {FunDeri(P, 2, 1)(a, b) = frac(-(a + b), (a - b)^{3})}) by proof {
+  1. autosolve all_hypothesis using DerivSolver
+}
+rewrite (left_to_right, equation) (hypothesis 14: {FunDeri(Q, 1, 1)(a, b) = frac(-(a + b), (a - b)^{3})}); from (GOAL: {FunDeri(Q, 1, 1)(a, b) = FunDeri(P, 2, 1)(a, b)}) to (GOAL: {frac(-(a + b), (a - b)^{3}) = FunDeri(P, 2, 1)(a, b)})
+rewrite (left_to_right, equation) (hypothesis 15: {FunDeri(P, 2, 1)(a, b) = frac(-(a + b), (a - b)^{3})}); from (GOAL: {frac(-(a + b), (a - b)^{3}) = FunDeri(P, 2, 1)(a, b)}) to (GOAL: {frac(-(a + b), (a - b)^{3}) = frac(-(a + b), (a - b)^{3})})
+autosolve all_hypothesis

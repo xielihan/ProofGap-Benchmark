@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. h ∈ RealSet
+3. sin(x + h) = sin(x) * cos(h) + cos(x) * sin(h)
+4. sin(x + h) = sin(x) + h * cos(x) - frac(h^{2}, 2!) * sin(x) - frac(h^{3}, 3!) * cos(x) + (sum_{ n = 4 }^{ +∞ } (frac(FunDeri(fun t [t ∈ RealSet] . sin(x + t), 1, n)(0), n!) * h^{n}))
+5. cos(x + h) = cos(x) - h * sin(x) - frac(h^{2}, 2!) * cos(x) + frac(h^{3}, 3!) * sin(x) + (sum_{ n = 4 }^{ +∞ } (frac(FunDeri(fun t [t ∈ RealSet] . cos(x + t), 1, n)(0), n!) * h^{n}))
+
+GOAL:
+Dom(fun h [h ∈ RealSet] . sum_{ n = 0 }^{ +∞ } (frac(FunDeri(fun t [t ∈ RealSet] . sin(x + t), 1, n)(0), n!) * h^{n})) = (-∞, +∞)
+
+METHOD:

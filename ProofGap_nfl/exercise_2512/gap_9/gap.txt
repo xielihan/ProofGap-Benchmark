@@ -1,0 +1,23 @@
+PROOF GAP @9
+ASSUM:
+1. r : RealSet → RealSet
+2. a ∈ RealSet ∧ a > 0
+3. ξ ∈ RealSet
+4. η ∈ RealSet
+5. `r_0` ∈ RealSet
+6. `φ_0` ∈ RealSet
+7. φ ∈ RealSet
+8. forall (φ), φ ∈ RealSet ∧ φ ∈ [0, 2 * π] ⇒ r(φ) = a * (1 + cos(φ))
+9. η = 0
+10. ξ = frac(frac(2, 3) * DefInt(0, π, r(φ) * cos(φ) * frac(1, 2) * r(φ)^{2} * diff(φ)), DefInt(0, π, frac(1, 2) * r(φ)^{2} * diff(φ)))
+11. ξ = frac(2, 3) * frac(DefInt(0, π, a^{3} * (1 + cos(φ))^{3} * cos(φ) * diff(φ)), DefInt(0, π, a^{2} * (1 + cos(φ))^{2} * diff(φ)))
+12. ξ = frac(2 * a, 3) * frac(DefInt(0, π, (1 + 3 * cos(φ) + 3 * cos(φ)^{2} + cos(φ)^{3}) * cos(φ) * diff(φ)), DefInt(0, π, (1 + 2 * cos(φ) + cos(φ)^{2}) * diff(φ)))
+13. frac(2 * a, 3) * frac(DefInt(0, π, (1 + 3 * cos(φ) + 3 * cos(φ)^{2} + cos(φ)^{3}) * cos(φ) * diff(φ)), DefInt(0, π, (1 + 2 * cos(φ) + cos(φ)^{2}) * diff(φ))) = frac(5 * a, 6)
+14. ξ = frac(5 * a, 6)
+15. `φ_0` = 0
+16. `r_0` = frac(5 * a, 6)
+
+GOAL:
+(ξ, η) = (frac(5 * a, 6), 0) ⇒ (ξ, η) = (frac(5 * a, 6), 0)
+
+METHOD:

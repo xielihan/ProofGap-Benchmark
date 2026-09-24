@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+2. x ∈ RealSet ∧ x ≥ 0
+3. y ∈ RealSet ∧ y ≥ 0
+4. z : CartesianProd(RealSet, RealSet) → RealSet
+5. F : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+6. a ∈ RealSet
+7. x = 0 ⇒ y = 0 ⇒ frac(x^{n} + y^{n}, 2) = 0
+8. x = 0 ⇒ y = 0 ⇒ frac(x + y, 2)^{n} = 0
+
+GOAL:
+x = 0 ⇒ y = 0 ⇒ frac(x^{n} + y^{n}, 2) ≥ frac(x + y, 2)^{n}
+
+METHOD:

@@ -1,0 +1,20 @@
+PROOF GAP @12
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ f(x, y) = frac(x^{2} * y^{2}, x^{2} * y^{2} + (x - y)^{2})
+3. lim_{ x → 0 } (lim_{ y → 0 } (f(x, y))) = lim_{ x → 0 } (lim_{ y → 0 } (frac(x^{2} * y^{2}, x^{2} * y^{2} + (x - y)^{2})))
+4. lim_{ x → 0 } (lim_{ y → 0 } (frac(x^{2} * y^{2}, x^{2} * y^{2} + (x - y)^{2}))) = lim_{ x → 0 } (0)
+5. lim_{ x → 0 } (0) = 0
+6. lim_{ x → 0 } (lim_{ y → 0 } (f(x, y))) = 0
+7. lim_{ y → 0 } (lim_{ x → 0 } (f(x, y))) = lim_{ y → 0 } (lim_{ x → 0 } (frac(x^{2} * y^{2}, x^{2} * y^{2} + (x - y)^{2})))
+8. lim_{ y → 0 } (lim_{ x → 0 } (frac(x^{2} * y^{2}, x^{2} * y^{2} + (x - y)^{2}))) = lim_{ y → 0 } (0)
+9. lim_{ y → 0 } (0) = 0
+10. lim_{ y → 0 } (lim_{ x → 0 } (f(x, y))) = 0
+11. forall (k), k ∈ RealSet ⇒ lim_{ x → 0 } (f(x, k * x)) = lim_{ x → 0 } (frac(k^{2} * x^{4}, k^{2} * x^{4} + (1 - k)^{2} * x^{2}))
+12. forall (k), k ∈ RealSet ∧ k = 0 ⇒ lim_{ x → 0 } (f(x, k * x)) = 0
+13. forall (k), k ∈ RealSet ∧ k = 1 ⇒ lim_{ x → 0 } (f(x, k * x)) = 1
+
+GOAL:
+¬(exists (A), A ∈ RealSet ∧ lim_{ (x, y) → (0, 0) } (f(x, y)) = A)
+
+METHOD:

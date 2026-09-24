@@ -1,0 +1,9 @@
+1. get_forall (GOAL: {forall (t), t ∈ RealSet /\ t ∈ (-∞, 1] => (forall (x), x ∈ RealSet /\ y(x) = t => x^{2} - 2 * x + t = 0)}) (t := {u})
+2. get_condition (hypothesis 5: {u ∈ RealSet /\ u ∈ (-∞, 1]}) in (GOAL: {u ∈ RealSet /\ u ∈ (-∞, 1] => (forall (x), x ∈ RealSet /\ y(x) = u => x^{2} - 2 * x + u = 0)})
+3. destruct_and (hypothesis 5: {u ∈ RealSet /\ u ∈ (-∞, 1]}) as (hypothesis 6: {u ∈ RealSet}) (hypothesis 7: {u ∈ (-∞, 1]})
+4. get_forall (GOAL: {forall (x), x ∈ RealSet /\ y(x) = u => x^{2} - 2 * x + u = 0}) (x := {v})
+5. get_condition (hypothesis 8: {v ∈ RealSet /\ y(v) = u}) in (GOAL: {v ∈ RealSet /\ y(v) = u => v^{2} - 2 * v + u = 0})
+6. destruct_and (hypothesis 8: {v ∈ RealSet /\ y(v) = u}) as (hypothesis 9: {v ∈ RealSet}) (hypothesis 10: {y(v) = u})
+7. get_prop (hypothesis 4: {forall (x), x ∈ RealSet => y(x) = 2 * x - x^{2}}) (x := {v}) as (hypothesis 11: {v ∈ RealSet => y(v) = 2 * v - v^{2}})
+8. use_condition (hypothesis 9: {v ∈ RealSet}) in (hypothesis 11: {v ∈ RealSet => y(v) = 2 * v - v^{2}}) as (hypothesis 12: {y(v) = 2 * v - v^{2}})
+9. autosolve all_hypothesis

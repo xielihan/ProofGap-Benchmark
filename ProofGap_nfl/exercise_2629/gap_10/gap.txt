@@ -1,0 +1,18 @@
+PROOF GAP @10
+ASSUM:
+1. u : NonNegIntegerSet → RealSet
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = frac(1, sqrtn(2, n)) - sqrtn(2, ln(frac(n + 1, n)))
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > -1 ⇒ ln(1 + x) < x
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ln(frac(n + 1, n)) = ln(1 + frac(1, n)) ∧ ln(1 + frac(1, n)) < frac(1, n)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ln(frac(n + 1, n)) = -ln(frac(n, n + 1)) ∧ -ln(frac(n, n + 1)) = -ln(1 - frac(1, n + 1)) ∧ -ln(1 - frac(1, n + 1)) > frac(1, n + 1)
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, n + 1) < ln(frac(n + 1, n)) ∧ ln(frac(n + 1, n)) < frac(1, n)
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < u(n) ∧ u(n) < frac(1, sqrtn(2, n)) - frac(1, sqrtn(2, n + 1))
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, sqrtn(2, n)) - frac(1, sqrtn(2, n + 1)) = frac(frac(1, n) - frac(1, n + 1), frac(1, sqrtn(2, n)) + frac(1, sqrtn(2, n + 1))) ∧ frac(frac(1, n) - frac(1, n + 1), frac(1, sqrtn(2, n)) + frac(1, sqrtn(2, n + 1))) < frac(frac(1, n * (n + 1)), frac(2, sqrtn(2, n + 1))) ∧ frac(frac(1, n * (n + 1)), frac(2, sqrtn(2, n + 1))) < frac(1, 2 * n^{frac(3, 2)})
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < u(n) ∧ u(n) < frac(1, 2 * n^{frac(3, 2)})
+10. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{frac(3, 2)})))
+11. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (u(n)))
+
+GOAL:
+ConvergentSeries(sum_{ n = 1 }^{ +∞ } (u(n)))
+
+METHOD:

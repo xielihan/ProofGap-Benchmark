@@ -1,0 +1,14 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. a : NonNegIntegerSet → RealSet
+3. b : NonNegIntegerSet → RealSet
+4. PeriodicFunc(f, 2 * π)
+5. PiecewiseContinuousFunc(f)
+6. (forall (x), x ∈ RealSet ⇒ f(-x) = -f(x) ∧ f(π - x) = -f(x)) ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ a(n) = 0)
+7. (forall (x), x ∈ RealSet ⇒ f(-x) = -f(x) ∧ f(π - x) = -f(x)) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(2 * n - 1) = 0)
+
+GOAL:
+(forall (x), x ∈ RealSet ⇒ f(-x) = -f(x) ∧ f(π - x) = f(x)) ⇒ (forall (x), x ∈ RealSet ⇒ f(-x) = -f(x) ∧ f(π - x) = f(x))
+
+METHOD:

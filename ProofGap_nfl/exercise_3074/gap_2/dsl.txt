@@ -1,0 +1,15 @@
+1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ln(p(n)) = -frac(1, 2) * ln(1 + frac(1, n^{2}))}) (n := {n0})
+2. get_condition (hypothesis 5: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ ln(p(n0)) = -frac(1, 2) * ln(1 + frac(1, n0^{2}))})
+3. get_prop (hypothesis 4: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(n) = frac(1, sqrtn(2, 1 + frac(1, n^{2})))}) (n := {n0}) as (hypothesis 6: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ p(n0) = frac(1, sqrtn(2, 1 + frac(1, n0^{2})))})
+4. use_condition (hypothesis 5: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (hypothesis 6: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ p(n0) = frac(1, sqrtn(2, 1 + frac(1, n0^{2})))}) as (hypothesis 7: {p(n0) = frac(1, sqrtn(2, 1 + frac(1, n0^{2})))})
+5. assert (hypothesis 8: {1 + frac(1, n0^{2}) > 0}) by proof {
+  1. autosolve all_hypothesis
+}
+6. assert (hypothesis 9: {frac(1, sqrtn(2, 1 + frac(1, n0^{2}))) = (1 + frac(1, n0^{2})) ^ (-frac(1, 2))}) by proof {
+  1. autosolve all_hypothesis
+}
+7. get_prop (theorem 'Thm 203. (NaturalLogarithmPower)': {forall (x) (y), (x > 0 => ln (x ^ y) = y * ln(x))}) (x := {1 + frac(1, n0^{2})}) (y := {-frac(1, 2)}) as (hypothesis 10: {1 + frac(1, n0^{2}) > 0 => ln((1 + frac(1, n0^{2})) ^ (-frac(1, 2))) = -frac(1, 2) * ln(1 + frac(1, n0^{2}))})
+8. use_condition (hypothesis 8: {1 + frac(1, n0^{2}) > 0}) in (hypothesis 10: {1 + frac(1, n0^{2}) > 0 => ln((1 + frac(1, n0^{2})) ^ (-frac(1, 2))) = -frac(1, 2) * ln(1 + frac(1, n0^{2}))}) as (hypothesis 11: {ln((1 + frac(1, n0^{2})) ^ (-frac(1, 2))) = -frac(1, 2) * ln(1 + frac(1, n0^{2}))})
+9. rewrite (left_to_right, equation) (hypothesis 7: {p(n0) = frac(1, sqrtn(2, 1 + frac(1, n0^{2})))}); from (GOAL: {ln(p(n0)) = -frac(1, 2) * ln(1 + frac(1, n0^{2}))}) to (GOAL: {ln(frac(1, sqrtn(2, 1 + frac(1, n0^{2})))) = -frac(1, 2) * ln(1 + frac(1, n0^{2}))})
+10. rewrite (left_to_right, equation) (hypothesis 9: {frac(1, sqrtn(2, 1 + frac(1, n0^{2}))) = (1 + frac(1, n0^{2})) ^ (-frac(1, 2))}); from (GOAL: {ln(frac(1, sqrtn(2, 1 + frac(1, n0^{2})))) = -frac(1, 2) * ln(1 + frac(1, n0^{2}))}) to (GOAL: {ln((1 + frac(1, n0^{2})) ^ (-frac(1, 2))) = -frac(1, 2) * ln(1 + frac(1, n0^{2}))})
+11. apply (hypothesis 11: {ln((1 + frac(1, n0^{2})) ^ (-frac(1, 2))) = -frac(1, 2) * ln(1 + frac(1, n0^{2}))})

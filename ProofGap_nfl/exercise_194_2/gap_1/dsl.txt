@@ -1,0 +1,4 @@
+get_condition (hypothesis 4: {x ≠ 0}) (hypothesis 5: {f(x) = 0}) in (GOAL: {x ≠ 0 ⇒ f(x) = 0 ⇒ sin(frac(π, x)) = 0})
+get_prop (hypothesis 3: {forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = sin(frac(π, x))}) (x := {x}) as (hypothesis 6: {x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = sin(frac(π, x))})
+use_condition (obvious: {x ∈ RealSet ∧ x ≠ 0}) in (hypothesis 6: {x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = sin(frac(π, x))}) as (hypothesis 7: {f(x) = sin(frac(π, x))})
+autosolve all_hypothesis

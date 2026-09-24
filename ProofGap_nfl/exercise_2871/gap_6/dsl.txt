@@ -1,0 +1,4 @@
+get_condition (hypothesis 9: {|x| ≤ 1}) in (GOAL: {|x| ≤ 1 ⇒ f(x) = x + (sum_{ n = 1 }^{ +∞ } ((-1)^{n} * frac(prod_{ k = 1 }^{ n } (2 * k - 1), prod_{ k = 1 }^{ n } (2 * k)) * frac(x^{2 * n + 1}, 2 * n + 1)))})
+get_prop (hypothesis 3: {forall (x), x ∈ RealSet ⇒ f(x) = ln(x + sqrtn(2, 1 + x^{2}))}) (x := {x}) as (hypothesis 10: {x ∈ RealSet ⇒ f(x) = ln(x + sqrtn(2, 1 + x^{2}))})
+use_condition (hypothesis 2: {x ∈ RealSet}) in (hypothesis 10: {x ∈ RealSet ⇒ f(x) = ln(x + sqrtn(2, 1 + x^{2}))}) as (hypothesis 11: {f(x) = ln(x + sqrtn(2, 1 + x^{2}))})
+autosolve all_hypothesis

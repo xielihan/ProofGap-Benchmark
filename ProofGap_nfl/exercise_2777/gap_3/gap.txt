@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. a : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. s : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+3. S : RealSet → RealSet
+4. k ∈ NonNegIntegerSet
+5. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ a(n, x) = frac((-1)^{n}, x + n)
+6. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ s(n, x) = sum_{ k = 1 }^{ n } (a(k, x))
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |sum_{ k = 1 }^{ n } ((-1)^{k})| ≤ 1
+8. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < +∞ ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, n + x) < frac(1, n))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 < x ∧ x < +∞ ⇒ MonoDecSeq(fun n [n ∈ NonNegIntegerSet] . frac(1, n + x))
+
+METHOD:

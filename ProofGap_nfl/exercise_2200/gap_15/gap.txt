@@ -1,0 +1,36 @@
+PROOF GAP @15
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. g : RealSet → RealSet
+5. x : NonNegIntegerSet → RealSet
+6. ω : NonNegIntegerSet → RealSet
+7. `ω_*` : NonNegIntegerSet → RealSet
+8. a < b
+9. BoundedFuncOn(f, [a, b])
+10. IntegrableFuncOn(f, [a, b])
+11. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ g(x) = |f(x)|
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(0) = a
+13. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = b
+14. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (k), k ∈ IntegerSet ∧ 0 ≤ k ∧ k < n ⇒ x(k) < x(k + 1))
+15. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i < n ⇒ (forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x''` ∈ RealSet ∧ `x'` ∈ [x(i), x(i + 1)] ∧ `x''` ∈ [x(i), x(i + 1)] ⇒ ||f(`x'`)| - |f(`x''`)|| ≤ |f(`x'`) - f(`x''`)|)))
+16. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i < n ⇒ `ω_*`(i) = OscillationOn(g, [x(i), x(i + 1)]))
+17. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i < n ⇒ ω(i) = OscillationOn(f, [x(i), x(i + 1)]))
+18. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i < n ⇒ `ω_*`(i) ≤ ω(i))
+19. forall (i), i ∈ IntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ sum_{ i = 0 }^{ n - 1 } (`ω_*`(i) * (x(i + 1) - x(i))) ≤ sum_{ i = 0 }^{ n - 1 } (ω(i) * (x(i + 1) - x(i))))
+20. forall (i), i ∈ IntegerSet ⇒ lim_{ n → +∞ } (sum_{ i = 0 }^{ n - 1 } (ω(i) * (x(i + 1) - x(i)))) = 0
+21. forall (i), i ∈ IntegerSet ⇒ lim_{ n → +∞ } (sum_{ i = 0 }^{ n - 1 } (`ω_*`(i) * (x(i + 1) - x(i)))) = 0
+22. IntegrableFuncOn(g, [a, b])
+23. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ -|f(x)| ≤ f(x)
+24. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ f(x) ≤ |f(x)|
+25. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ -|f(x)| ≤ |f(x)|
+26. -DefInt(a, b, (fun x [x ∈ RealSet] . |f(x)|) * diff(fun x [x ∈ RealSet] . x)) ≤ DefInt(a, b, (fun x [x ∈ RealSet] . f(x)) * diff(fun x [x ∈ RealSet] . x))
+27. DefInt(a, b, (fun x [x ∈ RealSet] . f(x)) * diff(fun x [x ∈ RealSet] . x)) ≤ DefInt(a, b, (fun x [x ∈ RealSet] . |f(x)|) * diff(fun x [x ∈ RealSet] . x))
+28. -DefInt(a, b, (fun x [x ∈ RealSet] . |f(x)|) * diff(fun x [x ∈ RealSet] . x)) ≤ DefInt(a, b, (fun x [x ∈ RealSet] . |f(x)|) * diff(fun x [x ∈ RealSet] . x))
+29. |DefInt(a, b, (fun x [x ∈ RealSet] . f(x)) * diff(fun x [x ∈ RealSet] . x))| ≤ DefInt(a, b, (fun x [x ∈ RealSet] . |f(x)|) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+IntegrableFuncOn(g, [a, b])
+
+METHOD:

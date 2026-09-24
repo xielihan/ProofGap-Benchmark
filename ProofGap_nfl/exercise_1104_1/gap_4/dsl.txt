@@ -1,0 +1,4 @@
+rewrite (left_to_right, equation) (hypothesis 6: {y_{0} = a ^ 2}); from (GOAL: {sqrtn(2, y_{0}) = a}) to (GOAL: {sqrtn(2, a ^ 2) = a})
+get_prop (theorem 'Thm 450. (SquareRootSquareCancellation)': {forall (u), u ∈ RealSet => u >= 0 => sqrtn(2, u)^2 = u}) (u := {a ^ 2}) as (hypothesis 11: {a ^ 2 ∈ RealSet => a ^ 2 >= 0 => sqrtn(2, a ^ 2)^2 = a ^ 2})
+use_condition (obvious: {a ^ 2 ∈ RealSet}) (obvious: {a ^ 2 >= 0}) in (hypothesis 11: {a ^ 2 ∈ RealSet => a ^ 2 >= 0 => sqrtn(2, a ^ 2)^2 = a ^ 2}) as (hypothesis 12: {sqrtn(2, a ^ 2)^2 = a ^ 2})
+autosolve all_hypothesis

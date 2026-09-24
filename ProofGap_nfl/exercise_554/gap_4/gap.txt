@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n ∈ PosIntegerSet ∧ b^{frac(1, n)} - 1 ≠ 0 ⇒ frac(a - 1 + b^{frac(1, n)}, a)^{n} = (1 + frac(1, frac(a, b^{frac(1, n)} - 1)))^{frac(a, b^{frac(1, n)} - 1) * frac(b^{frac(1, n)} - 1, frac(1, n)) * frac(1, a)}
+4. seqlim_{ n → +∞ } (frac(b^{frac(1, n)} - 1, frac(1, n))) = ln(b)
+5. seqlim_{ n → +∞ } (frac(a - 1 + b^{frac(1, n)}, a)^{n}) = e^{frac(1, a) * ln(b)}
+
+GOAL:
+e^{frac(1, a) * ln(b)} = b^{frac(1, a)}
+
+METHOD:

@@ -1,0 +1,16 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. y : RealSet → RealSet
+3. s ∈ RealSet
+4. M_{1} ∈ RealSet
+5. M_{2} ∈ RealSet
+6. forall (x), x ∈ RealSet ∧ -a < x ∧ x < a ⇒ y(x) = sqrtn(2, a^{2} - x^{2})
+7. forall (x), x ∈ RealSet ∧ -a < x ∧ x < a ⇒ x^{2} + y(x)^{2} = a^{2}
+8. forall (x), x ∈ RealSet ∧ -a < x ∧ x < a ⇒ diff(s) = sqrtn(2, 1 + FunDeri(y, 1, 1)(x)^{2}) * diff(x)
+9. forall (x), x ∈ RealSet ∧ -a < x ∧ x < a ⇒ sqrtn(2, 1 + FunDeri(y, 1, 1)(x)^{2}) * diff(x) = frac(a, y(x)) * diff(x)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ -a < x ∧ x < a ⇒ frac(a, y(x)) * diff(x) = frac(a, sqrtn(2, a^{2} - x^{2})) * diff(x)
+
+METHOD:

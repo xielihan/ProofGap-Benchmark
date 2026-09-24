@@ -1,0 +1,17 @@
+PROOF GAP @6
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. F : RealSet → RealSet
+4. forall (t), t ∈ RealSet ⇒ x(t) = arctan(t)
+5. forall (t), t ∈ RealSet ⇒ y(t) = π / 2 - x(t)
+6. forall (t), t ∈ RealSet ⇒ -frac(π, 2) < x(t)
+7. forall (t), t ∈ RealSet ⇒ x(t) < frac(π, 2)
+8. forall (t), t ∈ RealSet ⇒ 0 < y(t)
+9. forall (t), t ∈ RealSet ⇒ y(t) < π
+10. forall (t), t ∈ RealSet ⇒ tan(x(t)) = t
+
+GOAL:
+forall (t), t ∈ RealSet ⇒ cot(y(t)) = t
+
+METHOD:

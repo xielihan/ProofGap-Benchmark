@@ -1,0 +1,9 @@
+1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ x(n + 1) - x(n) = frac(x(n - 1) - x(n), 2)}) (n := {k})
+2. get_condition (hypothesis 8: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2}) in (GOAL: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2 ⇒ x(k + 1) - x(k) = frac(x(k - 1) - x(k), 2)})
+3. get_prop (hypothesis 7: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 3 ⇒ x(n) = frac(x(n - 1) + x(n - 2), 2)}) (n := {k + 1}) as (hypothesis 9: {k + 1 ∈ NonNegIntegerSet ∧ k + 1 ∈ PosIntegerSet ∧ k + 1 ≥ 3 ⇒ x(k + 1) = frac(x(k + 1 - 1) + x(k + 1 - 2), 2)})
+4. destruct_and (hypothesis 8: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2}) as (hypothesis 10: {k ∈ NonNegIntegerSet}) (hypothesis 11: {k ∈ PosIntegerSet}) (hypothesis 12: {k ≥ 2})
+5. assert (hypothesis 13: {k + 1 ∈ NonNegIntegerSet})
+6. assert (hypothesis 14: {k + 1 ∈ PosIntegerSet})
+7. assert (hypothesis 15: {k + 1 ≥ 3})
+8. use_condition (obvious: {k + 1 ∈ NonNegIntegerSet ∧ k + 1 ∈ PosIntegerSet ∧ k + 1 ≥ 3}) in (hypothesis 9: {k + 1 ∈ NonNegIntegerSet ∧ k + 1 ∈ PosIntegerSet ∧ k + 1 ≥ 3 ⇒ x(k + 1) = frac(x(k + 1 - 1) + x(k + 1 - 2), 2)}) as (hypothesis 16: {x(k + 1) = frac(x(k + 1 - 1) + x(k + 1 - 2), 2)})
+9. autosolve all_hypothesis

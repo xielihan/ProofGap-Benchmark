@@ -1,0 +1,3 @@
+get_prop (hypothesis 15: {forall (x), x ∈ RealSet ∧ x = b ⇒ A * (b - a) * (b - c) = k_{2}}) (x := {b}) as (hypothesis 17: {b ∈ RealSet ∧ b = b ⇒ A * (b - a) * (b - c) = k_{2}})
+use_condition (obvious: {b ∈ RealSet ∧ b = b}) in (hypothesis 17: {b ∈ RealSet ∧ b = b ⇒ A * (b - a) * (b - c) = k_{2}}) as (hypothesis 18: {A * (b - a) * (b - c) = k_{2}})
+apply (hypothesis 18: {A * (b - a) * (b - c) = k_{2}})

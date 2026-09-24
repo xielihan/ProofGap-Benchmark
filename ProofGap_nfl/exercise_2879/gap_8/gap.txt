@@ -1,0 +1,17 @@
+PROOF GAP @8
+ASSUM:
+1. f : RealSet → RealSet
+2. k ∈ NonNegIntegerSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = sum_{ k = 0 }^{ +∞ } (frac(x^{k}, k!))
+4. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ AbsoluteConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac(x^{n}, n!))))
+5. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ AbsoluteConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac(y^{n}, n!))))
+6. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x) * f(y) = (sum_{ n_{1} = 0 }^{ +∞ } (frac(x^{n_{1}}, n_{1}!))) * (sum_{ n_{2} = 0 }^{ +∞ } (frac(y^{n_{2}}, n_{2}!))))
+7. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x) * f(y) = sum_{ n_{1} = 0 }^{ +∞ } (sum_{ n_{2} = 0 }^{ +∞ } (frac(1, n_{1}! * n_{2}!) * x^{n_{1}} * y^{n_{2}})))
+8. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x) * f(y) = sum_{ n = 0 }^{ +∞ } (sum_{ n_{1} = 0 }^{ n } (frac(1, n_{1}! * (n - n_{1})!) * x^{n_{1}} * y^{n - n_{1}})))
+9. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x) * f(y) = sum_{ n = 0 }^{ +∞ } (frac(1, n!) * (sum_{ n_{1} = 0 }^{ n } (Combination(n, n_{1}) * x^{n_{1}} * y^{n - n_{1}}))))
+10. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ sum_{ n_{1} = 0 }^{ n } (Combination(n, n_{1}) * x^{n_{1}} * y^{n - n_{1}}) = (x + y)^{n}))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x) * f(y) = sum_{ n = 0 }^{ +∞ } (frac((x + y)^{n}, n!)))
+
+METHOD:

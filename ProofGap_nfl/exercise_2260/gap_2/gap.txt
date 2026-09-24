@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (t), t : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [frac(1, 2), 2] ∧ t(x) = x + frac(1, x) ⇒ t(x)^{2} - 4 = (x - frac(1, x))^{2})
+
+GOAL:
+forall (t), t : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [frac(1, 2), 2] ∧ t(x) = x + frac(1, x) ⇒ x = frac(1, 2) * (t(x) + sqrtn(2, t(x)^{2} - 4)) ∨ x = frac(1, 2) * (t(x) - sqrtn(2, t(x)^{2} - 4)))
+
+METHOD:

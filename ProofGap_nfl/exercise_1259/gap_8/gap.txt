@@ -1,0 +1,24 @@
+PROOF GAP @8
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. x_{0} ∈ RealSet ∧ a < x_{0} ∧ x_{0} < b
+5. a < b
+6. Dom(f) = (a, b)
+7. DiffableFuncOn(f, IntervalLoRo(a, b))
+8. forall (x), x ∈ RealSet ∧ a < x ∧ x < b ⇒ FunDeri(f, 1, 1)(x) = 0
+9. x_{0} = x_{0}
+10. a < x_{0}
+11. x_{0} < b
+12. forall (x), x ∈ RealSet ∧ a < x ∧ x < b ⇒ (exists (c), c ∈ RealSet ∧ a < c ∧ c < b ∧ f(x) - f(x_{0}) = FunDeri(f, 1, 1)(c) * (x - x_{0}))
+13. forall (x), x ∈ RealSet ∧ a < x ∧ x < b ⇒ (exists (c), c ∈ RealSet ∧ a < c ∧ c < b ∧ FunDeri(f, 1, 1)(c) = 0)
+14. forall (x), x ∈ RealSet ∧ a < x ∧ x < b ⇒ f(x) - f(x_{0}) = 0
+15. forall (x), x ∈ RealSet ∧ a < x ∧ x < b ⇒ f(x) = f(x_{0})
+16. C = f(x_{0})
+17. forall (x), x ∈ RealSet ∧ a < x ∧ x < b ⇒ f(x) = C
+
+GOAL:
+exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ a < x ∧ x < b ⇒ f(x) = C)
+
+METHOD:

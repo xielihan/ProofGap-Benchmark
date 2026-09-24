@@ -1,0 +1,3 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ≠ -frac(d, c) ⇒ frac(a * (c * x + d) - c * (a * x + b), (c * x + d)^{2}) = frac(a * d - b * c, (c * x + d)^{2})}) (x := {x0})
+get_condition (hypothesis 11: {x0 ∈ RealSet ∧ x0 ≠ -frac(d, c)}) in (GOAL: {x0 ∈ RealSet ∧ x0 ≠ -frac(d, c) ⇒ frac(a * (c * x0 + d) - c * (a * x0 + b), (c * x0 + d)^{2}) = frac(a * d - b * c, (c * x0 + d)^{2})})
+autosolve all_hypothesis

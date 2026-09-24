@@ -1,0 +1,10 @@
+1. assert (hypothesis 2: {forall (t), t ∈ RealSet ⇒ t ≠ a ⇒ frac(cos(t) - cos(a), t - a) = frac(-sin(frac(t - a, 2)), frac(t - a, 2)) * sin(frac(t + a, 2))}) by proof {
+  1. get_forall (GOAL: {forall (t), t ∈ RealSet ⇒ t ≠ a ⇒ frac(cos(t) - cos(a), t - a) = frac(-sin(frac(t - a, 2)), frac(t - a, 2)) * sin(frac(t + a, 2))}) (t := {t0})
+  2. get_condition (hypothesis 2: {t0 ∈ RealSet}) (hypothesis 3: {t0 ≠ a}) in (GOAL: {t0 ∈ RealSet ⇒ t0 ≠ a ⇒ frac(cos(t0) - cos(a), t0 - a) = frac(-sin(frac(t0 - a, 2)), frac(t0 - a, 2)) * sin(frac(t0 + a, 2))})
+  3. get_prop (theorem 'Thm 200. (SumToProductCosineDifference)': {forall (x) (y), x ∈ RealSet => y ∈ RealSet => cos(x) - cos(y) = -2 * sin ((x + y) / 2) * sin ((x - y) / 2)}) (x := {t0}) (y := {a}) as (hypothesis 4: {t0 ∈ RealSet ⇒ a ∈ RealSet ⇒ cos(t0) - cos(a) = -2 * sin((t0 + a) / 2) * sin((t0 - a) / 2)})
+  4. use_condition (hypothesis 2: {t0 ∈ RealSet}) (hypothesis 1: {a ∈ RealSet}) in (hypothesis 4: {t0 ∈ RealSet ⇒ a ∈ RealSet ⇒ cos(t0) - cos(a) = -2 * sin((t0 + a) / 2) * sin((t0 - a) / 2)}) as (hypothesis 5: {cos(t0) - cos(a) = -2 * sin((t0 + a) / 2) * sin((t0 - a) / 2)})
+  5. rewrite (left_to_right, equation) (hypothesis 5: {cos(t0) - cos(a) = -2 * sin((t0 + a) / 2) * sin((t0 - a) / 2)}); from (GOAL: {frac(cos(t0) - cos(a), t0 - a) = frac(-sin(frac(t0 - a, 2)), frac(t0 - a, 2)) * sin(frac(t0 + a, 2))}) to (GOAL: {frac(-2 * sin(frac(t0 + a, 2)) * sin(frac(t0 - a, 2)), t0 - a) = frac(-sin(frac(t0 - a, 2)), frac(t0 - a, 2)) * sin(frac(t0 + a, 2))})
+  6. autosolve all_hypothesis
+}
+2. rewrite_in limit (left_to_right, equation) (hypothesis 2: {forall (t), t ∈ RealSet ⇒ t ≠ a ⇒ frac(cos(t) - cos(a), t - a) = frac(-sin(frac(t - a, 2)), frac(t - a, 2)) * sin(frac(t + a, 2))}); from (GOAL: {lim_{ x → a } (frac(cos(x) - cos(a), x - a)) = lim_{ x → a } (frac(-sin(frac(x - a, 2)), frac(x - a, 2)) * sin(frac(x + a, 2)))}) to (GOAL: {lim_{ x → a } (frac(-sin(frac(x - a, 2)), frac(x - a, 2)) * sin(frac(x + a, 2))) = lim_{ x → a } (frac(-sin(frac(x - a, 2)), frac(x - a, 2)) * sin(frac(x + a, 2)))})
+3. autosolve all_hypothesis

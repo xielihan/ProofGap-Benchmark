@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ∈ RealSet
+2. forall (x), x ∈ RealSet ⇒ 9 + 2 * x ≥ 0
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ x ≠ 8
+
+METHOD:

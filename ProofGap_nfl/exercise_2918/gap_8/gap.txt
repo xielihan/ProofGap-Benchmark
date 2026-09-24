@@ -1,0 +1,17 @@
+PROOF GAP @8
+ASSUM:
+1. z ∈ ComplexSet
+2. c : NonNegIntegerSet → ComplexSet
+3. forall (k), k ∈ NonNegIntegerSet ∧ k > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n ∈ PosIntegerSet ⇒ c(n) = frac(n!, prod_{ k = 1 }^{ n } (1 + k * __IMAGINARY_UNIT__)))
+4. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n ∈ PosIntegerSet ⇒ frac(c(n), c(n + 1)) = frac(1 + (n + 1) * __IMAGINARY_UNIT__, n + 1)
+5. seqlim_{ n → +∞ } (|frac(c(n), c(n + 1))|) = seqlim_{ n → +∞ } (frac(sqrtn(2, 1 + (n + 1)^{2}), n + 1))
+6. seqlim_{ n → +∞ } (frac(sqrtn(2, 1 + (n + 1)^{2}), n + 1)) = 1
+7. seqlim_{ n → +∞ } (|frac(c(n), c(n + 1))|) = 1
+8. RadiusOfConvergence(c) = 1
+9. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n) * z^{n})) ⇔ |z| < 1
+10. forall (x), x ∈ RealSet ⇒ (forall (y), z = x + y * __IMAGINARY_UNIT__ ∧ x ∈ RealSet ∧ y ∈ RealSet ⇒ (|z| < 1 ⇔ x^{2} + y^{2} < 1))
+
+GOAL:
+|z| < 1 ⇔ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n) * z^{n}))
+
+METHOD:

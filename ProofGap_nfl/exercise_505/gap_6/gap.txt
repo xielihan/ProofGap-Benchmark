@@ -1,0 +1,12 @@
+PROOF GAP @6
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ sin(sqrtn(2, x + 1)) - sin(sqrtn(2, x)) = 2 * sin(frac(sqrtn(2, x + 1) - sqrtn(2, x), 2)) * cos(frac(sqrtn(2, x + 1) + sqrtn(2, x), 2))
+2. lim_{ x → +∞ } (sqrtn(2, x + 1) - sqrtn(2, x)) = lim_{ x → +∞ } (frac(1, sqrtn(2, x + 1) + sqrtn(2, x)))
+3. lim_{ x → +∞ } (frac(1, sqrtn(2, x + 1) + sqrtn(2, x))) = 0
+4. lim_{ x → +∞ } (sqrtn(2, x + 1) - sqrtn(2, x)) = 0
+5. lim_{ x → +∞ } (sin(frac(sqrtn(2, x + 1) - sqrtn(2, x), 2))) = 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ |cos(frac(sqrtn(2, x + 1) + sqrtn(2, x), 2))| ≤ 1
+
+METHOD:

@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ frac(arctan(x), x) = DefInt(0, 1, (fun y [y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1] . frac(1, 1 + x^{2} * y^{2})) * diff(fun y [y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1] . y))
+2. DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . frac(arctan(x), x) * frac(1, sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . frac(1, sqrtn(2, 1 - x^{2})) * DefInt(0, 1, (fun y [y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1] . frac(1, 1 + x^{2} * y^{2})) * diff(fun y [y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1] . y))) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x))
+3. ContinuousFuncOn(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, 1 + x^{2} * y^{2}), CartesianProd([0, 1], [0, 1]))
+
+GOAL:
+IntegrableFuncOn(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x < 1] . frac(1, sqrtn(2, 1 - x^{2})), [0, 1])
+
+METHOD:

@@ -1,0 +1,12 @@
+PROOF GAP @6
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ tan(x) > 0 ∧ cos(2 * x) ≠ 0 ∧ x ≠ frac(π, 4) ⇒ lim_{ x → frac(π, 4) } (tan(2 * x) * ln(tan(x))) = lim_{ x → frac(π, 4) } (frac(ln(tan(x)), cot(2 * x)))
+2. lim_{ x → frac(π, 4) } (frac(ln(tan(x)), cot(2 * x))) = lim_{ x → frac(π, 4) } (frac(frac(sec(x)^{2}, tan(x)), -2 * csc(2 * x)^{2}))
+3. lim_{ x → frac(π, 4) } (frac(frac(sec(x)^{2}, tan(x)), -2 * csc(2 * x)^{2})) = -(lim_{ x → frac(π, 4) } (sin(2 * x)))
+4. -(lim_{ x → frac(π, 4) } (sin(2 * x))) = -1
+5. lim_{ x → frac(π, 4) } (tan(2 * x) * ln(tan(x))) = -1
+
+GOAL:
+lim_{ x → frac(π, 4) } (tan(x)^{tan(2 * x)}) = e^{-1}
+
+METHOD:

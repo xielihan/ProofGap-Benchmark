@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = ln(frac(1, 2 + 2 * x + x^{2}))
+4. 2 + 2 * x + x^{2} = 1 + (x + 1)^{2}
+5. f(x) = -ln(1 + (x + 1)^{2})
+
+GOAL:
+|x + 1| ≤ 1 ⇒ -ln(1 + (x + 1)^{2}) = -(sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(1, n) * (x + 1)^{2 * n}))
+
+METHOD:

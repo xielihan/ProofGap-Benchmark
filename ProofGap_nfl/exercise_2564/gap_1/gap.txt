@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, sqrtn(2, (2 * n - 1) * (2 * n + 1))) > frac(1, 2 * n) ∧ frac(1, 2 * n) > 0
+
+METHOD:

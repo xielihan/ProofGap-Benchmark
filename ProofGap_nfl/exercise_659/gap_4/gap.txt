@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ IntervalLoRo(0, +∞) ⇒ f(n, x) = x^{n}
+3. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ x ∈ IntervalLoRo(0, +∞) ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ frac(f(n, x), f(n - 1, x)) = frac(x^{n}, x^{n - 1})
+4. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ x ∈ IntervalLoRo(0, +∞) ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ frac(x^{n}, x^{n - 1}) = x
+5. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ x ∈ IntervalLoRo(0, +∞) ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ frac(f(n, x), f(n - 1, x)) = x
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ lim_{ x → +∞ } (frac(f(n, x), f(n - 1, x))) = lim_{ x → +∞ } (x)
+
+METHOD:

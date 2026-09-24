@@ -1,0 +1,24 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. a_{1} ∈ RealSet
+4. b_{1} ∈ RealSet
+5. c_{1} ∈ RealSet
+6. A ∈ RealSet
+7. B ∈ RealSet
+8. C ∈ RealSet
+9. a^{2} + b^{2} ≠ 0
+10. forall (x), x ∈ RealSet ⇒ a * sin(x) + b * cos(x) ≠ 0
+11. A = frac(b * c_{1} - a_{1} * b + 2 * a * b_{1}, a^{2} + b^{2})
+12. B = frac(a * c_{1} - a * a_{1} - 2 * b * b_{1}, a^{2} + b^{2})
+13. C = frac(a_{1} * b^{2} + a^{2} * c_{1} - 2 * a * b * b_{1}, a^{2} + b^{2})
+14. forall (x), x ∈ RealSet ⇒ a_{1} * sin(x)^{2} + 2 * b_{1} * sin(x) * cos(x) + c_{1} * cos(x)^{2} = A * cos(x) * (a * sin(x) + b * cos(x)) - B * sin(x) * (a * sin(x) + b * cos(x)) + C
+15. a * A - b * B = 2 * b_{1}
+16. C - a * B = a_{1}
+17. C + b * A = c_{1}
+
+GOAL:
+A = frac(b * c_{1} - a_{1} * b + 2 * a * b_{1}, a^{2} + b^{2})
+
+METHOD:

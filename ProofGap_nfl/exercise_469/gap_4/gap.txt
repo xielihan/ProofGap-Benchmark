@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ lim_{ x → +∞ } (frac(x^{2} + 1, x + 1) - a * x - b) = 0
+4. forall (x), x ∈ RealSet ∧ x ≠ -1 ⇒ frac(x^{2} + 1, x + 1) - a * x - b = frac((1 - a) * x^{2} - (a + b) * x + 1 - b, x + 1)
+5. forall (x), x ∈ RealSet ⇒ lim_{ x → +∞ } (frac((1 - a) * x^{2} - (a + b) * x + 1 - b, x + 1)) = 0
+6. 1 - a = 0
+
+GOAL:
+a + b = 0
+
+METHOD:

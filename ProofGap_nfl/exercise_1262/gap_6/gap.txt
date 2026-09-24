@@ -1,0 +1,18 @@
+PROOF GAP @6
+ASSUM:
+1. y : RealSet → RealSet
+2. λ ∈ RealSet
+3. Dom(y) = RealSet
+4. DiffableFuncOn(y, RealSet)
+5. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = λ * y(x)
+6. g = (fun x [x ∈ RealSet] . y(x) * e^{-λ * x})
+7. forall (x), x ∈ RealSet ⇒ FunDeri(g, 1, 1)(x) = FunDeri(y, 1, 1)(x) * e^{-λ * x} - λ * y(x) * e^{-λ * x}
+8. forall (x), x ∈ RealSet ⇒ FunDeri(g, 1, 1)(x) = λ * y(x) * e^{-λ * x} - λ * y(x) * e^{-λ * x} ∧ λ * y(x) * e^{-λ * x} - λ * y(x) * e^{-λ * x} = 0
+9. exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ g(x) = C)
+10. exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ y(x) * e^{-λ * x} = C)
+11. exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ y(x) = C * e^{λ * x})
+
+GOAL:
+exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ y(x) = C * e^{λ * x})
+
+METHOD:

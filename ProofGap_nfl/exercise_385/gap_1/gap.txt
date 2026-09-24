@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. ε ∈ RealSet ∧ ε > 0
+3. forall (x), x ∈ RealSet ∧ x > 0 ⇒ f(x) = log(e, x) * sin(frac(π, x))^{2}
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ∧ x < ε ⇒ f(x) < |log(e, ε)|
+
+METHOD:

@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. x_{0} ∈ RealSet
+2. g : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+3. forall (n), n ∈ PosIntegerSet ⇒ g(n) : IntervalLoRo(x_{0}, +∞) → RealSet
+4. N = floor(x_{0}) + 1
+5. f = (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(x_{0}, +∞)] . cases{ floor(x) * ((sum_{ k = 1 }^{ floor(x) } (|g(k, x)|)) + 1) if x ≥ N; 0 if x_{0} < x ∧ x < N })
+GOAL:
+f : IntervalLoRo(x_{0}, +∞) → RealSet
+
+METHOD:

@@ -1,0 +1,7 @@
+1. assert (hypothesis 19: {FunDeri(f, 1, 1)(1, 1, 1) = 1}) by proof {
+  1. autosolve all_hypothesis
+}
+2. assert (hypothesis 20: {FunDeri(f, 2, 1)(1, 1, 1) = 2}) by proof {
+  1. autosolve all_hypothesis
+}
+3. autosolve all_hypothesis

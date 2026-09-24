@@ -1,0 +1,24 @@
+PROOF GAP @1
+ASSUM:
+1. φ : RealSet → RealSet
+2. f : RealSet → RealSet
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. A ∈ RealSet
+6. B ∈ RealSet
+7. g : RealSet → RealSet
+8. x : NonNegIntegerSet → RealSet
+9. Ω ∈ RealSet
+10. ω ∈ RealSet
+11. A < B
+12. a < b
+13. Defined(φ, [A, B])
+14. ContinuousFuncOn(φ, [A, B])
+15. IntegrableFuncOn(f, [a, b])
+16. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ A ≤ f(x) ∧ f(x) ≤ B
+17. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ g(x) = φ(f(x))
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ UniformContinuousFuncOn(φ, [A, B])
+
+METHOD:

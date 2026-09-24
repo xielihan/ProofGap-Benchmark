@@ -1,0 +1,16 @@
+PROOF GAP @8
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ f(n, x) = frac(1, n) * arctan(x^{n}))
+3. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ |arctan(x^{n})| < frac(π, 2))
+4. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ |f(n, x)| < frac(π, 2 * n))
+5. forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (f(n, x)) = 0
+6. forall (N), N : RealSet → NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ N(ε) = floor(frac(π, 2 * ε)) ∧ n > N(ε) ∧ x ∈ RealSet ⇒ |f(n, x) - 0| < frac(π, 2 * n))))
+7. forall (N), N : RealSet → NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ N(ε) = floor(frac(π, 2 * ε)) ∧ n > N(ε) ∧ x ∈ RealSet ⇒ frac(π, 2 * n) ≤ frac(π, 2 * (N(ε) + 1)))))
+8. forall (N), N : RealSet → NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ N(ε) = floor(frac(π, 2 * ε)) ∧ n > N(ε) ∧ x ∈ RealSet ⇒ frac(π, 2 * (N(ε) + 1)) < ε)))
+9. forall (N), N : RealSet → NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ N(ε) = floor(frac(π, 2 * ε)) ∧ n > N(ε) ∧ x ∈ RealSet ⇒ |f(n, x) - 0| < ε)))
+
+GOAL:
+UniformConvergent(f, IntervalLoRo(-∞, +∞), fun x [x ∈ RealSet] . 0)
+
+METHOD:

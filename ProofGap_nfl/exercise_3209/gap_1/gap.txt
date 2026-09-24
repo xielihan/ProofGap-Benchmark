@@ -1,0 +1,21 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. A ∈ RealSet
+3. b ∈ RealSet
+4. B ∈ RealSet
+5. f : CartesianProd(RealSet, RealSet) → RealSet
+6. φ : RealSet → RealSet
+7. F : RealSet → RealSet
+8. a < A
+9. b < B
+10. ContinuousFuncOn(f, CartesianProd(IntervalLoRo(a, A), IntervalLoRo(b, B)))
+11. ContinuousFuncOn(φ, IntervalLoRo(a, A))
+12. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, A) ⇒ φ(x) ∈ IntervalLoRo(b, B)
+13. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, A) ⇒ F(x) = f(x, φ(x))
+14. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, A) ⇒ (exists (y_{0}), y_{0} ∈ RealSet ∧ y_{0} = φ(x_{0}))
+
+GOAL:
+forall (x_{0}) (y_{0}), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, A) ∧ y_{0} = φ(x_{0}) ⇒ (x_{0}, y_{0}) ∈ CartesianProd(IntervalLoRo(a, A), IntervalLoRo(b, B))
+
+METHOD:

@@ -1,0 +1,18 @@
+PROOF GAP @11
+ASSUM:
+1. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (k), k ∈ IntegerSet ∧ 1 ≤ k ∧ k ≤ n - 1 ⇒ sqrtn(2, k * (n - k)) ≤ frac(n, 2))
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (k), k ∈ IntegerSet ∧ 1 ≤ k ∧ k ≤ n - 1 ⇒ frac(1, 2) * (ln(k) + ln(n - k)) ≤ ln(frac(n, 2)))
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ sum_{ k = 1 }^{ n - 1 } (ln(k)) ≤ (n - 1) * ln(frac(n, 2))
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (n - 1)! ≤ frac(n, 2)^{n - 1}
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, 2) * n! ≤ frac(n, 2)^{n}
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ n! ≤ 2 * frac(n, 2)^{n}
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 2 * frac(n, 2)^{n} < e * frac(n, 2)^{n}
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ n! < e * frac(n, 2)^{n}
+9. x = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(n, e)^{n})
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = frac(n, e)^{n}
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ frac(x(n), x(n - 1)) = frac(n^{n}, (n - 1)^{n - 1} * e) ∧ frac(n^{n}, (n - 1)^{n - 1} * e) = frac((1 + frac(1, n - 1))^{n - 1} * n, e) ∧ frac((1 + frac(1, n - 1))^{n - 1} * n, e) < n
+
+GOAL:
+x(1) = frac(1, e)
+
+METHOD:

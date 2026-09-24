@@ -1,0 +1,19 @@
+assert (obvious: {(fun b [b ∈ RealSet] . DefInt(0, +∞, e^{-a * x^{2}} * cos(b * x) * diff(x))) : RealSet -> RealSet}) by proof {
+    rewrite (right_to_left, equation) (hypothesis 4: {I = (fun b [b ∈ RealSet] . DefInt(0, +∞, e^{-a * x^{2}} * cos(b * x) * diff(x)))}) from (GOAL: {(fun b [b ∈ RealSet] . DefInt(0, +∞, e^{-a * x^{2}} * cos(b * x) * diff(x))) : RealSet -> RealSet}) to (GOAL: {I : RealSet -> RealSet})
+    apply (hypothesis 3: {I : RealSet -> RealSet})
+}
+assert (obvious: {forall (z), z ∈ RealSet => I(z) = DefInt(0, +∞, e^{-a * x^{2}} * cos(z * x) * diff(x))}) by proof {
+    get_prop (theorem 'Thm 78': {forall (A) (B) (f) (g), f : A -> B => g : A -> B => (f = g) => (forall (x), (x ∈ A) => (f(x)=g(x)))}) ((A) := {RealSet}) ((B) := {RealSet}) ((f) := {I}) ((g) := {fun b [b ∈ RealSet] . DefInt(0, +∞, e^{-a * x^{2}} * cos(b * x) * diff(x))}) as (hypothesis 20: {I : RealSet -> RealSet => (fun b [b ∈ RealSet] . DefInt(0, +∞, e^{-a * x^{2}} * cos(b * x) * diff(x))) : RealSet -> RealSet => I = (fun b [b ∈ RealSet] . DefInt(0, +∞, e^{-a * x^{2}} * cos(b * x) * diff(x))) => forall (z), z ∈ RealSet => I(z) = DefInt(0, +∞, e^{-a * x^{2}} * cos(z * x) * diff(x))})
+    use_condition (hypothesis 3: {I : RealSet -> RealSet}) (hypothesis 19: {(fun b [b ∈ RealSet] . DefInt(0, +∞, e^{-a * x^{2}} * cos(b * x) * diff(x))) : RealSet -> RealSet}) (hypothesis 4: {I = (fun b [b ∈ RealSet] . DefInt(0, +∞, e^{-a * x^{2}} * cos(b * x) * diff(x)))}) in (hypothesis 20: {I : RealSet -> RealSet => (fun b [b ∈ RealSet] . DefInt(0, +∞, e^{-a * x^{2}} * cos(b * x) * diff(x))) : RealSet -> RealSet => I = (fun b [b ∈ RealSet] . DefInt(0, +∞, e^{-a * x^{2}} * cos(b * x) * diff(x))) => forall (z), z ∈ RealSet => I(z) = DefInt(0, +∞, e^{-a * x^{2}} * cos(z * x) * diff(x))}) as (hypothesis 21: {forall (z), z ∈ RealSet => I(z) = DefInt(0, +∞, e^{-a * x^{2}} * cos(z * x) * diff(x))})
+    apply (hypothesis 21: {forall (z), z ∈ RealSet => I(z) = DefInt(0, +∞, e^{-a * x^{2}} * cos(z * x) * diff(x))})
+}
+get_prop (hypothesis 20: {forall (z), z ∈ RealSet => I(z) = DefInt(0, +∞, e^{-a * x^{2}} * cos(z * x) * diff(x))}) ((z) := {0}) as (hypothesis 21: {0 ∈ RealSet => I(0) = DefInt(0, +∞, e^{-a * x^{2}} * cos(0 * x) * diff(x))})
+use_condition (obvious: {0 ∈ RealSet}) in (hypothesis 21: {0 ∈ RealSet => I(0) = DefInt(0, +∞, e^{-a * x^{2}} * cos(0 * x) * diff(x))}) as (hypothesis 22: {I(0) = DefInt(0, +∞, e^{-a * x^{2}} * cos(0 * x) * diff(x))})
+autoreplace no_hypothesis; from (0 * x) to (0); from (hypothesis 22: {I(0) = DefInt(0, +∞, e^{-a * x^{2}} * cos(0 * x) * diff(x))}) to (hypothesis 23: {I(0) = DefInt(0, +∞, e^{-a * x^{2}} * cos(0) * diff(x))})
+get_prop (theorem 'Thm 368': {forall (n), n ∈ IntegerSet => cos(n * π) = (-1) ^ n}) ((n) := {0}) as (hypothesis 24: {0 ∈ IntegerSet => cos(0 * π) = (-1) ^ 0})
+use_condition (obvious: {0 ∈ IntegerSet}) in (hypothesis 24: {0 ∈ IntegerSet => cos(0 * π) = (-1) ^ 0}) as (hypothesis 25: {cos(0 * π) = (-1) ^ 0})
+autoreplace no_hypothesis; from (0 * π) to (0); from (hypothesis 25: {cos(0 * π) = (-1) ^ 0}) to (hypothesis 26: {cos(0) = (-1) ^ 0})
+autoreplace no_hypothesis; from ((-1) ^ 0) to (1); from (hypothesis 26: {cos(0) = (-1) ^ 0}) to (hypothesis 27: {cos(0) = 1})
+rewrite (left_to_right, equation) (hypothesis 27: {cos(0) = 1}) from (hypothesis 23: {I(0) = DefInt(0, +∞, e^{-a * x^{2}} * cos(0) * diff(x))}) to (hypothesis 28: {I(0) = DefInt(0, +∞, e^{-a * x^{2}} * 1 * diff(x))})
+autoreplace no_hypothesis; from (e^{-a * x^{2}} * 1) to (e^{-a * x^{2}}); from (hypothesis 28: {I(0) = DefInt(0, +∞, e^{-a * x^{2}} * 1 * diff(x))}) to (hypothesis 29: {I(0) = DefInt(0, +∞, e^{-a * x^{2}} * diff(x))})
+apply (hypothesis 29: {I(0) = DefInt(0, +∞, e^{-a * x^{2}} * diff(x))})

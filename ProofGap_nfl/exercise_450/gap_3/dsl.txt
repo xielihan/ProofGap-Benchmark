@@ -1,0 +1,3 @@
+1. rewrite (left_to_right, equation) (hypothesis 1: {A = 1 + frac(x, 3)}); from (GOAL: {A^{4} - B^{3} = x * (frac(7, 12) + frac(23 * x, 48) + frac(229 * x^{2}, 1728) + frac(x^{3}, 81))}) to (GOAL: {(1 + frac(x, 3))^{4} - B^{3} = x * (frac(7, 12) + frac(23 * x, 48) + frac(229 * x^{2}, 1728) + frac(x^{3}, 81))})
+2. rewrite (left_to_right, equation) (hypothesis 2: {B = 1 + frac(x, 4)}); from (GOAL: {(1 + frac(x, 3))^{4} - B^{3} = x * (frac(7, 12) + frac(23 * x, 48) + frac(229 * x^{2}, 1728) + frac(x^{3}, 81))}) to (GOAL: {(1 + frac(x, 3))^{4} - (1 + frac(x, 4))^{3} = x * (frac(7, 12) + frac(23 * x, 48) + frac(229 * x^{2}, 1728) + frac(x^{3}, 81))})
+3. autosolve all_hypothesis

@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 2)(x, y) = 4 * e^{2 * x + 3 * y} * (8 * x^{2} - 6 * x * y + 3 * y^{2} + 16 * x - 6 * y + 4)}) (x := {x0})
+get_forall (GOAL: {forall (y), x0 ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 2)(x0, y) = 4 * e^{2 * x0 + 3 * y} * (8 * x0^{2} - 6 * x0 * y + 3 * y^{2} + 16 * x0 - 6 * y + 4)}) (y := {y0})
+get_condition (hypothesis 6: {x0 ∈ RealSet ∧ y0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ∧ y0 ∈ RealSet ⇒ FunDeri(z, 1, 2)(x0, y0) = 4 * e^{2 * x0 + 3 * y0} * (8 * x0^{2} - 6 * x0 * y0 + 3 * y0^{2} + 16 * x0 - 6 * y0 + 4)})
+get_prop (hypothesis 2: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = e^{2 * x + 3 * y} * (8 * x^{2} - 6 * x * y + 3 * y^{2})}) (x := {x0}) (y := {y0}) as (hypothesis 7: {x0 ∈ RealSet ∧ y0 ∈ RealSet ⇒ z(x0, y0) = e^{2 * x0 + 3 * y0} * (8 * x0^{2} - 6 * x0 * y0 + 3 * y0^{2})})
+use_condition (hypothesis 6: {x0 ∈ RealSet ∧ y0 ∈ RealSet}) in (hypothesis 7: {x0 ∈ RealSet ∧ y0 ∈ RealSet ⇒ z(x0, y0) = e^{2 * x0 + 3 * y0} * (8 * x0^{2} - 6 * x0 * y0 + 3 * y0^{2})}) as (hypothesis 8: {z(x0, y0) = e^{2 * x0 + 3 * y0} * (8 * x0^{2} - 6 * x0 * y0 + 3 * y0^{2})})
+autosolve all_hypothesis

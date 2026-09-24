@@ -1,0 +1,15 @@
+PROOF GAP @7
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = frac(10, 1 + sin(x)^{2})
+3. forall (x), x ∈ RealSet ∧ (exists (k), k ∈ IntegerSet ∧ x = k * π) ⇒ sin(x) = 0
+4. forall (x), x ∈ RealSet ∧ (exists (k), k ∈ IntegerSet ∧ x = k * π) ⇒ y(x) = 10
+5. forall (x), x ∈ RealSet ∧ (exists (k), k ∈ IntegerSet ∧ x = (k + frac(1, 2)) * π) ⇒ |sin(x)| = 1
+6. forall (x), x ∈ RealSet ∧ (exists (k), k ∈ IntegerSet ∧ x = (k + frac(1, 2)) * π) ⇒ y(x) = 5
+7. MaximumPoint(y) = { k * π | k ∈ IntegerSet }
+8. forall (k), k ∈ IntegerSet ⇒ y(k * π) = 10
+
+GOAL:
+MinimumPoint(y) = { (k + frac(1, 2)) * π | k ∈ IntegerSet }
+
+METHOD:

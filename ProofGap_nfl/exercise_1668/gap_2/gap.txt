@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. C ∈ RealSet
+2. { `F_2` | forall (x), x ∈ RealSet ∧ 1 + cos(x) ≠ 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, 1 + cos(x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_4` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ cos(frac(x, 2)) ≠ 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(1, cos(frac(x, 2))^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_4`(x) = frac(1, 2) * `F_3`(x)) }
+
+GOAL:
+{ `F_5` | forall (x), x ∈ RealSet ∧ 1 + cos(x) ≠ 0 ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(1, 1 + cos(x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_6` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ cos(frac(x, 2)) ≠ 0 ⇒ `F_6`(x) = tan(frac(x, 2)) + C) }
+
+METHOD:

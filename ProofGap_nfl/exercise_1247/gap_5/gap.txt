@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. θ : RealSet → RealSet
+2. θ = (fun x [x ∈ RealSet ∧ x ∈ NonNegRealSet] . frac(1, 4) + frac(1, 2) * (sqrtn(2, x * (x + 1)) - x))
+3. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ sqrtn(2, x + 1) - sqrtn(2, x) = frac(1, 2 * sqrtn(2, x + θ(x)))
+4. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ θ(x) = frac(1, 4) + frac(1, 2) * (sqrtn(2, x * (x + 1)) - x)
+5. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ∧ x = 0 ⇒ θ(0) = frac(1, 4)
+6. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ∧ x > 0 ⇒ 0 ≤ sqrtn(2, x * (x + 1)) - x
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ∧ x > 0 ⇒ sqrtn(2, x * (x + 1)) - x = frac(x, sqrtn(2, x * (x + 1)) + x)
+
+METHOD:

@@ -1,0 +1,4 @@
+rewrite (left_to_right, equation) (hypothesis 6: {x_{2} = x_{1} + h}); from (GOAL: {x_{2} = 5}) to (GOAL: {x_{1} + h = 5})
+rewrite (left_to_right, equation) (hypothesis 18: {x_{1} = 3}); from (GOAL: {x_{1} + h = 5}) to (GOAL: {3 + h = 5})
+rewrite (left_to_right, equation) (hypothesis 15: {h = 2}); from (GOAL: {3 + h = 5}) to (GOAL: {3 + 2 = 5})
+autosolve all_hypothesis

@@ -1,0 +1,32 @@
+PROOF GAP @16
+ASSUM:
+1. f : RealSet → RealSet
+2. x_{0} ∈ RealSet
+3. n ∈ NonNegIntegerSet
+4. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+5. g : RealSet → RealSet
+6. k : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(k)
+7. S ∈ RealSet
+8. z : NonNegIntegerSet → RealSet ∧ IsSeq(z)
+9. ContinuousFuncOn(f, IntervalLoRo(x_{0}, +∞))
+10. BoundedFuncOn(f, IntervalLoRo(x_{0}, +∞))
+11. forall (T), T ∈ RealSet ∧ T = 0 ⇒ x = (fun n [n ∈ NonNegIntegerSet] . x_{0} + n)
+12. forall (T), T ∈ RealSet ∧ T = 0 ⇒ seqlim_{ n → +∞ } (x(n)) = +∞
+13. forall (T), T ∈ RealSet ∧ T = 0 ⇒ seqlim_{ n → +∞ } (f(x(n) + T) - f(x(n))) = 0
+14. forall (T), T ∈ RealSet ∧ T > 0 ⇒ g = (fun y [y ∈ RealSet ∧ y ≥ 1] . f(x_{0} + (y + 1) * T) - f(x_{0} + y * T))
+15. forall (T), T ∈ RealSet ∧ T > 0 ⇒ ContinuousFuncOn(g, [1, +∞))
+16. forall (T), T ∈ RealSet ∧ T > 0 ⇒ BoundedFuncOn(g, [1, +∞))
+17. forall (T), T ∈ RealSet ∧ T > 0 ⇒ (forall (ε), ε : NonNegIntegerSet → RealSet ∧ PosSeq(ε) ∧ seqlim_{ n → +∞ } (ε(n)) = 0 ⇒ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ (exists (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k > N ∧ |g(k)| < ε(N))))
+18. forall (T), T ∈ RealSet ∧ T > 0 ⇒ (forall (ε), ε : NonNegIntegerSet → RealSet ∧ PosSeq(ε) ∧ seqlim_{ n → +∞ } (ε(n)) = 0 ⇒ k = (fun n [n ∈ NonNegIntegerSet] . k(n)))
+19. forall (T), T ∈ RealSet ∧ T > 0 ⇒ (forall (ε), ε : NonNegIntegerSet → RealSet ∧ PosSeq(ε) ∧ seqlim_{ n → +∞ } (ε(n)) = 0 ⇒ IsSubseqIndexFunc(k))
+20. forall (T), T ∈ RealSet ∧ T > 0 ⇒ (forall (ε), ε : NonNegIntegerSet → RealSet ∧ PosSeq(ε) ∧ seqlim_{ n → +∞ } (ε(n)) = 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |g(k(n))| < ε(n)))
+21. forall (T), T ∈ RealSet ∧ T > 0 ⇒ (forall (ε), ε : NonNegIntegerSet → RealSet ∧ PosSeq(ε) ∧ seqlim_{ n → +∞ } (ε(n)) = 0 ⇒ x = (fun n [n ∈ NonNegIntegerSet] . x_{0} + k(n) * T))
+22. forall (T), T ∈ RealSet ∧ T > 0 ⇒ (forall (ε), ε : NonNegIntegerSet → RealSet ∧ PosSeq(ε) ∧ seqlim_{ n → +∞ } (ε(n)) = 0 ⇒ seqlim_{ n → +∞ } (x(n)) = +∞)
+23. forall (T), T ∈ RealSet ∧ T > 0 ⇒ (forall (ε), ε : NonNegIntegerSet → RealSet ∧ PosSeq(ε) ∧ seqlim_{ n → +∞ } (ε(n)) = 0 ⇒ |f(x(n) + T) - f(x(n))| = |g(k(n))|)
+24. forall (T), T ∈ RealSet ∧ T > 0 ⇒ (forall (ε), ε : NonNegIntegerSet → RealSet ∧ PosSeq(ε) ∧ seqlim_{ n → +∞ } (ε(n)) = 0 ⇒ |g(k(n))| < ε(n))
+25. forall (T), T ∈ RealSet ∧ T > 0 ⇒ (forall (ε), ε : NonNegIntegerSet → RealSet ∧ PosSeq(ε) ∧ seqlim_{ n → +∞ } (ε(n)) = 0 ⇒ |f(x(n) + T) - f(x(n))| < ε(n))
+
+GOAL:
+forall (T), T ∈ RealSet ∧ T > 0 ⇒ (forall (ε), ε : NonNegIntegerSet → RealSet ∧ PosSeq(ε) ∧ seqlim_{ n → +∞ } (ε(n)) = 0 ⇒ seqlim_{ n → +∞ } (f(x(n) + T) - f(x(n))) = 0)
+
+METHOD:

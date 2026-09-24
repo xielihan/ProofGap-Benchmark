@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = ln(x + sqrtn(2, 1 + x^{2}))
+3. forall (x), x ∈ RealSet ⇒ f(-x) = ln(-x + sqrtn(2, 1 + x^{2}))
+4. forall (x), x ∈ RealSet ⇒ ln(-x + sqrtn(2, 1 + x^{2})) = ln(frac(1, x + sqrtn(2, 1 + x^{2})))
+5. forall (x), x ∈ RealSet ⇒ ln(frac(1, x + sqrtn(2, 1 + x^{2}))) = -ln(x + sqrtn(2, 1 + x^{2}))
+6. forall (x), x ∈ RealSet ⇒ -ln(x + sqrtn(2, 1 + x^{2})) = -f(x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ f(-x) = -f(x)
+
+METHOD:

@@ -1,0 +1,21 @@
+PROOF GAP @7
+ASSUM:
+1. Ω ⊆ CartesianProd(RealSet, RealSet)
+2. Ω' ⊆ CartesianProd(RealSet, RealSet)
+3. I ∈ RealSet
+4. p ∈ CartesianProd(RealSet, RealSet)
+5. q ∈ CartesianProd(RealSet, RealSet)
+6. Ω = { p | exists (x), x ∈ RealSet ∧ (exists (y), y ∈ RealSet ∧ p = (x, y) ∧ x^{2} + y^{2} ≤ x + y) }
+7. Ω = { p | exists (x), x ∈ RealSet ∧ (exists (y), y ∈ RealSet ∧ p = (x, y) ∧ (x - frac(1, 2))^{2} + (y - frac(1, 2))^{2} ≤ frac(1, sqrtn(2, 2))^{2}) }
+8. x = frac(1, 2) + r * cos(φ)
+9. y = frac(1, 2) + r * sin(φ)
+10. Ω' = { q | exists (r), r ∈ RealSet ∧ (exists (φ), φ ∈ RealSet ∧ q = (r, φ) ∧ 0 ≤ φ ∧ φ ≤ 2 * π ∧ 0 ≤ r ∧ r ≤ frac(1, sqrtn(2, 2))) }
+11. |I| = r
+12. x + y = 1 + r * (cos(φ) + sin(φ))
+13. VolumeInt(Ω, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x + y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = DefInt(0, 2 * π, (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . DefInt(0, frac(1, sqrtn(2, 2)), (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ frac(1, sqrtn(2, 2))] . r + r^{2} * (sin(φ) + cos(φ))) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ frac(1, sqrtn(2, 2))] . r))) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . φ))
+14. DefInt(0, 2 * π, (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . DefInt(0, frac(1, sqrtn(2, 2)), (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ frac(1, sqrtn(2, 2))] . r + r^{2} * (sin(φ) + cos(φ))) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ frac(1, sqrtn(2, 2))] . r))) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . φ)) = frac(π, 2)
+
+GOAL:
+VolumeInt(Ω, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x + y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = frac(π, 2)
+
+METHOD:

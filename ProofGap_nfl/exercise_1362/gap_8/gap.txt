@@ -1,0 +1,15 @@
+PROOF GAP @8
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x > 0 ⇒ tanh(x) > 0
+2. forall (x), x ∈ RealSet ∧ x > 0 ⇒ x ≠ 0
+3. forall (x), x ∈ RealSet ∧ x > 0 ⇒ sinh(2 * x) ≠ 0
+4. lim_{ x → +∞ } (x * ln(tanh(x))) = lim_{ x → +∞ } (frac(ln(tanh(x)), frac(1, x)))
+5. lim_{ x → +∞ } (frac(ln(tanh(x)), frac(1, x))) = lim_{ x → +∞ } (frac(frac(1, tanh(x) * cosh(x)^{2}), -frac(1, x^{2})))
+6. lim_{ x → +∞ } (frac(frac(1, tanh(x) * cosh(x)^{2}), -frac(1, x^{2}))) = -2 * (lim_{ x → +∞ } (frac(x^{2}, sinh(2 * x))))
+7. -2 * (lim_{ x → +∞ } (frac(x^{2}, sinh(2 * x)))) = -2 * (lim_{ x → +∞ } (frac(2 * x, 2 * cosh(2 * x))))
+
+GOAL:
+-2 * (lim_{ x → +∞ } (frac(2 * x, 2 * cosh(2 * x)))) = -2 * (lim_{ x → +∞ } (frac(1, 2 * sinh(2 * x))))
+
+METHOD:
+[@method 根据 "洛必达法则" @]

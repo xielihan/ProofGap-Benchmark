@@ -1,0 +1,20 @@
+PROOF GAP @12
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = cos(x) + frac(1, 2) * cos(2 * x)
+3. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = -sin(x) * (1 + 2 * cos(x))
+4. forall (x), x ∈ RealSet ∧ FunDeri(y, 1, 1)(x) = 0 ⇒ (exists (k), k ∈ IntegerSet ∧ (x = k * π ∨ x = frac(2 * π, 3) + 2 * k * π ∨ x = -frac(2 * π, 3) + 2 * k * π))
+5. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = -cos(x) - 2 * cos(2 * x)
+6. forall (k), k ∈ IntegerSet ⇒ FunDeri(y, 1, 2)(k * π) = (-1)^{k + 1} - 2 ∧ (-1)^{k + 1} - 2 < 0
+7. forall (k), k ∈ IntegerSet ⇒ FunDeri(y, 1, 2)(frac(2 * π, 3) + 2 * k * π) = frac(1, 2) + 1 ∧ frac(1, 2) + 1 > 0
+8. forall (k), k ∈ IntegerSet ⇒ FunDeri(y, 1, 2)(-frac(2 * π, 3) + 2 * k * π) = frac(1, 2) + 1 ∧ frac(1, 2) + 1 > 0
+9. MaximumPoint(y) = { k * π | k ∈ IntegerSet }
+10. forall (k), k ∈ IntegerSet ⇒ y(k * π) = (-1)^{k} + frac(1, 2)
+11. MinimumPoint(y) = { x | x ∈ RealSet ∧ (exists (k), k ∈ IntegerSet ∧ (x = frac(2 * π, 3) + 2 * k * π ∨ x = -frac(2 * π, 3) + 2 * k * π)) }
+12. forall (k), k ∈ IntegerSet ⇒ y(frac(2 * π, 3) + 2 * k * π) = -frac(3, 4) ∧ y(-frac(2 * π, 3) + 2 * k * π) = -frac(3, 4)
+13. MaximumPoint(y) = { k * π | k ∈ IntegerSet }
+
+GOAL:
+MinimumPoint(y) = { x | x ∈ RealSet ∧ (exists (k), k ∈ IntegerSet ∧ (x = frac(2 * π, 3) + 2 * k * π ∨ x = -frac(2 * π, 3) + 2 * k * π)) }
+
+METHOD:

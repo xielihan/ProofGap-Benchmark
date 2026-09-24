@@ -1,0 +1,3 @@
+rewrite (left_to_right, equation) (hypothesis 17: {Δ = a * c * f - b^{2} * f - c * d^{2} - a * e^{2} + 2 * b * d * e}); from (GOAL: {f - frac(d^{2}, a) - frac((a * e - b * d)^{2}, a * δ) = frac(Δ, δ)}) to (GOAL: {f - frac(d^{2}, a) - frac((a * e - b * d)^{2}, a * δ) = frac(a * c * f - b^{2} * f - c * d^{2} - a * e^{2} + 2 * b * d * e, δ)})
+rewrite (left_to_right, equation) (hypothesis 16: {δ = a * c - b^{2}}); from (GOAL: {f - frac(d^{2}, a) - frac((a * e - b * d)^{2}, a * δ) = frac(a * c * f - b^{2} * f - c * d^{2} - a * e^{2} + 2 * b * d * e, δ)}) to (GOAL: {f - frac(d^{2}, a) - frac((a * e - b * d)^{2}, a * (a * c - b^{2})) = frac(a * c * f - b^{2} * f - c * d^{2} - a * e^{2} + 2 * b * d * e, a * c - b^{2})})
+autosolve using PolyRatSolver

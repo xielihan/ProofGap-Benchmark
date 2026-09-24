@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. a < b
+5. f : [a, b] → RealSet
+6. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ (exists (`ϵ`), `ϵ` ∈ RealSet ∧ `ϵ` > 0 ∧ BoundedFuncOn(f, IntervalLoRo(x - `ϵ`, x + `ϵ`) ∩ [a, b]))
+7. ¬BoundedFuncOn(f, [a, b]) ⇒ (exists (x), x : NonNegIntegerSet → RealSet ∧ IsSeq(x) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ∈ [a, b] ∧ seqlim_{ n → +∞ } (f(x(n))) = ∞))
+8. ¬BoundedFuncOn(f, [a, b]) ⇒ (exists (x), x : NonNegIntegerSet → RealSet ∧ IsSeq(x) ∧ (exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ (exists (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [a, b] ∧ seqlim_{ k → +∞ } (x(p(k))) = x_{0})))
+
+GOAL:
+¬BoundedFuncOn(f, [a, b]) ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [a, b] ∧ ¬(exists (`ϵ`), `ϵ` ∈ RealSet ∧ `ϵ` > 0 ∧ BoundedFuncOn(f, IntervalLoRo(x_{0} - `ϵ`, x_{0} + `ϵ`) ∩ [a, b])))
+
+METHOD:

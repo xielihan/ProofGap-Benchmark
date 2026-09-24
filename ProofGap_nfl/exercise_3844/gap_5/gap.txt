@@ -1,0 +1,14 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. B : CartesianProd(RealSet, RealSet) → RealSet
+3. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ⇒ a^{2} - x^{2} ≥ 0
+4. DefInt(0, a, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . x^{2} * sqrtn(2, a^{2} - x^{2})) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . x)) = a^{4} * DefInt(0, a, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . (x / a)^{2} * sqrtn(2, 1 - (x / a)^{2})) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . x / a))
+5. forall (u) (x), u ∈ RealSet ∧ x ∈ RealSet ∧ u = x / a ∧ 0 ≤ u ∧ u ≤ 1 ⇒ DefInt(0, a, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . x^{2} * sqrtn(2, a^{2} - x^{2})) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . x)) = a^{4} * DefInt(0, 1, (fun u [u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 1] . u^{2} * (1 - u^{2})^{frac(1, 2)}) * diff(fun u [u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 1] . u))
+6. DefInt(0, 1, (fun u [u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 1] . u^{2} * (1 - u^{2})^{frac(1, 2)}) * diff(fun u [u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 1] . u)) = frac(1, 2) * DefInt(0, 1, (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 1] . t^{frac(1, 2)} * (1 - t)^{frac(1, 2)}) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 1] . t))
+7. forall (p) (q), p ∈ RealSet ∧ q ∈ RealSet ∧ p > 0 ∧ q > 0 ⇒ B(p, q) = DefInt(0, 1, (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 1] . t^{p - 1} * (1 - t)^{q - 1}) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 1] . t))
+
+GOAL:
+frac(a^{4}, 2) * DefInt(0, 1, (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 1] . t^{frac(1, 2)} * (1 - t)^{frac(1, 2)}) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 1] . t)) = frac(a^{4}, 2) * B(frac(3, 2), frac(3, 2))
+
+METHOD:

@@ -1,0 +1,25 @@
+PROOF GAP @8
+ASSUM:
+1. phi : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. n ∈ NonNegIntegerSet
+5. k ∈ NonNegIntegerSet
+6. a < b
+7. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [a, b] ⇒ phi(n, x) ∈ RealSet
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ MonoIncFuncOn(fun x [x ∈ RealSet ∧ x ∈ [a, b]] . phi(n, x), [a, b]) ∨ MonoDecFuncOn(fun x [x ∈ RealSet ∧ x ∈ [a, b]] . phi(n, x), [a, b])
+9. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (|phi(n, a)|))
+10. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (|phi(n, b)|))
+11. A = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . max(|phi(n, a)|, |phi(n, b)|))
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 ≤ A(n) ∧ A(n) ≤ |phi(n, a)| + |phi(n, b)|
+13. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n)))
+14. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [a, b] ⇒ |phi(n, x)| ≤ max(|phi(n, a)|, |phi(n, b)|))
+15. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [a, b] ⇒ |phi(n, x)| ≤ A(n))
+16. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (phi(n, x)))
+17. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n) (p) (x), n ∈ NonNegIntegerSet ∧ p ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ p ∈ PosIntegerSet ∧ x ∈ [a, b] ∧ n > N ⇒ |sum_{ k = n + 1 }^{ n + p } (phi(k, x))| < ε))
+18. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (phi(n, x)))
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n) (p) (x), n ∈ NonNegIntegerSet ∧ p ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ p ∈ PosIntegerSet ∧ x ∈ [a, b] ∧ n > N ⇒ |sum_{ k = n + 1 }^{ n + p } (phi(k, x))| < ε))
+
+METHOD:

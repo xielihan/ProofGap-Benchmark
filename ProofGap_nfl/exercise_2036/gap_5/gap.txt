@@ -1,0 +1,12 @@
+PROOF GAP @5
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet ∧ cos(2 * x) ≠ 0 ⇒ { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(sin(x)^{2} * cos(x)^{2}, sin(x)^{8} + cos(x)^{8}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(2 * sin(2 * x)^{2}, sin(2 * x)^{4} - 8 * sin(2 * x)^{2} + 8) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+3. { `F_4` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(sin(x)^{2} * cos(x)^{2}, sin(x)^{8} + cos(x)^{8}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(4 * (1 - cos(4 * x)), cos(4 * x)^{2} + 14 * cos(4 * x) + 17) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+4. { `F_6` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_6`, 1, 1)(x) = frac(4 * (1 - cos(4 * x)), cos(4 * x)^{2} + 14 * cos(4 * x) + 17) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_7` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_7`, 1, 1)(x) = frac(4 * (1 - cos(4 * x)), (cos(4 * x) + 7 - 4 * sqrtn(2, 2)) * (cos(4 * x) + 7 + 4 * sqrtn(2, 2))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+5. { `F_8` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_8`, 1, 1)(x) = frac(4 * (1 - cos(4 * x)), (cos(4 * x) + 7 - 4 * sqrtn(2, 2)) * (cos(4 * x) + 7 + 4 * sqrtn(2, 2))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_13` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_13`, 1, 1)(x) = (frac(2 * sqrtn(2, 2) - 2, cos(4 * x) + 7 - 4 * sqrtn(2, 2)) - frac(2 + 2 * sqrtn(2, 2), cos(4 * x) + 7 + 4 * sqrtn(2, 2))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+GOAL:
+{ `F_14` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_14`, 1, 1)(x) = frac(sin(x)^{2} * cos(x)^{2}, sin(x)^{8} + cos(x)^{8}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_15` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_15`(x) = frac(2 * sqrtn(2, 2) - 2, sqrtn(2, (7 - 4 * sqrtn(2, 2))^{2} - 1)) * (x - frac(1, 2) * arctan(frac(((7 - 4 * sqrtn(2, 2)) - sqrtn(2, (7 - 4 * sqrtn(2, 2))^{2} - 1)) * sin(4 * x), 1 + ((7 - 4 * sqrtn(2, 2)) - sqrtn(2, (7 - 4 * sqrtn(2, 2))^{2} - 1)) * cos(4 * x)))) - frac(2 + 2 * sqrtn(2, 2), sqrtn(2, (7 + 4 * sqrtn(2, 2))^{2} - 1)) * (x - frac(1, 2) * arctan(frac(((7 + 4 * sqrtn(2, 2)) - sqrtn(2, (7 + 4 * sqrtn(2, 2))^{2} - 1)) * sin(4 * x), 1 + ((7 + 4 * sqrtn(2, 2)) - sqrtn(2, (7 + 4 * sqrtn(2, 2))^{2} - 1)) * cos(4 * x)))) + C) }
+
+METHOD:

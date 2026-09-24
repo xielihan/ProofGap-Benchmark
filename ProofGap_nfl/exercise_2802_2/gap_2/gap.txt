@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. α ∈ RealSet
+3. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ f(n, x) = n^{α} * x * e^{-n * x}
+4. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ FunDeri(f, 2, 1)(n, x) = n^{α} * e^{-n * x} * (1 - n * x)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ FunDeri(f, 2, 1)(n, frac(1, n)) = 0
+
+METHOD:

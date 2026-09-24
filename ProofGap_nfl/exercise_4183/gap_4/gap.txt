@@ -1,0 +1,24 @@
+PROOF GAP @4
+ASSUM:
+1. p ∈ RealSet
+2. q ∈ RealSet
+3. D ⊆ CartesianProd(RealSet, RealSet)
+4. `Ω_1` ⊆ CartesianProd(RealSet, RealSet)
+5. `Ω_2` ⊆ CartesianProd(RealSet, RealSet)
+6. `Ω_3` ⊆ CartesianProd(RealSet, RealSet)
+7. x : CartesianProd(RealSet, RealSet) → RealSet
+8. y : CartesianProd(RealSet, RealSet) → RealSet
+9. p > 0
+10. q > 0
+11. D = { (x, y) | x ∈ RealSet, y ∈ RealSet, |x| + |y| ≤ 1 }
+12. `Ω_1` = { (x, y) | x ∈ RealSet, y ∈ RealSet, x ≥ 0, y ≥ 0, x + y ≤ 1, x^{p} + y^{q} ≥ 2^{p - q} }
+13. `Ω_2` = { (x, y) | x ∈ RealSet, y ∈ RealSet, x ≥ 0, y ≥ 0, x + y ≤ 1, x^{p} + y^{q} ≤ 2^{p - q} }
+14. `Ω_3` = { (x, y) | x ∈ RealSet, y ∈ RealSet, x ≥ 0, y ≥ 0, x^{p} + y^{q} ≤ 2^{p - q} }
+15. VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, |x|^{p} + |y|^{q})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = 4 * VolumeInt({ (x, y) | x ∈ RealSet, y ∈ RealSet, x ≥ 0, y ≥ 0, x + y ≤ 1 }, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, x^{p} + y^{q})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+16. 4 * VolumeInt({ (x, y) | x ∈ RealSet, y ∈ RealSet, x ≥ 0, y ≥ 0, x + y ≤ 1 }, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, x^{p} + y^{q})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = 4 * VolumeInt(`Ω_1`, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, x^{p} + y^{q})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) + 4 * VolumeInt(`Ω_2`, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, x^{p} + y^{q})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+17. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≥ 0 ∧ y ≥ 0 ∧ x^{p} + y^{q} ≤ frac(1, 2^{p + q}) ⇒ x ≤ frac(1, 2)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≥ 0 ∧ y ≥ 0 ∧ x^{p} + y^{q} ≤ frac(1, 2^{p + q}) ⇒ y ≤ frac(1, 2)
+
+METHOD:

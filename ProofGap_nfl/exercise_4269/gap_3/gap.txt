@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * cos(y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * sin(y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) = diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * cos(y))
+5. VectorCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * cos(y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * sin(y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = ((fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * cos(y))|_{(0, 0)}^{(a, b)})
+
+GOAL:
+((fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * cos(y))|_{(0, 0)}^{(a, b)}) = e^{a} * cos(b) - 1
+
+METHOD:

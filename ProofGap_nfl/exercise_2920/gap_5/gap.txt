@@ -1,0 +1,19 @@
+PROOF GAP @5
+ASSUM:
+1. z ∈ ComplexSet
+2. α ∈ RealSet
+3. c : NonNegIntegerSet → ComplexSet
+4. R ∈ RealSet
+5. x ∈ RealSet
+6. y ∈ RealSet
+7. forall (k), k ∈ IntegerSet ⇒ α ≠ 2 * k * π
+8. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n ∈ PosIntegerSet ⇒ c(n) = frac(1, n * (1 - e^{__IMAGINARY_UNIT__ * α})^{n})
+9. seqlim_{ n → +∞ } (|frac(c(n), c(n + 1))|) = seqlim_{ n → +∞ } (|frac(n + 1, n) * (1 - e^{__IMAGINARY_UNIT__ * α})|)
+10. seqlim_{ n → +∞ } (|frac(n + 1, n) * (1 - e^{__IMAGINARY_UNIT__ * α})|) = |1 - (cos(α) + __IMAGINARY_UNIT__ * sin(α))|
+11. |1 - (cos(α) + __IMAGINARY_UNIT__ * sin(α))| = sqrtn(2, (1 - cos(α))^{2} + sin(α)^{2})
+12. sqrtn(2, (1 - cos(α))^{2} + sin(α)^{2}) = |2 * sin(frac(α, 2))|
+
+GOAL:
+seqlim_{ n → +∞ } (|frac(c(n), c(n + 1))|) = |2 * sin(frac(α, 2))|
+
+METHOD:

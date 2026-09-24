@@ -1,0 +1,2 @@
+get_prop (hypothesis 3: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = 1 - frac(1, n)}) (n := {1}) as (hypothesis 5: {1 ∈ NonNegIntegerSet ∧ 1 ∈ PosIntegerSet ⇒ x(1) = 1 - frac(1, 1)})
+autosolve all_hypothesis

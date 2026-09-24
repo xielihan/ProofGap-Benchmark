@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet ∧ sin(x) ≠ 0
+2. C ∈ RealSet
+3. { `F_2` | forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = cot(x)^{6} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = cot(x)^{2} * (csc(x)^{2} - 1)^{2} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+GOAL:
+{ `F_4` | forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ FunDeri(`F_4`, 1, 1)(x) = cot(x)^{2} * (csc(x)^{2} - 1)^{2} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_10` | exists (`F_9`) (`F_5`) (`F_6`), `F_9` : RealSet → RealSet ∧ `F_5` : RealSet → RealSet ∧ `F_6` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ FunDeri(`F_5`, 1, 1)(x) = cot(x)^{2} * csc(x)^{4} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ FunDeri(`F_6`, 1, 1)(x) = cot(x)^{2} * csc(x)^{2} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ FunDeri(`F_9`, 1, 1)(x) = cot(x)^{2} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_10`(x) = `F_5`(x) - 2 * `F_6`(x) + `F_9`(x)) }
+
+METHOD:

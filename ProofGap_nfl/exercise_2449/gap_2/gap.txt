@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. r : RealSet → RealSet
+2. p ∈ RealSet ∧ p > 0
+3. s ∈ RealSet
+4. forall (φ), φ ∈ RealSet ∧ |φ| ≤ frac(π, 2) ⇒ r(φ) = frac(p, 1 + cos(φ))
+5. forall (φ), φ ∈ RealSet ∧ |φ| ≤ frac(π, 2) ⇒ FunDeri(r, 1, 1)(φ) = frac(p * sin(φ), (1 + cos(φ))^{2})
+
+GOAL:
+forall (φ), φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2) ∧ 1 + cos(φ) ≠ 0 ⇒ sqrtn(2, r(φ)^{2} + FunDeri(r, 1, 1)(φ)^{2}) = frac(2 * p * cos(frac(φ, 2)), (1 + cos(φ))^{2})
+
+METHOD:

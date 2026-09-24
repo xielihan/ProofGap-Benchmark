@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = ln(1 + sin(x)^{2}) - 2 * sin(x) * arctan(sin(x))
+3. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = frac(sin(2 * x), 1 + sin(x)^{2}) - 2 * cos(x) * arctan(sin(x)) - frac(sin(2 * x), 1 + sin(x)^{2})
+4. forall (x), x ∈ RealSet ⇒ frac(sin(2 * x), 1 + sin(x)^{2}) - 2 * cos(x) * arctan(sin(x)) - frac(sin(2 * x), 1 + sin(x)^{2}) = -2 * cos(x) * arctan(sin(x))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = -2 * cos(x) * arctan(sin(x))
+
+METHOD:

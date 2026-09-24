@@ -1,0 +1,18 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. y_{1} : RealSet → RealSet
+4. y_{2} : RealSet → RealSet
+5. V_{x} ∈ RealSet
+6. 0 < a
+7. a ≤ b
+8. forall (x), x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a ⇒ y_{1}(x) = b + sqrtn(2, a^{2} - x^{2})
+9. forall (x), x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a ⇒ y_{2}(x) = b - sqrtn(2, a^{2} - x^{2})
+10. V_{x} = π * DefInt(-a, a, (fun x [x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a] . y_{1}(x)^{2} - y_{2}(x)^{2}) * diff(fun x [x ∈ RealSet] . x))
+11. forall (x), x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a ⇒ y_{1}(x)^{2} - y_{2}(x)^{2} = 4 * b * sqrtn(2, a^{2} - x^{2})
+
+GOAL:
+V_{x} = 8 * b * π * DefInt(0, a, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . sqrtn(2, a^{2} - x^{2})) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

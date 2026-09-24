@@ -1,0 +1,10 @@
+get_forall (GOAL: {forall (t), t ∈ RealSet ∧ t ≠ 0 ⇒ frac(FunDeri(y, 1, 1)(t), FunDeri(x, 1, 1)(t)) = frac(b * cosh(t), a * sinh(t))}) (t := {u})
+get_condition (hypothesis 13: {u ∈ RealSet ∧ u ≠ 0}) in (GOAL: {u ∈ RealSet ∧ u ≠ 0 ⇒ frac(FunDeri(y, 1, 1)(u), FunDeri(x, 1, 1)(u)) = frac(b * cosh(u), a * sinh(u))})
+destruct_and (hypothesis 13: {u ∈ RealSet ∧ u ≠ 0}) as (hypothesis 14: {u ∈ RealSet}) (hypothesis 15: {u ≠ 0})
+get_prop (hypothesis 10: {forall (t), t ∈ RealSet ⇒ FunDeri(y, 1, 1)(t) = b * cosh(t)}) (t := {u}) as (hypothesis 16: {u ∈ RealSet ⇒ FunDeri(y, 1, 1)(u) = b * cosh(u)})
+use_condition (hypothesis 14: {u ∈ RealSet}) in (hypothesis 16: {u ∈ RealSet ⇒ FunDeri(y, 1, 1)(u) = b * cosh(u)}) as (hypothesis 17: {FunDeri(y, 1, 1)(u) = b * cosh(u)})
+get_prop (hypothesis 11: {forall (t), t ∈ RealSet ⇒ FunDeri(x, 1, 1)(t) = a * sinh(t)}) (t := {u}) as (hypothesis 18: {u ∈ RealSet ⇒ FunDeri(x, 1, 1)(u) = a * sinh(u)})
+use_condition (hypothesis 14: {u ∈ RealSet}) in (hypothesis 18: {u ∈ RealSet ⇒ FunDeri(x, 1, 1)(u) = a * sinh(u)}) as (hypothesis 19: {FunDeri(x, 1, 1)(u) = a * sinh(u)})
+rewrite (left_to_right, equation) (hypothesis 17: {FunDeri(y, 1, 1)(u) = b * cosh(u)}); from (GOAL: {frac(FunDeri(y, 1, 1)(u), FunDeri(x, 1, 1)(u)) = frac(b * cosh(u), a * sinh(u))}) to (GOAL: {frac(b * cosh(u), FunDeri(x, 1, 1)(u)) = frac(b * cosh(u), a * sinh(u))})
+rewrite (left_to_right, equation) (hypothesis 19: {FunDeri(x, 1, 1)(u) = a * sinh(u)}); from (GOAL: {frac(b * cosh(u), FunDeri(x, 1, 1)(u)) = frac(b * cosh(u), a * sinh(u))}) to (GOAL: {frac(b * cosh(u), a * sinh(u)) = frac(b * cosh(u), a * sinh(u))})
+autosolve all_hypothesis

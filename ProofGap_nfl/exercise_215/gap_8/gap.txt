@@ -1,0 +1,16 @@
+PROOF GAP @8
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ [-frac(π, 2), frac(π, 2)] ⇒ f(x) = sin(x)
+3. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ -frac(π, 2) < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < frac(π, 2) ⇒ -frac(π, 2) < frac(x_{1} + x_{2}, 2))
+4. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ -frac(π, 2) < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < frac(π, 2) ⇒ frac(x_{1} + x_{2}, 2) < frac(π, 2))
+5. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ -frac(π, 2) < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < frac(π, 2) ⇒ 0 < frac(x_{2} - x_{1}, 2))
+6. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ -frac(π, 2) < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < frac(π, 2) ⇒ frac(x_{2} - x_{1}, 2) < frac(π, 2))
+7. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ -frac(π, 2) < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < frac(π, 2) ⇒ cos(frac(x_{1} + x_{2}, 2)) > 0)
+8. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ -frac(π, 2) < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < frac(π, 2) ⇒ sin(frac(x_{2} - x_{1}, 2)) > 0)
+9. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ -frac(π, 2) < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < frac(π, 2) ⇒ f(x_{2}) - f(x_{1}) = sin(x_{2}) - sin(x_{1}))
+
+GOAL:
+forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ -frac(π, 2) < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < frac(π, 2) ⇒ sin(x_{2}) - sin(x_{1}) = 2 * cos(frac(x_{2} + x_{1}, 2)) * sin(frac(x_{2} - x_{1}, 2)))
+
+METHOD:

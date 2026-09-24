@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 4: {frac(ln(x), x) * diff(fun x [x ∈ RealSet] . x) = (1 + ln(x) - 1) * diff(fun x [x ∈ RealSet ∧ x > e^{-1}] . 1 + ln(x))}); from (GOAL: {frac(ln(x), x) * diff(fun x [x ∈ RealSet] . x) = (t - 1) * diff(fun t [t ∈ RealSet ∧ t > 0] . t)}) to (GOAL: {(1 + ln(x) - 1) * diff(fun x [x ∈ RealSet ∧ x > e^{-1}] . 1 + ln(x)) = (t - 1) * diff(fun t [t ∈ RealSet ∧ t > 0] . t)})
+apply (hypothesis 5: {(1 + ln(x) - 1) * diff(fun x [x ∈ RealSet ∧ x > e^{-1}] . 1 + ln(x)) = (t - 1) * diff(fun t [t ∈ RealSet ∧ t > 0] . t)})

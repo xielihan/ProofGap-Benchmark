@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f = (fun x [x ∈ RealSet] . sqrtn(3, x))
+2. a = 0
+
+GOAL:
+forall (b), b ∈ RealSet ∧ b > 0 ⇒ DiffableFuncOn(f, IntervalLoRo(0, b))
+
+METHOD:

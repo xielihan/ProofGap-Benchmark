@@ -1,0 +1,15 @@
+PROOF GAP @5
+ASSUM:
+1. x ∈ RealSet
+2. φ = (fun t [t ∈ RealSet ∧ cos(t) > 0] . ln(cos(t)))
+3. ψ = (fun t [t ∈ RealSet] . -frac(t^{2}, 2))
+4. α = (fun m, n [m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet] . frac(x, sqrtn(2, 3 * n)))
+5. lim_{ t → 0 } (frac(φ(t), ψ(t))) = 1
+6. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ PosIntegerSet ∧ (forall (n) (m), n ∈ PosIntegerSet ∧ m ∈ PosIntegerSet ∧ n > N ∧ 1 ≤ m ∧ m ≤ n ⇒ |α(m, n)| < ε))
+7. forall (n), n ∈ PosIntegerSet ⇒ sum_{ m = 1 }^{ n } (ψ(α(m, n))) = -frac(x^{2}, 6)
+8. seqlim_{ n → +∞ } (sum_{ m = 1 }^{ n } (ψ(α(m, n)))) = -frac(x^{2}, 6)
+
+GOAL:
+seqlim_{ n → +∞ } (sum_{ m = 1 }^{ n } (φ(α(m, n)))) = -frac(x^{2}, 6)
+
+METHOD:

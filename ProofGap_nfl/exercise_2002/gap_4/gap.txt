@@ -1,0 +1,10 @@
+PROOF GAP @4
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ sin(x) * cos(x) ≠ 0 ⇒ { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, sin(x)^{3} * cos(x)^{5}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(sin(x)^{2} + cos(x)^{2}, sin(x)^{3} * cos(x)^{5}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+2. { `F_4` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(1, sin(x)^{3} * cos(x)^{5}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_7` | exists (`F_5`) (`F_6`), `F_5` : RealSet → RealSet ∧ `F_6` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(1, sin(x) * cos(x)^{5}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ FunDeri(`F_6`, 1, 1)(x) = frac(1, sin(x)^{3} * cos(x)^{3}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_7`(x) = `F_5`(x) + `F_6`(x)) }
+3. { `F_8` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_8`, 1, 1)(x) = frac(1, sin(x)^{3} * cos(x)^{5}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_11` | exists (`F_9`) (`F_10`), `F_9` : RealSet → RealSet ∧ `F_10` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_9`, 1, 1)(x) = frac(sin(x)^{2} + cos(x)^{2}, sin(x) * cos(x)^{5}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ FunDeri(`F_10`, 1, 1)(x) = frac(sin(x)^{2} + cos(x)^{2}, sin(x)^{3} * cos(x)^{3}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_11`(x) = `F_9`(x) + `F_10`(x)) }
+
+GOAL:
+{ `F_12` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_12`, 1, 1)(x) = frac(1, sin(x)^{3} * cos(x)^{5}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_18` | exists (`F_17`) (`F_13`) (`F_14`), `F_17` : RealSet → RealSet ∧ `F_13` : RealSet → RealSet ∧ `F_14` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_13`, 1, 1)(x) = frac(sin(x), cos(x)^{5}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ FunDeri(`F_14`, 1, 1)(x) = frac(1, sin(x) * cos(x)^{3}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ FunDeri(`F_17`, 1, 1)(x) = frac(1, sin(x)^{3} * cos(x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_18`(x) = `F_13`(x) + 2 * `F_14`(x) + `F_17`(x)) }
+
+METHOD:

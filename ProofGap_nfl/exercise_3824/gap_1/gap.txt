@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. VPInt ∈ RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. x ∈ RealSet
+5. t ∈ RealSet
+
+GOAL:
+VPInt(-∞, +∞, frac(sin(a * x), x + b) * diff(x)) = VPInt(-∞, +∞, frac(sin(a * (t - b)), t) * diff(t))
+
+METHOD:
+[@method 令 t = x + b @]

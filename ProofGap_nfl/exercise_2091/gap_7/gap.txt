@@ -1,0 +1,26 @@
+PROOF GAP @7
+ASSUM:
+1. R : RealSet → RealSet
+2. a ∈ RealSet
+3. li : RealSet → RealSet
+4. P : RealSet → RealSet
+5. Q : RealSet → RealSet
+6. A : CartesianProd(NonNegIntegerSet, NonNegIntegerSet) → RealSet
+7. b : NonNegIntegerSet → RealSet
+8. k : NonNegIntegerSet → NonNegIntegerSet
+9. l ∈ NonNegIntegerSet ∧ l ∈ PosIntegerSet
+10. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l ⇒ b(i) ∈ RealSet ∧ k(i) ∈ PosIntegerSet
+11. forall (u), u ∈ RealSet ∧ u > 0 ∧ u ≠ 1 ⇒ FunDeri(li, 1, 1)(u) = frac(1, ln(u))
+12. forall (x), x ∈ RealSet ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l ⇒ x ≠ b(i)) ⇒ R(x) = P(x) + sum_{ i = 1 }^{ l } (sum_{ j = 1 }^{ k(i) } (frac(A(i, j), (x - b(i))^{j})))
+13. forall (x), x ∈ RealSet ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l ⇒ x ≠ b(i)) ⇒ FunDeri(Q, 1, 1)(x) = P(x) * e^{a * x}
+14. forall (x), x ∈ RealSet ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l ⇒ x ≠ b(i)) ⇒ R(x) * e^{a * x} = P(x) * e^{a * x} + sum_{ i = 1 }^{ l } (sum_{ j = 1 }^{ k(i) } (frac(A(i, j) * e^{a * x}, (x - b(i))^{j})))
+15. forall (g)(C)(F), g : CartesianProd(NonNegIntegerSet, CartesianProd(NonNegIntegerSet, RealSet)) → RealSet ∧ C : RealSet → RealSet ∧ F : RealSet → RealSet ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l ⇒ forall (j), j ∈ NonNegIntegerSet ∧ j ∈ PosIntegerSet ∧ j ≤ k(i) ⇒ forall (x), x ∈ RealSet ∧ x ≠ b(i) ⇒ FunDeri(fun x [x ∈ RealSet ∧ x ≠ b(i)] . g(i, j, x), 1, 1)(x) = frac(e^{a * x}, (x - b(i))^{j})) ∧ (forall (x), x ∈ RealSet ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l ⇒ x ≠ b(i)) ⇒ FunDeri(C, 1, 1)(x) = 0) ∧ (forall (x), x ∈ RealSet ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l ⇒ x ≠ b(i)) ⇒ F(x) = Q(x) + sum_{ i = 1 }^{ l } (sum_{ j = 1 }^{ k(i) } (A(i, j) * g(i, j, x))) + C(x)) ⇒ forall (x), x ∈ RealSet ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l ⇒ x ≠ b(i)) ⇒ FunDeri(F, 1, 1)(x) = R(x) * e^{a * x}
+16. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l ⇒ forall (x), x ∈ RealSet ∧ x ≠ b(i) ⇒ frac(e^{a * x}, x - b(i)) = e^{a * b(i)} * frac(e^{a * (x - b(i))}, x - b(i))
+17. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l ⇒ a ≠ 0 ⇒ forall (x), x ∈ RealSet ∧ x ≠ b(i) ⇒ FunDeri(fun x [x ∈ RealSet ∧ x ≠ b(i)] . e^{a * b(i)} * li(e^{a * (x - b(i))}), 1, 1)(x) = frac(e^{a * x}, x - b(i))
+18. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l ⇒ forall (F), F : RealSet → RealSet ⇒ ((forall (x), x ∈ RealSet ∧ x ≠ b(i) ⇒ FunDeri(F, 1, 1)(x) = frac(e^{a * x}, x - b(i))) ⇔ (exists (C), C : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ b(i) ⇒ FunDeri(C, 1, 1)(x) = 0) ∧ (forall (x), x ∈ RealSet ∧ x ≠ b(i) ⇒ ((a ≠ 0 ⇒ F(x) = e^{a * b(i)} * li(e^{a * (x - b(i))}) + C(x)) ∧ (a = 0 ⇒ F(x) = ln(abs(x - b(i))) + C(x))))))
+19. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l ⇒ forall (j), j ∈ NonNegIntegerSet ∧ j ∈ PosIntegerSet ∧ j ≤ k(i) ∧ j ≥ 2 ⇒ forall (H), H : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ b(i) ⇒ FunDeri(H, 1, 1)(x) = frac(e^{a * x}, (x - b(i))^{j - 1})) ⇒ forall (x), x ∈ RealSet ∧ x ≠ b(i) ⇒ FunDeri(fun x [x ∈ RealSet ∧ x ≠ b(i)] . -frac(e^{a * x}, (j - 1) * (x - b(i))^{j - 1}) + frac(a, j - 1) * H(x), 1, 1)(x) = frac(e^{a * x}, (x - b(i))^{j})
+
+GOAL:
+forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l ⇒ forall (j), j ∈ NonNegIntegerSet ∧ j ∈ PosIntegerSet ∧ j ≤ k(i) ∧ j ≥ 2 ⇒ forall (H)(F), H : RealSet → RealSet ∧ F : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ b(i) ⇒ FunDeri(H, 1, 1)(x) = frac(e^{a * x}, (x - b(i))^{j - 1})) ⇒ ((forall (x), x ∈ RealSet ∧ x ≠ b(i) ⇒ FunDeri(F, 1, 1)(x) = frac(e^{a * x}, (x - b(i))^{j})) ⇔ (exists (C), C : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ b(i) ⇒ FunDeri(C, 1, 1)(x) = 0) ∧ (forall (x), x ∈ RealSet ∧ x ≠ b(i) ⇒ F(x) = -frac(e^{a * x}, (j - 1) * (x - b(i))^{j - 1}) + frac(a, j - 1) * H(x) + C(x))))
+
+METHOD:

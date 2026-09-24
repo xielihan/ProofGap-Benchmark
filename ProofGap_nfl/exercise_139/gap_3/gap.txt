@@ -1,0 +1,16 @@
+PROOF GAP @3
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. s : NonNegIntegerSet → RealSet ∧ IsSeq(s)
+3. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+4. k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ∈ RealSet
+6. seqlim_{ n → +∞ } (x(n)) = +∞
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ s(n) = sum_{ k = 1 }^{ n } (x(k))
+8. forall (M), M ∈ RealSet ∧ M > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ x(n) > 3 * M))
+9. forall (M), M ∈ RealSet ∧ M > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ frac(s(n), n) = frac(s(N), n) + frac(s(n) - s(N), n - N) * (1 - frac(N, n))))
+
+GOAL:
+forall (M), M ∈ RealSet ∧ M > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ frac(s(n) - s(N), n - N) > 3 * M))
+
+METHOD:

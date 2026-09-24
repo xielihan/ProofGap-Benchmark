@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ 0 ≤ y(k, x) ∧ y(k, x) < 1 ⇒ 0 ≤ y(k, x)^{2})}) (x := {z})
+get_condition (hypothesis 11: {z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ 1}) in (GOAL: {z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ 1 ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ 0 ≤ y(k, z) ∧ y(k, z) < 1 ⇒ 0 ≤ y(k, z)^{2})})
+get_forall (GOAL: {forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ 0 ≤ y(k, z) ∧ y(k, z) < 1 ⇒ 0 ≤ y(k, z)^{2}}) (k := {j})
+get_condition (hypothesis 12: {j ∈ NonNegIntegerSet ∧ j ∈ PosIntegerSet ∧ 0 ≤ y(j, z) ∧ y(j, z) < 1}) in (GOAL: {j ∈ NonNegIntegerSet ∧ j ∈ PosIntegerSet ∧ 0 ≤ y(j, z) ∧ y(j, z) < 1 ⇒ 0 ≤ y(j, z)^{2}})
+autosolve all_hypothesis

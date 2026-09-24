@@ -1,0 +1,31 @@
+PROOF GAP @16
+ASSUM:
+1. c ∈ RealSet ∧ c > 0
+2. λ ∈ RealSet ∧ frac(4 * c^{2}, 3) ≤ λ ∧ λ ≤ frac(5 * c^{2}, 3)
+3. μ ∈ RealSet ∧ frac(c^{2}, 3) ≤ μ ∧ μ ≤ frac(2 * c^{2}, 3)
+4. D ⊆ CartesianProd(RealSet, RealSet)
+5. S ∈ RealSet
+6. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ ((x, y) ∈ D ⇔ x > 0 ∧ y > 0 ∧ (exists (λ) (μ), λ ∈ RealSet ∧ λ ∈ { frac(4 * c^{2}, 3), frac(5 * c^{2}, 3) } ∧ μ ∈ RealSet ∧ μ ∈ { frac(c^{2}, 3), frac(2 * c^{2}, 3) } ∧ frac(x^{2}, λ) + frac(y^{2}, λ - c^{2}) = 1 ∧ frac(x^{2}, μ) + frac(y^{2}, μ - c^{2}) = 1)))
+7. S = VolumeInt(D, diff(fun x [x ∈ RealSet] . x) * diff(fun y [y ∈ RealSet] . y))
+8. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (exists (λ), λ ∈ RealSet ∧ λ^{2} - (x^{2} + y^{2} + c^{2}) * λ + c^{2} * x^{2} = 0))
+9. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (exists (λ), λ ∈ RealSet ∧ λ = frac(x^{2} + y^{2} + c^{2} + sqrtn(2, (x^{2} + y^{2} + c^{2})^{2} - 4 * c^{2} * x^{2}), 2)))
+10. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (exists (μ), μ ∈ RealSet ∧ μ = frac(x^{2} + y^{2} + c^{2} - sqrtn(2, (x^{2} + y^{2} + c^{2})^{2} - 4 * c^{2} * x^{2}), 2)))
+11. forall (λ), λ ∈ RealSet ∧ frac(4 * c^{2}, 3) ≤ λ ∧ λ ≤ frac(5 * c^{2}, 3) ⇒ λ > c^{2}
+12. forall (μ), μ ∈ RealSet ∧ frac(c^{2}, 3) ≤ μ ∧ μ ≤ frac(2 * c^{2}, 3) ⇒ 0 < μ
+13. forall (μ), μ ∈ RealSet ∧ frac(c^{2}, 3) ≤ μ ∧ μ ≤ frac(2 * c^{2}, 3) ⇒ μ < c^{2}
+14. forall (λ), λ ∈ RealSet ∧ frac(4 * c^{2}, 3) ≤ λ ∧ λ ≤ frac(5 * c^{2}, 3) ⇒ (forall (μ), μ ∈ RealSet ∧ frac(c^{2}, 3) ≤ μ ∧ μ ≤ frac(2 * c^{2}, 3) ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ |frac(D(λ, μ), D(x, y))| = frac(4 * sqrtn(2, λ * μ * (c^{2} - μ) * (λ - c^{2})), λ - μ))))
+15. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (λ), λ ∈ RealSet ∧ frac(4 * c^{2}, 3) ≤ λ ∧ λ ≤ frac(5 * c^{2}, 3) ⇒ (forall (μ), μ ∈ RealSet ∧ frac(c^{2}, 3) ≤ μ ∧ μ ≤ frac(2 * c^{2}, 3) ⇒ |frac(D(x, y), D(λ, μ))| = frac(λ - μ, 4 * sqrtn(2, λ * μ * (c^{2} - μ) * (λ - c^{2}))))))
+16. S = DefInt(frac(4 * c^{2}, 3), frac(5 * c^{2}, 3), DefInt(frac(c^{2}, 3), frac(2 * c^{2}, 3), frac(λ - μ, 4 * sqrtn(2, λ * μ * (c^{2} - μ) * (λ - c^{2}))) * diff(fun μ [μ ∈ RealSet ∧ frac(c^{2}, 3) ≤ μ ∧ μ ≤ frac(2 * c^{2}, 3)] . μ)) * diff(fun λ [λ ∈ RealSet ∧ frac(4 * c^{2}, 3) ≤ λ ∧ λ ≤ frac(5 * c^{2}, 3)] . λ))
+17. λ = c^{2} * u
+18. μ = c^{2} * v
+19. S = frac(c^{2}, 4) * DefInt(frac(4, 3), frac(5, 3), DefInt(frac(1, 3), frac(2, 3), frac(u - v, sqrtn(2, u * v * (1 - v) * (u - 1))) * diff(fun v [v ∈ RealSet ∧ frac(1, 3) ≤ v ∧ v ≤ frac(2, 3)] . v)) * diff(fun u [u ∈ RealSet ∧ frac(4, 3) ≤ u ∧ u ≤ frac(5, 3)] . u))
+20. S = frac(c^{2}, 4) * DefInt(frac(4, 3), frac(5, 3), frac(sqrtn(2, u), sqrtn(2, u - 1)) * diff(fun u [u ∈ RealSet ∧ frac(4, 3) ≤ u ∧ u ≤ frac(5, 3)] . u)) * DefInt(frac(1, 3), frac(2, 3), frac(1, sqrtn(2, v * (1 - v))) * diff(fun v [v ∈ RealSet ∧ frac(1, 3) ≤ v ∧ v ≤ frac(2, 3)] . v)) - frac(c^{2}, 4) * DefInt(frac(4, 3), frac(5, 3), frac(1, sqrtn(2, u * (u - 1))) * diff(fun u [u ∈ RealSet ∧ frac(4, 3) ≤ u ∧ u ≤ frac(5, 3)] . u)) * DefInt(frac(1, 3), frac(2, 3), frac(sqrtn(2, v), sqrtn(2, 1 - v)) * diff(fun v [v ∈ RealSet ∧ frac(1, 3) ≤ v ∧ v ≤ frac(2, 3)] . v))
+21. DefInt(frac(4, 3), frac(5, 3), frac(sqrtn(2, u), sqrtn(2, u - 1)) * diff(fun u [u ∈ RealSet ∧ frac(4, 3) ≤ u ∧ u ≤ frac(5, 3)] . u)) = frac(sqrtn(2, 10), 3) - frac(2, 3) + lg(frac(sqrtn(2, 5) - sqrtn(2, 2), 2 - sqrtn(2, 2)))
+22. DefInt(frac(4, 3), frac(5, 3), frac(1, sqrtn(2, u * (u - 1))) * diff(fun u [u ∈ RealSet ∧ frac(4, 3) ≤ u ∧ u ≤ frac(5, 3)] . u)) = 2 * lg(frac(sqrtn(2, 5) - sqrtn(2, 2), 2 - sqrtn(2, 2)))
+23. DefInt(frac(1, 3), frac(2, 3), frac(1, sqrtn(2, v * (1 - v))) * diff(fun v [v ∈ RealSet ∧ frac(1, 3) ≤ v ∧ v ≤ frac(2, 3)] . v)) = 2 * arcsin(sqrtn(2, frac(2, 3))) - 2 * arcsin(sqrtn(2, frac(1, 3)))
+24. DefInt(frac(1, 3), frac(2, 3), frac(sqrtn(2, v), sqrtn(2, 1 - v)) * diff(fun v [v ∈ RealSet ∧ frac(1, 3) ≤ v ∧ v ≤ frac(2, 3)] . v)) = arcsin(sqrtn(2, frac(2, 3))) - arcsin(sqrtn(2, frac(1, 3)))
+
+GOAL:
+S = frac(c^{2}, 6) * (sqrtn(2, 10) - 2) * arcsin(frac(1, 3))
+
+METHOD:

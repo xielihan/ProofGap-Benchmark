@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ (exists (t), t ∈ RealSet ∧ (1 - x^{2} = t ⇒ t ≤ 1))}) (x := {x0})
+get_condition (hypothesis 4: {x0 ∈ RealSet ∧ -1 < x0 ∧ x0 < 1}) in (GOAL: {x0 ∈ RealSet ∧ -1 < x0 ∧ x0 < 1 ⇒ (exists (t), t ∈ RealSet ∧ (1 - x0^{2} = t ⇒ t ≤ 1))})
+exists (t := {1})
+assert (hypothesis 5: {1 ∈ RealSet ∧ (1 - x0^{2} = 1 ⇒ 1 ≤ 1)})
+apply (hypothesis 5: {1 ∈ RealSet ∧ (1 - x0^{2} = 1 ⇒ 1 ≤ 1)})

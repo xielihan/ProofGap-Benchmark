@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ f(b + x) = 2 * y_{0} - f(2 * a - b - x)}) (x := {z})
+get_condition (hypothesis 8: {z ∈ RealSet}) in (GOAL: {z ∈ RealSet ⇒ f(b + z) = 2 * y_{0} - f(2 * a - b - z)})
+assert (hypothesis 9: {b - a + z ∈ RealSet})
+get_prop (hypothesis 6: {forall (x), x ∈ RealSet ⇒ f(a + x) - y_{0} = y_{0} - f(a - x)}) (x := {b - a + z}) as (hypothesis 10: {b - a + z ∈ RealSet ⇒ f(a + (b - a + z)) - y_{0} = y_{0} - f(a - (b - a + z))})
+use_condition (hypothesis 9: {b - a + z ∈ RealSet}) in (hypothesis 10: {b - a + z ∈ RealSet ⇒ f(a + (b - a + z)) - y_{0} = y_{0} - f(a - (b - a + z))}) as (hypothesis 11: {f(a + (b - a + z)) - y_{0} = y_{0} - f(a - (b - a + z))})
+autoreplace no_hypothesis; from (a + (b - a + z)) to (b + z); from (hypothesis 11: {f(a + (b - a + z)) - y_{0} = y_{0} - f(a - (b - a + z))}) to (hypothesis 12: {f(b + z) - y_{0} = y_{0} - f(a - (b - a + z))})
+autoreplace no_hypothesis; from (a - (b - a + z)) to (2 * a - b - z); from (hypothesis 12: {f(b + z) - y_{0} = y_{0} - f(a - (b - a + z))}) to (hypothesis 13: {f(b + z) - y_{0} = y_{0} - f(2 * a - b - z)})
+autosolve all_hypothesis

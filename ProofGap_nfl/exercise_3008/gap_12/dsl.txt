@@ -1,0 +1,10 @@
+get_forall (GOAL: {forall (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(-1, 1) ∧ x ∈ IntervalLoRo(-1, 1) ⇒ DefInt(0, x, FunDeri(f, 1, 1)(t) * diff(fun t [t ∈ RealSet] . t)) = DefInt(0, x, frac(1, 1 - t^{4}) * diff(fun t [t ∈ RealSet] . t))}) (t := {u})
+get_condition (hypothesis 17: {u ∈ RealSet ∧ u ∈ IntervalLoRo(-1, 1) ∧ x ∈ IntervalLoRo(-1, 1)}) in (GOAL: {u ∈ RealSet ∧ u ∈ IntervalLoRo(-1, 1) ∧ x ∈ IntervalLoRo(-1, 1) ⇒ DefInt(0, x, FunDeri(f, 1, 1)(u) * diff(fun u [u ∈ RealSet] . u)) = DefInt(0, x, frac(1, 1 - u^{4}) * diff(fun u [u ∈ RealSet] . u))})
+destruct_and (hypothesis 17: {u ∈ RealSet ∧ u ∈ IntervalLoRo(-1, 1) ∧ x ∈ IntervalLoRo(-1, 1)}) as (hypothesis 18: {u ∈ RealSet}) (hypothesis 19: {u ∈ IntervalLoRo(-1, 1)}) (hypothesis 20: {x ∈ IntervalLoRo(-1, 1)})
+assert (hypothesis 21: {u ∈ RealSet ∧ u ∈ IntervalLoRo(-1, 1)}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (hypothesis 14: {forall (y), y ∈ RealSet ∧ y ∈ IntervalLoRo(-1, 1) ⇒ FunDeri(f, 1, 1)(y) = frac(1, 1 - y^{4})}) (y := {u}) as (hypothesis 22: {u ∈ RealSet ∧ u ∈ IntervalLoRo(-1, 1) ⇒ FunDeri(f, 1, 1)(u) = frac(1, 1 - u^{4})})
+use_condition (hypothesis 21: {u ∈ RealSet ∧ u ∈ IntervalLoRo(-1, 1)}) in (hypothesis 22: {u ∈ RealSet ∧ u ∈ IntervalLoRo(-1, 1) ⇒ FunDeri(f, 1, 1)(u) = frac(1, 1 - u^{4})}) as (hypothesis 23: {FunDeri(f, 1, 1)(u) = frac(1, 1 - u^{4})})
+rewrite (left_to_right, equation) (hypothesis 23: {FunDeri(f, 1, 1)(u) = frac(1, 1 - u^{4})}); from (GOAL: {DefInt(0, x, FunDeri(f, 1, 1)(u) * diff(fun u [u ∈ RealSet] . u)) = DefInt(0, x, frac(1, 1 - u^{4}) * diff(fun u [u ∈ RealSet] . u))}) to (GOAL: {DefInt(0, x, frac(1, 1 - u^{4}) * diff(fun u [u ∈ RealSet] . u)) = DefInt(0, x, frac(1, 1 - u^{4}) * diff(fun u [u ∈ RealSet] . u))})
+autosolve all_hypothesis

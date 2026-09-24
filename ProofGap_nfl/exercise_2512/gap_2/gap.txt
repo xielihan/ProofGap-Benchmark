@@ -1,0 +1,16 @@
+PROOF GAP @2
+ASSUM:
+1. r : RealSet → RealSet
+2. a ∈ RealSet ∧ a > 0
+3. ξ ∈ RealSet
+4. η ∈ RealSet
+5. `r_0` ∈ RealSet
+6. `φ_0` ∈ RealSet
+7. φ ∈ RealSet
+8. forall (φ), φ ∈ RealSet ∧ φ ∈ [0, 2 * π] ⇒ r(φ) = a * (1 + cos(φ))
+9. η = 0
+
+GOAL:
+ξ = frac(frac(2, 3) * DefInt(0, π, r(φ) * cos(φ) * frac(1, 2) * r(φ)^{2} * diff(φ)), DefInt(0, π, frac(1, 2) * r(φ)^{2} * diff(φ)))
+
+METHOD:

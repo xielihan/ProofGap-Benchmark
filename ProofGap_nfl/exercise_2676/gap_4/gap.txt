@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. p ∈ RealSet
+2. seqlim_{ n → +∞ } (1 / n^{p + frac(1, n)} / (1 / n^{p})) = seqlim_{ n → +∞ } (1 / sqrtn(n, n))
+3. seqlim_{ n → +∞ } (1 / sqrtn(n, n)) = 1
+4. seqlim_{ n → +∞ } (1 / n^{p + frac(1, n)} / (1 / n^{p})) = 1
+
+GOAL:
+p > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{p}))
+
+METHOD:

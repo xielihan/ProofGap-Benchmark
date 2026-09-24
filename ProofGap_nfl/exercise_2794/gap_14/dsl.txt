@@ -1,0 +1,17 @@
+get_condition (hypothesis 24: {UniformConvergent(S, [0, 1], F)}) in (GOAL: {UniformConvergent(S, [0, 1], F) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ False)})
+use_condition (hypothesis 24: {UniformConvergent(S, [0, 1], F)}) in (hypothesis 19: {UniformConvergent(S, [0, 1], F) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ |S(n, x_{0}) - F(x_{0})| < ε_{0})}) as (hypothesis 25: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ |S(n, x_{0}) - F(x_{0})| < ε_{0}})
+use_condition (hypothesis 24: {UniformConvergent(S, [0, 1], F)}) in (hypothesis 22: {UniformConvergent(S, [0, 1], F) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ |S(n, x_{0}) - F(x_{0})| = e^{-1})}) as (hypothesis 26: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ |S(n, x_{0}) - F(x_{0})| = e^{-1}})
+use_condition (hypothesis 24: {UniformConvergent(S, [0, 1], F)}) in (hypothesis 23: {UniformConvergent(S, [0, 1], F) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ e^{-1} > ε_{0})}) as (hypothesis 27: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ e^{-1} > ε_{0}})
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ False}) (n := {u})
+get_condition (hypothesis 28: {u ∈ NonNegIntegerSet ∧ u ∈ PosIntegerSet ∧ u ≥ N}) in (GOAL: {u ∈ NonNegIntegerSet ∧ u ∈ PosIntegerSet ∧ u ≥ N ⇒ False})
+get_prop (hypothesis 25: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ |S(n, x_{0}) - F(x_{0})| < ε_{0}}) (n := {u}) as (hypothesis 29: {u ∈ NonNegIntegerSet ∧ u ∈ PosIntegerSet ∧ u ≥ N ⇒ |S(u, x_{0}) - F(x_{0})| < ε_{0}})
+get_prop (hypothesis 26: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ |S(n, x_{0}) - F(x_{0})| = e^{-1}}) (n := {u}) as (hypothesis 30: {u ∈ NonNegIntegerSet ∧ u ∈ PosIntegerSet ∧ u ≥ N ⇒ |S(u, x_{0}) - F(x_{0})| = e^{-1}})
+get_prop (hypothesis 27: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ e^{-1} > ε_{0}}) (n := {u}) as (hypothesis 31: {u ∈ NonNegIntegerSet ∧ u ∈ PosIntegerSet ∧ u ≥ N ⇒ e^{-1} > ε_{0}})
+use_condition (hypothesis 28: {u ∈ NonNegIntegerSet ∧ u ∈ PosIntegerSet ∧ u ≥ N}) in (hypothesis 29: {u ∈ NonNegIntegerSet ∧ u ∈ PosIntegerSet ∧ u ≥ N ⇒ |S(u, x_{0}) - F(x_{0})| < ε_{0}}) as (hypothesis 32: {|S(u, x_{0}) - F(x_{0})| < ε_{0}})
+use_condition (hypothesis 28: {u ∈ NonNegIntegerSet ∧ u ∈ PosIntegerSet ∧ u ≥ N}) in (hypothesis 30: {u ∈ NonNegIntegerSet ∧ u ∈ PosIntegerSet ∧ u ≥ N ⇒ |S(u, x_{0}) - F(x_{0})| = e^{-1}}) as (hypothesis 33: {|S(u, x_{0}) - F(x_{0})| = e^{-1}})
+use_condition (hypothesis 28: {u ∈ NonNegIntegerSet ∧ u ∈ PosIntegerSet ∧ u ≥ N}) in (hypothesis 31: {u ∈ NonNegIntegerSet ∧ u ∈ PosIntegerSet ∧ u ≥ N ⇒ e^{-1} > ε_{0}}) as (hypothesis 34: {e^{-1} > ε_{0}})
+rewrite (left_to_right, equation) (hypothesis 33: {|S(u, x_{0}) - F(x_{0})| = e^{-1}}); from (hypothesis 32: {|S(u, x_{0}) - F(x_{0})| < ε_{0}}) to (hypothesis 32: {e^{-1} < ε_{0}})
+assert (hypothesis 35: {Not(e^{-1} > ε_{0})}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

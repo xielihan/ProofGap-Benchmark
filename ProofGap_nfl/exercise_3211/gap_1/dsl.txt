@@ -1,0 +1,2 @@
+1. rewrite (left_to_right, equation) (hypothesis 8: {φ = (fun t [t ∈ RealSet] . f(t, b))}); from (GOAL: {φ(x) = f(x, b)}) to (GOAL: {(fun t [t ∈ RealSet] . f(t, b))(x) = f(x, b)})
+2. autosolve all_hypothesis

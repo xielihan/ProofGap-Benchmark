@@ -1,0 +1,31 @@
+PROOF GAP @12
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. a ∈ RealSet ∧ a > 0
+3. b ∈ RealSet ∧ b > 0
+4. x : RealSet → RealSet
+5. y : RealSet → RealSet
+6. ρ : CartesianProd(RealSet, RealSet) → RealSet
+7. s ∈ RealSet
+8. t ∈ RealSet
+9. M ∈ RealSet
+10. C = { (x(t), y(t)) | t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π }
+11. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ x(t) = a * cos(t)
+12. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ y(t) = b * sin(t)
+13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ ρ(x, y) = |y|
+14. M = ScalarCurveInt(C, |y| * diff(s))
+15. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ diff(s) = sqrtn(2, a^{2} * sin(t)^{2} + b^{2} * cos(t)^{2}) * diff(fun t [t ∈ RealSet] . t)
+16. a > b ⇒ (exists (ε), ε ∈ RealSet ∧ ε = frac(sqrtn(2, a^{2} - b^{2}), a) ∧ (forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ diff(s) = a * sqrtn(2, 1 - ε^{2} * cos(t)^{2}) * diff(fun t [t ∈ RealSet] . t)))
+17. a > b ⇒ (exists (ε), ε ∈ RealSet ∧ ε = frac(sqrtn(2, a^{2} - b^{2}), a) ∧ M = DefInt(0, π, (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ π] . a * b * sin(t) * sqrtn(2, 1 - ε^{2} * cos(t)^{2})) * diff(fun t [t ∈ RealSet] . t)) + DefInt(π, 2 * π, (fun t [t ∈ RealSet ∧ π ≤ t ∧ t ≤ 2 * π] . a * -b * sin(t) * sqrtn(2, 1 - ε^{2} * cos(t)^{2})) * diff(fun t [t ∈ RealSet] . t)))
+18. a > b ⇒ (exists (ε), ε ∈ RealSet ∧ ε = frac(sqrtn(2, a^{2} - b^{2}), a) ∧ M = 4 * a * b * DefInt(0, 1, (fun u [u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 1] . sqrtn(2, 1 - ε^{2} * u^{2})) * diff(fun u [u ∈ RealSet] . u)))
+19. a > b ⇒ (exists (ε), ε ∈ RealSet ∧ ε = frac(sqrtn(2, a^{2} - b^{2}), a) ∧ M = 2 * b^{2} + 2 * a * b * frac(arcsin(ε), ε))
+20. a < b ⇒ (exists (ε_{1}), ε_{1} ∈ RealSet ∧ ε_{1} = frac(sqrtn(2, b^{2} - a^{2}), a) ∧ (forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ diff(s) = a * sqrtn(2, 1 + (ε_{1})^{2} * cos(t)^{2}) * diff(fun t [t ∈ RealSet] . t)))
+21. a < b ⇒ (exists (ε_{1}), ε_{1} ∈ RealSet ∧ ε_{1} = frac(sqrtn(2, b^{2} - a^{2}), a) ∧ M = 4 * a * b * DefInt(0, 1, (fun u [u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 1] . sqrtn(2, 1 + (ε_{1})^{2} * u^{2})) * diff(fun u [u ∈ RealSet] . u)))
+22. a < b ⇒ (exists (ε_{1}), ε_{1} ∈ RealSet ∧ ε_{1} = frac(sqrtn(2, b^{2} - a^{2}), a) ∧ M = 2 * b^{2} + 2 * a * b * frac(ln(ε_{1} + sqrtn(2, 1 + (ε_{1})^{2})), ε_{1}))
+23. a = b ⇒ (forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ diff(s) = a * diff(fun t [t ∈ RealSet] . t))
+24. a = b ⇒ M = DefInt(0, π, (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ π] . a^{2} * sin(t)) * diff(fun t [t ∈ RealSet] . t)) + DefInt(π, 2 * π, (fun t [t ∈ RealSet ∧ π ≤ t ∧ t ≤ 2 * π] . -a * sin(t) * a) * diff(fun t [t ∈ RealSet] . t))
+
+GOAL:
+a = b ⇒ M = 4 * a^{2}
+
+METHOD:

@@ -1,0 +1,2 @@
+1. get_forall (GOAL: {forall (x), (Impl(And(And(Belong(x, RealSet), Belong(x, PosRealSet)), Neq(x, 1)), Eq(frac(ln(x), ln(x)), 1)))}) (x := {x})
+2. autosolve all_hypothesis

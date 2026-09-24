@@ -1,0 +1,21 @@
+get_forall (GOAL: {forall (α), α ∈ RealSet ∧ α > 0 ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ n_{0} ≥ 3 ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ frac(ln(frac(1, frac(1, ln(ln(n))^{ln(n)}))), ln(n)) ≥ 1 + α))}) (α := {β})
+get_condition (hypothesis 4: {β ∈ RealSet ∧ β > 0}) in (GOAL: {β ∈ RealSet ∧ β > 0 ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ n_{0} ≥ 3 ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ frac(ln(frac(1, frac(1, ln(ln(n))^{ln(n)}))), ln(n)) ≥ 1 + β))})
+get_prop (hypothesis 3: {forall (α), α ∈ RealSet ∧ α > 0 ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ n_{0} ≥ 3 ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ ln(ln(ln(n))) ≥ 1 + α))}) (α := {β}) as (hypothesis 5: {β ∈ RealSet ∧ β > 0 ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ n_{0} ≥ 3 ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ ln(ln(ln(n))) ≥ 1 + β))})
+use_condition (hypothesis 4: {β ∈ RealSet ∧ β > 0}) in (hypothesis 5: {β ∈ RealSet ∧ β > 0 ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ n_{0} ≥ 3 ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ ln(ln(ln(n))) ≥ 1 + β))}) as (hypothesis 6: {exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ n_{0} ≥ 3 ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ ln(ln(ln(n))) ≥ 1 + β)})
+get_exists (hypothesis 6: {exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ n_{0} ≥ 3 ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ ln(ln(ln(n))) ≥ 1 + β)}) (n_{0} := {N})
+destruct_and (hypothesis 7: {N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N ≥ 3 ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ ln(ln(ln(n))) ≥ 1 + β)}) as (hypothesis 8: {N ∈ NonNegIntegerSet}) (hypothesis 9: {N ∈ PosIntegerSet}) (hypothesis 10: {N ≥ 3}) (hypothesis 11: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ ln(ln(ln(n))) ≥ 1 + β})
+exists (n_{0} := {N})
+assert (hypothesis 12: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ frac(ln(frac(1, frac(1, ln(ln(n))^{ln(n)}))), ln(n)) ≥ 1 + β}) by proof {
+  get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ frac(ln(frac(1, frac(1, ln(ln(n))^{ln(n)}))), ln(n)) ≥ 1 + β}) (n := {m})
+  get_condition (hypothesis 12: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ m ≥ N}) in (GOAL: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ m ≥ N ⇒ frac(ln(frac(1, frac(1, ln(ln(m))^{ln(m)}))), ln(m)) ≥ 1 + β})
+  get_prop (hypothesis 2: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 3 ⇒ frac(ln(frac(1, frac(1, ln(ln(n))^{ln(n)}))), ln(n)) = ln(ln(ln(n)))}) (n := {m}) as (hypothesis 13: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ m ≥ 3 ⇒ frac(ln(frac(1, frac(1, ln(ln(m))^{ln(m)}))), ln(m)) = ln(ln(ln(m)))})
+  assert (hypothesis 14: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ m ≥ 3}) by proof {
+    autosolve all_hypothesis
+  }
+  use_condition (hypothesis 14: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ m ≥ 3}) in (hypothesis 13: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ m ≥ 3 ⇒ frac(ln(frac(1, frac(1, ln(ln(m))^{ln(m)}))), ln(m)) = ln(ln(ln(m)))}) as (hypothesis 15: {frac(ln(frac(1, frac(1, ln(ln(m))^{ln(m)}))), ln(m)) = ln(ln(ln(m)))})
+  get_prop (hypothesis 11: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ ln(ln(ln(n))) ≥ 1 + β}) (n := {m}) as (hypothesis 16: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ m ≥ N ⇒ ln(ln(ln(m))) ≥ 1 + β})
+  use_condition (hypothesis 12: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ m ≥ N}) in (hypothesis 16: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ m ≥ N ⇒ ln(ln(ln(m))) ≥ 1 + β}) as (hypothesis 17: {ln(ln(ln(m))) ≥ 1 + β})
+  rewrite (left_to_right, equation) (hypothesis 15: {frac(ln(frac(1, frac(1, ln(ln(m))^{ln(m)}))), ln(m)) = ln(ln(ln(m)))}); from (GOAL: {frac(ln(frac(1, frac(1, ln(ln(m))^{ln(m)}))), ln(m)) ≥ 1 + β}) to (GOAL: {ln(ln(ln(m))) ≥ 1 + β})
+  apply (hypothesis 17: {ln(ln(ln(m))) ≥ 1 + β})
+}
+autosolve all_hypothesis

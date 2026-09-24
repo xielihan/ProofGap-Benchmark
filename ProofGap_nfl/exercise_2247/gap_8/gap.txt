@@ -1,0 +1,15 @@
+PROOF GAP @8
+ASSUM:
+1. t : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ IntervalCC(0, 0.75) ∧ t(x) = frac(1, x + 1) ⇒ 0 ≤ x
+3. forall (x), x ∈ RealSet ∧ x ∈ IntervalCC(0, 0.75) ∧ t(x) = frac(1, x + 1) ⇒ x ≤ 0.75
+4. forall (x), x ∈ RealSet ∧ x ∈ IntervalCC(0, 0.75) ∧ t(x) = frac(1, x + 1) ⇒ frac(4, 7) ≤ t(x)
+5. forall (x), x ∈ RealSet ∧ x ∈ IntervalCC(0, 0.75) ∧ t(x) = frac(1, x + 1) ⇒ t(x) ≤ 1
+6. forall (x), x ∈ RealSet ∧ x ∈ IntervalCC(0, 0.75) ∧ t(x) = frac(1, x + 1) ⇒ x = frac(1, t(x)) - 1
+7. DefInt(0, 0.75, (fun x [x ∈ RealSet ∧ x ∈ IntervalCC(0, 0.75)] . frac(1, (x + 1) * sqrtn(2, x^{2} + 1))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalCC(0, 0.75)] . x)) = DefInt(frac(4, 7), 1, (fun t [t ∈ RealSet ∧ t ∈ IntervalCC(frac(4, 7), 1)] . frac(1, sqrtn(2, 2 * t^{2} - 2 * t + 1))) * diff(fun t [t ∈ RealSet ∧ t ∈ IntervalCC(frac(4, 7), 1)] . t))
+8. DefInt(frac(4, 7), 1, (fun t [t ∈ RealSet ∧ t ∈ IntervalCC(frac(4, 7), 1)] . frac(1, sqrtn(2, 2 * t^{2} - 2 * t + 1))) * diff(fun t [t ∈ RealSet ∧ t ∈ IntervalCC(frac(4, 7), 1)] . t)) = frac(1, sqrtn(2, 2)) * ((fun t [t ∈ RealSet ∧ t ∈ IntervalCC(frac(4, 7), 1)] . ln(2 * t - 1 + sqrtn(2, 4 * t^{2} - 4 * t + 2)))|_{frac(4, 7)}^{1})
+
+GOAL:
+frac(1, sqrtn(2, 2)) * ((fun t . ln(2 * t - 1 + sqrtn(2, 4 * t^{2} - 4 * t + 2)))|_{frac(4, 7)}^{1}) = frac(1, sqrtn(2, 2)) * ln(frac(1 + sqrtn(2, 2), frac(1, 7) + sqrtn(2, frac(50, 49))))
+
+METHOD:

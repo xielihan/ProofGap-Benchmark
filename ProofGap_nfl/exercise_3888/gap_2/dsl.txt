@@ -1,0 +1,22 @@
+get_prop (theorem 'Thm 280. (EvenFunctionDefinition)': {forall (f), f : RealSet -> RealSet => (EvenFunc(f) <==> (forall (x), x ∈ RealSet => f(-x) = f(x)))}) (f := {f}) as (hypothesis 5: {f : RealSet -> RealSet => (EvenFunc(f) <==> (forall (x), x ∈ RealSet => f(-x) = f(x)))})
+use_condition (hypothesis 1: {f : RealSet -> RealSet}) in (hypothesis 5: {f : RealSet -> RealSet => (EvenFunc(f) <==> (forall (x), x ∈ RealSet => f(-x) = f(x)))}) as (hypothesis 6: {EvenFunc(f) <==> (forall (x), x ∈ RealSet => f(-x) = f(x))})
+rewrite (left_to_right, iff) (hypothesis 6: {EvenFunc(f) <==> (forall (x), x ∈ RealSet => f(-x) = f(x))}); from (GOAL: {EvenFunc(f)}) to (GOAL: {forall (x), x ∈ RealSet => f(-x) = f(x)})
+get_forall (GOAL: {forall (x), x ∈ RealSet => f(-x) = f(x)}) (x := {xx})
+get_condition (hypothesis 7: {xx ∈ RealSet}) in (GOAL: {xx ∈ RealSet => f(-xx) = f(xx)})
+assert (hypothesis 8: {-xx ∈ RealSet}) by proof {
+autosolve all_hypothesis
+}
+get_prop (hypothesis 3: {forall (x), x ∈ RealSet ⇒ f(x) = cases{ cos(x) if |x| ≤ frac(π, 2); 0 if |x| > frac(π, 2) }}) (x := {xx}) as (hypothesis 9: {xx ∈ RealSet ⇒ f(xx) = cases{ cos(xx) if |xx| ≤ frac(π, 2); 0 if |xx| > frac(π, 2) }})
+use_condition (hypothesis 7: {xx ∈ RealSet}) in (hypothesis 9: {xx ∈ RealSet ⇒ f(xx) = cases{ cos(xx) if |xx| ≤ frac(π, 2); 0 if |xx| > frac(π, 2) }}) as (hypothesis 10: {f(xx) = cases{ cos(xx) if |xx| ≤ frac(π, 2); 0 if |xx| > frac(π, 2) }})
+get_prop (hypothesis 3: {forall (x), x ∈ RealSet ⇒ f(x) = cases{ cos(x) if |x| ≤ frac(π, 2); 0 if |x| > frac(π, 2) }}) (x := {-xx}) as (hypothesis 11: {-xx ∈ RealSet ⇒ f(-xx) = cases{ cos(-xx) if |-xx| ≤ frac(π, 2); 0 if |-xx| > frac(π, 2) }})
+use_condition (hypothesis 8: {-xx ∈ RealSet}) in (hypothesis 11: {-xx ∈ RealSet ⇒ f(-xx) = cases{ cos(-xx) if |-xx| ≤ frac(π, 2); 0 if |-xx| > frac(π, 2) }}) as (hypothesis 12: {f(-xx) = cases{ cos(-xx) if |-xx| ≤ frac(π, 2); 0 if |-xx| > frac(π, 2) }})
+get_prop (theorem 'Thm 404. (CosineEven)': {forall (x), x ∈ RealSet => cos(-x) = cos(x)}) (x := {xx}) as (hypothesis 13: {xx ∈ RealSet => cos(-xx) = cos(xx)})
+use_condition (hypothesis 7: {xx ∈ RealSet}) in (hypothesis 13: {xx ∈ RealSet => cos(-xx) = cos(xx)}) as (hypothesis 14: {cos(-xx) = cos(xx)})
+assert (hypothesis 15: {|-xx| = |xx|}) by proof {
+autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 15: {|-xx| = |xx|}); from (hypothesis 12: {f(-xx) = cases{ cos(-xx) if |-xx| ≤ frac(π, 2); 0 if |-xx| > frac(π, 2) }}) to (hypothesis 12: {f(-xx) = cases{ cos(-xx) if |xx| ≤ frac(π, 2); 0 if |xx| > frac(π, 2) }})
+rewrite (left_to_right, equation) (hypothesis 14: {cos(-xx) = cos(xx)}); from (hypothesis 12: {f(-xx) = cases{ cos(-xx) if |xx| ≤ frac(π, 2); 0 if |xx| > frac(π, 2) }}) to (hypothesis 12: {f(-xx) = cases{ cos(xx) if |xx| ≤ frac(π, 2); 0 if |xx| > frac(π, 2) }})
+rewrite (left_to_right, equation) (hypothesis 12: {f(-xx) = cases{ cos(xx) if |xx| ≤ frac(π, 2); 0 if |xx| > frac(π, 2) }}); from (GOAL: {f(-xx) = f(xx)}) to (GOAL: {cases{ cos(xx) if |xx| ≤ frac(π, 2); 0 if |xx| > frac(π, 2) } = f(xx)})
+rewrite (left_to_right, equation) (hypothesis 10: {f(xx) = cases{ cos(xx) if |xx| ≤ frac(π, 2); 0 if |xx| > frac(π, 2) }}); from (GOAL: {cases{ cos(xx) if |xx| ≤ frac(π, 2); 0 if |xx| > frac(π, 2) } = f(xx)}) to (GOAL: {cases{ cos(xx) if |xx| ≤ frac(π, 2); 0 if |xx| > frac(π, 2) } = cases{ cos(xx) if |xx| ≤ frac(π, 2); 0 if |xx| > frac(π, 2) }})
+autosolve all_hypothesis

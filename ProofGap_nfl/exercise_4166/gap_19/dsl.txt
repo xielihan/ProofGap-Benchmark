@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 33: {VolumeInt(S, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . f(x, y)) * diff(ω)) = I}); from (GOAL: {VolumeInt(S, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . f(x, y)) * diff(ω)) = seqlim_{ n → +∞ } (VolumeInt(S_{n}(n), (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . f(x, y)) * diff(ω)))}) to (GOAL: {I = seqlim_{ n → +∞ } (VolumeInt(S_{n}(n), (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . f(x, y)) * diff(ω)))})
+autosolve (hypothesis 32: {seqlim_{ n → +∞ } (VolumeInt(S_{n}(n), (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . f(x, y)) * diff(ω))) = I})

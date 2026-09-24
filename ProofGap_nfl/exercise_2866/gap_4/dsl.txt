@@ -1,0 +1,7 @@
+assert (hypothesis 6: {x^{2} < 1}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 7: {|x|^{2} < 1}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

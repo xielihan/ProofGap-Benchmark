@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. Delta : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. a ∈ RealSet ∧ a ∈ PosRealSet
+3. b ∈ RealSet ∧ b ∈ PosRealSet
+4. a ≠ b
+5. forall (t), t ∈ RealSet ⇒ (forall (s), s ∈ RealSet ⇒ Delta(s, a, b) = cases{ frac(a^{s} + b^{s}, 2)^{frac(1, s)} if s ≠ 0; lim_{ t → 0 } (Delta(t, a, b)) if s = 0 })
+6. forall (s), s ∈ RealSet ∧ s ≠ 0 ⇒ ln(Delta(s, a, b)) = frac(1, s) * ln(frac(a^{s} + b^{s}, 2))
+7. forall (s), s ∈ RealSet ∧ s ≠ 0 ⇒ FunDeri(fun s [s ∈ RealSet] . ln(Delta(s, a, b)), 1, 1) = -frac(1, s^{2}) * ln(frac(a^{s} + b^{s}, 2)) + frac(a^{s} * ln(a) + b^{s} * ln(b), s * (a^{s} + b^{s}))
+8. forall (s), s ∈ RealSet ∧ s ≠ 0 ⇒ FunDeri(fun s [s ∈ RealSet] . ln(Delta(s, a, b)), 1, 1) = frac(a^{s} * ln(a^{s}) + b^{s} * ln(b^{s}) - (a^{s} + b^{s}) * ln(frac(a^{s} + b^{s}, 2)), s^{2} * (a^{s} + b^{s}))
+
+GOAL:
+forall (s), s ∈ RealSet ∧ s ≠ 0 ⇒ a^{s} > 0
+
+METHOD:

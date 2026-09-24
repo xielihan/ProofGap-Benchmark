@@ -1,0 +1,17 @@
+PROOF GAP @2
+ASSUM:
+1. I ∈ RealSet
+2. D ⊆ CartesianProd(RealSet, RealSet)
+3. f : CartesianProd(RealSet, RealSet) → RealSet
+4. ξ ∈ RealSet
+5. η ∈ RealSet
+6. DiamondDomain : RealSet → PowerSet(CartesianProd(RealSet, RealSet))
+7. D = DiamondDomain(10)
+8. I = VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, 100 + cos(x)^{2} + cos(y)^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D ⇒ f(x, y) = frac(1, 100 + cos(x)^{2} + cos(y)^{2})
+10. VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . 1) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = 200
+
+GOAL:
+exists (ξ) (η), ξ ∈ RealSet ∧ η ∈ RealSet ∧ (ξ, η) ∈ D ∧ I = frac(200, 100 + cos(ξ)^{2} + cos(η)^{2})
+
+METHOD:

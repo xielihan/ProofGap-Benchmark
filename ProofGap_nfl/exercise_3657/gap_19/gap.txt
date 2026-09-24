@@ -1,0 +1,34 @@
+PROOF GAP @19
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. F : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+3. A ∈ RealSet
+4. B ∈ RealSet
+5. C ∈ RealSet
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = A * x^{2} + 2 * B * x * y + C * y^{2}
+7. F = (fun x, y, λ [x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet] . A * x^{2} + 2 * B * x * y + C * y^{2} - λ * (x^{2} + y^{2} - 1))
+8. forall (x) (y) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 1, 1)(x, y, λ) = 2 * ((A - λ) * x + B * y)
+9. forall (x) (y) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 2, 1)(x, y, λ) = 2 * (B * x + (C - λ) * y)
+10. exists (λ) (x) (y), λ ∈ RealSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ (A - λ) * x + B * y = 0
+11. exists (x) (λ) (y), x ∈ RealSet ∧ λ ∈ RealSet ∧ y ∈ RealSet ∧ B * x + (C - λ) * y = 0
+12. exists (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} = 1
+13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} = 1 ⇒ x ≠ 0 ∨ y ≠ 0
+14. exists (λ), λ ∈ RealSet ∧ λ^{2} - (A + C) * λ + A * C - B^{2} = 0
+15. (A - C)^{2} + 4 * B^{2} = 0 ⇒ A = C
+16. (A - C)^{2} + 4 * B^{2} = 0 ⇒ B = 0
+17. (A - C)^{2} + 4 * B^{2} = 0 ⇒ (forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} = 1 ⇒ z(x, y) = A)
+18. (A - C)^{2} + 4 * B^{2} = 0 ⇒ MaximumPointOn(z, { (x, y) | x ∈ RealSet, y ∈ RealSet, x^{2} + y^{2} = 1 }) = { (x, y) | x ∈ RealSet, y ∈ RealSet, x^{2} + y^{2} = 1 }
+19. (A - C)^{2} + 4 * B^{2} = 0 ⇒ MinimumPointOn(z, { (x, y) | x ∈ RealSet, y ∈ RealSet, x^{2} + y^{2} = 1 }) = { (x, y) | x ∈ RealSet, y ∈ RealSet, x^{2} + y^{2} = 1 }
+20. (A - C)^{2} + 4 * B^{2} ≠ 0 ⇒ λ_{1} = frac(A + C + sqrtn(2, (A - C)^{2} + 4 * B^{2}), 2)
+21. (A - C)^{2} + 4 * B^{2} ≠ 0 ⇒ λ_{2} = frac(A + C - sqrtn(2, (A - C)^{2} + 4 * B^{2}), 2)
+22. (A - C)^{2} + 4 * B^{2} ≠ 0 ⇒ λ_{1} > λ_{2}
+23. (A - C)^{2} + 4 * B^{2} ≠ 0 ⇒ (λ_{1})^{2} - (A + C) * λ_{1} + A * C - B^{2} = 0
+24. (A - C)^{2} + 4 * B^{2} ≠ 0 ⇒ (λ_{2})^{2} - (A + C) * λ_{2} + A * C - B^{2} = 0
+25. exists (x_{1}) (y_{1}), x_{1} ∈ RealSet ∧ y_{1} ∈ RealSet ∧ ((A - C)^{2} + 4 * B^{2} ≠ 0 ⇒ A * x_{1} + B * y_{1} = λ_{1} * x_{1})
+26. exists (x_{1}) (y_{1}), x_{1} ∈ RealSet ∧ y_{1} ∈ RealSet ∧ ((A - C)^{2} + 4 * B^{2} ≠ 0 ⇒ B * x_{1} + C * y_{1} = λ_{1} * y_{1})
+27. exists (x_{1}) (y_{1}), x_{1} ∈ RealSet ∧ y_{1} ∈ RealSet ∧ ((A - C)^{2} + 4 * B^{2} ≠ 0 ⇒ (x_{1})^{2} + (y_{1})^{2} = 1)
+
+GOAL:
+exists (x_{2}) (y_{2}), x_{2} ∈ RealSet ∧ y_{2} ∈ RealSet ∧ ((A - C)^{2} + 4 * B^{2} ≠ 0 ⇒ A * x_{2} + B * y_{2} = λ_{1} * x_{2})
+
+METHOD:

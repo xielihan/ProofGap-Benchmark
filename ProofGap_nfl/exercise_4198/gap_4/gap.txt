@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. p ∈ RealSet
+2. ω ∈ RealSet
+3. B : CartesianProd(RealSet, RealSet) → RealSet
+4. VolumeInt({ (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, x^{2} + y^{2} + z^{2} ≤ 1 }, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . frac(1, (1 - x^{2} - y^{2} - z^{2})^{p})) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . ω)) = DefInt(0, 2 * π, diff(fun φ [φ ∈ RealSet] . φ)) * DefInt(-frac(π, 2), frac(π, 2), (fun ψ [ψ ∈ RealSet] . cos(ψ)) * diff(fun ψ [ψ ∈ RealSet] . ψ)) * DefInt(0, 1, (fun r [r ∈ RealSet ∧ r ∈ [0, 1]] . frac(r^{2}, (1 - r^{2})^{p})) * diff(fun r [r ∈ RealSet ∧ r ∈ [0, 1]] . r))
+5. DefInt(0, 2 * π, diff(fun φ [φ ∈ RealSet] . φ)) * DefInt(-frac(π, 2), frac(π, 2), (fun ψ [ψ ∈ RealSet] . cos(ψ)) * diff(fun ψ [ψ ∈ RealSet] . ψ)) * DefInt(0, 1, (fun r [r ∈ RealSet ∧ r ∈ [0, 1]] . frac(r^{2}, (1 - r^{2})^{p})) * diff(fun r [r ∈ RealSet ∧ r ∈ [0, 1]] . r)) = 4 * π * DefInt(0, 1, (fun r [r ∈ RealSet ∧ r ∈ [0, 1]] . frac(r^{2}, (1 - r^{2})^{p})) * diff(fun r [r ∈ RealSet ∧ r ∈ [0, 1]] . r))
+6. forall (a) (b), a ∈ RealSet ⇒ b ∈ RealSet ⇒ B(a + 1, b + 1) = DefInt(0, 1, (fun u [u ∈ RealSet ∧ u ∈ [0, 1]] . u^{a} * (1 - u)^{b}) * diff(fun u [u ∈ RealSet ∧ u ∈ [0, 1]] . u))
+7. p < 1 ⇒ DefInt(0, 1, (fun r [r ∈ RealSet ∧ r ∈ [0, 1]] . frac(r^{2}, (1 - r^{2})^{p})) * diff(fun r [r ∈ RealSet ∧ r ∈ [0, 1]] . r)) = frac(1, 2) * DefInt(0, 1, (fun t [t ∈ RealSet ∧ t ∈ [0, 1]] . t^{frac(1, 2)} * (1 - t)^{-p}) * diff(fun t [t ∈ RealSet ∧ t ∈ [0, 1]] . t))
+
+GOAL:
+p < 1 ⇒ frac(1, 2) * DefInt(0, 1, (fun t [t ∈ RealSet ∧ t ∈ [0, 1]] . t^{frac(1, 2)} * (1 - t)^{-p}) * diff(fun t [t ∈ RealSet ∧ t ∈ [0, 1]] . t)) = frac(1, 2) * B(frac(3, 2), 1 - p)
+
+METHOD:
+[@method Use the Euler Beta integral definition; the prior substitution is t = r^{2}. @]

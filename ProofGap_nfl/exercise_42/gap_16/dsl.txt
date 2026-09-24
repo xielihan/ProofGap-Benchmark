@@ -1,0 +1,11 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(1, 2^{n - 1}) < ε ⇒ |x_{3}(n)| < ε)}) (n := {n0})
+get_condition (hypothesis 28: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(1, 2^{n0 - 1}) < ε ⇒ |x_{3}(n0)| < ε)})
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(1, 2^{n0 - 1}) < ε ⇒ |x_{3}(n0)| < ε}) (ε := {eps0})
+get_condition (hypothesis 29: {eps0 ∈ RealSet ∧ eps0 > 0 ∧ frac(1, 2^{n0 - 1}) < eps0}) in (GOAL: {eps0 ∈ RealSet ∧ eps0 > 0 ∧ frac(1, 2^{n0 - 1}) < eps0 ⇒ |x_{3}(n0)| < eps0})
+destruct_and (hypothesis 29: {eps0 ∈ RealSet ∧ eps0 > 0 ∧ frac(1, 2^{n0 - 1}) < eps0}) as (hypothesis 30: {eps0 ∈ RealSet}) (hypothesis 31: {eps0 > 0}) (hypothesis 32: {frac(1, 2^{n0 - 1}) < eps0})
+assert (hypothesis 33: {eps0 ∈ RealSet ∧ eps0 > 0})
+get_prop (hypothesis 27: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |x_{3}(n)| = frac(1, n!) ∧ frac(1, n!) ≤ frac(1, 2^{n - 1}))}) (ε := {eps0}) as (hypothesis 34: {eps0 ∈ RealSet ∧ eps0 > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |x_{3}(n)| = frac(1, n!) ∧ frac(1, n!) ≤ frac(1, 2^{n - 1}))})
+use_condition (hypothesis 33: {eps0 ∈ RealSet ∧ eps0 > 0}) in (hypothesis 34: {eps0 ∈ RealSet ∧ eps0 > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |x_{3}(n)| = frac(1, n!) ∧ frac(1, n!) ≤ frac(1, 2^{n - 1}))}) as (hypothesis 35: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |x_{3}(n)| = frac(1, n!) ∧ frac(1, n!) ≤ frac(1, 2^{n - 1})})
+get_prop (hypothesis 35: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |x_{3}(n)| = frac(1, n!) ∧ frac(1, n!) ≤ frac(1, 2^{n - 1})}) (n := {n0}) as (hypothesis 36: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ |x_{3}(n0)| = frac(1, n0!) ∧ frac(1, n0!) ≤ frac(1, 2^{n0 - 1})})
+use_condition (hypothesis 28: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (hypothesis 36: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ |x_{3}(n0)| = frac(1, n0!) ∧ frac(1, n0!) ≤ frac(1, 2^{n0 - 1})}) as (hypothesis 37: {|x_{3}(n0)| = frac(1, n0!) ∧ frac(1, n0!) ≤ frac(1, 2^{n0 - 1})})
+autosolve all_hypothesis

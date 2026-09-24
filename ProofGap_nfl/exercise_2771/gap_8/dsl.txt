@@ -1,0 +1,10 @@
+get_exists (hypothesis 12: {exists (x), x : NonNegIntegerSet → RealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x(n) = frac(1, n) ⇒ |S_{n}(n, x(n)) - S(x(n))| = frac(1, 2))}) (x := {x0})
+destruct_and (hypothesis 13: {x0 : NonNegIntegerSet → RealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x0(n) = frac(1, n) ⇒ |S_{n}(n, x0(n)) - S(x0(n))| = frac(1, 2))}) as (hypothesis 14: {x0 : NonNegIntegerSet → RealSet}) (hypothesis 15: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x0(n) = frac(1, n) ⇒ |S_{n}(n, x0(n)) - S(x0(n))| = frac(1, 2)})
+exists (x := {x0})
+assert (hypothesis 16: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x0(n) = frac(1, n) ⇒ frac(1, 2) > ε_{0}}) by proof {
+  get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x0(n) = frac(1, n) ⇒ frac(1, 2) > ε_{0}}) (n := {n0})
+  get_condition (hypothesis 17: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0(n0) = frac(1, n0)}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0(n0) = frac(1, n0) ⇒ frac(1, 2) > ε_{0}})
+  rewrite (left_to_right, equation) (hypothesis 10: {ε_{0} = frac(1, 4)}); from (GOAL: {frac(1, 2) > ε_{0}}) to (GOAL: {frac(1, 2) > frac(1, 4)})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

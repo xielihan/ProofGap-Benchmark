@@ -1,0 +1,6 @@
+rewrite (left_to_right, equation) (hypothesis 8: {u = x + y}); from (GOAL: {x = frac(u + v, 2)}) to (GOAL: {x = frac((x + y) + v, 2)})
+rewrite (left_to_right, equation) (hypothesis 9: {v = x - y}); from (GOAL: {x = frac((x + y) + v, 2)}) to (GOAL: {x = frac((x + y) + (x - y), 2)})
+assert (hypothesis 10: {x = frac((x + y) + (x - y), 2)}) by proof {
+  autosolve (hypothesis 8: {u = x + y}) (hypothesis 9: {v = x - y})
+}
+apply (hypothesis 10: {x = frac((x + y) + (x - y), 2)})

@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x > 0 ⇒ 0 < 2 * x}) (x := {z})
+get_condition (hypothesis 2: {z ∈ RealSet ∧ z > 0}) in (GOAL: {z ∈ RealSet ∧ z > 0 ⇒ 0 < 2 * z})
+destruct_and (hypothesis 2: {z ∈ RealSet ∧ z > 0}) as (hypothesis 3: {z ∈ RealSet}) (hypothesis 4: {z > 0})
+autosolve all_hypothesis

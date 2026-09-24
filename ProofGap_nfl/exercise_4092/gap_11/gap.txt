@@ -1,0 +1,41 @@
+PROOF GAP @11
+ASSUM:
+1. V ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. α ∈ RealSet
+5. β ∈ RealSet
+6. h ∈ RealSet
+7. p ∈ RealSet
+8. q ∈ RealSet
+9. s ∈ RealSet
+10. u ∈ RealSet
+11. v ∈ RealSet
+12. w ∈ RealSet
+13. x : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+14. y : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+15. z : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+16. 0 < a
+17. a < b
+18. 0 < α
+19. α < β
+20. h > 0
+21. V = { (p, q, s) | p ∈ RealSet ∧ q ∈ RealSet ∧ s ∈ RealSet ∧ q > 0 ∧ s ≥ a * q^{2} ∧ s ≤ b * q^{2} ∧ s ≥ α * p ∧ s ≤ β * p ∧ p ≤ h }
+22. u = frac(z, y^{2})
+23. v = frac(z, x)
+24. w = z
+25. x(u, v, w) = frac(w, v)
+26. y(u, v, w) = sqrtn(2, frac(w, u))
+27. z(u, v, w) = w
+28. u > 0
+29. v ≠ 0
+30. w ≥ 0
+31. exists (I), I ∈ RealSet ∧ |I| = frac(w * sqrtn(2, w), 2 * u * sqrtn(2, u) * v^{2})
+32. V = { (u, v, w) | u ∈ RealSet ∧ v ∈ RealSet ∧ w ∈ RealSet ∧ a ≤ u ∧ u ≤ b ∧ α ≤ v ∧ v ≤ β ∧ 0 ≤ w ∧ w ≤ h }
+33. VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x^{2}) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)) = DefInt(0, h, (fun w [w ∈ RealSet] . w^{frac(7, 2)}) * diff(fun w [w ∈ RealSet] . w)) * DefInt(α, β, (fun v [v ∈ RealSet] . frac(1, v^{4})) * diff(fun v [v ∈ RealSet] . v)) * DefInt(a, b, (fun u [u ∈ RealSet] . frac(1, 2 * u * sqrtn(2, u))) * diff(fun u [u ∈ RealSet] . u))
+34. DefInt(0, h, (fun w [w ∈ RealSet] . w^{frac(7, 2)}) * diff(fun w [w ∈ RealSet] . w)) * DefInt(α, β, (fun v [v ∈ RealSet] . frac(1, v^{4})) * diff(fun v [v ∈ RealSet] . v)) * DefInt(a, b, (fun u [u ∈ RealSet] . frac(1, 2 * u * sqrtn(2, u))) * diff(fun u [u ∈ RealSet] . u)) = frac(2, 27) * (frac(1, α^{3}) - frac(1, β^{3})) * (frac(1, sqrtn(2, a)) - frac(1, sqrtn(2, b))) * h^{4} * sqrtn(2, h)
+
+GOAL:
+VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x^{2}) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)) = frac(2, 27) * (frac(1, α^{3}) - frac(1, β^{3})) * (frac(1, sqrtn(2, a)) - frac(1, sqrtn(2, b))) * h^{4} * sqrtn(2, h)
+
+METHOD:

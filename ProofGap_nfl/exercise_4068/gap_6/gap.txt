@@ -1,0 +1,28 @@
+PROOF GAP @6
+ASSUM:
+1. S ⊆ CartesianProd(RealSet, RealSet)
+2. O ∈ CartesianProd(RealSet, RealSet)
+3. α ∈ RealSet
+4. ρ : CartesianProd(RealSet, RealSet) → RealSet ∧ ContinuousFuncOn(ρ, S)
+5. I ∈ RealSet
+6. I_{x} ∈ RealSet
+7. I_{y} ∈ RealSet
+8. I_{xy} ∈ RealSet
+9. x ∈ RealSet
+10. y ∈ RealSet
+11. O = (0, 0)
+12. I_{x} = VolumeInt(S, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . ρ(x, y) * y^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+13. I_{y} = VolumeInt(S, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . ρ(x, y) * x^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+14. I_{xy} = VolumeInt(S, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . ρ(x, y) * x * y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+15. `x'` = x * cos(α) + y * sin(α)
+16. `y'` = -x * sin(α) + y * cos(α)
+17. |I| = 1
+18. I = VolumeInt(S, (fun `x'`, `y'` [`x'` ∈ RealSet ∧ `y'` ∈ RealSet] . `y'`^{2} * ρ(x, y)) * diff(fun `x'`, `y'` [`x'` ∈ RealSet ∧ `y'` ∈ RealSet] . `x'`) * diff(fun `x'`, `y'` [`x'` ∈ RealSet ∧ `y'` ∈ RealSet] . `y'`))
+19. I = VolumeInt(S, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . (-x * sin(α) + y * cos(α))^{2} * ρ(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+20. I = cos(α)^{2} * VolumeInt(S, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . ρ(x, y) * y^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) - 2 * sin(α) * cos(α) * VolumeInt(S, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . ρ(x, y) * x * y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) + sin(α)^{2} * VolumeInt(S, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . ρ(x, y) * x^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+21. I = I_{x} * cos(α)^{2} - 2 * I_{xy} * sin(α) * cos(α) + I_{y} * sin(α)^{2}
+
+GOAL:
+I = I_{x} * cos(α)^{2} - 2 * I_{xy} * sin(α) * cos(α) + I_{y} * sin(α)^{2}
+
+METHOD:

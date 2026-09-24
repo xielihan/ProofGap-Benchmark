@@ -1,0 +1,9 @@
+1. assert (hypothesis 11: {x * y > 0 => y != 0}) by proof {
+  1. get_condition (hypothesis 11: {x * y > 0}) in (GOAL: {x * y > 0 => y != 0})
+  2. autosolve all_hypothesis
+}
+2. assert (hypothesis 12: {y != 0 => y^{2} > 0}) by proof {
+  1. get_condition (hypothesis 12: {y != 0}) in (GOAL: {y != 0 => y^{2} > 0})
+  2. autosolve all_hypothesis
+}
+3. autosolve all_hypothesis

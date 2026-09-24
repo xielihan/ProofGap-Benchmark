@@ -1,0 +1,22 @@
+PROOF GAP @5
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. r : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+3. x_{0} ∈ RealSet
+4. y_{0} ∈ RealSet
+5. z_{0} ∈ RealSet
+6. r_{0} ∈ RealSet ∧ r_{0} > 0
+7. d ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+8. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ r(x, y, z) = sqrtn(2, x^{2} + y^{2} + z^{2})
+9. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ r(x, y, z) > 0 ⇒ u(x, y, z) = frac(1, r(x, y, z))
+10. (x_{0})^{2} + (y_{0})^{2} + (z_{0})^{2} > 0
+11. r_{0} = sqrtn(2, (x_{0})^{2} + (y_{0})^{2} + (z_{0})^{2})
+12. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x^{2} + y^{2} + z^{2} > 0 ⇒ FunDeri(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . u(x, y, z), 1, 1)(x, y, z) = -frac(x, r(x, y, z)^{3})
+13. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x^{2} + y^{2} + z^{2} > 0 ⇒ FunDeri(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . u(x, y, z), 2, 1)(x, y, z) = -frac(y, r(x, y, z)^{3})
+14. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x^{2} + y^{2} + z^{2} > 0 ⇒ FunDeri(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . u(x, y, z), 3, 1)(x, y, z) = -frac(z, r(x, y, z)^{3})
+15. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x^{2} + y^{2} + z^{2} > 0 ⇒ grad(u, x, y, z) = (-frac(x, r(x, y, z)^{3}), -frac(y, r(x, y, z)^{3}), -frac(z, r(x, y, z)^{3}))
+
+GOAL:
+grad(u, x_{0}, y_{0}, z_{0}) = (-frac(x_{0}, (r_{0})^{3}), -frac(y_{0}, (r_{0})^{3}), -frac(z_{0}, (r_{0})^{3}))
+
+METHOD:

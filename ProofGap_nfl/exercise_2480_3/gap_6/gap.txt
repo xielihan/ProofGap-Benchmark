@@ -1,0 +1,20 @@
+PROOF GAP @6
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. x_{`bar`} : RealSet → RealSet
+4. y_{`bar`} : RealSet → RealSet
+5. a ∈ RealSet ∧ a > 0
+6. (V_{x})_{`bar`} ∈ RealSet
+7. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ x(t) = a * (t - sin(t))
+8. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ y(t) = a * (1 - cos(t))
+9. forall (t), t ∈ RealSet ⇒ y(t) = y_{`bar`}(t) + 2 * a
+10. forall (t), t ∈ RealSet ⇒ x(t) = x_{`bar`}(t)
+11. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ x_{`bar`}(t) = a * (t - sin(t))
+12. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ y_{`bar`}(t) = -a * (1 + cos(t))
+13. exists (t), t ∈ RealSet ∧ t = 0 ∧ y_{`bar`}(t) = -2 * a
+
+GOAL:
+forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ (V_{x})_{`bar`} = π * DefInt(0, 2 * π, (4 * a^{2} - a^{2} * (1 + cos(t))^{2}) * a * (1 - cos(t)) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . t))
+
+METHOD:

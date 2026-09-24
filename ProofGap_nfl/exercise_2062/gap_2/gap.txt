@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ 2 + sin(2 * x) = 1 + (sin(x) + cos(x))^{2}
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ 1 + (sin(x) + cos(x))^{2} = 3 - (sin(x) - cos(x))^{2}
+
+METHOD:

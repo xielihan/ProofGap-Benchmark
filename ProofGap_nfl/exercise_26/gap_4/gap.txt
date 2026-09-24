@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. forall (t), t ∈ RealSet ∧ t = x - 2 ⇒ t ∈ RealSet
+3. forall (t), t ∈ RealSet ∧ t = x - 2 ⇒ |t + 4| + |t| ≤ 12
+4. forall (t), t ∈ RealSet ∧ t = x - 2 ⇒ |t + 4| ≤ 12 - |t|
+
+GOAL:
+forall (t), t ∈ RealSet ∧ t = x - 2 ⇒ (t + 4)^{2} ≤ (12 - |t|)^{2}
+
+METHOD:
+[@method 两边同时平方 @]

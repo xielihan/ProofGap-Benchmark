@@ -1,0 +1,33 @@
+PROOF GAP @16
+ASSUM:
+1. Q : RealSet → RealSet
+2. Q_{1} : RealSet → RealSet
+3. Q_{2} : RealSet → RealSet
+4. A ∈ RealSet
+5. B ∈ RealSet
+6. C ∈ RealSet
+7. D ∈ RealSet
+8. forall (x), x ∈ RealSet
+9. forall (x), x ∈ RealSet ⇒ frac(x^{2}, (x^{2} + 2 * x + 2)^{2}) = frac(x^{2} + 2 * x + 2 - (2 * x + 2), (x^{2} + 2 * x + 2)^{2})
+10. forall (x), x ∈ RealSet ⇒ Q(x) = (x^{2} + 2 * x + 2)^{2}
+11. forall (x), x ∈ RealSet ⇒ Q_{1}(x) = Q_{2}(x)
+12. forall (x), x ∈ RealSet ⇒ Q_{2}(x) = x^{2} + 2 * x + 2
+13. frac(x^{2}, (x^{2} + 2 * x + 2)^{2}) = FunDeri(fun x [x ∈ RealSet] . frac(A * x + B, x^{2} + 2 * x + 2), 1, 1) + frac(C * x + D, x^{2} + 2 * x + 2)
+14. A ∈ RealSet
+15. B ∈ RealSet
+16. C ∈ RealSet
+17. D ∈ RealSet
+18. forall (x), x ∈ RealSet ⇒ x^{2} ≡ A * (x^{2} + 2 * x + 2) - 2 * (x + 1) * (A * x + B) + (C * x + D) * (x^{2} + 2 * x + 2)
+19. C = 0
+20. -A + 2 * C + D = 1
+21. -2 * B + 2 * C + 2 * D = 0
+22. 2 * A - 2 * B + 2 * D = 0
+23. A = 0
+24. B = 1
+25. C = 0
+26. D = 1
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x^{2}, (x^{2} + 2 * x + 2)^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(1, x^{2} + 2 * x + 2) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_5`(x) = frac(1, x^{2} + 2 * x + 2) + `F_3`(x)) }
+
+METHOD:

@@ -1,0 +1,10 @@
+get_forall (GOAL: {forall (α), α ∈ RealSet ∧ α < 0 ⇒ I(α) = -frac(π, 2)}) (α := {a})
+get_condition (hypothesis 8: {a ∈ RealSet ∧ a < 0}) in (GOAL: {a ∈ RealSet ∧ a < 0 ⇒ I(a) = -frac(π, 2)})
+assert (hypothesis 9: {-a ∈ RealSet ∧ -a > 0}) by proof {
+  autosolve (hypothesis 8: {a ∈ RealSet ∧ a < 0})
+}
+get_prop (hypothesis 5: {forall (α), α ∈ RealSet ∧ α > 0 ⇒ I(α) = frac(π, 2)}) (α := {-a}) as (hypothesis 10: {-a ∈ RealSet ∧ -a > 0 ⇒ I(-a) = frac(π, 2)})
+use_condition (hypothesis 9: {-a ∈ RealSet ∧ -a > 0}) in (hypothesis 10: {-a ∈ RealSet ∧ -a > 0 ⇒ I(-a) = frac(π, 2)}) as (hypothesis 11: {I(-a) = frac(π, 2)})
+get_prop (hypothesis 7: {forall (α), α ∈ RealSet ∧ α < 0 ⇒ I(α) = -I(-α)}) (α := {a}) as (hypothesis 12: {a ∈ RealSet ∧ a < 0 ⇒ I(a) = -I(-a)})
+use_condition (hypothesis 8: {a ∈ RealSet ∧ a < 0}) in (hypothesis 12: {a ∈ RealSet ∧ a < 0 ⇒ I(a) = -I(-a)}) as (hypothesis 13: {I(a) = -I(-a)})
+autosolve (hypothesis 11: {I(-a) = frac(π, 2)}) (hypothesis 13: {I(a) = -I(-a)})

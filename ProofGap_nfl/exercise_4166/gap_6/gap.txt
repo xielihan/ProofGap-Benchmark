@@ -1,0 +1,27 @@
+PROOF GAP @6
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. f : CartesianProd(RealSet, RealSet) → RealSet
+3. S ⊆ CartesianProd(RealSet, RealSet)
+4. S_{n} : NonNegIntegerSet → PowerSet(CartesianProd(RealSet, RealSet))
+5. N ∈ NonNegIntegerSet
+6. n_{0} ∈ NonNegIntegerSet
+7. k_{n} ∈ NonNegIntegerSet
+8. N_{1} ∈ NonNegIntegerSet
+9. n_{1} ∈ NonNegIntegerSet
+10. ContinuousFuncOn(f, S)
+11. forall (z), z ∈ CartesianProd(RealSet, RealSet) ∧ z ∈ S ⇒ f(z) ≥ 0
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ S_{n}(n) ⊆ S ∧ S_{n}(n) ⊆ S_{n}(n + 1)
+13. union_{ n ∈ PosIntegerSet } (S_{n}(n)) = S
+14. FunDeri(S, 1, 1) = S_{n}
+15. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ FunDeri(S, 1, 1)(n) ⊆ FunDeri(S, 1, 1)(n + 1) ∧ FunDeri(S, 1, 1)(n) ⊆ S
+16. union_{ n ∈ PosIntegerSet } (FunDeri(S, 1, 1)(n)) = S
+17. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ VolumeInt(FunDeri(S, 1, 1)(n), (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . f(x, y)) * diff(ω)) ≤ VolumeInt(FunDeri(S, 1, 1)(n + 1), (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . f(x, y)) * diff(ω))
+18. I = seqlim_{ n → +∞ } (VolumeInt(FunDeri(S, 1, 1)(n), (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . f(x, y)) * diff(ω)))
+19. I ∈ RealSet ∨ I = +∞
+20. I ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ m ≥ N ⇒ I - ε < VolumeInt(FunDeri(S, 1, 1)(m), (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . f(x, y)) * diff(ω)) ∧ VolumeInt(FunDeri(S, 1, 1)(m), (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . f(x, y)) * diff(ω)) < I + ε)))
+
+GOAL:
+I ∈ RealSet ⇒ N ∈ PosIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ n_{0} ≥ N ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ FunDeri(S, 1, 1)(N) ⊆ S_{n}(n)))
+
+METHOD:

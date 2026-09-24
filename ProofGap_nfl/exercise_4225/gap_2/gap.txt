@@ -1,0 +1,16 @@
+PROOF GAP @2
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. x : RealSet → RealSet
+3. y : RealSet → RealSet
+4. a ∈ RealSet ∧ a > 0
+5. s ∈ RealSet
+6. C = { (x, y) | x ∈ RealSet, y ∈ RealSet, |x|^{frac(2, 3)} + |y|^{frac(2, 3)} = a^{frac(2, 3)} }
+7. diff(s) = (fun x [x ∈ RealSet ∧ 0 < x ∧ x ≤ a] . sqrtn(2, 1 + FunDeri(y, 1, 1)(x)^{2})) * diff(fun x [x ∈ RealSet ∧ 0 < x ∧ x ≤ a] . x)
+8. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ a ⇒ (x, y(x)) ∈ C
+
+GOAL:
+(fun x [x ∈ RealSet ∧ 0 < x ∧ x ≤ a] . sqrtn(2, 1 + FunDeri(y, 1, 1)(x)^{2})) * diff(fun x [x ∈ RealSet ∧ 0 < x ∧ x ≤ a] . x) = (fun x [x ∈ RealSet ∧ 0 < x ∧ x ≤ a] . frac(a^{frac(1, 3)}, x^{frac(1, 3)})) * diff(fun x [x ∈ RealSet ∧ 0 < x ∧ x ≤ a] . x)
+
+METHOD:
+[@method 按直角坐标方程计算 @]

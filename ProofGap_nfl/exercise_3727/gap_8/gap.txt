@@ -1,0 +1,21 @@
+PROOF GAP @8
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. I : RealSet → RealSet
+3. Phi : RealSet → RealSet
+4. forall (α), α ∈ RealSet ∧ 0 < α ∧ α < a ⇒ I(α) = DefInt(0, α, (fun x [x ∈ RealSet] . frac(Phi(x), sqrtn(2, α - x))) * diff(fun x [x ∈ RealSet] . x))
+5. ContinuousFuncOn(Phi, [0, a])
+6. ContinuousFuncOn(FunDeri(Phi, 1, 1), [0, a])
+7. forall (α) (t), α ∈ RealSet ∧ t ∈ RealSet ∧ t ∈ [0, 1] ∧ 0 < α ∧ α < a ⇒ (exists (x), x ∈ RealSet ∧ x = α * t)
+8. forall (α), α ∈ RealSet ∧ 0 < α ∧ α < a ⇒ I(α) = sqrtn(2, α) * DefInt(0, 1, (fun t . frac(Phi(α * t), sqrtn(2, 1 - t))) * diff(fun t . t))
+9. forall (α), α ∈ RealSet ∧ 0 < α ∧ α < a ⇒ IntegrableFuncOn(fun t . frac(1, sqrtn(2, 1 - t)), [0, 1])
+10. forall (α), α ∈ RealSet ∧ 0 < α ∧ α < a ⇒ FunDeri(I, 1, 1)(α) = frac(1, 2 * sqrtn(2, α)) * DefInt(0, 1, (fun t . frac(Phi(α * t), sqrtn(2, 1 - t))) * diff(fun t . t)) + sqrtn(2, α) * DefInt(0, 1, (fun t . frac(t * FunDeri(Phi, 1, 1)(α * t), sqrtn(2, 1 - t))) * diff(fun t . t))
+11. forall (α), α ∈ RealSet ∧ 0 < α ∧ α < a ⇒ FunDeri(I, 1, 1)(α) = frac(1, 2 * α) * DefInt(0, α, (fun x [x ∈ RealSet] . frac(Phi(x), sqrtn(2, α - x))) * diff(fun x [x ∈ RealSet] . x)) + frac(1, α) * DefInt(0, α, (fun x [x ∈ RealSet] . frac(x * FunDeri(Phi, 1, 1)(x), sqrtn(2, α - x))) * diff(fun x [x ∈ RealSet] . x))
+12. forall (α), α ∈ RealSet ∧ 0 < α ∧ α < a ⇒ frac(1, α) * DefInt(0, α, (fun x [x ∈ RealSet] . frac(Phi(x), sqrtn(2, α - x))) * diff(fun x [x ∈ RealSet] . x)) = frac(2, sqrtn(2, α)) * Phi(0) + frac(2, α) * DefInt(0, α, (fun x [x ∈ RealSet] . sqrtn(2, α - x) * FunDeri(Phi, 1, 1)(x)) * diff(fun x [x ∈ RealSet] . x))
+13. forall (α), α ∈ RealSet ∧ 0 < α ∧ α < a ⇒ DefInt(0, α, (fun x [x ∈ RealSet] . frac(x * FunDeri(Phi, 1, 1)(x), sqrtn(2, α - x))) * diff(fun x [x ∈ RealSet] . x)) = -DefInt(0, α, (fun x [x ∈ RealSet] . sqrtn(2, α - x) * FunDeri(Phi, 1, 1)(x)) * diff(fun x [x ∈ RealSet] . x)) + α * DefInt(0, α, (fun x [x ∈ RealSet] . frac(FunDeri(Phi, 1, 1)(x), sqrtn(2, α - x))) * diff(fun x [x ∈ RealSet] . x))
+14. forall (α), α ∈ RealSet ∧ 0 < α ∧ α < a ⇒ FunDeri(I, 1, 1)(α) = frac(Phi(0), sqrtn(2, α)) + DefInt(0, α, (fun x [x ∈ RealSet] . frac(FunDeri(Phi, 1, 1)(x), sqrtn(2, α - x))) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+forall (α), α ∈ RealSet ∧ 0 < α ∧ α < a ⇒ FunDeri(I, 1, 1)(α) = frac(Phi(0), sqrtn(2, α)) + DefInt(0, α, (fun x [x ∈ RealSet] . frac(FunDeri(Phi, 1, 1)(x), sqrtn(2, α - x))) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

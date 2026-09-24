@@ -1,0 +1,17 @@
+PROOF GAP @7
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = frac(arctan(x), x)
+3. f(0) = 1
+4. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ frac(1, 2) ⇒ arctan(x) = sum_{ n = 0 }^{ +∞ } (frac((-1)^{n} * x^{2 * n + 1}, 2 * n + 1))
+5. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ frac(1, 2) ⇒ f(x) = sum_{ n = 0 }^{ +∞ } (frac((-1)^{n} * x^{2 * n}, 2 * n + 1))
+6. DefInt(0, frac(1, 2), (fun x [x ∈ RealSet] . f(x)) * diff(fun x [x ∈ RealSet] . x)) = sum_{ n = 0 }^{ +∞ } (frac((-1)^{n}, (2 * n + 1)^{2} * 2^{2 * n + 1}))
+7. Δ = DefInt(0, frac(1, 2), (fun x [x ∈ RealSet] . f(x)) * diff(fun x [x ∈ RealSet] . x)) - (frac(1, 2) - frac(1, 3^{2} * 2^{3}) + frac(1, 5^{2} * 2^{5}))
+8. DefInt(0, frac(1, 2), (fun x [x ∈ RealSet] . f(x)) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 2) - frac(1, 3^{2} * 2^{3}) + frac(1, 5^{2} * 2^{5}) + Δ
+9. 0 < |Δ|
+10. |Δ| < frac(1, 7^{2} * 2^{7})
+
+GOAL:
+frac(1, 7^{2} * 2^{7}) < frac(1, 10^{3})
+
+METHOD:

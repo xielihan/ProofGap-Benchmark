@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. S : RealSet → RealSet
+3. A : NonNegIntegerSet → RealSet
+4. B : NonNegIntegerSet → RealSet
+5. forall (x), x ∈ RealSet ⇒ f(x) = sgn(cos(x))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ f(x + 2 * π) = sgn(cos(x + 2 * π)) ∧ sgn(cos(x + 2 * π)) = sgn(cos(x)) ∧ sgn(cos(x)) = f(x)
+
+METHOD:

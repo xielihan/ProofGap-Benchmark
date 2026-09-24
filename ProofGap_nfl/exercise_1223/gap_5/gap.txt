@@ -1,0 +1,18 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. n ∈ NonNegIntegerSet
+4. φ : RealSet → RealSet
+5. n ∈ PosIntegerSet
+6. forall (x), x ∈ RealSet ⇒ f(x) = (x - a)^{n} * φ(x)
+7. FuncOfClassK(φ, n - 1)
+8. forall (x), x ∈ RealSet ⇒ FunDeri(f, 1, n - 1)(x) = sum_{ j = 0 }^{ n - 1 } (Combination(n - 1, j) * FunDeri(fun t [t ∈ RealSet] . (t - a)^{n}, 1, j)(x) * FunDeri(φ, 1, n - 1 - j)(x))
+9. FunDeri(f, 1, n - 1)(a) = 0
+10. FunDeri(f, 1, n)(a) = lim_{ x → a } (frac(FunDeri(f, 1, n - 1)(x) - FunDeri(f, 1, n - 1)(a), x - a))
+11. FunDeri(f, 1, n)(a) = lim_{ x → a } (frac((sum_{ j = 0 }^{ n - 1 } (Combination(n - 1, j) * FunDeri(fun t [t ∈ RealSet] . (t - a)^{n}, 1, j)(x) * FunDeri(φ, 1, n - 1 - j)(x))) - 0, x - a))
+
+GOAL:
+FunDeri(f, 1, n)(a) = lim_{ x → a } (n! * φ(x))
+
+METHOD:

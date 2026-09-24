@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ 0 < x ∧ x < 2 ⇒ (forall (t), t ∈ RealSet ∧ t = 1 - x ⇒ t < 1)}) (x := {a})
+get_condition (hypothesis 6: {a ∈ RealSet ∧ 0 < a ∧ a < 2}) in (GOAL: {a ∈ RealSet ∧ 0 < a ∧ a < 2 ⇒ (forall (t), t ∈ RealSet ∧ t = 1 - a ⇒ t < 1)})
+get_forall (GOAL: {forall (t), t ∈ RealSet ∧ t = 1 - a ⇒ t < 1}) (t := {b})
+get_condition (hypothesis 7: {b ∈ RealSet ∧ b = 1 - a}) in (GOAL: {b ∈ RealSet ∧ b = 1 - a ⇒ b < 1})
+assert (hypothesis 8: {b < 1})
+apply (hypothesis 8: {b < 1})

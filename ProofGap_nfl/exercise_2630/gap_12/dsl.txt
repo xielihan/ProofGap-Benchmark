@@ -1,0 +1,10 @@
+get_condition (hypothesis 17: {a ≤ 2}) in (GOAL: {a ≤ 2 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{a - 1})))})
+get_prop (theorem 'Thm 365. (PSeriesDivergesForExponentAtMostOne)': {forall (p), p ∈ RealSet => p <= 1 => DivergentSeries(sum_{n = 1}^{+∞}(1 / n ^ p))}) (p := {a - 1}) as (hypothesis 18: {a - 1 ∈ RealSet => a - 1 <= 1 => DivergentSeries(sum_{n = 1}^{+∞}(1 / n ^ (a - 1)))})
+assert (hypothesis 19: {a - 1 ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 20: {a - 1 <= 1}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 19: {a - 1 ∈ RealSet}) (hypothesis 20: {a - 1 <= 1}) in (hypothesis 18: {a - 1 ∈ RealSet => a - 1 <= 1 => DivergentSeries(sum_{n = 1}^{+∞}(1 / n ^ (a - 1)))}) as (hypothesis 21: {DivergentSeries(sum_{n = 1}^{+∞}(1 / n ^ (a - 1)))})
+autosolve all_hypothesis

@@ -1,0 +1,33 @@
+PROOF GAP @9
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. c ∈ RealSet
+4. n ∈ NonNegIntegerSet ∧ n > 0
+5. V ∈ RealSet
+6. Ω ⊆ CartesianProd(RealSet, RealSet)
+7. x ∈ RealSet
+8. y ∈ RealSet
+9. z ∈ RealSet
+10. r ∈ RealSet
+11. φ ∈ RealSet
+12. t ∈ RealSet
+13. B : CartesianProd(RealSet, RealSet) → RealSet
+14. Gamma : RealSet → RealSet
+15. a > 0
+16. b > 0
+17. c > 0
+18. Ω = { (x, y) | x ∈ RealSet, y ∈ RealSet, x ≥ 0, y ≥ 0, frac(x^{n}, a^{n}) + frac(y^{n}, b^{n}) ≤ 1 }
+19. exists (z), z ∈ RealSet ∧ z = c * sqrtn(n, 1 - (frac(x^{n}, a^{n}) + frac(y^{n}, b^{n})))
+20. exists (x), x ∈ RealSet ∧ x = a * r * cos(φ)^{frac(2, n)}
+21. exists (y), y ∈ RealSet ∧ y = b * r * sin(φ)^{frac(2, n)}
+22. 0 ≤ r
+23. r ≤ 1
+24. 0 ≤ φ
+25. φ ≤ frac(π, 2)
+26. V = frac(2 * a * b * c, n) * DefInt(0, 1, (fun r [r ∈ RealSet] . sqrtn(n, 1 - r^{n}) * r) * diff(fun r [r ∈ RealSet] . r)) * DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet] . cos(φ)^{frac(2 - n, n)} * sin(φ)^{frac(2 - n, n)}) * diff(fun φ [φ ∈ RealSet] . φ))
+
+GOAL:
+exists (t), t ∈ RealSet ∧ (t = r^{n} ⇒ DefInt(0, 1, (fun r [r ∈ RealSet] . sqrtn(n, 1 - r^{n}) * r) * diff(fun r [r ∈ RealSet] . r)) = DefInt(0, 1, (fun t [t ∈ RealSet] . (1 - t)^{frac(1, n)} * t^{frac(2, n) - 1}) * diff(fun t [t ∈ RealSet] . t)))
+
+METHOD:

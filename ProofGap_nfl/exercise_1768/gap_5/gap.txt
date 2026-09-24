@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x < 2 ⇒ (exists (t), t ∈ RealSet ∧ (2 - x = t ⇒ x < 2))
+2. forall (x), x ∈ RealSet ∧ x < 2 ⇒ (exists (t), t ∈ RealSet ∧ (2 - x = t ⇒ t > 0))
+3. forall (x), x ∈ RealSet ∧ x < 2 ⇒ (exists (t), t ∈ RealSet ∧ (2 - x = t ⇒ x = 2 - t))
+4. forall (x), x ∈ RealSet ∧ x < 2 ⇒ (exists (t), t ∈ RealSet ∧ (2 - x = t ⇒ diff(fun x [x ∈ RealSet ∧ x < 2] . x) = -diff(fun t [t ∈ RealSet ∧ t > 0] . t)))
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ∧ x < 2 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x^{2}, sqrtn(2, 2 - x)) * FunDeri(fun x [x ∈ RealSet ∧ x < 2] . x, 1, 1)(x) } = { `F_4` | exists (`F_3`), forall (t), t ∈ RealSet ∧ t > 0 ⇒ FunDeri(`F_3`, 1, 1)(t) = t^{-frac(1, 2)} * (2 - t)^{2} * FunDeri(fun t [t ∈ RealSet ∧ t > 0] . t, 1, 1)(t) ∧ `F_4`(t) = -`F_3`(t) }
+
+METHOD:

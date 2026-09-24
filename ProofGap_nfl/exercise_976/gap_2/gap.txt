@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet ∧ a ∈ PosRealSet
+3. forall (x), x ∈ RealSet ⇒ y(x) = frac(a^{x}, 1 + a^{2 * x}) - frac(1 - a^{2 * x}, 1 + a^{2 * x}) * arccot(a^{-x})
+4. forall (u), u : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ u = (fun x [x ∈ RealSet] . a^{x}) ⇒ u(x) > 0)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ y(x) = frac(a^{x}, 1 + a^{2 * x}) - frac(1 - a^{2 * x}, 1 + a^{2 * x}) * arccot(a^{-x})
+
+METHOD:

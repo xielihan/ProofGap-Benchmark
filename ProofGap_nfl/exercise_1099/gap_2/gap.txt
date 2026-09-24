@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. x_{0} ∈ RealSet
+3. Δx ∈ RealSet
+4. f = (fun x [x ∈ RealSet] . sqrtn(3, x))
+5. x_{0} = 1
+6. Δx = 0.02
+7. FunDeri(f, 1, 1)(x_{0}) = frac(1, 3 * sqrtn(3, (x_{0})^{2}))
+
+GOAL:
+frac(1, 3 * sqrtn(3, (x_{0})^{2})) = frac(1, 3)
+
+METHOD:

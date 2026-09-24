@@ -1,0 +1,4 @@
+rewrite (left_to_right, equation) (hypothesis 4: {J = DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(cos(a * x) - cos(b * x), x)) * diff(fun x [x ∈ RealSet] . x))}); from (GOAL: {J = ln(frac(b, a))}) to (GOAL: {DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(cos(a * x) - cos(b * x), x)) * diff(fun x [x ∈ RealSet] . x)) = ln(frac(b, a))})
+rewrite (left_to_right, equation) (hypothesis 7: {DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(cos(a * x) - cos(b * x), x)) * diff(fun x [x ∈ RealSet] . x)) = cos(0) * ln(frac(b, a))}); from (GOAL: {DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(cos(a * x) - cos(b * x), x)) * diff(fun x [x ∈ RealSet] . x)) = ln(frac(b, a))}) to (GOAL: {cos(0) * ln(frac(b, a)) = ln(frac(b, a))})
+rewrite (left_to_right, equation) (hypothesis 8: {cos(0) = 1}); from (GOAL: {cos(0) * ln(frac(b, a)) = ln(frac(b, a))}) to (GOAL: {1 * ln(frac(b, a)) = ln(frac(b, a))})
+autosolve all_hypothesis

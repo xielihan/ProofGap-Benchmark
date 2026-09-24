@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x > y ⇒ FunDeri(P, 2, 1)(x, y) = frac(-(x + y), (x - y)^{3}))}) (x := {a})
+get_condition (hypothesis 11: {a ∈ RealSet}) in (GOAL: {a ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ a > y ⇒ FunDeri(P, 2, 1)(a, y) = frac(-(a + y), (a - y)^{3}))})
+get_forall (GOAL: {forall (y), y ∈ RealSet ∧ a > y ⇒ FunDeri(P, 2, 1)(a, y) = frac(-(a + y), (a - y)^{3})}) (y := {b})
+get_condition (hypothesis 12: {b ∈ RealSet ∧ a > b}) in (GOAL: {b ∈ RealSet ∧ a > b ⇒ FunDeri(P, 2, 1)(a, b) = frac(-(a + b), (a - b)^{3})})
+destruct_and (hypothesis 12: {b ∈ RealSet ∧ a > b}) as (hypothesis 13: {b ∈ RealSet}) (hypothesis 14: {a > b})
+autosolve all_hypothesis using DerivSolver

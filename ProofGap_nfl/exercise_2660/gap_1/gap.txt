@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. S ∈ RealSet
+3. forall (k), k ∈ NonNegIntegerSet ⇒ a(3 * k + 1) = frac(1, 2^{3 * k}) ∧ a(3 * k + 2) = frac(1, 2^{3 * k + 1}) ∧ a(3 * k + 3) = -frac(1, 2^{3 * k + 2})
+4. forall (n), n ∈ NonNegIntegerSet ⇒ S = sum_{ n = 1 }^{ +∞ } (a(n))
+
+GOAL:
+AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+METHOD:

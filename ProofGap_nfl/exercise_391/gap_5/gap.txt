@@ -1,0 +1,16 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. m_{0} ∈ RealSet
+3. M_{0} ∈ RealSet
+4. f : IntervalLoRo(0, +∞) → RealSet
+5. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < +∞ ⇒ f(x) = x + frac(1, x)
+6. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < +∞ ⇒ x + frac(1, x) ≥ 2
+7. f(1) = 2
+8. lim_{ x → +∞ } (f(x)) = +∞
+9. inf(ImageOn(f, IntervalLoRo(0, +∞))) = f(1)
+
+GOAL:
+f(1) = 2
+
+METHOD:

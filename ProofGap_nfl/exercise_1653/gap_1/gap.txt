@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ x ∈ RealSet \ { 0 }
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ RealSet \ { 0 } ⇒ coth(x)^{2} = 1 + frac(1, sinh(x)^{2})
+
+METHOD:

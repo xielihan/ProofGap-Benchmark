@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. n ∈ PosIntegerSet
+3. forall (x), x ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≥ 1 ⇒ x ≠ 0
+
+METHOD:

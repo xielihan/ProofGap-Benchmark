@@ -1,0 +1,14 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. S ∈ RealSet
+3. S = DefInt(-∞, +∞, (fun x [x ∈ RealSet] . frac(a^{3}, a^{2} + x^{2})) * diff(fun x [x ∈ RealSet] . x))
+4. forall (x), x ∈ RealSet ⇒ frac(a^{3}, a^{2} + (-x)^{2}) = frac(a^{3}, a^{2} + x^{2})
+5. S = 2 * a^{3} * (lim_{ b → +∞ } (DefInt(0, b, (fun x [x ∈ RealSet] . frac(1, a^{2} + x^{2})) * diff(fun x [x ∈ RealSet] . x))))
+6. forall (b), b ∈ RealSet ⇒ DefInt(0, b, (fun x [x ∈ RealSet] . frac(1, a^{2} + x^{2})) * diff(fun x [x ∈ RealSet] . x)) = frac(1, a) * arctan(frac(b, a))
+7. S = 2 * a^{3} * (lim_{ b → +∞ } (frac(1, a) * arctan(frac(b, a))))
+
+GOAL:
+lim_{ b → +∞ } (arctan(frac(b, a))) = frac(π, 2)
+
+METHOD:

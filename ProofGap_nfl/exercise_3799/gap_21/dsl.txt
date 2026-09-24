@@ -1,0 +1,47 @@
+get_prop (theorem 'Thm 248. (SignFunctionDefinition)': {forall (x), x ∈ RealSet ⇒ ((x > 0 ⇒ sgn(x) = 1) ∧ (x = 0 ⇒ sgn(x) = 0) ∧ (x < 0 ⇒ sgn(x) = -1))}) (x := {α}) as (hypothesis 23: {α ∈ RealSet ⇒ ((α > 0 ⇒ sgn(α) = 1) ∧ (α = 0 ⇒ sgn(α) = 0) ∧ (α < 0 ⇒ sgn(α) = -1))})
+use_condition (hypothesis 1: {α ∈ RealSet}) in (hypothesis 23: {α ∈ RealSet ⇒ ((α > 0 ⇒ sgn(α) = 1) ∧ (α = 0 ⇒ sgn(α) = 0) ∧ (α < 0 ⇒ sgn(α) = -1))}) as (hypothesis 24: {(α > 0 ⇒ sgn(α) = 1) ∧ (α = 0 ⇒ sgn(α) = 0) ∧ (α < 0 ⇒ sgn(α) = -1)})
+destruct_and (hypothesis 24: {(α > 0 ⇒ sgn(α) = 1) ∧ (α = 0 ⇒ sgn(α) = 0) ∧ (α < 0 ⇒ sgn(α) = -1)}) as (hypothesis 25: {α > 0 ⇒ sgn(α) = 1}) (hypothesis 26: {α = 0 ⇒ sgn(α) = 0}) (hypothesis 27: {α < 0 ⇒ sgn(α) = -1})
+get_prop (theorem 'Thm 489. (AbsoluteValueOfNonpositiveReal)': {forall (x), x ∈ RealSet ⇒ (x ≤ 0 ⇔ |x| = -x)}) (x := {α}) as (hypothesis 28: {α ∈ RealSet ⇒ (α ≤ 0 ⇔ |α| = -α)})
+use_condition (hypothesis 1: {α ∈ RealSet}) in (hypothesis 28: {α ∈ RealSet ⇒ (α ≤ 0 ⇔ |α| = -α)}) as (hypothesis 29: {α ≤ 0 ⇔ |α| = -α})
+get_prop (theorem 'Thm 490. (AbsoluteValueOfNonnegativeReal)': {forall (x), x ∈ RealSet ⇒ (x ≥ 0 ⇔ |x| = x)}) (x := {α}) as (hypothesis 30: {α ∈ RealSet ⇒ (α ≥ 0 ⇔ |α| = α)})
+use_condition (hypothesis 1: {α ∈ RealSet}) in (hypothesis 30: {α ∈ RealSet ⇒ (α ≥ 0 ⇔ |α| = α)}) as (hypothesis 31: {α ≥ 0 ⇔ |α| = α})
+assert (hypothesis 32: {α > 0 ∨ α = 0 ∨ α < 0}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 33: {α > 0 ⇒ I(α) = frac(π, 2) * (1 + |α| - sqrtn(2, 1 + α^{2})) * sgn(α)}) by proof {
+  get_condition (hypothesis 33: {α > 0}) in (GOAL: {α > 0 ⇒ I(α) = frac(π, 2) * (1 + |α| - sqrtn(2, 1 + α^{2})) * sgn(α)})
+  assert (hypothesis 34: {α ≥ 0}) by proof {
+    autosolve all_hypothesis
+  }
+  use_condition (hypothesis 34: {α ≥ 0}) in (hypothesis 20: {α ≥ 0 ⇒ I(α) = frac(π, 2) * (1 + α - sqrtn(2, 1 + α^{2}))}) as (hypothesis 35: {I(α) = frac(π, 2) * (1 + α - sqrtn(2, 1 + α^{2}))})
+  use_condition (hypothesis 33: {α > 0}) in (hypothesis 25: {α > 0 ⇒ sgn(α) = 1}) as (hypothesis 36: {sgn(α) = 1})
+  assert (hypothesis 37: {|α| = α}) by proof {
+    autosolve all_hypothesis
+  }
+  rewrite (left_to_right, equation) (hypothesis 35: {I(α) = frac(π, 2) * (1 + α - sqrtn(2, 1 + α^{2}))}); from (GOAL: {I(α) = frac(π, 2) * (1 + |α| - sqrtn(2, 1 + α^{2})) * sgn(α)}) to (GOAL: {frac(π, 2) * (1 + α - sqrtn(2, 1 + α^{2})) = frac(π, 2) * (1 + |α| - sqrtn(2, 1 + α^{2})) * sgn(α)})
+  rewrite (left_to_right, equation) (hypothesis 37: {|α| = α}); from (GOAL: {frac(π, 2) * (1 + α - sqrtn(2, 1 + α^{2})) = frac(π, 2) * (1 + |α| - sqrtn(2, 1 + α^{2})) * sgn(α)}) to (GOAL: {frac(π, 2) * (1 + α - sqrtn(2, 1 + α^{2})) = frac(π, 2) * (1 + α - sqrtn(2, 1 + α^{2})) * sgn(α)})
+  rewrite (left_to_right, equation) (hypothesis 36: {sgn(α) = 1}); from (GOAL: {frac(π, 2) * (1 + α - sqrtn(2, 1 + α^{2})) = frac(π, 2) * (1 + α - sqrtn(2, 1 + α^{2})) * sgn(α)}) to (GOAL: {frac(π, 2) * (1 + α - sqrtn(2, 1 + α^{2})) = frac(π, 2) * (1 + α - sqrtn(2, 1 + α^{2})) * 1})
+  autosolve all_hypothesis
+}
+assert (hypothesis 34: {α = 0 ⇒ I(α) = frac(π, 2) * (1 + |α| - sqrtn(2, 1 + α^{2})) * sgn(α)}) by proof {
+  get_condition (hypothesis 34: {α = 0}) in (GOAL: {α = 0 ⇒ I(α) = frac(π, 2) * (1 + |α| - sqrtn(2, 1 + α^{2})) * sgn(α)})
+  use_condition (hypothesis 34: {α = 0}) in (hypothesis 26: {α = 0 ⇒ sgn(α) = 0}) as (hypothesis 35: {sgn(α) = 0})
+  rewrite (left_to_right, equation) (hypothesis 34: {α = 0}); from (hypothesis 35: {sgn(α) = 0}) to (hypothesis 36: {sgn(0) = 0})
+  rewrite (left_to_right, equation) (hypothesis 34: {α = 0}); from (GOAL: {I(α) = frac(π, 2) * (1 + |α| - sqrtn(2, 1 + α^{2})) * sgn(α)}) to (GOAL: {I(0) = frac(π, 2) * (1 + |0| - sqrtn(2, 1 + 0^{2})) * sgn(0)})
+  rewrite (left_to_right, equation) (hypothesis 36: {sgn(0) = 0}); from (GOAL: {I(0) = frac(π, 2) * (1 + |0| - sqrtn(2, 1 + 0^{2})) * sgn(0)}) to (GOAL: {I(0) = frac(π, 2) * (1 + |0| - sqrtn(2, 1 + 0^{2})) * 0})
+  rewrite (left_to_right, equation) (hypothesis 3: {I(0) = 0}); from (GOAL: {I(0) = frac(π, 2) * (1 + |0| - sqrtn(2, 1 + 0^{2})) * 0}) to (GOAL: {0 = frac(π, 2) * (1 + |0| - sqrtn(2, 1 + 0^{2})) * 0})
+  autosolve all_hypothesis
+}
+assert (hypothesis 35: {α < 0 ⇒ I(α) = frac(π, 2) * (1 + |α| - sqrtn(2, 1 + α^{2})) * sgn(α)}) by proof {
+  get_condition (hypothesis 35: {α < 0}) in (GOAL: {α < 0 ⇒ I(α) = frac(π, 2) * (1 + |α| - sqrtn(2, 1 + α^{2})) * sgn(α)})
+  use_condition (hypothesis 35: {α < 0}) in (hypothesis 22: {α < 0 ⇒ I(α) = -frac(π, 2) * (1 - α - sqrtn(2, 1 + α^{2}))}) as (hypothesis 36: {I(α) = -frac(π, 2) * (1 - α - sqrtn(2, 1 + α^{2}))})
+  use_condition (hypothesis 35: {α < 0}) in (hypothesis 27: {α < 0 ⇒ sgn(α) = -1}) as (hypothesis 37: {sgn(α) = -1})
+  assert (hypothesis 38: {|α| = -α}) by proof {
+    autosolve all_hypothesis
+  }
+  rewrite (left_to_right, equation) (hypothesis 36: {I(α) = -frac(π, 2) * (1 - α - sqrtn(2, 1 + α^{2}))}); from (GOAL: {I(α) = frac(π, 2) * (1 + |α| - sqrtn(2, 1 + α^{2})) * sgn(α)}) to (GOAL: {-frac(π, 2) * (1 - α - sqrtn(2, 1 + α^{2})) = frac(π, 2) * (1 + |α| - sqrtn(2, 1 + α^{2})) * sgn(α)})
+  rewrite (left_to_right, equation) (hypothesis 38: {|α| = -α}); from (GOAL: {-frac(π, 2) * (1 - α - sqrtn(2, 1 + α^{2})) = frac(π, 2) * (1 + |α| - sqrtn(2, 1 + α^{2})) * sgn(α)}) to (GOAL: {-frac(π, 2) * (1 - α - sqrtn(2, 1 + α^{2})) = frac(π, 2) * (1 + -α - sqrtn(2, 1 + α^{2})) * sgn(α)})
+  rewrite (left_to_right, equation) (hypothesis 37: {sgn(α) = -1}); from (GOAL: {-frac(π, 2) * (1 - α - sqrtn(2, 1 + α^{2})) = frac(π, 2) * (1 + -α - sqrtn(2, 1 + α^{2})) * sgn(α)}) to (GOAL: {-frac(π, 2) * (1 - α - sqrtn(2, 1 + α^{2})) = frac(π, 2) * (1 + -α - sqrtn(2, 1 + α^{2})) * -1})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

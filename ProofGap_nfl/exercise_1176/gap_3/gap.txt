@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. u : RealSet → RealSet
+3. I ⊆ RealSet
+4. Dom(u) = I
+5. FuncOfClassKOn(u, I, 10)
+6. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ y(x) = u(x)^{2}
+7. diff^{10}(y) = diff^{10}(fun x [x ∈ RealSet ∧ x ∈ I] . u(x) * u(x))
+8. diff^{10}(y) = sum_{ i = 0 }^{ 10 } (Combination(10, i) * diff^{10 - i}(u) * diff^{i}(u))
+
+GOAL:
+diff^{10}(y) = u * diff^{10}(u) + 10 * diff^{9}(u) * diff(u) + frac(10 * 9, 1 * 2) * diff^{8}(u) * diff^{2}(u) + frac(10 * 9 * 8, 1 * 2 * 3) * diff^{7}(u) * diff^{3}(u) + frac(10 * 9 * 8 * 7, 1 * 2 * 3 * 4) * diff^{6}(u) * diff^{4}(u) + frac(10 * 9 * 8 * 7 * 6, 1 * 2 * 3 * 4 * 5) * diff^{5}(u)^{2} + frac(10 * 9 * 8 * 7, 1 * 2 * 3 * 4) * diff^{4}(u) * diff^{6}(u) + frac(10 * 9 * 8, 1 * 2 * 3) * diff^{3}(u) * diff^{7}(u) + frac(10 * 9, 1 * 2) * diff^{2}(u) * diff^{8}(u) + 10 * diff(u) * diff^{9}(u) + u * diff^{10}(u)
+
+METHOD:

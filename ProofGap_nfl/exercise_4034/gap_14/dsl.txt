@@ -1,0 +1,16 @@
+get_prop (theorem 'Thm 166. (SineBounded)': {forall (x), x ∈ RealSet => -1 <= sin(x) /\ sin(x) <= 1}) (x := {φ}) as (hypothesis 32: {φ ∈ RealSet => -1 <= sin(φ) /\ sin(φ) <= 1})
+assert (hypothesis 33: {-1 <= sin(φ) /\ sin(φ) <= 1}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 34: {sin(φ)^{2} <= 1}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 35: {2 != sin(φ)^{2}}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 36: {2 = sin(φ)^{2} => DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet] . cos(φ)^{frac(2 - n, n)} * sin(φ)^{frac(2 - n, n)}) * diff(fun φ [φ ∈ RealSet] . φ)) = frac(1, 2 * n) * DefInt(0, 1, (fun t [t ∈ RealSet] . (1 - t)^{frac(1, n) - 1} * t^{frac(1, n) - 1}) * diff(fun t [t ∈ RealSet] . t))}) by proof {
+  get_condition (hypothesis 36: {2 = sin(φ)^{2}}) in (GOAL: {2 = sin(φ)^{2} => DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet] . cos(φ)^{frac(2 - n, n)} * sin(φ)^{frac(2 - n, n)}) * diff(fun φ [φ ∈ RealSet] . φ)) = frac(1, 2 * n) * DefInt(0, 1, (fun t [t ∈ RealSet] . (1 - t)^{frac(1, n) - 1} * t^{frac(1, n) - 1}) * diff(fun t [t ∈ RealSet] . t))})
+  autosolve all_hypothesis
+}
+exists (t := {2})
+autosolve all_hypothesis

@@ -1,0 +1,29 @@
+PROOF GAP @12
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. x ∈ RealSet
+3. y ∈ RealSet
+4. z ∈ RealSet
+5. V ∈ RealSet
+6. Area ∈ RealSet
+7. S_{1} ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+8. S_{2} ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+9. C ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+10. S_{1} = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, x^{2} + y^{2} = a * z }
+11. S_{2} = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, z = 2 * a - sqrtn(2, x^{2} + y^{2}) }
+12. C = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, x^{2} + y^{2} = a^{2}, z = a }
+13. V = DefInt(0, a, (fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a] . π * a * z) * diff(fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a] . z)) + DefInt(a, 2 * a, (fun z [z ∈ RealSet ∧ a ≤ z ∧ z ≤ 2 * a] . π * (2 * a - z)^{2}) * diff(fun z [z ∈ RealSet ∧ a ≤ z ∧ z ≤ 2 * a] . z))
+14. V = frac(π * a^{3}, 2) + frac(π * a^{3}, 3)
+15. V = frac(5 * π * a^{3}, 6)
+16. FunDeri(z, 1, 1)(x, y) = frac(2 * x, a)
+17. FunDeri(z, 2, 1)(x, y) = frac(2 * y, a)
+18. sqrtn(2, 1 + FunDeri(z, 1, 1)(x, y)^{2} + FunDeri(z, 2, 1)(x, y)^{2}) = frac(1, a) * sqrtn(2, a^{2} + 4 * x^{2} + 4 * y^{2})
+19. x^{2} + y^{2} > 0 ⇒ FunDeri(z, 1, 1)(x, y) = frac(-x, sqrtn(2, x^{2} + y^{2})) ∧ FunDeri(z, 2, 1)(x, y) = frac(-y, sqrtn(2, x^{2} + y^{2}))
+20. sqrtn(2, 1 + FunDeri(z, 1, 1)(x, y)^{2} + FunDeri(z, 2, 1)(x, y)^{2}) = sqrtn(2, 2)
+21. Area = ScalarSurfaceInt({ (x, y) | x ∈ RealSet, y ∈ RealSet, x^{2} + y^{2} ≤ a^{2} }, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, a) * sqrtn(2, a^{2} + 4 * x^{2} + 4 * y^{2})) * diff(S)) + ScalarSurfaceInt({ (x, y) | x ∈ RealSet, y ∈ RealSet, x^{2} + y^{2} ≤ a^{2} }, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . sqrtn(2, 2)) * diff(S))
+22. Area = DefInt(0, 2 * π, (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . DefInt(0, 1, (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1] . sqrtn(2, 1 + 4 * r^{2}) * a^{2} * r) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1] . r))) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . φ)) + sqrtn(2, 2) * π * a^{2}
+
+GOAL:
+Area = frac(π * a^{2}, 6) * (6 * sqrtn(2, 2) + 5 * sqrtn(2, 5) - 1)
+
+METHOD:

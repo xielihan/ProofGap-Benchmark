@@ -1,0 +1,21 @@
+1. get_forall (GOAL: {forall (ψ), ψ ∈ RealSet ∧ `ψ_{1}` ≤ ψ ∧ ψ ≤ `ψ_{2}` ⇒ E = R^{2} * cos(ψ)^{2}}) (ψ := {v})
+2. get_condition (hypothesis 26: {v ∈ RealSet ∧ `ψ_{1}` ≤ v ∧ v ≤ `ψ_{2}`}) in (GOAL: {v ∈ RealSet ∧ `ψ_{1}` ≤ v ∧ v ≤ `ψ_{2}` ⇒ E = R^{2} * cos(v)^{2}})
+3. get_prop (hypothesis 20: {forall (φ), φ ∈ RealSet ∧ φ ≤ `φ_{2}` ⇒ `φ_{1}` ≤ φ}) (φ := {`φ_{2}`}) as (hypothesis 27: {`φ_{2}` ∈ RealSet ∧ `φ_{2}` ≤ `φ_{2}` ⇒ `φ_{1}` ≤ `φ_{2}`})
+4. assert (hypothesis 28: {`φ_{2}` ∈ RealSet ∧ `φ_{2}` ≤ `φ_{2}`}) by proof {
+  1. autosolve all_hypothesis
+}
+5. use_condition (hypothesis 28: {`φ_{2}` ∈ RealSet ∧ `φ_{2}` ≤ `φ_{2}`}) in (hypothesis 27: {`φ_{2}` ∈ RealSet ∧ `φ_{2}` ≤ `φ_{2}` ⇒ `φ_{1}` ≤ `φ_{2}`}) as (hypothesis 29: {`φ_{1}` ≤ `φ_{2}`})
+6. get_prop (hypothesis 25: {forall (φ) (ψ), φ ∈ RealSet ∧ `φ_{1}` ≤ φ ∧ φ ≤ `φ_{2}` ∧ ψ ∈ RealSet ∧ `ψ_{1}` ≤ ψ ∧ ψ ≤ `ψ_{2}` ⇒ E = R^{2} * sin(φ)^{2} * cos(ψ)^{2} + R^{2} * cos(φ)^{2} * cos(ψ)^{2}}) (φ := {`φ_{2}`}) (ψ := {v}) as (hypothesis 30: {`φ_{2}` ∈ RealSet ∧ `φ_{1}` ≤ `φ_{2}` ∧ `φ_{2}` ≤ `φ_{2}` ∧ v ∈ RealSet ∧ `ψ_{1}` ≤ v ∧ v ≤ `ψ_{2}` ⇒ E = R^{2} * sin(`φ_{2}`)^{2} * cos(v)^{2} + R^{2} * cos(`φ_{2}`)^{2} * cos(v)^{2}})
+7. assert (hypothesis 31: {`φ_{2}` ∈ RealSet ∧ `φ_{1}` ≤ `φ_{2}` ∧ `φ_{2}` ≤ `φ_{2}` ∧ v ∈ RealSet ∧ `ψ_{1}` ≤ v ∧ v ≤ `ψ_{2}`}) by proof {
+  1. autosolve all_hypothesis
+}
+8. use_condition (hypothesis 31: {`φ_{2}` ∈ RealSet ∧ `φ_{1}` ≤ `φ_{2}` ∧ `φ_{2}` ≤ `φ_{2}` ∧ v ∈ RealSet ∧ `ψ_{1}` ≤ v ∧ v ≤ `ψ_{2}`}) in (hypothesis 30: {`φ_{2}` ∈ RealSet ∧ `φ_{1}` ≤ `φ_{2}` ∧ `φ_{2}` ≤ `φ_{2}` ∧ v ∈ RealSet ∧ `ψ_{1}` ≤ v ∧ v ≤ `ψ_{2}` ⇒ E = R^{2} * sin(`φ_{2}`)^{2} * cos(v)^{2} + R^{2} * cos(`φ_{2}`)^{2} * cos(v)^{2}}) as (hypothesis 32: {E = R^{2} * sin(`φ_{2}`)^{2} * cos(v)^{2} + R^{2} * cos(`φ_{2}`)^{2} * cos(v)^{2}})
+9. get_prop (theorem 'Thm 168. (PythagoreanTrigonometricIdentity)': {forall (x), x ∈ RealSet ⇒ sin(x)^{2} + cos(x)^{2} = 1}) (x := {`φ_{2}`}) as (hypothesis 33: {`φ_{2}` ∈ RealSet ⇒ sin(`φ_{2}`)^{2} + cos(`φ_{2}`)^{2} = 1})
+10. use_condition (hypothesis 3: {`φ_{2}` ∈ RealSet}) in (hypothesis 33: {`φ_{2}` ∈ RealSet ⇒ sin(`φ_{2}`)^{2} + cos(`φ_{2}`)^{2} = 1}) as (hypothesis 34: {sin(`φ_{2}`)^{2} + cos(`φ_{2}`)^{2} = 1})
+11. rewrite (left_to_right, equation) (hypothesis 32: {E = R^{2} * sin(`φ_{2}`)^{2} * cos(v)^{2} + R^{2} * cos(`φ_{2}`)^{2} * cos(v)^{2}}); from (GOAL: {E = R^{2} * cos(v)^{2}}) to (GOAL: {R^{2} * sin(`φ_{2}`)^{2} * cos(v)^{2} + R^{2} * cos(`φ_{2}`)^{2} * cos(v)^{2} = R^{2} * cos(v)^{2}})
+12. assert (hypothesis 35: {R^{2} * sin(`φ_{2}`)^{2} * cos(v)^{2} + R^{2} * cos(`φ_{2}`)^{2} * cos(v)^{2} = R^{2} * (sin(`φ_{2}`)^{2} + cos(`φ_{2}`)^{2}) * cos(v)^{2}}) by proof {
+  1. autosolve all_hypothesis
+}
+13. rewrite (left_to_right, equation) (hypothesis 35: {R^{2} * sin(`φ_{2}`)^{2} * cos(v)^{2} + R^{2} * cos(`φ_{2}`)^{2} * cos(v)^{2} = R^{2} * (sin(`φ_{2}`)^{2} + cos(`φ_{2}`)^{2}) * cos(v)^{2}}); from (GOAL: {R^{2} * sin(`φ_{2}`)^{2} * cos(v)^{2} + R^{2} * cos(`φ_{2}`)^{2} * cos(v)^{2} = R^{2} * cos(v)^{2}}) to (GOAL: {R^{2} * (sin(`φ_{2}`)^{2} + cos(`φ_{2}`)^{2}) * cos(v)^{2} = R^{2} * cos(v)^{2}})
+14. rewrite (left_to_right, equation) (hypothesis 34: {sin(`φ_{2}`)^{2} + cos(`φ_{2}`)^{2} = 1}); from (GOAL: {R^{2} * (sin(`φ_{2}`)^{2} + cos(`φ_{2}`)^{2}) * cos(v)^{2} = R^{2} * cos(v)^{2}}) to (GOAL: {R^{2} * 1 * cos(v)^{2} = R^{2} * cos(v)^{2}})
+15. autosolve all_hypothesis

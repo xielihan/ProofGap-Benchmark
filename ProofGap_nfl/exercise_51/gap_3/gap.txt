@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ sum_{ k = 1 }^{ n - 1 } (frac(k, n^{2})) = frac((n - 1) * n, 2 * n^{2})
+2. seqlim_{ n → +∞ } (frac((n - 1) * n, 2 * n^{2})) = frac(1, 2)
+
+GOAL:
+seqlim_{ n → +∞ } (sum_{ k = 1 }^{ n - 1 } (frac(k, n^{2}))) = frac(1, 2)
+
+METHOD:

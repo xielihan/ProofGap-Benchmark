@@ -1,0 +1,15 @@
+PROOF GAP @7
+ASSUM:
+1. α ∈ RealSet
+2. β ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ sin(x)^{4} = frac(1, 8) * (cos(4 * x) - 4 * cos(2 * x) + 3)
+4. α ≠ 0 ∧ β ≠ 0 ⇒ DefInt(0, +∞, frac(sin(α * x)^{4} - sin(β * x)^{4}, x) * diff(x)) = frac(1, 8) * DefInt(0, +∞, frac(cos(4 * α * x) - cos(4 * β * x), x) * diff(x)) - frac(1, 2) * DefInt(0, +∞, frac(cos(2 * α * x) - cos(2 * β * x), x) * diff(x))
+5. α ≠ 0 ∧ β ≠ 0 ⇒ DefInt(0, +∞, frac(cos(4 * α * x) - cos(4 * β * x), x) * diff(x)) = ln(|frac(β, α)|)
+6. α ≠ 0 ∧ β ≠ 0 ⇒ DefInt(0, +∞, frac(cos(2 * α * x) - cos(2 * β * x), x) * diff(x)) = ln(|frac(β, α)|)
+7. α ≠ 0 ∧ β ≠ 0 ⇒ DefInt(0, +∞, frac(sin(α * x)^{4} - sin(β * x)^{4}, x) * diff(x)) = frac(1, 8) * ln(|frac(β, α)|) - frac(1, 2) * ln(|frac(β, α)|) ∧ frac(1, 8) * ln(|frac(β, α)|) - frac(1, 2) * ln(|frac(β, α)|) = frac(3, 8) * ln(|frac(α, β)|)
+8. α = 0 ∧ β = 0 ⇒ DefInt(0, +∞, frac(sin(α * x)^{4} - sin(β * x)^{4}, x) * diff(x)) = 0
+
+GOAL:
+α = 0 ∧ β ≠ 0 ∨ β = 0 ∧ α ≠ 0 ⇒ ¬(exists (L), L ∈ RealSet ∧ DefInt(0, +∞, frac(sin(α * x)^{4} - sin(β * x)^{4}, x) * diff(x)) = L)
+
+METHOD:

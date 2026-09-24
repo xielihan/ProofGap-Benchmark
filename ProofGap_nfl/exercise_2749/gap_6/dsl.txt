@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ∈ PosRealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(1, n) < ε ⇒ |f(n, x) - g(x)| < ε)}) (n := {m}) (x := {y})
+get_condition (hypothesis 10: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ y ∈ RealSet ∧ y ∈ PosRealSet}) in (GOAL: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ y ∈ RealSet ∧ y ∈ PosRealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(1, m) < ε ⇒ |f(m, y) - g(y)| < ε)})
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(1, m) < ε ⇒ |f(m, y) - g(y)| < ε}) (ε := {δ})
+get_condition (hypothesis 11: {δ ∈ RealSet ∧ δ > 0 ∧ frac(1, m) < δ}) in (GOAL: {δ ∈ RealSet ∧ δ > 0 ∧ frac(1, m) < δ ⇒ |f(m, y) - g(y)| < δ})
+get_prop (hypothesis 9: {forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ∈ PosRealSet ⇒ |f(n, x) - g(x)| < frac(1, n)}) (n := {m}) (x := {y}) as (hypothesis 12: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ y ∈ RealSet ∧ y ∈ PosRealSet ⇒ |f(m, y) - g(y)| < frac(1, m)})
+use_condition (hypothesis 10: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ y ∈ RealSet ∧ y ∈ PosRealSet}) in (hypothesis 12: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ y ∈ RealSet ∧ y ∈ PosRealSet ⇒ |f(m, y) - g(y)| < frac(1, m)}) as (hypothesis 13: {|f(m, y) - g(y)| < frac(1, m)})
+autosolve all_hypothesis

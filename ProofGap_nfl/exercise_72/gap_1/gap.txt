@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. seqlim_{ n → +∞ } ((1 + frac(1, n))^{n}) = e
+3. x = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . (1 + frac(1, n))^{n})
+4. ω = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . sum_{ k = 0 }^{ n } (frac(1, k!)))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = 1 + 1 + (sum_{ k = 2 }^{ n } (frac(1, k!) * (prod_{ i = 1 }^{ k - 1 } (1 - frac(i, n)))))
+
+METHOD:

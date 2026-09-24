@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. I : RealSet → RealSet
+2. I_{1} : RealSet → RealSet
+3. I_{2} : RealSet → RealSet
+4. forall (α), α ∈ RealSet ∧ 0 ≤ α ∧ α ≤ 1 ⇒ I(α) = DefInt(0, 1, (fun x [x ∈ RealSet] . frac(sin(α * x), sqrtn(2, |x - α|))) * diff(fun x [x ∈ RealSet] . x))
+5. forall (α), α ∈ RealSet ∧ 0 ≤ α ∧ α ≤ 1 ⇒ I_{1}(α) = DefInt(0, α, (fun x [x ∈ RealSet] . frac(sin(α * x), sqrtn(2, α - x))) * diff(fun x [x ∈ RealSet] . x))
+6. forall (α), α ∈ RealSet ∧ 0 ≤ α ∧ α ≤ 1 ⇒ I_{2}(α) = DefInt(α, 1, (fun x [x ∈ RealSet] . frac(sin(α * x), sqrtn(2, x - α))) * diff(fun x [x ∈ RealSet] . x))
+7. forall (α), α ∈ RealSet ∧ 0 ≤ α ∧ α ≤ 1 ⇒ I(α) = I_{1}(α) + I_{2}(α)
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (η), η ∈ RealSet ∧ η = frac(ε^{2}, 8) ∧ 0 < η)
+
+METHOD:

@@ -1,0 +1,1 @@
+1. apply (hypothesis 2: {forall (x), x ∈ RealSet ⇒ y(x) = sin(cos(x)^{2}) * cos(sin(x)^{2})})

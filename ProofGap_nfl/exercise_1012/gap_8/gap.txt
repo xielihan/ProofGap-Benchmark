@@ -1,0 +1,24 @@
+PROOF GAP @8
+ASSUM:
+1. A ∈ RealSet
+2. c ∈ RealSet
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. k_{1} ∈ RealSet
+6. k_{2} ∈ RealSet
+7. y : RealSet → RealSet
+8. a < b
+9. k_{1} + k_{2} ≠ 0
+10. forall (x), x ∈ RealSet ∧ a ≤ x ∧ x ≤ b ⇒ y(x) = A * (x - a) * (x - b) * (x - c)
+11. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = A * ((x - b) * (x - c) + (x - a) * (x - c) + (x - a) * (x - b))
+12. forall (x), x ∈ RealSet ∧ x = a ⇒ FunDeri(y, 1, 1)(a) = A * (a - b) * (a - c)
+13. forall (x), x ∈ RealSet ∧ x = a ⇒ A * (a - b) * (a - c) = k_{1}
+14. forall (x), x ∈ RealSet ∧ x = b ⇒ FunDeri(y, 1, 1)(b) = A * (b - a) * (b - c)
+15. forall (x), x ∈ RealSet ∧ x = b ⇒ A * (b - a) * (b - c) = k_{2}
+16. A * (a - b) * (a - c) = k_{1}
+17. A * (b - a) * (b - c) = k_{2}
+
+GOAL:
+A = frac(k_{1} + k_{2}, (b - a)^{2})
+
+METHOD:

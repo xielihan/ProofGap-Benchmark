@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x > frac(π, 4) ∧ cos(frac(π, 8) + x) ≠ 0 ∧ cos(2 * x) ≠ 0 ⇒ 1 < tan(frac(π, 8) + x)
+2. forall (x), x ∈ RealSet ∧ x > frac(π, 4) ∧ cos(frac(π, 8) + x) ≠ 0 ∧ cos(2 * x) ≠ 0 ⇒ tan(frac(π, 8) + x) < +∞
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > frac(π, 4) ∧ cos(frac(π, 8) + x) ≠ 0 ∧ cos(2 * x) ≠ 0 ⇒ 1 < +∞
+
+METHOD:

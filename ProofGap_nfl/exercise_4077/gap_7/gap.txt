@@ -1,0 +1,18 @@
+PROOF GAP @7
+ASSUM:
+1. V ⊆ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+2. x ∈ RealSet
+3. y ∈ RealSet
+4. z ∈ RealSet
+5. V = { (x, y, z) | (x, y, z) ∈ CartesianProd(CartesianProd(RealSet, RealSet), RealSet), x ≥ 0, y ≥ 0, z ≥ 0, x + y + z ≤ 1 }
+6. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ VolumeInt(V, frac(1, (1 + x + y + z)^{3}) * diff(fun x [x ∈ RealSet] . x) * diff(fun y [y ∈ RealSet] . y) * diff(fun z [z ∈ RealSet] . z)) = DefInt(0, 1, DefInt(0, 1 - x, DefInt(0, 1 - x - y, frac(1, (1 + x + y + z)^{3}) * diff(fun z [z ∈ RealSet] . z)) * diff(fun y [y ∈ RealSet] . y)) * diff(fun x [x ∈ RealSet] . x))))
+7. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ DefInt(0, 1 - x - y, frac(1, (1 + x + y + z)^{3}) * diff(fun z [z ∈ RealSet] . z)) = ((-frac(1, 2 * (1 + x + y + z)^{2}))|_{0}^{1 - x - y})))
+8. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ VolumeInt(V, frac(1, (1 + x + y + z)^{3}) * diff(fun x [x ∈ RealSet] . x) * diff(fun y [y ∈ RealSet] . y) * diff(fun z [z ∈ RealSet] . z)) = DefInt(0, 1, DefInt(0, 1 - x, -frac(1, 8) + frac(1, 2 * (1 + x + y)^{2}) * diff(fun y [y ∈ RealSet] . y)) * diff(fun x [x ∈ RealSet] . x))))
+9. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ DefInt(0, 1 - x, (-frac(1, 8) + frac(1, 2 * (1 + x + y)^{2})) * diff(fun y [y ∈ RealSet] . y)) = ((-frac(1, 8) * y - frac(1, 2 * (1 + x + y)))|_{0}^{1 - x}))
+10. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ VolumeInt(V, frac(1, (1 + x + y + z)^{3}) * diff(fun x [x ∈ RealSet] . x) * diff(fun y [y ∈ RealSet] . y) * diff(fun z [z ∈ RealSet] . z)) = DefInt(0, 1, (-frac(3, 8) + frac(x, 8) + frac(1, 2 * (1 + x))) * diff(fun x [x ∈ RealSet] . x))))
+11. forall (x), x ∈ RealSet ⇒ DefInt(0, 1, (-frac(3, 8) + frac(x, 8) + frac(1, 2 * (1 + x))) * diff(fun x [x ∈ RealSet] . x)) = ((-frac(3, 8) * x + frac(1, 16) * x^{2} + frac(1, 2) * ln(1 + x))|_{0}^{1})
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ VolumeInt(V, frac(1, (1 + x + y + z)^{3}) * diff(fun x [x ∈ RealSet] . x) * diff(fun y [y ∈ RealSet] . y) * diff(fun z [z ∈ RealSet] . z)) = frac(1, 2) * ln(2) - frac(5, 16)))
+
+METHOD:

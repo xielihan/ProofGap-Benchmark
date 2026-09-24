@@ -1,0 +1,26 @@
+PROOF GAP @15
+ASSUM:
+1. P : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. R : RealSet → RealSet
+3. u : RealSet → RealSet
+4. v : RealSet → RealSet
+5. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ P(n, x) = frac(1, 2^{n} * n!) * FunDeri(fun y [y ∈ RealSet] . (y^{2} - 1)^{n}, 1, n)(x)
+6. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (n), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m ≠ n ∧ n < m ⇒ R = (fun x [x ∈ RealSet] . frac(1, 2^{m} * m!) * (x^{2} - 1)^{m}))
+7. forall (x), x ∈ RealSet ⇒ (forall (m), m ∈ NonNegIntegerSet ⇒ (forall (n), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m ≠ n ∧ n < m ⇒ P(m, x) = FunDeri(R, 1, m)(x)))
+8. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (n), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m ≠ n ∧ n < m ⇒ DefInt(-1, 1, (fun x [x ∈ RealSet] . P(m, x) * P(n, x)) * diff(fun x [x ∈ RealSet] . x)) = (-1)^{m} * DefInt(-1, 1, (fun x [x ∈ RealSet] . R(x) * FunDeri(fun y [y ∈ RealSet] . P(n, y), 1, m)(x)) * diff(fun x [x ∈ RealSet] . x)))
+9. forall (x), x ∈ RealSet ⇒ (forall (m), m ∈ NonNegIntegerSet ⇒ (forall (n), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m ≠ n ∧ n < m ⇒ FunDeri(fun y [y ∈ RealSet] . P(n, y), 1, m)(x) = 0))
+10. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (n), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m ≠ n ∧ n < m ⇒ DefInt(-1, 1, (fun x [x ∈ RealSet] . P(m, x) * P(n, x)) * diff(fun x [x ∈ RealSet] . x)) = 0)
+11. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (n), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m ≠ n ∧ m < n ⇒ DefInt(-1, 1, (fun x [x ∈ RealSet] . P(m, x) * P(n, x)) * diff(fun x [x ∈ RealSet] . x)) = 0)
+12. forall (n), n ∈ NonNegIntegerSet ⇒ DefInt(-1, 1, (fun x [x ∈ RealSet] . P(n, x) * P(n, x)) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 2^{2 * n} * (n!)^{2}) * DefInt(-1, 1, (fun x [x ∈ RealSet] . FunDeri(fun y [y ∈ RealSet] . (y^{2} - 1)^{n}, 1, n)(x)^{2}) * diff(fun x [x ∈ RealSet] . x))
+13. forall (n), n ∈ NonNegIntegerSet ⇒ u = (fun x [x ∈ RealSet] . FunDeri(fun y [y ∈ RealSet] . (y^{2} - 1)^{n}, 1, n)(x))
+14. forall (n), n ∈ NonNegIntegerSet ⇒ v = (fun x [x ∈ RealSet] . (x^{2} - 1)^{n})
+15. forall (n), n ∈ NonNegIntegerSet ⇒ DefInt(-1, 1, (fun x [x ∈ RealSet] . P(n, x) * P(n, x)) * diff(fun x [x ∈ RealSet] . x)) = frac((-1)^{n}, 2^{2 * n} * (n!)^{2}) * DefInt(-1, 1, (fun x [x ∈ RealSet] . v(x) * FunDeri(u, 1, n)(x)) * diff(fun x [x ∈ RealSet] . x))
+16. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ FunDeri(u, 1, n)(x) = (2 * n)!)
+17. forall (n), n ∈ NonNegIntegerSet ⇒ DefInt(-1, 1, (fun x [x ∈ RealSet] . P(n, x) * P(n, x)) * diff(fun x [x ∈ RealSet] . x)) = frac((2 * n)!, 2^{2 * n - 1} * (n!)^{2}) * DefInt(0, 1, (fun x [x ∈ RealSet] . (1 - x^{2})^{n}) * diff(fun x [x ∈ RealSet] . x))
+18. forall (n), n ∈ NonNegIntegerSet ⇒ DefInt(0, 1, (fun x [x ∈ RealSet] . (1 - x^{2})^{n}) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, frac(π, 2), (fun t [t ∈ RealSet] . cos(t)^{2 * n + 1}) * diff(fun t [t ∈ RealSet] . t))
+19. forall (n), n ∈ NonNegIntegerSet ⇒ frac((2 * n)!, 2^{2 * n - 1} * (n!)^{2}) * DefInt(0, frac(π, 2), (fun t [t ∈ RealSet] . cos(t)^{2 * n + 1}) * diff(fun t [t ∈ RealSet] . t)) = frac(2, 2 * n + 1)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ DefInt(-1, 1, (fun x [x ∈ RealSet] . P(n, x) * P(n, x)) * diff(fun x [x ∈ RealSet] . x)) = frac(2, 2 * n + 1)
+
+METHOD:

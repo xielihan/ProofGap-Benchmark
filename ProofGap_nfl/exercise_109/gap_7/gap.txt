@@ -1,0 +1,15 @@
+PROOF GAP @7
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = 1 + n * sin(frac(n * π, 2))
+3. x(1) = 2
+4. x(2) = 1
+5. x(3) = -2
+6. x(4) = 1
+7. x(5) = 6
+8. inf({ x(n) | n ∈ PosIntegerSet }) = -∞
+
+GOAL:
+sup({ x(n) | n ∈ PosIntegerSet }) = +∞
+
+METHOD:

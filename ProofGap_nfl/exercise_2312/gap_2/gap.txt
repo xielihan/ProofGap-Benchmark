@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. DefInt(0, π, (fun x [x ∈ RealSet] . x * sgn(cos(x))) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . x) * diff(fun x [x ∈ RealSet] . x)) + DefInt(frac(π, 2), π, (fun x [x ∈ RealSet] . -x) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . x) * diff(fun x [x ∈ RealSet] . x)) + DefInt(frac(π, 2), π, (fun x [x ∈ RealSet] . -x) * diff(fun x [x ∈ RealSet] . x)) = -frac(π^{2}, 4)
+
+METHOD:

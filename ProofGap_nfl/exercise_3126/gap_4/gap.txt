@@ -1,0 +1,18 @@
+PROOF GAP @4
+ASSUM:
+1. y : RealSet → RealSet
+2. P : RealSet → RealSet
+3. y(0) = 5
+4. y(0.5) = 4.5
+5. y(1) = 3
+6. y(1.5) = 2.5
+7. y(2) = 5
+8. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 2 ⇒ y(x) ≈_{ |y(x) - P(x)| } P(x)
+9. forall (x), x ∈ RealSet ⇒ P(x) = frac((x - 0.5) * (x - 1) * (x - 1.5) * (x - 2), -0.5 * -1 * -1.5 * -2) * 5 + frac(x * (x - 1) * (x - 1.5) * (x - 2), 0.5 * -0.5 * -1 * -1.5) * 4.5 + frac(x * (x - 0.5) * (x - 1.5) * (x - 2), 1 * 0.5 * -0.5 * -1) * 3 + frac(x * (x - 0.5) * (x - 1) * (x - 2), 1.5 * 1 * 0.5 * -0.5) * 2.5 + frac(x * (x - 0.5) * (x - 1) * (x - 1.5), 2 * 1.5 * 1 * 0.5) * 5
+10. forall (x), x ∈ RealSet ⇒ P(x) = frac(8, 3) * x^{3} - 6 * x^{2} + frac(4, 3) * x + 5
+11. DefInt(0, 2, (fun x [x ∈ RealSet] . y(x)) * diff(fun x [x ∈ RealSet] . x)) ≈_{ |DefInt(0, 2, (fun x [x ∈ RealSet] . y(x)) * diff(fun x [x ∈ RealSet] . x)) - DefInt(0, 2, (fun x [x ∈ RealSet] . P(x)) * diff(fun x [x ∈ RealSet] . x))| } DefInt(0, 2, (fun x [x ∈ RealSet] . P(x)) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+DefInt(0, 2, (fun x [x ∈ RealSet] . P(x)) * diff(fun x [x ∈ RealSet] . x)) = ((fun x [x ∈ RealSet] . frac(2, 3) * x^{4} - 2 * x^{3} + frac(2, 3) * x^{2} + 5 * x)|_{0}^{2})
+
+METHOD:

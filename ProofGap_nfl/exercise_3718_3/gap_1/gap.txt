@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. F : RealSet → RealSet
+2. forall (α), α ∈ RealSet ∧ α ∈ PosRealSet ⇒ F(α) = DefInt(0, α, (fun x [x ∈ RealSet] . frac(ln(1 + α * x), x)) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+forall (α), α ∈ RealSet ∧ α ∈ PosRealSet ⇒ FunDeri(F, 1, 1)(α) = frac(1, α) * ln(1 + α^{2}) + DefInt(0, α, (fun x [x ∈ RealSet] . frac(1, 1 + α * x)) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

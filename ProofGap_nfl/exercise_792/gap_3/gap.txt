@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = x + sin(x)
+3. ¬BoundedFuncOn(f, RealSet)
+4. forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ⇒ |f(`x'`) - f(`x''`)| = |`x'` - `x''` + sin(`x'`) - sin(`x''`)|)
+5. forall (x), x ∈ RealSet ⇒ sin(x) ∈ RealSet
+
+GOAL:
+forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ⇒ |`x'` - `x''` + sin(`x'`) - sin(`x''`)| ≤ |`x'` - `x''`| + |sin(`x'`) - sin(`x''`)|)
+
+METHOD:

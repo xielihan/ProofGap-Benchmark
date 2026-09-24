@@ -1,0 +1,26 @@
+1. get_prop (theorem 'Thm 130. (SeriesRatioTest)': {forall (a) (L), L ∈ RealSet => (forall (n), n ∈ NonNegIntegerSet => a(n) > 0) => seqlim_{n -> +∞}(a(n+1) / a(n)) = L => (L < 1 => ConvergentSeries(sum_{n = 0}^{+∞}(a(n)))) /\ (L > 1 => DivergentSeries(sum_{n = 0}^{+∞}(a(n))))}) (a := {fun n . frac(1, 2^{n})}) (L := {frac(1, 2)}) as (hypothesis 7: {frac(1, 2) ∈ RealSet => (forall (n), n ∈ NonNegIntegerSet => frac(1, 2^{n}) > 0) => seqlim_{n -> +∞}(frac(1, 2^{n + 1}) / frac(1, 2^{n})) = frac(1, 2) => (frac(1, 2) < 1 => ConvergentSeries(sum_{n = 0}^{+∞}(frac(1, 2^{n})))) /\ (frac(1, 2) > 1 => DivergentSeries(sum_{n = 0}^{+∞}(frac(1, 2^{n}))))})
+2. assert (hypothesis 8: {forall (n), n ∈ NonNegIntegerSet => frac(1, 2^{n}) > 0}) by proof {
+  1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet => frac(1, 2^{n}) > 0}) (n := {nn})
+  2. get_condition (hypothesis 8: {nn ∈ NonNegIntegerSet}) in (GOAL: {nn ∈ NonNegIntegerSet => frac(1, 2^{nn}) > 0})
+  3. autosolve all_hypothesis
+}
+3. assert (hypothesis 9: {forall (n), n ∈ NonNegIntegerSet => frac(1, 2^{n + 1}) / frac(1, 2^{n}) = frac(1, 2)}) by proof {
+  1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet => frac(1, 2^{n + 1}) / frac(1, 2^{n}) = frac(1, 2)}) (n := {nn})
+  2. get_condition (hypothesis 9: {nn ∈ NonNegIntegerSet}) in (GOAL: {nn ∈ NonNegIntegerSet => frac(1, 2^{nn + 1}) / frac(1, 2^{nn}) = frac(1, 2)})
+  3. assert (hypothesis 10: {nn ∈ RealSet})
+  4. get_prop (theorem 'Thm 204. (ExponentAdditionLaw)': {forall (a) (x) (y), a ∈ RealSet => x ∈ RealSet => y ∈ RealSet => (a > 0 => a ^ (x + y) = a ^ x * a ^ y)}) (a := {2}) (x := {nn}) (y := {1}) as (hypothesis 11: {2 ∈ RealSet => nn ∈ RealSet => 1 ∈ RealSet => (2 > 0 => 2 ^ (nn + 1) = 2 ^ nn * 2 ^ 1)})
+  5. use_condition (obvious: {2 ∈ RealSet}) (hypothesis 10: {nn ∈ RealSet}) (obvious: {1 ∈ RealSet}) (obvious: {2 > 0}) in (hypothesis 11: {2 ∈ RealSet => nn ∈ RealSet => 1 ∈ RealSet => (2 > 0 => 2 ^ (nn + 1) = 2 ^ nn * 2 ^ 1)}) as (hypothesis 12: {2 ^ (nn + 1) = 2 ^ nn * 2 ^ 1})
+  6. rewrite (left_to_right, equation) (hypothesis 12: {2 ^ (nn + 1) = 2 ^ nn * 2 ^ 1}); from (GOAL: {frac(1, 2^{nn + 1}) / frac(1, 2^{nn}) = frac(1, 2)}) to (GOAL: {frac(1, 2 ^ nn * 2 ^ 1) / frac(1, 2 ^ nn) = frac(1, 2)})
+  7. autosolve all_hypothesis
+}
+4. assert (hypothesis 10: {seqlim_{n -> +∞}(frac(1, 2^{n + 1}) / frac(1, 2^{n})) = frac(1, 2)}) by proof {
+  1. rewrite_in limit (left_to_right, equation) (hypothesis 9: {forall (n), n ∈ NonNegIntegerSet => frac(1, 2^{n + 1}) / frac(1, 2^{n}) = frac(1, 2)}); from (GOAL: {seqlim_{n -> +∞}(frac(1, 2^{n + 1}) / frac(1, 2^{n})) = frac(1, 2)}) to (GOAL: {seqlim_{n -> +∞}(frac(1, 2)) = frac(1, 2)})
+  2. autosolve all_hypothesis
+}
+5. use_condition (obvious: {frac(1, 2) ∈ RealSet}) (hypothesis 8: {forall (n), n ∈ NonNegIntegerSet => frac(1, 2^{n}) > 0}) (hypothesis 10: {seqlim_{n -> +∞}(frac(1, 2^{n + 1}) / frac(1, 2^{n})) = frac(1, 2)}) in (hypothesis 7: {frac(1, 2) ∈ RealSet => (forall (n), n ∈ NonNegIntegerSet => frac(1, 2^{n}) > 0) => seqlim_{n -> +∞}(frac(1, 2^{n + 1}) / frac(1, 2^{n})) = frac(1, 2) => (frac(1, 2) < 1 => ConvergentSeries(sum_{n = 0}^{+∞}(frac(1, 2^{n})))) /\ (frac(1, 2) > 1 => DivergentSeries(sum_{n = 0}^{+∞}(frac(1, 2^{n}))))}) as (hypothesis 11: {(frac(1, 2) < 1 => ConvergentSeries(sum_{n = 0}^{+∞}(frac(1, 2^{n})))) /\ (frac(1, 2) > 1 => DivergentSeries(sum_{n = 0}^{+∞}(frac(1, 2^{n}))))})
+6. destruct_and (hypothesis 11: {(frac(1, 2) < 1 => ConvergentSeries(sum_{n = 0}^{+∞}(frac(1, 2^{n})))) /\ (frac(1, 2) > 1 => DivergentSeries(sum_{n = 0}^{+∞}(frac(1, 2^{n}))))}) as (hypothesis 12: {frac(1, 2) < 1 => ConvergentSeries(sum_{n = 0}^{+∞}(frac(1, 2^{n})))}) (hypothesis 13: {frac(1, 2) > 1 => DivergentSeries(sum_{n = 0}^{+∞}(frac(1, 2^{n})))})
+7. use_condition (obvious: {frac(1, 2) < 1}) in (hypothesis 12: {frac(1, 2) < 1 => ConvergentSeries(sum_{n = 0}^{+∞}(frac(1, 2^{n})))}) as (hypothesis 14: {ConvergentSeries(sum_{n = 0}^{+∞}(frac(1, 2^{n})))})
+8. get_prop (theorem 'Thm 459. (FiniteSeriesTermsDoNotAffectConvergence)': {forall (a) (N) (M), N ∈ NonNegIntegerSet => M ∈ NonNegIntegerSet => (ConvergentSeries(sum_{n = N}^{+∞} (a(n))) <==> ConvergentSeries(sum_{n = M}^{+∞} (a(n))))}) (a := {fun n . frac(1, 2^{n})}) (N := {0}) (M := {1}) as (hypothesis 15: {0 ∈ NonNegIntegerSet => 1 ∈ NonNegIntegerSet => (ConvergentSeries(sum_{n = 0}^{+∞} (frac(1, 2^{n}))) <==> ConvergentSeries(sum_{n = 1}^{+∞} (frac(1, 2^{n}))))})
+9. use_condition (obvious: {0 ∈ NonNegIntegerSet}) (obvious: {1 ∈ NonNegIntegerSet}) in (hypothesis 15: {0 ∈ NonNegIntegerSet => 1 ∈ NonNegIntegerSet => (ConvergentSeries(sum_{n = 0}^{+∞} (frac(1, 2^{n}))) <==> ConvergentSeries(sum_{n = 1}^{+∞} (frac(1, 2^{n}))))}) as (hypothesis 16: {ConvergentSeries(sum_{n = 0}^{+∞} (frac(1, 2^{n}))) <==> ConvergentSeries(sum_{n = 1}^{+∞} (frac(1, 2^{n})))})
+10. rewrite (left_to_right, iff) (hypothesis 16: {ConvergentSeries(sum_{n = 0}^{+∞} (frac(1, 2^{n}))) <==> ConvergentSeries(sum_{n = 1}^{+∞} (frac(1, 2^{n})))}); from (hypothesis 14: {ConvergentSeries(sum_{n = 0}^{+∞}(frac(1, 2^{n})))}) to (hypothesis 17: {ConvergentSeries(sum_{n = 1}^{+∞}(frac(1, 2^{n})))})
+11. apply (hypothesis 17: {ConvergentSeries(sum_{n = 1}^{+∞}(frac(1, 2^{n})))})

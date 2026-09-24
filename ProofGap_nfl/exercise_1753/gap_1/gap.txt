@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. C ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ sin(3 * x)^{2} * sin(2 * x)^{3} = frac(1, 2) * (1 - cos(6 * x)) * frac(1, 4) * (3 * sin(2 * x) - sin(6 * x))
+
+METHOD:

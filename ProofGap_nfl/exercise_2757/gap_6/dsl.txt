@@ -1,0 +1,9 @@
+assert (hypothesis 11: {e > 0}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 12: {e^{-1} = frac(1, e)}) by proof {
+  autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 9: {ε_{0} = frac(1, 2 * e)}); from (GOAL: {ε_{0} < e^{-1}}) to (GOAL: {frac(1, 2 * e) < e^{-1}})
+rewrite (left_to_right, equation) (hypothesis 12: {e^{-1} = frac(1, e)}); from (GOAL: {frac(1, 2 * e) < e^{-1}}) to (GOAL: {frac(1, 2 * e) < frac(1, e)})
+autosolve all_hypothesis

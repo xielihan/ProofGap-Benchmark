@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ∧ sin(π * x) ≠ 0 ⇒ cot(π * x) = frac(1, sin(π * x)) * cos(π * x)
+
+METHOD:

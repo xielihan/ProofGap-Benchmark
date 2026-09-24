@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (x) (y) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet => FunDeri(F, 1, 1)(x, y, λ) = frac(1, a) + 2 * λ * x}) (x := {p}) (y := {q}) (λ := {r})
+get_condition (hypothesis 8: {p ∈ RealSet ∧ q ∈ RealSet ∧ r ∈ RealSet}) in (GOAL: {p ∈ RealSet ∧ q ∈ RealSet ∧ r ∈ RealSet => FunDeri(F, 1, 1)(p, q, r) = frac(1, a) + 2 * r * p})
+rewrite (left_to_right, equation) (hypothesis 7: {F = (fun x, y, λ [x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet] . frac(x, a) + frac(y, b) + λ * (x^{2} + y^{2} - 1))}); from (GOAL: {FunDeri(F, 1, 1)(p, q, r) = frac(1, a) + 2 * r * p}) to (GOAL: {FunDeri((fun x, y, λ [x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet] . frac(x, a) + frac(y, b) + λ * (x^{2} + y^{2} - 1)), 1, 1)(p, q, r) = frac(1, a) + 2 * r * p})
+autosolve all_hypothesis using DerivSolver

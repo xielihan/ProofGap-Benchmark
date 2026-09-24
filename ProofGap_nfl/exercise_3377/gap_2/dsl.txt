@@ -1,0 +1,7 @@
+1. assert (hypothesis 5: {2 * (x * (y^{2} + 1) * diff(x) + y * (x^{2} + 1) * diff(y)) = 0}) by proof {
+  1. autosolve all_hypothesis
+}
+2. assert (hypothesis 6: {x * (y^{2} + 1) * diff(x) + y * (x^{2} + 1) * diff(y) = 0}) by proof {
+  1. autosolve all_hypothesis
+}
+3. apply (hypothesis 6: {x * (y^{2} + 1) * diff(x) + y * (x^{2} + 1) * diff(y) = 0})

@@ -1,0 +1,20 @@
+1. get_forall (GOAL: {forall (α), α ∈ RealSet ∧ -1 ≤ α ∧ α ≤ 1 ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [-frac(π, 2), frac(π, 2)] ∧ sin(x_{0}) = α ∧ (exists (x), x : NonNegIntegerSet → RealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ sin(frac(1, x(n))) = sin(2 * n * π + x_{0}))))}) (α := {z})
+2. get_condition (hypothesis 9: {z ∈ RealSet ∧ -1 ≤ z ∧ z ≤ 1}) in (GOAL: {z ∈ RealSet ∧ -1 ≤ z ∧ z ≤ 1 ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [-frac(π, 2), frac(π, 2)] ∧ sin(x_{0}) = z ∧ (exists (x), x : NonNegIntegerSet → RealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ sin(frac(1, x(n))) = sin(2 * n * π + x_{0}))))})
+3. get_prop (hypothesis 5: {forall (α), α ∈ RealSet ∧ -1 ≤ α ∧ α ≤ 1 ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [-frac(π, 2), frac(π, 2)] ∧ sin(x_{0}) = α ∧ (exists (x), x : NonNegIntegerSet → RealSet ∧ x = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . frac(1, 2 * n * π + x_{0}))))}) (α := {z}) as (hypothesis 10: {z ∈ RealSet ∧ -1 ≤ z ∧ z ≤ 1 ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [-frac(π, 2), frac(π, 2)] ∧ sin(x_{0}) = z ∧ (exists (x), x : NonNegIntegerSet → RealSet ∧ x = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . frac(1, 2 * n * π + x_{0}))))})
+4. use_condition (hypothesis 9: {z ∈ RealSet ∧ -1 ≤ z ∧ z ≤ 1}) in (hypothesis 10: {z ∈ RealSet ∧ -1 ≤ z ∧ z ≤ 1 ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [-frac(π, 2), frac(π, 2)] ∧ sin(x_{0}) = z ∧ (exists (x), x : NonNegIntegerSet → RealSet ∧ x = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . frac(1, 2 * n * π + x_{0}))))}) as (hypothesis 11: {exists (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [-frac(π, 2), frac(π, 2)] ∧ sin(x_{0}) = z ∧ (exists (x), x : NonNegIntegerSet → RealSet ∧ x = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . frac(1, 2 * n * π + x_{0})))})
+5. get_exists (hypothesis 11: {exists (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [-frac(π, 2), frac(π, 2)] ∧ sin(x_{0}) = z ∧ (exists (x), x : NonNegIntegerSet → RealSet ∧ x = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . frac(1, 2 * n * π + x_{0})))}) (x_{0} := {y})
+6. destruct_and (hypothesis 12: {y ∈ RealSet ∧ y ∈ [-frac(π, 2), frac(π, 2)] ∧ sin(y) = z ∧ (exists (x), x : NonNegIntegerSet → RealSet ∧ x = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . frac(1, 2 * n * π + y)))}) as (hypothesis 13: {y ∈ RealSet}) (hypothesis 14: {y ∈ [-frac(π, 2), frac(π, 2)]}) (hypothesis 15: {sin(y) = z}) (hypothesis 16: {exists (x), x : NonNegIntegerSet → RealSet ∧ x = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . frac(1, 2 * n * π + y))})
+7. get_exists (hypothesis 16: {exists (x), x : NonNegIntegerSet → RealSet ∧ x = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . frac(1, 2 * n * π + y))}) (x := {s})
+8. destruct_and (hypothesis 17: {s : NonNegIntegerSet → RealSet ∧ s = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . frac(1, 2 * n * π + y))}) as (hypothesis 18: {s : NonNegIntegerSet → RealSet}) (hypothesis 19: {s = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . frac(1, 2 * n * π + y))})
+9. exists (x_{0} := {y})
+10. assert (hypothesis 20: {exists (x), x : NonNegIntegerSet → RealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ sin(frac(1, x(n))) = sin(2 * n * π + y))}) by proof {
+  1. exists (x := {s})
+  2. assert (hypothesis 20: {forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ sin(frac(1, s(n))) = sin(2 * n * π + y)}) by proof {
+    1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ sin(frac(1, s(n))) = sin(2 * n * π + y)}) (n := {k})
+    2. get_condition (hypothesis 20: {k ∈ NonNegIntegerSet ∧ k > 0}) in (GOAL: {k ∈ NonNegIntegerSet ∧ k > 0 ⇒ sin(frac(1, s(k))) = sin(2 * k * π + y)})
+    3. rewrite (left_to_right, equation) (hypothesis 19: {s = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . frac(1, 2 * n * π + y))}); from (GOAL: {sin(frac(1, s(k))) = sin(2 * k * π + y)}) to (GOAL: {sin(frac(1, (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . frac(1, 2 * n * π + y))(k))) = sin(2 * k * π + y)})
+    4. autosolve all_hypothesis
+  }
+  3. autosolve all_hypothesis
+}
+11. autosolve all_hypothesis

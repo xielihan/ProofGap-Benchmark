@@ -1,0 +1,22 @@
+PROOF GAP @11
+ASSUM:
+1. f : RealSet → RealSet
+2. S : RealSet → RealSet
+3. A : NonNegIntegerSet → RealSet
+4. B : NonNegIntegerSet → RealSet
+5. forall (x), x ∈ RealSet ⇒ f(x) = sgn(cos(x))
+6. forall (x), x ∈ RealSet ⇒ f(x + 2 * π) = sgn(cos(x + 2 * π)) ∧ sgn(cos(x + 2 * π)) = sgn(cos(x)) ∧ sgn(cos(x)) = f(x)
+7. PeriodicFunc(f, 2 * π)
+8. EvenFunc(f)
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ B(n) = 0
+10. A(0) = frac(2, π) * DefInt(0, π, (fun x [x ∈ RealSet] . sgn(cos(x))) * diff(fun x [x ∈ RealSet] . x))
+11. frac(2, π) * DefInt(0, π, (fun x [x ∈ RealSet] . sgn(cos(x))) * diff(fun x [x ∈ RealSet] . x)) = frac(2, π) * (DefInt(0, frac(π, 2), diff(fun x [x ∈ RealSet] . x)) + DefInt(frac(π, 2), π, (fun x [x ∈ RealSet] . -1) * diff(fun x [x ∈ RealSet] . x)))
+12. frac(2, π) * (DefInt(0, frac(π, 2), diff(fun x [x ∈ RealSet] . x)) + DefInt(frac(π, 2), π, (fun x [x ∈ RealSet] . -1) * diff(fun x [x ∈ RealSet] . x))) = 0
+13. A(0) = 0
+14. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ A(n) = frac(2, π) * DefInt(0, π, (fun x [x ∈ RealSet] . sgn(cos(x)) * cos(n * x)) * diff(fun x [x ∈ RealSet] . x)) ∧ frac(2, π) * DefInt(0, π, (fun x [x ∈ RealSet] . sgn(cos(x)) * cos(n * x)) * diff(fun x [x ∈ RealSet] . x)) = frac(4, n * π) * sin(frac(n * π, 2))
+15. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ A(2 * k) = 0
+
+GOAL:
+forall (k), k ∈ NonNegIntegerSet ⇒ A(2 * k + 1) = (-1)^{k} * frac(4, (2 * k + 1) * π)
+
+METHOD:

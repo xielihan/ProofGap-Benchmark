@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. IsSet(E)
+3. f : E → RealSet
+
+GOAL:
+ContinuousFuncOn(f, E) ⇔ (forall (x), x ∈ E ⇒ (forall (ε), ε ∈ RealSet ⇒ ε > 0 ⇒ exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ forall (y), y ∈ E ⇒ (|y - x| < δ ⇒ |f(y) - f(x)| < ε)))
+
+METHOD:

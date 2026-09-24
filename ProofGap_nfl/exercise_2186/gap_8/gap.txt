@@ -1,0 +1,21 @@
+PROOF GAP @8
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. f : RealSet → RealSet
+3. S : NonNegIntegerSet → RealSet
+4. h : NonNegIntegerSet → RealSet
+5. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ f(x) = a^{x}
+6. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ h(n) = frac(1, n)
+7. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ S(n) = sum_{ i = 0 }^{ n - 1 } (h(n) * a^{i * h(n)})
+8. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ (exists (ξ), ξ : NonNegIntegerSet → RealSet ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ≤ n - 1 ⇒ ξ(i) = i * h(n)))
+9. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ S(n) > 0
+10. a ≠ 1 ⇒ forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ S(n) = frac(h(n) * (a - 1), a^{h(n)} - 1)
+11. a ≠ 1 ⇒ forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ S(n) = frac(a - 1, n * (a^{frac(1, n)} - 1))
+12. a ≠ 1 ⇒ seqlim_{ n → +∞ } (S(n)) = seqlim_{ n → +∞ } (frac(a - 1, frac(a^{frac(1, n)} - 1, frac(1, n))))
+13. a ≠ 1 ⇒ seqlim_{ n → +∞ } (S(n)) = frac(a - 1, ln(a))
+14. a ≠ 1 ⇒ DefInt(0, 1, (fun x [x ∈ RealSet] . a^{x}) * diff(fun x [x ∈ RealSet] . x)) = frac(a - 1, ln(a))
+
+GOAL:
+a = 1 ⇒ DefInt(0, 1, (fun x [x ∈ RealSet] . a^{x}) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet] . 1) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

@@ -1,0 +1,2 @@
+1. rewrite (left_to_right, equation) (hypothesis 18: {DefInt(-1, 1, (fun x [x ∈ RealSet] . frac(1, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x)) = frac(π, 2)}); from (GOAL: {DefInt(-1, 1, (fun x [x ∈ RealSet] . frac(1, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x)) ≠ -DefInt(-1, 1, (fun t [t ∈ RealSet] . frac(1, 1 + t^{2})) * diff(fun t [t ∈ RealSet] . t))}) to (GOAL: {frac(π, 2) ≠ -frac(π, 2)})
+2. autosolve all_hypothesis

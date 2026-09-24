@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ f(x) = -frac(y_{0} - y_{1}, b - a) * x + φ(x)}) (x := {z})
+get_condition (hypothesis 18: {z ∈ RealSet}) in (GOAL: {z ∈ RealSet ⇒ f(z) = -frac(y_{0} - y_{1}, b - a) * z + φ(z)})
+assert (hypothesis 19: {z - 2 * (b - a) ∈ RealSet})
+get_prop (hypothesis 14: {forall (x), x ∈ RealSet ⇒ f(x + 2 * (b - a)) = -frac(y_{0} - y_{1}, b - a) * (x + 2 * (b - a)) + φ(x + 2 * (b - a))}) (x := {z - 2 * (b - a)}) as (hypothesis 20: {z - 2 * (b - a) ∈ RealSet ⇒ f((z - 2 * (b - a)) + 2 * (b - a)) = -frac(y_{0} - y_{1}, b - a) * ((z - 2 * (b - a)) + 2 * (b - a)) + φ((z - 2 * (b - a)) + 2 * (b - a))})
+use_condition (hypothesis 19: {z - 2 * (b - a) ∈ RealSet}) in (hypothesis 20: {z - 2 * (b - a) ∈ RealSet ⇒ f((z - 2 * (b - a)) + 2 * (b - a)) = -frac(y_{0} - y_{1}, b - a) * ((z - 2 * (b - a)) + 2 * (b - a)) + φ((z - 2 * (b - a)) + 2 * (b - a))}) as (hypothesis 21: {f((z - 2 * (b - a)) + 2 * (b - a)) = -frac(y_{0} - y_{1}, b - a) * ((z - 2 * (b - a)) + 2 * (b - a)) + φ((z - 2 * (b - a)) + 2 * (b - a))})
+autoreplace no_hypothesis; from ((z - 2 * (b - a)) + 2 * (b - a)) to (z); from (hypothesis 21: {f((z - 2 * (b - a)) + 2 * (b - a)) = -frac(y_{0} - y_{1}, b - a) * ((z - 2 * (b - a)) + 2 * (b - a)) + φ((z - 2 * (b - a)) + 2 * (b - a))}) to (hypothesis 22: {f(z) = -frac(y_{0} - y_{1}, b - a) * z + φ(z)})
+apply (hypothesis 22: {f(z) = -frac(y_{0} - y_{1}, b - a) * z + φ(z)})

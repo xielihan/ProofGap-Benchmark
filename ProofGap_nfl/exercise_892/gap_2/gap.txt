@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ |x| > sqrtn(2, frac(2, 3)) ⇒ y(x) = frac(1, 2 * sqrtn(2, 6)) * ln(frac(x * sqrtn(2, 3) - sqrtn(2, 2), x * sqrtn(2, 3) + sqrtn(2, 2)))
+3. forall (x), x ∈ RealSet ∧ |x| > sqrtn(2, frac(2, 3)) ⇒ y(x) = frac(1, 2 * sqrtn(2, 6)) * (ln(|x * sqrtn(2, 3) - sqrtn(2, 2)|) - ln(|x * sqrtn(2, 3) + sqrtn(2, 2)|))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| > sqrtn(2, frac(2, 3)) ⇒ x * sqrtn(2, 3) - sqrtn(2, 2) ≠ 0
+
+METHOD:

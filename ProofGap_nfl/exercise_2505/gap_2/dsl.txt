@@ -1,0 +1,3 @@
+autoreplace no_hypothesis; from (2 * π * η * s) to (2 * π * (η * s)); from (GOAL: {2 * π * η * s = 2 * π * DefInt(0, s, y(t) * diff(t))}) to (GOAL: {2 * π * (η * s) = 2 * π * DefInt(0, s, y(t) * diff(t))})
+rewrite (left_to_right, equation) (hypothesis 14: {η * s = DefInt(0, s, y(t) * diff(t))}); from (GOAL: {2 * π * (η * s) = 2 * π * DefInt(0, s, y(t) * diff(t))}) to (GOAL: {2 * π * DefInt(0, s, y(t) * diff(t)) = 2 * π * DefInt(0, s, y(t) * diff(t))})
+autosolve all_hypothesis

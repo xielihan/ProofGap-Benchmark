@@ -1,0 +1,24 @@
+PROOF GAP @6
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. c ∈ RealSet
+4. d ∈ RealSet
+5. f : RealSet → RealSet
+6. φ : RealSet → RealSet
+7. y : RealSet → RealSet
+8. a < b
+9. c < d
+10. ContinuousFuncOn(f, IntervalLoRo(a, b))
+11. StrictMonoIncFuncOn(φ, IntervalLoRo(c, d))
+12. ContinuousFuncOn(φ, IntervalLoRo(c, d))
+13. (exists (x_{0}) (y_{0}), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ∧ y_{0} ∈ IntervalLoRo(c, d) ∧ φ(y_{0}) = f(x_{0})) ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x) (x_{0}) (δ), x ∈ RealSet ∧ x_{0} ∈ RealSet ∧ δ ∈ RealSet ∧ x ∈ IntervalLoRo(x_{0} - δ, x_{0} + δ) ⇒ (exists (x), x ∈ RealSet ∧ y(x) ∈ IntervalLoRo(c, d) ∧ φ(y(x)) = f(x) ∧ (forall (x1), x1 ∈ RealSet ∧ y(x1) ∈ IntervalLoRo(c, d) ∧ φ(y(x1)) = f(x1) ⇒ x1 = x))))
+14. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ∧ (exists (x_{0}) (y_{0}), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ∧ y_{0} ∈ IntervalLoRo(c, d) ∧ φ(y_{0}) = f(x_{0})) ⇒ y(x) = InverseFunc(φ, f(x))
+15. forall (x_{0}) (y_{0}), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ (exists (x_{0}) (y_{0}), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ∧ y_{0} ∈ IntervalLoRo(c, d) ∧ φ(y_{0}) = f(x_{0})) ⇒ y_{0} = InverseFunc(φ, f(x_{0}))
+16. forall (x_{0}), x_{0} ∈ RealSet ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ ((exists (x_{0}) (y_{0}), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, b) ∧ y_{0} ∈ IntervalLoRo(c, d) ∧ φ(y_{0}) = f(x_{0})) ⇒ ContinuousFuncOn(y, IntervalLoRo(x_{0} - δ, x_{0} + δ))))
+17. (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ lim_{ y → c^+ } (φ(y)) < f(x) ∧ f(x) < lim_{ y → d^- } (φ(y))) ⇒ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ (exists (x), x ∈ RealSet ∧ y(x) ∈ IntervalLoRo(c, d) ∧ φ(y(x)) = f(x) ∧ (forall (x2), x2 ∈ RealSet ∧ y(x2) ∈ IntervalLoRo(c, d) ∧ φ(y(x2)) = f(x2) ⇒ x2 = x)))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ∧ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ lim_{ y → c^+ } (φ(y)) < f(x) ∧ f(x) < lim_{ y → d^- } (φ(y))) ⇒ y(x) = InverseFunc(φ, f(x))
+
+METHOD:

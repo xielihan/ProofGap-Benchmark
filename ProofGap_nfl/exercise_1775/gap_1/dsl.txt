@@ -1,0 +1,3 @@
+rewrite (left_to_right, equation) (hypothesis 1: {t = e^{frac(x, 2)}}); from (GOAL: {t > 0}) to (GOAL: {e^{frac(x, 2)} > 0})
+assert (hypothesis 2: {e^{frac(x, 2)} > 0})
+apply (hypothesis 2: {e^{frac(x, 2)} > 0})

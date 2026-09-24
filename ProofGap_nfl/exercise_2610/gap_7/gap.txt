@@ -1,0 +1,16 @@
+PROOF GAP @7
+ASSUM:
+1. a : NonNegIntegerSet → RealSet ∧ IsSeq(a)
+2. p ∈ RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > 2 ⇒ a(n) = ln(sec(frac(π, n)))^{p}
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > 2 ⇒ a(n) > 0
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > 2 ⇒ a(n) = frac(1, 2^{p}) * ln(1 + tan(frac(π, n))^{2})^{p}
+6. (a(n)) ∼_{ n → +∞ } frac(1, 2^{p}) * tan(frac(π, n))^{2 * p}
+7. (a(n)) ∼_{ n → +∞ } frac(1, 2^{p}) * frac(π, n)^{2 * p}
+8. (a(n)) ∼_{ n → +∞ } (frac(1, n^{2 * p}))
+9. ConvergentSeries(sum_{ n = 3 }^{ +∞ } (frac(1, n^{2 * p}))) ⇔ 2 * p > 1
+
+GOAL:
+2 * p > 1 ⇒ ConvergentSeries(sum_{ n = 3 }^{ +∞ } (a(n)))
+
+METHOD:

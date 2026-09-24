@@ -1,0 +1,15 @@
+assert (hypothesis 16: {Γ(3) = 2}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 12: {Γ(3) = 2!}); from (GOAL: {Γ(3) = 2}) to (GOAL: {2! = 2})
+  autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 8: {DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . sqrtn(2, x - x^{2})) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x^{frac(1, 2)} * (1 - x)^{frac(1, 2)}) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x))}); from (GOAL: {DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . sqrtn(2, x - x^{2})) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x)) = frac(π, 8)}) to (GOAL: {DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x^{frac(1, 2)} * (1 - x)^{frac(1, 2)}) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x)) = frac(π, 8)})
+rewrite (left_to_right, equation) (hypothesis 9: {DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x^{frac(1, 2)} * (1 - x)^{frac(1, 2)}) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x)) = B(frac(3, 2), frac(3, 2))}); from (GOAL: {DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x^{frac(1, 2)} * (1 - x)^{frac(1, 2)}) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x)) = frac(π, 8)}) to (GOAL: {B(frac(3, 2), frac(3, 2)) = frac(π, 8)})
+rewrite (left_to_right, equation) (hypothesis 10: {B(frac(3, 2), frac(3, 2)) = frac(Γ(frac(3, 2))^{2}, Γ(3))}); from (GOAL: {B(frac(3, 2), frac(3, 2)) = frac(π, 8)}) to (GOAL: {frac(Γ(frac(3, 2))^{2}, Γ(3)) = frac(π, 8)})
+rewrite (left_to_right, equation) (hypothesis 11: {Γ(frac(3, 2)) = frac(1, 2) * Γ(frac(1, 2))}); from (GOAL: {frac(Γ(frac(3, 2))^{2}, Γ(3)) = frac(π, 8)}) to (GOAL: {frac((frac(1, 2) * Γ(frac(1, 2)))^{2}, Γ(3)) = frac(π, 8)})
+rewrite (left_to_right, equation) (hypothesis 16: {Γ(3) = 2}); from (GOAL: {frac((frac(1, 2) * Γ(frac(1, 2)))^{2}, Γ(3)) = frac(π, 8)}) to (GOAL: {frac((frac(1, 2) * Γ(frac(1, 2)))^{2}, 2) = frac(π, 8)})
+assert (hypothesis 17: {frac((frac(1, 2) * Γ(frac(1, 2)))^{2}, 2) = frac(Γ(frac(1, 2))^{2}, 8)}) by proof {
+  autosolve all_hypothesis using PolyRatSolver
+}
+rewrite (left_to_right, equation) (hypothesis 17: {frac((frac(1, 2) * Γ(frac(1, 2)))^{2}, 2) = frac(Γ(frac(1, 2))^{2}, 8)}); from (GOAL: {frac((frac(1, 2) * Γ(frac(1, 2)))^{2}, 2) = frac(π, 8)}) to (GOAL: {frac(Γ(frac(1, 2))^{2}, 8) = frac(π, 8)})
+rewrite (left_to_right, equation) (hypothesis 14: {Γ(frac(1, 2))^{2} = π}); from (GOAL: {frac(Γ(frac(1, 2))^{2}, 8) = frac(π, 8)}) to (GOAL: {frac(π, 8) = frac(π, 8)})
+autosolve all_hypothesis

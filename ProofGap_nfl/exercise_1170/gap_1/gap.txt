@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ y(x) = sin(x)^{2} * ln(x)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ y(x) = frac(1 - cos(2 * x), 2) * ln(x) ∧ frac(1 - cos(2 * x), 2) * ln(x) = frac(1, 2) * ln(x) - frac(1, 2) * cos(2 * x) * ln(x)
+
+METHOD:
+[@method 根据 "二倍角公式" @]

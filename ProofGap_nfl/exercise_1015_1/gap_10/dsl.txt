@@ -1,0 +1,3 @@
+not_normalize from (GOAL: {¬(forall (f) (g) (F) (x_{0}), DiffableFuncAt(f, x_{0}) ∧ ¬DiffableFuncAt(g, x_{0}) ∧ F = f * g ⇒ ¬DiffableFuncAt(F, x_{0}))}) to (GOAL: {exists (f) (g) (F) (x_{0}), DiffableFuncAt(f, x_{0}) ∧ ¬DiffableFuncAt(g, x_{0}) ∧ F = f * g ∧ DiffableFuncAt(F, x_{0})})
+exists (f := {f}) (g := {g}) (F := {F}) (x_{0} := {0})
+autosolve all_hypothesis

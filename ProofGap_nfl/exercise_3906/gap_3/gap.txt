@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. DefInt(0, 1, (fun x [x ∈ RealSet] . DefInt(0, 1, (fun y [y ∈ RealSet] . x + y) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet] . x + frac(1, 2)) * diff(fun x [x ∈ RealSet] . x))
+2. DefInt(0, 1, (fun x [x ∈ RealSet] . x + frac(1, 2)) * diff(fun x [x ∈ RealSet] . x)) = 1
+
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet] . DefInt(0, 1, (fun y [y ∈ RealSet] . x + y) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x)) = 1
+
+METHOD:

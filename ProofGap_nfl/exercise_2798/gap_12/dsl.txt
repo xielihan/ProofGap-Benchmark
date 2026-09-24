@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (x), x ∈ RealSet ∧ ε ≤ x ∧ x < +∞ ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac(1, n^{2} * ε^{2})))}) (ε := {eps0})
+get_condition (hypothesis 16: {eps0 ∈ RealSet ∧ eps0 > 0}) in (GOAL: {eps0 ∈ RealSet ∧ eps0 > 0 ⇒ (forall (x), x ∈ RealSet ∧ eps0 ≤ x ∧ x < +∞ ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac(1, n^{2} * eps0^{2})))})
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ eps0 ≤ x ∧ x < +∞ ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac(1, n^{2} * eps0^{2}))}) (x := {x0})
+get_condition (hypothesis 17: {x0 ∈ RealSet ∧ eps0 ≤ x0 ∧ x0 < +∞}) in (GOAL: {x0 ∈ RealSet ∧ eps0 ≤ x0 ∧ x0 < +∞ ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac(1, n^{2} * eps0^{2}))})
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac(1, n^{2} * eps0^{2})}) (n := {n0})
+get_condition (hypothesis 18: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ 0 < frac(1, n0^{2} * eps0^{2})})
+autosolve all_hypothesis

@@ -1,0 +1,7 @@
+get_prop (hypothesis 5: {forall (u) (v) (x) (y), u ∈ RealSet ∧ v ∈ RealSet ∧ x ∈ RealSet ∧ y ∈ RealSet => x = φ(u, v) ∧ y = ψ(u, v)}) (u := {0}) (v := {0}) (x := {0}) (y := {0}) as (hypothesis 14: {0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet => 0 = φ(0, 0) ∧ 0 = ψ(0, 0)})
+use_condition (obvious: {0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet}) in (hypothesis 14: {0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet => 0 = φ(0, 0) ∧ 0 = ψ(0, 0)}) as (hypothesis 15: {0 = φ(0, 0) ∧ 0 = ψ(0, 0)})
+destruct_and (hypothesis 15: {0 = φ(0, 0) ∧ 0 = ψ(0, 0)}) as (hypothesis 16: {0 = φ(0, 0)}) (hypothesis 17: {0 = ψ(0, 0)})
+get_prop (hypothesis 5: {forall (u) (v) (x) (y), u ∈ RealSet ∧ v ∈ RealSet ∧ x ∈ RealSet ∧ y ∈ RealSet => x = φ(u, v) ∧ y = ψ(u, v)}) (u := {0}) (v := {0}) (x := {1}) (y := {0}) as (hypothesis 18: {0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 1 ∈ RealSet ∧ 0 ∈ RealSet => 1 = φ(0, 0) ∧ 0 = ψ(0, 0)})
+use_condition (obvious: {0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 1 ∈ RealSet ∧ 0 ∈ RealSet}) in (hypothesis 18: {0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 1 ∈ RealSet ∧ 0 ∈ RealSet => 1 = φ(0, 0) ∧ 0 = ψ(0, 0)}) as (hypothesis 19: {1 = φ(0, 0) ∧ 0 = ψ(0, 0)})
+destruct_and (hypothesis 19: {1 = φ(0, 0) ∧ 0 = ψ(0, 0)}) as (hypothesis 20: {1 = φ(0, 0)}) (hypothesis 21: {0 = ψ(0, 0)})
+autosolve all_hypothesis

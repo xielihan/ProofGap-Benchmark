@@ -1,0 +1,23 @@
+PROOF GAP @14
+ASSUM:
+1. F : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ FunDeri(F, 1, 1)(x) = max(1, x^{2})
+3. F(1) = 1
+4. forall (x), x ∈ RealSet ∧ |x| ≤ 1 ⇒ { `F_1` | forall (x), x ∈ RealSet ∧ |x| ≤ 1 ⇒ FunDeri(`F_1`, 1, 1)(x) = max(1, x^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_2` | forall (x), x ∈ RealSet ∧ |x| ≤ 1 ⇒ FunDeri(`F_2`, 1, 1)(x) = 1 * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+5. forall (x), x ∈ RealSet ∧ |x| ≤ 1 ⇒ { `F_2` | forall (x), x ∈ RealSet ∧ |x| ≤ 1 ⇒ FunDeri(`F_2`, 1, 1)(x) = 1 * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | exists (C_{1}), C_{1} ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ |x| ≤ 1 ⇒ `F_3`(x) = x + C_{1}) }
+6. forall (x), x ∈ RealSet ∧ |x| ≤ 1 ⇒ { `F_1` | forall (x), x ∈ RealSet ∧ |x| ≤ 1 ⇒ FunDeri(`F_1`, 1, 1)(x) = max(1, x^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | exists (C_{1}), C_{1} ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ |x| ≤ 1 ⇒ `F_3`(x) = x + C_{1}) }
+7. forall (x), x ∈ RealSet ∧ x > 1 ⇒ { `F_4` | forall (x), x ∈ RealSet ∧ x > 1 ⇒ FunDeri(`F_4`, 1, 1)(x) = max(1, x^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | forall (x), x ∈ RealSet ∧ x > 1 ⇒ FunDeri(`F_5`, 1, 1)(x) = x^{2} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+8. forall (x), x ∈ RealSet ∧ x > 1 ⇒ { `F_5` | forall (x), x ∈ RealSet ∧ x > 1 ⇒ FunDeri(`F_5`, 1, 1)(x) = x^{2} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_6` | exists (C_{2}), C_{2} ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 1 ⇒ `F_6`(x) = frac(1, 3) * x^{3} + C_{2}) }
+9. forall (x), x ∈ RealSet ∧ x > 1 ⇒ { `F_4` | forall (x), x ∈ RealSet ∧ x > 1 ⇒ FunDeri(`F_4`, 1, 1)(x) = max(1, x^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_6` | exists (C_{2}), C_{2} ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 1 ⇒ `F_6`(x) = frac(1, 3) * x^{3} + C_{2}) }
+10. forall (x), x ∈ RealSet ∧ x < -1 ⇒ { `F_7` | forall (x), x ∈ RealSet ∧ x < -1 ⇒ FunDeri(`F_7`, 1, 1)(x) = max(1, x^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_8` | forall (x), x ∈ RealSet ∧ x < -1 ⇒ FunDeri(`F_8`, 1, 1)(x) = x^{2} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+11. forall (x), x ∈ RealSet ∧ x < -1 ⇒ { `F_8` | forall (x), x ∈ RealSet ∧ x < -1 ⇒ FunDeri(`F_8`, 1, 1)(x) = x^{2} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_9` | exists (C_{3}), C_{3} ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x < -1 ⇒ `F_9`(x) = frac(1, 3) * x^{3} + C_{3}) }
+12. forall (x), x ∈ RealSet ∧ x < -1 ⇒ { `F_7` | forall (x), x ∈ RealSet ∧ x < -1 ⇒ FunDeri(`F_7`, 1, 1)(x) = max(1, x^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_9` | exists (C_{3}), C_{3} ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x < -1 ⇒ `F_9`(x) = frac(1, 3) * x^{3} + C_{3}) }
+13. exists (C_{1}), C_{1} ∈ RealSet ∧ (exists (C_{2}), C_{2} ∈ RealSet ∧ (exists (C_{3}), C_{3} ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ F(x) = cases{ x + C_{1} if -1 ≤ x ∧ x ≤ 1; frac(1, 3) * x^{3} + C_{2} if x > 1; frac(1, 3) * x^{3} + C_{3} if x < -1 })))
+14. ContinuousFuncOn(F, RealSet)
+15. 1 = F(1)
+16. F(1) = lim_{ x → 1^+ } (F(x))
+
+GOAL:
+1 = lim_{ x → 1^+ } (F(x))
+
+METHOD:

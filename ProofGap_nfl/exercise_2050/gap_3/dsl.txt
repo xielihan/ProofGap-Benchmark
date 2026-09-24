@@ -1,0 +1,4 @@
+rewrite (left_to_right, equation) (hypothesis 13: {C = frac(a_{1} * b^{2} + a^{2} * c_{1} - 2 * a * b * b_{1}, a^{2} + b^{2})}); from (GOAL: {C - a * B = a_{1}}) to (GOAL: {frac(a_{1} * b^{2} + a^{2} * c_{1} - 2 * a * b * b_{1}, a^{2} + b^{2}) - a * B = a_{1}})
+rewrite (left_to_right, equation) (hypothesis 12: {B = frac(a * c_{1} - a * a_{1} - 2 * b * b_{1}, a^{2} + b^{2})}); from (GOAL: {frac(a_{1} * b^{2} + a^{2} * c_{1} - 2 * a * b * b_{1}, a^{2} + b^{2}) - a * B = a_{1}}) to (GOAL: {frac(a_{1} * b^{2} + a^{2} * c_{1} - 2 * a * b * b_{1}, a^{2} + b^{2}) - a * frac(a * c_{1} - a * a_{1} - 2 * b * b_{1}, a^{2} + b^{2}) = a_{1}})
+assert (hypothesis 16: {frac(a_{1} * b^{2} + a^{2} * c_{1} - 2 * a * b * b_{1}, a^{2} + b^{2}) - a * frac(a * c_{1} - a * a_{1} - 2 * b * b_{1}, a^{2} + b^{2}) = a_{1}})
+apply (hypothesis 16: {frac(a_{1} * b^{2} + a^{2} * c_{1} - 2 * a * b * b_{1}, a^{2} + b^{2}) - a * frac(a * c_{1} - a * a_{1} - 2 * b * b_{1}, a^{2} + b^{2}) = a_{1}})

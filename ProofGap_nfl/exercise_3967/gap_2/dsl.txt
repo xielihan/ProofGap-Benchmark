@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (r), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1 ⇒ (exists (I), I ∈ RealSet ∧ |I| = a * b * r)}) (r := {rho})
+get_condition (hypothesis 9: {rho ∈ RealSet ∧ 0 ≤ rho ∧ rho ≤ 1}) in (GOAL: {rho ∈ RealSet ∧ 0 ≤ rho ∧ rho ≤ 1 ⇒ (exists (I), I ∈ RealSet ∧ |I| = a * b * rho)})
+exists (I := {a * b * rho})
+assert (hypothesis 10: {a * b * rho ∈ RealSet})
+assert (hypothesis 11: {a * b * rho >= 0})
+get_prop (theorem 'Thm 490. (AbsoluteValueOfNonnegativeReal)': {forall (x), x ∈ RealSet => (x >= 0 <==> |x| = x)}) (x := {a * b * rho}) as (hypothesis 12: {a * b * rho ∈ RealSet => (a * b * rho >= 0 <==> |a * b * rho| = a * b * rho)})
+use_condition (hypothesis 10: {a * b * rho ∈ RealSet}) in (hypothesis 12: {a * b * rho ∈ RealSet => (a * b * rho >= 0 <==> |a * b * rho| = a * b * rho)}) as (hypothesis 13: {a * b * rho >= 0 <==> |a * b * rho| = a * b * rho})
+autosolve (hypothesis 10: {a * b * rho ∈ RealSet}) (hypothesis 11: {a * b * rho >= 0}) (hypothesis 13: {a * b * rho >= 0 <==> |a * b * rho| = a * b * rho})

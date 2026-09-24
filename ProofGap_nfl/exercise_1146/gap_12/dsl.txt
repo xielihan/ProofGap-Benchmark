@@ -1,0 +1,3 @@
+get_prop (hypothesis 8: {forall (x), x ∈ RealSet => FunDeri(y, 1, 2)(x) = -frac(25, y(x)^{3})}) (x := {3}) as (hypothesis 14: {3 ∈ RealSet => FunDeri(y, 1, 2)(3) = -frac(25, y(3)^{3})})
+use_condition (obvious: {3 ∈ RealSet}) in (hypothesis 14: {3 ∈ RealSet => FunDeri(y, 1, 2)(3) = -frac(25, y(3)^{3})}) as (hypothesis 15: {FunDeri(y, 1, 2)(3) = -frac(25, y(3)^{3})})
+autosolve (hypothesis 12: {y(3) = 4}) (hypothesis 15: {FunDeri(y, 1, 2)(3) = -frac(25, y(3)^{3})})

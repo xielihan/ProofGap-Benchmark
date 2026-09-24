@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. n ∈ PosIntegerSet
+3. forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ (sum_{ i = 1 }^{ n } (x^{i})) - n = sum_{ i = 1 }^{ n } (x^{i} - 1)
+4. forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ sum_{ i = 1 }^{ n } (x^{i} - 1) = (x - 1) * (sum_{ k = 0 }^{ n - 1 } ((n - k) * x^{k}))
+
+GOAL:
+lim_{ x → 1 } (frac((sum_{ i = 1 }^{ n } (x^{i})) - n, x - 1)) = lim_{ x → 1 } (sum_{ k = 0 }^{ n - 1 } ((n - k) * x^{k}))
+
+METHOD:

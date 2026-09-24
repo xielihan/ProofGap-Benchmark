@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. A : NonNegIntegerSet → RealSet
+4. B : NonNegIntegerSet → RealSet
+5. a ∉ IntegerSet
+6. forall (x), x ∈ RealSet ∧ -π < x ∧ x < π ⇒ f(x) = cos(a * x)
+7. EvenFunc(f)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ B(n) = 0
+
+METHOD:

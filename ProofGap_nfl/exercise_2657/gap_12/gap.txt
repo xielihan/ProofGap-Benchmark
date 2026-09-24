@@ -1,0 +1,36 @@
+PROOF GAP @12
+ASSUM:
+1. a : NonNegIntegerSet → RealSet ∧ IsSeq(a)
+2. A : NonNegIntegerSet → RealSet ∧ IsSeq(A)
+3. p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSeq(p)
+4. m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet
+5. ε_{1} ∈ RealSet
+6. `N'` ∈ NonNegIntegerSet
+7. N_{1} ∈ NonNegIntegerSet
+8. N ∈ NonNegIntegerSet
+9. Δ : CartesianProd(NonNegIntegerSet, NonNegIntegerSet) → RealSet
+10. B ∈ RealSet
+11. `B'` ∈ RealSet
+12. r ∈ NonNegIntegerSet
+13. q ∈ NonNegIntegerSet
+14. seqlim_{ n → +∞ } (a(n)) = 0
+15. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n)))
+16. p(1) = 1
+17. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(n) ∈ PosIntegerSet ∧ p(n + 1) > p(n) ∧ A(n) = sum_{ i = p(n) }^{ p(n + 1) - 1 } (a(i))
+18. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(n + 1) - p(n) ≤ m
+19. forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε_{1} = frac(ε, 2 * m + 1) ⇒ ε_{1} > 0
+20. forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε_{1} = frac(ε, 2 * m + 1) ⇒ (exists (`N'`), `N'` ∈ NonNegIntegerSet ∧ `N'` ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ `N'` ⇒ |a(n)| < ε_{1}))
+21. forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε_{1} = frac(ε, 2 * m + 1) ⇒ (exists (N_{1}), N_{1} ∈ NonNegIntegerSet ∧ N_{1} ∈ PosIntegerSet ∧ N_{1} ≥ `N'` ∧ (forall (n) (r), n ∈ NonNegIntegerSet ∧ r ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ r ∈ PosIntegerSet ∧ n ≥ N_{1} ⇒ |sum_{ k = n }^{ n + r } (A(k))| < ε_{1}))
+22. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε_{1} = frac(ε, 2 * m + 1) ∧ N = p(N_{1}) ∧ n ≥ N ⇒ (forall (s), s ∈ NonNegIntegerSet ∧ s ∈ PosIntegerSet ∧ Δ(n, s) = sum_{ i = n }^{ n + s } (a(i)) ⇒ (r ∈ NonNegIntegerSet ∧ q ∈ NonNegIntegerSet ∧ Δ(n, s) = B + (sum_{ k = N_{1} + r + 1 }^{ N_{1} + r + q } (A(k))) + `B'`)))
+23. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε_{1} = frac(ε, 2 * m + 1) ∧ N = p(N_{1}) ∧ n ≥ N ⇒ (forall (s), s ∈ NonNegIntegerSet ∧ s ∈ PosIntegerSet ∧ Δ(n, s) = sum_{ i = n }^{ n + s } (a(i)) ⇒ |B| ≤ (p(N_{1} + r + 1) - p(N_{1} + r)) * ε_{1}))
+24. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε_{1} = frac(ε, 2 * m + 1) ∧ N = p(N_{1}) ∧ n ≥ N ⇒ (forall (s), s ∈ NonNegIntegerSet ∧ s ∈ PosIntegerSet ∧ Δ(n, s) = sum_{ i = n }^{ n + s } (a(i)) ⇒ (p(N_{1} + r + 1) - p(N_{1} + r)) * ε_{1} ≤ m * ε_{1}))
+25. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε_{1} = frac(ε, 2 * m + 1) ∧ N = p(N_{1}) ∧ n ≥ N ⇒ (forall (s), s ∈ NonNegIntegerSet ∧ s ∈ PosIntegerSet ∧ Δ(n, s) = sum_{ i = n }^{ n + s } (a(i)) ⇒ |B| ≤ m * ε_{1}))
+26. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε_{1} = frac(ε, 2 * m + 1) ∧ N = p(N_{1}) ∧ n ≥ N ⇒ (forall (s), s ∈ NonNegIntegerSet ∧ s ∈ PosIntegerSet ∧ Δ(n, s) = sum_{ i = n }^{ n + s } (a(i)) ⇒ |`B'`| ≤ (p(N_{1} + r + q + 2) - p(N_{1} + r + q + 1)) * ε_{1}))
+27. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε_{1} = frac(ε, 2 * m + 1) ∧ N = p(N_{1}) ∧ n ≥ N ⇒ (forall (s), s ∈ NonNegIntegerSet ∧ s ∈ PosIntegerSet ∧ Δ(n, s) = sum_{ i = n }^{ n + s } (a(i)) ⇒ (p(N_{1} + r + q + 2) - p(N_{1} + r + q + 1)) * ε_{1} ≤ m * ε_{1}))
+28. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε_{1} = frac(ε, 2 * m + 1) ∧ N = p(N_{1}) ∧ n ≥ N ⇒ (forall (s), s ∈ NonNegIntegerSet ∧ s ∈ PosIntegerSet ∧ Δ(n, s) = sum_{ i = n }^{ n + s } (a(i)) ⇒ |`B'`| ≤ m * ε_{1}))
+29. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε_{1} = frac(ε, 2 * m + 1) ∧ N = p(N_{1}) ∧ n ≥ N ⇒ (forall (s), s ∈ NonNegIntegerSet ∧ s ∈ PosIntegerSet ∧ Δ(n, s) = sum_{ i = n }^{ n + s } (a(i)) ⇒ |sum_{ k = N_{1} + r + 1 }^{ N_{1} + r + q } (A(k))| < ε_{1}))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε_{1} = frac(ε, 2 * m + 1) ∧ N = p(N_{1}) ∧ n ≥ N ⇒ (forall (s), s ∈ NonNegIntegerSet ∧ s ∈ PosIntegerSet ∧ Δ(n, s) = sum_{ i = n }^{ n + s } (a(i)) ⇒ |Δ(n, s)| ≤ |B| + |sum_{ k = N_{1} + r + 1 }^{ N_{1} + r + q } (A(k))| + |`B'`|))
+
+METHOD:

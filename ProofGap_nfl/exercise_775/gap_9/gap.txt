@@ -1,0 +1,15 @@
+PROOF GAP @9
+ASSUM:
+1. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ tan(φ) = x)
+2. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ 0 < φ)
+3. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ φ < frac(π, 2))
+4. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ 0 < frac(π, 2))
+5. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ cot(frac(π, 2) - φ) = tan(φ))
+6. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ tan(φ) = x)
+7. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ cot(frac(π, 2) - φ) = x)
+8. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ tan(frac(π, 2) - φ) = frac(1, x))
+
+GOAL:
+forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ 0 < frac(π, 2) - φ)
+
+METHOD:

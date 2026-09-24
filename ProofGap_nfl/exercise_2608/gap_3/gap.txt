@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. p ∈ RealSet
+3. n ∈ NonNegIntegerSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(1, n^{p}) * sin(frac(π, n))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ≥ 0
+6. seqlim_{ n → +∞ } (frac(frac(1, n^{p}) * sin(frac(π, n)), frac(1, n^{p + 1}))) = π
+
+GOAL:
+(a(n)) ∼_{ n → +∞ } (frac(1, n^{p + 1}))
+
+METHOD:

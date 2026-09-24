@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. forall (t), t ∈ RealSet ⇒ f(t) = cos(t) * cosh(t) - 1
+4. cos(x) = frac(1, cosh(x)) ⇔ cos(x) * cosh(x) = 1
+5. exists (α) (β) (γ), α ∈ RealSet ∧ α ∈ PosRealSet ∧ β ∈ RealSet ∧ β ∈ PosRealSet ∧ γ ∈ RealSet ∧ γ ∈ PosRealSet ∧ f(α) = 0 ∧ f(β) = 0 ∧ f(γ) = 0 ∧ frac(3 * π, 2) < α ∧ α < 2 * π ∧ 2 * π < β ∧ β < frac(5 * π, 2) ∧ frac(7 * π, 2) < γ ∧ γ < 4 * π
+6. |f(4.7) + 1.6812| < 0.001
+
+GOAL:
+|f(4.8) - 4.3159| < 0.001
+
+METHOD:

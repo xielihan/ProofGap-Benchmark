@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ 6 - 5 * x - x^{2} ≠ 0 ⇒ f(x) = frac(12 - 5 * x, 6 - 5 * x - x^{2})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ f(x) = frac(1, 1 - x) + frac(6, 6 + x)
+
+METHOD:

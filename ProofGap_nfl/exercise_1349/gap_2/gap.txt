@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. lim_{ x → 0^+ } (sin(x) * ln(cot(x))) = lim_{ x → 0^+ } (frac(ln(cot(x)), csc(x)))
+
+GOAL:
+lim_{ x → 0^+ } (frac(ln(cot(x)), csc(x))) = lim_{ x → 0^+ } (frac(-frac(csc(x)^{2}, cot(x)), -csc(x) * cot(x)))
+
+METHOD:
+[@method 洛必达法则 @]

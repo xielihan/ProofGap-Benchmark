@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 3 ∧ n ∈ IntegerSet ⇒ P(n) = prod_{ k = 3 }^{ n } (frac((k - 2) * (k + 2), (k - 1) * (k + 1)))}) (n := {n0})
+get_condition (hypothesis 2: {n0 ∈ NonNegIntegerSet ∧ n0 ≥ 3 ∧ n0 ∈ IntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ≥ 3 ∧ n0 ∈ IntegerSet ⇒ P(n0) = prod_{ k = 3 }^{ n0 } (frac((k - 2) * (k + 2), (k - 1) * (k + 1)))})
+assert (hypothesis 3: {P(n0) = prod_{ k = 3 }^{ n0 } (frac(k^{2} - 4, k^{2} - 1))}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

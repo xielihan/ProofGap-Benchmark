@@ -1,0 +1,4 @@
+get_exists (hypothesis 35: {exists (τ), τ ∈ RealSet ∧ τ ≤ seqlim_{ n → +∞ } (x(n))}) (τ := {t1})
+destruct_and (hypothesis 42: {t1 ∈ RealSet ∧ t1 ≤ seqlim_{ n → +∞ } (x(n))}) as (hypothesis 43: {t1 ∈ RealSet}) (hypothesis 44: {t1 ≤ seqlim_{ n → +∞ } (x(n))})
+exists (τ := {t1})
+autosolve (hypothesis 43: {t1 ∈ RealSet}) (hypothesis 44: {t1 ≤ seqlim_{ n → +∞ } (x(n))})

@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+lim_{ x → +∞ } (lg(frac(100 + x^{2}, 1 + 100 * x^{2}))) = lg(frac(1, 100))
+
+METHOD:

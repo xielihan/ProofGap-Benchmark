@@ -1,0 +1,4 @@
+1. autoreplace no_hypothesis; from (frac(1, n^{2})) to (1 / n ^ 2); from (GOAL: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{2})))}) to (GOAL: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n ^ 2))})
+2. get_prop (theorem 'Thm 366. (PSeriesConvergesForExponentAboveOne)': {forall (p), p ∈ RealSet => p > 1 => ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ p))}) (p := {2}) as (hypothesis 6: {2 ∈ RealSet => 2 > 1 => ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n ^ 2))})
+3. use_condition (obvious: {2 ∈ RealSet}) (obvious: {2 > 1}) in (hypothesis 6: {2 ∈ RealSet => 2 > 1 => ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n ^ 2))}) as (hypothesis 7: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n ^ 2))})
+4. apply (hypothesis 7: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n ^ 2))})

@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. H : CartesianProd(NonNegIntegerSet, ComplexSet) → ComplexSet
+2. Q : RealSet → RealSet
+3. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ H(n, x) = (-1)^{n} * e^{x^{2}} * FunDeri(fun t [t ∈ RealSet] . e^{-t^{2}}, 1, n)(x)
+4. forall (x), x ∈ RealSet ⇒ Q(x) = e^{-x^{2}}
+5. forall (x), x ∈ RealSet ⇒ FunDeri(Q, 1, 1)(x) = -2 * x * e^{-x^{2}}
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(Q, 1, 2)(x) = 2 * e^{-x^{2}} * (sqrtn(2, 2) * x + 1) * (sqrtn(2, 2) * x - 1)
+
+METHOD:

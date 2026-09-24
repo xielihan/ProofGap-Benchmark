@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ x^{2} * (2 - 3 * x^{2})^{2} = 4 * x^{2} - 12 * x^{4} + 9 * x^{6}
+
+METHOD:

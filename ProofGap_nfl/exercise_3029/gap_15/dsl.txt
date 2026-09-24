@@ -1,0 +1,4 @@
+assert (hypothesis 28: {0 ≤ x ⇒ x < 4 ⇒ F(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (2 * t)^{2 * n})}) by proof {
+ autosolve all_hypothesis
+}
+autosolve all_hypothesis

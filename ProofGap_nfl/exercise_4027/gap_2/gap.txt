@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet ∧ 0 < a
+2. b ∈ RealSet ∧ a < b
+3. V ∈ RealSet
+4. exists (x), x ∈ RealSet ∧ (exists (y), y ∈ RealSet ∧ (exists (z), z ∈ RealSet ∧ z^{2} = x * y))
+
+GOAL:
+exists (x), x ∈ RealSet ∧ (exists (y), y ∈ RealSet ∧ (x + y = a ∨ x + y = b))
+
+METHOD:

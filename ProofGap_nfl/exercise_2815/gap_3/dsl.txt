@@ -1,0 +1,4 @@
+assert (hypothesis 9: {seqlim_{n -> +∞}(|frac(b(n), b(n + 1))|) = +∞}) by proof {
+  autosolve all_hypothesis
+}
+apply (hypothesis 9: {seqlim_{n -> +∞}(|frac(b(n), b(n + 1))|) = +∞})

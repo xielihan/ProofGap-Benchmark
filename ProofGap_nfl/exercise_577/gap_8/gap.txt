@@ -1,0 +1,14 @@
+PROOF GAP @8
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x > 1 ⇒ sinh(sqrtn(2, x^{2} + x)) - sinh(sqrtn(2, x^{2} - x)) = 2 * sinh(frac(sqrtn(2, x^{2} + x) - sqrtn(2, x^{2} - x), 2)) * cosh(frac(sqrtn(2, x^{2} + x) + sqrtn(2, x^{2} - x), 2))
+2. forall (x), x ∈ RealSet ∧ x > 1 ⇒ sqrtn(2, x^{2} + x) - sqrtn(2, x^{2} - x) = frac(2 * x, sqrtn(2, x^{2} + x) + sqrtn(2, x^{2} - x))
+3. forall (x), x ∈ RealSet ∧ x > 1 ⇒ frac(2 * x, sqrtn(2, x^{2} + x) + sqrtn(2, x^{2} - x)) = frac(2, sqrtn(2, 1 + frac(1, x)) + sqrtn(2, 1 - frac(1, x)))
+4. forall (x), x ∈ RealSet ∧ x > 1 ⇒ sqrtn(2, x^{2} + x) - sqrtn(2, x^{2} - x) = frac(2, sqrtn(2, 1 + frac(1, x)) + sqrtn(2, 1 - frac(1, x)))
+5. lim_{ x → +∞ } (sqrtn(2, x^{2} + x) - sqrtn(2, x^{2} - x)) = 1
+6. lim_{ x → +∞ } (frac(cosh(frac(sqrtn(2, x^{2} + x) + sqrtn(2, x^{2} - x), 2)), cosh(x))) = lim_{ x → +∞ } (frac(e^{frac(sqrtn(2, x^{2} + x) + sqrtn(2, x^{2} - x), 2)} + e^{-frac(sqrtn(2, x^{2} + x) + sqrtn(2, x^{2} - x), 2)}, e^{x} + e^{-x}))
+7. lim_{ x → +∞ } (frac(e^{frac(sqrtn(2, x^{2} + x) + sqrtn(2, x^{2} - x), 2)} + e^{-frac(sqrtn(2, x^{2} + x) + sqrtn(2, x^{2} - x), 2)}, e^{x} + e^{-x})) = 1
+
+GOAL:
+lim_{ x → +∞ } (frac(cosh(frac(sqrtn(2, x^{2} + x) + sqrtn(2, x^{2} - x), 2)), cosh(x))) = 1
+
+METHOD:

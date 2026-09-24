@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. forall (f), f : RealSet → RealSet ⇒ (forall (a), a ∈ RealSet ∧ DiffableFuncAt(f, a) ⇒ ContinuousFuncAt(f, a))
+2. f = (fun x [x ∈ RealSet] . sgn(x))
+3. a = 0
+4. ¬ContinuousFuncAt(f, 0)
+5. forall (h), h ∈ RealSet ∧ h ≠ 0 ⇒ frac(f(0 + h) - f(0), h) = frac(frac(|h|, h), h) ∧ frac(frac(|h|, h), h) = frac(1, |h|)
+
+GOAL:
+lim_{ h → 0 } (frac(f(0 + h) - f(0), h)) = +∞
+
+METHOD:

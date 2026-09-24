@@ -1,0 +1,1 @@
+apply (hypothesis 15: {forall (x), x ∈ RealSet ∧ ¬(exists (k), k ∈ IntegerSet ∧ x = k) ⇒ S(x) = frac(1, 2) - frac(1, π) * (sum_{ n = 1 }^{ +∞ } (frac(sin(2 * n * π * x), n))) ∧ frac(1, 2) - frac(1, π) * (sum_{ n = 1 }^{ +∞ } (frac(sin(2 * n * π * x), n))) = f(x)})

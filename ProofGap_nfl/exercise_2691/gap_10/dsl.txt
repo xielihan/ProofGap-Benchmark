@@ -1,0 +1,21 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ seqlim_{ n → +∞ } (sin(n^{2})) = 0 ⇒ sin(2 * n + 1) + sin(2 * n - 1) = 2 * sin(2 * n) * cos(1)}) (n := {n0})
+get_condition (hypothesis 10: {n0 ∈ NonNegIntegerSet ∧ seqlim_{ n → +∞ } (sin(n^{2})) = 0}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ seqlim_{ n → +∞ } (sin(n^{2})) = 0 ⇒ sin(2 * n0 + 1) + sin(2 * n0 - 1) = 2 * sin(2 * n0) * cos(1)})
+destruct_and (hypothesis 10: {n0 ∈ NonNegIntegerSet ∧ seqlim_{ n → +∞ } (sin(n^{2})) = 0}) as (hypothesis 11: {n0 ∈ NonNegIntegerSet}) (hypothesis 12: {seqlim_{ n → +∞ } (sin(n^{2})) = 0})
+get_prop (theorem 'Thm 197. (SumToProductSineSum)': {forall (x) (y), x ∈ RealSet => y ∈ RealSet => sin(x) + sin(y) = 2 * sin ((x + y) / 2) * cos ((x - y) / 2)}) (x := {2 * n0 + 1}) (y := {2 * n0 - 1}) as (hypothesis 13: {2 * n0 + 1 ∈ RealSet ⇒ 2 * n0 - 1 ∈ RealSet ⇒ sin(2 * n0 + 1) + sin(2 * n0 - 1) = 2 * sin(((2 * n0 + 1) + (2 * n0 - 1)) / 2) * cos(((2 * n0 + 1) - (2 * n0 - 1)) / 2)})
+assert (hypothesis 14: {2 * n0 + 1 ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 15: {2 * n0 - 1 ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 14: {2 * n0 + 1 ∈ RealSet}) in (hypothesis 13: {2 * n0 + 1 ∈ RealSet ⇒ 2 * n0 - 1 ∈ RealSet ⇒ sin(2 * n0 + 1) + sin(2 * n0 - 1) = 2 * sin(((2 * n0 + 1) + (2 * n0 - 1)) / 2) * cos(((2 * n0 + 1) - (2 * n0 - 1)) / 2)}) as (hypothesis 16: {2 * n0 - 1 ∈ RealSet ⇒ sin(2 * n0 + 1) + sin(2 * n0 - 1) = 2 * sin(((2 * n0 + 1) + (2 * n0 - 1)) / 2) * cos(((2 * n0 + 1) - (2 * n0 - 1)) / 2)})
+use_condition (hypothesis 15: {2 * n0 - 1 ∈ RealSet}) in (hypothesis 16: {2 * n0 - 1 ∈ RealSet ⇒ sin(2 * n0 + 1) + sin(2 * n0 - 1) = 2 * sin(((2 * n0 + 1) + (2 * n0 - 1)) / 2) * cos(((2 * n0 + 1) - (2 * n0 - 1)) / 2)}) as (hypothesis 17: {sin(2 * n0 + 1) + sin(2 * n0 - 1) = 2 * sin(((2 * n0 + 1) + (2 * n0 - 1)) / 2) * cos(((2 * n0 + 1) - (2 * n0 - 1)) / 2)})
+assert (hypothesis 18: {((2 * n0 + 1) + (2 * n0 - 1)) / 2 = 2 * n0}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 19: {((2 * n0 + 1) - (2 * n0 - 1)) / 2 = 1}) by proof {
+  autosolve all_hypothesis
+}
+rewrite (right_to_left, equation) (hypothesis 18: {((2 * n0 + 1) + (2 * n0 - 1)) / 2 = 2 * n0}); from (GOAL: {sin(2 * n0 + 1) + sin(2 * n0 - 1) = 2 * sin(2 * n0) * cos(1)}) to (GOAL: {sin(2 * n0 + 1) + sin(2 * n0 - 1) = 2 * sin(((2 * n0 + 1) + (2 * n0 - 1)) / 2) * cos(1)})
+rewrite (right_to_left, equation) (hypothesis 19: {((2 * n0 + 1) - (2 * n0 - 1)) / 2 = 1}); from (GOAL: {sin(2 * n0 + 1) + sin(2 * n0 - 1) = 2 * sin(((2 * n0 + 1) + (2 * n0 - 1)) / 2) * cos(1)}) to (GOAL: {sin(2 * n0 + 1) + sin(2 * n0 - 1) = 2 * sin(((2 * n0 + 1) + (2 * n0 - 1)) / 2) * cos(((2 * n0 + 1) - (2 * n0 - 1)) / 2)})
+autosolve all_hypothesis

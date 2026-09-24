@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = (-1)^{n} * n
+3. inf({ x(n) | n ∈ PosIntegerSet }) = -∞
+4. sup({ x(n) | n ∈ PosIntegerSet }) = +∞
+
+GOAL:
+seqliminf_{ n → +∞ } (x(n)) = -∞
+
+METHOD:

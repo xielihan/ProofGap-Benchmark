@@ -1,0 +1,20 @@
+PROOF GAP @3
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. y : NonNegIntegerSet → RealSet ∧ IsSeq(y)
+3. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+4. M : CartesianProd(RealSet, RealSet) → RealSet
+5. a ∈ RealSet
+6. b ∈ RealSet
+7. Δ ∈ RealSet
+8. i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n
+9. j ∈ NonNegIntegerSet ∧ j ∈ PosIntegerSet ∧ j ≤ n
+10. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ x(i) ∈ RealSet ∧ y(i) ∈ RealSet
+11. forall (a) (b), a ∈ RealSet ∧ b ∈ RealSet ⇒ M(a, b) = sum_{ i = 1 }^{ n } ((a * x(i) + b - y(i))^{2})
+12. FunDeri(M, 1, 1)(a, b) = 2 * (sum_{ i = 1 }^{ n } ((a * x(i) + b - y(i)) * x(i)))
+13. FunDeri(M, 2, 1)(a, b) = 2 * (sum_{ i = 1 }^{ n } (a * x(i) + b - y(i)))
+
+GOAL:
+FunDeri(M, 1, 1)(a, b) = 0 ⇒ sum_{ i = 1 }^{ n } ((a * x(i) + b - y(i)) * x(i)) = 0
+
+METHOD:

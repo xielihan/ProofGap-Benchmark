@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. lim_{ x → 0^+ } (frac(x^{b} - x^{a}, ln(x))) = 0
+4. lim_{ x → 1^- } (frac(x^{b} - x^{a}, ln(x))) = lim_{ x → 1^- } (frac(b * x^{b - 1} - a * x^{a - 1}, x^{-1}))
+5. lim_{ x → 1^- } (frac(b * x^{b - 1} - a * x^{a - 1}, x^{-1})) = lim_{ x → 1^- } (b * x^{b} - a * x^{a})
+6. lim_{ x → 1^- } (b * x^{b} - a * x^{a}) = b - a
+
+GOAL:
+lim_{ x → 1^- } (frac(x^{b} - x^{a}, ln(x))) = b - a
+
+METHOD:

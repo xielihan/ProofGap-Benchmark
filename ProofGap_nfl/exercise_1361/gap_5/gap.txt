@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x > 0 ⇒ frac(2, π) * arctan(x) > 0
+2. forall (x), x ∈ RealSet ∧ x > 0 ⇒ arctan(x) ≠ 0
+3. lim_{ x → +∞ } (x * ln(frac(2, π) * arctan(x))) = lim_{ x → +∞ } (frac(ln(frac(2, π) * arctan(x)), frac(1, x)))
+4. lim_{ x → +∞ } (frac(ln(frac(2, π) * arctan(x)), frac(1, x))) = lim_{ x → +∞ } (frac(frac(π, 2 * arctan(x)) * frac(2, π * (1 + x^{2})), -frac(1, x^{2})))
+
+GOAL:
+lim_{ x → +∞ } (frac(frac(π, 2 * arctan(x)) * frac(2, π * (1 + x^{2})), -frac(1, x^{2}))) = -(lim_{ x → +∞ } (frac(x^{2}, (1 + x^{2}) * arctan(x))))
+
+METHOD:

@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. f : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. n ∈ RealSet
+3. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ DiffableFuncAt(f, (x, y, z))
+4. forall (x) (y) (z) (t), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ t ∈ RealSet ∧ t > 0 ⇒ f(t * x, t * y, t * z) = t^{n} * f(x, y, z)
+5. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ f(t * x, t * y, t * z) = t^{n} * f(x, y, z))))
+6. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ t * FunDeri(f, 1, 1)(t * x, t * y, t * z) = t^{n} * FunDeri(f, 1, 1)(x, y, z))))
+7. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ t * FunDeri(f, 2, 1)(t * x, t * y, t * z) = t^{n} * FunDeri(f, 2, 1)(x, y, z))))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ t * FunDeri(f, 3, 1)(t * x, t * y, t * z) = t^{n} * FunDeri(f, 3, 1)(x, y, z))))
+
+METHOD:
+[@method 由 f(t * x, t * y, t * z) = t^{n} * f(x, y, z) 两边同时对 z 求 导数 @]

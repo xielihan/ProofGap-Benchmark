@@ -1,0 +1,2 @@
+1. rewrite_in limit (left_to_right, equation) (hypothesis 10: {forall (Δx), Δx ∈ RealSet /\ Δx < 0 => frac(f(a + Δx) - f(a), Δx) = -φ(a + Δx)}); from (GOAL: {lim_{ Δx -> 0^- } (frac(f(a + Δx) - f(a), Δx)) = lim_{ Δx -> 0^- } (-φ(a + Δx))}) to (GOAL: {lim_{ Δx -> 0^- } (-φ(a + Δx)) = lim_{ Δx -> 0^- } (-φ(a + Δx))})
+2. autosolve all_hypothesis

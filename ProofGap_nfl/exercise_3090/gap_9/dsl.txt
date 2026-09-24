@@ -1,0 +1,11 @@
+1. get_condition (hypothesis 12: {0 < p}) (hypothesis 13: {p ≤ frac(1, 2)}) in (GOAL: {0 < p ⇒ p ≤ frac(1, 2) ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{2 * p})))})
+2. assert (hypothesis 14: {2 * p ∈ RealSet}) by proof {
+  1. autosolve all_hypothesis
+}
+3. assert (hypothesis 15: {2 * p <= 1}) by proof {
+  1. autosolve all_hypothesis
+}
+4. get_prop (theorem 'Thm 365. (PSeriesDivergesForExponentAtMostOne)': {forall (p), p ∈ RealSet => p <= 1 => DivergentSeries(sum_{n = 1}^{+∞}(1 / n ^ p))}) (p := {2 * p}) as (hypothesis 16: {2 * p ∈ RealSet => 2 * p <= 1 => DivergentSeries(sum_{n = 1}^{+∞}(1 / n ^ (2 * p)))})
+5. use_condition (hypothesis 14: {2 * p ∈ RealSet}) (hypothesis 15: {2 * p <= 1}) in (hypothesis 16: {2 * p ∈ RealSet => 2 * p <= 1 => DivergentSeries(sum_{n = 1}^{+∞}(1 / n ^ (2 * p)))}) as (hypothesis 17: {DivergentSeries(sum_{n = 1}^{+∞}(1 / n ^ (2 * p)))})
+6. autoreplace no_hypothesis; from (frac(1, n^{2 * p})) to (1 / n ^ (2 * p)); from (GOAL: {DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{2 * p})))}) to (GOAL: {DivergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n ^ (2 * p)))})
+7. apply (hypothesis 17: {DivergentSeries(sum_{n = 1}^{+∞}(1 / n ^ (2 * p)))})

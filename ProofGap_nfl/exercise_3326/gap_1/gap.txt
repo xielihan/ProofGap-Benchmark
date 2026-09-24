@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. φ : RealSet → RealSet
+3. ψ : RealSet → RealSet
+4. a ∈ RealSet
+5. forall (x) (t), x ∈ RealSet ∧ t ∈ RealSet ∧ x - a * t ∈ Dom(φ) ∧ x + a * t ∈ Dom(ψ) ⇒ u(x, t) = φ(x - a * t) + ψ(x + a * t)
+6. FuncOfClassK(φ, 2)
+7. FuncOfClassK(ψ, 2)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (t), x ∈ RealSet ∧ t ∈ RealSet ∧ x - a * t ∈ Dom(φ) ∧ x + a * t ∈ Dom(ψ) ⇒ FunDeri(u, 2, 2)(x, t) = a^{2} * FunDeri(φ, fun x, t [x ∈ RealSet ∧ t ∈ RealSet] . x - a * t, 2)(x - a * t) + a^{2} * FunDeri(ψ, fun x, t [x ∈ RealSet ∧ t ∈ RealSet] . x + a * t, 2)(x + a * t))
+
+METHOD:

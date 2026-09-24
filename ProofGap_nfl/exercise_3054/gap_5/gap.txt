@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. P : IntegerSet → RealSet
+2. forall (n), n ∈ IntegerSet ∧ n ≥ 0 ⇒ (forall (i), i ∈ IntegerSet ∧ i ≥ 0 ⇒ P(n) = prod_{ i = 0 }^{ n } (1 + frac(1, 2)^{2^{i}}))
+3. forall (n), n ∈ IntegerSet ∧ n ≥ 0 ⇒ (forall (i), i ∈ IntegerSet ∧ i ≥ 0 ∧ n ∈ NonNegIntegerSet ⇒ (1 - frac(1, 2)) * P(n) = (1 - frac(1, 2)) * (prod_{ i = 0 }^{ n } (1 + frac(1, 2)^{2^{i}})))
+4. forall (n), n ∈ IntegerSet ∧ n ≥ 0 ∧ n ∈ NonNegIntegerSet ⇒ (1 - frac(1, 2)) * P(n) = 1 - frac(1, 2)^{2^{n + 1}}
+5. forall (n), n ∈ IntegerSet ∧ n ≥ 0 ∧ n ∈ NonNegIntegerSet ⇒ P(n) = frac(1 - frac(1, 2)^{2^{n + 1}}, 1 - frac(1, 2))
+6. seqlim_{ n → +∞ } (P(n)) = frac(1, 1 - frac(1, 2))
+
+GOAL:
+frac(1, 1 - frac(1, 2)) = 2
+
+METHOD:

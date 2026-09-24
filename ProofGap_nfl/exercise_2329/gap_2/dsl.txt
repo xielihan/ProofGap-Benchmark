@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 7: {φ = (fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . frac(e^{-a * x}, x))}); from (GOAL: {ContinuousFuncOn(φ, [a, b])}) to (GOAL: {ContinuousFuncOn((fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . frac(e^{-a * x}, x)), [a, b])})
+autosolve all_hypothesis

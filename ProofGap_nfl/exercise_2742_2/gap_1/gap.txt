@@ -1,0 +1,15 @@
+PROOF GAP @1
+ASSUM:
+1. F : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. f : RealSet → RealSet
+3. x_{0} ∈ RealSet
+4. I ⊆ RealSet
+5. IntervalLoRo : CartesianProd(RealSet, RealSet) → PowerSet(RealSet)
+6. I = (x_{0}, +∞)
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ Defined(F(n), I)
+8. Defined(f, I)
+
+GOAL:
+forall (a) (b), a ∈ RealSet ∧ b ∈ RealSet ∧ IntervalLoRo(a, b) ⊆ I ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (forall (x) (a) (b), x ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ |F(n, x) - f(x)| < ε))))
+
+METHOD:

@@ -1,0 +1,4 @@
+1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (`θ_n`), `θ_n` ∈ RealSet ∧ (`θ_n` = (e - ω(n)) * n! * n ⇒ 0 < `θ_n`))}) (n := {n0})
+2. get_condition (hypothesis 22: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ (exists (`θ_n`), `θ_n` ∈ RealSet ∧ (`θ_n` = (e - ω(n0)) * n0! * n0 ⇒ 0 < `θ_n`))})
+3. exists (`θ_n` := {1})
+4. autosolve all_hypothesis

@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet
+2. a > 0
+3. exists (x), x ∈ RealSet ∧ x > 0
+4. exists (x), x ∈ RealSet ∧ x ≠ a
+
+GOAL:
+lim_{ x → a } (frac(ln(x) - ln(a), x - a)) = lim_{ x → a } (frac(ln(frac(x, a)), x - a))
+
+METHOD:

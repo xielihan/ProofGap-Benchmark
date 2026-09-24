@@ -1,0 +1,21 @@
+PROOF GAP @10
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ∈ RealSet
+3. forall (m) (n), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 ≤ x(m + n) ∧ x(m + n) ≤ x(m) + x(n)
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ≤ n * x(1)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 ≤ frac(x(n), n) ∧ frac(x(n), n) ≤ x(1)
+6. BoundedSeq(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(x(n), n))
+7. a = seqliminf_{ n → +∞ } (frac(x(n), n))
+8. A = seqlimsup_{ n → +∞ } (frac(x(n), n))
+9. 0 ≤ a
+10. a ≤ A
+11. A ≤ x(1)
+12. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N > 1 ∧ frac(x(N), N) < a + ε)
+13. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N > 1 ∧ frac(x(N), N) < a + ε ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (forall (q) (r), q ∈ IntegerSet ∧ r ∈ IntegerSet ∧ q = floor(frac(n, N)) ∧ r = n - q * N ⇒ q ∈ PosIntegerSet)))
+14. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N > 1 ∧ frac(x(N), N) < a + ε ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (forall (q) (r), q ∈ IntegerSet ∧ r ∈ IntegerSet ∧ q = floor(frac(n, N)) ∧ r = n - q * N ⇒ r ∈ NonNegIntegerSet)))
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N > 1 ∧ frac(x(N), N) < a + ε ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (forall (q) (r), q ∈ IntegerSet ∧ r ∈ IntegerSet ∧ q = floor(frac(n, N)) ∧ r = n - q * N ⇒ r < N)))
+
+METHOD:

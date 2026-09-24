@@ -1,0 +1,20 @@
+PROOF GAP @9
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. b ∈ RealSet
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ⇒ f(x, y) = frac(x^{y}, 1 + x^{y})
+4. a = +∞
+5. b = 0
+6. lim_{ x → +∞ } (lim_{ y → 0^+ } (f(x, y))) = lim_{ x → +∞ } (lim_{ y → 0^+ } (frac(x^{y}, 1 + x^{y})))
+7. lim_{ x → +∞ } (lim_{ y → 0^+ } (frac(x^{y}, 1 + x^{y}))) = lim_{ x → +∞ } (frac(1, 2))
+8. lim_{ x → +∞ } (frac(1, 2)) = frac(1, 2)
+9. lim_{ x → +∞ } (lim_{ y → 0^+ } (f(x, y))) = frac(1, 2)
+10. lim_{ y → 0^+ } (lim_{ x → +∞ } (f(x, y))) = lim_{ y → 0^+ } (lim_{ x → +∞ } (frac(x^{y}, 1 + x^{y})))
+11. lim_{ y → 0^+ } (lim_{ x → +∞ } (frac(x^{y}, 1 + x^{y}))) = lim_{ y → 0^+ } (1)
+12. lim_{ y → 0^+ } (1) = 1
+13. lim_{ y → 0^+ } (lim_{ x → +∞ } (f(x, y))) = 1
+
+GOAL:
+lim_{ x → a } (lim_{ y → b^+ } (f(x, y))) = frac(1, 2)
+
+METHOD:

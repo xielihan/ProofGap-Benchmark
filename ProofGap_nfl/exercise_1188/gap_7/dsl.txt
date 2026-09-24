@@ -1,0 +1,1 @@
+apply (hypothesis 15: {forall (x), x ∈ RealSet ∧ x ≠ -frac(d, c) ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2 ∧ FunDeri(y, 1, k)(x) = frac((-1)^{k - 1} * c^{k - 1} * (a * d - b * c) * k!, (c * x + d)^{k + 1}) ⇒ FunDeri(y, 1, k + 1)(x) = frac(-(-1)^{k - 1} * c^{k - 1} * (a * d - b * c) * k! * (k + 1) * (c * x + d)^{k} * c, (c * x + d)^{2 * (k + 1)}))})

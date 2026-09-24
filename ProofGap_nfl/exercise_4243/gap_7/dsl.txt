@@ -1,0 +1,3 @@
+1. rewrite (right_to_left, equation) (hypothesis 21: {a * `ρ_0` * sinh(frac(b, a)) = `ρ_0` * sqrtn(2, h ^ 2 - a ^ 2)}); from (GOAL: {M = `ρ_0` * sqrtn(2, h ^ 2 - a ^ 2)}) to (GOAL: {M = a * `ρ_0` * sinh(frac(b, a))})
+2. rewrite (right_to_left, equation) (hypothesis 20: {`ρ_0` * DefInt(0, b, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b] . cosh(frac(x, a))) * diff(fun x [x ∈ RealSet] . x)) = a * `ρ_0` * sinh(frac(b, a))}); from (GOAL: {M = a * `ρ_0` * sinh(frac(b, a))}) to (GOAL: {M = `ρ_0` * DefInt(0, b, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b] . cosh(frac(x, a))) * diff(fun x [x ∈ RealSet] . x))})
+3. apply (hypothesis 19: {M = `ρ_0` * DefInt(0, b, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b] . cosh(frac(x, a))) * diff(fun x [x ∈ RealSet] . x))})

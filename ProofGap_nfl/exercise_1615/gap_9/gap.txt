@@ -1,0 +1,29 @@
+PROOF GAP @9
+ASSUM:
+1. x ∈ RealSet
+2. y : RealSet → RealSet
+3. a ∈ RealSet
+4. m ∈ RealSet
+5. φ ∈ RealSet
+6. r ∈ RealSet
+7. ξ ∈ RealSet
+8. η ∈ RealSet
+9. ρ ∈ RealSet
+10. ψ ∈ RealSet
+11. a > 0
+12. m ≠ 0
+13. r = a * e^{m * φ}
+14. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x^{2} + y(x)^{2} > 0 ⇒ frac(1, 2) * ln(x^{2} + y(x)^{2}) = ln(a) + m * arctan(frac(y(x), x))
+15. frac(x + y(x) * FunDeri(y, 1, 1)(x), x^{2} + y(x)^{2}) = frac(m * (x * FunDeri(y, 1, 1)(x) - y(x)), x^{2} + y(x)^{2})
+16. x + y(x) * FunDeri(y, 1, 1)(x) = m * (x * FunDeri(y, 1, 1)(x) - y(x))
+17. FunDeri(y, 1, 1)(x) = frac(x + m * y(x), m * x - y(x))
+18. FunDeri(y, 1, 2)(x) = frac(1 + FunDeri(y, 1, 1)(x)^{2}, m * x - y(x))
+19. ξ = x - frac(FunDeri(y, 1, 1)(x) * (1 + FunDeri(y, 1, 1)(x)^{2}), FunDeri(y, 1, 2)(x))
+20. x - frac(FunDeri(y, 1, 1)(x) * (1 + FunDeri(y, 1, 1)(x)^{2}), FunDeri(y, 1, 2)(x)) = -m * y(x)
+21. ξ = -m * y(x)
+22. η = y(x) + frac(1 + FunDeri(y, 1, 1)(x)^{2}, FunDeri(y, 1, 2)(x))
+
+GOAL:
+y(x) + frac(1 + FunDeri(y, 1, 1)(x)^{2}, FunDeri(y, 1, 2)(x)) = m * x
+
+METHOD:

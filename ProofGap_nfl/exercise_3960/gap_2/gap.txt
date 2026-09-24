@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. y ∈ RealSet
+3. ξ ∈ RealSet
+4. η ∈ RealSet
+5. x + y = ξ
+6. y = ξ * η
+7. 0 ≤ x ⇒ x ≤ 1 ⇒ 0 ≤ y ⇒ y ≤ 1 - x ⇒ 0 ≤ x + y
+
+GOAL:
+0 ≤ x ⇒ x ≤ 1 ⇒ 0 ≤ y ⇒ y ≤ 1 - x ⇒ x + y ≤ 1
+
+METHOD:

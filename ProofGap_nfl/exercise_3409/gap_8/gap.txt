@@ -1,0 +1,23 @@
+PROOF GAP @8
+ASSUM:
+1. F : CartesianProd(RealSet, RealSet) → RealSet
+2. u : CartesianProd(RealSet, RealSet) → RealSet
+3. v : CartesianProd(RealSet, RealSet) → RealSet
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ x = u(x, y) * cos(v(x, y))
+5. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ⇒ y = u(x, y) * sin(v(x, y))
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ F(x, y) = v(x, y)
+7. u ∈ RealSet
+8. v ∈ RealSet
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ u(x, y) ≠ 0
+10. diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . cos(v(x, y))) * diff(u) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y) * sin(v(x, y))) * diff(v)
+11. diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . sin(v(x, y))) * diff(u) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y) * cos(v(x, y))) * diff(v)
+12. diff(u) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . cos(v(x, y))) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . sin(v(x, y))) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+13. diff(v) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, u(x, y))) * ((fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . -sin(v(x, y))) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . cos(v(x, y))) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+14. (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y)) * diff(v) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . -sin(v(x, y))) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . cos(v(x, y))) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+15. (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y)) * diff^{2}(v) + diff(u) * diff(v) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . -cos(v(x, y))) * diff(v) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . sin(v(x, y))) * diff(v) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+16. (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y)) * diff^{2}(v) + diff(u) * diff(v) = -diff(u) * diff(v)
+
+GOAL:
+diff^{2}(F) = diff^{2}(v)
+
+METHOD:

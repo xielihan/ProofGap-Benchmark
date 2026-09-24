@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ u(x, y) = ln(sqrtn(2, x^{2} + y^{2}))
+3. diff(u) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . frac(x, x^{2} + y^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . frac(y, x^{2} + y^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+4. diff^{2}(u) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . frac(1, x^{2} + y^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{2} + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . frac(1, x^{2} + y^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{2} - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . frac(2, (x^{2} + y^{2})^{2})) * ((fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))^{2}
+5. (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . frac(1, x^{2} + y^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{2} + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . frac(1, x^{2} + y^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{2} - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . frac(2, (x^{2} + y^{2})^{2})) * ((fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))^{2} = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . frac(y^{2} - x^{2}, (x^{2} + y^{2})^{2})) * (diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{2} - diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{2}) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . frac(4 * x * y, (x^{2} + y^{2})^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+
+GOAL:
+diff^{2}(u) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . frac(y^{2} - x^{2}, (x^{2} + y^{2})^{2})) * (diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{2} - diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{2}) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . frac(4 * x * y, (x^{2} + y^{2})^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+
+METHOD:

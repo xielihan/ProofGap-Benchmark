@@ -1,0 +1,22 @@
+PROOF GAP @10
+ASSUM:
+1. u : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. S_{n} : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+3. S : RealSet → RealSet
+4. k ∈ NonNegIntegerSet
+5. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ u(n, x) = 2^{n} * sin(frac(1, 3^{n} * x))
+6. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ S_{n}(n, x) = sum_{ k = 1 }^{ n } (u(k, x))
+7. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ |u(n, x)| ≤ 2^{n} * frac(1, 3^{n} * x))
+8. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ 2^{n} * frac(1, 3^{n} * x) = frac(1, x) * frac(2, 3)^{n})
+9. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ |u(n, x)| ≤ frac(1, x) * frac(2, 3)^{n})
+10. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, x) * frac(2, 3)^{n})))
+11. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (2^{n} * sin(frac(1, 3^{n} * x)))))
+12. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (2^{n} * sin(frac(1, 3^{n} * x))))
+13. forall (ε), ε ∈ RealSet ∧ UniformConvergent(S_{n}, PosRealSet, S) ∧ ε = 1 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n) (p) (x), n ∈ NonNegIntegerSet ∧ p ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ p ∈ PosIntegerSet ∧ x ∈ PosRealSet ∧ n ≥ N ⇒ |sum_{ k = n + 1 }^{ n + p } (u(k, x))| < ε))
+14. forall (ε), ε ∈ RealSet ⇒ (forall (N), N ∈ NonNegIntegerSet ⇒ (forall (m), m ∈ NonNegIntegerSet ⇒ (forall (p), p ∈ NonNegIntegerSet ∧ UniformConvergent(S_{n}, PosRealSet, S) ∧ ε = 1 ∧ m = N ∧ p = 1 ⇒ (forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ |u(N + 1, x)| < 1))))
+15. forall (ε), ε ∈ RealSet ⇒ (forall (N), N ∈ NonNegIntegerSet ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ (UniformConvergent(S_{n}, PosRealSet, S) ⇒ ε = 1 ⇒ x_{0} = frac(2, 3^{N + 1} * π) ⇒ x_{0} ∈ PosRealSet)))
+
+GOAL:
+forall (ε), ε ∈ RealSet ⇒ (forall (N), N ∈ NonNegIntegerSet ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ (UniformConvergent(S_{n}, PosRealSet, S) ⇒ ε = 1 ⇒ x_{0} = frac(2, 3^{N + 1} * π) ⇒ |u(N + 1, x_{0})| < 1)))
+
+METHOD:

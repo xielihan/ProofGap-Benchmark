@@ -1,0 +1,21 @@
+PROOF GAP @9
+ASSUM:
+1. y : RealSet → RealSet
+2. R : RealSet → RealSet
+3. f : RealSet → RealSet
+4. P ∈ CartesianProd(RealSet, RealSet)
+5. forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x) = ln(x)
+6. forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(y, 1, 1)(x) = frac(1, x)
+7. forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(y, 1, 2)(x) = -frac(1, x^{2})
+8. forall (x), x ∈ RealSet ∧ x > 0 ⇒ R(x) = frac((1 + frac(1, x^{2}))^{frac(3, 2)}, frac(1, x^{2}))
+9. forall (x), x ∈ RealSet ∧ x > 0 ⇒ frac((1 + frac(1, x^{2}))^{frac(3, 2)}, frac(1, x^{2})) = frac((1 + x^{2})^{frac(3, 2)}, |x|)
+10. forall (x), x ∈ RealSet ∧ x > 0 ⇒ R(x) = frac((1 + x^{2})^{frac(3, 2)}, |x|)
+11. f = (fun x [x ∈ RealSet ∧ x > 0] . frac((1 + x^{2})^{3}, x^{2}))
+12. forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(f, 1, 1)(x) = frac(2 * (1 + x^{2})^{2} * (2 * x^{2} - 1), x^{3})
+13. forall (x), x ∈ RealSet ∧ x > 0 ∧ FunDeri(f, 1, 1)(x) = 0 ⇒ x = frac(1, sqrtn(2, 2))
+14. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < frac(1, sqrtn(2, 2)) ⇒ FunDeri(f, 1, 1)(x) < 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > frac(1, sqrtn(2, 2)) ⇒ FunDeri(f, 1, 1)(x) > 0
+
+METHOD:

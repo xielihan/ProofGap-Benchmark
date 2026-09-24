@@ -1,0 +1,5 @@
+1. get_exists (hypothesis 4: {exists (δ), δ ∈ RealSet /\ δ > 0 /\ (forall (Δx), Δx ∈ RealSet /\ (Δx > -δ /\ Δx < δ) => f(a + Δx) = Δx * φ(a + Δx))}) (δ := {d})
+2. destruct_and (hypothesis 7: {d ∈ RealSet /\ d > 0 /\ (forall (Δx), Δx ∈ RealSet /\ (Δx > -d /\ Δx < d) => f(a + Δx) = Δx * φ(a + Δx))}) as (hypothesis 8: {d ∈ RealSet}) (hypothesis 9: {d > 0}) (hypothesis 10: {forall (Δx), Δx ∈ RealSet /\ (Δx > -d /\ Δx < d) => f(a + Δx) = Δx * φ(a + Δx)})
+3. rewrite (left_to_right, equation) (hypothesis 6: {f(a) = 0}); from (GOAL: {lim_{ Δx -> 0 } (frac(f(a + Δx) - f(a), Δx)) = lim_{ Δx -> 0 } (frac(Δx * φ(a + Δx) - 0, Δx))}) to (GOAL: {lim_{ Δx -> 0 } (frac(f(a + Δx) - 0, Δx)) = lim_{ Δx -> 0 } (frac(Δx * φ(a + Δx) - 0, Δx))})
+4. rewrite_in limit (left_to_right, equation) (hypothesis 10: {forall (Δx), Δx ∈ RealSet /\ (Δx > -d /\ Δx < d) => f(a + Δx) = Δx * φ(a + Δx)}); from (GOAL: {lim_{ Δx -> 0 } (frac(f(a + Δx) - 0, Δx)) = lim_{ Δx -> 0 } (frac(Δx * φ(a + Δx) - 0, Δx))}) to (GOAL: {lim_{ Δx -> 0 } (frac(Δx * φ(a + Δx) - 0, Δx)) = lim_{ Δx -> 0 } (frac(Δx * φ(a + Δx) - 0, Δx))})
+5. autosolve all_hypothesis

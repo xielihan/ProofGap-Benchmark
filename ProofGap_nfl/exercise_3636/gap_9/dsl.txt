@@ -1,0 +1,18 @@
+get_prop (hypothesis 11: {forall (x), x ∈ RealSet ⇒ 2 * cos(frac(x, 2)) * cos(frac(3 * x, 2)) = 0}) (x := {0}) as (hypothesis 13: {0 ∈ RealSet ⇒ 2 * cos(frac(0, 2)) * cos(frac(3 * 0, 2)) = 0})
+use_condition (obvious: {0 ∈ RealSet}) in (hypothesis 13: {0 ∈ RealSet ⇒ 2 * cos(frac(0, 2)) * cos(frac(3 * 0, 2)) = 0}) as (hypothesis 14: {2 * cos(frac(0, 2)) * cos(frac(3 * 0, 2)) = 0})
+get_prop (theorem 'Thm 368. (CosineAtIntegerPi)': {forall (n), n ∈ IntegerSet ⇒ cos(n * π) = (-1) ^ n}) (n := {0}) as (hypothesis 15: {0 ∈ IntegerSet ⇒ cos(0 * π) = (-1) ^ 0})
+use_condition (obvious: {0 ∈ IntegerSet}) in (hypothesis 15: {0 ∈ IntegerSet ⇒ cos(0 * π) = (-1) ^ 0}) as (hypothesis 16: {cos(0 * π) = (-1) ^ 0})
+assert (hypothesis 17: {cos(0) = 1}) by proof {
+  autosolve (hypothesis 16: {cos(0 * π) = (-1) ^ 0})
+}
+assert (hypothesis 18: {cos(frac(0, 2)) = cos(0)}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 19: {cos(frac(3 * 0, 2)) = cos(0)}) by proof {
+  autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 18: {cos(frac(0, 2)) = cos(0)}); from (hypothesis 14: {2 * cos(frac(0, 2)) * cos(frac(3 * 0, 2)) = 0}) to (hypothesis 20: {2 * cos(0) * cos(frac(3 * 0, 2)) = 0})
+rewrite (left_to_right, equation) (hypothesis 19: {cos(frac(3 * 0, 2)) = cos(0)}); from (hypothesis 20: {2 * cos(0) * cos(frac(3 * 0, 2)) = 0}) to (hypothesis 21: {2 * cos(0) * cos(0) = 0})
+rewrite (left_to_right, equation) (hypothesis 17: {cos(0) = 1}); from (hypothesis 21: {2 * cos(0) * cos(0) = 0}) to (hypothesis 22: {2 * 1 * cos(0) = 0})
+rewrite (left_to_right, equation) (hypothesis 17: {cos(0) = 1}); from (hypothesis 22: {2 * 1 * cos(0) = 0}) to (hypothesis 23: {2 * 1 * 1 = 0})
+autosolve all_hypothesis

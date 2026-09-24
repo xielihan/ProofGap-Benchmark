@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. F : RealSet → ComplexSet
+3. α ∈ RealSet ∧ α > 0
+4. forall (x), x ∈ RealSet ⇒ f(x) = e^{-α * |x|}
+
+GOAL:
+EvenFunc(f)
+
+METHOD:

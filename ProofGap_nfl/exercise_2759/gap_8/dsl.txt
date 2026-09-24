@@ -1,0 +1,21 @@
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ (exists (N), N ∈ NonNegIntegerSet ∧ δ > 0 ∧ N = floor(frac(1, δ))))}) (ε := {ε0})
+get_condition (hypothesis 12: {ε0 ∈ RealSet ∧ ε0 > 0}) in (GOAL: {ε0 ∈ RealSet ∧ ε0 > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ (exists (N), N ∈ NonNegIntegerSet ∧ δ > 0 ∧ N = floor(frac(1, δ))))})
+exists (δ := {1})
+get_prop (theorem 'Thm 422. (FloorEquivalentDefinition)': {forall (x) (n), x ∈ RealSet ⇒ n ∈ RealSet ⇒ (floor(x) = n ⇔ n ∈ IntegerSet ∧ n ≤ x ∧ x < n + 1)}) (x := {frac(1, 1)}) (n := {1}) as (hypothesis 13: {frac(1, 1) ∈ RealSet ⇒ 1 ∈ RealSet ⇒ (floor(frac(1, 1)) = 1 ⇔ 1 ∈ IntegerSet ∧ 1 ≤ frac(1, 1) ∧ frac(1, 1) < 1 + 1)})
+assert (hypothesis 14: {frac(1, 1) ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 14: {frac(1, 1) ∈ RealSet}) in (hypothesis 13: {frac(1, 1) ∈ RealSet ⇒ 1 ∈ RealSet ⇒ (floor(frac(1, 1)) = 1 ⇔ 1 ∈ IntegerSet ∧ 1 ≤ frac(1, 1) ∧ frac(1, 1) < 1 + 1)}) as (hypothesis 15: {1 ∈ RealSet ⇒ (floor(frac(1, 1)) = 1 ⇔ 1 ∈ IntegerSet ∧ 1 ≤ frac(1, 1) ∧ frac(1, 1) < 1 + 1)})
+assert (hypothesis 16: {1 ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 16: {1 ∈ RealSet}) in (hypothesis 15: {1 ∈ RealSet ⇒ (floor(frac(1, 1)) = 1 ⇔ 1 ∈ IntegerSet ∧ 1 ≤ frac(1, 1) ∧ frac(1, 1) < 1 + 1)}) as (hypothesis 17: {floor(frac(1, 1)) = 1 ⇔ 1 ∈ IntegerSet ∧ 1 ≤ frac(1, 1) ∧ frac(1, 1) < 1 + 1})
+assert (hypothesis 18: {1 ∈ IntegerSet ∧ 1 ≤ frac(1, 1) ∧ frac(1, 1) < 1 + 1}) by proof {
+  autosolve all_hypothesis
+}
+rewrite (right_to_left, iff) (hypothesis 17: {floor(frac(1, 1)) = 1 ⇔ 1 ∈ IntegerSet ∧ 1 ≤ frac(1, 1) ∧ frac(1, 1) < 1 + 1}); from (hypothesis 18: {1 ∈ IntegerSet ∧ 1 ≤ frac(1, 1) ∧ frac(1, 1) < 1 + 1}) to (hypothesis 19: {floor(frac(1, 1)) = 1})
+assert (hypothesis 20: {exists (N), N ∈ NonNegIntegerSet ∧ 1 > 0 ∧ N = floor(frac(1, 1))}) by proof {
+  exists (N := {1})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

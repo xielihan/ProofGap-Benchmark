@@ -1,0 +1,17 @@
+PROOF GAP @6
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. f : RealSet → RealSet
+4. ContinuousFunc(f)
+5. F = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . DefInt(0, x + y, f(u) * diff(fun u [u ∈ RealSet] . u)))
+6. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(F, 1, 1)(x, y) = f(x + y))
+7. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(F, 2, 1)(x, y) = f(x + y))
+8. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ diff(F) = FunDeri(F, 1, 1)(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + FunDeri(F, 2, 1)(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+9. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ diff(F) = f(x + y) * (diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)))
+10. VectorCurveInt(IntervalLoRo((0, 0), (a, b)), (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . f(x + y)) * (diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))) = F(a, b) - F(0, 0)
+
+GOAL:
+F(a, b) - F(0, 0) = DefInt(0, a + b, f(u) * diff(fun u [u ∈ RealSet] . u))
+
+METHOD:

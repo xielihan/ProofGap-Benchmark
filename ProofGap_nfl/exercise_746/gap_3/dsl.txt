@@ -1,0 +1,2 @@
+get_prop (theorem 'Thm 478. (AbsoluteValueReverseTriangleInequality)': {forall (u) (v), u ∈ RealSet => v ∈ RealSet => |u + v| >= ||u| - |v||}) as (hypothesis 8: {forall (u) (v), u ∈ RealSet => v ∈ RealSet => |u + v| >= ||u| - |v||})
+apply (hypothesis 8: {forall (u) (v), u ∈ RealSet => v ∈ RealSet => |u + v| >= ||u| - |v||})

@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. F : RealSet → RealSet
+2. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ⇒ F(x) = sum_{ n = 0 }^{ +∞ } (frac(x^{2 * n}, (2 * n)!)))
+3. forall (x), x ∈ RealSet ⇒ FunDeri(F, 1, 1)(x) = sum_{ n = 0 }^{ +∞ } (frac(x^{2 * n + 1}, (2 * n + 1)!))
+4. forall (x), x ∈ RealSet ⇒ F(x) - FunDeri(F, 1, 1)(x) = sum_{ n = 0 }^{ +∞ } (frac((-x)^{n}, n!)) ∧ sum_{ n = 0 }^{ +∞ } (frac((-x)^{n}, n!)) = e^{-x}
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ F(x) + FunDeri(F, 1, 1)(x) = sum_{ n = 0 }^{ +∞ } (frac(x^{n}, n!)) ∧ sum_{ n = 0 }^{ +∞ } (frac(x^{n}, n!)) = e^{x}
+
+METHOD:

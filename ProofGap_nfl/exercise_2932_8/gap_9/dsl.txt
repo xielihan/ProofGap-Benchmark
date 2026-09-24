@@ -1,0 +1,2 @@
+exists (Δ := {frac(b(24), 97) - 1})
+autosolve all_hypothesis

@@ -1,0 +1,21 @@
+PROOF GAP @2
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. X : CartesianProd(RealSet, RealSet) → RealSet
+3. Y : CartesianProd(RealSet, RealSet) → RealSet
+4. p : CartesianProd(RealSet, RealSet) → RealSet
+5. q : CartesianProd(RealSet, RealSet) → RealSet
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ p(x, y) = FunDeri(z, 1, 1)(x, y) ∧ q(x, y) = FunDeri(z, 2, 1)(x, y)
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 2)(x, y) * FunDeri(z, 2, 2)(x, y) - FunDeri(FunDeri(z, 1, 1), 2, 1)(x, y)^{2} = 0
+8. ContinuouslyDiffableFunc(z)
+9. ContinuouslyDiffableFunc(X)
+10. ContinuouslyDiffableFunc(Y)
+11. forall (y) (z), y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(X, 2, 1)(y, z) ≠ 0
+12. forall (x) (z), x ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(Y, 2, 1)(x, z) ≠ 0
+13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ X(y, z(x, y)) = x
+14. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ diff(z) = p(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + q(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ diff^{2}(X) = FunDeri(X, 1, 2)(y, z(x, y)) * diff(fun y, z [y ∈ RealSet ∧ z ∈ RealSet] . y)^{2} + 2 * FunDeri(FunDeri(X, 1, 1), 2, 1)(y, z(x, y)) * diff(fun y, z [y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(z) + FunDeri(X, 2, 2)(y, z(x, y)) * diff(z)^{2} + FunDeri(X, 1, 1)(y, z(x, y)) * diff^{2}(fun y, z [y ∈ RealSet ∧ z ∈ RealSet] . y) + FunDeri(X, 2, 1)(y, z(x, y)) * diff^{2}(z)
+
+METHOD:

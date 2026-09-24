@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. m ∈ NonNegIntegerSet
+2. m ∈ PosIntegerSet
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, n * (n + m)) = frac(1, m) * (frac(1, n) - frac(1, n + m))
+
+METHOD:

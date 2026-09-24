@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 7: {I(0) = DefInt(0, frac(π, 4), diff(fun x [x ∈ RealSet] . x))}); from (GOAL: {I(0) = frac(π, 4)}) to (GOAL: {DefInt(0, frac(π, 4), diff(fun x [x ∈ RealSet] . x)) = frac(π, 4)})
+apply (hypothesis 8: {DefInt(0, frac(π, 4), diff(fun x [x ∈ RealSet] . x)) = frac(π, 4)})

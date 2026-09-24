@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet ∧ a ≠ 0
+3. x ∈ RealSet ∧ |x| < |a|
+4. forall (x), x ∈ RealSet ∧ |x| < |a| ⇒ y(x) = arcsin(frac(x, a))
+5. forall (x), x ∈ RealSet ∧ |x| < |a| ⇒ FunDeri(y, 1, 1)(x) = frac(|a|, sqrtn(2, a^{2} - x^{2})) * frac(1, a) ∧ frac(|a|, sqrtn(2, a^{2} - x^{2})) * frac(1, a) = frac(sgn(a), sqrtn(2, a^{2} - x^{2}))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| < |a| ⇒ FunDeri(y, 1, 1)(x) = frac(sgn(a), sqrtn(2, a^{2} - x^{2}))
+
+METHOD:

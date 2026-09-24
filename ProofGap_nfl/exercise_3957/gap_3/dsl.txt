@@ -1,0 +1,3 @@
+rewrite (right_to_left, equation) (hypothesis 14: {x = u}); from (GOAL: {y = u * v}) to (GOAL: {y = x * v})
+rewrite (left_to_right, equation) (hypothesis 12: {v = frac(y, x)}); from (GOAL: {y = x * v}) to (GOAL: {y = x * frac(y, x)})
+autosolve (hypothesis 15: {x ≠ 0})

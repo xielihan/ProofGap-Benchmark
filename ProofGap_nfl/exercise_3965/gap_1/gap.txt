@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. Ω ⊆ CartesianProd(RealSet, RealSet)
+2. Ω' ⊆ CartesianProd(RealSet, RealSet)
+3. I ∈ RealSet
+4. p ∈ CartesianProd(RealSet, RealSet)
+5. q ∈ CartesianProd(RealSet, RealSet)
+6. Ω = { p | exists (x), x ∈ RealSet ∧ (exists (y), y ∈ RealSet ∧ p = (x, y) ∧ x^{2} + y^{2} ≤ x + y) }
+
+GOAL:
+Ω = { p | exists (x), x ∈ RealSet ∧ (exists (y), y ∈ RealSet ∧ p = (x, y) ∧ (x - frac(1, 2))^{2} + (y - frac(1, 2))^{2} ≤ frac(1, sqrtn(2, 2))^{2}) }
+
+METHOD:

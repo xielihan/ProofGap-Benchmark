@@ -1,0 +1,3 @@
+assert (hypothesis 31: {frac(2, 3) * (4 + 4 * (1.732 + 2.646) + 2 * 2.236) = frac(6496, 375)})
+rewrite (left_to_right, equation) (hypothesis 31: {frac(2, 3) * (4 + 4 * (1.732 + 2.646) + 2 * 2.236) = frac(6496, 375)}); from (GOAL: {17.323 - 0.011 < frac(2, 3) * (4 + 4 * (1.732 + 2.646) + 2 * 2.236) ∧ frac(2, 3) * (4 + 4 * (1.732 + 2.646) + 2 * 2.236) < 17.323 + 0.011}) to (GOAL: {17.323 - 0.011 < frac(6496, 375) ∧ frac(6496, 375) < 17.323 + 0.011})
+autosolve all_hypothesis

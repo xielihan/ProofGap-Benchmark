@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) = (frac(1, 2), 1, 1) ⇒ u(frac(1, 2), 1, 1) = 4}) (x := {xx}) (y := {yy}) (z := {zz})
+get_condition (hypothesis 13: {xx ∈ RealSet ∧ yy ∈ RealSet ∧ zz ∈ RealSet ∧ (xx, yy, zz) = (frac(1, 2), 1, 1)}) in (GOAL: {xx ∈ RealSet ∧ yy ∈ RealSet ∧ zz ∈ RealSet ∧ (xx, yy, zz) = (frac(1, 2), 1, 1) ⇒ u(frac(1, 2), 1, 1) = 4})
+get_prop (hypothesis 2: {forall (x) (y) (z), x ∈ RealSet ∧ x ∈ PosRealSet ∧ y ∈ RealSet ∧ y ∈ PosRealSet ∧ z ∈ RealSet ∧ z ∈ PosRealSet ⇒ u(x, y, z) = x + frac(y^{2}, 4 * x) + frac(z^{2}, y) + frac(2, z)}) (x := {frac(1, 2)}) (y := {1}) (z := {1}) as (hypothesis 14: {frac(1, 2) ∈ RealSet ∧ frac(1, 2) ∈ PosRealSet ∧ 1 ∈ RealSet ∧ 1 ∈ PosRealSet ∧ 1 ∈ RealSet ∧ 1 ∈ PosRealSet ⇒ u(frac(1, 2), 1, 1) = frac(1, 2) + frac(1^{2}, 4 * frac(1, 2)) + frac(1^{2}, 1) + frac(2, 1)})
+assert (hypothesis 15: {frac(1, 2) ∈ RealSet ∧ frac(1, 2) ∈ PosRealSet ∧ 1 ∈ RealSet ∧ 1 ∈ PosRealSet ∧ 1 ∈ RealSet ∧ 1 ∈ PosRealSet}) by proof {
+autosolve all_hypothesis
+}
+use_condition (hypothesis 15: {frac(1, 2) ∈ RealSet ∧ frac(1, 2) ∈ PosRealSet ∧ 1 ∈ RealSet ∧ 1 ∈ PosRealSet ∧ 1 ∈ RealSet ∧ 1 ∈ PosRealSet}) in (hypothesis 14: {frac(1, 2) ∈ RealSet ∧ frac(1, 2) ∈ PosRealSet ∧ 1 ∈ RealSet ∧ 1 ∈ PosRealSet ∧ 1 ∈ RealSet ∧ 1 ∈ PosRealSet ⇒ u(frac(1, 2), 1, 1) = frac(1, 2) + frac(1^{2}, 4 * frac(1, 2)) + frac(1^{2}, 1) + frac(2, 1)}) as (hypothesis 16: {u(frac(1, 2), 1, 1) = frac(1, 2) + frac(1^{2}, 4 * frac(1, 2)) + frac(1^{2}, 1) + frac(2, 1)})
+rewrite (left_to_right, equation) (hypothesis 16: {u(frac(1, 2), 1, 1) = frac(1, 2) + frac(1^{2}, 4 * frac(1, 2)) + frac(1^{2}, 1) + frac(2, 1)}); from (GOAL: {u(frac(1, 2), 1, 1) = 4}) to (GOAL: {frac(1, 2) + frac(1^{2}, 4 * frac(1, 2)) + frac(1^{2}, 1) + frac(2, 1) = 4})
+autosolve all_hypothesis using PolyRatSolver

@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+3. |x| = sgn(x) * x
+4. forall (x), x ∈ RealSet ⇒ |x| * diff(fun x [x ∈ RealSet] . x) = sgn(x) * x * diff(fun x [x ∈ RealSet] . x)
+
+GOAL:
+{ `F_5` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = |x| * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_6` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_6`(x) = sgn(x) * frac(1, 2) * x^{2} + C) }
+
+METHOD:

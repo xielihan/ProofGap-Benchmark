@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. B : RealSet → RealSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = cases{ sin(x) if |x| ≤ π; 0 if |x| > π }
+4. ContinuousFunc(f)
+5. OddFunc(f)
+6. forall (λ), λ ∈ RealSet ⇒ B(λ) = frac(2, π) * DefInt(0, +∞, (fun ξ [ξ ∈ RealSet] . f(ξ) * sin(λ * ξ)) * diff(fun ξ [ξ ∈ RealSet] . ξ))
+
+GOAL:
+forall (λ), λ ∈ RealSet ⇒ B(λ) = frac(2, π) * DefInt(0, π, (fun ξ [ξ ∈ RealSet] . sin(ξ) * sin(λ * ξ)) * diff(fun ξ [ξ ∈ RealSet] . ξ))
+
+METHOD:

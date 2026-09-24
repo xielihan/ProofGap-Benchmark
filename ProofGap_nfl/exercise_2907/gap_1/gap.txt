@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. F : RealSet → RealSet
+2. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ |x| ≤ 1 ⇒ F(x) = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x^{2 * n + 1}, 2 * n + 1)))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ FunDeri(F, 1, 1)(x) = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * x^{2 * n}) ∧ sum_{ n = 0 }^{ +∞ } ((-1)^{n} * x^{2 * n}) = frac(1, 1 + x^{2})
+
+METHOD:

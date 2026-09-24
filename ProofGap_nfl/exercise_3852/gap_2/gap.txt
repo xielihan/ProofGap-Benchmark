@@ -1,0 +1,15 @@
+PROOF GAP @2
+ASSUM:
+1. m ∈ RealSet
+2. n ∈ RealSet
+3. B : CartesianProd(RealSet, RealSet) → RealSet
+4. t = frac(x, 1 + x)
+5. 0 < t
+6. x ∈ RealSet
+7. t ∈ RealSet
+8. 0 < x
+
+GOAL:
+t < 1
+
+METHOD:

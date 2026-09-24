@@ -1,0 +1,18 @@
+PROOF GAP @6
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. h : RealSet → RealSet
+3. g : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+4. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ f(n, x) = x^{n} - x^{n + 1}
+5. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ h(x) = 0
+6. forall (x), x ∈ RealSet ∧ (x = 0 ∨ x = 1) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ f(n, x) = 0)
+7. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < 1 ⇒ seqlim_{ n → +∞ } (f(n, x)) = 0
+8. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ seqlim_{ n → +∞ } (f(n, x)) = h(x)
+9. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ g(n, x) = x^{n} - x^{n + 1}
+10. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ∈ [0, 1] ⇒ |f(n, x) - h(x)| = x^{n} - x^{n + 1}
+11. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ x^{n} - x^{n + 1} = g(n, x)
+
+GOAL:
+forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ∈ [0, 1] ⇒ |f(n, x) - h(x)| = g(n, x)
+
+METHOD:

@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. C ∈ RealSet
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ∧ sin(2 * x + frac(π, 4)) ≠ 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, sin(2 * x + frac(π, 4))^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ sin(2 * x + frac(π, 4)) ≠ 0 ⇒ `F_3`(x) = -frac(1, 2) * cot(2 * x + frac(π, 4)) + C) }
+
+METHOD:

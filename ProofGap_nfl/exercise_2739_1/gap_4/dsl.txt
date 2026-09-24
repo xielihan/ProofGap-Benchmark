@@ -1,0 +1,4 @@
+assert (hypothesis 5: {(x ≥ 0 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(prod_{ k = 0 }^{ n - 1 } (x - k), n!)))) ∧ (-1 < x ∧ x < 0 ⇒ ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(prod_{ k = 0 }^{ n - 1 } (x - k), n!))))}) by proof {
+  autosolve all_hypothesis
+}
+apply (hypothesis 5: {(x ≥ 0 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(prod_{ k = 0 }^{ n - 1 } (x - k), n!)))) ∧ (-1 < x ∧ x < 0 ⇒ ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(prod_{ k = 0 }^{ n - 1 } (x - k), n!))))})

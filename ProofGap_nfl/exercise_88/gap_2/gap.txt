@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ 1 ≤ k ∧ k ≤ n ∧ n ∈ PosIntegerSet ⇒ x(n) = sum_{ k = 1 }^{ n } (frac(1, k)))
+3. forall (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ m = 2 * n ⇒ |x(m) - x(n)| = sum_{ k = n + 1 }^{ 2 * n } (frac(1, k)))
+
+GOAL:
+forall (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ m = 2 * n ⇒ sum_{ k = n + 1 }^{ 2 * n } (frac(1, k)) ≥ sum_{ k = n + 1 }^{ 2 * n } (frac(1, 2 * n)))
+
+METHOD:

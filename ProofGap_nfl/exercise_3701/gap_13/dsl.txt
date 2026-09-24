@@ -1,0 +1,2 @@
+exists (x_{2} := {frac(11, 8)})
+autosolve all_hypothesis

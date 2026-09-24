@@ -1,0 +1,4 @@
+exists (Δ := {0})
+assert (hypothesis 8: {0 ∈ RealSet})
+assert (hypothesis 9: {0 < frac(4!, 4! * (4 + 1)^{4 + 1})})
+autosolve all_hypothesis

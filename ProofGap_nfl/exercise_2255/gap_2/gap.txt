@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. f : RealSet → RealSet ∧ ContinuousFuncOn(f, [0, a^{2}])
+3. x : RealSet → RealSet
+4. forall (t), t ∈ RealSet ∧ t ∈ [0, a^{2}] ⇒ x(t) = sqrtn(2, t)
+5. forall (t), t ∈ RealSet ∧ t = 0 ⇒ x(t) = 0
+
+GOAL:
+forall (t), t ∈ RealSet ∧ t = a^{2} ⇒ x(t) = a
+
+METHOD:

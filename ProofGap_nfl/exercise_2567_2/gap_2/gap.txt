@@ -1,0 +1,19 @@
+PROOF GAP @2
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. b : NonNegIntegerSet → RealSet
+3. n ∈ NonNegIntegerSet
+4. IsSeq(a)
+5. IsSeq(b)
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ≥ 0 ∧ b(n) ≥ 0
+7. DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+8. DivergentSeries(sum_{ n = 1 }^{ +∞ } (b(n)))
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ max(a(n), b(n)) ≥ a(n) ∧ a(n) ≥ 0
+10. forall (c), DivergentSeries(sum_{ n = 1 }^{ +∞ } (c(n))) ⇔ Not(ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n))))
+11. forall (k), k ∈ NonNegIntegerSet ∧ k ≥ 1 ⇒ k ∈ PosIntegerSet
+
+GOAL:
+DivergentSeries(sum_{ n = 1 }^{ +∞ } (max(a(n), b(n))))
+
+METHOD:
+[@method 根据 "非负项级数比较判别法" @]

@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. a : NonNegIntegerSet → RealSet ∧ IsSeq(a)
+2. p ∈ RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 2 ⇒ a(n) = frac(1, n * ln(n)^{p})
+4. forall (x), x ∈ RealSet ∧ x > 1 ⇒ frac(1, x * ln(x)^{p}) ≥ 0
+
+GOAL:
+exists (M), M ∈ RealSet ∧ M > 1 ∧ MonoDecFuncOn(fun x [x ∈ RealSet ∧ x > 1] . frac(1, x * ln(x)^{p}), [M, +∞))
+
+METHOD:

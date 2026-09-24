@@ -1,0 +1,18 @@
+1. get_condition (hypothesis 28: {a = 0}) in (GOAL: {a = 0 ⇒ DivergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n + 1) / x(n)) ∨ (exists (b), b ∈ RealSet ∧ b ∈ [-1, 1] ∧ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = b)})
+2. assert (hypothesis 29: {ConvergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n + 1) / x(n)) => (exists (b), b ∈ RealSet ∧ b ∈ [-1, 1] ∧ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = b)}) by proof {
+  1. get_condition (hypothesis 29: {ConvergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n + 1) / x(n))}) in (GOAL: {ConvergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n + 1) / x(n)) => (exists (b), b ∈ RealSet ∧ b ∈ [-1, 1] ∧ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = b)})
+  2. get_prop (theorem 'Thm 343. (ConvergentSequenceDefinition)': {forall (a), (ConvergentSeq(a) <==> (exists (L), L ∈ RealSet /\ seqlim_{n -> +∞}(a(n)) = L))}) (a := {fun k [k ∈ NonNegIntegerSet] . (x(k + 1) / x(k))}) as (hypothesis 30: {ConvergentSeq(fun k [k ∈ NonNegIntegerSet] . (x(k + 1) / x(k))) <==> (exists (L), L ∈ RealSet /\ seqlim_{n -> +∞}(x(n + 1) / x(n)) = L)})
+  3. rewrite (left_to_right, iff) (hypothesis 30: {ConvergentSeq(fun k [k ∈ NonNegIntegerSet] . (x(k + 1) / x(k))) <==> (exists (L), L ∈ RealSet /\ seqlim_{n -> +∞}(x(n + 1) / x(n)) = L)}); from (hypothesis 29: {ConvergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n + 1) / x(n))}) to (hypothesis 31: {exists (L), L ∈ RealSet /\ seqlim_{n -> +∞}(x(n + 1) / x(n)) = L})
+  4. get_exists (hypothesis 31: {exists (L), L ∈ RealSet /\ seqlim_{n -> +∞}(x(n + 1) / x(n)) = L}) (L := {b0})
+  5. destruct_and (hypothesis 32: {b0 ∈ RealSet /\ seqlim_{n -> +∞}(x(n + 1) / x(n)) = b0}) as (hypothesis 33: {b0 ∈ RealSet}) (hypothesis 34: {seqlim_{n -> +∞}(x(n + 1) / x(n)) = b0})
+  6. assert (hypothesis 35: {b0 ∈ RealSet ∧ a = 0 ∧ seqlim_{n -> +∞}(x(n + 1) / x(n)) = b0})
+  7. get_prop (hypothesis 26: {forall (b), b ∈ RealSet ∧ a = 0 ∧ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = b ⇒ -1 ≤ b}) (b := {b0}) as (hypothesis 36: {b0 ∈ RealSet ∧ a = 0 ∧ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = b0 ⇒ -1 ≤ b0})
+  8. use_condition (hypothesis 35: {b0 ∈ RealSet ∧ a = 0 ∧ seqlim_{n -> +∞}(x(n + 1) / x(n)) = b0}) in (hypothesis 36: {b0 ∈ RealSet ∧ a = 0 ∧ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = b0 ⇒ -1 ≤ b0}) as (hypothesis 37: {-1 ≤ b0})
+  9. get_prop (hypothesis 27: {forall (b), b ∈ RealSet ∧ a = 0 ∧ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = b ⇒ b ≤ 1}) (b := {b0}) as (hypothesis 38: {b0 ∈ RealSet ∧ a = 0 ∧ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = b0 ⇒ b0 ≤ 1})
+  10. use_condition (hypothesis 35: {b0 ∈ RealSet ∧ a = 0 ∧ seqlim_{n -> +∞}(x(n + 1) / x(n)) = b0}) in (hypothesis 38: {b0 ∈ RealSet ∧ a = 0 ∧ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = b0 ⇒ b0 ≤ 1}) as (hypothesis 39: {b0 ≤ 1})
+  11. exists (b := {b0})
+  12. autosolve all_hypothesis
+}
+3. get_prop (theorem 'Thm 345. (DivergentSequenceDefinition)': {forall (a), (DivergentSeq(a) <==> Not(ConvergentSeq(a)))}) (a := {fun n [n ∈ NonNegIntegerSet] . x(n + 1) / x(n)}) as (hypothesis 30: {DivergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n + 1) / x(n)) <==> Not(ConvergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n + 1) / x(n)))} )
+4. assert (hypothesis 31: {ConvergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n + 1) / x(n)) ∨ Not(ConvergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n + 1) / x(n)))})
+5. autosolve all_hypothesis

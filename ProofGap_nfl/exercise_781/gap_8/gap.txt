@@ -1,0 +1,20 @@
+PROOF GAP @8
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. F_{1} : RealSet → RealSet
+4. F_{2} : RealSet → RealSet
+5. forall (t), t ∈ RealSet ⇒ x(t) = cosh(t)
+6. forall (t), t ∈ RealSet ⇒ y(t) = sinh(t)
+7. forall (t), t ∈ RealSet ⇒ x(t)^{2} - y(t)^{2} = cosh(t)^{2} - sinh(t)^{2}
+8. forall (t), t ∈ RealSet ⇒ cosh(t)^{2} - sinh(t)^{2} = 1
+9. forall (t), t ∈ RealSet ⇒ x(t)^{2} - y(t)^{2} = 1
+10. forall (t), t ∈ RealSet ∧ sinh(t) = frac(e^{t} - e^{-t}, 2) ∧ frac(e^{t} - e^{-t}, 2) ≥ 0 ⇒ e^{t} ≥ e^{-t} ∨ e^{2 * t} ≥ 1 ∨ t ≥ 0
+11. forall (t), t ∈ RealSet ∧ sinh(t) = frac(e^{t} - e^{-t}, 2) ∧ frac(e^{t} - e^{-t}, 2) ≥ 0 ⇒ y(t) = sqrtn(2, x(t)^{2} - 1)
+12. forall (t), t ∈ RealSet ∧ sinh(t) = frac(e^{t} - e^{-t}, 2) ∧ frac(e^{t} - e^{-t}, 2) ≥ 0 ⇒ x(t) ∈ [1, +∞)
+13. forall (t), t ∈ RealSet ∧ t ≤ 0 ⇒ y(t) = -sqrtn(2, x(t)^{2} - 1)
+
+GOAL:
+forall (t), t ∈ RealSet ∧ t ≤ 0 ⇒ x(t) ∈ [1, +∞)
+
+METHOD:

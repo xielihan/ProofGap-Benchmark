@@ -1,0 +1,9 @@
+get_condition (hypothesis 10: {1 - x + y ≠ 0}) in (GOAL: {1 - x + y ≠ 0 => arctan(frac(1 + x + y, 1 - x + y)) = arctan(frac(1 + frac(x, 1 + y), 1 - frac(x, 1 + y)))})
+assert (hypothesis 11: {1 + y ≠ 0}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 12: {frac(1 + x + y, 1 - x + y) = frac(1 + frac(x, 1 + y), 1 - frac(x, 1 + y))}) by proof {
+autosolve all_hypothesis using PolyRatSolver
+}
+rewrite (left_to_right, equation) (hypothesis 12: {frac(1 + x + y, 1 - x + y) = frac(1 + frac(x, 1 + y), 1 - frac(x, 1 + y))}); from (GOAL: {arctan(frac(1 + x + y, 1 - x + y)) = arctan(frac(1 + frac(x, 1 + y), 1 - frac(x, 1 + y)))}) to (GOAL: {arctan(frac(1 + frac(x, 1 + y), 1 - frac(x, 1 + y))) = arctan(frac(1 + frac(x, 1 + y), 1 - frac(x, 1 + y)))})
+autosolve all_hypothesis

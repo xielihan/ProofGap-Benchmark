@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. x : RealSet → RealSet ∧ FuncOfClassK(x, 4)
+2. y ∈ RealSet
+3. f : RealSet → RealSet ∧ FuncOfClassKOn(f, ImageOn(x, Dom(x)), 4)
+4. y = f(x)
+5. diff(y) = FunDeri(f, x, 1)(x) * diff(x)
+
+GOAL:
+diff^{2}(y) = FunDeri(f, x, 2)(x) * diff(x)^{2} + FunDeri(f, x, 1)(x) * diff^{2}(x)
+
+METHOD:

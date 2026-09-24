@@ -1,0 +1,21 @@
+PROOF GAP @4
+ASSUM:
+1. r ∈ RealSet ∧ r > 0
+2. R ∈ RealSet ∧ R > 0
+3. n ∈ IntegerSet ∧ n ≥ 2
+4. C ⊆ CartesianProd(RealSet, RealSet)
+5. S ∈ RealSet
+6. x : RealSet → RealSet
+7. y : RealSet → RealSet
+8. φ ∈ RealSet ∧ φ ∈ [0, 2 * π]
+9. frac(R, r) = n
+10. forall (φ), φ ∈ RealSet ∧ φ ∈ [0, 2 * π] ⇒ x(φ) = (n - 1) * r * cos(φ) + r * cos((n - 1) * φ) ∧ y(φ) = (n - 1) * r * sin(φ) - r * sin((n - 1) * φ)
+11. C = { (x(φ), y(φ)) | φ ∈ [0, 2 * π] }
+12. R = n * r
+13. forall (φ), φ ∈ RealSet ∧ φ ∈ [0, 2 * π] ⇒ x(φ) * diff(fun φ [φ ∈ RealSet ∧ φ ∈ [0, 2 * π]] . y(φ)) - y(φ) * diff(fun φ [φ ∈ RealSet ∧ φ ∈ [0, 2 * π]] . x(φ)) = r^{2} * (n - 1) * (n - 2) * (1 - cos(n * φ)) * diff(fun φ [φ ∈ RealSet ∧ φ ∈ [0, 2 * π]] . φ)
+14. S = frac(1, 2) * VectorCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x))
+
+GOAL:
+S = frac(r^{2} * (n - 1) * (n - 2), 2) * DefInt(0, 2 * π, (fun φ [φ ∈ RealSet ∧ φ ∈ [0, 2 * π]] . 1 - cos(n * φ)) * diff(fun φ [φ ∈ RealSet ∧ φ ∈ [0, 2 * π]] . φ))
+
+METHOD:

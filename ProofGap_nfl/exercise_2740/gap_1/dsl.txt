@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (y), y ∈ RealSet ∧ y > x_{0} => sum_{ n = 1 }^{ +∞ } (frac(a(n), n^{y})) = sum_{ n = 1 }^{ +∞ } (frac(a(n), n^{x_{0}}) * frac(1, n^{y - x_{0}}))}) (y := {u})
+get_condition (hypothesis 5: {u ∈ RealSet ∧ u > x_{0}}) in (GOAL: {u ∈ RealSet ∧ u > x_{0} => sum_{ n = 1 }^{ +∞ } (frac(a(n), n^{u})) = sum_{ n = 1 }^{ +∞ } (frac(a(n), n^{x_{0}}) * frac(1, n^{u - x_{0}}))})
+assert (hypothesis 6: {u - x_{0} ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 7: {u = x_{0} + (u - x_{0})}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. IsFunc(f)
+2. forall (x), x ∈ RealSet ∧ tan(x) ≥ 0 ∧ cos(x) ≠ 0 ⇒ f(x) = sqrtn(2, tan(x))
+3. forall (x), x ∈ RealSet ∧ tan(x) ≥ 0 ∧ cos(x) ≠ 0 ⇒ tan(x + π) = tan(x)
+4. forall (x), x ∈ RealSet ∧ tan(x) ≥ 0 ∧ cos(x) ≠ 0 ⇒ f(x + π) = sqrtn(2, tan(x + π)) ∧ sqrtn(2, tan(x + π)) = sqrtn(2, tan(x)) ∧ sqrtn(2, tan(x)) = f(x)
+5. PeriodicFunc(f, π)
+6. Dom(f) = { x | x ∈ RealSet, tan(x) ≥ 0 ∧ cos(x) ≠ 0 }
+
+GOAL:
+forall (T), T ∈ RealSet ∧ T > 0 ∧ PeriodicFunc(f, T) ⇒ π ≤ T
+
+METHOD:

@@ -1,0 +1,4 @@
+get_prop (hypothesis 5: {forall (x), x ∈ RealSet => f(x) = a + b * c^{x}}) (x := {0}) as (hypothesis 10: {0 ∈ RealSet => f(0) = a + b * c^{0}})
+use_condition (obvious: {0 ∈ RealSet}) in (hypothesis 10: {0 ∈ RealSet => f(0) = a + b * c^{0}}) as (hypothesis 11: {f(0) = a + b * c^{0}})
+autoreplace no_hypothesis; from (a + b * c^{0}) to (a + b); from (hypothesis 11: {f(0) = a + b * c^{0}}) to (hypothesis 12: {f(0) = a + b})
+apply (hypothesis 12: {f(0) = a + b})

@@ -1,0 +1,22 @@
+PROOF GAP @11
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet
+3. J_{0} : RealSet → RealSet
+4. t ∈ RealSet
+5. forall (x), x ∈ RealSet ⇒ J_{0}(x) = frac(1, π) * DefInt(0, π, cos(x * sin(φ)) * diff(φ))
+6. DefInt(0, +∞, e^{-a * t} * J_{0}(b * t) * diff(t)) = frac(1, π) * DefInt(0, +∞, e^{-a * t} * diff(t)) * DefInt(0, π, cos(b * t * sin(φ)) * diff(φ))
+7. forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ π ⇒ ConvergentSeries(DefInt(0, +∞, e^{-a * t} * cos(b * t * sin(φ)) * diff(t)))
+8. DefInt(0, +∞, e^{-a * t} * J_{0}(b * t) * diff(t)) = frac(1, π) * DefInt(0, π, DefInt(0, +∞, e^{-a * t} * cos(b * t * sin(φ)) * diff(t)) * diff(φ))
+9. forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ π ⇒ DefInt(0, +∞, e^{-a * t} * cos(b * t * sin(φ)) * diff(t)) = frac(a, a^{2} + b^{2} * sin(φ)^{2})
+10. DefInt(0, +∞, e^{-a * t} * J_{0}(b * t) * diff(t)) = frac(a, π) * DefInt(0, π, frac(1, a^{2} + b^{2} * sin(φ)^{2}) * diff(φ))
+11. frac(a, π) * DefInt(0, π, frac(1, a^{2} + b^{2} * sin(φ)^{2}) * diff(φ)) = frac(2 * a, π) * DefInt(0, frac(π, 2), frac(1, a^{2} + b^{2} * sin(φ)^{2}) * diff(φ))
+12. frac(2 * a, π) * DefInt(0, frac(π, 2), frac(1, a^{2} + b^{2} * sin(φ)^{2}) * diff(φ)) = frac(2 * a, π) * DefInt(0, +∞, frac(1, (a^{2} + b^{2}) * t^{2} + a^{2}) * diff(t))
+13. frac(2 * a, π) * DefInt(0, +∞, frac(1, (a^{2} + b^{2}) * t^{2} + a^{2}) * diff(t)) = ((frac(2 * a, π) * frac(1, a * sqrtn(2, a^{2} + b^{2})) * arctan(frac(sqrtn(2, a^{2} + b^{2}), a) * t))|_{0}^{+∞})
+14. ((frac(2 * a, π) * frac(1, a * sqrtn(2, a^{2} + b^{2})) * arctan(frac(sqrtn(2, a^{2} + b^{2}), a) * t))|_{0}^{+∞}) = frac(1, sqrtn(2, a^{2} + b^{2}))
+15. DefInt(0, +∞, e^{-a * t} * J_{0}(b * t) * diff(t)) = frac(1, sqrtn(2, a^{2} + b^{2}))
+
+GOAL:
+DefInt(0, +∞, e^{-a * t} * J_{0}(b * t) * diff(t)) = frac(1, sqrtn(2, a^{2} + b^{2}))
+
+METHOD:

@@ -1,0 +1,37 @@
+PROOF GAP @16
+ASSUM:
+1. S ⊆ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+2. S_{1} ⊆ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+3. S_{2} ⊆ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+4. D ⊆ CartesianProd(RealSet, RealSet)
+5. h ∈ RealSet ∧ h > 0
+6. I ∈ RealSet
+7. I_{1} ∈ RealSet
+8. I_{2} ∈ RealSet
+9. α ∈ RealSet
+10. β ∈ RealSet
+11. γ ∈ RealSet
+12. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ S = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x^{2} + y^{2} = z^{2} ∧ 0 ≤ z ∧ z ≤ h }))
+13. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ S_{1} = { (x, y, h) | x ∈ RealSet ∧ y ∈ RealSet, x^{2} + y^{2} ≤ h^{2} })
+14. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ∧ 0 < z ∧ z ≤ h ⇒ S_{2} = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x^{2} + y^{2} = z^{2} ∧ 0 < z ∧ z ≤ h }))
+15. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ D = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet, x^{2} + y^{2} ≤ h^{2} })
+16. I = VectorSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y - z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z - x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x - y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y))
+17. I_{1} = VectorSurfaceInt(S_{1}, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y - z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z - x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x - y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y))
+18. I_{1} = VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x - y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+19. forall (φ), φ ∈ RealSet ∧ φ ∈ IntervalCc(0, 2 * π) ⇒ VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x - y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = DefInt(0, 2 * π, diff(fun φ [φ ∈ RealSet] . φ)) * DefInt(0, h, (fun r [r ∈ RealSet ∧ r ∈ IntervalCc(0, h)] . r^{2} * (cos(φ) - sin(φ))) * diff(fun r [r ∈ RealSet] . r))
+20. forall (φ), φ ∈ RealSet ∧ φ ∈ IntervalCc(0, 2 * π) ⇒ DefInt(0, 2 * π, diff(fun φ [φ ∈ RealSet] . φ)) * DefInt(0, h, (fun r [r ∈ RealSet ∧ r ∈ IntervalCc(0, h)] . r^{2} * (cos(φ) - sin(φ))) * diff(fun r [r ∈ RealSet] . r)) = frac(h^{3}, 3) * DefInt(0, 2 * π, (fun φ [φ ∈ RealSet] . cos(φ) - sin(φ)) * diff(fun φ [φ ∈ RealSet] . φ))
+21. frac(h^{3}, 3) * DefInt(0, 2 * π, (fun φ [φ ∈ RealSet] . cos(φ) - sin(φ)) * diff(fun φ [φ ∈ RealSet] . φ)) = 0
+22. I_{1} = 0
+23. I_{2} = VectorSurfaceInt(S_{2}, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y - z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z - x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x - y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y))
+24. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ frac(cos(α), x) = frac(cos(β), y))
+25. forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ∧ 0 < z ∧ z ≤ h ⇒ frac(cos(β), y) = frac(cos(γ), -z))
+26. cos(γ) * diff(S) = -diff(fun `σ_xy` [`σ_xy` ∈ RealSet] . `σ_xy`)
+27. forall (x), x ∈ RealSet ⇒ (forall (z), z ∈ RealSet ∧ 0 < z ∧ z ≤ h ⇒ cos(α) * diff(S) = frac(x, z) * diff(fun `σ_xy` [`σ_xy` ∈ RealSet] . `σ_xy`))
+28. forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ∧ 0 < z ∧ z ≤ h ⇒ cos(β) * diff(S) = frac(y, z) * diff(fun `σ_xy` [`σ_xy` ∈ RealSet] . `σ_xy`))
+29. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ∧ 0 < z ∧ z ≤ h ⇒ I_{2} = ScalarSurfaceInt(S_{2}, ((y - z) * cos(α) + (z - x) * cos(β) + (x - y) * cos(γ)) * diff(S))))
+30. forall (z), z ∈ RealSet ∧ 0 < z ∧ z ≤ h ⇒ I_{2} = VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(x, z) * (y - z) + frac(y, z) * (z - x) - (x - y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+
+GOAL:
+forall (z), z ∈ RealSet ∧ 0 < z ∧ z ≤ h ⇒ VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(x, z) * (y - z) + frac(y, z) * (z - x) - (x - y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = -2 * VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x - y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+
+METHOD:

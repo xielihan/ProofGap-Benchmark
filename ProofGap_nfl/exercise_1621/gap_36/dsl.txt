@@ -1,0 +1,3 @@
+exists (`ξ_2` := {9.999})
+assert (hypothesis 39: {9.999 ∈ RealSet ∧ |9.999 - 9.999| < 0.001})
+apply (hypothesis 39: {9.999 ∈ RealSet ∧ |9.999 - 9.999| < 0.001})

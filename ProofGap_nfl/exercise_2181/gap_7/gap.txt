@@ -1,0 +1,19 @@
+PROOF GAP @7
+ASSUM:
+1. f : RealSet → RealSet
+2. S : NonNegIntegerSet → RealSet
+3. ξ : CartesianProd(NonNegIntegerSet, IntegerSet) → RealSet
+4. forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 4 ⇒ f(x) = 1 + x
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ ξ(n, i) = -1 + (i + frac(1, 2)) * frac(5, n)
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ S(n) = sum_{ i = 0 }^{ n - 1 } (f(ξ(n, i)) * frac(5, n))
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ⇒ n ∈ PosIntegerSet
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ exists (Δx), Δx ∈ RealSet ∧ Δx = frac(5, n)
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ -1 ≤ ξ(n, i) ∧ ξ(n, i) ≤ 4
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ f(ξ(n, i)) = (i + frac(1, 2)) * frac(5, n)
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ S(n) = sum_{ i = 0 }^{ n - 1 } (((i + frac(1, 2)) * frac(5, n)) * frac(5, n))
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ S(n) = frac(25, n^{2}) * sum_{ i = 0 }^{ n - 1 } (i + frac(1, 2))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (sum_{ i = 0 }^{ n - 1 } (i + frac(1, 2)) = frac(n^{2}, 2) ∧ S(n) = frac(25, 2))
+
+METHOD:

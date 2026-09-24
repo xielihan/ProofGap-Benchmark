@@ -1,0 +1,19 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. D ⊆ CartesianProd(RealSet, RealSet)
+3. S ∈ RealSet
+4. I : CartesianProd(RealSet, RealSet) → RealSet
+5. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ ((x, y) ∈ D ⇔ x > 0 ∧ y > 0 ∧ x * y ≥ a^{2} ∧ x * y ≤ 2 * a^{2} ∧ y ≥ x ∧ y ≤ 2 * x))
+6. S = VolumeInt(D, diff(fun x [x ∈ RealSet] . x) * diff(fun y [y ∈ RealSet] . y))
+7. u = x * y
+8. v = frac(y, x)
+9. { (x * y, frac(y, x)) | x ∈ RealSet, y ∈ RealSet, (x, y) ∈ D } = { (u, v) | u ∈ RealSet, v ∈ RealSet, a^{2} ≤ u, u ≤ 2 * a^{2}, 1 ≤ v, v ≤ 2 }
+10. |I(u, v)| = frac(1, 2 * v)
+11. S = DefInt(a^{2}, 2 * a^{2}, DefInt(1, 2, frac(1, 2 * v) * diff(fun v [v ∈ RealSet ∧ 1 ≤ v ∧ v ≤ 2] . v)) * diff(fun u [u ∈ RealSet ∧ a^{2} ≤ u ∧ u ≤ 2 * a^{2}] . u))
+12. S = frac(1, 2) * DefInt(a^{2}, 2 * a^{2}, diff(fun u [u ∈ RealSet ∧ a^{2} ≤ u ∧ u ≤ 2 * a^{2}] . u)) * DefInt(1, 2, frac(1, v) * diff(fun v [v ∈ RealSet ∧ 1 ≤ v ∧ v ≤ 2] . v))
+
+GOAL:
+S = frac(1, 2) * a^{2} * ln(2)
+
+METHOD:

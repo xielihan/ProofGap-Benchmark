@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+3. -sqrtn(2, frac(2, 3)) < x
+4. x < sqrtn(2, frac(2, 3))
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ∧ -sqrtn(2, frac(2, 3)) < x ∧ x < sqrtn(2, frac(2, 3)) ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, sqrtn(2, 2 - 3 * x^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ -sqrtn(2, frac(2, 3)) < x ∧ x < sqrtn(2, frac(2, 3)) ⇒ `F_3`(x) = frac(1, sqrtn(2, 3)) * arcsin(x * sqrtn(2, frac(3, 2))) + C) }
+
+METHOD:

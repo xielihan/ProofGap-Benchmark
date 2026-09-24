@@ -1,0 +1,2 @@
+1. assert (hypothesis 10: {lim_{ x -> +infty } (f(x) - (k * x + b)) = 0 => lim_{ x -> +infty } (frac(f(x), x)) = k /\ lim_{ x -> +infty } (f(x) - k * x) = b})
+2. autosolve (hypothesis 8: {lim_{ x -> +infty } (frac(f(x), x)) = k => lim_{ x -> +infty } (f(x) - k * x) = b => lim_{ x -> +infty } (f(x) - (k * x + b)) = 0}) (hypothesis 10: {lim_{ x -> +infty } (f(x) - (k * x + b)) = 0 => lim_{ x -> +infty } (frac(f(x), x)) = k /\ lim_{ x -> +infty } (f(x) - k * x) = b})

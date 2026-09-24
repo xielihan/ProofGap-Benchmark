@@ -1,0 +1,11 @@
+get_forall (GOAL: {forall (t), t : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ t(x) = sqrtn(2, x) ⇒ 0 ≤ t(x))}) (t := {g})
+get_condition (hypothesis 4: {g : RealSet → RealSet}) in (GOAL: {g : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ g(x) = sqrtn(2, x) ⇒ 0 ≤ g(x))})
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ g(x) = sqrtn(2, x) ⇒ 0 ≤ g(x)}) (x := {y})
+get_condition (hypothesis 5: {y ∈ RealSet ∧ g(y) = sqrtn(2, y)}) in (GOAL: {y ∈ RealSet ∧ g(y) = sqrtn(2, y) ⇒ 0 ≤ g(y)})
+destruct_and (hypothesis 5: {y ∈ RealSet ∧ g(y) = sqrtn(2, y)}) as (hypothesis 6: {y ∈ RealSet}) (hypothesis 7: {g(y) = sqrtn(2, y)})
+get_prop (hypothesis 2: {forall (t), t : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ t(x) = sqrtn(2, x) ⇒ 0 ≤ x)}) (t := {g}) as (hypothesis 8: {g : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ g(x) = sqrtn(2, x) ⇒ 0 ≤ x)})
+use_condition (hypothesis 4: {g : RealSet → RealSet}) in (hypothesis 8: {g : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ g(x) = sqrtn(2, x) ⇒ 0 ≤ x)}) as (hypothesis 9: {forall (x), x ∈ RealSet ∧ g(x) = sqrtn(2, x) ⇒ 0 ≤ x})
+get_prop (hypothesis 9: {forall (x), x ∈ RealSet ∧ g(x) = sqrtn(2, x) ⇒ 0 ≤ x}) (x := {y}) as (hypothesis 10: {y ∈ RealSet ∧ g(y) = sqrtn(2, y) ⇒ 0 ≤ y})
+use_condition (hypothesis 5: {y ∈ RealSet ∧ g(y) = sqrtn(2, y)}) in (hypothesis 10: {y ∈ RealSet ∧ g(y) = sqrtn(2, y) ⇒ 0 ≤ y}) as (hypothesis 11: {0 ≤ y})
+rewrite (left_to_right, equation) (hypothesis 7: {g(y) = sqrtn(2, y)}); from (GOAL: {0 ≤ g(y)}) to (GOAL: {0 ≤ sqrtn(2, y)})
+autosolve all_hypothesis

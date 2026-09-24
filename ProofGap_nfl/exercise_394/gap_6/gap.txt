@@ -1,0 +1,16 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. m_{0} ∈ RealSet
+3. M_{0} ∈ RealSet
+4. forall (x), x ∈ RealSet ∧ x ∈ [-1, 2] ⇒ f(x) = 2^{x}
+5. MonoIncFuncOn(f, [-1, 2])
+6. m_{0} = f(-1)
+7. f(-1) = frac(1, 2)
+8. m_{0} = frac(1, 2)
+9. M_{0} = f(2)
+10. M_{0} = sup(ImageOn(f, [-1, 2]))
+GOAL:
+f(2) = 4
+
+METHOD:

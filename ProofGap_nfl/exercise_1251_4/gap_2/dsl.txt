@@ -1,0 +1,8 @@
+assert (hypothesis 6: {a > 0})
+get_prop (theorem 'Thm 202. (NaturalLogarithmQuotient)': {forall (x) (y), x ∈ RealSet ⇒ y ∈ RealSet ⇒ (x > 0 ⇒ y > 0 ⇒ ln (x / y) = ln(x) - ln(y))}) (x := {a}) (y := {b}) as (hypothesis 7: {a ∈ RealSet ⇒ b ∈ RealSet ⇒ (a > 0 ⇒ b > 0 ⇒ ln (a / b) = ln(a) - ln(b))})
+use_condition (hypothesis 1: {a ∈ RealSet}) (hypothesis 2: {b ∈ RealSet}) (hypothesis 6: {a > 0}) (obvious: {b > 0}) in (hypothesis 7: {a ∈ RealSet ⇒ b ∈ RealSet ⇒ (a > 0 ⇒ b > 0 ⇒ ln (a / b) = ln(a) - ln(b))}) as (hypothesis 8: {ln(frac(a, b)) = ln(a) - ln(b)})
+get_exists (hypothesis 5: {exists (ξ), ξ ∈ RealSet ∧ 0 < b ∧ b < ξ ∧ ξ < a ∧ ln(a) - ln(b) = frac(a - b, ξ)}) (ξ := {z})
+destruct_and (hypothesis 9: {z ∈ RealSet ∧ 0 < b ∧ b < z ∧ z < a ∧ ln(a) - ln(b) = frac(a - b, z)}) as (hypothesis 10: {z ∈ RealSet}) (hypothesis 11: {0 < b}) (hypothesis 12: {b < z}) (hypothesis 13: {z < a}) (hypothesis 14: {ln(a) - ln(b) = frac(a - b, z)})
+exists (ξ := {z})
+rewrite (left_to_right, equation) (hypothesis 8: {ln(frac(a, b)) = ln(a) - ln(b)}); from (GOAL: {z ∈ RealSet ∧ b < z ∧ z < a ∧ ln(frac(a, b)) = frac(a - b, z)}) to (GOAL: {z ∈ RealSet ∧ b < z ∧ z < a ∧ ln(a) - ln(b) = frac(a - b, z)})
+autosolve all_hypothesis

@@ -1,0 +1,2 @@
+rewrite (right_to_left, equation) (hypothesis 3: {A = DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, frac(π, 2))] . ln(sin(x))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, frac(π, 2))] . x))}); from (GOAL: {DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, frac(π, 2))] . ln(sin(x))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, frac(π, 2))] . x)) = -frac(π, 2) * ln(2)}) to (GOAL: {A = -frac(π, 2) * ln(2)})
+apply (hypothesis 13: {A = -frac(π, 2) * ln(2)})

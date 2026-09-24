@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (T), T ∈ RealSet ∧ T = 0 ⇒ seqlim_{ n → +∞ } (f(x(n) + T) - f(x(n))) = 0}) (T := {U})
+get_condition (hypothesis 13: {U ∈ RealSet ∧ U = 0}) in (GOAL: {U ∈ RealSet ∧ U = 0 ⇒ seqlim_{ n → +∞ } (f(x(n) + U) - f(x(n))) = 0})
+destruct_and (hypothesis 13: {U ∈ RealSet ∧ U = 0}) as (hypothesis 14: {U ∈ RealSet}) (hypothesis 15: {U = 0})
+rewrite (left_to_right, equation) (hypothesis 15: {U = 0}); from (GOAL: {seqlim_{ n → +∞ } (f(x(n) + U) - f(x(n))) = 0}) to (GOAL: {seqlim_{ n → +∞ } (f(x(n) + 0) - f(x(n))) = 0})
+autoreplace no_hypothesis; from (f(x(n) + 0) - f(x(n))) to (0); from (GOAL: {seqlim_{ n → +∞ } (f(x(n) + 0) - f(x(n))) = 0}) to (GOAL: {seqlim_{ n → +∞ } (0) = 0})
+autosolve all_hypothesis

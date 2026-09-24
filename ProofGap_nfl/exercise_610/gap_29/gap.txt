@@ -1,0 +1,61 @@
+PROOF GAP @29
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. n ∈ NonNegIntegerSet
+4. l ∈ RealSet
+5. x ∈ RealSet
+6. F : RealSet → RealSet
+7. g : RealSet → RealSet
+8. α ∈ RealSet
+9. L ∈ RealSet
+10. ε ∈ RealSet ∧ ε > 0
+11. G ∈ RealSet ∧ G > 0
+12. X_{0} ∈ RealSet
+13. X_{1} ∈ RealSet
+14. X ∈ RealSet
+15. τ ∈ RealSet
+16. m ∈ NonNegIntegerSet
+17. n ∈ PosIntegerSet
+18. Defined(f, (a, +∞))
+19. forall (b), b ∈ RealSet ∧ b > a ⇒ BoundedFuncOn(f, IntervalLoRo(a, b))
+20. l ∈ RealSet ∨ l = +∞ ∨ l = -∞
+21. lim_{ x → +∞ } (frac(f(x + 1) - f(x), x^{n})) = l
+22. L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (X_{0}), X_{0} ∈ RealSet ∧ X_{0} ∈ PosRealSet ∧ X_{0} > α ∧ (forall (x), x ∈ RealSet ∧ x ≥ X_{0} ⇒ |frac(F(x + 1) - F(x), g(x + 1) - g(x)) - L| < frac(ε, 2))))
+23. L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ x > X_{0} + 1 ⇒ (exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ m ≤ x - X_{0} ∧ x - X_{0} < m + 1))
+24. L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ x > X_{0} + 1 ⇒ τ = x - X_{0} - m)
+25. L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ x > X_{0} + 1 ⇒ 0 ≤ τ)
+26. L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ x > X_{0} + 1 ⇒ τ < 1)
+27. L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ x > X_{0} + 1 ⇒ x = X_{0} + τ + m)
+28. L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ x > X_{0} + 1 ⇒ frac(F(x) - F(X_{0} + τ), g(x) - g(X_{0} + τ)) - L = sum_{ k = 1 }^{ m } (frac(g(X_{0} + τ + k) - g(X_{0} + τ + k - 1), g(x) - g(X_{0} + τ)) * (frac(F(X_{0} + τ + k) - F(X_{0} + τ + k - 1), g(X_{0} + τ + k) - g(X_{0} + τ + k - 1)) - L)))
+29. L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ x > X_{0} + 1 ⇒ |frac(F(x) - F(X_{0} + τ), g(x) - g(X_{0} + τ)) - L| < frac(ε, 2))
+30. L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (X_{1}), X_{1} ∈ RealSet ∧ X_{1} ∈ PosRealSet ∧ X_{1} > α ∧ (forall (x), x ∈ RealSet ∧ x > X_{1} ⇒ |frac(g(X_{0} + τ), g(x))| < frac(1, 2) ∧ |frac(F(X_{0} + τ) - L * g(X_{0} + τ), g(x))| < frac(ε, 4))))
+31. L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ X = max(X_{0} + 1, X_{1}))
+32. L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ x > X ⇒ |frac(F(x), g(x)) - L| < frac(3, 2) * frac(ε, 2) + frac(ε, 4))
+33. L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ x > X ⇒ frac(3, 2) * frac(ε, 2) + frac(ε, 4) = ε)
+34. L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ x > X ⇒ |frac(F(x), g(x)) - L| < ε)
+35. L ∈ RealSet ⇒ lim_{ x → +∞ } (frac(F(x), g(x))) = L
+36. L = +∞ ⇒ (forall (G), G ∈ RealSet ∧ G > 0 ⇒ (exists (X_{0}), X_{0} ∈ RealSet ∧ X_{0} ∈ PosRealSet ∧ X_{0} > α ∧ (forall (x), x ∈ RealSet ∧ x ≥ X_{0} ⇒ frac(F(x + 1) - F(x), g(x + 1) - g(x)) > 4 * G)))
+37. L = +∞ ⇒ (forall (G), G ∈ RealSet ∧ G > 0 ∧ x > X_{0} + 1 ⇒ (exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ m ≤ x - X_{0} ∧ x - X_{0} < m + 1))
+38. L = +∞ ⇒ (forall (G), G ∈ RealSet ∧ G > 0 ∧ x > X_{0} + 1 ⇒ τ = x - X_{0} - m)
+39. L = +∞ ⇒ (forall (G), G ∈ RealSet ∧ G > 0 ∧ x > X_{0} + 1 ⇒ frac(F(x) - F(X_{0} + τ), g(x) - g(X_{0} + τ)) > 4 * G)
+40. L = +∞ ⇒ (forall (G), G ∈ RealSet ∧ G > 0 ⇒ (exists (X_{1}), X_{1} ∈ RealSet ∧ X_{1} ∈ PosRealSet ∧ X_{1} > α ∧ (forall (x), x ∈ RealSet ∧ x > X_{1} ⇒ |frac(g(X_{0} + τ), g(x))| < frac(1, 2) ∧ |frac(F(X_{0} + τ), g(x))| < G)))
+41. L = +∞ ⇒ (forall (G), G ∈ RealSet ∧ G > 0 ⇒ X = max(X_{0} + 1, X_{1}))
+42. L = +∞ ⇒ (forall (G), G ∈ RealSet ∧ G > 0 ∧ x > X ⇒ frac(F(x), g(x)) > frac(1, 2) * 4 * G - G)
+43. L = +∞ ⇒ (forall (G), G ∈ RealSet ∧ G > 0 ∧ x > X ⇒ frac(F(x), g(x)) > G)
+44. L = +∞ ⇒ lim_{ x → +∞ } (frac(F(x), g(x))) = +∞
+45. L = -∞ ⇒ lim_{ x → +∞ } (frac(F(x), g(x))) = -∞
+46. forall (F) (g) (α) (L), F : RealSet → RealSet ∧ g : RealSet → RealSet ∧ α ∈ RealSet ∧ L ∈ RealSet ∧ Defined(F, (α, +∞)) ∧ Defined(g, (α, +∞)) ∧ (forall (b), b ∈ RealSet ∧ b > α ⇒ BoundedFuncOn(F, IntervalLoRo(α, b)) ∧ BoundedFuncOn(g, IntervalLoRo(α, b))) ∧ (forall (x), x ∈ RealSet ∧ x > α ⇒ g(x + 1) > g(x)) ∧ lim_{ x → +∞ } (g(x)) = +∞ ∧ lim_{ x → +∞ } (frac(F(x + 1) - F(x), g(x + 1) - g(x))) = L ⇒ lim_{ x → +∞ } (frac(F(x), g(x))) = L
+47. g = (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(a, +∞)] . x^{n + 1})
+48. Defined(g, (a, +∞))
+49. forall (b), b ∈ RealSet ∧ b > a ⇒ BoundedFuncOn(g, IntervalLoRo(a, b))
+50. forall (x), x ∈ RealSet ∧ x > a ⇒ g(x + 1) > g(x)
+51. lim_{ x → +∞ } (g(x)) = +∞
+52. lim_{ x → +∞ } (frac(g(x + 1) - g(x), x^{n})) = n + 1
+53. lim_{ x → +∞ } (frac(f(x + 1) - f(x), g(x + 1) - g(x))) = lim_{ x → +∞ } (frac(f(x + 1) - f(x), x^{n}) * frac(x^{n}, (x + 1)^{n + 1} - x^{n + 1}))
+54. lim_{ x → +∞ } (frac(f(x + 1) - f(x), x^{n}) * frac(x^{n}, (x + 1)^{n + 1} - x^{n + 1})) = frac(l, n + 1)
+
+GOAL:
+lim_{ x → +∞ } (frac(f(x + 1) - f(x), g(x + 1) - g(x))) = frac(l, n + 1)
+
+METHOD:

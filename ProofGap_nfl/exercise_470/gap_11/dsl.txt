@@ -1,0 +1,6 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet /\ a_{1} = -1 /\ b_{1} = frac(1, 2) => lim_{ x -> -infty } (sqrtn(2, x^{2} - x + 1) - a_{1} * x - b_{1}) = 0}) (x := {y})
+2. get_condition (hypothesis 17: {y ∈ RealSet /\ a_{1} = -1 /\ b_{1} = frac(1, 2)}) in (GOAL: {y ∈ RealSet /\ a_{1} = -1 /\ b_{1} = frac(1, 2) => lim_{ x -> -infty } (sqrtn(2, x^{2} - x + 1) - a_{1} * x - b_{1}) = 0})
+3. destruct_and (hypothesis 17: {y ∈ RealSet /\ a_{1} = -1 /\ b_{1} = frac(1, 2)}) as (hypothesis 18: {y ∈ RealSet}) (hypothesis 19: {a_{1} = -1}) (hypothesis 20: {b_{1} = frac(1, 2)})
+4. get_prop (hypothesis 5: {forall (x), x ∈ RealSet => lim_{ x -> -infty } (sqrtn(2, x^{2} - x + 1) - a_{1} * x - b_{1}) = 0}) (x := {y}) as (hypothesis 21: {y ∈ RealSet => lim_{ x -> -infty } (sqrtn(2, x^{2} - x + 1) - a_{1} * x - b_{1}) = 0})
+5. use_condition (hypothesis 18: {y ∈ RealSet}) in (hypothesis 21: {y ∈ RealSet => lim_{ x -> -infty } (sqrtn(2, x^{2} - x + 1) - a_{1} * x - b_{1}) = 0}) as (hypothesis 22: {lim_{ x -> -infty } (sqrtn(2, x^{2} - x + 1) - a_{1} * x - b_{1}) = 0})
+6. apply (hypothesis 22: {lim_{ x -> -infty } (sqrtn(2, x^{2} - x + 1) - a_{1} * x - b_{1}) = 0})

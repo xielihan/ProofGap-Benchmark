@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ x ≠ 1
+4. forall (x), x ∈ RealSet ⇒ x ≠ -3
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ 1 = frac(1, 4) * (x + 3 - (x - 1))
+
+METHOD:

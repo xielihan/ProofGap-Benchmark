@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ y(x) = x^{2}
+3. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ InverseFunc(y, y(x)) = x
+
+GOAL:
+forall (t), t ∈ RealSet ∧ t ∈ NonNegRealSet ⇒ InverseFunc(y, t) = sqrtn(2, t)
+
+METHOD:

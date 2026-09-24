@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. F : RealSet → RealSet
+4. forall (t), t ∈ RealSet ⇒ x(t) = sin(t)^{2}
+5. forall (t), t ∈ RealSet ⇒ y(t) = cos(t)^{2}
+6. forall (t), t ∈ RealSet ∧ x(t) ∈ Dom(F) ⇒ y(t) = F(x(t))
+7. forall (t), t ∈ RealSet ⇒ FunDeri(y, 1, 1)(t) = -2 * cos(t) * sin(t)
+8. forall (t), t ∈ RealSet ⇒ FunDeri(x, 1, 1)(t) = 2 * sin(t) * cos(t)
+
+GOAL:
+forall (t), t ∈ RealSet ∧ sin(t) * cos(t) ≠ 0 ⇒ FunDeri(F, x, 1)(x(t)) = frac(FunDeri(y, 1, 1)(t), FunDeri(x, 1, 1)(t))
+
+METHOD:

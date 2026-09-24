@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. a : NonNegIntegerSet → RealSet
+3. b : NonNegIntegerSet → RealSet
+4. forall (x), x ∈ RealSet ∧ -frac(π, 4) < x ∧ x < frac(π, 4) ⇒ f(x) = sec(x)
+5. ContinuousFuncOn(f, IntervalLoRo(-frac(π, 4), frac(π, 4)))
+6. EvenFunc(f)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = 0
+
+METHOD:

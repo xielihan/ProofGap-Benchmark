@@ -1,0 +1,6 @@
+1. get_condition (hypothesis 15: {a = 0}) in (GOAL: {a = 0 ⇒ (exists (y), y : NonNegIntegerSet → RealSet ∧ seqlim_{ n → +∞ } (y(n)) = 0)})
+2. exists (y := {x})
+3. get_prop (hypothesis 6: {forall (n), n ∈ NonNegIntegerSet ⇒ seqlim_{ n → +∞ } (x(n)) = a}) (n := {0}) as (hypothesis 16: {0 ∈ NonNegIntegerSet ⇒ seqlim_{ n → +∞ } (x(n)) = a})
+4. use_condition (obvious: {0 ∈ NonNegIntegerSet}) in (hypothesis 16: {0 ∈ NonNegIntegerSet ⇒ seqlim_{ n → +∞ } (x(n)) = a}) as (hypothesis 17: {seqlim_{ n → +∞ } (x(n)) = a})
+5. rewrite (left_to_right, equation) (hypothesis 15: {a = 0}); from (hypothesis 17: {seqlim_{ n → +∞ } (x(n)) = a}) to (hypothesis 17: {seqlim_{ n → +∞ } (x(n)) = 0})
+6. autosolve all_hypothesis

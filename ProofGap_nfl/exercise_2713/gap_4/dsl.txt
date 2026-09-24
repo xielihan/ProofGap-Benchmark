@@ -1,0 +1,16 @@
+get_condition (hypothesis 9: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n)))}) in (GOAL: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n))) ⇒ (forall (n) (k), n ∈ NonNegIntegerSet ∧ k ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≤ n ⇒ k * (n - k + 1) ≤ n^{2})})
+get_forall (GOAL: {forall (n) (k), n ∈ NonNegIntegerSet ∧ k ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≤ n ⇒ k * (n - k + 1) ≤ n^{2}}) (n := {n0}) (k := {k0})
+get_condition (hypothesis 10: {n0 ∈ NonNegIntegerSet ∧ k0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ k0 ∈ PosIntegerSet ∧ k0 ≤ n0}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ k0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ k0 ∈ PosIntegerSet ∧ k0 ≤ n0 ⇒ k0 * (n0 - k0 + 1) ≤ n0^{2}})
+assert (hypothesis 11: {0 < k0 ∧ k0 ≤ n0}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 12: {n0^{2} - k0 * (n0 - k0 + 1) = n0 * (n0 - k0) + k0 * (k0 - 1)}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 13: {n0 * (n0 - k0) ≥ 0}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 14: {k0 * (k0 - 1) ≥ 0}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

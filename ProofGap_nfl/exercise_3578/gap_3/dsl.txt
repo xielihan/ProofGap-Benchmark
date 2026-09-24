@@ -1,0 +1,5 @@
+get_prop (hypothesis 4: {forall (a) (b) (c), a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ⇒ a^{2} + b^{2} = c^{2}}) (a := {1}) (b := {0}) (c := {0}) as (hypothesis 6: {1 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet ⇒ 1^{2} + 0^{2} = 0^{2}})
+use_condition (obvious: {1 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet}) in (hypothesis 6: {1 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ∈ RealSet ⇒ 1^{2} + 0^{2} = 0^{2}}) as (hypothesis 7: {1^{2} + 0^{2} = 0^{2}})
+get_forall (GOAL: {forall (x) (y) (z) (a) (b) (c) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 4, 1)(x, y, z, a, b, c, λ) = -2 * (x - a) + 2 * λ * a}) (x := {x0}) (y := {y0}) (z := {z0}) (a := {a0}) (b := {b0}) (c := {c0}) (λ := {λ0})
+get_condition (hypothesis 8: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet ∧ a0 ∈ RealSet ∧ b0 ∈ RealSet ∧ c0 ∈ RealSet ∧ λ0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet ∧ a0 ∈ RealSet ∧ b0 ∈ RealSet ∧ c0 ∈ RealSet ∧ λ0 ∈ RealSet ⇒ FunDeri(F, 4, 1)(x0, y0, z0, a0, b0, c0, λ0) = -2 * (x0 - a0) + 2 * λ0 * a0})
+autosolve (hypothesis 7: {1^{2} + 0^{2} = 0^{2}})

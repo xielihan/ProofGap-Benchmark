@@ -1,0 +1,27 @@
+PROOF GAP @8
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. c ∈ RealSet ∧ c > 0
+4. x_{0} ∈ RealSet
+5. y_{0} ∈ RealSet
+6. z_{0} ∈ RealSet ∧ z_{0} ≥ 0
+7. s ∈ RealSet
+8. forall (z), z ∈ RealSet ⇒ x(z)^{2} + y(z)^{2} = c * z
+9. forall (z), z ∈ RealSet ⇒ frac(y(z), x(z)) = tan(frac(z, c))
+10. x(0) = 0
+11. y(0) = 0
+12. x(z_{0}) = x_{0}
+13. y(z_{0}) = y_{0}
+14. forall (z), z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ z_{0} ⇒ x(z) = sqrtn(2, c * z) * cos(frac(z, c))
+15. forall (z), z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ z_{0} ⇒ y(z) = sqrtn(2, c * z) * sin(frac(z, c))
+16. diff(s) = (fun z [z ∈ RealSet ∧ 0 < z ∧ z ≤ z_{0}] . sqrtn(2, (frac(sqrtn(2, c), 2 * sqrtn(2, z)) * cos(frac(z, c)) - sqrtn(2, frac(z, c)) * sin(frac(z, c)))^{2} + (frac(sqrtn(2, c), 2 * sqrtn(2, z)) * sin(frac(z, c)) - sqrtn(2, frac(z, c)) * cos(frac(z, c)))^{2} + 1)) * diff(fun z [z ∈ RealSet ∧ 0 < z ∧ z ≤ z_{0}] . z)
+17. diff(s) = (fun z [z ∈ RealSet ∧ 0 < z ∧ z ≤ z_{0}] . sqrtn(2, frac(c, 4 * z) + frac(z, c) + 1)) * diff(fun z [z ∈ RealSet ∧ 0 < z ∧ z ≤ z_{0}] . z)
+18. diff(s) = (fun z [z ∈ RealSet ∧ 0 < z ∧ z ≤ z_{0}] . frac(2 * z + c, sqrtn(2, 4 * c * z))) * diff(fun z [z ∈ RealSet ∧ 0 < z ∧ z ≤ z_{0}] . z)
+19. s = DefInt(0, z_{0}, (fun z [z ∈ RealSet ∧ 0 < z ∧ z ≤ z_{0}] . frac(2 * z + c, sqrtn(2, 4 * c * z))) * diff(fun z [z ∈ RealSet ∧ 0 < z ∧ z ≤ z_{0}] . z))
+20. s = DefInt(0, z_{0}, (fun z [z ∈ RealSet ∧ 0 < z ∧ z ≤ z_{0}] . sqrtn(2, frac(z, c))) * diff(fun z [z ∈ RealSet ∧ 0 < z ∧ z ≤ z_{0}] . z)) + DefInt(0, z_{0}, (fun z [z ∈ RealSet ∧ 0 < z ∧ z ≤ z_{0}] . frac(sqrtn(2, c), 2 * sqrtn(2, z))) * diff(fun z [z ∈ RealSet ∧ 0 < z ∧ z ≤ z_{0}] . z))
+
+GOAL:
+s = sqrtn(2, c * z_{0}) * (1 + frac(2 * z_{0}, 3 * c))
+
+METHOD:

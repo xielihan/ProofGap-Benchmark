@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. VPInt ∈ RealSet
+2. ε ∈ RealSet
+
+GOAL:
+ImageOn(VPInt, [frac(1, 2), 2], (fun x [x ∈ RealSet] . frac(1, x * ln(x))) * diff(fun x [x ∈ RealSet] . x)) = lim_{ ε → 0^+ } (DefInt(frac(1, 2), 1 - ε, (fun x [x ∈ RealSet] . frac(1, x * ln(x))) * diff(fun x [x ∈ RealSet] . x)) + DefInt(1 + ε, 2, (fun x [x ∈ RealSet] . frac(1, x * ln(x))) * diff(fun x [x ∈ RealSet] . x)))
+
+METHOD:

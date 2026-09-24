@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ⇒ f(x) = (x - 2)^{2} + 1 - x^{2} ∧ (x - 2)^{2} + 1 - x^{2} = 5 - 4 * x
+3. ContinuousFuncOn(f, [-1, 1])
+
+GOAL:
+DiffableFuncOn(f, IntervalLoRo(-1, 1))
+
+METHOD:

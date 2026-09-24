@@ -1,0 +1,23 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. h ∈ RealSet
+3. b ∈ RealSet
+4. M ∈ RealSet
+5. m ∈ RealSet
+6. k ∈ RealSet
+7. F_{z} ∈ RealSet
+8. F_{x} ∈ RealSet
+9. F_{y} ∈ RealSet
+10. V ∈ RealSet
+11. a > 0
+12. h > 0
+13. M > 0
+14. m > 0
+15. k > 0
+16. F_{x} = 0
+
+GOAL:
+F_{y} = 0
+
+METHOD:

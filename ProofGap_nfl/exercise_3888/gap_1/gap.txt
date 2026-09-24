@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. A : RealSet → RealSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = cases{ cos(x) if |x| ≤ frac(π, 2); 0 if |x| > frac(π, 2) }
+
+GOAL:
+ContinuousFunc(f)
+
+METHOD:

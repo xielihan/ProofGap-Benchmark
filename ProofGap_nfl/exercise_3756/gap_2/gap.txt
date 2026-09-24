@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. `α_0` ∈ RealSet ∧ `α_0` > 0
+2. `α_0` ∈ PosRealSet
+3. forall (α) (x), α ∈ RealSet ∧ x ∈ RealSet ∧ α ≥ `α_0` ∧ x ≥ 0 ⇒ |e^{-(α * x)} * sin(x)| ≤ e^{-(`α_0` * x)}
+
+GOAL:
+DefInt(0, +∞, e^{-(`α_0` * x)} * diff(fun x [x ∈ RealSet] . x)) = frac(1, `α_0`)
+
+METHOD:

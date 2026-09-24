@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. A : NonNegIntegerSet → RealSet
+5. B : NonNegIntegerSet → RealSet
+6. forall (x), x ∈ RealSet ∧ -π < x ∧ x < π ⇒ f(x) = cases{ a * x if -π < x ∧ x < 0; b * x if 0 < x ∧ x < π }
+7. A(0) = frac(1, π) * DefInt(-π, 0, (fun x [x ∈ RealSet] . a * x) * diff(fun x [x ∈ RealSet] . x)) + frac(1, π) * DefInt(0, π, (fun x [x ∈ RealSet] . b * x) * diff(fun x [x ∈ RealSet] . x))
+8. frac(1, π) * DefInt(-π, 0, (fun x [x ∈ RealSet] . a * x) * diff(fun x [x ∈ RealSet] . x)) + frac(1, π) * DefInt(0, π, (fun x [x ∈ RealSet] . b * x) * diff(fun x [x ∈ RealSet] . x)) = frac(b - a, 2) * π
+
+GOAL:
+A(0) = frac(b - a, 2) * π
+
+METHOD:

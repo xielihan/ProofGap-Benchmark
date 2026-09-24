@@ -1,0 +1,15 @@
+get_prop (theorem 'Thm 343. (ConvergentSequenceDefinition)': {forall (a), (ConvergentSeq(a) <==> (exists (L), L ∈ RealSet /\ seqlim_{n -> +∞}(a(n)) = L))}) (a := {s}) as (hypothesis 16: {ConvergentSeq(s) <==> (exists (L), L ∈ RealSet /\ seqlim_{n -> +∞}(s(n)) = L)})
+rewrite (left_to_right, iff) (hypothesis 16: {ConvergentSeq(s) <==> (exists (L), L ∈ RealSet /\ seqlim_{n -> +∞}(s(n)) = L)}); from (GOAL: {ConvergentSeq(s)}) to (GOAL: {exists (L), L ∈ RealSet /\ seqlim_{n -> +∞}(s(n)) = L})
+exists (L := {1})
+get_prop (theorem 'Thm 380. (ConstantSequenceLimit)': {forall (a) (c), c ∈ RealSet => ((forall (n), n ∈ NonNegIntegerSet => a(n) = c) => seqlim_{n -> +∞}(a(n)) = c)}) (a := {fun n . 1}) (c := {1}) as (hypothesis 17: {1 ∈ RealSet => ((forall (n), n ∈ NonNegIntegerSet => 1 = 1) => seqlim_{n -> +∞}(1) = 1)})
+assert (hypothesis 18: {forall (n), n ∈ NonNegIntegerSet => 1 = 1}) by proof {
+  get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet => 1 = 1}) (n := {k})
+  get_condition (hypothesis 18: {k ∈ NonNegIntegerSet}) in (GOAL: {k ∈ NonNegIntegerSet => 1 = 1})
+  autosolve all_hypothesis
+}
+use_condition (obvious: {1 ∈ RealSet}) (hypothesis 18: {forall (n), n ∈ NonNegIntegerSet => 1 = 1}) in (hypothesis 17: {1 ∈ RealSet => ((forall (n), n ∈ NonNegIntegerSet => 1 = 1) => seqlim_{n -> +∞}(1) = 1)}) as (hypothesis 19: {seqlim_{n -> +∞}(1) = 1})
+assert (hypothesis 20: {seqlim_{n -> +∞}(s(n)) = 1}) by proof {
+  rewrite_in limit (left_to_right, equation) (hypothesis 15: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet => s(n) = 1}); from (GOAL: {seqlim_{n -> +∞}(s(n)) = 1}) to (GOAL: {seqlim_{n -> +∞}(1) = 1})
+  apply (hypothesis 19: {seqlim_{n -> +∞}(1) = 1})
+}
+autosolve (hypothesis 20: {seqlim_{n -> +∞}(s(n)) = 1})

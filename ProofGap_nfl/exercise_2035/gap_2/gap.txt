@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet
+2. forall (x), x ∈ RealSet ⇒ cos(2 * x) ≠ 0
+3. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, sin(x)^{4} + cos(x)^{4}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(2, 2 - sin(2 * x)^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+GOAL:
+{ `F_4` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(2, 2 - sin(2 * x)^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(1, 2 * sec(2 * x)^{2} - tan(2 * x)^{2}) * FunDeri(fun x [x ∈ RealSet] . tan(2 * x), 1, 1)(x) }
+
+METHOD:

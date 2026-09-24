@@ -1,0 +1,19 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. p ∈ NonNegIntegerSet
+3. q ∈ NonNegIntegerSet
+4. a ∈ RealSet
+5. b ∈ RealSet
+6. a < b
+7. Defined(f, [a, b])
+8. ContinuousFuncOn(FunDeri(f, 1, p + q), [a, b])
+9. DiffableFuncOn(FunDeri(f, 1, p + q), IntervalLoRo(a, b))
+10. forall (i), i ∈ NonNegIntegerSet ∧ i ≤ p ⇒ FunDeri(f, 1, i)(a) = 0
+11. forall (j), j ∈ NonNegIntegerSet ∧ j ≤ q ⇒ FunDeri(f, 1, j)(b) = 0
+
+GOAL:
+p = q ⇒ (exists (x_{1}), x_{1} ∈ RealSet ∧ x_{1} ∈ IntervalLoRo(a, b) ∧ FunDeri(f, 1, 1)(x_{1}) = 0)
+
+METHOD:
+[@method 根据 "罗尔定理" @]

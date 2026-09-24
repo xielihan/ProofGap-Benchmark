@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. forall (x), x ∈ RealSet
+2. forall (y), y ∈ RealSet
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} ≠ 0 ∧ x ≠ 0 ∧ y ≠ 0 ⇒ 0 ≤ frac(x^{2} + y^{2}, x^{4} + y^{4})
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} ≠ 0 ∧ x ≠ 0 ∧ y ≠ 0 ⇒ frac(x^{2} + y^{2}, x^{4} + y^{4}) ≤ frac(x^{2} + y^{2}, 2 * x^{2} * y^{2})
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} ≠ 0 ∧ x ≠ 0 ∧ y ≠ 0 ⇒ frac(x^{2} + y^{2}, 2 * x^{2} * y^{2}) = frac(1, 2) * (frac(1, x^{2}) + frac(1, y^{2}))
+
+METHOD:

@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. z : CartesianProd(RealSet, RealSet) → RealSet
+3. ρ : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+4. M ∈ RealSet
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = frac(1, 2) * (x^{2} + y^{2})
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ 0 ≤ z(x, y) ∧ z(x, y) ≤ 1
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ ρ(x, y, z(x, y)) = z(x, y)
+
+GOAL:
+M = ScalarSurfaceInt(S, ρ * diff(S))
+
+METHOD:

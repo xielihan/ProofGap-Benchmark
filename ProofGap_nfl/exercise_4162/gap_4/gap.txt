@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. p ∈ RealSet ∧ p > 0
+2. q ∈ RealSet ∧ q > 0
+3. I ∈ RealSet
+4. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ I = DefInt(-∞, +∞, DefInt(-∞, +∞, frac(1, (1 + |x|^{p}) * (1 + |y|^{q})) * diff(fun x [x ∈ RealSet] . x) * diff(fun y [y ∈ RealSet] . y))))
+5. forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ (forall (y), y ∈ RealSet ∧ y ≥ 0 ⇒ I = 4 * DefInt(0, +∞, DefInt(0, +∞, frac(1, (1 + x^{p}) * (1 + y^{q})) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x) * diff(fun y [y ∈ RealSet ∧ y ≥ 0] . y))))
+6. forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ (forall (y), y ∈ RealSet ∧ y ≥ 0 ⇒ I = 4 * DefInt(0, +∞, frac(1, 1 + x^{p}) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)) * DefInt(0, +∞, frac(1, 1 + y^{q}) * diff(fun y [y ∈ RealSet ∧ y ≥ 0] . y)))
+7. lim_{ x → +∞ } (x^{p} * frac(1, 1 + x^{p})) = 1
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≥ 0 ∧ p > 1 ⇒ DefInt(0, +∞, frac(1, 1 + x^{p}) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)) < +∞
+
+METHOD:

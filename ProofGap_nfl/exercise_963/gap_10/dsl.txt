@@ -1,0 +1,3 @@
+get_prop (hypothesis 2: {forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x) = x^{frac(1, x)}}) (x := {e}) as (hypothesis 12: {e ∈ RealSet ∧ e > 0 ⇒ y(e) = e^{frac(1, e)}})
+use_condition (obvious: {e ∈ RealSet ∧ e > 0}) in (hypothesis 12: {e ∈ RealSet ∧ e > 0 ⇒ y(e) = e^{frac(1, e)}}) as (hypothesis 13: {y(e) = e^{frac(1, e)}})
+autosolve (hypothesis 13: {y(e) = e^{frac(1, e)}})

@@ -1,0 +1,22 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. F : RealSet → RealSet
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. c : NonNegIntegerSet → RealSet
+6. p ∈ NonNegIntegerSet ∧ p > 0
+7. a < b
+8. p ∈ PosIntegerSet
+9. IntegrableFuncOn(f, [a, b])
+10. c(0) = a
+11. c(p + 1) = b
+12. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ p ⇒ a < c(i) ∧ c(i) < b
+13. forall (i), i ∈ NonNegIntegerSet ∧ i ≤ p ⇒ c(i) < c(i + 1)
+14. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ p ⇒ x ≠ c(i)) ∧ x ≠ a ∧ x ≠ b ⇒ FunDeri(F, 1, 1)(x) = f(x)
+15. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ p ⇒ JumpSingularPoint(F, c(i))
+
+GOAL:
+DefInt(a, b, (fun x [x ∈ RealSet] . f(x)) * diff(fun x [x ∈ RealSet] . x)) = lim_{ η → 0^+ } (sum_{ i = 0 }^{ p } (DefInt(c(i) + η, c(i + 1) - η, (fun x [x ∈ RealSet] . f(x)) * diff(fun x [x ∈ RealSet] . x))))
+
+METHOD:

@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. h ∈ RealSet
+4. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+5. forall (x), x ∈ RealSet ⇒ f(x) = e^{x^{2}}
+6. f(x + h) - f(x) = e^{(x + h)^{2}} - e^{x^{2}}
+
+GOAL:
+e^{(x + h)^{2}} - e^{x^{2}} = e^{x^{2}} * (e^{2 * x * h + h^{2}} - 1)
+
+METHOD:

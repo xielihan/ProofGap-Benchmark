@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. a > 0
+4. forall (x), x ∈ RealSet ⇒ f(x) = a^{x} + a^{-x}
+5. forall (x), x ∈ RealSet ⇒ f(-x) = a^{-x} + a^{x}
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ f(-x) = f(x)
+
+METHOD:

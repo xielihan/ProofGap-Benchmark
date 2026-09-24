@@ -1,0 +1,15 @@
+PROOF GAP @6
+ASSUM:
+1. φ = (fun x [x ∈ RealSet] . sqrtn(3, 1 + x) - 1)
+2. ψ = (fun x [x ∈ RealSet] . frac(x, 3))
+3. α = (fun k, n [k ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ n > 0] . frac(k, n^{2}))
+4. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ frac(φ(x), ψ(x)) = frac(3, sqrtn(3, (1 + x)^{2}) + sqrtn(3, 1 + x) + 1)
+5. lim_{ x → 0 } (frac(φ(x), ψ(x))) = 1
+6. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N) (ε), N ∈ NonNegIntegerSet ∧ N(ε) ∈ PosIntegerSet ∧ (forall (n) (k), n ∈ NonNegIntegerSet ∧ k ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ k ∈ PosIntegerSet ∧ n > N(ε) ∧ 1 ≤ k ∧ k ≤ n ⇒ |α(k, n)| < ε))
+7. seqlim_{ n → +∞ } (sum_{ k = 1 }^{ n } (ψ(α(k, n)))) = seqlim_{ n → +∞ } (sum_{ k = 1 }^{ n } (frac(k, 3 * n^{2})))
+8. seqlim_{ n → +∞ } (sum_{ k = 1 }^{ n } (frac(k, 3 * n^{2}))) = frac(1, 6) * (seqlim_{ n → +∞ } (frac(n * (n + 1), n^{2})))
+
+GOAL:
+frac(1, 6) * (seqlim_{ n → +∞ } (frac(n * (n + 1), n^{2}))) = frac(1, 6)
+
+METHOD:

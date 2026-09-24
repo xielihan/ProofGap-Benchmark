@@ -1,0 +1,8 @@
+1. get_forall (GOAL: {forall (ε), ε ∈ RealSet /\ ε > 0 => exists (δ), δ ∈ RealSet /\ δ > 0}) (ε := {e0})
+2. get_condition (hypothesis 9: {e0 ∈ RealSet /\ e0 > 0}) in (GOAL: {(e0 ∈ RealSet /\ e0 > 0) => exists (δ), δ ∈ RealSet /\ δ > 0})
+3. get_prop (hypothesis 8: {forall (ε), ε ∈ RealSet /\ ε > 0 => exists (δ), δ ∈ RealSet /\ δ > 0 /\ δ = frac(ε, 2)}) (ε := {e0}) as (hypothesis 10: {(e0 ∈ RealSet /\ e0 > 0) => exists (δ), δ ∈ RealSet /\ δ > 0 /\ δ = frac(e0, 2)})
+4. use_condition (hypothesis 9: {e0 ∈ RealSet /\ e0 > 0}) in (hypothesis 10: {(e0 ∈ RealSet /\ e0 > 0) => exists (δ), δ ∈ RealSet /\ δ > 0 /\ δ = frac(e0, 2)}) as (hypothesis 11: {exists (δ), δ ∈ RealSet /\ δ > 0 /\ δ = frac(e0, 2)})
+5. get_exists (hypothesis 11: {exists (δ), δ ∈ RealSet /\ δ > 0 /\ δ = frac(e0, 2)}) (δ := {d0})
+6. destruct_and (hypothesis 12: {d0 ∈ RealSet /\ d0 > 0 /\ d0 = frac(e0, 2)}) as (hypothesis 13: {d0 ∈ RealSet}) (hypothesis 14: {d0 > 0}) (hypothesis 15: {d0 = frac(e0, 2)})
+7. exists (δ := {d0})
+8. autosolve all_hypothesis

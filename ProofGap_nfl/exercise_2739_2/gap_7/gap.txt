@@ -1,0 +1,17 @@
+PROOF GAP @7
+ASSUM:
+1. x ∈ RealSet
+2. p ∈ RealSet
+3. t ∈ RealSet
+4. t = -(1 + x)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ prod_{ k = 0 }^{ n - 1 } (x - k) = -(-1)^{n - 1} * (prod_{ k = 1 }^{ n } (k + t))
+6. sum_{ n = 1 }^{ +∞ } (frac(1, n^{p}) * frac(prod_{ k = 0 }^{ n - 1 } (x - k), n!)) = -(sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(prod_{ k = 1 }^{ n } (k + t), n! * n^{p})))
+7. p > t + 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{p}) * frac(prod_{ k = 0 }^{ n - 1 } (x - k), n!)))
+8. p > -x ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{p}) * frac(prod_{ k = 0 }^{ n - 1 } (x - k), n!)))
+9. x ∈ NonNegIntegerSet ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{p}) * frac(prod_{ k = 0 }^{ n - 1 } (x - k), n!)))
+10. t < p ∧ p ≤ t + 1 ⇒ ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{p}) * frac(prod_{ k = 0 }^{ n - 1 } (x - k), n!)))
+
+GOAL:
+-(1 + x) < p ∧ p ≤ -x ∧ x ∉ NonNegIntegerSet ⇒ ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{p}) * frac(prod_{ k = 0 }^{ n - 1 } (x - k), n!)))
+
+METHOD:

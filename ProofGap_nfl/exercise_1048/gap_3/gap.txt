@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ x^{2} + 2 * x * y(x) - y(x)^{2} = 2 * x
+3. forall (x), x ∈ RealSet ⇒ 2 * x + 2 * x * FunDeri(y, 1, 1)(x) + 2 * y(x) - 2 * y(x) * FunDeri(y, 1, 1)(x) = 2
+4. forall (x), x ∈ RealSet ∧ x ≠ y(x) ⇒ FunDeri(y, 1, 1)(x) = frac(1 - x - y(x), x - y(x))
+5. y(2) = 4
+GOAL:
+FunDeri(y, 1, 1)(2) = frac(5, 2)
+
+METHOD:

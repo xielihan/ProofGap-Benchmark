@@ -1,0 +1,1 @@
+apply (hypothesis 10: {(sum_{ k = 1 }^{ n } (a(k) * b(k)))^{2} ≤ (sum_{ k = 1 }^{ n } (a(k)^{2})) * (sum_{ k = 1 }^{ n } (b(k)^{2}))})

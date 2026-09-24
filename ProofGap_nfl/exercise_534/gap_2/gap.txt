@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. lim_{ x → +∞ } (log(10, frac(100 + x^{2}, 1 + 100 * x^{2}))) = log(10, 10 ^ (-2))
+
+GOAL:
+log(10, 10 ^ (-2)) = -2
+
+METHOD:

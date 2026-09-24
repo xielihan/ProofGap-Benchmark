@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 19: {A = DefInt(1, +∞, (fun x [x ∈ RealSet] . -frac(1, x^{2} + 1)) * diff(fun x [x ∈ RealSet] . x))}); from (GOAL: {A = -frac(π, 4)}) to (GOAL: {DefInt(1, +∞, (fun x [x ∈ RealSet] . -frac(1, x^{2} + 1)) * diff(fun x [x ∈ RealSet] . x)) = -frac(π, 4)})
+autosolve (hypothesis 20: {DefInt(1, +∞, (fun x [x ∈ RealSet] . -frac(1, x^{2} + 1)) * diff(fun x [x ∈ RealSet] . x)) = -frac(π, 4)})

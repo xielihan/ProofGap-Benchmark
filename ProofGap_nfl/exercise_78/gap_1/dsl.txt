@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≤ 10 ⇒ frac(n + 9, 2 * n - 1) ≥ 1}) (n := {n0})
+get_condition (hypothesis 4: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 ≤ 10}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 ≤ 10 ⇒ frac(n0 + 9, 2 * n0 - 1) ≥ 1})
+destruct_and (hypothesis 4: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 ≤ 10}) as (hypothesis 5: {n0 ∈ NonNegIntegerSet}) (hypothesis 6: {n0 ∈ PosIntegerSet}) (hypothesis 7: {n0 ≤ 10})
+autosolve (hypothesis 6: {n0 ∈ PosIntegerSet}) (hypothesis 7: {n0 ≤ 10})

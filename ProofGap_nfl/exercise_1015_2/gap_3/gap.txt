@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. f = (fun x [x ∈ RealSet] . |x|)
+2. g = (fun x [x ∈ RealSet] . |x|)
+3. F = (fun x [x ∈ RealSet] . f(x) * g(x))
+4. (fun x [x ∈ RealSet] . f(x) * g(x)) = (fun x [x ∈ RealSet] . |x|^{2})
+5. ¬DiffableFuncAt(f, 0)
+6. ¬DiffableFuncAt(g, 0)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ F(x) = x^{2}
+
+METHOD:

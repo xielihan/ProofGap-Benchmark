@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. m ∈ RealSet
+3. n ∈ RealSet
+4. m > 0
+5. n > 0
+6. a ≥ 0
+7. f = (fun x [x ∈ RealSet] . x^{m} * (a - x)^{n})
+
+GOAL:
+ContinuousFuncOn(f, [0, a])
+
+METHOD:

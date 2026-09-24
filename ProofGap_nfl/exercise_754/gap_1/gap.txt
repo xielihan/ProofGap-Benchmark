@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+
+GOAL:
+forall (f), f : RealSet → RealSet ⇒ (forall (A), IsSet(A) ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ IsSet(A) ∧ x_{0} ∈ A ∧ BoundedFuncOn(f, A) ∧ MonoIncFuncOn(f, A) ∧ ¬ContinuousFuncAt(f, x_{0}) ∧ ¬x_{0} = inf(A) ⇒ (forall (x), x ∈ RealSet ∧ x ∈ A ∧ x < x_{0} ⇒ f(x) ≤ f(x_{0}))))
+
+METHOD:

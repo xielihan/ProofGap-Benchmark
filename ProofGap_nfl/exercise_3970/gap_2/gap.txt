@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. Ω ⊆ CartesianProd(RealSet, RealSet)
+2. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ Ω = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet, x > 0 ∧ y > 0 ∧ x * y ≥ 1 ∧ x + y ≤ frac(5, 2) })
+3. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ Ω = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet, frac(1, 2) ≤ x ∧ x ≤ 2 ∧ frac(1, x) ≤ y ∧ y ≤ frac(5, 2) - x })
+
+GOAL:
+VolumeInt(Ω, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x * y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = DefInt(frac(1, 2), 2, (fun x [x ∈ RealSet] . x * DefInt(frac(1, x), frac(5, 2) - x, (fun y [y ∈ RealSet] . y) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

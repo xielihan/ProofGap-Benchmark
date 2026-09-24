@@ -1,0 +1,5 @@
+1. rewrite_in sum (left_to_right, equation) (hypothesis 6: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet => b(n) = frac(1, n^2)}); from (GOAL: {ConvergentSeries(sum_{ n = 1 }^{ +infty } (b(n)))}) to (GOAL: {ConvergentSeries(sum_{ n = 1 }^{ +infty } (frac(1, n^2)))})
+2. autoreplace no_hypothesis; from (frac(1, n^2)) to (1 / n^2); from (GOAL: {ConvergentSeries(sum_{ n = 1 }^{ +infty } (frac(1, n^2)))}) to (GOAL: {ConvergentSeries(sum_{ n = 1 }^{ +infty } (1 / n^2))})
+3. get_prop (theorem 'Thm 366. (PSeriesConvergesForExponentAboveOne)': {forall (p), p ∈ RealSet => p > 1 => ConvergentSeries(sum_{n = 1}^{+infty}(1 / n ^ p))}) (p := {2}) as (hypothesis 8: {2 ∈ RealSet => 2 > 1 => ConvergentSeries(sum_{n = 1}^{+infty}(1 / n ^ 2))})
+4. use_condition (obvious: {2 ∈ RealSet}) (obvious: {2 > 1}) in (hypothesis 8: {2 ∈ RealSet => 2 > 1 => ConvergentSeries(sum_{n = 1}^{+infty}(1 / n ^ 2))}) as (hypothesis 9: {ConvergentSeries(sum_{n = 1}^{+infty}(1 / n ^ 2))})
+5. apply (hypothesis 9: {ConvergentSeries(sum_{n = 1}^{+infty}(1 / n ^ 2))})

@@ -1,0 +1,7 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ frac(x + |x|, 2) ^ 2 + frac(x - |x|, 2) ^ 2 = frac(1, 2) * x ^ 2 + frac(1, 2) * x * |x| + frac(1, 2) * x ^ 2 - frac(1, 2) * x * |x|}) (x := {y})
+2. get_condition (hypothesis 1: {y ∈ RealSet}) in (GOAL: {y ∈ RealSet ⇒ frac(y + |y|, 2) ^ 2 + frac(y - |y|, 2) ^ 2 = frac(1, 2) * y ^ 2 + frac(1, 2) * y * |y| + frac(1, 2) * y ^ 2 - frac(1, 2) * y * |y|})
+3. get_prop (theorem 'Thm 377. (AbsoluteValueSquared)': {forall (x), x ∈ RealSet => (|x| ^ 2 = x ^ 2)}) (x := {y}) as (hypothesis 2: {y ∈ RealSet => (|y| ^ 2 = y ^ 2)})
+4. use_condition (hypothesis 1: {y ∈ RealSet}) in (hypothesis 2: {y ∈ RealSet => (|y| ^ 2 = y ^ 2)}) as (hypothesis 3: {|y| ^ 2 = y ^ 2})
+5. autoreplace no_hypothesis; from (frac(y + |y|, 2) ^ 2 + frac(y - |y|, 2) ^ 2) to (frac(1, 2) * y ^ 2 + frac(1, 2) * |y| ^ 2); from (GOAL: {frac(y + |y|, 2) ^ 2 + frac(y - |y|, 2) ^ 2 = frac(1, 2) * y ^ 2 + frac(1, 2) * y * |y| + frac(1, 2) * y ^ 2 - frac(1, 2) * y * |y|}) to (GOAL: {frac(1, 2) * y ^ 2 + frac(1, 2) * |y| ^ 2 = frac(1, 2) * y ^ 2 + frac(1, 2) * y * |y| + frac(1, 2) * y ^ 2 - frac(1, 2) * y * |y|})
+6. rewrite (left_to_right, equation) (hypothesis 3: {|y| ^ 2 = y ^ 2}); from (GOAL: {frac(1, 2) * y ^ 2 + frac(1, 2) * |y| ^ 2 = frac(1, 2) * y ^ 2 + frac(1, 2) * y * |y| + frac(1, 2) * y ^ 2 - frac(1, 2) * y * |y|}) to (GOAL: {frac(1, 2) * y ^ 2 + frac(1, 2) * y ^ 2 = frac(1, 2) * y ^ 2 + frac(1, 2) * y * |y| + frac(1, 2) * y ^ 2 - frac(1, 2) * y * |y|})
+7. autosolve all_hypothesis

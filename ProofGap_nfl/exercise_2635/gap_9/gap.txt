@@ -1,0 +1,15 @@
+PROOF GAP @9
+ASSUM:
+1. seqlim_{ n → +∞ } (frac(ln(sin(frac(1, n))), ln(frac(1, n)))) = 1
+2. (frac(1, ln(sin(frac(1, n)))^{2})) ∼_{ n → +∞ } (frac(1, ln(frac(1, n))^{2}))
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > 1 ⇒ frac(1, ln(frac(1, n))^{2}) = frac(1, ln(n)^{2})
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > 1 ⇒ 0 < ln(n) ∧ ln(n) < sqrtn(2, n)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > 1 ⇒ frac(1, ln(n)^{2}) > frac(1, n)
+6. DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n)))
+7. DivergentSeries(sum_{ n = 2 }^{ +∞ } (frac(1, ln(n)^{2})))
+8. DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, ln(sin(frac(1, n)))^{2})))
+
+GOAL:
+DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, ln(sin(frac(1, n)))^{2})))
+
+METHOD:

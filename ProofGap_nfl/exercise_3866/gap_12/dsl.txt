@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 19: {(fun u [u ∈ RealSet] . Gamma(u) * Gamma(1 - u)) = (fun u [u ∈ RealSet] . frac(π, sin(u * π)))}); from (GOAL: {-FunDeri(fun p [p ∈ RealSet] . Gamma(p) * Gamma(1 - p), 1, 1)(p) = -FunDeri(fun p [p ∈ RealSet] . frac(π, sin(p * π)), 1, 1)(p)}) to (GOAL: {-FunDeri(fun p [p ∈ RealSet] . frac(π, sin(p * π)), 1, 1)(p) = -FunDeri(fun p [p ∈ RealSet] . frac(π, sin(p * π)), 1, 1)(p)})
+autosolve all_hypothesis

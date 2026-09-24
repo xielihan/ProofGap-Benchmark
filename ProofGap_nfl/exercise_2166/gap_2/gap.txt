@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+3. |x| = sgn(x) * x
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ |x| * diff(fun x [x ∈ RealSet] . x) = sgn(x) * x * diff(fun x [x ∈ RealSet] . x)
+
+METHOD:

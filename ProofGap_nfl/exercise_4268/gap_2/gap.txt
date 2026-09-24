@@ -1,0 +1,17 @@
+PROOF GAP @2
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. P : CartesianProd(RealSet, RealSet) → RealSet
+3. Q : CartesianProd(RealSet, RealSet) → RealSet
+4. Ω ⊆ CartesianProd(RealSet, RealSet)
+5. u : CartesianProd(RealSet, RealSet) → RealSet
+6. P = (fun x, y [x ∈ RealSet ∧ x ≠ 0 ∧ y ∈ RealSet] . 1 - frac(y^{2}, x^{2}) * cos(frac(y, x)))
+7. Q = (fun x, y [x ∈ RealSet ∧ x ≠ 0 ∧ y ∈ RealSet] . sin(frac(y, x)) + frac(y, x) * cos(frac(y, x)))
+8. forall (z), z ∈ CartesianProd(RealSet, RealSet) ⇒ (z ∈ Ω ⇔ (exists (x), x ∈ RealSet ∧ x > 0 ∧ (exists (y), y ∈ RealSet ∧ z = (x, y))))
+9. C ⊆ Ω
+10. forall (x), x ∈ RealSet ∧ x > 0 ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(P, 2, 1)(x, y) = -frac(2 * y, x^{2}) * cos(frac(y, x)) + frac(y^{2}, x^{3}) * sin(frac(y, x)))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(Q, 1, 1)(x, y) = -frac(2 * y, x^{2}) * cos(frac(y, x)) + frac(y^{2}, x^{3}) * sin(frac(y, x)))
+
+METHOD:

@@ -1,0 +1,2 @@
+1. get_prop (theorem 'Thm 370. (SineAtIntegerPi)': {forall (n), n ∈ IntegerSet => sin(n * π) = 0}) as (hypothesis 4: {forall (n), n ∈ IntegerSet => sin(n * π) = 0})
+2. apply (hypothesis 4: {forall (n), n ∈ IntegerSet => sin(n * π) = 0})

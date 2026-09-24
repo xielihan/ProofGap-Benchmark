@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. a ≥ 0 ⇒ (forall (x), x ∈ RealSet ∧ x ≥ a ⇒ frac(e^{-a * x}, 1 + x^{2}) ≤ frac(1, 1 + x^{2}))
+
+GOAL:
+a ≥ 0 ⇒ DefInt(a, +∞, (fun x [x ∈ RealSet] . frac(1, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x)) = ((fun x [x ∈ RealSet] . arctan(x))|_{a}^{+∞})
+
+METHOD:

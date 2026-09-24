@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. DefInt(0, π, (fun x [x ∈ RealSet] . x * sin(x)) * diff(fun x [x ∈ RealSet] . x)) = -((fun x [x ∈ RealSet] . x * cos(x))|_{0}^{π}) + DefInt(0, π, (fun x [x ∈ RealSet] . cos(x)) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+DefInt(0, π, (fun x [x ∈ RealSet] . x * sin(x)) * diff(fun x [x ∈ RealSet] . x)) = π
+
+METHOD:

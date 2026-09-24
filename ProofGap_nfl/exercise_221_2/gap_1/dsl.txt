@@ -1,0 +1,6 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ f(x) = a * (x + frac(b, 2 * a))^{2} + frac(4 * a * c - b^{2}, 4 * a)}) (x := {u})
+2. get_condition (hypothesis 7: {u ∈ RealSet}) in (GOAL: {u ∈ RealSet ⇒ f(u) = a * (u + frac(b, 2 * a))^{2} + frac(4 * a * c - b^{2}, 4 * a)})
+3. get_prop (hypothesis 6: {forall (x), x ∈ RealSet ⇒ f(x) = a * x^{2} + b * x + c}) (x := {u}) as (hypothesis 8: {u ∈ RealSet ⇒ f(u) = a * u^{2} + b * u + c})
+4. use_condition (hypothesis 7: {u ∈ RealSet}) in (hypothesis 8: {u ∈ RealSet ⇒ f(u) = a * u^{2} + b * u + c}) as (hypothesis 9: {f(u) = a * u^{2} + b * u + c})
+5. rewrite (left_to_right, equation) (hypothesis 9: {f(u) = a * u^{2} + b * u + c}); from (GOAL: {f(u) = a * (u + frac(b, 2 * a))^{2} + frac(4 * a * c - b^{2}, 4 * a)}) to (GOAL: {a * u^{2} + b * u + c = a * (u + frac(b, 2 * a))^{2} + frac(4 * a * c - b^{2}, 4 * a)})
+6. autosolve all_hypothesis

@@ -1,0 +1,12 @@
+destruct_and (hypothesis 3: {x ∈ RealSet /\ x ≠ 0}) as (hypothesis 10: {x ∈ RealSet}) (hypothesis 11: {x ≠ 0})
+assert (hypothesis 12: {(x + h) ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 13: {(x + h) ∈ RealSet /\ x + h ≠ 0}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (hypothesis 8: {forall (x), x ∈ RealSet /\ x ≠ 0 ⇒ f(x) = e^{frac(a, x)}}) (x := {x}) as (hypothesis 14: {x ∈ RealSet /\ x ≠ 0 ⇒ f(x) = e^{frac(a, x)}})
+use_condition (hypothesis 3: {x ∈ RealSet /\ x ≠ 0}) in (hypothesis 14: {x ∈ RealSet /\ x ≠ 0 ⇒ f(x) = e^{frac(a, x)}}) as (hypothesis 15: {f(x) = e^{frac(a, x)}})
+get_prop (hypothesis 8: {forall (x), x ∈ RealSet /\ x ≠ 0 ⇒ f(x) = e^{frac(a, x)}}) (x := {x + h}) as (hypothesis 16: {(x + h) ∈ RealSet /\ x + h ≠ 0 ⇒ f(x + h) = e^{frac(a, x + h)}})
+use_condition (hypothesis 13: {(x + h) ∈ RealSet /\ x + h ≠ 0}) in (hypothesis 16: {(x + h) ∈ RealSet /\ x + h ≠ 0 ⇒ f(x + h) = e^{frac(a, x + h)}}) as (hypothesis 17: {f(x + h) = e^{frac(a, x + h)}})
+autosolve all_hypothesis

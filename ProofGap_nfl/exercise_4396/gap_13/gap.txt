@@ -1,0 +1,35 @@
+PROOF GAP @13
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. V ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+4. x ∈ RealSet
+5. y ∈ RealSet
+6. z ∈ RealSet
+7. ξ ∈ RealSet
+8. η ∈ RealSet
+9. ζ ∈ RealSet
+10. r ∈ RealSet ∧ r ≥ 0
+11. n ∈ NonNegIntegerSet ∧ 1 ≤ n ∧ n ≤ 3
+12. (x, y, z) ∈ V
+13. (ξ, η, ζ) ∈ S
+14. r = sqrtn(2, (ξ - x)^{2} + (η - y)^{2} + (ζ - z)^{2})
+15. forall (ξ) (η) (ζ), ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet ∧ (ξ, η, ζ) ∈ V ⇒ FunDeri(u, 1, 2)(ξ, η, ζ) + FunDeri(u, 2, 2)(ξ, η, ζ) + FunDeri(u, 3, 2)(ξ, η, ζ) = 0
+16. v = (fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(1, r))
+17. forall (ξ) (η) (ζ), ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet ∧ (ξ, η, ζ) ≠ (x, y, z) ⇒ FunDeri(v, 1, 2)(ξ, η, ζ) + FunDeri(v, 2, 2)(ξ, η, ζ) + FunDeri(v, 3, 2)(ξ, η, ζ) = 0
+18. forall (ρ), ρ ∈ RealSet ∧ ρ > 0 ∧ S(ρ) = { (ξ, η, ζ) | r = ρ } ⇒ ScalarSurfaceInt(S ∪ S(ρ), (fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(1, r) * FunDeri(u, n, 1)(ξ, η, ζ) - u(ξ, η, ζ) * FunDeri(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(1, r), n, 1)(ξ, η, ζ)) * diff(S)) = 0
+19. forall (ρ), ρ ∈ RealSet ∧ ρ > 0 ∧ S(ρ) = { (ξ, η, ζ) | r = ρ } ⇒ ScalarSurfaceInt(S(ρ), (fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(1, r) * FunDeri(u, n, 1)(ξ, η, ζ) - u(ξ, η, ζ) * FunDeri(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(1, r), n, 1)(ξ, η, ζ)) * diff(S)) = -ScalarSurfaceInt(S, (fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(1, r) * FunDeri(u, n, 1)(ξ, η, ζ) - u(ξ, η, ζ) * FunDeri(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(1, r), n, 1)(ξ, η, ζ)) * diff(S))
+20. forall (ρ), ρ ∈ RealSet ∧ ρ > 0 ∧ S(ρ) = { (ξ, η, ζ) | r = ρ } ∧ r = ρ ⇒ FunDeri(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(1, r), n, 1)(ξ, η, ζ) = frac(1, ρ^{2})
+21. forall (ρ), ρ ∈ RealSet ∧ ρ > 0 ∧ S(ρ) = { (ξ, η, ζ) | r = ρ } ⇒ ScalarSurfaceInt(S(ρ), (fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(1, ρ) * FunDeri(u, n, 1)(ξ, η, ζ) - frac(u(ξ, η, ζ), ρ^{2})) * diff(S)) = -ScalarSurfaceInt(S, (fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(1, r) * FunDeri(u, n, 1)(ξ, η, ζ) - u(ξ, η, ζ) * FunDeri(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(1, r), n, 1)(ξ, η, ζ)) * diff(S))
+22. forall (ρ), ρ ∈ RealSet ∧ ρ > 0 ∧ S(ρ) = { (ξ, η, ζ) | r = ρ } ⇒ ScalarSurfaceInt(S(ρ), (fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(1, ρ) * FunDeri(u, n, 1)(ξ, η, ζ)) * diff(S)) = 0
+23. forall (`x'`) (`y'`) (`z'`) (ρ), `x'` ∈ RealSet ∧ `y'` ∈ RealSet ∧ `z'` ∈ RealSet ∧ ρ ∈ RealSet ∧ ρ > 0 ∧ S(ρ) = { (ξ, η, ζ) | r = ρ } ⇒ ScalarSurfaceInt(S(ρ), (fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(u(ξ, η, ζ), ρ^{2})) * diff(S)) = 4 * π * u(`x'`, `y'`, `z'`)
+24. forall (`x'`) (`y'`) (`z'`) (ρ), `x'` ∈ RealSet ∧ `y'` ∈ RealSet ∧ `z'` ∈ RealSet ∧ ρ ∈ RealSet ∧ ρ > 0 ∧ S(ρ) = { (ξ, η, ζ) | r = ρ } ⇒ u(`x'`, `y'`, `z'`) = frac(1, 4 * π) * ScalarSurfaceInt(S, (fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(1, r) * FunDeri(u, n, 1)(ξ, η, ζ) - u(ξ, η, ζ) * FunDeri(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(1, r), n, 1)(ξ, η, ζ)) * diff(S))
+25. forall (`x'`) (`y'`) (`z'`), `x'` ∈ RealSet ∧ `y'` ∈ RealSet ∧ `z'` ∈ RealSet ⇒ lim_{ ρ → 0^+ } (u(`x'`, `y'`, `z'`)) = u(x, y, z)
+26. u(x, y, z) = frac(1, 4 * π) * ScalarSurfaceInt(S, (fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(1, r) * FunDeri(u, n, 1)(ξ, η, ζ) - u(ξ, η, ζ) * FunDeri(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(1, r), n, 1)(ξ, η, ζ)) * diff(S))
+27. forall (α) (β) (γ), α ∈ RealSet ∧ β ∈ RealSet ∧ γ ∈ RealSet ⇒ FunDeri(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(1, r), n, 1)(ξ, η, ζ) = -frac(1, r^{2}) * (frac(ξ - x, r) * cos(α) + frac(η - y, r) * cos(β) + frac(ζ - z, r) * cos(γ))
+28. forall (α) (β) (γ), α ∈ RealSet ∧ β ∈ RealSet ∧ γ ∈ RealSet ⇒ -frac(1, r^{2}) * (frac(ξ - x, r) * cos(α) + frac(η - y, r) * cos(β) + frac(ζ - z, r) * cos(γ)) = -frac(cos(r, n), r^{2})
+
+GOAL:
+FunDeri(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . frac(1, r), n, 1)(ξ, η, ζ) = -frac(cos(r, n), r^{2})
+
+METHOD:

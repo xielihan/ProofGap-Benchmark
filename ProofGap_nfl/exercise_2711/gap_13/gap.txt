@@ -1,0 +1,22 @@
+PROOF GAP @13
+ASSUM:
+1. a = (fun n [n ∈ NonNegIntegerSet] . frac(1, n!))
+2. b = (fun n [n ∈ NonNegIntegerSet] . frac((-1)^{n}, n!))
+3. c = (fun n [n ∈ NonNegIntegerSet] . sum_{ i = 0 }^{ n } (a(i) * b(n - i)))
+4. AbsoluteConvergentSeries(sum_{ n = 0 }^{ +∞ } (a(n)))
+5. AbsoluteConvergentSeries(sum_{ n = 0 }^{ +∞ } (b(n)))
+6. (sum_{ n = 0 }^{ +∞ } (a(n))) * (sum_{ n = 0 }^{ +∞ } (b(n))) = sum_{ n = 0 }^{ +∞ } (c(n))
+7. sum_{ n = 0 }^{ +∞ } (c(n)) = c(0) + (sum_{ n = 1 }^{ +∞ } (c(n)))
+8. c(0) = 1
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ c(n) = sum_{ i = 0 }^{ n } (a(i) * b(n - i))
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ c(n) = sum_{ i = 0 }^{ n } (frac(1, i!) * frac((-1)^{n - i}, (n - i)!))
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ c(n) = frac(1, n!) * (sum_{ i = 0 }^{ n } ((-1)^{n - i} * frac(n!, i! * (n - i)!)))
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ c(n) = frac(1, n!) * (1 - 1)^{n}
+13. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, n!) * (1 - 1)^{n} = 0
+14. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ c(n) = 0
+15. sum_{ n = 1 }^{ +∞ } (c(n)) = 0
+
+GOAL:
+sum_{ n = 0 }^{ +∞ } (frac(1, n!)) = sum_{ n = 0 }^{ +∞ } (a(n))
+
+METHOD:

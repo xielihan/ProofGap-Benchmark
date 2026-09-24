@@ -1,0 +1,8 @@
+assert (hypothesis 18: {exists (m), m ∈ RealSet ∧ |2.5062 - 2.5062| ≤ frac(|f(2.5062)|, m)}) by proof {
+  exists (m := {0.84})
+  assert (hypothesis 18: {0.84 ∈ RealSet ∧ |2.5062 - 2.5062| ≤ frac(|f(2.5062)|, 0.84)})
+  apply (hypothesis 18: {0.84 ∈ RealSet ∧ |2.5062 - 2.5062| ≤ frac(|f(2.5062)|, 0.84)})
+}
+exists (ξ := {2.5062})
+assert (hypothesis 19: {2.5062 ∈ RealSet ∧ (exists (m), m ∈ RealSet ∧ |2.5062 - 2.5062| ≤ frac(|f(2.5062)|, m))})
+apply (hypothesis 19: {2.5062 ∈ RealSet ∧ (exists (m), m ∈ RealSet ∧ |2.5062 - 2.5062| ≤ frac(|f(2.5062)|, m))})

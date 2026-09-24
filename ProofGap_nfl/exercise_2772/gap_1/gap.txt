@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. S_{n} : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. S : RealSet → RealSet
+3. k ∈ NonNegIntegerSet
+4. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ S_{n}(n, x) = sum_{ k = 1 }^{ n } (frac(1, (x + k) * (x + k + 1)))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ |frac(1, (x + n) * (x + n + 1))| < frac(1, n^{2}))
+
+METHOD:

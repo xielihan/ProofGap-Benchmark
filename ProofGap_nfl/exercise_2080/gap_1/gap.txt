@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x) (t), x ∈ RealSet ∧ x ≥ 0 ∧ t ∈ RealSet ∧ t ≥ 0 ∧ sqrtn(2, x) = t ⇒ x = t^{2}
+
+METHOD:

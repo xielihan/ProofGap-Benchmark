@@ -1,0 +1,18 @@
+get_forall (GOAL: {forall (z), z ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ 2 * z = 0 ⇒ x^{2} + y^{2} - x * y = 1))}) (z := {z0})
+get_condition (hypothesis 12: {z0 ∈ RealSet}) in (GOAL: {z0 ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ 2 * z0 = 0 ⇒ x^{2} + y^{2} - x * y = 1))})
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ 2 * z0 = 0 ⇒ x^{2} + y^{2} - x * y = 1)}) (x := {x0})
+get_condition (hypothesis 13: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ 2 * z0 = 0 ⇒ x0^{2} + y^{2} - x0 * y = 1)})
+get_forall (GOAL: {forall (y), y ∈ RealSet ∧ 2 * z0 = 0 ⇒ x0^{2} + y^{2} - x0 * y = 1}) (y := {y0})
+get_condition (hypothesis 14: {y0 ∈ RealSet ∧ 2 * z0 = 0}) in (GOAL: {y0 ∈ RealSet ∧ 2 * z0 = 0 ⇒ x0^{2} + y0^{2} - x0 * y0 = 1})
+destruct_and (hypothesis 14: {y0 ∈ RealSet ∧ 2 * z0 = 0}) as (hypothesis 15: {y0 ∈ RealSet}) (hypothesis 16: {2 * z0 = 0})
+get_prop (hypothesis 10: {forall (z), z ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ 2 * z = 0 ⇒ x^{2} + y^{2} + z^{2} - x * y = 1))}) (z := {z0}) as (hypothesis 17: {z0 ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ 2 * z0 = 0 ⇒ x^{2} + y^{2} + z0^{2} - x * y = 1))})
+use_condition (hypothesis 12: {z0 ∈ RealSet}) in (hypothesis 17: {z0 ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ 2 * z0 = 0 ⇒ x^{2} + y^{2} + z0^{2} - x * y = 1))}) as (hypothesis 18: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ 2 * z0 = 0 ⇒ x^{2} + y^{2} + z0^{2} - x * y = 1)})
+get_prop (hypothesis 18: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ 2 * z0 = 0 ⇒ x^{2} + y^{2} + z0^{2} - x * y = 1)}) (x := {x0}) as (hypothesis 19: {x0 ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ 2 * z0 = 0 ⇒ x0^{2} + y^{2} + z0^{2} - x0 * y = 1)})
+use_condition (hypothesis 13: {x0 ∈ RealSet}) in (hypothesis 19: {x0 ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ 2 * z0 = 0 ⇒ x0^{2} + y^{2} + z0^{2} - x0 * y = 1)}) as (hypothesis 20: {forall (y), y ∈ RealSet ∧ 2 * z0 = 0 ⇒ x0^{2} + y^{2} + z0^{2} - x0 * y = 1})
+get_prop (hypothesis 20: {forall (y), y ∈ RealSet ∧ 2 * z0 = 0 ⇒ x0^{2} + y^{2} + z0^{2} - x0 * y = 1}) (y := {y0}) as (hypothesis 21: {y0 ∈ RealSet ∧ 2 * z0 = 0 ⇒ x0^{2} + y0^{2} + z0^{2} - x0 * y0 = 1})
+use_condition (hypothesis 14: {y0 ∈ RealSet ∧ 2 * z0 = 0}) in (hypothesis 21: {y0 ∈ RealSet ∧ 2 * z0 = 0 ⇒ x0^{2} + y0^{2} + z0^{2} - x0 * y0 = 1}) as (hypothesis 22: {x0^{2} + y0^{2} + z0^{2} - x0 * y0 = 1})
+assert (hypothesis 23: {z0 = 0}) by proof {
+  autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 23: {z0 = 0}); from (hypothesis 22: {x0^{2} + y0^{2} + z0^{2} - x0 * y0 = 1}) to (hypothesis 24: {x0^{2} + y0^{2} + 0^{2} - x0 * y0 = 1})
+autosolve all_hypothesis

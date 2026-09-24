@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ RealSet \ { 1 } ⇒ frac(frac(5, 3) * x - 1, (x - 1) * (x^{2} + x + 1)) = frac(2, 9 * (x - 1)) - frac(2 * x - 11, 9 * (x^{2} + x + 1))}) (x := {x0})
+get_condition (hypothesis 25: {x0 ∈ RealSet ∧ x0 ∈ RealSet \ { 1 }}) in (GOAL: {x0 ∈ RealSet ∧ x0 ∈ RealSet \ { 1 } ⇒ frac(frac(5, 3) * x0 - 1, (x0 - 1) * (x0^{2} + x0 + 1)) = frac(2, 9 * (x0 - 1)) - frac(2 * x0 - 11, 9 * (x0^{2} + x0 + 1))})
+assert (hypothesis 26: {frac(frac(5, 3) * x0 - 1, (x0 - 1) * (x0^{2} + x0 + 1)) = frac(2, 9 * (x0 - 1)) - frac(2 * x0 - 11, 9 * (x0^{2} + x0 + 1))})
+apply (hypothesis 26: {frac(frac(5, 3) * x0 - 1, (x0 - 1) * (x0^{2} + x0 + 1)) = frac(2, 9 * (x0 - 1)) - frac(2 * x0 - 11, 9 * (x0^{2} + x0 + 1))})

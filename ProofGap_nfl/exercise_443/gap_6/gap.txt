@@ -1,0 +1,11 @@
+PROOF GAP @6
+ASSUM:
+1. forall (x), x ∈ RealSet
+2. forall (x), x ∈ RealSet ∧ x ≥ -frac(9, 2) ⇒ 9 + 2 * x ≥ 0
+3. forall (x), x ∈ RealSet ∧ x ≠ 8 ⇒ x ≠ 8
+4. lim_{ x → 8 } (frac(sqrtn(2, 9 + 2 * x) - 5, sqrtn(3, x) - 2)) = lim_{ x → 8 } (frac((sqrtn(2, 9 + 2 * x) - 5) * (sqrtn(2, 9 + 2 * x) + 5) * (sqrtn(3, x^{2}) + 2 * sqrtn(3, x) + 4), (sqrtn(3, x) - 2) * (sqrtn(3, x^{2}) + 2 * sqrtn(3, x) + 4) * (sqrtn(2, 9 + 2 * x) + 5)))
+5. lim_{ x → 8 } (frac(sqrtn(2, 9 + 2 * x) - 5, sqrtn(3, x) - 2)) = 2 * (lim_{ x → 8 } (frac(sqrtn(3, x^{2}) + 2 * sqrtn(3, x) + 4, sqrtn(2, 9 + 2 * x) + 5)))
+GOAL:
+lim_{ x → 8 } (frac(sqrtn(2, 9 + 2 * x) - 5, sqrtn(3, x) - 2)) = frac(12, 5)
+
+METHOD:

@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. prod_{ k = 1 }^{ +∞ } (frac(2 * k, 2 * k - 1) * frac(2 * k, 2 * k + 1)) = frac(π, 2)
+
+GOAL:
+seqlim_{ n → +∞ } (frac(prod_{ k = 1 }^{ n } (2 * k), prod_{ k = 1 }^{ n } (2 * k - 1))^{2} * frac(1, 2 * n + 1)) = frac(π, 2)
+
+METHOD:

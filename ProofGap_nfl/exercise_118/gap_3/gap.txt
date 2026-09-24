@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. x : NonNegIntegerSet → RealSet
+2. IsSeq(x)
+3. forall (n) (k), n ∈ PosIntegerSet ∧ k ∈ PosIntegerSet ∧ k < n ⇒ (exists (m), m ∈ PosIntegerSet ∧ x(m) = frac(k, n))
+4. forall (r), r ∈ RealSet ∧ r ∈ RationalSet ∧ 0 < r ∧ r < 1 ⇒ (exists (m), m ∈ PosIntegerSet ∧ x(m) = r)
+5. forall (y) (ε), y ∈ RealSet ∧ ε ∈ RealSet ∧ y ∈ [0, 1] ∧ ε > 0 ⇒ (exists (m), m ∈ PosIntegerSet ∧ |x(m) - y| < ε)
+6. forall (n), n ∈ NonNegIntegerSet ⇒ x(n) ∈ [0, 1]
+
+GOAL:
+forall (y), y ∈ RealSet ∧ y ∉ [0, 1] ⇒ y ∉ AccumulationPointSet(x)
+
+METHOD:

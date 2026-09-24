@@ -1,0 +1,14 @@
+exists (x_{0} := {ξ})
+assert (hypothesis 30: {ξ ∈ RealSet})
+assert (hypothesis 31: {k = sinh(ξ) ⇒ f(ξ) = 0}) by proof {
+  get_condition (hypothesis 31: {k = sinh(ξ)}) in (GOAL: {k = sinh(ξ) ⇒ f(ξ) = 0})
+  get_prop (hypothesis 7: {forall (x), x ∈ RealSet ⇒ f(x) = cosh(x) - k * x}) (x := {ξ}) as (hypothesis 32: {ξ ∈ RealSet ⇒ f(ξ) = cosh(ξ) - k * ξ})
+  use_condition (hypothesis 30: {ξ ∈ RealSet}) in (hypothesis 32: {ξ ∈ RealSet ⇒ f(ξ) = cosh(ξ) - k * ξ}) as (hypothesis 33: {f(ξ) = cosh(ξ) - k * ξ})
+  rewrite (left_to_right, equation) (hypothesis 33: {f(ξ) = cosh(ξ) - k * ξ}); from (GOAL: {f(ξ) = 0}) to (GOAL: {cosh(ξ) - k * ξ = 0})
+  rewrite (left_to_right, equation) (hypothesis 31: {k = sinh(ξ)}); from (GOAL: {cosh(ξ) - k * ξ = 0}) to (GOAL: {cosh(ξ) - sinh(ξ) * ξ = 0})
+  assert (hypothesis 34: {cosh(ξ) - sinh(ξ) * ξ = cosh(ξ) - ξ * sinh(ξ)})
+  rewrite (left_to_right, equation) (hypothesis 34: {cosh(ξ) - sinh(ξ) * ξ = cosh(ξ) - ξ * sinh(ξ)}); from (GOAL: {cosh(ξ) - sinh(ξ) * ξ = 0}) to (GOAL: {cosh(ξ) - ξ * sinh(ξ) = 0})
+  apply (hypothesis 22: {cosh(ξ) - ξ * sinh(ξ) = 0})
+}
+assert (hypothesis 32: {ξ ∈ RealSet ∧ (k = sinh(ξ) ⇒ f(ξ) = 0)})
+apply (hypothesis 32: {ξ ∈ RealSet ∧ (k = sinh(ξ) ⇒ f(ξ) = 0)})

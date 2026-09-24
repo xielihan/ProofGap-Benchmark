@@ -1,0 +1,23 @@
+PROOF GAP @5
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. φ : CartesianProd(RealSet, RealSet) → RealSet
+3. ψ : CartesianProd(RealSet, RealSet) → RealSet
+4. I ∈ RealSet
+5. forall (u) (v) (x) (y), u ∈ RealSet ∧ v ∈ RealSet ∧ x ∈ RealSet ∧ y ∈ RealSet ⇒ x = φ(u, v) ∧ y = ψ(u, v)
+6. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ⇒ FunDeri(φ, u, 1)(u, v) = FunDeri(ψ, v, 1)(u, v) ∧ FunDeri(φ, v, 1)(u, v) = -FunDeri(ψ, u, 1)(u, v)
+7. FuncOfClassK(φ, 2)
+8. FuncOfClassK(ψ, 2)
+9. FuncOfClassK(z, 2)
+10. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, x, 2)(x, y) + FunDeri(z, y, 2)(x, y) = 0
+11. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ⇒ I = FunDeri(φ, u, 1)(u, v)^{2} + FunDeri(φ, v, 1)(u, v)^{2}
+12. I ≠ 0
+13. forall (x) (u) (v), x ∈ RealSet ∧ u ∈ RealSet ∧ v ∈ RealSet ⇒ diff(x) = FunDeri(φ, u, 1)(u, v) * diff(u) + FunDeri(φ, v, 1)(u, v) * diff(v)
+14. forall (y) (u) (v), y ∈ RealSet ∧ u ∈ RealSet ∧ v ∈ RealSet ⇒ diff(y) = FunDeri(ψ, u, 1)(u, v) * diff(u) + FunDeri(ψ, v, 1)(u, v) * diff(v)
+15. forall (y) (v) (u), y ∈ RealSet ∧ v ∈ RealSet ∧ u ∈ RealSet ⇒ diff(y) = -FunDeri(φ, v, 1)(u, v) * diff(u) + FunDeri(φ, u, 1)(u, v) * diff(v)
+16. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ⇒ I = FunDeri(φ, u, 1)(u, v)^{2} + FunDeri(φ, v, 1)(u, v)^{2}
+
+GOAL:
+forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ⇒ FunDeri(φ, u, 1)(u, v)^{2} + FunDeri(φ, v, 1)(u, v)^{2} ≠ 0
+
+METHOD:

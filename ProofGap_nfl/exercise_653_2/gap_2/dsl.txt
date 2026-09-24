@@ -1,0 +1,2 @@
+rewrite_in limit (left_to_right, equation) (hypothesis 3: {forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ -1 <= x ∧ x <= 1 ⇒ frac(sqrtn(2, 1 + x) - sqrtn(2, 1 - x), x) = frac(2, sqrtn(2, 1 + x) + sqrtn(2, 1 - x))}); from (GOAL: {lim_{ x → 0 } (frac(sqrtn(2, 1 + x) - sqrtn(2, 1 - x), x)) = lim_{ x → 0 } (frac(2, sqrtn(2, 1 + x) + sqrtn(2, 1 - x)))}) to (GOAL: {lim_{ x → 0 } (frac(2, sqrtn(2, 1 + x) + sqrtn(2, 1 - x))) = lim_{ x → 0 } (frac(2, sqrtn(2, 1 + x) + sqrtn(2, 1 - x)))})
+autosolve all_hypothesis

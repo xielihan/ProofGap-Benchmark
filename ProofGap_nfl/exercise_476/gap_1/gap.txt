@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+lim_{ x → 0 } (frac(sin(5 * x) - sin(3 * x), sin(x))) = lim_{ x → 0 } (frac(2 * cos(4 * x) * sin(x), sin(x)))
+
+METHOD:
+[@method 利用和差化积 @]

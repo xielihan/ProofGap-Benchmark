@@ -1,0 +1,33 @@
+PROOF GAP @18
+ASSUM:
+1. k ∈ RealSet
+2. f : RealSet → RealSet
+3. g : RealSet → RealSet
+4. ξ ∈ RealSet ∧ ξ ∈ PosRealSet
+5. S ⊆ RealSet
+6. coth(ξ) = ξ
+7. forall (x), x ∈ RealSet ⇒ f(x) = cosh(x) - k * x
+8. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ g(x) = cosh(x) - x * sinh(x)
+9. forall (x), x ∈ RealSet ⇒ (x ∈ S ⇔ x ∈ RealSet ∧ cosh(x) = k * x)
+10. forall (x), x ∈ RealSet ⇒ FunDeri(f, 1, 1)(x) = sinh(x) - k
+11. existsUnique (x_{0}), x_{0} ∈ RealSet ∧ FunDeri(f, 1, 1)(x_{0}) = 0 ∧ k = sinh(x_{0})
+12. forall (x), x ∈ RealSet ⇒ FunDeri(f, 1, 2)(x) = cosh(x) ∧ cosh(x) > 0
+13. exists (x_{0}), x_{0} ∈ RealSet ∧ MinimumPoint(f) = { x_{0} }
+14. lim_{ x → -∞ } (f(x)) = +∞
+15. lim_{ x → +∞ } (f(x)) = +∞
+16. exists (x_{0}), x_{0} ∈ RealSet ∧ f(x_{0}) = cosh(x_{0}) - k * x_{0}
+17. exists (x_{0}), x_{0} ∈ RealSet ∧ cosh(x_{0}) - k * x_{0} = cosh(x_{0}) - x_{0} * sinh(x_{0})
+18. exists (x_{0}), x_{0} ∈ RealSet ∧ f(x_{0}) = cosh(x_{0}) - x_{0} * sinh(x_{0})
+19. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ FunDeri(g, 1, 1)(x) = -x * cosh(x) ∧ -x * cosh(x) < 0
+20. StrictMonoDecFuncOn(g, NonNegRealSet)
+21. g(ξ) = cosh(ξ) - ξ * sinh(ξ)
+22. cosh(ξ) - ξ * sinh(ξ) = 0
+23. g(ξ) = 0
+24. exists (x_{0}), x_{0} ∈ RealSet ∧ (k > sinh(ξ) ⇒ x_{0} > ξ)
+25. exists (x_{0}), x_{0} ∈ RealSet ∧ (k > sinh(ξ) ⇒ f(x_{0}) < 0)
+26. k > sinh(ξ) ⇒ (existsUnique (x_{1}), x_{1} ∈ RealSet ∧ x_{1} ∈ IntervalLoRo(0, ξ) ∧ f(x_{1}) = 0)
+
+GOAL:
+k > sinh(ξ) ⇒ (existsUnique (x_{2}), x_{2} ∈ RealSet ∧ x_{2} ∈ IntervalLoRo(ξ, +∞) ∧ f(x_{2}) = 0)
+
+METHOD:

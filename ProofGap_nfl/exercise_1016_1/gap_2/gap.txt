@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. fOne = (fun x [x ∈ RealSet] . x^{2})
+2. gOne = (fun x [x ∈ RealSet] . |x|)
+3. FOne = (fun x [x ∈ RealSet] . fOne(gOne(x)))
+4. gOne(0) = 0
+
+GOAL:
+DiffableFuncAt(fOne, 0)
+
+METHOD:

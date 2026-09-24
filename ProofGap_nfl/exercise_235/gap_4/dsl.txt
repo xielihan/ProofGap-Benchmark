@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ A ⇒ k_{1} * T_{2} = k_{1} * k_{2} * T}) (x := {x0})
+get_condition (hypothesis 22: {x0 ∈ RealSet ∧ x0 ∈ A}) in (GOAL: {x0 ∈ RealSet ∧ x0 ∈ A ⇒ k_{1} * T_{2} = k_{1} * k_{2} * T})
+rewrite (left_to_right, equation) (hypothesis 14: {T_{2} = T * k_{2}}); from (GOAL: {k_{1} * T_{2} = k_{1} * k_{2} * T}) to (GOAL: {k_{1} * (T * k_{2}) = k_{1} * k_{2} * T})
+autosolve all_hypothesis

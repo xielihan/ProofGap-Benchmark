@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ ln(x^{4} + e^{2 * x}) ≠ 0
+2. lim_{ x → 0 } (frac(ln(x^{2} + e^{x}), ln(x^{4} + e^{2 * x}))) = lim_{ x → 0 } (frac(x + ln(1 + x^{2} * e^{-x}), 2 * x + ln(1 + x^{4} * e^{-2 * x})))
+
+GOAL:
+lim_{ x → 0 } (frac(ln(x^{2} + e^{x}), ln(x^{4} + e^{2 * x}))) = lim_{ x → 0 } (frac(1 + frac(ln(1 + x^{2} * e^{-x}), x^{2} * e^{-x}) * x * e^{-x}, 2 + frac(ln(1 + x^{4} * e^{-2 * x}), x^{4} * e^{-2 * x}) * x^{3} * e^{-2 * x}))
+
+METHOD:

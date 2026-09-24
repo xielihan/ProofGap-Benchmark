@@ -1,0 +1,16 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. φ : RealSet → RealSet
+3. y : RealSet → RealSet
+4. forall (u), u ∈ RealSet ∧ 0 < u ∧ u ≤ 1 ⇒ f(u) = u
+5. forall (u), u ∈ RealSet ∧ 1 < u ∧ u < 2 ⇒ f(u) = 2 - u
+6. forall (x), x ∈ RealSet ∧ x ∈ RationalSet ⇒ φ(x) = x
+7. forall (x), x ∈ RealSet ∧ x ∉ RationalSet ⇒ φ(x) = 2 - x
+8. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < 1 ⇒ y(x) = f(φ(x))
+9. forall (x), x ∈ RealSet ∧ x ∈ RationalSet ∧ 0 < x ∧ x < 1 ⇒ φ(x) = x
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ RationalSet ∧ 0 < x ∧ x < 1 ⇒ y(x) = f(φ(x))
+
+METHOD:

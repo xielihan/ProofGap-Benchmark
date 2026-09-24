@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ x ≠ 0
+4. forall (x), x ∈ RealSet ⇒ x^{4} - 5 ≠ 0
+5. forall (x), x ∈ RealSet ⇒ x^{5} - 5 * x + 1 ≠ 0
+6. forall (x), x ∈ RealSet ⇒ x * (x^{4} - 5) = x^{5} - 5 * x
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ diff(fun x [x ∈ RealSet] . x^{5} - 5 * x) = 5 * (x^{4} - 1) * diff(fun x [x ∈ RealSet] . x)
+
+METHOD:

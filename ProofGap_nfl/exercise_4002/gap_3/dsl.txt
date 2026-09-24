@@ -1,0 +1,4 @@
+get_prop (theorem 'Thm 168. (PythagoreanTrigonometricIdentity)': {forall (x), x ∈ RealSet => (sin(x)) ^ 2 + (cos(x)) ^ 2 = 1}) (x := {v}) as (hypothesis 24: {v ∈ RealSet => (sin(v)) ^ 2 + (cos(v)) ^ 2 = 1})
+use_condition (hypothesis 9: {v ∈ RealSet}) in (hypothesis 24: {v ∈ RealSet => (sin(v)) ^ 2 + (cos(v)) ^ 2 = 1}) as (hypothesis 25: {(sin(v)) ^ 2 + (cos(v)) ^ 2 = 1})
+assert (hypothesis 26: {sin(v)^{2} ≥ 0})
+autosolve all_hypothesis

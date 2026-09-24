@@ -1,0 +1,15 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. forall (t), t ∈ RealSet ∧ t > 0 ⇒ f(t) = t * lg(t) - 1
+4. forall (t), t ∈ RealSet ∧ t > 0 ⇒ (lg(t) = frac(1, t) ⇔ t * lg(t) = 1)
+5. exists (ξ), ξ ∈ RealSet ∧ ξ ∈ PosRealSet ∧ ξ * lg(ξ) = 1 ∧ (forall (ξ1), ξ1 ∈ RealSet ∧ ξ1 ∈ PosRealSet ∧ ξ1 * lg(ξ1) = 1 ⇒ ξ1 = ξ)
+6. f(2.506) = -0.0004
+7. f(2.507) = 0.0005
+8. forall (t), t ∈ RealSet ∧ 2.506 < t ∧ t < 2.507 ⇒ FunDeri(f, 1, 1)(t) > 0 ∧ FunDeri(f, 1, 2)(t) > 0
+
+GOAL:
+exists (ξ), ξ ∈ RealSet ∧ ξ ∈ IntervalLoRo(2.506, 2.507) ∧ f(ξ) = 0 ∧ (forall (ξ2), ξ2 ∈ RealSet ∧ ξ2 ∈ IntervalLoRo(2.506, 2.507) ∧ f(ξ2) = 0 ⇒ ξ2 = ξ)
+
+METHOD:

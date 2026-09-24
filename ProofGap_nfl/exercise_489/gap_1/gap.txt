@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ cos(a + 2 * x) - 2 * cos(a + x) + cos(a) = cos(a + 2 * x) - cos(a + x) - (cos(a + x) - cos(a))
+
+METHOD:

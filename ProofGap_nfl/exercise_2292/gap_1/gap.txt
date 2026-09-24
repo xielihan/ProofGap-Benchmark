@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. n ∈ NonNegIntegerSet ∧ n > 0
+2. x ∈ RealSet
+3. n ∈ PosIntegerSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ [0, π] ∧ x ≠ frac(π, 2) ⇒ frac(cos((2 * n + 1) * x), cos(x)) = frac(e^{__IMAGINARY_UNIT__ * (2 * n + 1) * x} + e^{-__IMAGINARY_UNIT__ * (2 * n + 1) * x}, e^{__IMAGINARY_UNIT__ * x} + e^{-__IMAGINARY_UNIT__ * x})
+
+METHOD:

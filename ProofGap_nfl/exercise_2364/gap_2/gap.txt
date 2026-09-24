@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. n ∈ RealSet
+3. a ≠ 0
+4. forall (x), x ∈ RealSet ⇒ arctan(a * x) = -arctan(-a * x)
+
+GOAL:
+a > 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . frac(arctan(a * x), x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet ∧ x > 0] . frac(arctan(a * x), x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) + DefInt(1, +∞, (fun x [x ∈ RealSet ∧ x > 1] . frac(arctan(a * x), x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 1] . x))
+
+METHOD:

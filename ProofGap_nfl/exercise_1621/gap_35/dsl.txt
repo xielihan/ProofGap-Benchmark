@@ -1,0 +1,3 @@
+exists (x_{1} := {9.99999})
+assert (hypothesis 38: {9.99999 ∈ RealSet ∧ 9.99999 = 9.99999})
+apply (hypothesis 38: {9.99999 ∈ RealSet ∧ 9.99999 = 9.99999})

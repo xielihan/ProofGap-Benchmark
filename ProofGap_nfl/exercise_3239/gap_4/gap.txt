@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ u(x, y) = e^{x * y}
+3. diff(u) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x * y}) * ((fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+4. diff^{2}(u) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x * y}) * (((fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))^{2} + 2 * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+5. (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x * y}) * (((fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))^{2} + 2 * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x * y}) * ((fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{2} + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . 2 * (1 + x * y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{2})
+
+GOAL:
+diff^{2}(u) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x * y}) * ((fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{2} + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . 2 * (1 + x * y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{2})
+
+METHOD:

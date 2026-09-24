@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. p ∈ RealSet
+2. p > 0
+3. lim_{ n → +∞ } (frac(sum_{ i = 1 }^{ n } (i^{p}), n^{p + 1})) = lim_{ n → +∞ } (sum_{ i = 1 }^{ n } (frac(i, n)^{p} * frac(1, n)))
+4. lim_{ n → +∞ } (sum_{ i = 1 }^{ n } (frac(i, n)^{p} * frac(1, n))) = DefInt(0, 1, (fun x [x ∈ RealSet] . x^{p}) * diff(fun x [x ∈ RealSet] . x))
+5. DefInt(0, 1, (fun x [x ∈ RealSet] . x^{p}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, p + 1)
+
+GOAL:
+lim_{ n → +∞ } (frac(sum_{ i = 1 }^{ n } (i^{p}), n^{p + 1})) = frac(1, p + 1)
+
+METHOD:

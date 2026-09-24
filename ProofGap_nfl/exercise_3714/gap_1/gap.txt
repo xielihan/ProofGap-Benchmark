@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. A ∈ RealSet
+3. B ∈ RealSet
+4. A < B
+5. ContinuousFuncOn(f, [A, B])
+6. F = (fun z [z ∈ RealSet] . DefInt(A, z, (fun t [t ∈ RealSet] . f(t)) * diff(fun t [t ∈ RealSet] . t)))
+
+GOAL:
+forall (z), z ∈ RealSet ∧ z ∈ (A, B) ⇒ FunDeri(F, 1, 1)(z) = f(z)
+
+METHOD:

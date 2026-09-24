@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (b), b : NonNegIntegerSet → RealSet ∧ 0 < p ∧ p ≤ 1 ∧ b = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . 1 / sqrtn(n, n)) ⇒ seqlim_{ n → +∞ } (b(n)) = 1}) (b := {b0})
+get_condition (hypothesis 11: {b0 : NonNegIntegerSet → RealSet ∧ 0 < p ∧ p ≤ 1 ∧ b0 = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . 1 / sqrtn(n, n))}) in (GOAL: {b0 : NonNegIntegerSet → RealSet ∧ 0 < p ∧ p ≤ 1 ∧ b0 = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . 1 / sqrtn(n, n)) ⇒ seqlim_{ n → +∞ } (b0(n)) = 1})
+destruct_and (hypothesis 11: {b0 : NonNegIntegerSet → RealSet ∧ 0 < p ∧ p ≤ 1 ∧ b0 = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . 1 / sqrtn(n, n))}) as (hypothesis 12: {b0 : NonNegIntegerSet → RealSet}) (hypothesis 13: {0 < p}) (hypothesis 14: {p ≤ 1}) (hypothesis 15: {b0 = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . 1 / sqrtn(n, n))})
+assert (hypothesis 16: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b0(n) = 1 / sqrtn(n, n)}) by proof {
+  get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b0(n) = 1 / sqrtn(n, n)}) (n := {n0})
+  get_condition (hypothesis 17: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ b0(n0) = 1 / sqrtn(n0, n0)})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

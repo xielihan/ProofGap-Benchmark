@@ -1,0 +1,17 @@
+PROOF GAP @1
+ASSUM:
+1. E ⊆ CartesianProd(RealSet, RealSet)
+2. a ∈ RealSet ∧ a > 0
+3. b ∈ RealSet ∧ b > 0
+4. ξ ∈ RealSet
+5. η ∈ RealSet
+6. A ∈ RealSet
+7. V ∈ RealSet
+8. x ∈ RealSet
+9. y : RealSet → RealSet
+10. E = { (x, y) | x ∈ RealSet, y ∈ RealSet, frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) ≤ 1, 0 ≤ x, x ≤ a, 0 ≤ y, y ≤ b }
+
+GOAL:
+A = frac(π * a * b, 4)
+
+METHOD:

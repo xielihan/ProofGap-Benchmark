@@ -1,0 +1,31 @@
+assert (hypothesis 10: {forall (n), n ∈ NonNegIntegerSet => n >= 1 => 0 <= b(n) ∧ b(n) <= a(n)}) by proof {
+  1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet => n >= 1 => 0 <= b(n) ∧ b(n) <= a(n)}) (n := {m})
+  2. get_condition (hypothesis 10: {m ∈ NonNegIntegerSet}) in (GOAL: {m ∈ NonNegIntegerSet => m >= 1 => 0 <= b(m) ∧ b(m) <= a(m)})
+  3. get_condition (hypothesis 11: {m >= 1}) in (GOAL: {m >= 1 => 0 <= b(m) ∧ b(m) <= a(m)})
+  4. get_prop (theorem 'Thm 520. (NonnegativeIntegerIsInteger)': {forall (x), x ∈ NonNegIntegerSet => x ∈ IntegerSet}) (x := {m}) as (hypothesis 12: {m ∈ NonNegIntegerSet => m ∈ IntegerSet})
+  5. use_condition (hypothesis 10: {m ∈ NonNegIntegerSet}) in (hypothesis 12: {m ∈ NonNegIntegerSet => m ∈ IntegerSet}) as (hypothesis 13: {m ∈ IntegerSet})
+  6. get_prop (theorem 'Thm 430. (IntegerAtLeastOneIsPositiveInteger)': {forall (x), x ∈ IntegerSet => x >= 1 => x ∈ PosIntegerSet}) (x := {m}) as (hypothesis 14: {m ∈ IntegerSet => m >= 1 => m ∈ PosIntegerSet})
+  7. use_condition (hypothesis 13: {m ∈ IntegerSet}) (hypothesis 11: {m >= 1}) in (hypothesis 14: {m ∈ IntegerSet => m >= 1 => m ∈ PosIntegerSet}) as (hypothesis 15: {m ∈ PosIntegerSet})
+  8. assert (hypothesis 16: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet})
+  9. get_prop (hypothesis 7: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet => a(n) > b(n) ∧ b(n) > 0}) (n := {m}) as (hypothesis 17: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet => a(m) > b(m) ∧ b(m) > 0})
+  10. use_condition (hypothesis 16: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet}) in (hypothesis 17: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet => a(m) > b(m) ∧ b(m) > 0}) as (hypothesis 18: {a(m) > b(m) ∧ b(m) > 0})
+  11. autosolve all_hypothesis
+}
+assert (hypothesis 11: {exists (N), N ∈ NonNegIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet => n >= N => 0 <= b(n) ∧ b(n) <= a(n))}) by proof {
+  1. exists (N := {1})
+  2. autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 129. (SeriesComparisonTest)': {forall (a) (b), (exists (N), N ∈ NonNegIntegerSet /\ (forall (n), n ∈ NonNegIntegerSet => n >= N => 0 <= a(n) /\ a(n) <= b(n))) => ConvergentSeries(sum_{n = 0}^{+∞}(b(n))) => ConvergentSeries(sum_{n = 0}^{+∞}(a(n)))}) (a := {b}) (b := {a}) as (hypothesis 12: {(exists (N), N ∈ NonNegIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet => n >= N => 0 <= b(n) ∧ b(n) <= a(n))) => ConvergentSeries(sum_{n = 0}^{+∞}(a(n))) => ConvergentSeries(sum_{n = 0}^{+∞}(b(n)))})
+use_condition (hypothesis 11: {exists (N), N ∈ NonNegIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet => n >= N => 0 <= b(n) ∧ b(n) <= a(n))}) in (hypothesis 12: {(exists (N), N ∈ NonNegIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet => n >= N => 0 <= b(n) ∧ b(n) <= a(n))) => ConvergentSeries(sum_{n = 0}^{+∞}(a(n))) => ConvergentSeries(sum_{n = 0}^{+∞}(b(n)))}) as (hypothesis 13: {ConvergentSeries(sum_{n = 0}^{+∞}(a(n))) => ConvergentSeries(sum_{n = 0}^{+∞}(b(n)))})
+get_prop (hypothesis 9: {forall (c), DivergentSeries(sum_{ n = 1 }^{ +∞ } (c(n))) <==> ¬ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n)))}) (c := {b}) as (hypothesis 14: {DivergentSeries(sum_{ n = 1 }^{ +∞ } (b(n))) <==> ¬ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n)))})
+rewrite (left_to_right, iff) (hypothesis 14: {DivergentSeries(sum_{ n = 1 }^{ +∞ } (b(n))) <==> ¬ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n)))}); from (hypothesis 8: {DivergentSeries(sum_{ n = 1 }^{ +∞ } (b(n)))}) to (hypothesis 15: {¬ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n)))})
+get_prop (theorem 'Thm 459. (FiniteSeriesTermsDoNotAffectConvergence)': {forall (a) (N) (M), N ∈ NonNegIntegerSet => M ∈ NonNegIntegerSet => (ConvergentSeries(sum_{n = N}^{+∞} (a(n))) <==> ConvergentSeries(sum_{n = M}^{+∞} (a(n))))}) (a := {b}) (N := {0}) (M := {1}) as (hypothesis 16: {0 ∈ NonNegIntegerSet => 1 ∈ NonNegIntegerSet => (ConvergentSeries(sum_{n = 0}^{+∞} (b(n))) <==> ConvergentSeries(sum_{n = 1}^{+∞} (b(n))))})
+use_condition (obvious: {0 ∈ NonNegIntegerSet}) (obvious: {1 ∈ NonNegIntegerSet}) in (hypothesis 16: {0 ∈ NonNegIntegerSet => 1 ∈ NonNegIntegerSet => (ConvergentSeries(sum_{n = 0}^{+∞} (b(n))) <==> ConvergentSeries(sum_{n = 1}^{+∞} (b(n))))}) as (hypothesis 17: {ConvergentSeries(sum_{n = 0}^{+∞} (b(n))) <==> ConvergentSeries(sum_{n = 1}^{+∞} (b(n)))})
+rewrite (right_to_left, iff) (hypothesis 17: {ConvergentSeries(sum_{n = 0}^{+∞} (b(n))) <==> ConvergentSeries(sum_{n = 1}^{+∞} (b(n)))}); from (hypothesis 15: {¬ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n)))}) to (hypothesis 18: {¬ConvergentSeries(sum_{ n = 0 }^{ +∞ } (b(n)))})
+assert (hypothesis 19: {¬ConvergentSeries(sum_{ n = 0 }^{ +∞ } (a(n)))})
+get_prop (theorem 'Thm 459. (FiniteSeriesTermsDoNotAffectConvergence)': {forall (a) (N) (M), N ∈ NonNegIntegerSet => M ∈ NonNegIntegerSet => (ConvergentSeries(sum_{n = N}^{+∞} (a(n))) <==> ConvergentSeries(sum_{n = M}^{+∞} (a(n))))}) (a := {a}) (N := {0}) (M := {1}) as (hypothesis 20: {0 ∈ NonNegIntegerSet => 1 ∈ NonNegIntegerSet => (ConvergentSeries(sum_{n = 0}^{+∞} (a(n))) <==> ConvergentSeries(sum_{n = 1}^{+∞} (a(n))))})
+use_condition (obvious: {0 ∈ NonNegIntegerSet}) (obvious: {1 ∈ NonNegIntegerSet}) in (hypothesis 20: {0 ∈ NonNegIntegerSet => 1 ∈ NonNegIntegerSet => (ConvergentSeries(sum_{n = 0}^{+∞} (a(n))) <==> ConvergentSeries(sum_{n = 1}^{+∞} (a(n))))}) as (hypothesis 21: {ConvergentSeries(sum_{n = 0}^{+∞} (a(n))) <==> ConvergentSeries(sum_{n = 1}^{+∞} (a(n)))})
+rewrite (left_to_right, iff) (hypothesis 21: {ConvergentSeries(sum_{n = 0}^{+∞} (a(n))) <==> ConvergentSeries(sum_{n = 1}^{+∞} (a(n)))}); from (hypothesis 19: {¬ConvergentSeries(sum_{ n = 0 }^{ +∞ } (a(n)))}) to (hypothesis 22: {¬ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))})
+get_prop (hypothesis 9: {forall (c), DivergentSeries(sum_{ n = 1 }^{ +∞ } (c(n))) <==> ¬ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n)))}) (c := {a}) as (hypothesis 23: {DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) <==> ¬ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))})
+rewrite (right_to_left, iff) (hypothesis 23: {DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) <==> ¬ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))}); from (hypothesis 22: {¬ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))}) to (hypothesis 24: {DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))})
+apply (hypothesis 24: {DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))})

@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. y : RealSet → RealSet
+2. V_{x} ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ (exists (n), n ∈ NonNegIntegerSet ∧ 2 * n * π ≤ x ∧ x ≤ (2 * n + 1) * π) ⇒ y(x) = e^{-x} * sqrtn(2, sin(x))
+4. Dom(y) = union_{ n ∈ NonNegIntegerSet } ([2 * n * π, (2 * n + 1) * π])
+5. V_{x} = π * (sum_{ n = 0 }^{ +∞ } (DefInt(2 * n * π, (2 * n + 1) * π, (fun x [x ∈ RealSet] . e^{-2 * x} * sin(x)) * diff(fun x [x ∈ RealSet] . x))))
+6. V_{x} = sum_{ n = 0 }^{ +∞ } ((fun x [x ∈ RealSet] . frac(π, 5) * e^{-2 * x} * (-2 * sin(x) - cos(x)))|_{2 * n * π}^{(2 * n + 1) * π})
+
+GOAL:
+V_{x} = frac(π, 5) * (e^{-2 * π} + 1) * (sum_{ n = 0 }^{ +∞ } (e^{-4 * n * π}))
+
+METHOD:

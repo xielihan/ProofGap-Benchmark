@@ -1,0 +1,25 @@
+PROOF GAP @9
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. h ∈ RealSet ∧ h > 0
+3. z ∈ RealSet
+4. k ∈ RealSet ∧ k > 0
+5. `ρ_0` ∈ RealSet ∧ `ρ_0` > 0
+6. X ∈ RealSet
+7. Y ∈ RealSet
+8. Z ∈ RealSet
+9. X = k * `ρ_0` * VolumeInt({ (ξ, η, ζ) | ξ ∈ RealSet, η ∈ RealSet, ζ ∈ RealSet, ξ^{2} + η^{2} ≤ a^{2} ∧ 0 ≤ ζ ∧ ζ ≤ h }, frac(ξ, (ξ^{2} + η^{2} + (ζ - z)^{2})^{frac(3, 2)}) * diff(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . ξ) * diff(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . η) * diff(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . ζ))
+10. Y = k * `ρ_0` * VolumeInt({ (ξ, η, ζ) | ξ ∈ RealSet, η ∈ RealSet, ζ ∈ RealSet, ξ^{2} + η^{2} ≤ a^{2} ∧ 0 ≤ ζ ∧ ζ ≤ h }, frac(η, (ξ^{2} + η^{2} + (ζ - z)^{2})^{frac(3, 2)}) * diff(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . ξ) * diff(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . η) * diff(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . ζ))
+11. X = 0
+12. Y = 0
+13. Z = k * `ρ_0` * VolumeInt({ (ξ, η, ζ) | ξ ∈ RealSet, η ∈ RealSet, ζ ∈ RealSet, ξ^{2} + η^{2} ≤ a^{2} ∧ 0 ≤ ζ ∧ ζ ≤ h }, frac(ζ - z, (ξ^{2} + η^{2} + (ζ - z)^{2})^{frac(3, 2)}) * diff(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . ξ) * diff(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . η) * diff(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . ζ))
+14. Z = k * `ρ_0` * DefInt(0, 2 * π, diff(fun φ [φ ∈ RealSet] . φ)) * DefInt(0, a, r * DefInt(0, h, frac(ζ - z, (r^{2} + (ζ - z)^{2})^{frac(3, 2)}) * diff(fun ζ [ζ ∈ RealSet ∧ ζ ∈ IntervalClCl(0, h)] . ζ)) * diff(fun r [r ∈ RealSet ∧ r ∈ IntervalClCl(0, a)] . r))
+15. Z = 2 * π * k * `ρ_0` * DefInt(0, a, r * (frac(1, sqrtn(2, r^{2} + z^{2})) - frac(1, sqrtn(2, r^{2} + (h - z)^{2}))) * diff(fun r [r ∈ RealSet ∧ r ∈ IntervalClCl(0, a)] . r))
+16. Z = 2 * π * k * `ρ_0` * (sqrtn(2, a^{2} + z^{2}) - sqrtn(2, a^{2} + (h - z)^{2}) - |z| + |h - z|)
+17. 0 ≤ z ⇒ z < frac(h, 2) ⇒ Z > 0
+18. frac(h, 2) < z ⇒ z ≤ h ⇒ Z < 0
+
+GOAL:
+z = frac(h, 2) ⇒ Z = 0
+
+METHOD:

@@ -1,0 +1,14 @@
+PROOF GAP @7
+ASSUM:
+1. C ∈ RealSet
+2. { `F_2` | forall (x), x ∈ RealSet ∧ x ≥ 1 ∧ x ≤ 2 ⇒ FunDeri(`F_2`, 1, 1)(x) = (2 * x + 3) * arccos(2 * x - 3) * FunDeri(fun x [x ∈ RealSet ∧ x ≥ 1 ∧ x ≤ 2] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ x ≥ 1 ∧ x ≤ 2 ⇒ FunDeri(`F_3`, 1, 1)(x) = arccos(2 * x - 3) * FunDeri(fun x [x ∈ RealSet ∧ x ≥ 1 ∧ x ≤ 2] . x^{2} + 3 * x, 1, 1)(x) }
+3. { `F_4` | forall (x), x ∈ RealSet ∧ x ≥ 1 ∧ x ≤ 2 ⇒ FunDeri(`F_4`, 1, 1)(x) = arccos(2 * x - 3) * FunDeri(fun x [x ∈ RealSet ∧ x ≥ 1 ∧ x ≤ 2] . x^{2} + 3 * x, 1, 1)(x) } = { `F_7` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≥ 1 ∧ x ≤ 2 ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(x^{2} + 3 * x, sqrtn(2, -x^{2} + 3 * x - 2)) * FunDeri(fun x [x ∈ RealSet ∧ x ≥ 1 ∧ x ≤ 2] . x, 1, 1)(x) ∧ `F_7`(x) = (x^{2} + 3 * x) * arccos(2 * x - 3) + `F_5`(x)) }
+4. { `F_8` | forall (x), x ∈ RealSet ∧ x ≥ 1 ∧ x ≤ 2 ⇒ FunDeri(`F_8`, 1, 1)(x) = frac(x^{2} + 3 * x, sqrtn(2, -x^{2} + 3 * x - 2)) * FunDeri(fun x [x ∈ RealSet ∧ x ≥ 1 ∧ x ≤ 2] . x, 1, 1)(x) } = { `F_16` | exists (`F_9`) (`F_11`) (`F_14`), `F_9` : RealSet → RealSet ∧ `F_11` : RealSet → RealSet ∧ `F_14` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≥ 1 ∧ x ≤ 2 ⇒ FunDeri(`F_9`, 1, 1)(x) = sqrtn(2, -x^{2} + 3 * x - 2) * FunDeri(fun x [x ∈ RealSet ∧ x ≥ 1 ∧ x ≤ 2] . x, 1, 1)(x) ∧ FunDeri(`F_11`, 1, 1)(x) = frac(-2 * x + 3, sqrtn(2, -x^{2} + 3 * x - 2)) * FunDeri(fun x [x ∈ RealSet ∧ x ≥ 1 ∧ x ≤ 2] . x, 1, 1)(x) ∧ FunDeri(`F_14`, 1, 1)(x) = frac(1, sqrtn(2, -x^{2} + 3 * x - 2)) * FunDeri(fun x [x ∈ RealSet ∧ x ≥ 1 ∧ x ≤ 2] . x, 1, 1)(x) ∧ `F_16`(x) = -`F_9`(x) - 3 * `F_11`(x) + 7 * `F_14`(x)) }
+5. forall (x), x ∈ RealSet ∧ x ≥ 1 ∧ x ≤ 2 ⇒ -x^{2} + 3 * x - 2 = frac(1, 2)^{2} - (x - frac(3, 2))^{2}
+6. { `F_17` | forall (x), x ∈ RealSet ∧ x ≥ 1 ∧ x ≤ 2 ⇒ FunDeri(`F_17`, 1, 1)(x) = (2 * x + 3) * arccos(2 * x - 3) * FunDeri(fun x [x ∈ RealSet ∧ x ≥ 1 ∧ x ≤ 2] . x, 1, 1)(x) } = { `F_18` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≥ 1 ∧ x ≤ 2 ⇒ `F_18`(x) = (x^{2} + 3 * x) * arccos(2 * x - 3) - frac(2 * x - 3, 4) * sqrtn(2, -x^{2} + 3 * x - 2) - frac(1, 8) * arcsin(2 * x - 3) - 6 * sqrtn(2, -x^{2} + 3 * x - 2) - 7 * arccos(2 * x - 3) + C) }
+7. C ∈ RealSet
+
+GOAL:
+{ `F_19` | forall (x), x ∈ RealSet ∧ x ≥ 1 ∧ x ≤ 2 ⇒ FunDeri(`F_19`, 1, 1)(x) = (2 * x + 3) * arccos(2 * x - 3) * FunDeri(fun x [x ∈ RealSet ∧ x ≥ 1 ∧ x ≤ 2] . x, 1, 1)(x) } = { `F_20` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≥ 1 ∧ x ≤ 2 ⇒ `F_20`(x) = (x^{2} + 3 * x - frac(55, 8)) * arccos(2 * x - 3) - frac(2 * x + 21, 4) * sqrtn(2, -x^{2} + 3 * x - 2) + C) }
+
+METHOD:

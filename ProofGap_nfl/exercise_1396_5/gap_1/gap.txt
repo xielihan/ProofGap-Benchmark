@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+sin(frac(π, 10)) ≈_{ frac(1, 7!) * frac(π, 10)^{7} } frac(π, 10) - frac(1, 3!) * frac(π, 10)^{3} + frac(1, 5!) * frac(π, 10)^{5}
+
+METHOD:
+[@method 根据 "sin x 的 Taylor 公式" @]

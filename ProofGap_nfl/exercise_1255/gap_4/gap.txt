@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. a < b
+5. DiffableFuncOn(f, IntervalLoRo(a, b))
+6. BoundedFuncOn(FunDeri(f, 1, 1), IntervalLoRo(a, b))
+7. exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ |FunDeri(f, 1, 1)(x)| ≤ M)
+8. forall (M), M ∈ RealSet ∧ M > 0 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ = frac(ε, M) ∧ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ IntervalLoRo(a, b) ∧ x_{2} ∈ IntervalLoRo(a, b) ∧ |x_{1} - x_{2}| < δ ⇒ (exists (ξ), ξ ∈ RealSet ∧ ξ ∈ IntervalLoRo(a, b) ∧ |f(x_{1}) - f(x_{2})| = |x_{1} - x_{2}| * |FunDeri(f, 1, 1)(ξ)|)))))
+GOAL:
+forall (M), M ∈ RealSet ∧ M > 0 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ = frac(ε, M) ∧ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ IntervalLoRo(a, b) ∧ x_{2} ∈ IntervalLoRo(a, b) ∧ |x_{1} - x_{2}| < δ ⇒ M * |x_{1} - x_{2}| < ε))))
+
+METHOD:

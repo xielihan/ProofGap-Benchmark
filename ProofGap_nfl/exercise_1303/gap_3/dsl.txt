@@ -1,0 +1,9 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet => (forall (k), k ∈ IntegerSet /\ 2 * k * π < x /\ x < (2 * k + 1) * π => FunDeri(y, 1, 2)(x) < 0)}) (x := {u})
+2. get_condition (hypothesis 5: {u ∈ RealSet}) in (GOAL: {u ∈ RealSet => (forall (k), k ∈ IntegerSet /\ 2 * k * π < u /\ u < (2 * k + 1) * π => FunDeri(y, 1, 2)(u) < 0)})
+3. get_forall (GOAL: {forall (k), k ∈ IntegerSet /\ 2 * k * π < u /\ u < (2 * k + 1) * π => FunDeri(y, 1, 2)(u) < 0}) (k := {n})
+4. get_condition (hypothesis 6: {n ∈ IntegerSet /\ 2 * n * π < u /\ u < (2 * n + 1) * π}) in (GOAL: {n ∈ IntegerSet /\ 2 * n * π < u /\ u < (2 * n + 1) * π => FunDeri(y, 1, 2)(u) < 0})
+5. destruct_and (hypothesis 6: {n ∈ IntegerSet /\ 2 * n * π < u /\ u < (2 * n + 1) * π}) as (hypothesis 7: {n ∈ IntegerSet}) (hypothesis 8: {2 * n * π < u}) (hypothesis 9: {u < (2 * n + 1) * π})
+6. get_prop (hypothesis 4: {forall (x), x ∈ RealSet => FunDeri(y, 1, 2)(x) = -sin(x)}) (x := {u}) as (hypothesis 10: {u ∈ RealSet => FunDeri(y, 1, 2)(u) = -sin(u)})
+7. use_condition (hypothesis 5: {u ∈ RealSet}) in (hypothesis 10: {u ∈ RealSet => FunDeri(y, 1, 2)(u) = -sin(u)}) as (hypothesis 11: {FunDeri(y, 1, 2)(u) = -sin(u)})
+8. get_prop (theorem 'Thm 467. (SinePositiveOnPositiveHalfPeriod)': {forall (n) (t), t ∈ RealSet => n ∈ IntegerSet => (2 * n * π < t /\ t < (2 * n + 1) * π) => sin(t) > 0}) (n := {n}) (t := {u}) as (hypothesis 12: {u ∈ RealSet => n ∈ IntegerSet => (2 * n * π < u /\ u < (2 * n + 1) * π) => sin(u) > 0})
+9. autosolve all_hypothesis

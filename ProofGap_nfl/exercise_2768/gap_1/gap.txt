@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ x ∈ [-1, 1] ∧ n ∈ PosIntegerSet ⇒ |frac(x^{n}, n^{2})| ≤ frac(1, n^{2}))
+
+METHOD:

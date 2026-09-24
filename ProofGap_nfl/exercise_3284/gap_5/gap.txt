@@ -1,0 +1,17 @@
+PROOF GAP @5
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. f : CartesianProd(RealSet, RealSet) → RealSet
+3. DiffableFunc(f)
+4. DiffableFunc(FunDeri(f, 1, 1))
+5. DiffableFunc(FunDeri(f, 2, 1))
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ≠ 0 ⇒ u(x, y) = f(x, frac(x, y))
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ∈ RealSet \ { 0 } ⇒ FunDeri(u, 1, 1)(x, y) = FunDeri(f, 1, 1)(x, frac(x, y)) + frac(1, y) * FunDeri(f, 2, 1)(x, frac(x, y))
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ∈ RealSet \ { 0 } ⇒ FunDeri(u, 2, 1)(x, y) = -frac(x, y^{2}) * FunDeri(f, 2, 1)(x, frac(x, y))
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ∈ RealSet \ { 0 } ⇒ FunDeri(u, 1, 2)(x, y) = FunDeri(f, 1, 2)(x, frac(x, y)) + frac(2, y) * FunDeri(FunDeri(f, 1, 1), 2, 1)(x, frac(x, y)) + frac(1, y^{2}) * FunDeri(f, 2, 2)(x, frac(x, y))
+10. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ∈ RealSet \ { 0 } ⇒ FunDeri(u, 2, 2)(x, y) = frac(2 * x, y^{3}) * FunDeri(f, 2, 1)(x, frac(x, y)) + frac(x^{2}, y^{4}) * FunDeri(f, 2, 2)(x, frac(x, y))
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ∈ RealSet \ { 0 } ⇒ FunDeri(FunDeri(u, 1, 1), 2, 1)(x, y) = -frac(x, y^{2}) * FunDeri(FunDeri(f, 1, 1), 2, 1)(x, frac(x, y)) - frac(1, y^{2}) * FunDeri(f, 2, 1)(x, frac(x, y)) - frac(x, y^{3}) * FunDeri(f, 2, 2)(x, frac(x, y))
+
+METHOD:

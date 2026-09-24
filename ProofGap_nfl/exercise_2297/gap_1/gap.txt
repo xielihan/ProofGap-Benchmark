@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet ∧ a ≠ 0
+2. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ cos(x)^{2 * n} = frac(1, 2^{2 * n}) * (Combination(2 * n, n) + 2 * (sum_{ k = 0 }^{ n - 1 } (Combination(2 * n, k) * cos(2 * (n - k) * x))))
+
+METHOD:

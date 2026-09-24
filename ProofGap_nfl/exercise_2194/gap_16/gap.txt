@@ -1,0 +1,36 @@
+PROOF GAP @16
+ASSUM:
+1. f : RealSet → RealSet
+2. x : NonNegIntegerSet → RealSet
+3. Δx : IntegerSet → RealSet
+4. ω : IntegerSet → RealSet
+5. d ∈ RealSet ∧ d > 0
+6. n ∈ NonNegIntegerSet ∧ n > 0
+7. i ∈ IntegerSet
+8. i_{0} ∈ IntegerSet ∧ 0 ≤ i_{0} ∧ i_{0} ≤ n - 1
+9. δ ∈ RealSet ∧ δ > 0
+10. η ∈ RealSet ∧ η > 0
+11. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ f(x) = sgn(sin(frac(π, x)))
+12. f(0) ∈ RealSet
+13. BoundedFuncOn(f, [0, 1])
+14. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ (¬ContinuousFuncAt(f, x) ⇔ x ∈ { 0 } ∪ { frac(1, n) | n ∈ PosIntegerSet })
+15. forall (α) (β), α ∈ RealSet ∧ β ∈ RealSet ∧ 0 ≤ α ∧ α < β ∧ β ≤ 1 ⇒ OscillationOn(f, [α, β]) ≤ 2
+16. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ FiniteSet({ x | x ∈ [frac(ε, 5), 1], ¬ContinuousFuncAt(f, x) })
+17. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ IntegrableFuncOn(f, [frac(ε, 5), 1])
+18. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (η), η ∈ RealSet ∧ η > 0 ∧ (forall (α) (β), α ∈ RealSet ∧ β ∈ RealSet ∧ [α, β] ⊆ [frac(ε, 5), 1] ∧ d < η ⇒ sum_{ i = 0 }^{ n - 1 } (ω(i) * Δx(i)) < frac(ε, 5)))
+19. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ δ = min(frac(ε, 5), η)
+20. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n ∈ PosIntegerSet ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ Δx(i) = x(i + 1) - x(i)) ∧ x(0) = 0 ∧ x(n) = 1 ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ x(i) < x(i + 1)) ∧ d < δ ⇒ i_{0} = max({ i | i ∈ IntegerSet, 0 ≤ i ∧ i ≤ n - 1 ∧ x(i) ≤ frac(ε, 5) }))
+21. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n ∈ PosIntegerSet ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ Δx(i) = x(i + 1) - x(i)) ∧ x(0) = 0 ∧ x(n) = 1 ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ x(i) < x(i + 1)) ∧ d < δ ⇒ x(i_{0}) ≤ frac(ε, 5))
+22. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n ∈ PosIntegerSet ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ Δx(i) = x(i + 1) - x(i)) ∧ x(0) = 0 ∧ x(n) = 1 ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ x(i) < x(i + 1)) ∧ d < δ ⇒ frac(ε, 5) < x(i_{0} + 1))
+23. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n ∈ PosIntegerSet ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ Δx(i) = x(i + 1) - x(i)) ∧ x(0) = 0 ∧ x(n) = 1 ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ x(i) < x(i + 1)) ∧ d < δ ⇒ sum_{ i = i_{0} + 1 }^{ n - 1 } (ω(i) * Δx(i)) < frac(ε, 5))
+24. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n ∈ PosIntegerSet ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ Δx(i) = x(i + 1) - x(i)) ∧ x(0) = 0 ∧ x(n) = 1 ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ x(i) < x(i + 1)) ∧ d < δ ⇒ sum_{ i = 0 }^{ i_{0} } (ω(i) * Δx(i)) ≤ 2 * (sum_{ i = 0 }^{ i_{0} } (Δx(i))))
+25. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n ∈ PosIntegerSet ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ Δx(i) = x(i + 1) - x(i)) ∧ x(0) = 0 ∧ x(n) = 1 ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ x(i) < x(i + 1)) ∧ d < δ ⇒ 2 * (sum_{ i = 0 }^{ i_{0} } (Δx(i))) < 2 * frac(2 * ε, 5))
+26. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n ∈ PosIntegerSet ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ Δx(i) = x(i + 1) - x(i)) ∧ x(0) = 0 ∧ x(n) = 1 ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ x(i) < x(i + 1)) ∧ d < δ ⇒ 2 * frac(2 * ε, 5) = frac(4 * ε, 5))
+27. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n ∈ PosIntegerSet ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ Δx(i) = x(i + 1) - x(i)) ∧ x(0) = 0 ∧ x(n) = 1 ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ x(i) < x(i + 1)) ∧ d < δ ⇒ sum_{ i = 0 }^{ i_{0} } (ω(i) * Δx(i)) < frac(4 * ε, 5))
+28. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n ∈ PosIntegerSet ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ Δx(i) = x(i + 1) - x(i)) ∧ x(0) = 0 ∧ x(n) = 1 ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ x(i) < x(i + 1)) ∧ d < δ ⇒ sum_{ i = 0 }^{ n - 1 } (ω(i) * Δx(i)) = (sum_{ i = 0 }^{ i_{0} } (ω(i) * Δx(i))) + (sum_{ i = i_{0} + 1 }^{ n - 1 } (ω(i) * Δx(i))))
+29. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n ∈ PosIntegerSet ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ Δx(i) = x(i + 1) - x(i)) ∧ x(0) = 0 ∧ x(n) = 1 ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ x(i) < x(i + 1)) ∧ d < δ ⇒ (sum_{ i = 0 }^{ i_{0} } (ω(i) * Δx(i))) + (sum_{ i = i_{0} + 1 }^{ n - 1 } (ω(i) * Δx(i))) < ε)
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n ∈ PosIntegerSet ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ Δx(i) = x(i + 1) - x(i)) ∧ x(0) = 0 ∧ x(n) = 1 ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ x(i) < x(i + 1)) ∧ d < δ ⇒ sum_{ i = 0 }^{ n - 1 } (ω(i) * Δx(i)) < ε)
+
+METHOD:

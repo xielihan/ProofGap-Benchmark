@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = sgn(sin(π * x))
+
+GOAL:
+forall (n), n ∈ IntegerSet ⇒ f(n) = 0
+
+METHOD:

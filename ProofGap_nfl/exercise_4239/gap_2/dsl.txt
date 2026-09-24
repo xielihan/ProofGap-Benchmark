@@ -1,0 +1,15 @@
+get_forall (GOAL: {forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ T ⇒ diff(s) = sqrtn(2, 2 + t^{2}) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ T] . t)}) (t := {u})
+get_condition (hypothesis 13: {u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ T}) in (GOAL: {u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ T ⇒ diff(s) = sqrtn(2, 2 + u^{2}) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ T] . t)})
+get_prop (hypothesis 12: {forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ T ⇒ diff(s) = sqrtn(2, (cos(t) - t * sin(t))^{2} + (sin(t) + t * cos(t))^{2} + 1) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ T] . t)}) (t := {u}) as (hypothesis 14: {u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ T ⇒ diff(s) = sqrtn(2, (cos(u) - u * sin(u))^{2} + (sin(u) + u * cos(u))^{2} + 1) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ T] . t)})
+get_prop (theorem 'Thm 168. (PythagoreanTrigonometricIdentity)': {forall (x), x ∈ RealSet => (sin(x)) ^ 2 + (cos(x)) ^ 2 = 1}) (x := {u}) as (hypothesis 15: {u ∈ RealSet => (sin(u)) ^ 2 + (cos(u)) ^ 2 = 1})
+assert (hypothesis 16: {u ∈ RealSet}) by proof {
+  autosolve (hypothesis 13: {u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ T})
+}
+use_condition (hypothesis 16: {u ∈ RealSet}) in (hypothesis 15: {u ∈ RealSet => (sin(u)) ^ 2 + (cos(u)) ^ 2 = 1}) as (hypothesis 17: {(sin(u)) ^ 2 + (cos(u)) ^ 2 = 1})
+assert (hypothesis 18: {(cos(u) - u * sin(u))^{2} + (sin(u) + u * cos(u))^{2} + 1 = 2 + u^{2}}) by proof {
+  autoreplace no_hypothesis; from ((cos(u) - u * sin(u))^{2} + (sin(u) + u * cos(u))^{2} + 1) to ((1 + u^{2}) * ((sin(u))^{2} + (cos(u))^{2}) + 1); from (GOAL: {(cos(u) - u * sin(u))^{2} + (sin(u) + u * cos(u))^{2} + 1 = 2 + u^{2}}) to (GOAL: {(1 + u^{2}) * ((sin(u))^{2} + (cos(u))^{2}) + 1 = 2 + u^{2}})
+  rewrite (left_to_right, equation) (hypothesis 17: {(sin(u)) ^ 2 + (cos(u)) ^ 2 = 1}); from (GOAL: {(1 + u^{2}) * ((sin(u))^{2} + (cos(u))^{2}) + 1 = 2 + u^{2}}) to (GOAL: {(1 + u^{2}) * 1 + 1 = 2 + u^{2}})
+  autosolve (hypothesis 16: {u ∈ RealSet})
+}
+rewrite (left_to_right, equation) (hypothesis 18: {(cos(u) - u * sin(u))^{2} + (sin(u) + u * cos(u))^{2} + 1 = 2 + u^{2}}); from (hypothesis 14: {u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ T ⇒ diff(s) = sqrtn(2, (cos(u) - u * sin(u))^{2} + (sin(u) + u * cos(u))^{2} + 1) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ T] . t)}) to (hypothesis 14: {u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ T ⇒ diff(s) = sqrtn(2, 2 + u^{2}) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ T] . t)})
+autosolve (hypothesis 13: {u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ T}) (hypothesis 14: {u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ T ⇒ diff(s) = sqrtn(2, 2 + u^{2}) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ T] . t)})

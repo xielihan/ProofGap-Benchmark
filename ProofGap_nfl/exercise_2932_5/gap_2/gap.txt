@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. Δ ∈ RealSet
+2. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ sinh(x) = sum_{ n = 0 }^{ +∞ } (frac(x^{2 * n + 1}, (2 * n + 1)!))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ frac(sinh(x), x) = sum_{ n = 0 }^{ +∞ } (frac(x^{2 * n}, (2 * n + 1)!))
+
+METHOD:

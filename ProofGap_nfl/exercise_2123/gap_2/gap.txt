@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(-1, 1) ∧ t = tanh(frac(x, 2)))
+2. forall (x), x ∈ RealSet
+
+GOAL:
+forall (t), t ∈ RealSet ⇒ t ∈ IntervalLoRo(-1, 1)
+
+METHOD:

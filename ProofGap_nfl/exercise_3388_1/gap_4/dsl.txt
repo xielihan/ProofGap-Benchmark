@@ -1,0 +1,7 @@
+1. assert (hypothesis 12: {FunDeri(fun x [x ∈ RealSet] . x^{2} + 2 - 3 * x, 1, 1)(1) = -1}) by proof {
+  1. autosolve all_hypothesis
+}
+2. assert (hypothesis 13: {FunDeri(fun z [z ∈ RealSet] . 2 + z^{2} - 3 * z, 1, 1)(1) = -1}) by proof {
+  1. autosolve all_hypothesis
+}
+3. autosolve all_hypothesis

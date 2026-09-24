@@ -1,0 +1,4 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x > 1 ∧ ¬(exists (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2 ∧ x = k) ⇒ x ∈ Dom(F_{3})}) (x := {z})
+2. get_prop (hypothesis 18: {forall (x), x ∈ RealSet ∧ x > 1 ∧ ¬(exists (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2 ∧ x = k) ⇒ x ≠ 0 ∧ 0 < frac(floor(x), x) ∧ frac(floor(x), x) < 1}) (x := {z}) as (hypothesis 19: {z ∈ RealSet ∧ z > 1 ∧ ¬(exists (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2 ∧ z = k) ⇒ z ≠ 0 ∧ 0 < frac(floor(z), z) ∧ frac(floor(z), z) < 1})
+3. get_prop (hypothesis 17: {forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ 0 < frac(floor(x), x) ∧ frac(floor(x), x) < 1 ⇒ x ∈ Dom(F_{3})}) (x := {z}) as (hypothesis 20: {z ∈ RealSet ∧ z ≠ 0 ∧ 0 < frac(floor(z), z) ∧ frac(floor(z), z) < 1 ⇒ z ∈ Dom(F_{3})})
+4. autosolve all_hypothesis

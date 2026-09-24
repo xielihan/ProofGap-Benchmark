@@ -1,0 +1,5 @@
+1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet /\ k = 1 /\ n ∈ IntegerSet /\ n > 2 => 0 < frac(n^{k}, a^{n})}) (n := {m})
+2. get_condition (hypothesis 14: {m ∈ NonNegIntegerSet /\ k = 1 /\ m ∈ IntegerSet /\ m > 2}) in (GOAL: {m ∈ NonNegIntegerSet /\ k = 1 /\ m ∈ IntegerSet /\ m > 2 => 0 < frac(m^{k}, a^{m})})
+3. destruct_and (hypothesis 14: {m ∈ NonNegIntegerSet /\ k = 1 /\ m ∈ IntegerSet /\ m > 2}) as (hypothesis 15: {m ∈ NonNegIntegerSet}) (hypothesis 16: {k = 1}) (hypothesis 17: {m ∈ IntegerSet}) (hypothesis 18: {m > 2})
+4. rewrite (left_to_right, equation) (hypothesis 16: {k = 1}); from (GOAL: {0 < frac(m^{k}, a^{m})}) to (GOAL: {0 < frac(m^{1}, a^{m})})
+5. autosolve all_hypothesis

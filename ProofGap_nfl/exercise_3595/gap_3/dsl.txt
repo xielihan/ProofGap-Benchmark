@@ -1,0 +1,18 @@
+1. get_forall (GOAL: {forall (x) (y), x ∈ RealSet /\ y ∈ RealSet => f(x, y) = (sum_{ m = 0 }^{ +∞ } (frac(x^{m}, m!))) * (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(y^{2 * n + 1}, (2 * n + 1)!)))}) (x := {xx}) (y := {yy})
+2. get_condition (hypothesis 5: {xx ∈ RealSet /\ yy ∈ RealSet}) in (GOAL: {xx ∈ RealSet /\ yy ∈ RealSet => f(xx, yy) = (sum_{ m = 0 }^{ +∞ } (frac(xx^{m}, m!))) * (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(yy^{2 * n + 1}, (2 * n + 1)!)))})
+3. get_prop (hypothesis 2: {forall (x) (y), x ∈ RealSet /\ y ∈ RealSet => f(x, y) = e^{x} * sin(y)}) (x := {xx}) (y := {yy}) as (hypothesis 6: {xx ∈ RealSet /\ yy ∈ RealSet => f(xx, yy) = e^{xx} * sin(yy)})
+4. get_prop (hypothesis 3: {forall (x), x ∈ RealSet => e^{x} = sum_{ m = 0 }^{ +∞ } (frac(x^{m}, m!))}) (x := {xx}) as (hypothesis 7: {xx ∈ RealSet => e^{xx} = sum_{ m = 0 }^{ +∞ } (frac(xx^{m}, m!))})
+5. get_prop (hypothesis 4: {forall (y), y ∈ RealSet => sin(y) = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(y^{2 * n + 1}, (2 * n + 1)!))}) (y := {yy}) as (hypothesis 8: {yy ∈ RealSet => sin(yy) = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(yy^{2 * n + 1}, (2 * n + 1)!))})
+6. assert (hypothesis 9: {xx ∈ RealSet}) by proof {
+  1. autosolve all_hypothesis
+}
+7. assert (hypothesis 10: {yy ∈ RealSet}) by proof {
+  1. autosolve all_hypothesis
+}
+8. use_condition (hypothesis 5: {xx ∈ RealSet /\ yy ∈ RealSet}) in (hypothesis 6: {xx ∈ RealSet /\ yy ∈ RealSet => f(xx, yy) = e^{xx} * sin(yy)}) as (hypothesis 11: {f(xx, yy) = e^{xx} * sin(yy)})
+9. use_condition (hypothesis 9: {xx ∈ RealSet}) in (hypothesis 7: {xx ∈ RealSet => e^{xx} = sum_{ m = 0 }^{ +∞ } (frac(xx^{m}, m!))}) as (hypothesis 12: {e^{xx} = sum_{ m = 0 }^{ +∞ } (frac(xx^{m}, m!))})
+10. use_condition (hypothesis 10: {yy ∈ RealSet}) in (hypothesis 8: {yy ∈ RealSet => sin(yy) = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(yy^{2 * n + 1}, (2 * n + 1)!))}) as (hypothesis 13: {sin(yy) = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(yy^{2 * n + 1}, (2 * n + 1)!))})
+11. rewrite (left_to_right, equation) (hypothesis 11: {f(xx, yy) = e^{xx} * sin(yy)}); from (GOAL: {f(xx, yy) = (sum_{ m = 0 }^{ +∞ } (frac(xx^{m}, m!))) * (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(yy^{2 * n + 1}, (2 * n + 1)!)))}) to (GOAL: {e^{xx} * sin(yy) = (sum_{ m = 0 }^{ +∞ } (frac(xx^{m}, m!))) * (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(yy^{2 * n + 1}, (2 * n + 1)!)))})
+12. rewrite (left_to_right, equation) (hypothesis 12: {e^{xx} = sum_{ m = 0 }^{ +∞ } (frac(xx^{m}, m!))}); from (GOAL: {e^{xx} * sin(yy) = (sum_{ m = 0 }^{ +∞ } (frac(xx^{m}, m!))) * (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(yy^{2 * n + 1}, (2 * n + 1)!)))}) to (GOAL: {(sum_{ m = 0 }^{ +∞ } (frac(xx^{m}, m!))) * sin(yy) = (sum_{ m = 0 }^{ +∞ } (frac(xx^{m}, m!))) * (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(yy^{2 * n + 1}, (2 * n + 1)!)))})
+13. rewrite (left_to_right, equation) (hypothesis 13: {sin(yy) = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(yy^{2 * n + 1}, (2 * n + 1)!))}); from (GOAL: {(sum_{ m = 0 }^{ +∞ } (frac(xx^{m}, m!))) * sin(yy) = (sum_{ m = 0 }^{ +∞ } (frac(xx^{m}, m!))) * (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(yy^{2 * n + 1}, (2 * n + 1)!)))}) to (GOAL: {(sum_{ m = 0 }^{ +∞ } (frac(xx^{m}, m!))) * (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(yy^{2 * n + 1}, (2 * n + 1)!))) = (sum_{ m = 0 }^{ +∞ } (frac(xx^{m}, m!))) * (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(yy^{2 * n + 1}, (2 * n + 1)!)))})
+14. autosolve all_hypothesis

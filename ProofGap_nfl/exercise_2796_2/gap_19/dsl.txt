@@ -1,0 +1,15 @@
+get_forall (GOAL: {forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [0, 1] ∧ x_{0} ∈ RationalSet ⇒ (exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ (forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ x ≠ x_{0} ⇒ frac(|x - r(m)| - |x_{0} - r(m)|, 3^{m} * (x - x_{0})) = frac(|x - x_{0}|, 3^{m} * (x - x_{0}))))}) (x_{0} := {u})
+get_condition (hypothesis 27: {u ∈ RealSet ∧ u ∈ [0, 1] ∧ u ∈ RationalSet}) in (GOAL: {u ∈ RealSet ∧ u ∈ [0, 1] ∧ u ∈ RationalSet ⇒ (exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ (forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ x ≠ u ⇒ frac(|x - r(m)| - |u - r(m)|, 3^{m} * (x - u)) = frac(|x - u|, 3^{m} * (x - u))))})
+get_prop (hypothesis 23: {forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [0, 1] ∧ x_{0} ∈ RationalSet ⇒ (exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ x_{0} = r(m))}) (x_{0} := {u}) as (hypothesis 28: {u ∈ RealSet ∧ u ∈ [0, 1] ∧ u ∈ RationalSet ⇒ (exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ u = r(m))})
+assert (hypothesis 29: {exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ u = r(m)}) by proof {
+  autosolve all_hypothesis
+}
+get_exists (hypothesis 29: {exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ u = r(m)}) (m := {q})
+destruct_and (hypothesis 30: {q ∈ NonNegIntegerSet ∧ q ∈ PosIntegerSet ∧ u = r(q)}) as (hypothesis 31: {q ∈ NonNegIntegerSet}) (hypothesis 32: {q ∈ PosIntegerSet}) (hypothesis 33: {u = r(q)})
+exists (m := {q})
+assert (hypothesis 34: {forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ x ≠ u ⇒ frac(|x - r(q)| - |u - r(q)|, 3^{q} * (x - u)) = frac(|x - u|, 3^{q} * (x - u))}) by proof {
+  get_forall (GOAL: {forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ x ≠ u ⇒ frac(|x - r(q)| - |u - r(q)|, 3^{q} * (x - u)) = frac(|x - u|, 3^{q} * (x - u))}) (x := {w})
+  get_condition (hypothesis 34: {w ∈ RealSet ∧ 0 ≤ w ∧ w ≤ 1 ∧ w ≠ u}) in (GOAL: {w ∈ RealSet ∧ 0 ≤ w ∧ w ≤ 1 ∧ w ≠ u ⇒ frac(|w - r(q)| - |u - r(q)|, 3^{q} * (w - u)) = frac(|w - u|, 3^{q} * (w - u))})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

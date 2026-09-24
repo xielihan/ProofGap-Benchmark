@@ -1,0 +1,4 @@
+assert (hypothesis 11: {Δ ≠ 0}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

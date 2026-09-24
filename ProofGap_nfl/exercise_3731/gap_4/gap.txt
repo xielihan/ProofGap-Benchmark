@@ -1,0 +1,18 @@
+PROOF GAP @4
+ASSUM:
+1. l ∈ RealSet
+2. f : RealSet → RealSet
+3. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+4. l > 0
+5. ContinuousFuncOn(f, [0, l])
+6. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ (forall (ξ), ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ l ⇒ (x - ξ)^{2} + y^{2} + z^{2} ≠ 0)
+7. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = DefInt(0, l, (fun ξ [ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ l] . frac(f(ξ), sqrtn(2, (x - ξ)^{2} + y^{2} + z^{2}))) * diff(fun ξ [ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ l] . ξ))
+8. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (forall (ξ), ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ l ⇒ (x - ξ)^{2} + y^{2} + z^{2} ≠ 0) ⇒ FunDeri(u, 1, 1)(x, y, z) = -DefInt(0, l, (fun ξ [ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ l] . frac((x - ξ) * f(ξ), ((x - ξ)^{2} + y^{2} + z^{2})^{frac(3, 2)})) * diff(fun ξ [ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ l] . ξ))
+9. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (forall (ξ), ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ l ⇒ (x - ξ)^{2} + y^{2} + z^{2} ≠ 0) ⇒ FunDeri(u, 1, 2)(x, y, z) = DefInt(0, l, (fun ξ [ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ l] . frac(f(ξ) * (2 * (x - ξ)^{2} - y^{2} - z^{2}), ((x - ξ)^{2} + y^{2} + z^{2})^{frac(5, 2)})) * diff(fun ξ [ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ l] . ξ))
+10. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (forall (ξ), ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ l ⇒ (x - ξ)^{2} + y^{2} + z^{2} ≠ 0) ⇒ FunDeri(u, 2, 2)(x, y, z) = DefInt(0, l, (fun ξ [ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ l] . frac(f(ξ) * (-(x - ξ)^{2} + 2 * y^{2} - z^{2}), ((x - ξ)^{2} + y^{2} + z^{2})^{frac(5, 2)})) * diff(fun ξ [ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ l] . ξ))
+
+GOAL:
+forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (forall (ξ), ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ l ⇒ (x - ξ)^{2} + y^{2} + z^{2} ≠ 0) ⇒ FunDeri(u, 3, 2)(x, y, z) = DefInt(0, l, (fun ξ [ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ l] . frac(f(ξ) * (-(x - ξ)^{2} - y^{2} + 2 * z^{2}), ((x - ξ)^{2} + y^{2} + z^{2})^{frac(5, 2)})) * diff(fun ξ [ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ l] . ξ))
+
+METHOD:
+[@method 同理 @]

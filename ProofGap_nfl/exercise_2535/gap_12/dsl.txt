@@ -1,0 +1,12 @@
+get_prop (theorem 'Thm 450. (SquareRootSquareCancellation)': {forall (u), u ∈ RealSet => u >= 0 => sqrtn(2, u)^2 = u}) (u := {7}) as (hypothesis 26: {7 ∈ RealSet => 7 >= 0 => sqrtn(2, 7)^2 = 7})
+use_condition (obvious: {7 ∈ RealSet}) (obvious: {7 >= 0}) in (hypothesis 26: {7 ∈ RealSet => 7 >= 0 => sqrtn(2, 7)^2 = 7}) as (hypothesis 27: {sqrtn(2, 7)^2 = 7})
+assert (hypothesis 28: {sqrtn(2, 7) >= 0})
+assert (hypothesis 29: {(sqrtn(2, 7) - 2.645) * (sqrtn(2, 7) + 2.645) = 7 - 2.645^2})
+assert (hypothesis 30: {7 - 2.645^2 > 0})
+assert (hypothesis 31: {sqrtn(2, 7) + 2.645 > 0})
+assert (hypothesis 32: {sqrtn(2, 7) - 2.645 > 0})
+assert (hypothesis 33: {(2.647 - sqrtn(2, 7)) * (2.647 + sqrtn(2, 7)) = 2.647^2 - 7})
+assert (hypothesis 34: {2.647^2 - 7 > 0})
+assert (hypothesis 35: {2.647 + sqrtn(2, 7) > 0})
+assert (hypothesis 36: {2.647 - sqrtn(2, 7) > 0})
+autosolve all_hypothesis

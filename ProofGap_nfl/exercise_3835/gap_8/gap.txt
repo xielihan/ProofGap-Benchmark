@@ -1,0 +1,24 @@
+PROOF GAP @8
+ASSUM:
+1. F : RealSet → RealSet
+2. f : RealSet → RealSet
+3. a ∈ RealSet
+4. α ∈ RealSet
+5. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+6. p ∈ RealSet ∧ p > 0
+7. t ∈ RealSet
+8. M ∈ RealSet ∧ M > 0
+9. C ∈ RealSet
+10. F(p) = DefInt(0, +∞, e^{-p * t} * f(t) * diff(t))
+11. n ∈ PosIntegerSet ⇒ (forall (t), t ∈ RealSet ⇒ f(t) = t^{n}) ⇒ F(p) = DefInt(0, +∞, e^{-p * t} * t^{n} * diff(t))
+12. n ∈ PosIntegerSet ⇒ (forall (t), t ∈ RealSet ⇒ f(t) = t^{n}) ⇒ F(p) = ((-frac(1, p) * e^{-p * t} * t^{n})|_{0}^{+∞}) + frac(n, p) * DefInt(0, +∞, e^{-p * t} * t^{n - 1} * diff(t))
+13. n ∈ PosIntegerSet ⇒ (forall (t), t ∈ RealSet ⇒ f(t) = t^{n}) ⇒ F(p) = frac(n!, p^{n}) * DefInt(0, +∞, e^{-p * t} * diff(t))
+14. n ∈ PosIntegerSet ⇒ (forall (t), t ∈ RealSet ⇒ f(t) = t^{n}) ⇒ frac(n!, p^{n}) * DefInt(0, +∞, e^{-p * t} * diff(t)) = frac(n!, p^{n + 1})
+15. n ∈ PosIntegerSet ⇒ (forall (t), t ∈ RealSet ⇒ f(t) = t^{n}) ⇒ F(p) = frac(n!, p^{n + 1})
+16. (forall (t), t ∈ RealSet ⇒ f(t) = sqrtn(2, t)) ⇒ F(p) = DefInt(0, +∞, e^{-p * t} * sqrtn(2, t) * diff(t))
+
+GOAL:
+(forall (t), t ∈ RealSet ⇒ f(t) = sqrtn(2, t)) ⇒ F(p) = ((-frac(1, p) * e^{-p * t} * sqrtn(2, t))|_{0}^{+∞}) + frac(1, 2 * p) * DefInt(0, +∞, frac(e^{-p * t}, sqrtn(2, t)) * diff(t))
+
+METHOD:
+[@method 根据 "分部积分法" @]

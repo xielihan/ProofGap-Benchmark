@@ -1,0 +1,9 @@
+1. get_forall (GOAL: {forall (ε), ε ∈ RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ ε > 0 ∧ δ(4, ε) = ε^{2} ∧ |x_{1} - x_{2}| < δ(4, ε) ∧ x_{1} ∈ [0, +∞) ∧ x_{2} ∈ [0, +∞) ⇒ sqrtn(2, x_{2}) + sqrtn(2, δ(4, ε)) = sqrtn(2, x_{2}) + ε))}) (ε := {e0})
+2. get_condition (hypothesis 33: {e0 ∈ RealSet}) in (GOAL: {e0 ∈ RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ e0 > 0 ∧ δ(4, e0) = e0^{2} ∧ |x_{1} - x_{2}| < δ(4, e0) ∧ x_{1} ∈ [0, +∞) ∧ x_{2} ∈ [0, +∞) ⇒ sqrtn(2, x_{2}) + sqrtn(2, δ(4, e0)) = sqrtn(2, x_{2}) + e0))})
+3. get_forall (GOAL: {forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ e0 > 0 ∧ δ(4, e0) = e0^{2} ∧ |x_{1} - x_{2}| < δ(4, e0) ∧ x_{1} ∈ [0, +∞) ∧ x_{2} ∈ [0, +∞) ⇒ sqrtn(2, x_{2}) + sqrtn(2, δ(4, e0)) = sqrtn(2, x_{2}) + e0)}) (x_{1} := {a})
+4. get_condition (hypothesis 34: {a ∈ RealSet}) in (GOAL: {a ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ e0 > 0 ∧ δ(4, e0) = e0^{2} ∧ |a - x_{2}| < δ(4, e0) ∧ a ∈ [0, +∞) ∧ x_{2} ∈ [0, +∞) ⇒ sqrtn(2, x_{2}) + sqrtn(2, δ(4, e0)) = sqrtn(2, x_{2}) + e0)})
+5. get_forall (GOAL: {forall (x_{2}), x_{2} ∈ RealSet ∧ e0 > 0 ∧ δ(4, e0) = e0^{2} ∧ |a - x_{2}| < δ(4, e0) ∧ a ∈ [0, +∞) ∧ x_{2} ∈ [0, +∞) ⇒ sqrtn(2, x_{2}) + sqrtn(2, δ(4, e0)) = sqrtn(2, x_{2}) + e0)}) (x_{2} := {b})
+6. get_condition (hypothesis 35: {b ∈ RealSet ∧ e0 > 0 ∧ δ(4, e0) = e0^{2} ∧ |a - b| < δ(4, e0) ∧ a ∈ [0, +∞) ∧ b ∈ [0, +∞)}) in (GOAL: {b ∈ RealSet ∧ e0 > 0 ∧ δ(4, e0) = e0^{2} ∧ |a - b| < δ(4, e0) ∧ a ∈ [0, +∞) ∧ b ∈ [0, +∞) ⇒ sqrtn(2, b) + sqrtn(2, δ(4, e0)) = sqrtn(2, b) + e0})
+7. assert (hypothesis 36: {δ(4, e0) = e0 ^ 2})
+8. rewrite (left_to_right, equation) (hypothesis 36: {δ(4, e0) = e0 ^ 2}); from (GOAL: {sqrtn(2, b) + sqrtn(2, δ(4, e0)) = sqrtn(2, b) + e0}) to (GOAL: {sqrtn(2, b) + sqrtn(2, e0 ^ 2) = sqrtn(2, b) + e0})
+9. autosolve all_hypothesis

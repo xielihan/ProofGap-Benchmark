@@ -1,0 +1,18 @@
+PROOF GAP @2
+ASSUM:
+1. I : RealSet → RealSet
+2. x ∈ RealSet
+3. t ∈ RealSet
+4. a ∈ RealSet
+5. b ∈ RealSet
+6. m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet
+7. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+8. C ∈ RealSet
+9. exists (`F_1`), `F_1` : RealSet → RealSet ∧ I = { `F_1` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_1`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), (x + a)^{m} * (x + b)^{n}) }
+10. t = frac(x + a, x + b)
+11. 1 - t = frac(b - a, x + b)
+
+GOAL:
+x + b = frac(b - a, 1 - t)
+
+METHOD:

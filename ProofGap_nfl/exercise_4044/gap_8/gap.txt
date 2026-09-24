@@ -1,0 +1,26 @@
+PROOF GAP @8
+ASSUM:
+1. a ∈ RealSet
+2. z : CartesianProd(RealSet, RealSet) → RealSet
+3. S ∈ RealSet
+4. Ω ⊆ CartesianProd(RealSet, RealSet)
+5. x ∈ RealSet
+6. y ∈ RealSet
+7. r ∈ RealSet
+8. φ ∈ RealSet
+9. t ∈ RealSet
+10. a > 0
+11. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ x^{2} + y^{2} = 2 * a * z(x, y))
+12. Ω = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet, (x^{2} + y^{2})^{2} ≤ 2 * a^{2} * x * y }
+13. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ z(x, y) = frac(x^{2} + y^{2}, 2 * a))
+14. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(z, 1, 1)(x, y) = frac(x, a))
+15. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(z, 2, 1)(x, y) = frac(y, a))
+16. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ sqrtn(2, 1 + FunDeri(z, 1, 1)(x, y)^{2} + FunDeri(z, 2, 1)(x, y)^{2}) = frac(1, a) * sqrtn(2, a^{2} + x^{2} + y^{2}))
+17. Ω = { (r, φ) | r ∈ RealSet ∧ φ ∈ RealSet, r ≥ 0, r^{2} ≤ a^{2} * sin(2 * φ) }
+18. S = VolumeInt(Ω, frac(1, a) * sqrtn(2, a^{2} + x^{2} + y^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+19. S = 4 * DefInt(0, frac(π, 4), DefInt(0, a * sqrtn(2, sin(2 * φ)), frac(1, a) * sqrtn(2, a^{2} + r^{2}) * r * diff(fun r [r ∈ RealSet ∧ r ≥ 0 ∧ r ≤ a * sqrtn(2, sin(2 * φ))] . r)) * diff(fun φ [φ ∈ RealSet ∧ φ ≥ 0 ∧ φ ≤ frac(π, 4)] . φ))
+
+GOAL:
+S = frac(4, 3 * a) * DefInt(0, frac(π, 4), (a^{3} * (1 + sin(2 * φ))^{frac(3, 2)} - a^{3}) * diff(fun φ [φ ∈ RealSet ∧ φ ≥ 0 ∧ φ ≤ frac(π, 4)] . φ))
+
+METHOD:

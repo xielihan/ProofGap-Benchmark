@@ -1,0 +1,7 @@
+1. get_prop (hypothesis 9: {forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ 10 ⇒ x(i) = i * h ∧ y(i) = f(x(i))}) (i := {0}) as (hypothesis 11: {0 ∈ IntegerSet ∧ 0 ≤ 0 ∧ 0 ≤ 10 ⇒ x(0) = 0 * h ∧ y(0) = f(x(0))})
+2. use_condition (obvious: {0 ∈ IntegerSet ∧ 0 ≤ 0 ∧ 0 ≤ 10}) in (hypothesis 11: {0 ∈ IntegerSet ∧ 0 ≤ 0 ∧ 0 ≤ 10 ⇒ x(0) = 0 * h ∧ y(0) = f(x(0))}) as (hypothesis 12: {x(0) = 0 * h ∧ y(0) = f(x(0))})
+3. destruct_and (hypothesis 12: {x(0) = 0 * h ∧ y(0) = f(x(0))}) as (hypothesis 13: {x(0) = 0 * h}) (hypothesis 14: {y(0) = f(x(0))})
+4. rewrite (left_to_right, equation) (hypothesis 10: {x(0) = 0}); from (hypothesis 14: {y(0) = f(x(0))}) to (hypothesis 15: {y(0) = f(0)})
+5. assert (hypothesis 16: {f(0) = 1})
+6. rewrite (left_to_right, equation) (hypothesis 16: {f(0) = 1}); from (hypothesis 15: {y(0) = f(0)}) to (hypothesis 17: {y(0) = 1})
+7. apply (hypothesis 17: {y(0) = 1})

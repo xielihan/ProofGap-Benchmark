@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. J ∈ RealSet
+4. J = DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(cos(a * x) - cos(b * x), x)) * diff(fun x [x ∈ RealSet] . x))
+5. ContinuousFuncOn(cos, [0, +∞))
+
+GOAL:
+forall (A), A ∈ RealSet ∧ A > 0 ⇒ ConvergentSeries(DefInt(A, +∞, (fun x [x ∈ RealSet] . frac(cos(x), x)) * diff(fun x [x ∈ RealSet] . x)))
+
+METHOD:

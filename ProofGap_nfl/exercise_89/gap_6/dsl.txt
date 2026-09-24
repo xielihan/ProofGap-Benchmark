@@ -1,0 +1,9 @@
+get_prop (theorem 'Thm 343. (ConvergentSequenceDefinition)': {forall (a), ConvergentSeq(a) <==> (exists (L), L ∈ RealSet ∧ seqlim_{n → +∞}(a(n)) = L)}) (a := {x ∘ p}) as (hypothesis 11: {ConvergentSeq(x ∘ p) <==> (exists (L), L ∈ RealSet ∧ seqlim_{n → +∞}((x ∘ p)(n)) = L)})
+rewrite (left_to_right, iff) (hypothesis 11: {ConvergentSeq(x ∘ p) <==> (exists (L), L ∈ RealSet ∧ seqlim_{n → +∞}((x ∘ p)(n)) = L)}); from (GOAL: {ConvergentSeq(x ∘ p)}) to (GOAL: {exists (L), L ∈ RealSet ∧ seqlim_{n → +∞}((x ∘ p)(n)) = L})
+exists (L := {a})
+destruct_and (hypothesis 1: {x : NonNegIntegerSet → RealSet ∧ IsSeq(x)}) as (hypothesis 12: {x : NonNegIntegerSet → RealSet}) (hypothesis 13: {IsSeq(x)})
+destruct_and (hypothesis 2: {p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p)}) as (hypothesis 14: {p : NonNegIntegerSet → NonNegIntegerSet}) (hypothesis 15: {IsSubseqIndexFunc(p)})
+get_prop (theorem 'Thm 80. (FunctionCompositionApply)': {forall (A) (B) (C) (f) (g), f : B -> C ⇒ g : A -> B ⇒ (forall (u), u ∈ A ⇒ ((f ∘ g)(u) = f(g(u))))}) (A := {NonNegIntegerSet}) (B := {NonNegIntegerSet}) (C := {RealSet}) (f := {x}) (g := {p}) as (hypothesis 16: {x : NonNegIntegerSet → RealSet ⇒ p : NonNegIntegerSet → NonNegIntegerSet ⇒ (forall (u), u ∈ NonNegIntegerSet ⇒ ((x ∘ p)(u) = x(p(u))))})
+use_condition (hypothesis 12: {x : NonNegIntegerSet → RealSet}) (hypothesis 14: {p : NonNegIntegerSet → NonNegIntegerSet}) in (hypothesis 16: {x : NonNegIntegerSet → RealSet ⇒ p : NonNegIntegerSet → NonNegIntegerSet ⇒ (forall (u), u ∈ NonNegIntegerSet ⇒ ((x ∘ p)(u) = x(p(u))))}) as (hypothesis 17: {forall (u), u ∈ NonNegIntegerSet ⇒ ((x ∘ p)(u) = x(p(u)))})
+rewrite_in limit (left_to_right, equation) (hypothesis 17: {forall (u), u ∈ NonNegIntegerSet ⇒ ((x ∘ p)(u) = x(p(u)))}); from (GOAL: {a ∈ RealSet ∧ seqlim_{n → +∞}((x ∘ p)(n)) = a}) to (GOAL: {a ∈ RealSet ∧ seqlim_{n → +∞}(x(p(n))) = a})
+autosolve all_hypothesis

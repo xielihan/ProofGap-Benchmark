@@ -1,0 +1,8 @@
+get_prop (hypothesis 24: {forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ 6 ⇒ x_{i} = i * h ∧ y_{i} = f(x_{i})}) (i := {2}) as (hypothesis 30: {2 ∈ IntegerSet ∧ 0 ≤ 2 ∧ 2 ≤ 6 ⇒ x_{2} = 2 * h ∧ y_{2} = f(x_{2})})
+use_condition (obvious: {2 ∈ IntegerSet ∧ 0 ≤ 2 ∧ 2 ≤ 6}) in (hypothesis 30: {2 ∈ IntegerSet ∧ 0 ≤ 2 ∧ 2 ≤ 6 ⇒ x_{2} = 2 * h ∧ y_{2} = f(x_{2})}) as (hypothesis 31: {x_{2} = 2 * h ∧ y_{2} = f(x_{2})})
+destruct_and (hypothesis 31: {x_{2} = 2 * h ∧ y_{2} = f(x_{2})}) as (hypothesis 32: {x_{2} = 2 * h}) (hypothesis 33: {y_{2} = f(x_{2})})
+rewrite (left_to_right, equation) (hypothesis 29: {x_{2} = frac(π, 3)}); from (hypothesis 33: {y_{2} = f(x_{2})}) to (hypothesis 34: {y_{2} = f(frac(π, 3))})
+get_prop (hypothesis 22: {forall (x), x ∈ RealSet ∧ x ∈ [0, π] ⇒ f(x) = sqrtn(2, 3 + cos(x))}) (x := {frac(π, 3)}) as (hypothesis 35: {frac(π, 3) ∈ RealSet ∧ frac(π, 3) ∈ [0, π] ⇒ f(frac(π, 3)) = sqrtn(2, 3 + cos(frac(π, 3)))})
+use_condition (obvious: {frac(π, 3) ∈ RealSet ∧ frac(π, 3) ∈ [0, π]}) in (hypothesis 35: {frac(π, 3) ∈ RealSet ∧ frac(π, 3) ∈ [0, π] ⇒ f(frac(π, 3)) = sqrtn(2, 3 + cos(frac(π, 3)))}) as (hypothesis 36: {f(frac(π, 3)) = sqrtn(2, 3 + cos(frac(π, 3)))})
+rewrite (left_to_right, equation) (hypothesis 36: {f(frac(π, 3)) = sqrtn(2, 3 + cos(frac(π, 3)))}); from (hypothesis 34: {y_{2} = f(frac(π, 3))}) to (hypothesis 37: {y_{2} = sqrtn(2, 3 + cos(frac(π, 3)))})
+apply (hypothesis 37: {y_{2} = sqrtn(2, 3 + cos(frac(π, 3)))})

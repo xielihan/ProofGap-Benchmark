@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ y(x) = x^{2}
+3. InjectiveFunc(y)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ InverseFunc(y, y(x)) = x
+
+METHOD:

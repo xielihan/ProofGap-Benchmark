@@ -1,0 +1,12 @@
+PROOF GAP @6
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x > 0 ⇒ x^{2} + x ≥ 0 ∧ -1 ≤ sqrtn(2, x^{2} + x) - x ∧ sqrtn(2, x^{2} + x) - x ≤ 1
+2. forall (x), x ∈ RealSet ∧ x > 0 ⇒ sqrtn(2, x^{2} + x) + x ≠ 0
+3. forall (x), x ∈ RealSet ∧ x > 0 ⇒ sqrtn(2, x^{2} + x) - x = frac(x, sqrtn(2, x^{2} + x) + x)
+4. lim_{ x → +∞ } (arccos(sqrtn(2, x^{2} + x) - x)) = lim_{ x → +∞ } (arccos(frac(x, sqrtn(2, x^{2} + x) + x)))
+5. lim_{ x → +∞ } (frac(x, sqrtn(2, x^{2} + x) + x)) = frac(1, 2)
+
+GOAL:
+lim_{ x → +∞ } (arccos(frac(x, sqrtn(2, x^{2} + x) + x))) = arccos(frac(1, 2))
+
+METHOD:

@@ -1,0 +1,5 @@
+get_condition (hypothesis 7: {p ≤ 1}) in (GOAL: {p ≤ 1 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{p})))})
+get_prop (theorem 365: {forall (p), p ∈ RealSet ⇒ p <= 1 ⇒ DivergentSeries(sum_{n = 1}^{+∞}(1 / n ^ p))}) (p := {p}) as (hypothesis 8: {p ∈ RealSet ⇒ p <= 1 ⇒ DivergentSeries(sum_{n = 1}^{+∞}(1 / n ^ p))})
+use_condition (hypothesis 3: {p ∈ RealSet}) in (hypothesis 8: {p ∈ RealSet ⇒ p <= 1 ⇒ DivergentSeries(sum_{n = 1}^{+∞}(1 / n ^ p))}) as (hypothesis 9: {p <= 1 ⇒ DivergentSeries(sum_{n = 1}^{+∞}(1 / n ^ p))})
+use_condition (hypothesis 7: {p <= 1}) in (hypothesis 9: {p <= 1 ⇒ DivergentSeries(sum_{n = 1}^{+∞}(1 / n ^ p))}) as (hypothesis 10: {DivergentSeries(sum_{n = 1}^{+∞}(1 / n ^ p))})
+autosolve all_hypothesis

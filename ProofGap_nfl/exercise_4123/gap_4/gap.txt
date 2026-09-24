@@ -1,0 +1,24 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. c ∈ RealSet ∧ c > 0
+4. x ∈ RealSet
+5. y ∈ RealSet
+6. z ∈ RealSet
+7. V ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+8. Vol ∈ RealSet
+9. D ∈ RealSet
+10. B : CartesianProd(RealSet, RealSet) → RealSet
+11. V = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, frac(x / a + y / b, x / a + y / b + z / c) = frac(2, π) * arcsin(x / a + y / b + z / c), x / a + y / b = 1, x = 0 ∨ x = a, x / a + y / b + z / c ≠ 0, -1 ≤ x / a + y / b + z / c ∧ x / a + y / b + z / c ≤ 1 }
+12. u = (fun x [x ∈ RealSet] . fun y [y ∈ RealSet] . fun z [z ∈ RealSet] . x / a)
+13. v = (fun x [x ∈ RealSet] . fun y [y ∈ RealSet] . fun z [z ∈ RealSet] . x / a + y / b)
+14. w = (fun x [x ∈ RealSet] . fun y [y ∈ RealSet] . fun z [z ∈ RealSet] . x / a + y / b + z / c)
+15. frac(D(u, v, w), D(x, y, z)) = frac(1, a * b * c)
+16. frac(D(x, y, z), D(u, v, w)) = a * b * c
+17. V = { (u, v, w) | u ∈ RealSet, v ∈ RealSet, w ∈ RealSet, 0 ≤ u ∧ u ≤ 1, -1 ≤ w ∧ w ≤ 1, frac(2, π) * w * arcsin(w) ≤ v ∧ v ≤ 1 }
+
+GOAL:
+Vol = a * b * c * DefInt(0, 1, (fun u [u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 1] . DefInt(-1, 1, (fun w [w ∈ RealSet ∧ -1 ≤ w ∧ w ≤ 1] . DefInt(frac(2, π) * w * arcsin(w), 1, diff(fun v [v ∈ RealSet ∧ frac(2, π) * w * arcsin(w) ≤ v ∧ v ≤ 1] . v))) * diff(fun w [w ∈ RealSet ∧ -1 ≤ w ∧ w ≤ 1] . w))) * diff(fun u [u ∈ RealSet ∧ 0 ≤ u ∧ u ≤ 1] . u))
+
+METHOD:

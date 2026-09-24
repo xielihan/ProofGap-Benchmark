@@ -1,0 +1,18 @@
+PROOF GAP @2
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. u : CartesianProd(RealSet, RealSet) → RealSet
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. c ∈ RealSet
+6. α ∈ RealSet
+7. β ∈ RealSet
+8. c_{1} ∈ RealSet
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(FunDeri(z, x, 1), y, 1)(x, y) + a * FunDeri(z, x, 1)(x, y) + b * FunDeri(z, y, 1)(x, y) + c * z(x, y) = 0
+10. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = u(x, y) * e^{α * x + β * y}
+11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, x, 1)(x, y) = e^{α * x + β * y} * (α * u(x, y) + FunDeri(u, x, 1)(x, y))
+
+GOAL:
+forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ⇒ FunDeri(z, y, 1)(x, y) = e^{α * x + β * y} * (β * u(x, y) + FunDeri(u, y, 1)(x, y))
+
+METHOD:

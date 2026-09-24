@@ -1,0 +1,5 @@
+assert (hypothesis 14: {x - 2 ∈ RealSet ∧ x - 2 = x - 2})
+get_prop (hypothesis 3: {forall (t), t ∈ RealSet ∧ t = x - 2 ⇒ |t + 4| + |t| ≤ 12}) (t := {x - 2}) as (hypothesis 15: {x - 2 ∈ RealSet ∧ x - 2 = x - 2 ⇒ |x - 2 + 4| + |x - 2| ≤ 12})
+use_condition (hypothesis 14: {x - 2 ∈ RealSet ∧ x - 2 = x - 2}) in (hypothesis 15: {x - 2 ∈ RealSet ∧ x - 2 = x - 2 ⇒ |x - 2 + 4| + |x - 2| ≤ 12}) as (hypothesis 16: {|x - 2 + 4| + |x - 2| ≤ 12})
+autoreplace no_hypothesis; from (x - 2 + 4) to (x + 2); from (hypothesis 16: {|x - 2 + 4| + |x - 2| ≤ 12}) to (hypothesis 17: {|x + 2| + |x - 2| ≤ 12})
+autosolve (hypothesis 1: {x ∈ RealSet}) (hypothesis 12: {-8 ≤ x - 2}) (hypothesis 13: {x - 2 ≤ 4}) (hypothesis 17: {|x + 2| + |x - 2| ≤ 12})

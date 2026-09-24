@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. J : CartesianProd(IntegerSet, RealSet) → RealSet
+2. forall (n) (x), n ∈ IntegerSet ∧ x ∈ RealSet ⇒ J(n, x) = frac(1, π) * DefInt(0, π, (fun φ [φ ∈ RealSet] . cos(n * φ - x * sin(φ))) * diff(fun φ [φ ∈ RealSet] . φ))
+3. forall (n), n ∈ IntegerSet ⇒ (forall (x), n ∈ IntegerSet ∧ x ∈ RealSet ⇒ FunDeri(J, 2, 1)(n, x) = frac(1, π) * DefInt(0, π, (fun φ [φ ∈ RealSet] . sin(φ) * sin(n * φ - x * sin(φ))) * diff(fun φ [φ ∈ RealSet] . φ)))
+
+GOAL:
+forall (n), n ∈ IntegerSet ⇒ (forall (x), n ∈ IntegerSet ∧ x ∈ RealSet ⇒ FunDeri(J, 2, 2)(n, x) = -frac(1, π) * DefInt(0, π, (fun φ [φ ∈ RealSet] . sin(φ)^{2} * cos(n * φ - x * sin(φ))) * diff(fun φ [φ ∈ RealSet] . φ)))
+
+METHOD:

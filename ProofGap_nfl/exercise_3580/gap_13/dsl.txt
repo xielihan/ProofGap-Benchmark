@@ -1,0 +1,7 @@
+get_condition (hypothesis 24: {z - z_{0} ≠ 0}) in (GOAL: {z - z_{0} ≠ 0 ⇒ q = frac(y - y_{0}, z - z_{0})})
+assert (hypothesis 25: {y - y_{0} = 2 * λ * q}) by proof {
+autosolve (hypothesis 20: {-(y - y_{0}) + 2 * λ * q = 0})
+}
+rewrite (left_to_right, equation) (hypothesis 22: {2 * λ = z - z_{0}}); from (hypothesis 25: {y - y_{0} = 2 * λ * q}) to (hypothesis 26: {y - y_{0} = (z - z_{0}) * q})
+rewrite (left_to_right, equation) (hypothesis 26: {y - y_{0} = (z - z_{0}) * q}); from (GOAL: {q = frac(y - y_{0}, z - z_{0})}) to (GOAL: {q = frac((z - z_{0}) * q, z - z_{0})})
+autosolve (hypothesis 24: {z - z_{0} ≠ 0})

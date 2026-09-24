@@ -1,0 +1,6 @@
+get_prop (hypothesis 2: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = 1 + n * sin(frac(n * π, 2))}) (n := {2}) as (hypothesis 4: {2 ∈ NonNegIntegerSet ∧ 2 ∈ PosIntegerSet ⇒ x(2) = 1 + 2 * sin(frac(2 * π, 2))})
+use_condition (obvious: {2 ∈ NonNegIntegerSet ∧ 2 ∈ PosIntegerSet}) in (hypothesis 4: {2 ∈ NonNegIntegerSet ∧ 2 ∈ PosIntegerSet ⇒ x(2) = 1 + 2 * sin(frac(2 * π, 2))}) as (hypothesis 5: {x(2) = 1 + 2 * sin(frac(2 * π, 2))})
+get_prop (theorem 'Thm 370. (SineAtIntegerPi)': {forall (n), n ∈ IntegerSet => sin(n * π) = 0}) (n := {1}) as (hypothesis 6: {1 ∈ IntegerSet => sin(1 * π) = 0})
+use_condition (obvious: {1 ∈ IntegerSet}) in (hypothesis 6: {1 ∈ IntegerSet => sin(1 * π) = 0}) as (hypothesis 7: {sin(1 * π) = 0})
+rewrite (left_to_right, equation) (hypothesis 7: {sin(1 * π) = 0}); from (hypothesis 5: {x(2) = 1 + 2 * sin(frac(2 * π, 2))}) to (hypothesis 8: {x(2) = 1 + 2 * 0})
+autosolve (hypothesis 8: {x(2) = 1 + 2 * 0})

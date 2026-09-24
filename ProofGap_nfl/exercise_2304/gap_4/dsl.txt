@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (k), k ∈ IntegerSet ∧ k * π ≤ x ∧ x < (k + 1) * π ⇒ F(x) = DefInt(0, x, (fun t [t ∈ RealSet] . sgn(sin(t))) * diff(fun t [t ∈ RealSet] . t))}) (k := {k0})
+get_condition (hypothesis 8: {k0 ∈ IntegerSet ∧ k0 * π ≤ x ∧ x < (k0 + 1) * π}) in (GOAL: {k0 ∈ IntegerSet ∧ k0 * π ≤ x ∧ x < (k0 + 1) * π ⇒ F(x) = DefInt(0, x, (fun t [t ∈ RealSet] . sgn(sin(t))) * diff(fun t [t ∈ RealSet] . t))})
+get_prop (hypothesis 4: {forall (x), x ∈ RealSet ⇒ F(x) = DefInt(0, x, (fun t [t ∈ RealSet] . sgn(sin(t))) * diff(fun t [t ∈ RealSet] . t))}) (x := {x}) as (hypothesis 9: {x ∈ RealSet ⇒ F(x) = DefInt(0, x, (fun t [t ∈ RealSet] . sgn(sin(t))) * diff(fun t [t ∈ RealSet] . t))})
+use_condition (hypothesis 1: {x ∈ RealSet}) in (hypothesis 9: {x ∈ RealSet ⇒ F(x) = DefInt(0, x, (fun t [t ∈ RealSet] . sgn(sin(t))) * diff(fun t [t ∈ RealSet] . t))}) as (hypothesis 10: {F(x) = DefInt(0, x, (fun t [t ∈ RealSet] . sgn(sin(t))) * diff(fun t [t ∈ RealSet] . t))})
+apply (hypothesis 10: {F(x) = DefInt(0, x, (fun t [t ∈ RealSet] . sgn(sin(t))) * diff(fun t [t ∈ RealSet] . t))})

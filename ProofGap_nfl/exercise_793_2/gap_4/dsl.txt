@@ -1,0 +1,19 @@
+get_forall (GOAL: {forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ (exists (n), n ∈ NonNegIntegerSet ∧ (n ∈ PosIntegerSet ∧ frac(1, n) < δ ⇒ `x'`(n) = n + frac(1, n) ⇒ `x''`(n) = n ⇒ |`x'`(n) - `x''`(n)| < δ))}) (δ := {d})
+get_condition (hypothesis 9: {d ∈ RealSet ∧ d > 0}) in (GOAL: {d ∈ RealSet ∧ d > 0 ⇒ (exists (n), n ∈ NonNegIntegerSet ∧ (n ∈ PosIntegerSet ∧ frac(1, n) < d ⇒ `x'`(n) = n + frac(1, n) ⇒ `x''`(n) = n ⇒ |`x'`(n) - `x''`(n)| < d))})
+exists (n := {1})
+assert (hypothesis 10: {1 ∈ PosIntegerSet ∧ frac(1, 1) < d ⇒ `x'`(1) = 1 + frac(1, 1) ⇒ `x''`(1) = 1 ⇒ |`x'`(1) - `x''`(1)| < d}) by proof {
+  get_condition (hypothesis 10: {1 ∈ PosIntegerSet ∧ frac(1, 1) < d}) (hypothesis 11: {`x'`(1) = 1 + frac(1, 1)}) (hypothesis 12: {`x''`(1) = 1}) in (GOAL: {1 ∈ PosIntegerSet ∧ frac(1, 1) < d ⇒ `x'`(1) = 1 + frac(1, 1) ⇒ `x''`(1) = 1 ⇒ |`x'`(1) - `x''`(1)| < d})
+  rewrite (left_to_right, equation) (hypothesis 11: {`x'`(1) = 1 + frac(1, 1)}); from (GOAL: {|`x'`(1) - `x''`(1)| < d}) to (GOAL: {|1 + frac(1, 1) - `x''`(1)| < d})
+  rewrite (left_to_right, equation) (hypothesis 12: {`x''`(1) = 1}); from (GOAL: {|1 + frac(1, 1) - `x''`(1)| < d}) to (GOAL: {|1 + frac(1, 1) - 1| < d})
+  autoreplace no_hypothesis; from (1 + frac(1, 1) - 1) to (frac(1, 1)); from (GOAL: {|1 + frac(1, 1) - 1| < d}) to (GOAL: {|frac(1, 1)| < d})
+  get_prop (theorem 'Thm 490. (AbsoluteValueOfNonnegativeReal)': {forall (x), x ∈ RealSet => (x >= 0 <==> |x| = x)}) (x := {frac(1, 1)}) as (hypothesis 13: {frac(1, 1) ∈ RealSet ⇒ (frac(1, 1) >= 0 <==> |frac(1, 1)| = frac(1, 1))})
+  assert (hypothesis 14: {frac(1, 1) ∈ RealSet})
+  use_condition (hypothesis 14: {frac(1, 1) ∈ RealSet}) in (hypothesis 13: {frac(1, 1) ∈ RealSet ⇒ (frac(1, 1) >= 0 <==> |frac(1, 1)| = frac(1, 1))}) as (hypothesis 15: {frac(1, 1) >= 0 <==> |frac(1, 1)| = frac(1, 1)})
+  assert (hypothesis 16: {|frac(1, 1)| = frac(1, 1)}) by proof {
+    rewrite (right_to_left, iff) (hypothesis 15: {frac(1, 1) >= 0 <==> |frac(1, 1)| = frac(1, 1)}); from (GOAL: {|frac(1, 1)| = frac(1, 1)}) to (GOAL: {frac(1, 1) >= 0})
+    autosolve all_hypothesis
+  }
+  rewrite (left_to_right, equation) (hypothesis 16: {|frac(1, 1)| = frac(1, 1)}); from (GOAL: {|frac(1, 1)| < d}) to (GOAL: {frac(1, 1) < d})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

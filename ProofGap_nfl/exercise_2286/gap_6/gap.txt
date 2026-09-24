@@ -1,0 +1,16 @@
+PROOF GAP @6
+ASSUM:
+1. I : NonNegIntegerSet → RealSet
+2. m ∈ RealSet
+3. m > -1
+4. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = DefInt(0, 1, (fun x [x ∈ RealSet] . x^{m} * ln(x)^{n}) * diff(fun x [x ∈ RealSet] . x))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ I(n) = lim_{ ε → 0^+ } (((fun x [x ∈ RealSet ∧ x > 0 ∧ x ≤ 1] . frac(1, m + 1) * x^{m + 1} * ln(x)^{n})|_{ε}^{1}) - frac(n, m + 1) * DefInt(ε, 1, (fun x [x ∈ RealSet ∧ x > 0 ∧ x ≤ 1] . x^{m} * ln(x)^{n - 1}) * diff(fun x [x ∈ RealSet ∧ x > 0 ∧ x ≤ 1] . x)))
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ I(n) = -frac(n, m + 1) * I(n - 1)
+7. I(0) = DefInt(0, 1, (fun x [x ∈ RealSet] . x^{m}) * diff(fun x [x ∈ RealSet] . x))
+8. DefInt(0, 1, (fun x [x ∈ RealSet] . x^{m}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, m + 1)
+9. I(0) = frac(1, m + 1)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ I(n) = (prod_{ k = 1 }^{ n } (-frac(k, m + 1))) * I(0)
+
+METHOD:

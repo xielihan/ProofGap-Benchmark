@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. C ∈ RealSet
+4. exists (x), x ∈ RealSet ∧ x + a > 0
+5. exists (x), x ∈ RealSet ∧ x + b > 0
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ∧ x + a > 0 ∧ x + b > 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(ln((x + a)^{x + a} * (x + b)^{x + b}), (x + a) * (x + b)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | exists (`F_3`) (`F_4`), `F_3` : RealSet → RealSet ∧ `F_4` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x + a > 0 ∧ x + b > 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(ln(x + a), x + b) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ FunDeri(`F_4`, 1, 1)(x) = frac(ln(x + b), x + a) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_5`(x) = `F_3`(x) + `F_4`(x)) }
+
+METHOD:

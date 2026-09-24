@@ -1,0 +1,7 @@
+get_prop (hypothesis 6: {forall (x), x ∈ RealSet ⇒ (forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ x = r * cos(φ)))}) (x := {1}) as (hypothesis 8: {1 ∈ RealSet ⇒ (forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ 1 = r * cos(φ)))})
+use_condition (obvious: {1 ∈ RealSet}) in (hypothesis 8: {1 ∈ RealSet ⇒ (forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ 1 = r * cos(φ)))}) as (hypothesis 9: {forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ 1 = r * cos(φ))})
+get_prop (hypothesis 9: {forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ 1 = r * cos(φ))}) (r := {0}) as (hypothesis 10: {0 ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ 1 = 0 * cos(φ))})
+use_condition (obvious: {0 ∈ RealSet}) in (hypothesis 10: {0 ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ 1 = 0 * cos(φ))}) as (hypothesis 11: {forall (φ), φ ∈ RealSet ⇒ 1 = 0 * cos(φ)})
+get_prop (hypothesis 11: {forall (φ), φ ∈ RealSet ⇒ 1 = 0 * cos(φ)}) (φ := {0}) as (hypothesis 12: {0 ∈ RealSet ⇒ 1 = 0 * cos(0)})
+use_condition (obvious: {0 ∈ RealSet}) in (hypothesis 12: {0 ∈ RealSet ⇒ 1 = 0 * cos(0)}) as (hypothesis 13: {1 = 0 * cos(0)})
+autosolve (hypothesis 13: {1 = 0 * cos(0)})

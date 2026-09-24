@@ -1,0 +1,28 @@
+PROOF GAP @16
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet ∧ ContinuouslyDiffableFunc(u)
+2. C ⊆ CartesianProd(RealSet, RealSet)
+3. S ⊆ CartesianProd(RealSet, RealSet)
+4. Δu : CartesianProd(RealSet, RealSet) → RealSet
+5. n ∈ RealSet
+6. Δu = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . FunDeri(u, 1, 2)(x, y) + FunDeri(u, 2, 2)(x, y))
+7. forall (C), C ⊆ CartesianProd(RealSet, RealSet) ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(u, n, 1)(x, y) = FunDeri(u, 1, 1)(x, y) * cos(n, x) + FunDeri(u, 2, 1)(x, y) * sin(n, x)))
+8. forall (C), C ⊆ CartesianProd(RealSet, RealSet) ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (s), s ∈ RealSet ⇒ cos(n, x) = FunDeri(y, 1, 1)(s))))
+9. forall (C), C ⊆ CartesianProd(RealSet, RealSet) ⇒ (forall (x), x ∈ RealSet ⇒ (forall (s), s ∈ RealSet ⇒ sin(n, x) = -FunDeri(x, 1, 1)(s)))
+10. forall (C), C ⊆ CartesianProd(RealSet, RealSet) ⇒ ScalarCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . FunDeri(u, n, 1)(x, y)) * diff(fun s [s ∈ RealSet] . s)) = VectorCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . FunDeri(u, 1, 1)(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . FunDeri(u, 2, 1)(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x))
+11. forall (C), C ⊆ CartesianProd(RealSet, RealSet) ⇒ VectorCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . FunDeri(u, 1, 1)(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . FunDeri(u, 2, 1)(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)) = VolumeInt(S, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . FunDeri(u, 1, 2)(x, y) + FunDeri(u, 2, 2)(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+12. forall (C), C ⊆ CartesianProd(RealSet, RealSet) ⇒ ScalarCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . FunDeri(u, n, 1)(x, y)) * diff(fun s [s ∈ RealSet] . s)) = VolumeInt(S, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . Δu(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+13. (forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ Δu(x, y) = 0) ⇒ (forall (C), C ⊆ CartesianProd(RealSet, RealSet) ⇒ VolumeInt(S, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . Δu(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = 0)
+14. (forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ Δu(x, y) = 0) ⇒ (forall (C), C ⊆ CartesianProd(RealSet, RealSet) ⇒ ScalarCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . FunDeri(u, n, 1)(x, y)) * diff(fun s [s ∈ RealSet] . s)) = 0)
+15. (forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ Δu(x, y) = 0) ⇒ (forall (C), C ⊆ CartesianProd(RealSet, RealSet) ⇒ ScalarCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . FunDeri(u, n, 1)(x, y)) * diff(fun s [s ∈ RealSet] . s)) = 0)
+16. (forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ Δu(x, y) = 0) ⇒ (forall (C), C ⊆ CartesianProd(RealSet, RealSet) ⇒ ScalarCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . FunDeri(u, n, 1)(x, y)) * diff(fun s [s ∈ RealSet] . s)) = 0)
+17. (forall (C), C ⊆ CartesianProd(RealSet, RealSet) ⇒ ScalarCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . FunDeri(u, n, 1)(x, y)) * diff(fun s [s ∈ RealSet] . s)) = 0) ⇒ (forall (S), S ⊆ CartesianProd(RealSet, RealSet) ⇒ VolumeInt(S, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . Δu(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = 0)
+18. forall (x_{0}) (y_{0}), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ (forall (C), C ⊆ CartesianProd(RealSet, RealSet) ⇒ ScalarCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . FunDeri(u, n, 1)(x, y)) * diff(fun s [s ∈ RealSet] . s)) = 0) ∧ Δu(x_{0}, y_{0}) ≠ 0 ∧ Δu(x_{0}, y_{0}) > 0 ⇒ (exists (S_{0}), S_{0} ⊆ CartesianProd(RealSet, RealSet) ∧ (forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ S_{0} ⇒ Δu(x, y) > 0))
+19. forall (x_{0}) (y_{0}) (S_{0}), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ S_{0} ⊆ CartesianProd(RealSet, RealSet) ∧ (forall (C), C ⊆ CartesianProd(RealSet, RealSet) ⇒ ScalarCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . FunDeri(u, n, 1)(x, y)) * diff(fun s [s ∈ RealSet] . s)) = 0) ∧ Δu(x_{0}, y_{0}) ≠ 0 ∧ Δu(x_{0}, y_{0}) > 0 ⇒ VolumeInt(S_{0}, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . Δu(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) > 0
+20. forall (x_{0}) (y_{0}), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ (forall (C), C ⊆ CartesianProd(RealSet, RealSet) ⇒ ScalarCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . FunDeri(u, n, 1)(x, y)) * diff(fun s [s ∈ RealSet] . s)) = 0) ∧ Δu(x_{0}, y_{0}) ≠ 0 ∧ Δu(x_{0}, y_{0}) > 0 ⇒ False
+21. forall (x_{0}) (y_{0}), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ (forall (C), C ⊆ CartesianProd(RealSet, RealSet) ⇒ ScalarCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . FunDeri(u, n, 1)(x, y)) * diff(fun s [s ∈ RealSet] . s)) = 0) ∧ Δu(x_{0}, y_{0}) ≠ 0 ∧ Δu(x_{0}, y_{0}) < 0 ⇒ (exists (S_{0}), S_{0} ⊆ CartesianProd(RealSet, RealSet) ∧ (forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ S_{0} ⇒ Δu(x, y) < 0))
+
+GOAL:
+forall (x_{0}) (y_{0}) (S_{0}), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ S_{0} ⊆ CartesianProd(RealSet, RealSet) ∧ (forall (C), C ⊆ CartesianProd(RealSet, RealSet) ⇒ ScalarCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . FunDeri(u, n, 1)(x, y)) * diff(fun s [s ∈ RealSet] . s)) = 0) ∧ Δu(x_{0}, y_{0}) ≠ 0 ∧ Δu(x_{0}, y_{0}) < 0 ⇒ VolumeInt(S_{0}, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . Δu(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) < 0
+
+METHOD:

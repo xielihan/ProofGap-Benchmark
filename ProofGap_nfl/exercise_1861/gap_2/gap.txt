@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 2
+2. C ∈ RealSet
+3. 2 + x - x^{2} = frac(9, 4) - (x - frac(1, 2))^{2}
+
+GOAL:
+diff(fun x [x ∈ RealSet] . x) = diff(fun x [x ∈ RealSet] . x - frac(1, 2))
+
+METHOD:

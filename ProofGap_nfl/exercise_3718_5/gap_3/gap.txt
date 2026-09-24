@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. F : RealSet → RealSet
+2. forall (α), α ∈ RealSet ⇒ F(α) = DefInt(0, α^{2}, (fun x [x ∈ RealSet] . DefInt(x - α, x + α, (fun y [y ∈ RealSet] . sin(x^{2} + y^{2} - α^{2})) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+3. ContinuousFunc(fun x, y, α [x ∈ RealSet ∧ y ∈ RealSet ∧ α ∈ RealSet] . sin(x^{2} + y^{2} - α^{2}))
+4. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ DiffableFunc(fun α [α ∈ RealSet] . sin(x^{2} + y^{2} - α^{2})))
+5. forall (α), α ∈ RealSet ⇒ FunDeri(F, 1, 1)(α) = 2 * α * DefInt(α^{2} - α, α^{2} + α, (fun y [y ∈ RealSet] . sin(α^{4} + y^{2} - α^{2})) * diff(fun y [y ∈ RealSet] . y)) + DefInt(0, α^{2}, (fun x [x ∈ RealSet] . FunDeri(fun x, α [x ∈ RealSet ∧ α ∈ RealSet] . DefInt(x - α, x + α, (fun y [y ∈ RealSet] . sin(x^{2} + y^{2} - α^{2})) * diff(fun y [y ∈ RealSet] . y)), 2, 1)(x, α)) * diff(fun x [x ∈ RealSet] . x))
+6. forall (α), α ∈ RealSet ⇒ FunDeri(F, 1, 1)(α) = 2 * α * DefInt(α^{2} - α, α^{2} + α, (fun y [y ∈ RealSet] . sin(α^{4} + y^{2} - α^{2})) * diff(fun y [y ∈ RealSet] . y)) + DefInt(0, α^{2}, (fun x [x ∈ RealSet] . sin(x^{2} + (x + α)^{2} - α^{2}) + sin(x^{2} + (x - α)^{2} - α^{2}) + DefInt(x - α, x + α, (fun y [y ∈ RealSet] . -2 * α * cos(x^{2} + y^{2} - α^{2})) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+forall (α), α ∈ RealSet ⇒ FunDeri(F, 1, 1)(α) = 2 * α * DefInt(α^{2} - α, α^{2} + α, (fun y [y ∈ RealSet] . sin(α^{4} + y^{2} - α^{2})) * diff(fun y [y ∈ RealSet] . y)) + DefInt(0, α^{2}, (fun x [x ∈ RealSet] . sin(2 * x^{2} + 2 * α * x) + sin(2 * x^{2} - 2 * α * x) + DefInt(x - α, x + α, (fun y [y ∈ RealSet] . -2 * α * cos(x^{2} + y^{2} - α^{2})) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

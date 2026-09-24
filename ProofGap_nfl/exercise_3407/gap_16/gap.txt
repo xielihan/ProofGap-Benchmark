@@ -1,0 +1,28 @@
+PROOF GAP @16
+ASSUM:
+1. F : { (x, y) | x ∈ RealSet, y ∈ RealSet, y ≥ frac(x^{2}, 2) } → RealSet
+2. u : { (x, y) | x ∈ RealSet, y ∈ RealSet, y ≥ frac(x^{2}, 2) } → RealSet
+3. v : { (x, y) | x ∈ RealSet, y ∈ RealSet, y ≥ frac(x^{2}, 2) } → RealSet
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ≥ frac(x^{2}, 2) ⇒ x = u(x, y) + v(x, y) ∧ y = u(x, y)^{2} + v(x, y)^{2} ∧ F(x, y) = u(x, y)^{3} + v(x, y)^{3}
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ≥ frac(x^{2}, 2) ⇒ u(x, y) ∈ RealSet
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ≥ frac(x^{2}, 2) ⇒ v(x, y) ∈ RealSet
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ≥ frac(x^{2}, 2) ⇒ u(x, y) = frac(x + sqrtn(2, 2 * y - x^{2}), 2) ∧ v(x, y) = frac(x - sqrtn(2, 2 * y - x^{2}), 2) ∨ u(x, y) = frac(x - sqrtn(2, 2 * y - x^{2}), 2) ∧ v(x, y) = frac(x + sqrtn(2, 2 * y - x^{2}), 2)
+8. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ y ≥ frac(x^{2}, 2) ⇒ 2 * y - x^{2} ≥ 0
+9. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ 2 * y - x^{2} ≥ 0 ⇒ y ≥ frac(x^{2}, 2)
+10. Dom(F) = { (x, y) | x ∈ RealSet, y ∈ RealSet, y ≥ frac(x^{2}, 2) }
+11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y > frac(x^{2}, 2) ⇒ 1 = FunDeri(u, 1, 1)(x, y) + FunDeri(v, 1, 1)(x, y)
+12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y > frac(x^{2}, 2) ⇒ 0 = 2 * u(x, y) * FunDeri(u, 1, 1)(x, y) + 2 * v(x, y) * FunDeri(v, 1, 1)(x, y)
+13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y > frac(x^{2}, 2) ⇒ FunDeri(u, 1, 1)(x, y) = frac(v(x, y), v(x, y) - u(x, y))
+14. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y > frac(x^{2}, 2) ⇒ FunDeri(v, 1, 1)(x, y) = frac(-u(x, y), v(x, y) - u(x, y))
+15. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y > frac(x^{2}, 2) ⇒ FunDeri(F, 1, 1)(x, y) = 3 * u(x, y)^{2} * FunDeri(u, 1, 1)(x, y) + 3 * v(x, y)^{2} * FunDeri(v, 1, 1)(x, y)
+16. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y > frac(x^{2}, 2) ⇒ 3 * u(x, y)^{2} * FunDeri(u, 1, 1)(x, y) + 3 * v(x, y)^{2} * FunDeri(v, 1, 1)(x, y) = -3 * u(x, y) * v(x, y)
+17. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y > frac(x^{2}, 2) ⇒ FunDeri(F, 1, 1)(x, y) = -3 * u(x, y) * v(x, y)
+18. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y > frac(x^{2}, 2) ⇒ FunDeri(F, 2, 1)(x, y) = frac(3, 2) * (u(x, y) + v(x, y))
+19. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ≥ frac(x^{2}, 2) ⇒ x^{2} - y = 2 * u(x, y) * v(x, y)
+20. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ≥ frac(x^{2}, 2) ⇒ F(x, y) = (u(x, y) + v(x, y)) * (u(x, y)^{2} - u(x, y) * v(x, y) + v(x, y)^{2})
+21. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ≥ frac(x^{2}, 2) ⇒ (u(x, y) + v(x, y)) * (u(x, y)^{2} - u(x, y) * v(x, y) + v(x, y)^{2}) = frac(x, 2) * (3 * y - x^{2})
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ≥ frac(x^{2}, 2) ⇒ F(x, y) = frac(x, 2) * (3 * y - x^{2})
+
+METHOD:

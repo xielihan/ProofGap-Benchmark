@@ -1,0 +1,26 @@
+PROOF GAP @2
+ASSUM:
+1. u_{0} ∈ RealSet
+2. v_{0} ∈ RealSet
+3. x ∈ RealSet
+4. y ∈ RealSet
+5. z ∈ RealSet
+6. PlaneEq ∈ RealSet
+7. X : CartesianProd(RealSet, RealSet) → RealSet
+8. Y : CartesianProd(RealSet, RealSet) → RealSet
+9. Z : CartesianProd(RealSet, RealSet) → RealSet
+10. M : CartesianProd(RealSet, RealSet) → CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+11. v_{1} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+12. v_{2} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+13. n : CartesianProd(RealSet, RealSet) → CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+14. l : CartesianProd(RealSet, RealSet) → RealSet
+15. n_{0} : CartesianProd(RealSet, RealSet) → CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+16. l_{0} ∈ RealSet
+17. M_{0} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+18. u_{0} = v_{0}
+19. forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ⇒ X(u, v) = u + v)
+
+GOAL:
+forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ⇒ Y(u, v) = u^{2} + v^{2})
+
+METHOD:

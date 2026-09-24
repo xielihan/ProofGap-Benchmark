@@ -1,0 +1,17 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. f : RealSet → RealSet
+4. a > 0
+5. b > 0
+6. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < a ⇒ f(x) = x^{2} * (a^{2} - x^{2})
+7. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (k), k ∈ RealSet ∧ y ≠ 0 ⇒ k = -frac(b^{2} * x, a^{2} * y)))
+8. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (X), X ∈ RealSet ⇒ (forall (Y), Y ∈ RealSet ∧ y ≠ 0 ⇒ Y - y = -frac(b^{2} * x, a^{2} * y) * (X - x))))
+9. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x > 0 ∧ y > 0 ⇒ frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) = 1)
+10. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x > 0 ∧ y > 0 ⇒ y = frac(b, a) * sqrtn(2, a^{2} - x^{2}))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (S), S ∈ RealSet ∧ x > 0 ∧ y > 0 ⇒ S = frac(a^{2} * b^{2}, 2 * x * y)))
+
+METHOD:

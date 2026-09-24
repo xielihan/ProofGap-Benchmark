@@ -1,0 +1,12 @@
+1. get_forall (GOAL: {forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ IntervalLoRo(-l, l) ∧ x_{2} ∈ IntervalLoRo(-l, l) ⇒ |f(x_{1}) - f(x_{2})| = |(x_{1})^{2} - (x_{2})^{2}|)}) (x_{1} := {u0})
+2. get_condition (hypothesis 4: {u0 ∈ RealSet}) in (GOAL: {u0 ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ u0 ∈ IntervalLoRo(-l, l) ∧ x_{2} ∈ IntervalLoRo(-l, l) ⇒ |f(u0) - f(x_{2})| = |u0^{2} - x_{2}^{2}|)})
+3. get_forall (GOAL: {forall (x_{2}), x_{2} ∈ RealSet ∧ u0 ∈ IntervalLoRo(-l, l) ∧ x_{2} ∈ IntervalLoRo(-l, l) ⇒ |f(u0) - f(x_{2})| = |u0^{2} - x_{2}^{2}|}) (x_{2} := {v0})
+4. get_condition (hypothesis 5: {v0 ∈ RealSet ∧ u0 ∈ IntervalLoRo(-l, l) ∧ v0 ∈ IntervalLoRo(-l, l)}) in (GOAL: {v0 ∈ RealSet ∧ u0 ∈ IntervalLoRo(-l, l) ∧ v0 ∈ IntervalLoRo(-l, l) ⇒ |f(u0) - f(v0)| = |u0^{2} - v0^{2}|})
+5. destruct_and (hypothesis 5: {v0 ∈ RealSet ∧ u0 ∈ IntervalLoRo(-l, l) ∧ v0 ∈ IntervalLoRo(-l, l)}) as (hypothesis 6: {v0 ∈ RealSet}) (hypothesis 7: {u0 ∈ IntervalLoRo(-l, l)}) (hypothesis 8: {v0 ∈ IntervalLoRo(-l, l)})
+6. get_prop (hypothesis 3: {forall (x), x ∈ RealSet ⇒ f(x) = x^{2}}) (x := {u0}) as (hypothesis 9: {u0 ∈ RealSet ⇒ f(u0) = u0^{2}})
+7. use_condition (hypothesis 4: {u0 ∈ RealSet}) in (hypothesis 9: {u0 ∈ RealSet ⇒ f(u0) = u0^{2}}) as (hypothesis 10: {f(u0) = u0^{2}})
+8. get_prop (hypothesis 3: {forall (x), x ∈ RealSet ⇒ f(x) = x^{2}}) (x := {v0}) as (hypothesis 11: {v0 ∈ RealSet ⇒ f(v0) = v0^{2}})
+9. use_condition (hypothesis 6: {v0 ∈ RealSet}) in (hypothesis 11: {v0 ∈ RealSet ⇒ f(v0) = v0^{2}}) as (hypothesis 12: {f(v0) = v0^{2}})
+10. rewrite (left_to_right, equation) (hypothesis 10: {f(u0) = u0^{2}}); from (GOAL: {|f(u0) - f(v0)| = |u0^{2} - v0^{2}|}) to (GOAL: {|u0^{2} - f(v0)| = |u0^{2} - v0^{2}|})
+11. rewrite (left_to_right, equation) (hypothesis 12: {f(v0) = v0^{2}}); from (GOAL: {|u0^{2} - f(v0)| = |u0^{2} - v0^{2}|}) to (GOAL: {|u0^{2} - v0^{2}| = |u0^{2} - v0^{2}|})
+12. autosolve all_hypothesis

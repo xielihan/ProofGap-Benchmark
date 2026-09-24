@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ y(x) = x * sin(ln(x))
+3. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ FunDeri(y, 1, 1)(x) = sin(ln(x)) + cos(ln(x))
+4. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ FunDeri(y, 1, 2)(x) = frac(sqrtn(2, 2), x) * cos(frac(π, 4) + ln(x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ (FunDeri(y, 1, 2)(x) = 0 ⇔ (exists (k), k ∈ IntegerSet ∧ x = e^{k * π + frac(π, 4)}))
+
+METHOD:

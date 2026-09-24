@@ -1,0 +1,7 @@
+get_prop (theorem 'Thm 337. (MonotoneDecreasingSequenceDefinition)': {forall (a), (MonoDecSeq(a) <==> (forall (n) (m), n ∈ NonNegIntegerSet => m ∈ NonNegIntegerSet => n <= m => a(n) >= a(m)))}) (a := {x}) as (hypothesis 9: {MonoDecSeq(x) <==> (forall (n) (m), n ∈ NonNegIntegerSet => m ∈ NonNegIntegerSet => n <= m => x(n) >= x(m))})
+rewrite (left_to_right, iff) (hypothesis 9: {MonoDecSeq(x) <==> (forall (n) (m), n ∈ NonNegIntegerSet => m ∈ NonNegIntegerSet => n <= m => x(n) >= x(m))}); from (hypothesis 7: {MonoDecSeq(x)}) to (hypothesis 7: {forall (n) (m), n ∈ NonNegIntegerSet => m ∈ NonNegIntegerSet => n <= m => x(n) >= x(m)})
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) < 1}) (n := {q})
+get_condition (hypothesis 10: {q ∈ NonNegIntegerSet ∧ q ∈ PosIntegerSet}) in (GOAL: {q ∈ NonNegIntegerSet ∧ q ∈ PosIntegerSet ⇒ x(q) < 1})
+get_prop (hypothesis 7: {forall (n) (m), n ∈ NonNegIntegerSet => m ∈ NonNegIntegerSet => n <= m => x(n) >= x(m)}) (n := {1}) (m := {q}) as (hypothesis 11: {1 ∈ NonNegIntegerSet => q ∈ NonNegIntegerSet => 1 <= q => x(1) >= x(q)})
+use_condition (obvious: {1 ∈ NonNegIntegerSet}) (obvious: {q ∈ NonNegIntegerSet}) (obvious: {1 <= q}) in (hypothesis 11: {1 ∈ NonNegIntegerSet => q ∈ NonNegIntegerSet => 1 <= q => x(1) >= x(q)}) as (hypothesis 12: {x(1) >= x(q)})
+autosolve all_hypothesis

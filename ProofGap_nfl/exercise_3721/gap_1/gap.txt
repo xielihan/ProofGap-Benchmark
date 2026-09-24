@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. F : RealSet → RealSet
+2. f : RealSet → RealSet
+3. h ∈ RealSet
+4. I ⊆ RealSet
+5. h > 0
+6. forall (x), x ∈ RealSet ⇒ (forall (ξ), ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ h ⇒ (forall (η), η ∈ RealSet ∧ 0 ≤ η ∧ η ≤ h ∧ x ∈ I ⇒ ContinuousFuncOn(f, { x + ξ + η | x ∈ I, ξ ∈ RealSet, η ∈ RealSet, 0 ≤ ξ ∧ ξ ≤ h, 0 ≤ η ∧ η ≤ h })))
+7. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ F(x) = frac(1, h^{2}) * DefInt(0, h, (fun ξ [ξ ∈ RealSet] . DefInt(0, h, (fun η [η ∈ RealSet] . f(x + ξ + η)) * diff(fun η [η ∈ RealSet] . η))) * diff(fun ξ [ξ ∈ RealSet] . ξ))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ I ⇒ F(x) = frac(1, h^{2}) * DefInt(0, h, (fun ξ [ξ ∈ RealSet] . DefInt(x + ξ, x + ξ + h, (fun u [u ∈ RealSet] . f(u)) * diff(fun u [u ∈ RealSet] . u))) * diff(fun ξ [ξ ∈ RealSet] . ξ))
+
+METHOD:

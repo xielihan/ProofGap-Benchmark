@@ -1,0 +1,6 @@
+1. get_prop (hypothesis 19: {forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ 12 ⇒ x(i) = frac(i, 12) ∧ y(i) = f(x(i))}) (i := {6}) as (hypothesis 33: {6 ∈ IntegerSet ∧ 0 ≤ 6 ∧ 6 ≤ 12 ⇒ x(6) = frac(6, 12) ∧ y(6) = f(x(6))})
+2. use_condition (obvious: {6 ∈ IntegerSet ∧ 0 ≤ 6 ∧ 6 ≤ 12}) in (hypothesis 33: {6 ∈ IntegerSet ∧ 0 ≤ 6 ∧ 6 ≤ 12 ⇒ x(6) = frac(6, 12) ∧ y(6) = f(x(6))}) as (hypothesis 34: {x(6) = frac(6, 12) ∧ y(6) = f(x(6))})
+3. destruct_and (hypothesis 34: {x(6) = frac(6, 12) ∧ y(6) = f(x(6))}) as (hypothesis 35: {x(6) = frac(6, 12)}) (hypothesis 36: {y(6) = f(x(6))})
+4. rewrite (left_to_right, equation) (hypothesis 36: {y(6) = f(x(6))}); from (GOAL: {y(6) = 0.800000}) to (GOAL: {f(x(6)) = 0.800000})
+5. rewrite (left_to_right, equation) (hypothesis 32: {x(6) = frac(1, 2)}); from (GOAL: {f(x(6)) = 0.800000}) to (GOAL: {f(frac(1, 2)) = 0.800000})
+6. autosolve (hypothesis 8: {f = (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . frac(1, 1 + x^{2}))})

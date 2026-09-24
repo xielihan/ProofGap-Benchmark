@@ -1,0 +1,8 @@
+1. get_forall (GOAL: {forall (r), r ∈ RealSet ∧ 0 < r ∧ r < a ⇒ sqrtn(2, E * G - F^{2}) = sqrtn(2, r^{2} + h^{2})}) (r := {u})
+2. get_condition (hypothesis 25: {u ∈ RealSet ∧ 0 < u ∧ u < a}) in (GOAL: {u ∈ RealSet ∧ 0 < u ∧ u < a ⇒ sqrtn(2, E * G - F^{2}) = sqrtn(2, u^{2} + h^{2})})
+3. get_prop (hypothesis 22: {forall (r), r ∈ RealSet ∧ 0 < r ∧ r < a ⇒ G = r^{2} + h^{2}}) (r := {u}) as (hypothesis 26: {u ∈ RealSet ∧ 0 < u ∧ u < a ⇒ G = u^{2} + h^{2}})
+4. use_condition (hypothesis 25: {u ∈ RealSet ∧ 0 < u ∧ u < a}) in (hypothesis 26: {u ∈ RealSet ∧ 0 < u ∧ u < a ⇒ G = u^{2} + h^{2}}) as (hypothesis 27: {G = u^{2} + h^{2}})
+5. rewrite (left_to_right, equation) (hypothesis 20: {E = 1}); from (GOAL: {sqrtn(2, E * G - F^{2}) = sqrtn(2, u^{2} + h^{2})}) to (GOAL: {sqrtn(2, 1 * G - F^{2}) = sqrtn(2, u^{2} + h^{2})})
+6. rewrite (left_to_right, equation) (hypothesis 27: {G = u^{2} + h^{2}}); from (GOAL: {sqrtn(2, 1 * G - F^{2}) = sqrtn(2, u^{2} + h^{2})}) to (GOAL: {sqrtn(2, 1 * (u^{2} + h^{2}) - F^{2}) = sqrtn(2, u^{2} + h^{2})})
+7. rewrite (left_to_right, equation) (hypothesis 24: {F = 0}); from (GOAL: {sqrtn(2, 1 * (u^{2} + h^{2}) - F^{2}) = sqrtn(2, u^{2} + h^{2})}) to (GOAL: {sqrtn(2, 1 * (u^{2} + h^{2}) - 0^{2}) = sqrtn(2, u^{2} + h^{2})})
+8. autosolve all_hypothesis

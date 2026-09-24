@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. x^{2} > (x + 1)^{2}
+3. 2 * x + 1 < 0
+4. x < -frac(1, 2)
+
+GOAL:
+x ∈ { x | x ∈ RealSet, x < -frac(1, 2) } ⇔ |x| > |x + 1|
+
+METHOD:

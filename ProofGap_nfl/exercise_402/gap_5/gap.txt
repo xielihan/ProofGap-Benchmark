@@ -1,0 +1,12 @@
+PROOF GAP @5
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ (forall (E), E ∈ RealSet ∧ E > 0 ∧ 0 < |x - 1| ∧ |x - 1| < frac(1, sqrtn(2, E)) ⇒ frac(1, |1 - x|^{2}) > E)
+2. forall (x), x ∈ RealSet ⇒ (forall (E), E ∈ RealSet ∧ E > 0 ∧ 0 < |x - 1| ∧ |x - 1| < frac(1, E) ⇒ 0 < |x - 1| ∧ |x - 1| < frac(1, sqrtn(2, E)))
+3. forall (x), x ∈ RealSet ⇒ (forall (E), E ∈ RealSet ∧ E > 0 ∧ 0 < |x - 1| ∧ |x - 1| < frac(1, E) ⇒ frac(1, |1 - x|^{2}) > E)
+4. forall (E), E ∈ RealSet ∧ E > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ (δ > 0 ⇒ δ = min(1, frac(1, E))))
+5. forall (E), E ∈ RealSet ∧ E > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ (δ = min(1, frac(1, E)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 1| ∧ |x - 1| < δ ⇒ frac(1, |1 - x|^{2}) > E)))
+
+GOAL:
+forall (E), E ∈ RealSet ∧ E > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ (δ = min(1, frac(1, E)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 1| ∧ |x - 1| < δ ⇒ |frac(1, (1 - x)^{2})| > E)))
+
+METHOD:

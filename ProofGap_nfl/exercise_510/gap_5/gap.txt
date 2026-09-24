@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ frac(π, 8) < x ∧ x < frac(3 * π, 8) ⇒ 1 < tan(frac(π, 8) + x)
+2. forall (x), x ∈ RealSet ∧ x > frac(π, 4) ∧ cos(frac(π, 8) + x) ≠ 0 ∧ cos(2 * x) ≠ 0 ⇒ tan(frac(π, 8) + x) < +∞
+3. forall (x), x ∈ RealSet ∧ x > frac(π, 4) ∧ cos(frac(π, 8) + x) ≠ 0 ∧ cos(2 * x) ≠ 0 ⇒ 1 < +∞
+4. forall (x), x ∈ RealSet ∧ x > frac(π, 4) ∧ cos(frac(π, 8) + x) ≠ 0 ∧ cos(2 * x) ≠ 0 ⇒ lim_{ x → frac(π, 4)^+ } (tan(2 * x)) = -∞
+
+GOAL:
+lim_{ x → frac(π, 4)^+ } (tan(frac(π, 8) + x)^{tan(2 * x)}) = 0
+
+METHOD:

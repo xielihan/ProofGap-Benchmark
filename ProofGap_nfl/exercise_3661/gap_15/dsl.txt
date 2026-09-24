@@ -1,0 +1,5 @@
+assert (hypothesis 21: {a - b > 0})
+assert (hypothesis 22: {a + b > 0})
+assert (hypothesis 23: {(a - b) * (a + b) > 0})
+assert (hypothesis 24: {a^{2} - b^{2} = (a - b) * (a + b)})
+autosolve all_hypothesis

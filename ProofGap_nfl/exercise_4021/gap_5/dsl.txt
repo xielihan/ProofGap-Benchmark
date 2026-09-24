@@ -1,0 +1,5 @@
+get_prop (hypothesis 9: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) = frac(1, 2))}) (x := {0}) as (hypothesis 13: {0 ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ frac(0^{2}, a^{2}) + frac(y^{2}, b^{2}) = frac(1, 2))})
+use_condition (obvious: {0 ∈ RealSet}) in (hypothesis 13: {0 ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ frac(0^{2}, a^{2}) + frac(y^{2}, b^{2}) = frac(1, 2))}) as (hypothesis 14: {forall (y), y ∈ RealSet ⇒ frac(0^{2}, a^{2}) + frac(y^{2}, b^{2}) = frac(1, 2)})
+get_prop (hypothesis 14: {forall (y), y ∈ RealSet ⇒ frac(0^{2}, a^{2}) + frac(y^{2}, b^{2}) = frac(1, 2)}) (y := {0}) as (hypothesis 15: {0 ∈ RealSet ⇒ frac(0^{2}, a^{2}) + frac(0^{2}, b^{2}) = frac(1, 2)})
+use_condition (obvious: {0 ∈ RealSet}) in (hypothesis 15: {0 ∈ RealSet ⇒ frac(0^{2}, a^{2}) + frac(0^{2}, b^{2}) = frac(1, 2)}) as (hypothesis 16: {frac(0^{2}, a^{2}) + frac(0^{2}, b^{2}) = frac(1, 2)})
+autosolve (hypothesis 16: {frac(0^{2}, a^{2}) + frac(0^{2}, b^{2}) = frac(1, 2)})

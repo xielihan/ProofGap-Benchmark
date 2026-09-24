@@ -1,0 +1,30 @@
+PROOF GAP @5
+ASSUM:
+1. I ⊆ RealSet
+2. x_{0} ∈ RealSet
+3. P : RealSet → RealSet
+4. Q : RealSet → RealSet
+5. P_{1} : RealSet → RealSet
+6. f : RealSet → RealSet
+7. x_{0} ∈ I
+8. P : I → RealSet
+9. Q : I → RealSet
+10. P_{1} : I → RealSet
+11. f : I → RealSet
+12. DiffableFuncOn(P, I)
+13. DiffableFuncOn(Q, I)
+14. DiffableFuncOn(P_{1}, I)
+15. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ Q(x) ≠ 0
+16. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ f(x) = frac(P(x), Q(x))
+17. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(f, 1, 1)(x) = frac(P_{1}(x), Q(x)^{2})
+18. P_{1}(x_{0}) = 0
+19. Q(x_{0}) ≠ 0
+20. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(f, 1, 2)(x) = frac(FunDeri(P_{1}, 1, 1)(x) * Q(x)^{2} - 2 * Q(x) * FunDeri(Q, 1, 1)(x) * P_{1}(x), Q(x)^{4})
+21. FunDeri(f, 1, 2)(x_{0}) = frac(FunDeri(P_{1}, 1, 1)(x_{0}) * Q(x_{0})^{2} - 2 * Q(x_{0}) * FunDeri(Q, 1, 1)(x_{0}) * P_{1}(x_{0}), Q(x_{0})^{4})
+22. FunDeri(f, 1, 2)(x_{0}) = frac(FunDeri(P_{1}, 1, 1)(x_{0}), Q(x_{0})^{2})
+23. Q(x_{0})^{2} > 0
+
+GOAL:
+sgn(FunDeri(f, 1, 2)(x_{0})) = sgn(FunDeri(P_{1}, 1, 1)(x_{0}))
+
+METHOD:

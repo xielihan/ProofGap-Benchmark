@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet ∧ tan(x) > 0
+2. C ∈ RealSet
+3. forall (t), t ∈ RealSet ∧ t = sqrtn(2, tan(x)) ⇒ t > 0
+4. forall (t), t ∈ RealSet ∧ t = sqrtn(2, tan(x)) ⇒ x = arctan(t^{2})
+
+GOAL:
+forall (t), t ∈ RealSet ∧ t = sqrtn(2, tan(x)) ⇒ diff(fun x [x ∈ RealSet] . x) = frac(2 * t, 1 + t^{4}) * diff(fun t [t ∈ RealSet] . t)
+
+METHOD:

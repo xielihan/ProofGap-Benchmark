@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (N), N ∈ NonNegIntegerSet ∧ N ≥ 4 ⇒ frac(2 * e, N + 2) < 1}) (N := {N0})
+get_condition (hypothesis 12: {N0 ∈ NonNegIntegerSet ∧ N0 ≥ 4}) in (GOAL: {N0 ∈ NonNegIntegerSet ∧ N0 ≥ 4 ⇒ frac(2 * e, N0 + 2) < 1})
+destruct_and (hypothesis 12: {N0 ∈ NonNegIntegerSet ∧ N0 ≥ 4}) as (hypothesis 13: {N0 ∈ NonNegIntegerSet}) (hypothesis 14: {N0 ≥ 4})
+autosolve all_hypothesis

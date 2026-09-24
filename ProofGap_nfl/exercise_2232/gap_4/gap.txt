@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. ContinuousFunc(fun t [t ∈ RealSet] . sqrtn(2, 1 + t^{2}))
+3. ContinuousFunc(fun t [t ∈ RealSet] . frac(1, sqrtn(2, 1 + t^{4})))
+4. ContinuousFunc(fun t [t ∈ RealSet] . cos(π * t^{2}))
+
+GOAL:
+forall (t), t ∈ RealSet ⇒ 1 + t^{4} > 0
+
+METHOD:

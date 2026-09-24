@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. u : CartesianProd(RealSet, RealSet) → RealSet
+3. n ∈ NonNegIntegerSet
+4. m ∈ NonNegIntegerSet
+5. C ∈ RealSet
+6. FuncOfClassK(u, n + m + 1)
+
+GOAL:
+diff(z) = diff(FunDeri(FunDeri(u, 1, n), 2, m))
+
+METHOD:

@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. F : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ F(x) = DefInt(x, x^{2}, (fun y [y ∈ RealSet] . e^{-x * y^{2}}) * diff(fun y [y ∈ RealSet] . y))
+3. forall (x), x ∈ RealSet ⇒ FunDeri(F, 1, 1)(x) = FunDeri(fun t [t ∈ RealSet] . t^{2}, 1, 1)(x) * e^{-x * (x^{2})^{2}} - FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(x) * e^{-x * x^{2}} + DefInt(x, x^{2}, (fun y [y ∈ RealSet] . FunDeri(fun t, y [t ∈ RealSet ∧ y ∈ RealSet] . e^{-t * y^{2}}, 1, 1)(x, y)) * diff(fun y [y ∈ RealSet] . y))
+4. forall (x), x ∈ RealSet ⇒ FunDeri(fun t [t ∈ RealSet] . t^{2}, 1, 1)(x) = 2 * x
+5. forall (x), x ∈ RealSet ⇒ FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(x) = 1
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(fun t, y [t ∈ RealSet ∧ y ∈ RealSet] . e^{-t * y^{2}}, 1, 1)(x, y) = -y^{2} * e^{-x * y^{2}}
+
+METHOD:

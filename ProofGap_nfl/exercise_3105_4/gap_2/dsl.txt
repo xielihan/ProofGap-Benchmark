@@ -1,0 +1,17 @@
+1. get_condition (hypothesis 8: {n ≥ 2}) in (GOAL: {n ≥ 2 ⇒ Γ(n) = (n - 1) * Γ(n - 1)})
+2. get_prop (theorem 'Thm 517. (PositiveIntegerIsInteger)': {forall (x), x ∈ PosIntegerSet => x ∈ IntegerSet}) (x := {n}) as (hypothesis 9: {n ∈ PosIntegerSet => n ∈ IntegerSet})
+3. use_condition (hypothesis 3: {n ∈ PosIntegerSet}) in (hypothesis 9: {n ∈ PosIntegerSet => n ∈ IntegerSet}) as (hypothesis 10: {n ∈ IntegerSet})
+4. assert (hypothesis 11: {n - 1 ∈ IntegerSet}) by proof {
+   1. autosolve all_hypothesis
+}
+5. assert (hypothesis 12: {n - 1 >= 1}) by proof {
+   1. autosolve all_hypothesis
+}
+6. get_prop (theorem 'Thm 430. (IntegerAtLeastOneIsPositiveInteger)': {forall (x), x ∈ IntegerSet => x >= 1 => x ∈ PosIntegerSet}) (x := {n - 1}) as (hypothesis 13: {n - 1 ∈ IntegerSet => n - 1 >= 1 => n - 1 ∈ PosIntegerSet})
+7. use_condition (hypothesis 11: {n - 1 ∈ IntegerSet}) (hypothesis 12: {n - 1 >= 1}) in (hypothesis 13: {n - 1 ∈ IntegerSet => n - 1 >= 1 => n - 1 ∈ PosIntegerSet}) as (hypothesis 14: {n - 1 ∈ PosIntegerSet})
+8. assert (hypothesis 15: {(n - 1) ∈ RealSet ∧ (n - 1) ∈ PosRealSet}) by proof {
+   1. autosolve all_hypothesis
+}
+9. get_prop (hypothesis 5: {forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ Γ(x + 1) = x * Γ(x)}) (x := {n - 1}) as (hypothesis 16: {(n - 1) ∈ RealSet ∧ (n - 1) ∈ PosRealSet ⇒ Γ(n - 1 + 1) = (n - 1) * Γ(n - 1)})
+10. use_condition (hypothesis 15: {(n - 1) ∈ RealSet ∧ (n - 1) ∈ PosRealSet}) in (hypothesis 16: {(n - 1) ∈ RealSet ∧ (n - 1) ∈ PosRealSet ⇒ Γ(n - 1 + 1) = (n - 1) * Γ(n - 1)}) as (hypothesis 17: {Γ(n - 1 + 1) = (n - 1) * Γ(n - 1)})
+11. autosolve all_hypothesis

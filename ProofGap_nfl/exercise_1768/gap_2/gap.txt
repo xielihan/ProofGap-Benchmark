@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x < 2 ⇒ (exists (t), t ∈ RealSet ∧ (2 - x = t ⇒ x < 2))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x < 2 ⇒ (exists (t), t ∈ RealSet ∧ (2 - x = t ⇒ t > 0))
+
+METHOD:

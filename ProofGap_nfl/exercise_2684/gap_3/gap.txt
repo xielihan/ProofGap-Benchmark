@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = (-1)^{frac(n * (n - 1), 2)} * frac(n^{100}, 2^{n})
+3. sum_{ n = 1 }^{ +∞ } (|a(n)|) = sum_{ n = 1 }^{ +∞ } (frac(n^{100}, 2^{n}))
+4. seqlim_{ n → +∞ } (frac(frac((n + 1)^{100}, 2^{n + 1}), frac(n^{100}, 2^{n}))) = seqlim_{ n → +∞ } (frac(1, 2) * (1 + frac(1, n))^{100})
+
+GOAL:
+seqlim_{ n → +∞ } (frac(1, 2) * (1 + frac(1, n))^{100}) = frac(1, 2)
+
+METHOD:

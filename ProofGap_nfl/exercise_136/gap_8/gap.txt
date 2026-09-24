@@ -1,0 +1,30 @@
+PROOF GAP @8
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. l ∈ RealSet
+3. L ∈ RealSet
+4. n ∈ NonNegIntegerSet
+5. k ∈ NonNegIntegerSet
+6. N_{0} ∈ NonNegIntegerSet ∧ N_{0} ∈ PosIntegerSet
+7. `N'` ∈ NonNegIntegerSet ∧ `N'` ∈ PosIntegerSet
+8. `n'` ∈ NonNegIntegerSet ∧ `n'` ∈ PosIntegerSet
+9. `n''` ∈ NonNegIntegerSet ∧ `n''` ∈ PosIntegerSet
+10. n_{star} ∈ NonNegIntegerSet ∧ n_{star} ∈ PosIntegerSet
+11. p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p)
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ∈ RealSet
+13. BoundedSeq(x)
+14. seqlim_{ n → +∞ } (x(n + 1) - x(n)) = 0
+15. l = seqliminf_{ n → +∞ } (x(n))
+16. L = seqlimsup_{ n → +∞ } (x(n))
+17. l ∈ AccumulationPointSet(x)
+18. L ∈ AccumulationPointSet(x)
+19. forall (a), a ∈ RealSet ∧ l < a ∧ a < L ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ (exists (`N'`), `N'` ∈ NonNegIntegerSet ∧ `N'` ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > `N'` ⇒ |x(n + 1) - x(n)| < ε))))
+20. forall (a), a ∈ RealSet ∧ l < a ∧ a < L ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N_{0} = max(N, `N'`) ⇒ (exists (`n'`) (`n''`), `n'` ∈ NonNegIntegerSet ∧ `n'` ∈ PosIntegerSet ∧ `n''` ∈ NonNegIntegerSet ∧ `n''` ∈ PosIntegerSet ∧ `n'` > N_{0} ∧ `n''` > N_{0} ∧ x(`n'`) < a ∧ x(`n''`) > a)))
+21. forall (a), a ∈ RealSet ∧ l < a ∧ a < L ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N_{0} = max(N, `N'`) ∧ `n'` < `n''` ∧ n_{star} = max({ n | n ∈ PosIntegerSet, `n'` ≤ n ∧ n ≤ `n''` ∧ x(n) < a }) ⇒ n_{star} > N))
+22. forall (a), a ∈ RealSet ∧ l < a ∧ a < L ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N_{0} = max(N, `N'`) ∧ `n'` < `n''` ∧ n_{star} = max({ n | n ∈ PosIntegerSet, `n'` ≤ n ∧ n ≤ `n''` ∧ x(n) < a }) ⇒ n_{star} > `N'`))
+23. forall (a), a ∈ RealSet ∧ l < a ∧ a < L ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N_{0} = max(N, `N'`) ∧ `n'` < `n''` ∧ n_{star} = max({ n | n ∈ PosIntegerSet, `n'` ≤ n ∧ n ≤ `n''` ∧ x(n) < a }) ⇒ x(n_{star}) < a))
+
+GOAL:
+forall (a), a ∈ RealSet ∧ l < a ∧ a < L ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N_{0} = max(N, `N'`) ∧ `n'` < `n''` ∧ n_{star} = max({ n | n ∈ PosIntegerSet, `n'` ≤ n ∧ n ≤ `n''` ∧ x(n) < a }) ⇒ x(n_{star} + 1) > a))
+
+METHOD:

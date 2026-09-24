@@ -1,0 +1,8 @@
+get_exists (hypothesis 8: {exists (θ), θ ∈ RealSet ∧ 0 < θ ∧ θ < 1}) (θ := {θ0})
+get_prop (theorem 'Thm 166. (SineBounded)': {forall (x), x ∈ RealSet => -1 <= sin(x) /\ sin(x) <= 1}) (x := {θ0 * x + frac(5, 2) * π}) as (hypothesis 11: {θ0 * x + frac(5, 2) * π ∈ RealSet => -1 <= sin(θ0 * x + frac(5, 2) * π) /\ sin(θ0 * x + frac(5, 2) * π) <= 1})
+use_condition (obvious: {θ0 * x + frac(5, 2) * π ∈ RealSet}) in (hypothesis 11: {θ0 * x + frac(5, 2) * π ∈ RealSet => -1 <= sin(θ0 * x + frac(5, 2) * π) /\ sin(θ0 * x + frac(5, 2) * π) <= 1}) as (hypothesis 12: {-1 <= sin(θ0 * x + frac(5, 2) * π) /\ sin(θ0 * x + frac(5, 2) * π) <= 1})
+assert (hypothesis 13: {|sin(θ0 * x + frac(5, 2) * π)| <= 1}) by proof {
+  autosolve (hypothesis 12: {-1 <= sin(θ0 * x + frac(5, 2) * π) /\ sin(θ0 * x + frac(5, 2) * π) <= 1}) using SgnSolver
+}
+exists (θ := {θ0})
+autosolve (hypothesis 10: {θ0 ∈ RealSet ∧ 0 < θ0 ∧ θ0 < 1}) (hypothesis 13: {|sin(θ0 * x + frac(5, 2) * π)| <= 1})

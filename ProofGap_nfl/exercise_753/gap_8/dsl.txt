@@ -1,0 +1,1 @@
+apply (hypothesis 21: {forall (p), p ∈ RealSet ∧ p > 0 ∧ PeriodicFunc(φ, p) ∧ ¬PeriodicFunc(ψ, p) ⇒ α > 0})

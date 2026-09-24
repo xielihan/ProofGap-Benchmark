@@ -1,0 +1,3 @@
+get_forall (GOAL: {forall (x) (y) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 1, 1)(x, y, λ) = 1 + 2 * λ * x}) (x := {x1}) (y := {y1}) (λ := {l1})
+get_condition (hypothesis 13: {x1 ∈ RealSet ∧ y1 ∈ RealSet ∧ l1 ∈ RealSet}) in (GOAL: {x1 ∈ RealSet ∧ y1 ∈ RealSet ∧ l1 ∈ RealSet ⇒ FunDeri(F, 1, 1)(x1, y1, l1) = 1 + 2 * l1 * x1})
+autosolve all_hypothesis

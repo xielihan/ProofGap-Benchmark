@@ -1,0 +1,16 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. x_{1} ∈ RealSet
+3. x_{2} ∈ RealSet
+4. x_{1} < x_{2}
+5. x_{1} * x_{2} > 0
+6. DiffableFuncOn(f, [x_{1}, x_{2}])
+7. g = (fun x [x ∈ RealSet ∧ x ≠ 0] . frac(1, x))
+8. F = (fun x [x ∈ RealSet ∧ x ≠ 0] . frac(f(x), x))
+9. 0 ∉ [x_{1}, x_{2}]
+
+GOAL:
+DiffableFuncOn(g, [x_{1}, x_{2}])
+
+METHOD:

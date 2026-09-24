@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. f = (fun x [x ∈ RealSet] . cos(ln(x)))
+2. x_{0} = 0
+3. BoundedFuncOn(f, IntervalLoRo(0, +∞))
+4. DiffableFuncOn(f, IntervalLoRo(0, +∞))
+5. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, +∞) ⇒ FunDeri(f, 1, 1)(x) = -frac(sin(ln(x)), x)
+6. lim_{ x → +∞ } (FunDeri(f, 1, 1)(x)) = 0
+
+GOAL:
+¬(exists (L), L ∈ RealSet ∧ L ∈ RealSet ∪ { -∞, +∞ } ∧ lim_{ x → +∞ } (f(x)) = L)
+
+METHOD:

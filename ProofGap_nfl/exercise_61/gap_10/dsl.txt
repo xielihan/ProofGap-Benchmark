@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ IntegerSet /\ n > k => 0 < frac((2 * |a|)^{k}, 2^{n})}) (n := {n0})
+get_condition (hypothesis 12: {n0 ∈ NonNegIntegerSet /\ n0 ∈ IntegerSet /\ n0 > k}) in (GOAL: {n0 ∈ NonNegIntegerSet /\ n0 ∈ IntegerSet /\ n0 > k => 0 < frac((2 * |a|)^{k}, 2^{n0})})
+get_prop (hypothesis 10: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ IntegerSet /\ n > k => 0 < |frac(a^{n}, n!)|}) (n := {n0}) as (hypothesis 13: {n0 ∈ NonNegIntegerSet /\ n0 ∈ IntegerSet /\ n0 > k => 0 < |frac(a^{n0}, n0!)|})
+use_condition (hypothesis 12: {n0 ∈ NonNegIntegerSet /\ n0 ∈ IntegerSet /\ n0 > k}) in (hypothesis 13: {n0 ∈ NonNegIntegerSet /\ n0 ∈ IntegerSet /\ n0 > k => 0 < |frac(a^{n0}, n0!)|}) as (hypothesis 14: {0 < |frac(a^{n0}, n0!)|})
+get_prop (hypothesis 11: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ IntegerSet /\ n > k => |frac(a^{n}, n!)| < frac((2 * |a|)^{k}, 2^{n})}) (n := {n0}) as (hypothesis 15: {n0 ∈ NonNegIntegerSet /\ n0 ∈ IntegerSet /\ n0 > k => |frac(a^{n0}, n0!)| < frac((2 * |a|)^{k}, 2^{n0})})
+use_condition (hypothesis 12: {n0 ∈ NonNegIntegerSet /\ n0 ∈ IntegerSet /\ n0 > k}) in (hypothesis 15: {n0 ∈ NonNegIntegerSet /\ n0 ∈ IntegerSet /\ n0 > k => |frac(a^{n0}, n0!)| < frac((2 * |a|)^{k}, 2^{n0})}) as (hypothesis 16: {|frac(a^{n0}, n0!)| < frac((2 * |a|)^{k}, 2^{n0})})
+autosolve (hypothesis 14: {0 < |frac(a^{n0}, n0!)|}) (hypothesis 16: {|frac(a^{n0}, n0!)| < frac((2 * |a|)^{k}, 2^{n0})})

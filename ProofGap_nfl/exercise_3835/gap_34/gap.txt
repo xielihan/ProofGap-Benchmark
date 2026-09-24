@@ -1,0 +1,49 @@
+PROOF GAP @34
+ASSUM:
+1. F : RealSet → RealSet
+2. f : RealSet → RealSet
+3. a ∈ RealSet
+4. α ∈ RealSet
+5. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+6. p ∈ RealSet ∧ p > 0
+7. t ∈ RealSet
+8. M ∈ RealSet ∧ M > 0
+9. C ∈ RealSet
+10. F(p) = DefInt(0, +∞, e^{-p * t} * f(t) * diff(t))
+11. n ∈ PosIntegerSet ⇒ (forall (t), t ∈ RealSet ⇒ f(t) = t^{n}) ⇒ F(p) = DefInt(0, +∞, e^{-p * t} * t^{n} * diff(t))
+12. n ∈ PosIntegerSet ⇒ (forall (t), t ∈ RealSet ⇒ f(t) = t^{n}) ⇒ F(p) = ((-frac(1, p) * e^{-p * t} * t^{n})|_{0}^{+∞}) + frac(n, p) * DefInt(0, +∞, e^{-p * t} * t^{n - 1} * diff(t))
+13. n ∈ PosIntegerSet ⇒ (forall (t), t ∈ RealSet ⇒ f(t) = t^{n}) ⇒ F(p) = frac(n!, p^{n}) * DefInt(0, +∞, e^{-p * t} * diff(t))
+14. n ∈ PosIntegerSet ⇒ (forall (t), t ∈ RealSet ⇒ f(t) = t^{n}) ⇒ frac(n!, p^{n}) * DefInt(0, +∞, e^{-p * t} * diff(t)) = frac(n!, p^{n + 1})
+15. n ∈ PosIntegerSet ⇒ (forall (t), t ∈ RealSet ⇒ f(t) = t^{n}) ⇒ F(p) = frac(n!, p^{n + 1})
+16. (forall (t), t ∈ RealSet ⇒ f(t) = sqrtn(2, t)) ⇒ F(p) = DefInt(0, +∞, e^{-p * t} * sqrtn(2, t) * diff(t))
+17. (forall (t), t ∈ RealSet ⇒ f(t) = sqrtn(2, t)) ⇒ F(p) = ((-frac(1, p) * e^{-p * t} * sqrtn(2, t))|_{0}^{+∞}) + frac(1, 2 * p) * DefInt(0, +∞, frac(e^{-p * t}, sqrtn(2, t)) * diff(t))
+18. (forall (t), t ∈ RealSet ⇒ f(t) = sqrtn(2, t)) ⇒ F(p) = frac(1, p) * DefInt(0, +∞, e^{-p * u^{2}} * diff(u))
+19. (forall (t), t ∈ RealSet ⇒ f(t) = sqrtn(2, t)) ⇒ frac(1, p) * DefInt(0, +∞, e^{-p * u^{2}} * diff(u)) = frac(sqrtn(2, π), 2 * p * sqrtn(2, p))
+20. (forall (t), t ∈ RealSet ⇒ f(t) = sqrtn(2, t)) ⇒ F(p) = frac(sqrtn(2, π), 2 * p * sqrtn(2, p))
+21. (forall (t), t ∈ RealSet ⇒ f(t) = e^{a * t}) ⇒ F(p) = DefInt(0, +∞, e^{-p * t} * e^{a * t} * diff(t))
+22. (forall (t), t ∈ RealSet ⇒ f(t) = e^{a * t}) ⇒ DefInt(0, +∞, e^{-p * t} * e^{a * t} * diff(t)) = DefInt(0, +∞, e^{(a - p) * t} * diff(t))
+23. (forall (t), t ∈ RealSet ⇒ f(t) = e^{a * t}) ⇒ F(p) = DefInt(0, +∞, e^{(a - p) * t} * diff(t))
+24. (forall (t), t ∈ RealSet ⇒ f(t) = e^{a * t}) ⇒ p > a ⇒ F(p) = frac(1, p - a)
+25. (forall (t), t ∈ RealSet ⇒ f(t) = e^{a * t}) ⇒ p ≤ a ⇒ ¬(exists (L), L ∈ RealSet ∧ F(p) = L)
+26. (forall (t), t ∈ RealSet ⇒ f(t) = t * e^{-a * t}) ⇒ F(p) = DefInt(0, +∞, t * e^{-p * t} * e^{-a * t} * diff(t))
+27. (forall (t), t ∈ RealSet ⇒ f(t) = t * e^{-a * t}) ⇒ DefInt(0, +∞, t * e^{-p * t} * e^{-a * t} * diff(t)) = DefInt(0, +∞, t * e^{-(p + a) * t} * diff(t))
+28. (forall (t), t ∈ RealSet ⇒ f(t) = t * e^{-a * t}) ⇒ F(p) = DefInt(0, +∞, t * e^{-(p + a) * t} * diff(t))
+29. (forall (t), t ∈ RealSet ⇒ f(t) = t * e^{-a * t}) ⇒ p + a > 0 ⇒ F(p) = frac(1, (p + a)^{2})
+30. (forall (t), t ∈ RealSet ⇒ f(t) = cos(t)) ⇒ F(p) = DefInt(0, +∞, e^{-p * t} * cos(t) * diff(t))
+31. (forall (t), t ∈ RealSet ⇒ f(t) = cos(t)) ⇒ F(p) = ((frac(-p * cos(t) + sin(t), p^{2} + 1) * e^{-p * t})|_{0}^{+∞})
+32. (forall (t), t ∈ RealSet ⇒ f(t) = cos(t)) ⇒ ((frac(-p * cos(t) + sin(t), p^{2} + 1) * e^{-p * t})|_{0}^{+∞}) = frac(p, p^{2} + 1)
+33. (forall (t), t ∈ RealSet ⇒ f(t) = cos(t)) ⇒ F(p) = frac(p, p^{2} + 1)
+34. (forall (t), t ∈ RealSet ∧ t > 0 ⇒ f(t) = frac(1 - e^{-t}, t)) ⇒ F(p) = DefInt(0, +∞, e^{-p * t} * frac(1 - e^{-t}, t) * diff(t))
+35. (forall (t), t ∈ RealSet ∧ t > 0 ⇒ f(t) = frac(1 - e^{-t}, t)) ⇒ (exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ 0 < frac(1 - e^{-t}, t) ∧ frac(1 - e^{-t}, t) ≤ M))
+36. (forall (t), t ∈ RealSet ∧ t > 0 ⇒ f(t) = frac(1 - e^{-t}, t)) ⇒ 0 < F(p)
+37. (forall (t), t ∈ RealSet ∧ t > 0 ⇒ f(t) = frac(1 - e^{-t}, t)) ⇒ F(p) ≤ M * DefInt(0, +∞, e^{-p * t} * diff(t))
+38. (forall (t), t ∈ RealSet ∧ t > 0 ⇒ f(t) = frac(1 - e^{-t}, t)) ⇒ M * DefInt(0, +∞, e^{-p * t} * diff(t)) = frac(M, p)
+39. (forall (t), t ∈ RealSet ∧ t > 0 ⇒ f(t) = frac(1 - e^{-t}, t)) ⇒ FunDeri(F, 1, 1)(p) = DefInt(0, +∞, e^{-p * t} * (e^{-t} - 1) * diff(t))
+40. (forall (t), t ∈ RealSet ∧ t > 0 ⇒ f(t) = frac(1 - e^{-t}, t)) ⇒ DefInt(0, +∞, e^{-p * t} * (e^{-t} - 1) * diff(t)) = DefInt(0, +∞, e^{-(p + 1) * t} * diff(t)) - DefInt(0, +∞, e^{-p * t} * diff(t))
+41. (forall (t), t ∈ RealSet ∧ t > 0 ⇒ f(t) = frac(1 - e^{-t}, t)) ⇒ DefInt(0, +∞, e^{-(p + 1) * t} * diff(t)) - DefInt(0, +∞, e^{-p * t} * diff(t)) = frac(1, p + 1) - frac(1, p)
+42. (forall (t), t ∈ RealSet ∧ t > 0 ⇒ f(t) = frac(1 - e^{-t}, t)) ⇒ FunDeri(F, 1, 1)(p) = frac(1, p + 1) - frac(1, p)
+
+GOAL:
+(forall (t), t ∈ RealSet ∧ t > 0 ⇒ f(t) = frac(1 - e^{-t}, t)) ⇒ (exists (C), C ∈ RealSet ∧ F(p) = ln(frac(p + 1, p)) + C)
+
+METHOD:

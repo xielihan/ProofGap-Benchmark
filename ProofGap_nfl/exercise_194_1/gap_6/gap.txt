@@ -1,0 +1,15 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = x - x^{3}
+4. f(x) = x - x^{3}
+5. x - x^{3} = x * (1 - x) * (1 + x)
+6. f(x) = x * (1 - x) * (1 + x)
+7. f(x) = 0 ⇒ x ∈ { -1, 0, 1 }
+8. f(x) > 0 ⇒ x ∈ { x | x ∈ RealSet, -∞ < x ∧ x < -1 ∨ 0 < x ∧ x < 1 }
+
+GOAL:
+f(x) < 0 ⇒ ((-1 < x ∧ x < 0) ∨ (1 < x ∧ x < +∞))
+
+METHOD:

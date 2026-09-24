@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (b), b ∈ RealSet ∧ b > 0 ⇒ lim_{ x → 0^+ } (f(x)) = lim_{ x → 0^+ } (sqrtn(3, x))}) (b := {c})
+get_condition (hypothesis 6: {c ∈ RealSet ∧ c > 0}) in (GOAL: {c ∈ RealSet ∧ c > 0 ⇒ lim_{ x → 0^+ } (f(x)) = lim_{ x → 0^+ } (sqrtn(3, x))})
+rewrite_in limit (left_to_right, equation) (hypothesis 1: {forall (x), x ∈ RealSet ⇒ f(x) = sqrtn(3, x)}); from (GOAL: {lim_{ x → 0^+ } (f(x)) = lim_{ x → 0^+ } (sqrtn(3, x))}) to (GOAL: {lim_{ x → 0^+ } (sqrtn(3, x)) = lim_{ x → 0^+ } (sqrtn(3, x))})
+autosolve all_hypothesis

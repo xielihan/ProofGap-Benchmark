@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. n ∈ PosIntegerSet
+
+GOAL:
+|sum_{ k = n + 1 }^{ 2 * n } (frac(x^{k}, k!))| ≤ sum_{ k = n + 1 }^{ 2 * n } (frac(|x|^{k}, k!))
+
+METHOD:

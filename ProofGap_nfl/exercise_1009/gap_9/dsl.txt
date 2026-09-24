@@ -1,0 +1,17 @@
+get_prop (theorem 'Thm 318. (LeftDifferentiableAtLimitDefinition)': {forall (f) (x), f : RealSet -> RealSet => x ∈ RealSet => (LeftDiffableFuncAt(f, x) <==> (exists (L), L ∈ RealSet /\ lim_{h -> 0^-} ((f(x+h) - f(x)) / h) = L))}) (f := {f}) (x := {0}) as (hypothesis 11: {f : RealSet -> RealSet => 0 ∈ RealSet => (LeftDiffableFuncAt(f, 0) <==> (exists (L), L ∈ RealSet /\ lim_{h -> 0^-} ((f(0+h) - f(0)) / h) = L))})
+use_condition (hypothesis 1: {f : RealSet -> RealSet}) (obvious: {0 ∈ RealSet}) in (hypothesis 11: {f : RealSet -> RealSet => 0 ∈ RealSet => (LeftDiffableFuncAt(f, 0) <==> (exists (L), L ∈ RealSet /\ lim_{h -> 0^-} ((f(0+h) - f(0)) / h) = L))}) as (hypothesis 12: {LeftDiffableFuncAt(f, 0) <==> (exists (L), L ∈ RealSet /\ lim_{h -> 0^-} ((f(0+h) - f(0)) / h) = L)})
+rewrite (left_to_right, iff) (hypothesis 12: {LeftDiffableFuncAt(f, 0) <==> (exists (L), L ∈ RealSet /\ lim_{h -> 0^-} ((f(0+h) - f(0)) / h) = L)}); from (GOAL: {¬LeftDiffableFuncAt(f, 0)}) to (GOAL: {¬(exists (L), L ∈ RealSet /\ lim_{h -> 0^-} ((f(0+h) - f(0)) / h) = L)})
+assert (hypothesis 13: {forall (h), h ∈ RealSet /\ h ≠ 0 => (f(h) - f(0)) / h = sin(frac(1, h))}) by proof {
+  get_forall (GOAL: {forall (h), h ∈ RealSet /\ h ≠ 0 => (f(h) - f(0)) / h = sin(frac(1, h))}) (h := {u})
+  get_condition (hypothesis 13: {u ∈ RealSet /\ u ≠ 0}) in (GOAL: {(u ∈ RealSet /\ u ≠ 0) => (f(u) - f(0)) / u = sin(frac(1, u))})
+  get_prop (hypothesis 8: {forall (Δx), Δx ∈ RealSet /\ Δx ≠ 0 => frac(f(0 + Δx) - f(0), Δx) = sin(frac(1, Δx))}) (Δx := {u}) as (hypothesis 14: {u ∈ RealSet /\ u ≠ 0 => frac(f(0 + u) - f(0), u) = sin(frac(1, u))})
+  use_condition (hypothesis 13: {u ∈ RealSet /\ u ≠ 0}) in (hypothesis 14: {u ∈ RealSet /\ u ≠ 0 => frac(f(0 + u) - f(0), u) = sin(frac(1, u))}) as (hypothesis 15: {frac(f(0 + u) - f(0), u) = sin(frac(1, u))})
+  autosolve all_hypothesis
+}
+assert (hypothesis 14: {lim_{h -> 0^-} ((f(h) - f(0)) / h) = lim_{h -> 0^-} (sin(frac(1, h)))}) by proof {
+  rewrite_in limit (left_to_right, equation) (hypothesis 13: {forall (h), h ∈ RealSet /\ h ≠ 0 => (f(h) - f(0)) / h = sin(frac(1, h))}); from (GOAL: {lim_{h -> 0^-} ((f(h) - f(0)) / h) = lim_{h -> 0^-} (sin(frac(1, h)))}) to (GOAL: {lim_{h -> 0^-} (sin(frac(1, h))) = lim_{h -> 0^-} (sin(frac(1, h)))})
+  autosolve all_hypothesis
+}
+autoreplace no_hypothesis; from (f(0 + h)) to (f(h)); from (GOAL: {¬(exists (L), L ∈ RealSet /\ lim_{h -> 0^-} ((f(0+h) - f(0)) / h) = L)}) to (GOAL: {¬(exists (L), L ∈ RealSet /\ lim_{h -> 0^-} ((f(h) - f(0)) / h) = L)})
+rewrite (left_to_right, equation) (hypothesis 14: {lim_{h -> 0^-} ((f(h) - f(0)) / h) = lim_{h -> 0^-} (sin(frac(1, h)))}); from (GOAL: {¬(exists (L), L ∈ RealSet /\ lim_{h -> 0^-} ((f(h) - f(0)) / h) = L)}) to (GOAL: {¬(exists (L), L ∈ RealSet /\ lim_{h -> 0^-} (sin(frac(1, h))) = L)})
+apply (hypothesis 9: {¬(exists (L), L ∈ RealSet /\ lim_{ Δx -> 0^- } (sin(frac(1, Δx))) = L)})

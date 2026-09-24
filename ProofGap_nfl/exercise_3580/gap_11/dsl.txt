@@ -1,0 +1,15 @@
+assert (hypothesis 22: {x - x_{0} = 2 * λ * p}) by proof {
+  autosolve (hypothesis 17: {-(x - x_{0}) + 2 * λ * p = 0})
+}
+assert (hypothesis 23: {y - y_{0} = 2 * λ * q}) by proof {
+  autosolve (hypothesis 20: {-(y - y_{0}) + 2 * λ * q = 0})
+}
+rewrite (left_to_right, equation) (hypothesis 14: {z - z_{0} = p * (x - x_{0}) + q * (y - y_{0})}); from (GOAL: {2 * λ = z - z_{0}}) to (GOAL: {2 * λ = p * (x - x_{0}) + q * (y - y_{0})})
+rewrite (left_to_right, equation) (hypothesis 22: {x - x_{0} = 2 * λ * p}); from (GOAL: {2 * λ = p * (x - x_{0}) + q * (y - y_{0})}) to (GOAL: {2 * λ = p * (2 * λ * p) + q * (y - y_{0})})
+rewrite (left_to_right, equation) (hypothesis 23: {y - y_{0} = 2 * λ * q}); from (GOAL: {2 * λ = p * (2 * λ * p) + q * (y - y_{0})}) to (GOAL: {2 * λ = p * (2 * λ * p) + q * (2 * λ * q)})
+assert (hypothesis 24: {p * (2 * λ * p) + q * (2 * λ * q) = 2 * λ * (p^{2} + q^{2})}) by proof {
+  autosolve all_hypothesis using PolyRatSolver
+}
+rewrite (left_to_right, equation) (hypothesis 24: {p * (2 * λ * p) + q * (2 * λ * q) = 2 * λ * (p^{2} + q^{2})}); from (GOAL: {2 * λ = p * (2 * λ * p) + q * (2 * λ * q)}) to (GOAL: {2 * λ = 2 * λ * (p^{2} + q^{2})})
+rewrite (left_to_right, equation) (hypothesis 13: {p^{2} + q^{2} = 1}); from (GOAL: {2 * λ = 2 * λ * (p^{2} + q^{2})}) to (GOAL: {2 * λ = 2 * λ * 1})
+autosolve all_hypothesis using PolyRatSolver

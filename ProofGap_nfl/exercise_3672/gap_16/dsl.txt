@@ -1,0 +1,6 @@
+get_condition (hypothesis 25: {x ≥ 0}) (hypothesis 26: {y ≥ 0}) (hypothesis 27: {x + y > 0}) in (GOAL: {x ≥ 0 ⇒ y ≥ 0 ⇒ x + y > 0 ⇒ frac(a, 2)^{n} = frac(x + y, 2)^{n}})
+use_condition (obvious: {x ≥ 0}) in (hypothesis 10: {x ≥ 0 ⇒ y ≥ 0 ⇒ x + y > 0 ⇒ a = x + y}) as (hypothesis 28: {y ≥ 0 ⇒ x + y > 0 ⇒ a = x + y})
+use_condition (obvious: {y ≥ 0}) in (hypothesis 28: {y ≥ 0 ⇒ x + y > 0 ⇒ a = x + y}) as (hypothesis 29: {x + y > 0 ⇒ a = x + y})
+use_condition (obvious: {x + y > 0}) in (hypothesis 29: {x + y > 0 ⇒ a = x + y}) as (hypothesis 30: {a = x + y})
+rewrite (left_to_right, equation) (hypothesis 30: {a = x + y}); from (GOAL: {frac(a, 2)^{n} = frac(x + y, 2)^{n}}) to (GOAL: {frac(x + y, 2)^{n} = frac(x + y, 2)^{n}})
+autosolve all_hypothesis

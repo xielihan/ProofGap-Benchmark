@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x ≠ -1 ∧ -1 ≤ frac(1 - x, 1 + x) ∧ frac(1 - x, 1 + x) ≤ 1 ⇒ arcsin(frac(1 - x, 1 + x)) = arcsin(frac(1 - x, 1 + x))
+2. lim_{ x → +∞ } (frac(1 - x, 1 + x)) = -1
+
+GOAL:
+lim_{ x → +∞ } (arcsin(frac(1 - x, 1 + x))) = arcsin(-1)
+
+METHOD:

@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f = (fun x [x ∈ RealSet] . 1 + x + sin(x) * cos(x))
+2. g = (fun x [x ∈ RealSet] . (x + sin(x) * cos(x)) * e^{sin(x)})
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ frac(FunDeri(f, 1, 1)(x), FunDeri(g, 1, 1)(x)) = frac(1 + cos(2 * x), e^{sin(x)} * (1 + cos(2 * x) + cos(x) * (x + sin(x) * cos(x))))
+
+METHOD:

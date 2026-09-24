@@ -1,0 +1,22 @@
+PROOF GAP @11
+ASSUM:
+1. B : CartesianProd(RealSet, RealSet) → RealSet
+2. Γ : RealSet → RealSet
+3. forall (p) (q), p ∈ RealSet ∧ p > 0 ∧ q ∈ RealSet ∧ q > 0 ⇒ B(p, q) = DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 < x ∧ x < 1] . x^{p - 1} * (1 - x)^{q - 1}) * diff(fun x [x ∈ RealSet ∧ 0 < x ∧ x < 1] . x))
+4. forall (z), z ∈ RealSet ∧ z > 0 ⇒ Γ(z) = DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{z - 1} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))
+5. forall (p) (q), p ∈ RealSet ∧ p > 0 ∧ q ∈ RealSet ∧ q > 0 ⇒ B(p, q) = frac(Γ(p) * Γ(q), Γ(p + q))
+6. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ x - x^{2} = x * (1 - x)
+7. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ sqrtn(2, x - x^{2}) = x^{frac(1, 2)} * (1 - x)^{frac(1, 2)}
+8. DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . sqrtn(2, x - x^{2})) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x^{frac(1, 2)} * (1 - x)^{frac(1, 2)}) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x))
+9. DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x^{frac(1, 2)} * (1 - x)^{frac(1, 2)}) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x)) = B(frac(3, 2), frac(3, 2))
+10. B(frac(3, 2), frac(3, 2)) = frac(Γ(frac(3, 2))^{2}, Γ(3))
+11. Γ(frac(3, 2)) = frac(1, 2) * Γ(frac(1, 2))
+12. Γ(3) = 2!
+13. Γ(frac(1, 2)) * Γ(1 - frac(1, 2)) = frac(π, sin(frac(π, 2)))
+14. Γ(frac(1, 2))^{2} = π
+15. Γ(frac(1, 2)) = sqrtn(2, π)
+
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . sqrtn(2, x - x^{2})) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x)) = frac(π, 8)
+
+METHOD:

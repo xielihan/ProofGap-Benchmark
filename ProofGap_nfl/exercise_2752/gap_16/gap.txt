@@ -1,0 +1,28 @@
+PROOF GAP @16
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. g : RealSet → RealSet
+3. C ∈ RealSet
+4. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ f(n, x) = frac(2 * n * x, 1 + n^{2} * x^{2})
+5. forall (x), x ∈ RealSet ⇒ g(x) = 0
+6. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ seqlim_{ n → +∞ } (f(n, x)) = 0
+7. ε_{0} = frac(1, 2)
+8. 0 < ε_{0}
+9. ε_{0} < 1
+10. 0 < 1
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, n) ∈ [0, 1] ∧ |f(n, frac(1, n)) - g(frac(1, n))| = 1 ∧ 1 > ε_{0}
+12. exists (ε_{0}), ε_{0} ∈ RealSet ∧ ε_{0} > 0 ∧ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ (exists (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ∧ n > N ∧ |f(n, x) - g(x)| > ε_{0}))
+13. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(1, +∞) ⇒ seqlim_{ n → +∞ } (f(n, x)) = 0
+14. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ IntervalLoRo(1, +∞) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(2 * n * x, 1 + n^{2} * x^{2}) < ε ⇒ |f(n, x) - g(x)| < ε)
+15. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ IntervalLoRo(1, +∞) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(2, n) < ε ⇒ frac(2 * n * x, 1 + n^{2} * x^{2}) < ε)
+16. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ n > frac(2, ε) ⇒ frac(2, n) < ε)
+17. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ IntervalLoRo(1, +∞) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ n > frac(2, ε) ⇒ |f(n, x) - g(x)| < ε)
+18. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N = floor(frac(2, ε)))
+19. forall (n) (N) (x), n ∈ NonNegIntegerSet ∧ N ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ n > N ∧ n ∈ PosIntegerSet ∧ x ∈ IntervalLoRo(1, +∞) ⇒ |f(n, x) - g(x)| = frac(2 * n * x, 1 + n^{2} * x^{2}))
+20. forall (n) (N) (x), n ∈ NonNegIntegerSet ∧ N ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ n > N ∧ n ∈ PosIntegerSet ∧ x ∈ IntervalLoRo(1, +∞) ⇒ frac(2 * n * x, 1 + n^{2} * x^{2}) < frac(2, n))
+21. forall (n) (N) (x), n ∈ NonNegIntegerSet ∧ N ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ N = floor(frac(2, ε)) ∧ n > N ∧ n ∈ PosIntegerSet ∧ x ∈ IntervalLoRo(1, +∞) ⇒ frac(2, n) < ε)
+
+GOAL:
+forall (n) (N) (x), n ∈ NonNegIntegerSet ∧ N ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ N = floor(frac(2, ε)) ∧ n > N ∧ n ∈ PosIntegerSet ∧ x ∈ IntervalLoRo(1, +∞) ⇒ |f(n, x) - g(x)| < ε)
+
+METHOD:

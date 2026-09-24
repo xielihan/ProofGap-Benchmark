@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. y : RealSet → RealSet
+2. E_{x} ⊆ RealSet
+3. x ∈ RealSet
+4. E_{x} = { x | x ∈ RealSet, 0 < |x| ∧ |x| ≤ 1 }
+5. forall (x), x ∈ RealSet ∧ x ∈ E_{x} ⇒ y(x) = cot(frac(π * x, 4))
+6. E_{x} = [-1, 0) ∪ (0, 1]
+7. forall (x), x ∈ RealSet ∧ x ∈ (0, 1] ⇒ frac(π * x, 4) ∈ (0, frac(π, 4)]
+8. forall (x), x ∈ RealSet ∧ x ∈ (0, 1] ⇒ MonoDecFuncOn(y, (0, 1])
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ (0, 1] ⇒ ImageOn(y, (0, 1]) = [1, +∞)
+
+METHOD:

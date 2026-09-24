@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. C ∈ RealSet
+2. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(sin(x)^{2}, 1 + sin(x)^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = (1 - frac(1, 1 + sin(x)^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+3. { `F_4` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = (1 - frac(1, 1 + sin(x)^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_7` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(1, sec(x)^{2} + tan(x)^{2}) * FunDeri(fun x [x ∈ RealSet] . tan(x), 1, 1)(x) ∧ `F_7`(x) = x - `F_5`(x)) }
+4. { `F_10` | exists (`F_8`), `F_8` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_8`, 1, 1)(x) = frac(1, sec(x)^{2} + tan(x)^{2}) * FunDeri(fun x [x ∈ RealSet] . tan(x), 1, 1)(x) ∧ `F_10`(x) = x - `F_8`(x)) } = { `F_13` | exists (`F_11`), `F_11` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_11`, 1, 1)(x) = frac(1, 1 + 2 * tan(x)^{2}) * FunDeri(fun x [x ∈ RealSet] . tan(x), 1, 1)(x) ∧ `F_13`(x) = x - `F_11`(x)) }
+
+GOAL:
+{ `F_14` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_14`, 1, 1)(x) = frac(sin(x)^{2}, 1 + sin(x)^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_15` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_15`(x) = x - frac(1, sqrtn(2, 2)) * arctan(sqrtn(2, 2) * tan(x)) + C) }
+
+METHOD:

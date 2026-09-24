@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. y ∈ RealSet
+4. z ∈ RealSet
+5. f : [0, 2] → RealSet
+6. ContinuousFuncOn(f, [0, 2])
+7. DefInt(0, 1, DefInt(0, 1, DefInt(0, x + y, f(z) * diff(fun z . z)) * diff(fun y . y)) * diff(fun x . x)) = DefInt(0, 1, (DefInt(z, 1, DefInt(0, 1, f(z) * diff(fun y . y)) * diff(fun x . x)) + DefInt(0, z, DefInt(z - x, 1, f(z) * diff(fun y . y)) * diff(fun x . x))) * diff(fun z . z)) + DefInt(1, 2, DefInt(z - 1, 1, DefInt(z - x, 1, f(z) * diff(fun y . y)) * diff(fun x . x)) * diff(fun z . z))
+8. DefInt(0, 1, (DefInt(z, 1, DefInt(0, 1, f(z) * diff(fun y . y)) * diff(fun x . x)) + DefInt(0, z, DefInt(z - x, 1, f(z) * diff(fun y . y)) * diff(fun x . x))) * diff(fun z . z)) = DefInt(0, 1, f(z) * (1 - z) * diff(fun z . z)) + DefInt(0, 1, f(z) * (1 - z) * z * diff(fun z . z)) + frac(1, 2) * DefInt(0, 1, f(z) * z^{2} * diff(fun z . z))
+
+GOAL:
+DefInt(0, 1, f(z) * (1 - z) * diff(fun z . z)) + DefInt(0, 1, f(z) * (1 - z) * z * diff(fun z . z)) + frac(1, 2) * DefInt(0, 1, f(z) * z^{2} * diff(fun z . z)) = frac(1, 2) * DefInt(0, 1, f(z) * (2 - z^{2}) * diff(fun z . z))
+
+METHOD:

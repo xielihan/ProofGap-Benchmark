@@ -1,0 +1,5 @@
+get_prop (theorem 'Thm 166. (SineBounded)': {forall (x), x ∈ RealSet ⇒ -1 <= sin(x) ∧ sin(x) <= 1}) (x := {x}) as (hypothesis 7: {x ∈ RealSet ⇒ -1 <= sin(x) ∧ sin(x) <= 1})
+use_condition (hypothesis 6: {x ∈ RealSet}) in (hypothesis 7: {x ∈ RealSet ⇒ -1 <= sin(x) ∧ sin(x) <= 1}) as (hypothesis 8: {-1 <= sin(x) ∧ sin(x) <= 1})
+destruct_and (hypothesis 8: {-1 <= sin(x) ∧ sin(x) <= 1}) as (hypothesis 9: {-1 <= sin(x)}) (hypothesis 10: {sin(x) <= 1})
+rewrite (left_to_right, equation) (hypothesis 4: {t = sin(x)}) from (GOAL: {t <= 1}) to (GOAL: {sin(x) <= 1})
+apply (hypothesis 10: {sin(x) <= 1})

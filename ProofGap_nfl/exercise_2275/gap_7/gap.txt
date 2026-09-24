@@ -1,0 +1,13 @@
+PROOF GAP @7
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 2 * π ⇒ 2 + cos(x) ≠ 0 ∧ 3 + cos(x) ≠ 0
+2. DefInt(0, 2 * π, (fun x [x ∈ RealSet] . frac(1, (2 + cos(x)) * (3 + cos(x)))) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 2 * π, (fun x [x ∈ RealSet] . frac(1, 2 + cos(x))) * diff(fun x [x ∈ RealSet] . x)) - DefInt(0, 2 * π, (fun x [x ∈ RealSet] . frac(1, 3 + cos(x))) * diff(fun x [x ∈ RealSet] . x))
+3. DefInt(0, 2 * π, (fun x [x ∈ RealSet] . frac(1, (2 + cos(x)) * (3 + cos(x)))) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, π, (fun x [x ∈ RealSet] . frac(1, 2 + cos(x))) * diff(fun x [x ∈ RealSet] . x)) + DefInt(0, π, (fun x [x ∈ RealSet] . frac(1, 2 - cos(x))) * diff(fun x [x ∈ RealSet] . x)) - DefInt(0, 2 * π, (fun x [x ∈ RealSet] . frac(1, 3 + cos(x))) * diff(fun x [x ∈ RealSet] . x))
+4. DefInt(0, 2 * π, (fun x [x ∈ RealSet] . frac(1, (2 + cos(x)) * (3 + cos(x)))) * diff(fun x [x ∈ RealSet] . x)) = 4 * DefInt(0, π, (fun x [x ∈ RealSet] . frac(1, 4 - cos(x)^{2})) * diff(fun x [x ∈ RealSet] . x)) - 6 * DefInt(0, π, (fun x [x ∈ RealSet] . frac(1, 9 - cos(x)^{2})) * diff(fun x [x ∈ RealSet] . x))
+5. DefInt(0, 2 * π, (fun x [x ∈ RealSet] . frac(1, (2 + cos(x)) * (3 + cos(x)))) * diff(fun x [x ∈ RealSet] . x)) = 8 * DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . frac(1, 4 * sin(x)^{2} + 3 * cos(x)^{2})) * diff(fun x [x ∈ RealSet] . x)) - 12 * DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . frac(1, 9 * sin(x)^{2} + 8 * cos(x)^{2})) * diff(fun x [x ∈ RealSet] . x))
+6. DefInt(0, 2 * π, (fun x [x ∈ RealSet] . frac(1, (2 + cos(x)) * (3 + cos(x)))) * diff(fun x [x ∈ RealSet] . x)) = 8 * frac(1, 2 * sqrtn(2, 3)) * ((fun x [x ∈ RealSet] . arctan(frac(2 * tan(x), sqrtn(2, 3))))|_{0}^{frac(π, 2)}) - 12 * frac(1, 3 * sqrtn(2, 8)) * ((fun x [x ∈ RealSet] . arctan(frac(3 * tan(x), sqrtn(2, 8))))|_{0}^{frac(π, 2)})
+
+GOAL:
+DefInt(0, 2 * π, (fun x [x ∈ RealSet] . frac(1, (2 + cos(x)) * (3 + cos(x)))) * diff(fun x [x ∈ RealSet] . x)) = π * (frac(2, sqrtn(2, 3)) - frac(1, sqrtn(2, 2)))
+
+METHOD:

@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet => b(n) = frac(1, a^{sqrtn(2, n)})}) (n := {n})
+get_condition (hypothesis 5: {n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet}) in (GOAL: {n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet => b(n) = frac(1, a^{sqrtn(2, n)})})
+rewrite (left_to_right, equation) (hypothesis 4: {b = (fun n [n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet] . frac(1, a^{sqrtn(2, n)}))}); from (GOAL: {b(n) = frac(1, a^{sqrtn(2, n)})}) to (GOAL: {(fun n [n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet] . frac(1, a^{sqrtn(2, n)}))(n) = frac(1, a^{sqrtn(2, n)})})
+autosolve all_hypothesis

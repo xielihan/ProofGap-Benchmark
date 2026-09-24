@@ -1,0 +1,9 @@
+get_exists (hypothesis 18: {exists (x), x : NonNegIntegerSet → RealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ x(n) = frac(1, sqrtn(n + 1, 2)) ⇒ |frac(1, 2) - 1| = frac(1, 2))}) (x := {x0})
+destruct_and (hypothesis 19: {x0 : NonNegIntegerSet → RealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ x0(n) = frac(1, sqrtn(n + 1, 2)) ⇒ |frac(1, 2) - 1| = frac(1, 2))}) as (hypothesis 20: {x0 : NonNegIntegerSet → RealSet}) (hypothesis 21: {forall (n), n ∈ NonNegIntegerSet ∧ x0(n) = frac(1, sqrtn(n + 1, 2)) ⇒ |frac(1, 2) - 1| = frac(1, 2)})
+exists (x := {x0})
+assert (hypothesis 22: {forall (n), n ∈ NonNegIntegerSet ∧ x0(n) = frac(1, sqrtn(n + 1, 2)) ⇒ frac(1, 2) > ε_{0}}) by proof {
+  get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ x0(n) = frac(1, sqrtn(n + 1, 2)) ⇒ frac(1, 2) > ε_{0}}) (n := {n0})
+  get_condition (hypothesis 23: {n0 ∈ NonNegIntegerSet ∧ x0(n0) = frac(1, sqrtn(n0 + 1, 2))}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ x0(n0) = frac(1, sqrtn(n0 + 1, 2)) ⇒ frac(1, 2) > ε_{0}})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

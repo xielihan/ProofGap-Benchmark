@@ -1,0 +1,30 @@
+PROOF GAP @12
+ASSUM:
+1. p ∈ RealSet
+2. n ∈ NonNegIntegerSet
+3. A : NonNegIntegerSet → PowerSet(NonNegIntegerSet)
+4. u : NonNegIntegerSet → RealSet
+5. v : NonNegIntegerSet → RealSet
+6. a : NonNegIntegerSet → RealSet
+7. S : NonNegIntegerSet → RealSet
+8. σ : NonNegIntegerSet → RealSet
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac((-1)^{floor(sqrtn(2, n))}, n^{p})
+10. forall (l), l ∈ NonNegIntegerSet ∧ l ∈ PosIntegerSet ⇒ A(l) = { n | n ∈ PosIntegerSet, floor(sqrtn(2, n)) = l }
+11. forall (l), l ∈ NonNegIntegerSet ∧ l ∈ PosIntegerSet ⇒ u(l) = sum_{ n ∈ A(l) } (frac((-1)^{floor(sqrtn(2, n))}, n^{p}))
+12. forall (l), l ∈ NonNegIntegerSet ∧ l ∈ PosIntegerSet ⇒ v(l) = sum_{ n ∈ A(l) } (frac(1, n^{p}))
+13. forall (l), l ∈ NonNegIntegerSet ∧ l ∈ PosIntegerSet ⇒ A(l) = { n | n ∈ PosIntegerSet, l^{2} ≤ n ∧ n < (l + 1)^{2} }
+14. forall (l), l ∈ NonNegIntegerSet ∧ l ∈ PosIntegerSet ⇒ u(l) = (-1)^{l} * v(l)
+15. p > 0 ⇒ (forall (l), l ∈ NonNegIntegerSet ∧ l ∈ PosIntegerSet ⇒ frac(2 * l + 1, (l + 1)^{2 * p}) < v(l) ∧ v(l) ≤ frac(2 * l + 1, l^{2 * p}))
+16. p > frac(1, 2) ⇒ (exists (l_{0}), l_{0} ∈ NonNegIntegerSet ∧ l_{0} ∈ PosIntegerSet ∧ (forall (l), l ∈ NonNegIntegerSet ∧ l ∈ PosIntegerSet ∧ l ≥ l_{0} ⇒ v(l) > v(l + 1)))
+17. p > frac(1, 2) ⇒ seqlim_{ l → +∞ } (v(l)) = 0
+18. p > frac(1, 2) ⇒ ConvergentSeries(sum_{ l = 1 }^{ +∞ } (u(l)))
+19. frac(1, 2) < p ⇒ p ≤ 1 ⇒ ConditionalConvergentSeries(sum_{ l = 1 }^{ +∞ } (u(l)))
+20. frac(1, 2) < p ⇒ p ≤ 1 ⇒ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ (exists (M), M ∈ NonNegIntegerSet ∧ M ∈ PosIntegerSet ∧ |S(N) - σ(M)| ≤ |σ(M + 1) - σ(M)|))
+21. frac(1, 2) < p ⇒ p ≤ 1 ⇒ ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+22. p > 1 ⇒ AbsoluteConvergentSeries(sum_{ l = 1 }^{ +∞ } (u(l)))
+23. p > 1 ⇒ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ (exists (M), M ∈ NonNegIntegerSet ∧ M ∈ PosIntegerSet ∧ |S(N) - σ(M)| ≤ |σ(M + 1) - σ(M)|))
+
+GOAL:
+p > 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+METHOD:

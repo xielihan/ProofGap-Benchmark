@@ -1,0 +1,7 @@
+get_prop (hypothesis 10: {forall (i), i ∈ NonNegIntegerSet ∧ i ≤ n ⇒ x(i) = q^{i}}) (i := {n}) as (hypothesis 12: {n ∈ NonNegIntegerSet ∧ n ≤ n ⇒ x(n) = q^{n}})
+assert (hypothesis 13: {n ∈ NonNegIntegerSet ∧ n ≤ n})
+use_condition (hypothesis 13: {n ∈ NonNegIntegerSet ∧ n ≤ n}) in (hypothesis 12: {n ∈ NonNegIntegerSet ∧ n ≤ n ⇒ x(n) = q^{n}}) as (hypothesis 14: {x(n) = q^{n}})
+rewrite (left_to_right, equation) (hypothesis 14: {x(n) = q^{n}}); from (GOAL: {x(n) = 2}) to (GOAL: {q^{n} = 2})
+rewrite (right_to_left, equation) (hypothesis 9: {2 = q^{n}}); from (GOAL: {q^{n} = 2}) to (GOAL: {q^{n} = q^{n}})
+assert (hypothesis 15: {q^{n} = q^{n}})
+apply (hypothesis 15: {q^{n} = q^{n}})

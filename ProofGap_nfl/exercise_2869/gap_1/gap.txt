@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = arctan(x)
+
+GOAL:
+arctan(x) = DefInt(0, x, (fun t [t ∈ RealSet] . frac(1, 1 + t^{2})) * diff(fun t [t ∈ RealSet] . t))
+
+METHOD:

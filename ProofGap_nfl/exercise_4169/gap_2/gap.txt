@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. p ∈ RealSet ∧ p ∈ PosRealSet
+2. q ∈ RealSet ∧ q ∈ PosRealSet
+3. I ∈ RealSet
+4. I = DefInt(1, +∞, (fun x [x ∈ RealSet ∧ x ≥ 1] . frac(1, x^{p}) * DefInt(frac(1, x), +∞, (fun y [y ∈ RealSet ∧ y ≥ frac(1, x)] . frac(1, y^{q})) * diff(fun y [y ∈ RealSet ∧ y ≥ frac(1, x)] . y))) * diff(fun x [x ∈ RealSet ∧ x ≥ 1] . x))
+5. I = DefInt(1, +∞, (fun x [x ∈ RealSet ∧ x ≥ 1] . frac(1, x^{p}) * DefInt(frac(1, x), +∞, (fun y [y ∈ RealSet ∧ y ≥ frac(1, x)] . frac(1, y^{q})) * diff(fun y [y ∈ RealSet ∧ y ≥ frac(1, x)] . y))) * diff(fun x [x ∈ RealSet ∧ x ≥ 1] . x))
+
+GOAL:
+q > 1 ⇒ (forall (x), x ∈ RealSet ∧ x ≥ 1 ⇒ DefInt(frac(1, x), +∞, (fun y [y ∈ RealSet ∧ y ≥ frac(1, x)] . frac(1, y^{q})) * diff(fun y [y ∈ RealSet ∧ y ≥ frac(1, x)] . y)) = frac(x^{q - 1}, q - 1))
+
+METHOD:

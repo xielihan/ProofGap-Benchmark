@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. I ∈ RealSet
+2. a ∈ RealSet ∧ a > 0
+3. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+4. DoubleFactorial : NonNegIntegerSet → RealSet
+5. DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(1, x^{2} + a)) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)) = frac(π, 2 * sqrtn(2, a))
+
+GOAL:
+I = DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(1, (x^{2} + a)^{n + 1})) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x))
+
+METHOD:

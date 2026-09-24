@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet] . DefInt(x^{2}, x, (fun y [y ∈ RealSet] . x * y^{2}) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet] . frac(x^{4}, 3) - frac(x^{7}, 3)) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

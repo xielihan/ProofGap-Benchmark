@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. m_{0} ∈ RealSet
+3. M_{0} ∈ RealSet
+4. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < +∞ ⇒ f(x) = frac(2 * x, 1 + x^{2})
+
+GOAL:
+forall (x) (y), (x ∈ RealSet ∧ 0 < x ∧ x < 1) => (y ∈ RealSet ∧ 0 < y ∧ y < 1) => x <= y => f(x) <= f(y)
+
+METHOD:

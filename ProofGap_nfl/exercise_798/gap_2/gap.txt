@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = arctan(x)
+3. ContinuousFuncOn(f, (-∞, 1])
+
+GOAL:
+ContinuousFuncOn(f, [0, +∞))
+
+METHOD:

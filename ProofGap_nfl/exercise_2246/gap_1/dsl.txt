@@ -1,0 +1,8 @@
+1. get_forall (GOAL: {forall (t), t ∈ RealSet ∧ t ∈ [0, frac(π, 2)] ∧ x(t) = a * sin(t) ⇒ 0 ≤ t}) (t := {u})
+2. get_condition (hypothesis 4: {u ∈ RealSet ∧ u ∈ [0, frac(π, 2)] ∧ x(u) = a * sin(u)}) in (GOAL: {u ∈ RealSet ∧ u ∈ [0, frac(π, 2)] ∧ x(u) = a * sin(u) ⇒ 0 ≤ u})
+3. destruct_and (hypothesis 4: {u ∈ RealSet ∧ u ∈ [0, frac(π, 2)] ∧ x(u) = a * sin(u)}) as (hypothesis 5: {u ∈ RealSet}) (hypothesis 6: {u ∈ [0, frac(π, 2)]}) (hypothesis 7: {x(u) = a * sin(u)})
+4. get_prop (theorem 'Thm 487. (ClosedIntervalMembership)': {forall (x) (a) (b), x ∈ RealSet => a ∈ RealSet => b ∈ RealSet => (x ∈ [a, b] <==> (x >= a /\ x <= b))}) (x := {u}) (a := {0}) (b := {frac(π, 2)}) as (hypothesis 8: {u ∈ RealSet => 0 ∈ RealSet => frac(π, 2) ∈ RealSet => (u ∈ [0, frac(π, 2)] <==> (u >= 0 /\ u <= frac(π, 2)))})
+5. use_condition (hypothesis 5: {u ∈ RealSet}) (obvious: {0 ∈ RealSet}) (obvious: {frac(π, 2) ∈ RealSet}) in (hypothesis 8: {u ∈ RealSet => 0 ∈ RealSet => frac(π, 2) ∈ RealSet => (u ∈ [0, frac(π, 2)] <==> (u >= 0 /\ u <= frac(π, 2)))}) as (hypothesis 9: {u ∈ [0, frac(π, 2)] <==> (u >= 0 /\ u <= frac(π, 2))})
+6. rewrite (left_to_right, iff) (hypothesis 9: {u ∈ [0, frac(π, 2)] <==> (u >= 0 /\ u <= frac(π, 2))}); from (hypothesis 6: {u ∈ [0, frac(π, 2)]}) to (hypothesis 10: {u >= 0 /\ u <= frac(π, 2)})
+7. destruct_and (hypothesis 10: {u >= 0 /\ u <= frac(π, 2)}) as (hypothesis 11: {u >= 0}) (hypothesis 12: {u <= frac(π, 2)})
+8. autosolve (hypothesis 11: {u >= 0})

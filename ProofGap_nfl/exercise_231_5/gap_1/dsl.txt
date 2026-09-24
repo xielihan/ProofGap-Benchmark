@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ f(-x) = ln(-x + sqrtn(2, 1 + x^{2}))}) (x := {y})
+get_condition (hypothesis 3: {y ∈ RealSet}) in (GOAL: {y ∈ RealSet ⇒ f(-y) = ln(-y + sqrtn(2, 1 + y^{2}))})
+get_prop (hypothesis 2: {forall (x), x ∈ RealSet ⇒ f(x) = ln(x + sqrtn(2, 1 + x^{2}))}) (x := {-y}) as (hypothesis 4: {-y ∈ RealSet ⇒ f(-y) = ln(-y + sqrtn(2, 1 + (-y)^{2}))})
+use_condition (obvious: {-y ∈ RealSet}) in (hypothesis 4: {-y ∈ RealSet ⇒ f(-y) = ln(-y + sqrtn(2, 1 + (-y)^{2}))}) as (hypothesis 5: {f(-y) = ln(-y + sqrtn(2, 1 + (-y)^{2}))})
+autoreplace no_hypothesis; from (ln(-y + sqrtn(2, 1 + (-y)^{2}))) to (ln(-y + sqrtn(2, 1 + y^{2}))); from (hypothesis 5: {f(-y) = ln(-y + sqrtn(2, 1 + (-y)^{2}))}) to (hypothesis 6: {f(-y) = ln(-y + sqrtn(2, 1 + y^{2}))})
+apply (hypothesis 6: {f(-y) = ln(-y + sqrtn(2, 1 + y^{2}))})

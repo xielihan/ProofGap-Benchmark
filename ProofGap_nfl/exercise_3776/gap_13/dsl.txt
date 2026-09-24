@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 13: {I(1) = DefInt(0, +∞, (fun t [t ∈ RealSet] . frac(1, 1 + t^{2})) * diff(fun t [t ∈ RealSet] . t))}); from (GOAL: {I(1) = frac(π, 2)}) to (GOAL: {DefInt(0, +∞, (fun t [t ∈ RealSet] . frac(1, 1 + t^{2})) * diff(fun t [t ∈ RealSet] . t)) = frac(π, 2)})
+apply (hypothesis 14: {DefInt(0, +∞, (fun t [t ∈ RealSet] . frac(1, 1 + t^{2})) * diff(fun t [t ∈ RealSet] . t)) = frac(π, 2)})

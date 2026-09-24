@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = cases{ x^{2} if x ∈ RationalSet; 0 if x ∉ RationalSet }
+
+GOAL:
+f(0) = 0
+
+METHOD:

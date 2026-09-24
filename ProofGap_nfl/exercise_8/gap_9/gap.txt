@@ -1,0 +1,15 @@
+PROOF GAP @9
+ASSUM:
+1. forall (n), n ∈ IntegerSet ∧ n = 2 ⇒ frac(2 + 1, 2)^{2} = frac(9, 4)
+2. forall (n), n ∈ IntegerSet ∧ n = 2 ⇒ frac(9, 4) > 2
+3. forall (n), n ∈ IntegerSet ∧ n = 2 ⇒ 2 = 2!
+4. forall (n), n ∈ IntegerSet ∧ n = 2 ⇒ frac(2 + 1, 2)^{2} > 2!
+5. forall (n), n ∈ IntegerSet ∧ n = 2 ⇒ n! < frac(n + 1, 2)^{n}
+6. forall (n), n ∈ IntegerSet ⇒ (forall (k), k ∈ IntegerSet ∧ k > 1 ∧ k! < frac(k + 1, 2)^{k} ∧ n = k + 1 ⇒ (k + 1)! < frac(k + 1, 2)^{k} * (k + 1))
+7. forall (n), n ∈ IntegerSet ⇒ (forall (k), k ∈ IntegerSet ∧ k > 1 ∧ k! < frac(k + 1, 2)^{k} ∧ n = k + 1 ⇒ frac(k + 1, 2)^{k} * (k + 1) = 2 * frac(k + 1, 2)^{k + 1})
+8. forall (n), n ∈ IntegerSet ⇒ (forall (k), k ∈ IntegerSet ∧ k > 1 ∧ k! < frac(k + 1, 2)^{k} ∧ n = k + 1 ⇒ (k + 1)! < 2 * frac(k + 1, 2)^{k + 1})
+
+GOAL:
+forall (n), n ∈ IntegerSet ⇒ (forall (k), k ∈ IntegerSet ∧ k > 1 ∧ k! < frac(k + 1, 2)^{k} ∧ n = k + 1 ⇒ frac(k + 2, k + 1)^{k + 1} = (1 + frac(1, k + 1))^{k + 1})
+
+METHOD:

@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. a ∈ RealSet ∧ a > 0
+4. S ∈ RealSet
+5. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ x(t) = a * (2 * cos(t) - cos(2 * t))
+6. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ y(t) = a * (2 * sin(t) - sin(2 * t))
+7. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ FunDeri(x, 1, 1)(t) = a * (-2 * sin(t) + 2 * sin(2 * t))
+
+GOAL:
+forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ FunDeri(y, 1, 1)(t) = a * (2 * cos(t) - 2 * cos(2 * t))
+
+METHOD:

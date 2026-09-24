@@ -1,0 +1,2 @@
+exists (C := {0})
+autosolve

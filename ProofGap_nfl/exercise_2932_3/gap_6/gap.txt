@@ -1,0 +1,13 @@
+PROOF GAP @6
+ASSUM:
+1. Δ ∈ RealSet
+2. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 2 ⇒ sin(x) = sum_{ n = 0 }^{ +∞ } (frac((-1)^{n} * x^{2 * n + 1}, (2 * n + 1)!))
+3. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 2 ⇒ frac(sin(x), x) = sum_{ n = 0 }^{ +∞ } (frac((-1)^{n} * x^{2 * n}, (2 * n + 1)!))
+4. DefInt(0, 2, (fun x [x ∈ RealSet] . cases{ frac(sin(x), x) if x ≠ 0; 1 if x = 0 }) * diff(fun x [x ∈ RealSet] . x)) = 2 - frac(2^{3}, 3 * 3!) + frac(2^{5}, 5 * 5!) - frac(2^{7}, 7 * 7!) + Δ
+5. 0 < Δ
+6. Δ < frac(2^{9}, 9 * 9!)
+
+GOAL:
+frac(2^{9}, 9 * 9!) < frac(1, 10^{3})
+
+METHOD:

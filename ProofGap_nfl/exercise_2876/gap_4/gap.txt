@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ f(x) = frac(1, 1 - x)
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x ≠ 1 ⇒ f(x) = frac(1, x) * frac(1, frac(1, x) - 1)
+4. forall (x), x ∈ RealSet ∧ |x| > 1 ⇒ frac(1, x) * frac(1, frac(1, x) - 1) = -frac(1, x) * (sum_{ n = 0 }^{ +∞ } (frac(1, x^{n})))
+5. forall (x), x ∈ RealSet ∧ |x| > 1 ⇒ f(x) = -(sum_{ n = 1 }^{ +∞ } (frac(1, x^{n})))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ (ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, x^{n}))) ⇔ |x| > 1)
+
+METHOD:

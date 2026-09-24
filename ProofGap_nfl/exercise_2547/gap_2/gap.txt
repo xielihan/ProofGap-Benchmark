@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. S : NonNegIntegerSet → RealSet
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ S(n) = sum_{ i = 1 }^{ n } (frac(1, 2^{i}) + frac(1, 3^{i}))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ S(n) = (sum_{ i = 1 }^{ n } (frac(1, 2^{i}))) + (sum_{ i = 1 }^{ n } (frac(1, 3^{i})))
+
+METHOD:

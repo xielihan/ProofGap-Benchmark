@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ [-frac(π, 2), frac(π, 2)] ⇒ f(x) = sin(x)
+
+GOAL:
+forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ -frac(π, 2) < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < frac(π, 2) ⇒ -frac(π, 2) < frac(x_{1} + x_{2}, 2))
+
+METHOD:

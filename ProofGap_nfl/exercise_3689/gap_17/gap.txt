@@ -1,0 +1,42 @@
+PROOF GAP @17
+ASSUM:
+1. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+2. i ∈ NonNegIntegerSet
+3. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+4. F : CartesianProd(RealSet, CartesianProd(RealSet, CartesianProd(RealSet, RealSet))) → RealSet
+5. N ∈ RealSet
+6. x : NonNegIntegerSet → RealSet
+7. y : NonNegIntegerSet → RealSet
+8. z : NonNegIntegerSet → RealSet
+9. λ ∈ RealSet
+10. `x'` ∈ RealSet
+11. `y'` ∈ RealSet
+12. `z'` ∈ RealSet
+13. `x''` ∈ RealSet
+14. `y''` ∈ RealSet
+15. `z''` ∈ RealSet
+16. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ x(i) ∈ RealSet ∧ y(i) ∈ RealSet ∧ z(i) ∈ RealSet
+17. forall (a) (b) (c), a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ⇒ u(a, b, c) = sum_{ i = 1 }^{ n } ((a - x(i))^{2} + (b - y(i))^{2} + (c - z(i))^{2})
+18. F = (fun a, b, c, λ [a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet] . u(a, b, c) - λ * (a^{2} + b^{2} + c^{2} - 1))
+19. forall (a) (b) (c) (λ), a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 1, 1)(a, b, c, λ) = 2 * ((n - λ) * a - (sum_{ i = 1 }^{ n } (x(i))))
+20. forall (a) (b) (c) (λ), a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 2, 1)(a, b, c, λ) = 2 * ((n - λ) * b - (sum_{ i = 1 }^{ n } (y(i))))
+21. forall (a) (b) (c) (λ), a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 3, 1)(a, b, c, λ) = 2 * ((n - λ) * c - (sum_{ i = 1 }^{ n } (z(i))))
+22. FunDeri(F, 1, 1)(`x'`, `y'`, `z'`, λ) = 0
+23. FunDeri(F, 2, 1)(`x'`, `y'`, `z'`, λ) = 0
+24. FunDeri(F, 3, 1)(`x'`, `y'`, `z'`, λ) = 0
+25. `x'`^{2} + `y'`^{2} + `z'`^{2} = 1
+26. n - λ ≠ 0 ⇒ `x'` = frac(sum_{ i = 1 }^{ n } (x(i)), n - λ)
+27. n - λ ≠ 0 ⇒ `y'` = frac(sum_{ i = 1 }^{ n } (y(i)), n - λ)
+28. n - λ ≠ 0 ⇒ `z'` = frac(sum_{ i = 1 }^{ n } (z(i)), n - λ)
+29. n - λ ≠ 0 ⇒ N = sqrtn(2, (sum_{ i = 1 }^{ n } (x(i)))^{2} + (sum_{ i = 1 }^{ n } (y(i)))^{2} + (sum_{ i = 1 }^{ n } (z(i)))^{2})
+30. n - λ ≠ 0 ⇒ N > 0
+31. n - λ ≠ 0 ⇒ (n - λ)^{2} = N^{2}
+32. n - λ ≠ 0 ⇒ (`x'`, `y'`, `z'`) = (frac(sum_{ i = 1 }^{ n } (x(i)), N), frac(sum_{ i = 1 }^{ n } (y(i)), N), frac(sum_{ i = 1 }^{ n } (z(i)), N))
+33. n - λ ≠ 0 ⇒ (`x''`, `y''`, `z''`) = (-frac(sum_{ i = 1 }^{ n } (x(i)), N), -frac(sum_{ i = 1 }^{ n } (y(i)), N), -frac(sum_{ i = 1 }^{ n } (z(i)), N))
+34. n - λ ≠ 0 ⇒ u(`x'`, `y'`, `z'`) = n - 2 * N + (sum_{ i = 1 }^{ n } (x(i)^{2} + y(i)^{2} + z(i)^{2}))
+35. n - λ ≠ 0 ⇒ u(`x''`, `y''`, `z''`) = n + 2 * N + (sum_{ i = 1 }^{ n } (x(i)^{2} + y(i)^{2} + z(i)^{2}))
+
+GOAL:
+n - λ ≠ 0 ⇒ u(`x''`, `y''`, `z''`) > u(`x'`, `y'`, `z'`)
+
+METHOD:

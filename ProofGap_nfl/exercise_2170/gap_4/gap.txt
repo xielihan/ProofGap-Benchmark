@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. F : RealSet → RealSet
+3. C ∈ RealSet
+4. C_{1} ∈ RealSet
+5. C_{2} ∈ RealSet
+6. ContinuousFuncOn(fun x [x ∈ RealSet] . e^{-|x|}, IntervalLoRo(-∞, +∞))
+7. ContinuouslyDiffableFuncOn(F, IntervalLoRo(-∞, +∞))
+8. x ≥ 0 ⇒ { `F_2` | forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = e^{-|x|} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = e^{-x} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+GOAL:
+x ≥ 0 ⇒ { `F_4` | forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ FunDeri(`F_4`, 1, 1)(x) = e^{-|x|} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | exists (C_{1}), C_{1} ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ `F_5`(x) = -e^{-x} + C_{1}) }
+
+METHOD:

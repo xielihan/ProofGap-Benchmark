@@ -1,0 +1,8 @@
+1. assert (hypothesis 2: {forall (t), t ∈ RealSet ⇒ sin(t) - sin(a) = 2 * cos(frac(t + a, 2)) * sin(frac(t - a, 2))}) by proof {
+  1. get_forall (GOAL: {forall (t), t ∈ RealSet ⇒ sin(t) - sin(a) = 2 * cos(frac(t + a, 2)) * sin(frac(t - a, 2))}) (t := {t0})
+  2. get_condition (hypothesis 2: {t0 ∈ RealSet}) in (GOAL: {t0 ∈ RealSet ⇒ sin(t0) - sin(a) = 2 * cos(frac(t0 + a, 2)) * sin(frac(t0 - a, 2))})
+  3. get_prop (theorem 'Thm 198. (SumToProductSineDifference)': {forall (x) (y), x ∈ RealSet => y ∈ RealSet => sin(x) - sin(y) = 2 * cos ((x + y) / 2) * sin ((x - y) / 2)}) (x := {t0}) (y := {a}) as (hypothesis 3: {t0 ∈ RealSet ⇒ a ∈ RealSet ⇒ sin(t0) - sin(a) = 2 * cos((t0 + a) / 2) * sin((t0 - a) / 2)})
+  4. autosolve all_hypothesis
+}
+2. rewrite_in limit (left_to_right, equation) (hypothesis 2: {forall (t), t ∈ RealSet ⇒ sin(t) - sin(a) = 2 * cos(frac(t + a, 2)) * sin(frac(t - a, 2))}); from (GOAL: {lim_{ x → a } (frac(sin(x) - sin(a), x - a)) = lim_{ x → a } (frac(2 * cos(frac(x + a, 2)) * sin(frac(x - a, 2)), x - a))}) to (GOAL: {lim_{ x → a } (frac(2 * cos(frac(x + a, 2)) * sin(frac(x - a, 2)), x - a)) = lim_{ x → a } (frac(2 * cos(frac(x + a, 2)) * sin(frac(x - a, 2)), x - a))})
+3. autosolve all_hypothesis

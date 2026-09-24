@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ frac(1, N) < 10 ^ (-5) => R(N) < 10 ^ (-5)}) (N := {M})
+get_condition (hypothesis 9: {M ∈ NonNegIntegerSet ∧ M ∈ PosIntegerSet ∧ frac(1, M) < 10 ^ (-5)}) in (GOAL: {M ∈ NonNegIntegerSet ∧ M ∈ PosIntegerSet ∧ frac(1, M) < 10 ^ (-5) => R(M) < 10 ^ (-5)})
+destruct_and (hypothesis 9: {M ∈ NonNegIntegerSet ∧ M ∈ PosIntegerSet ∧ frac(1, M) < 10 ^ (-5)}) as (hypothesis 10: {M ∈ NonNegIntegerSet}) (hypothesis 11: {M ∈ PosIntegerSet}) (hypothesis 12: {frac(1, M) < 10 ^ (-5)})
+assert (hypothesis 13: {M ∈ NonNegIntegerSet ∧ M ∈ PosIntegerSet}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (hypothesis 8: {forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet => R(N) < frac(1, N)}) (N := {M}) as (hypothesis 14: {M ∈ NonNegIntegerSet ∧ M ∈ PosIntegerSet => R(M) < frac(1, M)})
+use_condition (hypothesis 13: {M ∈ NonNegIntegerSet ∧ M ∈ PosIntegerSet}) in (hypothesis 14: {M ∈ NonNegIntegerSet ∧ M ∈ PosIntegerSet => R(M) < frac(1, M)}) as (hypothesis 15: {R(M) < frac(1, M)})
+autosolve all_hypothesis

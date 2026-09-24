@@ -1,0 +1,17 @@
+PROOF GAP @4
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. n ∈ NonNegIntegerSet
+5. n ∈ PosIntegerSet
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ u(x, y) = e^{a * x + b * y}
+7. diff^{2}(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . a * x + b * y) = 0
+8. diff^{n}(u) = diff^{n}(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{a * x + b * y})
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ diff^{n}(u) = e^{a * x + b * y} * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . a * x + b * y)^{n}
+10. diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . a * x + b * y) = a * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + b * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ diff^{n}(u) = e^{a * x + b * y} * (a * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + b * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))^{n}
+
+METHOD:

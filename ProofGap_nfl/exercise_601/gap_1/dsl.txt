@@ -1,0 +1,17 @@
+get_forall (GOAL: {forall (n), n ∈ IntegerSet ⇒ f(n) = 0}) (n := {k})
+get_condition (hypothesis 3: {k ∈ IntegerSet}) in (GOAL: {k ∈ IntegerSet ⇒ f(k) = 0})
+assert (hypothesis 4: {k ∈ RealSet})
+get_prop (hypothesis 2: {forall (x), x ∈ RealSet ⇒ f(x) = sgn(sin(π * x))}) (x := {k}) as (hypothesis 5: {k ∈ RealSet ⇒ f(k) = sgn(sin(π * k))})
+use_condition (hypothesis 4: {k ∈ RealSet}) in (hypothesis 5: {k ∈ RealSet ⇒ f(k) = sgn(sin(π * k))}) as (hypothesis 6: {f(k) = sgn(sin(π * k))})
+get_prop (theorem 'Thm 370. (SineAtIntegerPi)': {forall (n), n ∈ IntegerSet => sin(n * π) = 0}) (n := {k}) as (hypothesis 7: {k ∈ IntegerSet => sin(k * π) = 0})
+use_condition (hypothesis 3: {k ∈ IntegerSet}) in (hypothesis 7: {k ∈ IntegerSet => sin(k * π) = 0}) as (hypothesis 8: {sin(k * π) = 0})
+autoreplace no_hypothesis; from (π * k) to (k * π); from (hypothesis 6: {f(k) = sgn(sin(π * k))}) to (hypothesis 9: {f(k) = sgn(sin(k * π))})
+assert (hypothesis 10: {sin(k * π) ∈ RealSet}) by proof {
+  1. rewrite (left_to_right, equation) (hypothesis 8: {sin(k * π) = 0}); from (GOAL: {sin(k * π) ∈ RealSet}) to (GOAL: {0 ∈ RealSet})
+  2. autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 248. (SignFunctionDefinition)': {forall (x), x ∈ RealSet => ((x > 0 => sgn(x) = 1) /\ (x = 0 => sgn(x) = 0) /\ (x < 0 => sgn(x) = -1))}) (x := {sin(k * π)}) as (hypothesis 11: {sin(k * π) ∈ RealSet => ((sin(k * π) > 0 => sgn(sin(k * π)) = 1) /\ (sin(k * π) = 0 => sgn(sin(k * π)) = 0) /\ (sin(k * π) < 0 => sgn(sin(k * π)) = -1))})
+use_condition (hypothesis 10: {sin(k * π) ∈ RealSet}) in (hypothesis 11: {sin(k * π) ∈ RealSet => ((sin(k * π) > 0 => sgn(sin(k * π)) = 1) /\ (sin(k * π) = 0 => sgn(sin(k * π)) = 0) /\ (sin(k * π) < 0 => sgn(sin(k * π)) = -1))}) as (hypothesis 12: {(sin(k * π) > 0 => sgn(sin(k * π)) = 1) /\ (sin(k * π) = 0 => sgn(sin(k * π)) = 0) /\ (sin(k * π) < 0 => sgn(sin(k * π)) = -1)})
+destruct_and (hypothesis 12: {(sin(k * π) > 0 => sgn(sin(k * π)) = 1) /\ (sin(k * π) = 0 => sgn(sin(k * π)) = 0) /\ (sin(k * π) < 0 => sgn(sin(k * π)) = -1)}) as (hypothesis 13: {sin(k * π) > 0 => sgn(sin(k * π)) = 1}) (hypothesis 14: {sin(k * π) = 0 => sgn(sin(k * π)) = 0}) (hypothesis 15: {sin(k * π) < 0 => sgn(sin(k * π)) = -1})
+use_condition (hypothesis 8: {sin(k * π) = 0}) in (hypothesis 14: {sin(k * π) = 0 => sgn(sin(k * π)) = 0}) as (hypothesis 16: {sgn(sin(k * π)) = 0})
+autosolve all_hypothesis

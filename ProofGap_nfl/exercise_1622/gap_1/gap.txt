@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. forall (t), t ∈ RealSet ∧ t > 0 ⇒ f(t) = t * lg(t) - 1
+
+GOAL:
+forall (t), t ∈ RealSet ∧ t > 0 ⇒ (lg(t) = frac(1, t) ⇔ t * lg(t) = 1)
+
+METHOD:

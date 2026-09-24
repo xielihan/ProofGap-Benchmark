@@ -1,0 +1,7 @@
+1. get_condition (hypothesis 9: {a ≠ 0}) in (GOAL: {a ≠ 0 ⇒ frac(seqlim_{ n → +∞ } (x(n + 1)), seqlim_{ n → +∞ } (x(n))) = frac(a, a)})
+2. use_condition (hypothesis 9: {a ≠ 0}) in (hypothesis 7: {a ≠ 0 ⇒ seqlim_{ n → +∞ } (x(n + 1)) = a}) as (hypothesis 10: {seqlim_{ n → +∞ } (x(n + 1)) = a})
+3. get_prop (hypothesis 6: {forall (n), n ∈ NonNegIntegerSet ⇒ seqlim_{ n → +∞ } (x(n)) = a}) (n := {0}) as (hypothesis 11: {0 ∈ NonNegIntegerSet ⇒ seqlim_{ n → +∞ } (x(n)) = a})
+4. use_condition (obvious: {0 ∈ NonNegIntegerSet}) in (hypothesis 11: {0 ∈ NonNegIntegerSet ⇒ seqlim_{ n → +∞ } (x(n)) = a}) as (hypothesis 12: {seqlim_{ n → +∞ } (x(n)) = a})
+5. rewrite (left_to_right, equation) (hypothesis 10: {seqlim_{ n → +∞ } (x(n + 1)) = a}); from (GOAL: {frac(seqlim_{ n → +∞ } (x(n + 1)), seqlim_{ n → +∞ } (x(n))) = frac(a, a)}) to (GOAL: {frac(a, seqlim_{ n → +∞ } (x(n))) = frac(a, a)})
+6. rewrite (left_to_right, equation) (hypothesis 12: {seqlim_{ n → +∞ } (x(n)) = a}); from (GOAL: {frac(a, seqlim_{ n → +∞ } (x(n))) = frac(a, a)}) to (GOAL: {frac(a, a) = frac(a, a)})
+7. autosolve all_hypothesis

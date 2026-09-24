@@ -1,0 +1,16 @@
+PROOF GAP @4
+ASSUM:
+1. f : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet
+3. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+4. FuncOfClassK(f, m)
+5. forall (t) (x) (y) (z), t ∈ RealSet ∧ t ∈ PosRealSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ f(t * x, t * y, t * z) = t^{n} * f(x, y, z)
+6. L = (fun g [g : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet] . fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x * FunDeri(g, 1, 1)(x, y, z) + y * FunDeri(g, 2, 1)(x, y, z) + z * FunDeri(g, 3, 1)(x, y, z))
+7. forall (t) (x) (y) (z), t ∈ RealSet ∧ t ∈ PosRealSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ f(t * x, t * y, t * z) = t^{n} * f(x, y, z)
+8. forall (x) (y) (z) (t), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ t ∈ RealSet ∧ t ∈ PosRealSet ⇒ FunDeri(fun t [t ∈ RealSet ∧ t ∈ PosRealSet] . f(t * x, t * y, t * z), 1, m)(t) = FunDeri(fun t [t ∈ RealSet ∧ t ∈ PosRealSet] . t^{n} * f(x, y, z), 1, m)(t)
+9. forall (x) (y) (z) (t), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ t ∈ RealSet ∧ t ∈ PosRealSet ⇒ FunDeri(fun t [t ∈ RealSet ∧ t ∈ PosRealSet] . f(t * x, t * y, t * z), 1, m)(t) = t^{n - m} * FunDeri(L, 1, m)(f, x, y, z)
+
+GOAL:
+forall (x) (y) (z) (t), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ t ∈ RealSet ∧ t ∈ PosRealSet ⇒ FunDeri(fun t [t ∈ RealSet ∧ t ∈ PosRealSet] . t^{n} * f(x, y, z), 1, m)(t) = (prod_{ i = 0 }^{ m - 1 } (n - i)) * t^{n - m} * f(x, y, z)
+
+METHOD:

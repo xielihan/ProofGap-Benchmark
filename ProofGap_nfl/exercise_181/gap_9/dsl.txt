@@ -1,0 +1,7 @@
+get_prop (hypothesis 9: {forall (x), x ∈ RealSet ∧ x ∈ (0, 1] ⇒ ImageOn(y, (0, 1]) = [1, +∞)}) (x := {1}) as (hypothesis 14: {1 ∈ RealSet ∧ 1 ∈ (0, 1] ⇒ ImageOn(y, (0, 1]) = [1, +∞)})
+use_condition (obvious: {1 ∈ RealSet ∧ 1 ∈ (0, 1]}) in (hypothesis 14: {1 ∈ RealSet ∧ 1 ∈ (0, 1] ⇒ ImageOn(y, (0, 1]) = [1, +∞)}) as (hypothesis 15: {ImageOn(y, (0, 1]) = [1, +∞)})
+get_prop (hypothesis 13: {forall (x), x ∈ RealSet ∧ x ∈ [-1, 0) ⇒ ImageOn(y, [-1, 0)) = (-∞, -1]}) (x := {-1}) as (hypothesis 16: {-1 ∈ RealSet ∧ -1 ∈ [-1, 0) ⇒ ImageOn(y, [-1, 0)) = (-∞, -1]})
+use_condition (obvious: {-1 ∈ RealSet ∧ -1 ∈ [-1, 0)}) in (hypothesis 16: {-1 ∈ RealSet ∧ -1 ∈ [-1, 0) ⇒ ImageOn(y, [-1, 0)) = (-∞, -1]}) as (hypothesis 17: {ImageOn(y, [-1, 0)) = (-∞, -1]})
+rewrite (left_to_right, equation) (hypothesis 17: {ImageOn(y, [-1, 0)) = (-∞, -1]}); from (GOAL: {ImageOn(y, [-1, 0)) ∪ ImageOn(y, (0, 1]) = (-∞, -1] ∪ [1, +∞)}) to (GOAL: {(-∞, -1] ∪ ImageOn(y, (0, 1]) = (-∞, -1] ∪ [1, +∞)})
+rewrite (left_to_right, equation) (hypothesis 15: {ImageOn(y, (0, 1]) = [1, +∞)}); from (GOAL: {(-∞, -1] ∪ ImageOn(y, (0, 1]) = (-∞, -1] ∪ [1, +∞)}) to (GOAL: {(-∞, -1] ∪ [1, +∞) = (-∞, -1] ∪ [1, +∞)})
+autosolve all_hypothesis

@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. f_{1} = (fun x [x ∈ RealSet] . |x|)
+2. g_{1} = (fun x [x ∈ RealSet] . x^{2})
+3. F_{1} = (fun x [x ∈ RealSet] . f_{1}(g_{1}(x)))
+4. g_{1}(0) = 0
+5. ¬DiffableFuncAt(f_{1}, 0)
+
+GOAL:
+DiffableFuncAt(g_{1}, 0)
+
+METHOD:

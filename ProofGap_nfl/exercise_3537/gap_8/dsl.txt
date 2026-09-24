@@ -1,0 +1,27 @@
+get_prop (hypothesis 13: {forall (xx) (yy), xx ∈ RealSet ∧ yy ∈ RealSet ⇒ frac(xx - x_{0}, cos(α)) = frac(yy - y_{0}, sin(α))}) (xx := {x_{0} + 1}) (yy := {y_{0}}) as (hypothesis 23: {x_{0} + 1 ∈ RealSet ∧ y_{0} ∈ RealSet ⇒ frac(x_{0} + 1 - x_{0}, cos(α)) = frac(y_{0} - y_{0}, sin(α))})
+assert (hypothesis 24: {x_{0} + 1 ∈ RealSet ∧ y_{0} ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 24: {x_{0} + 1 ∈ RealSet ∧ y_{0} ∈ RealSet}) in (hypothesis 23: {x_{0} + 1 ∈ RealSet ∧ y_{0} ∈ RealSet ⇒ frac(x_{0} + 1 - x_{0}, cos(α)) = frac(y_{0} - y_{0}, sin(α))}) as (hypothesis 25: {frac(x_{0} + 1 - x_{0}, cos(α)) = frac(y_{0} - y_{0}, sin(α))})
+assert (hypothesis 26: {frac(1, cos(α)) = 0}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 409. (FractionEqualityToCrossProduct)': {forall (A) (B) (C), A ∈ RealSet => B ∈ RealSet => C ∈ RealSet => B != 0 => frac(A, B) = C => A = B * C}) (A := {1}) (B := {cos(α)}) (C := {0}) as (hypothesis 27: {1 ∈ RealSet => cos(α) ∈ RealSet => 0 ∈ RealSet => cos(α) != 0 => frac(1, cos(α)) = 0 => 1 = cos(α) * 0})
+assert (hypothesis 28: {1 ∈ RealSet}) by proof {
+  autosolve
+}
+use_condition (hypothesis 28: {1 ∈ RealSet}) in (hypothesis 27: {1 ∈ RealSet => cos(α) ∈ RealSet => 0 ∈ RealSet => cos(α) != 0 => frac(1, cos(α)) = 0 => 1 = cos(α) * 0}) as (hypothesis 29: {cos(α) ∈ RealSet => 0 ∈ RealSet => cos(α) != 0 => frac(1, cos(α)) = 0 => 1 = cos(α) * 0})
+assert (hypothesis 30: {cos(α) ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 30: {cos(α) ∈ RealSet}) in (hypothesis 29: {cos(α) ∈ RealSet => 0 ∈ RealSet => cos(α) != 0 => frac(1, cos(α)) = 0 => 1 = cos(α) * 0}) as (hypothesis 31: {0 ∈ RealSet => cos(α) != 0 => frac(1, cos(α)) = 0 => 1 = cos(α) * 0})
+assert (hypothesis 32: {0 ∈ RealSet}) by proof {
+  autosolve
+}
+use_condition (hypothesis 32: {0 ∈ RealSet}) in (hypothesis 31: {0 ∈ RealSet => cos(α) != 0 => frac(1, cos(α)) = 0 => 1 = cos(α) * 0}) as (hypothesis 33: {cos(α) != 0 => frac(1, cos(α)) = 0 => 1 = cos(α) * 0})
+assert (hypothesis 34: {cos(α) != 0}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 34: {cos(α) != 0}) in (hypothesis 33: {cos(α) != 0 => frac(1, cos(α)) = 0 => 1 = cos(α) * 0}) as (hypothesis 35: {frac(1, cos(α)) = 0 => 1 = cos(α) * 0})
+use_condition (hypothesis 26: {frac(1, cos(α)) = 0}) in (hypothesis 35: {frac(1, cos(α)) = 0 => 1 = cos(α) * 0}) as (hypothesis 36: {1 = cos(α) * 0})
+autosolve all_hypothesis

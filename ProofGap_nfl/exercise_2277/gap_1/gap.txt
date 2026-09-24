@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ sin(x) * sin(2 * x) * sin(3 * x) = frac(1, 2) * (cos(2 * x) - cos(4 * x)) * sin(2 * x)
+
+METHOD:

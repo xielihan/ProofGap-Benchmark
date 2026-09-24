@@ -1,0 +1,6 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ φ(x) = a}) (x := {y})
+2. get_condition (hypothesis 10: {y ∈ RealSet}) in (GOAL: {y ∈ RealSet ⇒ φ(y) = a})
+3. get_prop (hypothesis 9: {forall (x), x ∈ RealSet ⇒ φ(x) = frac(a * (x + h) + b - (a * x + b), h)}) (x := {y}) as (hypothesis 11: {y ∈ RealSet ⇒ φ(y) = frac(a * (y + h) + b - (a * y + b), h)})
+4. use_condition (hypothesis 10: {y ∈ RealSet}) in (hypothesis 11: {y ∈ RealSet ⇒ φ(y) = frac(a * (y + h) + b - (a * y + b), h)}) as (hypothesis 12: {φ(y) = frac(a * (y + h) + b - (a * y + b), h)})
+5. rewrite (left_to_right, equation) (hypothesis 12: {φ(y) = frac(a * (y + h) + b - (a * y + b), h)}); from (GOAL: {φ(y) = a}) to (GOAL: {frac(a * (y + h) + b - (a * y + b), h) = a})
+6. autosolve all_hypothesis

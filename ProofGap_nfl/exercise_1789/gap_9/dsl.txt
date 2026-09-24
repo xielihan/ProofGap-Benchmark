@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x < -b ⇒ (exists (t), t ∈ RealSet ∧ t > 0)}) (x := {x0})
+get_condition (hypothesis 15: {x0 ∈ RealSet ∧ x0 < -b}) in (GOAL: {x0 ∈ RealSet ∧ x0 < -b ⇒ (exists (t), t ∈ RealSet ∧ t > 0)})
+get_prop (hypothesis 14: {forall (x), x ∈ RealSet ∧ x < -b ⇒ (exists (t), t ∈ RealSet ∧ t > 0 ∧ x + b = (a - b) * sinh(t)^{2})}) (x := {x0}) as (hypothesis 16: {x0 ∈ RealSet ∧ x0 < -b ⇒ (exists (t), t ∈ RealSet ∧ t > 0 ∧ x0 + b = (a - b) * sinh(t)^{2})})
+use_condition (hypothesis 15: {x0 ∈ RealSet ∧ x0 < -b}) in (hypothesis 16: {x0 ∈ RealSet ∧ x0 < -b ⇒ (exists (t), t ∈ RealSet ∧ t > 0 ∧ x0 + b = (a - b) * sinh(t)^{2})}) as (hypothesis 17: {exists (t), t ∈ RealSet ∧ t > 0 ∧ x0 + b = (a - b) * sinh(t)^{2}})
+get_exists (hypothesis 17: {exists (t), t ∈ RealSet ∧ t > 0 ∧ x0 + b = (a - b) * sinh(t)^{2}}) (t := {t0})
+destruct_and (hypothesis 18: {t0 ∈ RealSet ∧ t0 > 0 ∧ x0 + b = (a - b) * sinh(t0)^{2}}) as (hypothesis 19: {t0 ∈ RealSet}) (hypothesis 20: {t0 > 0}) (hypothesis 21: {x0 + b = (a - b) * sinh(t0)^{2}})
+exists (t := {t0})
+autosolve (hypothesis 19: {t0 ∈ RealSet}) (hypothesis 20: {t0 > 0})

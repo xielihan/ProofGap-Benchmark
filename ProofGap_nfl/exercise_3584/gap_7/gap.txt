@@ -1,0 +1,28 @@
+PROOF GAP @7
+ASSUM:
+1. f : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. A ∈ RealSet
+3. B ∈ RealSet
+4. C ∈ RealSet
+5. D ∈ RealSet
+6. E ∈ RealSet
+7. F ∈ RealSet
+8. h ∈ RealSet
+9. k ∈ RealSet
+10. l ∈ RealSet
+11. x ∈ RealSet
+12. y ∈ RealSet
+13. z ∈ RealSet
+14. R_{2} : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+15. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ f(x, y, z) = A * x^{2} + B * y^{2} + C * z^{2} + 2 * D * x * y + 2 * E * x * z + 2 * F * y * z
+16. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(f, 1, 1)(x, y, z) = 2 * (A * x + D * y + E * z)
+17. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(f, 2, 1)(x, y, z) = 2 * (B * y + D * x + F * z)
+18. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(f, 3, 1)(x, y, z) = 2 * (C * z + E * x + F * y)
+19. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(f, 1, 2)(x, y, z) = 2 * A
+20. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(f, 2, 2)(x, y, z) = 2 * B
+21. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(f, 3, 2)(x, y, z) = 2 * C
+
+GOAL:
+forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(FunDeri(f, 1, 1), 2, 1)(x, y, z) = 2 * D
+
+METHOD:

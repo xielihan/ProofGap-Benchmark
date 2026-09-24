@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. f = (fun x [x ∈ IntervalLoRo(0, +∞)] . cos(ln(x)))
+2. x_{0} = 0
+3. BoundedFuncOn(f, IntervalLoRo(0, +∞))
+4. DiffableFuncOn(f, IntervalLoRo(0, +∞))
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, +∞) ⇒ FunDeri(f, 1, 1)(x) = -frac(sin(ln(x)), x)
+
+METHOD:

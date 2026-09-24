@@ -1,0 +1,8 @@
+get_condition (hypothesis 11: {0 ≤ x}) in (GOAL: {0 ≤ x ⇒ x ≤ 1 ⇒ 0 ≤ y ⇒ y ≤ 1 - x ⇒ ξ = x + y ⇒ ξ > 0 ⇒ η = frac(y, ξ)})
+get_condition (hypothesis 12: {x ≤ 1}) in (GOAL: {x ≤ 1 ⇒ 0 ≤ y ⇒ y ≤ 1 - x ⇒ ξ = x + y ⇒ ξ > 0 ⇒ η = frac(y, ξ)})
+get_condition (hypothesis 13: {0 ≤ y}) in (GOAL: {0 ≤ y ⇒ y ≤ 1 - x ⇒ ξ = x + y ⇒ ξ > 0 ⇒ η = frac(y, ξ)})
+get_condition (hypothesis 14: {y ≤ 1 - x}) in (GOAL: {y ≤ 1 - x ⇒ ξ = x + y ⇒ ξ > 0 ⇒ η = frac(y, ξ)})
+get_condition (hypothesis 15: {ξ = x + y}) in (GOAL: {ξ = x + y ⇒ ξ > 0 ⇒ η = frac(y, ξ)})
+get_condition (hypothesis 16: {ξ > 0}) in (GOAL: {ξ > 0 ⇒ η = frac(y, ξ)})
+rewrite (left_to_right, equation) (hypothesis 6: {y = ξ * η}); from (GOAL: {η = frac(y, ξ)}) to (GOAL: {η = frac(ξ * η, ξ)})
+autosolve (hypothesis 16: {ξ > 0})

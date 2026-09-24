@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. forall (t), t ∈ RealSet ⇒ arcsinh(t) = ln(t + sqrtn(2, 1 + t^{2}))
+
+GOAL:
+lim_{ x → 0 } (frac(arcsinh(sinh(x)) - arcsinh(sin(x)), sinh(x) - sin(x))) = lim_{ x → 0 } (frac(ln(sinh(x) + cosh(x)) - ln(sin(x) + sqrtn(2, 1 + sin(x)^{2})), sinh(x) - sin(x)))
+
+METHOD:

@@ -1,0 +1,13 @@
+get_forall (GOAL: {forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ |f(n, x) - g(x)| = |frac(x, n) * ln(frac(x, n))|}) (n := {n0}) (x := {x0})
+get_condition (hypothesis 10: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(0, 1)}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(0, 1) ⇒ |f(n0, x0) - g(x0)| = |frac(x0, n0) * ln(frac(x0, n0))|})
+get_prop (hypothesis 3: {forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ f(n, x) = frac(x, n) * ln(frac(x, n))}) (n := {n0}) (x := {x0}) as (hypothesis 11: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ IntervalLoRo(0, 1) ⇒ f(n0, x0) = frac(x0, n0) * ln(frac(x0, n0))})
+assert (hypothesis 12: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ IntervalLoRo(0, 1)}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 12: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ IntervalLoRo(0, 1)}) in (hypothesis 11: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ IntervalLoRo(0, 1) ⇒ f(n0, x0) = frac(x0, n0) * ln(frac(x0, n0))}) as (hypothesis 13: {f(n0, x0) = frac(x0, n0) * ln(frac(x0, n0))})
+get_prop (hypothesis 4: {forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ g(x) = 0}) (x := {x0}) as (hypothesis 14: {x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(0, 1) ⇒ g(x0) = 0})
+assert (hypothesis 15: {x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(0, 1)}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 15: {x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(0, 1)}) in (hypothesis 14: {x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(0, 1) ⇒ g(x0) = 0}) as (hypothesis 16: {g(x0) = 0})
+autosolve all_hypothesis

@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ c * x + d ≠ 0 ⇒ frac(a * (c * x + d) - c * (a * x + b), (c * x + d)^{2}) = frac(a * d - b * c, (c * x + d)^{2})}) (x := {t})
+get_condition (hypothesis 8: {t ∈ RealSet ∧ c * t + d ≠ 0}) in (GOAL: {t ∈ RealSet ∧ c * t + d ≠ 0 ⇒ frac(a * (c * t + d) - c * (a * t + b), (c * t + d)^{2}) = frac(a * d - b * c, (c * t + d)^{2})})
+autoreplace no_hypothesis; from (a * (c * t + d) - c * (a * t + b)) to (a * d - b * c); from (GOAL: {frac(a * (c * t + d) - c * (a * t + b), (c * t + d)^{2}) = frac(a * d - b * c, (c * t + d)^{2})}) to (GOAL: {frac(a * d - b * c, (c * t + d)^{2}) = frac(a * d - b * c, (c * t + d)^{2})})
+autosolve all_hypothesis

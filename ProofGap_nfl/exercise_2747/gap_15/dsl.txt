@@ -1,0 +1,36 @@
+get_prop (theorem 'Thm 347. (UniformSequenceOfFunctionsConvergence)': {forall (F) (S) (g), g : RealSet -> RealSet ⇒ IsSet(S) ⇒ (UniformConvergent(F, S, g) ⇔ (forall (ε), ε ∈ RealSet ⇒ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ forall (n), n ∈ NonNegIntegerSet ⇒ n >= N ⇒ (forall (x), x ∈ S ⇒ |F(n)(x) - g(x)| < ε))))}) (F := {f}) (S := {[0, 1]}) (g := {h}) as (hypothesis 22: {h : RealSet -> RealSet ⇒ IsSet([0, 1]) ⇒ (UniformConvergent(f, [0, 1], h) ⇔ (forall (ε), ε ∈ RealSet ⇒ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ forall (n), n ∈ NonNegIntegerSet ⇒ n >= N ⇒ (forall (x), x ∈ [0, 1] ⇒ |f(n, x) - h(x)| < ε))))})
+use_condition (hypothesis 2: {h : RealSet → RealSet}) in (hypothesis 22: {h : RealSet -> RealSet ⇒ IsSet([0, 1]) ⇒ (UniformConvergent(f, [0, 1], h) ⇔ (forall (ε), ε ∈ RealSet ⇒ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ forall (n), n ∈ NonNegIntegerSet ⇒ n >= N ⇒ (forall (x), x ∈ [0, 1] ⇒ |f(n, x) - h(x)| < ε))))}) as (hypothesis 23: {IsSet([0, 1]) ⇒ (UniformConvergent(f, [0, 1], h) ⇔ (forall (ε), ε ∈ RealSet ⇒ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ forall (n), n ∈ NonNegIntegerSet ⇒ n >= N ⇒ (forall (x), x ∈ [0, 1] ⇒ |f(n, x) - h(x)| < ε))))})
+get_prop (theorem 'Thm 275. (SetPredicateDefinition)': {forall (S), IsSet(S)}) (S := {[0, 1]}) as (hypothesis 24: {IsSet([0, 1])})
+use_condition (hypothesis 24: {IsSet([0, 1])}) in (hypothesis 23: {IsSet([0, 1]) ⇒ (UniformConvergent(f, [0, 1], h) ⇔ (forall (ε), ε ∈ RealSet ⇒ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ forall (n), n ∈ NonNegIntegerSet ⇒ n >= N ⇒ (forall (x), x ∈ [0, 1] ⇒ |f(n, x) - h(x)| < ε))))}) as (hypothesis 25: {UniformConvergent(f, [0, 1], h) ⇔ (forall (ε), ε ∈ RealSet ⇒ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ forall (n), n ∈ NonNegIntegerSet ⇒ n >= N ⇒ (forall (x), x ∈ [0, 1] ⇒ |f(n, x) - h(x)| < ε)))} )
+rewrite (left_to_right, iff) (hypothesis 25: {UniformConvergent(f, [0, 1], h) ⇔ (forall (ε), ε ∈ RealSet ⇒ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ forall (n), n ∈ NonNegIntegerSet ⇒ n >= N ⇒ (forall (x), x ∈ [0, 1] ⇒ |f(n, x) - h(x)| < ε)))}); from (GOAL: {UniformConvergent(f, [0, 1], h)}) to (GOAL: {forall (ε), ε ∈ RealSet ⇒ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ forall (n), n ∈ NonNegIntegerSet ⇒ n >= N ⇒ (forall (x), x ∈ [0, 1] ⇒ |f(n, x) - h(x)| < ε))})
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ⇒ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ forall (n), n ∈ NonNegIntegerSet ⇒ n >= N ⇒ (forall (x), x ∈ [0, 1] ⇒ |f(n, x) - h(x)| < ε))}) (ε := {ε0})
+get_condition (hypothesis 26: {ε0 ∈ RealSet}) in (GOAL: {ε0 ∈ RealSet ⇒ ε0 > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ forall (n), n ∈ NonNegIntegerSet ⇒ n >= N ⇒ (forall (x), x ∈ [0, 1] ⇒ |f(n, x) - h(x)| < ε0))})
+get_condition (hypothesis 27: {ε0 > 0}) in (GOAL: {ε0 > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ forall (n), n ∈ NonNegIntegerSet ⇒ n >= N ⇒ (forall (x), x ∈ [0, 1] ⇒ |f(n, x) - h(x)| < ε0))})
+get_exists (hypothesis 20: {exists (N), N : RealSet → NonNegIntegerSet ∧ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ N(ε) = floor(frac(1, ε)))}) (N := {N0})
+destruct_and (hypothesis 28: {N0 : RealSet → NonNegIntegerSet ∧ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ N0(ε) = floor(frac(1, ε)))}) as (hypothesis 29: {N0 : RealSet → NonNegIntegerSet}) (hypothesis 30: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ N0(ε) = floor(frac(1, ε))})
+get_prop (theorem 'Thm 76. (FunctionValueExists)': {forall (A) (B) (f), f : A -> B => (forall (x), x ∈ A => (exists (y), y ∈ B ∧ f(x) = y))}) (A := {RealSet}) (B := {NonNegIntegerSet}) (f := {N0}) as (hypothesis 31: {N0 : RealSet -> NonNegIntegerSet => (forall (x), x ∈ RealSet => (exists (y), y ∈ NonNegIntegerSet ∧ N0(x) = y))})
+use_condition (hypothesis 29: {N0 : RealSet → NonNegIntegerSet}) in (hypothesis 31: {N0 : RealSet -> NonNegIntegerSet => (forall (x), x ∈ RealSet => (exists (y), y ∈ NonNegIntegerSet ∧ N0(x) = y))}) as (hypothesis 32: {forall (x), x ∈ RealSet => (exists (y), y ∈ NonNegIntegerSet ∧ N0(x) = y)})
+get_prop (hypothesis 32: {forall (x), x ∈ RealSet => (exists (y), y ∈ NonNegIntegerSet ∧ N0(x) = y)}) (x := {ε0}) as (hypothesis 33: {ε0 ∈ RealSet => (exists (y), y ∈ NonNegIntegerSet ∧ N0(ε0) = y)})
+use_condition (hypothesis 26: {ε0 ∈ RealSet}) in (hypothesis 33: {ε0 ∈ RealSet => (exists (y), y ∈ NonNegIntegerSet ∧ N0(ε0) = y)}) as (hypothesis 34: {exists (y), y ∈ NonNegIntegerSet ∧ N0(ε0) = y})
+get_exists (hypothesis 34: {exists (y), y ∈ NonNegIntegerSet ∧ N0(ε0) = y}) (y := {k0})
+destruct_and (hypothesis 35: {k0 ∈ NonNegIntegerSet ∧ N0(ε0) = k0}) as (hypothesis 36: {k0 ∈ NonNegIntegerSet}) (hypothesis 37: {N0(ε0) = k0})
+exists (N := {k0 + 1})
+assert (hypothesis 38: {k0 + 1 ∈ NonNegIntegerSet}) by proof {
+  autosolve (hypothesis 36: {k0 ∈ NonNegIntegerSet})
+}
+assert (hypothesis 39: {forall (n), n ∈ NonNegIntegerSet ⇒ n >= k0 + 1 ⇒ (forall (x), x ∈ [0, 1] ⇒ |f(n, x) - h(x)| < ε0)}) by proof {
+  get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ⇒ n >= k0 + 1 ⇒ (forall (x), x ∈ [0, 1] ⇒ |f(n, x) - h(x)| < ε0)}) (n := {n0})
+  get_condition (hypothesis 39: {n0 ∈ NonNegIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ⇒ n0 >= k0 + 1 ⇒ (forall (x), x ∈ [0, 1] ⇒ |f(n0, x) - h(x)| < ε0)})
+  get_condition (hypothesis 40: {n0 >= k0 + 1}) in (GOAL: {n0 >= k0 + 1 ⇒ (forall (x), x ∈ [0, 1] ⇒ |f(n0, x) - h(x)| < ε0)})
+  assert (hypothesis 41: {n0 >= N0(ε0) + 1}) by proof {
+    rewrite (left_to_right, equation) (hypothesis 37: {N0(ε0) = k0}); from (GOAL: {n0 >= N0(ε0) + 1}) to (GOAL: {n0 >= k0 + 1})
+    apply (hypothesis 40: {n0 >= k0 + 1})
+  }
+  get_prop (hypothesis 21: {forall (N) (n) (ε), N : RealSet → NonNegIntegerSet ∧ (forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ N(δ) = floor(frac(1, δ))) ∧ n ∈ NonNegIntegerSet ∧ ε ∈ RealSet ∧ ε > 0 ∧ n ≥ N(ε) + 1 ⇒ (forall (x), x ∈ [0, 1] ⇒ |f(n, x) - h(x)| < ε)}) (N := {N0}) (n := {n0}) (ε := {ε0}) as (hypothesis 42: {N0 : RealSet → NonNegIntegerSet ∧ (forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ N0(δ) = floor(frac(1, δ))) ∧ n0 ∈ NonNegIntegerSet ∧ ε0 ∈ RealSet ∧ ε0 > 0 ∧ n0 ≥ N0(ε0) + 1 ⇒ (forall (x), x ∈ [0, 1] ⇒ |f(n0, x) - h(x)| < ε0)})
+  assert (hypothesis 43: {N0 : RealSet → NonNegIntegerSet ∧ (forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ N0(δ) = floor(frac(1, δ))) ∧ n0 ∈ NonNegIntegerSet ∧ ε0 ∈ RealSet ∧ ε0 > 0 ∧ n0 ≥ N0(ε0) + 1}) by proof {
+    autosolve (hypothesis 29: {N0 : RealSet → NonNegIntegerSet}) (hypothesis 30: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ N0(ε) = floor(frac(1, ε))}) (hypothesis 39: {n0 ∈ NonNegIntegerSet}) (hypothesis 26: {ε0 ∈ RealSet}) (hypothesis 27: {ε0 > 0}) (hypothesis 41: {n0 >= N0(ε0) + 1})
+  }
+  use_condition (hypothesis 43: {N0 : RealSet → NonNegIntegerSet ∧ (forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ N0(δ) = floor(frac(1, δ))) ∧ n0 ∈ NonNegIntegerSet ∧ ε0 ∈ RealSet ∧ ε0 > 0 ∧ n0 ≥ N0(ε0) + 1}) in (hypothesis 42: {N0 : RealSet → NonNegIntegerSet ∧ (forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ N0(δ) = floor(frac(1, δ))) ∧ n0 ∈ NonNegIntegerSet ∧ ε0 ∈ RealSet ∧ ε0 > 0 ∧ n0 ≥ N0(ε0) + 1 ⇒ (forall (x), x ∈ [0, 1] ⇒ |f(n0, x) - h(x)| < ε0)}) as (hypothesis 44: {forall (x), x ∈ [0, 1] ⇒ |f(n0, x) - h(x)| < ε0})
+  apply (hypothesis 44: {forall (x), x ∈ [0, 1] ⇒ |f(n0, x) - h(x)| < ε0})
+}
+autosolve (hypothesis 38: {k0 + 1 ∈ NonNegIntegerSet}) (hypothesis 39: {forall (n), n ∈ NonNegIntegerSet ⇒ n >= k0 + 1 ⇒ (forall (x), x ∈ [0, 1] ⇒ |f(n, x) - h(x)| < ε0)})

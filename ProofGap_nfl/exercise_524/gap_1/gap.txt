@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+lim_{ x → 0 } (tan(frac(π, 4) - x)^{cot(x)}) = lim_{ x → 0 } (frac(1 - tan(x), 1 + tan(x))^{cot(x)})
+
+METHOD:

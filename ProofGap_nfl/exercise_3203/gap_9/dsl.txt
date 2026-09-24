@@ -1,0 +1,2 @@
+1. rewrite (right_to_left, equation) (hypothesis 4: {f(0, 0) = 0}); from (hypothesis 11: {forall (α), α ∈ RealSet ∧ sin(α) ≠ 0 ⇒ lim_{ t → 0 } (f(t * cos(α), t * sin(α))) = 0}) to (hypothesis 12: {forall (α), α ∈ RealSet ∧ sin(α) ≠ 0 ⇒ lim_{ t → 0 } (f(t * cos(α), t * sin(α))) = f(0, 0)})
+2. apply (hypothesis 12: {forall (α), α ∈ RealSet ∧ sin(α) ≠ 0 ⇒ lim_{ t → 0 } (f(t * cos(α), t * sin(α))) = f(0, 0)})

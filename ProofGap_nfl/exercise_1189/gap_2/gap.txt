@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. n ∈ NonNegIntegerSet
+3. n ∈ PosIntegerSet
+4. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x ≠ 1 ⇒ y(x) = frac(1, x * (1 - x))
+5. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x ≠ 1 ⇒ y(x) = frac(1, x) + frac(1, 1 - x)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x ≠ 1 ⇒ FunDeri(y, 1, n)(x) = FunDeri(fun x [x ∈ RealSet ∧ x ≠ 0] . frac(1, x), 1, n)(x) + FunDeri(fun x [x ∈ RealSet ∧ x ≠ 1] . frac(1, 1 - x), 1, n)(x)
+
+METHOD:

@@ -1,0 +1,15 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (m) (n), m ∈ IntegerSet ∧ n ∈ PosIntegerSet ∧ gcd(m, n) = 1 ⇒ f(frac(m, n)) = n
+3. forall (x), x ∈ RealSet ∧ x ∉ RationalSet ⇒ f(x) = 0
+4. forall (x_{0}), x_{0} ∈ RealSet ⇒ f(x_{0}) ∈ RealSet
+5. forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ InfiniteSet(IntervalLoRo(x_{0} - δ, x_{0} + δ) ∩ RationalSet))
+6. forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (δ), δ ∈ RealSet ∧ δ > 0 ∧ BoundedFuncOn(f, IntervalLoRo(x_{0} - δ, x_{0} + δ)) ⇒ (exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (x), x ∈ RealSet ∧ x_{0} ∈ RealSet ∧ δ ∈ RealSet ∧ x ∈ IntervalLoRo(x_{0} - δ, x_{0} + δ) ⇒ |f(x)| ≤ M)))
+7. forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (δ), δ ∈ RealSet ∧ δ > 0 ∧ BoundedFuncOn(f, IntervalLoRo(x_{0} - δ, x_{0} + δ)) ⇒ (exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (x), x ∈ RealSet ∧ x_{0} ∈ RealSet ∧ δ ∈ RealSet ∧ x ∈ IntervalLoRo(x_{0} - δ, x_{0} + δ) ∩ RationalSet ⇒ (exists (k) (n), k ∈ IntegerSet ∧ n ∈ PosIntegerSet ∧ x = frac(k, n) ∧ gcd(k, n) = 1 ∧ 1 ≤ n ∧ n ≤ floor(M)))))
+8. forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (δ), δ ∈ RealSet ∧ δ > 0 ∧ BoundedFuncOn(f, IntervalLoRo(x_{0} - δ, x_{0} + δ)) ⇒ (exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (x), x ∈ RealSet ∧ x_{0} ∈ RealSet ∧ δ ∈ RealSet ∧ x ∈ IntervalLoRo(x_{0} - δ, x_{0} + δ) ∩ RationalSet ⇒ (exists (k) (n), k ∈ IntegerSet ∧ n ∈ PosIntegerSet ∧ (x_{0} - δ) * floor(M) < k ∧ k < (x_{0} + δ) * floor(M) ∧ 1 ≤ n ∧ n ≤ floor(M)))))
+
+GOAL:
+forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (δ), δ ∈ RealSet ∧ δ > 0 ∧ BoundedFuncOn(f, IntervalLoRo(x_{0} - δ, x_{0} + δ)) ⇒ FiniteSet(IntervalLoRo(x_{0} - δ, x_{0} + δ) ∩ RationalSet))
+
+METHOD:

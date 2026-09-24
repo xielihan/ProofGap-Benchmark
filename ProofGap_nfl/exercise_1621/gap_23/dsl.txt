@@ -1,0 +1,4 @@
+exists (m := {25})
+rewrite (left_to_right, equation) (hypothesis 19: {f(0.472) = -0.013}); from (GOAL: {25 ∈ RealSet ∧ frac(|f(0.472)|, 25) < 0.001}) to (GOAL: {25 ∈ RealSet ∧ frac(|-0.013|, 25) < 0.001})
+assert (hypothesis 26: {25 ∈ RealSet ∧ frac(|-0.013|, 25) < 0.001})
+apply (hypothesis 26: {25 ∈ RealSet ∧ frac(|-0.013|, 25) < 0.001})

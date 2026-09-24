@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. B : CartesianProd(RealSet, RealSet) → RealSet
+2. Gamma : RealSet → RealSet
+3. forall (t), t ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ t = sin(x) ∧ x ∈ [0, frac(π, 2)] ⇒ t ∈ [0, 1])
+4. forall (t), t ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ t = sin(x) ∧ x ∈ [0, frac(π, 2)] ⇒ DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ x ∈ [0, frac(π, 2)]] . sin(x)^{6} * cos(x)^{4}) * diff(fun x [x ∈ RealSet ∧ x ∈ [0, frac(π, 2)]] . x)) = DefInt(0, 1, (fun t [t ∈ RealSet ∧ t ∈ [0, 1]] . t^{6} * (1 - t^{2})^{frac(3, 2)}) * diff(fun t [t ∈ RealSet ∧ t ∈ [0, 1]] . t)))
+5. forall (t), t ∈ RealSet ⇒ (forall (u), u ∈ RealSet ∧ u >= 0 ∧ t = sqrtn(2, u) ∧ t ∈ [0, 1] ⇒ u ∈ [0, 1])
+6. DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ x ∈ [0, frac(π, 2)]] . sin(x)^{6} * cos(x)^{4}) * diff(fun x [x ∈ RealSet ∧ x ∈ [0, frac(π, 2)]] . x)) = frac(1, 2) * DefInt(0, 1, (fun u [u ∈ RealSet ∧ u ∈ [0, 1]] . u^{frac(5, 2)} * (1 - u)^{frac(3, 2)}) * diff(fun u [u ∈ RealSet ∧ u ∈ [0, 1]] . u))
+7. frac(1, 2) * DefInt(0, 1, (fun u [u ∈ RealSet ∧ u ∈ [0, 1]] . u^{frac(5, 2)} * (1 - u)^{frac(3, 2)}) * diff(fun u [u ∈ RealSet ∧ u ∈ [0, 1]] . u)) = frac(1, 2) * B(frac(7, 2), frac(5, 2))
+
+GOAL:
+frac(1, 2) * B(frac(7, 2), frac(5, 2)) = frac(1, 2) * frac(Gamma(frac(7, 2)) * Gamma(frac(5, 2)), Gamma(6))
+
+METHOD:

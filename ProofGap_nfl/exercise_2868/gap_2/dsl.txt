@@ -1,0 +1,4 @@
+get_prop (theorem 'Thm 151. (ComplexExponentialEulerFormula)': {forall (θ), θ ∈ RealSet => (e ^ (__IMAGINARY_UNIT__ * θ) = cos(θ) + __IMAGINARY_UNIT__ * sin(θ))}) (θ := {α}) as (hypothesis 4: {α ∈ RealSet => e ^ (__IMAGINARY_UNIT__ * α) = cos(α) + __IMAGINARY_UNIT__ * sin(α)})
+use_condition (hypothesis 2: {α ∈ RealSet}) in (hypothesis 4: {α ∈ RealSet => e ^ (__IMAGINARY_UNIT__ * α) = cos(α) + __IMAGINARY_UNIT__ * sin(α)}) as (hypothesis 5: {e ^ (__IMAGINARY_UNIT__ * α) = cos(α) + __IMAGINARY_UNIT__ * sin(α)})
+rewrite (right_to_left, equation) (hypothesis 5: {e ^ (__IMAGINARY_UNIT__ * α) = cos(α) + __IMAGINARY_UNIT__ * sin(α)}); from (GOAL: {e^{x * (cos(α) + __IMAGINARY_UNIT__ * sin(α))} = e^{x * e^{__IMAGINARY_UNIT__ * α}}}) to (GOAL: {e^{x * e^{__IMAGINARY_UNIT__ * α}} = e^{x * e^{__IMAGINARY_UNIT__ * α}}})
+autosolve all_hypothesis

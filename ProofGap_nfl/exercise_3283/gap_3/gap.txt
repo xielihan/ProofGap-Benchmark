@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. f : RealSet → RealSet
+3. f : [0, +∞) → RealSet
+4. ContinuouslyDiffableFunc(f)
+5. DiffableFunc(FunDeri(f, 1, 1))
+6. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = f(x^{2} + y^{2} + z^{2})
+7. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(u, 1, 1)(x, y, z) = 2 * x * FunDeri(f, 1, 1)(x^{2} + y^{2} + z^{2})
+8. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(u, 1, 2)(x, y, z) = 2 * FunDeri(f, 1, 1)(x^{2} + y^{2} + z^{2}) + 4 * x^{2} * FunDeri(f, 1, 2)(x^{2} + y^{2} + z^{2})
+
+GOAL:
+forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(FunDeri(u, 1, 1), 2, 1)(x, y, z) = 4 * x * y * FunDeri(f, 1, 2)(x^{2} + y^{2} + z^{2})
+
+METHOD:

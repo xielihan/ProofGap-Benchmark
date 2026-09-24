@@ -1,0 +1,19 @@
+PROOF GAP @8
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. f : RealSet → RealSet
+4. a * b < 0
+5. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = frac(1, x)
+6. forall (ξ), ξ ∈ RealSet ∧ ξ ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(ξ) * (b - a) ⇒ FunDeri(f, 1, 1)(ξ) = -frac(1, ξ^{2})
+7. forall (ξ), ξ ∈ RealSet ∧ ξ ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(ξ) * (b - a) ⇒ frac(1, b) - frac(1, a) = -frac(1, ξ^{2}) * (b - a)
+8. forall (ξ), ξ ∈ RealSet ∧ ξ ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(ξ) * (b - a) ⇒ -frac(1, ξ^{2}) * (b - a) = frac(a - b, ξ^{2})
+9. forall (ξ), ξ ∈ RealSet ∧ ξ ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(ξ) * (b - a) ⇒ frac(1, b) - frac(1, a) = frac(a - b, ξ^{2})
+10. (exists (ξ), ξ ∈ RealSet ∧ ξ ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(ξ) * (b - a)) ⇒ frac(1, b) - frac(1, a) = frac(a - b, a * b)
+11. forall (ξ), ξ ∈ RealSet ∧ ξ ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(ξ) * (b - a) ⇒ frac(a - b, ξ^{2}) = frac(a - b, a * b)
+12. forall (ξ), ξ ∈ RealSet ∧ ξ ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(ξ) * (b - a) ⇒ ξ^{2} = a * b
+
+GOAL:
+forall (ξ), ξ ∈ RealSet ∧ ξ ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(ξ) * (b - a) ⇒ ξ^{2} < 0
+
+METHOD:

@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(1, +∞) ⇒ seqlim_{ n → +∞ } (f(n, x)) = 0}) (x := {x0})
+get_condition (hypothesis 13: {x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(1, +∞)}) in (GOAL: {x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(1, +∞) ⇒ seqlim_{ n → +∞ } (f(n, x0)) = 0})
+get_prop (hypothesis 4: {forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ f(n, x) = frac(2 * n * x, 1 + n^{2} * x^{2})}) (x := {x0}) as (hypothesis 14: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x0 ∈ RealSet ⇒ f(n, x0) = frac(2 * n * x0, 1 + n^{2} * x0^{2})})
+autosolve all_hypothesis

@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. x : NonNegIntegerSet → RealSet
+2. y : NonNegIntegerSet → RealSet
+3. IsSeq(x)
+4. IsSeq(y)
+5. ConvergentSeq(x)
+6. DivergentSeq(y)
+7. ConvergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n) + y(n)) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) + y(n) - x(n) = y(n))
+8. ConvergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n) + y(n)) ⇒ ConvergentSeq(y)
+
+GOAL:
+ConvergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n) + y(n)) ⇒ False
+
+METHOD:

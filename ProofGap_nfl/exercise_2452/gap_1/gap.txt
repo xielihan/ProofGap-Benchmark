@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. φ : RealSet → RealSet
+2. s ∈ RealSet
+3. forall (r), r ∈ RealSet ∧ 1 ≤ r ∧ r ≤ 3 ⇒ φ(r) = frac(1, 2) * (r + frac(1, r))
+
+GOAL:
+forall (r), r ∈ RealSet ∧ 1 ≤ r ∧ r ≤ 3 ⇒ r^{2} - 2 * r * φ(r) + 1 = 0
+
+METHOD:

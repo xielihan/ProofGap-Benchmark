@@ -1,0 +1,5 @@
+get_condition (hypothesis 12: {x = -frac(4, 3)}) in (GOAL: {x = -frac(4, 3) => frac(2, 3) < 1})
+assert (hypothesis 13: {frac(2, 3) > 0}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

@@ -1,0 +1,25 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t = x + frac(1, x) ∧ |x| ≥ 2 ⇒ |t| ≥ frac(5, 2))}) (x := {x0})
+2. get_condition (hypothesis 5: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t = x0 + frac(1, x0) ∧ |x0| ≥ 2 ⇒ |t| ≥ frac(5, 2))})
+3. get_forall (GOAL: {forall (t), t ∈ RealSet ∧ t = x0 + frac(1, x0) ∧ |x0| ≥ 2 ⇒ |t| ≥ frac(5, 2)}) (t := {t0})
+4. get_condition (hypothesis 6: {t0 ∈ RealSet ∧ t0 = x0 + frac(1, x0) ∧ |x0| ≥ 2}) in (GOAL: {t0 ∈ RealSet ∧ t0 = x0 + frac(1, x0) ∧ |x0| ≥ 2 ⇒ |t0| ≥ frac(5, 2)})
+5. destruct_and (hypothesis 6: {t0 ∈ RealSet ∧ t0 = x0 + frac(1, x0) ∧ |x0| ≥ 2}) as (hypothesis 7: {t0 ∈ RealSet}) (hypothesis 8: {t0 = x0 + frac(1, x0)}) (hypothesis 9: {|x0| ≥ 2})
+6. assert (hypothesis 10: {x0 ≥ 2 ⇒ |t0| ≥ frac(5, 2)}) by proof {
+  1. get_condition (hypothesis 10: {x0 ≥ 2}) in (GOAL: {x0 ≥ 2 ⇒ |t0| ≥ frac(5, 2)})
+  2. assert (hypothesis 11: {t0 ≥ 0})
+  3. get_prop (theorem 'Thm 490. (AbsoluteValueOfNonnegativeReal)': {forall (x), x ∈ RealSet => (x >= 0 <==> |x| = x)}) (x := {t0}) as (hypothesis 12: {t0 ∈ RealSet => (t0 >= 0 <==> |t0| = t0)})
+  4. use_condition (hypothesis 7: {t0 ∈ RealSet}) in (hypothesis 12: {t0 ∈ RealSet => (t0 >= 0 <==> |t0| = t0)}) as (hypothesis 13: {t0 >= 0 <==> |t0| = t0})
+  5. assert (hypothesis 14: {|t0| = t0})
+  6. rewrite (left_to_right, equation) (hypothesis 14: {|t0| = t0}); from (GOAL: {|t0| ≥ frac(5, 2)}) to (GOAL: {t0 ≥ frac(5, 2)})
+  7. autosolve all_hypothesis
+}
+7. assert (hypothesis 11: {x0 ≤ -2 ⇒ |t0| ≥ frac(5, 2)}) by proof {
+  1. get_condition (hypothesis 11: {x0 ≤ -2}) in (GOAL: {x0 ≤ -2 ⇒ |t0| ≥ frac(5, 2)})
+  2. assert (hypothesis 12: {t0 ≤ 0})
+  3. get_prop (theorem 'Thm 489. (AbsoluteValueOfNonpositiveReal)': {forall (x), x ∈ RealSet => (x <= 0 <==> |x| = -x)}) (x := {t0}) as (hypothesis 13: {t0 ∈ RealSet => (t0 <= 0 <==> |t0| = -t0)})
+  4. use_condition (hypothesis 7: {t0 ∈ RealSet}) in (hypothesis 13: {t0 ∈ RealSet => (t0 <= 0 <==> |t0| = -t0)}) as (hypothesis 14: {t0 <= 0 <==> |t0| = -t0})
+  5. assert (hypothesis 15: {|t0| = -t0})
+  6. rewrite (left_to_right, equation) (hypothesis 15: {|t0| = -t0}); from (GOAL: {|t0| ≥ frac(5, 2)}) to (GOAL: {-t0 ≥ frac(5, 2)})
+  7. autosolve all_hypothesis
+}
+8. assert (hypothesis 12: {x0 ≥ 2 ∨ x0 ≤ -2})
+9. autosolve (hypothesis 10: {x0 ≥ 2 ⇒ |t0| ≥ frac(5, 2)}) (hypothesis 11: {x0 ≤ -2 ⇒ |t0| ≥ frac(5, 2)}) (hypothesis 12: {x0 ≥ 2 ∨ x0 ≤ -2})

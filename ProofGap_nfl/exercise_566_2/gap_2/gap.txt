@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. lim_{ x → +∞ } (frac(ln(x^{2} + e^{x}), ln(x^{4} + e^{2 * x}))) = lim_{ x → +∞ } (frac(1 + frac(ln(1 + x^{2} * e^{-x}), x), 2 + frac(ln(1 + x^{4} * e^{-2 * x}), x)))
+
+GOAL:
+lim_{ x → +∞ } (x^{2} * e^{-x}) = 0
+
+METHOD:

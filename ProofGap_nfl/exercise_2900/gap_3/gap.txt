@@ -1,0 +1,18 @@
+PROOF GAP @3
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. R ∈ RealSet ∧ R > 0
+3. S ∈ RealSet
+4. f : RealSet → RealSet
+5. x ∈ RealSet
+6. n ∈ NonNegIntegerSet
+7. forall (n), n ∈ NonNegIntegerSet ⇒ a(n) ≥ 0
+8. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x < R ⇒ f(x) = sum_{ n = 0 }^{ +∞ } (a(n) * x^{n})
+9. lim_{ x → R^- } (sum_{ n = 0 }^{ +∞ } (a(n) * x^{n})) = S
+10. ConvergentSeries(sum_{ n = 0 }^{ +∞ } (a(n) * R^{n})) ⇒ lim_{ x → R^- } (sum_{ n = 0 }^{ +∞ } (a(n) * x^{n})) = f(R)
+11. ConvergentSeries(sum_{ n = 0 }^{ +∞ } (a(n) * R^{n})) ⇒ f(R) = sum_{ n = 0 }^{ +∞ } (a(n) * R^{n})
+
+GOAL:
+ConvergentSeries(sum_{ n = 0 }^{ +∞ } (a(n) * R^{n})) ⇒ sum_{ n = 0 }^{ +∞ } (a(n) * R^{n}) = S
+
+METHOD:

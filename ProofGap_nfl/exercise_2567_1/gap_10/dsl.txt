@@ -1,0 +1,2 @@
+rewrite_in sum (left_to_right, equation) (hypothesis 13: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet => min(c(n), d(n)) = d(n)}); from (GOAL: {DivergentSeries(sum_{ n = 1 }^{ +∞ } (min(c(n), d(n))))}) to (GOAL: {DivergentSeries(sum_{ n = 1 }^{ +∞ } (d(n)))})
+apply (hypothesis 12: {DivergentSeries(sum_{ n = 1 }^{ +∞ } (d(n)))})

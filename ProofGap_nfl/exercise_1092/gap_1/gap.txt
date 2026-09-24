@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. u : RealSet → RealSet
+2. v : RealSet → RealSet
+3. y : RealSet → RealSet
+4. DiffableFunc(u)
+5. DiffableFunc(v)
+6. forall (x), x ∈ RealSet ∧ v(x) ≠ 0 ⇒ y(x) = frac(u(x), v(x)^{2})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ v(x) ≠ 0 ⇒ diff(y) = (fun x [x ∈ RealSet ∧ v(x) ≠ 0] . frac(v(x)^{2}, v(x)^{4})) * diff(u) - (fun x [x ∈ RealSet ∧ v(x) ≠ 0] . frac(2 * u(x) * v(x), v(x)^{4})) * diff(v) ∧ (fun x [x ∈ RealSet ∧ v(x) ≠ 0] . frac(v(x)^{2}, v(x)^{4})) * diff(u) - (fun x [x ∈ RealSet ∧ v(x) ≠ 0] . frac(2 * u(x) * v(x), v(x)^{4})) * diff(v) = (fun x [x ∈ RealSet ∧ v(x) ≠ 0] . frac(v(x), v(x)^{3})) * diff(u) - (fun x [x ∈ RealSet ∧ v(x) ≠ 0] . frac(2 * u(x), v(x)^{3})) * diff(v)
+
+METHOD:

@@ -1,0 +1,17 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. c ∈ RealSet
+4. S : RealSet → RealSet
+5. V ∈ RealSet
+6. y ∈ RealSet
+7. z ∈ RealSet
+8. a > 0
+9. b > 0
+10. c > 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ -a < x ∧ x < a ⇒ frac(y^{2}, b^{2} * (1 - frac(x^{2}, a^{2}))) + frac(z^{2}, c^{2} * (1 - frac(x^{2}, a^{2}))) = 1
+
+METHOD:

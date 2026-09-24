@@ -1,0 +1,21 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet
+2. k ∈ RealSet
+3. s ∈ RealSet
+4. v ∈ RealSet
+5. Q : RealSet → RealSet
+6. a > 0
+7. k > 0
+8. s > 0
+9. v > 0
+10. forall (v), v ∈ RealSet ∧ v > 0 ⇒ Q(v) = (a + k * v^{3}) * frac(s, v)
+11. forall (v), v ∈ RealSet ∧ v > 0 ⇒ Q(v) = frac(a * s, v) + s * k * v^{2}
+12. FunDeri(Q, 1, 1)(v) = -frac(a * s, v^{2}) + 2 * s * k * v
+13. FunDeri(Q, 1, 1)(v) = 0 ⇒ v ∈ MinimumPointOn(Q, PosRealSet)
+14. v^{3} = frac(a, 2 * k) ⇒ FunDeri(Q, 1, 1)(v) = 0
+
+GOAL:
+v = sqrtn(3, frac(a, 2 * k)) ⇒ v^{3} = frac(a, 2 * k)
+
+METHOD:

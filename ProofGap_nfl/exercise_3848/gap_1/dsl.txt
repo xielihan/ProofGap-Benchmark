@@ -1,0 +1,32 @@
+get_forall (GOAL: {forall (t), t ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ t = sin(x) ∧ x ∈ [0, frac(π, 2)] ⇒ t ∈ [0, 1])}) (t := {t})
+get_condition (hypothesis 3: {t ∈ RealSet}) in (GOAL: {t ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ t = sin(x) ∧ x ∈ [0, frac(π, 2)] ⇒ t ∈ [0, 1])})
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ t = sin(x) ∧ x ∈ [0, frac(π, 2)] ⇒ t ∈ [0, 1]}) (x := {x})
+get_condition (hypothesis 4: {x ∈ RealSet ∧ t = sin(x) ∧ x ∈ [0, frac(π, 2)]}) in (GOAL: {x ∈ RealSet ∧ t = sin(x) ∧ x ∈ [0, frac(π, 2)] ⇒ t ∈ [0, 1]})
+destruct_and (hypothesis 4: {x ∈ RealSet ∧ t = sin(x) ∧ x ∈ [0, frac(π, 2)]}) as (hypothesis 5: {x ∈ RealSet}) (hypothesis 6: {t = sin(x)}) (hypothesis 7: {x ∈ [0, frac(π, 2)]})
+get_prop (theorem 'Thm 166. (SineBounded)': {forall (x), x ∈ RealSet ⇒ -1 <= sin(x) ∧ sin(x) <= 1}) (x := {x}) as (hypothesis 8: {x ∈ RealSet ⇒ -1 <= sin(x) ∧ sin(x) <= 1})
+use_condition (hypothesis 5: {x ∈ RealSet}) in (hypothesis 8: {x ∈ RealSet ⇒ -1 <= sin(x) ∧ sin(x) <= 1}) as (hypothesis 9: {-1 <= sin(x) ∧ sin(x) <= 1})
+get_prop (theorem 'Thm 467. (SinePositiveOnPositiveHalfPeriod)': {forall (n) (t), t ∈ RealSet ⇒ n ∈ IntegerSet ⇒ (2 * n * π < t ∧ t < (2 * n + 1) * π) ⇒ sin(t) > 0}) (n := {0}) (t := {x}) as (hypothesis 10: {x ∈ RealSet ⇒ 0 ∈ IntegerSet ⇒ (2 * 0 * π < x ∧ x < (2 * 0 + 1) * π) ⇒ sin(x) > 0})
+use_condition (hypothesis 5: {x ∈ RealSet}) (obvious: {0 ∈ IntegerSet}) in (hypothesis 10: {x ∈ RealSet ⇒ 0 ∈ IntegerSet ⇒ (2 * 0 * π < x ∧ x < (2 * 0 + 1) * π) ⇒ sin(x) > 0}) as (hypothesis 11: {(2 * 0 * π < x ∧ x < (2 * 0 + 1) * π) ⇒ sin(x) > 0})
+get_prop (theorem 'Thm 370. (SineAtIntegerPi)': {forall (n), n ∈ IntegerSet ⇒ sin(n * π) = 0}) (n := {0}) as (hypothesis 12: {0 ∈ IntegerSet ⇒ sin(0 * π) = 0})
+use_condition (obvious: {0 ∈ IntegerSet}) in (hypothesis 12: {0 ∈ IntegerSet ⇒ sin(0 * π) = 0}) as (hypothesis 13: {sin(0 * π) = 0})
+assert (hypothesis 14: {x = 0 ∨ x > 0}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 15: {sin(0) = 0}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 16: {x = 0 ⇒ sin(x) >= 0}) by proof {
+  get_condition (hypothesis 16: {x = 0}) in (GOAL: {x = 0 ⇒ sin(x) >= 0})
+  rewrite (left_to_right, equation) (hypothesis 16: {x = 0}); from (GOAL: {sin(x) >= 0}) to (GOAL: {sin(0) >= 0})
+  autosolve all_hypothesis
+}
+assert (hypothesis 17: {x > 0 ⇒ sin(x) >= 0}) by proof {
+  get_condition (hypothesis 17: {x > 0}) in (GOAL: {x > 0 ⇒ sin(x) >= 0})
+  use_condition (obvious: {2 * 0 * π < x ∧ x < (2 * 0 + 1) * π}) in (hypothesis 11: {(2 * 0 * π < x ∧ x < (2 * 0 + 1) * π) ⇒ sin(x) > 0}) as (hypothesis 18: {sin(x) > 0})
+  autosolve all_hypothesis
+}
+assert (hypothesis 18: {sin(x) >= 0}) by proof {
+  autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 6: {t = sin(x)}); from (GOAL: {t ∈ [0, 1]}) to (GOAL: {sin(x) ∈ [0, 1]})
+autosolve all_hypothesis

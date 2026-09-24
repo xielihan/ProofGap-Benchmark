@@ -1,0 +1,1 @@
+apply (hypothesis 4: {E_{x} = [-1, 0) ∪ (0, 1]})

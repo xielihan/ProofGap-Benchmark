@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = cases{ x^{2} * sin(frac(1, x)) if x ≠ 0; 0 if x = 0 }
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(f, 1, 1)(x) = 2 * x * sin(frac(1, x)) - cos(frac(1, x))
+
+GOAL:
+FunDeri(f, 1, 1)(0) = lim_{ Δx → 0 } (frac(f(0 + Δx) - f(0), Δx))
+
+METHOD:

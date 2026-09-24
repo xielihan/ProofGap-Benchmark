@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. J : CartesianProd(IntegerSet, RealSet) → RealSet
+2. forall (n) (x), n ∈ IntegerSet ∧ x ∈ RealSet ⇒ J(n, x) = frac(1, π) * DefInt(0, π, (fun φ [φ ∈ RealSet] . cos(n * φ - x * sin(φ))) * diff(fun φ [φ ∈ RealSet] . φ))
+3. forall (n), n ∈ IntegerSet ⇒ (forall (x), n ∈ IntegerSet ∧ x ∈ RealSet ⇒ FunDeri(J, 2, 1)(n, x) = frac(1, π) * DefInt(0, π, (fun φ [φ ∈ RealSet] . sin(φ) * sin(n * φ - x * sin(φ))) * diff(fun φ [φ ∈ RealSet] . φ)))
+4. forall (n), n ∈ IntegerSet ⇒ (forall (x), n ∈ IntegerSet ∧ x ∈ RealSet ⇒ FunDeri(J, 2, 2)(n, x) = -frac(1, π) * DefInt(0, π, (fun φ [φ ∈ RealSet] . sin(φ)^{2} * cos(n * φ - x * sin(φ))) * diff(fun φ [φ ∈ RealSet] . φ)))
+5. forall (n), n ∈ IntegerSet ⇒ (forall (x), n ∈ IntegerSet ∧ x ∈ RealSet ⇒ x^{2} * FunDeri(J, 2, 2)(n, x) + x * FunDeri(J, 2, 1)(n, x) + (x^{2} - n^{2}) * J(n, x) = -frac(1, π) * DefInt(0, π, (fun φ [φ ∈ RealSet] . (x^{2} * sin(φ)^{2} + n^{2} - x^{2}) * cos(n * φ - x * sin(φ)) - x * sin(φ) * sin(n * φ - x * sin(φ))) * diff(fun φ [φ ∈ RealSet] . φ)))
+6. forall (n), n ∈ IntegerSet ⇒ (forall (x), n ∈ IntegerSet ∧ x ∈ RealSet ⇒ x^{2} * FunDeri(J, 2, 2)(n, x) + x * FunDeri(J, 2, 1)(n, x) + (x^{2} - n^{2}) * J(n, x) = -frac(1, π) * DefInt(0, π, (fun φ [φ ∈ RealSet] . (n^{2} - x^{2} * cos(φ)^{2}) * cos(n * φ - x * sin(φ)) - x * sin(φ) * sin(n * φ - x * sin(φ))) * diff(fun φ [φ ∈ RealSet] . φ)))
+
+GOAL:
+forall (n), n ∈ IntegerSet ⇒ (forall (x), n ∈ IntegerSet ∧ x ∈ RealSet ⇒ x^{2} * FunDeri(J, 2, 2)(n, x) + x * FunDeri(J, 2, 1)(n, x) + (x^{2} - n^{2}) * J(n, x) = -frac(1, π) * ((fun φ [φ ∈ RealSet] . (n + x * cos(φ)) * sin(n * φ - x * sin(φ)))|_{0}^{π}))
+
+METHOD:

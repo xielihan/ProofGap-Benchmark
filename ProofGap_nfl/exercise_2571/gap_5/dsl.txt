@@ -1,0 +1,7 @@
+1. get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 => (exists (m_{0}), m_{0} ∈ NonNegIntegerSet ∧ m_{0} ∈ PosIntegerSet ∧ seqlim_{ n → +∞ } (frac(n, n - m_{0})) = 1)}) (ε := {ε0})
+2. get_condition (hypothesis 11: {ε0 ∈ RealSet ∧ ε0 > 0}) in (GOAL: {ε0 ∈ RealSet ∧ ε0 > 0 => (exists (m_{0}), m_{0} ∈ NonNegIntegerSet ∧ m_{0} ∈ PosIntegerSet ∧ seqlim_{ n → +∞ } (frac(n, n - m_{0})) = 1)})
+3. exists (m_{0} := {1})
+4. assert (hypothesis 12: {seqlim_{ n → +∞ } (frac(n, n - 1)) = 1}) by proof {
+  1. autosolve all_hypothesis using LimitCalcSolver
+}
+5. autosolve all_hypothesis

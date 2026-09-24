@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = cases{ x * |cos(frac(π, x))| if x ≠ 0; 0 if x = 0 }
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ ¬(exists (k), k ∈ IntegerSet ∧ x = frac(2, 2 * k + 1)) ⇒ cos(frac(π, x)) ≠ 0
+
+METHOD:

@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 16: {x^{2} + y^{2} = a^{2} * (frac(u, v) + u * v)}); from (hypothesis 15: {exists (z), z ∈ RealSet ∧ z = x^{2} + y^{2}}) to (hypothesis 17: {exists (z), z ∈ RealSet ∧ z = a^{2} * (frac(u, v) + u * v)})
+apply (hypothesis 17: {exists (z), z ∈ RealSet ∧ z = a^{2} * (frac(u, v) + u * v)})

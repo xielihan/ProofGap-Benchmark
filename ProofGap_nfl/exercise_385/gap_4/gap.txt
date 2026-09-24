@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. ε ∈ RealSet ∧ ε > 0
+3. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ f(x) = ln(x) * sin(frac(π, x))^{2}
+4. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, ε) ⇒ f(x) < |ln(ε)|
+5. BoundedAboveFuncOn(f, IntervalLoRo(0, ε))
+6. exists (x), x : NonNegIntegerSet → RealSet ∧ IsSeq(x) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ∈ IntervalLoRo(0, ε)) ∧ seqlim_{ n → +∞ } (x(n)) = 0 ∧ seqlim_{ n → +∞ } (f(x(n))) = -∞
+
+GOAL:
+¬BoundedBelowFuncOn(f, IntervalLoRo(0, ε))
+
+METHOD:

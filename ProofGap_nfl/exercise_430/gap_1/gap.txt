@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. a ∈ RealSet
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n > 1 ⇒ frac(1, n) * (sum_{ i = 1 }^{ n - 1 } ((x + frac(i * a, n))^{2})) = frac(1, n) * ((n - 1) * x^{2} + frac(2 * a * x, n) * (sum_{ i = 1 }^{ n - 1 } (i)) + frac(a^{2}, n^{2}) * (sum_{ i = 1 }^{ n - 1 } (i^{2})))
+
+METHOD:

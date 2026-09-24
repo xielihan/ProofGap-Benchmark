@@ -1,0 +1,4 @@
+rewrite (left_to_right, equation) (hypothesis 15: {β = -a}); from (GOAL: {α * β + α * a + b * β + c = c_{1}}) to (GOAL: {α * (-a) + α * a + b * (-a) + c = c_{1}})
+rewrite (left_to_right, equation) (hypothesis 16: {α = -b}); from (GOAL: {α * (-a) + α * a + b * (-a) + c = c_{1}}) to (GOAL: {(-b) * (-a) + (-b) * a + b * (-a) + c = c_{1}})
+rewrite (left_to_right, equation) (hypothesis 17: {c_{1} = c - a * b}); from (GOAL: {(-b) * (-a) + (-b) * a + b * (-a) + c = c_{1}}) to (GOAL: {(-b) * (-a) + (-b) * a + b * (-a) + c = c - a * b})
+autosolve all_hypothesis

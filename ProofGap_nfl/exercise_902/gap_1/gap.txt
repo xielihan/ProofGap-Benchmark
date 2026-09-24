@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. y = (fun x . ln(tan(frac(x, 2) + frac(π, 4))))
+
+GOAL:
+forall (x) (k), x ∈ RealSet ∧ k ∈ IntegerSet ∧ |x - 2 * k * π| < frac(π, 2) ⇒ FunDeri(y, 1, 1)(x) = frac(1, tan(frac(x, 2) + frac(π, 4))) * sec(frac(x, 2) + frac(π, 4))^{2} * frac(1, 2) ∧ frac(1, tan(frac(x, 2) + frac(π, 4))) * sec(frac(x, 2) + frac(π, 4))^{2} * frac(1, 2) = frac(1, 2 * sin(frac(x, 2) + frac(π, 4)) * cos(frac(x, 2) + frac(π, 4))) ∧ frac(1, 2 * sin(frac(x, 2) + frac(π, 4)) * cos(frac(x, 2) + frac(π, 4))) = frac(1, sin(x + frac(π, 2))) ∧ frac(1, sin(x + frac(π, 2))) = frac(1, cos(x))
+
+METHOD:

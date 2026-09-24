@@ -1,0 +1,16 @@
+PROOF GAP @7
+ASSUM:
+1. z : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ z(x) = sqrtn(2, 1 - x^{2})
+3. C ∈ RealSet
+4. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ frac(x^{5}, sqrtn(2, 1 - x^{2})) = x^{5} * (1 - x^{2})^{-frac(1, 2)}
+5. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ 0 < z(x)
+6. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ z(x) ≤ 1
+7. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ x^{2} = 1 - z(x)^{2}
+8. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ x^{4} = (1 - z(x)^{2})^{2}
+9. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ x * diff(fun x [x ∈ RealSet ∧ -1 < x ∧ x < 1] . x) = -z(x) * diff(fun x [x ∈ RealSet ∧ -1 < x ∧ x < 1] . z(x))
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x^{5}, sqrtn(2, 1 - x^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_4` | forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ FunDeri(`F_4`, 1, 1)(x) = -(1 - z(x)^{2})^{2} * FunDeri(z, 1, 1)(x) }
+
+METHOD:

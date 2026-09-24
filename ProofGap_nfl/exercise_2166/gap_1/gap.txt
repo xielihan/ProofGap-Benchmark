@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+
+GOAL:
+|x| = sgn(x) * x
+
+METHOD:

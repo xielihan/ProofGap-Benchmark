@@ -1,0 +1,17 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. h ∈ RealSet ∧ h > 0
+3. z ∈ RealSet
+4. k ∈ RealSet ∧ k > 0
+5. `ρ_0` ∈ RealSet ∧ `ρ_0` > 0
+6. X ∈ RealSet
+7. Y ∈ RealSet
+8. Z ∈ RealSet
+9. X = k * `ρ_0` * VolumeInt({ (ξ, η, ζ) | ξ ∈ RealSet, η ∈ RealSet, ζ ∈ RealSet, ξ^{2} + η^{2} ≤ a^{2} ∧ 0 ≤ ζ ∧ ζ ≤ h }, frac(ξ, (ξ^{2} + η^{2} + (ζ - z)^{2})^{frac(3, 2)}) * diff(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . ξ) * diff(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . η) * diff(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . ζ))
+10. Y = k * `ρ_0` * VolumeInt({ (ξ, η, ζ) | ξ ∈ RealSet, η ∈ RealSet, ζ ∈ RealSet, ξ^{2} + η^{2} ≤ a^{2} ∧ 0 ≤ ζ ∧ ζ ≤ h }, frac(η, (ξ^{2} + η^{2} + (ζ - z)^{2})^{frac(3, 2)}) * diff(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . ξ) * diff(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . η) * diff(fun ξ, η, ζ [ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet] . ζ))
+
+GOAL:
+X = 0
+
+METHOD:

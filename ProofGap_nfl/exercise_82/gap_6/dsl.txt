@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ seqlim_{ n → +∞ } (|q|^{n + 1}) = 0}) (ε := {e0})
+get_condition (hypothesis 14: {e0 ∈ RealSet ∧ e0 > 0}) in (GOAL: {e0 ∈ RealSet ∧ e0 > 0 ⇒ seqlim_{ n → +∞ } (|q|^{n + 1}) = 0})
+get_prop (theorem 'Thm 480. (GeometricPowerSequenceTendsToZero)': {forall (r), r ∈ RealSet => |r| < 1 => seqlim_{n -> +∞} (r ^ (n + 1)) = 0}) (r := {|q|}) as (hypothesis 15: {|q| ∈ RealSet => ||q|| < 1 => seqlim_{n -> +∞} (|q| ^ (n + 1)) = 0})
+use_condition (obvious: {|q| ∈ RealSet}) (obvious: {||q|| < 1}) in (hypothesis 15: {|q| ∈ RealSet => ||q|| < 1 => seqlim_{n -> +∞} (|q| ^ (n + 1)) = 0}) as (hypothesis 16: {seqlim_{n -> +∞} (|q| ^ (n + 1)) = 0})
+apply (hypothesis 16: {seqlim_{n -> +∞} (|q| ^ (n + 1)) = 0})

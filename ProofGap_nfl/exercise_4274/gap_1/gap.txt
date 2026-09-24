@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. C ∈ RealSet
+3. forall (x), x ∈ RealSet
+4. forall (y), y ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ z(x, y) = DefInt(0, x, (fun x [x ∈ RealSet] . (x - y + 2) * e^{x + y} + y * e^{x}) * diff(fun x [x ∈ RealSet] . x)) + DefInt(0, y, (fun y [y ∈ RealSet] . 1 - y * e^{y}) * diff(fun y [y ∈ RealSet] . y)) + C)
+
+METHOD:

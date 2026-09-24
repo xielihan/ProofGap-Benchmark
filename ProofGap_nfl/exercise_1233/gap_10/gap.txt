@@ -1,0 +1,29 @@
+PROOF GAP @10
+ASSUM:
+1. D ∈ RealSet
+2. f : CartesianProd(RealSet, RealSet) → RealSet
+3. p : CartesianProd(IntegerSet, RealSet) → RealSet
+4. u : RealSet → RealSet
+5. I ⊆ RealSet
+6. λ ∈ RealSet
+7. n ∈ NonNegIntegerSet
+8. k ∈ IntegerSet
+9. IsSet(I)
+10. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ D = frac(diff, diff(fun x [x ∈ RealSet] . x))
+11. forall (k), k ∈ IntegerSet ∧ 0 ≤ k ∧ k ≤ n ⇒ ContinuousFuncOn(p(k), I)
+12. FuncOfClassKOn(u, I, n)
+13. forall (x) (T), x ∈ RealSet ∧ T ∈ RealSet ⇒ f(T) = sum_{ k = 0 }^{ n } (p(k, x) * T^{k})
+14. forall (x), x ∈ RealSet ⇒ (forall (k), k ∈ IntegerSet ∧ 0 ≤ k ∧ k ≤ n ⇒ D^{k}(e^{λ * x} * u(x)) = FunDeri(fun x [x ∈ RealSet] . e^{λ * x} * u(x), 1, k)(x))
+15. forall (x), x ∈ RealSet ⇒ (forall (k), k ∈ IntegerSet ∧ 0 ≤ k ∧ k ≤ n ⇒ FunDeri(fun x [x ∈ RealSet] . e^{λ * x} * u(x), 1, k)(x) = sum_{ i = 0 }^{ k } (Combination(k, i) * FunDeri(fun x [x ∈ RealSet] . e^{λ * x}, 1, i)(x) * FunDeri(u, 1, k - i)(x)))
+16. forall (x), x ∈ RealSet ⇒ (forall (k), k ∈ IntegerSet ∧ 0 ≤ k ∧ k ≤ n ⇒ sum_{ i = 0 }^{ k } (Combination(k, i) * FunDeri(fun x [x ∈ RealSet] . e^{λ * x}, 1, i)(x) * FunDeri(u, 1, k - i)(x)) = e^{λ * x} * (sum_{ i = 0 }^{ k } (Combination(k, i) * λ^{i} * FunDeri(u, 1, k - i)(x))))
+17. forall (x), x ∈ RealSet ⇒ (forall (k), k ∈ IntegerSet ∧ 0 ≤ k ∧ k ≤ n ⇒ (D + λ)^{k}(u(x)) = sum_{ i = 0 }^{ k } (Combination(k, i) * λ^{i} * D^{k - i}(u(x))))
+18. forall (x), x ∈ RealSet ⇒ (forall (k), k ∈ IntegerSet ∧ 0 ≤ k ∧ k ≤ n ⇒ (D + λ)^{k}(u(x)) = sum_{ i = 0 }^{ k } (Combination(k, i) * λ^{i} * FunDeri(u, 1, k - i)(x)))
+19. forall (x), x ∈ RealSet ⇒ (forall (k), k ∈ IntegerSet ∧ 0 ≤ k ∧ k ≤ n ⇒ D^{k}(e^{λ * x} * u(x)) = e^{λ * x} * (D + λ)^{k}(u(x)))
+20. forall (x), x ∈ RealSet ⇒ f(D, e^{λ * x} * u(x)) = sum_{ k = 0 }^{ n } (p(k, x) * D^{k}(e^{λ * x} * u(x)))
+21. forall (x), x ∈ RealSet ⇒ sum_{ k = 0 }^{ n } (p(k, x) * D^{k}(e^{λ * x} * u(x))) = e^{λ * x} * (sum_{ k = 0 }^{ n } (p(k, x) * (D + λ)^{k}(u(x))))
+22. forall (x), x ∈ RealSet ⇒ e^{λ * x} * (sum_{ k = 0 }^{ n } (p(k, x) * (D + λ)^{k}(u(x)))) = e^{λ * x} * f(D + λ, u(x))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ f(D, e^{λ * x} * u(x)) = e^{λ * x} * f(D + λ, u(x))
+
+METHOD:

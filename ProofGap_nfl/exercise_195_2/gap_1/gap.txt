@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. h ∈ RealSet ∧ h ≠ 0
+2. f : RealSet → RealSet
+3. φ : RealSet → RealSet
+4. forall (x), x ∈ RealSet ⇒ f(x) = x^{2}
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ frac(f(x + h) - f(x), h) = 2 * x + h
+
+METHOD:

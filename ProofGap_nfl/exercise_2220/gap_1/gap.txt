@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+lim_{ n → +∞ } (sum_{ i = 1 }^{ n } (frac(1, n + i))) = lim_{ n → +∞ } (sum_{ i = 1 }^{ n } (frac(1, 1 + frac(i, n)) * frac(1, n)))
+
+METHOD:

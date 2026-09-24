@@ -1,0 +1,16 @@
+PROOF GAP @1
+ASSUM:
+1. F : RealSet → RealSet
+2. f : RealSet → RealSet
+3. x ∈ RealSet ∧ x ∈ [0, 1]
+4. y ∈ RealSet
+5. m ∈ RealSet
+6. ContinuousFuncOn(f, [0, 1])
+7. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ f(x) > 0
+8. forall (y), y ∈ RealSet ∧ y ≠ 0 ⇒ F(y) = DefInt(0, 1, frac(y * f(x), x^{2} + y^{2}) * diff(fun x [x ∈ RealSet] . x))
+9. F(0) = 0
+
+GOAL:
+y ≠ 0 ⇒ ContinuousFuncOn(fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . frac(y * f(x), x^{2} + y^{2}), [0, 1])
+
+METHOD:

@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. m_{0} ∈ RealSet
+3. M_{0} ∈ RealSet
+4. f : IntervalLoRo(0, +∞) → RealSet
+5. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < +∞ ⇒ f(x) = sin(x)
+6. inf(ImageOn(f, IntervalLoRo(0, +∞))) = -1
+7. sup(ImageOn(f, IntervalLoRo(0, +∞))) = 1
+
+GOAL:
+(m_{0}, M_{0}) = (-1, 1) ⇒ inf(ImageOn(f, IntervalLoRo(0, +∞))) = m_{0} ∧ sup(ImageOn(f, IntervalLoRo(0, +∞))) = M_{0}
+
+METHOD:

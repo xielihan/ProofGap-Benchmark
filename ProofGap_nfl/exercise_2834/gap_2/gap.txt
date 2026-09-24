@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. x ∈ RealSet
+3. x ≠ 0
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = sin(frac(π, 2^{n}))
+5. lim_{ n → +∞ } (|frac(a(n), a(n + 1))|) = lim_{ n → +∞ } (frac(sin(frac(π, 2^{n})), sin(frac(π, 2^{n + 1}))))
+
+GOAL:
+lim_{ n → +∞ } (frac(sin(frac(π, 2^{n})), sin(frac(π, 2^{n + 1})))) = lim_{ n → +∞ } (frac(frac(π, 2^{n}), frac(π, 2^{n + 1})))
+
+METHOD:

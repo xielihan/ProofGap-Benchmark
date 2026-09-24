@@ -1,0 +1,14 @@
+PROOF GAP @12
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. S ∈ RealSet
+3. C ⊆ CartesianProd(RealSet, RealSet)
+4. x ∈ RealSet
+5. y ∈ RealSet
+6. C = { (x, y) | x ∈ RealSet, y ∈ RealSet, (x^{2} + y^{2})^{2} = a * (x^{3} - 3 * x * y^{2}) }
+7. S = a^{2} * DefInt(0, frac(π, 2), (16 * cos(θ)^{6} - 24 * cos(θ)^{4} + 9 * cos(θ)^{2}) * diff(fun θ [θ ∈ RealSet] . θ))
+
+GOAL:
+S = a^{2} * (16 * frac(5 * 3 * 1, 6 * 4 * 2) * frac(π, 2) - 24 * frac(3 * 1, 4 * 2) * frac(π, 2) + 9 * frac(1, 2) * frac(π, 2))
+
+METHOD:

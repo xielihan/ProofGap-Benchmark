@@ -1,0 +1,7 @@
+1. get_condition (hypothesis 58: {q > 1}) in (GOAL: {q > 1 ⇒ sigma > Q})
+2. use_condition (hypothesis 58: {q > 1}) in (hypothesis 57: {q > 1 ⇒ frac(2, a(1)) * (q - 1) * (sigma - Q) > 0}) as (hypothesis 59: {frac(2, a(1)) * (q - 1) * (sigma - Q) > 0})
+3. get_prop (hypothesis 12: {forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≤ n ⇒ a(k) > 0 ∧ b(k) > 0}) (k := {1}) as (hypothesis 60: {1 ∈ NonNegIntegerSet ∧ 1 ∈ PosIntegerSet ∧ 1 ≤ n ⇒ a(1) > 0 ∧ b(1) > 0})
+4. assert (hypothesis 61: {1 ∈ NonNegIntegerSet ∧ 1 ∈ PosIntegerSet ∧ 1 ≤ n})
+5. use_condition (hypothesis 61: {1 ∈ NonNegIntegerSet ∧ 1 ∈ PosIntegerSet ∧ 1 ≤ n}) in (hypothesis 60: {1 ∈ NonNegIntegerSet ∧ 1 ∈ PosIntegerSet ∧ 1 ≤ n ⇒ a(1) > 0 ∧ b(1) > 0}) as (hypothesis 62: {a(1) > 0 ∧ b(1) > 0})
+6. destruct_and (hypothesis 62: {a(1) > 0 ∧ b(1) > 0}) as (hypothesis 63: {a(1) > 0}) (hypothesis 64: {b(1) > 0})
+7. autosolve (hypothesis 58: {q > 1}) (hypothesis 59: {frac(2, a(1)) * (q - 1) * (sigma - Q) > 0}) (hypothesis 63: {a(1) > 0})

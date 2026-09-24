@@ -1,0 +1,16 @@
+PROOF GAP @7
+ASSUM:
+1. x ∈ RealSet ∧ x > 0
+2. C ∈ RealSet
+3. t = sqrtn(6, x)
+4. x = t^{6}
+5. diff(fun t [t ∈ RealSet] . x) = 6 * t^{5} * diff(fun t [t ∈ RealSet] . t)
+6. { `F_2` | forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, x * (1 + 2 * sqrtn(2, x) + sqrtn(3, x))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_4` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ FunDeri(`F_3`, 1, 1)(t) = frac(1, t * (1 + 2 * t^{3} + t^{2})) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_4`(t) = 6 * `F_3`(t)) }
+7. forall (t), t ∈ RealSet ⇒ 1 + 2 * t^{3} + t^{2} = (1 + t) * (2 * t^{2} - t + 1)
+8. { `F_6` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ FunDeri(`F_5`, 1, 1)(t) = frac(1, t * (1 + 2 * t^{3} + t^{2})) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_6`(t) = 6 * `F_5`(t)) } = { `F_8` | exists (`F_7`), `F_7` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ FunDeri(`F_7`, 1, 1)(t) = (frac(1, t) - frac(1, 4 * (1 + t)) - frac(6 * t - 1, 4 * (2 * t^{2} - t + 1))) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_8`(t) = 6 * `F_7`(t)) }
+9. { `F_10` | exists (`F_9`), `F_9` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ FunDeri(`F_9`, 1, 1)(t) = (frac(1, t) - frac(1, 4 * (1 + t)) - frac(6 * t - 1, 4 * (2 * t^{2} - t + 1))) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_10`(t) = 6 * `F_9`(t)) } = { `F_11` | exists (C), C ∈ RealSet ∧ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ `F_11`(t) = 6 * (ln(|t|) - frac(1, 4) * ln(|1 + t|) - frac(3, 8) * ln(2 * t^{2} - t + 1) - frac(1, 4 * sqrtn(2, 7)) * arctan(frac(4 * t - 1, sqrtn(2, 7)))) + C) }
+
+GOAL:
+{ `F_12` | forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_12`, 1, 1)(x) = frac(1, x * (1 + 2 * sqrtn(2, x) + sqrtn(3, x))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_13` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ (exists (t), t ∈ RealSet ∧ t > 0 ∧ t = sqrtn(6, x) ∧ `F_13`(x) = frac(3, 4) * ln(frac(t^{8}, (1 + t)^{2} * (2 * t^{2} - t + 1)^{3})) - frac(3, 2 * sqrtn(2, 7)) * arctan(frac(4 * t - 1, sqrtn(2, 7))) + C)) }
+
+METHOD:

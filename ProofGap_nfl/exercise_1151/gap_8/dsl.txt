@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 17: {lim_{ x → x_{0}^+ } (FunDeri(F, 1, 1)(x)) = lim_{ x → x_{0}^+ } (2 * a * (x - x_{0}) + b)}); from (GOAL: {lim_{ x → x_{0}^+ } (FunDeri(F, 1, 1)(x)) = 2 * a * (x_{0} - x_{0}) + b}) to (GOAL: {lim_{ x → x_{0}^+ } (2 * a * (x - x_{0}) + b) = 2 * a * (x_{0} - x_{0}) + b})
+apply (hypothesis 18: {lim_{ x → x_{0}^+ } (2 * a * (x - x_{0}) + b) = 2 * a * (x_{0} - x_{0}) + b})

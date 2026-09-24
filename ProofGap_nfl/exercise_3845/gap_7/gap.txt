@@ -1,0 +1,15 @@
+PROOF GAP @7
+ASSUM:
+1. B : CartesianProd(RealSet, RealSet) → RealSet
+2. Gamma : RealSet → RealSet
+3. forall (t) (x), t ∈ RealSet ∧ x ∈ RealSet ∧ t = x / (1 + x) ∧ x ∈ IntervalLoRo(0, +∞) ⇒ 0 < t
+4. forall (t) (x), t ∈ RealSet ∧ x ∈ RealSet ∧ t = x / (1 + x) ∧ x ∈ IntervalLoRo(0, +∞) ⇒ t < 1
+5. forall (t) (x), t ∈ RealSet ∧ x ∈ RealSet ∧ t = x / (1 + x) ∧ x ∈ IntervalLoRo(0, +∞) ⇒ 0 < 1
+6. forall (t) (x), t ∈ RealSet ∧ x ∈ RealSet ∧ t = x / (1 + x) ∧ x ∈ IntervalLoRo(0, +∞) ⇒ x = frac(t, 1 - t)
+7. forall (t) (x), t ∈ RealSet ∧ x ∈ RealSet ∧ t = x / (1 + x) ∧ x ∈ IntervalLoRo(0, +∞) ⇒ diff(fun x [x ∈ RealSet ∧ x > 0] . x) = frac(1, (1 - t)^{2}) * diff(fun t [t ∈ RealSet ∧ 0 < t ∧ t < 1] . t)
+8. DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . frac(sqrtn(4, x), (1 + x)^{2})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = DefInt(0, 1, (fun t [t ∈ RealSet ∧ 0 < t ∧ t < 1] . t^{frac(1, 4)} * (1 - t)^{-frac(1, 4)}) * diff(fun t [t ∈ RealSet ∧ 0 < t ∧ t < 1] . t))
+
+GOAL:
+DefInt(0, 1, (fun t [t ∈ RealSet ∧ 0 < t ∧ t < 1] . t^{frac(1, 4)} * (1 - t)^{-frac(1, 4)}) * diff(fun t [t ∈ RealSet ∧ 0 < t ∧ t < 1] . t)) = B(frac(5, 4), frac(3, 4))
+
+METHOD:

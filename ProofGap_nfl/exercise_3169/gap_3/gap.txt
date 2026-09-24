@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. E : RealSet → PowerSet(CartesianProd(CartesianProd(RealSet, RealSet), RealSet))
+3. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = (x + y)^{2} + z^{2}
+4. forall (a), a ∈ RealSet ∧ a ∈ NonNegRealSet ⇒ E(a) = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, (x + y)^{2} + z^{2} = a^{2} }
+5. forall (a), a ∈ RealSet ∧ a ∈ NonNegRealSet ∧ a = 0 ⇒ E(a) = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x + y = 0 ∧ z = 0 }
+6. forall (a) (x) (y) (z) (`x'`) (`y'`) (`z'`), a ∈ RealSet ∧ a ∈ NonNegRealSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ `x'` ∈ RealSet ∧ `y'` ∈ RealSet ∧ `z'` ∈ RealSet ∧ a > 0 ⇒ `x'` = frac(sqrtn(2, 2), 2) * (x + y)
+7. forall (a) (x) (y) (z) (`x'`) (`y'`) (`z'`), a ∈ RealSet ∧ a ∈ NonNegRealSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ `x'` ∈ RealSet ∧ `y'` ∈ RealSet ∧ `z'` ∈ RealSet ∧ a > 0 ⇒ `y'` = frac(sqrtn(2, 2), 2) * (-x + y)
+8. forall (a) (x) (y) (z) (`x'`) (`y'`) (`z'`), a ∈ RealSet ∧ a ∈ NonNegRealSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ `x'` ∈ RealSet ∧ `y'` ∈ RealSet ∧ `z'` ∈ RealSet ∧ a > 0 ⇒ `z'` = z
+
+GOAL:
+forall (a) (x) (y) (z) (`x'`) (`z'`), a ∈ RealSet ∧ a ∈ NonNegRealSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ `x'` ∈ RealSet ∧ `z'` ∈ RealSet ∧ a > 0 ⇒ (x + y)^{2} + z^{2} = 2 * `x'`^{2} + `z'`^{2}
+
+METHOD:

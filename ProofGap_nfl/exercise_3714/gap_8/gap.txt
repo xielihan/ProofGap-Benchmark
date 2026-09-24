@@ -1,0 +1,20 @@
+PROOF GAP @8
+ASSUM:
+1. f : RealSet → RealSet
+2. A ∈ RealSet
+3. B ∈ RealSet
+4. A < B
+5. ContinuousFuncOn(f, [A, B])
+6. F = (fun z [z ∈ RealSet] . DefInt(A, z, (fun t [t ∈ RealSet] . f(t)) * diff(fun t [t ∈ RealSet] . t)))
+7. forall (z), z ∈ RealSet ∧ z ∈ [A, B] ⇒ FunDeri(F, 1, 1)(z) = f(z)
+8. forall (x) (h), x ∈ RealSet ∧ A < x ∧ x < B ∧ h ∈ RealSet ∧ h > 0 ⇒ frac(1, h) * DefInt(A, x, (fun t [t ∈ RealSet] . f(t + h) - f(t)) * diff(fun t [t ∈ RealSet] . t)) = frac(1, h) * (F(x + h) - F(A + h) - F(x) + F(A))
+9. forall (x), x ∈ RealSet ∧ A < x ∧ x < B ⇒ lim_{ h → 0^+ } (frac(1, h) * DefInt(A, x, (fun t [t ∈ RealSet] . f(t + h) - f(t)) * diff(fun t [t ∈ RealSet] . t))) = (lim_{ h → 0^+ } (frac(F(x + h) - F(x), h))) - (lim_{ h → 0^+ } (frac(F(A + h) - F(A), h)))
+10. forall (x), x ∈ RealSet ∧ A < x ∧ x < B ⇒ lim_{ h → 0^+ } (frac(F(x + h) - F(x), h)) = FunDeri(F, 1, 1)(x)
+11. lim_{ h → 0^+ } (frac(F(A + h) - F(A), h)) = FunDeri(F, 1, 1)(A)
+12. forall (x), x ∈ RealSet ∧ A < x ∧ x < B ⇒ lim_{ h → 0^+ } (frac(1, h) * DefInt(A, x, (fun t [t ∈ RealSet] . f(t + h) - f(t)) * diff(fun t [t ∈ RealSet] . t))) = FunDeri(F, 1, 1)(x) - FunDeri(F, 1, 1)(A)
+13. forall (x), x ∈ RealSet ∧ A < x ∧ x < B ⇒ FunDeri(F, 1, 1)(x) - FunDeri(F, 1, 1)(A) = f(x) - f(A)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ A < x ∧ x < B ⇒ lim_{ h → 0^+ } (frac(1, h) * DefInt(A, x, (fun t [t ∈ RealSet] . f(t + h) - f(t)) * diff(fun t [t ∈ RealSet] . t))) = f(x) - f(A)
+
+METHOD:

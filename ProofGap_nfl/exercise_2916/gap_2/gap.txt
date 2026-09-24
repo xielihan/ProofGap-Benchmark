@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. z ∈ ComplexSet
+2. c : NonNegIntegerSet → ComplexSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n ∈ PosIntegerSet ⇒ c(n) = frac(1, n * 2^{n})
+4. seqlim_{ n → +∞ } (|frac(c(n), c(n + 1))|) = 2
+
+GOAL:
+RadiusOfConvergence(c) = 2
+
+METHOD:

@@ -1,0 +1,27 @@
+PROOF GAP @11
+ASSUM:
+1. f : RealSet → RealSet
+2. n ∈ IntegerSet
+3. m ∈ IntegerSet
+4. a ∈ RealSet
+5. b ∈ RealSet
+6. p ∈ RealSet
+7. forall (x), x ∈ RealSet ∧ x ∈ RealSet \ IntegerSet ⇒ f(x) = sum_{ n = -∞ }^{ +∞ } (frac(1, (n - x)^{2}))
+8. forall (x), x ∈ RealSet ∧ x ∉ IntegerSet ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac(1, (n - x)^{2})))
+9. forall (x), x ∈ RealSet ∧ x ∉ IntegerSet ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, (-n - x)^{2})))
+10. forall (x), x ∈ RealSet ∧ x ∈ RealSet \ IntegerSet ⇒ ConvergentSeries(sum_{ n = -∞ }^{ +∞ } (frac(1, (n - x)^{2})))
+11. Defined(f, RealSet \ IntegerSet)
+12. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ RealSet \ IntegerSet ⇒ a = a
+13. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ RealSet \ IntegerSet ⇒ b = b
+14. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ RealSet \ IntegerSet ∧ floor(x_{0}) < a ∧ a < x_{0} ∧ x_{0} < b ∧ b < floor(x_{0}) + 1 ⇒ p = max(|a|, |b|)
+15. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ RealSet \ IntegerSet ∧ floor(x_{0}) < a ∧ a < x_{0} ∧ x_{0} < b ∧ b < floor(x_{0}) + 1 ⇒ (forall (n) (x) (a) (b), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [a, b] ∧ n > p ⇒ |frac(1, (n - x)^{2})| ≤ frac(1, (n - p)^{2}))
+16. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ RealSet \ IntegerSet ∧ floor(x_{0}) < a ∧ a < x_{0} ∧ x_{0} < b ∧ b < floor(x_{0}) + 1 ⇒ (forall (n) (x) (a) (b), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [a, b] ∧ n > p ⇒ |frac(1, (-n - x)^{2})| ≤ frac(1, (n - p)^{2}))
+17. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ RealSet \ IntegerSet ∧ floor(x_{0}) < a ∧ a < x_{0} ∧ x_{0} < b ∧ b < floor(x_{0}) + 1 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac(1, (n - p)^{2})))
+18. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ RealSet \ IntegerSet ∧ floor(x_{0}) < a ∧ a < x_{0} ∧ x_{0} < b ∧ b < floor(x_{0}) + 1 ⇒ UniformConvergent(fun N [N ∈ NonNegIntegerSet] . fun x [x ∈ RealSet] . sum_{ n = 0 }^{ N } (frac(1, (n - x)^{2})), [a, b], fun x [x ∈ RealSet] . sum_{ n = 0 }^{ +∞ } (frac(1, (n - x)^{2})))
+19. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ RealSet \ IntegerSet ∧ floor(x_{0}) < a ∧ a < x_{0} ∧ x_{0} < b ∧ b < floor(x_{0}) + 1 ⇒ UniformConvergent(fun N [N ∈ NonNegIntegerSet] . fun x [x ∈ RealSet] . sum_{ n = 1 }^{ N } (frac(1, (-n - x)^{2})), [a, b], fun x [x ∈ RealSet] . sum_{ n = 1 }^{ +∞ } (frac(1, (-n - x)^{2})))
+20. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ RealSet \ IntegerSet ∧ floor(x_{0}) < a ∧ a < x_{0} ∧ x_{0} < b ∧ b < floor(x_{0}) + 1 ⇒ UniformConvergent(fun N [N ∈ NonNegIntegerSet] . fun x [x ∈ RealSet] . sum_{ n = -N }^{ N } (frac(1, (n - x)^{2})), [a, b], f)
+
+GOAL:
+forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ RealSet \ IntegerSet ∧ floor(x_{0}) < a ∧ a < x_{0} ∧ x_{0} < b ∧ b < floor(x_{0}) + 1 ⇒ ContinuousFuncOn(f, [a, b])
+
+METHOD:

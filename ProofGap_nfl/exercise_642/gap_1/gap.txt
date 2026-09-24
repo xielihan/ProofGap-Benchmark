@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : (RealSet \ { 0 }) → RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = sin(frac(1, x))
+3. Dom(f) = RealSet \ { 0 }
+GOAL:
+forall (α), α ∈ RealSet ∧ -1 ≤ α ∧ α ≤ 1 ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [-frac(π, 2), frac(π, 2)] ∧ sin(x_{0}) = α)
+
+METHOD:

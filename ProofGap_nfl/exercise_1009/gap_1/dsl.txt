@@ -1,0 +1,10 @@
+assert (hypothesis 3: {forall (x), (x ∈ RealSet /\ x ≠ 0) => f(x) = x * sin(frac(1, x))}) by proof {
+  get_forall (GOAL: {forall (x), (x ∈ RealSet /\ x ≠ 0) => f(x) = x * sin(frac(1, x))}) (x := {y})
+  get_condition (hypothesis 3: {y ∈ RealSet /\ y ≠ 0}) in (GOAL: {(y ∈ RealSet /\ y ≠ 0) => f(y) = y * sin(frac(1, y))})
+  destruct_and (hypothesis 3: {y ∈ RealSet /\ y ≠ 0}) as (hypothesis 4: {y ∈ RealSet}) (hypothesis 5: {y ≠ 0})
+  get_prop (hypothesis 2: {forall (x), x ∈ RealSet => f(x) = cases{ x * sin(frac(1, x)) if x ≠ 0; 0 if x = 0 }}) (x := {y}) as (hypothesis 6: {y ∈ RealSet => f(y) = cases{ y * sin(frac(1, y)) if y ≠ 0; 0 if y = 0 }})
+  use_condition (hypothesis 4: {y ∈ RealSet}) in (hypothesis 6: {y ∈ RealSet => f(y) = cases{ y * sin(frac(1, y)) if y ≠ 0; 0 if y = 0 }}) as (hypothesis 7: {f(y) = cases{ y * sin(frac(1, y)) if y ≠ 0; 0 if y = 0 }})
+  autosolve all_hypothesis
+}
+rewrite_in limit (left_to_right, equation) (hypothesis 3: {forall (x), (x ∈ RealSet /\ x ≠ 0) => f(x) = x * sin(frac(1, x))}); from (GOAL: {lim_{ x → 0 } (f(x)) = lim_{ x → 0 } (x * sin(frac(1, x)))}) to (GOAL: {lim_{ x → 0 } (x * sin(frac(1, x))) = lim_{ x → 0 } (x * sin(frac(1, x)))})
+autosolve all_hypothesis

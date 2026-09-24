@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet ∧ x ≠ -2 ∧ x ≠ 1
+2. C ∈ RealSet
+3. frac(x^{10}, x^{2} + x - 2) = x^{8} - x^{7} + 3 * x^{6} - 5 * x^{5} + 11 * x^{4} - 21 * x^{3} + 43 * x^{2} - 85 * x + 171 + frac(-341 * x + 342, x^{2} + x - 2)
+4. A = -frac(1024, 3)
+5. B = frac(1, 3)
+
+GOAL:
+frac(-341 * x + 342, x^{2} + x - 2) = frac(A, x + 2) + frac(B, x - 1)
+
+METHOD:

@@ -1,0 +1,3 @@
+get_prop (hypothesis 8: {forall (x), x ∈ RealSet ⇒ x = 0}) (x := {1}) as (hypothesis 12: {1 ∈ RealSet ⇒ 1 = 0})
+use_condition (obvious: {1 ∈ RealSet}) in (hypothesis 12: {1 ∈ RealSet ⇒ 1 = 0}) as (hypothesis 13: {1 = 0})
+autosolve (hypothesis 13: {1 = 0})

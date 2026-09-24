@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 1 ⇒ ρ(x(t), y(t), z(t)) = t}) (t := {v})
+get_condition (hypothesis 21: {v ∈ RealSet ∧ 0 ≤ v ∧ v ≤ 1}) in (GOAL: {v ∈ RealSet ∧ 0 ≤ v ∧ v ≤ 1 ⇒ ρ(x(v), y(v), z(v)) = v})
+get_prop (hypothesis 19: {forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 1 ⇒ ρ(x(t), y(t), z(t)) = sqrtn(2, frac(2 * y(t), a))}) (t := {v}) as (hypothesis 22: {v ∈ RealSet ∧ 0 ≤ v ∧ v ≤ 1 ⇒ ρ(x(v), y(v), z(v)) = sqrtn(2, frac(2 * y(v), a))})
+use_condition (hypothesis 21: {v ∈ RealSet ∧ 0 ≤ v ∧ v ≤ 1}) in (hypothesis 22: {v ∈ RealSet ∧ 0 ≤ v ∧ v ≤ 1 ⇒ ρ(x(v), y(v), z(v)) = sqrtn(2, frac(2 * y(v), a))}) as (hypothesis 23: {ρ(x(v), y(v), z(v)) = sqrtn(2, frac(2 * y(v), a))})
+get_prop (hypothesis 20: {forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 1 ⇒ sqrtn(2, frac(2 * y(t), a)) = t}) (t := {v}) as (hypothesis 24: {v ∈ RealSet ∧ 0 ≤ v ∧ v ≤ 1 ⇒ sqrtn(2, frac(2 * y(v), a)) = v})
+use_condition (hypothesis 21: {v ∈ RealSet ∧ 0 ≤ v ∧ v ≤ 1}) in (hypothesis 24: {v ∈ RealSet ∧ 0 ≤ v ∧ v ≤ 1 ⇒ sqrtn(2, frac(2 * y(v), a)) = v}) as (hypothesis 25: {sqrtn(2, frac(2 * y(v), a)) = v})
+rewrite (left_to_right, equation) (hypothesis 25: {sqrtn(2, frac(2 * y(v), a)) = v}); from (hypothesis 23: {ρ(x(v), y(v), z(v)) = sqrtn(2, frac(2 * y(v), a))}) to (hypothesis 23: {ρ(x(v), y(v), z(v)) = v})
+apply (hypothesis 23: {ρ(x(v), y(v), z(v)) = v})

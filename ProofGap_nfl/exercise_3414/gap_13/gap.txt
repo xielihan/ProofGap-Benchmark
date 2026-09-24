@@ -1,0 +1,42 @@
+PROOF GAP @13
+ASSUM:
+1. φ : CartesianProd(RealSet, RealSet) → RealSet
+2. ψ : CartesianProd(RealSet, RealSet) → RealSet
+3. u : CartesianProd(RealSet, RealSet) → RealSet
+4. v : CartesianProd(RealSet, RealSet) → RealSet
+5. I ∈ RealSet
+6. x ∈ RealSet
+7. y ∈ RealSet
+8. forall (x) (y) (u) (v), x ∈ RealSet ∧ y ∈ RealSet ∧ u ∈ RealSet ∧ v ∈ RealSet ⇒ x = φ(u, v) ∧ y = ψ(u, v)
+9. FuncOfClassK(φ, 2)
+10. FuncOfClassK(ψ, 2)
+11. I = FunDeri(φ, 1, 1)(u, v) * FunDeri(ψ, 2, 1)(u, v) - FunDeri(φ, 2, 1)(u, v) * FunDeri(ψ, 1, 1)(u, v)
+12. I ≠ 0
+13. `φ_{1}` = FunDeri(φ, 1, 1)(u, v)
+14. `φ_{2}` = FunDeri(φ, 2, 1)(u, v)
+15. `ψ_{1}` = FunDeri(ψ, 1, 1)(u, v)
+16. `ψ_{2}` = FunDeri(ψ, 2, 1)(u, v)
+17. `φ_{11}` = FunDeri(φ, 1, 2)(u, v)
+18. `φ_{12}` = FunDeri(FunDeri(φ, 1, 1), 2, 1)(u, v)
+19. `φ_{22}` = FunDeri(φ, 2, 2)(u, v)
+20. `ψ_{11}` = FunDeri(ψ, 1, 2)(u, v)
+21. `ψ_{12}` = FunDeri(FunDeri(ψ, 1, 1), 2, 1)(u, v)
+22. `ψ_{22}` = FunDeri(ψ, 2, 2)(u, v)
+23. diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) = `φ_{1}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y)) + `φ_{2}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . v(x, y))
+24. diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) = `ψ_{1}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y)) + `ψ_{2}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . v(x, y))
+25. 0 = `φ_{11}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y))^{2} + 2 * `φ_{12}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . v(x, y)) + `φ_{22}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . v(x, y))^{2} + `φ_{1}` * diff^{2}(u) + `φ_{2}` * diff^{2}(v)
+26. 0 = `ψ_{11}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y))^{2} + 2 * `ψ_{12}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . v(x, y)) + `ψ_{22}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . v(x, y))^{2} + `ψ_{1}` * diff^{2}(u) + `ψ_{2}` * diff^{2}(v)
+27. diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y)) = frac(1, I) * (`ψ_{2}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - `φ_{2}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+28. diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . v(x, y)) = frac(1, I) * (`φ_{1}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) - `ψ_{1}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x))
+29. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . u, 1, 1)(x, y) = frac(`ψ_{2}`, I)
+30. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . u, 2, 1)(x, y) = -frac(`φ_{2}`, I)
+31. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . v, 1, 1)(x, y) = -frac(`ψ_{1}`, I)
+32. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . v, 2, 1)(x, y) = frac(`φ_{1}`, I)
+33. diff^{2}(u) = frac(1, I) * (`φ_{2}` * (`ψ_{11}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y))^{2} + 2 * `ψ_{12}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . v(x, y)) + `ψ_{22}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . v(x, y))^{2}) - `ψ_{2}` * (`φ_{11}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y))^{2} + 2 * `φ_{12}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . v(x, y)) + `φ_{22}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . v(x, y))^{2}))
+34. diff^{2}(v) = frac(1, I) * (`ψ_{1}` * (`φ_{11}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y))^{2} + 2 * `φ_{12}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . v(x, y)) + `φ_{22}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . v(x, y))^{2}) - `φ_{1}` * (`ψ_{11}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y))^{2} + 2 * `ψ_{12}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . v(x, y)) + `ψ_{22}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . v(x, y))^{2}))
+
+GOAL:
+diff^{2}(u) = frac(1, I^{3}) * ((`φ_{2}` * `ψ_{11}` - `ψ_{2}` * `φ_{11}`) * (`ψ_{2}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - `φ_{2}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))^{2} + 2 * (`φ_{2}` * `ψ_{12}` - `ψ_{2}` * `φ_{12}`) * (`ψ_{2}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - `φ_{2}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) * (`φ_{1}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) - `ψ_{1}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)) + (`φ_{2}` * `ψ_{22}` - `ψ_{2}` * `φ_{22}`) * (`φ_{1}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) - `ψ_{1}` * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x))^{2})
+
+METHOD:
+[@method 代入 diff(fun x, y . u(x, y)) = frac(1, I) * (`ψ_{2}` * diff(fun x, y . x) - `φ_{2}` * diff(fun x, y . y)), diff(fun x, y . v(x, y)) = frac(1, I) * (`φ_{1}` * diff(fun x, y . y) - `ψ_{1}` * diff(fun x, y . x)) 到 diff^{2}(u) @]

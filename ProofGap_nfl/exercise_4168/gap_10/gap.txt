@@ -1,0 +1,33 @@
+PROOF GAP @10
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. x ∈ RealSet
+3. y ∈ RealSet
+4. F : CartesianProd(RealSet, RealSet) → RealSet
+5. Ω ⊆ CartesianProd(RealSet, RealSet)
+6. Ω_{1} ⊆ CartesianProd(RealSet, RealSet)
+7. A ∈ RealSet
+8. B ∈ RealSet
+9. J ∈ RealSet
+10. I : NonNegIntegerSet → RealSet
+11. F = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(x^{2} - y^{2}, (x^{2} + y^{2})^{2}))
+12. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ Ω = { (x, y) | x ∈ RealSet, y ∈ RealSet, x ≥ 1 ∧ y ≥ 1 })
+13. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ Ω_{1} = { (x, y) | x ∈ RealSet, y ∈ RealSet, x ≥ 1 ∧ 1 ≤ y ∧ y ≤ x })
+14. A = DefInt(1, +∞, (fun x [x ∈ RealSet] . DefInt(1, +∞, (fun y [y ∈ RealSet] . F(x, y)) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+15. B = DefInt(1, +∞, (fun y [y ∈ RealSet] . DefInt(1, +∞, (fun x [x ∈ RealSet] . F(x, y)) * diff(fun x [x ∈ RealSet] . x))) * diff(fun y [y ∈ RealSet] . y))
+16. J = VolumeInt(Ω_{1}, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . F(x, y)) * diff(ω))
+17. forall (x), x ∈ RealSet ∧ x ≥ 1 ⇒ DefInt(1, +∞, (fun y [y ∈ RealSet] . F(x, y)) * diff(fun y [y ∈ RealSet] . y)) = DefInt(1, +∞, (fun y [y ∈ RealSet] . frac(x^{2} - y^{2}, (x^{2} + y^{2})^{2})) * diff(fun y [y ∈ RealSet] . y))
+18. forall (x), x ∈ RealSet ∧ x ≥ 1 ⇒ DefInt(1, +∞, (fun y [y ∈ RealSet] . frac(x^{2} - y^{2}, (x^{2} + y^{2})^{2})) * diff(fun y [y ∈ RealSet] . y)) = -frac(1, x^{2} + 1)
+19. A = DefInt(1, +∞, (fun x [x ∈ RealSet] . -frac(1, x^{2} + 1)) * diff(fun x [x ∈ RealSet] . x))
+20. DefInt(1, +∞, (fun x [x ∈ RealSet] . -frac(1, x^{2} + 1)) * diff(fun x [x ∈ RealSet] . x)) = -frac(π, 4)
+21. A = -frac(π, 4)
+22. forall (y), y ∈ RealSet ∧ y ≥ 1 ⇒ DefInt(1, +∞, (fun x [x ∈ RealSet] . F(x, y)) * diff(fun x [x ∈ RealSet] . x)) = frac(1, y^{2} + 1)
+23. B = DefInt(1, +∞, (fun y [y ∈ RealSet] . frac(1, y^{2} + 1)) * diff(fun y [y ∈ RealSet] . y))
+24. DefInt(1, +∞, (fun y [y ∈ RealSet] . frac(1, y^{2} + 1)) * diff(fun y [y ∈ RealSet] . y)) = frac(π, 4)
+25. B = frac(π, 4)
+26. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ⇒ I(n) = VolumeInt({ (x, y) | x ∈ RealSet, y ∈ RealSet, 1 ≤ x ∧ x ≤ n ∧ 1 ≤ y ∧ y ≤ x }, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . F(x, y)) * diff(ω))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ⇒ I(n) = DefInt(1, n, (fun x [x ∈ RealSet] . DefInt(1, x, (fun y [y ∈ RealSet] . F(x, y)) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

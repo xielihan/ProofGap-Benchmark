@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x > 0 ⇒ x + e^{x} > 0
+2. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x + e^{x} > 0 ⇒ (x + e^{x})^{frac(1, x)} = e * (1 + frac(x, e^{x}))^{frac(e^{x}, x) * e^{-x}}
+
+GOAL:
+lim_{ x → 0 } ((1 + frac(x, e^{x}))^{frac(e^{x}, x)}) = e
+
+METHOD:

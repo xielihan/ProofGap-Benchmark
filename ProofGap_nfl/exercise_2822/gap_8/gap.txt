@@ -1,0 +1,25 @@
+PROOF GAP @8
+ASSUM:
+1. x ∈ RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. c : NonNegIntegerSet → RealSet
+5. θ ∈ RealSet
+6. a > 0
+7. b > 0
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ c(n) = frac(1, a^{n} + b^{n})
+9. θ = frac(min(a, b), max(a, b))
+10. 0 < θ
+11. θ ≤ 1
+12. seqlim_{ n → +∞ } (|frac(c(n), c(n + 1))|) = seqlim_{ n → +∞ } (max(a, b) * frac(1 + θ^{n + 1}, 1 + θ^{n}))
+13. seqlim_{ n → +∞ } (max(a, b) * frac(1 + θ^{n + 1}, 1 + θ^{n})) = max(a, b)
+14. seqlim_{ n → +∞ } (|frac(c(n), c(n + 1))|) = max(a, b)
+15. RadiusOfConvergence(c) = max(a, b)
+16. forall (x), x ∈ RealSet ∧ |x| < max(a, b) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n) * x^{n}))
+17. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ |x| = max(a, b) ⇒ |c(n) * x^{n}| = frac(max(a, b)^{n}, a^{n} + b^{n})
+18. |x| = max(a, b) ⇒ seqlim_{ n → +∞ } (frac(max(a, b)^{n}, a^{n} + b^{n})) = 1
+
+GOAL:
+|x| = max(a, b) ⇒ ¬seqlim_{ n → +∞ } (c(n) * x^{n}) = 0
+
+METHOD:

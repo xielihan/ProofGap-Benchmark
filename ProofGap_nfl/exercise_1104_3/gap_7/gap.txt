@@ -1,0 +1,18 @@
+PROOF GAP @7
+ASSUM:
+1. 11 ∈ RealSet ∧ 11 > 0
+2. -1 ∈ RealSet ∧ 11^{2} - 1 ≥ 0
+3. f = (fun y [y ∈ RealSet ∧ y ≥ 0] . sqrtn(2, y))
+4. y_{0} = 11^{2}
+5. Δy = -1
+6. y_{0} + Δy = 11^{2} - 1
+7. f(y_{0} + Δy) ≈_{ |Δy|^{2} } f(y_{0}) + FunDeri(f, 1, 1)(y_{0}) * Δy
+8. FunDeri(f, 1, 1)(y_{0}) = frac(1, 2 * sqrtn(2, y_{0}))
+9. sqrtn(2, y_{0}) = 11
+10. sqrtn(2, 11^{2} - 1) ≈_{ |-1|^{2} } 11 + frac(-1, 2 * 11)
+11. sqrtn(2, 120) = sqrtn(2, 11^{2} - 1)
+
+GOAL:
+sqrtn(2, 11^{2} - 1) ≈_{ |-1|^{2} } 11 - frac(1, 2 * 11)
+
+METHOD:

@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. θ : CartesianProd(RealSet, RealSet) → RealSet
+2. f : RealSet → RealSet
+3. forall (a), a ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ a ∈ PosRealSet ∧ n ∈ PosIntegerSet ⇒ f = (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(1, x + a)))
+
+GOAL:
+forall (a), a ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ a ∈ PosRealSet ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ f(x) = (sum_{ k = 1 }^{ n } (frac((-1)^{k - 1} * x^{k - 1}, a^{k}))) + (-1)^{n} * θ(0, x) * frac(x^{n}, a^{n + 1})))
+
+METHOD:

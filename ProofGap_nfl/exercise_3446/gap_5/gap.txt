@@ -1,0 +1,20 @@
+PROOF GAP @5
+ASSUM:
+1. Φ : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. y : RealSet → RealSet
+3. u : RealSet → RealSet
+4. x_{0} ∈ RealSet
+5. I ⊆ RealSet
+6. x_{0} ∈ I
+7. FuncOfClassKOn(u, I, 1)
+8. forall (t), t ∈ RealSet ∧ t ∈ I ⇒ (forall (x), x ∈ RealSet ∧ x ∈ I ⇒ y(x) = e^{DefInt(x_{0}, x, u(t) * diff(fun t [t ∈ RealSet] . t))})
+9. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ Φ(y(x), FunDeri(y, 1, 1)(x), FunDeri(y, 1, 2)(x)) = 0
+10. forall (t), t ∈ RealSet ∧ t ∈ I ⇒ (forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(y, 1, 1)(x) = u(x) * e^{DefInt(x_{0}, x, u(t) * diff(fun t [t ∈ RealSet] . t))})
+11. forall (t), t ∈ RealSet ∧ t ∈ I ⇒ (forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(y, 1, 2)(x) = (FunDeri(u, 1, 1)(x) + u(x)^{2}) * e^{DefInt(x_{0}, x, u(t) * diff(fun t [t ∈ RealSet] . t))})
+12. forall (t), t ∈ RealSet ∧ t ∈ I ⇒ (forall (x), x ∈ RealSet ∧ x ∈ I ⇒ Φ(e^{DefInt(x_{0}, x, u(t) * diff(fun t [t ∈ RealSet] . t))}, u(x) * e^{DefInt(x_{0}, x, u(t) * diff(fun t [t ∈ RealSet] . t))}, (FunDeri(u, 1, 1)(x) + u(x)^{2}) * e^{DefInt(x_{0}, x, u(t) * diff(fun t [t ∈ RealSet] . t))}) = 0)
+13. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ Φ(1, u(x), FunDeri(u, 1, 1)(x) + u(x)^{2}) = 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ I ⇒ Φ(1, u(x), FunDeri(u, 1, 1)(x) + u(x)^{2}) = 0
+
+METHOD:

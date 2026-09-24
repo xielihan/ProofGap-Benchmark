@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. Δx ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = x^{3} - 2 * x + 1
+
+GOAL:
+f(1 + Δx) - f(1) = (1 + Δx)^{3} - 2 * (1 + Δx) + 1 - (1 - 2 + 1)
+
+METHOD:

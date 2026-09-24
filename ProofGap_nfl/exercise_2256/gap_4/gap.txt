@@ -1,0 +1,17 @@
+PROOF GAP @4
+ASSUM:
+1. A ∈ RealSet
+2. B ∈ RealSet
+3. a ∈ RealSet ∧ A ≤ a
+4. b ∈ RealSet ∧ a ≤ b
+5. f : RealSet → RealSet ∧ ContinuousFuncOn(f, [A, B])
+6. x ∈ RealSet ∧ [a - x, b - x] ⊆ [A, B] ∧ [a + x, b + x] ⊆ [A, B]
+7. b ≤ B
+8. DefInt(a, b, (fun y [y ∈ RealSet ∧ y ∈ [a, b]] . f(x + y)) * diff(fun y [y ∈ RealSet ∧ y ∈ [a, b]] . y)) = DefInt(a + x, b + x, (fun y [y ∈ RealSet ∧ y ∈ [a + x, b + x]] . f(y)) * diff(fun y [y ∈ RealSet ∧ y ∈ [a + x, b + x]] . y))
+9. FunDeri(fun x [x ∈ RealSet] . DefInt(a, b, (fun y [y ∈ RealSet ∧ y ∈ [a, b]] . f(x + y)) * diff(fun y [y ∈ RealSet ∧ y ∈ [a, b]] . y)), 1, 1)(x) = FunDeri(fun x [x ∈ RealSet] . DefInt(a + x, b + x, (fun y [y ∈ RealSet ∧ y ∈ [a + x, b + x]] . f(y)) * diff(fun y [y ∈ RealSet ∧ y ∈ [a + x, b + x]] . y)), 1, 1)(x)
+10. FunDeri(fun x [x ∈ RealSet] . DefInt(a + x, b + x, (fun y [y ∈ RealSet ∧ y ∈ [a + x, b + x]] . f(y)) * diff(fun y [y ∈ RealSet ∧ y ∈ [a + x, b + x]] . y)), 1, 1)(x) = f(b + x) - f(a + x)
+
+GOAL:
+FunDeri(fun x [x ∈ RealSet] . DefInt(a, b, (fun y [y ∈ RealSet ∧ y ∈ [a, b]] . f(x + y)) * diff(fun y [y ∈ RealSet ∧ y ∈ [a, b]] . y)), 1, 1)(x) = f(b + x) - f(a + x)
+
+METHOD:

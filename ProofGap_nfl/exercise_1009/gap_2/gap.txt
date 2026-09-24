@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = cases{ x * sin(frac(1, x)) if x ≠ 0; 0 if x = 0 }
+3. lim_{ x → 0 } (f(x)) = lim_{ x → 0 } (x * sin(frac(1, x)))
+
+GOAL:
+lim_{ x → 0 } (x * sin(frac(1, x))) = 0
+
+METHOD:

@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 20: {DefInt(-frac(π, 2), frac(π, 2), cos(φ)^{2} * diff(fun φ [φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2)] . φ)) = frac(π, 2)}); from (hypothesis 19: {S = 2 * sqrtn(2, 2) * DefInt(-frac(π, 2), frac(π, 2), cos(φ)^{2} * diff(fun φ [φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2)] . φ))}) to (hypothesis 19: {S = 2 * sqrtn(2, 2) * frac(π, 2)})
+autosolve (hypothesis 19: {S = 2 * sqrtn(2, 2) * frac(π, 2)})

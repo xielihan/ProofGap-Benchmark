@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 9: {F = (fun r, h, λ [r ∈ RealSet ∧ h ∈ RealSet ∧ λ ∈ RealSet] . r^{2} * h - λ * (r^{2} + r * h - frac(S, π)))}); from (GOAL: {FunDeri(F, 1, 1)(r, h, λ) = 2 * r * h - λ * (2 * r + h)}) to (GOAL: {FunDeri((fun r, h, λ [r ∈ RealSet ∧ h ∈ RealSet ∧ λ ∈ RealSet] . r^{2} * h - λ * (r^{2} + r * h - frac(S, π))), 1, 1)(r, h, λ) = 2 * r * h - λ * (2 * r + h)})
+autosolve all_hypothesis

@@ -1,0 +1,22 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. a : NonNegIntegerSet → RealSet
+3. b : NonNegIntegerSet → RealSet
+4. h ∈ RealSet
+5. abar : NonNegIntegerSet → RealSet
+6. bbar : NonNegIntegerSet → RealSet
+7. IntegrableFunc(f)
+8. PeriodicFunc(f, 2 * π)
+9. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ a(n) = frac(1, π) * DefInt(-π, π, f(x) * cos(n * x) * diff(fun x [x ∈ RealSet] . x)))
+10. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = frac(1, π) * DefInt(-π, π, f(x) * sin(n * x) * diff(fun x [x ∈ RealSet] . x)))
+11. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ abar(n) = frac(1, π) * DefInt(-π, π, f(x + h) * cos(n * x) * diff(fun x [x ∈ RealSet] . x)))
+12. forall (y), y ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ abar(n) = frac(1, π) * DefInt(-π + h, π + h, f(y) * (cos(n * h) * cos(n * y) + sin(n * h) * sin(n * y)) * diff(fun y [y ∈ RealSet] . y)))
+13. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ abar(n) = frac(1, π) * (DefInt(-π, π, f(x) * cos(n * x) * cos(n * h) * diff(fun x [x ∈ RealSet] . x)) + DefInt(-π, π, f(x) * sin(n * x) * sin(n * h) * diff(fun x [x ∈ RealSet] . x))))
+14. forall (n), n ∈ NonNegIntegerSet ⇒ abar(n) = a(n) * cos(n * h) + b(n) * sin(n * h)
+15. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ bbar(n) = b(n) * cos(n * h) - a(n) * sin(n * h)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ abar(n) = a(n) * cos(n * h) + b(n) * sin(n * h)
+
+METHOD:

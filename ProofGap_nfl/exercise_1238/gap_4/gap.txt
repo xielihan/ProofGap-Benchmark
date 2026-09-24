@@ -1,0 +1,22 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. n ∈ NonNegIntegerSet
+3. x : NonNegIntegerSet → RealSet
+4. y : CartesianProd(NonNegIntegerSet, NonNegIntegerSet) → RealSet
+5. n ∈ PosIntegerSet
+6. forall (k), k ∈ NonNegIntegerSet ∧ k ≤ n ⇒ x(k) ∈ RealSet
+7. forall (k), k ∈ NonNegIntegerSet ∧ k < n ⇒ x(k) < x(k + 1)
+8. Defined(f, [x(0), x(n)])
+9. ContinuousFuncOn(FunDeri(f, 1, n - 1), [x(0), x(n)])
+10. DiffableFuncOn(FunDeri(f, 1, n - 1), IntervalLoRo(x(0), x(n)))
+11. forall (k), k ∈ NonNegIntegerSet ∧ k ≤ n ⇒ f(x(k)) = f(x(0))
+12. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≤ n ⇒ ContinuousFuncOn(f, [x(k - 1), x(k)])
+13. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≤ n ⇒ DiffableFuncOn(f, IntervalLoRo(x(k - 1), x(k)))
+14. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≤ n ⇒ f(x(k - 1)) = f(x(k))
+
+GOAL:
+forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≤ n ⇒ (exists (y) (k), y : CartesianProd(NonNegIntegerSet, NonNegIntegerSet) → RealSet ∧ k ∈ NonNegIntegerSet ∧ y(1, k) ∈ IntervalLoRo(x(k - 1), x(k)) ∧ FunDeri(f, 1, 1)(y(1, k)) = 0)
+
+METHOD:
+[@method 根据 "罗尔定理" @]

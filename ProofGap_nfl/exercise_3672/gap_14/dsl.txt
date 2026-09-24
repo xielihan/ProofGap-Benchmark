@@ -1,0 +1,6 @@
+get_condition (hypothesis 23: {x ≥ 0}) (hypothesis 24: {y ≥ 0}) (hypothesis 25: {x + y > 0}) in (GOAL: {x ≥ 0 ⇒ y ≥ 0 ⇒ x + y > 0 ⇒ frac(x^{n} + y^{n}, 2) = z(x, y)})
+use_condition (obvious: {x ≥ 0}) in (hypothesis 12: {x ≥ 0 ⇒ y ≥ 0 ⇒ x + y > 0 ⇒ z = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(x^{n} + y^{n}, 2))}) as (hypothesis 26: {y ≥ 0 ⇒ x + y > 0 ⇒ z = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(x^{n} + y^{n}, 2))})
+use_condition (obvious: {y ≥ 0}) in (hypothesis 26: {y ≥ 0 ⇒ x + y > 0 ⇒ z = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(x^{n} + y^{n}, 2))}) as (hypothesis 27: {x + y > 0 ⇒ z = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(x^{n} + y^{n}, 2))})
+use_condition (obvious: {x + y > 0}) in (hypothesis 27: {x + y > 0 ⇒ z = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(x^{n} + y^{n}, 2))}) as (hypothesis 28: {z = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(x^{n} + y^{n}, 2))})
+rewrite (left_to_right, equation) (hypothesis 28: {z = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(x^{n} + y^{n}, 2))}); from (GOAL: {frac(x^{n} + y^{n}, 2) = z(x, y)}) to (GOAL: {frac(x^{n} + y^{n}, 2) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(x^{n} + y^{n}, 2))(x, y)})
+autosolve all_hypothesis

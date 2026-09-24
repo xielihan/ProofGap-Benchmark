@@ -1,0 +1,2 @@
+1. rewrite (left_to_right, equation) (hypothesis 5: {x * diff(y) + y * diff(x) = k * (diff(x) - diff(y))}); from (GOAL: {(x - y) * (x * diff(y) + y * diff(x)) = k * (x - y) * (diff(x) - diff(y))}) to (GOAL: {(x - y) * (k * (diff(x) - diff(y))) = k * (x - y) * (diff(x) - diff(y))})
+2. autosolve all_hypothesis

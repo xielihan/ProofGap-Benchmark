@@ -1,0 +1,2 @@
+1. rewrite_in sum (left_to_right, equation) (hypothesis 4: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ frac((-1)^{n}, ln(n))^{2} = frac(1, ln(n)^{2})}); from (GOAL: {DivergentSeries(sum_{ n = 2 }^{ +∞ } (frac((-1)^{n}, ln(n))^{2}))}) to (GOAL: {DivergentSeries(sum_{ n = 2 }^{ +∞ } (frac(1, ln(n)^{2})))})
+2. apply (hypothesis 8: {DivergentSeries(sum_{ n = 2 }^{ +∞ } (frac(1, ln(n)^{2})))})

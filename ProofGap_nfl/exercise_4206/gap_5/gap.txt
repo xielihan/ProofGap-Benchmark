@@ -1,0 +1,19 @@
+PROOF GAP @5
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. I ∈ RealSet
+3. x : NonNegIntegerSet → RealSet
+4. i ∈ NonNegIntegerSet
+5. k ∈ NonNegIntegerSet
+6. τ ∈ RealSet
+7. n ∈ PosIntegerSet
+8. I = DefInt(0, 1, DefInt(0, x(1), DefInt(0, x(n - 1), (prod_{ i = 1 }^{ n } (x(i))) * diff(x(n))) * diff(x(2))) * diff(x(1)))
+9. I = DefInt(0, 1, DefInt(0, x(1), DefInt(0, x(n - 1), (prod_{ i = 1 }^{ n } (x(i))) * diff(x(n))) * diff(x(2))) * diff(x(1)))
+10. DefInt(0, x(n - 1), (prod_{ i = 1 }^{ n } (x(i))) * diff(x(n))) = frac(1, 2) * (prod_{ i = 1 }^{ n - 2 } (x(i))) * x(n - 1)^{3}
+11. DefInt(0, x(n - 2), frac(1, 2) * (prod_{ i = 1 }^{ n - 2 } (x(i))) * x(n - 1)^{3} * diff(x(n - 1))) = frac(1, 2) * frac(1, 4) * (prod_{ i = 1 }^{ n - 3 } (x(i))) * x(n - 2)^{5}
+12. I = (prod_{ k = 1 }^{ n - 1 } (frac(1, 2 * k))) * DefInt(0, 1, x(1)^{2 * n - 1} * diff(x(1)))
+
+GOAL:
+I = prod_{ k = 1 }^{ n } (frac(1, 2 * k))
+
+METHOD:

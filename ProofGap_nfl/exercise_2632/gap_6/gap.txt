@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. B ∈ RealSet
+2. n_{0} ∈ NonNegIntegerSet
+3. exists (B), B ∈ RealSet ∧ B ∈ PosRealSet ∧ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ e^{t} ≥ B * t^{7})
+4. exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ e^{sqrtn(2, n)} ≥ B * n^{frac(7, 2)})
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ 0 < n^{2} * e^{-sqrtn(2, n)} ∧ n^{2} * e^{-sqrtn(2, n)} ≤ frac(1, B) * n^{-frac(3, 2)}
+6. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (n^{-frac(3, 2)}))
+7. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (n^{2} * e^{-sqrtn(2, n)}))
+
+GOAL:
+ConvergentSeries(sum_{ n = 1 }^{ +∞ } (n^{2} * e^{-sqrtn(2, n)}))
+
+METHOD:

@@ -1,0 +1,5 @@
+get_condition (hypothesis 12: {x = 0}) in (GOAL: {x = 0 ⇒ frac(x^{2}, (1 - x)^{2}) = 0})
+assert (hypothesis 13: {x^{2} = 0}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

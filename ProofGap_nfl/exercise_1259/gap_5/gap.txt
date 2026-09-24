@@ -1,0 +1,20 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. p ∈ RealSet ∧ a < p ∧ p < b
+5. a < b
+6. Dom(f) = (a, b)
+7. DiffableFuncOn(f, IntervalLoRo(a, b))
+8. forall (x), x ∈ RealSet ∧ a < x ∧ x < b ⇒ FunDeri(f, 1, 1)(x) = 0
+9. p = p
+10. a < p
+11. p < b
+12. forall (x), x ∈ RealSet ∧ a < x ∧ x < b ⇒ (exists (c), c ∈ RealSet ∧ a < c ∧ c < b ∧ f(x) - f(p) = FunDeri(f, 1, 1)(c) * (x - p))
+13. forall (x), x ∈ RealSet ∧ a < x ∧ x < b ⇒ (exists (c), c ∈ RealSet ∧ a < c ∧ c < b ∧ FunDeri(f, 1, 1)(c) = 0)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ a < x ∧ x < b ⇒ f(x) - f(p) = 0
+
+METHOD:

@@ -1,0 +1,33 @@
+PROOF GAP @11
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. xi : CartesianProd(RealSet, RealSet) → RealSet
+3. eta : CartesianProd(RealSet, RealSet) → RealSet
+4. A ∈ RealSet
+5. B ∈ RealSet
+6. C ∈ RealSet
+7. lambda_{1} ∈ RealSet
+8. lambda_{2} ∈ RealSet
+9. C ≠ 0
+10. A * C - B^{2} < 0
+11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ xi(x, y) = x + lambda_{1} * y ∧ eta(x, y) = x + lambda_{2} * y
+12. A + 2 * B * lambda_{1} + C * (lambda_{1})^{2} = 0
+13. A + 2 * B * lambda_{2} + C * (lambda_{2})^{2} = 0
+14. lambda_{1} ≠ lambda_{2}
+15. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ A * FunDeri(u, x, 2)(x, y) + 2 * B * FunDeri(FunDeri(u, x, 1), y, 1)(x, y) + C * FunDeri(u, y, 2)(x, y) = 0
+16. FuncOfClassK(u, 2)
+17. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(u, x, 1)(x, y) = FunDeri(u, xi, 1)(xi(x, y), eta(x, y)) + FunDeri(u, eta, 1)(xi(x, y), eta(x, y))
+18. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ⇒ FunDeri(u, y, 1)(x, y) = lambda_{1} * FunDeri(u, xi, 1)(xi(x, y), eta(x, y)) + lambda_{2} * FunDeri(u, eta, 1)(xi(x, y), eta(x, y))
+19. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(u, x, 2)(x, y) = FunDeri(u, xi, 2)(xi(x, y), eta(x, y)) + 2 * FunDeri(FunDeri(u, xi, 1), eta, 1)(xi(x, y), eta(x, y)) + FunDeri(u, eta, 2)(xi(x, y), eta(x, y))
+20. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(FunDeri(u, x, 1), y, 1)(x, y) = lambda_{1} * FunDeri(u, xi, 2)(xi(x, y), eta(x, y)) + (lambda_{1} + lambda_{2}) * FunDeri(FunDeri(u, xi, 1), eta, 1)(xi(x, y), eta(x, y)) + lambda_{2} * FunDeri(u, eta, 2)(xi(x, y), eta(x, y))
+21. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ⇒ FunDeri(u, y, 2)(x, y) = (lambda_{1})^{2} * FunDeri(u, xi, 2)(xi(x, y), eta(x, y)) + 2 * lambda_{1} * lambda_{2} * FunDeri(FunDeri(u, xi, 1), eta, 1)(xi(x, y), eta(x, y)) + (lambda_{2})^{2} * FunDeri(u, eta, 2)(xi(x, y), eta(x, y))
+22. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ (A + 2 * B * lambda_{1} + C * (lambda_{1})^{2}) * FunDeri(u, xi, 2)(xi(x, y), eta(x, y)) + 2 * (A + B * (lambda_{1} + lambda_{2}) + C * lambda_{1} * lambda_{2}) * FunDeri(FunDeri(u, xi, 1), eta, 1)(xi(x, y), eta(x, y)) + (A + 2 * B * lambda_{2} + C * (lambda_{2})^{2}) * FunDeri(u, eta, 2)(xi(x, y), eta(x, y)) = 0
+23. lambda_{1} + lambda_{2} = -frac(2 * B, C)
+24. lambda_{1} * lambda_{2} = frac(A, C)
+25. A + B * (lambda_{1} + lambda_{2}) + C * lambda_{1} * lambda_{2} = frac(2 * (A * C - B^{2}), C)
+26. frac(2 * (A * C - B^{2}), C) ≠ 0
+
+GOAL:
+A + B * (lambda_{1} + lambda_{2}) + C * lambda_{1} * lambda_{2} ≠ 0
+
+METHOD:

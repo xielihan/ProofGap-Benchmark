@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, sqrtn(2, (2 * n - 1) * (2 * n + 1))) > frac(1, 2 * n) ∧ frac(1, 2 * n) > 0
+2. DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, 2 * n)))
+
+GOAL:
+DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, sqrtn(2, (2 * n - 1) * (2 * n + 1)))))
+
+METHOD:
+[@method 根据 "正项级数比较判别法" @]

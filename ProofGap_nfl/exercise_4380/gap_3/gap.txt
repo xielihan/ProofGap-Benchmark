@@ -1,0 +1,20 @@
+PROOF GAP @3
+ASSUM:
+1. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. V ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. P : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+4. Q : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+5. R : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+6. FuncOfClassK(P, 2)
+7. FuncOfClassK(Q, 2)
+8. FuncOfClassK(R, 2)
+9. P_{star} = (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . FunDeri(R, 2, 1)(x, y, z) - FunDeri(Q, 3, 1)(x, y, z))
+10. Q_{star} = (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . FunDeri(P, 3, 1)(x, y, z) - FunDeri(R, 1, 1)(x, y, z))
+11. R_{star} = (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . FunDeri(Q, 1, 1)(x, y, z) - FunDeri(P, 2, 1)(x, y, z))
+12. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(P_{star}, 1, 1)(x, y, z) + FunDeri(Q_{star}, 2, 1)(x, y, z) + FunDeri(R_{star}, 3, 1)(x, y, z) = 0
+13. VectorSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . P_{star}(x, y, z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . Q_{star}(x, y, z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . R_{star}(x, y, z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y)) = VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . 0) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z))
+
+GOAL:
+VectorSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . FunDeri(R, 2, 1)(x, y, z) - FunDeri(Q, 3, 1)(x, y, z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . FunDeri(P, 3, 1)(x, y, z) - FunDeri(R, 1, 1)(x, y, z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . FunDeri(Q, 1, 1)(x, y, z) - FunDeri(P, 2, 1)(x, y, z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y)) = 0
+
+METHOD:

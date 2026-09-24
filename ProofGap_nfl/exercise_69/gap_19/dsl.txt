@@ -1,0 +1,5 @@
+1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n) > 2}) (n := {q})
+2. get_condition (hypothesis 24: {q ∈ NonNegIntegerSet ∧ q ∈ PosIntegerSet}) in (GOAL: {q ∈ NonNegIntegerSet ∧ q ∈ PosIntegerSet ⇒ y(q) > 2})
+3. get_prop (hypothesis 23: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n) > 1 + n * frac(1, n)}) (n := {q}) as (hypothesis 25: {q ∈ NonNegIntegerSet ∧ q ∈ PosIntegerSet ⇒ y(q) > 1 + q * frac(1, q)})
+4. use_condition (hypothesis 24: {q ∈ NonNegIntegerSet ∧ q ∈ PosIntegerSet}) in (hypothesis 25: {q ∈ NonNegIntegerSet ∧ q ∈ PosIntegerSet ⇒ y(q) > 1 + q * frac(1, q)}) as (hypothesis 26: {y(q) > 1 + q * frac(1, q)})
+5. autosolve all_hypothesis

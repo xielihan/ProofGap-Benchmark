@@ -1,0 +1,20 @@
+PROOF GAP @1
+ASSUM:
+1. x : CartesianProd(RealSet, RealSet) → RealSet
+2. y : CartesianProd(RealSet, RealSet) → RealSet
+3. z : CartesianProd(RealSet, RealSet) → RealSet
+4. R ∈ RealSet ∧ R ∈ PosRealSet
+5. k ∈ RealSet ∧ k ≠ 0
+6. φ ∈ RealSet
+7. ψ ∈ RealSet
+8. v_{1} : CartesianProd(RealSet, RealSet) → CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+9. v_{2} : CartesianProd(RealSet, RealSet) → CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+10. θ : CartesianProd(RealSet, RealSet) → RealSet
+11. forall (φ) (ψ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ∧ ψ ∈ RealSet ∧ -frac(π, 2) < ψ ∧ ψ < frac(π, 2) ⇒ x(φ, ψ) = R * cos(ψ) * cos(φ) ∧ y(φ, ψ) = R * cos(ψ) * sin(φ) ∧ z(φ, ψ) = R * sin(ψ)
+12. tan(frac(π, 4) + frac(ψ, 2)) = e^{k * φ}
+
+GOAL:
+frac(diff(fun ψ [ψ ∈ RealSet] . ψ), 2 * cos(frac(π, 4) + frac(ψ, 2))^{2}) = k * e^{k * φ} * diff(fun φ [φ ∈ RealSet] . φ)
+
+METHOD:
+[@method 两边同时求微分 @]

@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. IsSet(E) ∧ E ⊆ RealSet
+3. f : E → RealSet
+4. ContinuousFuncOn(f, E) ⇔ (forall (ε) (x_{0}), ε ∈ RealSet ∧ x_{0} ∈ RealSet ∧ ε > 0 ∧ x_{0} ∈ E ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ E ∧ |x - x_{0}| < δ ⇒ |f(x) - f(x_{0})| < ε)))
+
+GOAL:
+¬UniformContinuousFuncOn(f, E) ⇔ ¬ (forall (ε), ε ∈ RealSet ⇒ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x) (y), x ∈ E ⇒ y ∈ E ⇒ |x - y| < δ ⇒ |f(x) - f(y)| < ε)))
+
+METHOD:

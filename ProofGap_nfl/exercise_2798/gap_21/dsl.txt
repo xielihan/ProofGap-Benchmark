@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [ε, +∞) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac((k + 1)!, π * n^{2} * ε^{k + 1}))))}) (k := {k0})
+get_condition (hypothesis 25: {k0 ∈ NonNegIntegerSet ∧ k0 ∈ PosIntegerSet}) in (GOAL: {k0 ∈ NonNegIntegerSet ∧ k0 ∈ PosIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [ε, +∞) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac((k0 + 1)!, π * n^{2} * ε^{k0 + 1}))))})
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [ε, +∞) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac((k0 + 1)!, π * n^{2} * ε^{k0 + 1})))}) (ε := {ε0})
+get_condition (hypothesis 26: {ε0 ∈ RealSet ∧ ε0 > 0}) in (GOAL: {ε0 ∈ RealSet ∧ ε0 > 0 ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [ε0, +∞) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac((k0 + 1)!, π * n^{2} * ε0^{k0 + 1})))})
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ [ε0, +∞) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac((k0 + 1)!, π * n^{2} * ε0^{k0 + 1}))}) (x := {x0})
+get_condition (hypothesis 27: {x0 ∈ RealSet ∧ x0 ∈ [ε0, +∞)}) in (GOAL: {x0 ∈ RealSet ∧ x0 ∈ [ε0, +∞) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac((k0 + 1)!, π * n^{2} * ε0^{k0 + 1}))})
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac((k0 + 1)!, π * n^{2} * ε0^{k0 + 1})}) (n := {n0})
+get_condition (hypothesis 28: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ 0 < frac((k0 + 1)!, π * n0^{2} * ε0^{k0 + 1})})
+autosolve all_hypothesis

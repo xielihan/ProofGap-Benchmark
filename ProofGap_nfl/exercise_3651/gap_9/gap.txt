@@ -1,0 +1,18 @@
+PROOF GAP @9
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x - 1)^{2} + (y + 1)^{2} < 15 ⇒ z(x, y)^{2} - 4 * z(x, y) + x^{2} + y^{2} - 2 * x + 2 * y - 10 = 0
+3. FuncOfClassK(z, 2)
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x - 1)^{2} + (y + 1)^{2} < 15 ⇒ (x - 1) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (y + 1) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) + (z(x, y) - 2) * diff(z) = 0
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x = 1 ∧ y = -1 ∧ z(x, y) ≠ 2 ⇒ diff(z) = 0
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x = 1 ∧ y = -1 ⇒ z(x, y) = 6 ∨ z(x, y) = -2
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x - 1)^{2} + (y + 1)^{2} < 15 ⇒ diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{2} + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{2} + (z(x, y) - 2) * diff^{2}(z) + diff(z)^{2} = 0
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x = 1 ∧ y = -1 ∧ z(x, y) = 6 ∧ diff(z) = 0 ⇒ diff^{2}(z) = -frac(1, 4) * (diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{2} + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{2})
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x = 1 ∧ y = -1 ∧ z(x, y) = 6 ∧ diff(z) = 0 ∧ diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{2} + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{2} ≠ 0 ⇒ diff^{2}(z) < 0
+10. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x = 1 ∧ y = -1 ∧ z(x, y) = -2 ∧ diff(z) = 0 ⇒ diff^{2}(z) = frac(1, 4) * (diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{2} + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{2})
+11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x = 1 ∧ y = -1 ∧ z(x, y) = -2 ∧ diff(z) = 0 ∧ diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{2} + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{2} ≠ 0 ⇒ diff^{2}(z) > 0
+
+GOAL:
+z(1, -1) = 6 ⇒ MaximumPointOn(z, { (x, y) | x ∈ RealSet, y ∈ RealSet, (x - 1)^{2} + (y + 1)^{2} < 15 }) = (1, -1)
+
+METHOD:

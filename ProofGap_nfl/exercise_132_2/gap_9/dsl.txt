@@ -1,0 +1,4 @@
+get_condition (hypothesis 23: {BoundedSeq(y)}) (hypothesis 24: {β_{`bar`} = 0}) in (GOAL: {BoundedSeq(y) ⇒ β_{`bar`} = 0 ⇒ seqlim_{ n → +∞ } (x(n) * y(n)) ≤ (seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (y(n)))})
+use_condition (hypothesis 23: {BoundedSeq(y)}) in (hypothesis 16: {BoundedSeq(y) ⇒ α_{`bar`} = seqlim_{ n → +∞ } (x(n) * y(n))}) as (hypothesis 25: {α_{`bar`} = seqlim_{ n → +∞ } (x(n) * y(n))})
+use_condition (hypothesis 23: {BoundedSeq(y)}) (hypothesis 24: {β_{`bar`} = 0}) in (hypothesis 22: {BoundedSeq(y) ⇒ β_{`bar`} = 0 ⇒ α_{`bar`} = 0}) as (hypothesis 26: {α_{`bar`} = 0})
+autosolve all_hypothesis

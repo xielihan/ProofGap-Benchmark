@@ -1,0 +1,14 @@
+PROOF GAP @5
+ASSUM:
+1. q ∈ RealSet
+2. 0 < q
+3. q < 1
+4. forall (x), x ∈ RealSet ∧ |x| < q ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ |x^{n}| ≤ q^{n})
+5. ConvergentSeries(sum_{ n = 0 }^{ +∞ } (q^{n}))
+6. forall (x), x ∈ RealSet ∧ |x| < q ⇒ AbsoluteConvergentSeries(sum_{ n = 0 }^{ +∞ } (x^{n}))
+7. forall (x), x ∈ RealSet ∧ |x| < q ⇒ UniformConvergent(sum_{ n = 0 }^{ +∞ } (x^{n}), { x | x ∈ RealSet, |x| < q }, fun x [x ∈ RealSet] . frac(1, 1 - x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| < q ⇒ AbsoluteConvergentSeries(sum_{ n = 0 }^{ +∞ } (x^{n})) ∧ UniformConvergent(sum_{ n = 0 }^{ +∞ } (x^{n}), { x | x ∈ RealSet, |x| < q }, fun x [x ∈ RealSet] . frac(1, 1 - x))
+
+METHOD:

@@ -1,0 +1,4 @@
+1. get_forall (GOAL: {forall (t), t ∈ RealSet ⇒ (exists (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ t = y / x)}) (t := {t0})
+2. get_condition (hypothesis 4: {t0 ∈ RealSet}) in (GOAL: {t0 ∈ RealSet ⇒ (exists (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ t0 = y / x)})
+3. exists (x := {1}) (y := {t0})
+4. autosolve all_hypothesis

@@ -1,0 +1,25 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ sqrtn(2, 1 - x^{2}) = frac(2 * t(x), 1 + t(x)^{2})}) (x := {x0})
+get_condition (hypothesis 9: {x0 ∈ RealSet ∧ -1 < x0 ∧ x0 < 1}) in (GOAL: {x0 ∈ RealSet ∧ -1 < x0 ∧ x0 < 1 ⇒ sqrtn(2, 1 - x0^{2}) = frac(2 * t(x0), 1 + t(x0)^{2})})
+get_prop (hypothesis 5: {forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ t(x) > 0}) (x := {x0}) as (hypothesis 10: {x0 ∈ RealSet ∧ -1 < x0 ∧ x0 < 1 ⇒ t(x0) > 0})
+use_condition (hypothesis 9: {x0 ∈ RealSet ∧ -1 < x0 ∧ x0 < 1}) in (hypothesis 10: {x0 ∈ RealSet ∧ -1 < x0 ∧ x0 < 1 ⇒ t(x0) > 0}) as (hypothesis 11: {t(x0) > 0})
+get_prop (hypothesis 6: {forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ x = frac(1 - t(x)^{2}, 1 + t(x)^{2})}) (x := {x0}) as (hypothesis 12: {x0 ∈ RealSet ∧ -1 < x0 ∧ x0 < 1 ⇒ x0 = frac(1 - t(x0)^{2}, 1 + t(x0)^{2})})
+use_condition (hypothesis 9: {x0 ∈ RealSet ∧ -1 < x0 ∧ x0 < 1}) in (hypothesis 12: {x0 ∈ RealSet ∧ -1 < x0 ∧ x0 < 1 ⇒ x0 = frac(1 - t(x0)^{2}, 1 + t(x0)^{2})}) as (hypothesis 13: {x0 = frac(1 - t(x0)^{2}, 1 + t(x0)^{2})})
+assert (hypothesis 14: {1 + t(x0)^{2} > 0})
+assert (hypothesis 15: {frac(2 * t(x0), 1 + t(x0)^{2}) > 0})
+assert (hypothesis 16: {1 - x0^{2} = frac(2 * t(x0), 1 + t(x0)^{2})^{2}}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 13: {x0 = frac(1 - t(x0)^{2}, 1 + t(x0)^{2})}); from (GOAL: {1 - x0^{2} = frac(2 * t(x0), 1 + t(x0)^{2})^{2}}) to (GOAL: {1 - frac(1 - t(x0)^{2}, 1 + t(x0)^{2})^{2} = frac(2 * t(x0), 1 + t(x0)^{2})^{2}})
+  assert (hypothesis 16: {1 - frac(1 - t(x0)^{2}, 1 + t(x0)^{2})^{2} = frac(2 * t(x0), 1 + t(x0)^{2})^{2}})
+  apply (hypothesis 16: {1 - frac(1 - t(x0)^{2}, 1 + t(x0)^{2})^{2} = frac(2 * t(x0), 1 + t(x0)^{2})^{2}})
+}
+assert (hypothesis 17: {1 - x0^{2} > 0})
+assert (hypothesis 18: {sqrtn(2, 1 - x0^{2}) > 0})
+assert (hypothesis 19: {sqrtn(2, 1 - x0^{2}) * sqrtn(2, 1 - x0^{2}) = 1 - x0^{2}})
+assert (hypothesis 20: {sqrtn(2, 1 - x0^{2}) * sqrtn(2, 1 - x0^{2}) = frac(2 * t(x0), 1 + t(x0)^{2})^{2}}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 19: {sqrtn(2, 1 - x0^{2}) * sqrtn(2, 1 - x0^{2}) = 1 - x0^{2}}); from (GOAL: {sqrtn(2, 1 - x0^{2}) * sqrtn(2, 1 - x0^{2}) = frac(2 * t(x0), 1 + t(x0)^{2})^{2}}) to (GOAL: {1 - x0^{2} = frac(2 * t(x0), 1 + t(x0)^{2})^{2}})
+  apply (hypothesis 16: {1 - x0^{2} = frac(2 * t(x0), 1 + t(x0)^{2})^{2}})
+}
+assert (hypothesis 21: {(sqrtn(2, 1 - x0^{2}) - frac(2 * t(x0), 1 + t(x0)^{2})) * (sqrtn(2, 1 - x0^{2}) + frac(2 * t(x0), 1 + t(x0)^{2})) = 0})
+assert (hypothesis 22: {sqrtn(2, 1 - x0^{2}) + frac(2 * t(x0), 1 + t(x0)^{2}) > 0})
+assert (hypothesis 23: {sqrtn(2, 1 - x0^{2}) - frac(2 * t(x0), 1 + t(x0)^{2}) = 0})
+assert (hypothesis 24: {sqrtn(2, 1 - x0^{2}) = frac(2 * t(x0), 1 + t(x0)^{2})})
+apply (hypothesis 24: {sqrtn(2, 1 - x0^{2}) = frac(2 * t(x0), 1 + t(x0)^{2})})

@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. x ∈ RealSet
+2. α ∈ RealSet
+3. e^{x * cos(α) + __IMAGINARY_UNIT__ * x * sin(α)} = e^{x * (cos(α) + __IMAGINARY_UNIT__ * sin(α))}
+4. e^{x * (cos(α) + __IMAGINARY_UNIT__ * sin(α))} = e^{x * e^{__IMAGINARY_UNIT__ * α}}
+5. e^{x * cos(α) + __IMAGINARY_UNIT__ * x * sin(α)} = e^{x * e^{__IMAGINARY_UNIT__ * α}}
+6. e^{x * e^{__IMAGINARY_UNIT__ * α}} = sum_{ n = 0 }^{ +∞ } (frac(1, n!) * (x * e^{__IMAGINARY_UNIT__ * α})^{n})
+
+GOAL:
+sum_{ n = 0 }^{ +∞ } (frac(1, n!) * (x * e^{__IMAGINARY_UNIT__ * α})^{n}) = sum_{ n = 0 }^{ +∞ } (frac(x^{n}, n!) * e^{__IMAGINARY_UNIT__ * n * α})
+
+METHOD:

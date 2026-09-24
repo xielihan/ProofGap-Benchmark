@@ -1,0 +1,12 @@
+1. get_prop (theorem 'Thm 302. (StrictlyIncreasingOnSetDefinition)': {forall (f) (S), f : RealSet -> RealSet => IsSet(S) => (StrictMonoIncFuncOn(f, S) <==> (forall (x) (y), x ∈ S => y ∈ S => x < y => f(x) < f(y)))}) (f := {f}) (S := {RealSet}) as (hypothesis 7: {f : RealSet -> RealSet => IsSet(RealSet) => (StrictMonoIncFuncOn(f, RealSet) <==> (forall (x) (y), x ∈ RealSet => y ∈ RealSet => x < y => f(x) < f(y)))})
+2. get_prop (theorem 'Thm 275. (SetPredicateDefinition)': {forall (S), IsSet(S)}) (S := {RealSet}) as (hypothesis 8: {IsSet(RealSet)})
+3. use_condition (hypothesis 1: {f : RealSet → RealSet}) (hypothesis 8: {IsSet(RealSet)}) in (hypothesis 7: {f : RealSet -> RealSet => IsSet(RealSet) => (StrictMonoIncFuncOn(f, RealSet) <==> (forall (x) (y), x ∈ RealSet => y ∈ RealSet => x < y => f(x) < f(y)))}) as (hypothesis 9: {StrictMonoIncFuncOn(f, RealSet) <==> (forall (x) (y), x ∈ RealSet => y ∈ RealSet => x < y => f(x) < f(y))})
+4. rewrite (left_to_right, iff) (hypothesis 9: {StrictMonoIncFuncOn(f, RealSet) <==> (forall (x) (y), x ∈ RealSet => y ∈ RealSet => x < y => f(x) < f(y))}); from (GOAL: {StrictMonoIncFuncOn(f, RealSet)}) to (GOAL: {forall (x) (y), x ∈ RealSet => y ∈ RealSet => x < y => f(x) < f(y)})
+5. get_forall (GOAL: {forall (x) (y), x ∈ RealSet => y ∈ RealSet => x < y => f(x) < f(y)}) (x := {u}) (y := {v})
+6. get_condition (hypothesis 10: {u ∈ RealSet}) (hypothesis 11: {v ∈ RealSet}) (hypothesis 12: {u < v}) in (GOAL: {u ∈ RealSet => v ∈ RealSet => u < v => f(u) < f(v)})
+7. assert (hypothesis 13: {u ∈ RealSet /\ v ∈ RealSet /\ v > u})
+8. get_prop (hypothesis 6: {forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet /\ x_{2} ∈ RealSet /\ x_{2} > x_{1} ⇒ f(x_{2}) - f(x_{1}) > 0)}) (x_{1} := {u}) as (hypothesis 14: {u ∈ RealSet => (forall (x_{2}), u ∈ RealSet /\ x_{2} ∈ RealSet /\ x_{2} > u => f(x_{2}) - f(u) > 0)})
+9. use_condition (hypothesis 10: {u ∈ RealSet}) in (hypothesis 14: {u ∈ RealSet => (forall (x_{2}), u ∈ RealSet /\ x_{2} ∈ RealSet /\ x_{2} > u => f(x_{2}) - f(u) > 0)}) as (hypothesis 15: {forall (x_{2}), u ∈ RealSet /\ x_{2} ∈ RealSet /\ x_{2} > u => f(x_{2}) - f(u) > 0})
+10. get_prop (hypothesis 15: {forall (x_{2}), u ∈ RealSet /\ x_{2} ∈ RealSet /\ x_{2} > u => f(x_{2}) - f(u) > 0}) (x_{2} := {v}) as (hypothesis 16: {u ∈ RealSet /\ v ∈ RealSet /\ v > u => f(v) - f(u) > 0})
+11. use_condition (hypothesis 13: {u ∈ RealSet /\ v ∈ RealSet /\ v > u}) in (hypothesis 16: {u ∈ RealSet /\ v ∈ RealSet /\ v > u => f(v) - f(u) > 0}) as (hypothesis 17: {f(v) - f(u) > 0})
+12. autosolve all_hypothesis

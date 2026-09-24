@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. ε ∈ RealSet
+2. ε > 0
+3. forall (x), x ∈ RealSet ∧ x > 0 ⇒ lim_{ x → 0^+ } (x^{ε} * ln(x)) = lim_{ x → 0^+ } (frac(ln(x), x^{-ε}))
+4. forall (x), x ∈ RealSet ∧ x > 0 ⇒ lim_{ x → 0^+ } (frac(ln(x), x^{-ε})) = lim_{ x → 0^+ } (frac(frac(1, x), -ε * x^{-ε - 1}))
+5. forall (x), x ∈ RealSet ∧ x > 0 ⇒ lim_{ x → 0^+ } (frac(frac(1, x), -ε * x^{-ε - 1})) = -(lim_{ x → 0^+ } (frac(x^{ε}, ε)))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ -(lim_{ x → 0^+ } (frac(x^{ε}, ε))) = 0
+
+METHOD:

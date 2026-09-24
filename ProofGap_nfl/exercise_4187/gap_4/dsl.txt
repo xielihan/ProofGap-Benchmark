@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 5: {DefInt(0, 1, (fun r [r ∈ RealSet ∧ 0 < r ∧ r ≤ 1] . r * ln(r)) * diff(fun r [r ∈ RealSet ∧ 0 < r ∧ r ≤ 1] . r)) = -frac(1, 4)}); from (GOAL: {-2 * π * DefInt(0, 1, (fun r [r ∈ RealSet ∧ 0 < r ∧ r ≤ 1] . r * ln(r)) * diff(fun r [r ∈ RealSet ∧ 0 < r ∧ r ≤ 1] . r)) = frac(π, 2)}) to (GOAL: {-2 * π * (-frac(1, 4)) = frac(π, 2)})
+autosolve all_hypothesis

@@ -1,0 +1,27 @@
+PROOF GAP @9
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. S ∈ RealSet
+3. Ω ⊆ CartesianProd(RealSet, RealSet)
+4. x ∈ RealSet
+5. y ∈ RealSet
+6. u ∈ RealSet
+7. v ∈ RealSet
+8. t ∈ RealSet
+9. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ z(x, y) = frac(1, 2) * (x^{2} - y^{2}))
+10. Ω = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet, -1 ≤ x - y ∧ x - y ≤ 1, -1 ≤ x + y ∧ x + y ≤ 1 }
+11. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(z, 1, 1)(x, y) = x)
+12. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(z, 2, 1)(x, y) = -y)
+13. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ sqrtn(2, 1 + FunDeri(z, 1, 1)(x, y)^{2} + FunDeri(z, 2, 1)(x, y)^{2}) = sqrtn(2, 1 + x^{2} + y^{2}))
+14. S = VolumeInt(Ω, sqrtn(2, 1 + x^{2} + y^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+15. x = frac(sqrtn(2, 2), 2) * u - frac(sqrtn(2, 2), 2) * v
+16. y = frac(sqrtn(2, 2), 2) * u + frac(sqrtn(2, 2), 2) * v
+17. Ω = { (u, v) | u ∈ RealSet ∧ v ∈ RealSet, -frac(sqrtn(2, 2), 2) ≤ u ∧ u ≤ frac(sqrtn(2, 2), 2), -frac(sqrtn(2, 2), 2) ≤ v ∧ v ≤ frac(sqrtn(2, 2), 2) }
+18. S = 4 * DefInt(0, frac(sqrtn(2, 2), 2), DefInt(-u, u, sqrtn(2, 1 + u^{2} + v^{2}) * diff(fun v [v ∈ RealSet ∧ -u ≤ v ∧ v ≤ u] . v)) * diff(fun u [u ∈ RealSet ∧ u ≥ 0 ∧ u ≤ frac(sqrtn(2, 2), 2)] . u))
+19. S = 4 * DefInt(0, frac(sqrtn(2, 2), 2), (u * sqrtn(2, 1 + 2 * u^{2}) + frac(1 + u^{2}, 2) * (ln(sqrtn(2, 1 + 2 * u^{2}) + u) - ln(sqrtn(2, 1 + 2 * u^{2}) - u))) * diff(fun u [u ∈ RealSet ∧ u ≥ 0 ∧ u ≤ frac(sqrtn(2, 2), 2)] . u))
+20. S = frac(4 * sqrtn(2, 2), 3) - frac(2, 3) + frac(7 * sqrtn(2, 2), 6) * ln(3) - frac(2, 3) * DefInt(1, sqrtn(2, 2), frac(t^{2} + 5, t^{2} + 1) * diff(fun t [t ∈ RealSet ∧ t ≥ 1 ∧ t ≤ sqrtn(2, 2)] . t))
+
+GOAL:
+S = frac(4 * sqrtn(2, 2), 3) - frac(2, 3) + frac(7 * sqrtn(2, 2), 6) * ln(3) - frac(2, 3) * (sqrtn(2, 2) - 1) - frac(8, 3) * DefInt(1, sqrtn(2, 2), frac(1, t^{2} + 1) * diff(fun t [t ∈ RealSet ∧ t ≥ 1 ∧ t ≤ sqrtn(2, 2)] . t))
+
+METHOD:

@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. forall (t), t ∈ RealSet ∧ t = x - 2 ⇒ t ∈ RealSet
+3. |x + 2| + |x - 2| ≤ 12
+
+GOAL:
+forall (t), t ∈ RealSet ∧ t = x - 2 ⇒ |t + 4| + |t| ≤ 12
+
+METHOD:

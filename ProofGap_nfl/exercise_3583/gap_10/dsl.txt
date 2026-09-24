@@ -1,0 +1,4 @@
+get_prop (hypothesis 18: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(FunDeri(f, 1, 1), 2, 1)(x, y) = 2 * x + 2 * y - 2}) (x := {1}) (y := {-1}) as (hypothesis 21: {1 ∈ RealSet ∧ -1 ∈ RealSet ⇒ FunDeri(FunDeri(f, 1, 1), 2, 1)(1, -1) = 2 * 1 + 2 * (-1) - 2})
+assert (hypothesis 22: {1 ∈ RealSet ∧ -1 ∈ RealSet})
+use_condition (hypothesis 22: {1 ∈ RealSet ∧ -1 ∈ RealSet}) in (hypothesis 21: {1 ∈ RealSet ∧ -1 ∈ RealSet ⇒ FunDeri(FunDeri(f, 1, 1), 2, 1)(1, -1) = 2 * 1 + 2 * (-1) - 2}) as (hypothesis 23: {FunDeri(FunDeri(f, 1, 1), 2, 1)(1, -1) = 2 * 1 + 2 * (-1) - 2})
+autosolve all_hypothesis

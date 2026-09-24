@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ f(x) = x * e^{-0.01 * x}
+3. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ f(x) > 0
+4. lim_{ x → 0^+ } (f(x)) = 0
+
+GOAL:
+inf(ImageOn(f, IntervalLoRo(0, +∞))) = 0
+
+METHOD:

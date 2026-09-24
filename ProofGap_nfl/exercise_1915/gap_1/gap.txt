@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ x ≠ 0
+4. forall (x), x ∈ RealSet ⇒ 1 + x^{7} ≠ 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ 1 + x^{7} ≠ 0 ⇒ frac(1 - x^{7}, x * (1 + x^{7})) = frac(1, x) - frac(2 * x^{6}, 1 + x^{7})
+
+METHOD:

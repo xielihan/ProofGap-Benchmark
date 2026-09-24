@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. n ∈ NonNegIntegerSet ∧ n > 0
+4. n ∈ PosIntegerSet
+5. forall (x), x ∈ RealSet ∧ x ≠ a ∧ a = b ⇒ frac(1, sqrtn(n, (x - a)^{n + 1} * (x - b)^{n - 1})) = (x - a)^{-2}
+6. a = b ⇒ ({ `F_2` | forall (x), x ∈ RealSet ∧ x ≠ a ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, sqrtn(n, (x - a)^{n + 1} * (x - b)^{n - 1})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | exists (C_{-}) (C_{+}), C_{-} ∈ RealSet ∧ C_{+} ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x < a ⇒ `F_3`(x) = -frac(1, x - a) + C_{-}) ∧ (forall (x), x ∈ RealSet ∧ x > a ⇒ `F_3`(x) = -frac(1, x - a) + C_{+}) })
+7. a ≠ b ⇒ (forall (x), x ∈ RealSet ∧ x ≠ a ∧ (n = 1 ∨ x ≠ b) ∧ ((exists (m), m ∈ NonNegIntegerSet ∧ n = 2 * m + 1) ∨ ((exists (m), m ∈ PosIntegerSet ∧ n = 2 * m) ∧ (x - a) * (x - b) > 0)) ⇒ (sqrtn(n, frac(x - b, x - a)))^{n} = frac(x - b, x - a))
+
+GOAL:
+a ≠ b ⇒ (forall (x), x ∈ RealSet ∧ x ≠ a ∧ (n = 1 ∨ x ≠ b) ∧ ((exists (m), m ∈ NonNegIntegerSet ∧ n = 2 * m + 1) ∨ ((exists (m), m ∈ PosIntegerSet ∧ n = 2 * m) ∧ (x - a) * (x - b) > 0)) ⇒ x = a + frac(a - b, (sqrtn(n, frac(x - b, x - a)))^{n} - 1))
+
+METHOD:

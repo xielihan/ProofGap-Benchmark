@@ -1,0 +1,14 @@
+destruct_and (hypothesis 6: {t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π}) as (hypothesis 12: {t ∈ RealSet}) (hypothesis 13: {0 ≤ t}) (hypothesis 14: {t ≤ 2 * π})
+get_prop (theorem 'Thm 168. (PythagoreanTrigonometricIdentity)': {forall (x), x ∈ RealSet => (sin(x)) ^ 2 + (cos(x)) ^ 2 = 1}) (x := {t}) as (hypothesis 15: {t ∈ RealSet => (sin(t)) ^ 2 + (cos(t)) ^ 2 = 1})
+use_condition (hypothesis 12: {t ∈ RealSet}) in (hypothesis 15: {t ∈ RealSet => (sin(t)) ^ 2 + (cos(t)) ^ 2 = 1}) as (hypothesis 16: {(sin(t)) ^ 2 + (cos(t)) ^ 2 = 1})
+assert (hypothesis 17: {(cos(t) + t * sin(t))^{2} + (sin(t) - t * cos(t))^{2} = cos(t)^{2} + sin(t)^{2} + t^{2} * (sin(t)^{2} + cos(t)^{2})}) by proof {
+  1. autosolve all_hypothesis
+}
+assert (hypothesis 18: {cos(t)^{2} + sin(t)^{2} = 1}) by proof {
+  1. autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 11: {x(t)^{2} + y(t)^{2} = a^{2} * ((cos(t) + t * sin(t))^{2} + (sin(t) - t * cos(t))^{2})}); from (GOAL: {x(t)^{2} + y(t)^{2} = a^{2} * (1 + t^{2})}) to (GOAL: {a^{2} * ((cos(t) + t * sin(t))^{2} + (sin(t) - t * cos(t))^{2}) = a^{2} * (1 + t^{2})})
+rewrite (left_to_right, equation) (hypothesis 17: {(cos(t) + t * sin(t))^{2} + (sin(t) - t * cos(t))^{2} = cos(t)^{2} + sin(t)^{2} + t^{2} * (sin(t)^{2} + cos(t)^{2})}); from (GOAL: {a^{2} * ((cos(t) + t * sin(t))^{2} + (sin(t) - t * cos(t))^{2}) = a^{2} * (1 + t^{2})}) to (GOAL: {a^{2} * (cos(t)^{2} + sin(t)^{2} + t^{2} * (sin(t)^{2} + cos(t)^{2})) = a^{2} * (1 + t^{2})})
+rewrite (left_to_right, equation) (hypothesis 18: {cos(t)^{2} + sin(t)^{2} = 1}); from (GOAL: {a^{2} * (cos(t)^{2} + sin(t)^{2} + t^{2} * (sin(t)^{2} + cos(t)^{2})) = a^{2} * (1 + t^{2})}) to (GOAL: {a^{2} * (1 + t^{2} * (sin(t)^{2} + cos(t)^{2})) = a^{2} * (1 + t^{2})})
+rewrite (left_to_right, equation) (hypothesis 16: {(sin(t)) ^ 2 + (cos(t)) ^ 2 = 1}); from (GOAL: {a^{2} * (1 + t^{2} * (sin(t)^{2} + cos(t)^{2})) = a^{2} * (1 + t^{2})}) to (GOAL: {a^{2} * (1 + t^{2} * 1) = a^{2} * (1 + t^{2})})
+autosolve all_hypothesis

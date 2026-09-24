@@ -1,0 +1,4 @@
+get_condition (hypothesis 15: {0 < a}) (hypothesis 16: {a < 1}) in (GOAL: {0 < a => a < 1 => `a'` > 1})
+use_condition (hypothesis 15: {0 < a}) (hypothesis 16: {a < 1}) in (hypothesis 14: {0 < a => a < 1 => `a'` = frac(1, a)}) as (hypothesis 17: {`a'` = frac(1, a)})
+rewrite (left_to_right, equation) (hypothesis 17: {`a'` = frac(1, a)}); from (GOAL: {`a'` > 1}) to (GOAL: {frac(1, a) > 1})
+autosolve all_hypothesis

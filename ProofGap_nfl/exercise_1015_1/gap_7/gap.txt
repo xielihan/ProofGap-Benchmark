@@ -1,0 +1,17 @@
+PROOF GAP @7
+ASSUM:
+1. f = (fun x [x ∈ RealSet] . x)
+2. g = (fun x [x ∈ RealSet] . |x|)
+3. F = (fun x [x ∈ RealSet] . f(x) * g(x))
+4. (fun x [x ∈ RealSet] . f(x) * g(x)) = (fun x [x ∈ RealSet] . x * |x|)
+5. DiffableFuncAt(f, 0)
+6. FunDeri(f, 1, 1)(0) = 1
+7. ¬DiffableFuncAt(g, 0)
+8. lim_{ Δx → 0 } (frac(F(Δx) - F(0), Δx)) = lim_{ Δx → 0 } (frac(Δx * |Δx| - 0 * |0|, Δx))
+9. lim_{ Δx → 0 } (frac(Δx * |Δx| - 0 * |0|, Δx)) = lim_{ Δx → 0 } (|Δx|)
+10. lim_{ Δx → 0 } (|Δx|) = 0
+
+GOAL:
+lim_{ Δx → 0 } (frac(F(Δx) - F(0), Δx)) = 0
+
+METHOD:

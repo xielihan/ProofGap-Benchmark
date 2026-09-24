@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. forall (x), x ∈ RealSet ⇒ x > a
+3. lim_{ x → a^+ } (frac(sqrtn(2, x) - sqrtn(2, a) + sqrtn(2, x - a), sqrtn(2, x^{2} - a^{2}))) = lim_{ x → a^+ } (frac((sqrtn(2, x) - sqrtn(2, a) + sqrtn(2, x - a)) * (sqrtn(2, x) + sqrtn(2, a)), sqrtn(2, x^{2} - a^{2}) * (sqrtn(2, x) + sqrtn(2, a))))
+4. lim_{ x → a^+ } (frac(sqrtn(2, x) - sqrtn(2, a) + sqrtn(2, x - a), sqrtn(2, x^{2} - a^{2}))) = lim_{ x → a^+ } (frac(sqrtn(2, x - a) * (sqrtn(2, x - a) + sqrtn(2, x) + sqrtn(2, a)), sqrtn(2, x - a) * sqrtn(2, x + a) * (sqrtn(2, x) + sqrtn(2, a))))
+
+GOAL:
+lim_{ x → a^+ } (frac(sqrtn(2, x) - sqrtn(2, a) + sqrtn(2, x - a), sqrtn(2, x^{2} - a^{2}))) = lim_{ x → a^+ } (frac(sqrtn(2, x - a) + sqrtn(2, x) + sqrtn(2, a), sqrtn(2, x + a) * (sqrtn(2, x) + sqrtn(2, a))))
+
+METHOD:

@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. f : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ y ≠ 0 ∧ z ≠ 0 ∧ frac(x, y) > 0 ⇒ f(x, y, z) = sqrtn(z, frac(x, y))
+3. FunDeri(f, 1, 1)(1, 1, 1) = 1
+4. FunDeri(f, 2, 1)(1, 1, 1) = -1
+
+GOAL:
+FunDeri(f, 3, 1)(1, 1, 1) = 0
+
+METHOD:

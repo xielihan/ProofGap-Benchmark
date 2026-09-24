@@ -1,0 +1,14 @@
+PROOF GAP @7
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ 0 < |x| ∧ |x| < 1 ⇒ x ≠ 0
+2. forall (x), x ∈ RealSet ∧ 0 < |x| ∧ |x| < 1 ⇒ arcsin(x) ≠ 0
+3. forall (x), x ∈ RealSet ∧ 0 < |x| ∧ |x| < 1 ⇒ 1 - x^{2} > 0
+4. lim_{ x → 0 } (ln(frac(arcsin(x), x)) * frac(1, x^{2})) = lim_{ x → 0 } (frac(ln(|arcsin(x)|) - ln(|x|), x^{2}))
+5. lim_{ x → 0 } (frac(ln(|arcsin(x)|) - ln(|x|), x^{2})) = lim_{ x → 0 } (frac(frac(1, arcsin(x) * sqrtn(2, 1 - x^{2})) - frac(1, x), 2 * x))
+6. lim_{ x → 0 } (frac(frac(arcsin(x), sqrtn(2, 1 - x^{2})) - x, 2 * x^{2} * arcsin(x))) = lim_{ x → 0 } (frac(x - sqrtn(2, 1 - x^{2}) * arcsin(x), 2 * x^{2} * sqrtn(2, 1 - x^{2}) * arcsin(x)))
+
+GOAL:
+lim_{ x → 0 } (frac(x - sqrtn(2, 1 - x^{2}) * arcsin(x), 2 * x^{2} * sqrtn(2, 1 - x^{2}) * arcsin(x))) = lim_{ x → 0 } (frac(arcsin(x), 2 * (2 - 3 * x^{2}) * arcsin(x) + 2 * x * sqrtn(2, 1 - x^{2})))
+
+METHOD:
+[@method 根据 "洛必达法则" @]

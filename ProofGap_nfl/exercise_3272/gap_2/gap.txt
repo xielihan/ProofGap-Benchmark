@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ u(x, y) = cos(x) * cosh(y)
+3. diff^{6}(u) = (diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * FunDeri(u, 1, 1) + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) * FunDeri(u, 2, 1))^{6}
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ diff^{6}(u) = -cos(x) * cosh(y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{6} - 6 * sin(x) * sinh(y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{5} * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) + 15 * cos(x) * cosh(y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{4} * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{2} + 20 * sin(x) * sinh(y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{3} * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{3} - 15 * cos(x) * cosh(y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{2} * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{4} - 6 * sin(x) * sinh(y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{5} + cos(x) * cosh(y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{6}
+
+METHOD:

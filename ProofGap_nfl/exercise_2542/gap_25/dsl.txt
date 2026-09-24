@@ -1,0 +1,7 @@
+assert (hypothesis 37: {I = 0.3179 + Δ})
+get_prop (hypothesis 36: {forall (a) (b) (ε), a ∈ RealSet ⇒ b ∈ RealSet ⇒ ε > 0 ⇒ (a ≈_{ ε } b ⇔ |a - b| < ε)}) (a := {I}) (b := {0.3179}) (ε := {10^{-4}}) as (hypothesis 38: {I ∈ RealSet ⇒ 0.3179 ∈ RealSet ⇒ 10^{-4} > 0 ⇒ (I ≈_{ 10^{-4} } 0.3179 ⇔ |I - 0.3179| < 10^{-4})})
+use_condition (hypothesis 1: {I ∈ RealSet}) (obvious: {0.3179 ∈ RealSet}) (obvious: {10^{-4} > 0}) in (hypothesis 38: {I ∈ RealSet ⇒ 0.3179 ∈ RealSet ⇒ 10^{-4} > 0 ⇒ (I ≈_{ 10^{-4} } 0.3179 ⇔ |I - 0.3179| < 10^{-4})}) as (hypothesis 39: {I ≈_{ 10^{-4} } 0.3179 ⇔ |I - 0.3179| < 10^{-4}})
+rewrite (left_to_right, iff) (hypothesis 39: {I ≈_{ 10^{-4} } 0.3179 ⇔ |I - 0.3179| < 10^{-4}}); from (GOAL: {I ≈_{ 10^{-4} } 0.3179}) to (GOAL: {|I - 0.3179| < 10^{-4}})
+assert (hypothesis 40: {I - 0.3179 = Δ})
+rewrite (left_to_right, equation) (hypothesis 40: {I - 0.3179 = Δ}); from (GOAL: {|I - 0.3179| < 10^{-4}}) to (GOAL: {|Δ| < 10^{-4}})
+apply (hypothesis 35: {|Δ| < 10^{-4}})

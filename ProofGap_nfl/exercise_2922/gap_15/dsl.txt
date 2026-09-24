@@ -1,0 +1,4 @@
+assert (hypothesis 16: {0 < frac(1, 7! * 2^{7})}) by proof {
+  autosolve all_hypothesis
+}
+apply (hypothesis 16: {0 < frac(1, 7! * 2^{7})})

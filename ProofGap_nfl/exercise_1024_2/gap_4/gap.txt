@@ -1,0 +1,19 @@
+PROOF GAP @4
+ASSUM:
+1. P : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. Q : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+3. `Q̅` : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+4. forall (k) (n) (x), k ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ Q(n, x) = sum_{ k = 1 }^{ n } (k^{2} * x^{k - 1})
+5. forall (k) (n) (x), k ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ P(n, x) = sum_{ k = 1 }^{ n } (k * x^{k - 1})
+6. forall (k) (n) (x), k ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ `Q̅`(n, x) = sum_{ k = 1 }^{ n } (k * x^{k})
+7. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ `Q̅`(n, x) = x * P(n, x)
+8. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ FunDeri(`Q̅`(n), 1, 1)(x) = Q(n, x)
+9. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ FunDeri(fun x [x ∈ RealSet] . x * P(n, x), 1, 1)(x) = P(n, x) + x * FunDeri(P(n), 1, 1)(x)
+10. forall (n), n ∈ NonNegIntegerSet ⇒ `Q̅`(n) : RealSet → RealSet
+11. forall (n), n ∈ NonNegIntegerSet ⇒ P(n) : RealSet → RealSet
+
+GOAL:
+forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ P(n, x) + x * FunDeri(P(n), 1, 1)(x) = Q(n, x)
+
+METHOD:
+[@method 两边同时对 x 求 导数 @]

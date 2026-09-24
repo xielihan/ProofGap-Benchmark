@@ -1,0 +1,12 @@
+PROOF GAP @5
+ASSUM:
+1. x ∈ RealSet ∧ (-1 < x ∧ x < 0 ∨ 0 < x ∧ x < 1)
+2. { `F_2` | forall (x), x ∈ RealSet ∧ (-1 < x ∧ x < 0 ∨ 0 < x ∧ x < 1) ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1 + sqrtn(2, 1 - x^{2}), 1 - sqrtn(2, 1 - x^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ (-1 < x ∧ x < 0 ∨ 0 < x ∧ x < 1) ⇒ FunDeri(`F_3`, 1, 1)(x) = frac((1 + sqrtn(2, 1 - x^{2})) * (1 + sqrtn(2, 1 - x^{2})), (1 - sqrtn(2, 1 - x^{2})) * (1 + sqrtn(2, 1 - x^{2}))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+3. { `F_4` | forall (x), x ∈ RealSet ∧ (-1 < x ∧ x < 0 ∨ 0 < x ∧ x < 1) ⇒ FunDeri(`F_4`, 1, 1)(x) = frac((1 + sqrtn(2, 1 - x^{2})) * (1 + sqrtn(2, 1 - x^{2})), (1 - sqrtn(2, 1 - x^{2})) * (1 + sqrtn(2, 1 - x^{2}))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | forall (x), x ∈ RealSet ∧ (-1 < x ∧ x < 0 ∨ 0 < x ∧ x < 1) ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(2 - x^{2} + 2 * sqrtn(2, 1 - x^{2}), x^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+4. { `F_6` | forall (x), x ∈ RealSet ∧ (-1 < x ∧ x < 0 ∨ 0 < x ∧ x < 1) ⇒ FunDeri(`F_6`, 1, 1)(x) = frac(2 - x^{2} + 2 * sqrtn(2, 1 - x^{2}), x^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_10` | exists (`F_7`), `F_7` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ (-1 < x ∧ x < 0 ∨ 0 < x ∧ x < 1) ⇒ FunDeri(`F_7`, 1, 1)(x) = sqrtn(2, 1 - x^{2}) * FunDeri(fun x [x ∈ RealSet] . frac(1, x), 1, 1)(x) ∧ `F_10`(x) = -frac(2, x) - x - 2 * `F_7`(x)) }
+5. { `F_14` | exists (`F_11`), `F_11` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ (-1 < x ∧ x < 0 ∨ 0 < x ∧ x < 1) ⇒ FunDeri(`F_11`, 1, 1)(x) = sqrtn(2, 1 - x^{2}) * FunDeri(fun x [x ∈ RealSet] . frac(1, x), 1, 1)(x) ∧ `F_14`(x) = -frac(2, x) - x - 2 * `F_11`(x)) } = { `F_18` | exists (`F_15`), `F_15` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ (-1 < x ∧ x < 0 ∨ 0 < x ∧ x < 1) ⇒ FunDeri(`F_15`, 1, 1)(x) = frac(1, sqrtn(2, 1 - x^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_18`(x) = -frac(2, x) - x - frac(2, x) * sqrtn(2, 1 - x^{2}) - 2 * `F_15`(x)) }
+
+GOAL:
+{ `F_22` | exists (`F_19`), `F_19` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ (-1 < x ∧ x < 0 ∨ 0 < x ∧ x < 1) ⇒ FunDeri(`F_19`, 1, 1)(x) = frac(1, sqrtn(2, 1 - x^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_22`(x) = -frac(2, x) - x - frac(2, x) * sqrtn(2, 1 - x^{2}) - 2 * `F_19`(x)) } = { `F_23` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ (-1 < x ∧ x < 0 ∨ 0 < x ∧ x < 1) ⇒ `F_23`(x) = -frac(2 + x^{2}, x) - frac(2, x) * sqrtn(2, 1 - x^{2}) - 2 * arcsin(x) + C) }
+
+METHOD:

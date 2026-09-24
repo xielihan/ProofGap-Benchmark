@@ -1,0 +1,24 @@
+PROOF GAP @1
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. C ⊆ CartesianProd(RealSet, RealSet)
+3. A ∈ CartesianProd(RealSet, RealSet)
+4. r : CartesianProd(RealSet, RealSet) → RealSet
+5. n ∈ RealSet
+6. P : CartesianProd(RealSet, RealSet) → RealSet
+7. Q : CartesianProd(RealSet, RealSet) → RealSet
+8. Coutside ⊆ CartesianProd(RealSet, RealSet)
+9. Cinside ⊆ CartesianProd(RealSet, RealSet)
+10. x ∈ RealSet
+11. y ∈ RealSet
+12. A = (x, y)
+13. forall (ξ), ξ ∈ RealSet ⇒ (forall (η), η ∈ RealSet ⇒ r(ξ, η) = sqrtn(2, (ξ - x)^{2} + (η - y)^{2}))
+14. forall (ξ), ξ ∈ RealSet ⇒ (forall (η), η ∈ RealSet ∧ (ξ, η) ≠ A ⇒ r(ξ, η) > 0)
+15. u(x, y) = ScalarCurveInt(C, (fun ξ, η [ξ ∈ RealSet ∧ η ∈ RealSet] . frac(cos(r(ξ, η), n), r(ξ, η))) * diff(fun s [s ∈ RealSet] . s))
+16. forall (ξ), ξ ∈ RealSet ⇒ (forall (η), η ∈ RealSet ⇒ P(ξ, η) = -frac(η - y, r(ξ, η)^{2}))
+17. forall (ξ), ξ ∈ RealSet ⇒ (forall (η), η ∈ RealSet ⇒ Q(ξ, η) = frac(ξ - x, r(ξ, η)^{2}))
+
+GOAL:
+exists (α), α ∈ RealSet ∧ (forall (ξ), ξ ∈ RealSet ⇒ (forall (η), η ∈ RealSet ∧ (ξ, η) ≠ A ⇒ cos(r(ξ, η), n) = frac(ξ - x, r(ξ, η)) * cos(α) + frac(η - y, r(ξ, η)) * sin(α)))
+
+METHOD:

@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ frac(1, x^{x}) = e^{-x * ln(x)}
+
+METHOD:

@@ -1,0 +1,16 @@
+get_forall (GOAL: {forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ∈ PosRealSet ⇒ |f(n, x) - g(x)| = frac(1, x + n)}) (n := {m}) (x := {y})
+get_condition (hypothesis 7: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ y ∈ RealSet ∧ y ∈ PosRealSet}) in (GOAL: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ y ∈ RealSet ∧ y ∈ PosRealSet ⇒ |f(m, y) - g(y)| = frac(1, y + m)})
+get_prop (hypothesis 3: {forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ∈ PosRealSet ⇒ f(n, x) = frac(1, x + n)}) (n := {m}) (x := {y}) as (hypothesis 8: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ y ∈ RealSet ∧ y ∈ PosRealSet ⇒ f(m, y) = frac(1, y + m)})
+use_condition (hypothesis 7: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ y ∈ RealSet ∧ y ∈ PosRealSet}) in (hypothesis 8: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ y ∈ RealSet ∧ y ∈ PosRealSet ⇒ f(m, y) = frac(1, y + m)}) as (hypothesis 9: {f(m, y) = frac(1, y + m)})
+get_prop (hypothesis 4: {forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ g(x) = 0}) (x := {y}) as (hypothesis 10: {y ∈ RealSet ∧ y ∈ PosRealSet ⇒ g(y) = 0})
+assert (hypothesis 11: {y ∈ RealSet ∧ y ∈ PosRealSet}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 11: {y ∈ RealSet ∧ y ∈ PosRealSet}) in (hypothesis 10: {y ∈ RealSet ∧ y ∈ PosRealSet ⇒ g(y) = 0}) as (hypothesis 12: {g(y) = 0})
+rewrite (left_to_right, equation) (hypothesis 9: {f(m, y) = frac(1, y + m)}); from (GOAL: {|f(m, y) - g(y)| = frac(1, y + m)}) to (GOAL: {|frac(1, y + m) - g(y)| = frac(1, y + m)})
+rewrite (left_to_right, equation) (hypothesis 12: {g(y) = 0}); from (GOAL: {|frac(1, y + m) - g(y)| = frac(1, y + m)}) to (GOAL: {|frac(1, y + m) - 0| = frac(1, y + m)})
+destruct_and (hypothesis 7: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ y ∈ RealSet ∧ y ∈ PosRealSet}) as (hypothesis 13: {m ∈ NonNegIntegerSet}) (hypothesis 14: {m ∈ PosIntegerSet}) (hypothesis 15: {y ∈ RealSet}) (hypothesis 16: {y ∈ PosRealSet})
+assert (hypothesis 17: {frac(1, y + m) >= 0}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

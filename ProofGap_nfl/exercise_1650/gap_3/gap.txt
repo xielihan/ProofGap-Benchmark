@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ tan(x)^{2} = sec(x)^{2} - 1
+2. forall (k), k ∈ IntegerSet ⇒ ({ `F_2` | forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-frac(π, 2) + k * π, frac(π, 2) + k * π) ⇒ FunDeri(`F_2`, 1, 1)(x) = tan(x)^{2} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-frac(π, 2) + k * π, frac(π, 2) + k * π) ⇒ FunDeri(`F_3`, 1, 1)(x) = (sec(x)^{2} - 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) })
+
+GOAL:
+forall (k), k ∈ IntegerSet ⇒ ({ `F_4` | forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-frac(π, 2) + k * π, frac(π, 2) + k * π) ⇒ FunDeri(`F_4`, 1, 1)(x) = (sec(x)^{2} - 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-frac(π, 2) + k * π, frac(π, 2) + k * π) ⇒ `F_5`(x) = tan(x) - x + C) })
+
+METHOD:

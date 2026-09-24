@@ -1,0 +1,10 @@
+PROOF GAP @4
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x > 0 ⇒ tanh(x) > 0
+2. forall (x), x ∈ RealSet ∧ x > 0 ⇒ x ≠ 0
+3. forall (x), x ∈ RealSet ∧ x > 0 ⇒ sinh(2 * x) ≠ 0
+
+GOAL:
+lim_{ x → +∞ } (x * ln(tanh(x))) = lim_{ x → +∞ } (frac(ln(tanh(x)), frac(1, x)))
+
+METHOD:

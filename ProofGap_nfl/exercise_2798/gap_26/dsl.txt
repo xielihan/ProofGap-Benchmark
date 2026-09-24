@@ -1,0 +1,9 @@
+assert (hypothesis 30: {forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, +∞) ⇒ Defined(θ, x)}) by proof {
+  get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, +∞) ⇒ Defined(θ, x)}) (x := {x0})
+  get_condition (hypothesis 31: {x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(0, +∞)}) in (GOAL: {x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(0, +∞) ⇒ Defined(θ, x0)})
+  autosolve all_hypothesis
+}
+assert (hypothesis 31: {SmoothFuncOn(θ, IntervalLoRo(0, +∞))}) by proof {
+  apply (hypothesis 29: {SmoothFuncOn(θ, IntervalLoRo(0, +∞))})
+}
+autosolve all_hypothesis

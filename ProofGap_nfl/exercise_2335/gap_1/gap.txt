@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+lim_{ ε → 0^+ } (DefInt(ε, 1, (fun x [x ∈ RealSet ∧ x > 0] . ln(x)) * diff(fun x [x ∈ RealSet ∧ x > 0] . x))) = lim_{ ε → 0^+ } (ε - ε * ln(ε) - 1)
+
+METHOD:

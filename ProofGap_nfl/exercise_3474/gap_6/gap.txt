@@ -1,0 +1,18 @@
+PROOF GAP @6
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. v : CartesianProd(RealSet, RealSet) → RealSet
+3. w : CartesianProd(RealSet, RealSet) → RealSet
+4. z : CartesianProd(RealSet, RealSet) → RealSet
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ 0 ∧ y ≠ 0 ∧ z(x, y) > 0 ⇒ u(x, y) = x^{2} + y^{2} ∧ v(x, y) = frac(1, x) + frac(1, y) ∧ w(u(x, y), v(x, y)) = ln(z(x, y)) - (x + y)
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ y * FunDeri(z, 1, 1)(x, y) - x * FunDeri(z, 2, 1)(x, y) = (y - x) * z(x, y)
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y)) = 2 * x * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + 2 * y * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+8. forall (x) (y), x ∈ RealSet ∧ x ≠ 0 ∧ y ∈ RealSet ∧ y ≠ 0 ⇒ diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . v(x, y)) = -frac(1, x^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - frac(1, y^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+9. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ z(x, y) > 0 ⇒ diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . w(u(x, y), v(x, y))) = frac(1, z(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y)) - diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+10. diff(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . w(u, v)) = FunDeri(w, 1, 1)(u, v) * diff(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . u) + FunDeri(w, 2, 1)(u, v) * diff(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . v)
+11. forall (y) (x), y ∈ RealSet ∧ y ≠ 0 ∧ x ∈ RealSet ∧ x ≠ 0 ∧ z(x, y) > 0 ⇒ frac(1, z(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y)) - diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) = FunDeri(w, 1, 1)(u, v) * (2 * x * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + 2 * y * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) + FunDeri(w, 2, 1)(u, v) * (-frac(1, x^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - frac(1, y^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ x ≠ 0 ∧ y ∈ RealSet ∧ y ≠ 0 ⇒ diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y)) = (2 * x * z(x, y) * FunDeri(w, 1, 1)(u, v) - frac(z(x, y), x^{2}) * FunDeri(w, 2, 1)(u, v) + z(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (2 * y * z(x, y) * FunDeri(w, 1, 1)(u, v) - frac(z(x, y), y^{2}) * FunDeri(w, 2, 1)(u, v) + z(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+
+METHOD:

@@ -1,0 +1,4 @@
+1. rewrite (left_to_right, equation) (hypothesis 17: {b = -a}); from (GOAL: {forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ≠ (0, 0, 0) ⇒ b^{2} * w(x, y, z) = a^{2} * w(x, y, z)}) to (GOAL: {forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ≠ (0, 0, 0) ⇒ (-a)^{2} * w(x, y, z) = a^{2} * w(x, y, z)})
+2. get_forall (GOAL: {forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ≠ (0, 0, 0) ⇒ (-a)^{2} * w(x, y, z) = a^{2} * w(x, y, z)}) (x := {x0}) (y := {y0}) (z := {z0})
+3. get_condition (hypothesis 20: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet ∧ (x0, y0, z0) ≠ (0, 0, 0)}) in (GOAL: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet ∧ (x0, y0, z0) ≠ (0, 0, 0) ⇒ (-a)^{2} * w(x0, y0, z0) = a^{2} * w(x0, y0, z0)})
+4. autosolve all_hypothesis

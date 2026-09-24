@@ -1,0 +1,17 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. x ∈ RealSet ∧ x > 0
+5. a > 0
+6. b > 0
+7. Defined(f, [2 * sqrtn(2, a * b), +∞]) ∧ IntegrableFuncOn((fun t [t ∈ RealSet ∧ t ∈ NonNegRealSet] . f(sqrtn(2, t^{2} + 4 * a * b))), [0, +∞))
+8. t ∈ RealSet
+9. t = a * x - frac(b, x)
+10. a * x + frac(b, x) = sqrtn(2, t^{2} + 4 * a * b)
+
+GOAL:
+x = frac(1, 2 * a) * (t + sqrtn(2, t^{2} + 4 * a * b))
+
+METHOD:

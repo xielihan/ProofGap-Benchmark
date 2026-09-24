@@ -1,0 +1,24 @@
+PROOF GAP @15
+ASSUM:
+1. α ∈ RealSet
+2. I : RealSet → RealSet
+3. I = (fun α [α ∈ RealSet] . DefInt(0, +∞, frac(sin(α * x), x)^{2} * diff(x)))
+4. forall (x), x ∈ RealSet ∧ x > 0 ∧ α ≥ 0 ⇒ lim_{ x → 0^+ } (frac(sin(α * x), x)^{2}) = α^{2}
+5. α ≥ 0 ⇒ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ frac(sin(α * x), x)^{2} ≤ frac(1, x^{2}))
+6. α ≥ 0 ⇒ ConvergentSeries(DefInt(1, +∞, frac(1, x^{2}) * diff(x)))
+7. α ≥ 0 ⇒ UniformConvergent(fun α [α ∈ RealSet ∧ α ≥ 0] . DefInt(1, +∞, frac(sin(α * x), x)^{2} * diff(x)), NonNegRealSet, fun α [α ∈ RealSet ∧ α ≥ 0] . DefInt(1, +∞, frac(sin(α * x), x)^{2} * diff(x)))
+8. α ≥ 0 ⇒ UniformConvergent(fun α [α ∈ RealSet ∧ α ≥ 0] . DefInt(0, +∞, frac(sin(α * x), x)^{2} * diff(x)), NonNegRealSet, I)
+9. α ≥ 0 ⇒ ContinuousFuncOn(I, NonNegRealSet)
+10. α > 0 ⇒ DefInt(0, +∞, FunDeri(fun α [α ∈ RealSet ∧ α > 0] . frac(sin(α * x), x)^{2}, 1, 1)(α) * diff(x)) = DefInt(0, +∞, frac(sin(2 * α * x), x) * diff(x))
+11. α > 0 ⇒ DefInt(0, +∞, frac(sin(2 * α * x), x) * diff(x)) = frac(π, 2)
+12. α > 0 ⇒ FunDeri(I, 1, 1)(α) = DefInt(0, +∞, frac(sin(2 * α * x), x) * diff(x))
+13. α > 0 ⇒ DefInt(0, +∞, frac(sin(2 * α * x), x) * diff(x)) = frac(π, 2)
+14. α > 0 ⇒ FunDeri(I, 1, 1)(α) = frac(π, 2)
+15. exists (C), C ∈ RealSet ∧ I(α) = frac(π, 2) * α + C
+16. I(0) = 0
+17. exists (C), C ∈ RealSet ∧ lim_{ α → 0^+ } (I(α)) = C
+
+GOAL:
+exists (C), C ∈ RealSet ∧ C = 0
+
+METHOD:

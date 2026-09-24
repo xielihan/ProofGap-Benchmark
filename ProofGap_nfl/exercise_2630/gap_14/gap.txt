@@ -1,0 +1,25 @@
+PROOF GAP @14
+ASSUM:
+1. a ∈ RealSet
+2. u : NonNegIntegerSet → RealSet
+3. θ : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = frac(ln(n!), n^{a})
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < θ(n) ∧ θ(n) < 1
+6. a > 2 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ n! = sqrtn(2, 2 * π * n) * n^{n} * e^{-n + frac(θ(n), 12 * n)})
+7. a > 2 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = frac(ln(2 * π), 2 * n^{a}) + frac(ln(n), 2 * n^{a}) + frac(ln(n), n^{a - 1}) + frac(θ(n), 12 * n^{a + 1}) - frac(1, n^{a - 1}))
+8. a > 2 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{a})))
+9. a > 2 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(ln(n), n^{a})))
+10. a > 2 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(ln(n), n^{a - 1})))
+11. a > 2 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(θ(n), n^{a + 1})))
+12. a > 2 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{a - 1})))
+13. a > 2 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (u(n)))
+14. a ≤ 2 ⇒ lim_{ n → +∞ } (ln(n)) = +∞
+15. a ≤ 2 ⇒ lim_{ n → +∞ } (frac(sum_{ k = 1 }^{ n } (ln(k)), n)) = +∞
+16. a ≤ 2 ⇒ lim_{ n → +∞ } (frac(u(n), frac(1, n^{a - 1}))) = +∞
+17. a ≤ 2 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{a - 1})))
+18. a ≤ 2 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (u(n)))
+
+GOAL:
+a ∈ { a | a ∈ RealSet, a > 2 } ⇔ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (u(n)))
+
+METHOD:

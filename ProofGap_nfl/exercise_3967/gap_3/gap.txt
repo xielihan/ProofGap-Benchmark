@@ -1,0 +1,18 @@
+PROOF GAP @3
+ASSUM:
+1. Ω ⊆ CartesianProd(RealSet, RealSet)
+2. `Ω'` ⊆ CartesianProd(RealSet, RealSet)
+3. a ∈ RealSet ∧ a > 0
+4. b ∈ RealSet ∧ b > 0
+5. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ Ω = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet, frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) ≤ 1 })
+6. x = a * r * cos(φ)
+7. y = b * r * sin(φ)
+8. forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ `Ω'` = { (r, φ) | 0 ≤ r ∧ r ≤ 1 ∧ 0 ≤ φ ∧ φ ≤ 2 * π })
+9. forall (r), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1 ⇒ (exists (I), I ∈ RealSet ∧ |I| = a * b * r)
+10. r ∈ RealSet
+11. φ ∈ RealSet
+
+GOAL:
+sqrtn(2, 1 - frac(x^{2}, a^{2}) - frac(y^{2}, b^{2})) = sqrtn(2, 1 - r^{2})
+
+METHOD:

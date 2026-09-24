@@ -1,0 +1,20 @@
+PROOF GAP @4
+ASSUM:
+1. x_{1} ∈ RealSet
+2. x_{2} ∈ RealSet
+3. b ∈ RealSet
+4. f : RealSet → RealSet
+5. g : RealSet → RealSet
+6. Δ ∈ RealSet
+7. x_{1} ≤ x_{2}
+8. forall (x), x ∈ RealSet ∧ x ∈ [x_{1}, x_{2}] ⇒ f(x) = x^{2}
+9. forall (x), x ∈ RealSet ∧ x ∈ [x_{1}, x_{2}] ⇒ g(x) = (x_{1} + x_{2}) * x + b
+10. forall (x), x ∈ RealSet ∧ x ∈ [x_{1}, x_{2}] ⇒ Δ = sup({ |f(x) - g(x)| | x ∈ [x_{1}, x_{2}] })
+11. forall (x), x ∈ RealSet ∧ x ∈ [x_{1}, x_{2}] ⇒ f(x) - g(x) = x^{2} - ((x_{1} + x_{2}) * x + b)
+12. forall (x), x ∈ RealSet ∧ x ∈ [x_{1}, x_{2}] ⇒ FunDeri(f, 1, 1)(x) - FunDeri(g, 1, 1)(x) = 2 * x - (x_{1} + x_{2})
+13. forall (x), x ∈ RealSet ⇒ (FunDeri(f, 1, 1)(x) - FunDeri(g, 1, 1)(x) = 0 ⇔ x = frac(x_{1} + x_{2}, 2))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ [x_{1}, x_{2}] ⇒ FunDeri(f, 1, 2)(x) - FunDeri(g, 1, 2)(x) = 2 ∧ 2 > 0
+
+METHOD:

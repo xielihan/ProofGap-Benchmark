@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. exists (t), t ∈ RealSet ∧ t > 0 ∧ e^{frac(x, 4)} = t
+
+GOAL:
+exists (t), t ∈ RealSet ∧ t > 0
+
+METHOD:

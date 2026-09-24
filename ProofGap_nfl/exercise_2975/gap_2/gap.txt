@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. F : RealSet → RealSet
+3. a : NonNegIntegerSet → RealSet
+4. IntegrableFuncOn(f, IntervalLoRo(0, frac(π, 2)))
+5. forall (x), x ∈ RealSet ∧ -π < x ∧ x < π ⇒ F(-x) = F(x)
+
+GOAL:
+IntegrableFuncOn(f, IntervalLoRo(0, frac(π, 2)))
+
+METHOD:

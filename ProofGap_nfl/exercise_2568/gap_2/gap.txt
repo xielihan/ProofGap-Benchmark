@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. c : NonNegIntegerSet → RealSet
+3. n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet
+4. IsSeq(a)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ≥ 0
+6. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ⇒ seqlim_{ n → +∞ } (a(n)) = 0
+7. forall (u) (L), seqlim_{ n → +∞ } (u(n)) = L ⇔ (forall (ε), ε ∈ RealSet ⇒ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ |u(n) - L| < ε)))
+
+GOAL:
+ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ 0 ≤ a(n) ∧ a(n) < 1))
+
+METHOD:

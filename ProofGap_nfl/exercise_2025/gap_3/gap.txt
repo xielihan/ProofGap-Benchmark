@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. C ∈ RealSet
+2. t : RealSet → RealSet
+3. forall (x), x ∈ RealSet ⇒ t(x) = tan(frac(x, 2))
+4. forall (x), x ∈ RealSet ⇒ sin(x) = frac(2 * t(x), 1 + t(x)^{2})
+5. forall (x), x ∈ RealSet ⇒ cos(x) = frac(1 - t(x)^{2}, 1 + t(x)^{2})
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ diff(fun x [x ∈ RealSet] . x) = frac(2 * diff(t), 1 + t(x)^{2})
+
+METHOD:

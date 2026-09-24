@@ -1,0 +1,7 @@
+get_prop (theorem 'Thm 518. (PositiveIntegerIsReal)': {forall (x), x ∈ PosIntegerSet => x ∈ RealSet}) (x := {n}) as (hypothesis 4: {n ∈ PosIntegerSet => n ∈ RealSet})
+use_condition (hypothesis 3: {n ∈ PosIntegerSet}) in (hypothesis 4: {n ∈ PosIntegerSet => n ∈ RealSet}) as (hypothesis 5: {n ∈ RealSet})
+assert (hypothesis 6: {n * x ∈ RealSet})
+get_prop (theorem 'Thm 182. (CosineAdditionFormula)': {forall (x) (y), x ∈ RealSet => y ∈ RealSet => cos (x + y) = cos(x) * cos(y) - sin(x) * sin(y)}) (x := {n * x}) (y := {x}) as (hypothesis 7: {n * x ∈ RealSet => x ∈ RealSet => cos(n * x + x) = cos(n * x) * cos(x) - sin(n * x) * sin(x)})
+use_condition (hypothesis 6: {n * x ∈ RealSet}) (hypothesis 2: {x ∈ RealSet}) in (hypothesis 7: {n * x ∈ RealSet => x ∈ RealSet => cos(n * x + x) = cos(n * x) * cos(x) - sin(n * x) * sin(x)}) as (hypothesis 8: {cos(n * x + x) = cos(n * x) * cos(x) - sin(n * x) * sin(x)})
+rewrite (left_to_right, equation) (hypothesis 8: {cos(n * x + x) = cos(n * x) * cos(x) - sin(n * x) * sin(x)}); from (GOAL: {DefInt(0, π, sin(x)^{n - 1} * cos((n + 1) * x) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, π, sin(x)^{n - 1} * (cos(n * x) * cos(x) - sin(n * x) * sin(x)) * diff(fun x [x ∈ RealSet] . x))}) to (GOAL: {DefInt(0, π, sin(x)^{n - 1} * (cos(n * x) * cos(x) - sin(n * x) * sin(x)) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, π, sin(x)^{n - 1} * (cos(n * x) * cos(x) - sin(n * x) * sin(x)) * diff(fun x [x ∈ RealSet] . x))})
+autosolve all_hypothesis

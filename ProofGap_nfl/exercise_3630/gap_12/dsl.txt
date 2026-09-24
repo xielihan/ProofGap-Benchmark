@@ -1,0 +1,8 @@
+get_condition (hypothesis 23: {a^{2} + b^{2} ≠ 0}) in (GOAL: {a^{2} + b^{2} ≠ 0 ⇒ c ≠ 0 ⇒ (1 + r^{2})^{frac(5, 2)} * FunDeri(fun t . z(t * cos(φ), t * sin(φ)), 1, 2)(r) = -c * (1 + r^{2})})
+get_condition (hypothesis 24: {c ≠ 0}) in (GOAL: {c ≠ 0 ⇒ (1 + r^{2})^{frac(5, 2)} * FunDeri(fun t . z(t * cos(φ), t * sin(φ)), 1, 2)(r) = -c * (1 + r^{2})})
+use_condition (hypothesis 23: {a^{2} + b^{2} ≠ 0}) (hypothesis 24: {c ≠ 0}) in (hypothesis 17: {a^{2} + b^{2} ≠ 0 ⇒ c ≠ 0 ⇒ c * r = a * cos(φ) + b * sin(φ)}) as (hypothesis 25: {c * r = a * cos(φ) + b * sin(φ)})
+assert (hypothesis 26: {a * cos(φ) + b * sin(φ) - c * r = 0}) by proof {
+  autosolve (hypothesis 25: {c * r = a * cos(φ) + b * sin(φ)})
+}
+rewrite (left_to_right, equation) (hypothesis 26: {a * cos(φ) + b * sin(φ) - c * r = 0}); from (hypothesis 20: {(1 + r^{2})^{frac(5, 2)} * FunDeri(fun t . z(t * cos(φ), t * sin(φ)), 1, 2)(r) = -c * (1 + r^{2}) - 3 * r * (a * cos(φ) + b * sin(φ) - c * r)}) to (hypothesis 20: {(1 + r^{2})^{frac(5, 2)} * FunDeri(fun t . z(t * cos(φ), t * sin(φ)), 1, 2)(r) = -c * (1 + r^{2}) - 3 * r * 0})
+autosolve (hypothesis 20: {(1 + r^{2})^{frac(5, 2)} * FunDeri(fun t . z(t * cos(φ), t * sin(φ)), 1, 2)(r) = -c * (1 + r^{2}) - 3 * r * 0})

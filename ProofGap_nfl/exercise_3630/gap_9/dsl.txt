@@ -1,0 +1,5 @@
+get_condition (hypothesis 19: {a^{2} + b^{2} ≠ 0}) in (GOAL: {a^{2} + b^{2} ≠ 0 ⇒ c ≠ 0 ⇒ FunDeri(fun t . z(t * cos(φ), t * sin(φ)), 1, 1)(r) = 0 ⇒ c * r = a * cos(φ) + b * sin(φ)})
+get_condition (hypothesis 20: {c ≠ 0}) in (GOAL: {c ≠ 0 ⇒ FunDeri(fun t . z(t * cos(φ), t * sin(φ)), 1, 1)(r) = 0 ⇒ c * r = a * cos(φ) + b * sin(φ)})
+get_condition (hypothesis 21: {FunDeri(fun t . z(t * cos(φ), t * sin(φ)), 1, 1)(r) = 0}) in (GOAL: {FunDeri(fun t . z(t * cos(φ), t * sin(φ)), 1, 1)(r) = 0 ⇒ c * r = a * cos(φ) + b * sin(φ)})
+rewrite (left_to_right, equation) (hypothesis 21: {FunDeri(fun t . z(t * cos(φ), t * sin(φ)), 1, 1)(r) = 0}); from (hypothesis 12: {(1 + r^{2})^{frac(3, 2)} * FunDeri(fun t . z(t * cos(φ), t * sin(φ)), 1, 1)(r) = a * cos(φ) + b * sin(φ) - c * r}) to (hypothesis 12: {(1 + r^{2})^{frac(3, 2)} * 0 = a * cos(φ) + b * sin(φ) - c * r})
+autosolve all_hypothesis

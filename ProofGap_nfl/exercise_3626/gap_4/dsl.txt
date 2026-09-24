@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 6: {A_{0} = FunDeri(z, 1, 2)(0, 0)}); from (GOAL: {A_{0} = 0}) to (GOAL: {FunDeri(z, 1, 2)(0, 0) = 0})
+autosolve all_hypothesis using DerivSolver

@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. C ∈ RealSet
+4. a < b
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ x > -a ∨ x < -b
+
+METHOD:

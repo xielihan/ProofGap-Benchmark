@@ -1,0 +1,16 @@
+PROOF GAP @2
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. γ : RealSet → CartesianProd(RealSet, RealSet)
+5. FuncOfClassK(γ, 1)
+6. C = ImageOn(γ, [0, 1])
+7. γ(0) = (0, 0)
+8. γ(1) = (a, b)
+9. (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * cos(y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * sin(y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) = diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * cos(y))
+
+GOAL:
+VectorCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * cos(y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * sin(y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = ((fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * cos(y))|_{(0, 0)}^{(a, b)})
+
+METHOD:

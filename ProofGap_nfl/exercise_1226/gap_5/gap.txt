@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. T : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. forall (m) (x), x ∈ RealSet ∧ m ∈ NonNegIntegerSet ∧ x ∈ [-1, 1] ⇒ T(m, x) = frac(1, 2^{m - 1}) * cos(m * arccos(x))
+3. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ m ∈ NonNegIntegerSet ∧ |x| < 1 ⇒ FunDeri(fun t [t ∈ RealSet] . T(m, t), 1, 1)(x) = frac(m, 2^{m - 1} * sqrtn(2, 1 - x^{2})) * sin(m * arccos(x)))
+4. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ m ∈ NonNegIntegerSet ∧ |x| < 1 ⇒ FunDeri(fun t [t ∈ RealSet] . T(m, t), 1, 2)(x) = -frac(m^{2}, 2^{m - 1} * (1 - x^{2})) * cos(m * arccos(x)) + frac(m * x, 2^{m - 1} * (1 - x^{2})^{frac(3, 2)}) * sin(m * arccos(x)))
+5. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ m ∈ NonNegIntegerSet ∧ |x| < 1 ⇒ (1 - x^{2}) * FunDeri(fun t [t ∈ RealSet] . T(m, t), 1, 2)(x) = -frac(m^{2}, 2^{m - 1}) * cos(m * arccos(x)) + frac(m * x, 2^{m - 1} * sqrtn(2, 1 - x^{2})) * sin(m * arccos(x)))
+6. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ m ∈ NonNegIntegerSet ∧ |x| < 1 ⇒ (1 - x^{2}) * FunDeri(fun t [t ∈ RealSet] . T(m, t), 1, 2)(x) = -m^{2} * T(m, x) + x * FunDeri(fun t [t ∈ RealSet] . T(m, t), 1, 1)(x))
+
+GOAL:
+forall (m), m ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ m ∈ NonNegIntegerSet ∧ |x| < 1 ⇒ (1 - x^{2}) * FunDeri(fun t [t ∈ RealSet] . T(m, t), 1, 2)(x) - x * FunDeri(fun t [t ∈ RealSet] . T(m, t), 1, 1)(x) + m^{2} * T(m, x) = 0)
+
+METHOD:

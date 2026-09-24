@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+
+GOAL:
+|cos(x) - (1 - frac(x^{2}, 2))| ≤ frac(|x|^{4}, 4!)
+
+METHOD:

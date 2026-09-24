@@ -1,0 +1,3 @@
+exists (x_{1} := {4.7345})
+assert (hypothesis 11: {4.7345 ∈ RealSet ∧ 4.7345 = 4.7345})
+apply (hypothesis 11: {4.7345 ∈ RealSet ∧ 4.7345 = 4.7345})

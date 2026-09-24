@@ -1,0 +1,15 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. y : RealSet → RealSet
+3. ε ∈ RealSet
+4. x > 0
+5. forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x) = x^{2}
+6. 0 < ε
+7. ε < 100
+8. |y(x) - 100| < 1 ⇒ 99 < x^{2} ∧ x^{2} < 101
+
+GOAL:
+|y(x) - 100| < 1 ⇒ sqrtn(2, 99) < x ∧ x < sqrtn(2, 101)
+
+METHOD:

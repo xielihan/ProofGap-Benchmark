@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+lim_{ x → 0 } (frac(3 * tan(4 * x) - 12 * tan(x), 3 * sin(4 * x) - 12 * sin(x))) = lim_{ x → 0 } (frac(12 * sec(4 * x)^{2} - 12 * sec(x)^{2}, 12 * cos(4 * x) - 12 * cos(x)))
+
+METHOD:
+[@method 根据 "洛必达法则" @]

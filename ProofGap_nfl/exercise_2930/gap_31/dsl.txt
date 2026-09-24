@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 20: {S_{2} = frac(4, 239) - frac(4, 3 * 239^{3})}); from (GOAL: {0.0167363040 < S_{2}}) to (GOAL: {0.0167363040 < frac(4, 239) - frac(4, 3 * 239^{3})})
+autosolve all_hypothesis

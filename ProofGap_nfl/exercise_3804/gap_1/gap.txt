@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet
+3. c ∈ RealSet
+4. a * c - b^{2} > 0
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ a * x^{2} + 2 * b * x + c = frac(1, a) * ((a * x + b)^{2} + a * c - b^{2})
+
+METHOD:

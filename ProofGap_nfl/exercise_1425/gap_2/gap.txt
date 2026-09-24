@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. f = (fun x [x ∈ RealSet] . cases{ 2 - x^{2} * (2 + sin(frac(1, x))) if x ≠ 0; 2 if x = 0 })
+2. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) - f(0) = -x^{2} * (2 + sin(frac(1, x)))
+
+GOAL:
+forall (δ), δ ∈ RealSet ∧ 0 < δ ∧ δ < 1 ⇒ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-δ, δ) ∧ x ≠ 0 ⇒ f(x) < f(0))
+
+METHOD:

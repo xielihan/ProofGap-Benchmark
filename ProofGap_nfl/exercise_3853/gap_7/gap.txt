@@ -1,0 +1,20 @@
+PROOF GAP @7
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. m ∈ RealSet
+4. n ∈ RealSet ∧ n > 0
+5. p ∈ RealSet
+6. B : CartesianProd(RealSet, RealSet) → RealSet
+7. t = frac(b * x^{n}, a + b * x^{n})
+8. 0 < t
+9. t < 1
+10. x = frac(a, b)^{frac(1, n)} * frac(t, 1 - t)^{frac(1, n)}
+11. diff(x) = (fun t [t ∈ RealSet] . frac(1, n) * frac(a, b)^{frac(1, n)} * frac(t^{frac(1, n) - 1}, (1 - t)^{frac(1, n) + 1})) * diff(fun t [t ∈ RealSet] . t)
+12. DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(x^{m}, (a + b * x^{n})^{p})) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)) = frac(1, b^{p}) * DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(b * x^{n}, a + b * x^{n})^{p} * x^{m - n * p}) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x))
+13. frac(1, b^{p}) * DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(b * x^{n}, a + b * x^{n})^{p} * x^{m - n * p}) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)) = frac(a^{-p}, n) * frac(a, b)^{frac(m + 1, n)} * DefInt(0, 1, (fun t [t ∈ RealSet] . t^{frac(m + 1, n) - 1} * (1 - t)^{p - frac(m + 1, n) - 1}) * diff(fun t [t ∈ RealSet] . t))
+
+GOAL:
+DefInt(0, 1, (fun t [t ∈ RealSet] . t^{frac(m + 1, n) - 1} * (1 - t)^{p - frac(m + 1, n) - 1}) * diff(fun t [t ∈ RealSet] . t)) = B(frac(m + 1, n), p - frac(m + 1, n))
+
+METHOD:

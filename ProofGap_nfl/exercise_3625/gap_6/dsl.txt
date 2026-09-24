@@ -1,0 +1,2 @@
+rewrite (right_to_left, equation) (hypothesis 8: {C = FunDeri(z, 2, 2)(2, 3)}); from (GOAL: {C = -144}) to (GOAL: {FunDeri(z, 2, 2)(2, 3) = -144})
+autosolve all_hypothesis using DerivSolver

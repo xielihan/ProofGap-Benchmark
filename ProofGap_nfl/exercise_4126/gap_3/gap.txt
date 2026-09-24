@@ -1,0 +1,20 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. x ∈ RealSet
+3. y ∈ RealSet
+4. z ∈ RealSet
+5. V ∈ RealSet
+6. Area ∈ RealSet
+7. S_{1} ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+8. S_{2} ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+9. C ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+10. S_{1} = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, x^{2} + y^{2} = a * z }
+11. S_{2} = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, z = 2 * a - sqrtn(2, x^{2} + y^{2}) }
+12. C = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, x^{2} + y^{2} = a^{2}, z = a }
+13. V = DefInt(0, a, (fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a] . π * a * z) * diff(fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ a] . z)) + DefInt(a, 2 * a, (fun z [z ∈ RealSet ∧ a ≤ z ∧ z ≤ 2 * a] . π * (2 * a - z)^{2}) * diff(fun z [z ∈ RealSet ∧ a ≤ z ∧ z ≤ 2 * a] . z))
+
+GOAL:
+V = frac(π * a^{3}, 2) + frac(π * a^{3}, 3)
+
+METHOD:

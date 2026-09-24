@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 3: {Δ = ln(2) - 2 * (frac(1, 3) + frac(1, 3 * 3^{3}) + frac(1, 5 * 3^{5}) + frac(1, 7 * 3^{7}) + frac(1, 9 * 3^{9}))}); from (GOAL: {ln(2) = 2 * (frac(1, 3) + frac(1, 3 * 3^{3}) + frac(1, 5 * 3^{5}) + frac(1, 7 * 3^{7}) + frac(1, 9 * 3^{9})) + Δ}) to (GOAL: {ln(2) = 2 * (frac(1, 3) + frac(1, 3 * 3^{3}) + frac(1, 5 * 3^{5}) + frac(1, 7 * 3^{7}) + frac(1, 9 * 3^{9})) + (ln(2) - 2 * (frac(1, 3) + frac(1, 3 * 3^{3}) + frac(1, 5 * 3^{5}) + frac(1, 7 * 3^{7}) + frac(1, 9 * 3^{9})))})
+autosolve all_hypothesis

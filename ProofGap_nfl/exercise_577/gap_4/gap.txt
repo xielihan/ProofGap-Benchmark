@@ -1,0 +1,10 @@
+PROOF GAP @4
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x > 1 ⇒ sinh(sqrtn(2, x^{2} + x)) - sinh(sqrtn(2, x^{2} - x)) = 2 * sinh(frac(sqrtn(2, x^{2} + x) - sqrtn(2, x^{2} - x), 2)) * cosh(frac(sqrtn(2, x^{2} + x) + sqrtn(2, x^{2} - x), 2))
+2. forall (x), x ∈ RealSet ∧ x > 1 ⇒ sqrtn(2, x^{2} + x) - sqrtn(2, x^{2} - x) = frac(2 * x, sqrtn(2, x^{2} + x) + sqrtn(2, x^{2} - x))
+3. forall (x), x ∈ RealSet ∧ x > 1 ⇒ frac(2 * x, sqrtn(2, x^{2} + x) + sqrtn(2, x^{2} - x)) = frac(2, sqrtn(2, 1 + frac(1, x)) + sqrtn(2, 1 - frac(1, x)))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 1 ⇒ sqrtn(2, x^{2} + x) - sqrtn(2, x^{2} - x) = frac(2, sqrtn(2, 1 + frac(1, x)) + sqrtn(2, 1 - frac(1, x)))
+
+METHOD:

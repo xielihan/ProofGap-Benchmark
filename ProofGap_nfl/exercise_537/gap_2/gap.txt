@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. x > 0
+3. lim_{ h → 0 } (frac(lg(x + h) + lg(x - h) - 2 * lg(x), h^{2})) = lim_{ h → 0 } (frac(lg(x^{2} - h^{2}) - lg(x^{2}), h^{2}))
+
+GOAL:
+lim_{ h → 0 } (frac(lg(x^{2} - h^{2}) - lg(x^{2}), h^{2})) = lim_{ h → 0 } (-frac(1, x^{2}) * lg((1 - frac(h^{2}, x^{2}))^{-frac(x^{2}, h^{2})}))
+
+METHOD:

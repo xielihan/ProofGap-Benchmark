@@ -1,0 +1,4 @@
+1. get_condition (hypothesis 17: {n = 3}) in (GOAL: {n = 3 ⇒ 99.980001 < x})
+2. rewrite (left_to_right, equation) (hypothesis 17: {n = 3}); from (hypothesis 9: {100 * (1 - 10^{-(n + 1)})^{2} < x}) to (hypothesis 18: {100 * (1 - 10^{-(3 + 1)})^{2} < x})
+3. autoreplace no_hypothesis; from (100 * (1 - 10^{-(3 + 1)})^{2}) to (99.980001); from (hypothesis 18: {100 * (1 - 10^{-(3 + 1)})^{2} < x}) to (hypothesis 19: {99.980001 < x})
+4. apply (hypothesis 19: {99.980001 < x})

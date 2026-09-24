@@ -1,0 +1,23 @@
+get_forall (GOAL: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 1) ⇒ z(x, y) > 0}) (x := {u}) (y := {v})
+get_condition (hypothesis 7: {u ∈ RealSet ∧ v ∈ RealSet ∧ (u, v) ≠ (0, 1)}) in (GOAL: {u ∈ RealSet ∧ v ∈ RealSet ∧ (u, v) ≠ (0, 1) ⇒ z(u, v) > 0})
+destruct_and (hypothesis 7: {u ∈ RealSet ∧ v ∈ RealSet ∧ (u, v) ≠ (0, 1)}) as (hypothesis 8: {u ∈ RealSet}) (hypothesis 9: {v ∈ RealSet}) (hypothesis 10: {(u, v) ≠ (0, 1)})
+assert (hypothesis 11: {u ∈ RealSet ∧ v ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (hypothesis 2: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = x^{2} + (y - 1)^{2}}) (x := {u}) (y := {v}) as (hypothesis 12: {u ∈ RealSet ∧ v ∈ RealSet ⇒ z(u, v) = u^{2} + (v - 1)^{2}})
+use_condition (hypothesis 11: {u ∈ RealSet ∧ v ∈ RealSet}) in (hypothesis 12: {u ∈ RealSet ∧ v ∈ RealSet ⇒ z(u, v) = u^{2} + (v - 1)^{2}}) as (hypothesis 13: {z(u, v) = u^{2} + (v - 1)^{2}})
+get_prop (theorem 'Thm 20. (OrderedPairEqualityIntro)': {forall (a) (b) (c) (d), (a = c) => (b = d) => ((a, b) = (c, d))}) (a := {u}) (b := {v}) (c := {0}) (d := {1}) as (hypothesis 14: {u = 0 => v = 1 => (u, v) = (0, 1)})
+assert (hypothesis 15: {u = 0 ∨ u ≠ 0}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 16: {u = 0 ⇒ z(u, v) > 0}) by proof {
+  get_condition (hypothesis 16: {u = 0}) in (GOAL: {u = 0 ⇒ z(u, v) > 0})
+  rewrite (left_to_right, equation) (hypothesis 13: {z(u, v) = u^{2} + (v - 1)^{2}}); from (GOAL: {z(u, v) > 0}) to (GOAL: {u^{2} + (v - 1)^{2} > 0})
+  autosolve all_hypothesis
+}
+assert (hypothesis 17: {u ≠ 0 ⇒ z(u, v) > 0}) by proof {
+  get_condition (hypothesis 17: {u ≠ 0}) in (GOAL: {u ≠ 0 ⇒ z(u, v) > 0})
+  rewrite (left_to_right, equation) (hypothesis 13: {z(u, v) = u^{2} + (v - 1)^{2}}); from (GOAL: {z(u, v) > 0}) to (GOAL: {u^{2} + (v - 1)^{2} > 0})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

@@ -1,0 +1,4 @@
+1. get_condition (hypothesis 13: {diff(fun l, T [l ∈ RealSet ∧ T ∈ RealSet] . T) = 0}) in (GOAL: {diff(fun l, T [l ∈ RealSet ∧ T ∈ RealSet] . T) = 0 ⇒ `δ_g` = |frac(diff(fun l, T [l ∈ RealSet ∧ T ∈ RealSet] . l), l)|})
+2. use_condition (hypothesis 13: {diff(fun l, T [l ∈ RealSet ∧ T ∈ RealSet] . T) = 0}) in (hypothesis 12: {diff(fun l, T [l ∈ RealSet ∧ T ∈ RealSet] . T) = 0 ⇒ |frac(diff(g), g(l, T))| = |frac(diff(fun l, T [l ∈ RealSet ∧ T ∈ RealSet] . l), l)|}) as (hypothesis 14: {|frac(diff(g), g(l, T))| = |frac(diff(fun l, T [l ∈ RealSet ∧ T ∈ RealSet] . l), l)|})
+3. rewrite (left_to_right, equation) (hypothesis 8: {`δ_g` = |frac(diff(g), g(l, T))|}); from (GOAL: {`δ_g` = |frac(diff(fun l, T [l ∈ RealSet ∧ T ∈ RealSet] . l), l)|}) to (GOAL: {|frac(diff(g), g(l, T))| = |frac(diff(fun l, T [l ∈ RealSet ∧ T ∈ RealSet] . l), l)|})
+4. apply (hypothesis 14: {|frac(diff(g), g(l, T))| = |frac(diff(fun l, T [l ∈ RealSet ∧ T ∈ RealSet] . l), l)|})

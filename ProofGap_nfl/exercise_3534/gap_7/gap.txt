@@ -1,0 +1,23 @@
+PROOF GAP @7
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. z : RealSet → RealSet
+4. a ∈ RealSet
+5. b ∈ RealSet
+6. γ : RealSet → RealSet
+7. a^{2} + b^{2} > 0
+8. forall (t), t ∈ RealSet ⇒ x(t) = a * cos(t)
+9. forall (t), t ∈ RealSet ⇒ y(t) = a * sin(t)
+10. forall (t), t ∈ RealSet ⇒ z(t) = b * t
+11. forall (t), t ∈ RealSet ⇒ FunDeri(x, 1, 1)(t) = -a * sin(t)
+12. forall (t), t ∈ RealSet ⇒ FunDeri(y, 1, 1)(t) = a * cos(t)
+13. forall (t), t ∈ RealSet ⇒ FunDeri(z, 1, 1)(t) = b
+14. forall (t), t ∈ RealSet ⇒ cos(γ(t)) = frac(FunDeri(z, 1, 1)(t), sqrtn(2, FunDeri(x, 1, 1)(t)^{2} + FunDeri(y, 1, 1)(t)^{2} + FunDeri(z, 1, 1)(t)^{2}))
+15. forall (t), t ∈ RealSet ⇒ cos(γ(t)) = frac(b, sqrtn(2, (-a * sin(t))^{2} + (a * cos(t))^{2} + b^{2}))
+16. forall (t), t ∈ RealSet ⇒ cos(γ(t)) = frac(b, sqrtn(2, a^{2} + b^{2}))
+
+GOAL:
+forall (t), t ∈ RealSet ⇒ cos(γ(t)) = frac(b, sqrtn(2, a^{2} + b^{2}))
+
+METHOD:

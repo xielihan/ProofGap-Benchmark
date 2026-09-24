@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. y ∈ RealSet
+3. a : NonNegIntegerSet → RealSet
+4. x ∈ PosRealSet
+5. y ∈ PosRealSet
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(x^{n} * y^{n}, x^{n} + y^{n})
+
+GOAL:
+x < 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(x^{n}, 1 + frac(x, y)^{n}))
+
+METHOD:

@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = sin(x) + sin(x * sqrtn(2, 2))
+3. forall (T), T ∈ RealSet ∧ T > 0 ∧ PeriodicFunc(f, T) ⇒ (forall (x), x ∈ RealSet ⇒ f(x + T) = f(x))
+4. forall (T), T ∈ RealSet ∧ T > 0 ∧ PeriodicFunc(f, T) ⇒ (forall (x), x ∈ RealSet ⇒ sin(x + T) + sin((x + T) * sqrtn(2, 2)) = sin(x) + sin(x * sqrtn(2, 2)))
+5. forall (T), T ∈ RealSet ∧ T > 0 ∧ PeriodicFunc(f, T) ⇒ (exists (m) (n), m ∈ IntegerSet ∧ n ∈ IntegerSet ∧ T = 2 * m * π ∧ T * sqrtn(2, 2) = 2 * n * π)
+6. forall (T), T ∈ RealSet ∧ T > 0 ⇒ (forall (m) (n), PeriodicFunc(f, T) ∧ m ∈ IntegerSet ∧ n ∈ IntegerSet ∧ T = 2 * m * π ∧ T * sqrtn(2, 2) = 2 * n * π ⇒ sqrtn(2, 2) = frac(n, m))
+
+GOAL:
+(exists (T), T ∈ RealSet ∧ T > 0 ∧ PeriodicFunc(f, T)) ⇒ False
+
+METHOD:

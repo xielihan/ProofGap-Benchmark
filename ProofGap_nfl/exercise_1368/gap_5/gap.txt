@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. x ∈ RealSet
+2. x ∈ RealSet
+3. x ≠ 0
+4. 1 + e^{x} > 0
+5. tanh(x) ≠ 0
+
+GOAL:
+lim_{ x → 0 } ((ln(1 + e^{x}) - ln(2)) / tanh(x)) = lim_{ x → 0 } (frac(e^{x}, 1 + e^{x}) / frac(1, cosh(x)^{2}))
+
+METHOD:
+[@method 洛必达法则 @]

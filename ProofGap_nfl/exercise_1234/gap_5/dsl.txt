@@ -1,0 +1,1 @@
+apply (hypothesis 16: {forall (t), t ∈ RealSet ⇒ δ(y) = e^{-t} * D(y)})

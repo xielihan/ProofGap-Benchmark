@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. D ⊆ CartesianProd(RealSet, RealSet)
+2. forall (z), z ∈ CartesianProd(RealSet, RealSet) ⇒ (z ∈ D ⇔ (exists (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ z = (x, y) ∧ x^{2} + y^{2} ≤ 1))
+
+GOAL:
+VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ 0 < x^{2} + y^{2}] . ln(frac(1, sqrtn(2, x^{2} + y^{2})))) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = DefInt(0, 2 * π, (fun θ [θ ∈ RealSet] . 1) * diff(fun θ [θ ∈ RealSet] . θ)) * DefInt(0, 1, (fun r [r ∈ RealSet ∧ 0 < r ∧ r ≤ 1] . r * ln(frac(1, r))) * diff(fun r [r ∈ RealSet ∧ 0 < r ∧ r ≤ 1] . r))
+
+METHOD:
+[@method 根据 "极坐标变换及被积函数非负性" @]

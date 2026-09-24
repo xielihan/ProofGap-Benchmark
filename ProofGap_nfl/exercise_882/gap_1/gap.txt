@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. a^{2} + b^{2} > 0
+5. forall (x), x ∈ RealSet ⇒ y(x) = e^{a * x} * frac(a * sin(b * x) - b * cos(b * x), sqrtn(2, a^{2} + b^{2}))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (e^{a * x} * frac(a * sin(b * x) - b * cos(b * x), sqrtn(2, a^{2} + b^{2})))' = frac(1, sqrtn(2, a^{2} + b^{2})) * e^{a * x} * (a * (a * sin(b * x) - b * cos(b * x)) + a * b * cos(b * x) + b^{2} * sin(b * x))
+
+METHOD:

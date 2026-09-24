@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. V ∈ RealSet
+3. exists (x), x ∈ RealSet ∧ (exists (y), y ∈ RealSet ∧ (exists (z), z ∈ RealSet ∧ z = x^{2} + y^{2}))
+4. exists (x), x ∈ RealSet ∧ (exists (y), y ∈ RealSet ∧ (x * y = a^{2} ∨ x * y = 2 * a^{2}))
+5. exists (x), x ∈ RealSet ∧ (exists (y), y ∈ RealSet ∧ (y = frac(x, 2) ∨ y = 2 * x))
+6. Ω = { (x, y) | x ∈ RealSet, y ∈ RealSet, a^{2} ≤ x * y ∧ x * y ≤ 2 * a^{2} ∧ frac(x, 2) ≤ y ∧ y ≤ 2 * x }
+
+GOAL:
+V = 2 * VolumeInt(Ω, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x^{2} + y^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+
+METHOD:

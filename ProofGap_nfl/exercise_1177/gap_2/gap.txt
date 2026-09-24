@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. u : RealSet → RealSet
+3. I ⊆ RealSet
+4. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ y(x) = e^{u(x)}
+5. FuncOfClassKOn(u, I, 4)
+6. diff(y) = (fun x [x ∈ RealSet ∧ x ∈ I] . e^{u(x)}) * diff(u)
+
+GOAL:
+diff^{2}(y) = (fun x [x ∈ RealSet ∧ x ∈ I] . e^{u(x)}) * diff(u)^{2} + (fun x [x ∈ RealSet ∧ x ∈ I] . e^{u(x)}) * diff^{2}(u)
+
+METHOD:

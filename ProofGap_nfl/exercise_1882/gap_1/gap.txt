@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet ∧ x ≠ 1
+
+GOAL:
+exists (A) (B) (C), A ∈ RealSet ∧ B ∈ RealSet ∧ C ∈ RealSet ∧ (x ≠ 1 ⇒ A = frac(1, 3) ⇒ B = -frac(1, 3) ⇒ C = frac(1, 3) ⇒ frac(x, x^{3} - 1) = frac(A, x - 1) + frac(B * x + C, x^{2} + x + 1))
+
+METHOD:

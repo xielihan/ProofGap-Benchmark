@@ -1,0 +1,7 @@
+1. destruct_and (hypothesis 2: {δ ∈ RealSet /\ δ > 0}) as (hypothesis 8: {δ ∈ RealSet}) (hypothesis 9: {δ > 0})
+2. get_prop (hypothesis 5: {forall (x), x ∈ RealSet /\ (x > a - δ /\ x < a + δ) => f(x) = |x - a| * φ(x)}) (x := {a}) as (hypothesis 10: {a ∈ RealSet /\ (a > a - δ /\ a < a + δ) => f(a) = |a - a| * φ(a)})
+3. assert (hypothesis 11: {a ∈ RealSet /\ (a > a - δ /\ a < a + δ)})
+4. use_condition (hypothesis 11: {a ∈ RealSet /\ (a > a - δ /\ a < a + δ)}) in (hypothesis 10: {a ∈ RealSet /\ (a > a - δ /\ a < a + δ) => f(a) = |a - a| * φ(a)}) as (hypothesis 12: {f(a) = |a - a| * φ(a)})
+5. assert (hypothesis 13: {|a - a| = 0})
+6. rewrite (left_to_right, equation) (hypothesis 13: {|a - a| = 0}); from (hypothesis 12: {f(a) = |a - a| * φ(a)}) to (hypothesis 14: {f(a) = 0 * φ(a)})
+7. autosolve (hypothesis 14: {f(a) = 0 * φ(a)})

@@ -1,0 +1,8 @@
+get_condition (hypothesis 24: {k < 0}) in (GOAL: {k < 0 ⇒ (forall (t), t ∈ RealSet ∧ t ∈ PosRealSet ⇒ FunDeri(f, 1, 1)(t) > 0)})
+use_condition (hypothesis 24: {k < 0}) in (hypothesis 23: {k < 0 ⇒ (forall (t), t ∈ RealSet ∧ t ∈ PosRealSet ⇒ FunDeri(f, 1, 1)(t) = frac(1, t) - k)}) as (hypothesis 25: {forall (t), t ∈ RealSet ∧ t ∈ PosRealSet ⇒ FunDeri(f, 1, 1)(t) = frac(1, t) - k})
+get_forall (GOAL: {forall (t), t ∈ RealSet ∧ t ∈ PosRealSet ⇒ FunDeri(f, 1, 1)(t) > 0}) (t := {t0})
+get_condition (hypothesis 26: {t0 ∈ RealSet ∧ t0 ∈ PosRealSet}) in (GOAL: {t0 ∈ RealSet ∧ t0 ∈ PosRealSet ⇒ FunDeri(f, 1, 1)(t0) > 0})
+get_prop (hypothesis 25: {forall (t), t ∈ RealSet ∧ t ∈ PosRealSet ⇒ FunDeri(f, 1, 1)(t) = frac(1, t) - k}) (t := {t0}) as (hypothesis 27: {t0 ∈ RealSet ∧ t0 ∈ PosRealSet ⇒ FunDeri(f, 1, 1)(t0) = frac(1, t0) - k})
+use_condition (hypothesis 26: {t0 ∈ RealSet ∧ t0 ∈ PosRealSet}) in (hypothesis 27: {t0 ∈ RealSet ∧ t0 ∈ PosRealSet ⇒ FunDeri(f, 1, 1)(t0) = frac(1, t0) - k}) as (hypothesis 28: {FunDeri(f, 1, 1)(t0) = frac(1, t0) - k})
+rewrite (left_to_right, equation) (hypothesis 28: {FunDeri(f, 1, 1)(t0) = frac(1, t0) - k}); from (GOAL: {FunDeri(f, 1, 1)(t0) > 0}) to (GOAL: {frac(1, t0) - k > 0})
+autosolve (hypothesis 24: {k < 0}) (hypothesis 26: {t0 ∈ RealSet ∧ t0 ∈ PosRealSet}) using SgnSolver

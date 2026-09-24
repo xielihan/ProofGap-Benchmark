@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ frac(1, x) - 1 < floor(frac(1, x)) ∧ floor(frac(1, x)) ≤ frac(1, x)
+2. forall (x), x ∈ RealSet ∧ x > 0 ⇒ 1 - x < x * floor(frac(1, x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ x * floor(frac(1, x)) ≤ 1
+
+METHOD:

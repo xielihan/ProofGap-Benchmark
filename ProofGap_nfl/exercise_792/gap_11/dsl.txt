@@ -1,0 +1,25 @@
+1. get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ |`x'` - `x''`| < δ ⇒ |f(`x'`) - f(`x''`)| < ε)))}) (ε := {eps0})
+2. get_condition (hypothesis 13: {eps0 ∈ RealSet ∧ eps0 > 0}) in (GOAL: {eps0 ∈ RealSet ∧ eps0 > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ |`x'` - `x''`| < δ ⇒ |f(`x'`) - f(`x''`)| < eps0)))})
+3. get_prop (hypothesis 12: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ |`x'` - `x''`| < δ ⇒ 2 * δ = ε)))}) (ε := {eps0}) as (hypothesis 14: {eps0 ∈ RealSet ∧ eps0 > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ |`x'` - `x''`| < δ ⇒ 2 * δ = eps0)))})
+4. use_condition (hypothesis 13: {eps0 ∈ RealSet ∧ eps0 > 0}) in (hypothesis 14: {eps0 ∈ RealSet ∧ eps0 > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ |`x'` - `x''`| < δ ⇒ 2 * δ = eps0)))}) as (hypothesis 15: {exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ |`x'` - `x''`| < δ ⇒ 2 * δ = eps0))})
+5. get_exists (hypothesis 15: {exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ |`x'` - `x''`| < δ ⇒ 2 * δ = eps0))}) (δ := {d0})
+6. destruct_and (hypothesis 16: {d0 ∈ RealSet ∧ d0 > 0 ∧ (forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ |`x'` - `x''`| < d0 ⇒ 2 * d0 = eps0))}) as (hypothesis 17: {d0 ∈ RealSet}) (hypothesis 18: {d0 > 0}) (hypothesis 19: {forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ |`x'` - `x''`| < d0 ⇒ 2 * d0 = eps0)})
+7. assert (hypothesis 20: {forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ |`x'` - `x''`| < d0 ⇒ |f(`x'`) - f(`x''`)| < eps0)}) by proof {
+  1. get_forall (GOAL: {forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ |`x'` - `x''`| < d0 ⇒ |f(`x'`) - f(`x''`)| < eps0)}) (`x'` := {u0})
+  2. get_condition (hypothesis 20: {u0 ∈ RealSet}) in (GOAL: {u0 ∈ RealSet ⇒ (forall (`x''`), u0 ∈ RealSet ∧ `x''` ∈ RealSet ∧ |u0 - `x''`| < d0 ⇒ |f(u0) - f(`x''`)| < eps0)})
+  3. get_forall (GOAL: {forall (`x''`), u0 ∈ RealSet ∧ `x''` ∈ RealSet ∧ |u0 - `x''`| < d0 ⇒ |f(u0) - f(`x''`)| < eps0}) (`x''` := {v0})
+  4. get_condition (hypothesis 21: {u0 ∈ RealSet ∧ v0 ∈ RealSet ∧ |u0 - v0| < d0}) in (GOAL: {u0 ∈ RealSet ∧ v0 ∈ RealSet ∧ |u0 - v0| < d0 ⇒ |f(u0) - f(v0)| < eps0})
+  5. destruct_and (hypothesis 21: {u0 ∈ RealSet ∧ v0 ∈ RealSet ∧ |u0 - v0| < d0}) as (hypothesis 22: {u0 ∈ RealSet}) (hypothesis 23: {v0 ∈ RealSet}) (hypothesis 24: {|u0 - v0| < d0})
+  6. get_prop (hypothesis 7: {forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ⇒ |f(`x'`) - f(`x''`)| ≤ 2 * |`x'` - `x''`|)}) (`x'` := {u0}) as (hypothesis 25: {u0 ∈ RealSet ⇒ (forall (`x''`), u0 ∈ RealSet ∧ `x''` ∈ RealSet ⇒ |f(u0) - f(`x''`)| ≤ 2 * |u0 - `x''`|)})
+  7. use_condition (hypothesis 20: {u0 ∈ RealSet}) in (hypothesis 25: {u0 ∈ RealSet ⇒ (forall (`x''`), u0 ∈ RealSet ∧ `x''` ∈ RealSet ⇒ |f(u0) - f(`x''`)| ≤ 2 * |u0 - `x''`|)}) as (hypothesis 26: {forall (`x''`), u0 ∈ RealSet ∧ `x''` ∈ RealSet ⇒ |f(u0) - f(`x''`)| ≤ 2 * |u0 - `x''`|})
+  8. get_prop (hypothesis 26: {forall (`x''`), u0 ∈ RealSet ∧ `x''` ∈ RealSet ⇒ |f(u0) - f(`x''`)| ≤ 2 * |u0 - `x''`|}) (`x''` := {v0}) as (hypothesis 27: {u0 ∈ RealSet ∧ v0 ∈ RealSet ⇒ |f(u0) - f(v0)| ≤ 2 * |u0 - v0|})
+  9. assert (hypothesis 28: {u0 ∈ RealSet ∧ v0 ∈ RealSet})
+  10. use_condition (hypothesis 28: {u0 ∈ RealSet ∧ v0 ∈ RealSet}) in (hypothesis 27: {u0 ∈ RealSet ∧ v0 ∈ RealSet ⇒ |f(u0) - f(v0)| ≤ 2 * |u0 - v0|}) as (hypothesis 29: {|f(u0) - f(v0)| ≤ 2 * |u0 - v0|})
+  11. get_prop (hypothesis 19: {forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ |`x'` - `x''`| < d0 ⇒ 2 * d0 = eps0)}) (`x'` := {u0}) as (hypothesis 30: {u0 ∈ RealSet ⇒ (forall (`x''`), u0 ∈ RealSet ∧ `x''` ∈ RealSet ∧ |u0 - `x''`| < d0 ⇒ 2 * d0 = eps0)})
+  12. use_condition (hypothesis 20: {u0 ∈ RealSet}) in (hypothesis 30: {u0 ∈ RealSet ⇒ (forall (`x''`), u0 ∈ RealSet ∧ `x''` ∈ RealSet ∧ |u0 - `x''`| < d0 ⇒ 2 * d0 = eps0)}) as (hypothesis 31: {forall (`x''`), u0 ∈ RealSet ∧ `x''` ∈ RealSet ∧ |u0 - `x''`| < d0 ⇒ 2 * d0 = eps0})
+  13. get_prop (hypothesis 31: {forall (`x''`), u0 ∈ RealSet ∧ `x''` ∈ RealSet ∧ |u0 - `x''`| < d0 ⇒ 2 * d0 = eps0}) (`x''` := {v0}) as (hypothesis 32: {u0 ∈ RealSet ∧ v0 ∈ RealSet ∧ |u0 - v0| < d0 ⇒ 2 * d0 = eps0})
+  14. use_condition (hypothesis 21: {u0 ∈ RealSet ∧ v0 ∈ RealSet ∧ |u0 - v0| < d0}) in (hypothesis 32: {u0 ∈ RealSet ∧ v0 ∈ RealSet ∧ |u0 - v0| < d0 ⇒ 2 * d0 = eps0}) as (hypothesis 33: {2 * d0 = eps0})
+  15. autosolve all_hypothesis
+}
+8. exists (δ := {d0})
+9. autosolve all_hypothesis

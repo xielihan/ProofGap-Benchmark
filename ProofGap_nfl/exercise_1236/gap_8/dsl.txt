@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet /\ -1 <= x /\ x <= 1 /\ x ≠ 0 => FunDeri(f, 1, 1)(x) ≠ 0}) (x := {u})
+get_condition (hypothesis 10: {u ∈ RealSet /\ -1 <= u /\ u <= 1 /\ u ≠ 0}) in (GOAL: {u ∈ RealSet /\ -1 <= u /\ u <= 1 /\ u ≠ 0 => FunDeri(f, 1, 1)(u) ≠ 0})
+destruct_and (hypothesis 10: {u ∈ RealSet /\ -1 <= u /\ u <= 1 /\ u ≠ 0}) as (hypothesis 11: {u ∈ RealSet}) (hypothesis 12: {-1 <= u}) (hypothesis 13: {u <= 1}) (hypothesis 14: {u ≠ 0})
+get_prop (hypothesis 9: {forall (x), x ∈ RealSet /\ x ≠ 0 => FunDeri(f, 1, 1)(x) = -frac(2, 3 * sqrtn(3, x))}) (x := {u}) as (hypothesis 15: {u ∈ RealSet /\ u ≠ 0 => FunDeri(f, 1, 1)(u) = -frac(2, 3 * sqrtn(3, u))})
+assert (hypothesis 16: {u ∈ RealSet /\ u ≠ 0})
+use_condition (hypothesis 16: {u ∈ RealSet /\ u ≠ 0}) in (hypothesis 15: {u ∈ RealSet /\ u ≠ 0 => FunDeri(f, 1, 1)(u) = -frac(2, 3 * sqrtn(3, u))}) as (hypothesis 17: {FunDeri(f, 1, 1)(u) = -frac(2, 3 * sqrtn(3, u))})
+rewrite (left_to_right, equation) (hypothesis 17: {FunDeri(f, 1, 1)(u) = -frac(2, 3 * sqrtn(3, u))}); from (GOAL: {FunDeri(f, 1, 1)(u) ≠ 0}) to (GOAL: {-frac(2, 3 * sqrtn(3, u)) ≠ 0})
+autosolve all_hypothesis

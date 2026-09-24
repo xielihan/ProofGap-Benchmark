@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet ∧ x ≠ 0
+2. C ∈ RealSet
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = sin(frac(1, x)) * frac(1, x^{2}) * FunDeri(fun x [x ∈ RealSet ∧ x ≠ 0] . x, 1, 1)(x) } = { `F_4` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = sin(frac(1, x)) * FunDeri(fun x [x ∈ RealSet ∧ x ≠ 0] . frac(1, x), 1, 1)(x) ∧ `F_4`(x) = -`F_3`(x)) }
+
+METHOD:

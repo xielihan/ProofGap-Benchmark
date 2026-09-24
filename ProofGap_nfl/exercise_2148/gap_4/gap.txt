@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet ∧ sin(x) ≠ 0 ∧ 1 + cos(x) > 0
+2. t : RealSet → RealSet
+3. C ∈ RealSet
+4. 1 + cos(x) = t(x)^{2}
+5. t(x) > 0
+6. 2 - t(x)^{2} > 0
+7. sin(x) = t(x) * sqrtn(2, 2 - t(x)^{2})
+
+GOAL:
+diff(fun x [x ∈ RealSet] . x) = -frac(2, sqrtn(2, 2 - t(x)^{2})) * diff(fun x [x ∈ RealSet] . t(x))
+
+METHOD:

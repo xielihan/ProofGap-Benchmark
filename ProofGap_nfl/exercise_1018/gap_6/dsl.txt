@@ -1,0 +1,3 @@
+1. assert (hypothesis 9: {0 ∈ RealSet})
+2. exists (f := {f}) (a := {0})
+3. autosolve all_hypothesis

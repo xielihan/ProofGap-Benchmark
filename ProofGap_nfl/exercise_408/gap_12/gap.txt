@@ -1,0 +1,31 @@
+PROOF GAP @12
+ASSUM:
+1. p : RealSet → RealSet
+2. a : NonNegIntegerSet → RealSet
+3. n ∈ NonNegIntegerSet
+4. i ∈ NonNegIntegerSet
+5. E_{1} ∈ RealSet
+6. E_{2} ∈ RealSet
+7. E ∈ RealSet
+8. n ∈ PosIntegerSet
+9. forall (i), i ∈ NonNegIntegerSet ∧ i ≤ n ⇒ a(i) ∈ RealSet
+10. a(0) ≠ 0
+11. forall (x), x ∈ RealSet ⇒ p(x) = sum_{ i = 0 }^{ n } (a(i) * x^{n - i})
+12. |a(0)| > 0
+13. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ |p(x)| ≥ |a(0)| * |x^{n}| * |1 - (sum_{ i = 1 }^{ n } (frac(|a(i)|, |a(0)|) * frac(1, |x|^{i})))|
+14. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ lim_{ x → ∞ } (frac(1, |x|^{i})) = 0
+15. exists (E_{1}), E_{1} ∈ RealSet ∧ E_{1} > 0 ∧ (forall (x), x ∈ RealSet ∧ |x| > E_{1} ⇒ |1 - (sum_{ i = 1 }^{ n } (frac(|a(i)|, |a(0)|) * frac(1, |x|^{i})))| > frac(1, 2))
+16. forall (x), x ∈ RealSet ∧ |x| > E_{1} ⇒ |p(x)| > frac(1, 2) * |a(0)| * |x|^{n}
+17. forall (M), M ∈ RealSet ∧ M > 0 ⇒ E_{2} = sqrtn(n, frac(2 * M, |a(0)|))
+18. forall (M), M ∈ RealSet ∧ M > 0 ⇒ E = max(E_{1}, E_{2})
+19. forall (M), M ∈ RealSet ∧ M > 0 ⇒ (forall (x), x ∈ RealSet ∧ |x| > E ⇒ |x| > E_{1})
+20. forall (M), M ∈ RealSet ∧ M > 0 ⇒ (forall (x), x ∈ RealSet ∧ |x| > E ⇒ |x| > E_{2})
+21. forall (M), M ∈ RealSet ∧ M > 0 ⇒ (forall (x), x ∈ RealSet ∧ |x| > E ⇒ |p(x)| > frac(1, 2) * |a(0)| * |x|^{n})
+22. forall (M), M ∈ RealSet ∧ M > 0 ⇒ (forall (x), x ∈ RealSet ∧ |x| > E ⇒ frac(1, 2) * |a(0)| * |x|^{n} ≥ M)
+23. forall (M), M ∈ RealSet ∧ M > 0 ⇒ (forall (x), x ∈ RealSet ∧ |x| > E ⇒ |p(x)| > M)
+24. lim_{ x → ∞ } (|p(x)|) = +∞
+
+GOAL:
+lim_{ x → ∞ } (|p(x)|) = +∞
+
+METHOD:

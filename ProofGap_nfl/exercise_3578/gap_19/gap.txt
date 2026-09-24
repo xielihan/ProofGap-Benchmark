@@ -1,0 +1,30 @@
+PROOF GAP @19
+ASSUM:
+1. ρ ∈ RealSet ∧ ρ ∈ PosRealSet
+2. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. forall (x) (a) (y) (b) (z) (c), x ∈ RealSet ∧ a ∈ RealSet ∧ y ∈ RealSet ∧ b ∈ RealSet ∧ z ∈ RealSet ∧ c ∈ RealSet ⇒ (x - a)^{2} + (y - b)^{2} + (z - c)^{2} = ρ^{2}
+4. forall (a) (b) (c), a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ⇒ a^{2} + b^{2} = c^{2}
+5. F = (fun x, y, z, a, b, c, λ [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet] . (x - a)^{2} + (y - b)^{2} + (z - c)^{2} + λ * (a^{2} + b^{2} - c^{2}))
+6. forall (x) (y) (z) (a) (b) (c) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 4, 1)(x, y, z, a, b, c, λ) = -2 * (x - a) + 2 * λ * a
+7. forall (x) (a) (λ), x ∈ RealSet ∧ a ∈ RealSet ∧ λ ∈ RealSet ⇒ -2 * (x - a) + 2 * λ * a = 0
+8. forall (x) (y) (z) (a) (b) (c) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 4, 1)(x, y, z, a, b, c, λ) = 0
+9. forall (x) (y) (z) (a) (b) (c) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 5, 1)(x, y, z, a, b, c, λ) = -2 * (y - b) + 2 * λ * b
+10. forall (y) (b) (λ), y ∈ RealSet ∧ b ∈ RealSet ∧ λ ∈ RealSet ⇒ -2 * (y - b) + 2 * λ * b = 0
+11. forall (x) (y) (z) (a) (b) (c) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 5, 1)(x, y, z, a, b, c, λ) = 0
+12. forall (x) (y) (z) (a) (b) (c) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 6, 1)(x, y, z, a, b, c, λ) = -2 * (z - c) + 2 * λ * c
+13. forall (z) (c) (λ), z ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet ⇒ -2 * (z - c) + 2 * λ * c = 0
+14. forall (x) (y) (z) (a) (b) (c) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 6, 1)(x, y, z, a, b, c, λ) = 0
+15. forall (x) (a) (y) (b), x ∈ RealSet ∧ a ∈ RealSet ∧ y ∈ RealSet ∧ b ∈ RealSet ⇒ frac(x, a) - 1 = frac(y, b) - 1
+16. forall (y) (b) (z) (c), y ∈ RealSet ∧ b ∈ RealSet ∧ z ∈ RealSet ∧ c ∈ RealSet ⇒ frac(y, b) - 1 = -frac(z, c) + 1
+17. forall (z) (c) (λ), z ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet ⇒ -frac(z, c) + 1 = λ
+18. μ = frac(a, x)
+19. a = μ * x
+20. forall (b) (y), b ∈ RealSet ∧ y ∈ RealSet ⇒ b = μ * y
+21. forall (c) (z), c ∈ RealSet ∧ z ∈ RealSet ⇒ c = frac(μ * z, 2 * μ - 1)
+22. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ x^{2} + y^{2} + frac(z^{2}, (2 * μ - 1)^{2}) = frac(ρ^{2}, (μ - 1)^{2})
+
+GOAL:
+forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ x^{2} + y^{2} - frac(z^{2}, (2 * μ - 1)^{2}) = 0
+
+METHOD:
+[@method 代入 a = μ * x, b = μ * y, c = frac(μ * z, 2 * μ - 1) 到 a^{2} + b^{2} = c^{2} @]

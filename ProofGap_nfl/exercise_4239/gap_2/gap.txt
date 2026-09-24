@@ -1,0 +1,19 @@
+PROOF GAP @2
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. T ∈ RealSet ∧ T > 0
+3. t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ T
+4. x : RealSet → RealSet
+5. y : RealSet → RealSet
+6. z : RealSet → RealSet
+7. s : RealSet → RealSet
+8. C = { (x(t), y(t), z(t)) | t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ T }
+9. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ T ⇒ x(t) = t * cos(t)
+10. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ T ⇒ y(t) = t * sin(t)
+11. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ T ⇒ z(t) = t
+12. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ T ⇒ diff(s) = sqrtn(2, (cos(t) - t * sin(t))^{2} + (sin(t) + t * cos(t))^{2} + 1) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ T] . t)
+
+GOAL:
+forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ T ⇒ diff(s) = sqrtn(2, 2 + t^{2}) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ T] . t)
+
+METHOD:

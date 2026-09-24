@@ -1,0 +1,1 @@
+autosolve (hypothesis 16: {α ≥ 0}) (hypothesis 20: {β ≤ seqlim_{ n → +∞ } (y(n))})

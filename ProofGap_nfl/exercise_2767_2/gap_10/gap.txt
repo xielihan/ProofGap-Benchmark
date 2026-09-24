@@ -1,0 +1,19 @@
+PROOF GAP @10
+ASSUM:
+1. S : RealSet → RealSet
+2. P : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+3. forall (n) (x) (k), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ x ≠ 1 ∧ k ∈ NonNegIntegerSet ∧ k ≤ n ⇒ P(n, x) = sum_{ k = 0 }^{ n } (x^{k})
+4. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ x ≠ 1 ⇒ P(n, x) = frac(1 - x^{n + 1}, 1 - x)
+5. forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ seqlim_{ n → +∞ } (P(n, x)) = frac(1, 1 - x)
+6. forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ S(x) = frac(1, 1 - x)
+7. forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ ConvergentSeriesTo(sum_{ n = 0 }^{ +∞ } (x^{n}), frac(1, 1 - x))
+8. exists (`ε_{0}`), `ε_{0}` ∈ RealSet ∧ `ε_{0}` = frac(1, 2) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (x), x ∈ RealSet ∧ x = frac(1, sqrtn(n + 1, 2)) ∧ |x| < 1))
+9. exists (`ε_{0}`), `ε_{0}` ∈ RealSet ∧ `ε_{0}` = frac(1, 2) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (x), x ∈ RealSet ∧ x = frac(1, sqrtn(n + 1, 2)) ∧ |P(n, x) - S(x)| = |frac(frac(1, 2), 1 - sqrtn(n + 1, 2)^{-1})|))
+10. exists (`ε_{0}`), `ε_{0}` ∈ RealSet ∧ `ε_{0}` = frac(1, 2) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (x), x ∈ RealSet ∧ x = frac(1, sqrtn(n + 1, 2)) ∧ |frac(frac(1, 2), 1 - sqrtn(n + 1, 2)^{-1})| > frac(1, 2)))
+11. exists (`ε_{0}`), `ε_{0}` ∈ RealSet ∧ `ε_{0}` = frac(1, 2) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (x), x ∈ RealSet ∧ x = frac(1, sqrtn(n + 1, 2)) ∧ frac(1, 2) ≥ `ε_{0}`))
+12. exists (`ε_{0}`), `ε_{0}` ∈ RealSet ∧ `ε_{0}` = frac(1, 2) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (x), x ∈ RealSet ∧ x = frac(1, sqrtn(n + 1, 2)) ∧ |P(n, x) - S(x)| > `ε_{0}`))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ ¬UniformConvergent(sum_{ n = 0 }^{ +∞ } (x^{n}), { x | x ∈ RealSet, |x| < 1 }, S)
+
+METHOD:

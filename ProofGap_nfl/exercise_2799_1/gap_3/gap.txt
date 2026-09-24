@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. u : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ x ≠ -k) ⇒ f(x) = sum_{ n = 1 }^{ +∞ } (frac((-1)^{n} * x, n + x)))
+4. Dom(f) = { x | x ∈ RealSet ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ x ≠ -k) }
+5. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ Dom(f) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac((-1)^{n} * x_{0}, n + x_{0})))
+6. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ Dom(f) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = (fun x [x ∈ RealSet ∧ x ∈ Dom(f)] . frac((-1)^{n} * x, n + x)))
+
+GOAL:
+forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ Dom(f) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ Dom(f) ⇒ FunDeri(u(n), 1, 1)(x) = frac((-1)^{n} * n, (n + x)^{2})))
+
+METHOD:

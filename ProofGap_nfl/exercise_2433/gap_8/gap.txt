@@ -1,0 +1,21 @@
+PROOF GAP @8
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet ∧ a > 0
+3. b ∈ RealSet ∧ b ≥ 0
+4. h ∈ RealSet
+5. s ∈ RealSet
+6. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b ⇒ y(x) = a * cosh(frac(x, a))
+7. h = y(b)
+8. s = DefInt(0, b, (fun x [x ∈ RealSet] . sqrtn(2, 1 + sinh(frac(x, a))^{2})) * diff(fun x [x ∈ RealSet] . x))
+9. s = DefInt(0, b, (fun x [x ∈ RealSet] . cosh(frac(x, a))) * diff(fun x [x ∈ RealSet] . x))
+10. s = ((fun x [x ∈ RealSet] . a * sinh(frac(x, a)))|_{0}^{b})
+11. s = a * sinh(frac(b, a))
+12. h = y(b)
+13. sinh(frac(b, a)) = sqrtn(2, cosh(frac(b, a))^{2} - 1)
+14. sqrtn(2, cosh(frac(b, a))^{2} - 1) = frac(1, a) * sqrtn(2, h^{2} - a^{2})
+
+GOAL:
+sinh(frac(b, a)) = frac(1, a) * sqrtn(2, h^{2} - a^{2})
+
+METHOD:

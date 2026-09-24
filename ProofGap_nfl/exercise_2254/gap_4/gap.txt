@@ -1,0 +1,17 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. f : RealSet → RealSet
+4. a < b
+5. ContinuousFuncOn(f, [a, b])
+6. x = (fun t [t ∈ RealSet] . a + (b - a) * t)
+7. forall (t), t ∈ RealSet ∧ t = 0 ⇒ x(t) = a
+8. forall (t), t ∈ RealSet ∧ t = 1 ⇒ x(t) = b
+9. diff(x) = (fun t [t ∈ RealSet] . b - a) * diff(fun t [t ∈ RealSet] . t)
+
+GOAL:
+DefInt(a, b, (fun x [x ∈ RealSet] . f(x)) * diff(fun x [x ∈ RealSet] . x)) = (b - a) * DefInt(0, 1, (fun t [t ∈ RealSet] . f(a + (b - a) * t)) * diff(fun t [t ∈ RealSet] . t))
+
+METHOD:
+[@method 代入 x(t) = a + (b - a) * t 到 DefInt(a, b, (fun x . f(x)) * diff(fun x . x)) @]

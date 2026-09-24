@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x > 0 ⇒ x > 0
+2. forall (x), x ∈ RealSet ∧ x > 0 ⇒ sqrtn(2, x + sqrtn(2, x + sqrtn(2, x))) - sqrtn(2, x) = frac(x + sqrtn(2, x + sqrtn(2, x)) - x, sqrtn(2, x + sqrtn(2, x + sqrtn(2, x))) + sqrtn(2, x))
+3. forall (x), x ∈ RealSet ∧ x > 0 ⇒ frac(x + sqrtn(2, x + sqrtn(2, x)) - x, sqrtn(2, x + sqrtn(2, x + sqrtn(2, x))) + sqrtn(2, x)) = frac(sqrtn(2, 1 + sqrtn(2, frac(1, x))), 1 + sqrtn(2, 1 + sqrtn(2, frac(1, x) + sqrtn(2, frac(1, x^{3})))))
+
+GOAL:
+lim_{ x → +∞ } (frac(sqrt(1 + sqrt(frac(1, x))), 1 + sqrt(1 + sqrt(frac(1, x) + sqrt(frac(1, x^{3})))))) = frac(1, 2)
+
+METHOD:

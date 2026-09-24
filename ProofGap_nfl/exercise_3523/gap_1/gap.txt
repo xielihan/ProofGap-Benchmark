@@ -1,0 +1,20 @@
+PROOF GAP @1
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. u : CartesianProd(RealSet, RealSet) → RealSet
+3. v : CartesianProd(RealSet, RealSet) → RealSet
+4. w : CartesianProd(RealSet, RealSet) → RealSet
+5. p : CartesianProd(RealSet, RealSet) → RealSet
+6. q : CartesianProd(RealSet, RealSet) → RealSet
+7. S : CartesianProd(RealSet, RealSet) → RealSet
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ p(x, y) = FunDeri(z, 1, 1)(x, y) ∧ q(x, y) = FunDeri(z, 2, 1)(x, y)
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ q(x, y) * (1 + q(x, y)) * FunDeri(z, 1, 2)(x, y) - (1 + p(x, y) + q(x, y) + 2 * p(x, y) * q(x, y)) * FunDeri(FunDeri(z, 1, 1), 2, 1)(x, y) + p(x, y) * (1 + p(x, y)) * FunDeri(z, 2, 2)(x, y) = 0
+10. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ u(x, y) = x + z(x, y) ∧ v(x, y) = y + z(x, y) ∧ w(u(x, y), v(x, y)) = x + y + z(x, y)
+11. ContinuouslyDiffableFunc(z)
+12. ContinuouslyDiffableFunc(w)
+13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ S(x, y) = 1 - FunDeri(w, 1, 1)(u(x, y), v(x, y)) - FunDeri(w, 2, 1)(u(x, y), v(x, y)) ∧ S(x, y) ≠ 0
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ diff(z) = p(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + q(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+
+METHOD:

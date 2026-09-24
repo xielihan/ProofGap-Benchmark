@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ f(x) = frac(1, 1 - x) + frac(1, 1 + frac(x, 6))}) (x := {x0})
+get_condition (hypothesis 4: {x0 ∈ RealSet ∧ |x0| < 1}) in (GOAL: {x0 ∈ RealSet ∧ |x0| < 1 ⇒ f(x0) = frac(1, 1 - x0) + frac(1, 1 + frac(x0, 6))})
+get_prop (hypothesis 3: {forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ f(x) = frac(1, 1 - x) + frac(6, 6 + x)}) (x := {x0}) as (hypothesis 5: {x0 ∈ RealSet ∧ |x0| < 1 ⇒ f(x0) = frac(1, 1 - x0) + frac(6, 6 + x0)})
+use_condition (hypothesis 4: {x0 ∈ RealSet ∧ |x0| < 1}) in (hypothesis 5: {x0 ∈ RealSet ∧ |x0| < 1 ⇒ f(x0) = frac(1, 1 - x0) + frac(6, 6 + x0)}) as (hypothesis 6: {f(x0) = frac(1, 1 - x0) + frac(6, 6 + x0)})
+assert (hypothesis 7: {6 + x0 ≠ 0 ∧ 1 + frac(x0, 6) ≠ 0}) by proof {
+  autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 6: {f(x0) = frac(1, 1 - x0) + frac(6, 6 + x0)}); from (GOAL: {f(x0) = frac(1, 1 - x0) + frac(1, 1 + frac(x0, 6))}) to (GOAL: {frac(1, 1 - x0) + frac(6, 6 + x0) = frac(1, 1 - x0) + frac(1, 1 + frac(x0, 6))})
+autosolve all_hypothesis

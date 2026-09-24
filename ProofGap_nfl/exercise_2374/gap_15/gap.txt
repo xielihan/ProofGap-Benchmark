@@ -1,0 +1,23 @@
+PROOF GAP @15
+ASSUM:
+1. p ∈ RealSet
+2. q ∈ RealSet
+3. q < 1
+4. lim_{ x → 1^+ } ((x - 1)^{q} * frac(1, x^{p} * ln(x)^{q})) = lim_{ x → 1^+ } (frac(1, x^{p}) * frac(x - 1, ln(x))^{q})
+5. lim_{ x → 1^+ } (frac(1, x^{p}) * frac(x - 1, ln(x))^{q}) = (lim_{ x → 1^+ } (frac(x - 1, ln(x))))^{q}
+6. (lim_{ x → 1^+ } (frac(x - 1, ln(x))))^{q} = (lim_{ x → 1^+ } (frac(1, x)))^{q}
+7. (lim_{ x → 1^+ } (frac(1, x)))^{q} = 1
+8. lim_{ x → 1^+ } ((x - 1)^{q} * frac(1, x^{p} * ln(x)^{q})) = 1
+9. forall (x), x ∈ RealSet ∧ ¬q < 1 ⇒ DefInt(1, 2, frac(1, x^{p} * ln(x)^{q}) * diff(fun x [x ∈ RealSet] . x)) = +∞
+10. exists (a), a ∈ RealSet ∧ (exists (α), α ∈ RealSet ∧ (p > 1 ⇒ a = α ⇒ a > 0))
+11. exists (a), a ∈ RealSet ∧ (exists (α), α ∈ RealSet ∧ (p > 1 ⇒ a = α ⇒ p - a > 1))
+12. exists (a), a ∈ RealSet ∧ (exists (α), α ∈ RealSet ∧ (p > 1 ⇒ a = α ⇒ lim_{ x → +∞ } (x^{p - a} * frac(1, x^{p} * ln(x)^{q})) = lim_{ x → +∞ } (frac(1, x^{a} * ln(x)^{q}))))
+13. exists (a), a ∈ RealSet ∧ (exists (α), α ∈ RealSet ∧ (p > 1 ⇒ a = α ⇒ lim_{ x → +∞ } (frac(1, x^{a} * ln(x)^{q})) = 0))
+14. exists (a), a ∈ RealSet ∧ (exists (α), α ∈ RealSet ∧ (p > 1 ⇒ a = α ⇒ lim_{ x → +∞ } (x^{p - a} * frac(1, x^{p} * ln(x)^{q})) = 0))
+15. exists (a), a ∈ RealSet ∧ (exists (α), α ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ p > 1 ∧ a = α ⇒ DefInt(2, +∞, frac(1, x^{p} * ln(x)^{q}) * diff(fun x [x ∈ RealSet] . x)) < +∞))
+16. forall (x), x ∈ RealSet ∧ p ≤ 1 ∧ q < 1 ⇒ DefInt(2, +∞, frac(1, x^{p} * ln(x)^{q}) * diff(fun x [x ∈ RealSet] . x)) ≥ DefInt(2, +∞, frac(1, x * ln(x)^{q}) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ p ≤ 1 ∧ q < 1 ⇒ DefInt(2, +∞, frac(1, x * ln(x)^{q}) * diff(fun x [x ∈ RealSet] . x)) = (frac(ln(x)^{1 - q}, 1 - q)|_{2}^{+∞})
+
+METHOD:

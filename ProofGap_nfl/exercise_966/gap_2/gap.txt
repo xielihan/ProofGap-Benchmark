@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x > 0 ∧ x ≠ 1 ⇒ y(x) = log(x, e)
+3. forall (x), x ∈ RealSet ∧ x > 0 ∧ x ≠ 1 ⇒ y(x) = frac(1, ln(x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ∧ x ≠ 1 ⇒ FunDeri(y, 1, 1)(x) = -frac(1, x * ln(x)^{2}) ∧ -frac(1, x * ln(x)^{2}) = -frac(1, x) * log(x, e)^{2}
+
+METHOD:

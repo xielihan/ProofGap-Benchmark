@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet ∧ tan(x) ≠ 0
+2. C ∈ RealSet
+3. t : RealSet → RealSet
+4. t(x) = sqrtn(3, tan(x))
+5. t(x) ∈ RealSet
+6. t(x) ≠ 0
+7. x = arctan(t(x)^{3})
+
+GOAL:
+diff(fun x [x ∈ RealSet] . x) = (fun x [x ∈ RealSet ∧ tan(x) ≠ 0] . frac(3 * t(x)^{2}, 1 + t(x)^{6})) * diff(fun x [x ∈ RealSet ∧ tan(x) ≠ 0] . t(x))
+
+METHOD:

@@ -1,0 +1,16 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. `x'` : NonNegIntegerSet → RealSet
+3. `x''` : NonNegIntegerSet → RealSet
+4. forall (x), x ∈ RealSet ⇒ f(x) = x^{2}
+5. ε_{0} = 1
+6. forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ (exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ frac(1, n) < δ)
+7. forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ (exists (n), n ∈ NonNegIntegerSet ∧ (n ∈ PosIntegerSet ∧ frac(1, n) < δ ⇒ `x'`(n) = n + frac(1, n) ⇒ `x''`(n) = n ⇒ |`x'`(n) - `x''`(n)| = frac(1, n)))
+8. forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ (exists (n), n ∈ NonNegIntegerSet ∧ (n ∈ PosIntegerSet ∧ frac(1, n) < δ ⇒ `x'`(n) = n + frac(1, n) ⇒ `x''`(n) = n ⇒ frac(1, n) < δ))
+9. forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ (exists (n), n ∈ NonNegIntegerSet ∧ (n ∈ PosIntegerSet ∧ frac(1, n) < δ ⇒ `x'`(n) = n + frac(1, n) ⇒ `x''`(n) = n ⇒ |`x'`(n) - `x''`(n)| < δ))
+
+GOAL:
+forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ (exists (n), n ∈ NonNegIntegerSet ∧ (n ∈ PosIntegerSet ∧ frac(1, n) < δ ⇒ `x'`(n) = n + frac(1, n) ⇒ `x''`(n) = n ⇒ |f(`x'`(n)) - f(`x''`(n))| = 2 + frac(1, n)^{2}))
+
+METHOD:

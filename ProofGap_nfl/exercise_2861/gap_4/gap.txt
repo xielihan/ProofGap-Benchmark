@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ 1 - x - x^{2} ≠ 0 ⇒ f(x) = frac(1, 1 - x - x^{2})
+3. forall (x), x ∈ RealSet ∧ |x| < frac(sqrtn(2, 5) - 1, 2) ⇒ f(x) = frac(1, frac(5, 4) - (x + frac(1, 2))^{2})
+4. forall (x), x ∈ RealSet ∧ |x| < frac(sqrtn(2, 5) - 1, 2) ⇒ f(x) = frac(1, sqrtn(2, 5)) * (frac(1, sqrtn(2, 5) - (x + frac(1, 2))) + frac(1, frac(sqrtn(2, 5), 2) + x + frac(1, 2)))
+5. forall (x), x ∈ RealSet ∧ |x| < frac(sqrtn(2, 5) - 1, 2) ⇒ f(x) = frac(1, sqrtn(2, 5)) * (frac(2, sqrtn(2, 5) - 1) * (1 - frac(2, sqrtn(2, 5) - 1) * x)^{-1} + frac(2, sqrtn(2, 5) + 1) * (1 + frac(2, sqrtn(2, 5) + 1) * x)^{-1})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| < frac(sqrtn(2, 5) - 1, 2) ⇒ f(x) = frac(1, sqrtn(2, 5)) * (sum_{ n = 0 }^{ +∞ } ((frac(2, sqrtn(2, 5) - 1)^{n + 1} + (-1)^{n} * frac(2, sqrtn(2, 5) + 1)^{n + 1}) * x^{n}))
+
+METHOD:

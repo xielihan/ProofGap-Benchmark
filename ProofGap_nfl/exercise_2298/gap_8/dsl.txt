@@ -1,0 +1,2 @@
+rewrite (right_to_left, equation) (hypothesis 2: {I = DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . ln(cos(x)) * cos(2 * n * x)) * diff(fun x [x ∈ RealSet] . x))}); from (GOAL: {DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . ln(cos(x)) * cos(2 * n * x)) * diff(fun x [x ∈ RealSet] . x)) = frac(π, 4 * n) * (-1)^{n - 1}}) to (GOAL: {I = frac(π, 4 * n) * (-1)^{n - 1}})
+apply (hypothesis 9: {I = frac(π, 4 * n) * (-1)^{n - 1}})

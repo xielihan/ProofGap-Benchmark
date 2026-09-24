@@ -1,0 +1,26 @@
+PROOF GAP @10
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. S ∈ RealSet
+4. D ⊆ CartesianProd(RealSet, RealSet)
+5. z : CartesianProd(RealSet, RealSet) → RealSet
+6. x ∈ RealSet
+7. y ∈ RealSet
+8. 0 < b
+9. b ≤ a
+10. D = { (x, y) | x ∈ RealSet, y ∈ RealSet, frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) ≤ 1 }
+11. x^{2} + y^{2} + z(x, y)^{2} = a^{2}
+12. z(x, y) ≠ 0 ⇒ sqrtn(2, 1 + FunDeri(z, 1, 1)(x, y)^{2} + FunDeri(z, 2, 1)(x, y)^{2}) = sqrtn(2, 1 + frac(x^{2}, z(x, y)^{2}) + frac(y^{2}, z(x, y)^{2}))
+13. sqrtn(2, 1 + frac(x^{2}, z(x, y)^{2}) + frac(y^{2}, z(x, y)^{2})) = sqrtn(2, frac(x^{2} + y^{2} + z(x, y)^{2}, z(x, y)^{2}))
+14. sqrtn(2, frac(x^{2} + y^{2} + z(x, y)^{2}, z(x, y)^{2})) = frac(a, sqrtn(2, a^{2} - x^{2} - y^{2}))
+15. 0 ≤ x
+16. x ≤ a
+17. 0 ≤ y
+18. y ≤ frac(b, a) * sqrtn(2, a^{2} - x^{2})
+19. S = 8 * a * DefInt(0, a, DefInt(0, frac(b, a) * sqrtn(2, a^{2} - x^{2}), frac(1, sqrtn(2, a^{2} - x^{2} - y^{2})) * diff(fun y [y ∈ RealSet] . y)) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+x < a ⇒ DefInt(0, frac(b, a) * sqrtn(2, a^{2} - x^{2}), frac(1, sqrtn(2, a^{2} - x^{2} - y^{2})) * diff(fun y [y ∈ RealSet] . y)) = (arcsin(frac(y, sqrtn(2, a^{2} - x^{2})))|_{0}^{frac(b, a) * sqrtn(2, a^{2} - x^{2})})
+
+METHOD:

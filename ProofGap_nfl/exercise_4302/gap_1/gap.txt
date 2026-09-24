@@ -1,0 +1,23 @@
+PROOF GAP @1
+ASSUM:
+1. A ∈ CartesianProd(RealSet, RealSet)
+2. B ∈ CartesianProd(RealSet, RealSet)
+3. AmB ⊆ CartesianProd(RealSet, RealSet)
+4. AnB ⊆ CartesianProd(RealSet, RealSet)
+5. S ⊆ CartesianProd(RealSet, RealSet)
+6. I_{1} ∈ RealSet
+7. I_{2} ∈ RealSet
+8. A = (1, 1)
+9. B = (2, 6)
+10. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ AmB = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet ∧ 1 ≤ x ∧ x ≤ 2 ∧ y = 5 * x - 4 })
+11. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ AnB = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet ∧ 1 ≤ x ∧ x ≤ 2 ∧ y = 2 * x^{2} - x })
+12. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ S = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet ∧ 1 ≤ x ∧ x ≤ 2 ∧ 2 * x^{2} - x ≤ y ∧ y ≤ 5 * x - 4 })
+13. I_{1} = VectorCurveInt(AmB, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . (x + y)^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . (x - y)^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+14. I_{2} = VectorCurveInt(AnB, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . (x + y)^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . (x - y)^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+15. P = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . (x + y)^{2})
+16. Q = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . -(x - y)^{2})
+
+GOAL:
+P : CartesianProd(RealSet, RealSet) → RealSet
+
+METHOD:

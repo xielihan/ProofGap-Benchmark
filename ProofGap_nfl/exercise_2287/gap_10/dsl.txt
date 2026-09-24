@@ -1,0 +1,3 @@
+rewrite (left_to_right, equation) (hypothesis 9: {I(0) = ((fun x [x ∈ RealSet] . -ln(|cos(x - frac(π, 4))|))|_{0}^{frac(π, 4)})}); from (GOAL: {I(0) = -ln(sqrtn(2, 2))}) to (GOAL: {((fun x [x ∈ RealSet] . -ln(|cos(x - frac(π, 4))|))|_{0}^{frac(π, 4)}) = -ln(sqrtn(2, 2))})
+rewrite (left_to_right, equation) (hypothesis 10: {((fun x [x ∈ RealSet] . -ln(|cos(x - frac(π, 4))|))|_{0}^{frac(π, 4)}) = ln(frac(sqrtn(2, 2), 2))}); from (GOAL: {((fun x [x ∈ RealSet] . -ln(|cos(x - frac(π, 4))|))|_{0}^{frac(π, 4)}) = -ln(sqrtn(2, 2))}) to (GOAL: {ln(frac(sqrtn(2, 2), 2)) = -ln(sqrtn(2, 2))})
+apply (hypothesis 11: {ln(frac(sqrtn(2, 2), 2)) = -ln(sqrtn(2, 2))})

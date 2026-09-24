@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. N : RealSet → NonNegIntegerSet
+3. forall (i), i ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = sum_{ i = 1 }^{ n } (frac(sin(i), 2^{i})))
+4. forall (m), m ∈ IntegerSet ⇒ (forall (n), m ∈ IntegerSet ∧ n ∈ IntegerSet ∧ m > n ∧ n > 0 ⇒ |x(m) - x(n)| = |sum_{ i = n + 1 }^{ m } (frac(sin(i), 2^{i}))|)
+5. forall (m), m ∈ IntegerSet ⇒ (forall (n), m ∈ IntegerSet ∧ n ∈ IntegerSet ∧ m > n ∧ n > 0 ⇒ |sum_{ i = n + 1 }^{ m } (frac(sin(i), 2^{i}))| ≤ frac(1, 2^{n + 1}) * (sum_{ i = 0 }^{ m - n - 1 } (frac(1, 2^{i}))))
+
+GOAL:
+forall (m), m ∈ IntegerSet ⇒ (forall (n), m ∈ IntegerSet ∧ n ∈ IntegerSet ∧ m > n ∧ n > 0 ⇒ frac(1, 2^{n + 1}) * (sum_{ i = 0 }^{ m - n - 1 } (frac(1, 2^{i}))) < frac(1, 2^{n + 1}) * frac(1, 1 - frac(1, 2)))
+
+METHOD:

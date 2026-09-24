@@ -1,0 +1,19 @@
+PROOF GAP @7
+ASSUM:
+1. F : CartesianProd(RealSet, RealSet) → RealSet
+2. u : CartesianProd(RealSet, RealSet) → RealSet
+3. v : CartesianProd(RealSet, RealSet) → RealSet
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ x = u(x, y) + v(x, y) ∧ y = u(x, y)^{2} + v(x, y)^{2} ∧ F(x, y) = u(x, y)^{3} + v(x, y)^{3}
+5. u ∈ RealSet
+6. v ∈ RealSet
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ u(x, y) = frac(x + sqrtn(2, 2 * y - x^{2}), 2) ∧ v(x, y) = frac(x - sqrtn(2, 2 * y - x^{2}), 2) ∨ u(x, y) = frac(x - sqrtn(2, 2 * y - x^{2}), 2) ∧ v(x, y) = frac(x + sqrtn(2, 2 * y - x^{2}), 2)
+8. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ⇒ 2 * y - x^{2} ≥ 0
+9. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ⇒ y ≥ frac(x^{2}, 2)
+10. Dom(F) = { (x, y) | x ∈ RealSet, y ∈ RealSet, y ≥ frac(x^{2}, 2) }
+11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ 1 = FunDeri(u, 1, 1)(x, y) + FunDeri(v, 1, 1)(x, y)
+12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ 0 = 2 * u(x, y) * FunDeri(u, 1, 1)(x, y) + 2 * v(x, y) * FunDeri(v, 1, 1)(x, y)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(u, 1, 1)(x, y) = frac(v(x, y), v(x, y) - u(x, y))
+
+METHOD:

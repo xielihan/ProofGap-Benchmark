@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = sinh(x)
+3. forall (x), x ∈ RealSet ⇒ sinh(x) = frac(1, 2) * (e^{x} - e^{-x})
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t = y(x) ⇒ 2 * t = e^{x} - e^{-x})
+
+METHOD:

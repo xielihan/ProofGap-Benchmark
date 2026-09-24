@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. I : RealSet → RealSet
+2. forall (α), α ∈ RealSet ⇒ I(α) = DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(α, 1 + α^{2} * x^{2})) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+forall (`α_{0}`), `α_{0}` ∈ RealSet ∧ `α_{0}` ≠ 0 ∧ `α_{0}` > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ = frac(`α_{0}`, 2) ∧ δ > 0)
+
+METHOD:

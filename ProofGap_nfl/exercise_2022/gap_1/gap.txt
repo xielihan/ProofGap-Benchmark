@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. C ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ sin(x) - sin(a) ≠ 0
+4. cos(a) ≠ 0
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, sin(x) - sin(a)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_4` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(cos(frac(x + a, 2) - frac(x - a, 2)), sin(x) - sin(a)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_4`(x) = frac(1, cos(a)) * `F_3`(x)) }
+
+METHOD:

@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. S : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+3. T : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+4. n ∈ NonNegIntegerSet
+5. forall (x), x ∈ RealSet ⇒ f(x) = sum_{ n = 1 }^{ +∞ } (frac(sin(n * x), n^{3}))
+6. S = (fun N [N ∈ NonNegIntegerSet] . fun x [x ∈ RealSet] . sum_{ n = 1 }^{ N } (frac(sin(n * x), n^{3})))
+
+GOAL:
+forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ |frac(sin(n * x), n^{3})| ≤ frac(1, n^{3})
+
+METHOD:

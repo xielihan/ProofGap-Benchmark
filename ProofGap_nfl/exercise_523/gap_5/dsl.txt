@@ -1,0 +1,5 @@
+1. assert (hypothesis 5: {π > 0})
+2. assert (hypothesis 6: {frac(π, 4) ∈ RealSet ∧ frac(π, 4) ∈ IntervalLoRo(0, π) ∧ frac(π, 4) ≠ frac(π, 2)})
+3. get_prop (hypothesis 1: {forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, π) ∧ x ≠ frac(π, 2) ⇒ lim_{ x → frac(π, 2) } (sin(x)^{tan(x)}) = lim_{ x → frac(π, 2) } ((1 + cot(x)^{2})^{-frac(tan(x), 2)})}) (x := {frac(π, 4)}) as (hypothesis 7: {frac(π, 4) ∈ RealSet ∧ frac(π, 4) ∈ IntervalLoRo(0, π) ∧ frac(π, 4) ≠ frac(π, 2) ⇒ lim_{ x → frac(π, 2) } (sin(x)^{tan(x)}) = lim_{ x → frac(π, 2) } ((1 + cot(x)^{2})^{-frac(tan(x), 2)})})
+4. use_condition (hypothesis 6: {frac(π, 4) ∈ RealSet ∧ frac(π, 4) ∈ IntervalLoRo(0, π) ∧ frac(π, 4) ≠ frac(π, 2)}) in (hypothesis 7: {frac(π, 4) ∈ RealSet ∧ frac(π, 4) ∈ IntervalLoRo(0, π) ∧ frac(π, 4) ≠ frac(π, 2) ⇒ lim_{ x → frac(π, 2) } (sin(x)^{tan(x)}) = lim_{ x → frac(π, 2) } ((1 + cot(x)^{2})^{-frac(tan(x), 2)})}) as (hypothesis 8: {lim_{ x → frac(π, 2) } (sin(x)^{tan(x)}) = lim_{ x → frac(π, 2) } ((1 + cot(x)^{2})^{-frac(tan(x), 2)})})
+5. autosolve all_hypothesis

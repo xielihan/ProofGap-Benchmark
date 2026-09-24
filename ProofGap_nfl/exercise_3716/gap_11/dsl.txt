@@ -1,0 +1,26 @@
+assert (hypothesis 13: {forall (y), y ∈ RealSet ∧ y < 0 ⇒ frac(F(y) - F(0), y) = frac(ln(1 + y^{2}), 2 * y) + arctan(frac(1, y))}) by proof {
+get_forall (GOAL: {forall (y), y ∈ RealSet ∧ y < 0 ⇒ frac(F(y) - F(0), y) = frac(ln(1 + y^{2}), 2 * y) + arctan(frac(1, y))}) (y := {y0})
+get_condition (hypothesis 13: {y0 ∈ RealSet ∧ y0 < 0}) in (GOAL: {y0 ∈ RealSet ∧ y0 < 0 ⇒ frac(F(y0) - F(0), y0) = frac(ln(1 + y0^{2}), 2 * y0) + arctan(frac(1, y0))})
+destruct_and (hypothesis 13: {y0 ∈ RealSet ∧ y0 < 0}) as (hypothesis 14: {y0 ∈ RealSet}) (hypothesis 15: {y0 < 0})
+assert (hypothesis 16: {y0 ≠ 0})
+assert (hypothesis 17: {y0 ∈ RealSet ∧ y0 ≠ 0}) by proof {
+autosolve all_hypothesis
+}
+get_prop (hypothesis 5: {forall (y), y ∈ RealSet ∧ y ≠ 0 ⇒ F(y) = ln(sqrtn(2, 1 + y^{2})) - 1 + y * arctan(frac(1, y))}) (y := {y0}) as (hypothesis 18: {y0 ∈ RealSet ∧ y0 ≠ 0 ⇒ F(y0) = ln(sqrtn(2, 1 + y0^{2})) - 1 + y0 * arctan(frac(1, y0))})
+use_condition (hypothesis 17: {y0 ∈ RealSet ∧ y0 ≠ 0}) in (hypothesis 18: {y0 ∈ RealSet ∧ y0 ≠ 0 ⇒ F(y0) = ln(sqrtn(2, 1 + y0^{2})) - 1 + y0 * arctan(frac(1, y0))}) as (hypothesis 19: {F(y0) = ln(sqrtn(2, 1 + y0^{2})) - 1 + y0 * arctan(frac(1, y0))})
+assert (hypothesis 20: {1 + y0^{2} ∈ RealSet})
+assert (hypothesis 21: {1 + y0^{2} >= 0})
+assert (hypothesis 22: {sqrtn(2, 1 + y0^{2}) > 0})
+get_prop (theorem 'Thm 450. (SquareRootSquareCancellation)': {forall (u), u ∈ RealSet ⇒ u >= 0 ⇒ sqrtn(2, u)^2 = u}) (u := {1 + y0^{2}}) as (hypothesis 23: {1 + y0^{2} ∈ RealSet ⇒ 1 + y0^{2} >= 0 ⇒ sqrtn(2, 1 + y0^{2})^2 = 1 + y0^{2}})
+use_condition (hypothesis 20: {1 + y0^{2} ∈ RealSet}) in (hypothesis 23: {1 + y0^{2} ∈ RealSet ⇒ 1 + y0^{2} >= 0 ⇒ sqrtn(2, 1 + y0^{2})^2 = 1 + y0^{2}}) as (hypothesis 24: {1 + y0^{2} >= 0 ⇒ sqrtn(2, 1 + y0^{2})^2 = 1 + y0^{2}})
+use_condition (hypothesis 21: {1 + y0^{2} >= 0}) in (hypothesis 24: {1 + y0^{2} >= 0 ⇒ sqrtn(2, 1 + y0^{2})^2 = 1 + y0^{2}}) as (hypothesis 25: {sqrtn(2, 1 + y0^{2})^2 = 1 + y0^{2}})
+get_prop (theorem 'Thm 203. (NaturalLogarithmPower)': {forall (x) (y), x > 0 ⇒ ln (x ^ y) = y * ln(x)}) (x := {sqrtn(2, 1 + y0^{2})}) (y := {2}) as (hypothesis 26: {sqrtn(2, 1 + y0^{2}) > 0 ⇒ ln(sqrtn(2, 1 + y0^{2}) ^ 2) = 2 * ln(sqrtn(2, 1 + y0^{2}))})
+use_condition (hypothesis 22: {sqrtn(2, 1 + y0^{2}) > 0}) in (hypothesis 26: {sqrtn(2, 1 + y0^{2}) > 0 ⇒ ln(sqrtn(2, 1 + y0^{2}) ^ 2) = 2 * ln(sqrtn(2, 1 + y0^{2}))}) as (hypothesis 27: {ln(sqrtn(2, 1 + y0^{2}) ^ 2) = 2 * ln(sqrtn(2, 1 + y0^{2}))})
+rewrite (left_to_right, equation) (hypothesis 25: {sqrtn(2, 1 + y0^{2})^2 = 1 + y0^{2}}); from (hypothesis 27: {ln(sqrtn(2, 1 + y0^{2}) ^ 2) = 2 * ln(sqrtn(2, 1 + y0^{2}))}) to (hypothesis 28: {ln(1 + y0^{2}) = 2 * ln(sqrtn(2, 1 + y0^{2}))})
+rewrite (left_to_right, equation) (hypothesis 19: {F(y0) = ln(sqrtn(2, 1 + y0^{2})) - 1 + y0 * arctan(frac(1, y0))}); from (GOAL: {frac(F(y0) - F(0), y0) = frac(ln(1 + y0^{2}), 2 * y0) + arctan(frac(1, y0))}) to (GOAL: {frac(ln(sqrtn(2, 1 + y0^{2})) - 1 + y0 * arctan(frac(1, y0)) - F(0), y0) = frac(ln(1 + y0^{2}), 2 * y0) + arctan(frac(1, y0))})
+rewrite (left_to_right, equation) (hypothesis 9: {F(0) = -1}); from (GOAL: {frac(ln(sqrtn(2, 1 + y0^{2})) - 1 + y0 * arctan(frac(1, y0)) - F(0), y0) = frac(ln(1 + y0^{2}), 2 * y0) + arctan(frac(1, y0))}) to (GOAL: {frac(ln(sqrtn(2, 1 + y0^{2})) - 1 + y0 * arctan(frac(1, y0)) - -1, y0) = frac(ln(1 + y0^{2}), 2 * y0) + arctan(frac(1, y0))})
+rewrite (left_to_right, equation) (hypothesis 28: {ln(1 + y0^{2}) = 2 * ln(sqrtn(2, 1 + y0^{2}))}); from (GOAL: {frac(ln(sqrtn(2, 1 + y0^{2})) - 1 + y0 * arctan(frac(1, y0)) - -1, y0) = frac(ln(1 + y0^{2}), 2 * y0) + arctan(frac(1, y0))}) to (GOAL: {frac(ln(sqrtn(2, 1 + y0^{2})) - 1 + y0 * arctan(frac(1, y0)) - -1, y0) = frac(2 * ln(sqrtn(2, 1 + y0^{2})), 2 * y0) + arctan(frac(1, y0))})
+autosolve all_hypothesis using PolyRatSolver
+}
+rewrite_in limit (left_to_right, equation) (hypothesis 13: {forall (y), y ∈ RealSet ∧ y < 0 ⇒ frac(F(y) - F(0), y) = frac(ln(1 + y^{2}), 2 * y) + arctan(frac(1, y))}); from (GOAL: {lim_{ y → 0^- } (frac(F(y) - F(0), y)) = lim_{ y → 0^- } (frac(ln(1 + y^{2}), 2 * y) + arctan(frac(1, y)))}) to (GOAL: {lim_{ y → 0^- } (frac(ln(1 + y^{2}), 2 * y) + arctan(frac(1, y))) = lim_{ y → 0^- } (frac(ln(1 + y^{2}), 2 * y) + arctan(frac(1, y)))})
+autosolve

@@ -1,0 +1,25 @@
+PROOF GAP @11
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. A ∈ RealSet
+4. x ∈ RealSet
+5. Defined(f, (a, +∞))
+6. forall (b), b ∈ RealSet ∧ b > a ⇒ BoundedFuncOn(f, IntervalLoRo(a, b))
+7. lim_{ x → +∞ } (f(x + 1) - f(x)) = A
+8. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (X_{0}), X_{0} ∈ RealSet ∧ X_{0} ∈ PosRealSet ∧ X_{0} > a ∧ (forall (x), x ∈ RealSet ∧ x ≥ X_{0} ⇒ |f(x + 1) - f(x) - A| < frac(ε, 3)))
+9. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (X_{0}), X_{0} ∈ RealSet ∧ X_{0} ∈ PosRealSet ∧ (forall (x), x ∈ RealSet ∧ x > X_{0} + 1 ⇒ (exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≤ x - X_{0} ∧ x - X_{0} < n + 1)))
+10. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (X_{0}) (n) (x) (τ), X_{0} ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ τ ∈ RealSet ∧ X_{0} ∈ PosRealSet ∧ n ∈ PosIntegerSet ∧ x > X_{0} + 1 ∧ τ = x - X_{0} - n)
+11. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (X_{0}) (τ) (x), X_{0} ∈ RealSet ∧ τ ∈ RealSet ∧ x ∈ RealSet ∧ X_{0} ∈ PosRealSet ∧ x > X_{0} + 1 ∧ 0 ≤ τ)
+12. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (X_{0}) (τ) (x), X_{0} ∈ RealSet ∧ τ ∈ RealSet ∧ x ∈ RealSet ∧ X_{0} ∈ PosRealSet ∧ x > X_{0} + 1 ∧ τ < 1)
+13. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (X_{0}) (τ) (n) (x), X_{0} ∈ RealSet ∧ τ ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ X_{0} ∈ PosRealSet ∧ n ∈ PosIntegerSet ∧ x > X_{0} + 1 ∧ x = X_{0} + τ + n)
+14. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (X_{0}) (n) (τ), X_{0} ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ τ ∈ RealSet ∧ X_{0} ∈ PosRealSet ∧ n ∈ PosIntegerSet ∧ (forall (x), x ∈ RealSet ∧ x > X_{0} + 1 ⇒ frac(f(x), x) - A = frac(n, x) * (frac(f(x) - f(X_{0} + τ), n) - A) + frac(f(X_{0} + τ), x) - frac((X_{0} + τ) * A, x)))
+15. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (X_{0}) (n) (τ), X_{0} ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ τ ∈ RealSet ∧ X_{0} ∈ PosRealSet ∧ n ∈ PosIntegerSet ∧ (forall (x), x ∈ RealSet ∧ x > X_{0} + 1 ⇒ |frac(n, x) * (frac(f(x) - f(X_{0} + τ), n) - A)| ≤ |frac(f(X_{0} + τ + n) - f(X_{0} + τ), n) - A|))
+16. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (X_{0}) (τ) (n), X_{0} ∈ RealSet ∧ τ ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ X_{0} ∈ PosRealSet ∧ n ∈ PosIntegerSet ∧ (forall (x), x ∈ RealSet ∧ x > X_{0} + 1 ⇒ |frac(f(X_{0} + τ + n) - f(X_{0} + τ), n) - A| = frac(1, n) * |sum_{ k = 1 }^{ n } (f(X_{0} + τ + k) - f(X_{0} + τ + k - 1) - A)|))
+17. forall (X_{0}) (n) (τ), X_{0} ∈ RealSet ⇒ n ∈ NonNegIntegerSet ⇒ τ ∈ RealSet ⇒ X_{0} ∈ PosRealSet ⇒ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x > X_{0} + 1 ⇒ frac(1, n) * |sum_{ k = 1 }^{ n } (f(X_{0} + τ + k) - f(X_{0} + τ + k - 1) - A)| ≤ frac(1, n) * (sum_{ k = 1 }^{ n } (|f(X_{0} + τ + k) - f(X_{0} + τ + k - 1) - A|)))
+18. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (X_{0}) (n) (τ), X_{0} ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ τ ∈ RealSet ∧ X_{0} ∈ PosRealSet ∧ n ∈ PosIntegerSet ∧ (forall (x), x ∈ RealSet ∧ x > X_{0} + 1 ⇒ frac(1, n) * (sum_{ k = 1 }^{ n } (|f(X_{0} + τ + k) - f(X_{0} + τ + k - 1) - A|)) < frac(ε, 3)))
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (X_{0}) (n) (τ), X_{0} ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ τ ∈ RealSet ∧ X_{0} ∈ PosRealSet ∧ n ∈ PosIntegerSet ∧ (forall (x), x ∈ RealSet ∧ x > X_{0} + 1 ⇒ frac(1, n) * |sum_{ k = 1 }^{ n } (f(X_{0} + τ + k) - f(X_{0} + τ + k - 1) - A)| < frac(ε, 3)))
+
+METHOD:

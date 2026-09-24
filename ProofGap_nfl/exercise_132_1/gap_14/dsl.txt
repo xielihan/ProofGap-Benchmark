@@ -1,0 +1,2 @@
+get_condition (hypothesis 29: {seqlim_{ n → +∞ } (x(n)) = 0}) in (GOAL: {seqlim_{ n → +∞ } (x(n)) = 0 ⇒ (seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (y(n))) = 0})
+autosolve (hypothesis 29: {seqlim_{ n → +∞ } (x(n)) = 0})

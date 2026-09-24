@@ -1,0 +1,19 @@
+get_prop (theorem 'Thm 280. (EvenFunctionDefinition)': {forall (f), f : RealSet -> RealSet => (EvenFunc(f) <==> (forall (x), x ∈ RealSet => f(-x) = f(x)))}) (f := {f}) as (hypothesis 6: {f : RealSet -> RealSet => (EvenFunc(f) <==> (forall (x), x ∈ RealSet => f(-x) = f(x)))})
+use_condition (hypothesis 1: {f : RealSet -> RealSet}) in (hypothesis 6: {f : RealSet -> RealSet => (EvenFunc(f) <==> (forall (x), x ∈ RealSet => f(-x) = f(x)))}) as (hypothesis 7: {EvenFunc(f) <==> (forall (x), x ∈ RealSet => f(-x) = f(x))})
+rewrite (left_to_right, iff) (hypothesis 7: {EvenFunc(f) <==> (forall (x), x ∈ RealSet => f(-x) = f(x))}); from (GOAL: {EvenFunc(f)}) to (GOAL: {forall (x), x ∈ RealSet => f(-x) = f(x)})
+get_forall (GOAL: {forall (x), x ∈ RealSet => f(-x) = f(x)}) (x := {xx})
+get_condition (hypothesis 8: {xx ∈ RealSet}) in (GOAL: {xx ∈ RealSet => f(-xx) = f(xx)})
+assert (hypothesis 9: {-xx ∈ RealSet}) by proof {
+autosolve all_hypothesis
+}
+get_prop (hypothesis 5: {forall (x), x ∈ RealSet ⇒ f(x) = cases{ h * (1 - frac(|x|, a)) if |x| ≤ a; 0 if |x| > a }}) (x := {xx}) as (hypothesis 10: {xx ∈ RealSet ⇒ f(xx) = cases{ h * (1 - frac(|xx|, a)) if |xx| ≤ a; 0 if |xx| > a }})
+use_condition (hypothesis 8: {xx ∈ RealSet}) in (hypothesis 10: {xx ∈ RealSet ⇒ f(xx) = cases{ h * (1 - frac(|xx|, a)) if |xx| ≤ a; 0 if |xx| > a }}) as (hypothesis 11: {f(xx) = cases{ h * (1 - frac(|xx|, a)) if |xx| ≤ a; 0 if |xx| > a }})
+get_prop (hypothesis 5: {forall (x), x ∈ RealSet ⇒ f(x) = cases{ h * (1 - frac(|x|, a)) if |x| ≤ a; 0 if |x| > a }}) (x := {-xx}) as (hypothesis 12: {-xx ∈ RealSet ⇒ f(-xx) = cases{ h * (1 - frac(|-xx|, a)) if |-xx| ≤ a; 0 if |-xx| > a }})
+use_condition (hypothesis 9: {-xx ∈ RealSet}) in (hypothesis 12: {-xx ∈ RealSet ⇒ f(-xx) = cases{ h * (1 - frac(|-xx|, a)) if |-xx| ≤ a; 0 if |-xx| > a }}) as (hypothesis 13: {f(-xx) = cases{ h * (1 - frac(|-xx|, a)) if |-xx| ≤ a; 0 if |-xx| > a }})
+assert (hypothesis 14: {|-xx| = |xx|}) by proof {
+autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 14: {|-xx| = |xx|}); from (hypothesis 13: {f(-xx) = cases{ h * (1 - frac(|-xx|, a)) if |-xx| ≤ a; 0 if |-xx| > a }}) to (hypothesis 13: {f(-xx) = cases{ h * (1 - frac(|xx|, a)) if |xx| ≤ a; 0 if |xx| > a }})
+rewrite (left_to_right, equation) (hypothesis 13: {f(-xx) = cases{ h * (1 - frac(|xx|, a)) if |xx| ≤ a; 0 if |xx| > a }}); from (GOAL: {f(-xx) = f(xx)}) to (GOAL: {cases{ h * (1 - frac(|xx|, a)) if |xx| ≤ a; 0 if |xx| > a } = f(xx)})
+rewrite (left_to_right, equation) (hypothesis 11: {f(xx) = cases{ h * (1 - frac(|xx|, a)) if |xx| ≤ a; 0 if |xx| > a }}); from (GOAL: {cases{ h * (1 - frac(|xx|, a)) if |xx| ≤ a; 0 if |xx| > a } = f(xx)}) to (GOAL: {cases{ h * (1 - frac(|xx|, a)) if |xx| ≤ a; 0 if |xx| > a } = cases{ h * (1 - frac(|xx|, a)) if |xx| ≤ a; 0 if |xx| > a }})
+autosolve all_hypothesis

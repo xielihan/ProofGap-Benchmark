@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ (forall (y), y ∈ RealSet ∧ 0 < a ∧ a < b ∧ x ≥ 0 ∧ y ∈ [a, b] ⇒ 0 < e^{-x * y})}) (x := {xx})
+get_condition (hypothesis 7: {xx ∈ RealSet ∧ xx ≥ 0}) in (GOAL: {xx ∈ RealSet ∧ xx ≥ 0 ⇒ (forall (y), y ∈ RealSet ∧ 0 < a ∧ a < b ∧ xx ≥ 0 ∧ y ∈ [a, b] ⇒ 0 < e^{-xx * y})})
+get_forall (GOAL: {forall (y), y ∈ RealSet ∧ 0 < a ∧ a < b ∧ xx ≥ 0 ∧ y ∈ [a, b] ⇒ 0 < e^{-xx * y}}) (y := {yy})
+get_condition (hypothesis 8: {yy ∈ RealSet ∧ 0 < a ∧ a < b ∧ xx ≥ 0 ∧ yy ∈ [a, b]}) in (GOAL: {yy ∈ RealSet ∧ 0 < a ∧ a < b ∧ xx ≥ 0 ∧ yy ∈ [a, b] ⇒ 0 < e^{-xx * yy}})
+assert (hypothesis 9: {-xx * yy ∈ RealSet}) by proof {
+  autosolve (hypothesis 7: {xx ∈ RealSet ∧ xx ≥ 0}) (hypothesis 8: {yy ∈ RealSet ∧ 0 < a ∧ a < b ∧ xx ≥ 0 ∧ yy ∈ [a, b]})
+}
+get_prop (theorem 'Thm 387. (PositiveBasePowerPositive)': {forall (a) (u), a ∈ RealSet ⇒ u ∈ RealSet ⇒ a > 0 ⇒ a ^ u > 0}) (a := {e}) (u := {-xx * yy}) as (hypothesis 10: {e ∈ RealSet ⇒ -xx * yy ∈ RealSet ⇒ e > 0 ⇒ e ^ (-xx * yy) > 0})
+autosolve (hypothesis 9: {-xx * yy ∈ RealSet}) (hypothesis 10: {e ∈ RealSet ⇒ -xx * yy ∈ RealSet ⇒ e > 0 ⇒ e ^ (-xx * yy) > 0})

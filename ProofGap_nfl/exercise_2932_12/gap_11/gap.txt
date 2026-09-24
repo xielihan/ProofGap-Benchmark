@@ -1,0 +1,17 @@
+PROOF GAP @11
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ x^{x} = e^{x * ln(x)}
+2. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ e^{x * ln(x)} = sum_{ n = 0 }^{ +∞ } (frac((x * ln(x))^{n}, n!))
+3. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ x^{x} = sum_{ n = 0 }^{ +∞ } (frac((x * ln(x))^{n}, n!))
+4. forall (n), n ∈ NonNegIntegerSet ⇒ DefInt(0, 1, (fun x [x ∈ RealSet] . x^{n} * ln(x)^{n}) * diff(fun x [x ∈ RealSet] . x)) = (-1)^{n} * frac(n!, (n + 1)^{n + 1})
+5. DefInt(0, 1, (fun x [x ∈ RealSet] . x^{x}) * diff(fun x [x ∈ RealSet] . x)) = sum_{ n = 0 }^{ +∞ } (frac((-1)^{n}, (n + 1)^{n + 1}))
+6. exists (Δ), Δ ∈ RealSet ∧ DefInt(0, 1, (fun x [x ∈ RealSet] . x^{x}) * diff(fun x [x ∈ RealSet] . x)) = 1 - frac(1, 4) + frac(1, 27) - frac(1, 256) + Δ
+7. exists (Δ), Δ ∈ RealSet ∧ 0 < Δ
+8. exists (Δ), Δ ∈ RealSet ∧ Δ < frac(4!, 4! * (4 + 1)^{4 + 1})
+9. frac(4!, 4! * (4 + 1)^{4 + 1}) = frac(1, 5^{5})
+10. frac(1, 5^{5}) < frac(1, 10^{3})
+
+GOAL:
+0 < frac(1, 10^{3})
+
+METHOD:

@@ -1,0 +1,31 @@
+PROOF GAP @7
+ASSUM:
+1. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+2. i ∈ NonNegIntegerSet
+3. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+4. F : CartesianProd(RealSet, CartesianProd(RealSet, CartesianProd(RealSet, RealSet))) → RealSet
+5. N ∈ RealSet
+6. x : NonNegIntegerSet → RealSet
+7. y : NonNegIntegerSet → RealSet
+8. z : NonNegIntegerSet → RealSet
+9. λ ∈ RealSet
+10. `x'` ∈ RealSet
+11. `y'` ∈ RealSet
+12. `z'` ∈ RealSet
+13. `x''` ∈ RealSet
+14. `y''` ∈ RealSet
+15. `z''` ∈ RealSet
+16. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ x(i) ∈ RealSet ∧ y(i) ∈ RealSet ∧ z(i) ∈ RealSet
+17. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = sum_{ i = 1 }^{ n } ((x - x(i))^{2} + (y - y(i))^{2} + (z - z(i))^{2})
+18. F = (fun x, y, z, λ [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet] . u(x, y, z) - λ * (x^{2} + y^{2} + z^{2} - 1))
+19. forall (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 1, 1)(x, y, z, λ) = 2 * ((n - λ) * x - (sum_{ i = 1 }^{ n } (x(i))))
+20. forall (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 2, 1)(x, y, z, λ) = 2 * ((n - λ) * y - (sum_{ i = 1 }^{ n } (y(i))))
+21. forall (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 3, 1)(x, y, z, λ) = 2 * ((n - λ) * z - (sum_{ i = 1 }^{ n } (z(i))))
+22. forall (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 1, 1)(x, y, z, λ) = 0
+23. forall (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 2, 1)(x, y, z, λ) = 0
+24. forall (x) (y) (z) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 3, 1)(x, y, z, λ) = 0
+
+GOAL:
+forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ x^{2} + y^{2} + z^{2} = 1
+
+METHOD:

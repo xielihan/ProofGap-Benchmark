@@ -1,0 +1,32 @@
+PROOF GAP @22
+ASSUM:
+1. θ : RealSet → RealSet
+2. u : CartesianProd(IntegerSet, RealSet) → RealSet
+3. forall (n), n ∈ IntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ θ(x) = sum_{ n ∈ IntegerSet } (e^{-π * n^{2} * x}))
+4. forall (n), n ∈ IntegerSet ⇒ u(n) = (fun x [x ∈ RealSet ∧ x > 0] . e^{-π * n^{2} * x})
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ u(-n, x) = u(n, x))
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ θ(x) = 1 + 2 * (sum_{ n = 1 }^{ +∞ } (e^{-π * n^{2} * x})))
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ 0 < e^{-n^{2} * x})
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ e^{-n^{2} * x} < frac(1, n^{2} * x))
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ 0 < frac(1, n^{2} * x))
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{2} * x))))
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (e^{-π * n^{2} * x})))
+12. forall (x), x ∈ RealSet ∧ x > 0 ⇒ Defined(θ, x)
+13. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (x), x ∈ RealSet ∧ ε ≤ x ∧ x < +∞ ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < π * n^{2} * e^{-π * n^{2} * x}))
+14. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (x), x ∈ RealSet ∧ ε ≤ x ∧ x < +∞ ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ π * n^{2} * e^{-π * n^{2} * x} ≤ π * n^{2} * e^{-π * n^{2} * ε}))
+15. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (x), x ∈ RealSet ∧ ε ≤ x ∧ x < +∞ ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ π * n^{2} * e^{-π * n^{2} * ε} < frac(1, n^{2} * ε)))
+16. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (x), x ∈ RealSet ∧ ε ≤ x ∧ x < +∞ ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac(1, n^{2} * ε)))
+17. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{2} * ε))))
+18. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [ε, +∞) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ UniformConvergent(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . π * n^{2} * e^{-π * n^{2} * x}, [ε, +∞), sum_{ n = 1 }^{ +∞ } (π * n^{2} * e^{-π * n^{2} * x}))))
+19. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ContinuousFuncOn(fun x [x ∈ RealSet ∧ x ∈ [ε, +∞)] . π * n^{2} * e^{-π * n^{2} * x}, [ε, +∞)))
+20. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ ContinuouslyDiffableFuncOn(θ, [ε, +∞))
+21. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [ε, +∞) ⇒ (forall (n), n ∈ IntegerSet ⇒ FunDeri(θ, 1, 1)(x) = -(sum_{ n ∈ IntegerSet } (π * n^{2} * e^{-π * n^{2} * x}))))
+22. ContinuouslyDiffableFuncOn(θ, IntervalLoRo(0, +∞))
+23. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [ε, +∞) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < (π * n^{2})^{k} * e^{-π * n^{2} * x})))
+24. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [ε, +∞) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (π * n^{2})^{k} * e^{-π * n^{2} * x} < frac(1, n^{2} * ε))))
+25. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [ε, +∞) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac(1, n^{2} * ε))))
+
+GOAL:
+forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [ε, +∞) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ UniformConvergent(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . (π * n^{2})^{k} * e^{-π * n^{2} * x}, [ε, +∞), sum_{ n = 1 }^{ +∞ } ((π * n^{2})^{k} * e^{-π * n^{2} * x})))))
+
+METHOD:

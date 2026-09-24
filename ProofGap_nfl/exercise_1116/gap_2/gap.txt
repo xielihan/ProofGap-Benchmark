@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ y(x) = frac(arcsin(x), sqrtn(2, 1 - x^{2}))
+3. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ FunDeri(y, 1, 1)(x) = frac(1, 1 - x^{2}) + frac(x * arcsin(x), (1 - x^{2})^{frac(3, 2)})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ FunDeri(y, 1, 2)(x) = frac(3 * x, (1 - x^{2})^{2}) + frac((1 + 2 * x^{2}) * arcsin(x), (1 - x^{2})^{frac(5, 2)})
+
+METHOD:

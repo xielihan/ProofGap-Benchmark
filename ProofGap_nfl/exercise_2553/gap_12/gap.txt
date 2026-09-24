@@ -1,0 +1,19 @@
+PROOF GAP @12
+ASSUM:
+1. x ∈ RealSet
+2. (exists (k), k ∈ IntegerSet ∧ x = k * π) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ sin(n * x) = 0)
+3. (exists (k), k ∈ IntegerSet ∧ x = k * π) ⇒ ConvergentSeriesTo(sum_{ n = 1 }^{ +∞ } (sin(n * x)), 0)
+4. ¬(exists (k), k ∈ IntegerSet ∧ x = k * π) ⇒ seqlim_{ n → +∞ } (sin(n * x)) = 0 ⇒ seqlim_{ n → +∞ } (sin((n + 1) * x)) = 0
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ ¬(exists (k), k ∈ IntegerSet ∧ x = k * π) ∧ seqlim_{ n → +∞ } (sin(n * x)) = 0 ⇒ sin((n + 1) * x) = sin(n * x) * cos(x) + cos(n * x) * sin(x)
+6. ¬(exists (k), k ∈ IntegerSet ∧ x = k * π) ⇒ seqlim_{ n → +∞ } (sin(n * x)) = 0 ⇒ seqlim_{ n → +∞ } (cos(n * x) * sin(x)) = 0
+7. ¬(exists (k), k ∈ IntegerSet ∧ x = k * π) ⇒ seqlim_{ n → +∞ } (sin(n * x)) = 0 ⇒ sin(x) ≠ 0
+8. ¬(exists (k), k ∈ IntegerSet ∧ x = k * π) ⇒ seqlim_{ n → +∞ } (sin(n * x)) = 0 ⇒ seqlim_{ n → +∞ } (cos(n * x)) = 0
+9. ¬(exists (k), k ∈ IntegerSet ∧ x = k * π) ⇒ seqlim_{ n → +∞ } (sin(n * x)) = 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 1 = sin(n * x)^{2} + cos(n * x)^{2})
+10. ¬(exists (k), k ∈ IntegerSet ∧ x = k * π) ⇒ seqlim_{ n → +∞ } (sin(n * x)) = 0 ⇒ 1 = 0
+11. ¬(exists (k), k ∈ IntegerSet ∧ x = k * π) ⇒ seqlim_{ n → +∞ } (sin(n * x)) = 0 ⇒ False
+12. ¬(exists (k), k ∈ IntegerSet ∧ x = k * π) ⇒ ¬seqlim_{ n → +∞ } (sin(n * x)) = 0
+
+GOAL:
+¬(exists (k), k ∈ IntegerSet ∧ x = k * π) ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (sin(n * x)))
+
+METHOD:

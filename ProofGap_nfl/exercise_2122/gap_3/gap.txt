@@ -1,0 +1,8 @@
+PROOF GAP @3
+ASSUM:
+2. { `F_2` | forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = sqrtn(2, tanh(x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = sqrtn(2, frac(e^{x} - e^{-x}, e^{x} + e^{-x})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+GOAL:
+{ `F_4` | forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_4`, 1, 1)(x) = sqrtn(2, frac(e^{x} - e^{-x}, e^{x} + e^{-x})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(e^{x} - e^{-x}, sqrtn(2, e^{2 * x} - e^{-2 * x})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+METHOD:

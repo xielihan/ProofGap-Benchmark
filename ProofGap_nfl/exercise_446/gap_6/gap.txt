@@ -1,0 +1,12 @@
+PROOF GAP @6
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ 0 < |x| ∧ |x| < frac(1, 2) ⇒ x + x^{2} ≠ 0
+2. forall (x), x ∈ RealSet ∧ 0 < |x| ∧ |x| < frac(1, 2) ⇒ sqrtn(3, (8 + 3 * x - x^{2})^{2}) + 2 * sqrtn(3, 8 + 3 * x - x^{2}) + 4 ≠ 0
+3. lim_{ x → 0 } (frac(sqrtn(3, 8 + 3 * x - x^{2}) - 2, x + x^{2})) = lim_{ x → 0 } (frac(sqrtn(3, 8 + 3 * x - x^{2}) - 2, x + x^{2}) * frac(sqrtn(3, (8 + 3 * x - x^{2})^{2}) + 2 * sqrtn(3, 8 + 3 * x - x^{2}) + 4, sqrtn(3, (8 + 3 * x - x^{2})^{2}) + 2 * sqrtn(3, 8 + 3 * x - x^{2}) + 4))
+4. lim_{ x → 0 } (frac(sqrtn(3, 8 + 3 * x - x^{2}) - 2, x + x^{2}) * frac(sqrtn(3, (8 + 3 * x - x^{2})^{2}) + 2 * sqrtn(3, 8 + 3 * x - x^{2}) + 4, sqrtn(3, (8 + 3 * x - x^{2})^{2}) + 2 * sqrtn(3, 8 + 3 * x - x^{2}) + 4)) = lim_{ x → 0 } (frac(3 - x, (1 + x) * (sqrtn(3, (8 + 3 * x - x^{2})^{2}) + 2 * sqrtn(3, 8 + 3 * x - x^{2}) + 4)))
+5. lim_{ x → 0 } (frac(3 - x, (1 + x) * (sqrtn(3, (8 + 3 * x - x^{2})^{2}) + 2 * sqrtn(3, 8 + 3 * x - x^{2}) + 4))) = frac(1, 4)
+
+GOAL:
+lim_{ x → 0 } (frac(sqrtn(3, 8 + 3 * x - x^{2}) - 2, x + x^{2})) = frac(1, 4)
+
+METHOD:

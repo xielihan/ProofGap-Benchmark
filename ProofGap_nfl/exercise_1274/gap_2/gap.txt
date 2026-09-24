@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ y(x) = cos(frac(π, x))
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(y, 1, 1)(x) = frac(π, x^{2}) * sin(frac(π, x))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ 2 * k * π < frac(π, x) ∧ frac(π, x) < (2 * k + 1) * π ⇒ FunDeri(y, 1, 1)(x) > 0)
+
+METHOD:

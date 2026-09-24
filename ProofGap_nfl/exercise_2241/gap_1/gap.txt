@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+DefInt(0, 2 * π, (fun x [x ∈ RealSet] . x^{2} * cos(x)) * diff(fun x [x ∈ RealSet] . x)) = ((fun x [x ∈ RealSet] . x^{2} * sin(x))|_{0}^{2 * π}) - 2 * DefInt(0, 2 * π, (fun x [x ∈ RealSet] . x * sin(x)) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:
+[@method 分部积分 @]

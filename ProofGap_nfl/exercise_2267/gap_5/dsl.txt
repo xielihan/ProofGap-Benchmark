@@ -1,0 +1,7 @@
+get_condition (hypothesis 13: {K = 0}) in (GOAL: {K = 0 => PeriodicFunc(F, T)})
+use_condition (hypothesis 13: {K = 0}) in (hypothesis 12: {K = 0 => (forall (x), x ∈ RealSet => F(x + T) = F(x))}) as (hypothesis 14: {forall (x), x ∈ RealSet => F(x + T) = F(x)})
+destruct_and (hypothesis 3: {T ∈ RealSet /\ T > 0}) as (hypothesis 15: {T ∈ RealSet}) (hypothesis 16: {T > 0})
+get_prop (theorem 'Thm 284. (PeriodicFunctionDefinition)': {forall (f) (T), f : RealSet -> RealSet => T ∈ RealSet => (PeriodicFunc(f, T) <==> (T > 0 /\ (forall (x), x ∈ RealSet => f(x + T) = f(x))))}) (f := {F}) (T := {T}) as (hypothesis 17: {F : RealSet -> RealSet => T ∈ RealSet => (PeriodicFunc(F, T) <==> (T > 0 /\ (forall (x), x ∈ RealSet => F(x + T) = F(x))))})
+use_condition (hypothesis 2: {F : RealSet -> RealSet}) (hypothesis 15: {T ∈ RealSet}) in (hypothesis 17: {F : RealSet -> RealSet => T ∈ RealSet => (PeriodicFunc(F, T) <==> (T > 0 /\ (forall (x), x ∈ RealSet => F(x + T) = F(x))))}) as (hypothesis 18: {PeriodicFunc(F, T) <==> (T > 0 /\ (forall (x), x ∈ RealSet => F(x + T) = F(x)))})
+rewrite (left_to_right, iff) (hypothesis 18: {PeriodicFunc(F, T) <==> (T > 0 /\ (forall (x), x ∈ RealSet => F(x + T) = F(x)))}); from (GOAL: {PeriodicFunc(F, T)}) to (GOAL: {T > 0 /\ (forall (x), x ∈ RealSet => F(x + T) = F(x))})
+autosolve all_hypothesis

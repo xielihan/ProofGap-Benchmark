@@ -1,0 +1,22 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. p ∈ RealSet
+3. f : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+4. φ : RealSet → RealSet
+5. ψ : RealSet → RealSet
+6. m ∈ RealSet ∧ m > 0
+7. M ∈ RealSet
+8. F : RealSet → RealSet
+9. c ∈ RealSet
+10. ε ∈ RealSet ∧ ε > 0
+11. `I_0` ⊆ RealSet
+12. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ∧ x ∈ [0, a] ∧ y ∈ [0, a] ∧ z ∈ [0, a] ⇒ 0 < m ∧ m ≤ |f(x, y, z)| ∧ |f(x, y, z)| ≤ M))
+13. ContinuousFuncOn(φ, [0, a])
+14. ContinuousFuncOn(ψ, [0, a])
+15. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ∧ x ∈ [0, a] ∧ y ∈ [0, a] ∧ z ∈ [0, a] ⇒ frac(m, ((y - φ(x))^{2} + (z - ψ(x))^{2})^{p}) ≤ frac(|f(x, y, z)|, ((y - φ(x))^{2} + (z - ψ(x))^{2})^{p})))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ∧ x ∈ [0, a] ∧ y ∈ [0, a] ∧ z ∈ [0, a] ∧ ((y - φ(x))^{2} + (z - ψ(x))^{2})^{p} > 0 ⇒ frac(|f(x, y, z)|, ((y - φ(x))^{2} + (z - ψ(x))^{2})^{p}) ≤ frac(M, ((y - φ(x))^{2} + (z - ψ(x))^{2})^{p})))
+
+METHOD:

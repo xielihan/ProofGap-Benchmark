@@ -1,0 +1,14 @@
+PROOF GAP @5
+ASSUM:
+1. p ∈ RealSet
+2. q ∈ RealSet ∧ q ≠ 0
+3. r = frac(p + 1, q)
+4. forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ⇒ DefInt(0, +∞, x^{p} * sin(x^{q}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, |q|) * DefInt(0, +∞, t^{r - 1} * sin(t) * diff(fun t [t ∈ RealSet] . t)))
+5. lim_{ t → 0^+ } (t^{-r} * t^{r - 1} * sin(t)) = lim_{ t → 0^+ } (frac(sin(t), t))
+6. lim_{ t → 0^+ } (frac(sin(t), t)) = 1
+7. lim_{ t → 0^+ } (t^{-r} * t^{r - 1} * sin(t)) = 1
+
+GOAL:
+forall (t), t ∈ RealSet ∧ -1 < r ⇒ DefInt(0, 1, t^{r - 1} * sin(t) * diff(fun t [t ∈ RealSet] . t)) < +∞
+
+METHOD:

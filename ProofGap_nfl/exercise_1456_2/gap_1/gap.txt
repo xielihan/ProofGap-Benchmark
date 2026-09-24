@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. p ∈ RealSet
+2. p > 1
+3. f = (fun x [x ∈ RealSet] . x^{p} + (1 - x)^{p})
+
+GOAL:
+ContinuousFuncOn(f, [0, 1])
+
+METHOD:

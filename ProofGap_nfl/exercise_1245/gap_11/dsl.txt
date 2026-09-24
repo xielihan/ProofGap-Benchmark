@@ -1,0 +1,2 @@
+1. not_normalize from (GOAL: {¬(exists (ξ), ξ ∈ RealSet ∧ ξ ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(ξ) * (b - a))}) to (GOAL: {(exists (ξ), ξ ∈ RealSet ∧ ξ ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(ξ) * (b - a)) ⇒ False})
+2. apply (hypothesis 14: {(exists (ξ), ξ ∈ RealSet ∧ ξ ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(ξ) * (b - a)) ⇒ False})

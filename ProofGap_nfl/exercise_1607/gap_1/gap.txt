@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. r : RealSet → RealSet
+2. a ∈ RealSet ∧ a > 0
+3. R : RealSet → RealSet
+4. forall (φ), φ ∈ RealSet ⇒ r(φ) = a * (1 + cos(φ))
+
+GOAL:
+forall (φ), φ ∈ RealSet ⇒ FunDeri(r, 1, 1)(φ) = -a * sin(φ)
+
+METHOD:

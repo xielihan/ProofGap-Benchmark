@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ (1 - 5 * x^{2} = t ⇒ x^{2} = frac(1, 5) * (1 - t)))}) (x := {x0})
+get_condition (hypothesis 4: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ (1 - 5 * x0^{2} = t ⇒ x0^{2} = frac(1, 5) * (1 - t)))})
+exists (t := {1 - 5 * x0^{2}})
+assert (hypothesis 5: {1 - 5 * x0^{2} ∈ RealSet ∧ (1 - 5 * x0^{2} = 1 - 5 * x0^{2} ⇒ x0^{2} = frac(1, 5) * (1 - (1 - 5 * x0^{2})))})
+apply (hypothesis 5: {1 - 5 * x0^{2} ∈ RealSet ∧ (1 - 5 * x0^{2} = 1 - 5 * x0^{2} ⇒ x0^{2} = frac(1, 5) * (1 - (1 - 5 * x0^{2})))})

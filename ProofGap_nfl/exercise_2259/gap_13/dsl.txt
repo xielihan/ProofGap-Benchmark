@@ -1,0 +1,3 @@
+get_condition (hypothesis 19: {OddFunc(f)}) in (GOAL: {OddFunc(f) ⇒ (exists (C_{2}), C_{2} ∈ RealSet ∧ C_{2} = 0)})
+exists (C_{2} := {0})
+autosolve all_hypothesis

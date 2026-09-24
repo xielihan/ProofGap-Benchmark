@@ -1,0 +1,7 @@
+get_condition (hypothesis 28: {p ≠ q}) (hypothesis 29: {q > p}) in (GOAL: {p ≠ q ⇒ q > p ⇒ (exists (c), c ∈ RealSet ∧ c ∈ IntervalLoRo(a, b) ∧ FunDeri(f, 1, p + q + 1)(c) = 0)})
+use_condition (hypothesis 28: {p ≠ q}) (hypothesis 29: {q > p}) in (hypothesis 26: {p ≠ q ⇒ q > p ⇒ (exists (c), c ∈ RealSet ∧ c ∈ IntervalLoRo(a, b) ∧ FunDeri(f, 1, p + k + p + 1)(c) = 0}) as (hypothesis 30: {exists (c), c ∈ RealSet ∧ c ∈ IntervalLoRo(a, b) ∧ FunDeri(f, 1, p + k + p + 1)(c) = 0})
+use_condition (hypothesis 28: {p ≠ q}) (hypothesis 29: {q > p}) in (hypothesis 27: {p ≠ q ⇒ q > p ⇒ p + k + p + 1 = p + q + 1}) as (hypothesis 31: {p + k + p + 1 = p + q + 1})
+get_exists (hypothesis 30: {exists (c), c ∈ RealSet ∧ c ∈ IntervalLoRo(a, b) ∧ FunDeri(f, 1, p + k + p + 1)(c) = 0}) (c := {d})
+rewrite (left_to_right, equation) (hypothesis 31: {p + k + p + 1 = p + q + 1}); from (hypothesis 32: {d ∈ RealSet ∧ d ∈ IntervalLoRo(a, b) ∧ FunDeri(f, 1, p + k + p + 1)(d) = 0}) to (hypothesis 32: {d ∈ RealSet ∧ d ∈ IntervalLoRo(a, b) ∧ FunDeri(f, 1, p + q + 1)(d) = 0})
+exists (c := {d})
+apply (hypothesis 32: {d ∈ RealSet ∧ d ∈ IntervalLoRo(a, b) ∧ FunDeri(f, 1, p + q + 1)(d) = 0})

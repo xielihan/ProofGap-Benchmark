@@ -1,0 +1,19 @@
+PROOF GAP @7
+ASSUM:
+1. F : CartesianProd(RealSet, RealSet) → RealSet
+2. f : RealSet → RealSet
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. forall (x), x ∈ RealSet ∧ x ∈ [1, 3] ⇒ f(x) = x^{2}
+6. forall (a) (b), a ∈ RealSet ∧ b ∈ RealSet ⇒ F(a, b) = DefInt(1, 3, (fun x [x ∈ RealSet] . (a + b * x - x^{2})^{2}) * diff(fun x [x ∈ RealSet] . x))
+7. ContinuousFuncOn(F, CartesianProd(RealSet, RealSet))
+8. exists (r), r ∈ RealSet ∧ (r = sqrtn(2, a^{2} + b^{2}) ∧ lim_{ r → +∞ } (sqrtn(2, a^{2} + b^{2})) = +∞ ⇒ lim_{ r → +∞ } (F(a, b)) = +∞)
+9. exists (a) (b), a ∈ RealSet ∧ b ∈ RealSet ∧ F(a, b) = min({ F(u, v) | u ∈ RealSet, v ∈ RealSet })
+10. FunDeri(F, 1, 1)(a, b) = 0 ∧ FunDeri(F, 2, 1)(a, b) = 0 ⇒ F(a, b) = min({ F(u, v) | u ∈ RealSet, v ∈ RealSet })
+11. 2 * DefInt(1, 3, (fun x [x ∈ RealSet] . a + b * x - x^{2}) * diff(fun x [x ∈ RealSet] . x)) = 0 ∧ 2 * DefInt(1, 3, (fun x [x ∈ RealSet] . x * (a + b * x - x^{2})) * diff(fun x [x ∈ RealSet] . x)) = 0 ⇒ FunDeri(F, 1, 1)(a, b) = 0 ∧ FunDeri(F, 2, 1)(a, b) = 0
+12. 4 * a + 8 * b - frac(52, 3) = 0 ∧ 8 * a + frac(52, 3) * b - 40 = 0 ⇒ 2 * DefInt(1, 3, (fun x [x ∈ RealSet] . a + b * x - x^{2}) * diff(fun x [x ∈ RealSet] . x)) = 0 ∧ 2 * DefInt(1, 3, (fun x [x ∈ RealSet] . x * (a + b * x - x^{2})) * diff(fun x [x ∈ RealSet] . x)) = 0
+
+GOAL:
+4 * a + 8 * b - frac(52, 3) = 0 ∧ 8 * a + frac(52, 3) * b - 40 = 0 ⇒ F(a, b) = min({ F(u, v) | u ∈ RealSet, v ∈ RealSet })
+
+METHOD:

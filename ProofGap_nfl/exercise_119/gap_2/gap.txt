@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. x : NonNegIntegerSet → RealSet
+2. IsSeq(x)
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = 3 * (1 - frac(1, n)) + 2 * (-1)^{n}
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ Even(n) ⇒ x(n) = 5 - frac(3, n)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ Odd(n) ⇒ x(n) = 1 - frac(3, n)
+
+METHOD:

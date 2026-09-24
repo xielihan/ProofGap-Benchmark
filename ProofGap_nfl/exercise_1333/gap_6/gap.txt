@@ -1,0 +1,12 @@
+PROOF GAP @6
+ASSUM:
+1. lim_{ x → 0 } (frac(cos(sin(x)) - cos(x), x^{4})) = lim_{ x → 0 } (frac(-cos(x) * sin(sin(x)) + sin(x), 4 * x^{3}))
+2. lim_{ x → 0 } (frac(-cos(x) * sin(sin(x)) + sin(x), 4 * x^{3})) = lim_{ x → 0 } (frac(sin(x) * sin(sin(x)) - cos(x)^{2} * cos(sin(x)) + cos(x), 12 * x^{2}))
+3. lim_{ x → 0 } (frac(sin(x) * sin(sin(x)) - cos(x)^{2} * cos(sin(x)) + cos(x), 12 * x^{2})) = lim_{ x → 0 } (frac(cos(x) * sin(sin(x)) + frac(1, 2) * sin(2 * x) * cos(sin(x)) + sin(2 * x) * cos(sin(x)) + cos(x)^{3} * sin(sin(x)) - sin(x), 24 * x))
+4. lim_{ x → 0 } (frac(cos(x) * sin(sin(x)) + frac(1, 2) * sin(2 * x) * cos(sin(x)) + sin(2 * x) * cos(sin(x)) + cos(x)^{3} * sin(sin(x)) - sin(x), 24 * x)) = frac(1, 24) * (lim_{ x → 0 } (-sin(x) * sin(sin(x)) + cos(x)^{2} * cos(sin(x)) + 3 * cos(2 * x) * cos(sin(x)) - frac(3, 2) * cos(x) * sin(2 * x) * sin(sin(x)) - 3 * cos(x)^{2} * sin(x) * sin(sin(x)) + cos(x)^{4} * cos(sin(x)) - cos(x)))
+5. frac(1, 24) * (lim_{ x → 0 } (-sin(x) * sin(sin(x)) + cos(x)^{2} * cos(sin(x)) + 3 * cos(2 * x) * cos(sin(x)) - frac(3, 2) * cos(x) * sin(2 * x) * sin(sin(x)) - 3 * cos(x)^{2} * sin(x) * sin(sin(x)) + cos(x)^{4} * cos(sin(x)) - cos(x))) = frac(1, 6)
+
+GOAL:
+lim_{ x → 0 } (frac(cos(sin(x)) - cos(x), x^{4})) = frac(1, 6)
+
+METHOD:

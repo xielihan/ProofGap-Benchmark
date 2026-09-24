@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ x^{2} + x + 1 > 0}) (x := {x0})
+get_condition (hypothesis 1: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ x0^{2} + x0 + 1 > 0})
+autoreplace no_hypothesis; from (x0^{2} + x0 + 1) to ((x0 + frac(1, 2))^{2} + frac(3, 4)); from (GOAL: {x0^{2} + x0 + 1 > 0}) to (GOAL: {(x0 + frac(1, 2))^{2} + frac(3, 4) > 0})
+autosolve all_hypothesis

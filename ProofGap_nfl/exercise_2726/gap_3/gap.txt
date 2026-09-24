@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet
+2. a : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(x^{n}, 1 + x^{2 * n})
+4. |x| < 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ∧ n ∈ PosIntegerSet ⇒ |a(n)| ≤ |x|^{n})
+5. |x| < 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (|x|^{n}))
+
+GOAL:
+|x| < 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+METHOD:
+[@method 根据 "比较判别法" @]

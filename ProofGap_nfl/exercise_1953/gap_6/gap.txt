@@ -1,0 +1,12 @@
+PROOF GAP @6
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x^{2} - x - 1 > 0 ∧ x ≠ 1 ∧ x ≠ -1 ⇒ frac(x, (x^{2} - 1) * sqrtn(2, x^{2} - x - 1)) = frac(1, 2) * (frac(1, (x + 1) * sqrtn(2, x^{2} - x - 1)) + frac(1, (x - 1) * sqrtn(2, x^{2} - x - 1)))
+2. { `F_2` | forall (x), x ∈ RealSet ∧ x^{2} - x - 1 > 0 ∧ x ≠ 1 ∧ x ≠ -1 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x, (x^{2} - 1) * sqrtn(2, x^{2} - x - 1)) * FunDeri(fun x [x ∈ RealSet ∧ x^{2} - x - 1 > 0 ∧ x ≠ 1 ∧ x ≠ -1] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ x^{2} - x - 1 > 0 ∧ x ≠ 1 ∧ x ≠ -1 ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(1, 2) * (frac(1, (x + 1) * sqrtn(2, x^{2} - x - 1)) + frac(1, (x - 1) * sqrtn(2, x^{2} - x - 1))) * FunDeri(fun x [x ∈ RealSet ∧ x^{2} - x - 1 > 0 ∧ x ≠ 1 ∧ x ≠ -1] . x, 1, 1)(x) }
+3. forall (x), x ∈ RealSet ∧ x^{2} - x - 1 > 0 ∧ x ≠ 1 ∧ x ≠ -1 ⇒ diff(fun x [x ∈ RealSet ∧ x^{2} - x - 1 > 0 ∧ x ≠ 1 ∧ x ≠ -1] . x) = -frac(1, (frac(1, x + 1))^{2}) * diff(fun x [x ∈ RealSet ∧ x^{2} - x - 1 > 0 ∧ x ≠ 1 ∧ x ≠ -1] . frac(1, x + 1))
+4. forall (x), x ∈ RealSet ∧ x^{2} - x - 1 > 0 ∧ x ≠ 1 ∧ x ≠ -1 ⇒ sqrtn(2, x^{2} - x - 1) = frac(sqrtn(2, (frac(1, x + 1))^{2} - 3 * frac(1, x + 1) + 1), |frac(1, x + 1)|)
+5. { `F_4` | forall (x), x ∈ RealSet ∧ x^{2} - x - 1 > 0 ∧ x ≠ 1 ∧ x ≠ -1 ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(1, (x + 1) * sqrtn(2, x^{2} - x - 1)) * FunDeri(fun x [x ∈ RealSet ∧ x^{2} - x - 1 > 0 ∧ x ≠ 1 ∧ x ≠ -1] . x, 1, 1)(x) } = { `F_5` | forall (x), x ∈ RealSet ∧ x^{2} - x - 1 > 0 ∧ x ≠ 1 ∧ x ≠ -1 ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(-sgn(frac(1, x + 1)), sqrtn(2, (frac(1, x + 1))^{2} - 3 * frac(1, x + 1) + 1)) * FunDeri(fun x [x ∈ RealSet ∧ x^{2} - x - 1 > 0 ∧ x ≠ 1 ∧ x ≠ -1] . frac(1, x + 1), 1, 1)(x) }
+
+GOAL:
+{ `F_6` | forall (x), x ∈ RealSet ∧ x^{2} - x - 1 > 0 ∧ x ≠ 1 ∧ x ≠ -1 ⇒ FunDeri(`F_6`, 1, 1)(x) = frac(-sgn(frac(1, x + 1)), sqrtn(2, (frac(1, x + 1))^{2} - 3 * frac(1, x + 1) + 1)) * FunDeri(fun x [x ∈ RealSet ∧ x^{2} - x - 1 > 0 ∧ x ≠ 1 ∧ x ≠ -1] . frac(1, x + 1), 1, 1)(x) } = { `F_7` | exists (C), C : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x^{2} - x - 1 > 0 ∧ x ≠ 1 ∧ x ≠ -1 ⇒ FunDeri(C, 1, 1)(x) = 0 ∧ `F_7`(x) = -sgn(frac(1, x + 1)) * ln(|frac(1, x + 1) - frac(3, 2) + sqrtn(2, (frac(1, x + 1))^{2} - 3 * frac(1, x + 1) + 1)|) + C(x)) }
+
+METHOD:

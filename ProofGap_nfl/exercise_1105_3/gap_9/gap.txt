@@ -1,0 +1,25 @@
+PROOF GAP @9
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. x ∈ RealSet
+3. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+4. ε ∈ RealSet ∧ ε > 0
+5. f : RealSet → RealSet
+6. a^{n} + x > 0
+7. |x| ≈_{ ε } 0
+8. f = (fun y [y ∈ RealSet] . sqrtn(n, y))
+9. y_{0} = a^{n}
+10. Δy = x
+11. forall (y), y ∈ RealSet ∧ y > 0 ⇒ f(y) = sqrtn(n, y)
+12. DiffableFuncOn(f, IntervalLoRo(0, +∞))
+13. f(y_{0} + Δy) ≈_{ ε } f(y_{0}) + FunDeri(f, 1, 1)(y_{0}) * Δy
+14. sqrtn(n, a^{n} + x) ≈_{ ε } sqrtn(n, a^{n}) + frac(x, n * sqrtn(n, (a^{n})^{n - 1}))
+15. sqrtn(n, a^{n} + x) ≈_{ ε } a + frac(x, n * a^{n - 1})
+16. sqrtn(7, 100) = sqrtn(7, 2^{7} - 28)
+17. sqrtn(7, 2^{7} - 28) ≈_{ ε } 2 - frac(28, 7 * 2^{6})
+18. 2 - frac(28, 7 * 2^{6}) = 1.938
+
+GOAL:
+sqrtn(7, 100) = 1.931
+
+METHOD:

@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. m ∈ IntegerSet
+2. n ∈ IntegerSet
+3. forall (x), x ∈ RealSet ⇒ e^{__IMAGINARY_UNIT__ * x} = cos(x) + __IMAGINARY_UNIT__ * sin(x)
+4. m = n ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * n * x} * e^{-__IMAGINARY_UNIT__ * m * x}) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 2 * π, (fun x [x ∈ RealSet] . 1) * diff(fun x [x ∈ RealSet] . x))
+5. m = n ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . 1) * diff(fun x [x ∈ RealSet] . x)) = 2 * π
+
+GOAL:
+m = n ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * n * x} * e^{-__IMAGINARY_UNIT__ * m * x}) * diff(fun x [x ∈ RealSet] . x)) = 2 * π
+
+METHOD:

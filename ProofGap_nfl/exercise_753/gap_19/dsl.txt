@@ -1,0 +1,4 @@
+1. not_normalize from (GOAL: {forall (x), x ∈ RealSet ⇒ φ(x) = ψ(x)}) to (GOAL: {¬(forall (x), x ∈ RealSet ⇒ φ(x) = ψ(x)) ⇒ False})
+2. get_condition (hypothesis 34: {¬(forall (x), x ∈ RealSet ⇒ φ(x) = ψ(x))}) in (GOAL: {¬(forall (x), x ∈ RealSet ⇒ φ(x) = ψ(x)) ⇒ False})
+3. use_condition (hypothesis 34: {¬(forall (x), x ∈ RealSet ⇒ φ(x) = ψ(x))}) in (hypothesis 33: {¬(forall (x), x ∈ RealSet ⇒ φ(x) = ψ(x)) ⇒ False}) as (hypothesis 35: {False})
+4. apply (hypothesis 35: {False})

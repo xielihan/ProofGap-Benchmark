@@ -1,0 +1,10 @@
+PROOF GAP @7
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < 1 ⇒ Defined(fun x [x ∈ RealSet] . frac(arcsin(sqrtn(2, x)), sqrtn(2, x * (1 - x))), x)
+2. t : RealSet → RealSet
+3. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ t(x) = sqrtn(2, x)
+4. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ x = t(x)^{2}
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet] . frac(arcsin(sqrtn(2, x)), sqrtn(2, x * (1 - x)))) * diff(fun x [x ∈ RealSet] . x)) = 2 * DefInt(0, 1, (fun t [t ∈ RealSet] . frac(arcsin(t), sqrtn(2, 1 - t^{2}))) * diff(fun t [t ∈ RealSet] . t))
+
+METHOD:

@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. P : NonNegIntegerSet → RealSet
+2. p : NonNegIntegerSet → RealSet
+3. u : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ p(n) = frac(sqrtn(2, n), sqrtn(2, n) + (-1)^{n})
+5. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N ≥ 2 ⇒ P(N) = prod_{ n = 2 }^{ N } (p(n)))
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ p(n) > 0
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ ln(p(n)) = ln(1 - frac((-1)^{n}, sqrtn(2, n) + (-1)^{n}))
+8. u = (fun k [k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet] . ln(p(2 * k)) + ln(p(2 * k + 1)))
+
+GOAL:
+forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ u(k) = ln(1 - frac(1, sqrtn(2, 2 * k) + 1)) + ln(1 + frac(1, sqrtn(2, 2 * k + 1) - 1))
+
+METHOD:

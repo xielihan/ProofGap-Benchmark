@@ -1,0 +1,4 @@
+exists (α_{1} := {0})
+get_prop (hypothesis 5: {forall (x), x ∈ RealSet ⇒ FunDeri(Q, 1, 1)(x) = -2 * x * e^{-x^{2}}}) (x := {0}) as (hypothesis 7: {0 ∈ RealSet ⇒ FunDeri(Q, 1, 1)(0) = -2 * 0 * e^{-0^{2}}})
+use_condition (obvious: {0 ∈ RealSet}) in (hypothesis 7: {0 ∈ RealSet ⇒ FunDeri(Q, 1, 1)(0) = -2 * 0 * e^{-0^{2}}}) as (hypothesis 8: {FunDeri(Q, 1, 1)(0) = -2 * 0 * e^{-0^{2}}})
+autosolve (hypothesis 8: {FunDeri(Q, 1, 1)(0) = -2 * 0 * e^{-0^{2}}})

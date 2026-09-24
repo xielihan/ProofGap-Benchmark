@@ -1,0 +1,13 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ 0 < x ∧ x < 1 ∧ y = frac(1, x) ⇒ lim_{ y → +∞ } (frac(ln(ln(y)), y)) = lim_{ y → +∞ } (frac(1, y * ln(y))))}) (x := {x0})
+get_condition (hypothesis 3: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ 0 < x0 ∧ x0 < 1 ∧ y = frac(1, x0) ⇒ lim_{ y → +∞ } (frac(ln(ln(y)), y)) = lim_{ y → +∞ } (frac(1, y * ln(y))))})
+get_forall (GOAL: {forall (y), y ∈ RealSet ∧ 0 < x0 ∧ x0 < 1 ∧ y = frac(1, x0) ⇒ lim_{ y → +∞ } (frac(ln(ln(y)), y)) = lim_{ y → +∞ } (frac(1, y * ln(y)))}) (y := {y0})
+get_condition (hypothesis 4: {y0 ∈ RealSet ∧ 0 < x0 ∧ x0 < 1 ∧ y0 = frac(1, x0)}) in (GOAL: {y0 ∈ RealSet ∧ 0 < x0 ∧ x0 < 1 ∧ y0 = frac(1, x0) ⇒ lim_{ y → +∞ } (frac(ln(ln(y)), y)) = lim_{ y → +∞ } (frac(1, y * ln(y)))})
+assert (hypothesis 5: {lim_{ y → +∞ } (frac(ln(ln(y)), y)) = 0}) by proof {
+  autosolve using LimitCalcSolver
+}
+assert (hypothesis 6: {lim_{ y → +∞ } (frac(1, y * ln(y))) = 0}) by proof {
+  autosolve using LimitCalcSolver
+}
+rewrite (left_to_right, equation) (hypothesis 5: {lim_{ y → +∞ } (frac(ln(ln(y)), y)) = 0}); from (GOAL: {lim_{ y → +∞ } (frac(ln(ln(y)), y)) = lim_{ y → +∞ } (frac(1, y * ln(y)))}) to (GOAL: {0 = lim_{ y → +∞ } (frac(1, y * ln(y)))})
+rewrite (left_to_right, equation) (hypothesis 6: {lim_{ y → +∞ } (frac(1, y * ln(y))) = 0}); from (GOAL: {0 = lim_{ y → +∞ } (frac(1, y * ln(y)))}) to (GOAL: {0 = 0})
+autosolve

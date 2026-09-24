@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ tan(x) ≥ 0 ∧ cos(x) ≠ 0 ⇒ f(x + π) = f(x)}) (x := {x1})
+get_condition (hypothesis 5: {x1 ∈ RealSet ∧ tan(x1) ≥ 0 ∧ cos(x1) ≠ 0}) in (GOAL: {x1 ∈ RealSet ∧ tan(x1) ≥ 0 ∧ cos(x1) ≠ 0 ⇒ f(x1 + π) = f(x1)})
+get_prop (hypothesis 4: {forall (x), x ∈ RealSet ∧ tan(x) ≥ 0 ∧ cos(x) ≠ 0 ⇒ f(x + π) = sqrtn(2, tan(x + π)) ∧ sqrtn(2, tan(x + π)) = sqrtn(2, tan(x)) ∧ sqrtn(2, tan(x)) = f(x)}) (x := {x1}) as (hypothesis 6: {x1 ∈ RealSet ∧ tan(x1) ≥ 0 ∧ cos(x1) ≠ 0 ⇒ f(x1 + π) = sqrtn(2, tan(x1 + π)) ∧ sqrtn(2, tan(x1 + π)) = sqrtn(2, tan(x1)) ∧ sqrtn(2, tan(x1)) = f(x1)})
+use_condition (hypothesis 5: {x1 ∈ RealSet ∧ tan(x1) ≥ 0 ∧ cos(x1) ≠ 0}) in (hypothesis 6: {x1 ∈ RealSet ∧ tan(x1) ≥ 0 ∧ cos(x1) ≠ 0 ⇒ f(x1 + π) = sqrtn(2, tan(x1 + π)) ∧ sqrtn(2, tan(x1 + π)) = sqrtn(2, tan(x1)) ∧ sqrtn(2, tan(x1)) = f(x1)}) as (hypothesis 7: {f(x1 + π) = sqrtn(2, tan(x1 + π)) ∧ sqrtn(2, tan(x1 + π)) = sqrtn(2, tan(x1)) ∧ sqrtn(2, tan(x1)) = f(x1)})
+destruct_and (hypothesis 7: {f(x1 + π) = sqrtn(2, tan(x1 + π)) ∧ sqrtn(2, tan(x1 + π)) = sqrtn(2, tan(x1)) ∧ sqrtn(2, tan(x1)) = f(x1)}) as (hypothesis 8: {f(x1 + π) = sqrtn(2, tan(x1 + π))}) (hypothesis 9: {sqrtn(2, tan(x1 + π)) = sqrtn(2, tan(x1))}) (hypothesis 10: {sqrtn(2, tan(x1)) = f(x1)})
+autosolve all_hypothesis

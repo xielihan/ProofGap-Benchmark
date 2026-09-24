@@ -1,0 +1,17 @@
+PROOF GAP @2
+ASSUM:
+1. F : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. f : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+3. y : CartesianProd(RealSet, RealSet) → RealSet
+4. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ F(x, y, z) = x^{2} + y^{2} + z^{2} - 3 * x * y * z
+5. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ f(x, y, z) = x * y^{2} * z^{3}
+6. F(1, 1, 1) = 0
+7. FunDeri(F, 2, 1)(1, 1, 1) ≠ 0
+8. forall (x) (z), x ∈ RealSet ∧ z ∈ RealSet ⇒ F(x, y(x, z), z) = 0
+9. DiffableFuncAt(y, (1, 1))
+10. FunDeri(y, 1, 1)(1, 1) = -frac(FunDeri(F, 1, 1)(1, 1, 1), FunDeri(F, 2, 1)(1, 1, 1))
+
+GOAL:
+FunDeri(y, 1, 1)(1, 1) = -frac(FunDeri(fun x [x ∈ RealSet] . F(x, 1, 1), 1, 1)(1), FunDeri(fun y [y ∈ RealSet] . F(1, y, 1), 1, 1)(1))
+
+METHOD:

@@ -1,0 +1,17 @@
+PROOF GAP @7
+ASSUM:
+1. y : RealSet → RealSet
+2. s ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π ⇒ y(x) = sin(x)
+4. s = DefInt(0, π, (fun x [x ∈ RealSet] . sqrtn(2, 1 + FunDeri(y, 1, 1)(x)^{2})) * diff(fun x [x ∈ RealSet] . x))
+5. s = DefInt(0, π, (fun x [x ∈ RealSet] . sqrtn(2, 1 + FunDeri(y, 1, 1)(x)^{2})) * diff(fun x [x ∈ RealSet] . x))
+6. DefInt(0, π, (fun x [x ∈ RealSet] . sqrtn(2, 1 + FunDeri(y, 1, 1)(x)^{2})) * diff(fun x [x ∈ RealSet] . x)) = 2 * DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . sqrtn(2, 1 + cos(x)^{2})) * diff(fun x [x ∈ RealSet] . x))
+7. s = 2 * DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . sqrtn(2, 1 + cos(x)^{2})) * diff(fun x [x ∈ RealSet] . x))
+8. s = 2 * DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . 1 + frac(1, 2) * cos(x)^{2} - frac(1, 2! * 2^{2}) * cos(x)^{4} + frac(1 * 3, 3! * 2^{3}) * cos(x)^{6} - ...) * diff(fun x [x ∈ RealSet] . x))
+9. forall (n), n ∈ NonNegIntegerSet ⇒ DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . cos(x)^{2 * n}) * diff(fun x [x ∈ RealSet] . x)) = frac(π * (2 * n)!, 2^{2 * n + 1} * n! * n!)
+10. s = 2 * (frac(π, 2) + frac(π * 2!, 2^{4}) - frac(1, 2! * 2^{2}) * frac(π * 4!, 2^{5} * 2! * 2!) + frac(1 * 3, 3! * 2^{3}) * frac(π * 6!, 2^{7} * 3! * 3!) - ...)
+
+GOAL:
+s = π * (1 + frac(1, 4) - frac(3, 64) + frac(5, 256) - ...)
+
+METHOD:

@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. seqlim_{ n → +∞ } (frac(ln(sin(frac(1, n))), ln(frac(1, n)))) = 1
+2. (frac(1, ln(sin(frac(1, n)))^{2})) ∼_{ n → +∞ } (frac(1, ln(frac(1, n))^{2}))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > 1 ⇒ frac(1, ln(frac(1, n))^{2}) = frac(1, ln(n)^{2})
+
+METHOD:

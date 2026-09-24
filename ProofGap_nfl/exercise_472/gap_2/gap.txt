@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. lim_{ x → +∞ } (frac(1, x)) = 0
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ |sin(x)| ≤ 1
+
+METHOD:

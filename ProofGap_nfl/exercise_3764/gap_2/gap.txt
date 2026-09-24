@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ (exists (L), L ∈ RealSet ∧ DefInt(0, +∞, (fun y [y ∈ RealSet] . e^{-x^{2} * (1 + y^{2})} * sin(x)) * diff(fun y [y ∈ RealSet] . y)) = L)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ DefInt(0, +∞, (fun y [y ∈ RealSet] . e^{-x^{2} * (1 + y^{2})} * sin(x)) * diff(fun y [y ∈ RealSet] . y)) = frac(sin(x), x) * e^{-x^{2}} * frac(sqrtn(2, π), 2)
+
+METHOD:

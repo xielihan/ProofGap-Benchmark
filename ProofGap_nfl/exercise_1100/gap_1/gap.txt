@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. x_{0} ∈ RealSet
+3. Δx ∈ RealSet
+4. f = (fun x [x ∈ RealSet] . sin(x))
+5. x_{0} = frac(π, 6)
+6. Δx = -frac(π, 180)
+
+GOAL:
+frac(29 * π, 180) = x_{0} + Δx
+
+METHOD:

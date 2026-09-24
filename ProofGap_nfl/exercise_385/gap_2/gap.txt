@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. ε ∈ RealSet ∧ ε > 0
+3. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ f(x) = ln(x) * sin(frac(π, x))^{2}
+4. forall (x), x ∈ IntervalLoRo(0, ε) ⇒ f(x) ≤ ε + frac(1, ε)
+
+GOAL:
+BoundedAboveFuncOn(f, IntervalLoRo(0, ε))
+
+METHOD:

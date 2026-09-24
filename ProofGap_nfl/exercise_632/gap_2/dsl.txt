@@ -1,0 +1,2 @@
+rewrite_in limit (left_to_right, equation) (hypothesis 4: {forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ frac(φ(x), ψ(x)) = frac(3, sqrtn(3, (1 + x)^{2}) + sqrtn(3, 1 + x) + 1)}); from (GOAL: {lim_{ x → 0 } (frac(φ(x), ψ(x))) = 1}) to (GOAL: {lim_{ x → 0 } (frac(3, sqrtn(3, (1 + x)^{2}) + sqrtn(3, 1 + x) + 1)) = 1})
+autosolve all_hypothesis

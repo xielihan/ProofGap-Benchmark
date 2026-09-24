@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = 1 + n * sin(frac(n * π, 2))
+3. x(1) = 2
+4. x(2) = 1
+
+GOAL:
+x(3) = -2
+
+METHOD:

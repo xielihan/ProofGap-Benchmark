@@ -1,0 +1,20 @@
+PROOF GAP @6
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. a ∈ RealSet ∧ a > 0
+3. x : RealSet → RealSet
+4. y : RealSet → RealSet
+5. s ∈ RealSet
+6. t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π
+7. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ x(t) = a * (cos(t) + t * sin(t)) ∧ y(t) = a * (sin(t) - t * cos(t))
+8. C = { (x(t), y(t)) | 0 ≤ t ∧ t ≤ 2 * π }
+9. diff(s) = sqrtn(2, a^{2} * t^{2} * cos(t)^{2} + a^{2} * t^{2} * sin(t)^{2}) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . t)
+10. diff(s) = a * t * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . t)
+11. x(t)^{2} + y(t)^{2} = a^{2} * ((cos(t) + t * sin(t))^{2} + (sin(t) - t * cos(t))^{2})
+12. x(t)^{2} + y(t)^{2} = a^{2} * (1 + t^{2})
+13. ScalarCurveInt(C, (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . x(t)^{2} + y(t)^{2}) * diff(s)) = DefInt(0, 2 * π, (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . a^{3} * t * (1 + t^{2})) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . t))
+
+GOAL:
+DefInt(0, 2 * π, (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . a^{3} * t * (1 + t^{2})) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . t)) = 2 * π^{2} * a^{3} * (1 + 2 * π^{2})
+
+METHOD:

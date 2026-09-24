@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ FunDeri(fun t . sin(t) - t * cos(t), 1, 1)(x) = x * sin(x)}) (x := {x1})
+get_condition (hypothesis 4: {x1 ∈ RealSet}) in (GOAL: {x1 ∈ RealSet ⇒ FunDeri(fun t . sin(t) - t * cos(t), 1, 1)(x1) = x1 * sin(x1)})
+assert (hypothesis 5: {FunDeri(fun t . sin(t) - t * cos(t), 1, 1)(x1) = x1 * sin(x1)})
+apply (hypothesis 5: {FunDeri(fun t . sin(t) - t * cos(t), 1, 1)(x1) = x1 * sin(x1)})

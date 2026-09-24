@@ -1,0 +1,4 @@
+get_condition (hypothesis 8: {FunDeri(y, 1, 1)(x) = 10 * a^{3} * a}) in (GOAL: {FunDeri(y, 1, 1)(x) = 10 * a^{3} * a ⇒ 10 * a^{3} * x - 5 * x^{4} = 10 * a^{4}})
+autoreplace no_hypothesis; from (10 * a^{3} * a) to (10 * a^{4}); from (hypothesis 8: {FunDeri(y, 1, 1)(x) = 10 * a^{3} * a}) to (hypothesis 9: {FunDeri(y, 1, 1)(x) = 10 * a^{4}})
+rewrite (left_to_right, equation) (hypothesis 5: {FunDeri(y, 1, 1)(x) = 10 * a^{3} * x - 5 * x^{4}}); from (hypothesis 9: {FunDeri(y, 1, 1)(x) = 10 * a^{4}}) to (hypothesis 10: {10 * a^{3} * x - 5 * x^{4} = 10 * a^{4}})
+apply (hypothesis 10: {10 * a^{3} * x - 5 * x^{4} = 10 * a^{4}})

@@ -1,0 +1,1 @@
+apply (hypothesis 10: {exists (M_{3}), M_{3} ∈ RealSet ∧ M_{3} ∈ PosRealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ∧ x > M_{3} ⇒ frac(x^{10} * e^{x}, e^{2 * x}) < 1)})

@@ -1,0 +1,18 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. M ∈ RealSet
+5. a < b
+6. ContinuouslyDiffableFuncOn(f)
+7. f(a) = 0
+8. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ M = sup({ |f(x)| | x ∈ [a, b] })
+9. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ DefInt(a, x, (fun t [t ∈ RealSet] . FunDeri(f, 1, 1)(t)) * diff(fun t [t ∈ RealSet] . t))^{2} ≤ DefInt(a, x, (fun t [t ∈ RealSet] . 1) * diff(fun t [t ∈ RealSet] . t)) * DefInt(a, x, (fun t [t ∈ RealSet] . FunDeri(f, 1, 1)(t)^{2}) * diff(fun t [t ∈ RealSet] . t))
+10. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ f(x)^{2} = (f(x) - f(a))^{2}
+11. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ (f(x) - f(a))^{2} ≤ (x - a) * DefInt(a, x, (fun t [t ∈ RealSet] . FunDeri(f, 1, 1)(t)^{2}) * diff(fun t [t ∈ RealSet] . t))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ (x - a) * DefInt(a, x, (fun t [t ∈ RealSet] . FunDeri(f, 1, 1)(t)^{2}) * diff(fun t [t ∈ RealSet] . t)) ≤ (b - a) * DefInt(a, b, (fun t [t ∈ RealSet] . FunDeri(f, 1, 1)(t)^{2}) * diff(fun t [t ∈ RealSet] . t))
+
+METHOD:

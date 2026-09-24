@@ -1,0 +1,4 @@
+1. get_forall (GOAL: {forall (ψ), ψ ∈ RealSet ∧ `ψ_{1}` ≤ ψ ∧ ψ ≤ `ψ_{2}` ⇒ ψ ≤ `ψ_{2}`}) (ψ := {v})
+2. get_condition (hypothesis 23: {v ∈ RealSet ∧ `ψ_{1}` ≤ v ∧ v ≤ `ψ_{2}`}) in (GOAL: {v ∈ RealSet ∧ `ψ_{1}` ≤ v ∧ v ≤ `ψ_{2}` ⇒ v ≤ `ψ_{2}`})
+3. destruct_and (hypothesis 23: {v ∈ RealSet ∧ `ψ_{1}` ≤ v ∧ v ≤ `ψ_{2}`}) as (hypothesis 24: {v ∈ RealSet}) (hypothesis 25: {`ψ_{1}` ≤ v}) (hypothesis 26: {v ≤ `ψ_{2}`})
+4. apply (hypothesis 26: {v ≤ `ψ_{2}`})

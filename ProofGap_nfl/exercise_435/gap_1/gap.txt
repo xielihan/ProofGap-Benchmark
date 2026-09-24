@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+lim_{ x → +∞ } (frac(sqrtn(2, x + sqrtn(2, x + sqrtn(2, x))), sqrtn(2, x + 1))) = lim_{ x → +∞ } (frac(sqrtn(2, 1 + sqrtn(2, frac(1, x) + sqrtn(2, frac(1, x^{3})))), sqrtn(2, 1 + frac(1, x))))
+
+METHOD:
+[@method 分子分母同除以 sqrt(x) @]

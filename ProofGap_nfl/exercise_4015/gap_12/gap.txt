@@ -1,0 +1,21 @@
+PROOF GAP @12
+ASSUM:
+1. V ∈ RealSet
+2. x = r * cos(φ)
+3. y = r * sin(φ)
+4. r ≥ 0
+5. -frac(π, 2) ≤ φ
+6. φ ≤ frac(π, 2)
+7. x^{2} + y^{2} = x ⇔ (r = 0 ∨ r = cos(φ))
+8. x^{2} + y^{2} = 2 * x ⇔ (r = 0 ∨ r = 2 * cos(φ))
+9. exists (z), z ∈ RealSet ∧ z = x^{2} + y^{2}
+10. x^{2} + y^{2} = r^{2}
+11. exists (z), z ∈ RealSet ∧ z = r^{2}
+12. V = DefInt(-frac(π, 2), frac(π, 2), (fun φ [φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2)] . DefInt(cos(φ), 2 * cos(φ), (fun r [r ∈ RealSet ∧ cos(φ) ≤ r ∧ r ≤ 2 * cos(φ)] . r^{3}) * diff(fun r [r ∈ RealSet ∧ cos(φ) ≤ r ∧ r ≤ 2 * cos(φ)] . r))) * diff(fun φ [φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2)] . φ))
+13. V = frac(2, 4) * DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . 16 * cos(φ)^{4} - cos(φ)^{4}) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . φ))
+14. V = frac(15, 2) * DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . cos(φ)^{4}) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . φ))
+
+GOAL:
+DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . cos(φ)^{4}) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . φ)) = frac(3, 4) * frac(1, 2) * frac(π, 2)
+
+METHOD:

@@ -1,0 +1,17 @@
+PROOF GAP @10
+ASSUM:
+1. a ∈ RealSet
+2. a ≥ 0 ⇒ (forall (x), x ∈ RealSet ∧ x ≥ a ⇒ frac(e^{-a * x}, 1 + x^{2}) ≤ frac(1, 1 + x^{2}))
+3. a ≥ 0 ⇒ DefInt(a, +∞, (fun x [x ∈ RealSet] . frac(1, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x)) = ((fun x [x ∈ RealSet] . arctan(x))|_{a}^{+∞})
+4. a ≥ 0 ⇒ ((fun x [x ∈ RealSet] . arctan(x))|_{a}^{+∞}) = frac(π, 2) - arctan(a)
+5. a ≥ 0 ⇒ DefInt(a, +∞, (fun x [x ∈ RealSet] . frac(1, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x)) = frac(π, 2) - arctan(a)
+6. a ≥ 0 ⇒ (exists (L), L ∈ RealSet ∧ lim_{ t → +∞ } (DefInt(a, t, (fun x [x ∈ RealSet] . frac(e^{-a * x}, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x))) = L)
+7. a < 0 ⇒ (forall (x), x ∈ RealSet ⇒ e^{-a * x} = e^{|a| * x})
+8. a < 0 ⇒ lim_{ x → +∞ } (e^{|a| * x}) = +∞
+9. a < 0 ⇒ lim_{ x → +∞ } (frac(e^{|a| * x}, 1 + x^{2})) = +∞
+10. a < 0 ⇒ ¬lim_{ x → +∞ } (frac(e^{-a * x}, 1 + x^{2})) = 0
+
+GOAL:
+a < 0 ⇒ ¬(exists (L), L ∈ RealSet ∧ lim_{ t → +∞ } (DefInt(a, t, (fun x [x ∈ RealSet] . frac(e^{-a * x}, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x))) = L)
+
+METHOD:

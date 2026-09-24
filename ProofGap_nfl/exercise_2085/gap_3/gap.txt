@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet
+2. exists (t), t ∈ RealSet ∧ t > 0 ∧ e^{frac(x, 6)} = t
+3. exists (t), t ∈ RealSet ∧ t > 0
+
+GOAL:
+exists (t), t ∈ RealSet ∧ t > 0 ∧ x = 6 * ln(t)
+
+METHOD:

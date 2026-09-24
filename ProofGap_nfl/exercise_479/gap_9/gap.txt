@@ -1,0 +1,19 @@
+PROOF GAP @9
+ASSUM:
+1. x ∈ RealSet
+2. cos(2 * x) ≠ 0
+3. cos(frac(π, 4) - x) ≠ 0
+4. lim_{ x → frac(π, 4) } (tan(2 * x) * tan(frac(π, 4) - x)) = lim_{ x → frac(π, 4) } (frac(sin(2 * x) * sin(frac(π, 4) - x), cos(2 * x) * cos(frac(π, 4) - x)))
+5. x = frac(π, 4) + y
+6. y ∈ RealSet
+7. y ≠ 0
+8. sin(2 * y) ≠ 0
+9. cos(y) ≠ 0
+10. lim_{ x → frac(π, 4) } (frac(sin(2 * x) * sin(frac(π, 4) - x), cos(2 * x) * cos(frac(π, 4) - x))) = lim_{ y → 0 } (frac(cos(2 * y) * sin(y), sin(2 * y) * cos(y)))
+11. lim_{ y → 0 } (frac(cos(2 * y) * sin(y), sin(2 * y) * cos(y))) = lim_{ y → 0 } (frac(cos(2 * y), 2 * cos(y)^{2}))
+12. lim_{ y → 0 } (frac(cos(2 * y), 2 * cos(y)^{2})) = frac(1, 2)
+
+GOAL:
+lim_{ x → frac(π, 4) } (tan(2 * x) * tan(frac(π, 4) - x)) = frac(1, 2)
+
+METHOD:

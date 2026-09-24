@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ n = 2 * k ⇒ sum_{ i = 1 }^{ n } (frac((-1)^{i - 1} * i, n)) = -frac(k, 2 * k))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ n = 2 * k ⇒ -frac(k, 2 * k) = -frac(1, 2))
+
+METHOD:

@@ -1,0 +1,4 @@
+get_prop (theorem 'Thm 180. (SineAdditionFormula)': {forall (x) (y), x ∈ RealSet ⇒ y ∈ RealSet ⇒ sin (x + y) = sin(x) * cos(y) + cos(x) * sin(y)}) (x := {x}) (y := {h}) as (hypothesis 3: {x ∈ RealSet ⇒ h ∈ RealSet ⇒ sin (x + h) = sin(x) * cos(h) + cos(x) * sin(h)})
+use_condition (hypothesis 1: {x ∈ RealSet}) in (hypothesis 3: {x ∈ RealSet ⇒ h ∈ RealSet ⇒ sin (x + h) = sin(x) * cos(h) + cos(x) * sin(h)}) as (hypothesis 4: {h ∈ RealSet ⇒ sin (x + h) = sin(x) * cos(h) + cos(x) * sin(h)})
+use_condition (hypothesis 2: {h ∈ RealSet}) in (hypothesis 4: {h ∈ RealSet ⇒ sin (x + h) = sin(x) * cos(h) + cos(x) * sin(h)}) as (hypothesis 5: {sin (x + h) = sin(x) * cos(h) + cos(x) * sin(h)})
+autosolve (hypothesis 5: {sin (x + h) = sin(x) * cos(h) + cos(x) * sin(h)})

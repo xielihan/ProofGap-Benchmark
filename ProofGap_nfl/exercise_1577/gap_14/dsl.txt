@@ -1,0 +1,2 @@
+exists (S := {a * b})
+autosolve all_hypothesis

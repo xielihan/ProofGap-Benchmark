@@ -1,0 +1,46 @@
+get_prop (theorem 'Thm 168. (PythagoreanTrigonometricIdentity)': {forall (x), x ∈ RealSet => (sin(x)) ^ 2 + (cos(x)) ^ 2 = 1}) (x := {α}) as (hypothesis 11: {α ∈ RealSet => (sin(α)) ^ 2 + (cos(α)) ^ 2 = 1})
+use_condition (hypothesis 2: {α ∈ RealSet}) in (hypothesis 11: {α ∈ RealSet => (sin(α)) ^ 2 + (cos(α)) ^ 2 = 1}) as (hypothesis 12: {(sin(α)) ^ 2 + (cos(α)) ^ 2 = 1})
+get_prop (theorem 'Thm 220. (ComplexModulusComponents)': {forall (z) (a) (b), a ∈ RealSet => b ∈ RealSet => z ∈ ComplexSet => (z = a + b * __IMAGINARY_UNIT__ => |z| = sqrt(a ^ 2 + b ^ 2))}) (z := {cos(α) + __IMAGINARY_UNIT__ * sin(α)}) (a := {cos(α)}) (b := {sin(α)}) as (hypothesis 13: {cos(α) ∈ RealSet => sin(α) ∈ RealSet => cos(α) + __IMAGINARY_UNIT__ * sin(α) ∈ ComplexSet => (cos(α) + __IMAGINARY_UNIT__ * sin(α) = cos(α) + sin(α) * __IMAGINARY_UNIT__ => |cos(α) + __IMAGINARY_UNIT__ * sin(α)| = sqrt(cos(α) ^ 2 + sin(α) ^ 2))})
+assert (hypothesis 14: {|cos(α) + __IMAGINARY_UNIT__ * sin(α)| = sqrt(cos(α) ^ 2 + sin(α) ^ 2)}) by proof {
+  apply (hypothesis 13: {cos(α) ∈ RealSet => sin(α) ∈ RealSet => cos(α) + __IMAGINARY_UNIT__ * sin(α) ∈ ComplexSet => (cos(α) + __IMAGINARY_UNIT__ * sin(α) = cos(α) + sin(α) * __IMAGINARY_UNIT__ => |cos(α) + __IMAGINARY_UNIT__ * sin(α)| = sqrt(cos(α) ^ 2 + sin(α) ^ 2))})
+  autosolve all_hypothesis
+}
+assert (hypothesis 15: {cos(α) ^ 2 + sin(α) ^ 2 = 1}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 16: {sqrt(cos(α) ^ 2 + sin(α) ^ 2) = 1}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 15: {cos(α) ^ 2 + sin(α) ^ 2 = 1}); from (GOAL: {sqrt(cos(α) ^ 2 + sin(α) ^ 2) = 1}) to (GOAL: {sqrt(1) = 1})
+  autosolve all_hypothesis
+}
+assert (hypothesis 17: {|cos(α) + __IMAGINARY_UNIT__ * sin(α)| = 1}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 220. (ComplexModulusComponents)': {forall (z) (a) (b), a ∈ RealSet => b ∈ RealSet => z ∈ ComplexSet => (z = a + b * __IMAGINARY_UNIT__ => |z| = sqrt(a ^ 2 + b ^ 2))}) (z := {cos(α) - __IMAGINARY_UNIT__ * sin(α)}) (a := {cos(α)}) (b := {-sin(α)}) as (hypothesis 18: {cos(α) ∈ RealSet => -sin(α) ∈ RealSet => cos(α) - __IMAGINARY_UNIT__ * sin(α) ∈ ComplexSet => (cos(α) - __IMAGINARY_UNIT__ * sin(α) = cos(α) + (-sin(α)) * __IMAGINARY_UNIT__ => |cos(α) - __IMAGINARY_UNIT__ * sin(α)| = sqrt(cos(α) ^ 2 + (-sin(α)) ^ 2))})
+assert (hypothesis 19: {|cos(α) - __IMAGINARY_UNIT__ * sin(α)| = sqrt(cos(α) ^ 2 + (-sin(α)) ^ 2)}) by proof {
+  apply (hypothesis 18: {cos(α) ∈ RealSet => -sin(α) ∈ RealSet => cos(α) - __IMAGINARY_UNIT__ * sin(α) ∈ ComplexSet => (cos(α) - __IMAGINARY_UNIT__ * sin(α) = cos(α) + (-sin(α)) * __IMAGINARY_UNIT__ => |cos(α) - __IMAGINARY_UNIT__ * sin(α)| = sqrt(cos(α) ^ 2 + (-sin(α)) ^ 2))})
+  autosolve all_hypothesis
+}
+assert (hypothesis 20: {cos(α) ^ 2 + (-sin(α)) ^ 2 = 1}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 21: {sqrt(cos(α) ^ 2 + (-sin(α)) ^ 2) = 1}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 20: {cos(α) ^ 2 + (-sin(α)) ^ 2 = 1}); from (GOAL: {sqrt(cos(α) ^ 2 + (-sin(α)) ^ 2) = 1}) to (GOAL: {sqrt(1) = 1})
+  autosolve all_hypothesis
+}
+assert (hypothesis 22: {|cos(α) - __IMAGINARY_UNIT__ * sin(α)| = 1}) by proof {
+  autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 17: {|cos(α) + __IMAGINARY_UNIT__ * sin(α)| = 1}); from (GOAL: {min(frac(1, |cos(α) + __IMAGINARY_UNIT__ * sin(α)|), frac(1, |cos(α) - __IMAGINARY_UNIT__ * sin(α)|)) = 1}) to (GOAL: {min(frac(1, 1), frac(1, |cos(α) - __IMAGINARY_UNIT__ * sin(α)|)) = 1})
+rewrite (left_to_right, equation) (hypothesis 22: {|cos(α) - __IMAGINARY_UNIT__ * sin(α)| = 1}); from (GOAL: {min(frac(1, 1), frac(1, |cos(α) - __IMAGINARY_UNIT__ * sin(α)|)) = 1}) to (GOAL: {min(frac(1, 1), frac(1, 1)) = 1})
+get_prop (theorem 'Thm 400. (MinimumOfTwoRealsDefinition)': {forall (a) (b), a ∈ RealSet => b ∈ RealSet => ((min(a, b) = a <==> a <= b) ∧ (min(a, b) = b <==> b <= a))}) (a := {1}) (b := {1}) as (hypothesis 23: {1 ∈ RealSet => 1 ∈ RealSet => ((min(1, 1) = 1 <==> 1 <= 1) ∧ (min(1, 1) = 1 <==> 1 <= 1))})
+assert (hypothesis 24: {(min(1, 1) = 1 <==> 1 <= 1) ∧ (min(1, 1) = 1 <==> 1 <= 1)}) by proof {
+  apply (hypothesis 23: {1 ∈ RealSet => 1 ∈ RealSet => ((min(1, 1) = 1 <==> 1 <= 1) ∧ (min(1, 1) = 1 <==> 1 <= 1))})
+  autosolve all_hypothesis
+}
+destruct_and (hypothesis 24: {(min(1, 1) = 1 <==> 1 <= 1) ∧ (min(1, 1) = 1 <==> 1 <= 1)}) as (hypothesis 25: {min(1, 1) = 1 <==> 1 <= 1}) (hypothesis 26: {min(1, 1) = 1 <==> 1 <= 1})
+assert (hypothesis 27: {frac(1, 1) = 1}) by proof {
+  autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 27: {frac(1, 1) = 1}); from (GOAL: {min(frac(1, 1), frac(1, 1)) = 1}) to (GOAL: {min(1, 1) = 1})
+rewrite (left_to_right, iff) (hypothesis 25: {min(1, 1) = 1 <==> 1 <= 1}); from (GOAL: {min(1, 1) = 1}) to (GOAL: {1 <= 1})
+autosolve all_hypothesis

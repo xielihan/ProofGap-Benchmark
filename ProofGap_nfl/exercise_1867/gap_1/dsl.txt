@@ -1,0 +1,5 @@
+rewrite (left_to_right, equation) (hypothesis 3: {A = -frac(1, 2)}); from (GOAL: {frac(x, (x + 1) * (x + 2) * (x + 3)) = frac(A, x + 1) + frac(B, x + 2) + frac(D, x + 3)}) to (GOAL: {frac(x, (x + 1) * (x + 2) * (x + 3)) = frac(-frac(1, 2), x + 1) + frac(B, x + 2) + frac(D, x + 3)})
+rewrite (left_to_right, equation) (hypothesis 4: {B = 2}); from (GOAL: {frac(x, (x + 1) * (x + 2) * (x + 3)) = frac(-frac(1, 2), x + 1) + frac(B, x + 2) + frac(D, x + 3)}) to (GOAL: {frac(x, (x + 1) * (x + 2) * (x + 3)) = frac(-frac(1, 2), x + 1) + frac(2, x + 2) + frac(D, x + 3)})
+rewrite (left_to_right, equation) (hypothesis 5: {D = -frac(3, 2)}); from (GOAL: {frac(x, (x + 1) * (x + 2) * (x + 3)) = frac(-frac(1, 2), x + 1) + frac(2, x + 2) + frac(D, x + 3)}) to (GOAL: {frac(x, (x + 1) * (x + 2) * (x + 3)) = frac(-frac(1, 2), x + 1) + frac(2, x + 2) + frac(-frac(3, 2), x + 3)})
+assert (hypothesis 6: {frac(x, (x + 1) * (x + 2) * (x + 3)) = frac(-frac(1, 2), x + 1) + frac(2, x + 2) + frac(-frac(3, 2), x + 3)})
+apply (hypothesis 6: {frac(x, (x + 1) * (x + 2) * (x + 3)) = frac(-frac(1, 2), x + 1) + frac(2, x + 2) + frac(-frac(3, 2), x + 3)})

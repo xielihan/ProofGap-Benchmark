@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ m ≤ n - 1 ⇒ (forall (r), r ∈ RealSet ∧ FunDeri(P, 1, m)(r) = 0 ⇒ r ∈ RealSet)}) (m := {m1})
+get_condition (hypothesis 27: {m1 ∈ NonNegIntegerSet ∧ m1 ∈ PosIntegerSet ∧ m1 ≤ n - 1}) in (GOAL: {m1 ∈ NonNegIntegerSet ∧ m1 ∈ PosIntegerSet ∧ m1 ≤ n - 1 ⇒ (forall (r), r ∈ RealSet ∧ FunDeri(P, 1, m1)(r) = 0 ⇒ r ∈ RealSet)})
+get_forall (GOAL: {forall (r), r ∈ RealSet ∧ FunDeri(P, 1, m1)(r) = 0 ⇒ r ∈ RealSet}) (r := {r1})
+get_condition (hypothesis 28: {r1 ∈ RealSet ∧ FunDeri(P, 1, m1)(r1) = 0}) in (GOAL: {r1 ∈ RealSet ∧ FunDeri(P, 1, m1)(r1) = 0 ⇒ r1 ∈ RealSet})
+autosolve all_hypothesis

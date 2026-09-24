@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. A = sqrtn(5, 1 + 5 * x)
+2. B = 1 + x
+3. lim_{ x → 0 } (frac(x^{2}, A - B)) = lim_{ x → 0 } (frac(x^{2} * (A^{4} + A^{3} * B + A^{2} * B^{2} + A * B^{3} + B^{4}), A^{5} - B^{5}))
+
+GOAL:
+1 + 5 * x - B^{5} = 1 + 5 * x - (1 + x)^{5}
+
+METHOD:

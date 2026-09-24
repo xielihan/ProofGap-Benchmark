@@ -1,0 +1,17 @@
+PROOF GAP @8
+ASSUM:
+1. x ∈ RealSet ∧ x ≠ 1 ∧ x^{2} - 2 > 0
+2. C ∈ RealSet
+3. t = frac(1, x - 1)
+4. t ≠ 0
+5. (x - 1) * sqrtn(2, x^{2} - 2) = frac(sqrtn(2, 1 + 2 * t - t^{2}), t * |t|)
+6. diff(fun x [x ∈ RealSet] . x) = -frac(1, t^{2}) * diff(fun t [t ∈ RealSet] . t)
+7. 1 + 2 * t - t^{2} > 0
+8. { `F_3` | forall (x), x ∈ RealSet ∧ x ≠ 1 ∧ x^{2} - 2 > 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), (x - 1) * sqrtn(2, x^{2} - 2)) } = { `F_5` | exists (`F_4`), `F_4` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ≠ 0 ∧ 1 + 2 * t - t^{2} > 0 ⇒ FunDeri(`F_4`, 1, 1)(t) = frac(sgn(t) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t), sqrtn(2, 1 + 2 * t - t^{2})) ∧ `F_5`(t) = -`F_4`(t)) }
+9. { `F_7` | exists (`F_6`), `F_6` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ≠ 0 ∧ 1 + 2 * t - t^{2} > 0 ⇒ FunDeri(`F_6`, 1, 1)(t) = frac(sgn(t) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t), sqrtn(2, 1 + 2 * t - t^{2})) ∧ `F_7`(t) = -`F_6`(t)) } = { `F_8` | exists (C), C ∈ RealSet ∧ (forall (t), t ∈ RealSet ∧ t ≠ 0 ∧ 1 + 2 * t - t^{2} > 0 ⇒ `F_8`(t) = -sgn(t) * arcsin(frac(t - 1, sqrtn(2, 2))) + C) }
+10. -sgn(t) * arcsin(frac(t - 1, sqrtn(2, 2))) + C = arcsin(frac(x - 2, |x - 1| * sqrtn(2, 2))) + C
+
+GOAL:
+{ `F_9` | forall (x), x ∈ RealSet ∧ x ≠ 1 ∧ x^{2} - 2 > 0 ⇒ FunDeri(`F_9`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), (x - 1) * sqrtn(2, x^{2} - 2)) } = { `F_10` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ 1 ∧ x^{2} - 2 > 0 ⇒ `F_10`(x) = arcsin(frac(x - 2, |x - 1| * sqrtn(2, 2))) + C) }
+
+METHOD:

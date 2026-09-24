@@ -1,0 +1,13 @@
+get_prop (theorem 'Thm 275. (SetPredicateDefinition)': {forall (S), IsSet(S)}) (S := {IntervalLoRo(0, 1)}) as (hypothesis 7: {IsSet(IntervalLoRo(0, 1))})
+get_prop (theorem 'Thm 293. (BoundedFunctionOnSetDefinition)': {forall (f) (S), f : RealSet -> RealSet => IsSet(S) => (BoundedFuncOn(f, S) <==> (exists (M), M ∈ RealSet /\ M >= 0 /\ forall (x), x ∈ S => |f(x)| <= M))}) (f := {f}) (S := {IntervalLoRo(0, 1)}) as (hypothesis 8: {f : RealSet -> RealSet => IsSet(IntervalLoRo(0, 1)) => (BoundedFuncOn(f, IntervalLoRo(0, 1)) <==> (exists (M), M ∈ RealSet /\ M >= 0 /\ forall (x), x ∈ IntervalLoRo(0, 1) => |f(x)| <= M))})
+use_condition (hypothesis 1: {f : RealSet → RealSet}) (hypothesis 7: {IsSet(IntervalLoRo(0, 1))}) in (hypothesis 8: {f : RealSet -> RealSet => IsSet(IntervalLoRo(0, 1)) => (BoundedFuncOn(f, IntervalLoRo(0, 1)) <==> (exists (M), M ∈ RealSet /\ M >= 0 /\ forall (x), x ∈ IntervalLoRo(0, 1) => |f(x)| <= M))}) as (hypothesis 9: {BoundedFuncOn(f, IntervalLoRo(0, 1)) <==> (exists (M), M ∈ RealSet /\ M >= 0 /\ forall (x), x ∈ IntervalLoRo(0, 1) => |f(x)| <= M)})
+assert (hypothesis 10: {forall (z), z ∈ IntervalLoRo(0, 1) => |f(z)| <= 1}) by proof {
+  get_forall (GOAL: {forall (z), z ∈ IntervalLoRo(0, 1) => |f(z)| <= 1}) (z := {z0})
+  get_condition (hypothesis 10: {z0 ∈ IntervalLoRo(0, 1)}) in (GOAL: {z0 ∈ IntervalLoRo(0, 1) => |f(z0)| <= 1})
+  get_prop (hypothesis 6: {forall (t), t ∈ IntervalLoRo(0, 1) ⇒ |f(t)| ≤ 1}) (t := {z0}) as (hypothesis 11: {z0 ∈ IntervalLoRo(0, 1) ⇒ |f(z0)| ≤ 1})
+  use_condition (hypothesis 10: {z0 ∈ IntervalLoRo(0, 1)}) in (hypothesis 11: {z0 ∈ IntervalLoRo(0, 1) ⇒ |f(z0)| ≤ 1}) as (hypothesis 12: {|f(z0)| ≤ 1})
+  apply (hypothesis 12: {|f(z0)| ≤ 1})
+}
+rewrite (left_to_right, iff) (hypothesis 9: {BoundedFuncOn(f, IntervalLoRo(0, 1)) <==> (exists (M), M ∈ RealSet /\ M >= 0 /\ forall (x), x ∈ IntervalLoRo(0, 1) => |f(x)| <= M)}); from (GOAL: {BoundedFuncOn(f, IntervalLoRo(0, 1))}) to (GOAL: {exists (M), M ∈ RealSet /\ M >= 0 /\ forall (x), x ∈ IntervalLoRo(0, 1) => |f(x)| <= M})
+exists (M := {1})
+autosolve all_hypothesis

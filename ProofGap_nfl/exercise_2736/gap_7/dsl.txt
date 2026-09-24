@@ -1,0 +1,4 @@
+assert (hypothesis 12: {((exists (k), k ∈ IntegerSet ∧ |x - k * π| < frac(π, 4)) ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))) ∧ ((exists (k), k ∈ IntegerSet ∧ frac(π, 4) < |x - k * π| ∧ |x - k * π| < frac(π, 2)) ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))))}) by proof {
+  autosolve all_hypothesis
+}
+apply (hypothesis 12: {((exists (k), k ∈ IntegerSet ∧ |x - k * π| < frac(π, 4)) ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))) ∧ ((exists (k), k ∈ IntegerSet ∧ frac(π, 4) < |x - k * π| ∧ |x - k * π| < frac(π, 2)) ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))))})

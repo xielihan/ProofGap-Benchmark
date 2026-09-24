@@ -1,0 +1,2 @@
+1. assert (hypothesis 31: {p = q \/ p ≠ q})
+2. autosolve all_hypothesis

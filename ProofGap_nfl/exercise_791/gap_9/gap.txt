@@ -1,0 +1,22 @@
+PROOF GAP @9
+ASSUM:
+1. a ∈ RealSet
+2. f : RealSet → RealSet
+3. L ∈ RealSet
+4. x ∈ RealSet
+5. Defined(f, [a, +∞))
+6. ContinuousFuncOn(f, [a, +∞))
+7. lim_{ x → +∞ } (f(x)) = L
+8. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (X), X ∈ RealSet ∧ X > a ∧ (forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x''` ∈ RealSet ∧ `x'` > X ∧ `x''` > X ⇒ |f(`x'`) - f(`x''`)| < ε)))
+9. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (X), X ∈ RealSet ∧ X > a ∧ ContinuousFuncOn(f, [a, X + 1]))
+10. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (X), X ∈ RealSet ∧ X > a ∧ UniformContinuousFuncOn(f, [a, X + 1]))
+11. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (X), X ∈ RealSet ∧ X > a ∧ (exists (`δ'`), `δ'` ∈ RealSet ∧ `δ'` > 0 ∧ (forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x''` ∈ RealSet ∧ `x'` ∈ [a, X + 1] ∧ `x''` ∈ [a, X + 1] ∧ |`x'` - `x''`| < `δ'` ⇒ |f(`x'`) - f(`x''`)| < ε))))
+12. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (X), X ∈ RealSet ∧ X > a ∧ (exists (`δ'`), `δ'` ∈ RealSet ∧ `δ'` > 0 ∧ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ δ = min(`δ'`, 1))))
+13. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (X), X ∈ RealSet ∧ X > a ∧ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x''` ∈ RealSet ∧ `x'` ∈ [a, +∞) ∧ `x''` ∈ [a, +∞) ∧ |`x'` - `x''`| < δ ∧ `x'` ∈ [a, X + 1] ∧ `x''` ∈ [a, X + 1] ⇒ |f(`x'`) - f(`x''`)| < ε))))
+14. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (X), X ∈ RealSet ∧ X > a ∧ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x''` ∈ RealSet ∧ `x'` ∈ [a, +∞) ∧ `x''` ∈ [a, +∞) ∧ |`x'` - `x''`| < δ ∧ `x'` > X ∧ `x''` > X ⇒ |f(`x'`) - f(`x''`)| < ε))))
+15. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (`x'`), `x'` ∈ RealSet ⇒ (forall (`x''`), `x''` ∈ RealSet ∧ `x'` ∈ [a, +∞) ∧ `x''` ∈ [a, +∞) ∧ |`x'` - `x''`| < δ ⇒ |f(`x'`) - f(`x''`)| < ε)))
+
+GOAL:
+UniformContinuousFuncOn(f, [a, +∞))
+
+METHOD:

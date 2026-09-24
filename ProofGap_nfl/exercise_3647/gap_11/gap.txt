@@ -1,0 +1,22 @@
+PROOF GAP @11
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. forall (x) (y) (z), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ π ∧ z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ π ⇒ u(x, y, z) = sin(x) + sin(y) + sin(z) - sin(x + y + z)
+3. diff(u) = (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . cos(x) - cos(x + y + z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . cos(y) - cos(x + y + z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . cos(z) - cos(x + y + z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)
+4. forall (x) (y) (z), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ π ∧ z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ π ⇒ FunDeri(u, 1, 1)(x, y, z) = cos(x) - cos(x + y + z)
+5. forall (x) (y) (z), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ π ∧ z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ π ⇒ FunDeri(u, 2, 1)(x, y, z) = cos(y) - cos(x + y + z)
+6. forall (x) (y) (z), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ π ∧ z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ π ⇒ FunDeri(u, 3, 1)(x, y, z) = cos(z) - cos(x + y + z)
+7. P_{0} = (0, 0, 0)
+8. P_{1} = (frac(π, 2), frac(π, 2), frac(π, 2))
+9. P_{2} = (π, π, π)
+10. FunDeri(u, 1, 1)(P_{0}) = 0
+11. FunDeri(u, 2, 1)(P_{0}) = 0
+12. FunDeri(u, 3, 1)(P_{0}) = 0
+13. FunDeri(u, 1, 1)(P_{1}) = 0
+14. FunDeri(u, 2, 1)(P_{1}) = 0
+15. FunDeri(u, 3, 1)(P_{1}) = 0
+
+GOAL:
+FunDeri(u, 1, 1)(P_{2}) = 0
+
+METHOD:

@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. C ∈ RealSet
+2. x ∈ RealSet ∧ -1 < x ∧ x < 1
+3. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ (forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ∧ x = sin(t) ⇒ -frac(π, 2) < t)
+4. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ (forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ∧ x = sin(t) ⇒ t < frac(π, 2))
+5. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ (forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ∧ x = sin(t) ⇒ (1 - x^{2})^{frac(3, 2)} = cos(t)^{3})
+6. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ (forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ∧ x = sin(t) ⇒ diff(fun x [x ∈ RealSet] . x) = cos(t) * diff(fun t [t ∈ RealSet] . t))
+7. { `F_2` | forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, (1 - x^{2})^{frac(3, 2)}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ⇒ FunDeri(`F_3`, 1, 1)(t) = frac(1, cos(t)^{2}) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) }
+
+GOAL:
+{ `F_4` | forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ⇒ FunDeri(`F_4`, 1, 1)(t) = frac(1, cos(t)^{2}) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) } = { `F_5` | exists (C), C ∈ RealSet ∧ (forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ⇒ `F_5`(t) = tan(t) + C) }
+
+METHOD:

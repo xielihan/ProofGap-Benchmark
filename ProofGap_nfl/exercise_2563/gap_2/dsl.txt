@@ -1,0 +1,4 @@
+1. autoreplace no_hypothesis; from (frac(1, n^{frac(3, 2)})) to (1 / n^{frac(3, 2)}); from (GOAL: {ConvergentSeries(sum_{ n = 1 }^{ +infty } (frac(1, n^{frac(3, 2)})))}) to (GOAL: {ConvergentSeries(sum_{ n = 1 }^{ +infty } (1 / n^{frac(3, 2)}))})
+2. get_prop (theorem 'Thm 366. (PSeriesConvergesForExponentAboveOne)': {forall (p), p ∈ RealSet => p > 1 => ConvergentSeries(sum_{n = 1}^{+infty}(1 / n ^ p))}) (p := {frac(3, 2)}) as (hypothesis 2: {frac(3, 2) ∈ RealSet => frac(3, 2) > 1 => ConvergentSeries(sum_{n = 1}^{+infty}(1 / n ^ {frac(3, 2)}))})
+3. use_condition (obvious: {frac(3, 2) ∈ RealSet}) (obvious: {frac(3, 2) > 1}) in (hypothesis 2: {frac(3, 2) ∈ RealSet => frac(3, 2) > 1 => ConvergentSeries(sum_{n = 1}^{+infty}(1 / n ^ {frac(3, 2)}))}) as (hypothesis 3: {ConvergentSeries(sum_{n = 1}^{+infty}(1 / n ^ {frac(3, 2)}))})
+4. apply (hypothesis 3: {ConvergentSeries(sum_{n = 1}^{+infty}(1 / n ^ {frac(3, 2)}))})

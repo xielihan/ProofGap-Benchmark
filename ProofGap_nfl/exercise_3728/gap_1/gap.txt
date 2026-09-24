@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. u : RealSet → RealSet
+2. v : RealSet → RealSet
+3. K : CartesianProd(RealSet, RealSet) → RealSet
+4. ContinuousFuncOn(v, [0, 1])
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ∈ [0, 1] ∧ y ∈ [0, 1] ⇒ K(x, y) = cases{ x * (1 - y) if x ≤ y; y * (1 - x) if x > y }
+6. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ u(x) = DefInt(0, 1, (fun y [y ∈ RealSet] . K(x, y) * v(y)) * diff(fun y [y ∈ RealSet] . y))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ u(x) = DefInt(0, x, (fun y [y ∈ RealSet] . y * (1 - x) * v(y)) * diff(fun y [y ∈ RealSet] . y)) + DefInt(x, 1, (fun y [y ∈ RealSet] . x * (1 - y) * v(y)) * diff(fun y [y ∈ RealSet] . y))
+
+METHOD:

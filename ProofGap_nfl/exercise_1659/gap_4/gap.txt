@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. x ∈ IntervalLoRo(frac(2, 5), +∞)
+3. { `F_2` | forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(frac(2, 5), +∞) ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, (5 * x - 2)^{frac(5, 2)}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(frac(2, 5), +∞) ⇒ `F_3`(x) = frac(1, 5) * -frac(2, 3) * (5 * x - 2)^{-frac(3, 2)} + C) }
+4. exists (C), C ∈ RealSet
+5. { `F_4` | forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(frac(2, 5), +∞) ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(1, (5 * x - 2)^{frac(5, 2)}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(frac(2, 5), +∞) ⇒ `F_5`(x) = -frac(2, 15 * (5 * x - 2)^{frac(3, 2)}) + C) }
+
+GOAL:
+exists (C), C ∈ RealSet
+
+METHOD:

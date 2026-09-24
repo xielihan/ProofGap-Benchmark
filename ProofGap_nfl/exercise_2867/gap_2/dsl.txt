@@ -1,0 +1,25 @@
+assert (hypothesis 4: {1 + x + x^{2} + x^{3} = (1 + x) * (1 + x^{2})}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 5: {(1 + x) * (1 + x^{2}) > 0}) by proof {
+  rewrite (right_to_left, equation) (hypothesis 4: {1 + x + x^{2} + x^{3} = (1 + x) * (1 + x^{2})}); from (GOAL: {(1 + x) * (1 + x^{2}) > 0}) to (GOAL: {1 + x + x^{2} + x^{3} > 0})
+  apply (hypothesis 2: {1 + x + x^{2} + x^{3} > 0})
+}
+assert (hypothesis 6: {1 + x^{2} > 0}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 432. (PositiveRealProductCharacterization)': {forall (a) (b), a ∈ RealSet => b ∈ RealSet => (a * b > 0 <==> ((a > 0 /\ b > 0) \/ (a < 0 /\ b < 0)))}) (a := {1 + x}) (b := {1 + x^{2}}) as (hypothesis 7: {1 + x ∈ RealSet => 1 + x^{2} ∈ RealSet => ((1 + x) * (1 + x^{2}) > 0 <==> ((1 + x > 0 /\ 1 + x^{2} > 0) \/ (1 + x < 0 /\ 1 + x^{2} < 0)))})
+assert (hypothesis 8: {1 + x ∈ RealSet /\ 1 + x^{2} ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+destruct_and (hypothesis 8: {1 + x ∈ RealSet /\ 1 + x^{2} ∈ RealSet}) as (hypothesis 9: {1 + x ∈ RealSet}) (hypothesis 10: {1 + x^{2} ∈ RealSet})
+use_condition (hypothesis 9: {1 + x ∈ RealSet}) in (hypothesis 7: {1 + x ∈ RealSet => 1 + x^{2} ∈ RealSet => ((1 + x) * (1 + x^{2}) > 0 <==> ((1 + x > 0 /\ 1 + x^{2} > 0) \/ (1 + x < 0 /\ 1 + x^{2} < 0)))}) as (hypothesis 11: {1 + x^{2} ∈ RealSet => ((1 + x) * (1 + x^{2}) > 0 <==> ((1 + x > 0 /\ 1 + x^{2} > 0) \/ (1 + x < 0 /\ 1 + x^{2} < 0)))})
+use_condition (hypothesis 10: {1 + x^{2} ∈ RealSet}) in (hypothesis 11: {1 + x^{2} ∈ RealSet => ((1 + x) * (1 + x^{2}) > 0 <==> ((1 + x > 0 /\ 1 + x^{2} > 0) \/ (1 + x < 0 /\ 1 + x^{2} < 0)))}) as (hypothesis 12: {(1 + x) * (1 + x^{2}) > 0 <==> ((1 + x > 0 /\ 1 + x^{2} > 0) \/ (1 + x < 0 /\ 1 + x^{2} < 0))})
+assert (hypothesis 13: {(1 + x > 0 /\ 1 + x^{2} > 0) \/ (1 + x < 0 /\ 1 + x^{2} < 0)}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 14: {1 + x > 0}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 201. (NaturalLogarithmProduct)': {forall (x) (y), x ∈ RealSet => y ∈ RealSet => (x > 0 => y > 0 => ln (x * y) = ln(x) + ln(y))}) (x := {1 + x}) (y := {1 + x^{2}}) as (hypothesis 15: {1 + x ∈ RealSet => 1 + x^{2} ∈ RealSet => (1 + x > 0 => 1 + x^{2} > 0 => ln ((1 + x) * (1 + x^{2})) = ln(1 + x) + ln(1 + x^{2}))})
+autosolve all_hypothesis

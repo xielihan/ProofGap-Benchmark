@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. n ∈ NonNegIntegerSet
+3. k ∈ NonNegIntegerSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ∈ RealSet ∧ a(n) ≠ 0
+5. seqlim_{ n → +∞ } (a(n)) = +∞
+6. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (|frac(1, a(n))|))
+7. forall (E), E ⊆ RealSet ∧ (exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ E ⇒ |x| ≤ M)) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ∉ E) ⇒ (exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ E ⇒ |x| ≤ M))
+
+GOAL:
+forall (E), E ⊆ RealSet ∧ (exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ E ⇒ |x| ≤ M)) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ∉ E) ⇒ seqlim_{ n → +∞ } (frac(1, |a(n)|)) = 0
+
+METHOD:

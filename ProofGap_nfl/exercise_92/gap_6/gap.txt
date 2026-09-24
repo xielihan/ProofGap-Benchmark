@@ -1,0 +1,19 @@
+PROOF GAP @6
+ASSUM:
+1. x : NonNegIntegerSet → RealSet
+2. a ∈ RealSet
+3. L ∈ RealSet
+4. IsSeq(x)
+5. forall (n), n ∈ PosIntegerSet ⇒ x(n) ∈ RealSet ∧ x(n) ≠ 0
+6. forall (n), n ∈ NonNegIntegerSet ⇒ seqlim_{ n → +∞ } (x(n)) = a
+7. a ≠ 0 ⇒ seqlim_{ n → +∞ } (x(n + 1)) = a
+8. a ≠ 0 ⇒ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = frac(seqlim_{ n → +∞ } (x(n + 1)), seqlim_{ n → +∞ } (x(n)))
+9. a ≠ 0 ⇒ frac(seqlim_{ n → +∞ } (x(n + 1)), seqlim_{ n → +∞ } (x(n))) = frac(a, a)
+10. a ≠ 0 ⇒ frac(a, a) = 1
+11. a ≠ 0 ⇒ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = 1
+12. L = seqlim_{ n → +∞ } (x(n + 1) / x(n))
+
+GOAL:
+a ≠ 0 ⇒ L = 1
+
+METHOD:

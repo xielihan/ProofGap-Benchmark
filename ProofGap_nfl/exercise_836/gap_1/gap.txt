@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. x ∈ RealSet
+4. y = fun t . a^{5} + 5 * a^{3} * t^{2} - t^{5}
+
+GOAL:
+10 * a^{3} * x - 5 * x^{4} = 10 * a^{3} * x - 5 * x^{4}
+
+METHOD:

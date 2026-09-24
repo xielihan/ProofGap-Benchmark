@@ -1,0 +1,14 @@
+PROOF GAP @5
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ fOne(x) = x^{2}
+2. forall (x), x ∈ RealSet ⇒ gOne(x) = |x|
+3. forall (x), x ∈ RealSet ⇒ FOne(x) = fOne(gOne(x))
+4. gOne(0) = 0
+5. DiffableFuncAt(fOne, 0)
+6. FunDeri(fOne, 1, 1)(0) = 0
+7. ¬DiffableFuncAt(gOne, 0)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FOne(x) = fOne(gOne(x)) ∧ fOne(gOne(x)) = x^{2}
+
+METHOD:

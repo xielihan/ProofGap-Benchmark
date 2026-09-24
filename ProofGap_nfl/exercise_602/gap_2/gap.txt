@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. BoundedFuncOn(fun x [x ∈ RealSet ∧ x ≠ 0 ∧ cos(frac(1, x)) ≥ 0] . sqrtn(2, cos(frac(1, x))), { x | x ∈ RealSet, x ≠ 0, cos(frac(1, x)) ≥ 0 })
+
+GOAL:
+lim_{ x → 0 } (x) = 0
+
+METHOD:

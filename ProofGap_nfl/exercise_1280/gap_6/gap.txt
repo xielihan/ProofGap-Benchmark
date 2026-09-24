@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-∞, -1) ∪ IntervalLoRo(0, +∞) ⇒ y(x) = (1 + frac(1, x))^{x}
+3. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-∞, -1) ∪ IntervalLoRo(0, +∞) ⇒ y(x) = e^{x * ln(1 + frac(1, x))}
+4. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-∞, -1) ∪ IntervalLoRo(0, +∞) ⇒ FunDeri(y, 1, 1)(x) = (1 + frac(1, x))^{x} * (ln(1 + frac(1, x)) - frac(1, 1 + x))
+5. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-∞, -1) ⇒ (1 + frac(1, x))^{x} > 0
+6. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-∞, -1) ⇒ (exists (z), z : RealSet → RealSet ∧ (z = (fun t [t ∈ RealSet ∧ t ∈ IntervalLoRo(-∞, -1)] . ln(1 + frac(1, t)) - frac(1, 1 + t)) ⇒ (forall (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(-∞, -1) ⇒ FunDeri(z, 1, 1)(t) = -frac(1, t * (1 + t)^{2}) ∧ -frac(1, t * (1 + t)^{2}) > 0)))
+7. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-∞, -1) ⇒ (exists (z), z : RealSet → RealSet ∧ (z = (fun t [t ∈ RealSet ∧ t ∈ IntervalLoRo(-∞, -1)] . ln(1 + frac(1, t)) - frac(1, 1 + t)) ⇒ MonoIncFuncOn(z, IntervalLoRo(-∞, -1))))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-∞, -1) ⇒ (exists (z), z : RealSet → RealSet ∧ (z = (fun t [t ∈ RealSet ∧ t ∈ IntervalLoRo(-∞, -1)] . ln(1 + frac(1, t)) - frac(1, 1 + t)) ⇒ lim_{ t → -∞ } (z(t)) = 0))
+
+METHOD:

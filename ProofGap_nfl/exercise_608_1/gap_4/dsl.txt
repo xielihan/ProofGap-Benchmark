@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (ε), ε ∈ RealSet /\ ε > 0 => (exists (X_{0}) (τ) (x), X_{0} ∈ RealSet /\ τ ∈ RealSet /\ x ∈ RealSet /\ X_{0} ∈ PosRealSet /\ x > X_{0} + 1 /\ τ < 1)}) (ε := {ee})
+get_condition (hypothesis 12: {ee ∈ RealSet /\ ee > 0}) in (GOAL: {ee ∈ RealSet /\ ee > 0 => (exists (X_{0}) (τ) (x), X_{0} ∈ RealSet /\ τ ∈ RealSet /\ x ∈ RealSet /\ X_{0} ∈ PosRealSet /\ x > X_{0} + 1 /\ τ < 1)})
+exists (X_{0} := {1}) (τ := {0}) (x := {3})
+autosolve all_hypothesis

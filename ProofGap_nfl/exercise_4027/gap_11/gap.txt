@@ -1,0 +1,22 @@
+PROOF GAP @11
+ASSUM:
+1. a ∈ RealSet ∧ 0 < a
+2. b ∈ RealSet ∧ a < b
+3. V ∈ RealSet
+4. exists (x), x ∈ RealSet ∧ (exists (y), y ∈ RealSet ∧ (exists (z), z ∈ RealSet ∧ z^{2} = x * y))
+5. exists (x), x ∈ RealSet ∧ (exists (y), y ∈ RealSet ∧ (x + y = a ∨ x + y = b))
+6. exists (x), x ∈ RealSet ∧ (exists (y), y ∈ RealSet ∧ (exists (z), z ∈ RealSet ∧ (z = sqrtn(2, x * y) ∨ z = -sqrtn(2, x * y))))
+7. Ω = { (x, y) | x ∈ RealSet, y ∈ RealSet, x ≥ 0 ∧ y ≥ 0 ∧ a ≤ x + y ∧ x + y ≤ b }
+8. V = 2 * DefInt(0, a, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . DefInt(a - x, b - x, (fun y [y ∈ RealSet ∧ a - x ≤ y ∧ y ≤ b - x] . sqrtn(2, x * y)) * diff(fun y [y ∈ RealSet ∧ a - x ≤ y ∧ y ≤ b - x] . y))) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . x)) + 2 * DefInt(a, b, (fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . DefInt(0, b - x, (fun y [y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ b - x] . sqrtn(2, x * y)) * diff(fun y [y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ b - x] . y))) * diff(fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . x))
+9. V = frac(4, 3) * DefInt(0, a, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . sqrtn(2, x * (b - x)^{3}) - sqrtn(2, x * (a - x)^{3})) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . x)) + frac(4, 3) * DefInt(a, b, (fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . sqrtn(2, x * (b - x)^{3})) * diff(fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . x))
+10. V = frac(4, 3) * DefInt(0, b, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b] . (b - x) * sqrtn(2, x * (b - x))) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b] . x)) - frac(4, 3) * DefInt(0, a, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . (a - x) * sqrtn(2, x * (a - x))) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . x))
+11. x = b * sin(t)^{2}
+12. DefInt(0, b, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b] . (b - x) * sqrtn(2, x * (b - x))) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b] . x)) = 2 * b^{3} * DefInt(0, frac(π, 2), (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2)] . cos(t)^{4} * sin(t)^{2}) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2)] . t))
+13. DefInt(0, b, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b] . (b - x) * sqrtn(2, x * (b - x))) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b] . x)) = 2 * b^{3} * (DefInt(0, frac(π, 2), (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2)] . cos(t)^{4}) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2)] . t)) - DefInt(0, frac(π, 2), (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2)] . cos(t)^{6}) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2)] . t)))
+14. DefInt(0, b, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b] . (b - x) * sqrtn(2, x * (b - x))) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b] . x)) = frac(1, 16) * π * b^{3}
+15. DefInt(0, a, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . (a - x) * sqrtn(2, x * (a - x))) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a] . x)) = frac(1, 16) * π * a^{3}
+
+GOAL:
+V = frac(4, 3) * (frac(π * b^{3}, 16) - frac(π * a^{3}, 16))
+
+METHOD:

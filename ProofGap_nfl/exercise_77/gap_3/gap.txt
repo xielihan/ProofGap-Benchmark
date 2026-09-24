@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. p : NonNegIntegerSet → NonNegIntegerSet
+3. i ∈ NonNegIntegerSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = p(0) + (sum_{ i = 1 }^{ n } (frac(p(i), 10^{i})))
+5. p(0) ∈ NonNegIntegerSet
+6. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ⇒ p(i) ∈ NonNegIntegerSet ∧ p(i) ≤ 9
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n + 1) = x(n) + frac(p(n + 1), 10^{n + 1})
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(n + 1) ≥ 0
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n + 1) ≥ x(n)
+
+METHOD:

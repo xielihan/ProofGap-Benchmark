@@ -1,0 +1,30 @@
+assert (hypothesis 25: {0 ∈ RealSet ∧ 0 ∈ RealSet})
+get_prop (hypothesis 18: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ φ(x, y) = a * x^{2} + 2 * b * x * y + c * y^{2} + 2 * d * x + 2 * e * y + f}) (x := {0}) (y := {0}) as (hypothesis 26: {0 ∈ RealSet ∧ 0 ∈ RealSet ⇒ φ(0, 0) = a * 0^{2} + 2 * b * 0 * 0 + c * 0^{2} + 2 * d * 0 + 2 * e * 0 + f})
+use_condition (hypothesis 25: {0 ∈ RealSet ∧ 0 ∈ RealSet}) in (hypothesis 26: {0 ∈ RealSet ∧ 0 ∈ RealSet ⇒ φ(0, 0) = a * 0^{2} + 2 * b * 0 * 0 + c * 0^{2} + 2 * d * 0 + 2 * e * 0 + f}) as (hypothesis 27: {φ(0, 0) = a * 0^{2} + 2 * b * 0 * 0 + c * 0^{2} + 2 * d * 0 + 2 * e * 0 + f})
+assert (hypothesis 28: {φ(0, 0) = f}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 27: {φ(0, 0) = a * 0^{2} + 2 * b * 0 * 0 + c * 0^{2} + 2 * d * 0 + 2 * e * 0 + f}); from (GOAL: {φ(0, 0) = f}) to (GOAL: {a * 0^{2} + 2 * b * 0 * 0 + c * 0^{2} + 2 * d * 0 + 2 * e * 0 + f = f})
+  autosolve using PolyRatSolver
+}
+get_prop (hypothesis 22: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ t(x, y) = x + frac(b, a) * y}) (x := {0}) (y := {0}) as (hypothesis 29: {0 ∈ RealSet ∧ 0 ∈ RealSet ⇒ t(0, 0) = 0 + frac(b, a) * 0})
+use_condition (hypothesis 25: {0 ∈ RealSet ∧ 0 ∈ RealSet}) in (hypothesis 29: {0 ∈ RealSet ∧ 0 ∈ RealSet ⇒ t(0, 0) = 0 + frac(b, a) * 0}) as (hypothesis 30: {t(0, 0) = 0 + frac(b, a) * 0})
+assert (hypothesis 31: {t(0, 0) = 0}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 30: {t(0, 0) = 0 + frac(b, a) * 0}); from (GOAL: {t(0, 0) = 0}) to (GOAL: {0 + frac(b, a) * 0 = 0})
+  autosolve using PolyRatSolver
+}
+get_prop (hypothesis 24: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ φ(x, y) = a * (t(x, y) + frac(d, a))^{2} + frac(δ, a) * (y + frac(a * e - b * d, δ))^{2} + β}) (x := {0}) (y := {0}) as (hypothesis 32: {0 ∈ RealSet ∧ 0 ∈ RealSet ⇒ φ(0, 0) = a * (t(0, 0) + frac(d, a))^{2} + frac(δ, a) * (0 + frac(a * e - b * d, δ))^{2} + β})
+use_condition (hypothesis 25: {0 ∈ RealSet ∧ 0 ∈ RealSet}) in (hypothesis 32: {0 ∈ RealSet ∧ 0 ∈ RealSet ⇒ φ(0, 0) = a * (t(0, 0) + frac(d, a))^{2} + frac(δ, a) * (0 + frac(a * e - b * d, δ))^{2} + β}) as (hypothesis 33: {φ(0, 0) = a * (t(0, 0) + frac(d, a))^{2} + frac(δ, a) * (0 + frac(a * e - b * d, δ))^{2} + β})
+assert (hypothesis 34: {f = a * (t(0, 0) + frac(d, a))^{2} + frac(δ, a) * (0 + frac(a * e - b * d, δ))^{2} + β}) by proof {
+  rewrite (right_to_left, equation) (hypothesis 28: {φ(0, 0) = f}); from (GOAL: {f = a * (t(0, 0) + frac(d, a))^{2} + frac(δ, a) * (0 + frac(a * e - b * d, δ))^{2} + β}) to (GOAL: {φ(0, 0) = a * (t(0, 0) + frac(d, a))^{2} + frac(δ, a) * (0 + frac(a * e - b * d, δ))^{2} + β})
+  apply (hypothesis 33: {φ(0, 0) = a * (t(0, 0) + frac(d, a))^{2} + frac(δ, a) * (0 + frac(a * e - b * d, δ))^{2} + β})
+}
+rewrite (left_to_right, equation) (hypothesis 31: {t(0, 0) = 0}); from (hypothesis 34: {f = a * (t(0, 0) + frac(d, a))^{2} + frac(δ, a) * (0 + frac(a * e - b * d, δ))^{2} + β}) to (hypothesis 35: {f = a * (0 + frac(d, a))^{2} + frac(δ, a) * (0 + frac(a * e - b * d, δ))^{2} + β})
+assert (hypothesis 36: {a * (0 + frac(d, a))^{2} = frac(d^{2}, a)}) by proof {
+  autosolve (hypothesis 20: {a ≠ 0}) using PolyRatSolver
+}
+assert (hypothesis 37: {frac(δ, a) * (0 + frac(a * e - b * d, δ))^{2} = frac((a * e - b * d)^{2}, a * δ)}) by proof {
+  autosolve (hypothesis 20: {a ≠ 0}) (hypothesis 21: {δ ≠ 0}) using PolyRatSolver
+}
+rewrite (left_to_right, equation) (hypothesis 36: {a * (0 + frac(d, a))^{2} = frac(d^{2}, a)}); from (hypothesis 35: {f = a * (0 + frac(d, a))^{2} + frac(δ, a) * (0 + frac(a * e - b * d, δ))^{2} + β}) to (hypothesis 38: {f = frac(d^{2}, a) + frac(δ, a) * (0 + frac(a * e - b * d, δ))^{2} + β})
+rewrite (left_to_right, equation) (hypothesis 37: {frac(δ, a) * (0 + frac(a * e - b * d, δ))^{2} = frac((a * e - b * d)^{2}, a * δ)}); from (hypothesis 38: {f = frac(d^{2}, a) + frac(δ, a) * (0 + frac(a * e - b * d, δ))^{2} + β}) to (hypothesis 39: {f = frac(d^{2}, a) + frac((a * e - b * d)^{2}, a * δ) + β})
+rewrite (left_to_right, equation) (hypothesis 39: {f = frac(d^{2}, a) + frac((a * e - b * d)^{2}, a * δ) + β}); from (GOAL: {β = f - frac(d^{2}, a) - frac((a * e - b * d)^{2}, a * δ)}) to (GOAL: {β = (frac(d^{2}, a) + frac((a * e - b * d)^{2}, a * δ) + β) - frac(d^{2}, a) - frac((a * e - b * d)^{2}, a * δ)})
+autosolve using PolyRatSolver

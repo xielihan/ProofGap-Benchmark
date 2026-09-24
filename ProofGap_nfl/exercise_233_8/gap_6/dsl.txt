@@ -1,0 +1,2 @@
+not_normalize from (GOAL: {¬(exists (T), T ∈ RealSet ∧ T > 0 ∧ PeriodicFunc(f, T))}) to (GOAL: {(exists (T), T ∈ RealSet ∧ T > 0 ∧ PeriodicFunc(f, T)) ⇒ False})
+apply (hypothesis 7: {(exists (T), T ∈ RealSet ∧ T > 0 ∧ PeriodicFunc(f, T)) ⇒ False})

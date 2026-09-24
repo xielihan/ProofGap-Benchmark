@@ -1,0 +1,9 @@
+1. get_forall (GOAL: {forall (z) (y) (x), z ∈ RealSet ∧ y ∈ RealSet ∧ y > 0 ∧ x ∈ RealSet ∧ x > 0 ⇒ z * y^{z - 1} * x^{y^{z}} * ln(x) = z * u(x, y, z) * y^{z - 1} * ln(x)}) (z := {z0}) (y := {y0}) (x := {x0})
+2. get_condition (hypothesis 7: {z0 ∈ RealSet ∧ y0 ∈ RealSet ∧ y0 > 0 ∧ x0 ∈ RealSet ∧ x0 > 0}) in (GOAL: {z0 ∈ RealSet ∧ y0 ∈ RealSet ∧ y0 > 0 ∧ x0 ∈ RealSet ∧ x0 > 0 ⇒ z0 * y0^{z0 - 1} * x0^{y0^{z0}} * ln(x0) = z0 * u(x0, y0, z0) * y0^{z0 - 1} * ln(x0)})
+3. get_prop (hypothesis 2: {forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x > 0 ∧ y > 0 ⇒ u(x, y, z) = x^{y^{z}}}) (x := {x0}) (y := {y0}) (z := {z0}) as (hypothesis 8: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet ∧ x0 > 0 ∧ y0 > 0 ⇒ u(x0, y0, z0) = x0^{y0^{z0}}})
+4. assert (hypothesis 9: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet ∧ x0 > 0 ∧ y0 > 0}) by proof {
+  1. autosolve all_hypothesis
+}
+5. use_condition (hypothesis 9: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet ∧ x0 > 0 ∧ y0 > 0}) in (hypothesis 8: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet ∧ x0 > 0 ∧ y0 > 0 ⇒ u(x0, y0, z0) = x0^{y0^{z0}}}) as (hypothesis 10: {u(x0, y0, z0) = x0^{y0^{z0}}})
+6. rewrite (left_to_right, equation) (hypothesis 10: {u(x0, y0, z0) = x0^{y0^{z0}}}); from (GOAL: {z0 * y0^{z0 - 1} * x0^{y0^{z0}} * ln(x0) = z0 * u(x0, y0, z0) * y0^{z0 - 1} * ln(x0)}) to (GOAL: {z0 * y0^{z0 - 1} * x0^{y0^{z0}} * ln(x0) = z0 * x0^{y0^{z0}} * y0^{z0 - 1} * ln(x0)})
+7. autosolve all_hypothesis

@@ -1,0 +1,2 @@
+exists (x := {frac(π, 6)}) (y := {frac(π, 6)}) (z := {frac(π, 6)})
+autosolve all_hypothesis

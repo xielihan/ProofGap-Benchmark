@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. q ∈ RealSet
+2. F : RealSet → RealSet
+3. |q| < 1
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ 1 - q * e^{__IMAGINARY_UNIT__ * x} ≠ 0
+
+METHOD:

@@ -1,0 +1,17 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. h ∈ RealSet
+3. S ⊆ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+4. X ∈ RealSet
+5. Y ∈ RealSet
+6. P ∈ CartesianProd(RealSet, RealSet)
+7. a > 0
+8. h ≥ 0
+9. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ ((x, y, z) ∈ S ⇔ x^{2} + y^{2} = a^{2} ∧ x ≥ 0 ∧ 0 ≤ z ∧ z ≤ h)))
+
+GOAL:
+Y = 0
+
+METHOD:
+[@method 根据 "对称性" @]

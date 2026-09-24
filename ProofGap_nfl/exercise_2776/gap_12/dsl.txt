@@ -1,0 +1,21 @@
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ⇒ (forall (N), N ∈ NonNegIntegerSet ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ (UniformConvergent(S_{n}, PosRealSet, S) ⇒ ε = 1 ⇒ x_{0} = frac(2, 3^{N + 1} * π) ⇒ 2^{N + 1} * sin(frac(1, 3^{N + 1} * x_{0})) = 2^{N + 1} * sin(frac(π, 2)))))}) (ε := {ε0})
+get_condition (hypothesis 18: {ε0 ∈ RealSet}) in (GOAL: {ε0 ∈ RealSet ⇒ (forall (N), N ∈ NonNegIntegerSet ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ (UniformConvergent(S_{n}, PosRealSet, S) ⇒ ε0 = 1 ⇒ x_{0} = frac(2, 3^{N + 1} * π) ⇒ 2^{N + 1} * sin(frac(1, 3^{N + 1} * x_{0})) = 2^{N + 1} * sin(frac(π, 2)))))})
+get_forall (GOAL: {forall (N), N ∈ NonNegIntegerSet ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ (UniformConvergent(S_{n}, PosRealSet, S) ⇒ ε0 = 1 ⇒ x_{0} = frac(2, 3^{N + 1} * π) ⇒ 2^{N + 1} * sin(frac(1, 3^{N + 1} * x_{0})) = 2^{N + 1} * sin(frac(π, 2))))}) (N := {N0})
+get_condition (hypothesis 19: {N0 ∈ NonNegIntegerSet}) in (GOAL: {N0 ∈ NonNegIntegerSet ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ (UniformConvergent(S_{n}, PosRealSet, S) ⇒ ε0 = 1 ⇒ x_{0} = frac(2, 3^{N0 + 1} * π) ⇒ 2^{N0 + 1} * sin(frac(1, 3^{N0 + 1} * x_{0})) = 2^{N0 + 1} * sin(frac(π, 2))))})
+exists (x_{0} := {frac(2, 3^{N0 + 1} * π)})
+assert (hypothesis 20: {frac(2, 3^{N0 + 1} * π) ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 21: {UniformConvergent(S_{n}, PosRealSet, S) ⇒ ε0 = 1 ⇒ frac(2, 3^{N0 + 1} * π) = frac(2, 3^{N0 + 1} * π) ⇒ 2^{N0 + 1} * sin(frac(1, 3^{N0 + 1} * frac(2, 3^{N0 + 1} * π))) = 2^{N0 + 1} * sin(frac(π, 2))}) by proof {
+  get_condition (hypothesis 21: {UniformConvergent(S_{n}, PosRealSet, S)}) in (GOAL: {UniformConvergent(S_{n}, PosRealSet, S) ⇒ ε0 = 1 ⇒ frac(2, 3^{N0 + 1} * π) = frac(2, 3^{N0 + 1} * π) ⇒ 2^{N0 + 1} * sin(frac(1, 3^{N0 + 1} * frac(2, 3^{N0 + 1} * π))) = 2^{N0 + 1} * sin(frac(π, 2))})
+  get_condition (hypothesis 22: {ε0 = 1}) in (GOAL: {ε0 = 1 ⇒ frac(2, 3^{N0 + 1} * π) = frac(2, 3^{N0 + 1} * π) ⇒ 2^{N0 + 1} * sin(frac(1, 3^{N0 + 1} * frac(2, 3^{N0 + 1} * π))) = 2^{N0 + 1} * sin(frac(π, 2))})
+  get_condition (hypothesis 23: {frac(2, 3^{N0 + 1} * π) = frac(2, 3^{N0 + 1} * π)}) in (GOAL: {frac(2, 3^{N0 + 1} * π) = frac(2, 3^{N0 + 1} * π) ⇒ 2^{N0 + 1} * sin(frac(1, 3^{N0 + 1} * frac(2, 3^{N0 + 1} * π))) = 2^{N0 + 1} * sin(frac(π, 2))})
+  assert (hypothesis 24: {3^{N0 + 1} * π > 0}) by proof {
+    autosolve all_hypothesis
+  }
+  assert (hypothesis 25: {frac(1, 3^{N0 + 1} * frac(2, 3^{N0 + 1} * π)) = frac(π, 2)}) by proof {
+    autosolve all_hypothesis
+  }
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

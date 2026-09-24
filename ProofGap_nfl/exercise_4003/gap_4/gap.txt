@@ -1,0 +1,22 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. x ∈ RealSet
+4. y ∈ RealSet
+5. z ∈ RealSet
+6. X ∈ RealSet
+7. Y ∈ RealSet
+8. Z ∈ RealSet
+9. S ∈ RealSet
+10. X = frac(1, sqrtn(2, 2)) * x - frac(1, sqrtn(2, 2)) * z
+11. Y = frac(1, sqrtn(2, 6)) * x - frac(2, sqrtn(2, 6)) * y + frac(1, sqrtn(2, 6)) * z
+12. Z = frac(1, sqrtn(2, 3)) * x + frac(1, sqrtn(2, 3)) * y + frac(1, sqrtn(2, 3)) * z
+13. Z = frac(1, sqrtn(2, 3)) * (x + y + z)
+14. frac(1, sqrtn(2, 3)) * (x + y + z) = frac(b, sqrtn(2, 3))
+15. Z = frac(b, sqrtn(2, 3))
+
+GOAL:
+x = frac(1, sqrtn(2, 2)) * X + frac(1, sqrtn(2, 6)) * Y + frac(1, sqrtn(2, 3)) * Z
+
+METHOD:

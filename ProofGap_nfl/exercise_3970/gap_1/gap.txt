@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. Ω ⊆ CartesianProd(RealSet, RealSet)
+2. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ Ω = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet, x > 0 ∧ y > 0 ∧ x * y ≥ 1 ∧ x + y ≤ frac(5, 2) })
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ Ω = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet, frac(1, 2) ≤ x ∧ x ≤ 2 ∧ frac(1, x) ≤ y ∧ y ≤ frac(5, 2) - x })
+
+METHOD:

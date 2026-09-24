@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 3: {DefInt(0, 1, (fun x [x ∈ RealSet] . sin(π * x)) * diff(fun x [x ∈ RealSet] . x)) = ((fun x [x ∈ RealSet] . -(frac(1, π) * cos(π * x)))|_{0}^{1})}); from (GOAL: {DefInt(0, 1, (fun x [x ∈ RealSet] . sin(π * x)) * diff(fun x [x ∈ RealSet] . x)) = frac(2, π)}) to (GOAL: {((fun x [x ∈ RealSet] . -(frac(1, π) * cos(π * x)))|_{0}^{1}) = frac(2, π)})
+apply (hypothesis 4: {((fun x [x ∈ RealSet] . -(frac(1, π) * cos(π * x)))|_{0}^{1}) = frac(2, π)})

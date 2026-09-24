@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ [0, +∞) ⇒ f(x) = x * sin(x)
+3. x = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . 2 * n * π + frac(1, n))
+4. `x'` = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . 2 * n * π)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ∈ [0, +∞) ∧ `x'`(n) ∈ [0, +∞)
+
+METHOD:

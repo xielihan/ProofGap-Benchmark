@@ -1,0 +1,20 @@
+PROOF GAP @8
+ASSUM:
+1. y : RealSet → RealSet
+2. R_{M} ∈ RealSet
+3. C_{M} ∈ CartesianProd(RealSet, RealSet)
+4. R_{N} ∈ RealSet
+5. C_{N} ∈ CartesianProd(RealSet, RealSet)
+6. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ y(x) = frac(1, x)
+7. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(y, 1, 1)(x) = -frac(1, x^{2}) ∧ FunDeri(y, 1, 2)(x) = frac(2, x^{3})
+8. y(1) = 1
+9. FunDeri(y, 1, 1)(1) = -1
+10. FunDeri(y, 1, 2)(1) = 2
+11. R_{M} = frac((1 + (-1)^{2})^{frac(3, 2)}, 2)
+12. frac((1 + (-1)^{2})^{frac(3, 2)}, 2) = sqrtn(2, 2)
+13. R_{M} = sqrtn(2, 2)
+
+GOAL:
+C_{M} = (1 - frac(-1 * (1 + (-1)^{2}), 2), 1 + frac(1 + (-1)^{2}, 2))
+
+METHOD:

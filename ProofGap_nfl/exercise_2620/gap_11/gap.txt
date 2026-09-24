@@ -1,0 +1,22 @@
+PROOF GAP @11
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. p ∈ RealSet
+3. q ∈ RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 3 ⇒ a(n) = frac(1, n * ln(n)^{p} * ln(ln(n))^{q})
+5. f = (fun x [x ∈ RealSet ∧ x > e] . frac(1, x * ln(x)^{p} * ln(ln(x))^{q}))
+6. forall (x), x ∈ RealSet ∧ x > e ⇒ f(x) ≥ 0
+7. exists (M), M ∈ RealSet ∧ M > e ∧ MonoDecFuncOn(f, [M, +∞))
+8. p = 1 ⇒ DefInt(3, +∞, (fun x [x ∈ RealSet ∧ x ≥ 3] . frac(1, x * ln(x) * ln(ln(x))^{q})) * diff(fun x [x ∈ RealSet ∧ x ≥ 3] . x)) = cases{ (fun x [x ∈ RealSet ∧ x ≥ 3] . frac(1, (1 - q) * ln(ln(x))^{q - 1}))|_{3}^{+∞} if q ≠ 1; (fun x [x ∈ RealSet ∧ x ≥ 3] . ln(ln(ln(x))))|_{3}^{+∞} if q = 1 }
+9. p = 1 ⇒ (ConvergentSeries(sum_{ n = 3 }^{ +∞ } (a(n))) ⇔ q > 1)
+10. p ≠ 1 ⇒ DefInt(3, +∞, (fun x [x ∈ RealSet ∧ x ≥ 3] . frac(1, x * ln(x)^{p} * ln(ln(x))^{q})) * diff(fun x [x ∈ RealSet ∧ x ≥ 3] . x)) = DefInt(ln(3), +∞, (fun t [t ∈ RealSet ∧ t ≥ ln(3)] . frac(1, t^{p} * ln(t)^{q})) * diff(fun t [t ∈ RealSet ∧ t ≥ ln(3)] . t))
+11. p ≠ 1 ⇒ p > 1 ⇒ (exists (η), η ∈ RealSet ∧ η > 0 ∧ p - η > 1)
+12. p ≠ 1 ⇒ p > 1 ⇒ (exists (η), η ∈ RealSet ∧ η > 0 ∧ p - η > 1 ∧ lim_{ t → +∞ } (t^{p - η} * frac(1, t^{p} * ln(t)^{q})) = 0)
+13. p ≠ 1 ⇒ p > 1 ⇒ ConvergentSeries(sum_{ n = 3 }^{ +∞ } (a(n)))
+14. p ≠ 1 ⇒ p < 1 ⇒ (exists (τ), τ ∈ RealSet ∧ τ > 0 ∧ p + τ < 1)
+15. p ≠ 1 ⇒ p < 1 ⇒ (exists (τ), τ ∈ RealSet ∧ τ > 0 ∧ p + τ < 1 ∧ lim_{ t → +∞ } (t^{p + τ} * frac(1, t^{p} * ln(t)^{q})) = +∞)
+
+GOAL:
+p ≠ 1 ⇒ p < 1 ⇒ DivergentSeries(sum_{ n = 3 }^{ +∞ } (a(n)))
+
+METHOD:

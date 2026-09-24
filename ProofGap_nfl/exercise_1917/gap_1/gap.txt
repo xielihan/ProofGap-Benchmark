@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. C ∈ RealSet
+2. C_{1} ∈ RealSet
+3. forall (x), x ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ frac(x^{2} + 1, x^{4} + x^{2} + 1) = frac(x^{2} + 1, (x^{2} + 1)^{2} - x^{2})
+
+METHOD:

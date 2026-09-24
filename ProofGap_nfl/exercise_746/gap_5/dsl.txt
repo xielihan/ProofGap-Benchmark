@@ -1,0 +1,1 @@
+apply (hypothesis 9: {forall (x_{0}), x_{0} ∈ RealSet /\ x_{0} ∈ D => (forall (ε), ε ∈ RealSet /\ ε > 0 => (exists (δ), δ ∈ RealSet /\ δ > 0 /\ (forall (x), x ∈ RealSet /\ x ∈ D /\ |x - x_{0}| < δ => |F(x) - F(x_{0})| < ε)))})

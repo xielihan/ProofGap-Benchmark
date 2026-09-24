@@ -1,0 +1,17 @@
+get_forall (GOAL: {forall (f), f : RealSet → RealSet ∧ Defined(f, (-l, l)) ⇒ (exists (h), h : RealSet → RealSet ∧ OddFunc(h))}) (f := {f1})
+get_condition (hypothesis 7: {f1 : RealSet → RealSet ∧ Defined(f1, (-l, l))}) in (GOAL: {f1 : RealSet → RealSet ∧ Defined(f1, (-l, l)) ⇒ (exists (h), h : RealSet → RealSet ∧ OddFunc(h))})
+get_prop (hypothesis 3: {forall (f), f : RealSet → RealSet ∧ Defined(f, (-l, l)) ⇒ (exists (h), h : RealSet → RealSet ∧ h = (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l)] . frac(f(x) - f(-x), 2)))}) (f := {f1}) as (hypothesis 8: {f1 : RealSet → RealSet ∧ Defined(f1, (-l, l)) ⇒ (exists (h), h : RealSet → RealSet ∧ h = (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l)] . frac(f1(x) - f1(-x), 2)))})
+use_condition (hypothesis 7: {f1 : RealSet → RealSet ∧ Defined(f1, (-l, l))}) in (hypothesis 8: {f1 : RealSet → RealSet ∧ Defined(f1, (-l, l)) ⇒ (exists (h), h : RealSet → RealSet ∧ h = (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l)] . frac(f1(x) - f1(-x), 2)))}) as (hypothesis 9: {exists (h), h : RealSet → RealSet ∧ h = (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l)] . frac(f1(x) - f1(-x), 2))})
+get_exists (hypothesis 9: {exists (h), h : RealSet → RealSet ∧ h = (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l)] . frac(f1(x) - f1(-x), 2))}) (h := {h1})
+destruct_and (hypothesis 10: {h1 : RealSet → RealSet ∧ h1 = (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l)] . frac(f1(x) - f1(-x), 2))}) as (hypothesis 11: {h1 : RealSet → RealSet}) (hypothesis 12: {h1 = (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l)] . frac(f1(x) - f1(-x), 2))})
+assert (hypothesis 13: {OddFunc(h1)}) by proof {
+  get_prop (theorem 'Thm 279. (OddFunctionDefinition)': {forall (f), f : RealSet -> RealSet => (OddFunc(f) <==> (forall (x), x ∈ RealSet => f(-x) = -f(x)))}) (f := {h1}) as (hypothesis 13: {h1 : RealSet -> RealSet => (OddFunc(h1) <==> (forall (x), x ∈ RealSet => h1(-x) = -h1(x)))})
+  use_condition (hypothesis 11: {h1 : RealSet → RealSet}) in (hypothesis 13: {h1 : RealSet -> RealSet => (OddFunc(h1) <==> (forall (x), x ∈ RealSet => h1(-x) = -h1(x)))}) as (hypothesis 14: {OddFunc(h1) <==> (forall (x), x ∈ RealSet => h1(-x) = -h1(x))})
+  rewrite (left_to_right, iff) (hypothesis 14: {OddFunc(h1) <==> (forall (x), x ∈ RealSet => h1(-x) = -h1(x))}); from (GOAL: {OddFunc(h1)}) to (GOAL: {forall (x), x ∈ RealSet => h1(-x) = -h1(x)})
+  get_forall (GOAL: {forall (x), x ∈ RealSet => h1(-x) = -h1(x)}) (x := {x1})
+  get_condition (hypothesis 15: {x1 ∈ RealSet}) in (GOAL: {x1 ∈ RealSet => h1(-x1) = -h1(x1)})
+  rewrite (left_to_right, equation) (hypothesis 12: {h1 = (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l)] . frac(f1(x) - f1(-x), 2))}); from (GOAL: {h1(-x1) = -h1(x1)}) to (GOAL: {(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l)] . frac(f1(x) - f1(-x), 2))(-x1) = -(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l)] . frac(f1(x) - f1(-x), 2))(x1)})
+  autosolve all_hypothesis
+}
+exists (h := {h1})
+autosolve all_hypothesis

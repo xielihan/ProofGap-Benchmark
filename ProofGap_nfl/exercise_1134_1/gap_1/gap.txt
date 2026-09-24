@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. u : RealSet → RealSet
+3. v : RealSet → RealSet
+4. I ⊆ RealSet
+5. FuncOfClassKOn(u, I, 2)
+6. FuncOfClassKOn(v, I, 2)
+7. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ y(x) = u(x) * v(x)
+8. I = RealSet
+GOAL:
+diff(y) = u * diff(v) + v * diff(u)
+
+METHOD:

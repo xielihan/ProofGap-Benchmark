@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. F : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ F(x) = sum_{ n = 1 }^{ +∞ } (arctan(frac(x, n^{2}))))
+3. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ DiffableFuncAt(fun t [t ∈ RealSet] . arctan(frac(t, n^{2})), x))
+4. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ FunDeri(fun t [t ∈ RealSet] . arctan(frac(t, n^{2})), 1, 1)(x) = frac(1, 1 + frac(x, n^{2})^{2}) * frac(1, n^{2}))
+5. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, 1 + frac(x, n^{2})^{2}) * frac(1, n^{2}) = frac(n^{2}, n^{4} + x^{2}))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(n^{2}, n^{4} + x^{2}) ≤ frac(1, n^{2}))
+
+METHOD:

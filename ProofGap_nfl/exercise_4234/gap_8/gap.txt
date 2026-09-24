@@ -1,0 +1,30 @@
+PROOF GAP @8
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. a ∈ RealSet ∧ a > 0
+4. x_{0} ∈ RealSet
+5. y_{0} ∈ RealSet
+6. z_{0} ∈ RealSet
+7. s ∈ RealSet
+8. z ∈ RealSet
+9. t ∈ RealSet ∧ t > 0
+10. forall (z), z ∈ RealSet ⇒ (x(z) - y(z))^{2} = a * (x(z) + y(z))
+11. forall (z), z ∈ RealSet ⇒ x(z)^{2} - y(z)^{2} = frac(9, 8) * z^{2}
+12. x(0) = 0
+13. y(0) = 0
+14. x(z_{0}) = x_{0}
+15. y(z_{0}) = y_{0}
+16. forall (z), z ∈ RealSet ⇒ x(z) = frac(1, 2) * (frac(1, a) * sqrtn(3, frac(9 * a, 8)^{2}) * sqrtn(3, z^{4}) + sqrtn(3, frac(9 * a, 8)) * sqrtn(3, z^{2}))
+17. forall (z), z ∈ RealSet ⇒ y(z) = frac(1, 2) * (frac(1, a) * sqrtn(3, frac(9 * a, 8)^{2}) * sqrtn(3, z^{4}) - sqrtn(3, frac(9 * a, 8)) * sqrtn(3, z^{2}))
+18. forall (z), z ∈ RealSet ∧ z ≠ 0 ⇒ FunDeri(x, 1, 1)(z)^{2} + FunDeri(y, 1, 1)(z)^{2} = frac(8, 9 * a^{2}) * sqrtn(3, frac(9 * a, 8)^{4}) * sqrtn(3, z^{2}) + frac(2, 9) * sqrtn(3, frac(9 * a, 8)^{2}) * sqrtn(3, z^{-2})
+19. forall (z), z ∈ RealSet ∧ z ≠ 0 ⇒ FunDeri(x, 1, 1)(z)^{2} + FunDeri(y, 1, 1)(z)^{2} = frac(sqrtn(3, 9 * a), 2 * a) * sqrtn(3, z^{2}) + frac(sqrtn(3, 3 * a^{2}), 6) * sqrtn(3, z^{-2})
+20. s = DefInt(0, z_{0}, (fun z [z ∈ RealSet ∧ z ≠ 0] . sqrtn(2, frac(sqrtn(3, 9 * a), 2 * a) * sqrtn(3, z^{2}) + frac(sqrtn(3, 3 * a^{2}), 6) * sqrtn(3, z^{-2}) + 1)) * diff(fun z [z ∈ RealSet] . z))
+21. t = sqrtn(3, z^{2})
+22. s = DefInt(0, sqrtn(3, (z_{0})^{2}), (fun t [t ∈ RealSet ∧ t > 0] . sqrtn(2, frac(sqrtn(3, 9 * a), 2 * a) * t + frac(sqrtn(3, 3 * a^{2}), 6) * frac(1, t) + 1) * frac(3 * sqrtn(2, t), 2)) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))
+23. s = frac(3, 2) * DefInt(0, sqrtn(3, (z_{0})^{2}), (fun t [t ∈ RealSet ∧ t > 0] . sqrtn(2, frac(sqrtn(3, 9 * a), 2 * a) * t^{2} + t + frac(sqrtn(3, 3 * a^{2}), 6))) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))
+
+GOAL:
+s = frac(3, 2) * DefInt(0, sqrtn(3, (z_{0})^{2}), (fun t [t ∈ RealSet ∧ t > 0] . frac(1, sqrtn(2, 2)) * sqrtn(3, frac(3, a)) * t + frac(1, sqrtn(2, 2)) * sqrtn(3, frac(a, 3))) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))
+
+METHOD:

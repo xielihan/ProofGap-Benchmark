@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ≠ frac(1, 3) ⇒ x ∈ RealSet
+3. { `F_2` | forall (x), x ∈ RealSet ∧ x ≠ frac(1, 3) ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x, sqrtn(3, 1 - 3 * x)) * FunDeri(fun x [x ∈ RealSet ∧ x ≠ frac(1, 3)] . x, 1, 1)(x) } = { `F_4` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ frac(1, 3) ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(1 - 3 * x - 1, (1 - 3 * x)^{frac(1, 3)}) * FunDeri(fun x [x ∈ RealSet ∧ x ≠ frac(1, 3)] . x, 1, 1)(x) ∧ `F_4`(x) = -frac(1, 3) * `F_3`(x)) }
+4. { `F_5` | forall (x), x ∈ RealSet ∧ x ≠ frac(1, 3) ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(x, sqrtn(3, 1 - 3 * x)) * FunDeri(fun x [x ∈ RealSet ∧ x ≠ frac(1, 3)] . x, 1, 1)(x) } = { `F_7` | exists (`F_6`), `F_6` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ frac(1, 3) ⇒ FunDeri(`F_6`, 1, 1)(x) = ((1 - 3 * x)^{frac(2, 3)} - (1 - 3 * x)^{-frac(1, 3)}) * FunDeri(fun x [x ∈ RealSet ∧ x ≠ frac(1, 3)] . x, 1, 1)(x) ∧ `F_7`(x) = -frac(1, 3) * `F_6`(x)) }
+5. { `F_8` | forall (x), x ∈ RealSet ∧ x ≠ frac(1, 3) ⇒ FunDeri(`F_8`, 1, 1)(x) = frac(x, sqrtn(3, 1 - 3 * x)) * FunDeri(fun x [x ∈ RealSet ∧ x ≠ frac(1, 3)] . x, 1, 1)(x) } = { `F_9` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ frac(1, 3) ⇒ `F_9`(x) = frac(1, 15) * (1 - 3 * x)^{frac(5, 3)} - frac(1, 6) * (1 - 3 * x)^{frac(2, 3)} + C) }
+
+GOAL:
+{ `F_10` | forall (x), x ∈ RealSet ∧ x ≠ frac(1, 3) ⇒ FunDeri(`F_10`, 1, 1)(x) = frac(x, sqrtn(3, 1 - 3 * x)) * FunDeri(fun x [x ∈ RealSet ∧ x ≠ frac(1, 3)] . x, 1, 1)(x) } = { `F_11` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ frac(1, 3) ⇒ `F_11`(x) = -frac(1 + 2 * x, 10) * (1 - 3 * x)^{frac(2, 3)} + C) }
+
+METHOD:

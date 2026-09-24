@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (`α_{0}`), `α_{0}` ∈ RealSet ∧ `α_{0}` ≠ 0 ∧ `α_{0}` < 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ = frac(-`α_{0}`, 2) ∧ `α_{0}` + δ < 0)}) (`α_{0}` := {a0})
+get_condition (hypothesis 9: {a0 ∈ RealSet ∧ a0 ≠ 0 ∧ a0 < 0}) in (GOAL: {a0 ∈ RealSet ∧ a0 ≠ 0 ∧ a0 < 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ = frac(-a0, 2) ∧ a0 + δ < 0)})
+exists (δ := {frac(-a0, 2)})
+autoreplace no_hypothesis; from (a0 + frac(-a0, 2)) to (frac(a0, 2)); from (GOAL: {frac(-a0, 2) ∈ RealSet ∧ frac(-a0, 2) = frac(-a0, 2) ∧ a0 + frac(-a0, 2) < 0}) to (GOAL: {frac(-a0, 2) ∈ RealSet ∧ frac(-a0, 2) = frac(-a0, 2) ∧ frac(a0, 2) < 0})
+autosolve (hypothesis 9: {a0 ∈ RealSet ∧ a0 ≠ 0 ∧ a0 < 0})

@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. u : NonNegIntegerSet → RealSet
+4. a > 0
+5. b > 0
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = frac(n^{2 * n}, (n + a)^{n + b} * (n + b)^{n + a})
+7. seqlim_{ n → +∞ } (frac(u(n), frac(1, n^{a + b}))) = e^{-(a + b)}
+
+GOAL:
+a + b > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{a + b})))
+
+METHOD:

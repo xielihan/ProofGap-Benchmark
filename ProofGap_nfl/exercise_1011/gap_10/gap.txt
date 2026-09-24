@@ -1,0 +1,24 @@
+PROOF GAP @10
+ASSUM:
+1. x_{0} ∈ RealSet
+2. f : RealSet → RealSet
+3. F : RealSet → RealSet
+4. a ∈ RealSet
+5. b ∈ RealSet
+6. Defined(f, (-∞, x_{0}])
+7. LeftDiffableFuncAt(f, x_{0})
+8. forall (x), x ∈ RealSet ⇒ F(x) = cases{ f(x) if x ≤ x_{0}; a * x + b if x > x_{0} }
+9. F(x_{0}) = f(x_{0})
+10. f(x_{0}) = lim_{ x → x_{0}^- } (F(x))
+11. F(x_{0}) = lim_{ x → x_{0}^- } (F(x))
+12. lim_{ x → x_{0}^+ } (F(x)) = a * x_{0} + b
+13. f(x_{0}) = a * x_{0} + b ⇒ ContinuousFuncAt(F, x_{0})
+14. lim_{ h → 0^- } (frac(F(x_{0} + h) - F(x_{0}), h)) = lim_{ h → 0^- } (frac(f(x_{0} + h) - f(x_{0}), h))
+15. f(x_{0}) = a * x_{0} + b ⇒ lim_{ h → 0^+ } (frac(F(x_{0} + h) - F(x_{0}), h)) = a
+16. f(x_{0}) = a * x_{0} + b ⇒ a = lim_{ h → 0^- } (frac(f(x_{0} + h) - f(x_{0}), h)) ⇒ DiffableFuncAt(F, x_{0})
+17. DiffableFuncAt(F, x_{0}) ⇒ f(x_{0}) = a * x_{0} + b
+18. DiffableFuncAt(F, x_{0}) ⇒ a = lim_{ h → 0^- } (frac(f(x_{0} + h) - f(x_{0}), h))
+GOAL:
+DiffableFuncAt(F, x_{0}) ⇒ b = f(x_{0}) - x_{0} * (lim_{ h → 0^- } (frac(f(x_{0} + h) - f(x_{0}), h)))
+
+METHOD:

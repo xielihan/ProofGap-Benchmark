@@ -1,0 +1,4 @@
+assert (hypothesis 12: {PiecewiseContinuousFunc(ψ) ∧ PeriodicFunc(ψ, 2 * π)}) by proof {
+  autosolve all_hypothesis
+}
+apply (hypothesis 12: {PiecewiseContinuousFunc(ψ) ∧ PeriodicFunc(ψ, 2 * π)})

@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (l), l ∈ RealSet ∧ l > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ MonoDecFuncOn(fun x [x ∈ RealSet] . frac(1, n^{x}), [0, l]) ∧ (forall (x), x ∈ RealSet ∧ x ∈ [0, l] ⇒ frac(1, n^{x}) ≤ 1))
+
+GOAL:
+forall (l), l ∈ RealSet ∧ l > 0 ⇒ UniformConvergent(fun n, x [n ∈ NonNegIntegerSet ∧ x ∈ RealSet] . frac(1, 2^{n}), [0, l], fun x [x ∈ RealSet] . 1)
+
+METHOD:

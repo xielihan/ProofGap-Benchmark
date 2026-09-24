@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. δ : RealSet → RealSet
+2. M ∈ RealSet
+3. Δx : NonNegIntegerSet → RealSet
+4. ε ∈ RealSet ∧ ε > 0
+5. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 10 ⇒ δ(x) = 6 + 0.3 * x
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ Δx(n) = frac(10, n)
+
+METHOD:

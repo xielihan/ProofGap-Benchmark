@@ -1,0 +1,31 @@
+PROOF GAP @11
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. A : NonNegIntegerSet → RealSet
+3. p : NonNegIntegerSet → NonNegIntegerSet
+4. S ∈ RealSet
+5. l : NonNegIntegerSet → RealSet
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ∈ RealSet
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(n) ∈ PosIntegerSet
+8. p(1) = 1
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(n) < p(n + 1)
+10. forall (i), i ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ A(n) = sum_{ i = p(n) }^{ p(n + 1) - 1 } (a(i)))
+11. forall (n), n ∈ NonNegIntegerSet ⇒ ConvergentSeriesTo(sum_{ n = 1 }^{ +∞ } (a(n)), S)
+12. l = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . sum_{ k = 1 }^{ n } (A(k)))
+13. forall (k), k ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ l(n) = sum_{ k = 1 }^{ n } (A(k)))
+14. forall (k), k ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ l(n) = sum_{ k = 1 }^{ p(n + 1) - 1 } (a(k)))
+15. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ l(n) = S(p(n + 1) - 1)
+16. forall (n), n ∈ NonNegIntegerSet ⇒ seqlim_{ n → +∞ } (S(n)) = S
+17. forall (n), n ∈ NonNegIntegerSet ⇒ seqlim_{ n → +∞ } (l(n)) = seqlim_{ n → +∞ } (S(p(n + 1) - 1))
+18. forall (n), n ∈ NonNegIntegerSet ⇒ seqlim_{ n → +∞ } (S(p(n + 1) - 1)) = S
+19. forall (n), n ∈ NonNegIntegerSet ⇒ seqlim_{ n → +∞ } (l(n)) = S
+20. forall (n), n ∈ NonNegIntegerSet ⇒ ConvergentSeriesTo(sum_{ n = 1 }^{ +∞ } (A(n)), S)
+21. b = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . (-1)^{n - 1})
+22. B = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . b(2 * n - 1) + b(2 * n))
+23. forall (n), n ∈ NonNegIntegerSet ⇒ sum_{ n = 1 }^{ +∞ } (b(n)) = sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1})
+24. forall (n), n ∈ NonNegIntegerSet ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (b(n)))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ B(n) = 1 - 1 ∧ 1 - 1 = 0
+
+METHOD:

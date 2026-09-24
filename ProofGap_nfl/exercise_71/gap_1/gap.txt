@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. p : NonNegIntegerSet → RealSet ∧ IsSeq(p)
+2. q : NonNegIntegerSet → RealSet ∧ IsSeq(q)
+3. n ∈ NonNegIntegerSet
+4. seqlim_{ n → +∞ } (p(n)) = +∞
+5. seqlim_{ n → +∞ } (q(n)) = -∞
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(n) ∉ [-1, 0] ∧ q(n) ∉ [-1, 0]
+7. k = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . floor(p(n)))
+
+GOAL:
+seqlim_{ n → +∞ } (k(n)) = +∞
+
+METHOD:

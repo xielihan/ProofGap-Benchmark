@@ -1,0 +1,16 @@
+PROOF GAP @3
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. b : NonNegIntegerSet → RealSet
+3. IsSeq(a)
+4. IsSeq(b)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(1, 2 * n - 1)
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = frac(1, 2 * n)
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) > b(n) ∧ b(n) > 0
+8. DivergentSeries(sum_{ n = 1 }^{ +∞ } (b(n)))
+9. forall (c), DivergentSeries(sum_{ n = 1 }^{ +∞ } (c(n))) ⇔ ¬ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n)))
+
+GOAL:
+DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+METHOD:

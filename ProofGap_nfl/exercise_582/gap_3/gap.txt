@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x > 0 ⇒ x^{2} + x ≥ 0 ∧ -1 ≤ sqrtn(2, x^{2} + x) - x ∧ sqrtn(2, x^{2} + x) - x ≤ 1
+2. forall (x), x ∈ RealSet ∧ x > 0 ⇒ sqrtn(2, x^{2} + x) + x ≠ 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ sqrtn(2, x^{2} + x) - x = frac(x, sqrtn(2, x^{2} + x) + x)
+
+METHOD:
+[@method 等价变形 @]

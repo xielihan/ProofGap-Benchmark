@@ -1,0 +1,15 @@
+PROOF GAP @7
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ f(x) = frac(1 + x^{2}, 1 + x^{4})
+3. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ f(x) > 0
+4. lim_{ x → +∞ } (f(x)) = 0
+5. inf(ImageOn(f, IntervalLoRo(0, +∞))) = 0
+6. MaximumPointOn(f, IntervalLoRo(0, +∞)) = { sqrtn(2, sqrtn(2, 2) - 1) }
+7. f(sqrtn(2, sqrtn(2, 2) - 1)) = frac(1, 2) * (1 + sqrtn(2, 2))
+8. sup(ImageOn(f, IntervalLoRo(0, +∞))) = frac(1, 2) * (1 + sqrtn(2, 2))
+
+GOAL:
+frac(1, 2) * (1 + sqrtn(2, 2)) ≈_{ 0.1 } 1.2
+
+METHOD:

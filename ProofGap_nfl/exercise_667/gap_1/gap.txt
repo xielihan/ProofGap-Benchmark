@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. ε ∈ RealSet ∧ ε > 0
+3. x_{0} ∈ RealSet
+4. δ ∈ RealSet
+5. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = frac(1, x)
+6. ε = 0.001
+7. x_{0} ∈ IntervalLoRo(0, 1)
+
+GOAL:
+forall (y), y ∈ RealSet ∧ y ≠ 0 ⇒ |f(y) - f(x_{0})| = |frac(x_{0} - y, y * x_{0})|
+
+METHOD:

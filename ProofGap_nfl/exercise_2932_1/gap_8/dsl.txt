@@ -1,0 +1,4 @@
+assert (hypothesis 8: {DefInt(0, 1, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x)) ∈ IntervalLoRo(0.7467, 0.7476)}) by proof {
+  autosolve all_hypothesis
+}
+apply (hypothesis 8: {DefInt(0, 1, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x)) ∈ IntervalLoRo(0.7467, 0.7476)})

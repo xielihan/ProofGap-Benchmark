@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. C ∈ RealSet
+2. x ∈ RealSet
+3. t ∈ RealSet
+4. x^{2} + x - 1 > 0
+5. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, (x^{2} + x + 1) * sqrtn(2, x^{2} + x - 1)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(1, ((x + frac(1, 2))^{2} + frac(3, 4)) * sqrtn(2, (x + frac(1, 2))^{2} - frac(5, 4))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+GOAL:
+x + frac(1, 2) > frac(sqrtn(2, 5), 2) ⇒ x + frac(1, 2) = frac(sqrtn(2, 5), 2) * sec(t) ⇒ 0 < t
+
+METHOD:

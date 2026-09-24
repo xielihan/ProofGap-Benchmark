@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. m ∈ NonNegIntegerSet
+3. n ∈ NonNegIntegerSet
+4. x ∈ RealSet
+5. m ∈ PosIntegerSet
+6. n ∈ PosIntegerSet
+7. forall (x), x ∈ RealSet ⇒ y(x) = (1 + n * x^{m}) * (1 + m * x^{n})
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = m * n * x^{m - 1} * (1 + m * x^{n}) + m * n * x^{n - 1} * (1 + n * x^{m})
+
+METHOD:

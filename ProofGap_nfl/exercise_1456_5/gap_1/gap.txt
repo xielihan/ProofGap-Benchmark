@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. x ∈ RealSet
+
+GOAL:
+(a, b) = (0, 0) ⇒ |a * sin(x) + b * cos(x)| = 0
+
+METHOD:

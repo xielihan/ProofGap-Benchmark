@@ -1,0 +1,15 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. J ∈ RealSet
+4. forall (x), x ∈ RealSet ∧ x > 0 ⇒ frac(e^{-a * x} - e^{-b * x}, x) = DefInt(a, b, (fun y [y ∈ RealSet ∧ y ∈ [a, b]] . e^{-x * y}) * diff(fun y [y ∈ RealSet ∧ y ∈ [a, b]] . y))
+5. J = DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . frac(e^{-a * x} - e^{-b * x}, x)) * diff(fun x [x ∈ RealSet ∧ x > 0] . x))
+6. 0 < a ⇒ a < b ⇒ ContinuousFuncOn(fun x, y [x ∈ RealSet ∧ x ≥ 0 ∧ y ∈ RealSet ∧ y ∈ [a, b]] . e^{-x * y}, CartesianProd([0, +∞), [a, b]))
+7. forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ (forall (y), y ∈ RealSet ∧ 0 < a ∧ a < b ∧ x ≥ 0 ∧ y ∈ [a, b] ⇒ 0 < e^{-x * y})
+8. forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ (forall (y), y ∈ RealSet ∧ 0 < a ∧ a < b ∧ x ≥ 0 ∧ y ∈ [a, b] ⇒ e^{-x * y} ≤ e^{-a * x})
+
+GOAL:
+0 < a ⇒ a < b ⇒ ConvergentSeries(DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . e^{-a * x}) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)))
+
+METHOD:

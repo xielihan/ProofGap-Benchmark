@@ -1,0 +1,18 @@
+1. get_forall (GOAL: {forall (x_{0}) (y_{0}) (`δ_{1}`) (`δ_{2}`) (P_{0}) (P) (x) (y), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ `δ_{1}` ∈ RealSet ∧ `δ_{2}` ∈ RealSet ∧ P_{0} ∈ CartesianProd(RealSet, RealSet) ∧ P ∈ CartesianProd(RealSet, RealSet) ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ P_{0} = (x_{0}, y_{0}) ∧ P_{0} ∈ G ⇒ (forall (ε) (δ), ε ∈ RealSet ∧ δ ∈ RealSet ∧ ε > 0 ∧ δ = min(`δ_{1}`, `δ_{2}`) ∧ P = (x, y) ∧ P ∈ G ∧ |P - P_{0}| < δ ⇒ δ ≤ `δ_{1}`)}) (x_{0} := {x0v}) (y_{0} := {y0v}) (`δ_{1}` := {d1v}) (`δ_{2}` := {d2v}) (P_{0} := {P0v}) (P := {Pv}) (x := {xv}) (y := {yv})
+2. get_condition (hypothesis 12: {x0v ∈ RealSet ∧ y0v ∈ RealSet ∧ d1v ∈ RealSet ∧ d2v ∈ RealSet ∧ P0v ∈ CartesianProd(RealSet, RealSet) ∧ Pv ∈ CartesianProd(RealSet, RealSet) ∧ xv ∈ RealSet ∧ yv ∈ RealSet ∧ P0v = (x0v, y0v) ∧ P0v ∈ G}) in (GOAL: {x0v ∈ RealSet ∧ y0v ∈ RealSet ∧ d1v ∈ RealSet ∧ d2v ∈ RealSet ∧ P0v ∈ CartesianProd(RealSet, RealSet) ∧ Pv ∈ CartesianProd(RealSet, RealSet) ∧ xv ∈ RealSet ∧ yv ∈ RealSet ∧ P0v = (x0v, y0v) ∧ P0v ∈ G ⇒ (forall (ε) (δ), ε ∈ RealSet ∧ δ ∈ RealSet ∧ ε > 0 ∧ δ = min(d1v, d2v) ∧ Pv = (xv, yv) ∧ Pv ∈ G ∧ |Pv - P0v| < δ ⇒ δ ≤ d1v)})
+3. get_forall (GOAL: {forall (ε) (δ), ε ∈ RealSet ∧ δ ∈ RealSet ∧ ε > 0 ∧ δ = min(d1v, d2v) ∧ Pv = (xv, yv) ∧ Pv ∈ G ∧ |Pv - P0v| < δ ⇒ δ ≤ d1v}) (ε := {epsv}) (δ := {dv})
+4. get_condition (hypothesis 13: {epsv ∈ RealSet ∧ dv ∈ RealSet ∧ epsv > 0 ∧ dv = min(d1v, d2v) ∧ Pv = (xv, yv) ∧ Pv ∈ G ∧ |Pv - P0v| < dv}) in (GOAL: {epsv ∈ RealSet ∧ dv ∈ RealSet ∧ epsv > 0 ∧ dv = min(d1v, d2v) ∧ Pv = (xv, yv) ∧ Pv ∈ G ∧ |Pv - P0v| < dv ⇒ dv ≤ d1v})
+5. assert (hypothesis 14: {d1v ∈ RealSet}) by proof {
+  1. autosolve all_hypothesis
+}
+6. assert (hypothesis 15: {d2v ∈ RealSet}) by proof {
+  1. autosolve all_hypothesis
+}
+7. assert (hypothesis 16: {dv = min(d1v, d2v)}) by proof {
+  1. autosolve all_hypothesis
+}
+8. get_prop (theorem 'Thm 400. (MinimumOfTwoRealsDefinition)': {forall (a) (b), a ∈ RealSet => b ∈ RealSet => ((min(a, b) = a <==> a <= b) /\ (min(a, b) = b <==> b <= a))}) (a := {d1v}) (b := {d2v}) as (hypothesis 17: {d1v ∈ RealSet => d2v ∈ RealSet => ((min(d1v, d2v) = d1v <==> d1v <= d2v) /\ (min(d1v, d2v) = d2v <==> d2v <= d1v))})
+9. use_condition (hypothesis 14: {d1v ∈ RealSet}) in (hypothesis 17: {d1v ∈ RealSet => d2v ∈ RealSet => ((min(d1v, d2v) = d1v <==> d1v <= d2v) /\ (min(d1v, d2v) = d2v <==> d2v <= d1v))}) as (hypothesis 18: {d2v ∈ RealSet => ((min(d1v, d2v) = d1v <==> d1v <= d2v) /\ (min(d1v, d2v) = d2v <==> d2v <= d1v))})
+10. use_condition (hypothesis 15: {d2v ∈ RealSet}) in (hypothesis 18: {d2v ∈ RealSet => ((min(d1v, d2v) = d1v <==> d1v <= d2v) /\ (min(d1v, d2v) = d2v <==> d2v <= d1v))}) as (hypothesis 19: {(min(d1v, d2v) = d1v <==> d1v <= d2v) /\ (min(d1v, d2v) = d2v <==> d2v <= d1v)})
+11. destruct_and (hypothesis 19: {(min(d1v, d2v) = d1v <==> d1v <= d2v) /\ (min(d1v, d2v) = d2v <==> d2v <= d1v)}) as (hypothesis 20: {min(d1v, d2v) = d1v <==> d1v <= d2v}) (hypothesis 21: {min(d1v, d2v) = d2v <==> d2v <= d1v})
+12. autosolve all_hypothesis

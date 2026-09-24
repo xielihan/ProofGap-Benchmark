@@ -1,0 +1,20 @@
+PROOF GAP @8
+ASSUM:
+1. I : RealSet → RealSet
+2. I_{1} : RealSet → RealSet
+3. I_{2} : RealSet → RealSet
+4. forall (α), α ∈ RealSet ∧ 0 ≤ α ∧ α ≤ 1 ⇒ I(α) = DefInt(0, 1, (fun x [x ∈ RealSet] . frac(sin(α * x), sqrtn(2, |x - α|))) * diff(fun x [x ∈ RealSet] . x))
+5. forall (α), α ∈ RealSet ∧ 0 ≤ α ∧ α ≤ 1 ⇒ I_{1}(α) = DefInt(0, α, (fun x [x ∈ RealSet] . frac(sin(α * x), sqrtn(2, α - x))) * diff(fun x [x ∈ RealSet] . x))
+6. forall (α), α ∈ RealSet ∧ 0 ≤ α ∧ α ≤ 1 ⇒ I_{2}(α) = DefInt(α, 1, (fun x [x ∈ RealSet] . frac(sin(α * x), sqrtn(2, x - α))) * diff(fun x [x ∈ RealSet] . x))
+7. forall (α), α ∈ RealSet ∧ 0 ≤ α ∧ α ≤ 1 ⇒ I(α) = I_{1}(α) + I_{2}(α)
+8. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (η), η ∈ RealSet ∧ η = frac(ε^{2}, 8) ∧ 0 < η)
+9. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (η), η ∈ RealSet ∧ η = frac(ε^{2}, 8) ∧ η < frac(ε^{2}, 4))
+10. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (η), η ∈ RealSet ∧ η = frac(ε^{2}, 8) ∧ (forall (α), α ∈ RealSet ∧ 0 ≤ α ∧ α ≤ 1 ∧ α - η ≥ 0 ⇒ |DefInt(α - η, α, (fun x [x ∈ RealSet] . frac(sin(α * x), sqrtn(2, α - x))) * diff(fun x [x ∈ RealSet] . x))| ≤ DefInt(α - η, α, (fun x [x ∈ RealSet] . frac(1, sqrtn(2, α - x))) * diff(fun x [x ∈ RealSet] . x)) ∧ DefInt(α - η, α, (fun x [x ∈ RealSet] . frac(1, sqrtn(2, α - x))) * diff(fun x [x ∈ RealSet] . x)) = 2 * sqrtn(2, η) ∧ 2 * sqrtn(2, η) < ε))
+11. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (η), η ∈ RealSet ∧ η = frac(ε^{2}, 8) ∧ (forall (α), α ∈ RealSet ∧ 0 ≤ α ∧ α ≤ 1 ∧ α + η ≤ 1 ⇒ |DefInt(α, α + η, (fun x [x ∈ RealSet] . frac(sin(α * x), sqrtn(2, x - α))) * diff(fun x [x ∈ RealSet] . x))| ≤ DefInt(α, α + η, (fun x [x ∈ RealSet] . frac(1, sqrtn(2, x - α))) * diff(fun x [x ∈ RealSet] . x)) ∧ DefInt(α, α + η, (fun x [x ∈ RealSet] . frac(1, sqrtn(2, x - α))) * diff(fun x [x ∈ RealSet] . x)) = 2 * sqrtn(2, η) ∧ 2 * sqrtn(2, η) < ε))
+12. forall (α), α ∈ RealSet ∧ 0 ≤ α ∧ α ≤ 1 ⇒ UniformConvergent(I_{1}, [0, 1], DefInt(0, α, (fun x [x ∈ RealSet] . frac(sin(α * x), sqrtn(2, α - x))) * diff(fun x [x ∈ RealSet] . x)))
+13. forall (α), α ∈ RealSet ∧ 0 ≤ α ∧ α ≤ 1 ⇒ UniformConvergent(I_{2}, [0, 1], DefInt(α, 1, (fun x [x ∈ RealSet] . frac(sin(α * x), sqrtn(2, x - α))) * diff(fun x [x ∈ RealSet] . x)))
+
+GOAL:
+forall (α), α ∈ RealSet ∧ 0 ≤ α ∧ α ≤ 1 ⇒ UniformConvergent(I, [0, 1], DefInt(0, 1, (fun x [x ∈ RealSet] . frac(sin(α * x), sqrtn(2, |x - α|))) * diff(fun x [x ∈ RealSet] . x)))
+
+METHOD:

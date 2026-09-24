@@ -1,0 +1,17 @@
+PROOF GAP @11
+ASSUM:
+1. seqlim_{ n → +∞ } (sin(n^{2})) = 0 ⇒ seqlim_{ n → +∞ } (sin(n^{2})^{2}) = 0
+2. forall (n), n ∈ NonNegIntegerSet ∧ seqlim_{ n → +∞ } (sin(n^{2})) = 0 ⇒ sin(n^{2})^{2} + cos(n^{2})^{2} = 1
+3. seqlim_{ n → +∞ } (sin(n^{2})) = 0 ⇒ seqlim_{ n → +∞ } (cos(n^{2})^{2}) = 1
+4. forall (n), n ∈ NonNegIntegerSet ∧ seqlim_{ n → +∞ } (sin(n^{2})) = 0 ⇒ sin((n + 1)^{2}) = sin(n^{2} + 2 * n + 1)
+5. forall (n), n ∈ NonNegIntegerSet ∧ seqlim_{ n → +∞ } (sin(n^{2})) = 0 ⇒ sin(n^{2} + 2 * n + 1) = sin(n^{2}) * cos(2 * n + 1) + cos(n^{2}) * sin(2 * n + 1)
+6. forall (n), n ∈ NonNegIntegerSet ∧ seqlim_{ n → +∞ } (sin(n^{2})) = 0 ⇒ sin((n + 1)^{2}) = sin(n^{2}) * cos(2 * n + 1) + cos(n^{2}) * sin(2 * n + 1)
+7. forall (n), n ∈ NonNegIntegerSet ∧ seqlim_{ n → +∞ } (sin(n^{2})) = 0 ⇒ cos(n^{2})^{2} * sin(2 * n + 1)^{2} = (sin((n + 1)^{2}) - sin(n^{2}) * cos(2 * n + 1))^{2}
+8. seqlim_{ n → +∞ } (sin(n^{2})) = 0 ⇒ seqlim_{ n → +∞ } (sin(2 * n + 1)) = 0
+9. seqlim_{ n → +∞ } (sin(n^{2})) = 0 ⇒ seqlim_{ n → +∞ } (sin(2 * n - 1)) = 0
+10. forall (n), n ∈ NonNegIntegerSet ∧ seqlim_{ n → +∞ } (sin(n^{2})) = 0 ⇒ sin(2 * n + 1) + sin(2 * n - 1) = 2 * sin(2 * n) * cos(1)
+
+GOAL:
+seqlim_{ n → +∞ } (sin(n^{2})) = 0 ⇒ seqlim_{ n → +∞ } (sin(2 * n)) = 0
+
+METHOD:

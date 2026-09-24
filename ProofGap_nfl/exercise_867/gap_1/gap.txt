@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ sin(x^{2}) ≠ 0 ⇒ y(x) = frac(sin(x)^{2}, sin(x^{2}))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ sin(x^{2}) ≠ 0 ⇒ (frac(sin(x)^{2}, sin(x^{2})))' = frac(2 * sin(x) * (cos(x) * sin(x^{2}) - x * sin(x) * cos(x^{2})), sin(x^{2})^{2})
+
+METHOD:

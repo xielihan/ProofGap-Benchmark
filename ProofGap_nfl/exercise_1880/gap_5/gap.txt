@@ -1,0 +1,21 @@
+PROOF GAP @5
+ASSUM:
+1. x ∈ RealSet
+2. A ∈ RealSet
+3. B ∈ RealSet
+4. C ∈ RealSet
+5. D ∈ RealSet
+6. K ∈ RealSet
+7. x ≠ 0
+8. x ≠ -1
+9. frac(1, x * (1 + x) * (1 + x + x^{2})) = frac(A, x) + frac(B, x + 1) + frac(C * x + D, x^{2} + x + 1)
+10. 1 ≡ A * (x + 1) * (1 + x + x^{2}) + B * x * (1 + x + x^{2}) + x * (x + 1) * (C * x + D)
+11. A + B + C = 0
+12. 2 * A + B + C + D = 0
+13. 2 * A + B + D = 0
+
+GOAL:
+A = 1
+
+METHOD:
+[@method 两边同时比较系数 @]

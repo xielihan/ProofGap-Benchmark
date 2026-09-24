@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. Ω ⊆ CartesianProd(RealSet, RealSet)
+2. a ∈ RealSet
+3. DiskDomain : RealSet → PowerSet(CartesianProd(RealSet, RealSet))
+4. a > 0
+5. Ω = DiskDomain(a)
+6. VolumeInt(Ω, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . |x * y|) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = DefInt(-a, a, (fun x [x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a] . DefInt(-sqrtn(2, a^{2} - x^{2}), sqrtn(2, a^{2} - x^{2}), (fun y [y ∈ RealSet ∧ -sqrtn(2, a^{2} - x^{2}) ≤ y ∧ y ≤ sqrtn(2, a^{2} - x^{2})] . |x * y|) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+7. forall (x), x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a ⇒ DefInt(-sqrtn(2, a^{2} - x^{2}), sqrtn(2, a^{2} - x^{2}), (fun y [y ∈ RealSet ∧ -sqrtn(2, a^{2} - x^{2}) ≤ y ∧ y ≤ sqrtn(2, a^{2} - x^{2})] . |x * y|) * diff(fun y [y ∈ RealSet] . y)) = (a^{2} - x^{2}) * |x|
+
+GOAL:
+VolumeInt(Ω, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . |x * y|) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = DefInt(-a, a, (fun x [x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a] . (a^{2} - x^{2}) * |x|) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

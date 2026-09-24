@@ -1,0 +1,2 @@
+assert (hypothesis 16: {(P(x, y) * sin(α) - Q(x, y) * cos(α))^{2} ≥ 0})
+autosolve (hypothesis 15: {(P(x, y) * cos(α) + Q(x, y) * sin(α))^{2} + (P(x, y) * sin(α) - Q(x, y) * cos(α))^{2} = P(x, y)^{2} + Q(x, y)^{2}}) (hypothesis 16: {(P(x, y) * sin(α) - Q(x, y) * cos(α))^{2} ≥ 0})

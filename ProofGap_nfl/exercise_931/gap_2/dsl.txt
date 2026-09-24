@@ -1,0 +1,3 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ frac(sin(2 * x), 1 + sin(x)^{2}) - 2 * cos(x) * arctan(sin(x)) - frac(sin(2 * x), 1 + sin(x)^{2}) = -2 * cos(x) * arctan(sin(x))}) (x := {x0})
+get_condition (hypothesis 4: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ frac(sin(2 * x0), 1 + sin(x0)^{2}) - 2 * cos(x0) * arctan(sin(x0)) - frac(sin(2 * x0), 1 + sin(x0)^{2}) = -2 * cos(x0) * arctan(sin(x0))})
+autosolve all_hypothesis

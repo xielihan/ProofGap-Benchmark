@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. x ∈ RealSet
+3. b : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = frac(1, sqrtn(n, n!)) * frac(1, 1 + a^{2 * n} * x^{2})
+
+GOAL:
+x = 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = frac(1, sqrtn(n, n!)))
+
+METHOD:

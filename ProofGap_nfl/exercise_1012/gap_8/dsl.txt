@@ -1,0 +1,3 @@
+rewrite (right_to_left, equation) (hypothesis 16: {A * (a - b) * (a - c) = k_{1}}); from (GOAL: {A = frac(k_{1} + k_{2}, (b - a) ^ 2)}) to (GOAL: {A = frac(A * (a - b) * (a - c) + k_{2}, (b - a) ^ 2)})
+rewrite (right_to_left, equation) (hypothesis 17: {A * (b - a) * (b - c) = k_{2}}); from (GOAL: {A = frac(A * (a - b) * (a - c) + k_{2}, (b - a) ^ 2)}) to (GOAL: {A = frac(A * (a - b) * (a - c) + A * (b - a) * (b - c), (b - a) ^ 2)})
+autosolve (hypothesis 8: {a < b})

@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. exists (`δ_0`), `δ_0` ∈ RealSet ∧ `δ_0` > 0 ∧ Defined(f, (a - `δ_0`, a))
+5. lim_{ x → a } (f(x)) = b
+6. forall (x), x ∈ RealSet ∧ x < a ⇒ f(x) > b
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ 0 < a - x ∧ a - x < δ ⇒ 0 < f(x) - b ∧ f(x) - b < ε))
+
+METHOD:

@@ -1,0 +1,1 @@
+1. apply (hypothesis 2: {forall (x), x ∈ RealSet ⇒ y(x) = cos(2 * x) - 2 * sin(x)})

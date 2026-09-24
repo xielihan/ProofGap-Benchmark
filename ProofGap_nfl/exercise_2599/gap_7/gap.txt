@@ -1,0 +1,22 @@
+PROOF GAP @7
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. d ∈ RealSet
+4. u : NonNegIntegerSet → RealSet
+5. k ∈ NonNegIntegerSet
+6. a > 0
+7. b > 0
+8. d > 0
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = frac(prod_{ k = 0 }^{ n - 1 } (a + k * d), prod_{ k = 0 }^{ n - 1 } (b + k * d))
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(u(n), u(n + 1)) = frac(b + n * d, a + n * d)
+11. seqlim_{ n → +∞ } (n * (frac(u(n), u(n + 1)) - 1)) = seqlim_{ n → +∞ } (n * (frac(b + n * d, a + n * d) - 1))
+12. seqlim_{ n → +∞ } (n * (frac(b + n * d, a + n * d) - 1)) = seqlim_{ n → +∞ } (frac((b - a) * n, a + n * d))
+13. seqlim_{ n → +∞ } (frac((b - a) * n, a + n * d)) = frac(b - a, d)
+14. seqlim_{ n → +∞ } (n * (frac(u(n), u(n + 1)) - 1)) = frac(b - a, d)
+15. frac(b - a, d) > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (u(n)))
+
+GOAL:
+frac(b - a, d) > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (u(n)))
+
+METHOD:

@@ -1,0 +1,17 @@
+PROOF GAP @8
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. x ∈ RealSet
+4. (a, b) = (0, 0) ⇒ |a * sin(x) + b * cos(x)| = 0
+5. (a, b) = (0, 0) ⇒ sqrtn(2, a^{2} + b^{2}) = 0
+6. (a, b) = (0, 0) ⇒ |a * sin(x) + b * cos(x)| ≤ sqrtn(2, a^{2} + b^{2})
+7. (a, b) ≠ (0, 0) ⇒ (exists (φ), φ ∈ RealSet ∧ cos(φ) = frac(a, sqrtn(2, a^{2} + b^{2})) ∧ sin(φ) = frac(b, sqrtn(2, a^{2} + b^{2})))
+8. (a, b) ≠ (0, 0) ⇒ (exists (φ), φ ∈ RealSet ∧ a * sin(x) + b * cos(x) = sqrtn(2, a^{2} + b^{2}) * sin(x + φ))
+9. (a, b) ≠ (0, 0) ⇒ (exists (φ), φ ∈ RealSet ∧ |sin(x + φ)| ≤ 1)
+10. (a, b) ≠ (0, 0) ⇒ |a * sin(x) + b * cos(x)| ≤ sqrtn(2, a^{2} + b^{2})
+
+GOAL:
+|a * sin(x) + b * cos(x)| ≤ sqrtn(2, a^{2} + b^{2})
+
+METHOD:

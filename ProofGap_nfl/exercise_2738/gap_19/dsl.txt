@@ -1,0 +1,4 @@
+assert (hypothesis 22: {ConvergentSeries(sum_{ n = -∞ }^{ +∞ } (frac(n, 2^{|n|}) * x^{n})) ⇔ frac(1, 2) < |x| ∧ |x| < 2}) by proof {
+  autosolve all_hypothesis
+}
+apply (hypothesis 22: {ConvergentSeries(sum_{ n = -∞ }^{ +∞ } (frac(n, 2^{|n|}) * x^{n})) ⇔ frac(1, 2) < |x| ∧ |x| < 2})

@@ -1,0 +1,15 @@
+PROOF GAP @7
+ASSUM:
+1. a : NonNegIntegerSet → RealSet ∧ IsSeq(a)
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac((n!)^{2}, 2^{n^{2}})
+3. seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, 2^{(n + 1)^{2}}), frac((n!)^{2}, 2^{n^{2}})))
+4. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, 2^{(n + 1)^{2}}), frac((n!)^{2}, 2^{n^{2}}))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, 2^{2 * n + 1}))
+5. seqlim_{ n → +∞ } (frac((n + 1)^{2}, 2^{2 * n + 1})) = 0
+6. seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = 0
+7. 0 < 1
+8. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+GOAL:
+ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+METHOD:

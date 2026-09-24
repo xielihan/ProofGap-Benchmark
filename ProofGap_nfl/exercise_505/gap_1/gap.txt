@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ sin(sqrtn(2, x + 1)) - sin(sqrtn(2, x)) = 2 * sin(frac(sqrtn(2, x + 1) - sqrtn(2, x), 2)) * cos(frac(sqrtn(2, x + 1) + sqrtn(2, x), 2))
+
+METHOD:

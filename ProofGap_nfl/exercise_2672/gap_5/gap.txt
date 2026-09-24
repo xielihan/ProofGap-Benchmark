@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. b : NonNegIntegerSet → RealSet
+2. b = (fun k [k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet] . sum_{ n = k^{2} }^{ (k + 1)^{2} - 1 } (frac(1, n)))
+3. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ sum_{ n = k^{2} }^{ (k + 1)^{2} - 1 } (frac((-1)^{floor(sqrtn(2, n))}, n)) = (-1)^{k} * b(k)
+4. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ frac(2, k + 1) < b(k) ∧ b(k) < frac(2, k)
+5. PosSeq(b)
+6. MonoDecSeq(b)
+
+GOAL:
+seqlim_{ k → +∞ } (b(k)) = 0
+
+METHOD:

@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. forall (k) (n), k ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ln(n + 1) = ln(n) + 2 * (sum_{ k = 0 }^{ +∞ } (frac(1, (2 * k + 1) * (2 * n + 1)^{2 * k + 1})))
+2. forall (n), n ∈ NonNegIntegerSet ∧ n = 1 ⇒ ln(2) = 2 * (sum_{ k = 0 }^{ +∞ } (frac(1, (2 * k + 1) * 3^{2 * k + 1})))
+3. Δ = ln(2) - 2 * (frac(1, 3) + frac(1, 3 * 3^{3}) + frac(1, 5 * 3^{5}) + frac(1, 7 * 3^{7}) + frac(1, 9 * 3^{9}))
+4. forall (n), n ∈ NonNegIntegerSet ∧ n = 1 ⇒ ln(2) = 2 * (frac(1, 3) + frac(1, 3 * 3^{3}) + frac(1, 5 * 3^{5}) + frac(1, 7 * 3^{7}) + frac(1, 9 * 3^{9})) + Δ
+5. forall (n), n ∈ NonNegIntegerSet ∧ n = 1 ⇒ 0 < Δ
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n = 1 ⇒ Δ < 2 * (sum_{ k = 5 }^{ +∞ } (frac(1, (2 * k + 1) * 3^{2 * k + 1})))
+
+METHOD:

@@ -1,0 +1,10 @@
+assert (hypothesis 6: {exists (z), z ∈ RealSet ∧ (z = sqrtn(2, 0 * 0) ∨ z = -sqrtn(2, 0 * 0))}) by proof {
+  exists (z := {0})
+  autosolve
+}
+assert (hypothesis 7: {exists (y), y ∈ RealSet ∧ (exists (z), z ∈ RealSet ∧ (z = sqrtn(2, 0 * y) ∨ z = -sqrtn(2, 0 * y)))}) by proof {
+  exists (y := {0})
+  autosolve (hypothesis 6: {exists (z), z ∈ RealSet ∧ (z = sqrtn(2, 0 * 0) ∨ z = -sqrtn(2, 0 * 0))})
+}
+exists (x := {0})
+autosolve (hypothesis 7: {exists (y), y ∈ RealSet ∧ (exists (z), z ∈ RealSet ∧ (z = sqrtn(2, 0 * y) ∨ z = -sqrtn(2, 0 * y)))})

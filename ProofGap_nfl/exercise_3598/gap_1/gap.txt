@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x, y) = cos(x) * frac(e^{y} + e^{-y}, 2)
+
+GOAL:
+forall (y), y ∈ RealSet ⇒ frac(e^{y} + e^{-y}, 2) = sum_{ n = 0 }^{ +∞ } (frac(y^{2 * n}, (2 * n)!))
+
+METHOD:

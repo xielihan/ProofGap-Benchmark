@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x = 0 => 4 * x ^ 2 + 9 * x ^ 4 = 0}) (x := {u})
+get_condition (hypothesis 9: {u ∈ RealSet ∧ u = 0}) in (GOAL: {u ∈ RealSet ∧ u = 0 => 4 * u ^ 2 + 9 * u ^ 4 = 0})
+destruct_and (hypothesis 9: {u ∈ RealSet ∧ u = 0}) as (hypothesis 10: {u ∈ RealSet}) (hypothesis 11: {u = 0})
+rewrite (left_to_right, equation) (hypothesis 11: {u = 0}); from (GOAL: {4 * u ^ 2 + 9 * u ^ 4 = 0}) to (GOAL: {4 * 0 ^ 2 + 9 * 0 ^ 4 = 0})
+autosolve all_hypothesis

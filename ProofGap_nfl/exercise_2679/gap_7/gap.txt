@@ -1,0 +1,15 @@
+PROOF GAP @7
+ASSUM:
+1. x ∈ RealSet
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x + n ≠ 0
+3. (exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x = -n) ⇒ (exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x + n = 0)
+4. (exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x = -n) ⇒ ¬Defined(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . (-1)^{n} / (x + n), PosIntegerSet)
+5. forall (a), a : NonNegIntegerSet → RealSet ∧ ¬(exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x = -n) ∧ a = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . 1 / |x + n|) ⇒ seqlim_{ n → +∞ } (a(n)) = 0
+6. forall (a), a : NonNegIntegerSet → RealSet ∧ ¬(exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x = -n) ∧ a = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . 1 / |x + n|) ⇒ MonoDecSeqOn(a, { n | n ∈ PosIntegerSet, n > |x| + 1 })
+7. forall (a), a : NonNegIntegerSet → RealSet ∧ ¬(exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x = -n) ∧ a = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . 1 / |x + n|) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n} / (x + n)))
+8. ¬(exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x = -n) ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (1 / |x + n|))
+
+GOAL:
+¬(exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x = -n) ⇒ ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n} / (x + n)))
+
+METHOD:

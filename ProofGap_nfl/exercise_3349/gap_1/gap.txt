@@ -1,0 +1,25 @@
+PROOF GAP @1
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. v : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. c ∈ RealSet
+6. m ∈ RealSet
+7. n ∈ RealSet
+8. p ∈ RealSet
+9. x_{0} ∈ RealSet
+10. y_{0} ∈ RealSet
+11. z_{0} ∈ RealSet
+12. θ ∈ RealSet
+13. a^{2} + b^{2} + c^{2} ≠ 0
+14. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = a * x^{2} + b * y^{2} + c * z^{2}
+15. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ v(x, y, z) = a * x^{2} + b * y^{2} + c * z^{2} + 2 * m * x + 2 * n * y + 2 * p * z
+16. 0 ≤ θ
+17. θ ≤ π
+18. cos(θ) = frac(grad(u, x_{0}, y_{0}, z_{0}) · grad(v, x_{0}, y_{0}, z_{0}), |grad(u, x_{0}, y_{0}, z_{0})| * |grad(v, x_{0}, y_{0}, z_{0})|)
+
+GOAL:
+grad(u, x_{0}, y_{0}, z_{0}) = (2 * a * x_{0}, 2 * b * y_{0}, 2 * c * z_{0})
+
+METHOD:

@@ -1,0 +1,9 @@
+get_condition (hypothesis 7: {a < 0}) in (GOAL: {a < 0 => (forall (x), x ∈ RealSet => e^{-a * x} = e^{|a| * x})})
+get_forall (GOAL: {forall (x), x ∈ RealSet => e^{-a * x} = e^{|a| * x}}) (x := {x1})
+get_condition (hypothesis 8: {x1 ∈ RealSet}) in (GOAL: {x1 ∈ RealSet => e^{-a * x1} = e^{|a| * x1}})
+get_prop (theorem 'Thm 489. (AbsoluteValueOfNonpositiveReal)': {forall (x), x ∈ RealSet => (x <= 0 <==> |x| = -x)}) (x := {a}) as (hypothesis 9: {a ∈ RealSet => (a <= 0 <==> |a| = -a)})
+assert (hypothesis 10: {|a| = -a}) by proof {
+  autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 10: {|a| = -a}); from (GOAL: {e^{-a * x1} = e^{|a| * x1}}) to (GOAL: {e^{-a * x1} = e^{(-a) * x1}})
+autosolve all_hypothesis

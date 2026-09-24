@@ -1,0 +1,22 @@
+PROOF GAP @11
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. g : RealSet → RealSet
+3. C ∈ RealSet
+4. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ f(n, x) = sqrtn(2, x^{2} + frac(1, n^{2}))
+5. forall (x), x ∈ RealSet ⇒ g(x) = |x|
+6. forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (f(n, x)) = g(x)
+7. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ |f(n, x) - g(x)| = frac(x^{2} + frac(1, n^{2}) - x^{2}, sqrtn(2, x^{2} + frac(1, n^{2})) + |x|)
+8. forall (x) (n), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ⇒ frac(x^{2} + frac(1, n^{2}) - x^{2}, sqrtn(2, x^{2} + frac(1, n^{2})) + |x|) < frac(frac(1, n^{2}), frac(1, n))
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(frac(1, n^{2}), frac(1, n)) = frac(1, n)
+10. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ |f(n, x) - g(x)| < frac(1, n)
+11. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(1, n) < ε ⇒ |f(n, x) - g(x)| < ε)
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ n > frac(1, ε) ⇒ frac(1, n) < ε)
+13. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ n > frac(1, ε) ⇒ |f(n, x) - g(x)| < ε)
+14. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N = floor(frac(1, ε)))
+15. forall (n) (N) (x), n ∈ NonNegIntegerSet ∧ N ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ n > N ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ |f(n, x) - g(x)| < ε)
+
+GOAL:
+UniformConvergent(f, RealSet, g)
+
+METHOD:

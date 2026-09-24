@@ -1,0 +1,4 @@
+assert (hypothesis 27: {x ∈ [-1, 1) ⇒ sum_{ n = 1 }^{ +∞ } (frac(x^{n}, n)) = ln(frac(1, 1 - x))}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. p ∈ RealSet
+2. q ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ DefInt(0, 1, x^{p} * ln(frac(1, x))^{q} * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, frac(1, 2), x^{p} * ln(frac(1, x))^{q} * diff(fun x [x ∈ RealSet] . x)) + DefInt(frac(1, 2), 1, x^{p} * ln(frac(1, x))^{q} * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

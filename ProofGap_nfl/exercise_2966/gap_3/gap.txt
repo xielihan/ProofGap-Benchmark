@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. q ∈ RealSet ∧ |q| < 1
+3. forall (x), x ∈ RealSet ⇒ f(x) = frac(q * sin(x), 1 - 2 * q * cos(x) + q^{2})
+4. forall (x), x ∈ RealSet ⇒ 1 - q * e^{__IMAGINARY_UNIT__ * x} ≠ 0 ∧ 1 - q * e^{-__IMAGINARY_UNIT__ * x} ≠ 0
+5. forall (x), x ∈ RealSet ⇒ f(x) = frac(frac(q, 2 * __IMAGINARY_UNIT__) * (e^{__IMAGINARY_UNIT__ * x} - e^{-__IMAGINARY_UNIT__ * x}), 1 - q * (e^{__IMAGINARY_UNIT__ * x} + e^{-__IMAGINARY_UNIT__ * x}) + q^{2})
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ f(x) = frac(1, 2 * __IMAGINARY_UNIT__) * (frac(1, 1 - q * e^{__IMAGINARY_UNIT__ * x}) - frac(1, 1 - q * e^{-__IMAGINARY_UNIT__ * x}))
+
+METHOD:

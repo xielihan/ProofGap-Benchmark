@@ -1,0 +1,16 @@
+PROOF GAP @1
+ASSUM:
+1. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. L ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. z : CartesianProd(RealSet, RealSet) → RealSet
+4. a ∈ RealSet ∧ a > 0
+5. b ∈ RealSet ∧ b > 0
+6. `ρ_{0}` ∈ RealSet ∧ `ρ_{0}` > 0
+7. I ∈ RealSet
+8. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ S = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ frac(x^{2}, a^{2}) + frac(y^{2}, a^{2}) - frac(z^{2}, b^{2}) = 0 ∧ 0 ≤ z ∧ z ≤ b })
+9. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ L = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ y = 0 ∧ z = b })
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x^{2} + y^{2} > 0 ⇒ z(x, y) = frac(b, a) * sqrtn(2, x^{2} + y^{2}))
+
+METHOD:

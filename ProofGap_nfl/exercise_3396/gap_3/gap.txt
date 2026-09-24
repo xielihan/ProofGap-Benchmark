@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. F : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. z : CartesianProd(RealSet, RealSet) → RealSet
+3. DiffableFunc(F)
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(FunDeri(F, 2, 1), 2, 1)(x - y, y - z(x, y), z(x, y) - x) - FunDeri(FunDeri(F, 3, 1), 3, 1)(x - y, y - z(x, y), z(x, y) - x) ≠ 0 ∧ F(x - y, y - z(x, y), z(x, y) - x) = 0
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(FunDeri(F, 1, 1), 1, 1)(x - y, y - z(x, y), z(x, y) - x) + FunDeri(FunDeri(F, 2, 1), 2, 1)(x - y, y - z(x, y), z(x, y) - x) * -FunDeri(z, 1, 1)(x, y) + FunDeri(FunDeri(F, 3, 1), 3, 1)(x - y, y - z(x, y), z(x, y) - x) * (FunDeri(z, 1, 1)(x, y) - 1) = 0
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 1)(x, y) = frac(FunDeri(FunDeri(F, 1, 1), 1, 1)(x - y, y - z(x, y), z(x, y) - x) - FunDeri(FunDeri(F, 3, 1), 3, 1)(x - y, y - z(x, y), z(x, y) - x), FunDeri(FunDeri(F, 2, 1), 2, 1)(x - y, y - z(x, y), z(x, y) - x) - FunDeri(FunDeri(F, 3, 1), 3, 1)(x - y, y - z(x, y), z(x, y) - x))
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 2, 1)(x, y) = frac(FunDeri(FunDeri(F, 2, 1), 2, 1)(x - y, y - z(x, y), z(x, y) - x) - FunDeri(FunDeri(F, 1, 1), 1, 1)(x - y, y - z(x, y), z(x, y) - x), FunDeri(FunDeri(F, 2, 1), 2, 1)(x - y, y - z(x, y), z(x, y) - x) - FunDeri(FunDeri(F, 3, 1), 3, 1)(x - y, y - z(x, y), z(x, y) - x))
+
+METHOD:
+[@method 同理 @]

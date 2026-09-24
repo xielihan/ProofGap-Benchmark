@@ -1,0 +1,5 @@
+get_condition (hypothesis 8: {m = n}) in (GOAL: {m = n ⇒ lim_{ x → 1 } (frac(m, 1 - x^{m}) - frac(n, 1 - x^{n})) = frac(m - n, 2)})
+use_condition (hypothesis 8: {m = n}) in (hypothesis 6: {m = n ⇒ lim_{ x → 1 } (frac(m, 1 - x^{m}) - frac(n, 1 - x^{n})) = 0}) as (hypothesis 9: {lim_{ x → 1 } (frac(m, 1 - x^{m}) - frac(n, 1 - x^{n})) = 0})
+use_condition (hypothesis 8: {m = n}) in (hypothesis 7: {m = n ⇒ 0 = frac(m - n, 2)}) as (hypothesis 10: {0 = frac(m - n, 2)})
+rewrite (right_to_left, equation) (hypothesis 10: {0 = frac(m - n, 2)}); from (GOAL: {lim_{ x → 1 } (frac(m, 1 - x^{m}) - frac(n, 1 - x^{n})) = frac(m - n, 2)}) to (GOAL: {lim_{ x → 1 } (frac(m, 1 - x^{m}) - frac(n, 1 - x^{n})) = 0})
+apply (hypothesis 9: {lim_{ x → 1 } (frac(m, 1 - x^{m}) - frac(n, 1 - x^{n})) = 0})

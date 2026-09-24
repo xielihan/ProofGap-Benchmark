@@ -1,0 +1,5 @@
+1. get_prop (hypothesis 3: {forall (x), x ∈ RealSet ⇒ f(x) = (x + |x|) * (1 - x)}) (x := {x}) as (hypothesis 6: {x ∈ RealSet ⇒ f(x) = (x + |x|) * (1 - x)})
+2. use_condition (hypothesis 2: {x ∈ RealSet}) in (hypothesis 6: {x ∈ RealSet ⇒ f(x) = (x + |x|) * (1 - x)}) as (hypothesis 7: {f(x) = (x + |x|) * (1 - x)})
+3. get_condition (hypothesis 8: {f(x) > 0}) in (GOAL: {f(x) > 0 ⇒ x + |x| > 0 ∧ 1 - x > 0})
+4. rewrite (left_to_right, equation) (hypothesis 7: {f(x) = (x + |x|) * (1 - x)}); from (hypothesis 8: {f(x) > 0}) to (hypothesis 8: {(x + |x|) * (1 - x) > 0})
+5. autosolve all_hypothesis

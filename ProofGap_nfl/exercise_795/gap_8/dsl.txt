@@ -1,0 +1,11 @@
+get_forall (GOAL: {forall (δ), δ ∈ RealSet /\ δ > 0 => (exists (n), n ∈ NonNegIntegerSet /\ (n ∈ PosIntegerSet /\ frac(1, 2 * n) < δ => x(n) = frac(1, n) => `x'`(n) = frac(1, 2 * n) => |x(n) - `x'`(n)| < δ))}) (δ := {d})
+get_condition (hypothesis 13: {d ∈ RealSet /\ d > 0}) in (GOAL: {d ∈ RealSet /\ d > 0 => (exists (n), n ∈ NonNegIntegerSet /\ (n ∈ PosIntegerSet /\ frac(1, 2 * n) < d => x(n) = frac(1, n) => `x'`(n) = frac(1, 2 * n) => |x(n) - `x'`(n)| < d))})
+assert (hypothesis 14: {1 ∈ PosIntegerSet /\ frac(1, 2 * 1) < d => x(1) = frac(1, 1) => `x'`(1) = frac(1, 2 * 1) => |x(1) - `x'`(1)| < d}) by proof {
+  get_condition (hypothesis 14: {1 ∈ PosIntegerSet /\ frac(1, 2 * 1) < d}) (hypothesis 15: {x(1) = frac(1, 1)}) (hypothesis 16: {`x'`(1) = frac(1, 2 * 1)}) in (GOAL: {1 ∈ PosIntegerSet /\ frac(1, 2 * 1) < d => x(1) = frac(1, 1) => `x'`(1) = frac(1, 2 * 1) => |x(1) - `x'`(1)| < d})
+  destruct_and (hypothesis 14: {1 ∈ PosIntegerSet /\ frac(1, 2 * 1) < d}) as (hypothesis 17: {1 ∈ PosIntegerSet}) (hypothesis 18: {frac(1, 2 * 1) < d})
+  rewrite (left_to_right, equation) (hypothesis 15: {x(1) = frac(1, 1)}); from (GOAL: {|x(1) - `x'`(1)| < d}) to (GOAL: {|frac(1, 1) - `x'`(1)| < d})
+  rewrite (left_to_right, equation) (hypothesis 16: {`x'`(1) = frac(1, 2 * 1)}); from (GOAL: {|frac(1, 1) - `x'`(1)| < d}) to (GOAL: {|frac(1, 1) - frac(1, 2 * 1)| < d})
+  autosolve all_hypothesis
+}
+exists (n := {1})
+autosolve all_hypothesis

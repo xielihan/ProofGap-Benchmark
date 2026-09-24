@@ -1,0 +1,4 @@
+get_prop (hypothesis 5: {forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = x^{2} + y^{2} + z^{2}}) (x := {0}) (y := {b}) (z := {0}) as (hypothesis 17: {0 ∈ RealSet ∧ b ∈ RealSet ∧ 0 ∈ RealSet ⇒ u(0, b, 0) = 0^{2} + b^{2} + 0^{2}})
+assert (hypothesis 18: {0 ∈ RealSet ∧ b ∈ RealSet ∧ 0 ∈ RealSet})
+use_condition (hypothesis 18: {0 ∈ RealSet ∧ b ∈ RealSet ∧ 0 ∈ RealSet}) in (hypothesis 17: {0 ∈ RealSet ∧ b ∈ RealSet ∧ 0 ∈ RealSet ⇒ u(0, b, 0) = 0^{2} + b^{2} + 0^{2}}) as (hypothesis 19: {u(0, b, 0) = 0^{2} + b^{2} + 0^{2}})
+autosolve all_hypothesis

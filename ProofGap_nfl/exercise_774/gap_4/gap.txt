@@ -1,0 +1,10 @@
+PROOF GAP @4
+ASSUM:
+1. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ∧ φ = arcsin(x) ⇒ sin(φ) = x)
+2. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ∧ φ = arcsin(x) ⇒ cos(frac(π, 2) - φ) = sin(φ))
+3. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ∧ φ = arcsin(x) ⇒ sin(φ) = x)
+
+GOAL:
+forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ∧ φ = arcsin(x) ⇒ cos(frac(π, 2) - φ) = x)
+
+METHOD:

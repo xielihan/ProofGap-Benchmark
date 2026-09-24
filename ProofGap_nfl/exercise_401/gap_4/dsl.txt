@@ -1,0 +1,17 @@
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ (δ = min(1, frac(ε, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < δ ⇒ x < 3)))}) (ε := {z})
+get_condition (hypothesis 5: {z ∈ RealSet ∧ z > 0}) in (GOAL: {z ∈ RealSet ∧ z > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ (δ = min(1, frac(z, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < δ ⇒ x < 3)))})
+get_prop (hypothesis 3: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ (δ = min(1, frac(ε, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < δ ⇒ |x - 2| < 1)))}) (ε := {z}) as (hypothesis 6: {z ∈ RealSet ∧ z > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ (δ = min(1, frac(z, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < δ ⇒ |x - 2| < 1)))})
+use_condition (hypothesis 5: {z ∈ RealSet ∧ z > 0}) in (hypothesis 6: {z ∈ RealSet ∧ z > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ (δ = min(1, frac(z, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < δ ⇒ |x - 2| < 1)))}) as (hypothesis 7: {exists (δ), δ ∈ RealSet ∧ (δ = min(1, frac(z, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < δ ⇒ |x - 2| < 1))})
+get_exists (hypothesis 7: {exists (δ), δ ∈ RealSet ∧ (δ = min(1, frac(z, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < δ ⇒ |x - 2| < 1))}) (δ := {d})
+destruct_and (hypothesis 8: {d ∈ RealSet ∧ (d = min(1, frac(z, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < d ⇒ |x - 2| < 1))}) as (hypothesis 9: {d ∈ RealSet}) (hypothesis 10: {d = min(1, frac(z, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < d ⇒ |x - 2| < 1)})
+assert (hypothesis 11: {d = min(1, frac(z, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < d ⇒ x < 3)}) by proof {
+  get_condition (hypothesis 11: {d = min(1, frac(z, 5))}) in (GOAL: {d = min(1, frac(z, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < d ⇒ x < 3)})
+  get_forall (GOAL: {forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < d ⇒ x < 3}) (x := {w})
+  get_condition (hypothesis 12: {w ∈ RealSet ∧ 0 < |w - 2| ∧ |w - 2| < d}) in (GOAL: {w ∈ RealSet ∧ 0 < |w - 2| ∧ |w - 2| < d ⇒ w < 3})
+  use_condition (hypothesis 11: {d = min(1, frac(z, 5))}) in (hypothesis 10: {d = min(1, frac(z, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < d ⇒ |x - 2| < 1)}) as (hypothesis 13: {forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < d ⇒ |x - 2| < 1})
+  get_prop (hypothesis 13: {forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < d ⇒ |x - 2| < 1}) (x := {w}) as (hypothesis 14: {w ∈ RealSet ∧ 0 < |w - 2| ∧ |w - 2| < d ⇒ |w - 2| < 1})
+  use_condition (hypothesis 12: {w ∈ RealSet ∧ 0 < |w - 2| ∧ |w - 2| < d}) in (hypothesis 14: {w ∈ RealSet ∧ 0 < |w - 2| ∧ |w - 2| < d ⇒ |w - 2| < 1}) as (hypothesis 15: {|w - 2| < 1})
+  autosolve all_hypothesis
+}
+exists (δ := {d})
+autosolve all_hypothesis

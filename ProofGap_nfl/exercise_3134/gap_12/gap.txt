@@ -1,0 +1,20 @@
+PROOF GAP @12
+ASSUM:
+1. forall (f) (a) (b) (σ), f : RealSet → RealSet ∧ a : NonNegIntegerSet → RealSet ∧ b : NonNegIntegerSet → RealSet ∧ σ : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ∧ ContinuousFuncOn(f, [-π, π]) ∧ (forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ σ(n, x) = a(0) / 2 + (sum_{ i = 1 }^{ n - 1 } ((1 - frac(i, n)) * (a(i) * cos(i * x) + b(i) * sin(i * x))))) ⇒ (forall (η), η ∈ RealSet ∧ η > 0 ⇒ UniformConvergent(σ, [-π + η, π - η], f))
+2. forall (f) (a) (b) (σ), f : RealSet → RealSet ∧ a : NonNegIntegerSet → RealSet ∧ b : NonNegIntegerSet → RealSet ∧ σ : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ∧ ContinuousFuncOn(f, [-π, π]) ∧ f(-π) = f(π) ∧ (forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ σ(n, x) = a(0) / 2 + (sum_{ i = 1 }^{ n - 1 } ((1 - frac(i, n)) * (a(i) * cos(i * x) + b(i) * sin(i * x))))) ⇒ UniformConvergent(σ, [-π, π], f)
+3. f = (fun x [x ∈ RealSet] . x)
+4. ContinuousFuncOn(f, [-π, π])
+5. f(-π) ≠ f(π)
+6. S = (fun x [x ∈ RealSet] . cases{ x if -π < x ∧ x < π; 0 if x = -π ∨ x = π })
+7. forall (x), x ∈ RealSet ∧ x ∈ [-π, π] ⇒ seqlim_{ n → +∞ } (S(n, x)) = S(x)
+8. forall (σ) (x), σ : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ∧ x ∈ RealSet ∧ x ∈ [-π, π] ⇒ seqlim_{ n → +∞ } (σ(n, x)) = S(x)
+9. forall (σ), σ : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ∧ UniformConvergent(σ, IntervalLoRo(-π, π), f) ⇒ UniformConvergent(σ, IntervalLoRo(-π, π), S)
+10. forall (σ), σ : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ∧ UniformConvergent(σ, IntervalLoRo(-π, π), f) ⇒ UniformConvergent(σ, [-π, π], S)
+11. forall (σ), σ : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ∧ UniformConvergent(σ, IntervalLoRo(-π, π), f) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ContinuousFuncOn(σ(n), [-π, π]))
+12. forall (σ), σ : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ∧ UniformConvergent(σ, IntervalLoRo(-π, π), f) ⇒ ContinuousFuncOn(S, [-π, π])
+13. forall (σ), σ : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ∧ UniformConvergent(σ, IntervalLoRo(-π, π), f) ⇒ ¬ContinuousFuncAt(S, π)
+
+GOAL:
+forall (σ), σ : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ∧ UniformConvergent(σ, IntervalLoRo(-π, π), f) ⇒ ¬ContinuousFuncAt(S, -π)
+
+METHOD:

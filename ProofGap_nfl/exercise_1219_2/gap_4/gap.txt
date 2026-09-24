@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. n ∈ NonNegIntegerSet ∧ n > 1
+3. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-∞, 1) ⇒ f(x) = frac(x, sqrtn(2, 1 - x))
+4. n ∈ IntegerSet
+5. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-∞, 1) ⇒ f(x) = -sqrtn(2, 1 - x) + frac(1, sqrtn(2, 1 - x))
+6. forall (x), x ∈ RealSet ∧ x < 1 ⇒ FunDeri(f, 1, n)(x) = frac((2 * n - 3)!!, 2^{n}) * frac(1, (1 - x)^{frac(2 * n - 1, 2)}) + frac((2 * n - 1)!!, 2^{n}) * frac(1, (1 - x)^{frac(2 * n + 1, 2)})
+7. FunDeri(f, 1, n)(0) = frac((2 * n - 3)!!, 2^{n}) + frac((2 * n - 1)!!, 2^{n})
+
+GOAL:
+frac((2 * n - 3)!!, 2^{n}) + frac((2 * n - 1)!!, 2^{n}) = frac(n * (2 * n - 3)!!, 2^{n - 1})
+
+METHOD:

@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ y(x) = sqrtn(2, x - x^{2})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ y(x) = sqrtn(2, frac(1, 4) - (x - frac(1, 2))^{2})
+
+METHOD:

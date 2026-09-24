@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ 2 ≤ x ∧ x ≤ 4 ⇒ e^{frac(1, x)} = sum_{ n = 0 }^{ +∞ } (frac(1, n! * x^{n}))
+
+GOAL:
+DefInt(2, 4, (fun x [x ∈ RealSet] . e^{frac(1, x)}) * diff(fun x [x ∈ RealSet] . x)) = DefInt(2, 4, (fun x [x ∈ RealSet] . sum_{ n = 0 }^{ +∞ } (frac(1, n! * x^{n}))) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

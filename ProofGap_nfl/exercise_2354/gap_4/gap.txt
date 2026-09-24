@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. E ⊆ RealSet
+2. forall (x), x ∈ RealSet ⇒ (x ∈ E ⇔ x ∈ IntervalLoRo(0, +∞) ∧ sin(x) > 0)
+3. E = union_{ k ∈ NonNegIntegerSet } ([2 * k * π, (2 * k + 1) * π])
+4. DefInt(E, E, (fun x [x ∈ RealSet] . e^{-frac(x, 2)} * frac(|sin(x) - cos(x)|, sqrtn(2, sin(x)))) * diff(fun x [x ∈ RealSet] . x)) = sum_{ k = 0 }^{ +∞ } (DefInt(2 * k * π, (2 * k + 1) * π, (fun x [x ∈ RealSet] . e^{-frac(x, 2)} * frac(|sin(x) - cos(x)|, sqrtn(2, sin(x)))) * diff(fun x [x ∈ RealSet] . x)))
+5. forall (k), k ∈ NonNegIntegerSet ⇒ DefInt(2 * k * π, (2 * k + 1) * π, (fun x [x ∈ RealSet] . e^{-frac(x, 2)} * frac(|sin(x) - cos(x)|, sqrtn(2, sin(x)))) * diff(fun x [x ∈ RealSet] . x)) = DefInt(2 * k * π, (2 * k + frac(1, 4)) * π, (fun x [x ∈ RealSet] . e^{-frac(x, 2)} * frac(cos(x) - sin(x), sqrtn(2, sin(x)))) * diff(fun x [x ∈ RealSet] . x)) + DefInt((2 * k + frac(1, 4)) * π, (2 * k + 1) * π, (fun x [x ∈ RealSet] . e^{-frac(x, 2)} * frac(sin(x) - cos(x), sqrtn(2, sin(x)))) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+forall (k), k ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(2 * k * π, (2 * k + 1) * π) ⇒ FunDeri(fun x [x ∈ RealSet] . 2 * e^{-frac(x, 2)} * sqrtn(2, sin(x)), 1, 1)(x) = e^{-frac(x, 2)} * frac(cos(x) - sin(x), sqrtn(2, sin(x))))
+
+METHOD:

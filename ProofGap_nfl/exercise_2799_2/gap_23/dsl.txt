@@ -1,0 +1,6 @@
+get_prop (hypothesis 24: {forall (x), x ∈ RealSet ⇒ φ(x) > 0}) (x := {0}) as (hypothesis 28: {0 ∈ RealSet ⇒ φ(0) > 0})
+assert (hypothesis 29: {0 ∈ RealSet}) by proof {
+autosolve all_hypothesis
+}
+use_condition (hypothesis 29: {0 ∈ RealSet}) in (hypothesis 28: {0 ∈ RealSet ⇒ φ(0) > 0}) as (hypothesis 30: {φ(0) > 0})
+autosolve all_hypothesis

@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. E ⊆ RealSet
+2. forall (x), x ∈ RealSet ⇒ (x ∈ E ⇔ x ∈ IntervalLoRo(0, +∞) ∧ sin(x) > 0)
+3. E = union_{ k ∈ NonNegIntegerSet } ([2 * k * π, (2 * k + 1) * π])
+
+GOAL:
+DefInt(E, E, (fun x [x ∈ RealSet] . e^{-frac(x, 2)} * frac(|sin(x) - cos(x)|, sqrtn(2, sin(x)))) * diff(fun x [x ∈ RealSet] . x)) = sum_{ k = 0 }^{ +∞ } (DefInt(2 * k * π, (2 * k + 1) * π, (fun x [x ∈ RealSet] . e^{-frac(x, 2)} * frac(|sin(x) - cos(x)|, sqrtn(2, sin(x)))) * diff(fun x [x ∈ RealSet] . x)))
+
+METHOD:

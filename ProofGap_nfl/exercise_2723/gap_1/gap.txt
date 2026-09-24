@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. A ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. C ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. u : CartesianProd(RealSet, CartesianProd(RealSet, CartesianProd(RealSet, NonNegIntegerSet))) → RealSet
+4. forall (x) (p) (q) (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ∧ x ∈ RealSet ∧ p ∈ RealSet ∧ q ∈ RealSet ∧ 0 < x ∧ x < π ∧ q > 0 ⇒ u(x, p, q, n) = frac(n^{p} * sin(n * x), 1 + n^{q})
+
+GOAL:
+forall (x) (q) (p) (n), x ∈ RealSet ∧ 0 < x ∧ x < π ∧ q ∈ RealSet ∧ q > 0 ∧ p ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ n ≥ 1 ∧ n ∈ PosIntegerSet ⇒ frac(|sin(n * x)|, 2 * n^{q - p}) ≤ |frac(n^{p} * sin(n * x), 1 + n^{q})|
+
+METHOD:

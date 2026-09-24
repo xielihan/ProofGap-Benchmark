@@ -1,0 +1,13 @@
+PROOF GAP @6
+ASSUM:
+1. lim_{ x → 0 } (frac(DefInt(0, x, (fun t [t ∈ RealSet] . cos(t^{2})) * diff(fun t [t ∈ RealSet] . t)), x)) = lim_{ x → 0 } (cos(x^{2}))
+2. lim_{ x → 0 } (cos(x^{2})) = 1
+3. lim_{ x → 0 } (frac(DefInt(0, x, (fun t [t ∈ RealSet] . cos(t^{2})) * diff(fun t [t ∈ RealSet] . t)), x)) = 1
+4. lim_{ x → +∞ } (frac(DefInt(0, x, (fun t [t ∈ RealSet] . arctan(t)^{2}) * diff(fun t [t ∈ RealSet] . t)), sqrtn(2, x^{2} + 1))) = lim_{ x → +∞ } (frac(arctan(x)^{2}, frac(x, sqrtn(2, 1 + x^{2}))))
+5. lim_{ x → +∞ } (frac(arctan(x)^{2}, frac(x, sqrtn(2, 1 + x^{2})))) = frac(π^{2}, 4)
+
+GOAL:
+lim_{ x → +∞ } (frac(DefInt(0, x, (fun t [t ∈ RealSet] . arctan(t)^{2}) * diff(fun t [t ∈ RealSet] . t)), sqrtn(2, x^{2} + 1))) = frac(π^{2}, 4)
+
+METHOD:
+[@method 使用洛必达法则和变上限积分求导法则 @]

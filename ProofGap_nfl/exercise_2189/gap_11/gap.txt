@@ -1,0 +1,23 @@
+PROOF GAP @11
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. x : NonNegIntegerSet → RealSet
+4. S : NonNegIntegerSet → RealSet
+5. 0 < a
+6. a < b
+7. x(0) = a
+8. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ x(n) = b
+9. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ (exists (ξ), ξ : IntegerSet → RealSet ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ ξ(i) = sqrtn(2, x(i) * x(i + 1))))
+10. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ (exists (ξ), ξ : IntegerSet → RealSet ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ ξ(i) ∈ [x(i), x(i + 1)]))
+11. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ S(n) = sum_{ i = 0 }^{ n - 1 } (frac(1, x(i) * x(i + 1)) * (x(i + 1) - x(i)))
+12. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ S(n) = sum_{ i = 0 }^{ n - 1 } (frac(1, x(i)) - frac(1, x(i + 1)))
+13. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ sum_{ i = 0 }^{ n - 1 } (frac(1, x(i)) - frac(1, x(i + 1))) = frac(1, a) - frac(1, b)
+14. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ S(n) = frac(1, a) - frac(1, b)
+15. DefInt(a, b, (fun t [t ∈ RealSet ∧ t ∈ [a, b]] . frac(1, t^{2})) * diff(fun t [t ∈ RealSet ∧ t ∈ [a, b]] . t)) = seqlim_{ n → +∞ } (S(n))
+16. seqlim_{ n → +∞ } (S(n)) = frac(1, a) - frac(1, b)
+
+GOAL:
+DefInt(a, b, (fun t [t ∈ RealSet ∧ t ∈ [a, b]] . frac(1, t^{2})) * diff(fun t [t ∈ RealSet ∧ t ∈ [a, b]] . t)) = frac(1, a) - frac(1, b)
+
+METHOD:

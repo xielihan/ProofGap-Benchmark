@@ -1,0 +1,4 @@
+get_exists (hypothesis 37: {exists (x_{1}) (y_{1}), x_{1} ∈ RealSet ∧ y_{1} ∈ RealSet ∧ ((A - C)^{2} + 4 * B^{2} ≠ 0 ⇒ z(x_{1}, y_{1}) = λ_{1})}) (x_{1} := {p}) (y_{1} := {q}) as (hypothesis 38: {p ∈ RealSet ∧ q ∈ RealSet ∧ ((A - C)^{2} + 4 * B^{2} ≠ 0 ⇒ z(p, q) = λ_{1})})
+exists (x_{2} := {p})
+exists (y_{2} := {q})
+autosolve all_hypothesis

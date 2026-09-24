@@ -1,0 +1,2 @@
+exists (Δ := {DefInt(2, 4, (fun x [x ∈ RealSet] . e^{frac(1, x)}) * diff(fun x [x ∈ RealSet] . x)) - (2 + ln(2) + frac(1, 2! * 4) + frac(3, 3! * 32) + frac(7, 4! * 192))})
+autosolve all_hypothesis

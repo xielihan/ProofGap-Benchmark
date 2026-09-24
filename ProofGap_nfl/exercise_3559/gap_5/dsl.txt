@@ -1,0 +1,15 @@
+assert (hypothesis 13: {4 * b * z_{0} = 4 * (b * z_{0})}) by proof {
+  1. autosolve all_hypothesis
+}
+assert (hypothesis 14: {4 * x_{0} * y_{0} = 4 * (x_{0} * y_{0})}) by proof {
+  1. autosolve all_hypothesis
+}
+assert (hypothesis 15: {sqrtn(2, a^{2} + b^{2}) * 2 * a = 2 * a * sqrtn(2, a^{2} + b^{2})}) by proof {
+  1. autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 12: {cos(φ) = frac(4 * x_{0} * y_{0}, sqrtn(2, a^{2} + b^{2}) * 2 * a)}); from (GOAL: {cos(φ) = frac(4 * b * z_{0}, 2 * a * sqrtn(2, a^{2} + b^{2}))}) to (GOAL: {frac(4 * x_{0} * y_{0}, sqrtn(2, a^{2} + b^{2}) * 2 * a) = frac(4 * b * z_{0}, 2 * a * sqrtn(2, a^{2} + b^{2}))})
+rewrite (left_to_right, equation) (hypothesis 13: {4 * b * z_{0} = 4 * (b * z_{0})}); from (GOAL: {frac(4 * x_{0} * y_{0}, sqrtn(2, a^{2} + b^{2}) * 2 * a) = frac(4 * b * z_{0}, 2 * a * sqrtn(2, a^{2} + b^{2}))}) to (GOAL: {frac(4 * x_{0} * y_{0}, sqrtn(2, a^{2} + b^{2}) * 2 * a) = frac(4 * (b * z_{0}), 2 * a * sqrtn(2, a^{2} + b^{2}))})
+rewrite (left_to_right, equation) (hypothesis 8: {b * z_{0} = x_{0} * y_{0}}); from (GOAL: {frac(4 * x_{0} * y_{0}, sqrtn(2, a^{2} + b^{2}) * 2 * a) = frac(4 * (b * z_{0}), 2 * a * sqrtn(2, a^{2} + b^{2}))}) to (GOAL: {frac(4 * x_{0} * y_{0}, sqrtn(2, a^{2} + b^{2}) * 2 * a) = frac(4 * (x_{0} * y_{0}), 2 * a * sqrtn(2, a^{2} + b^{2}))})
+rewrite (right_to_left, equation) (hypothesis 14: {4 * x_{0} * y_{0} = 4 * (x_{0} * y_{0})}); from (GOAL: {frac(4 * x_{0} * y_{0}, sqrtn(2, a^{2} + b^{2}) * 2 * a) = frac(4 * (x_{0} * y_{0}), 2 * a * sqrtn(2, a^{2} + b^{2}))}) to (GOAL: {frac(4 * x_{0} * y_{0}, sqrtn(2, a^{2} + b^{2}) * 2 * a) = frac(4 * x_{0} * y_{0}, 2 * a * sqrtn(2, a^{2} + b^{2}))})
+rewrite (left_to_right, equation) (hypothesis 15: {sqrtn(2, a^{2} + b^{2}) * 2 * a = 2 * a * sqrtn(2, a^{2} + b^{2})}); from (GOAL: {frac(4 * x_{0} * y_{0}, sqrtn(2, a^{2} + b^{2}) * 2 * a) = frac(4 * x_{0} * y_{0}, 2 * a * sqrtn(2, a^{2} + b^{2}))}) to (GOAL: {frac(4 * x_{0} * y_{0}, 2 * a * sqrtn(2, a^{2} + b^{2})) = frac(4 * x_{0} * y_{0}, 2 * a * sqrtn(2, a^{2} + b^{2}))})
+autosolve all_hypothesis

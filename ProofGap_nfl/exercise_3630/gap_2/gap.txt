@@ -1,0 +1,17 @@
+PROOF GAP @2
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. c ∈ RealSet
+5. a^{2} + b^{2} + c^{2} ≠ 0
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = frac(a * x + b * y + c, sqrtn(2, x^{2} + y^{2} + 1))
+7. x = r * cos(φ)
+8. y = r * sin(φ)
+9. z(x, y) = z(r * cos(φ), r * sin(φ))
+10. r ∈ RealSet ∧ φ ∈ RealSet ∧ sin(φ) ∈ RealSet ∧ cos(φ) ∈ RealSet
+
+GOAL:
+z(r * cos(φ), r * sin(φ)) = frac(a * r * cos(φ) + b * r * sin(φ) + c, sqrtn(2, r^{2} + 1))
+
+METHOD:

@@ -1,0 +1,25 @@
+PROOF GAP @16
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x - 1)^{2} + (y + 1)^{2} < 15 ⇒ z(x, y)^{2} - 4 * z(x, y) + x^{2} + y^{2} - 2 * x + 2 * y - 10 = 0
+3. DiffableFunc(z)
+4. (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x - 1) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y + 1) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y) - 2) * diff(z) = 0
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x = 1 ∧ y = -1 ∧ z(x, y) ≠ 2 ⇒ diff(z) = 0
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x = 1 ∧ y = -1 ⇒ z(x, y) = 6 ∨ z(x, y) = -2
+7. diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{2} + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{2} + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y) - 2) * diff^{2}(z) + diff(z)^{2} = 0
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x = 1 ∧ y = -1 ∧ z(x, y) = 6 ∧ diff(z) = 0 ⇒ diff^{2}(z) = -frac(1, 4) * (diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{2} + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{2})
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x = 1 ∧ y = -1 ∧ z(x, y) = 6 ∧ diff(z) = 0 ∧ diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{2} + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{2} ≠ 0 ⇒ diff^{2}(z) < 0
+10. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x = 1 ∧ y = -1 ∧ z(x, y) = -2 ∧ diff(z) = 0 ⇒ diff^{2}(z) = frac(1, 4) * (diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{2} + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{2})
+11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x = 1 ∧ y = -1 ∧ z(x, y) = -2 ∧ diff(z) = 0 ∧ diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{2} + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{2} ≠ 0 ⇒ diff^{2}(z) > 0
+12. MaximumPoint(z) = { (1, -1) }
+13. MinimumPoint(z) = { (1, -1) }
+14. z(1, -1) = 6 ∨ z(1, -1) = -2
+15. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ z(x, y) = 2 ⇒ ¬(x, y) ∈ MaximumPoint(z)
+16. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ z(x, y) = 2 ⇒ ¬(x, y) ∈ MinimumPoint(z)
+17. MaximumPoint(z) = { (1, -1) }
+18. MinimumPoint(z) = { (1, -1) }
+
+GOAL:
+z(1, -1) = 6 ∨ z(1, -1) = -2
+
+METHOD:

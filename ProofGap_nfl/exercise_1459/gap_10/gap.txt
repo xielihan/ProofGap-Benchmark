@@ -1,0 +1,22 @@
+PROOF GAP @10
+ASSUM:
+1. f : RealSet → RealSet
+2. g : RealSet → RealSet
+3. Δ ∈ RealSet
+4. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ f(x) = x^{2}
+5. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ g(x) = x^{3}
+6. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ Δ = sup({ |f(x) - g(x)| | x ∈ [0, 1] })
+7. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ f(x) - g(x) = x^{2} - x^{3}
+8. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ FunDeri(f, 1, 1)(x) - FunDeri(g, 1, 1)(x) = 2 * x - 3 * x^{2}
+9. forall (x), x ∈ RealSet ⇒ (FunDeri(f, 1, 1)(x) - FunDeri(g, 1, 1)(x) = 0 ⇔ x = 0 ∨ x = frac(2, 3))
+10. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ FunDeri(f, 1, 2)(x) - FunDeri(g, 1, 2)(x) = 2 - 6 * x
+11. FunDeri(f, 1, 2)(frac(2, 3)) - FunDeri(g, 1, 2)(frac(2, 3)) = -2
+12. -2 < 0
+13. FunDeri(f, 1, 2)(frac(2, 3)) - FunDeri(g, 1, 2)(frac(2, 3)) < 0
+14. MaximumPointOn(f - g, [0, 1]) = { frac(2, 3) }
+15. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ f(x) - g(x) ≥ 0
+
+GOAL:
+Δ = f(frac(2, 3)) - g(frac(2, 3))
+
+METHOD:

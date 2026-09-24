@@ -1,0 +1,17 @@
+PROOF GAP @4
+ASSUM:
+1. S ∈ RealSet
+2. Δ ∈ RealSet
+3. k ∈ NonNegIntegerSet
+4. j ∈ NonNegIntegerSet
+5. r ∈ NonNegIntegerSet
+6. π = 6 * arcsin(frac(1, 2))
+7. arcsin(frac(1, 2)) = sum_{ k = 0 }^{ +∞ } (frac(prod_{ j = 1 }^{ k } (2 * j - 1), prod_{ j = 1 }^{ k } (2 * j)) * frac(1, 2 * k + 1) * frac(1, 2)^{2 * k + 1})
+8. S = frac(1, 2) + frac(1, 2) * frac(1, 3) * frac(1, 2)^{3} + frac(1 * 3, 2 * 4) * frac(1, 5) * frac(1, 2)^{5} + frac(1 * 3 * 5, 2 * 4 * 6) * frac(1, 7) * frac(1, 2)^{7} + frac(1 * 3 * 5 * 7, 2 * 4 * 6 * 8) * frac(1, 9) * frac(1, 2)^{9} + frac(1 * 3 * 5 * 7 * 9, 2 * 4 * 6 * 8 * 10) * frac(1, 11) * frac(1, 2)^{11}
+9. Δ = |π - 6 * S|
+10. Δ < 6 * frac(1 * 3 * 5 * 7 * 9 * 11, 2 * 4 * 6 * 8 * 10 * 12) * frac(1, 13) * frac(1, 2)^{13} * (sum_{ r = 0 }^{ +∞ } (frac(1, 2)^{2 * r}))
+
+GOAL:
+Δ < 10^{-4}
+
+METHOD:

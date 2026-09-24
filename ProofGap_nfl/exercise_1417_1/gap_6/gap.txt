@@ -1,0 +1,19 @@
+PROOF GAP @6
+ASSUM:
+1. y : RealSet → RealSet
+2. m ∈ NonNegIntegerSet
+3. n ∈ NonNegIntegerSet
+4. m ∈ PosIntegerSet
+5. n ∈ PosIntegerSet
+6. Even(m)
+7. forall (x), x ∈ RealSet ⇒ y(x) = x^{m} * (1 - x)^{n}
+8. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = x^{m - 1} * (1 - x)^{n - 1} * (m - (m + n) * x)
+9. forall (x), x ∈ RealSet ∧ FunDeri(y, 1, 1)(x) = 0 ⇒ x = 0 ∨ x = 1 ∨ x = frac(m, m + n)
+10. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < frac(m, m + n) ⇒ FunDeri(y, 1, 1)(x) > 0
+11. forall (x), x ∈ RealSet ∧ x < 0 ⇒ FunDeri(y, 1, 1)(x) < 0
+12. 0 ∈ MinimumPoint(y)
+
+GOAL:
+y(0) = 0
+
+METHOD:

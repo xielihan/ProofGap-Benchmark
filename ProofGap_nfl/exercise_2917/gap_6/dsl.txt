@@ -1,0 +1,2 @@
+rewrite (left_to_right, iff) (hypothesis 7: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n) * z^{n})) ⇔ |z| < frac(1, sqrtn(2, 2))}); from (GOAL: {|z| < frac(1, sqrtn(2, 2)) ⇔ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n) * z^{n}))}) to (GOAL: {|z| < frac(1, sqrtn(2, 2)) ⇔ |z| < frac(1, sqrtn(2, 2))})
+autosolve all_hypothesis

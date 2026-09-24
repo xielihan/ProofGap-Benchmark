@@ -1,0 +1,21 @@
+1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ⇒ x^{2} = y_{n}(x)^{2})}) (n := {n0})
+2. get_condition (hypothesis 6: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ⇒ x^{2} = y_{n0}(x)^{2})})
+3. get_prop (hypothesis 4: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y_{n} = (fun x [x ∈ RealSet] . cases{ |x| if x ≠ frac(1, n); -|x| if x = frac(1, n) })}) (n := {n0}) as (hypothesis 7: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ y_{n0} = (fun x [x ∈ RealSet] . cases{ |x| if x ≠ frac(1, n0); -|x| if x = frac(1, n0) })})
+4. use_condition (hypothesis 6: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (hypothesis 7: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ y_{n0} = (fun x [x ∈ RealSet] . cases{ |x| if x ≠ frac(1, n0); -|x| if x = frac(1, n0) })}) as (hypothesis 8: {y_{n0} = (fun x [x ∈ RealSet] . cases{ |x| if x ≠ frac(1, n0); -|x| if x = frac(1, n0) })})
+5. rewrite (left_to_right, equation) (hypothesis 8: {y_{n0} = (fun x [x ∈ RealSet] . cases{ |x| if x ≠ frac(1, n0); -|x| if x = frac(1, n0) })}); from (GOAL: {forall (x), x ∈ RealSet ⇒ x^{2} = y_{n0}(x)^{2}}) to (GOAL: {forall (x), x ∈ RealSet ⇒ x^{2} = ((fun t [t ∈ RealSet] . cases{ |t| if t ≠ frac(1, n0); -|t| if t = frac(1, n0) })(x))^{2}})
+6. get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ x^{2} = ((fun t [t ∈ RealSet] . cases{ |t| if t ≠ frac(1, n0); -|t| if t = frac(1, n0) })(x))^{2}}) (x := {x0})
+7. get_condition (hypothesis 9: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ x0^{2} = ((fun t [t ∈ RealSet] . cases{ |t| if t ≠ frac(1, n0); -|t| if t = frac(1, n0) })(x0))^{2}})
+8. get_prop (theorem 'Thm 377. (AbsoluteValueSquared)': {forall (x), x ∈ RealSet => (|x| ^ 2 = x ^ 2)}) (x := {x0}) as (hypothesis 10: {x0 ∈ RealSet => (|x0| ^ 2 = x0 ^ 2)})
+9. use_condition (hypothesis 9: {x0 ∈ RealSet}) in (hypothesis 10: {x0 ∈ RealSet => (|x0| ^ 2 = x0 ^ 2)}) as (hypothesis 11: {|x0| ^ 2 = x0 ^ 2})
+10. assert (hypothesis 12: {x0 = frac(1, n0) ⇒ x0^{2} = ((fun t [t ∈ RealSet] . cases{ |t| if t ≠ frac(1, n0); -|t| if t = frac(1, n0) })(x0))^{2}}) by proof {
+1. get_condition (hypothesis 12: {x0 = frac(1, n0)}) in (GOAL: {x0 = frac(1, n0) ⇒ x0^{2} = ((fun t [t ∈ RealSet] . cases{ |t| if t ≠ frac(1, n0); -|t| if t = frac(1, n0) })(x0))^{2}})
+2. autosolve all_hypothesis
+}
+11. assert (hypothesis 13: {x0 ≠ frac(1, n0) ⇒ x0^{2} = ((fun t [t ∈ RealSet] . cases{ |t| if t ≠ frac(1, n0); -|t| if t = frac(1, n0) })(x0))^{2}}) by proof {
+1. get_condition (hypothesis 13: {x0 ≠ frac(1, n0)}) in (GOAL: {x0 ≠ frac(1, n0) ⇒ x0^{2} = ((fun t [t ∈ RealSet] . cases{ |t| if t ≠ frac(1, n0); -|t| if t = frac(1, n0) })(x0))^{2}})
+2. autosolve all_hypothesis
+}
+12. assert (hypothesis 14: {x0 = frac(1, n0) ∨ x0 ≠ frac(1, n0)}) by proof {
+1. autosolve all_hypothesis
+}
+13. autosolve all_hypothesis

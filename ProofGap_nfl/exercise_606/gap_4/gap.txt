@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. a : NonNegIntegerSet → RealSet ∧ IsSeq(a)
+3. a(1) = sin(x)
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n + 1) = sin(a(n))
+5. 0 ≤ x ⇒ x ≤ π ⇒ 0 ≤ a(1)
+6. 0 ≤ x ⇒ x ≤ π ⇒ a(1) ≤ x
+7. 0 ≤ x ⇒ x ≤ π ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 ≤ a(n + 1) ∧ a(n + 1) ≤ a(n))
+
+GOAL:
+0 ≤ x ⇒ x ≤ π ⇒ MonoDecSeq(fun n . a(n + 1))
+
+METHOD:

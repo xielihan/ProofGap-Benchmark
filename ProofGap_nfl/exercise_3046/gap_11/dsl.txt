@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet => I(n) = frac(π, n!)}) (n := {n0})
+get_condition (hypothesis 14: {n0 ∈ NonNegIntegerSet /\ n0 ∈ PosIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet /\ n0 ∈ PosIntegerSet => I(n0) = frac(π, n0!)})
+get_prop (hypothesis 13: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet => I(n) = frac(1, 2) * frac(1, n!) * 2 * π}) (n := {n0}) as (hypothesis 15: {n0 ∈ NonNegIntegerSet /\ n0 ∈ PosIntegerSet => I(n0) = frac(1, 2) * frac(1, n0!) * 2 * π})
+use_condition (hypothesis 14: {n0 ∈ NonNegIntegerSet /\ n0 ∈ PosIntegerSet}) in (hypothesis 15: {n0 ∈ NonNegIntegerSet /\ n0 ∈ PosIntegerSet => I(n0) = frac(1, 2) * frac(1, n0!) * 2 * π}) as (hypothesis 16: {I(n0) = frac(1, 2) * frac(1, n0!) * 2 * π})
+rewrite (left_to_right, equation) (hypothesis 16: {I(n0) = frac(1, 2) * frac(1, n0!) * 2 * π}); from (GOAL: {I(n0) = frac(π, n0!)}) to (GOAL: {frac(1, 2) * frac(1, n0!) * 2 * π = frac(π, n0!)})
+autosolve all_hypothesis

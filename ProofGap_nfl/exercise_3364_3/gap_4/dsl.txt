@@ -1,0 +1,2 @@
+1. rewrite (left_to_right, equation) (hypothesis 3: {y_{pos} = (fun x [x ∈ RealSet ∧ x ∈ [-1, 1]] . sqrtn(2, 1 - x^{2}))}); from (GOAL: {y_{pos}(1) = 0}) to (GOAL: {((fun x [x ∈ RealSet ∧ x ∈ [-1, 1]] . sqrtn(2, 1 - x^{2})))(1) = 0})
+2. autosolve all_hypothesis

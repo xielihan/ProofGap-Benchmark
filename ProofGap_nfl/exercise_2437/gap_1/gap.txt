@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. s ∈ RealSet
+4. 0 ≤ a
+5. a < frac(π, 2)
+6. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ⇒ y(x) = ln(cos(x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ⇒ s = DefInt(0, a, sqrtn(2, 1 + tan(x)^{2}) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

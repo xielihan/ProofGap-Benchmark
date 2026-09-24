@@ -1,0 +1,14 @@
+PROOF GAP @5
+ASSUM:
+1. x : NonNegIntegerSet → RealSet
+2. IsSeq(x)
+3. ¬BoundedSeq(x)
+4. exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ p(1) ∈ PosIntegerSet ∧ |x(p(1))| > 1
+5. exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ ¬BoundedSeq(RestrictFunc(x, { n | n ∈ PosIntegerSet, n > p(k) })))
+6. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (exists (p) (k), p : NonNegIntegerSet → NonNegIntegerSet ∧ k ∈ NonNegIntegerSet ∧ p(k + 1) ∈ PosIntegerSet ∧ p(k + 1) > p(k) ∧ |x(p(k + 1))| > k + 1)
+7. exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p)
+
+GOAL:
+exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ |x(p(k))| > k)
+
+METHOD:

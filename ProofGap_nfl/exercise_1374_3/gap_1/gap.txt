@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f = (fun x [x ∈ RealSet] . e^{-2 * x} * (cos(x) + 2 * sin(x)) + e^{-x^{2}} * sin(x)^{2})
+2. g = (fun x [x ∈ RealSet] . e^{-x} * (cos(x) + sin(x)))
+
+GOAL:
+lim_{ x → +∞ } (f(x)) = 0
+
+METHOD:

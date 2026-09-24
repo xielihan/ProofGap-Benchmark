@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. R ∈ RealSet ∧ R > 0
+2. h : RealSet → RealSet
+3. V : RealSet → RealSet
+4. x ∈ RealSet ∧ x > R
+5. forall (x), x ∈ RealSet ∧ x > R ⇒ h(x) = frac(2 * R * x^{2}, x^{2} - R^{2})
+6. forall (x), x ∈ RealSet ∧ x > R ⇒ V(x) = frac(1, 3) * π * x^{2} * h(x)
+7. h(x) = frac(2 * R * x^{2}, x^{2} - R^{2})
+
+GOAL:
+V(x) = frac(1, 3) * π * x^{2} * frac(2 * R * x^{2}, x^{2} - R^{2})
+
+METHOD:

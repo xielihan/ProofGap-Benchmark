@@ -1,0 +1,2 @@
+assert (hypothesis 10: {(FunDeri(y, 1, 1)(x) = 0 ⇒ x = 0 ∨ x^{3} = 2 * a^{3}) ∧ (FunDeri(y, 1, 1)(x) = 10 * a^{3} * a ⇒ x^{4} - 2 * a^{3} * x + 2 * a^{4} = 0)})
+apply (hypothesis 10: {(FunDeri(y, 1, 1)(x) = 0 ⇒ x = 0 ∨ x^{3} = 2 * a^{3}) ∧ (FunDeri(y, 1, 1)(x) = 10 * a^{3} * a ⇒ x^{4} - 2 * a^{3} * x + 2 * a^{4} = 0)})

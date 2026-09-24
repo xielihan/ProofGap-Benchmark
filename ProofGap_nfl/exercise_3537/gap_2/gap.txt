@@ -1,0 +1,23 @@
+PROOF GAP @2
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. D ⊆ CartesianProd(RealSet, RealSet)
+3. x_{0} ∈ RealSet
+4. y_{0} ∈ RealSet
+5. α ∈ RealSet ∧ cos(α) ≠ 0 ∧ sin(α) ≠ 0
+6. β ∈ RealSet
+7. φ : RealSet → RealSet
+8. ψ : RealSet → RealSet
+9. v ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+10. DiffableFunc(f)
+11. (x_{0}, y_{0}) ∈ D
+12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D ⇒ (exists (z), z ∈ RealSet ∧ z = f(x, y))
+13. forall (u) (w), u ∈ RealSet ∧ w ∈ RealSet ⇒ frac(u - x_{0}, cos(α)) = frac(w - y_{0}, sin(α))
+14. φ = (fun x [x ∈ RealSet] . y_{0} + (x - x_{0}) * tan(α))
+15. ψ = (fun x [x ∈ RealSet] . f(x, φ(x)))
+16. φ(x_{0}) = y_{0}
+
+GOAL:
+FunDeri(φ, 1, 1)(x_{0}) = tan(α)
+
+METHOD:

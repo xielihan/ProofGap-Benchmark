@@ -1,0 +1,13 @@
+PROOF GAP @7
+ASSUM:
+1. forall (f), f : RealSet → RealSet ∧ DiffableFunc(f) ∧ (forall (x), x ∈ RealSet ⇒ (x ∈ Dom(f) ⇔ -x ∈ Dom(f))) ∧ EvenFunc(f) ⇒ (forall (x) (f), x ∈ RealSet ∧ f : RealSet → RealSet ∧ x ∈ Dom(f) ⇒ f(x) = f(-x))
+2. forall (f), f : RealSet → RealSet ∧ DiffableFunc(f) ∧ (forall (x), x ∈ RealSet ⇒ (x ∈ Dom(f) ⇔ -x ∈ Dom(f))) ∧ EvenFunc(f) ⇒ (forall (x) (f), x ∈ RealSet ∧ f : RealSet → RealSet ∧ x ∈ Dom(f) ⇒ FunDeri(f, 1, 1)(x) = -FunDeri(f, 1, 1)(-x))
+3. forall (f), f : RealSet → RealSet ∧ DiffableFunc(f) ∧ (forall (x), x ∈ RealSet ⇒ (x ∈ Dom(f) ⇔ -x ∈ Dom(f))) ∧ EvenFunc(f) ⇒ (forall (x) (f), x ∈ RealSet ∧ f : RealSet → RealSet ∧ x ∈ Dom(f) ⇒ FunDeri(f, 1, 1)(-x) = -FunDeri(f, 1, 1)(x))
+4. forall (f), f : RealSet → RealSet ∧ DiffableFunc(f) ∧ (forall (x), x ∈ RealSet ⇒ (x ∈ Dom(f) ⇔ -x ∈ Dom(f))) ∧ EvenFunc(f) ⇒ OddFunc(FunDeri(f, 1, 1))
+5. forall (f), f : RealSet → RealSet ∧ DiffableFunc(f) ∧ (forall (x), x ∈ RealSet ⇒ (x ∈ Dom(f) ⇔ -x ∈ Dom(f))) ∧ OddFunc(f) ⇒ (forall (x) (f), x ∈ RealSet ∧ f : RealSet → RealSet ∧ x ∈ Dom(f) ⇒ f(-x) = -f(x))
+6. forall (f), f : RealSet → RealSet ∧ DiffableFunc(f) ∧ (forall (x), x ∈ RealSet ⇒ (x ∈ Dom(f) ⇔ -x ∈ Dom(f))) ∧ OddFunc(f) ⇒ (forall (x) (f), x ∈ RealSet ∧ f : RealSet → RealSet ∧ x ∈ Dom(f) ⇒ -FunDeri(f, 1, 1)(-x) = -FunDeri(f, 1, 1)(x))
+
+GOAL:
+forall (f), f : RealSet → RealSet ∧ DiffableFunc(f) ∧ (forall (x), x ∈ RealSet ⇒ (x ∈ Dom(f) ⇔ -x ∈ Dom(f))) ∧ OddFunc(f) ⇒ EvenFunc(FunDeri(f, 1, 1))
+
+METHOD:

@@ -1,0 +1,26 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. n ∈ IntegerSet
+4. A ∈ RealSet
+5. B ∈ RealSet
+6. C ∈ RealSet
+7. I : CartesianProd(IntegerSet, RealSet) → RealSet
+8. α ∈ RealSet
+9. n > 1
+10. a^{2} + b^{2} > 0
+11. forall (x), x ∈ RealSet ⇒ a * sin(x) + b * cos(x) ≠ 0
+12. sin(α) = frac(b, sqrtn(2, a^{2} + b^{2}))
+13. cos(α) = frac(a, sqrtn(2, a^{2} + b^{2}))
+14. A = frac(b, (n - 1) * (a^{2} + b^{2}))
+15. B = -frac(a, (n - 1) * (a^{2} + b^{2}))
+16. C = frac(n - 2, (n - 1) * (a^{2} + b^{2}))
+17. forall (x), x ∈ RealSet ⇒ a * sin(x) + b * cos(x) = sqrtn(2, a^{2} + b^{2}) * sin(x + α)
+18. { `F_6` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_6`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), (a * sin(x) + b * cos(x))^{n}) } = { `F_8` | exists (`F_7`), `F_7` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_7`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), sin(x + α)^{n}) ∧ `F_8`(x) = (a^{2} + b^{2})^{-frac(n, 2)} * `F_7`(x)) }
+19. { `F_9` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_9`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), (a * sin(x) + b * cos(x))^{n}) } = { `F_11` | exists (`F_10`), `F_10` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_10`, 1, 1)(x) = frac(1, sin(x + α)^{n - 2}) * FunDeri(fun x [x ∈ RealSet] . cot(x + α), 1, 1)(x) ∧ `F_11`(x) = -(a^{2} + b^{2})^{-frac(n, 2)} * `F_10`(x)) }
+
+GOAL:
+{ `F_12` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_12`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), (a * sin(x) + b * cos(x))^{n}) } = { `F_16` | exists (`F_13`), `F_13` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_13`, 1, 1)(x) = frac(1 - sin(x + α)^{2}, sin(x + α)^{n}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_16`(x) = frac(frac(b, a^{2} + b^{2}) * sin(x) - frac(a, a^{2} + b^{2}) * cos(x), (a * sin(x) + b * cos(x))^{n - 1}) - frac(n - 2, (a^{2} + b^{2})^{frac(n, 2)}) * `F_13`(x)) }
+
+METHOD:

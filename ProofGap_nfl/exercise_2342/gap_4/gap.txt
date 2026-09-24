@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x < 1 ⇒ sqrtn(2, 1 - x) > 0
+2. t = sqrtn(2, 1 - x)
+3. x = 1 - t^{2}
+4. diff(fun x [x ∈ RealSet] . x) = -2 * t * diff(fun t [t ∈ RealSet] . t)
+
+GOAL:
+2 - x = 1 + t^{2}
+
+METHOD:

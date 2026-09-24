@@ -1,0 +1,51 @@
+PROOF GAP @25
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. δ : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+3. f_{1} : RealSet → RealSet
+4. f_{2} : RealSet → RealSet
+5. f_{3} : RealSet → RealSet
+6. f_{4} : RealSet → RealSet
+7. f_{5} : RealSet → RealSet
+8. f_{6} : RealSet → RealSet
+9. δ_{1} : RealSet → RealSet
+10. δ_{2} : RealSet → RealSet
+11. δ_{3} : RealSet → RealSet
+12. δ_{4} : RealSet → RealSet
+13. δ_{5} : RealSet → RealSet
+14. δ_{6} : RealSet → RealSet
+15. forall (x), x ∈ RealSet ⇒ f(1, x) = 5 * x - 3
+16. forall (x), x ∈ RealSet ∧ x ∈ [-2, 5] ⇒ f(2, x) = x^{2} - 2 * x - 1
+17. forall (x), x ∈ RealSet ∧ x ∈ [0.1, 1] ⇒ f(3, x) = frac(1, x)
+18. forall (x), x ∈ RealSet ∧ x ∈ [0, +∞) ⇒ f(4, x) = sqrtn(2, x)
+19. forall (x), x ∈ RealSet ⇒ f(5, x) = 2 * sin(x) - cos(x)
+20. forall (x), x ∈ RealSet ∧ x ∈ [0, π] ⇒ f(6, x) = cases{ x * sin(frac(1, x)) if x ≠ 0; 0 if x = 0 }
+21. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ⇒ |f(1, x_{1}) - f(1, x_{2})| = 5 * |x_{1} - x_{2}|)
+22. forall (ε), ε ∈ RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ⇒ δ(1, ε) = frac(ε, 5)))
+23. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ [-2, 5] ∧ x_{2} ∈ [-2, 5] ⇒ |f(2, x_{1}) - f(2, x_{2})| = |x_{1} - x_{2}| * |x_{1} + x_{2} - 2|)
+24. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ [-2, 5] ∧ x_{2} ∈ [-2, 5] ⇒ |x_{1} + x_{2} - 2| ≤ 8)
+25. forall (ε), ε ∈ RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ [-2, 5] ∧ x_{2} ∈ [-2, 5] ⇒ δ(2, ε) = frac(ε, 8)))
+26. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ [0.1, 1] ∧ x_{2} ∈ [0.1, 1] ⇒ |f(3, x_{1}) - f(3, x_{2})| = frac(|x_{1} - x_{2}|, x_{1} * x_{2}))
+27. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ [0.1, 1] ∧ x_{2} ∈ [0.1, 1] ⇒ frac(|x_{1} - x_{2}|, x_{1} * x_{2}) ≤ frac(|x_{1} - x_{2}|, 0.01))
+28. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ [0.1, 1] ∧ x_{2} ∈ [0.1, 1] ⇒ |f(3, x_{1}) - f(3, x_{2})| ≤ frac(|x_{1} - x_{2}|, 0.01))
+29. forall (ε), ε ∈ RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ [0.1, 1] ∧ x_{2} ∈ [0.1, 1] ⇒ δ(3, ε) = 0.01 * ε))
+30. forall (a), a ∈ RealSet ⇒ (forall (b), b ∈ RealSet ∧ a ≥ 0 ∧ b ≥ 0 ⇒ sqrtn(2, a + b) ≤ sqrtn(2, a) + sqrtn(2, b))
+31. forall (ε), ε ∈ RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ ε > 0 ∧ δ(4, ε) = ε^{2} ∧ |x_{1} - x_{2}| < δ(4, ε) ∧ x_{1} ∈ [0, +∞) ∧ x_{2} ∈ [0, +∞) ⇒ sqrtn(2, x_{1}) < sqrtn(2, x_{2} + δ(4, ε))))
+32. forall (ε), ε ∈ RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ ε > 0 ∧ δ(4, ε) = ε^{2} ∧ |x_{1} - x_{2}| < δ(4, ε) ∧ x_{1} ∈ [0, +∞) ∧ x_{2} ∈ [0, +∞) ⇒ sqrtn(2, x_{2} + δ(4, ε)) ≤ sqrtn(2, x_{2}) + sqrtn(2, δ(4, ε))))
+33. forall (ε), ε ∈ RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ ε > 0 ∧ δ(4, ε) = ε^{2} ∧ |x_{1} - x_{2}| < δ(4, ε) ∧ x_{1} ∈ [0, +∞) ∧ x_{2} ∈ [0, +∞) ⇒ sqrtn(2, x_{2}) + sqrtn(2, δ(4, ε)) = sqrtn(2, x_{2}) + ε))
+34. forall (ε), ε ∈ RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ ε > 0 ∧ δ(4, ε) = ε^{2} ∧ |x_{1} - x_{2}| < δ(4, ε) ∧ x_{1} ∈ [0, +∞) ∧ x_{2} ∈ [0, +∞) ⇒ sqrtn(2, x_{1}) < sqrtn(2, x_{2}) + ε))
+35. forall (ε), ε ∈ RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ ε > 0 ∧ δ(4, ε) = ε^{2} ∧ |x_{1} - x_{2}| < δ(4, ε) ∧ x_{1} ∈ [0, +∞) ∧ x_{2} ∈ [0, +∞) ⇒ sqrtn(2, x_{2}) < sqrtn(2, x_{1} + δ(4, ε))))
+36. forall (ε), ε ∈ RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ ε > 0 ∧ δ(4, ε) = ε^{2} ∧ |x_{1} - x_{2}| < δ(4, ε) ∧ x_{1} ∈ [0, +∞) ∧ x_{2} ∈ [0, +∞) ⇒ sqrtn(2, x_{1} + δ(4, ε)) ≤ sqrtn(2, x_{1}) + sqrtn(2, δ(4, ε))))
+37. forall (ε), ε ∈ RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ ε > 0 ∧ δ(4, ε) = ε^{2} ∧ |x_{1} - x_{2}| < δ(4, ε) ∧ x_{1} ∈ [0, +∞) ∧ x_{2} ∈ [0, +∞) ⇒ sqrtn(2, x_{1}) + sqrtn(2, δ(4, ε)) = sqrtn(2, x_{1}) + ε))
+38. forall (ε), ε ∈ RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ ε > 0 ∧ δ(4, ε) = ε^{2} ∧ |x_{1} - x_{2}| < δ(4, ε) ∧ x_{1} ∈ [0, +∞) ∧ x_{2} ∈ [0, +∞) ⇒ sqrtn(2, x_{2}) < sqrtn(2, x_{1}) + ε))
+39. forall (ε), ε ∈ RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ ε > 0 ∧ δ(4, ε) = ε^{2} ∧ |x_{1} - x_{2}| < δ(4, ε) ∧ x_{1} ∈ [0, +∞) ∧ x_{2} ∈ [0, +∞) ⇒ |f(4, x_{1}) - f(4, x_{2})| < ε))
+40. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ⇒ |f(5, x_{1}) - f(5, x_{2})| ≤ 2 * |sin(x_{1}) - sin(x_{2})| + |cos(x_{1}) - cos(x_{2})|)
+41. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ⇒ 2 * |sin(x_{1}) - sin(x_{2})| + |cos(x_{1}) - cos(x_{2})| ≤ 3 * |x_{1} - x_{2}|)
+42. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ⇒ |f(5, x_{1}) - f(5, x_{2})| ≤ 3 * |x_{1} - x_{2}|)
+43. forall (ε), ε ∈ RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ⇒ δ(5, ε) = frac(ε, 3)))
+44. forall (ε), ε ∈ RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ ε > 0 ∧ x_{1} ∈ [frac(ε, 3), π] ∧ x_{2} ∈ [frac(ε, 3), π] ⇒ |f(6, x_{1}) - f(6, x_{2})| ≤ frac(3 + ε, ε) * |x_{1} - x_{2}|))
+
+GOAL:
+forall (ε), ε ∈ RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ ε > 0 ∧ δ(6, ε) = min(frac(ε, 3), frac(ε^{2}, 3 + ε)) ∧ x_{1} ∈ [0, π] ∧ x_{2} ∈ [0, π] ∧ |x_{1} - x_{2}| < δ(6, ε) ∧ x_{1} ≥ frac(ε, 3) ⇒ |f(6, x_{1}) - f(6, x_{2})| < ε))
+
+METHOD:

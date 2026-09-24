@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet ∧ x > 0
+2. C ∈ RealSet
+3. t : RealSet → RealSet
+4. forall (x), x ∈ RealSet ∧ x > 0 ⇒ t(x) = sqrtn(6, x)
+5. forall (x), x ∈ RealSet ∧ x > 0 ⇒ sqrtn(2, x) = t(x)^{3}
+6. forall (x), x ∈ RealSet ∧ x > 0 ⇒ sqrtn(3, x) = t(x)^{2}
+7. forall (x), x ∈ RealSet ∧ x > 0 ⇒ diff(fun x [x ∈ RealSet ∧ x > 0] . x) = (fun x [x ∈ RealSet ∧ x > 0] . 6 * t(x)^{5}) * diff(fun x [x ∈ RealSet ∧ x > 0] . t(x))
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, sqrtn(2, x) + sqrtn(3, x)) * FunDeri(fun x [x ∈ RealSet ∧ x > 0] . x, 1, 1)(x) } = { `F_4` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(t(x)^{3}, t(x) + 1) * FunDeri(fun x [x ∈ RealSet ∧ x > 0] . t(x), 1, 1)(x) ∧ `F_4`(x) = 6 * `F_3`(x)) }
+
+METHOD:

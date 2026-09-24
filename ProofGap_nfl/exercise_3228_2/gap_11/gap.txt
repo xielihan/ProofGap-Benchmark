@@ -1,0 +1,19 @@
+PROOF GAP @11
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ≠ 0 ∧ frac(x, y) ≥ 0 ∧ frac(x, y) ≤ 1 ⇒ u(x, y) = arccos(sqrtn(2, frac(x, y)))
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ 0 < x ∧ x < y ⇒ u(x, y) = arccos(frac(sqrtn(2, x), sqrtn(2, y)))
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ 0 < x ∧ x < y ⇒ FunDeri(u, 1, 1)(x, y) = -frac(1, 2 * sqrtn(2, x * (y - x)))
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ 0 < x ∧ x < y ⇒ FunDeri(u, 2, 1)(x, y) = frac(sqrtn(2, x), 2 * sqrtn(2, y^{2} * (y - x)))
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ 0 < x ∧ x < y ⇒ FunDeri(FunDeri(u, 1, 1), 2, 1)(x, y) = frac(1, 4 * sqrtn(2, x) * (y - x)^{frac(3, 2)})
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ 0 < x ∧ x < y ⇒ FunDeri(FunDeri(u, 2, 1), 1, 1)(x, y) = frac(1, 4 * sqrtn(2, x) * sqrtn(2, y^{2} * (y - x))) + frac(sqrtn(2, x), 4 * y * (y - x)^{frac(3, 2)})
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ 0 < x ∧ x < y ⇒ frac(1, 4 * sqrtn(2, x) * sqrtn(2, y^{2} * (y - x))) + frac(sqrtn(2, x), 4 * y * (y - x)^{frac(3, 2)}) = frac(1, 4 * sqrtn(2, x) * (y - x)^{frac(3, 2)})
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ 0 < x ∧ x < y ⇒ FunDeri(FunDeri(u, 2, 1), 1, 1)(x, y) = frac(1, 4 * sqrtn(2, x) * (y - x)^{frac(3, 2)})
+10. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ 0 < x ∧ x < y ⇒ FunDeri(FunDeri(u, 1, 1), 2, 1)(x, y) = FunDeri(FunDeri(u, 2, 1), 1, 1)(x, y)
+11. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ y < x ∧ x < 0 ⇒ u(x, y) = arccos(frac(sqrtn(2, -x), sqrtn(2, -y)))
+12. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ y < x ∧ x < 0 ⇒ FunDeri(u, 1, 1)(x, y) = frac(1, 2 * sqrtn(2, -x) * sqrtn(2, x - y))
+
+GOAL:
+forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ y < x ∧ x < 0 ⇒ FunDeri(u, 2, 1)(x, y) = -frac(sqrtn(2, -x), 2 * sqrtn(2, x * y^{2} - y^{3}))
+
+METHOD:

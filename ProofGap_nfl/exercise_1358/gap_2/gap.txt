@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. x ∈ RealSet
+3. a > 0
+4. x > 0
+5. x ≠ a
+6. lim_{ x → a } (frac(a^{x} - x^{a}, x - a)) = lim_{ x → a } (a^{x} * ln(a) - a * x^{a - 1})
+
+GOAL:
+lim_{ x → a } (a^{x} * ln(a) - a * x^{a - 1}) = a^{a} * (ln(a) - 1)
+
+METHOD:

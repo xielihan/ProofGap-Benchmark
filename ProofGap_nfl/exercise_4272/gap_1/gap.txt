@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. C ∈ RealSet
+
+GOAL:
+forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ y ≠ 0 ⇒ z(x, y) = DefInt(0, x, frac(y, 3 * x^{2} - 2 * x * y + 3 * y^{2}) * diff(x)) + DefInt(1, y, 0 * diff(y)) + C
+
+METHOD:

@@ -1,0 +1,16 @@
+PROOF GAP @8
+ASSUM:
+1. x ∈ RealSet
+2. a = (fun n [n ∈ NonNegIntegerSet ∧ n ≥ 1] . sum_{ k = 1 }^{ n } (frac(1, k)))
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = sum_{ k = 1 }^{ n } (frac(1, k))
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n + 1) ≠ 0
+5. seqlim_{ n → +∞ } (|frac(a(n), a(n + 1))|) = 1
+6. RadiusOfConvergence(a) = 1
+7. forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } ((sum_{ k = 1 }^{ n } (frac(1, k))) * x^{n}))
+8. |x| = 1 ⇒ lim_{ n → +∞ } (a(n)) = +∞
+9. |x| = 1 ⇒ ¬seqlim_{ n → +∞ } (a(n) * x^{n}) = 0
+
+GOAL:
+|x| = 1 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } ((sum_{ k = 1 }^{ n } (frac(1, k))) * x^{n}))
+
+METHOD:

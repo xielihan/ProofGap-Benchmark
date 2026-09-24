@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (t), t ∈ RealSet ∧ sin(t) ≠ 0 ⇒ frac(-frac(b, a) * -frac(1, sin(t)^{2}), -a * sin(t)) = -frac(b, a^{2} * sin(t)^{3})}) (t := {t0})
+get_condition (hypothesis 15: {t0 ∈ RealSet ∧ sin(t0) ≠ 0}) in (GOAL: {t0 ∈ RealSet ∧ sin(t0) ≠ 0 ⇒ frac(-frac(b, a) * -frac(1, sin(t0)^{2}), -a * sin(t0)) = -frac(b, a^{2} * sin(t0)^{3})})
+assert (hypothesis 16: {frac(-frac(b, a) * -frac(1, sin(t0)^{2}), -a * sin(t0)) = -frac(b, a^{2} * sin(t0)^{3})})
+apply (hypothesis 16: {frac(-frac(b, a) * -frac(1, sin(t0)^{2}), -a * sin(t0)) = -frac(b, a^{2} * sin(t0)^{3})})

@@ -1,0 +1,3 @@
+get_exists (hypothesis 7: {exists (θ), θ ∈ RealSet ∧ θ < 1 ∧ 0 < θ}) (θ := {θ0})
+exists (θ := {θ0})
+autosolve all_hypothesis

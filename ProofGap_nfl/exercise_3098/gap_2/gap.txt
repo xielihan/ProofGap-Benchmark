@@ -1,0 +1,17 @@
+PROOF GAP @2
+ASSUM:
+1. u : NonNegIntegerSet → RealSet
+2. v : NonNegIntegerSet → RealSet
+3. a : NonNegIntegerSet → RealSet
+4. b : NonNegIntegerSet → RealSet
+5. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ u(2 * k - 1) = frac(1, sqrtn(2, k + 1)) + frac(1, k + 1)
+6. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ u(2 * k) = -frac(1, sqrtn(2, k + 1))
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ v(n) = ln(1 + u(n))
+8. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ a(k) = u(2 * k - 1) + u(2 * k)
+9. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ b(k) = v(2 * k - 1) + v(2 * k)
+10. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ a(k) = frac(1, k + 1)
+
+GOAL:
+DivergentSeries(sum_{ k = 1 }^{ +∞ } (a(k)))
+
+METHOD:

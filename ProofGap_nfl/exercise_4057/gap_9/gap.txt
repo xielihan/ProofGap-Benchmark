@@ -1,0 +1,24 @@
+PROOF GAP @9
+ASSUM:
+1. r : RealSet → RealSet
+2. a ∈ RealSet ∧ a > 0
+3. ρ ∈ RealSet ∧ ρ > 0
+4. M ∈ RealSet
+5. M_{x} ∈ RealSet
+6. M_{y} ∈ RealSet
+7. x_{0} ∈ RealSet
+8. y_{0} ∈ RealSet
+9. forall (φ), φ ∈ RealSet ⇒ r(φ) = a * (1 + cos(φ))
+10. M = ρ * DefInt(0, π, (fun φ [φ ∈ RealSet] . DefInt(0, a * (1 + cos(φ)), (fun r [r ∈ RealSet] . r) * diff(fun r [r ∈ RealSet] . r))) * diff(fun φ [φ ∈ RealSet] . φ))
+11. ρ * DefInt(0, π, (fun φ [φ ∈ RealSet] . DefInt(0, a * (1 + cos(φ)), (fun r [r ∈ RealSet] . r) * diff(fun r [r ∈ RealSet] . r))) * diff(fun φ [φ ∈ RealSet] . φ)) = frac(1, 2) * ρ * a^{2} * DefInt(0, π, (fun φ [φ ∈ RealSet] . (1 + cos(φ))^{2}) * diff(fun φ [φ ∈ RealSet] . φ))
+12. frac(1, 2) * ρ * a^{2} * DefInt(0, π, (fun φ [φ ∈ RealSet] . (1 + cos(φ))^{2}) * diff(fun φ [φ ∈ RealSet] . φ)) = frac(3, 4) * π * ρ * a^{2}
+13. M = frac(3, 4) * π * ρ * a^{2}
+14. M_{y} = ρ * DefInt(0, π, (fun φ [φ ∈ RealSet] . DefInt(0, a * (1 + cos(φ)), (fun r [r ∈ RealSet] . r * r * cos(φ)) * diff(fun r [r ∈ RealSet] . r))) * diff(fun φ [φ ∈ RealSet] . φ))
+15. ρ * DefInt(0, π, (fun φ [φ ∈ RealSet] . DefInt(0, a * (1 + cos(φ)), (fun r [r ∈ RealSet] . r * r * cos(φ)) * diff(fun r [r ∈ RealSet] . r))) * diff(fun φ [φ ∈ RealSet] . φ)) = frac(ρ * a^{3}, 3) * DefInt(0, π, (fun φ [φ ∈ RealSet] . (1 + cos(φ))^{3} * cos(φ)) * diff(fun φ [φ ∈ RealSet] . φ))
+16. M_{y} = frac(ρ * a^{3}, 3) * DefInt(0, π, (fun φ [φ ∈ RealSet] . (1 + cos(φ))^{3} * cos(φ)) * diff(fun φ [φ ∈ RealSet] . φ))
+17. M_{y} = frac(ρ * a^{3}, 3) * (DefInt(0, π, (fun φ [φ ∈ RealSet] . (1 + cos(φ))^{4}) * diff(fun φ [φ ∈ RealSet] . φ)) - DefInt(0, π, (fun φ [φ ∈ RealSet] . (1 + cos(φ))^{3}) * diff(fun φ [φ ∈ RealSet] . φ)))
+
+GOAL:
+frac(ρ * a^{3}, 3) * (DefInt(0, π, (fun φ [φ ∈ RealSet] . (1 + cos(φ))^{4}) * diff(fun φ [φ ∈ RealSet] . φ)) - DefInt(0, π, (fun φ [φ ∈ RealSet] . (1 + cos(φ))^{3}) * diff(fun φ [φ ∈ RealSet] . φ))) = frac(5 * π * ρ * a^{3}, 8)
+
+METHOD:

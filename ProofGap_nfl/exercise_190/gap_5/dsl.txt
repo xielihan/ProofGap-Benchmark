@@ -1,0 +1,5 @@
+get_prop (theorem 'Thm 174. (ExponentialLogarithmInverse)': {forall (x) (a), x ∈ RealSet => a ∈ RealSet => (a > 0 => a ≠ 1 => (log(a, a ^ x) = x /\ (x > 0 => a ^ (log(a, x)) = x)))}) (x := {-6}) (a := {10}) as (hypothesis 7: {-6 ∈ RealSet => 10 ∈ RealSet => (10 > 0 => 10 ≠ 1 => (log(10, 10 ^ (-6)) = -6 /\ (-6 > 0 => 10 ^ (log(10, -6)) = -6)))})
+use_condition (obvious: {-6 ∈ RealSet}) (obvious: {10 ∈ RealSet}) (obvious: {10 > 0}) (obvious: {10 ≠ 1}) in (hypothesis 7: {-6 ∈ RealSet => 10 ∈ RealSet => (10 > 0 => 10 ≠ 1 => (log(10, 10 ^ (-6)) = -6 /\ (-6 > 0 => 10 ^ (log(10, -6)) = -6)))}) as (hypothesis 8: {log(10, 10 ^ (-6)) = -6 /\ (-6 > 0 => 10 ^ (log(10, -6)) = -6)})
+destruct_and (hypothesis 8: {log(10, 10 ^ (-6)) = -6 /\ (-6 > 0 => 10 ^ (log(10, -6)) = -6)}) as (hypothesis 9: {log(10, 10 ^ (-6)) = -6}) (hypothesis 10: {-6 > 0 => 10 ^ (log(10, -6)) = -6})
+autoreplace no_hypothesis; from (10 ^ (-6)) to (0.000001); from (hypothesis 9: {log(10, 10 ^ (-6)) = -6}) to (hypothesis 11: {log(10, 0.000001) = -6})
+apply (hypothesis 11: {log(10, 0.000001) = -6})

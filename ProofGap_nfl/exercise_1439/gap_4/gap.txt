@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x) = frac(ln(x)^{2}, x)
+3. forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(y, 1, 1)(x) = frac(2 * ln(x) - ln(x)^{2}, x^{2})
+4. forall (x), x ∈ RealSet ∧ x > 0 ∧ FunDeri(y, 1, 1)(x) = 0 ⇒ x = 1 ∨ x = e^{2}
+5. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < 1 ⇒ FunDeri(y, 1, 1)(x) < 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 1 < x ∧ x < e^{2} ⇒ FunDeri(y, 1, 1)(x) > 0
+
+METHOD:

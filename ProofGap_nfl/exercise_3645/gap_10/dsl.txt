@@ -1,0 +1,13 @@
+get_forall (GOAL: {forall (y) (x) (z), y ∈ RealSet ∧ x ∈ RealSet ∧ z ∈ RealSet ∧ y = 0 ∧ x * z^{3} * (a - x - 3 * z) > 0 ⇒ u(x, y, z) = 0}) (y := {yy}) (x := {xx}) (z := {zz})
+get_condition (hypothesis 14: {yy ∈ RealSet ∧ xx ∈ RealSet ∧ zz ∈ RealSet ∧ yy = 0 ∧ xx * zz^{3} * (a - xx - 3 * zz) > 0}) in (GOAL: {yy ∈ RealSet ∧ xx ∈ RealSet ∧ zz ∈ RealSet ∧ yy = 0 ∧ xx * zz^{3} * (a - xx - 3 * zz) > 0 ⇒ u(xx, yy, zz) = 0})
+get_prop (hypothesis 4: {forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = x * y^{2} * z^{3} * (a - x - 2 * y - 3 * z)}) (x := {xx}) (y := {yy}) (z := {zz}) as (hypothesis 15: {xx ∈ RealSet ∧ yy ∈ RealSet ∧ zz ∈ RealSet ⇒ u(xx, yy, zz) = xx * yy^{2} * zz^{3} * (a - xx - 2 * yy - 3 * zz)})
+assert (hypothesis 16: {xx ∈ RealSet ∧ yy ∈ RealSet ∧ zz ∈ RealSet}) by proof {
+autosolve all_hypothesis
+}
+use_condition (hypothesis 16: {xx ∈ RealSet ∧ yy ∈ RealSet ∧ zz ∈ RealSet}) in (hypothesis 15: {xx ∈ RealSet ∧ yy ∈ RealSet ∧ zz ∈ RealSet ⇒ u(xx, yy, zz) = xx * yy^{2} * zz^{3} * (a - xx - 2 * yy - 3 * zz)}) as (hypothesis 17: {u(xx, yy, zz) = xx * yy^{2} * zz^{3} * (a - xx - 2 * yy - 3 * zz)})
+assert (hypothesis 18: {yy = 0}) by proof {
+autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 17: {u(xx, yy, zz) = xx * yy^{2} * zz^{3} * (a - xx - 2 * yy - 3 * zz)}); from (GOAL: {u(xx, yy, zz) = 0}) to (GOAL: {xx * yy^{2} * zz^{3} * (a - xx - 2 * yy - 3 * zz) = 0})
+rewrite (left_to_right, equation) (hypothesis 18: {yy = 0}); from (GOAL: {xx * yy^{2} * zz^{3} * (a - xx - 2 * yy - 3 * zz) = 0}) to (GOAL: {xx * 0^{2} * zz^{3} * (a - xx - 2 * 0 - 3 * zz) = 0})
+autosolve all_hypothesis using PolyRatSolver

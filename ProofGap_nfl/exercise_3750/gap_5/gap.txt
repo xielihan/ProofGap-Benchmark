@@ -1,0 +1,15 @@
+PROOF GAP @5
+ASSUM:
+1. n ∈ RealSet
+2. x ∈ RealSet
+3. ξ : NonNegIntegerSet → RealSet
+4. η : NonNegIntegerSet → RealSet
+5. DefInt(0, +∞, frac(sin(x + x^{2}), x^{n}) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)) = DefInt(0, 1, frac(sin(x + x^{2}), x^{n}) * diff(fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . x)) + DefInt(1, +∞, frac(sin(x + x^{2}), x^{n}) * diff(fun x [x ∈ RealSet ∧ x ≥ 1] . x))
+6. ConvergentSeries(DefInt(0, 1, frac(sin(x + x^{2}), x^{n}) * diff(fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . x))) ⇔ n < 2
+7. forall (k), k ∈ NonNegIntegerSet ⇒ (forall (a), a : NonNegIntegerSet → RealSet ∧ IsSeq(a) ∧ a(0) = 1 ∧ (forall (k), k ∈ NonNegIntegerSet ⇒ a(k) > 0 ∧ a(k) < a(k + 1)) ∧ seqlim_{ k → +∞ } (a(k)) = +∞ ∧ n > -1 ⇒ DefInt(a(k), a(k + 1), frac(sin(x + x^{2}), x^{n}) * diff(fun x [x ∈ RealSet] . x)) = -DefInt(a(k), a(k + 1), frac(diff(fun x [x ∈ RealSet] . cos(x + x^{2})), x^{n} * (1 + 2 * x))))
+8. forall (k), k ∈ NonNegIntegerSet ⇒ (forall (a), a : NonNegIntegerSet → RealSet ∧ IsSeq(a) ∧ a(0) = 1 ∧ (forall (k), k ∈ NonNegIntegerSet ⇒ a(k) > 0 ∧ a(k) < a(k + 1)) ∧ seqlim_{ k → +∞ } (a(k)) = +∞ ∧ n > -1 ⇒ DefInt(a(k), a(k + 1), frac(sin(x + x^{2}), x^{n}) * diff(fun x [x ∈ RealSet] . x)) = -(frac(cos(x + x^{2}), x^{n} * (1 + 2 * x))|_{a(k)}^{a(k + 1)}) - DefInt(a(k), a(k + 1), frac((2 * (n + 1) * x + n) * cos(x + x^{2}), x^{n + 1} * (1 + 2 * x)^{2}) * diff(fun x [x ∈ RealSet] . x)))
+
+GOAL:
+forall (m), m ∈ NonNegIntegerSet ⇒ (forall (p), p ∈ NonNegIntegerSet ∧ p > 0 ⇒ (forall (a), a : NonNegIntegerSet → RealSet ∧ IsSeq(a) ∧ a(0) = 1 ∧ (forall (k), k ∈ NonNegIntegerSet ⇒ a(k) > 0 ∧ a(k) < a(k + 1)) ∧ seqlim_{ k → +∞ } (a(k)) = +∞ ∧ n > -1 ⇒ |sum_{ k = m }^{ m + p - 1 } (DefInt(a(k), a(k + 1), frac(sin(x + x^{2}), x^{n}) * diff(fun x [x ∈ RealSet] . x)))| ≤ frac(1, 2 * a(m)^{n + 1}) + frac(1, 2 * a(m + p)^{n + 1}) + DefInt(a(m), a(m + p), frac(2 * (n + 1) * x + |n|, x^{n + 1} * (1 + 2 * x)^{2}) * diff(fun x [x ∈ RealSet] . x))))
+
+METHOD:

@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet
+2. k = min({ m | m ∈ PosIntegerSet, m > 2 * |a| })
+3. k ∈ PosIntegerSet
+4. k > 2 * |a|
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ IntegerSet ∧ n > k ⇒ 0 < |frac(a^{n}, n!)|
+
+METHOD:

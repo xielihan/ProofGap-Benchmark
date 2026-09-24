@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(1000^{n}, n!)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(a(n + 1), a(n)) = frac(frac(1000^{n + 1}, (n + 1)!), frac(1000^{n}, n!)) ∧ frac(frac(1000^{n + 1}, (n + 1)!), frac(1000^{n}, n!)) = frac(1000, n + 1)
+
+METHOD:

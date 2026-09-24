@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ [1, +∞) ⇒ f(x) = sqrtn(2, x)
+3. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ [1, +∞) ∧ x_{2} ∈ [1, +∞) ⇒ |sqrtn(2, x_{1}) - sqrtn(2, x_{2})| = |frac(x_{1} - x_{2}, sqrtn(2, x_{1}) + sqrtn(2, x_{2}))|)
+4. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ [1, +∞) ∧ x_{2} ∈ [1, +∞) ⇒ |frac(x_{1} - x_{2}, sqrtn(2, x_{1}) + sqrtn(2, x_{2}))| ≤ frac(|x_{1} - x_{2}|, 2))
+5. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ [1, +∞) ∧ x_{2} ∈ [1, +∞) ⇒ |sqrtn(2, x_{1}) - sqrtn(2, x_{2})| ≤ frac(|x_{1} - x_{2}|, 2))
+6. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ = 2 * ε ∧ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ |x_{1} - x_{2}| < δ ∧ x_{1} ∈ [1, +∞) ∧ x_{2} ∈ [1, +∞) ⇒ |sqrtn(2, x_{1}) - sqrtn(2, x_{2})| < frac(1, 2) * 2 * ε)))
+7. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ = 2 * ε ∧ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ |x_{1} - x_{2}| < δ ∧ x_{1} ∈ [1, +∞) ∧ x_{2} ∈ [1, +∞) ⇒ |f(x_{1}) - f(x_{2})| < ε)))
+
+GOAL:
+forall (ε), ε ∈ RealSet ⇒ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x) (y), x ∈ [1, +∞) ⇒ y ∈ [1, +∞) ⇒ |x - y| < δ ⇒ |f(x) - f(y)| < ε))
+
+METHOD:

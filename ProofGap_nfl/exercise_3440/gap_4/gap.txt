@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. u : RealSet → RealSet
+4. forall (x), x ∈ RealSet ⇒ (1 + x^{2})^{2} * FunDeri(y, 1, 2)(x) = y(x)
+5. forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ⇒ x(t) = tan(t) ∧ y(x(t)) = frac(u(t), cos(t))
+6. forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ⇒ FunDeri(x, 1, 1)(t) = frac(1, cos(t)^{2})
+7. forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ⇒ FunDeri(y, 1, 1)(x(t)) = frac(frac(FunDeri(u, 1, 1)(t) * cos(t) + u(t) * sin(t), cos(t)^{2}), frac(1, cos(t)^{2}))
+8. forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ⇒ frac(frac(FunDeri(u, 1, 1)(t) * cos(t) + u(t) * sin(t), cos(t)^{2}), frac(1, cos(t)^{2})) = FunDeri(u, 1, 1)(t) * cos(t) + u(t) * sin(t)
+
+GOAL:
+forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ⇒ FunDeri(y, 1, 1)(x(t)) = FunDeri(u, 1, 1)(t) * cos(t) + u(t) * sin(t)
+
+METHOD:

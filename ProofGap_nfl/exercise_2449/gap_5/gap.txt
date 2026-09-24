@@ -1,0 +1,15 @@
+PROOF GAP @5
+ASSUM:
+1. r : RealSet → RealSet
+2. p ∈ RealSet ∧ p > 0
+3. s ∈ RealSet
+4. forall (φ), φ ∈ RealSet ∧ |φ| ≤ frac(π, 2) ⇒ r(φ) = frac(p, 1 + cos(φ))
+5. forall (φ), φ ∈ RealSet ∧ |φ| ≤ frac(π, 2) ⇒ FunDeri(r, 1, 1)(φ) = frac(p * sin(φ), (1 + cos(φ))^{2})
+6. forall (φ), φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2) ∧ 1 + cos(φ) ≠ 0 ⇒ sqrtn(2, r(φ)^{2} + FunDeri(r, 1, 1)(φ)^{2}) = frac(2 * p * cos(frac(φ, 2)), (1 + cos(φ))^{2})
+7. forall (φ), φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2) ⇒ s = DefInt(-frac(π, 2), frac(π, 2), frac(2 * p * cos(frac(φ, 2)), (1 + cos(φ))^{2}) * diff(fun φ [φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2)] . φ))
+8. forall (φ), φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2) ⇒ s = frac(p, 2) * DefInt(-frac(π, 2), frac(π, 2), sec(frac(φ, 2))^{3} * diff(fun φ [φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2)] . φ))
+
+GOAL:
+forall (φ), φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2) ⇒ s = frac(p, 2) * DefInt(-frac(π, 2), frac(π, 2), sec(frac(φ, 2)) * (1 + tan(frac(φ, 2))^{2}) * diff(fun φ [φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2)] . φ))
+
+METHOD:

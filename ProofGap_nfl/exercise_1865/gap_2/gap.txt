@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet ∧ x ≠ 0
+2. C ∈ RealSet
+3. C_{1} ∈ RealSet
+4. frac(x^{2} + 1, x * sqrtn(2, x^{4} + 1)) * diff(fun x [x ∈ RealSet ∧ x ≠ 0] . x) = frac(sgn(x) * (1 + frac(1, x^{2})), sqrtn(2, x^{2} + frac(1, x^{2}))) * diff(fun x [x ∈ RealSet ∧ x ≠ 0] . x)
+
+GOAL:
+diff(fun x [x ∈ RealSet ∧ x ≠ 0] . x - frac(1, x)) = (1 + frac(1, x^{2})) * diff(fun x [x ∈ RealSet ∧ x ≠ 0] . x)
+
+METHOD:

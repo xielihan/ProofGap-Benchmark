@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. p ∈ RealSet
+2. p > 0
+
+GOAL:
+lim_{ n → +∞ } (frac(sum_{ i = 1 }^{ n } (i^{p}), n^{p + 1})) = lim_{ n → +∞ } (sum_{ i = 1 }^{ n } (frac(i, n)^{p} * frac(1, n)))
+
+METHOD:

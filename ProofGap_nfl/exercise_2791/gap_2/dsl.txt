@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ [0, +∞) => MonoDecSeq(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . e^{-(n * x)})}) (x := {x0})
+get_condition (hypothesis 7: {x0 ∈ RealSet ∧ x0 ∈ [0, +∞)}) in (GOAL: {x0 ∈ RealSet ∧ x0 ∈ [0, +∞) => MonoDecSeq(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . e^{-(n * x0)})})
+destruct_and (hypothesis 7: {x0 ∈ RealSet ∧ x0 ∈ [0, +∞)}) as (hypothesis 8: {x0 ∈ RealSet}) (hypothesis 9: {x0 ∈ [0, +∞)})
+assert (hypothesis 10: {forall (n), n ∈ NonNegIntegerSet => e^{-((n + 1) * x0)} <= e^{-(n * x0)}}) by proof {
+  get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet => e^{-((n + 1) * x0)} <= e^{-(n * x0)}}) (n := {n0})
+  get_condition (hypothesis 11: {n0 ∈ NonNegIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet => e^{-((n0 + 1) * x0)} <= e^{-(n0 * x0)}})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

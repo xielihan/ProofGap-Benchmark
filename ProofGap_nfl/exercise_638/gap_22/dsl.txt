@@ -1,0 +1,2 @@
+1. get_condition (hypothesis 28: {0 < x}) (hypothesis 29: {x <= 1}) in (GOAL: {0 < x ⇒ x <= 1 ⇒ frac(x, 2) <= frac(1, 2)})
+2. autosolve all_hypothesis

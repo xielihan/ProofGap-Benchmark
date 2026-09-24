@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = x + 0.001 * floor(x)
+4. forall (ε), ε ∈ RealSet ∧ ε > 0.001 ⇒ (forall (x), x ∈ RealSet ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ δ = min(ε - 0.001, 1)))
+5. forall (ε), ε ∈ RealSet ∧ ε > 0.001 ⇒ (forall (x), x ∈ RealSet ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (`x'`), `x'` ∈ RealSet ∧ |`x'` - x| < δ ⇒ |f(`x'`) - f(x)| = |x - `x'` + 0.001 * (floor(x) - floor(`x'`))|)))
+6. forall (ε), ε ∈ RealSet ∧ ε > 0.001 ⇒ (forall (x), x ∈ RealSet ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (`x'`), `x'` ∈ RealSet ∧ |`x'` - x| < δ ⇒ |x - `x'` + 0.001 * (floor(x) - floor(`x'`))| ≤ |x - `x'`| + 0.001)))
+7. forall (ε), ε ∈ RealSet ∧ ε > 0.001 ⇒ (forall (x), x ∈ RealSet ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (`x'`), `x'` ∈ RealSet ∧ |`x'` - x| < δ ⇒ |f(`x'`) - f(x)| ≤ |x - `x'`| + 0.001)))
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0.001 ⇒ (forall (x), x ∈ RealSet ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (`x'`), `x'` ∈ RealSet ∧ |`x'` - x| < δ ⇒ |f(`x'`) - f(x)| < ε)))
+
+METHOD:

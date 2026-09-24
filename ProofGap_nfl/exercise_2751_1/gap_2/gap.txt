@@ -1,0 +1,15 @@
+PROOF GAP @2
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. g : RealSet → RealSet
+3. ε ∈ RealSet
+4. 0 < ε
+5. ε < 1
+6. forall (x) (n), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 - ε ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ f(n, x) = frac(x^{n}, 1 + x^{n})
+7. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 - ε ⇒ g(x) = 0
+8. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 - ε ⇒ seqlim_{ n → +∞ } (f(n, x)) = 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 - ε ⇒ g(x) = 0
+
+METHOD:

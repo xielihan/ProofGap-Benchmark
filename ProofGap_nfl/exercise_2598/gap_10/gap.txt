@@ -1,0 +1,18 @@
+PROOF GAP @10
+ASSUM:
+1. p ∈ RealSet
+2. a = (fun n [n ∈ NonNegIntegerSet] . (prod_{ k = 1 }^{ n } (frac(2 * k - 1, 2 * k)))^{p})
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = (prod_{ k = 1 }^{ n } (frac(2 * k - 1, 2 * k)))^{p}
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(a(n), a(n + 1)) = frac(2 * n + 2, 2 * n + 1)^{p}
+5. seqlim_{ n → +∞ } (n * (frac(a(n), a(n + 1)) - 1)) = seqlim_{ n → +∞ } (frac(frac(2 * n + 2, 2 * n + 1)^{p} - 1, frac(1, n)))
+6. seqlim_{ n → +∞ } (frac(frac(2 * n + 2, 2 * n + 1)^{p} - 1, frac(1, n))) = frac(p, 2)
+7. seqlim_{ n → +∞ } (n * (frac(a(n), a(n + 1)) - 1)) = frac(p, 2)
+8. frac(p, 2) > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+9. frac(p, 2) < 1 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+10. p = 2 ⇒ (a(n)) ∼_{ n → +∞ } (frac(1, π * n))
+11. p = 2 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+GOAL:
+ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ⇔ p > 2
+
+METHOD:

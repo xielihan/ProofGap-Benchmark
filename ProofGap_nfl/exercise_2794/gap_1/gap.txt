@@ -1,0 +1,15 @@
+PROOF GAP @1
+ASSUM:
+1. S : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. F : RealSet → RealSet
+3. k ∈ NonNegIntegerSet
+4. N ∈ NonNegIntegerSet
+5. x_{0} ∈ RealSet
+6. ε_{0} ∈ RealSet
+7. S = (fun n [n ∈ NonNegIntegerSet] . fun x [x ∈ RealSet] . sum_{ k = 1 }^{ n } (k * x * e^{-(k * x)} - (k - 1) * x * e^{-((k - 1) * x)}))
+8. F = (fun x [x ∈ RealSet] . 0)
+
+GOAL:
+forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ S(n, x) = n * x * e^{-(n * x)}
+
+METHOD:

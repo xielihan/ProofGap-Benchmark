@@ -1,0 +1,43 @@
+PROOF GAP @7
+ASSUM:
+1. V ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. W ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. α ∈ RealSet
+6. β ∈ RealSet
+7. h ∈ RealSet
+8. p ∈ RealSet
+9. q ∈ RealSet
+10. s ∈ RealSet
+11. u ∈ RealSet
+12. v ∈ RealSet
+13. w ∈ RealSet
+14. x : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+15. y : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+16. z : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+17. 0 < a
+18. a < b
+19. 0 < α
+20. α < β
+21. h > 0
+22. V = { (p, q, s) | p ∈ RealSet ∧ q ∈ RealSet ∧ s ∈ RealSet ∧ q > 0 ∧ s ≥ a * q^{2} ∧ s ≤ b * q^{2} ∧ s ≥ α * p ∧ s ≤ β * p ∧ s ≤ h }
+23. x = (fun u, v, w [u ∈ RealSet ∧ u > 0 ∧ v ∈ RealSet ∧ v > 0 ∧ w ∈ RealSet ∧ w > 0] . frac(w, v))
+24. y = (fun u, v, w [u ∈ RealSet ∧ u > 0 ∧ v ∈ RealSet ∧ v > 0 ∧ w ∈ RealSet ∧ w > 0] . sqrtn(2, frac(w, u)))
+25. z = (fun u, v, w [u ∈ RealSet ∧ u > 0 ∧ v ∈ RealSet ∧ v > 0 ∧ w ∈ RealSet ∧ w > 0] . w)
+26. W = { (u, v, w) | u ∈ RealSet ∧ v ∈ RealSet ∧ w ∈ RealSet ∧ u > 0 ∧ v > 0 ∧ w > 0 ∧ (x(u, v, w), y(u, v, w), z(u, v, w)) ∈ V }
+27. (x(u, v, w), y(u, v, w), z(u, v, w)) ∈ V
+28. u = frac(z(u, v, w), y(u, v, w)^{2})
+29. v = frac(z(u, v, w), x(u, v, w))
+30. w = z(u, v, w)
+31. x(u, v, w) = frac(w, v)
+32. y(u, v, w) = sqrtn(2, frac(w, u))
+33. z(u, v, w) = w
+34. u > 0
+35. v ≠ 0
+36. w ≥ 0
+
+GOAL:
+exists (I), I ∈ RealSet ∧ |I| = frac(w * sqrtn(2, w), 2 * u * sqrtn(2, u) * v^{2})
+
+METHOD:

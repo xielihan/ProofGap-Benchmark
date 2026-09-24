@@ -1,0 +1,14 @@
+PROOF GAP @5
+ASSUM:
+1. z ∈ ComplexSet
+2. c : NonNegIntegerSet → ComplexSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n ∈ PosIntegerSet ⇒ c(n) = frac(n!, prod_{ k = 1 }^{ n } (1 + k * __IMAGINARY_UNIT__))
+4. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n ∈ PosIntegerSet ⇒ frac(c(n), c(n + 1)) = frac(1 + (n + 1) * __IMAGINARY_UNIT__, n + 1)
+5. seqlim_{ n → +∞ } (|frac(c(n), c(n + 1))|) = seqlim_{ n → +∞ } (frac(sqrtn(2, 1 + (n + 1)^{2}), n + 1))
+6. seqlim_{ n → +∞ } (frac(sqrtn(2, 1 + (n + 1)^{2}), n + 1)) = 1
+7. seqlim_{ n → +∞ } (|frac(c(n), c(n + 1))|) = 1
+
+GOAL:
+RadiusOfConvergence(c) = 1
+
+METHOD:

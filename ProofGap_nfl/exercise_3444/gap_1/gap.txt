@@ -1,0 +1,16 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. A ∈ RealSet
+4. y : RealSet → RealSet
+5. u : RealSet → RealSet
+6. t : RealSet → RealSet
+7. a ≠ b
+8. forall (x), x ∈ RealSet ∧ x ≠ a ∧ x ≠ b ⇒ FunDeri(y, 1, 2)(x) = frac(A * y(x), (x - a)^{2} * (x - b)^{2})
+9. forall (x), x ∈ RealSet ∧ x ≠ a ∧ x ≠ b ⇒ u(t(x)) = frac(y(x), x - b) ∧ t(x) = ln(|frac(x - a, x - b)|)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ a ∧ x ≠ b ⇒ t(x) = ln(|x - a|) - ln(|x - b|)
+
+METHOD:

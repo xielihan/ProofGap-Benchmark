@@ -1,0 +1,17 @@
+PROOF GAP @8
+ASSUM:
+1. x ∈ RealSet
+2. a : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(x * (x + n), n)^{n}
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ∧ n ∈ PosIntegerSet ⇒ a(n) = x^{n} * (1 + frac(x, n))^{n}
+5. |x| > 1 ⇒ seqlim_{ n → +∞ } (a(n)) = +∞
+6. |x| > 1 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+7. |x| = 1 ⇒ seqlim_{ n → +∞ } (|a(n)|) = e^{x}
+8. |x| = 1 ⇒ e^{x} ≠ 0
+9. |x| = 1 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+10. |x| < 1 ⇒ seqlim_{ n → +∞ } (sqrtn(n, |a(n)|)) = seqlim_{ n → +∞ } (|x| * |1 + frac(x, n)|)
+
+GOAL:
+|x| < 1 ⇒ seqlim_{ n → +∞ } (|x| * |1 + frac(x, n)|) = |x|
+
+METHOD:

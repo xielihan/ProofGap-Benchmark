@@ -1,0 +1,11 @@
+get_forall (GOAL: {forall (R), R ∈ RealSet ∧ R > 0 ⇒ (forall (z), z ∈ RealSet ∧ |z - P| < R ⇒ |z - x_{0}| ≤ |z - P| + |P - x_{0}|)}) (R := {R0})
+get_condition (hypothesis 18: {R0 ∈ RealSet ∧ R0 > 0}) in (GOAL: {R0 ∈ RealSet ∧ R0 > 0 ⇒ (forall (z), z ∈ RealSet ∧ |z - P| < R0 ⇒ |z - x_{0}| ≤ |z - P| + |P - x_{0}|)})
+get_forall (GOAL: {forall (z), z ∈ RealSet ∧ |z - P| < R0 ⇒ |z - x_{0}| ≤ |z - P| + |P - x_{0}|}) (z := {u})
+get_condition (hypothesis 19: {u ∈ RealSet ∧ |u - P| < R0}) in (GOAL: {u ∈ RealSet ∧ |u - P| < R0 ⇒ |u - x_{0}| ≤ |u - P| + |P - x_{0}|})
+destruct_and (hypothesis 19: {u ∈ RealSet ∧ |u - P| < R0}) as (hypothesis 20: {u ∈ RealSet}) (hypothesis 21: {|u - P| < R0})
+assert (hypothesis 22: {u - x_{0} = (u - P) + (P - x_{0})}) by proof {
+  autosolve (hypothesis 3: {x_{0} ∈ RealSet}) (hypothesis 6: {P ∈ RealSet}) (hypothesis 20: {u ∈ RealSet})
+}
+rewrite (left_to_right, equation) (hypothesis 22: {u - x_{0} = (u - P) + (P - x_{0})}); from (GOAL: {|u - x_{0}| <= |u - P| + |P - x_{0}|}) to (GOAL: {|(u - P) + (P - x_{0})| <= |u - P| + |P - x_{0}|})
+get_prop (theorem 'Thm 477. (AbsoluteValueTriangleInequality)': {forall (u) (v), u ∈ RealSet => v ∈ RealSet => |u + v| <= |u| + |v|}) (u := {u - P}) (v := {P - x_{0}}) as (hypothesis 23: {u - P ∈ RealSet => P - x_{0} ∈ RealSet => |u - P + (P - x_{0})| <= |u - P| + |P - x_{0}|})
+autosolve all_hypothesis

@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet ∧ 1 - x - x^{2} > 0 ∧ 1 + x ≠ 0
+2. C ∈ RealSet
+3. t : RealSet → RealSet
+4. 1 + x = frac(1, t(x))
+5. t(x) ∈ RealSet
+6. t(x) ≠ 0
+
+GOAL:
+x = frac(1 - t(x), t(x))
+
+METHOD:

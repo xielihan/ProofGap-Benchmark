@@ -1,0 +1,6 @@
+get_condition (hypothesis 32: {(a, b, Δ) = (4, -frac(7, 2), frac(1, 2))}) in (GOAL: {(a, b, Δ) = (4, -frac(7, 2), frac(1, 2)) ⇒ MinimumPoint(u) = { (a, b) }})
+assert (hypothesis 33: {((a, b), Δ) = ((4, -frac(7, 2)), frac(1, 2))})
+get_prop (theorem 'Thm 18. (OrderedPairEqualityFirst)': {forall (a) (b) (c) (d), ((a, b) = (c, d)) ⇒ (a = c)}) (a := {(a, b)}) (b := {Δ}) (c := {(4, -frac(7, 2))}) (d := {frac(1, 2)}) as (hypothesis 34: {(((a, b), Δ) = ((4, -frac(7, 2)), frac(1, 2))) ⇒ ((a, b) = (4, -frac(7, 2)))})
+use_condition (hypothesis 33: {((a, b), Δ) = ((4, -frac(7, 2)), frac(1, 2))}) in (hypothesis 34: {(((a, b), Δ) = ((4, -frac(7, 2)), frac(1, 2))) ⇒ ((a, b) = (4, -frac(7, 2)))}) as (hypothesis 35: {(a, b) = (4, -frac(7, 2))})
+rewrite (right_to_left, equation) (hypothesis 35: {(a, b) = (4, -frac(7, 2))}); from (hypothesis 31: {MinimumPoint(u) = { (4, -frac(7, 2)) }}) to (hypothesis 36: {MinimumPoint(u) = { (a, b) }})
+apply (hypothesis 36: {MinimumPoint(u) = { (a, b) }})

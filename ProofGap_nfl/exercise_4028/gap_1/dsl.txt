@@ -1,0 +1,10 @@
+assert (hypothesis 3: {exists (z), z ∈ RealSet ∧ z = 0^{2} + 0^{2}}) by proof {
+  exists (z := {0})
+  autosolve
+}
+assert (hypothesis 4: {exists (y), y ∈ RealSet ∧ (exists (z), z ∈ RealSet ∧ z = 0^{2} + y^{2})}) by proof {
+  exists (y := {0})
+  autosolve (hypothesis 3: {exists (z), z ∈ RealSet ∧ z = 0^{2} + 0^{2}})
+}
+exists (x := {0})
+autosolve (hypothesis 4: {exists (y), y ∈ RealSet ∧ (exists (z), z ∈ RealSet ∧ z = 0^{2} + y^{2})})

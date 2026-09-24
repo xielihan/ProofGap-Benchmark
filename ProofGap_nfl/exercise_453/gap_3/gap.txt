@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. α ∈ RealSet
+2. β ∈ RealSet
+3. m ∈ IntegerSet
+4. n ∈ IntegerSet
+5. m * n ≠ 0
+6. m ∈ PosIntegerSet ⇒ n ∈ PosIntegerSet ⇒ lim_{ x → 0 } (frac(sqrtn(m, 1 + α * x) * sqrtn(n, 1 + β * x) - 1, x)) = lim_{ x → 0 } (frac((1 + α * x)^{n} * (1 + β * x)^{m} - 1, x * (sqrtn(m * n, (1 + α * x)^{n * (m * n - 1)} * (1 + β * x)^{m * (m * n - 1)}) + sqrtn(m * n, (1 + α * x)^{n * (m * n - 2)} * (1 + β * x)^{m * (m * n - 2)}) + sqrtn(m * n, (1 + α * x)^{n} * (1 + β * x)^{m}) + 1)))
+7. m ∈ PosIntegerSet ⇒ n ∈ PosIntegerSet ⇒ (exists (r), r : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ (1 + α * x)^{n} * (1 + β * x)^{m} - 1 = x * (n * α + m * β) + x^{2} * r(x)))
+
+GOAL:
+m ∈ PosIntegerSet ⇒ n ∈ PosIntegerSet ⇒ lim_{ x → 0 } (sqrtn(m * n, (1 + α * x)^{n * (m * n - 1)} * (1 + β * x)^{m * (m * n - 1)}) + sqrtn(m * n, (1 + α * x)^{n * (m * n - 2)} * (1 + β * x)^{m * (m * n - 2)}) + sqrtn(m * n, (1 + α * x)^{n} * (1 + β * x)^{m}) + 1) = m * n
+
+METHOD:

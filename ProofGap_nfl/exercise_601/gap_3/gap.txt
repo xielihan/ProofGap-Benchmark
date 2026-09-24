@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = sgn(sin(π * x))
+3. forall (n), n ∈ IntegerSet ⇒ f(n) = 0
+4. forall (n), n ∈ IntegerSet ⇒ lim_{ x → n^- } (f(x)) = (-1)^{n - 1}
+
+GOAL:
+forall (n), n ∈ IntegerSet ⇒ lim_{ x → n^+ } (f(x)) = (-1)^{n}
+
+METHOD:

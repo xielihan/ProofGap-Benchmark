@@ -1,0 +1,4 @@
+destruct_and (hypothesis 2: {b ∈ RealSet ∧ b > 0}) as (hypothesis 20: {b ∈ RealSet}) (hypothesis 21: {b > 0})
+destruct_and (hypothesis 3: {c ∈ RealSet ∧ c > 0}) as (hypothesis 22: {c ∈ RealSet}) (hypothesis 23: {c > 0})
+exists (y := {b}) (z := {-c})
+autosolve all_hypothesis

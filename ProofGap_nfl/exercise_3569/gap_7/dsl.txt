@@ -1,0 +1,7 @@
+get_prop (hypothesis 5: {forall (y), y ∈ RealSet ⇒ (forall (p), p ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ y^{2} - 2 * p * x - p^{2} = 0))}) (y := {1}) as (hypothesis 9: {1 ∈ RealSet ⇒ (forall (p), p ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ 1^{2} - 2 * p * x - p^{2} = 0))})
+use_condition (obvious: {1 ∈ RealSet}) in (hypothesis 9: {1 ∈ RealSet ⇒ (forall (p), p ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ 1^{2} - 2 * p * x - p^{2} = 0))}) as (hypothesis 10: {forall (p), p ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ 1^{2} - 2 * p * x - p^{2} = 0)})
+get_prop (hypothesis 10: {forall (p), p ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ 1^{2} - 2 * p * x - p^{2} = 0)}) (p := {0}) as (hypothesis 11: {0 ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ 1^{2} - 2 * 0 * x - 0^{2} = 0)})
+use_condition (obvious: {0 ∈ RealSet}) in (hypothesis 11: {0 ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ 1^{2} - 2 * 0 * x - 0^{2} = 0)}) as (hypothesis 12: {forall (x), x ∈ RealSet ⇒ 1^{2} - 2 * 0 * x - 0^{2} = 0})
+get_prop (hypothesis 12: {forall (x), x ∈ RealSet ⇒ 1^{2} - 2 * 0 * x - 0^{2} = 0}) (x := {0}) as (hypothesis 13: {0 ∈ RealSet ⇒ 1^{2} - 2 * 0 * 0 - 0^{2} = 0})
+use_condition (obvious: {0 ∈ RealSet}) in (hypothesis 13: {0 ∈ RealSet ⇒ 1^{2} - 2 * 0 * 0 - 0^{2} = 0}) as (hypothesis 14: {1^{2} - 2 * 0 * 0 - 0^{2} = 0})
+autosolve all_hypothesis

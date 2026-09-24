@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x > 0 ⇒ frac(x * sin(sqrtn(2, x)), x * sqrtn(2, x)) = frac(sin(sqrtn(2, x)), sqrtn(2, x))
+
+GOAL:
+lim_{ x → 0^+ } (frac(x * sin(sqrtn(2, x)), x * sqrtn(2, x))) = 1
+
+METHOD:

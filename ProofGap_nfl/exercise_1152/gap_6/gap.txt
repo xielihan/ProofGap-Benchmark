@@ -1,0 +1,16 @@
+PROOF GAP @6
+ASSUM:
+1. s : RealSet → RealSet
+2. v : RealSet → RealSet
+3. w : RealSet → RealSet
+4. forall (t), t ∈ RealSet ⇒ s(t) = 10 + 20 * t - 5 * t^{2}
+5. forall (t), t ∈ RealSet ⇒ v(t) = FunDeri(s, 1, 1)(t)
+6. forall (t), t ∈ RealSet ⇒ v(t) = 20 - 10 * t
+7. v(2) = 0
+8. forall (t), t ∈ RealSet ⇒ w(t) = FunDeri(s, 1, 2)(t)
+9. forall (t), t ∈ RealSet ⇒ w(t) = -10
+
+GOAL:
+w(2) = -10
+
+METHOD:

@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. lim_{ n → +∞ } (frac(1, n) * (sum_{ i = 1 }^{ n } (sqrtn(2, 1 + frac(i, n))))) = lim_{ n → +∞ } (sum_{ i = 1 }^{ n } (frac(1, n) * sqrtn(2, 1 + frac(i, n))))
+2. lim_{ n → +∞ } (sum_{ i = 1 }^{ n } (frac(1, n) * sqrtn(2, 1 + frac(i, n)))) = DefInt(0, 1, (fun x [x ∈ RealSet] . sqrtn(2, 1 + x)) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet] . sqrtn(2, 1 + x)) * diff(fun x [x ∈ RealSet] . x)) = frac(2, 3) * (2 * sqrtn(2, 2) - 1)
+
+METHOD:

@@ -1,0 +1,4 @@
+1. get_prop (theorem 'Thm 203. (NaturalLogarithmPower)': {forall (x) (y), (x > 0 => ln (x ^ y) = y * ln(x))}) (x := {e}) (y := {frac(1, a)}) as (hypothesis 8: {e > 0 => ln(e ^ (frac(1, a))) = frac(1, a) * ln(e)})
+2. use_condition (obvious: {e > 0}) in (hypothesis 8: {e > 0 => ln(e ^ (frac(1, a))) = frac(1, a) * ln(e)}) as (hypothesis 9: {ln(e ^ (frac(1, a))) = frac(1, a) * ln(e)})
+3. rewrite (left_to_right, equation) (hypothesis 9: {ln(e ^ (frac(1, a))) = frac(1, a) * ln(e)}); from (GOAL: {ln(e^{frac(1, a)}) = frac(1, a)}) to (GOAL: {frac(1, a) * ln(e) = frac(1, a)})
+4. autosolve all_hypothesis

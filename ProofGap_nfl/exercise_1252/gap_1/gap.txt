@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. g : RealSet → RealSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = x^{2}
+4. forall (x), x ∈ RealSet ⇒ g(x) = x^{3}
+
+GOAL:
+ContinuouslyDiffableFuncOn(f, [-1, 1])
+
+METHOD:

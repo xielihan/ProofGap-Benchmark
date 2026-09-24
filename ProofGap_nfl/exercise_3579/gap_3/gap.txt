@@ -1,0 +1,20 @@
+PROOF GAP @3
+ASSUM:
+1. x_{0} ∈ RealSet
+2. y_{0} ∈ RealSet
+3. z_{0} ∈ RealSet
+4. R ∈ RealSet ∧ R > 0
+5. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+6. x ∈ RealSet
+7. y ∈ RealSet
+8. z ∈ RealSet
+9. (x_{0})^{2} + (y_{0})^{2} + (z_{0})^{2} > R^{2}
+10. l_{0} = (x_{0}, y_{0}, z_{0})
+11. r = (x, y, z)
+12. (x - x_{0})^{2} + (y - y_{0})^{2} + (z - z_{0})^{2} ≤ R^{2}
+13. (x * y_{0} - y * x_{0})^{2} + (y * z_{0} - z * y_{0})^{2} + (z * x_{0} - x * z_{0})^{2} = R^{2} * (x^{2} + y^{2} + z^{2})
+
+GOAL:
+(x * y_{0} - y * x_{0})^{2} + (y * z_{0} - z * y_{0})^{2} + (z * x_{0} - x * z_{0})^{2} ≤ R^{2} * (x^{2} + y^{2} + z^{2})
+
+METHOD:

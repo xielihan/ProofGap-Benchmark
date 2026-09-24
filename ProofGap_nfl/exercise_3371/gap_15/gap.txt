@@ -1,0 +1,25 @@
+PROOF GAP @15
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ x^{2} + 2 * x * y(x) - y(x)^{2} = a^{2}
+4. forall (x), x ∈ RealSet ⇒ y(x) ≠ x
+5. forall (x), x ∈ RealSet ⇒ 2 * x + 2 * y(x) + 2 * x * FunDeri(y, 1, 1)(x) - 2 * y(x) * FunDeri(y, 1, 1)(x) = 0
+6. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = frac(y(x) + x, y(x) - x)
+7. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = frac((y(x) - x) * (FunDeri(y, 1, 1)(x) + 1) - (y(x) + x) * (FunDeri(y, 1, 1)(x) - 1), (y(x) - x)^{2})
+8. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = frac(2 * y(x) - 2 * x * FunDeri(y, 1, 1)(x), (y(x) - x)^{2})
+9. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = frac(2 * y(x) * (y(x) - x) - 2 * x * (y(x) + x), (y(x) - x)^{3})
+10. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = frac(2 * (y(x)^{2} - 2 * x * y(x) - x^{2}), (y(x) - x)^{3})
+11. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = -frac(2 * a^{2}, (y(x) - x)^{3})
+12. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = frac(2 * a^{2}, (x - y(x))^{3})
+13. (fun x [x ∈ RealSet] . 2 * x) * diff(fun x [x ∈ RealSet] . x) + (fun x [x ∈ RealSet] . 2 * x) * diff(y) + (fun x [x ∈ RealSet] . 2 * y(x)) * diff(fun x [x ∈ RealSet] . x) - (fun x [x ∈ RealSet] . 2 * y(x)) * diff(y) = 0
+14. FunDeri(y, 1, 1) = (fun x [x ∈ RealSet] . frac(y(x) + x, y(x) - x))
+15. diff(fun x [x ∈ RealSet] . x)^{2} + 2 * diff(fun x [x ∈ RealSet] . x) * diff(y) - diff(y)^{2} + (fun x [x ∈ RealSet] . x - y(x)) * diff^{2}(y) = 0
+16. FunDeri(y, 1, 2) = (fun x [x ∈ RealSet] . frac(1 + 2 * FunDeri(y, 1, 1)(x) - FunDeri(y, 1, 1)(x)^{2}, y(x) - x))
+17. FunDeri(y, 1, 2) = (fun x [x ∈ RealSet] . frac(2 * a^{2}, (x - y(x))^{3}))
+18. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = frac(y(x) + x, y(x) - x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = frac(2 * a^{2}, (x - y(x))^{3})
+
+METHOD:

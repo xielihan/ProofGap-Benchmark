@@ -1,0 +1,19 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. p ∈ RealSet ∧ p > 0
+3. C ∈ CartesianProd(RealSet, RealSet)
+4. R ⊆ CartesianProd(RealSet, RealSet)
+5. ξ ∈ RealSet
+6. η ∈ RealSet
+7. R = { (x, y) | x ∈ RealSet, y ∈ RealSet, 0 ≤ x ∧ x ≤ a, y^{2} ≤ 2 * p * x }
+8. r : RealSet → RealSet
+9. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ⇒ r(x) = sqrtn(2, 2 * p * x)
+10. C = (ξ, η)
+11. C = (frac(DefInt(0, a, (fun x [x ∈ RealSet] . x * π * r(x)^{2}) * diff(fun x [x ∈ RealSet] . x)), DefInt(0, a, (fun x [x ∈ RealSet] . π * r(x)^{2}) * diff(fun x [x ∈ RealSet] . x))), 0)
+12. η = 0
+
+GOAL:
+ξ = frac(DefInt(0, a, (fun x [x ∈ RealSet] . x * π * r(x)^{2}) * diff(fun x [x ∈ RealSet] . x)), DefInt(0, a, (fun x [x ∈ RealSet] . π * r(x)^{2}) * diff(fun x [x ∈ RealSet] . x)))
+
+METHOD:

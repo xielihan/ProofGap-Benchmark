@@ -1,0 +1,19 @@
+PROOF GAP @9
+ASSUM:
+1. a ∈ RealSet
+2. x ∈ RealSet
+3. b : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = frac(1, sqrtn(n, n!)) * frac(1, 1 + a^{2 * n} * x^{2})
+5. x = 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = frac(1, sqrtn(n, n!)))
+6. x = 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) > frac(1, sqrtn(n, n^{n})) ∧ frac(1, sqrtn(n, n^{n})) = frac(1, n))
+7. x = 0 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (b(n)))
+8. x ≠ 0 ⇒ |a| > 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < b(n) ∧ b(n) < frac(1, a^{2 * n} * x^{2}) ∧ frac(1, a^{2 * n} * x^{2}) = frac(1, x^{2}) * frac(1, |a|)^{2 * n})
+9. x ≠ 0 ⇒ |a| > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, x^{2}) * frac(1, |a|)^{2 * n}))
+10. x ≠ 0 ⇒ |a| > 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n)))
+11. x ≠ 0 ⇒ |a| ≤ 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |b(n)| ≥ frac(1, 1 + x^{2}) * frac(1, sqrtn(n, n)) ∧ frac(1, 1 + x^{2}) * frac(1, sqrtn(n, n)) > frac(1, 1 + x^{2}) * frac(1, n))
+12. x ≠ 0 ⇒ |a| ≤ 1 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (b(n)))
+
+GOAL:
+(a, x) ∈ { (a, x) | a ∈ RealSet, x ∈ RealSet, |a| > 1 ∧ x ≠ 0 } ⇔ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n)))
+
+METHOD:

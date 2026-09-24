@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. p ∈ RealSet
+2. q ∈ RealSet ∧ q ≥ 0
+3. lim_{ x → 0^+ } (x^{-1 - p} * frac(x^{p} * sin(x), 1 + x^{q})) = lim_{ x → 0^+ } (frac(sin(x), x) * frac(1, 1 + x^{q}))
+4. lim_{ x → 0^+ } (frac(sin(x), x) * frac(1, 1 + x^{q})) = 1
+5. lim_{ x → 0^+ } (x^{-1 - p} * frac(x^{p} * sin(x), 1 + x^{q})) = 1
+6. forall (x), x ∈ RealSet ∧ p > -2 ⇒ DefInt(0, 1, frac(x^{p} * sin(x), 1 + x^{q}) * diff(fun x [x ∈ RealSet] . x)) < +∞
+
+GOAL:
+forall (x), x ∈ RealSet ∧ p > -2 ⇒ DefInt(0, 1, |frac(x^{p} * sin(x), 1 + x^{q})| * diff(fun x [x ∈ RealSet] . x)) < +∞
+
+METHOD:

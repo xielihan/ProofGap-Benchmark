@@ -1,0 +1,50 @@
+PROOF GAP @39
+ASSUM:
+1. I ∈ RealSet
+2. θ ∈ RealSet
+3. f : RealSet → RealSet
+4. I = DefInt(0, 100, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 100] . frac(e^{-x}, x + 100)) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 100] . x))
+5. exists (ξ_{1}) (ξ_{2}), ξ_{1} ∈ RealSet ∧ 0 ≤ ξ_{1} ∧ ξ_{1} ≤ 50 ∧ ξ_{2} ∈ RealSet ∧ 50 ≤ ξ_{2} ∧ ξ_{2} ≤ 100 ∧ I = frac(1 - e^{-50}, 100 + ξ_{1}) + frac(e^{-50} - e^{-100}, 100 + ξ_{2})
+6. exists (ξ_{1}) (ξ_{2}), ξ_{1} ∈ RealSet ∧ 0 ≤ ξ_{1} ∧ ξ_{1} ≤ 50 ∧ ξ_{2} ∈ RealSet ∧ 50 ≤ ξ_{2} ∧ ξ_{2} ≤ 100 ∧ frac(1 - e^{-50}, 100 + ξ_{1}) + frac(e^{-50} - e^{-100}, 100 + ξ_{2}) ≤ frac(1 - e^{-50}, 100 + ξ_{1}) + frac(e^{-50} - e^{-100}, 100 + ξ_{1})
+7. exists (ξ_{1}), ξ_{1} ∈ RealSet ∧ 0 ≤ ξ_{1} ∧ ξ_{1} ≤ 50 ∧ frac(1 - e^{-50}, 100 + ξ_{1}) + frac(e^{-50} - e^{-100}, 100 + ξ_{1}) = frac(1 - e^{-100}, 100 + ξ_{1})
+8. exists (ξ_{1}), ξ_{1} ∈ RealSet ∧ 0 ≤ ξ_{1} ∧ ξ_{1} ≤ 50 ∧ frac(1 - e^{-100}, 100 + ξ_{1}) < frac(1, 100)
+9. exists (ξ_{1}) (ξ_{2}), ξ_{1} ∈ RealSet ∧ 0 ≤ ξ_{1} ∧ ξ_{1} ≤ 50 ∧ ξ_{2} ∈ RealSet ∧ 50 ≤ ξ_{2} ∧ ξ_{2} ≤ 100 ∧ frac(1 - e^{-50}, 100 + ξ_{1}) + frac(e^{-50} - e^{-100}, 100 + ξ_{2}) > frac(1 - e^{-50}, 100 + ξ_{1})
+10. exists (ξ_{1}), ξ_{1} ∈ RealSet ∧ 0 ≤ ξ_{1} ∧ ξ_{1} ≤ 50 ∧ frac(1 - e^{-50}, 100 + ξ_{1}) ≥ frac(1 - e^{-50}, 150)
+11. frac(1 - e^{-50}, 150) > frac(1, 200)
+12. frac(1, 200) < I
+13. I < frac(1, 100)
+14. I = 0.01 - 0.005 * θ
+15. 0 < θ
+16. θ < 1
+17. exists (ξ), ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ 100 ∧ I = frac(1, ξ + 100) * (1 - frac(1, e^{100}))
+18. f = (fun ξ [ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ 100] . frac(2, 100 + ξ) * (ξ + frac(100, e^{100})))
+19. exists (ξ), ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ 100 ∧ θ = f(ξ)
+20. forall (ξ), ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ 100 ⇒ FunDeri(f, 1, 1)(ξ) = frac(200 * (1 - e^{-100}), (100 + ξ)^{2})
+21. forall (ξ), ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ 100 ⇒ frac(200 * (1 - e^{-100}), (100 + ξ)^{2}) > 0
+22. forall (ξ), ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ 100 ⇒ FunDeri(f, 1, 1)(ξ) > 0
+23. MonoIncFuncOn(f, [0, 100])
+24. forall (ξ), ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ 100 ⇒ f(0) ≤ f(ξ)
+25. forall (ξ), ξ ∈ RealSet ∧ 0 ≤ ξ ∧ ξ ≤ 100 ⇒ f(ξ) ≤ f(100)
+26. frac(2, e^{100}) ≤ θ
+27. θ ≤ 1 + frac(1, e^{100})
+28. frac(2, e^{100}) ≤ θ
+29. θ < 1
+30. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (ξ_{n}), ξ_{n} ∈ RealSet ∧ 0 ≤ ξ_{n} ∧ ξ_{n} ≤ 1 ∧ DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . frac(x^{n}, 1 + x)) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x)) = frac(1, 1 + ξ_{n}) * DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x^{n}) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x)))
+31. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x^{n}) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x)) = frac(1, n + 1)
+32. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (ξ_{n}), ξ_{n} ∈ RealSet ∧ 0 ≤ ξ_{n} ∧ ξ_{n} ≤ 1 ∧ DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . frac(x^{n}, 1 + x)) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x)) = frac(1, 1 + ξ_{n}) * frac(1, n + 1))
+33. seqlim_{ n → +∞ } (DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . frac(x^{n}, 1 + x)) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x))) = 0
+34. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε < frac(π, 2) ⇒ 0 ≤ DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . sin(x)^{n}) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . x)))
+35. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε < frac(π, 2) ⇒ DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . sin(x)^{n}) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . x)) ≤ DefInt(0, frac(π, 2) - ε, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2) - ε] . sin(x)^{n}) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2) - ε] . x)) + ε)
+36. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε < frac(π, 2) ⇒ DefInt(0, frac(π, 2) - ε, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2) - ε] . sin(x)^{n}) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2) - ε] . x)) + ε ≤ ε + (frac(π, 2) - ε) * sin(frac(π, 2) - ε)^{n})
+37. forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε < frac(π, 2) ⇒ seqlim_{ n → +∞ } ((frac(π, 2) - ε) * sin(frac(π, 2) - ε)^{n}) = 0
+38. seqlim_{ n → +∞ } (DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . sin(x)^{n}) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . x))) = 0
+39. frac(1, 200) < I
+40. I < frac(1, 100)
+41. I = 0.01 - 0.005 * θ
+42. frac(2, e^{100}) ≤ θ
+43. θ < 1
+
+GOAL:
+seqlim_{ n → +∞ } (DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . frac(x^{n}, 1 + x)) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x))) = 0
+
+METHOD:

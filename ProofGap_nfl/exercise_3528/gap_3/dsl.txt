@@ -1,0 +1,4 @@
+get_prop (hypothesis 13: {forall (t), t ∈ RealSet ⇒ x(t) = a * cos(α) * cos(t) ∧ y(t) = a * sin(α) * cos(t) ∧ z(t) = a * sin(t)}) (t := {t_{0}}) as (hypothesis 22: {t_{0} ∈ RealSet ⇒ x(t_{0}) = a * cos(α) * cos(t_{0}) ∧ y(t_{0}) = a * sin(α) * cos(t_{0}) ∧ z(t_{0}) = a * sin(t_{0})})
+use_condition (hypothesis 6: {t_{0} ∈ RealSet}) in (hypothesis 22: {t_{0} ∈ RealSet ⇒ x(t_{0}) = a * cos(α) * cos(t_{0}) ∧ y(t_{0}) = a * sin(α) * cos(t_{0}) ∧ z(t_{0}) = a * sin(t_{0})}) as (hypothesis 23: {x(t_{0}) = a * cos(α) * cos(t_{0}) ∧ y(t_{0}) = a * sin(α) * cos(t_{0}) ∧ z(t_{0}) = a * sin(t_{0})})
+destruct_and (hypothesis 23: {x(t_{0}) = a * cos(α) * cos(t_{0}) ∧ y(t_{0}) = a * sin(α) * cos(t_{0}) ∧ z(t_{0}) = a * sin(t_{0})}) as (hypothesis 24: {x(t_{0}) = a * cos(α) * cos(t_{0})}) (hypothesis 25: {y(t_{0}) = a * sin(α) * cos(t_{0})}) (hypothesis 26: {z(t_{0}) = a * sin(t_{0})})
+autosolve (hypothesis 16: {z_{0} = z(t_{0})}) (hypothesis 26: {z(t_{0}) = a * sin(t_{0})})

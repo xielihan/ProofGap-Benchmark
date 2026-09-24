@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet ∧ x ∈ PosRealSet
+3. k ∈ RealSet
+4. forall (t), t ∈ RealSet ∧ t ∈ PosRealSet ⇒ f(t) = ln(t) - k * t
+5. k = 0 ⇒ f(1) = 0
+6. k = 0 ⇒ (existsUnique (x), x ∈ RealSet ∧ x ∈ PosRealSet ∧ f(x) = 0)
+
+GOAL:
+k = 0 ⇒ x = 1
+
+METHOD:

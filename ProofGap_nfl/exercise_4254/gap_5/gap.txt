@@ -1,0 +1,16 @@
+PROOF GAP @5
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. a ∈ RealSet ∧ a > 0
+3. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ C = { (x, y) | x^{2} + y^{2} = a^{2} })
+4. x = (fun t [t ∈ RealSet] . a * cos(t))
+5. y = (fun t [t ∈ RealSet] . a * sin(t))
+6. diff(x) = (fun t [t ∈ RealSet] . -a * sin(t)) * diff(fun t [t ∈ RealSet] . t)
+7. diff(y) = (fun t [t ∈ RealSet] . a * cos(t)) * diff(fun t [t ∈ RealSet] . t)
+8. forall (t), t ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ VectorCurveInt(C, frac((fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x + y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x - y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y), x^{2} + y^{2})) = DefInt(0, 2 * π, frac(-(a * cos(t) + a * sin(t)) * a * sin(t) - (a * cos(t) - a * sin(t)) * a * cos(t), a^{2}) * diff(fun t [t ∈ RealSet] . t))))
+9. forall (t), t ∈ RealSet ⇒ DefInt(0, 2 * π, frac(-(a * cos(t) + a * sin(t)) * a * sin(t) - (a * cos(t) - a * sin(t)) * a * cos(t), a^{2}) * diff(fun t [t ∈ RealSet] . t)) = -DefInt(0, 2 * π, diff(fun t [t ∈ RealSet] . t))
+
+GOAL:
+-DefInt(0, 2 * π, diff(fun t [t ∈ RealSet] . t)) = -2 * π
+
+METHOD:

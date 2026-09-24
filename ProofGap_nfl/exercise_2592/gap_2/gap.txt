@@ -1,0 +1,15 @@
+PROOF GAP @2
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. m ∈ NonNegIntegerSet
+3. ε ∈ RealSet
+4. l ∈ RealSet
+5. n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet
+6. b : NonNegIntegerSet → RealSet
+7. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ ε = frac(1 - q, 2))
+8. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ 0 < ε)
+
+GOAL:
+forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ ε < 1 - q)
+
+METHOD:

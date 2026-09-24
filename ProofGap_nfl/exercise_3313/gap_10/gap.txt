@@ -1,0 +1,28 @@
+PROOF GAP @10
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. v : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+3. w : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+4. r : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+5. a ∈ RealSet
+6. C_{1} ∈ RealSet
+7. C_{2} ∈ RealSet
+8. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ r(x, y, z) = sqrtn(2, x^{2} + y^{2} + z^{2})
+9. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ≠ (0, 0, 0) ⇒ u(x, y, z) = frac(C_{1} * e^{-a * r(x, y, z)} + C_{2} * e^{a * r(x, y, z)}, r(x, y, z))
+10. v = (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ≠ (0, 0, 0)] . frac(e^{-a * r(x, y, z)}, r(x, y, z)))
+11. w = (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ≠ (0, 0, 0)] . frac(e^{a * r(x, y, z)}, r(x, y, z)))
+12. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ≠ (0, 0, 0) ⇒ u(x, y, z) = C_{1} * v(x, y, z) + C_{2} * w(x, y, z)
+13. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ≠ (0, 0, 0) ⇒ FunDeri(v, 1, 1)(x, y, z) = -x * v(x, y, z) * (frac(1, r(x, y, z)^{2}) + frac(a, r(x, y, z)))
+14. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ≠ (0, 0, 0) ⇒ FunDeri(v, 1, 2)(x, y, z) = v(x, y, z) * ((frac(3, r(x, y, z)^{4}) + frac(3 * a, r(x, y, z)^{3}) + frac(a^{2}, r(x, y, z)^{2})) * x^{2} - frac(1, r(x, y, z)^{2}) - frac(a, r(x, y, z)))
+15. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ≠ (0, 0, 0) ⇒ FunDeri(v, 1, 2)(x, y, z) + FunDeri(v, 2, 2)(x, y, z) + FunDeri(v, 3, 2)(x, y, z) = v(x, y, z) * ((frac(3, r(x, y, z)^{4}) + frac(3 * a, r(x, y, z)^{3}) + frac(a^{2}, r(x, y, z)^{2})) * (x^{2} + y^{2} + z^{2}) - frac(3, r(x, y, z)^{2}) - frac(3 * a, r(x, y, z)))
+16. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ≠ (0, 0, 0) ⇒ FunDeri(v, 1, 2)(x, y, z) + FunDeri(v, 2, 2)(x, y, z) + FunDeri(v, 3, 2)(x, y, z) = a^{2} * v(x, y, z)
+17. b = -a
+18. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ≠ (0, 0, 0) ⇒ w(x, y, z) = frac(e^{-b * r(x, y, z)}, r(x, y, z))
+19. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ≠ (0, 0, 0) ⇒ FunDeri(w, 1, 2)(x, y, z) + FunDeri(w, 2, 2)(x, y, z) + FunDeri(w, 3, 2)(x, y, z) = b^{2} * w(x, y, z)
+20. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ≠ (0, 0, 0) ⇒ b^{2} * w(x, y, z) = a^{2} * w(x, y, z)
+21. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ≠ (0, 0, 0) ⇒ FunDeri(w, 1, 2)(x, y, z) + FunDeri(w, 2, 2)(x, y, z) + FunDeri(w, 3, 2)(x, y, z) = a^{2} * w(x, y, z)
+
+GOAL:
+forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ≠ (0, 0, 0) ⇒ FunDeri(u, 1, 2)(x, y, z) + FunDeri(u, 2, 2)(x, y, z) + FunDeri(u, 3, 2)(x, y, z) = C_{1} * (FunDeri(v, 1, 2)(x, y, z) + FunDeri(v, 2, 2)(x, y, z) + FunDeri(v, 3, 2)(x, y, z)) + C_{2} * (FunDeri(w, 1, 2)(x, y, z) + FunDeri(w, 2, 2)(x, y, z) + FunDeri(w, 3, 2)(x, y, z))
+
+METHOD:

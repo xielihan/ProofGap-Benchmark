@@ -1,0 +1,2 @@
+get_condition (hypothesis 6: {forall (x), x ∈ RealSet ⇒ f(-x) = -f(x) ∧ f(π - x) = -f(x)}) in (GOAL: {(forall (x), x ∈ RealSet ⇒ f(-x) = -f(x) ∧ f(π - x) = -f(x)) ⇒ (forall (x), x ∈ RealSet ⇒ f(-x) = -f(x) ∧ f(π - x) = -f(x))})
+apply (hypothesis 6: {forall (x), x ∈ RealSet ⇒ f(-x) = -f(x) ∧ f(π - x) = -f(x)})

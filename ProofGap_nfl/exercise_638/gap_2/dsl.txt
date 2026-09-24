@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x = 0 ⇒ seqlim_{ n -> +infty } (y(n, x)) = 0}) (x := {u})
+get_condition (hypothesis 6: {u ∈ RealSet ∧ u = 0}) in (GOAL: {u ∈ RealSet ∧ u = 0 ⇒ seqlim_{ n -> +infty } (y(n, u)) = 0})
+get_prop (hypothesis 5: {forall (x), x ∈ RealSet ∧ x = 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n, x) = 0)}) (x := {u}) as (hypothesis 7: {u ∈ RealSet ∧ u = 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n, u) = 0)})
+use_condition (hypothesis 6: {u ∈ RealSet ∧ u = 0}) in (hypothesis 7: {u ∈ RealSet ∧ u = 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n, u) = 0)}) as (hypothesis 8: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n, u) = 0})
+rewrite_in limit (left_to_right, equation) (hypothesis 8: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n, u) = 0}); from (GOAL: {seqlim_{ n -> +infty } (y(n, u)) = 0}) to (GOAL: {seqlim_{ n -> +infty } (0) = 0})
+autosolve all_hypothesis

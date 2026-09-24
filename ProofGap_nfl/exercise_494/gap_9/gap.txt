@@ -1,0 +1,15 @@
+PROOF GAP @9
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ 1 - cos(x) * cos(2 * x) * cos(3 * x) = 1 - frac(1, 2) * (cos(4 * x) + cos(2 * x)) * cos(2 * x)
+2. forall (x), x ∈ RealSet ⇒ 1 - frac(1, 2) * (cos(4 * x) + cos(2 * x)) * cos(2 * x) = 1 - frac(1, 2) * cos(4 * x) * cos(2 * x) - frac(1, 2) * cos(2 * x)^{2}
+3. forall (x), x ∈ RealSet ⇒ 1 - frac(1, 2) * cos(4 * x) * cos(2 * x) - frac(1, 2) * cos(2 * x)^{2} = 1 - frac(1, 4) * (cos(6 * x) + cos(2 * x)) - frac(1, 4) * (1 + cos(4 * x))
+4. forall (x), x ∈ RealSet ⇒ 1 - cos(x) * cos(2 * x) * cos(3 * x) = frac(1, 2) * (sin(x)^{2} + sin(2 * x)^{2} + sin(3 * x)^{2})
+5. forall (x), x ∈ RealSet ⇒ 1 - cos(x) = 2 * sin(frac(x, 2))^{2}
+6. lim_{ x → 0 } (frac(1 - cos(x) * cos(2 * x) * cos(3 * x), 1 - cos(x))) = lim_{ x → 0 } (frac(frac(1, 2) * (sin(x)^{2} + sin(2 * x)^{2} + sin(3 * x)^{2}), 2 * sin(frac(x, 2))^{2}))
+7. lim_{ x → 0 } (frac(frac(1, 2) * (sin(x)^{2} + sin(2 * x)^{2} + sin(3 * x)^{2}), 2 * sin(frac(x, 2))^{2})) = frac(1, 4) * (lim_{ x → 0 } (frac(sin(x), sin(frac(x, 2)))^{2} + frac(sin(2 * x), sin(frac(x, 2)))^{2} + frac(sin(3 * x), sin(frac(x, 2)))^{2}))
+8. frac(1, 4) * (lim_{ x → 0 } (frac(sin(x), sin(frac(x, 2)))^{2} + frac(sin(2 * x), sin(frac(x, 2)))^{2} + frac(sin(3 * x), sin(frac(x, 2)))^{2})) = frac(1, 4) * (4 + 16 + 36)
+
+GOAL:
+lim_{ x → 0 } (frac(1 - cos(x) * cos(2 * x) * cos(3 * x), 1 - cos(x))) = 14
+
+METHOD:

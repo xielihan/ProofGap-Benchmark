@@ -1,0 +1,29 @@
+PROOF GAP @13
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. x_{0} ∈ RealSet
+3. y_{0} ∈ RealSet
+4. A ∈ RealSet
+5. B ∈ RealSet
+6. C ∈ RealSet
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = x + y + 4 * sin(x) * sin(y)
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 1)(x, y) = 1 + 4 * cos(x) * sin(y)
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 2, 1)(x, y) = 1 + 4 * sin(x) * cos(y)
+10. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ FunDeri(z, 1, 1)(x, y) = 0 ∧ FunDeri(z, 2, 1)(x, y) = 0 ⇒ sin(x - y) = 0 ∧ sin(x + y) = -frac(1, 2)
+11. forall (x_{0}) (y_{0}) (m) (n), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ m ∈ IntegerSet ∧ n ∈ IntegerSet ∧ x_{0} = (-1)^{m + 1} * frac(π, 12) + (m + n) * frac(π, 2) ∧ y_{0} = (-1)^{m + 1} * frac(π, 12) + (m - n) * frac(π, 2) ⇒ FunDeri(z, 1, 1)(x_{0}, y_{0}) = 0 ∧ FunDeri(z, 2, 1)(x_{0}, y_{0}) = 0
+12. A = FunDeri(z, 1, 2)(x_{0}, y_{0})
+13. B = FunDeri(FunDeri(z, 1, 1), 2, 1)(x_{0}, y_{0})
+14. C = FunDeri(z, 2, 2)(x_{0}, y_{0})
+15. forall (m) (n), m ∈ IntegerSet ∧ n ∈ IntegerSet ⇒ A * C - B^{2} = -16 * (-1)^{m + n} * cos(frac(π, 6))
+16. forall (m) (n), m ∈ IntegerSet ∧ n ∈ IntegerSet ⇒ A = 2 * ((-1)^{m} * cos(frac(π, 6)) - (-1)^{n})
+17. forall (m) (n), m ∈ IntegerSet ∧ n ∈ IntegerSet ∧ Even(m + n) ⇒ A * C - B^{2} < 0
+18. forall (m) (n), m ∈ IntegerSet ∧ n ∈ IntegerSet ∧ Even(m + n) ⇒ ¬(x_{0} ∈ MaximumPoint(z) ∧ y_{0} ∈ MaximumPoint(z))
+19. forall (m) (n), m ∈ IntegerSet ∧ n ∈ IntegerSet ∧ Even(m + n) ⇒ ¬(x_{0} ∈ MinimumPoint(z) ∧ y_{0} ∈ MinimumPoint(z))
+20. forall (m) (n), m ∈ IntegerSet ∧ n ∈ IntegerSet ∧ Odd(m + n) ∧ Odd(m) ⇒ A * C - B^{2} > 0
+21. forall (m) (n), m ∈ IntegerSet ∧ n ∈ IntegerSet ∧ Odd(m + n) ∧ Odd(m) ⇒ A < 0
+22. forall (m) (n), m ∈ IntegerSet ∧ n ∈ IntegerSet ∧ Odd(m + n) ∧ Odd(m) ⇒ (x_{0}, y_{0}) ∈ MaximumPoint(z)
+
+GOAL:
+forall (m) (n), m ∈ IntegerSet ∧ n ∈ IntegerSet ∧ Odd(m + n) ∧ Odd(m) ⇒ z(x_{0}, y_{0}) = m * π + (frac(π, 6) + sqrtn(2, 3)) * (-1)^{m + 1} + 2 * (-1)^{n}
+
+METHOD:

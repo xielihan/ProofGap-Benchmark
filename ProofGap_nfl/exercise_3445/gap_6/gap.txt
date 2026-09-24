@@ -1,0 +1,26 @@
+PROOF GAP @6
+ASSUM:
+1. y : RealSet → RealSet
+2. p : RealSet → RealSet
+3. q : RealSet → RealSet
+4. P : RealSet → RealSet
+5. Q : RealSet → RealSet
+6. φ : RealSet → RealSet
+7. x : RealSet → RealSet
+8. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) + p(x) * FunDeri(y, 1, 1)(x) + q(x) * y(x) = 0
+9. forall (ξ), ξ ∈ RealSet ⇒ x(ξ) = φ(ξ) ∧ FunDeri(φ, 1, 1)(ξ) ≠ 0
+10. forall (ξ), ξ ∈ RealSet ⇒ FunDeri(y, 1, 2)(ξ) + P(ξ) * FunDeri(y, 1, 1)(ξ) + Q(ξ) * y(ξ) = 0
+11. DiffableFunc(p)
+12. DiffableFunc(q)
+13. DiffableFunc(φ)
+14. DiffableFunc(FunDeri(φ, 1, 1))
+15. forall (ξ), FunDeri(φ, 1, 1)(ξ) ≠ 0 ∧ ξ ∈ RealSet ⇒ FunDeri(x, 1, 1)(ξ) = FunDeri(φ, 1, 1)(ξ)
+16. forall (ξ), FunDeri(φ, 1, 1)(ξ) ≠ 0 ∧ ξ ∈ RealSet ⇒ FunDeri(x, 1, 2)(ξ) = FunDeri(φ, 1, 2)(ξ)
+17. forall (ξ), FunDeri(φ, 1, 1)(ξ) ≠ 0 ∧ ξ ∈ RealSet ⇒ FunDeri(y, 1, 1)(x(ξ)) = frac(FunDeri(y, 1, 1)(ξ), FunDeri(φ, 1, 1)(ξ))
+18. forall (ξ), FunDeri(φ, 1, 1)(ξ) ≠ 0 ∧ ξ ∈ RealSet ⇒ FunDeri(y, 1, 2)(x(ξ)) = frac(1, FunDeri(φ, 1, 1)(ξ)^{2}) * FunDeri(y, 1, 2)(ξ) - frac(FunDeri(φ, 1, 2)(ξ), FunDeri(φ, 1, 1)(ξ)^{3}) * FunDeri(y, 1, 1)(ξ)
+19. forall (ξ), FunDeri(φ, 1, 1)(ξ) ≠ 0 ∧ ξ ∈ RealSet ⇒ FunDeri(y, 1, 2)(ξ) + (p(φ(ξ)) * FunDeri(φ, 1, 1)(ξ) - frac(FunDeri(φ, 1, 2)(ξ), FunDeri(φ, 1, 1)(ξ))) * FunDeri(y, 1, 1)(ξ) + q(φ(ξ)) * FunDeri(φ, 1, 1)(ξ)^{2} * y(ξ) = 0
+
+GOAL:
+forall (ξ), FunDeri(φ, 1, 1)(ξ) ≠ 0 ∧ ξ ∈ RealSet ⇒ P(ξ) = p(φ(ξ)) * FunDeri(φ, 1, 1)(ξ) - frac(FunDeri(φ, 1, 2)(ξ), FunDeri(φ, 1, 1)(ξ))
+
+METHOD:

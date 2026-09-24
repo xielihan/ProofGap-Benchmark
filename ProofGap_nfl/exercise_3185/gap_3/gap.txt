@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ∈ RealSet
+2. forall (y), y ∈ RealSet
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ x^{2} - x * y + y^{2} ≠ 0
+
+METHOD:

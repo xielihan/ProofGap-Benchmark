@@ -1,0 +1,16 @@
+PROOF GAP @8
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = x + sin(x)
+3. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = 1 + cos(x)
+4. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = -sin(x)
+5. forall (x), x ∈ RealSet ⇒ (forall (k), k ∈ IntegerSet ∧ 2 * k * π < x ∧ x < (2 * k + 1) * π ⇒ FunDeri(y, 1, 2)(x) < 0)
+6. forall (k), k ∈ IntegerSet ⇒ ConcaveFuncOn(y, IntervalLoRo(2 * k * π, (2 * k + 1) * π))
+7. forall (x), x ∈ RealSet ⇒ (forall (k), k ∈ IntegerSet ∧ (2 * k + 1) * π < x ∧ x < (2 * k + 2) * π ⇒ FunDeri(y, 1, 2)(x) > 0)
+8. forall (k), k ∈ IntegerSet ⇒ ConvexFuncOn(y, IntervalLoRo((2 * k + 1) * π, (2 * k + 2) * π))
+9. forall (x), x ∈ RealSet ⇒ (FunDeri(y, 1, 2)(x) = 0 ⇔ (exists (k), k ∈ IntegerSet ∧ x = k * π))
+
+GOAL:
+{ (k * π, y(k * π)) | k ∈ IntegerSet } = { (k * π, k * π) | k ∈ IntegerSet }
+
+METHOD:

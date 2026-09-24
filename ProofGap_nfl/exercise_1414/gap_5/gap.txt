@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = 2 + x - x^{2}
+3. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = 1 - 2 * x
+4. forall (x), x ∈ RealSet ∧ FunDeri(y, 1, 1)(x) = 0 ⇒ x = frac(1, 2)
+5. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = -2
+6. FunDeri(y, 1, 2)(frac(1, 2)) < 0
+
+GOAL:
+MaximumPoint(y) = { frac(1, 2) }
+
+METHOD:

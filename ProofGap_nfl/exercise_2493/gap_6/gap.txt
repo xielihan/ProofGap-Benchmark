@@ -1,0 +1,18 @@
+PROOF GAP @6
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b ≥ 0
+3. y : RealSet → RealSet
+4. P_{x} ∈ RealSet
+5. P_{y} ∈ RealSet
+6. forall (x), x ∈ RealSet ∧ |x| ≤ b ⇒ y(x) = a * cosh(frac(x, a))
+7. forall (x), x ∈ RealSet ∧ |x| ≤ b ⇒ sqrtn(2, 1 + FunDeri(y, 1, 1)(x)^{2}) = sqrtn(2, sinh(frac(x, a))^{2} + 1)
+8. forall (x), x ∈ RealSet ∧ |x| ≤ b ⇒ sqrtn(2, sinh(frac(x, a))^{2} + 1) = cosh(frac(x, a))
+9. forall (x), x ∈ RealSet ∧ |x| ≤ b ⇒ sqrtn(2, 1 + FunDeri(y, 1, 1)(x)^{2}) = cosh(frac(x, a))
+10. forall (x), x ∈ RealSet ∧ |x| ≤ b ⇒ P_{x} = 2 * π * a * DefInt(-b, b, cosh(frac(x, a))^{2} * diff(fun x [x ∈ RealSet ∧ |x| ≤ b] . x))
+11. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b ⇒ P_{x} = 2 * π * a * DefInt(0, b, (1 + cosh(frac(2 * x, a))) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ b] . x))
+
+GOAL:
+P_{x} = π * a * (2 * b + a * sinh(frac(2 * b, a)))
+
+METHOD:

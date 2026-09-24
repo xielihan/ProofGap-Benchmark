@@ -1,0 +1,18 @@
+get_prop (theorem 'Thm 306. (ContinuousAtEpsilonDelta)': {forall (f) (x), f : RealSet -> RealSet => x ∈ RealSet => (ContinuousFuncAt(f, x) <==> (forall (ε), ε ∈ RealSet => ε > 0 => (exists (δ), δ ∈ RealSet /\ δ > 0 /\ (forall (y), y ∈ RealSet => |y - x| < δ => |f(y) - f(x)| < ε))))}) (f := {f}) (x := {5}) as (hypothesis 14: {f : RealSet -> RealSet => 5 ∈ RealSet => (ContinuousFuncAt(f, 5) <==> (forall (ε), ε ∈ RealSet => ε > 0 => (exists (δ), δ ∈ RealSet /\ δ > 0 /\ (forall (y), y ∈ RealSet => |y - 5| < δ => |f(y) - f(5)| < ε))))})
+use_condition (hypothesis 1: {f : RealSet → RealSet}) (obvious: {5 ∈ RealSet}) in (hypothesis 14: {f : RealSet -> RealSet => 5 ∈ RealSet => (ContinuousFuncAt(f, 5) <==> (forall (ε), ε ∈ RealSet => ε > 0 => (exists (δ), δ ∈ RealSet /\ δ > 0 /\ (forall (y), y ∈ RealSet => |y - 5| < δ => |f(y) - f(5)| < ε))))}) as (hypothesis 15: {ContinuousFuncAt(f, 5) <==> (forall (ε), ε ∈ RealSet => ε > 0 => (exists (δ), δ ∈ RealSet /\ δ > 0 /\ (forall (y), y ∈ RealSet => |y - 5| < δ => |f(y) - f(5)| < ε)))})
+rewrite (left_to_right, iff) (hypothesis 15: {ContinuousFuncAt(f, 5) <==> (forall (ε), ε ∈ RealSet => ε > 0 => (exists (δ), δ ∈ RealSet /\ δ > 0 /\ (forall (y), y ∈ RealSet => |y - 5| < δ => |f(y) - f(5)| < ε)))}); from (GOAL: {ContinuousFuncAt(f, 5)}) to (GOAL: {forall (ε), ε ∈ RealSet => ε > 0 => (exists (δ), δ ∈ RealSet /\ δ > 0 /\ (forall (y), y ∈ RealSet => |y - 5| < δ => |f(y) - f(5)| < ε))})
+get_forall (GOAL: {forall (ε), ε ∈ RealSet => ε > 0 => (exists (δ), δ ∈ RealSet /\ δ > 0 /\ (forall (y), y ∈ RealSet => |y - 5| < δ => |f(y) - f(5)| < ε))}) (ε := {eps0})
+get_condition (hypothesis 16: {eps0 ∈ RealSet}) (hypothesis 17: {eps0 > 0}) in (GOAL: {eps0 ∈ RealSet => eps0 > 0 => (exists (δ), δ ∈ RealSet /\ δ > 0 /\ (forall (y), y ∈ RealSet => |y - 5| < δ => |f(y) - f(5)| < eps0))})
+assert (hypothesis 18: {eps0 ∈ RealSet /\ eps0 > 0})
+get_prop (hypothesis 13: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ |x - 5| < δ ⇒ |f(x) - f(5)| < ε))}) (ε := {eps0}) as (hypothesis 19: {eps0 ∈ RealSet /\ eps0 > 0 => (exists (δ), δ ∈ RealSet /\ δ > 0 /\ (forall (x), x ∈ RealSet /\ |x - 5| < δ => |f(x) - f(5)| < eps0))})
+use_condition (hypothesis 18: {eps0 ∈ RealSet /\ eps0 > 0}) in (hypothesis 19: {eps0 ∈ RealSet /\ eps0 > 0 => (exists (δ), δ ∈ RealSet /\ δ > 0 /\ (forall (x), x ∈ RealSet /\ |x - 5| < δ => |f(x) - f(5)| < eps0))}) as (hypothesis 20: {exists (δ), δ ∈ RealSet /\ δ > 0 /\ (forall (x), x ∈ RealSet /\ |x - 5| < δ => |f(x) - f(5)| < eps0)})
+get_exists (hypothesis 20: {exists (δ), δ ∈ RealSet /\ δ > 0 /\ (forall (x), x ∈ RealSet /\ |x - 5| < δ => |f(x) - f(5)| < eps0)}) (δ := {delta0})
+destruct_and (hypothesis 21: {delta0 ∈ RealSet /\ delta0 > 0 /\ (forall (x), x ∈ RealSet /\ |x - 5| < delta0 => |f(x) - f(5)| < eps0)}) as (hypothesis 22: {delta0 ∈ RealSet}) (hypothesis 23: {delta0 > 0}) (hypothesis 24: {forall (x), x ∈ RealSet /\ |x - 5| < delta0 => |f(x) - f(5)| < eps0})
+exists (δ := {delta0})
+assert (hypothesis 25: {forall (y), y ∈ RealSet => |y - 5| < delta0 => |f(y) - f(5)| < eps0}) by proof {
+  get_forall (GOAL: {forall (y), y ∈ RealSet => |y - 5| < delta0 => |f(y) - f(5)| < eps0}) (y := {y0})
+  get_condition (hypothesis 25: {y0 ∈ RealSet}) (hypothesis 26: {|y0 - 5| < delta0}) in (GOAL: {y0 ∈ RealSet => |y0 - 5| < delta0 => |f(y0) - f(5)| < eps0})
+  get_prop (hypothesis 24: {forall (x), x ∈ RealSet /\ |x - 5| < delta0 => |f(x) - f(5)| < eps0}) (x := {y0}) as (hypothesis 27: {y0 ∈ RealSet /\ |y0 - 5| < delta0 => |f(y0) - f(5)| < eps0})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

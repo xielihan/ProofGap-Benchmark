@@ -1,0 +1,4 @@
+1. get_forall (GOAL: {forall (φ), φ ∈ RealSet ∧ 0 < φ ∧ φ < 2 * π ⇒ 0 < φ}) (φ := {v})
+2. get_condition (hypothesis 17: {v ∈ RealSet ∧ 0 < v ∧ v < 2 * π}) in (GOAL: {v ∈ RealSet ∧ 0 < v ∧ v < 2 * π ⇒ 0 < v})
+3. destruct_and (hypothesis 17: {v ∈ RealSet ∧ 0 < v ∧ v < 2 * π}) as (hypothesis 18: {v ∈ RealSet}) (hypothesis 19: {0 < v}) (hypothesis 20: {v < 2 * π})
+4. apply (hypothesis 19: {0 < v})

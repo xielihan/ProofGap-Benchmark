@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ f(x) > 0}) (x := {x0})
+get_condition (hypothesis 3: {x0 ∈ RealSet ∧ x0 ∈ PosRealSet}) in (GOAL: {x0 ∈ RealSet ∧ x0 ∈ PosRealSet ⇒ f(x0) > 0})
+get_prop (hypothesis 2: {forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ f(x) = x * e^{-0.01 * x}}) (x := {x0}) as (hypothesis 4: {x0 ∈ RealSet ∧ x0 ∈ PosRealSet ⇒ f(x0) = x0 * e^{-0.01 * x0}})
+use_condition (hypothesis 3: {x0 ∈ RealSet ∧ x0 ∈ PosRealSet}) in (hypothesis 4: {x0 ∈ RealSet ∧ x0 ∈ PosRealSet ⇒ f(x0) = x0 * e^{-0.01 * x0}}) as (hypothesis 5: {f(x0) = x0 * e^{-0.01 * x0}})
+rewrite (left_to_right, equation) (hypothesis 5: {f(x0) = x0 * e^{-0.01 * x0}}); from (GOAL: {f(x0) > 0}) to (GOAL: {x0 * e^{-0.01 * x0} > 0})
+autosolve (hypothesis 3: {x0 ∈ RealSet ∧ x0 ∈ PosRealSet}) using SgnSolver

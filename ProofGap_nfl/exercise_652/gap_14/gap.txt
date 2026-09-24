@@ -1,0 +1,21 @@
+PROOF GAP @14
+ASSUM:
+1. lim_{ x → +∞ } (frac(x^{2} + 10 * x + 100, 0.001 * x^{3})) = 0
+2. exists (M_{1}), M_{1} ∈ RealSet ∧ M_{1} ∈ PosRealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ∧ x > M_{1} ⇒ frac(x^{2} + 10 * x + 100, 0.001 * x^{3}) < 1)
+3. exists (M_{1}), M_{1} ∈ RealSet ∧ M_{1} ∈ PosRealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ∧ x > M_{1} ⇒ x^{2} + 10 * x + 100 < 0.001 * x^{3})
+4. lim_{ x → +∞ } (frac(ln(x)^{1000}, sqrtn(2, x))) = 0
+5. exists (M_{2}), M_{2} ∈ RealSet ∧ M_{2} ∈ PosRealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ∧ x > M_{2} ⇒ frac(ln(x)^{1000}, sqrtn(2, x)) < 1)
+6. exists (M_{2}), M_{2} ∈ RealSet ∧ M_{2} ∈ PosRealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ∧ x > M_{2} ⇒ ln(x)^{1000} < sqrtn(2, x))
+7. lim_{ x → +∞ } (frac(x^{10} * e^{x}, e^{2 * x})) = lim_{ x → +∞ } (frac(x^{10}, e^{x}))
+8. lim_{ x → +∞ } (frac(x^{10}, e^{x})) = 0
+9. lim_{ x → +∞ } (frac(x^{10} * e^{x}, e^{2 * x})) = 0
+10. exists (M_{3}), M_{3} ∈ RealSet ∧ M_{3} ∈ PosRealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ∧ x > M_{3} ⇒ frac(x^{10} * e^{x}, e^{2 * x}) < 1)
+11. exists (M_{3}), M_{3} ∈ RealSet ∧ M_{3} ∈ PosRealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ∧ x > M_{3} ⇒ x^{10} * e^{x} < e^{2 * x})
+12. M = max(M_{1}, M_{2}, M_{3})
+13. M ∈ PosRealSet
+14. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ∧ x > M ⇒ x^{2} + 10 * x + 100 < 0.001 * x^{3} ∧ ln(x)^{1000} < sqrtn(2, x) ∧ x^{10} * e^{x} < e^{2 * x}
+
+GOAL:
+exists (M), M ∈ RealSet ∧ M ∈ PosRealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ∧ x > M ⇒ x^{2} + 10 * x + 100 < 0.001 * x^{3} ∧ ln(x)^{1000} < sqrtn(2, x) ∧ x^{10} * e^{x} < e^{2 * x})
+
+METHOD:

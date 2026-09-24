@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+
+
+GOAL:
+forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ frac(cos(x)^{3}, sin(x)) * diff(fun x [x ∈ RealSet ∧ sin(x) ≠ 0] . x) = frac(1 - sin(x)^{2}, sin(x)) * cos(x) * diff(fun x [x ∈ RealSet ∧ sin(x) ≠ 0] . x)
+
+METHOD:

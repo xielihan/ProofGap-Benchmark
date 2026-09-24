@@ -1,0 +1,29 @@
+PROOF GAP @17
+ASSUM:
+1. a ∈ RealSet
+2. f : RealSet → RealSet ∧ Defined(f, [a, +∞))
+3. forall (b), b ∈ RealSet ⇒ (forall (c), c ∈ RealSet ∧ a ≤ b ∧ b < c ⇒ IntegrableFuncOn(f, [b, c]))
+4. forall (x), x ∈ RealSet ⇒ (exists (L), L ∈ RealSet ∧ DefInt(a, +∞, f(x) * diff(fun x [x ∈ RealSet] . x)) = L)
+5. MonoDecFuncOn(f, [a, +∞)) ∨ MonoIncFuncOn(f, [a, +∞))
+6. MonoDecFuncOn(f, [a, +∞)) ⇒ (exists (c), c ∈ RealSet ∧ c ≥ a ∧ f(c) < 0 ∧ (forall (x), x ∈ RealSet ∧ x ≥ c ⇒ f(x) ≤ f(c)))
+7. MonoDecFuncOn(f, [a, +∞)) ⇒ (exists (c), c ∈ RealSet ∧ c ≥ a ∧ f(c) < 0 ∧ (forall (x), x ∈ RealSet ⇒ DefInt(c, +∞, f(x) * diff(fun x [x ∈ RealSet] . x)) ≤ DefInt(c, +∞, f(c) * diff(fun x [x ∈ RealSet] . x))))
+8. MonoDecFuncOn(f, [a, +∞)) ⇒ (exists (c), c ∈ RealSet ∧ c ≥ a ∧ f(c) < 0 ∧ DefInt(c, +∞, f(c) * diff(fun x [x ∈ RealSet] . x)) = -∞)
+9. MonoDecFuncOn(f, [a, +∞)) ⇒ (exists (c), c ∈ RealSet ∧ c ≥ a ∧ f(c) < 0 ∧ (forall (x), x ∈ RealSet ⇒ DefInt(c, +∞, f(x) * diff(fun x [x ∈ RealSet] . x)) ≤ -∞))
+10. MonoDecFuncOn(f, [a, +∞)) ⇒ (exists (c), c ∈ RealSet ∧ c ≥ a ∧ f(c) < 0 ∧ (forall (x), x ∈ RealSet ⇒ ¬(exists (L), L ∈ RealSet ∧ DefInt(c, +∞, f(x) * diff(fun x [x ∈ RealSet] . x)) = L)))
+11. MonoDecFuncOn(f, [a, +∞)) ⇒ (exists (c), c ∈ RealSet ∧ c ≥ a ∧ f(c) < 0) ⇒ False
+12. MonoDecFuncOn(f, [a, +∞)) ⇒ (forall (x), x ∈ RealSet ∧ x ≥ a ⇒ f(x) ≥ 0)
+13. MonoDecFuncOn(f, [a, +∞)) ⇒ (forall (x), x ∈ RealSet ∧ x ≥ a ⇒ f(x) ≥ 0)
+14. forall (t), t ∈ RealSet ∧ MonoDecFuncOn(f, [a, +∞)) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (A), A ∈ RealSet ∧ A > a ∧ (forall (x), x ∈ RealSet ∧ x > A ∧ frac(x, 2) ≥ a ⇒ |DefInt(frac(x, 2), x, f(t) * diff(fun t [t ∈ RealSet] . t))| < frac(ε, 2))))
+15. forall (t), t ∈ RealSet ∧ MonoDecFuncOn(f, [a, +∞)) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (A), A ∈ RealSet ∧ A > a ∧ (forall (x), x ∈ RealSet ∧ x > A ∧ frac(x, 2) ≥ a ⇒ |DefInt(frac(x, 2), x, f(t) * diff(fun t [t ∈ RealSet] . t))| = DefInt(frac(x, 2), x, f(t) * diff(fun t [t ∈ RealSet] . t)))))
+16. forall (t), t ∈ RealSet ∧ MonoDecFuncOn(f, [a, +∞)) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (A), A ∈ RealSet ∧ A > a ∧ (forall (x), x ∈ RealSet ∧ x > A ∧ frac(x, 2) ≥ a ⇒ DefInt(frac(x, 2), x, f(t) * diff(fun t [t ∈ RealSet] . t)) ≥ f(x) * (x - frac(x, 2)))))
+17. MonoDecFuncOn(f, [a, +∞)) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (A), A ∈ RealSet ∧ A > a ∧ (forall (x), x ∈ RealSet ∧ x > A ∧ frac(x, 2) ≥ a ⇒ f(x) * (x - frac(x, 2)) = frac(x, 2) * f(x))))
+18. forall (t), t ∈ RealSet ∧ MonoDecFuncOn(f, [a, +∞)) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (A), A ∈ RealSet ∧ A > a ∧ (forall (x), x ∈ RealSet ∧ x > A ∧ frac(x, 2) ≥ a ⇒ |DefInt(frac(x, 2), x, f(t) * diff(fun t [t ∈ RealSet] . t))| ≥ frac(x, 2) * f(x))))
+19. MonoDecFuncOn(f, [a, +∞)) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (A), A ∈ RealSet ∧ A > a ∧ (forall (x), x ∈ RealSet ∧ x > A ∧ frac(x, 2) ≥ a ⇒ 0 ≤ x * f(x))))
+20. MonoDecFuncOn(f, [a, +∞)) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (A), A ∈ RealSet ∧ A > a ∧ (forall (x), x ∈ RealSet ∧ x > A ∧ frac(x, 2) ≥ a ⇒ x * f(x) < ε)))
+21. MonoDecFuncOn(f, [a, +∞)) ⇒ lim_{ x → +∞ } (x * f(x)) = 0
+22. MonoIncFuncOn(f, [a, +∞)) ⇒ g = (fun x [x ∈ RealSet] . -f(x))
+
+GOAL:
+MonoIncFuncOn(f, [a, +∞)) ⇒ MonoDecFuncOn(g, [a, +∞))
+
+METHOD:

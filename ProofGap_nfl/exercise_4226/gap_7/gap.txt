@@ -1,0 +1,27 @@
+PROOF GAP @7
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. C_{1} ⊆ CartesianProd(RealSet, RealSet)
+3. C_{2} ⊆ CartesianProd(RealSet, RealSet)
+4. C_{3} ⊆ CartesianProd(RealSet, RealSet)
+5. a ∈ RealSet ∧ a > 0
+6. x ∈ RealSet
+7. y ∈ RealSet
+8. r ∈ RealSet
+9. φ ∈ RealSet
+10. s ∈ RealSet
+11. C = C_{1} ∪ C_{2} ∪ C_{3}
+12. C_{1} = { (r, φ) | r ∈ RealSet, φ ∈ RealSet, φ = 0 ∧ 0 ≤ r ∧ r ≤ a }
+13. C_{2} = { (r, φ) | r ∈ RealSet, φ ∈ RealSet, r = a ∧ 0 ≤ φ ∧ φ ≤ frac(π, 4) }
+14. C_{3} = { (r, φ) | r ∈ RealSet, φ ∈ RealSet, φ = frac(π, 4) ∧ 0 ≤ r ∧ r ≤ a }
+15. forall (x) (y) (r), x ∈ RealSet ∧ y ∈ RealSet ∧ r ∈ RealSet ∧ r ≥ 0 ⇒ sqrtn(2, x^{2} + y^{2}) = r
+16. forall (r), r ∈ RealSet ∧ r ≥ 0 ⇒ ScalarCurveInt(C, e^{sqrtn(2, x^{2} + y^{2})} * diff(s)) = ScalarCurveInt(C_{1}, e^{r} * diff(s)) + ScalarCurveInt(C_{2}, e^{r} * diff(s)) + ScalarCurveInt(C_{3}, e^{r} * diff(s))
+17. diff(s) = diff(fun r [r ∈ RealSet] . r)
+18. forall (r), r : RealSet → RealSet ⇒ diff(s) = (fun φ [φ ∈ RealSet] . sqrtn(2, r(φ)^{2} + FunDeri(r, 1, 1)(φ)^{2})) * diff(fun φ [φ ∈ RealSet] . φ)
+19. forall (r), r : RealSet → RealSet ⇒ (fun φ [φ ∈ RealSet] . sqrtn(2, r(φ)^{2} + FunDeri(r, 1, 1)(φ)^{2})) * diff(fun φ [φ ∈ RealSet] . φ) = (fun φ [φ ∈ RealSet] . a) * diff(fun φ [φ ∈ RealSet] . φ)
+20. diff(s) = (fun φ [φ ∈ RealSet] . a) * diff(fun φ [φ ∈ RealSet] . φ)
+
+GOAL:
+diff(s) = diff(fun r [r ∈ RealSet] . r)
+
+METHOD:

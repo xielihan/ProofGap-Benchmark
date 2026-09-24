@@ -1,0 +1,6 @@
+get_condition (hypothesis 8: {n ∈ PosRealSet}) in (GOAL: {n ∈ PosRealSet => ContinuousFuncAt(f, 0)})
+use_condition (hypothesis 8: {n ∈ PosRealSet}) in (hypothesis 7: {n ∈ PosRealSet => lim_{x -> 0} (f(x)) = f(0)}) as (hypothesis 9: {lim_{x -> 0} (f(x)) = f(0)})
+get_prop (theorem 'Thm 381. (ContinuityAtPointAsLimit)': {forall (f) (x), f : RealSet -> RealSet => x ∈ RealSet => (ContinuousFuncAt(f, x) <==> lim_{t -> x} (f(t)) = f(x))}) (f := {f}) (x := {0}) as (hypothesis 10: {f : RealSet -> RealSet => 0 ∈ RealSet => (ContinuousFuncAt(f, 0) <==> lim_{t -> 0} (f(t)) = f(0))})
+use_condition (hypothesis 1: {f : RealSet -> RealSet}) (obvious: {0 ∈ RealSet}) in (hypothesis 10: {f : RealSet -> RealSet => 0 ∈ RealSet => (ContinuousFuncAt(f, 0) <==> lim_{t -> 0} (f(t)) = f(0))}) as (hypothesis 11: {ContinuousFuncAt(f, 0) <==> lim_{t -> 0} (f(t)) = f(0)})
+rewrite (left_to_right, iff) (hypothesis 11: {ContinuousFuncAt(f, 0) <==> lim_{t -> 0} (f(t)) = f(0)}); from (GOAL: {ContinuousFuncAt(f, 0)}) to (GOAL: {lim_{t -> 0} (f(t)) = f(0)})
+autosolve (hypothesis 9: {lim_{x -> 0} (f(x)) = f(0)})

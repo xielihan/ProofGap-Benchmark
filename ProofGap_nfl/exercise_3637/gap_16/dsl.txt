@@ -1,0 +1,11 @@
+get_prop (theorem 'Thm 355. (NonnegativeNthRoot)': {forall (x) (n), x ∈ RealSet => n ∈ IntegerSet => x >= 0 => n > 0 => sqrt(n, x) >= 0}) (x := {3}) (n := {2}) as (hypothesis 26: {3 ∈ RealSet => 2 ∈ IntegerSet => 3 >= 0 => 2 > 0 => sqrt(2, 3) >= 0})
+use_condition (obvious: {3 ∈ RealSet}) (obvious: {2 ∈ IntegerSet}) (obvious: {3 >= 0}) (obvious: {2 > 0}) in (hypothesis 26: {3 ∈ RealSet => 2 ∈ IntegerSet => 3 >= 0 => 2 > 0 => sqrt(2, 3) >= 0}) as (hypothesis 27: {sqrt(2, 3) >= 0})
+get_prop (theorem 'Thm 450. (SquareRootSquareCancellation)': {forall (u), u ∈ RealSet => u >= 0 => sqrtn(2, u)^2 = u}) (u := {3}) as (hypothesis 28: {3 ∈ RealSet => 3 >= 0 => sqrtn(2, 3)^2 = 3})
+use_condition (obvious: {3 ∈ RealSet}) (obvious: {3 >= 0}) in (hypothesis 28: {3 ∈ RealSet => 3 >= 0 => sqrtn(2, 3)^2 = 3}) as (hypothesis 29: {sqrtn(2, 3)^2 = 3})
+assert (hypothesis 30: {sqrtn(2, 3) != 0}) by proof {
+  autosolve (hypothesis 29: {sqrtn(2, 3)^2 = 3})
+}
+assert (hypothesis 31: {sqrtn(2, 3) > 0}) by proof {
+  autosolve (hypothesis 27: {sqrt(2, 3) >= 0}) (hypothesis 30: {sqrtn(2, 3) != 0})
+}
+autosolve (hypothesis 22: {FunDeri(z, 1, 2)(P_{5}) = -sqrtn(2, 3)}) (hypothesis 31: {sqrtn(2, 3) > 0})

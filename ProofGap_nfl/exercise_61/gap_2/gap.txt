@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. k = min({ m | m ∈ PosIntegerSet, m > 2 * |a| })
+3. k ∈ PosIntegerSet
+
+GOAL:
+k > 2 * |a|
+
+METHOD:

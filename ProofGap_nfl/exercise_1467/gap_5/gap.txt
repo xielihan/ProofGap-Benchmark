@@ -1,0 +1,18 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. f : RealSet → RealSet
+3. g : RealSet → RealSet
+4. S ⊆ RealSet
+5. forall (x), x ∈ RealSet ⇒ f(x) = e^{x} - a * x^{2}
+6. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ g(x) = x - ln(a) - 2 * ln(x)
+7. forall (x), x ∈ RealSet ⇒ (x ∈ S ⇔ x ∈ RealSet ∧ e^{x} = a * x^{2})
+8. f(0) = 1
+9. 1 > 0
+10. f(0) > 0
+11. lim_{ x → -∞ } (f(x)) = -∞
+
+GOAL:
+exists (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ PosRealSet ∧ f(-x_{0}) < 0
+
+METHOD:

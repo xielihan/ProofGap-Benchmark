@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = frac(1, π) * arccot(x)
+3. ContinuousFuncOn(y, IntervalLoRo(-∞, +∞))
+4. MonoDecFuncOn(y, IntervalLoRo(-∞, +∞))
+5. lim_{ x → -∞ } (arccot(x)) = π
+
+GOAL:
+lim_{ x → +∞ } (arccot(x)) = 0
+
+METHOD:

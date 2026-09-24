@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≥ 0 ∧ x ≠ 1 ∧ x ≠ -2 ∧ frac(1 + x, 2 + x) > 0 ⇒ frac(1 + x, 2 + x)^{frac(1 - sqrtn(2, x), 1 - x)} = frac(1 + x, 2 + x)^{frac(1, 1 + sqrtn(2, x))}
+
+METHOD:

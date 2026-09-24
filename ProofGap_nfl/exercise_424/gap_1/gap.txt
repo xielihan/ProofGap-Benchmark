@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. n ∈ PosIntegerSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ (sum_{ i = 1 }^{ n } (x^{i})) - n = sum_{ i = 1 }^{ n } (x^{i} - 1)
+
+METHOD:

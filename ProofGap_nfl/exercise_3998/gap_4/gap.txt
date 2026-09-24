@@ -1,0 +1,25 @@
+PROOF GAP @4
+ASSUM:
+1. p ∈ RealSet
+2. q ∈ RealSet
+3. r ∈ RealSet
+4. s ∈ RealSet
+5. D ⊆ CartesianProd(RealSet, RealSet)
+6. S ∈ RealSet
+7. I : CartesianProd(RealSet, RealSet) → RealSet
+8. 0 < p
+9. p < q
+10. 0 < r
+11. r < s
+12. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ ((x, y) ∈ D ⇔ x ≠ 0 ∧ y ≠ 0 ∧ y^{2} ≥ 2 * p * x ∧ y^{2} ≤ 2 * q * x ∧ x^{2} ≥ 2 * r * y ∧ x^{2} ≤ 2 * s * y))
+13. S = VolumeInt(D, diff(fun x [x ∈ RealSet] . x) * diff(fun y [y ∈ RealSet] . y))
+14. u = frac(y^{2}, x)
+15. v = frac(x^{2}, y)
+16. D = { (u, v) | u ∈ RealSet, v ∈ RealSet, 2 * p ≤ u, u ≤ 2 * q, 2 * r ≤ v, v ≤ 2 * s }
+17. |I(u, v)| = frac(1, 3)
+18. S = DefInt(2 * p, 2 * q, DefInt(2 * r, 2 * s, frac(1, 3) * diff(fun v [v ∈ RealSet ∧ 2 * r ≤ v ∧ v ≤ 2 * s] . v)) * diff(fun u [u ∈ RealSet ∧ 2 * p ≤ u ∧ u ≤ 2 * q] . u))
+
+GOAL:
+S = frac(1, 3) * DefInt(2 * p, 2 * q, diff(fun u [u ∈ RealSet ∧ 2 * p ≤ u ∧ u ≤ 2 * q] . u)) * DefInt(2 * r, 2 * s, diff(fun v [v ∈ RealSet ∧ 2 * r ≤ v ∧ v ≤ 2 * s] . v))
+
+METHOD:

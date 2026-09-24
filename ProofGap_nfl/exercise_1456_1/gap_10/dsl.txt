@@ -1,0 +1,13 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ |x| ≤ 2 ⇒ |3 * x - x^{3}| ≤ 2}) (x := {x0})
+get_condition (hypothesis 11: {x0 ∈ RealSet ∧ |x0| ≤ 2}) in (GOAL: {x0 ∈ RealSet ∧ |x0| ≤ 2 ⇒ |3 * x0 - x0^{3}| ≤ 2})
+get_prop (hypothesis 9: {forall (x), x ∈ RealSet ∧ |x| ≤ 2 ⇒ -2 ≤ f(x)}) (x := {x0}) as (hypothesis 12: {x0 ∈ RealSet ∧ |x0| ≤ 2 ⇒ -2 ≤ f(x0)})
+get_prop (hypothesis 10: {forall (x), x ∈ RealSet ∧ |x| ≤ 2 ⇒ f(x) ≤ 2}) (x := {x0}) as (hypothesis 13: {x0 ∈ RealSet ∧ |x0| ≤ 2 ⇒ f(x0) ≤ 2})
+use_condition (hypothesis 11: {x0 ∈ RealSet ∧ |x0| ≤ 2}) in (hypothesis 12: {x0 ∈ RealSet ∧ |x0| ≤ 2 ⇒ -2 ≤ f(x0)}) as (hypothesis 14: {-2 ≤ f(x0)})
+use_condition (hypothesis 11: {x0 ∈ RealSet ∧ |x0| ≤ 2}) in (hypothesis 13: {x0 ∈ RealSet ∧ |x0| ≤ 2 ⇒ f(x0) ≤ 2}) as (hypothesis 15: {f(x0) ≤ 2})
+assert (hypothesis 16: {f(x0) = 3 * x0 - x0^{3}}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 1: {f = (fun x [x ∈ RealSet] . 3 * x - x^{3})}); from (GOAL: {f(x0) = 3 * x0 - x0^{3}}) to (GOAL: {(fun x [x ∈ RealSet] . 3 * x - x^{3})(x0) = 3 * x0 - x0^{3}})
+  autosolve all_hypothesis using FunctionApplySolver
+}
+rewrite (left_to_right, equation) (hypothesis 16: {f(x0) = 3 * x0 - x0^{3}}); from (hypothesis 14: {-2 ≤ f(x0)}) to (hypothesis 17: {-2 ≤ 3 * x0 - x0^{3}})
+rewrite (left_to_right, equation) (hypothesis 16: {f(x0) = 3 * x0 - x0^{3}}); from (hypothesis 15: {f(x0) ≤ 2}) to (hypothesis 18: {3 * x0 - x0^{3} ≤ 2})
+autosolve all_hypothesis using SgnSolver

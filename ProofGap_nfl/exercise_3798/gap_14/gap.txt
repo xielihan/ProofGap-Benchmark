@@ -1,0 +1,22 @@
+PROOF GAP @14
+ASSUM:
+1. α ∈ RealSet ∧ |α| ≤ 1
+2. I = (fun α [α ∈ RealSet ∧ |α| ≤ 1] . DefInt(0, 1, (fun x [x ∈ RealSet] . frac(ln(1 - α^{2} * x^{2}), sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x)))
+3. ContinuousFuncOn(I, [-1, 1])
+4. forall (`α₀`), 0 < `α₀` ∧ `α₀` < 1 ∧ `α₀` ∈ RealSet ⇒ (forall (α), α ∈ RealSet ∧ |α| ≤ `α₀` ⇒ IntegrableFuncOn(fun x [x ∈ RealSet] . FunDeri(fun α [α ∈ RealSet] . frac(ln(1 - α^{2} * x^{2}), sqrtn(2, 1 - x^{2})), 1, 1), [0, 1]))
+5. |α| < 1 ∧ α ≠ 0 ⇒ FunDeri(I, 1, 1)(α) = DefInt(0, 1, (fun x [x ∈ RealSet] . frac(-2 * α * x^{2}, (1 - α^{2} * x^{2}) * sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x))
+6. |α| < 1 ∧ α ≠ 0 ⇒ FunDeri(I, 1, 1)(α) = frac(2, α) * DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1 - α^{2} * x^{2} - 1, (1 - α^{2} * x^{2}) * sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x))
+7. |α| < 1 ∧ α ≠ 0 ⇒ FunDeri(I, 1, 1)(α) = frac(2, α) * DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1, sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x)) - frac(2, α) * DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1, (1 - α^{2} * x^{2}) * sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x))
+8. DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1, sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x)) = frac(π, 2)
+9. |α| < 1 ⇒ DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1, (1 - α^{2} * x^{2}) * sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x)) = frac(π, 2 * sqrtn(2, 1 - α^{2}))
+10. |α| < 1 ∧ α ≠ 0 ⇒ FunDeri(I, 1, 1)(α) = frac(π, α) - frac(π, α * sqrtn(2, 1 - α^{2}))
+11. |α| < 1 ∧ α ≠ 0 ⇒ I(α) = { `F_1` | forall (α), α ∈ RealSet ∧ |α| < 1 ∧ α ≠ 0 ⇒ FunDeri(`F_1`, 1, 1)(α) = (frac(π, α) - frac(π, α * sqrtn(2, 1 - α^{2}))) * FunDeri(fun α [α ∈ RealSet] . α, 1, 1)(α) }
+12. exists (C), C ∈ RealSet ∧ (|α| < 1 ∧ α ≠ 0 ⇒ I(α) = π * ln(|α|) + π * ln(|frac(1 + sqrtn(2, 1 - α^{2}), α)|) + C)
+13. exists (C), C ∈ RealSet ∧ (|α| < 1 ∧ α ≠ 0 ⇒ I(α) = π * ln(1 + sqrtn(2, 1 - α^{2})) + C)
+14. I(0) = 0
+15. exists (C), C ∈ RealSet ∧ 0 = π * ln(2) + C
+
+GOAL:
+exists (C), C ∈ RealSet ∧ I(0) = π * ln(2) + C
+
+METHOD:

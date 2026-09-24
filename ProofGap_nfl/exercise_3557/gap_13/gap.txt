@@ -1,0 +1,24 @@
+PROOF GAP @13
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. δ ∈ RealSet ∧ δ > 0
+3. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ 0 ≤ y ∧ y ≤ 1 ⇒ z(x, y) = 1 - x^{2} - y^{2})
+4. forall (n), n ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ n = (2 * x, 2 * y, 1)))
+5. forall (n_{1}), n_{1} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (y_{1}), y_{1} ∈ RealSet ⇒ n_{1} = (2 * x_{1}, 2 * y_{1}, 1)))
+6. forall (n), n ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ |n| ≥ 1
+7. forall (n_{1}), n_{1} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ |n_{1}| ≥ 1
+8. w = (2 * (y - y_{1}), 2 * (x_{1} - x), 4 * (x * y_{1} - x_{1} * y))
+9. forall (φ), φ ∈ RealSet ⇒ (forall (n), n ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ (forall (n_{1}), n_{1} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ sin(φ) = frac(|w|, |n| * |n_{1}|)))
+10. forall (φ), φ ∈ RealSet ⇒ sin(φ) ≤ |w|
+11. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (y_{1}), y_{1} ∈ RealSet ⇒ |w| = 2 * sqrtn(2, (y - y_{1})^{2} + (x - x_{1})^{2} + 4 * (x * y_{1} - x_{1} * y)^{2}))))
+12. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (y_{1}), y_{1} ∈ RealSet ⇒ (x * y_{1} - x_{1} * y)^{2} = (x * (y_{1} - y) + y * (x - x_{1}))^{2})))
+13. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ (forall (y), y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (y_{1}), y_{1} ∈ RealSet ⇒ (x * y_{1} - x_{1} * y)^{2} ≤ 2 * (x^{2} * (y_{1} - y)^{2} + y^{2} * (x - x_{1})^{2}))))
+14. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ (forall (y), y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (y_{1}), y_{1} ∈ RealSet ⇒ (x * y_{1} - x_{1} * y)^{2} ≤ 2 * ((y - y_{1})^{2} + (x - x_{1})^{2}))))
+15. ρ = sqrtn(2, (y - y_{1})^{2} + (x - x_{1})^{2})
+16. forall (φ), φ ∈ RealSet ⇒ (forall (ρ), ρ ∈ RealSet ⇒ sin(φ) ≤ 2 * sqrtn(2, ρ^{2} + 4 * 2 * ρ^{2}))
+17. forall (φ), φ ∈ RealSet ⇒ (forall (ρ), ρ ∈ RealSet ⇒ sin(φ) ≤ 6 * ρ)
+
+GOAL:
+forall (φ), φ ∈ RealSet ∧ sin(φ) < frac(π, 180) ⇒ φ < frac(π, 180)
+
+METHOD:

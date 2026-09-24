@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ frac(diff(fun x [x ∈ RealSet] . x), (x^{2} + 1)^{frac(3, 2)}) = frac(sgn(x) * diff(fun x [x ∈ RealSet] . x), x^{3} * (1 + frac(1, x^{2}))^{frac(3, 2)})
+4. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ frac(sgn(x) * diff(fun x [x ∈ RealSet] . x), x^{3} * (1 + frac(1, x^{2}))^{frac(3, 2)}) = -frac(1, 2) * (1 + frac(1, x^{2}))^{-frac(3, 2)} * sgn(x) * diff(fun x [x ∈ RealSet ∧ x ≠ 0] . 1 + frac(1, x^{2}))
+5. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ frac(diff(fun x [x ∈ RealSet] . x), (x^{2} + 1)^{frac(3, 2)}) = -frac(1, 2) * (1 + frac(1, x^{2}))^{-frac(3, 2)} * sgn(x) * diff(fun x [x ∈ RealSet ∧ x ≠ 0] . 1 + frac(1, x^{2}))
+6. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, (x^{2} + 1)^{frac(3, 2)}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_4` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = (1 + frac(1, x^{2}))^{-frac(3, 2)} * sgn(x) * FunDeri(fun x [x ∈ RealSet ∧ x ≠ 0] . 1 + frac(1, x^{2}), 1, 1)(x) ∧ `F_4`(x) = -frac(1, 2) * `F_3`(x)) }
+7. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ { `F_4` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = (1 + frac(1, x^{2}))^{-frac(3, 2)} * sgn(x) * FunDeri(fun x [x ∈ RealSet ∧ x ≠ 0] . 1 + frac(1, x^{2}), 1, 1)(x) ∧ `F_4`(x) = -frac(1, 2) * `F_3`(x)) } = { `F_5` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ `F_5`(x) = (1 + frac(1, x^{2}))^{-frac(1, 2)} * sgn(x) + C) }
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, (x^{2} + 1)^{frac(3, 2)}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ `F_5`(x) = (1 + frac(1, x^{2}))^{-frac(1, 2)} * sgn(x) + C) }
+
+METHOD:

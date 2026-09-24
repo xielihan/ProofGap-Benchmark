@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x) = frac(1, 4 * x^{4}) * ln(frac(1, x)) - frac(1, 16 * x^{4})
+3. forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(y, 1, 1)(x) = -frac(1, x^{5}) * ln(frac(1, x)) - frac(1, 4 * x^{5}) + frac(1, 4 * x^{5})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(y, 1, 1)(x) = frac(1, x^{5}) * ln(x)
+
+METHOD:

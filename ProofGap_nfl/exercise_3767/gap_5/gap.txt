@@ -1,0 +1,14 @@
+PROOF GAP @5
+ASSUM:
+1. I : RealSet → RealSet
+2. forall (n), n ∈ RealSet ∧ n ∈ NonNegRealSet ⇒ I(n) = DefInt(0, 1, (fun x [x ∈ RealSet] . frac(x^{n}, sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x))
+3. forall (x) (n), x ∈ RealSet ∧ n ∈ RealSet ∧ 0 ≤ x ∧ x < 1 ∧ n ∈ NonNegRealSet ∧ n > 0 ⇒ 0 ≤ frac(x^{n}, sqrtn(2, 1 - x^{2})) ∧ frac(x^{n}, sqrtn(2, 1 - x^{2})) < frac(1, sqrtn(2, 1 - x^{2}))
+4. DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1, sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x)) = ((fun x [x ∈ RealSet] . arcsin(x))|_{0}^{1})
+5. ((fun x [x ∈ RealSet] . arcsin(x))|_{0}^{1}) = frac(π, 2)
+6. DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1, sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x)) = frac(π, 2)
+
+GOAL:
+lim_{ n → +∞ } (I(n)) = 0
+
+METHOD:
+[@method 根据 "控制收敛定理" @]

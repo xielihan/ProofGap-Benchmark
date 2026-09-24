@@ -1,0 +1,15 @@
+PROOF GAP @7
+ASSUM:
+1. α ∈ RealSet ∧ α > 0
+2. β ∈ RealSet ∧ β > 0
+3. DefInt(0, +∞, frac(e^{-α * x^{2}} - e^{-β * x^{2}}, x^{2}) * diff(x)) = DefInt(0, +∞, (e^{-α * x^{2}} - e^{-β * x^{2}}) * frac(1, x^{2}) * diff(x))
+4. DefInt(0, +∞, frac(e^{-α * x^{2}} - e^{-β * x^{2}}, x^{2}) * diff(x)) = -2 * DefInt(0, +∞, (α * e^{-α * x^{2}} - β * e^{-β * x^{2}}) * diff(x))
+5. DefInt(0, +∞, α * e^{-α * x^{2}} * diff(x)) = sqrtn(2, α) * DefInt(0, +∞, e^{-u^{2}} * diff(u))
+6. DefInt(0, +∞, β * e^{-β * x^{2}} * diff(x)) = sqrtn(2, β) * DefInt(0, +∞, e^{-v^{2}} * diff(v))
+7. DefInt(0, +∞, e^{-u^{2}} * diff(u)) = frac(sqrtn(2, π), 2)
+8. DefInt(0, +∞, e^{-v^{2}} * diff(v)) = frac(sqrtn(2, π), 2)
+
+GOAL:
+DefInt(0, +∞, frac(e^{-α * x^{2}} - e^{-β * x^{2}}, x^{2}) * diff(x)) = -2 * sqrtn(2, α) * frac(sqrtn(2, π), 2) + 2 * sqrtn(2, β) * frac(sqrtn(2, π), 2)
+
+METHOD:

@@ -1,0 +1,19 @@
+PROOF GAP @8
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. a < b
+4. forall (α) (x) (t), α ∈ RealSet ∧ x ∈ RealSet ∧ t ∈ RealSet ∧ a < α ∧ α < b ⇒ t = x - α
+5. forall (α), α ∈ RealSet ∧ a < α ∧ α < b ⇒ DefInt(-∞, +∞, (fun x [x ∈ RealSet] . e^{-(x - α)^{2}}) * diff(fun x [x ∈ RealSet] . x)) = DefInt(-∞, +∞, (fun t [t ∈ RealSet] . e^{-t^{2}}) * diff(fun t [t ∈ RealSet] . t))
+6. forall (α), α ∈ RealSet ∧ a < α ∧ α < b ⇒ DefInt(-∞, +∞, (fun t [t ∈ RealSet] . e^{-t^{2}}) * diff(fun t [t ∈ RealSet] . t)) = sqrtn(2, π)
+7. forall (α), α ∈ RealSet ∧ a < α ∧ α < b ⇒ DefInt(-∞, +∞, (fun x [x ∈ RealSet] . e^{-(x - α)^{2}}) * diff(fun x [x ∈ RealSet] . x)) = sqrtn(2, π)
+8. exists (R), R ∈ RealSet ∧ R > 0 ∧ -R < a ∧ b < R
+9. forall (R) (x), R ∈ RealSet ∧ x ∈ RealSet ∧ R > 0 ∧ -R < a ∧ b < R ∧ |x| ≥ R ⇒ (forall (α), α ∈ RealSet ∧ a < α ∧ α < b ⇒ 0 < e^{-(x - α)^{2}} ∧ e^{-(x - α)^{2}} < e^{-(|x| - R)^{2}})
+10. forall (R), R ∈ RealSet ∧ R > 0 ∧ -R < a ∧ b < R ⇒ DefInt(-∞, +∞, (fun x [x ∈ RealSet] . e^{-(|x| - R)^{2}}) * diff(fun x [x ∈ RealSet] . x)) = 2 * DefInt(-∞, +∞, (fun x [x ∈ RealSet] . e^{-(x - R)^{2}}) * diff(fun x [x ∈ RealSet] . x))
+11. forall (R), R ∈ RealSet ∧ R > 0 ∧ -R < a ∧ b < R ⇒ ConvergentSeries(DefInt(-∞, +∞, (fun x [x ∈ RealSet] . e^{-(|x| - R)^{2}}) * diff(fun x [x ∈ RealSet] . x)))
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (α) (A) (B), α ∈ RealSet ∧ A ∈ RealSet ∧ B ∈ RealSet ∧ A ≥ M ∧ B ≥ A ∧ a < α ∧ α < b ⇒ |DefInt(B, +∞, (fun x [x ∈ RealSet] . e^{-(x - α)^{2}}) * diff(fun x [x ∈ RealSet] . x))| < ε ∧ |DefInt(-∞, -B, (fun x [x ∈ RealSet] . e^{-(x - α)^{2}}) * diff(fun x [x ∈ RealSet] . x))| < ε))
+
+METHOD:
+[@method 根据 "含参无穷积分的Weierstrass判别法" @]

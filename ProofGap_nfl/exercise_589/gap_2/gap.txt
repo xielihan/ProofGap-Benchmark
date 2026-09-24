@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x > 0 ⇒ x^{2} + 1 > 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ sqrtn(2, x^{2} + 1) ≠ 0
+
+METHOD:

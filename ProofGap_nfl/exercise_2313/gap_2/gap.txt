@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. n ∈ PosIntegerSet
+3. DefInt(1, n + 1, (fun x [x ∈ RealSet ∧ x ∈ [1, n + 1)] . ln(floor(x))) * diff(fun x [x ∈ RealSet ∧ x ∈ [1, n + 1)] . x)) = sum_{ k = 1 }^{ n } (DefInt(k, k + 1, (fun x [x ∈ RealSet ∧ x ∈ [k, k + 1)] . ln(k)) * diff(fun x [x ∈ RealSet ∧ x ∈ [k, k + 1)] . x)))
+
+GOAL:
+sum_{ k = 1 }^{ n } (DefInt(k, k + 1, (fun x [x ∈ RealSet ∧ x ∈ [k, k + 1)] . ln(k)) * diff(fun x [x ∈ RealSet ∧ x ∈ [k, k + 1)] . x))) = sum_{ k = 1 }^{ n } (ln(k))
+
+METHOD:

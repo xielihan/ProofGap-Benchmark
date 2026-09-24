@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ IntervalLoRo(0, 1) ⇒ y(x) = frac(1, 1 - x)
+3. ContinuousFuncOn(y, IntervalLoRo(0, 1))
+4. MonoIncFuncOn(y, IntervalLoRo(0, 1))
+
+GOAL:
+lim_{ x → 0^+ } (y(x)) = 1
+
+METHOD:

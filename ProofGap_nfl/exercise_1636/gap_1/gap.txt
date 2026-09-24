@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. x > 0
+
+GOAL:
+(1 - frac(1, x^{2})) * sqrtn(2, x * sqrtn(2, x)) = x^{frac(3, 4)} - x^{-frac(5, 4)}
+
+METHOD:

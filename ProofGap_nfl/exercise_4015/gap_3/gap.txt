@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. V ∈ RealSet
+2. x = r * cos(φ)
+3. y = r * sin(φ)
+4. r ≥ 0
+5. -frac(π, 2) ≤ φ
+
+GOAL:
+φ ≤ frac(π, 2)
+
+METHOD:

@@ -1,0 +1,15 @@
+PROOF GAP @9
+ASSUM:
+1. forall (k), k ∈ IntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ k ∈ IntegerSet ∧ n ∈ PosIntegerSet ∧ 1 ≤ k ∧ k < n ∧ n > 3 ⇒ cos(frac(k * π, n^{2})) > 0)
+2. forall (k), k ∈ IntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ k ∈ IntegerSet ∧ n ∈ PosIntegerSet ∧ 1 ≤ k ∧ k < n ∧ n > 3 ⇒ 0 ≤ frac(k * π, n^{2}) - sin(frac(k * π, n^{2})))
+3. forall (k), k ∈ IntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ k ∈ IntegerSet ∧ n ∈ PosIntegerSet ∧ 1 ≤ k ∧ k < n ∧ n > 3 ⇒ frac(k * π, n^{2}) - sin(frac(k * π, n^{2})) ≤ tan(frac(k * π, n^{2})) - sin(frac(k * π, n^{2})))
+4. forall (k), k ∈ IntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ k ∈ IntegerSet ∧ n ∈ PosIntegerSet ∧ 1 ≤ k ∧ k < n ∧ n > 3 ⇒ tan(frac(k * π, n^{2})) - sin(frac(k * π, n^{2})) ≤ tan(frac(k * π, n^{2})) * (1 - cos(frac(k * π, n^{2}))))
+5. forall (k), k ∈ IntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ k ∈ IntegerSet ∧ n ∈ PosIntegerSet ∧ 1 ≤ k ∧ k < n ∧ n > 3 ⇒ tan(frac(k * π, n^{2})) * (1 - cos(frac(k * π, n^{2}))) ≤ frac(sin(frac(k * π, n^{2})), cos(frac(k * π, n^{2}))) * (1 - cos(frac(k * π, n^{2}))))
+6. forall (k), k ∈ IntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ k ∈ IntegerSet ∧ n ∈ PosIntegerSet ∧ 1 ≤ k ∧ k < n ∧ n > 3 ⇒ frac(sin(frac(k * π, n^{2})), cos(frac(k * π, n^{2}))) * (1 - cos(frac(k * π, n^{2}))) ≤ frac(2 * k * π, n^{2}) * (1 - cos(frac(π, n))))
+7. forall (k), k ∈ IntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ k ∈ IntegerSet ∧ n ∈ PosIntegerSet ∧ 1 ≤ k ∧ k < n ∧ n > 3 ⇒ 0 ≤ frac(2 * k * π, n^{2}) * (1 - cos(frac(π, n))))
+8. forall (n), n ∈ NonNegIntegerSet ∧ n > 3 ⇒ 0 ≤ sum_{ k = 1 }^{ n - 1 } ((1 + frac(k, n)) * (frac(k * π, n^{2}) - sin(frac(k * π, n^{2}))))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n > 3 ⇒ sum_{ k = 1 }^{ n - 1 } ((1 + frac(k, n)) * (frac(k * π, n^{2}) - sin(frac(k * π, n^{2})))) ≤ sum_{ k = 1 }^{ n - 1 } ((1 + frac(k, n)) * frac(2 * k * π, n^{2}) * (1 - cos(frac(π, n))))
+
+METHOD:

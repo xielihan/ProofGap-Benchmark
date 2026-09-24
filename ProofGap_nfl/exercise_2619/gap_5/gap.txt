@@ -1,0 +1,14 @@
+PROOF GAP @5
+ASSUM:
+1. a : NonNegIntegerSet → RealSet ∧ IsSeq(a)
+2. p ∈ RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 2 ⇒ a(n) = frac(1, n * ln(n)^{p})
+4. forall (x), x ∈ RealSet ∧ x > 1 ⇒ frac(1, x * ln(x)^{p}) ≥ 0
+5. exists (M), M ∈ RealSet ∧ M > 1 ∧ MonoDecFuncOn(fun x [x ∈ RealSet ∧ x > 1] . frac(1, x * ln(x)^{p}), [M, +∞))
+6. DefInt(2, +∞, (fun x [x ∈ RealSet ∧ x > 1] . frac(1, x * ln(x)^{p})) * diff(fun x [x ∈ RealSet ∧ x > 1] . x)) = cases{ (fun x [x ∈ RealSet ∧ x ≥ 2] . frac(1, (1 - p) * ln(x)^{p - 1}))|_{2}^{+∞} if p ≠ 1; (fun x [x ∈ RealSet ∧ x ≥ 2] . ln(ln(x)))|_{2}^{+∞} if p = 1 }
+7. ConvergentSeries(sum_{ n = 2 }^{ +∞ } (a(n))) ⇔ p > 1
+
+GOAL:
+p ∈ { p | p ∈ RealSet, p > 1 } ⇔ ConvergentSeries(sum_{ n = 2 }^{ +∞ } (a(n)))
+
+METHOD:

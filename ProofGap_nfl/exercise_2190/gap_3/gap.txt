@@ -1,0 +1,17 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. m ∈ IntegerSet
+4. x : NonNegIntegerSet → RealSet
+5. S : NonNegIntegerSet → RealSet
+6. 0 < a
+7. a < b
+8. m ≠ -1
+9. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ (exists (q), q ∈ RealSet ∧ q = sqrtn(n, frac(b, a)))
+10. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ (exists (q), q ∈ RealSet ∧ q = sqrtn(n, frac(b, a)) ∧ q^{n} = frac(b, a))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ (exists (q), q ∈ RealSet ∧ q = sqrtn(n, frac(b, a)) ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n ⇒ x(i) = a * q^{i}))
+
+METHOD:

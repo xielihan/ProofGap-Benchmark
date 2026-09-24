@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (s) (k), s ∈ RealSet ∧ k ∈ IntegerSet ∧ 2 * k ≤ s ∧ s < 2 * k + 1 ⇒ k ≤ s - k ∧ s - k < k + 1}) (s := {u}) (k := {n})
+get_condition (hypothesis 9: {u ∈ RealSet ∧ n ∈ IntegerSet ∧ 2 * n ≤ u ∧ u < 2 * n + 1}) in (GOAL: {u ∈ RealSet ∧ n ∈ IntegerSet ∧ 2 * n ≤ u ∧ u < 2 * n + 1 ⇒ n ≤ u - n ∧ u - n < n + 1})
+destruct_and (hypothesis 9: {u ∈ RealSet ∧ n ∈ IntegerSet ∧ 2 * n ≤ u ∧ u < 2 * n + 1}) as (hypothesis 10: {u ∈ RealSet}) (hypothesis 11: {n ∈ IntegerSet}) (hypothesis 12: {2 * n ≤ u}) (hypothesis 13: {u < 2 * n + 1})
+autosolve (hypothesis 12: {2 * n ≤ u}) (hypothesis 13: {u < 2 * n + 1})

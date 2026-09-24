@@ -1,0 +1,3 @@
+1. get_forall (GOAL: {forall (x), (Impl(Belong(x, RealSet), Eq(f(x), Minus(Plus(Minus(Power(Plus(x, 1), 3), Mult(3, Power(Plus(x, 1), 2))), Mult(3, Plus(x, 1))), 1))))}) (x := {x})
+2. get_condition (hypothesis 4: {Belong(x, RealSet)}) in (GOAL: {(Impl(Belong(x, RealSet), Eq(f(x), Minus(Plus(Minus(Power(Plus(x, 1), 3), Mult(3, Power(Plus(x, 1), 2))), Mult(3, Plus(x, 1))), 1))))})
+3. autosolve (hypothesis 4: {Belong(x, RealSet)}) (hypothesis 3: {forall (x), (Impl(Belong(x, RealSet), Eq(f(x), Power(Minus(Plus(x, 1), 1), 3))))}) (hypothesis 2: {forall (x), (Impl(Belong(x, RealSet), Eq(f(x), Power(x, 3))))}) (hypothesis 1: {IsFuncOn(f, RealSet, RealSet)})

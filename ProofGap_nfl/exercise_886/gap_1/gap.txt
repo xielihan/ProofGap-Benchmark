@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ y(x) = lg(x^{2})^{3}
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(y, 1, 1)(x) = 3 * lg(x^{2})^{2} * frac(1, x^{2}) * 2 * x * lg(e) ∧ 3 * lg(x^{2})^{2} * frac(1, x^{2}) * 2 * x * lg(e) = frac(6, x) * lg(e) * lg(x^{2})^{2}
+
+METHOD:

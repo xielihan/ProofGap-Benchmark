@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = x + sin(x)
+3. FunDeri(y, 1, 1) = (fun x . 1 + cos(x))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(FunDeri(y, 1, 1), 1, 1)(x) = -sin(x)
+
+METHOD:

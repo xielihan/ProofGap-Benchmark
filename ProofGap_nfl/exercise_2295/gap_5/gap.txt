@@ -1,0 +1,14 @@
+PROOF GAP @5
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. x ∈ RealSet
+3. n ∈ PosIntegerSet
+4. DefInt(0, π, sin(x)^{n - 1} * cos((n + 1) * x) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, π, sin(x)^{n - 1} * (cos(n * x) * cos(x) - sin(n * x) * sin(x)) * diff(fun x [x ∈ RealSet] . x))
+5. DefInt(0, π, sin(x)^{n - 1} * cos((n + 1) * x) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, π, sin(x)^{n - 1} * cos(n * x) * diff(fun x [x ∈ RealSet] . sin(x))) - DefInt(0, π, sin(x)^{n} * sin(n * x) * diff(fun x [x ∈ RealSet] . x))
+6. DefInt(0, π, sin(x)^{n - 1} * cos(n * x) * diff(fun x [x ∈ RealSet] . sin(x))) = (frac(sin(x)^{n} * cos(n * x), n)|_{0}^{π}) - frac(1, n) * DefInt(0, π, sin(x)^{n} * diff(fun x [x ∈ RealSet] . cos(n * x)))
+7. DefInt(0, π, sin(x)^{n} * sin(n * x) * diff(fun x [x ∈ RealSet] . x)) = frac(π, 2^{n}) * sin(frac(n * π, 2))
+
+GOAL:
+(frac(sin(x)^{n} * cos(n * x), n)|_{0}^{π}) - frac(1, n) * DefInt(0, π, sin(x)^{n} * diff(fun x [x ∈ RealSet] . cos(n * x))) - DefInt(0, π, sin(x)^{n} * sin(n * x) * diff(fun x [x ∈ RealSet] . x)) = 0
+
+METHOD:

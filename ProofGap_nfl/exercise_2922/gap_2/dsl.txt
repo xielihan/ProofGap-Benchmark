@@ -1,0 +1,4 @@
+assert (hypothesis 5: {arctan(1.2) = frac(π, 4) + sum_{ n = 0 }^{ +∞ } (frac((-1)^{n} * frac(1, 11)^{2 * n + 1}, 2 * n + 1))}) by proof {
+  autosolve all_hypothesis
+}
+apply (hypothesis 5: {arctan(1.2) = frac(π, 4) + sum_{ n = 0 }^{ +∞ } (frac((-1)^{n} * frac(1, 11)^{2 * n + 1}, 2 * n + 1))})

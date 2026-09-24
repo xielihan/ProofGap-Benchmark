@@ -1,0 +1,12 @@
+PROOF GAP @6
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < frac(1, 2) ⇒ 1 - x^{2} ≠ 0 ∧ ln(x) ∈ RealSet
+2. lim_{ x → 0^+ } (sqrtn(2, x) * frac(ln(x), 1 - x^{2})) = 0
+3. exists (I_{1}), I_{1} ∈ RealSet ∧ DefInt(0, frac(1, 2), (fun x [x ∈ RealSet] . frac(ln(x), 1 - x^{2})) * diff(fun x [x ∈ RealSet] . x)) = I_{1}
+4. forall (x), x ∈ RealSet ∧ frac(1, 2) < x ∧ x < 1 ⇒ 1 - x^{2} ≠ 0 ∧ ln(x) ∈ RealSet
+5. lim_{ x → 1^- } (sqrtn(2, 1 - x) * frac(ln(x), 1 - x^{2})) = 0
+
+GOAL:
+exists (I_{2}), I_{2} ∈ RealSet ∧ DefInt(frac(1, 2), 1, (fun x [x ∈ RealSet] . frac(ln(x), 1 - x^{2})) * diff(fun x [x ∈ RealSet] . x)) = I_{2}
+
+METHOD:

@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x > 0 ∧ 2 * x^{2} - 3 * x - 2 ≠ 0 ∧ frac(x^{2} + 2 * x - 1, 2 * x^{2} - 3 * x - 2) > 0 ⇒ lim_{ x → +∞ } (frac(x^{2} + 2 * x - 1, 2 * x^{2} - 3 * x - 2)) = frac(1, 2)
+2. forall (x), x ∈ RealSet ∧ x > 0 ∧ 2 * x^{2} - 3 * x - 2 ≠ 0 ∧ frac(x^{2} + 2 * x - 1, 2 * x^{2} - 3 * x - 2) > 0 ⇒ lim_{ x → +∞ } (frac(1, x)) = 0
+
+GOAL:
+lim_{ x → +∞ } (frac(x^{2} + 2 * x - 1, 2 * x^{2} - 3 * x - 2)^{frac(1, x)}) = frac(1, 2)^{0}
+
+METHOD:

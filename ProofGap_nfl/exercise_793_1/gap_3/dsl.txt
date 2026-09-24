@@ -1,0 +1,6 @@
+1. get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ (δ = frac(ε, 2 * l) ⇒ δ > 0))}) (ε := {eps0})
+2. get_condition (hypothesis 6: {eps0 ∈ RealSet ∧ eps0 > 0}) in (GOAL: {eps0 ∈ RealSet ∧ eps0 > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ (δ = frac(eps0, 2 * l) ⇒ δ > 0))})
+3. destruct_and (hypothesis 2: {l ∈ RealSet ∧ l ∈ PosRealSet}) as (hypothesis 7: {l ∈ RealSet}) (hypothesis 8: {l ∈ PosRealSet})
+4. destruct_and (hypothesis 6: {eps0 ∈ RealSet ∧ eps0 > 0}) as (hypothesis 9: {eps0 ∈ RealSet}) (hypothesis 10: {eps0 > 0})
+5. exists (δ := {1})
+6. autosolve all_hypothesis

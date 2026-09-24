@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+lim_{ x → +∞ } (x^{frac(3, 2)} * (sqrtn(2, x + 2) - 2 * sqrtn(2, x + 1) + sqrtn(2, x))) = lim_{ x → +∞ } (frac(x^{frac(3, 2)} * (sqrtn(2, x + 2) - 2 * sqrtn(2, x + 1) + sqrtn(2, x)) * (sqrtn(2, x + 2) + 2 * sqrtn(2, x + 1) + sqrtn(2, x)), sqrtn(2, x + 2) + 2 * sqrtn(2, x + 1) + sqrtn(2, x)))
+
+METHOD:

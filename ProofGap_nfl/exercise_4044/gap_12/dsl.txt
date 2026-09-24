@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 23: {DefInt(0, frac(π, 4), (1 + sin(2 * φ))^{frac(3, 2)} * diff(fun φ [φ ∈ RealSet ∧ φ ≥ 0 ∧ φ ≤ frac(π, 4)] . φ)) = frac(5, 3)}); from (hypothesis 21: {S = frac(4 * a^{2}, 3) * DefInt(0, frac(π, 4), (1 + sin(2 * φ))^{frac(3, 2)} * diff(fun φ [φ ∈ RealSet ∧ φ ≥ 0 ∧ φ ≤ frac(π, 4)] . φ)) - frac(π * a^{2}, 3)}) to (hypothesis 24: {S = frac(4 * a^{2}, 3) * frac(5, 3) - frac(π * a^{2}, 3)})
+apply (hypothesis 24: {S = frac(4 * a^{2}, 3) * frac(5, 3) - frac(π * a^{2}, 3)})

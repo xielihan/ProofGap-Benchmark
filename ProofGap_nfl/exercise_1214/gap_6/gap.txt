@@ -1,0 +1,29 @@
+PROOF GAP @6
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. φ ∈ RealSet
+4. y_{1} : RealSet → RealSet
+5. y_{2} : RealSet → RealSet
+6. y_{3} : RealSet → RealSet
+7. y_{4} : RealSet → RealSet
+8. n ∈ NonNegIntegerSet
+9. x ∈ RealSet
+10. a^{2} + b^{2} > 0
+11. sin(φ) = frac(b, sqrtn(2, a^{2} + b^{2}))
+12. cos(φ) = frac(a, sqrtn(2, a^{2} + b^{2}))
+13. forall (x), x ∈ RealSet ⇒ y_{1}(x) = cosh(a * x) * cos(b * x)
+14. forall (x), x ∈ RealSet ⇒ y_{2}(x) = cosh(a * x) * sin(b * x)
+15. forall (x), x ∈ RealSet ⇒ y_{3}(x) = sinh(a * x) * cos(b * x)
+16. forall (x), x ∈ RealSet ⇒ y_{4}(x) = sinh(a * x) * sin(b * x)
+17. forall (x), x ∈ RealSet ⇒ y_{1}(x) = frac(1, 2) * e^{a * x} * cos(b * x) + frac(1, 2) * e^{-a * x} * cos(b * x)
+18. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ FunDeri(y_{1}, 1, n)(x) = frac(1, 2) * (a^{2} + b^{2})^{frac(n, 2)} * (e^{a * x} * cos(b * x + n * φ) + e^{-a * x} * cos(b * x + n * π - n * φ))
+19. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ FunDeri(y_{1}, 1, n)(x) = (a^{2} + b^{2})^{frac(n, 2)} * (cos(n * φ - frac(n * π, 2)) * cosh(a * x) * cos(b * x + frac(n * π, 2)) - sin(n * φ - frac(n * π, 2)) * sinh(a * x) * sin(b * x + frac(n * π, 2)))
+20. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ FunDeri(y_{2}, 1, n)(x) = (a^{2} + b^{2})^{frac(n, 2)} * (cos(n * φ - frac(n * π, 2)) * cosh(a * x) * sin(b * x + frac(n * π, 2)) + sin(n * φ - frac(n * π, 2)) * sinh(a * x) * cos(b * x + frac(n * π, 2)))
+21. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ FunDeri(y_{3}, 1, n)(x) = (a^{2} + b^{2})^{frac(n, 2)} * (sin(n * φ) * cosh(a * x) * sin(b * x + frac(n * π, 2)) + cos(n * φ) * sinh(a * x) * cos(b * x + frac(n * π, 2)))
+
+GOAL:
+forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ FunDeri(y_{4}, 1, n)(x) = (a^{2} + b^{2})^{frac(n, 2)} * (-sin(n * φ) * cosh(a * x) * cos(b * x + frac(n * π, 2)) + cos(n * φ) * sinh(a * x) * sin(b * x + frac(n * π, 2)))
+
+METHOD:
+[@method 同理 @]

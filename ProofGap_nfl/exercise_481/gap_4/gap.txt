@@ -1,0 +1,10 @@
+PROOF GAP @4
+ASSUM:
+1. forall (a), a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ |sin(x) - sin(a)| = 2 * |sin(frac(x - a, 2))| * |cos(frac(x + a, 2))|)
+2. forall (a), a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ 2 * |sin(frac(x - a, 2))| * |cos(frac(x + a, 2))| ≤ 2 * |sin(frac(x - a, 2))|)
+3. forall (a), a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ 2 * |sin(frac(x - a, 2))| ≤ |x - a|)
+
+GOAL:
+forall (a), a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ |sin(x) - sin(a)| ≤ |x - a|)
+
+METHOD:

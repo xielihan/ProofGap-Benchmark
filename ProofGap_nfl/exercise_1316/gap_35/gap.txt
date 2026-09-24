@@ -1,0 +1,15 @@
+PROOF GAP @35
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. ξ ∈ RealSet ∧ ξ ∈ IntervalLoRo(a, b)
+5. a < b
+6. FuncOfClassKOn(f, IntervalLoRo(a, b), 2)
+7. FunDeri(f, 1, 2)(ξ) ≠ 0
+8. F : RealSet → RealSet
+9. F = (fun x [x ∈ RealSet] . f(x) - FunDeri(f, 1, 1)(ξ) * x)
+GOAL:
+FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) ≠ 0 ⇒ (exists (x_{1}) (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ x_{1} ∈ IntervalLoRo(a, b) ∧ x_{2} ∈ IntervalLoRo(a, b) ∧ x_{1} ≠ x_{2} ∧ F(x_{1}) = F(x_{2}))
+
+METHOD:

@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. P : RealSet → RealSet
+2. a ∈ RealSet ∧ a ≠ 0
+3. n ∈ NonNegIntegerSet
+4. C ∈ RealSet
+5. forall (x), x ∈ RealSet ⇒ FunDeri(fun x [x ∈ RealSet] . P(x), 1, n + 1)(x) = 0
+6. { `F_5` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = P(x) * cos(a * x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_7` | exists (`F_6`), `F_6` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_6`, 1, 1)(x) = P(x) * FunDeri(fun x [x ∈ RealSet] . sin(a * x), 1, 1)(x) ∧ `F_7`(x) = frac(1, a) * `F_6`(x)) }
+7. { `F_8` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_8`, 1, 1)(x) = P(x) * cos(a * x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_12` | exists (`F_9`), `F_9` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_9`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . P(x), 1, 1)(x), FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x))(x) * sin(a * x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_12`(x) = frac(1, a) * P(x) * sin(a * x) - frac(1, a) * `F_9`(x)) }
+
+GOAL:
+{ `F_13` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_13`, 1, 1)(x) = P(x) * cos(a * x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_17` | exists (`F_14`), `F_14` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_14`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . P(x), 1, 1)(x), FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x))(x) * FunDeri(fun x [x ∈ RealSet] . cos(a * x), 1, 1)(x) ∧ `F_17`(x) = frac(1, a) * P(x) * sin(a * x) + frac(1, a^{2}) * `F_14`(x)) }
+
+METHOD:

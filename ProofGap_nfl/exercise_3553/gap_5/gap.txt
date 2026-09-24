@@ -1,0 +1,17 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. x_{0} ∈ RealSet ∧ x_{0} ∈ PosRealSet
+3. y_{0} ∈ RealSet ∧ y_{0} ∈ PosRealSet
+4. z_{0} ∈ RealSet ∧ z_{0} ∈ PosRealSet
+5. sqrtn(2, x_{0}) + sqrtn(2, y_{0}) + sqrtn(2, z_{0}) = sqrtn(2, a)
+6. T ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+7. T = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, frac(1, 2 * sqrtn(2, x_{0})) * (x - x_{0}) + frac(1, 2 * sqrtn(2, y_{0})) * (y - y_{0}) + frac(1, 2 * sqrtn(2, z_{0})) * (z - z_{0}) = 0 }
+8. T = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, sqrtn(2, y_{0} * z_{0}) * (x - x_{0}) + sqrtn(2, x_{0} * z_{0}) * (y - y_{0}) + sqrtn(2, x_{0} * y_{0}) * (z - z_{0}) = 0 }
+9. exists (L_{x}), L_{x} ∈ RealSet ∧ L_{x} = sqrtn(2, a * x_{0}) ∧ (L_{x}, 0, 0) ∈ T
+10. exists (L_{y}), L_{y} ∈ RealSet ∧ L_{y} = sqrtn(2, a * y_{0}) ∧ (0, L_{y}, 0) ∈ T
+
+GOAL:
+exists (L_{z}), L_{z} ∈ RealSet ∧ L_{z} = sqrtn(2, a * z_{0}) ∧ (0, 0, L_{z}) ∈ T
+
+METHOD:

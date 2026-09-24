@@ -1,0 +1,11 @@
+get_forall (GOAL: {forall (n), n ∈ IntegerSet ∧ n ≥ n_{0} ⇒ p(n) = 1 + A(n)}) (n := {n})
+get_condition (hypothesis 13: {n ∈ IntegerSet ∧ n ≥ n_{0}}) in (GOAL: {n ∈ IntegerSet ∧ n ≥ n_{0} ⇒ p(n) = 1 + A(n)})
+get_prop (hypothesis 10: {forall (n), n ∈ IntegerSet ∧ n ≥ n_{0} ⇒ n^{2} + a * n + b > 0}) (n := {n}) as (hypothesis 14: {n ∈ IntegerSet ∧ n ≥ n_{0} ⇒ n^{2} + a * n + b > 0})
+use_condition (hypothesis 13: {n ∈ IntegerSet ∧ n ≥ n_{0}}) in (hypothesis 14: {n ∈ IntegerSet ∧ n ≥ n_{0} ⇒ n^{2} + a * n + b > 0}) as (hypothesis 15: {n^{2} + a * n + b > 0})
+get_prop (hypothesis 11: {forall (n), n ∈ IntegerSet ∧ n ≥ n_{0} ⇒ p(n) = frac(n^{2} + a_{1} * n + b_{1}, n^{2} + a * n + b)}) (n := {n}) as (hypothesis 16: {n ∈ IntegerSet ∧ n ≥ n_{0} ⇒ p(n) = frac(n^{2} + a_{1} * n + b_{1}, n^{2} + a * n + b)})
+use_condition (hypothesis 13: {n ∈ IntegerSet ∧ n ≥ n_{0}}) in (hypothesis 16: {n ∈ IntegerSet ∧ n ≥ n_{0} ⇒ p(n) = frac(n^{2} + a_{1} * n + b_{1}, n^{2} + a * n + b)}) as (hypothesis 17: {p(n) = frac(n^{2} + a_{1} * n + b_{1}, n^{2} + a * n + b)})
+get_prop (hypothesis 12: {forall (n), n ∈ IntegerSet ∧ n ≥ n_{0} ⇒ A(n) = frac((a_{1} - a) * n + b_{1} - b, n^{2} + a * n + b)}) (n := {n}) as (hypothesis 18: {n ∈ IntegerSet ∧ n ≥ n_{0} ⇒ A(n) = frac((a_{1} - a) * n + b_{1} - b, n^{2} + a * n + b)})
+use_condition (hypothesis 13: {n ∈ IntegerSet ∧ n ≥ n_{0}}) in (hypothesis 18: {n ∈ IntegerSet ∧ n ≥ n_{0} ⇒ A(n) = frac((a_{1} - a) * n + b_{1} - b, n^{2} + a * n + b)}) as (hypothesis 19: {A(n) = frac((a_{1} - a) * n + b_{1} - b, n^{2} + a * n + b)})
+rewrite (left_to_right, equation) (hypothesis 17: {p(n) = frac(n^{2} + a_{1} * n + b_{1}, n^{2} + a * n + b)}); from (GOAL: {p(n) = 1 + A(n)}) to (GOAL: {frac(n^{2} + a_{1} * n + b_{1}, n^{2} + a * n + b) = 1 + A(n)})
+rewrite (left_to_right, equation) (hypothesis 19: {A(n) = frac((a_{1} - a) * n + b_{1} - b, n^{2} + a * n + b)}); from (GOAL: {frac(n^{2} + a_{1} * n + b_{1}, n^{2} + a * n + b) = 1 + A(n)}) to (GOAL: {frac(n^{2} + a_{1} * n + b_{1}, n^{2} + a * n + b) = 1 + frac((a_{1} - a) * n + b_{1} - b, n^{2} + a * n + b)})
+autosolve all_hypothesis

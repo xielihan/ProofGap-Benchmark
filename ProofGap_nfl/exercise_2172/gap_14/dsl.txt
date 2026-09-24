@@ -1,0 +1,2 @@
+rewrite (right_to_left, equation) (hypothesis 7: {F(0) = 0}); from (GOAL: {exists (C), C : IntegerSet → RealSet ∧ 0 = C(0)}) to (GOAL: {exists (C), C : IntegerSet → RealSet ∧ F(0) = C(0)})
+apply (hypothesis 20: {exists (C), C : IntegerSet → RealSet ∧ F(0) = C(0)})

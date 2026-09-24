@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet ⇒ x ≤ frac(2, 5)
+3. forall (x), x ∈ RealSet ∧ x ≤ frac(2, 5) ⇒ x = -frac(1, 5) * (2 - 5 * x) + frac(2, 5)
+4. { `F_2` | forall (x), x ∈ RealSet ∧ x ≤ frac(2, 5) ⇒ FunDeri(`F_2`, 1, 1)(x) = x * sqrtn(2, 2 - 5 * x) * FunDeri(fun x [x ∈ RealSet ∧ x ≤ frac(2, 5)] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ x ≤ frac(2, 5) ⇒ FunDeri(`F_3`, 1, 1)(x) = (-frac(1, 5) * (2 - 5 * x)^{frac(3, 2)} + frac(2, 5) * (2 - 5 * x)^{frac(1, 2)}) * FunDeri(fun x [x ∈ RealSet ∧ x ≤ frac(2, 5)] . x, 1, 1)(x) }
+5. { `F_4` | forall (x), x ∈ RealSet ∧ x ≤ frac(2, 5) ⇒ FunDeri(`F_4`, 1, 1)(x) = x * sqrtn(2, 2 - 5 * x) * FunDeri(fun x [x ∈ RealSet ∧ x ≤ frac(2, 5)] . x, 1, 1)(x) } = { `F_5` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≤ frac(2, 5) ⇒ `F_5`(x) = frac(2, 125) * (2 - 5 * x)^{frac(5, 2)} - frac(4, 75) * (2 - 5 * x)^{frac(3, 2)} + C) }
+
+GOAL:
+{ `F_6` | forall (x), x ∈ RealSet ∧ x ≤ frac(2, 5) ⇒ FunDeri(`F_6`, 1, 1)(x) = x * sqrtn(2, 2 - 5 * x) * FunDeri(fun x [x ∈ RealSet ∧ x ≤ frac(2, 5)] . x, 1, 1)(x) } = { `F_7` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≤ frac(2, 5) ⇒ `F_7`(x) = -frac(8 + 30 * x, 375) * (2 - 5 * x)^{frac(3, 2)} + C) }
+
+METHOD:

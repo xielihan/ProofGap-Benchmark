@@ -1,0 +1,31 @@
+PROOF GAP @15
+ASSUM:
+1. f : RealSet → RealSet
+2. g : RealSet → RealSet
+3. h : RealSet → RealSet
+4. p : RealSet → RealSet
+5. n ∈ RealSet
+6. forall (x), x ∈ RealSet ∧ x > 0 ⇒ f(x) = x^{n}
+7. forall (x), x ∈ RealSet ⇒ g(x) = e^{x}
+8. forall (x), x ∈ RealSet ∧ x > 0 ⇒ h(x) = x * ln(x)
+9. forall (x), x ∈ RealSet ∧ x > 0 ⇒ p(x) = ln(x)
+10. n > 1 ⇒ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(f, 1, 2)(x) = n * (n - 1) * x^{n - 2})
+11. n > 1 ⇒ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(f, 1, 2)(x) > 0)
+12. n > 1 ⇒ ConcaveFuncOn(f, IntervalLoRo(0, +∞))
+13. 0 < n ⇒ n < 1 ⇒ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(f, 1, 2)(x) = n * (n - 1) * x^{n - 2})
+14. 0 < n ⇒ n < 1 ⇒ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(f, 1, 2)(x) < 0)
+15. 0 < n ⇒ n < 1 ⇒ ConvexFuncOn(f, IntervalLoRo(0, +∞))
+16. forall (x), x ∈ RealSet ⇒ FunDeri(g, 1, 2)(x) = e^{x}
+17. forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(g, 1, 2)(x) > 0
+18. ConcaveFuncOn(g, IntervalLoRo(0, +∞))
+19. forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(h, 1, 2)(x) = frac(1, x)
+20. forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(h, 1, 2)(x) > 0
+21. ConcaveFuncOn(h, IntervalLoRo(0, +∞))
+22. forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(p, 1, 2)(x) = -frac(1, x^{2})
+23. forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(p, 1, 2)(x) < 0
+
+GOAL:
+ConcaveFuncOn(p, IntervalLoRo(0, +∞))
+
+METHOD:
+[@method 根据 "二阶导数凹凸性判别法" @]

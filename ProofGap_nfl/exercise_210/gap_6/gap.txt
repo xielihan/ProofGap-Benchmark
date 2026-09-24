@@ -1,0 +1,15 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = frac(x, sqrtn(2, 1 + x^{2}))
+3. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ f(n, x) = f(f(n - 1, x))
+4. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n = 1 ⇒ f(n, x) = frac(x, sqrtn(2, 1 + x^{2}))
+5. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n = 2 ⇒ f(n, x) = frac(x, sqrtn(2, 1 + 2 * x^{2}))
+6. forall (k) (n) (x), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ f(k, x) = frac(x, sqrtn(2, 1 + k * x^{2}))) ∧ n = k + 1 ⇒ f(n, x) = frac(frac(x, sqrtn(2, 1 + k * x^{2})), sqrtn(2, 1 + frac(x^{2}, 1 + k * x^{2})))
+7. forall (k) (n) (x), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ f(k, x) = frac(x, sqrtn(2, 1 + k * x^{2}))) ∧ n = k + 1 ⇒ frac(frac(x, sqrtn(2, 1 + k * x^{2})), sqrtn(2, 1 + frac(x^{2}, 1 + k * x^{2}))) = frac(x, sqrtn(2, 1 + (k + 1) * x^{2}))
+8. forall (k) (n) (x), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ f(k, x) = frac(x, sqrtn(2, 1 + k * x^{2}))) ∧ n = k + 1 ⇒ f(n, x) = frac(x, sqrtn(2, 1 + (k + 1) * x^{2}))
+
+GOAL:
+forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ (forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ f(n, x) = frac(x, sqrtn(2, 1 + n * x^{2}))) ⇒ x ∈ RealSet ∧ n ∈ PosIntegerSet
+
+METHOD:

@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet ∧ a ≠ 0
+2. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+3. forall (x), x ∈ RealSet ⇒ cos(x)^{2 * n} = frac(1, 2^{2 * n}) * (Combination(2 * n, n) + 2 * (sum_{ k = 0 }^{ n - 1 } (Combination(2 * n, k) * cos(2 * (n - k) * x))))
+4. I ∈ RealSet
+5. I = DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{-a * x} * cos(x)^{2 * n}) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+I = frac(1, 2^{2 * n}) * (Combination(2 * n, n) * DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{-a * x}) * diff(fun x [x ∈ RealSet] . x)) + 2 * (sum_{ k = 0 }^{ n - 1 } (Combination(2 * n, k) * DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{-a * x} * cos(2 * (n - k) * x)) * diff(fun x [x ∈ RealSet] . x)))))
+
+METHOD:

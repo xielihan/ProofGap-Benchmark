@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet
+2. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x ≠ 0 ∧ x + y ≠ 0 ∧ 1 + frac(1, x) > 0 ⇒ (1 + frac(1, x))^{frac(x^{2}, x + y)} = e^{x * ln(1 + frac(1, x)) * frac(x, x + y)})
+3. lim_{ x → +∞ } (x * ln(1 + frac(1, x))) = 1
+4. lim_{ (x, y) → (+∞, a) } (frac(x, x + y)) = 1
+
+GOAL:
+lim_{ (x, y) → (+∞, a) } ((1 + frac(1, x))^{frac(x^{2}, x + y)}) = e^{1 * 1}
+
+METHOD:

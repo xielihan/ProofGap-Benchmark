@@ -1,0 +1,3 @@
+1. get_condition (hypothesis 8: {2 * x - a - b = 0}) in (GOAL: {2 * x - a - b = 0 => FunDeri(y, 1, 1)(x) = 0})
+2. rewrite (left_to_right, equation) (hypothesis 7: {FunDeri(y, 1, 1)(x) = 2 * x - a - b}); from (GOAL: {FunDeri(y, 1, 1)(x) = 0}) to (GOAL: {2 * x - a - b = 0})
+3. apply (hypothesis 8: {2 * x - a - b = 0})

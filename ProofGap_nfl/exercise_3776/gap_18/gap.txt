@@ -1,0 +1,26 @@
+PROOF GAP @18
+ASSUM:
+1. I : NonNegIntegerSet → RealSet
+2. forall (A) (n), A ∈ RealSet ∧ A > 0 ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ IntegrableFuncOn(fun x [x ∈ RealSet] . (1 + frac(x^{2}, n))^{-n}, [0, A])
+3. forall (A), A ∈ RealSet ∧ A > 0 ⇒ UniformConvergent(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . fun x [x ∈ RealSet ∧ x ∈ [0, A]] . (1 + frac(x^{2}, n))^{-n}, [0, A], fun x [x ∈ RealSet ∧ x ∈ [0, A]] . e^{-x^{2}})
+4. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ≥ 0 ⇒ 0 < (1 + frac(x^{2}, n))^{-n} ∧ (1 + frac(x^{2}, n))^{-n} ≤ frac(1, 1 + x^{2})
+5. DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x)) = frac(π, 2)
+6. frac(π, 2) < +∞
+7. DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x)) < +∞
+8. DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x)) = seqlim_{ n → +∞ } (DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, (1 + frac(x^{2}, n))^{n})) * diff(fun x [x ∈ RealSet] . x)))
+9. I = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . DefInt(0, +∞, (fun t [t ∈ RealSet] . frac(1, (1 + t^{2})^{n})) * diff(fun t [t ∈ RealSet] . t)))
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, (1 + frac(x^{2}, n))^{n})) * diff(fun x [x ∈ RealSet] . x)) = sqrtn(2, n) * I(n)
+11. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ I(n - 1) = 2 * (n - 1) * I(n - 1) - 2 * (n - 1) * I(n)
+12. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ I(n) = frac(2 * n - 3, 2 * n - 2) * I(n - 1)
+13. I(1) = DefInt(0, +∞, (fun t [t ∈ RealSet] . frac(1, 1 + t^{2})) * diff(fun t [t ∈ RealSet] . t))
+14. DefInt(0, +∞, (fun t [t ∈ RealSet] . frac(1, 1 + t^{2})) * diff(fun t [t ∈ RealSet] . t)) = frac(π, 2)
+15. I(1) = frac(π, 2)
+16. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ I(n) = frac((2 * n - 3)!!, (2 * n - 2)!!) * frac(π, 2)
+17. DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x)) = seqlim_{ n → +∞ } (frac((2 * n - 3)!!, (2 * n - 2)!!) * frac(π * sqrtn(2, n), 2))
+18. frac(π, 2) = seqlim_{ n → +∞ } (frac(((2 * n - 2)!!)^{2}, (2 * n - 1) * ((2 * n - 3)!!)^{2}))
+19. seqlim_{ n → +∞ } (frac((2 * n - 3)!! * sqrtn(2, n), (2 * n - 2)!!)) = sqrtn(2, frac(1, π))
+
+GOAL:
+DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x)) = frac(sqrtn(2, π), 2)
+
+METHOD:

@@ -1,0 +1,21 @@
+PROOF GAP @5
+ASSUM:
+1. F : RealSet → RealSet
+2. f : CartesianProd(RealSet, RealSet) → RealSet
+3. D ⊆ CartesianProd(RealSet, RealSet)
+4. u : RealSet → RealSet
+5. v : RealSet → RealSet
+6. forall (α), α ∈ RealSet ⇒ F(α) = DefInt(0, α, (fun x [x ∈ RealSet] . f(x + α, x - α)) * diff(fun x [x ∈ RealSet] . x))
+7. FuncOfClassKOn(f, D, 1)
+8. forall (α), α ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ α ⇒ (x + α, x - α) ∈ D)
+9. forall (α), α ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ u(x) = x + α)
+10. forall (α), α ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ v(x) = x - α)
+11. forall (α), α ∈ RealSet ⇒ F(α) = DefInt(0, α, (fun x [x ∈ RealSet] . f(u(x), v(x))) * diff(fun x [x ∈ RealSet] . x))
+12. forall (α), α ∈ RealSet ⇒ FunDeri(F, 1, 1)(α) = f(2 * α, 0) + DefInt(0, α, (fun x [x ∈ RealSet] . FunDeri(f, 1, 1)(u(x), v(x)) - FunDeri(f, 2, 1)(u(x), v(x))) * diff(fun x [x ∈ RealSet] . x))
+13. forall (α), α ∈ RealSet ⇒ FunDeri(F, 1, 1)(α) = f(2 * α, 0) + 2 * DefInt(0, α, (fun x [x ∈ RealSet] . FunDeri(f, 1, 1)(u(x), v(x))) * diff(fun x [x ∈ RealSet] . x)) - DefInt(0, α, (fun x [x ∈ RealSet] . FunDeri(f, 1, 1)(u(x), v(x)) + FunDeri(f, 2, 1)(u(x), v(x))) * diff(fun x [x ∈ RealSet] . x))
+14. forall (α), α ∈ RealSet ⇒ FunDeri(F, 1, 1)(α) = f(2 * α, 0) + 2 * DefInt(0, α, (fun x [x ∈ RealSet] . FunDeri(f, 1, 1)(u(x), v(x))) * diff(fun x [x ∈ RealSet] . x)) - DefInt(0, α, (fun x [x ∈ RealSet] . FunDeri(fun x [x ∈ RealSet] . f(u(x), v(x)), 1, 1)(x)) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+forall (α), α ∈ RealSet ⇒ FunDeri(F, 1, 1)(α) = f(2 * α, 0) + 2 * DefInt(0, α, (fun x [x ∈ RealSet] . FunDeri(f, 1, 1)(u(x), v(x))) * diff(fun x [x ∈ RealSet] . x)) - (f(2 * α, 0) - f(α, -α))
+
+METHOD:

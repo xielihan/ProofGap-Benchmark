@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. Q : RealSet → RealSet
+2. Q_{0} ∈ RealSet ∧ Q_{0} > 0
+3. k ∈ RealSet
+4. forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ Q(t) > 0
+5. forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ FunDeri(Q, 1, 1)(t) = k * Q(t)
+6. Q(0) = Q_{0}
+7. Q(1600) = frac(Q_{0}, 2)
+
+GOAL:
+forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ frac(FunDeri(Q, 1, 1)(t), Q(t)) = k
+
+METHOD:

@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. p ∈ CartesianProd(RealSet, RealSet)
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{3} + y^{3} ≠ 0 ⇒ u(x, y) = frac(x + y, x^{3} + y^{3})
+
+GOAL:
+forall (a), a ∈ RealSet ∧ a ≠ 0 ⇒ lim_{ (x, y) → (a, -a) } (cases{ frac(x + y, x^{3} + y^{3}) if x^{3} + y^{3} ≠ 0; frac(1, x^{2} - x * y + y^{2}) if x^{3} + y^{3} = 0 ∧ x^{2} - x * y + y^{2} ≠ 0; 0 if x^{2} - x * y + y^{2} = 0 }) = lim_{ (x, y) → (a, -a) } (cases{ frac(1, x^{2} - x * y + y^{2}) if x^{3} + y^{3} ≠ 0; frac(1, x^{2} - x * y + y^{2}) if x^{3} + y^{3} = 0 ∧ x^{2} - x * y + y^{2} ≠ 0; 0 if x^{2} - x * y + y^{2} = 0 })
+
+METHOD:

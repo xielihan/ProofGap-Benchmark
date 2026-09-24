@@ -1,0 +1,15 @@
+PROOF GAP @6
+ASSUM:
+1. x : NonNegIntegerSet → RealSet
+2. IsSeq(x)
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = n^{(-1)^{n}}
+4. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ x(2 * k) = (2 * k)^{(-1)^{2 * k}}
+5. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (2 * k)^{(-1)^{2 * k}} = 2 * k
+6. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ x(2 * k) = 2 * k
+7. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ x(2 * k - 1) = (2 * k - 1)^{(-1)^{2 * k - 1}}
+8. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (2 * k - 1)^{(-1)^{2 * k - 1}} = frac(1, 2 * k - 1)
+
+GOAL:
+forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ x(2 * k - 1) = frac(1, 2 * k - 1)
+
+METHOD:

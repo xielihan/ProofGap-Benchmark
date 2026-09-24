@@ -1,0 +1,36 @@
+PROOF GAP @24
+ASSUM:
+1. phi_{1} : RealSet → RealSet
+2. phi_{2} : RealSet → RealSet
+3. phi_{3} : RealSet → RealSet
+4. forall (x), x ∈ RealSet ∧ x ∈ [-1, 1] ⇒ phi_{1}(x) = x^{frac(2, 3)}
+5. forall (t), t ∈ RealSet ∧ t ≠ 0 ⇒ phi_{2}(t) = frac(1, t)
+6. forall (x), x ∈ RealSet ∧ x ≠ frac(π, 2) ⇒ phi_{3}(x) = tan(x)
+7. DefInt(-1, 1, diff(fun x [x ∈ RealSet] . x)) = 2
+8. phi_{1}(-1) = phi_{1}(1)
+9. phi_{1}(1) = 1
+10. phi_{1}(-1) = 1
+11. ¬InjectiveFunc(RestrictFunc(phi_{1}, [-1, 1]))
+12. forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ phi_{1}(x) = t ⇒ x = t^{frac(3, 2)} ∨ x = -t^{frac(3, 2)})
+13. ¬(exists (psi), psi : RealSet → RealSet ∧ (forall (t) (x), t ∈ RealSet ∧ x ∈ RealSet ∧ t ∈ [0, 1] ∧ x ∈ [-1, 1] ⇒ (phi_{1}(x) = t ⇔ x = psi(t))))
+14. DefInt(-1, 1, diff(fun x [x ∈ RealSet] . x)) ≠ 0
+15. frac(3, 2) * DefInt(1, 1, (fun t [t ∈ RealSet] . t^{frac(1, 2)}) * diff(fun t [t ∈ RealSet] . t)) = 0
+16. DefInt(-1, 1, (fun x [x ∈ RealSet] . frac(1, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x)) = ((fun x [x ∈ RealSet] . arctan(x))|_{-1}^{1})
+17. ((fun x [x ∈ RealSet] . arctan(x))|_{-1}^{1}) = frac(π, 2)
+18. DefInt(-1, 1, (fun x [x ∈ RealSet] . frac(1, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x)) = frac(π, 2)
+19. 0 ∈ [-1, 1]
+20. ¬Defined(phi_{2}, { 0 })
+21. ¬ContinuousFuncAt(phi_{2}, 0)
+22. DefInt(-1, 1, (fun x [x ∈ RealSet] . frac(1, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x)) ≠ -DefInt(-1, 1, (fun t [t ∈ RealSet] . frac(1, 1 + t^{2})) * diff(fun t [t ∈ RealSet] . t))
+23. DefInt(0, π, (fun x [x ∈ RealSet] . frac(1, 1 + sin(x)^{2})) * diff(fun x [x ∈ RealSet] . x)) > 0
+24. frac(π, 2) ∈ [0, π]
+25. ¬Defined(phi_{3}, { frac(π, 2) })
+26. ¬ContinuousFuncAt(phi_{3}, frac(π, 2))
+27. DefInt(0, π, (fun x [x ∈ RealSet] . frac(1, 1 + sin(x)^{2})) * diff(fun x [x ∈ RealSet] . x)) ≠ ((fun x [x ∈ RealSet] . frac(1, sqrtn(2, 2)) * arctan(sqrtn(2, 2) * tan(x)))|_{0}^{π})
+28. ¬InjectiveFunc(RestrictFunc(phi_{1}, [-1, 1]))
+29. ¬ContinuousFuncAt(phi_{2}, 0)
+
+GOAL:
+¬ContinuousFuncAt(phi_{3}, frac(π, 2))
+
+METHOD:

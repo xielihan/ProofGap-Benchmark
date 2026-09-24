@@ -1,0 +1,3 @@
+get_prop (hypothesis 6: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = x^{2} + y^{2} - 12 * x + 16 * y}) (x := {-3}) (y := {4}) as (hypothesis 19: {-3 ∈ RealSet ∧ 4 ∈ RealSet ⇒ z(-3, 4) = (-3)^{2} + 4^{2} - 12 * (-3) + 16 * 4})
+use_condition (obvious: {-3 ∈ RealSet ∧ 4 ∈ RealSet}) in (hypothesis 19: {-3 ∈ RealSet ∧ 4 ∈ RealSet ⇒ z(-3, 4) = (-3)^{2} + 4^{2} - 12 * (-3) + 16 * 4}) as (hypothesis 20: {z(-3, 4) = (-3)^{2} + 4^{2} - 12 * (-3) + 16 * 4})
+autosolve all_hypothesis

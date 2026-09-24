@@ -1,0 +1,4 @@
+assert (hypothesis 9: {1000 = 2^{10} * (1 - frac(3, 128))}) by proof {
+  autosolve all_hypothesis
+}
+apply (hypothesis 9: {1000 = 2^{10} * (1 - frac(3, 128))})

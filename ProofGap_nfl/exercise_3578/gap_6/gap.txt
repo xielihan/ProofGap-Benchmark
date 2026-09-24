@@ -1,0 +1,15 @@
+PROOF GAP @6
+ASSUM:
+1. ρ ∈ RealSet ∧ ρ ∈ PosRealSet
+2. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. forall (x) (a) (y) (b) (z) (c), x ∈ RealSet ∧ a ∈ RealSet ∧ y ∈ RealSet ∧ b ∈ RealSet ∧ z ∈ RealSet ∧ c ∈ RealSet ⇒ (x - a)^{2} + (y - b)^{2} + (z - c)^{2} = ρ^{2}
+4. forall (a) (b) (c), a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ⇒ a^{2} + b^{2} = c^{2}
+5. F = (fun x, y, z, a, b, c, λ [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet] . (x - a)^{2} + (y - b)^{2} + (z - c)^{2} + λ * (a^{2} + b^{2} - c^{2}))
+6. forall (x) (y) (z) (a) (b) (c) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 4, 1)(x, y, z, a, b, c, λ) = -2 * (x - a) + 2 * λ * a
+7. forall (x) (a) (λ), x ∈ RealSet ∧ a ∈ RealSet ∧ λ ∈ RealSet ⇒ -2 * (x - a) + 2 * λ * a = 0
+8. forall (x) (y) (z) (a) (b) (c) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 4, 1)(x, y, z, a, b, c, λ) = 0
+
+GOAL:
+forall (x) (y) (z) (a) (b) (c) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 5, 1)(x, y, z, a, b, c, λ) = -2 * (y - b) + 2 * λ * b
+
+METHOD:

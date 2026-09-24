@@ -1,0 +1,21 @@
+PROOF GAP @7
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet
+3. c ∈ RealSet
+4. a_{1} ∈ RealSet
+5. b_{1} ∈ RealSet
+6. c_{1} ∈ RealSet
+7. a * c - b^{2} > 0
+8. forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ t = frac(a * x + b, sqrtn(2, a)))
+9. forall (t), t ∈ RealSet ⇒ (exists (x), x ∈ RealSet ∧ x = frac(sqrtn(2, a) * t - b, a))
+10. DefInt(-∞, +∞, (fun x [x ∈ RealSet] . (a_{1} * x^{2} + 2 * b_{1} * x + c_{1}) * e^{-(a * x^{2} + 2 * b * x + c)}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, sqrtn(2, a)) * e^{frac(b^{2}, a) - c} * DefInt(-∞, +∞, (fun t [t ∈ RealSet] . (frac(a_{1}, a) * t^{2} + frac(2 * (a * b_{1} - a_{1} * b), a * sqrtn(2, a)) * t + frac(a_{1} * b^{2} - 2 * a * b * b_{1}, a^{2}) + c_{1}) * e^{-t^{2}}) * diff(fun t [t ∈ RealSet] . t))
+11. DefInt(-∞, +∞, (fun t [t ∈ RealSet] . t^{2} * e^{-t^{2}}) * diff(fun t [t ∈ RealSet] . t)) = frac(sqrtn(2, π), 2)
+12. DefInt(-∞, +∞, (fun t [t ∈ RealSet] . t * e^{-t^{2}}) * diff(fun t [t ∈ RealSet] . t)) = 0
+13. DefInt(-∞, +∞, (fun t [t ∈ RealSet] . e^{-t^{2}}) * diff(fun t [t ∈ RealSet] . t)) = sqrtn(2, π)
+14. DefInt(-∞, +∞, (fun x [x ∈ RealSet] . (a_{1} * x^{2} + 2 * b_{1} * x + c_{1}) * e^{-(a * x^{2} + 2 * b * x + c)}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, sqrtn(2, a)) * e^{frac(b^{2}, a) - c} * (frac(a_{1}, a) * frac(sqrtn(2, π), 2) + (frac(a_{1} * b^{2} - 2 * a * b * b_{1}, a^{2}) + c_{1}) * sqrtn(2, π))
+
+GOAL:
+DefInt(-∞, +∞, (fun x [x ∈ RealSet] . (a_{1} * x^{2} + 2 * b_{1} * x + c_{1}) * e^{-(a * x^{2} + 2 * b * x + c)}) * diff(fun x [x ∈ RealSet] . x)) = frac((a + 2 * b^{2}) * a_{1} - 4 * a * b * b_{1} + 2 * a^{2} * c_{1}, 2 * a^{2}) * sqrtn(2, frac(π, a)) * e^{frac(b^{2} - a * c, a)}
+
+METHOD:

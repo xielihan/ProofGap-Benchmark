@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = floor(x) * sin(π * x)
+3. forall (x), x ∈ RealSet ∧ x ∉ IntegerSet ⇒ FunDeri(f, 1, 1)(x) = π * floor(x) * cos(π * x)
+
+GOAL:
+forall (k), k ∈ IntegerSet ⇒ lim_{ Δx → 0^+ } (frac(f(k + Δx) - f(k), Δx)) = lim_{ Δx → 0^+ } (frac(k * cos(k * π) * sin(π * Δx), Δx))
+
+METHOD:

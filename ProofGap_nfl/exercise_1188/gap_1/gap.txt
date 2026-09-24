@@ -1,0 +1,16 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. c ∈ RealSet
+5. d ∈ RealSet
+6. n ∈ NonNegIntegerSet
+7. c ≠ 0
+8. n ∈ PosIntegerSet
+9. forall (x), x ∈ RealSet ∧ x ≠ -frac(d, c) ⇒ y(x) = frac(a * x + b, c * x + d)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ -frac(d, c) ⇒ FunDeri(y, 1, 1)(x) = frac(a * (c * x + d) - c * (a * x + b), (c * x + d)^{2})
+
+METHOD:

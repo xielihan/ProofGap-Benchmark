@@ -1,0 +1,16 @@
+PROOF GAP @8
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = cases{ (x - 2) * arctan(frac(1, x - 2)) if x ≠ 2; 0 if x = 2 }
+3. forall (x), x ∈ RealSet ∧ x ≠ 2 ⇒ FunDeri(f, 1, 1)(x) = arctan(frac(1, x - 2)) + frac(x - 2, 1 + frac(1, x - 2)^{2}) * -frac(1, (x - 2)^{2})
+4. forall (x), x ∈ RealSet ∧ x ≠ 2 ⇒ arctan(frac(1, x - 2)) + frac(x - 2, 1 + frac(1, x - 2)^{2}) * -frac(1, (x - 2)^{2}) = arctan(frac(1, x - 2)) - frac(x - 2, (x - 2)^{2} + 1)
+5. forall (x), x ∈ RealSet ∧ x ≠ 2 ⇒ FunDeri(f, 1, 1)(x) = arctan(frac(1, x - 2)) - frac(x - 2, (x - 2)^{2} + 1)
+6. lim_{ Δx → 0^- } (frac(f(2 + Δx) - f(2), Δx)) = lim_{ Δx → 0^- } (arctan(frac(1, Δx)))
+7. lim_{ Δx → 0^- } (arctan(frac(1, Δx))) = -frac(π, 2)
+8. lim_{ Δx → 0^- } (frac(f(2 + Δx) - f(2), Δx)) = -frac(π, 2)
+9. lim_{ Δx → 0^+ } (frac(f(2 + Δx) - f(2), Δx)) = lim_{ Δx → 0^+ } (arctan(frac(1, Δx)))
+
+GOAL:
+lim_{ Δx → 0^+ } (arctan(frac(1, Δx))) = frac(π, 2)
+
+METHOD:

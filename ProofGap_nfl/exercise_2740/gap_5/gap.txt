@@ -1,0 +1,16 @@
+PROOF GAP @5
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. x_{0} ∈ RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ∈ RealSet
+4. forall (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ ConvergentSeries(sum_{ m = 1 }^{ +∞ } (frac(a(m), m^{x_{0}})))
+5. forall (x), x ∈ RealSet ∧ x > x_{0} ⇒ sum_{ n = 1 }^{ +∞ } (frac(a(n), n^{x})) = sum_{ n = 1 }^{ +∞ } (frac(a(n), n^{x_{0}}) * frac(1, n^{x - x_{0}}))
+6. forall (x), x ∈ RealSet ∧ x > x_{0} ⇒ (exists (b), b : NonNegIntegerSet → RealSet ∧ b = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(1, n^{x - x_{0}})))
+7. forall (x), x ∈ RealSet ∧ x > x_{0} ⇒ (exists (b), b : NonNegIntegerSet → RealSet ∧ MonoDecSeq(b))
+8. forall (x), x ∈ RealSet ∧ x > x_{0} ⇒ (exists (b), b : NonNegIntegerSet → RealSet ∧ seqlim_{ n → +∞ } (b(n)) = 0)
+9. forall (x), x ∈ RealSet ∧ x > x_{0} ⇒ (exists (b), b : NonNegIntegerSet → RealSet ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(a(n), n^{x_{0}}) * b(n))))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > x_{0} ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(a(n), n^{x})))
+
+METHOD:

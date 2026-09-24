@@ -1,0 +1,27 @@
+PROOF GAP @15
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. f : RealSet → RealSet
+4. a > 0
+5. b > 0
+6. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < a ⇒ f(x) = x^{2} * (a^{2} - x^{2})
+7. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (k), k ∈ RealSet ∧ y ≠ 0 ⇒ k = -frac(b^{2} * x, a^{2} * y)))
+8. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (X), X ∈ RealSet ⇒ (forall (Y), Y ∈ RealSet ∧ y ≠ 0 ⇒ Y - y = -frac(b^{2} * x, a^{2} * y) * (X - x))))
+9. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x > 0 ∧ y > 0 ⇒ frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) = 1)
+10. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x > 0 ∧ y > 0 ⇒ y = frac(b, a) * sqrtn(2, a^{2} - x^{2}))
+11. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (S), S ∈ RealSet ∧ x > 0 ∧ y > 0 ⇒ S = frac(a^{2} * b^{2}, 2 * x * y)))
+12. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x > 0 ∧ y > 0 ⇒ frac(a^{2} * b^{2}, 2 * x * y) = frac(a^{3} * b, 2 * x * sqrtn(2, a^{2} - x^{2})))
+13. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (S), S ∈ RealSet ∧ x > 0 ∧ y > 0 ⇒ S = frac(a^{3} * b, 2 * x * sqrtn(2, a^{2} - x^{2}))))
+14. ContinuousFuncOn(f, IntervalLoRo(0, a))
+15. DiffableFuncOn(f, IntervalLoRo(0, a))
+16. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < a ⇒ FunDeri(f, 1, 1)(x) = 2 * a^{2} * x - 4 * x^{3}
+17. FunDeri(f, 1, 1)(frac(a, sqrtn(2, 2))) = 0
+18. MaximumPointOn(f, IntervalLoRo(0, a)) = { frac(a, sqrtn(2, 2)) }
+19. exists (y), y ∈ RealSet ∧ y = frac(b, sqrtn(2, 2))
+20. exists (S), S ∈ RealSet ∧ S = a * b
+
+GOAL:
+exists (M), M ∈ CartesianProd(RealSet, RealSet) ∧ (exists (S_{min}), S_{min} ∈ RealSet ∧ (M = (frac(a, sqrtn(2, 2)), frac(b, sqrtn(2, 2))) ∧ S_{min} = a * b ⇒ M ∈ { (x, y) | x ∈ RealSet, y ∈ RealSet, frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) = 1 } ∧ S_{min} = min({ frac(a^{2} * b^{2}, 2 * x * y) | x ∈ RealSet, y ∈ RealSet, x > 0, y > 0, frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) = 1 })))
+
+METHOD:

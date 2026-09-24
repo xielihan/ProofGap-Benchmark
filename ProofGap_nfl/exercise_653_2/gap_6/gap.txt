@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ IntervalCC(-1, 1) ⇒ f(x) = sqrtn(2, 1 + x) - sqrtn(2, 1 - x)
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x ∈ IntervalCC(-1, 1) ⇒ frac(sqrtn(2, 1 + x) - sqrtn(2, 1 - x), x) = frac(2, sqrtn(2, 1 + x) + sqrtn(2, 1 - x))
+4. lim_{ x → 0 } (frac(sqrtn(2, 1 + x) - sqrtn(2, 1 - x), x)) = lim_{ x → 0 } (frac(2, sqrtn(2, 1 + x) + sqrtn(2, 1 - x)))
+5. lim_{ x → 0 } (frac(2, sqrtn(2, 1 + x) + sqrtn(2, 1 - x))) = 1
+6. lim_{ x → 0 } (frac(sqrtn(2, 1 + x) - sqrtn(2, 1 - x), x)) = 1
+7. (f(x)) ∼_{ x → 0 } x
+
+GOAL:
+exists (C) (n), C ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ (C, n) = (1, 1) ∧ (f(x)) ∼_{ x → 0 } x
+
+METHOD:

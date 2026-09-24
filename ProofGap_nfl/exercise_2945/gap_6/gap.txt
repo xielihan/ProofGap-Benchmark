@@ -1,0 +1,18 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. A : NonNegIntegerSet → RealSet
+4. B : NonNegIntegerSet → RealSet
+5. a ∉ IntegerSet
+6. forall (x), x ∈ RealSet ∧ -π < x ∧ x < π ⇒ f(x) = cos(a * x)
+7. EvenFunc(f)
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ B(n) = 0
+9. A(0) = frac(2, π) * DefInt(0, π, (fun x [x ∈ RealSet] . cos(a * x)) * diff(fun x [x ∈ RealSet] . x))
+10. frac(2, π) * DefInt(0, π, (fun x [x ∈ RealSet] . cos(a * x)) * diff(fun x [x ∈ RealSet] . x)) = frac(2, a * π) * sin(a * π)
+11. A(0) = frac(2, a * π) * sin(a * π)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ A(n) = frac(2, π) * DefInt(0, π, (fun x [x ∈ RealSet] . cos(a * x) * cos(n * x)) * diff(fun x [x ∈ RealSet] . x)) ∧ frac(2, π) * DefInt(0, π, (fun x [x ∈ RealSet] . cos(a * x) * cos(n * x)) * diff(fun x [x ∈ RealSet] . x)) = frac(1, π) * DefInt(0, π, (fun x [x ∈ RealSet] . cos((n + a) * x) + cos((n - a) * x)) * diff(fun x [x ∈ RealSet] . x)) ∧ frac(1, π) * DefInt(0, π, (fun x [x ∈ RealSet] . cos((n + a) * x) + cos((n - a) * x)) * diff(fun x [x ∈ RealSet] . x)) = frac(2 * sin(a * π), π) * frac((-1)^{n + 1} * a, n^{2} - a^{2})
+
+METHOD:

@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. y : RealSet → RealSet
+3. ε ∈ RealSet
+4. x > 0
+5. forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x) = x^{2}
+6. 0 < ε
+7. ε < 100
+
+GOAL:
+|y(x) - 100| < 1 ⇒ 99 < x^{2} ∧ x^{2} < 101
+
+METHOD:

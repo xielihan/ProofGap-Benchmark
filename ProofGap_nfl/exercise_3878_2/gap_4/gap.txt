@@ -1,0 +1,17 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet ∧ x > 0
+2. λ ∈ RealSet ∧ λ > 0
+3. α ∈ RealSet ∧ -frac(π, 2) < α ∧ α < frac(π, 2)
+4. I : RealSet → RealSet
+5. I_{1} : RealSet → RealSet
+6. Gamma : RealSet → RealSet
+7. D_{alpha} : RealSet → RealSet
+8. forall (t), t ∈ RealSet ∧ 0 < t ∧ t < +∞ ⇒ |t^{x - 1} * e^{-λ * t * cos(α)} * cos(λ * t * sin(α))| ≤ t^{x - 1} * e^{-λ * t * cos(α)}
+9. exists (u), u : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t > 0 ∧ u(t) = λ * t * cos(α) ⇒ DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-λ * t * cos(α)}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t)) = frac(1, (λ * cos(α))^{x}) * DefInt(0, +∞, (fun u [u ∈ RealSet ∧ u > 0] . u^{x - 1} * e^{-u}) * diff(fun u [u ∈ RealSet ∧ u > 0] . u)))
+10. exists (u), u : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t > 0 ∧ u(t) = λ * t * cos(α) ⇒ DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-λ * t * cos(α)}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t)) = frac(Gamma(x), (λ * cos(α))^{x}))
+
+GOAL:
+exists (u), u : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t > 0 ∧ u(t) = λ * t * cos(α) ⇒ frac(Gamma(x), (λ * cos(α))^{x}) < +∞)
+
+METHOD:

@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+3. 0 < x
+4. x < 1
+5. t(x) = sqrtn(2, 1 - x * sqrtn(2, x))
+6. 0 < t(x)
+
+GOAL:
+t(x) < 1
+
+METHOD:

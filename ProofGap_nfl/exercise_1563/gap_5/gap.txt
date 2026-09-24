@@ -1,0 +1,16 @@
+PROOF GAP @5
+ASSUM:
+1. V ∈ RealSet ∧ V > 0
+2. H : RealSet → RealSet
+3. S_{area} : RealSet → RealSet
+4. forall (x), x ∈ RealSet ∧ x > 0 ⇒ H(x) = frac(V, π * x^{2})
+5. forall (x), x ∈ RealSet ∧ x > 0 ⇒ S_{area}(x) = 2 * π * x * H(x) + 2 * π * x^{2}
+6. forall (x), x ∈ RealSet ∧ x > 0 ⇒ S_{area}(x) = frac(2 * V, x) + 2 * π * x^{2}
+7. forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(S_{area}, 1, 1)(x) = frac(4 * π * x^{3} - 2 * V, x^{2})
+8. forall (x), x ∈ RealSet ∧ FunDeri(S_{area}, 1, 1)(x) = 0 ⇒ x = sqrtn(3, frac(V, 2 * π))
+9. FunDeri(S_{area}, 1, 2)(sqrtn(3, frac(V, 2 * π))) > 0
+
+GOAL:
+MinimumPointOn(S_{area}, IntervalLoRo(0, +∞)) = { sqrtn(3, frac(V, 2 * π)) }
+
+METHOD:

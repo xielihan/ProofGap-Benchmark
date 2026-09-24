@@ -1,0 +1,4 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ ψ(x) = y(x) - frac(x, k)}) (x := {x0})
+2. get_condition (hypothesis 22: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ ψ(x0) = y(x0) - frac(x0, k)})
+3. rewrite (left_to_right, equation) (hypothesis 21: {ψ = (fun x [x ∈ RealSet] . y(x) - frac(x, k))}); from (GOAL: {ψ(x0) = y(x0) - frac(x0, k)}) to (GOAL: {(fun x [x ∈ RealSet] . y(x) - frac(x, k))(x0) = y(x0) - frac(x0, k)})
+4. autosolve all_hypothesis

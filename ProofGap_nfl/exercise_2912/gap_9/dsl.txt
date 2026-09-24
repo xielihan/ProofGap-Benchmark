@@ -1,0 +1,1 @@
+apply (hypothesis 9: {forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ F(x) = frac(x * (1 - x), (1 + x)^{3})})

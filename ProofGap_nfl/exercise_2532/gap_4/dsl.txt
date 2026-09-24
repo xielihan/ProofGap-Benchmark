@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 5: {x_{0} = 0 + 0 * h}); from (GOAL: {x_{0} = 0}) to (GOAL: {0 + 0 * h = 0})
+autosolve all_hypothesis

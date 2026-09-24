@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. r : RealSet → RealSet
+3. s ∈ RealSet
+4. forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ r(φ) = a * φ
+
+GOAL:
+forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ s = DefInt(0, 2 * π, sqrtn(2, a^{2} * φ^{2} + a^{2}) * diff(fun φ [φ ∈ RealSet] . φ))
+
+METHOD:

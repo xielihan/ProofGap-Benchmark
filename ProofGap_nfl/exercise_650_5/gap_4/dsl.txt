@@ -1,0 +1,1 @@
+apply (hypothesis 3: {lim_{ x → 0^+ } (frac(sqrtn(2, x + sqrtn(2, x + sqrtn(2, x))), x^{frac(1, 8)})) = 1})

@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. A ∈ RealSet
+2. B ∈ RealSet
+3. a ∈ RealSet ∧ A ≤ a
+4. b ∈ RealSet ∧ a ≤ b
+5. f : RealSet → RealSet ∧ ContinuousFuncOn(f, [A, B])
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ [A - a, B - b] ⇒ DefInt(a, b, (fun y [y ∈ RealSet ∧ y ∈ [a, b]] . f(x + y)) * diff(fun y [y ∈ RealSet ∧ y ∈ [a, b]] . y)) = DefInt(a + x, b + x, (fun y [y ∈ RealSet ∧ y ∈ [a + x, b + x]] . f(y)) * diff(fun y [y ∈ RealSet ∧ y ∈ [a + x, b + x]] . y))
+
+METHOD:

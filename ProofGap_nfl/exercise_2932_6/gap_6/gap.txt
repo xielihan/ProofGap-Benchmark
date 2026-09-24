@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. I ∈ RealSet
+2. forall (x), x ∈ RealSet ∧ x ≥ 2 ⇒ frac(1, 1 + x^{3}) = frac(1, x^{3}) * frac(1, 1 + frac(1, x)^{3})
+3. forall (x), x ∈ RealSet ∧ x ≥ 2 ⇒ frac(1, x^{3}) * frac(1, 1 + frac(1, x)^{3}) = frac(1, x)^{3} * (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(1, x)^{3 * n}))
+4. forall (x), x ∈ RealSet ∧ x ≥ 2 ⇒ frac(1, x)^{3} * (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(1, x)^{3 * n})) = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(1, x)^{3 * n + 3})
+5. forall (x), x ∈ RealSet ∧ x ≥ 2 ⇒ frac(1, 1 + x^{3}) = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(1, x)^{3 * n + 3})
+6. I = DefInt(2, +∞, (fun x [x ∈ RealSet] . frac(1, 1 + x^{3})) * diff(fun x [x ∈ RealSet] . x))
+7. I = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * DefInt(2, +∞, (fun x [x ∈ RealSet] . frac(1, x)^{3 * n + 3}) * diff(fun x [x ∈ RealSet] . x)))
+
+GOAL:
+sum_{ n = 0 }^{ +∞ } ((-1)^{n} * DefInt(2, +∞, (fun x [x ∈ RealSet] . frac(1, x)^{3 * n + 3}) * diff(fun x [x ∈ RealSet] . x))) = sum_{ n = 0 }^{ +∞ } (frac((-1)^{n}, 3 * n + 2) * frac(1, 2)^{3 * n + 2})
+
+METHOD:

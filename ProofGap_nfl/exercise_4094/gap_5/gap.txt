@@ -1,0 +1,28 @@
+PROOF GAP @5
+ASSUM:
+1. f : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. D ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. V ∈ RealSet
+4. A ∈ RealSet
+5. p ∈ RealSet
+6. q ∈ RealSet
+7. s ∈ RealSet
+8. x : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+9. y : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+10. z : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+11. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ f(x, y, z) = x^{2} + y^{2} + z^{2}))
+12. D = { (p, q, s) | p ∈ RealSet ∧ q ∈ RealSet ∧ s ∈ RealSet ∧ p^{2} + q^{2} + s^{2} ≤ p + q + s }
+13. V = VolumeInt(D, diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z))
+14. A = frac(VolumeInt(D, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . f(x, y, z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)), V)
+15. D = { (p, q, s) | p ∈ RealSet ∧ q ∈ RealSet ∧ s ∈ RealSet ∧ (p - frac(1, 2))^{2} + (q - frac(1, 2))^{2} + (s - frac(1, 2))^{2} ≤ frac(3, 4) }
+16. V = frac(4, 3) * π * frac(sqrtn(2, 3), 2)^{3}
+17. frac(4, 3) * π * frac(sqrtn(2, 3), 2)^{3} = frac(sqrtn(2, 3), 2) * π
+18. V = frac(sqrtn(2, 3), 2) * π
+19. forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ (forall (ψ), ψ ∈ RealSet ⇒ x(r, φ, ψ) = r * cos(φ) * cos(ψ) + frac(1, 2)))
+20. forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ (forall (ψ), ψ ∈ RealSet ⇒ y(r, φ, ψ) = r * sin(φ) * cos(ψ) + frac(1, 2)))
+21. forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ (forall (ψ), ψ ∈ RealSet ⇒ z(r, φ, ψ) = frac(1, 2) + r * sin(ψ)))
+
+GOAL:
+forall (r), r ∈ RealSet ⇒ 0 ≤ r
+
+METHOD:

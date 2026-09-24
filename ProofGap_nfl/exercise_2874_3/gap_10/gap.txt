@@ -1,0 +1,25 @@
+PROOF GAP @10
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. h ∈ RealSet
+4. y ∈ RealSet
+5. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+6. s ∈ NonNegIntegerSet
+7. A : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+8. forall (x), x ∈ RealSet ⇒ f(x) = arctan(x)
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ 1 - x * y ≠ 0 ⇒ arctan(x) + arctan(y) = arctan(frac(x + y, 1 - x * y))
+10. y = frac(frac(h, 1 + x^{2}), 1 + frac(x, 1 + x^{2}) * h)
+11. frac(x + y, 1 - x * y) = x + h
+12. f(x + h) - f(x) = arctan(x + h) - arctan(x)
+13. arctan(x + h) - arctan(x) = arctan(y)
+14. arctan(y) = arctan(frac(h, 1 + x^{2}) * frac(1, 1 + frac(x, 1 + x^{2}) * h))
+15. f(x + h) - f(x) = arctan(frac(h, 1 + x^{2}) * frac(1, 1 + frac(x, 1 + x^{2}) * h))
+16. forall (y), y ∈ RealSet ∧ |y| ≤ 1 ⇒ arctan(y) = sum_{ m = 0 }^{ +∞ } ((-1)^{m} * frac(y^{2 * m + 1}, 2 * m + 1))
+17. y = frac(h, 1 + x^{2}) * (sum_{ k = 0 }^{ +∞ } ((-1)^{k} * (frac(x, 1 + x^{2}) * h)^{k}))
+18. f(x + h) - f(x) = sum_{ m = 1 }^{ +∞ } ((-1)^{m} * frac(1, 2 * m + 1) * frac(h, 1 + x^{2})^{m} * (prod_{ i = 1 }^{ m } (sum_{ k(i) = 0 }^{ +∞ } ((-1)^{k(i)} * frac(x * h, 1 + x^{2})^{k(i)}))))
+
+GOAL:
+f(x + h) - f(x) = sum_{ m = 1 }^{ +∞ } ((-1)^{m} * frac(1, 2 * m + 1) * frac(h, 1 + x^{2})^{m} * (sum_{ s = 0 }^{ +∞ } (Combination(m + s - 1, s) * (-1)^{s} * frac(x * h, 1 + x^{2})^{s})))
+
+METHOD:

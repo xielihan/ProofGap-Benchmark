@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. lim_{ n → +∞ } (ln(frac(sqrtn(n, n!), n))) = lim_{ n → +∞ } (frac(1, n) * ((sum_{ i = 1 }^{ n } (ln(i))) - n * ln(n)))
+2. lim_{ n → +∞ } (frac(1, n) * ((sum_{ i = 1 }^{ n } (ln(i))) - n * ln(n))) = lim_{ n → +∞ } (sum_{ i = 1 }^{ n } (ln(frac(i, n)) * frac(1, n)))
+3. lim_{ n → +∞ } (sum_{ i = 1 }^{ n } (ln(frac(i, n)) * frac(1, n))) = DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . ln(x)) * diff(fun x [x ∈ RealSet] . x))
+4. DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . ln(x)) * diff(fun x [x ∈ RealSet] . x)) = lim_{ ε → 0^+ } (DefInt(ε, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . ln(x)) * diff(fun x [x ∈ RealSet] . x)))
+
+GOAL:
+lim_{ ε → 0^+ } (DefInt(ε, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . ln(x)) * diff(fun x [x ∈ RealSet] . x))) = lim_{ ε → 0^+ } ((fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . x * (ln(x) - 1))|_{ε}^{1})
+
+METHOD:

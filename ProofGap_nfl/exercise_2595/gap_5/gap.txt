@@ -1,0 +1,12 @@
+PROOF GAP @5
+ASSUM:
+1. a = (fun n [n ∈ NonNegIntegerSet] . frac(2 + (-1)^{n}, 2^{n}))
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(2 + (-1)^{n}, 2^{n})
+3. seqlim_{ n → +∞ } (sqrtn(n, a(n))) = seqlim_{ n → +∞ } (frac(sqrtn(n, 2 + (-1)^{n}), 2))
+4. seqlim_{ n → +∞ } (frac(sqrtn(n, 2 + (-1)^{n}), 2)) = frac(1, 2)
+5. seqlim_{ n → +∞ } (sqrtn(n, a(n))) = frac(1, 2)
+
+GOAL:
+frac(1, 2) < 1
+
+METHOD:

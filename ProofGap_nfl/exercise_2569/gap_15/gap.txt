@@ -1,0 +1,28 @@
+PROOF GAP @15
+ASSUM:
+1. a : NonNegIntegerSet → RealSet ∧ IsSeq(a)
+2. b : NonNegIntegerSet → RealSet ∧ IsSeq(b)
+3. c : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ∈ RealSet ∧ b(n) ∈ RealSet
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)^{2}))
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n)^{2}))
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 ≤ 2 * |a(n) * b(n)| ∧ 2 * |a(n) * b(n)| ≤ a(n)^{2} + b(n)^{2}
+8. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)^{2} + b(n)^{2}))
+9. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (|a(n) * b(n)|))
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (a(n) + b(n))^{2} = a(n)^{2} + b(n)^{2} + 2 * a(n) * b(n)
+11. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n) * b(n)))
+12. ConvergentSeries(sum_{ n = 1 }^{ +∞ } ((a(n) + b(n))^{2}))
+13. c = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(1, n))
+14. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ c(n) = frac(1, n)
+15. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n)^{2}))
+16. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (|a(n) * c(n)|))
+17. sum_{ n = 1 }^{ +∞ } (|a(n) * c(n)|) = sum_{ n = 1 }^{ +∞ } (frac(|a(n)|, n))
+18. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(|a(n)|, n)))
+19. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (|a(n) * b(n)|))
+20. ConvergentSeries(sum_{ n = 1 }^{ +∞ } ((a(n) + b(n))^{2}))
+21. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(|a(n)|, n)))
+
+GOAL:
+ConvergentSeries(sum_{ n = 1 }^{ +∞ } (|a(n) * b(n)|)) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } ((a(n) + b(n))^{2})) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(|a(n)|, n)))
+
+METHOD:

@@ -1,0 +1,2 @@
+exists (f := {f})
+autosolve (hypothesis 3: {f : RealSet → RealSet}) (hypothesis 7: {f : IntervalLoRo(x_{0}, +∞) → RealSet}) (hypothesis 12: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ lim_{ x → +∞ } (frac(g(n, x), f(x))) = 0})

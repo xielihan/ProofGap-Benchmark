@@ -1,0 +1,23 @@
+PROOF GAP @6
+ASSUM:
+1. C ⊆ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+2. S ⊆ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+3. a ∈ RealSet ∧ a > 0
+4. α ∈ RealSet
+5. β ∈ RealSet
+6. γ ∈ RealSet
+7. x : RealSet → RealSet
+8. y : RealSet → RealSet
+9. z : RealSet → RealSet
+10. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ C = { (x, y, z) | x^{2} + y^{2} + z^{2} = a^{2}, x + y + z = 0 }))
+11. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ S = { (x, y, z) | x^{2} + y^{2} + z^{2} ≤ a^{2}, x + y + z = 0 }))
+12. cos(α) = frac(1, sqrtn(2, 3))
+13. cos(β) = frac(1, sqrtn(2, 3))
+14. cos(γ) = frac(1, sqrtn(2, 3))
+15. VectorCurveInt(C, y * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + z * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) + x * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)) = ScalarSurfaceInt(S, -(cos(α) + cos(β) + cos(γ)) * diff(S))
+16. ScalarSurfaceInt(S, -(cos(α) + cos(β) + cos(γ)) * diff(S)) = -π * a^{2} * (cos(α) + cos(β) + cos(γ))
+
+GOAL:
+VectorCurveInt(C, y * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + z * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) + x * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)) = -sqrtn(2, 3) * π * a^{2}
+
+METHOD:

@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. x ∈ RealSet
+3. t ∈ RealSet
+4. n ∈ PosIntegerSet
+5. x = frac(π, 2) - t
+
+GOAL:
+DefInt(0, π, sin(x)^{n} * sin(n * x) * diff(fun x [x ∈ RealSet] . x)) = DefInt(-frac(π, 2), frac(π, 2), cos(t)^{n} * sin(frac(n * π, 2) - n * t) * diff(fun t [t ∈ RealSet] . t))
+
+METHOD:

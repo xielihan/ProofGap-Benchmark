@@ -1,0 +1,21 @@
+PROOF GAP @12
+ASSUM:
+1. y : RealSet → RealSet
+2. x ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ y(x) = x * (x - 1)^{2} * (x - 2)^{3}
+4. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = (x - 1) * (x - 2)^{2} * (6 * x^{2} - 10 * x + 2)
+5. forall (x), x ∈ RealSet ⇒ (FunDeri(y, 1, 1)(x) = 0 ⇔ x = 1 ∨ x = 2 ∨ x = frac(5 - sqrtn(2, 13), 6) ∨ x = frac(5 + sqrtn(2, 13), 6))
+6. forall (x), x ∈ RealSet ∧ x < frac(5 - sqrtn(2, 13), 6) ⇒ FunDeri(y, 1, 1)(x) < 0
+7. forall (x), x ∈ RealSet ∧ frac(5 - sqrtn(2, 13), 6) < x ∧ x < 1 ⇒ FunDeri(y, 1, 1)(x) > 0
+8. forall (x), x ∈ RealSet ∧ 1 < x ∧ x < frac(5 + sqrtn(2, 13), 6) ⇒ FunDeri(y, 1, 1)(x) < 0
+9. forall (x), x ∈ RealSet ∧ frac(5 + sqrtn(2, 13), 6) < x ∧ x < 2 ⇒ FunDeri(y, 1, 1)(x) > 0
+10. forall (x), x ∈ RealSet ∧ x > 2 ⇒ FunDeri(y, 1, 1)(x) > 0
+11. frac(5 - sqrtn(2, 13), 6) ∈ MinimumPoint(y)
+12. y(frac(5 - sqrtn(2, 13), 6)) = frac(5 - sqrtn(2, 13), 6) * (frac(5 - sqrtn(2, 13), 6) - 1)^{2} * (frac(5 - sqrtn(2, 13), 6) - 2)^{3}
+13. 1 ∈ MaximumPoint(y)
+14. y(1) = 0
+
+GOAL:
+frac(5 + sqrtn(2, 13), 6) ∈ MinimumPoint(y)
+
+METHOD:

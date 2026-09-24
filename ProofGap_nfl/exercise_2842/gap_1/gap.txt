@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = cosh(x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ f(x) = frac(e^{x} + e^{-x}, 2)
+
+METHOD:

@@ -1,0 +1,7 @@
+get_prop (hypothesis 9: {forall (x), x ∈ RealSet ⇒ (forall (r), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ⇒ (forall (φ), φ ∈ RealSet ∧ α ≤ φ ∧ φ ≤ β ⇒ x = r * cos(φ)))}) (x := {1}) as (hypothesis 12: {1 ∈ RealSet ⇒ (forall (r), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ⇒ (forall (φ), φ ∈ RealSet ∧ α ≤ φ ∧ φ ≤ β ⇒ 1 = r * cos(φ)))})
+use_condition (obvious: {1 ∈ RealSet}) in (hypothesis 12: {1 ∈ RealSet ⇒ (forall (r), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ⇒ (forall (φ), φ ∈ RealSet ∧ α ≤ φ ∧ φ ≤ β ⇒ 1 = r * cos(φ)))}) as (hypothesis 13: {forall (r), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ⇒ (forall (φ), φ ∈ RealSet ∧ α ≤ φ ∧ φ ≤ β ⇒ 1 = r * cos(φ))})
+get_prop (hypothesis 13: {forall (r), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ⇒ (forall (φ), φ ∈ RealSet ∧ α ≤ φ ∧ φ ≤ β ⇒ 1 = r * cos(φ))}) (r := {0}) as (hypothesis 14: {0 ∈ RealSet ∧ 0 ≤ 0 ∧ 0 ≤ a ⇒ (forall (φ), φ ∈ RealSet ∧ α ≤ φ ∧ φ ≤ β ⇒ 1 = 0 * cos(φ))})
+use_condition (obvious: {0 ∈ RealSet ∧ 0 ≤ 0 ∧ 0 ≤ a}) in (hypothesis 14: {0 ∈ RealSet ∧ 0 ≤ 0 ∧ 0 ≤ a ⇒ (forall (φ), φ ∈ RealSet ∧ α ≤ φ ∧ φ ≤ β ⇒ 1 = 0 * cos(φ))}) as (hypothesis 15: {forall (φ), φ ∈ RealSet ∧ α ≤ φ ∧ φ ≤ β ⇒ 1 = 0 * cos(φ)})
+get_prop (hypothesis 15: {forall (φ), φ ∈ RealSet ∧ α ≤ φ ∧ φ ≤ β ⇒ 1 = 0 * cos(φ)}) (φ := {α}) as (hypothesis 16: {α ∈ RealSet ∧ α ≤ α ∧ α ≤ β ⇒ 1 = 0 * cos(α)})
+use_condition (obvious: {α ∈ RealSet ∧ α ≤ α ∧ α ≤ β}) in (hypothesis 16: {α ∈ RealSet ∧ α ≤ α ∧ α ≤ β ⇒ 1 = 0 * cos(α)}) as (hypothesis 17: {1 = 0 * cos(α)})
+autosolve (hypothesis 17: {1 = 0 * cos(α)})

@@ -1,0 +1,2 @@
+autoreplace no_hypothesis; from (frac(52, 3) - 17.333) to (frac(1, 3000)); from (GOAL: {|frac(52, 3) - 17.333| ≤ 0.001}) to (GOAL: {|frac(1, 3000)| ≤ 0.001})
+autosolve all_hypothesis

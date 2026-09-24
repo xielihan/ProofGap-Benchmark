@@ -1,0 +1,4 @@
+get_prop (theorem 'Thm 388. (SineTripleAngle)': {forall (x), x ∈ RealSet ⇒ sin(3 * x) = 3 * sin(x) - 4 * sin(x) ^ 3}) (x := {x}) as (hypothesis 2: {x ∈ RealSet ⇒ sin(3 * x) = 3 * sin(x) - 4 * sin(x) ^ 3})
+use_condition (hypothesis 1: {x ∈ RealSet}) in (hypothesis 2: {x ∈ RealSet ⇒ sin(3 * x) = 3 * sin(x) - 4 * sin(x) ^ 3}) as (hypothesis 3: {sin(3 * x) = 3 * sin(x) - 4 * sin(x) ^ 3})
+rewrite (left_to_right, equation) (hypothesis 3: {sin(3 * x) = 3 * sin(x) - 4 * sin(x) ^ 3}); from (GOAL: {sin(x)^{3} = frac(3, 4) * sin(x) - frac(1, 4) * sin(3 * x)}) to (GOAL: {sin(x)^{3} = frac(3, 4) * sin(x) - frac(1, 4) * (3 * sin(x) - 4 * sin(x) ^ 3)})
+autosolve all_hypothesis

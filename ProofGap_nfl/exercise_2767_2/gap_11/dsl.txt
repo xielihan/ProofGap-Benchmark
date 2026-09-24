@@ -1,0 +1,10 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ ConvergentSeriesTo(sum_{ n = 0 }^{ +∞ } (x^{n}), frac(1, 1 - x)) ∧ ¬UniformConvergent(sum_{ n = 0 }^{ +∞ } (x^{n}), { x | x ∈ RealSet, |x| < 1 }, S)}) (x := {x0})
+get_condition (hypothesis 14: {x0 ∈ RealSet ∧ |x0| < 1}) in (GOAL: {x0 ∈ RealSet ∧ |x0| < 1 ⇒ ConvergentSeriesTo(sum_{ n = 0 }^{ +∞ } (x0^{n}), frac(1, 1 - x0)) ∧ ¬UniformConvergent(sum_{ n = 0 }^{ +∞ } (x0^{n}), { x | x ∈ RealSet, |x| < 1 }, S)})
+get_prop (hypothesis 7: {forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ ConvergentSeriesTo(sum_{ n = 0 }^{ +∞ } (x^{n}), frac(1, 1 - x))}) (x := {x0}) as (hypothesis 15: {x0 ∈ RealSet ∧ |x0| < 1 ⇒ ConvergentSeriesTo(sum_{ n = 0 }^{ +∞ } (x0^{n}), frac(1, 1 - x0))})
+use_condition (hypothesis 14: {x0 ∈ RealSet ∧ |x0| < 1}) in (hypothesis 15: {x0 ∈ RealSet ∧ |x0| < 1 ⇒ ConvergentSeriesTo(sum_{ n = 0 }^{ +∞ } (x0^{n}), frac(1, 1 - x0))}) as (hypothesis 16: {ConvergentSeriesTo(sum_{ n = 0 }^{ +∞ } (x0^{n}), frac(1, 1 - x0))})
+get_prop (hypothesis 13: {forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ ¬UniformConvergent(sum_{ n = 0 }^{ +∞ } (x^{n}), { x | x ∈ RealSet, |x| < 1 }, S)}) (x := {x0}) as (hypothesis 17: {x0 ∈ RealSet ∧ |x0| < 1 ⇒ ¬UniformConvergent(sum_{ n = 0 }^{ +∞ } (x0^{n}), { x | x ∈ RealSet, |x| < 1 }, S)})
+use_condition (hypothesis 14: {x0 ∈ RealSet ∧ |x0| < 1}) in (hypothesis 17: {x0 ∈ RealSet ∧ |x0| < 1 ⇒ ¬UniformConvergent(sum_{ n = 0 }^{ +∞ } (x0^{n}), { x | x ∈ RealSet, |x| < 1 }, S)}) as (hypothesis 18: {¬UniformConvergent(sum_{ n = 0 }^{ +∞ } (x0^{n}), { x | x ∈ RealSet, |x| < 1 }, S)})
+assert (hypothesis 19: {ConvergentSeriesTo(sum_{ n = 0 }^{ +∞ } (x0^{n}), frac(1, 1 - x0)) ∧ ¬UniformConvergent(sum_{ n = 0 }^{ +∞ } (x0^{n}), { x | x ∈ RealSet, |x| < 1 }, S)}) by proof {
+  autosolve all_hypothesis
+}
+apply (hypothesis 19: {ConvergentSeriesTo(sum_{ n = 0 }^{ +∞ } (x0^{n}), frac(1, 1 - x0)) ∧ ¬UniformConvergent(sum_{ n = 0 }^{ +∞ } (x0^{n}), { x | x ∈ RealSet, |x| < 1 }, S)})

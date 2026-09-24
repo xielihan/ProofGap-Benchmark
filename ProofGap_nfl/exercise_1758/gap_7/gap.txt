@@ -1,0 +1,15 @@
+PROOF GAP @7
+ASSUM:
+1. forall (x), cos(x) ≠ 0 ⇒ x ∈ RealSet
+2. forall (x), x ∈ RealSet ⇒ cos(x) ≠ 0
+3. forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ frac(1, cos(x)^{4}) * diff(fun x [x ∈ RealSet ∧ cos(x) ≠ 0] . x) = sec(x)^{2} * frac(1, cos(x)^{2}) * diff(fun x [x ∈ RealSet ∧ cos(x) ≠ 0] . x)
+4. forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ frac(1, cos(x)^{2}) = 1 + tan(x)^{2}
+5. { `F_2` | forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, cos(x)^{4}) * FunDeri(fun x [x ∈ RealSet ∧ cos(x) ≠ 0] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = (1 + tan(x)^{2}) * FunDeri(fun x [x ∈ RealSet ∧ cos(x) ≠ 0] . tan(x), 1, 1)(x) }
+6. { `F_4` | forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ FunDeri(`F_4`, 1, 1)(x) = (1 + tan(x)^{2}) * FunDeri(fun x [x ∈ RealSet ∧ cos(x) ≠ 0] . tan(x), 1, 1)(x) } = { `F_5` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ `F_5`(x) = tan(x) + frac(1, 3) * tan(x)^{3} + C) }
+7. exists (C), C ∈ RealSet
+8. { `F_6` | forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ FunDeri(`F_6`, 1, 1)(x) = frac(1, cos(x)^{4}) * FunDeri(fun x [x ∈ RealSet ∧ cos(x) ≠ 0] . x, 1, 1)(x) } = { `F_7` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ `F_7`(x) = tan(x) + frac(1, 3) * tan(x)^{3} + C) }
+
+GOAL:
+exists (C), C ∈ RealSet
+
+METHOD:

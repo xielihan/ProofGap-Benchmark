@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = sqrtn(2, 1 + x^{2})
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ diff(y) = frac(x, sqrtn(2, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x)
+
+METHOD:

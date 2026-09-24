@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. p ∈ RealSet
+
+GOAL:
+p < 0 ⇒ lim_{ n → +∞ } (1 / n^{p}) = +∞
+
+METHOD:

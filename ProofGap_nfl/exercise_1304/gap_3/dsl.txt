@@ -1,0 +1,9 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ^ 2 < frac(1, 2) ⇒ FunDeri(y, 1, 2)(x) < 0}) (x := {x0})
+2. get_condition (hypothesis 5: {x0 ∈ RealSet ∧ x0 ^ 2 < frac(1, 2)}) in (GOAL: {x0 ∈ RealSet ∧ x0 ^ 2 < frac(1, 2) ⇒ FunDeri(y, 1, 2)(x0) < 0})
+3. destruct_and (hypothesis 5: {x0 ∈ RealSet ∧ x0 ^ 2 < frac(1, 2)}) as (hypothesis 6: {x0 ∈ RealSet}) (hypothesis 7: {x0 ^ 2 < frac(1, 2)})
+4. get_prop (hypothesis 4: {forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = e^{-x^{2}} * (4 * x^{2} - 2)}) (x := {x0}) as (hypothesis 8: {x0 ∈ RealSet ⇒ FunDeri(y, 1, 2)(x0) = e^{-x0^{2}} * (4 * x0^{2} - 2)})
+5. use_condition (hypothesis 6: {x0 ∈ RealSet}) in (hypothesis 8: {x0 ∈ RealSet ⇒ FunDeri(y, 1, 2)(x0) = e^{-x0^{2}} * (4 * x0^{2} - 2)}) as (hypothesis 9: {FunDeri(y, 1, 2)(x0) = e^{-x0^{2}} * (4 * x0^{2} - 2)})
+6. rewrite (left_to_right, equation) (hypothesis 9: {FunDeri(y, 1, 2)(x0) = e^{-x0^{2}} * (4 * x0^{2} - 2)}); from (GOAL: {FunDeri(y, 1, 2)(x0) < 0}) to (GOAL: {e^{-x0^{2}} * (4 * x0^{2} - 2) < 0})
+7. assert (hypothesis 10: {4 * x0 ^ 2 - 2 < 0})
+8. assert (hypothesis 11: {e ^ (-x0 ^ 2) > 0})
+9. autosolve all_hypothesis

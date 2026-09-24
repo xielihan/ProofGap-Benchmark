@@ -1,0 +1,3 @@
+exists (Δ := {1})
+assert (hypothesis 7: {1 ∈ RealSet})
+autosolve all_hypothesis

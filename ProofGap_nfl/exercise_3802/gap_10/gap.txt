@@ -1,0 +1,21 @@
+PROOF GAP @10
+ASSUM:
+1. α ∈ RealSet
+2. β ∈ RealSet
+3. I : CartesianProd(RealSet, RealSet) → RealSet
+4. J : CartesianProd(RealSet, RealSet) → RealSet
+5. K : CartesianProd(RealSet, RealSet) → RealSet
+6. α ≥ 0 ⇒ β ≥ 0 ⇒ lim_{ x → 0^+ } (frac(ln(1 + α^{2} * x^{2}) * ln(1 + β^{2} * x^{2}), x^{4})) = α^{2} * β^{2}
+7. α ≥ 0 ⇒ β ≥ 0 ⇒ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ (forall (α_{1}), α_{1} ∈ RealSet ⇒ (forall (β_{1}), β_{1} ∈ RealSet ∧ α_{1} > 0 ∧ β_{1} > 0 ∧ 0 ≤ α ∧ α ≤ α_{1} ∧ 0 ≤ β ∧ β ≤ β_{1} ⇒ 0 ≤ frac(ln(1 + α^{2} * x^{2}) * ln(1 + β^{2} * x^{2}), x^{4}))))
+8. α ≥ 0 ⇒ β ≥ 0 ⇒ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ (forall (α_{1}), α_{1} ∈ RealSet ⇒ (forall (β_{1}), β_{1} ∈ RealSet ∧ α_{1} > 0 ∧ β_{1} > 0 ∧ 0 ≤ α ∧ α ≤ α_{1} ∧ 0 ≤ β ∧ β ≤ β_{1} ⇒ frac(ln(1 + α^{2} * x^{2}) * ln(1 + β^{2} * x^{2}), x^{4}) ≤ frac(ln(1 + (α_{1})^{2} * x^{2}) * ln(1 + (β_{1})^{2} * x^{2}), x^{4}))))
+9. α ≥ 0 ⇒ β ≥ 0 ⇒ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ (forall (α_{1}), α_{1} ∈ RealSet ⇒ (forall (β_{1}), β_{1} ∈ RealSet ∧ α_{1} > 0 ∧ β_{1} > 0 ∧ 0 ≤ α ∧ α ≤ α_{1} ∧ 0 ≤ β ∧ β ≤ β_{1} ⇒ 0 ≤ frac(ln(1 + (α_{1})^{2} * x^{2}) * ln(1 + (β_{1})^{2} * x^{2}), x^{4}))))
+10. α ≥ 0 ⇒ β ≥ 0 ⇒ (forall (α_{1}), α_{1} ∈ RealSet ⇒ (forall (β_{1}), β_{1} ∈ RealSet ∧ α_{1} > 0 ∧ β_{1} > 0 ∧ 0 ≤ α ∧ α ≤ α_{1} ∧ 0 ≤ β ∧ β ≤ β_{1} ⇒ lim_{ x → +∞ } (x^{2} * frac(ln(1 + (α_{1})^{2} * x^{2}) * ln(1 + (β_{1})^{2} * x^{2}), x^{4})) = 0))
+11. α ≥ 0 ⇒ β ≥ 0 ⇒ (forall (α_{1}), α_{1} ∈ RealSet ⇒ (forall (β_{1}), β_{1} ∈ RealSet ∧ α_{1} > 0 ∧ β_{1} > 0 ∧ 0 ≤ α ∧ α ≤ α_{1} ∧ 0 ≤ β ∧ β ≤ β_{1} ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(ln(1 + (α_{1})^{2} * x^{2}) * ln(1 + (β_{1})^{2} * x^{2}), x^{4})) * diff(fun x [x ∈ RealSet] . x)) < +∞))
+12. α ≥ 0 ⇒ β ≥ 0 ⇒ I(α, β) = DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(ln(1 + α^{2} * x^{2}) * ln(1 + β^{2} * x^{2}), x^{4})) * diff(fun x [x ∈ RealSet] . x)) ⇒ ContinuousFuncOn(I, CartesianProd([0, +∞), [0, +∞)))
+13. α ≥ 0 ⇒ β ≥ 0 ⇒ J(α, β) = DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(2 * α * ln(1 + β^{2} * x^{2}), x^{2} * (1 + α^{2} * x^{2}))) * diff(fun x [x ∈ RealSet] . x)) ⇒ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ (forall (α_{0}), α_{0} ∈ RealSet ⇒ (forall (α_{1}), α_{1} ∈ RealSet ⇒ (forall (β_{1}), β_{1} ∈ RealSet ∧ 0 < α_{0} ∧ α_{0} ≤ α ∧ α ≤ α_{1} ∧ 0 ≤ β ∧ β ≤ β_{1} ⇒ 0 ≤ frac(2 * α * ln(1 + β^{2} * x^{2}), x^{2} * (1 + α^{2} * x^{2}))))))
+14. α ≥ 0 ⇒ β ≥ 0 ⇒ J(α, β) = DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(2 * α * ln(1 + β^{2} * x^{2}), x^{2} * (1 + α^{2} * x^{2}))) * diff(fun x [x ∈ RealSet] . x)) ⇒ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ (forall (α_{0}), α_{0} ∈ RealSet ⇒ (forall (α_{1}), α_{1} ∈ RealSet ⇒ (forall (β_{1}), β_{1} ∈ RealSet ∧ 0 < α_{0} ∧ α_{0} ≤ α ∧ α ≤ α_{1} ∧ 0 ≤ β ∧ β ≤ β_{1} ⇒ frac(2 * α * ln(1 + β^{2} * x^{2}), x^{2} * (1 + α^{2} * x^{2})) ≤ frac(2 * α_{1} * ln(1 + (β_{1})^{2} * x^{2}), x^{2} * (1 + (α_{0})^{2} * x^{2}))))))
+
+GOAL:
+α ≥ 0 ⇒ β ≥ 0 ⇒ J(α, β) = DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(2 * α * ln(1 + β^{2} * x^{2}), x^{2} * (1 + α^{2} * x^{2}))) * diff(fun x [x ∈ RealSet] . x)) ⇒ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ (forall (α_{0}), α_{0} ∈ RealSet ⇒ (forall (α_{1}), α_{1} ∈ RealSet ⇒ (forall (β_{1}), β_{1} ∈ RealSet ∧ 0 < α_{0} ∧ α_{0} ≤ α ∧ α ≤ α_{1} ∧ 0 ≤ β ∧ β ≤ β_{1} ⇒ 0 ≤ frac(2 * α_{1} * ln(1 + (β_{1})^{2} * x^{2}), x^{2} * (1 + (α_{0})^{2} * x^{2}))))))
+
+METHOD:

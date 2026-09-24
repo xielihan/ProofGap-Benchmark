@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (t), t ∈ RealSet ∧ t ∈ I ∧ FunDeri(f, 1, 2)(t) ≠ 0 ⇒ FunDeri(y, x, 1)(t) = t}) (t := {u})
+get_prop (hypothesis 7: {forall (t), t ∈ RealSet ∧ t ∈ I ∧ FunDeri(f, 1, 2)(t) ≠ 0 ⇒ FunDeri(y, x, 1)(t) = frac(t * FunDeri(f, 1, 2)(t), FunDeri(f, 1, 2)(t))}) (t := {u}) as (hypothesis 9: {u ∈ RealSet ∧ u ∈ I ∧ FunDeri(f, 1, 2)(u) ≠ 0 ⇒ FunDeri(y, x, 1)(u) = frac(u * FunDeri(f, 1, 2)(u), FunDeri(f, 1, 2)(u))})
+get_prop (hypothesis 8: {forall (t), t ∈ RealSet ∧ t ∈ I ∧ FunDeri(f, 1, 2)(t) ≠ 0 ⇒ frac(t * FunDeri(f, 1, 2)(t), FunDeri(f, 1, 2)(t)) = t}) (t := {u}) as (hypothesis 10: {u ∈ RealSet ∧ u ∈ I ∧ FunDeri(f, 1, 2)(u) ≠ 0 ⇒ frac(u * FunDeri(f, 1, 2)(u), FunDeri(f, 1, 2)(u)) = u})
+get_condition (hypothesis 11: {u ∈ RealSet ∧ u ∈ I ∧ FunDeri(f, 1, 2)(u) ≠ 0}) in (GOAL: {u ∈ RealSet ∧ u ∈ I ∧ FunDeri(f, 1, 2)(u) ≠ 0 ⇒ FunDeri(y, x, 1)(u) = u})
+use_condition (hypothesis 11: {u ∈ RealSet ∧ u ∈ I ∧ FunDeri(f, 1, 2)(u) ≠ 0}) in (hypothesis 9: {u ∈ RealSet ∧ u ∈ I ∧ FunDeri(f, 1, 2)(u) ≠ 0 ⇒ FunDeri(y, x, 1)(u) = frac(u * FunDeri(f, 1, 2)(u), FunDeri(f, 1, 2)(u))}) as (hypothesis 12: {FunDeri(y, x, 1)(u) = frac(u * FunDeri(f, 1, 2)(u), FunDeri(f, 1, 2)(u))})
+use_condition (hypothesis 11: {u ∈ RealSet ∧ u ∈ I ∧ FunDeri(f, 1, 2)(u) ≠ 0}) in (hypothesis 10: {u ∈ RealSet ∧ u ∈ I ∧ FunDeri(f, 1, 2)(u) ≠ 0 ⇒ frac(u * FunDeri(f, 1, 2)(u), FunDeri(f, 1, 2)(u)) = u}) as (hypothesis 13: {frac(u * FunDeri(f, 1, 2)(u), FunDeri(f, 1, 2)(u)) = u})
+autosolve all_hypothesis

@@ -1,0 +1,18 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet ∧ b > 0
+3. ε ∈ RealSet
+4. c ∈ RealSet
+5. P_{x} ∈ RealSet
+6. P_{y} ∈ RealSet
+7. y : RealSet → RealSet
+8. 0 < b
+9. b ≤ a
+10. ε = frac(sqrtn(2, a^{2} - b^{2}), a)
+11. c = sqrtn(2, a^{2} - b^{2})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a ⇒ y(x)^{2} = b^{2} - frac(b^{2}, a^{2}) * x^{2}
+
+METHOD:

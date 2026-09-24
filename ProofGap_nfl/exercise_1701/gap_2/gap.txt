@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet ⇒ sin(x) ≠ 0
+3. forall (x), x ∈ RealSet ⇒ cot(x) > 0
+4. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), sin(x)^{2} * sqrtn(4, cot(x))) } = { `F_4` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = cot(x)^{-frac(1, 4)} * FunDeri(fun x [x ∈ RealSet] . cot(x), 1, 1)(x) ∧ `F_4`(x) = -`F_3`(x)) }
+
+GOAL:
+{ `F_6` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = cot(x)^{-frac(1, 4)} * FunDeri(fun x [x ∈ RealSet] . cot(x), 1, 1)(x) ∧ `F_6`(x) = -`F_5`(x)) } = { `F_7` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_7`(x) = -frac(4, 3) * sqrtn(4, cot(x)^{3}) + C) }
+
+METHOD:

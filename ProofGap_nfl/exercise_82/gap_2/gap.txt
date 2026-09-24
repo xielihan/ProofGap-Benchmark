@@ -1,0 +1,16 @@
+PROOF GAP @2
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. q ∈ RealSet
+3. a : NonNegIntegerSet → RealSet
+4. M ∈ RealSet
+5. forall (i), i ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ x(n) = sum_{ i = 0 }^{ n } (a(i) * q^{i}))
+6. forall (k), k ∈ NonNegIntegerSet ⇒ |a(k)| < M
+7. M > 0
+8. |q| < 1
+9. forall (m), m ∈ IntegerSet ⇒ (forall (n), m ∈ IntegerSet ∧ n ∈ IntegerSet ∧ m > n ∧ n ≥ 0 ⇒ |x(m) - x(n)| = |sum_{ i = n + 1 }^{ m } (a(i) * q^{i})|)
+
+GOAL:
+forall (m), m ∈ IntegerSet ⇒ (forall (n), m ∈ IntegerSet ∧ n ∈ IntegerSet ∧ m > n ∧ n ≥ 0 ⇒ |sum_{ i = n + 1 }^{ m } (a(i) * q^{i})| ≤ sum_{ i = n + 1 }^{ m } (|a(i)| * |q|^{i}))
+
+METHOD:

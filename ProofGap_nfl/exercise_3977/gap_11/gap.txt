@@ -1,0 +1,28 @@
+PROOF GAP @11
+ASSUM:
+1. m ∈ NonNegIntegerSet
+2. n ∈ NonNegIntegerSet
+3. a ∈ RealSet
+4. Ω ⊆ RealSet
+5. m ∈ PosIntegerSet
+6. n ∈ PosIntegerSet
+7. a > 0
+8. Odd(m) ∨ Odd(n)
+9. forall (p), p ∈ RealSet ⇒ (p ∈ Ω ⇔ (exists (x), x ∈ RealSet ∧ (exists (y), y ∈ RealSet ∧ p = (x, y) ∧ x^{2} + y^{2} < a^{2})))
+10. x = r * cos(φ)
+11. y = r * sin(φ)
+12. VolumeInt(Ω, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x^{m} * y^{n}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = DefInt(0, a, (fun r [r ∈ RealSet ∧ r ∈ IntervalClose(0, a)] . DefInt(0, 2 * π, (fun φ [φ ∈ RealSet ∧ φ ∈ IntervalClose(0, 2 * π)] . r^{m + n + 1} * cos(φ)^{m} * sin(φ)^{n}) * diff(fun φ [φ ∈ RealSet] . φ))) * diff(fun r [r ∈ RealSet] . r))
+13. VolumeInt(Ω, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x^{m} * y^{n}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = frac(a^{m + n + 2}, m + n + 2) * DefInt(0, 2 * π, (fun φ [φ ∈ RealSet ∧ φ ∈ IntervalClose(0, 2 * π)] . cos(φ)^{m} * sin(φ)^{n}) * diff(fun φ [φ ∈ RealSet] . φ))
+14. Odd(m) ⇒ Even(n) ⇒ (forall (φ), φ ∈ RealSet ⇒ cos(π - φ)^{m} * sin(π - φ)^{n} = -cos(φ)^{m} * sin(φ)^{n})
+15. Odd(m) ⇒ Even(n) ⇒ DefInt(0, 2 * π, (fun φ [φ ∈ RealSet ∧ φ ∈ IntervalClose(0, 2 * π)] . cos(φ)^{m} * sin(φ)^{n}) * diff(fun φ [φ ∈ RealSet] . φ)) = 0
+16. Even(m) ⇒ Odd(n) ⇒ (forall (φ), φ ∈ RealSet ⇒ cos(-φ)^{m} * sin(-φ)^{n} = -cos(φ)^{m} * sin(φ)^{n})
+17. Even(m) ⇒ Odd(n) ⇒ DefInt(0, 2 * π, (fun φ [φ ∈ RealSet ∧ φ ∈ IntervalClose(0, 2 * π)] . cos(φ)^{m} * sin(φ)^{n}) * diff(fun φ [φ ∈ RealSet] . φ)) = 0
+18. Odd(m) ⇒ Odd(n) ⇒ (forall (φ), φ ∈ RealSet ⇒ cos(-φ)^{m} * sin(-φ)^{n} = -cos(φ)^{m} * sin(φ)^{n})
+19. Odd(m) ⇒ Odd(n) ⇒ DefInt(0, 2 * π, (fun φ [φ ∈ RealSet ∧ φ ∈ IntervalClose(0, 2 * π)] . cos(φ)^{m} * sin(φ)^{n}) * diff(fun φ [φ ∈ RealSet] . φ)) = 0
+20. DefInt(0, 2 * π, (fun φ [φ ∈ RealSet ∧ φ ∈ IntervalClose(0, 2 * π)] . cos(φ)^{m} * sin(φ)^{n}) * diff(fun φ [φ ∈ RealSet] . φ)) = 0
+21. VolumeInt(Ω, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x^{m} * y^{n}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = 0
+
+GOAL:
+VolumeInt(Ω, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x^{m} * y^{n}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = 0
+
+METHOD:

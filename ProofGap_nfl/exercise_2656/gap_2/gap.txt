@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. a : NonNegIntegerSet → RealSet ∧ IsSeq(a)
+2. N : NonNegIntegerSet → NonNegIntegerSet
+3. A : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+5. forall (n), n ∈ NonNegIntegerSet ⇒ ¬AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+6. exists (ε), ε : NonNegIntegerSet → RealSet ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ ε(k) = frac(1, 2^{k}) ⇒ ε(k) > 0)
+
+GOAL:
+exists (ε), ε : NonNegIntegerSet → RealSet ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ ε(k) = frac(1, 2^{k}) ⇒ (exists (N), N : NonNegIntegerSet → NonNegIntegerSet ∧ N(k) ∈ PosIntegerSet ∧ (forall (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ |sum_{ n = N(k) + 1 }^{ N(k) + m } (a(n))| < ε(k))))
+
+METHOD:
+[@method 根据 "级数收敛的柯西准则" @]

@@ -1,0 +1,27 @@
+PROOF GAP @8
+ASSUM:
+1. V ∈ RealSet
+2. Ω ⊆ CartesianProd(RealSet, RealSet)
+3. a ∈ RealSet
+4. c ∈ RealSet
+5. x ∈ RealSet
+6. y ∈ RealSet
+7. z ∈ RealSet
+8. a > 0
+9. c > 0
+10. Ω = { (x, y) | x ∈ RealSet, y ∈ RealSet, y ≥ 0, x ≠ 0, sqrtn(2, x^{2} + y^{2}) ≤ a * arctan(y / x) }
+11. V = VolumeInt({ (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, (x, y) ∈ Ω, 0 ≤ z, z ≤ c * arctan(y / x) }, 1 * diff(ω))
+12. x = r * cos(φ)
+13. y = r * sin(φ)
+14. 0 ≤ φ
+15. φ ≤ frac(π, 2)
+16. 0 ≤ r
+17. r ≤ a * φ
+18. exists (z), z ∈ RealSet ∧ z = c * φ
+19. V = DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet] . DefInt(0, a * φ, (fun r [r ∈ RealSet] . c * φ * r) * diff(fun r [r ∈ RealSet] . r))) * diff(fun φ [φ ∈ RealSet] . φ))
+20. V = frac(a^{2} * c, 2) * DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet] . φ^{3}) * diff(fun φ [φ ∈ RealSet] . φ))
+
+GOAL:
+V = ((fun φ [φ ∈ RealSet] . frac(a^{2} * c, 8) * φ^{4})|_{0}^{frac(π, 2)})
+
+METHOD:

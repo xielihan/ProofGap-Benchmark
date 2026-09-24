@@ -1,0 +1,19 @@
+PROOF GAP @7
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. g_{1} : RealSet → RealSet
+3. g_{2} : RealSet → RealSet
+4. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ f(n, x) = x^{n}
+5. forall (x), x ∈ RealSet ∧ x ∈ [0, frac(1, 2)] ⇒ g_{1}(x) = 0
+6. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ g_{2}(x) = cases{ 1 if x = 1; 0 if 0 ≤ x ∧ x < 1 }
+7. forall (x), x ∈ RealSet ∧ x ∈ [0, frac(1, 2)] ⇒ seqlim_{ n → +∞ } (f(n, x)) = 0
+8. forall (n) (x) (ε), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ∈ [0, frac(1, 2)] ∧ ε ∈ RealSet ∧ ε > 0 ⇒ |f(n, x) - g_{1}(x)| = |x|^{n}
+9. forall (x) (n) (ε), x ∈ RealSet ∧ x ∈ [0, frac(1, 2)] ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ ε ∈ RealSet ∧ ε > 0 ⇒ |x|^{n} ≤ frac(1, 2)^{n}
+10. forall (n) (x) (ε), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ∈ [0, frac(1, 2)] ∧ ε ∈ RealSet ∧ ε > 0 ⇒ |f(n, x) - g_{1}(x)| ≤ frac(1, 2)^{n}
+11. forall (n) (x) (ε), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ∈ [0, frac(1, 2)] ∧ ε ∈ RealSet ∧ ε > 0 ∧ frac(1, 2^{n}) < ε ⇒ |f(n, x) - g_{1}(x)| < ε
+12. forall (n) (ε), n ∈ NonNegIntegerSet ∧ ε ∈ RealSet ∧ ε > 0 ∧ n > frac(ln(frac(1, ε)), ln(2)) ⇒ frac(1, 2^{n}) < ε
+
+GOAL:
+forall (n) (x) (ε), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ∈ [0, frac(1, 2)] ∧ ε ∈ RealSet ∧ ε > 0 ∧ n > frac(ln(frac(1, ε)), ln(2)) ⇒ |f(n, x) - g_{1}(x)| < ε
+
+METHOD:

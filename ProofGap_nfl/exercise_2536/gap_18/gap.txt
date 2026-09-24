@@ -1,0 +1,42 @@
+PROOF GAP @18
+ASSUM:
+1. x : IntegerSet → RealSet
+2. y : IntegerSet → RealSet
+3. x_{i} ∈ RealSet
+4. y_{i} ∈ RealSet
+5. x_{0} ∈ RealSet
+6. y_{0} ∈ RealSet
+7. x_{1} ∈ RealSet
+8. y_{1} ∈ RealSet
+9. x_{2} ∈ RealSet
+10. y_{2} ∈ RealSet
+11. x_{3} ∈ RealSet
+12. y_{3} ∈ RealSet
+13. x_{4} ∈ RealSet
+14. y_{4} ∈ RealSet
+15. x_{5} ∈ RealSet
+16. y_{5} ∈ RealSet
+17. x_{6} ∈ RealSet
+18. y_{6} ∈ RealSet
+19. h ∈ RealSet
+20. f : RealSet → RealSet
+21. forall (x), x ∈ RealSet ∧ x ∈ [0, π] ⇒ 3 + cos(x) ≥ 0
+22. forall (x), x ∈ RealSet ∧ x ∈ [0, π] ⇒ f(x) = sqrtn(2, 3 + cos(x))
+23. h = frac(π, 6)
+24. forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ 6 ⇒ x_{i} = i * h ∧ y_{i} = f(x_{i})
+25. x_{0} = 0
+26. y_{0} = 2
+27. x_{1} = frac(π, 6)
+28. y_{1} = sqrtn(2, 3 + cos(frac(π, 6)))
+31. x_{2} = frac(π, 3)
+32. y_{2} = sqrtn(2, 3 + cos(frac(π, 3)))
+33. sqrtn(2, 3 + cos(frac(π, 3))) = sqrtn(2, 3.5)
+35. x_{3} = frac(π, 2)
+36. y_{3} = sqrtn(2, 3 + cos(frac(π, 2)))
+37. sqrtn(2, 3 + cos(frac(π, 2))) = sqrtn(2, 3)
+39. x_{4} = frac(2 * π, 3)
+
+GOAL:
+y_{4} = sqrtn(2, 3 + cos(frac(2 * π, 3)))
+
+METHOD:

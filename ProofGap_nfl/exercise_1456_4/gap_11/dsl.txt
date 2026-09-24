@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x > 0 ⇒ frac(x + a, 2^{frac(n - 1, n)}) ≤ sqrtn(n, x^{n} + a^{n}) ∧ sqrtn(n, x^{n} + a^{n}) ≤ x + a}) (x := {x0})
+get_condition (hypothesis 17: {x0 ∈ RealSet ∧ x0 > 0}) in (GOAL: {x0 ∈ RealSet ∧ x0 > 0 ⇒ frac(x0 + a, 2^{frac(n - 1, n)}) ≤ sqrtn(n, x0^{n} + a^{n}) ∧ sqrtn(n, x0^{n} + a^{n}) ≤ x0 + a})
+get_prop (hypothesis 15: {forall (x), x ∈ RealSet ∧ x > 0 ⇒ frac(x + a, 2^{frac(n - 1, n)}) ≤ sqrtn(n, x^{n} + a^{n})}) (x := {x0}) as (hypothesis 18: {x0 ∈ RealSet ∧ x0 > 0 ⇒ frac(x0 + a, 2^{frac(n - 1, n)}) ≤ sqrtn(n, x0^{n} + a^{n})})
+get_prop (hypothesis 16: {forall (x), x ∈ RealSet ∧ x > 0 ⇒ sqrtn(n, x^{n} + a^{n}) ≤ x + a}) (x := {x0}) as (hypothesis 19: {x0 ∈ RealSet ∧ x0 > 0 ⇒ sqrtn(n, x0^{n} + a^{n}) ≤ x0 + a})
+use_condition (hypothesis 17: {x0 ∈ RealSet ∧ x0 > 0}) in (hypothesis 18: {x0 ∈ RealSet ∧ x0 > 0 ⇒ frac(x0 + a, 2^{frac(n - 1, n)}) ≤ sqrtn(n, x0^{n} + a^{n})}) as (hypothesis 20: {frac(x0 + a, 2^{frac(n - 1, n)}) ≤ sqrtn(n, x0^{n} + a^{n})})
+use_condition (hypothesis 17: {x0 ∈ RealSet ∧ x0 > 0}) in (hypothesis 19: {x0 ∈ RealSet ∧ x0 > 0 ⇒ sqrtn(n, x0^{n} + a^{n}) ≤ x0 + a}) as (hypothesis 21: {sqrtn(n, x0^{n} + a^{n}) ≤ x0 + a})
+autosolve all_hypothesis

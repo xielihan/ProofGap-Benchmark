@@ -1,0 +1,5 @@
+1. get_prop (hypothesis 19: {forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ 12 ⇒ x(i) = frac(i, 12) ∧ y(i) = f(x(i))}) (i := {12}) as (hypothesis 44: {12 ∈ IntegerSet ∧ 0 ≤ 12 ∧ 12 ≤ 12 ⇒ x(12) = frac(12, 12) ∧ y(12) = f(x(12))})
+2. use_condition (obvious: {12 ∈ IntegerSet ∧ 0 ≤ 12 ∧ 12 ≤ 12}) in (hypothesis 44: {12 ∈ IntegerSet ∧ 0 ≤ 12 ∧ 12 ≤ 12 ⇒ x(12) = frac(12, 12) ∧ y(12) = f(x(12))}) as (hypothesis 45: {x(12) = frac(12, 12) ∧ y(12) = f(x(12))})
+3. destruct_and (hypothesis 45: {x(12) = frac(12, 12) ∧ y(12) = f(x(12))}) as (hypothesis 46: {x(12) = frac(12, 12)}) (hypothesis 47: {y(12) = f(x(12))})
+4. autoreplace no_hypothesis; from (frac(12, 12)) to (1); from (hypothesis 46: {x(12) = frac(12, 12)}) to (hypothesis 48: {x(12) = 1})
+5. apply (hypothesis 48: {x(12) = 1})

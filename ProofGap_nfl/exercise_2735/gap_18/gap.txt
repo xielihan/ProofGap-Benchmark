@@ -1,0 +1,29 @@
+PROOF GAP @18
+ASSUM:
+1. x ∈ RealSet ∧ x ≥ 0
+2. y ∈ RealSet
+3. a : NonNegIntegerSet → RealSet
+4. b : NonNegIntegerSet → RealSet
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(ln(1 + x^{n}), n^{y})
+6. 0 < x ⇒ x < 1 ⇒ lim_{ n → +∞ } (frac(ln(1 + x^{n}), x^{n})) = 1
+7. 0 < x ⇒ x < 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(x^{n}, n^{y}) ≤ n^{|y|} * x^{n})
+8. 0 < x ⇒ x < 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = n^{|y|} * x^{n}) ⇒ seqlim_{ n → +∞ } (sqrtn(n, b(n))) = x
+9. 0 < x ⇒ x < 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = n^{|y|} * x^{n}) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n)))
+10. 0 < x ⇒ x < 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+11. x = 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = 0)
+12. x = 0 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+13. x = 1 ⇒ y > 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(ln(2), n^{y}))
+14. x = 1 ⇒ y > 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+15. x = 1 ⇒ y ≤ 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(ln(2), n^{y}))
+16. x = 1 ⇒ y ≤ 1 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+17. x > 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(ln(x), n^{y - 1}) + frac(ln(1 + frac(1, x^{n})), n^{y}))
+18. x > 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(ln(1 + frac(1, x^{n})), n^{y})))
+19. x > 1 ⇒ y > 2 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(ln(x), n^{y - 1})))
+20. x > 1 ⇒ y > 2 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+21. x > 1 ⇒ y ≤ 2 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(ln(x), n^{y - 1})))
+22. x > 1 ⇒ y ≤ 2 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+GOAL:
+(x, y) ∈ { (x, y) | 0 ≤ x ∧ x < 1 ∧ y ∈ RealSet ∧ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ∨ x = 1 ∧ y > 1 ∧ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ∨ x = 1 ∧ y ≤ 1 ∧ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ∨ x > 1 ∧ y > 2 ∧ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ∨ x > 1 ∧ y ≤ 2 ∧ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) } ⇔ x ≥ 0 ∧ y ∈ RealSet
+
+METHOD:

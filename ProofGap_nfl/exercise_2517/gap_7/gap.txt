@@ -1,0 +1,26 @@
+PROOF GAP @7
+ASSUM:
+1. m ∈ RealSet ∧ m > 0
+2. R ∈ RealSet ∧ R > 0
+3. h ∈ RealSet ∧ h ≥ 0
+4. M ∈ RealSet ∧ M > 0
+5. k ∈ RealSet ∧ k > 0
+6. g ∈ RealSet ∧ g > 0
+7. f : RealSet → RealSet
+8. W ∈ RealSet
+9. A_{∞} ∈ RealSet
+10. r_{i} ∈ RealSet
+11. f_{i} ∈ RealSet
+12. k = frac(g * R^{2}, M)
+13. forall (r), r ∈ RealSet ∧ r ≥ R ⇒ f(r) = frac(k * m * M, r^{2})
+14. forall (n) (i), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ i ∈ IntegerSet ∧ 1 ≤ i ∧ i ≤ n ⇒ r_{i} = sqrtn(2, (frac(h, n) * (i - 1) + R) * (frac(h, n) * i + R))
+15. forall (n) (i), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ i ∈ IntegerSet ∧ 1 ≤ i ∧ i ≤ n ⇒ f_{i} = frac(k * m * M, (frac(h, n) * (i - 1) + R) * (frac(h, n) * i + R))
+16. W = seqlim_{ n → +∞ } (sum_{ i = 1 }^{ n } (frac(k * m * M, (frac(h, n) * (i - 1) + R) * (frac(h, n) * i + R)) * frac(h, n)))
+17. W = seqlim_{ n → +∞ } (k * m * M * n * (sum_{ i = 1 }^{ n } (frac(1, h * (i - 1) + n * R) - frac(1, h * i + n * R))))
+18. seqlim_{ n → +∞ } (k * m * M * n * (sum_{ i = 1 }^{ n } (frac(1, h * (i - 1) + n * R) - frac(1, h * i + n * R)))) = seqlim_{ n → +∞ } (k * m * M * n * (frac(1, n * R) - frac(1, n * (R + h))))
+19. seqlim_{ n → +∞ } (k * m * M * n * (frac(1, n * R) - frac(1, n * (R + h)))) = frac(k * m * M * h, (R + h) * R)
+
+GOAL:
+W = frac(k * m * M * h, (R + h) * R)
+
+METHOD:

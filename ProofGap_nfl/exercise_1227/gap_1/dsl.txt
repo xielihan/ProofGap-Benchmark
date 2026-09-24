@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (y) (m) (x), y = (fun t [t ∈ RealSet] . (t^{2} - 1)^{m}) ∧ m ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = 2 * m * x * (x^{2} - 1)^{m - 1}}) (y := {y0}) (m := {m0}) (x := {x0})
+get_condition (hypothesis 4: {y0 = (fun t [t ∈ RealSet] . (t^{2} - 1)^{m0}) ∧ m0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet}) in (GOAL: {y0 = (fun t [t ∈ RealSet] . (t^{2} - 1)^{m0}) ∧ m0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ⇒ FunDeri(y0, 1, 1)(x0) = 2 * m0 * x0 * (x0^{2} - 1)^{m0 - 1}})
+destruct_and (hypothesis 4: {y0 = (fun t [t ∈ RealSet] . (t^{2} - 1)^{m0}) ∧ m0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet}) as (hypothesis 5: {y0 = (fun t [t ∈ RealSet] . (t^{2} - 1)^{m0})}) (hypothesis 6: {m0 ∈ NonNegIntegerSet}) (hypothesis 7: {x0 ∈ RealSet})
+rewrite (left_to_right, equation) (hypothesis 5: {y0 = (fun t [t ∈ RealSet] . (t^{2} - 1)^{m0})}); from (GOAL: {FunDeri(y0, 1, 1)(x0) = 2 * m0 * x0 * (x0^{2} - 1)^{m0 - 1}}) to (GOAL: {FunDeri(fun t [t ∈ RealSet] . (t^{2} - 1)^{m0}, 1, 1)(x0) = 2 * m0 * x0 * (x0^{2} - 1)^{m0 - 1}})
+assert (hypothesis 8: {FunDeri(fun t [t ∈ RealSet] . (t^{2} - 1)^{m0}, 1, 1)(x0) = 2 * m0 * x0 * (x0^{2} - 1)^{m0 - 1}})
+apply (hypothesis 8: {FunDeri(fun t [t ∈ RealSet] . (t^{2} - 1)^{m0}, 1, 1)(x0) = 2 * m0 * x0 * (x0^{2} - 1)^{m0 - 1}})

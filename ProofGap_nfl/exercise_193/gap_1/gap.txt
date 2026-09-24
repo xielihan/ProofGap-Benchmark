@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ x ≠ -1 ⇒ f(x) = frac(1 - x, 1 + x)
+
+GOAL:
+f(0) = 1
+
+METHOD:

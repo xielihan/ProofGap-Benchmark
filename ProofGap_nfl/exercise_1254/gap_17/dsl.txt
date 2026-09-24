@@ -1,0 +1,2 @@
+exists (h := {h})
+autosolve (hypothesis 13: {h : RealSet → RealSet ∧ h = (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, frac(1, 2))] . sin(frac(1, x)))}) (hypothesis 14: {DiffableFuncOn(h, IntervalLoRo(0, frac(1, 2)))}) (hypothesis 15: {BoundedFuncOn(h, IntervalLoRo(0, frac(1, 2)))}) (hypothesis 17: {¬BoundedFuncOn(FunDeri(h, 1, 1), IntervalLoRo(0, frac(1, 2)))})

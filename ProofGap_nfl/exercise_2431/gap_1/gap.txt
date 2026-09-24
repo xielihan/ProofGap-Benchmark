@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. s ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 4 ⇒ y(x) = x^{frac(3, 2)}
+
+GOAL:
+s = DefInt(0, 4, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 4] . sqrtn(2, 1 + frac(9, 4) * x)) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 4] . x))
+
+METHOD:

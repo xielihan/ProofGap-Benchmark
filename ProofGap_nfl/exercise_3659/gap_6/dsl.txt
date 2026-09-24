@@ -1,0 +1,2 @@
+exists (λ := {-1}) (z := {1})
+autosolve all_hypothesis

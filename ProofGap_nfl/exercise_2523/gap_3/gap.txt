@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. R ∈ RealSet ∧ R > 0
+2. δ ∈ RealSet ∧ δ > 0
+3. ω ∈ RealSet
+4. E ∈ RealSet
+5. J_{z} ∈ RealSet
+6. forall (z), z ∈ RealSet ∧ -R ≤ z ∧ z ≤ R ⇒ (exists (x), x ∈ RealSet ∧ (exists (y), y ∈ RealSet ∧ x^{2} + y^{2} + z^{2} = R^{2}))
+7. diff(fun z [z ∈ RealSet] . J_{z}) = (fun z [z ∈ RealSet] . frac(1, 2) * π * (R^{2} - z^{2}) * δ * (R^{2} - z^{2})) * diff(fun z [z ∈ RealSet] . z)
+
+GOAL:
+(fun z [z ∈ RealSet] . frac(1, 2) * π * (R^{2} - z^{2}) * δ * (R^{2} - z^{2})) * diff(fun z [z ∈ RealSet] . z) = (fun z [z ∈ RealSet] . frac(1, 2) * π * δ * (R^{2} - z^{2})^{2}) * diff(fun z [z ∈ RealSet] . z)
+
+METHOD:

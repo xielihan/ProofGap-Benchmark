@@ -1,0 +1,3 @@
+get_prop (hypothesis 13: {forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n = 9 ⇒ Δ(n) < 10^{-6}}) (n := {9}) as (hypothesis 14: {9 ∈ NonNegIntegerSet ∧ 9 > 0 ∧ 9 = 9 ⇒ Δ(9) < 10^{-6}})
+apply (hypothesis 14: {9 ∈ NonNegIntegerSet ∧ 9 > 0 ∧ 9 = 9 ⇒ Δ(9) < 10^{-6}})
+autosolve all_hypothesis

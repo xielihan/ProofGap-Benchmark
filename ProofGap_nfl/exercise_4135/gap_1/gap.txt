@@ -1,0 +1,17 @@
+PROOF GAP @1
+ASSUM:
+1. p ∈ RealSet ∧ p ∈ PosRealSet
+2. ρ : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+3. V ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+4. M ∈ RealSet
+5. x_{0} ∈ RealSet
+6. y_{0} ∈ RealSet
+7. z_{0} ∈ RealSet
+8. Region4135 : RealSet → PowerSet(CartesianProd(RealSet, CartesianProd(RealSet, RealSet)))
+9. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ ρ(x, y, z) = 1))
+10. V = Region4135(p)
+
+GOAL:
+M = VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(p, 2) ∧ y ∈ RealSet ∧ -sqrtn(2, 2 * p * x) ≤ y ∧ y ≤ sqrtn(2, 2 * p * x) ∧ z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ frac(x^{2}, 2 * p)] . ρ(x, y, z)) * diff(ω))
+
+METHOD:

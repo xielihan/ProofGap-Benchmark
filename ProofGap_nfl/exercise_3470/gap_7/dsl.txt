@@ -1,0 +1,6 @@
+1. get_forall (GOAL: {forall (y) (z), y ∈ RealSet ∧ z ∈ RealSet ∧ y ≠ 0 ⇒ FunDeri(X, 1, 1)(y, z) = frac(X(y, z) - z, y)}) (y := {y0}) (z := {z0})
+2. get_condition (hypothesis 11: {y0 ∈ RealSet ∧ z0 ∈ RealSet ∧ y0 ≠ 0}) in (GOAL: {y0 ∈ RealSet ∧ z0 ∈ RealSet ∧ y0 ≠ 0 ⇒ FunDeri(X, 1, 1)(y0, z0) = frac(X(y0, z0) - z0, y0)})
+3. get_prop (hypothesis 10: {forall (y) (z), y ∈ RealSet ∧ z ∈ RealSet ⇒ y * FunDeri(X, 1, 1)(y, z) = X(y, z) - z}) (y := {y0}) (z := {z0}) as (hypothesis 12: {y0 ∈ RealSet ∧ z0 ∈ RealSet ⇒ y0 * FunDeri(X, 1, 1)(y0, z0) = X(y0, z0) - z0})
+4. use_condition (obvious: {y0 ∈ RealSet ∧ z0 ∈ RealSet}) in (hypothesis 12: {y0 ∈ RealSet ∧ z0 ∈ RealSet ⇒ y0 * FunDeri(X, 1, 1)(y0, z0) = X(y0, z0) - z0}) as (hypothesis 13: {y0 * FunDeri(X, 1, 1)(y0, z0) = X(y0, z0) - z0})
+5. rewrite (right_to_left, equation) (hypothesis 13: {y0 * FunDeri(X, 1, 1)(y0, z0) = X(y0, z0) - z0}); from (GOAL: {FunDeri(X, 1, 1)(y0, z0) = frac(X(y0, z0) - z0, y0)}) to (GOAL: {FunDeri(X, 1, 1)(y0, z0) = frac(y0 * FunDeri(X, 1, 1)(y0, z0), y0)})
+6. autosolve all_hypothesis

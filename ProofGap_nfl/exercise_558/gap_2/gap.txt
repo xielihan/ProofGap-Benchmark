@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ a^{x^{2}} + b^{x^{2}} - a^{x} - b^{x} ≠ 0 ⇒ frac(a^{x^{2}} + b^{x^{2}}, a^{x} + b^{x})^{frac(1, x)} = (1 + frac(a^{x^{2}} + b^{x^{2}} - a^{x} - b^{x}, a^{x} + b^{x}))^{frac(1, x)}
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ a^{x^{2}} + b^{x^{2}} - a^{x} - b^{x} ≠ 0 ⇒ (1 + frac(a^{x^{2}} + b^{x^{2}} - a^{x} - b^{x}, a^{x} + b^{x}))^{frac(1, x)} = (1 + frac(1, frac(a^{x} + b^{x}, a^{x^{2}} + b^{x^{2}} - a^{x} - b^{x})))^{frac(a^{x} + b^{x}, a^{x^{2}} + b^{x^{2}} - a^{x} - b^{x}) * (frac(a^{x^{2}} - 1, x^{2}) * x + frac(b^{x^{2}} - 1, x^{2}) * x - frac(a^{x} - 1, x) - frac(b^{x} - 1, x))}
+
+METHOD:

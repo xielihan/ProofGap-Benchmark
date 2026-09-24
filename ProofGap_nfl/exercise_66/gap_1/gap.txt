@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ n! ≥ frac(1, 2) * n^{frac(n, 2)}
+
+METHOD:
+[@method 根据 "数学归纳法" @]

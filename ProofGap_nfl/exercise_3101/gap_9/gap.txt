@@ -1,0 +1,17 @@
+PROOF GAP @9
+ASSUM:
+1. p : NonNegIntegerSet → NonNegIntegerSet
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(n) ∈ PrimeSet
+3. forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ prod_{ p(n) ≤ N } (frac(1, 1 - frac(1, p(n)))) > sum_{ n = 1 }^{ N } (frac(1, n))
+4. DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n)))
+5. prod_{ n = 1 }^{ +∞ } ((1 - frac(1, p(n)))^{-1}) = +∞
+6. DivergentSeries(prod_{ n = 1 }^{ +∞ } ((1 - frac(1, p(n)))^{-1}))
+7. prod_{ n = 1 }^{ +∞ } (1 - frac(1, p(n))) = 0
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, p(n)) > 0
+9. DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, p(n))))
+10. DivergentSeries(prod_{ n = 1 }^{ +∞ } ((1 - frac(1, p(n)))^{-1}))
+
+GOAL:
+DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, p(n))))
+
+METHOD:

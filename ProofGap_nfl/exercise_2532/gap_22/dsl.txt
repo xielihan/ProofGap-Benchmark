@@ -1,0 +1,4 @@
+rewrite (left_to_right, equation) (hypothesis 46: {y_{8} = frac(1, 1 + x_{8})}); from (GOAL: {y_{8} = 0.5}) to (GOAL: {frac(1, 1 + x_{8}) = 0.5})
+rewrite (left_to_right, equation) (hypothesis 45: {x_{8} = 1}); from (GOAL: {frac(1, 1 + x_{8}) = 0.5}) to (GOAL: {frac(1, 1 + 1) = 0.5})
+autoreplace no_hypothesis; from (frac(1, 1 + 1)) to (0.5); from (GOAL: {frac(1, 1 + 1) = 0.5}) to (GOAL: {0.5 = 0.5})
+autosolve all_hypothesis

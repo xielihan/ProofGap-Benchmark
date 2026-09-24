@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. B : RealSet → RealSet
+3. forall (x), x ∈ RealSet ∧ x > 0 ⇒ f(x) = e^{-x}
+4. ContinuousFuncOn(f, [0, +∞))
+
+GOAL:
+DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x}) * diff(fun x [x ∈ RealSet] . x)) = 1
+
+METHOD:

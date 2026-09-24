@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |sin(frac(2 * π * n, 3 * n + 1))| ≤ 1
+
+GOAL:
+seqlim_{ n → +∞ } (sin(frac(2 * π * n, 3 * n + 1))^{n}) = 0
+
+METHOD:

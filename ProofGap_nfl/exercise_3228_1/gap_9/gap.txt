@@ -1,0 +1,17 @@
+PROOF GAP @9
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x > 0 ∧ y > 0 ⇒ u(x, y, z) = x^{y^{z}}
+3. forall (x) (y) (z), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ⇒ FunDeri(u, 1, 1)(x, y, z) = y^{z} * x^{y^{z} - 1}
+4. forall (y) (z) (x), y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ∧ x ∈ RealSet ∧ x > 0 ⇒ y^{z} * x^{y^{z} - 1} = frac(u(x, y, z) * y^{z}, x)
+5. forall (x) (y) (z), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ⇒ FunDeri(u, 1, 1)(x, y, z) = frac(u(x, y, z) * y^{z}, x)
+6. forall (x) (y) (z), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ⇒ FunDeri(u, 2, 1)(x, y, z) = z * y^{z - 1} * x^{y^{z}} * ln(x)
+7. forall (z) (y) (x), z ∈ RealSet ∧ y ∈ RealSet ∧ y > 0 ∧ x ∈ RealSet ∧ x > 0 ⇒ z * y^{z - 1} * x^{y^{z}} * ln(x) = z * u(x, y, z) * y^{z - 1} * ln(x)
+8. forall (x) (y) (z), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ⇒ FunDeri(u, 2, 1)(x, y, z) = z * u(x, y, z) * y^{z - 1} * ln(x)
+9. forall (x) (y) (z), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ⇒ FunDeri(u, 3, 1)(x, y, z) = x^{y^{z}} * y^{z} * ln(x) * ln(y)
+10. forall (x) (y) (z), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ⇒ x^{y^{z}} * y^{z} * ln(x) * ln(y) = u(x, y, z) * y^{z} * ln(x) * ln(y)
+
+GOAL:
+forall (x) (y) (z), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ⇒ FunDeri(u, 3, 1)(x, y, z) = u(x, y, z) * y^{z} * ln(x) * ln(y)
+
+METHOD:

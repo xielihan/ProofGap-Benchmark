@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ≠ 0 ⇒ x ∈ RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ e^{x} - 1 ≠ 0
+3. lim_{ x → 0 } (frac(1, x) - frac(1, e^{x} - 1)) = lim_{ x → 0 } (frac(e^{x} - 1 - x, x * (e^{x} - 1)))
+4. lim_{ x → 0 } (frac(e^{x} - 1 - x, x * (e^{x} - 1))) = lim_{ x → 0 } (frac(e^{x} - 1, e^{x} - 1 + x * e^{x}))
+
+GOAL:
+lim_{ x → 0 } (frac(e^{x} - 1, e^{x} - 1 + x * e^{x})) = lim_{ x → 0 } (frac(e^{x}, e^{x} * (x + 2)))
+
+METHOD:
+[@method 根据 "洛必达法则" @]

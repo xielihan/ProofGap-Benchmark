@@ -1,0 +1,23 @@
+PROOF GAP @13
+ASSUM:
+1. r2 : CartesianProd(RealSet, CartesianProd(RealSet, CartesianProd(RealSet, RealSet))) → RealSet
+2. F : CartesianProd(RealSet, CartesianProd(RealSet, CartesianProd(RealSet, CartesianProd(RealSet, CartesianProd(RealSet, RealSet))))) → RealSet
+3. forall (x_{1}) (x_{2}) (y_{1}) (y_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ y_{1} ∈ RealSet ∧ y_{2} ∈ RealSet ⇒ r2(x_{1}, x_{2}, y_{1}, y_{2}) = (x_{2} - x_{1})^{2} + (y_{2} - y_{1})^{2}
+4. forall (x_{1}) (x_{2}) (y_{1}) (y_{2}) (`λ_1`) (`λ_2`), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ y_{1} ∈ RealSet ∧ y_{2} ∈ RealSet ∧ `λ_1` ∈ RealSet ∧ `λ_2` ∈ RealSet ⇒ F(x_{1}, x_{2}, y_{1}, y_{2}, `λ_1`, `λ_2`) = r2(x_{1}, x_{2}, y_{1}, y_{2}) + `λ_1` * (y_{1} - (x_{1})^{2}) + `λ_2` * (x_{2} - y_{2} - 2)
+5. forall (x_{1}) (x_{2}) (y_{1}) (y_{2}) (`λ_1`) (`λ_2`), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ y_{1} ∈ RealSet ∧ y_{2} ∈ RealSet ∧ `λ_1` ∈ RealSet ∧ `λ_2` ∈ RealSet ⇒ FunDeri(F, 1, 1)(x_{1}, x_{2}, y_{1}, y_{2}, `λ_1`, `λ_2`) = -2 * (x_{2} - x_{1}) - 2 * `λ_1` * x_{1}
+6. forall (x_{1}) (x_{2}) (y_{1}) (y_{2}) (`λ_1`) (`λ_2`), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ y_{1} ∈ RealSet ∧ y_{2} ∈ RealSet ∧ `λ_1` ∈ RealSet ∧ `λ_2` ∈ RealSet ⇒ FunDeri(F, 2, 1)(x_{1}, x_{2}, y_{1}, y_{2}, `λ_1`, `λ_2`) = 2 * (x_{2} - x_{1}) + `λ_2`
+7. forall (x_{1}) (x_{2}) (y_{1}) (y_{2}) (`λ_1`) (`λ_2`), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ y_{1} ∈ RealSet ∧ y_{2} ∈ RealSet ∧ `λ_1` ∈ RealSet ∧ `λ_2` ∈ RealSet ⇒ FunDeri(F, 3, 1)(x_{1}, x_{2}, y_{1}, y_{2}, `λ_1`, `λ_2`) = -2 * (y_{2} - y_{1}) + `λ_1`
+8. forall (x_{1}) (x_{2}) (y_{1}) (y_{2}) (`λ_1`) (`λ_2`), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ y_{1} ∈ RealSet ∧ y_{2} ∈ RealSet ∧ `λ_1` ∈ RealSet ∧ `λ_2` ∈ RealSet ⇒ FunDeri(F, 4, 1)(x_{1}, x_{2}, y_{1}, y_{2}, `λ_1`, `λ_2`) = 2 * (y_{2} - y_{1}) - `λ_2`
+9. exists (x_{1}) (x_{2}) (y_{1}) (y_{2}) (`λ_1`) (`λ_2`), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ y_{1} ∈ RealSet ∧ y_{2} ∈ RealSet ∧ `λ_1` ∈ RealSet ∧ `λ_2` ∈ RealSet ∧ FunDeri(F, 1, 1)(x_{1}, x_{2}, y_{1}, y_{2}, `λ_1`, `λ_2`) = 0
+10. exists (x_{1}) (x_{2}) (y_{1}) (y_{2}) (`λ_1`) (`λ_2`), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ y_{1} ∈ RealSet ∧ y_{2} ∈ RealSet ∧ `λ_1` ∈ RealSet ∧ `λ_2` ∈ RealSet ∧ FunDeri(F, 2, 1)(x_{1}, x_{2}, y_{1}, y_{2}, `λ_1`, `λ_2`) = 0
+11. exists (x_{1}) (x_{2}) (y_{1}) (y_{2}) (`λ_1`) (`λ_2`), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ y_{1} ∈ RealSet ∧ y_{2} ∈ RealSet ∧ `λ_1` ∈ RealSet ∧ `λ_2` ∈ RealSet ∧ FunDeri(F, 3, 1)(x_{1}, x_{2}, y_{1}, y_{2}, `λ_1`, `λ_2`) = 0
+12. exists (x_{1}) (x_{2}) (y_{1}) (y_{2}) (`λ_1`) (`λ_2`), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ y_{1} ∈ RealSet ∧ y_{2} ∈ RealSet ∧ `λ_1` ∈ RealSet ∧ `λ_2` ∈ RealSet ∧ FunDeri(F, 4, 1)(x_{1}, x_{2}, y_{1}, y_{2}, `λ_1`, `λ_2`) = 0
+13. exists (x_{1}) (y_{1}), x_{1} ∈ RealSet ∧ y_{1} ∈ RealSet ∧ y_{1} = (x_{1})^{2}
+14. exists (x_{2}) (y_{2}), x_{2} ∈ RealSet ∧ y_{2} ∈ RealSet ∧ x_{2} - y_{2} - 2 = 0
+15. exists (x_{1}), x_{1} ∈ RealSet ∧ x_{1} = frac(1, 2)
+16. exists (y_{1}), y_{1} ∈ RealSet ∧ y_{1} = frac(1, 4)
+
+GOAL:
+exists (x_{2}), x_{2} ∈ RealSet ∧ x_{2} = frac(11, 8)
+
+METHOD:

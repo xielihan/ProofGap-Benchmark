@@ -1,0 +1,23 @@
+PROOF GAP @11
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. V ∈ RealSet
+3. Ω ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+4. Ω_{1} ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+5. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ Ω = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x^{2} + y^{2} + z^{2} ≤ a^{2} ∧ x^{2} + y^{2} ≥ a * |x| }))
+6. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ Ω_{1} = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x^{2} + y^{2} + z^{2} ≤ a^{2} ∧ x^{2} + y^{2} ≤ a * |x| }))
+7. V = VolumeInt(Ω, 1 * diff(ω))
+8. VolumeInt({ (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x^{2} + y^{2} + z^{2} ≤ a^{2} }, 1 * diff(ω)) = frac(4 * π * a^{3}, 3)
+9. forall (r), r ∈ RealSet ∧ r ≥ 0 ⇒ (forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2) ⇒ (exists (x), x ∈ RealSet ∧ x = r * cos(φ)))
+10. forall (r), r ∈ RealSet ∧ r ≥ 0 ⇒ (forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2) ⇒ (exists (y), y ∈ RealSet ∧ y = r * sin(φ)))
+11. forall (r), r ∈ RealSet ⇒ r ≥ 0
+12. forall (φ), φ ∈ RealSet ∧ φ ≤ frac(π, 2) ⇒ 0 ≤ φ
+13. forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ⇒ φ ≤ frac(π, 2)
+14. forall (r), r ∈ RealSet ∧ r ≥ 0 ⇒ (forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2) ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x = r * cos(φ) ∧ y = r * sin(φ) ⇒ (x^{2} + y^{2} ≤ a * |x| ⇔ r ≤ a * cos(φ)))))
+15. VolumeInt(Ω_{1}, 1 * diff(ω)) = 8 * DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . DefInt(0, a * cos(φ), (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a * cos(φ)] . r * sqrtn(2, a^{2} - r^{2})) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a * cos(φ)] . r))) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . φ))
+16. 8 * DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . DefInt(0, a * cos(φ), (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a * cos(φ)] . r * sqrtn(2, a^{2} - r^{2})) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a * cos(φ)] . r))) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . φ)) = -frac(8, 3) * DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . ((fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a * cos(φ)] . (a^{2} - r^{2})^{frac(3, 2)})|_{0}^{a * cos(φ)})) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . φ))
+
+GOAL:
+-frac(8, 3) * DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . ((fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a * cos(φ)] . (a^{2} - r^{2})^{frac(3, 2)})|_{0}^{a * cos(φ)})) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . φ)) = frac(8 * a^{3}, 3) * DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . 1 - sin(φ)^{3}) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . φ))
+
+METHOD:

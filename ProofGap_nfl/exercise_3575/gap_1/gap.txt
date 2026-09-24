@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. f : CartesianProd(RealSet, CartesianProd(RealSet, CartesianProd(RealSet, RealSet))) → RealSet
+2. R ∈ RealSet
+3. r ∈ RealSet ∧ r > 0
+4. R > r
+5. forall (X) (Y) (Z) (t), X ∈ RealSet ∧ Y ∈ RealSet ∧ Z ∈ RealSet ∧ t ∈ RealSet ⇒ f(X, Y, Z, t) = (X - R * cos(t))^{2} + (Y - R * sin(t))^{2} + Z^{2} - r^{2}
+
+GOAL:
+forall (X) (Y) (Z) (t), X ∈ RealSet ∧ Y ∈ RealSet ∧ Z ∈ RealSet ∧ t ∈ RealSet ⇒ f(X, Y, Z, t) = (X - R * cos(t))^{2} + (Y - R * sin(t))^{2} + Z^{2} - r^{2}
+
+METHOD:

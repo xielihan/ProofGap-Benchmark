@@ -1,0 +1,6 @@
+1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ y(n) = f(x(n))}) (n := {k})
+2. get_condition (hypothesis 9: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2}) in (GOAL: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2 ⇒ y(k) = f(x(k))})
+3. assert (hypothesis 10: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet})
+4. get_prop (hypothesis 7: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ∈ RealSet ∧ y(n) = f(x(n))}) (n := {k}) as (hypothesis 11: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ x(k) ∈ RealSet ∧ y(k) = f(x(k))})
+5. use_condition (hypothesis 10: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet}) in (hypothesis 11: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ x(k) ∈ RealSet ∧ y(k) = f(x(k))}) as (hypothesis 12: {x(k) ∈ RealSet ∧ y(k) = f(x(k))})
+6. autosolve all_hypothesis

@@ -1,0 +1,11 @@
+not_normalize from (GOAL: {¬(exists (M), M ∈ RealSet ∧ M ∈ E ∧ (forall (x), x ∈ RealSet ∧ x ∈ E ⇒ x ≤ M))}) to (GOAL: {(exists (M), M ∈ RealSet ∧ M ∈ E ∧ (forall (x), x ∈ RealSet ∧ x ∈ E ⇒ x ≤ M)) ⇒ False})
+get_condition (hypothesis 10: {exists (M), M ∈ RealSet ∧ M ∈ E ∧ (forall (x), x ∈ RealSet ∧ x ∈ E ⇒ x ≤ M)}) in (GOAL: {(exists (M), M ∈ RealSet ∧ M ∈ E ∧ (forall (x), x ∈ RealSet ∧ x ∈ E ⇒ x ≤ M)) ⇒ False})
+get_exists (hypothesis 10: {exists (M), M ∈ RealSet ∧ M ∈ E ∧ (forall (x), x ∈ RealSet ∧ x ∈ E ⇒ x ≤ M)}) (M := {a})
+destruct_and (hypothesis 11: {a ∈ RealSet ∧ a ∈ E ∧ (forall (x), x ∈ RealSet ∧ x ∈ E ⇒ x ≤ a)}) as (hypothesis 12: {a ∈ RealSet}) (hypothesis 13: {a ∈ E}) (hypothesis 14: {forall (x), x ∈ RealSet ∧ x ∈ E ⇒ x ≤ a})
+get_prop (hypothesis 8: {forall (x), x ∈ RealSet ∧ x ∈ E ⇒ (exists (y), y ∈ RealSet ∧ y ∈ E ∧ y > x)}) (x := {a}) as (hypothesis 15: {a ∈ RealSet ∧ a ∈ E ⇒ (exists (y), y ∈ RealSet ∧ y ∈ E ∧ y > a)})
+use_condition (obvious: {a ∈ RealSet ∧ a ∈ E}) in (hypothesis 15: {a ∈ RealSet ∧ a ∈ E ⇒ (exists (y), y ∈ RealSet ∧ y ∈ E ∧ y > a)}) as (hypothesis 16: {exists (y), y ∈ RealSet ∧ y ∈ E ∧ y > a})
+get_exists (hypothesis 16: {exists (y), y ∈ RealSet ∧ y ∈ E ∧ y > a}) (y := {z})
+destruct_and (hypothesis 17: {z ∈ RealSet ∧ z ∈ E ∧ z > a}) as (hypothesis 18: {z ∈ RealSet}) (hypothesis 19: {z ∈ E}) (hypothesis 20: {z > a})
+get_prop (hypothesis 14: {forall (x), x ∈ RealSet ∧ x ∈ E ⇒ x ≤ a}) (x := {z}) as (hypothesis 21: {z ∈ RealSet ∧ z ∈ E ⇒ z ≤ a})
+use_condition (obvious: {z ∈ RealSet ∧ z ∈ E}) in (hypothesis 21: {z ∈ RealSet ∧ z ∈ E ⇒ z ≤ a}) as (hypothesis 22: {z ≤ a})
+autosolve all_hypothesis

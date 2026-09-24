@@ -1,0 +1,15 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. δ ∈ RealSet
+3. δ > 0
+4. δ < 1
+5. ContinuousFuncOn(y, IntervalLoRo(1 - δ, 1 + δ))
+6. y(1) = 1
+7. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(1 - δ, 1 + δ) ⇒ y(x)^{2} = x^{2}
+8. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(1 - δ, 1 + δ) ⇒ y(x) = x
+
+GOAL:
+y = (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(1 - δ, 1 + δ)] . x) ⇔ ContinuousFuncOn(y, IntervalLoRo(1 - δ, 1 + δ)) ∧ y(1) = 1 ∧ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(1 - δ, 1 + δ) ⇒ y(x)^{2} = x^{2})
+
+METHOD:

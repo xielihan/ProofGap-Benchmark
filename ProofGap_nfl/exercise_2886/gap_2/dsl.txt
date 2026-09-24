@@ -1,0 +1,12 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet => e^{x} * e^{__IMAGINARY_UNIT__ * x} = e^{(1 + __IMAGINARY_UNIT__) * x}}) (x := {x0})
+get_condition (hypothesis 4: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet => e^{x0} * e^{__IMAGINARY_UNIT__ * x0} = e^{(1 + __IMAGINARY_UNIT__) * x0}})
+assert (hypothesis 5: {x0 ∈ ComplexSet}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 6: {__IMAGINARY_UNIT__ * x0 ∈ ComplexSet}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 229. (ComplexExponentialAddition)': {forall (z1) (z2), z1 ∈ ComplexSet => z2 ∈ ComplexSet => (e ^ (z1 + z2) = e ^ (z1) * e ^ (z2))}) (z1 := {x0}) (z2 := {__IMAGINARY_UNIT__ * x0}) as (hypothesis 7: {x0 ∈ ComplexSet => __IMAGINARY_UNIT__ * x0 ∈ ComplexSet => e^{x0 + __IMAGINARY_UNIT__ * x0} = e^{x0} * e^{__IMAGINARY_UNIT__ * x0}})
+use_condition (hypothesis 5: {x0 ∈ ComplexSet}) (hypothesis 6: {__IMAGINARY_UNIT__ * x0 ∈ ComplexSet}) in (hypothesis 7: {x0 ∈ ComplexSet => __IMAGINARY_UNIT__ * x0 ∈ ComplexSet => e^{x0 + __IMAGINARY_UNIT__ * x0} = e^{x0} * e^{__IMAGINARY_UNIT__ * x0}}) as (hypothesis 8: {e^{x0 + __IMAGINARY_UNIT__ * x0} = e^{x0} * e^{__IMAGINARY_UNIT__ * x0}})
+rewrite (right_to_left, equation) (hypothesis 8: {e^{x0 + __IMAGINARY_UNIT__ * x0} = e^{x0} * e^{__IMAGINARY_UNIT__ * x0}}); from (GOAL: {e^{x0} * e^{__IMAGINARY_UNIT__ * x0} = e^{(1 + __IMAGINARY_UNIT__) * x0}}) to (GOAL: {e^{x0 + __IMAGINARY_UNIT__ * x0} = e^{(1 + __IMAGINARY_UNIT__) * x0}})
+autosolve all_hypothesis

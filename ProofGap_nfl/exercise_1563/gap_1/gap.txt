@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. V ∈ RealSet ∧ V > 0
+2. H : RealSet → RealSet
+3. S_{area} : RealSet → RealSet
+4. forall (x), x ∈ RealSet ∧ x > 0 ⇒ H(x) = frac(V, π * x^{2})
+5. forall (x), x ∈ RealSet ∧ x > 0 ⇒ S_{area}(x) = 2 * π * x * H(x) + 2 * π * x^{2}
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ S_{area}(x) = frac(2 * V, x) + 2 * π * x^{2}
+
+METHOD:

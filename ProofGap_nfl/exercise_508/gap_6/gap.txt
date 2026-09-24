@@ -1,0 +1,11 @@
+PROOF GAP @6
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x ≠ 1 ⇒ frac(x^{3}, 1 - x) = frac(x^{2}, frac(1, x) - 1)
+2. lim_{ x → +∞ } (frac(3 * x^{2} - x + 1, 2 * x^{2} + x + 1)) = frac(3, 2)
+3. lim_{ x → +∞ } (frac(x^{3}, 1 - x)) = lim_{ x → +∞ } (frac(x^{2}, frac(1, x) - 1))
+4. lim_{ x → +∞ } (frac(x^{2}, frac(1, x) - 1)) = -∞
+5. lim_{ x → +∞ } (frac(x^{3}, 1 - x)) = -∞
+GOAL:
+lim_{ x → +∞ } (frac(3 * x^{2} - x + 1, 2 * x^{2} + x + 1)^{frac(x^{3}, 1 - x)}) = 0
+
+METHOD:

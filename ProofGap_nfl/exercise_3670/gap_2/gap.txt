@@ -1,0 +1,20 @@
+PROOF GAP @2
+ASSUM:
+1. u ∈ RealSet
+2. w ∈ RealSet
+3. F : RealSet → RealSet
+4. x : NonNegIntegerSet → RealSet
+5. α : NonNegIntegerSet → RealSet
+6. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+7. a ∈ RealSet ∧ a > 0
+8. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ α(i) > 1 ∧ x(i) > 0
+9. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ u = prod_{ i = 1 }^{ n } (x(i)^{α(i)})
+10. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ sum_{ i = 1 }^{ n } (x(i)) = a
+11. w = ln(u)
+12. w = sum_{ i = 1 }^{ n } (α(i) * ln(x(i)))
+13. forall (λ), λ ∈ RealSet ∧ λ ≠ 0 ⇒ F(λ) = w - frac(1, λ) * ((sum_{ i = 1 }^{ n } (x(i))) - a)
+
+GOAL:
+forall (λ), λ ∈ RealSet ∧ λ ≠ 0 ⇒ F(λ) = (sum_{ i = 1 }^{ n } (α(i) * ln(x(i)) - frac(x(i), λ))) + frac(a, λ)
+
+METHOD:

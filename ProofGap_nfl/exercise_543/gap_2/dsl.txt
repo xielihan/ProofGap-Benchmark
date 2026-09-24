@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet /\ x > 0 /\ x ≠ a => frac(x * ln(x) - a * ln(a), x - a) = frac(x * ln(x) - x * ln(a), x - a) + ln(a)}) (x := {t})
+get_condition (hypothesis 3: {t ∈ RealSet /\ t > 0 /\ t ≠ a}) in (GOAL: {t ∈ RealSet /\ t > 0 /\ t ≠ a => frac(t * ln(t) - a * ln(a), t - a) = frac(t * ln(t) - t * ln(a), t - a) + ln(a)})
+destruct_and (hypothesis 3: {t ∈ RealSet /\ t > 0 /\ t ≠ a}) as (hypothesis 4: {t ∈ RealSet}) (hypothesis 5: {t > 0}) (hypothesis 6: {t ≠ a})
+autosolve (hypothesis 6: {t ≠ a})

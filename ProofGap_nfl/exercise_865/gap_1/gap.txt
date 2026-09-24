@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. n ∈ NonNegIntegerSet
+3. n ∈ PosIntegerSet
+4. forall (x), x ∈ RealSet ⇒ y(x) = sin(x)^{n} * cos(n * x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ y(x) = sin(x)^{n} * cos(n * x)
+
+METHOD:

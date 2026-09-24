@@ -1,0 +1,5 @@
+get_condition (hypothesis 24: {a^{2} + b^{2} ≠ 0}) in (GOAL: {a^{2} + b^{2} ≠ 0 ⇒ c ≠ 0 ⇒ (1 + r^{2})^{frac(1, 2)} * FunDeri(fun t . z(r * cos(t), r * sin(t)), 1, 2)(φ) = -c * r^{2}})
+get_condition (hypothesis 25: {c ≠ 0}) in (GOAL: {c ≠ 0 ⇒ (1 + r^{2})^{frac(1, 2)} * FunDeri(fun t . z(r * cos(t), r * sin(t)), 1, 2)(φ) = -c * r^{2}})
+use_condition (hypothesis 24: {a^{2} + b^{2} ≠ 0}) (hypothesis 25: {c ≠ 0}) in (hypothesis 17: {a^{2} + b^{2} ≠ 0 ⇒ c ≠ 0 ⇒ c * r = a * cos(φ) + b * sin(φ)}) as (hypothesis 26: {c * r = a * cos(φ) + b * sin(φ)})
+rewrite (right_to_left, equation) (hypothesis 26: {c * r = a * cos(φ) + b * sin(φ)}); from (hypothesis 21: {(1 + r^{2})^{frac(1, 2)} * FunDeri(fun t . z(r * cos(t), r * sin(t)), 1, 2)(φ) = -r * (a * cos(φ) + b * sin(φ))}) to (hypothesis 21: {(1 + r^{2})^{frac(1, 2)} * FunDeri(fun t . z(r * cos(t), r * sin(t)), 1, 2)(φ) = -r * (c * r)})
+autosolve (hypothesis 21: {(1 + r^{2})^{frac(1, 2)} * FunDeri(fun t . z(r * cos(t), r * sin(t)), 1, 2)(φ) = -r * (c * r)})

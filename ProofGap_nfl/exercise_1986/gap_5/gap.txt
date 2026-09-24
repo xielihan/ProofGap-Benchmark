@@ -1,0 +1,14 @@
+PROOF GAP @5
+ASSUM:
+1. x ∈ RealSet
+2. z ∈ RealSet ∧ z > 1
+3. C ∈ RealSet
+4. frac(1, sqrtn(4, 1 + x^{4})) = x^{0} * (1 + x^{4})^{-frac(1, 4)}
+5. x^{-4} + 1 = z^{4}
+6. x ≠ 0 ⇒ z = frac(sqrtn(4, 1 + x^{4}), x)
+7. x ≠ 0 ⇒ z > 1
+
+GOAL:
+x ≠ 0 ⇒ x > 0
+
+METHOD:

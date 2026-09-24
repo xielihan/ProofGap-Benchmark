@@ -1,0 +1,19 @@
+get_forall (GOAL: {forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ∈ PosRealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ n > frac(1, ε) ⇒ |f(n, x) - g(x)| < ε)}) (n := {m}) (x := {y})
+get_condition (hypothesis 12: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ y ∈ RealSet ∧ y ∈ PosRealSet}) in (GOAL: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ y ∈ RealSet ∧ y ∈ PosRealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ m > frac(1, ε) ⇒ |f(m, y) - g(y)| < ε)})
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ m > frac(1, ε) ⇒ |f(m, y) - g(y)| < ε}) (ε := {δ})
+get_condition (hypothesis 13: {δ ∈ RealSet ∧ δ > 0 ∧ m > frac(1, δ)}) in (GOAL: {δ ∈ RealSet ∧ δ > 0 ∧ m > frac(1, δ) ⇒ |f(m, y) - g(y)| < δ})
+get_prop (hypothesis 10: {forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ∈ PosRealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(1, n) < ε ⇒ |f(n, x) - g(x)| < ε)}) (n := {m}) (x := {y}) as (hypothesis 14: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ y ∈ RealSet ∧ y ∈ PosRealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(1, m) < ε ⇒ |f(m, y) - g(y)| < ε)})
+use_condition (hypothesis 12: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ y ∈ RealSet ∧ y ∈ PosRealSet}) in (hypothesis 14: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ y ∈ RealSet ∧ y ∈ PosRealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(1, m) < ε ⇒ |f(m, y) - g(y)| < ε)}) as (hypothesis 15: {forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(1, m) < ε ⇒ |f(m, y) - g(y)| < ε})
+get_prop (hypothesis 15: {forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(1, m) < ε ⇒ |f(m, y) - g(y)| < ε}) (ε := {δ}) as (hypothesis 16: {δ ∈ RealSet ∧ δ > 0 ∧ frac(1, m) < δ ⇒ |f(m, y) - g(y)| < δ})
+get_prop (hypothesis 11: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ n > frac(1, ε) ⇒ frac(1, n) < ε)}) (n := {m}) as (hypothesis 17: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ m > frac(1, ε) ⇒ frac(1, m) < ε)})
+assert (hypothesis 18: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 18: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet}) in (hypothesis 17: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ m > frac(1, ε) ⇒ frac(1, m) < ε)}) as (hypothesis 19: {forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ m > frac(1, ε) ⇒ frac(1, m) < ε})
+get_prop (hypothesis 19: {forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ m > frac(1, ε) ⇒ frac(1, m) < ε}) (ε := {δ}) as (hypothesis 20: {δ ∈ RealSet ∧ δ > 0 ∧ m > frac(1, δ) ⇒ frac(1, m) < δ})
+use_condition (hypothesis 13: {δ ∈ RealSet ∧ δ > 0 ∧ m > frac(1, δ)}) in (hypothesis 20: {δ ∈ RealSet ∧ δ > 0 ∧ m > frac(1, δ) ⇒ frac(1, m) < δ}) as (hypothesis 21: {frac(1, m) < δ})
+assert (hypothesis 22: {δ ∈ RealSet ∧ δ > 0 ∧ frac(1, m) < δ}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 22: {δ ∈ RealSet ∧ δ > 0 ∧ frac(1, m) < δ}) in (hypothesis 16: {δ ∈ RealSet ∧ δ > 0 ∧ frac(1, m) < δ ⇒ |f(m, y) - g(y)| < δ}) as (hypothesis 23: {|f(m, y) - g(y)| < δ})
+apply (hypothesis 23: {|f(m, y) - g(y)| < δ})

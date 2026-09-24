@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet ∧ x ≠ 1
+2. f : RealSet → RealSet
+3. lim_{ x → 1 } (x) = 1
+4. f(x) = frac(x^{2}, x^{2} - 1)
+5. forall (x), x ∈ RealSet ∧ x ≠ 1 ∧ x ≠ -1 ⇒ frac(x^{2}, x^{2} - 1) = frac(x^{2}, (x - 1) * (x + 1))
+6. frac(frac(x^{2}, x^{2} - 1), frac(1, 2 * (x - 1))) = frac(2 * x^{2}, x + 1)
+7. lim_{ x → 1 } (frac(frac(x^{2}, x^{2} - 1), frac(1, 2 * (x - 1)))) = 1
+
+GOAL:
+lim_{ x → 1 } (frac(frac(x^{2}, x^{2} - 1), frac(1, 2 * (x - 1)))) = 1
+
+METHOD:

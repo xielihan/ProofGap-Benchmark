@@ -1,0 +1,16 @@
+PROOF GAP @4
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. f : RealSet → RealSet
+4. I ⊆ RealSet
+5. FuncOfClassKOn(f, I, 3)
+6. forall (t), t ∈ RealSet ∧ t ∈ I ⇒ x(t) = FunDeri(f, 1, 1)(t) ∧ y(t) = t * FunDeri(f, 1, 1)(t) - f(t)
+7. forall (t), t ∈ RealSet ∧ t ∈ I ∧ FunDeri(f, 1, 2)(t) ≠ 0 ⇒ FunDeri(y, x, 1)(t) = frac(t * FunDeri(f, 1, 2)(t), FunDeri(f, 1, 2)(t))
+8. forall (t), t ∈ RealSet ∧ t ∈ I ∧ FunDeri(f, 1, 2)(t) ≠ 0 ⇒ frac(t * FunDeri(f, 1, 2)(t), FunDeri(f, 1, 2)(t)) = t
+9. forall (t), t ∈ RealSet ∧ t ∈ I ∧ FunDeri(f, 1, 2)(t) ≠ 0 ⇒ FunDeri(y, x, 1)(t) = t
+
+GOAL:
+forall (t), t ∈ RealSet ∧ t ∈ I ∧ FunDeri(f, 1, 2)(t) ≠ 0 ⇒ FunDeri(y, x, 2)(t) = frac(1, FunDeri(f, 1, 2)(t))
+
+METHOD:

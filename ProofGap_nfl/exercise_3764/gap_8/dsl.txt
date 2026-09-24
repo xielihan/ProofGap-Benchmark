@@ -1,0 +1,2 @@
+exists (`ε_0` := {frac(sqrtn(2, π), 4)})
+autosolve all_hypothesis

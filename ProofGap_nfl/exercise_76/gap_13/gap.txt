@@ -1,0 +1,21 @@
+PROOF GAP @13
+ASSUM:
+1. a ∈ RealSet ∧ a ∈ PosRealSet
+2. a > 1 ⇒ b = (fun n [n ∈ NonNegIntegerSet] . a^{frac(1, n)} - 1)
+3. a > 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) > 0)
+4. a > 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(ln(a), n) = ln(1 + b(n)))
+5. a > 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ n * (a^{frac(1, n)} - 1) = ln(a) * frac(b(n), ln(1 + b(n))))
+6. a > 1 ⇒ seqlim_{ n → +∞ } (b(n)) = 0
+7. a > 1 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ 0 < b(n) ∧ b(n) < 1))
+8. a > 1 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (exists (k), k : NonNegIntegerSet → NonNegIntegerSet ∧ k(n) ∈ PosIntegerSet ∧ frac(1, k(n) + 1) ≤ b(n) ∧ b(n) < frac(1, k(n)) ∧ (forall (k1) (n2), k1 : NonNegIntegerSet → NonNegIntegerSet ∧ n2 ∈ NonNegIntegerSet ∧ k1(n2) ∈ PosIntegerSet ∧ frac(1, k1(n2) + 1) ≤ b(n2) ∧ b(n2) < frac(1, k1(n2)) ⇒ k1 = k ∧ n2 = n))))
+9. a > 1 ⇒ (exists (N) (k), N ∈ NonNegIntegerSet ∧ k : NonNegIntegerSet → NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ seqlim_{ n → +∞ } (k(n)) = +∞))
+10. a > 1 ⇒ (exists (N) (k), N ∈ NonNegIntegerSet ∧ k : NonNegIntegerSet → NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ frac(1, k(n) + 2) < ln(1 + frac(1, k(n) + 1))))
+11. a > 1 ⇒ (exists (N) (k), N ∈ NonNegIntegerSet ∧ k : NonNegIntegerSet → NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ ln(1 + frac(1, k(n) + 1)) ≤ ln(1 + b(n))))
+12. a > 1 ⇒ (exists (N) (k), N ∈ NonNegIntegerSet ∧ k : NonNegIntegerSet → NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ ln(1 + b(n)) < ln(1 + frac(1, k(n)))))
+13. a > 1 ⇒ (exists (N) (k), N ∈ NonNegIntegerSet ∧ k : NonNegIntegerSet → NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ ln(1 + frac(1, k(n))) < frac(1, k(n))))
+14. a > 1 ⇒ (exists (N) (k), N ∈ NonNegIntegerSet ∧ k : NonNegIntegerSet → NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ frac(1, k(n) + 2) < frac(1, k(n))))
+
+GOAL:
+a > 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > 1 ⇒ 1 - frac(1, n + 1) = frac(n, n + 1))
+
+METHOD:

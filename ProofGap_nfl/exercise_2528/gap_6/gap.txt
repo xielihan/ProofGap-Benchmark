@@ -1,0 +1,19 @@
+PROOF GAP @6
+ASSUM:
+1. Q : RealSet → RealSet
+2. Q_{0} ∈ RealSet ∧ Q_{0} > 0
+3. k ∈ RealSet
+4. forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ Q(t) > 0
+5. forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ FunDeri(Q, 1, 1)(t) = k * Q(t)
+6. Q(0) = Q_{0}
+7. Q(1600) = frac(Q_{0}, 2)
+8. frac(diff(Q), Q) = k * diff(fun t [t ∈ RealSet] . t)
+9. DefInt(Q_{0}, frac(Q_{0}, 2), (fun Q [Q ∈ RealSet ∧ Q > 0] . frac(1, Q)) * diff(fun Q [Q ∈ RealSet ∧ Q > 0] . Q)) = DefInt(0, 1600, (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 1600] . k) * diff(fun t [t ∈ RealSet] . t))
+10. k = -frac(ln(2), 1600)
+11. forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ DefInt(Q_{0}, Q(t), (fun Q [Q ∈ RealSet ∧ Q > 0] . frac(1, Q)) * diff(fun Q [Q ∈ RealSet ∧ Q > 0] . Q)) = -frac(ln(2), 1600) * DefInt(0, t, diff(fun t [t ∈ RealSet] . t))
+12. forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ ln(frac(Q(t), Q_{0})) = ln(2^{-frac(t, 1600)})
+
+GOAL:
+forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ Q(t) = Q_{0} * 2^{-frac(t, 1600)}
+
+METHOD:

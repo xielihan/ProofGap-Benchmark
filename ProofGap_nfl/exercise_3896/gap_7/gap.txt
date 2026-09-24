@@ -1,0 +1,17 @@
+PROOF GAP @7
+ASSUM:
+1. f : RealSet → RealSet
+2. F : RealSet → ComplexSet
+3. α ∈ RealSet ∧ α > 0
+4. forall (x), x ∈ RealSet ⇒ f(x) = e^{-α * |x|}
+5. EvenFunc(f)
+6. ContinuousFunc(f)
+7. forall (x), x ∈ RealSet ⇒ F(x) = frac(1, sqrtn(2, 2 * π)) * DefInt(-∞, +∞, (fun t [t ∈ RealSet] . e^{-α * |t|} * e^{-__IMAGINARY_UNIT__ * t * x}) * diff(fun t [t ∈ RealSet] . t))
+8. forall (x), x ∈ RealSet ⇒ F(x) = frac(1, sqrtn(2, 2 * π)) * DefInt(-∞, +∞, (fun t [t ∈ RealSet] . e^{-α * |t|} * (cos(t * x) - __IMAGINARY_UNIT__ * sin(t * x))) * diff(fun t [t ∈ RealSet] . t))
+9. forall (x), x ∈ RealSet ⇒ F(x) = sqrtn(2, frac(2, π)) * DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ≥ 0] . e^{-α * t} * cos(t * x)) * diff(fun t [t ∈ RealSet] . t))
+10. forall (x), x ∈ RealSet ⇒ F(x) = sqrtn(2, frac(2, π)) * frac(α, α^{2} + x^{2})
+
+GOAL:
+f = (fun x [x ∈ RealSet] . sqrtn(2, frac(2, π)) * DefInt(0, +∞, (fun λ [λ ∈ RealSet ∧ λ ≥ 0] . frac(α * cos(λ * x), α^{2} + λ^{2})) * diff(fun λ [λ ∈ RealSet] . λ)))
+
+METHOD:

@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (t), t ∈ RealSet ⇒ D(y) = e^{t} * δ(y)}) (t := {t0})
+get_condition (hypothesis 15: {t0 ∈ RealSet}) in (GOAL: {t0 ∈ RealSet ⇒ D(y) = e^{t0} * δ(y)})
+get_prop (hypothesis 14: {forall (t), t ∈ RealSet ⇒ FunDeri(y, 1, 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1) = e^{t} * δ(y)}) (t := {t0}) as (hypothesis 16: {t0 ∈ RealSet ⇒ FunDeri(y, 1, 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1) = e^{t0} * δ(y)})
+use_condition (hypothesis 15: {t0 ∈ RealSet}) in (hypothesis 16: {t0 ∈ RealSet ⇒ FunDeri(y, 1, 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1) = e^{t0} * δ(y)}) as (hypothesis 17: {FunDeri(y, 1, 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1) = e^{t0} * δ(y)})
+rewrite (left_to_right, equation) (hypothesis 13: {D(y) = FunDeri(y, 1, 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)}); from (GOAL: {D(y) = e^{t0} * δ(y)}) to (GOAL: {FunDeri(y, 1, 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1) = e^{t0} * δ(y)})
+apply (hypothesis 17: {FunDeri(y, 1, 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1) = e^{t0} * δ(y)})

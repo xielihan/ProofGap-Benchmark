@@ -1,0 +1,19 @@
+PROOF GAP @7
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. v : CartesianProd(RealSet, RealSet) → RealSet
+3. w : CartesianProd(RealSet, RealSet) → RealSet
+4. z : CartesianProd(RealSet, RealSet) → RealSet
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ 0 ∧ y ≠ 0 ∧ z(x, y) ≠ 0 ⇒ u(x, y) = x ∧ v(x, y) = frac(1, y) - frac(1, x) ∧ w(u(x, y), v(x, y)) = frac(1, z(x, y)) - frac(1, x)
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ x^{2} * FunDeri(z, 1, 1)(x, y) + y^{2} * FunDeri(z, 2, 1)(x, y) = z(x, y)^{2}
+7. diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y)) = diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)
+8. forall (x) (y), x ∈ RealSet ∧ x ≠ 0 ∧ y ∈ RealSet ∧ y ≠ 0 ⇒ diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . v(x, y)) = frac(1, x^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - frac(1, y^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+9. forall (x) (y), x ∈ RealSet ∧ x ≠ 0 ∧ y ∈ RealSet ∧ z(x, y) ≠ 0 ⇒ diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . w(u(x, y), v(x, y))) = frac(1, x^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - frac(1, z(x, y)^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y))
+10. forall (x) (y), x ∈ RealSet ∧ x ≠ 0 ∧ y ∈ RealSet ∧ y ≠ 0 ∧ z(x, y) ≠ 0 ⇒ frac(1, x^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - frac(1, z(x, y)^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y)) = FunDeri(w, 1, 1)(u(x, y), v(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + FunDeri(w, 2, 1)(u(x, y), v(x, y)) * (frac(1, x^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - frac(1, y^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+11. forall (x) (y), x ∈ RealSet ∧ x ≠ 0 ∧ y ∈ RealSet ∧ y ≠ 0 ⇒ diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y)) = z(x, y)^{2} * (frac(1, x^{2}) - FunDeri(w, 1, 1)(u(x, y), v(x, y)) - frac(1, x^{2}) * FunDeri(w, 2, 1)(u(x, y), v(x, y))) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + frac(z(x, y)^{2}, y^{2}) * FunDeri(w, 2, 1)(u(x, y), v(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+12. forall (x) (y), x ∈ RealSet ∧ x ≠ 0 ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 1)(x, y) = z(x, y)^{2} * (frac(1, x^{2}) - FunDeri(w, 1, 1)(u(x, y), v(x, y)) - frac(1, x^{2}) * FunDeri(w, 2, 1)(u(x, y), v(x, y)))
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ≠ 0 ⇒ FunDeri(z, 2, 1)(x, y) = frac(z(x, y)^{2}, y^{2}) * FunDeri(w, 2, 1)(u(x, y), v(x, y))
+
+METHOD:

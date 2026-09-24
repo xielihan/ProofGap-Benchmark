@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x < -1 ⇒ frac(2 * x, 1 + x) > 2
+
+GOAL:
+exists (M), M ∈ RealSet ∧ M < 0 ∧ (forall (x), x ∈ RealSet ∧ x < M ⇒ frac(2 * x, 1 + x) > 2)
+
+METHOD:

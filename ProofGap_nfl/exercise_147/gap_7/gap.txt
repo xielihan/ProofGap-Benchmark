@@ -1,0 +1,16 @@
+PROOF GAP @7
+ASSUM:
+1. C ∈ RealSet
+2. ε : NonNegIntegerSet → RealSet
+3. k ∈ NonNegIntegerSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ sum_{ k = 1 }^{ n } (frac(1, k)) = C + ln(n) + ε(n)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ sum_{ k = 1 }^{ 2 * n } (frac(1, k)) = C + ln(2 * n) + ε(2 * n)
+6. seqlim_{ n → +∞ } (ε(n)) = 0
+7. seqlim_{ n → +∞ } (ε(2 * n)) = 0
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ sum_{ k = n + 1 }^{ 2 * n } (frac(1, k)) = ln(2 * n) - ln(n) + ε(2 * n) - ε(n)
+9. forall (n), n ∈ PosIntegerSet ⇒ sum_{ k = n + 1 }^{ 2 * n } (frac(1, k)) = ln(2) + ε(2 * n) - ε(n)
+
+GOAL:
+seqlim_{ n → +∞ } (sum_{ k = n + 1 }^{ 2 * n } (frac(1, k))) = ln(2)
+
+METHOD:

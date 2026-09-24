@@ -1,0 +1,4 @@
+autoreplace no_hypothesis; from ((1 - x)^{-frac(1, 2)}) to (frac(1, (1 - x)^{frac(1, 2)})); from (GOAL: {forall (x), x ∈ RealSet ∧ x < 1 ⇒ y(x) = (1 + x) * (1 - x)^{-frac(1, 2)}}) to (GOAL: {forall (x), x ∈ RealSet ∧ x < 1 ⇒ y(x) = (1 + x) * frac(1, (1 - x)^{frac(1, 2)})})
+autoreplace no_hypothesis; from ((1 - x)^{frac(1, 2)}) to (sqrtn(2, 1 - x)); from (GOAL: {forall (x), x ∈ RealSet ∧ x < 1 ⇒ y(x) = (1 + x) * frac(1, (1 - x)^{frac(1, 2)})}) to (GOAL: {forall (x), x ∈ RealSet ∧ x < 1 ⇒ y(x) = (1 + x) * frac(1, sqrtn(2, 1 - x))})
+autoreplace no_hypothesis; from ((1 + x) * frac(1, sqrtn(2, 1 - x))) to (frac(1 + x, sqrtn(2, 1 - x))); from (GOAL: {forall (x), x ∈ RealSet ∧ x < 1 ⇒ y(x) = (1 + x) * frac(1, sqrtn(2, 1 - x))}) to (GOAL: {forall (x), x ∈ RealSet ∧ x < 1 ⇒ y(x) = frac(1 + x, sqrtn(2, 1 - x))})
+apply (hypothesis 2: {forall (x), x ∈ RealSet ∧ x < 1 ⇒ y(x) = frac(1 + x, sqrtn(2, 1 - x))})

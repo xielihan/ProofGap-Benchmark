@@ -1,0 +1,5 @@
+get_prop (hypothesis 2: {forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ f(x) = x * e^{-0.01 * x}}) (x := {100}) as (hypothesis 7: {100 ∈ RealSet ∧ 100 ∈ PosRealSet ⇒ f(100) = 100 * e^{-0.01 * 100}})
+assert (hypothesis 8: {100 ∈ RealSet ∧ 100 ∈ PosRealSet})
+use_condition (hypothesis 8: {100 ∈ RealSet ∧ 100 ∈ PosRealSet}) in (hypothesis 7: {100 ∈ RealSet ∧ 100 ∈ PosRealSet ⇒ f(100) = 100 * e^{-0.01 * 100}}) as (hypothesis 9: {f(100) = 100 * e^{-0.01 * 100}})
+autoreplace no_hypothesis; from (-0.01 * 100) to (-1); from (hypothesis 9: {f(100) = 100 * e^{-0.01 * 100}}) to (hypothesis 10: {f(100) = 100 * e^{-1}})
+autosolve all_hypothesis

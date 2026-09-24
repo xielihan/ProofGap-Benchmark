@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. forall (a), a ∈ RealSet ⇒ (forall (n), n ∈ IntegerSet ∧ a ∈ PosRealSet ∧ n ∈ PosIntegerSet ⇒ lim_{ x → +∞ } (frac(x^{n}, e^{a * x})) = lim_{ x → +∞ } (frac(n * x^{n - 1}, a * e^{a * x})))
+2. forall (a), a ∈ RealSet ⇒ (forall (n), n ∈ IntegerSet ∧ a ∈ PosRealSet ∧ n ∈ PosIntegerSet ⇒ lim_{ x → +∞ } (frac(x^{n}, e^{a * x})) = lim_{ x → +∞ } (frac(n!, a^{n} * e^{a * x})))
+
+GOAL:
+forall (a), a ∈ RealSet ⇒ (forall (n), n ∈ IntegerSet ∧ a ∈ PosRealSet ∧ n ∈ PosIntegerSet ⇒ lim_{ x → +∞ } (frac(n!, a^{n} * e^{a * x})) = 0)
+
+METHOD:
+[@method 根据 "反复使用洛必达法则" @]

@@ -1,0 +1,9 @@
+get_condition (hypothesis 23: {x ∈ [-1, 1)}) (hypothesis 24: {f = (fun x [x ∈ RealSet] . sum_{ n = 1 }^{ +∞ } (frac(x^{n}, n)))}) (hypothesis 25: {x = -1}) in (GOAL: {x ∈ [-1, 1) ⇒ f = (fun x [x ∈ RealSet] . sum_{ n = 1 }^{ +∞ } (frac(x^{n}, n))) ⇒ x = -1 ⇒ f(x) = ln(frac(1, 1 - x))})
+assert (hypothesis 26: {f(x) = sum_{ n = 1 }^{ +∞ } (frac(x^{n}, n))}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 23: {x ∈ [-1, 1)}) (hypothesis 24: {f = (fun x [x ∈ RealSet] . sum_{ n = 1 }^{ +∞ } (frac(x^{n}, n)))}) (hypothesis 25: {x = -1}) in (hypothesis 22: {x ∈ [-1, 1) ⇒ f = (fun x [x ∈ RealSet] . sum_{ n = 1 }^{ +∞ } (frac(x^{n}, n))) ⇒ x = -1 ⇒ sum_{ n = 1 }^{ +∞ } (frac((-1)^{n}, n)) = ln(frac(1, 2))}) as (hypothesis 27: {sum_{ n = 1 }^{ +∞ } (frac((-1)^{n}, n)) = ln(frac(1, 2))})
+rewrite (left_to_right, equation) (hypothesis 26: {f(x) = sum_{ n = 1 }^{ +∞ } (frac(x^{n}, n))}); from (GOAL: {f(x) = ln(frac(1, 1 - x))}) to (GOAL: {sum_{ n = 1 }^{ +∞ } (frac(x^{n}, n)) = ln(frac(1, 1 - x))})
+rewrite (left_to_right, equation) (hypothesis 25: {x = -1}); from (GOAL: {sum_{ n = 1 }^{ +∞ } (frac(x^{n}, n)) = ln(frac(1, 1 - x))}) to (GOAL: {sum_{ n = 1 }^{ +∞ } (frac((-1)^{n}, n)) = ln(frac(1, 1 - (-1)))})
+autoreplace no_hypothesis; from (frac(1, 1 - (-1))) to (frac(1, 2)); from (GOAL: {sum_{ n = 1 }^{ +∞ } (frac((-1)^{n}, n)) = ln(frac(1, 1 - (-1)))}) to (GOAL: {sum_{ n = 1 }^{ +∞ } (frac((-1)^{n}, n)) = ln(frac(1, 2))})
+apply (hypothesis 27: {sum_{ n = 1 }^{ +∞ } (frac((-1)^{n}, n)) = ln(frac(1, 2))})

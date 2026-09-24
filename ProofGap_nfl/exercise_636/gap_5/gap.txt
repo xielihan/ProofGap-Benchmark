@@ -1,0 +1,15 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet
+2. y = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . prod_{ k = 1 }^{ n } (cos(frac(k * a, n * sqrtn(2, n)))))
+3. φ = (fun x [x ∈ RealSet ∧ cos(x) ≠ 0] . ln(1 + tan(x)^{2}))
+4. ψ = (fun x [x ∈ RealSet] . x^{2})
+5. α = (fun k, n [k ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ n > 0] . frac(k * a, n * sqrtn(2, n)))
+6. exists (N_{0}), N_{0} ∈ PosIntegerSet ∧ (forall (n) (k), n ∈ PosIntegerSet ∧ k ∈ PosIntegerSet ∧ n > N_{0} ∧ 1 ≤ k ∧ k ≤ n ⇒ cos(frac(k * a, n * sqrtn(2, n))) > 0)
+7. exists (N_{0}), N_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ PosIntegerSet ∧ n > N_{0} ⇒ ln(y(n)) = sum_{ k = 1 }^{ n } (ln(cos(frac(k * a, n * sqrtn(2, n))))) ∧ sum_{ k = 1 }^{ n } (ln(cos(frac(k * a, n * sqrtn(2, n))))) = -frac(1, 2) * (sum_{ k = 1 }^{ n } (ln(1 + tan(frac(k * a, n * sqrtn(2, n)))^{2}))))
+8. lim_{ x → 0 } (frac(φ(x), ψ(x))) = 1
+9. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ PosIntegerSet ∧ (forall (n) (k), n ∈ PosIntegerSet ∧ k ∈ PosIntegerSet ∧ n > N ∧ 1 ≤ k ∧ k ≤ n ⇒ |α(k, n)| < ε))
+GOAL:
+seqlim_{ n → +∞ } (sum_{ k = 1 }^{ n } (ψ(α(k, n)))) = seqlim_{ n → +∞ } (sum_{ k = 1 }^{ n } (frac(k^{2} * a^{2}, n^{3})))
+
+METHOD:

@@ -1,0 +1,4 @@
+get_exists (hypothesis 13: {exists (β), β ∈ RealSet ∧ α + β ≥ seqlim_{ n → +∞ } (x(n) + y(n))}) (β := {β1})
+destruct_and (hypothesis 14: {β1 ∈ RealSet ∧ α + β1 ≥ seqlim_{ n → +∞ } (x(n) + y(n))}) as (hypothesis 15: {β1 ∈ RealSet}) (hypothesis 16: {α + β1 ≥ seqlim_{ n → +∞ } (x(n) + y(n))})
+exists (β := {β1})
+autosolve all_hypothesis

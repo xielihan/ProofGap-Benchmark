@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. exists (`δ_0`), `δ_0` ∈ RealSet ∧ `δ_0` > 0 ∧ Defined(f, (a, a + `δ_0`))
+5. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ 0 < x - a ∧ x - a < δ ⇒ 0 < b - f(x) ∧ b - f(x) < ε))
+6. y = (fun x [x ∈ RealSet] . -x)
+7. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ 0 < x - 0 ∧ x - 0 < δ ⇒ 0 < 0 - y(x) ∧ 0 - y(x) < ε))
+8. lim_{ x → 0^+ } (y(x)) = 0 - 0
+
+GOAL:
+(forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ 0 < x - a ∧ x - a < δ ⇒ 0 < b - f(x) ∧ b - f(x) < ε))) ⇔ lim_{ x → a^+ } (f(x)) = b - 0
+
+METHOD:

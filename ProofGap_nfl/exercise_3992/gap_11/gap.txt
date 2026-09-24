@@ -1,0 +1,29 @@
+PROOF GAP @11
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. h ∈ RealSet ∧ h > 0
+4. k ∈ RealSet ∧ k > 0
+5. S ∈ RealSet
+6. C ⊆ CartesianProd(RealSet, RealSet)
+7. x ∈ RealSet
+8. y ∈ RealSet
+9. C = { (x, y) | x ∈ RealSet, y ∈ RealSet, frac(x^{3}, a^{3}) + frac(y^{3}, b^{3}) = frac(x^{2}, h^{2}) + frac(y^{2}, k^{2}) }
+10. x = 0
+11. y = 0
+12. forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ x = a * r * cos(φ))
+13. forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ y = b * r * sin(φ))
+14. forall (r), r ∈ RealSet ⇒ r ≥ 0
+15. forall (φ), φ ∈ RealSet ⇒ 0 ≤ φ
+16. forall (φ), φ ∈ RealSet ⇒ φ ≤ frac(π, 2)
+17. forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ r = frac(frac(a^{2}, h^{2}) * cos(φ)^{2} + frac(b^{2}, k^{2}) * sin(φ)^{2}, cos(φ)^{3} + sin(φ)^{3}))
+18. forall (r), r ∈ RealSet ⇒ S = frac(a * b, 2) * DefInt(0, frac(π, 2), r^{2} * diff(fun φ [φ ∈ RealSet] . φ))
+19. forall (φ), φ ∈ RealSet ⇒ S = frac(a * b, 2) * DefInt(0, frac(π, 2), frac(frac(a^{4}, h^{4}) * cos(φ)^{4} + frac(b^{4}, k^{4}) * sin(φ)^{4} + 2 * frac(a^{2}, h^{2}) * frac(b^{2}, k^{2}) * cos(φ)^{2} * sin(φ)^{2}, (cos(φ)^{3} + sin(φ)^{3})^{2}) * diff(fun φ [φ ∈ RealSet] . φ))
+20. forall (φ), φ ∈ RealSet ⇒ frac(a * b, 2) * DefInt(0, frac(π, 2), frac(frac(a^{4}, h^{4}) * cos(φ)^{4}, (cos(φ)^{3} + sin(φ)^{3})^{2}) * diff(fun φ [φ ∈ RealSet] . φ)) = frac(2 * π * a * b, 9 * sqrtn(2, 3)) * frac(a^{4}, h^{4})
+21. forall (φ), φ ∈ RealSet ⇒ frac(a * b, 2) * DefInt(0, frac(π, 2), frac(frac(b^{4}, k^{4}) * sin(φ)^{4}, (cos(φ)^{3} + sin(φ)^{3})^{2}) * diff(fun φ [φ ∈ RealSet] . φ)) = frac(2 * π * a * b, 9 * sqrtn(2, 3)) * frac(b^{4}, k^{4})
+
+GOAL:
+forall (φ), φ ∈ RealSet ⇒ frac(a * b, 2) * DefInt(0, frac(π, 2), frac(2 * frac(a^{2}, h^{2}) * frac(b^{2}, k^{2}) * cos(φ)^{2} * sin(φ)^{2}, (cos(φ)^{3} + sin(φ)^{3})^{2}) * diff(fun φ [φ ∈ RealSet] . φ)) = frac(a * b, 3) * frac(a^{2}, h^{2}) * frac(b^{2}, k^{2})
+
+METHOD:
+[@method 根据 "积分表" @]

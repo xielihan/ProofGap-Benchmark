@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (η), η ∈ RealSet ∧ η = frac(ε^{2}, 8) ∧ η < frac(ε^{2}, 4))}) (ε := {ε0})
+get_condition (hypothesis 9: {ε0 ∈ RealSet ∧ ε0 > 0}) in (GOAL: {ε0 ∈ RealSet ∧ ε0 > 0 ⇒ (exists (η), η ∈ RealSet ∧ η = frac(ε0^{2}, 8) ∧ η < frac(ε0^{2}, 4))})
+get_prop (theorem 'Thm 387. (PositiveBasePowerPositive)': {forall (a) (u), a ∈ RealSet => u ∈ RealSet => a > 0 => a ^ u > 0}) (a := {ε0}) (u := {2}) as (hypothesis 10: {ε0 ∈ RealSet => 2 ∈ RealSet => ε0 > 0 => ε0^{2} > 0})
+use_condition (obvious: {ε0 ∈ RealSet}) (obvious: {2 ∈ RealSet}) (obvious: {ε0 > 0}) in (hypothesis 10: {ε0 ∈ RealSet => 2 ∈ RealSet => ε0 > 0 => ε0^{2} > 0}) as (hypothesis 11: {ε0^{2} > 0})
+get_prop (theorem 'Thm 469. (SmallerPositiveDenominatorIncreasesFraction)': {forall (a) (b) (c), a ∈ RealSet => b ∈ RealSet => c ∈ RealSet => a > 0 => b > 0 => c > 0 => b - c > 0 => frac(a, b) < frac(a, b - c)}) (a := {ε0^{2}}) (b := {8}) (c := {4}) as (hypothesis 12: {ε0^{2} ∈ RealSet => 8 ∈ RealSet => 4 ∈ RealSet => ε0^{2} > 0 => 8 > 0 => 4 > 0 => 8 - 4 > 0 => frac(ε0^{2}, 8) < frac(ε0^{2}, 8 - 4)})
+use_condition (obvious: {ε0^{2} ∈ RealSet}) (obvious: {8 ∈ RealSet}) (obvious: {4 ∈ RealSet}) (hypothesis 11: {ε0^{2} > 0}) (obvious: {8 > 0}) (obvious: {4 > 0}) (obvious: {8 - 4 > 0}) in (hypothesis 12: {ε0^{2} ∈ RealSet => 8 ∈ RealSet => 4 ∈ RealSet => ε0^{2} > 0 => 8 > 0 => 4 > 0 => 8 - 4 > 0 => frac(ε0^{2}, 8) < frac(ε0^{2}, 8 - 4)}) as (hypothesis 13: {frac(ε0^{2}, 8) < frac(ε0^{2}, 4)})
+exists (η := {frac(ε0^{2}, 8)})
+autosolve all_hypothesis

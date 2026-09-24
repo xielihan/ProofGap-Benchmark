@@ -1,0 +1,16 @@
+PROOF GAP @5
+ASSUM:
+1. x : NonNegIntegerSet → RealSet
+2. C ∈ RealSet
+3. ε : NonNegIntegerSet → RealSet
+4. k ∈ NonNegIntegerSet
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = (sum_{ k = 1 }^{ n } (frac(1, k))) - ln(n)
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ln(1 + frac(1, n)) < frac(1, n)
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ln(n + 1) - ln(n) < frac(1, n)
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ln(n + 1) < sum_{ k = 1 }^{ n } (frac(1, k))
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n + 1) = (sum_{ k = 1 }^{ n } (frac(1, k))) + frac(1, n + 1) - ln(n + 1)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n + 1) > frac(1, n + 1) ∧ frac(1, n + 1) > 0
+
+METHOD:

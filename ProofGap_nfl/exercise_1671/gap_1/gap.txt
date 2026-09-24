@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. C ∈ RealSet
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = (sinh(2 * x + 1) + cosh(2 * x - 1)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_3`(x) = frac(1, 2) * (cosh(2 * x + 1) + sinh(2 * x - 1)) + C) }
+
+METHOD:

@@ -1,0 +1,20 @@
+PROOF GAP @6
+ASSUM:
+1. u : NonNegIntegerSet → RealSet
+2. v : NonNegIntegerSet → RealSet
+3. c : NonNegIntegerSet → RealSet
+4. forall (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ u(m) = cases{ 1 if m = 1; -frac(3, 2)^{m - 1} if m ≥ 2 }
+5. forall (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ v(m) = cases{ 1 if m = 1; frac(3, 2)^{m - 2} * (2^{m - 1} + frac(1, 2^{m})) if m ≥ 2 }
+6. forall (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ DivergentSeries(sum_{ m = 1 }^{ +∞ } (u(m)))
+7. forall (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ DivergentSeries(sum_{ m = 1 }^{ +∞ } (v(m)))
+8. forall (n) (m), n ∈ NonNegIntegerSet ∧ m ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ m ∈ PosIntegerSet ∧ m ≤ n ⇒ c(n) = sum_{ m = 1 }^{ n } (u(m) * v(n - m + 1))
+9. c(1) = u(1) * v(1)
+10. u(1) * v(1) = 1
+11. c(1) = 1
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ c(n) = u(1) * v(n) + (sum_{ m = 2 }^{ n - 1 } (u(m) * v(n - m + 1))) + u(n) * v(1)
+13. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ c(n) = frac(3, 2)^{n - 2} * (2^{n - 1} - 2^{n - 2} - (sum_{ k = 0 }^{ n - 3 } (2^{k})) + frac(1, 2^{n}) - (sum_{ k = 1 }^{ n - 1 } (frac(1, 2^{k}))))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ c(n) = frac(3, 2)^{n - 2} * (frac(1, 2^{n}) + frac(1, 2^{n - 1}))
+
+METHOD:

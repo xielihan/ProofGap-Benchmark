@@ -1,0 +1,18 @@
+PROOF GAP @7
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. h ∈ RealSet
+4. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+5. forall (x), x ∈ RealSet ⇒ f(x) = e^{x^{2}}
+6. f(x + h) - f(x) = e^{(x + h)^{2}} - e^{x^{2}}
+7. e^{(x + h)^{2}} - e^{x^{2}} = e^{x^{2}} * (e^{2 * x * h + h^{2}} - 1)
+8. f(x + h) - f(x) = e^{x^{2}} * (e^{2 * x * h + h^{2}} - 1)
+9. e^{2 * x * h + h^{2}} - 1 = sum_{ m = 1 }^{ +∞ } (frac((2 * x * h + h^{2})^{m}, m!))
+10. f(x + h) - f(x) = e^{x^{2}} * (sum_{ m = 1 }^{ +∞ } (frac((2 * x * h + h^{2})^{m}, m!)))
+11. frac(FunDeri(f, 1, n)(x), n!) = e^{x^{2}} * (sum_{ k = 0 }^{ floor(frac(n, 2)) } (frac((2 * x)^{n - 2 * k}, (n - 2 * k)! * k!)))
+
+GOAL:
+FunDeri(f, 1, n)(x) = e^{x^{2}} * (sum_{ k = 0 }^{ floor(frac(n, 2)) } (frac(n!, (n - 2 * k)! * k!) * (2 * x)^{n - 2 * k}))
+
+METHOD:

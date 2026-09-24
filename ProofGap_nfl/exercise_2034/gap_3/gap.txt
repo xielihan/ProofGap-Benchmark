@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ sin(x)^{3} + cos(x)^{3} ≠ 0
+2. forall (x), x ∈ RealSet ⇒ 1 - sin(x) * cos(x) > 0
+3. forall (x), x ∈ RealSet ⇒ sin(x) ≠ 0
+4. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(sin(x), sin(x)^{3} + cos(x)^{3}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(sin(x), (sin(x) + cos(x)) * (1 - sin(x) * cos(x))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+5. { `F_4` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(sin(x), (sin(x) + cos(x)) * (1 - sin(x) * cos(x))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_9` | exists (`F_5`) (`F_7`), `F_5` : RealSet → RealSet ∧ `F_7` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(sin(x) - cos(x), (sin(x) + cos(x)) * (1 - sin(x) * cos(x))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ FunDeri(`F_7`, 1, 1)(x) = frac(1, 1 - sin(x) * cos(x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_9`(x) = frac(1, 2) * `F_5`(x) + frac(1, 2) * `F_7`(x)) }
+
+GOAL:
+{ `F_14` | exists (`F_10`) (`F_12`), `F_10` : RealSet → RealSet ∧ `F_12` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_10`, 1, 1)(x) = frac(sin(x) - cos(x), (sin(x) + cos(x)) * (1 - sin(x) * cos(x))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ FunDeri(`F_12`, 1, 1)(x) = frac(1, 1 - sin(x) * cos(x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_14`(x) = frac(1, 2) * `F_10`(x) + frac(1, 2) * `F_12`(x)) } = { `F_22` | exists (`F_15`) (`F_17`) (`F_20`), `F_15` : RealSet → RealSet ∧ `F_17` : RealSet → RealSet ∧ `F_20` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_15`, 1, 1)(x) = frac(-(cos(x) - sin(x)), sin(x) + cos(x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ FunDeri(`F_17`, 1, 1)(x) = frac(sin(x)^{2} - cos(x)^{2}, 1 - sin(x) * cos(x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ FunDeri(`F_20`, 1, 1)(x) = frac(1, 1 - sin(x) * cos(x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_22`(x) = frac(1, 3) * `F_15`(x) + frac(1, 6) * `F_17`(x) + frac(1, 2) * `F_20`(x)) }
+
+METHOD:

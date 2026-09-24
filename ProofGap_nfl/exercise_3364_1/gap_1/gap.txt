@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. y_{n} : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+3. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+4. Dom(y) = [-1, 1]
+5. forall (x), x ∈ RealSet ∧ x ∈ [-1, 1] ⇒ x^{2} + y(x)^{2} = 1
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (fun x [x ∈ RealSet ∧ x ∈ [-1, 1]] . y_{n}(n, x)) = (fun x [x ∈ RealSet ∧ x ∈ [-1, 1]] . cases{ sqrtn(2, 1 - x^{2}) if x ≠ frac(1, n); -sqrtn(2, 1 - x^{2}) if x = frac(1, n) })
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ Dom((fun x [x ∈ RealSet ∧ x ∈ [-1, 1]] . y_{n}(n, x))) = [-1, 1]
+
+METHOD:

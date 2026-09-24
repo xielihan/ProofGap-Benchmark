@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. f = (fun x [x ∈ RealSet] . 3 * x - x^{3})
+2. ContinuousFuncOn(f, [-2, 2])
+3. MinimumPointOn(f, [-2, 2]) = { -1, 2 }
+
+GOAL:
+f(-1) = -2
+
+METHOD:

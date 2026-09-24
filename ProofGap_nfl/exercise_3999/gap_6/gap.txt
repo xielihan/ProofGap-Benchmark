@@ -1,0 +1,23 @@
+PROOF GAP @6
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. D ⊆ CartesianProd(RealSet, RealSet)
+4. S ∈ RealSet
+5. I : CartesianProd(RealSet, RealSet) → RealSet
+6. a > 0
+7. b > 0
+8. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ ((x, y) ∈ D ⇔ x ≥ 0 ∧ y > 0 ∧ 1 ≤ sqrtn(2, frac(x, a)) + sqrtn(2, frac(y, b)) ∧ sqrtn(2, frac(x, a)) + sqrtn(2, frac(y, b)) ≤ 2 ∧ frac(x, a) ≥ frac(y, b) ∧ frac(x, a) ≤ frac(4 * y, b)))
+9. S = VolumeInt(D, diff(fun x [x ∈ RealSet] . x) * diff(fun y [y ∈ RealSet] . y))
+10. u = sqrtn(2, frac(x, a)) + sqrtn(2, frac(y, b))
+11. v = frac(x, y)
+12. x = frac(u^{2} * v, (sqrtn(2, frac(v, a)) + frac(1, sqrtn(2, b)))^{2})
+13. y = frac(u^{2}, (sqrtn(2, frac(v, a)) + frac(1, sqrtn(2, b)))^{2})
+14. D = { (u, v) | u ∈ RealSet, v ∈ RealSet, 1 ≤ u, u ≤ 2, frac(a, 4 * b) ≤ v, v ≤ frac(a, b) }
+15. |I(u, v)| = frac(2 * u^{3}, (sqrtn(2, frac(v, a)) + frac(1, sqrtn(2, b)))^{4})
+16. S = DefInt(1, 2, DefInt(frac(a, 4 * b), frac(a, b), frac(2 * u^{3}, (sqrtn(2, frac(v, a)) + frac(1, sqrtn(2, b)))^{4}) * diff(fun v [v ∈ RealSet ∧ frac(a, 4 * b) ≤ v ∧ v ≤ frac(a, b)] . v)) * diff(fun u [u ∈ RealSet ∧ 1 ≤ u ∧ u ≤ 2] . u))
+
+GOAL:
+S = DefInt(1, 2, 2 * u^{3} * diff(fun u [u ∈ RealSet ∧ 1 ≤ u ∧ u ≤ 2] . u)) * DefInt(frac(a, 4 * b), frac(a, b), frac(1, (sqrtn(2, frac(v, a)) + frac(1, sqrtn(2, b)))^{4}) * diff(fun v [v ∈ RealSet ∧ frac(a, 4 * b) ≤ v ∧ v ≤ frac(a, b)] . v))
+
+METHOD:

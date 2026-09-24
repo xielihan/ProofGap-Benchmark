@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ tan(φ) = x)
+2. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ 0 < φ)
+
+GOAL:
+forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ φ < frac(π, 2))
+
+METHOD:

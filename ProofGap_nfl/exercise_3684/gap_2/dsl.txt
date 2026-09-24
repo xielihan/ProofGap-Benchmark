@@ -1,0 +1,16 @@
+get_forall (GOAL: {forall (i), i ∈ NonNegIntegerSet /\ i ∈ PosIntegerSet /\ i ≤ n => x(i) = -frac(λ, 2)}) (i := {j})
+get_condition (hypothesis 12: {j ∈ NonNegIntegerSet /\ j ∈ PosIntegerSet /\ j ≤ n}) in (GOAL: {j ∈ NonNegIntegerSet /\ j ∈ PosIntegerSet /\ j ≤ n => x(j) = -frac(λ, 2)})
+get_prop (hypothesis 11: {forall (i), i ∈ NonNegIntegerSet /\ i ∈ PosIntegerSet /\ i ≤ n => FunDeri(F, fun x, λ [x ∈ NonNegIntegerSet /\ λ ∈ RealSet] . x(i), 1) = 2 * x(i) + λ /\ 2 * x(i) + λ = 0}) (i := {j}) as (hypothesis 13: {j ∈ NonNegIntegerSet /\ j ∈ PosIntegerSet /\ j ≤ n => FunDeri(F, fun x, λ [x ∈ NonNegIntegerSet /\ λ ∈ RealSet] . x(j), 1) = 2 * x(j) + λ /\ 2 * x(j) + λ = 0})
+use_condition (hypothesis 12: {j ∈ NonNegIntegerSet /\ j ∈ PosIntegerSet /\ j ≤ n}) in (hypothesis 13: {j ∈ NonNegIntegerSet /\ j ∈ PosIntegerSet /\ j ≤ n => FunDeri(F, fun x, λ [x ∈ NonNegIntegerSet /\ λ ∈ RealSet] . x(j), 1) = 2 * x(j) + λ /\ 2 * x(j) + λ = 0}) as (hypothesis 14: {FunDeri(F, fun x, λ [x ∈ NonNegIntegerSet /\ λ ∈ RealSet] . x(j), 1) = 2 * x(j) + λ /\ 2 * x(j) + λ = 0})
+destruct_and (hypothesis 14: {FunDeri(F, fun x, λ [x ∈ NonNegIntegerSet /\ λ ∈ RealSet] . x(j), 1) = 2 * x(j) + λ /\ 2 * x(j) + λ = 0}) as (hypothesis 15: {FunDeri(F, fun x, λ [x ∈ NonNegIntegerSet /\ λ ∈ RealSet] . x(j), 1) = 2 * x(j) + λ}) (hypothesis 16: {2 * x(j) + λ = 0})
+assert (hypothesis 17: {2 * x(j) = -λ}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 18: {λ = 2 * frac(λ, 2)}) by proof {
+get_prop (theorem 'Thm 409. (FractionEqualityToCrossProduct)': {forall (A) (B) (C), A ∈ RealSet => B ∈ RealSet => C ∈ RealSet => B != 0 => frac(A, B) = C => A = B * C}) (A := {λ}) (B := {2}) (C := {frac(λ, 2)}) as (hypothesis 18: {λ ∈ RealSet => 2 ∈ RealSet => frac(λ, 2) ∈ RealSet => 2 != 0 => frac(λ, 2) = frac(λ, 2) => λ = 2 * frac(λ, 2)})
+autosolve all_hypothesis
+}
+assert (hypothesis 19: {2 * (-frac(λ, 2)) = -λ}) by proof {
+autosolve all_hypothesis
+}
+autosolve all_hypothesis

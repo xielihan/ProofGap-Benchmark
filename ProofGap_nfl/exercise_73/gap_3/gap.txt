@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. (exists (m) (n), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n)) ⇒ (exists (m) (n), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n))
+2. (exists (m) (n), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n)) ⇒ (exists (m) (n) (θ), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ θ : NonNegIntegerSet → RealSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ frac(m, n) = 2 + (sum_{ k = 2 }^{ n } (frac(1, k!))) + frac(θ(n), n! * n))
+
+GOAL:
+(exists (m) (n), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n)) ⇒ (exists (n) (θ), n ∈ NonNegIntegerSet ∧ θ ∈ RealSet ∧ n ∈ PosIntegerSet ∧ 0 < θ)
+
+METHOD:

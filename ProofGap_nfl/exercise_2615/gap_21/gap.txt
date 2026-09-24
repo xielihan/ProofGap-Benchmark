@@ -1,0 +1,29 @@
+PROOF GAP @21
+ASSUM:
+1. a : NonNegIntegerSet → RealSet ∧ IsSeq(a)
+2. PosSeq(a)
+3. forall (α) (n_{0}), α ∈ RealSet ∧ α > 0 ∧ n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ frac(ln(frac(1, a(n))), ln(n)) ≥ 1 + α) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ frac(1, a(n)) ≥ n^{1 + α})
+4. forall (α) (n_{0}), α ∈ RealSet ∧ α > 0 ∧ n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ frac(ln(frac(1, a(n))), ln(n)) ≥ 1 + α) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ a(n) ≤ frac(1, n^{1 + α}))
+5. forall (α), α ∈ RealSet ∧ α > 0 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{1 + α})))
+6. (exists (α) (n_{0}), α ∈ RealSet ∧ α > 0 ∧ n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ frac(ln(frac(1, a(n))), ln(n)) ≥ 1 + α)) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+7. forall (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ frac(ln(frac(1, a(n))), ln(n)) ≤ 1) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ frac(1, a(n)) ≤ n)
+8. forall (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ frac(ln(frac(1, a(n))), ln(n)) ≤ 1) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ a(n) ≥ frac(1, n))
+9. (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ frac(ln(frac(1, a(n))), ln(n)) ≤ 1)) ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n)))
+10. (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ frac(ln(frac(1, a(n))), ln(n)) ≤ 1)) ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 3 ⇒ frac(1, n^{1 + frac(1, ln(ln(n)))}) ≤ frac(1, n * ln(n)^{2})
+12. ConvergentSeries(sum_{ n = 3 }^{ +∞ } (frac(1, n * ln(n)^{2})))
+13. ConvergentSeries(sum_{ n = 3 }^{ +∞ } (frac(1, n^{1 + frac(1, ln(ln(n)))})))
+14. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 3 ⇒ frac(1, n^{1 + frac(ln(ln(ln(n))), ln(ln(n)))}) ≤ frac(1, n * ln(n)^{2})
+15. ConvergentSeries(sum_{ n = 3 }^{ +∞ } (frac(1, n * ln(n)^{2})))
+16. ConvergentSeries(sum_{ n = 3 }^{ +∞ } (frac(1, n^{1 + frac(ln(ln(ln(n))), ln(ln(n)))})))
+17. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 2 ⇒ frac(1, n^{1 + frac(ln(ln(n)), ln(n))}) = frac(1, n * ln(n))
+18. DivergentSeries(sum_{ n = 2 }^{ +∞ } (frac(1, n * ln(n))))
+19. DivergentSeries(sum_{ n = 2 }^{ +∞ } (frac(1, n^{1 + frac(ln(ln(n)), ln(n))})))
+20. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 2 ⇒ frac(1, n^{1 + frac(1, sqrtn(2, ln(n)))}) ≤ frac(1, n * ln(n)^{2})
+21. ConvergentSeries(sum_{ n = 2 }^{ +∞ } (frac(1, n * ln(n)^{2})))
+22. ConvergentSeries(sum_{ n = 2 }^{ +∞ } (frac(1, n^{1 + frac(1, sqrtn(2, ln(n)))})))
+
+GOAL:
+(exists (α) (n_{0}), α ∈ RealSet ∧ α > 0 ∧ n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ∧ frac(ln(frac(1, a(n))), ln(n)) ≥ 1 + α ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))))) ∧ ((exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ frac(ln(frac(1, a(n))), ln(n)) ≤ 1)) ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))) ∧ ConvergentSeries(sum_{ n = 3 }^{ +∞ } (frac(1, n^{1 + frac(1, ln(ln(n)))}))) ∧ ConvergentSeries(sum_{ n = 3 }^{ +∞ } (frac(1, n^{1 + frac(ln(ln(ln(n))), ln(ln(n)))}))) ∧ DivergentSeries(sum_{ n = 2 }^{ +∞ } (frac(1, n^{1 + frac(ln(ln(n)), ln(n))}))) ∧ ConvergentSeries(sum_{ n = 2 }^{ +∞ } (frac(1, n^{1 + frac(1, sqrtn(2, ln(n)))})))
+
+METHOD:

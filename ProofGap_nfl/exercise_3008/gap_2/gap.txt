@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. f : RealSet → RealSet
+3. a : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ⇒ a(n) = frac(1, 4 * n + 1)
+5. lim_{ n → +∞ } (|frac(a(n), a(n + 1))|) = lim_{ n → +∞ } (frac(4 * n + 5, 4 * n + 1))
+
+GOAL:
+lim_{ n → +∞ } (frac(4 * n + 5, 4 * n + 1)) = 1
+
+METHOD:

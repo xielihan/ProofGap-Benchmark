@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet
+2. a ∈ RealSet
+3. b : NonNegIntegerSet → RealSet
+4. a > 1
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = frac(n!, a^{n^{2}})
+6. seqlim_{ n → +∞ } (|frac(b(n), b(n + 1))|) = seqlim_{ n → +∞ } (frac(a^{2 * n + 1}, n + 1))
+7. seqlim_{ n → +∞ } (frac(a^{2 * n + 1}, n + 1)) = +∞
+
+GOAL:
+seqlim_{ n → +∞ } (|frac(b(n), b(n + 1))|) = +∞
+
+METHOD:

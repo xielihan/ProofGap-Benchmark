@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. a > 0
+5. b > 0
+6. forall (x), x ∈ RealSet ∧ |x| < sqrtn(2, frac(a, b)) ⇒ y(x) = frac(1, 2 * sqrtn(2, a * b)) * ln(frac(sqrtn(2, a) + x * sqrtn(2, b), sqrtn(2, a) - x * sqrtn(2, b)))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| < sqrtn(2, frac(a, b)) ⇒ FunDeri(y, 1, 1)(x) = frac(1, 2 * sqrtn(2, a * b)) * (frac(sqrtn(2, b), sqrtn(2, a) + x * sqrtn(2, b)) + frac(sqrtn(2, b), sqrtn(2, a) - x * sqrtn(2, b))) ∧ frac(1, 2 * sqrtn(2, a * b)) * (frac(sqrtn(2, b), sqrtn(2, a) + x * sqrtn(2, b)) + frac(sqrtn(2, b), sqrtn(2, a) - x * sqrtn(2, b))) = frac(1, a - b * x^{2})
+
+METHOD:

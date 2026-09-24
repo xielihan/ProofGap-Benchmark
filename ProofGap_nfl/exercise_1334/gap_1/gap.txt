@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+lim_{ x → 0 } (frac(1, x) * (frac(1, tanh(x)) - frac(1, tan(x)))) = lim_{ x → 0 } (-frac(1, tanh(x)^{2}) * frac(1, cosh(x)^{2}) + frac(1, sin(x)^{2}))
+
+METHOD:
+[@method 根据 "洛必达法则" @]

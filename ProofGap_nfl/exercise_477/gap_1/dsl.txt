@@ -1,0 +1,15 @@
+assert (hypothesis 3: {forall (t), t ∈ RealSet => cos(t) - cos(3 * t) = 2 * sin(2 * t) * sin(t)}) by proof {
+  get_forall (GOAL: {forall (t), t ∈ RealSet => cos(t) - cos(3 * t) = 2 * sin(2 * t) * sin(t)}) (t := {u})
+  get_condition (hypothesis 3: {u ∈ RealSet}) in (GOAL: {u ∈ RealSet => cos(u) - cos(3 * u) = 2 * sin(2 * u) * sin(u)})
+  get_prop (theorem 'Thm 200. (SumToProductCosineDifference)': {forall (x) (y), x ∈ RealSet => y ∈ RealSet => cos(x) - cos(y) = -2 * sin ((x + y) / 2) * sin ((x - y) / 2)}) (x := {u}) (y := {3 * u}) as (hypothesis 4: {u ∈ RealSet => 3 * u ∈ RealSet => cos(u) - cos(3 * u) = -2 * sin ((u + 3 * u) / 2) * sin ((u - 3 * u) / 2)})
+  use_condition (hypothesis 3: {u ∈ RealSet}) (obvious: {3 * u ∈ RealSet}) in (hypothesis 4: {u ∈ RealSet => 3 * u ∈ RealSet => cos(u) - cos(3 * u) = -2 * sin ((u + 3 * u) / 2) * sin ((u - 3 * u) / 2)}) as (hypothesis 5: {cos(u) - cos(3 * u) = -2 * sin ((u + 3 * u) / 2) * sin ((u - 3 * u) / 2)})
+  autoreplace no_hypothesis; from ((u + 3 * u) / 2) to (2 * u); from (hypothesis 5: {cos(u) - cos(3 * u) = -2 * sin ((u + 3 * u) / 2) * sin ((u - 3 * u) / 2)}) to (hypothesis 6: {cos(u) - cos(3 * u) = -2 * sin(2 * u) * sin ((u - 3 * u) / 2)})
+  autoreplace no_hypothesis; from ((u - 3 * u) / 2) to (-u); from (hypothesis 6: {cos(u) - cos(3 * u) = -2 * sin(2 * u) * sin ((u - 3 * u) / 2)}) to (hypothesis 7: {cos(u) - cos(3 * u) = -2 * sin(2 * u) * sin(-u)})
+  get_prop (theorem 'Thm 466. (SineOdd)': {forall (x), x ∈ RealSet => sin(-x) = -sin(x)}) (x := {u}) as (hypothesis 8: {u ∈ RealSet => sin(-u) = -sin(u)})
+  use_condition (hypothesis 3: {u ∈ RealSet}) in (hypothesis 8: {u ∈ RealSet => sin(-u) = -sin(u)}) as (hypothesis 9: {sin(-u) = -sin(u)})
+  rewrite (left_to_right, equation) (hypothesis 9: {sin(-u) = -sin(u)}); from (hypothesis 7: {cos(u) - cos(3 * u) = -2 * sin(2 * u) * sin(-u)}) to (hypothesis 10: {cos(u) - cos(3 * u) = -2 * sin(2 * u) * (-sin(u))})
+  autoreplace no_hypothesis; from (-2 * sin(2 * u) * (-sin(u))) to (2 * sin(2 * u) * sin(u)); from (hypothesis 10: {cos(u) - cos(3 * u) = -2 * sin(2 * u) * (-sin(u))}) to (hypothesis 11: {cos(u) - cos(3 * u) = 2 * sin(2 * u) * sin(u)})
+  apply (hypothesis 11: {cos(u) - cos(3 * u) = 2 * sin(2 * u) * sin(u)})
+}
+rewrite_in limit (left_to_right, equation) (hypothesis 3: {forall (t), t ∈ RealSet => cos(t) - cos(3 * t) = 2 * sin(2 * t) * sin(t)}); from (GOAL: {lim_{ x → 0 } (frac(cos(x) - cos(3 * x), x^{2})) = lim_{ x → 0 } (frac(2 * sin(2 * x) * sin(x), x^{2}))}) to (GOAL: {lim_{ x → 0 } (frac(2 * sin(2 * x) * sin(x), x^{2})) = lim_{ x → 0 } (frac(2 * sin(2 * x) * sin(x), x^{2}))})
+autosolve all_hypothesis

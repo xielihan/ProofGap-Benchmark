@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. a : NonNegIntegerSet → RealSet ∧ IsSeq(a)
+2. n ∈ NonNegIntegerSet
+3. k ∈ NonNegIntegerSet
+4. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, +∞) ⇒ 0 < frac(1, n^{x}))
+
+METHOD:

@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. p ∈ NonNegIntegerSet
+3. q ∈ NonNegIntegerSet
+4. r ∈ NonNegIntegerSet
+5. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = x * y * z * e^{x + y + z}
+6. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = x * e^{x} * y * e^{y} * z * e^{z}
+
+GOAL:
+forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(FunDeri(FunDeri(u, 1, p), 2, q), 3, r)(x, y, z) = FunDeri(fun x [x ∈ RealSet] . x * e^{x}, 1, p)(x) * FunDeri(fun y [y ∈ RealSet] . y * e^{y}, 1, q)(y) * FunDeri(fun z [z ∈ RealSet] . z * e^{z}, 1, r)(z)
+
+METHOD:

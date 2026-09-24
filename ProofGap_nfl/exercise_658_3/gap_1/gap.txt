@@ -1,0 +1,15 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. f : RealSet → RealSet
+3. g : RealSet → RealSet
+4. C ∈ RealSet
+5. n ∈ RealSet
+6. lim_{ x → 1 } (x) = 1
+7. x ≠ 1
+8. f(x) = frac(x, sqrtn(3, 1 - x^{3}))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ frac(x, sqrtn(3, 1 - x^{3})) = frac(x, sqrtn(3, 1 - x)) * frac(1, sqrtn(3, 1 + x + x^{2}))
+
+METHOD:

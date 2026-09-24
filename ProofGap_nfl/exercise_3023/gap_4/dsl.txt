@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ frac(1, n^{2} - 1) = frac(1, 2) * (frac(1, n - 1) - frac(1, n + 1))}) (n := {n0})
+get_condition (hypothesis 6: {n0 ∈ IntegerSet ∧ n0 ≥ 2}) in (GOAL: {n0 ∈ IntegerSet ∧ n0 ≥ 2 ⇒ frac(1, n0^{2} - 1) = frac(1, 2) * (frac(1, n0 - 1) - frac(1, n0 + 1))})
+assert (hypothesis 7: {n0^{2} - 1 = (n0 - 1) * (n0 + 1)}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

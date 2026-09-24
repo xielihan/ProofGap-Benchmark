@@ -1,0 +1,19 @@
+PROOF GAP @4
+ASSUM:
+1. P : RealSet → RealSet
+2. n ∈ NonNegIntegerSet
+3. a : NonNegIntegerSet → RealSet
+4. n ∈ PosIntegerSet
+5. forall (k), k ∈ NonNegIntegerSet ∧ k ≤ n ⇒ a(k) ∈ RealSet
+6. a(0) ≠ 0
+7. forall (k), k ∈ NonNegIntegerSet ∧ k ≤ n ⇒ (forall (x), x ∈ RealSet ⇒ P(x) = sum_{ k = 0 }^{ n } (a(k) * x^{n - k}))
+8. forall (r), r ∈ RealSet ∧ P(r) = 0 ⇒ r ∈ RealSet
+9. R = { r | r ∈ RealSet ∧ P(r) = 0 }
+10. exists (α) (k) (l), α : NonNegIntegerSet → RealSet ∧ k : NonNegIntegerSet → NonNegIntegerSet ∧ l ∈ NonNegIntegerSet ∧ l ∈ PosIntegerSet ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l ⇒ α(i) ∈ RealSet ∧ k(i) ∈ PosIntegerSet)
+11. exists (l) (α), l ∈ NonNegIntegerSet ∧ α : NonNegIntegerSet → RealSet ∧ l ∈ PosIntegerSet ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i < l ⇒ α(i) < α(i + 1))
+12. exists (l) (k), l ∈ NonNegIntegerSet ∧ k : NonNegIntegerSet → NonNegIntegerSet ∧ l ∈ PosIntegerSet ∧ sum_{ i = 1 }^{ l } (k(i)) = n
+
+GOAL:
+exists (l) (α) (k), l ∈ NonNegIntegerSet ∧ α : NonNegIntegerSet → RealSet ∧ k : NonNegIntegerSet → NonNegIntegerSet ∧ l ∈ PosIntegerSet ∧ (forall (x), x ∈ RealSet ⇒ P(x) = a(0) * (prod_{ i = 1 }^{ l } ((x - α(i))^{k(i)})))
+
+METHOD:

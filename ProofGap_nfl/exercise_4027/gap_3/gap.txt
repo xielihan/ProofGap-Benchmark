@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet ∧ 0 < a
+2. b ∈ RealSet ∧ a < b
+3. V ∈ RealSet
+4. exists (x), x ∈ RealSet ∧ (exists (y), y ∈ RealSet ∧ (exists (z), z ∈ RealSet ∧ z^{2} = x * y))
+5. exists (x), x ∈ RealSet ∧ (exists (y), y ∈ RealSet ∧ (x + y = a ∨ x + y = b))
+
+GOAL:
+exists (x), x ∈ RealSet ∧ (exists (y), y ∈ RealSet ∧ (exists (z), z ∈ RealSet ∧ (z = sqrtn(2, x * y) ∨ z = -sqrtn(2, x * y))))
+
+METHOD:

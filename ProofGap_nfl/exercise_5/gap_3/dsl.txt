@@ -1,0 +1,11 @@
+1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n = 1 ⇒ F(a + b, n) = sum_{ m = 0 }^{ n } (Combination(n, m) * F(a, n - m) * F(b, m))}) (n := {p})
+2. get_condition (hypothesis 9: {p ∈ NonNegIntegerSet ∧ p = 1}) in (GOAL: {p ∈ NonNegIntegerSet ∧ p = 1 ⇒ F(a + b, p) = sum_{ m = 0 }^{ p } (Combination(p, m) * F(a, p - m) * F(b, m))})
+3. destruct_and (hypothesis 9: {p ∈ NonNegIntegerSet ∧ p = 1}) as (hypothesis 10: {p ∈ NonNegIntegerSet}) (hypothesis 11: {p = 1})
+4. get_prop (hypothesis 7: {forall (n), n ∈ NonNegIntegerSet ∧ n = 1 ⇒ F(a + b, 1) = a + b}) (n := {p}) as (hypothesis 12: {p ∈ NonNegIntegerSet ∧ p = 1 ⇒ F(a + b, 1) = a + b})
+5. use_condition (hypothesis 9: {p ∈ NonNegIntegerSet ∧ p = 1}) in (hypothesis 12: {p ∈ NonNegIntegerSet ∧ p = 1 ⇒ F(a + b, 1) = a + b}) as (hypothesis 13: {F(a + b, 1) = a + b})
+6. get_prop (hypothesis 8: {forall (n), n ∈ NonNegIntegerSet ∧ n = 1 ⇒ sum_{ m = 0 }^{ 1 } (Combination(1, m) * F(a, 1 - m) * F(b, m)) = a + b}) (n := {p}) as (hypothesis 14: {p ∈ NonNegIntegerSet ∧ p = 1 ⇒ sum_{ m = 0 }^{ 1 } (Combination(1, m) * F(a, 1 - m) * F(b, m)) = a + b})
+7. use_condition (hypothesis 9: {p ∈ NonNegIntegerSet ∧ p = 1}) in (hypothesis 14: {p ∈ NonNegIntegerSet ∧ p = 1 ⇒ sum_{ m = 0 }^{ 1 } (Combination(1, m) * F(a, 1 - m) * F(b, m)) = a + b}) as (hypothesis 15: {sum_{ m = 0 }^{ 1 } (Combination(1, m) * F(a, 1 - m) * F(b, m)) = a + b})
+8. rewrite (left_to_right, equation) (hypothesis 11: {p = 1}); from (GOAL: {F(a + b, p) = sum_{ m = 0 }^{ p } (Combination(p, m) * F(a, p - m) * F(b, m))}) to (GOAL: {F(a + b, 1) = sum_{ m = 0 }^{ 1 } (Combination(1, m) * F(a, 1 - m) * F(b, m))})
+9. rewrite (left_to_right, equation) (hypothesis 13: {F(a + b, 1) = a + b}); from (GOAL: {F(a + b, 1) = sum_{ m = 0 }^{ 1 } (Combination(1, m) * F(a, 1 - m) * F(b, m))}) to (GOAL: {a + b = sum_{ m = 0 }^{ 1 } (Combination(1, m) * F(a, 1 - m) * F(b, m))})
+10. rewrite (left_to_right, equation) (hypothesis 15: {sum_{ m = 0 }^{ 1 } (Combination(1, m) * F(a, 1 - m) * F(b, m)) = a + b}); from (GOAL: {a + b = sum_{ m = 0 }^{ 1 } (Combination(1, m) * F(a, 1 - m) * F(b, m))}) to (GOAL: {a + b = a + b})
+11. autosolve all_hypothesis

@@ -1,0 +1,20 @@
+PROOF GAP @4
+ASSUM:
+1. g : CartesianProd(RealSet, RealSet) → RealSet
+2. l ∈ RealSet ∧ l > 0
+3. T ∈ RealSet ∧ T > 0
+4. `δ_g` ∈ RealSet ∧ `δ_g` ≥ 0
+5. `δ_l` ∈ RealSet ∧ `δ_l` ≥ 0
+6. `δ_T` ∈ RealSet ∧ `δ_T` ≥ 0
+7. g(l, T) = frac(4 * π^{2} * l, T^{2})
+8. `δ_g` = |frac(diff(g), g(l, T))|
+9. `δ_l` = |frac(diff(fun l, T [l ∈ RealSet ∧ T ∈ RealSet] . l), l)|
+10. `δ_T` = |frac(diff(fun l, T [l ∈ RealSet ∧ T ∈ RealSet] . T), T)|
+11. diff(fun l, T [l ∈ RealSet ∧ T ∈ RealSet] . T) = 0 ⇒ `δ_g` = |frac(diff(g), g(l, T))|
+12. diff(fun l, T [l ∈ RealSet ∧ T ∈ RealSet] . T) = 0 ⇒ |frac(diff(g), g(l, T))| = |frac(diff(fun l, T [l ∈ RealSet ∧ T ∈ RealSet] . l), l)|
+13. diff(fun l, T [l ∈ RealSet ∧ T ∈ RealSet] . T) = 0 ⇒ `δ_g` = |frac(diff(fun l, T [l ∈ RealSet ∧ T ∈ RealSet] . l), l)|
+
+GOAL:
+diff(fun l, T [l ∈ RealSet ∧ T ∈ RealSet] . T) = 0 ⇒ `δ_g` = `δ_l`
+
+METHOD:

@@ -1,0 +1,4 @@
+get_prop (theorem 'Thm 279. (OddFunctionDefinition)': {forall (f), f : RealSet -> RealSet => (OddFunc(f) <==> (forall (x), x ∈ RealSet => f(-x) = -f(x)))}) (f := {f}) as (hypothesis 8: {f : RealSet -> RealSet => (OddFunc(f) <==> (forall (x), x ∈ RealSet => f(-x) = -f(x)))})
+use_condition (hypothesis 1: {f : RealSet → RealSet}) in (hypothesis 8: {f : RealSet -> RealSet => (OddFunc(f) <==> (forall (x), x ∈ RealSet => f(-x) = -f(x)))}) as (hypothesis 9: {OddFunc(f) <==> (forall (x), x ∈ RealSet => f(-x) = -f(x))})
+rewrite (left_to_right, iff) (hypothesis 9: {OddFunc(f) <==> (forall (x), x ∈ RealSet => f(-x) = -f(x))}); from (GOAL: {OddFunc(f)}) to (GOAL: {forall (x), x ∈ RealSet => f(-x) = -f(x)})
+apply (hypothesis 7: {forall (x), x ∈ RealSet ⇒ f(-x) = -f(x)})

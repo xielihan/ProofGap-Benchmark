@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. cos(x) ≠ 0
+3. cos(3 * x) ≠ 0
+4. tan(x) ≠ 0
+
+GOAL:
+lim_{ x → frac(π, 2) } (frac(tan(3 * x), tan(x))) = lim_{ x → frac(π, 2) } (frac(3 * sec(3 * x)^{2}, sec(x)^{2}))
+
+METHOD:
+[@method 根据 "洛必达法则" @]

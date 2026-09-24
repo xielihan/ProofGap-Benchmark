@@ -1,0 +1,2 @@
+exists (C := {1})
+autosolve (hypothesis 2: {lim_{ x → 0^+ } (frac(x * sin(sqrtn(2, x)), x * sqrtn(2, x))) = 1}) (hypothesis 3: {1 ∈ RealSet}) (hypothesis 4: {1 ≠ 0})

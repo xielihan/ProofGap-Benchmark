@@ -1,0 +1,17 @@
+PROOF GAP @2
+ASSUM:
+1. w : CartesianProd(RealSet, RealSet) → RealSet
+2. f : RealSet → RealSet
+3. u : CartesianProd(RealSet, RealSet) → RealSet
+4. x_{0} ∈ RealSet
+5. y_{0} ∈ RealSet
+6. c ∈ RealSet
+7. FuncOfClassK(f, 2)
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ u(x, y) = (x - x_{0}) * (y - y_{0}) ∧ w(x, y) = f(u(x, y))
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(FunDeri(w, x, 1), y, 1)(x, y) + c * w(x, y) = 0
+10. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(w, x, 1)(x, y) = (y - y_{0}) * FunDeri(f, u, 1)(u(x, y))
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(FunDeri(w, x, 1), y, 1)(x, y) = FunDeri(f, u, 1)(u(x, y)) + u(x, y) * FunDeri(f, u, 2)(u(x, y))
+
+METHOD:

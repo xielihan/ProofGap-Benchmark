@@ -1,0 +1,19 @@
+PROOF GAP @2
+ASSUM:
+1. φ : CartesianProd(RealSet, RealSet) → RealSet
+2. p ∈ RealSet
+3. m ∈ RealSet
+4. M ∈ RealSet
+5. D ⊆ CartesianProd(RealSet, RealSet)
+6. x : CartesianProd(RealSet, RealSet) → RealSet
+7. y : CartesianProd(RealSet, RealSet) → RealSet
+8. D = { (x, y) | x ∈ RealSet, y ∈ RealSet, x^{2} + y^{2} ≤ 1 }
+9. ContinuousFuncOn(φ, D)
+10. 0 < m
+11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D ⇒ m ≤ |φ(x, y)| ∧ |φ(x, y)| ≤ M
+12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ x^{2} + x * y + y^{2} = frac(1, 2) * (x^{2} + y^{2}) + frac(1, 2) * (x + y)^{2} ∧ frac(1, 2) * (x^{2} + y^{2}) + frac(1, 2) * (x + y)^{2} > 0
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D ∧ (x, y) ≠ (0, 0) ⇒ frac(m, (x^{2} + x * y + y^{2})^{p}) ≤ frac(|φ(x, y)|, (x^{2} + x * y + y^{2})^{p}) ∧ frac(|φ(x, y)|, (x^{2} + x * y + y^{2})^{p}) ≤ frac(M, (x^{2} + x * y + y^{2})^{p})
+
+METHOD:

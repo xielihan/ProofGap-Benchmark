@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. α ∈ RealSet ∧ α > 0
+2. β ∈ RealSet ∧ β > 0
+
+GOAL:
+lim_{ x → 0^+ } (frac(e^{-α * x^{2}} - e^{-β * x^{2}}, x)) = lim_{ x → 0^+ } (-2 * α * x * e^{-α * x^{2}} + 2 * β * x * e^{-β * x^{2}})
+
+METHOD:

@@ -1,0 +1,3 @@
+rewrite (left_to_right, equation) (hypothesis 24: {u = β * λ}); from (GOAL: {u = β * (a * (prod_{ i = 1 }^{ n } (α(i)^{frac(1, α(i))})))^{frac(1, β)}}) to (GOAL: {β * λ = β * (a * (prod_{ i = 1 }^{ n } (α(i)^{frac(1, α(i))})))^{frac(1, β)}})
+rewrite (left_to_right, equation) (hypothesis 20: {λ = (a * (prod_{ i = 1 }^{ n } (α(i)^{frac(1, α(i))})))^{frac(1, β)}}); from (GOAL: {β * λ = β * (a * (prod_{ i = 1 }^{ n } (α(i)^{frac(1, α(i))})))^{frac(1, β)}}) to (GOAL: {β * (a * (prod_{ i = 1 }^{ n } (α(i)^{frac(1, α(i))})))^{frac(1, β)} = β * (a * (prod_{ i = 1 }^{ n } (α(i)^{frac(1, α(i))})))^{frac(1, β)}})
+autosolve all_hypothesis

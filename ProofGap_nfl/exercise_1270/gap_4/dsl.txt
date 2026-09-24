@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ FunDeri(y, 1, 1)(x) > 0}) (x := {z})
+get_condition (hypothesis 6: {z ∈ RealSet ∧ -1 < z ∧ z < 1}) in (GOAL: {z ∈ RealSet ∧ -1 < z ∧ z < 1 ⇒ FunDeri(y, 1, 1)(z) > 0})
+destruct_and (hypothesis 6: {z ∈ RealSet ∧ -1 < z ∧ z < 1}) as (hypothesis 7: {z ∈ RealSet}) (hypothesis 8: {-1 < z}) (hypothesis 9: {z < 1})
+get_prop (hypothesis 3: {forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = frac(2 * (1 - x) * (1 + x), (1 + x^{2})^{2})}) (x := {z}) as (hypothesis 10: {z ∈ RealSet ⇒ FunDeri(y, 1, 1)(z) = frac(2 * (1 - z) * (1 + z), (1 + z^{2})^{2})})
+use_condition (hypothesis 7: {z ∈ RealSet}) in (hypothesis 10: {z ∈ RealSet ⇒ FunDeri(y, 1, 1)(z) = frac(2 * (1 - z) * (1 + z), (1 + z^{2})^{2})}) as (hypothesis 11: {FunDeri(y, 1, 1)(z) = frac(2 * (1 - z) * (1 + z), (1 + z^{2})^{2})})
+rewrite (left_to_right, equation) (hypothesis 11: {FunDeri(y, 1, 1)(z) = frac(2 * (1 - z) * (1 + z), (1 + z^{2})^{2})}); from (GOAL: {FunDeri(y, 1, 1)(z) > 0}) to (GOAL: {frac(2 * (1 - z) * (1 + z), (1 + z^{2})^{2}) > 0})
+autosolve all_hypothesis

@@ -1,0 +1,8 @@
+get_condition (hypothesis 4: {a > 1}) in (GOAL: {a > 1 => (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet => frac(ln(a), n) = ln(1 + b(n)))})
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet => frac(ln(a), n) = ln(1 + b(n))}) (n := {k})
+get_condition (hypothesis 5: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet}) in (GOAL: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet => frac(ln(a), k) = ln(1 + b(k))})
+use_condition (hypothesis 4: {a > 1}) in (hypothesis 2: {a > 1 => b = (fun n [n ∈ NonNegIntegerSet] . a^{frac(1, n)} - 1)}) as (hypothesis 6: {b = (fun n [n ∈ NonNegIntegerSet] . a^{frac(1, n)} - 1)})
+rewrite (left_to_right, equation) (hypothesis 6: {b = (fun n [n ∈ NonNegIntegerSet] . a^{frac(1, n)} - 1)}); from (GOAL: {frac(ln(a), k) = ln(1 + b(k))}) to (GOAL: {frac(ln(a), k) = ln(1 + (fun n [n ∈ NonNegIntegerSet] . a^{frac(1, n)} - 1)(k))})
+get_prop (theorem 'Thm 203. (NaturalLogarithmPower)': {forall (x) (y), (x > 0 => ln (x ^ y) = y * ln(x))}) (x := {a}) (y := {frac(1, k)}) as (hypothesis 7: {a > 0 => ln(a ^ (frac(1, k))) = frac(1, k) * ln(a)})
+use_condition (obvious: {a > 0}) in (hypothesis 7: {a > 0 => ln(a ^ (frac(1, k))) = frac(1, k) * ln(a)}) as (hypothesis 8: {ln(a ^ (frac(1, k))) = frac(1, k) * ln(a)})
+autosolve all_hypothesis

@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. m ∈ IntegerSet
+2. n ∈ IntegerSet
+3. m ≠ 0
+4. n ≠ 0
+5. x = π + y
+
+GOAL:
+lim_{ x → π } (x) = π ⇒ lim_{ y → 0 } (y) = 0
+
+METHOD:

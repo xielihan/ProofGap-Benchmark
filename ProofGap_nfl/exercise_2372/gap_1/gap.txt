@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 < x ∧ x < frac(1, 2) ⇒ 1 - x^{2} ≠ 0 ∧ ln(x) ∈ RealSet
+
+METHOD:

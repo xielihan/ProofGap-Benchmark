@@ -1,0 +1,22 @@
+PROOF GAP @8
+ASSUM:
+1. f : RealSet → RealSet
+2. g : RealSet → RealSet
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. c ∈ RealSet
+6. x_{0} ∈ RealSet
+7. forall (x), x ∈ RealSet ⇒ f(x) = a * x^{2} + b * x + c
+8. forall (x), x ∈ RealSet ⇒ g(x) = e^{x}
+9. FunDeri(f, 1, 1)(x_{0}) = 2 * a * x_{0} + b
+10. FunDeri(f, 1, 2)(x_{0}) = 2 * a
+11. forall (x), x ∈ RealSet ⇒ FunDeri(f, 1, 3)(x) = 0
+12. f(x_{0}) = a * (x_{0})^{2} + b * x_{0} + c
+13. g(x_{0}) = e^{x_{0}}
+14. FunDeri(g, 1, 1)(x_{0}) = e^{x_{0}}
+15. FunDeri(g, 1, 2)(x_{0}) = e^{x_{0}}
+
+GOAL:
+a * (x_{0})^{2} + b * x_{0} + c = e^{x_{0}} ⇒ f(x_{0}) = g(x_{0}) ∧ FunDeri(f, 1, 1)(x_{0}) = FunDeri(g, 1, 1)(x_{0}) ∧ FunDeri(f, 1, 2)(x_{0}) = FunDeri(g, 1, 2)(x_{0})
+
+METHOD:

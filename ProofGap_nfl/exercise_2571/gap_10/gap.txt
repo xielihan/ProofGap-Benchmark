@@ -1,0 +1,22 @@
+PROOF GAP @10
+ASSUM:
+1. a : NonNegIntegerSet → RealSet ∧ IsSeq(a)
+2. α : NonNegIntegerSet → RealSet
+3. PosSeq(a)
+4. MonoDecSeq(a)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+6. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ k ∈ PosIntegerSet ⇒ α(m) = sum_{ k = m + 1 }^{ +∞ } (a(k)))
+7. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ n > m ⇒ (n - m) * a(n) < sum_{ k = m + 1 }^{ n } (a(k)))
+8. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ n > m ⇒ sum_{ k = m + 1 }^{ n } (a(k)) < α(m))
+9. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ n > m ⇒ n * a(n) < frac(n, n - m) * α(m))
+10. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (m_{0}), m_{0} ∈ NonNegIntegerSet ∧ m_{0} ∈ PosIntegerSet ∧ α(m_{0}) < ε)
+11. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (m_{0}), m_{0} ∈ NonNegIntegerSet ∧ m_{0} ∈ PosIntegerSet ∧ seqlim_{ n → +∞ } (frac(n, n - m_{0})) = 1)
+12. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (m_{0}), m_{0} ∈ NonNegIntegerSet ∧ m_{0} ∈ PosIntegerSet ∧ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ n_{0} > m_{0} ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ frac(n, n - m_{0}) < 2)))
+13. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ 0 < n * a(n)))
+14. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ n * a(n) < 2 * ε))
+15. seqlim_{ n → +∞ } (n * a(n)) = 0
+
+GOAL:
+seqlim_{ n → +∞ } (n * a(n)) = 0
+
+METHOD:

@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x ≠ 2 ∧ x ≠ -2 ⇒ frac(x^{3} - 2 * x^{2} - 4 * x + 8, x^{4} - 8 * x^{2} + 16) = frac((x - 2)^{2} * (x + 2), (x - 2)^{2} * (x + 2)^{2})
+2. lim_{ x → 2 } (frac(x^{3} - 2 * x^{2} - 4 * x + 8, x^{4} - 8 * x^{2} + 16)) = lim_{ x → 2 } (frac(1, x + 2))
+
+GOAL:
+lim_{ x → 2 } (frac(1, x + 2)) = frac(1, 4)
+
+METHOD:

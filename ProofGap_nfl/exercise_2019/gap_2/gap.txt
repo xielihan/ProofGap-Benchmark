@@ -1,0 +1,15 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. C ∈ RealSet
+5. sin(a - b) ≠ 0
+6. sin(x + a) ≠ 0
+7. sin(x + b) ≠ 0
+8. { `F_2` | forall (x), x ∈ RealSet ∧ sin(x + a) ≠ 0 ∧ sin(x + b) ≠ 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, sin(x + a) * sin(x + b)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_4` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ sin(x + a) ≠ 0 ∧ sin(x + b) ≠ 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(sin(x + a - (x + b)), sin(x + a) * sin(x + b)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_4`(x) = frac(1, sin(a - b)) * `F_3`(x)) }
+
+GOAL:
+{ `F_6` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ sin(x + a) ≠ 0 ∧ sin(x + b) ≠ 0 ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(sin(x + a - (x + b)), sin(x + a) * sin(x + b)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_6`(x) = frac(1, sin(a - b)) * `F_5`(x)) } = { `F_8` | exists (`F_7`), `F_7` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ sin(x + a) ≠ 0 ∧ sin(x + b) ≠ 0 ⇒ FunDeri(`F_7`, 1, 1)(x) = (frac(cos(x + b), sin(x + b)) - frac(cos(x + a), sin(x + a))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_8`(x) = frac(1, sin(a - b)) * `F_7`(x)) }
+
+METHOD:

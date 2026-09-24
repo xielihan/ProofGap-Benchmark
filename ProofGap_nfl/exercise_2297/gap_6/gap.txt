@@ -1,0 +1,16 @@
+PROOF GAP @6
+ASSUM:
+1. a ∈ RealSet ∧ a ≠ 0
+2. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+3. forall (x), x ∈ RealSet ⇒ cos(x)^{2 * n} = frac(1, 2^{2 * n}) * (Combination(2 * n, n) + 2 * (sum_{ k = 0 }^{ n - 1 } (Combination(2 * n, k) * cos(2 * (n - k) * x))))
+4. I ∈ RealSet
+5. I = DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{-a * x} * cos(x)^{2 * n}) * diff(fun x [x ∈ RealSet] . x))
+6. I = frac(1, 2^{2 * n}) * (Combination(2 * n, n) * DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{-a * x}) * diff(fun x [x ∈ RealSet] . x)) + 2 * (sum_{ k = 0 }^{ n - 1 } (Combination(2 * n, k) * DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{-a * x} * cos(2 * (n - k) * x)) * diff(fun x [x ∈ RealSet] . x)))))
+7. DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{-a * x}) * diff(fun x [x ∈ RealSet] . x)) = ((fun x [x ∈ RealSet] . -frac(1, a) * e^{-a * x})|_{0}^{2 * π})
+8. forall (k), k ∈ NonNegIntegerSet ∧ k ≤ n - 1 ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{-a * x} * cos(2 * (n - k) * x)) * diff(fun x [x ∈ RealSet] . x)) = ((fun x [x ∈ RealSet] . frac((2 * n - 2 * k) * sin(2 * (n - k) * x) - a * cos(2 * (n - k) * x), a^{2} + (2 * n - 2 * k)^{2}) * e^{-a * x})|_{0}^{2 * π})
+9. I = frac(1, 2^{2 * n}) * (-frac(1, a) * Combination(2 * n, n) * (e^{-2 * π * a} - 1) - a * (e^{-2 * π * a} - 1) * (sum_{ k = 0 }^{ n - 1 } (frac(2 * Combination(2 * n, k), a^{2} + (2 * n - 2 * k)^{2}))))
+
+GOAL:
+I = frac(1 - e^{-2 * π * a}, 2^{2 * n} * a) * (Combination(2 * n, n) + 2 * (sum_{ k = 0 }^{ n - 1 } (Combination(2 * n, k) * frac(a^{2}, a^{2} + (2 * n - 2 * k)^{2}))))
+
+METHOD:

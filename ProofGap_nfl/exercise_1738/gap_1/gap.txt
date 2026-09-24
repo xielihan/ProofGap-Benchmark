@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. C ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ frac(x * diff(fun x [x ∈ RealSet] . x), x^{4} + 3 * x^{2} + 2) = frac(1, 2) * frac(diff(fun x [x ∈ RealSet] . x^{2}), (x^{2} + 1) * (x^{2} + 2))
+
+METHOD:

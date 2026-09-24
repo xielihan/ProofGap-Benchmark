@@ -1,0 +1,18 @@
+PROOF GAP @10
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = |x^{2} - 3 * x + 2|
+3. forall (x), x ∈ RealSet ∧ x ∈ [-10, 10] ⇒ f(x) ≥ 0
+4. forall (x), x ∈ RealSet ⇒ (x^{2} - 3 * x + 2 = 0 ⇔ x = 1 ∨ x = 2)
+5. f(1) = 0
+6. f(2) = 0
+7. MinimumPointOn(f, [-10, 10]) = { 1, 2 }
+8. forall (x), x ∈ RealSet ∧ x ∈ [-10, 10] \ { 1, 2 } ⇒ FunDeri(f, 1, 1)(x) = (2 * x - 3) * sgn(x^{2} - 3 * x + 2)
+9. forall (x), x ∈ RealSet ∧ 1 < x ∧ x < frac(3, 2) ⇒ FunDeri(f, 1, 1)(x) > 0
+10. forall (x), x ∈ RealSet ∧ frac(3, 2) < x ∧ x < 2 ⇒ FunDeri(f, 1, 1)(x) < 0
+11. f(frac(3, 2)) = frac(1, 4)
+
+GOAL:
+f(-10) = 132
+
+METHOD:

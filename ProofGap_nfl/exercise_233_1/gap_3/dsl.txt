@@ -1,0 +1,4 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ A * cos(λ * x) + B * sin(λ * x) = f(x)}) (x := {z})
+2. get_condition (hypothesis 9: {z ∈ RealSet}) in (GOAL: {z ∈ RealSet ⇒ A * cos(λ * z) + B * sin(λ * z) = f(z)})
+3. get_prop (hypothesis 6: {forall (x), x ∈ RealSet ⇒ f(x) = A * cos(λ * x) + B * sin(λ * x)}) (x := {z}) as (hypothesis 10: {z ∈ RealSet ⇒ f(z) = A * cos(λ * z) + B * sin(λ * z)})
+4. autosolve (hypothesis 9: {z ∈ RealSet}) (hypothesis 10: {z ∈ RealSet ⇒ f(z) = A * cos(λ * z) + B * sin(λ * z)})

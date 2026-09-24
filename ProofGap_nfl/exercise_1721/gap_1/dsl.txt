@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ x^{2} * (2 - 3 * x^{2})^{2} = 4 * x^{2} - 12 * x^{4} + 9 * x^{6}}) (x := {x0})
+get_condition (hypothesis 3: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ x0^{2} * (2 - 3 * x0^{2})^{2} = 4 * x0^{2} - 12 * x0^{4} + 9 * x0^{6}})
+autoreplace no_hypothesis; from (x0^{2} * (2 - 3 * x0^{2})^{2}) to (4 * x0^{2} - 12 * x0^{4} + 9 * x0^{6}); from (GOAL: {x0^{2} * (2 - 3 * x0^{2})^{2} = 4 * x0^{2} - 12 * x0^{4} + 9 * x0^{6}}) to (GOAL: {4 * x0^{2} - 12 * x0^{4} + 9 * x0^{6} = 4 * x0^{2} - 12 * x0^{4} + 9 * x0^{6}})
+assert (hypothesis 4: {4 * x0^{2} - 12 * x0^{4} + 9 * x0^{6} = 4 * x0^{2} - 12 * x0^{4} + 9 * x0^{6}})
+apply (hypothesis 4: {4 * x0^{2} - 12 * x0^{4} + 9 * x0^{6} = 4 * x0^{2} - 12 * x0^{4} + 9 * x0^{6}})

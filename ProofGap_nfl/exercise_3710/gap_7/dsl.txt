@@ -1,0 +1,3 @@
+get_prop (hypothesis 9: {forall (x) (a) (b), x ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ⇒ f(x, a, b) = x^{2} - (a * x + b)}) (x := {frac(a, 2)}) (a := {a}) (b := {b}) as (hypothesis 18: {frac(a, 2) ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ⇒ f(frac(a, 2), a, b) = frac(a, 2)^{2} - (a * frac(a, 2) + b)})
+use_condition (obvious: {frac(a, 2) ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet}) in (hypothesis 18: {frac(a, 2) ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ⇒ f(frac(a, 2), a, b) = frac(a, 2)^{2} - (a * frac(a, 2) + b)}) as (hypothesis 19: {f(frac(a, 2), a, b) = frac(a, 2)^{2} - (a * frac(a, 2) + b)})
+autosolve (hypothesis 1: {a ∈ RealSet}) (hypothesis 19: {f(frac(a, 2), a, b) = frac(a, 2)^{2} - (a * frac(a, 2) + b)})

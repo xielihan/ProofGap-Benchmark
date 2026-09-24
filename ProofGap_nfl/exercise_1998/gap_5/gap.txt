@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. forall (k), k ∈ IntegerSet ⇒ { `F_2` | forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(k * π, (k + 1) * π) ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(cos(x)^{4}, sin(x)^{3}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(k * π, (k + 1) * π) ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(cos(x)^{3}, sin(x)^{3}) * FunDeri(fun x [x ∈ RealSet] . sin(x), 1, 1)(x) }
+2. forall (k), k ∈ IntegerSet ⇒ { `F_4` | forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(k * π, (k + 1) * π) ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(cos(x)^{4}, sin(x)^{3}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_6` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(k * π, (k + 1) * π) ⇒ FunDeri(`F_5`, 1, 1)(x) = cos(x)^{3} * FunDeri(fun x [x ∈ RealSet] . frac(1, sin(x)^{2}), 1, 1)(x) ∧ `F_6`(x) = -frac(1, 2) * `F_5`(x)) }
+3. forall (k), k ∈ IntegerSet ⇒ { `F_7` | forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(k * π, (k + 1) * π) ⇒ FunDeri(`F_7`, 1, 1)(x) = frac(cos(x)^{4}, sin(x)^{3}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_11` | exists (`F_8`), `F_8` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(k * π, (k + 1) * π) ⇒ FunDeri(`F_8`, 1, 1)(x) = frac(cos(x)^{2} * sin(x), sin(x)^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_11`(x) = -frac(cos(x)^{3}, 2 * sin(x)^{2}) - frac(3, 2) * `F_8`(x)) }
+4. forall (k), k ∈ IntegerSet ⇒ { `F_12` | forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(k * π, (k + 1) * π) ⇒ FunDeri(`F_12`, 1, 1)(x) = frac(cos(x)^{4}, sin(x)^{3}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_16` | exists (`F_13`), `F_13` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(k * π, (k + 1) * π) ⇒ FunDeri(`F_13`, 1, 1)(x) = frac(1 - sin(x)^{2}, sin(x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_16`(x) = -frac(cos(x)^{3}, 2 * sin(x)^{2}) - frac(3, 2) * `F_13`(x)) }
+
+GOAL:
+forall (k), k ∈ IntegerSet ⇒ { `F_17` | forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(k * π, (k + 1) * π) ⇒ FunDeri(`F_17`, 1, 1)(x) = frac(cos(x)^{4}, sin(x)^{3}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_18` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(k * π, (k + 1) * π) ⇒ `F_18`(x) = -frac(cos(x)^{3}, 2 * sin(x)^{2}) - frac(3, 2) * ln(|tan(frac(x, 2))|) - frac(3, 2) * cos(x) + C) }
+
+METHOD:

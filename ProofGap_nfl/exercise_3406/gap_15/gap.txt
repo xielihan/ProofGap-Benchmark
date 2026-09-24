@@ -1,0 +1,27 @@
+PROOF GAP @15
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. z : RealSet → RealSet
+4. forall (t), t ∈ RealSet ∧ t ≠ 0 ⇒ x(t) = t + t^{-1}
+5. forall (t), t ∈ RealSet ∧ t ≠ 0 ⇒ y(t) = t^{2} + t^{-2}
+6. forall (t), t ∈ RealSet ∧ t ≠ 0 ⇒ z(t) = t^{3} + t^{-3}
+7. forall (t), t ∈ RealSet ∧ t ≠ 0 ∧ t ≠ 1 ∧ t ≠ -1 ⇒ FunDeri(x, 1, 1)(t) = 1 - frac(1, t^{2})
+8. forall (t), t ∈ RealSet ∧ t ≠ 0 ∧ t ≠ 1 ∧ t ≠ -1 ⇒ FunDeri(y, 1, 1)(t) = 2 * t - frac(2, t^{3})
+9. forall (t), t ∈ RealSet ∧ t ≠ 0 ∧ t ≠ 1 ∧ t ≠ -1 ⇒ FunDeri(z, 1, 1)(t) = 3 * t^{2} - frac(3, t^{4})
+10. forall (t), t ∈ RealSet ∧ t ≠ 0 ∧ t ≠ 1 ∧ t ≠ -1 ⇒ FunDeri(y, x, 1) = frac(FunDeri(y, 1, 1)(t), FunDeri(x, 1, 1)(t))
+11. forall (t), t ∈ RealSet ∧ t ≠ 0 ∧ t ≠ 1 ∧ t ≠ -1 ⇒ frac(FunDeri(y, 1, 1)(t), FunDeri(x, 1, 1)(t)) = frac(2 * t - frac(2, t^{3}), 1 - frac(1, t^{2}))
+12. forall (t), t ∈ RealSet ∧ t ≠ 0 ∧ t ≠ 1 ∧ t ≠ -1 ⇒ frac(2 * t - frac(2, t^{3}), 1 - frac(1, t^{2})) = 2 * (t + frac(1, t))
+13. forall (t), t ∈ RealSet ∧ t ≠ 0 ∧ t ≠ 1 ∧ t ≠ -1 ⇒ FunDeri(y, x, 1) = 2 * (t + frac(1, t))
+14. forall (t), t ∈ RealSet ∧ t ≠ 0 ∧ t ≠ 1 ∧ t ≠ -1 ⇒ FunDeri(z, x, 1) = frac(FunDeri(z, 1, 1)(t), FunDeri(x, 1, 1)(t))
+15. forall (t), t ∈ RealSet ∧ t ≠ 0 ∧ t ≠ 1 ∧ t ≠ -1 ⇒ frac(FunDeri(z, 1, 1)(t), FunDeri(x, 1, 1)(t)) = frac(3 * t^{2} - frac(3, t^{4}), 1 - frac(1, t^{2}))
+16. forall (t), t ∈ RealSet ∧ t ≠ 0 ∧ t ≠ 1 ∧ t ≠ -1 ⇒ frac(3 * t^{2} - frac(3, t^{4}), 1 - frac(1, t^{2})) = 3 * (t^{2} + frac(1, t^{2}) + 1)
+17. forall (t), t ∈ RealSet ∧ t ≠ 0 ∧ t ≠ 1 ∧ t ≠ -1 ⇒ FunDeri(z, x, 1) = 3 * (t^{2} + frac(1, t^{2}) + 1)
+18. forall (t), t ∈ RealSet ∧ t ≠ 0 ∧ t ≠ 1 ∧ t ≠ -1 ⇒ FunDeri(y, x, 2) = frac(FunDeri(FunDeri(y, x, 1), 1, 1)(t), FunDeri(x, 1, 1)(t))
+19. forall (t), t ∈ RealSet ∧ t ≠ 0 ∧ t ≠ 1 ∧ t ≠ -1 ⇒ frac(FunDeri(FunDeri(y, x, 1), 1, 1)(t), FunDeri(x, 1, 1)(t)) = frac(2 * (1 - frac(1, t^{2})), 1 - frac(1, t^{2}))
+20. forall (t), t ∈ RealSet ∧ t ≠ 0 ∧ t ≠ 1 ∧ t ≠ -1 ⇒ frac(2 * (1 - frac(1, t^{2})), 1 - frac(1, t^{2})) = 2
+
+GOAL:
+forall (t), t ∈ RealSet ∧ t ≠ 0 ∧ t ≠ 1 ∧ t ≠ -1 ⇒ FunDeri(y, x, 2) = 2
+
+METHOD:

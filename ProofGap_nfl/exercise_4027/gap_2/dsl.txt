@@ -1,0 +1,6 @@
+assert (hypothesis 5: {exists (y), y ∈ RealSet ∧ (a + y = a ∨ a + y = b)}) by proof {
+  exists (y := {0})
+  autosolve (hypothesis 1: {a ∈ RealSet ∧ 0 < a})
+}
+exists (x := {a})
+autosolve (hypothesis 1: {a ∈ RealSet ∧ 0 < a}) (hypothesis 5: {exists (y), y ∈ RealSet ∧ (a + y = a ∨ a + y = b)})

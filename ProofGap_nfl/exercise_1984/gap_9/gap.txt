@@ -1,0 +1,18 @@
+PROOF GAP @9
+ASSUM:
+1. x ∈ RealSet ∧ -1 < x ∧ x < 1
+2. z ∈ RealSet
+3. C ∈ RealSet
+4. frac(x^{5}, sqrtn(2, 1 - x^{2})) = x^{5} * (1 - x^{2})^{-frac(1, 2)}
+5. sqrtn(2, 1 - x^{2}) = z
+6. 0 < x ⇒ x < 1 ⇒ 0 < z
+7. 0 < x ⇒ x < 1 ⇒ z < 1
+8. 0 < x ⇒ x < 1 ⇒ x = sqrtn(2, 1 - z^{2})
+9. 0 < x ⇒ x < 1 ⇒ diff(fun z [z ∈ RealSet ∧ 0 < z ∧ z < 1] . x) = -frac(z, sqrtn(2, 1 - z^{2})) * diff(fun z [z ∈ RealSet ∧ 0 < z ∧ z < 1] . z)
+10. 0 < x ⇒ x < 1 ⇒ { `F_2` | forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x^{5}, sqrtn(2, 1 - x^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_4` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (z), z ∈ RealSet ∧ 0 < z ∧ z < 1 ⇒ FunDeri(`F_3`, 1, 1)(z) = (1 - z^{2})^{2} * FunDeri(fun z [z ∈ RealSet] . z, 1, 1)(z) ∧ `F_4`(z) = -`F_3`(z)) }
+11. { `F_6` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (z), z ∈ RealSet ∧ 0 < z ∧ z < 1 ⇒ FunDeri(`F_5`, 1, 1)(z) = (1 - z^{2})^{2} * FunDeri(fun z [z ∈ RealSet] . z, 1, 1)(z) ∧ `F_6`(z) = -`F_5`(z)) } = { `F_7` | exists (C), C ∈ RealSet ∧ (forall (z), z ∈ RealSet ∧ 0 < z ∧ z < 1 ⇒ `F_7`(z) = -z + frac(2, 3) * z^{3} - frac(1, 5) * z^{5} + C) }
+
+GOAL:
+z = sqrtn(2, 1 - x^{2})
+
+METHOD:

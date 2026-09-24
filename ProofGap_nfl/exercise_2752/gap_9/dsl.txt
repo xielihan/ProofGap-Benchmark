@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ IntervalLoRo(1, +∞) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(2, n) < ε ⇒ frac(2 * n * x, 1 + n^{2} * x^{2}) < ε)}) (n := {n0}) (x := {x0})
+get_condition (hypothesis 15: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ IntervalLoRo(1, +∞)}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ IntervalLoRo(1, +∞) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(2, n0) < ε ⇒ frac(2 * n0 * x0, 1 + n0^{2} * x0^{2}) < ε)})
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(2, n0) < ε ⇒ frac(2 * n0 * x0, 1 + n0^{2} * x0^{2}) < ε}) (ε := {εc})
+get_condition (hypothesis 16: {εc ∈ RealSet ∧ εc > 0 ∧ frac(2, n0) < εc}) in (GOAL: {εc ∈ RealSet ∧ εc > 0 ∧ frac(2, n0) < εc ⇒ frac(2 * n0 * x0, 1 + n0^{2} * x0^{2}) < εc})
+assert (hypothesis 17: {n0 > 0 ∧ x0 > 1 ∧ x0 > 0}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

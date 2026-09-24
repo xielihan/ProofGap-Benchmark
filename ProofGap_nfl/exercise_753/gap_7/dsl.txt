@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (p), p ∈ RealSet ∧ p > 0 ∧ PeriodicFunc(φ, p) ∧ ¬PeriodicFunc(ψ, p) ⇒ α > 0}) (p := {p1})
+get_condition (hypothesis 21: {p1 ∈ RealSet ∧ p1 > 0 ∧ PeriodicFunc(φ, p1) ∧ ¬PeriodicFunc(ψ, p1)}) in (GOAL: {p1 ∈ RealSet ∧ p1 > 0 ∧ PeriodicFunc(φ, p1) ∧ ¬PeriodicFunc(ψ, p1) ⇒ α > 0})
+destruct_and (hypothesis 8: {α ∈ RealSet ∧ α > 0}) as (hypothesis 22: {α ∈ RealSet}) (hypothesis 23: {α > 0})
+apply (hypothesis 23: {α > 0})

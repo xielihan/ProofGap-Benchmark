@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ e^{-(frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}))} ≥ 0)}) (x := {u})
+get_condition (hypothesis 7: {u ∈ RealSet}) in (GOAL: {u ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ e^{-(frac(u^{2}, a^{2}) + frac(y^{2}, b^{2}))} ≥ 0)})
+get_forall (GOAL: {forall (y), y ∈ RealSet ⇒ e^{-(frac(u^{2}, a^{2}) + frac(y^{2}, b^{2}))} ≥ 0}) (y := {v})
+get_condition (hypothesis 8: {v ∈ RealSet}) in (GOAL: {v ∈ RealSet ⇒ e^{-(frac(u^{2}, a^{2}) + frac(v^{2}, b^{2}))} ≥ 0})
+autosolve (hypothesis 1: {a ∈ RealSet ∧ a > 0}) (hypothesis 2: {b ∈ RealSet ∧ b > 0}) (hypothesis 7: {u ∈ RealSet}) (hypothesis 8: {v ∈ RealSet}) using SgnSolver

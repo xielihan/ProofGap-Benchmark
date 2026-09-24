@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ x > -a ∧ x > -b ∧ x > 0 ⇒ sqrtn(2, (x + a) * (x + b)) - x = frac((x + a) * (x + b) - x^{2}, sqrtn(2, (x + a) * (x + b)) + x)
+4. forall (x), x ∈ RealSet ∧ x > -a ∧ x > -b ∧ x > 0 ⇒ frac((x + a) * (x + b) - x^{2}, sqrtn(2, (x + a) * (x + b)) + x) = frac(a + b + frac(a * b, x), 1 + sqrtn(2, (1 + frac(a, x)) * (1 + frac(b, x))))
+5. lim_{ x → +∞ } (frac(a + b + frac(a * b, x), 1 + sqrtn(2, (1 + frac(a, x)) * (1 + frac(b, x))))) = frac(a + b, 2)
+
+GOAL:
+lim_{ x → +∞ } (sqrtn(2, (x + a) * (x + b)) - x) = frac(a + b, 2)
+
+METHOD:

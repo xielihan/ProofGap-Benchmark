@@ -1,0 +1,7 @@
+PROOF GAP @2
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 < |x| ∧ |x| < 1 ⇒ sqrtn(3, 27 + x)^{2} + sqrtn(3, 27^{2} - x^{2}) + sqrtn(3, 27 - x)^{2} ≠ 0
+
+METHOD:

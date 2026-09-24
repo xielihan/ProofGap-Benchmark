@@ -1,0 +1,15 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. n ∈ PosIntegerSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = x^{2}
+4. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ [1, 10] ∧ x_{2} ∈ [1, 10] ∧ |x_{1} - x_{2}| ≤ frac(9, n) ⇒ |f(x_{1}) - f(x_{2})| = |(x_{1})^{2} - (x_{2})^{2}|)
+5. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ [1, 10] ∧ x_{2} ∈ [1, 10] ∧ |x_{1} - x_{2}| ≤ frac(9, n) ⇒ |(x_{1})^{2} - (x_{2})^{2}| = |x_{1} + x_{2}| * |x_{1} - x_{2}|)
+6. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ [1, 10] ∧ x_{2} ∈ [1, 10] ∧ |x_{1} - x_{2}| ≤ frac(9, n) ⇒ |f(x_{1}) - f(x_{2})| = |x_{1} + x_{2}| * |x_{1} - x_{2}|)
+7. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ [1, 10] ∧ x_{2} ∈ [1, 10] ∧ |x_{1} - x_{2}| ≤ frac(9, n) ⇒ |x_{1} + x_{2}| ≤ 10 + 10)
+8. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ [1, 10] ∧ x_{2} ∈ [1, 10] ∧ |x_{1} - x_{2}| ≤ frac(9, n) ⇒ |f(x_{1}) - f(x_{2})| ≤ frac((10 + 10) * 9, n))
+
+GOAL:
+forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ [1, 10] ∧ x_{2} ∈ [1, 10] ∧ |x_{1} - x_{2}| ≤ frac(9, n) ⇒ frac((10 + 10) * 9, n) = frac(180, n))
+
+METHOD:

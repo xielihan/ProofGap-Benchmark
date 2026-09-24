@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. χ : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ χ(x) = cases{ 1 if x ∈ RationalSet; 0 if x ∈ RealSet ∧ x ∉ RationalSet }
+3. forall (l), l ∈ RealSet ∧ l ∈ RationalSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ RationalSet ⇒ x + l ∈ RationalSet)
+4. forall (l), l ∈ RealSet ∧ l ∈ RationalSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ RationalSet ⇒ χ(x + l) = 1)
+5. forall (l), l ∈ RealSet ∧ l ∈ RationalSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ RationalSet ⇒ χ(x) = 1)
+6. forall (l), l ∈ RealSet ∧ l ∈ RationalSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ RationalSet ⇒ χ(x + l) = χ(x))
+7. forall (l), l ∈ RealSet ∧ l ∈ RationalSet ⇒ (forall (x), x ∈ RealSet ∧ x ∉ RationalSet ⇒ x + l ∉ RationalSet)
+
+GOAL:
+forall (l), l ∈ RealSet ∧ l ∈ RationalSet ⇒ (forall (x), x ∈ RealSet ∧ x ∉ RationalSet ⇒ χ(x + l) = 0)
+
+METHOD:

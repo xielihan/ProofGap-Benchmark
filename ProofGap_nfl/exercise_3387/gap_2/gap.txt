@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x), x ∈ RealSet
+3. forall (y), y ∈ RealSet
+4. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ z(x, y) ∈ RealSet)
+5. FuncOfClassK(z, 2)
+6. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ x + y + z(x, y) = e^{-(x + y + z(x, y))})
+7. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ 1 + FunDeri(z, 1, 1)(x, y) = e^{-(x + y + z(x, y))} * (-1 - FunDeri(z, 1, 1)(x, y)))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(z, 1, 1)(x, y) = -1)
+
+METHOD:

@@ -1,0 +1,12 @@
+get_prop (theorem 2: {forall (A), Not (A ∈ ∅)}) (A := {p}) as (hypothesis 25: {Not (p ∈ ∅)})
+get_prop (hypothesis 24: {forall (p), p ∈ RealSet ⇒ ¬I < +∞}) (p := {p}) as (hypothesis 26: {p ∈ RealSet ⇒ ¬I < +∞})
+use_condition (hypothesis 1: {p ∈ RealSet}) in (hypothesis 26: {p ∈ RealSet ⇒ ¬I < +∞}) as (hypothesis 27: {¬I < +∞})
+assert (hypothesis 28: {p ∈ ∅ ⇒ I < +∞}) by proof {
+  get_condition (hypothesis 28: {p ∈ ∅}) in (GOAL: {p ∈ ∅ ⇒ I < +∞})
+  autosolve all_hypothesis
+}
+assert (hypothesis 29: {I < +∞ ⇒ p ∈ ∅}) by proof {
+  get_condition (hypothesis 29: {I < +∞}) in (GOAL: {I < +∞ ⇒ p ∈ ∅})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

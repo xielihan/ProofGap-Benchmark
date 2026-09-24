@@ -1,0 +1,27 @@
+get_condition (hypothesis 11: {0 < k}) in (GOAL: {0 < k ⇒ k < 1 ⇒ FunDeri(E, 1, 1)(k) + 2 * k * F(k) - (1 - k^{2}) * FunDeri(F, 1, 1)(k) = frac(E(k) - F(k), k) + 2 * k * F(k) - (1 - k^{2}) * (frac(E(k), k * (1 - k^{2})) - frac(F(k), k))})
+get_condition (hypothesis 12: {k < 1}) in (GOAL: {k < 1 ⇒ FunDeri(E, 1, 1)(k) + 2 * k * F(k) - (1 - k^{2}) * FunDeri(F, 1, 1)(k) = frac(E(k) - F(k), k) + 2 * k * F(k) - (1 - k^{2}) * (frac(E(k), k * (1 - k^{2})) - frac(F(k), k))})
+destruct_and (hypothesis 3: {k ∈ RealSet ∧ 0 ≤ k ∧ k < 1}) as (hypothesis 13: {k ∈ RealSet}) (hypothesis 14: {0 ≤ k}) (hypothesis 15: {k < 1})
+assert (hypothesis 16: {0 ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 17: {1 ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 452. (OpenIntervalMembership)': {forall (x) (a) (b), x ∈ RealSet ⇒ a ∈ RealSet ⇒ b ∈ RealSet ⇒ (x ∈ (a, b) ⇔ (x > a ∧ x < b))}) (x := {k}) (a := {0}) (b := {1}) as (hypothesis 18: {k ∈ RealSet ⇒ 0 ∈ RealSet ⇒ 1 ∈ RealSet ⇒ (k ∈ (0, 1) ⇔ (k > 0 ∧ k < 1))})
+use_condition (hypothesis 13: {k ∈ RealSet}) in (hypothesis 18: {k ∈ RealSet ⇒ 0 ∈ RealSet ⇒ 1 ∈ RealSet ⇒ (k ∈ (0, 1) ⇔ (k > 0 ∧ k < 1))}) as (hypothesis 19: {0 ∈ RealSet ⇒ 1 ∈ RealSet ⇒ (k ∈ (0, 1) ⇔ (k > 0 ∧ k < 1))})
+use_condition (hypothesis 16: {0 ∈ RealSet}) in (hypothesis 19: {0 ∈ RealSet ⇒ 1 ∈ RealSet ⇒ (k ∈ (0, 1) ⇔ (k > 0 ∧ k < 1))}) as (hypothesis 20: {1 ∈ RealSet ⇒ (k ∈ (0, 1) ⇔ (k > 0 ∧ k < 1))})
+use_condition (hypothesis 17: {1 ∈ RealSet}) in (hypothesis 20: {1 ∈ RealSet ⇒ (k ∈ (0, 1) ⇔ (k > 0 ∧ k < 1))}) as (hypothesis 21: {k ∈ (0, 1) ⇔ (k > 0 ∧ k < 1)})
+assert (hypothesis 22: {k ∈ (0, 1)}) by proof {
+  rewrite (left_to_right, iff) (hypothesis 21: {k ∈ (0, 1) ⇔ (k > 0 ∧ k < 1)}); from (GOAL: {k ∈ (0, 1)}) to (GOAL: {k > 0 ∧ k < 1})
+  autosolve all_hypothesis
+}
+assert (hypothesis 23: {k ∈ RealSet ∧ k ∈ IntervalLoRo(0, 1) ∧ 0 < k ∧ k < 1}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (hypothesis 8: {forall (u), u ∈ RealSet ∧ u ∈ IntervalLoRo(0, 1) ∧ 0 < u ∧ u < 1 ⇒ FunDeri(E, 1, 1)(u) = frac(E(u) - F(u), u)}) (u := {k}) as (hypothesis 24: {k ∈ RealSet ∧ k ∈ IntervalLoRo(0, 1) ∧ 0 < k ∧ k < 1 ⇒ FunDeri(E, 1, 1)(k) = frac(E(k) - F(k), k)})
+use_condition (hypothesis 23: {k ∈ RealSet ∧ k ∈ IntervalLoRo(0, 1) ∧ 0 < k ∧ k < 1}) in (hypothesis 24: {k ∈ RealSet ∧ k ∈ IntervalLoRo(0, 1) ∧ 0 < k ∧ k < 1 ⇒ FunDeri(E, 1, 1)(k) = frac(E(k) - F(k), k)}) as (hypothesis 25: {FunDeri(E, 1, 1)(k) = frac(E(k) - F(k), k)})
+get_prop (hypothesis 9: {forall (u), u ∈ RealSet ∧ u ∈ IntervalLoRo(0, 1) ∧ 0 < u ∧ u < 1 ⇒ FunDeri(F, 1, 1)(u) = frac(E(u), u * (1 - u^{2})) - frac(F(u), u)}) (u := {k}) as (hypothesis 26: {k ∈ RealSet ∧ k ∈ IntervalLoRo(0, 1) ∧ 0 < k ∧ k < 1 ⇒ FunDeri(F, 1, 1)(k) = frac(E(k), k * (1 - k^{2})) - frac(F(k), k)})
+use_condition (hypothesis 23: {k ∈ RealSet ∧ k ∈ IntervalLoRo(0, 1) ∧ 0 < k ∧ k < 1}) in (hypothesis 26: {k ∈ RealSet ∧ k ∈ IntervalLoRo(0, 1) ∧ 0 < k ∧ k < 1 ⇒ FunDeri(F, 1, 1)(k) = frac(E(k), k * (1 - k^{2})) - frac(F(k), k)}) as (hypothesis 27: {FunDeri(F, 1, 1)(k) = frac(E(k), k * (1 - k^{2})) - frac(F(k), k)})
+rewrite (left_to_right, equation) (hypothesis 25: {FunDeri(E, 1, 1)(k) = frac(E(k) - F(k), k)}); from (GOAL: {FunDeri(E, 1, 1)(k) + 2 * k * F(k) - (1 - k^{2}) * FunDeri(F, 1, 1)(k) = frac(E(k) - F(k), k) + 2 * k * F(k) - (1 - k^{2}) * (frac(E(k), k * (1 - k^{2})) - frac(F(k), k))}) to (GOAL: {frac(E(k) - F(k), k) + 2 * k * F(k) - (1 - k^{2}) * FunDeri(F, 1, 1)(k) = frac(E(k) - F(k), k) + 2 * k * F(k) - (1 - k^{2}) * (frac(E(k), k * (1 - k^{2})) - frac(F(k), k))})
+rewrite (left_to_right, equation) (hypothesis 27: {FunDeri(F, 1, 1)(k) = frac(E(k), k * (1 - k^{2})) - frac(F(k), k)}); from (GOAL: {frac(E(k) - F(k), k) + 2 * k * F(k) - (1 - k^{2}) * FunDeri(F, 1, 1)(k) = frac(E(k) - F(k), k) + 2 * k * F(k) - (1 - k^{2}) * (frac(E(k), k * (1 - k^{2})) - frac(F(k), k))}) to (GOAL: {frac(E(k) - F(k), k) + 2 * k * F(k) - (1 - k^{2}) * (frac(E(k), k * (1 - k^{2})) - frac(F(k), k)) = frac(E(k) - F(k), k) + 2 * k * F(k) - (1 - k^{2}) * (frac(E(k), k * (1 - k^{2})) - frac(F(k), k))})
+autosolve all_hypothesis

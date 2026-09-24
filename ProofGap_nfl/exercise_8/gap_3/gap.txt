@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (n), n ∈ IntegerSet ∧ n = 2 ⇒ frac(2 + 1, 2)^{2} = frac(9, 4)
+2. forall (n), n ∈ IntegerSet ∧ n = 2 ⇒ frac(9, 4) > 2
+
+GOAL:
+forall (n), n ∈ IntegerSet ∧ n = 2 ⇒ 2 = 2!
+
+METHOD:

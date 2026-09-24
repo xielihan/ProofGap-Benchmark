@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (-1)^{n} * frac(sin(n)^{2}, n) = (-1)^{n} * frac(1, 2 * n) + (-1)^{n + 1} * frac(cos(2 * n), 2 * n)
+
+GOAL:
+ConvergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n} * frac(1, 2 * n)))
+
+METHOD:

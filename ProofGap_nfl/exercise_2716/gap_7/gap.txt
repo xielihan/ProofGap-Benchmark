@@ -1,0 +1,17 @@
+PROOF GAP @7
+ASSUM:
+1. x ∈ RealSet
+2. y ∈ RealSet
+3. x ≠ 0
+4. y = frac(1, x)
+5. sum_{ n = 1 }^{ +∞ } (frac(n, x^{n})) = sum_{ n = 1 }^{ +∞ } (n * y^{n})
+6. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . n) = 1
+7. AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (n * y^{n})) ⇔ |y| < 1
+8. |y| < 1 ⇔ |frac(1, x)| < 1 ⇔ |x| > 1
+9. |x| = 1 ⇒ x = 1 ∨ x = -1
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ |x| = 1 ⇒ |frac(n, x^{n})| = n
+
+GOAL:
+|x| = 1 ⇒ ¬seqlim_{ n → +∞ } (frac(n, x^{n})) = 0
+
+METHOD:

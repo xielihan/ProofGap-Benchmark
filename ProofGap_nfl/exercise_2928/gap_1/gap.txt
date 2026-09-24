@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. S ∈ RealSet
+2. Δ ∈ RealSet
+3. k ∈ NonNegIntegerSet
+4. j ∈ NonNegIntegerSet
+5. r ∈ NonNegIntegerSet
+
+GOAL:
+π = 6 * arcsin(frac(1, 2))
+
+METHOD:

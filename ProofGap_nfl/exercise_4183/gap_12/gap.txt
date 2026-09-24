@@ -1,0 +1,35 @@
+PROOF GAP @12
+ASSUM:
+1. p ∈ RealSet
+2. q ∈ RealSet
+3. D ⊆ CartesianProd(RealSet, RealSet)
+4. `Ω_1` ⊆ CartesianProd(RealSet, RealSet)
+5. `Ω_2` ⊆ CartesianProd(RealSet, RealSet)
+6. `Ω_3` ⊆ CartesianProd(RealSet, RealSet)
+7. x : CartesianProd(RealSet, RealSet) → RealSet
+8. y : CartesianProd(RealSet, RealSet) → RealSet
+9. p > 0
+10. q > 0
+11. D = { (x, y) | x ∈ RealSet, y ∈ RealSet, |x| + |y| ≤ 1 }
+12. `Ω_1` = { (x, y) | x ∈ RealSet, y ∈ RealSet, x ≥ 0, y ≥ 0, x + y ≤ 1, x^{p} + y^{q} ≥ 2^{p - q} }
+13. `Ω_2` = { (x, y) | x ∈ RealSet, y ∈ RealSet, x ≥ 0, y ≥ 0, x + y ≤ 1, x^{p} + y^{q} ≤ 2^{p - q} }
+14. `Ω_3` = { (x, y) | x ∈ RealSet, y ∈ RealSet, x ≥ 0, y ≥ 0, x^{p} + y^{q} ≤ 2^{p - q} }
+15. VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, |x|^{p} + |y|^{q})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = 4 * VolumeInt({ (x, y) | x ∈ RealSet, y ∈ RealSet, x ≥ 0, y ≥ 0, x + y ≤ 1 }, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, x^{p} + y^{q})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+16. 4 * VolumeInt({ (x, y) | x ∈ RealSet, y ∈ RealSet, x ≥ 0, y ≥ 0, x + y ≤ 1 }, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, x^{p} + y^{q})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = 4 * VolumeInt(`Ω_1`, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, x^{p} + y^{q})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) + 4 * VolumeInt(`Ω_2`, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, x^{p} + y^{q})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+17. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≥ 0 ∧ y ≥ 0 ∧ x^{p} + y^{q} ≤ frac(1, 2^{p + q}) ⇒ x ≤ frac(1, 2)
+18. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≥ 0 ∧ y ≥ 0 ∧ x^{p} + y^{q} ≤ frac(1, 2^{p + q}) ⇒ y ≤ frac(1, 2)
+19. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≥ 0 ∧ y ≥ 0 ∧ x^{p} + y^{q} ≤ frac(1, 2^{p + q}) ⇒ x + y ≤ 1
+20. `Ω_3` = `Ω_2`
+21. ContinuousFuncOn(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, x^{p} + y^{q}), `Ω_1`)
+22. VolumeInt(`Ω_1`, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, x^{p} + y^{q})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) < +∞
+23. VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, |x|^{p} + |y|^{q})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) < +∞ ⇔ VolumeInt(`Ω_3`, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, x^{p} + y^{q})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) < +∞
+24. forall (r) (θ), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ sqrtn(2, 2)^{-p - q} ∧ θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ frac(π, 2) ⇒ x(r, θ) = r^{frac(2, p)} * cos(θ)^{frac(2, p)}
+25. forall (r) (θ), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ sqrtn(2, 2)^{-p - q} ∧ θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ frac(π, 2) ⇒ y(r, θ) = r^{frac(2, q)} * sin(θ)^{frac(2, q)}
+26. forall (r) (θ), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ sqrtn(2, 2)^{-p - q} ∧ θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ frac(π, 2) ⇒ frac(D(x, y), D(r, θ)) = frac(4, p * q) * r^{frac(2, p) + frac(2, q) - 1} * sin(θ)^{frac(2, q) - 1} * cos(θ)^{frac(2, p) - 1}
+27. VolumeInt(`Ω_3`, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, x^{p} + y^{q})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = frac(4, p * q) * DefInt(0, frac(π, 2), (fun θ [θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ frac(π, 2)] . sin(θ)^{frac(2, q) - 1} * cos(θ)^{frac(2, p) - 1}) * diff(fun θ [θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ frac(π, 2)] . θ)) * DefInt(0, sqrtn(2, 2)^{-p - q}, (fun r [r ∈ RealSet ∧ 0 < r ∧ r ≤ sqrtn(2, 2)^{-p - q}] . r^{frac(2, p) + frac(2, q) - 3}) * diff(fun r [r ∈ RealSet ∧ 0 < r ∧ r ≤ sqrtn(2, 2)^{-p - q}] . r))
+
+GOAL:
+DefInt(0, frac(π, 2), (fun θ [θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ frac(π, 2)] . sin(θ)^{frac(2, q) - 1} * cos(θ)^{frac(2, p) - 1}) * diff(fun θ [θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ frac(π, 2)] . θ)) < +∞
+
+METHOD:
+[@method 根据 "Beta积分收敛性" @]

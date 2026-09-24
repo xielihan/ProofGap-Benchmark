@@ -1,0 +1,23 @@
+PROOF GAP @3
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. y : NonNegIntegerSet → RealSet ∧ IsSeq(y)
+3. n ∈ NonNegIntegerSet
+4. k ∈ NonNegIntegerSet
+5. i ∈ NonNegIntegerSet
+6. p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p)
+7. q : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(q)
+8. β_{`bar`} ∈ RealSet
+9. τ ∈ RealSet
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ∈ NonNegRealSet ∧ y(n) ∈ NonNegRealSet
+11. seqlim_{ n → +∞ } (x(n)) ∈ NonNegRealSet
+12. seqlim_{ n → +∞ } (y(n)) ∈ NonNegRealSet
+13. seqlim_{ n → +∞ } (x(n) * y(n)) ∈ NonNegRealSet
+14. ¬BoundedSeq(y) ⇒ seqlim_{ n → +∞ } (y(n)) = +∞
+15. ¬BoundedSeq(y) ⇒ seqlim_{ n → +∞ } (x(n) * y(n)) ≤ (seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (y(n)))
+16. BoundedSeq(y) ⇒ α_{`bar`} = seqlim_{ n → +∞ } (x(n) * y(n))
+
+GOAL:
+BoundedSeq(y) ⇒ α_{`bar`} ≥ 0
+
+METHOD:

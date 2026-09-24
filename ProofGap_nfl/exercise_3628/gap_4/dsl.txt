@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 6: {A = FunDeri(z, 1, 2)(5, 2)}); from (GOAL: {A = frac(4, 5)}) to (GOAL: {FunDeri(z, 1, 2)(5, 2) = frac(4, 5)})
+autosolve all_hypothesis

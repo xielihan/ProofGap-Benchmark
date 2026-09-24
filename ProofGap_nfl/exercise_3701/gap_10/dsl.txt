@@ -1,0 +1,2 @@
+exists (x_{2} := {2}) (y_{2} := {0})
+autosolve all_hypothesis

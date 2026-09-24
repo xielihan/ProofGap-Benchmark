@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet ⇒ x ≤ frac(2, 5)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≤ frac(2, 5) ⇒ x = -frac(1, 5) * (2 - 5 * x) + frac(2, 5)
+
+METHOD:

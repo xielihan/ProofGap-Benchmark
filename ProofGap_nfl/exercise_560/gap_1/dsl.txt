@@ -1,0 +1,2 @@
+1. destruct_and (hypothesis 1: {a ∈ RealSet /\ a > 0}) as (hypothesis 2: {a ∈ RealSet}) (hypothesis 3: {a > 0})
+2. autosolve all_hypothesis

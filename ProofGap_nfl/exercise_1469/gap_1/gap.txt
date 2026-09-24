@@ -1,0 +1,16 @@
+PROOF GAP @1
+ASSUM:
+1. k ∈ RealSet
+2. f : RealSet → RealSet
+3. g : RealSet → RealSet
+4. ξ ∈ RealSet ∧ ξ ∈ PosRealSet
+5. S ⊆ RealSet
+6. coth(ξ) = ξ
+7. forall (x), x ∈ RealSet ⇒ f(x) = cosh(x) - k * x
+8. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ g(x) = cosh(x) - x * sinh(x)
+9. forall (x), x ∈ RealSet ⇒ (x ∈ S ⇔ x ∈ RealSet ∧ cosh(x) = k * x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(f, 1, 1)(x) = sinh(x) - k
+
+METHOD:

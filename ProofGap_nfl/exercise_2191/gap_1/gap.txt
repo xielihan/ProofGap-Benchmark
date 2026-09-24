@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. n ∈ NonNegIntegerSet ∧ n > 0
+4. i ∈ IntegerSet
+5. 0 < a
+6. a < b
+7. q = sqrtn(n, frac(b, a))
+
+GOAL:
+n ∈ PosIntegerSet ⇒ q^{n} = frac(b, a)
+
+METHOD:

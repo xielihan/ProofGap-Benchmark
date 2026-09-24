@@ -1,0 +1,17 @@
+PROOF GAP @8
+ASSUM:
+1. x ∈ RealSet
+2. x ≠ 0
+3. P = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . prod_{ k = 1 }^{ n } (cosh(frac(x, 2^{k}))))
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ P(n) = frac(sinh(x), 2^{n} * sinh(frac(x, 2^{n})))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ P(n) = frac(sinh(x), x) * frac(frac(x, 2^{n}), sinh(frac(x, 2^{n})))
+6. lim_{ y → 0 } (frac(y, sinh(y))) = lim_{ y → 0 } (frac(1, cosh(y)))
+7. lim_{ y → 0 } (frac(1, cosh(y))) = 1
+8. lim_{ y → 0 } (frac(y, sinh(y))) = 1
+9. seqlim_{ n → +∞ } (frac(frac(x, 2^{n}), sinh(frac(x, 2^{n})))) = 1
+10. prod_{ n = 1 }^{ +∞ } (cosh(frac(x, 2^{n}))) = frac(sinh(x), x)
+
+GOAL:
+prod_{ n = 1 }^{ +∞ } (cosh(frac(x, 2^{n}))) = frac(sinh(x), x)
+
+METHOD:

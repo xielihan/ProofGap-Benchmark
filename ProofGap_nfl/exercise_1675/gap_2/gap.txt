@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+3. (fun x [x ∈ RealSet] . x^{2} * sqrtn(3, 1 + x^{3})) * diff(fun x [x ∈ RealSet] . x) = (fun x [x ∈ RealSet] . frac(1, 3) * (1 + x^{3})^{frac(1, 3)}) * diff(fun x [x ∈ RealSet] . 1 + x^{3})
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = x^{2} * sqrtn(3, 1 + x^{3}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_4` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = (1 + x^{3})^{frac(1, 3)} * FunDeri(fun x [x ∈ RealSet] . 1 + x^{3}, 1, 1)(x) ∧ `F_4`(x) = frac(1, 3) * `F_3`(x)) }
+
+METHOD:

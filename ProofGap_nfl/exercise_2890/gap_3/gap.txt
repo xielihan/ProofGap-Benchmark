@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. a : NonNegIntegerSet → RealSet
+3. forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ∧ x ≠ 0 ⇒ f(x) = frac(arcsin(x), x)^{2}
+4. φ = (fun x [x ∈ RealSet ∧ -1 < x ∧ x < 1] . arcsin(x)^{2})
+5. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ φ(x) = sum_{ n = 0 }^{ +∞ } (a(n) * x^{n})
+6. forall (n), n ∈ NonNegIntegerSet ⇒ a(n) ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ FunDeri(φ, 1, 1)(x) = frac(2 * arcsin(x), sqrtn(2, 1 - x^{2})) ∧ frac(2 * arcsin(x), sqrtn(2, 1 - x^{2})) = sum_{ n = 0 }^{ +∞ } ((n + 1) * a(n + 1) * x^{n})
+
+METHOD:

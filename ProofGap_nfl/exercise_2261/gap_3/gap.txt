@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. ContinuousFuncOn(f, [0, 2 * π])
+3. DefInt(0, 2 * π, (fun x [x ∈ RealSet] . f(x) * cos(x)) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . f(x) * cos(x)) * diff(fun x [x ∈ RealSet] . x)) + DefInt(frac(π, 2), π, (fun x [x ∈ RealSet] . f(x) * cos(x)) * diff(fun x [x ∈ RealSet] . x)) + DefInt(π, frac(3 * π, 2), (fun x [x ∈ RealSet] . f(x) * cos(x)) * diff(fun x [x ∈ RealSet] . x)) + DefInt(frac(3 * π, 2), 2 * π, (fun x [x ∈ RealSet] . f(x) * cos(x)) * diff(fun x [x ∈ RealSet] . x))
+4. forall (t), t : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2) ∧ t(x) = sin(x) ⇒ 0 ≤ t(x))
+
+GOAL:
+forall (t), t : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2) ∧ t(x) = sin(x) ⇒ t(x) ≤ 1)
+
+METHOD:

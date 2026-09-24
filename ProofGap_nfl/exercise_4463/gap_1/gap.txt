@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ x^{2} + 2 * x * y(x) - y(x)^{2} = 2 * x
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ 2 * x + 2 * x * FunDeri(y, 1, 1)(x) + 2 * y(x) - 2 * y(x) * FunDeri(y, 1, 1)(x) = 2
+
+METHOD:
+[@method 两边同时对 x 求 导数 @]

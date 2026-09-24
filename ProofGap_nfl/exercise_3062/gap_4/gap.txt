@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 1 + frac(1, n * (n + 2)) = frac((n + 1)^{2}, n * (n + 2))
+2. P = (fun n [n ∈ NonNegIntegerSet ∧ n ≥ 1] . prod_{ k = 1 }^{ n } (1 + frac(1, k * (k + 2))))
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ IntegerSet ∧ n ≥ 3 ⇒ P(n) = prod_{ k = 1 }^{ n } (frac((k + 1)^{2}, k * (k + 2)))
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ IntegerSet ∧ n ≥ 3 ⇒ P(n) = frac(2 * (n + 1), n + 2)
+
+GOAL:
+seqlim_{ n → +∞ } (frac(2 * (n + 1), n + 2)) = 2
+
+METHOD:

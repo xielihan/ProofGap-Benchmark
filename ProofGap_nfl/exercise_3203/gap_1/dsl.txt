@@ -1,0 +1,6 @@
+1. get_prop (hypothesis 3: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x, y) = cases{ frac(x^{2} * y, x^{4} + y^{2}) if x^{2} + y^{2} ≠ 0; 0 if x^{2} + y^{2} = 0 }}) (x := {0}) (y := {0}) as (hypothesis 4: {0 ∈ RealSet ∧ 0 ∈ RealSet ⇒ f(0, 0) = cases{ frac(0^{2} * 0, 0^{4} + 0^{2}) if 0^{2} + 0^{2} ≠ 0; 0 if 0^{2} + 0^{2} = 0 }})
+2. assert (hypothesis 5: {0 ∈ RealSet ∧ 0 ∈ RealSet}) by proof {
+  1. autosolve all_hypothesis
+}
+3. use_condition (hypothesis 5: {0 ∈ RealSet ∧ 0 ∈ RealSet}) in (hypothesis 4: {0 ∈ RealSet ∧ 0 ∈ RealSet ⇒ f(0, 0) = cases{ frac(0^{2} * 0, 0^{4} + 0^{2}) if 0^{2} + 0^{2} ≠ 0; 0 if 0^{2} + 0^{2} = 0 }}) as (hypothesis 6: {f(0, 0) = cases{ frac(0^{2} * 0, 0^{4} + 0^{2}) if 0^{2} + 0^{2} ≠ 0; 0 if 0^{2} + 0^{2} = 0 }})
+4. autosolve all_hypothesis

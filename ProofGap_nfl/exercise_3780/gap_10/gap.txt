@@ -1,0 +1,18 @@
+PROOF GAP @10
+ASSUM:
+1. F : RealSet → RealSet
+2. forall (α), α ∈ RealSet ∧ α > 0 ⇒ F(α) = DefInt(1, +∞, (fun x [x ∈ RealSet ∧ x ≥ 1] . frac(cos(x), x^{α})) * diff(fun x [x ∈ RealSet ∧ x ≥ 1] . x))
+3. forall (`α_0`), `α_0` ∈ RealSet ∧ `α_0` > 0 ⇒ (forall (A), A ∈ RealSet ∧ A > 1 ⇒ |DefInt(1, A, (fun x [x ∈ RealSet ∧ x ≥ 1] . cos(x)) * diff(fun x [x ∈ RealSet ∧ x ≥ 1] . x))| ≤ 2)
+4. forall (`α_0`), `α_0` ∈ RealSet ∧ `α_0` > 0 ⇒ (forall (x), x ∈ RealSet ∧ x ≥ 1 ⇒ (forall (α), α ∈ RealSet ∧ α ≥ `α_0` ⇒ 0 < frac(1, x^{α})))
+5. forall (`α_0`), `α_0` ∈ RealSet ∧ `α_0` > 0 ⇒ (forall (x), x ∈ RealSet ∧ x ≥ 1 ⇒ (forall (α), α ∈ RealSet ∧ α ≥ `α_0` ⇒ frac(1, x^{α}) ≤ frac(1, x^{`α_0`})))
+6. forall (`α_0`), `α_0` ∈ RealSet ∧ `α_0` > 0 ⇒ (forall (x), x ∈ RealSet ∧ x ≥ 1 ⇒ (forall (α), α ∈ RealSet ∧ α ≥ `α_0` ⇒ 0 < frac(1, x^{`α_0`})))
+7. forall (`α_0`), `α_0` ∈ RealSet ∧ `α_0` > 0 ⇒ (forall (x), x ∈ RealSet ∧ x ≥ 1 ⇒ (forall (α), α ∈ RealSet ∧ α ≥ `α_0` ⇒ MonoDecFuncOn(fun x [x ∈ RealSet ∧ x ≥ 1] . frac(1, x^{α}), [1, +∞))))
+8. forall (`α_0`), `α_0` ∈ RealSet ∧ `α_0` > 0 ⇒ (forall (α), α ∈ RealSet ∧ α ≥ `α_0` ⇒ lim_{ x → +∞ } (frac(1, x^{α})) = 0)
+9. forall (`α_0`), `α_0` ∈ RealSet ∧ `α_0` > 0 ⇒ (forall (α), α ∈ RealSet ∧ α ≥ `α_0` ⇒ UniformConvergent(DefInt(1, +∞, (fun x [x ∈ RealSet ∧ x ≥ 1] . frac(cos(x), x^{α})) * diff(fun x [x ∈ RealSet ∧ x ≥ 1] . x)), [`α_0`, +∞), F))
+10. forall (`α_0`), `α_0` ∈ RealSet ∧ `α_0` > 0 ⇒ ContinuousFuncOn(F, [`α_0`, +∞))
+11. ContinuousFuncOn(F, IntervalLoRo(0, +∞))
+
+GOAL:
+ContinuousFuncOn(F, IntervalLoRo(0, +∞))
+
+METHOD:

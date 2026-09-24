@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. x ∈ RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(1, 2^{n})
+4. seqlim_{ n → +∞ } (sqrtn(n, a(n))) = frac(1, 2)
+5. seqlim_{ n → +∞ } (sqrtn(n, frac(1, 2))) = 1
+
+GOAL:
+RadiusOfConvergence(a) = 1
+
+METHOD:

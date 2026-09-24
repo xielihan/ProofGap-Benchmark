@@ -1,0 +1,1 @@
+apply (hypothesis 14: {exists (N) (A), N : NonNegIntegerSet → NonNegIntegerSet ∧ A : NonNegIntegerSet → RealSet ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ N(k) ∈ PosIntegerSet ∧ N(k) > N(k - 1) ∧ A(k) = sum_{ n = N(k) + 1 }^{ N(k + 1) } (a(n))) ∧ A(0) = sum_{ n = 1 }^{ N(1) } (a(n)) ∧ AbsoluteConvergentSeries(sum_{ k = 0 }^{ +∞ } (A(k)))})

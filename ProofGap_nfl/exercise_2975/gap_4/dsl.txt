@@ -1,0 +1,2 @@
+get_condition (hypothesis 8: {forall (x), x ∈ RealSet ∧ frac(π, 2) < x ∧ x < π ⇒ F(x) = -f(π - x)}) in (GOAL: {(forall (x), x ∈ RealSet ∧ frac(π, 2) < x ∧ x < π ⇒ F(x) = -f(π - x)) ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ DefInt(frac(π, 2), π, (fun t [t ∈ RealSet] . (f(π - t) + F(t)) * cos(2 * n * t)) * diff(fun t [t ∈ RealSet] . t)) = 0)})
+apply (hypothesis 7: {forall (n), n ∈ NonNegIntegerSet ⇒ DefInt(frac(π, 2), π, (fun t [t ∈ RealSet] . (f(π - t) + F(t)) * cos(2 * n * t)) * diff(fun t [t ∈ RealSet] . t)) = 0})

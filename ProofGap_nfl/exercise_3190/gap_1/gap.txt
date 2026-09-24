@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x^{2} + y^{2} > 0 ⇒ |x^{2} * y^{2} * ln(x^{2} + y^{2})| ≤ frac((x^{2} + y^{2})^{2}, 4) * |ln(x^{2} + y^{2})|)
+
+METHOD:

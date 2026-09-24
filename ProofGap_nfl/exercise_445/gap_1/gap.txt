@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+lim_{ x → 0 } (frac(sqrtn(2, 1 - 2 * x - x^{2}) - (1 + x), x)) = lim_{ x → 0 } (frac((sqrtn(2, 1 - 2 * x - x^{2}) - 1 - x) * (sqrtn(2, 1 - 2 * x - x^{2}) + 1 + x), x * (sqrtn(2, 1 - 2 * x - x^{2}) + 1 + x)))
+
+METHOD:
+[@method 有理化 @]

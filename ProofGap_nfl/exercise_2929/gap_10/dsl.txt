@@ -1,0 +1,4 @@
+assert (hypothesis 20: {frac(4, 9 * 3^{9}) < 0.00003}) by proof {
+  autosolve all_hypothesis
+}
+apply (hypothesis 20: {frac(4, 9 * 3^{9}) < 0.00003})

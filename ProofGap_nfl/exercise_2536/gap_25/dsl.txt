@@ -1,0 +1,5 @@
+get_prop (hypothesis 24: {forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ 6 ⇒ x_{i} = i * h ∧ y_{i} = f(x_{i})}) (i := {6}) as (hypothesis 47: {6 ∈ IntegerSet ∧ 0 ≤ 6 ∧ 6 ≤ 6 ⇒ x_{6} = 6 * h ∧ y_{6} = f(x_{6})})
+use_condition (obvious: {6 ∈ IntegerSet ∧ 0 ≤ 6 ∧ 6 ≤ 6}) in (hypothesis 47: {6 ∈ IntegerSet ∧ 0 ≤ 6 ∧ 6 ≤ 6 ⇒ x_{6} = 6 * h ∧ y_{6} = f(x_{6})}) as (hypothesis 48: {x_{6} = 6 * h ∧ y_{6} = f(x_{6})})
+destruct_and (hypothesis 48: {x_{6} = 6 * h ∧ y_{6} = f(x_{6})}) as (hypothesis 49: {x_{6} = 6 * h}) (hypothesis 50: {y_{6} = f(x_{6})})
+rewrite (left_to_right, equation) (hypothesis 23: {h = frac(π, 6)}); from (hypothesis 49: {x_{6} = 6 * h}) to (hypothesis 49: {x_{6} = 6 * frac(π, 6)})
+autosolve (hypothesis 49: {x_{6} = 6 * frac(π, 6)})

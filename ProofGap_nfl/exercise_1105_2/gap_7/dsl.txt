@@ -1,0 +1,2 @@
+autoreplace no_hypothesis; from (3 - frac(1, 4 * 3^{3})) to (frac(323, 108)); from (GOAL: {3 - frac(1, 4 * 3^{3}) = frac(323, 108)}) to (GOAL: {frac(323, 108) = frac(323, 108)})
+autosolve all_hypothesis

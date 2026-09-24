@@ -1,0 +1,2 @@
+get_condition (hypothesis 10: {exists (m) (n), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n)}) in (GOAL: {(exists (m) (n), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n)) ⇒ 0 < 1})
+autosolve all_hypothesis

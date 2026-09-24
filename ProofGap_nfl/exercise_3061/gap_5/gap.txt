@@ -1,0 +1,12 @@
+PROOF GAP @5
+ASSUM:
+1. P = (fun n [n ∈ NonNegIntegerSet ∧ n ≥ 3] . prod_{ k = 3 }^{ n } (frac(k^{2} - 4, k^{2} - 1)))
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 3 ∧ n ∈ IntegerSet ⇒ P(n) = prod_{ k = 3 }^{ n } (frac((k - 2) * (k + 2), (k - 1) * (k + 1)))
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 3 ∧ n ∈ IntegerSet ⇒ P(n) = frac(n + 2, 4 * (n - 1))
+4. seqlim_{ n → +∞ } (frac(n + 2, 4 * (n - 1))) = frac(1, 4)
+5. ConvergentSeq(P)
+
+GOAL:
+prod_{ n = 3 }^{ +∞ } (frac(n^{2} - 4, n^{2} - 1)) = frac(1, 4)
+
+METHOD:

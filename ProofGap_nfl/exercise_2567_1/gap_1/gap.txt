@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. a = (fun n [n ∈ NonNegIntegerSet] . frac(1 + (-1)^{n}, 2))
+2. b = (fun n [n ∈ NonNegIntegerSet] . frac(1 - (-1)^{n}, 2))
+3. a : NonNegIntegerSet → RealSet ∧ (fun n [n ∈ NonNegIntegerSet] . frac(1 + (-1)^{n}, 2)) : NonNegIntegerSet → RealSet
+4. b : NonNegIntegerSet → RealSet ∧ (fun n [n ∈ NonNegIntegerSet] . frac(1 - (-1)^{n}, 2)) : NonNegIntegerSet → RealSet
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ≥ 0 ∧ b(n) ≥ 0
+
+METHOD:

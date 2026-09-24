@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ n! ≤ 2 * frac(n, 2)^{n}}) (n := {n1})
+get_condition (hypothesis 6: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet}) in (GOAL: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet ⇒ n1! ≤ 2 * frac(n1, 2)^{n1}})
+get_prop (hypothesis 5: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, 2) * n! ≤ frac(n, 2)^{n}}) (n := {n1}) as (hypothesis 7: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet ⇒ frac(1, 2) * n1! ≤ frac(n1, 2)^{n1}})
+use_condition (hypothesis 6: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet}) in (hypothesis 7: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet ⇒ frac(1, 2) * n1! ≤ frac(n1, 2)^{n1}}) as (hypothesis 8: {frac(1, 2) * n1! ≤ frac(n1, 2)^{n1}})
+assert (hypothesis 9: {n1! = 2 * (frac(1, 2) * n1!)})
+rewrite (left_to_right, equation) (hypothesis 9: {n1! = 2 * (frac(1, 2) * n1!)}); from (GOAL: {n1! ≤ 2 * frac(n1, 2)^{n1}}) to (GOAL: {2 * (frac(1, 2) * n1!) ≤ 2 * frac(n1, 2)^{n1}})
+autosolve (hypothesis 8: {frac(1, 2) * n1! ≤ frac(n1, 2)^{n1}})

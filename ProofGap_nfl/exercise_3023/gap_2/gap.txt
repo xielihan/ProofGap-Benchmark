@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. S : RealSet → RealSet
+2. forall (z), z ∈ ComplexSet ∧ |z| < 1 ⇒ sum_{ n = 1 }^{ +∞ } (frac(z^{n}, n)) = ln(frac(1, 1 - z))
+3. forall (x), x ∈ RealSet ⇒ (exists (z), z ∈ ComplexSet ∧ z = -e^{__IMAGINARY_UNIT__ * x})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| < π ⇒ sum_{ n = 1 }^{ +∞ } ((-1)^{n} * frac(sin(n * x), n)) = -frac(x, 2)
+
+METHOD:

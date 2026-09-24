@@ -1,0 +1,25 @@
+PROOF GAP @12
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. c ∈ RealSet ∧ c > 0
+3. α ∈ RealSet ∧ 0 ≤ α
+4. β ∈ RealSet ∧ α < β ∧ β ≤ 2 * π
+5. V ∈ RealSet
+6. Ω ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+7. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ∧ α ≤ φ ∧ φ ≤ β ⇒ Ω = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ c * cos(frac(π * sqrtn(2, x^{2} + y^{2}), 2 * a)) ∧ x^{2} + y^{2} ≤ a^{2} ∧ α ≤ φ ∧ φ ≤ β })))
+8. V = VolumeInt(Ω, 1 * diff(ω))
+9. forall (x), x ∈ RealSet ⇒ (forall (r), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ⇒ (forall (φ), φ ∈ RealSet ∧ α ≤ φ ∧ φ ≤ β ⇒ x = r * cos(φ)))
+10. forall (y), y ∈ RealSet ⇒ (forall (r), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ⇒ (forall (φ), φ ∈ RealSet ∧ α ≤ φ ∧ φ ≤ β ⇒ y = r * sin(φ)))
+11. forall (φ), φ ∈ RealSet ∧ φ ≤ β ⇒ α ≤ φ
+12. forall (φ), φ ∈ RealSet ∧ α ≤ φ ⇒ φ ≤ β
+13. forall (r), r ∈ RealSet ∧ r ≤ a ⇒ 0 ≤ r
+14. forall (r), r ∈ RealSet ∧ 0 ≤ r ⇒ r ≤ a
+15. V = DefInt(α, β, (fun φ [φ ∈ RealSet ∧ α ≤ φ ∧ φ ≤ β] . DefInt(0, a, (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a] . c * r * cos(frac(π * r, 2 * a))) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a] . r))) * diff(fun φ [φ ∈ RealSet ∧ α ≤ φ ∧ φ ≤ β] . φ))
+16. DefInt(α, β, (fun φ [φ ∈ RealSet ∧ α ≤ φ ∧ φ ≤ β] . DefInt(0, a, (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a] . c * r * cos(frac(π * r, 2 * a))) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a] . r))) * diff(fun φ [φ ∈ RealSet ∧ α ≤ φ ∧ φ ≤ β] . φ)) = c * (β - α) * ((fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a] . frac(2 * a * r, π) * sin(frac(π * r, 2 * a)) + frac(4 * a^{2}, π^{2}) * cos(frac(π * r, 2 * a)))|_{0}^{a})
+17. c * (β - α) * ((fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a] . frac(2 * a * r, π) * sin(frac(π * r, 2 * a)) + frac(4 * a^{2}, π^{2}) * cos(frac(π * r, 2 * a)))|_{0}^{a}) = 2 * a^{2} * c * (β - α) * (frac(1, π) - frac(2, π^{2}))
+18. 2 * a^{2} * c * (β - α) * (frac(1, π) - frac(2, π^{2})) = frac(2 * a^{2} * c * (β - α) * (π - 2), π^{2})
+
+GOAL:
+V = frac(2 * a^{2} * c * (β - α) * (π - 2), π^{2})
+
+METHOD:

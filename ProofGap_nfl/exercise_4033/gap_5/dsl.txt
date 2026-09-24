@@ -1,0 +1,2 @@
+exists (z := {c * φ})
+autosolve all_hypothesis

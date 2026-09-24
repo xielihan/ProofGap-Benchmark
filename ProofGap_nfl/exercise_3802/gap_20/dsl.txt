@@ -1,0 +1,12 @@
+get_condition (hypothesis 25: {α ≥ 0}) in (GOAL: {α ≥ 0 ⇒ β ≥ 0 ⇒ J(α, β) = DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(2 * α * ln(1 + β^{2} * x^{2}), x^{2} * (1 + α^{2} * x^{2}))) * diff(fun x [x ∈ RealSet] . x)) ⇒ α > 0 ⇒ β > 0 ⇒ FunDeri(I, 1, 1)(α, β) = J(α, β)})
+get_condition (hypothesis 26: {β ≥ 0}) in (GOAL: {β ≥ 0 ⇒ J(α, β) = DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(2 * α * ln(1 + β^{2} * x^{2}), x^{2} * (1 + α^{2} * x^{2}))) * diff(fun x [x ∈ RealSet] . x)) ⇒ α > 0 ⇒ β > 0 ⇒ FunDeri(I, 1, 1)(α, β) = J(α, β)})
+get_condition (hypothesis 27: {J(α, β) = DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(2 * α * ln(1 + β^{2} * x^{2}), x^{2} * (1 + α^{2} * x^{2}))) * diff(fun x [x ∈ RealSet] . x))}) in (GOAL: {J(α, β) = DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(2 * α * ln(1 + β^{2} * x^{2}), x^{2} * (1 + α^{2} * x^{2}))) * diff(fun x [x ∈ RealSet] . x)) ⇒ α > 0 ⇒ β > 0 ⇒ FunDeri(I, 1, 1)(α, β) = J(α, β)})
+get_condition (hypothesis 28: {α > 0}) in (GOAL: {α > 0 ⇒ β > 0 ⇒ FunDeri(I, 1, 1)(α, β) = J(α, β)})
+get_condition (hypothesis 29: {β > 0}) in (GOAL: {β > 0 ⇒ FunDeri(I, 1, 1)(α, β) = J(α, β)})
+use_condition (hypothesis 25: {α ≥ 0}) (hypothesis 26: {β ≥ 0}) (hypothesis 27: {J(α, β) = DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(2 * α * ln(1 + β^{2} * x^{2}), x^{2} * (1 + α^{2} * x^{2}))) * diff(fun x [x ∈ RealSet] . x))}) in (hypothesis 18: {α ≥ 0 ⇒ β ≥ 0 ⇒ J(α, β) = DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(2 * α * ln(1 + β^{2} * x^{2}), x^{2} * (1 + α^{2} * x^{2}))) * diff(fun x [x ∈ RealSet] . x)) ⇒ (forall (α) (β), α ∈ RealSet ∧ β ∈ RealSet ∧ α > 0 ∧ β ≥ 0 ⇒ FunDeri(I, 1, 1)(α, β) = J(α, β))}) as (hypothesis 30: {forall (α) (β), α ∈ RealSet ∧ β ∈ RealSet ∧ α > 0 ∧ β ≥ 0 ⇒ FunDeri(I, 1, 1)(α, β) = J(α, β)})
+get_prop (hypothesis 30: {forall (α) (β), α ∈ RealSet ∧ β ∈ RealSet ∧ α > 0 ∧ β ≥ 0 ⇒ FunDeri(I, 1, 1)(α, β) = J(α, β)}) (α := {α}) (β := {β}) as (hypothesis 31: {α ∈ RealSet ∧ β ∈ RealSet ∧ α > 0 ∧ β ≥ 0 ⇒ FunDeri(I, 1, 1)(α, β) = J(α, β)})
+assert (hypothesis 32: {α ∈ RealSet ∧ β ∈ RealSet ∧ α > 0 ∧ β ≥ 0}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 32: {α ∈ RealSet ∧ β ∈ RealSet ∧ α > 0 ∧ β ≥ 0}) in (hypothesis 31: {α ∈ RealSet ∧ β ∈ RealSet ∧ α > 0 ∧ β ≥ 0 ⇒ FunDeri(I, 1, 1)(α, β) = J(α, β)}) as (hypothesis 33: {FunDeri(I, 1, 1)(α, β) = J(α, β)})
+apply (hypothesis 33: {FunDeri(I, 1, 1)(α, β) = J(α, β)})

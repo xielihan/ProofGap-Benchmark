@@ -1,0 +1,23 @@
+PROOF GAP @6
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. φ : RealSet → RealSet
+3. ψ : RealSet → RealSet
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ y = x * φ(z(x, y)) + ψ(z(x, y))
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ x * FunDeri(φ, z, 1)(z(x, y)) + FunDeri(ψ, z, 1)(z(x, y)) ≠ 0
+6. p = FunDeri(z, 1, 1)(x, y)
+7. q = FunDeri(z, 2, 1)(x, y)
+8. r = FunDeri(z, 1, 2)(x, y)
+9. s = FunDeri(FunDeri(z, 1, 1), 2, 1)(x, y)
+10. t = FunDeri(z, 2, 2)(x, y)
+11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ φ(z(x, y)) + (x * FunDeri(φ, z, 1)(z(x, y)) + FunDeri(ψ, z, 1)(z(x, y))) * p = 0
+12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ (x * FunDeri(φ, z, 1)(z(x, y)) + FunDeri(ψ, z, 1)(z(x, y))) * q = 1
+13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ 2 * FunDeri(φ, z, 1)(z(x, y)) * p + (x * FunDeri(φ, z, 2)(z(x, y)) + FunDeri(ψ, z, 2)(z(x, y))) * p^{2} + (x * FunDeri(φ, z, 1)(z(x, y)) + FunDeri(ψ, z, 1)(z(x, y))) * r = 0
+14. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(φ, z, 1)(z(x, y)) * q + (x * FunDeri(φ, z, 2)(z(x, y)) + FunDeri(ψ, z, 2)(z(x, y))) * p * q + (x * FunDeri(φ, z, 1)(z(x, y)) + FunDeri(ψ, z, 1)(z(x, y))) * s = 0
+15. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ (x * FunDeri(φ, z, 2)(z(x, y)) + FunDeri(ψ, z, 2)(z(x, y))) * q^{2} + (x * FunDeri(φ, z, 1)(z(x, y)) + FunDeri(ψ, z, 1)(z(x, y))) * t = 0
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ (x * FunDeri(φ, z, 1)(z(x, y)) + FunDeri(ψ, z, 1)(z(x, y))) * (r * q^{2} - 2 * p * q * s + t * p^{2}) = 0
+
+METHOD:
+[@method 将前三个二阶关系分别乘以 q^{2}, -2 * p * q, p^{2} 后相加 @]

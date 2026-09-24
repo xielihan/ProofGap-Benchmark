@@ -1,0 +1,19 @@
+get_prop (theorem 'Thm 398. (ProductNonzeroIffFactorsNonzero)': {forall (a) (b), a ∈ RealSet => b ∈ RealSet => (a * b != 0 <==> (a != 0 /\ b != 0))}) (a := {a}) (b := {a}) as (hypothesis 24: {a ∈ RealSet => a ∈ RealSet => (a * a != 0 <==> (a != 0 /\ a != 0))})
+assert (hypothesis 25: {a != 0}) by proof {
+  autosolve (hypothesis 1: {a ∈ RealSet}) (hypothesis 10: {a > 0})
+}
+use_condition (hypothesis 1: {a ∈ RealSet}) in (hypothesis 24: {a ∈ RealSet => a ∈ RealSet => (a * a != 0 <==> (a != 0 /\ a != 0))}) as (hypothesis 26: {a ∈ RealSet => (a * a != 0 <==> (a != 0 /\ a != 0))})
+use_condition (hypothesis 1: {a ∈ RealSet}) in (hypothesis 26: {a ∈ RealSet => (a * a != 0 <==> (a != 0 /\ a != 0))}) as (hypothesis 27: {a * a != 0 <==> (a != 0 /\ a != 0)})
+assert (hypothesis 28: {a^{2} != 0}) by proof {
+  autosolve (hypothesis 25: {a != 0}) (hypothesis 27: {a * a != 0 <==> (a != 0 /\ a != 0)})
+}
+get_prop (theorem 'Thm 409. (FractionEqualityToCrossProduct)': {forall (A) (B) (C), A ∈ RealSet => B ∈ RealSet => C ∈ RealSet => B != 0 => frac(A, B) = C => A = B * C}) (A := {x}) (B := {a^{2}}) (C := {λ}) as (hypothesis 29: {x ∈ RealSet => a^{2} ∈ RealSet => λ ∈ RealSet => a^{2} != 0 => frac(x, a^{2}) = λ => x = a^{2} * λ})
+assert (hypothesis 30: {a^{2} ∈ RealSet}) by proof {
+  autosolve (hypothesis 1: {a ∈ RealSet})
+}
+use_condition (hypothesis 4: {x ∈ RealSet}) in (hypothesis 29: {x ∈ RealSet => a^{2} ∈ RealSet => λ ∈ RealSet => a^{2} != 0 => frac(x, a^{2}) = λ => x = a^{2} * λ}) as (hypothesis 31: {a^{2} ∈ RealSet => λ ∈ RealSet => a^{2} != 0 => frac(x, a^{2}) = λ => x = a^{2} * λ})
+use_condition (hypothesis 30: {a^{2} ∈ RealSet}) in (hypothesis 31: {a^{2} ∈ RealSet => λ ∈ RealSet => a^{2} != 0 => frac(x, a^{2}) = λ => x = a^{2} * λ}) as (hypothesis 32: {λ ∈ RealSet => a^{2} != 0 => frac(x, a^{2}) = λ => x = a^{2} * λ})
+use_condition (hypothesis 8: {λ ∈ RealSet}) in (hypothesis 32: {λ ∈ RealSet => a^{2} != 0 => frac(x, a^{2}) = λ => x = a^{2} * λ}) as (hypothesis 33: {a^{2} != 0 => frac(x, a^{2}) = λ => x = a^{2} * λ})
+use_condition (hypothesis 28: {a^{2} != 0}) in (hypothesis 33: {a^{2} != 0 => frac(x, a^{2}) = λ => x = a^{2} * λ}) as (hypothesis 34: {frac(x, a^{2}) = λ => x = a^{2} * λ})
+use_condition (hypothesis 21: {frac(x, a^{2}) = λ}) in (hypothesis 34: {frac(x, a^{2}) = λ => x = a^{2} * λ}) as (hypothesis 35: {x = a^{2} * λ})
+autosolve (hypothesis 35: {x = a^{2} * λ})

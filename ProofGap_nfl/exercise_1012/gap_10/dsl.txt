@@ -1,0 +1,8 @@
+get_condition (hypothesis 20: {(A, c) = (frac(k_{1} + k_{2}, (b - a) ^ 2), frac(a * k_{2} + b * k_{1}, k_{1} + k_{2}))}) in (GOAL: {(A, c) = (frac(k_{1} + k_{2}, (b - a) ^ 2), frac(a * k_{2} + b * k_{1}, k_{1} + k_{2})) ⇒ FunDeri(y, 1, 1)(a) = k_{1} ∧ FunDeri(y, 1, 1)(b) = k_{2}})
+get_prop (hypothesis 12: {forall (x), x ∈ RealSet ∧ x = a ⇒ FunDeri(y, 1, 1)(a) = A * (a - b) * (a - c)}) (x := {a}) as (hypothesis 21: {a ∈ RealSet ∧ a = a ⇒ FunDeri(y, 1, 1)(a) = A * (a - b) * (a - c)})
+use_condition (obvious: {a ∈ RealSet ∧ a = a}) in (hypothesis 21: {a ∈ RealSet ∧ a = a ⇒ FunDeri(y, 1, 1)(a) = A * (a - b) * (a - c)}) as (hypothesis 22: {FunDeri(y, 1, 1)(a) = A * (a - b) * (a - c)})
+rewrite (left_to_right, equation) (hypothesis 16: {A * (a - b) * (a - c) = k_{1}}); from (hypothesis 22: {FunDeri(y, 1, 1)(a) = A * (a - b) * (a - c)}) to (hypothesis 22: {FunDeri(y, 1, 1)(a) = k_{1}})
+get_prop (hypothesis 14: {forall (x), x ∈ RealSet ∧ x = b ⇒ FunDeri(y, 1, 1)(b) = A * (b - a) * (b - c)}) (x := {b}) as (hypothesis 23: {b ∈ RealSet ∧ b = b ⇒ FunDeri(y, 1, 1)(b) = A * (b - a) * (b - c)})
+use_condition (obvious: {b ∈ RealSet ∧ b = b}) in (hypothesis 23: {b ∈ RealSet ∧ b = b ⇒ FunDeri(y, 1, 1)(b) = A * (b - a) * (b - c)}) as (hypothesis 24: {FunDeri(y, 1, 1)(b) = A * (b - a) * (b - c)})
+rewrite (left_to_right, equation) (hypothesis 17: {A * (b - a) * (b - c) = k_{2}}); from (hypothesis 24: {FunDeri(y, 1, 1)(b) = A * (b - a) * (b - c)}) to (hypothesis 24: {FunDeri(y, 1, 1)(b) = k_{2}})
+autosolve (hypothesis 22: {FunDeri(y, 1, 1)(a) = k_{1}}) (hypothesis 24: {FunDeri(y, 1, 1)(b) = k_{2}})

@@ -1,0 +1,4 @@
+rewrite (left_to_right, equation) (hypothesis 28: {seqlim_{ n → +∞ } (y(n)) = (seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (1 + frac(1, n)))}); from (GOAL: {seqlim_{ n → +∞ } (y(n)) = e}) to (GOAL: {(seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (1 + frac(1, n))) = e})
+rewrite (left_to_right, equation) (hypothesis 29: {seqlim_{ n → +∞ } (1 + frac(1, n)) = 1}); from (GOAL: {(seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (1 + frac(1, n))) = e}) to (GOAL: {(seqlim_{ n → +∞ } (x(n))) * 1 = e})
+rewrite (left_to_right, equation) (hypothesis 30: {seqlim_{ n → +∞ } (x(n)) = e}); from (GOAL: {(seqlim_{ n → +∞ } (x(n))) * 1 = e}) to (GOAL: {e * 1 = e})
+autosolve all_hypothesis

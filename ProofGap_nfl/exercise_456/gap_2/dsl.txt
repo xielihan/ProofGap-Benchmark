@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ∧ x = t^{n!} ⇒ frac(prod_{ k = 2 }^{ n } (1 - sqrtn(k, x)), (1 - x)^{n - 1}) = frac(prod_{ k = 2 }^{ n } (1 - sqrtn(k, t^{n!})), (1 - t^{n!})^{n - 1}))}) (x := {x0})
+get_condition (hypothesis 4: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ∧ x0 = t^{n!} ⇒ frac(prod_{ k = 2 }^{ n } (1 - sqrtn(k, x0)), (1 - x0)^{n - 1}) = frac(prod_{ k = 2 }^{ n } (1 - sqrtn(k, t^{n!})), (1 - t^{n!})^{n - 1}))})
+get_forall (GOAL: {forall (t), t ∈ RealSet ∧ t > 0 ∧ x0 = t^{n!} ⇒ frac(prod_{ k = 2 }^{ n } (1 - sqrtn(k, x0)), (1 - x0)^{n - 1}) = frac(prod_{ k = 2 }^{ n } (1 - sqrtn(k, t^{n!})), (1 - t^{n!})^{n - 1})}) (t := {t0})
+get_condition (hypothesis 5: {t0 ∈ RealSet ∧ t0 > 0 ∧ x0 = t0^{n!}}) in (GOAL: {t0 ∈ RealSet ∧ t0 > 0 ∧ x0 = t0^{n!} ⇒ frac(prod_{ k = 2 }^{ n } (1 - sqrtn(k, x0)), (1 - x0)^{n - 1}) = frac(prod_{ k = 2 }^{ n } (1 - sqrtn(k, t0^{n!})), (1 - t0^{n!})^{n - 1})})
+destruct_and (hypothesis 5: {t0 ∈ RealSet ∧ t0 > 0 ∧ x0 = t0^{n!}}) as (hypothesis 6: {t0 ∈ RealSet}) (hypothesis 7: {t0 > 0}) (hypothesis 8: {x0 = t0^{n!}})
+rewrite (left_to_right, equation) (hypothesis 8: {x0 = t0^{n!}}); from (GOAL: {frac(prod_{ k = 2 }^{ n } (1 - sqrtn(k, x0)), (1 - x0)^{n - 1}) = frac(prod_{ k = 2 }^{ n } (1 - sqrtn(k, t0^{n!})), (1 - t0^{n!})^{n - 1})}) to (GOAL: {frac(prod_{ k = 2 }^{ n } (1 - sqrtn(k, t0^{n!})), (1 - t0^{n!})^{n - 1}) = frac(prod_{ k = 2 }^{ n } (1 - sqrtn(k, t0^{n!})), (1 - t0^{n!})^{n - 1})})
+autosolve all_hypothesis

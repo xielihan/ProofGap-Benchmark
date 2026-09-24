@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ T(n, x) = sum_{ k = 1 }^{ n } (k * cos(k * x))}) (n := {n0}) (x := {x0})
+get_condition (hypothesis 10: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet ⇒ T(n0, x0) = sum_{ k = 1 }^{ n0 } (k * cos(k * x0))})
+get_prop (hypothesis 4: {forall (n) (x) (k), n ∈ NonNegIntegerSet ∧ k ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ k ∈ PosIntegerSet ⇒ T(n, x) = sum_{ k = 1 }^{ n } (k * cos(k * x))}) (n := {n0}) (x := {x0}) (k := {1}) as (hypothesis 11: {n0 ∈ NonNegIntegerSet ∧ 1 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet ∧ 1 ∈ PosIntegerSet ⇒ T(n0, x0) = sum_{ k = 1 }^{ n0 } (k * cos(k * x0))})
+assert (hypothesis 12: {n0 ∈ NonNegIntegerSet ∧ 1 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet ∧ 1 ∈ PosIntegerSet})
+use_condition (hypothesis 12: {n0 ∈ NonNegIntegerSet ∧ 1 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet ∧ 1 ∈ PosIntegerSet}) in (hypothesis 11: {n0 ∈ NonNegIntegerSet ∧ 1 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet ∧ 1 ∈ PosIntegerSet ⇒ T(n0, x0) = sum_{ k = 1 }^{ n0 } (k * cos(k * x0))}) as (hypothesis 13: {T(n0, x0) = sum_{ k = 1 }^{ n0 } (k * cos(k * x0))})
+apply (hypothesis 13: {T(n0, x0) = sum_{ k = 1 }^{ n0 } (k * cos(k * x0))})

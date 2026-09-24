@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. x : NonNegIntegerSet → RealSet
+3. x' : NonNegIntegerSet → RealSet
+4. forall (t), t ∈ RealSet ⇒ f(t) = sin(t^{2})
+
+GOAL:
+ContinuousFuncOn(f, RealSet)
+
+METHOD:

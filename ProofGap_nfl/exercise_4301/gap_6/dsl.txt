@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ e^{-(x^{2} + y^{2})} * (-2 * x * sin(2 * x * y) + 2 * y * cos(2 * x * y) - (2 * y * cos(2 * x * y) - 2 * x * sin(2 * x * y))) = 0)}) (x := {x})
+get_condition (hypothesis 13: {x ∈ RealSet}) in (GOAL: {x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ e^{-(x^{2} + y^{2})} * (-2 * x * sin(2 * x * y) + 2 * y * cos(2 * x * y) - (2 * y * cos(2 * x * y) - 2 * x * sin(2 * x * y))) = 0)})
+get_forall (GOAL: {forall (y), y ∈ RealSet ⇒ e^{-(x^{2} + y^{2})} * (-2 * x * sin(2 * x * y) + 2 * y * cos(2 * x * y) - (2 * y * cos(2 * x * y) - 2 * x * sin(2 * x * y))) = 0}) (y := {y})
+get_condition (hypothesis 14: {y ∈ RealSet}) in (GOAL: {y ∈ RealSet ⇒ e^{-(x^{2} + y^{2})} * (-2 * x * sin(2 * x * y) + 2 * y * cos(2 * x * y) - (2 * y * cos(2 * x * y) - 2 * x * sin(2 * x * y))) = 0})
+autosolve all_hypothesis

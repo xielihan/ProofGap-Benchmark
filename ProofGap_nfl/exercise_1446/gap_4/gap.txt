@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = x^{2} - 4 * x + 6
+3. forall (x), x ∈ RealSet ∧ x ∈ [-3, 10] ⇒ FunDeri(f, 1, 1)(x) = 2 * x - 4
+4. forall (x), x ∈ RealSet ∧ x ∈ [-3, 10] ⇒ FunDeri(f, 1, 2)(x) = 2
+5. forall (x), x ∈ RealSet ⇒ (FunDeri(f, 1, 1)(x) = 0 ⇔ x = 2)
+
+GOAL:
+FunDeri(f, 1, 2)(2) = 2
+
+METHOD:

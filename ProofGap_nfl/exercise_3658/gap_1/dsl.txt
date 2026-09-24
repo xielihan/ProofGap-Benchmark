@@ -1,0 +1,10 @@
+get_forall (GOAL: {forall (x) (y) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 1, 1)(x, y, λ) = -sin(2 * x) + λ}) (x := {p}) (y := {q}) (λ := {r})
+get_condition (hypothesis 5: {p ∈ RealSet ∧ q ∈ RealSet ∧ r ∈ RealSet}) in (GOAL: {p ∈ RealSet ∧ q ∈ RealSet ∧ r ∈ RealSet ⇒ FunDeri(F, 1, 1)(p, q, r) = -sin(2 * p) + r})
+assert (hypothesis 6: {p ∈ RealSet}) by proof {
+autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 190. (SineDoubleAngle)': {forall (x), x ∈ RealSet => sin (2 * x) = 2 * sin(x) * cos(x)}) (x := {p}) as (hypothesis 7: {p ∈ RealSet => sin (2 * p) = 2 * sin(p) * cos(p)})
+use_condition (hypothesis 6: {p ∈ RealSet}) in (hypothesis 7: {p ∈ RealSet => sin (2 * p) = 2 * sin(p) * cos(p)}) as (hypothesis 8: {sin (2 * p) = 2 * sin(p) * cos(p)})
+rewrite (left_to_right, equation) (hypothesis 4: {F = (fun x, y, λ [x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet] . cos(x)^{2} + cos(y)^{2} + λ * (x - y - frac(π, 4)))}); from (GOAL: {FunDeri(F, 1, 1)(p, q, r) = -sin(2 * p) + r}) to (GOAL: {FunDeri((fun x, y, λ [x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet] . cos(x)^{2} + cos(y)^{2} + λ * (x - y - frac(π, 4))), 1, 1)(p, q, r) = -sin(2 * p) + r})
+rewrite (left_to_right, equation) (hypothesis 8: {sin (2 * p) = 2 * sin(p) * cos(p)}); from (GOAL: {FunDeri((fun x, y, λ [x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet] . cos(x)^{2} + cos(y)^{2} + λ * (x - y - frac(π, 4))), 1, 1)(p, q, r) = -sin(2 * p) + r}) to (GOAL: {FunDeri((fun x, y, λ [x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet] . cos(x)^{2} + cos(y)^{2} + λ * (x - y - frac(π, 4))), 1, 1)(p, q, r) = -(2 * sin(p) * cos(p)) + r})
+autosolve all_hypothesis using DerivSolver

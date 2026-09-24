@@ -1,0 +1,4 @@
+rewrite (left_to_right, equation) (hypothesis 18: {a = frac(7, 6)}); from (hypothesis 5: {forall (x), x ∈ RealSet ⇒ f(x) = a * x^{2} + b * x + c}) to (hypothesis 21: {forall (x), x ∈ RealSet ⇒ f(x) = frac(7, 6) * x^{2} + b * x + c})
+rewrite (left_to_right, equation) (hypothesis 19: {b = frac(17, 6)}); from (hypothesis 21: {forall (x), x ∈ RealSet ⇒ f(x) = frac(7, 6) * x^{2} + b * x + c}) to (hypothesis 22: {forall (x), x ∈ RealSet ⇒ f(x) = frac(7, 6) * x^{2} + frac(17, 6) * x + c})
+rewrite (left_to_right, equation) (hypothesis 20: {c = 1}); from (hypothesis 22: {forall (x), x ∈ RealSet ⇒ f(x) = frac(7, 6) * x^{2} + frac(17, 6) * x + c}) to (hypothesis 23: {forall (x), x ∈ RealSet ⇒ f(x) = frac(7, 6) * x^{2} + frac(17, 6) * x + 1})
+apply (hypothesis 23: {forall (x), x ∈ RealSet ⇒ f(x) = frac(7, 6) * x^{2} + frac(17, 6) * x + 1})

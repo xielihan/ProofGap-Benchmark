@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ x ∈ [-1, 1] ∧ n ∈ PosIntegerSet ⇒ |frac(x^{n}, n^{2})| ≤ frac(1, n^{2}))
+2. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{2})))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ [-1, 1] ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(x^{n}, n^{2})))
+
+METHOD:
+[@method 根据 "魏尔斯特拉斯判别法" @]

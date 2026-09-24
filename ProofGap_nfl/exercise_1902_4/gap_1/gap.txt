@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. c ∈ RealSet
+4. α ∈ RealSet
+5. β ∈ RealSet
+6. γ ∈ RealSet
+7. forall (x), x ∈ RealSet ⇒ a * x^{2} + 2 * b * x + c ≠ 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ a = 0 ∧ b = 0 ∧ c ≠ 0 ⇒ frac(α * x^{2} + 2 * β * x + γ, (a * x^{2} + 2 * b * x + c)^{2}) = frac(α * x^{2} + 2 * β * x + γ, c^{2})
+
+METHOD:

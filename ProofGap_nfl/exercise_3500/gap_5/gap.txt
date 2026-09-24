@@ -1,0 +1,18 @@
+PROOF GAP @5
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. v : CartesianProd(RealSet, RealSet) → RealSet
+3. z : CartesianProd(RealSet, RealSet) → RealSet
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ u(x, y) = x ∧ v(x, y) = y + z(x, y)
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(FunDeri(z, x, 1), y, 1)(x, y) = (1 + FunDeri(z, y, 1)(x, y))^{3}
+6. FuncOfClassK(z, 2)
+7. 1 - FunDeri(z, v, 1)(u, v) ≠ 0
+8. forall (x), x ∈ RealSet ⇒ diff(u) = diff(x)
+9. forall (y), y ∈ RealSet ⇒ diff(v) = diff(y) + diff(z)
+10. diff(z) = FunDeri(z, u, 1)(u, v) * diff(u) + FunDeri(z, v, 1)(u, v) * diff(v)
+11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ diff(z) = FunDeri(z, u, 1)(u, v) * diff(x) + FunDeri(z, v, 1)(u, v) * (diff(y) + diff(z))
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ (1 - FunDeri(z, v, 1)(u, v)) * diff(z) = FunDeri(z, u, 1)(u, v) * diff(x) + FunDeri(z, v, 1)(u, v) * diff(y)
+
+METHOD:

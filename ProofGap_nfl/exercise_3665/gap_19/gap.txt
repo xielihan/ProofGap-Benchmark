@@ -1,0 +1,40 @@
+PROOF GAP @19
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. c ∈ RealSet
+5. α ∈ RealSet
+6. β ∈ RealSet
+7. γ ∈ RealSet
+8. a > b
+9. b > c
+10. c > 0
+11. cos(α)^{2} + cos(β)^{2} + cos(γ)^{2} = 1
+12. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2})
+13. F = (fun x, y, z, λ, μ [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ∧ μ ∈ RealSet] . frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}) - λ * (x^{2} + y^{2} + z^{2} - 1) + μ * (x * cos(α) + y * cos(β) + z * cos(γ)))
+14. forall (x) (y) (z) (λ) (μ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ∧ μ ∈ RealSet ⇒ FunDeri(F, 1, 1)(x, y, z, λ, μ) = 2 * (frac(1, a^{2}) - λ) * x + μ * cos(α)
+15. forall (x) (y) (z) (λ) (μ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ∧ μ ∈ RealSet ⇒ FunDeri(F, 2, 1)(x, y, z, λ, μ) = 2 * (frac(1, b^{2}) - λ) * y + μ * cos(β)
+16. forall (x) (y) (z) (λ) (μ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ λ ∈ RealSet ∧ μ ∈ RealSet ⇒ FunDeri(F, 3, 1)(x, y, z, λ, μ) = 2 * (frac(1, c^{2}) - λ) * z + μ * cos(γ)
+17. forall (λ) (x) (μ), λ ∈ RealSet ∧ x ∈ RealSet ∧ μ ∈ RealSet ⇒ 2 * (frac(1, a^{2}) - λ) * x + μ * cos(α) = 0
+18. forall (λ) (y) (μ), λ ∈ RealSet ∧ y ∈ RealSet ∧ μ ∈ RealSet ⇒ 2 * (frac(1, b^{2}) - λ) * y + μ * cos(β) = 0
+19. forall (λ) (z) (μ), λ ∈ RealSet ∧ z ∈ RealSet ∧ μ ∈ RealSet ⇒ 2 * (frac(1, c^{2}) - λ) * z + μ * cos(γ) = 0
+20. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ x^{2} + y^{2} + z^{2} = 1
+21. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ x * cos(α) + y * cos(β) + z * cos(γ) = 0
+22. forall (λ) (x) (y) (z), λ ∈ RealSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ λ = frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2})
+23. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}) = u(x, y, z)
+24. forall (λ) (x) (y) (z), λ ∈ RealSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ λ = u(x, y, z)
+25. forall (μ) (x) (y) (z), μ ∈ RealSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ μ = -2 * (frac(x * cos(α), a^{2}) + frac(y * cos(β), b^{2}) + frac(z * cos(γ), c^{2}))
+26. forall (λ) (x) (y) (z), λ ∈ RealSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ (frac(sin(α)^{2}, a^{2}) - λ) * x - frac(cos(α) * cos(β), b^{2}) * y - frac(cos(α) * cos(γ), c^{2}) * z = 0
+27. forall (x) (λ) (y) (z), x ∈ RealSet ∧ λ ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ -frac(cos(α) * cos(β), a^{2}) * x + (frac(sin(β)^{2}, b^{2}) - λ) * y - frac(cos(β) * cos(γ), c^{2}) * z = 0
+28. forall (x) (y) (λ) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet ∧ z ∈ RealSet ⇒ -frac(cos(α) * cos(γ), a^{2}) * x - frac(cos(β) * cos(γ), b^{2}) * y + (frac(sin(γ)^{2}, c^{2}) - λ) * z = 0
+29. forall (λ), λ ∈ RealSet ⇒ λ * (λ^{2} - (frac(sin(α)^{2}, a^{2}) + frac(sin(β)^{2}, b^{2}) + frac(sin(γ)^{2}, c^{2})) * λ + frac(cos(α)^{2}, b^{2} * c^{2}) + frac(cos(β)^{2}, c^{2} * a^{2}) + frac(cos(γ)^{2}, a^{2} * b^{2})) = 0
+30. forall (λ), λ ∈ RealSet ⇒ λ ≠ 0
+31. `λ_1` = min({ t | t ∈ RealSet, t^{2} - (frac(sin(α)^{2}, a^{2}) + frac(sin(β)^{2}, b^{2}) + frac(sin(γ)^{2}, c^{2})) * t + frac(cos(α)^{2}, b^{2} * c^{2}) + frac(cos(β)^{2}, c^{2} * a^{2}) + frac(cos(γ)^{2}, a^{2} * b^{2}) = 0 })
+32. `λ_2` = max({ t | t ∈ RealSet, t^{2} - (frac(sin(α)^{2}, a^{2}) + frac(sin(β)^{2}, b^{2}) + frac(sin(γ)^{2}, c^{2})) * t + frac(cos(α)^{2}, b^{2} * c^{2}) + frac(cos(β)^{2}, c^{2} * a^{2}) + frac(cos(γ)^{2}, a^{2} * b^{2}) = 0 })
+33. `λ_1` < `λ_2`
+
+GOAL:
+exists (P_{1}) (P_{2}), P_{1} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ∧ P_{2} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ∧ P_{1} ∈ { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x^{2} + y^{2} + z^{2} = 1 ∧ x * cos(α) + y * cos(β) + z * cos(γ) = 0 } ∧ P_{2} ∈ { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x^{2} + y^{2} + z^{2} = 1 ∧ x * cos(α) + y * cos(β) + z * cos(γ) = 0 } ∧ u(P_{1}) = `λ_1` ∧ u(P_{2}) = `λ_1`
+
+METHOD:

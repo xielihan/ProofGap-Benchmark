@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. F_{1} : RealSet → RealSet
+4. F_{2} : RealSet → RealSet
+5. forall (t), t ∈ RealSet ⇒ x(t) = cosh(t)
+6. forall (t), t ∈ RealSet ⇒ y(t) = sinh(t)
+
+GOAL:
+forall (t), t ∈ RealSet ⇒ x(t)^{2} - y(t)^{2} = cosh(t)^{2} - sinh(t)^{2}
+
+METHOD:

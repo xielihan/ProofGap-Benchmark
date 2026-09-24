@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. p ∈ RealSet
+3. x_{0} ∈ RealSet
+4. s ∈ RealSet
+5. p > 0
+6. x_{0} > 0
+7. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ x_{0} ⇒ y(x)^{2} = 2 * p * x
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ x_{0} ⇒ FunDeri(y, 1, 1)(x) = frac(p, y(x))
+
+METHOD:

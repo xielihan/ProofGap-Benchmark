@@ -1,0 +1,18 @@
+PROOF GAP @8
+ASSUM:
+1. a ∈ RealSet
+2. u : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, n^{a}) > 0 ∧ sin(frac(1, n^{a})) > 0
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = ln(frac(1, n^{a})) - ln(sin(frac(1, n^{a})))
+5. a < 0 ⇒ (exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ ¬sin(n^{-a}) > 0)
+6. a = 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = -ln(sin(1)))
+7. a = 0 ⇒ -ln(sin(1)) > 0
+8. a = 0 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (u(n)))
+9. a > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = ln(frac(frac(1, n^{a}), sin(frac(1, n^{a})))))
+10. a > 0 ⇒ lim_{ y → 0 } (frac(frac(y, sin(y)) - 1, y^{2})) = frac(1, 6)
+11. a > 0 ⇒ seqlim_{ n → +∞ } (frac(u(n), frac(1, n^{2 * a}))) = frac(1, 6)
+
+GOAL:
+a > 0 ⇒ 2 * a > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{2 * a})))
+
+METHOD:

@@ -1,0 +1,15 @@
+PROOF GAP @6
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ y(x) = sgn(sin(frac(π, x)))
+4. ¬(exists (l), l ∈ RealSet ∧ lim_{ x → 0 } (y(x)) = l)
+5. OscillatorySingularPoint(y, 0)
+6. forall (k), k ∈ IntegerSet ∧ k ≠ 0 ⇒ lim_{ x → frac(1, k)^- } (y(x)) = (-1)^{k}
+7. forall (k), k ∈ IntegerSet ∧ k ≠ 0 ⇒ lim_{ x → frac(1, k)^+ } (y(x)) = (-1)^{k - 1}
+8. forall (k), k ∈ IntegerSet ∧ k ≠ 0 ⇒ JumpSingularPoint(y, frac(1, k))
+
+GOAL:
+a ∈ { 0 } ∪ { frac(1, k) | k ∈ IntegerSet, k ≠ 0 } ⇔ ¬ContinuousFuncAt(y, a)
+
+METHOD:

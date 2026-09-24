@@ -1,0 +1,32 @@
+PROOF GAP @22
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. seqlim_{ n → +∞ } ((1 + frac(1, n))^{n}) = e
+3. x = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . (1 + frac(1, n))^{n})
+4. ω = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . sum_{ k = 0 }^{ n } (frac(1, k!)))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = 1 + 1 + (sum_{ k = 2 }^{ n } (frac(1, k!) * (prod_{ i = 1 }^{ k - 1 } (1 - frac(i, n)))))
+6. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > k ⇒ x(n) > 1 + 1 + (sum_{ j = 2 }^{ k } (frac(1, j!) * (prod_{ i = 1 }^{ j - 1 } (1 - frac(i, n))))))
+7. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ e ≥ sum_{ j = 0 }^{ k } (frac(1, j!))
+8. e ≥ seqlim_{ k → +∞ } (sum_{ j = 0 }^{ k } (frac(1, j!)))
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) < sum_{ k = 0 }^{ n } (frac(1, k!))
+10. e ≤ seqlim_{ n → +∞ } (sum_{ k = 0 }^{ n } (frac(1, k!)))
+11. seqlim_{ n → +∞ } (sum_{ k = 0 }^{ n } (frac(1, k!))) = e
+12. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (m), m ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ m ∈ PosIntegerSet ⇒ 0 < ω(n + m) - ω(n))
+13. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (m), m ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ m ∈ PosIntegerSet ⇒ ω(n + m) - ω(n) = sum_{ j = n + 1 }^{ n + m } (frac(1, j!)))
+14. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (m), m ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ m ∈ PosIntegerSet ⇒ sum_{ j = n + 1 }^{ n + m } (frac(1, j!)) < frac(1, (n + 1)!) * (sum_{ r = 0 }^{ m - 1 } (frac(1, (n + 2)^{r}))))
+15. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (m), m ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ m ∈ PosIntegerSet ⇒ frac(1, (n + 1)!) * (sum_{ r = 0 }^{ m - 1 } (frac(1, (n + 2)^{r}))) < frac(1, (n + 1)!) * frac(n + 2, n + 1))
+16. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < e - ω(n)
+17. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ e - ω(n) ≤ frac(1, (n + 1)!) * frac(n + 2, n + 1)
+18. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, (n + 1)!) * frac(n + 2, n + 1) = frac(1, n!) * frac(n + 2, (n + 1)^{2})
+19. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(n + 2, (n + 1)^{2}) < frac(1, n)
+20. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < e - ω(n)
+21. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ e - ω(n) < frac(1, n! * n)
+22. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (`θ_n`), `θ_n` ∈ RealSet ∧ `θ_n` = (e - ω(n)) * n! * n ∧ 0 < `θ_n`)
+23. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (`θ_n`), `θ_n` ∈ RealSet ∧ `θ_n` = (e - ω(n)) * n! * n ∧ `θ_n` < 1)
+24. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (`θ_n`), `θ_n` ∈ RealSet ∧ `θ_n` = (e - ω(n)) * n! * n ∧ e = (sum_{ k = 0 }^{ n } (frac(1, k!))) + frac(`θ_n`, n! * n))
+25. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (`θ_n`), `θ_n` ∈ RealSet ∧ 0 < `θ_n` ∧ `θ_n` < 1 ∧ e = (sum_{ k = 0 }^{ n } (frac(1, k!))) + frac(`θ_n`, n! * n))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n = 8 ⇒ frac(1, 8! * 8) < 0.0000032
+
+METHOD:

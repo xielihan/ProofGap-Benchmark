@@ -1,0 +1,11 @@
+1. get_forall (GOAL: {forall (x_{1}), x_{1} ∈ RealSet => (forall (x_{2}), x_{1} ∈ RealSet /\ x_{2} ∈ RealSet /\ x_{2} > x_{1} => (x_{2} - x_{1}) * ((x_{2})^{2} + x_{1} * x_{2} + (x_{1})^{2}) > 0)}) (x_{1} := {u})
+2. get_condition (hypothesis 5: {u ∈ RealSet}) in (GOAL: {u ∈ RealSet => (forall (x_{2}), u ∈ RealSet /\ x_{2} ∈ RealSet /\ x_{2} > u => (x_{2} - u) * ((x_{2})^{2} + u * x_{2} + u^{2}) > 0)})
+3. get_forall (GOAL: {forall (x_{2}), u ∈ RealSet /\ x_{2} ∈ RealSet /\ x_{2} > u => (x_{2} - u) * ((x_{2})^{2} + u * x_{2} + u^{2}) > 0}) (x_{2} := {v})
+4. get_condition (hypothesis 6: {u ∈ RealSet /\ v ∈ RealSet /\ v > u}) in (GOAL: {u ∈ RealSet /\ v ∈ RealSet /\ v > u => (v - u) * (v^{2} + u * v + u^{2}) > 0})
+5. destruct_and (hypothesis 6: {u ∈ RealSet /\ v ∈ RealSet /\ v > u}) as (hypothesis 7: {u ∈ RealSet}) (hypothesis 8: {v ∈ RealSet}) (hypothesis 9: {v > u})
+6. assert (hypothesis 10: {v - u > 0})
+7. assert (hypothesis 11: {(v - u)^{2} > 0})
+8. assert (hypothesis 12: {(v + u)^{2} >= 0})
+9. assert (hypothesis 13: {v^{2} + u * v + u^{2} = frac((v - u)^{2} + 3 * (v + u)^{2}, 4)})
+10. assert (hypothesis 14: {v^{2} + u * v + u^{2} > 0})
+11. autosolve all_hypothesis

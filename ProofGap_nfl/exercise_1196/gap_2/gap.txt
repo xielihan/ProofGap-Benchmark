@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. n ∈ NonNegIntegerSet
+3. forall (x), x ∈ RealSet ⇒ y(x) = cos(x)^{3}
+4. n ∈ PosIntegerSet
+5. forall (x), x ∈ RealSet ⇒ y(x) = cos(x) * cos(x)^{2} ∧ cos(x) * cos(x)^{2} = frac(1, 2) * cos(x) * (1 + cos(2 * x)) ∧ frac(1, 2) * cos(x) * (1 + cos(2 * x)) = frac(1, 2) * cos(x) + frac(1, 2) * cos(x) * cos(2 * x) ∧ frac(1, 2) * cos(x) + frac(1, 2) * cos(x) * cos(2 * x) = frac(3, 4) * cos(x) + frac(1, 4) * cos(3 * x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, n)(x) = frac(3, 4) * cos(x + frac(n, 2) * π) + frac(3^{n}, 4) * cos(3 * x + frac(n, 2) * π)
+
+METHOD:

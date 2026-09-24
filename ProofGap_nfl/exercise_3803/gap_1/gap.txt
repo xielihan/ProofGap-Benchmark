@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. I ∈ RealSet
+2. a ∈ RealSet ∧ a > 0
+3. b ∈ RealSet
+4. n ∈ NonNegIntegerSet
+5. I = DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+I = DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x)) ⇒ (forall (u), u ∈ RealSet ∧ u > 0 ⇒ I = u * DefInt(0, +∞, (fun t [t ∈ RealSet] . e^{-(u^{2} * t^{2})}) * diff(fun t [t ∈ RealSet] . t)))
+
+METHOD:

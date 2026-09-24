@@ -1,0 +1,39 @@
+PROOF GAP @25
+ASSUM:
+1. G ∈ RealSet
+2. f : RealSet → RealSet
+3. x : IntegerSet → RealSet
+4. y : IntegerSet → RealSet
+5. h ∈ RealSet
+6. G = DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . frac(arctan(x), x)) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x))
+7. h = frac(1, 10)
+8. f = (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 1] . cases{ 1 if t = 0; frac(arctan(t), t) if 0 < t ∧ t ≤ 1 })
+9. forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ 10 ⇒ x(i) = i * h ∧ y(i) = f(x(i))
+10. x(0) = 0
+11. y(0) = 1
+12. x(1) = 0.1
+13. y(1) = 0.99669
+14. x(2) = 0.2
+15. y(2) = 0.98698
+16. x(3) = 0.3
+17. y(3) = 0.97152
+18. x(4) = 0.4
+19. y(4) = 0.95127
+20. x(5) = 0.5
+21. y(5) = 0.92730
+22. x(6) = 0.6
+23. y(6) = 0.90070
+24. x(7) = 0.7
+25. y(7) = 0.87247
+26. x(8) = 0.8
+27. y(8) = 0.84343
+28. x(9) = 0.9
+29. y(9) = 0.81424
+30. x(10) = 1
+31. y(10) = 0.78540
+32. G ≈_{ 0.00001 } frac(h, 3) * (y(0) + y(10) + 4 * (y(1) + y(3) + y(5) + y(7) + y(9)) + 2 * (y(2) + y(4) + y(6) + y(8)))
+
+GOAL:
+G ≈_{ 0.00001 } frac(1, 30) * (1.78540 + 18.32888 + 7.36476)
+
+METHOD:

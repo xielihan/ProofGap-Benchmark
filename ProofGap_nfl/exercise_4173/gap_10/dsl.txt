@@ -1,0 +1,13 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ frac(1, x^{4} + x^{2} + frac(1, 2)) = frac(1, (x^{2} + a * x + b) * (x^{2} - a * x + b))}) (x := {x})
+get_condition (hypothesis 14: {x ∈ RealSet}) in (GOAL: {x ∈ RealSet ⇒ frac(1, x^{4} + x^{2} + frac(1, 2)) = frac(1, (x^{2} + a * x + b) * (x^{2} - a * x + b))})
+get_prop (hypothesis 13: {forall (x), x ∈ RealSet ⇒ frac(1, x^{4} + x^{2} + frac(1, 2)) = frac(1, (x^{2} + b)^{2} - (a * x)^{2})}) (x := {x}) as (hypothesis 15: {x ∈ RealSet ⇒ frac(1, x^{4} + x^{2} + frac(1, 2)) = frac(1, (x^{2} + b)^{2} - (a * x)^{2})})
+use_condition (hypothesis 14: {x ∈ RealSet}) in (hypothesis 15: {x ∈ RealSet ⇒ frac(1, x^{4} + x^{2} + frac(1, 2)) = frac(1, (x^{2} + b)^{2} - (a * x)^{2})}) as (hypothesis 16: {frac(1, x^{4} + x^{2} + frac(1, 2)) = frac(1, (x^{2} + b)^{2} - (a * x)^{2})})
+get_prop (theorem 'Thm 233. (DifferenceOfSquares)': {forall (u) (v), u ∈ RealSet ⇒ v ∈ RealSet ⇒ u^{2} - v^{2} = (u + v) * (u - v)}) as (hypothesis 17: {forall (u) (v), u ∈ RealSet ⇒ v ∈ RealSet ⇒ u^{2} - v^{2} = (u + v) * (u - v)})
+assert (hypothesis 18: {(x^{2} + b)^{2} - (a * x)^{2} = (x^{2} + a * x + b) * (x^{2} - a * x + b)}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 19: {frac(1, (x^{2} + b)^{2} - (a * x)^{2}) = frac(1, (x^{2} + a * x + b) * (x^{2} - a * x + b))}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 18: {(x^{2} + b)^{2} - (a * x)^{2} = (x^{2} + a * x + b) * (x^{2} - a * x + b)}); from (GOAL: {frac(1, (x^{2} + b)^{2} - (a * x)^{2}) = frac(1, (x^{2} + a * x + b) * (x^{2} - a * x + b))}) to (GOAL: {frac(1, (x^{2} + a * x + b) * (x^{2} - a * x + b)) = frac(1, (x^{2} + a * x + b) * (x^{2} - a * x + b))})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

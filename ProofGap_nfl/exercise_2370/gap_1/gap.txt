@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. n ∈ RealSet
+
+GOAL:
+lim_{ x → 0^+ } (x^{-n} * frac(x^{n}, sqrtn(2, 1 - x^{2}))) = 1
+
+METHOD:

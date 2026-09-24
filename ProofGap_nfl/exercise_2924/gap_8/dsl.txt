@@ -1,0 +1,16 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n = 9 ⇒ Δ(n) < 10^{-6}}) (n := {n0})
+get_condition (hypothesis 13: {n0 ∈ NonNegIntegerSet ∧ n0 > 0 ∧ n0 = 9}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 > 0 ∧ n0 = 9 ⇒ Δ(n0) < 10^{-6}})
+destruct_and (hypothesis 13: {n0 ∈ NonNegIntegerSet ∧ n0 > 0 ∧ n0 = 9}) as (hypothesis 14: {n0 ∈ NonNegIntegerSet}) (hypothesis 15: {n0 > 0}) (hypothesis 16: {n0 = 9})
+get_prop (hypothesis 12: {forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n = 9 ⇒ n! * n > 10^{6}}) (n := {n0}) as (hypothesis 17: {n0 ∈ NonNegIntegerSet ∧ n0 > 0 ∧ n0 = 9 ⇒ n0! * n0 > 10^{6}})
+use_condition (hypothesis 13: {n0 ∈ NonNegIntegerSet ∧ n0 > 0 ∧ n0 = 9}) in (hypothesis 17: {n0 ∈ NonNegIntegerSet ∧ n0 > 0 ∧ n0 = 9 ⇒ n0! * n0 > 10^{6}}) as (hypothesis 18: {n0! * n0 > 10^{6}})
+assert (hypothesis 19: {n0 ∈ NonNegIntegerSet ∧ n0 > 0 ∧ n0! * n0 > 10^{6}}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (hypothesis 11: {forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n! * n > 10^{6} ⇒ frac(1, n! * n) < 10^{-6}}) (n := {n0}) as (hypothesis 20: {n0 ∈ NonNegIntegerSet ∧ n0 > 0 ∧ n0! * n0 > 10^{6} ⇒ frac(1, n0! * n0) < 10^{-6}})
+use_condition (hypothesis 19: {n0 ∈ NonNegIntegerSet ∧ n0 > 0 ∧ n0! * n0 > 10^{6}}) in (hypothesis 20: {n0 ∈ NonNegIntegerSet ∧ n0 > 0 ∧ n0! * n0 > 10^{6} ⇒ frac(1, n0! * n0) < 10^{-6}}) as (hypothesis 21: {frac(1, n0! * n0) < 10^{-6}})
+assert (hypothesis 22: {n0 ∈ NonNegIntegerSet ∧ n0 > 0 ∧ frac(1, n0! * n0) < 10^{-6}}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (hypothesis 10: {forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ frac(1, n! * n) < 10^{-6} ⇒ Δ(n) < 10^{-6}}) (n := {n0}) as (hypothesis 23: {n0 ∈ NonNegIntegerSet ∧ n0 > 0 ∧ frac(1, n0! * n0) < 10^{-6} ⇒ Δ(n0) < 10^{-6}})
+use_condition (hypothesis 22: {n0 ∈ NonNegIntegerSet ∧ n0 > 0 ∧ frac(1, n0! * n0) < 10^{-6}}) in (hypothesis 23: {n0 ∈ NonNegIntegerSet ∧ n0 > 0 ∧ frac(1, n0! * n0) < 10^{-6} ⇒ Δ(n0) < 10^{-6}}) as (hypothesis 24: {Δ(n0) < 10^{-6}})
+apply (hypothesis 24: {Δ(n0) < 10^{-6}})

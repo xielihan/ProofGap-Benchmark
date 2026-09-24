@@ -1,0 +1,15 @@
+PROOF GAP @7
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ y(x) = x * sin(ln(x))
+3. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ FunDeri(y, 1, 1)(x) = sin(ln(x)) + cos(ln(x))
+4. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ FunDeri(y, 1, 2)(x) = frac(sqrtn(2, 2), x) * cos(frac(π, 4) + ln(x))
+5. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ (FunDeri(y, 1, 2)(x) = 0 ⇔ (exists (k), k ∈ IntegerSet ∧ x = e^{k * π + frac(π, 4)}))
+6. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ (forall (k), k ∈ IntegerSet ∧ e^{2 * k * π - frac(3 * π, 4)} < x ∧ x < e^{2 * k * π + frac(π, 4)} ⇒ FunDeri(y, 1, 2)(x) > 0)
+7. forall (k), k ∈ IntegerSet ⇒ ConvexFuncOn(y, IntervalLoRo(e^{2 * k * π - frac(3 * π, 4)}, e^{2 * k * π + frac(π, 4)}))
+8. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ (forall (k), k ∈ IntegerSet ∧ e^{2 * k * π + frac(π, 4)} < x ∧ x < e^{2 * k * π + frac(5 * π, 4)} ⇒ FunDeri(y, 1, 2)(x) < 0)
+
+GOAL:
+forall (k), k ∈ IntegerSet ⇒ ConcaveFuncOn(y, IntervalLoRo(e^{2 * k * π + frac(π, 4)}, e^{2 * k * π + frac(5 * π, 4)}))
+
+METHOD:

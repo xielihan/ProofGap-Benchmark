@@ -1,0 +1,15 @@
+PROOF GAP @5
+ASSUM:
+1. y : RealSet → RealSet ∧ Dom(y) = [-1, 1]
+2. forall (x), x ∈ RealSet ∧ x ∈ [-1, 1] ⇒ x^{2} + y(x)^{2} = 1
+3. y_{pos} = (fun x [x ∈ RealSet ∧ x ∈ [-1, 1]] . sqrtn(2, 1 - x^{2}))
+4. y_{neg} = (fun x [x ∈ RealSet ∧ x ∈ [-1, 1]] . -sqrtn(2, 1 - x^{2}))
+5. ContinuousFuncOn(y_{pos}, [-1, 1])
+6. ContinuousFuncOn(y_{neg}, [-1, 1])
+7. forall (x), x ∈ RealSet ∧ x ∈ [-1, 1] ⇒ x^{2} + y_{pos}(x)^{2} = 1
+8. forall (x), x ∈ RealSet ∧ x ∈ [-1, 1] ⇒ x^{2} + y_{neg}(x)^{2} = 1
+
+GOAL:
+y ∈ { y_{pos}, y_{neg} } ⇔ Dom(y) = [-1, 1] ∧ ContinuousFuncOn(y, [-1, 1]) ∧ (forall (x), x ∈ RealSet ∧ x ∈ [-1, 1] ⇒ x^{2} + y(x)^{2} = 1)
+
+METHOD:

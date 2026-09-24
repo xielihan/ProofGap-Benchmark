@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet ∧ x ≠ 0 ∧ x^{4} + 2 * x^{2} - 1 > 0
+2. forall (t), t ∈ RealSet ∧ x > 0 ∧ frac(1, x) = sqrtn(2, t) ⇒ t > 0
+3. forall (t), t ∈ RealSet ∧ x > 0 ∧ frac(1, x) = sqrtn(2, t) ⇒ diff(fun x [x ∈ RealSet] . x) = -frac(1, 2 * t * sqrtn(2, t)) * diff(fun t [t ∈ RealSet] . t)
+
+GOAL:
+forall (t), t ∈ RealSet ∧ x > 0 ∧ frac(1, x) = sqrtn(2, t) ⇒ sqrtn(2, x^{4} + 2 * x^{2} - 1) = frac(sqrtn(2, 1 + 2 * t - t^{2}), t)
+
+METHOD:

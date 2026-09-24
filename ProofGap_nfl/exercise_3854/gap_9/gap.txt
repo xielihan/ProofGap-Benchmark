@@ -1,0 +1,25 @@
+PROOF GAP @9
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. c ∈ RealSet
+4. m ∈ RealSet
+5. n ∈ RealSet
+6. B : CartesianProd(RealSet, RealSet) → RealSet
+7. a < b
+8. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ x + c > 0
+9. t = frac(b + c, b - a) * frac(x - a, x + c)
+10. 0 ≤ t
+11. t ≤ 1
+12. l = frac(b - a, b + c)
+13. b + c ≠ 0
+14. x = frac(a + l * c * t, 1 - l * t)
+15. x - a = frac((a + c) * l * t, 1 - l * t)
+16. x - b = frac(a - b + (b + c) * l * t, 1 - l * t)
+17. x + c = frac(a + c, 1 - l * t)
+18. diff(x) = (fun t [t ∈ RealSet] . frac((a + c) * l, (1 - l * t)^{2})) * diff(fun t [t ∈ RealSet] . t)
+
+GOAL:
+DefInt(a, b, (fun x [x ∈ RealSet] . frac((x - a)^{m} * (b - x)^{n}, (x + c)^{m + n + 2})) * diff(fun x [x ∈ RealSet] . x)) = (-1)^{n} * frac(l^{m + 1}, (a + c)^{n + 1}) * DefInt(0, 1, (fun t [t ∈ RealSet] . t^{m} * (a - b + (b + c) * l * t)^{n}) * diff(fun t [t ∈ RealSet] . t))
+
+METHOD:

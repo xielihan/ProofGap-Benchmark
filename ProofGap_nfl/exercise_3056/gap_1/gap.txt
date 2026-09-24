@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. x ≠ 0
+3. P = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . prod_{ i = 1 }^{ n } (cos(frac(x, 2^{i}))))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ sin(frac(x, 2^{n})) ≠ 0 ⇒ P(n) = prod_{ i = 1 }^{ n } (cos(frac(x, 2^{i})))
+
+METHOD:

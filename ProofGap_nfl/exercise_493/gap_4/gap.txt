@@ -1,0 +1,10 @@
+PROOF GAP @4
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ 2 * sin(x)^{2} + sin(x) - 1 = (2 * sin(x) - 1) * (sin(x) + 1)
+2. forall (x), x ∈ RealSet ⇒ 2 * sin(x)^{2} - 3 * sin(x) + 1 = (2 * sin(x) - 1) * (sin(x) - 1)
+3. forall (x), x ∈ RealSet ∧ 2 * sin(x) - 1 ≠ 0 ∧ sin(x) - 1 ≠ 0 ⇒ frac(2 * sin(x)^{2} + sin(x) - 1, 2 * sin(x)^{2} - 3 * sin(x) + 1) = frac(sin(x) + 1, sin(x) - 1)
+
+GOAL:
+lim_{ x → frac(π, 6) } (frac(2 * sin(x)^{2} + sin(x) - 1, 2 * sin(x)^{2} - 3 * sin(x) + 1)) = lim_{ x → frac(π, 6) } (frac(sin(x) + 1, sin(x) - 1))
+
+METHOD:

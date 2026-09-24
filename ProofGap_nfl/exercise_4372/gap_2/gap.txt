@@ -1,0 +1,20 @@
+PROOF GAP @2
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. R ∈ RealSet ∧ R ∈ PosRealSet
+4. r ∈ RealSet ∧ r ∈ PosRealSet ∧ 0 < r ∧ r < R
+5. x ∈ RealSet
+6. y ∈ RealSet
+7. z ∈ RealSet
+8. α ∈ RealSet
+9. β ∈ RealSet
+10. γ ∈ RealSet
+11. C = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x^{2} + y^{2} + z^{2} = 2 * R * x ∧ x^{2} + y^{2} = 2 * r * x ∧ z > 0 }
+12. S = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x^{2} + y^{2} + z^{2} = 2 * R * x ∧ x^{2} + y^{2} ≤ 2 * r * x ∧ z > 0 }
+13. cos(α) = frac(x - R, R)
+
+GOAL:
+cos(β) = frac(y, R)
+
+METHOD:

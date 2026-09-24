@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. lim_{ x → +∞ } (sqrtn(3, x^{3} + 3 * x^{2}) - sqrtn(2, x^{2} - 2 * x)) = lim_{ x → +∞ } (frac((x^{3} + 3 * x^{2})^{2} - (x^{2} - 2 * x)^{3}, sum_{ k = 0 }^{ 5 } ((x^{3} + 3 * x^{2})^{frac(5 - k, 3)} * (x^{2} - 2 * x)^{frac(k, 2)})))
+2. lim_{ x → +∞ } (frac((x^{3} + 3 * x^{2})^{2} - (x^{2} - 2 * x)^{3}, sum_{ k = 0 }^{ 5 } ((x^{3} + 3 * x^{2})^{frac(5 - k, 3)} * (x^{2} - 2 * x)^{frac(k, 2)}))) = lim_{ x → +∞ } (frac(x^{5} * (12 - frac(3, x) + frac(8, x^{2})), sum_{ k = 0 }^{ 5 } ((x^{3} + 3 * x^{2})^{frac(5 - k, 3)} * (x^{2} - 2 * x)^{frac(k, 2)})))
+3. lim_{ x → +∞ } (frac(x^{5} * (12 - frac(3, x) + frac(8, x^{2})), sum_{ k = 0 }^{ 5 } ((x^{3} + 3 * x^{2})^{frac(5 - k, 3)} * (x^{2} - 2 * x)^{frac(k, 2)}))) = lim_{ x → +∞ } (frac(12 - frac(3, x) + frac(8, x^{2}), sum_{ k = 0 }^{ 5 } ((1 + frac(3, x))^{frac(5 - k, 3)} * (1 - frac(2, x))^{frac(k, 2)})))
+4. lim_{ x → +∞ } (frac(12 - frac(3, x) + frac(8, x^{2}), sum_{ k = 0 }^{ 5 } ((1 + frac(3, x))^{frac(5 - k, 3)} * (1 - frac(2, x))^{frac(k, 2)}))) = 2
+
+GOAL:
+lim_{ x → +∞ } (sqrtn(3, x^{3} + 3 * x^{2}) - sqrtn(2, x^{2} - 2 * x)) = 2
+
+METHOD:

@@ -1,0 +1,38 @@
+PROOF GAP @14
+ASSUM:
+1. A ⊆ RealSet
+2. f_{1} : RealSet → RealSet
+3. f_{2} : RealSet → RealSet
+4. T_{1} ∈ RealSet
+5. T_{2} ∈ RealSet
+6. T ∈ RealSet
+7. k_{1} ∈ NonNegIntegerSet
+8. k_{2} ∈ NonNegIntegerSet
+9. F_{1} : RealSet → RealSet
+10. F_{2} : RealSet → RealSet
+11. PeriodicFunc(f_{1}, T_{1})
+12. PeriodicFunc(f_{2}, T_{2})
+13. T_{1} = T * k_{1}
+14. T_{2} = T * k_{2}
+15. k_{1} ∈ PosIntegerSet
+16. k_{2} ∈ PosIntegerSet
+17. forall (x), x ∈ RealSet ∧ x ∈ A ⇒ F_{1}(x) = f_{1}(x) + f_{2}(x)
+18. forall (x), x ∈ RealSet ∧ x ∈ A ⇒ F_{2}(x) = f_{1}(x) * f_{2}(x)
+19. forall (x), x ∈ RealSet ∧ x ∈ A ⇒ f_{1}(x + k_{2} * T_{1}) = f_{1}(x)
+20. forall (x), x ∈ RealSet ∧ x ∈ A ⇒ f_{2}(x + k_{1} * T_{2}) = f_{2}(x)
+21. forall (x), x ∈ RealSet ∧ x ∈ A ⇒ k_{2} * T_{1} = k_{1} * k_{2} * T
+22. forall (x), x ∈ RealSet ∧ x ∈ A ⇒ k_{1} * T_{2} = k_{1} * k_{2} * T
+23. forall (x), x ∈ RealSet ∧ x ∈ A ⇒ f_{1}(x + k_{1} * k_{2} * T) = f_{1}(x)
+24. forall (x), x ∈ RealSet ∧ x ∈ A ⇒ f_{2}(x + k_{1} * k_{2} * T) = f_{2}(x)
+25. forall (x), x ∈ RealSet ∧ x ∈ A ⇒ F_{1}(x + k_{1} * k_{2} * T) = f_{1}(x + k_{1} * k_{2} * T) + f_{2}(x + k_{1} * k_{2} * T)
+26. forall (x), x ∈ RealSet ∧ x ∈ A ⇒ f_{1}(x + k_{1} * k_{2} * T) + f_{2}(x + k_{1} * k_{2} * T) = f_{1}(x) + f_{2}(x)
+27. forall (x), x ∈ RealSet ∧ x ∈ A ⇒ f_{1}(x) + f_{2}(x) = F_{1}(x)
+28. forall (x), x ∈ RealSet ∧ x ∈ A ⇒ F_{1}(x + k_{1} * k_{2} * T) = F_{1}(x)
+29. forall (x), x ∈ RealSet ∧ x ∈ A ⇒ F_{2}(x + k_{1} * k_{2} * T) = f_{1}(x + k_{1} * k_{2} * T) * f_{2}(x + k_{1} * k_{2} * T)
+30. forall (x), x ∈ RealSet ∧ x ∈ A ⇒ f_{1}(x + k_{1} * k_{2} * T) * f_{2}(x + k_{1} * k_{2} * T) = f_{1}(x) * f_{2}(x)
+31. forall (x), x ∈ RealSet ∧ x ∈ A ⇒ f_{1}(x) * f_{2}(x) = F_{2}(x)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ A ⇒ F_{2}(x + k_{1} * k_{2} * T) = F_{2}(x)
+
+METHOD:

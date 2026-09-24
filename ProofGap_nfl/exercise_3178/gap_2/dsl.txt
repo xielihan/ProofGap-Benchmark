@@ -1,0 +1,14 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ f(sqrtn(2, x) - 1) = (sqrtn(2, x) - 1) * (sqrtn(2, x) + 1) ∧ (sqrtn(2, x) - 1) * (sqrtn(2, x) + 1) = (sqrtn(2, x) - 1) * (sqrtn(2, x) - 1 + 2)}) (x := {x0})
+2. get_condition (hypothesis 6: {x0 ∈ RealSet ∧ x0 ≥ 0}) in (GOAL: {x0 ∈ RealSet ∧ x0 ≥ 0 ⇒ f(sqrtn(2, x0) - 1) = (sqrtn(2, x0) - 1) * (sqrtn(2, x0) + 1) ∧ (sqrtn(2, x0) - 1) * (sqrtn(2, x0) + 1) = (sqrtn(2, x0) - 1) * (sqrtn(2, x0) - 1 + 2)})
+3. destruct_and (hypothesis 6: {x0 ∈ RealSet ∧ x0 ≥ 0}) as (hypothesis 7: {x0 ∈ RealSet}) (hypothesis 8: {x0 ≥ 0})
+4. get_prop (hypothesis 5: {forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ f(sqrtn(2, x) - 1) = x - 1}) (x := {x0}) as (hypothesis 9: {x0 ∈ RealSet ∧ x0 ≥ 0 ⇒ f(sqrtn(2, x0) - 1) = x0 - 1})
+5. use_condition (hypothesis 6: {x0 ∈ RealSet ∧ x0 ≥ 0}) in (hypothesis 9: {x0 ∈ RealSet ∧ x0 ≥ 0 ⇒ f(sqrtn(2, x0) - 1) = x0 - 1}) as (hypothesis 10: {f(sqrtn(2, x0) - 1) = x0 - 1})
+6. get_prop (theorem 'Thm 450. (SquareRootSquareCancellation)': {forall (u), u ∈ RealSet => u >= 0 => sqrtn(2, u)^2 = u}) (u := {x0}) as (hypothesis 11: {x0 ∈ RealSet => x0 >= 0 => sqrtn(2, x0)^2 = x0})
+7. use_condition (hypothesis 7: {x0 ∈ RealSet}) (hypothesis 8: {x0 ≥ 0}) in (hypothesis 11: {x0 ∈ RealSet => x0 >= 0 => sqrtn(2, x0)^2 = x0}) as (hypothesis 12: {sqrtn(2, x0)^2 = x0})
+8. assert (hypothesis 13: {(sqrtn(2, x0) - 1) * (sqrtn(2, x0) + 1) = x0 - 1}) by proof {
+9. autosolve all_hypothesis
+}
+10. assert (hypothesis 14: {(sqrtn(2, x0) - 1) * (sqrtn(2, x0) + 1) = (sqrtn(2, x0) - 1) * (sqrtn(2, x0) - 1 + 2)}) by proof {
+11. autosolve all_hypothesis
+}
+12. autosolve all_hypothesis

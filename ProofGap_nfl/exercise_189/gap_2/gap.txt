@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = x^{4} - 6 * x^{3} + 11 * x^{2} - 6 * x
+3. forall (x), x ∈ RealSet ⇒ f(x) = x * (x - 1) * (x - 2) * (x - 3)
+
+GOAL:
+f(0) = 0
+
+METHOD:

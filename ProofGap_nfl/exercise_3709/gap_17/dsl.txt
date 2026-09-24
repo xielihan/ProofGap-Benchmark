@@ -1,0 +1,38 @@
+get_condition (hypothesis 40: {M(`α_2`, p_{2}) ≤ M(`α_1`, p_{1})}) in (GOAL: {M(`α_2`, p_{2}) ≤ M(`α_1`, p_{1}) ⇒ (forall (`α_c`) (p_{c}), ((`α_c` = `α_1` ∧ p_{c} = p_{1}) ∨ (`α_c` = `α_2` ∧ p_{c} = p_{2})) ⇒ (M(`α_c`, p_{c}) = M(`α_2`, p_{2}) ⇔ ((`α_c` = `α_2` ∧ p_{c} = p_{2}) ∨ (M(`α_1`, p_{1}) = M(`α_2`, p_{2}) ∧ `α_c` = `α_1` ∧ p_{c} = p_{1}))))})
+get_forall (GOAL: {forall (`α_c`) (p_{c}), ((`α_c` = `α_1` ∧ p_{c} = p_{1}) ∨ (`α_c` = `α_2` ∧ p_{c} = p_{2})) ⇒ (M(`α_c`, p_{c}) = M(`α_2`, p_{2}) ⇔ ((`α_c` = `α_2` ∧ p_{c} = p_{2}) ∨ (M(`α_1`, p_{1}) = M(`α_2`, p_{2}) ∧ `α_c` = `α_1` ∧ p_{c} = p_{1})))}) (`α_c` := {`α_c`})
+get_forall (GOAL: {forall (p_{c}), ((`α_c` = `α_1` ∧ p_{c} = p_{1}) ∨ (`α_c` = `α_2` ∧ p_{c} = p_{2})) ⇒ (M(`α_c`, p_{c}) = M(`α_2`, p_{2}) ⇔ ((`α_c` = `α_2` ∧ p_{c} = p_{2}) ∨ (M(`α_1`, p_{1}) = M(`α_2`, p_{2}) ∧ `α_c` = `α_1` ∧ p_{c} = p_{1})))}) (p_{c} := {q})
+get_condition (hypothesis 41: {(`α_c` = `α_1` ∧ q = p_{1}) ∨ (`α_c` = `α_2` ∧ q = p_{2})}) in (GOAL: {((`α_c` = `α_1` ∧ q = p_{1}) ∨ (`α_c` = `α_2` ∧ q = p_{2})) ⇒ (M(`α_c`, q) = M(`α_2`, p_{2}) ⇔ ((`α_c` = `α_2` ∧ q = p_{2}) ∨ (M(`α_1`, p_{1}) = M(`α_2`, p_{2}) ∧ `α_c` = `α_1` ∧ q = p_{1})))})
+assert (hypothesis 42: {(`α_c` = `α_2` ∧ q = p_{2}) ⇒ M(`α_c`, q) = M(`α_2`, p_{2})}) by proof {
+  get_condition (hypothesis 42: {`α_c` = `α_2` ∧ q = p_{2}}) in (GOAL: {(`α_c` = `α_2` ∧ q = p_{2}) ⇒ M(`α_c`, q) = M(`α_2`, p_{2})})
+  destruct_and (hypothesis 42: {`α_c` = `α_2` ∧ q = p_{2}}) as (hypothesis 43: {`α_c` = `α_2`}) (hypothesis 44: {q = p_{2}})
+  rewrite (left_to_right, equation) (hypothesis 43: {`α_c` = `α_2`}); from (GOAL: {M(`α_c`, q) = M(`α_2`, p_{2})}) to (GOAL: {M(`α_2`, q) = M(`α_2`, p_{2})})
+  rewrite (left_to_right, equation) (hypothesis 44: {q = p_{2}}); from (GOAL: {M(`α_2`, q) = M(`α_2`, p_{2})}) to (GOAL: {M(`α_2`, p_{2}) = M(`α_2`, p_{2})})
+  autosolve all_hypothesis
+}
+assert (hypothesis 43: {(`α_c` = `α_1` ∧ q = p_{1}) ⇒ (M(`α_c`, q) = M(`α_2`, p_{2}) ⇒ M(`α_1`, p_{1}) = M(`α_2`, p_{2}))}) by proof {
+  get_condition (hypothesis 43: {`α_c` = `α_1` ∧ q = p_{1}}) in (GOAL: {(`α_c` = `α_1` ∧ q = p_{1}) ⇒ (M(`α_c`, q) = M(`α_2`, p_{2}) ⇒ M(`α_1`, p_{1}) = M(`α_2`, p_{2}))})
+  destruct_and (hypothesis 43: {`α_c` = `α_1` ∧ q = p_{1}}) as (hypothesis 44: {`α_c` = `α_1`}) (hypothesis 45: {q = p_{1}})
+  get_condition (hypothesis 46: {M(`α_c`, q) = M(`α_2`, p_{2})}) in (GOAL: {M(`α_c`, q) = M(`α_2`, p_{2}) ⇒ M(`α_1`, p_{1}) = M(`α_2`, p_{2})})
+  assert (hypothesis 47: {M(`α_c`, q) = M(`α_1`, p_{1})}) by proof {
+    rewrite (left_to_right, equation) (hypothesis 44: {`α_c` = `α_1`}); from (GOAL: {M(`α_c`, q) = M(`α_1`, p_{1})}) to (GOAL: {M(`α_1`, q) = M(`α_1`, p_{1})})
+    rewrite (left_to_right, equation) (hypothesis 45: {q = p_{1}}); from (GOAL: {M(`α_1`, q) = M(`α_1`, p_{1})}) to (GOAL: {M(`α_1`, p_{1}) = M(`α_1`, p_{1})})
+    autosolve all_hypothesis
+  }
+  autosolve all_hypothesis
+}
+assert (hypothesis 44: {M(`α_c`, q) = M(`α_2`, p_{2}) ⇒ ((`α_c` = `α_2` ∧ q = p_{2}) ∨ (M(`α_1`, p_{1}) = M(`α_2`, p_{2}) ∧ `α_c` = `α_1` ∧ q = p_{1}))}) by proof {
+  get_condition (hypothesis 44: {M(`α_c`, q) = M(`α_2`, p_{2})}) in (GOAL: {M(`α_c`, q) = M(`α_2`, p_{2}) ⇒ ((`α_c` = `α_2` ∧ q = p_{2}) ∨ (M(`α_1`, p_{1}) = M(`α_2`, p_{2}) ∧ `α_c` = `α_1` ∧ q = p_{1}))})
+  autosolve all_hypothesis
+}
+assert (hypothesis 45: {(M(`α_1`, p_{1}) = M(`α_2`, p_{2}) ∧ `α_c` = `α_1` ∧ q = p_{1}) ⇒ M(`α_c`, q) = M(`α_2`, p_{2})}) by proof {
+  get_condition (hypothesis 45: {M(`α_1`, p_{1}) = M(`α_2`, p_{2}) ∧ `α_c` = `α_1` ∧ q = p_{1}}) in (GOAL: {(M(`α_1`, p_{1}) = M(`α_2`, p_{2}) ∧ `α_c` = `α_1` ∧ q = p_{1}) ⇒ M(`α_c`, q) = M(`α_2`, p_{2})})
+  destruct_and (hypothesis 45: {M(`α_1`, p_{1}) = M(`α_2`, p_{2}) ∧ `α_c` = `α_1` ∧ q = p_{1}}) as (hypothesis 46: {M(`α_1`, p_{1}) = M(`α_2`, p_{2})}) (hypothesis 47: {`α_c` = `α_1`}) (hypothesis 48: {q = p_{1}})
+  rewrite (left_to_right, equation) (hypothesis 47: {`α_c` = `α_1`}); from (GOAL: {M(`α_c`, q) = M(`α_2`, p_{2})}) to (GOAL: {M(`α_1`, q) = M(`α_2`, p_{2})})
+  rewrite (left_to_right, equation) (hypothesis 48: {q = p_{1}}); from (GOAL: {M(`α_1`, q) = M(`α_2`, p_{2})}) to (GOAL: {M(`α_1`, p_{1}) = M(`α_2`, p_{2})})
+  autosolve all_hypothesis
+}
+assert (hypothesis 46: {((`α_c` = `α_2` ∧ q = p_{2}) ∨ (M(`α_1`, p_{1}) = M(`α_2`, p_{2}) ∧ `α_c` = `α_1` ∧ q = p_{1})) ⇒ M(`α_c`, q) = M(`α_2`, p_{2})}) by proof {
+  get_condition (hypothesis 46: {(`α_c` = `α_2` ∧ q = p_{2}) ∨ (M(`α_1`, p_{1}) = M(`α_2`, p_{2}) ∧ `α_c` = `α_1` ∧ q = p_{1})}) in (GOAL: {((`α_c` = `α_2` ∧ q = p_{2}) ∨ (M(`α_1`, p_{1}) = M(`α_2`, p_{2}) ∧ `α_c` = `α_1` ∧ q = p_{1})) ⇒ M(`α_c`, q) = M(`α_2`, p_{2})})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. sqrtn(3, 30) = 3 * (1 + frac(1, 9))^{frac(1, 3)}
+
+GOAL:
+(1 + frac(1, 9))^{frac(1, 3)} ≈_{ 3 * frac(frac(1, 3) * frac(2, 3) * frac(5, 3), 3!) * frac(1, 9)^{3} } 1 + frac(1, 3) * frac(1, 9) + frac(frac(1, 3) * (frac(1, 3) - 1), 2!) * frac(1, 9)^{2}
+
+METHOD:

@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ y(x) = lg(x)
+
+GOAL:
+ContinuousFuncOn(y, IntervalLoRo(10, 1000))
+
+METHOD:

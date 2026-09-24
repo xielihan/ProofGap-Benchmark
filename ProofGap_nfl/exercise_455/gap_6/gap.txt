@@ -1,0 +1,15 @@
+PROOF GAP @6
+ASSUM:
+1. m ∈ IntegerSet
+2. n ∈ IntegerSet
+3. m ≠ 0
+4. n ≠ 0
+5. forall (x), x ∈ RealSet ∧ x > 0 ∧ x ≠ 1 ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(sqrtn(m, x) - 1, sqrtn(n, x) - 1) = frac(sum_{ k = 0 }^{ n - 1 } (x^{frac(k, n)}), sum_{ k = 0 }^{ m - 1 } (x^{frac(k, m)}))
+6. m ∈ PosIntegerSet ⇒ n ∈ PosIntegerSet ⇒ lim_{ x → 1 } (frac(sqrtn(m, x) - 1, sqrtn(n, x) - 1)) = frac(n, m)
+7. forall (`m'`), `m'` ∈ IntegerSet ⇒ (forall (`n'`), `n'` ∈ IntegerSet ∧ m ∈ NegIntegerSet ∧ n ∈ NegIntegerSet ∧ `m'` = -m ∧ `n'` = -n ⇒ `m'` ∈ PosIntegerSet)
+8. forall (`m'`), `m'` ∈ IntegerSet ⇒ (forall (`n'`), `n'` ∈ IntegerSet ∧ m ∈ NegIntegerSet ∧ n ∈ NegIntegerSet ∧ `m'` = -m ∧ `n'` = -n ⇒ `n'` ∈ PosIntegerSet)
+9. forall (`m'`), `m'` ∈ IntegerSet ⇒ (forall (`n'`), `n'` ∈ IntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x > 0 ∧ m ∈ NegIntegerSet ∧ n ∈ NegIntegerSet ∧ `m'` = -m ∧ `n'` = -n ⇒ frac(sqrtn(m, x) - 1, sqrtn(n, x) - 1) = frac(1 - sqrtn(`m'`, x), 1 - sqrtn(`n'`, x)) * frac(sqrtn(`n'`, x), sqrtn(`m'`, x))))
+GOAL:
+forall (`m'`), `m'` ∈ IntegerSet ⇒ (forall (`n'`), `n'` ∈ IntegerSet ∧ m ∈ NegIntegerSet ∧ n ∈ NegIntegerSet ∧ `m'` = -m ∧ `n'` = -n ⇒ lim_{ x → 1 } (frac(sqrtn(m, x) - 1, sqrtn(n, x) - 1)) = frac(`n'`, `m'`))
+
+METHOD:

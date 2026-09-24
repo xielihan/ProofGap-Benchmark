@@ -1,0 +1,11 @@
+get_forall (GOAL: {forall (x) (y), (x ∈ RealSet ∧ 1 < x ∧ x < +infty) => (y ∈ RealSet ∧ 1 < y ∧ y < +infty) => x <= y => f(x) >= f(y)}) (x := {u}) (y := {v})
+get_condition (hypothesis 6: {u ∈ RealSet ∧ 1 < u ∧ u < +infty}) (hypothesis 7: {v ∈ RealSet ∧ 1 < v ∧ v < +infty}) (hypothesis 8: {u <= v}) in (GOAL: {(u ∈ RealSet ∧ 1 < u ∧ u < +infty) => (v ∈ RealSet ∧ 1 < v ∧ v < +infty) => u <= v => f(u) >= f(v)})
+get_prop (hypothesis 4: {forall (x), x ∈ RealSet ∧ 0 < x ∧ x < +infty => f(x) = frac(2 * x, 1 + x^{2})}) (x := {u}) as (hypothesis 9: {u ∈ RealSet ∧ 0 < u ∧ u < +infty => f(u) = frac(2 * u, 1 + u^{2})})
+get_prop (hypothesis 4: {forall (x), x ∈ RealSet ∧ 0 < x ∧ x < +infty => f(x) = frac(2 * x, 1 + x^{2})}) (x := {v}) as (hypothesis 10: {v ∈ RealSet ∧ 0 < v ∧ v < +infty => f(v) = frac(2 * v, 1 + v^{2})})
+assert (hypothesis 11: {u ∈ RealSet ∧ 0 < u ∧ u < +infty})
+assert (hypothesis 12: {v ∈ RealSet ∧ 0 < v ∧ v < +infty})
+use_condition (hypothesis 11: {u ∈ RealSet ∧ 0 < u ∧ u < +infty}) in (hypothesis 9: {u ∈ RealSet ∧ 0 < u ∧ u < +infty => f(u) = frac(2 * u, 1 + u^{2})}) as (hypothesis 13: {f(u) = frac(2 * u, 1 + u^{2})})
+use_condition (hypothesis 12: {v ∈ RealSet ∧ 0 < v ∧ v < +infty}) in (hypothesis 10: {v ∈ RealSet ∧ 0 < v ∧ v < +infty => f(v) = frac(2 * v, 1 + v^{2})}) as (hypothesis 14: {f(v) = frac(2 * v, 1 + v^{2})})
+rewrite (left_to_right, equation) (hypothesis 13: {f(u) = frac(2 * u, 1 + u^{2})}); from (GOAL: {f(u) >= f(v)}) to (GOAL: {frac(2 * u, 1 + u^{2}) >= f(v)})
+rewrite (left_to_right, equation) (hypothesis 14: {f(v) = frac(2 * v, 1 + v^{2})}); from (GOAL: {frac(2 * u, 1 + u^{2}) >= f(v)}) to (GOAL: {frac(2 * u, 1 + u^{2}) >= frac(2 * v, 1 + v^{2})})
+autosolve all_hypothesis

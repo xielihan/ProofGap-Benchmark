@@ -1,0 +1,30 @@
+PROOF GAP @10
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. r : CartesianProd(RealSet, RealSet) → RealSet
+3. n ∈ NonNegIntegerSet
+4. m ∈ NonNegIntegerSet
+5. P : CartesianProd(RealSet, RealSet) → RealSet
+6. Q : CartesianProd(RealSet, RealSet) → RealSet
+7. C_{1} ∈ RealSet
+8. C_{2} ∈ RealSet
+9. n ∈ PosIntegerSet
+10. m ∈ PosIntegerSet
+11. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ r(x, y) = sqrtn(2, x^{2} + y^{2}))
+12. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (x, y) ≠ (0, 0))
+13. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . ln(frac(1, r(x, y))), 1, 1)(x, y) = -frac(x, r(x, y)^{2}))
+14. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . ln(frac(1, r(x, y))), 2, 1)(x, y) = -frac(y, r(x, y)^{2}))
+15. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . ln(frac(1, r(x, y))), 1, 2)(x, y) + FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . ln(frac(1, r(x, y))), 2, 2)(x, y) = 0)
+16. P = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . FunDeri(FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . ln(frac(1, r(x, y))), 1, n + 2), 2, m - 1)(x, y))
+17. Q = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . -FunDeri(FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . ln(frac(1, r(x, y))), 1, n - 1), 2, m + 2)(x, y))
+18. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ FunDeri(P, 2, 1)(x, y) - FunDeri(Q, 1, 1)(x, y) = FunDeri(FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . ln(frac(1, r(x, y))), 1, 2)(x, y) + FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . ln(frac(1, r(x, y))), 2, 2)(x, y), 1, n), 2, m)(x, y))
+19. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ FunDeri(FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . ln(frac(1, r(x, y))), 1, 2)(x, y) + FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . ln(frac(1, r(x, y))), 2, 2)(x, y), 1, n), 2, m)(x, y) = 0)
+20. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ FunDeri(P, 2, 1)(x, y) - FunDeri(Q, 1, 1)(x, y) = 0)
+21. forall (y), y ∈ RealSet ∧ y > 0 ⇒ (forall (x), x ∈ RealSet ∧ y > 0 ⇒ z(x, y) = DefInt(0, x, (fun x [x ∈ RealSet] . P(x, y)) * diff(fun x [x ∈ RealSet] . x)) + DefInt(1, y, (fun y [y ∈ RealSet ∧ y > 0] . Q(0, y)) * diff(fun y [y ∈ RealSet] . y)) + C_{1})
+22. forall (y), y ∈ RealSet ∧ y > 0 ⇒ (forall (x), x ∈ RealSet ∧ y > 0 ⇒ z(x, y) = FunDeri(FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ y > 0] . arctan(frac(x, y)), 1, n), 2, m)(x, y) + C_{1})
+23. forall (y), y ∈ RealSet ∧ y < 0 ⇒ (forall (x), x ∈ RealSet ∧ y < 0 ⇒ z(x, y) = DefInt(0, x, (fun x [x ∈ RealSet] . P(x, y)) * diff(fun x [x ∈ RealSet] . x)) + DefInt(-1, y, (fun y [y ∈ RealSet ∧ y < 0] . Q(0, y)) * diff(fun y [y ∈ RealSet] . y)) + C_{2})
+
+GOAL:
+forall (y), y ∈ RealSet ∧ y < 0 ⇒ (forall (x), x ∈ RealSet ∧ y < 0 ⇒ z(x, y) = FunDeri(FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ y < 0] . arctan(frac(x, y)), 1, n), 2, m)(x, y) + C_{2})
+
+METHOD:

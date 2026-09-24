@@ -1,0 +1,16 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. c ∈ RealSet
+5. d ∈ RealSet
+6. a * d - b * c ≠ 0
+7. forall (x), x ∈ RealSet ∧ c * x + d ≠ 0 ⇒ y(x) = frac(a * x + b, c * x + d)
+8. forall (x), x ∈ RealSet ∧ c * x - a ≠ 0 ⇒ InverseFunc(y, x) = frac(-d * x + b, c * x - a)
+9. forall (x), x ∈ RealSet ∧ c * x + d ≠ 0 ∧ c * x - a ≠ 0 ∧ frac(a * x + b, c * x + d) = frac(-x * d + b, x * c - a) ⇒ InverseFunc(y, x) = y(x)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ a + d = 0 ∧ c * x + d ≠ 0 ∧ c * x - a ≠ 0 ⇒ frac(a * x + b, c * x + d) = frac(-x * d + b, x * c - a)
+
+METHOD:

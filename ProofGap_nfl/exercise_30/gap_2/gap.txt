@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ frac(x + |x|, 2)^{2} + frac(x - |x|, 2)^{2} = frac(1, 2) * x^{2} + frac(1, 2) * x * |x| + frac(1, 2) * x^{2} - frac(1, 2) * x * |x|
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ frac(1, 2) * x^{2} + frac(1, 2) * x * |x| + frac(1, 2) * x^{2} - frac(1, 2) * x * |x| = x^{2}
+
+METHOD:

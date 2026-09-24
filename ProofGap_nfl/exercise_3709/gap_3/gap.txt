@@ -1,0 +1,32 @@
+PROOF GAP @3
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. y : NonNegIntegerSet → RealSet ∧ IsSeq(y)
+3. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+4. M : CartesianProd(RealSet, RealSet) → RealSet
+5. α ∈ RealSet
+6. p ∈ RealSet
+7. `x_bar` ∈ RealSet
+8. `y_bar` ∈ RealSet
+9. `xy_bar` ∈ RealSet
+10. `xx_bar` ∈ RealSet
+11. `yy_bar` ∈ RealSet
+12. `α_1` ∈ RealSet ∧ 0 ≤ `α_1` ∧ `α_1` < 2 * π
+13. `α_2` ∈ RealSet ∧ 0 ≤ `α_2` ∧ `α_2` < 2 * π
+14. p_{1} ∈ RealSet ∧ p_{1} ≥ 0
+15. p_{2} ∈ RealSet ∧ p_{2} ≥ 0
+16. i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n
+17. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ x(i) ∈ RealSet ∧ y(i) ∈ RealSet
+18. forall (α) (p), α ∈ RealSet ∧ p ∈ RealSet ⇒ M(α, p) = sum_{ i = 1 }^{ n } ((x(i) * cos(α) + y(i) * sin(α) - p)^{2})
+19. `x_bar` = frac(1, n) * (sum_{ i = 1 }^{ n } (x(i)))
+20. `y_bar` = frac(1, n) * (sum_{ i = 1 }^{ n } (y(i)))
+21. `xy_bar` = frac(1, n) * (sum_{ i = 1 }^{ n } (x(i) * y(i)))
+22. `xx_bar` = frac(1, n) * (sum_{ i = 1 }^{ n } (x(i)^{2}))
+23. `yy_bar` = frac(1, n) * (sum_{ i = 1 }^{ n } (y(i)^{2}))
+24. FunDeri(M, 1, 1)(α, p) = 2 * (sum_{ i = 1 }^{ n } ((x(i) * cos(α) + y(i) * sin(α) - p) * (y(i) * cos(α) - x(i) * sin(α))))
+25. FunDeri(M, 2, 1)(α, p) = -2 * (sum_{ i = 1 }^{ n } (x(i) * cos(α) + y(i) * sin(α) - p))
+
+GOAL:
+FunDeri(M, 1, 1)(α, p) = n * (2 * `xy_bar` * cos(2 * α) + (`yy_bar` - `xx_bar`) * sin(2 * α) - 2 * p * (`y_bar` * cos(α) - `x_bar` * sin(α)))
+
+METHOD:

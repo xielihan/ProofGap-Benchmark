@@ -1,0 +1,16 @@
+1. get_forall (GOAL: {forall (ε), ε ∈ RealSet /\ ε > 0 => exists (δ), δ ∈ RealSet /\ δ > 0 /\ (forall (`x'`), `x'` ∈ RealSet => (forall (`x''`), `x'` ∈ RealSet /\ `x''` ∈ RealSet /\ |`x'` - `x''`| < δ => 2 * |`x'` - `x''`| < 2 * δ))}) (ε := {e0})
+2. get_condition (hypothesis 11: {e0 ∈ RealSet /\ e0 > 0}) in (GOAL: {(e0 ∈ RealSet /\ e0 > 0) => exists (δ), δ ∈ RealSet /\ δ > 0 /\ (forall (`x'`), `x'` ∈ RealSet => (forall (`x''`), `x'` ∈ RealSet /\ `x''` ∈ RealSet /\ |`x'` - `x''`| < δ => 2 * |`x'` - `x''`| < 2 * δ))})
+3. get_prop (hypothesis 8: {forall (ε), ε ∈ RealSet /\ ε > 0 => exists (δ), δ ∈ RealSet /\ δ > 0 /\ δ = frac(ε, 2)}) (ε := {e0}) as (hypothesis 12: {(e0 ∈ RealSet /\ e0 > 0) => exists (δ), δ ∈ RealSet /\ δ > 0 /\ δ = frac(e0, 2)})
+4. use_condition (hypothesis 11: {e0 ∈ RealSet /\ e0 > 0}) in (hypothesis 12: {(e0 ∈ RealSet /\ e0 > 0) => exists (δ), δ ∈ RealSet /\ δ > 0 /\ δ = frac(e0, 2)}) as (hypothesis 13: {exists (δ), δ ∈ RealSet /\ δ > 0 /\ δ = frac(e0, 2)})
+5. get_exists (hypothesis 13: {exists (δ), δ ∈ RealSet /\ δ > 0 /\ δ = frac(e0, 2)}) (δ := {d0})
+6. destruct_and (hypothesis 14: {d0 ∈ RealSet /\ d0 > 0 /\ d0 = frac(e0, 2)}) as (hypothesis 15: {d0 ∈ RealSet}) (hypothesis 16: {d0 > 0}) (hypothesis 17: {d0 = frac(e0, 2)})
+7. exists (δ := {d0})
+8. assert (hypothesis 18: {forall (`x'`), `x'` ∈ RealSet => (forall (`x''`), `x'` ∈ RealSet /\ `x''` ∈ RealSet /\ |`x'` - `x''`| < d0 => 2 * |`x'` - `x''`| < 2 * d0)}) by proof {
+  1. get_forall (GOAL: {forall (`x'`), `x'` ∈ RealSet => (forall (`x''`), `x'` ∈ RealSet /\ `x''` ∈ RealSet /\ |`x'` - `x''`| < d0 => 2 * |`x'` - `x''`| < 2 * d0)}) (`x'` := {a})
+  2. get_condition (hypothesis 18: {a ∈ RealSet}) in (GOAL: {a ∈ RealSet => forall (`x''`), a ∈ RealSet /\ `x''` ∈ RealSet /\ |a - `x''`| < d0 => 2 * |a - `x''`| < 2 * d0})
+  3. get_forall (GOAL: {forall (`x''`), a ∈ RealSet /\ `x''` ∈ RealSet /\ |a - `x''`| < d0 => 2 * |a - `x''`| < 2 * d0}) (`x''` := {b})
+  4. get_condition (hypothesis 19: {a ∈ RealSet /\ b ∈ RealSet /\ |a - b| < d0}) in (GOAL: {(a ∈ RealSet /\ b ∈ RealSet /\ |a - b| < d0) => 2 * |a - b| < 2 * d0})
+  5. destruct_and (hypothesis 19: {a ∈ RealSet /\ b ∈ RealSet /\ |a - b| < d0}) as (hypothesis 20: {a ∈ RealSet}) (hypothesis 21: {b ∈ RealSet}) (hypothesis 22: {|a - b| < d0})
+  6. autosolve all_hypothesis
+}
+9. autosolve all_hypothesis

@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. Gamma : RealSet → RealSet
+2. t = (fun x [x ∈ RealSet] . 1 - x)
+
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet] . ln(Gamma(x)) * sin(π * x)) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun t [t ∈ RealSet] . ln(Gamma(1 - t)) * sin(π * t)) * diff(fun t [t ∈ RealSet] . t))
+
+METHOD:

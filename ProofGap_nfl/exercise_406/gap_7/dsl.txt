@@ -1,0 +1,17 @@
+get_forall (GOAL: {forall (E), E ∈ RealSet ∧ E > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ x < -N ⇒ |f(x)| > E))}) (E := {z})
+get_condition (hypothesis 10: {z ∈ RealSet ∧ z > 0}) in (GOAL: {z ∈ RealSet ∧ z > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ x < -N ⇒ |f(x)| > z))})
+get_prop (hypothesis 4: {forall (E), E ∈ RealSet ∧ E > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x| > N ⇒ |f(x)| > E))}) (E := {z}) as (hypothesis 11: {z ∈ RealSet ∧ z > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x| > N ⇒ |f(x)| > z))})
+use_condition (hypothesis 10: {z ∈ RealSet ∧ z > 0}) in (hypothesis 11: {z ∈ RealSet ∧ z > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x| > N ⇒ |f(x)| > z))}) as (hypothesis 12: {exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x| > N ⇒ |f(x)| > z)})
+get_exists (hypothesis 12: {exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x| > N ⇒ |f(x)| > z)}) (N := {n})
+destruct_and (hypothesis 13: {n ∈ RealSet ∧ n > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x| > n ⇒ |f(x)| > z)}) as (hypothesis 14: {n ∈ RealSet}) (hypothesis 15: {n > 0}) (hypothesis 16: {forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x| > n ⇒ |f(x)| > z})
+assert (hypothesis 17: {forall (x), x ∈ RealSet ∧ x ∈ D ∧ x < -n ⇒ |f(x)| > z}) by proof {
+  get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ D ∧ x < -n ⇒ |f(x)| > z}) (x := {y})
+  get_condition (hypothesis 17: {y ∈ RealSet ∧ y ∈ D ∧ y < -n}) in (GOAL: {y ∈ RealSet ∧ y ∈ D ∧ y < -n ⇒ |f(y)| > z})
+  destruct_and (hypothesis 17: {y ∈ RealSet ∧ y ∈ D ∧ y < -n}) as (hypothesis 18: {y ∈ RealSet}) (hypothesis 19: {y ∈ D}) (hypothesis 20: {y < -n})
+  assert (hypothesis 21: {|y| > n})
+  get_prop (hypothesis 16: {forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x| > n ⇒ |f(x)| > z}) (x := {y}) as (hypothesis 22: {y ∈ RealSet ∧ y ∈ D ∧ |y| > n ⇒ |f(y)| > z})
+  use_condition (obvious: {y ∈ RealSet ∧ y ∈ D ∧ |y| > n}) in (hypothesis 22: {y ∈ RealSet ∧ y ∈ D ∧ |y| > n ⇒ |f(y)| > z}) as (hypothesis 23: {|f(y)| > z})
+  apply (hypothesis 23: {|f(y)| > z})
+}
+exists (N := {n})
+autosolve all_hypothesis

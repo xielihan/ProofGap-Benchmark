@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. lim_{ x → +∞ } (ln(1 + 2^{x}) * ln(1 + frac(3, x))) = lim_{ x → +∞ } (frac(ln(1 + frac(3, x)), frac(3, x)) * frac(x * ln(2) + ln(2^{-x} + 1), frac(x, 3)))
+2. lim_{ x → +∞ } (ln(1 + 2^{x}) * ln(1 + frac(3, x))) = 3 * ln(2)
+
+GOAL:
+lim_{ x → +∞ } (ln(1 + 2^{x}) * ln(1 + frac(3, x))) = ln(8)
+
+METHOD:

@@ -1,0 +1,21 @@
+PROOF GAP @10
+ASSUM:
+1. F : CartesianProd(RealSet, RealSet) → RealSet
+2. A ∈ RealSet
+3. B ∈ RealSet
+4. C ∈ RealSet
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ F(x, y) = y^{2} - sin(x^{2})
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(F, 1, 1)(x, y) = -2 * x * cos(x^{2})
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(F, 2, 1)(x, y) = 2 * y
+8. forall (x), x ∈ RealSet ⇒ x = 0
+9. forall (y), y ∈ RealSet ⇒ y = 0
+10. A = FunDeri(F, 1, 2)(0, 0)
+11. B = FunDeri(FunDeri(F, 1, 1), 2, 1)(0, 0)
+12. C = FunDeri(F, 2, 2)(0, 0)
+13. A = -2
+14. B = 0
+
+GOAL:
+C = 2
+
+METHOD:

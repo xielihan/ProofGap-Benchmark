@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. φ : RealSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ⇒ (forall (x), x ∈ RealSet ⇒ f(x) = sum_{ n = 1 }^{ +∞ } (frac(|x|, n^{2} + x^{2})))
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ⇒ (forall (x), x ∈ RealSet ⇒ φ(x) = sum_{ n = 1 }^{ +∞ } (frac(1, n^{2} + x^{2})))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x = 0 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(|x|, n^{2} + x^{2})))
+
+METHOD:

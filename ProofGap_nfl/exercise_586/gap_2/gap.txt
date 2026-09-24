@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. lim_{ u → 0 } (frac(ln(1 + u), u)) = 1
+
+GOAL:
+lim_{ u → 0 } (frac(arctan(u), u)) = 1
+
+METHOD:

@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. m_{0} ∈ RealSet
+3. M_{0} ∈ RealSet
+4. forall (x), x ∈ RealSet ⇒ f(x) = x - floor(x)
+5. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ 0 ≤ f(x) ∧ f(x) ≤ 1
+6. m_{0} = inf(ImageOn(f, [0, 1]))
+
+GOAL:
+m_{0} = 0
+
+METHOD:

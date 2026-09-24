@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. VPInt ∈ RealSet
+2. ε ∈ RealSet
+3. η ∈ RealSet
+4. b ∈ RealSet
+5. VPInt = lim_{ ε → 0^+ } (lim_{ η → 0^+ } (lim_{ b → +∞ } (DefInt(0, 1 - ε, (fun x [x ∈ RealSet] . frac(1, x^{2} - 3 * x + 2)) * diff(fun x [x ∈ RealSet] . x)) + DefInt(1 + ε, 2 - η, (fun x [x ∈ RealSet] . frac(1, x^{2} - 3 * x + 2)) * diff(fun x [x ∈ RealSet] . x)) + DefInt(2 + η, b, (fun x [x ∈ RealSet] . frac(1, x^{2} - 3 * x + 2)) * diff(fun x [x ∈ RealSet] . x)))))
+6. forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < 1 ⇒ (forall (η), η ∈ RealSet ∧ 0 < η ∧ η < 1 ⇒ (forall (b), b ∈ RealSet ∧ b > 2 ⇒ DefInt(0, 1 - ε, (fun x [x ∈ RealSet] . frac(1, x^{2} - 3 * x + 2)) * diff(fun x [x ∈ RealSet] . x)) + DefInt(1 + ε, 2 - η, (fun x [x ∈ RealSet] . frac(1, x^{2} - 3 * x + 2)) * diff(fun x [x ∈ RealSet] . x)) + DefInt(2 + η, b, (fun x [x ∈ RealSet] . frac(1, x^{2} - 3 * x + 2)) * diff(fun x [x ∈ RealSet] . x)) = ln(frac(ε + 1, ε)) - ln(2) + ln(frac(η, 1 - η)) - ln(frac(1 - ε, ε)) + ln(|frac(b - 2, b - 1)|) - ln(frac(η, 1 + η))))
+7. VPInt = lim_{ ε → 0^+ } (lim_{ η → 0^+ } (ln(frac(ε + 1, 1 - ε)) - ln(2) + ln(frac(1 + η, 1 - η))))
+
+GOAL:
+VPInt = -ln(2)
+
+METHOD:

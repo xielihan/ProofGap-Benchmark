@@ -1,0 +1,20 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet ∧ b > 0
+3. c ∈ RealSet ∧ c > 0
+4. ξ ∈ RealSet
+5. η ∈ RealSet
+6. y : RealSet → RealSet
+7. a > b
+8. c^{2} = a^{2} - b^{2}
+9. forall (x), x ∈ RealSet ∧ -a < x ∧ x < a ⇒ frac(x^{2}, a^{2}) + frac(y(x)^{2}, b^{2}) = 1
+10. forall (x), x ∈ RealSet ∧ -a < x ∧ x < a ⇒ FunDeri(y, 1, 1)(x) = -frac(b^{2} * x, a^{2} * y(x))
+11. forall (x), x ∈ RealSet ∧ -a < x ∧ x < a ⇒ FunDeri(y, 1, 2)(x) = -frac(b^{4}, a^{2} * y(x)^{3})
+12. forall (x), x ∈ RealSet ∧ -a < x ∧ x < a ⇒ ξ = x - frac(FunDeri(y, 1, 1)(x) * (1 + FunDeri(y, 1, 1)(x)^{2}), FunDeri(y, 1, 2)(x))
+13. forall (x), x ∈ RealSet ∧ -a < x ∧ x < a ⇒ x - frac(FunDeri(y, 1, 1)(x) * (1 + FunDeri(y, 1, 1)(x)^{2}), FunDeri(y, 1, 2)(x)) = x - frac(frac(b^{2} * x, a^{2} * y(x)) * (1 + frac(b^{4} * x^{2}, a^{4} * y(x)^{2})), frac(b^{4}, a^{2} * y(x)^{3}))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ -a < x ∧ x < a ⇒ x - frac(frac(b^{2} * x, a^{2} * y(x)) * (1 + frac(b^{4} * x^{2}, a^{4} * y(x)^{2})), frac(b^{4}, a^{2} * y(x)^{3})) = frac(c^{2}, a^{4}) * x^{3}
+
+METHOD:

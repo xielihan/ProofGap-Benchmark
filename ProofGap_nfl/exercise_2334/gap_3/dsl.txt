@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 3: {lim_{ b → +∞ } (DefInt(a, b, (fun x [x ∈ RealSet ∧ x > 0] . frac(1, x^{2})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x))) = lim_{ b → +∞ } (frac(1, a) - frac(1, b))}); from (GOAL: {lim_{ b → +∞ } (DefInt(a, b, (fun x [x ∈ RealSet ∧ x > 0] . frac(1, x^{2})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x))) = frac(1, a)}) to (GOAL: {lim_{ b → +∞ } (frac(1, a) - frac(1, b)) = frac(1, a)})
+apply (hypothesis 4: {lim_{ b → +∞ } (frac(1, a) - frac(1, b)) = frac(1, a)})

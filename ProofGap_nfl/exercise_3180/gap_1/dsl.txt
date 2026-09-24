@@ -1,0 +1,5 @@
+1. get_forall (GOAL: {forall (s) (t), s ∈ RealSet ∧ t ∈ RealSet ∧ s ≠ 0 ⇒ f(s + t, t / s) = s^{2} - t^{2} ∧ s^{2} - t^{2} = (s + t) * (s - t)}) (s := {s0}) (t := {t0})
+2. get_condition (hypothesis 3: {s0 ∈ RealSet ∧ t0 ∈ RealSet ∧ s0 ≠ 0}) in (GOAL: {s0 ∈ RealSet ∧ t0 ∈ RealSet ∧ s0 ≠ 0 ⇒ f(s0 + t0, t0 / s0) = s0^{2} - t0^{2} ∧ s0^{2} - t0^{2} = (s0 + t0) * (s0 - t0)})
+3. get_prop (hypothesis 2: {forall (s) (t), s ∈ RealSet ∧ t ∈ RealSet ∧ s ≠ 0 ⇒ f(s + t, t / s) = s^{2} - t^{2}}) (s := {s0}) (t := {t0}) as (hypothesis 4: {s0 ∈ RealSet ∧ t0 ∈ RealSet ∧ s0 ≠ 0 ⇒ f(s0 + t0, t0 / s0) = s0^{2} - t0^{2}})
+4. use_condition (hypothesis 3: {s0 ∈ RealSet ∧ t0 ∈ RealSet ∧ s0 ≠ 0}) in (hypothesis 4: {s0 ∈ RealSet ∧ t0 ∈ RealSet ∧ s0 ≠ 0 ⇒ f(s0 + t0, t0 / s0) = s0^{2} - t0^{2}}) as (hypothesis 5: {f(s0 + t0, t0 / s0) = s0^{2} - t0^{2}})
+5. autosolve all_hypothesis

@@ -1,0 +1,34 @@
+PROOF GAP @18
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. c ∈ RealSet ∧ c > 0
+4. x ∈ RealSet
+5. `A'` ∈ RealSet ∧ `A'` ≥ 0
+6. Defined(f, (a, +∞))
+7. forall (x), x ∈ RealSet ∧ x > a ⇒ f(x) ≥ c
+8. forall (b), b ∈ RealSet ∧ b > a ⇒ BoundedFuncOn(f, IntervalLoRo(a, b))
+9. lim_{ x → +∞ } (frac(f(x + 1), f(x))) = `A'`
+10. `A'` ≥ 0
+11. `A'` = 0 ⇒ (exists (X_{0}), X_{0} ∈ RealSet ∧ X_{0} ∈ PosRealSet ∧ X_{0} > a ∧ (forall (x), x ∈ RealSet ∧ x ≥ X_{0} ⇒ 0 < frac(f(x + 1), f(x)) ∧ frac(f(x + 1), f(x)) < frac(1, 2)))
+12. `A'` = 0 ⇒ (exists (X_{0}), X_{0} ∈ RealSet ∧ X_{0} ∈ PosRealSet ∧ X_{0} > a ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac(f(X_{0} + n), f(X_{0}))))
+13. `A'` = 0 ⇒ (exists (X_{0}), X_{0} ∈ RealSet ∧ X_{0} ∈ PosRealSet ∧ X_{0} > a ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(f(X_{0} + n), f(X_{0})) = prod_{ k = 1 }^{ n } (frac(f(X_{0} + k), f(X_{0} + k - 1)))))
+14. `A'` = 0 ⇒ (exists (X_{0}), X_{0} ∈ RealSet ∧ X_{0} ∈ PosRealSet ∧ X_{0} > a ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ prod_{ k = 1 }^{ n } (frac(f(X_{0} + k), f(X_{0} + k - 1))) < frac(1, 2)^{n}))
+15. `A'` = 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac(1, 2)^{n})
+16. `A'` = 0 ⇒ (exists (X_{0}), X_{0} ∈ RealSet ∧ X_{0} ∈ PosRealSet ∧ X_{0} > a ∧ seqlim_{ n → +∞ } (f(X_{0} + n)) = 0)
+17. `A'` = 0 ⇒ (exists (X_{0}), X_{0} ∈ RealSet ∧ X_{0} ∈ PosRealSet ∧ X_{0} > a ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ f(X_{0} + n) ≥ c))
+18. `A'` = 0 ⇒ False
+19. `A'` > 0
+20. g = (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(a, +∞)] . ln(f(x)))
+21. Defined(g, (a, +∞))
+22. forall (b), b ∈ RealSet ∧ b > a ⇒ BoundedFuncOn(g, IntervalLoRo(a, b))
+23. lim_{ x → +∞ } (g(x + 1) - g(x)) = lim_{ x → +∞ } (ln(frac(f(x + 1), f(x))))
+24. lim_{ x → +∞ } (ln(frac(f(x + 1), f(x)))) = ln(`A'`)
+25. lim_{ x → +∞ } (g(x + 1) - g(x)) = ln(`A'`)
+26. lim_{ x → +∞ } (frac(g(x), x)) = ln(`A'`)
+27. lim_{ x → +∞ } (frac(ln(f(x)), x)) = ln(`A'`)
+
+GOAL:
+lim_{ x → +∞ } (f(x)^{frac(1, x)}) = lim_{ x → +∞ } (e^{frac(ln(f(x)), x)})
+
+METHOD:

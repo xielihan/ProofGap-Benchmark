@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ 1 + x > 0 ∧ 1 + y > 0 ⇒ f(x, y) = ln(1 + x) * ln(1 + y)
+3. forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ ln(1 + x) = sum_{ m = 1 }^{ +∞ } ((-1)^{m - 1} * frac(x^{m}, m))
+4. forall (y), y ∈ RealSet ∧ |y| < 1 ⇒ ln(1 + y) = sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(y^{n}, n))
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ |x| < 1 ∧ y ∈ RealSet ∧ |y| < 1 ⇒ f(x, y) = (sum_{ m = 1 }^{ +∞ } ((-1)^{m - 1} * frac(x^{m}, m))) * (sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(y^{n}, n)))
+
+METHOD:

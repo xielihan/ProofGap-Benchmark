@@ -1,0 +1,23 @@
+PROOF GAP @3
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. b : NonNegIntegerSet → RealSet
+3. A : NonNegIntegerSet → RealSet
+4. B : NonNegIntegerSet → RealSet
+5. R_{1} ∈ RealSet
+6. R_{2} ∈ RealSet
+7. RadiusOfConvergence(a) = R_{1}
+8. 0 < R_{1}
+9. R_{1} < +∞
+10. RadiusOfConvergence(b) = R_{2}
+11. 0 < R_{2}
+12. R_{2} < +∞
+13. forall (n), n ∈ NonNegIntegerSet ⇒ A(n) = a(n) + b(n)
+14. forall (n), n ∈ NonNegIntegerSet ⇒ B(n) = a(n) * b(n)
+15. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ sqrtn(n, |A(n)|) = sqrtn(n, |a(n) + b(n)|) ∧ sqrtn(n, |a(n) + b(n)|) ≤ sqrtn(n, |a(n)| + |b(n)|) ∧ sqrtn(n, |a(n)| + |b(n)|) ≤ sqrtn(n, 2 * max(|a(n)|, |b(n)|))
+16. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ sqrtn(n, |A(n)|) ≤ sqrtn(n, 2) * max(sqrtn(n, |a(n)|), sqrtn(n, |b(n)|))
+
+GOAL:
+seqlim_{ n → +∞ } (sqrtn(n, 2)) = 1
+
+METHOD:

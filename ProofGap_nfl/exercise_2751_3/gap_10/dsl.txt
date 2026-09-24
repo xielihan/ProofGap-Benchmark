@@ -1,0 +1,11 @@
+get_forall (GOAL: {forall (n) (N) (x), n ∈ NonNegIntegerSet ∧ N ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ (forall (`ε'`), `ε'` ∈ RealSet ∧ `ε'` > 0 ∧ n > N ∧ n ∈ PosIntegerSet ∧ x ≥ 1 + ε ⇒ |f(n, x) - g(x)| = |f(n, x) - 1|)}) (n := {n0}) (N := {N0}) (x := {x0})
+get_condition (hypothesis 16: {n0 ∈ NonNegIntegerSet ∧ N0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ N0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ⇒ (forall (`ε'`), `ε'` ∈ RealSet ∧ `ε'` > 0 ∧ n0 > N0 ∧ n0 ∈ PosIntegerSet ∧ x0 ≥ 1 + ε ⇒ |f(n0, x0) - g(x0)| = |f(n0, x0) - 1|)})
+get_forall (GOAL: {forall (`ε'`), `ε'` ∈ RealSet ∧ `ε'` > 0 ∧ n0 > N0 ∧ n0 ∈ PosIntegerSet ∧ x0 ≥ 1 + ε ⇒ |f(n0, x0) - g(x0)| = |f(n0, x0) - 1|}) (`ε'` := {εc})
+get_condition (hypothesis 17: {εc ∈ RealSet ∧ εc > 0 ∧ n0 > N0 ∧ n0 ∈ PosIntegerSet ∧ x0 ≥ 1 + ε}) in (GOAL: {εc ∈ RealSet ∧ εc > 0 ∧ n0 > N0 ∧ n0 ∈ PosIntegerSet ∧ x0 ≥ 1 + ε ⇒ |f(n0, x0) - g(x0)| = |f(n0, x0) - 1|})
+get_prop (hypothesis 8: {forall (x), x ∈ RealSet ∧ x ≥ 1 + ε ⇒ g(x) = 1}) (x := {x0}) as (hypothesis 18: {x0 ∈ RealSet ∧ x0 ≥ 1 + ε ⇒ g(x0) = 1})
+assert (hypothesis 19: {x0 ∈ RealSet ∧ x0 ≥ 1 + ε}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 19: {x0 ∈ RealSet ∧ x0 ≥ 1 + ε}) in (hypothesis 18: {x0 ∈ RealSet ∧ x0 ≥ 1 + ε ⇒ g(x0) = 1}) as (hypothesis 20: {g(x0) = 1})
+rewrite (left_to_right, equation) (hypothesis 20: {g(x0) = 1}); from (GOAL: {|f(n0, x0) - g(x0)| = |f(n0, x0) - 1|}) to (GOAL: {|f(n0, x0) - 1| = |f(n0, x0) - 1|})
+autosolve all_hypothesis

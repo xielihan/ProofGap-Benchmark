@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. N ∈ NonNegIntegerSet
+2. R : NonNegIntegerSet → RealSet
+3. Δ : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ R(N) = sum_{ n = N + 1 }^{ +∞ } (frac(2^{n}, (n + 1)!)))
+5. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ k! > frac(k, e)^{k}
+
+GOAL:
+forall (N), N ∈ NonNegIntegerSet ⇒ (forall (n), N ∈ PosIntegerSet ∧ n ∈ IntegerSet ∧ n ≥ N + 1 ⇒ frac(2^{n}, (n + 1)!) < 2^{n} * frac(e, n + 1)^{n + 1})
+
+METHOD:

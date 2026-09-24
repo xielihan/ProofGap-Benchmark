@@ -1,0 +1,20 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. z : RealSet → RealSet
+3. a ∈ RealSet ∧ a > 0
+4. x_{0} ∈ RealSet ∧ |x_{0}| < a
+5. y_{0} ∈ RealSet
+6. z_{0} ∈ RealSet
+7. s ∈ RealSet
+8. forall (x), x ∈ RealSet ∧ -a < x ∧ x < a ⇒ y(x) = a * arcsin(frac(x, a))
+9. forall (x), x ∈ RealSet ∧ -a < x ∧ x < a ⇒ z(x) = frac(a, 4) * ln(frac(a - x, a + x))
+10. y_{0} = y(x_{0})
+11. z_{0} = z(x_{0})
+12. diff(s) = (fun x [x ∈ RealSet ∧ -a < x ∧ x < a] . sqrtn(2, 1 * frac(a^{2}, a^{2} - x^{2}) + frac(a^{4}, 4 * (a^{2} - x^{2})^{2}))) * diff(fun x [x ∈ RealSet ∧ -a < x ∧ x < a] . x)
+13. diff(s) = (fun x [x ∈ RealSet ∧ -a < x ∧ x < a] . frac(3 * a^{2} - 2 * x^{2}, 2 * (a^{2} - x^{2}))) * diff(fun x [x ∈ RealSet ∧ -a < x ∧ x < a] . x)
+
+GOAL:
+x_{0} ≥ 0 ⇒ s = DefInt(0, x_{0}, (fun x [x ∈ RealSet ∧ -a < x ∧ x < a] . frac(3 * a^{2} - 2 * x^{2}, 2 * (a^{2} - x^{2}))) * diff(fun x [x ∈ RealSet ∧ -a < x ∧ x < a] . x))
+
+METHOD:

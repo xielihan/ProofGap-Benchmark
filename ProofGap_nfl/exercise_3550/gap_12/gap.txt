@@ -1,0 +1,34 @@
+PROOF GAP @12
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. c ∈ RealSet
+4. x ∈ RealSet
+5. y ∈ RealSet
+6. z ∈ RealSet
+7. l ∈ RealSet
+8. λ ∈ RealSet
+9. d ∈ RealSet
+10. a > 0
+11. b > 0
+12. c > 0
+13. (x, y, z) ∈ RealSet^{3}
+14. frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}) = 1
+15. l = sqrtn(2, frac(x^{2}, a^{4}) + frac(y^{2}, b^{4}) + frac(z^{2}, c^{4}))
+16. frac(frac(x, a^{2}), l) = frac(frac(y, b^{2}), l)
+17. frac(frac(y, b^{2}), l) = frac(frac(z, c^{2}), l)
+18. frac(x, a^{2}) = frac(y, b^{2})
+19. frac(y, b^{2}) = frac(z, c^{2})
+20. λ = frac(x, a^{2})
+21. frac(x, a^{2}) = λ
+22. frac(y, b^{2}) = λ
+23. frac(z, c^{2}) = λ
+24. x = a^{2} * λ
+25. y = b^{2} * λ
+26. z = c^{2} * λ
+27. (a^{2} + b^{2} + c^{2}) * λ^{2} = 1
+
+GOAL:
+λ = frac(1, sqrtn(2, a^{2} + b^{2} + c^{2})) ∨ λ = -frac(1, sqrtn(2, a^{2} + b^{2} + c^{2}))
+
+METHOD:

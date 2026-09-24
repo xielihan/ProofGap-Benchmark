@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. x ∈ RealSet
+2. |sum_{ k = n + 1 }^{ 2 * n } (frac(x^{k}, k!))| ≤ sum_{ k = n + 1 }^{ 2 * n } (frac(|x|^{k}, k!))
+3. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ sum_{ k = n + 1 }^{ 2 * n } (frac(|x|^{k}, k!)) ≤ frac(|x|^{n + 1}, (n + 1)!) * (sum_{ i = 0 }^{ n - 1 } (|x|^{i}))
+4. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ |x| = 1 ⇒ frac(|x|^{n + 1}, (n + 1)!) * (sum_{ i = 0 }^{ n - 1 } (|x|^{i})) = frac(n, (n + 1)!)
+5. |x| = 1 ⇒ seqlim_{ n → +∞ } (frac(n, (n + 1)!)) = 0
+6. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ |x| ≠ 1 ⇒ frac(|x|^{n + 1}, (n + 1)!) * (sum_{ i = 0 }^{ n - 1 } (|x|^{i})) = frac(1, 1 - |x|) * (frac(|x|^{n + 1}, (n + 1)!) - frac(|x|, n + 1) * frac((|x|^{2})^{n}, n!))
+
+GOAL:
+|x| ≠ 1 ⇒ seqlim_{ n → +∞ } (frac(|x|^{n + 1}, (n + 1)!)) = 0
+
+METHOD:
+[@method 根据 "第61题结果" @]

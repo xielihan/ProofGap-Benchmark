@@ -1,0 +1,1 @@
+apply (hypothesis 23: {UniformConvergent(f, IntervalLoRo(1, +∞), g)})

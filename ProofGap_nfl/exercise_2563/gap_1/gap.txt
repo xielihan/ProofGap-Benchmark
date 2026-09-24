@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac(1, n * sqrtn(2, n + 1)) ∧ frac(1, n * sqrtn(2, n + 1)) < frac(1, n^{frac(3, 2)})
+
+METHOD:

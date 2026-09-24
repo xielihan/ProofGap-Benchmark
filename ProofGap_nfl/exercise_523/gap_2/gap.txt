@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, π) ∧ x ≠ frac(π, 2) ⇒ lim_{ x → frac(π, 2) } (sin(x)^{tan(x)}) = lim_{ x → frac(π, 2) } ((1 + cot(x)^{2})^{-frac(tan(x), 2)})
+
+GOAL:
+lim_{ x → frac(π, 2) } ((1 + cot(x)^{2})^{-frac(tan(x), 2)}) = lim_{ x → frac(π, 2) } ((1 + cot(x)^{2})^{frac(1, cot(x)^{2}) * frac(-cot(x), 2)})
+
+METHOD:

@@ -1,0 +1,16 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet ∧ a ∉ IntegerSet
+3. A : NonNegIntegerSet → RealSet
+4. B : NonNegIntegerSet → RealSet
+5. forall (x), x ∈ RealSet ∧ -π < x ∧ x < π ⇒ f(x) = sin(a * x)
+6. OddFunc(f)
+7. A(0) = 0
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ A(n) = 0
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ B(n) = frac(2, π) * DefInt(0, π, (fun x [x ∈ RealSet] . sin(a * x) * sin(n * x)) * diff(fun x [x ∈ RealSet] . x)) ∧ frac(2, π) * DefInt(0, π, (fun x [x ∈ RealSet] . sin(a * x) * sin(n * x)) * diff(fun x [x ∈ RealSet] . x)) = frac(1, π) * DefInt(0, π, (fun x [x ∈ RealSet] . cos((n - a) * x) - cos((n + a) * x)) * diff(fun x [x ∈ RealSet] . x)) ∧ frac(1, π) * DefInt(0, π, (fun x [x ∈ RealSet] . cos((n - a) * x) - cos((n + a) * x)) * diff(fun x [x ∈ RealSet] . x)) = frac(2 * sin(a * π), π) * frac((-1)^{n + 1} * n, n^{2} - a^{2})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ -π < x ∧ x < π ⇒ f(x) = frac(2 * sin(a * π), π) * (sum_{ n = 1 }^{ +∞ } (frac((-1)^{n + 1} * n * sin(n * x), n^{2} - a^{2})))
+
+METHOD:

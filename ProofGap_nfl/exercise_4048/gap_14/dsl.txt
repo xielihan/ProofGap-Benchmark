@@ -1,0 +1,6 @@
+1. get_prop (hypothesis 15: {forall (r), r ∈ RealSet ∧ r < a ⇒ 0 < r}) (r := {-1}) as (hypothesis 28: {-1 ∈ RealSet ∧ -1 < a ⇒ 0 < -1})
+2. assert (hypothesis 29: {-1 ∈ RealSet ∧ -1 < a}) by proof {
+  1. autosolve all_hypothesis
+}
+3. use_condition (hypothesis 29: {-1 ∈ RealSet ∧ -1 < a}) in (hypothesis 28: {-1 ∈ RealSet ∧ -1 < a ⇒ 0 < -1}) as (hypothesis 30: {0 < -1})
+4. autosolve all_hypothesis

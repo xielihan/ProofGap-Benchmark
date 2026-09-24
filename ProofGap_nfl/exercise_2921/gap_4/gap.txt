@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. R : NonNegIntegerSet → RealSet
+2. sqrtn(3, 9) = 2 * (1 + frac(1, 8))^{frac(1, 3)}
+3. frac(1, 8) ∈ IntervalLoRo(-1, 1)
+4. sqrtn(3, 9) = 2 * (1 + frac(1, 3) * frac(1, 8) - frac(1, 2!) * frac(1, 3) * frac(2, 3) * frac(1, 8^{2})) + R(3)
+
+GOAL:
+|R(3)| < 2 * frac(1, 3!) * frac(2 * 5, 3^{3}) * frac(1, 8^{3})
+
+METHOD:

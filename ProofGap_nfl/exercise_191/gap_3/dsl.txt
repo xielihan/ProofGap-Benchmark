@@ -1,0 +1,4 @@
+get_prop (theorem 'Thm 422. (FloorEquivalentDefinition)': {forall (x) (n), x ∈ RealSet => n ∈ RealSet => (floor(x) = n <==> (n ∈ IntegerSet) /\ (n <= x) /\ (x < n + 1))}) (x := {0.999}) (n := {0}) as (hypothesis 5: {0.999 ∈ RealSet => 0 ∈ RealSet => (floor(0.999) = 0 <==> (0 ∈ IntegerSet) /\ (0 <= 0.999) /\ (0.999 < 0 + 1))})
+use_condition (obvious: {0.999 ∈ RealSet}) (obvious: {0 ∈ RealSet}) in (hypothesis 5: {0.999 ∈ RealSet => 0 ∈ RealSet => (floor(0.999) = 0 <==> (0 ∈ IntegerSet) /\ (0 <= 0.999) /\ (0.999 < 0 + 1))}) as (hypothesis 6: {floor(0.999) = 0 <==> (0 ∈ IntegerSet) /\ (0 <= 0.999) /\ (0.999 < 0 + 1)})
+rewrite (left_to_right, iff) (hypothesis 6: {floor(0.999) = 0 <==> (0 ∈ IntegerSet) /\ (0 <= 0.999) /\ (0.999 < 0 + 1)}); from (GOAL: {floor(0.999) = 0}) to (GOAL: {(0 ∈ IntegerSet) /\ (0 <= 0.999) /\ (0.999 < 0 + 1)})
+autosolve all_hypothesis

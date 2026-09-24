@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (k), k ∈ IntegerSet ∧ 1 ≤ k ∧ k ≤ n - 1 ⇒ sqrtn(2, k * (n - k)) ≤ frac(n, 2))
+
+METHOD:

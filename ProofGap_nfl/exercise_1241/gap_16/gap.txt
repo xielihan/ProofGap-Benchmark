@@ -1,0 +1,28 @@
+PROOF GAP @16
+ASSUM:
+1. P : RealSet → RealSet
+2. Q : RealSet → RealSet
+3. n ∈ NonNegIntegerSet
+4. n ∈ PosIntegerSet
+5. forall (x), x ∈ RealSet ⇒ Q(x) = (x^{2} - 1)^{n}
+6. forall (x), x ∈ RealSet ⇒ P(x) = frac(1, 2^{n} * n!) * FunDeri(Q, 1, n)(x)
+7. forall (x), x ∈ RealSet ⇒ Q(x) = (x + 1)^{n} * (x - 1)^{n}
+8. forall (r), r ∈ RealSet ∧ Q(r) = 0 ⇒ r ∈ { -1, 1 }
+9. forall (r), r ∈ RealSet ∧ Q(r) = 0 ⇒ r ∈ RealSet
+10. forall (r), r ∈ RealSet ∧ FunDeri(Q, 1, n)(r) = 0 ⇒ r ∈ RealSet
+11. 2^{n} * n! ≠ 0
+12. forall (r), r ∈ RealSet ⇒ (P(r) = 0 ⇔ FunDeri(Q, 1, n)(r) = 0)
+13. forall (r), r ∈ RealSet ∧ P(r) = 0 ⇒ r ∈ [-1, 1]
+14. FunDeri(Q, 1, n - 1)(-1) = 0
+15. FunDeri(Q, 1, n)(-1) ≠ 0
+16. P(-1) ≠ 0
+17. FunDeri(Q, 1, n - 1)(1) = 0
+18. FunDeri(Q, 1, n)(1) ≠ 0
+19. P(1) ≠ 0
+20. P(-1) ≠ 0
+21. P(1) ≠ 0
+
+GOAL:
+forall (r), r ∈ RealSet ∧ P(r) = 0 ⇒ r ∈ IntervalLoRo(-1, 1)
+
+METHOD:

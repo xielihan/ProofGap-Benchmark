@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. Gamma : RealSet → RealSet
+2. forall (m), m ∈ RealSet ⇒ (forall (n), n ∈ RealSet ∧ m > -1 ∧ n > 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . x^{m} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, n) * DefInt(0, +∞, (fun t [t ∈ RealSet] . t^{frac(m + 1, n) - 1} * e^{-t}) * diff(fun t [t ∈ RealSet] . t)))
+3. forall (m), m ∈ RealSet ⇒ (forall (n), n ∈ RealSet ∧ m > -1 ∧ n > 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . x^{m} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, n) * Gamma(frac(m + 1, n)))
+
+GOAL:
+DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{4}}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 4) * Gamma(frac(1, 4))
+
+METHOD:

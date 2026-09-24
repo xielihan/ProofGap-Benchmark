@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. forall (x), sin(x) ≠ 0 ⇒ x ∈ RealSet
+2. forall (x), x ∈ RealSet ⇒ sin(x) ≠ 0
+3. forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ frac(cos(x)^{3}, sin(x)) * diff(fun x [x ∈ RealSet ∧ sin(x) ≠ 0] . x) = frac(1 - sin(x)^{2}, sin(x)) * cos(x) * diff(fun x [x ∈ RealSet ∧ sin(x) ≠ 0] . x)
+4. { `F_2` | forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(cos(x)^{3}, sin(x)) * FunDeri(fun x [x ∈ RealSet ∧ sin(x) ≠ 0] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = (frac(1, sin(x)) - sin(x)) * FunDeri(fun x [x ∈ RealSet ∧ sin(x) ≠ 0] . sin(x), 1, 1)(x) }
+5. { `F_4` | forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ FunDeri(`F_4`, 1, 1)(x) = (frac(1, sin(x)) - sin(x)) * FunDeri(fun x [x ∈ RealSet ∧ sin(x) ≠ 0] . sin(x), 1, 1)(x) } = { `F_5` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ `F_5`(x) = ln(|sin(x)|) - frac(1, 2) * sin(x)^{2} + C) }
+6. exists (C), C ∈ RealSet
+7. { `F_6` | forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ FunDeri(`F_6`, 1, 1)(x) = frac(cos(x)^{3}, sin(x)) * FunDeri(fun x [x ∈ RealSet ∧ sin(x) ≠ 0] . x, 1, 1)(x) } = { `F_7` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ `F_7`(x) = ln(|sin(x)|) - frac(1, 2) * sin(x)^{2} + C) }
+
+GOAL:
+exists (C), C ∈ RealSet
+
+METHOD:

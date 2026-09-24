@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. P : RealSet → RealSet
+3. a ∈ RealSet
+4. n ∈ NonNegIntegerSet
+5. n ∈ PosIntegerSet
+6. forall (x), x ∈ RealSet ⇒ y(x) = e^{a * x} * P(x)
+7. FuncOfClassK(P, n)
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, n)(x) = e^{a * x} * (sum_{ k = 0 }^{ n } (Combination(n, k) * a^{n - k} * FunDeri(P, 1, k)(x)))
+
+METHOD:

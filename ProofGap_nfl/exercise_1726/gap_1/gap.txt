@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. C ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ sqrtn(2, 2) ∧ x ≠ -sqrtn(2, 2) ⇒ frac((2 - x)^{2}, 2 - x^{2}) = frac(x^{2} - 2 - 4 * x + 6, 2 - x^{2})
+
+METHOD:

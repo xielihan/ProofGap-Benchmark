@@ -1,0 +1,15 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ -π < x ∧ x < π ⇒ f(-x) = f(x)}) (x := {x})
+get_condition (hypothesis 7: {x ∈ RealSet ∧ -π < x ∧ x < π}) in (GOAL: {x ∈ RealSet ∧ -π < x ∧ x < π ⇒ f(-x) = f(x)})
+get_prop (hypothesis 6: {forall (x), x ∈ RealSet ∧ -π < x ∧ x < π ⇒ f(x) = cos(a * x)}) (x := {x}) as (hypothesis 8: {x ∈ RealSet ∧ -π < x ∧ x < π ⇒ f(x) = cos(a * x)})
+get_prop (hypothesis 6: {forall (x), x ∈ RealSet ∧ -π < x ∧ x < π ⇒ f(x) = cos(a * x)}) (x := {-x}) as (hypothesis 9: {-x ∈ RealSet ∧ -π < -x ∧ -x < π ⇒ f(-x) = cos(a * (-x))})
+get_prop (theorem 'Thm 404. (CosineEven)': {forall (x), x ∈ RealSet => cos(-x) = cos(x)}) (x := {a * x}) as (hypothesis 10: {a * x ∈ RealSet => cos(-(a * x)) = cos(a * x)})
+assert (hypothesis 11: {-x ∈ RealSet ∧ -π < -x ∧ -x < π}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 7: {x ∈ RealSet ∧ -π < x ∧ x < π}) in (hypothesis 8: {x ∈ RealSet ∧ -π < x ∧ x < π ⇒ f(x) = cos(a * x)}) as (hypothesis 12: {f(x) = cos(a * x)})
+use_condition (hypothesis 11: {-x ∈ RealSet ∧ -π < -x ∧ -x < π}) in (hypothesis 9: {-x ∈ RealSet ∧ -π < -x ∧ -x < π ⇒ f(-x) = cos(a * (-x))}) as (hypothesis 13: {f(-x) = cos(a * (-x))})
+assert (hypothesis 14: {a * x ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 14: {a * x ∈ RealSet}) in (hypothesis 10: {a * x ∈ RealSet => cos(-(a * x)) = cos(a * x)}) as (hypothesis 15: {cos(-(a * x)) = cos(a * x)})
+autosolve all_hypothesis

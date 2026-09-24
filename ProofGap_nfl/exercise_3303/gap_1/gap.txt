@@ -1,0 +1,24 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. c ∈ RealSet
+4. f : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+5. D ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+6. n ∈ NonNegIntegerSet ∧ n > 0
+7. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+8. x ∈ RealSet
+9. y ∈ RealSet
+10. z ∈ RealSet ∧ (a * x, b * y, c * z) ∈ D
+11. D ⊆ RealSet^{3}
+12. n ∈ PosIntegerSet
+13. FuncOfClassKOn(f, D, n)
+14. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (a * x, b * y, c * z) ∈ D ⇒ u(x, y, z) = f(a * x, b * y, c * z)
+15. ξ = a * x
+16. η = b * y
+17. ζ = c * z
+
+GOAL:
+diff^{n}(u) = (a * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * FunDeri(f, 1, 1) + b * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * FunDeri(f, 2, 1) + c * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) * FunDeri(f, 3, 1))^{n} * f(ξ, η, ζ)
+
+METHOD:

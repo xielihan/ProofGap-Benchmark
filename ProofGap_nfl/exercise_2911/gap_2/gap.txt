@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. F : RealSet → RealSet
+2. n ∈ NonNegIntegerSet
+3. forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ F(x) = sum_{ n = 1 }^{ +∞ } (n * x^{n})
+4. forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ DefInt(0, x, (fun t [t ∈ RealSet] . F(t)) * diff(fun t [t ∈ RealSet] . t)) = sum_{ n = 1 }^{ +∞ } (frac(n * x^{n + 1}, n + 1))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ DefInt(0, x, (fun t [t ∈ RealSet] . F(t)) * diff(fun t [t ∈ RealSet] . t)) = sum_{ n = 2 }^{ +∞ } ((1 - frac(1, n)) * x^{n})
+
+METHOD:

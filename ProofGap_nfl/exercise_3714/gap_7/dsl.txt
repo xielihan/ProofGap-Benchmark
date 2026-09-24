@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ A < x ∧ x < B ⇒ FunDeri(F, 1, 1)(x) - FunDeri(F, 1, 1)(A) = f(x) - f(A)}) (x := {x0})
+get_condition (hypothesis 13: {x0 ∈ RealSet ∧ A < x0 ∧ x0 < B}) in (GOAL: {x0 ∈ RealSet ∧ A < x0 ∧ x0 < B ⇒ FunDeri(F, 1, 1)(x0) - FunDeri(F, 1, 1)(A) = f(x0) - f(A)})
+get_prop (hypothesis 7: {forall (z), z ∈ RealSet ∧ z ∈ [A, B] ⇒ FunDeri(F, 1, 1)(z) = f(z)}) (z := {x0}) as (hypothesis 14: {x0 ∈ RealSet ∧ x0 ∈ [A, B] ⇒ FunDeri(F, 1, 1)(x0) = f(x0)})
+get_prop (hypothesis 7: {forall (z), z ∈ RealSet ∧ z ∈ [A, B] ⇒ FunDeri(F, 1, 1)(z) = f(z)}) (z := {A}) as (hypothesis 15: {A ∈ RealSet ∧ A ∈ [A, B] ⇒ FunDeri(F, 1, 1)(A) = f(A)})
+autosolve all_hypothesis

@@ -1,0 +1,20 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. c ∈ RealSet
+5. n ∈ NonNegIntegerSet
+6. φ ∈ RealSet
+7. n ∈ PosIntegerSet
+8. a^{2} + b^{2} > 0
+9. sin(φ) = frac(b, sqrtn(2, a^{2} + b^{2}))
+10. cos(φ) = frac(a, sqrtn(2, a^{2} + b^{2}))
+11. forall (x), x ∈ RealSet ⇒ f(x) = e^{a * x} * sin(b * x + c)
+12. forall (x), x ∈ RealSet ⇒ FunDeri(f, 1, 1)(x) = e^{a * x} * (a * sin(b * x + c) + b * cos(b * x + c))
+13. forall (x), x ∈ RealSet ⇒ FunDeri(f, 1, 1)(x) = sqrtn(2, a^{2} + b^{2}) * e^{a * x} * (frac(a, sqrtn(2, a^{2} + b^{2})) * sin(b * x + c) + frac(b, sqrtn(2, a^{2} + b^{2})) * cos(b * x + c))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(f, 1, 1)(x) = (a^{2} + b^{2})^{frac(1, 2)} * e^{a * x} * sin(b * x + c + φ)
+
+METHOD:

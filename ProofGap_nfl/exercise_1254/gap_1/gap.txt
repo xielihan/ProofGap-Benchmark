@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (a), a ∈ RealSet ⇒ (forall (b), b ∈ RealSet ⇒ (forall (f), f : RealSet → RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ a < b ∧ DiffableFuncOn(f, IntervalLoRo(a, b)) ∧ ¬BoundedFuncOn(f, IntervalLoRo(a, b)) ⇒ ContinuousFuncOn(f, IntervalLoRo(a, b))))
+
+METHOD:

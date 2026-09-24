@@ -1,0 +1,32 @@
+PROOF GAP @1
+ASSUM:
+1. a_{i} ∈ RealSet
+2. b_{i} ∈ RealSet
+3. c_{i} ∈ RealSet
+4. i ∈ NonNegIntegerSet ∧ i ∈ { 1, 2, 3 }
+5. a_{1} ∈ RealSet
+6. b_{1} ∈ RealSet
+7. c_{1} ∈ RealSet
+8. a_{2} ∈ RealSet
+9. b_{2} ∈ RealSet
+10. c_{2} ∈ RealSet
+11. a_{3} ∈ RealSet
+12. b_{3} ∈ RealSet
+13. c_{3} ∈ RealSet
+14. f : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+15. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+16. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+17. FuncOfClassK(f, n)
+18. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ { 1, 2, 3 } ⇒ a_{i} ∈ RealSet ∧ b_{i} ∈ RealSet ∧ c_{i} ∈ RealSet
+19. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = f(a_{1} * x + b_{1} * y + c_{1} * z, a_{2} * x + b_{2} * y + c_{2} * z, a_{3} * x + b_{3} * y + c_{3} * z)
+20. x ∈ RealSet
+21. y ∈ RealSet
+22. z ∈ RealSet
+23. ξ = a_{1} * x + b_{1} * y + c_{1} * z
+24. η = a_{2} * x + b_{2} * y + c_{2} * z
+25. ζ = a_{3} * x + b_{3} * y + c_{3} * z
+
+GOAL:
+diff^{n}(u) = ((a_{1} * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + b_{1} * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) + c_{1} * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)) * FunDeri(f, 1, 1) + (a_{2} * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + b_{2} * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) + c_{2} * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)) * FunDeri(f, 2, 1) + (a_{3} * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + b_{3} * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) + c_{3} * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)) * FunDeri(f, 3, 1))^{n} * f(ξ, η, ζ)
+
+METHOD:

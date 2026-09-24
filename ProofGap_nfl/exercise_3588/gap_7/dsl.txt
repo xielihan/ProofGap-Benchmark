@@ -1,0 +1,5 @@
+1. assert (hypothesis 13: {1 - frac(1, 2) * (x + y + z)^{2} - (1 - frac(1, 2) * x^{2} - frac(1, 2) * y^{2} - frac(1, 2) * z^{2}) = -(x * y + y * z + z * x)}) by proof {
+  1. autosolve all_hypothesis
+}
+2. rewrite (right_to_left, equation) (hypothesis 13: {1 - frac(1, 2) * (x + y + z)^{2} - (1 - frac(1, 2) * x^{2} - frac(1, 2) * y^{2} - frac(1, 2) * z^{2}) = -(x * y + y * z + z * x)}); from (GOAL: {cos(x + y + z) - cos(x) * cos(y) * cos(z) ≈_{ (x^{2} + y^{2} + z^{2})^{2} } -(x * y + y * z + z * x)}) to (GOAL: {cos(x + y + z) - cos(x) * cos(y) * cos(z) ≈_{ (x^{2} + y^{2} + z^{2})^{2} } 1 - frac(1, 2) * (x + y + z)^{2} - (1 - frac(1, 2) * x^{2} - frac(1, 2) * y^{2} - frac(1, 2) * z^{2})})
+3. autosolve all_hypothesis

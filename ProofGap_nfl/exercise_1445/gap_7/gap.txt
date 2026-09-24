@@ -1,0 +1,15 @@
+PROOF GAP @7
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = 2^{x}
+3. forall (x), x ∈ RealSet ∧ x ∈ [-1, 5] ⇒ FunDeri(f, 1, 1)(x) = 2^{x} * ln(2) ∧ FunDeri(f, 1, 1)(x) > 0
+4. StrictMonoIncFuncOn(f, [-1, 5])
+5. MinimumPointOn(f, [-1, 5]) = { -1 }
+6. f(-1) = 2^{-1}
+7. 2^{-1} = frac(1, 2)
+8. f(-1) = frac(1, 2)
+
+GOAL:
+MaximumPointOn(f, [-1, 5]) = { 5 }
+
+METHOD:

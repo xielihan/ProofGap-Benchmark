@@ -1,0 +1,16 @@
+PROOF GAP @8
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet
+3. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = x * e^{x} * sin(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = x * sin(x) * FunDeri(fun x [x ∈ RealSet] . e^{x}, 1, 1)(x) }
+4. { `F_4` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = x * e^{x} * sin(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_7` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = e^{x} * (sin(x) + x * cos(x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_7`(x) = x * e^{x} * sin(x) - `F_5`(x)) }
+5. { `F_8` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_8`, 1, 1)(x) = x * e^{x} * sin(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_11` | exists (`F_9`), `F_9` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_9`, 1, 1)(x) = (sin(x) + x * cos(x)) * FunDeri(fun x [x ∈ RealSet] . e^{x}, 1, 1)(x) ∧ `F_11`(x) = x * e^{x} * sin(x) - `F_9`(x)) }
+6. { `F_12` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_12`, 1, 1)(x) = x * e^{x} * sin(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_15` | exists (`F_13`), `F_13` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_13`, 1, 1)(x) = e^{x} * (2 * cos(x) - x * sin(x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_15`(x) = e^{x} * (x * sin(x) - sin(x) - x * cos(x)) + `F_13`(x)) }
+7. { `F_16` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_16`, 1, 1)(x) = x * e^{x} * sin(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_22` | exists (`F_21`) (`F_17`), `F_21` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_17`, 1, 1)(x) = e^{x} * cos(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ FunDeri(`F_21`, 1, 1)(x) = x * e^{x} * sin(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_22`(x) = e^{x} * (x * sin(x) - sin(x) - x * cos(x)) + 2 * `F_17`(x) - `F_21`(x)) }
+8. { `F_23` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_23`, 1, 1)(x) = x * e^{x} * sin(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_26` | exists (`F_24`), `F_24` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_24`, 1, 1)(x) = e^{x} * cos(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_26`(x) = frac(e^{x}, 2) * (x * sin(x) - sin(x) - x * cos(x)) + `F_24`(x)) }
+9. forall (x), x ∈ RealSet ⇒ { `F_27` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_27`, 1, 1)(x) = e^{x} * cos(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = frac(e^{x}, 2) * (sin(x) + cos(x))
+
+GOAL:
+{ `F_28` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_28`, 1, 1)(x) = x * e^{x} * sin(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_29` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_29`(x) = frac(e^{x}, 2) * (x * (sin(x) - cos(x)) + cos(x)) + C) }
+
+METHOD:

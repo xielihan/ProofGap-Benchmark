@@ -1,0 +1,34 @@
+PROOF GAP @12
+ASSUM:
+1. R : RealSet → RealSet
+2. a ∈ RealSet
+3. x ∈ RealSet
+4. li : RealSet → RealSet
+5. P : RealSet → RealSet
+6. A : CartesianProd(NonNegIntegerSet, NonNegIntegerSet) → RealSet
+7. B : CartesianProd(NonNegIntegerSet, NonNegIntegerSet) → RealSet
+8. g : CartesianProd(NonNegIntegerSet, CartesianProd(NonNegIntegerSet, RealSet)) → RealSet
+9. b : NonNegIntegerSet → RealSet
+10. k : NonNegIntegerSet → NonNegIntegerSet
+11. l ∈ NonNegIntegerSet ∧ l ∈ PosIntegerSet
+12. exists (`F_1`), `F_1` : RealSet → RealSet ∧ (forall (u), u ∈ RealSet ∧ u > 0 ∧ u ≠ 1 ⇒ li(u) = { `F_1` | forall (u), u ∈ RealSet ∧ u > 0 ∧ u ≠ 1 ⇒ FunDeri(`F_1`, 1, 1)(u) = frac(1, ln(u)) * FunDeri(fun u [u ∈ RealSet] . u, 1, 1)(u) })
+13. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l ⇒ b(i) ∈ RealSet ∧ k(i) ∈ PosIntegerSet
+14. forall (x), x ∈ RealSet ⇒ R(x) = P(x) + (sum_{ i = 1 }^{ l } (sum_{ j = 1 }^{ k(i) } (frac(A(i, j), (x - b(i))^{j}))))
+15. { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = R(x) * e^{a * x} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_4` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = P(x) * e^{a * x} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } + (sum_{ i = 1 }^{ l } (sum_{ j = 1 }^{ k(i) } ({ `F_6` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(e^{a * x}, (x - b(i))^{j}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_6`(x) = A(i, j) * `F_5`(x)) })))
+16. forall (i), i ∈ NonNegIntegerSet ⇒ (forall (j), j ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l ∧ j ∈ PosIntegerSet ∧ j ≤ k(i) ∧ j = 1 ⇒ (exists (t), t ∈ RealSet ∧ t = x - b(i)))
+17. forall (i), i ∈ NonNegIntegerSet ⇒ (forall (j), j ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l ∧ j ∈ PosIntegerSet ∧ j ≤ k(i) ∧ j = 1 ⇒ { `F_7` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_7`, 1, 1)(x) = frac(e^{a * x}, x - b(i)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_9` | exists (`F_8`), `F_8` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ⇒ FunDeri(`F_8`, 1, 1)(t) = frac(e^{a * t}, t) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_9`(t) = e^{a * b(i)} * `F_8`(t)) })
+18. forall (i), i ∈ NonNegIntegerSet ⇒ (forall (j), j ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l ∧ j ∈ PosIntegerSet ∧ j ≤ k(i) ∧ j = 1 ⇒ { `F_11` | exists (`F_10`), `F_10` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ⇒ FunDeri(`F_10`, 1, 1)(t) = frac(e^{a * t}, t) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_11`(t) = e^{a * b(i)} * `F_10`(t)) } = { `F_12` | exists (C), C ∈ RealSet ∧ (forall (t), t ∈ RealSet ⇒ `F_12`(t) = e^{a * b(i)} * li(e^{a * t}) + C) })
+19. forall (i), i ∈ NonNegIntegerSet ⇒ (forall (j), j ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l ∧ j ∈ PosIntegerSet ∧ j ≤ k(i) ∧ j = 1 ⇒ { `F_13` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_13`, 1, 1)(x) = frac(e^{a * x}, x - b(i)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_14` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_14`(x) = e^{a * b(i)} * li(e^{a * (x - b(i))}) + C) })
+20. forall (i), i ∈ NonNegIntegerSet ⇒ (forall (j), j ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l ∧ j ∈ PosIntegerSet ∧ j ≤ k(i) ∧ j ≥ 2 ⇒ (exists (t), t ∈ RealSet ∧ t = x - b(i)))
+21. forall (i), i ∈ NonNegIntegerSet ⇒ (forall (j), j ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l ∧ j ∈ PosIntegerSet ∧ j ≤ k(i) ∧ j ≥ 2 ⇒ { `F_15` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_15`, 1, 1)(x) = frac(e^{a * x}, (x - b(i))^{j}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_16` | forall (t), t ∈ RealSet ⇒ FunDeri(`F_16`, 1, 1)(t) = frac(e^{a * (b(i) + t)}, t^{j}) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) })
+22. forall (i), i ∈ NonNegIntegerSet ⇒ (forall (j), j ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l ∧ j ∈ PosIntegerSet ∧ j ≤ k(i) ∧ j ≥ 2 ⇒ { `F_17` | forall (t), t ∈ RealSet ⇒ FunDeri(`F_17`, 1, 1)(t) = frac(e^{a * (b(i) + t)}, t^{j}) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) } = { `F_19` | exists (`F_18`), `F_18` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ⇒ FunDeri(`F_18`, 1, 1)(t) = e^{a * t} * FunDeri(fun t [t ∈ RealSet] . frac(1, t^{j - 1}), 1, 1)(t) ∧ `F_19`(t) = frac(e^{a * b(i)}, 1 - j) * `F_18`(t)) })
+23. forall (i), i ∈ NonNegIntegerSet ⇒ (forall (j), j ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l ∧ j ∈ PosIntegerSet ∧ j ≤ k(i) ∧ j ≥ 2 ⇒ { `F_21` | exists (`F_20`), `F_20` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ⇒ FunDeri(`F_20`, 1, 1)(t) = e^{a * t} * FunDeri(fun t [t ∈ RealSet] . frac(1, t^{j - 1}), 1, 1)(t) ∧ `F_21`(t) = frac(e^{a * b(i)}, 1 - j) * `F_20`(t)) } = { `F_25` | exists (`F_22`), `F_22` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ⇒ FunDeri(`F_22`, 1, 1)(t) = frac(e^{a * t}, t^{j - 1}) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_25`(t) = frac(e^{a * b(i)}, 1 - j) * e^{a * t} * frac(1, t^{j - 1}) - frac(a * e^{a * b(i)}, 1 - j) * `F_22`(t)) })
+24. forall (i), i ∈ NonNegIntegerSet ⇒ (forall (j), j ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l ∧ j ∈ PosIntegerSet ∧ j ≤ k(i) ∧ j ≥ 2 ⇒ { `F_26` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_26`, 1, 1)(x) = frac(e^{a * x}, (x - b(i))^{j}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = g(i, j, x) + B(i, j) * li(e^{a * (x - b(i))}))
+25. G = (fun x [x ∈ RealSet] . { `F_31` | exists (`F_27`), `F_27` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_27`, 1, 1)(x) = P(x) * e^{a * x} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_31`(x) = `F_27`(x) + (sum_{ i = 1 }^{ l } (sum_{ j = 1 }^{ k(i) } (A(i, j) * g(i, j, x)))) + (sum_{ i = 1 }^{ l } (sum_{ j = 1 }^{ k(i) } (A(i, j) * B(i, j) * li(e^{a * (x - b(i))}))))) })
+26. { `F_32` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_32`, 1, 1)(x) = R(x) * e^{a * x} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = G(x)
+27. exists (G), G : RealSet → RealSet ∧ { `F_33` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_33`, 1, 1)(x) = R(x) * e^{a * x} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = G(x)
+
+GOAL:
+exists (G), G : RealSet → RealSet ∧ { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = R(x) * e^{a * x} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = G(x)
+
+METHOD:

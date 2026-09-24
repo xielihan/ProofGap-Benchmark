@@ -1,0 +1,2 @@
+exists (r := {x}) (θ := {0})
+autosolve (hypothesis 4: {x ∈ RealSet})

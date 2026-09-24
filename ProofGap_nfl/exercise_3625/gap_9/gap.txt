@@ -1,0 +1,24 @@
+PROOF GAP @9
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = x^{2} * y^{3} * (6 - x - y)
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 1)(x, y) = x * y^{3} * (12 - 3 * x - 2 * y)
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 2, 1)(x, y) = x^{2} * y^{2} * (18 - 3 * x - 4 * y)
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ (FunDeri(z, 1, 1)(x, y) = 0 ∧ FunDeri(z, 2, 1)(x, y) = 0 ⇔ x = 0 ∨ y = 0 ∨ (x, y) = (2, 3))
+6. A = FunDeri(z, 1, 2)(2, 3)
+7. B = FunDeri(FunDeri(z, 1, 1), 2, 1)(2, 3)
+8. C = FunDeri(z, 2, 2)(2, 3)
+9. A = -162
+10. B = -108
+11. C = -144
+12. A * C - B^{2} > 0
+13. z(2, 3) = 108
+14. L_{max} ⊆ CartesianProd(RealSet, RealSet)
+15. L_{min} ⊆ CartesianProd(RealSet, RealSet)
+16. L_{max} = { (x, y) | x ∈ RealSet, y ∈ RealSet, exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (s) (t), s ∈ RealSet ∧ t ∈ RealSet ∧ (s - x)^2 + (t - y)^2 < δ^2 ⇒ z(s, t) ≤ z(x, y)) }
+17. L_{min} = { (x, y) | x ∈ RealSet, y ∈ RealSet, exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (s) (t), s ∈ RealSet ∧ t ∈ RealSet ∧ (s - x)^2 + (t - y)^2 < δ^2 ⇒ z(x, y) ≤ z(s, t)) }
+
+GOAL:
+L_{max} = { (2, 3) } ∪ { (0, y) | y ∈ RealSet, y < 0 ∨ y > 6 }
+
+METHOD:

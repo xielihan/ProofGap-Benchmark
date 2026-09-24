@@ -1,0 +1,25 @@
+PROOF GAP @5
+ASSUM:
+1. t_{0} ∈ RealSet
+2. x : RealSet → RealSet
+3. y : RealSet → RealSet
+4. A : RealSet → RealSet
+5. l : RealSet → RealSet
+6. DiffableFuncAt(x, t_{0})
+7. DiffableFuncAt(y, t_{0})
+8. x(t_{0}) = 6000
+9. y(t_{0}) = 8000
+10. FunDeri(x, 1, 1)(t_{0}) = 2
+11. FunDeri(y, 1, 1)(t_{0}) = -5
+12. forall (t), t ∈ RealSet ⇒ A(t) = x(t) * y(t)
+13. forall (t), t ∈ RealSet ⇒ l(t) = sqrtn(2, x(t)^{2} + y(t)^{2})
+14. FunDeri(A, 1, 1)(t_{0}) = y(t_{0}) * FunDeri(x, 1, 1)(t_{0}) + x(t_{0}) * FunDeri(y, 1, 1)(t_{0})
+15. FunDeri(l, 1, 1)(t_{0}) = frac(x(t_{0}) * FunDeri(x, 1, 1)(t_{0}) + y(t_{0}) * FunDeri(y, 1, 1)(t_{0}), sqrtn(2, x(t_{0})^{2} + y(t_{0})^{2}))
+16. FunDeri(A, 1, 1)(t_{0}) = 8000 * 2 + 6000 * -5
+17. 8000 * 2 + 6000 * -5 = -14000
+
+GOAL:
+FunDeri(l, 1, 1)(t_{0}) = frac(6000 * 2 + 8000 * -5, sqrtn(2, 6000^{2} + 8000^{2}))
+
+METHOD:
+[@method 代入 t_{0} 时 x = 6000, y = 8000, x' = 2, y' = -5 到对角线长度求导公式 @]

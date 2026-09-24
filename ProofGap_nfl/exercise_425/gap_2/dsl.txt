@@ -1,0 +1,2 @@
+1. rewrite_in limit (left_to_right, equation) (hypothesis 5: {forall (x), x ∈ RealSet ∧ x ≠ 1 => frac(x^{m} - 1, x^{n} - 1) = frac(sum_{ i = 0 }^{ m - 1 } (x^{i}), sum_{ j = 0 }^{ n - 1 } (x^{j}) )}); from (GOAL: {lim_{ x -> 1 } (frac(x^{m} - 1, x^{n} - 1)) = lim_{ x -> 1 } (frac(sum_{ i = 0 }^{ m - 1 } (x^{i}), sum_{ j = 0 }^{ n - 1 } (x^{j})) )}) to (GOAL: {lim_{ x -> 1 } (frac(sum_{ i = 0 }^{ m - 1 } (x^{i}), sum_{ j = 0 }^{ n - 1 } (x^{j}))) = lim_{ x -> 1 } (frac(sum_{ i = 0 }^{ m - 1 } (x^{i}), sum_{ j = 0 }^{ n - 1 } (x^{j})))})
+2. autosolve all_hypothesis

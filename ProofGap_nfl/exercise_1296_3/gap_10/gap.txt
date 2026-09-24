@@ -1,0 +1,22 @@
+PROOF GAP @10
+ASSUM:
+1. Delta : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. a ∈ RealSet ∧ a ∈ PosRealSet
+3. b ∈ RealSet ∧ b ∈ PosRealSet
+4. forall (s), s ∈ RealSet ∧ s ≠ 0 ⇒ Delta(s, a, b) = frac(a^{s} + b^{s}, 2)^{frac(1, s)}
+5. forall (t), t ∈ RealSet ⇒ Delta(0, a, b) = lim_{ t → 0 } (Delta(t, a, b))
+6. 0 < a ⇒ a < b ⇒ lim_{ s → -∞ } (Delta(s, a, b)) = lim_{ s → -∞ } (a * (frac(1, 2) + frac(1, 2) * frac(b, a)^{s})^{frac(1, s)})
+7. 0 < a ⇒ a < b ⇒ lim_{ s → -∞ } (a * (frac(1, 2) + frac(1, 2) * frac(b, a)^{s})^{frac(1, s)}) = a
+8. 0 < a ⇒ a < b ⇒ lim_{ s → -∞ } (Delta(s, a, b)) = a
+9. 0 < a ⇒ a < b ⇒ a = min(a, b)
+10. 0 < a ⇒ a < b ⇒ lim_{ s → +∞ } (Delta(s, a, b)) = lim_{ s → +∞ } (b * (frac(1, 2) * frac(a, b)^{s} + frac(1, 2))^{frac(1, s)})
+11. 0 < a ⇒ a < b ⇒ lim_{ s → +∞ } (b * (frac(1, 2) * frac(a, b)^{s} + frac(1, 2))^{frac(1, s)}) = b
+12. 0 < a ⇒ a < b ⇒ lim_{ s → +∞ } (Delta(s, a, b)) = b
+13. 0 < a ⇒ a < b ⇒ b = max(a, b)
+14. lim_{ s → -∞ } (Delta(s, a, b)) = min(a, b)
+
+GOAL:
+lim_{ s → +∞ } (Delta(s, a, b)) = max(a, b)
+
+METHOD:
+[@method 同理 @]

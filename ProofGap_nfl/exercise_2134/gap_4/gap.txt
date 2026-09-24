@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+3. x ≠ 0
+4. x ≠ 1
+5. t(x) = sqrtn(3, frac(1 - x, x))
+6. t(x) ∈ RealSet
+7. t(x) ≠ -1
+8. t(x) ≠ 0
+
+GOAL:
+x = frac(1, t(x)^{3} + 1)
+
+METHOD:

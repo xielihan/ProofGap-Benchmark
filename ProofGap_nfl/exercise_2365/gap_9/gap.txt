@@ -1,0 +1,16 @@
+PROOF GAP @9
+ASSUM:
+1. n ∈ RealSet
+2. DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . frac(ln(1 + x), x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet ∧ x > 0] . frac(ln(1 + x), x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) + DefInt(1, +∞, (fun x [x ∈ RealSet ∧ x > 1] . frac(ln(1 + x), x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 1] . x))
+3. n > 1 ⇒ (exists (a), a ∈ RealSet ∧ a > 0 ∧ n - a > 1)
+4. n > 1 ⇒ (forall (a), a ∈ RealSet ∧ a > 0 ∧ n - a > 1 ⇒ (forall (x), x ∈ RealSet ∧ x > 1 ⇒ x^{n - a} * frac(ln(1 + x), x^{n}) = frac(ln(1 + x), x^{a})))
+5. n > 1 ⇒ (forall (a), a ∈ RealSet ∧ a > 0 ∧ n - a > 1 ⇒ lim_{ x → +∞ } (frac(ln(1 + x), x^{a})) = 0)
+6. n > 1 ⇒ (forall (a), a ∈ RealSet ∧ a > 0 ∧ n - a > 1 ⇒ lim_{ x → +∞ } (x^{n - a} * frac(ln(1 + x), x^{n})) = 0)
+7. n > 1 ⇒ DefInt(1, +∞, (fun x [x ∈ RealSet ∧ x > 1] . frac(ln(1 + x), x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 1] . x)) ∈ RealSet
+8. n ≤ 1 ⇒ (forall (x), x ∈ RealSet ∧ x > 1 ⇒ x^{n} * frac(ln(1 + x), x^{n}) = ln(1 + x))
+9. n ≤ 1 ⇒ lim_{ x → +∞ } (ln(1 + x)) = +∞
+
+GOAL:
+n ≤ 1 ⇒ lim_{ x → +∞ } (x^{n} * frac(ln(1 + x), x^{n})) = +∞
+
+METHOD:

@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ |f(n, x) - g(x)| ≤ frac(1, n)}) (n := {n0}) (x := {x0})
+get_condition (hypothesis 11: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet ⇒ |f(n0, x0) - g(x0)| ≤ frac(1, n0)})
+destruct_and (hypothesis 11: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet}) as (hypothesis 12: {n0 ∈ NonNegIntegerSet}) (hypothesis 13: {n0 ∈ PosIntegerSet}) (hypothesis 14: {x0 ∈ RealSet})
+get_prop (hypothesis 9: {forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ |f(n, x) - g(x)| = frac(|sin(n * x)|, n)}) (n := {n0}) (x := {x0}) as (hypothesis 15: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet ⇒ |f(n0, x0) - g(x0)| = frac(|sin(n0 * x0)|, n0)})
+use_condition (hypothesis 11: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet}) in (hypothesis 15: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet ⇒ |f(n0, x0) - g(x0)| = frac(|sin(n0 * x0)|, n0)}) as (hypothesis 16: {|f(n0, x0) - g(x0)| = frac(|sin(n0 * x0)|, n0)})
+get_prop (hypothesis 10: {forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ frac(|sin(n * x)|, n) ≤ frac(1, n)}) (n := {n0}) (x := {x0}) as (hypothesis 17: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet ⇒ frac(|sin(n0 * x0)|, n0) ≤ frac(1, n0)})
+use_condition (hypothesis 11: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet}) in (hypothesis 17: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet ⇒ frac(|sin(n0 * x0)|, n0) ≤ frac(1, n0)}) as (hypothesis 18: {frac(|sin(n0 * x0)|, n0) ≤ frac(1, n0)})
+autosolve all_hypothesis

@@ -1,0 +1,5 @@
+destruct_and (hypothesis 1: {p ∈ RealSet ∧ p > 0}) as (hypothesis 11: {p ∈ RealSet}) (hypothesis 12: {p > 0})
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ≥ 2 => frac(sin(x), x^{p} + sin(x)) = frac(sin(x), x^{p}) - frac(sin(x)^{2}, x^{p} * (x^{p} + sin(x)))}) (x := {x1})
+get_condition (hypothesis 13: {x1 ∈ RealSet ∧ x1 ≥ 2}) in (GOAL: {x1 ∈ RealSet ∧ x1 ≥ 2 => frac(sin(x1), x1^{p} + sin(x1)) = frac(sin(x1), x1^{p}) - frac(sin(x1)^{2}, x1^{p} * (x1^{p} + sin(x1)))})
+destruct_and (hypothesis 13: {x1 ∈ RealSet ∧ x1 ≥ 2}) as (hypothesis 14: {x1 ∈ RealSet}) (hypothesis 15: {x1 ≥ 2})
+autosolve all_hypothesis

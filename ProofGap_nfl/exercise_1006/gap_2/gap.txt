@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. f : RealSet \ { 0 } → [0, +∞)
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = |ln(|x|)|
+4. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ |x| ≠ 1 ⇒ FunDeri(f, 1, 1)(x) = frac(1, x) * frac(|ln(|x|)|, ln(|x|))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 < |x| ∧ |x| < 1 ⇒ FunDeri(f, 1, 1)(x) = -frac(1, x)
+
+METHOD:

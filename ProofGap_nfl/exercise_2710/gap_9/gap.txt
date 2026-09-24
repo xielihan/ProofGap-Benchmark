@@ -1,0 +1,22 @@
+PROOF GAP @9
+ASSUM:
+1. x ∈ RealSet
+2. y ∈ RealSet
+3. A_{1} ⊆ NonNegIntegerSet
+4. A_{2} ⊆ NonNegIntegerSet
+5. |x * y| < 1
+6. forall (n), n ∈ NonNegIntegerSet ⇒ (n ∈ A_{1} ⇔ (exists (k), k ∈ NonNegIntegerSet ∧ n = 2 * k))
+7. forall (n), n ∈ NonNegIntegerSet ⇒ (n ∈ A_{2} ⇔ (exists (k), k ∈ NonNegIntegerSet ∧ n = 2 * k + 1))
+8. sum_{ n = 0 }^{ +∞ } (x^{floor(frac(n, 2))} * y^{floor(frac(n + 1, 2))}) = (sum_{ n ∈ A_{1} } (x^{floor(frac(n, 2))} * y^{floor(frac(n + 1, 2))})) + (sum_{ n ∈ A_{2} } (x^{floor(frac(n, 2))} * y^{floor(frac(n + 1, 2))}))
+9. (sum_{ n ∈ A_{1} } (x^{floor(frac(n, 2))} * y^{floor(frac(n + 1, 2))})) + (sum_{ n ∈ A_{2} } (x^{floor(frac(n, 2))} * y^{floor(frac(n + 1, 2))})) = (sum_{ k = 0 }^{ +∞ } (x^{k} * y^{k})) + (sum_{ k = 0 }^{ +∞ } (x^{k} * y^{k + 1}))
+10. AbsoluteConvergentSeries(sum_{ k = 0 }^{ +∞ } ((x * y)^{k}))
+11. AbsoluteConvergentSeries(sum_{ k = 0 }^{ +∞ } (y * (x * y)^{k}))
+12. (sum_{ k = 0 }^{ +∞ } (x^{k} * y^{k})) + (sum_{ k = 0 }^{ +∞ } (x^{k} * y^{k + 1})) = (sum_{ k = 0 }^{ +∞ } ((x * y)^{k})) + y * (sum_{ k = 0 }^{ +∞ } ((x * y)^{k}))
+13. (sum_{ k = 0 }^{ +∞ } ((x * y)^{k})) + y * (sum_{ k = 0 }^{ +∞ } ((x * y)^{k})) = (1 + y) * (sum_{ k = 0 }^{ +∞ } ((x * y)^{k}))
+14. (1 + y) * (sum_{ k = 0 }^{ +∞ } ((x * y)^{k})) = frac(1 + y, 1 - x * y)
+15. (sum_{ k = 0 }^{ +∞ } ((x * y)^{k})) + y * (sum_{ k = 0 }^{ +∞ } ((x * y)^{k})) = frac(1 + y, 1 - x * y)
+
+GOAL:
+sum_{ n = 0 }^{ +∞ } (x^{floor(frac(n, 2))} * y^{floor(frac(n + 1, 2))}) = frac(1 + y, 1 - x * y)
+
+METHOD:

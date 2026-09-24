@@ -1,0 +1,16 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. a_{1} ∈ RealSet
+4. b_{1} ∈ RealSet
+5. x ∈ RealSet
+6. ¬(a = 0 ∧ b = 0)
+7. a * sin(x) + b * cos(x) ≠ 0
+8. A = frac(a * a_{1} + b * b_{1}, a^{2} + b^{2})
+9. B = frac(a * b_{1} - a_{1} * b, a^{2} + b^{2})
+
+GOAL:
+a^{2} + b^{2} ≠ 0
+
+METHOD:

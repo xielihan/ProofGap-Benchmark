@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x < 1 ⇒ sum_{ n = 1 }^{ +∞ } (x^{n} - x^{n + 1}) = sum_{ n = 1 }^{ +∞ } (x^{n} * (1 - x))
+2. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x < 1 ⇒ sum_{ n = 1 }^{ +∞ } (x^{n} * (1 - x)) = frac(x * (1 - x), 1 - x)
+3. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x < 1 ⇒ frac(x * (1 - x), 1 - x) = x
+4. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x < 1 ⇒ sum_{ n = 1 }^{ +∞ } (x^{n} - x^{n + 1}) = x
+
+GOAL:
+lim_{ x → 1^- } (sum_{ n = 1 }^{ +∞ } (x^{n} - x^{n + 1})) = lim_{ x → 1^- } (x)
+
+METHOD:

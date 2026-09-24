@@ -1,0 +1,44 @@
+PROOF GAP @28
+ASSUM:
+1. V ∈ RealSet ∧ V ∈ PosRealSet
+2. x ∈ RealSet ∧ x ∈ PosRealSet
+3. y ∈ RealSet ∧ y ∈ PosRealSet
+4. h ∈ RealSet ∧ h ∈ PosRealSet
+5. S : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+6. F : CartesianProd(RealSet, CartesianProd(RealSet, CartesianProd(RealSet, RealSet))) → RealSet
+7. λ ∈ RealSet
+8. x * y * h = V
+9. S(x, y, h) = 2 * (x + y) * h + x * y
+10. F = (fun x, y, h, λ [x ∈ RealSet ∧ y ∈ RealSet ∧ h ∈ RealSet ∧ λ ∈ RealSet] . S(x, y, h) - λ * (x * y * h - V))
+11. FunDeri(F, 1, 1) = y + 2 * h - λ * y * h
+12. y + 2 * h - λ * y * h = 0
+13. FunDeri(F, 1, 1) = 0
+14. FunDeri(F, 2, 1) = x + 2 * h - λ * x * h
+15. x + 2 * h - λ * x * h = 0
+16. FunDeri(F, 2, 1) = 0
+17. FunDeri(F, 3, 1) = 2 * (x + y) - λ * x * y
+18. 2 * (x + y) - λ * x * y = 0
+19. FunDeri(F, 3, 1) = 0
+20. x * y * h = V
+21. frac(1, h) + frac(2, y) = λ
+22. frac(1, h) + frac(2, x) = λ
+23. frac(2, x) + frac(2, y) = λ
+24. x = y
+25. x = 2 * h
+26. y = 2 * h
+27. x = y
+28. y = sqrtn(3, 2 * V)
+29. x = sqrtn(3, 2 * V)
+30. h = frac(1, 2) * sqrtn(3, 2 * V)
+31. frac(1, 2) * sqrtn(3, 2 * V) = sqrtn(3, frac(V, 4))
+32. h = sqrtn(3, frac(V, 4))
+33. S(x, y, h) = 3 * sqrtn(3, 4 * V^{2})
+34. lim_{ h → 0^+ } (h) = 0 ⇒ lim_{ h → 0^+ } (x * y) = +∞
+35. S(x, y, h) > x * y
+36. lim_{ h → 0^+ } (S(x, y, h)) = +∞
+37. lim_{ x → +∞ } (x) = +∞ ∨ lim_{ y → +∞ } (y) = +∞ ∨ lim_{ h → +∞ } (h) = +∞ ⇒ lim_{ x → +∞ } (S(x, y, h)) = +∞
+
+GOAL:
+(x, y, h) = (sqrtn(3, 2 * V), sqrtn(3, 2 * V), sqrtn(3, frac(V, 4))) ⇒ S(x, y, h) = min({ S(a, b, c) | a ∈ PosRealSet, b ∈ PosRealSet, c ∈ PosRealSet, a * b * c = V })
+
+METHOD:

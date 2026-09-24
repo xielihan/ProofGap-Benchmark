@@ -1,0 +1,5 @@
+get_condition (hypothesis 7: {exists (λ), λ ∈ RealSet ∧ x = λ ∧ 2 * y = 4 * λ ∧ 3 * z = 6 * λ}) in (GOAL: {exists (r), r ∈ RealSet ∧ (2 * x, 4 * y, 6 * z) = (r, 4 * r, 6 * r)})
+get_exists (hypothesis 7: {exists (λ), λ ∈ RealSet ∧ x = λ ∧ 2 * y = 4 * λ ∧ 3 * z = 6 * λ}) (λ := {t})
+destruct_and (hypothesis 8: {t ∈ RealSet ∧ x = t ∧ 2 * y = 4 * t ∧ 3 * z = 6 * t}) as (hypothesis 9: {t ∈ RealSet}) (hypothesis 10: {x = t}) (hypothesis 11: {2 * y = 4 * t}) (hypothesis 12: {3 * z = 6 * t})
+exists (r := {2 * t})
+autosolve all_hypothesis

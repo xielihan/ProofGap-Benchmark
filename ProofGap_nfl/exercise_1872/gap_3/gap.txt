@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet ∧ x ≠ -1 ∧ x ≠ 1
+2. A = frac(1, 2)
+3. B = -1
+4. C_{1} = frac(1, 2)
+5. frac(x^{2} + 1, (x + 1)^{2} * (x - 1)) = frac(A, x + 1) + frac(B, (x + 1)^{2}) + frac(C_{1}, x - 1)
+6. x^{2} + 1 ≡ A * (x + 1) * (x - 1) + B * (x - 1) + C_{1} * (x + 1)^{2}
+
+GOAL:
+2 = -2 * B
+
+METHOD:
+[@method 代入 x = -1 到 x^{2} + 1 ≡ A * (x + 1) * (x - 1) + B * (x - 1) + C_{1} * (x + 1)^{2} @]

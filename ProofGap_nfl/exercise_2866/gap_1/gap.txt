@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. 1 - x^{2} > 0
+
+GOAL:
+1 - x^{2} > 0 ⇒ frac(1, (1 - x^{2}) * sqrtn(2, 1 - x^{2})) = (1 - x^{2})^{-frac(3, 2)}
+
+METHOD:

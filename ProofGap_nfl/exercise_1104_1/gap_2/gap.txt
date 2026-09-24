@@ -1,0 +1,15 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. x ∈ RealSet
+3. a > 0
+4. a^{2} + x ≥ 0
+5. f = (fun y [y ∈ RealSet ∧ y ≥ 0] . sqrtn(2, y))
+6. y_{0} = a^{2}
+7. Δy = x
+8. y_{0} + Δy = a^{2} + x
+
+GOAL:
+f(y_{0} + Δy) ≈_{ |Δy|^{2} } f(y_{0}) + FunDeri(f, 1, 1)(y_{0}) * Δy
+
+METHOD:

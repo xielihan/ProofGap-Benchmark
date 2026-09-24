@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 12: {frac(b(24), 97) = frac(3^{2} * 5^{2} * 13 * 29 * 31 * 37 * 41 * 43 * 47, 2^{46} * 97)}); from (GOAL: {frac(b(24), 97) < frac(6, 5000)}) to (GOAL: {frac(3^{2} * 5^{2} * 13 * 29 * 31 * 37 * 41 * 43 * 47, 2^{46} * 97) < frac(6, 5000)})
+autosolve all_hypothesis

@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet ∧ x > 0
+2. Δx ∈ RealSet ∧ x + Δx > 0
+3. δ ∈ RealSet ∧ δ ≥ 0
+4. f : RealSet → RealSet
+5. E ∈ RealSet
+6. δ = |frac(Δx, x)|
+7. forall (t), t ∈ RealSet ∧ t > 0 ⇒ f(t) = lg(t)
+
+GOAL:
+|f(x + Δx) - f(x)| = |lg(x + Δx) - lg(x)|
+
+METHOD:

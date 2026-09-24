@@ -1,0 +1,21 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. a < b
+4. K : CartesianProd(RealSet, RealSet) → RealSet
+5. H : CartesianProd(NonNegIntegerSet, CartesianProd(RealSet, RealSet)) → RealSet
+6. ContinuousFuncOn(K, CartesianProd([a, b], [a, b]))
+7. forall (q), q ∈ NonNegIntegerSet ⇒ ContinuousFuncOn(H(q), CartesianProd([a, b], [a, b]))
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ∈ [a, b] ∧ y ∈ [a, b] ⇒ H(0, x, y) = K(x, y)
+9. forall (q) (x) (y), q ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ x ∈ [a, b] ∧ y ∈ [a, b] ⇒ H(q + 1, x, y) = DefInt(a, b, (fun t [t ∈ RealSet ∧ t ∈ [a, b]] . H(q, x, t) * K(t, y)) * diff(fun t [t ∈ RealSet ∧ t ∈ [a, b]] . t))
+10. forall (n) (m) (x) (y), n ∈ NonNegIntegerSet ∧ m ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ x ∈ [a, b] ∧ y ∈ [a, b] ⇒ ContinuousFuncOn((fun t, u [t ∈ RealSet ∧ t ∈ [a, b] ∧ u ∈ RealSet ∧ u ∈ [a, b]] . H(n, x, t) * H(m, t, u) * K(u, y)), CartesianProd([a, b], [a, b]))
+11. forall (n) (x) (y), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ x ∈ [a, b] ∧ y ∈ [a, b] ⇒ H(n + 1, x, y) = DefInt(a, b, (fun t [t ∈ RealSet ∧ t ∈ [a, b]] . H(n, x, t) * H(0, t, y)) * diff(fun t [t ∈ RealSet ∧ t ∈ [a, b]] . t))
+12. forall (n) (m) (x) (y), n ∈ NonNegIntegerSet ∧ m ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ x ∈ [a, b] ∧ y ∈ [a, b] ⇒ H(n + m + 2, x, y) = DefInt(a, b, (fun u [u ∈ RealSet ∧ u ∈ [a, b]] . H(n + m + 1, x, u) * K(u, y)) * diff(fun u [u ∈ RealSet ∧ u ∈ [a, b]] . u))
+13. forall (n) (m) (x) (y), n ∈ NonNegIntegerSet ∧ m ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ x ∈ [a, b] ∧ y ∈ [a, b] ∧ (forall (u), u ∈ RealSet ∧ u ∈ [a, b] ⇒ H(n + m + 1, x, u) = DefInt(a, b, (fun t [t ∈ RealSet ∧ t ∈ [a, b]] . H(n, x, t) * H(m, t, u)) * diff(fun t [t ∈ RealSet ∧ t ∈ [a, b]] . t))) ⇒ H(n + m + 2, x, y) = DefInt(a, b, (fun u [u ∈ RealSet ∧ u ∈ [a, b]] . DefInt(a, b, (fun t [t ∈ RealSet ∧ t ∈ [a, b]] . H(n, x, t) * H(m, t, u)) * diff(fun t [t ∈ RealSet ∧ t ∈ [a, b]] . t)) * K(u, y)) * diff(fun u [u ∈ RealSet ∧ u ∈ [a, b]] . u))
+14. forall (n) (m) (x) (y), n ∈ NonNegIntegerSet ∧ m ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ x ∈ [a, b] ∧ y ∈ [a, b] ⇒ DefInt(a, b, (fun u [u ∈ RealSet ∧ u ∈ [a, b]] . DefInt(a, b, (fun t [t ∈ RealSet ∧ t ∈ [a, b]] . H(n, x, t) * H(m, t, u)) * diff(fun t [t ∈ RealSet ∧ t ∈ [a, b]] . t)) * K(u, y)) * diff(fun u [u ∈ RealSet ∧ u ∈ [a, b]] . u)) = DefInt(a, b, (fun t [t ∈ RealSet ∧ t ∈ [a, b]] . H(n, x, t) * DefInt(a, b, (fun u [u ∈ RealSet ∧ u ∈ [a, b]] . H(m, t, u) * K(u, y)) * diff(fun u [u ∈ RealSet ∧ u ∈ [a, b]] . u))) * diff(fun t [t ∈ RealSet ∧ t ∈ [a, b]] . t))
+
+GOAL:
+forall (m) (t) (y), m ∈ NonNegIntegerSet ∧ t ∈ RealSet ∧ y ∈ RealSet ∧ t ∈ [a, b] ∧ y ∈ [a, b] ⇒ DefInt(a, b, (fun u [u ∈ RealSet ∧ u ∈ [a, b]] . H(m, t, u) * K(u, y)) * diff(fun u [u ∈ RealSet ∧ u ∈ [a, b]] . u)) = H(m + 1, t, y)
+
+METHOD:

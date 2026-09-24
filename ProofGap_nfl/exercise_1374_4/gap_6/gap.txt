@@ -1,0 +1,16 @@
+PROOF GAP @6
+ASSUM:
+1. f = (fun x [x ∈ RealSet] . 1 + x + sin(x) * cos(x))
+2. g = (fun x [x ∈ RealSet] . (x + sin(x) * cos(x)) * e^{sin(x)})
+3. forall (x), x ∈ RealSet ⇒ frac(FunDeri(f, 1, 1)(x), FunDeri(g, 1, 1)(x)) = frac(1 + cos(2 * x), e^{sin(x)} * (1 + cos(2 * x) + cos(x) * (x + sin(x) * cos(x))))
+4. forall (x), x ∈ RealSet ⇒ frac(FunDeri(f, 1, 1)(x), FunDeri(g, 1, 1)(x)) = frac(2 * cos(x)^{2}, e^{sin(x)} * (2 * cos(x)^{2} + cos(x) * (x + sin(x) * cos(x))))
+5. forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ frac(FunDeri(f, 1, 1)(x), FunDeri(g, 1, 1)(x)) = frac(1, e^{sin(x)} * (1 + frac(1, 2 * cos(x)) * (x + sin(x) * cos(x))))
+6. forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ lim_{ x → +∞ } (frac(FunDeri(f, 1, 1)(x), FunDeri(g, 1, 1)(x))) = 0
+7. x_{1} = (fun n [n ∈ NonNegIntegerSet] . 2 * n * π + frac(π, 2))
+8. x_{2} = (fun n [n ∈ NonNegIntegerSet] . 2 * n * π)
+9. seqlim_{ n → +∞ } (x_{1}(n)) = +∞
+
+GOAL:
+seqlim_{ n → +∞ } (x_{2}(n)) = +∞
+
+METHOD:

@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet ∧ x + 1 ≠ 0 ⇒ frac(x^{5}, x + 1) = x^{4} - x^{3} + x^{2} - x + 1 - frac(1, x + 1)
+3. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x^{5}, x + 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = (x^{4} - x^{3} + x^{2} - x + 1 - frac(1, x + 1)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+GOAL:
+{ `F_4` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = (x^{4} - x^{3} + x^{2} - x + 1 - frac(1, x + 1)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_5`(x) = frac(1, 5) * x^{5} - frac(1, 4) * x^{4} + frac(1, 3) * x^{3} - frac(1, 2) * x^{2} + x - ln(|1 + x|) + C) }
+
+METHOD:

@@ -1,0 +1,21 @@
+PROOF GAP @11
+ASSUM:
+1. a ∈ RealSet
+2. x ∈ RealSet
+3. a > 0
+4. b = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(1, a^{sqrtn(2, n)}))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = frac(1, a^{sqrtn(2, n)})
+6. seqlim_{ n → +∞ } (|frac(b(n), b(n + 1))|) = seqlim_{ n → +∞ } (a^{sqrtn(2, n + 1) - sqrtn(2, n)})
+7. seqlim_{ n → +∞ } (a^{sqrtn(2, n + 1) - sqrtn(2, n)}) = 1
+8. seqlim_{ n → +∞ } (|frac(b(n), b(n + 1))|) = 1
+9. RadiusOfConvergence(b) = 1
+10. forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(x^{n}, a^{sqrtn(2, n)})))
+11. x = 1 ⇒ sum_{ n = 1 }^{ +∞ } (frac(x^{n}, a^{sqrtn(2, n)})) = sum_{ n = 1 }^{ +∞ } (frac(1, a^{sqrtn(2, n)}))
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x = 1 ⇒ n * (frac(a^{frac(1, sqrtn(2, n))}, a^{frac(1, sqrtn(2, n + 1))}) - 1) = frac(a^{frac(1, sqrtn(2, n) + sqrtn(2, n + 1))} - 1, frac(1, sqrtn(2, n) + sqrtn(2, n + 1))) * frac(n, sqrtn(2, n) + sqrtn(2, n + 1))
+13. x = 1 ⇒ seqlim_{ n → +∞ } (frac(a^{frac(1, sqrtn(2, n) + sqrtn(2, n + 1))} - 1, frac(1, sqrtn(2, n) + sqrtn(2, n + 1)))) = ln(a)
+14. x = 1 ⇒ a > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, a^{sqrtn(2, n)})))
+
+GOAL:
+x = 1 ⇒ a < 1 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, a^{sqrtn(2, n)})))
+
+METHOD:

@@ -1,0 +1,31 @@
+PROOF GAP @10
+ASSUM:
+1. P : RealSet → RealSet
+2. x : NonNegIntegerSet → RealSet
+3. y : NonNegIntegerSet → RealSet
+4. P(-2) = 5
+5. P(0) = 1
+6. P(4) = -3
+7. P(5) = 1
+8. x(0) = -2
+9. x(1) = 0
+10. x(2) = 4
+11. x(3) = 5
+12. y(0) = 5
+13. y(1) = 1
+14. y(2) = -3
+15. y(3) = 1
+16. forall (i) (j), i ∈ NonNegIntegerSet ∧ j ∈ NonNegIntegerSet ∧ 0 ≤ i ∧ i < j ∧ j ≤ 3 ⇒ x(i) ≠ x(j)
+17. forall (t), t ∈ RealSet ⇒ P(t) = frac((t - x(1)) * (t - x(2)) * (t - x(3)), (x(0) - x(1)) * (x(0) - x(2)) * (x(0) - x(3))) * y(0) + frac((t - x(0)) * (t - x(2)) * (t - x(3)), (x(1) - x(0)) * (x(1) - x(2)) * (x(1) - x(3))) * y(1) + frac((t - x(0)) * (t - x(1)) * (t - x(3)), (x(2) - x(0)) * (x(2) - x(1)) * (x(2) - x(3))) * y(2) + frac((t - x(0)) * (t - x(1)) * (t - x(2)), (x(3) - x(0)) * (x(3) - x(1)) * (x(3) - x(2))) * y(3)
+18. forall (x), x ∈ RealSet ⇒ P(x) = 1 - frac(55, 21) * x - frac(1, 14) * x^{2} + frac(5, 42) * x^{3}
+19. P(-1) = 1 + frac(55, 21) - frac(1, 14) - frac(5, 42)
+20. 1 + frac(55, 21) - frac(1, 14) - frac(5, 42) ≈_{ 0.01 } 3.43
+21. P(1) = 1 - frac(55, 21) - frac(1, 14) + frac(5, 42)
+22. 1 - frac(55, 21) - frac(1, 14) + frac(5, 42) ≈_{ 0.01 } -1.57
+23. P(6) = 1 - frac(110, 7) - frac(18, 7) + frac(180, 7)
+24. 1 - frac(110, 7) - frac(18, 7) + frac(180, 7) ≈_{ 0.01 } 8.43
+
+GOAL:
+P = (fun x [x ∈ RealSet] . 1 - frac(55, 21) * x - frac(1, 14) * x^{2} + frac(5, 42) * x^{3}) ∧ P(-1) ≈_{ 0.01 } 3.43 ∧ P(1) ≈_{ 0.01 } -1.57 ∧ P(6) ≈_{ 0.01 } 8.43 ⇒ (forall (Q), Q : RealSet → RealSet ∧ Q(-2) = 5 ∧ Q(0) = 1 ∧ Q(4) = -3 ∧ Q(5) = 1 ⇒ 3 ≤ 3)
+
+METHOD:

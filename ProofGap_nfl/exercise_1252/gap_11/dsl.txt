@@ -1,0 +1,4 @@
+1. get_forall (GOAL: {forall (ξ), ξ ∈ RealSet ∧ ξ ∈ IntervalLoRo(-1, 1) ∧ ξ ≠ 0 ⇒ frac(2 * ξ, 3 * ξ^{2}) ≠ 0}) (ξ := {xi})
+2. get_condition (hypothesis 15: {xi ∈ RealSet ∧ xi ∈ IntervalLoRo(-1, 1) ∧ xi ≠ 0}) in (GOAL: {xi ∈ RealSet ∧ xi ∈ IntervalLoRo(-1, 1) ∧ xi ≠ 0 ⇒ frac(2 * xi, 3 * xi^{2}) ≠ 0})
+3. destruct_and (hypothesis 15: {xi ∈ RealSet ∧ xi ∈ IntervalLoRo(-1, 1) ∧ xi ≠ 0}) as (hypothesis 16: {xi ∈ RealSet}) (hypothesis 17: {xi ∈ IntervalLoRo(-1, 1)}) (hypothesis 18: {xi ≠ 0})
+4. autosolve all_hypothesis

@@ -1,0 +1,4 @@
+get_condition (hypothesis 21: {α < 0}) in (GOAL: {α < 0 => I(-α) = frac(π, 2) * -α})
+get_prop (hypothesis 19: {forall (β), β ∈ RealSet ∧ β ≥ 0 => I(β) = frac(π, 2) * β}) (β := {-α}) as (hypothesis 22: {-α ∈ RealSet ∧ -α ≥ 0 => I(-α) = frac(π, 2) * -α})
+use_condition (obvious: {-α ∈ RealSet ∧ -α ≥ 0}) in (hypothesis 22: {-α ∈ RealSet ∧ -α ≥ 0 => I(-α) = frac(π, 2) * -α}) as (hypothesis 23: {I(-α) = frac(π, 2) * -α})
+apply (hypothesis 23: {I(-α) = frac(π, 2) * -α})

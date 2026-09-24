@@ -1,0 +1,18 @@
+PROOF GAP @8
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. forall (x), 0 < x ∧ x < 1 ⇒ y(x) = a + (b - a) * x
+5. ContinuousFuncOn(y, IntervalLoRo(0, 1))
+6. a < b ⇒ MonoIncFuncOn(y, IntervalLoRo(0, 1))
+7. a < b ⇒ lim_{ x → 0^+ } (y(x)) = a
+8. a < b ⇒ lim_{ x → 1^- } (y(x)) = b
+9. a < b ⇒ ImageOn(y, IntervalLoRo(0, 1)) = (a, b)
+10. b < a ⇒ MonoDecFuncOn(y, IntervalLoRo(0, 1))
+11. b < a ⇒ lim_{ x → 0^+ } (y(x)) = a
+
+GOAL:
+b < a ⇒ lim_{ x → 1^- } (y(x)) = b
+
+METHOD:

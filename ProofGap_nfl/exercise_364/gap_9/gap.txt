@@ -1,0 +1,24 @@
+PROOF GAP @9
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. y_{0} ∈ RealSet
+5. y_{1} ∈ RealSet
+6. b > a
+7. forall (x), x ∈ RealSet ⇒ f(a + x) - y_{0} = y_{0} - f(a - x)
+8. forall (x), x ∈ RealSet ⇒ f(b + x) - y_{1} = y_{1} - f(b - x)
+9. forall (x), x ∈ RealSet ⇒ f(b + x) - y_{0} = y_{0} - f(2 * a - b - x)
+10. forall (x), x ∈ RealSet ⇒ f(b - x) = 2 * (y_{1} - y_{0}) + f(2 * a - b - x)
+11. forall (x), x ∈ RealSet ⇒ f(x) = 2 * (y_{1} - y_{0}) + f(2 * a - 2 * b + x)
+12. forall (x), x ∈ RealSet ⇒ f(x) = 2 * (y_{0} - y_{1}) + f(x + 2 * (b - a))
+13. φ = (fun x [x ∈ RealSet] . f(x) + frac(y_{0} - y_{1}, b - a) * x)
+14. forall (x), x ∈ RealSet ⇒ f(x + 2 * (b - a)) = -frac(y_{0} - y_{1}, b - a) * (x + 2 * (b - a)) + φ(x + 2 * (b - a))
+15. forall (x), x ∈ RealSet ⇒ f(x) - f(x + 2 * (b - a)) = 2 * (y_{0} - y_{1}) + φ(x) - φ(x + 2 * (b - a))
+16. forall (x), x ∈ RealSet ⇒ φ(x) = φ(x + 2 * (b - a))
+17. PeriodicFunc(φ, 2 * (b - a))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ f(x) = -frac(y_{0} - y_{1}, b - a) * x + φ(x)
+
+METHOD:

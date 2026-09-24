@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) - y(x) = 0}) (x := {z})
+get_condition (hypothesis 7: {z ∈ RealSet}) in (GOAL: {z ∈ RealSet ⇒ FunDeri(y, 1, 2)(z) - y(z) = 0})
+get_prop (hypothesis 6: {forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = C_{1} * cosh(x) + C_{2} * sinh(x) ∧ C_{1} * cosh(x) + C_{2} * sinh(x) = y(x)}) (x := {z}) as (hypothesis 8: {z ∈ RealSet ⇒ FunDeri(y, 1, 2)(z) = C_{1} * cosh(z) + C_{2} * sinh(z) ∧ C_{1} * cosh(z) + C_{2} * sinh(z) = y(z)})
+use_condition (hypothesis 7: {z ∈ RealSet}) in (hypothesis 8: {z ∈ RealSet ⇒ FunDeri(y, 1, 2)(z) = C_{1} * cosh(z) + C_{2} * sinh(z) ∧ C_{1} * cosh(z) + C_{2} * sinh(z) = y(z)}) as (hypothesis 9: {FunDeri(y, 1, 2)(z) = C_{1} * cosh(z) + C_{2} * sinh(z) ∧ C_{1} * cosh(z) + C_{2} * sinh(z) = y(z)})
+destruct_and (hypothesis 9: {FunDeri(y, 1, 2)(z) = C_{1} * cosh(z) + C_{2} * sinh(z) ∧ C_{1} * cosh(z) + C_{2} * sinh(z) = y(z)}) as (hypothesis 10: {FunDeri(y, 1, 2)(z) = C_{1} * cosh(z) + C_{2} * sinh(z)}) (hypothesis 11: {C_{1} * cosh(z) + C_{2} * sinh(z) = y(z)})
+autosolve all_hypothesis

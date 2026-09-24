@@ -1,0 +1,26 @@
+PROOF GAP @5
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. x_{0} ∈ RealSet
+3. l ∈ RealSet
+4. L ∈ RealSet
+5. R ∈ RealSet
+6. forall (n), n ∈ NonNegIntegerSet ⇒ a(n) ∈ RealSet
+7. exists (m_{0}), m_{0} ∈ NonNegIntegerSet ∧ m_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > m_{0} ⇒ a(n) * a(n + 1) ≠ 0)
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 0 ⇒ l = seqliminf_{ n → +∞ } (|frac(a(n), a(n + 1))|)
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 0 ⇒ L = seqlimsup_{ n → +∞ } (|frac(a(n), a(n + 1))|)
+10. 0 ≤ l
+11. l ≤ L
+12. L ≤ +∞
+13. R = RadiusOfConvergence(a)
+14. l_{1} = frac(1, l)
+15. L_{1} = frac(1, L)
+16. L_{1} ≤ l_{1}
+17. forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε < 1 ⇒ (exists (δ_{1}) (δ_{2}), δ_{1} ∈ RealSet ∧ δ_{2} ∈ RealSet ∧ δ_{1} > 0 ∧ δ_{2} > 0 ∧ δ_{2} < 1 ∧ frac(1, 1 + δ_{1}) = 1 - frac(ε, 2) ∧ frac(1, 1 - δ_{2}) = 1 + frac(ε, 2))
+18. forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε < 1 ⇒ (exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > m ⇒ L_{1} * (1 - frac(ε, 2)) < frac(|a(n + 1)|, |a(n)|) ∧ frac(|a(n + 1)|, |a(n)|) < l_{1} * (1 + frac(ε, 2))))
+19. forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε < 1 ⇒ (exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > m ⇒ frac(|a(n)|, |a(m)|) < (l_{1} * (1 + frac(ε, 2)))^{n - m}))
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε < 1 ⇒ (exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > m ⇒ frac(|a(n)|, |a(m)|) > (L_{1} * (1 - frac(ε, 2)))^{n - m}))
+
+METHOD:

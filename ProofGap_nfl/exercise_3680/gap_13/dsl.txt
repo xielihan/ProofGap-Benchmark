@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (y), y ∈ RealSet ⇒ u(0, y, 0) = y * e^{-(2 * y)}}) (y := {t})
+get_condition (hypothesis 19: {t ∈ RealSet}) in (GOAL: {t ∈ RealSet ⇒ u(0, t, 0) = t * e^{-(2 * t)}})
+get_prop (hypothesis 4: {forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = (x + y + z) * e^{-(x + 2 * y + 3 * z)}}) (x := {0}) (y := {t}) (z := {0}) as (hypothesis 20: {0 ∈ RealSet ∧ t ∈ RealSet ∧ 0 ∈ RealSet ⇒ u(0, t, 0) = (0 + t + 0) * e^{-(0 + 2 * t + 3 * 0)}})
+assert (hypothesis 21: {0 ∈ RealSet ∧ t ∈ RealSet ∧ 0 ∈ RealSet})
+use_condition (hypothesis 21: {0 ∈ RealSet ∧ t ∈ RealSet ∧ 0 ∈ RealSet}) in (hypothesis 20: {0 ∈ RealSet ∧ t ∈ RealSet ∧ 0 ∈ RealSet ⇒ u(0, t, 0) = (0 + t + 0) * e^{-(0 + 2 * t + 3 * 0)}}) as (hypothesis 22: {u(0, t, 0) = (0 + t + 0) * e^{-(0 + 2 * t + 3 * 0)}})
+autosolve all_hypothesis

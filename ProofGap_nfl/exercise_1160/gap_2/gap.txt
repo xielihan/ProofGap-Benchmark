@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x < 1 ⇒ y(x) = frac(1 + x, sqrtn(2, 1 - x))
+3. forall (x), x ∈ RealSet ∧ x < 1 ⇒ y(x) = (1 + x) * (1 - x)^{-frac(1, 2)}
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x < 1 ⇒ FunDeri(fun t [t ∈ RealSet ∧ t < 1] . (1 + t) * (1 - t)^{-frac(1, 2)}, 1, 100)(x) = (1 + x) * FunDeri(fun t [t ∈ RealSet ∧ t < 1] . (1 - t)^{-frac(1, 2)}, 1, 100)(x) + Combination(100, 1) * FunDeri(fun t [t ∈ RealSet ∧ t < 1] . (1 - t)^{-frac(1, 2)}, 1, 99)(x)
+
+METHOD:
+[@method 根据 "莱布尼茨公式" @]

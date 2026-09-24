@@ -1,0 +1,20 @@
+PROOF GAP @9
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. D ⊆ CartesianProd(RealSet, RealSet)
+3. IsFunc(f)
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x, y) = cases{ x * sin(frac(1, y)) if y ≠ 0; 0 if y = 0 }
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ D = { (x, y) | x ∈ RealSet, y ∈ RealSet, ¬ContinuousFuncAt(f, (x, y)) }
+6. forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ∧ y_{0} ≠ 0 ⇒ ContinuousFuncAt(f, (x_{0}, y_{0})))
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ |f(x, y) - f(0, 0)| = |f(x, y)|
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ |f(x, y)| ≤ |x|
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ |f(x, y) - f(0, 0)| ≤ |x|
+10. ContinuousFuncAt(f, (0, 0))
+11. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ≠ 0 ⇒ lim_{ y → 0 } (f(x_{0}, y)) = lim_{ y → 0 } (x_{0} * sin(frac(1, y)))
+12. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ≠ 0 ⇒ ¬(exists (L), L ∈ RealSet ∧ lim_{ y → 0 } (x_{0} * sin(frac(1, y))) = L)
+13. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ≠ 0 ⇒ ¬ContinuousFuncAt(f, (x_{0}, 0))
+
+GOAL:
+D = { (x, 0) | x ∈ RealSet, x ≠ 0 }
+
+METHOD:

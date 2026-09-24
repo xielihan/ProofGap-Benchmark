@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ sin(x) - cos(x) ≠ 0 ⇒ y(x) = arccot(frac(sin(x) + cos(x), sin(x) - cos(x)))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ sin(x) - cos(x) ≠ 0 ⇒ FunDeri(y, 1, 1)(x) = frac(-1, 1 + frac(sin(x) + cos(x), sin(x) - cos(x))^{2}) * frac((cos(x) - sin(x)) * (sin(x) - cos(x)) - (cos(x) + sin(x))^{2}, (sin(x) - cos(x))^{2}) ∧ frac(-1, 1 + frac(sin(x) + cos(x), sin(x) - cos(x))^{2}) * frac((cos(x) - sin(x)) * (sin(x) - cos(x)) - (cos(x) + sin(x))^{2}, (sin(x) - cos(x))^{2}) = 1
+
+METHOD:

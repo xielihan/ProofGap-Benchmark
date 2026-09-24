@@ -1,0 +1,3 @@
+exists (m_{1} := {0.959})
+assert (hypothesis 18: {0.959 ∈ RealSet ∧ 0.959 = 0.959})
+apply (hypothesis 18: {0.959 ∈ RealSet ∧ 0.959 = 0.959})

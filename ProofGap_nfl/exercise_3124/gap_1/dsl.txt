@@ -1,0 +1,6 @@
+1. get_prop (hypothesis 7: {forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 90 ⇒ P(x) = a * x + b * x^{3}}) (x := {30}) as (hypothesis 8: {30 ∈ RealSet ∧ 0 ≤ 30 ∧ 30 ≤ 90 ⇒ P(30) = a * 30 + b * 30^{3}})
+2. assert (hypothesis 9: {30 ∈ RealSet ∧ 0 ≤ 30 ∧ 30 ≤ 90}) by proof {
+  1. autosolve all_hypothesis
+}
+3. use_condition (hypothesis 9: {30 ∈ RealSet ∧ 0 ≤ 30 ∧ 30 ≤ 90}) in (hypothesis 8: {30 ∈ RealSet ∧ 0 ≤ 30 ∧ 30 ≤ 90 ⇒ P(30) = a * 30 + b * 30^{3}}) as (hypothesis 10: {P(30) = a * 30 + b * 30^{3}})
+4. autosolve all_hypothesis

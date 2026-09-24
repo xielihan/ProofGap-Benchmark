@@ -1,0 +1,16 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet
+2. m ∈ RealSet
+3. n ∈ RealSet
+4. m > 0
+5. n > 0
+6. a ≥ 0
+7. f = (fun x [x ∈ RealSet] . x^{m} * (a - x)^{n})
+8. ContinuousFuncOn(f, [0, a])
+9. MaximumPointOn(f, [0, a]) = { frac(m * a, m + n) }
+
+GOAL:
+f(frac(m * a, m + n)) = frac(m * a, m + n)^{m} * (a - frac(m * a, m + n))^{n}
+
+METHOD:

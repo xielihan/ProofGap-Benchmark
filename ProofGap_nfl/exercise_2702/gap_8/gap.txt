@@ -1,0 +1,23 @@
+PROOF GAP @8
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. P : NonNegIntegerSet → RealSet
+3. N : NonNegIntegerSet → RealSet
+4. n ∈ NonNegIntegerSet
+5. i ∈ NonNegIntegerSet
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ∈ RealSet
+7. ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ P(n) = sum_{ i = 1 }^{ n } (frac(|a(i)| + a(i), 2))
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ N(n) = sum_{ i = 1 }^{ n } (frac(|a(i)| - a(i), 2))
+10. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+11. DivergentSeries(sum_{ n = 1 }^{ +∞ } (|a(n)|))
+12. sum_{ n = 1 }^{ +∞ } (|a(n)|) = +∞
+13. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ P(n) ≠ 0 ∧ sum_{ i = 1 }^{ n } (|a(i)|) ≠ 0 ⇒ frac(N(n), P(n)) = frac((sum_{ i = 1 }^{ n } (|a(i)|)) - (sum_{ i = 1 }^{ n } (a(i))), (sum_{ i = 1 }^{ n } (|a(i)|)) + (sum_{ i = 1 }^{ n } (a(i))))
+14. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ P(n) ≠ 0 ∧ sum_{ i = 1 }^{ n } (|a(i)|) ≠ 0 ⇒ frac(N(n), P(n)) = frac(1 - frac(sum_{ i = 1 }^{ n } (a(i)), sum_{ i = 1 }^{ n } (|a(i)|)), 1 + frac(sum_{ i = 1 }^{ n } (a(i)), sum_{ i = 1 }^{ n } (|a(i)|)))
+15. ConvergentSeq(fun n [n ∈ NonNegIntegerSet ∧ n ≥ 1] . sum_{ i = 1 }^{ n } (a(i)))
+16. seqlim_{ n → +∞ } (sum_{ i = 1 }^{ n } (|a(i)|)) = +∞
+
+GOAL:
+seqlim_{ n → +∞ } (frac(sum_{ i = 1 }^{ n } (a(i)), sum_{ i = 1 }^{ n } (|a(i)|))) = 0
+
+METHOD:

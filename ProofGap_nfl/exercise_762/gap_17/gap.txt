@@ -1,0 +1,25 @@
+PROOF GAP @17
+ASSUM:
+1. f = (fun t [t ∈ RealSet ∧ t ∈ IntervalLoRo(0, π)] . frac(cot(t), t))
+2. ContinuousFuncOn(cot, IntervalLoRo(0, π))
+3. StrictMonoDecFuncOn(cot, IntervalLoRo(0, π))
+4. ContinuousFuncOn(fun t [t ∈ RealSet ∧ t ∈ IntervalLoRo(0, π)] . frac(1, t), IntervalLoRo(0, π))
+5. StrictMonoDecFuncOn(fun t [t ∈ RealSet ∧ t ∈ IntervalLoRo(0, π)] . frac(1, t), IntervalLoRo(0, π))
+6. ContinuousFuncOn(f, IntervalLoRo(0, π))
+7. StrictMonoDecFuncOn(f, IntervalLoRo(0, π))
+8. lim_{ t → 0^+ } (f(t)) = +∞
+9. lim_{ t → π^- } (f(t)) = -∞
+10. forall (k), k ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(0, π) ∧ f(t) = k ∧ (forall (t2), t2 ∈ RealSet ∧ t2 ∈ IntervalLoRo(0, π) ∧ f(t2) = k ⇒ t2 = t))
+11. forall (k), k ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(0, π) ∧ cot(t) = k * t ∧ (forall (t3), t3 ∈ RealSet ∧ t3 ∈ IntervalLoRo(0, π) ∧ cot(t3) = k * t3 ⇒ t3 = t))
+12. X = InverseFunc(f)
+13. Dom(X) = RealSet
+14. ContinuousFunc(X)
+15. StrictMonoDecFunc(X)
+16. forall (k), k ∈ RealSet ⇒ X(k) ∈ IntervalLoRo(0, π) ∧ f(X(k)) = k
+17. forall (k), k ∈ RealSet ⇒ X(k) ∈ IntervalLoRo(0, π) ∧ cot(X(k)) = k * X(k)
+18. exists (X), X : RealSet → RealSet ∧ ContinuousFunc(X) ∧ StrictMonoDecFunc(X) ∧ (forall (k), k ∈ RealSet ⇒ X(k) ∈ IntervalLoRo(0, π) ∧ cot(X(k)) = k * X(k)) ∧ (forall (X4), X4 : RealSet → RealSet ∧ ContinuousFunc(X4) ∧ StrictMonoDecFunc(X4) ∧ (forall (k), k ∈ RealSet ⇒ X4(k) ∈ IntervalLoRo(0, π) ∧ cot(X4(k)) = k * X4(k)) ⇒ X4 = X)
+
+GOAL:
+exists (X), X : RealSet → RealSet ∧ ContinuousFunc(X) ∧ StrictMonoDecFunc(X) ∧ (forall (k), k ∈ RealSet ⇒ X(k) ∈ IntervalLoRo(0, π) ∧ cot(X(k)) = k * X(k)) ∧ (forall (X1), X1 : RealSet → RealSet ∧ ContinuousFunc(X1) ∧ StrictMonoDecFunc(X1) ∧ (forall (k), k ∈ RealSet ⇒ X1(k) ∈ IntervalLoRo(0, π) ∧ cot(X1(k)) = k * X1(k)) ⇒ X1 = X)
+
+METHOD:

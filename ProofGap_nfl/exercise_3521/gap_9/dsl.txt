@@ -1,0 +1,2 @@
+exists (α := {α}) (β := {β}) (c_{1} := {c_{1}})
+autosolve all_hypothesis

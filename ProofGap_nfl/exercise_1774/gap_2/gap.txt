@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet ∧ x > e^{-1}
+2. t ∈ RealSet
+3. t = 1 + ln(x)
+4. x > 0
+
+GOAL:
+t > 0
+
+METHOD:

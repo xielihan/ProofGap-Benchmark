@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ IntervalOpen(0, 1) ⇒ x * (1 - x) > 0
+
+METHOD:

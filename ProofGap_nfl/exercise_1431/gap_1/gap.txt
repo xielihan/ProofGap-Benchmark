@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. x ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ y(x) = x * (x - 1)^{2} * (x - 2)^{3}
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = (x - 1) * (x - 2)^{2} * (6 * x^{2} - 10 * x + 2)
+
+METHOD:

@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+lim_{ x → +∞ } (frac(x^{2} + 10 * x + 100, 0.001 * x^{3})) = 0
+
+METHOD:

@@ -1,0 +1,19 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. A ∈ RealSet
+3. B ∈ RealSet
+4. C ∈ RealSet
+5. D ∈ RealSet
+6. K ∈ RealSet
+7. x ≠ 1
+8. frac(x, (x - 1)^{2} * (x^{2} + 2 * x + 2)) = frac(A, x - 1) + frac(B, (x - 1)^{2}) + frac(C * x + D, x^{2} + 2 * x + 2)
+9. x ≡ A * (x - 1) * (x^{2} + 2 * x + 2) + B * (x^{2} + 2 * x + 2) + (C * x + D) * (x - 1)^{2}
+10. A + C = 0
+11. A + B - 2 * C + D = 0
+
+GOAL:
+2 * B + C - 2 * D = 1
+
+METHOD:
+[@method 两边同时比较系数 @]

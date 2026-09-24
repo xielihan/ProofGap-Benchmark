@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. C ∈ RealSet
+3. n ∈ NonNegIntegerSet
+4. forall (x), x ∈ RealSet ⇒ f(x) = 2 * x - 3 * x^{3} + x^{5}
+5. lim_{ x → 0 } (frac(2 * x - 3 * x^{3} + x^{5}, 2 * x)) = 1
+
+GOAL:
+lim_{ x → 0 } (frac(f(x), 2 * x)) = 1
+
+METHOD:

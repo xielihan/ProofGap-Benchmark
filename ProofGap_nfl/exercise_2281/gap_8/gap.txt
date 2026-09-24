@@ -1,0 +1,16 @@
+PROOF GAP @8
+ASSUM:
+1. I : NonNegIntegerSet → RealSet
+2. forall (n), n ∈ IntegerSet ∧ n ∈ PosIntegerSet ⇒ I(n) = DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . sin(x)^{n}) * diff(fun x [x ∈ RealSet] . x))
+3. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ I(n) = -DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . sin(x)^{n - 1}) * diff(fun x [x ∈ RealSet] . cos(x)))
+4. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ -DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . sin(x)^{n - 1}) * diff(fun x [x ∈ RealSet] . cos(x))) = 0 - ((fun x [x ∈ RealSet] . sin(x)^{n - 1} * cos(x))|_{0}^{frac(π, 2)}) + (n - 1) * DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . sin(x)^{n - 2} * cos(x)^{2}) * diff(fun x [x ∈ RealSet] . x))
+5. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ I(n) = (n - 1) * DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . sin(x)^{n - 2}) * diff(fun x [x ∈ RealSet] . x)) - (n - 1) * DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . sin(x)^{n}) * diff(fun x [x ∈ RealSet] . x))
+6. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ I(n) = frac(n - 1, n) * I(n - 2)
+7. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ I(n) = frac(n - 1, n) * I(n - 2)
+8. forall (k), k ∈ IntegerSet ∧ k ∈ PosIntegerSet ⇒ I(2 * k) = (prod_{ i = 1 }^{ k } (frac(2 * i - 1, 2 * i))) * frac(π, 2)
+9. forall (k), k ∈ IntegerSet ∧ k ∈ NonNegIntegerSet ⇒ I(2 * k + 1) = prod_{ i = 1 }^{ k } (frac(2 * i, 2 * i + 1))
+
+GOAL:
+forall (k), k ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n ∈ PosIntegerSet ⇒ I(n) = cases{ (prod_{ i = 1 }^{ k } (frac(2 * i - 1, 2 * i))) * frac(π, 2) if n = 2 * k ∧ k ∈ PosIntegerSet; prod_{ i = 1 }^{ k } (frac(2 * i, 2 * i + 1)) if n = 2 * k + 1 ∧ k ∈ NonNegIntegerSet }) ⇒ (forall (n), n ∈ IntegerSet ∧ n ∈ PosIntegerSet ⇒ I(n) = DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . sin(x)^{n}) * diff(fun x [x ∈ RealSet] . x)))
+
+METHOD:

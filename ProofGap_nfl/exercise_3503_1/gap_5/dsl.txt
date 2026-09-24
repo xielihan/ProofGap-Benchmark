@@ -1,0 +1,44 @@
+get_forall (GOAL: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ r(x, y) > 0 => FunDeri(u, x, 2)(x, y) + FunDeri(u, y, 2)(x, y) = FunDeri(f, r, 2)(r(x, y)) + frac(1, r(x, y)) * FunDeri(f, r, 1)(r(x, y))}) (x := {a}) (y := {b})
+get_condition (hypothesis 12: {a ∈ RealSet ∧ b ∈ RealSet ∧ r(a, b) > 0}) in (GOAL: {a ∈ RealSet ∧ b ∈ RealSet ∧ r(a, b) > 0 => FunDeri(u, a, 2)(a, b) + FunDeri(u, b, 2)(a, b) = FunDeri(f, r, 2)(r(a, b)) + frac(1, r(a, b)) * FunDeri(f, r, 1)(r(a, b))})
+get_prop (hypothesis 10: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ r(x, y) > 0 => FunDeri(u, x, 2)(x, y) = frac(x^{2}, r(x, y)^{2}) * FunDeri(f, r, 2)(r(x, y)) + frac(y^{2}, r(x, y)^{3}) * FunDeri(f, r, 1)(r(x, y))}) (x := {a}) (y := {b}) as (hypothesis 13: {a ∈ RealSet ∧ b ∈ RealSet ∧ r(a, b) > 0 => FunDeri(u, a, 2)(a, b) = frac(a^{2}, r(a, b)^{2}) * FunDeri(f, r, 2)(r(a, b)) + frac(b^{2}, r(a, b)^{3}) * FunDeri(f, r, 1)(r(a, b))})
+use_condition (hypothesis 12: {a ∈ RealSet ∧ b ∈ RealSet ∧ r(a, b) > 0}) in (hypothesis 13: {a ∈ RealSet ∧ b ∈ RealSet ∧ r(a, b) > 0 => FunDeri(u, a, 2)(a, b) = frac(a^{2}, r(a, b)^{2}) * FunDeri(f, r, 2)(r(a, b)) + frac(b^{2}, r(a, b)^{3}) * FunDeri(f, r, 1)(r(a, b))}) as (hypothesis 14: {FunDeri(u, a, 2)(a, b) = frac(a^{2}, r(a, b)^{2}) * FunDeri(f, r, 2)(r(a, b)) + frac(b^{2}, r(a, b)^{3}) * FunDeri(f, r, 1)(r(a, b))})
+get_prop (hypothesis 11: {forall (y) (x), x ∈ RealSet ∧ y ∈ RealSet ∧ r(x, y) > 0 => FunDeri(u, y, 2)(x, y) = frac(y^{2}, r(x, y)^{2}) * FunDeri(f, r, 2)(r(x, y)) + frac(x^{2}, r(x, y)^{3}) * FunDeri(f, r, 1)(r(x, y))}) (x := {a}) (y := {b}) as (hypothesis 15: {a ∈ RealSet ∧ b ∈ RealSet ∧ r(a, b) > 0 => FunDeri(u, b, 2)(a, b) = frac(b^{2}, r(a, b)^{2}) * FunDeri(f, r, 2)(r(a, b)) + frac(a^{2}, r(a, b)^{3}) * FunDeri(f, r, 1)(r(a, b))})
+use_condition (hypothesis 12: {a ∈ RealSet ∧ b ∈ RealSet ∧ r(a, b) > 0}) in (hypothesis 15: {a ∈ RealSet ∧ b ∈ RealSet ∧ r(a, b) > 0 => FunDeri(u, b, 2)(a, b) = frac(b^{2}, r(a, b)^{2}) * FunDeri(f, r, 2)(r(a, b)) + frac(a^{2}, r(a, b)^{3}) * FunDeri(f, r, 1)(r(a, b))}) as (hypothesis 16: {FunDeri(u, b, 2)(a, b) = frac(b^{2}, r(a, b)^{2}) * FunDeri(f, r, 2)(r(a, b)) + frac(a^{2}, r(a, b)^{3}) * FunDeri(f, r, 1)(r(a, b))})
+get_prop (hypothesis 4: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ r(x, y) = sqrtn(2, x^{2} + y^{2}) ∧ r(x, y) > 0 ∧ u(x, y) = f(r(x, y))}) (x := {a}) (y := {b}) as (hypothesis 17: {a ∈ RealSet ∧ b ∈ RealSet ∧ r(a, b) = sqrtn(2, a^{2} + b^{2}) ∧ r(a, b) > 0 ∧ u(a, b) = f(r(a, b))})
+assert (hypothesis 18: {a ∈ RealSet}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 19: {b ∈ RealSet}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 20: {a^{2} >= 0}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 21: {b^{2} >= 0}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 22: {a^{2} + b^{2} ∈ RealSet}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 23: {a^{2} + b^{2} >= 0}) by proof {
+autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 450. (SquareRootSquareCancellation)': {forall (u), u ∈ RealSet => u >= 0 => sqrtn(2, u)^2 = u}) (u := {a^{2} + b^{2}}) as (hypothesis 24: {a^{2} + b^{2} ∈ RealSet => a^{2} + b^{2} >= 0 => sqrtn(2, a^{2} + b^{2})^2 = a^{2} + b^{2}})
+use_condition (hypothesis 22: {a^{2} + b^{2} ∈ RealSet}) in (hypothesis 24: {a^{2} + b^{2} ∈ RealSet => a^{2} + b^{2} >= 0 => sqrtn(2, a^{2} + b^{2})^2 = a^{2} + b^{2}}) as (hypothesis 25: {a^{2} + b^{2} >= 0 => sqrtn(2, a^{2} + b^{2})^2 = a^{2} + b^{2}})
+use_condition (hypothesis 23: {a^{2} + b^{2} >= 0}) in (hypothesis 25: {a^{2} + b^{2} >= 0 => sqrtn(2, a^{2} + b^{2})^2 = a^{2} + b^{2}}) as (hypothesis 26: {sqrtn(2, a^{2} + b^{2})^2 = a^{2} + b^{2}})
+assert (hypothesis 27: {r(a, b)^2 = a^{2} + b^{2}}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 28: {r(a, b) != 0}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 29: {frac(a^{2}, r(a, b)^{2}) + frac(b^{2}, r(a, b)^{2}) = 1}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 30: {frac(a^{2}, r(a, b)^{3}) + frac(b^{2}, r(a, b)^{3}) = frac(1, r(a, b))}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 31: {(frac(a^{2}, r(a, b)^{2}) * FunDeri(f, r, 2)(r(a, b)) + frac(b^{2}, r(a, b)^{3}) * FunDeri(f, r, 1)(r(a, b))) + (frac(b^{2}, r(a, b)^{2}) * FunDeri(f, r, 2)(r(a, b)) + frac(a^{2}, r(a, b)^{3}) * FunDeri(f, r, 1)(r(a, b))) = FunDeri(f, r, 2)(r(a, b)) + frac(1, r(a, b)) * FunDeri(f, r, 1)(r(a, b))}) by proof {
+autosolve all_hypothesis
+}
+autosolve all_hypothesis

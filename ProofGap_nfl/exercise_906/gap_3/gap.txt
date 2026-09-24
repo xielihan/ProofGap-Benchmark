@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. 0 ≤ |a|
+5. |a| < |b|
+6. forall (x), x ∈ RealSet ⇒ y(x) = ln(frac(b + a * cos(x) + sqrtn(2, b^{2} - a^{2}) * sin(x), a + b * cos(x)))
+7. forall (x), x ∈ RealSet ∧ a = 0 ⇒ y(x) = ln(frac(1 + sin(x), cos(x)))
+8. forall (x), x ∈ RealSet ∧ a = 0 ∧ 1 + sin(x) > 0 ∧ cos(x) > 0 ⇒ y(x) ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ a = 0 ∧ (exists (k), k ∈ IntegerSet ∧ (2 * k - frac(1, 2)) * π < x ∧ x < (2 * k + frac(1, 2)) * π) ⇒ 1 + sin(x) > 0 ∧ cos(x) > 0
+
+METHOD:

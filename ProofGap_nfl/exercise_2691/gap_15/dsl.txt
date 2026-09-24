@@ -1,0 +1,10 @@
+get_forall (GOAL: {forall (m), m ∈ NonNegIntegerSet ∧ seqlim_{ n → +∞ } (sin(n^{2})) = 0 ⇒ sin(m + 1) = sin(m) * cos(1) + cos(m) * sin(1)}) (m := {m0})
+get_condition (hypothesis 15: {m0 ∈ NonNegIntegerSet ∧ seqlim_{ n → +∞ } (sin(n^{2})) = 0}) in (GOAL: {m0 ∈ NonNegIntegerSet ∧ seqlim_{ n → +∞ } (sin(n^{2})) = 0 ⇒ sin(m0 + 1) = sin(m0) * cos(1) + cos(m0) * sin(1)})
+destruct_and (hypothesis 15: {m0 ∈ NonNegIntegerSet ∧ seqlim_{ n → +∞ } (sin(n^{2})) = 0}) as (hypothesis 16: {m0 ∈ NonNegIntegerSet}) (hypothesis 17: {seqlim_{ n → +∞ } (sin(n^{2})) = 0})
+get_prop (theorem 'Thm 180. (SineAdditionFormula)': {forall (x) (y), x ∈ RealSet => y ∈ RealSet => sin (x + y) = sin(x) * cos(y) + cos(x) * sin(y)}) (x := {m0}) (y := {1}) as (hypothesis 18: {m0 ∈ RealSet ⇒ 1 ∈ RealSet ⇒ sin(m0 + 1) = sin(m0) * cos(1) + cos(m0) * sin(1)})
+assert (hypothesis 19: {m0 ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 19: {m0 ∈ RealSet}) in (hypothesis 18: {m0 ∈ RealSet ⇒ 1 ∈ RealSet ⇒ sin(m0 + 1) = sin(m0) * cos(1) + cos(m0) * sin(1)}) as (hypothesis 20: {1 ∈ RealSet ⇒ sin(m0 + 1) = sin(m0) * cos(1) + cos(m0) * sin(1)})
+use_condition (obvious: {1 ∈ RealSet}) in (hypothesis 20: {1 ∈ RealSet ⇒ sin(m0 + 1) = sin(m0) * cos(1) + cos(m0) * sin(1)}) as (hypothesis 21: {sin(m0 + 1) = sin(m0) * cos(1) + cos(m0) * sin(1)})
+autosolve all_hypothesis

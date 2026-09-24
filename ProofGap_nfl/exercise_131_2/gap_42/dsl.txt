@@ -1,0 +1,5 @@
+get_exists (hypothesis 48: {exists (`τ'`), `τ'` ∈ RealSet ∧ `τ'` ≥ seqlim_{ n → +∞ } (x(n))}) (`τ'` := {tau1})
+destruct_and (hypothesis 52: {tau1 ∈ RealSet ∧ tau1 ≥ seqlim_{ n → +∞ } (x(n))}) as (hypothesis 53: {tau1 ∈ RealSet}) (hypothesis 54: {tau1 ≥ seqlim_{ n → +∞ } (x(n))})
+exists (`τ'` := {tau1})
+rewrite (left_to_right, equation) (hypothesis 45: {`r'` = seqlim_{ n → +∞ } (y(n))}); from (GOAL: {tau1 ∈ RealSet ∧ `r'` + tau1 ≥ (seqlim_{ n → +∞ } (x(n))) + (seqlim_{ n → +∞ } (y(n)))}) to (GOAL: {tau1 ∈ RealSet ∧ (seqlim_{ n → +∞ } (y(n))) + tau1 ≥ (seqlim_{ n → +∞ } (x(n))) + (seqlim_{ n → +∞ } (y(n)))})
+autosolve (hypothesis 53: {tau1 ∈ RealSet}) (hypothesis 54: {tau1 ≥ seqlim_{ n → +∞ } (x(n))})

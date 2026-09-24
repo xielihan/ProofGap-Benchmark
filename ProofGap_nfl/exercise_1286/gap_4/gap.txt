@@ -1,0 +1,18 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. a < b
+5. Defined(f, (a, b))
+6. forall (c), c ∈ RealSet ∧ c ∈ IntervalLoRo(a, b) ⇒ (exists (δ), δ ∈ RealSet ∧ δ ∈ PosRealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ∧ 0 < |x - c| ∧ |x - c| < δ ⇒ frac(f(x) - f(c), x - c) > 0))
+7. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < b ⇒ (forall (c) (x_{1}) (x_{2}), c ∈ RealSet ∧ x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ c ∈ [x_{1}, x_{2}] ⇒ (exists (`δ_c`), `δ_c` ∈ RealSet ∧ `δ_c` ∈ PosRealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ∧ 0 < |x - c| ∧ |x - c| < `δ_c` ⇒ frac(f(x) - f(c), x - c) > 0))))
+8. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < b ⇒ (exists (`δ_c`), `δ_c` : RealSet → RealSet ∧ (exists (Δ), Δ : RealSet → PowerSet(RealSet) ∧ (forall (c), c ∈ RealSet ∧ c ∈ [x_{1}, x_{2}] ⇒ `δ_c`(c) ∈ PosRealSet) ∧ Δ = (fun c [c ∈ RealSet] . (c - `δ_c`(c), c + `δ_c`(c))))))
+9. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < b ⇒ (exists (Δ), Δ : RealSet → PowerSet(RealSet) ∧ (forall (c) (x_{1}) (x_{2}), c ∈ RealSet ∧ x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ c ∈ [x_{1}, x_{2}] ⇒ c ∈ Δ(c))))
+10. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < b ⇒ (exists (Δ), Δ : RealSet → PowerSet(RealSet) ∧ [x_{1}, x_{2}] ⊆ union_{ c ∈ [x_{1}, x_{2}] } (Δ(c))))
+
+GOAL:
+forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < b ⇒ (exists (Δ), Δ : RealSet → PowerSet(RealSet) ∧ (exists (m) (c), m ∈ NonNegIntegerSet ∧ c : NonNegIntegerSet → RealSet ∧ m ∈ PosIntegerSet ∧ c ∈ (fun i [i ∈ NonNegIntegerSet] . c(i)) ∧ [x_{1}, x_{2}] ⊆ union_{ i = 1 }^{ m } (Δ(c(i))))))
+
+METHOD:
+[@method 根据 "Borel有限覆盖定理" @]

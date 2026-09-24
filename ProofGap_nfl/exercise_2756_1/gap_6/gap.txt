@@ -1,0 +1,18 @@
+PROOF GAP @6
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. g : RealSet → RealSet
+3. C ∈ RealSet
+4. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ f(n, x) = arctan(n * x)
+5. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ g(x) = frac(π, 2)
+6. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ seqlim_{ n → +∞ } (f(n, x)) = frac(π, 2) ∧ frac(π, 2) = g(x)
+7. ε_{0} ∈ RealSet ∧ ε_{0} = frac(π, 8)
+8. 0 < ε_{0}
+9. ε_{0} < frac(π, 4)
+10. 0 < frac(π, 4)
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, n) ∈ PosRealSet ∧ |f(n, frac(1, n)) - g(frac(1, n))| = |arctan(1) - frac(π, 2)| ∧ |arctan(1) - frac(π, 2)| = frac(π, 4) ∧ frac(π, 4) > ε_{0}
+
+GOAL:
+exists (ε_{0}), ε_{0} ∈ RealSet ∧ ε_{0} > 0 ∧ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ (exists (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ∧ n > N ∧ |f(n, x) - g(x)| > ε_{0}))
+
+METHOD:

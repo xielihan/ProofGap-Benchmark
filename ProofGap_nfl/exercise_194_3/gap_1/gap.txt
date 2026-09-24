@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = (x + |x|) * (1 - x)
+
+GOAL:
+x + |x| ≥ 0
+
+METHOD:

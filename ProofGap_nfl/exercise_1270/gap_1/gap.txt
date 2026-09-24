@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(fun t . frac(2 * t, 1 + t^{2}), 1, 1)(x) = frac(2 * (1 - x) * (1 + x), (1 + x^{2})^{2})
+
+METHOD:

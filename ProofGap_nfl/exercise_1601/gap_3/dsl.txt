@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (t), t ∈ RealSet ∧ 1 - cos(t) ≠ 0 ⇒ FunDeri(y, x, 1)(t) = cot(frac(t, 2))}) (t := {t0})
+get_condition (hypothesis 10: {t0 ∈ RealSet ∧ 1 - cos(t0) ≠ 0}) in (GOAL: {t0 ∈ RealSet ∧ 1 - cos(t0) ≠ 0 ⇒ FunDeri(y, x, 1)(t0) = cot(frac(t0, 2))})
+get_prop (hypothesis 8: {forall (t), t ∈ RealSet ∧ 1 - cos(t) ≠ 0 ⇒ FunDeri(y, x, 1)(t) = frac(a * sin(t), a * (1 - cos(t)))}) (t := {t0}) as (hypothesis 11: {t0 ∈ RealSet ∧ 1 - cos(t0) ≠ 0 ⇒ FunDeri(y, x, 1)(t0) = frac(a * sin(t0), a * (1 - cos(t0)))})
+use_condition (hypothesis 10: {t0 ∈ RealSet ∧ 1 - cos(t0) ≠ 0}) in (hypothesis 11: {t0 ∈ RealSet ∧ 1 - cos(t0) ≠ 0 ⇒ FunDeri(y, x, 1)(t0) = frac(a * sin(t0), a * (1 - cos(t0)))}) as (hypothesis 12: {FunDeri(y, x, 1)(t0) = frac(a * sin(t0), a * (1 - cos(t0)))})
+get_prop (hypothesis 9: {forall (t), t ∈ RealSet ∧ 1 - cos(t) ≠ 0 ⇒ frac(a * sin(t), a * (1 - cos(t))) = cot(frac(t, 2))}) (t := {t0}) as (hypothesis 13: {t0 ∈ RealSet ∧ 1 - cos(t0) ≠ 0 ⇒ frac(a * sin(t0), a * (1 - cos(t0))) = cot(frac(t0, 2))})
+use_condition (hypothesis 10: {t0 ∈ RealSet ∧ 1 - cos(t0) ≠ 0}) in (hypothesis 13: {t0 ∈ RealSet ∧ 1 - cos(t0) ≠ 0 ⇒ frac(a * sin(t0), a * (1 - cos(t0))) = cot(frac(t0, 2))}) as (hypothesis 14: {frac(a * sin(t0), a * (1 - cos(t0))) = cot(frac(t0, 2))})
+rewrite (left_to_right, equation) (hypothesis 12: {FunDeri(y, x, 1)(t0) = frac(a * sin(t0), a * (1 - cos(t0)))}); from (GOAL: {FunDeri(y, x, 1)(t0) = cot(frac(t0, 2))}) to (GOAL: {frac(a * sin(t0), a * (1 - cos(t0))) = cot(frac(t0, 2))})
+apply (hypothesis 14: {frac(a * sin(t0), a * (1 - cos(t0))) = cot(frac(t0, 2))})

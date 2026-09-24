@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. F : CartesianProd(RealSet, RealSet) → RealSet
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ 0 ∧ y ≠ 0 ∧ x * FunDeri(F, 1, 1)(x + frac(z(x, y), y), y + frac(z(x, y), x)) + y * FunDeri(F, 2, 1)(x + frac(z(x, y), y), y + frac(z(x, y), x)) ≠ 0 ⇒ F(x + frac(z(x, y), y), y + frac(z(x, y), x)) = 0
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ DiffableFuncAt(z, (x, y))
+5. ContinuouslyDiffableFunc(F)
+6. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x ≠ 0 ∧ y ≠ 0 ∧ x * FunDeri(F, 1, 1)(x + frac(z(x, y), y), y + frac(z(x, y), x)) + y * FunDeri(F, 2, 1)(x + frac(z(x, y), y), y + frac(z(x, y), x)) ≠ 0 ⇒ FunDeri(F, 1, 1)(x + frac(z(x, y), y), y + frac(z(x, y), x)) * (1 + frac(1, y) * FunDeri(z, 1, 1)(x, y)) + FunDeri(F, 2, 1)(x + frac(z(x, y), y), y + frac(z(x, y), x)) * frac(x * FunDeri(z, 1, 1)(x, y) - z(x, y), x^{2}) = 0)
+7. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x ≠ 0 ∧ y ≠ 0 ∧ x * FunDeri(F, 1, 1)(x + frac(z(x, y), y), y + frac(z(x, y), x)) + y * FunDeri(F, 2, 1)(x + frac(z(x, y), y), y + frac(z(x, y), x)) ≠ 0 ⇒ FunDeri(F, 1, 1)(x + frac(z(x, y), y), y + frac(z(x, y), x)) * frac(y * FunDeri(z, 2, 1)(x, y) - z(x, y), y^{2}) + FunDeri(F, 2, 1)(x + frac(z(x, y), y), y + frac(z(x, y), x)) * (1 + frac(1, x) * FunDeri(z, 2, 1)(x, y)) = 0)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x ≠ 0 ∧ y ≠ 0 ∧ x * FunDeri(F, 1, 1)(x + frac(z(x, y), y), y + frac(z(x, y), x)) + y * FunDeri(F, 2, 1)(x + frac(z(x, y), y), y + frac(z(x, y), x)) ≠ 0 ⇒ FunDeri(z, 1, 1)(x, y) = frac(y * z(x, y) * FunDeri(F, 2, 1)(x + frac(z(x, y), y), y + frac(z(x, y), x)) - x^{2} * y * FunDeri(F, 1, 1)(x + frac(z(x, y), y), y + frac(z(x, y), x)), x * (x * FunDeri(F, 1, 1)(x + frac(z(x, y), y), y + frac(z(x, y), x)) + y * FunDeri(F, 2, 1)(x + frac(z(x, y), y), y + frac(z(x, y), x)))))
+
+METHOD:

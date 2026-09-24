@@ -1,0 +1,5 @@
+assert (hypothesis 10: {sqrt(e) > 0}) by proof {
+  autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 9: {seqlim_{ n → +∞ } (|a(n) * frac(1, e)^{n} * (-1)^{n}|) = frac(1, sqrt(e))}); from (GOAL: {¬seqlim_{ n → +∞ } (|a(n) * frac(1, e)^{n} * (-1)^{n}|) = 0}) to (GOAL: {¬frac(1, sqrt(e)) = 0})
+autosolve all_hypothesis

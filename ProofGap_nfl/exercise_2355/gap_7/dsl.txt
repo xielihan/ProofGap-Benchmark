@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (u), u ∈ RealSet ∧ sqrtn(2, u^{2} + 4 * a * b) ≠ 0 ⇒ frac(sqrtn(2, u^{2} + 4 * a * b) - u + sqrtn(2, u^{2} + 4 * a * b) + u, sqrtn(2, u^{2} + 4 * a * b)) = 2}) (u := {u0})
+get_condition (hypothesis 15: {u0 ∈ RealSet ∧ sqrtn(2, u0^{2} + 4 * a * b) ≠ 0}) in (GOAL: {u0 ∈ RealSet ∧ sqrtn(2, u0^{2} + 4 * a * b) ≠ 0 ⇒ frac(sqrtn(2, u0^{2} + 4 * a * b) - u0 + sqrtn(2, u0^{2} + 4 * a * b) + u0, sqrtn(2, u0^{2} + 4 * a * b)) = 2})
+destruct_and (hypothesis 15: {u0 ∈ RealSet ∧ sqrtn(2, u0^{2} + 4 * a * b) ≠ 0}) as (hypothesis 16: {u0 ∈ RealSet}) (hypothesis 17: {sqrtn(2, u0^{2} + 4 * a * b) ≠ 0})
+autosolve all_hypothesis

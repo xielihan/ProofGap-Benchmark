@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. a ∈ RealSet ∧ a > 0
+3. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ C = { (x, y) | x^{2} + y^{2} = a^{2} })
+4. x = (fun t [t ∈ RealSet] . a * cos(t))
+5. y = (fun t [t ∈ RealSet] . a * sin(t))
+
+GOAL:
+diff(x) = (fun t [t ∈ RealSet] . -a * sin(t)) * diff(fun t [t ∈ RealSet] . t)
+
+METHOD:

@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ sum_{ k = 1 }^{ n } (2 * sin(frac(x, 2)) * sin(k * x)) = sum_{ k = 1 }^{ n } (2 * sin(frac(x, 2)) * sin(k * x))}) (n := {n0}) (x := {x0})
+get_condition (hypothesis 6: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet ⇒ sum_{ k = 1 }^{ n0 } (2 * sin(frac(x0, 2)) * sin(k * x0)) = sum_{ k = 1 }^{ n0 } (2 * sin(frac(x0, 2)) * sin(k * x0))})
+assert (hypothesis 7: {sum_{ k = 1 }^{ n0 } (2 * sin(frac(x0, 2)) * sin(k * x0)) = sum_{ k = 1 }^{ n0 } (2 * sin(frac(x0, 2)) * sin(k * x0))})
+apply (hypothesis 7: {sum_{ k = 1 }^{ n0 } (2 * sin(frac(x0, 2)) * sin(k * x0)) = sum_{ k = 1 }^{ n0 } (2 * sin(frac(x0, 2)) * sin(k * x0))})

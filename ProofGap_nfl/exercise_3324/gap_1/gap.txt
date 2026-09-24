@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. φ : CartesianProd(RealSet, RealSet) → RealSet
+3. n ∈ RealSet
+4. α ∈ RealSet
+5. β ∈ RealSet
+6. forall (x) (y) (z), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = x^{n} * φ(frac(y, x^{α}), frac(z, x^{β}))
+7. DiffableFunc(φ)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), x > 0 ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ x * FunDeri(u, 1, 1)(x, y, z) = n * x^{n} * φ(frac(y, x^{α}), frac(z, x^{β})) - α * x^{n - α} * y * FunDeri(φ, 1, 1)(frac(y, x^{α}), frac(z, x^{β})) - β * x^{n - β} * z * FunDeri(φ, 2, 1)(frac(y, x^{α}), frac(z, x^{β}))))
+
+METHOD:

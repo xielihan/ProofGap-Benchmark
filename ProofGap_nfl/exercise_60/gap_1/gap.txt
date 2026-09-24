@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. k ∈ RealSet
+3. a > 1
+4. λ = a - 1
+
+GOAL:
+λ > 0
+
+METHOD:

@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. V ⊆ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+2. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ ((x, y, z) ∈ V ⇔ (x, y, z) ∈ CartesianProd(CartesianProd(RealSet, RealSet), RealSet) ∧ 0 ≤ x ∧ x ≤ 1 ∧ 0 ≤ y ∧ y ≤ x ∧ 0 ≤ z ∧ z ≤ x * y)))
+
+GOAL:
+VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ x ∧ z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ x * y] . x * y^{2} * z^{3}) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x) * diff(fun y [y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ x] . y) * diff(fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ x * y] . z)) = DefInt(0, 1, fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x * DefInt(0, x, fun y [y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ x] . y^{2} * DefInt(0, x * y, (fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ x * y] . z^{3}) * diff(fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ x * y] . z)) * diff(fun y [y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ x] . y)) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x))
+
+METHOD:

@@ -1,0 +1,16 @@
+PROOF GAP @4
+ASSUM:
+1. V ∈ RealSet
+2. Ω ⊆ CartesianProd(RealSet, RealSet)
+3. z : CartesianProd(RealSet, RealSet) → RealSet
+4. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ Ω = { (x, y) | x ∈ RealSet, y ∈ RealSet, x ≥ 0, y ≥ 0, x + y ≤ 1 })
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≥ 0 ∧ y ≥ 0 ⇒ z(x, y) = x^{frac(3, 2)} + y^{frac(3, 2)}
+6. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (t), t ∈ RealSet ⇒ V = VolumeInt({ (x, y, t) | x ∈ RealSet, y ∈ RealSet, t ∈ RealSet, (x, y) ∈ Ω, 0 ≤ t, t ≤ z(x, y) }, 1 * diff(ω))))
+7. V = VolumeInt(Ω, (fun x, y [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 - x] . x^{frac(3, 2)} + y^{frac(3, 2)}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+8. V = DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . DefInt(0, 1 - x, (fun y [y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 - x] . x^{frac(3, 2)} + y^{frac(3, 2)}) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+9. V = DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x^{frac(3, 2)} * (1 - x) + frac(2, 5) * (1 - x)^{frac(5, 2)}) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+V = ((fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . frac(2, 5) * x^{frac(5, 2)})|_{0}^{1}) - ((fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . frac(2, 7) * x^{frac(7, 2)})|_{0}^{1}) - ((fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . frac(4, 35) * (1 - x)^{frac(7, 2)})|_{0}^{1})
+
+METHOD:

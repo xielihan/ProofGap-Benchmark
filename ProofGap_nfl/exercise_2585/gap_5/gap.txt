@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. forall (n) (k), n ∈ NonNegIntegerSet ∧ k ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = prod_{ k = 1 }^{ n } (sqrtn(2, 2) - sqrtn(2 * k + 1, 2))
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ≠ 0
+4. seqlim_{ n → +∞ } (a(n + 1) / a(n)) = seqlim_{ n → +∞ } (sqrtn(2, 2) - sqrtn(2 * n + 3, 2))
+5. seqlim_{ n → +∞ } (sqrtn(2, 2) - sqrtn(2 * n + 3, 2)) = sqrtn(2, 2) - 1
+6. seqlim_{ n → +∞ } (a(n + 1) / a(n)) = sqrtn(2, 2) - 1
+
+GOAL:
+sqrtn(2, 2) - 1 < 1
+
+METHOD:

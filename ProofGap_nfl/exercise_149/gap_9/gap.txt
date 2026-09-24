@@ -1,0 +1,21 @@
+PROOF GAP @9
+ASSUM:
+1. a ∈ RealSet
+2. x : NonNegIntegerSet → RealSet
+3. a ∈ PosRealSet
+4. x(0) ∈ PosRealSet
+5. forall (n), n ∈ NonNegIntegerSet ∧ x(n) ≠ 0 ⇒ x(n + 1) = frac(1, 2) * (x(n) + frac(a, x(n)))
+6. forall (n), n ∈ NonNegIntegerSet ⇒ x(n + 1) = frac(1, 2) * (sqrtn(2, x(n)) - frac(sqrtn(2, a), sqrtn(2, x(n))))^{2} + sqrtn(2, a)
+7. forall (n), n ∈ NonNegIntegerSet ⇒ x(n + 1) ≥ sqrtn(2, a)
+8. BoundedBelowSeq(x)
+9. forall (n), n ∈ NonNegIntegerSet ⇒ x(n + 1) - x(n) = frac(1, 2) * (frac(a, x(n)) - x(n))
+10. forall (n), n ∈ NonNegIntegerSet ⇒ x(n + 1) - x(n) ≤ 0
+11. MonoDecSeq(x)
+12. ConvergentSeq(x)
+13. l = seqlim_{ n → +∞ } (x(n))
+14. l ≥ sqrtn(2, a)
+
+GOAL:
+sqrtn(2, a) > 0
+
+METHOD:

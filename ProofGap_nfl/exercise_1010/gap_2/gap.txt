@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. x_{0} ∈ RealSet
+2. f : RealSet → RealSet
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. forall (t), t ∈ RealSet ⇒ f(t) = cases{ t^{2} if t ≤ x_{0}; a * t + b if t > x_{0} }
+6. f(x_{0}) = (x_{0})^{2}
+
+GOAL:
+(x_{0})^{2} = lim_{ x → x_{0}^- } (f(x))
+
+METHOD:

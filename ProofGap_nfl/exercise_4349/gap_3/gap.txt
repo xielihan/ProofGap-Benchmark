@@ -1,0 +1,19 @@
+PROOF GAP @3
+ASSUM:
+1. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. x : CartesianProd(RealSet, RealSet) → RealSet
+3. y : CartesianProd(RealSet, RealSet) → RealSet
+4. z : CartesianProd(RealSet, RealSet) → RealSet
+5. E : CartesianProd(RealSet, RealSet) → RealSet
+6. F : CartesianProd(RealSet, RealSet) → RealSet
+7. G : CartesianProd(RealSet, RealSet) → RealSet
+8. a ∈ RealSet ∧ a > 0
+9. α ∈ RealSet ∧ 0 < α ∧ α < frac(π, 2)
+10. forall (r) (φ), r ∈ RealSet ∧ φ ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ x(r, φ) = r * cos(φ) * sin(α) ∧ y(r, φ) = r * sin(φ) * sin(α) ∧ z(r, φ) = r * cos(α)
+11. forall (r) (φ), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ∧ φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ E(r, φ) = cos(φ)^{2} * sin(α)^{2} + sin(φ)^{2} * sin(α)^{2} + cos(α)^{2}
+12. forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ cos(φ)^{2} * sin(α)^{2} + sin(φ)^{2} * sin(α)^{2} + cos(α)^{2} = 1
+
+GOAL:
+forall (r) (φ), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ∧ φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ E(r, φ) = 1
+
+METHOD:

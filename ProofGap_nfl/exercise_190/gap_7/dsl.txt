@@ -1,0 +1,4 @@
+get_prop (hypothesis 2: {forall (x), x ∈ RealSet /\ x ≠ 0 => f(x) = lg(x ^ 2)}) (x := {100}) as (hypothesis 9: {100 ∈ RealSet /\ 100 ≠ 0 => f(100) = lg(100 ^ 2)})
+use_condition (obvious: {100 ∈ RealSet /\ 100 ≠ 0}) in (hypothesis 9: {100 ∈ RealSet /\ 100 ≠ 0 => f(100) = lg(100 ^ 2)}) as (hypothesis 10: {f(100) = lg(100 ^ 2)})
+autoreplace no_hypothesis; from (100 ^ 2) to (10000); from (hypothesis 10: {f(100) = lg(100 ^ 2)}) to (hypothesis 11: {f(100) = lg(10000)})
+apply (hypothesis 11: {f(100) = lg(10000)})

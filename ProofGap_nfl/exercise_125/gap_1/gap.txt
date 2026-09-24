@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. BoundedSeq(x)
+
+GOAL:
+exists (a) (b), a ∈ RealSet ∧ b ∈ RealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a ≤ x(n) ∧ x(n) ≤ b)
+
+METHOD:

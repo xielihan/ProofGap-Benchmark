@@ -1,0 +1,14 @@
+PROOF GAP @8
+ASSUM:
+1. forall (a), a ∈ RealSet ⇒ (forall (n), n ∈ IntegerSet ∧ a ∈ PosRealSet ∧ n ∈ PosIntegerSet ⇒ lim_{ x → +∞ } (frac(x^{n}, e^{a * x})) = lim_{ x → +∞ } (frac(n * x^{n - 1}, a * e^{a * x})))
+2. forall (a), a ∈ RealSet ⇒ (forall (n), n ∈ IntegerSet ∧ a ∈ PosRealSet ∧ n ∈ PosIntegerSet ⇒ lim_{ x → +∞ } (frac(x^{n}, e^{a * x})) = lim_{ x → +∞ } (frac(n!, a^{n} * e^{a * x})))
+3. forall (a), a ∈ RealSet ⇒ (forall (n), n ∈ IntegerSet ∧ a ∈ PosRealSet ∧ n ∈ PosIntegerSet ⇒ lim_{ x → +∞ } (frac(n!, a^{n} * e^{a * x})) = 0)
+4. forall (a), a ∈ RealSet ⇒ (forall (n), n ∈ IntegerSet ∧ a ∈ PosRealSet ∧ n ∈ PosIntegerSet ⇒ lim_{ x → +∞ } (frac(x^{n}, e^{a * x})) = 0)
+5. forall (a), a ∈ RealSet ⇒ (forall (n), n ∈ RealSet ∧ a ∈ PosRealSet ∧ n ∈ PosRealSet ∧ n ∉ PosIntegerSet ⇒ floor(n) < n)
+6. forall (a), a ∈ RealSet ⇒ (forall (n), n ∈ RealSet ∧ a ∈ PosRealSet ∧ n ∈ PosRealSet ∧ n ∉ PosIntegerSet ⇒ n < floor(n) + 1)
+7. forall (x), x ∈ RealSet ⇒ (forall (a), a ∈ RealSet ⇒ (forall (n), n ∈ RealSet ∧ a ∈ PosRealSet ∧ n ∈ PosRealSet ∧ n ∉ PosIntegerSet ∧ x > 1 ⇒ frac(x^{floor(n)}, e^{a * x}) < frac(x^{n}, e^{a * x})))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (a), a ∈ RealSet ⇒ (forall (n), n ∈ RealSet ∧ a ∈ PosRealSet ∧ n ∈ PosRealSet ∧ n ∉ PosIntegerSet ∧ x > 1 ⇒ frac(x^{n}, e^{a * x}) < frac(x^{floor(n) + 1}, e^{a * x})))
+
+METHOD:

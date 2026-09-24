@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. Δ = |sqrtn(2, e) - 1.64872|
+2. sqrtn(2, e) = e^{frac(1, 2)}
+3. e^{frac(1, 2)} ≈_{ sum_{ n = 7 }^{ +∞ } (frac(1, n!) * frac(1, 2)^{n}) } sum_{ n = 0 }^{ 6 } (frac(1, n!) * frac(1, 2)^{n})
+4. sum_{ n = 7 }^{ +∞ } (frac(1, n!) * frac(1, 2)^{n}) < frac(1, 7!) * frac(1, 2)^{7} * frac(1, 1 - frac(1, 8) * frac(1, 2))
+
+GOAL:
+sqrtn(2, e) ≈_{ 1.7 * 10^{-6} } 1.64872
+
+METHOD:

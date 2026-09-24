@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. lim_{ x → 0 } (frac(sqrtn(2, 1 + tan(x)) - sqrtn(2, 1 + sin(x)), x^{3})) = lim_{ x → 0 } (frac(tan(x) - sin(x), x^{3} * (sqrtn(2, 1 + tan(x)) + sqrtn(2, 1 + sin(x)))))
+
+GOAL:
+lim_{ x → 0 } (frac(tan(x) - sin(x), x^{3} * (sqrtn(2, 1 + tan(x)) + sqrtn(2, 1 + sin(x))))) = lim_{ x → 0 } (frac(sin(x) * (1 - cos(x)), x^{3} * cos(x) * (sqrtn(2, 1 + tan(x)) + sqrtn(2, 1 + sin(x)))))
+
+METHOD:

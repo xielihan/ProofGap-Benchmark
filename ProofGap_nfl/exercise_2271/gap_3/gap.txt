@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. sqrtn(3, 1 - x) = t
+2. t ∈ [-2, 0]
+3. DefInt(1, 9, (fun x [x ∈ RealSet] . x * sqrtn(3, 1 - x)) * diff(fun x [x ∈ RealSet] . x)) = -3 * DefInt(0, -2, (fun t [t ∈ RealSet] . t^{3} - t^{6}) * diff(fun t [t ∈ RealSet] . t))
+
+GOAL:
+DefInt(1, 9, (fun x [x ∈ RealSet] . x * sqrtn(3, 1 - x)) * diff(fun x [x ∈ RealSet] . x)) = -frac(468, 7)
+
+METHOD:

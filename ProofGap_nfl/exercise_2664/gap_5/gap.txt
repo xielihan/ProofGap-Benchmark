@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac((-1)^{frac(n * (n - 1), 2)}, 2^{n})
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |a(n)| = frac(1, 2^{n})
+4. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, 2^{n})))
+5. AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+6. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+GOAL:
+ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+METHOD:

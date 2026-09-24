@@ -1,0 +1,16 @@
+PROOF GAP @5
+ASSUM:
+1. ζ : RealSet → RealSet
+2. p : NonNegIntegerSet → NonNegIntegerSet
+3. k ∈ NonNegIntegerSet
+4. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(1, +∞) ⇒ ζ(x) = sum_{ k = 1 }^{ +∞ } (frac(1, k^{x}))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(n) ∈ PrimeSet
+6. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(1, +∞) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (1 - frac(1, p(n)^{x}))^{-1} = sum_{ m = 0 }^{ +∞ } (frac(1, (p(n)^{m})^{x})))
+7. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(1, +∞) ⇒ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ prod_{ n ∈ PosIntegerSet ∧ p(n) ≤ N } ((1 - frac(1, p(n)^{x}))^{-1}) = sum_{ k ∈ { k | k ∈ PosIntegerSet ∧ (forall (q), q ∈ NonNegIntegerSet ∧ q ∈ PrimeSet ∧ q | k ⇒ q ≤ N) } } (frac(1, k^{x})))
+8. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(1, +∞) ⇒ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ (forall (j), j ∈ NonNegIntegerSet ∧ j ∈ PosIntegerSet ∧ j ≤ N ⇒ j ∈ { k | k ∈ PosIntegerSet ∧ (forall (q), q ∈ NonNegIntegerSet ∧ q ∈ PrimeSet ∧ q | k ⇒ q ≤ N) }))
+9. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(1, +∞) ⇒ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ |ζ(x) - (prod_{ n ∈ PosIntegerSet ∧ p(n) ≤ N } ((1 - frac(1, p(n)^{x}))^{-1}))| ≤ sum_{ k = N + 1 }^{ +∞ } (frac(1, k^{x})))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(1, +∞) ⇒ seqlim_{ N → +∞ } (sum_{ k = N + 1 }^{ +∞ } (frac(1, k^{x}))) = 0
+
+METHOD:

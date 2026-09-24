@@ -1,0 +1,4 @@
+get_prop (hypothesis 2: {forall (x), x ∈ RealSet ∧ x ≠ -1 ⇒ y(x) = frac(x^{2} - 3 * x + 2, x^{2} + 2 * x + 1)}) (x := {frac(7, 5)}) as (hypothesis 8: {frac(7, 5) ∈ RealSet ∧ frac(7, 5) ≠ -1 ⇒ y(frac(7, 5)) = frac((frac(7, 5))^{2} - 3 * frac(7, 5) + 2, (frac(7, 5))^{2} + 2 * frac(7, 5) + 1)})
+use_condition (obvious: {frac(7, 5) ∈ RealSet ∧ frac(7, 5) ≠ -1}) in (hypothesis 8: {frac(7, 5) ∈ RealSet ∧ frac(7, 5) ≠ -1 ⇒ y(frac(7, 5)) = frac((frac(7, 5))^{2} - 3 * frac(7, 5) + 2, (frac(7, 5))^{2} + 2 * frac(7, 5) + 1)}) as (hypothesis 9: {y(frac(7, 5)) = frac((frac(7, 5))^{2} - 3 * frac(7, 5) + 2, (frac(7, 5))^{2} + 2 * frac(7, 5) + 1)})
+rewrite (left_to_right, equation) (hypothesis 9: {y(frac(7, 5)) = frac((frac(7, 5))^{2} - 3 * frac(7, 5) + 2, (frac(7, 5))^{2} + 2 * frac(7, 5) + 1)}); from (GOAL: {y(frac(7, 5)) = -frac(1, 24)}) to (GOAL: {frac((frac(7, 5))^{2} - 3 * frac(7, 5) + 2, (frac(7, 5))^{2} + 2 * frac(7, 5) + 1) = -frac(1, 24)})
+autosolve using PolyRatSolver

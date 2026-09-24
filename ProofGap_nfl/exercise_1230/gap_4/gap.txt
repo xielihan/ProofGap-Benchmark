@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. y : RealSet → RealSet
+2. f : RealSet → RealSet
+3. forall (x), x ∈ RealSet ⇒ y(x) = f(x^{2})
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ FuncOfClassK(f, n)
+5. forall (n) (x), n ∈ NonNegIntegerSet ∧ n = 1 ∧ x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = 2 * x * FunDeri(f, fun x [x ∈ RealSet] . x^{2}, 1)(x^{2})
+6. forall (n) (x) (j) (i), n ∈ NonNegIntegerSet ∧ j ∈ NonNegIntegerSet ∧ i ∈ NonNegIntegerSet ∧ n = 1 ∧ x ∈ RealSet ⇒ FunDeri(y, 1, n)(x) = sum_{ j = 0 }^{ floor(n / 2) } (frac(prod_{ i = 0 }^{ 2 * j - 1 } (n - i), j!) * (2 * x)^{n - 2 * j} * FunDeri(f, fun x [x ∈ RealSet] . x^{2}, n - j)(x^{2}))
+7. forall (m) (x) (j) (i), m ∈ NonNegIntegerSet ∧ j ∈ NonNegIntegerSet ∧ i ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ x ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, m)(x) = sum_{ j = 0 }^{ floor(m / 2) } (frac(prod_{ i = 0 }^{ 2 * j - 1 } (m - i), j!) * (2 * x)^{m - 2 * j} * FunDeri(f, fun x [x ∈ RealSet] . x^{2}, m - j)(x^{2}))) ⇒ FunDeri(y, 1, m + 1)(x) = (2 * x)^{m + 1} * FunDeri(f, fun x [x ∈ RealSet] . x^{2}, m + 1)(x^{2}) + frac((m + 1) * m, 1!) * (2 * x)^{m - 1} * FunDeri(f, fun x [x ∈ RealSet] . x^{2}, m)(x^{2}) + frac((m + 1) * m * (m - 1) * (m - 2), 2!) * (2 * x)^{m - 3} * FunDeri(f, fun x [x ∈ RealSet] . x^{2}, m - 1)(x^{2}) + (sum_{ j = 3 }^{ floor((m + 1) / 2) } (frac(prod_{ i = 0 }^{ 2 * j - 1 } (m + 1 - i), j!) * (2 * x)^{m + 1 - 2 * j} * FunDeri(f, fun x [x ∈ RealSet] . x^{2}, m + 1 - j)(x^{2})))
+
+GOAL:
+forall (m) (x) (j) (i), m ∈ NonNegIntegerSet ∧ j ∈ NonNegIntegerSet ∧ i ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ x ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, m)(x) = sum_{ j = 0 }^{ floor(m / 2) } (frac(prod_{ i = 0 }^{ 2 * j - 1 } (m - i), j!) * (2 * x)^{m - 2 * j} * FunDeri(f, fun x [x ∈ RealSet] . x^{2}, m - j)(x^{2}))) ⇒ FunDeri(y, 1, m + 1)(x) = (2 * x)^{m + 1} * FunDeri(f, fun x [x ∈ RealSet] . x^{2}, m + 1)(x^{2}) + frac((m + 1) * m, 1!) * (2 * x)^{m - 1} * FunDeri(f, fun x [x ∈ RealSet] . x^{2}, m)(x^{2}) + frac((m + 1) * m * (m - 1) * (m - 2), 2!) * (2 * x)^{m - 3} * FunDeri(f, fun x [x ∈ RealSet] . x^{2}, m - 1)(x^{2}) + (sum_{ j = 3 }^{ floor((m + 1) / 2) } (frac(prod_{ i = 0 }^{ 2 * j - 1 } (m + 1 - i), j!) * (2 * x)^{m + 1 - 2 * j} * FunDeri(f, fun x [x ∈ RealSet] . x^{2}, m + 1 - j)(x^{2})))
+
+METHOD:

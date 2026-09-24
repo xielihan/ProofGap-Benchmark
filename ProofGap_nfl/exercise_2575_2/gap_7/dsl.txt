@@ -1,0 +1,35 @@
+get_prop (theorem 'Thm 346. (CauchySequenceDefinition)': {forall (a), (CauchySeq(a) <==> (forall (ε), ε ∈ RealSet => ε > 0 => (exists (N), N ∈ NonNegIntegerSet /\ forall (m) (n), m ∈ NonNegIntegerSet => n ∈ NonNegIntegerSet => (m >= N /\ n >= N) => |a(m) - a(n)| < ε)))}) (a := {S}) as (hypothesis 13: {CauchySeq(S) <==> (forall (ε), ε ∈ RealSet => ε > 0 => (exists (N), N ∈ NonNegIntegerSet /\ forall (m) (n), m ∈ NonNegIntegerSet => n ∈ NonNegIntegerSet => (m >= N /\ n >= N) => |S(m) - S(n)| < ε))})
+not_normalize from (GOAL: {¬CauchySeq(S)}) to (GOAL: {CauchySeq(S) => False})
+get_condition (hypothesis 14: {CauchySeq(S)}) in (GOAL: {CauchySeq(S) => False})
+rewrite (left_to_right, iff) (hypothesis 13: {CauchySeq(S) <==> (forall (ε), ε ∈ RealSet => ε > 0 => (exists (N), N ∈ NonNegIntegerSet /\ forall (m) (n), m ∈ NonNegIntegerSet => n ∈ NonNegIntegerSet => (m >= N /\ n >= N) => |S(m) - S(n)| < ε))}); from (hypothesis 14: {CauchySeq(S)}) to (hypothesis 14: {forall (ε), ε ∈ RealSet => ε > 0 => (exists (N), N ∈ NonNegIntegerSet /\ forall (m) (n), m ∈ NonNegIntegerSet => n ∈ NonNegIntegerSet => (m >= N /\ n >= N) => |S(m) - S(n)| < ε)})
+get_prop (hypothesis 14: {forall (ε), ε ∈ RealSet => ε > 0 => (exists (N), N ∈ NonNegIntegerSet /\ forall (m) (n), m ∈ NonNegIntegerSet => n ∈ NonNegIntegerSet => (m >= N /\ n >= N) => |S(m) - S(n)| < ε)}) (ε := {ε_{0}}) as (hypothesis 15: {ε_{0} ∈ RealSet => ε_{0} > 0 => (exists (N), N ∈ NonNegIntegerSet /\ forall (m) (n), m ∈ NonNegIntegerSet => n ∈ NonNegIntegerSet => (m >= N /\ n >= N) => |S(m) - S(n)| < ε_{0})})
+use_condition (hypothesis 2: {ε_{0} ∈ RealSet}) (obvious: {ε_{0} > 0}) in (hypothesis 15: {ε_{0} ∈ RealSet => ε_{0} > 0 => (exists (N), N ∈ NonNegIntegerSet /\ forall (m) (n), m ∈ NonNegIntegerSet => n ∈ NonNegIntegerSet => (m >= N /\ n >= N) => |S(m) - S(n)| < ε_{0})}) as (hypothesis 16: {exists (N), N ∈ NonNegIntegerSet /\ forall (m) (n), m ∈ NonNegIntegerSet => n ∈ NonNegIntegerSet => (m >= N /\ n >= N) => |S(m) - S(n)| < ε_{0}})
+get_exists (hypothesis 16: {exists (N), N ∈ NonNegIntegerSet /\ forall (m) (n), m ∈ NonNegIntegerSet => n ∈ NonNegIntegerSet => (m >= N /\ n >= N) => |S(m) - S(n)| < ε_{0}}) (N := {N0})
+destruct_and (hypothesis 17: {N0 ∈ NonNegIntegerSet /\ forall (m) (n), m ∈ NonNegIntegerSet => n ∈ NonNegIntegerSet => (m >= N0 /\ n >= N0) => |S(m) - S(n)| < ε_{0}}) as (hypothesis 18: {N0 ∈ NonNegIntegerSet}) (hypothesis 19: {forall (m) (n), m ∈ NonNegIntegerSet => n ∈ NonNegIntegerSet => (m >= N0 /\ n >= N0) => |S(m) - S(n)| < ε_{0}})
+assert (hypothesis 20: {N0 + 1 ∈ NonNegIntegerSet}) by proof {
+  autosolve (hypothesis 18: {N0 ∈ NonNegIntegerSet})
+}
+assert (hypothesis 21: {N0 + 1 ∈ PosIntegerSet}) by proof {
+  autosolve (hypothesis 18: {N0 ∈ NonNegIntegerSet})
+}
+assert (hypothesis 22: {2 * (N0 + 1) ∈ NonNegIntegerSet}) by proof {
+  autosolve (hypothesis 18: {N0 ∈ NonNegIntegerSet})
+}
+assert (hypothesis 23: {N0 + 1 >= N0})
+assert (hypothesis 24: {2 * (N0 + 1) >= N0}) by proof {
+  autosolve (hypothesis 18: {N0 ∈ NonNegIntegerSet})
+}
+assert (hypothesis 25: {2 * (N0 + 1) >= N0 /\ N0 + 1 >= N0}) by proof {
+  autosolve (hypothesis 23: {N0 + 1 >= N0}) (hypothesis 24: {2 * (N0 + 1) >= N0})
+}
+get_prop (hypothesis 19: {forall (m) (n), m ∈ NonNegIntegerSet => n ∈ NonNegIntegerSet => (m >= N0 /\ n >= N0) => |S(m) - S(n)| < ε_{0}}) (m := {2 * (N0 + 1)}) (n := {N0 + 1}) as (hypothesis 26: {2 * (N0 + 1) ∈ NonNegIntegerSet => N0 + 1 ∈ NonNegIntegerSet => (2 * (N0 + 1) >= N0 /\ N0 + 1 >= N0) => |S(2 * (N0 + 1)) - S(N0 + 1)| < ε_{0}})
+use_condition (hypothesis 22: {2 * (N0 + 1) ∈ NonNegIntegerSet}) (hypothesis 20: {N0 + 1 ∈ NonNegIntegerSet}) (hypothesis 25: {2 * (N0 + 1) >= N0 /\ N0 + 1 >= N0}) in (hypothesis 26: {2 * (N0 + 1) ∈ NonNegIntegerSet => N0 + 1 ∈ NonNegIntegerSet => (2 * (N0 + 1) >= N0 /\ N0 + 1 >= N0) => |S(2 * (N0 + 1)) - S(N0 + 1)| < ε_{0}}) as (hypothesis 27: {|S(2 * (N0 + 1)) - S(N0 + 1)| < ε_{0}})
+get_prop (hypothesis 12: {forall (n), n ∈ NonNegIntegerSet => (forall (p), p ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet /\ p = n => |S(n + p) - S(n)| > ε_{0})}) (n := {N0 + 1}) as (hypothesis 28: {N0 + 1 ∈ NonNegIntegerSet => (forall (p), p ∈ NonNegIntegerSet /\ N0 + 1 ∈ PosIntegerSet /\ p = N0 + 1 => |S(N0 + 1 + p) - S(N0 + 1)| > ε_{0})})
+use_condition (hypothesis 20: {N0 + 1 ∈ NonNegIntegerSet}) in (hypothesis 28: {N0 + 1 ∈ NonNegIntegerSet => (forall (p), p ∈ NonNegIntegerSet /\ N0 + 1 ∈ PosIntegerSet /\ p = N0 + 1 => |S(N0 + 1 + p) - S(N0 + 1)| > ε_{0})}) as (hypothesis 29: {forall (p), p ∈ NonNegIntegerSet /\ N0 + 1 ∈ PosIntegerSet /\ p = N0 + 1 => |S(N0 + 1 + p) - S(N0 + 1)| > ε_{0}})
+get_prop (hypothesis 29: {forall (p), p ∈ NonNegIntegerSet /\ N0 + 1 ∈ PosIntegerSet /\ p = N0 + 1 => |S(N0 + 1 + p) - S(N0 + 1)| > ε_{0}}) (p := {N0 + 1}) as (hypothesis 30: {N0 + 1 ∈ NonNegIntegerSet /\ N0 + 1 ∈ PosIntegerSet /\ N0 + 1 = N0 + 1 => |S(N0 + 1 + (N0 + 1)) - S(N0 + 1)| > ε_{0}})
+assert (hypothesis 31: {N0 + 1 ∈ NonNegIntegerSet /\ N0 + 1 ∈ PosIntegerSet /\ N0 + 1 = N0 + 1}) by proof {
+  autosolve (hypothesis 20: {N0 + 1 ∈ NonNegIntegerSet}) (hypothesis 21: {N0 + 1 ∈ PosIntegerSet})
+}
+use_condition (hypothesis 31: {N0 + 1 ∈ NonNegIntegerSet /\ N0 + 1 ∈ PosIntegerSet /\ N0 + 1 = N0 + 1}) in (hypothesis 30: {N0 + 1 ∈ NonNegIntegerSet /\ N0 + 1 ∈ PosIntegerSet /\ N0 + 1 = N0 + 1 => |S(N0 + 1 + (N0 + 1)) - S(N0 + 1)| > ε_{0}}) as (hypothesis 32: {|S(N0 + 1 + (N0 + 1)) - S(N0 + 1)| > ε_{0}})
+autoreplace no_hypothesis; from (N0 + 1 + (N0 + 1)) to (2 * (N0 + 1)); from (hypothesis 32: {|S(N0 + 1 + (N0 + 1)) - S(N0 + 1)| > ε_{0}}) to (hypothesis 33: {|S(2 * (N0 + 1)) - S(N0 + 1)| > ε_{0}})
+autosolve (hypothesis 27: {|S(2 * (N0 + 1)) - S(N0 + 1)| < ε_{0}}) (hypothesis 33: {|S(2 * (N0 + 1)) - S(N0 + 1)| > ε_{0}})

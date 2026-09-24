@@ -1,0 +1,28 @@
+PROOF GAP @6
+ASSUM:
+1. A ∈ CartesianProd(RealSet, RealSet)
+2. O ∈ CartesianProd(RealSet, RealSet)
+3. AmO ⊆ CartesianProd(RealSet, RealSet)
+4. OA ⊆ CartesianProd(RealSet, RealSet)
+5. C ⊆ CartesianProd(RealSet, RealSet)
+6. D ⊆ CartesianProd(RealSet, RealSet)
+7. a ∈ RealSet ∧ a > 0
+8. m ∈ RealSet
+9. A = (a, 0)
+10. O = (0, 0)
+11. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ AmO = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} = a * x ∧ y ≥ 0 })
+12. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ OA = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ∧ y = 0 })
+13. C = AmO ∪ OA
+14. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ D = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} ≤ a * x ∧ y ≥ 0 })
+15. P = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * sin(y) - m * y)
+16. Q = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * cos(y) - m)
+17. VectorCurveInt(OA, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * sin(y) - m * y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * cos(y) - m) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = 0
+18. VectorCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * sin(y) - m * y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * cos(y) - m) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = VectorCurveInt(AmO, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * sin(y) - m * y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * cos(y) - m) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+19. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(Q, 1, 1)(x, y) - FunDeri(P, 2, 1)(x, y) = e^{x} * cos(y) - (e^{x} * cos(y) - m))
+20. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ e^{x} * cos(y) - (e^{x} * cos(y) - m) = m)
+21. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(Q, 1, 1)(x, y) - FunDeri(P, 2, 1)(x, y) = m)
+
+GOAL:
+VectorCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * sin(y) - m * y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * cos(y) - m) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . m) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+
+METHOD:

@@ -1,0 +1,12 @@
+get_forall (GOAL: {forall (u) (v), u ∈ RealSet ∧ 0 < u ∧ u < a ∧ v ∈ RealSet ∧ 0 < v ∧ v < 2 * π ⇒ sqrtn(2, E(u, v) * G(u, v) - F(u, v)^{2}) = sqrtn(2, 1 + u^{2})}) (u := {p}) (v := {q})
+get_condition (hypothesis 24: {p ∈ RealSet ∧ 0 < p ∧ p < a ∧ q ∈ RealSet ∧ 0 < q ∧ q < 2 * π}) in (GOAL: {p ∈ RealSet ∧ 0 < p ∧ p < a ∧ q ∈ RealSet ∧ 0 < q ∧ q < 2 * π ⇒ sqrtn(2, E(p, q) * G(p, q) - F(p, q)^{2}) = sqrtn(2, 1 + p^{2})})
+get_prop (hypothesis 15: {forall (u) (v), u ∈ RealSet ∧ 0 < u ∧ u < a ∧ v ∈ RealSet ∧ 0 < v ∧ v < 2 * π ⇒ E(u, v) = 1}) (u := {p}) (v := {q}) as (hypothesis 25: {p ∈ RealSet ∧ 0 < p ∧ p < a ∧ q ∈ RealSet ∧ 0 < q ∧ q < 2 * π ⇒ E(p, q) = 1})
+get_prop (hypothesis 19: {forall (u) (v), u ∈ RealSet ∧ 0 < u ∧ u < a ∧ v ∈ RealSet ∧ 0 < v ∧ v < 2 * π ⇒ G(u, v) = 1 + u^{2}}) (u := {p}) (v := {q}) as (hypothesis 26: {p ∈ RealSet ∧ 0 < p ∧ p < a ∧ q ∈ RealSet ∧ 0 < q ∧ q < 2 * π ⇒ G(p, q) = 1 + p^{2}})
+get_prop (hypothesis 23: {forall (u) (v), u ∈ RealSet ∧ 0 < u ∧ u < a ∧ v ∈ RealSet ∧ 0 < v ∧ v < 2 * π ⇒ F(u, v) = 0}) (u := {p}) (v := {q}) as (hypothesis 27: {p ∈ RealSet ∧ 0 < p ∧ p < a ∧ q ∈ RealSet ∧ 0 < q ∧ q < 2 * π ⇒ F(p, q) = 0})
+use_condition (hypothesis 24: {p ∈ RealSet ∧ 0 < p ∧ p < a ∧ q ∈ RealSet ∧ 0 < q ∧ q < 2 * π}) in (hypothesis 25: {p ∈ RealSet ∧ 0 < p ∧ p < a ∧ q ∈ RealSet ∧ 0 < q ∧ q < 2 * π ⇒ E(p, q) = 1}) as (hypothesis 28: {E(p, q) = 1})
+use_condition (hypothesis 24: {p ∈ RealSet ∧ 0 < p ∧ p < a ∧ q ∈ RealSet ∧ 0 < q ∧ q < 2 * π}) in (hypothesis 26: {p ∈ RealSet ∧ 0 < p ∧ p < a ∧ q ∈ RealSet ∧ 0 < q ∧ q < 2 * π ⇒ G(p, q) = 1 + p^{2}}) as (hypothesis 29: {G(p, q) = 1 + p^{2}})
+use_condition (hypothesis 24: {p ∈ RealSet ∧ 0 < p ∧ p < a ∧ q ∈ RealSet ∧ 0 < q ∧ q < 2 * π}) in (hypothesis 27: {p ∈ RealSet ∧ 0 < p ∧ p < a ∧ q ∈ RealSet ∧ 0 < q ∧ q < 2 * π ⇒ F(p, q) = 0}) as (hypothesis 30: {F(p, q) = 0})
+rewrite (left_to_right, equation) (hypothesis 28: {E(p, q) = 1}); from (GOAL: {sqrtn(2, E(p, q) * G(p, q) - F(p, q)^{2}) = sqrtn(2, 1 + p^{2})}) to (GOAL: {sqrtn(2, 1 * G(p, q) - F(p, q)^{2}) = sqrtn(2, 1 + p^{2})})
+rewrite (left_to_right, equation) (hypothesis 29: {G(p, q) = 1 + p^{2}}); from (GOAL: {sqrtn(2, 1 * G(p, q) - F(p, q)^{2}) = sqrtn(2, 1 + p^{2})}) to (GOAL: {sqrtn(2, 1 * (1 + p^{2}) - F(p, q)^{2}) = sqrtn(2, 1 + p^{2})})
+rewrite (left_to_right, equation) (hypothesis 30: {F(p, q) = 0}); from (GOAL: {sqrtn(2, 1 * (1 + p^{2}) - F(p, q)^{2}) = sqrtn(2, 1 + p^{2})}) to (GOAL: {sqrtn(2, 1 * (1 + p^{2}) - 0^{2}) = sqrtn(2, 1 + p^{2})})
+autosolve all_hypothesis

@@ -1,0 +1,10 @@
+PROOF GAP @4
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x < 2 ⇒ (exists (t), t ∈ RealSet ∧ (2 - x = t ⇒ x < 2))
+2. forall (x), x ∈ RealSet ∧ x < 2 ⇒ (exists (t), t ∈ RealSet ∧ (2 - x = t ⇒ t > 0))
+3. forall (x), x ∈ RealSet ∧ x < 2 ⇒ (exists (t), t ∈ RealSet ∧ (2 - x = t ⇒ x = 2 - t))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x < 2 ⇒ (exists (t), t ∈ RealSet ∧ (2 - x = t ⇒ diff(fun x [x ∈ RealSet ∧ x < 2] . x) = -diff(fun t [t ∈ RealSet ∧ t > 0] . t)))
+
+METHOD:

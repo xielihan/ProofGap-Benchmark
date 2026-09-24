@@ -1,0 +1,15 @@
+get_forall (GOAL: {forall (n) (x) (ε), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l) ∧ ε ∈ RealSet ∧ ε > 0 ∧ ε < 1 ∧ n > l + sqrtn(2, ln(frac(1, ε))) ⇒ |f(n, x) - g(x)| < ε}) (n := {n0}) (x := {x0}) (ε := {ε0})
+get_condition (hypothesis 13: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(-l, l) ∧ ε0 ∈ RealSet ∧ ε0 > 0 ∧ ε0 < 1 ∧ n0 > l + sqrtn(2, ln(frac(1, ε0)))}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(-l, l) ∧ ε0 ∈ RealSet ∧ ε0 > 0 ∧ ε0 < 1 ∧ n0 > l + sqrtn(2, ln(frac(1, ε0))) ⇒ |f(n0, x0) - g(x0)| < ε0})
+destruct_and (hypothesis 13: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(-l, l) ∧ ε0 ∈ RealSet ∧ ε0 > 0 ∧ ε0 < 1 ∧ n0 > l + sqrtn(2, ln(frac(1, ε0)))}) as (hypothesis 14: {n0 ∈ NonNegIntegerSet}) (hypothesis 15: {x0 ∈ RealSet}) (hypothesis 16: {x0 ∈ IntervalLoRo(-l, l)}) (hypothesis 17: {ε0 ∈ RealSet}) (hypothesis 18: {ε0 > 0}) (hypothesis 19: {ε0 < 1}) (hypothesis 20: {n0 > l + sqrtn(2, ln(frac(1, ε0)))})
+assert (hypothesis 21: {n0 ∈ NonNegIntegerSet ∧ ε0 ∈ RealSet ∧ ε0 > 0 ∧ ε0 < 1 ∧ n0 > l + sqrtn(2, ln(frac(1, ε0)))}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (hypothesis 12: {forall (n) (ε), n ∈ NonNegIntegerSet ∧ ε ∈ RealSet ∧ ε > 0 ∧ ε < 1 ∧ n > l + sqrtn(2, ln(frac(1, ε))) ⇒ n > floor(l) ∧ e^{-(n - l)^{2}} < ε}) (n := {n0}) (ε := {ε0}) as (hypothesis 22: {n0 ∈ NonNegIntegerSet ∧ ε0 ∈ RealSet ∧ ε0 > 0 ∧ ε0 < 1 ∧ n0 > l + sqrtn(2, ln(frac(1, ε0))) ⇒ n0 > floor(l) ∧ e^{-(n0 - l)^{2}} < ε0})
+use_condition (hypothesis 21: {n0 ∈ NonNegIntegerSet ∧ ε0 ∈ RealSet ∧ ε0 > 0 ∧ ε0 < 1 ∧ n0 > l + sqrtn(2, ln(frac(1, ε0)))}) in (hypothesis 22: {n0 ∈ NonNegIntegerSet ∧ ε0 ∈ RealSet ∧ ε0 > 0 ∧ ε0 < 1 ∧ n0 > l + sqrtn(2, ln(frac(1, ε0))) ⇒ n0 > floor(l) ∧ e^{-(n0 - l)^{2}} < ε0}) as (hypothesis 23: {n0 > floor(l) ∧ e^{-(n0 - l)^{2}} < ε0})
+destruct_and (hypothesis 23: {n0 > floor(l) ∧ e^{-(n0 - l)^{2}} < ε0}) as (hypothesis 24: {n0 > floor(l)}) (hypothesis 25: {e^{-(n0 - l)^{2}} < ε0})
+assert (hypothesis 26: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(-l, l) ∧ ε0 ∈ RealSet ∧ ε0 > 0 ∧ ε0 < 1 ∧ n0 > floor(l) ∧ e^{-(n0 - l)^{2}} < ε0}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (hypothesis 11: {forall (n) (x) (ε), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ x ∈ IntervalLoRo(-l, l) ∧ ε ∈ RealSet ∧ ε > 0 ∧ ε < 1 ∧ n > floor(l) ∧ e^{-(n - l)^{2}} < ε ⇒ |f(n, x) - g(x)| < ε}) (n := {n0}) (x := {x0}) (ε := {ε0}) as (hypothesis 27: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(-l, l) ∧ ε0 ∈ RealSet ∧ ε0 > 0 ∧ ε0 < 1 ∧ n0 > floor(l) ∧ e^{-(n0 - l)^{2}} < ε0 ⇒ |f(n0, x0) - g(x0)| < ε0})
+use_condition (hypothesis 26: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(-l, l) ∧ ε0 ∈ RealSet ∧ ε0 > 0 ∧ ε0 < 1 ∧ n0 > floor(l) ∧ e^{-(n0 - l)^{2}} < ε0}) in (hypothesis 27: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ x0 ∈ IntervalLoRo(-l, l) ∧ ε0 ∈ RealSet ∧ ε0 > 0 ∧ ε0 < 1 ∧ n0 > floor(l) ∧ e^{-(n0 - l)^{2}} < ε0 ⇒ |f(n0, x0) - g(x0)| < ε0}) as (hypothesis 28: {|f(n0, x0) - g(x0)| < ε0})
+apply (hypothesis 28: {|f(n0, x0) - g(x0)| < ε0})

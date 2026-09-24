@@ -1,0 +1,25 @@
+PROOF GAP @14
+ASSUM:
+1. x ∈ RealSet
+2. f : RealSet → RealSet
+3. a : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ⇒ a(n) = frac(2 * n + 1, n!)
+5. lim_{ n → +∞ } (|frac(a(n), a(n + 1))|) = lim_{ n → +∞ } (frac((n + 1) * (2 * n + 1), 2 * n + 3))
+6. lim_{ n → +∞ } (frac((n + 1) * (2 * n + 1), 2 * n + 3)) = +∞
+7. lim_{ n → +∞ } (|frac(a(n), a(n + 1))|) = +∞
+8. forall (x), x ∈ RealSet ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((2 * n + 1) * x^{2 * n}, n!)))
+9. forall (n), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ f(x) = sum_{ n = 0 }^{ +∞ } (frac((2 * n + 1) * x^{2 * n}, n!))
+10. forall (t), t ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ DefInt(0, x, f(t) * diff(fun t [t ∈ RealSet] . t)) = sum_{ n = 0 }^{ +∞ } (DefInt(0, x, frac((2 * n + 1) * t^{2 * n}, n!) * diff(fun t [t ∈ RealSet] . t))))
+11. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (t), t ∈ RealSet ∧ x ∈ RealSet ⇒ sum_{ n = 0 }^{ +∞ } (DefInt(0, x, frac((2 * n + 1) * t^{2 * n}, n!) * diff(fun t [t ∈ RealSet] . t))) = sum_{ n = 0 }^{ +∞ } (frac(x^{2 * n + 1}, n!)))
+12. forall (n), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ sum_{ n = 0 }^{ +∞ } (frac(x^{2 * n + 1}, n!)) = x * (sum_{ n = 0 }^{ +∞ } (frac((x^{2})^{n}, n!)))
+13. forall (n), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ x * (sum_{ n = 0 }^{ +∞ } (frac((x^{2})^{n}, n!))) = x * e^{x^{2}}
+14. forall (n), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ sum_{ n = 0 }^{ +∞ } (frac(x^{2 * n + 1}, n!)) = x * e^{x^{2}}
+15. forall (t), t ∈ RealSet ∧ x ∈ RealSet ⇒ DefInt(0, x, f(t) * diff(fun t [t ∈ RealSet] . t)) = x * e^{x^{2}}
+16. x ∈ RealSet ⇒ f(x) = FunDeri(fun x [x ∈ RealSet] . x * e^{x^{2}}, 1, 1)(x)
+17. x ∈ RealSet ⇒ FunDeri(fun x [x ∈ RealSet] . x * e^{x^{2}}, 1, 1)(x) = e^{x^{2}} * (1 + 2 * x^{2})
+18. x ∈ RealSet ⇒ f(x) = e^{x^{2}} * (1 + 2 * x^{2})
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ sum_{ n = 0 }^{ +∞ } (frac((2 * n + 1) * x^{2 * n}, n!)) = e^{x^{2}} * (1 + 2 * x^{2})
+
+METHOD:

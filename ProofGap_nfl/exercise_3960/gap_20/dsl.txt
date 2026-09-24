@@ -1,0 +1,3 @@
+get_condition (hypothesis 26: {0 ≤ ξ}) (hypothesis 27: {ξ ≤ 1}) (hypothesis 28: {0 ≤ η}) (hypothesis 29: {η ≤ 1}) in (GOAL: {0 ≤ ξ ⇒ ξ ≤ 1 ⇒ 0 ≤ η ⇒ η ≤ 1 ⇒ 0 ≤ x})
+use_condition (hypothesis 26: {0 ≤ ξ}) (hypothesis 27: {ξ ≤ 1}) (hypothesis 28: {0 ≤ η}) (hypothesis 29: {η ≤ 1}) in (hypothesis 25: {0 ≤ ξ ⇒ ξ ≤ 1 ⇒ 0 ≤ η ⇒ η ≤ 1 ⇒ x = ξ * (1 - η)}) as (hypothesis 30: {x = ξ * (1 - η)})
+autosolve (hypothesis 26: {0 ≤ ξ}) (hypothesis 29: {η ≤ 1}) (hypothesis 30: {x = ξ * (1 - η)})

@@ -1,0 +1,15 @@
+PROOF GAP @5
+ASSUM:
+1. p : NonNegIntegerSet → RealSet
+2. q : NonNegIntegerSet → RealSet
+3. P ∈ RealSet
+4. Q = (fun n [n ∈ NonNegIntegerSet ∧ n ≥ 1] . prod_{ k = 1 }^{ n } (p(k)^{2}))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ Q(n) = (prod_{ k = 1 }^{ n } (p(k)))^{2}
+6. seqlim_{ n → +∞ } (prod_{ k = 1 }^{ n } (p(k))) = P
+7. seqlim_{ n → +∞ } (Q(n)) = P^{2}
+8. ConvergentSeqTo(fun n [n ∈ NonNegIntegerSet ∧ n ≥ 1] . prod_{ k = 1 }^{ n } (p(k)^{2}), P^{2})
+
+GOAL:
+forall (p) (q) (P), p : NonNegIntegerSet → RealSet ∧ q : NonNegIntegerSet → RealSet ∧ P ∈ RealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(n) ∈ RealSet ∧ q(n) ∈ RealSet ∧ p(n) ≠ 0 ∧ q(n) ≠ 0) ∧ ConvergentSeqTo(fun n [n ∈ NonNegIntegerSet ∧ n ≥ 1] . prod_{ k = 1 }^{ n } (p(k)), P) ∧ P ≠ 0 ⇒ ConvergentSeqTo(fun n [n ∈ NonNegIntegerSet ∧ n ≥ 1] . prod_{ k = 1 }^{ n } (p(k)^{2}), P^{2})
+
+METHOD:

@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. VPInt ∈ RealSet
+2. ε ∈ RealSet
+3. η ∈ RealSet
+4. b ∈ RealSet
+
+GOAL:
+VPInt = lim_{ ε → 0^+ } (lim_{ η → 0^+ } (lim_{ b → +∞ } (DefInt(0, 1 - ε, (fun x [x ∈ RealSet] . frac(1, x^{2} - 3 * x + 2)) * diff(fun x [x ∈ RealSet] . x)) + DefInt(1 + ε, 2 - η, (fun x [x ∈ RealSet] . frac(1, x^{2} - 3 * x + 2)) * diff(fun x [x ∈ RealSet] . x)) + DefInt(2 + η, b, (fun x [x ∈ RealSet] . frac(1, x^{2} - 3 * x + 2)) * diff(fun x [x ∈ RealSet] . x)))))
+
+METHOD:

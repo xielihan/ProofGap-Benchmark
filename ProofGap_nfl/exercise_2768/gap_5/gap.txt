@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ x ∈ [-1, 1] ∧ n ∈ PosIntegerSet ⇒ |frac(x^{n}, n^{2})| ≤ frac(1, n^{2}))
+2. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{2})))
+3. forall (x), x ∈ RealSet ∧ x ∈ [-1, 1] ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(x^{n}, n^{2})))
+4. forall (x), x ∈ RealSet ∧ x ∈ [-1, 1] ⇒ UniformConvergent(fun n [n ∈ PosIntegerSet] . fun z [z ∈ RealSet] . frac(z^{n}, n^{2}), [-1, 1], fun z [z ∈ RealSet] . sum_{ n = 1 }^{ +∞ } (frac(z^{n}, n^{2})))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ [-1, 1] ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(x^{n}, n^{2}))) ∧ UniformConvergent(fun n [n ∈ PosIntegerSet] . fun z [z ∈ RealSet] . frac(z^{n}, n^{2}), [-1, 1], fun z [z ∈ RealSet] . sum_{ n = 1 }^{ +∞ } (frac(z^{n}, n^{2})) )
+
+METHOD:

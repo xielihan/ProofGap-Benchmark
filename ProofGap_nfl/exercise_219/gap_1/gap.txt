@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ [0, π] ⇒ f(x) = cos(x)
+
+GOAL:
+forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ 0 < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < π ⇒ f(x_{2}) - f(x_{1}) = cos(x_{2}) - cos(x_{1}))
+
+METHOD:

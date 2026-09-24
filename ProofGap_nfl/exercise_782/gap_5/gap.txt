@@ -1,0 +1,16 @@
+PROOF GAP @5
+ASSUM:
+1. T ⊆ RealSet
+2. φ : RealSet → RealSet
+3. ψ : RealSet → RealSet
+4. φ : T → RealSet
+5. ψ : T → RealSet
+6. forall (F), F : RealSet → RealSet ∧ (exists (F), F : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ∈ T ⇒ F(φ(t)) = ψ(t))) ⇒ (forall (t_{1}), t_{1} ∈ RealSet ⇒ (forall (t_{2}), t_{2} ∈ RealSet ∧ t_{1} ∈ T ∧ t_{2} ∈ T ∧ φ(t_{1}) = φ(t_{2}) ⇒ ψ(t_{1}) = F(φ(t_{1}))))
+7. forall (F), F : RealSet → RealSet ∧ (exists (F), F : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ∈ T ⇒ F(φ(t)) = ψ(t))) ⇒ (forall (t_{1}), t_{1} ∈ RealSet ⇒ (forall (t_{2}), t_{2} ∈ RealSet ∧ t_{1} ∈ T ∧ t_{2} ∈ T ∧ φ(t_{1}) = φ(t_{2}) ⇒ F(φ(t_{1})) = F(φ(t_{2}))))
+8. forall (F), F : RealSet → RealSet ∧ (exists (F), F : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ∈ T ⇒ F(φ(t)) = ψ(t))) ⇒ (forall (t_{1}), t_{1} ∈ RealSet ⇒ (forall (t_{2}), t_{2} ∈ RealSet ∧ t_{1} ∈ T ∧ t_{2} ∈ T ∧ φ(t_{1}) = φ(t_{2}) ⇒ F(φ(t_{2})) = ψ(t_{2})))
+9. (exists (F), F : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ∈ T ⇒ F(φ(t)) = ψ(t))) ⇒ (forall (t_{1}), t_{1} ∈ RealSet ⇒ (forall (t_{2}), t_{2} ∈ RealSet ∧ t_{1} ∈ T ∧ t_{2} ∈ T ∧ φ(t_{1}) = φ(t_{2}) ⇒ ψ(t_{1}) = ψ(t_{2})))
+
+GOAL:
+(exists (F), F : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t ∈ T ⇒ F(φ(t)) = ψ(t))) ⇒ (forall (t_{1}) (t_{2}), t_{1} ∈ RealSet ∧ t_{2} ∈ RealSet ∧ t_{1} ∈ T ∧ t_{2} ∈ T ∧ φ(t_{1}) = φ(t_{2}) ⇒ ψ(t_{1}) = ψ(t_{2}))
+
+METHOD:

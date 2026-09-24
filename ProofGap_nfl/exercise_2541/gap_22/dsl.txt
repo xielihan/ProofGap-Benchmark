@@ -1,0 +1,4 @@
+1. get_prop (hypothesis 13: {forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ 6 ⇒ x(i) = frac(i, 6) ∧ y(i) = e^{x(i)^{2}}}) (i := {5}) as (hypothesis 28: {5 ∈ IntegerSet ∧ 0 ≤ 5 ∧ 5 ≤ 6 ⇒ x(5) = frac(5, 6) ∧ y(5) = e^{x(5)^{2}}})
+2. use_condition (obvious: {5 ∈ IntegerSet ∧ 0 ≤ 5 ∧ 5 ≤ 6}) in (hypothesis 28: {5 ∈ IntegerSet ∧ 0 ≤ 5 ∧ 5 ≤ 6 ⇒ x(5) = frac(5, 6) ∧ y(5) = e^{x(5)^{2}}}) as (hypothesis 29: {x(5) = frac(5, 6) ∧ y(5) = e^{x(5)^{2}}})
+3. destruct_and (hypothesis 29: {x(5) = frac(5, 6) ∧ y(5) = e^{x(5)^{2}}}) as (hypothesis 30: {x(5) = frac(5, 6)}) (hypothesis 31: {y(5) = e^{x(5)^{2}}})
+4. apply (hypothesis 30: {x(5) = frac(5, 6)})

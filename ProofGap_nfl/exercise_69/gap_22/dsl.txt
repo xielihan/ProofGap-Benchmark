@@ -1,0 +1,2 @@
+rewrite_in limit (left_to_right, equation) (hypothesis 22: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n) = x(n) * (1 + frac(1, n))}); from (GOAL: {seqlim_{ n → +∞ } (y(n)) = seqlim_{ n → +∞ } (x(n) * (1 + frac(1, n)))}) to (GOAL: {seqlim_{ n → +∞ } (x(n) * (1 + frac(1, n))) = seqlim_{ n → +∞ } (x(n) * (1 + frac(1, n)))})
+autosolve all_hypothesis

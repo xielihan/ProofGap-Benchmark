@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. a : NonNegIntegerSet → RealSet
+3. b : NonNegIntegerSet → RealSet
+4. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-π, π) ⇒ f(x) = x
+5. OddFunc(f)
+
+GOAL:
+a(0) = 0
+
+METHOD:

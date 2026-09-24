@@ -1,0 +1,9 @@
+PROOF GAP @4
+ASSUM:
+2. { `F_2` | forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = sqrtn(2, tanh(x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = sqrtn(2, frac(e^{x} - e^{-x}, e^{x} + e^{-x})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+3. { `F_4` | forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_4`, 1, 1)(x) = sqrtn(2, frac(e^{x} - e^{-x}, e^{x} + e^{-x})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(e^{x} - e^{-x}, sqrtn(2, e^{2 * x} - e^{-2 * x})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+GOAL:
+{ `F_6` | forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_6`, 1, 1)(x) = frac(e^{x} - e^{-x}, sqrtn(2, e^{2 * x} - e^{-2 * x})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_9` | exists (`F_7`) (`F_8`), `F_7` : RealSet → RealSet ∧ `F_8` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_7`, 1, 1)(x) = frac(e^{2 * x}, sqrtn(2, e^{4 * x} - 1)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ FunDeri(`F_8`, 1, 1)(x) = frac(e^{-2 * x}, sqrtn(2, 1 - e^{-4 * x})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_9`(x) = `F_7`(x) - `F_8`(x)) }
+
+METHOD:

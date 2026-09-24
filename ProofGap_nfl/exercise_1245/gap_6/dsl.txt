@@ -1,0 +1,10 @@
+1. get_forall (GOAL: {forall (ξ), ξ ∈ RealSet ∧ ξ ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(ξ) * (b - a) ⇒ frac(a - b, ξ^{2}) = frac(a - b, a * b)}) (ξ := {z})
+2. get_condition (hypothesis 11: {z ∈ RealSet ∧ z ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(z) * (b - a)}) in (GOAL: {z ∈ RealSet ∧ z ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(z) * (b - a) ⇒ frac(a - b, z^{2}) = frac(a - b, a * b)})
+3. get_prop (hypothesis 9: {forall (ξ), ξ ∈ RealSet ∧ ξ ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(ξ) * (b - a) ⇒ frac(1, b) - frac(1, a) = frac(a - b, ξ^{2})}) (ξ := {z}) as (hypothesis 12: {z ∈ RealSet ∧ z ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(z) * (b - a) ⇒ frac(1, b) - frac(1, a) = frac(a - b, z^{2})})
+4. use_condition (hypothesis 11: {z ∈ RealSet ∧ z ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(z) * (b - a)}) in (hypothesis 12: {z ∈ RealSet ∧ z ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(z) * (b - a) ⇒ frac(1, b) - frac(1, a) = frac(a - b, z^{2})}) as (hypothesis 13: {frac(1, b) - frac(1, a) = frac(a - b, z^{2})})
+5. assert (hypothesis 14: {exists (ξ), ξ ∈ RealSet ∧ ξ ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(ξ) * (b - a)}) by proof {
+  1. exists (ξ := {z})
+  2. autosolve all_hypothesis
+}
+6. use_condition (hypothesis 14: {exists (ξ), ξ ∈ RealSet ∧ ξ ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(ξ) * (b - a)}) in (hypothesis 10: {(exists (ξ), ξ ∈ RealSet ∧ ξ ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(ξ) * (b - a)) ⇒ frac(1, b) - frac(1, a) = frac(a - b, a * b)}) as (hypothesis 15: {frac(1, b) - frac(1, a) = frac(a - b, a * b)})
+7. autosolve (hypothesis 13: {frac(1, b) - frac(1, a) = frac(a - b, z^{2})}) (hypothesis 15: {frac(1, b) - frac(1, a) = frac(a - b, a * b)})

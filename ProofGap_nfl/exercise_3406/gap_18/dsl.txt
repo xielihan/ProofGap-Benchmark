@@ -1,0 +1,4 @@
+1. get_forall (GOAL: {forall (t), t ∈ RealSet ∧ t ≠ 0 ∧ t ≠ 1 ∧ t ≠ -1 ∧ 1 - frac(1, t^{2}) ≠ 0 ⇒ frac(3 * (2 * t - frac(2, t^{3})), 1 - frac(1, t^{2})) = 6 * (t + frac(1, t))}) (t := {t0})
+2. get_condition (hypothesis 22: {t0 ∈ RealSet ∧ t0 ≠ 0 ∧ t0 ≠ 1 ∧ t0 ≠ -1 ∧ 1 - frac(1, t0^{2}) ≠ 0}) in (GOAL: {t0 ∈ RealSet ∧ t0 ≠ 0 ∧ t0 ≠ 1 ∧ t0 ≠ -1 ∧ 1 - frac(1, t0^{2}) ≠ 0 ⇒ frac(3 * (2 * t0 - frac(2, t0^{3})), 1 - frac(1, t0^{2})) = 6 * (t0 + frac(1, t0))})
+3. destruct_and (hypothesis 22: {t0 ∈ RealSet ∧ t0 ≠ 0 ∧ t0 ≠ 1 ∧ t0 ≠ -1 ∧ 1 - frac(1, t0^{2}) ≠ 0}) as (hypothesis 23: {t0 ∈ RealSet}) (hypothesis 24: {t0 ≠ 0}) (hypothesis 25: {t0 ≠ 1}) (hypothesis 26: {t0 ≠ -1}) (hypothesis 27: {1 - frac(1, t0^{2}) ≠ 0})
+4. autosolve all_hypothesis

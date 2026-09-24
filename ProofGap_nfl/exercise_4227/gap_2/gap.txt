@@ -1,0 +1,18 @@
+PROOF GAP @2
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. a ∈ RealSet ∧ a > 0
+3. x : RealSet → RealSet
+4. y : RealSet → RealSet
+5. r : RealSet → RealSet
+6. φ ∈ RealSet
+7. s : RealSet → RealSet
+8. C = { (x, y) | x ∈ RealSet, y ∈ RealSet, (x^{2} + y^{2})^{2} = a^{2} * (x^{2} - y^{2}) }
+9. forall (φ), φ ∈ RealSet ∧ cos(2 * φ) ≥ 0 ⇒ r(φ)^{2} = a^{2} * cos(2 * φ)
+10. forall (φ), φ ∈ RealSet ∧ cos(2 * φ) ≥ 0 ⇒ x(φ) = r(φ) * cos(φ) ∧ y(φ) = r(φ) * sin(φ)
+11. diff(s) = sqrtn(2, diff(x)^{2} + diff(y)^{2})
+
+GOAL:
+diff(s) = (fun φ [φ ∈ RealSet ∧ cos(2 * φ) ≥ 0] . sqrtn(2, r(φ)^{2} + FunDeri(r, 1, 1)(φ)^{2})) * diff(fun φ [φ ∈ RealSet ∧ cos(2 * φ) ≥ 0] . φ)
+
+METHOD:

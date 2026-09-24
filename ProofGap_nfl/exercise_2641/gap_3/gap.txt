@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. α ∈ RealSet
+2. a : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = n^{n^{α}} - 1
+4. α ≥ 0 ⇒ seqlim_{ n → +∞ } (a(n)) = +∞
+5. α ≥ 0 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+GOAL:
+-1 ≤ α ⇒ α < 0 ⇒ seqlim_{ n → +∞ } (frac(a(n), frac(1, n^{|α|}))) = +∞
+
+METHOD:

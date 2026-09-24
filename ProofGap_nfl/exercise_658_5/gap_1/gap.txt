@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+3. n ∈ RealSet
+4. x > 0
+5. x ≠ 1
+
+GOAL:
+frac(frac(ln(x), (1 - x)^{2}), frac(1, x - 1)) = frac(ln(1 + x - 1), x - 1)
+
+METHOD:

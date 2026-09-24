@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ e^{x} * cos(y) - (e^{x} * cos(y) - m) = m)}) (x := {u})
+get_condition (hypothesis 20: {u ∈ RealSet}) in (GOAL: {u ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ e^{u} * cos(y) - (e^{u} * cos(y) - m) = m)})
+get_forall (GOAL: {forall (y), y ∈ RealSet ⇒ e^{u} * cos(y) - (e^{u} * cos(y) - m) = m}) (y := {v})
+get_condition (hypothesis 21: {v ∈ RealSet}) in (GOAL: {v ∈ RealSet ⇒ e^{u} * cos(v) - (e^{u} * cos(v) - m) = m})
+autosolve all_hypothesis

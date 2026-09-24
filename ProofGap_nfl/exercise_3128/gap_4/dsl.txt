@@ -1,0 +1,6 @@
+1. get_forall (GOAL: {forall (y) (x), y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 ∧ x ∈ RealSet ∧ x = a + (b - a) * y ⇒ 1 - y = frac(b - x, b - a)}) (y := {y0}) (x := {x0})
+2. get_condition (hypothesis 9: {y0 ∈ RealSet ∧ 0 ≤ y0 ∧ y0 ≤ 1 ∧ x0 ∈ RealSet ∧ x0 = a + (b - a) * y0}) in (GOAL: {y0 ∈ RealSet ∧ 0 ≤ y0 ∧ y0 ≤ 1 ∧ x0 ∈ RealSet ∧ x0 = a + (b - a) * y0 ⇒ 1 - y0 = frac(b - x0, b - a)})
+3. get_prop (hypothesis 8: {forall (y) (x), y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 ∧ x ∈ RealSet ∧ x = a + (b - a) * y ⇒ y = frac(x - a, b - a)}) (y := {y0}) (x := {x0}) as (hypothesis 10: {y0 ∈ RealSet ∧ 0 ≤ y0 ∧ y0 ≤ 1 ∧ x0 ∈ RealSet ∧ x0 = a + (b - a) * y0 ⇒ y0 = frac(x0 - a, b - a)})
+4. use_condition (hypothesis 9: {y0 ∈ RealSet ∧ 0 ≤ y0 ∧ y0 ≤ 1 ∧ x0 ∈ RealSet ∧ x0 = a + (b - a) * y0}) in (hypothesis 10: {y0 ∈ RealSet ∧ 0 ≤ y0 ∧ y0 ≤ 1 ∧ x0 ∈ RealSet ∧ x0 = a + (b - a) * y0 ⇒ y0 = frac(x0 - a, b - a)}) as (hypothesis 11: {y0 = frac(x0 - a, b - a)})
+5. rewrite (left_to_right, equation) (hypothesis 11: {y0 = frac(x0 - a, b - a)}); from (GOAL: {1 - y0 = frac(b - x0, b - a)}) to (GOAL: {1 - frac(x0 - a, b - a) = frac(b - x0, b - a)})
+6. autosolve all_hypothesis

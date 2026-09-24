@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (ε_{0}), ε_{0} ∈ RealSet ∧ 0 < ε_{0} ∧ ε_{0} < frac(1, 4) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, 4) > ε_{0})}) (ε_{0} := {ε})
+get_condition (hypothesis 11: {ε ∈ RealSet ∧ 0 < ε ∧ ε < frac(1, 4)}) in (GOAL: {ε ∈ RealSet ∧ 0 < ε ∧ ε < frac(1, 4) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, 4) > ε)})
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, 4) > ε}) (n := {m})
+get_condition (hypothesis 12: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet}) in (GOAL: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ frac(1, 4) > ε})
+autosolve all_hypothesis

@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. |x - x^{2}| < frac(1, 20)
+3. x^{2} - x + frac(1, 20) > 0
+4. x^{2} - x - frac(1, 20) < 0
+
+GOAL:
+frac(5 + sqrtn(2, 20), 10) < x ∨ x < frac(5 - sqrtn(2, 20), 10)
+
+METHOD:

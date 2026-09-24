@@ -1,0 +1,20 @@
+PROOF GAP @9
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. B : CartesianProd(RealSet, RealSet) → RealSet
+3. Γ : RealSet → RealSet
+4. n > 1
+5. t = x^{n}
+6. 0 ≤ x
+7. x ≤ 1
+8. 0 ≤ t
+9. t ≤ 1
+10. DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . frac(1, sqrtn(n, 1 - x^{n}))) * diff(fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . x)) = frac(1, n) * DefInt(0, 1, (fun t [t ∈ RealSet ∧ t ∈ [0, 1]] . t^{frac(1 - n, n)} * (1 - t)^{-frac(1, n)}) * diff(fun t [t ∈ RealSet ∧ t ∈ [0, 1]] . t))
+11. frac(1, n) * DefInt(0, 1, (fun t [t ∈ RealSet ∧ t ∈ [0, 1]] . t^{frac(1 - n, n)} * (1 - t)^{-frac(1, n)}) * diff(fun t [t ∈ RealSet ∧ t ∈ [0, 1]] . t)) = frac(1, n) * B(frac(1, n), frac(n - 1, n))
+12. frac(1, n) * B(frac(1, n), frac(n - 1, n)) = frac(1, n) * frac(Γ(frac(1, n)) * Γ(frac(n - 1, n)), Γ(1))
+13. frac(1, n) * frac(Γ(frac(1, n)) * Γ(frac(n - 1, n)), Γ(1)) = frac(π, n * sin(frac(π, n)))
+
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . frac(1, sqrtn(n, 1 - x^{n}))) * diff(fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . x)) = frac(π, n * sin(frac(π, n)))
+
+METHOD:

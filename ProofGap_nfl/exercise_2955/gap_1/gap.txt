@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. S : RealSet → RealSet
+3. A : NonNegIntegerSet → RealSet
+4. B : NonNegIntegerSet → RealSet
+5. forall (x), x ∈ RealSet ⇒ f(x) = x - floor(x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ f(x + 1) = x + 1 - floor(x + 1) ∧ x + 1 - floor(x + 1) = x + 1 - floor(x) - 1 ∧ x + 1 - floor(x) - 1 = x - floor(x) ∧ x - floor(x) = f(x)
+
+METHOD:

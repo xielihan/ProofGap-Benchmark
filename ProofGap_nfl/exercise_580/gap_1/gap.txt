@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 3 ⇒ cos(frac(π, n)) ≠ 0 ∧ e^{frac(π, n)} + e^{-frac(π, n)} - 2 * cos(frac(π, n)) ≠ 0
+
+METHOD:

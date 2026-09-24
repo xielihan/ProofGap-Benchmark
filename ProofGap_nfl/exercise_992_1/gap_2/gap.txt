@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. n ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = x^{n} * sin(frac(1, x))
+4. f(0) = 0
+5. forall (x), x ∈ RealSet
+6. n ∈ PosRealSet ⇒ lim_{ x → 0 } (x^{n} * sin(frac(1, x))) = 0
+
+GOAL:
+n ∈ PosRealSet ⇒ lim_{ x → 0 } (f(x)) = f(0)
+
+METHOD:

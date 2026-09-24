@@ -1,0 +1,21 @@
+PROOF GAP @6
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. z : CartesianProd(RealSet, RealSet) → RealSet
+3. f : RealSet → RealSet
+4. φ : RealSet → RealSet
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ u(x, y) = f(z(x, y))
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = x + y * φ(z(x, y))
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ FuncOfClassK(f, n)
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ FuncOfClassK(φ, n)
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ 1 - y * FunDeri(φ, fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), 1)(z(x, y)) ≠ 0
+10. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y)) = diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + φ(z(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) + y * FunDeri(φ, fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), 1)(z(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y))
+11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), 1, 1)(x, y) = frac(1, 1 - y * FunDeri(φ, fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), 1)(z(x, y)))
+12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), 2, 1)(x, y) = frac(φ(z(x, y)), 1 - y * FunDeri(φ, fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), 1)(z(x, y)))
+13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ frac(φ(z(x, y)), 1 - y * FunDeri(φ, fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), 1)(z(x, y))) = φ(z(x, y)) * FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), 1, 1)(x, y)
+14. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), 2, 1)(x, y) = φ(z(x, y)) * FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), 1, 1)(x, y)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(u, 2, 1)(x, y) = FunDeri(f, fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), 1)(z(x, y)) * FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), 2, 1)(x, y)
+
+METHOD:

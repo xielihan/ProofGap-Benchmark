@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet ∧ ContinuouslyDiffableFunc(u)
+2. C ⊆ CartesianProd(RealSet, RealSet)
+3. S ⊆ CartesianProd(RealSet, RealSet)
+4. Δu : CartesianProd(RealSet, RealSet) → RealSet
+5. n ∈ RealSet
+6. Δu = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . FunDeri(u, 1, 2)(x, y) + FunDeri(u, 2, 2)(x, y))
+7. forall (C), C ⊆ CartesianProd(RealSet, RealSet) ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(u, n, 1)(x, y) = FunDeri(u, 1, 1)(x, y) * cos(n, x) + FunDeri(u, 2, 1)(x, y) * sin(n, x)))
+8. forall (C), C ⊆ CartesianProd(RealSet, RealSet) ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (s), s ∈ RealSet ⇒ cos(n, x) = FunDeri(y, 1, 1)(s))))
+
+GOAL:
+forall (C), C ⊆ CartesianProd(RealSet, RealSet) ⇒ (forall (x), x ∈ RealSet ⇒ (forall (s), s ∈ RealSet ⇒ sin(n, x) = -FunDeri(x, 1, 1)(s)))
+
+METHOD:

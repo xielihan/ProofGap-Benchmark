@@ -1,0 +1,8 @@
+get_prop (hypothesis 24: {forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ 6 ⇒ x_{i} = i * h ∧ y_{i} = f(x_{i})}) (i := {4}) as (hypothesis 36: {4 ∈ IntegerSet ∧ 0 ≤ 4 ∧ 4 ≤ 6 ⇒ x_{4} = 4 * h ∧ y_{4} = f(x_{4})})
+use_condition (obvious: {4 ∈ IntegerSet ∧ 0 ≤ 4 ∧ 4 ≤ 6}) in (hypothesis 36: {4 ∈ IntegerSet ∧ 0 ≤ 4 ∧ 4 ≤ 6 ⇒ x_{4} = 4 * h ∧ y_{4} = f(x_{4})}) as (hypothesis 37: {x_{4} = 4 * h ∧ y_{4} = f(x_{4})})
+destruct_and (hypothesis 37: {x_{4} = 4 * h ∧ y_{4} = f(x_{4})}) as (hypothesis 38: {x_{4} = 4 * h}) (hypothesis 39: {y_{4} = f(x_{4})})
+rewrite (left_to_right, equation) (hypothesis 35: {x_{4} = frac(2 * π, 3)}); from (hypothesis 39: {y_{4} = f(x_{4})}) to (hypothesis 40: {y_{4} = f(frac(2 * π, 3))})
+get_prop (hypothesis 22: {forall (x), x ∈ RealSet ∧ x ∈ [0, π] ⇒ f(x) = sqrtn(2, 3 + cos(x))}) (x := {frac(2 * π, 3)}) as (hypothesis 41: {frac(2 * π, 3) ∈ RealSet ∧ frac(2 * π, 3) ∈ [0, π] ⇒ f(frac(2 * π, 3)) = sqrtn(2, 3 + cos(frac(2 * π, 3)))})
+use_condition (obvious: {frac(2 * π, 3) ∈ RealSet ∧ frac(2 * π, 3) ∈ [0, π]}) in (hypothesis 41: {frac(2 * π, 3) ∈ RealSet ∧ frac(2 * π, 3) ∈ [0, π] ⇒ f(frac(2 * π, 3)) = sqrtn(2, 3 + cos(frac(2 * π, 3)))}) as (hypothesis 42: {f(frac(2 * π, 3)) = sqrtn(2, 3 + cos(frac(2 * π, 3)))})
+rewrite (left_to_right, equation) (hypothesis 42: {f(frac(2 * π, 3)) = sqrtn(2, 3 + cos(frac(2 * π, 3)))}); from (hypothesis 40: {y_{4} = f(frac(2 * π, 3))}) to (hypothesis 43: {y_{4} = sqrtn(2, 3 + cos(frac(2 * π, 3)))})
+apply (hypothesis 43: {y_{4} = sqrtn(2, 3 + cos(frac(2 * π, 3)))})

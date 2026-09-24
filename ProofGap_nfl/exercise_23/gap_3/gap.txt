@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet
+2. x - 2 ≥ 10 ∨ x - 2 ≤ -10
+3. x ≥ 12 ∨ x ≤ -8
+
+GOAL:
+(x ∈ RealSet ∧ (x ≥ 12 ∨ x ≤ -8)) ⇔ |x - 2| ≥ 10
+
+METHOD:

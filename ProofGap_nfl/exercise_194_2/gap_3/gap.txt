@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = sin(frac(π, x))
+4. f(x) = 0 ⇒ sin(frac(π, x)) = 0
+5. f(x) = 0 ⇒ x ∈ { frac(1, k) | k ∈ IntegerSet, k ≠ 0 }
+
+GOAL:
+x ≠ 0 ⇒ f(x) > 0 ⇒ x ∈ { x | exists (k), k ∈ NonNegIntegerSet ∧ (1 < x ∧ x < +∞ ∨ k > 0 ∧ frac(1, 2 * k + 1) < x ∧ x < frac(1, 2 * k) ∨ -frac(1, 2 * k + 1) < x ∧ x < -frac(1, 2 * k + 2)) }
+
+METHOD:

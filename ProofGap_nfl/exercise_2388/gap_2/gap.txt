@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. Defined(f, (0, 1])
+3. MonoDecFuncOn(f, (0, 1]) ∨ MonoIncFuncOn(f, (0, 1])
+4. ¬BoundedFuncOn(f, (0, 1])
+5. forall (x), x ∈ RealSet ∧ x ∈ (0, 1] ⇒ (exists (I), I ∈ RealSet ∧ DefInt(0, 1, f(x) * diff(fun x [x ∈ RealSet] . x)) = I)
+6. MonoDecFuncOn(f, (0, 1]) ⇒ lim_{ x → 0^+ } (f(x)) = +∞
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ (0, 1] ∧ MonoDecFuncOn(f, (0, 1]) ∧ (forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ f(x) ≥ 0) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ DefInt(0, 1, f(x) * diff(fun x [x ∈ RealSet] . x)) = sum_{ k = 0 }^{ n - 1 } (DefInt(frac(k, n), frac(k + 1, n), f(x) * diff(fun x [x ∈ RealSet] . x))))
+
+METHOD:

@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (A_{0}), A_{0} ∈ RealSet ∧ A_{0} > 1 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ A_{0} > 1)}) (A_{0} := {A})
+get_condition (hypothesis 8: {A ∈ RealSet ∧ A > 1}) in (GOAL: {A ∈ RealSet ∧ A > 1 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ A > 1)})
+destruct_and (hypothesis 8: {A ∈ RealSet ∧ A > 1}) as (hypothesis 9: {A ∈ RealSet}) (hypothesis 10: {A > 1})
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ A > 1}) (ε := {eps})
+get_condition (hypothesis 11: {eps ∈ RealSet ∧ eps > 0}) in (GOAL: {eps ∈ RealSet ∧ eps > 0 ⇒ A > 1})
+autosolve all_hypothesis

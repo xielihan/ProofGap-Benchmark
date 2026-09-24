@@ -1,0 +1,26 @@
+PROOF GAP @15
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. g : RealSet → RealSet
+3. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ f(n, x) = e^{-(x - n)^{2}}
+4. forall (x), x ∈ RealSet ⇒ g(x) = 0
+5. forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (f(n, x)) = 0
+6. forall (x), x ∈ RealSet ⇒ 0 = g(x)
+7. forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (f(n, x)) = g(x)
+8. ConvergentSeq(f)
+9. ε_{0} = frac(1, 2)
+10. 0 < ε_{0}
+11. ε_{0} < 1
+12. 0 < 1
+13. forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x = n ⇒ x ∈ RealSet
+14. forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x = n ⇒ |f(n, x) - g(x)| = |f(n, n) - g(n)|
+15. forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x = n ⇒ |f(n, n) - g(n)| = e^{-(n - n)^{2}}
+16. forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x = n ⇒ e^{-(n - n)^{2}} = 1
+17. forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x = n ⇒ 1 > ε_{0}
+18. forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x = n ⇒ |f(n, x) - g(x)| > ε_{0}
+19. ¬UniformConvergent(f, IntervalLoRo(-∞, +∞), g)
+
+GOAL:
+¬(ConvergentSeq(f) ∧ UniformConvergent(f, IntervalLoRo(-∞, +∞), g))
+
+METHOD:

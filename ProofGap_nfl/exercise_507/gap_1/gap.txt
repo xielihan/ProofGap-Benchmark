@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 2 * x - 1 ≠ 0 ∧ frac(x + 2, 2 * x - 1) > 0 ⇒ frac(x + 2, 2 * x - 1)^{x^{2}} ∈ RealSet
+
+METHOD:

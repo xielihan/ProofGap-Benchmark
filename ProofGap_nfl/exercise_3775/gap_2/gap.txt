@@ -1,0 +1,21 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. D ⊆ RealSet
+3. y_{0} ∈ RealSet
+4. f : CartesianProd(RealSet, RealSet) → RealSet
+5. F : RealSet → RealSet
+6. y_{0} ∈ D
+7. y_{0} ∈ AccumulationPointSet(D)
+8. f : CartesianProd([a, +∞), D) → RealSet
+9. F : [a, +∞) → [0, +∞)
+10. forall (b) (y), b ∈ RealSet ∧ y ∈ RealSet ∧ b > a ∧ y ∈ D ⇒ IntegrableFuncOn(fun x [x ∈ RealSet] . f(x, y), [a, b])
+11. forall (y) (b) (x), y ∈ RealSet ∧ b ∈ RealSet ∧ x ∈ RealSet ∧ y ∈ D ∧ b > a ∧ x ∈ [a, b] ⇒ lim_{ y → y_{0} } (f(x, y)) = f(x, y_{0})
+12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ∈ [a, +∞) ∧ y ∈ D ⇒ |f(x, y)| ≤ F(x)
+13. DefInt(a, +∞, F * diff(fun x [x ∈ RealSet] . x)) < +∞
+14. forall (b), b ∈ RealSet ∧ b > a ⇒ lim_{ y → y_{0} } (DefInt(a, b, (fun x [x ∈ RealSet] . f(x, y)) * diff(fun x [x ∈ RealSet] . x))) = DefInt(a, b, (fun x [x ∈ RealSet] . f(x, y_{0})) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ [a, +∞) ⇒ |f(x, y_{0})| ≤ F(x)
+
+METHOD:

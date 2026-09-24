@@ -1,0 +1,14 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ≥ 0 ∧ n = floor(x) ⇒ x < n + 1)}) (n := {n0})
+get_condition (hypothesis 18: {n0 ∈ NonNegIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ≥ 0 ∧ n0 = floor(x) ⇒ x < n0 + 1)})
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ≥ 0 ∧ n0 = floor(x) ⇒ x < n0 + 1}) (x := {x0})
+get_condition (hypothesis 19: {x0 ∈ RealSet ∧ x0 ≥ 0 ∧ n0 = floor(x0)}) in (GOAL: {x0 ∈ RealSet ∧ x0 ≥ 0 ∧ n0 = floor(x0) ⇒ x0 < n0 + 1})
+destruct_and (hypothesis 19: {x0 ∈ RealSet ∧ x0 ≥ 0 ∧ n0 = floor(x0)}) as (hypothesis 20: {x0 ∈ RealSet}) (hypothesis 21: {x0 ≥ 0}) (hypothesis 22: {n0 = floor(x0)})
+assert (hypothesis 23: {floor(x0) = n0}) by proof {
+  autosolve (hypothesis 22: {n0 = floor(x0)})
+}
+get_prop (theorem 'Thm 250. (FloorIntervalCharacterization)': {forall (x) (n), x ∈ RealSet ⇒ n ∈ IntegerSet ⇒ (floor(x) = n ⇒ n ≤ x ∧ x < n + 1)}) (x := {x0}) (n := {n0}) as (hypothesis 24: {x0 ∈ RealSet ⇒ n0 ∈ IntegerSet ⇒ (floor(x0) = n0 ⇒ n0 ≤ x0 ∧ x0 < n0 + 1)})
+assert (hypothesis 25: {n0 ∈ IntegerSet}) by proof {
+  autosolve (hypothesis 18: {n0 ∈ NonNegIntegerSet})
+}
+use_condition (hypothesis 20: {x0 ∈ RealSet}) (hypothesis 25: {n0 ∈ IntegerSet}) (hypothesis 23: {floor(x0) = n0}) in (hypothesis 24: {x0 ∈ RealSet ⇒ n0 ∈ IntegerSet ⇒ (floor(x0) = n0 ⇒ n0 ≤ x0 ∧ x0 < n0 + 1)}) as (hypothesis 26: {n0 ≤ x0 ∧ x0 < n0 + 1})
+autosolve (hypothesis 26: {n0 ≤ x0 ∧ x0 < n0 + 1})

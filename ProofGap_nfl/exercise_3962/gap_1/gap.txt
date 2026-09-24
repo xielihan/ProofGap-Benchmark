@@ -1,0 +1,16 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. D ⊆ CartesianProd(RealSet, RealSet)
+3. I ∈ RealSet
+4. p ∈ CartesianProd(RealSet, RealSet)
+5. q ∈ CartesianProd(RealSet, RealSet)
+6. D = { p | exists (x), x ∈ RealSet ∧ (exists (y), y ∈ RealSet ∧ p = (x, y) ∧ |x| + |y| ≤ 1) }
+7. ContinuousFuncOn(f, [-1, 1])
+8. u = x + y
+9. v = x - y
+
+GOAL:
+x = frac(u + v, 2)
+
+METHOD:

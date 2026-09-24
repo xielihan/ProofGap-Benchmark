@@ -1,0 +1,2 @@
+rewrite (right_to_left, equation) (hypothesis 5: {I = DefInt(10, 100, (fun x [x ∈ RealSet] . frac(ln(1 + x), x)) * diff(fun x [x ∈ RealSet] . x))}); from (GOAL: {DefInt(10, 100, (fun x [x ∈ RealSet] . frac(ln(1 + x), x)) * diff(fun x [x ∈ RealSet] . x)) ≈_{ 0.001 } 8.041}) to (GOAL: {I ≈_{ 0.001 } 8.041})
+apply (hypothesis 8: {I ≈_{ 0.001 } 8.041})

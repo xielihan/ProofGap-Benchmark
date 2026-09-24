@@ -1,0 +1,4 @@
+get_prop (theorem 'Thm 381. (ContinuityAtPointAsLimit)': {forall (f) (x), f : RealSet -> RealSet => x ∈ RealSet => (ContinuousFuncAt(f, x) <==> lim_{t -> x} (f(t)) = f(x))}) (f := {f}) (x := {0}) as (hypothesis 7: {f : RealSet -> RealSet => 0 ∈ RealSet => (ContinuousFuncAt(f, 0) <==> lim_{t -> 0} (f(t)) = f(0))})
+use_condition (hypothesis 1: {f : RealSet -> RealSet}) (obvious: {0 ∈ RealSet}) in (hypothesis 7: {f : RealSet -> RealSet => 0 ∈ RealSet => (ContinuousFuncAt(f, 0) <==> lim_{t -> 0} (f(t)) = f(0))}) as (hypothesis 8: {ContinuousFuncAt(f, 0) <==> lim_{t -> 0} (f(t)) = f(0)})
+rewrite (left_to_right, iff) (hypothesis 8: {ContinuousFuncAt(f, 0) <==> lim_{t -> 0} (f(t)) = f(0)}); from (GOAL: {ContinuousFuncAt(f, 0)}) to (GOAL: {lim_{t -> 0} (f(t)) = f(0)})
+apply (hypothesis 6: {lim_{ x -> 0 } (f(x)) = f(0)})

@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. a < b
+5. f : [a, b] → RealSet
+6. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ (exists (`ϵ`), `ϵ` ∈ RealSet ∧ `ϵ` > 0 ∧ BoundedFuncOn(f, IntervalLoRo(x - `ϵ`, x + `ϵ`) ∩ [a, b]))
+
+GOAL:
+¬BoundedFuncOn(f, [a, b]) ⇒ (exists (x), x : NonNegIntegerSet → RealSet ∧ IsSeq(x) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ∈ [a, b] ∧ seqlim_{ n → +∞ } (f(x(n))) = ∞))
+
+METHOD:

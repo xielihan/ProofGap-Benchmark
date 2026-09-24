@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet ∧ x > e^{-1}
+2. t ∈ RealSet
+3. t = 1 + ln(x)
+4. x > 0
+5. t > 0
+
+GOAL:
+frac(ln(x), x) * diff(fun x [x ∈ RealSet] . x) = (1 + ln(x) - 1) * diff(fun x [x ∈ RealSet ∧ x > e^{-1}] . 1 + ln(x))
+
+METHOD:

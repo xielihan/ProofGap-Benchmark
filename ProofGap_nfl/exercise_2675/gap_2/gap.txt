@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. p ∈ RealSet
+2. p < 0 ⇒ lim_{ n → +∞ } (1 / n^{p}) = +∞
+
+GOAL:
+p < 0 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} / n^{p}))
+
+METHOD:

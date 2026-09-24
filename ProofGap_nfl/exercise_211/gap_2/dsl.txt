@@ -1,0 +1,6 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ f(x) = x^{2} - 5 * x + 6}) (x := {x0})
+2. get_condition (hypothesis 4: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ f(x0) = x0^{2} - 5 * x0 + 6})
+3. assert (hypothesis 5: {x0 - 1 ∈ RealSet})
+4. get_prop (hypothesis 3: {forall (x), x ∈ RealSet ⇒ f(x + 1) = (x + 1)^{2} - 5 * (x + 1) + 6}) (x := {x0 - 1}) as (hypothesis 6: {x0 - 1 ∈ RealSet ⇒ f((x0 - 1) + 1) = ((x0 - 1) + 1)^{2} - 5 * ((x0 - 1) + 1) + 6})
+5. use_condition (hypothesis 5: {x0 - 1 ∈ RealSet}) in (hypothesis 6: {x0 - 1 ∈ RealSet ⇒ f((x0 - 1) + 1) = ((x0 - 1) + 1)^{2} - 5 * ((x0 - 1) + 1) + 6}) as (hypothesis 7: {f((x0 - 1) + 1) = ((x0 - 1) + 1)^{2} - 5 * ((x0 - 1) + 1) + 6})
+6. autosolve all_hypothesis

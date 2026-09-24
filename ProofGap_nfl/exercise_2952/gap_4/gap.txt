@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. S : RealSet → RealSet
+3. A : NonNegIntegerSet → RealSet
+4. B : NonNegIntegerSet → RealSet
+5. forall (x), x ∈ RealSet ⇒ f(x) = sgn(cos(x))
+6. forall (x), x ∈ RealSet ⇒ f(x + 2 * π) = sgn(cos(x + 2 * π)) ∧ sgn(cos(x + 2 * π)) = sgn(cos(x)) ∧ sgn(cos(x)) = f(x)
+7. PeriodicFunc(f, 2 * π)
+8. EvenFunc(f)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ B(n) = 0
+
+METHOD:

@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = 2 * x + 3
+
+GOAL:
+forall (z), z ∈ RealSet ⇒ InverseFunc(y, z) = frac(z - 3, 2)
+
+METHOD:

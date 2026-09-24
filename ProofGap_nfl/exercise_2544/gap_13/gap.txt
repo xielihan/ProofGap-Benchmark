@@ -1,0 +1,42 @@
+PROOF GAP @13
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. s : RealSet → RealSet
+4. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+5. h ∈ RealSet ∧ h > 0
+6. t_{0} ∈ RealSet
+7. t_{1} ∈ RealSet
+8. t_{2} ∈ RealSet
+9. t_{3} ∈ RealSet
+10. t_{4} ∈ RealSet
+11. t_{5} ∈ RealSet
+12. t_{6} ∈ RealSet
+13. y_{0} ∈ RealSet
+14. y_{1} ∈ RealSet
+15. y_{2} ∈ RealSet
+16. y_{3} ∈ RealSet
+17. y_{4} ∈ RealSet
+18. y_{5} ∈ RealSet
+19. y_{6} ∈ RealSet
+20. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ x(t) = 10 * cos(t)
+21. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ y(t) = 6 * sin(t)
+22. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ FunDeri(x, 1, 1)(t) = -10 * sin(t)
+23. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ FunDeri(y, 1, 1)(t) = 6 * cos(t)
+24. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . s(t)) = sqrtn(2, FunDeri(x, 1, 1)(t)^{2} + FunDeri(y, 1, 1)(t)^{2}) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . t)
+25. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ sqrtn(2, FunDeri(x, 1, 1)(t)^{2} + FunDeri(y, 1, 1)(t)^{2}) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . t) = 10 * sqrtn(2, 1 - frac(16, 25) * sin(t)^{2}) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . t)
+26. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . s(t)) = 10 * sqrtn(2, 1 - frac(16, 25) * sin(t)^{2}) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . t)
+27. s = 4 * DefInt(0, frac(π, 2), diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2)] . s(t)))
+28. 4 * DefInt(0, frac(π, 2), diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2)] . s(t))) = 40 * DefInt(0, frac(π, 2), (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2)] . sqrtn(2, 1 - frac(16, 25) * sin(t)^{2})) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2)] . t))
+29. s = 40 * DefInt(0, frac(π, 2), (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2)] . sqrtn(2, 1 - frac(16, 25) * sin(t)^{2})) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2)] . t))
+30. n = 6
+31. h = frac(π, 12)
+32. sin(frac(π, 12))^{2} = frac(2 - sqrtn(2, 3), 4)
+33. sin(frac(5 * π, 12))^{2} = frac(2 + sqrtn(2, 3), 4)
+34. t_{0} = 0
+35. y_{0} = 1
+
+GOAL:
+t_{1} = frac(π, 12)
+
+METHOD:

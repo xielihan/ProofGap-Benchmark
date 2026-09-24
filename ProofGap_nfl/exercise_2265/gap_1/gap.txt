@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet ∧ Defined(f, RealSet)
+2. T ∈ RealSet ∧ T > 0
+3. a ∈ RealSet
+4. ContinuousFunc(f)
+5. PeriodicFunc(f, T)
+
+GOAL:
+DefInt(a, a + T, (fun x [x ∈ RealSet] . f(x)) * diff(fun x [x ∈ RealSet] . x)) = DefInt(a, 0, (fun x [x ∈ RealSet] . f(x)) * diff(fun x [x ∈ RealSet] . x)) + DefInt(0, T, (fun x [x ∈ RealSet] . f(x)) * diff(fun x [x ∈ RealSet] . x)) + DefInt(T, a + T, (fun x [x ∈ RealSet] . f(x)) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

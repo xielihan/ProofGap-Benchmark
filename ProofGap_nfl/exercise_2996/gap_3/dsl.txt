@@ -1,0 +1,4 @@
+assert (hypothesis 4: {sum_{ m = 0 }^{ +∞ } (frac(2^{m}, m!)) = sum_{ n = 0 }^{ +∞ } (frac(2^{n}, n!))}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

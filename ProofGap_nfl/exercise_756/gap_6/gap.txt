@@ -1,0 +1,16 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. a < b
+5. forall (x), x ∈ RealSet ⇒ f(x) = cases{ sin(frac(1, x - a)) if x ≠ a; 0 if x = a }
+6. f(a) = 0
+7. |f(b)| ≤ 1
+8. forall (y), y ∈ RealSet ∧ y ∈ [-1, 1] ⇒ (exists (x), x ∈ RealSet ∧ x ∈ (a, b] ∧ f(x) = y)
+9. forall (y), y ∈ RealSet ∧ min(f(a), f(b)) ≤ y ∧ y ≤ max(f(a), f(b)) ⇒ (exists (x), x ∈ RealSet ∧ x ∈ [a, b] ∧ f(x) = y)
+10. ¬(exists (L), L ∈ RealSet ∧ lim_{ x → a^+ } (f(x)) = L)
+GOAL:
+¬ContinuousFuncAt(f, a)
+
+METHOD:

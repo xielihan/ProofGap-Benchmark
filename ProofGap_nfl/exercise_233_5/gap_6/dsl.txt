@@ -1,0 +1,2 @@
+not_normalize from (GOAL: {¬ (exists (a), a ∈ RealSet /\ a > 0 /\ PeriodicFunc(f, a))}) to (GOAL: {(exists (a), a ∈ RealSet /\ a > 0 /\ PeriodicFunc(f, a)) => False})
+apply (hypothesis 7: {(exists (a), a ∈ RealSet /\ a > 0 /\ PeriodicFunc(f, a)) => False})

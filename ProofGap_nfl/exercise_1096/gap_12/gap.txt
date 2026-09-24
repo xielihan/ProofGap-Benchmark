@@ -1,0 +1,19 @@
+PROOF GAP @12
+ASSUM:
+1. x ∈ RealSet
+2. FunDeri(fun x [x ∈ RealSet] . x^{3} - 2 * x^{6} - x^{9}, fun x [x ∈ RealSet] . x^{3}, 1)(x) = FunDeri(fun x [x ∈ RealSet] . x^{3} - 2 * (x^{3})^{2} - (x^{3})^{3}, fun x [x ∈ RealSet] . x^{3}, 1)(x)
+3. FunDeri(fun x [x ∈ RealSet] . x^{3} - 2 * (x^{3})^{2} - (x^{3})^{3}, fun x [x ∈ RealSet] . x^{3}, 1)(x) = 1 - 4 * x^{3} - 3 * x^{6}
+4. FunDeri(fun x [x ∈ RealSet] . x^{3} - 2 * x^{6} - x^{9}, fun x [x ∈ RealSet] . x^{3}, 1)(x) = 1 - 4 * x^{3} - 3 * x^{6}
+5. frac(sin(x), x) = frac(sin(-x), -x)
+6. x > 0 ⇒ FunDeri(fun x [x ∈ RealSet] . frac(sin(x), x), fun x [x ∈ RealSet] . x^{2}, 1)(x) = FunDeri(fun x [x ∈ RealSet] . frac(sin(sqrtn(2, x^{2})), sqrtn(2, x^{2})), fun x [x ∈ RealSet] . x^{2}, 1)(x)
+7. x > 0 ⇒ FunDeri(fun x [x ∈ RealSet] . frac(sin(x), x), fun x [x ∈ RealSet] . x^{2}, 1)(x) = frac(frac(1, 2) * cos(x) - frac(1, 2 * x) * sin(x), x^{2})
+8. x > 0 ⇒ frac(frac(1, 2) * cos(x) - frac(1, 2 * x) * sin(x), x^{2}) = frac(x * cos(x) - sin(x), 2 * x^{3})
+9. x > 0 ⇒ FunDeri(fun x [x ∈ RealSet] . frac(sin(x), x), fun x [x ∈ RealSet] . x^{2}, 1)(x) = frac(x * cos(x) - sin(x), 2 * x^{3})
+10. FunDeri(fun x [x ∈ RealSet] . frac(sin(x), x), fun x [x ∈ RealSet] . x^{2}, 1)(x) = frac(x * cos(x) - sin(x), 2 * x^{3})
+11. FunDeri(fun x [x ∈ RealSet] . sin(x), fun x [x ∈ RealSet] . cos(x), 1)(x) = frac(cos(x) * diff(fun x [x ∈ RealSet] . x), -sin(x) * diff(fun x [x ∈ RealSet] . x))
+12. sin(x) ≠ 0 ⇒ frac(cos(x) * diff(fun x [x ∈ RealSet] . x), -sin(x) * diff(fun x [x ∈ RealSet] . x)) = -cot(x)
+
+GOAL:
+sin(x) ≠ 0 ⇒ FunDeri(fun x [x ∈ RealSet] . sin(x), fun x [x ∈ RealSet] . cos(x), 1)(x) = -cot(x)
+
+METHOD:

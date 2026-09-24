@@ -1,0 +1,16 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. u : RealSet → RealSet
+3. a ∈ RealSet
+4. a ∈ PosRealSet
+5. DiffableFunc(u)
+6. DiffableFunc(FunDeri(u, 1, 1))
+7. forall (x), x ∈ RealSet ⇒ y(u(x)) = a^{u(x)}
+8. a > 0
+9. forall (x), x ∈ RealSet ⇒ DiffableFuncAt(u, x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(fun t . a ^ (u(t)), 1, 1)(x) = a ^ (u(x)) * ln(a) * FunDeri(u, 1, 1)(x)
+
+METHOD:

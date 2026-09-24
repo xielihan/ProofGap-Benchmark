@@ -1,0 +1,23 @@
+PROOF GAP @13
+ASSUM:
+1. f : RealSet → RealSet
+2. a : NonNegIntegerSet → RealSet
+3. forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ∧ x ≠ 0 ⇒ f(x) = frac(arcsin(x), x)^{2}
+4. φ = (fun x [x ∈ RealSet ∧ -1 < x ∧ x < 1] . arcsin(x)^{2})
+5. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ φ(x) = sum_{ n = 0 }^{ +∞ } (a(n) * x^{n})
+6. forall (n), n ∈ NonNegIntegerSet ⇒ a(n) ∈ RealSet
+7. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ FunDeri(φ, 1, 1)(x) = frac(2 * arcsin(x), sqrtn(2, 1 - x^{2})) ∧ frac(2 * arcsin(x), sqrtn(2, 1 - x^{2})) = sum_{ n = 0 }^{ +∞ } ((n + 1) * a(n + 1) * x^{n})
+8. φ(0) = 0
+9. FunDeri(φ, 1, 1)(0) = 0
+10. a(0) = 0
+11. a(1) = 0
+12. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ sqrtn(2, 1 - x^{2}) * FunDeri(φ, 1, 1)(x) = 2 * arcsin(x)
+13. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ sqrtn(2, 1 - x^{2}) * FunDeri(φ, 1, 2)(x) - frac(x * FunDeri(φ, 1, 1)(x), sqrtn(2, 1 - x^{2})) = frac(2, sqrtn(2, 1 - x^{2}))
+14. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ (1 - x^{2}) * FunDeri(φ, 1, 2)(x) - x * FunDeri(φ, 1, 1)(x) = 2
+15. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ (1 - x^{2}) * (sum_{ n = 2 }^{ +∞ } (n * (n - 1) * a(n) * x^{n - 2})) - (sum_{ n = 2 }^{ +∞ } (n * a(n) * x^{n})) = 2
+16. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ (sum_{ n = 2 }^{ +∞ } (n * (n - 1) * a(n) * x^{n - 2})) - (sum_{ n = 2 }^{ +∞ } (n^{2} * a(n) * x^{n})) = 2
+
+GOAL:
+forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ 2 * a(2) + 6 * a(3) * x + (sum_{ n = 2 }^{ +∞ } (((n + 2) * (n + 1) * a(n + 2) - n^{2} * a(n)) * x^{n})) = 2
+
+METHOD:

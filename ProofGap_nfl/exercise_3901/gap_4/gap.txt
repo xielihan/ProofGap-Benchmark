@@ -1,0 +1,10 @@
+PROOF GAP @4
+ASSUM:
+1. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ sum_{ i = 1 }^{ n } (sum_{ j = 1 }^{ n } (frac(i, n) * frac(j, n) * frac(1, n^{2}))) = frac(1, n^{4}) * (sum_{ i = 1 }^{ n } (i)) * (sum_{ j = 1 }^{ n } (j))
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ sum_{ i = 1 }^{ n } (i) = frac(n * (n + 1), 2)
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ sum_{ j = 1 }^{ n } (j) = frac(n * (n + 1), 2)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, n^{4}) * (sum_{ i = 1 }^{ n } (i)) * (sum_{ j = 1 }^{ n } (j)) = frac(n^{2} * (n + 1)^{2}, 4 * n^{4})
+
+METHOD:

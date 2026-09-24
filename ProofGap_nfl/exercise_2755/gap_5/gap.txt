@@ -1,0 +1,18 @@
+PROOF GAP @5
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. h : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+3. g : RealSet → RealSet
+4. C ∈ CartesianProd(IntegerSet, IntegerSet)
+5. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ f(n, x) = frac(sin(n * x), n)
+6. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ h(n, x) = sin(frac(x, n))
+7. forall (x), x ∈ RealSet ⇒ g(x) = 0
+8. forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (f(n, x)) = g(x)
+9. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ |f(n, x) - g(x)| = frac(|sin(n * x)|, n)
+10. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ frac(|sin(n * x)|, n) ≤ frac(1, n)
+11. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ |f(n, x) - g(x)| ≤ frac(1, n)
+
+GOAL:
+forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(1, n) < ε ⇒ |f(n, x) - g(x)| < ε)
+
+METHOD:

@@ -1,0 +1,4 @@
+get_exists (hypothesis 7: {exists (θ), θ ∈ RealSet ∧ θ < 1 ∧ 0 < θ}) (θ := {θ0})
+destruct_and (hypothesis 8: {θ0 ∈ RealSet ∧ θ0 < 1 ∧ 0 < θ0}) as (hypothesis 9: {θ0 ∈ RealSet}) (hypothesis 10: {θ0 < 1}) (hypothesis 11: {0 < θ0})
+exists (θ := {θ0})
+autosolve (hypothesis 9: {θ0 ∈ RealSet}) (hypothesis 10: {θ0 < 1}) (hypothesis 11: {0 < θ0})

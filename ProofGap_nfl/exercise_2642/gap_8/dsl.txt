@@ -1,0 +1,7 @@
+get_condition (hypothesis 12: {a > 0}) (hypothesis 13: {2 * a > 1}) in (GOAL: {a > 0 ⇒ 2 * a > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{2 * a})))})
+get_prop (theorem 'Thm 366. (PSeriesConvergesForExponentAboveOne)': {forall (p), p ∈ RealSet => p > 1 => ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ p))}) (p := {2 * a}) as (hypothesis 14: {2 * a ∈ RealSet => 2 * a > 1 => ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ (2 * a)))})
+assert (hypothesis 15: {2 * a ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 15: {2 * a ∈ RealSet}) (hypothesis 13: {2 * a > 1}) in (hypothesis 14: {2 * a ∈ RealSet => 2 * a > 1 => ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ (2 * a)))}) as (hypothesis 16: {ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ (2 * a)))})
+autosolve all_hypothesis

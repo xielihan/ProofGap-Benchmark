@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. F : RealSet → RealSet
+2. forall (α), α ∈ RealSet ∧ 0 < α ∧ α < 2 ⇒ F(α) = DefInt(0, π, (fun x [x ∈ RealSet ∧ 0 < x ∧ x < π] . frac(sin(x), x^{α} * (π - x)^{α})) * diff(fun x [x ∈ RealSet ∧ 0 < x ∧ x < π] . x))
+3. forall (α), α ∈ RealSet ∧ 0 < α ∧ α < 2 ⇒ F(α) = DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ 0 < x ∧ x < frac(π, 2)] . frac(sin(x), x^{α} * (π - x)^{α})) * diff(fun x [x ∈ RealSet ∧ 0 < x ∧ x < frac(π, 2)] . x)) + DefInt(frac(π, 2), π, (fun x [x ∈ RealSet ∧ frac(π, 2) < x ∧ x < π] . frac(sin(x), x^{α} * (π - x)^{α})) * diff(fun x [x ∈ RealSet ∧ frac(π, 2) < x ∧ x < π] . x))
+4. forall (α), α ∈ RealSet ∧ 0 < α ∧ α < 2 ⇒ DefInt(frac(π, 2), π, (fun x [x ∈ RealSet ∧ frac(π, 2) < x ∧ x < π] . frac(sin(x), x^{α} * (π - x)^{α})) * diff(fun x [x ∈ RealSet ∧ frac(π, 2) < x ∧ x < π] . x)) = DefInt(0, frac(π, 2), (fun t [t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2)] . frac(sin(t), t^{α} * (π - t)^{α})) * diff(fun t [t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2)] . t))
+
+GOAL:
+forall (α), α ∈ RealSet ∧ 0 < α ∧ α < 2 ⇒ F(α) = 2 * DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ 0 < x ∧ x < frac(π, 2)] . frac(sin(x), x^{α} * (π - x)^{α})) * diff(fun x [x ∈ RealSet ∧ 0 < x ∧ x < frac(π, 2)] . x))
+
+METHOD:

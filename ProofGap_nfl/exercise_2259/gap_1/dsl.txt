@@ -1,0 +1,8 @@
+1. get_condition (hypothesis 7: {EvenFunc(f)}) in (GOAL: {EvenFunc(f) ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [-l, l] ⇒ f(-x) = f(x))})
+2. get_prop (theorem 'Thm 280. (EvenFunctionDefinition)': {forall (f), f : RealSet -> RealSet => (EvenFunc(f) <==> (forall (x), x ∈ RealSet => f(-x) = f(x)))}) (f := {f}) as (hypothesis 8: {f : RealSet -> RealSet => (EvenFunc(f) <==> (forall (x), x ∈ RealSet => f(-x) = f(x)))})
+3. use_condition (hypothesis 1: {f : RealSet → RealSet}) in (hypothesis 8: {f : RealSet -> RealSet => (EvenFunc(f) <==> (forall (x), x ∈ RealSet => f(-x) = f(x)))}) as (hypothesis 9: {EvenFunc(f) <==> (forall (x), x ∈ RealSet => f(-x) = f(x))})
+4. rewrite (left_to_right, iff) (hypothesis 9: {EvenFunc(f) <==> (forall (x), x ∈ RealSet => f(-x) = f(x))}); from (hypothesis 7: {EvenFunc(f)}) to (hypothesis 7: {forall (x), x ∈ RealSet => f(-x) = f(x)})
+5. get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ [-l, l] ⇒ f(-x) = f(x)}) (x := {u})
+6. get_condition (hypothesis 10: {u ∈ RealSet ∧ u ∈ [-l, l]}) in (GOAL: {u ∈ RealSet ∧ u ∈ [-l, l] ⇒ f(-u) = f(u)})
+7. get_prop (hypothesis 7: {forall (x), x ∈ RealSet => f(-x) = f(x)}) (x := {u}) as (hypothesis 11: {u ∈ RealSet => f(-u) = f(u)})
+8. autosolve (hypothesis 10: {u ∈ RealSet ∧ u ∈ [-l, l]}) (hypothesis 11: {u ∈ RealSet => f(-u) = f(u)})

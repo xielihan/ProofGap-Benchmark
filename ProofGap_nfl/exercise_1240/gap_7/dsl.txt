@@ -1,0 +1,10 @@
+1. get_exists (hypothesis 15: {exists (l) (α), l ∈ NonNegIntegerSet ∧ α : NonNegIntegerSet → RealSet ∧ l ∈ PosIntegerSet ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l ⇒ α(i) ∈ RealSet)}) (l := {l0}) (α := {α0})
+2. destruct_and (hypothesis 16: {l0 ∈ NonNegIntegerSet ∧ α0 : NonNegIntegerSet → RealSet ∧ l0 ∈ PosIntegerSet ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l0 ⇒ α0(i) ∈ RealSet)}) as (hypothesis 17: {l0 ∈ NonNegIntegerSet}) (hypothesis 18: {α0 : NonNegIntegerSet → RealSet}) (hypothesis 19: {l0 ∈ PosIntegerSet}) (hypothesis 20: {forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l0 ⇒ α0(i) ∈ RealSet})
+3. assert (hypothesis 21: {forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i < 1 ⇒ P(α0(i)) = P(α0(i + 1))}) by proof {
+  1. get_forall (GOAL: {forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i < 1 ⇒ P(α0(i)) = P(α0(i + 1))}) (i := {i0})
+  2. get_condition (hypothesis 21: {i0 ∈ NonNegIntegerSet ∧ i0 ∈ PosIntegerSet ∧ i0 < 1}) in (GOAL: {i0 ∈ NonNegIntegerSet ∧ i0 ∈ PosIntegerSet ∧ i0 < 1 ⇒ P(α0(i0)) = P(α0(i0 + 1))})
+  3. destruct_and (hypothesis 21: {i0 ∈ NonNegIntegerSet ∧ i0 ∈ PosIntegerSet ∧ i0 < 1}) as (hypothesis 22: {i0 ∈ NonNegIntegerSet}) (hypothesis 23: {i0 ∈ PosIntegerSet}) (hypothesis 24: {i0 < 1})
+  4. autosolve all_hypothesis
+}
+4. exists (l := {1}) (α := {α0})
+5. autosolve all_hypothesis

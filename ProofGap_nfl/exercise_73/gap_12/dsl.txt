@@ -1,0 +1,2 @@
+not_normalize from (GOAL: {¬(exists (m) (n), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n))}) to (GOAL: {(exists (m) (n), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n)) ⇒ False})
+apply (hypothesis 11: {(exists (m) (n), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n)) ⇒ False})

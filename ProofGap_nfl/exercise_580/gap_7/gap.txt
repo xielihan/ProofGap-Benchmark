@@ -1,0 +1,13 @@
+PROOF GAP @7
+ASSUM:
+1. forall (n), n ∈ PosIntegerSet ∧ n ≥ 3 ⇒ cos(frac(π, n)) ≠ 0 ∧ e^{frac(π, n)} + e^{-frac(π, n)} - 2 * cos(frac(π, n)) ≠ 0
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 3 ⇒ frac(cosh(frac(π, n)), cos(frac(π, n)))^{n^{2}} = frac(e^{frac(π, n)} + e^{-frac(π, n)}, 2 * cos(frac(π, n)))^{n^{2}}
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 3 ⇒ frac(e^{frac(π, n)} + e^{-frac(π, n)}, 2 * cos(frac(π, n)))^{n^{2}} = (1 + frac(1, frac(2 * cos(frac(π, n)), e^{frac(π, n)} + e^{-frac(π, n)} - 2 * cos(frac(π, n)))))^{frac(2 * cos(frac(π, n)), e^{frac(π, n)} + e^{-frac(π, n)} - 2 * cos(frac(π, n))) * frac(n^{2} * (e^{frac(π, n)} + e^{-frac(π, n)} - 2 * cos(frac(π, n))), 2 * cos(frac(π, n)))}
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 3 ⇒ n^{2} * (e^{frac(π, n)} + e^{-frac(π, n)} - 2 * cos(frac(π, n))) = n^{2} * ((e^{frac(π, 2 * n)} - e^{-frac(π, 2 * n)})^{2} + 2 * (1 - cos(frac(π, n))))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 3 ⇒ n^{2} * ((e^{frac(π, 2 * n)} - e^{-frac(π, 2 * n)})^{2} + 2 * (1 - cos(frac(π, n)))) = n^{2} * ((e^{frac(π, 2 * n)} - e^{-frac(π, 2 * n)})^{2} + 4 * sin(frac(π, 2 * n))^{2})
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 3 ⇒ n^{2} * ((e^{frac(π, 2 * n)} - e^{-frac(π, 2 * n)})^{2} + 4 * sin(frac(π, 2 * n))^{2}) = (frac(e^{frac(π, 2 * n)} - 1, frac(π, 2 * n)) * frac(π, 2) + frac(e^{-frac(π, 2 * n)} - 1, -frac(π, 2 * n)) * frac(π, 2))^{2} + π^{2} * frac(sin(frac(π, 2 * n)), frac(π, 2 * n))^{2}
+
+GOAL:
+seqlim_{ n → +∞ } ((frac(e^{frac(π, 2 * n)} - 1, frac(π, 2 * n)) * frac(π, 2) + frac(e^{-frac(π, 2 * n)} - 1, -frac(π, 2 * n)) * frac(π, 2))^{2} + π^{2} * frac(sin(frac(π, 2 * n)), frac(π, 2 * n))^{2}) = 2 * π^{2}
+
+METHOD:

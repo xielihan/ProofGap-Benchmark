@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. F : RealSet → RealSet
+2. forall (α), α ∈ RealSet ∧ α > 2 ⇒ F(α) = DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(x, 2 + x^{α})) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+forall (`α_0`), `α_0` ∈ RealSet ∧ `α_0` > 2 ⇒ (forall (x), x ∈ RealSet ⇒ (forall (α), α ∈ RealSet ∧ x ≥ 1 ∧ α ≥ `α_0` ⇒ 0 < frac(x, 2 + x^{α})))
+
+METHOD:

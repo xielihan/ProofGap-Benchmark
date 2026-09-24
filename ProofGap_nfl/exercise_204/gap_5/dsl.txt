@@ -1,0 +1,12 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ frac(1, 2) * (a^{x} + a^{-x}) * (a^{y} + a^{-y}) = 2 * f(x) * f(y))}) (x := {u})
+2. get_condition (hypothesis 9: {u ∈ RealSet}) in (GOAL: {u ∈ RealSet ⇒ (forall (y), u ∈ RealSet ∧ y ∈ RealSet ⇒ frac(1, 2) * (a^{u} + a^{-u}) * (a^{y} + a^{-y}) = 2 * f(u) * f(y))})
+3. get_forall (GOAL: {forall (y), u ∈ RealSet ∧ y ∈ RealSet ⇒ frac(1, 2) * (a^{u} + a^{-u}) * (a^{y} + a^{-y}) = 2 * f(u) * f(y)}) (y := {v})
+4. get_condition (hypothesis 10: {u ∈ RealSet ∧ v ∈ RealSet}) in (GOAL: {u ∈ RealSet ∧ v ∈ RealSet ⇒ frac(1, 2) * (a^{u} + a^{-u}) * (a^{v} + a^{-v}) = 2 * f(u) * f(v)})
+5. get_prop (hypothesis 4: {forall (t), t ∈ RealSet ⇒ f(t) = frac(1, 2) * (a^{t} + a^{-t})}) (t := {u}) as (hypothesis 11: {u ∈ RealSet ⇒ f(u) = frac(1, 2) * (a^{u} + a^{-u})})
+6. get_prop (hypothesis 4: {forall (t), t ∈ RealSet ⇒ f(t) = frac(1, 2) * (a^{t} + a^{-t})}) (t := {v}) as (hypothesis 12: {v ∈ RealSet ⇒ f(v) = frac(1, 2) * (a^{v} + a^{-v})})
+7. use_condition (hypothesis 9: {u ∈ RealSet}) in (hypothesis 11: {u ∈ RealSet ⇒ f(u) = frac(1, 2) * (a^{u} + a^{-u})}) as (hypothesis 13: {f(u) = frac(1, 2) * (a^{u} + a^{-u})})
+8. use_condition (obvious: {v ∈ RealSet}) in (hypothesis 12: {v ∈ RealSet ⇒ f(v) = frac(1, 2) * (a^{v} + a^{-v})}) as (hypothesis 14: {f(v) = frac(1, 2) * (a^{v} + a^{-v})})
+9. rewrite (left_to_right, equation) (hypothesis 13: {f(u) = frac(1, 2) * (a^{u} + a^{-u})}); from (GOAL: {frac(1, 2) * (a^{u} + a^{-u}) * (a^{v} + a^{-v}) = 2 * f(u) * f(v)}) to (GOAL: {frac(1, 2) * (a^{u} + a^{-u}) * (a^{v} + a^{-v}) = 2 * (frac(1, 2) * (a^{u} + a^{-u})) * f(v)})
+10. rewrite (left_to_right, equation) (hypothesis 14: {f(v) = frac(1, 2) * (a^{v} + a^{-v})}); from (GOAL: {frac(1, 2) * (a^{u} + a^{-u}) * (a^{v} + a^{-v}) = 2 * (frac(1, 2) * (a^{u} + a^{-u})) * f(v)}) to (GOAL: {frac(1, 2) * (a^{u} + a^{-u}) * (a^{v} + a^{-v}) = 2 * (frac(1, 2) * (a^{u} + a^{-u})) * (frac(1, 2) * (a^{v} + a^{-v}))})
+11. autoreplace no_hypothesis; from (frac(1, 2)) to (0.5); from (GOAL: {frac(1, 2) * (a^{u} + a^{-u}) * (a^{v} + a^{-v}) = 2 * (frac(1, 2) * (a^{u} + a^{-u})) * (frac(1, 2) * (a^{v} + a^{-v}))}) to (GOAL: {0.5 * (a^{u} + a^{-u}) * (a^{v} + a^{-v}) = 2 * (0.5 * (a^{u} + a^{-u})) * (0.5 * (a^{v} + a^{-v}))})
+12. autosolve all_hypothesis using PolyRatSolver

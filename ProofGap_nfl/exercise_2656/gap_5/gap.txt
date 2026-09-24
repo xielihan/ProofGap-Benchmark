@@ -1,0 +1,18 @@
+PROOF GAP @5
+ASSUM:
+1. a : NonNegIntegerSet → RealSet ∧ IsSeq(a)
+2. N : NonNegIntegerSet → NonNegIntegerSet
+3. A : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+5. forall (n), n ∈ NonNegIntegerSet ⇒ ¬AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+6. exists (ε), ε : NonNegIntegerSet → RealSet ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ ε(k) = frac(1, 2^{k}) ⇒ ε(k) > 0)
+7. exists (ε), ε : NonNegIntegerSet → RealSet ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ ε(k) = frac(1, 2^{k}) ⇒ (exists (N), N : NonNegIntegerSet → NonNegIntegerSet ∧ N(k) ∈ PosIntegerSet ∧ (forall (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ |sum_{ n = N(k) + 1 }^{ N(k) + m } (a(n))| < ε(k))))
+8. forall (n), n ∈ NonNegIntegerSet ⇒ (exists (N) (A), N : NonNegIntegerSet → NonNegIntegerSet ∧ A : NonNegIntegerSet → RealSet ∧ A(0) = sum_{ n = 1 }^{ N(1) } (a(n)))
+9. forall (n), n ∈ NonNegIntegerSet ⇒ (exists (N) (A), N : NonNegIntegerSet → NonNegIntegerSet ∧ A : NonNegIntegerSet → RealSet ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ A(k) = sum_{ n = N(k) + 1 }^{ N(k + 1) } (a(n))))
+10. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ |A(k)| < frac(1, 2^{k})
+11. forall (k), k ∈ NonNegIntegerSet ⇒ ConvergentSeries(sum_{ k = 1 }^{ +∞ } (frac(1, 2^{k})))
+
+GOAL:
+forall (k), k ∈ NonNegIntegerSet ⇒ ConvergentSeries(sum_{ k = 0 }^{ +∞ } (|A(k)|))
+
+METHOD:

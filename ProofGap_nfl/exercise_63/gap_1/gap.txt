@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. a > 0
+
+GOAL:
+a = 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ sqrtn(n, a) = 1)
+
+METHOD:

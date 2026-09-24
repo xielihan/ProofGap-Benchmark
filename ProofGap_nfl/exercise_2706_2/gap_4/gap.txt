@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. a = (fun n [n ∈ NonNegIntegerSet] . (-1)^{n})
+2. b = (fun n [n ∈ NonNegIntegerSet] . (-1)^{n + 1})
+3. c = (fun n [n ∈ NonNegIntegerSet] . a(n) + b(n))
+4. DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+5. DivergentSeries(sum_{ n = 1 }^{ +∞ } (b(n)))
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ c(n) = 0
+
+GOAL:
+ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n)))
+
+METHOD:

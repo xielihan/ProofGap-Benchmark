@@ -1,0 +1,16 @@
+PROOF GAP @2
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. φ : RealSet → RealSet
+3. ψ : RealSet → RealSet
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ u(x, y) = x * φ(x + y) + y * ψ(x + y)
+5. DiffableFunc(φ)
+6. DiffableFunc(ψ)
+7. FuncOfClassK(φ, 2)
+8. FuncOfClassK(ψ, 2)
+9. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(u, 1, 1)(x, y) = φ(x + y) + y * FunDeri(ψ, fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x + y, 1)(x + y) + x * FunDeri(φ, fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x + y, 1)(x + y))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(u, 2, 1)(x, y) = x * FunDeri(φ, fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x + y, 1)(x + y) + ψ(x + y) + y * FunDeri(ψ, fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x + y, 1)(x + y))
+
+METHOD:

@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. ξ ∈ RealSet ∧ ξ ∈ IntervalLoRo(a, b)
+5. a < b
+6. FuncOfClassKOn(f, IntervalLoRo(a, b), 2)
+7. FunDeri(f, 1, 2)(ξ) ≠ 0
+
+GOAL:
+FunDeri(f, 1, 2)(ξ) > 0 ⇒ FunDeri(f, 1, 1)(ξ) = 0 ⇒ ξ ∈ MinimumPointOn(f, IntervalLoRo(a, b))
+
+METHOD:

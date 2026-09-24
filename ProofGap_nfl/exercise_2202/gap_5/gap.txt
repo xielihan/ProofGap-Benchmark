@@ -1,0 +1,31 @@
+PROOF GAP @5
+ASSUM:
+1. φ : RealSet → RealSet
+2. f : RealSet → RealSet
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. A ∈ RealSet
+6. B ∈ RealSet
+7. g : RealSet → RealSet
+8. x : NonNegIntegerSet → RealSet
+9. Ω ∈ RealSet
+10. ω ∈ RealSet
+11. A < B
+12. a < b
+13. Defined(φ, [A, B])
+14. ContinuousFuncOn(φ, [A, B])
+15. IntegrableFuncOn(f, [a, b])
+16. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ A ≤ f(x) ∧ f(x) ≤ B
+17. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ g(x) = φ(f(x))
+18. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ UniformContinuousFuncOn(φ, [A, B])
+19. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (η), η ∈ RealSet ∧ η > 0 ∧ (forall (u) (v), u ∈ RealSet ∧ u ∈ [A, B] ∧ v ∈ RealSet ∧ v ∈ [A, B] ∧ |u - v| < η ⇒ |φ(u) - φ(v)| < frac(ε, 2 * (b - a))))
+20. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ Ω = OscillationOn(φ, [A, B])
+21. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (i), i ∈ IntegerSet ⇒ (exists (η), η ∈ RealSet ∧ η > 0 ∧ (Ω > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ max({ x(i + 1) - x(i) | i ∈ IntegerSet ∧ 0 ≤ i ∧ i < n }) < δ ⇒ sum_{ i = 0 }^{ n - 1 } (OscillationOn(f, [x(i), x(i + 1)]) * (x(i + 1) - x(i))) < frac(η * ε, 2 * Ω))))))
+22. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (i), i ∈ IntegerSet ⇒ (exists (η), η ∈ RealSet ∧ η > 0 ∧ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (exists (I_{1}), I_{1} ⊆ IntegerSet ∧ (Ω > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ max({ x(i + 1) - x(i) | i ∈ IntegerSet ∧ 0 ≤ i ∧ i < n }) < δ ⇒ I_{1} = { i | i ∈ IntegerSet ∧ 0 ≤ i ∧ i < n ∧ OscillationOn(f, [x(i), x(i + 1)]) < η }))))))
+23. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (i), i ∈ IntegerSet ⇒ (exists (η), η ∈ RealSet ∧ η > 0 ∧ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (exists (I_{2}), I_{2} ⊆ IntegerSet ∧ (Ω > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ max({ x(i + 1) - x(i) | i ∈ IntegerSet ∧ 0 ≤ i ∧ i < n }) < δ ⇒ I_{2} = { i | i ∈ IntegerSet ∧ 0 ≤ i ∧ i < n ∧ OscillationOn(f, [x(i), x(i + 1)]) ≥ η }))))))
+24. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (i), i ∈ IntegerSet ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (exists (I_{1}), I_{1} ⊆ IntegerSet ∧ (exists (I_{2}), I_{2} ⊆ IntegerSet ∧ (Ω > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ max({ x(i + 1) - x(i) | i ∈ IntegerSet ∧ 0 ≤ i ∧ i < n }) < δ ⇒ sum_{ i = 0 }^{ n - 1 } (OscillationOn(g, [x(i), x(i + 1)]) * (x(i + 1) - x(i))) = (sum_{ i ∈ I_{1} } (OscillationOn(g, [x(i), x(i + 1)]) * (x(i + 1) - x(i)))) + (sum_{ i ∈ I_{2} } (OscillationOn(g, [x(i), x(i + 1)]) * (x(i + 1) - x(i))))))))))
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (i), i ∈ IntegerSet ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (exists (I_{1}), I_{1} ⊆ IntegerSet ∧ (Ω > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ max({ x(i + 1) - x(i) | i ∈ IntegerSet ∧ 0 ≤ i ∧ i < n }) < δ ⇒ sum_{ i ∈ I_{1} } (OscillationOn(g, [x(i), x(i + 1)]) * (x(i + 1) - x(i))) < frac(ε, 2 * (b - a)) * (sum_{ i ∈ I_{1} } (x(i + 1) - x(i))))))))
+
+METHOD:

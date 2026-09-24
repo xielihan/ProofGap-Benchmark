@@ -1,0 +1,2 @@
+exists (I := {π})
+autosolve all_hypothesis

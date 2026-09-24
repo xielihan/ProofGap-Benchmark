@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. lim_{ x → 0 } (frac(x^{2} - 1, 2 * x^{2} - x - 1)) = frac(-1, -1)
+
+GOAL:
+frac(-1, -1) = 1
+
+METHOD:

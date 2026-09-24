@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. forall (k), k ∈ IntegerSet ⇒ a ≠ frac(2 * k + 1, 2) * π
+
+GOAL:
+lim_{ x → a } (frac(tan(x) - tan(a), x - a)) = lim_{ x → a } (frac(sin(x - a), (x - a) * cos(x) * cos(a)))
+
+METHOD:

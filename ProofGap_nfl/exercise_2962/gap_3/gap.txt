@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet
+2. forall (x), x ∈ RealSet ∧ -π < x ∧ x < π ⇒ x = 2 * (sum_{ k = 1 }^{ +∞ } (frac((-1)^{k + 1} * sin(k * x), k)))
+3. forall (x), x ∈ RealSet ⇒ frac(x^{2}, 2) = 2 * (sum_{ n = 1 }^{ +∞ } ((-1)^{n} * (cos(n * x) - 1) / n^{2}))
+4. sum_{ n = 1 }^{ +∞ } (frac((-1)^{n + 1}, n^{2})) = frac(π^{2}, 12)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ -π < x ∧ x < π ⇒ x^{2} = frac(π^{2}, 3) + 4 * (sum_{ n = 1 }^{ +∞ } (frac((-1)^{n} * cos(n * x), n^{2})))
+
+METHOD:

@@ -1,0 +1,11 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ 0 ≤ y(k, x) ∧ y(k, x) < 1 ⇒ 0 ≤ y(k + 1, x))}) (x := {z})
+get_condition (hypothesis 13: {z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ 1}) in (GOAL: {z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ 1 ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ 0 ≤ y(k, z) ∧ y(k, z) < 1 ⇒ 0 ≤ y(k + 1, z))})
+get_forall (GOAL: {forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ 0 ≤ y(k, z) ∧ y(k, z) < 1 ⇒ 0 ≤ y(k + 1, z)}) (k := {j})
+get_condition (hypothesis 14: {j ∈ NonNegIntegerSet ∧ j ∈ PosIntegerSet ∧ 0 ≤ y(j, z) ∧ y(j, z) < 1}) in (GOAL: {j ∈ NonNegIntegerSet ∧ j ∈ PosIntegerSet ∧ 0 ≤ y(j, z) ∧ y(j, z) < 1 ⇒ 0 ≤ y(j + 1, z)})
+destruct_and (hypothesis 13: {z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ 1}) as (hypothesis 15: {z ∈ RealSet}) (hypothesis 16: {0 ≤ z}) (hypothesis 17: {z ≤ 1})
+destruct_and (hypothesis 14: {j ∈ NonNegIntegerSet ∧ j ∈ PosIntegerSet ∧ 0 ≤ y(j, z) ∧ y(j, z) < 1}) as (hypothesis 18: {j ∈ NonNegIntegerSet}) (hypothesis 19: {j ∈ PosIntegerSet}) (hypothesis 20: {0 ≤ y(j, z)}) (hypothesis 21: {y(j, z) < 1})
+get_prop (hypothesis 4: {forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ∧ 0 ≤ x ∧ x ≤ 1 ⇒ y(n, x) = frac(x, 2) + frac(y(n - 1, x)^{2}, 2)}) (x := {z}) (n := {j + 1}) as (hypothesis 22: {z ∈ RealSet ∧ j + 1 ∈ NonNegIntegerSet ∧ j + 1 ∈ PosIntegerSet ∧ j + 1 ≥ 2 ∧ 0 ≤ z ∧ z ≤ 1 ⇒ y(j + 1, z) = frac(z, 2) + frac(y(j + 1 - 1, z)^{2}, 2)})
+assert (hypothesis 23: {z ∈ RealSet ∧ j + 1 ∈ NonNegIntegerSet ∧ j + 1 ∈ PosIntegerSet ∧ j + 1 ≥ 2 ∧ 0 ≤ z ∧ z ≤ 1})
+use_condition (hypothesis 23: {z ∈ RealSet ∧ j + 1 ∈ NonNegIntegerSet ∧ j + 1 ∈ PosIntegerSet ∧ j + 1 ≥ 2 ∧ 0 ≤ z ∧ z ≤ 1}) in (hypothesis 22: {z ∈ RealSet ∧ j + 1 ∈ NonNegIntegerSet ∧ j + 1 ∈ PosIntegerSet ∧ j + 1 ≥ 2 ∧ 0 ≤ z ∧ z ≤ 1 ⇒ y(j + 1, z) = frac(z, 2) + frac(y(j + 1 - 1, z)^{2}, 2)}) as (hypothesis 24: {y(j + 1, z) = frac(z, 2) + frac(y(j + 1 - 1, z)^{2}, 2)})
+rewrite (left_to_right, equation) (hypothesis 24: {y(j + 1, z) = frac(z, 2) + frac(y(j + 1 - 1, z)^{2}, 2)}); from (GOAL: {0 ≤ y(j + 1, z)}) to (GOAL: {0 ≤ frac(z, 2) + frac(y(j + 1 - 1, z)^{2}, 2)})
+autosolve all_hypothesis

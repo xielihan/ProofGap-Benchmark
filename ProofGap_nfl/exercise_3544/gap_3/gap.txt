@@ -1,0 +1,16 @@
+PROOF GAP @3
+ASSUM:
+1. F : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. M_{0} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. n ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+4. P ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+5. L ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+6. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ z ≠ 0 ⇒ F(x, y, z) = 2^{frac(x, z)} + 2^{frac(y, z)} - 8
+7. M_{0} = (2, 2, 1)
+8. n = (FunDeri(F, 1, 1)(2, 2, 1), FunDeri(F, 2, 1)(2, 2, 1), FunDeri(F, 3, 1)(2, 2, 1))
+9. n = 4 * ln(2) * (1, 1, -4)
+
+GOAL:
+P = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, x - 2 + y - 2 - 4 * (z - 1) = 0 }
+
+METHOD:

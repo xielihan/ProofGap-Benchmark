@@ -1,0 +1,10 @@
+PROOF GAP @4
+ASSUM:
+1. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac(1, n * sqrtn(2, n + 1)) ∧ frac(1, n * sqrtn(2, n + 1)) < frac(1, n^{frac(3, 2)})
+2. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{frac(3, 2)})))
+3. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n * sqrtn(2, n + 1))))
+
+GOAL:
+ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n * sqrtn(2, n + 1))))
+
+METHOD:

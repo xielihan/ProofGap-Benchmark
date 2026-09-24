@@ -1,0 +1,19 @@
+PROOF GAP @8
+ASSUM:
+1. f : RealSet → RealSet
+2. A : RealSet → RealSet
+3. α ∈ RealSet ∧ α > 0
+4. β ∈ RealSet
+5. forall (x), x ∈ RealSet ⇒ f(x) = e^{-α * |x|} * cos(β * x)
+6. EvenFunc(f)
+7. ContinuousFunc(f)
+8. DefInt(-∞, +∞, (fun x [x ∈ RealSet] . e^{-α * |x|} * |cos(β * x)|) * diff(fun x [x ∈ RealSet] . x)) ≤ DefInt(-∞, +∞, (fun x [x ∈ RealSet] . e^{-α * |x|}) * diff(fun x [x ∈ RealSet] . x))
+9. DefInt(-∞, +∞, (fun x [x ∈ RealSet] . e^{-α * |x|}) * diff(fun x [x ∈ RealSet] . x)) < +∞
+10. DefInt(-∞, +∞, (fun x [x ∈ RealSet] . e^{-α * |x|} * |cos(β * x)|) * diff(fun x [x ∈ RealSet] . x)) < +∞
+11. forall (λ), λ ∈ RealSet ∧ λ ≥ 0 ⇒ A(λ) = frac(2, π) * DefInt(0, +∞, (fun ξ [ξ ∈ RealSet] . f(ξ) * cos(λ * ξ)) * diff(fun ξ [ξ ∈ RealSet] . ξ))
+12. forall (λ), λ ∈ RealSet ∧ λ ≥ 0 ⇒ A(λ) = frac(2, π) * DefInt(0, +∞, (fun ξ [ξ ∈ RealSet] . e^{-α * ξ} * cos(β * ξ) * cos(λ * ξ)) * diff(fun ξ [ξ ∈ RealSet] . ξ))
+
+GOAL:
+forall (λ), λ ∈ RealSet ∧ λ ≥ 0 ⇒ A(λ) = frac(1, π) * DefInt(0, +∞, (fun ξ [ξ ∈ RealSet] . (cos((λ + β) * ξ) + cos((λ - β) * ξ)) * e^{-α * ξ}) * diff(fun ξ [ξ ∈ RealSet] . ξ))
+
+METHOD:

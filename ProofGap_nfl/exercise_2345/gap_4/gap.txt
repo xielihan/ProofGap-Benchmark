@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. x = tan(t)
+2. 0 ≤ t
+3. t < frac(π, 2)
+4. diff(fun x [x ∈ RealSet] . x) = sec(t)^{2} * diff(fun t [t ∈ RealSet ∧ t ∈ [0, frac(π, 2))] . t)
+
+GOAL:
+1 + x^{2} = sec(t)^{2}
+
+METHOD:

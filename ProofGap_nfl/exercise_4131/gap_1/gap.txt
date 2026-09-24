@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. ρ : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. M ∈ RealSet
+3. V ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+4. Interval : CartesianProd(RealSet, RealSet) → PowerSet(RealSet)
+5. CartProd3 : CartesianProd(PowerSet(RealSet), CartesianProd(PowerSet(RealSet), PowerSet(RealSet))) → PowerSet(CartesianProd(RealSet, CartesianProd(RealSet, RealSet)))
+6. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ ρ(x, y, z) = x + y + z))
+7. V = CartProd3(Interval(0, 1), Interval(0, 1), Interval(0, 1))
+
+GOAL:
+M = VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 ∧ z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ 1] . ρ(x, y, z)) * diff(ω))
+
+METHOD:

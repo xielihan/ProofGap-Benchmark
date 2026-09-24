@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. C ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ frac(sin(x) * cos(x), sin(x)^{4} + cos(x)^{4}) * diff(fun x [x ∈ RealSet] . x) = frac(1, 2) * frac(sin(2 * x) * diff(fun x [x ∈ RealSet] . x), 1 - frac(1, 2) * sin(2 * x)^{2})
+
+METHOD:

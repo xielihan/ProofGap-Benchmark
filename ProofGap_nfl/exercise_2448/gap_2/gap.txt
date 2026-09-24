@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. r : RealSet → RealSet
+2. a ∈ RealSet ∧ a > 0
+3. s ∈ RealSet
+4. forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ r(φ) = a * (1 + cos(φ))
+5. forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ π ⇒ sqrtn(2, r(φ)^{2} + FunDeri(r, 1, 1)(φ)^{2}) = 2 * a * cos(frac(φ, 2))
+
+GOAL:
+forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ π ⇒ s = 2 * DefInt(0, π, 2 * a * cos(frac(φ, 2)) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ π] . φ))
+
+METHOD:

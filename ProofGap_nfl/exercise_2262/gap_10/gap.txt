@@ -1,0 +1,19 @@
+PROOF GAP @10
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. abs : RealSet → RealSet
+3. n ∈ PosIntegerSet
+4. forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(fun x [x ∈ RealSet ∧ x > 0] . cos(ln(frac(1, x))), 1, 1)(x) = frac(sin(-ln(x)), x)
+5. forall (x), x : RealSet → RealSet ⇒ (forall (t), t ∈ RealSet ∧ x(t) = e^{-t} ⇒ 0 ≤ t)
+6. forall (x), x : RealSet → RealSet ⇒ (forall (t), t ∈ RealSet ∧ x(t) = e^{-t} ⇒ t ≤ 2 * π * n)
+7. forall (x), x : RealSet → RealSet ⇒ (forall (t), t ∈ RealSet ∧ x(t) = e^{-t} ⇒ 0 ≤ 2 * π * n)
+8. forall (x), x : RealSet → RealSet ⇒ (forall (t), t ∈ RealSet ∧ x(t) = e^{-t} ⇒ diff(x) = (fun t [t ∈ RealSet] . -e^{-t}) * diff(fun t [t ∈ RealSet] . t))
+9. forall (x), x : RealSet → RealSet ⇒ (forall (t), t ∈ RealSet ∧ x(t) = e^{-t} ⇒ frac(sin(-ln(x(t))), x(t)) = frac(sin(t), e^{-t}))
+10. forall (x), x : RealSet → RealSet ⇒ (forall (t), t ∈ RealSet ∧ x(t) = e^{-t} ⇒ frac(sin(t), e^{-t}) = e^{t} * sin(t))
+11. forall (x), x : RealSet → RealSet ⇒ (forall (t), t ∈ RealSet ∧ x(t) = e^{-t} ⇒ frac(sin(-ln(x(t))), x(t)) = e^{t} * sin(t))
+12. DefInt(e^{-(2 * π * n)}, 1, abs(FunDeri(fun x [x ∈ RealSet] . cos(ln(frac(1, x))), 1, 1)) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 2 * π * n, (fun t [t ∈ RealSet] . abs(sin(t))) * diff(fun t [t ∈ RealSet] . t))
+
+GOAL:
+DefInt(0, 2 * π * n, (fun t [t ∈ RealSet] . abs(sin(t))) * diff(fun t [t ∈ RealSet] . t)) = sum_{ k = 1 }^{ 2 * n } (DefInt((k - 1) * π, k * π, (fun t [t ∈ RealSet] . abs(sin(t))) * diff(fun t [t ∈ RealSet] . t)))
+
+METHOD:

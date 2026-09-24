@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. B : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ⇒ B(x, y) = DefInt(0, 1, (fun t [t ∈ RealSet ∧ 0 < t ∧ t < 1] . t^{x - 1} * (1 - t)^{y - 1}) * diff(fun t [t ∈ RealSet ∧ 0 < t ∧ t < 1] . t))
+3. forall (x) (y) (t), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ t ∈ RealSet ∧ 0 < t ∧ t < 1 ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ∧ x_{0} > 0 ∧ y_{0} > 0 ∧ x ≥ x_{0} ∧ y ≥ y_{0} ⇒ 0 < t^{x - 1} * (1 - t)^{y - 1}))
+
+GOAL:
+forall (x) (y) (t), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ t ∈ RealSet ∧ 0 < t ∧ t < 1 ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ∧ x_{0} > 0 ∧ y_{0} > 0 ∧ x ≥ x_{0} ∧ y ≥ y_{0} ⇒ t^{x - 1} * (1 - t)^{y - 1} ≤ t^{x_{0} - 1} * (1 - t)^{y_{0} - 1}))
+
+METHOD:

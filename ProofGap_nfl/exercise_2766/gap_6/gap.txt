@@ -1,0 +1,18 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. F : RealSet → RealSet
+3. G : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+4. ContinuousFuncOn(f, IntervalLoRo(-∞, +∞))
+5. forall (n) (x) (i), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ i ∈ NonNegIntegerSet ∧ i < n ⇒ G(n, x) = sum_{ i = 0 }^{ n - 1 } (frac(1, n) * f(x + frac(i, n)))
+6. F = (fun x [x ∈ RealSet] . DefInt(x, x + 1, (fun t [t ∈ RealSet] . f(t)) * diff(fun t [t ∈ RealSet] . t)))
+7. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ⇒ F(x) = lim_{ n → +∞ } (G(n, x)))
+8. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ⇒ F(x) = DefInt(x, x + 1, (fun t [t ∈ RealSet] . f(t)) * diff(fun t [t ∈ RealSet] . t)))
+9. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ⇒ F(x) = sum_{ i = 0 }^{ n - 1 } (DefInt(x + frac(i, n), x + frac(i + 1, n), (fun t [t ∈ RealSet] . f(t)) * diff(fun t [t ∈ RealSet] . t))))
+10. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ⇒ (exists (θ), θ : NonNegIntegerSet → RealSet ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i < n ⇒ 0 < θ(i) ∧ θ(i) < 1 ∧ DefInt(x + frac(i, n), x + frac(i + 1, n), (fun t [t ∈ RealSet] . f(t)) * diff(fun t [t ∈ RealSet] . t)) = frac(1, n) * f(x + frac(i, n) + frac(θ(i), n)))))
+11. forall (a), a ∈ RealSet ⇒ (forall (b), a ∈ RealSet ∧ b ∈ RealSet ∧ a < b ⇒ ContinuousFuncOn(f, [a, b + 1]))
+
+GOAL:
+forall (a), a ∈ RealSet ⇒ (forall (b), a ∈ RealSet ∧ b ∈ RealSet ∧ a < b ⇒ UniformContinuousFuncOn(f, [a, b + 1]))
+
+METHOD:

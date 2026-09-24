@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. lim_{ x → 0 } (frac(sqrtn(2, cos(x)) - sqrtn(3, cos(x)), sin(x)^{2})) = lim_{ x → 0 } (frac(-sqrtn(3, cos(x)) * (1 - sqrtn(6, cos(x))), sin(x)^{2}))
+
+GOAL:
+lim_{ x → 0 } (frac(-sqrtn(3, cos(x)) * (1 - sqrtn(6, cos(x))), sin(x)^{2})) = -(lim_{ x → 0 } (frac(1 - cos(x), sin(x)^{2}) * frac(sqrtn(3, cos(x)), 1 + sqrtn(6, cos(x)) + sqrtn(6, cos(x)^{2}) + sqrtn(6, cos(x)^{3}) + sqrtn(6, cos(x)^{4}) + sqrtn(6, cos(x)^{5}))))
+
+METHOD:

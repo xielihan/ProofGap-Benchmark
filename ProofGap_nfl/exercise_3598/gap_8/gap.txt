@@ -1,0 +1,16 @@
+PROOF GAP @8
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x, y) = cos(x) * frac(e^{y} + e^{-y}, 2)
+3. forall (y), y ∈ RealSet ⇒ frac(e^{y} + e^{-y}, 2) = sum_{ n = 0 }^{ +∞ } (frac(y^{2 * n}, (2 * n)!))
+4. forall (x), x ∈ RealSet ⇒ cos(x) = sum_{ m = 0 }^{ +∞ } ((-1)^{m} * frac(x^{2 * m}, (2 * m)!))
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x, y) = (sum_{ m = 0 }^{ +∞ } ((-1)^{m} * frac(x^{2 * m}, (2 * m)!))) * (sum_{ n = 0 }^{ +∞ } (frac(y^{2 * n}, (2 * n)!)))
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ (sum_{ m = 0 }^{ +∞ } ((-1)^{m} * frac(x^{2 * m}, (2 * m)!))) * (sum_{ n = 0 }^{ +∞ } (frac(y^{2 * n}, (2 * n)!))) = sum_{ m = 0 }^{ +∞ } (sum_{ n = 0 }^{ +∞ } ((-1)^{m} * frac(x^{2 * m} * y^{2 * n}, (2 * m)! * (2 * n)!)))
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x, y) = sum_{ m = 0 }^{ +∞ } (sum_{ n = 0 }^{ +∞ } ((-1)^{m} * frac(x^{2 * m} * y^{2 * n}, (2 * m)! * (2 * n)!)))
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x, y) = sum_{ m = 0 }^{ +∞ } (sum_{ n = 0 }^{ +∞ } ((-1)^{m} * frac(x^{2 * m} * y^{2 * n}, (2 * m)! * (2 * n)!)))
+9. forall (x), x ∈ RealSet
+
+GOAL:
+forall (y), y ∈ RealSet
+
+METHOD:

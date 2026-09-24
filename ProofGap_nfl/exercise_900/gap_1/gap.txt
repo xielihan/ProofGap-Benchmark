@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < 1 ⇒ y(x) = frac(2 + 3 * x^{2}, x^{4}) * sqrtn(2, 1 - x^{2}) + 3 * ln(frac(1 + sqrtn(2, 1 - x^{2}), x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 < x ∧ x < 1 ⇒ FunDeri(y, 1, 1)(x) = frac(6 * x^{5} - 4 * x^{3} * (2 + 3 * x^{2}), x^{8}) * sqrtn(2, 1 - x^{2}) - frac(x * (2 + 3 * x^{2}), x^{4} * sqrtn(2, 1 - x^{2})) + frac(3, 1 + sqrtn(2, 1 - x^{2})) * -frac(x, sqrtn(2, 1 - x^{2})) - frac(3, x) ∧ frac(6 * x^{5} - 4 * x^{3} * (2 + 3 * x^{2}), x^{8}) * sqrtn(2, 1 - x^{2}) - frac(x * (2 + 3 * x^{2}), x^{4} * sqrtn(2, 1 - x^{2})) + frac(3, 1 + sqrtn(2, 1 - x^{2})) * -frac(x, sqrtn(2, 1 - x^{2})) - frac(3, x) = -frac(8, x^{5} * sqrtn(2, 1 - x^{2}))
+
+METHOD:

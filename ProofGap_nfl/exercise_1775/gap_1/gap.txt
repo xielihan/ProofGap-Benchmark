@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. t = e^{frac(x, 2)}
+
+GOAL:
+t > 0
+
+METHOD:

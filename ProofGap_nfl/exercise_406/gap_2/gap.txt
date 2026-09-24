@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. D ⊆ RealSet
+3. f : D → RealSet
+4. forall (E), E ∈ RealSet ∧ E > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x| > N ⇒ |f(x)| > E))
+
+GOAL:
+lim_{ x → ∞ } (fun x [x ∈ RealSet] . x^{3}) = ∞
+
+METHOD:

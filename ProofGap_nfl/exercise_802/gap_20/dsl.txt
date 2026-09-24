@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ⇒ |f(5, x_{1}) - f(5, x_{2})| ≤ 2 * |sin(x_{1}) - sin(x_{2})| + |cos(x_{1}) - cos(x_{2})|)}) (x_{1} := {a0})
+get_condition (hypothesis 40: {a0 ∈ RealSet}) in (GOAL: {a0 ∈ RealSet ⇒ (forall (x_{2}), a0 ∈ RealSet ∧ x_{2} ∈ RealSet ⇒ |f(5, a0) - f(5, x_{2})| ≤ 2 * |sin(a0) - sin(x_{2})| + |cos(a0) - cos(x_{2})|)})
+get_forall (GOAL: {forall (x_{2}), a0 ∈ RealSet ∧ x_{2} ∈ RealSet ⇒ |f(5, a0) - f(5, x_{2})| ≤ 2 * |sin(a0) - sin(x_{2})| + |cos(a0) - cos(x_{2})|}) (x_{2} := {b0})
+get_condition (hypothesis 41: {a0 ∈ RealSet ∧ b0 ∈ RealSet}) in (GOAL: {a0 ∈ RealSet ∧ b0 ∈ RealSet ⇒ |f(5, a0) - f(5, b0)| ≤ 2 * |sin(a0) - sin(b0)| + |cos(a0) - cos(b0)|})
+get_prop (hypothesis 19: {forall (x), x ∈ RealSet ⇒ f(5, x) = 2 * sin(x) - cos(x)}) (x := {a0}) as (hypothesis 42: {a0 ∈ RealSet ⇒ f(5, a0) = 2 * sin(a0) - cos(a0)})
+use_condition (hypothesis 40: {a0 ∈ RealSet}) in (hypothesis 42: {a0 ∈ RealSet ⇒ f(5, a0) = 2 * sin(a0) - cos(a0)}) as (hypothesis 43: {f(5, a0) = 2 * sin(a0) - cos(a0)})
+get_prop (hypothesis 19: {forall (x), x ∈ RealSet ⇒ f(5, x) = 2 * sin(x) - cos(x)}) (x := {b0}) as (hypothesis 44: {b0 ∈ RealSet ⇒ f(5, b0) = 2 * sin(b0) - cos(b0)})
+use_condition (obvious: {b0 ∈ RealSet}) in (hypothesis 44: {b0 ∈ RealSet ⇒ f(5, b0) = 2 * sin(b0) - cos(b0)}) as (hypothesis 45: {f(5, b0) = 2 * sin(b0) - cos(b0)})
+autosolve all_hypothesis

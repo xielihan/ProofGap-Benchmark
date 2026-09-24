@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ A ⇒ f_{1}(x + k_{1} * k_{2} * T) = f_{1}(x)}) (x := {x0})
+get_condition (hypothesis 23: {x0 ∈ RealSet ∧ x0 ∈ A}) in (GOAL: {x0 ∈ RealSet ∧ x0 ∈ A ⇒ f_{1}(x0 + k_{1} * k_{2} * T) = f_{1}(x0)})
+get_prop (hypothesis 19: {forall (x), x ∈ RealSet ∧ x ∈ A ⇒ f_{1}(x + k_{2} * T_{1}) = f_{1}(x)}) (x := {x0}) as (hypothesis 24: {x0 ∈ RealSet ∧ x0 ∈ A ⇒ f_{1}(x0 + k_{2} * T_{1}) = f_{1}(x0)})
+use_condition (hypothesis 23: {x0 ∈ RealSet ∧ x0 ∈ A}) in (hypothesis 24: {x0 ∈ RealSet ∧ x0 ∈ A ⇒ f_{1}(x0 + k_{2} * T_{1}) = f_{1}(x0)}) as (hypothesis 25: {f_{1}(x0 + k_{2} * T_{1}) = f_{1}(x0)})
+get_prop (hypothesis 21: {forall (x), x ∈ RealSet ∧ x ∈ A ⇒ k_{2} * T_{1} = k_{1} * k_{2} * T}) (x := {x0}) as (hypothesis 26: {x0 ∈ RealSet ∧ x0 ∈ A ⇒ k_{2} * T_{1} = k_{1} * k_{2} * T})
+use_condition (hypothesis 23: {x0 ∈ RealSet ∧ x0 ∈ A}) in (hypothesis 26: {x0 ∈ RealSet ∧ x0 ∈ A ⇒ k_{2} * T_{1} = k_{1} * k_{2} * T}) as (hypothesis 27: {k_{2} * T_{1} = k_{1} * k_{2} * T})
+rewrite (right_to_left, equation) (hypothesis 27: {k_{2} * T_{1} = k_{1} * k_{2} * T}); from (GOAL: {f_{1}(x0 + k_{1} * k_{2} * T) = f_{1}(x0)}) to (GOAL: {f_{1}(x0 + k_{2} * T_{1}) = f_{1}(x0)})
+apply (hypothesis 25: {f_{1}(x0 + k_{2} * T_{1}) = f_{1}(x0)})

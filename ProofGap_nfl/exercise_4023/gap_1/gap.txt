@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. c ∈ RealSet ∧ c > 0
+4. V ∈ RealSet
+5. D = { (x, y) | x ∈ RealSet, y ∈ RealSet, (frac(x, a) - frac(1, 2))^{2} + (frac(y, b) - frac(1, 2))^{2} ≤ frac(1, 2) }
+
+GOAL:
+exists (z), z ∈ RealSet ∧ frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) = frac(z, c)
+
+METHOD:

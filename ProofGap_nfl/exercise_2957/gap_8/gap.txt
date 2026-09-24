@@ -1,0 +1,18 @@
+PROOF GAP @8
+ASSUM:
+1. f : RealSet → RealSet
+2. a : NonNegIntegerSet → RealSet
+3. b : NonNegIntegerSet → RealSet
+4. forall (x), x ∈ RealSet ⇒ f(x) = |sin(x)|
+5. ContinuousFunc(f)
+6. PeriodicFunc(f, π)
+7. EvenFunc(f)
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = 0
+9. a(0) = frac(4, π) * DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . |sin(x)|) * diff(fun x [x ∈ RealSet] . x))
+10. frac(4, π) * DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . |sin(x)|) * diff(fun x [x ∈ RealSet] . x)) = frac(4, π) * DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . sin(x)) * diff(fun x [x ∈ RealSet] . x))
+11. frac(4, π) * DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . sin(x)) * diff(fun x [x ∈ RealSet] . x)) = frac(4, π)
+
+GOAL:
+a(0) = frac(4, π)
+
+METHOD:

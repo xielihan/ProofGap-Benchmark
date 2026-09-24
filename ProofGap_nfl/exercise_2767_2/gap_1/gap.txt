@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. S : RealSet → RealSet
+2. P : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+3. forall (n) (x) (k), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ x ≠ 1 ∧ k ∈ NonNegIntegerSet ∧ k ≤ n ⇒ P(n, x) = sum_{ k = 0 }^{ n } (x^{k})
+
+GOAL:
+forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ x ≠ 1 ⇒ P(n, x) = frac(1 - x^{n + 1}, 1 - x)
+
+METHOD:

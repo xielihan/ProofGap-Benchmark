@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x > 1 ∧ x ≠ e ⇒ y(x) = ln(ln(ln(x)^{3})^{2})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 1 ∧ x ≠ e ⇒ FunDeri(y, 1, 1)(x) = frac(1, ln(ln(x)^{3})^{2}) * 2 * ln(ln(x)^{3}) * frac(1, ln(x)^{3}) * 3 * ln(x)^{2} * frac(1, x) ∧ frac(1, ln(ln(x)^{3})^{2}) * 2 * ln(ln(x)^{3}) * frac(1, ln(x)^{3}) * 3 * ln(x)^{2} * frac(1, x) = frac(6, x * ln(x) * ln(ln(x)^{3}))
+
+METHOD:

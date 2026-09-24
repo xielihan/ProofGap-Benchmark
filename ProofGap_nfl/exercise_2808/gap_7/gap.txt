@@ -1,0 +1,13 @@
+PROOF GAP @7
+ASSUM:
+1. forall (l), l ∈ RealSet ∧ l > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ MonoDecFuncOn(fun x [x ∈ RealSet] . frac(1, n^{x}), [0, l]) ∧ (forall (x), x ∈ RealSet ∧ x ∈ [0, l] ⇒ frac(1, n^{x}) ≤ 1))
+2. forall (l), l ∈ RealSet ∧ l > 0 ⇒ UniformConvergent(fun n, x [n ∈ NonNegIntegerSet ∧ x ∈ RealSet] . frac(1, 2^{n}), [0, l], fun x [x ∈ RealSet] . 1)
+3. forall (l), l ∈ RealSet ∧ l > 0 ⇒ UniformConvergent(fun n, x [n ∈ NonNegIntegerSet ∧ x ∈ RealSet] . frac(1, 2^{n} * n^{x}), [0, l], fun x [x ∈ RealSet] . sum_{ n = 1 }^{ +∞ } (frac(1, 2^{n} * n^{x})))
+4. forall (l), l ∈ RealSet ∧ l > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ContinuousFuncOn(fun x [x ∈ RealSet] . frac(1, 2^{n} * n^{x}), [0, l]))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ lim_{ x → 0^+ } (frac(1, 2^{n} * n^{x})) = frac(1, 2^{n})
+6. lim_{ x → 0^+ } (sum_{ n = 1 }^{ +∞ } (frac(1, 2^{n} * n^{x}))) = sum_{ n = 1 }^{ +∞ } (lim_{ x → 0^+ } (frac(1, 2^{n} * n^{x})))
+
+GOAL:
+sum_{ n = 1 }^{ +∞ } (lim_{ x → 0^+ } (frac(1, 2^{n} * n^{x}))) = sum_{ n = 1 }^{ +∞ } (frac(1, 2^{n}))
+
+METHOD:

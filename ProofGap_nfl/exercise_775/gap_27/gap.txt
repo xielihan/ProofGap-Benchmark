@@ -1,0 +1,33 @@
+PROOF GAP @27
+ASSUM:
+1. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ tan(φ) = x)
+2. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ 0 < φ)
+3. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ φ < frac(π, 2))
+4. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ 0 < frac(π, 2))
+5. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ cot(frac(π, 2) - φ) = tan(φ))
+6. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ tan(φ) = x)
+7. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ cot(frac(π, 2) - φ) = x)
+8. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ tan(frac(π, 2) - φ) = frac(1, x))
+9. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ 0 < frac(π, 2) - φ)
+10. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ frac(π, 2) - φ < frac(π, 2))
+11. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ 0 < frac(π, 2))
+12. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ (exists (u), u ∈ RealSet ∧ u ∈ IntervalLoRo(0, frac(π, 2)) ∧ tan(u) = frac(1, x) ∧ (forall (u1), u1 ∈ RealSet ∧ u1 ∈ IntervalLoRo(0, frac(π, 2)) ∧ tan(u1) = frac(1, x) ⇒ u1 = u)))
+13. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ frac(π, 2) - φ = arctan(frac(1, x)))
+14. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ arctan(x) + arctan(frac(1, x)) = frac(π, 2))
+15. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ sgn(x) = 1)
+16. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x > 0 ∧ φ = arctan(x) ⇒ arctan(x) + arctan(frac(1, x)) = frac(π, 2) * sgn(x))
+17. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x < 0 ∧ φ = arctan(x) ⇒ tan(φ) = x)
+18. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x < 0 ∧ φ = arctan(x) ⇒ -frac(π, 2) < φ)
+19. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x < 0 ∧ φ = arctan(x) ⇒ φ < 0)
+20. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x < 0 ∧ φ = arctan(x) ⇒ -frac(π, 2) < 0)
+21. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x < 0 ∧ φ = arctan(x) ⇒ cot(-frac(π, 2) - φ) = tan(φ))
+22. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x < 0 ∧ φ = arctan(x) ⇒ tan(φ) = x)
+23. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x < 0 ∧ φ = arctan(x) ⇒ cot(-frac(π, 2) - φ) = x)
+24. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x < 0 ∧ φ = arctan(x) ⇒ tan(-frac(π, 2) - φ) = frac(1, x))
+25. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x < 0 ∧ φ = arctan(x) ⇒ -frac(π, 2) < -frac(π, 2) - φ)
+26. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x < 0 ∧ φ = arctan(x) ⇒ -frac(π, 2) - φ < 0)
+
+GOAL:
+forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x < 0 ∧ φ = arctan(x) ⇒ -frac(π, 2) < 0)
+
+METHOD:

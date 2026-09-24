@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. (2 * x - 1)^{2} < (x - 1)^{2}
+3. 3 * x^{2} - 2 * x < 0
+4. x * (3 * x - 2) < 0
+
+GOAL:
+x ∈ { x | x ∈ RealSet, 0 < x, x < frac(2, 3) } ⇔ |2 * x - 1| < |x - 1|
+
+METHOD:

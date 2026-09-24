@@ -1,0 +1,25 @@
+PROOF GAP @13
+ASSUM:
+1. F : CartesianProd(RealSet, RealSet) → RealSet
+2. u : CartesianProd(RealSet, RealSet) → RealSet
+3. v : CartesianProd(RealSet, RealSet) → RealSet
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0 ⇒ x = e^{u(x, y) + v(x, y)}
+5. forall (y) (x), x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0 ⇒ y = e^{u(x, y) - v(x, y)}
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0 ⇒ F(x, y) = u(x, y) * v(x, y)
+7. diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0] . x) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0] . e^{u(x, y) + v(x, y)}) * (diff(u) + diff(v))
+8. diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0] . y) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0] . e^{u(x, y) - v(x, y)}) * (diff(u) - diff(v))
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0 ∧ u(x, y) = 0 ∧ v(x, y) = 0 ⇒ diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0] . x) = diff(u) + diff(v)
+10. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0 ∧ u(x, y) = 0 ∧ v(x, y) = 0 ⇒ diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0] . y) = diff(u) - diff(v)
+11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0 ∧ u(x, y) = 0 ∧ v(x, y) = 0 ⇒ diff(u) = frac(1, 2) * (diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0] . x) + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0] . y))
+12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0 ∧ u(x, y) = 0 ∧ v(x, y) = 0 ⇒ diff(v) = frac(1, 2) * (diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0] . x) - diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0] . y))
+13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0 ∧ u(x, y) = 0 ∧ v(x, y) = 0 ⇒ diff(F) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0] . u(x, y)) * diff(v) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0] . v(x, y)) * diff(u)
+14. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0 ∧ u(x, y) = 0 ∧ v(x, y) = 0 ⇒ (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0] . u(x, y)) * diff(v) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0] . v(x, y)) * diff(u) = 0
+15. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0 ∧ u(x, y) = 0 ∧ v(x, y) = 0 ⇒ diff(F) = 0
+16. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0 ∧ u(x, y) = 0 ∧ v(x, y) = 0 ⇒ diff^{2}(F) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0] . u(x, y)) * diff^{2}(v) + 2 * diff(u) * diff(v) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0] . v(x, y)) * diff^{2}(u)
+17. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0 ∧ u(x, y) = 0 ∧ v(x, y) = 0 ⇒ diff^{2}(F) = 2 * diff(u) * diff(v)
+18. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0 ∧ u(x, y) = 0 ∧ v(x, y) = 0 ⇒ diff^{2}(F) = 2 * frac(diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0] . x) + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0] . y), 2) * frac(diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0] . x) - diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0] . y), 2)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0 ∧ u(x, y) = 0 ∧ v(x, y) = 0 ⇒ diff^{2}(F) = frac(1, 2) * (diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0] . x)^{2} - diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0] . y)^{2})
+
+METHOD:

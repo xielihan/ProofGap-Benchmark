@@ -1,0 +1,5 @@
+1. get_prop (theorem 'Thm 290. (BoundedFunctionDefinition)': {forall (f), f : RealSet -> RealSet => (BoundedFunc(f) <==> (exists (M), M ∈ RealSet /\ M >= 0 /\ forall (x), x ∈ RealSet => |f(x)| <= M))}) (f := {f}) as (hypothesis 7: {f : RealSet -> RealSet => (BoundedFunc(f) <==> (exists (M), M ∈ RealSet /\ M >= 0 /\ forall (x), x ∈ RealSet => |f(x)| <= M))})
+2. use_condition (hypothesis 1: {f : RealSet -> RealSet}) in (hypothesis 7: {f : RealSet -> RealSet => (BoundedFunc(f) <==> (exists (M), M ∈ RealSet /\ M >= 0 /\ forall (x), x ∈ RealSet => |f(x)| <= M))}) as (hypothesis 8: {BoundedFunc(f) <==> (exists (M), M ∈ RealSet /\ M >= 0 /\ forall (x), x ∈ RealSet => |f(x)| <= M)})
+3. rewrite (left_to_right, iff) (hypothesis 8: {BoundedFunc(f) <==> (exists (M), M ∈ RealSet /\ M >= 0 /\ forall (x), x ∈ RealSet => |f(x)| <= M)}); from (GOAL: {BoundedFunc(f)}) to (GOAL: {exists (M), M ∈ RealSet /\ M >= 0 /\ forall (x), x ∈ RealSet => |f(x)| <= M})
+4. exists (M := {1})
+5. autosolve (hypothesis 6: {forall (t), t ∈ RealSet => |f(t)| ≤ 1})

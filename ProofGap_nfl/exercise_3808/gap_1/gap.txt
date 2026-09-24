@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. α ∈ RealSet ∧ α > 0
+2. β ∈ RealSet ∧ β > 0
+
+GOAL:
+DefInt(0, +∞, frac(e^{-α * x^{2}} - e^{-β * x^{2}}, x^{2}) * diff(x)) = DefInt(0, +∞, (e^{-α * x^{2}} - e^{-β * x^{2}}) * frac(1, x^{2}) * diff(x))
+
+METHOD:
+[@method 分部积分法 @]

@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet => a(n)=frac((-1)^n,n!)*frac(n,e)^n}) (n := {n})
+get_condition (hypothesis 3: {n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet}) in (GOAL: {n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet => a(n)=frac((-1)^n,n!)*frac(n,e)^n})
+rewrite (left_to_right, equation) (hypothesis 2: {a=(fun n [n ∈ NonNegIntegerSet /\ n>=1] . frac((-1)^n,n!)*frac(n,e)^n)}); from (GOAL: {a(n)=frac((-1)^n,n!)*frac(n,e)^n}) to (GOAL: {(fun n [n ∈ NonNegIntegerSet /\ n>=1] . frac((-1)^n,n!)*frac(n,e)^n)(n)=frac((-1)^n,n!)*frac(n,e)^n})
+autosolve all_hypothesis

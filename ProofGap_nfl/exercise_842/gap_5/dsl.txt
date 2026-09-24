@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet => ¬1 + 4 * x + 7 * x^2 = 0 /\ ¬1 + x + x^2 = 0}) (x := {t})
+get_condition (hypothesis 8: {t ∈ RealSet}) in (GOAL: {t ∈ RealSet => ¬1 + 4 * t + 7 * t^2 = 0 /\ ¬1 + t + t^2 = 0})
+assert (hypothesis 9: {(7 * t + 2)^2 >= 0})
+assert (hypothesis 10: {7 * (1 + 4 * t + 7 * t^2) = (7 * t + 2)^2 + 3})
+assert (hypothesis 11: {1 + 4 * t + 7 * t^2 > 0})
+assert (hypothesis 12: {(2 * t + 1)^2 >= 0})
+assert (hypothesis 13: {4 * (1 + t + t^2) = (2 * t + 1)^2 + 3})
+assert (hypothesis 14: {1 + t + t^2 > 0})
+autosolve all_hypothesis

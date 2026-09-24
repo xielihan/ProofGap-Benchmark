@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. x ∈ RealSet ∧ x > 1 ∧ x ≠ e
+2. C ∈ RealSet
+3. frac(FunDeri(fun x [x ∈ RealSet ∧ x > 1 ∧ x ≠ e] . x, 1, 1)(x), x * ln(x) * ln(ln(x))) = frac(FunDeri(fun x [x ∈ RealSet ∧ x > 1 ∧ x ≠ e] . ln(x), 1, 1)(x), ln(x) * ln(ln(x)))
+4. { `F_2` | forall (x), x ∈ RealSet ∧ x > 1 ∧ x ≠ e ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, x * ln(x) * ln(ln(x))) * FunDeri(fun x [x ∈ RealSet ∧ x > 1 ∧ x ≠ e] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ x > 1 ∧ x ≠ e ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet ∧ x > 1 ∧ x ≠ e] . ln(x), 1, 1)(x), ln(x) * ln(ln(x))) }
+5. frac(FunDeri(fun x [x ∈ RealSet ∧ x > 1 ∧ x ≠ e] . ln(x), 1, 1)(x), ln(x) * ln(ln(x))) = frac(FunDeri(fun x [x ∈ RealSet ∧ x > 1 ∧ x ≠ e] . ln(ln(x)), 1, 1)(x), ln(ln(x)))
+6. { `F_4` | forall (x), x ∈ RealSet ∧ x > 1 ∧ x ≠ e ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet ∧ x > 1 ∧ x ≠ e] . ln(x), 1, 1)(x), ln(x) * ln(ln(x))) } = { `F_5` | forall (x), x ∈ RealSet ∧ x > 1 ∧ x ≠ e ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet ∧ x > 1 ∧ x ≠ e] . ln(ln(x)), 1, 1)(x), ln(ln(x))) }
+7. forall (I), IsSet(I) ∧ I ⊆ RealSet ∧ (I = IntervalLoRo(1, e) ∨ I = IntervalLoRo(e, +∞)) ⇒ { `F_6` | forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(`F_6`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet ∧ x > 1 ∧ x ≠ e] . ln(ln(x)), 1, 1)(x), ln(ln(x))) } = { `F_7` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ I ⇒ `F_7`(x) = ln(|ln(ln(x))|) + C) }
+
+GOAL:
+forall (I), IsSet(I) ∧ I ⊆ RealSet ∧ (I = IntervalLoRo(1, e) ∨ I = IntervalLoRo(e, +∞)) ⇒ { `F_8` | forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(`F_8`, 1, 1)(x) = frac(1, x * ln(x) * ln(ln(x))) * FunDeri(fun x [x ∈ RealSet ∧ x > 1 ∧ x ≠ e] . x, 1, 1)(x) } = { `F_9` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ I ⇒ `F_9`(x) = ln(|ln(ln(x))|) + C) }
+
+METHOD:

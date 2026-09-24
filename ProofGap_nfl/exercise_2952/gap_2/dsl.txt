@@ -1,0 +1,20 @@
+get_prop (theorem 'Thm 284. (PeriodicFunctionDefinition)': {forall (f) (T), f : RealSet -> RealSet => T ∈ RealSet => (PeriodicFunc(f, T) <==> (T > 0 /\ (forall (x), x ∈ RealSet => f(x + T) = f(x))))}) (f := {f}) (T := {2 * π}) as (hypothesis 7: {f : RealSet -> RealSet => 2 * π ∈ RealSet => (PeriodicFunc(f, 2 * π) <==> (2 * π > 0 /\ (forall (x), x ∈ RealSet => f(x + 2 * π) = f(x))))})
+assert (hypothesis 8: {forall (x), x ∈ RealSet => f(x + 2 * π) = f(x)}) by proof {
+  get_forall (GOAL: {forall (x), x ∈ RealSet => f(x + 2 * π) = f(x)}) (x := {y})
+  get_condition (hypothesis 8: {y ∈ RealSet}) in (GOAL: {y ∈ RealSet => f(y + 2 * π) = f(y)})
+  get_prop (hypothesis 6: {forall (x), x ∈ RealSet ⇒ f(x + 2 * π) = sgn(cos(x + 2 * π)) ∧ sgn(cos(x + 2 * π)) = sgn(cos(x)) ∧ sgn(cos(x)) = f(x)}) (x := {y}) as (hypothesis 9: {y ∈ RealSet ⇒ (f(y + 2 * π) = sgn(cos(y + 2 * π)) ∧ sgn(cos(y + 2 * π)) = sgn(cos(y))) ∧ sgn(cos(y)) = f(y)})
+  use_condition (hypothesis 8: {y ∈ RealSet}) in (hypothesis 9: {y ∈ RealSet ⇒ (f(y + 2 * π) = sgn(cos(y + 2 * π)) ∧ sgn(cos(y + 2 * π)) = sgn(cos(y))) ∧ sgn(cos(y)) = f(y)}) as (hypothesis 10: {(f(y + 2 * π) = sgn(cos(y + 2 * π)) ∧ sgn(cos(y + 2 * π)) = sgn(cos(y))) ∧ sgn(cos(y)) = f(y)})
+  destruct_and (hypothesis 10: {(f(y + 2 * π) = sgn(cos(y + 2 * π)) ∧ sgn(cos(y + 2 * π)) = sgn(cos(y))) ∧ sgn(cos(y)) = f(y)}) as (hypothesis 11: {f(y + 2 * π) = sgn(cos(y + 2 * π))}) (hypothesis 12: {sgn(cos(y + 2 * π)) = sgn(cos(y))}) (hypothesis 13: {sgn(cos(y)) = f(y)})
+  rewrite (right_to_left, equation) (hypothesis 13: {sgn(cos(y)) = f(y)}); from (GOAL: {f(y + 2 * π) = f(y)}) to (GOAL: {f(y + 2 * π) = sgn(cos(y))})
+  rewrite (right_to_left, equation) (hypothesis 12: {sgn(cos(y + 2 * π)) = sgn(cos(y))}); from (GOAL: {f(y + 2 * π) = sgn(cos(y))}) to (GOAL: {f(y + 2 * π) = sgn(cos(y + 2 * π))})
+  apply (hypothesis 11: {f(y + 2 * π) = sgn(cos(y + 2 * π))})
+}
+assert (hypothesis 9: {2 * π > 0 /\ (forall (x), x ∈ RealSet => f(x + 2 * π) = f(x))}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 1: {f : RealSet -> RealSet}) in (hypothesis 7: {f : RealSet -> RealSet => 2 * π ∈ RealSet => (PeriodicFunc(f, 2 * π) <==> (2 * π > 0 /\ (forall (x), x ∈ RealSet => f(x + 2 * π) = f(x))))}) as (hypothesis 10: {2 * π ∈ RealSet => (PeriodicFunc(f, 2 * π) <==> (2 * π > 0 /\ (forall (x), x ∈ RealSet => f(x + 2 * π) = f(x))))})
+assert (hypothesis 11: {2 * π ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 11: {2 * π ∈ RealSet}) in (hypothesis 10: {2 * π ∈ RealSet => (PeriodicFunc(f, 2 * π) <==> (2 * π > 0 /\ (forall (x), x ∈ RealSet => f(x + 2 * π) = f(x))))}) as (hypothesis 12: {PeriodicFunc(f, 2 * π) <==> (2 * π > 0 /\ (forall (x), x ∈ RealSet => f(x + 2 * π) = f(x)))})
+autosolve all_hypothesis

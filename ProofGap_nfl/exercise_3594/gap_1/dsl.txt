@@ -1,0 +1,8 @@
+1. get_forall (GOAL: {forall (x) (y), x ∈ RealSet /\ y ∈ RealSet /\ |x| + |y| < 1 => f(x, y) = ln(1 + x + y)}) (x := {xx}) (y := {yy})
+2. get_condition (hypothesis 3: {xx ∈ RealSet /\ yy ∈ RealSet /\ |xx| + |yy| < 1}) in (GOAL: {xx ∈ RealSet /\ yy ∈ RealSet /\ |xx| + |yy| < 1 => f(xx, yy) = ln(1 + xx + yy)})
+3. get_prop (hypothesis 2: {forall (x) (y), x ∈ RealSet /\ y ∈ RealSet /\ 1 + x + y > 0 => f(x, y) = ln(1 + x + y)}) (x := {xx}) (y := {yy}) as (hypothesis 4: {xx ∈ RealSet /\ yy ∈ RealSet /\ 1 + xx + yy > 0 => f(xx, yy) = ln(1 + xx + yy)})
+4. assert (hypothesis 5: {xx ∈ RealSet /\ yy ∈ RealSet /\ 1 + xx + yy > 0}) by proof {
+  1. autosolve all_hypothesis
+}
+5. use_condition (hypothesis 5: {xx ∈ RealSet /\ yy ∈ RealSet /\ 1 + xx + yy > 0}) in (hypothesis 4: {xx ∈ RealSet /\ yy ∈ RealSet /\ 1 + xx + yy > 0 => f(xx, yy) = ln(1 + xx + yy)}) as (hypothesis 6: {f(xx, yy) = ln(1 + xx + yy)})
+6. autosolve all_hypothesis

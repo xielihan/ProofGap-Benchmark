@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x > -a ⇒ (exists (t), t ∈ RealSet ∧ t > 0)}) (x := {x0})
+get_condition (hypothesis 7: {x0 ∈ RealSet ∧ x0 > -a}) in (GOAL: {x0 ∈ RealSet ∧ x0 > -a ⇒ (exists (t), t ∈ RealSet ∧ t > 0)})
+get_prop (hypothesis 6: {forall (x), x ∈ RealSet ∧ x > -a ⇒ (exists (t), t ∈ RealSet ∧ t > 0 ∧ x + a = (b - a) * sinh(t)^{2})}) (x := {x0}) as (hypothesis 8: {x0 ∈ RealSet ∧ x0 > -a ⇒ (exists (t), t ∈ RealSet ∧ t > 0 ∧ x0 + a = (b - a) * sinh(t)^{2})})
+use_condition (hypothesis 7: {x0 ∈ RealSet ∧ x0 > -a}) in (hypothesis 8: {x0 ∈ RealSet ∧ x0 > -a ⇒ (exists (t), t ∈ RealSet ∧ t > 0 ∧ x0 + a = (b - a) * sinh(t)^{2})}) as (hypothesis 9: {exists (t), t ∈ RealSet ∧ t > 0 ∧ x0 + a = (b - a) * sinh(t)^{2}})
+get_exists (hypothesis 9: {exists (t), t ∈ RealSet ∧ t > 0 ∧ x0 + a = (b - a) * sinh(t)^{2}}) (t := {t0})
+exists (t := {t0})
+assert (hypothesis 11: {t0 ∈ RealSet ∧ t0 > 0})
+apply (hypothesis 11: {t0 ∈ RealSet ∧ t0 > 0})

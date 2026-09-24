@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. S ∈ RealSet ∧ S > 0
+2. f : RealSet → RealSet
+3. forall (x), x ∈ RealSet ∧ x > 0 ⇒ f(x) = 2 * (x + frac(S, x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(f, 1, 1)(x) = 2 * (1 - frac(S, x^{2}))
+
+METHOD:

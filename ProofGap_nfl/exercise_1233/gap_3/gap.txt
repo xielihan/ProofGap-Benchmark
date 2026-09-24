@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. u : RealSet → RealSet
+2. λ ∈ RealSet
+3. n ∈ NonNegIntegerSet
+4. k ∈ IntegerSet
+5. n ∈ PosIntegerSet
+6. FuncOfClassK(u, n)
+7. forall (x), x ∈ RealSet ⇒ (forall (k), k ∈ IntegerSet ∧ 0 ≤ k ∧ k ≤ n ⇒ FunDeri(fun x [x ∈ RealSet] . e^{λ * x} * u(x), 1, k)(x) = sum_{ i = 0 }^{ k } (Combination(k, i) * FunDeri(fun x [x ∈ RealSet] . e^{λ * x}, 1, i)(x) * FunDeri(u, 1, k - i)(x)))
+8. forall (i) (x), i ∈ NonNegIntegerSet ∧ i ≤ n ∧ x ∈ RealSet ⇒ FunDeri(fun x [x ∈ RealSet] . e^{λ * x}, 1, i)(x) = λ^{i} * e^{λ * x}
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (k), k ∈ IntegerSet ∧ 0 ≤ k ∧ k ≤ n ⇒ sum_{ i = 0 }^{ k } (Combination(k, i) * FunDeri(fun x [x ∈ RealSet] . e^{λ * x}, 1, i)(x) * FunDeri(u, 1, k - i)(x)) = e^{λ * x} * (sum_{ i = 0 }^{ k } (Combination(k, i) * λ^{i} * FunDeri(u, 1, k - i)(x))))
+
+METHOD:

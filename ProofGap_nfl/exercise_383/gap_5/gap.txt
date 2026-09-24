@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = frac(1 + x^{2}, 1 + x^{4})
+3. forall (x), |x| ≤ 1 ∧ x ∈ RealSet ⇒ |f(x)| = |frac(1 + x^{2}, 1 + x^{4})|
+4. forall (x), |x| ≤ 1 ∧ x ∈ RealSet ⇒ |frac(1 + x^{2}, 1 + x^{4})| < frac(1 + 1, 1)
+5. forall (x), |x| ≤ 1 ∧ x ∈ RealSet ⇒ frac(1 + 1, 1) = 2
+6. forall (x), |x| ≤ 1 ∧ x ∈ RealSet ⇒ |f(x)| < 2
+
+GOAL:
+forall (x), |x| > 1 ∧ x ∈ RealSet ⇒ |f(x)| = |frac(1 + x^{2}, 1 + x^{4})|
+
+METHOD:

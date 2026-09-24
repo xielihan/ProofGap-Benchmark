@@ -1,0 +1,14 @@
+PROOF GAP @5
+ASSUM:
+1. x_{0} = 0
+2. f = (fun x [x ∈ RealSet] . cases{ 1 if x ≥ 0; -1 if x < 0 })
+3. g = (fun x [x ∈ RealSet] . cases{ -1 if x ≥ 0; 1 if x < 0 })
+4. ¬ContinuousFuncAt(f, 0)
+5. ¬ContinuousFuncAt(g, 0)
+6. forall (x), x ∈ RealSet ⇒ f(x) + g(x) = 0
+7. ContinuousFunc(f + g)
+
+GOAL:
+¬(forall (f) (g) (x_{0}), f : RealSet → RealSet ∧ g : RealSet → RealSet ∧ x_{0} ∈ RealSet ∧ ¬ContinuousFuncAt(f, x_{0}) ∧ ¬ContinuousFuncAt(g, x_{0}) ⇒ ¬ContinuousFuncAt(f + g, x_{0}))
+
+METHOD:

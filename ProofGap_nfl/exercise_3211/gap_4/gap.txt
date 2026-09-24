@@ -1,0 +1,18 @@
+PROOF GAP @4
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. D ⊆ CartesianProd(RealSet, RealSet)
+3. x ∈ RealSet
+4. b ∈ RealSet
+5. f : D → RealSet
+6. (x, b) ∈ D
+7. exists (L), L ∈ RealSet ∧ FunDeri(f, 1, 1)(x, b) = L
+8. φ = (fun t [t ∈ RealSet] . f(t, b))
+9. φ(x) = f(x, b)
+10. exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (Δx), Δx ∈ RealSet ∧ 0 < |Δx| ∧ |Δx| < δ ⇒ (x + Δx, b) ∈ D)
+11. FunDeri(fun t [t ∈ RealSet] . f(t, b), 1, 1)(x) = FunDeri(φ, 1, 1)(x)
+
+GOAL:
+FunDeri(φ, 1, 1)(x) = lim_{ Δx → 0 } (frac(φ(x + Δx) - φ(x), Δx))
+
+METHOD:

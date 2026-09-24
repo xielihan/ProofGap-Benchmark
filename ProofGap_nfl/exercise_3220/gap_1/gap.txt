@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ x ∈ PosRealSet ∧ y ∈ RealSet ⇒ u(x, y) = x^{y}
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ⇒ u(x, y) = x^{y} ∧ x^{y} = e^{y * ln(x)}
+
+METHOD:

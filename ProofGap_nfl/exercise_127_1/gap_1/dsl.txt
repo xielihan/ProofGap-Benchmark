@@ -1,0 +1,4 @@
+1. get_condition (hypothesis 7: {ConvergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n) + y(n))}) in (GOAL: {ConvergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n) + y(n)) => (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet => x(n) + y(n) - x(n) = y(n))})
+2. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet => x(n) + y(n) - x(n) = y(n)}) (n := {n1})
+3. get_condition (hypothesis 8: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet}) in (GOAL: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet => x(n1) + y(n1) - x(n1) = y(n1)})
+4. autosolve all_hypothesis

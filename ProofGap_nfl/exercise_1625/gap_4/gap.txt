@@ -1,0 +1,17 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. ξ ∈ RealSet ∧ ξ > 0
+4. x_{1} ∈ RealSet
+5. x_{2} ∈ RealSet
+6. x_{3} ∈ RealSet
+7. forall (t), t ∈ RealSet ∧ t ≠ 0 ⇒ f(t) = tanh(t) - frac(1, t)
+8. tanh(x) = frac(1, x) ⇔ x * tanh(x) = 1
+9. ξ > 0 ∧ (forall (x0), x0 ∈ RealSet ⇒ (x0 * tanh(x0) = 1 ⇔ x0 = ξ ∨ x0 = -ξ))
+10. forall (t), t ∈ RealSet ∧ t ≠ 0 ⇒ FunDeri(f, 1, 1)(t) = frac(1, cosh(t)^{2}) + frac(1, t^{2}) ∧ frac(1, cosh(t)^{2}) + frac(1, t^{2}) > 0
+
+GOAL:
+StrictMonoIncFuncOn(f, PosRealSet)
+
+METHOD:

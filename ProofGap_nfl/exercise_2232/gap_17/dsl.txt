@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 16: {cos(π * cos(x)^{2}) = -cos(π * sin(x)^{2})}); from (GOAL: {-cos(x) * cos(π * sin(x)^{2}) - sin(x) * cos(π * cos(x)^{2}) = (sin(x) - cos(x)) * cos(π * sin(x)^{2})}) to (GOAL: {-cos(x) * cos(π * sin(x)^{2}) - sin(x) * (-cos(π * sin(x)^{2})) = (sin(x) - cos(x)) * cos(π * sin(x)^{2})})
+autosolve all_hypothesis

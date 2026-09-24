@@ -1,0 +1,16 @@
+PROOF GAP @5
+ASSUM:
+1. δ : RealSet → RealSet
+2. M ∈ RealSet
+3. Δx : NonNegIntegerSet → RealSet
+4. ε ∈ RealSet ∧ ε > 0
+5. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 10 ⇒ δ(x) = 6 + 0.3 * x
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ Δx(n) = frac(10, n)
+7. forall (n) (i), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ i ∈ IntegerSet ∧ 1 ≤ i ∧ i ≤ n ⇒ δ(i * Δx(n)) = 6 + 0.3 * frac(10, n) * i
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ M ≈_{ ε } sum_{ i = 1 }^{ n } ((6 + 0.3 * frac(10, n) * i) * frac(10, n))
+9. M = seqlim_{ n → +∞ } (sum_{ i = 1 }^{ n } ((6 + 0.3 * frac(10, n) * i) * frac(10, n)))
+
+GOAL:
+seqlim_{ n → +∞ } (sum_{ i = 1 }^{ n } ((6 + 0.3 * frac(10, n) * i) * frac(10, n))) = seqlim_{ n → +∞ } (60 + frac(15 * (n + 1), n))
+
+METHOD:

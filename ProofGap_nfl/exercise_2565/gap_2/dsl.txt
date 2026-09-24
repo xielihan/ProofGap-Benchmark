@@ -1,0 +1,16 @@
+1. get_condition (hypothesis 5: {d > 0}) in (GOAL: {d > 0 ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ a < (n_{0} - 1) * d ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ≥ n_{0} ∧ n ∈ PosIntegerSet ⇒ a + (n - 1) * d < 2 * (n - 1) * d))})
+2. use_condition (hypothesis 5: {d > 0}) in (hypothesis 4: {d > 0 ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ a < (n_{0} - 1) * d)}) as (hypothesis 6: {exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ a < (n_{0} - 1) * d})
+3. get_exists (hypothesis 6: {exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ a < (n_{0} - 1) * d}) (n_{0} := {k})
+4. destruct_and (hypothesis 7: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ a < (k - 1) * d}) as (hypothesis 8: {k ∈ NonNegIntegerSet}) (hypothesis 9: {k ∈ PosIntegerSet}) (hypothesis 10: {a < (k - 1) * d})
+5. assert (hypothesis 11: {forall (n), n ∈ NonNegIntegerSet ∧ n ≥ k ∧ n ∈ PosIntegerSet ⇒ a + (n - 1) * d < 2 * (n - 1) * d}) by proof {
+  1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ≥ k ∧ n ∈ PosIntegerSet ⇒ a + (n - 1) * d < 2 * (n - 1) * d}) (n := {m})
+  2. get_condition (hypothesis 11: {m ∈ NonNegIntegerSet ∧ m ≥ k ∧ m ∈ PosIntegerSet}) in (GOAL: {m ∈ NonNegIntegerSet ∧ m ≥ k ∧ m ∈ PosIntegerSet ⇒ a + (m - 1) * d < 2 * (m - 1) * d})
+  3. destruct_and (hypothesis 11: {m ∈ NonNegIntegerSet ∧ m ≥ k ∧ m ∈ PosIntegerSet}) as (hypothesis 12: {m ∈ NonNegIntegerSet}) (hypothesis 13: {m ≥ k}) (hypothesis 14: {m ∈ PosIntegerSet})
+  4. assert (hypothesis 15: {m - k >= 0})
+  5. assert (hypothesis 16: {(m - k) * d >= 0})
+  6. assert (hypothesis 17: {(m - 1) * d - (k - 1) * d >= 0})
+  7. assert (hypothesis 18: {a < (m - 1) * d})
+  8. autosolve (hypothesis 18: {a < (m - 1) * d})
+}
+6. exists (n_{0} := {k})
+7. autosolve (hypothesis 8: {k ∈ NonNegIntegerSet}) (hypothesis 9: {k ∈ PosIntegerSet}) (hypothesis 10: {a < (k - 1) * d}) (hypothesis 11: {forall (n), n ∈ NonNegIntegerSet ∧ n ≥ k ∧ n ∈ PosIntegerSet ⇒ a + (n - 1) * d < 2 * (n - 1) * d})

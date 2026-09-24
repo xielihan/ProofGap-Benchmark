@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ (forall (k), k ∈ IntegerSet ⇒ x ≠ 2 * k * π) ⇒ y(x) = e^{x} * (1 + cot(frac(x, 2)))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ (forall (k), k ∈ IntegerSet ⇒ x ≠ 2 * k * π) ⇒ (e^{x} * (1 + cot(frac(x, 2))))' = e^{x} * (1 + cot(frac(x, 2))) - frac(1, 2) * e^{x} * csc(frac(x, 2))^{2} ∧ e^{x} * (1 + cot(frac(x, 2))) - frac(1, 2) * e^{x} * csc(frac(x, 2))^{2} = frac(e^{x} * (sin(x) - cos(x)), 2 * sin(frac(x, 2))^{2})
+
+METHOD:

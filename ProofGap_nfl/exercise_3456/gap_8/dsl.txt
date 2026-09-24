@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (t), t ∈ RealSet ⇒ W(t) = 2 * r(t) * FunDeri(r, 1, 1)(t) * FunDeri(φ, 1, 1)(t) + r(t)^{2} * FunDeri(φ, 1, 2)(t)}) (t := {t0})
+get_condition (hypothesis 19: {t0 ∈ RealSet}) in (GOAL: {t0 ∈ RealSet ⇒ W(t0) = 2 * r(t0) * FunDeri(r, 1, 1)(t0) * FunDeri(φ, 1, 1)(t0) + r(t0)^{2} * FunDeri(φ, 1, 2)(t0)})
+get_prop (hypothesis 17: {forall (t), t ∈ RealSet ⇒ W(t) = x(t) * FunDeri(y, 1, 2)(t) - y(t) * FunDeri(x, 1, 2)(t)}) (t := {t0}) as (hypothesis 20: {t0 ∈ RealSet ⇒ W(t0) = x(t0) * FunDeri(y, 1, 2)(t0) - y(t0) * FunDeri(x, 1, 2)(t0)})
+get_prop (hypothesis 18: {forall (t), t ∈ RealSet ⇒ x(t) * FunDeri(y, 1, 2)(t) - y(t) * FunDeri(x, 1, 2)(t) = 2 * r(t) * FunDeri(r, 1, 1)(t) * FunDeri(φ, 1, 1)(t) + r(t)^{2} * FunDeri(φ, 1, 2)(t)}) (t := {t0}) as (hypothesis 21: {t0 ∈ RealSet ⇒ x(t0) * FunDeri(y, 1, 2)(t0) - y(t0) * FunDeri(x, 1, 2)(t0) = 2 * r(t0) * FunDeri(r, 1, 1)(t0) * FunDeri(φ, 1, 1)(t0) + r(t0)^{2} * FunDeri(φ, 1, 2)(t0)})
+autosolve all_hypothesis

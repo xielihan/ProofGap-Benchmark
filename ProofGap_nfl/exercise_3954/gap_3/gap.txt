@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. Ω ⊆ CartesianProd(RealSet, RealSet)
+2. a ∈ RealSet ∧ a ≥ 0
+3. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ Ω = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} ≤ a^{2} })
+4. forall (r), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ⇒ (forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ Ω = { (r, φ) | r ∈ RealSet ∧ φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ∧ 0 ≤ r ∧ r ≤ a })
+5. forall (r), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ⇒ ScalarSurfaceInt(Ω, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . sqrtn(2, x^{2} + y^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = DefInt(0, 2 * π, DefInt(0, a, r * r * diff(fun r [r ∈ RealSet] . r)) * diff(fun φ [φ ∈ RealSet] . φ))
+
+GOAL:
+forall (r), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ⇒ DefInt(0, 2 * π, DefInt(0, a, r * r * diff(fun r [r ∈ RealSet] . r)) * diff(fun φ [φ ∈ RealSet] . φ)) = frac(2 * π * a^{3}, 3)
+
+METHOD:

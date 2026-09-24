@@ -1,0 +1,4 @@
+get_condition (hypothesis 21: {DivergentSeries(sum_{ n = 0 }^{ +∞ } (a(n) * R^{n}))}) in (GOAL: {DivergentSeries(sum_{ n = 0 }^{ +∞ } (a(n) * R^{n})) ⇒ (forall (A), A ∈ RealSet ∧ A > S ⇒ A > S)})
+get_forall (GOAL: {forall (A), A ∈ RealSet ∧ A > S ⇒ A > S}) (A := {A0})
+get_condition (hypothesis 22: {A0 ∈ RealSet ∧ A0 > S}) in (GOAL: {A0 ∈ RealSet ∧ A0 > S ⇒ A0 > S})
+autosolve all_hypothesis

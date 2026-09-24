@@ -1,0 +1,8 @@
+1. get_forall (GOAL: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ y * FunDeri(z, 1, 1)(x, y) - x * FunDeri(z, 2, 1)(x, y) = 0}) (x := {x0}) (y := {y0})
+2. get_condition (hypothesis 8: {x0 ∈ RealSet ∧ y0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ∧ y0 ∈ RealSet ⇒ y0 * FunDeri(z, 1, 1)(x0, y0) - x0 * FunDeri(z, 2, 1)(x0, y0) = 0})
+3. destruct_and (hypothesis 8: {x0 ∈ RealSet ∧ y0 ∈ RealSet}) as (hypothesis 9: {x0 ∈ RealSet}) (hypothesis 10: {y0 ∈ RealSet})
+4. get_prop (hypothesis 7: {forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ y * FunDeri(z, 1, 1)(x, y) - x * FunDeri(z, 2, 1)(x, y) = 0)}) (x := {x0}) as (hypothesis 11: {x0 ∈ RealSet ⇒ (forall (y), x0 ∈ RealSet ∧ y ∈ RealSet ⇒ y * FunDeri(z, 1, 1)(x0, y) - x0 * FunDeri(z, 2, 1)(x0, y) = 0)})
+5. use_condition (hypothesis 9: {x0 ∈ RealSet}) in (hypothesis 11: {x0 ∈ RealSet ⇒ (forall (y), x0 ∈ RealSet ∧ y ∈ RealSet ⇒ y * FunDeri(z, 1, 1)(x0, y) - x0 * FunDeri(z, 2, 1)(x0, y) = 0)}) as (hypothesis 12: {forall (y), x0 ∈ RealSet ∧ y ∈ RealSet ⇒ y * FunDeri(z, 1, 1)(x0, y) - x0 * FunDeri(z, 2, 1)(x0, y) = 0})
+6. get_prop (hypothesis 12: {forall (y), x0 ∈ RealSet ∧ y ∈ RealSet ⇒ y * FunDeri(z, 1, 1)(x0, y) - x0 * FunDeri(z, 2, 1)(x0, y) = 0}) (y := {y0}) as (hypothesis 13: {x0 ∈ RealSet ∧ y0 ∈ RealSet ⇒ y0 * FunDeri(z, 1, 1)(x0, y0) - x0 * FunDeri(z, 2, 1)(x0, y0) = 0})
+7. use_condition (hypothesis 8: {x0 ∈ RealSet ∧ y0 ∈ RealSet}) in (hypothesis 13: {x0 ∈ RealSet ∧ y0 ∈ RealSet ⇒ y0 * FunDeri(z, 1, 1)(x0, y0) - x0 * FunDeri(z, 2, 1)(x0, y0) = 0}) as (hypothesis 14: {y0 * FunDeri(z, 1, 1)(x0, y0) - x0 * FunDeri(z, 2, 1)(x0, y0) = 0})
+8. apply (hypothesis 14: {y0 * FunDeri(z, 1, 1)(x0, y0) - x0 * FunDeri(z, 2, 1)(x0, y0) = 0})

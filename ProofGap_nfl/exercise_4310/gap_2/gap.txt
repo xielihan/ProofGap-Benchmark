@@ -1,0 +1,18 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. C ⊆ CartesianProd(RealSet, RealSet)
+3. C_{1} ⊆ CartesianProd(RealSet, RealSet)
+4. C_{2} ⊆ CartesianProd(RealSet, RealSet)
+5. S ∈ RealSet
+6. x : RealSet → RealSet
+7. y : RealSet → RealSet
+8. C_{1} = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet ∧ (exists (t), t ∈ RealSet ∧ t ≥ 0 ∧ x = frac(a, (1 + t)^{2}) ∧ y = frac(a * t, (1 + t)^{2})) }
+9. C_{2} = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ∧ y = 0 }
+10. C = C_{1} ∪ C_{2}
+11. forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ x(t) = frac(a, (1 + t)^{2}) ∧ y(t) = frac(a * t, (1 + t)^{2})
+
+GOAL:
+C_{1} ∩ C_{2} = { (a, 0) }
+
+METHOD:

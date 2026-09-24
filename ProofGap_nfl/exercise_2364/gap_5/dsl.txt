@@ -1,0 +1,4 @@
+get_condition (hypothesis 8: {a > 0}) in (GOAL: {a > 0 ⇒ (DefInt(0, 1, (fun x [x ∈ RealSet ∧ x > 0] . frac(arctan(a * x), x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) ∈ RealSet ⇔ n < 2)})
+use_condition (hypothesis 8: {a > 0}) in (hypothesis 7: {a > 0 ⇒ (DefInt(0, 1, (fun x [x ∈ RealSet ∧ x > 0] . frac(arctan(a * x), x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) ∈ RealSet ⇔ n - 1 < 1)}) as (hypothesis 9: {DefInt(0, 1, (fun x [x ∈ RealSet ∧ x > 0] . frac(arctan(a * x), x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) ∈ RealSet ⇔ n - 1 < 1})
+rewrite (left_to_right, iff) (hypothesis 9: {DefInt(0, 1, (fun x [x ∈ RealSet ∧ x > 0] . frac(arctan(a * x), x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) ∈ RealSet ⇔ n - 1 < 1}); from (GOAL: {DefInt(0, 1, (fun x [x ∈ RealSet ∧ x > 0] . frac(arctan(a * x), x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) ∈ RealSet ⇔ n < 2}) to (GOAL: {n - 1 < 1 ⇔ n < 2})
+autosolve all_hypothesis

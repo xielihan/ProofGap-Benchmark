@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ u(x, y) = ln(sqrtn(2, x^{2} + y^{2}))
+
+GOAL:
+diff(u) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . frac(x, x^{2} + y^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0)] . frac(y, x^{2} + y^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+
+METHOD:

@@ -1,0 +1,16 @@
+PROOF GAP @2
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. X : RealSet → RealSet
+3. Y : RealSet → RealSet
+4. n ∈ NonNegIntegerSet
+5. n ∈ PosIntegerSet
+6. FuncOfClassK(X, n)
+7. FuncOfClassK(Y, n)
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ u(x, y) = X(x) * Y(y)
+9. diff^{n}(u) = sum_{ k = 0 }^{ n } (Combination(n, k) * diff^{n - k}(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . X(x)) * diff^{k}(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . Y(y)))
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ diff^{n}(u) = sum_{ k = 0 }^{ n } (Combination(n, k) * FunDeri(X, 1, n - k)(x) * FunDeri(Y, 1, k)(y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{n - k} * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{k})
+
+METHOD:

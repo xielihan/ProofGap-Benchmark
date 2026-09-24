@@ -1,0 +1,10 @@
+get_forall (GOAL: {forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ x ∈ IntervalLoRo(0, +∞) ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ frac(x^{n}, x^{n - 1}) = x}) (n := {n1}) (x := {x1})
+get_condition (hypothesis 4: {n1 ∈ NonNegIntegerSet ∧ x1 ∈ RealSet ∧ x1 ∈ IntervalLoRo(0, +∞) ∧ n1 ∈ PosIntegerSet ∧ n1 ≥ 2}) in (GOAL: {n1 ∈ NonNegIntegerSet ∧ x1 ∈ RealSet ∧ x1 ∈ IntervalLoRo(0, +∞) ∧ n1 ∈ PosIntegerSet ∧ n1 ≥ 2 ⇒ frac(x1^{n1}, x1^{n1 - 1}) = x1})
+destruct_and (hypothesis 4: {n1 ∈ NonNegIntegerSet ∧ x1 ∈ RealSet ∧ x1 ∈ IntervalLoRo(0, +∞) ∧ n1 ∈ PosIntegerSet ∧ n1 ≥ 2}) as (hypothesis 5: {n1 ∈ NonNegIntegerSet}) (hypothesis 6: {x1 ∈ RealSet}) (hypothesis 7: {x1 ∈ IntervalLoRo(0, +∞)}) (hypothesis 8: {n1 ∈ PosIntegerSet}) (hypothesis 9: {n1 ≥ 2})
+get_prop (theorem 'Thm 205. (ExponentSubtractionLaw)': {forall (a) (x) (y), a ∈ RealSet => x ∈ RealSet => y ∈ RealSet => (a > 0 => a ^ (x - y) = a ^ x / a ^ y)}) (a := {x1}) (x := {n1}) (y := {n1 - 1}) as (hypothesis 10: {x1 ∈ RealSet => n1 ∈ RealSet => n1 - 1 ∈ RealSet => (x1 > 0 => x1 ^ (n1 - (n1 - 1)) = x1 ^ n1 / x1 ^ (n1 - 1))})
+assert (hypothesis 11: {n1 ∈ RealSet})
+assert (hypothesis 12: {n1 - 1 ∈ RealSet})
+assert (hypothesis 13: {x1 > 0})
+use_condition (hypothesis 6: {x1 ∈ RealSet}) (hypothesis 11: {n1 ∈ RealSet}) (hypothesis 12: {n1 - 1 ∈ RealSet}) (hypothesis 13: {x1 > 0}) in (hypothesis 10: {x1 ∈ RealSet => n1 ∈ RealSet => n1 - 1 ∈ RealSet => (x1 > 0 => x1 ^ (n1 - (n1 - 1)) = x1 ^ n1 / x1 ^ (n1 - 1))}) as (hypothesis 14: {x1 ^ (n1 - (n1 - 1)) = x1 ^ n1 / x1 ^ (n1 - 1)})
+rewrite (right_to_left, equation) (hypothesis 14: {x1 ^ (n1 - (n1 - 1)) = x1 ^ n1 / x1 ^ (n1 - 1)}); from (GOAL: {frac(x1^{n1}, x1^{n1 - 1}) = x1}) to (GOAL: {x1 ^ (n1 - (n1 - 1)) = x1})
+autosolve all_hypothesis

@@ -1,0 +1,4 @@
+get_condition (hypothesis 14: {r > 0 ∧ h > 0}) in (GOAL: {r > 0 ∧ h > 0 ⇒ S = π * (r^{2} + r * h)})
+destruct_and (hypothesis 14: {r > 0 ∧ h > 0}) as (hypothesis 15: {r > 0}) (hypothesis 16: {h > 0})
+get_prop (hypothesis 8: {forall (r) (h), r ∈ RealSet ∧ h ∈ RealSet ∧ r > 0 ∧ h > 0 ⇒ S = π * (r^{2} + r * h)}) (r := {r}) (h := {h}) as (hypothesis 17: {r ∈ RealSet ∧ h ∈ RealSet ∧ r > 0 ∧ h > 0 ⇒ S = π * (r^{2} + r * h)})
+autosolve all_hypothesis

@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet ⇒ x < -sqrtn(2, 2)
+3. forall (x), x ∈ RealSet ∧ x < -sqrtn(2, 2) ⇒ (forall (t), t ∈ RealSet ∧ x = sqrtn(2, 2) * sec(t) ⇒ π < t)
+4. forall (x), x ∈ RealSet ∧ x < -sqrtn(2, 2) ⇒ (forall (t), t ∈ RealSet ∧ x = sqrtn(2, 2) * sec(t) ⇒ t < frac(3 * π, 2))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x < -sqrtn(2, 2) ⇒ (forall (t), t ∈ RealSet ∧ x = sqrtn(2, 2) * sec(t) ⇒ frac(x^{2}, sqrtn(2, x^{2} - 2)) = frac(2 * sec(t)^{2}, sqrtn(2, 2) * tan(t)))
+
+METHOD:

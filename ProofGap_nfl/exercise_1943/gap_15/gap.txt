@@ -1,0 +1,28 @@
+PROOF GAP @15
+ASSUM:
+1. x ∈ RealSet ∧ 1 + 2 * x - x^{2} > 0
+2. C ∈ RealSet
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. c ∈ RealSet
+6. λ ∈ RealSet
+7. { `F_2` | forall (x), x ∈ RealSet ∧ 1 + 2 * x - x^{2} > 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x^{3}, sqrtn(2, 1 + 2 * x - x^{2})) * FunDeri(fun x [x ∈ RealSet ∧ 1 + 2 * x - x^{2} > 0] . x, 1, 1)(x) } = { `F_6` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ 1 + 2 * x - x^{2} > 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(1, sqrtn(2, 1 + 2 * x - x^{2})) * FunDeri(fun x [x ∈ RealSet ∧ 1 + 2 * x - x^{2} > 0] . x, 1, 1)(x) ∧ `F_6`(x) = (a * x^{2} + b * x + c) * sqrtn(2, 1 + 2 * x - x^{2}) + λ * `F_3`(x)) }
+8. a ∈ RealSet
+9. b ∈ RealSet
+10. c ∈ RealSet
+11. λ ∈ RealSet
+12. frac(x^{3}, sqrtn(2, 1 + 2 * x - x^{2})) = (2 * a * x + b) * sqrtn(2, 1 + 2 * x - x^{2}) + frac((a * x^{2} + b * x + c) * (1 - x), sqrtn(2, 1 + 2 * x - x^{2})) + frac(λ, sqrtn(2, 1 + 2 * x - x^{2}))
+13. x^{3} ≡ (2 * a * x + b) * (1 + 2 * x - x^{2}) + (a * x^{2} + b * x + c) * (1 - x) + λ
+14. -3 * a = 1
+15. 5 * a - 2 * b = 0
+16. 2 * a + 3 * b - c = 0
+17. b + c + λ = 0
+18. a = -frac(1, 3)
+19. b = -frac(5, 6)
+20. c = -frac(19, 6)
+21. λ = 4
+
+GOAL:
+{ `F_7` | forall (x), x ∈ RealSet ∧ 1 + 2 * x - x^{2} > 0 ⇒ FunDeri(`F_7`, 1, 1)(x) = frac(x^{3}, sqrtn(2, 1 + 2 * x - x^{2})) * FunDeri(fun x [x ∈ RealSet ∧ 1 + 2 * x - x^{2} > 0] . x, 1, 1)(x) } = { `F_11` | exists (`F_8`), `F_8` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ 1 + 2 * x - x^{2} > 0 ⇒ FunDeri(`F_8`, 1, 1)(x) = frac(1, sqrtn(2, 1 + 2 * x - x^{2})) * FunDeri(fun x [x ∈ RealSet ∧ 1 + 2 * x - x^{2} > 0] . x, 1, 1)(x) ∧ `F_11`(x) = -frac(19 + 5 * x + 2 * x^{2}, 6) * sqrtn(2, 1 + 2 * x - x^{2}) + 4 * `F_8`(x)) }
+
+METHOD:

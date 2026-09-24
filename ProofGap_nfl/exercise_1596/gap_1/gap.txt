@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. y : RealSet → RealSet
+3. p ∈ RealSet
+4. R ∈ RealSet
+5. p > 0
+6. y(x)^{2} = 2 * p * x
+
+GOAL:
+y(x) ≠ 0 ⇒ FunDeri(y, 1, 1) = frac(p, y(x))
+
+METHOD:

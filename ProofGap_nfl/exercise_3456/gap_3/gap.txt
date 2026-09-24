@@ -1,0 +1,20 @@
+PROOF GAP @3
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. r : RealSet → RealSet
+4. φ : RealSet → RealSet
+5. W : RealSet → RealSet
+6. FuncOfClassK(x, 2)
+7. FuncOfClassK(y, 2)
+8. forall (t), t ∈ RealSet ⇒ x(t) ≠ 0 ∧ x(t)^{2} + y(t)^{2} > 0
+9. forall (t), t ∈ RealSet ⇒ r(t) = sqrtn(2, x(t)^{2} + y(t)^{2})
+10. forall (t), t ∈ RealSet ⇒ φ(t) = arctan(frac(y(t), x(t)))
+11. forall (t), t ∈ RealSet ⇒ W(t) = x(t) * FunDeri(y, 1, 2)(t) - y(t) * FunDeri(x, 1, 2)(t)
+12. forall (t), t ∈ RealSet ⇒ r(t) * diff(r) = x(t) * diff(x) + y(t) * diff(y)
+13. forall (t), t ∈ RealSet ⇒ r(t)^{2} * diff(φ) = x(t) * diff(y) - y(t) * diff(x)
+
+GOAL:
+forall (t), t ∈ RealSet ⇒ diff(x) = frac(x(t), r(t)) * diff(r) - y(t) * diff(φ)
+
+METHOD:

@@ -1,0 +1,2 @@
+exists (C := {frac(π, 2)})
+autosolve all_hypothesis

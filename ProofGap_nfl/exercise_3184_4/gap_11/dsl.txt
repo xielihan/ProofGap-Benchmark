@@ -1,0 +1,2 @@
+1. rewrite_in limit (left_to_right, equation) (hypothesis 12: {forall (y), y ∈ RealSet ∧ y ≠ 0 ⇒ lim_{ x → 0 } (f(x, y)) = 1}); from (GOAL: {lim_{ y → +∞ } (lim_{ x → 0 } (f(x, y))) = lim_{ y → +∞ } (1)}) to (GOAL: {lim_{ y → +∞ } (1) = lim_{ y → +∞ } (1)})
+2. autosolve all_hypothesis

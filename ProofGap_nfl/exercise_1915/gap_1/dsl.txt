@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ 1 + x^{7} ≠ 0 ⇒ frac(1 - x^{7}, x * (1 + x^{7})) = frac(1, x) - frac(2 * x^{6}, 1 + x^{7})}) (x := {x0})
+get_condition (hypothesis 5: {x0 ∈ RealSet ∧ x0 ≠ 0 ∧ 1 + x0^{7} ≠ 0}) in (GOAL: {x0 ∈ RealSet ∧ x0 ≠ 0 ∧ 1 + x0^{7} ≠ 0 ⇒ frac(1 - x0^{7}, x0 * (1 + x0^{7})) = frac(1, x0) - frac(2 * x0^{6}, 1 + x0^{7})})
+destruct_and (hypothesis 5: {x0 ∈ RealSet ∧ x0 ≠ 0 ∧ 1 + x0^{7} ≠ 0}) as (hypothesis 6: {x0 ∈ RealSet}) (hypothesis 7: {x0 ≠ 0}) (hypothesis 8: {1 + x0^{7} ≠ 0})
+assert (hypothesis 9: {frac(1 - x0^{7}, x0 * (1 + x0^{7})) = frac(1, x0) - frac(2 * x0^{6}, 1 + x0^{7})})
+apply (hypothesis 9: {frac(1 - x0^{7}, x0 * (1 + x0^{7})) = frac(1, x0) - frac(2 * x0^{6}, 1 + x0^{7})})

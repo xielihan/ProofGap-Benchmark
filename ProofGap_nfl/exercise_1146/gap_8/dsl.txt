@@ -1,0 +1,6 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ frac(75 * FunDeri(y, 1, 1)(x), y(x)^{4}) = -frac(75 * x, y(x)^{5})}) (x := {z})
+2. get_condition (hypothesis 10: {z ∈ RealSet}) in (GOAL: {z ∈ RealSet ⇒ frac(75 * FunDeri(y, 1, 1)(z), y(z)^{4}) = -frac(75 * z, y(z)^{5})})
+3. get_prop (hypothesis 3: {forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = -frac(x, y(x))}) (x := {z}) as (hypothesis 11: {z ∈ RealSet ⇒ FunDeri(y, 1, 1)(z) = -frac(z, y(z))})
+4. use_condition (hypothesis 10: {z ∈ RealSet}) in (hypothesis 11: {z ∈ RealSet ⇒ FunDeri(y, 1, 1)(z) = -frac(z, y(z))}) as (hypothesis 12: {FunDeri(y, 1, 1)(z) = -frac(z, y(z))})
+5. rewrite (left_to_right, equation) (hypothesis 12: {FunDeri(y, 1, 1)(z) = -frac(z, y(z))}); from (GOAL: {frac(75 * FunDeri(y, 1, 1)(z), y(z)^{4}) = -frac(75 * z, y(z)^{5})}) to (GOAL: {frac(75 * (-frac(z, y(z))), y(z)^{4}) = -frac(75 * z, y(z)^{5})})
+6. autosolve all_hypothesis

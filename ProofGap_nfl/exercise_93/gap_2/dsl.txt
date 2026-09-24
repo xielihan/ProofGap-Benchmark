@@ -1,0 +1,12 @@
+get_exists (hypothesis 5: {exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ |x(n) - a| < 1)}) (N := {N0})
+destruct_and (hypothesis 6: {N0 ∈ NonNegIntegerSet ∧ N0 ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N0 ⇒ |x(n) - a| < 1)}) as (hypothesis 7: {N0 ∈ NonNegIntegerSet}) (hypothesis 8: {N0 ∈ PosIntegerSet}) (hypothesis 9: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N0 ⇒ |x(n) - a| < 1})
+assert (hypothesis 10: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N0 ⇒ |x(n)| < |a| + 1}) by proof {
+  get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N0 ⇒ |x(n)| < |a| + 1}) (n := {n0})
+  get_condition (hypothesis 10: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 > N0}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 > N0 ⇒ |x(n0)| < |a| + 1})
+  get_prop (hypothesis 9: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N0 ⇒ |x(n) - a| < 1}) (n := {n0}) as (hypothesis 11: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 > N0 ⇒ |x(n0) - a| < 1})
+  use_condition (hypothesis 10: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 > N0}) in (hypothesis 11: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 > N0 ⇒ |x(n0) - a| < 1}) as (hypothesis 12: {|x(n0) - a| < 1})
+  assert (hypothesis 13: {|x(n0)| < |a| + 1})
+  apply (hypothesis 13: {|x(n0)| < |a| + 1})
+}
+exists (N := {N0})
+autosolve all_hypothesis

@@ -1,0 +1,8 @@
+1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet => x(n + 1) < x(n)}) (n := {n0})
+2. get_condition (hypothesis 6: {n0 ∈ NonNegIntegerSet /\ n0 ∈ PosIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet /\ n0 ∈ PosIntegerSet => x(n0 + 1) < x(n0)})
+3. get_prop (hypothesis 4: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet => x(n + 1) = x(n) * (1 - frac(1, 2 ^ (n + 1)))}) (n := {n0}) as (hypothesis 7: {n0 ∈ NonNegIntegerSet /\ n0 ∈ PosIntegerSet => x(n0 + 1) = x(n0) * (1 - frac(1, 2 ^ (n0 + 1)))})
+4. get_prop (hypothesis 5: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet => x(n) * (1 - frac(1, 2 ^ (n + 1))) < x(n)}) (n := {n0}) as (hypothesis 8: {n0 ∈ NonNegIntegerSet /\ n0 ∈ PosIntegerSet => x(n0) * (1 - frac(1, 2 ^ (n0 + 1))) < x(n0)})
+5. use_condition (hypothesis 6: {n0 ∈ NonNegIntegerSet /\ n0 ∈ PosIntegerSet}) in (hypothesis 7: {n0 ∈ NonNegIntegerSet /\ n0 ∈ PosIntegerSet => x(n0 + 1) = x(n0) * (1 - frac(1, 2 ^ (n0 + 1)))}) as (hypothesis 9: {x(n0 + 1) = x(n0) * (1 - frac(1, 2 ^ (n0 + 1)))})
+6. use_condition (hypothesis 6: {n0 ∈ NonNegIntegerSet /\ n0 ∈ PosIntegerSet}) in (hypothesis 8: {n0 ∈ NonNegIntegerSet /\ n0 ∈ PosIntegerSet => x(n0) * (1 - frac(1, 2 ^ (n0 + 1))) < x(n0)}) as (hypothesis 10: {x(n0) * (1 - frac(1, 2 ^ (n0 + 1))) < x(n0)})
+7. rewrite (left_to_right, equation) (hypothesis 9: {x(n0 + 1) = x(n0) * (1 - frac(1, 2 ^ (n0 + 1)))}); from (GOAL: {x(n0 + 1) < x(n0)}) to (GOAL: {x(n0) * (1 - frac(1, 2 ^ (n0 + 1))) < x(n0)})
+8. apply (hypothesis 10: {x(n0) * (1 - frac(1, 2 ^ (n0 + 1))) < x(n0)})

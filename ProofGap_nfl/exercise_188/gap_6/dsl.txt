@@ -1,0 +1,12 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ∧ frac(1, 2) ≤ x ∧ x < 1 ⇒ y(x) = x + 1}) (x := {z})
+2. get_condition (hypothesis 8: {z ∈ RealSet ∧ frac(1, 2) ≤ z ∧ z < 1}) in (GOAL: {z ∈ RealSet ∧ frac(1, 2) ≤ z ∧ z < 1 ⇒ y(z) = z + 1})
+3. destruct_and (hypothesis 8: {z ∈ RealSet ∧ frac(1, 2) ≤ z ∧ z < 1}) as (hypothesis 9: {z ∈ RealSet}) (hypothesis 10: {frac(1, 2) ≤ z}) (hypothesis 11: {z < 1})
+4. assert (hypothesis 12: {z ∈ IntervalLoRo(0, 1)})
+5. assert (hypothesis 13: {z ∈ RealSet ∧ z ∈ IntervalLoRo(0, 1)})
+6. get_prop (hypothesis 2: {forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ y(x) = x + floor(2 * x)}) (x := {z}) as (hypothesis 14: {z ∈ RealSet ∧ z ∈ IntervalLoRo(0, 1) ⇒ y(z) = z + floor(2 * z)})
+7. use_condition (hypothesis 13: {z ∈ RealSet ∧ z ∈ IntervalLoRo(0, 1)}) in (hypothesis 14: {z ∈ RealSet ∧ z ∈ IntervalLoRo(0, 1) ⇒ y(z) = z + floor(2 * z)}) as (hypothesis 15: {y(z) = z + floor(2 * z)})
+8. get_prop (hypothesis 7: {forall (x), x ∈ RealSet ∧ frac(1, 2) ≤ x ∧ x < 1 ⇒ floor(2 * x) = 1}) (x := {z}) as (hypothesis 16: {z ∈ RealSet ∧ frac(1, 2) ≤ z ∧ z < 1 ⇒ floor(2 * z) = 1})
+9. use_condition (hypothesis 8: {z ∈ RealSet ∧ frac(1, 2) ≤ z ∧ z < 1}) in (hypothesis 16: {z ∈ RealSet ∧ frac(1, 2) ≤ z ∧ z < 1 ⇒ floor(2 * z) = 1}) as (hypothesis 17: {floor(2 * z) = 1})
+10. rewrite (left_to_right, equation) (hypothesis 15: {y(z) = z + floor(2 * z)}); from (GOAL: {y(z) = z + 1}) to (GOAL: {z + floor(2 * z) = z + 1})
+11. rewrite (left_to_right, equation) (hypothesis 17: {floor(2 * z) = 1}); from (GOAL: {z + floor(2 * z) = z + 1}) to (GOAL: {z + 1 = z + 1})
+12. autosolve all_hypothesis

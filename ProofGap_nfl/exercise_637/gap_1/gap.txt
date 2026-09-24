@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. a ∈ RealSet
+3. a ∈ PosRealSet
+4. x(1) = sqrtn(2, a)
+5. forall (n), n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ x(n) = sqrtn(2, a + x(n - 1))
+GOAL:
+MonoIncSeq(x)
+
+METHOD:

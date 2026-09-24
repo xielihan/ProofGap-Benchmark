@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = e^{x} * sin(x)
+3. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = e^{x} * (sin(x) + cos(x))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (FunDeri(y, 1, 1)(x) = 0 ⇔ (exists (k), k ∈ IntegerSet ∧ (x = -frac(π, 4) + 2 * k * π ∨ x = frac(3 * π, 4) + 2 * k * π)))
+
+METHOD:

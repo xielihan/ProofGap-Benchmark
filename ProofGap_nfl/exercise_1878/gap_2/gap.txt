@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+3. x ≠ 2
+4. x^{2} - 4 * x + 4 = (x - 2)^{2}
+
+GOAL:
+x^{2} - 4 * x + 5 = (x - 2)^{2} + 1
+
+METHOD:

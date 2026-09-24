@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. forall (k), k ∈ IntegerSet ⇒ a ≠ k * π
+
+GOAL:
+lim_{ x → a } (frac(cot(x) - cot(a), x - a)) = -(lim_{ x → a } (frac(sin(x - a), x - a) * frac(1, sin(x) * sin(a))))
+
+METHOD:

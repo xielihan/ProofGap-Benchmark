@@ -1,0 +1,10 @@
+get_forall (GOAL: {forall (a), a ∈ RealSet ∧ a > 1 ⇒ (forall (x), x ∈ RealSet ∧ a ≤ x ⇒ FunDeri(ζ, 1, 1)(x) = -(sum_{ n = 1 }^{ +∞ } (frac(ln(n), n^{x}))))}) (a := {a0})
+get_condition (hypothesis 12: {a0 ∈ RealSet ∧ a0 > 1}) in (GOAL: {a0 ∈ RealSet ∧ a0 > 1 ⇒ (forall (x), x ∈ RealSet ∧ a0 ≤ x ⇒ FunDeri(ζ, 1, 1)(x) = -(sum_{ n = 1 }^{ +∞ } (frac(ln(n), n^{x}))))})
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ a0 ≤ x ⇒ FunDeri(ζ, 1, 1)(x) = -(sum_{ n = 1 }^{ +∞ } (frac(ln(n), n^{x})))}) (x := {x0})
+get_condition (hypothesis 13: {x0 ∈ RealSet ∧ a0 ≤ x0}) in (GOAL: {x0 ∈ RealSet ∧ a0 ≤ x0 ⇒ FunDeri(ζ, 1, 1)(x0) = -(sum_{ n = 1 }^{ +∞ } (frac(ln(n), n^{x0})))})
+get_prop (hypothesis 5: {forall (x), x ∈ RealSet ∧ x > 1 ⇒ FunDeri(ζ, 1, 1)(x) = -(sum_{ n = 1 }^{ +∞ } (frac(ln(n), n^{x})))}) (x := {x0}) as (hypothesis 14: {x0 ∈ RealSet ∧ x0 > 1 ⇒ FunDeri(ζ, 1, 1)(x0) = -(sum_{ n = 1 }^{ +∞ } (frac(ln(n), n^{x0})))})
+assert (hypothesis 15: {x0 ∈ RealSet ∧ x0 > 1}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 15: {x0 ∈ RealSet ∧ x0 > 1}) in (hypothesis 14: {x0 ∈ RealSet ∧ x0 > 1 ⇒ FunDeri(ζ, 1, 1)(x0) = -(sum_{ n = 1 }^{ +∞ } (frac(ln(n), n^{x0})))}) as (hypothesis 16: {FunDeri(ζ, 1, 1)(x0) = -(sum_{ n = 1 }^{ +∞ } (frac(ln(n), n^{x0})))})
+apply (hypothesis 16: {FunDeri(ζ, 1, 1)(x0) = -(sum_{ n = 1 }^{ +∞ } (frac(ln(n), n^{x0})))})

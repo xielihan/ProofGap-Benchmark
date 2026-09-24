@@ -1,0 +1,17 @@
+PROOF GAP @7
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. b : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ a(n) = frac(1, sqrtn(n, ln(n)))
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ b(n) = frac(1, sqrtn(n, n))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ ln(n) > 0 ∧ ln(n) < n
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ a(n) > b(n) ∧ b(n) > 0
+7. seqlim_{ n → +∞ } (b(n)) = 1
+8. 1 ≠ 0
+9. seqlim_{ n → +∞ } (b(n)) ≠ 0
+10. DivergentSeries(sum_{ n = 2 }^{ +∞ } (b(n)))
+
+GOAL:
+DivergentSeries(sum_{ n = 2 }^{ +∞ } (a(n)))
+
+METHOD:

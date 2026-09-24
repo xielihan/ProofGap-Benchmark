@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. θ ∈ RealSet
+2. θ_{1} ∈ RealSet
+3. θ_{2} ∈ RealSet
+
+GOAL:
+frac(prod_{ k = 1 }^{ 50 } (2 * k - 1), prod_{ k = 1 }^{ 50 } (2 * k)) = frac(100!, 2^{100} * (50!)^{2})
+
+METHOD:

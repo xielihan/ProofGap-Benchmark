@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = frac(1 - cos(x), x^{2})
+
+GOAL:
+lim_{ x → 0 } (frac(1 - cos(x), x^{2})) = frac(1, 2)
+
+METHOD:

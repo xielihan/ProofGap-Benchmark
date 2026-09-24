@@ -1,0 +1,4 @@
+get_exists (hypothesis 40: {exists (τ), τ ∈ RealSet ∧ r - τ ≤ seqlim_{ n → +∞ } (y(n))}) (τ := {t1})
+destruct_and (hypothesis 41: {t1 ∈ RealSet ∧ r - t1 ≤ seqlim_{ n → +∞ } (y(n))}) as (hypothesis 42: {t1 ∈ RealSet}) (hypothesis 43: {r - t1 ≤ seqlim_{ n → +∞ } (y(n))})
+exists (τ := {t1})
+autosolve (hypothesis 42: {t1 ∈ RealSet}) (hypothesis 43: {r - t1 ≤ seqlim_{ n → +∞ } (y(n))})

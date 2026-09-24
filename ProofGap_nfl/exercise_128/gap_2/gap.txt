@@ -1,0 +1,20 @@
+PROOF GAP @2
+ASSUM:
+1. x : NonNegIntegerSet → RealSet
+2. y : NonNegIntegerSet → RealSet
+3. s : NonNegIntegerSet → RealSet
+4. p : NonNegIntegerSet → RealSet
+5. IsSeq(x)
+6. IsSeq(y)
+7. IsSeq(s)
+8. IsSeq(p)
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = frac(1 + (-1)^{n}, 2)
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n) = frac(1 - (-1)^{n}, 2)
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ s(n) = x(n) + y(n)
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(n) = x(n) * y(n)
+13. DivergentSeq(x)
+
+GOAL:
+DivergentSeq(y)
+
+METHOD:

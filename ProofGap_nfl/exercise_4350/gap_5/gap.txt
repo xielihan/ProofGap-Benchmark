@@ -1,0 +1,19 @@
+PROOF GAP @5
+ASSUM:
+1. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. x ∈ RealSet
+3. y ∈ RealSet
+4. z : CartesianProd(RealSet, RealSet) → RealSet
+5. D ⊆ CartesianProd(RealSet, RealSet)
+6. a ∈ RealSet ∧ a > 0
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} > 0 ⇒ z(x, y) = sqrtn(2, x^{2} + y^{2})
+8. D = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} ≤ 2 * a * x }
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} > 0 ⇒ sqrtn(2, 1 + FunDeri(z, 1, 1)(x, y)^{2} + FunDeri(z, 2, 1)(x, y)^{2}) = sqrtn(2, 1 + frac(x^{2}, x^{2} + y^{2}) + frac(y^{2}, x^{2} + y^{2}))
+10. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} > 0 ⇒ sqrtn(2, 1 + frac(x^{2}, x^{2} + y^{2}) + frac(y^{2}, x^{2} + y^{2})) = sqrtn(2, 2)
+11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} > 0 ⇒ sqrtn(2, 1 + FunDeri(z, 1, 1)(x, y)^{2} + FunDeri(z, 2, 1)(x, y)^{2}) = sqrtn(2, 2)
+12. D = { (r, φ) | r ∈ RealSet ∧ φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2) ∧ 0 ≤ r ∧ r ≤ 2 * a * cos(φ) }
+
+GOAL:
+ScalarSurfaceInt(S, (x * y + y * z(x, y) + z(x, y) * x) * diff(S)) = sqrtn(2, 2) * DefInt(-frac(π, 2), frac(π, 2), (fun φ [φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2)] . DefInt(0, 2 * a * cos(φ), (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 2 * a * cos(φ)] . (r^{2} * cos(φ) * sin(φ) + r^{2} * (cos(φ) + sin(φ))) * r) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 2 * a * cos(φ)] . r))) * diff(fun φ [φ ∈ RealSet ∧ -frac(π, 2) ≤ φ ∧ φ ≤ frac(π, 2)] . φ))
+
+METHOD:

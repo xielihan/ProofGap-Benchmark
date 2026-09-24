@@ -1,0 +1,20 @@
+PROOF GAP @8
+ASSUM:
+1. Delta : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. a ∈ RealSet ∧ a ∈ PosRealSet
+3. b ∈ RealSet ∧ b ∈ PosRealSet
+4. s ∈ RealSet
+5. forall (t), t ∈ RealSet ⇒ (forall (s), s ∈ RealSet ⇒ Delta(s, a, b) = cases{ frac(a^{s} + b^{s}, 2)^{frac(1, s)} if s ≠ 0; lim_{ t → 0 } (Delta(t, a, b)) if s = 0 })
+6. f = (fun x [x ∈ RealSet] . ln(frac(a^{x} + b^{x}, 2)))
+7. f(0) = 0
+8. FunDeri(f, 1, 1)(0) = lim_{ x → 0 } (frac(f(x) - f(0), x))
+9. FunDeri(f, 1, 1)(0) = frac(1, 2) * (ln(a) + ln(b))
+10. Delta(0, a, b) = lim_{ s → 0 } (e^{frac(1, s) * ln(frac(a^{s} + b^{s}, 2))})
+11. lim_{ s → 0 } (e^{frac(1, s) * ln(frac(a^{s} + b^{s}, 2))}) = e^{FunDeri(f, 1, 1)(0)}
+12. e^{FunDeri(f, 1, 1)(0)} = sqrtn(2, a * b)
+13. Delta(0, a, b) = sqrtn(2, a * b)
+
+GOAL:
+s > 0 ⇒ 2 * min(a, b)^{s} ≤ a^{s} + b^{s}
+
+METHOD:

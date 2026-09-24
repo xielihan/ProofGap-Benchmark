@@ -1,0 +1,2 @@
+exists (V0 := {VolumeInt(Ω, 1 * diff(ω))})
+autosolve

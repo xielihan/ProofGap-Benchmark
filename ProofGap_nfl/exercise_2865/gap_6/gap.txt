@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. x ∈ RealSet
+2. α ∈ RealSet
+3. 1 - 2 * x * cosh(α) + x^{2} ≠ 0 ⇒ frac(x * sinh(α), 1 - 2 * x * cosh(α) + x^{2}) = frac(1, 2) * (frac(cosh(α) + sinh(α), x - (cosh(α) + sinh(α))) - frac(cosh(α) - sinh(α), x - (cosh(α) - sinh(α))))
+4. cosh(α) + sinh(α) = e^{α}
+5. cosh(α) - sinh(α) = e^{-α}
+6. frac(x * sinh(α), 1 - 2 * x * cosh(α) + x^{2}) = frac(1, 2) * (frac(e^{α}, x - e^{α}) - frac(e^{-α}, x - e^{-α}))
+7. |x| < min(e^{-α}, e^{α}) ⇒ frac(x * sinh(α), 1 - 2 * x * cosh(α) + x^{2}) = frac(1, 2) * (-frac(1, 1 - x * e^{-α}) + frac(1, 1 - x * e^{α}))
+
+GOAL:
+|x| < min(e^{-α}, e^{α}) ⇒ frac(x * sinh(α), 1 - 2 * x * cosh(α) + x^{2}) = frac(1, 2) * (-(sum_{ n = 0 }^{ +∞ } (x^{n} * e^{-n * α})) + (sum_{ n = 0 }^{ +∞ } (x^{n} * e^{n * α})))
+
+METHOD:

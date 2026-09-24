@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. f : RealSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(sqrtn(2, n), n + 10000)
+4. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ f(x) = frac(sqrtn(2, x), x + 10000)
+
+GOAL:
+MaximumPointOn(f, [0, +∞)) = { 10000 }
+
+METHOD:

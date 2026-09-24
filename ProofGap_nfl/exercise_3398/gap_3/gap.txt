@@ -1,0 +1,17 @@
+PROOF GAP @3
+ASSUM:
+1. D ⊆ CartesianProd(RealSet, RealSet)
+2. F : D → RealSet
+3. z : CartesianProd(RealSet, RealSet) → RealSet
+4. FuncOfClassK(F, 2)
+5. FuncOfClassK(z, 2)
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ (x * z(x, y), y * z(x, y)) ∈ D
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ F(x * z(x, y), y * z(x, y)) = 0
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(F, 1, 1)(x * z(x, y), y * z(x, y)) * (z(x, y) + x * FunDeri(z, 1, 1)(x, y)) + FunDeri(F, 2, 1)(x * z(x, y), y * z(x, y)) * (y * FunDeri(z, 1, 1)(x, y)) = 0
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * FunDeri(F, 1, 1)(x * z(x, y), y * z(x, y)) + y * FunDeri(F, 2, 1)(x * z(x, y), y * z(x, y)) ≠ 0 ⇒ FunDeri(z, 1, 1)(x, y) = -frac(z(x, y) * FunDeri(F, 1, 1)(x * z(x, y), y * z(x, y)), x * FunDeri(F, 1, 1)(x * z(x, y), y * z(x, y)) + y * FunDeri(F, 2, 1)(x * z(x, y), y * z(x, y)))
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * FunDeri(F, 1, 1)(x * z(x, y), y * z(x, y)) + y * FunDeri(F, 2, 1)(x * z(x, y), y * z(x, y)) ≠ 0 ⇒ FunDeri(z, 1, 2)(x, y) = -frac(FunDeri(F, 1, 2)(x * z(x, y), y * z(x, y)) * (z(x, y) + x * FunDeri(z, 1, 1)(x, y))^{2} + 2 * FunDeri(FunDeri(F, 1, 1), 2, 1)(x * z(x, y), y * z(x, y)) * (z(x, y) + x * FunDeri(z, 1, 1)(x, y)) * (y * FunDeri(z, 1, 1)(x, y)) + FunDeri(F, 2, 2)(x * z(x, y), y * z(x, y)) * (y * FunDeri(z, 1, 1)(x, y))^{2} + 2 * FunDeri(F, 1, 1)(x * z(x, y), y * z(x, y)) * FunDeri(z, 1, 1)(x, y), x * FunDeri(F, 1, 1)(x * z(x, y), y * z(x, y)) + y * FunDeri(F, 2, 1)(x * z(x, y), y * z(x, y)))
+
+METHOD:
+[@method 由 F(xz,yz)=0 两边连续对 x 求导 @]

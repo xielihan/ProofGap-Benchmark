@@ -1,0 +1,21 @@
+PROOF GAP @15
+ASSUM:
+1. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ∧ φ = arcsin(x) ⇒ sin(φ) = x)
+2. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ∧ φ = arcsin(x) ⇒ cos(frac(π, 2) - φ) = sin(φ))
+3. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ∧ φ = arcsin(x) ⇒ sin(φ) = x)
+4. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ∧ φ = arcsin(x) ⇒ cos(frac(π, 2) - φ) = x)
+5. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ∧ φ = arcsin(x) ⇒ -frac(π, 2) ≤ φ)
+6. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ∧ φ = arcsin(x) ⇒ φ ≤ frac(π, 2))
+7. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ∧ φ = arcsin(x) ⇒ -frac(π, 2) ≤ frac(π, 2))
+8. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ∧ φ = arcsin(x) ⇒ 0 ≤ frac(π, 2) - φ)
+9. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ∧ φ = arcsin(x) ⇒ frac(π, 2) - φ ≤ π)
+10. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ∧ φ = arcsin(x) ⇒ 0 ≤ π)
+11. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ∧ φ = arcsin(x) ⇒ (exists (u), u ∈ RealSet ∧ u ∈ [0, π] ∧ cos(u) = x ∧ (forall (u1), u1 ∈ RealSet ∧ u1 ∈ [0, π] ∧ cos(u1) = x ⇒ u1 = u)))
+12. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ∧ φ = arcsin(x) ⇒ frac(π, 2) - φ = arccos(x))
+13. forall (φ), φ ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ∧ φ = arcsin(x) ⇒ arcsin(x) + arccos(x) = frac(π, 2))
+14. forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ⇒ arcsin(x) + arccos(x) = frac(π, 2)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ⇒ arcsin(x) + arccos(x) = frac(π, 2)
+
+METHOD:

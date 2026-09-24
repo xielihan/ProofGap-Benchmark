@@ -1,0 +1,2 @@
+get_condition (hypothesis 15: {FunDeri(F, 2, 1)(α, h, R, λ) = 0}) in (GOAL: {FunDeri(F, 2, 1)(α, h, R, λ) = 0 ⇒ 3 * R^{2} - 2 * R * λ = 0})
+autosolve all_hypothesis

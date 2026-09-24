@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x < 1 ⇒ y(x) = frac(1 + x, sqrtn(2, 1 - x))
+3. forall (x), x ∈ RealSet ∧ x < 1 ⇒ y(x) = (1 + x) * (1 - x)^{-frac(1, 2)}
+4. forall (x), x ∈ RealSet ∧ x < 1 ⇒ FunDeri(y, 1, 100)(x) = (1 + x) * FunDeri(fun x [x ∈ RealSet ∧ x < 1] . (1 - x)^{-frac(1, 2)}, 1, 100)(x) + Combination(100, 1) * FunDeri(fun x [x ∈ RealSet ∧ x < 1] . (1 - x)^{-frac(1, 2)}, 1, 99)(x)
+5. forall (x), x ∈ RealSet ∧ x < 1 ⇒ FunDeri(y, 1, 100)(x) = (1 + x) * frac(prod_{ k = 0 }^{ 99 } (2 * k + 1), 2^{100}) * (1 - x)^{-frac(201, 2)} + 100 * frac(prod_{ k = 0 }^{ 98 } (2 * k + 1), 2^{99}) * (1 - x)^{-frac(199, 2)}
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x < 1 ⇒ FunDeri(y, 1, 100)(x) = frac((prod_{ k = 0 }^{ 98 } (2 * k + 1)) * (399 - x), 2^{100} * (1 - x)^{100} * sqrtn(2, 1 - x))
+
+METHOD:

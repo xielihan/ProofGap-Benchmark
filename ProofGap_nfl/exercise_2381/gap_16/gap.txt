@@ -1,0 +1,24 @@
+PROOF GAP @16
+ASSUM:
+1. p ∈ RealSet
+2. q ∈ RealSet ∧ q ≥ 0
+3. lim_{ x → 0^+ } (x^{-1 - p} * frac(x^{p} * sin(x), 1 + x^{q})) = lim_{ x → 0^+ } (frac(sin(x), x) * frac(1, 1 + x^{q}))
+4. lim_{ x → 0^+ } (frac(sin(x), x) * frac(1, 1 + x^{q})) = 1
+5. lim_{ x → 0^+ } (x^{-1 - p} * frac(x^{p} * sin(x), 1 + x^{q})) = 1
+6. forall (x), x ∈ RealSet ∧ p > -2 ⇒ DefInt(0, 1, frac(x^{p} * sin(x), 1 + x^{q}) * diff(fun x [x ∈ RealSet] . x)) < +∞
+7. forall (x), x ∈ RealSet ∧ p > -2 ⇒ DefInt(0, 1, |frac(x^{p} * sin(x), 1 + x^{q})| * diff(fun x [x ∈ RealSet] . x)) < +∞
+8. p ≥ q ⇒ (forall (A), A ∈ RealSet ∧ A > 1 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ 2 * N * π + frac(π, 4) > A))
+9. forall (x), x ∈ RealSet ∧ p ≥ q ⇒ (forall (A), A ∈ RealSet ∧ A > 1 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ frac(x^{p}, 1 + x^{q}) > frac(1, 3)))
+10. forall (x), x ∈ RealSet ∧ p ≥ q ⇒ (forall (A), A ∈ RealSet ∧ A > 1 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ |DefInt(2 * N * π + frac(π, 4), 2 * N * π + frac(π, 2), frac(x^{p}, 1 + x^{q}) * sin(x) * diff(fun x [x ∈ RealSet] . x))| > frac(1, 3) * DefInt(2 * N * π + frac(π, 4), 2 * N * π + frac(π, 2), sin(x) * diff(fun x [x ∈ RealSet] . x))))
+11. forall (x), x ∈ RealSet ∧ p ≥ q ⇒ (forall (A), A ∈ RealSet ∧ A > 1 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ frac(1, 3) * DefInt(2 * N * π + frac(π, 4), 2 * N * π + frac(π, 2), sin(x) * diff(fun x [x ∈ RealSet] . x)) = frac(sqrtn(2, 2), 6)))
+12. forall (x), x ∈ RealSet ∧ p ≥ q ⇒ (forall (A), A ∈ RealSet ∧ A > 1 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ |DefInt(2 * N * π + frac(π, 4), 2 * N * π + frac(π, 2), frac(x^{p}, 1 + x^{q}) * sin(x) * diff(fun x [x ∈ RealSet] . x))| > frac(sqrtn(2, 2), 6)))
+13. forall (x), x ∈ RealSet ∧ p ≥ q ⇒ DefInt(1, +∞, frac(x^{p} * sin(x), 1 + x^{q}) * diff(fun x [x ∈ RealSet] . x)) = +∞
+14. p < q - 1 ⇒ (exists (α), α ∈ RealSet ∧ α > 0 ∧ (exists (a), a ∈ RealSet ∧ a = α ∧ a > 0))
+15. p < q - 1 ⇒ (exists (α), α ∈ RealSet ∧ α > 0 ∧ (exists (a), a ∈ RealSet ∧ a = α ∧ p + a < q - 1))
+16. p < q - 1 ⇒ (exists (α), α ∈ RealSet ∧ α > 0 ∧ (exists (a), a ∈ RealSet ∧ a = α ∧ q - p - a > 1))
+17. p < q - 1 ⇒ (exists (α), α ∈ RealSet ∧ α > 0 ∧ (exists (a), a ∈ RealSet ∧ a = α ∧ lim_{ x → +∞ } (x^{q - p - a} * frac(x^{p}, 1 + x^{q}) * |sin(x)|) = lim_{ x → +∞ } (frac(x^{q}, 1 + x^{q}) * frac(|sin(x)|, x^{a}))))
+
+GOAL:
+p < q - 1 ⇒ (exists (α), α ∈ RealSet ∧ α > 0 ∧ (exists (a), a ∈ RealSet ∧ a = α ∧ lim_{ x → +∞ } (frac(x^{q}, 1 + x^{q}) * frac(|sin(x)|, x^{a})) = 0))
+
+METHOD:

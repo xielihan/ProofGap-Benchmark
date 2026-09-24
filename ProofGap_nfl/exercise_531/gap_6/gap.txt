@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. a ∈ RealSet
+2. a > 0
+3. exists (x), x ∈ RealSet ∧ x > 0
+4. exists (x), x ∈ RealSet ∧ x ≠ a
+5. lim_{ x → a } (frac(ln(x) - ln(a), x - a)) = lim_{ x → a } (frac(ln(frac(x, a)), x - a))
+6. lim_{ x → a } (frac(ln(frac(x, a)), x - a)) = lim_{ x → a } (ln((1 + frac(1, frac(a, x - a)))^{frac(a, x - a) * frac(1, a)}))
+7. lim_{ x → a } (ln((1 + frac(1, frac(a, x - a)))^{frac(a, x - a) * frac(1, a)})) = ln(e^{frac(1, a)})
+
+GOAL:
+ln(e^{frac(1, a)}) = frac(1, a)
+
+METHOD:

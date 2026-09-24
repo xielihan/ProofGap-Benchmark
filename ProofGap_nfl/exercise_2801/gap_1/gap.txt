@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ f(n, x) = x^{2} + frac(1, n) * sin(n * (x + frac(π, 2))))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (f(n, x)) = x^{2}
+
+METHOD:

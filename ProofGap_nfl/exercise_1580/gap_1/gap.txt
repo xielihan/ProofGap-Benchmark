@@ -1,0 +1,26 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. α ∈ RealSet
+3. b ∈ RealSet
+4. l ∈ RealSet
+5. S ∈ RealSet
+6. R ∈ RealSet
+7. L ∈ RealSet
+8. K : RealSet → RealSet
+9. a > 0
+10. b > 0
+11. 0 < α
+12. α < frac(π, 2)
+13. 2 * a - b * cos(α) > 0
+14. l = 4 * a + 2 * b * (1 - cos(α))
+15. S = (2 * a - b * cos(α)) * b * sin(α)
+16. S = π * R^{2}
+17. R > 0
+18. L = 2 * π * R
+19. K(b) = frac(l, L)
+
+GOAL:
+R = frac(1, sqrtn(2, π)) * sqrtn(2, (2 * a - b * cos(α)) * b * sin(α))
+
+METHOD:

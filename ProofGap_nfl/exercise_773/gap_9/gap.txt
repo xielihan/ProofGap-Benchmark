@@ -1,0 +1,17 @@
+PROOF GAP @9
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = 1 + sin(x)
+3. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 2 * π) ⇒ -1 ≤ sin(x)
+4. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 2 * π) ⇒ sin(x) ≤ 1
+5. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 2 * π) ⇒ -1 ≤ 1
+6. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 2 * π) ⇒ 0 ≤ 1 + sin(x)
+7. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 2 * π) ⇒ 1 + sin(x) ≤ 2
+8. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 2 * π) ⇒ 0 ≤ 2
+9. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 2 * π) ⇒ 0 ≤ y(x)
+10. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 2 * π) ⇒ y(x) ≤ 2
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 2 * π) ⇒ 0 ≤ 2
+
+METHOD:

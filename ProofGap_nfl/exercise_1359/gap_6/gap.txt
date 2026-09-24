@@ -1,0 +1,12 @@
+PROOF GAP @6
+ASSUM:
+1. lim_{ x → 0 } (frac((1 + x)^{frac(1, x)} - e, x)) = lim_{ x → 0 } ((1 + x)^{frac(1, x)} * (frac(1, x * (1 + x)) - frac(ln(1 + x), x^{2})))
+2. lim_{ x → 0 } ((1 + x)^{frac(1, x)} * (frac(1, x * (1 + x)) - frac(ln(1 + x), x^{2}))) = e * (lim_{ x → 0 } (frac(frac(x, 1 + x) - ln(1 + x), x^{2})))
+3. e * (lim_{ x → 0 } (frac(frac(x, 1 + x) - ln(1 + x), x^{2}))) = e * (lim_{ x → 0 } (frac(frac(1, (1 + x)^{2}) - frac(1, 1 + x), 2 * x)))
+4. e * (lim_{ x → 0 } (frac(frac(1, (1 + x)^{2}) - frac(1, 1 + x), 2 * x))) = -e * (lim_{ x → 0 } (frac(1, 2 * (1 + x)^{2})))
+5. -e * (lim_{ x → 0 } (frac(1, 2 * (1 + x)^{2}))) = -frac(e, 2)
+
+GOAL:
+lim_{ x → 0 } (frac((1 + x)^{frac(1, x)} - e, x)) = -frac(e, 2)
+
+METHOD:

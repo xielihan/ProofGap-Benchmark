@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. x = 1 - y
+2. lim_{ x → 1 } ((1 - x) * tan(frac(π * x, 2))) = lim_{ y → 0 } (y * cot(frac(π * y, 2)))
+3. lim_{ y → 0 } (y * cot(frac(π * y, 2))) = lim_{ y → 0 } (frac(frac(π * y, 2), sin(frac(π * y, 2))) * frac(2, π) * cos(frac(π * y, 2)))
+
+GOAL:
+lim_{ y → 0 } (frac(frac(π * y, 2), sin(frac(π * y, 2))) * frac(2, π) * cos(frac(π * y, 2))) = frac(2, π)
+
+METHOD:

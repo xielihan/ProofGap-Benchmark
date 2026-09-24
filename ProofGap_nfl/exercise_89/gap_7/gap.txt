@@ -1,0 +1,18 @@
+PROOF GAP @7
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p)
+3. a ∈ RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ∈ RealSet
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ seqlim_{ n → +∞ } (x(n)) = a
+6. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ |x(n) - a| < ε))
+7. forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (k_{0}), k_{0} ∈ NonNegIntegerSet ∧ k_{0} ∈ PosIntegerSet ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k > k_{0} ⇒ p(k) > N)))
+8. forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ (forall (k_{0}), k_{0} ∈ NonNegIntegerSet ∧ k_{0} ∈ PosIntegerSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ k > k_{0} ∧ k ∈ PosIntegerSet ⇒ p(k) > N)))
+9. forall (k_{0}), k_{0} ∈ NonNegIntegerSet ∧ k_{0} ∈ PosIntegerSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ k > k_{0} ∧ k ∈ PosIntegerSet ⇒ |x(p(k)) - a| < ε))
+10. seqlim_{ k → +∞ } (x(p(k))) = a
+11. ConvergentSeq(x ∘ p)
+
+GOAL:
+seqlim_{ k → +∞ } (x(p(k))) = seqlim_{ n → +∞ } (x(n))
+
+METHOD:

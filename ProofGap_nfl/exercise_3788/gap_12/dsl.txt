@@ -1,0 +1,12 @@
+destruct_and (hypothesis 1: {a ∈ RealSet ∧ a > 0}) as (hypothesis 16: {a ∈ RealSet}) (hypothesis 17: {a > 0})
+destruct_and (hypothesis 2: {b ∈ RealSet ∧ b > 0}) as (hypothesis 18: {b ∈ RealSet}) (hypothesis 19: {b > 0})
+get_condition (hypothesis 20: {0 < b}) (hypothesis 21: {b < a}) in (GOAL: {0 < b ⇒ b < a ⇒ J = ln(frac(b, a))})
+use_condition (hypothesis 20: {0 < b}) (hypothesis 21: {b < a}) in (hypothesis 15: {0 < b ⇒ b < a ⇒ J = -ln(frac(a, b))}) as (hypothesis 22: {J = -ln(frac(a, b))})
+rewrite (left_to_right, equation) (hypothesis 22: {J = -ln(frac(a, b))}); from (GOAL: {J = ln(frac(b, a))}) to (GOAL: {-ln(frac(a, b)) = ln(frac(b, a))})
+get_prop (theorem 'Thm 202. (NaturalLogarithmQuotient)': {forall (x) (y), x ∈ RealSet => y ∈ RealSet => (x > 0 => y > 0 => ln (x / y) = ln(x) - ln(y))}) (x := {a}) (y := {b}) as (hypothesis 23: {a ∈ RealSet => b ∈ RealSet => a > 0 => b > 0 => ln(a / b) = ln(a) - ln(b)})
+use_condition (hypothesis 16: {a ∈ RealSet}) (hypothesis 18: {b ∈ RealSet}) (hypothesis 17: {a > 0}) (hypothesis 19: {b > 0}) in (hypothesis 23: {a ∈ RealSet => b ∈ RealSet => a > 0 => b > 0 => ln(a / b) = ln(a) - ln(b)}) as (hypothesis 24: {ln(a / b) = ln(a) - ln(b)})
+get_prop (theorem 'Thm 202. (NaturalLogarithmQuotient)': {forall (x) (y), x ∈ RealSet => y ∈ RealSet => (x > 0 => y > 0 => ln (x / y) = ln(x) - ln(y))}) (x := {b}) (y := {a}) as (hypothesis 25: {b ∈ RealSet => a ∈ RealSet => b > 0 => a > 0 => ln(b / a) = ln(b) - ln(a)})
+use_condition (hypothesis 18: {b ∈ RealSet}) (hypothesis 16: {a ∈ RealSet}) (hypothesis 19: {b > 0}) (hypothesis 17: {a > 0}) in (hypothesis 25: {b ∈ RealSet => a ∈ RealSet => b > 0 => a > 0 => ln(b / a) = ln(b) - ln(a)}) as (hypothesis 26: {ln(b / a) = ln(b) - ln(a)})
+rewrite (left_to_right, equation) (hypothesis 24: {ln(a / b) = ln(a) - ln(b)}); from (GOAL: {-ln(frac(a, b)) = ln(frac(b, a))}) to (GOAL: {-(ln(a) - ln(b)) = ln(frac(b, a))})
+rewrite (left_to_right, equation) (hypothesis 26: {ln(b / a) = ln(b) - ln(a)}); from (GOAL: {-(ln(a) - ln(b)) = ln(frac(b, a))}) to (GOAL: {-(ln(a) - ln(b)) = ln(b) - ln(a)})
+autosolve all_hypothesis

@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. I : RealSet → RealSet
+3. Phi : RealSet → RealSet
+4. forall (α), α ∈ RealSet ∧ 0 < α ∧ α < a ⇒ I(α) = DefInt(0, α, (fun x [x ∈ RealSet] . frac(Phi(x), sqrtn(2, α - x))) * diff(fun x [x ∈ RealSet] . x))
+5. ContinuousFuncOn(Phi, [0, a])
+6. ContinuousFuncOn(FunDeri(Phi, 1, 1), [0, a])
+7. forall (α) (t), α ∈ RealSet ∧ t ∈ RealSet ∧ t ∈ [0, 1] ∧ 0 < α ∧ α < a ⇒ (exists (x), x ∈ RealSet ∧ x = α * t)
+
+GOAL:
+forall (α), α ∈ RealSet ∧ 0 < α ∧ α < a ⇒ I(α) = sqrtn(2, α) * DefInt(0, 1, (fun t . frac(Phi(α * t), sqrtn(2, 1 - t))) * diff(fun t . t))
+
+METHOD:

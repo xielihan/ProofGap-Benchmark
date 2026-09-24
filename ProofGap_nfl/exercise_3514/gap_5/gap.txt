@@ -1,0 +1,18 @@
+PROOF GAP @5
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. v : CartesianProd(RealSet, RealSet) → RealSet
+3. w : CartesianProd(RealSet, RealSet) → RealSet
+4. z : CartesianProd(RealSet, RealSet) → RealSet
+5. R : CartesianProd(RealSet, RealSet) → RealSet
+6. forall (x) (y), x ∈ RealSet ∧ x ≠ 0 ∧ y ∈ RealSet ⇒ u(x, y) = x + y ∧ v(x, y) = frac(y, x) ∧ w(x, y) = frac(z(x, y), x)
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, x, 2)(x, y) - 2 * FunDeri(FunDeri(z, x, 1), y, 1)(x, y) + FunDeri(z, y, 2)(x, y) = 0
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(u, x, 1)(x, y) = 1
+9. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ⇒ FunDeri(u, y, 1)(x, y) = 1
+10. forall (x) (y), x ∈ RealSet ∧ x ≠ 0 ∧ y ∈ RealSet ⇒ FunDeri(v, x, 1)(x, y) = -frac(y, x^{2})
+11. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(v, y, 1)(x, y) = frac(1, x)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ x ≠ 0 ∧ y ∈ RealSet ⇒ FunDeri(w, x, 1)(x, y) = -frac(z(x, y), x^{2})
+
+METHOD:

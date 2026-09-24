@@ -1,0 +1,19 @@
+PROOF GAP @6
+ASSUM:
+1. x : NonNegIntegerSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. m ∈ NonNegIntegerSet
+5. x(1) = a
+6. x(2) = b
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 3 ⇒ x(n) = frac(x(n - 1) + x(n - 2), 2)
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n + 1) - x(n) = frac(x(n - 1) - x(n), 2)
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n + 1) - x(n) = frac(x(2) - x(1), (-2)^{n - 1})
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n + 1) - x(n) = frac(b - a, (-2)^{n - 1})
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n + 1) = (sum_{ m = 1 }^{ n } (x(m + 1) - x(m))) + x(1)
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n + 1) = (b - a) * (sum_{ m = 1 }^{ n } (frac(1, (-2)^{m - 1}))) + a
+
+GOAL:
+seqlim_{ n → +∞ } ((b - a) * (sum_{ m = 1 }^{ n } (frac(1, (-2)^{m - 1}))) + a) = frac(b - a, 1 - -frac(1, 2)) + a
+
+METHOD:

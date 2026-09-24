@@ -1,0 +1,20 @@
+PROOF GAP @7
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. a ∈ RealSet
+4. R : RealSet → RealSet
+5. a > 0
+6. forall (t), t ∈ RealSet ⇒ x(t) = a * (t - sin(t))
+7. forall (t), t ∈ RealSet ⇒ y(t) = a * (1 - cos(t))
+8. forall (t), t ∈ RealSet ∧ 1 - cos(t) ≠ 0 ⇒ FunDeri(y, x, 1)(t) = frac(a * sin(t), a * (1 - cos(t)))
+9. forall (t), t ∈ RealSet ∧ 1 - cos(t) ≠ 0 ⇒ frac(a * sin(t), a * (1 - cos(t))) = cot(frac(t, 2))
+10. forall (t), t ∈ RealSet ∧ 1 - cos(t) ≠ 0 ⇒ FunDeri(y, x, 1)(t) = cot(frac(t, 2))
+11. forall (t), t ∈ RealSet ∧ 1 - cos(t) ≠ 0 ⇒ FunDeri(y, x, 2)(t) = frac(-frac(1, 2 * sin(frac(t, 2))^{2}), a * (1 - cos(t)))
+12. forall (t), t ∈ RealSet ∧ 1 - cos(t) ≠ 0 ⇒ frac(-frac(1, 2 * sin(frac(t, 2))^{2}), a * (1 - cos(t))) = -frac(1, 4 * a * sin(frac(t, 2))^{4})
+13. forall (t), t ∈ RealSet ∧ 1 - cos(t) ≠ 0 ⇒ FunDeri(y, x, 2)(t) = -frac(1, 4 * a * sin(frac(t, 2))^{4})
+
+GOAL:
+forall (t), t ∈ RealSet ⇒ R(t) = frac((1 + cot(frac(t, 2))^{2})^{frac(3, 2)}, frac(1, 4 * a * sin(frac(t, 2))^{4}))
+
+METHOD:

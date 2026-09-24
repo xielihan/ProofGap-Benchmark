@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. p ∈ RealSet
+2. forall (x), x ∈ RealSet ⇒ DefInt(0, +∞, x^{p - 1} * e^{-x} * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, x^{p - 1} * e^{-x} * diff(fun x [x ∈ RealSet] . x)) + DefInt(1, +∞, x^{p - 1} * e^{-x} * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+lim_{ x → 0^+ } (x^{1 - p} * x^{p - 1} * e^{-x}) = 1
+
+METHOD:

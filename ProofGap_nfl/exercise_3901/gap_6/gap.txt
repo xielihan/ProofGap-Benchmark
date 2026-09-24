@@ -1,0 +1,12 @@
+PROOF GAP @6
+ASSUM:
+1. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ sum_{ i = 1 }^{ n } (sum_{ j = 1 }^{ n } (frac(i, n) * frac(j, n) * frac(1, n^{2}))) = frac(1, n^{4}) * (sum_{ i = 1 }^{ n } (i)) * (sum_{ j = 1 }^{ n } (j))
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ sum_{ i = 1 }^{ n } (i) = frac(n * (n + 1), 2)
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ sum_{ j = 1 }^{ n } (j) = frac(n * (n + 1), 2)
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, n^{4}) * (sum_{ i = 1 }^{ n } (i)) * (sum_{ j = 1 }^{ n } (j)) = frac(n^{2} * (n + 1)^{2}, 4 * n^{4})
+5. lim_{ n → +∞ } (frac(n^{2} * (n + 1)^{2}, 4 * n^{4})) = frac(1, 4)
+
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalCc(0, 1)] . DefInt(0, 1, (fun y [y ∈ RealSet ∧ y ∈ IntervalCc(0, 1)] . x * y) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 4)
+
+METHOD:

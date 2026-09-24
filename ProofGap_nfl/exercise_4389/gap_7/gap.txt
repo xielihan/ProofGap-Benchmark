@@ -1,0 +1,23 @@
+PROOF GAP @7
+ASSUM:
+1. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. V ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. U ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+4. D : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+5. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ S = { (x, y, z) | |x - y + z| + |y - z + x| + |z - x + y| = 1 ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet }))
+6. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ V = { (x, y, z) | |x - y + z| + |y - z + x| + |z - x + y| ≤ 1 ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet }))
+7. forall (u), u ∈ RealSet ⇒ (forall (v), v ∈ RealSet ⇒ (forall (w), w ∈ RealSet ⇒ U = { (u, v, w) | |u| + |v| + |w| ≤ 1 ∧ u ∈ RealSet ∧ v ∈ RealSet ∧ w ∈ RealSet }))
+8. VectorSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x - y + z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y - z + x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z - x + y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y)) = VolumeInt(V, (fun ω [ω ∈ RealSet] . 3) * diff(fun ω [ω ∈ RealSet] . ω))
+9. u = x - y + z
+10. v = y - z + x
+11. w = z - x + y
+12. frac(D(u, v, w), D(x, y, z)) = 4
+13. VolumeInt(V, (fun ω [ω ∈ RealSet] . 3) * diff(fun ω [ω ∈ RealSet] . ω)) = VolumeInt(U, (fun ω [ω ∈ RealSet] . 3 * frac(1, 4)) * diff(fun ω [ω ∈ RealSet] . ω))
+14. VolumeInt(U, diff(fun ω [ω ∈ RealSet] . ω)) = frac(4, 3)
+15. VolumeInt(U, (fun ω [ω ∈ RealSet] . 3 * frac(1, 4)) * diff(fun ω [ω ∈ RealSet] . ω)) = frac(3, 4) * frac(4, 3)
+16. frac(3, 4) * frac(4, 3) = 1
+
+GOAL:
+VolumeInt(U, (fun ω [ω ∈ RealSet] . 3 * frac(1, 4)) * diff(fun ω [ω ∈ RealSet] . ω)) = 1
+
+METHOD:

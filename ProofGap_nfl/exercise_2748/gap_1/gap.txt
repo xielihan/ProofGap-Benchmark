@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. h : RealSet → RealSet
+3. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ∈ [0, 1] ⇒ f(n, x) = x^{n} - x^{2 * n}
+4. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ h(x) = 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ seqlim_{ n → +∞ } (f(n, x)) = 0
+
+METHOD:

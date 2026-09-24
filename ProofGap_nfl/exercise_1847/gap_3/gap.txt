@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. C ∈ RealSet
+2. x ∈ RealSet ∧ -1 - sqrtn(2, 2) < x ∧ x < -1 + sqrtn(2, 2)
+3. { `F_2` | forall (x), x ∈ RealSet ∧ -1 - sqrtn(2, 2) < x ∧ x < -1 + sqrtn(2, 2) ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, sqrtn(2, 1 - 2 * x - x^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ -1 - sqrtn(2, 2) < x ∧ x < -1 + sqrtn(2, 2) ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(1, sqrtn(2, 2 - (x + 1)^{2})) * FunDeri(fun x [x ∈ RealSet] . x + 1, 1, 1)(x) }
+4. { `F_4` | forall (x), x ∈ RealSet ∧ -1 - sqrtn(2, 2) < x ∧ x < -1 + sqrtn(2, 2) ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(1, sqrtn(2, 2 - (x + 1)^{2})) * FunDeri(fun x [x ∈ RealSet] . x + 1, 1, 1)(x) } = { `F_5` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ -1 - sqrtn(2, 2) < x ∧ x < -1 + sqrtn(2, 2) ⇒ `F_5`(x) = arcsin(frac(x + 1, sqrtn(2, 2))) + C) }
+
+GOAL:
+{ `F_6` | forall (x), x ∈ RealSet ∧ -1 - sqrtn(2, 2) < x ∧ x < -1 + sqrtn(2, 2) ⇒ FunDeri(`F_6`, 1, 1)(x) = frac(1, sqrtn(2, 1 - 2 * x - x^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_7` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ -1 - sqrtn(2, 2) < x ∧ x < -1 + sqrtn(2, 2) ⇒ `F_7`(x) = arcsin(frac(x + 1, sqrtn(2, 2))) + C) }
+
+METHOD:

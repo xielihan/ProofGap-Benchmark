@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. n ∈ NonNegIntegerSet ∧ n > 0
+5. n ∈ PosIntegerSet
+6. forall (x), x ∈ RealSet ⇒ y(x) = cos(a * x) * cos(b * x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ y(x) = frac(1, 2) * cos((a - b) * x) + frac(1, 2) * cos((a + b) * x)
+
+METHOD:

@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. z ∈ RealSet ∧ z ≥ 1 ∧ z = sqrtn(2, 1 + sqrtn(3, x^{2}))
+3. C ∈ RealSet
+
+GOAL:
+frac(x, sqrtn(2, 1 + sqrtn(3, x^{2}))) = x * (1 + sqrtn(3, x)^{2})^{-frac(1, 2)}
+
+METHOD:

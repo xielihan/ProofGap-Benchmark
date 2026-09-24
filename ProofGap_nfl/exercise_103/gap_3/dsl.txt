@@ -1,0 +1,8 @@
+get_prop (hypothesis 3: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = 1 + frac(n, n + 1) * cos(frac(n * π, 2))}) (n := {3}) as (hypothesis 6: {3 ∈ NonNegIntegerSet ∧ 3 ∈ PosIntegerSet ⇒ x(3) = 1 + frac(3, 3 + 1) * cos(frac(3 * π, 2))})
+assert (hypothesis 7: {3 ∈ NonNegIntegerSet ∧ 3 ∈ PosIntegerSet})
+assert (hypothesis 8: {x(3) = 1 + frac(3, 3 + 1) * cos(frac(3 * π, 2))})
+get_prop (theorem 'Thm 369. (CosineAtOddHalfPi)': {forall (n), n ∈ IntegerSet => cos((2 * n + 1) * π / 2) = 0}) (n := {1}) as (hypothesis 9: {1 ∈ IntegerSet => cos((2 * 1 + 1) * π / 2) = 0})
+assert (hypothesis 10: {1 ∈ IntegerSet})
+assert (hypothesis 11: {cos(frac(3 * π, 2)) = 0})
+assert (hypothesis 12: {x(3) = 1})
+apply (hypothesis 12: {x(3) = 1})

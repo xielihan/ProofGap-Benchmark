@@ -1,0 +1,19 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. C ⊆ CartesianProd(RealSet, RealSet) ∧ SimpleClosedCurve(C) ∧ PositivelyOriented(C)
+3. S ∈ RealSet ∧ S = AreaEnclosedBy(C)
+4. x : RealSet → RealSet
+5. y : RealSet → RealSet
+6. t ∈ RealSet ∧ t ≥ 0
+7. forall (t), t ∈ RealSet ∧ t ∈ [0, +∞) ⇒ x(t) = frac(3 * a * t, 1 + t^{3}) ∧ y(t) = frac(3 * a * t^{2}, 1 + t^{3})
+8. C = { (x(t), y(t)) | t ∈ [0, +∞) }
+9. diff(x) = (fun t [t ∈ RealSet ∧ t ≥ 0] . frac(3 * a * (1 - 2 * t^{3}), (1 + t^{3})^{2})) * diff(fun t [t ∈ RealSet ∧ t ≥ 0] . t)
+10. diff(y) = (fun t [t ∈ RealSet ∧ t ≥ 0] . frac(3 * a * t * (2 - t^{3}), (1 + t^{3})^{2})) * diff(fun t [t ∈ RealSet ∧ t ≥ 0] . t)
+11. (fun t [t ∈ RealSet ∧ t ≥ 0] . x(t)) * diff(y) - (fun t [t ∈ RealSet ∧ t ≥ 0] . y(t)) * diff(x) = (fun t [t ∈ RealSet ∧ t ≥ 0] . frac(9 * a^{2} * t^{2}, (1 + t^{3})^{2})) * diff(fun t [t ∈ RealSet ∧ t ≥ 0] . t)
+12. S = frac(1, 2) * VectorCurveInt(C, (fun t [t ∈ RealSet ∧ t ≥ 0] . x(t)) * diff(fun t [t ∈ RealSet ∧ t ≥ 0] . y(t)) - (fun t [t ∈ RealSet ∧ t ≥ 0] . y(t)) * diff(fun t [t ∈ RealSet ∧ t ≥ 0] . x(t)))
+
+GOAL:
+S = frac(9 * a^{2}, 2) * DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ≥ 0] . frac(t^{2}, (1 + t^{3})^{2})) * diff(fun t [t ∈ RealSet ∧ t ≥ 0] . t))
+
+METHOD:

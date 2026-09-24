@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. p ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ y(x)^{2} = 2 * p * x
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ 2 * y(x) * FunDeri(y, 1, 1)(x) = 2 * p
+
+METHOD:
+[@method 两边同时对 x 求 导数 @]

@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ y(x) = frac(e^{-x^{2}} * arcsin(e^{-x^{2}}), sqrtn(2, 1 - e^{-2 * x^{2}})) + frac(1, 2) * ln(1 - e^{-2 * x^{2}})
+3. forall (u), u : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ u(x) = e^{-x^{2}} ⇒ 0 < u(x))
+4. forall (u), u : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ u(x) = e^{-x^{2}} ⇒ u(x) < 1)
+5. forall (u), u : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ u(x) = e^{-x^{2}} ⇒ y(u(x)) = frac(u(x) * arcsin(u(x)), sqrtn(2, 1 - u(x)^{2})) + frac(1, 2) * ln(1 - u(x)^{2}))
+6. forall (u), u : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ u(x) = e^{-x^{2}} ⇒ FunDeri(y, u, 1)(u(x)) = frac(arcsin(u(x)), (1 - u(x)^{2})^{frac(3, 2)}))
+7. forall (u), u : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ u(x) = e^{-x^{2}} ⇒ FunDeri(u, 1, 1)(x) = -2 * x * e^{-x^{2}})
+
+GOAL:
+forall (u), u : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ u(x) = e^{-x^{2}} ∧ DiffableFuncAt(u, x) ∧ DiffableFuncAt(y, u(x)) ⇒ FunDeri(fun t . y(u(t)), 1, 1)(x) = FunDeri(y, 1, 1)(u(x)) * FunDeri(u, 1, 1)(x))
+
+METHOD:

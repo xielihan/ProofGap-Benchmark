@@ -1,0 +1,37 @@
+PROOF GAP @16
+ASSUM:
+1. φ : RealSet → RealSet
+2. ψ : RealSet → RealSet
+3. x ∈ RealSet
+4. p ∈ RealSet ∧ p > 0
+5. q ∈ RealSet ∧ q > 0
+6. x_{0} ∈ RealSet
+7. x_{1} ∈ RealSet
+8. α ∈ RealSet ∧ α > 0
+9. β ∈ RealSet ∧ β > 0
+10. ContinuousFuncOn(φ, RealSet)
+11. ContinuousFuncOn(ψ, RealSet)
+12. exists (p), p ∈ RealSet ∧ p > 0 ∧ PeriodicFunc(φ, p)
+13. exists (q), q ∈ RealSet ∧ q > 0 ∧ PeriodicFunc(ψ, q)
+14. lim_{ x → +∞ } (φ(x) - ψ(x)) = 0
+15. forall (p), p ∈ RealSet ∧ p > 0 ∧ PeriodicFunc(φ, p) ⇒ (forall (x), x ∈ RealSet ⇒ φ(x + p) = φ(x))
+16. forall (p), p ∈ RealSet ∧ p > 0 ∧ PeriodicFunc(φ, p) ⇒ lim_{ x → +∞ } (φ(x + p) - ψ(x + p)) = 0
+17. forall (p), p ∈ RealSet ∧ p > 0 ∧ PeriodicFunc(φ, p) ⇒ lim_{ x → +∞ } (φ(x) - ψ(x + p)) = 0
+18. forall (p), p ∈ RealSet ∧ p > 0 ∧ PeriodicFunc(φ, p) ⇒ lim_{ x → +∞ } (ψ(x) - ψ(x + p)) = 0
+19. forall (p), p ∈ RealSet ∧ p > 0 ∧ PeriodicFunc(φ, p) ∧ ¬PeriodicFunc(ψ, p) ⇒ (exists (x_{0}), x_{0} ∈ RealSet ∧ ψ(x_{0}) ≠ ψ(x_{0} + p))
+20. forall (p), p ∈ RealSet ∧ p > 0 ∧ PeriodicFunc(φ, p) ∧ ¬PeriodicFunc(ψ, p) ⇒ α = |ψ(x_{0}) - ψ(x_{0} + p)|
+21. forall (p), p ∈ RealSet ∧ p > 0 ∧ PeriodicFunc(φ, p) ∧ ¬PeriodicFunc(ψ, p) ⇒ α > 0
+22. forall (p), p ∈ RealSet ∧ p > 0 ∧ PeriodicFunc(φ, p) ∧ ¬PeriodicFunc(ψ, p) ⇒ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ x = x_{0} + N * q)
+23. forall (p), p ∈ RealSet ∧ p > 0 ∧ PeriodicFunc(φ, p) ∧ ¬PeriodicFunc(ψ, p) ⇒ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ |ψ(x) - ψ(x + p)| = α)
+24. forall (p), p ∈ RealSet ∧ p > 0 ∧ PeriodicFunc(φ, p) ∧ ¬PeriodicFunc(ψ, p) ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ |ψ(x_{0} + N * q) - ψ(x_{0} + N * q + p)| < α)
+25. forall (p), p ∈ RealSet ∧ p > 0 ∧ PeriodicFunc(φ, p) ∧ ¬PeriodicFunc(ψ, p) ⇒ False
+26. forall (p), p ∈ RealSet ∧ p > 0 ∧ PeriodicFunc(φ, p) ⇒ PeriodicFunc(ψ, p)
+27. ¬(forall (x), x ∈ RealSet ⇒ φ(x) = ψ(x)) ⇒ (exists (x_{1}), x_{1} ∈ RealSet ∧ φ(x_{1}) ≠ ψ(x_{1}))
+28. ¬(forall (x), x ∈ RealSet ⇒ φ(x) = ψ(x)) ⇒ β = |φ(x_{1}) - ψ(x_{1})|
+29. ¬(forall (x), x ∈ RealSet ⇒ φ(x) = ψ(x)) ⇒ β > 0
+30. ¬(forall (x), x ∈ RealSet ⇒ φ(x) = ψ(x)) ⇒ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ x = x_{1} + N * p)
+
+GOAL:
+¬(forall (x), x ∈ RealSet ⇒ φ(x) = ψ(x)) ⇒ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ |φ(x) - ψ(x)| = β)
+
+METHOD:

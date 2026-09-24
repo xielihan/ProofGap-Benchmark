@@ -1,0 +1,3 @@
+get_condition (hypothesis 22: {b > frac(a, sqrtn(2, 2))}) in (GOAL: {b > frac(a, sqrtn(2, 2)) ⇒ (exists (P), P ∈ CartesianProd(RealSet, RealSet) ∧ P = (0, b))})
+exists (P := {(0, b)})
+autosolve all_hypothesis

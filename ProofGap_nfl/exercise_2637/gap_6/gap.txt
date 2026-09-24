@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = ln(frac(cosh(frac(π, n)), cos(frac(π, n))))
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ cos(frac(π, n)) ≠ 0 ∧ frac(cosh(frac(π, n)), cos(frac(π, n))) > 0
+4. seqlim_{ n → +∞ } (frac(cosh(frac(π, n)), cos(frac(π, n))) - 1) = 0
+5. lim_{ x → 0 } (frac(cosh(π * x) - cos(π * x), x^{2})) = π^{2}
+6. seqlim_{ n → +∞ } (frac(a(n), frac(1, n^{2}))) = π^{2}
+7. exists (k), k ∈ RealSet ∧ k > 0 ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |a(n)| ≤ k * frac(1, n^{2}))
+
+GOAL:
+ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{2})))
+
+METHOD:

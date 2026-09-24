@@ -1,0 +1,6 @@
+get_condition (hypothesis 19: {m ∈ NegIntegerSet}) (hypothesis 20: {n ∈ NegIntegerSet}) in (GOAL: {m ∈ NegIntegerSet ⇒ n ∈ NegIntegerSet ⇒ frac(β, `n'`) - frac(α, `m'`) = frac(α, m) - frac(β, n)})
+use_condition (hypothesis 19: {m ∈ NegIntegerSet}) (hypothesis 20: {n ∈ NegIntegerSet}) in (hypothesis 12: {m ∈ NegIntegerSet ⇒ n ∈ NegIntegerSet ⇒ `m'` = -m}) as (hypothesis 21: {`m'` = -m})
+use_condition (hypothesis 19: {m ∈ NegIntegerSet}) (hypothesis 20: {n ∈ NegIntegerSet}) in (hypothesis 13: {m ∈ NegIntegerSet ⇒ n ∈ NegIntegerSet ⇒ `n'` = -n}) as (hypothesis 22: {`n'` = -n})
+rewrite (left_to_right, equation) (hypothesis 21: {`m'` = -m}); from (GOAL: {frac(β, `n'`) - frac(α, `m'`) = frac(α, m) - frac(β, n)}) to (GOAL: {frac(β, `n'`) - frac(α, -m) = frac(α, m) - frac(β, n)})
+rewrite (left_to_right, equation) (hypothesis 22: {`n'` = -n}); from (GOAL: {frac(β, `n'`) - frac(α, -m) = frac(α, m) - frac(β, n)}) to (GOAL: {frac(β, -n) - frac(α, -m) = frac(α, m) - frac(β, n)})
+autosolve all_hypothesis

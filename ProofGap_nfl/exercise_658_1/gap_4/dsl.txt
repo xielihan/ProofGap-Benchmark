@@ -1,0 +1,1 @@
+apply (hypothesis 7: {lim_{ x → 1 } (frac(frac(x^{2}, x^{2} - 1), frac(1, 2 * (x - 1)))) = 1})

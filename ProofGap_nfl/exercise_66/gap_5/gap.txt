@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ n! ≥ frac(1, 2) * n^{frac(n, 2)}
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, sqrtn(n, n!)) ≤ 2^{frac(1, n)} * frac(1, sqrtn(2, n))
+3. seqlim_{ n → +∞ } (2^{frac(1, n)} * frac(1, sqrtn(2, n))) = 0
+4. seqlim_{ n → +∞ } (frac(1, sqrtn(n, n!))) = 0
+
+GOAL:
+seqlim_{ n → +∞ } (frac(1, sqrtn(n, n!))) = 0
+
+METHOD:

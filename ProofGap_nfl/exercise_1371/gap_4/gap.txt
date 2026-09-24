@@ -1,0 +1,19 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. y : RealSet → RealSet
+3. α ∈ RealSet
+4. x ∈ RealSet
+5. forall (x), x ∈ RealSet ⇒ y(x) = f(x)
+6. exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ Defined(f, (-δ, δ))
+7. lim_{ x → 0 } (f(x)) = f(0)
+8. f(0) = 0
+9. FunDeri(f, 1, 1)(0) = tan(α)
+10. lim_{ x → 0 } (frac(y(x), x)) = lim_{ x → 0 } (frac(f(x), x))
+11. lim_{ x → 0 } (frac(f(x), x)) = lim_{ x → 0 } (frac(f(x) - f(0), x))
+12. lim_{ x → 0 } (frac(f(x) - f(0), x)) = FunDeri(f, 1, 1)(0)
+
+GOAL:
+FunDeri(f, 1, 1)(0) = tan(α)
+
+METHOD:

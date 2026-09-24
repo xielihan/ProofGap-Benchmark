@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = cases{ 1 + x if -∞ < x ∧ x ≤ 0; 2^{x} if 0 < x ∧ x < +∞ }
+3. f(-2) = 1 - 2
+
+GOAL:
+1 - 2 = -1
+
+METHOD:

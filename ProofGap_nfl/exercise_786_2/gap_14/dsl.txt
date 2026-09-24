@@ -1,0 +1,4 @@
+get_condition (hypothesis 19: {0 < δ ∧ δ ≤ 0.00025}) in (GOAL: {0 < δ ∧ δ ≤ 0.00025 ⇒ δ > 0 ∧ (forall (`x'`) (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ `x'` ∈ [-10, 10] ∧ `x''` ∈ [-10, 10] ∧ |`x'` - `x''`| < δ ⇒ |y(`x'`) - y(`x''`)| < ε)})
+destruct_and (hypothesis 19: {0 < δ ∧ δ ≤ 0.00025}) as (hypothesis 20: {0 < δ}) (hypothesis 21: {δ ≤ 0.00025})
+assert (hypothesis 22: {δ > 0 ∧ (forall (`x'`) (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ `x'` ∈ [-10, 10] ∧ `x''` ∈ [-10, 10] ∧ |`x'` - `x''`| < δ ⇒ |y(`x'`) - y(`x''`)| < ε)})
+apply (hypothesis 22: {δ > 0 ∧ (forall (`x'`) (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ `x'` ∈ [-10, 10] ∧ `x''` ∈ [-10, 10] ∧ |`x'` - `x''`| < δ ⇒ |y(`x'`) - y(`x''`)| < ε)})

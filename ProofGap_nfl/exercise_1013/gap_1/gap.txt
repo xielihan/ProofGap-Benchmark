@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. c ∈ RealSet ∧ c > 0
+5. m ∈ RealSet
+6. forall (x), x ∈ RealSet ⇒ y(x) = cases{ a + b * x^{2} if |x| ≤ c; frac(m^{2}, |x|) if |x| > c }
+7. DiffableFuncAt(y, c)
+GOAL:
+a + b * c^{2} = frac(m^{2}, c)
+
+METHOD:

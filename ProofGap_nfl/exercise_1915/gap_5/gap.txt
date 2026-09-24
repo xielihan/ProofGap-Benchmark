@@ -1,0 +1,15 @@
+PROOF GAP @5
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ x ≠ 0
+4. forall (x), x ∈ RealSet ⇒ 1 + x^{7} ≠ 0
+5. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ 1 + x^{7} ≠ 0 ⇒ frac(1 - x^{7}, x * (1 + x^{7})) = frac(1, x) - frac(2 * x^{6}, 1 + x^{7})
+6. { `F_2` | forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ 1 + x^{7} ≠ 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1 - x^{7}, x * (1 + x^{7})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ 1 + x^{7} ≠ 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = (frac(1, x) - frac(2 * x^{6}, 1 + x^{7})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+7. { `F_4` | forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ 1 + x^{7} ≠ 0 ⇒ FunDeri(`F_4`, 1, 1)(x) = (frac(1, x) - frac(2 * x^{6}, 1 + x^{7})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_8` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ 1 + x^{7} ≠ 0 ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . 1 + x^{7}, 1, 1)(x), 1 + x^{7}) ∧ `F_8`(x) = ln(|x|) - frac(2, 7) * `F_5`(x)) }
+8. { `F_12` | exists (`F_9`), `F_9` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ 1 + x^{7} ≠ 0 ⇒ FunDeri(`F_9`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . 1 + x^{7}, 1, 1)(x), 1 + x^{7}) ∧ `F_12`(x) = ln(|x|) - frac(2, 7) * `F_9`(x)) } = { `F_13` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ 1 + x^{7} ≠ 0 ⇒ `F_13`(x) = ln(|x|) - frac(2, 7) * ln(|1 + x^{7}|) + C) }
+
+GOAL:
+{ `F_14` | forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ 1 + x^{7} ≠ 0 ⇒ FunDeri(`F_14`, 1, 1)(x) = frac(1 - x^{7}, x * (1 + x^{7})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_15` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ 1 + x^{7} ≠ 0 ⇒ `F_15`(x) = frac(1, 7) * ln(frac(|x|^{7}, (1 + x^{7})^{2})) + C) }
+
+METHOD:

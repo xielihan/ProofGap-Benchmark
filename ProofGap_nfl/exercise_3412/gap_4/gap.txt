@@ -1,0 +1,17 @@
+PROOF GAP @4
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. z : CartesianProd(RealSet, RealSet) → RealSet
+3. x ∈ RealSet
+4. y ∈ RealSet ∧ z(x, y) ∈ RealSet ∧ z(x, y) ≠ -1 ∧ y + z(x, y) ≠ 0
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ z(x, y) ∈ RealSet ∧ z(x, y) ≠ -1 ∧ y + z(x, y) ≠ 0 ⇒ u(x, y) = frac(x + z(x, y), y + z(x, y))
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ z(x, y) ∈ RealSet ∧ z(x, y) ≠ -1 ∧ y + z(x, y) ≠ 0 ⇒ z(x, y) * e^{z(x, y)} = x * e^{x} + y * e^{y}
+7. DiffableFunc(z)
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ z(x, y) ∈ RealSet ∧ z(x, y) ≠ -1 ∧ y + z(x, y) ≠ 0 ⇒ e^{z(x, y)} * (1 + z(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y)) = e^{x} * (1 + x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + e^{y} * (1 + y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ z(x, y) ∈ RealSet ∧ z(x, y) ≠ -1 ∧ y + z(x, y) ≠ 0 ⇒ diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y)) = frac(1, (y + z(x, y))^{2}) * ((y + z(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - (x + z(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) + (y - x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y)))
+10. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ z(x, y) ∈ RealSet ∧ z(x, y) ≠ -1 ∧ y + z(x, y) ≠ 0 ⇒ diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y)) = frac(1, (y + z(x, y))^{2}) * ((y + z(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - (x + z(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) + frac((y - x) * e^{x} * (1 + x), e^{z(x, y)} * (1 + z(x, y))) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + frac((y - x) * e^{y} * (1 + y), e^{z(x, y)} * (1 + z(x, y))) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ z(x, y) ∈ RealSet ∧ z(x, y) ≠ -1 ∧ y + z(x, y) ≠ 0 ⇒ FunDeri(u, 1, 1)(x, y) = frac(1, y + z(x, y)) + frac((x + 1) * (y - x) * e^{x - z(x, y)}, (z(x, y) + 1) * (y + z(x, y))^{2})
+
+METHOD:

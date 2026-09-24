@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ 1 + x + y > 0 ⇒ f(x, y) = ln(1 + x + y)
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ |x| + |y| < 1 ⇒ f(x, y) = ln(1 + x + y)
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ |x| + |y| < 1 ⇒ f(x, y) = sum_{ k = 1 }^{ +∞ } (frac((-1)^{k - 1}, k) * (x + y)^{k})
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ |x| + |y| < 1 ⇒ f(x, y) = sum_{ k = 1 }^{ +∞ } (sum_{ m = 0 }^{ k } (frac((-1)^{k - 1} * (k - 1)!, m! * (k - m)!) * x^{m} * y^{k - m}))
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ |x| + |y| < 1 ⇒ f(x, y) = sum_{ m = 0 }^{ +∞ } (sum_{ n = 0 }^{ +∞ } (cases{ 0 if m = 0 ∧ n = 0; frac((-1)^{n + m - 1} * (m + n - 1)!, m! * n!) * x^{m} * y^{n} if ¬(m = 0 ∧ n = 0) }))
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ |x| + |y| < 1 ⇒ f(x, y) = sum_{ m = 0 }^{ +∞ } (sum_{ n = 0 }^{ +∞ } (cases{ 0 if m = 0 ∧ n = 0; frac((-1)^{n + m - 1} * (m + n - 1)!, m! * n!) * x^{m} * y^{n} if ¬(m = 0 ∧ n = 0) }))
+
+METHOD:

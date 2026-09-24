@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ e^{λ * x} * (sum_{ k = 0 }^{ n } (p(k, x) * (D + λ)^{k}(u(x)))) = e^{λ * x} * f(D + λ, u(x))}) (x := {x0})
+get_condition (hypothesis 22: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ e^{λ * x0} * (sum_{ k = 0 }^{ n } (p(k, x0) * (D + λ)^{k}(u(x0)))) = e^{λ * x0} * f(D + λ, u(x0))})
+get_prop (hypothesis 13: {forall (x) (T), x ∈ RealSet ∧ T ∈ RealSet ⇒ f(T, u(x)) = sum_{ k = 0 }^{ n } (p(k, x) * T^{k}(u(x)))}) (x := {x0}) (T := {D + λ}) as (hypothesis 23: {x0 ∈ RealSet ∧ D + λ ∈ RealSet ⇒ f(D + λ, u(x0)) = sum_{ k = 0 }^{ n } (p(k, x0) * (D + λ)^{k}(u(x0)))})
+use_condition (obvious: {x0 ∈ RealSet ∧ D + λ ∈ RealSet}) in (hypothesis 23: {x0 ∈ RealSet ∧ D + λ ∈ RealSet ⇒ f(D + λ, u(x0)) = sum_{ k = 0 }^{ n } (p(k, x0) * (D + λ)^{k}(u(x0)))}) as (hypothesis 24: {f(D + λ, u(x0)) = sum_{ k = 0 }^{ n } (p(k, x0) * (D + λ)^{k}(u(x0)))})
+rewrite (right_to_left, equation) (hypothesis 24: {f(D + λ, u(x0)) = sum_{ k = 0 }^{ n } (p(k, x0) * (D + λ)^{k}(u(x0)))}); from (GOAL: {e^{λ * x0} * (sum_{ k = 0 }^{ n } (p(k, x0) * (D + λ)^{k}(u(x0)))) = e^{λ * x0} * f(D + λ, u(x0))}) to (GOAL: {e^{λ * x0} * f(D + λ, u(x0)) = e^{λ * x0} * f(D + λ, u(x0))})
+autosolve all_hypothesis

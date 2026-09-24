@@ -1,0 +1,29 @@
+PROOF GAP @18
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. R : CartesianProd(NonNegIntegerSet, CartesianProd(NonNegIntegerSet, RealSet)) → RealSet
+3. x : NonNegIntegerSet → RealSet
+4. k ∈ NonNegIntegerSet
+5. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ f(n, x) = cases{ 0 if 0 ≤ x ∧ x ≤ 2^{-(n + 1)}; frac(1, n) * sin(2^{n + 1} * π * x)^{2} if 2^{-(n + 1)} < x ∧ x < 2^{-n}; 0 if 2^{-n} ≤ x ∧ x ≤ 1 }
+6. forall (N) (p) (x), N ∈ NonNegIntegerSet ∧ p ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ N ∈ PosIntegerSet ∧ p ∈ PosIntegerSet ∧ x ∈ [0, 1] ∧ R(N, p, x) = sum_{ k = N + 1 }^{ N + p } (f(k, x)) ⇒ |R(N, p, x)| < frac(1, N)
+7. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N = floor(frac(1, ε)) + 1 ∧ (forall (n) (p) (x), n ∈ NonNegIntegerSet ∧ p ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ p ∈ PosIntegerSet ∧ x ∈ [0, 1] ∧ n > N ⇒ |sum_{ k = n + 1 }^{ n + p } (f(k, x))| < frac(1, n)))
+8. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N = floor(frac(1, ε)) + 1 ∧ (forall (n) (p) (x), n ∈ NonNegIntegerSet ∧ p ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ p ∈ PosIntegerSet ∧ x ∈ [0, 1] ∧ n > N ⇒ frac(1, n) < ε))
+9. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N = floor(frac(1, ε)) + 1 ∧ (forall (n) (p) (x), n ∈ NonNegIntegerSet ∧ p ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ p ∈ PosIntegerSet ∧ x ∈ [0, 1] ∧ n > N ⇒ |sum_{ k = n + 1 }^{ n + p } (f(k, x))| < ε))
+10. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n) (p) (x), n ∈ NonNegIntegerSet ∧ p ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ p ∈ PosIntegerSet ∧ x ∈ [0, 1] ∧ n > N ⇒ |sum_{ k = n + 1 }^{ n + p } (f(k, x))| < ε))
+11. (exists (A), A : NonNegIntegerSet → RealSet ∧ NonNegSeq(A) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ∧ (forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ |f(n, x)| ≤ A(n))) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x(n) = frac(3, 2) * 2^{-(n + 1)} ⇒ 2^{-(n + 1)} < x(n))
+12. (exists (A), A : NonNegIntegerSet → RealSet ∧ NonNegSeq(A) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ∧ (forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ |f(n, x)| ≤ A(n))) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x(n) = frac(3, 2) * 2^{-(n + 1)} ⇒ x(n) < 2^{-n})
+13. forall (A), A : NonNegIntegerSet → RealSet ∧ NonNegSeq(A) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ∧ (forall (n) (y), n ∈ NonNegIntegerSet ∧ y ∈ RealSet ∧ n ∈ PosIntegerSet ∧ y ∈ [0, 1] ⇒ |f(n, y)| ≤ A(n)) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x(n) = frac(3, 2) * 2^{-(n + 1)} ⇒ A(n) ≥ |f(n, x(n))|)
+14. (exists (A), A : NonNegIntegerSet → RealSet ∧ NonNegSeq(A) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ∧ (forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ |f(n, x)| ≤ A(n))) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x(n) = frac(3, 2) * 2^{-(n + 1)} ⇒ |f(n, x(n))| = frac(1, n) * sin(2^{n + 1} * π * x(n))^{2})
+15. (exists (A), A : NonNegIntegerSet → RealSet ∧ NonNegSeq(A) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ∧ (forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ |f(n, x)| ≤ A(n))) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x(n) = frac(3, 2) * 2^{-(n + 1)} ⇒ sin(2^{n + 1} * π * x(n))^{2} = 1)
+16. forall (A), A : NonNegIntegerSet → RealSet ∧ NonNegSeq(A) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ∧ (forall (n) (y), n ∈ NonNegIntegerSet ∧ y ∈ RealSet ∧ n ∈ PosIntegerSet ∧ y ∈ [0, 1] ⇒ |f(n, y)| ≤ A(n)) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x(n) = frac(3, 2) * 2^{-(n + 1)} ⇒ A(n) ≥ frac(1, n))
+17. (exists (A), A : NonNegIntegerSet → RealSet ∧ NonNegSeq(A) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ∧ (forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ |f(n, x)| ≤ A(n))) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n)))
+18. (exists (A), A : NonNegIntegerSet → RealSet ∧ NonNegSeq(A) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ∧ (forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ |f(n, x)| ≤ A(n))) ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n)))
+19. (exists (A), A : NonNegIntegerSet → RealSet ∧ NonNegSeq(A) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ∧ (forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ |f(n, x)| ≤ A(n))) ⇒ False
+20. ¬(exists (A), A : NonNegIntegerSet → RealSet ∧ NonNegSeq(A) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ∧ (forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ |f(n, x)| ≤ A(n)))
+21. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n) (p) (x), n ∈ NonNegIntegerSet ∧ p ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ p ∈ PosIntegerSet ∧ x ∈ [0, 1] ∧ n > N ⇒ |sum_{ k = n + 1 }^{ n + p } (f(k, x))| < ε))
+22. ¬(exists (A), A : NonNegIntegerSet → RealSet ∧ NonNegSeq(A) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ∧ (forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ |f(n, x)| ≤ A(n)))
+
+GOAL:
+(forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n) (p) (x), n ∈ NonNegIntegerSet ∧ p ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ p ∈ PosIntegerSet ∧ x ∈ [0, 1] ∧ n > N ⇒ |sum_{ k = n + 1 }^{ n + p } (f(k, x))| < ε))) ∧ ¬(exists (A), A : NonNegIntegerSet → RealSet ∧ NonNegSeq(A) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ∧ (forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ |f(n, x)| ≤ A(n)))
+
+METHOD:

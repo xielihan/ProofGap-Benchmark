@@ -1,0 +1,19 @@
+PROOF GAP @5
+ASSUM:
+1. r : NonNegIntegerSet → RealSet
+2. f : RealSet → RealSet
+3. S : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+4. k ∈ NonNegIntegerSet
+5. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ r(k) ∈ RationalSet ∧ r(k) ∈ [0, 1]
+6. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ f(x) = sum_{ k = 1 }^{ +∞ } (frac(|x - r(k)|, 3^{k}))
+7. S = (fun N [N ∈ NonNegIntegerSet] . fun x [x ∈ RealSet] . sum_{ k = 1 }^{ N } (frac(|x - r(k)|, 3^{k})))
+8. forall (k) (x), k ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ k ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ |frac(x - r(k), 3^{k})| ≤ frac(1, 3^{k})
+9. ConvergentSeries(sum_{ k = 1 }^{ +∞ } (frac(1, 3^{k})))
+10. UniformConvergent(S, [0, 1], f)
+11. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ ContinuousFuncOn(fun x [x ∈ RealSet] . frac(|x - r(k)|, 3^{k}), [0, 1])
+
+GOAL:
+ContinuousFuncOn(f, [0, 1])
+
+METHOD:
+[@method 根据 "函数项级数一致收敛的连续性定理" @]

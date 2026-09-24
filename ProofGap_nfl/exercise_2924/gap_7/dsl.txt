@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n = 9 ⇒ n! * n > 10^{6}}) (n := {n0})
+get_condition (hypothesis 12: {n0 ∈ NonNegIntegerSet ∧ n0 > 0 ∧ n0 = 9}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 > 0 ∧ n0 = 9 ⇒ n0! * n0 > 10^{6}})
+destruct_and (hypothesis 12: {n0 ∈ NonNegIntegerSet ∧ n0 > 0 ∧ n0 = 9}) as (hypothesis 13: {n0 ∈ NonNegIntegerSet}) (hypothesis 14: {n0 > 0}) (hypothesis 15: {n0 = 9})
+rewrite (left_to_right, equation) (hypothesis 15: {n0 = 9}); from (GOAL: {n0! * n0 > 10^{6}}) to (GOAL: {9! * 9 > 10^{6}})
+autosolve all_hypothesis

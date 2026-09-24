@@ -1,0 +1,16 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet
+2. R ∈ RealSet
+3. V ∈ RealSet
+4. R > 0
+5. a ≥ R * sqrtn(2, 2)
+6. V = DefInt(0, R, (fun x [x ∈ RealSet] . DefInt(0, sqrtn(2, R^{2} - x^{2}), (fun y [y ∈ RealSet] . a - x - y) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+7. V = DefInt(0, R, (fun x [x ∈ RealSet] . (a - x) * sqrtn(2, R^{2} - x^{2}) - frac(R^{2} - x^{2}, 2)) * diff(fun x [x ∈ RealSet] . x))
+8. V = DefInt(0, R, (fun x [x ∈ RealSet] . a * sqrtn(2, R^{2} - x^{2})) * diff(fun x [x ∈ RealSet] . x)) - DefInt(0, R, (fun x [x ∈ RealSet] . x * sqrtn(2, R^{2} - x^{2}) + frac(R^{2} - x^{2}, 2)) * diff(fun x [x ∈ RealSet] . x))
+9. DefInt(0, R, (fun x [x ∈ RealSet] . a * sqrtn(2, R^{2} - x^{2})) * diff(fun x [x ∈ RealSet] . x)) = frac(π * a * R^{2}, 4)
+
+GOAL:
+DefInt(0, R, (fun x [x ∈ RealSet] . x * sqrtn(2, R^{2} - x^{2}) + frac(R^{2} - x^{2}, 2)) * diff(fun x [x ∈ RealSet] . x)) = frac(2 * R^{3}, 3)
+
+METHOD:

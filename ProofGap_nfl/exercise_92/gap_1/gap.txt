@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. x : NonNegIntegerSet → RealSet
+2. a ∈ RealSet
+3. L ∈ RealSet
+4. IsSeq(x)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ∈ RealSet ∧ x(n) ≠ 0
+6. forall (n), n ∈ NonNegIntegerSet ⇒ seqlim_{ n → +∞ } (x(n)) = a
+
+GOAL:
+a ≠ 0 ⇒ seqlim_{ n → +∞ } (x(n + 1)) = a
+
+METHOD:

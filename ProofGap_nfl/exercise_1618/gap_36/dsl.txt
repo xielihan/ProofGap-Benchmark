@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ FunDeri(f, 1, 1)(x) = 4 * x^{3} - 1}) (x := {x0})
+get_condition (hypothesis 58: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ FunDeri(f, 1, 1)(x0) = 4 * x0^{3} - 1})
+assert (hypothesis 59: {FunDeri(f, 1, 1)(x0) = 4 * x0^{3} - 1})
+apply (hypothesis 59: {FunDeri(f, 1, 1)(x0) = 4 * x0^{3} - 1})

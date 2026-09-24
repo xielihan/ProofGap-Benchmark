@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ frac(x, y) > 0 ⇒ u(x, y, z) = frac(x, y)^{z}
+3. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ frac(x, y) > 0 ⇒ u(x, y, z) = x^{z} * y^{-z}
+4. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ frac(x, y) > 0 ⇒ FunDeri(u, 1, 1)(x, y, z) = z * x^{z - 1} * y^{-z}
+5. forall (z) (x) (y), z ∈ RealSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ frac(x, y) > 0 ⇒ z * x^{z - 1} * y^{-z} = frac(z, x) * frac(x, y)^{z}
+6. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ frac(x, y) > 0 ⇒ FunDeri(u, 1, 1)(x, y, z) = frac(z, x) * frac(x, y)^{z}
+7. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ frac(x, y) > 0 ⇒ FunDeri(u, 2, 1)(x, y, z) = -z * x^{z} * y^{-z - 1}
+
+GOAL:
+forall (z) (x) (y), z ∈ RealSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ frac(x, y) > 0 ⇒ -z * x^{z} * y^{-z - 1} = -frac(z, y) * frac(x, y)^{z}
+
+METHOD:

@@ -1,0 +1,16 @@
+PROOF GAP @1
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. a ∈ RealSet ∧ a > 0
+3. x : RealSet → RealSet
+4. y : RealSet → RealSet
+5. s ∈ RealSet
+6. t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π
+7. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ x(t) = a * (cos(t) + t * sin(t)) ∧ y(t) = a * (sin(t) - t * cos(t))
+8. C = { (x(t), y(t)) | 0 ≤ t ∧ t ≤ 2 * π }
+9. diff(s) = sqrtn(2, diff(x)^{2} + diff(y)^{2})
+
+GOAL:
+diff(s) = sqrtn(2, a^{2} * t^{2} * cos(t)^{2} + a^{2} * t^{2} * sin(t)^{2}) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . t)
+
+METHOD:

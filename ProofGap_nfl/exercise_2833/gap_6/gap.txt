@@ -1,0 +1,16 @@
+PROOF GAP @6
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. x ∈ RealSet
+3. x ≠ -1
+4. forall (n), n ∈ NonNegIntegerSet ⇒ a(n) = frac(1, 2 * n + 1)
+5. lim_{ n → +∞ } (|frac(a(n), a(n + 1))|) = 1
+6. |frac(1 - x, 1 + x)| < 1 ⇔ x > 0
+7. x > 0 ⇒ AbsoluteConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac(1, 2 * n + 1) * frac(1 - x, 1 + x)^{n}))
+8. x < 0 ⇒ x ≠ -1 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac(1, 2 * n + 1) * frac(1 - x, 1 + x)^{n}))
+9. x = 0 ⇒ sum_{ n = 0 }^{ +∞ } (frac(1, 2 * n + 1) * frac(1 - x, 1 + x)^{n}) = sum_{ n = 0 }^{ +∞ } (frac(1, 2 * n + 1))
+
+GOAL:
+x = 0 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac(1, 2 * n + 1)))
+
+METHOD:

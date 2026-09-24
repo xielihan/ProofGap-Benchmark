@@ -1,0 +1,2 @@
+autoreplace no_hypothesis; from (2 + frac(1, 3 * 2^{2})) to (frac(25, 12)); from (GOAL: {2 + frac(1, 3 * 2^{2}) = frac(25, 12)}) to (GOAL: {frac(25, 12) = frac(25, 12)})
+autosolve all_hypothesis

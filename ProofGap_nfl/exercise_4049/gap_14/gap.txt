@@ -1,0 +1,41 @@
+PROOF GAP @14
+ASSUM:
+1. x : CartesianProd(RealSet, RealSet) → RealSet
+2. y : CartesianProd(RealSet, RealSet) → RealSet
+3. z : CartesianProd(RealSet, RealSet) → RealSet
+4. E : CartesianProd(RealSet, RealSet) → RealSet
+5. F : CartesianProd(RealSet, RealSet) → RealSet
+6. G : CartesianProd(RealSet, RealSet) → RealSet
+7. S ∈ RealSet
+8. A ∈ RealSet
+9. a ∈ RealSet
+10. b ∈ RealSet
+11. `φ_1` ∈ RealSet
+12. `φ_2` ∈ RealSet
+13. `ψ_1` ∈ RealSet
+14. `ψ_2` ∈ RealSet
+15. 0 < a
+16. a ≤ b
+17. `φ_1` < `φ_2`
+18. `ψ_1` < `ψ_2`
+19. forall (φ) (ψ), φ ∈ RealSet ∧ ψ ∈ RealSet ⇒ x(φ, ψ) = (b + a * cos(ψ)) * cos(φ)
+20. forall (φ) (ψ), φ ∈ RealSet ∧ ψ ∈ RealSet ⇒ y(φ, ψ) = (b + a * cos(ψ)) * sin(φ)
+21. forall (φ) (ψ), φ ∈ RealSet ∧ ψ ∈ RealSet ⇒ z(φ, ψ) = a * sin(ψ)
+22. forall (φ) (ψ), φ ∈ RealSet ∧ `φ_1` ≤ φ ∧ φ ≤ `φ_2` ∧ ψ ∈ RealSet ∧ `ψ_1` ≤ ψ ∧ ψ ≤ `ψ_2` ⇒ E(φ, ψ) = FunDeri(x, 1, 1)(φ, ψ)^{2} + FunDeri(y, 1, 1)(φ, ψ)^{2} + FunDeri(z, 1, 1)(φ, ψ)^{2}
+23. forall (φ) (ψ), φ ∈ RealSet ∧ `φ_1` ≤ φ ∧ φ ≤ `φ_2` ∧ ψ ∈ RealSet ∧ `ψ_1` ≤ ψ ∧ ψ ≤ `ψ_2` ⇒ FunDeri(x, 1, 1)(φ, ψ)^{2} + FunDeri(y, 1, 1)(φ, ψ)^{2} + FunDeri(z, 1, 1)(φ, ψ)^{2} = (b + a * cos(ψ))^{2}
+24. forall (φ) (ψ), φ ∈ RealSet ∧ `φ_1` ≤ φ ∧ φ ≤ `φ_2` ∧ ψ ∈ RealSet ∧ `ψ_1` ≤ ψ ∧ ψ ≤ `ψ_2` ⇒ E(φ, ψ) = (b + a * cos(ψ))^{2}
+25. forall (φ) (ψ), φ ∈ RealSet ∧ `φ_1` ≤ φ ∧ φ ≤ `φ_2` ∧ ψ ∈ RealSet ∧ `ψ_1` ≤ ψ ∧ ψ ≤ `ψ_2` ⇒ G(φ, ψ) = FunDeri(x, 2, 1)(φ, ψ)^{2} + FunDeri(y, 2, 1)(φ, ψ)^{2} + FunDeri(z, 2, 1)(φ, ψ)^{2}
+26. forall (φ) (ψ), φ ∈ RealSet ∧ `φ_1` ≤ φ ∧ φ ≤ `φ_2` ∧ ψ ∈ RealSet ∧ `ψ_1` ≤ ψ ∧ ψ ≤ `ψ_2` ⇒ FunDeri(x, 2, 1)(φ, ψ)^{2} + FunDeri(y, 2, 1)(φ, ψ)^{2} + FunDeri(z, 2, 1)(φ, ψ)^{2} = a^{2}
+27. forall (φ) (ψ), φ ∈ RealSet ∧ `φ_1` ≤ φ ∧ φ ≤ `φ_2` ∧ ψ ∈ RealSet ∧ `ψ_1` ≤ ψ ∧ ψ ≤ `ψ_2` ⇒ G(φ, ψ) = a^{2}
+28. forall (φ) (ψ), φ ∈ RealSet ∧ `φ_1` ≤ φ ∧ φ ≤ `φ_2` ∧ ψ ∈ RealSet ∧ `ψ_1` ≤ ψ ∧ ψ ≤ `ψ_2` ⇒ F(φ, ψ) = FunDeri(x, 1, 1)(φ, ψ) * FunDeri(x, 2, 1)(φ, ψ) + FunDeri(y, 1, 1)(φ, ψ) * FunDeri(y, 2, 1)(φ, ψ) + FunDeri(z, 1, 1)(φ, ψ) * FunDeri(z, 2, 1)(φ, ψ)
+29. forall (φ) (ψ), φ ∈ RealSet ∧ `φ_1` ≤ φ ∧ φ ≤ `φ_2` ∧ ψ ∈ RealSet ∧ `ψ_1` ≤ ψ ∧ ψ ≤ `ψ_2` ⇒ FunDeri(x, 1, 1)(φ, ψ) * FunDeri(x, 2, 1)(φ, ψ) + FunDeri(y, 1, 1)(φ, ψ) * FunDeri(y, 2, 1)(φ, ψ) + FunDeri(z, 1, 1)(φ, ψ) * FunDeri(z, 2, 1)(φ, ψ) = 0
+30. forall (φ) (ψ), φ ∈ RealSet ∧ `φ_1` ≤ φ ∧ φ ≤ `φ_2` ∧ ψ ∈ RealSet ∧ `ψ_1` ≤ ψ ∧ ψ ≤ `ψ_2` ⇒ F(φ, ψ) = 0
+31. forall (φ) (ψ), φ ∈ RealSet ∧ `φ_1` ≤ φ ∧ φ ≤ `φ_2` ∧ ψ ∈ RealSet ∧ `ψ_1` ≤ ψ ∧ ψ ≤ `ψ_2` ⇒ sqrtn(2, E(φ, ψ) * G(φ, ψ) - F(φ, ψ)^{2}) = a * (b + a * cos(ψ))
+32. forall (ψ), ψ ∈ RealSet ∧ `ψ_1` ≤ ψ ∧ ψ ≤ `ψ_2` ⇒ S = DefInt(`φ_1`, `φ_2`, DefInt(`ψ_1`, `ψ_2`, a * (b + a * cos(ψ)) * diff(fun ψ [ψ ∈ RealSet] . ψ)) * diff(fun φ [φ ∈ RealSet] . φ))
+33. forall (ψ), ψ ∈ RealSet ∧ `ψ_1` ≤ ψ ∧ ψ ≤ `ψ_2` ⇒ DefInt(`φ_1`, `φ_2`, DefInt(`ψ_1`, `ψ_2`, a * (b + a * cos(ψ)) * diff(fun ψ [ψ ∈ RealSet] . ψ)) * diff(fun φ [φ ∈ RealSet] . φ)) = a * (`φ_2` - `φ_1`) * (b * (`ψ_2` - `ψ_1`) + a * (sin(`ψ_2`) - sin(`ψ_1`)))
+34. S = a * (`φ_2` - `φ_1`) * (b * (`ψ_2` - `ψ_1`) + a * (sin(`ψ_2`) - sin(`ψ_1`)))
+
+GOAL:
+forall (ψ), ψ ∈ RealSet ∧ -π ≤ ψ ∧ ψ ≤ π ⇒ A = DefInt(0, 2 * π, DefInt(-π, π, a * (b + a * cos(ψ)) * diff(fun ψ [ψ ∈ RealSet] . ψ)) * diff(fun φ [φ ∈ RealSet] . φ))
+
+METHOD:

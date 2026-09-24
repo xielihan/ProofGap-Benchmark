@@ -1,0 +1,18 @@
+PROOF GAP @3
+ASSUM:
+1. F : RealSet → RealSet
+2. E : RealSet → RealSet
+3. k ∈ RealSet ∧ 0 ≤ k ∧ k < 1
+4. k_{1} ∈ RealSet
+5. (k_{1})^{2} = 1 - k^{2}
+6. E(0) = frac(π, 2)
+7. F(0) = frac(π, 2)
+8. forall (u), u ∈ RealSet ∧ u ∈ IntervalLoRo(0, 1) ∧ 0 < u ∧ u < 1 ⇒ FunDeri(E, 1, 1)(u) = frac(E(u) - F(u), u)
+9. forall (u), u ∈ RealSet ∧ u ∈ IntervalLoRo(0, 1) ∧ 0 < u ∧ u < 1 ⇒ FunDeri(F, 1, 1)(u) = frac(E(u), u * (1 - u^{2})) - frac(F(u), u)
+10. 0 < k ⇒ k < 1 ⇒ FunDeri(fun k [k ∈ RealSet ∧ k ∈ IntervalLoRo(0, 1)] . E(k) - (k_{1})^{2} * F(k), 1, 1)(k) = FunDeri(E, 1, 1)(k) + 2 * k * F(k) - (1 - k^{2}) * FunDeri(F, 1, 1)(k)
+11. 0 < k ⇒ k < 1 ⇒ FunDeri(E, 1, 1)(k) + 2 * k * F(k) - (1 - k^{2}) * FunDeri(F, 1, 1)(k) = frac(E(k) - F(k), k) + 2 * k * F(k) - (1 - k^{2}) * (frac(E(k), k * (1 - k^{2})) - frac(F(k), k))
+
+GOAL:
+0 < k ⇒ k < 1 ⇒ frac(E(k) - F(k), k) + 2 * k * F(k) - (1 - k^{2}) * (frac(E(k), k * (1 - k^{2})) - frac(F(k), k)) = k * F(k)
+
+METHOD:

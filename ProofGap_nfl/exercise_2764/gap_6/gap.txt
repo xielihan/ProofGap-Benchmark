@@ -1,0 +1,20 @@
+PROOF GAP @6
+ASSUM:
+1. F : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. f : RealSet → RealSet
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. a < b
+6. Defined(f, [a, b])
+7. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [a, b] ⇒ F(n, x) = frac(floor(n * f(x)), n)
+8. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [a, b] ⇒ |F(n, x) - f(x)| = frac(1, n) * |floor(n * f(x)) - n * f(x)|)
+9. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [a, b] ⇒ frac(1, n) * |floor(n * f(x)) - n * f(x)| ≤ frac(1, n))
+10. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [a, b] ⇒ |F(n, x) - f(x)| ≤ frac(1, n))
+11. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N = floor(frac(1, ε)))
+12. forall (ε) (N) (n), ε ∈ RealSet ∧ N ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ ε > 0 ∧ N = floor(frac(1, ε)) ∧ n > N ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ |F(n, x) - f(x)| < ε)
+13. UniformConvergent(F, [a, b], f)
+
+GOAL:
+UniformConvergent(F, [a, b], f)
+
+METHOD:

@@ -1,0 +1,2 @@
+get_prop (theorem 'Thm 419. (ArcsineStandardLimit)': {lim_{t -> 0} (frac(arcsin(t), t)) = 1}) as (hypothesis 9: {lim_{t -> 0} (frac(arcsin(t), t)) = 1})
+apply (hypothesis 9: {lim_{t -> 0} (frac(arcsin(t), t)) = 1})

@@ -1,0 +1,2 @@
+autoreplace no_hypothesis; from (11 + frac(-1, 2 * 11)) to (11 - frac(1, 2 * 11)); from (hypothesis 10: {sqrtn(2, 11^{2} - 1) ≈_{ |-1|^{2} } 11 + frac(-1, 2 * 11)}) to (hypothesis 12: {sqrtn(2, 11^{2} - 1) ≈_{ |-1|^{2} } 11 - frac(1, 2 * 11)})
+apply (hypothesis 12: {sqrtn(2, 11^{2} - 1) ≈_{ |-1|^{2} } 11 - frac(1, 2 * 11)})

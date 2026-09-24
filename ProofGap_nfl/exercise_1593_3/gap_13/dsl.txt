@@ -1,0 +1,6 @@
+get_prop (hypothesis 15: {forall (x), x ∈ RealSet ⇒ FunDeri(g, 1, 3)(x) = 0}) (x := {0}) as (hypothesis 18: {0 ∈ RealSet ⇒ FunDeri(g, 1, 3)(0) = 0})
+use_condition (obvious: {0 ∈ RealSet}) in (hypothesis 18: {0 ∈ RealSet ⇒ FunDeri(g, 1, 3)(0) = 0}) as (hypothesis 19: {FunDeri(g, 1, 3)(0) = 0})
+rewrite (left_to_right, equation) (hypothesis 12: {FunDeri(f, 1, 3)(0) = 1}); from (GOAL: {FunDeri(f, 1, 3)(0) ≠ FunDeri(g, 1, 3)(0)}) to (GOAL: {1 ≠ FunDeri(g, 1, 3)(0)})
+rewrite (left_to_right, equation) (hypothesis 19: {FunDeri(g, 1, 3)(0) = 0}); from (GOAL: {1 ≠ FunDeri(g, 1, 3)(0)}) to (GOAL: {1 ≠ 0})
+assert (hypothesis 20: {1 ≠ 0})
+apply (hypothesis 20: {1 ≠ 0})

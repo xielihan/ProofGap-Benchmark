@@ -1,0 +1,8 @@
+get_condition (hypothesis 22: {UniformConvergent(S, [0, 1], F)}) in (GOAL: {UniformConvergent(S, [0, 1], F) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ |S(n, x_{0}) - F(x_{0})| = e^{-1})})
+use_condition (hypothesis 22: {UniformConvergent(S, [0, 1], F)}) in (hypothesis 20: {UniformConvergent(S, [0, 1], F) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ |S(n, x_{0}) - F(x_{0})| = S(n, x_{0}))}) as (hypothesis 23: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ |S(n, x_{0}) - F(x_{0})| = S(n, x_{0})})
+use_condition (hypothesis 22: {UniformConvergent(S, [0, 1], F)}) in (hypothesis 21: {UniformConvergent(S, [0, 1], F) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ S(n, x_{0}) = e^{-1})}) as (hypothesis 24: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ S(n, x_{0}) = e^{-1}})
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ |S(n, x_{0}) - F(x_{0})| = e^{-1}}) (n := {u})
+get_condition (hypothesis 25: {u ∈ NonNegIntegerSet ∧ u ∈ PosIntegerSet ∧ u ≥ N}) in (GOAL: {u ∈ NonNegIntegerSet ∧ u ∈ PosIntegerSet ∧ u ≥ N ⇒ |S(u, x_{0}) - F(x_{0})| = e^{-1}})
+get_prop (hypothesis 23: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ |S(n, x_{0}) - F(x_{0})| = S(n, x_{0})}) (n := {u}) as (hypothesis 26: {u ∈ NonNegIntegerSet ∧ u ∈ PosIntegerSet ∧ u ≥ N ⇒ |S(u, x_{0}) - F(x_{0})| = S(u, x_{0})})
+get_prop (hypothesis 24: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ S(n, x_{0}) = e^{-1}}) (n := {u}) as (hypothesis 27: {u ∈ NonNegIntegerSet ∧ u ∈ PosIntegerSet ∧ u ≥ N ⇒ S(u, x_{0}) = e^{-1}})
+autosolve all_hypothesis

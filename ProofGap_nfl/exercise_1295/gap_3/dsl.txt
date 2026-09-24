@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n = 1 ⇒ G(n) ≤ A(n)}) (n := {n0})
+get_condition (hypothesis 9: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 = 1}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 = 1 ⇒ G(n0) ≤ A(n0)})
+get_prop (hypothesis 7: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n = 1 ⇒ G(n) = x(1)}) (n := {n0}) as (hypothesis 10: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 = 1 ⇒ G(n0) = x(1)})
+use_condition (hypothesis 9: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 = 1}) in (hypothesis 10: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 = 1 ⇒ G(n0) = x(1)}) as (hypothesis 11: {G(n0) = x(1)})
+get_prop (hypothesis 8: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n = 1 ⇒ A(n) = x(1)}) (n := {n0}) as (hypothesis 12: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 = 1 ⇒ A(n0) = x(1)})
+use_condition (hypothesis 9: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 = 1}) in (hypothesis 12: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 = 1 ⇒ A(n0) = x(1)}) as (hypothesis 13: {A(n0) = x(1)})
+rewrite (left_to_right, equation) (hypothesis 11: {G(n0) = x(1)}); from (GOAL: {G(n0) ≤ A(n0)}) to (GOAL: {x(1) ≤ A(n0)})
+rewrite (left_to_right, equation) (hypothesis 13: {A(n0) = x(1)}); from (GOAL: {x(1) ≤ A(n0)}) to (GOAL: {x(1) ≤ x(1)})
+autosolve all_hypothesis

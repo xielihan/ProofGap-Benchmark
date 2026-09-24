@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ 0 < |x| ∧ |x| < 1 ⇒ x ≠ 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 < |x| ∧ |x| < 1 ⇒ arcsin(x) ≠ 0
+
+METHOD:

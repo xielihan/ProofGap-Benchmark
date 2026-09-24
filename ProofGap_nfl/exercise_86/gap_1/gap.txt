@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (y), y : NonNegIntegerSet → RealSet ⇒ (forall (x), x : NonNegIntegerSet → RealSet ∧ IsSeq(x) ∧ (exists (c), c ∈ RealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ sum_{ k = 2 }^{ n } (|x(k) - x(k - 1)|) < c)) ∧ y = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . sum_{ k = 2 }^{ n } (|x(k) - x(k - 1)|)) ⇒ MonoIncSeq(y))
+
+METHOD:

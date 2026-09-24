@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (-1)^{n} * frac(sin(n)^{2}, n) = (-1)^{n} * frac(1, 2 * n) + (-1)^{n + 1} * frac(cos(2 * n), 2 * n)
+
+METHOD:

@@ -1,0 +1,13 @@
+get_forall (GOAL: {forall (α), α ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ α ≥ 0 ∧ x > 0 ⇒ 0 < frac(1, x))}) (α := {a})
+get_condition (hypothesis 9: {a ∈ RealSet}) in (GOAL: {a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ a ≥ 0 ∧ x > 0 ⇒ 0 < frac(1, x))})
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ a ≥ 0 ∧ x > 0 ⇒ 0 < frac(1, x)}) (x := {y})
+get_condition (hypothesis 10: {y ∈ RealSet ∧ a ≥ 0 ∧ y > 0}) in (GOAL: {y ∈ RealSet ∧ a ≥ 0 ∧ y > 0 ⇒ 0 < frac(1, y)})
+get_prop (hypothesis 7: {forall (α), α ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ α ≥ 0 ∧ x > 0 ⇒ 0 < frac(e^{-(α * x)}, x))}) (α := {a}) as (hypothesis 11: {a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ a ≥ 0 ∧ x > 0 ⇒ 0 < frac(e^{-(a * x)}, x))})
+use_condition (hypothesis 9: {a ∈ RealSet}) in (hypothesis 11: {a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ a ≥ 0 ∧ x > 0 ⇒ 0 < frac(e^{-(a * x)}, x))}) as (hypothesis 12: {forall (x), x ∈ RealSet ∧ a ≥ 0 ∧ x > 0 ⇒ 0 < frac(e^{-(a * x)}, x)})
+get_prop (hypothesis 12: {forall (x), x ∈ RealSet ∧ a ≥ 0 ∧ x > 0 ⇒ 0 < frac(e^{-(a * x)}, x)}) (x := {y}) as (hypothesis 13: {y ∈ RealSet ∧ a ≥ 0 ∧ y > 0 ⇒ 0 < frac(e^{-(a * y)}, y)})
+use_condition (hypothesis 10: {y ∈ RealSet ∧ a ≥ 0 ∧ y > 0}) in (hypothesis 13: {y ∈ RealSet ∧ a ≥ 0 ∧ y > 0 ⇒ 0 < frac(e^{-(a * y)}, y)}) as (hypothesis 14: {0 < frac(e^{-(a * y)}, y)})
+get_prop (hypothesis 8: {forall (α), α ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ α ≥ 0 ∧ x > 0 ⇒ frac(e^{-(α * x)}, x) ≤ frac(1, x))}) (α := {a}) as (hypothesis 15: {a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ a ≥ 0 ∧ x > 0 ⇒ frac(e^{-(a * x)}, x) ≤ frac(1, x))})
+use_condition (hypothesis 9: {a ∈ RealSet}) in (hypothesis 15: {a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ a ≥ 0 ∧ x > 0 ⇒ frac(e^{-(a * x)}, x) ≤ frac(1, x))}) as (hypothesis 16: {forall (x), x ∈ RealSet ∧ a ≥ 0 ∧ x > 0 ⇒ frac(e^{-(a * x)}, x) ≤ frac(1, x)})
+get_prop (hypothesis 16: {forall (x), x ∈ RealSet ∧ a ≥ 0 ∧ x > 0 ⇒ frac(e^{-(a * x)}, x) ≤ frac(1, x)}) (x := {y}) as (hypothesis 17: {y ∈ RealSet ∧ a ≥ 0 ∧ y > 0 ⇒ frac(e^{-(a * y)}, y) ≤ frac(1, y)})
+use_condition (hypothesis 10: {y ∈ RealSet ∧ a ≥ 0 ∧ y > 0}) in (hypothesis 17: {y ∈ RealSet ∧ a ≥ 0 ∧ y > 0 ⇒ frac(e^{-(a * y)}, y) ≤ frac(1, y)}) as (hypothesis 18: {frac(e^{-(a * y)}, y) ≤ frac(1, y)})
+autosolve all_hypothesis

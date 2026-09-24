@@ -1,0 +1,16 @@
+PROOF GAP @1
+ASSUM:
+1. f : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. A ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. R_{3} : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+4. x ∈ RealSet
+5. y ∈ RealSet
+6. z ∈ RealSet
+7. f : RealSet → RealSet
+8. A = (1, 1, 1)
+9. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ f(x, y, z) = x^{3} + y^{3} + z^{3} - 3 * x * y * z
+
+GOAL:
+FunDeri(f, 1, 1)(x, y, z) = 3 * x^{2} - 3 * y * z
+
+METHOD:

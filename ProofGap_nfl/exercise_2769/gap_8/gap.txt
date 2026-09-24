@@ -1,0 +1,21 @@
+PROOF GAP @8
+ASSUM:
+1. S_{n} : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. S : RealSet → RealSet
+3. f : RealSet → RealSet
+4. k ∈ NonNegIntegerSet
+5. forall (n) (x), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ x ∈ [0, 1] ⇒ S_{n}(n, x) = sum_{ k = 0 }^{ n } ((1 - x) * x^{k})
+6. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ x ∈ [0, 1] ⇒ f(x) = (1 - x) * x^{n}
+7. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ S_{n}(n, x) = sum_{ k = 0 }^{ n } ((1 - x) * x^{k}))
+8. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ sum_{ k = 0 }^{ n } ((1 - x) * x^{k}) = (1 - x) * (sum_{ k = 0 }^{ n } (x^{k})))
+9. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ (1 - x) * (sum_{ k = 0 }^{ n } (x^{k})) = 1 - x^{n + 1})
+10. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ S_{n}(n, x) = 1 - x^{n + 1})
+11. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x < 1 ⇒ S(x) = 1
+12. S(1) = 0
+13. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ lim_{ n → +∞ } (S_{n}(n, x)) = S(x)
+14. ε_{0} = frac(1, 4)
+
+GOAL:
+exists (x), x : NonNegIntegerSet → RealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ x(n) = frac(1, sqrtn(n + 1, 2)) ⇒ 0 < x(n))
+
+METHOD:

@@ -1,0 +1,2 @@
+destruct_and (hypothesis 17: {x ∈ RealSet ∧ y ∈ RealSet ∧ r ∈ RealSet ∧ φ ∈ RealSet ∧ r > 0 ∧ 0 < φ ∧ φ < frac(π, 2) ∧ x > 0 ∧ x * y ≤ a^{2} ∧ y ≥ α * x ∧ y ≤ β * x}) as (hypothesis 18: {x ∈ RealSet}) (hypothesis 19: {y ∈ RealSet}) (hypothesis 20: {r ∈ RealSet}) (hypothesis 21: {φ ∈ RealSet}) (hypothesis 22: {r > 0}) (hypothesis 23: {0 < φ}) (hypothesis 24: {φ < frac(π, 2)}) (hypothesis 25: {x > 0}) (hypothesis 26: {x * y ≤ a^{2}}) (hypothesis 27: {y ≥ α * x}) (hypothesis 28: {y ≤ β * x})
+autosolve all_hypothesis

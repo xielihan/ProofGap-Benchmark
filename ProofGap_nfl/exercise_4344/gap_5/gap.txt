@@ -1,0 +1,20 @@
+PROOF GAP @5
+ASSUM:
+1. S ⊆ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+2. S_{1} ⊆ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+3. S_{2} ⊆ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+4. x ∈ RealSet
+5. y ∈ RealSet
+6. z ∈ RealSet
+7. S = S_{1} ∪ S_{2}
+8. S_{1} = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, z = sqrtn(2, x^{2} + y^{2}), x^{2} + y^{2} ≤ 1 }
+9. S_{2} = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, z = 1, x^{2} + y^{2} ≤ 1 }
+10. ScalarSurfaceInt(S, (x^{2} + y^{2}) * diff(S)) = ScalarSurfaceInt(S_{1}, (x^{2} + y^{2}) * diff(S)) + ScalarSurfaceInt(S_{2}, (x^{2} + y^{2}) * diff(S))
+11. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ∧ (x, y, z) ∈ S_{1} ⇒ sqrtn(2, 1 + FunDeri(z, 1, 1)^{2} + FunDeri(z, 2, 1)^{2}) = sqrtn(2, 2)))
+12. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ∧ (x, y, z) ∈ S_{2} ⇒ sqrtn(2, 1 + FunDeri(z, 1, 1)^{2} + FunDeri(z, 2, 1)^{2}) = 1))
+13. forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ x = r * cos(φ))
+
+GOAL:
+forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ y = r * sin(φ))
+
+METHOD:

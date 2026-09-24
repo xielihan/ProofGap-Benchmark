@@ -1,0 +1,1 @@
+apply (hypothesis 5: {forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 1 ⇒ InverseFunc(RestrictFunc(y, [0, 1]), t) = sqrtn(2, 1 - t^{2})})

@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. x ∈ RealSet
+3. x ≠ 0 ⇒ cos(x) > 0
+4. x ≠ 0 ⇒ cosh(x) > 0
+
+GOAL:
+x ≠ 0 ⇒ lim_{ x → 0 } ((ln(cos(x)) - ln(cosh(x))) / x^{2}) = lim_{ x → 0 } ((-tan(x) - tanh(x)) / (2 * x))
+
+METHOD:
+[@method 洛必达法则 @]

@@ -1,0 +1,8 @@
+get_exists (hypothesis 15: {exists (l) (α), l ∈ NonNegIntegerSet ∧ α : NonNegIntegerSet → RealSet ∧ l ∈ PosIntegerSet ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ l ⇒ α(i) ∈ RealSet)}) (l := {l1}) (α := {alpha1})
+exists (l := {1}) (α := {alpha1})
+assert (hypothesis 18: {forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i < 1 ⇒ P(alpha1(i + 1)) = 0}) by proof {
+  get_forall (GOAL: {forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i < 1 ⇒ P(alpha1(i + 1)) = 0}) (i := {j})
+  get_condition (hypothesis 18: {j ∈ NonNegIntegerSet ∧ j ∈ PosIntegerSet ∧ j < 1}) in (GOAL: {j ∈ NonNegIntegerSet ∧ j ∈ PosIntegerSet ∧ j < 1 ⇒ P(alpha1(j + 1)) = 0})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

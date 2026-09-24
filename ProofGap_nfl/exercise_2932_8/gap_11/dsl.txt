@@ -1,0 +1,2 @@
+rewrite (right_to_left, equation) (hypothesis 9: {I = DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1, sqrtn(2, 1 + x^{4}))) * diff(fun x [x ∈ RealSet] . x))}); from (GOAL: {DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1, sqrtn(2, 1 + x^{4}))) * diff(fun x [x ∈ RealSet] . x)) ≈_{ 0.001 } 0.927}) to (GOAL: {I ≈_{ 0.001 } 0.927})
+apply (hypothesis 11: {I ≈_{ 0.001 } 0.927})

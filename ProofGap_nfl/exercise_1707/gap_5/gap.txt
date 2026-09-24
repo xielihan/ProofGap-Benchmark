@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ sinh(x)^{4} + cosh(x)^{4} = (sinh(x)^{2} + cosh(x)^{2})^{2} - 2 * sinh(x)^{2} * cosh(x)^{2}
+2. forall (x), x ∈ RealSet ⇒ (sinh(x)^{2} + cosh(x)^{2})^{2} - 2 * sinh(x)^{2} * cosh(x)^{2} = cosh(2 * x)^{2} - frac(1, 2) * sinh(2 * x)^{2}
+3. forall (x), x ∈ RealSet ⇒ cosh(2 * x)^{2} - frac(1, 2) * sinh(2 * x)^{2} = frac(1 + cosh(2 * x)^{2}, 2)
+4. forall (x), x ∈ RealSet ⇒ sinh(x)^{4} + cosh(x)^{4} = frac(1 + cosh(2 * x)^{2}, 2)
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(sinh(x) * cosh(x), sqrtn(2, sinh(x)^{4} + cosh(x)^{4})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(frac(1, 4) * FunDeri(fun x [x ∈ RealSet] . cosh(2 * x), 1, 1)(x), frac(1, sqrtn(2, 2)) * sqrtn(2, 1 + cosh(2 * x)^{2})) }
+
+METHOD:

@@ -1,0 +1,16 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. A ∈ RealSet
+3. ω ∈ RealSet
+4. n ∈ NonNegIntegerSet
+5. B : RealSet → RealSet
+6. ω > 0
+7. n ∈ PosIntegerSet
+8. forall (t), t ∈ RealSet ⇒ f(t) = cases{ A * sin(ω * t) if |t| ≤ frac(2 * π * n, ω); 0 if |t| > frac(2 * π * n, ω) }
+9. ContinuousFunc(f)
+
+GOAL:
+OddFunc(f)
+
+METHOD:

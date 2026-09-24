@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. n ∈ NonNegIntegerSet
+3. forall (x), x ∈ RealSet ⇒ y(x) = sin(x)^{3}
+4. n ∈ PosIntegerSet
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ y(x) = sin(x) * sin(x)^{2} ∧ sin(x) * sin(x)^{2} = frac(1, 2) * sin(x) * (1 - cos(2 * x)) ∧ frac(1, 2) * sin(x) * (1 - cos(2 * x)) = frac(1, 2) * sin(x) - frac(1, 2) * sin(x) * cos(2 * x) ∧ frac(1, 2) * sin(x) - frac(1, 2) * sin(x) * cos(2 * x) = frac(3, 4) * sin(x) - frac(1, 4) * sin(3 * x)
+
+METHOD:

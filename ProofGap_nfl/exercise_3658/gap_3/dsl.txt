@@ -1,0 +1,3 @@
+exists (x := {0})
+exists (λ := {0})
+autosolve all_hypothesis

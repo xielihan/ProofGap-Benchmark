@@ -1,0 +1,16 @@
+PROOF GAP @2
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. c ∈ RealSet
+5. a ∈ RealSet \ { 0 }
+6. b ∈ RealSet \ { 0 }
+7. c ∈ RealSet \ { 0 }
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) ≠ 0 ∧ frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z(x, y)^{2}, c^{2}) = 1
+9. (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(2 * x, a^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(2 * y, b^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(2 * z(x, y), c^{2})) * diff(z) = 0
+
+GOAL:
+diff(z) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . -frac(c^{2}, z(x, y)) * (frac(x, a^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + frac(y, b^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)))
+
+METHOD:

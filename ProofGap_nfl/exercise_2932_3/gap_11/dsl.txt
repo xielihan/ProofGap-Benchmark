@@ -1,0 +1,4 @@
+assert (hypothesis 12: {DefInt(0, 2, (fun x [x ∈ RealSet] . cases{ frac(sin(x), x) if x ≠ 0; 1 if x = 0 }) * diff(fun x [x ∈ RealSet] . x)) ∈ IntervalLoRo(1.6051, 1.6054)}) by proof {
+  autosolve all_hypothesis
+}
+apply (hypothesis 12: {DefInt(0, 2, (fun x [x ∈ RealSet] . cases{ frac(sin(x), x) if x ≠ 0; 1 if x = 0 }) * diff(fun x [x ∈ RealSet] . x)) ∈ IntervalLoRo(1.6051, 1.6054)})

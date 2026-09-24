@@ -1,0 +1,13 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (α), α ∈ RealSet ∧ x ≥ 0 ∧ α ≥ 0 ⇒ 0 < frac(1, 1 + x^{2}))}) (x := {t})
+get_condition (hypothesis 4: {t ∈ RealSet}) in (GOAL: {t ∈ RealSet ⇒ (forall (α), α ∈ RealSet ∧ t ≥ 0 ∧ α ≥ 0 ⇒ 0 < frac(1, 1 + t^{2}))})
+get_forall (GOAL: {forall (α), α ∈ RealSet ∧ t ≥ 0 ∧ α ≥ 0 ⇒ 0 < frac(1, 1 + t^{2})}) (α := {al})
+get_condition (hypothesis 5: {al ∈ RealSet ∧ t ≥ 0 ∧ al ≥ 0}) in (GOAL: {al ∈ RealSet ∧ t ≥ 0 ∧ al ≥ 0 ⇒ 0 < frac(1, 1 + t^{2})})
+get_prop (hypothesis 2: {forall (x), x ∈ RealSet ⇒ (forall (α), α ∈ RealSet ∧ x ≥ 0 ∧ α ≥ 0 ⇒ 0 < frac(1, (x + α)^{2} + 1))}) (x := {t}) as (hypothesis 6: {t ∈ RealSet ⇒ (forall (α), α ∈ RealSet ∧ t ≥ 0 ∧ α ≥ 0 ⇒ 0 < frac(1, (t + α)^{2} + 1))})
+use_condition (hypothesis 4: {t ∈ RealSet}) in (hypothesis 6: {t ∈ RealSet ⇒ (forall (α), α ∈ RealSet ∧ t ≥ 0 ∧ α ≥ 0 ⇒ 0 < frac(1, (t + α)^{2} + 1))}) as (hypothesis 7: {forall (α), α ∈ RealSet ∧ t ≥ 0 ∧ α ≥ 0 ⇒ 0 < frac(1, (t + α)^{2} + 1)})
+get_prop (hypothesis 7: {forall (α), α ∈ RealSet ∧ t ≥ 0 ∧ α ≥ 0 ⇒ 0 < frac(1, (t + α)^{2} + 1)}) (α := {al}) as (hypothesis 8: {al ∈ RealSet ∧ t ≥ 0 ∧ al ≥ 0 ⇒ 0 < frac(1, (t + al)^{2} + 1)})
+use_condition (hypothesis 5: {al ∈ RealSet ∧ t ≥ 0 ∧ al ≥ 0}) in (hypothesis 8: {al ∈ RealSet ∧ t ≥ 0 ∧ al ≥ 0 ⇒ 0 < frac(1, (t + al)^{2} + 1)}) as (hypothesis 9: {0 < frac(1, (t + al)^{2} + 1)})
+get_prop (hypothesis 3: {forall (x), x ∈ RealSet ⇒ (forall (α), α ∈ RealSet ∧ x ≥ 0 ∧ α ≥ 0 ⇒ frac(1, (x + α)^{2} + 1) ≤ frac(1, 1 + x^{2}))}) (x := {t}) as (hypothesis 10: {t ∈ RealSet ⇒ (forall (α), α ∈ RealSet ∧ t ≥ 0 ∧ α ≥ 0 ⇒ frac(1, (t + α)^{2} + 1) ≤ frac(1, 1 + t^{2}))})
+use_condition (hypothesis 4: {t ∈ RealSet}) in (hypothesis 10: {t ∈ RealSet ⇒ (forall (α), α ∈ RealSet ∧ t ≥ 0 ∧ α ≥ 0 ⇒ frac(1, (t + α)^{2} + 1) ≤ frac(1, 1 + t^{2}))}) as (hypothesis 11: {forall (α), α ∈ RealSet ∧ t ≥ 0 ∧ α ≥ 0 ⇒ frac(1, (t + α)^{2} + 1) ≤ frac(1, 1 + t^{2})})
+get_prop (hypothesis 11: {forall (α), α ∈ RealSet ∧ t ≥ 0 ∧ α ≥ 0 ⇒ frac(1, (t + α)^{2} + 1) ≤ frac(1, 1 + t^{2})}) (α := {al}) as (hypothesis 12: {al ∈ RealSet ∧ t ≥ 0 ∧ al ≥ 0 ⇒ frac(1, (t + al)^{2} + 1) ≤ frac(1, 1 + t^{2})})
+use_condition (hypothesis 5: {al ∈ RealSet ∧ t ≥ 0 ∧ al ≥ 0}) in (hypothesis 12: {al ∈ RealSet ∧ t ≥ 0 ∧ al ≥ 0 ⇒ frac(1, (t + al)^{2} + 1) ≤ frac(1, 1 + t^{2})}) as (hypothesis 13: {frac(1, (t + al)^{2} + 1) ≤ frac(1, 1 + t^{2})})
+autosolve all_hypothesis

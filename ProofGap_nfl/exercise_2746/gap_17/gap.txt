@@ -1,0 +1,31 @@
+PROOF GAP @17
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. g_{1} : RealSet → RealSet
+3. g_{2} : RealSet → RealSet
+4. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ f(n, x) = x^{n}
+5. forall (x), x ∈ RealSet ∧ x ∈ [0, frac(1, 2)] ⇒ g_{1}(x) = 0
+6. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ g_{2}(x) = cases{ 1 if x = 1; 0 if 0 ≤ x ∧ x < 1 }
+7. forall (x), x ∈ RealSet ∧ x ∈ [0, frac(1, 2)] ⇒ seqlim_{ n → +∞ } (f(n, x)) = 0
+8. forall (n) (x) (ε), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ ε ∈ RealSet ∧ ε > 0 ⇒ |f(n, x) - g_{1}(x)| = |x|^{n}
+9. forall (x) (n) (ε), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ ε ∈ RealSet ∧ ε > 0 ⇒ |x|^{n} ≤ frac(1, 2)^{n}
+10. forall (n) (x) (ε), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ ε ∈ RealSet ∧ ε > 0 ⇒ |f(n, x) - g_{1}(x)| ≤ frac(1, 2)^{n}
+11. forall (n) (x) (ε), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ ε ∈ RealSet ∧ ε > 0 ∧ frac(1, 2^{n}) < ε ⇒ |f(n, x) - g_{1}(x)| < ε
+12. forall (n) (ε), n ∈ NonNegIntegerSet ∧ ε ∈ RealSet ∧ ε > 0 ∧ n > frac(ln(frac(1, ε)), ln(2)) ⇒ frac(1, 2^{n}) < ε
+13. forall (n) (x) (ε), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ ε ∈ RealSet ∧ ε > 0 ∧ n > frac(ln(frac(1, ε)), ln(2)) ⇒ |f(n, x) - g_{1}(x)| < ε
+14. exists (N), N : RealSet → NonNegIntegerSet ∧ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ N(ε) = floor(frac(ln(frac(1, ε)), ln(2))))
+15. forall (N) (n) (ε), N : RealSet → NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ ε ∈ RealSet ∧ ε > 0 ∧ n ≥ N(ε) ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [0, frac(1, 2)] ⇒ |f(n, x) - g_{1}(x)| < ε)
+16. UniformConvergent(f, [0, frac(1, 2)], g_{1})
+17. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ seqlim_{ n → +∞ } (f(n, x)) = g_{2}(x)
+18. forall (ε_{0}), ε_{0} ∈ RealSet ∧ 0 < ε_{0} ∧ ε_{0} < frac(1, 2) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (x), x ∈ RealSet ∧ x = frac(1, sqrtn(n, 2))))
+19. forall (ε_{0}), ε_{0} ∈ RealSet ∧ 0 < ε_{0} ∧ ε_{0} < frac(1, 2) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (x), x ∈ RealSet ∧ x ∈ [0, 1]))
+20. forall (ε_{0}), ε_{0} ∈ RealSet ∧ 0 < ε_{0} ∧ ε_{0} < frac(1, 2) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (x), x ∈ RealSet ∧ |f(n, x) - g_{2}(x)| = frac(1, 2)))
+21. forall (ε_{0}), ε_{0} ∈ RealSet ∧ 0 < ε_{0} ∧ ε_{0} < frac(1, 2) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, 2) > ε_{0})
+22. forall (ε_{0}), ε_{0} ∈ RealSet ∧ 0 < ε_{0} ∧ ε_{0} < frac(1, 2) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (exists (x), x ∈ RealSet ∧ |f(n, x) - g_{2}(x)| > ε_{0}))
+23. ¬UniformConvergent(f, [0, 1], g_{2})
+24. UniformConvergent(f, [0, frac(1, 2)], g_{1})
+
+GOAL:
+¬UniformConvergent(f, [0, 1], g_{2})
+
+METHOD:

@@ -1,0 +1,20 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. c ∈ RealSet ∧ c > 0
+4. Ω ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+5. x : CartesianProd(RealSet, RealSet) → RealSet
+6. y : CartesianProd(RealSet, RealSet) → RealSet
+7. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ Ω = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}) = 1 ∧ frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) = frac(z, c) }))
+8. forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ x(r, φ) = a * r * cos(φ))
+9. forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ y(r, φ) = b * r * sin(φ))
+10. forall (r), r ∈ RealSet ⇒ r^{4} + r^{2} - 1 = 0
+11. exists (r), r ∈ RealSet ∧ r ≥ 0 ∧ r = sqrtn(2, frac(sqrtn(2, 5) - 1, 2))
+12. Ω = { (r, φ, z) | r ∈ RealSet ∧ φ ∈ RealSet ∧ z ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ∧ 0 ≤ r ∧ r ≤ sqrtn(2, frac(sqrtn(2, 5) - 1, 2)) ∧ c * r^{2} ≤ z ∧ z ≤ c * sqrtn(2, 1 - r^{2}) }
+13. exists (I), I ∈ RealSet ∧ (forall (r), r ∈ RealSet ⇒ |I| = a * b * r)
+
+GOAL:
+VolumeInt(Ω, diff(ω)) = DefInt(0, 2 * π, (fun φ [φ ∈ RealSet] . DefInt(0, sqrtn(2, frac(sqrtn(2, 5) - 1, 2)), (fun r [r ∈ RealSet] . a * b * r * DefInt(c * r^{2}, c * sqrtn(2, 1 - r^{2}), diff(fun z [z ∈ RealSet] . z))) * diff(fun r [r ∈ RealSet] . r))) * diff(fun φ [φ ∈ RealSet] . φ))
+
+METHOD:

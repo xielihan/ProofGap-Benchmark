@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-1, 1) ⇒ -ln(frac(1 - x, 1 + x)) = -f(x)}) (x := {y})
+get_condition (hypothesis 5: {y ∈ RealSet ∧ y ∈ IntervalLoRo(-1, 1)}) in (GOAL: {y ∈ RealSet ∧ y ∈ IntervalLoRo(-1, 1) ⇒ -ln(frac(1 - y, 1 + y)) = -f(y)})
+get_prop (hypothesis 2: {forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-1, 1) ⇒ f(x) = ln(frac(1 - x, 1 + x))}) (x := {y}) as (hypothesis 6: {y ∈ RealSet ∧ y ∈ IntervalLoRo(-1, 1) ⇒ f(y) = ln(frac(1 - y, 1 + y))})
+use_condition (hypothesis 5: {y ∈ RealSet ∧ y ∈ IntervalLoRo(-1, 1)}) in (hypothesis 6: {y ∈ RealSet ∧ y ∈ IntervalLoRo(-1, 1) ⇒ f(y) = ln(frac(1 - y, 1 + y))}) as (hypothesis 7: {f(y) = ln(frac(1 - y, 1 + y))})
+autosolve (hypothesis 7: {f(y) = ln(frac(1 - y, 1 + y))})

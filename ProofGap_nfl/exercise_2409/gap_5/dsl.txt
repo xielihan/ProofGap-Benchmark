@@ -1,0 +1,10 @@
+1. rewrite (left_to_right, equation) (hypothesis 9: {S = 2 * frac(2, n + 2) * (lim_{ b → +∞ } (arctan(b) - arctan(0)))}); from (GOAL: {S = frac(2 * π, n + 2)}) to (GOAL: {2 * frac(2, n + 2) * (lim_{ b → +∞ } (arctan(b) - arctan(0))) = frac(2 * π, n + 2)})
+2. get_prop (theorem 'Thm 416. (ArctangentLimitAtPositiveInfinity)': {lim_{x -> +∞} (arctan(x)) = π / 2}) as (hypothesis 10: {lim_{x -> +∞} (arctan(x)) = π / 2})
+3. get_prop (theorem 'Thm 417. (ArctangentOdd)': {forall (u), u ∈ RealSet => arctan(-u) = -arctan(u)}) (u := {0}) as (hypothesis 11: {0 ∈ RealSet => arctan(-0) = -arctan(0)})
+4. assert (hypothesis 12: {0 ∈ RealSet})
+5. use_condition (hypothesis 12: {0 ∈ RealSet}) in (hypothesis 11: {0 ∈ RealSet => arctan(-0) = -arctan(0)}) as (hypothesis 13: {arctan(-0) = -arctan(0)})
+6. assert (hypothesis 14: {arctan(0) = 0})
+7. rewrite (left_to_right, equation) (hypothesis 14: {arctan(0) = 0}); from (GOAL: {2 * frac(2, n + 2) * (lim_{ b → +∞ } (arctan(b) - arctan(0))) = frac(2 * π, n + 2)}) to (GOAL: {2 * frac(2, n + 2) * (lim_{ b → +∞ } (arctan(b) - 0)) = frac(2 * π, n + 2)})
+8. autoreplace no_hypothesis; from (arctan(b) - 0) to (arctan(b)); from (GOAL: {2 * frac(2, n + 2) * (lim_{ b → +∞ } (arctan(b) - 0)) = frac(2 * π, n + 2)}) to (GOAL: {2 * frac(2, n + 2) * (lim_{ b → +∞ } (arctan(b))) = frac(2 * π, n + 2)})
+9. rewrite (left_to_right, equation) (hypothesis 10: {lim_{x -> +∞} (arctan(x)) = π / 2}); from (GOAL: {2 * frac(2, n + 2) * (lim_{ b → +∞ } (arctan(b))) = frac(2 * π, n + 2)}) to (GOAL: {2 * frac(2, n + 2) * (π / 2) = frac(2 * π, n + 2)})
+10. autosolve all_hypothesis

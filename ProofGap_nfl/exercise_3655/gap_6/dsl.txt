@@ -1,0 +1,9 @@
+destruct_and (hypothesis 3: {a ∈ RealSet ∧ a ≠ 0}) as (hypothesis 14: {a ∈ RealSet}) (hypothesis 15: {a ≠ 0})
+destruct_and (hypothesis 4: {b ∈ RealSet ∧ b ≠ 0}) as (hypothesis 16: {b ∈ RealSet}) (hypothesis 17: {b ≠ 0})
+assert (hypothesis 18: {a * b ∈ RealSet}) by proof {
+  1. autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 248. (SignFunctionDefinition)': {forall (x), x ∈ RealSet ⇒ ((x > 0 ⇒ sgn(x) = 1) ∧ (x = 0 ⇒ sgn(x) = 0) ∧ (x < 0 ⇒ sgn(x) = -1))}) (x := {a * b}) as (hypothesis 19: {a * b ∈ RealSet ⇒ ((a * b > 0 ⇒ sgn(a * b) = 1) ∧ (a * b = 0 ⇒ sgn(a * b) = 0) ∧ (a * b < 0 ⇒ sgn(a * b) = -1))})
+use_condition (hypothesis 18: {a * b ∈ RealSet}) in (hypothesis 19: {a * b ∈ RealSet ⇒ ((a * b > 0 ⇒ sgn(a * b) = 1) ∧ (a * b = 0 ⇒ sgn(a * b) = 0) ∧ (a * b < 0 ⇒ sgn(a * b) = -1))}) as (hypothesis 20: {(a * b > 0 ⇒ sgn(a * b) = 1) ∧ (a * b = 0 ⇒ sgn(a * b) = 0) ∧ (a * b < 0 ⇒ sgn(a * b) = -1)})
+rewrite (left_to_right, equation) (hypothesis 13: {ε = sgn(a * b)}); from (GOAL: {ε ≠ 0}) to (GOAL: {sgn(a * b) ≠ 0})
+autosolve all_hypothesis

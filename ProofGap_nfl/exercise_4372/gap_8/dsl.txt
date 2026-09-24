@@ -1,0 +1,6 @@
+1. assert (hypothesis 20: {z = R * cos(γ)}) by proof {
+  1. rewrite (left_to_right, equation) (hypothesis 15: {cos(γ) = frac(z, R)}); from (GOAL: {z = R * cos(γ)}) to (GOAL: {z = R * frac(z, R)})
+  2. autosolve (hypothesis 3: {R ∈ RealSet ∧ R ∈ PosRealSet}) (hypothesis 7: {z ∈ RealSet})
+}
+2. rewrite (left_to_right, equation) (hypothesis 20: {z = R * cos(γ)}); from (GOAL: {ScalarSurfaceInt(S, z * diff(S)) = ScalarSurfaceInt(S, R * cos(γ) * diff(S))}) to (GOAL: {ScalarSurfaceInt(S, R * cos(γ) * diff(S)) = ScalarSurfaceInt(S, R * cos(γ) * diff(S))})
+3. autosolve all_hypothesis

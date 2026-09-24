@@ -1,0 +1,31 @@
+get_forall (GOAL: {forall (A) (A_{0}), A ∈ RealSet ∧ A > 0 ∧ A_{0} ∈ RealSet ∧ A_{0} > 0 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ A > A_{0} ⇒ (forall (α), α ∈ RealSet ∧ a ≤ α ∧ α ≤ b ⇒ e^{-a * A} < e^{-a * A_{0}}))}) (A_{0} := {B1}) (A := {A1})
+get_condition (hypothesis 14: {A1 ∈ RealSet ∧ A1 > 0 ∧ B1 ∈ RealSet ∧ B1 > 0}) in (GOAL: {A1 ∈ RealSet ∧ A1 > 0 ∧ B1 ∈ RealSet ∧ B1 > 0 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ A1 > B1 ⇒ (forall (α), α ∈ RealSet ∧ a ≤ α ∧ α ≤ b ⇒ e^{-a * A1} < e^{-a * B1}))})
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ A1 > B1 ⇒ (forall (α), α ∈ RealSet ∧ a ≤ α ∧ α ≤ b ⇒ e^{-a * A1} < e^{-a * B1})}) (ε := {ε1})
+get_condition (hypothesis 15: {ε1 ∈ RealSet ∧ ε1 > 0 ∧ A1 > B1}) in (GOAL: {ε1 ∈ RealSet ∧ ε1 > 0 ∧ A1 > B1 ⇒ (forall (α), α ∈ RealSet ∧ a ≤ α ∧ α ≤ b ⇒ e^{-a * A1} < e^{-a * B1})})
+get_forall (GOAL: {forall (α), α ∈ RealSet ∧ a ≤ α ∧ α ≤ b ⇒ e^{-a * A1} < e^{-a * B1}}) (α := {α1})
+get_condition (hypothesis 16: {α1 ∈ RealSet ∧ a ≤ α1 ∧ α1 ≤ b}) in (GOAL: {α1 ∈ RealSet ∧ a ≤ α1 ∧ α1 ≤ b ⇒ e^{-a * A1} < e^{-a * B1}})
+destruct_and (hypothesis 14: {A1 ∈ RealSet ∧ A1 > 0 ∧ B1 ∈ RealSet ∧ B1 > 0}) as (hypothesis 17: {A1 ∈ RealSet}) (hypothesis 18: {A1 > 0}) (hypothesis 19: {B1 ∈ RealSet}) (hypothesis 20: {B1 > 0})
+destruct_and (hypothesis 2: {a ∈ RealSet ∧ 0 < a}) as (hypothesis 21: {a ∈ RealSet}) (hypothesis 22: {0 < a})
+destruct_and (hypothesis 15: {ε1 ∈ RealSet ∧ ε1 > 0 ∧ A1 > B1}) as (hypothesis 23: {ε1 ∈ RealSet}) (hypothesis 24: {ε1 > 0}) (hypothesis 25: {A1 > B1})
+get_prop (theorem 'Thm 395. (MultiplyStrictInequalityByPositive)': {forall (a) (b) (c), a ∈ RealSet => b ∈ RealSet => c ∈ RealSet => c > 0 => (a < b <==> a * c < b * c)}) (a := {B1}) (b := {A1}) (c := {a}) as (hypothesis 26: {B1 ∈ RealSet => A1 ∈ RealSet => a ∈ RealSet => a > 0 => (B1 < A1 <==> B1 * a < A1 * a)})
+use_condition (hypothesis 19: {B1 ∈ RealSet}) in (hypothesis 26: {B1 ∈ RealSet => A1 ∈ RealSet => a ∈ RealSet => a > 0 => (B1 < A1 <==> B1 * a < A1 * a)}) as (hypothesis 27: {A1 ∈ RealSet => a ∈ RealSet => a > 0 => (B1 < A1 <==> B1 * a < A1 * a)})
+use_condition (hypothesis 17: {A1 ∈ RealSet}) in (hypothesis 27: {A1 ∈ RealSet => a ∈ RealSet => a > 0 => (B1 < A1 <==> B1 * a < A1 * a)}) as (hypothesis 28: {a ∈ RealSet => a > 0 => (B1 < A1 <==> B1 * a < A1 * a)})
+use_condition (hypothesis 21: {a ∈ RealSet}) in (hypothesis 28: {a ∈ RealSet => a > 0 => (B1 < A1 <==> B1 * a < A1 * a)}) as (hypothesis 29: {a > 0 => (B1 < A1 <==> B1 * a < A1 * a)})
+use_condition (obvious: {a > 0}) in (hypothesis 29: {a > 0 => (B1 < A1 <==> B1 * a < A1 * a)}) as (hypothesis 30: {B1 < A1 <==> B1 * a < A1 * a})
+assert (hypothesis 31: {B1 * a < A1 * a}) by proof {
+  rewrite (right_to_left, iff) (hypothesis 30: {B1 < A1 <==> B1 * a < A1 * a}); from (GOAL: {B1 * a < A1 * a}) to (GOAL: {B1 < A1})
+  autosolve all_hypothesis
+}
+assert (hypothesis 32: {-a * A1 < -a * B1}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 172. (ExponentialMonotonicity)': {forall (x) (y) (a), x ∈ RealSet => y ∈ RealSet => a ∈ RealSet => (a > 0 => a ≠ 1 => x < y => ((a > 1 => a ^ x < a ^ y) /\ (a < 1 => a ^ x > a ^ y)))}) (x := {-a * A1}) (y := {-a * B1}) (a := {e}) as (hypothesis 33: {-a * A1 ∈ RealSet => -a * B1 ∈ RealSet => e ∈ RealSet => (e > 0 => e ≠ 1 => -a * A1 < -a * B1 => ((e > 1 => e ^ (-a * A1) < e ^ (-a * B1)) /\ (e < 1 => e ^ (-a * A1) > e ^ (-a * B1))))})
+use_condition (obvious: {-a * A1 ∈ RealSet}) in (hypothesis 33: {-a * A1 ∈ RealSet => -a * B1 ∈ RealSet => e ∈ RealSet => (e > 0 => e ≠ 1 => -a * A1 < -a * B1 => ((e > 1 => e ^ (-a * A1) < e ^ (-a * B1)) /\ (e < 1 => e ^ (-a * A1) > e ^ (-a * B1))))}) as (hypothesis 34: {-a * B1 ∈ RealSet => e ∈ RealSet => (e > 0 => e ≠ 1 => -a * A1 < -a * B1 => ((e > 1 => e ^ (-a * A1) < e ^ (-a * B1)) /\ (e < 1 => e ^ (-a * A1) > e ^ (-a * B1))))})
+use_condition (obvious: {-a * B1 ∈ RealSet}) in (hypothesis 34: {-a * B1 ∈ RealSet => e ∈ RealSet => (e > 0 => e ≠ 1 => -a * A1 < -a * B1 => ((e > 1 => e ^ (-a * A1) < e ^ (-a * B1)) /\ (e < 1 => e ^ (-a * A1) > e ^ (-a * B1))))}) as (hypothesis 35: {e ∈ RealSet => (e > 0 => e ≠ 1 => -a * A1 < -a * B1 => ((e > 1 => e ^ (-a * A1) < e ^ (-a * B1)) /\ (e < 1 => e ^ (-a * A1) > e ^ (-a * B1))))})
+use_condition (obvious: {e ∈ RealSet}) in (hypothesis 35: {e ∈ RealSet => (e > 0 => e ≠ 1 => -a * A1 < -a * B1 => ((e > 1 => e ^ (-a * A1) < e ^ (-a * B1)) /\ (e < 1 => e ^ (-a * A1) > e ^ (-a * B1))))}) as (hypothesis 36: {e > 0 => e ≠ 1 => -a * A1 < -a * B1 => ((e > 1 => e ^ (-a * A1) < e ^ (-a * B1)) /\ (e < 1 => e ^ (-a * A1) > e ^ (-a * B1)))})
+use_condition (obvious: {e > 0}) in (hypothesis 36: {e > 0 => e ≠ 1 => -a * A1 < -a * B1 => ((e > 1 => e ^ (-a * A1) < e ^ (-a * B1)) /\ (e < 1 => e ^ (-a * A1) > e ^ (-a * B1)))}) as (hypothesis 37: {e ≠ 1 => -a * A1 < -a * B1 => ((e > 1 => e ^ (-a * A1) < e ^ (-a * B1)) /\ (e < 1 => e ^ (-a * A1) > e ^ (-a * B1)))})
+use_condition (obvious: {e ≠ 1}) in (hypothesis 37: {e ≠ 1 => -a * A1 < -a * B1 => ((e > 1 => e ^ (-a * A1) < e ^ (-a * B1)) /\ (e < 1 => e ^ (-a * A1) > e ^ (-a * B1)))}) as (hypothesis 38: {-a * A1 < -a * B1 => ((e > 1 => e ^ (-a * A1) < e ^ (-a * B1)) /\ (e < 1 => e ^ (-a * A1) > e ^ (-a * B1)))})
+use_condition (hypothesis 32: {-a * A1 < -a * B1}) in (hypothesis 38: {-a * A1 < -a * B1 => ((e > 1 => e ^ (-a * A1) < e ^ (-a * B1)) /\ (e < 1 => e ^ (-a * A1) > e ^ (-a * B1)))}) as (hypothesis 39: {(e > 1 => e ^ (-a * A1) < e ^ (-a * B1)) /\ (e < 1 => e ^ (-a * A1) > e ^ (-a * B1))})
+destruct_and (hypothesis 39: {(e > 1 => e ^ (-a * A1) < e ^ (-a * B1)) /\ (e < 1 => e ^ (-a * A1) > e ^ (-a * B1))}) as (hypothesis 40: {e > 1 => e ^ (-a * A1) < e ^ (-a * B1)}) (hypothesis 41: {e < 1 => e ^ (-a * A1) > e ^ (-a * B1)})
+use_condition (obvious: {e > 1}) in (hypothesis 40: {e > 1 => e ^ (-a * A1) < e ^ (-a * B1)}) as (hypothesis 42: {e ^ (-a * A1) < e ^ (-a * B1)})
+apply (hypothesis 42: {e ^ (-a * A1) < e ^ (-a * B1)})

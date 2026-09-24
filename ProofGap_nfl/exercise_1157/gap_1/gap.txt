@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. m ∈ NonNegIntegerSet
+4. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ y(x) = frac(a, x^{m})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(y, 1, 1)(x) = -a * m * x^{-m - 1}
+
+METHOD:

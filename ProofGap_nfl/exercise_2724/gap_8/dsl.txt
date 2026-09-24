@@ -1,0 +1,15 @@
+get_condition (hypothesis 11: {|x| = 1}) in (GOAL: {|x| = 1 ⇒ (exists (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ∧ n ∈ PosIntegerSet ∧ 1 - x^{n} = 0)})
+assert (hypothesis 12: {x = 1 ∨ x = -1}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 13: {x = 1 ⇒ (exists (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ∧ n ∈ PosIntegerSet ∧ 1 - x^{n} = 0)}) by proof {
+  get_condition (hypothesis 14: {x = 1}) in (GOAL: {x = 1 ⇒ (exists (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ∧ n ∈ PosIntegerSet ∧ 1 - x^{n} = 0)})
+  exists (n := {1})
+  autosolve all_hypothesis
+}
+assert (hypothesis 15: {x = -1 ⇒ (exists (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ∧ n ∈ PosIntegerSet ∧ 1 - x^{n} = 0)}) by proof {
+  get_condition (hypothesis 16: {x = -1}) in (GOAL: {x = -1 ⇒ (exists (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ∧ n ∈ PosIntegerSet ∧ 1 - x^{n} = 0)})
+  exists (n := {2})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

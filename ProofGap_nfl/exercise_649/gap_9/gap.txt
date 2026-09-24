@@ -1,0 +1,15 @@
+PROOF GAP @9
+ASSUM:
+1. forall (φ), φ : RealSet → RealSet ⇒ (forall (ψ), ψ : RealSet → RealSet ⇒ (forall (χ), χ : RealSet → RealSet ⇒ (forall (a), a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ φ(x) ≠ 0 ⇒ frac(φ(x), φ(x)) ≡ 1))))
+2. forall (φ), φ : RealSet → RealSet ⇒ (forall (ψ), ψ : RealSet → RealSet ⇒ (forall (χ), χ : RealSet → RealSet ⇒ (forall (a), a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ φ(x) ≠ 0 ⇒ lim_{ x → a } (frac(φ(x), φ(x))) = 1))))
+3. forall (φ), φ : RealSet → RealSet ⇒ (forall (ψ), ψ : RealSet → RealSet ⇒ (forall (χ), χ : RealSet → RealSet ⇒ (forall (a), a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ φ(x) ≠ 0 ⇒ (φ(x)) ∼_{ x → a } (φ(x))))))
+4. forall (φ), φ : RealSet → RealSet ⇒ (forall (ψ), ψ : RealSet → RealSet ⇒ (forall (χ), χ : RealSet → RealSet ⇒ (forall (a), a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ (φ(x)) ∼_{ x → a } (ψ(x)) ∧ φ(x) ≠ 0 ∧ ψ(x) ≠ 0 ⇒ lim_{ x → a } (frac(φ(x), ψ(x))) = 1))))
+5. forall (φ), φ : RealSet → RealSet ⇒ (forall (ψ), ψ : RealSet → RealSet ⇒ (forall (χ), χ : RealSet → RealSet ⇒ (forall (a), a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ (φ(x)) ∼_{ x → a } (ψ(x)) ∧ φ(x) ≠ 0 ∧ ψ(x) ≠ 0 ⇒ lim_{ x → a } (frac(ψ(x), φ(x))) = 1))))
+6. forall (φ), φ : RealSet → RealSet ⇒ (forall (ψ), ψ : RealSet → RealSet ⇒ (forall (χ), χ : RealSet → RealSet ⇒ (forall (a), a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ (φ(x)) ∼_{ x → a } (ψ(x)) ∧ φ(x) ≠ 0 ∧ ψ(x) ≠ 0 ⇒ (ψ(x)) ∼_{ x → a } (φ(x))))))
+7. forall (φ), φ : RealSet → RealSet ⇒ (forall (ψ), ψ : RealSet → RealSet ⇒ (forall (χ), χ : RealSet → RealSet ⇒ (forall (a), a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ (φ(x)) ∼_{ x → a } (ψ(x)) ∧ (ψ(x)) ∼_{ x → a } (χ(x)) ∧ ψ(x) ≠ 0 ∧ χ(x) ≠ 0 ⇒ lim_{ x → a } (frac(φ(x), ψ(x))) = 1))))
+8. forall (φ), φ : RealSet → RealSet ⇒ (forall (ψ), ψ : RealSet → RealSet ⇒ (forall (χ), χ : RealSet → RealSet ⇒ (forall (a), a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ (φ(x)) ∼_{ x → a } (ψ(x)) ∧ (ψ(x)) ∼_{ x → a } (χ(x)) ∧ ψ(x) ≠ 0 ∧ χ(x) ≠ 0 ⇒ lim_{ x → a } (frac(ψ(x), χ(x))) = 1))))
+
+GOAL:
+forall (φ), φ : RealSet → RealSet ⇒ (forall (ψ), ψ : RealSet → RealSet ⇒ (forall (χ), χ : RealSet → RealSet ⇒ (forall (a), a ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ (φ(x)) ∼_{ x → a } (ψ(x)) ∧ (ψ(x)) ∼_{ x → a } (χ(x)) ∧ ψ(x) ≠ 0 ∧ χ(x) ≠ 0 ⇒ frac(φ(x), χ(x)) = frac(φ(x), ψ(x)) * frac(ψ(x), χ(x))))))
+
+METHOD:

@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ FunDeri(f, 1, 1)(x) = 3 * x^{2} - 12 * x + 11}) (x := {x0})
+get_condition (hypothesis 14: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ FunDeri(f, 1, 1)(x0) = 3 * x0^{2} - 12 * x0 + 11})
+get_prop (hypothesis 13: {forall (x), x ∈ RealSet ⇒ FunDeri(f, 1, 1)(x) = (x - 2) * (x - 3) + (x - 1) * (x - 3) + (x - 1) * (x - 2)}) (x := {x0}) as (hypothesis 15: {x0 ∈ RealSet ⇒ FunDeri(f, 1, 1)(x0) = (x0 - 2) * (x0 - 3) + (x0 - 1) * (x0 - 3) + (x0 - 1) * (x0 - 2)})
+use_condition (hypothesis 14: {x0 ∈ RealSet}) in (hypothesis 15: {x0 ∈ RealSet ⇒ FunDeri(f, 1, 1)(x0) = (x0 - 2) * (x0 - 3) + (x0 - 1) * (x0 - 3) + (x0 - 1) * (x0 - 2)}) as (hypothesis 16: {FunDeri(f, 1, 1)(x0) = (x0 - 2) * (x0 - 3) + (x0 - 1) * (x0 - 3) + (x0 - 1) * (x0 - 2)})
+autosolve all_hypothesis

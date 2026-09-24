@@ -1,0 +1,22 @@
+PROOF GAP @9
+ASSUM:
+1. y : RealSet → RealSet
+2. p ∈ RealSet
+3. x_{0} ∈ RealSet
+4. s ∈ RealSet
+5. p > 0
+6. x_{0} > 0
+7. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ x_{0} ⇒ y(x)^{2} = 2 * p * x
+8. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ x_{0} ⇒ FunDeri(y, 1, 1)(x) = frac(p, y(x))
+9. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ x_{0} ⇒ sqrtn(2, 1 + FunDeri(y, 1, 1)(x)^{2}) = sqrtn(2, 1 + frac(p^{2}, y(x)^{2}))
+10. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ x_{0} ⇒ sqrtn(2, 1 + frac(p^{2}, y(x)^{2})) = sqrtn(2, 1 + frac(p, 2 * x))
+11. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ x_{0} ⇒ sqrtn(2, 1 + frac(p, 2 * x)) = frac(1, sqrtn(2, 2)) * frac(sqrtn(2, p + 2 * x), sqrtn(2, x))
+12. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ x_{0} ⇒ sqrtn(2, 1 + FunDeri(y, 1, 1)(x)^{2}) = frac(1, sqrtn(2, 2)) * frac(sqrtn(2, p + 2 * x), sqrtn(2, x))
+13. s = 2 * DefInt(0, x_{0}, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ x_{0}] . frac(1, sqrtn(2, 2)) * frac(sqrtn(2, p + 2 * x), sqrtn(2, x))) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ x_{0}] . x))
+14. s = 2 * sqrtn(2, 2) * DefInt(0, x_{0}, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ x_{0}] . sqrtn(2, p + 2 * x)) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ x_{0}] . sqrtn(2, x)))
+15. s = 2 * sqrtn(2, 2) * ((fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ x_{0}] . frac(1, 2) * sqrtn(2, x * (p + 2 * x)) + frac(p, 2 * sqrtn(2, 2)) * ln(sqrtn(2, x) + sqrtn(2, x + frac(p, 2))))|_{0}^{x_{0}})
+
+GOAL:
+s = 2 * sqrtn(2, x_{0} * (x_{0} + frac(p, 2))) + p * ln(frac(sqrtn(2, x_{0}) + sqrtn(2, x_{0} + frac(p, 2)), sqrtn(2, frac(p, 2))))
+
+METHOD:

@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ∧ n ∈ PosIntegerSet ⇒ 1 - x^{n} ≠ 0
+3. |x| < 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (x^{n}))
+4. |x| < 1 ⇒ MonoDecSeq(fun n [n ∈ NonNegIntegerSet ∧ n ≥ 1] . frac(1, 1 - x^{2 * n}))
+
+GOAL:
+|x| < 1 ⇒ BoundedBelowSeq(fun n [n ∈ NonNegIntegerSet ∧ n ≥ 1] . frac(1, 1 - x^{2 * n}))
+
+METHOD:

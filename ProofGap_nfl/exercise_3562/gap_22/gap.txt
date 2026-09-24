@@ -1,0 +1,44 @@
+PROOF GAP @22
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. c ∈ RealSet
+4. x ∈ RealSet
+5. y ∈ RealSet
+6. z ∈ RealSet
+7. F : RealSet → RealSet
+8. λ_{1} ∈ RealSet
+9. λ_{2} ∈ RealSet
+10. λ_{3} ∈ RealSet
+11. n : NonNegIntegerSet → CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+12. a > b
+13. b > c
+14. c > 0
+15. forall (t), t ∈ RealSet ⇒ F(t) = x^{2} * (b^{2} - t) * (c^{2} - t) + y^{2} * (a^{2} - t) * (c^{2} - t) + z^{2} * (a^{2} - t) * (b^{2} - t) + (a^{2} - t) * (b^{2} - t) * (c^{2} - t)
+16. F(a^{2}) = x^{2} * (b^{2} - a^{2}) * (c^{2} - a^{2})
+17. x^{2} * (b^{2} - a^{2}) * (c^{2} - a^{2}) > 0
+18. F(a^{2}) > 0
+19. F(b^{2}) = y^{2} * (a^{2} - b^{2}) * (c^{2} - b^{2})
+20. y^{2} * (a^{2} - b^{2}) * (c^{2} - b^{2}) < 0
+21. F(b^{2}) < 0
+22. F(c^{2}) = z^{2} * (a^{2} - c^{2}) * (b^{2} - c^{2})
+23. z^{2} * (a^{2} - c^{2}) * (b^{2} - c^{2}) > 0
+24. F(c^{2}) > 0
+25. lim_{ t → +∞ } (F(t)) = -∞
+26. exists ((λ_{1})^{2} ∈ IntervalLoRo(a^{2}, +∞)) ((λ_{2})^{2} ∈ IntervalLoRo(b^{2}, a^{2})) ((λ_{3})^{2} ∈ IntervalLoRo(c^{2}, b^{2})), F((λ_{1})^{2}) = 0 ∧ F((λ_{2})^{2}) = 0 ∧ F((λ_{3})^{2}) = 0
+27. λ_{1} ≠ λ_{2}
+28. λ_{1} ≠ λ_{3}
+29. λ_{2} ≠ λ_{3}
+30. forall (i), i ∈ NonNegIntegerSet ⇒ (exists (λ_{i}), λ_{i} ∈ RealSet ∧ (i ∈ { 1, 2, 3 } ⇒ frac(x^{2}, a^{2} - (λ_{i})^{2}) + frac(y^{2}, b^{2} - (λ_{i})^{2}) + frac(z^{2}, c^{2} - (λ_{i})^{2}) = -1))
+31. forall (i), i ∈ NonNegIntegerSet ⇒ (exists (λ_{i}), λ_{i} ∈ RealSet ∧ (i ∈ { 1, 2, 3 } ⇒ n(i) = (frac(2 * x, a^{2} - (λ_{i})^{2}), frac(2 * y, b^{2} - (λ_{i})^{2}), frac(2 * z, c^{2} - (λ_{i})^{2}))))
+32. forall (i), i ∈ NonNegIntegerSet ⇒ (forall (j), j ∈ NonNegIntegerSet ⇒ (exists (λ_{i}), λ_{i} ∈ RealSet ∧ (exists (λ_{j}), λ_{j} ∈ RealSet ∧ (i ∈ { 1, 2, 3 } ⇒ j ∈ { 1, 2, 3 } ⇒ i ≠ j ⇒ n(i) · n(j) = frac(4 * x^{2}, (a^{2} - (λ_{i})^{2}) * (a^{2} - (λ_{j})^{2})) + frac(4 * y^{2}, (b^{2} - (λ_{i})^{2}) * (b^{2} - (λ_{j})^{2})) + frac(4 * z^{2}, (c^{2} - (λ_{i})^{2}) * (c^{2} - (λ_{j})^{2}))))))
+33. forall (i), i ∈ NonNegIntegerSet ⇒ (forall (j), j ∈ NonNegIntegerSet ⇒ (exists (λ_{i}), λ_{i} ∈ RealSet ∧ (exists (λ_{j}), λ_{j} ∈ RealSet ∧ (i ∈ { 1, 2, 3 } ⇒ j ∈ { 1, 2, 3 } ⇒ i ≠ j ⇒ n(i) · n(j) = frac(4, (λ_{i})^{2} - (λ_{j})^{2}) * (frac(x^{2}, a^{2} - (λ_{i})^{2}) + frac(y^{2}, b^{2} - (λ_{i})^{2}) + frac(z^{2}, c^{2} - (λ_{i})^{2}) - (frac(x^{2}, a^{2} - (λ_{j})^{2}) + frac(y^{2}, b^{2} - (λ_{j})^{2}) + frac(z^{2}, c^{2} - (λ_{j})^{2})))))))
+34. forall (i), i ∈ NonNegIntegerSet ⇒ (forall (j), j ∈ NonNegIntegerSet ⇒ (exists (λ_{i}), λ_{i} ∈ RealSet ∧ (exists (λ_{j}), λ_{j} ∈ RealSet ∧ (i ∈ { 1, 2, 3 } ⇒ j ∈ { 1, 2, 3 } ⇒ i ≠ j ⇒ n(i) · n(j) = frac(4, (λ_{i})^{2} - (λ_{j})^{2}) * (-1 - -1)))))
+35. forall (i), i ∈ NonNegIntegerSet ⇒ (forall (j), j ∈ NonNegIntegerSet ⇒ (exists (λ_{i}), λ_{i} ∈ RealSet ∧ (exists (λ_{j}), λ_{j} ∈ RealSet ∧ (i ∈ { 1, 2, 3 } ⇒ j ∈ { 1, 2, 3 } ⇒ i ≠ j ⇒ frac(4, (λ_{i})^{2} - (λ_{j})^{2}) * (-1 - -1) = 0))))
+36. forall (i), i ∈ NonNegIntegerSet ⇒ (forall (j), j ∈ NonNegIntegerSet ⇒ (exists (λ_{i}), λ_{i} ∈ RealSet ∧ (exists (λ_{j}), λ_{j} ∈ RealSet ∧ (i ∈ { 1, 2, 3 } ⇒ j ∈ { 1, 2, 3 } ⇒ i ≠ j ⇒ n(i) · n(j) = 0))))
+37. exists (λ_{1}) (λ_{2}) (λ_{3}), λ_{1} ∈ RealSet ∧ λ_{2} ∈ RealSet ∧ λ_{3} ∈ RealSet ∧ (λ_{1})^{2} ∈ IntervalLoRo(a^{2}, +∞) ∧ (λ_{2})^{2} ∈ IntervalLoRo(b^{2}, a^{2}) ∧ (λ_{3})^{2} ∈ IntervalLoRo(c^{2}, b^{2}) ∧ λ_{1} ≠ λ_{2} ∧ λ_{1} ≠ λ_{3} ∧ λ_{2} ≠ λ_{3} ∧ (forall (i), i ∈ NonNegIntegerSet ⇒ (forall (j), j ∈ NonNegIntegerSet ∧ i ∈ { 1, 2, 3 } ∧ j ∈ { 1, 2, 3 } ∧ i ≠ j ⇒ n(i) · n(j) = 0))
+
+GOAL:
+exists (λ_{1}) (λ_{2}) (λ_{3}), λ_{1} ∈ RealSet ∧ λ_{2} ∈ RealSet ∧ λ_{3} ∈ RealSet ∧ (λ_{1})^{2} ∈ IntervalLoRo(a^{2}, +∞) ∧ (λ_{2})^{2} ∈ IntervalLoRo(b^{2}, a^{2}) ∧ (λ_{3})^{2} ∈ IntervalLoRo(c^{2}, b^{2}) ∧ λ_{1} ≠ λ_{2} ∧ λ_{1} ≠ λ_{3} ∧ λ_{2} ≠ λ_{3} ∧ (forall (i), i ∈ NonNegIntegerSet ⇒ (forall (j), j ∈ NonNegIntegerSet ∧ i ∈ { 1, 2, 3 } ∧ j ∈ { 1, 2, 3 } ∧ i ≠ j ⇒ n(i) · n(j) = 0))
+
+METHOD:

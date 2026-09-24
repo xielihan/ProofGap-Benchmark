@@ -1,0 +1,18 @@
+get_prop (theorem 'Thm 168. (PythagoreanTrigonometricIdentity)': {forall (x), x ∈ RealSet => (sin(x)) ^ 2 + (cos(x)) ^ 2 = 1}) (x := {φ}) as (hypothesis 13: {φ ∈ RealSet => (sin(φ)) ^ 2 + (cos(φ)) ^ 2 = 1})
+use_condition (hypothesis 6: {φ ∈ RealSet}) in (hypothesis 13: {φ ∈ RealSet => (sin(φ)) ^ 2 + (cos(φ)) ^ 2 = 1}) as (hypothesis 14: {(sin(φ)) ^ 2 + (cos(φ)) ^ 2 = 1})
+get_prop (theorem 'Thm 168. (PythagoreanTrigonometricIdentity)': {forall (x), x ∈ RealSet => (sin(x)) ^ 2 + (cos(x)) ^ 2 = 1}) (x := {ψ}) as (hypothesis 15: {ψ ∈ RealSet => (sin(ψ)) ^ 2 + (cos(ψ)) ^ 2 = 1})
+use_condition (hypothesis 7: {ψ ∈ RealSet}) in (hypothesis 15: {ψ ∈ RealSet => (sin(ψ)) ^ 2 + (cos(ψ)) ^ 2 = 1}) as (hypothesis 16: {(sin(ψ)) ^ 2 + (cos(ψ)) ^ 2 = 1})
+rewrite (left_to_right, equation) (hypothesis 10: {x = r * cos(φ) * cos(ψ)}); from (GOAL: {x^{2} + y^{2} + z^{2} = r^{2}}) to (GOAL: {(r * cos(φ) * cos(ψ))^{2} + y^{2} + z^{2} = r^{2}})
+rewrite (left_to_right, equation) (hypothesis 11: {y = r * sin(φ) * cos(ψ)}); from (GOAL: {(r * cos(φ) * cos(ψ))^{2} + y^{2} + z^{2} = r^{2}}) to (GOAL: {(r * cos(φ) * cos(ψ))^{2} + (r * sin(φ) * cos(ψ))^{2} + z^{2} = r^{2}})
+rewrite (left_to_right, equation) (hypothesis 12: {z = r * sin(ψ)}); from (GOAL: {(r * cos(φ) * cos(ψ))^{2} + (r * sin(φ) * cos(ψ))^{2} + z^{2} = r^{2}}) to (GOAL: {(r * cos(φ) * cos(ψ))^{2} + (r * sin(φ) * cos(ψ))^{2} + (r * sin(ψ))^{2} = r^{2}})
+assert (hypothesis 17: {(r * cos(φ) * cos(ψ))^{2} + (r * sin(φ) * cos(ψ))^{2} = (r * cos(ψ))^{2} * ((sin(φ))^{2} + (cos(φ))^{2})}) by proof {
+autosolve all_hypothesis using PolyRatSolver
+}
+rewrite (left_to_right, equation) (hypothesis 17: {(r * cos(φ) * cos(ψ))^{2} + (r * sin(φ) * cos(ψ))^{2} = (r * cos(ψ))^{2} * ((sin(φ))^{2} + (cos(φ))^{2})}); from (GOAL: {(r * cos(φ) * cos(ψ))^{2} + (r * sin(φ) * cos(ψ))^{2} + (r * sin(ψ))^{2} = r^{2}}) to (GOAL: {(r * cos(ψ))^{2} * ((sin(φ))^{2} + (cos(φ))^{2}) + (r * sin(ψ))^{2} = r^{2}})
+rewrite (left_to_right, equation) (hypothesis 14: {(sin(φ)) ^ 2 + (cos(φ)) ^ 2 = 1}); from (GOAL: {(r * cos(ψ))^{2} * ((sin(φ))^{2} + (cos(φ))^{2}) + (r * sin(ψ))^{2} = r^{2}}) to (GOAL: {(r * cos(ψ))^{2} * 1 + (r * sin(ψ))^{2} = r^{2}})
+assert (hypothesis 18: {(r * cos(ψ))^{2} * 1 + (r * sin(ψ))^{2} = r^{2} * ((sin(ψ))^{2} + (cos(ψ))^{2})}) by proof {
+autosolve all_hypothesis using PolyRatSolver
+}
+rewrite (left_to_right, equation) (hypothesis 18: {(r * cos(ψ))^{2} * 1 + (r * sin(ψ))^{2} = r^{2} * ((sin(ψ))^{2} + (cos(ψ))^{2})}); from (GOAL: {(r * cos(ψ))^{2} * 1 + (r * sin(ψ))^{2} = r^{2}}) to (GOAL: {r^{2} * ((sin(ψ))^{2} + (cos(ψ))^{2}) = r^{2}})
+rewrite (left_to_right, equation) (hypothesis 16: {(sin(ψ)) ^ 2 + (cos(ψ)) ^ 2 = 1}); from (GOAL: {r^{2} * ((sin(ψ))^{2} + (cos(ψ))^{2}) = r^{2}}) to (GOAL: {r^{2} * 1 = r^{2}})
+autosolve all_hypothesis using PolyRatSolver

@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ∈ PosRealSet ∧ y ∈ PosRealSet ⇒ FunDeri(z, 2, 1)(x, y) = x - frac(20, y^{2})}) (x := {a})
+get_forall (GOAL: {forall (y), a ∈ RealSet ∧ y ∈ RealSet ∧ a ∈ PosRealSet ∧ y ∈ PosRealSet ⇒ FunDeri(z, 2, 1)(a, y) = a - frac(20, y^{2})}) (y := {b})
+get_condition (hypothesis 4: {a ∈ RealSet ∧ b ∈ RealSet ∧ a ∈ PosRealSet ∧ b ∈ PosRealSet}) in (GOAL: {a ∈ RealSet ∧ b ∈ RealSet ∧ a ∈ PosRealSet ∧ b ∈ PosRealSet ⇒ FunDeri(z, 2, 1)(a, b) = a - frac(20, b^{2})})
+autosolve all_hypothesis using DerivSolver

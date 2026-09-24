@@ -1,0 +1,19 @@
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N = floor(frac(1, ε)) ∧ (forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n > N ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ |f(n, x) - g(x)| = |f(n, x) - 0|))}) (ε := {δ})
+get_condition (hypothesis 14: {δ ∈ RealSet ∧ δ > 0}) in (GOAL: {δ ∈ RealSet ∧ δ > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N = floor(frac(1, δ)) ∧ (forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n > N ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ |f(n, x) - g(x)| = |f(n, x) - 0|))})
+get_prop (hypothesis 13: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N = floor(frac(1, ε)))}) (ε := {δ}) as (hypothesis 15: {δ ∈ RealSet ∧ δ > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N = floor(frac(1, δ)))})
+use_condition (hypothesis 14: {δ ∈ RealSet ∧ δ > 0}) in (hypothesis 15: {δ ∈ RealSet ∧ δ > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N = floor(frac(1, δ)))}) as (hypothesis 16: {exists (N), N ∈ NonNegIntegerSet ∧ N = floor(frac(1, δ))})
+get_exists (hypothesis 16: {exists (N), N ∈ NonNegIntegerSet ∧ N = floor(frac(1, δ))}) (N := {K})
+destruct_and (hypothesis 17: {K ∈ NonNegIntegerSet ∧ K = floor(frac(1, δ))}) as (hypothesis 18: {K ∈ NonNegIntegerSet}) (hypothesis 19: {K = floor(frac(1, δ))})
+exists (N := {K})
+assert (hypothesis 20: {forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n > K ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ |f(n, x) - g(x)| = |f(n, x) - 0|}) by proof {
+  get_forall (GOAL: {forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n > K ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ |f(n, x) - g(x)| = |f(n, x) - 0|}) (n := {m}) (x := {y})
+  get_condition (hypothesis 20: {m ∈ NonNegIntegerSet ∧ y ∈ RealSet ∧ m > K ∧ m ∈ PosIntegerSet ∧ y ∈ PosRealSet}) in (GOAL: {m ∈ NonNegIntegerSet ∧ y ∈ RealSet ∧ m > K ∧ m ∈ PosIntegerSet ∧ y ∈ PosRealSet ⇒ |f(m, y) - g(y)| = |f(m, y) - 0|})
+  get_prop (hypothesis 4: {forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ g(x) = 0}) (x := {y}) as (hypothesis 21: {y ∈ RealSet ∧ y ∈ PosRealSet ⇒ g(y) = 0})
+  assert (hypothesis 22: {y ∈ RealSet ∧ y ∈ PosRealSet}) by proof {
+    autosolve all_hypothesis
+  }
+  use_condition (hypothesis 22: {y ∈ RealSet ∧ y ∈ PosRealSet}) in (hypothesis 21: {y ∈ RealSet ∧ y ∈ PosRealSet ⇒ g(y) = 0}) as (hypothesis 23: {g(y) = 0})
+  rewrite (left_to_right, equation) (hypothesis 23: {g(y) = 0}); from (GOAL: {|f(m, y) - g(y)| = |f(m, y) - 0|}) to (GOAL: {|f(m, y) - 0| = |f(m, y) - 0|})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

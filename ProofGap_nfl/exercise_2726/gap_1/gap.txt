@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. a : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(x^{n}, 1 + x^{2 * n})
+
+GOAL:
+|x| < 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ∧ n ∈ PosIntegerSet ⇒ |a(n)| ≤ |x|^{n})
+
+METHOD:

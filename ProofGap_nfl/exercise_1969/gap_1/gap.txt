@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. C ∈ RealSet
+2. x ∈ RealSet
+3. z ∈ RealSet
+4. x^{2} + 3 * x + 2 ≥ 0
+5. x + sqrtn(2, x^{2} + 3 * x + 2) ≠ 0
+
+GOAL:
+sqrtn(2, x^{2} + 3 * x + 2) = z * (x + 1) ⇒ z ∈ RealSet
+
+METHOD:

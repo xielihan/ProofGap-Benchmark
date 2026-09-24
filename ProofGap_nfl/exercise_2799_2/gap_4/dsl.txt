@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{2}))}) (x := {x0})
+get_condition (hypothesis 8: {x0 ∈ RealSet ∧ x0 ≠ 0}) in (GOAL: {x0 ∈ RealSet ∧ x0 ≠ 0 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{2}))})
+get_prop (theorem 'Thm 366. (PSeriesConvergesForExponentAboveOne)': {forall (p), p ∈ RealSet ⇒ p > 1 ⇒ ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ p))}) (p := {2}) as (hypothesis 9: {2 ∈ RealSet ⇒ 2 > 1 ⇒ ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ 2))})
+use_condition (obvious: {2 ∈ RealSet}) (obvious: {2 > 1}) in (hypothesis 9: {2 ∈ RealSet ⇒ 2 > 1 ⇒ ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ 2))}) as (hypothesis 10: {ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ 2))})
+apply (hypothesis 10: {ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ 2))})

@@ -1,0 +1,27 @@
+PROOF GAP @3
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. A ∈ CartesianProd(RealSet, RealSet)
+3. B ∈ CartesianProd(RealSet, RealSet)
+4. C_{1} ∈ CartesianProd(RealSet, RealSet)
+5. D ∈ CartesianProd(RealSet, RealSet)
+6. AB ⊆ CartesianProd(RealSet, RealSet)
+7. BC ⊆ CartesianProd(RealSet, RealSet)
+8. CD ⊆ CartesianProd(RealSet, RealSet)
+9. DA ⊆ CartesianProd(RealSet, RealSet)
+10. A = (1, 0)
+11. B = (0, 1)
+12. C_{1} = (-1, 0)
+13. D = (0, -1)
+14. C = AB ∪ BC ∪ CD ∪ DA
+15. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ AB = { (x, y) | y = 1 - x ∧ 0 ≤ x ∧ x ≤ 1 })
+16. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ BC = { (x, y) | y = 1 + x ∧ -1 ≤ x ∧ x ≤ 0 })
+17. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ CD = { (x, y) | y = -1 - x ∧ -1 ≤ x ∧ x ≤ 0 })
+18. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ DA = { (x, y) | y = -1 + x ∧ 0 ≤ x ∧ x ≤ 1 })
+19. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ VectorCurveInt(C, frac(diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y), |x| + |y|)) = VectorCurveInt(AB, frac(diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y), x + y)) + VectorCurveInt(BC, frac(diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y), -x + y)) + VectorCurveInt(CD, frac(diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y), -x - y)) + VectorCurveInt(DA, frac(diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y), x - y)))
+20. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ VectorCurveInt(AB, frac(diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y), x + y)) = DefInt(1, 0, (1 - 1) * diff(fun x [x ∈ RealSet] . x)))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ VectorCurveInt(BC, frac(diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y), -x + y)) = DefInt(0, -1, 2 * diff(fun x [x ∈ RealSet] . x)))
+
+METHOD:

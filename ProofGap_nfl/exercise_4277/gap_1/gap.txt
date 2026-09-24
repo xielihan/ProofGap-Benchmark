@@ -1,0 +1,21 @@
+PROOF GAP @1
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. P : CartesianProd(RealSet, RealSet) → RealSet
+3. Q : CartesianProd(RealSet, RealSet) → RealSet
+4. L ∈ RealSet ∧ L > 0
+5. M ∈ RealSet
+6. x : RealSet → RealSet
+7. y : RealSet → RealSet
+8. ContinuousFuncOn(P, C)
+9. ContinuousFuncOn(Q, C)
+10. ContinuousFuncOn(FunDeri(x, 1, 1), [0, L])
+11. ContinuousFuncOn(FunDeri(y, 1, 1), [0, L])
+12. C = { (x(s), y(s)) | s ∈ RealSet, 0 ≤ s ∧ s ≤ L }
+13. forall (s), s ∈ RealSet ∧ 0 ≤ s ∧ s ≤ L ⇒ FunDeri(x, 1, 1)(s)^{2} + FunDeri(y, 1, 1)(s)^{2} = 1
+14. M = max({ sqrtn(2, P(u, v)^{2} + Q(u, v)^{2}) | (u, v) ∈ C, u ∈ RealSet, v ∈ RealSet })
+
+GOAL:
+VectorCurveInt(C, (fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . P(u, v)) * diff(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . u) + (fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . Q(u, v)) * diff(fun u, v [u ∈ RealSet ∧ v ∈ RealSet] . v)) = DefInt(0, L, (fun s [s ∈ RealSet ∧ 0 ≤ s ∧ s ≤ L] . P(x(s), y(s)) * FunDeri(x, 1, 1)(s) + Q(x(s), y(s)) * FunDeri(y, 1, 1)(s)) * diff(fun s [s ∈ RealSet ∧ 0 ≤ s ∧ s ≤ L] . s))
+
+METHOD:

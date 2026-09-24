@@ -1,0 +1,7 @@
+1. get_forall (GOAL: {forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{2} > x_{1} ∧ x_{1} ≥ 0 ⇒ (x_{2} - x_{1}) * (x_{2} + x_{1}) > 0)}) (x_{1} := {a})
+2. get_condition (hypothesis 5: {a ∈ RealSet}) in (GOAL: {a ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{2} > a ∧ a ≥ 0 ⇒ (x_{2} - a) * (x_{2} + a) > 0)})
+3. get_forall (GOAL: {forall (x_{2}), x_{2} ∈ RealSet ∧ x_{2} > a ∧ a ≥ 0 ⇒ (x_{2} - a) * (x_{2} + a) > 0}) (x_{2} := {b})
+4. get_condition (hypothesis 6: {b ∈ RealSet ∧ b > a ∧ a ≥ 0}) in (GOAL: {b ∈ RealSet ∧ b > a ∧ a ≥ 0 ⇒ (b - a) * (b + a) > 0})
+5. assert (hypothesis 7: {b - a > 0})
+6. assert (hypothesis 8: {b + a > 0})
+7. autosolve (hypothesis 7: {b - a > 0}) (hypothesis 8: {b + a > 0})

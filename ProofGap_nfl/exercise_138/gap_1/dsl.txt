@@ -1,0 +1,3 @@
+get_prop (theorem 'Thm 343. (ConvergentSequenceDefinition)': {forall (a), (ConvergentSeq(a) <==> (exists (L), L ∈ RealSet /\ seqlim_{n -> +∞}(a(n)) = L))}) (a := {x}) as (hypothesis 8: {ConvergentSeq(x) <==> (exists (L), L ∈ RealSet /\ seqlim_{n -> +∞}(x(n)) = L)})
+rewrite (left_to_right, iff) (hypothesis 8: {ConvergentSeq(x) <==> (exists (L), L ∈ RealSet /\ seqlim_{n -> +∞}(x(n)) = L)}); from (hypothesis 5: {ConvergentSeq(x)}) to (hypothesis 9: {exists (L), L ∈ RealSet /\ seqlim_{n -> +∞}(x(n)) = L})
+apply (hypothesis 9: {exists (L), L ∈ RealSet /\ seqlim_{n -> +∞}(x(n)) = L})

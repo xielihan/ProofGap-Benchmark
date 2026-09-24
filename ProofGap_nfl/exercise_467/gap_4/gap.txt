@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. n ∈ PosIntegerSet
+3. forall (x), x ∈ RealSet
+4. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ x ≠ 0
+5. lim_{ x → 0 } (frac((sqrtn(2, 1 + x^{2}) + x)^{n} - (sqrtn(2, 1 + x^{2}) - x)^{n}, x)) = lim_{ x → 0 } (frac(2 * x, x) * (sum_{ k = 0 }^{ n - 1 } ((x + sqrtn(2, 1 + x^{2}))^{n - 1 - k} * (sqrtn(2, 1 + x^{2}) - x)^{k})))
+
+GOAL:
+lim_{ x → 0 } (frac(2 * x, x) * (sum_{ k = 0 }^{ n - 1 } ((x + sqrtn(2, 1 + x^{2}))^{n - 1 - k} * (sqrtn(2, 1 + x^{2}) - x)^{k}))) = 2 * n
+
+METHOD:

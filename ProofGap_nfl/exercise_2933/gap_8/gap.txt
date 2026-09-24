@@ -1,0 +1,15 @@
+PROOF GAP @8
+ASSUM:
+1. y : RealSet → RealSet
+2. s ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π ⇒ y(x) = sin(x)
+4. s = DefInt(0, π, (fun x [x ∈ RealSet] . sqrtn(2, 1 + FunDeri(y, 1, 1)(x)^{2})) * diff(fun x [x ∈ RealSet] . x))
+5. s = DefInt(0, π, (fun x [x ∈ RealSet] . sqrtn(2, 1 + FunDeri(y, 1, 1)(x)^{2})) * diff(fun x [x ∈ RealSet] . x))
+6. DefInt(0, π, (fun x [x ∈ RealSet] . sqrtn(2, 1 + FunDeri(y, 1, 1)(x)^{2})) * diff(fun x [x ∈ RealSet] . x)) = 2 * DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . sqrtn(2, 1 + cos(x)^{2})) * diff(fun x [x ∈ RealSet] . x))
+7. s = 2 * DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . sqrtn(2, 1 + cos(x)^{2})) * diff(fun x [x ∈ RealSet] . x))
+8. forall (n), n ∈ NonNegIntegerSet ⇒ DefInt(0, frac(π, 2), (fun x [x ∈ RealSet] . cos(x)^{2 * n}) * diff(fun x [x ∈ RealSet] . x)) = frac(π * (2 * n)!, 2^{2 * n + 1} * n! * n!)
+
+GOAL:
+exists (Δ), Δ ∈ RealSet ∧ 0 < Δ
+
+METHOD:

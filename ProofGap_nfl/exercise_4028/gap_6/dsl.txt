@@ -1,0 +1,6 @@
+assert (hypothesis 12: {u * a^{2} ≤ 2 * a^{2}}) by proof {
+  1. autosolve (hypothesis 8: {x * y = u * a^{2}}) (hypothesis 11: {x ∈ RealSet ∧ y ∈ RealSet ∧ u ∈ RealSet ∧ v ∈ RealSet ∧ a^{2} ≤ x * y ∧ x * y ≤ 2 * a^{2} ∧ frac(x, 2) ≤ y ∧ y ≤ 2 * x})
+}
+get_prop (theorem 'Thm 394. (MultiplyInequalityByPositiveEquivalence)': {forall (a) (b) (c), a ∈ RealSet => b ∈ RealSet => c ∈ RealSet => c > 0 => (a <= b <==> a * c <= b * c)}) (a := {u}) (b := {2}) (c := {a^{2}}) as (hypothesis 13: {u ∈ RealSet => 2 ∈ RealSet => a^{2} ∈ RealSet => a^{2} > 0 => (u <= 2 <==> u * a^{2} <= 2 * a^{2})})
+use_condition (obvious: {u ∈ RealSet}) (obvious: {2 ∈ RealSet}) (obvious: {a^{2} ∈ RealSet}) (obvious: {a^{2} > 0}) in (hypothesis 13: {u ∈ RealSet => 2 ∈ RealSet => a^{2} ∈ RealSet => a^{2} > 0 => (u <= 2 <==> u * a^{2} <= 2 * a^{2})}) as (hypothesis 14: {u <= 2 <==> u * a^{2} <= 2 * a^{2}})
+autosolve all_hypothesis

@@ -1,0 +1,24 @@
+PROOF GAP @11
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. p : NonNegIntegerSet → NonNegIntegerSet
+3. i ∈ NonNegIntegerSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = p(0) + (sum_{ i = 1 }^{ n } (frac(p(i), 10^{i})))
+5. p(0) ∈ NonNegIntegerSet
+6. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ⇒ p(i) ∈ NonNegIntegerSet ∧ p(i) ≤ 9
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n + 1) = x(n) + frac(p(n + 1), 10^{n + 1})
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(n + 1) ≥ 0
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n + 1) ≥ x(n)
+10. MonoIncSeq(x)
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(0) ≤ x(n)
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = p(0) + (sum_{ i = 1 }^{ n } (frac(p(i), 10^{i})))
+13. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(0) + (sum_{ i = 1 }^{ n } (frac(p(i), 10^{i}))) ≤ p(0) + 9 * (sum_{ i = 1 }^{ n } (frac(1, 10^{i})))
+14. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(0) + 9 * (sum_{ i = 1 }^{ n } (frac(1, 10^{i}))) < p(0) + 1
+15. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) < p(0) + 1
+16. BoundedSeq(x)
+
+GOAL:
+ConvergentSeq(x)
+
+METHOD:
+[@method 根据 "单调有界数列极限存在定理" @]

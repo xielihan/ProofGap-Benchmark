@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ IntegerSet /\ n > k => 0 < prod_{ i = 1 }^{ n } (frac(|a|, i))}) (n := {n0})
+get_condition (hypothesis 7: {n0 ∈ NonNegIntegerSet /\ n0 ∈ IntegerSet /\ n0 > k}) in (GOAL: {n0 ∈ NonNegIntegerSet /\ n0 ∈ IntegerSet /\ n0 > k => 0 < prod_{ i = 1 }^{ n0 } (frac(|a|, i))})
+get_prop (hypothesis 5: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ IntegerSet /\ n > k => 0 < |frac(a^{n}, n!)|}) (n := {n0}) as (hypothesis 8: {n0 ∈ NonNegIntegerSet /\ n0 ∈ IntegerSet /\ n0 > k => 0 < |frac(a^{n0}, n0!)|})
+use_condition (hypothesis 7: {n0 ∈ NonNegIntegerSet /\ n0 ∈ IntegerSet /\ n0 > k}) in (hypothesis 8: {n0 ∈ NonNegIntegerSet /\ n0 ∈ IntegerSet /\ n0 > k => 0 < |frac(a^{n0}, n0!)|}) as (hypothesis 9: {0 < |frac(a^{n0}, n0!)|})
+get_prop (hypothesis 6: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ IntegerSet /\ n > k => |frac(a^{n}, n!)| = prod_{ i = 1 }^{ n } (frac(|a|, i))}) (n := {n0}) as (hypothesis 10: {n0 ∈ NonNegIntegerSet /\ n0 ∈ IntegerSet /\ n0 > k => |frac(a^{n0}, n0!)| = prod_{ i = 1 }^{ n0 } (frac(|a|, i))})
+use_condition (hypothesis 7: {n0 ∈ NonNegIntegerSet /\ n0 ∈ IntegerSet /\ n0 > k}) in (hypothesis 10: {n0 ∈ NonNegIntegerSet /\ n0 ∈ IntegerSet /\ n0 > k => |frac(a^{n0}, n0!)| = prod_{ i = 1 }^{ n0 } (frac(|a|, i))}) as (hypothesis 11: {|frac(a^{n0}, n0!)| = prod_{ i = 1 }^{ n0 } (frac(|a|, i))})
+autosolve (hypothesis 9: {0 < |frac(a^{n0}, n0!)|}) (hypothesis 11: {|frac(a^{n0}, n0!)| = prod_{ i = 1 }^{ n0 } (frac(|a|, i))})

@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. `ξ_1` ∈ RealSet ∧ `ξ_1` ∈ PosRealSet
+3. x_{1} ∈ RealSet
+4. x_{2} ∈ RealSet
+5. m ∈ RealSet ∧ m > 0
+6. forall (x), x ∈ RealSet ∧ (forall (k), k ∈ IntegerSet ⇒ x ≠ frac(π, 2) + k * π) ⇒ f(x) = tan(x) - x
+7. forall (x), x ∈ RealSet ∧ (forall (k), k ∈ IntegerSet ⇒ x ≠ frac(π, 2) + k * π) ⇒ FunDeri(f, 1, 1)(x) = tan(x)^{2}
+
+GOAL:
+forall (x), x ∈ RealSet ∧ (forall (k), k ∈ IntegerSet ⇒ x ≠ frac(π, 2) + k * π) ⇒ FunDeri(f, 1, 2)(x) = 2 * tan(x) * sec(x)^{2}
+
+METHOD:

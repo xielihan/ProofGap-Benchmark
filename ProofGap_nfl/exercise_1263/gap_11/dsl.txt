@@ -1,0 +1,7 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ∧ a * x > 1 ⇒ FunDeri(f, 1, 1)(x) = FunDeri(g, 1, 1)(x)}) (x := {x0})
+2. get_condition (hypothesis 19: {x0 ∈ RealSet ∧ a * x0 > 1}) in (GOAL: {x0 ∈ RealSet ∧ a * x0 > 1 ⇒ FunDeri(f, 1, 1)(x0) = FunDeri(g, 1, 1)(x0)})
+3. get_prop (hypothesis 17: {forall (x), x ∈ RealSet ∧ a * x > 1 ⇒ FunDeri(f, 1, 1)(x) = frac(1, 1 + x^{2})}) (x := {x0}) as (hypothesis 20: {x0 ∈ RealSet ∧ a * x0 > 1 ⇒ FunDeri(f, 1, 1)(x0) = frac(1, 1 + x0^{2})})
+4. get_prop (hypothesis 18: {forall (x), x ∈ RealSet ∧ a * x > 1 ⇒ FunDeri(g, 1, 1)(x) = frac(1, 1 + x^{2})}) (x := {x0}) as (hypothesis 21: {x0 ∈ RealSet ∧ a * x0 > 1 ⇒ FunDeri(g, 1, 1)(x0) = frac(1, 1 + x0^{2})})
+5. use_condition (hypothesis 19: {x0 ∈ RealSet ∧ a * x0 > 1}) in (hypothesis 20: {x0 ∈ RealSet ∧ a * x0 > 1 ⇒ FunDeri(f, 1, 1)(x0) = frac(1, 1 + x0^{2})}) as (hypothesis 22: {FunDeri(f, 1, 1)(x0) = frac(1, 1 + x0^{2})})
+6. use_condition (hypothesis 19: {x0 ∈ RealSet ∧ a * x0 > 1}) in (hypothesis 21: {x0 ∈ RealSet ∧ a * x0 > 1 ⇒ FunDeri(g, 1, 1)(x0) = frac(1, 1 + x0^{2})}) as (hypothesis 23: {FunDeri(g, 1, 1)(x0) = frac(1, 1 + x0^{2})})
+7. autosolve (hypothesis 22: {FunDeri(f, 1, 1)(x0) = frac(1, 1 + x0^{2})}) (hypothesis 23: {FunDeri(g, 1, 1)(x0) = frac(1, 1 + x0^{2})})

@@ -1,0 +1,2 @@
+1. get_forall (GOAL: {forall (a), a ∈ RealSet ∧ l < a ∧ a < L ∧ p = (fun k [k ∈ NonNegIntegerSet] . n(k)) ⇒ IsSubseqIndexFunc(p)}) (a := {a0})
+2. autosolve all_hypothesis

@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x < 2 ∧ x ≠ 1 ⇒ lim_{ x → 1 } (tan(frac(π * x, 2)) * ln(2 - x)) = lim_{ x → 1 } (frac(ln(2 - x), cot(frac(π * x, 2))))
+2. lim_{ x → 1 } (frac(ln(2 - x), cot(frac(π * x, 2)))) = lim_{ x → 1 } (frac(frac(1, x - 2), -frac(π, 2) * csc(frac(π * x, 2))^{2}))
+3. lim_{ x → 1 } (frac(frac(1, x - 2), -frac(π, 2) * csc(frac(π * x, 2))^{2})) = frac(2, π)
+4. lim_{ x → 1 } (tan(frac(π * x, 2)) * ln(2 - x)) = frac(2, π)
+
+GOAL:
+lim_{ x → 1 } ((2 - x)^{tan(frac(π * x, 2))}) = e^{frac(2, π)}
+
+METHOD:

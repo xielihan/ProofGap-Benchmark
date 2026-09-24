@@ -1,0 +1,15 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ -π < x ∧ x < π ⇒ f(-x) = -f(x)}) (x := {x})
+get_condition (hypothesis 6: {x ∈ RealSet ∧ -π < x ∧ x < π}) in (GOAL: {x ∈ RealSet ∧ -π < x ∧ x < π ⇒ f(-x) = -f(x)})
+get_prop (hypothesis 5: {forall (x), x ∈ RealSet ∧ -π < x ∧ x < π ⇒ f(x) = sin(a * x)}) (x := {x}) as (hypothesis 7: {x ∈ RealSet ∧ -π < x ∧ x < π ⇒ f(x) = sin(a * x)})
+get_prop (hypothesis 5: {forall (x), x ∈ RealSet ∧ -π < x ∧ x < π ⇒ f(x) = sin(a * x)}) (x := {-x}) as (hypothesis 8: {-x ∈ RealSet ∧ -π < -x ∧ -x < π ⇒ f(-x) = sin(a * (-x))})
+get_prop (theorem 'Thm 466. (SineOdd)': {forall (x), x ∈ RealSet => sin(-x) = -sin(x)}) (x := {a * x}) as (hypothesis 9: {a * x ∈ RealSet => sin(-(a * x)) = -sin(a * x)})
+assert (hypothesis 10: {-x ∈ RealSet ∧ -π < -x ∧ -x < π}) by proof {
+ autosolve all_hypothesis
+}
+use_condition (hypothesis 6: {x ∈ RealSet ∧ -π < x ∧ x < π}) in (hypothesis 7: {x ∈ RealSet ∧ -π < x ∧ x < π ⇒ f(x) = sin(a * x)}) as (hypothesis 11: {f(x) = sin(a * x)})
+use_condition (hypothesis 10: {-x ∈ RealSet ∧ -π < -x ∧ -x < π}) in (hypothesis 8: {-x ∈ RealSet ∧ -π < -x ∧ -x < π ⇒ f(-x) = sin(a * (-x))}) as (hypothesis 12: {f(-x) = sin(a * (-x))})
+assert (hypothesis 13: {a * x ∈ RealSet}) by proof {
+ autosolve all_hypothesis
+}
+use_condition (hypothesis 13: {a * x ∈ RealSet}) in (hypothesis 9: {a * x ∈ RealSet => sin(-(a * x)) = -sin(a * x)}) as (hypothesis 14: {sin(-(a * x)) = -sin(a * x)})
+autosolve all_hypothesis

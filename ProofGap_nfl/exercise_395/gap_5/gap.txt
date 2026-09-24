@@ -1,0 +1,18 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → IntegerSet
+2. m_{1} ∈ IntegerSet
+3. M_{1} ∈ IntegerSet
+4. m_{2} ∈ IntegerSet
+5. M_{2} ∈ IntegerSet
+6. forall (x), x ∈ RealSet ⇒ f(x) = floor(x)
+7. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 2) ⇒ f(x) ∈ { 0, 1 }
+8. m_{1} = 0
+9. M_{1} = 1
+10. forall (x), x ∈ RealSet ∧ x ∈ [0, 2] ⇒ f(x) ∈ { 0, 1, 2 }
+11. m_{2} = inf(ImageOn(f, [0, 2]))
+
+GOAL:
+m_{2} = 0
+
+METHOD:

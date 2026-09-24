@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. p ∈ RealSet ∧ p > 0
+2. x_{0} ∈ RealSet ∧ x_{0} ≥ 0
+3. P_{x} ∈ RealSet
+4. P_{y} ∈ RealSet
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ 0 ≤ x ∧ x ≤ x_{0} ⇒ y^{2} = 2 * p * x
+6. exists (y_{x}), y_{x} : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ x_{0} ⇒ sqrtn(2, 1 + FunDeri(y_{x}, 1, 1)(x)^{2}) = frac(sqrtn(2, p + 2 * x), sqrtn(2, 2 * x)))
+7. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ x_{0} ⇒ P_{x} = 2 * π * DefInt(0, x_{0}, sqrtn(2, 2 * p * x) * frac(sqrtn(2, p + 2 * x), sqrtn(2, 2 * x)) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ x_{0}] . x))
+8. P_{x} = frac(2 * π, 3) * ((2 * x_{0} + p) * sqrtn(2, 2 * p * x_{0} + p^{2}) - p^{2})
+
+GOAL:
+exists (x_{y}), x_{y} : RealSet → RealSet ∧ (forall (y), y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ sqrtn(2, 2 * p * x_{0}) ⇒ sqrtn(2, 1 + FunDeri(x_{y}, 1, 1)(y)^{2}) = frac(sqrtn(2, p^{2} + y^{2}), p))
+
+METHOD:

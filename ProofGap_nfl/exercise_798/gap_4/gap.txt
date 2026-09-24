@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = arctan(x)
+3. ContinuousFuncOn(f, (-∞, 1])
+4. ContinuousFuncOn(f, [0, +∞))
+5. lim_{ x → +∞ } (arctan(x)) = π / 2
+
+GOAL:
+lim_{ x → -∞ } (arctan(x)) = -frac(π, 2)
+
+METHOD:

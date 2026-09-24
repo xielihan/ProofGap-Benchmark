@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x + y > 0 ⇒ u(x, y) = ln(x + y)
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x + y > 0 ⇒ diff(u) = frac(diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y), x + y)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x + y > 0 ⇒ diff^{10}(u) = -frac(9! * (diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))^{10}, (x + y)^{10})
+
+METHOD:

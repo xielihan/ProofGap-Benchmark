@@ -1,0 +1,12 @@
+PROOF GAP @5
+ASSUM:
+1. x ∈ RealSet
+2. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x^{2} - 1, (x^{2} + 1) * sqrtn(2, x^{4} + 1)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(frac(x^{2} - 1, (x^{2} + 1)^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), sqrtn(2, frac(x^{4} + 1, (x^{2} + 1)^{2}))) }
+3. { `F_4` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(x^{2} - 1, (x^{2} + 1) * sqrtn(2, x^{4} + 1)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(frac(x^{2} - 1, (x^{2} + 1)^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), sqrtn(2, 1 - frac(x * sqrtn(2, 2), x^{2} + 1)^{2})) }
+4. forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ∧ x = tan(t) ⇒ -frac(π, 2) < t
+5. forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ∧ x = tan(t) ⇒ t < frac(π, 2)
+
+GOAL:
+forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ∧ x = tan(t) ⇒ diff(fun x [x ∈ RealSet] . x) = sec(t)^{2} * diff(fun t [t ∈ RealSet] . t)
+
+METHOD:

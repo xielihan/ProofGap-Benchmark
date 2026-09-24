@@ -1,0 +1,27 @@
+PROOF GAP @15
+ASSUM:
+1. p ∈ RealSet
+2. φ : CartesianProd(RealSet, RealSet) → RealSet
+3. Defined(φ, CartesianProd(RealSet, [0, 1]))
+4. BoundedFuncOn(φ, CartesianProd(RealSet, [0, 1]))
+5. ContinuousFuncOn(φ, CartesianProd(RealSet, [0, 1]))
+6. I = DefInt(0, 1, (fun y [y ∈ RealSet ∧ y ∈ Interval(0, 1)] . DefInt(-∞, +∞, (fun x [x ∈ RealSet] . frac(φ(x, y), (1 + x^{2} + y^{2})^{p})) * diff(fun x [x ∈ RealSet] . x))) * diff(fun y [y ∈ RealSet ∧ y ∈ Interval(0, 1)] . y))
+7. J = DefInt(0, 1, (fun y [y ∈ RealSet ∧ y ∈ Interval(0, 1)] . DefInt(-∞, +∞, (fun x [x ∈ RealSet] . frac(1, (1 + x^{2} + y^{2})^{p})) * diff(fun x [x ∈ RealSet] . x))) * diff(fun y [y ∈ RealSet ∧ y ∈ Interval(0, 1)] . y))
+8. J = DefInt(0, 1, (fun y [y ∈ RealSet ∧ y ∈ Interval(0, 1)] . DefInt(-∞, +∞, (fun x [x ∈ RealSet] . frac(1, (1 + x^{2} + y^{2})^{p})) * diff(fun x [x ∈ RealSet] . x))) * diff(fun y [y ∈ RealSet ∧ y ∈ Interval(0, 1)] . y))
+9. DefInt(0, 1, (fun y [y ∈ RealSet ∧ y ∈ Interval(0, 1)] . DefInt(-∞, +∞, (fun x [x ∈ RealSet] . frac(1, (1 + x^{2} + y^{2})^{p})) * diff(fun x [x ∈ RealSet] . x))) * diff(fun y [y ∈ RealSet ∧ y ∈ Interval(0, 1)] . y)) = 2 * DefInt(0, 1, (fun y [y ∈ RealSet ∧ y ∈ Interval(0, 1)] . DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, (1 + x^{2} + y^{2})^{p})) * diff(fun x [x ∈ RealSet] . x))) * diff(fun y [y ∈ RealSet ∧ y ∈ Interval(0, 1)] . y))
+10. J = 2 * DefInt(0, 1, (fun y [y ∈ RealSet ∧ y ∈ Interval(0, 1)] . DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, (1 + x^{2} + y^{2})^{p})) * diff(fun x [x ∈ RealSet] . x))) * diff(fun y [y ∈ RealSet ∧ y ∈ Interval(0, 1)] . y))
+11. forall (y), y ∈ RealSet ∧ y ∈ Interval(0, 1) ∧ p ≥ 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, (2 + x^{2})^{p})) * diff(fun x [x ∈ RealSet] . x)) ≤ DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, (1 + x^{2} + y^{2})^{p})) * diff(fun x [x ∈ RealSet] . x))
+12. forall (y), y ∈ RealSet ∧ y ∈ Interval(0, 1) ∧ p ≥ 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, (1 + x^{2} + y^{2})^{p})) * diff(fun x [x ∈ RealSet] . x)) ≤ DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, (1 + x^{2})^{p})) * diff(fun x [x ∈ RealSet] . x))
+13. p ≥ 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, (2 + x^{2})^{p})) * diff(fun x [x ∈ RealSet] . x)) ≤ DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, (1 + x^{2})^{p})) * diff(fun x [x ∈ RealSet] . x))
+14. p ≥ 0 ⇒ 2 * DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, (2 + x^{2})^{p})) * diff(fun x [x ∈ RealSet] . x)) ≤ J
+15. p ≥ 0 ⇒ J ≤ 2 * DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, (1 + x^{2})^{p})) * diff(fun x [x ∈ RealSet] . x))
+16. p ≥ 0 ⇒ 2 * DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, (2 + x^{2})^{p})) * diff(fun x [x ∈ RealSet] . x)) ≤ 2 * DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, (1 + x^{2})^{p})) * diff(fun x [x ∈ RealSet] . x))
+17. forall (y), y ∈ RealSet ∧ y ∈ Interval(0, 1) ∧ p < 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, (2 + x^{2})^{p})) * diff(fun x [x ∈ RealSet] . x)) ≥ DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, (1 + x^{2} + y^{2})^{p})) * diff(fun x [x ∈ RealSet] . x))
+18. forall (y), y ∈ RealSet ∧ y ∈ Interval(0, 1) ∧ p < 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, (1 + x^{2} + y^{2})^{p})) * diff(fun x [x ∈ RealSet] . x)) ≥ DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, (1 + x^{2})^{p})) * diff(fun x [x ∈ RealSet] . x))
+19. p < 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, (2 + x^{2})^{p})) * diff(fun x [x ∈ RealSet] . x)) ≥ DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, (1 + x^{2})^{p})) * diff(fun x [x ∈ RealSet] . x))
+20. forall (a), a ∈ RealSet ∧ a ∈ PosRealSet ⇒ lim_{ x → +∞ } (x^{2 * p} * frac(1, (a^{2} + x^{2})^{p})) = 1
+
+GOAL:
+forall (a), a ∈ RealSet ∧ a ∈ PosRealSet ∧ p > frac(1, 2) ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, (a^{2} + x^{2})^{p})) * diff(fun x [x ∈ RealSet] . x)) < +∞
+
+METHOD:

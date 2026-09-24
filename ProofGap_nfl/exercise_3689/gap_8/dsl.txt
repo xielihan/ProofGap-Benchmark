@@ -1,0 +1,6 @@
+get_condition (hypothesis 26: {n - λ != 0}) in (GOAL: {n - λ != 0 => `x'` = frac(sum_{ i = 1 }^{ n } (x(i)), n - λ)})
+get_prop (hypothesis 19: {forall (a) (b) (c) (λ), a ∈ RealSet /\ b ∈ RealSet /\ c ∈ RealSet /\ λ ∈ RealSet => FunDeri(F, 1, 1)(a, b, c, λ) = 2 * ((n - λ) * a - (sum_{ i = 1 }^{ n } (x(i))))}) (a := {`x'`}) (b := {`y'`}) (c := {`z'`}) (λ := {λ}) as (hypothesis 27: {`x'` ∈ RealSet /\ `y'` ∈ RealSet /\ `z'` ∈ RealSet /\ λ ∈ RealSet => FunDeri(F, 1, 1)(`x'`, `y'`, `z'`, λ) = 2 * ((n - λ) * `x'` - (sum_{ i = 1 }^{ n } (x(i))))})
+use_condition (obvious: {`x'` ∈ RealSet /\ `y'` ∈ RealSet /\ `z'` ∈ RealSet /\ λ ∈ RealSet}) in (hypothesis 27: {`x'` ∈ RealSet /\ `y'` ∈ RealSet /\ `z'` ∈ RealSet /\ λ ∈ RealSet => FunDeri(F, 1, 1)(`x'`, `y'`, `z'`, λ) = 2 * ((n - λ) * `x'` - (sum_{ i = 1 }^{ n } (x(i))))}) as (hypothesis 28: {FunDeri(F, 1, 1)(`x'`, `y'`, `z'`, λ) = 2 * ((n - λ) * `x'` - (sum_{ i = 1 }^{ n } (x(i))))})
+assert (hypothesis 29: {(n - λ) * `x'` = sum_{ i = 1 }^{ n } (x(i))})
+rewrite (right_to_left, equation) (hypothesis 29: {(n - λ) * `x'` = sum_{ i = 1 }^{ n } (x(i))}); from (GOAL: {`x'` = frac(sum_{ i = 1 }^{ n } (x(i)), n - λ)}) to (GOAL: {`x'` = frac((n - λ) * `x'`, n - λ)})
+autosolve all_hypothesis

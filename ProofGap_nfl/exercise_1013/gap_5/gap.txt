@@ -1,0 +1,17 @@
+PROOF GAP @5
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. c ∈ RealSet ∧ c > 0
+5. m ∈ RealSet
+6. forall (x), x ∈ RealSet ⇒ y(x) = cases{ a + b * x^{2} if |x| ≤ c; frac(m^{2}, |x|) if |x| > c }
+7. a + b * c^{2} = frac(m^{2}, c)
+8. FunDeri(fun x [x ∈ RealSet] . a + b * x^{2}, 1, 1)(c) = FunDeri(fun x [x ∈ RealSet] . frac(m^{2}, |x|), 1, 1)(c)
+9. 2 * b * c = -frac(m^{2}, c^{2})
+10. a + b * c^{2} = frac(m^{2}, c)
+
+GOAL:
+2 * b * c = -frac(m^{2}, c^{2})
+
+METHOD:

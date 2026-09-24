@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. x^{2} > (x + 1)^{2}
+
+GOAL:
+2 * x + 1 < 0
+
+METHOD:

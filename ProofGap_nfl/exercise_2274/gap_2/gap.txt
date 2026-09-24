@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 3 ⇒ 1 + x > 0 ∧ 0 ≤ sqrtn(2, frac(x, 1 + x)) ∧ sqrtn(2, frac(x, 1 + x)) ≤ 1
+
+GOAL:
+DefInt(0, 3, (fun x [x ∈ RealSet] . arcsin(sqrtn(2, frac(x, 1 + x)))) * diff(fun x [x ∈ RealSet] . x)) = ((fun x [x ∈ RealSet] . x * arcsin(sqrtn(2, frac(x, 1 + x))))|_{0}^{3}) - DefInt(0, 3, (fun x [x ∈ RealSet] . frac(sqrtn(2, x), 2 * (1 + x))) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

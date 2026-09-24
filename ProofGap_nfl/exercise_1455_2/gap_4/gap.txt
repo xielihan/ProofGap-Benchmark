@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. f : RealSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(sqrtn(2, n), n + 10000)
+4. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ f(x) = frac(sqrtn(2, x), x + 10000)
+5. MaximumPointOn(f, [0, +∞)) = { 10000 }
+6. 10000 ∈ PosIntegerSet
+7. sup(ImageOn(a, PosIntegerSet)) = a(10000)
+
+GOAL:
+a(10000) = f(10000)
+
+METHOD:

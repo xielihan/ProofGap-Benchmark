@@ -1,0 +1,2 @@
+exists (C := {frac(π, 2)})
+autosolve (hypothesis 16: {I(0) = 0})

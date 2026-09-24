@@ -1,0 +1,10 @@
+PROOF GAP @4
+ASSUM:
+1. forall (n), n ∈ NonNegIntegerSet ⇒ sin(π * sqrtn(2, n^{2} + 1)) = (-1)^{n} * sin(π * sqrtn(2, n^{2} + 1) - n * π)
+2. forall (n), n ∈ NonNegIntegerSet ⇒ sin(π * sqrtn(2, n^{2} + 1)) = (-1)^{n} * sin(frac(π, sqrtn(2, n^{2} + 1) + n))
+3. seqlim_{ n → +∞ } ((-1)^{n} * sin(frac(π, sqrtn(2, n^{2} + 1) + n))) = 0
+
+GOAL:
+seqlim_{ n → +∞ } (sin(π * sqrtn(2, n^{2} + 1))) = 0
+
+METHOD:

@@ -1,0 +1,17 @@
+PROOF GAP @5
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. n ∈ NonNegIntegerSet
+3. k ∈ NonNegIntegerSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ∈ RealSet ∧ a(n) ≠ 0
+5. seqlim_{ n → +∞ } (a(n)) = +∞
+6. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (|frac(1, a(n))|))
+7. forall (E), E ⊆ RealSet ∧ (exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ E ⇒ |x| ≤ M)) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ∉ E) ⇒ (exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ E ⇒ |x| ≤ M))
+8. forall (E), E ⊆ RealSet ∧ (exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ E ⇒ |x| ≤ M)) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ∉ E) ⇒ seqlim_{ n → +∞ } (frac(1, |a(n)|)) = 0
+9. forall (E), E ⊆ RealSet ∧ (exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ E ⇒ |x| ≤ M)) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ∉ E) ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ E ∧ n > N ⇒ |frac(x, a(n))| < frac(1, 2)))
+10. forall (E), E ⊆ RealSet ∧ (exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ E ⇒ |x| ≤ M)) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ∉ E) ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ E ∧ n > N ⇒ |frac(1, x - a(n))| = frac(1, |a(n)|) * frac(1, |1 - frac(x, a(n))|))))
+
+GOAL:
+forall (E), E ⊆ RealSet ∧ (exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ E ⇒ |x| ≤ M)) ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ∉ E) ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ E ∧ n > N ⇒ frac(1, |1 - frac(x, a(n))|) ≤ frac(1, 1 - |frac(x, a(n))|))))
+
+METHOD:

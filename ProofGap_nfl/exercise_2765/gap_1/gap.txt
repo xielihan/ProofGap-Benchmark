@@ -1,0 +1,21 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. F : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. α ∈ RealSet
+6. β ∈ RealSet
+7. a < b
+8. a < α
+9. α < β
+10. β < b
+11. ContinuouslyDiffableFuncOn(f, IntervalLoRo(a, b))
+12. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ IntervalLoRo(a, b - frac(1, n)) ⇒ F(n, x) = n * (f(x + frac(1, n)) - f(x))
+13. `α'` = (α + a) / 2
+14. `β'` = (β + b) / 2
+
+GOAL:
+a < `α'`
+
+METHOD:

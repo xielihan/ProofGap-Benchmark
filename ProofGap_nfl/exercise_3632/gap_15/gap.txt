@@ -1,0 +1,23 @@
+PROOF GAP @15
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = e^{2 * x + 3 * y} * (8 * x^{2} - 6 * x * y + 3 * y^{2})
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 1)(x, y) = 2 * e^{2 * x + 3 * y} * (8 * x^{2} - 6 * x * y + 3 * y^{2} + 8 * x - 3 * y)
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 2, 1)(x, y) = 3 * e^{2 * x + 3 * y} * (8 * x^{2} - 6 * x * y + 3 * y^{2} - 2 * x + 2 * y)
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ FunDeri(z, 1, 1)(x, y) = 0 ∧ FunDeri(z, 2, 1)(x, y) = 0 ⇒ (x, y) ∈ { IntervalLoRo(0, 0), IntervalLoRo(-frac(1, 4), -frac(1, 2)) }
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 2)(x, y) = 4 * e^{2 * x + 3 * y} * (8 * x^{2} - 6 * x * y + 3 * y^{2} + 16 * x - 6 * y + 4)
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 2, 2)(x, y) = 9 * e^{2 * x + 3 * y} * (8 * x^{2} - 6 * x * y + 3 * y^{2} - 4 * x + 4 * y + frac(2, 3))
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(FunDeri(z, 1, 1), 2, 1)(x, y) = 6 * e^{2 * x + 3 * y} * (8 * x^{2} - 6 * x * y + 3 * y^{2} + 6 * x - y - 1)
+9. FunDeri(z, 1, 2)(0, 0) = 16
+10. FunDeri(FunDeri(z, 1, 1), 2, 1)(0, 0) = -6
+11. FunDeri(z, 2, 2)(0, 0) = 6
+12. 16 * 6 - (-6)^{2} = 60
+13. 60 > 0
+14. 16 * 6 - (-6)^{2} > 0
+15. (0, 0) ∈ MinimumPoint(z)
+16. z(0, 0) = 0
+
+GOAL:
+FunDeri(z, 1, 2)(-frac(1, 4), -frac(1, 2)) = 14 * e^{-2}
+
+METHOD:

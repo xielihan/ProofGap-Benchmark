@@ -1,0 +1,23 @@
+PROOF GAP @9
+ASSUM:
+1. a : IntegerSet → ComplexSet
+2. x_{1} ∈ ComplexSet
+3. x_{2} ∈ ComplexSet
+4. forall (n), n ∈ IntegerSet ⇒ a(n) ∈ ComplexSet
+5. 0 < |x_{1}|
+6. |x_{1}| < |x_{2}|
+7. forall (n), n ∈ IntegerSet ⇒ ConvergentSeries(sum_{ n = -∞ }^{ +∞ } (a(n) * (x_{1})^{n}))
+8. forall (n), n ∈ IntegerSet ⇒ ConvergentSeries(sum_{ n = -∞ }^{ +∞ } (a(n) * (x_{2})^{n}))
+9. ConvergentSeries(sum_{ n = 0 }^{ +∞ } (a(n) * (x_{1})^{n}))
+10. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(-n) * (x_{1})^{-n}))
+11. ConvergentSeries(sum_{ n = 0 }^{ +∞ } (a(n) * (x_{2})^{n}))
+12. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(-n) * (x_{2})^{-n}))
+13. forall (x), x ∈ ComplexSet ∧ |x_{1}| < |x| ∧ |x| < |x_{2}| ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (a(n) * x^{n}))
+14. forall (x), x ∈ ComplexSet ∧ |x_{1}| < |x| ∧ |x| < |x_{2}| ⇒ |frac(1, x)| < |frac(1, x_{1})|
+15. forall (x), x ∈ ComplexSet ∧ |x_{1}| < |x| ∧ |x| < |x_{2}| ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(-n) * x^{-n}))
+16. forall (x), x ∈ ComplexSet ∧ |x_{1}| < |x| ∧ |x| < |x_{2}| ⇒ ConvergentSeries(sum_{ n = -∞ }^{ +∞ } (a(n) * x^{n}))
+
+GOAL:
+forall (x), x ∈ ComplexSet ∧ |x_{1}| < |x| ∧ |x| < |x_{2}| ⇒ ConvergentSeries(sum_{ n = -∞ }^{ +∞ } (a(n) * x^{n}))
+
+METHOD:

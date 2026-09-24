@@ -1,0 +1,13 @@
+PROOF GAP @6
+ASSUM:
+1. x ∈ RealSet
+2. |x| < 1 ⇒ frac(1, 1 + x + x^{2}) = frac(1, __IMAGINARY_UNIT__ * sqrtn(2, 3)) * (frac(1, x + frac(1 - __IMAGINARY_UNIT__ * sqrtn(2, 3), 2)) - frac(1, x + frac(1 + __IMAGINARY_UNIT__ * sqrtn(2, 3), 2)))
+3. |x| < 1 ⇒ frac(1, 1 + x + x^{2}) = frac(1, __IMAGINARY_UNIT__ * sqrtn(2, 3)) * (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * (frac(1 + __IMAGINARY_UNIT__ * sqrtn(2, 3), 2)^{n + 1} - frac(1 - __IMAGINARY_UNIT__ * sqrtn(2, 3), 2)^{n + 1}) * x^{n}))
+4. forall (n), n ∈ NonNegIntegerSet ⇒ (-1)^{n} * (frac(1 + __IMAGINARY_UNIT__ * sqrtn(2, 3), 2)^{n + 1} - frac(1 - __IMAGINARY_UNIT__ * sqrtn(2, 3), 2)^{n + 1}) = 2 * __IMAGINARY_UNIT__ * sin(frac(2 * (n + 1) * π, 3))
+5. |x| < min(frac(2, |1 + __IMAGINARY_UNIT__ * sqrtn(2, 3)|), frac(2, |1 - __IMAGINARY_UNIT__ * sqrtn(2, 3)|))
+6. min(frac(2, |1 + __IMAGINARY_UNIT__ * sqrtn(2, 3)|), frac(2, |1 - __IMAGINARY_UNIT__ * sqrtn(2, 3)|)) = 1
+
+GOAL:
+|x| < 1
+
+METHOD:

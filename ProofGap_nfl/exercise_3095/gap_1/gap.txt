@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. p : NonNegIntegerSet → RealSet
+2. u : NonNegIntegerSet → RealSet
+3. a : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(n) = 1 + frac((-1)^{frac(n * (n - 1), 2)}, n)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = ln(p(n))
+6. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ a(k) = u(2 * k - 1) + u(2 * k)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(n) > 0
+
+METHOD:

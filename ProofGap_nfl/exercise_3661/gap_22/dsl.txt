@@ -1,0 +1,7 @@
+assert (hypothesis 28: {a > 0})
+assert (hypothesis 29: {a^{2} > 0})
+assert (hypothesis 30: {a^{2} - b^{2} > 0})
+assert (hypothesis 31: {a^{2} != 0})
+assert (hypothesis 32: {a^{2} * frac(b^{2}, a^{2}) = b^{2}})
+assert (hypothesis 33: {a^{2} * (1 - frac(b^{2}, a^{2})) = a^{2} - b^{2}})
+autosolve all_hypothesis

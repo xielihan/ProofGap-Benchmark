@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x > 0 => sin(ln(x)) + cos(ln(x)) + x * (1 / x) * (cos(ln(x)) - sin(ln(x))) = 2 * cos(ln(x))}) (x := {x0})
+get_condition (hypothesis 3: {x0 ∈ RealSet ∧ x0 > 0}) in (GOAL: {x0 ∈ RealSet ∧ x0 > 0 => sin(ln(x0)) + cos(ln(x0)) + x0 * (1 / x0) * (cos(ln(x0)) - sin(ln(x0))) = 2 * cos(ln(x0))})
+autoreplace (hypothesis 3: {x0 ∈ RealSet ∧ x0 > 0}); from (sin(ln(x0)) + cos(ln(x0)) + x0 * (1 / x0) * (cos(ln(x0)) - sin(ln(x0)))) to (2 * cos(ln(x0))); from (GOAL: {sin(ln(x0)) + cos(ln(x0)) + x0 * (1 / x0) * (cos(ln(x0)) - sin(ln(x0))) = 2 * cos(ln(x0))}) to (GOAL: {2 * cos(ln(x0)) = 2 * cos(ln(x0))})
+autosolve all_hypothesis

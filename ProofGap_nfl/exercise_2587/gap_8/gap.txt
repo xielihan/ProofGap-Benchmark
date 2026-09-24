@@ -1,0 +1,18 @@
+PROOF GAP @8
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. b : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(n^{n + frac(1, n)}, (n + frac(1, n))^{n})
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = (1 + frac(1, n))^{-n} * sqrtn(n, n)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ n + frac(1, n) ≠ 0
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ≥ frac(n^{n} * n^{frac(1, n)}, (n + 1)^{n}) ∧ frac(n^{n} * n^{frac(1, n)}, (n + 1)^{n}) = b(n) ∧ b(n) > 0
+7. seqlim_{ n → +∞ } (b(n)) = frac(1, e)
+8. frac(1, e) ≠ 0
+9. seqlim_{ n → +∞ } (b(n)) ≠ 0
+10. DivergentSeries(sum_{ n = 1 }^{ +∞ } (b(n)))
+11. DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+GOAL:
+DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+METHOD:

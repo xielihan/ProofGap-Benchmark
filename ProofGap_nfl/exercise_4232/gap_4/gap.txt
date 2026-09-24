@@ -1,0 +1,20 @@
+PROOF GAP @4
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. z : RealSet → RealSet
+4. C ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+5. s ∈ RealSet
+6. t ∈ RealSet ∧ 0 < t ∧ t < +∞
+7. forall (t), t ∈ RealSet ∧ 0 < t ∧ t < +∞ ⇒ x(t) = e^{-t} * cos(t)
+8. forall (t), t ∈ RealSet ∧ 0 < t ∧ t < +∞ ⇒ y(t) = e^{-t} * sin(t)
+9. forall (t), t ∈ RealSet ∧ 0 < t ∧ t < +∞ ⇒ z(t) = e^{-t}
+10. C = { (x(t), y(t), z(t)) | t ∈ RealSet, 0 < t ∧ t < +∞ }
+11. diff(s) = (fun t [t ∈ RealSet ∧ 0 < t ∧ t < +∞] . sqrtn(2, e^{-2 * t} * (cos(t) - sin(t))^{2} + e^{-2 * t} * (cos(t) + sin(t))^{2} + e^{-2 * t})) * diff(fun t [t ∈ RealSet ∧ 0 < t ∧ t < +∞] . t)
+12. diff(s) = (fun t [t ∈ RealSet ∧ 0 < t ∧ t < +∞] . sqrtn(2, 3) * e^{-t}) * diff(fun t [t ∈ RealSet ∧ 0 < t ∧ t < +∞] . t)
+13. s = DefInt(0, +∞, (fun t [t ∈ RealSet ∧ 0 < t ∧ t < +∞] . sqrtn(2, 3) * e^{-t}) * diff(fun t [t ∈ RealSet ∧ 0 < t ∧ t < +∞] . t))
+
+GOAL:
+s = sqrtn(2, 3)
+
+METHOD:

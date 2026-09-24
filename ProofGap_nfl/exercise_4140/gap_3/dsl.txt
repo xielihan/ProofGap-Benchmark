@@ -1,0 +1,3 @@
+1. rewrite (left_to_right, equation) (hypothesis 13: {x = frac(u + v, 2)}); from (GOAL: {x^{2} + y^{2} = frac(u^{2} + v^{2}, 2)}) to (GOAL: {frac(u + v, 2)^{2} + y^{2} = frac(u^{2} + v^{2}, 2)})
+2. rewrite (left_to_right, equation) (hypothesis 14: {y = frac(v - u, 2)}); from (GOAL: {frac(u + v, 2)^{2} + y^{2} = frac(u^{2} + v^{2}, 2)}) to (GOAL: {frac(u + v, 2)^{2} + frac(v - u, 2)^{2} = frac(u^{2} + v^{2}, 2)})
+3. autosolve all_hypothesis

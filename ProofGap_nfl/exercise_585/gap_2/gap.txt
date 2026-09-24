@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. lim_{ u → 0 } (frac(arctan(u), u)) = 1
+
+GOAL:
+forall (h), h ∈ RealSet ∧ h ≠ 0 ∧ 1 + x * (x + h) ≠ 0 ⇒ frac(arctan(x + h) - arctan(x), h) = frac(arctan(frac(h, 1 + x * (x + h))), frac(h, 1 + x * (x + h))) * frac(1, 1 + x * (x + h))
+
+METHOD:

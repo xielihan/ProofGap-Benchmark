@@ -1,0 +1,14 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. α ∈ RealSet
+3. β ∈ RealSet ∧ β ≠ 0
+4. forall (x), x ∈ RealSet ∧ x > 0 ∧ x ≠ a ⇒ frac(x^{α} - a^{α}, x^{β} - a^{β}) = a^{α - β} * frac(frac(x, a)^{α} - 1, frac(x, a)^{β} - 1)
+5. forall (x), x ∈ RealSet ∧ x > 0 ∧ x ≠ a ∧ α ≠ 0 ∧ ln(frac(x, a)) ≠ 0 ⇒ frac(x^{α} - a^{α}, x^{β} - a^{β}) = a^{α - β} * frac(e^{α * ln(frac(x, a))} - 1, α * ln(frac(x, a))) * frac(β * ln(frac(x, a)), e^{β * ln(frac(x, a))} - 1) * frac(α, β)
+6. forall (x), x ∈ RealSet ∧ lim_{ x → a } (x) = a ∧ x > 0 ⇒ lim_{ x → a } (ln(frac(x, a))) = 0
+7. forall (x), x ∈ RealSet ∧ lim_{ x → a } (x) = a ∧ x > 0 ⇒ lim_{ x → a } (frac(x^{α} - a^{α}, x^{β} - a^{β})) = frac(α, β) * a^{α - β}
+
+GOAL:
+lim_{ x → a } (frac(x^{α} - a^{α}, x^{β} - a^{β})) = frac(α, β) * a^{α - β}
+
+METHOD:

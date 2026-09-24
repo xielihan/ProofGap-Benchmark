@@ -1,0 +1,16 @@
+PROOF GAP @5
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. n ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. Π ∈ RealSet
+4. L ∈ RealSet
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x, y) = x^{2} + y^{2}
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(f, 1, 1)(x, y) = 2 * x
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(f, 2, 1)(x, y) = 2 * y
+8. n = (FunDeri(f, 1, 1)(1, 2), FunDeri(f, 2, 1)(1, 2), -1)
+9. n = (2, 4, -1)
+
+GOAL:
+forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ Π = 2 * (x - 1) + 4 * (y - 2) - (z - 5)
+
+METHOD:

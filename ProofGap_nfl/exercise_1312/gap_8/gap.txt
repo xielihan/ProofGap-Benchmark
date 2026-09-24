@@ -1,0 +1,17 @@
+PROOF GAP @8
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet ∧ a < b
+4. DiffableFuncOn(f, IntervalLoRo(a, b))
+5. DiffableFuncOn(FunDeri(f, 1, 1), IntervalLoRo(a, b))
+6. forall (F), F : RealSet → RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ⇒ (forall (λ_{1}), λ_{1} ∈ RealSet ⇒ (forall (λ_{2}), λ_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < b ∧ λ_{1} > 0 ∧ λ_{2} > 0 ∧ λ_{1} + λ_{2} = 1 ∧ F = (fun t [t ∈ RealSet] . f((1 - t) * x_{1} + t * x_{2}) - (1 - t) * f(x_{1}) - t * f(x_{2})) ⇒ F(0) = 0))))
+7. forall (F), F : RealSet → RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ⇒ (forall (λ_{1}), λ_{1} ∈ RealSet ⇒ (forall (λ_{2}), λ_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < b ∧ λ_{1} > 0 ∧ λ_{2} > 0 ∧ λ_{1} + λ_{2} = 1 ∧ F = (fun t [t ∈ RealSet] . f((1 - t) * x_{1} + t * x_{2}) - (1 - t) * f(x_{1}) - t * f(x_{2})) ⇒ F(1) = 0))))
+8. forall (F), F : RealSet → RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ⇒ (forall (λ_{1}), λ_{1} ∈ RealSet ⇒ (forall (λ_{2}), λ_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < b ∧ λ_{1} > 0 ∧ λ_{2} > 0 ∧ λ_{1} + λ_{2} = 1 ∧ F = (fun t [t ∈ RealSet] . f((1 - t) * x_{1} + t * x_{2}) - (1 - t) * f(x_{1}) - t * f(x_{2})) ⇒ (exists (c), c ∈ RealSet ∧ x_{1} < c ∧ c < x_{2} ∧ FunDeri(f, 1, 1)(c) = frac(f(x_{2}) - f(x_{1}), x_{2} - x_{1}))))))
+9. forall (F), F : RealSet → RealSet ⇒ (forall (t_{0}), t_{0} ∈ RealSet ⇒ (forall (c), c ∈ RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ⇒ (forall (λ_{1}), λ_{1} ∈ RealSet ⇒ (forall (λ_{2}), λ_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < c ∧ c < x_{2} ∧ x_{2} < b ∧ λ_{1} > 0 ∧ λ_{2} > 0 ∧ λ_{1} + λ_{2} = 1 ∧ F = (fun t [t ∈ RealSet] . f((1 - t) * x_{1} + t * x_{2}) - (1 - t) * f(x_{1}) - t * f(x_{2})) ∧ t_{0} = frac(c - x_{1}, x_{2} - x_{1}) ⇒ 0 < t_{0}))))))
+10. forall (F), F : RealSet → RealSet ⇒ (forall (t_{0}), t_{0} ∈ RealSet ⇒ (forall (c), c ∈ RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ⇒ (forall (λ_{1}), λ_{1} ∈ RealSet ⇒ (forall (λ_{2}), λ_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < c ∧ c < x_{2} ∧ x_{2} < b ∧ λ_{1} > 0 ∧ λ_{2} > 0 ∧ λ_{1} + λ_{2} = 1 ∧ F = (fun t [t ∈ RealSet] . f((1 - t) * x_{1} + t * x_{2}) - (1 - t) * f(x_{1}) - t * f(x_{2})) ∧ t_{0} = frac(c - x_{1}, x_{2} - x_{1}) ⇒ t_{0} < 1))))))
+11. forall (F), F : RealSet → RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ⇒ (forall (λ_{1}), λ_{1} ∈ RealSet ⇒ (forall (λ_{2}), λ_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < b ∧ λ_{1} > 0 ∧ λ_{2} > 0 ∧ λ_{1} + λ_{2} = 1 ∧ F = (fun t [t ∈ RealSet] . f((1 - t) * x_{1} + t * x_{2}) - (1 - t) * f(x_{1}) - t * f(x_{2})) ⇒ (forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 1 ⇒ FunDeri(F, 1, 2)(t) = (x_{2} - x_{1})^{2} * FunDeri(f, 1, 2)((1 - t) * x_{1} + t * x_{2}))))))
+GOAL:
+forall (F), F : RealSet → RealSet ⇒ (forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ⇒ (forall (λ_{1}), λ_{1} ∈ RealSet ⇒ (forall (λ_{2}), λ_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < b ∧ λ_{1} > 0 ∧ λ_{2} > 0 ∧ λ_{1} + λ_{2} = 1 ∧ F = (fun t [t ∈ RealSet] . f((1 - t) * x_{1} + t * x_{2}) - (1 - t) * f(x_{1}) - t * f(x_{2})) ∧ (forall (x), x ∈ RealSet ∧ a < x ∧ x < b ⇒ FunDeri(f, 1, 2)(x) > 0) ⇒ (forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 1 ⇒ FunDeri(F, 1, 2)(t) > 0)))))
+
+METHOD:

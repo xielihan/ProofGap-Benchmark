@@ -1,0 +1,15 @@
+assert (hypothesis 8: {forall (t), t ∈ RealSet => frac(t^{10}, e^{t}) = t^{10} * e^{(-t)}}) by proof {
+  get_forall (GOAL: {forall (t), t ∈ RealSet => frac(t^{10}, e^{t}) = t^{10} * e^{(-t)}}) (t := {z})
+  get_condition (hypothesis 8: {z ∈ RealSet}) in (GOAL: {z ∈ RealSet => frac(z^{10}, e^{z}) = z^{10} * e^{(-z)}})
+  get_prop (theorem 'Thm 205. (ExponentSubtractionLaw)': {forall (a) (x) (y), a ∈ RealSet => x ∈ RealSet => y ∈ RealSet => (a > 0 => a ^ (x - y) = a ^ x / a ^ y)}) (a := {e}) (x := {0}) (y := {z}) as (hypothesis 9: {e ∈ RealSet => 0 ∈ RealSet => z ∈ RealSet => (e > 0 => e ^ (0 - z) = e ^ 0 / e ^ z)})
+  use_condition (obvious: {e ∈ RealSet}) (obvious: {0 ∈ RealSet}) (hypothesis 8: {z ∈ RealSet}) (obvious: {e > 0}) in (hypothesis 9: {e ∈ RealSet => 0 ∈ RealSet => z ∈ RealSet => (e > 0 => e ^ (0 - z) = e ^ 0 / e ^ z)}) as (hypothesis 10: {e ^ (0 - z) = e ^ 0 / e ^ z})
+  autoreplace no_hypothesis; from (0 - z) to (-z); from (hypothesis 10: {e ^ (0 - z) = e ^ 0 / e ^ z}) to (hypothesis 11: {e ^ (-z) = e ^ 0 / e ^ z})
+  autoreplace no_hypothesis; from (e ^ 0) to (1); from (hypothesis 11: {e ^ (-z) = e ^ 0 / e ^ z}) to (hypothesis 12: {e ^ (-z) = 1 / e ^ z})
+  rewrite (left_to_right, equation) (hypothesis 12: {e ^ (-z) = 1 / e ^ z}); from (GOAL: {frac(z^{10}, e^{z}) = z^{10} * e^{(-z)}}) to (GOAL: {frac(z^{10}, e^{z}) = z^{10} * (1 / e^{z})})
+  autosolve all_hypothesis
+}
+rewrite_in limit (left_to_right, equation) (hypothesis 8: {forall (t), t ∈ RealSet => frac(t^{10}, e^{t}) = t^{10} * e^{(-t)}}); from (GOAL: {lim_{ x -> +infty } (frac(x^{10}, e^{x})) = 0}) to (GOAL: {lim_{ x -> +infty } (x^{10} * e^{(-x)}) = 0})
+get_prop (theorem 'Thm 468. (ExponentialDecayDominatesPower)': {forall (a) (r), a ∈ RealSet => r ∈ RealSet => a > 0 => r > 0 => lim_{x -> +infty} ((x ^ r) * (e ^ (-a * x))) = 0}) (a := {1}) (r := {10}) as (hypothesis 9: {1 ∈ RealSet => 10 ∈ RealSet => 1 > 0 => 10 > 0 => lim_{x -> +infty} ((x ^ 10) * (e ^ (-1 * x))) = 0})
+use_condition (obvious: {1 ∈ RealSet}) (obvious: {10 ∈ RealSet}) (obvious: {1 > 0}) (obvious: {10 > 0}) in (hypothesis 9: {1 ∈ RealSet => 10 ∈ RealSet => 1 > 0 => 10 > 0 => lim_{x -> +infty} ((x ^ 10) * (e ^ (-1 * x))) = 0}) as (hypothesis 10: {lim_{x -> +infty} ((x ^ 10) * (e ^ (-1 * x))) = 0})
+autoreplace no_hypothesis; from (-1 * x) to (-x); from (hypothesis 10: {lim_{x -> +infty} ((x ^ 10) * (e ^ (-1 * x))) = 0}) to (hypothesis 11: {lim_{x -> +infty} ((x ^ 10) * (e ^ (-x))) = 0})
+apply (hypothesis 11: {lim_{x -> +infty} ((x ^ 10) * (e ^ (-x))) = 0})

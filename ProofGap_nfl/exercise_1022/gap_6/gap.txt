@@ -1,0 +1,15 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet -> RealSet
+2. forall (x), x ∈ RealPlus => f(x) = cos(ln(x))
+3. x_{0} = 0
+4. BoundedFuncOn(f, IntervalLoRo(0, +∞))
+5. DiffableFuncOn(f, IntervalLoRo(0, +∞))
+6. forall (x), x ∈ RealPlus ⇒ FunDeri(f, 1, 1)(x) = -frac(sin(ln(x)), x)
+7. lim_{ x → +∞ } (FunDeri(f, 1, 1)(x)) = 0
+8. ¬(exists (L), L ∈ RealSet ∧ L ∈ RealSet ∪ { -∞, +∞ } ∧ lim_{ x → +∞ } (f(x)) = L)
+
+GOAL:
+¬(forall (f) (x_{0}), f : RealSet → RealSet ∧ x_{0} ∈ RealSet ∧ BoundedFuncOn(f, IntervalLoRo(x_{0}, +∞)) ∧ DiffableFuncOn(f, IntervalLoRo(x_{0}, +∞)) ∧ (exists (M), M ∈ RealSet ∧ lim_{ x → +∞ } (FunDeri(f, 1, 1)(x)) = M) ⇒ (exists (L), L ∈ RealSet ∧ L ∈ RealSet ∪ { -∞, +∞ } ∧ lim_{ x → +∞ } (f(x)) = L))
+
+METHOD:

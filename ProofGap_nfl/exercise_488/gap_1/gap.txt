@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ sin(a + 2 * x) - 2 * sin(a + x) + sin(a) = sin(a + 2 * x) - sin(a + x) - (sin(a + x) - sin(a))
+
+METHOD:

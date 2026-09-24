@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. C ∈ RealSet
+2. x ∈ RealSet ∧ -1 < x ∧ x < 1
+3. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ (forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ∧ x = sin(t) ⇒ -frac(π, 2) < t)
+4. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ (forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ∧ x = sin(t) ⇒ t < frac(π, 2))
+5. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ (forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ∧ x = sin(t) ⇒ (1 - x^{2})^{frac(3, 2)} = cos(t)^{3})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ (forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ∧ x = sin(t) ⇒ diff(fun x [x ∈ RealSet] . x) = cos(t) * diff(fun t [t ∈ RealSet] . t))
+
+METHOD:

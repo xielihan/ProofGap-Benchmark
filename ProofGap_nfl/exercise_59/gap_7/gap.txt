@@ -1,0 +1,13 @@
+PROOF GAP @7
+ASSUM:
+1. forall (n), n ∈ IntegerSet ∧ n ≥ 3 ⇒ 0 < frac(2^{n}, n!)
+2. forall (n), n ∈ IntegerSet ∧ n ≥ 3 ⇒ frac(2^{n}, n!) = prod_{ k = 1 }^{ n } (frac(2, k))
+3. forall (n), n ∈ IntegerSet ∧ n ≥ 3 ⇒ prod_{ k = 1 }^{ n } (frac(2, k)) ≤ frac(4, n)
+4. forall (n), n ∈ IntegerSet ∧ n ≥ 3 ⇒ 0 < frac(4, n)
+5. seqlim_{ n → +∞ } (frac(4, n)) = 0
+6. seqlim_{ n → +∞ } (frac(2^{n}, n!)) = 0
+
+GOAL:
+seqlim_{ n → +∞ } (frac(2^{n}, n!)) = 0
+
+METHOD:

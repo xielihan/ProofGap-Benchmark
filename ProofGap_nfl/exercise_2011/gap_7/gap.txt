@@ -1,0 +1,18 @@
+PROOF GAP @7
+ASSUM:
+1. I : CartesianProd(IntegerSet, RealSet) → RealSet
+2. K : CartesianProd(IntegerSet, RealSet) → RealSet
+3. C ∈ RealSet
+4. exists (`F_1`), `F_1` : RealSet → RealSet ∧ (forall (n) (x), n ∈ IntegerSet ∧ n ≥ 2 ∧ x ∈ RealSet ⇒ I(n, x) = { `F_1` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_1`, 1, 1)(x) = sin(x)^{n} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) })
+5. exists (`F_2`), `F_2` : RealSet → RealSet ∧ (forall (n) (x), n ∈ IntegerSet ∧ n > 2 ∧ x ∈ RealSet ⇒ K(n, x) = { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = cos(x)^{n} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) })
+6. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ (forall (x), x ∈ RealSet ⇒ I(n, x) = { `F_5` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = sin(x)^{n} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) })
+7. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ (forall (x), x ∈ RealSet ⇒ I(n, x) = { `F_7` | exists (`F_6`), `F_6` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_6`, 1, 1)(x) = sin(x)^{n - 1} * FunDeri(fun x [x ∈ RealSet] . cos(x), 1, 1)(x) ∧ `F_7`(x) = -`F_6`(x)) })
+8. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ (forall (x), x ∈ RealSet ⇒ I(n, x) = { `F_11` | exists (`F_8`), `F_8` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_8`, 1, 1)(x) = cos(x)^{2} * sin(x)^{n - 2} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_11`(x) = -cos(x) * sin(x)^{n - 1} + (n - 1) * `F_8`(x)) })
+9. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ (forall (x), x ∈ RealSet ⇒ I(n, x) = -cos(x) * sin(x)^{n - 1} + (n - 1) * I(n - 2, x) + (1 - n) * I(n, x))
+10. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ (forall (x), x ∈ RealSet ⇒ I(n, x) = -frac(cos(x) * sin(x)^{n - 1}, n) + frac(n - 1, n) * I(n - 2, x))
+11. forall (n), n ∈ IntegerSet ∧ n > 2 ⇒ (forall (x), x ∈ RealSet ⇒ K(n, x) = { `F_12` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_12`, 1, 1)(x) = cos(x)^{n} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) })
+
+GOAL:
+forall (n), n ∈ IntegerSet ∧ n > 2 ⇒ (forall (x), x ∈ RealSet ⇒ K(n, x) = { `F_13` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_13`, 1, 1)(x) = cos(x)^{n - 1} * FunDeri(fun x [x ∈ RealSet] . sin(x), 1, 1)(x) })
+
+METHOD:

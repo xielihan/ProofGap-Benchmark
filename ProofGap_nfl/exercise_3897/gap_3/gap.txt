@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. F : RealSet → ComplexSet
+3. I : RealSet → RealSet
+4. α ∈ RealSet ∧ α > 0
+5. forall (x), x ∈ RealSet ⇒ f(x) = x * e^{-α * |x|}
+6. forall (x), x ∈ RealSet ⇒ F(x) = frac(1, sqrtn(2, 2 * π)) * DefInt(-∞, +∞, (fun t [t ∈ RealSet] . t * e^{-α * |t|} * e^{-__IMAGINARY_UNIT__ * t * x}) * diff(fun t [t ∈ RealSet] . t))
+7. forall (x), x ∈ RealSet ⇒ F(x) = frac(1, sqrtn(2, 2 * π)) * DefInt(-∞, +∞, (fun t [t ∈ RealSet] . t * e^{-α * |t|} * (cos(t * x) - __IMAGINARY_UNIT__ * sin(t * x))) * diff(fun t [t ∈ RealSet] . t))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ F(x) = -sqrtn(2, frac(2, π)) * __IMAGINARY_UNIT__ * DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ≥ 0] . t * e^{-α * t} * sin(t * x)) * diff(fun t [t ∈ RealSet] . t))
+
+METHOD:

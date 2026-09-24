@@ -1,0 +1,16 @@
+PROOF GAP @4
+ASSUM:
+1. x_{0} ∈ RealSet
+2. g : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+3. f : RealSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ g(n) : IntervalLoRo(x_{0}, +∞) → RealSet
+5. N = floor(x_{0}) + 1
+6. f = (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(x_{0}, +∞)] . cases{ floor(x) * ((sum_{ k = 1 }^{ floor(x) } (|g(k, x)|)) + 1) if x ≥ N; 0 if x_{0} < x ∧ x < N })
+7. f : IntervalLoRo(x_{0}, +∞) → RealSet
+8. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ x > max(N, n) ∧ n ∈ PosIntegerSet ⇒ |frac(g(n, x), f(x))| = frac(|g(n, x)|, floor(x) * ((sum_{ k = 1 }^{ floor(x) } (|g(k, x)|)) + 1))
+9. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ x > max(N, n) ∧ n ∈ PosIntegerSet ⇒ frac(|g(n, x)|, floor(x) * ((sum_{ k = 1 }^{ floor(x) } (|g(k, x)|)) + 1)) < frac(1, floor(x))
+
+GOAL:
+forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ x > max(N, n) ∧ n ∈ PosIntegerSet ⇒ |frac(g(n, x), f(x))| < frac(1, floor(x))
+
+METHOD:

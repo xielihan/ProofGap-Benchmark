@@ -1,0 +1,23 @@
+PROOF GAP @10
+ASSUM:
+1. S ⊆ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+2. a ∈ RealSet ∧ a > 0
+3. I ∈ RealSet
+4. I_{z} ∈ RealSet
+5. D ⊆ CartesianProd(RealSet, RealSet)
+6. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ S = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x^{2} + y^{2} + z^{2} = a^{2} }))
+7. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ D = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet, x^{2} + y^{2} ≤ a^{2} })
+8. I = VectorSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y))
+9. I_{z} = VectorSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y))
+10. I = 3 * I_{z}
+11. I_{z} = VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . sqrtn(2, a^{2} - x^{2} - y^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) - VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . -sqrtn(2, a^{2} - x^{2} - y^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+12. I_{z} = 2 * VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . sqrtn(2, a^{2} - x^{2} - y^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+13. 2 * VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . sqrtn(2, a^{2} - x^{2} - y^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = 2 * DefInt(0, 2 * π, diff(fun φ [φ ∈ RealSet] . φ)) * DefInt(0, a, (fun r [r ∈ RealSet ∧ r ∈ IntervalCc(0, a)] . r * sqrtn(2, a^{2} - r^{2})) * diff(fun r [r ∈ RealSet] . r))
+14. 2 * DefInt(0, 2 * π, diff(fun φ [φ ∈ RealSet] . φ)) * DefInt(0, a, (fun r [r ∈ RealSet ∧ r ∈ IntervalCc(0, a)] . r * sqrtn(2, a^{2} - r^{2})) * diff(fun r [r ∈ RealSet] . r)) = frac(4, 3) * π * a^{3}
+15. I_{z} = frac(4, 3) * π * a^{3}
+16. I = 3 * frac(4, 3) * π * a^{3}
+
+GOAL:
+3 * frac(4, 3) * π * a^{3} = 4 * π * a^{3}
+
+METHOD:

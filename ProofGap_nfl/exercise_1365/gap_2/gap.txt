@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet ∧ x ∈ IntervalLoRo(-1, 1)
+2. x ∈ IntervalLoRo(-1, 1)
+
+GOAL:
+x ≠ 0
+
+METHOD:

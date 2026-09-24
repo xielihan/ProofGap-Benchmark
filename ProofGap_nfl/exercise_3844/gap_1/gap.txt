@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. B : CartesianProd(RealSet, RealSet) → RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ⇒ a^{2} - x^{2} ≥ 0
+
+METHOD:

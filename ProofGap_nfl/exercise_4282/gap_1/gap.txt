@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. x : RealSet → RealSet
+3. y : RealSet → RealSet
+4. z : RealSet → RealSet
+5. a ∈ RealSet
+6. a > 0
+7. C = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x^{2} + y^{2} + z^{2} = a^{2} ∧ x^{2} + y^{2} = a * x ∧ z ≥ 0 }
+
+GOAL:
+forall (x) (y) (z), (x, y, z) ∈ C ⇒ (x - frac(a, 2))^{2} + y^{2} = frac(a, 2)^{2}
+
+METHOD:

@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. D ⊆ RealSet
+3. ConvergenceClass : RealSet → RealSet
+4. Convergent ∈ RealSet
+5. Divergent ∈ RealSet
+6. I = DefInt(0, +∞, frac(cos(x), x + a) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+a > 0 ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [0, +∞) ⇒ x + a ≠ 0)
+
+METHOD:

@@ -1,0 +1,16 @@
+PROOF GAP @4
+ASSUM:
+1. F : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. f : RealSet → RealSet
+3. x_{0} ∈ RealSet
+4. I ⊆ RealSet
+5. I = (x_{0}, +∞)
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ F(n) : I → RealSet
+7. f : I → RealSet
+8. forall (ε) (x), ε ∈ RealSet ∧ x ∈ RealSet ∧ x ∈ I ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ |F(n, x) - f(x)| < ε))
+9. exists (N), N : CartesianProd(RealSet, RealSet) → NonNegIntegerSet ∧ (forall (ε) (x), ε ∈ RealSet ∧ x ∈ RealSet ∧ x ∈ I ∧ ε > 0 ⇒ N(ε, x) ∈ PosIntegerSet)
+
+GOAL:
+(ConvergentSeq(F) ⇔ (forall (ε) (x), ε ∈ RealSet ∧ x ∈ RealSet ∧ x ∈ I ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ |F(n, x) - f(x)| < ε)))) ⇒ f : I → RealSet
+
+METHOD:

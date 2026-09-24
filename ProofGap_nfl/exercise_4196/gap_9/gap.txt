@@ -1,0 +1,18 @@
+PROOF GAP @9
+ASSUM:
+1. p ∈ RealSet
+2. q ∈ RealSet
+3. r ∈ RealSet
+4. DefInt(0, 1, DefInt(0, 1, DefInt(0, 1, (fun x, y, z [x ∈ RealSet ∧ x ∈ [0, 1] ∧ y ∈ RealSet ∧ y ∈ [0, 1] ∧ z ∈ RealSet ∧ z ∈ [0, 1]] . frac(1, x^{p} * y^{q} * z^{r})) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)))) = DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . frac(1, x^{p})) * diff(fun x [x ∈ RealSet] . x)) * DefInt(0, 1, (fun y [y ∈ RealSet ∧ y ∈ [0, 1]] . frac(1, y^{q})) * diff(fun y [y ∈ RealSet] . y)) * DefInt(0, 1, (fun z [z ∈ RealSet ∧ z ∈ [0, 1]] . frac(1, z^{r})) * diff(fun z [z ∈ RealSet] . z))
+5. p < 1 ⇒ q < 1 ⇒ r < 1 ⇒ DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . frac(1, x^{p})) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 1 - p)
+6. p < 1 ⇒ q < 1 ⇒ r < 1 ⇒ DefInt(0, 1, (fun y [y ∈ RealSet ∧ y ∈ [0, 1]] . frac(1, y^{q})) * diff(fun y [y ∈ RealSet] . y)) = frac(1, 1 - q)
+7. p < 1 ⇒ q < 1 ⇒ r < 1 ⇒ DefInt(0, 1, (fun z [z ∈ RealSet ∧ z ∈ [0, 1]] . frac(1, z^{r})) * diff(fun z [z ∈ RealSet] . z)) = frac(1, 1 - r)
+8. p < 1 ⇒ q < 1 ⇒ r < 1 ⇒ DefInt(0, 1, DefInt(0, 1, DefInt(0, 1, (fun x, y, z [x ∈ RealSet ∧ x ∈ [0, 1] ∧ y ∈ RealSet ∧ y ∈ [0, 1] ∧ z ∈ RealSet ∧ z ∈ [0, 1]] . frac(1, x^{p} * y^{q} * z^{r})) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)))) = frac(1, (1 - p) * (1 - q) * (1 - r))
+9. p < 1 ⇒ q < 1 ⇒ r < 1 ⇒ ConvergentSeries(DefInt(0, 1, DefInt(0, 1, DefInt(0, 1, (fun x, y, z [x ∈ RealSet ∧ x ∈ [0, 1] ∧ y ∈ RealSet ∧ y ∈ [0, 1] ∧ z ∈ RealSet ∧ z ∈ [0, 1]] . frac(1, x^{p} * y^{q} * z^{r})) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)))))
+10. p ≥ 1 ∨ q ≥ 1 ∨ r ≥ 1 ⇒ DefInt(0, 1, DefInt(0, 1, DefInt(0, 1, (fun x, y, z [x ∈ RealSet ∧ x ∈ [0, 1] ∧ y ∈ RealSet ∧ y ∈ [0, 1] ∧ z ∈ RealSet ∧ z ∈ [0, 1]] . frac(1, x^{p} * y^{q} * z^{r})) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)))) = +∞
+11. p ≥ 1 ∨ q ≥ 1 ∨ r ≥ 1 ⇒ DivergentSeries(DefInt(0, 1, DefInt(0, 1, DefInt(0, 1, (fun x, y, z [x ∈ RealSet ∧ x ∈ [0, 1] ∧ y ∈ RealSet ∧ y ∈ [0, 1] ∧ z ∈ RealSet ∧ z ∈ [0, 1]] . frac(1, x^{p} * y^{q} * z^{r})) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)))))
+
+GOAL:
+(p, q, r) ∈ { (p, q, r) | p ∈ RealSet, q ∈ RealSet, r ∈ RealSet, p < 1, q < 1, r < 1 } ⇔ ConvergentSeries(DefInt(0, 1, DefInt(0, 1, DefInt(0, 1, (fun x, y, z [x ∈ RealSet ∧ x ∈ [0, 1] ∧ y ∈ RealSet ∧ y ∈ [0, 1] ∧ z ∈ RealSet ∧ z ∈ [0, 1]] . frac(1, x^{p} * y^{q} * z^{r})) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)))))
+
+METHOD:

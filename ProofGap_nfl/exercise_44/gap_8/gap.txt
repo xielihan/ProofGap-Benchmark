@@ -1,0 +1,17 @@
+PROOF GAP @8
+ASSUM:
+1. x : NonNegIntegerSet → RealSet
+2. IsSeq(x)
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = n^{(-1)^{n}}
+4. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ x(2 * k) = (2 * k)^{(-1)^{2 * k}}
+5. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (2 * k)^{(-1)^{2 * k}} = 2 * k
+6. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ x(2 * k) = 2 * k
+7. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ x(2 * k - 1) = (2 * k - 1)^{(-1)^{2 * k - 1}}
+8. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ (2 * k - 1)^{(-1)^{2 * k - 1}} = frac(1, 2 * k - 1)
+9. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ x(2 * k - 1) = frac(1, 2 * k - 1)
+10. seqlim_{ k → +∞ } (x(2 * k)) = +∞
+
+GOAL:
+seqlim_{ k → +∞ } (x(2 * k - 1)) = 0
+
+METHOD:

@@ -1,0 +1,4 @@
+get_prop (theorem 'Thm 280. (EvenFunctionDefinition)': {forall (f), f : RealSet -> RealSet => (EvenFunc(f) <==> (forall (x), x ∈ RealSet => f(-x) = f(x)))}) (f := {f}) as (hypothesis 7: {f : RealSet -> RealSet => (EvenFunc(f) <==> (forall (x), x ∈ RealSet => f(-x) = f(x)))})
+use_condition (hypothesis 1: {f : RealSet -> RealSet}) in (hypothesis 7: {f : RealSet -> RealSet => (EvenFunc(f) <==> (forall (x), x ∈ RealSet => f(-x) = f(x)))}) as (hypothesis 8: {EvenFunc(f) <==> (forall (x), x ∈ RealSet => f(-x) = f(x))})
+rewrite (left_to_right, iff) (hypothesis 8: {EvenFunc(f) <==> (forall (x), x ∈ RealSet => f(-x) = f(x))}); from (GOAL: {EvenFunc(f)}) to (GOAL: {forall (x), x ∈ RealSet => f(-x) = f(x)})
+apply (hypothesis 6: {forall (x), x ∈ RealSet => f(-x) = f(x)})

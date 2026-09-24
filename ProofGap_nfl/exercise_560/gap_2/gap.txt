@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. lim_{ x → a } (frac(a^{a^{x}} - a^{x^{a}}, a^{x} - x^{a})) = lim_{ x → a } (a^{x^{a}} * frac(a^{a^{x} - x^{a}} - 1, a^{x} - x^{a}))
+
+GOAL:
+lim_{ x → a } (frac(a^{a^{x}} - a^{x^{a}}, a^{x} - x^{a})) = a^{a^{a}} * ln(a)
+
+METHOD:

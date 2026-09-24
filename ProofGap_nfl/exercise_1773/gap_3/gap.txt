@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. t = tan(x)
+2. cos(x) ≠ 0
+3. frac(1, cos(x)^{4}) * diff(fun x [x ∈ RealSet] . x) = (1 + t^{2}) * diff(fun t [t ∈ RealSet] . t)
+
+GOAL:
+frac(sin(x)^{2}, cos(x)^{6}) * diff(fun x [x ∈ RealSet] . x) = (t^{4} + t^{2}) * diff(fun t [t ∈ RealSet] . t)
+
+METHOD:

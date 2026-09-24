@@ -1,0 +1,5 @@
+assert (hypothesis 22: {b - c > 0})
+assert (hypothesis 23: {b + c > 0})
+assert (hypothesis 24: {(b - c) * (b + c) > 0})
+assert (hypothesis 25: {b^{2} - c^{2} = (b - c) * (b + c)})
+autosolve all_hypothesis

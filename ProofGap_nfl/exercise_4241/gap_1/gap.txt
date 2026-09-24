@@ -1,0 +1,21 @@
+PROOF GAP @1
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. a ∈ RealSet ∧ a > 0
+3. b ∈ RealSet ∧ b > 0
+4. x : RealSet → RealSet
+5. y : RealSet → RealSet
+6. ρ : CartesianProd(RealSet, RealSet) → RealSet
+7. s ∈ RealSet
+8. t ∈ RealSet
+9. M ∈ RealSet
+10. C = { (x(t), y(t)) | t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π }
+11. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ x(t) = a * cos(t)
+12. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π ⇒ y(t) = b * sin(t)
+13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ ρ(x, y) = |y|
+14. M = ScalarCurveInt(C, ρ * diff(s))
+
+GOAL:
+M = ScalarCurveInt(C, |y| * diff(s))
+
+METHOD:

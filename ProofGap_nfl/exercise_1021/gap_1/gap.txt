@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f = (fun x [x ∈ RealSet ∧ x > 0] . frac(sin(x^{2}), x))
+2. x_{0} = 0
+
+GOAL:
+DiffableFuncOn(f, IntervalLoRo(0, +∞))
+
+METHOD:

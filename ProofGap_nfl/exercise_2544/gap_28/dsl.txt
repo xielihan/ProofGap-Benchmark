@@ -1,0 +1,2 @@
+autoreplace no_hypothesis; from (40 * 1.276) to (51.04); from (hypothesis 50: {s ≈_{ 0.01 } 40 * 1.276}) to (hypothesis 51: {s ≈_{ 0.01 } 51.04})
+apply (hypothesis 51: {s ≈_{ 0.01 } 51.04})

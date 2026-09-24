@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. lim_{ x → frac(π, 3) } (frac(tan(x)^{3} - 3 * tan(x), cos(x + frac(π, 6)))) = lim_{ x → frac(π, 3) } (frac(tan(x) * frac(sin(x)^{2} - 3 * cos(x)^{2}, cos(x)^{2}), frac(sqrtn(2, 3), 2) * cos(x) - frac(1, 2) * sin(x)))
+2. lim_{ x → frac(π, 3) } (frac(tan(x) * frac(sin(x)^{2} - 3 * cos(x)^{2}, cos(x)^{2}), frac(sqrtn(2, 3), 2) * cos(x) - frac(1, 2) * sin(x))) = lim_{ x → frac(π, 3) } (frac(tan(x) * (sin(x) + sqrtn(2, 3) * cos(x)), -frac(1, 2) * cos(x)^{2}))
+
+GOAL:
+lim_{ x → frac(π, 3) } (frac(tan(x)^{3} - 3 * tan(x), cos(x + frac(π, 6)))) = -24
+
+METHOD:

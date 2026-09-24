@@ -1,0 +1,2 @@
+assert (hypothesis 7: {lim_{ x → 0 } (frac(e^{x}, 6)) = frac(1, 6)})
+autosolve all_hypothesis

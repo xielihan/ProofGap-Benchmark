@@ -1,0 +1,11 @@
+1. assert (hypothesis 15: {frac(u + v, 2) = x}) by proof {
+  1. autosolve (hypothesis 13: {x = frac(u + v, 2)})
+}
+2. get_prop (theorem 'Thm 409. (FractionEqualityToCrossProduct)': {forall (A) (B) (C), A ∈ RealSet => B ∈ RealSet => C ∈ RealSet => B != 0 => frac(A, B) = C => A = B * C}) (A := {u + v}) (B := {2}) (C := {x}) as (hypothesis 16: {u + v ∈ RealSet => 2 ∈ RealSet => x ∈ RealSet => 2 != 0 => frac(u + v, 2) = x => u + v = 2 * x})
+3. use_condition (obvious: {u + v ∈ RealSet}) (obvious: {2 ∈ RealSet}) (hypothesis 5: {x ∈ RealSet}) (obvious: {2 != 0}) (hypothesis 15: {frac(u + v, 2) = x}) in (hypothesis 16: {u + v ∈ RealSet => 2 ∈ RealSet => x ∈ RealSet => 2 != 0 => frac(u + v, 2) = x => u + v = 2 * x}) as (hypothesis 17: {u + v = 2 * x})
+4. assert (hypothesis 18: {frac(u - v, 2) = y}) by proof {
+  1. autosolve (hypothesis 14: {y = frac(u - v, 2)})
+}
+5. get_prop (theorem 'Thm 409. (FractionEqualityToCrossProduct)': {forall (A) (B) (C), A ∈ RealSet => B ∈ RealSet => C ∈ RealSet => B != 0 => frac(A, B) = C => A = B * C}) (A := {u - v}) (B := {2}) (C := {y}) as (hypothesis 19: {u - v ∈ RealSet => 2 ∈ RealSet => y ∈ RealSet => 2 != 0 => frac(u - v, 2) = y => u - v = 2 * y})
+6. use_condition (obvious: {u - v ∈ RealSet}) (obvious: {2 ∈ RealSet}) (hypothesis 6: {y ∈ RealSet}) (obvious: {2 != 0}) (hypothesis 18: {frac(u - v, 2) = y}) in (hypothesis 19: {u - v ∈ RealSet => 2 ∈ RealSet => y ∈ RealSet => 2 != 0 => frac(u - v, 2) = y => u - v = 2 * y}) as (hypothesis 20: {u - v = 2 * y})
+7. autosolve (hypothesis 5: {x ∈ RealSet}) (hypothesis 6: {y ∈ RealSet}) (hypothesis 8: {u ∈ RealSet ∧ -1 ≤ u ∧ u ≤ 1}) (hypothesis 9: {v ∈ RealSet ∧ -1 ≤ v ∧ v ≤ 1}) (hypothesis 17: {u + v = 2 * x}) (hypothesis 20: {u - v = 2 * y})

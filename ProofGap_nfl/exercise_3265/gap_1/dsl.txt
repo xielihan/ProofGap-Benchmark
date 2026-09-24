@@ -1,0 +1,22 @@
+1. get_forall (GOAL: {forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = x * e^{x} * y * e^{y} * z * e^{z}}) (x := {x0}) (y := {y0}) (z := {z0})
+2. get_condition (hypothesis 6: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet ⇒ u(x0, y0, z0) = x0 * e^{x0} * y0 * e^{y0} * z0 * e^{z0}})
+3. destruct_and (hypothesis 6: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet}) as (hypothesis 7: {x0 ∈ RealSet}) (hypothesis 8: {y0 ∈ RealSet}) (hypothesis 9: {z0 ∈ RealSet})
+4. get_prop (hypothesis 5: {forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = x * y * z * e^{x + y + z}}) (x := {x0}) (y := {y0}) (z := {z0}) as (hypothesis 10: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet ⇒ u(x0, y0, z0) = x0 * y0 * z0 * e^{x0 + y0 + z0}})
+5. use_condition (hypothesis 6: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet}) in (hypothesis 10: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet ⇒ u(x0, y0, z0) = x0 * y0 * z0 * e^{x0 + y0 + z0}}) as (hypothesis 11: {u(x0, y0, z0) = x0 * y0 * z0 * e^{x0 + y0 + z0}})
+6. assert (hypothesis 12: {e ∈ RealSet}) by proof {
+  1. autosolve all_hypothesis
+}
+7. assert (hypothesis 13: {e > 0}) by proof {
+  1. autosolve all_hypothesis
+}
+8. assert (hypothesis 14: {x0 + y0 ∈ RealSet}) by proof {
+  1. autosolve all_hypothesis
+}
+9. get_prop (theorem 'Thm 204. (ExponentAdditionLaw)': {forall (a) (x) (y), a ∈ RealSet => x ∈ RealSet => y ∈ RealSet => (a > 0 => a ^ (x + y) = a ^ x * a ^ y)}) (a := {e}) (x := {x0 + y0}) (y := {z0}) as (hypothesis 15: {e ∈ RealSet => x0 + y0 ∈ RealSet => z0 ∈ RealSet => (e > 0 => e ^ (x0 + y0 + z0) = e ^ (x0 + y0) * e ^ z0)})
+10. use_condition (hypothesis 12: {e ∈ RealSet}) (hypothesis 14: {x0 + y0 ∈ RealSet}) (hypothesis 9: {z0 ∈ RealSet}) (hypothesis 13: {e > 0}) in (hypothesis 15: {e ∈ RealSet => x0 + y0 ∈ RealSet => z0 ∈ RealSet => (e > 0 => e ^ (x0 + y0 + z0) = e ^ (x0 + y0) * e ^ z0)}) as (hypothesis 16: {e ^ (x0 + y0 + z0) = e ^ (x0 + y0) * e ^ z0})
+11. get_prop (theorem 'Thm 204. (ExponentAdditionLaw)': {forall (a) (x) (y), a ∈ RealSet => x ∈ RealSet => y ∈ RealSet => (a > 0 => a ^ (x + y) = a ^ x * a ^ y)}) (a := {e}) (x := {x0}) (y := {y0}) as (hypothesis 17: {e ∈ RealSet => x0 ∈ RealSet => y0 ∈ RealSet => (e > 0 => e ^ (x0 + y0) = e ^ x0 * e ^ y0)})
+12. use_condition (hypothesis 12: {e ∈ RealSet}) (hypothesis 7: {x0 ∈ RealSet}) (hypothesis 8: {y0 ∈ RealSet}) (hypothesis 13: {e > 0}) in (hypothesis 17: {e ∈ RealSet => x0 ∈ RealSet => y0 ∈ RealSet => (e > 0 => e ^ (x0 + y0) = e ^ x0 * e ^ y0)}) as (hypothesis 18: {e ^ (x0 + y0) = e ^ x0 * e ^ y0})
+13. rewrite (left_to_right, equation) (hypothesis 11: {u(x0, y0, z0) = x0 * y0 * z0 * e^{x0 + y0 + z0}}); from (GOAL: {u(x0, y0, z0) = x0 * e^{x0} * y0 * e^{y0} * z0 * e^{z0}}) to (GOAL: {x0 * y0 * z0 * e^{x0 + y0 + z0} = x0 * e^{x0} * y0 * e^{y0} * z0 * e^{z0}})
+14. rewrite (left_to_right, equation) (hypothesis 16: {e ^ (x0 + y0 + z0) = e ^ (x0 + y0) * e ^ z0}); from (GOAL: {x0 * y0 * z0 * e^{x0 + y0 + z0} = x0 * e^{x0} * y0 * e^{y0} * z0 * e^{z0}}) to (GOAL: {x0 * y0 * z0 * (e ^ (x0 + y0) * e ^ z0) = x0 * e^{x0} * y0 * e^{y0} * z0 * e^{z0}})
+15. rewrite (left_to_right, equation) (hypothesis 18: {e ^ (x0 + y0) = e ^ x0 * e ^ y0}); from (GOAL: {x0 * y0 * z0 * (e ^ (x0 + y0) * e ^ z0) = x0 * e^{x0} * y0 * e^{y0} * z0 * e^{z0}}) to (GOAL: {x0 * y0 * z0 * ((e ^ x0 * e ^ y0) * e ^ z0) = x0 * e^{x0} * y0 * e^{y0} * z0 * e^{z0}})
+16. autosolve all_hypothesis

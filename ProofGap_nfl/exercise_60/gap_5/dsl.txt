@@ -1,0 +1,7 @@
+1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ IntegerSet /\ n > 2 => a^{n} > frac(n * (n - 1), 2) * λ^{2}}) (n := {m})
+2. get_condition (hypothesis 9: {m ∈ NonNegIntegerSet /\ m ∈ IntegerSet /\ m > 2}) in (GOAL: {m ∈ NonNegIntegerSet /\ m ∈ IntegerSet /\ m > 2 => a^{m} > frac(m * (m - 1), 2) * λ^{2}})
+3. get_prop (hypothesis 7: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ IntegerSet /\ n > 2 => a^{n} = (1 + λ)^{n}}) (n := {m}) as (hypothesis 10: {m ∈ NonNegIntegerSet /\ m ∈ IntegerSet /\ m > 2 => a^{m} = (1 + λ)^{m}})
+4. get_prop (hypothesis 8: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ IntegerSet /\ n > 2 => (1 + λ)^{n} > frac(n * (n - 1), 2) * λ^{2}}) (n := {m}) as (hypothesis 11: {m ∈ NonNegIntegerSet /\ m ∈ IntegerSet /\ m > 2 => (1 + λ)^{m} > frac(m * (m - 1), 2) * λ^{2}})
+5. use_condition (hypothesis 9: {m ∈ NonNegIntegerSet /\ m ∈ IntegerSet /\ m > 2}) in (hypothesis 10: {m ∈ NonNegIntegerSet /\ m ∈ IntegerSet /\ m > 2 => a^{m} = (1 + λ)^{m}}) as (hypothesis 12: {a^{m} = (1 + λ)^{m}})
+6. use_condition (hypothesis 9: {m ∈ NonNegIntegerSet /\ m ∈ IntegerSet /\ m > 2}) in (hypothesis 11: {m ∈ NonNegIntegerSet /\ m ∈ IntegerSet /\ m > 2 => (1 + λ)^{m} > frac(m * (m - 1), 2) * λ^{2}}) as (hypothesis 13: {(1 + λ)^{m} > frac(m * (m - 1), 2) * λ^{2}})
+7. autosolve all_hypothesis

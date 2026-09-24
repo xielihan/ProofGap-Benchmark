@@ -1,0 +1,6 @@
+1. get_prop (hypothesis 19: {forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ 12 ⇒ x(i) = frac(i, 12) ∧ y(i) = f(x(i))}) (i := {3}) as (hypothesis 27: {3 ∈ IntegerSet ∧ 0 ≤ 3 ∧ 3 ≤ 12 ⇒ x(3) = frac(3, 12) ∧ y(3) = f(x(3))})
+2. use_condition (obvious: {3 ∈ IntegerSet ∧ 0 ≤ 3 ∧ 3 ≤ 12}) in (hypothesis 27: {3 ∈ IntegerSet ∧ 0 ≤ 3 ∧ 3 ≤ 12 ⇒ x(3) = frac(3, 12) ∧ y(3) = f(x(3))}) as (hypothesis 28: {x(3) = frac(3, 12) ∧ y(3) = f(x(3))})
+3. destruct_and (hypothesis 28: {x(3) = frac(3, 12) ∧ y(3) = f(x(3))}) as (hypothesis 29: {x(3) = frac(3, 12)}) (hypothesis 30: {y(3) = f(x(3))})
+4. rewrite (left_to_right, equation) (hypothesis 30: {y(3) = f(x(3))}); from (GOAL: {y(3) = frac(16, 17)}) to (GOAL: {f(x(3)) = frac(16, 17)})
+5. rewrite (left_to_right, equation) (hypothesis 26: {x(3) = frac(1, 4)}); from (GOAL: {f(x(3)) = frac(16, 17)}) to (GOAL: {f(frac(1, 4)) = frac(16, 17)})
+6. autosolve (hypothesis 8: {f = (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . frac(1, 1 + x^{2}))})

@@ -1,0 +1,46 @@
+PROOF GAP @25
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. y : NonNegIntegerSet → RealSet ∧ IsSeq(y)
+3. n ∈ NonNegIntegerSet
+4. k ∈ NonNegIntegerSet
+5. i ∈ NonNegIntegerSet
+6. p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p)
+7. q : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(q)
+8. β_{`bar`} ∈ RealSet
+9. τ ∈ RealSet
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ∈ NonNegRealSet ∧ y(n) ∈ NonNegRealSet
+11. seqlim_{ n → +∞ } (x(n)) ∈ NonNegRealSet
+12. seqlim_{ n → +∞ } (y(n)) ∈ NonNegRealSet
+13. seqlim_{ n → +∞ } (x(n) * y(n)) ∈ NonNegRealSet
+14. ¬BoundedSeq(y) ⇒ seqlim_{ n → +∞ } (y(n)) = +∞
+15. ¬BoundedSeq(y) ⇒ seqlim_{ n → +∞ } (x(n) * y(n)) ≤ (seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (y(n)))
+16. BoundedSeq(y) ⇒ α_{`bar`} = seqlim_{ n → +∞ } (x(n) * y(n))
+17. BoundedSeq(y) ⇒ α_{`bar`} ≥ 0
+18. BoundedSeq(y) ⇒ (exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ seqlim_{ k → +∞ } (x(p(k)) * y(p(k))) = α_{`bar`})
+19. BoundedSeq(y) ⇒ (exists (q), q : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(q) ∧ seqlim_{ i → +∞ } (x(p(q(i)))) = β_{`bar`} ∧ β_{`bar`} = seqlim_{ k → +∞ } (x(p(k))))
+20. BoundedSeq(y) ⇒ β_{`bar`} ≥ 0
+21. BoundedSeq(y) ⇒ β_{`bar`} = 0 ⇒ seqlim_{ i → +∞ } (x(p(q(i))) * y(p(q(i)))) = 0
+22. BoundedSeq(y) ⇒ β_{`bar`} = 0 ⇒ α_{`bar`} = 0
+23. BoundedSeq(y) ⇒ β_{`bar`} = 0 ⇒ seqlim_{ n → +∞ } (x(n) * y(n)) ≤ (seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (y(n)))
+24. BoundedSeq(y) ⇒ β_{`bar`} > 0 ⇒ (exists (i_{0}), i_{0} ∈ NonNegIntegerSet ∧ i_{0} ∈ PosIntegerSet ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i > i_{0} ⇒ x(p(q(i))) > 0))
+25. BoundedSeq(y) ⇒ β_{`bar`} > 0 ⇒ y(p(q(i))) = x(p(q(i))) * y(p(q(i))) * frac(1, x(p(q(i))))
+26. BoundedSeq(y) ⇒ β_{`bar`} > 0 ⇒ seqlim_{ i → +∞ } (y(p(q(i)))) = frac(α_{`bar`}, β_{`bar`})
+27. BoundedSeq(y) ⇒ β_{`bar`} > 0 ⇒ frac(α_{`bar`}, β_{`bar`}) ∈ AccumulationPointSet(y)
+28. BoundedSeq(y) ⇒ β_{`bar`} > 0 ⇒ frac(α_{`bar`}, β_{`bar`}) ≤ seqlim_{ n → +∞ } (y(n))
+29. BoundedSeq(y) ⇒ β_{`bar`} > 0 ⇒ seqlim_{ n → +∞ } (x(n) * y(n)) = α_{`bar`}
+30. BoundedSeq(y) ⇒ β_{`bar`} > 0 ⇒ α_{`bar`} ≤ β_{`bar`} * (seqlim_{ n → +∞ } (y(n)))
+31. BoundedSeq(y) ⇒ β_{`bar`} > 0 ⇒ β_{`bar`} * (seqlim_{ n → +∞ } (y(n))) ≤ (seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (y(n)))
+32. BoundedSeq(y) ⇒ β_{`bar`} > 0 ⇒ seqlim_{ n → +∞ } (x(n) * y(n)) ≤ (seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (y(n)))
+33. seqlim_{ n → +∞ } (x(n) * y(n)) ≤ (seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (y(n)))
+34. seqlim_{ n → +∞ } (x(n) * y(n)) ≤ (seqlim_{ n → +∞ } (x(n))) * (seqlim_{ n → +∞ } (y(n)))
+35. r = seqlim_{ n → +∞ } (y(n))
+36. r ≥ 0
+37. exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ seqlim_{ k → +∞ } (y(p(k))) = r
+38. exists (q), q : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(q) ∧ seqlim_{ i → +∞ } (x(p(q(i)))) = τ ∧ τ = seqlim_{ k → +∞ } (x(p(k)))
+39. τ ≥ seqlim_{ n → +∞ } (x(n))
+
+GOAL:
+τ ≥ 0
+
+METHOD:

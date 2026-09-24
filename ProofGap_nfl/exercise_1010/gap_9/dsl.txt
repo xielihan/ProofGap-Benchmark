@@ -1,0 +1,4 @@
+get_condition (hypothesis 14: {(x_{0})^{2} = a * x_{0} + b}) in (GOAL: {(x_{0})^{2} = a * x_{0} + b ⇒ (x_{0})^{2} = 2 * (x_{0})^{2} + b})
+assert (hypothesis 15: {a = 2 * x_{0}})
+rewrite (left_to_right, equation) (hypothesis 15: {a = 2 * x_{0}}); from (hypothesis 14: {(x_{0})^{2} = a * x_{0} + b}) to (hypothesis 16: {(x_{0})^{2} = 2 * x_{0} * x_{0} + b})
+autosolve all_hypothesis

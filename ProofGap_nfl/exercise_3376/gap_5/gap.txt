@@ -1,0 +1,16 @@
+PROOF GAP @5
+ASSUM:
+1. x ∈ RealSet
+2. y ∈ RealSet
+3. k ∈ RealSet
+4. 1 + x * y = k * (x - y)
+5. x * diff(y) + y * diff(x) = k * (diff(x) - diff(y))
+6. (x - y) * (x * diff(y) + y * diff(x)) = k * (x - y) * (diff(x) - diff(y))
+7. k * (x - y) * (diff(x) - diff(y)) = (1 + x * y) * (diff(x) - diff(y))
+8. (x - y) * (x * diff(y) + y * diff(x)) = (1 + x * y) * (diff(x) - diff(y))
+
+GOAL:
+frac(diff(x), 1 + x^{2}) = frac(diff(y), 1 + y^{2})
+
+METHOD:
+[@method 等价变形 @]

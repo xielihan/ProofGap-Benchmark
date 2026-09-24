@@ -1,0 +1,4 @@
+get_prop (hypothesis 4: {forall (n), n ∈ NonNegIntegerSet ∧ n = 3 ⇒ x(3) = frac(9, 8)}) (n := {3}) as (hypothesis 8: {3 ∈ NonNegIntegerSet ∧ 3 = 3 ⇒ x(3) = frac(9, 8)})
+use_condition (obvious: {3 ∈ NonNegIntegerSet ∧ 3 = 3}) in (hypothesis 8: {3 ∈ NonNegIntegerSet ∧ 3 = 3 ⇒ x(3) = frac(9, 8)}) as (hypothesis 9: {x(3) = frac(9, 8)})
+rewrite (left_to_right, equation) (hypothesis 7: {max({ x(n) | n ∈ PosIntegerSet }) = x(3)}); from (GOAL: {max({ x(n) | n ∈ PosIntegerSet }) = frac(9, 8)}) to (GOAL: {x(3) = frac(9, 8)})
+apply (hypothesis 9: {x(3) = frac(9, 8)})

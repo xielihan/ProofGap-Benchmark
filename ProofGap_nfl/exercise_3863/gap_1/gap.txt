@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. p ∈ RealSet ∧ 0 < p ∧ p < 1
+2. B : CartesianProd(RealSet, RealSet) → RealSet
+3. p > 0
+
+GOAL:
+forall (p), p ∈ RealSet ∧ 0 < p ∧ p < 1 ⇒ B(p, 1 - p) = DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . frac(x^{p - 1}, 1 + x)) * diff(fun x [x ∈ RealSet ∧ x > 0] . x))
+
+METHOD:

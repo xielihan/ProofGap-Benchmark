@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. F : RealSet → RealSet
+3. C ∈ RealSet
+4. C_{1} ∈ RealSet
+5. C_{2} ∈ RealSet
+
+GOAL:
+ContinuousFuncOn(fun x [x ∈ RealSet] . e^{-|x|}, IntervalLoRo(-∞, +∞))
+
+METHOD:

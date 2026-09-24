@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. forall (x), x ∈ RealSet ⇒ sin(a * x) = sum_{ n = 0 }^{ +∞ } (frac((-1)^{n} * a^{2 * n + 1} * x^{2 * n + 1}, (2 * n + 1)!))
+
+GOAL:
+DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}} * sin(a * x)) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}} * (sum_{ n = 0 }^{ +∞ } (frac((-1)^{n} * a^{2 * n + 1} * x^{2 * n + 1}, (2 * n + 1)!)))) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

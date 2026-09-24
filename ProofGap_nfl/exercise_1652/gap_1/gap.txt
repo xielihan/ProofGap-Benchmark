@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ tanh(x)^{2} = 1 - frac(1, cosh(x)^{2})
+
+METHOD:

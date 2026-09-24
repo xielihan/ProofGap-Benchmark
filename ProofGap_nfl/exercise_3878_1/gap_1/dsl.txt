@@ -1,0 +1,3 @@
+get_forall (GOAL: {forall (t), t ∈ RealSet ∧ 0 < t ∧ t < +∞ ⇒ |t^{x - 1} * e^{-λ * t * cos(α)} * cos(λ * t * sin(α))| ≤ t^{x - 1} * e^{-λ * t * cos(α)}}) (t := {t0})
+get_condition (hypothesis 8: {t0 ∈ RealSet ∧ 0 < t0 ∧ t0 < +∞}) in (GOAL: {t0 ∈ RealSet ∧ 0 < t0 ∧ t0 < +∞ ⇒ |t0^{x - 1} * e^{-λ * t0 * cos(α)} * cos(λ * t0 * sin(α))| ≤ t0^{x - 1} * e^{-λ * t0 * cos(α)}})
+autosolve all_hypothesis

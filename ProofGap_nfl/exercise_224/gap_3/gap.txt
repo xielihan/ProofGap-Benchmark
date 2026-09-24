@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = 2 * x + 3
+3. forall (z), z ∈ RealSet ⇒ InverseFunc(y, z) = frac(z - 3, 2)
+4. Dom(InverseFunc(y)) = RealSet
+
+GOAL:
+InverseFunc(y) = (fun z [z ∈ RealSet] . frac(z - 3, 2))
+
+METHOD:

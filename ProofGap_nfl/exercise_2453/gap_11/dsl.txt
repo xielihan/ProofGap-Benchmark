@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 23: {s_{2} = a * DefInt(0, 2 * π, sqrtn(2, 1 - ε^{2} * sin(t)^{2}) * diff(fun t [t ∈ RealSet] . t))}); from (GOAL: {s_{1} = s_{2}}) to (GOAL: {s_{1} = a * DefInt(0, 2 * π, sqrtn(2, 1 - ε^{2} * sin(t)^{2}) * diff(fun t [t ∈ RealSet] . t))})
+apply (hypothesis 18: {s_{1} = a * DefInt(0, 2 * π, sqrtn(2, 1 - ε^{2} * sin(t)^{2}) * diff(fun t [t ∈ RealSet] . t))})

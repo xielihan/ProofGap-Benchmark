@@ -1,0 +1,12 @@
+PROOF GAP @5
+ASSUM:
+1. f = (fun t [t ∈ RealSet ∧ t ∈ IntervalLoRo(0, π)] . frac(cot(t), t))
+2. ContinuousFuncOn(cot, IntervalLoRo(0, π))
+3. StrictMonoDecFuncOn(cot, IntervalLoRo(0, π))
+4. ContinuousFuncOn(fun t [t ∈ RealSet ∧ t ∈ IntervalLoRo(0, π)] . frac(1, t), IntervalLoRo(0, π))
+5. StrictMonoDecFuncOn(fun t [t ∈ RealSet ∧ t ∈ IntervalLoRo(0, π)] . frac(1, t), IntervalLoRo(0, π))
+
+GOAL:
+ContinuousFuncOn(f, IntervalLoRo(0, π))
+
+METHOD:

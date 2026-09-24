@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. Δ = |sqrtn(12, 4000) - 1.9960|
+
+GOAL:
+sqrtn(12, 4000) = 2 * (1 - frac(3, 128))^{frac(1, 12)}
+
+METHOD:

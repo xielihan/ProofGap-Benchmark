@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. p ∈ NonNegIntegerSet
+3. p ∈ PosIntegerSet
+4. forall (x), x ∈ RealSet ⇒ f(x) = cos(x)^{2 * p}
+
+GOAL:
+forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ FunDeri(f, 1, n)(x) = FunDeri(fun x [x ∈ RealSet] . cos(x)^{2 * p}, 1, n)(x)
+
+METHOD:
+[@method 根据 "1215题及1216题(1)的方法" @]

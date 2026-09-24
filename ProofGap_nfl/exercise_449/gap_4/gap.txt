@@ -1,0 +1,10 @@
+PROOF GAP @4
+ASSUM:
+1. lim_{ x → 7 } (frac(sqrtn(2, x + 2) - sqrtn(3, x + 20), sqrtn(4, x + 9) - 2)) = lim_{ x → 7 } (frac((sqrtn(6, (x + 2)^{3}) - sqrtn(6, (x + 20)^{2})) * (sqrtn(4, x + 9) + 2) * (sqrtn(2, x + 9) + 4), (sqrtn(4, x + 9) - 2) * (sqrtn(4, x + 9) + 2) * (sqrtn(2, x + 9) + 4)))
+2. lim_{ x → 7 } (frac(sqrtn(2, x + 2) - sqrtn(3, x + 20), sqrtn(4, x + 9) - 2)) = lim_{ x → 7 } (frac(((x + 2)^{3} - (x + 20)^{2}) * (sqrtn(4, x + 9) + 2) * (sqrtn(2, x + 9) + 4), (x - 7) * (sqrtn(6, (x + 2)^{15}) + sqrtn(6, (x + 2)^{12} * (x + 20)^{2}) + sqrtn(6, (x + 2)^{9} * (x + 20)^{4}) + sqrtn(6, (x + 2)^{6} * (x + 20)^{6}) + sqrtn(6, (x + 2)^{3} * (x + 20)^{8}) + sqrtn(6, (x + 20)^{10}))))
+3. forall (x), x ∈ RealSet ⇒ (x + 2)^{3} - (x + 20)^{2} = (x - 7) * (x^{2} + 12 * x + 56)
+
+GOAL:
+lim_{ x → 7 } (frac(sqrtn(2, x + 2) - sqrtn(3, x + 20), sqrtn(4, x + 9) - 2)) = lim_{ x → 7 } (frac((x^{2} + 12 * x + 56) * (sqrtn(4, x + 9) + 2) * (sqrtn(2, x + 9) + 4), sqrtn(6, (x + 2)^{15}) + sqrtn(6, (x + 2)^{12} * (x + 20)^{2}) + sqrtn(6, (x + 2)^{9} * (x + 20)^{4}) + sqrtn(6, (x + 2)^{6} * (x + 20)^{6}) + sqrtn(6, (x + 2)^{3} * (x + 20)^{8}) + sqrtn(6, (x + 20)^{10})))
+
+METHOD:

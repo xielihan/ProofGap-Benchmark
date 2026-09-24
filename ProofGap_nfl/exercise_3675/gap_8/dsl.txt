@@ -1,0 +1,3 @@
+get_prop (hypothesis 5: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = x - 2 * y - 3}) (x := {0}) (y := {0}) as (hypothesis 14: {0 ∈ RealSet ∧ 0 ∈ RealSet ⇒ z(0, 0) = 0 - 2 * 0 - 3})
+use_condition (obvious: {0 ∈ RealSet ∧ 0 ∈ RealSet}) in (hypothesis 14: {0 ∈ RealSet ∧ 0 ∈ RealSet ⇒ z(0, 0) = 0 - 2 * 0 - 3}) as (hypothesis 15: {z(0, 0) = 0 - 2 * 0 - 3})
+autosolve all_hypothesis

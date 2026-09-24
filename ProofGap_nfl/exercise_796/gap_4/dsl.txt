@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, π) ⇒ F(x) = f(x)}) (x := {t})
+get_condition (hypothesis 8: {t ∈ RealSet ∧ t ∈ IntervalLoRo(0, π)}) in (GOAL: {t ∈ RealSet ∧ t ∈ IntervalLoRo(0, π) ⇒ F(t) = f(t)})
+get_prop (hypothesis 3: {forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, π) ⇒ f(x) = frac(sin(x), x)}) (x := {t}) as (hypothesis 9: {t ∈ RealSet ∧ t ∈ IntervalLoRo(0, π) ⇒ f(t) = frac(sin(t), t)})
+use_condition (hypothesis 8: {t ∈ RealSet ∧ t ∈ IntervalLoRo(0, π)}) in (hypothesis 9: {t ∈ RealSet ∧ t ∈ IntervalLoRo(0, π) ⇒ f(t) = frac(sin(t), t)}) as (hypothesis 10: {f(t) = frac(sin(t), t)})
+rewrite (left_to_right, equation) (hypothesis 5: {F = (fun x [x ∈ RealSet] . cases{ 1 if x = 0; frac(sin(x), x) if 0 < x ∧ x < π; 0 if x = π })}); from (GOAL: {F(t) = f(t)}) to (GOAL: {(fun x [x ∈ RealSet] . cases{ 1 if x = 0; frac(sin(x), x) if 0 < x ∧ x < π; 0 if x = π })(t) = f(t)})
+rewrite (left_to_right, equation) (hypothesis 10: {f(t) = frac(sin(t), t)}); from (GOAL: {(fun x [x ∈ RealSet] . cases{ 1 if x = 0; frac(sin(x), x) if 0 < x ∧ x < π; 0 if x = π })(t) = f(t)}) to (GOAL: {(fun x [x ∈ RealSet] . cases{ 1 if x = 0; frac(sin(x), x) if 0 < x ∧ x < π; 0 if x = π })(t) = frac(sin(t), t)})
+autosolve all_hypothesis

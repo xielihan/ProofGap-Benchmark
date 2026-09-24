@@ -1,0 +1,12 @@
+PROOF GAP @5
+ASSUM:
+1. R : NonNegIntegerSet → RealSet
+2. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x < 1 ⇒ ln(1 - x) = -(sum_{ n = 1 }^{ +∞ } (frac(x^{n}, n)))
+3. DefInt(0, 1, (fun x [x ∈ RealSet] . ln(frac(1, 1 - x))) * diff(fun x [x ∈ RealSet] . x)) = -DefInt(0, 1, (fun x [x ∈ RealSet] . ln(1 - x)) * diff(fun x [x ∈ RealSet] . x))
+4. forall (τ), τ ∈ RealSet ∧ 0 < τ ∧ τ < 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ DefInt(0, τ, (fun x [x ∈ RealSet] . ln(1 - x)) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, τ, (fun x [x ∈ RealSet] . -(sum_{ k = 1 }^{ n } (frac(x^{k}, k)))) * diff(fun x [x ∈ RealSet] . x)) + R(n))
+5. forall (τ), τ ∈ RealSet ∧ 0 < τ ∧ τ < 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ R(n) = DefInt(0, τ, (fun x [x ∈ RealSet] . -(sum_{ k = n + 1 }^{ +∞ } (frac(x^{k}, k)))) * diff(fun x [x ∈ RealSet] . x)))
+
+GOAL:
+forall (τ), τ ∈ RealSet ∧ 0 < τ ∧ τ < 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 > R(n) ∧ R(n) > -frac(1, n + 1))
+
+METHOD:

@@ -1,0 +1,20 @@
+get_forall (GOAL: {forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ I(r, φ) = frac(1, r) * (FunDeri(u, 1, 1)(r, φ) * FunDeri(v, 2, 1)(r, φ) - FunDeri(u, 2, 1)(r, φ) * FunDeri(v, 1, 1)(r, φ))}) (r := {r}) (φ := {φ})
+get_condition (hypothesis 18: {r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet}) in (GOAL: {r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ I(r, φ) = frac(1, r) * (FunDeri(u, 1, 1)(r, φ) * FunDeri(v, 2, 1)(r, φ) - FunDeri(u, 2, 1)(r, φ) * FunDeri(v, 1, 1)(r, φ))})
+get_prop (hypothesis 16: {forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ I(r, φ) = frac(x(r, φ)^{2} + y(r, φ)^{2}, r^{3}) * (FunDeri(u, 1, 1)(r, φ) * FunDeri(v, 2, 1)(r, φ) - FunDeri(u, 2, 1)(r, φ) * FunDeri(v, 1, 1)(r, φ))}) (r := {r}) (φ := {φ}) as (hypothesis 19: {r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ I(r, φ) = frac(x(r, φ)^{2} + y(r, φ)^{2}, r^{3}) * (FunDeri(u, 1, 1)(r, φ) * FunDeri(v, 2, 1)(r, φ) - FunDeri(u, 2, 1)(r, φ) * FunDeri(v, 1, 1)(r, φ))})
+use_condition (hypothesis 18: {r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet}) in (hypothesis 19: {r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ I(r, φ) = frac(x(r, φ)^{2} + y(r, φ)^{2}, r^{3}) * (FunDeri(u, 1, 1)(r, φ) * FunDeri(v, 2, 1)(r, φ) - FunDeri(u, 2, 1)(r, φ) * FunDeri(v, 1, 1)(r, φ))}) as (hypothesis 20: {I(r, φ) = frac(x(r, φ)^{2} + y(r, φ)^{2}, r^{3}) * (FunDeri(u, 1, 1)(r, φ) * FunDeri(v, 2, 1)(r, φ) - FunDeri(u, 2, 1)(r, φ) * FunDeri(v, 1, 1)(r, φ))})
+get_prop (hypothesis 17: {forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ x(r, φ)^{2} + y(r, φ)^{2} = r^{2}}) (r := {r}) (φ := {φ}) as (hypothesis 21: {r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ x(r, φ)^{2} + y(r, φ)^{2} = r^{2}})
+use_condition (hypothesis 18: {r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet}) in (hypothesis 21: {r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ x(r, φ)^{2} + y(r, φ)^{2} = r^{2}}) as (hypothesis 22: {x(r, φ)^{2} + y(r, φ)^{2} = r^{2}})
+assert (hypothesis 23: {r != 0}) by proof {
+  1. autosolve (hypothesis 18: {r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet})
+}
+assert (hypothesis 24: {r^{2} != 0}) by proof {
+  1. autosolve (hypothesis 18: {r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet})
+}
+get_prop (theorem 'Thm 408. (FractionScalingByNonzeroFactor)': {forall (a) (b) (c), a ∈ RealSet => b ∈ RealSet => c ∈ RealSet => b ≠ 0 => c ≠ 0 => frac(a * c, b * c) = frac(a, b)}) (a := {1}) (b := {r}) (c := {r^{2}}) as (hypothesis 25: {1 ∈ RealSet => r ∈ RealSet => r^{2} ∈ RealSet => r ≠ 0 => r^{2} ≠ 0 => frac(1 * r^{2}, r * r^{2}) = frac(1, r)})
+use_condition (obvious: {1 ∈ RealSet}) (obvious: {r ∈ RealSet}) (obvious: {r^{2} ∈ RealSet}) (hypothesis 23: {r != 0}) (hypothesis 24: {r^{2} != 0}) in (hypothesis 25: {1 ∈ RealSet => r ∈ RealSet => r^{2} ∈ RealSet => r ≠ 0 => r^{2} ≠ 0 => frac(1 * r^{2}, r * r^{2}) = frac(1, r)}) as (hypothesis 26: {frac(1 * r^{2}, r * r^{2}) = frac(1, r)})
+assert (hypothesis 27: {frac(r^{2}, r^{3}) = frac(1, r)}) by proof {
+  1. autosolve (hypothesis 26: {frac(1 * r^{2}, r * r^{2}) = frac(1, r)})
+}
+rewrite (left_to_right, equation) (hypothesis 22: {x(r, φ)^{2} + y(r, φ)^{2} = r^{2}}); from (hypothesis 20: {I(r, φ) = frac(x(r, φ)^{2} + y(r, φ)^{2}, r^{3}) * (FunDeri(u, 1, 1)(r, φ) * FunDeri(v, 2, 1)(r, φ) - FunDeri(u, 2, 1)(r, φ) * FunDeri(v, 1, 1)(r, φ))}) to (hypothesis 28: {I(r, φ) = frac(r^{2}, r^{3}) * (FunDeri(u, 1, 1)(r, φ) * FunDeri(v, 2, 1)(r, φ) - FunDeri(u, 2, 1)(r, φ) * FunDeri(v, 1, 1)(r, φ))})
+rewrite (left_to_right, equation) (hypothesis 27: {frac(r^{2}, r^{3}) = frac(1, r)}); from (hypothesis 28: {I(r, φ) = frac(r^{2}, r^{3}) * (FunDeri(u, 1, 1)(r, φ) * FunDeri(v, 2, 1)(r, φ) - FunDeri(u, 2, 1)(r, φ) * FunDeri(v, 1, 1)(r, φ))}) to (hypothesis 29: {I(r, φ) = frac(1, r) * (FunDeri(u, 1, 1)(r, φ) * FunDeri(v, 2, 1)(r, φ) - FunDeri(u, 2, 1)(r, φ) * FunDeri(v, 1, 1)(r, φ))})
+apply (hypothesis 29: {I(r, φ) = frac(1, r) * (FunDeri(u, 1, 1)(r, φ) * FunDeri(v, 2, 1)(r, φ) - FunDeri(u, 2, 1)(r, φ) * FunDeri(v, 1, 1)(r, φ))})

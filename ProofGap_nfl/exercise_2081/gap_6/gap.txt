@@ -1,0 +1,19 @@
+PROOF GAP @6
+ASSUM:
+1. n ∈ NonNegIntegerSet ∧ n > 0
+2. R : RealSet → RealSet
+3. a : NonNegIntegerSet → RealSet
+4. n ∈ PosIntegerSet
+5. IsFunc(R)
+6. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ a(i) ∈ RealSet
+7. exists (α), α ∈ RealSet ∧ α ≠ 0 ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ (exists (k), k : NonNegIntegerSet → IntegerSet ∧ k(i) ∈ IntegerSet ∧ a(i) = k(i) * α))
+8. exists (α), α ∈ RealSet ∧ α ≠ 0 ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ (exists (k), k : NonNegIntegerSet → IntegerSet ∧ k(i) ∈ IntegerSet ∧ a(i) = k(i) * α))
+9. forall (x) (t), x ∈ RealSet ∧ t ∈ RealSet ∧ t > 0 ⇒ (forall (α), α ∈ RealSet ∧ α ≠ 0 ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ (exists (k), k : NonNegIntegerSet → IntegerSet ∧ k(i) ∈ IntegerSet ∧ a(i) = k(i) * α)) ∧ e^{α * x} = t ⇒ t > 0)
+10. forall (x) (t), x ∈ RealSet ∧ t ∈ RealSet ∧ t > 0 ⇒ (forall (α), α ∈ RealSet ∧ α ≠ 0 ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ (exists (k), k : NonNegIntegerSet → IntegerSet ∧ k(i) ∈ IntegerSet ∧ a(i) = k(i) * α)) ∧ e^{α * x} = t ⇒ x = frac(1, α) * ln(t))
+11. forall (x) (t), x ∈ RealSet ∧ t ∈ RealSet ∧ t > 0 ⇒ (forall (α), α ∈ RealSet ∧ α ≠ 0 ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ (exists (k), k : NonNegIntegerSet → IntegerSet ∧ k(i) ∈ IntegerSet ∧ a(i) = k(i) * α)) ∧ e^{α * x} = t ⇒ diff(fun t [t ∈ RealSet ∧ t > 0] . x) = frac(1, α * t) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))
+12. forall (x) (t) (k), x ∈ RealSet ∧ t ∈ RealSet ∧ t > 0 ∧ k : NonNegIntegerSet → IntegerSet ⇒ (forall (α), α ∈ RealSet ∧ α ≠ 0 ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ k(i) ∈ IntegerSet ∧ a(i) = k(i) * α) ∧ e^{α * x} = t ⇒ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ e^{a(i) * x} = t^{k(i)}))
+
+GOAL:
+forall (x) (t) (k), x ∈ RealSet ∧ t ∈ RealSet ∧ t > 0 ∧ k : NonNegIntegerSet → IntegerSet ⇒ (forall (α), α ∈ RealSet ∧ α ≠ 0 ∧ (forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ k(i) ∈ IntegerSet ∧ a(i) = k(i) * α) ∧ e^{α * x} = t ⇒ { `F_1` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_1`, 1, 1)(x) = R(e^{a(1) * x}, ..., e^{a(n) * x}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | exists (`F_2`), `F_2` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ FunDeri(`F_2`, 1, 1)(t) = R(t^{k(1)}, ..., t^{k(n)}) * frac(FunDeri(fun t [t ∈ RealSet ∧ t > 0] . t, 1, 1)(t), t) ∧ `F_3`(t) = frac(1, α) * `F_2`(t)) })
+
+METHOD:

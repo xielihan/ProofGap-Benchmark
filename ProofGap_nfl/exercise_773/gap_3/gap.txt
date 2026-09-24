@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = 1 + sin(x)
+3. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 2 * π) ⇒ -1 ≤ sin(x)
+4. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 2 * π) ⇒ sin(x) ≤ 1
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 2 * π) ⇒ -1 ≤ 1
+
+METHOD:

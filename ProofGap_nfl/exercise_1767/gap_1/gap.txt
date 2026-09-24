@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ (1 - 5 * x^{2} = t ⇒ x ∈ RealSet))
+
+METHOD:

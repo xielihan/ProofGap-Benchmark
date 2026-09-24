@@ -1,0 +1,16 @@
+PROOF GAP @7
+ASSUM:
+1. y : RealSet → RealSet
+2. S ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ y(x) = e^{-x} * sin(x)
+4. forall (k), k ∈ IntegerSet ⇒ sin(k * π) = 0
+5. S = seqlim_{ n → +∞ } (sum_{ k = 0 }^{ n } ((-1)^{k} * DefInt(k * π, (k + 1) * π, (fun x [x ∈ RealSet] . e^{-x} * sin(x)) * diff(fun x [x ∈ RealSet] . x))))
+6. forall (k), k ∈ NonNegIntegerSet ⇒ DefInt(k * π, (k + 1) * π, (fun x [x ∈ RealSet] . e^{-x} * sin(x)) * diff(fun x [x ∈ RealSet] . x)) = ((fun x [x ∈ RealSet] . -e^{-x} * (sin(x) + cos(x)) / 2)|_{k * π}^{(k + 1) * π})
+7. S = seqlim_{ n → +∞ } (sum_{ k = 0 }^{ n } ((-1)^{k + 1} * frac(1, 2) * (e^{-(k + 1) * π} * cos((k + 1) * π) - e^{-k * π} * cos(k * π))))
+8. S = frac(1, 2) * (seqlim_{ n → +∞ } (sum_{ k = 0 }^{ n } (e^{-(k + 1) * π} + e^{-k * π})))
+9. S = frac(1, 2) * (seqlim_{ n → +∞ } (1 + 2 * e^{-π} * (sum_{ k = 0 }^{ n - 1 } (e^{-k * π})) + e^{-(n + 1) * π}))
+
+GOAL:
+S = frac(1, 2) * (seqlim_{ n → +∞ } (1 + 2 * e^{-π} * frac(1 - e^{-n * π}, 1 - e^{-π}) + e^{-(n + 1) * π}))
+
+METHOD:

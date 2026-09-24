@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. z : RealSet → ComplexSet
+3. S : RealSet → RealSet
+4. 0 < x ⇒ x < 2 * π ⇒ z(x) = e^{__IMAGINARY_UNIT__ * x}
+5. 0 < x ⇒ x < 2 * π ⇒ sum_{ n = 1 }^{ +∞ } (frac(z(x)^{n}, n)) = ln(frac(1, 1 - z(x)))
+
+GOAL:
+0 < x ⇒ x < 2 * π ⇒ ln(frac(1, 1 - z(x))) = -ln(1 - cos(x) - __IMAGINARY_UNIT__ * sin(x))
+
+METHOD:

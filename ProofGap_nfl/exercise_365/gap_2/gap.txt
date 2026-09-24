@@ -1,0 +1,16 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. y_{0} ∈ RealSet
+5. b ≠ a
+6. forall (x), x ∈ RealSet ⇒ f(a + x) - y_{0} = y_{0} - f(a - x)
+7. forall (x), x ∈ RealSet ⇒ f(b + x) = f(b - x)
+8. forall (x), x ∈ RealSet ⇒ f(b + x) = 2 * y_{0} - f(2 * a - b - x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ f(b - x) = 2 * y_{0} - f(2 * a - b - x)
+
+METHOD:
+[@method 根据 forall (x), x ∈ RealSet ⇒ f(b + x) = f(b - x) @]

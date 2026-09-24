@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet ∧ x ∈ IntervalLoRo(-1, 1)
+2. C ∈ RealSet
+3. { `F_2` | forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-1, 1) ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(arccos(x), (1 - x^{2})^{frac(3, 2)}) * FunDeri(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(-1, 1)] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-1, 1) ⇒ FunDeri(`F_3`, 1, 1)(x) = arccos(x) * FunDeri(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(-1, 1)] . frac(x, sqrtn(2, 1 - x^{2})), 1, 1)(x) }
+
+GOAL:
+{ `F_4` | forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-1, 1) ⇒ FunDeri(`F_4`, 1, 1)(x) = arccos(x) * FunDeri(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(-1, 1)] . frac(x, sqrtn(2, 1 - x^{2})), 1, 1)(x) } = { `F_7` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-1, 1) ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(x, 1 - x^{2}) * FunDeri(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(-1, 1)] . x, 1, 1)(x) ∧ `F_7`(x) = frac(x * arccos(x), sqrtn(2, 1 - x^{2})) + `F_5`(x)) }
+
+METHOD:

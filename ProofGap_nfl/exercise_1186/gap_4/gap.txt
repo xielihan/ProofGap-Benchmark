@@ -1,0 +1,10 @@
+PROOF GAP @4
+ASSUM:
+1. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (a), a ∈ RealSet ⇒ (forall (b), b ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (f), f : RealSet → RealSet ⇒ (forall (I), I ⊆ RealSet ∧ n ∈ PosIntegerSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ x ∈ RealSet ∧ a * x + b ∈ I ∧ FuncOfClassKOn(f, I, n) ⇒ FunDeri(fun x [x ∈ RealSet] . a * x + b, 1, 1)(x) = a)))))
+2. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (a), a ∈ RealSet ⇒ (forall (b), b ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (f), f : RealSet → RealSet ⇒ (forall (I), I ⊆ RealSet ∧ n ∈ PosIntegerSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ x ∈ RealSet ∧ a * x + b ∈ I ∧ FuncOfClassKOn(f, I, n) ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≤ n ⇒ FunDeri(fun t [t ∈ RealSet] . f(a * t + b), 1, k)(x) = a^{k} * FunDeri(f, fun x [x ∈ RealSet] . a * x + b, k)(a * x + b)))))))
+3. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (a), a ∈ RealSet ⇒ (forall (b), b ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (f), f : RealSet → RealSet ⇒ (forall (I), I ⊆ RealSet ∧ n ∈ PosIntegerSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ x ∈ RealSet ∧ a * x + b ∈ I ∧ FuncOfClassKOn(f, I, n) ⇒ FunDeri(fun t [t ∈ RealSet] . f(a * t + b), 1, n)(x) = a^{n} * FunDeri(f, fun x [x ∈ RealSet] . a * x + b, n)(a * x + b))))))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ (forall (a), a ∈ RealSet ⇒ (forall (b), b ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (f), f : RealSet → RealSet ⇒ (forall (I), I ⊆ RealSet ∧ n ∈ PosIntegerSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ x ∈ RealSet ∧ a * x + b ∈ I ∧ FuncOfClassKOn(f, I, n) ⇒ FunDeri(fun t [t ∈ RealSet] . f(a * t + b), 1, n)(x) = a^{n} * FunDeri(f, fun x [x ∈ RealSet] . a * x + b, n)(a * x + b))))))
+
+METHOD:

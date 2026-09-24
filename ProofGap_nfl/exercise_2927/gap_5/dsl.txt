@@ -1,0 +1,6 @@
+assert (hypothesis 12: {(-10^{-4} < π - 3.1416 /\ π - 3.1416 < 10^{-4}) => |π - 3.1416| < 10^{-4}}) by proof {
+  get_condition (hypothesis 13: {-10^{-4} < π - 3.1416 /\ π - 3.1416 < 10^{-4}}) in (GOAL: {(-10^{-4} < π - 3.1416 /\ π - 3.1416 < 10^{-4}) => |π - 3.1416| < 10^{-4}})
+  autosolve all_hypothesis
+}
+apply (hypothesis 12: {(-10^{-4} < π - 3.1416 /\ π - 3.1416 < 10^{-4}) => |π - 3.1416| < 10^{-4}})
+autosolve all_hypothesis

@@ -1,0 +1,2 @@
+get_condition (hypothesis 20: {0 < δ ∧ δ ≤ 2.5 * 10^{-10}}) in (GOAL: {(0 < δ ∧ δ ≤ 2.5 * 10^{-10}) ⇒ δ > 0 ∧ (forall (`x'`) (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ `x'` ∈ [-10, 10] ∧ `x''` ∈ [-10, 10] ∧ |`x'` - `x''`| < δ ⇒ |y(`x'`) - y(`x''`)| < ε)})
+autosolve all_hypothesis

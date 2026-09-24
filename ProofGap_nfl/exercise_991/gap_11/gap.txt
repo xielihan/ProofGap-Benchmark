@@ -1,0 +1,19 @@
+PROOF GAP @11
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = cases{ x^{2} * sin(frac(1, x)) if x ≠ 0; 0 if x = 0 }
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(f, 1, 1)(x) = 2 * x * sin(frac(1, x)) - cos(frac(1, x))
+4. FunDeri(f, 1, 1)(0) = lim_{ Δx → 0 } (frac(f(0 + Δx) - f(0), Δx))
+5. lim_{ Δx → 0 } (frac(f(0 + Δx) - f(0), Δx)) = lim_{ Δx → 0 } (Δx * sin(frac(1, Δx)))
+6. lim_{ Δx → 0 } (Δx * sin(frac(1, Δx))) = 0
+7. FunDeri(f, 1, 1)(0) = 0
+8. DiffableFunc(f)
+9. ¬(exists (L), L ∈ RealSet ∧ lim_{ x → 0 } (FunDeri(f, 1, 1)(x)) = L)
+10. ¬ContinuousFuncAt(FunDeri(f, 1, 1), 0)
+11. ¬ContinuousFunc(FunDeri(f, 1, 1))
+12. DiffableFunc(f)
+
+GOAL:
+¬ContinuousFunc(FunDeri(f, 1, 1))
+
+METHOD:

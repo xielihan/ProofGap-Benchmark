@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ FunDeri(z, 1, 1)(x, y) = 0 ∧ FunDeri(z, 2, 1)(x, y) = 0 => cos(x) = sin(y)}) (x := {a}) (y := {b})
+get_condition (hypothesis 7: {a ∈ RealSet ∧ b ∈ RealSet ∧ FunDeri(z, 1, 1)(a, b) = 0 ∧ FunDeri(z, 2, 1)(a, b) = 0}) in (GOAL: {a ∈ RealSet ∧ b ∈ RealSet ∧ FunDeri(z, 1, 1)(a, b) = 0 ∧ FunDeri(z, 2, 1)(a, b) = 0 => cos(a) = sin(b)})
+get_prop (hypothesis 5: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet => FunDeri(z, 1, 1)(x, y) = cos(x) - sin(x - y)}) (x := {a}) (y := {b}) as (hypothesis 8: {a ∈ RealSet ∧ b ∈ RealSet => FunDeri(z, 1, 1)(a, b) = cos(a) - sin(a - b)})
+get_prop (hypothesis 6: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet => FunDeri(z, 2, 1)(x, y) = -sin(y) + sin(x - y)}) (x := {a}) (y := {b}) as (hypothesis 9: {a ∈ RealSet ∧ b ∈ RealSet => FunDeri(z, 2, 1)(a, b) = -sin(b) + sin(a - b)})
+autosolve all_hypothesis

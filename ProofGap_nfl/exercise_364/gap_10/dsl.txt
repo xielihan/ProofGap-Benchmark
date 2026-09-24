@@ -1,0 +1,7 @@
+get_condition (hypothesis 19: {y_{0} = y_{1}}) in (GOAL: {y_{0} = y_{1} ⇒ (forall (x), x ∈ RealSet ⇒ f(x) = φ(x))})
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ f(x) = φ(x)}) (x := {z})
+get_condition (hypothesis 20: {z ∈ RealSet}) in (GOAL: {z ∈ RealSet ⇒ f(z) = φ(z)})
+get_prop (hypothesis 18: {forall (x), x ∈ RealSet ⇒ f(x) = -frac(y_{0} - y_{1}, b - a) * x + φ(x)}) (x := {z}) as (hypothesis 21: {z ∈ RealSet ⇒ f(z) = -frac(y_{0} - y_{1}, b - a) * z + φ(z)})
+use_condition (hypothesis 20: {z ∈ RealSet}) in (hypothesis 21: {z ∈ RealSet ⇒ f(z) = -frac(y_{0} - y_{1}, b - a) * z + φ(z)}) as (hypothesis 22: {f(z) = -frac(y_{0} - y_{1}, b - a) * z + φ(z)})
+rewrite (left_to_right, equation) (hypothesis 19: {y_{0} = y_{1}}); from (hypothesis 22: {f(z) = -frac(y_{0} - y_{1}, b - a) * z + φ(z)}) to (hypothesis 23: {f(z) = -frac(y_{1} - y_{1}, b - a) * z + φ(z)})
+autosolve all_hypothesis

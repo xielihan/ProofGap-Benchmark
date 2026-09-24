@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. n ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ n ≤ 0 ⇒ ¬(exists (L), L ∈ RealSet ∧ DefInt(0, +∞, frac(sin(x + frac(1, x)), x^{n}) * diff(fun x [x ∈ RealSet] . x)) = L)
+
+METHOD:

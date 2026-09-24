@@ -1,0 +1,16 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet ∧ x > 0
+2. Δx ∈ RealSet ∧ x + Δx > 0
+3. δ ∈ RealSet ∧ δ ≥ 0
+4. f : RealSet → RealSet
+5. E ∈ RealSet
+6. δ = |frac(Δx, x)|
+7. forall (t), t ∈ RealSet ∧ t ∈ PosRealSet ⇒ f(t) = lg(t)
+8. E = |lg(x + Δx) - lg(x)|
+9. E = |lg(1 + frac(Δx, x))|
+
+GOAL:
+frac(Δx, x) = δ ⇒ E = |lg(1 + δ)|
+
+METHOD:

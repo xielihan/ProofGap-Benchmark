@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. C ∈ RealSet
+2. C_{1} ∈ RealSet
+3. C_{2} ∈ RealSet
+4. C_{3} ∈ RealSet
+5. C_{4} ∈ RealSet
+6. forall (x), x ∈ RealSet ∧ x > 0 ⇒ (exists (t), t ∈ RealSet ∧ t > 0 ∧ x = frac(1, t))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ (exists (t), t ∈ RealSet ∧ x = frac(1, t) ∧ t > 0)
+
+METHOD:

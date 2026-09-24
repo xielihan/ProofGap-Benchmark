@@ -1,0 +1,3 @@
+# The repaired goal distributes its conjunction into the supplied global facts.
+1. exists (θ := {θ})
+2. autosolve all_hypothesis

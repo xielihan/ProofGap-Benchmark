@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. m ∈ RealSet
+2. n ∈ RealSet
+3. B : CartesianProd(RealSet, RealSet) → RealSet
+4. t = sin(x)
+5. 0 ≤ t
+6. t ≤ 1
+7. u = t^{2}
+
+GOAL:
+0 ≤ u
+
+METHOD:

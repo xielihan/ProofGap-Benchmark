@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. I ∈ RealSet
+2. a ∈ RealSet ∧ a > 0
+3. b ∈ RealSet
+4. n ∈ NonNegIntegerSet
+5. I = DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x))
+6. I = DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x)) ⇒ (forall (u), u ∈ RealSet ∧ u > 0 ⇒ I = u * DefInt(0, +∞, (fun t [t ∈ RealSet] . e^{-(u^{2} * t^{2})}) * diff(fun t [t ∈ RealSet] . t)))
+7. I = DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x)) ⇒ (forall (u), u ∈ RealSet ∧ u > 0 ⇒ I^{2} = DefInt(0, +∞, (fun u [u ∈ RealSet] . e^{-u^{2}}) * diff(fun u [u ∈ RealSet] . u)) * DefInt(0, +∞, (fun t [t ∈ RealSet] . u * e^{-(u^{2} * t^{2})}) * diff(fun t [t ∈ RealSet] . t)))
+
+GOAL:
+I = DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x)) ⇒ (forall (u) (t), u ∈ RealSet ∧ t ∈ RealSet ∧ u ≥ 0 ∧ t ≥ 0 ⇒ u * e^{-((1 + t^{2}) * u^{2})} ≥ 0)
+
+METHOD:

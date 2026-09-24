@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. φ : RealSet → RealSet
+2. ψ : RealSet → RealSet ∧ Dom(ψ) = RealSet \ { 0 }
+3. forall (x), x ∈ RealSet ⇒ φ(x) = sgn(x)
+4. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ ψ(x) = frac(1, x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ φ(φ(x)) = sgn(sgn(x))
+
+METHOD:

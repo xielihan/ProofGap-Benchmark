@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (`x'`) (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ `x'` ∈ [-10, 10] ∧ `x''` ∈ [-10, 10] ∧ |`x'` - `x''`| < δ ⇒ |y(`x'`) - y(`x''`)| < ε}) (`x'` := {u1}) (`x''` := {u2})
+get_condition (hypothesis 19: {u1 ∈ RealSet ∧ u2 ∈ RealSet ∧ u1 ∈ [-10, 10] ∧ u2 ∈ [-10, 10] ∧ |u1 - u2| < δ}) in (GOAL: {(u1 ∈ RealSet ∧ u2 ∈ RealSet ∧ u1 ∈ [-10, 10] ∧ u2 ∈ [-10, 10] ∧ |u1 - u2| < δ) ⇒ |y(u1) - y(u2)| < ε})
+get_prop (hypothesis 16: {forall (`x'`) (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ |`x'` - `x''`| < frac(ε^{3}, 4) ⇒ |y(`x'`) - y(`x''`)| < ε}) (`x'` := {u1}) (`x''` := {u2}) as (hypothesis 20: {u1 ∈ RealSet ∧ u2 ∈ RealSet ∧ |u1 - u2| < frac(ε^{3}, 4) ⇒ |y(u1) - y(u2)| < ε})
+autosolve all_hypothesis

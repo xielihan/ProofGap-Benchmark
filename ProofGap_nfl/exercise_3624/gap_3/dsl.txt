@@ -1,0 +1,23 @@
+get_forall (GOAL: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ (FunDeri(z, 1, 1)(x, y) = 0 ∧ FunDeri(z, 2, 1)(x, y) = 0 ⇔ (x, y) = (1, 0))}) (x := {u}) (y := {v})
+get_condition (hypothesis 5: {u ∈ RealSet ∧ v ∈ RealSet}) in (GOAL: {u ∈ RealSet ∧ v ∈ RealSet ⇒ (FunDeri(z, 1, 1)(u, v) = 0 ∧ FunDeri(z, 2, 1)(u, v) = 0 ⇔ (u, v) = (1, 0))})
+destruct_and (hypothesis 5: {u ∈ RealSet ∧ v ∈ RealSet}) as (hypothesis 6: {u ∈ RealSet}) (hypothesis 7: {v ∈ RealSet})
+assert (hypothesis 8: {u ∈ RealSet ∧ v ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (hypothesis 3: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 1)(x, y) = 2 * x - y - 2}) (x := {u}) (y := {v}) as (hypothesis 9: {u ∈ RealSet ∧ v ∈ RealSet ⇒ FunDeri(z, 1, 1)(u, v) = 2 * u - v - 2})
+use_condition (hypothesis 8: {u ∈ RealSet ∧ v ∈ RealSet}) in (hypothesis 9: {u ∈ RealSet ∧ v ∈ RealSet ⇒ FunDeri(z, 1, 1)(u, v) = 2 * u - v - 2}) as (hypothesis 10: {FunDeri(z, 1, 1)(u, v) = 2 * u - v - 2})
+get_prop (hypothesis 4: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 2, 1)(x, y) = -x + 2 * y + 1}) (x := {u}) (y := {v}) as (hypothesis 11: {u ∈ RealSet ∧ v ∈ RealSet ⇒ FunDeri(z, 2, 1)(u, v) = -u + 2 * v + 1})
+use_condition (hypothesis 8: {u ∈ RealSet ∧ v ∈ RealSet}) in (hypothesis 11: {u ∈ RealSet ∧ v ∈ RealSet ⇒ FunDeri(z, 2, 1)(u, v) = -u + 2 * v + 1}) as (hypothesis 12: {FunDeri(z, 2, 1)(u, v) = -u + 2 * v + 1})
+get_prop (theorem 'Thm 20. (OrderedPairEqualityIntro)': {forall (a) (b) (c) (d), (a = c) => (b = d) => ((a, b) = (c, d))}) (a := {u}) (b := {v}) (c := {1}) (d := {0}) as (hypothesis 13: {u = 1 => v = 0 => (u, v) = (1, 0)})
+get_prop (theorem 'Thm 18. (OrderedPairEqualityFirst)': {forall (a) (b) (c) (d), ((a, b) = (c, d)) => (a = c)}) (a := {u}) (b := {v}) (c := {1}) (d := {0}) as (hypothesis 14: {(u, v) = (1, 0) => u = 1})
+get_prop (theorem 'Thm 19. (OrderedPairEqualitySecond)': {forall (a) (b) (c) (d), ((a, b) = (c, d)) => (b = d)}) (a := {u}) (b := {v}) (c := {1}) (d := {0}) as (hypothesis 15: {(u, v) = (1, 0) => v = 0})
+assert (hypothesis 16: {FunDeri(z, 1, 1)(u, v) = 0 ∧ FunDeri(z, 2, 1)(u, v) = 0 ⇒ (u, v) = (1, 0)}) by proof {
+  get_condition (hypothesis 16: {FunDeri(z, 1, 1)(u, v) = 0 ∧ FunDeri(z, 2, 1)(u, v) = 0}) in (GOAL: {FunDeri(z, 1, 1)(u, v) = 0 ∧ FunDeri(z, 2, 1)(u, v) = 0 ⇒ (u, v) = (1, 0)})
+  destruct_and (hypothesis 16: {FunDeri(z, 1, 1)(u, v) = 0 ∧ FunDeri(z, 2, 1)(u, v) = 0}) as (hypothesis 17: {FunDeri(z, 1, 1)(u, v) = 0}) (hypothesis 18: {FunDeri(z, 2, 1)(u, v) = 0})
+  autosolve all_hypothesis
+}
+assert (hypothesis 17: {(u, v) = (1, 0) ⇒ FunDeri(z, 1, 1)(u, v) = 0 ∧ FunDeri(z, 2, 1)(u, v) = 0}) by proof {
+  get_condition (hypothesis 17: {(u, v) = (1, 0)}) in (GOAL: {(u, v) = (1, 0) ⇒ FunDeri(z, 1, 1)(u, v) = 0 ∧ FunDeri(z, 2, 1)(u, v) = 0})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

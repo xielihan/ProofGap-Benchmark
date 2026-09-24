@@ -1,0 +1,2 @@
+rewrite_in limit (left_to_right, equation) (hypothesis 3: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet => x(n) = 1 - frac(1, n)}); from (GOAL: {seqlim_{ n -> +infty } (x(n)) = 1}) to (GOAL: {seqlim_{ n -> +infty } (1 - frac(1, n)) = 1})
+autosolve all_hypothesis

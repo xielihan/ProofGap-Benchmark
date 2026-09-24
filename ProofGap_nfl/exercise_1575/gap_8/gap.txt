@@ -1,0 +1,16 @@
+PROOF GAP @8
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x ≤ 1 ⇒ f(x) = (x - 2)^{2} + 1 - x^{2} ∧ (x - 2)^{2} + 1 - x^{2} = 5 - 4 * x
+3. ContinuousFuncOn(f, [-1, 1])
+4. DiffableFuncOn(f, IntervalLoRo(-1, 1))
+5. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ FunDeri(f, 1, 1)(x) = -4 ∧ -4 < 0
+6. StrictMonoDecFuncOn(f, [-1, 1])
+7. MaximumPointOn(f, [-1, 1]) = { -1 }
+8. MinimumPointOn(f, [-1, 1]) = { 1 }
+9. sqrtn(2, f(-1)) = 3
+
+GOAL:
+sqrtn(2, f(1)) = 1
+
+METHOD:

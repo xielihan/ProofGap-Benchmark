@@ -1,0 +1,9 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x > 0 ⇒ ln(x + 1) - ln(x) = ln(1 + frac(1, x))}) (x := {u})
+2. get_condition (hypothesis 3: {u ∈ RealSet ∧ u > 0}) in (GOAL: {u ∈ RealSet ∧ u > 0 ⇒ ln(u + 1) - ln(u) = ln(1 + frac(1, u))})
+3. destruct_and (hypothesis 3: {u ∈ RealSet ∧ u > 0}) as (hypothesis 4: {u ∈ RealSet}) (hypothesis 5: {u > 0})
+4. get_prop (theorem 'Thm 202. (NaturalLogarithmQuotient)': {forall (x) (y), x ∈ RealSet => y ∈ RealSet => (x > 0 => y > 0 => ln (x / y) = ln(x) - ln(y))}) (x := {u + 1}) (y := {u}) as (hypothesis 6: {u + 1 ∈ RealSet => u ∈ RealSet => (u + 1 > 0 => u > 0 => ln ((u + 1) / u) = ln(u + 1) - ln(u))})
+5. use_condition (obvious: {u + 1 ∈ RealSet}) (hypothesis 4: {u ∈ RealSet}) (obvious: {u + 1 > 0}) (hypothesis 5: {u > 0}) in (hypothesis 6: {u + 1 ∈ RealSet => u ∈ RealSet => (u + 1 > 0 => u > 0 => ln ((u + 1) / u) = ln(u + 1) - ln(u))}) as (hypothesis 7: {ln ((u + 1) / u) = ln(u + 1) - ln(u)})
+6. assert (hypothesis 8: {(u + 1) / u = 1 + frac(1, u)})
+7. rewrite (right_to_left, equation) (hypothesis 7: {ln ((u + 1) / u) = ln(u + 1) - ln(u)}); from (GOAL: {ln(u + 1) - ln(u) = ln(1 + frac(1, u))}) to (GOAL: {ln((u + 1) / u) = ln(1 + frac(1, u))})
+8. rewrite (left_to_right, equation) (hypothesis 8: {(u + 1) / u = 1 + frac(1, u)}); from (GOAL: {ln((u + 1) / u) = ln(1 + frac(1, u))}) to (GOAL: {ln(1 + frac(1, u)) = ln(1 + frac(1, u))})
+9. autosolve all_hypothesis

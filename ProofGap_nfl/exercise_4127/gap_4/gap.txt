@@ -1,0 +1,30 @@
+PROOF GAP @4
+ASSUM:
+1. a_{1} ∈ RealSet
+2. b_{1} ∈ RealSet
+3. c_{1} ∈ RealSet
+4. a_{2} ∈ RealSet
+5. b_{2} ∈ RealSet
+6. c_{2} ∈ RealSet
+7. a_{3} ∈ RealSet
+8. b_{3} ∈ RealSet
+9. c_{3} ∈ RealSet
+10. h_{1} ∈ RealSet ∧ h_{1} ∈ PosRealSet
+11. h_{2} ∈ RealSet ∧ h_{2} ∈ PosRealSet
+12. h_{3} ∈ RealSet ∧ h_{3} ∈ PosRealSet
+13. Δ ∈ RealSet ∧ Δ ≠ 0
+14. x ∈ RealSet
+15. y ∈ RealSet
+16. z ∈ RealSet
+17. V ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+18. u = (fun x [x ∈ RealSet] . fun y [y ∈ RealSet] . fun z [z ∈ RealSet] . a_{1} * x + b_{1} * y + c_{1} * z)
+19. v = (fun x [x ∈ RealSet] . fun y [y ∈ RealSet] . fun z [z ∈ RealSet] . a_{2} * x + b_{2} * y + c_{2} * z)
+20. w = (fun x [x ∈ RealSet] . fun y [y ∈ RealSet] . fun z [z ∈ RealSet] . a_{3} * x + b_{3} * y + c_{3} * z)
+21. FunDeri(FunDeri(FunDeri(u, 1, 1), 2, 1), 3, 1) * pdiff(v) * pdiff(w) = Δ
+22. FunDeri(FunDeri(FunDeri(x, 1, 1), 2, 1), 3, 1) * pdiff(y) * pdiff(z) = frac(1, Δ)
+23. V = { (u, v, w) | u ∈ RealSet, v ∈ RealSet, w ∈ RealSet, -h_{1} ≤ u ∧ u ≤ h_{1}, -h_{2} ≤ v ∧ v ≤ h_{2}, -h_{3} ≤ w ∧ w ≤ h_{3} }
+
+GOAL:
+VolumeInt(V, frac(1, |Δ|) * diff(ω)) = DefInt(-h_{1}, h_{1}, (fun u [u ∈ RealSet ∧ -h_{1} ≤ u ∧ u ≤ h_{1}] . DefInt(-h_{2}, h_{2}, (fun v [v ∈ RealSet ∧ -h_{2} ≤ v ∧ v ≤ h_{2}] . DefInt(-h_{3}, h_{3}, (fun w [w ∈ RealSet ∧ -h_{3} ≤ w ∧ w ≤ h_{3}] . frac(1, |Δ|)) * diff(fun w [w ∈ RealSet ∧ -h_{3} ≤ w ∧ w ≤ h_{3}] . w))) * diff(fun v [v ∈ RealSet ∧ -h_{2} ≤ v ∧ v ≤ h_{2}] . v))) * diff(fun u [u ∈ RealSet ∧ -h_{1} ≤ u ∧ u ≤ h_{1}] . u))
+
+METHOD:

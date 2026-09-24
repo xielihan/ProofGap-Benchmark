@@ -1,0 +1,34 @@
+PROOF GAP @18
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. D ⊆ CartesianProd(RealSet, RealSet)
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ D = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π ∧ 0 ≤ y ∧ y ≤ π }
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D ⇒ z(x, y) = sin(x) * sin(y) * sin(x + y)
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 1)(x, y) = sin(y) * sin(2 * x + y)
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 2, 1)(x, y) = sin(x) * sin(x + 2 * y)
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ FunDeri(z, 1, 1)(x, y) = 0 ∧ FunDeri(z, 2, 1)(x, y) = 0 ⇒ sin(x) = 0 ∧ sin(y) = 0 ∨ sin(x) = 0 ∧ sin(2 * x + y) = 0 ∨ sin(y) = 0 ∧ sin(x + 2 * y) = 0 ∨ sin(2 * x + y) = 0 ∧ sin(x + 2 * y) = 0
+8. P_{1} = (0, 0)
+9. P_{2} = (0, π)
+10. P_{3} = (π, 0)
+11. P_{4} = (π, π)
+12. P_{5} = (frac(π, 3), frac(π, 3))
+13. P_{6} = (frac(2 * π, 3), frac(2 * π, 3))
+14. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ { P_{1}, P_{2}, P_{3}, P_{4}, P_{5}, P_{6} } = { (x, y) | (x, y) ∈ D ∧ FunDeri(z, 1, 1)(x, y) = 0 ∧ FunDeri(z, 2, 1)(x, y) = 0 }
+15. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ P_{1} ∈ { (x, y) | x = 0 ∨ x = π ∨ y = 0 ∨ y = π }
+16. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ P_{2} ∈ { (x, y) | x = 0 ∨ x = π ∨ y = 0 ∨ y = π }
+17. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ P_{3} ∈ { (x, y) | x = 0 ∨ x = π ∨ y = 0 ∨ y = π }
+18. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ P_{4} ∈ { (x, y) | x = 0 ∨ x = π ∨ y = 0 ∨ y = π }
+19. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 2)(x, y) = 2 * sin(y) * cos(2 * x + y)
+20. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(FunDeri(z, 1, 1), 2, 1)(x, y) = sin(2 * (x + y))
+21. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 2, 2)(x, y) = 2 * sin(x) * cos(x + 2 * y)
+22. FunDeri(z, 1, 2)(P_{5}) = -sqrtn(2, 3)
+23. FunDeri(FunDeri(z, 1, 1), 2, 1)(P_{5}) = -frac(sqrtn(2, 3), 2)
+24. FunDeri(z, 2, 2)(P_{5}) = -sqrtn(2, 3)
+25. -sqrtn(2, 3) * -sqrtn(2, 3) - (-frac(sqrtn(2, 3), 2))^{2} > 0
+26. FunDeri(z, 1, 2)(P_{5}) < 0
+27. MaximumPointOn(z, D) = { P_{5} }
+
+GOAL:
+z(frac(π, 3), frac(π, 3)) = frac(3 * sqrtn(2, 3), 8)
+
+METHOD:

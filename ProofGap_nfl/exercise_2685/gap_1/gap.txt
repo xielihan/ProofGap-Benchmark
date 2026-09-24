@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+seqlim_{ n → +∞ } (sqrtn(n^{2}, n)) = seqlim_{ n → +∞ } (e^{frac(ln(n), n^{2})})
+
+METHOD:

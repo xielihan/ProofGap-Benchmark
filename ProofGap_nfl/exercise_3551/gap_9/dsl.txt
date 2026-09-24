@@ -1,0 +1,25 @@
+get_prop (theorem 233: {forall (a) (b), a ∈ RealSet ⇒ b ∈ RealSet ⇒ (a ^ 2 - b^2 = (a + b) * (a - b))}) (a := {2 * λ}) (b := {0}) as (hypothesis 14: {2 * λ ∈ RealSet ⇒ 0 ∈ RealSet ⇒ ((2 * λ)^{2} - 0^{2} = (2 * λ + 0) * (2 * λ - 0))})
+use_condition (obvious: {2 * λ ∈ RealSet}) in (hypothesis 14: {2 * λ ∈ RealSet ⇒ 0 ∈ RealSet ⇒ ((2 * λ)^{2} - 0^{2} = (2 * λ + 0) * (2 * λ - 0))}) as (hypothesis 15: {0 ∈ RealSet ⇒ ((2 * λ)^{2} - 0^{2} = (2 * λ + 0) * (2 * λ - 0))})
+use_condition (obvious: {0 ∈ RealSet}) in (hypothesis 15: {0 ∈ RealSet ⇒ ((2 * λ)^{2} - 0^{2} = (2 * λ + 0) * (2 * λ - 0))}) as (hypothesis 16: {(2 * λ)^{2} - 0^{2} = (2 * λ + 0) * (2 * λ - 0)})
+assert (hypothesis 17: {(2 * λ)^{2} = 4 * λ^{2}}) by proof {
+autosolve (hypothesis 5: {λ ∈ RealSet}) (hypothesis 16: {(2 * λ)^{2} - 0^{2} = (2 * λ + 0) * (2 * λ - 0)})
+}
+assert (hypothesis 18: {λ^{2} = 1}) by proof {
+autosolve (hypothesis 5: {λ ∈ RealSet}) (hypothesis 13: {λ^{2} + 2 * (2 * λ)^{2} + 3 * (2 * λ)^{2} = 21}) (hypothesis 17: {(2 * λ)^{2} = 4 * λ^{2}})
+}
+get_prop (theorem 233: {forall (a) (b), a ∈ RealSet ⇒ b ∈ RealSet ⇒ (a ^ 2 - b^2 = (a + b) * (a - b))}) (a := {λ}) (b := {1}) as (hypothesis 19: {λ ∈ RealSet ⇒ 1 ∈ RealSet ⇒ (λ^{2} - 1^{2} = (λ + 1) * (λ - 1))})
+use_condition (hypothesis 5: {λ ∈ RealSet}) in (hypothesis 19: {λ ∈ RealSet ⇒ 1 ∈ RealSet ⇒ (λ^{2} - 1^{2} = (λ + 1) * (λ - 1))}) as (hypothesis 20: {1 ∈ RealSet ⇒ (λ^{2} - 1^{2} = (λ + 1) * (λ - 1))})
+use_condition (obvious: {1 ∈ RealSet}) in (hypothesis 20: {1 ∈ RealSet ⇒ (λ^{2} - 1^{2} = (λ + 1) * (λ - 1))}) as (hypothesis 21: {λ^{2} - 1^{2} = (λ + 1) * (λ - 1)})
+assert (hypothesis 22: {(λ + 1) * (λ - 1) = 0}) by proof {
+autosolve (hypothesis 5: {λ ∈ RealSet}) (hypothesis 18: {λ^{2} = 1}) (hypothesis 21: {λ^{2} - 1^{2} = (λ + 1) * (λ - 1)})
+}
+get_prop (theorem 398: {forall (a) (b), a ∈ RealSet ⇒ b ∈ RealSet ⇒ (a * b != 0 <==> (a != 0 /\ b != 0))}) (a := {λ + 1}) (b := {λ - 1}) as (hypothesis 23: {λ + 1 ∈ RealSet ⇒ λ - 1 ∈ RealSet ⇒ ((λ + 1) * (λ - 1) != 0 <==> ((λ + 1) != 0 /\ (λ - 1) != 0))})
+use_condition (obvious: {λ + 1 ∈ RealSet}) in (hypothesis 23: {λ + 1 ∈ RealSet ⇒ λ - 1 ∈ RealSet ⇒ ((λ + 1) * (λ - 1) != 0 <==> ((λ + 1) != 0 /\ (λ - 1) != 0))}) as (hypothesis 24: {λ - 1 ∈ RealSet ⇒ ((λ + 1) * (λ - 1) != 0 <==> ((λ + 1) != 0 /\ (λ - 1) != 0))})
+use_condition (obvious: {λ - 1 ∈ RealSet}) in (hypothesis 24: {λ - 1 ∈ RealSet ⇒ ((λ + 1) * (λ - 1) != 0 <==> ((λ + 1) != 0 /\ (λ - 1) != 0))}) as (hypothesis 25: {(λ + 1) * (λ - 1) != 0 <==> ((λ + 1) != 0 /\ (λ - 1) != 0)})
+assert (hypothesis 26: {not(((λ + 1) != 0 /\ (λ - 1) != 0))}) by proof {
+autosolve (hypothesis 22: {(λ + 1) * (λ - 1) = 0}) (hypothesis 25: {(λ + 1) * (λ - 1) != 0 <==> ((λ + 1) != 0 /\ (λ - 1) != 0)})
+}
+assert (hypothesis 27: {(λ + 1) = 0 ∨ (λ - 1) = 0}) by proof {
+autosolve (hypothesis 26: {not(((λ + 1) != 0 /\ (λ - 1) != 0))})
+}
+autosolve (hypothesis 5: {λ ∈ RealSet}) (hypothesis 27: {(λ + 1) = 0 ∨ (λ - 1) = 0})

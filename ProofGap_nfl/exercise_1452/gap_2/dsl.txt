@@ -1,0 +1,2 @@
+rewrite_in limit (left_to_right, equation) (hypothesis 2: {forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ f(x) = frac(1 + x^{2}, 1 + x^{4})}); from (GOAL: {lim_{ x → +∞ } (f(x)) = 0}) to (GOAL: {lim_{ x → +∞ } (frac(1 + x^{2}, 1 + x^{4})) = 0})
+autosolve all_hypothesis using LimitCalcSolver

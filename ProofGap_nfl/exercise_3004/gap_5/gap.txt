@@ -1,0 +1,12 @@
+PROOF GAP @5
+ASSUM:
+1. x ∈ RealSet
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(2 * n^{2} + 1, (2 * n)!) = frac(1, 2) * frac(1, (2 * n - 2)!) + frac(1, 2) * frac(1, (2 * n - 1)!) + frac(1, (2 * n)!)
+3. sum_{ n = 0 }^{ +∞ } (frac((-1)^{n} * (2 * n^{2} + 1), (2 * n)!) * x^{2 * n}) = 1 + frac(1, 2) * (sum_{ n = 1 }^{ +∞ } (frac((-1)^{n}, (2 * n - 2)!) * x^{2 * n})) + frac(1, 2) * (sum_{ n = 1 }^{ +∞ } (frac((-1)^{n}, (2 * n - 1)!) * x^{2 * n})) + (sum_{ n = 1 }^{ +∞ } (frac((-1)^{n}, (2 * n)!) * x^{2 * n}))
+4. sum_{ n = 0 }^{ +∞ } (frac((-1)^{n} * (2 * n^{2} + 1), (2 * n)!) * x^{2 * n}) = 1 - frac(x^{2}, 2) * (sum_{ n = 1 }^{ +∞ } (frac((-1)^{n - 1}, (2 * n - 2)!) * x^{2 * n - 2})) - frac(x, 2) * (sum_{ n = 1 }^{ +∞ } (frac((-1)^{n - 1}, (2 * n - 1)!) * x^{2 * n - 1})) + (sum_{ n = 0 }^{ +∞ } (frac((-1)^{n}, (2 * n)!) * x^{2 * n})) - 1
+5. sum_{ n = 1 }^{ +∞ } (frac((-1)^{n - 1}, (2 * n - 2)!) * x^{2 * n - 2}) = cos(x)
+
+GOAL:
+sum_{ n = 1 }^{ +∞ } (frac((-1)^{n - 1}, (2 * n - 1)!) * x^{2 * n - 1}) = sin(x)
+
+METHOD:

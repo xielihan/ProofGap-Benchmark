@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet ∧ sin(x) ≠ 0 ∧ 1 + cos(x) > 0
+2. t : RealSet → RealSet
+3. C ∈ RealSet
+4. 1 + cos(x) = t(x)^{2}
+5. t(x) > 0
+
+GOAL:
+2 - t(x)^{2} > 0
+
+METHOD:

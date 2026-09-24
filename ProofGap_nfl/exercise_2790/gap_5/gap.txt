@@ -1,0 +1,15 @@
+PROOF GAP @5
+ASSUM:
+1. a : NonNegIntegerSet → RealSet ∧ IsSeq(a)
+2. n ∈ NonNegIntegerSet
+3. k ∈ NonNegIntegerSet
+4. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+5. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, +∞) ⇒ 0 < frac(1, n^{x}))
+6. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, +∞) ⇒ frac(1, n^{x}) ≤ 1)
+7. forall (x), x ∈ RealSet ∧ x ∈ [0, +∞) ⇒ MonoDecSeq(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(1, n^{x}))
+8. forall (x), x ∈ RealSet ∧ x ∈ [0, +∞) ⇒ BoundedSeq(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(1, n^{x}))
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n) (p), n ∈ NonNegIntegerSet ∧ p ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ p ∈ PosIntegerSet ∧ n > N ⇒ |sum_{ k = n + 1 }^{ n + p } (a(k))| < ε))
+
+METHOD:

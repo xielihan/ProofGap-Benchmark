@@ -1,0 +1,18 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. S : RealSet → RealSet
+3. A : NonNegIntegerSet → RealSet
+4. B : NonNegIntegerSet → RealSet
+5. a ∈ RealSet
+6. l ∈ RealSet ∧ l > 0
+7. forall (x), x ∈ RealSet ⇒ f(x) = x
+8. A(0) = frac(1, l) * DefInt(a, a + 2 * l, (fun x [x ∈ RealSet] . x) * diff(fun x [x ∈ RealSet] . x))
+9. frac(1, l) * DefInt(a, a + 2 * l, (fun x [x ∈ RealSet] . x) * diff(fun x [x ∈ RealSet] . x)) = 2 * (a + l)
+10. A(0) = 2 * (a + l)
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ A(n) = frac(1, l) * DefInt(a, a + 2 * l, (fun x [x ∈ RealSet] . x * cos(frac(n * π * x, l))) * diff(fun x [x ∈ RealSet] . x)) ∧ frac(1, l) * DefInt(a, a + 2 * l, (fun x [x ∈ RealSet] . x * cos(frac(n * π * x, l))) * diff(fun x [x ∈ RealSet] . x)) = frac(2 * l, n * π) * sin(frac(n * π * a, l))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ B(n) = frac(1, l) * DefInt(a, a + 2 * l, (fun x [x ∈ RealSet] . x * sin(frac(n * π * x, l))) * diff(fun x [x ∈ RealSet] . x)) ∧ frac(1, l) * DefInt(a, a + 2 * l, (fun x [x ∈ RealSet] . x * sin(frac(n * π * x, l))) * diff(fun x [x ∈ RealSet] . x)) = -frac(2 * l, n * π) * cos(frac(n * π * a, l))
+
+METHOD:

@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet ∧ (x > 0 ∨ x < -1)
+
+GOAL:
+x > 0 ⇒ { `F_2` | forall (x), x ∈ RealSet ∧ (x > 0 ∨ x < -1) ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1 + x, x + sqrtn(2, x + x^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ (x > 0 ∨ x < -1) ⇒ FunDeri(`F_3`, 1, 1)(x) = frac((1 + x) * (x - sqrtn(2, x + x^{2})), (x + sqrtn(2, x + x^{2})) * (x - sqrtn(2, x + x^{2}))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+METHOD:

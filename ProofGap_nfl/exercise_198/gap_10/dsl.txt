@@ -1,0 +1,6 @@
+assert (hypothesis 18: {6 != 0})
+assert (hypothesis 19: {a + b = 4})
+assert (hypothesis 20: {4 * a - 2 * b = -1})
+assert (hypothesis 21: {6 * a = 7})
+assert (hypothesis 22: {a = frac(7, 6)})
+apply (hypothesis 22: {a = frac(7, 6)})

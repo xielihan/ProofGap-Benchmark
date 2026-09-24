@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 12: {g_{2} = (fun x [x ∈ RealSet] . |x|)}); from (GOAL: {g_{2}(0) = 0}) to (GOAL: {(fun x [x ∈ RealSet] . |x|)(0) = 0})
+autosolve all_hypothesis

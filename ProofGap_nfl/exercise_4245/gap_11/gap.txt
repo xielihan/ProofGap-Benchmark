@@ -1,0 +1,28 @@
+PROOF GAP @11
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. C_{1} ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. C_{2} ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+4. C_{3} ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+5. s ∈ RealSet ∧ s = ScalarCurveInt(C_{1}, diff(fun τ [τ ∈ RealSet] . τ)) + ScalarCurveInt(C_{2}, diff(fun τ [τ ∈ RealSet] . τ)) + ScalarCurveInt(C_{3}, diff(fun τ [τ ∈ RealSet] . τ))
+6. x_{0} ∈ RealSet ∧ x_{0} = frac(ScalarCurveInt(C_{1}, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun τ [τ ∈ RealSet] . τ)) + ScalarCurveInt(C_{2}, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun τ [τ ∈ RealSet] . τ)) + ScalarCurveInt(C_{3}, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun τ [τ ∈ RealSet] . τ)), s)
+7. y_{0} ∈ RealSet ∧ y_{0} = frac(ScalarCurveInt(C_{1}, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun τ [τ ∈ RealSet] . τ)) + ScalarCurveInt(C_{2}, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun τ [τ ∈ RealSet] . τ)) + ScalarCurveInt(C_{3}, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun τ [τ ∈ RealSet] . τ)), s)
+8. z_{0} ∈ RealSet ∧ z_{0} = frac(ScalarCurveInt(C_{1}, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) * diff(fun τ [τ ∈ RealSet] . τ)) + ScalarCurveInt(C_{2}, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) * diff(fun τ [τ ∈ RealSet] . τ)) + ScalarCurveInt(C_{3}, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) * diff(fun τ [τ ∈ RealSet] . τ)), s)
+9. C_{1} = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, x^{2} + y^{2} + z^{2} = a^{2}, x ≥ 0, y ≥ 0, z = 0 }
+10. C_{2} = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, x^{2} + y^{2} + z^{2} = a^{2}, x ≥ 0, y = 0, z ≥ 0 }
+11. C_{3} = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, x^{2} + y^{2} + z^{2} = a^{2}, x = 0, y ≥ 0, z ≥ 0 }
+12. forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ (forall (ψ), ψ ∈ RealSet ⇒ (exists (x), x ∈ RealSet ∧ x = r * cos(φ) * cos(ψ))))
+13. forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ (forall (ψ), ψ ∈ RealSet ⇒ (exists (y), y ∈ RealSet ∧ y = r * sin(φ) * cos(ψ))))
+14. forall (r), r ∈ RealSet ⇒ (forall (ψ), ψ ∈ RealSet ⇒ (exists (z), z ∈ RealSet ∧ z = r * sin(ψ)))
+15. forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2) ⇒ (a * cos(φ), a * sin(φ), 0) ∈ C_{1}
+16. forall (ψ), ψ ∈ RealSet ∧ 0 ≤ ψ ∧ ψ ≤ frac(π, 2) ⇒ (a * cos(ψ), 0, a * sin(ψ)) ∈ C_{2}
+17. forall (ψ), ψ ∈ RealSet ∧ 0 ≤ ψ ∧ ψ ≤ frac(π, 2) ⇒ (0, a * cos(ψ), a * sin(ψ)) ∈ C_{3}
+18. s = 3 * frac(π * a, 2)
+19. 3 * frac(π * a, 2) = frac(3 * π * a, 2)
+20. s = frac(3 * π * a, 2)
+21. x_{0} = frac(DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . a * cos(φ) * a) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . φ)) + DefInt(0, frac(π, 2), (fun ψ [ψ ∈ RealSet ∧ 0 ≤ ψ ∧ ψ ≤ frac(π, 2)] . a * cos(ψ) * a) * diff(fun ψ [ψ ∈ RealSet ∧ 0 ≤ ψ ∧ ψ ≤ frac(π, 2)] . ψ)), frac(3 * π * a, 2))
+
+GOAL:
+frac(DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . a * cos(φ) * a) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 2)] . φ)) + DefInt(0, frac(π, 2), (fun ψ [ψ ∈ RealSet ∧ 0 ≤ ψ ∧ ψ ≤ frac(π, 2)] . a * cos(ψ) * a) * diff(fun ψ [ψ ∈ RealSet ∧ 0 ≤ ψ ∧ ψ ≤ frac(π, 2)] . ψ)), frac(3 * π * a, 2)) = frac(2 * a^{2}, frac(3 * π * a, 2))
+
+METHOD:

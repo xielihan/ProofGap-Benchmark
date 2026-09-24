@@ -1,0 +1,4 @@
+get_prop (theorem 'Thm 414. (HyperbolicSquareDifferenceIdentity)': {forall (u), u ∈ RealSet => cosh(u) ^ 2 - sinh(u) ^ 2 = 1}) (u := {u}) as (hypothesis 23: {u ∈ RealSet => cosh(u) ^ 2 - sinh(u) ^ 2 = 1})
+use_condition (hypothesis 8: {u ∈ RealSet}) in (hypothesis 23: {u ∈ RealSet => cosh(u) ^ 2 - sinh(u) ^ 2 = 1}) as (hypothesis 24: {cosh(u) ^ 2 - sinh(u) ^ 2 = 1})
+assert (hypothesis 25: {sinh(u)^{2} ≥ 0})
+autosolve all_hypothesis

@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ 2 * x - 1 ≠ 0 ∧ frac(x + 2, 2 * x - 1) > 0 ⇒ frac(x + 2, 2 * x - 1)^{x^{2}} ∈ RealSet
+
+GOAL:
+lim_{ x → +∞ } (frac(x + 2, 2 * x - 1)^{x^{2}}) = 0
+
+METHOD:

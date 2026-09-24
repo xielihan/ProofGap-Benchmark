@@ -1,0 +1,7 @@
+1. get_forall (GOAL: {forall (f) (a), f : RealSet → RealSet /\ a ∈ RealSet /\ DiffableFuncAt(f, a) => ContinuousFuncAt(f, a)}) (f := {f0}) (a := {a0})
+2. get_condition (hypothesis 7: {f0 : RealSet → RealSet /\ a0 ∈ RealSet /\ DiffableFuncAt(f0, a0)}) in (GOAL: {f0 : RealSet → RealSet /\ a0 ∈ RealSet /\ DiffableFuncAt(f0, a0) => ContinuousFuncAt(f0, a0)})
+3. destruct_and (hypothesis 7: {f0 : RealSet → RealSet /\ a0 ∈ RealSet /\ DiffableFuncAt(f0, a0)}) as (hypothesis 8: {f0 : RealSet → RealSet}) (hypothesis 9: {a0 ∈ RealSet}) (hypothesis 10: {DiffableFuncAt(f0, a0)})
+4. get_prop (hypothesis 1: {forall (f), f : RealSet → RealSet => (forall (a), a ∈ RealSet /\ DiffableFuncAt(f, a) => ContinuousFuncAt(f, a))}) (f := {f0}) as (hypothesis 11: {f0 : RealSet → RealSet => (forall (a), a ∈ RealSet /\ DiffableFuncAt(f0, a) => ContinuousFuncAt(f0, a))})
+5. use_condition (hypothesis 8: {f0 : RealSet → RealSet}) in (hypothesis 11: {f0 : RealSet → RealSet => (forall (a), a ∈ RealSet /\ DiffableFuncAt(f0, a) => ContinuousFuncAt(f0, a))}) as (hypothesis 12: {forall (a), a ∈ RealSet /\ DiffableFuncAt(f0, a) => ContinuousFuncAt(f0, a)})
+6. get_prop (hypothesis 12: {forall (a), a ∈ RealSet /\ DiffableFuncAt(f0, a) => ContinuousFuncAt(f0, a)}) (a := {a0}) as (hypothesis 13: {a0 ∈ RealSet /\ DiffableFuncAt(f0, a0) => ContinuousFuncAt(f0, a0)})
+7. autosolve all_hypothesis

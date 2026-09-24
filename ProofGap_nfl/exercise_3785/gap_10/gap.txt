@@ -1,0 +1,21 @@
+PROOF GAP @10
+ASSUM:
+1. I ∈ RealSet
+2. a ∈ RealSet ∧ a > 0
+3. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+4. DoubleFactorial : NonNegIntegerSet → RealSet
+5. DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(1, x^{2} + a)) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)) = frac(π, 2 * sqrtn(2, a))
+6. I = DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(1, (x^{2} + a)^{n + 1})) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x))
+7. forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ FunDeri(fun a [a ∈ RealSet ∧ a > 0] . frac(1, x^{2} + a), 1, 1)(a) = -frac(1, (x^{2} + a)^{2})
+8. forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ (forall (a_{0}), a_{0} ∈ RealSet ∧ a_{0} > 0 ∧ a ≥ a_{0} ⇒ frac(1, (x^{2} + a)^{2}) ≤ frac(1, (x^{2} + a_{0})^{2}))
+9. forall (a_{0}), a_{0} ∈ RealSet ∧ a_{0} > 0 ⇒ ConvergentSeries(DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(1, (x^{2} + a_{0})^{2})) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)))
+10. forall (a_{0}), a_{0} ∈ RealSet ∧ a_{0} > 0 ⇒ UniformConvergent(fun a [a ∈ RealSet ∧ a ≥ a_{0}] . DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(1, (x^{2} + a)^{2})) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)), [a_{0}, +∞), fun a [a ∈ RealSet ∧ a ≥ a_{0}] . DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(1, (x^{2} + a)^{2})) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)))
+11. FunDeri(fun a [a ∈ RealSet ∧ a > 0] . DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(1, x^{2} + a)) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)), 1, 1)(a) = DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . FunDeri(fun a [a ∈ RealSet ∧ a > 0] . frac(1, x^{2} + a), 1, 1)(a)) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x))
+12. DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . FunDeri(fun a [a ∈ RealSet ∧ a > 0] . frac(1, x^{2} + a), 1, 1)(a)) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)) = -DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(1, (x^{2} + a)^{2})) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x))
+13. FunDeri(fun a [a ∈ RealSet ∧ a > 0] . DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(1, x^{2} + a)) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)), 1, 1)(a) = -DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(1, (x^{2} + a)^{2})) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x))
+14. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ FunDeri(fun a [a ∈ RealSet ∧ a > 0] . DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(1, x^{2} + a)) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)), 1, n)(a) = (-1)^{n} * n! * DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(1, (x^{2} + a)^{n + 1})) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ FunDeri(fun a [a ∈ RealSet ∧ a > 0] . DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(1, x^{2} + a)) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)), 1, n)(a) = frac(DoubleFactorial(2 * n - 1) * π, 2^{n + 1}) * (-1)^{n} * a^{-(n + frac(1, 2))}
+
+METHOD:

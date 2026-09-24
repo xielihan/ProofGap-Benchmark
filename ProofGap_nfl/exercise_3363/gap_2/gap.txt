@@ -1,0 +1,18 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. f : RealSet → RealSet
+4. g : RealSet → RealSet
+5. a < b
+6. ContinuousFuncOn(f, IntervalLoRo(a, b))
+7. ContinuousFuncOn(g, IntervalLoRo(a, b))
+8. Defined(f, (a, b))
+9. Defined(g, (a, b))
+10. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ∧ f(x) = 0 ⇒ g(x) = 0
+
+GOAL:
+forall (α) (β), α ∈ RealSet ∧ β ∈ RealSet ∧ a < α ∧ α < β ∧ β < b ⇒ (exists (x) (α) (β), x ∈ RealSet ∧ α ∈ RealSet ∧ β ∈ RealSet ∧ x ∈ IntervalLoRo(α, β) ∧ f(x) ≠ 0)
+
+METHOD:
+[@method 必要性 @]

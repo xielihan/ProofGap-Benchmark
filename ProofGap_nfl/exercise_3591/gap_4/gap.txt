@@ -1,0 +1,22 @@
+PROOF GAP @4
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. U ⊆ CartesianProd(RealSet, RealSet)
+3. x ∈ RealSet
+4. y ∈ RealSet
+5. h ∈ RealSet
+6. k ∈ RealSet
+7. Delta : CartesianProd(RealSet, RealSet) → RealSet
+8. (x, y) ∈ U
+9. (x + h, y) ∈ U
+10. (x, y + k) ∈ U
+11. (x + h, y + k) ∈ U
+12. forall (a) (b), a ∈ RealSet ∧ b ∈ RealSet ∧ (a, b) ∈ U ⇒ Delta(a, b) = f(a + h, b + k) - f(a + h, b) - f(a, b + k) + f(a, b)
+13. f(x + h, y + k) = f(x, y) + h * FunDeri(f, 1, 1)(x, y) + k * FunDeri(f, 2, 1)(x, y) + (sum_{ n = 2 }^{ +∞ } (sum_{ m = 0 }^{ n } (frac(h^{m} * k^{n - m}, m! * (n - m)!) * FunDeri(FunDeri(f, 1, m), 2, n - m)(x, y))))
+14. f(x + h, y) = f(x, y) + (sum_{ n = 1 }^{ +∞ } (frac(h^{n}, n!) * FunDeri(f, 1, n)(x, y)))
+15. f(x, y + k) = f(x, y) + (sum_{ n = 1 }^{ +∞ } (frac(k^{n}, n!) * FunDeri(f, 2, n)(x, y)))
+
+GOAL:
+Delta(x, y) = sum_{ n = 2 }^{ +∞ } (sum_{ m = 1 }^{ n - 1 } (frac(h^{m} * k^{n - m}, m! * (n - m)!) * FunDeri(FunDeri(f, 1, m), 2, n - m)(x, y)))
+
+METHOD:

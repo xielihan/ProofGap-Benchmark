@@ -1,0 +1,2 @@
+1. rewrite (left_to_right, equation) (hypothesis 11: {H = b - a}); from (GOAL: {V = frac(H, 6) * (A * a^{2} + B * a + C + A * b^{2} + B * b + C + A * (a^{2} + 2 * a * b + b^{2}) + 2 * B * (a + b) + 4 * C)}) to (GOAL: {V = frac(b - a, 6) * (A * a^{2} + B * a + C + A * b^{2} + B * b + C + A * (a^{2} + 2 * a * b + b^{2}) + 2 * B * (a + b) + 4 * C)})
+2. autosolve all_hypothesis

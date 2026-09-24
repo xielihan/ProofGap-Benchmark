@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ sin(x) = x * (prod_{ n = 1 }^{ +∞ } (1 - frac(x^{2}, n^{2} * π^{2})))
+
+METHOD:

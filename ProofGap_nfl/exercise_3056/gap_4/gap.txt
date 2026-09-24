@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. x ≠ 0
+3. P = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . prod_{ i = 1 }^{ n } (cos(frac(x, 2^{i}))))
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ sin(frac(x, 2^{n})) ≠ 0 ⇒ P(n) = prod_{ i = 1 }^{ n } (cos(frac(x, 2^{i})))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ sin(frac(x, 2^{n})) ≠ 0 ⇒ P(n) = frac(sin(x), 2^{n} * sin(frac(x, 2^{n})))
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ sin(frac(x, 2^{n})) ≠ 0 ⇒ P(n) = frac(frac(x, 2^{n}), sin(frac(x, 2^{n}))) * frac(sin(x), x)
+
+GOAL:
+lim_{ t → 0 } (frac(t, sin(t))) = 1
+
+METHOD:

@@ -1,0 +1,29 @@
+get_forall (GOAL: {forall (i), i ∈ NonNegIntegerSet /\ i ∈ PosIntegerSet /\ i ≤ n => α(i) * x(i)^{α(i)} = λ}) (i := {j})
+get_condition (hypothesis 16: {j ∈ NonNegIntegerSet /\ j ∈ PosIntegerSet /\ j ≤ n}) in (GOAL: {j ∈ NonNegIntegerSet /\ j ∈ PosIntegerSet /\ j ≤ n => α(j) * x(j)^{α(j)} = λ})
+get_prop (hypothesis 9: {forall (i), i ∈ NonNegIntegerSet /\ i ∈ PosIntegerSet /\ i ≤ n => x(i) ∈ PosRealSet}) (i := {j}) as (hypothesis 17: {j ∈ NonNegIntegerSet /\ j ∈ PosIntegerSet /\ j ≤ n => x(j) ∈ PosRealSet})
+use_condition (hypothesis 16: {j ∈ NonNegIntegerSet /\ j ∈ PosIntegerSet /\ j ≤ n}) in (hypothesis 17: {j ∈ NonNegIntegerSet /\ j ∈ PosIntegerSet /\ j ≤ n => x(j) ∈ PosRealSet}) as (hypothesis 18: {x(j) ∈ PosRealSet})
+get_prop (hypothesis 10: {forall (i), i ∈ NonNegIntegerSet /\ i ∈ PosIntegerSet /\ i ≤ n => α(i) ∈ PosRealSet}) (i := {j}) as (hypothesis 19: {j ∈ NonNegIntegerSet /\ j ∈ PosIntegerSet /\ j ≤ n => α(j) ∈ PosRealSet})
+use_condition (hypothesis 16: {j ∈ NonNegIntegerSet /\ j ∈ PosIntegerSet /\ j ≤ n}) in (hypothesis 19: {j ∈ NonNegIntegerSet /\ j ∈ PosIntegerSet /\ j ≤ n => α(j) ∈ PosRealSet}) as (hypothesis 20: {α(j) ∈ PosRealSet})
+get_prop (hypothesis 15: {forall (i), i ∈ NonNegIntegerSet /\ i ∈ PosIntegerSet /\ i ≤ n => FunDeri(F, fun x, λ [x ∈ NonNegIntegerSet /\ λ ∈ RealSet] . x(i), 1) = α(i) * x(i)^{α(i) - 1} - frac(λ, x(i)) /\ α(i) * x(i)^{α(i) - 1} - frac(λ, x(i)) = 0}) (i := {j}) as (hypothesis 21: {j ∈ NonNegIntegerSet /\ j ∈ PosIntegerSet /\ j ≤ n => FunDeri(F, fun x, λ [x ∈ NonNegIntegerSet /\ λ ∈ RealSet] . x(j), 1) = α(j) * x(j)^{α(j) - 1} - frac(λ, x(j)) /\ α(j) * x(j)^{α(j) - 1} - frac(λ, x(j)) = 0})
+use_condition (hypothesis 16: {j ∈ NonNegIntegerSet /\ j ∈ PosIntegerSet /\ j ≤ n}) in (hypothesis 21: {j ∈ NonNegIntegerSet /\ j ∈ PosIntegerSet /\ j ≤ n => FunDeri(F, fun x, λ [x ∈ NonNegIntegerSet /\ λ ∈ RealSet] . x(j), 1) = α(j) * x(j)^{α(j) - 1} - frac(λ, x(j)) /\ α(j) * x(j)^{α(j) - 1} - frac(λ, x(j)) = 0}) as (hypothesis 22: {FunDeri(F, fun x, λ [x ∈ NonNegIntegerSet /\ λ ∈ RealSet] . x(j), 1) = α(j) * x(j)^{α(j) - 1} - frac(λ, x(j)) /\ α(j) * x(j)^{α(j) - 1} - frac(λ, x(j)) = 0})
+destruct_and (hypothesis 22: {FunDeri(F, fun x, λ [x ∈ NonNegIntegerSet /\ λ ∈ RealSet] . x(j), 1) = α(j) * x(j)^{α(j) - 1} - frac(λ, x(j)) /\ α(j) * x(j)^{α(j) - 1} - frac(λ, x(j)) = 0}) as (hypothesis 23: {FunDeri(F, fun x, λ [x ∈ NonNegIntegerSet /\ λ ∈ RealSet] . x(j), 1) = α(j) * x(j)^{α(j) - 1} - frac(λ, x(j))}) (hypothesis 24: {α(j) * x(j)^{α(j) - 1} - frac(λ, x(j)) = 0})
+assert (hypothesis 25: {frac(λ, x(j)) = α(j) * x(j)^{α(j) - 1}}) by proof {
+autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 409. (FractionEqualityToCrossProduct)': {forall (A) (B) (C), A ∈ RealSet => B ∈ RealSet => C ∈ RealSet => B != 0 => frac(A, B) = C => A = B * C}) (A := {λ}) (B := {x(j)}) (C := {α(j) * x(j)^{α(j) - 1}}) as (hypothesis 26: {λ ∈ RealSet => x(j) ∈ RealSet => α(j) * x(j)^{α(j) - 1} ∈ RealSet => x(j) != 0 => frac(λ, x(j)) = α(j) * x(j)^{α(j) - 1} => λ = x(j) * (α(j) * x(j)^{α(j) - 1})})
+use_condition (hypothesis 7: {λ ∈ RealSet}) (obvious: {x(j) ∈ RealSet}) (obvious: {α(j) * x(j)^{α(j) - 1} ∈ RealSet}) (obvious: {x(j) != 0}) (hypothesis 25: {frac(λ, x(j)) = α(j) * x(j)^{α(j) - 1}}) in (hypothesis 26: {λ ∈ RealSet => x(j) ∈ RealSet => α(j) * x(j)^{α(j) - 1} ∈ RealSet => x(j) != 0 => frac(λ, x(j)) = α(j) * x(j)^{α(j) - 1} => λ = x(j) * (α(j) * x(j)^{α(j) - 1})}) as (hypothesis 27: {λ = x(j) * (α(j) * x(j)^{α(j) - 1})})
+get_prop (theorem 'Thm 204. (ExponentAdditionLaw)': {forall (a) (x) (y), a ∈ RealSet => x ∈ RealSet => y ∈ RealSet => (a > 0 => a ^ (x + y) = a ^ x * a ^ y)}) (a := {x(j)}) (x := {α(j) - 1}) (y := {1}) as (hypothesis 28: {x(j) ∈ RealSet => α(j) - 1 ∈ RealSet => 1 ∈ RealSet => x(j) > 0 => x(j)^{(α(j) - 1) + 1} = x(j)^{α(j) - 1} * x(j)^{1}})
+use_condition (obvious: {x(j) ∈ RealSet}) (obvious: {α(j) - 1 ∈ RealSet}) (obvious: {1 ∈ RealSet}) (obvious: {x(j) > 0}) in (hypothesis 28: {x(j) ∈ RealSet => α(j) - 1 ∈ RealSet => 1 ∈ RealSet => x(j) > 0 => x(j)^{(α(j) - 1) + 1} = x(j)^{α(j) - 1} * x(j)^{1}}) as (hypothesis 29: {x(j)^{(α(j) - 1) + 1} = x(j)^{α(j) - 1} * x(j)^{1}})
+assert (hypothesis 30: {x(j)^{α(j)} = x(j)^{α(j) - 1} * x(j)}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 31: {α(j) * x(j)^{α(j)} = α(j) * (x(j)^{α(j) - 1} * x(j))}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 32: {α(j) * (x(j)^{α(j) - 1} * x(j)) = x(j) * (α(j) * x(j)^{α(j) - 1})}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 33: {α(j) * x(j)^{α(j)} = x(j) * (α(j) * x(j)^{α(j) - 1})}) by proof {
+autosolve all_hypothesis
+}
+autosolve all_hypothesis

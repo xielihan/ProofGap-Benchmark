@@ -1,0 +1,17 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. k ∈ RealSet
+3. s ∈ RealSet
+4. v ∈ RealSet
+5. Q : RealSet → RealSet
+6. a > 0
+7. k > 0
+8. s > 0
+9. v > 0
+10. Q(v) = (a + k * v^{3}) * frac(s, v)
+
+GOAL:
+Q(v) = frac(a * s, v) + s * k * v^{2}
+
+METHOD:

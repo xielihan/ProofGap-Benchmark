@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. y = fun x . (frac(1 - x^{2}, 2) * sin(x) - frac((1 + x)^{2}, 2) * cos(x)) * e^{-x}
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = -e^{-x} * (frac(1 - x^{2}, 2) * sin(x) - frac((1 + x)^{2}, 2) * cos(x)) + e^{-x} * (frac(1 - x^{2}, 2) * cos(x) - x * sin(x) + frac((1 + x)^{2}, 2) * sin(x) - (1 + x) * cos(x)) ∧ -e^{-x} * (frac(1 - x^{2}, 2) * sin(x) - frac((1 + x)^{2}, 2) * cos(x)) + e^{-x} * (frac(1 - x^{2}, 2) * cos(x) - x * sin(x) + frac((1 + x)^{2}, 2) * sin(x) - (1 + x) * cos(x)) = x^{2} * e^{-x} * sin(x)
+
+METHOD:

@@ -1,0 +1,3 @@
+rewrite (left_to_right, equation) (hypothesis 21: {FunDeri(f, 1, 2)(x_{0}) = 2 * a}); from (GOAL: {a = frac(1, 2) * FunDeri(f, 1, 2)(x_{0})}) to (GOAL: {a = frac(1, 2) * (2 * a)})
+autoreplace no_hypothesis; from (frac(1, 2) * (2 * a)) to (a); from (GOAL: {a = frac(1, 2) * (2 * a)}) to (GOAL: {a = a})
+autosolve all_hypothesis

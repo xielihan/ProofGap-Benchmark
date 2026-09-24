@@ -1,0 +1,35 @@
+PROOF GAP @25
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. forall (t), t ∈ RealSet ⇒ f(t) = cos(t) * cosh(t) - 1
+4. cos(x) = frac(1, cosh(x)) ⇔ cos(x) * cosh(x) = 1
+5. exists (α) (β) (γ), α ∈ RealSet ∧ α ∈ PosRealSet ∧ β ∈ RealSet ∧ β ∈ PosRealSet ∧ γ ∈ RealSet ∧ γ ∈ PosRealSet ∧ frac(3 * π, 2) < α ∧ α < 2 * π ∧ 2 * π < β ∧ β < frac(5 * π, 2) ∧ frac(7 * π, 2) < γ ∧ γ < 4 * π
+6. f(4.7) = -1.6812
+7. f(4.8) = 4.3159
+8. exists (α), α ∈ RealSet ∧ 4.7 < α
+9. exists (α), α ∈ RealSet ∧ α < 4.8
+10. forall (t), t ∈ RealSet ∧ 4.7 < t ∧ t < 4.8 ⇒ FunDeri(f, 1, 2)(t) > 0
+11. exists (x_{1}), x_{1} ∈ RealSet ∧ x_{1} = 4.7345
+12. exists (x_{2}), x_{2} ∈ RealSet ∧ x_{2} = 4.7301
+13. FunDeri(x, fun x [x ∈ RealSet] . 1, 1)(x) = 4.7 - frac(f(4.7), f(4.8) - f(4.7)) * (4.8 - 4.7)
+14. 4.7 - frac(f(4.7), f(4.8) - f(4.7)) * (4.8 - 4.7) = 4.7280
+15. FunDeri(x, fun x [x ∈ RealSet] . 1, 1)(x) = 4.7280
+16. exists (α), α ∈ RealSet ∧ 4.7280 < α
+17. exists (α), α ∈ RealSet ∧ α < 4.7345
+18. FunDeri(x, fun x [x ∈ RealSet] . 2, 1)(x) = 4.7280 - frac(f(4.7280), f(4.7345) - f(4.7280)) * (4.7345 - 4.7280)
+19. 4.7280 - frac(f(4.7280), f(4.7345) - f(4.7280)) * (4.7345 - 4.7280) = 4.7300
+20. FunDeri(x, fun x [x ∈ RealSet] . 2, 1)(x) = 4.7300
+21. exists (α), α ∈ RealSet ∧ 4.7300 < α
+22. exists (α), α ∈ RealSet ∧ α < 4.7301
+23. exists (α), α ∈ RealSet ∧ |4.730 - α| < 0.001
+24. f(frac(7 * π, 2)) = -1
+25. f(11) ≈_{ 1 } 133
+26. exists (γ), γ ∈ RealSet ∧ frac(7 * π, 2) < γ
+27. exists (γ), γ ∈ RealSet ∧ γ < 11
+
+GOAL:
+FunDeri(x, fun x [x ∈ RealSet] . 1, 1)(x) = 10.9956
+
+METHOD:
+[@method 根据 "比例法" @]

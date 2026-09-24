@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. a ≠ b
+4. lim_{ x → 0 } (frac(a^{x^{2}} - b^{x^{2}}, (a^{x} - b^{x})^{2})) = lim_{ x → 0 } ((frac(a^{x^{2}} - 1, x^{2}) - frac(b^{x^{2}} - 1, x^{2})) * frac(1, (frac(a^{x} - 1, x) - frac(b^{x} - 1, x))^{2}))
+
+GOAL:
+lim_{ x → 0 } (frac(a^{x^{2}} - b^{x^{2}}, (a^{x} - b^{x})^{2})) = (ln(a) - ln(b)) * frac(1, (ln(a) - ln(b))^{2})
+
+METHOD:

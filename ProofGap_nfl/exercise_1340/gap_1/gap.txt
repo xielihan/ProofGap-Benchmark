@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+lim_{ x → 1^- } (ln(x) * ln(1 - x)) = lim_{ x → 1^- } (frac(ln(1 - x), frac(1, ln(x))))
+
+METHOD:

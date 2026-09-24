@@ -1,0 +1,22 @@
+PROOF GAP @13
+ASSUM:
+1. Gamma : RealSet → RealSet
+2. t = (fun x [x ∈ RealSet] . 1 - x)
+3. DefInt(0, 1, (fun x [x ∈ RealSet] . ln(Gamma(x)) * sin(π * x)) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun t [t ∈ RealSet] . ln(Gamma(1 - t)) * sin(π * t)) * diff(fun t [t ∈ RealSet] . t))
+4. DefInt(0, 1, (fun t [t ∈ RealSet] . ln(Gamma(1 - t)) * sin(π * t)) * diff(fun t [t ∈ RealSet] . t)) = DefInt(0, 1, (fun x [x ∈ RealSet] . ln(Gamma(1 - x)) * sin(π * x)) * diff(fun x [x ∈ RealSet] . x))
+5. DefInt(0, 1, (fun x [x ∈ RealSet] . ln(Gamma(x)) * sin(π * x)) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet] . ln(Gamma(1 - x)) * sin(π * x)) * diff(fun x [x ∈ RealSet] . x))
+6. 2 * DefInt(0, 1, (fun x [x ∈ RealSet] . ln(Gamma(x)) * sin(π * x)) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet] . ln(Gamma(x) * Gamma(1 - x)) * sin(π * x)) * diff(fun x [x ∈ RealSet] . x))
+7. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < 1 ⇒ Gamma(x) * Gamma(1 - x) = frac(π, sin(π * x))
+8. 2 * DefInt(0, 1, (fun x [x ∈ RealSet] . ln(Gamma(x)) * sin(π * x)) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet] . ln(frac(π, sin(π * x))) * sin(π * x)) * diff(fun x [x ∈ RealSet] . x))
+9. DefInt(0, 1, (fun x [x ∈ RealSet] . ln(frac(π, sin(π * x))) * sin(π * x)) * diff(fun x [x ∈ RealSet] . x)) = ln(π) * DefInt(0, 1, (fun x [x ∈ RealSet] . sin(π * x)) * diff(fun x [x ∈ RealSet] . x)) - DefInt(0, 1, (fun x [x ∈ RealSet] . sin(π * x) * ln(sin(π * x))) * diff(fun x [x ∈ RealSet] . x))
+10. DefInt(0, 1, (fun x [x ∈ RealSet] . sin(π * x)) * diff(fun x [x ∈ RealSet] . x)) = frac(2, π)
+11. DefInt(0, 1, (fun x [x ∈ RealSet] . sin(π * x) * ln(sin(π * x))) * diff(fun x [x ∈ RealSet] . x)) = frac(1, π) * DefInt(0, π, (fun t [t ∈ RealSet] . sin(t) * ln(sin(t))) * diff(fun t [t ∈ RealSet] . t))
+12. u = (fun t [t ∈ RealSet] . sin(frac(t, 2)))
+13. frac(1, π) * DefInt(0, π, (fun t [t ∈ RealSet] . sin(t) * ln(sin(t))) * diff(fun t [t ∈ RealSet] . t)) = frac(4, π) * DefInt(0, 1, (fun u [u ∈ RealSet] . u * (ln(2) + ln(u) + frac(1, 2) * ln(1 - u^{2}))) * diff(fun u [u ∈ RealSet] . u))
+14. frac(4, π) * DefInt(0, 1, (fun u [u ∈ RealSet] . u * (ln(2) + ln(u) + frac(1, 2) * ln(1 - u^{2}))) * diff(fun u [u ∈ RealSet] . u)) = frac(2, π) * ln(2) - frac(2, π)
+15. 2 * DefInt(0, 1, (fun x [x ∈ RealSet] . ln(Gamma(x)) * sin(π * x)) * diff(fun x [x ∈ RealSet] . x)) = frac(2, π) * ln(π) - (frac(2, π) * ln(2) - frac(2, π))
+
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet] . ln(Gamma(x)) * sin(π * x)) * diff(fun x [x ∈ RealSet] . x)) = frac(1, π) * (1 + ln(frac(π, 2)))
+
+METHOD:

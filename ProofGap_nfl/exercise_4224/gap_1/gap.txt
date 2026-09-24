@@ -1,0 +1,18 @@
+PROOF GAP @1
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. x : RealSet → RealSet
+3. y : RealSet → RealSet
+4. a ∈ RealSet ∧ a > 0
+5. t_{0} ∈ RealSet ∧ t_{0} ≥ 0
+6. s ∈ RealSet
+7. t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ t_{0}
+8. forall (t), t ∈ RealSet ⇒ x(t) = a * cosh(t)
+9. forall (t), t ∈ RealSet ⇒ y(t) = a * sinh(t)
+10. C = { (X, Y) | X ∈ RealSet ∧ Y ∈ RealSet ∧ (exists (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ t_{0} ∧ X = x(t) ∧ Y = y(t)) }
+11. diff(s) = sqrtn(2, diff(x)^{2} + diff(y)^{2})
+
+GOAL:
+forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ t_{0} ⇒ diff(s) = sqrtn(2, a^{2} * sinh(t)^{2} + a^{2} * cosh(t)^{2}) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ t_{0}] . t)
+
+METHOD:

@@ -1,0 +1,32 @@
+get_forall (GOAL: {forall (r) (φ), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ∧ φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ sqrtn(2, E(r, φ) * G(r, φ) - F(r, φ)^{2}) = r * sin(α)}) (r := {p}) (φ := {q})
+get_condition (hypothesis 20: {p ∈ RealSet ∧ 0 ≤ p ∧ p ≤ a ∧ q ∈ RealSet ∧ 0 ≤ q ∧ q ≤ 2 * π}) in (GOAL: {p ∈ RealSet ∧ 0 ≤ p ∧ p ≤ a ∧ q ∈ RealSet ∧ 0 ≤ q ∧ q ≤ 2 * π ⇒ sqrtn(2, E(p, q) * G(p, q) - F(p, q)^{2}) = p * sin(α)})
+get_prop (hypothesis 13: {forall (r) (φ), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ∧ φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ E(r, φ) = 1}) (r := {p}) (φ := {q}) as (hypothesis 21: {p ∈ RealSet ∧ 0 ≤ p ∧ p ≤ a ∧ q ∈ RealSet ∧ 0 ≤ q ∧ q ≤ 2 * π ⇒ E(p, q) = 1})
+get_prop (hypothesis 16: {forall (r) (φ), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ∧ φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ G(r, φ) = r^{2} * sin(α)^{2}}) (r := {p}) (φ := {q}) as (hypothesis 22: {p ∈ RealSet ∧ 0 ≤ p ∧ p ≤ a ∧ q ∈ RealSet ∧ 0 ≤ q ∧ q ≤ 2 * π ⇒ G(p, q) = p^{2} * sin(α)^{2}})
+get_prop (hypothesis 19: {forall (r) (φ), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ∧ φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ F(r, φ) = 0}) (r := {p}) (φ := {q}) as (hypothesis 23: {p ∈ RealSet ∧ 0 ≤ p ∧ p ≤ a ∧ q ∈ RealSet ∧ 0 ≤ q ∧ q ≤ 2 * π ⇒ F(p, q) = 0})
+use_condition (hypothesis 20: {p ∈ RealSet ∧ 0 ≤ p ∧ p ≤ a ∧ q ∈ RealSet ∧ 0 ≤ q ∧ q ≤ 2 * π}) in (hypothesis 21: {p ∈ RealSet ∧ 0 ≤ p ∧ p ≤ a ∧ q ∈ RealSet ∧ 0 ≤ q ∧ q ≤ 2 * π ⇒ E(p, q) = 1}) as (hypothesis 24: {E(p, q) = 1})
+use_condition (hypothesis 20: {p ∈ RealSet ∧ 0 ≤ p ∧ p ≤ a ∧ q ∈ RealSet ∧ 0 ≤ q ∧ q ≤ 2 * π}) in (hypothesis 22: {p ∈ RealSet ∧ 0 ≤ p ∧ p ≤ a ∧ q ∈ RealSet ∧ 0 ≤ q ∧ q ≤ 2 * π ⇒ G(p, q) = p^{2} * sin(α)^{2}}) as (hypothesis 25: {G(p, q) = p^{2} * sin(α)^{2}})
+use_condition (hypothesis 20: {p ∈ RealSet ∧ 0 ≤ p ∧ p ≤ a ∧ q ∈ RealSet ∧ 0 ≤ q ∧ q ≤ 2 * π}) in (hypothesis 23: {p ∈ RealSet ∧ 0 ≤ p ∧ p ≤ a ∧ q ∈ RealSet ∧ 0 ≤ q ∧ q ≤ 2 * π ⇒ F(p, q) = 0}) as (hypothesis 26: {F(p, q) = 0})
+get_prop (theorem 'Thm 467. (SinePositiveOnPositiveHalfPeriod)': {forall (n) (t), t ∈ RealSet => n ∈ IntegerSet => (2 * n * π < t /\ t < (2 * n + 1) * π) => sin(t) > 0}) (n := {0}) (t := {α}) as (hypothesis 27: {α ∈ RealSet => 0 ∈ IntegerSet => (2 * 0 * π < α /\ α < (2 * 0 + 1) * π) => sin(α) > 0})
+assert (hypothesis 28: {α ∈ RealSet}) by proof {
+  autosolve (hypothesis 9: {α ∈ RealSet ∧ 0 < α ∧ α < frac(π, 2)})
+}
+assert (hypothesis 29: {0 ∈ IntegerSet}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 30: {2 * 0 * π < α /\ α < (2 * 0 + 1) * π}) by proof {
+  autosolve (hypothesis 9: {α ∈ RealSet ∧ 0 < α ∧ α < frac(π, 2)})
+}
+use_condition (hypothesis 28: {α ∈ RealSet}) in (hypothesis 27: {α ∈ RealSet => 0 ∈ IntegerSet => (2 * 0 * π < α /\ α < (2 * 0 + 1) * π) => sin(α) > 0}) as (hypothesis 31: {0 ∈ IntegerSet => (2 * 0 * π < α /\ α < (2 * 0 + 1) * π) => sin(α) > 0})
+use_condition (hypothesis 29: {0 ∈ IntegerSet}) in (hypothesis 31: {0 ∈ IntegerSet => (2 * 0 * π < α /\ α < (2 * 0 + 1) * π) => sin(α) > 0}) as (hypothesis 32: {(2 * 0 * π < α /\ α < (2 * 0 + 1) * π) => sin(α) > 0})
+use_condition (hypothesis 30: {2 * 0 * π < α /\ α < (2 * 0 + 1) * π}) in (hypothesis 32: {(2 * 0 * π < α /\ α < (2 * 0 + 1) * π) => sin(α) > 0}) as (hypothesis 33: {sin(α) > 0})
+assert (hypothesis 34: {p * sin(α) >= 0}) by proof {
+  autosolve (hypothesis 20: {p ∈ RealSet ∧ 0 ≤ p ∧ p ≤ a ∧ q ∈ RealSet ∧ 0 ≤ q ∧ q ≤ 2 * π}) (hypothesis 33: {sin(α) > 0})
+}
+assert (hypothesis 35: {E(p, q) * G(p, q) - F(p, q)^{2} = (p * sin(α))^{2}}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 24: {E(p, q) = 1}); from (GOAL: {E(p, q) * G(p, q) - F(p, q)^{2} = (p * sin(α))^{2}}) to (GOAL: {1 * G(p, q) - F(p, q)^{2} = (p * sin(α))^{2}})
+  rewrite (left_to_right, equation) (hypothesis 25: {G(p, q) = p^{2} * sin(α)^{2}}); from (GOAL: {1 * G(p, q) - F(p, q)^{2} = (p * sin(α))^{2}}) to (GOAL: {1 * (p^{2} * sin(α)^{2}) - F(p, q)^{2} = (p * sin(α))^{2}})
+  rewrite (left_to_right, equation) (hypothesis 26: {F(p, q) = 0}); from (GOAL: {1 * (p^{2} * sin(α)^{2}) - F(p, q)^{2} = (p * sin(α))^{2}}) to (GOAL: {1 * (p^{2} * sin(α)^{2}) - 0^{2} = (p * sin(α))^{2}})
+  autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 35: {E(p, q) * G(p, q) - F(p, q)^{2} = (p * sin(α))^{2}}); from (GOAL: {sqrtn(2, E(p, q) * G(p, q) - F(p, q)^{2}) = p * sin(α)}) to (GOAL: {sqrtn(2, (p * sin(α))^{2}) = p * sin(α)})
+autosolve (hypothesis 34: {p * sin(α) >= 0})

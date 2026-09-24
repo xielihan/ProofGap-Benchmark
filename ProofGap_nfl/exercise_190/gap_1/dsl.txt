@@ -1,0 +1,6 @@
+1. assert (hypothesis 3: {-1 ∈ RealSet ∧ -1 ≠ 0})
+2. get_prop (hypothesis 2: {forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = lg(x^{2})}) (x := {-1}) as (hypothesis 4: {-1 ∈ RealSet ∧ -1 ≠ 0 ⇒ f(-1) = lg((-1)^{2})})
+3. use_condition (hypothesis 3: {-1 ∈ RealSet ∧ -1 ≠ 0}) in (hypothesis 4: {-1 ∈ RealSet ∧ -1 ≠ 0 ⇒ f(-1) = lg((-1)^{2})}) as (hypothesis 5: {f(-1) = lg((-1)^{2})})
+4. rewrite (left_to_right, equation) (hypothesis 5: {f(-1) = lg((-1)^{2})}); from (GOAL: {f(-1) = lg(1)}) to (GOAL: {lg((-1)^{2}) = lg(1)})
+5. autoreplace no_hypothesis; from ((-1)^{2}) to (1); from (GOAL: {lg((-1)^{2}) = lg(1)}) to (GOAL: {lg(1) = lg(1)})
+6. autosolve all_hypothesis

@@ -1,0 +1,5 @@
+1. get_condition (hypothesis 11: {a ≠ 0}) in (GOAL: {a ≠ 0 ⇒ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = 1})
+2. use_condition (hypothesis 11: {a ≠ 0}) in (hypothesis 8: {a ≠ 0 ⇒ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = frac(seqlim_{ n → +∞ } (x(n + 1)), seqlim_{ n → +∞ } (x(n)))}) as (hypothesis 12: {seqlim_{ n → +∞ } (x(n + 1) / x(n)) = frac(seqlim_{ n → +∞ } (x(n + 1)), seqlim_{ n → +∞ } (x(n)))})
+3. use_condition (hypothesis 11: {a ≠ 0}) in (hypothesis 9: {a ≠ 0 ⇒ frac(seqlim_{ n → +∞ } (x(n + 1)), seqlim_{ n → +∞ } (x(n))) = frac(a, a)}) as (hypothesis 13: {frac(seqlim_{ n → +∞ } (x(n + 1)), seqlim_{ n → +∞ } (x(n))) = frac(a, a)})
+4. use_condition (hypothesis 11: {a ≠ 0}) in (hypothesis 10: {a ≠ 0 ⇒ frac(a, a) = 1}) as (hypothesis 14: {frac(a, a) = 1})
+5. autosolve all_hypothesis

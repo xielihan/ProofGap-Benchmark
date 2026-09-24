@@ -1,0 +1,3 @@
+1. get_forall (GOAL: {forall (x) (y), (Impl(And(And(Belong(x, RealSet), Belong(y, RealSet)), Belong(Tuple(x, y), SetMinus(CartesianProd(RealSet, RealSet), SetEnum(Tuple(0, 0))))), Eq(Plus(frac(Minus(Power(y, 2), Power(x, 2)), Power(Plus(Power(x, 2), Power(y, 2)), 2)), frac(Minus(Power(x, 2), Power(y, 2)), Power(Plus(Power(x, 2), Power(y, 2)), 2))), 0)))}) (x := {x})
+2. get_forall (GOAL: {forall (y), (Impl(And(And(Belong(x, RealSet), Belong(y, RealSet)), Belong(Tuple(x, y), SetMinus(CartesianProd(RealSet, RealSet), SetEnum(Tuple(0, 0))))), Eq(Plus(frac(Minus(Power(y, 2), Power(x, 2)), Power(Plus(Power(x, 2), Power(y, 2)), 2)), frac(Minus(Power(x, 2), Power(y, 2)), Power(Plus(Power(x, 2), Power(y, 2)), 2))), 0)))}) (y := {y})
+3. autosolve all_hypothesis

@@ -1,0 +1,12 @@
+PROOF GAP @6
+ASSUM:
+1. forall (x), x ∈ PosRealSet ⇒ x > 0
+2. forall (x), x ∈ RealSet ∧ x > 0 ⇒ sin(ln(x + 1)) - sin(ln(x)) = 2 * cos(frac(ln(x + 1) + ln(x), 2)) * sin(frac(ln(x + 1) - ln(x), 2))
+3. forall (x), x ∈ RealSet ∧ x > 0 ⇒ ln(x + 1) - ln(x) = ln(1 + frac(1, x))
+4. lim_{ x → +∞ } (ln(1 + frac(1, x))) = 0
+5. lim_{ x → +∞ } (ln(x + 1) - ln(x)) = 0
+
+GOAL:
+lim_{ x → +∞ } (sin(frac(ln(x + 1) - ln(x), 2))) = 0
+
+METHOD:

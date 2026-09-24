@@ -1,0 +1,23 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. Ω ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. Ω_{1} ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+4. Ω_{2} ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+5. V ∈ RealSet
+6. V_{1} ∈ RealSet
+7. V_{2} ∈ RealSet
+8. x ∈ RealSet
+9. y ∈ RealSet
+10. z ∈ RealSet
+11. r ∈ RealSet
+12. φ ∈ RealSet
+13. ω ∈ RealSet
+14. Ω = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, a * z = a^{2} - x^{2} - y^{2} ∧ z = a - x - y ∧ x = 0 ∧ y = 0 ∧ z = 0 }
+15. Ω_{1} = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x^{2} + y^{2} ≤ a^{2} ∧ x ≥ 0 ∧ y ≥ 0 ∧ 0 ≤ z ∧ z ≤ frac(a^{2} - x^{2} - y^{2}, a) }
+16. Ω_{2} = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x + y ≤ a ∧ x ≥ 0 ∧ y ≥ 0 ∧ z ≥ 0 ∧ z ≤ a - x - y }
+
+GOAL:
+V_{1} = VolumeInt(Ω_{1}, diff(ω))
+
+METHOD:

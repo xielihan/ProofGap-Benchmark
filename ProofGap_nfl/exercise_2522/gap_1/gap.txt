@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. v : RealSet → RealSet
+2. v_{0} ∈ RealSet
+3. a ∈ RealSet
+4. T ∈ RealSet ∧ T > 0
+5. s : RealSet → RealSet
+6. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ T ⇒ v(t) = v_{0} + a * t
+
+GOAL:
+forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ T ⇒ FunDeri(s, 1, 1)(t) = v(t) ∧ v(t) = v_{0} + a * t
+
+METHOD:

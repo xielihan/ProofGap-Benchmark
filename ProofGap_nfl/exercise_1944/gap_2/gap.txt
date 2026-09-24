@@ -1,0 +1,24 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. c ∈ RealSet
+6. d ∈ RealSet
+7. e ∈ RealSet
+8. f ∈ RealSet
+9. g ∈ RealSet
+10. h ∈ RealSet
+11. l ∈ RealSet
+12. m ∈ RealSet
+13. λ ∈ RealSet
+14. P : RealSet → RealSet
+15. P(x) = a * x^{9} + b * x^{8} + c * x^{7} + d * x^{6} + e * x^{5} + f * x^{4} + g * x^{3} + h * x^{2} + l * x + m
+16. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x^{10}, sqrtn(2, 1 + x^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_6` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(1, sqrtn(2, 1 + x^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_6`(x) = P(x) * sqrtn(2, 1 + x^{2}) + λ * `F_3`(x)) }
+17. a ∈ RealSet
+
+GOAL:
+b ∈ RealSet
+
+METHOD:

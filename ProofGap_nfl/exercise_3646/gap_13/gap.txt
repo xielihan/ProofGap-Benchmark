@@ -1,0 +1,26 @@
+PROOF GAP @13
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. a > 0
+5. b > 0
+6. forall (x) (y) (z), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ∧ z > 0 ⇒ u(x, y, z) = frac(a^{2}, x) + frac(x^{2}, y) + frac(y^{2}, z) + frac(z^{2}, b)
+7. diff(u) = (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . frac(2 * x, y) - frac(a^{2}, x^{2})) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . frac(2 * y, z) - frac(x^{2}, y^{2})) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . frac(2 * z, b) - frac(y^{2}, z^{2})) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)
+8. forall (x) (y) (z), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ∧ z > 0 ⇒ FunDeri(u, 1, 1)(x, y, z) = frac(2 * x, y) - frac(a^{2}, x^{2})
+9. forall (x) (y) (z), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ∧ z > 0 ⇒ FunDeri(u, 2, 1)(x, y, z) = frac(2 * y, z) - frac(x^{2}, y^{2})
+10. forall (x) (y) (z), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ∧ z > 0 ⇒ FunDeri(u, 3, 1)(x, y, z) = frac(2 * z, b) - frac(y^{2}, z^{2})
+11. P_{0} = (frac(1, 2) * sqrtn(15, 16 * a^{14} * b), frac(1, 4) * sqrtn(5, 16 * a^{4} * b), frac(1, 2) * sqrtn(15, frac(1, 4) * a^{8} * b^{7}))
+12. FunDeri(u, 1, 1)(P_{0}) = 0
+13. FunDeri(u, 2, 1)(P_{0}) = 0
+14. FunDeri(u, 3, 1)(P_{0}) = 0
+15. forall (x) (y) (z), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ∧ z > 0 ⇒ diff^{2}(u) = (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . frac(2 * a^{2}, x^{3})) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x)^{2} + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . frac(2, y)) * (diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) - frac(x, y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y))^{2} + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . frac(2, z)) * (diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) - frac(y, z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z))^{2} + frac(2, b) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)^{2}
+16. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) = P_{0} ∧ x > 0 ∧ y > 0 ∧ z > 0 ∧ diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x)^{2} + diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y)^{2} + diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)^{2} ≠ 0 ⇒ diff^{2}(u) > 0
+17. MinimumPoint(u) = { P_{0} }
+18. u(P_{0}) = frac(15 * a, 4) * sqrtn(15, frac(a, 16 * b))
+19. MinimumPoint(u) = { P_{0} }
+
+GOAL:
+u(P_{0}) = frac(15 * a, 4) * sqrtn(15, frac(a, 16 * b))
+
+METHOD:

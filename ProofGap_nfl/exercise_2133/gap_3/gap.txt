@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. t : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ t(x) = sqrtn(2, 1 + x^{2})
+3. C ∈ RealSet
+4. forall (x), x ∈ RealSet ⇒ t(x) ≥ 1
+5. forall (x), x ∈ RealSet ⇒ x^{2} = t(x)^{2} - 1
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ x * diff(fun x [x ∈ RealSet] . x) = t(x) * diff(fun x [x ∈ RealSet] . t(x))
+
+METHOD:

@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. f_{1} = (fun x [x ∈ RealSet] . x^{2})
+2. g_{1} = (fun x [x ∈ RealSet] . |x|)
+3. F_{1} = (fun x [x ∈ RealSet] . f_{1}(g_{1}(x)))
+
+GOAL:
+(g_{1})(0) = 0
+
+METHOD:

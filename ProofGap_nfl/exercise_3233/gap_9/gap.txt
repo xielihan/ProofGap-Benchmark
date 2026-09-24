@@ -1,0 +1,19 @@
+PROOF GAP @9
+ASSUM:
+1. f : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. n ∈ RealSet
+3. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ DiffableFuncAt(f, (x, y, z))
+4. forall (x) (y) (z) (t), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ t ∈ RealSet ∧ t > 0 ⇒ f(t * x, t * y, t * z) = t^{n} * f(x, y, z)
+5. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ f(t * x, t * y, t * z) = t^{n} * f(x, y, z))))
+6. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ t * FunDeri(f, 1, 1)(t * x, t * y, t * z) = t^{n} * FunDeri(f, 1, 1)(x, y, z))))
+7. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ t * FunDeri(f, 2, 1)(t * x, t * y, t * z) = t^{n} * FunDeri(f, 2, 1)(x, y, z))))
+8. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ t * FunDeri(f, 3, 1)(t * x, t * y, t * z) = t^{n} * FunDeri(f, 3, 1)(x, y, z))))
+9. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ FunDeri(f, 1, 1)(t * x, t * y, t * z) = t^{n - 1} * FunDeri(f, 1, 1)(x, y, z))))
+10. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ FunDeri(f, 2, 1)(t * x, t * y, t * z) = t^{n - 1} * FunDeri(f, 2, 1)(x, y, z))))
+11. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ FunDeri(f, 3, 1)(t * x, t * y, t * z) = t^{n - 1} * FunDeri(f, 3, 1)(x, y, z))))
+12. forall (x) (y) (z) (t), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ t ∈ RealSet ∧ t > 0 ⇒ FunDeri(f, 1, 1)(t * x, t * y, t * z) = t^{n - 1} * FunDeri(f, 1, 1)(x, y, z) ∧ FunDeri(f, 2, 1)(t * x, t * y, t * z) = t^{n - 1} * FunDeri(f, 2, 1)(x, y, z) ∧ FunDeri(f, 3, 1)(t * x, t * y, t * z) = t^{n - 1} * FunDeri(f, 3, 1)(x, y, z)
+
+GOAL:
+forall (x) (y) (z) (t), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ t ∈ RealSet ∧ t > 0 ⇒ FunDeri(f, 1, 1)(t * x, t * y, t * z) = t^{n - 1} * FunDeri(f, 1, 1)(x, y, z) ∧ FunDeri(f, 2, 1)(t * x, t * y, t * z) = t^{n - 1} * FunDeri(f, 2, 1)(x, y, z) ∧ FunDeri(f, 3, 1)(t * x, t * y, t * z) = t^{n - 1} * FunDeri(f, 3, 1)(x, y, z)
+
+METHOD:

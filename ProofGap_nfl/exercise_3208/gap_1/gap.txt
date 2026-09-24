@@ -1,0 +1,20 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. A ∈ RealSet
+3. b ∈ RealSet
+4. B ∈ RealSet
+5. f : CartesianProd(RealSet, RealSet) → RealSet
+6. φ : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+7. F : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+8. a ≤ A
+9. b ≤ B
+10. ContinuousFuncOn(f, CartesianProd([a, A], [b, B]))
+11. exists (`φ_{0}`), `φ_{0}` : RealSet → RealSet ∧ UniformConvergent(φ, [a, A], `φ_{0}`)
+12. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [a, A] ⇒ b ≤ φ(n, x) ∧ φ(n, x) ≤ B
+13. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [a, A] ⇒ F(n, x) = f(x, φ(n, x))
+
+GOAL:
+forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [a, A] ⇒ (x, φ(n, x)) ∈ CartesianProd([a, A], [b, B])
+
+METHOD:

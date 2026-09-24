@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = frac(x^{2}, 2^{x})
+3. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = frac(2 * x - x^{2} * ln(2), 2^{x})
+4. forall (x), x ∈ RealSet ∧ -∞ < x ∧ x < 0 ⇒ FunDeri(y, 1, 1)(x) < 0
+5. forall (x), x ∈ RealSet ∧ -∞ < x ∧ x < 0 ⇒ MonoDecFuncOn(y, IntervalLoRo(-∞, 0))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 < x ∧ x < frac(2, ln(2)) ⇒ FunDeri(y, 1, 1)(x) > 0
+
+METHOD:

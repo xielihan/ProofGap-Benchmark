@@ -1,0 +1,8 @@
+get_condition (hypothesis 3: {1 - 2 * x * cosh(α) + x^{2} ≠ 0}) in (GOAL: {1 - 2 * x * cosh(α) + x^{2} ≠ 0 ⇒ frac(x * sinh(α), 1 - 2 * x * cosh(α) + x^{2}) = frac(1, 2) * (frac(cosh(α) + sinh(α), x - (cosh(α) + sinh(α))) - frac(cosh(α) - sinh(α), x - (cosh(α) - sinh(α))))})
+get_prop (theorem 'Thm 414. (HyperbolicSquareDifferenceIdentity)': {forall (u), u ∈ RealSet => cosh(u) ^ 2 - sinh(u) ^ 2 = 1}) (u := {α}) as (hypothesis 4: {α ∈ RealSet => cosh(α) ^ 2 - sinh(α) ^ 2 = 1})
+use_condition (hypothesis 2: {α ∈ RealSet}) in (hypothesis 4: {α ∈ RealSet => cosh(α) ^ 2 - sinh(α) ^ 2 = 1}) as (hypothesis 5: {cosh(α) ^ 2 - sinh(α) ^ 2 = 1})
+assert (hypothesis 6: {1 - 2 * x * cosh(α) + x^{2} = (x - (cosh(α) + sinh(α))) * (x - (cosh(α) - sinh(α)))}) by proof {
+  autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 6: {1 - 2 * x * cosh(α) + x^{2} = (x - (cosh(α) + sinh(α))) * (x - (cosh(α) - sinh(α)))}); from (GOAL: {frac(x * sinh(α), 1 - 2 * x * cosh(α) + x^{2}) = frac(1, 2) * (frac(cosh(α) + sinh(α), x - (cosh(α) + sinh(α))) - frac(cosh(α) - sinh(α), x - (cosh(α) - sinh(α))))}) to (GOAL: {frac(x * sinh(α), (x - (cosh(α) + sinh(α))) * (x - (cosh(α) - sinh(α)))) = frac(1, 2) * (frac(cosh(α) + sinh(α), x - (cosh(α) + sinh(α))) - frac(cosh(α) - sinh(α), x - (cosh(α) - sinh(α))))})
+autosolve all_hypothesis

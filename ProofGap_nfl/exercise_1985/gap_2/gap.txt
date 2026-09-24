@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet ∧ x ≠ -1
+2. z ∈ RealSet ∧ z ≠ 1
+3. C ∈ RealSet
+4. frac(1, sqrtn(3, 1 + x^{3})) = x^{0} * (1 + x^{3})^{-frac(1, 3)}
+
+GOAL:
+x^{-3} + 1 = z^{3}
+
+METHOD:

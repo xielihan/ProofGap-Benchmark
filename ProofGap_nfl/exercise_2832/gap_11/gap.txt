@@ -1,0 +1,25 @@
+PROOF GAP @11
+ASSUM:
+1. α ∈ RealSet
+2. β ∈ RealSet
+3. γ ∈ RealSet
+4. a : NonNegIntegerSet → RealSet
+5. x ∈ RealSet
+6. k ∈ NonNegIntegerSet
+7. forall (k), k ∈ NonNegIntegerSet ⇒ γ + k ≠ 0
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac((prod_{ k = 0 }^{ n - 1 } (α + k)) * (prod_{ k = 0 }^{ n - 1 } (β + k)), n! * (prod_{ k = 0 }^{ n - 1 } (γ + k)))
+9. lim_{ n → +∞ } (|frac(a(n), a(n + 1))|) = lim_{ n → +∞ } (frac((n + 1) * (γ + n), (α + n) * (β + n)))
+10. lim_{ n → +∞ } (frac((n + 1) * (γ + n), (α + n) * (β + n))) = 1
+11. lim_{ n → +∞ } (|frac(a(n), a(n + 1))|) = 1
+12. RadiusOfConvergence(a) = 1
+13. forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 0 }^{ +∞ } (a(n) * x^{n}))
+14. forall (x), x ∈ RealSet ∧ |x| > 1 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (a(n) * x^{n}))
+15. x = 1 ⇒ (exists (θ), θ : NonNegIntegerSet → RealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(a(n), a(n - 1)) = 1 + frac(γ - α - β + 1, n) + frac(θ(n), n^{2})))
+16. x = 1 ⇒ (exists (θ), θ : NonNegIntegerSet → RealSet ∧ (exists (L), L ∈ RealSet ∧ L ≥ 0 ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |θ(n)| ≤ L)))
+17. x = 1 ⇒ γ - α - β > 0 ⇒ AbsoluteConvergentSeries(sum_{ n = 0 }^{ +∞ } (a(n)))
+18. x = 1 ⇒ γ - α - β ≤ 0 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (a(n)))
+
+GOAL:
+x = -1 ⇒ (exists (θ), θ : NonNegIntegerSet → RealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |frac(a(n), a(n + 1))| = 1 + frac(γ - α - β + 1, n) + frac(θ(n), n^{2})))
+
+METHOD:

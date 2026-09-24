@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. F : RealSet → RealSet
+2. forall (y), y ∈ RealSet ⇒ F(y) = DefInt(0, 1, ln(sqrtn(2, x^{2} + y^{2})) * diff(x))
+3. forall (y), y ∈ RealSet ∧ y ≠ 0 ⇒ F(y) = DefInt(0, 1, ln(sqrtn(2, x^{2} + y^{2})) * diff(x))
+4. forall (y), y ∈ RealSet ∧ y ≠ 0 ⇒ F(y) = ((x * ln(sqrtn(2, x^{2} + y^{2})))|_{0}^{1}) - DefInt(0, 1, frac(x^{2}, x^{2} + y^{2}) * diff(x))
+5. forall (y), y ∈ RealSet ∧ y ≠ 0 ⇒ F(y) = ln(sqrtn(2, 1 + y^{2})) - 1 + y * arctan(frac(1, y))
+
+GOAL:
+F(0) = DefInt(0, 1, ln(x) * diff(x))
+
+METHOD:

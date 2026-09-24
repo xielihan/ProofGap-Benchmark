@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. a > 0
+4. ContinuousFuncOn(f, [0, 1])
+5. forall (t), t ∈ RealSet ⇒ t^{2} < sqrtn(2, 1 + t^{4})
+
+GOAL:
+forall (t), t ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ DefInt(0, x, sqrtn(2, 1 + t^{4}) * diff(fun t [t ∈ RealSet] . t)) ≥ DefInt(0, x, t^{2} * diff(fun t [t ∈ RealSet] . t)))
+
+METHOD:

@@ -1,0 +1,16 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. φ : RealSet → RealSet
+3. ContinuousFuncOn(f, [0, +∞))
+4. forall (x), x ∈ RealSet ∧ x ∈ [0, +∞) ⇒ f(x) > 0
+5. forall (x), x ∈ RealSet ∧ x > 0 ⇒ φ(x) = frac(DefInt(0, x, (fun t [t ∈ RealSet] . t * f(t)) * diff(fun t [t ∈ RealSet] . t)), DefInt(0, x, (fun t [t ∈ RealSet] . f(t)) * diff(fun t [t ∈ RealSet] . t)))
+6. lim_{ x → 0^+ } (φ(x)) = lim_{ x → 0^+ } (frac(x * f(x), f(x)))
+7. lim_{ x → 0^+ } (frac(x * f(x), f(x))) = 0
+8. lim_{ x → 0^+ } (φ(x)) = 0
+9. φ(0) = 0
+
+GOAL:
+ContinuousFuncOn(φ, [0, +∞))
+
+METHOD:

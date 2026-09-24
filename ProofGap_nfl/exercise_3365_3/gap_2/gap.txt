@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x)^{2} = x^{2}
+3. DiffableFunc(y)
+4. y = (fun x [x ∈ RealSet] . x) ∨ y = (fun x [x ∈ RealSet] . -x)
+
+GOAL:
+y ∈ { fun x [x ∈ RealSet] . x, fun x [x ∈ RealSet] . -x } ⇔ (forall (x), x ∈ RealSet ⇒ y(x)^{2} = x^{2}) ∧ DiffableFunc(y)
+
+METHOD:

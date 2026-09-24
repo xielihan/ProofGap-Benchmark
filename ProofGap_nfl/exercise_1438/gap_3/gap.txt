@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x) = sqrtn(2, x) * ln(x)
+3. forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(y, 1, 1)(x) = frac(1, 2 * sqrtn(2, x)) * (ln(x) + 2)
+4. forall (x), x ∈ RealSet ∧ x > 0 ∧ FunDeri(y, 1, 1)(x) = 0 ⇒ x = e^{-2}
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 < x ∧ x < e^{-2} ⇒ FunDeri(y, 1, 1)(x) < 0
+
+METHOD:

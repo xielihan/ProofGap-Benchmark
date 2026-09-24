@@ -1,0 +1,12 @@
+PROOF GAP @5
+ASSUM:
+1. Δ ∈ RealSet
+2. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ sinh(x) = sum_{ n = 0 }^{ +∞ } (frac(x^{2 * n + 1}, (2 * n + 1)!))
+3. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ frac(sinh(x), x) = sum_{ n = 0 }^{ +∞ } (frac(x^{2 * n}, (2 * n + 1)!))
+4. DefInt(0, 1, (fun x [x ∈ RealSet] . cases{ frac(sinh(x), x) if x ≠ 0; 1 if x = 0 }) * diff(fun x [x ∈ RealSet] . x)) = 1 + frac(1, 3 * 3!) + frac(1, 5 * 5!) + Δ
+5. 0 < Δ
+
+GOAL:
+Δ < frac(1, 7 * 7!) * frac(1, 1 - frac(1, 7^{2}))
+
+METHOD:

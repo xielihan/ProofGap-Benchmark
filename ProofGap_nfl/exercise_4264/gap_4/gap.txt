@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ C ⇒ (x, y) ≠ (0, 0)
+3. (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(x, sqrtn(2, x^{2} + y^{2}))) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(y, sqrtn(2, x^{2} + y^{2}))) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) = diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . sqrtn(2, x^{2} + y^{2}))
+4. VectorCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(x, sqrtn(2, x^{2} + y^{2}))) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(y, sqrtn(2, x^{2} + y^{2}))) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = VectorCurveInt(C, diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . sqrtn(2, x^{2} + y^{2})))
+5. VectorCurveInt(C, diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . sqrtn(2, x^{2} + y^{2}))) = ((fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . sqrtn(2, x^{2} + y^{2}))|_{(1, 0)}^{(6, 8)})
+
+GOAL:
+((fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . sqrtn(2, x^{2} + y^{2}))|_{(1, 0)}^{(6, 8)}) = 9
+
+METHOD:

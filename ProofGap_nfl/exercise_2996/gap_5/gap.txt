@@ -1,0 +1,12 @@
+PROOF GAP @5
+ASSUM:
+1. d : NonNegIntegerSet → RealSet
+2. sum_{ n = 0 }^{ +∞ } (frac(2^{n} * (n + 1), n!)) = 1 + (sum_{ n = 1 }^{ +∞ } (frac(2^{n}, (n - 1)!))) + (sum_{ n = 1 }^{ +∞ } (frac(2^{n}, n!)))
+3. 1 + (sum_{ n = 1 }^{ +∞ } (frac(2^{n}, (n - 1)!))) + (sum_{ n = 1 }^{ +∞ } (frac(2^{n}, n!))) = 2 * (sum_{ m = 0 }^{ +∞ } (frac(2^{m}, m!))) + (sum_{ n = 0 }^{ +∞ } (frac(2^{n}, n!)))
+4. 2 * (sum_{ m = 0 }^{ +∞ } (frac(2^{m}, m!))) + (sum_{ n = 0 }^{ +∞ } (frac(2^{n}, n!))) = 3 * (sum_{ n = 0 }^{ +∞ } (frac(2^{n}, n!)))
+5. (sum_{ k = 0 }^{ +∞ } (frac(1, k!))) * (sum_{ l = 0 }^{ +∞ } (frac(1, l!))) = sum_{ n = 0 }^{ +∞ } (d(n))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ d(n) = sum_{ k = 0 }^{ n } (frac(1, k! * (n - k)!)) ∧ sum_{ k = 0 }^{ n } (frac(1, k! * (n - k)!)) = frac(1, n!) * (sum_{ k = 0 }^{ n } (Combination(n, k))) ∧ frac(1, n!) * (sum_{ k = 0 }^{ n } (Combination(n, k))) = frac(2^{n}, n!)
+
+METHOD:

@@ -1,0 +1,4 @@
+assert (hypothesis 13: {((sqrtn(2, 2) * sin(x))^{2} < 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))) ∧ ((sqrtn(2, 2) * sin(x))^{2} = 1 ⇒ ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))) ∧ ((sqrtn(2, 2) * sin(x))^{2} > 1 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))))}) by proof {
+  autosolve all_hypothesis
+}
+apply (hypothesis 13: {((sqrtn(2, 2) * sin(x))^{2} < 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))) ∧ ((sqrtn(2, 2) * sin(x))^{2} = 1 ⇒ ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))) ∧ ((sqrtn(2, 2) * sin(x))^{2} > 1 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))))})

@@ -1,0 +1,22 @@
+1. get_forall (GOAL: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (0 < x ∧ x < y ∨ y < x ∧ x < 0) ⇒ FunDeri(FunDeri(u, 1, 1), 2, 1)(x, y) = FunDeri(FunDeri(u, 2, 1), 1, 1)(x, y)}) (x := {x0}) (y := {y0})
+2. get_condition (hypothesis 19: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ (0 < x0 ∧ x0 < y0 ∨ y0 < x0 ∧ x0 < 0)}) in (GOAL: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ (0 < x0 ∧ x0 < y0 ∨ y0 < x0 ∧ x0 < 0) ⇒ FunDeri(FunDeri(u, 1, 1), 2, 1)(x0, y0) = FunDeri(FunDeri(u, 2, 1), 1, 1)(x0, y0)})
+3. destruct_and (hypothesis 19: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ (0 < x0 ∧ x0 < y0 ∨ y0 < x0 ∧ x0 < 0)}) as (hypothesis 20: {x0 ∈ RealSet}) (hypothesis 21: {y0 ∈ RealSet}) (hypothesis 22: {0 < x0 ∧ x0 < y0 ∨ y0 < x0 ∧ x0 < 0})
+4. assert (hypothesis 23: {0 < x0 ∧ x0 < y0 ⇒ FunDeri(FunDeri(u, 1, 1), 2, 1)(x0, y0) = FunDeri(FunDeri(u, 2, 1), 1, 1)(x0, y0)}) by proof {
+  1. get_condition (hypothesis 23: {0 < x0 ∧ x0 < y0}) in (GOAL: {0 < x0 ∧ x0 < y0 ⇒ FunDeri(FunDeri(u, 1, 1), 2, 1)(x0, y0) = FunDeri(FunDeri(u, 2, 1), 1, 1)(x0, y0)})
+  2. assert (hypothesis 24: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ 0 < x0 ∧ x0 < y0}) by proof {
+    1. autosolve all_hypothesis
+  }
+  3. get_prop (hypothesis 10: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ 0 < x ∧ x < y ⇒ FunDeri(FunDeri(u, 1, 1), 2, 1)(x, y) = FunDeri(FunDeri(u, 2, 1), 1, 1)(x, y)}) (x := {x0}) (y := {y0}) as (hypothesis 25: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ 0 < x0 ∧ x0 < y0 ⇒ FunDeri(FunDeri(u, 1, 1), 2, 1)(x0, y0) = FunDeri(FunDeri(u, 2, 1), 1, 1)(x0, y0)})
+  4. use_condition (hypothesis 24: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ 0 < x0 ∧ x0 < y0}) in (hypothesis 25: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ 0 < x0 ∧ x0 < y0 ⇒ FunDeri(FunDeri(u, 1, 1), 2, 1)(x0, y0) = FunDeri(FunDeri(u, 2, 1), 1, 1)(x0, y0)}) as (hypothesis 26: {FunDeri(FunDeri(u, 1, 1), 2, 1)(x0, y0) = FunDeri(FunDeri(u, 2, 1), 1, 1)(x0, y0)})
+  5. apply (hypothesis 26: {FunDeri(FunDeri(u, 1, 1), 2, 1)(x0, y0) = FunDeri(FunDeri(u, 2, 1), 1, 1)(x0, y0)})
+}
+5. assert (hypothesis 24: {y0 < x0 ∧ x0 < 0 ⇒ FunDeri(FunDeri(u, 1, 1), 2, 1)(x0, y0) = FunDeri(FunDeri(u, 2, 1), 1, 1)(x0, y0)}) by proof {
+  1. get_condition (hypothesis 24: {y0 < x0 ∧ x0 < 0}) in (GOAL: {y0 < x0 ∧ x0 < 0 ⇒ FunDeri(FunDeri(u, 1, 1), 2, 1)(x0, y0) = FunDeri(FunDeri(u, 2, 1), 1, 1)(x0, y0)})
+  2. assert (hypothesis 25: {y0 ∈ RealSet ∧ x0 ∈ RealSet ∧ y0 < x0 ∧ x0 < 0}) by proof {
+    1. autosolve all_hypothesis
+  }
+  3. get_prop (hypothesis 18: {forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ y < x ∧ x < 0 ⇒ FunDeri(FunDeri(u, 1, 1), 2, 1)(x, y) = FunDeri(FunDeri(u, 2, 1), 1, 1)(x, y)}) (y := {y0}) (x := {x0}) as (hypothesis 26: {y0 ∈ RealSet ∧ x0 ∈ RealSet ∧ y0 < x0 ∧ x0 < 0 ⇒ FunDeri(FunDeri(u, 1, 1), 2, 1)(x0, y0) = FunDeri(FunDeri(u, 2, 1), 1, 1)(x0, y0)})
+  4. use_condition (hypothesis 25: {y0 ∈ RealSet ∧ x0 ∈ RealSet ∧ y0 < x0 ∧ x0 < 0}) in (hypothesis 26: {y0 ∈ RealSet ∧ x0 ∈ RealSet ∧ y0 < x0 ∧ x0 < 0 ⇒ FunDeri(FunDeri(u, 1, 1), 2, 1)(x0, y0) = FunDeri(FunDeri(u, 2, 1), 1, 1)(x0, y0)}) as (hypothesis 27: {FunDeri(FunDeri(u, 1, 1), 2, 1)(x0, y0) = FunDeri(FunDeri(u, 2, 1), 1, 1)(x0, y0)})
+  5. apply (hypothesis 27: {FunDeri(FunDeri(u, 1, 1), 2, 1)(x0, y0) = FunDeri(FunDeri(u, 2, 1), 1, 1)(x0, y0)})
+}
+6. autosolve all_hypothesis

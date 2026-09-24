@@ -1,0 +1,12 @@
+1. get_condition (hypothesis 10: {0 <= x}) (hypothesis 11: {x <= π}) in (GOAL: {0 <= x => x <= π => exists (μ), μ ∈ RealSet /\ seqlim_{ n -> +infty } (a(n)) = μ})
+2. use_condition (hypothesis 10: {0 <= x}) (hypothesis 11: {x <= π}) in (hypothesis 8: {0 <= x => x <= π => MonoDecSeq(a)}) as (hypothesis 12: {MonoDecSeq(a)})
+3. use_condition (hypothesis 10: {0 <= x}) (hypothesis 11: {x <= π}) in (hypothesis 9: {0 <= x => x <= π => BoundedSeq(a)}) as (hypothesis 13: {BoundedSeq(a)})
+4. assert (hypothesis 14: {MonoIncSeq(a) \/ MonoDecSeq(a)}) by proof {
+  1. or_intro right
+  2. apply (hypothesis 12: {MonoDecSeq(a)})
+}
+5. get_prop (theorem 'Thm 117. (MonotoneBoundedSequenceConverges)': {forall (a), (MonoIncSeq(a) \/ MonoDecSeq(a)) => BoundedSeq(a) => ConvergentSeq(a)}) (a := {a}) as (hypothesis 15: {(MonoIncSeq(a) \/ MonoDecSeq(a)) => BoundedSeq(a) => ConvergentSeq(a)})
+6. use_condition (hypothesis 14: {MonoIncSeq(a) \/ MonoDecSeq(a)}) (hypothesis 13: {BoundedSeq(a)}) in (hypothesis 15: {(MonoIncSeq(a) \/ MonoDecSeq(a)) => BoundedSeq(a) => ConvergentSeq(a)}) as (hypothesis 16: {ConvergentSeq(a)})
+7. get_prop (theorem 'Thm 343. (ConvergentSequenceDefinition)': {forall (a), ConvergentSeq(a) <==> (exists (L), L ∈ RealSet /\ seqlim_{n -> +infty}(a(n)) = L)}) (a := {a}) as (hypothesis 17: {ConvergentSeq(a) <==> (exists (L), L ∈ RealSet /\ seqlim_{n -> +infty}(a(n)) = L)})
+8. rewrite (right_to_left, iff) (hypothesis 17: {ConvergentSeq(a) <==> (exists (L), L ∈ RealSet /\ seqlim_{n -> +infty}(a(n)) = L)}); from (GOAL: {exists (μ), μ ∈ RealSet /\ seqlim_{ n -> +infty } (a(n)) = μ}) to (GOAL: {ConvergentSeq(a)})
+9. apply (hypothesis 16: {ConvergentSeq(a)})

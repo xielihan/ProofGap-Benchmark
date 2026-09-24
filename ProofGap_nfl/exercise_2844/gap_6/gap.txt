@@ -1,0 +1,17 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. a > 0
+4. a ≠ 1
+5. forall (x), x ∈ RealSet ⇒ f(x) = a^{x}
+6. forall (x), x ∈ RealSet ⇒ f(x) = e^{x * ln(a)}
+7. forall (x), x ∈ RealSet ⇒ f(x) = sum_{ n = 0 }^{ +∞ } (frac(ln(a)^{n}, n!) * x^{n})
+8. seqlim_{ n → +∞ } (sqrtn(n, |frac(ln(a)^{n}, n!)|)) = |ln(a)| * (seqlim_{ n → +∞ } (frac(1, sqrtn(n, n!))))
+9. |ln(a)| * (seqlim_{ n → +∞ } (frac(1, sqrtn(n, n!)))) = 0
+10. seqlim_{ n → +∞ } (sqrtn(n, |frac(ln(a)^{n}, n!)|)) = 0
+
+GOAL:
+RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac(ln(a)^{n}, n!)) = +∞
+
+METHOD:

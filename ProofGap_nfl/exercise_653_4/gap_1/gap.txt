@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. f : RealSet → RealSet
+3. lim_{ x → 0 } (x) = 0
+4. forall (x), x ∈ RealSet ⇒ f(x) = tan(x) - sin(x)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ cos(x) ≠ 0 ⇒ tan(x) - sin(x) = frac(2, cos(x)) * sin(x) * sin(frac(x, 2))^{2}
+
+METHOD:

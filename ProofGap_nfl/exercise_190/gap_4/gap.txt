@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = lg(x^{2})
+3. f(-1) = lg(1)
+4. lg(1) = 0
+5. f(-1) = 0
+
+GOAL:
+f(-0.001) = lg(0.000001)
+
+METHOD:

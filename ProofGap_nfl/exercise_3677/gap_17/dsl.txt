@@ -1,0 +1,10 @@
+get_forall (GOAL: {forall (x) (y) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet ∧ FunDeri(F_{4}, 1, 1)(x, y, λ) = 0 ∧ FunDeri(F_{4}, 2, 1)(x, y, λ) = 0 ∧ x + y = -1 ⇒ (x, y) = (-frac(1, 2), -frac(1, 2))}) (x := {x0}) (y := {y0}) (λ := {l0})
+get_condition (hypothesis 31: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ l0 ∈ RealSet ∧ FunDeri(F_{4}, 1, 1)(x0, y0, l0) = 0 ∧ FunDeri(F_{4}, 2, 1)(x0, y0, l0) = 0 ∧ x0 + y0 = -1}) in (GOAL: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ l0 ∈ RealSet ∧ FunDeri(F_{4}, 1, 1)(x0, y0, l0) = 0 ∧ FunDeri(F_{4}, 2, 1)(x0, y0, l0) = 0 ∧ x0 + y0 = -1 ⇒ (x0, y0) = (-frac(1, 2), -frac(1, 2))})
+get_prop (hypothesis 29: {forall (x) (y) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F_{4}, 1, 1)(x, y, λ) = 2 * x - y - λ}) (x := {x0}) (y := {y0}) (λ := {l0}) as (hypothesis 32: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ l0 ∈ RealSet ⇒ FunDeri(F_{4}, 1, 1)(x0, y0, l0) = 2 * x0 - y0 - l0})
+use_condition (obvious: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ l0 ∈ RealSet}) in (hypothesis 32: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ l0 ∈ RealSet ⇒ FunDeri(F_{4}, 1, 1)(x0, y0, l0) = 2 * x0 - y0 - l0}) as (hypothesis 33: {FunDeri(F_{4}, 1, 1)(x0, y0, l0) = 2 * x0 - y0 - l0})
+get_prop (hypothesis 30: {forall (x) (y) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F_{4}, 2, 1)(x, y, λ) = 2 * y - x - λ}) (x := {x0}) (y := {y0}) (λ := {l0}) as (hypothesis 34: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ l0 ∈ RealSet ⇒ FunDeri(F_{4}, 2, 1)(x0, y0, l0) = 2 * y0 - x0 - l0})
+use_condition (obvious: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ l0 ∈ RealSet}) in (hypothesis 34: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ l0 ∈ RealSet ⇒ FunDeri(F_{4}, 2, 1)(x0, y0, l0) = 2 * y0 - x0 - l0}) as (hypothesis 35: {FunDeri(F_{4}, 2, 1)(x0, y0, l0) = 2 * y0 - x0 - l0})
+assert (hypothesis 36: {x0 - y0 = 0})
+assert (hypothesis 37: {2 * x0 = -1})
+assert (hypothesis 38: {2 * y0 = -1})
+autosolve all_hypothesis

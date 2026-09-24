@@ -1,0 +1,10 @@
+1. get_forall (GOAL: {forall (t) (s), t ∈ RealSet ∧ t = 0 ∧ s ∈ RealSet ∧ s ∈ D ⇒ (exists (z), z ∈ RealSet ∧ z = f(s) ∧ (t = 0 ⇒ z = f(s)))}) (t := {tt}) (s := {ss})
+2. get_condition (hypothesis 23: {tt ∈ RealSet ∧ tt = 0 ∧ ss ∈ RealSet ∧ ss ∈ D}) in (GOAL: {tt ∈ RealSet ∧ tt = 0 ∧ ss ∈ RealSet ∧ ss ∈ D ⇒ (exists (z), z ∈ RealSet ∧ z = f(ss) ∧ (tt = 0 ⇒ z = f(ss)))})
+3. get_prop (hypothesis 15: {forall (s), s ∈ RealSet ∧ s ∈ D ⇒ (exists (z), z ∈ RealSet ∧ z = f(s))}) (s := {ss}) as (hypothesis 24: {ss ∈ RealSet ∧ ss ∈ D ⇒ (exists (z), z ∈ RealSet ∧ z = f(ss))})
+4. assert (hypothesis 25: {ss ∈ RealSet ∧ ss ∈ D}) by proof {
+  1. autosolve all_hypothesis
+}
+5. use_condition (hypothesis 25: {ss ∈ RealSet ∧ ss ∈ D}) in (hypothesis 24: {ss ∈ RealSet ∧ ss ∈ D ⇒ (exists (z), z ∈ RealSet ∧ z = f(ss))}) as (hypothesis 26: {exists (z), z ∈ RealSet ∧ z = f(ss)})
+6. get_exists (hypothesis 26: {exists (z), z ∈ RealSet ∧ z = f(ss)}) (z := {zz0})
+7. exists (z := {zz0})
+8. autosolve all_hypothesis

@@ -1,0 +1,22 @@
+PROOF GAP @9
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. D ⊆ CartesianProd(RealSet, RealSet)
+3. R ∈ RealSet ∧ R > 0
+4. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ C = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} = R^{2} })
+5. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ D = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} ≤ R^{2} })
+6. P = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{-(x^{2} + y^{2})} * cos(2 * x * y))
+7. Q = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{-(x^{2} + y^{2})} * sin(2 * x * y))
+8. P : RealSet → RealSet
+9. Q : RealSet → RealSet
+10. ContinuouslyDiffableFunc(P)
+11. ContinuouslyDiffableFunc(Q)
+12. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(Q, 1, 1)(x, y) - FunDeri(P, 2, 1)(x, y) = e^{-(x^{2} + y^{2})} * (-2 * x * sin(2 * x * y) + 2 * y * cos(2 * x * y) - (2 * y * cos(2 * x * y) - 2 * x * sin(2 * x * y))))
+13. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ e^{-(x^{2} + y^{2})} * (-2 * x * sin(2 * x * y) + 2 * y * cos(2 * x * y) - (2 * y * cos(2 * x * y) - 2 * x * sin(2 * x * y))) = 0)
+14. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(Q, 1, 1)(x, y) - FunDeri(P, 2, 1)(x, y) = 0)
+15. VectorCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{-(x^{2} + y^{2})} * cos(2 * x * y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{-(x^{2} + y^{2})} * sin(2 * x * y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . 0) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+
+GOAL:
+VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . 0) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = 0
+
+METHOD:

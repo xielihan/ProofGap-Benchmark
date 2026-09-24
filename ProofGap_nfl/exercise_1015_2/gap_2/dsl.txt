@@ -1,0 +1,3 @@
+rewrite (left_to_right, equation) (hypothesis 2: {g = (fun x [x ∈ RealSet] . |x|)}); from (GOAL: {¬DiffableFuncAt(g, 0)}) to (GOAL: {¬DiffableFuncAt((fun x [x ∈ RealSet] . |x|), 0)})
+rewrite (right_to_left, equation) (hypothesis 1: {f = (fun x [x ∈ RealSet] . |x|)}); from (GOAL: {¬DiffableFuncAt((fun x [x ∈ RealSet] . |x|), 0)}) to (GOAL: {¬DiffableFuncAt(f, 0)})
+apply (hypothesis 5: {¬DiffableFuncAt(f, 0)})

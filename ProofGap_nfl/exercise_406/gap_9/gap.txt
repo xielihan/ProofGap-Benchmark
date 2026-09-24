@@ -1,0 +1,16 @@
+PROOF GAP @9
+ASSUM:
+1. f : RealSet → RealSet
+2. D ⊆ RealSet
+3. f : D → RealSet
+4. forall (E), E ∈ RealSet ∧ E > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x| > N ⇒ |f(x)| > E))
+5. lim_{ x → ∞ } (fun x [x ∈ RealSet] . x^{3}) = ∞
+6. forall (E), E ∈ RealSet ∧ E > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x| > N ⇒ f(x) < -E))
+7. lim_{ x → ∞ } (fun x [x ∈ RealSet] . -x^{2}) = -∞
+8. lim_{ x → ∞ } (fun x [x ∈ RealSet] . x^{2}) = +∞
+9. forall (E), E ∈ RealSet ∧ E > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ x < -N ⇒ |f(x)| > E))
+10. ¬(lim_{ x → -∞ } (fun x [x ∈ RealSet] . (-1)^{floor(x^{2})} * x) = ∞)
+GOAL:
+forall (E), E ∈ RealSet ∧ E > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ x < -N ⇒ f(x) < -E))
+
+METHOD:

@@ -1,0 +1,39 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ a_{1} * sin(x)^{2} + 2 * b_{1} * sin(x) * cos(x) + c_{1} * cos(x)^{2} = A * cos(x) * (a * sin(x) + b * cos(x)) - B * sin(x) * (a * sin(x) + b * cos(x)) + C}) (x := {x0})
+get_condition (hypothesis 14: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ a_{1} * sin(x0)^{2} + 2 * b_{1} * sin(x0) * cos(x0) + c_{1} * cos(x0)^{2} = A * cos(x0) * (a * sin(x0) + b * cos(x0)) - B * sin(x0) * (a * sin(x0) + b * cos(x0)) + C})
+assert (hypothesis 15: {sin(x0)^{2} + cos(x0)^{2} = 1}) by proof {
+  get_prop (theorem 'Thm 168. (PythagoreanTrigonometricIdentity)': {forall (x), x ∈ RealSet ⇒ sin(x)^{2} + cos(x)^{2} = 1}) (x := {x0}) as (hypothesis 15: {x0 ∈ RealSet ⇒ sin(x0)^{2} + cos(x0)^{2} = 1})
+  use_condition (hypothesis 14: {x0 ∈ RealSet}) in (hypothesis 15: {x0 ∈ RealSet ⇒ sin(x0)^{2} + cos(x0)^{2} = 1}) as (hypothesis 16: {sin(x0)^{2} + cos(x0)^{2} = 1})
+  apply (hypothesis 16: {sin(x0)^{2} + cos(x0)^{2} = 1})
+}
+assert (hypothesis 16: {a * A - b * B = 2 * b_{1}}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 11: {A = frac(b * c_{1} - a_{1} * b + 2 * a * b_{1}, a^{2} + b^{2})}); from (GOAL: {a * A - b * B = 2 * b_{1}}) to (GOAL: {a * frac(b * c_{1} - a_{1} * b + 2 * a * b_{1}, a^{2} + b^{2}) - b * B = 2 * b_{1}})
+  rewrite (left_to_right, equation) (hypothesis 12: {B = frac(a * c_{1} - a * a_{1} - 2 * b * b_{1}, a^{2} + b^{2})}); from (GOAL: {a * frac(b * c_{1} - a_{1} * b + 2 * a * b_{1}, a^{2} + b^{2}) - b * B = 2 * b_{1}}) to (GOAL: {a * frac(b * c_{1} - a_{1} * b + 2 * a * b_{1}, a^{2} + b^{2}) - b * frac(a * c_{1} - a * a_{1} - 2 * b * b_{1}, a^{2} + b^{2}) = 2 * b_{1}})
+  assert (hypothesis 16: {a * frac(b * c_{1} - a_{1} * b + 2 * a * b_{1}, a^{2} + b^{2}) - b * frac(a * c_{1} - a * a_{1} - 2 * b * b_{1}, a^{2} + b^{2}) = 2 * b_{1}})
+  apply (hypothesis 16: {a * frac(b * c_{1} - a_{1} * b + 2 * a * b_{1}, a^{2} + b^{2}) - b * frac(a * c_{1} - a * a_{1} - 2 * b * b_{1}, a^{2} + b^{2}) = 2 * b_{1}})
+}
+assert (hypothesis 17: {C - a * B = a_{1}}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 13: {C = frac(a_{1} * b^{2} + a^{2} * c_{1} - 2 * a * b * b_{1}, a^{2} + b^{2})}); from (GOAL: {C - a * B = a_{1}}) to (GOAL: {frac(a_{1} * b^{2} + a^{2} * c_{1} - 2 * a * b * b_{1}, a^{2} + b^{2}) - a * B = a_{1}})
+  rewrite (left_to_right, equation) (hypothesis 12: {B = frac(a * c_{1} - a * a_{1} - 2 * b * b_{1}, a^{2} + b^{2})}); from (GOAL: {frac(a_{1} * b^{2} + a^{2} * c_{1} - 2 * a * b * b_{1}, a^{2} + b^{2}) - a * B = a_{1}}) to (GOAL: {frac(a_{1} * b^{2} + a^{2} * c_{1} - 2 * a * b * b_{1}, a^{2} + b^{2}) - a * frac(a * c_{1} - a * a_{1} - 2 * b * b_{1}, a^{2} + b^{2}) = a_{1}})
+  assert (hypothesis 17: {frac(a_{1} * b^{2} + a^{2} * c_{1} - 2 * a * b * b_{1}, a^{2} + b^{2}) - a * frac(a * c_{1} - a * a_{1} - 2 * b * b_{1}, a^{2} + b^{2}) = a_{1}})
+  apply (hypothesis 17: {frac(a_{1} * b^{2} + a^{2} * c_{1} - 2 * a * b * b_{1}, a^{2} + b^{2}) - a * frac(a * c_{1} - a * a_{1} - 2 * b * b_{1}, a^{2} + b^{2}) = a_{1}})
+}
+assert (hypothesis 18: {C + b * A = c_{1}}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 13: {C = frac(a_{1} * b^{2} + a^{2} * c_{1} - 2 * a * b * b_{1}, a^{2} + b^{2})}); from (GOAL: {C + b * A = c_{1}}) to (GOAL: {frac(a_{1} * b^{2} + a^{2} * c_{1} - 2 * a * b * b_{1}, a^{2} + b^{2}) + b * A = c_{1}})
+  rewrite (left_to_right, equation) (hypothesis 11: {A = frac(b * c_{1} - a_{1} * b + 2 * a * b_{1}, a^{2} + b^{2})}); from (GOAL: {frac(a_{1} * b^{2} + a^{2} * c_{1} - 2 * a * b * b_{1}, a^{2} + b^{2}) + b * A = c_{1}}) to (GOAL: {frac(a_{1} * b^{2} + a^{2} * c_{1} - 2 * a * b * b_{1}, a^{2} + b^{2}) + b * frac(b * c_{1} - a_{1} * b + 2 * a * b_{1}, a^{2} + b^{2}) = c_{1}})
+  assert (hypothesis 18: {frac(a_{1} * b^{2} + a^{2} * c_{1} - 2 * a * b * b_{1}, a^{2} + b^{2}) + b * frac(b * c_{1} - a_{1} * b + 2 * a * b_{1}, a^{2} + b^{2}) = c_{1}})
+  apply (hypothesis 18: {frac(a_{1} * b^{2} + a^{2} * c_{1} - 2 * a * b * b_{1}, a^{2} + b^{2}) + b * frac(b * c_{1} - a_{1} * b + 2 * a * b_{1}, a^{2} + b^{2}) = c_{1}})
+}
+assert (hypothesis 19: {C = C * sin(x0)^{2} + C * cos(x0)^{2}}) by proof {
+  assert (hypothesis 19: {C * sin(x0)^{2} + C * cos(x0)^{2} = C * (sin(x0)^{2} + cos(x0)^{2})})
+  rewrite (left_to_right, equation) (hypothesis 19: {C * sin(x0)^{2} + C * cos(x0)^{2} = C * (sin(x0)^{2} + cos(x0)^{2})}); from (GOAL: {C = C * sin(x0)^{2} + C * cos(x0)^{2}}) to (GOAL: {C = C * (sin(x0)^{2} + cos(x0)^{2})})
+  rewrite (left_to_right, equation) (hypothesis 15: {sin(x0)^{2} + cos(x0)^{2} = 1}); from (GOAL: {C = C * (sin(x0)^{2} + cos(x0)^{2})}) to (GOAL: {C = C * 1})
+  assert (hypothesis 20: {C = C * 1})
+  apply (hypothesis 20: {C = C * 1})
+}
+assert (hypothesis 20: {A * cos(x0) * (a * sin(x0) + b * cos(x0)) - B * sin(x0) * (a * sin(x0) + b * cos(x0)) + C = (C - a * B) * sin(x0)^{2} + (a * A - b * B) * sin(x0) * cos(x0) + (C + b * A) * cos(x0)^{2}})
+rewrite (left_to_right, equation) (hypothesis 20: {A * cos(x0) * (a * sin(x0) + b * cos(x0)) - B * sin(x0) * (a * sin(x0) + b * cos(x0)) + C = (C - a * B) * sin(x0)^{2} + (a * A - b * B) * sin(x0) * cos(x0) + (C + b * A) * cos(x0)^{2}}); from (GOAL: {a_{1} * sin(x0)^{2} + 2 * b_{1} * sin(x0) * cos(x0) + c_{1} * cos(x0)^{2} = A * cos(x0) * (a * sin(x0) + b * cos(x0)) - B * sin(x0) * (a * sin(x0) + b * cos(x0)) + C}) to (GOAL: {a_{1} * sin(x0)^{2} + 2 * b_{1} * sin(x0) * cos(x0) + c_{1} * cos(x0)^{2} = (C - a * B) * sin(x0)^{2} + (a * A - b * B) * sin(x0) * cos(x0) + (C + b * A) * cos(x0)^{2}})
+rewrite (left_to_right, equation) (hypothesis 17: {C - a * B = a_{1}}); from (GOAL: {a_{1} * sin(x0)^{2} + 2 * b_{1} * sin(x0) * cos(x0) + c_{1} * cos(x0)^{2} = (C - a * B) * sin(x0)^{2} + (a * A - b * B) * sin(x0) * cos(x0) + (C + b * A) * cos(x0)^{2}}) to (GOAL: {a_{1} * sin(x0)^{2} + 2 * b_{1} * sin(x0) * cos(x0) + c_{1} * cos(x0)^{2} = a_{1} * sin(x0)^{2} + (a * A - b * B) * sin(x0) * cos(x0) + (C + b * A) * cos(x0)^{2}})
+rewrite (left_to_right, equation) (hypothesis 16: {a * A - b * B = 2 * b_{1}}); from (GOAL: {a_{1} * sin(x0)^{2} + 2 * b_{1} * sin(x0) * cos(x0) + c_{1} * cos(x0)^{2} = a_{1} * sin(x0)^{2} + (a * A - b * B) * sin(x0) * cos(x0) + (C + b * A) * cos(x0)^{2}}) to (GOAL: {a_{1} * sin(x0)^{2} + 2 * b_{1} * sin(x0) * cos(x0) + c_{1} * cos(x0)^{2} = a_{1} * sin(x0)^{2} + 2 * b_{1} * sin(x0) * cos(x0) + (C + b * A) * cos(x0)^{2}})
+rewrite (left_to_right, equation) (hypothesis 18: {C + b * A = c_{1}}); from (GOAL: {a_{1} * sin(x0)^{2} + 2 * b_{1} * sin(x0) * cos(x0) + c_{1} * cos(x0)^{2} = a_{1} * sin(x0)^{2} + 2 * b_{1} * sin(x0) * cos(x0) + (C + b * A) * cos(x0)^{2}}) to (GOAL: {a_{1} * sin(x0)^{2} + 2 * b_{1} * sin(x0) * cos(x0) + c_{1} * cos(x0)^{2} = a_{1} * sin(x0)^{2} + 2 * b_{1} * sin(x0) * cos(x0) + c_{1} * cos(x0)^{2}})
+assert (hypothesis 21: {a_{1} * sin(x0)^{2} + 2 * b_{1} * sin(x0) * cos(x0) + c_{1} * cos(x0)^{2} = a_{1} * sin(x0)^{2} + 2 * b_{1} * sin(x0) * cos(x0) + c_{1} * cos(x0)^{2}})
+apply (hypothesis 21: {a_{1} * sin(x0)^{2} + 2 * b_{1} * sin(x0) * cos(x0) + c_{1} * cos(x0)^{2} = a_{1} * sin(x0)^{2} + 2 * b_{1} * sin(x0) * cos(x0) + c_{1} * cos(x0)^{2}})

@@ -1,0 +1,22 @@
+PROOF GAP @7
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet ∧ a > 0
+3. p ∈ RealSet
+4. C_{p} ∈ RealSet
+5. (C_{p})_{star} ∈ RealSet
+6. f : IntervalLoRo(0, a) → RealSet
+7. MonoDecFuncOn(f, IntervalLoRo(0, a))
+8. exists (I), I ∈ RealSet ∧ DefInt(0, a, (fun x [x ∈ RealSet] . x^{p} * f(x)) * diff(fun x [x ∈ RealSet] . x)) = I
+9. forall (δ), δ ∈ RealSet ∧ 0 < δ ∧ δ < a ⇒ (forall (x), x ∈ RealSet ∧ (exists (δ), δ ∈ RealSet ∧ 0 < δ ∧ δ < a ∧ (forall (x), x ∈ RealSet ∧ 0 < x ∧ x < δ ⇒ f(x) ≥ 0)) ∧ 0 < x ∧ x < δ ⇒ C_{p} = cases{ frac(1 - frac(1, 2)^{p + 1}, p + 1) if p ≠ -1; ln(2) if p = -1 })
+10. forall (δ), δ ∈ RealSet ∧ 0 < δ ∧ δ < a ⇒ (forall (x), x ∈ RealSet ∧ (exists (δ), δ ∈ RealSet ∧ 0 < δ ∧ δ < a ∧ (forall (x), x ∈ RealSet ∧ 0 < x ∧ x < δ ⇒ f(x) ≥ 0)) ∧ 0 < x ∧ x < δ ⇒ C_{p} > 0)
+11. forall (δ), δ ∈ RealSet ∧ 0 < δ ∧ δ < a ⇒ (forall (x), x ∈ RealSet ∧ (exists (δ), δ ∈ RealSet ∧ 0 < δ ∧ δ < a ∧ (forall (x), x ∈ RealSet ∧ 0 < x ∧ x < δ ⇒ f(x) ≥ 0)) ∧ 0 < x ∧ x < δ ⇒ DefInt(frac(x, 2), x, (fun t [t ∈ RealSet] . t^{p} * f(t)) * diff(fun t [t ∈ RealSet] . t)) ≥ f(x) * DefInt(frac(x, 2), x, (fun t [t ∈ RealSet] . t^{p}) * diff(fun t [t ∈ RealSet] . t)))
+12. forall (δ), δ ∈ RealSet ∧ 0 < δ ∧ δ < a ⇒ (forall (x), x ∈ RealSet ∧ (exists (δ), δ ∈ RealSet ∧ 0 < δ ∧ δ < a ∧ (forall (x), x ∈ RealSet ∧ 0 < x ∧ x < δ ⇒ f(x) ≥ 0)) ∧ 0 < x ∧ x < δ ⇒ f(x) * DefInt(frac(x, 2), x, (fun t [t ∈ RealSet] . t^{p}) * diff(fun t [t ∈ RealSet] . t)) = C_{p} * x^{p + 1} * f(x))
+13. forall (δ), δ ∈ RealSet ∧ 0 < δ ∧ δ < a ⇒ (forall (x), x ∈ RealSet ∧ (exists (δ), δ ∈ RealSet ∧ 0 < δ ∧ δ < a ∧ (forall (x), x ∈ RealSet ∧ 0 < x ∧ x < δ ⇒ f(x) ≥ 0)) ∧ 0 < x ∧ x < δ ⇒ C_{p} * x^{p + 1} * f(x) ≥ 0)
+14. forall (δ), δ ∈ RealSet ∧ 0 < δ ∧ δ < a ⇒ (forall (x), x ∈ RealSet ∧ (exists (δ), δ ∈ RealSet ∧ 0 < δ ∧ δ < a ∧ (forall (x), x ∈ RealSet ∧ 0 < x ∧ x < δ ⇒ f(x) ≥ 0)) ∧ 0 < x ∧ x < δ ⇒ DefInt(frac(x, 2), x, (fun t [t ∈ RealSet] . t^{p} * f(t)) * diff(fun t [t ∈ RealSet] . t)) ≥ 0)
+15. forall (δ), δ ∈ RealSet ∧ 0 < δ ∧ δ < a ⇒ (forall (x), x ∈ RealSet ∧ (exists (δ), δ ∈ RealSet ∧ 0 < δ ∧ δ < a ∧ (forall (x), x ∈ RealSet ∧ 0 < x ∧ x < δ ⇒ f(x) ≥ 0)) ∧ 0 < x ∧ x < δ ⇒ lim_{ x → 0^+ } (DefInt(frac(x, 2), x, (fun t [t ∈ RealSet] . t^{p} * f(t)) * diff(fun t [t ∈ RealSet] . t))) = 0)
+
+GOAL:
+forall (δ), δ ∈ RealSet ∧ 0 < δ ∧ δ < a ⇒ (forall (x), x ∈ RealSet ∧ (exists (δ), δ ∈ RealSet ∧ 0 < δ ∧ δ < a ∧ (forall (x), x ∈ RealSet ∧ 0 < x ∧ x < δ ⇒ f(x) ≥ 0)) ∧ 0 < x ∧ x < δ ⇒ lim_{ x → 0^+ } (x^{p + 1} * f(x)) = 0)
+
+METHOD:

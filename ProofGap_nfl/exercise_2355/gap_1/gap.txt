@@ -1,0 +1,15 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. x ∈ RealSet
+5. a > 0
+6. b > 0
+7. Defined(f, [2 * sqrtn(2, a * b), +∞])
+8. t = a * x - frac(b, x)
+
+GOAL:
+0 < x ∧ x < +∞ ⇒ -∞ < t ∧ t < +∞ ∧ a * x + frac(b, x) = sqrtn(2, t^{2} + 4 * a * b)
+
+METHOD:

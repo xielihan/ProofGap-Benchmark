@@ -1,0 +1,17 @@
+get_forall (GOAL: {forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(1, n) < ε ⇒ |f(n, x) - g(x)| < ε)}) (n := {n0}) (x := {x0})
+get_condition (hypothesis 13: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ PosRealSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ PosRealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(1, n0) < ε ⇒ |f(n0, x0) - g(x0)| < ε)})
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ frac(1, n0) < ε ⇒ |f(n0, x0) - g(x0)| < ε}) (ε := {ε0})
+get_condition (hypothesis 14: {ε0 ∈ RealSet ∧ ε0 > 0 ∧ frac(1, n0) < ε0}) in (GOAL: {ε0 ∈ RealSet ∧ ε0 > 0 ∧ frac(1, n0) < ε0 ⇒ |f(n0, x0) - g(x0)| < ε0})
+destruct_and (hypothesis 13: {n0 ∈ NonNegIntegerSet ∧ x0 ∈ RealSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ PosRealSet}) as (hypothesis 15: {n0 ∈ NonNegIntegerSet}) (hypothesis 16: {x0 ∈ RealSet}) (hypothesis 17: {n0 ∈ PosIntegerSet}) (hypothesis 18: {x0 ∈ PosRealSet})
+destruct_and (hypothesis 14: {ε0 ∈ RealSet ∧ ε0 > 0 ∧ frac(1, n0) < ε0}) as (hypothesis 19: {ε0 ∈ RealSet}) (hypothesis 20: {ε0 > 0}) (hypothesis 21: {frac(1, n0) < ε0})
+get_prop (hypothesis 12: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ |f(n, x) - g(x)| ≤ frac(1, n))}) (n := {n0}) as (hypothesis 22: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ |f(n0, x) - g(x)| ≤ frac(1, n0))})
+assert (hypothesis 23: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 23: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (hypothesis 22: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ |f(n0, x) - g(x)| ≤ frac(1, n0))}) as (hypothesis 24: {forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ |f(n0, x) - g(x)| ≤ frac(1, n0)})
+get_prop (hypothesis 24: {forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ |f(n0, x) - g(x)| ≤ frac(1, n0)}) (x := {x0}) as (hypothesis 25: {x0 ∈ RealSet ∧ x0 ∈ PosRealSet ⇒ |f(n0, x0) - g(x0)| ≤ frac(1, n0)})
+assert (hypothesis 26: {x0 ∈ RealSet ∧ x0 ∈ PosRealSet}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 26: {x0 ∈ RealSet ∧ x0 ∈ PosRealSet}) in (hypothesis 25: {x0 ∈ RealSet ∧ x0 ∈ PosRealSet ⇒ |f(n0, x0) - g(x0)| ≤ frac(1, n0)}) as (hypothesis 27: {|f(n0, x0) - g(x0)| ≤ frac(1, n0)})
+autosolve all_hypothesis

@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ |x^{2} - 4| = |x - 2| * |x + 2|
+
+METHOD:

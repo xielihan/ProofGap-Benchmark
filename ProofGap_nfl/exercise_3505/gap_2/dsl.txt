@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x + y ≠ 0 ⇒ FunDeri(X, y, 1)(x, y) = 1}) (y := {z}) (x := {w})
+get_condition (hypothesis 9: {z ∈ RealSet ∧ w ∈ RealSet ∧ w + z ≠ 0}) in (GOAL: {z ∈ RealSet ∧ w ∈ RealSet ∧ w + z ≠ 0 ⇒ FunDeri(X, z, 1)(w, z) = 1})
+get_prop (hypothesis 6: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x + y ≠ 0 ∧ X(x, y) = x + y ∧ Y(x, y) = frac(y, x + y)}) (x := {0}) (y := {0}) as (hypothesis 10: {0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 + 0 ≠ 0 ∧ X(0, 0) = 0 + 0 ∧ Y(0, 0) = frac(0, 0 + 0)})
+destruct_and (hypothesis 10: {0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 + 0 ≠ 0 ∧ X(0, 0) = 0 + 0 ∧ Y(0, 0) = frac(0, 0 + 0)}) as (hypothesis 11: {0 ∈ RealSet}) (hypothesis 12: {0 ∈ RealSet}) (hypothesis 13: {0 + 0 ≠ 0}) (hypothesis 14: {X(0, 0) = 0 + 0}) (hypothesis 15: {Y(0, 0) = frac(0, 0 + 0)})
+autosolve all_hypothesis

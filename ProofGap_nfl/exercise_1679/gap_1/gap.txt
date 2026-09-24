@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+3. x^{8} ≠ 2
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ∧ x^{8} ≠ 2 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x^{3}, x^{8} - 2) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_4` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x^{8} ≠ 2 ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x^{4}, 1, 1)(x), (x^{4})^{2} - sqrtn(2, 2)^{2}) ∧ `F_4`(x) = frac(1, 4) * `F_3`(x)) }
+
+METHOD:

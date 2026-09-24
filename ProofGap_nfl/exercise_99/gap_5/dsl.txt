@@ -1,0 +1,3 @@
+get_prop (hypothesis 2: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = n^{2} - 9 * n - 100}) (n := {4}) as (hypothesis 7: {4 ∈ NonNegIntegerSet ∧ 4 ∈ PosIntegerSet ⇒ x(4) = 4^{2} - 9 * 4 - 100})
+use_condition (obvious: {4 ∈ NonNegIntegerSet ∧ 4 ∈ PosIntegerSet}) in (hypothesis 7: {4 ∈ NonNegIntegerSet ∧ 4 ∈ PosIntegerSet ⇒ x(4) = 4^{2} - 9 * 4 - 100}) as (hypothesis 8: {x(4) = 4^{2} - 9 * 4 - 100})
+autosolve all_hypothesis

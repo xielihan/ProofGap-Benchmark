@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n >= 2 => |frac(sin(frac(n * π, 12)), ln(n))| >= frac(1, 2 * ln(n)) - frac(cos(frac(n * π, 6)), 2 * ln(n))}) (n := {k})
+get_condition (hypothesis 9: {k ∈ NonNegIntegerSet ∧ k >= 2}) in (GOAL: {k ∈ NonNegIntegerSet ∧ k >= 2 => |frac(sin(frac(k * π, 12)), ln(k))| >= frac(1, 2 * ln(k)) - frac(cos(frac(k * π, 6)), 2 * ln(k))})
+get_prop (hypothesis 6: {forall (n), n ∈ NonNegIntegerSet ∧ n >= 2 => |frac(sin(frac(n * π, 12)), ln(n))| >= frac(sin(frac(n * π, 12)) ^ 2, ln(n))}) (n := {k}) as (hypothesis 10: {k ∈ NonNegIntegerSet ∧ k >= 2 => |frac(sin(frac(k * π, 12)), ln(k))| >= frac(sin(frac(k * π, 12)) ^ 2, ln(k))})
+get_prop (hypothesis 7: {forall (n), n ∈ NonNegIntegerSet ∧ n >= 2 => frac(sin(frac(n * π, 12)) ^ 2, ln(n)) = frac(1 - cos(frac(n * π, 6)), 2 * ln(n))}) (n := {k}) as (hypothesis 11: {k ∈ NonNegIntegerSet ∧ k >= 2 => frac(sin(frac(k * π, 12)) ^ 2, ln(k)) = frac(1 - cos(frac(k * π, 6)), 2 * ln(k))})
+get_prop (hypothesis 8: {forall (n), n ∈ NonNegIntegerSet ∧ n >= 2 => frac(1 - cos(frac(n * π, 6)), 2 * ln(n)) = frac(1, 2 * ln(n)) - frac(cos(frac(n * π, 6)), 2 * ln(n))}) (n := {k}) as (hypothesis 12: {k ∈ NonNegIntegerSet ∧ k >= 2 => frac(1 - cos(frac(k * π, 6)), 2 * ln(k)) = frac(1, 2 * ln(k)) - frac(cos(frac(k * π, 6)), 2 * ln(k))})
+autosolve all_hypothesis

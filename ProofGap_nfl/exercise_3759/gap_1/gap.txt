@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (α), α ∈ RealSet ∧ x ≥ 0 ∧ α ≥ 0 ⇒ (x + α)^{2} + 1 > 0)
+
+METHOD:

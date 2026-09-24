@@ -1,0 +1,16 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. y : RealSet → RealSet
+3. p ∈ RealSet
+4. R ∈ RealSet
+5. p > 0
+6. y(x)^{2} = 2 * p * x
+7. y(x) ≠ 0 ⇒ FunDeri(y, 1, 1) = frac(p, y(x))
+8. y(x) ≠ 0 ⇒ FunDeri(y, 1, 2) = -frac(p, y(x)^{2}) * FunDeri(y, 1, 1) ∧ -frac(p, y(x)^{2}) * FunDeri(y, 1, 1) = -frac(p^{2}, y(x)^{3})
+9. y(x) ≠ 0 ⇒ R = frac((1 + FunDeri(y, 1, 1)^{2})^{frac(3, 2)}, |FunDeri(y, 1, 2)|) ∧ frac((1 + FunDeri(y, 1, 1)^{2})^{frac(3, 2)}, |FunDeri(y, 1, 2)|) = frac((1 + frac(p^{2}, y(x)^{2}))^{frac(3, 2)}, |frac(p^{2}, y(x)^{3})|) ∧ frac((1 + frac(p^{2}, y(x)^{2}))^{frac(3, 2)}, |frac(p^{2}, y(x)^{3})|) = frac((y(x)^{2} + p^{2})^{frac(3, 2)}, p^{2})
+
+GOAL:
+R = p * (1 + frac(y(x)^{2}, p^{2}))^{frac(3, 2)}
+
+METHOD:

@@ -1,0 +1,1 @@
+apply (hypothesis 8: {2 * A = DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, frac(π, 2))] . ln(frac(1, 2) * sin(2 * x))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, frac(π, 2))] . x))})

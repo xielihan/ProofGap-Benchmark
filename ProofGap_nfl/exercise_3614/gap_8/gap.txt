@@ -1,0 +1,19 @@
+PROOF GAP @8
+ASSUM:
+1. F : CartesianProd(RealSet, RealSet) → RealSet
+2. A ∈ RealSet
+3. B ∈ RealSet
+4. C ∈ RealSet
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ F(x, y) = y^{2} - 1 + e^{-x^{3}}
+6. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(F, 1, 1)(x, y) = -3 * x^{2} * e^{-x^{3}})
+7. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(F, 2, 1)(x, y) = 2 * y)
+8. exists (x), x ∈ RealSet ∧ x = 0
+9. exists (y), y ∈ RealSet ∧ y = 0
+10. A = FunDeri(F, 1, 2)(0, 0)
+11. B = FunDeri(FunDeri(F, 1, 1), 2, 1)(0, 0)
+12. C = FunDeri(F, 2, 2)(0, 0)
+
+GOAL:
+A = 0
+
+METHOD:

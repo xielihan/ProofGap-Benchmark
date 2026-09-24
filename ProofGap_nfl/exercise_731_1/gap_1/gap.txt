@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ [0, 2] ⇒ f(x) = cases{ x^{2} if 0 ≤ x ∧ x ≤ 1; 2 - x if 1 < x ∧ x ≤ 2 }
+
+GOAL:
+ContinuousFuncOn(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x^{2}, [0, 1])
+
+METHOD:

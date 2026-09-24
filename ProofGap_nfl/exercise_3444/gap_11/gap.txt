@@ -1,0 +1,27 @@
+PROOF GAP @11
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. A ∈ RealSet
+4. y : RealSet → RealSet
+5. u : RealSet → RealSet
+6. t : RealSet → RealSet
+7. a ≠ b
+8. forall (x), x ∈ RealSet ∧ x ≠ a ∧ x ≠ b ⇒ FunDeri(y, 1, 2)(x) = frac(A * y(x), (x - a)^{2} * (x - b)^{2})
+9. forall (x), x ∈ RealSet ∧ x ≠ a ∧ x ≠ b ⇒ u(t(x)) = frac(y(x), x - b) ∧ t(x) = ln(|frac(x - a, x - b)|)
+10. forall (x), x ∈ RealSet ∧ x ≠ a ∧ x ≠ b ⇒ t(x) = ln(|x - a|) - ln(|x - b|)
+11. forall (x), x ∈ RealSet ∧ x ≠ a ∧ x ≠ b ⇒ FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(x) = frac(1, x - a) - frac(1, x - b)
+12. forall (x), x ∈ RealSet ∧ x ≠ a ∧ x ≠ b ⇒ frac(1, x - a) - frac(1, x - b) = frac(a - b, (x - a) * (x - b))
+13. forall (x), x ∈ RealSet ∧ x ≠ a ∧ x ≠ b ⇒ FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(x) = frac(a - b, (x - a) * (x - b))
+14. forall (x), x ∈ RealSet ∧ x ≠ a ∧ x ≠ b ⇒ FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(t) = frac((x - a) * (x - b), a - b)
+15. forall (x), x ∈ RealSet ∧ x ≠ a ∧ x ≠ b ⇒ y(x) = u(t(x)) * (x - b)
+16. forall (x), x ∈ RealSet ∧ x ≠ a ∧ x ≠ b ⇒ FunDeri(y, 1, 1)(x) = (x - b) * frac(FunDeri(u, 1, 1)(t(x)), FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(t)) + u(t(x))
+17. forall (x), x ∈ RealSet ∧ x ≠ a ∧ x ≠ b ⇒ (x - b) * frac(FunDeri(u, 1, 1)(t(x)), FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(t)) + u(t(x)) = frac((a - b) * FunDeri(u, 1, 1)(t(x)), x - a) + u(t(x))
+18. forall (x), x ∈ RealSet ∧ x ≠ a ∧ x ≠ b ⇒ FunDeri(y, 1, 1)(x) = frac((a - b) * FunDeri(u, 1, 1)(t(x)), x - a) + u(t(x))
+19. forall (x), x ∈ RealSet ∧ x ≠ a ∧ x ≠ b ⇒ FunDeri(y, 1, 2)(x) = frac((a - b)^{2} * (FunDeri(u, 1, 2)(t(x)) - FunDeri(u, 1, 1)(t(x))), (x - a)^{2} * (x - b))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ a ∧ x ≠ b ⇒ frac((a - b)^{2} * (FunDeri(u, 1, 2)(t(x)) - FunDeri(u, 1, 1)(t(x))), (x - a)^{2} * (x - b)) = frac(A * u(t(x)) * (x - b), (x - a)^{2} * (x - b)^{2})
+
+METHOD:
+[@method 代入 y(x) = u(t(x)) * (x - b), FunDeri(y, 1, 2)(x) = frac((a - b)^{2} * (FunDeri(u, 1, 2)(t(x)) - FunDeri(u, 1, 1)(t(x))), (x - a)^{2} * (x - b)) 到 FunDeri(y, 1, 2)(x) = frac(A * y(x), (x - a)^{2} * (x - b)^{2}) @]

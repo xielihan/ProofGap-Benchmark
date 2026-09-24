@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. n ∈ NonNegIntegerSet
+3. forall (x), x ∈ RealSet ⇒ y(x) = sin(x)^{2}
+4. n ∈ PosIntegerSet
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = 2 * sin(x) * cos(x) ∧ 2 * sin(x) * cos(x) = sin(2 * x)
+
+METHOD:

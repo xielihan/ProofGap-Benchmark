@@ -1,0 +1,24 @@
+PROOF GAP @7
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. v : CartesianProd(RealSet, RealSet) → RealSet
+3. z : CartesianProd(RealSet, RealSet) → RealSet
+4. r : CartesianProd(RealSet, RealSet) → RealSet
+5. forall (x), x ∈ RealSet
+6. forall (y), y ∈ RealSet
+7. forall (x), x ∈ RealSet ⇒ x ≠ 0
+8. ContinuouslyDiffableFunc(z)
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ r(x, y) = sqrtn(2, x^{2} + y^{2} + z(x, y)^{2}) ∧ r(x, y) > 0
+10. forall (x) (y), x ∈ RealSet ∧ x ≠ 0 ∧ y ∈ RealSet ⇒ u(x, y) = frac(y, x) ∧ v(x, y) = z(x, y) + r(x, y)
+11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ x * FunDeri(z, 1, 1)(x, y) + y * FunDeri(z, 2, 1)(x, y) = z(x, y) + r(x, y)
+12. forall (x) (y), x ∈ RealSet ∧ x ≠ 0 ∧ y ∈ RealSet ⇒ diff(u) = frac(x * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) - y * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x), x^{2})
+13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ diff(v) = diff(z) + frac(x * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + y * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) + z(x, y) * diff(z), r(x, y))
+14. forall (x) (y), x ∈ RealSet ∧ x ≠ 0 ∧ y ∈ RealSet ⇒ diff(z) = FunDeri(z, u, 1)(x, y) * diff(u) + FunDeri(z, v, 1)(x, y) * diff(v)
+15. forall (x) (y), x ∈ RealSet ∧ x ≠ 0 ∧ y ∈ RealSet ⇒ diff(z) = FunDeri(z, u, 1)(x, y) * (frac(diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y), x) - frac(y * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x), x^{2})) + FunDeri(z, v, 1)(x, y) * (diff(z) + frac(x * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x), r(x, y)) + frac(y * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y), r(x, y)) + frac(z(x, y) * diff(z), r(x, y)))
+16. forall (x) (y), x ∈ RealSet ∧ x ≠ 0 ∧ y ∈ RealSet ⇒ (1 - FunDeri(z, v, 1)(x, y) - frac(z(x, y), r(x, y)) * FunDeri(z, v, 1)(x, y)) * diff(z) = (-frac(y, x^{2}) * FunDeri(z, u, 1)(x, y) + frac(x, r(x, y)) * FunDeri(z, v, 1)(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (frac(1, x) * FunDeri(z, u, 1)(x, y) + frac(y, r(x, y)) * FunDeri(z, v, 1)(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+17. forall (x) (y), x ∈ RealSet ∧ x ≠ 0 ∧ y ∈ RealSet ∧ 1 - FunDeri(z, v, 1)(x, y) - frac(z(x, y), r(x, y)) * FunDeri(z, v, 1)(x, y) ≠ 0 ⇒ FunDeri(z, 1, 1)(x, y) = (-frac(y, x^{2}) * FunDeri(z, u, 1)(x, y) + frac(x, r(x, y)) * FunDeri(z, v, 1)(x, y)) / (1 - FunDeri(z, v, 1)(x, y) - frac(z(x, y), r(x, y)) * FunDeri(z, v, 1)(x, y))
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ x ≠ 0 ∧ y ∈ RealSet ∧ 1 - FunDeri(z, v, 1)(x, y) - frac(z(x, y), r(x, y)) * FunDeri(z, v, 1)(x, y) ≠ 0 ⇒ FunDeri(z, 2, 1)(x, y) = (frac(1, x) * FunDeri(z, u, 1)(x, y) + frac(y, r(x, y)) * FunDeri(z, v, 1)(x, y)) / (1 - FunDeri(z, v, 1)(x, y) - frac(z(x, y), r(x, y)) * FunDeri(z, v, 1)(x, y))
+
+METHOD:

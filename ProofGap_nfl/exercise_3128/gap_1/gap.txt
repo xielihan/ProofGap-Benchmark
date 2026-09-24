@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. f : RealSet → RealSet ∧ Defined(f, [a, b])
+4. B : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+5. a < b
+
+GOAL:
+forall (y) (x), y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 ∧ x ∈ RealSet ∧ x = a + (b - a) * y ⇒ a ≤ x
+
+METHOD:

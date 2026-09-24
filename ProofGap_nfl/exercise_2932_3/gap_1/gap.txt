@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. Δ ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 2 ⇒ sin(x) = sum_{ n = 0 }^{ +∞ } (frac((-1)^{n} * x^{2 * n + 1}, (2 * n + 1)!))
+
+METHOD:

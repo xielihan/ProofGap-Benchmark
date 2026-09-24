@@ -1,0 +1,2 @@
+get_prop (theorem 'Thm 114. (SineOverArgumentLimit)': {lim_{x -> 0} (sin(x) / x) = 1}) as (hypothesis 4: {lim_{x -> 0} (sin(x) / x) = 1})
+autosolve (hypothesis 4: {lim_{x -> 0} (sin(x) / x) = 1})

@@ -1,0 +1,5 @@
+get_prop (hypothesis 8: {forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ x + c > 0}) (x := {x}) as (hypothesis 15: {x ∈ RealSet ∧ x ∈ [a, b] ⇒ x + c > 0})
+use_condition (hypothesis 14: {x ∈ RealSet ∧ x ∈ [a, b]}) in (hypothesis 15: {x ∈ RealSet ∧ x ∈ [a, b] ⇒ x + c > 0}) as (hypothesis 16: {x + c > 0})
+rewrite (left_to_right, equation) (hypothesis 12: {l = frac(b - a, b + c)}); from (GOAL: {x = frac(a + l * c * t, 1 - l * t)}) to (GOAL: {x = frac(a + frac(b - a, b + c) * c * t, 1 - frac(b - a, b + c) * t)})
+rewrite (left_to_right, equation) (hypothesis 9: {t = frac(b + c, b - a) * frac(x - a, x + c)}); from (GOAL: {x = frac(a + frac(b - a, b + c) * c * t, 1 - frac(b - a, b + c) * t)}) to (GOAL: {x = frac(a + frac(b - a, b + c) * c * (frac(b + c, b - a) * frac(x - a, x + c)), 1 - frac(b - a, b + c) * (frac(b + c, b - a) * frac(x - a, x + c)))})
+autosolve all_hypothesis

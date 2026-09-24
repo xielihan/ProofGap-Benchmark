@@ -1,0 +1,25 @@
+PROOF GAP @15
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. r : CartesianProd(RealSet, RealSet) → RealSet
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} - y^{2} > 0 ⇒ z(x, y) = sqrtn(2, x^{2} - y^{2}) * tan(frac(z(x, y), sqrtn(2, x^{2} - y^{2})))
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} - y^{2} > 0 ⇒ r(x, y) = sqrtn(2, x^{2} - y^{2})
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} - y^{2} > 0 ⇒ r(x, y) > 0
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} - y^{2} > 0 ⇒ frac(z(x, y), r(x, y)) = tan(frac(z(x, y), r(x, y)))
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} - y^{2} > 0 ⇒ diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(z(x, y), r(x, y))) = frac(diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(z(x, y), r(x, y))), 1 + frac(z(x, y), r(x, y))^{2})
+8. diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(z(x, y), r(x, y))) = 0
+9. (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . r(x, y)) * diff(z) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y)) * diff(r) = 0
+10. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} - y^{2} > 0 ⇒ diff(z) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(z(x, y), r(x, y)^{2})) * (x * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - y * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} - y^{2} > 0 ⇒ FunDeri(z, 1, 1)(x, y) = frac(x * z(x, y), r(x, y)^{2})
+12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} - y^{2} > 0 ⇒ frac(x * z(x, y), r(x, y)^{2}) = frac(x * z(x, y), x^{2} - y^{2})
+13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} - y^{2} > 0 ⇒ FunDeri(z, 1, 1)(x, y) = frac(x * z(x, y), x^{2} - y^{2})
+14. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} - y^{2} > 0 ⇒ FunDeri(z, 2, 1)(x, y) = -frac(y * z(x, y), r(x, y)^{2})
+15. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} - y^{2} > 0 ⇒ -frac(y * z(x, y), r(x, y)^{2}) = -frac(y * z(x, y), x^{2} - y^{2})
+16. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} - y^{2} > 0 ⇒ FunDeri(z, 2, 1)(x, y) = -frac(y * z(x, y), x^{2} - y^{2})
+17. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} - y^{2} > 0 ⇒ (x^{2} - y^{2}) * diff(z) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x * z(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y * z(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+18. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} - y^{2} > 0 ⇒ (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x^{2} - y^{2}) * diff^{2}(z) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(z(x, y), x^{2} - y^{2})) * (-x^{2} * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{2} + 2 * x * y * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) - y^{2} * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{2} + (x^{2} - y^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{2} - (x^{2} - y^{2}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{2})
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} - y^{2} > 0 ⇒ (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x^{2} - y^{2}) * diff^{2}(z) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(z(x, y), x^{2} - y^{2})) * (-y^{2} * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{2} + 2 * x * y * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) - x^{2} * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{2})
+
+METHOD:

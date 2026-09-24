@@ -1,0 +1,13 @@
+get_forall (GOAL: {forall (u) (v), u ∈ RealSet ∧ 0 < u ∧ u < a ∧ v ∈ RealSet ∧ 0 < v ∧ v < 2 * π ⇒ u^{2} * sin(v)^{2} + u^{2} * cos(v)^{2} + 1 = 1 + u^{2}}) (u := {p}) (v := {q})
+get_condition (hypothesis 18: {p ∈ RealSet ∧ 0 < p ∧ p < a ∧ q ∈ RealSet ∧ 0 < q ∧ q < 2 * π}) in (GOAL: {p ∈ RealSet ∧ 0 < p ∧ p < a ∧ q ∈ RealSet ∧ 0 < q ∧ q < 2 * π ⇒ p^{2} * sin(q)^{2} + p^{2} * cos(q)^{2} + 1 = 1 + p^{2}})
+get_prop (hypothesis 14: {forall (v), v ∈ RealSet ∧ 0 < v ∧ v < 2 * π ⇒ cos(v)^{2} + sin(v)^{2} = 1}) (v := {q}) as (hypothesis 19: {q ∈ RealSet ∧ 0 < q ∧ q < 2 * π ⇒ cos(q)^{2} + sin(q)^{2} = 1})
+assert (hypothesis 20: {q ∈ RealSet ∧ 0 < q ∧ q < 2 * π}) by proof {
+  autosolve (hypothesis 18: {p ∈ RealSet ∧ 0 < p ∧ p < a ∧ q ∈ RealSet ∧ 0 < q ∧ q < 2 * π})
+}
+use_condition (hypothesis 20: {q ∈ RealSet ∧ 0 < q ∧ q < 2 * π}) in (hypothesis 19: {q ∈ RealSet ∧ 0 < q ∧ q < 2 * π ⇒ cos(q)^{2} + sin(q)^{2} = 1}) as (hypothesis 21: {cos(q)^{2} + sin(q)^{2} = 1})
+assert (hypothesis 22: {p^{2} * sin(q)^{2} + p^{2} * cos(q)^{2} = p^{2} * (cos(q)^{2} + sin(q)^{2})}) by proof {
+  autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 22: {p^{2} * sin(q)^{2} + p^{2} * cos(q)^{2} = p^{2} * (cos(q)^{2} + sin(q)^{2})}); from (GOAL: {p^{2} * sin(q)^{2} + p^{2} * cos(q)^{2} + 1 = 1 + p^{2}}) to (GOAL: {p^{2} * (cos(q)^{2} + sin(q)^{2}) + 1 = 1 + p^{2}})
+rewrite (left_to_right, equation) (hypothesis 21: {cos(q)^{2} + sin(q)^{2} = 1}); from (GOAL: {p^{2} * (cos(q)^{2} + sin(q)^{2}) + 1 = 1 + p^{2}}) to (GOAL: {p^{2} * 1 + 1 = 1 + p^{2}})
+autosolve using PolyRatSolver

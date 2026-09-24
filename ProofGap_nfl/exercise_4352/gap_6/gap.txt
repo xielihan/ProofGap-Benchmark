@@ -1,0 +1,19 @@
+PROOF GAP @6
+ASSUM:
+1. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. z : CartesianProd(RealSet, RealSet) → RealSet
+3. ρ : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+4. M ∈ RealSet
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = frac(1, 2) * (x^{2} + y^{2})
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ 0 ≤ z(x, y) ∧ z(x, y) ≤ 1
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ ρ(x, y, z(x, y)) = z(x, y)
+8. M = ScalarSurfaceInt(S, ρ * diff(S))
+9. M = VolumeInt({ (x, y) | x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} ≤ 2 }, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y) * sqrtn(2, 1 + x^{2} + y^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+10. M = frac(1, 2) * VolumeInt({ (x, y) | x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} ≤ 2 }, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . (x^{2} + y^{2}) * sqrtn(2, 1 + x^{2} + y^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+11. M = frac(1, 2) * DefInt(0, 2 * π, (fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . DefInt(0, sqrtn(2, 2), (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ sqrtn(2, 2)] . r^{3} * sqrtn(2, 1 + r^{2})) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ sqrtn(2, 2)] . r))) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . φ))
+12. M = π * DefInt(0, sqrtn(2, 2), (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ sqrtn(2, 2)] . r^{3} * sqrtn(2, 1 + r^{2})) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ sqrtn(2, 2)] . r))
+
+GOAL:
+M = frac(π, 2) * DefInt(0, sqrtn(2, 2), (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ sqrtn(2, 2)] . r^{2} * sqrtn(2, 1 + r^{2})) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ sqrtn(2, 2)] . r^{2}))
+
+METHOD:

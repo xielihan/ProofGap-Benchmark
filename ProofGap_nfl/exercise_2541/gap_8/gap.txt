@@ -1,0 +1,20 @@
+PROOF GAP @8
+ASSUM:
+1. I ∈ RealSet
+2. R : NonNegIntegerSet → RealSet
+3. x : IntegerSet → RealSet
+4. y : IntegerSet → RealSet
+5. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+6. I = DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . e^{x^{2}}) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x))
+7. exists (ξ), ξ ∈ RealSet ∧ 0 < ξ ∧ ξ < 1 ∧ R(n) = -frac(1, 180 * n^{4}) * 2 * e^{ξ^{2}} * (8 * ξ^{4} + 24 * ξ^{2} + 6)
+8. |R(n)| < frac(1, 180 * n^{4}) * 2 * e * 38
+9. frac(2 * 38 * e, 180 * n^{4}) < 10^{-3} ⇒ |R(n)| < 10^{-3}
+10. n = 6 ⇒ frac(2 * 38 * e, 180 * n^{4}) < 10^{-3}
+11. n = 6 ⇒ |R(n)| < 10^{-3}
+12. n = 6
+13. forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ 6 ⇒ x(i) = frac(i, 6) ∧ y(i) = e^{x(i)^{2}}
+
+GOAL:
+x(0) = 0
+
+METHOD:

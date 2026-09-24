@@ -1,0 +1,26 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. n ∈ NonNegIntegerSet
+3. f : RealSet → RealSet
+4. Ω ⊆ RealSet
+5. Ω_{1} ⊆ RealSet
+6. Ω_{2} ⊆ RealSet
+7. x_{1} ∈ RealSet
+8. x_{2} ∈ RealSet
+9. x_{n - 1} ∈ RealSet
+10. x_{n} ∈ RealSet
+11. x_{i} ∈ RealSet
+12. ω ∈ RealSet
+13. x ≥ 0
+14. n ∈ PosIntegerSet
+15. n ≥ 2
+16. ContinuousFuncOn(f, Ω)
+17. Ω = { (x_{1}, x_{2}, ..., x_{n}) | forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ 0 ≤ x_{i} ∧ x_{i} ≤ x }
+18. Ω_{1} = { (x_{1}, x_{2}, ..., x_{n}) | forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ 0 ≤ x_{i} ∧ (i = 1 ⇒ x_{i} ≤ x) ∧ (i > 1 ⇒ x_{i} ≤ x_{i - 1}) }
+19. Ω_{2} = { (x_{1}, x_{2}, ..., x_{n}) | forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ 0 ≤ x_{i} ∧ x_{i} ≤ x ∧ (i > 1 ⇒ x_{i} ≤ x_{i - 1}) }
+
+GOAL:
+Ω_{1} ⊆ Ω
+
+METHOD:

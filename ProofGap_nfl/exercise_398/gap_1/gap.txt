@@ -1,0 +1,15 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. `ω_{1}` ∈ RealSet
+3. `ω_{2}` ∈ RealSet
+4. `ω_{3}` ∈ RealSet
+5. `ω_{4}` ∈ RealSet
+6. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = arctan(frac(1, x))
+7. f(0) ∈ [-frac(π, 2), frac(π, 2)]
+8. OscillationOn(f, IntervalLoRo(-1, 1)) = π
+9. `ω_{1}` = π
+GOAL:
+`ω_{1}` = OscillationOn(f, IntervalLoRo(-1, 1))
+
+METHOD:

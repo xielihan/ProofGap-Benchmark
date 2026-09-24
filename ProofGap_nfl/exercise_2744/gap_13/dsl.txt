@@ -1,0 +1,4 @@
+assert (hypothesis 22: {frac(1, ε) > 0}) by proof {
+  autosolve all_hypothesis
+}
+apply (hypothesis 22: {frac(1, ε) > 0})

@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. D ⊆ CartesianProd(RealSet, RealSet)
+3. IsFunc(f)
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x, y) = cases{ x * sin(frac(1, y)) if y ≠ 0; 0 if y = 0 }
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ D = { (x, y) | x ∈ RealSet, y ∈ RealSet, ¬ContinuousFuncAt(f, (x, y)) }
+6. forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ∧ y_{0} ≠ 0 ⇒ ContinuousFuncAt(f, (x_{0}, y_{0})))
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ |f(x, y) - f(0, 0)| = |f(x, y)|
+
+METHOD:

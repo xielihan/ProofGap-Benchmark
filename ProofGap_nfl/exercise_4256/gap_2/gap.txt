@@ -1,0 +1,15 @@
+PROOF GAP @2
+ASSUM:
+1. A ∈ CartesianProd(RealSet, RealSet)
+2. B ∈ CartesianProd(RealSet, RealSet)
+3. AB ⊆ CartesianProd(RealSet, RealSet)
+4. Segment : CartesianProd(CartesianProd(RealSet, RealSet), CartesianProd(RealSet, RealSet)) → PowerSet(CartesianProd(RealSet, RealSet))
+5. A = (0, π)
+6. B = (π, 0)
+7. AB = Segment(A, B)
+8. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π ⇒ (exists (y), y ∈ RealSet ∧ y = π - x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ diff(fun x [x ∈ RealSet] . π - x) = -diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

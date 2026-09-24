@@ -1,0 +1,16 @@
+PROOF GAP @7
+ASSUM:
+1. y : RealSet → RealSet
+2. α ∈ RealSet
+3. x ∈ RealSet
+4. forall (x), x ∈ RealSet ⇒ y(x) = (x * sin(α) + cos(α)) * (x * cos(α) - sin(α))
+5. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = sin(α) * (x * cos(α) - sin(α)) + cos(α) * (x * sin(α) + cos(α))
+6. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = x * sin(2 * α) + cos(2 * α)
+7. forall (x), x ∈ RealSet ∧ x * sin(2 * α) + cos(2 * α) = 0 ⇒ FunDeri(y, 1, 1)(x) = 0
+8. forall (x), x ∈ RealSet ∧ x * sin(2 * α) + cos(2 * α) = 0 ⇒ FunDeri(y, 1, 1)(x) = 0
+9. forall (x), x ∈ RealSet ∧ x * sin(2 * α) + cos(2 * α) = 0 ∧ sin(2 * α) ≠ 0 ⇒ x = frac(-cos(2 * α), sin(2 * α))
+10. forall (x), x ∈ RealSet ∧ x * sin(2 * α) + cos(2 * α) = 0 ∧ sin(2 * α) ≠ 0 ⇒ x = -cot(2 * α)
+GOAL:
+sin(2 * α) = 0 ⇒ cos(2 * α) = 1 ∨ cos(2 * α) = -1
+
+METHOD:

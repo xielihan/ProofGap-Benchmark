@@ -1,0 +1,12 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x > 1 ⇒ (forall (VP), VP ∈ RealSet ⇒ (forall (a), a ∈ RealSet ⇒ (forall (b), b ∈ RealSet ⇒ (forall (c), a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ a < c ∧ c < b ⇒ (exists (L), L ∈ RealSet ∧ VP = L)))))}) (x := {z})
+2. get_condition (hypothesis 14: {z ∈ RealSet ∧ z > 1}) in (GOAL: {z ∈ RealSet ∧ z > 1 ⇒ (forall (VP), VP ∈ RealSet ⇒ (forall (a), a ∈ RealSet ⇒ (forall (b), b ∈ RealSet ⇒ (forall (c), a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ a < c ∧ c < b ⇒ (exists (L), L ∈ RealSet ∧ VP = L)))))})
+3. get_forall (GOAL: {forall (VP), VP ∈ RealSet ⇒ (forall (a), a ∈ RealSet ⇒ (forall (b), b ∈ RealSet ⇒ (forall (c), a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ a < c ∧ c < b ⇒ (exists (L), L ∈ RealSet ∧ VP = L))))}) (VP := {v})
+4. get_condition (hypothesis 15: {v ∈ RealSet}) in (GOAL: {v ∈ RealSet ⇒ (forall (a), a ∈ RealSet ⇒ (forall (b), b ∈ RealSet ⇒ (forall (c), a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ a < c ∧ c < b ⇒ (exists (L), L ∈ RealSet ∧ v = L))))})
+5. get_forall (GOAL: {forall (a), a ∈ RealSet ⇒ (forall (b), b ∈ RealSet ⇒ (forall (c), a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ a < c ∧ c < b ⇒ (exists (L), L ∈ RealSet ∧ v = L)))}) (a := {u})
+6. get_condition (hypothesis 16: {u ∈ RealSet}) in (GOAL: {u ∈ RealSet ⇒ (forall (b), b ∈ RealSet ⇒ (forall (c), u ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ u < c ∧ c < b ⇒ (exists (L), L ∈ RealSet ∧ v = L)))})
+7. get_forall (GOAL: {forall (b), b ∈ RealSet ⇒ (forall (c), u ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ u < c ∧ c < b ⇒ (exists (L), L ∈ RealSet ∧ v = L))}) (b := {w})
+8. get_condition (hypothesis 17: {w ∈ RealSet}) in (GOAL: {w ∈ RealSet ⇒ (forall (c), u ∈ RealSet ∧ w ∈ RealSet ∧ c ∈ RealSet ∧ u < c ∧ c < w ⇒ (exists (L), L ∈ RealSet ∧ v = L))})
+9. get_forall (GOAL: {forall (c), u ∈ RealSet ∧ w ∈ RealSet ∧ c ∈ RealSet ∧ u < c ∧ c < w ⇒ (exists (L), L ∈ RealSet ∧ v = L)}) (c := {q})
+10. get_condition (hypothesis 18: {u ∈ RealSet ∧ w ∈ RealSet ∧ q ∈ RealSet ∧ u < q ∧ q < w}) in (GOAL: {u ∈ RealSet ∧ w ∈ RealSet ∧ q ∈ RealSet ∧ u < q ∧ q < w ⇒ (exists (L), L ∈ RealSet ∧ v = L)})
+11. exists (L := {v})
+12. autosolve all_hypothesis

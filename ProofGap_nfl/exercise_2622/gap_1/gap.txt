@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. a : NonNegIntegerSet → RealSet ∧ PosSeq(a) ∧ StrictMonoDecSeq(a)
+2. S = (fun k [k ∈ NonNegIntegerSet ∧ k ≥ 1] . sum_{ i = 1 }^{ k } (a(i)))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < S(2^{n})
+
+METHOD:

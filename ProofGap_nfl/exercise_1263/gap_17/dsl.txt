@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ a * x < 1 ⇒ arctan(frac(x + a, 1 - a * x)) - arctan(x) = arctan(a)}) (x := {y})
+get_condition (hypothesis 25: {y ∈ RealSet ∧ a * y < 1}) in (GOAL: {y ∈ RealSet ∧ a * y < 1 ⇒ arctan(frac(y + a, 1 - a * y)) - arctan(y) = arctan(a)})
+destruct_and (hypothesis 25: {y ∈ RealSet ∧ a * y < 1}) as (hypothesis 26: {y ∈ RealSet}) (hypothesis 27: {a * y < 1})
+get_prop (theorem 'Thm 415. (ArctangentAdditionPrincipalFormula)': {forall (a) (b), a ∈ RealSet => b ∈ RealSet => a * b < 1 => arctan((a + b) / (1 - a * b)) = arctan(a) + arctan(b)}) (a := {a}) (b := {y}) as (hypothesis 28: {a ∈ RealSet => y ∈ RealSet => a * y < 1 => arctan((a + y) / (1 - a * y)) = arctan(a) + arctan(y)})
+use_condition (hypothesis 3: {a ∈ RealSet}) (hypothesis 26: {y ∈ RealSet}) (hypothesis 27: {a * y < 1}) in (hypothesis 28: {a ∈ RealSet => y ∈ RealSet => a * y < 1 => arctan((a + y) / (1 - a * y)) = arctan(a) + arctan(y)}) as (hypothesis 29: {arctan((a + y) / (1 - a * y)) = arctan(a) + arctan(y)})
+autosolve (hypothesis 29: {arctan((a + y) / (1 - a * y)) = arctan(a) + arctan(y)})

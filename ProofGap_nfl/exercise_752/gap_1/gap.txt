@@ -1,0 +1,17 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. x_{0} ∈ RealSet
+3. n ∈ NonNegIntegerSet
+4. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+5. g : RealSet → RealSet
+6. k : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(k)
+7. S ∈ RealSet
+8. z : NonNegIntegerSet → RealSet ∧ IsSeq(z)
+9. ContinuousFuncOn(f, IntervalLoRo(x_{0}, +∞))
+10. BoundedFuncOn(f, IntervalLoRo(x_{0}, +∞))
+
+GOAL:
+forall (T), T ∈ RealSet ∧ T = 0 ⇒ x = (fun n [n ∈ NonNegIntegerSet] . x_{0} + n)
+
+METHOD:

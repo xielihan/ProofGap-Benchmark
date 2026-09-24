@@ -1,0 +1,16 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. u : RealSet → RealSet
+3. a ∈ RealSet
+4. a ∈ PosRealSet
+5. DiffableFunc(u)
+6. DiffableFunc(FunDeri(u, 1, 1))
+7. forall (x), x ∈ RealSet ⇒ y(u(x)) = a^{u(x)}
+8. forall (x), x ∈ RealSet ⇒ diff(y) = a^{u(x)} * ln(a) * diff(u)
+9. forall (x), x ∈ RealSet ⇒ diff^{2}(y) = a^{u(x)} * ln(a)^{2} * diff(u)^{2} + a^{u(x)} * ln(a) * diff^{2}(u)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ diff^{2}(y) = a^{u(x)} * ln(a) * (ln(a) * diff(u)^{2} + diff^{2}(u))
+
+METHOD:

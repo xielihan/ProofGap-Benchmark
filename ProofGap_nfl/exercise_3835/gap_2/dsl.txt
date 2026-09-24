@@ -1,0 +1,7 @@
+get_condition (hypothesis 11: {n ∈ PosIntegerSet}) in (GOAL: {n ∈ PosIntegerSet ⇒ (forall (t), t ∈ RealSet ⇒ f(t) = t^{n}) ⇒ F(p) = DefInt(0, +∞, e^{-p * t} * t^{n} * diff(t))})
+get_condition (hypothesis 12: {forall (t), t ∈ RealSet ⇒ f(t) = t^{n}}) in (GOAL: {(forall (t), t ∈ RealSet ⇒ f(t) = t^{n}) ⇒ F(p) = DefInt(0, +∞, e^{-p * t} * t^{n} * diff(t))})
+get_prop (hypothesis 12: {forall (t), t ∈ RealSet ⇒ f(t) = t^{n}}) (t := {t}) as (hypothesis 13: {t ∈ RealSet ⇒ f(t) = t^{n}})
+use_condition (hypothesis 7: {t ∈ RealSet}) in (hypothesis 13: {t ∈ RealSet ⇒ f(t) = t^{n}}) as (hypothesis 14: {f(t) = t^{n}})
+rewrite (right_to_left, equation) (hypothesis 10: {F(p) = DefInt(0, +∞, e^{-p * t} * f(t) * diff(t))}); from (GOAL: {F(p) = DefInt(0, +∞, e^{-p * t} * t^{n} * diff(t))}) to (GOAL: {DefInt(0, +∞, e^{-p * t} * f(t) * diff(t)) = DefInt(0, +∞, e^{-p * t} * t^{n} * diff(t))})
+rewrite (left_to_right, equation) (hypothesis 14: {f(t) = t^{n}}); from (GOAL: {DefInt(0, +∞, e^{-p * t} * f(t) * diff(t)) = DefInt(0, +∞, e^{-p * t} * t^{n} * diff(t))}) to (GOAL: {DefInt(0, +∞, e^{-p * t} * t^{n} * diff(t)) = DefInt(0, +∞, e^{-p * t} * t^{n} * diff(t))})
+autosolve all_hypothesis

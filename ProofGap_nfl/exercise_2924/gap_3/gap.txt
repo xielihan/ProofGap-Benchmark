@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. S : NonNegIntegerSet → RealSet
+2. Δ : NonNegIntegerSet → RealSet
+3. m ∈ NonNegIntegerSet ∧ m > 0
+4. e = 1 + (sum_{ m = 1 }^{ +∞ } (frac(1, m!)))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ S(n) = 1 + (sum_{ m = 1 }^{ n } (frac(1, m!)))
+6. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ Δ(n) = sum_{ m = n + 1 }^{ +∞ } (frac(1, m!))
+7. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ Δ(n) = sum_{ m = n + 1 }^{ +∞ } (frac(1, m!))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ 0 < frac(1, n)
+
+METHOD:

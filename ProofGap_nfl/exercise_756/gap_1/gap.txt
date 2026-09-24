@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. a < b
+5. forall (x), x ∈ RealSet ⇒ f(x) = cases{ sin(frac(1, x - a)) if x ≠ a; 0 if x = a }
+
+GOAL:
+f(a) = 0
+
+METHOD:

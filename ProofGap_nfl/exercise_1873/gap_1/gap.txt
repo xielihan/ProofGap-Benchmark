@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. x ≠ 1
+3. x ≠ 2
+4. A = 4
+5. B = 1
+6. C_{1} = -4
+7. D = 4
+
+GOAL:
+frac(x, x^{2} - 3 * x + 2)^{2} = frac(x^{2}, (x - 1)^{2} * (x - 2)^{2})
+
+METHOD:

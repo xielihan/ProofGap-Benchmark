@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. forall (y), y : NonNegIntegerSet → RealSet ⇒ (forall (x), x : NonNegIntegerSet → RealSet ∧ IsSeq(x) ∧ (exists (c), c ∈ RealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ sum_{ k = 2 }^{ n } (|x(k) - x(k - 1)|) < c)) ∧ y = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . sum_{ k = 2 }^{ n } (|x(k) - x(k - 1)|)) ⇒ MonoIncSeq(y))
+2. forall (y), y : NonNegIntegerSet → RealSet ⇒ (forall (x), x : NonNegIntegerSet → RealSet ∧ IsSeq(x) ∧ (exists (c), c ∈ RealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ sum_{ k = 2 }^{ n } (|x(k) - x(k - 1)|) < c)) ∧ y = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . sum_{ k = 2 }^{ n } (|x(k) - x(k - 1)|)) ⇒ BoundedSeq(y))
+3. forall (y), y : NonNegIntegerSet → RealSet ⇒ (forall (x), x : NonNegIntegerSet → RealSet ∧ IsSeq(x) ∧ (exists (c), c ∈ RealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ sum_{ k = 2 }^{ n } (|x(k) - x(k - 1)|) < c)) ∧ y = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . sum_{ k = 2 }^{ n } (|x(k) - x(k - 1)|)) ⇒ ConvergentSeq(y))
+4. forall (y), y : NonNegIntegerSet → RealSet ⇒ (forall (x), x : NonNegIntegerSet → RealSet ∧ IsSeq(x) ∧ (exists (c), c ∈ RealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ sum_{ k = 2 }^{ n } (|x(k) - x(k - 1)|) < c)) ∧ y = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . sum_{ k = 2 }^{ n } (|x(k) - x(k - 1)|)) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (m) (n), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ m > n ∧ n > N ⇒ |y(m) - y(n)| < ε))))
+
+GOAL:
+forall (y), y : NonNegIntegerSet → RealSet ⇒ (forall (x), x : NonNegIntegerSet → RealSet ∧ IsSeq(x) ∧ (exists (c), c ∈ RealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ sum_{ k = 2 }^{ n } (|x(k) - x(k - 1)|) < c)) ∧ y = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . sum_{ k = 2 }^{ n } (|x(k) - x(k - 1)|)) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (m) (n), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m > n ∧ n > N ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ⇒ |y(m) - y(n)| = sum_{ k = n + 1 }^{ m } (|x(k) - x(k - 1)|)))))
+
+METHOD:

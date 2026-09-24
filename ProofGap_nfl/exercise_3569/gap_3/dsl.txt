@@ -1,0 +1,13 @@
+get_forall (GOAL: {forall (y), y ∈ RealSet ⇒ (forall (p), p ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ f(x, y, p) = 0 ⇒ y^{2} - 2 * p * x - p^{2} = 0))}) (y := {b})
+get_condition (hypothesis 5: {b ∈ RealSet}) in (GOAL: {b ∈ RealSet ⇒ (forall (p), p ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ f(x, b, p) = 0 ⇒ b^{2} - 2 * p * x - p^{2} = 0))})
+get_forall (GOAL: {forall (p), p ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ f(x, b, p) = 0 ⇒ b^{2} - 2 * p * x - p^{2} = 0)}) (p := {c})
+get_condition (hypothesis 6: {c ∈ RealSet}) in (GOAL: {c ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ f(x, b, c) = 0 ⇒ b^{2} - 2 * c * x - c^{2} = 0)})
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ f(x, b, c) = 0 ⇒ b^{2} - 2 * c * x - c^{2} = 0}) (x := {a})
+get_condition (hypothesis 7: {a ∈ RealSet}) (hypothesis 8: {f(a, b, c) = 0}) in (GOAL: {a ∈ RealSet ⇒ f(a, b, c) = 0 ⇒ b^{2} - 2 * c * a - c^{2} = 0})
+get_prop (hypothesis 2: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (p), p ∈ RealSet ⇒ f(x, y, p) = y^{2} - 2 * p * x - p^{2}))}) (x := {a}) as (hypothesis 9: {a ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (p), p ∈ RealSet ⇒ f(a, y, p) = y^{2} - 2 * p * a - p^{2}))})
+use_condition (hypothesis 7: {a ∈ RealSet}) in (hypothesis 9: {a ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (p), p ∈ RealSet ⇒ f(a, y, p) = y^{2} - 2 * p * a - p^{2}))}) as (hypothesis 10: {forall (y), y ∈ RealSet ⇒ (forall (p), p ∈ RealSet ⇒ f(a, y, p) = y^{2} - 2 * p * a - p^{2})})
+get_prop (hypothesis 10: {forall (y), y ∈ RealSet ⇒ (forall (p), p ∈ RealSet ⇒ f(a, y, p) = y^{2} - 2 * p * a - p^{2})}) (y := {b}) as (hypothesis 11: {b ∈ RealSet ⇒ (forall (p), p ∈ RealSet ⇒ f(a, b, p) = b^{2} - 2 * p * a - p^{2})})
+use_condition (hypothesis 5: {b ∈ RealSet}) in (hypothesis 11: {b ∈ RealSet ⇒ (forall (p), p ∈ RealSet ⇒ f(a, b, p) = b^{2} - 2 * p * a - p^{2})}) as (hypothesis 12: {forall (p), p ∈ RealSet ⇒ f(a, b, p) = b^{2} - 2 * p * a - p^{2}})
+get_prop (hypothesis 12: {forall (p), p ∈ RealSet ⇒ f(a, b, p) = b^{2} - 2 * p * a - p^{2}}) (p := {c}) as (hypothesis 13: {c ∈ RealSet ⇒ f(a, b, c) = b^{2} - 2 * c * a - c^{2}})
+use_condition (hypothesis 6: {c ∈ RealSet}) in (hypothesis 13: {c ∈ RealSet ⇒ f(a, b, c) = b^{2} - 2 * c * a - c^{2}}) as (hypothesis 14: {f(a, b, c) = b^{2} - 2 * c * a - c^{2}})
+autosolve all_hypothesis

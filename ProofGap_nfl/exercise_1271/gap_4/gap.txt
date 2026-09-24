@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ y(x) = frac(sqrtn(2, x), x + 100)
+3. forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(y, 1, 1)(x) = frac(-x + 100, 2 * sqrtn(2, x) * (x + 100)^{2})
+4. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < 100 ⇒ FunDeri(y, 1, 1)(x) > 0
+5. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < 100 ⇒ MonoIncFuncOn(y, IntervalLoRo(0, 100))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 100 < x ∧ x < +∞ ⇒ FunDeri(y, 1, 1)(x) < 0
+
+METHOD:

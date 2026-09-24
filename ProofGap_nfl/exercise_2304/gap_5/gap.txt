@@ -1,0 +1,15 @@
+PROOF GAP @5
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+3. F : RealSet → RealSet
+4. forall (x), x ∈ RealSet ⇒ F(x) = DefInt(0, x, (fun t [t ∈ RealSet] . sgn(sin(t))) * diff(fun t [t ∈ RealSet] . t))
+5. forall (a), a ∈ RealSet ⇒ (forall (b), b ∈ RealSet ∧ a < b ⇒ IntegrableFuncOn(fun t [t ∈ RealSet] . sgn(sin(t)), [a, b]))
+6. ContinuousFunc(F)
+7. exists (k), k ∈ IntegerSet ∧ k * π ≤ x ∧ x < (k + 1) * π ∧ (forall (k1), k1 ∈ IntegerSet ∧ k1 * π ≤ x ∧ x < (k1 + 1) * π ⇒ k1 = k)
+8. forall (k), k ∈ IntegerSet ∧ k * π ≤ x ∧ x < (k + 1) * π ⇒ F(x) = DefInt(0, x, (fun t [t ∈ RealSet] . sgn(sin(t))) * diff(fun t [t ∈ RealSet] . t))
+
+GOAL:
+forall (k), k ∈ IntegerSet ∧ k * π ≤ x ∧ x < (k + 1) * π ⇒ F(x) = DefInt(0, k * π + frac(π, 2), (fun t [t ∈ RealSet] . sgn(sin(t))) * diff(fun t [t ∈ RealSet] . t)) + DefInt(k * π + frac(π, 2), x, (fun t [t ∈ RealSet] . sgn(sin(t))) * diff(fun t [t ∈ RealSet] . t))
+
+METHOD:

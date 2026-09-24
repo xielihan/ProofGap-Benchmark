@@ -1,0 +1,26 @@
+PROOF GAP @13
+ASSUM:
+1. a ∈ RealSet
+2. δ ∈ RealSet ∧ δ > 0
+3. f : RealSet → RealSet
+4. φ : RealSet → RealSet
+5. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a - δ, a + δ) ⇒ f(x) = |x - a| * φ(x)
+6. ContinuousFuncOn(φ, IntervalLoRo(a - δ, a + δ))
+7. φ(a) ≠ 0
+8. f(a) = 0
+9. forall (Δx), Δx ∈ RealSet ∧ Δx ≠ 0 ⇒ frac(f(a + Δx) - f(a), Δx) = frac(|Δx|, Δx) * φ(a + Δx)
+10. forall (Δx), Δx ∈ RealSet ∧ Δx < 0 ⇒ frac(f(a + Δx) - f(a), Δx) = -φ(a + Δx)
+11. lim_{ Δx → 0^- } (frac(f(a + Δx) - f(a), Δx)) = lim_{ Δx → 0^- } (-φ(a + Δx))
+12. lim_{ Δx → 0^- } (-φ(a + Δx)) = -φ(a)
+13. lim_{ Δx → 0^- } (frac(f(a + Δx) - f(a), Δx)) = -φ(a)
+14. forall (Δx), Δx ∈ RealSet ∧ Δx > 0 ⇒ frac(f(a + Δx) - f(a), Δx) = φ(a + Δx)
+15. lim_{ Δx → 0^+ } (frac(f(a + Δx) - f(a), Δx)) = lim_{ Δx → 0^+ } (φ(a + Δx))
+16. lim_{ Δx → 0^+ } (φ(a + Δx)) = φ(a)
+17. lim_{ Δx → 0^+ } (frac(f(a + Δx) - f(a), Δx)) = φ(a)
+18. -φ(a) ≠ φ(a)
+19. ¬DiffableFuncAt(f, a)
+
+GOAL:
+¬DiffableFuncAt(f, a) ∧ lim_{ Δx → 0^- } (frac(f(a + Δx) - f(a), Δx)) = -φ(a) ∧ lim_{ Δx → 0^+ } (frac(f(a + Δx) - f(a), Δx)) = φ(a)
+
+METHOD:

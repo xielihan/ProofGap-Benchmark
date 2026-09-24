@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (y), y ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ FunDeri(w, y, 1)(x, y, z) = FunDeri(w, u, 1)(u, v) * FunDeri(u, y, 1)(x, y) + FunDeri(w, v, 1)(u, v) * FunDeri(v, y, 1)(x, y))}) (y := {y0})
+get_condition (hypothesis 25: {y0 ∈ RealSet}) in (GOAL: {y0 ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ FunDeri(w, y0, 1)(x, y0, z) = FunDeri(w, u, 1)(u, v) * FunDeri(u, y0, 1)(x, y0) + FunDeri(w, v, 1)(u, v) * FunDeri(v, y0, 1)(x, y0))})
+get_forall (GOAL: {(forall (x), x ∈ RealSet ⇒ FunDeri(w, y0, 1)(x, y0, z) = FunDeri(w, u, 1)(u, v) * FunDeri(u, y0, 1)(x, y0) + FunDeri(w, v, 1)(u, v) * FunDeri(v, y0, 1)(x, y0))}) (x := {x0})
+get_condition (hypothesis 26: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ FunDeri(w, y0, 1)(x0, y0, z) = FunDeri(w, u, 1)(u, v) * FunDeri(u, y0, 1)(x0, y0) + FunDeri(w, v, 1)(u, v) * FunDeri(v, y0, 1)(x0, y0)})
+get_prop (hypothesis 8: {forall (x), x ∈ RealSet ⇒ x ≠ 0}) (x := {0}) as (hypothesis 27: {0 ∈ RealSet ⇒ 0 ≠ 0})
+use_condition (obvious: {0 ∈ RealSet}) in (hypothesis 27: {0 ∈ RealSet ⇒ 0 ≠ 0}) as (hypothesis 28: {0 ≠ 0})
+autosolve all_hypothesis

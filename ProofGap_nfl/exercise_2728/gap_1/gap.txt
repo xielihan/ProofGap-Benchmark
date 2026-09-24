@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. a : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = n * e^{-n * x}
+
+GOAL:
+seqlim_{ n → +∞ } (frac((n + 1) * e^{-(n + 1) * x}, n * e^{-n * x})) = e^{-x}
+
+METHOD:

@@ -1,0 +1,2 @@
+exists (y := {frac(2 * p, 3)})
+autosolve all_hypothesis

@@ -1,0 +1,5 @@
+1. get_condition (hypothesis 23: {s = 0}) in (GOAL: {s = 0 ⇒ Delta(s, a, b) ≤ max(a, b)})
+2. rewrite (left_to_right, equation) (hypothesis 23: {s = 0}); from (GOAL: {Delta(s, a, b) ≤ max(a, b)}) to (GOAL: {Delta(0, a, b) ≤ max(a, b)})
+3. rewrite (left_to_right, equation) (hypothesis 13: {Delta(0, a, b) = sqrtn(2, a * b)}); from (GOAL: {Delta(0, a, b) ≤ max(a, b)}) to (GOAL: {sqrtn(2, a * b) ≤ max(a, b)})
+4. use_condition (hypothesis 23: {s = 0}) in (hypothesis 21: {s = 0 ⇒ sqrtn(2, a * b) ≤ max(a, b)}) as (hypothesis 24: {sqrtn(2, a * b) ≤ max(a, b)})
+5. apply (hypothesis 24: {sqrtn(2, a * b) ≤ max(a, b)})

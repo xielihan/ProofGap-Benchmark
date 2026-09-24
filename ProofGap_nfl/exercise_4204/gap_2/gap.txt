@@ -1,0 +1,18 @@
+PROOF GAP @2
+ASSUM:
+1. n ∈ IntegerSet
+2. I_{1} ∈ RealSet
+3. I_{2} ∈ RealSet
+4. x_{i} ∈ RealSet
+5. x_{j} ∈ RealSet
+6. i ∈ IntegerSet
+7. j ∈ IntegerSet
+8. n ≥ 4
+9. I_{1} = DefInt(0, 1, (fun x_{n - 1} [x_{n - 1} ∈ RealSet] . DefInt(0, 1, (fun x_{n} [x_{n} ∈ RealSet] . sum_{ i = 1 }^{ n } ((x_{i})^{2})) * diff(fun x_{n} [x_{n} ∈ RealSet] . x_{n}))) * diff(fun x_{n - 1} [x_{n - 1} ∈ RealSet] . x_{n - 1}))
+10. I_{2} = DefInt(0, 1, (fun x_{n - 1} [x_{n - 1} ∈ RealSet] . DefInt(0, 1, (fun x_{n} [x_{n} ∈ RealSet] . (sum_{ i = 1 }^{ n } (x_{i}))^{2}) * diff(fun x_{n} [x_{n} ∈ RealSet] . x_{n}))) * diff(fun x_{n - 1} [x_{n - 1} ∈ RealSet] . x_{n - 1}))
+11. I_{1} = DefInt(0, 1, (fun x_{n - 1} [x_{n - 1} ∈ RealSet] . DefInt(0, 1, (fun x_{n} [x_{n} ∈ RealSet] . sum_{ i = 1 }^{ n } ((x_{i})^{2})) * diff(fun x_{n} [x_{n} ∈ RealSet] . x_{n}))) * diff(fun x_{n - 1} [x_{n - 1} ∈ RealSet] . x_{n - 1}))
+
+GOAL:
+I_{1} = sum_{ i = 1 }^{ n } (DefInt(0, 1, (fun x_{i} [x_{i} ∈ RealSet] . (x_{i})^{2}) * diff(fun x_{i} [x_{i} ∈ RealSet] . x_{i})))
+
+METHOD:

@@ -1,0 +1,4 @@
+get_prop (hypothesis 20: {forall (x), x ∈ RealSet ⇒ u(x, 0, 0) = x * e^{-x}}) (x := {1}) as (hypothesis 23: {1 ∈ RealSet ⇒ u(1, 0, 0) = 1 * e^{-1}})
+use_condition (obvious: {1 ∈ RealSet}) in (hypothesis 23: {1 ∈ RealSet ⇒ u(1, 0, 0) = 1 * e^{-1}}) as (hypothesis 24: {u(1, 0, 0) = 1 * e^{-1}})
+rewrite (left_to_right, equation) (hypothesis 24: {u(1, 0, 0) = 1 * e^{-1}}); from (GOAL: {u(1, 0, 0) = e^{-1}}) to (GOAL: {1 * e^{-1} = e^{-1}})
+autosolve all_hypothesis

@@ -1,0 +1,16 @@
+PROOF GAP @7
+ASSUM:
+1. f : RealSet → RealSet
+2. f : IntervalLoRo(0, +∞) → RealSet
+3. IntegrableFuncOn(fun x [x ∈ RealSet] . |f(x)|, IntervalLoRo(0, +∞))
+4. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (A), A ∈ RealSet ∧ A > 0 ∧ DefInt(A, +∞, (fun x [x ∈ RealSet] . |f(x)|) * diff(fun x [x ∈ RealSet] . x)) < frac(ε, 3))
+5. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (A), A ∈ RealSet ∧ A > 0 ∧ (forall (n), n ∈ NonNegIntegerSet ⇒ |DefInt(0, +∞, (fun x [x ∈ RealSet] . f(x) * sin(n * x)) * diff(fun x [x ∈ RealSet] . x))| ≤ |DefInt(0, A, (fun x [x ∈ RealSet] . f(x) * sin(n * x)) * diff(fun x [x ∈ RealSet] . x))| + frac(ε, 3)))
+6. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (A) (t_{0}) (t_{m}) (m) (t_{k - 1}) (t_{k}), A ∈ RealSet ∧ t_{0} ∈ RealSet ∧ t_{m} ∈ RealSet ∧ m ∈ NonNegIntegerSet ∧ m > 0 ∧ t_{k - 1} ∈ RealSet ∧ t_{k} ∈ RealSet ∧ (A > 0 ∧ IntegrableFuncOn(f, [0, A]) ⇒ t_{0} = 0 ⇒ t_{m} = A ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≤ m ⇒ t_{k - 1} < t_{k})))
+7. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (A) (t_{0}) (t_{m}) (m) (t_{k - 1}) (t_{k}), A ∈ RealSet ∧ t_{0} ∈ RealSet ∧ t_{m} ∈ RealSet ∧ m ∈ NonNegIntegerSet ∧ m > 0 ∧ t_{k - 1} ∈ RealSet ∧ t_{k} ∈ RealSet ∧ A > 0 ∧ (forall (n), n ∈ NonNegIntegerSet ∧ IntegrableFuncOn(f, [0, A]) ∧ t_{0} = 0 ∧ t_{m} = A ⇒ DefInt(0, A, (fun x [x ∈ RealSet] . f(x) * sin(n * x)) * diff(fun x [x ∈ RealSet] . x)) = sum_{ k = 1 }^{ m } (DefInt(t_{k - 1}, t_{k}, (fun x [x ∈ RealSet] . f(x) * sin(n * x)) * diff(fun x [x ∈ RealSet] . x)))))
+8. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (A) (t_{0}) (t_{m}) (m) (t_{k - 1}) (t_{k}) (m_{k}), A ∈ RealSet ∧ t_{0} ∈ RealSet ∧ t_{m} ∈ RealSet ∧ m ∈ NonNegIntegerSet ∧ m > 0 ∧ t_{k - 1} ∈ RealSet ∧ t_{k} ∈ RealSet ∧ m_{k} ∈ RealSet ∧ A > 0 ∧ (forall (n), n ∈ NonNegIntegerSet ∧ IntegrableFuncOn(f, [0, A]) ∧ t_{0} = 0 ∧ t_{m} = A ⇒ DefInt(0, A, (fun x [x ∈ RealSet] . f(x) * sin(n * x)) * diff(fun x [x ∈ RealSet] . x)) = (sum_{ k = 1 }^{ m } (DefInt(t_{k - 1}, t_{k}, (fun x [x ∈ RealSet] . (f(x) - m_{k}) * sin(n * x)) * diff(fun x [x ∈ RealSet] . x)))) + (sum_{ k = 1 }^{ m } (m_{k} * DefInt(t_{k - 1}, t_{k}, (fun x [x ∈ RealSet] . sin(n * x)) * diff(fun x [x ∈ RealSet] . x))))))
+9. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (A) (t_{0}) (t_{m}) (m) (w_{k}) (t_{k}) (t_{k - 1}) (m_{k}), A ∈ RealSet ∧ t_{0} ∈ RealSet ∧ t_{m} ∈ RealSet ∧ m ∈ NonNegIntegerSet ∧ m > 0 ∧ w_{k} ∈ RealSet ∧ t_{k} ∈ RealSet ∧ t_{k - 1} ∈ RealSet ∧ m_{k} ∈ RealSet ∧ A > 0 ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ IntegrableFuncOn(f, [0, A]) ∧ t_{0} = 0 ∧ t_{m} = A ⇒ |DefInt(0, A, (fun x [x ∈ RealSet] . f(x) * sin(n * x)) * diff(fun x [x ∈ RealSet] . x))| ≤ (sum_{ k = 1 }^{ m } (w_{k} * (t_{k} - t_{k - 1}))) + frac(2, n) * (sum_{ k = 1 }^{ m } (|m_{k}|))))
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (A) (t_{0}) (t_{m}) (m) (w_{k}) (t_{k}) (t_{k - 1}), A ∈ RealSet ∧ t_{0} ∈ RealSet ∧ t_{m} ∈ RealSet ∧ m ∈ NonNegIntegerSet ∧ m > 0 ∧ w_{k} ∈ RealSet ∧ t_{k} ∈ RealSet ∧ t_{k - 1} ∈ RealSet ∧ (A > 0 ∧ IntegrableFuncOn(f, [0, A]) ⇒ t_{0} = 0 ⇒ t_{m} = A ⇒ sum_{ k = 1 }^{ m } (w_{k} * (t_{k} - t_{k - 1})) < frac(ε, 3)))
+
+METHOD:

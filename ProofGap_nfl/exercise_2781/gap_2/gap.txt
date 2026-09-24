@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. a : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. s : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+3. S ∈ RealSet
+4. forall (x) (m), x ∈ RealSet ∧ m ∈ IntegerSet ∧ x = 2 * m * π ∧ m ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ sum_{ k = 1 }^{ n } (sin(x) * sin(k * x)) = 0)
+
+GOAL:
+forall (x) (m), x ∈ RealSet ∧ m ∈ IntegerSet ∧ x ≠ 2 * m * π ∧ m ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |sum_{ k = 1 }^{ n } (sin(x) * sin(k * x))| = |sin(x)| * |sum_{ k = 1 }^{ n } (sin(k * x))| ∧ |sin(x)| * |sum_{ k = 1 }^{ n } (sin(k * x))| ≤ |sin(x)| * frac(1, |sin(frac(x, 2))|) ∧ |sin(x)| * frac(1, |sin(frac(x, 2))|) = 2 * |cos(frac(x, 2))| ∧ 2 * |cos(frac(x, 2))| ≤ 2)
+
+METHOD:

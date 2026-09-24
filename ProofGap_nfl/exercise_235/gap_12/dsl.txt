@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ A ⇒ f_{1}(x + k_{1} * k_{2} * T) * f_{2}(x + k_{1} * k_{2} * T) = f_{1}(x) * f_{2}(x)}) (x := {y})
+get_condition (hypothesis 30: {y ∈ RealSet ∧ y ∈ A}) in (GOAL: {y ∈ RealSet ∧ y ∈ A ⇒ f_{1}(y + k_{1} * k_{2} * T) * f_{2}(y + k_{1} * k_{2} * T) = f_{1}(y) * f_{2}(y)})
+get_prop (hypothesis 23: {forall (x), x ∈ RealSet ∧ x ∈ A ⇒ f_{1}(x + k_{1} * k_{2} * T) = f_{1}(x)}) (x := {y}) as (hypothesis 31: {y ∈ RealSet ∧ y ∈ A ⇒ f_{1}(y + k_{1} * k_{2} * T) = f_{1}(y)})
+use_condition (hypothesis 30: {y ∈ RealSet ∧ y ∈ A}) in (hypothesis 31: {y ∈ RealSet ∧ y ∈ A ⇒ f_{1}(y + k_{1} * k_{2} * T) = f_{1}(y)}) as (hypothesis 32: {f_{1}(y + k_{1} * k_{2} * T) = f_{1}(y)})
+get_prop (hypothesis 24: {forall (x), x ∈ RealSet ∧ x ∈ A ⇒ f_{2}(x + k_{1} * k_{2} * T) = f_{2}(x)}) (x := {y}) as (hypothesis 33: {y ∈ RealSet ∧ y ∈ A ⇒ f_{2}(y + k_{1} * k_{2} * T) = f_{2}(y)})
+use_condition (hypothesis 30: {y ∈ RealSet ∧ y ∈ A}) in (hypothesis 33: {y ∈ RealSet ∧ y ∈ A ⇒ f_{2}(y + k_{1} * k_{2} * T) = f_{2}(y)}) as (hypothesis 34: {f_{2}(y + k_{1} * k_{2} * T) = f_{2}(y)})
+rewrite (left_to_right, equation) (hypothesis 32: {f_{1}(y + k_{1} * k_{2} * T) = f_{1}(y)}); from (GOAL: {f_{1}(y + k_{1} * k_{2} * T) * f_{2}(y + k_{1} * k_{2} * T) = f_{1}(y) * f_{2}(y)}) to (GOAL: {f_{1}(y) * f_{2}(y + k_{1} * k_{2} * T) = f_{1}(y) * f_{2}(y)})
+rewrite (left_to_right, equation) (hypothesis 34: {f_{2}(y + k_{1} * k_{2} * T) = f_{2}(y)}); from (GOAL: {f_{1}(y) * f_{2}(y + k_{1} * k_{2} * T) = f_{1}(y) * f_{2}(y)}) to (GOAL: {f_{1}(y) * f_{2}(y) = f_{1}(y) * f_{2}(y)})
+autosolve all_hypothesis

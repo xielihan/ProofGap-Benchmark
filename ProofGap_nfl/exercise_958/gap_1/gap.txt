@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = arcsin(sin(x^{2})) + arccos(cos(x^{2}))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ sin(x^{2}) ≠ 0 ∧ cos(x^{2}) ≠ 0 ⇒ (arcsin(sin(x^{2})) + arccos(cos(x^{2})))' = frac(2 * x * cos(x^{2}), sqrtn(2, 1 - sin(x^{2})^{2})) + frac(2 * x * sin(x^{2}), sqrtn(2, 1 - cos(x^{2})^{2}))
+
+METHOD:

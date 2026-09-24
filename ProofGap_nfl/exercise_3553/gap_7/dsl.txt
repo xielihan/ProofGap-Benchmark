@@ -1,0 +1,95 @@
+get_forall (GOAL: {forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ x_{0} ∈ PosRealSet ∧ y_{0} ∈ PosRealSet ∧ z_{0} ∈ PosRealSet ∧ sqrtn(2, x_{0}) + sqrtn(2, y_{0}) + sqrtn(2, z_{0}) = sqrtn(2, a) ⇒ sqrtn(2, a * x_{0}) + sqrtn(2, a * y_{0}) + sqrtn(2, a * z_{0}) = sqrtn(2, a) * (sqrtn(2, x_{0}) + sqrtn(2, y_{0}) + sqrtn(2, z_{0}))))}) (x_{0} := {u})
+get_condition (hypothesis 8: {u ∈ RealSet}) in (GOAL: {u ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ u ∈ PosRealSet ∧ y_{0} ∈ PosRealSet ∧ z_{0} ∈ PosRealSet ∧ sqrtn(2, u) + sqrtn(2, y_{0}) + sqrtn(2, z_{0}) = sqrtn(2, a) ⇒ sqrtn(2, a * u) + sqrtn(2, a * y_{0}) + sqrtn(2, a * z_{0}) = sqrtn(2, a) * (sqrtn(2, u) + sqrtn(2, y_{0}) + sqrtn(2, z_{0}))))})
+get_forall (GOAL: {forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ u ∈ PosRealSet ∧ y_{0} ∈ PosRealSet ∧ z_{0} ∈ PosRealSet ∧ sqrtn(2, u) + sqrtn(2, y_{0}) + sqrtn(2, z_{0}) = sqrtn(2, a) ⇒ sqrtn(2, a * u) + sqrtn(2, a * y_{0}) + sqrtn(2, a * z_{0}) = sqrtn(2, a) * (sqrtn(2, u) + sqrtn(2, y_{0}) + sqrtn(2, z_{0})))}) (y_{0} := {v})
+get_condition (hypothesis 9: {v ∈ RealSet}) in (GOAL: {v ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ u ∈ PosRealSet ∧ v ∈ PosRealSet ∧ z_{0} ∈ PosRealSet ∧ sqrtn(2, u) + sqrtn(2, v) + sqrtn(2, z_{0}) = sqrtn(2, a) ⇒ sqrtn(2, a * u) + sqrtn(2, a * v) + sqrtn(2, a * z_{0}) = sqrtn(2, a) * (sqrtn(2, u) + sqrtn(2, v) + sqrtn(2, z_{0})))})
+get_forall (GOAL: {forall (z_{0}), z_{0} ∈ RealSet ∧ u ∈ PosRealSet ∧ v ∈ PosRealSet ∧ z_{0} ∈ PosRealSet ∧ sqrtn(2, u) + sqrtn(2, v) + sqrtn(2, z_{0}) = sqrtn(2, a) ⇒ sqrtn(2, a * u) + sqrtn(2, a * v) + sqrtn(2, a * z_{0}) = sqrtn(2, a) * (sqrtn(2, u) + sqrtn(2, v) + sqrtn(2, z_{0}))}) (z_{0} := {w})
+get_condition (hypothesis 10: {w ∈ RealSet ∧ u ∈ PosRealSet ∧ v ∈ PosRealSet ∧ w ∈ PosRealSet ∧ sqrtn(2, u) + sqrtn(2, v) + sqrtn(2, w) = sqrtn(2, a)}) in (GOAL: {w ∈ RealSet ∧ u ∈ PosRealSet ∧ v ∈ PosRealSet ∧ w ∈ PosRealSet ∧ sqrtn(2, u) + sqrtn(2, v) + sqrtn(2, w) = sqrtn(2, a) ⇒ sqrtn(2, a * u) + sqrtn(2, a * v) + sqrtn(2, a * w) = sqrtn(2, a) * (sqrtn(2, u) + sqrtn(2, v) + sqrtn(2, w))})
+destruct_and (hypothesis 10: {w ∈ RealSet ∧ u ∈ PosRealSet ∧ v ∈ PosRealSet ∧ w ∈ PosRealSet ∧ sqrtn(2, u) + sqrtn(2, v) + sqrtn(2, w) = sqrtn(2, a)}) as (hypothesis 11: {w ∈ RealSet}) (hypothesis 12: {u ∈ PosRealSet}) (hypothesis 13: {v ∈ PosRealSet}) (hypothesis 14: {w ∈ PosRealSet}) (hypothesis 15: {sqrtn(2, u) + sqrtn(2, v) + sqrtn(2, w) = sqrtn(2, a)})
+destruct_and (hypothesis 1: {a ∈ RealSet ∧ a > 0}) as (hypothesis 16: {a ∈ RealSet}) (hypothesis 17: {a > 0})
+assert (hypothesis 18: {u > 0}) by proof {
+  autosolve all_hypothesis using SgnSolver
+}
+assert (hypothesis 19: {v > 0}) by proof {
+  autosolve all_hypothesis using SgnSolver
+}
+assert (hypothesis 20: {w > 0}) by proof {
+  autosolve all_hypothesis using SgnSolver
+}
+assert (hypothesis 21: {frac(1, 2) ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 22: {a * u ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 23: {a * v ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 24: {a * w ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 25: {a * u > 0}) by proof {
+  autosolve all_hypothesis using SgnSolver
+}
+assert (hypothesis 26: {a * v > 0}) by proof {
+  autosolve all_hypothesis using SgnSolver
+}
+assert (hypothesis 27: {a * w > 0}) by proof {
+  autosolve all_hypothesis using SgnSolver
+}
+assert (hypothesis 28: {sqrtn(2, a * u) = (a * u)^{frac(1, 2)}}) by proof {
+  autosolve all_hypothesis using RootPowerSolver
+}
+assert (hypothesis 29: {sqrtn(2, a) = a^{frac(1, 2)}}) by proof {
+  autosolve all_hypothesis using RootPowerSolver
+}
+assert (hypothesis 30: {sqrtn(2, u) = u^{frac(1, 2)}}) by proof {
+  autosolve all_hypothesis using RootPowerSolver
+}
+assert (hypothesis 31: {sqrtn(2, a * v) = (a * v)^{frac(1, 2)}}) by proof {
+  autosolve all_hypothesis using RootPowerSolver
+}
+assert (hypothesis 32: {sqrtn(2, v) = v^{frac(1, 2)}}) by proof {
+  autosolve all_hypothesis using RootPowerSolver
+}
+assert (hypothesis 33: {sqrtn(2, a * w) = (a * w)^{frac(1, 2)}}) by proof {
+  autosolve all_hypothesis using RootPowerSolver
+}
+assert (hypothesis 34: {sqrtn(2, w) = w^{frac(1, 2)}}) by proof {
+  autosolve all_hypothesis using RootPowerSolver
+}
+get_prop (theorem 'Thm 382. (PowerProductDistribution)': {forall (a) (b) (r), a ∈ RealSet ⇒ b ∈ RealSet ⇒ r ∈ RealSet ⇒ (a > 0 ⇒ b > 0 ⇒ (a * b)^{r} = a^{r} * b^{r})}) (a := {a}) (b := {u}) (r := {frac(1, 2)}) as (hypothesis 35: {a ∈ RealSet ⇒ u ∈ RealSet ⇒ frac(1, 2) ∈ RealSet ⇒ (a > 0 ⇒ u > 0 ⇒ (a * u)^{frac(1, 2)} = a^{frac(1, 2)} * u^{frac(1, 2)})})
+use_condition (hypothesis 16: {a ∈ RealSet}) (hypothesis 8: {u ∈ RealSet}) (hypothesis 21: {frac(1, 2) ∈ RealSet}) (hypothesis 17: {a > 0}) (hypothesis 18: {u > 0}) in (hypothesis 35: {a ∈ RealSet ⇒ u ∈ RealSet ⇒ frac(1, 2) ∈ RealSet ⇒ (a > 0 ⇒ u > 0 ⇒ (a * u)^{frac(1, 2)} = a^{frac(1, 2)} * u^{frac(1, 2)})}) as (hypothesis 36: {(a * u)^{frac(1, 2)} = a^{frac(1, 2)} * u^{frac(1, 2)}})
+get_prop (theorem 'Thm 382. (PowerProductDistribution)': {forall (a) (b) (r), a ∈ RealSet ⇒ b ∈ RealSet ⇒ r ∈ RealSet ⇒ (a > 0 ⇒ b > 0 ⇒ (a * b)^{r} = a^{r} * b^{r})}) (a := {a}) (b := {v}) (r := {frac(1, 2)}) as (hypothesis 37: {a ∈ RealSet ⇒ v ∈ RealSet ⇒ frac(1, 2) ∈ RealSet ⇒ (a > 0 ⇒ v > 0 ⇒ (a * v)^{frac(1, 2)} = a^{frac(1, 2)} * v^{frac(1, 2)})})
+use_condition (hypothesis 16: {a ∈ RealSet}) (hypothesis 9: {v ∈ RealSet}) (hypothesis 21: {frac(1, 2) ∈ RealSet}) (hypothesis 17: {a > 0}) (hypothesis 19: {v > 0}) in (hypothesis 37: {a ∈ RealSet ⇒ v ∈ RealSet ⇒ frac(1, 2) ∈ RealSet ⇒ (a > 0 ⇒ v > 0 ⇒ (a * v)^{frac(1, 2)} = a^{frac(1, 2)} * v^{frac(1, 2)})}) as (hypothesis 38: {(a * v)^{frac(1, 2)} = a^{frac(1, 2)} * v^{frac(1, 2)}})
+get_prop (theorem 'Thm 382. (PowerProductDistribution)': {forall (a) (b) (r), a ∈ RealSet ⇒ b ∈ RealSet ⇒ r ∈ RealSet ⇒ (a > 0 ⇒ b > 0 ⇒ (a * b)^{r} = a^{r} * b^{r})}) (a := {a}) (b := {w}) (r := {frac(1, 2)}) as (hypothesis 39: {a ∈ RealSet ⇒ w ∈ RealSet ⇒ frac(1, 2) ∈ RealSet ⇒ (a > 0 ⇒ w > 0 ⇒ (a * w)^{frac(1, 2)} = a^{frac(1, 2)} * w^{frac(1, 2)})})
+use_condition (hypothesis 16: {a ∈ RealSet}) (hypothesis 11: {w ∈ RealSet}) (hypothesis 21: {frac(1, 2) ∈ RealSet}) (hypothesis 17: {a > 0}) (hypothesis 20: {w > 0}) in (hypothesis 39: {a ∈ RealSet ⇒ w ∈ RealSet ⇒ frac(1, 2) ∈ RealSet ⇒ (a > 0 ⇒ w > 0 ⇒ (a * w)^{frac(1, 2)} = a^{frac(1, 2)} * w^{frac(1, 2)})}) as (hypothesis 40: {(a * w)^{frac(1, 2)} = a^{frac(1, 2)} * w^{frac(1, 2)}})
+assert (hypothesis 41: {sqrtn(2, a * u) = sqrtn(2, a) * sqrtn(2, u)}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 28: {sqrtn(2, a * u) = (a * u)^{frac(1, 2)}}); from (GOAL: {sqrtn(2, a * u) = sqrtn(2, a) * sqrtn(2, u)}) to (GOAL: {(a * u)^{frac(1, 2)} = sqrtn(2, a) * sqrtn(2, u)})
+  rewrite (left_to_right, equation) (hypothesis 36: {(a * u)^{frac(1, 2)} = a^{frac(1, 2)} * u^{frac(1, 2)}}); from (GOAL: {(a * u)^{frac(1, 2)} = sqrtn(2, a) * sqrtn(2, u)}) to (GOAL: {a^{frac(1, 2)} * u^{frac(1, 2)} = sqrtn(2, a) * sqrtn(2, u)})
+  rewrite (right_to_left, equation) (hypothesis 29: {sqrtn(2, a) = a^{frac(1, 2)}}); from (GOAL: {a^{frac(1, 2)} * u^{frac(1, 2)} = sqrtn(2, a) * sqrtn(2, u)}) to (GOAL: {sqrtn(2, a) * u^{frac(1, 2)} = sqrtn(2, a) * sqrtn(2, u)})
+  rewrite (right_to_left, equation) (hypothesis 30: {sqrtn(2, u) = u^{frac(1, 2)}}); from (GOAL: {sqrtn(2, a) * u^{frac(1, 2)} = sqrtn(2, a) * sqrtn(2, u)}) to (GOAL: {sqrtn(2, a) * sqrtn(2, u) = sqrtn(2, a) * sqrtn(2, u)})
+  autosolve all_hypothesis
+}
+assert (hypothesis 42: {sqrtn(2, a * v) = sqrtn(2, a) * sqrtn(2, v)}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 31: {sqrtn(2, a * v) = (a * v)^{frac(1, 2)}}); from (GOAL: {sqrtn(2, a * v) = sqrtn(2, a) * sqrtn(2, v)}) to (GOAL: {(a * v)^{frac(1, 2)} = sqrtn(2, a) * sqrtn(2, v)})
+  rewrite (left_to_right, equation) (hypothesis 38: {(a * v)^{frac(1, 2)} = a^{frac(1, 2)} * v^{frac(1, 2)}}); from (GOAL: {(a * v)^{frac(1, 2)} = sqrtn(2, a) * sqrtn(2, v)}) to (GOAL: {a^{frac(1, 2)} * v^{frac(1, 2)} = sqrtn(2, a) * sqrtn(2, v)})
+  rewrite (right_to_left, equation) (hypothesis 29: {sqrtn(2, a) = a^{frac(1, 2)}}); from (GOAL: {a^{frac(1, 2)} * v^{frac(1, 2)} = sqrtn(2, a) * sqrtn(2, v)}) to (GOAL: {sqrtn(2, a) * v^{frac(1, 2)} = sqrtn(2, a) * sqrtn(2, v)})
+  rewrite (right_to_left, equation) (hypothesis 32: {sqrtn(2, v) = v^{frac(1, 2)}}); from (GOAL: {sqrtn(2, a) * v^{frac(1, 2)} = sqrtn(2, a) * sqrtn(2, v)}) to (GOAL: {sqrtn(2, a) * sqrtn(2, v) = sqrtn(2, a) * sqrtn(2, v)})
+  autosolve all_hypothesis
+}
+assert (hypothesis 43: {sqrtn(2, a * w) = sqrtn(2, a) * sqrtn(2, w)}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 33: {sqrtn(2, a * w) = (a * w)^{frac(1, 2)}}); from (GOAL: {sqrtn(2, a * w) = sqrtn(2, a) * sqrtn(2, w)}) to (GOAL: {(a * w)^{frac(1, 2)} = sqrtn(2, a) * sqrtn(2, w)})
+  rewrite (left_to_right, equation) (hypothesis 40: {(a * w)^{frac(1, 2)} = a^{frac(1, 2)} * w^{frac(1, 2)}}); from (GOAL: {(a * w)^{frac(1, 2)} = sqrtn(2, a) * sqrtn(2, w)}) to (GOAL: {a^{frac(1, 2)} * w^{frac(1, 2)} = sqrtn(2, a) * sqrtn(2, w)})
+  rewrite (right_to_left, equation) (hypothesis 29: {sqrtn(2, a) = a^{frac(1, 2)}}); from (GOAL: {a^{frac(1, 2)} * w^{frac(1, 2)} = sqrtn(2, a) * sqrtn(2, w)}) to (GOAL: {sqrtn(2, a) * w^{frac(1, 2)} = sqrtn(2, a) * sqrtn(2, w)})
+  rewrite (right_to_left, equation) (hypothesis 34: {sqrtn(2, w) = w^{frac(1, 2)}}); from (GOAL: {sqrtn(2, a) * w^{frac(1, 2)} = sqrtn(2, a) * sqrtn(2, w)}) to (GOAL: {sqrtn(2, a) * sqrtn(2, w) = sqrtn(2, a) * sqrtn(2, w)})
+  autosolve all_hypothesis
+}
+assert (hypothesis 44: {sqrtn(2, a) * sqrtn(2, u) + sqrtn(2, a) * sqrtn(2, v) + sqrtn(2, a) * sqrtn(2, w) = sqrtn(2, a) * (sqrtn(2, u) + sqrtn(2, v) + sqrtn(2, w))}) by proof {
+  autosolve all_hypothesis using PolyRatSolver
+}
+rewrite (left_to_right, equation) (hypothesis 15: {sqrtn(2, u) + sqrtn(2, v) + sqrtn(2, w) = sqrtn(2, a)}); from (hypothesis 44: {sqrtn(2, a) * sqrtn(2, u) + sqrtn(2, a) * sqrtn(2, v) + sqrtn(2, a) * sqrtn(2, w) = sqrtn(2, a) * (sqrtn(2, u) + sqrtn(2, v) + sqrtn(2, w))}) to (hypothesis 45: {sqrtn(2, a) * sqrtn(2, u) + sqrtn(2, a) * sqrtn(2, v) + sqrtn(2, a) * sqrtn(2, w) = sqrtn(2, a) * sqrtn(2, a)})
+rewrite (left_to_right, equation) (hypothesis 41: {sqrtn(2, a * u) = sqrtn(2, a) * sqrtn(2, u)}); from (GOAL: {sqrtn(2, a * u) + sqrtn(2, a * v) + sqrtn(2, a * w) = sqrtn(2, a) * (sqrtn(2, u) + sqrtn(2, v) + sqrtn(2, w))}) to (GOAL: {sqrtn(2, a) * sqrtn(2, u) + sqrtn(2, a * v) + sqrtn(2, a * w) = sqrtn(2, a) * (sqrtn(2, u) + sqrtn(2, v) + sqrtn(2, w))})
+rewrite (left_to_right, equation) (hypothesis 42: {sqrtn(2, a * v) = sqrtn(2, a) * sqrtn(2, v)}); from (GOAL: {sqrtn(2, a) * sqrtn(2, u) + sqrtn(2, a * v) + sqrtn(2, a * w) = sqrtn(2, a) * (sqrtn(2, u) + sqrtn(2, v) + sqrtn(2, w))}) to (GOAL: {sqrtn(2, a) * sqrtn(2, u) + sqrtn(2, a) * sqrtn(2, v) + sqrtn(2, a * w) = sqrtn(2, a) * (sqrtn(2, u) + sqrtn(2, v) + sqrtn(2, w))})
+rewrite (left_to_right, equation) (hypothesis 43: {sqrtn(2, a * w) = sqrtn(2, a) * sqrtn(2, w)}); from (GOAL: {sqrtn(2, a) * sqrtn(2, u) + sqrtn(2, a) * sqrtn(2, v) + sqrtn(2, a * w) = sqrtn(2, a) * (sqrtn(2, u) + sqrtn(2, v) + sqrtn(2, w))}) to (GOAL: {sqrtn(2, a) * sqrtn(2, u) + sqrtn(2, a) * sqrtn(2, v) + sqrtn(2, a) * sqrtn(2, w) = sqrtn(2, a) * (sqrtn(2, u) + sqrtn(2, v) + sqrtn(2, w))})
+rewrite (left_to_right, equation) (hypothesis 15: {sqrtn(2, u) + sqrtn(2, v) + sqrtn(2, w) = sqrtn(2, a)}); from (GOAL: {sqrtn(2, a) * sqrtn(2, u) + sqrtn(2, a) * sqrtn(2, v) + sqrtn(2, a) * sqrtn(2, w) = sqrtn(2, a) * (sqrtn(2, u) + sqrtn(2, v) + sqrtn(2, w))}) to (GOAL: {sqrtn(2, a) * sqrtn(2, u) + sqrtn(2, a) * sqrtn(2, v) + sqrtn(2, a) * sqrtn(2, w) = sqrtn(2, a) * sqrtn(2, a)})
+autosolve all_hypothesis

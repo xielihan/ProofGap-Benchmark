@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. forall (n), n ∈ NonNegIntegerSet ∧ n > 1 ⇒ tan(frac(π, 4) + frac(1, n))^{n} = frac(1 + tan(frac(1, n)), 1 - tan(frac(1, n)))^{n}
+2. forall (n), n ∈ NonNegIntegerSet ∧ n > 1 ⇒ frac(1 + tan(frac(1, n)), 1 - tan(frac(1, n)))^{n} = (1 + frac(1, frac(1 - tan(frac(1, n)), 2 * tan(frac(1, n)))))^{frac(1 - tan(frac(1, n)), 2 * tan(frac(1, n))) * frac(2 * tan(frac(1, n)), frac(1, n)) * frac(1, 1 - tan(frac(1, n)))}
+3. seqlim_{ n → +∞ } (frac(1 - tan(frac(1, n)), 2 * tan(frac(1, n)))) = +∞
+4. seqlim_{ n → +∞ } (frac(2 * tan(frac(1, n)), frac(1, n))) = 2
+
+GOAL:
+seqlim_{ n → +∞ } (frac(1, 1 - tan(frac(1, n)))) = 1
+
+METHOD:

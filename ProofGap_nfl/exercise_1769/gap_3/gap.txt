@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ (exists (t), t ∈ RealSet ∧ (1 - x^{2} = t ⇒ -1 < x))
+2. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ (exists (t), t ∈ RealSet ∧ (1 - x^{2} = t ⇒ x < 1))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ (exists (t), t ∈ RealSet ∧ (1 - x^{2} = t ⇒ 0 < t))
+
+METHOD:

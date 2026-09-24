@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = sin(x^{2})
+3. forall (a), a ∈ RealSet ∧ a > 0 ∧ PeriodicFunc(f, a) ⇒ (forall (x), x ∈ RealSet ⇒ sin((x + a)^{2}) = sin(x^{2}))
+4. forall (a), a ∈ RealSet ∧ a > 0 ∧ PeriodicFunc(f, a) ⇒ (exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ (a = sqrtn(2, m * π) ∨ a = -sqrtn(2, m * π)))
+5. forall (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ (exists (a), a ∈ RealSet ∧ a > 0 ∧ PeriodicFunc(f, a)) ⇒ sin(2 * sqrtn(2, 2) * m * π) = 0
+6. forall (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ (exists (a), a ∈ RealSet ∧ a > 0 ∧ PeriodicFunc(f, a)) ⇒ 2 * sqrtn(2, 2) * m ∉ IntegerSet
+7. (exists (a), a ∈ RealSet ∧ a > 0 ∧ PeriodicFunc(f, a)) ⇒ False
+
+GOAL:
+¬(exists (a), a ∈ RealSet ∧ a > 0 ∧ PeriodicFunc(f, a))
+
+METHOD:

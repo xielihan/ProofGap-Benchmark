@@ -1,0 +1,17 @@
+PROOF GAP @4
+ASSUM:
+1. I : RealSet → RealSet
+2. f : CartesianProd(RealSet, RealSet) → RealSet
+3. x_{0} ∈ RealSet ∧ x_{0} > 1
+4. y_{0} ∈ RealSet ∧ 0 < y_{0} ∧ y_{0} < 1
+5. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ 0 < y ∧ y < 1 ⇒ I(y) = DefInt(1, +∞, e^{-frac(1, y^{2}) * (x - frac(1, y))^{2}} * diff(fun x [x ∈ RealSet] . x)))
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x, y) = e^{-frac(1, y^{2}) * (x - frac(1, y))^{2}}
+7. forall (A_{0}), A_{0} ∈ RealSet ∧ A_{0} > 1 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ A_{0} = A_{0}(ε))
+8. forall (A_{0}), A_{0} ∈ RealSet ∧ A_{0} > 1 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ A_{0} > 1)
+9. forall (A_{0}) (u), A_{0} ∈ RealSet ∧ A_{0} > 1 ∧ u ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ DefInt(A_{0} - frac(sqrtn(2, π), ε), +∞, e^{-u^{2}} * diff(fun u [u ∈ RealSet] . u)) < ε)
+10. forall (A) (A_{0}) (y) (x), A ∈ RealSet ∧ A > 1 ∧ A_{0} ∈ RealSet ∧ A_{0} > 1 ∧ y ∈ RealSet ∧ x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ A > A_{0} ∧ frac(ε, sqrtn(2, π)) ≤ y ∧ y < 1 ⇒ DefInt(A, +∞, e^{-frac(1, y^{2}) * (x - frac(1, y))^{2}} * diff(fun x [x ∈ RealSet] . x)) < DefInt(A, +∞, e^{-(x - frac(1, y))^{2}} * diff(fun x [x ∈ RealSet] . x)))
+
+GOAL:
+forall (A) (A_{0}) (y) (x) (u), A ∈ RealSet ∧ A > 1 ∧ A_{0} ∈ RealSet ∧ A_{0} > 1 ∧ y ∈ RealSet ∧ x ∈ RealSet ∧ u ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ A > A_{0} ∧ frac(ε, sqrtn(2, π)) ≤ y ∧ y < 1 ⇒ DefInt(A, +∞, e^{-(x - frac(1, y))^{2}} * diff(fun x [x ∈ RealSet] . x)) = DefInt(A - frac(1, y), +∞, e^{-u^{2}} * diff(fun u [u ∈ RealSet] . u)))
+
+METHOD:

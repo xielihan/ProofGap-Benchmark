@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ [-1, +∞) ⇒ y(x) = sqrtn(2, x + 1) - ln(1 + sqrtn(2, x + 1))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > -1 ⇒ FunDeri(y, 1, 1)(x) = frac(1, 2 * sqrtn(2, x + 1)) - frac(1, 2 * sqrtn(2, x + 1) * (1 + sqrtn(2, x + 1))) ∧ frac(1, 2 * sqrtn(2, x + 1)) - frac(1, 2 * sqrtn(2, x + 1) * (1 + sqrtn(2, x + 1))) = frac(1, 2 * (1 + sqrtn(2, x + 1)))
+
+METHOD:

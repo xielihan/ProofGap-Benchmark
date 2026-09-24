@@ -1,0 +1,15 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. Defined(f, (-∞, a))
+5. lim_{ x → -∞ } (f(x)) = b ⇔ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x < -N ∧ x ∈ Dom(f) ⇒ 0 < b - f(x) ∧ b - f(x) < ε)))
+6. f = (fun x [x ∈ RealSet ∧ x < 0] . frac(1, x))
+7. a = 0
+8. b = 0
+
+GOAL:
+Defined(f, (-∞, 0))
+
+METHOD:

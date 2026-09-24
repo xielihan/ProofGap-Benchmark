@@ -1,0 +1,2 @@
+assert (hypothesis 5: {FunDeri(fun t . ln(|t + sqrtn(2, t^{2} + a)|), 1, 1)(x) = frac(1, sqrtn(2, x^{2} + a))})
+apply (hypothesis 5: {FunDeri(fun t . ln(|t + sqrtn(2, t^{2} + a)|), 1, 1)(x) = frac(1, sqrtn(2, x^{2} + a))})

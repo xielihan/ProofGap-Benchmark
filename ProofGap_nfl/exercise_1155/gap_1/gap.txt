@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. ω ∈ RealSet
+4. v : RealSet → RealSet
+5. w : RealSet → RealSet
+6. forall (t), t ∈ RealSet ⇒ x(t) = 4 * sin(ω * t) - 3 * cos(ω * t)
+7. forall (t), t ∈ RealSet ⇒ y(t) = 3 * sin(ω * t) + 4 * cos(ω * t)
+
+GOAL:
+forall (t), t ∈ RealSet ⇒ x(t)^{2} + y(t)^{2} = 16 * sin(ω * t)^{2} + 9 * cos(ω * t)^{2} - 24 * sin(ω * t) * cos(ω * t) + 9 * sin(ω * t)^{2} + 16 * cos(ω * t)^{2} + 24 * sin(ω * t) * cos(ω * t)
+
+METHOD:

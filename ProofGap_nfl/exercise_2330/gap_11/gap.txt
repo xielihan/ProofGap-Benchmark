@@ -1,0 +1,24 @@
+PROOF GAP @11
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. 0 < a
+4. a < b
+5. x : RealSet → RealSet ∧ x = (fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ b^{2}] . sqrtn(2, t))
+6. forall (t), t ∈ RealSet ∧ t ∈ [a^{2}, b^{2}] ⇒ a^{2} ≤ t
+7. forall (t), t ∈ RealSet ∧ t ∈ [a^{2}, b^{2}] ⇒ t ≤ b^{2}
+8. DefInt(a, b, (fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . sin(x^{2})) * diff(fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . x)) = frac(1, 2) * DefInt(a^{2}, b^{2}, (fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ b^{2}] . frac(sin(t), sqrtn(2, t))) * diff(fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ b^{2}] . t))
+9. f : RealSet → RealSet ∧ f = (fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ b^{2}] . sin(t))
+10. φ : RealSet → RealSet ∧ φ = (fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ b^{2}] . frac(1, sqrtn(2, t)))
+11. ContinuousFuncOn(f, [a^{2}, b^{2}])
+12. ContinuousFuncOn(φ, [a^{2}, b^{2}])
+13. MonoDecFuncOn(φ, [a^{2}, b^{2}])
+14. forall (t), t ∈ RealSet ∧ t ∈ [a^{2}, b^{2}] ⇒ frac(1, sqrtn(2, t)) > 0
+15. exists (ξ), ξ ∈ RealSet ∧ a^{2} ≤ ξ ∧ ξ ≤ b^{2} ∧ DefInt(a, b, (fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . sin(x^{2})) * diff(fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . x)) = (frac(1, 2 * a) - frac(1, 2 * b)) * DefInt(a^{2}, ξ, (fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ ξ] . sin(t)) * diff(fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ ξ] . t)) + frac(1, 2 * b) * DefInt(a^{2}, b^{2}, (fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ b^{2}] . sin(t)) * diff(fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ b^{2}] . t))
+16. exists (ξ), ξ ∈ RealSet ∧ a^{2} ≤ ξ ∧ ξ ≤ b^{2} ∧ DefInt(a, b, (fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . sin(x^{2})) * diff(fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . x)) = (frac(1, 2 * a) - frac(1, 2 * b)) * DefInt(a^{2}, ξ, (fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ ξ] . sin(t)) * diff(fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ ξ] . t)) + frac(1, 2 * b) * DefInt(a^{2}, b^{2}, (fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ b^{2}] . sin(t)) * diff(fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ b^{2}] . t)) ∧ DefInt(a^{2}, ξ, (fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ ξ] . sin(t)) * diff(fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ ξ] . t)) = cos(a^{2}) - cos(ξ) ∧ cos(a^{2}) - cos(ξ) = 2 * sin(frac(ξ + a^{2}, 2)) * sin(frac(ξ - a^{2}, 2))
+17. exists (ξ), ξ ∈ RealSet ∧ a^{2} ≤ ξ ∧ ξ ≤ b^{2} ∧ DefInt(a, b, (fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . sin(x^{2})) * diff(fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . x)) = (frac(1, 2 * a) - frac(1, 2 * b)) * DefInt(a^{2}, ξ, (fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ ξ] . sin(t)) * diff(fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ ξ] . t)) + frac(1, 2 * b) * DefInt(a^{2}, b^{2}, (fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ b^{2}] . sin(t)) * diff(fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ b^{2}] . t)) ∧ DefInt(a^{2}, ξ, (fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ ξ] . sin(t)) * diff(fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ ξ] . t)) = cos(a^{2}) - cos(ξ) ∧ cos(a^{2}) - cos(ξ) = 2 * sin(frac(ξ + a^{2}, 2)) * sin(frac(ξ - a^{2}, 2)) ∧ DefInt(a^{2}, b^{2}, (fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ b^{2}] . sin(t)) * diff(fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ b^{2}] . t)) = cos(a^{2}) - cos(b^{2}) ∧ cos(a^{2}) - cos(b^{2}) = 2 * sin(frac(b^{2} + a^{2}, 2)) * sin(frac(b^{2} - a^{2}, 2))
+
+GOAL:
+exists (ξ) (u) (v) (θ), ξ ∈ RealSet ∧ a^{2} ≤ ξ ∧ ξ ≤ b^{2} ∧ u ∈ RealSet ∧ v ∈ RealSet ∧ θ ∈ RealSet ∧ DefInt(a, b, (fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . sin(x^{2})) * diff(fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . x)) = (frac(1, 2 * a) - frac(1, 2 * b)) * DefInt(a^{2}, ξ, (fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ ξ] . sin(t)) * diff(fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ ξ] . t)) + frac(1, 2 * b) * DefInt(a^{2}, b^{2}, (fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ b^{2}] . sin(t)) * diff(fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ b^{2}] . t)) ∧ DefInt(a^{2}, ξ, (fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ ξ] . sin(t)) * diff(fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ ξ] . t)) = cos(a^{2}) - cos(ξ) ∧ cos(a^{2}) - cos(ξ) = 2 * sin(frac(ξ + a^{2}, 2)) * sin(frac(ξ - a^{2}, 2)) ∧ DefInt(a^{2}, b^{2}, (fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ b^{2}] . sin(t)) * diff(fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ b^{2}] . t)) = cos(a^{2}) - cos(b^{2}) ∧ cos(a^{2}) - cos(b^{2}) = 2 * sin(frac(b^{2} + a^{2}, 2)) * sin(frac(b^{2} - a^{2}, 2)) ∧ u = sin(frac(ξ + a^{2}, 2)) * sin(frac(ξ - a^{2}, 2)) ∧ v = sin(frac(b^{2} + a^{2}, 2)) * sin(frac(b^{2} - a^{2}, 2)) ∧ θ = (1 - frac(a, b)) * u + frac(a, b) * v
+
+METHOD:

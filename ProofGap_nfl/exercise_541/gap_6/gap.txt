@@ -1,0 +1,15 @@
+PROOF GAP @6
+ASSUM:
+1. a ∈ RealSet ∧ a > 0 ∧ a ≠ 1
+2. x : RealSet → RealSet
+3. y = (fun x [x ∈ RealSet] . a^{x} - 1)
+4. x = (fun y [y ∈ RealSet ∧ 1 + y > 0] . log(a, 1 + y))
+5. lim_{ x → 0 } (frac(a^{x} - 1, x)) = lim_{ y → 0 } (frac(y, log(a, 1 + y)))
+6. lim_{ y → 0 } (frac(y, log(a, 1 + y))) = lim_{ y → 0 } (frac(1, log(a, (1 + y)^{frac(1, y)})))
+7. lim_{ y → 0 } (frac(1, log(a, (1 + y)^{frac(1, y)}))) = frac(1, log(a, e))
+8. frac(1, log(a, e)) = ln(a)
+
+GOAL:
+lim_{ x → 0 } (frac(a^{x} - 1, x)) = ln(a)
+
+METHOD:

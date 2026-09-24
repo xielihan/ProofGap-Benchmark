@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. A ∈ RealSet
+3. B ∈ RealSet
+4. λ ∈ RealSet ∧ λ > 0
+5. A^{2} + B^{2} > 0
+6. forall (x), x ∈ RealSet ⇒ f(x) = A * cos(λ * x) + B * sin(λ * x)
+7. forall (x), x ∈ RealSet ⇒ f(x + frac(2 * π, λ)) = A * cos(λ * (x + frac(2 * π, λ))) + B * sin(λ * (x + frac(2 * π, λ)))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ f(x + frac(2 * π, λ)) = A * cos(λ * x) + B * sin(λ * x)
+
+METHOD:

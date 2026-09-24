@@ -1,0 +1,3 @@
+1. get_forall (GOAL: {forall (n), n ∈ IntegerSet ∧ n = 2 => frac(9, 4) > 2}) (n := {n1})
+2. get_condition (hypothesis 2: {n1 ∈ IntegerSet ∧ n1 = 2}) in (GOAL: {n1 ∈ IntegerSet ∧ n1 = 2 => frac(9, 4) > 2})
+3. autosolve all_hypothesis

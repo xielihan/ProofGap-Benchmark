@@ -1,0 +1,17 @@
+PROOF GAP @7
+ASSUM:
+1. a ∈ RealSet
+2. u : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = cos(frac(a, n))^{n^{3}}
+4. a = 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = 1)
+5. a = 0 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (u(n)))
+6. a ≠ 0 ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ cos(frac(a, n)) > 0))
+7. a ≠ 0 ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ u(n)^{frac(1, n)} = cos(frac(a, n))^{n^{2}}))
+8. a ≠ 0 ⇒ seqlim_{ n → +∞ } (cos(frac(a, n))^{n^{2}}) = e^{-frac(a^{2}, 2)}
+9. a ≠ 0 ⇒ e^{-frac(a^{2}, 2)} < 1
+
+GOAL:
+a ≠ 0 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (u(n)))
+
+METHOD:
+[@method 根据 "根值判别法" @]

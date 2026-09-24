@@ -1,0 +1,24 @@
+PROOF GAP @11
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. v : CartesianProd(RealSet, RealSet) → RealSet
+3. z : CartesianProd(RealSet, RealSet) → RealSet
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ u(x, y) = x + 2 * y + 2
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ v(x, y) = x - y - 1
+6. FuncOfClassK(z, 2)
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ 2 * FunDeri(z, 1, 2)(x, y) + FunDeri(FunDeri(z, 1, 1), 2, 1)(x, y) - FunDeri(z, 2, 2)(x, y) + FunDeri(z, 1, 1)(x, y) + FunDeri(z, 2, 1)(x, y) = 0
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 1)(x, y) = FunDeri(z, u, 1)(x, y) * FunDeri(u, 1, 1)(x, y) + FunDeri(z, v, 1)(x, y) * FunDeri(v, 1, 1)(x, y)
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, u, 1)(x, y) * FunDeri(u, 1, 1)(x, y) + FunDeri(z, v, 1)(x, y) * FunDeri(v, 1, 1)(x, y) = FunDeri(z, u, 1)(x, y) + FunDeri(z, v, 1)(x, y)
+10. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 1)(x, y) = FunDeri(z, u, 1)(x, y) + FunDeri(z, v, 1)(x, y)
+11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 2, 1)(x, y) = FunDeri(z, u, 1)(x, y) * FunDeri(u, 2, 1)(x, y) + FunDeri(z, v, 1)(x, y) * FunDeri(v, 2, 1)(x, y)
+12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, u, 1)(x, y) * FunDeri(u, 2, 1)(x, y) + FunDeri(z, v, 1)(x, y) * FunDeri(v, 2, 1)(x, y) = 2 * FunDeri(z, u, 1)(x, y) - FunDeri(z, v, 1)(x, y)
+13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 2, 1)(x, y) = 2 * FunDeri(z, u, 1)(x, y) - FunDeri(z, v, 1)(x, y)
+14. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 2)(x, y) = FunDeri(z, u, 2)(x, y) + 2 * FunDeri(FunDeri(z, u, 1), v, 1)(x, y) + FunDeri(z, v, 2)(x, y)
+15. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(FunDeri(z, 1, 1), 2, 1)(x, y) = 2 * FunDeri(z, u, 2)(x, y) + FunDeri(FunDeri(z, u, 1), v, 1)(x, y) - FunDeri(z, v, 2)(x, y)
+16. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 2, 2)(x, y) = 4 * FunDeri(z, u, 2)(x, y) - 4 * FunDeri(FunDeri(z, u, 1), v, 1)(x, y) + FunDeri(z, v, 2)(x, y)
+17. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ 2 * FunDeri(z, 1, 2)(x, y) + FunDeri(FunDeri(z, 1, 1), 2, 1)(x, y) - FunDeri(z, 2, 2)(x, y) + FunDeri(z, 1, 1)(x, y) + FunDeri(z, 2, 1)(x, y) = 3 * FunDeri(FunDeri(z, u, 1), v, 1)(x, y) + FunDeri(z, u, 1)(x, y)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ 3 * FunDeri(FunDeri(z, u, 1), v, 1)(x, y) + FunDeri(z, u, 1)(x, y) = 0
+
+METHOD:

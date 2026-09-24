@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+3. FuncOfClassKOn(z, CartesianProd(RealSet, RealSet), n)
+
+GOAL:
+(forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 2, n)(x, y) = 0) ⇒ (exists (φ), φ : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ∧ (forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 2, n - 1)(x, y) = (n - 1)! * φ(n - 1, x)))
+
+METHOD:

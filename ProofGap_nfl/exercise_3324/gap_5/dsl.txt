@@ -1,0 +1,17 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), x > 0 ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ n * x^{n} * φ(frac(y, x^{α}), frac(z, x^{β})) = n * u(x, y, z)))}) (x := {x0})
+2. get_condition (hypothesis 12: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), x0 > 0 ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ n * x0^{n} * φ(frac(y, x0^{α}), frac(z, x0^{β})) = n * u(x0, y, z)))})
+3. get_forall (GOAL: {(forall (y), y ∈ RealSet ⇒ (forall (z), x0 > 0 ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ n * x0^{n} * φ(frac(y, x0^{α}), frac(z, x0^{β})) = n * u(x0, y, z)))}) (y := {y0})
+4. get_condition (hypothesis 13: {y0 ∈ RealSet}) in (GOAL: {y0 ∈ RealSet ⇒ (forall (z), x0 > 0 ∧ y0 ∈ RealSet ∧ z ∈ RealSet ⇒ n * x0^{n} * φ(frac(y0, x0^{α}), frac(z, x0^{β})) = n * u(x0, y0, z))})
+5. get_forall (GOAL: {(forall (z), x0 > 0 ∧ y0 ∈ RealSet ∧ z ∈ RealSet ⇒ n * x0^{n} * φ(frac(y0, x0^{α}), frac(z, x0^{β})) = n * u(x0, y0, z))}) (z := {z0})
+6. get_condition (hypothesis 14: {x0 > 0 ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet}) in (GOAL: {x0 > 0 ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet ⇒ n * x0^{n} * φ(frac(y0, x0^{α}), frac(z0, x0^{β})) = n * u(x0, y0, z0)})
+7. destruct_and (hypothesis 14: {x0 > 0 ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet}) as (hypothesis 15: {x0 > 0}) (hypothesis 16: {y0 ∈ RealSet}) (hypothesis 17: {z0 ∈ RealSet})
+8. get_prop (hypothesis 6: {forall (x) (y) (z), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = x^{n} * φ(frac(y, x^{α}), frac(z, x^{β}))}) (x := {x0}) (y := {y0}) (z := {z0}) as (hypothesis 18: {x0 ∈ RealSet ∧ x0 > 0 ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet ⇒ u(x0, y0, z0) = x0^{n} * φ(frac(y0, x0^{α}), frac(z0, x0^{β}))})
+9. assert (hypothesis 19: {x0 ∈ RealSet ∧ x0 > 0 ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet}) by proof {
+  1. autosolve all_hypothesis
+}
+10. use_condition (hypothesis 19: {x0 ∈ RealSet ∧ x0 > 0 ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet}) in (hypothesis 18: {x0 ∈ RealSet ∧ x0 > 0 ∧ y0 ∈ RealSet ∧ z0 ∈ RealSet ⇒ u(x0, y0, z0) = x0^{n} * φ(frac(y0, x0^{α}), frac(z0, x0^{β}))}) as (hypothesis 20: {u(x0, y0, z0) = x0^{n} * φ(frac(y0, x0^{α}), frac(z0, x0^{β}))})
+11. get_prop (theorem 'Thm 476. (EqualityPreservedByMultiplication)': {forall (a) (b) (c), a ∈ RealSet => b ∈ RealSet => c ∈ RealSet => a = b => a * c = b * c}) (a := {u(x0, y0, z0)}) (b := {x0^{n} * φ(frac(y0, x0^{α}), frac(z0, x0^{β}))}) (c := {n}) as (hypothesis 21: {u(x0, y0, z0) ∈ RealSet => x0^{n} * φ(frac(y0, x0^{α}), frac(z0, x0^{β})) ∈ RealSet => n ∈ RealSet => u(x0, y0, z0) = x0^{n} * φ(frac(y0, x0^{α}), frac(z0, x0^{β})) => u(x0, y0, z0) * n = x0^{n} * φ(frac(y0, x0^{α}), frac(z0, x0^{β})) * n})
+12. assert (hypothesis 22: {u(x0, y0, z0) * n = x0^{n} * φ(frac(y0, x0^{α}), frac(z0, x0^{β})) * n}) by proof {
+  1. autosolve all_hypothesis
+}
+13. autosolve all_hypothesis

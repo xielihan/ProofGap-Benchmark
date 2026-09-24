@@ -1,0 +1,15 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. `ξ_2` ∈ RealSet ∧ `ξ_2` ∈ PosRealSet
+3. x_{1} ∈ RealSet
+4. x_{2} ∈ RealSet
+5. x_{3} ∈ RealSet
+6. m ∈ RealSet ∧ m > 0
+7. forall (x), x ∈ RealSet ∧ (forall (k), k ∈ IntegerSet ⇒ x ≠ frac(π, 2) + k * π) ⇒ f(x) = tan(x) - x
+8. f(frac(23 * π, 16)) < 0
+
+GOAL:
+f(frac(79 * π, 32)) > 0
+
+METHOD:

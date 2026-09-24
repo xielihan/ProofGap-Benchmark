@@ -1,0 +1,23 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet
+2. p ∈ RealSet
+3. φ : CartesianProd(RealSet, RealSet) → RealSet
+4. D ⊆ CartesianProd(RealSet, RealSet)
+5. T ⊆ CartesianProd(RealSet, RealSet)
+6. x ∈ RealSet
+7. y ∈ RealSet
+8. a > 0
+9. D = CartesianProd([0, a], [0, a])
+10. T = { (x, y) | x ∈ RealSet, y ∈ RealSet, x ≥ 0, x ≤ a, y ≥ 0, y ≤ x }
+11. Defined(φ, D)
+12. ContinuousFuncOn(φ, D)
+13. BoundedFuncOn(φ, D)
+14. exists (m) (M), m ∈ RealSet ∧ M ∈ RealSet ∧ (forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ∧ 0 ≤ y ∧ y ≤ a ∧ x ≠ y ⇒ frac(m, |x - y|^{p}) ≤ frac(|φ(x, y)|, |x - y|^{p}) ∧ frac(|φ(x, y)|, |x - y|^{p}) ≤ frac(M, |x - y|^{p}))
+15. VolumeInt(D, (fun x, y [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ a] . frac(φ(x, y), |x - y|^{p})) * diff(fun x, y [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ a] . x) * diff(fun x, y [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ a] . y)) < +∞ ⇔ VolumeInt(D, (fun x, y [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ a] . frac(1, |x - y|^{p})) * diff(fun x, y [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ a] . x) * diff(fun x, y [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ a] . y)) < +∞
+
+GOAL:
+VolumeInt(D, (fun x, y [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ a] . frac(1, |x - y|^{p})) * diff(fun x, y [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ a] . x) * diff(fun x, y [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ a] . y)) = 2 * VolumeInt(T, (fun x, y [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ x] . frac(1, (x - y)^{p})) * diff(fun x, y [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ x] . x) * diff(fun x, y [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ x] . y))
+
+METHOD:
+[@method 根据 "对称性及被积函数非负性" @]

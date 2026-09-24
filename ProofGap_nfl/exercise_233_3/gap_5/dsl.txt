@@ -1,0 +1,4 @@
+get_condition (hypothesis 7: {PeriodicFunc(f, 6 * π) /\ (forall (T), T ∈ RealSet /\ T > 0 /\ PeriodicFunc(f, T) => 6 * π ≤ T)}) in (GOAL: {PeriodicFunc(f, 6 * π) /\ (forall (T), T ∈ RealSet /\ T > 0 /\ PeriodicFunc(f, T) => 6 * π ≤ T) => (exists (T), T ∈ RealSet /\ T > 0 /\ PeriodicFunc(f, T))})
+destruct_and (hypothesis 7: {PeriodicFunc(f, 6 * π) /\ (forall (T), T ∈ RealSet /\ T > 0 /\ PeriodicFunc(f, T) => 6 * π ≤ T)}) as (hypothesis 8: {PeriodicFunc(f, 6 * π)}) (hypothesis 9: {forall (T), T ∈ RealSet /\ T > 0 /\ PeriodicFunc(f, T) => 6 * π ≤ T})
+exists (T := {6 * π})
+autosolve all_hypothesis

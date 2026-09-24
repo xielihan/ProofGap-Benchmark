@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. C ∈ RealSet
+2. x ∈ RealSet
+3. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x^{2}, sqrtn(2, 1 + x + x^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_9` | exists (`F_3`) (`F_4`) (`F_7`), `F_3` : RealSet → RealSet ∧ `F_4` : RealSet → RealSet ∧ `F_7` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(x^{2} + x + 1, sqrtn(2, x^{2} + x + 1)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ FunDeri(`F_4`, 1, 1)(x) = frac(2 * x + 1, sqrtn(2, 1 + x + x^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ FunDeri(`F_7`, 1, 1)(x) = frac(1, sqrtn(2, 1 + x + x^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_9`(x) = `F_3`(x) - frac(1, 2) * `F_4`(x) - frac(1, 2) * `F_7`(x)) }
+
+GOAL:
+{ `F_10` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_10`, 1, 1)(x) = frac(x^{2}, sqrtn(2, 1 + x + x^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_17` | exists (`F_11`) (`F_12`) (`F_15`), `F_11` : RealSet → RealSet ∧ `F_12` : RealSet → RealSet ∧ `F_15` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_11`, 1, 1)(x) = sqrtn(2, (x + frac(1, 2))^{2} + frac(3, 4)) * FunDeri(fun x [x ∈ RealSet] . x + frac(1, 2), 1, 1)(x) ∧ FunDeri(`F_12`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . 1 + x + x^{2}, 1, 1)(x), sqrtn(2, 1 + x + x^{2})) ∧ FunDeri(`F_15`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x + frac(1, 2), 1, 1)(x), sqrtn(2, (x + frac(1, 2))^{2} + frac(3, 4))) ∧ `F_17`(x) = `F_11`(x) - frac(1, 2) * `F_12`(x) - frac(1, 2) * `F_15`(x)) }
+
+METHOD:

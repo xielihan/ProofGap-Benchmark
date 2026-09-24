@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet /\ n = 0 => I(0) = 2 * π}) (n := {n0})
+get_condition (hypothesis 10: {n0 ∈ NonNegIntegerSet /\ n0 = 0}) in (GOAL: {n0 ∈ NonNegIntegerSet /\ n0 = 0 => I(0) = 2 * π})
+get_prop (hypothesis 9: {forall (n), n ∈ NonNegIntegerSet /\ n = 0 => I(0) = frac(1, 2) * (2 * π + 2 * π)}) (n := {n0}) as (hypothesis 11: {n0 ∈ NonNegIntegerSet /\ n0 = 0 => I(0) = frac(1, 2) * (2 * π + 2 * π)})
+use_condition (hypothesis 10: {n0 ∈ NonNegIntegerSet /\ n0 = 0}) in (hypothesis 11: {n0 ∈ NonNegIntegerSet /\ n0 = 0 => I(0) = frac(1, 2) * (2 * π + 2 * π)}) as (hypothesis 12: {I(0) = frac(1, 2) * (2 * π + 2 * π)})
+rewrite (left_to_right, equation) (hypothesis 12: {I(0) = frac(1, 2) * (2 * π + 2 * π)}); from (GOAL: {I(0) = 2 * π}) to (GOAL: {frac(1, 2) * (2 * π + 2 * π) = 2 * π})
+autosolve all_hypothesis

@@ -1,0 +1,18 @@
+PROOF GAP @5
+ASSUM:
+1. r ∈ RealSet
+2. φ ∈ RealSet
+3. a ∈ RealSet ∧ a > 0
+4. I_{x} ∈ RealSet
+5. I_{y} ∈ RealSet
+6. D ⊆ CartesianProd(RealSet, RealSet)
+7. D = { (r, φ) | r ∈ RealSet, φ ∈ RealSet, -π ≤ φ, φ ≤ π, 0 ≤ r, r ≤ a * (1 + cos(φ)) }
+8. I_{x} = DefInt(-π, π, (fun φ [φ ∈ RealSet] . DefInt(0, a * (1 + cos(φ)), (fun r [r ∈ RealSet] . r^{2} * sin(φ)^{2} * r) * diff(fun r [r ∈ RealSet] . r))) * diff(fun φ [φ ∈ RealSet] . φ))
+9. I_{x} = frac(1, 4) * a^{4} * DefInt(-π, π, (fun φ [φ ∈ RealSet] . (1 + cos(φ))^{4} * sin(φ)^{2}) * diff(fun φ [φ ∈ RealSet] . φ))
+10. I_{x} = frac(1, 2) * a^{4} * DefInt(0, π, (fun φ [φ ∈ RealSet] . (1 + 4 * cos(φ) + 6 * cos(φ)^{2} + 4 * cos(φ)^{3} + cos(φ)^{4}) * sin(φ)^{2}) * diff(fun φ [φ ∈ RealSet] . φ))
+11. I_{x} = frac(21, 32) * π * a^{4}
+
+GOAL:
+I_{y} = DefInt(-π, π, (fun φ [φ ∈ RealSet] . DefInt(0, a * (1 + cos(φ)), (fun r [r ∈ RealSet] . r^{2} * cos(φ)^{2} * r) * diff(fun r [r ∈ RealSet] . r))) * diff(fun φ [φ ∈ RealSet] . φ))
+
+METHOD:

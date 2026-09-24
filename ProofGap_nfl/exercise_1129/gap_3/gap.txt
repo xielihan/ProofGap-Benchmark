@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. f : RealSet → RealSet
+3. φ : RealSet → RealSet
+4. forall (x), x ∈ RealSet ⇒ y(x) = f(φ(x))
+5. FuncOfClassK(φ, 3)
+6. FuncOfClassK(f, 3)
+7. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = FunDeri(φ, 1, 1)(x) * FunDeri(f, 1, 1)(φ(x))
+8. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = FunDeri(φ, 1, 1)(x)^{2} * FunDeri(f, 1, 2)(φ(x)) + FunDeri(φ, 1, 2)(x) * FunDeri(f, 1, 1)(φ(x))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 3)(x) = FunDeri(φ, 1, 1)(x)^{3} * FunDeri(f, 1, 3)(φ(x)) + 3 * FunDeri(φ, 1, 1)(x) * FunDeri(φ, 1, 2)(x) * FunDeri(f, 1, 2)(φ(x)) + FunDeri(φ, 1, 3)(x) * FunDeri(f, 1, 1)(φ(x))
+
+METHOD:

@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. S : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. forall (n) (x) (k), n ∈ NonNegIntegerSet ∧ k ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ k ∈ PosIntegerSet ∧ sin(x) ≠ 0 ⇒ prod_{ k = 1 }^{ n } (cos(frac(x, 2^{k}))) = frac(sin(x), 2^{n} * sin(frac(x, 2^{n})))
+3. forall (n) (x) (k), n ∈ NonNegIntegerSet ∧ k ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ k ∈ PosIntegerSet ⇒ S(n, x) = sum_{ k = 1 }^{ n } (frac(1, 2^{k}) * tan(frac(x, 2^{k})))
+
+GOAL:
+forall (n) (x) (k), n ∈ NonNegIntegerSet ∧ k ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ k ∈ PosIntegerSet ∧ sin(x) ≠ 0 ⇒ prod_{ k = 1 }^{ n } (cos(frac(x, 2^{k}))) = frac(sin(x), 2^{n} * sin(frac(x, 2^{n})))
+
+METHOD:

@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = x^{2}
+3. ContinuousFuncOn(y, [1, 2])
+4. MonoIncFuncOn(y, [1, 2])
+5. MinimumPointOn(y, [1, 2]) = { 1 }
+6. y(1) = 1
+
+GOAL:
+MaximumPointOn(y, [1, 2]) = 2
+
+METHOD:

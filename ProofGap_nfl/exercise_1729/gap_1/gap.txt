@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. C ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≥ 1 ⇒ frac(1, sqrtn(2, x + 1) + sqrtn(2, x - 1)) = frac(1, 2) * (sqrtn(2, x + 1) - sqrtn(2, x - 1))
+
+METHOD:

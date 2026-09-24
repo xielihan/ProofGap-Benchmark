@@ -1,0 +1,2 @@
+exists (λ := {-frac(1, 2)})
+autosolve all_hypothesis

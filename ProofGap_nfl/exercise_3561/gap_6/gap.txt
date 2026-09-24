@@ -1,0 +1,21 @@
+PROOF GAP @6
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. c ∈ RealSet
+4. S_{a} ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+5. S_{b} ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+6. S_{c} ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+7. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ S_{a} = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x^{2} + y^{2} + z^{2} = 2 * a * x }))
+8. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ S_{b} = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x^{2} + y^{2} + z^{2} = 2 * b * y }))
+9. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ S_{c} = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x^{2} + y^{2} + z^{2} = 2 * c * z }))
+10. forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ (x_{0}, y_{0}, z_{0}) ∈ S_{a} ∧ (x_{0}, y_{0}, z_{0}) ∈ S_{b} ⇒ (x_{0})^{2} + (y_{0})^{2} + (z_{0})^{2} = 2 * a * x_{0}))
+11. forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ (x_{0}, y_{0}, z_{0}) ∈ S_{a} ∧ (x_{0}, y_{0}, z_{0}) ∈ S_{b} ⇒ (x_{0})^{2} + (y_{0})^{2} + (z_{0})^{2} = 2 * b * y_{0}))
+12. forall (n_{1}), n_{1} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ (x_{0}, y_{0}, z_{0}) ∈ S_{a} ∧ (x_{0}, y_{0}, z_{0}) ∈ S_{b} ⇒ n_{1} = (2 * (x_{0} - a), 2 * y_{0}, 2 * z_{0}))))
+13. forall (n_{2}), n_{2} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ (x_{0}, y_{0}, z_{0}) ∈ S_{a} ∧ (x_{0}, y_{0}, z_{0}) ∈ S_{b} ⇒ n_{2} = (2 * x_{0}, 2 * (y_{0} - b), 2 * z_{0}))))
+14. forall (n_{1}), n_{1} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ (forall (n_{2}), n_{2} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ (x_{0}, y_{0}, z_{0}) ∈ S_{a} ∧ (x_{0}, y_{0}, z_{0}) ∈ S_{b} ⇒ n_{1} · n_{2} = 4 * (x_{0} * (x_{0} - a) + y_{0} * (y_{0} - b) + (z_{0})^{2})))))
+
+GOAL:
+forall (n_{1}), n_{1} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ (forall (n_{2}), n_{2} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ (x_{0}, y_{0}, z_{0}) ∈ S_{a} ∧ (x_{0}, y_{0}, z_{0}) ∈ S_{b} ⇒ n_{1} · n_{2} = 2 * ((x_{0})^{2} + (y_{0})^{2} + (z_{0})^{2} - 2 * a * x_{0} + (x_{0})^{2} + (y_{0})^{2} + (z_{0})^{2} - 2 * b * y_{0})))))
+
+METHOD:

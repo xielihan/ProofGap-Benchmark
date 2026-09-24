@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. a ∈ RealSet
+3. FuncOfClassK(z, 2)
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y)^{3} - 3 * x * y * z(x, y) = a^{3} ∧ z(x, y)^{2} - x * y ≠ 0
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ 3 * z(x, y)^{2} * FunDeri(z, 1, 1)(x, y) - 3 * y * z(x, y) - 3 * x * y * FunDeri(z, 1, 1)(x, y) = 0
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 1)(x, y) = frac(y * z(x, y), z(x, y)^{2} - x * y)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 2, 1)(x, y) = frac(x * z(x, y), z(x, y)^{2} - x * y)
+
+METHOD:
+[@method 同理 @]

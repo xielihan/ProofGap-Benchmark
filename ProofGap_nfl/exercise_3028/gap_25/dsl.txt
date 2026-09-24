@@ -1,0 +1,4 @@
+assert (hypothesis 32: {-1 ≤ x ∧ x ≤ 1 ⇒ f(x) = 2 * arcsin(x)^{2}}) by proof {
+ autosolve all_hypothesis
+}
+autosolve all_hypothesis

@@ -1,0 +1,4 @@
+1. get_prop (theorem 'Thm 484. (ContinuousFunctionValueLimit)': {forall (f) (a), f : RealSet -> RealSet => a ∈ RealSet => ContinuousFuncAt(f, a) => lim_{x -> a} (f(x)) = f(a)}) (f := {φ}) (a := {a}) as (hypothesis 12: {φ : RealSet -> RealSet => a ∈ RealSet => ContinuousFuncAt(φ, a) => lim_{x -> a} (φ(x)) = φ(a)})
+2. use_condition (hypothesis 4: {φ : RealSet -> RealSet}) (hypothesis 1: {a ∈ RealSet}) (hypothesis 6: {ContinuousFuncAt(φ, a)}) in (hypothesis 12: {φ : RealSet -> RealSet => a ∈ RealSet => ContinuousFuncAt(φ, a) => lim_{x -> a} (φ(x)) = φ(a)}) as (hypothesis 13: {lim_{x -> a} (φ(x)) = φ(a)})
+3. rewrite (left_to_right, equation) (hypothesis 13: {lim_{x -> a} (φ(x)) = φ(a)}); from (GOAL: {-(lim_{x -> a} (φ(x))) = -φ(a)}) to (GOAL: {-φ(a) = -φ(a)})
+4. autosolve all_hypothesis

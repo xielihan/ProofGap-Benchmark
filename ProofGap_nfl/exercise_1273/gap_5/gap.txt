@@ -1,0 +1,12 @@
+PROOF GAP @5
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = x + |sin(2 * x)|
+3. forall (x), x ∈ RealSet ∧ sin(2 * x) ≠ 0 ⇒ FunDeri(y, 1, 1)(x) = 1 + 2 * frac(|sin(2 * x)|, sin(2 * x)) * cos(2 * x)
+4. forall (x), x ∈ RealSet ⇒ (forall (k), k ∈ IntegerSet ∧ frac(k * π, 2) < x ∧ x < frac(k * π, 2) + frac(π, 3) ⇒ FunDeri(y, 1, 1)(x) > 0)
+5. forall (x), x ∈ RealSet ⇒ (forall (k), k ∈ IntegerSet ∧ frac(k * π, 2) < x ∧ x < frac(k * π, 2) + frac(π, 3) ⇒ MonoIncFuncOn(y, IntervalLoRo(frac(k * π, 2), frac(k * π, 2) + frac(π, 3))))
+6. forall (x), x ∈ RealSet ⇒ (forall (k), k ∈ IntegerSet ∧ frac(k * π, 2) + frac(π, 3) < x ∧ x < frac(k * π, 2) + frac(π, 2) ⇒ FunDeri(y, 1, 1)(x) < 0)
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (k), k ∈ IntegerSet ∧ frac(k * π, 2) + frac(π, 3) < x ∧ x < frac(k * π, 2) + frac(π, 2) ⇒ MonoDecFuncOn(y, IntervalLoRo(frac(k * π, 2) + frac(π, 3), frac(k * π, 2) + frac(π, 2))))
+
+METHOD:

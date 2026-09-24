@@ -1,0 +1,19 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. Oz ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+4. DiffableFuncOn(f, PosRealSet)
+5. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ S = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x^{2} + y^{2} ≠ 0, z = f(sqrtn(2, x^{2} + y^{2})) }
+6. forall (z), z ∈ RealSet ⇒ Oz = { (0, 0, z) | z ∈ RealSet }
+7. forall (r), r ∈ RealSet ∧ r ∈ PosRealSet ⇒ FunDeri(f, 1, 1)(r) ≠ 0
+8. forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ (x_{0}, y_{0}, z_{0}) ∈ S ⇒ z_{0} = f(sqrtn(2, (x_{0})^{2} + (y_{0})^{2}))))
+9. forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ (x_{0}, y_{0}, z_{0}) ∈ S ⇒ (x_{0})^{2} + (y_{0})^{2} ≠ 0))
+10. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ (x_{0}, y_{0}, z_{0}) ∈ S ⇒ frac(x - x_{0}, x_{0} * FunDeri(f, 1, 1)(sqrtn(2, (x_{0})^{2} + (y_{0})^{2}))) = frac(y - y_{0}, y_{0} * FunDeri(f, 1, 1)(sqrtn(2, (x_{0})^{2} + (y_{0})^{2})))))))
+11. forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ (x_{0}, y_{0}, z_{0}) ∈ S ⇒ frac(y - y_{0}, y_{0} * FunDeri(f, 1, 1)(sqrtn(2, (x_{0})^{2} + (y_{0})^{2}))) = frac(z - z_{0}, -sqrtn(2, (x_{0})^{2} + (y_{0})^{2}))))))
+12. exists (z_{1}), z_{1} ∈ RealSet ∧ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ (x_{0}, y_{0}, z_{0}) ∈ S ⇒ z_{1} = f(sqrtn(2, (x_{0})^{2} + (y_{0})^{2})) + frac(sqrtn(2, (x_{0})^{2} + (y_{0})^{2}), FunDeri(f, 1, 1)(sqrtn(2, (x_{0})^{2} + (y_{0})^{2}))))))
+
+GOAL:
+exists (z_{1}), z_{1} ∈ RealSet ∧ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), z_{0} ∈ RealSet ∧ (x_{0}, y_{0}, z_{0}) ∈ S ⇒ (0, 0, z_{1}) ∈ Oz)))
+
+METHOD:

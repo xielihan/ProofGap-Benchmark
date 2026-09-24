@@ -1,0 +1,16 @@
+PROOF GAP @6
+ASSUM:
+1. q ∈ RealSet
+2. α ∈ RealSet
+3. |q| < 1
+4. z = q * (cos(α) + __IMAGINARY_UNIT__ * sin(α))
+5. z = q * e^{__IMAGINARY_UNIT__ * α}
+6. |z| = |q|
+7. |q| < 1
+8. |z| < 1
+9. sum_{ n = 0 }^{ +∞ } (z^{n}) = (sum_{ n = 0 }^{ +∞ } (q^{n} * cos(n * α))) + __IMAGINARY_UNIT__ * (sum_{ n = 0 }^{ +∞ } (q^{n} * sin(n * α)))
+
+GOAL:
+sum_{ n = 0 }^{ +∞ } (z^{n}) = frac(1, 1 - z)
+
+METHOD:

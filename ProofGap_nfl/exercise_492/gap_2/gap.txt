@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. lim_{ x → 0 } (frac(sin(a + x) * sin(a + 2 * x) - sin(a)^{2}, x)) = lim_{ x → 0 } (frac(frac(1, 2) * (cos(x) - cos(2 * a + 3 * x)) - sin(a)^{2}, x))
+
+GOAL:
+lim_{ x → 0 } (frac(frac(1, 2) * (cos(x) - cos(2 * a + 3 * x)) - sin(a)^{2}, x)) = lim_{ x → 0 } (frac(cos(x) - cos(2 * a + 3 * x) - (1 - cos(2 * a)), 2 * x))
+
+METHOD:

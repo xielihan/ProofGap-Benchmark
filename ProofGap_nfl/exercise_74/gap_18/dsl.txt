@@ -1,0 +1,7 @@
+1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(n, e)^{n} < n! ∧ n! < e * frac(n, 2)^{n}}) (n := {m})
+2. get_condition (hypothesis 19: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet}) in (GOAL: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ frac(m, e)^{m} < m! ∧ m! < e * frac(m, 2)^{m}})
+3. get_prop (hypothesis 18: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(n, e)^{n} < n!}) (n := {m}) as (hypothesis 20: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ frac(m, e)^{m} < m!})
+4. get_prop (hypothesis 8: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ n! < e * frac(n, 2)^{n}}) (n := {m}) as (hypothesis 21: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ m! < e * frac(m, 2)^{m}})
+5. use_condition (hypothesis 19: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet}) in (hypothesis 20: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ frac(m, e)^{m} < m!}) as (hypothesis 22: {frac(m, e)^{m} < m!})
+6. use_condition (hypothesis 19: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet}) in (hypothesis 21: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ m! < e * frac(m, 2)^{m}}) as (hypothesis 23: {m! < e * frac(m, 2)^{m}})
+7. autosolve (hypothesis 22: {frac(m, e)^{m} < m!}) (hypothesis 23: {m! < e * frac(m, 2)^{m}})

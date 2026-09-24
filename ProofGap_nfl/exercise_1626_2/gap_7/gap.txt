@@ -1,0 +1,21 @@
+PROOF GAP @7
+ASSUM:
+1. f : RealSet → RealSet
+2. `ξ_2` ∈ RealSet ∧ `ξ_2` ∈ PosRealSet
+3. x_{1} ∈ RealSet
+4. x_{2} ∈ RealSet
+5. x_{3} ∈ RealSet
+6. m ∈ RealSet ∧ m > 0
+7. forall (x), x ∈ RealSet ∧ (forall (k), k ∈ IntegerSet ⇒ x ≠ frac(π, 2) + k * π) ⇒ f(x) = tan(x) - x
+8. f(frac(23 * π, 16)) < 0
+9. f(frac(79 * π, 32)) > 0
+10. existsUnique (`ξ_2` ∈ IntervalLoRo(frac(39 * π, 16), frac(79 * π, 32))), f(`ξ_2`) = 0
+11. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(frac(39 * π, 16), frac(79 * π, 32)) ⇒ FunDeri(f, 1, 1)(x) > 0 ∧ FunDeri(f, 1, 2)(x) > 0
+12. x_{1} = 7.7325
+13. x_{2} = 7.7258
+
+GOAL:
+x_{3} = 7.7254
+
+METHOD:
+[@method Newton法 @]

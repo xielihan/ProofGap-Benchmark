@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. q ∈ RealSet
+2. 0 < q
+3. q < 1
+4. forall (x), x ∈ RealSet ∧ |x| < q ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ |x^{n}| < q^{n})
+5. ConvergentSeries(sum_{ n = 0 }^{ +∞ } (q^{n}))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| < q ⇒ AbsoluteConvergentSeries(sum_{ n = 0 }^{ +∞ } (x^{n}))
+
+METHOD:
+[@method 根据 "魏尔斯特拉斯判别法" @]

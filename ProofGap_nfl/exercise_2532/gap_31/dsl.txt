@@ -1,0 +1,2 @@
+autoreplace no_hypothesis; from (0.125 * (0.75 + 4.80297)) to (0.69412125); from (GOAL: {|0.125 * (0.75 + 4.80297) - 0.69412| < 0.0027}) to (GOAL: {|0.69412125 - 0.69412| < 0.0027})
+autosolve all_hypothesis

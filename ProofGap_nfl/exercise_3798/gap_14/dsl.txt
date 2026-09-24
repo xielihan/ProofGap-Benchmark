@@ -1,0 +1,3 @@
+get_exists (hypothesis 15: {exists (C), C ∈ RealSet ∧ 0 = π * ln(2) + C}) (C := {C0})
+exists (C := {C0})
+autosolve all_hypothesis

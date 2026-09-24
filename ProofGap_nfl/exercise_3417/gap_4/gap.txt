@@ -1,0 +1,27 @@
+PROOF GAP @4
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. f : CartesianProd(RealSet, CartesianProd(RealSet, CartesianProd(RealSet, RealSet))) → RealSet
+3. g : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+4. h : CartesianProd(RealSet, RealSet) → RealSet
+5. z : RealSet → RealSet
+6. t : RealSet → RealSet
+7. I_{1} : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+8. I_{2} : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ u(x, y) = f(x, y, z(y), t(y))
+10. forall (y), y ∈ RealSet ⇒ g(y, z(y), t(y)) = 0
+11. forall (y), y ∈ RealSet ⇒ h(z(y), t(y)) = 0
+12. ContinuouslyDiffableFunc(f)
+13. ContinuouslyDiffableFunc(g)
+14. ContinuouslyDiffableFunc(h)
+15. forall (y), y ∈ RealSet ⇒ I_{1}(y, z(y), t(y)) = FunDeri(g, 3, 1)(y, z(y), t(y)) * FunDeri(h, 4, 1)(z(y), t(y)) - FunDeri(g, 4, 1)(y, z(y), t(y)) * FunDeri(h, 3, 1)(z(y), t(y))
+16. forall (y), y ∈ RealSet ⇒ I_{1}(y, z(y), t(y)) ≠ 0
+17. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ I_{2}(y, z(y), t(y)) = FunDeri(h, 3, 1)(z(y), t(y)) * FunDeri(f, 4, 1)(x, y, z(y), t(y)) - FunDeri(h, 4, 1)(z(y), t(y)) * FunDeri(f, 3, 1)(x, y, z(y), t(y))
+18. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . u(x, y)) = FunDeri(f, 1, 1)(x, y, z(y), t(y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + FunDeri(f, 2, 1)(x, y, z(y), t(y)) * diff(fun y [y ∈ RealSet] . y) + FunDeri(f, 3, 1)(x, y, z(y), t(y)) * diff(fun y [y ∈ RealSet] . z(y)) + FunDeri(f, 4, 1)(x, y, z(y), t(y)) * diff(fun y [y ∈ RealSet] . t(y))
+19. forall (y), y ∈ RealSet ⇒ 0 = FunDeri(g, 2, 1)(y, z(y), t(y)) * diff(fun y [y ∈ RealSet] . y) + FunDeri(g, 3, 1)(y, z(y), t(y)) * diff(fun y [y ∈ RealSet] . z(y)) + FunDeri(g, 4, 1)(y, z(y), t(y)) * diff(fun y [y ∈ RealSet] . t(y))
+20. forall (y), y ∈ RealSet ⇒ 0 = FunDeri(h, 3, 1)(z(y), t(y)) * diff(fun y [y ∈ RealSet] . z(y)) + FunDeri(h, 4, 1)(z(y), t(y)) * diff(fun y [y ∈ RealSet] . t(y))
+
+GOAL:
+forall (y), y ∈ RealSet ⇒ diff(fun y [y ∈ RealSet] . z(y)) = frac(-FunDeri(g, 2, 1)(y, z(y), t(y)) * FunDeri(h, 4, 1)(z(y), t(y)), I_{1}(y, z(y), t(y))) * diff(fun y [y ∈ RealSet] . y)
+
+METHOD:

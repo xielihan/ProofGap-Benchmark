@@ -1,0 +1,15 @@
+PROOF GAP @6
+ASSUM:
+1. m ∈ RealSet
+2. n ∈ RealSet
+3. n > 0
+4. DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . frac(x^{m}, 1 + x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet ∧ x > 0] . frac(x^{m}, 1 + x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) + DefInt(1, +∞, (fun x [x ∈ RealSet ∧ x > 0] . frac(x^{m}, 1 + x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x))
+5. lim_{ x → 0^+ } (x^{-m} * frac(x^{m}, 1 + x^{n})) = 1
+6. DefInt(0, 1, (fun x [x ∈ RealSet ∧ x > 0] . frac(x^{m}, 1 + x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) ∈ RealSet ⇔ -m < 1
+7. DefInt(0, 1, (fun x [x ∈ RealSet ∧ x > 0] . frac(x^{m}, 1 + x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) ∈ RealSet ⇔ m > -1
+8. lim_{ x → +∞ } (x^{n - m} * frac(x^{m}, 1 + x^{n})) = 1
+
+GOAL:
+DefInt(1, +∞, (fun x [x ∈ RealSet ∧ x > 0] . frac(x^{m}, 1 + x^{n})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) ∈ RealSet ⇔ n - m > 1
+
+METHOD:

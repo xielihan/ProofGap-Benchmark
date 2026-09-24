@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (f), f : RealSet → RealSet ∧ DiffableFunc(f) ∧ (forall (x), x ∈ RealSet ⇒ (x ∈ Dom(f) ⇔ -x ∈ Dom(f))) ∧ EvenFunc(f) ⇒ (forall (x), x ∈ RealSet ∧ f : RealSet → RealSet ∧ x ∈ Dom(f) ⇒ f(x) = f(-x))
+
+METHOD:

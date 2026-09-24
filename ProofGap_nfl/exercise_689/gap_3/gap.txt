@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ x ≠ 1 ∧ x ≠ -2 ⇒ y(x) = frac(x^{2} - 1, x^{3} - 3 * x + 2)
+4. forall (x), x ∈ RealSet ⇒ x^{3} - 3 * x + 2 = (x - 1)^{2} * (x + 2)
+5. forall (x), x ∈ RealSet ⇒ x^{2} - 1 = (x - 1) * (x + 1)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 1 ∧ x ≠ -2 ⇒ y(x) = frac(x + 1, (x - 1) * (x + 2))
+
+METHOD:

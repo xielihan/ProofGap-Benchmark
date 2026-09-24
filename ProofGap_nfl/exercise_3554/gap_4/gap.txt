@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ x ≠ 0 ∧ y ∈ RealSet ⇒ (exists (z), z ∈ RealSet ∧ z = x * f(frac(y, x)))
+3. forall (z), z ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ z_{0} ∈ RealSet ∧ x_{0} ≠ 0 ∧ z_{0} = x_{0} * f(frac(y_{0}, x_{0})) ∧ DiffableFuncAt(f, frac(y_{0}, x_{0})) ⇒ FunDeri(z, 1, 1) = f(frac(y, x)) - frac(y, x) * FunDeri(f, 1, 1)(frac(y, x)))))))
+4. forall (z), z ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ z_{0} ∈ RealSet ∧ x_{0} ≠ 0 ∧ z_{0} = x_{0} * f(frac(y_{0}, x_{0})) ∧ DiffableFuncAt(f, frac(y_{0}, x_{0})) ⇒ FunDeri(z, 2, 1) = FunDeri(f, 1, 1)(frac(y, x)))))))
+5. forall (z), z ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ z_{0} ∈ RealSet ∧ x_{0} ≠ 0 ∧ z_{0} = x_{0} * f(frac(y_{0}, x_{0})) ∧ DiffableFuncAt(f, frac(y_{0}, x_{0})) ⇒ z - z_{0} = (f(frac(y_{0}, x_{0})) - frac(y_{0}, x_{0}) * FunDeri(f, 1, 1)(frac(y_{0}, x_{0}))) * (x - x_{0}) + FunDeri(f, 1, 1)(frac(y_{0}, x_{0})) * (y - y_{0}))))))
+
+GOAL:
+forall (z), z ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ⇒ (forall (z_{0}), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ z_{0} ∈ RealSet ∧ x_{0} ≠ 0 ∧ z_{0} = x_{0} * f(frac(y_{0}, x_{0})) ∧ DiffableFuncAt(f, frac(y_{0}, x_{0})) ⇒ z = (f(frac(y_{0}, x_{0})) - frac(y_{0}, x_{0}) * FunDeri(f, 1, 1)(frac(y_{0}, x_{0}))) * x + FunDeri(f, 1, 1)(frac(y_{0}, x_{0})) * y)))))
+
+METHOD:

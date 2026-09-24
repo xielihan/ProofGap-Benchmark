@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ 2 * sin(x)^{2} + sin(x) - 1 = (2 * sin(x) - 1) * (sin(x) + 1)
+
+METHOD:

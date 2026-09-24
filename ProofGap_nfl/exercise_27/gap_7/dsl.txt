@@ -1,0 +1,4 @@
+assert (hypothesis 8: {2 * |x| >= 0})
+assert (hypothesis 9: {x > -frac(3, 4)})
+not_normalize from (GOAL: {¬x < -frac(3, 2)}) to (GOAL: {x >= -frac(3, 2)})
+autosolve all_hypothesis

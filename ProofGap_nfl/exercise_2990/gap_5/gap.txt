@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. m ∈ NonNegIntegerSet
+2. m ∈ PosIntegerSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, n * (n + m)) = frac(1, m) * (frac(1, n) - frac(1, n + m))
+4. sum_{ n = 1 }^{ +∞ } (frac(1, n * (n + m))) = seqlim_{ N → +∞ } (sum_{ n = 1 }^{ N } (frac(1, n * (n + m))))
+5. seqlim_{ N → +∞ } (sum_{ n = 1 }^{ N } (frac(1, n * (n + m)))) = frac(1, m) * (seqlim_{ N → +∞ } (sum_{ n = 1 }^{ N } (frac(1, n) - frac(1, n + m))))
+6. seqlim_{ N → +∞ } (sum_{ n = 1 }^{ N } (frac(1, n) - frac(1, n + m))) = seqlim_{ N → +∞ } ((sum_{ k = 1 }^{ m } (frac(1, k))) - (sum_{ k = 1 }^{ m } (frac(1, N + k))))
+
+GOAL:
+seqlim_{ N → +∞ } ((sum_{ k = 1 }^{ m } (frac(1, k))) - (sum_{ k = 1 }^{ m } (frac(1, N + k)))) = sum_{ k = 1 }^{ m } (frac(1, k))
+
+METHOD:

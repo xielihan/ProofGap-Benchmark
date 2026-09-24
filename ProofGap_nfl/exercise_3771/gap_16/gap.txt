@@ -1,0 +1,24 @@
+PROOF GAP @16
+ASSUM:
+1. I : RealSet → RealSet
+2. forall (α), α ∈ RealSet ⇒ I(α) = DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(α, 1 + α^{2} * x^{2})) * diff(fun x [x ∈ RealSet] . x))
+3. forall (`α_{0}`), `α_{0}` ∈ RealSet ∧ `α_{0}` ≠ 0 ∧ `α_{0}` > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ = frac(`α_{0}`, 2) ∧ δ > 0)
+4. forall (`α_{0}`), `α_{0}` ∈ RealSet ∧ `α_{0}` ≠ 0 ∧ `α_{0}` > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ = frac(`α_{0}`, 2) ∧ `α_{0}` - δ > 0)
+5. forall (`α_{0}`), `α_{0}` ∈ RealSet ∧ `α_{0}` ≠ 0 ∧ `α_{0}` > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ = frac(`α_{0}`, 2) ∧ (forall (α) (`α_{0}`) (δ) (x), α ∈ RealSet ∧ `α_{0}` ∈ RealSet ∧ δ ∈ RealSet ∧ x ∈ RealSet ∧ α ∈ IntervalLoRo(`α_{0}` - δ, `α_{0}` + δ) ∧ x ≥ 0 ⇒ 0 < frac(α, 1 + α^{2} * x^{2}) ∧ frac(α, 1 + α^{2} * x^{2}) < frac(`α_{0}` + δ, 1 + (`α_{0}` - δ)^{2} * x^{2})))
+6. forall (`α_{0}`), `α_{0}` ∈ RealSet ∧ `α_{0}` ≠ 0 ∧ `α_{0}` > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ = frac(`α_{0}`, 2) ∧ DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(`α_{0}` + δ, 1 + (`α_{0}` - δ)^{2} * x^{2})) * diff(fun x [x ∈ RealSet] . x)) < +∞)
+7. forall (α), α ∈ RealSet ⇒ (forall (`α_{0}`), `α_{0}` ∈ RealSet ∧ `α_{0}` ≠ 0 ∧ `α_{0}` > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ = frac(`α_{0}`, 2) ∧ UniformConvergent(I, IntervalLoRo(`α_{0}` - δ, `α_{0}` + δ), DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(α, 1 + α^{2} * x^{2})) * diff(fun x [x ∈ RealSet] . x)))))
+8. forall (`α_{0}`), `α_{0}` ∈ RealSet ∧ `α_{0}` ≠ 0 ∧ `α_{0}` < 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ = frac(-`α_{0}`, 2) ∧ δ > 0)
+9. forall (`α_{0}`), `α_{0}` ∈ RealSet ∧ `α_{0}` ≠ 0 ∧ `α_{0}` < 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ = frac(-`α_{0}`, 2) ∧ `α_{0}` + δ < 0)
+10. forall (α), α ∈ RealSet ⇒ (forall (`α_{0}`), `α_{0}` ∈ RealSet ∧ `α_{0}` ≠ 0 ∧ `α_{0}` < 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ = frac(-`α_{0}`, 2) ∧ UniformConvergent(I, IntervalLoRo(`α_{0}` - δ, `α_{0}` + δ), DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(α, 1 + α^{2} * x^{2})) * diff(fun x [x ∈ RealSet] . x)))))
+11. forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ (forall (A), A ∈ RealSet ∧ A > 0 ⇒ (forall (α), α ∈ RealSet ∧ α ∈ PosRealSet ⇒ DefInt(A, +∞, (fun x [x ∈ RealSet] . frac(α, 1 + α^{2} * x^{2})) * diff(fun x [x ∈ RealSet] . x)) = DefInt(α * A, +∞, (fun t [t ∈ RealSet] . frac(1, 1 + t^{2})) * diff(fun t [t ∈ RealSet] . t))))
+12. forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ (forall (A), A ∈ RealSet ∧ A > 0 ⇒ (forall (α), α ∈ RealSet ∧ α > 0 ⇒ lim_{ α → 0^+ } (DefInt(α * A, +∞, (fun t [t ∈ RealSet] . frac(1, 1 + t^{2})) * diff(fun t [t ∈ RealSet] . t))) = DefInt(0, +∞, (fun t [t ∈ RealSet] . frac(1, 1 + t^{2})) * diff(fun t [t ∈ RealSet] . t))))
+13. forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ (forall (A), A ∈ RealSet ∧ A > 0 ⇒ DefInt(0, +∞, (fun t [t ∈ RealSet] . frac(1, 1 + t^{2})) * diff(fun t [t ∈ RealSet] . t)) = frac(π, 2))
+14. forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ (forall (A), A ∈ RealSet ∧ A > 0 ⇒ (forall (α), α ∈ RealSet ∧ α > 0 ⇒ lim_{ α → 0^+ } (DefInt(α * A, +∞, (fun t [t ∈ RealSet] . frac(1, 1 + t^{2})) * diff(fun t [t ∈ RealSet] . t))) = frac(π, 2)))
+15. forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ (forall (A), A ∈ RealSet ∧ A > 0 ⇒ (exists (`ε_{0}`), `ε_{0}` ∈ RealSet ∧ 0 < `ε_{0}` ∧ `ε_{0}` < frac(π, 2)))
+16. forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ (exists (`ε_{0}`), `ε_{0}` ∈ RealSet ∧ `ε_{0}` > 0 ∧ (forall (A), A ∈ RealSet ∧ A > 0 ⇒ (exists (α), α ∈ RealSet ∧ α ∈ PosRealSet ∧ α ∈ IntervalLoRo(-δ, δ) ∧ |DefInt(A, +∞, (fun x [x ∈ RealSet] . frac(α, 1 + α^{2} * x^{2})) * diff(fun x [x ∈ RealSet] . x))| > `ε_{0}`)))
+17. forall (α), α ∈ RealSet ⇒ (forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ ¬UniformConvergent(I, IntervalLoRo(-δ, δ), DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(α, 1 + α^{2} * x^{2})) * diff(fun x [x ∈ RealSet] . x))))
+
+GOAL:
+forall (α), α ∈ RealSet ⇒ (forall (`α_{0}`), `α_{0}` ∈ RealSet ∧ `α_{0}` ≠ 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ UniformConvergent(I, IntervalLoRo(`α_{0}` - δ, `α_{0}` + δ), DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(α, 1 + α^{2} * x^{2})) * diff(fun x [x ∈ RealSet] . x)))))
+
+METHOD:

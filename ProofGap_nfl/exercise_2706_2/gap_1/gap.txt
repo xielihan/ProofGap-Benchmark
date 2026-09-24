@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. a = (fun n [n ∈ NonNegIntegerSet] . (-1)^{n})
+2. b = (fun n [n ∈ NonNegIntegerSet] . (-1)^{n + 1})
+3. c = (fun n [n ∈ NonNegIntegerSet] . a(n) + b(n))
+
+GOAL:
+DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+METHOD:

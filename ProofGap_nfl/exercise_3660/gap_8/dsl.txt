@@ -1,0 +1,3 @@
+destruct_and (hypothesis 5: {a ∈ RealSet ∧ a > 0}) as (hypothesis 16: {a ∈ RealSet}) (hypothesis 17: {a > 0})
+exists (x := {frac(a, 3)}) (y := {frac(a, 3)}) (z := {frac(a, 3)})
+autosolve all_hypothesis

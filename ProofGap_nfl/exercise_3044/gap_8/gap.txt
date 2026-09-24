@@ -1,0 +1,14 @@
+PROOF GAP @8
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ frac(1, x^{x}) = e^{-x * ln(x)}
+2. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ e^{-x * ln(x)} = sum_{ n = 0 }^{ +∞ } (frac((-1)^{n} * x^{n} * ln(x)^{n}, n!))
+3. DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1, x^{x})) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet] . e^{-x * ln(x)}) * diff(fun x [x ∈ RealSet] . x))
+4. DefInt(0, 1, (fun x [x ∈ RealSet] . e^{-x * ln(x)}) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet] . sum_{ n = 0 }^{ +∞ } (frac((-1)^{n} * x^{n} * ln(x)^{n}, n!))) * diff(fun x [x ∈ RealSet] . x))
+5. DefInt(0, 1, (fun x [x ∈ RealSet] . sum_{ n = 0 }^{ +∞ } (frac((-1)^{n} * x^{n} * ln(x)^{n}, n!))) * diff(fun x [x ∈ RealSet] . x)) = sum_{ n = 0 }^{ +∞ } (DefInt(0, 1, (fun x [x ∈ RealSet] . frac((-1)^{n} * x^{n} * ln(x)^{n}, n!)) * diff(fun x [x ∈ RealSet] . x)))
+6. forall (n), n ∈ NonNegIntegerSet ⇒ DefInt(0, 1, (fun x [x ∈ RealSet] . frac((-1)^{n} * x^{n} * ln(x)^{n}, n!)) * diff(fun x [x ∈ RealSet] . x)) = frac(1, (n + 1)^{n + 1})
+7. sum_{ n = 0 }^{ +∞ } (frac(1, (n + 1)^{n + 1})) = sum_{ n = 1 }^{ +∞ } (frac(1, n^{n}))
+
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1, x^{x})) * diff(fun x [x ∈ RealSet] . x)) = sum_{ n = 1 }^{ +∞ } (frac(1, n^{n}))
+
+METHOD:

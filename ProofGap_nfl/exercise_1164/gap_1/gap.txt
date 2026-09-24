@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. x ∈ RealSet ∧ x > 0
+3. forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x) = frac(ln(x), x)
+
+GOAL:
+x > 0 ⇒ FunDeri(y, 1, 1)(x) = frac(1 - ln(x), x^{2})
+
+METHOD:

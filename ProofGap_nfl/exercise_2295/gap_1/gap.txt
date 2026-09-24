@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. x ∈ RealSet
+3. n ∈ PosIntegerSet
+
+GOAL:
+DefInt(0, π, sin(x)^{n - 1} * cos((n + 1) * x) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, π, sin(x)^{n - 1} * (cos(n * x) * cos(x) - sin(n * x) * sin(x)) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

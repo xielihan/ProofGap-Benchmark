@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. f : RealSet → RealSet
+3. I ⊆ RealSet
+4. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ f(x) > 0
+5. FuncOfClassKOn(f, I, 2)
+6. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ y(x) = ln(f(x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(y, 1, 1)(x) = frac(FunDeri(f, 1, 1)(x), f(x))
+
+METHOD:

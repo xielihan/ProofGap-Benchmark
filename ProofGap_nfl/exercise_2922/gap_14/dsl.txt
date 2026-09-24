@@ -1,0 +1,1 @@
+apply (hypothesis 14: {frac(1, sqrtn(2, e)) = e^{-frac(1, 2)}})

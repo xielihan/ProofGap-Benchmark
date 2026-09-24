@@ -1,0 +1,17 @@
+PROOF GAP @4
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. l ∈ RealSet
+3. α ∈ RealSet
+4. β ∈ RealSet
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = x^{2} - y^{2}
+6. α = frac(π, 3)
+7. β = frac(π, 6)
+8. FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), 1, 1)(1, 1) = 2
+9. FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), 2, 1)(1, 1) = -2
+10. cos(α) = cos(frac(π, 3))
+
+GOAL:
+cos(frac(π, 3)) = frac(1, 2)
+
+METHOD:

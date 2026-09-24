@@ -1,0 +1,16 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. V ∈ RealSet
+3. Ω ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+4. D ⊆ CartesianProd(RealSet, RealSet)
+5. Ω = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ 0 ≤ z ∧ a * z ≤ x^{2} + y^{2} ∧ (x^{2} + y^{2})^{2} ≤ a^{2} * (x^{2} - y^{2}) }
+6. D = { (r, φ) | r ∈ RealSet ∧ φ ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a * sqrtn(2, cos(2 * φ)) ∧ 0 ≤ φ ∧ φ ≤ frac(π, 4) }
+7. V = VolumeInt(Ω, 1 * diff(ω))
+8. forall (r), r ∈ RealSet ∧ r ≥ 0 ⇒ (forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 4) ⇒ (exists (x), x ∈ RealSet ∧ x = r * cos(φ)))
+9. forall (r), r ∈ RealSet ∧ r ≥ 0 ⇒ (forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ frac(π, 4) ⇒ (exists (y), y ∈ RealSet ∧ y = r * sin(φ)))
+
+GOAL:
+forall (r), r ∈ RealSet ∧ r ≥ 0 ⇒ |r| = r
+
+METHOD:

@@ -1,0 +1,25 @@
+PROOF GAP @13
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. S ∈ RealSet
+3. C ⊆ CartesianProd(RealSet, RealSet)
+4. x ∈ RealSet
+5. y ∈ RealSet
+6. C = { (x, y) | x ∈ RealSet, y ∈ RealSet, (x^{2} + y^{2})^{2} = a * (x^{3} - 3 * x * y^{2}) }
+7. forall (r), r ∈ RealSet ⇒ (forall (θ), θ ∈ RealSet ⇒ x = r * cos(θ))
+8. forall (r), r ∈ RealSet ⇒ (forall (θ), θ ∈ RealSet ⇒ y = r * sin(θ))
+9. forall (r), r ∈ RealSet ⇒ (forall (θ), θ ∈ RealSet ⇒ r = a * cos(θ) * (4 * cos(θ)^{2} - 3))
+10. forall (r), r ∈ RealSet ⇒ (forall (θ), θ ∈ RealSet ∧ r ≥ 0 ⇒ cos(θ) * (4 * cos(θ)^{2} - 3) ≥ 0)
+11. forall (θ), θ ∈ RealSet ∧ -π ≤ θ ∧ θ ≤ π ⇒ -frac(π, 6) ≤ θ ∧ θ ≤ frac(π, 6) ∨ frac(π, 2) ≤ θ ∧ θ ≤ π - frac(π, 6) ∨ -π + frac(π, 6) ≤ θ ∧ θ ≤ -frac(π, 2)
+12. forall (y), y ∈ RealSet ⇒ (forall (θ), θ ∈ RealSet ∧ y ≥ 0 ⇒ 0 ≤ θ ∧ θ ≤ frac(π, 6) ∨ frac(π, 2) ≤ θ ∧ θ ≤ π - frac(π, 6))
+13. forall (r), r ∈ RealSet ⇒ S = 2 * (frac(1, 2) * DefInt(0, frac(π, 6), r^{2} * diff(fun θ [θ ∈ RealSet] . θ)) + frac(1, 2) * DefInt(frac(π, 2), π - frac(π, 6), r^{2} * diff(fun θ [θ ∈ RealSet] . θ)))
+14. forall (θ), θ ∈ RealSet ⇒ S = DefInt(0, frac(π, 6), a^{2} * cos(θ)^{2} * (4 * cos(θ)^{2} - 3)^{2} * diff(fun θ [θ ∈ RealSet] . θ)) + DefInt(frac(π, 2), frac(5 * π, 6), a^{2} * cos(θ)^{2} * (4 * cos(θ)^{2} - 3)^{2} * diff(fun θ [θ ∈ RealSet] . θ))
+15. forall (θ), θ ∈ RealSet ⇒ DefInt(frac(π, 2), frac(5 * π, 6), a^{2} * cos(θ)^{2} * (4 * cos(θ)^{2} - 3)^{2} * diff(fun θ [θ ∈ RealSet] . θ)) = DefInt(frac(π, 6), frac(π, 2), a^{2} * cos(θ)^{2} * (4 * cos(θ)^{2} - 3)^{2} * diff(fun θ [θ ∈ RealSet] . θ))
+16. forall (θ), θ ∈ RealSet ⇒ S = DefInt(0, frac(π, 2), a^{2} * cos(θ)^{2} * (4 * cos(θ)^{2} - 3)^{2} * diff(fun θ [θ ∈ RealSet] . θ))
+17. forall (θ), θ ∈ RealSet ⇒ S = a^{2} * DefInt(0, frac(π, 2), (16 * cos(θ)^{6} - 24 * cos(θ)^{4} + 9 * cos(θ)^{2}) * diff(fun θ [θ ∈ RealSet] . θ))
+18. S = a^{2} * (16 * frac(5 * 3 * 1, 6 * 4 * 2) * frac(π, 2) - 24 * frac(3 * 1, 4 * 2) * frac(π, 2) + 9 * frac(1, 2) * frac(π, 2))
+
+GOAL:
+S = frac(π * a^{2}, 4)
+
+METHOD:

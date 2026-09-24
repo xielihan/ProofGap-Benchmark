@@ -1,0 +1,3 @@
+get_forall (GOAL: {forall (n), n ∈ IntegerSet ∧ n = 2 ⇒ ((2 + 1)!)^{2} = 36}) (n := {n0})
+get_condition (hypothesis 5: {n0 ∈ IntegerSet ∧ n0 = 2}) in (GOAL: {n0 ∈ IntegerSet ∧ n0 = 2 ⇒ ((2 + 1)!)^{2} = 36})
+autosolve all_hypothesis

@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ∈ RealSet
+3. forall (m) (n), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 ≤ x(m + n) ∧ x(m + n) ≤ x(m) + x(n)
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ≤ n * x(1)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 ≤ frac(x(n), n) ∧ frac(x(n), n) ≤ x(1)
+
+METHOD:

@@ -1,0 +1,2 @@
+exists (y_{1} := {frac(1, 4)})
+autosolve all_hypothesis

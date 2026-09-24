@@ -1,0 +1,21 @@
+PROOF GAP @1
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. f : CartesianProd(RealSet, RealSet) → RealSet
+3. S ⊆ CartesianProd(RealSet, RealSet)
+4. S_{n} : NonNegIntegerSet → PowerSet(CartesianProd(RealSet, RealSet))
+5. N ∈ NonNegIntegerSet
+6. n_{0} ∈ NonNegIntegerSet
+7. k_{n} ∈ NonNegIntegerSet
+8. N_{1} ∈ NonNegIntegerSet
+9. n_{1} ∈ NonNegIntegerSet
+10. ContinuousFuncOn(f, S)
+11. forall (z), z ∈ CartesianProd(RealSet, RealSet) ∧ z ∈ S ⇒ f(z) ≥ 0
+12. forall (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ S_{n}(m) ⊆ S ∧ S_{n}(m) ⊆ S_{n}(m + 1)
+13. union_{ n ∈ PosIntegerSet } (S_{n}(n)) = S
+14. FunDeri(S, 1, 1) = S_{n}
+
+GOAL:
+forall (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ FunDeri(S, 1, 1)(m) ⊆ FunDeri(S, 1, 1)(m + 1) ∧ FunDeri(S, 1, 1)(m) ⊆ S
+
+METHOD:

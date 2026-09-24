@@ -1,0 +1,20 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. c ∈ RealSet ∧ c > 0
+4. Ω ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+5. x : CartesianProd(RealSet, RealSet) → RealSet
+6. y : CartesianProd(RealSet, RealSet) → RealSet
+7. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ Ω = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{4}, c^{4}) ≤ 1 }))
+8. forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ x(r, φ) = a * r * cos(φ))
+9. forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ y(r, φ) = b * r * sin(φ))
+10. Ω = { (r, φ, z) | r ∈ RealSet ∧ φ ∈ RealSet ∧ z ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ∧ 0 ≤ r ∧ r ≤ 1 ∧ -c * (1 - r^{2})^{frac(1, 4)} ≤ z ∧ z ≤ c * (1 - r^{2})^{frac(1, 4)} }
+11. exists (I), I ∈ RealSet ∧ (forall (r), r ∈ RealSet ⇒ |I| = a * b * r)
+12. VolumeInt(Ω, diff(ω)) = DefInt(0, 2 * π, (fun φ [φ ∈ RealSet] . DefInt(0, 1, (fun r [r ∈ RealSet] . a * b * r * DefInt(-c * (1 - r^{2})^{frac(1, 4)}, c * (1 - r^{2})^{frac(1, 4)}, diff(fun z [z ∈ RealSet] . z))) * diff(fun r [r ∈ RealSet] . r))) * diff(fun φ [φ ∈ RealSet] . φ))
+13. DefInt(0, 2 * π, (fun φ [φ ∈ RealSet] . DefInt(0, 1, (fun r [r ∈ RealSet] . a * b * r * DefInt(-c * (1 - r^{2})^{frac(1, 4)}, c * (1 - r^{2})^{frac(1, 4)}, diff(fun z [z ∈ RealSet] . z))) * diff(fun r [r ∈ RealSet] . r))) * diff(fun φ [φ ∈ RealSet] . φ)) = 4 * π * a * b * c * DefInt(0, 1, (fun r [r ∈ RealSet] . r * (1 - r^{2})^{frac(1, 4)}) * diff(fun r [r ∈ RealSet] . r))
+
+GOAL:
+VolumeInt(Ω, diff(ω)) = 4 * π * a * b * c * DefInt(0, 1, (fun r [r ∈ RealSet] . r * (1 - r^{2})^{frac(1, 4)}) * diff(fun r [r ∈ RealSet] . r))
+
+METHOD:

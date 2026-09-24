@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (v), v ∈ RealSet ∧ 0 < v ∧ v < 2 * π ⇒ cos(v)^{2} + sin(v)^{2} = 1}) (v := {q})
+get_condition (hypothesis 14: {q ∈ RealSet ∧ 0 < q ∧ q < 2 * π}) in (GOAL: {q ∈ RealSet ∧ 0 < q ∧ q < 2 * π ⇒ cos(q)^{2} + sin(q)^{2} = 1})
+get_prop (theorem 'Thm 168. (PythagoreanTrigonometricIdentity)': {forall (x), x ∈ RealSet => (sin(x)) ^ 2 + (cos(x)) ^ 2 = 1}) (x := {q}) as (hypothesis 15: {q ∈ RealSet => (sin(q)) ^ 2 + (cos(q)) ^ 2 = 1})
+autosolve (hypothesis 14: {q ∈ RealSet ∧ 0 < q ∧ q < 2 * π}) (hypothesis 15: {q ∈ RealSet => (sin(q)) ^ 2 + (cos(q)) ^ 2 = 1})

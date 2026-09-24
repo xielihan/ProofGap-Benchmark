@@ -1,0 +1,13 @@
+assert (hypothesis 13: {forall (t), f(t) = e^{-2 * t} * (cos(t) + 2 * sin(t)) + e^{-t^{2}} * sin(t)^{2}}) by proof {
+  get_forall (GOAL: {forall (t), f(t) = e^{-2 * t} * (cos(t) + 2 * sin(t)) + e^{-t^{2}} * sin(t)^{2}}) (t := {t0})
+  rewrite (left_to_right, equation) (hypothesis 1: {f = (fun x [x ∈ RealSet] . e^{-2 * x} * (cos(x) + 2 * sin(x)) + e^{-x^{2}} * sin(x)^{2})}); from (GOAL: {f(t0) = e^{-2 * t0} * (cos(t0) + 2 * sin(t0)) + e^{-t0^{2}} * sin(t0)^{2}}) to (GOAL: {(fun x [x ∈ RealSet] . e^{-2 * x} * (cos(x) + 2 * sin(x)) + e^{-x^{2}} * sin(x)^{2})(t0) = e^{-2 * t0} * (cos(t0) + 2 * sin(t0)) + e^{-t0^{2}} * sin(t0)^{2}})
+  autosolve all_hypothesis
+}
+assert (hypothesis 14: {forall (t), g(t) = e^{-t} * (cos(t) + sin(t))}) by proof {
+  get_forall (GOAL: {forall (t), g(t) = e^{-t} * (cos(t) + sin(t))}) (t := {t0})
+  rewrite (left_to_right, equation) (hypothesis 2: {g = (fun x [x ∈ RealSet] . e^{-x} * (cos(x) + sin(x)))}); from (GOAL: {g(t0) = e^{-t0} * (cos(t0) + sin(t0))}) to (GOAL: {(fun x [x ∈ RealSet] . e^{-x} * (cos(x) + sin(x)))(t0) = e^{-t0} * (cos(t0) + sin(t0))})
+  autosolve all_hypothesis
+}
+rewrite_in limit (left_to_right, equation) (hypothesis 13: {forall (t), f(t) = e^{-2 * t} * (cos(t) + 2 * sin(t)) + e^{-t^{2}} * sin(t)^{2}}); from (hypothesis 12: {¬(exists (L), L ∈ RealSet ∧ lim_{ x → +∞ } (frac(f(x), g(x))) = L)}) to (hypothesis 15: {¬(exists (L), L ∈ RealSet ∧ lim_{ x → +∞ } (frac(e^{-2 * x} * (cos(x) + 2 * sin(x)) + e^{-x^{2}} * sin(x)^{2}, g(x))) = L)})
+rewrite_in limit (left_to_right, equation) (hypothesis 14: {forall (t), g(t) = e^{-t} * (cos(t) + sin(t))}); from (hypothesis 15: {¬(exists (L), L ∈ RealSet ∧ lim_{ x → +∞ } (frac(e^{-2 * x} * (cos(x) + 2 * sin(x)) + e^{-x^{2}} * sin(x)^{2}, g(x))) = L)}) to (hypothesis 16: {¬(exists (L), L ∈ RealSet ∧ lim_{ x → +∞ } (frac(e^{-2 * x} * (cos(x) + 2 * sin(x)) + e^{-x^{2}} * sin(x)^{2}, e^{-x} * (cos(x) + sin(x)))) = L)})
+apply (hypothesis 16: {¬(exists (L), L ∈ RealSet ∧ lim_{ x → +∞ } (frac(e^{-2 * x} * (cos(x) + 2 * sin(x)) + e^{-x^{2}} * sin(x)^{2}, e^{-x} * (cos(x) + sin(x)))) = L)})

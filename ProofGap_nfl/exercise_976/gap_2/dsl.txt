@@ -1,0 +1,2 @@
+get_prop (hypothesis 3: {forall (x), x ∈ RealSet ⇒ y(x) = frac(a^{x}, 1 + a^{2 * x}) - frac(1 - a^{2 * x}, 1 + a^{2 * x}) * arccot(a^{-x})}) as (hypothesis 5: {forall (x), x ∈ RealSet ⇒ y(x) = frac(a^{x}, 1 + a^{2 * x}) - frac(1 - a^{2 * x}, 1 + a^{2 * x}) * arccot(a^{-x})})
+apply (hypothesis 5: {forall (x), x ∈ RealSet ⇒ y(x) = frac(a^{x}, 1 + a^{2 * x}) - frac(1 - a^{2 * x}, 1 + a^{2 * x}) * arccot(a^{-x})})

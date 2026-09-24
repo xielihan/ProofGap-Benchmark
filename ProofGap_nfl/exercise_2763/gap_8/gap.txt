@@ -1,0 +1,19 @@
+PROOF GAP @8
+ASSUM:
+1. F : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. f : RealSet → RealSet
+3. x_{n} ∈ RealSet
+4. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ F(n, x) = cases{ n^{2} * x if 0 ≤ x ∧ x ≤ frac(1, n); n^{2} * (frac(2, n) - x) if frac(1, n) < x ∧ x < frac(2, n); 0 if x ≥ frac(2, n) }
+5. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ f(x) = 0
+6. forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ x = 0 ∧ n ∈ PosIntegerSet ⇒ F(n, x) = 0
+7. forall (x), x ∈ RealSet ∧ x = 0 ⇒ seqlim_{ n → +∞ } (F(n, 0)) = 0
+8. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N > frac(1, ε) ∧ frac(2, N) ≤ x))
+9. forall (x) (ε), x ∈ RealSet ∧ ε ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N > frac(1, ε) ∧ frac(2, N) ≤ x ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > N ∧ n ∈ PosIntegerSet ⇒ frac(2, n) < frac(2, N)))
+10. forall (x) (ε), x ∈ RealSet ∧ ε ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ frac(2, N) ≤ x ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > N ∧ n ∈ PosIntegerSet ⇒ frac(2, N) ≤ x))
+11. forall (x) (ε), x ∈ RealSet ∧ ε ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ frac(2, N) ≤ x ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > N ∧ n ∈ PosIntegerSet ⇒ frac(2, n) < x))
+12. forall (x) (ε), x ∈ RealSet ∧ ε ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ frac(2, N) ≤ x ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > N ∧ n ∈ PosIntegerSet ⇒ F(n, x) = 0))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ seqlim_{ n → +∞ } (F(n, x)) = 0
+
+METHOD:

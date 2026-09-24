@@ -1,0 +1,2 @@
+exists (x := {a}) (y := {0}) (z := {0})
+autosolve all_hypothesis

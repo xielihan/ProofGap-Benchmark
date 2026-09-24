@@ -1,0 +1,26 @@
+PROOF GAP @16
+ASSUM:
+1. y : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1
+3. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ y(1, x) = frac(x, 2)
+4. forall (x) (n), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ∧ 0 ≤ x ∧ x ≤ 1 ⇒ y(n, x) = frac(x, 2) + frac(y(n - 1, x)^{2}, 2)
+5. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ y(2, x) > y(1, x)
+6. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ (forall (n), n ∈ PosIntegerSet ∧ n ≥ 2 ∧ y(n, x) ≥ y(n - 1, x) ⇒ y(n + 1, x) - y(n, x) = frac(y(n, x)^{2} - y(n - 1, x)^{2}, 2))
+7. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ (forall (n), n ∈ PosIntegerSet ∧ n ≥ 2 ∧ y(n, x) ≥ y(n - 1, x) ⇒ y(n + 1, x) ≥ y(n, x))
+8. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ MonoIncSeq(fun n [n ∈ NonNegIntegerSet] . y(n, x))
+9. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ 0 ≤ y(1, x)
+10. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ y(1, x) < 1
+11. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ (forall (k), k ∈ PosIntegerSet ∧ 0 ≤ y(k, x) ∧ y(k, x) < 1 ⇒ 0 ≤ y(k, x)^{2})
+12. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ (forall (k), k ∈ PosIntegerSet ∧ 0 ≤ y(k, x) ∧ y(k, x) < 1 ⇒ y(k, x)^{2} < 1)
+13. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ (forall (k), k ∈ PosIntegerSet ∧ 0 ≤ y(k, x) ∧ y(k, x) < 1 ⇒ 0 ≤ y(k + 1, x))
+14. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ (forall (k), k ∈ PosIntegerSet ∧ 0 ≤ y(k, x) ∧ y(k, x) < 1 ⇒ y(k + 1, x) < 1)
+15. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ BoundedSeq(fun n [n ∈ NonNegIntegerSet] . y(n, x))
+16. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ ConvergentSeq(fun n [n ∈ NonNegIntegerSet] . y(n, x))
+17. l = seqlim_{ n → +∞ } (y(n, x))
+18. 0 ≤ l
+19. l ≤ 1
+20. l = frac(x, 2) + frac(l^{2}, 2)
+GOAL:
+l = 1 + sqrtn(2, 1 - x) ∨ l = 1 - sqrtn(2, 1 - x)
+
+METHOD:

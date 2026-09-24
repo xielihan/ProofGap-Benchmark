@@ -1,0 +1,8 @@
+PROOF GAP @3
+ASSUM:
+2. { `F_2` | forall (x), x ∈ RealSet ∧ (x ∈ IntervalLoRo(-∞, 0) ∨ x ∈ IntervalLoRo(0, +∞)) ⇒ FunDeri(`F_2`, 1, 1)(x) = coth(x)^{2} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ (x ∈ IntervalLoRo(-∞, 0) ∨ x ∈ IntervalLoRo(0, +∞)) ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(cosh(x)^{2}, sinh(x)^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+GOAL:
+{ `F_4` | forall (x), x ∈ RealSet ∧ (x ∈ IntervalLoRo(-∞, 0) ∨ x ∈ IntervalLoRo(0, +∞)) ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(cosh(x)^{2}, sinh(x)^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | forall (x), x ∈ RealSet ∧ (x ∈ IntervalLoRo(-∞, 0) ∨ x ∈ IntervalLoRo(0, +∞)) ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(1 + sinh(x)^{2}, sinh(x)^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+METHOD:

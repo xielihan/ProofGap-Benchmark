@@ -1,0 +1,11 @@
+destruct_and (hypothesis 3: {a ∈ RealSet ∧ a > 0}) as (hypothesis 16: {a ∈ RealSet}) (hypothesis 17: {a > 0})
+destruct_and (hypothesis 4: {b ∈ RealSet ∧ b > 0}) as (hypothesis 18: {b ∈ RealSet}) (hypothesis 19: {b > 0})
+destruct_and (hypothesis 15: {r ∈ RealSet ∧ φ ∈ RealSet ∧ sin(φ) ∈ RealSet ∧ cos(φ) ∈ RealSet}) as (hypothesis 20: {r ∈ RealSet}) (hypothesis 21: {φ ∈ RealSet}) (hypothesis 22: {sin(φ) ∈ RealSet}) (hypothesis 23: {cos(φ) ∈ RealSet})
+assert (hypothesis 24: {3 * a * b * r * cos(φ)^{2} * sin(φ)^{2} ≥ 0}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 25: {|3 * a * b * r * cos(φ)^{2} * sin(φ)^{2}| = 3 * a * b * r * cos(φ)^{2} * sin(φ)^{2}}) by proof {
+  autosolve all_hypothesis
+}
+exists (I := {3 * a * b * r * cos(φ)^{2} * sin(φ)^{2}})
+autosolve all_hypothesis

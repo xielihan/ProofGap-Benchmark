@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. cos(2 * x) ≠ 0
+3. cos(frac(π, 4) - x) ≠ 0
+
+GOAL:
+lim_{ x → frac(π, 4) } (tan(2 * x) * tan(frac(π, 4) - x)) = lim_{ x → frac(π, 4) } (frac(sin(2 * x) * sin(frac(π, 4) - x), cos(2 * x) * cos(frac(π, 4) - x)))
+
+METHOD:

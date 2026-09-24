@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. f : RealSet → RealSet
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = x + y + f(x - y)
+4. Dom(f) = RealSet
+5. forall (x), x ∈ RealSet ⇒ z(x, 0) = x^{2}
+6. forall (x), x ∈ RealSet ⇒ x^{2} = x + f(x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ f(x) = x^{2} - x
+
+METHOD:

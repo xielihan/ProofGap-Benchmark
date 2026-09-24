@@ -1,0 +1,22 @@
+PROOF GAP @6
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. c ∈ RealSet
+5. a^{2} + b^{2} + c^{2} ≠ 0
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = frac(a * x + b * y + c, sqrtn(2, x^{2} + y^{2} + 1))
+7. x = r * cos(φ)
+8. y = r * sin(φ)
+9. z(x, y) = z(r * cos(φ), r * sin(φ))
+10. z(r * cos(φ), r * sin(φ)) = frac(a * r * cos(φ) + b * r * sin(φ) + c, sqrtn(2, r^{2} + 1))
+11. z(x, y) = frac(a * r * cos(φ) + b * r * sin(φ) + c, sqrtn(2, r^{2} + 1))
+12. FunDeri(fun t . z(t * cos(φ), t * sin(φ)), 1, 1)(r) = frac(a * cos(φ) + b * sin(φ) - c * r, (1 + r^{2})^{frac(3, 2)})
+13. (1 + r^{2})^{frac(1, 2)} * FunDeri(fun t . z(r * cos(t), r * sin(t)), 1, 1)(φ) = -a * r * sin(φ) + b * r * cos(φ)
+14. r ∈ RealSet ∧ φ ∈ RealSet ∧ sin(φ) ∈ RealSet ∧ cos(φ) ∈ RealSet
+15. r ≠ 0 ∧ (1 + r^{2})^{frac(1, 2)} ≠ 0
+
+GOAL:
+a^{2} + b^{2} ≠ 0 ⇒ FunDeri(fun t . z(r * cos(t), r * sin(t)), 1, 1)(φ) = 0 ⇒ a * sin(φ) = b * cos(φ)
+
+METHOD:

@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. n ∈ NonNegIntegerSet ∧ n > 0
+2. C ∈ RealSet
+3. x ∈ RealSet ∧ x > 0
+4. n ∈ PosIntegerSet
+5. { `F_2` | forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = ln(x)^{n} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_6` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = ln(x)^{n - 1} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_6`(x) = x * ln(x)^{n} - n * `F_3`(x)) }
+
+GOAL:
+{ `F_7` | forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_7`, 1, 1)(x) = ln(x)^{n} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_11` | exists (`F_8`), `F_8` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_8`, 1, 1)(x) = ln(x)^{n - 2} * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_11`(x) = x * ln(x)^{n} - n * x * ln(x)^{n - 1} + n * (n - 1) * `F_8`(x)) }
+
+METHOD:

@@ -1,0 +1,3 @@
+rewrite (right_to_left, equation) (hypothesis 16: {2 * π * DefInt(0, s, y(t) * diff(t)) = S}); from (GOAL: {S = s * 2 * π * η}) to (GOAL: {2 * π * DefInt(0, s, y(t) * diff(t)) = s * 2 * π * η})
+rewrite (right_to_left, equation) (hypothesis 15: {2 * π * η * s = 2 * π * DefInt(0, s, y(t) * diff(t))}); from (GOAL: {2 * π * DefInt(0, s, y(t) * diff(t)) = s * 2 * π * η}) to (GOAL: {2 * π * η * s = s * 2 * π * η})
+autosolve all_hypothesis

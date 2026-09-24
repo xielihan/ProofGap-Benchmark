@@ -1,0 +1,17 @@
+PROOF GAP @4
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. n ∈ NonNegIntegerSet
+5. b ≠ 0
+6. n ∈ PosIntegerSet
+7. forall (x), x ∈ RealSet ∧ (a + b * x) / (a - b * x) > 0 ∧ a - b * x ≠ 0 ⇒ y(x) = ln(frac(a + b * x, a - b * x))
+8. forall (x), x ∈ RealSet ∧ (a + b * x) / (a - b * x) > 0 ∧ a - b * x ≠ 0 ⇒ FunDeri(y, 1, 1)(x) = frac(b, a + b * x) + frac(b, a - b * x)
+9. forall (x), x ∈ RealSet ∧ (a + b * x) / (a - b * x) > 0 ∧ a - b * x ≠ 0 ⇒ FunDeri(y, 1, n)(x) = FunDeri(y, 1, 1 + n - 1)(x)
+10. forall (x), x ∈ RealSet ∧ (a + b * x) / (a - b * x) > 0 ∧ a - b * x ≠ 0 ⇒ FunDeri(y, 1, 1 + n - 1)(x) = FunDeri(fun x [x ∈ RealSet] . frac(b, a + b * x), 1, n - 1)(x) + FunDeri(fun x [x ∈ RealSet] . frac(b, a - b * x), 1, n - 1)(x)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ (a + b * x) / (a - b * x) > 0 ∧ a - b * x ≠ 0 ⇒ FunDeri(y, 1, n)(x) = FunDeri(fun x [x ∈ RealSet] . frac(b, a + b * x), 1, n - 1)(x) + FunDeri(fun x [x ∈ RealSet] . frac(b, a - b * x), 1, n - 1)(x)
+
+METHOD:

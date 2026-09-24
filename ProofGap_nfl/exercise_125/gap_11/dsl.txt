@@ -1,0 +1,4 @@
+get_exists (hypothesis 13: {exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ (exists (c), c ∈ RealSet ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ |x(p(k)) - c| ≤ b(k) - a(k)))}) (p := {p0})
+destruct_and (hypothesis 14: {p0 : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p0) ∧ (exists (c), c ∈ RealSet ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ |x(p0(k)) - c| ≤ b(k) - a(k)))}) as (hypothesis 15: {p0 : NonNegIntegerSet → NonNegIntegerSet}) (hypothesis 16: {IsSubseqIndexFunc(p0)}) (hypothesis 17: {exists (c), c ∈ RealSet ∧ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ |x(p0(k)) - c| ≤ b(k) - a(k))})
+exists (p := {p0})
+autosolve (hypothesis 15: {p0 : NonNegIntegerSet → NonNegIntegerSet}) (hypothesis 16: {IsSubseqIndexFunc(p0)})

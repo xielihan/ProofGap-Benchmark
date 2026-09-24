@@ -1,0 +1,8 @@
+get_prop (hypothesis 7: {forall (x) (I), x ∈ RealSet ∧ I ⊆ RealSet ∧ x ∈ I ⇒ FunDeri(f, 1, 1)(x) = 2 ∧ FunDeri(g, 1, 1)(x) = 2 * x}) (x := {-1}) (I := {RealSet}) as (hypothesis 9: {-1 ∈ RealSet ∧ RealSet ⊆ RealSet ∧ -1 ∈ RealSet ⇒ FunDeri(f, 1, 1)(-1) = 2 ∧ FunDeri(g, 1, 1)(-1) = 2 * -1})
+use_condition (obvious: {-1 ∈ RealSet ∧ RealSet ⊆ RealSet ∧ -1 ∈ RealSet}) in (hypothesis 9: {-1 ∈ RealSet ∧ RealSet ⊆ RealSet ∧ -1 ∈ RealSet ⇒ FunDeri(f, 1, 1)(-1) = 2 ∧ FunDeri(g, 1, 1)(-1) = 2 * -1}) as (hypothesis 10: {FunDeri(f, 1, 1)(-1) = 2 ∧ FunDeri(g, 1, 1)(-1) = 2 * -1})
+destruct_and (hypothesis 10: {FunDeri(f, 1, 1)(-1) = 2 ∧ FunDeri(g, 1, 1)(-1) = 2 * -1}) as (hypothesis 11: {FunDeri(f, 1, 1)(-1) = 2}) (hypothesis 12: {FunDeri(g, 1, 1)(-1) = 2 * -1})
+not_normalize from (GOAL: {¬(forall (x) (I), x ∈ RealSet ∧ I ⊆ RealSet ∧ x ∈ I ⇒ FunDeri(f, 1, 1)(x) ≤ FunDeri(g, 1, 1)(x))}) to (GOAL: {exists (x) (I), (x ∈ RealSet ∧ I ⊆ RealSet ∧ x ∈ I) ∧ ¬(FunDeri(f, 1, 1)(x) ≤ FunDeri(g, 1, 1)(x))})
+exists (x := {-1}) (I := {RealSet})
+rewrite (left_to_right, equation) (hypothesis 11: {FunDeri(f, 1, 1)(-1) = 2}); from (GOAL: {-1 ∈ RealSet ∧ RealSet ⊆ RealSet ∧ -1 ∈ RealSet ∧ ¬(FunDeri(f, 1, 1)(-1) ≤ FunDeri(g, 1, 1)(-1))}) to (GOAL: {-1 ∈ RealSet ∧ RealSet ⊆ RealSet ∧ -1 ∈ RealSet ∧ ¬(2 ≤ FunDeri(g, 1, 1)(-1))})
+rewrite (left_to_right, equation) (hypothesis 12: {FunDeri(g, 1, 1)(-1) = 2 * -1}); from (GOAL: {-1 ∈ RealSet ∧ RealSet ⊆ RealSet ∧ -1 ∈ RealSet ∧ ¬(2 ≤ FunDeri(g, 1, 1)(-1))}) to (GOAL: {-1 ∈ RealSet ∧ RealSet ⊆ RealSet ∧ -1 ∈ RealSet ∧ ¬(2 ≤ 2 * -1)})
+autosolve all_hypothesis

@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. p ∈ RealSet
+2. q ∈ RealSet
+3. p ≤ q ⇒ min(p, q) = p
+
+GOAL:
+p ≤ q ⇒ lim_{ x → 0^+ } (x^{p} * frac(1, x^{p} + x^{q})) = lim_{ x → 0^+ } (frac(1, 1 + x^{q - p}))
+
+METHOD:

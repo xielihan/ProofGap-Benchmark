@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = x^{2}
+3. forall (x), x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |x^{2} - 25| < ε ⇒ |f(x) - f(5)| < ε)
+4. forall (x), x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |x - 5| * |x + 5| < ε ⇒ |x^{2} - 25| < ε)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ |x - 5| * |x + 5| < ε ⇒ |f(x) - f(5)| < ε)
+
+METHOD:

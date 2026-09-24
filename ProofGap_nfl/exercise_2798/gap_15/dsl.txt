@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ContinuousFuncOn(fun x [x ∈ RealSet ∧ x ∈ [ε, +∞)] . π * n^{2} * e^{-π * n^{2} * x}, [ε, +∞)))}) (ε := {e0})
+get_condition (hypothesis 19: {e0 ∈ RealSet ∧ e0 > 0}) in (GOAL: {e0 ∈ RealSet ∧ e0 > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ContinuousFuncOn(fun x [x ∈ RealSet ∧ x ∈ [e0, +∞)] . π * n^{2} * e^{-π * n^{2} * x}, [e0, +∞)))})
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ContinuousFuncOn(fun x [x ∈ RealSet ∧ x ∈ [e0, +∞)] . π * n^{2} * e^{-π * n^{2} * x}, [e0, +∞))}) (n := {n0})
+get_condition (hypothesis 20: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ ContinuousFuncOn(fun x [x ∈ RealSet ∧ x ∈ [e0, +∞)] . π * n0^{2} * e^{-π * n0^{2} * x}, [e0, +∞))})
+autosolve all_hypothesis

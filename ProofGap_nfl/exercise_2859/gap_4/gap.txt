@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ 6 - 5 * x - x^{2} ≠ 0 ⇒ f(x) = frac(12 - 5 * x, 6 - 5 * x - x^{2})
+3. forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ f(x) = frac(1, 1 - x) + frac(6, 6 + x)
+4. forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ f(x) = frac(1, 1 - x) + frac(1, 1 + frac(x, 6))
+5. forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ frac(1, 1 - x) = sum_{ n = 0 }^{ +∞ } (x^{n})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ frac(1, 1 + frac(x, 6)) = sum_{ n = 0 }^{ +∞ } ((-frac(1, 6))^{n} * x^{n})
+
+METHOD:

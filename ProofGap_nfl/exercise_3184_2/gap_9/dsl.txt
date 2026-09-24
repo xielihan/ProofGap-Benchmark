@@ -1,0 +1,4 @@
+1. rewrite (left_to_right, equation) (hypothesis 4: {Eq(a, PosInfty)}) from (GOAL: {Eq(Lim(x, a, RightLim(y, b, f(x, y))), frac(1, 2))}) to (GOAL: {Eq(Lim(x, PosInfty, RightLim(y, b, f(x, y))), frac(1, 2))})
+2. rewrite (left_to_right, equation) (hypothesis 5: {Eq(b, 0)}) from (GOAL: {Eq(Lim(x, PosInfty, RightLim(y, b, f(x, y))), frac(1, 2))}) to (GOAL: {Eq(Lim(x, PosInfty, RightLim(y, 0, f(x, y))), frac(1, 2))})
+3. rewrite (left_to_right, equation) (hypothesis 9: {Eq(Lim(x, PosInfty, RightLim(y, 0, f(x, y))), frac(1, 2))}) from (GOAL: {Eq(Lim(x, PosInfty, RightLim(y, 0, f(x, y))), frac(1, 2))}) to (GOAL: {Eq(frac(1, 2), frac(1, 2))})
+4. autosolve (hypothesis 4: {Eq(a, PosInfty)}) (hypothesis 5: {Eq(b, 0)}) (hypothesis 9: {Eq(Lim(x, PosInfty, RightLim(y, 0, f(x, y))), frac(1, 2))}) using Reflexivity

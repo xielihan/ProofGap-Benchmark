@@ -1,0 +1,12 @@
+get_prop (theorem 'Thm 204. (ExponentAdditionLaw)': {forall (a) (x) (y), a ∈ RealSet => x ∈ RealSet => y ∈ RealSet => (a > 0 => a ^ (x + y) = a ^ x * a ^ y)}) (a := {10}) (x := {-(n + 1)}) (y := {1}) as (hypothesis 7: {10 ∈ RealSet => -(n + 1) ∈ RealSet => 1 ∈ RealSet => 10 > 0 => 10 ^ (-(n + 1) + 1) = 10 ^ (-(n + 1)) * 10 ^ 1})
+use_condition (obvious: {10 ∈ RealSet}) (obvious: {-(n + 1) ∈ RealSet}) (obvious: {1 ∈ RealSet}) (obvious: {10 > 0}) in (hypothesis 7: {10 ∈ RealSet => -(n + 1) ∈ RealSet => 1 ∈ RealSet => 10 > 0 => 10 ^ (-(n + 1) + 1) = 10 ^ (-(n + 1)) * 10 ^ 1}) as (hypothesis 8: {10 ^ (-(n + 1) + 1) = 10 ^ (-(n + 1)) * 10 ^ 1})
+assert (hypothesis 9: {10 * (1 - 10^{-(n + 1)}) = 10 - 10 * 10^{-(n + 1)}})
+rewrite (left_to_right, equation) (hypothesis 9: {10 * (1 - 10^{-(n + 1)}) = 10 - 10 * 10^{-(n + 1)}}); from (GOAL: {10 * (1 - 10^{-(n + 1)}) < sqrtn(2, x)}) to (GOAL: {10 - 10 * 10^{-(n + 1)} < sqrtn(2, x)})
+assert (hypothesis 10: {-(n + 1) + 1 = -n})
+rewrite (left_to_right, equation) (hypothesis 10: {-(n + 1) + 1 = -n}); from (hypothesis 8: {10 ^ (-(n + 1) + 1) = 10 ^ (-(n + 1)) * 10 ^ 1}) to (hypothesis 8: {10 ^ (-n) = 10 ^ (-(n + 1)) * 10 ^ 1})
+assert (hypothesis 11: {10 ^ 1 = 10})
+rewrite (left_to_right, equation) (hypothesis 11: {10 ^ 1 = 10}); from (hypothesis 8: {10 ^ (-n) = 10 ^ (-(n + 1)) * 10 ^ 1}) to (hypothesis 8: {10 ^ (-n) = 10 ^ (-(n + 1)) * 10})
+assert (hypothesis 12: {10 * 10 ^ (-(n + 1)) = 10 ^ (-(n + 1)) * 10})
+rewrite (left_to_right, equation) (hypothesis 12: {10 * 10 ^ (-(n + 1)) = 10 ^ (-(n + 1)) * 10}); from (GOAL: {10 - 10 * 10^{-(n + 1)} < sqrtn(2, x)}) to (GOAL: {10 - 10 ^ (-(n + 1)) * 10 < sqrtn(2, x)})
+rewrite (right_to_left, equation) (hypothesis 8: {10 ^ (-n) = 10 ^ (-(n + 1)) * 10}); from (GOAL: {10 - 10 ^ (-(n + 1)) * 10 < sqrtn(2, x)}) to (GOAL: {10 - 10^{-n} < sqrtn(2, x)})
+autosolve all_hypothesis

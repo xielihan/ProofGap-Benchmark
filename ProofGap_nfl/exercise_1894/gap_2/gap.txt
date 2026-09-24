@@ -1,0 +1,15 @@
+PROOF GAP @2
+ASSUM:
+1. Q : RealSet → RealSet
+2. Q_{1} : RealSet → RealSet
+3. Q_{2} : RealSet → RealSet
+4. A ∈ RealSet
+5. B ∈ RealSet
+6. C ∈ RealSet
+7. D ∈ RealSet
+8. forall (x), x ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ frac(x^{2}, (x^{2} + 2 * x + 2)^{2}) = frac(x^{2} + 2 * x + 2 - (2 * x + 2), (x^{2} + 2 * x + 2)^{2})
+
+METHOD:

@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+lim_{ x → frac(π, 4) } (frac(1 - cot(x)^{3}, 2 - cot(x) - cot(x)^{3})) = lim_{ x → frac(π, 4) } (frac(sin(x)^{3} - cos(x)^{3}, 2 * sin(x)^{3} - sin(x)^{2} * cos(x) - cos(x)^{3}))
+
+METHOD:

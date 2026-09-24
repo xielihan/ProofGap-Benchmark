@@ -1,0 +1,4 @@
+get_prop (hypothesis 18: {forall (z), z ∈ RealSet ⇒ u(0, 0, z) = z * e^{-(3 * z)}}) (z := {frac(1, 3)}) as (hypothesis 21: {frac(1, 3) ∈ RealSet ⇒ u(0, 0, frac(1, 3)) = frac(1, 3) * e^{-(3 * frac(1, 3))}})
+use_condition (obvious: {frac(1, 3) ∈ RealSet}) in (hypothesis 21: {frac(1, 3) ∈ RealSet ⇒ u(0, 0, frac(1, 3)) = frac(1, 3) * e^{-(3 * frac(1, 3))}}) as (hypothesis 22: {u(0, 0, frac(1, 3)) = frac(1, 3) * e^{-(3 * frac(1, 3))}})
+rewrite (left_to_right, equation) (hypothesis 22: {u(0, 0, frac(1, 3)) = frac(1, 3) * e^{-(3 * frac(1, 3))}}); from (GOAL: {u(0, 0, frac(1, 3)) = frac(1, 3) * e^{-1}}) to (GOAL: {frac(1, 3) * e^{-(3 * frac(1, 3))} = frac(1, 3) * e^{-1}})
+autosolve all_hypothesis

@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ |e^{-(x^{2} + y^{2})} * cos(x^{2} + y^{2})| ≤ e^{-(x^{2} + y^{2})})
+2. exists (A), A ∈ RealSet ∧ A = DefInt(-∞, +∞, (fun y [y ∈ RealSet] . DefInt(-∞, +∞, (fun x [x ∈ RealSet] . e^{-(x^{2} + y^{2})}) * diff(fun x [x ∈ RealSet] . x))) * diff(fun y [y ∈ RealSet] . y))
+
+GOAL:
+exists (B), B ∈ RealSet ∧ B = DefInt(-∞, +∞, (fun y [y ∈ RealSet] . DefInt(-∞, +∞, (fun x [x ∈ RealSet] . e^{-(x^{2} + y^{2})} * cos(x^{2} + y^{2})) * diff(fun x [x ∈ RealSet] . x))) * diff(fun y [y ∈ RealSet] . y))
+
+METHOD:

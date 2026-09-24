@@ -1,0 +1,13 @@
+PROOF GAP @8
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(-1, 1) ∧ t = tanh(frac(x, 2)))
+2. forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(-1, 1) ∧ (t = tanh(frac(x, 2)) ⇒ sinh(x) = frac(2 * t, 1 - t^{2})))
+3. forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(-1, 1) ∧ (t = tanh(frac(x, 2)) ⇒ cosh(x) = frac(1 + t^{2}, 1 - t^{2})))
+4. forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(-1, 1) ∧ (t = tanh(frac(x, 2)) ⇒ x = ln(frac(1 + t, 1 - t))))
+5. forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(-1, 1) ⇒ diff(fun t [t ∈ RealSet ∧ t ∈ IntervalLoRo(-1, 1)] . ln(frac(1 + t, 1 - t))) = frac(2, 1 - t^{2}) * diff(fun t [t ∈ RealSet ∧ t ∈ IntervalLoRo(-1, 1)] . t))
+6. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), sinh(x) + 2 * cosh(x)) } = { `F_3` | forall (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(-1, 1) ⇒ FunDeri(`F_3`, 1, 1)(t) = frac(FunDeri(fun t [t ∈ RealSet ∧ t ∈ IntervalLoRo(-1, 1)] . t, 1, 1)(t), t^{2} + t + 1) }
+
+GOAL:
+{ `F_4` | forall (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(-1, 1) ⇒ FunDeri(`F_4`, 1, 1)(t) = frac(FunDeri(fun t [t ∈ RealSet ∧ t ∈ IntervalLoRo(-1, 1)] . t, 1, 1)(t), t^{2} + t + 1) } = { `F_5` | exists (C), C ∈ RealSet ∧ (forall (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(-1, 1) ⇒ `F_5`(t) = frac(2, sqrtn(2, 3)) * arctan(frac(2 * t + 1, sqrtn(2, 3))) + C) }
+
+METHOD:

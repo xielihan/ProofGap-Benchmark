@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. n ∈ PosIntegerSet
+3. forall (x), x ∈ RealSet
+4. forall (x), x ∈ RealSet ∧ x ≥ 1 ⇒ x ≠ 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≥ 1 ⇒ x^{2} - 1 ≥ 0
+
+METHOD:

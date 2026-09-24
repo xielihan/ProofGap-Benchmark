@@ -1,0 +1,33 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet
+2. y ∈ RealSet
+3. z ∈ RealSet
+4. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+5. v : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+6. w : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+7. f : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+8. g : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+9. h : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+10. I ∈ RealSet
+11. I_{1} ∈ RealSet
+12. I_{2} ∈ RealSet
+13. I_{3} ∈ RealSet
+14. x = f(u, v, w)
+15. y = g(u, v, w)
+16. z = h(u, v, w)
+17. DiffableFunc(f)
+18. DiffableFunc(g)
+19. DiffableFunc(h)
+20. I = FunDeri(f, 1, 1)(u, v, w) * (FunDeri(g, 2, 1)(u, v, w) * FunDeri(h, 3, 1)(u, v, w) - FunDeri(g, 3, 1)(u, v, w) * FunDeri(h, 2, 1)(u, v, w)) - FunDeri(f, 2, 1)(u, v, w) * (FunDeri(g, 1, 1)(u, v, w) * FunDeri(h, 3, 1)(u, v, w) - FunDeri(g, 3, 1)(u, v, w) * FunDeri(h, 1, 1)(u, v, w)) + FunDeri(f, 3, 1)(u, v, w) * (FunDeri(g, 1, 1)(u, v, w) * FunDeri(h, 2, 1)(u, v, w) - FunDeri(g, 2, 1)(u, v, w) * FunDeri(h, 1, 1)(u, v, w))
+21. I ≠ 0
+22. I_{1} = FunDeri(g, 2, 1)(u, v, w) * FunDeri(h, 3, 1)(u, v, w) - FunDeri(g, 3, 1)(u, v, w) * FunDeri(h, 2, 1)(u, v, w)
+23. I_{2} = FunDeri(h, 2, 1)(u, v, w) * FunDeri(f, 3, 1)(u, v, w) - FunDeri(h, 3, 1)(u, v, w) * FunDeri(f, 2, 1)(u, v, w)
+24. I_{3} = FunDeri(f, 2, 1)(u, v, w) * FunDeri(g, 3, 1)(u, v, w) - FunDeri(f, 3, 1)(u, v, w) * FunDeri(g, 2, 1)(u, v, w)
+25. diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) = FunDeri(f, 1, 1)(u, v, w) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . u(x, y, z)) + FunDeri(f, 2, 1)(u, v, w) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . v(x, y, z)) + FunDeri(f, 3, 1)(u, v, w) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . w(x, y, z))
+26. diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) = FunDeri(g, 1, 1)(u, v, w) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . u(x, y, z)) + FunDeri(g, 2, 1)(u, v, w) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . v(x, y, z)) + FunDeri(g, 3, 1)(u, v, w) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . w(x, y, z))
+
+GOAL:
+diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) = FunDeri(h, 1, 1)(u, v, w) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . u(x, y, z)) + FunDeri(h, 2, 1)(u, v, w) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . v(x, y, z)) + FunDeri(h, 3, 1)(u, v, w) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . w(x, y, z))
+
+METHOD:

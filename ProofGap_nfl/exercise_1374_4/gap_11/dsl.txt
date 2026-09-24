@@ -1,0 +1,13 @@
+assert (hypothesis 15: {forall (t), f(t) = 1 + t + sin(t) * cos(t)}) by proof {
+  get_forall (GOAL: {forall (t), f(t) = 1 + t + sin(t) * cos(t)}) (t := {t0})
+  rewrite (left_to_right, equation) (hypothesis 1: {f = (fun x [x ∈ RealSet] . 1 + x + sin(x) * cos(x))}); from (GOAL: {f(t0) = 1 + t0 + sin(t0) * cos(t0)}) to (GOAL: {(fun x [x ∈ RealSet] . 1 + x + sin(x) * cos(x))(t0) = 1 + t0 + sin(t0) * cos(t0)})
+  autosolve all_hypothesis
+}
+assert (hypothesis 16: {forall (t), g(t) = (t + sin(t) * cos(t)) * e^{sin(t)}}) by proof {
+  get_forall (GOAL: {forall (t), g(t) = (t + sin(t) * cos(t)) * e^{sin(t)}}) (t := {t0})
+  rewrite (left_to_right, equation) (hypothesis 2: {g = (fun x [x ∈ RealSet] . (x + sin(x) * cos(x)) * e^{sin(x)}}); from (GOAL: {g(t0) = (t0 + sin(t0) * cos(t0)) * e^{sin(t0)}}) to (GOAL: {(fun x [x ∈ RealSet] . (x + sin(x) * cos(x)) * e^{sin(x)})(t0) = (t0 + sin(t0) * cos(t0)) * e^{sin(t0)}})
+  autosolve all_hypothesis
+}
+rewrite_in limit (left_to_right, equation) (hypothesis 15: {forall (t), f(t) = 1 + t + sin(t) * cos(t)}); from (hypothesis 14: {¬(exists (L), L ∈ RealSet ∧ lim_{ x → +∞ } (frac(f(x), g(x))) = L)}) to (hypothesis 17: {¬(exists (L), L ∈ RealSet ∧ lim_{ x → +∞ } (frac(1 + x + sin(x) * cos(x), g(x))) = L)})
+rewrite_in limit (left_to_right, equation) (hypothesis 16: {forall (t), g(t) = (t + sin(t) * cos(t)) * e^{sin(t)}}); from (hypothesis 17: {¬(exists (L), L ∈ RealSet ∧ lim_{ x → +∞ } (frac(1 + x + sin(x) * cos(x), g(x))) = L)}) to (hypothesis 18: {¬(exists (L), L ∈ RealSet ∧ lim_{ x → +∞ } (frac(1 + x + sin(x) * cos(x), (x + sin(x) * cos(x)) * e^{sin(x)})) = L)})
+apply (hypothesis 18: {¬(exists (L), L ∈ RealSet ∧ lim_{ x → +∞ } (frac(1 + x + sin(x) * cos(x), (x + sin(x) * cos(x)) * e^{sin(x)})) = L)})

@@ -1,0 +1,20 @@
+PROOF GAP @6
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. q ∈ RealSet
+3. a : NonNegIntegerSet → RealSet
+4. M ∈ RealSet
+5. forall (i), i ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ x(n) = sum_{ i = 0 }^{ n } (a(i) * q^{i}))
+6. forall (k), k ∈ NonNegIntegerSet ⇒ |a(k)| < M
+7. M > 0
+8. |q| < 1
+9. forall (m), m ∈ IntegerSet ⇒ (forall (n), m ∈ IntegerSet ∧ n ∈ IntegerSet ∧ m > n ∧ n ≥ 0 ⇒ |x(m) - x(n)| = |sum_{ i = n + 1 }^{ m } (a(i) * q^{i})|)
+10. forall (m), m ∈ IntegerSet ⇒ (forall (n), m ∈ IntegerSet ∧ n ∈ IntegerSet ∧ m > n ∧ n ≥ 0 ⇒ |sum_{ i = n + 1 }^{ m } (a(i) * q^{i})| ≤ sum_{ i = n + 1 }^{ m } (|a(i)| * |q|^{i}))
+11. forall (m), m ∈ IntegerSet ⇒ (forall (n), m ∈ IntegerSet ∧ n ∈ IntegerSet ∧ m > n ∧ n ≥ 0 ⇒ sum_{ i = n + 1 }^{ m } (|a(i)| * |q|^{i}) < M * |q|^{n + 1} * (sum_{ i = 0 }^{ m - n - 1 } (|q|^{i})))
+12. forall (m), m ∈ IntegerSet ⇒ (forall (n), m ∈ IntegerSet ∧ n ∈ IntegerSet ∧ m > n ∧ n ≥ 0 ⇒ M * |q|^{n + 1} * (sum_{ i = 0 }^{ m - n - 1 } (|q|^{i})) < M * |q|^{n + 1} * frac(1, 1 - |q|))
+13. forall (m), m ∈ IntegerSet ⇒ (forall (n), m ∈ IntegerSet ∧ n ∈ IntegerSet ∧ m > n ∧ n ≥ 0 ⇒ |x(m) - x(n)| < M * |q|^{n + 1} * frac(1, 1 - |q|))
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ seqlim_{ n → +∞ } (|q|^{n + 1}) = 0
+
+METHOD:

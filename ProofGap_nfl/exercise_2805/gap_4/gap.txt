@@ -1,0 +1,10 @@
+PROOF GAP @4
+ASSUM:
+1. DefInt(0, 1, (fun x [x ∈ RealSet] . lim_{ n → +∞ } (frac(n * x, 1 + n^{2} * x^{4}))) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet] . 0) * diff(fun x [x ∈ RealSet] . x))
+2. DefInt(0, 1, (fun x [x ∈ RealSet] . 0) * diff(fun x [x ∈ RealSet] . x)) = 0
+3. DefInt(0, 1, (fun x [x ∈ RealSet] . lim_{ n → +∞ } (frac(n * x, 1 + n^{2} * x^{4}))) * diff(fun x [x ∈ RealSet] . x)) = 0
+
+GOAL:
+seqlim_{ n → +∞ } (DefInt(0, 1, (fun x [x ∈ RealSet] . frac(n * x, 1 + n^{2} * x^{4})) * diff(fun x [x ∈ RealSet] . x))) = seqlim_{ n → +∞ } ((fun x [x ∈ RealSet] . frac(1, 2) * arctan(n * x^{2}))|_{0}^{1})
+
+METHOD:

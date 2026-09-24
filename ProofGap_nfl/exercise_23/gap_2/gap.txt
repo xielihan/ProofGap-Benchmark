@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. x - 2 ≥ 10 ∨ x - 2 ≤ -10
+
+GOAL:
+x ≥ 12 ∨ x ≤ -8
+
+METHOD:

@@ -1,0 +1,21 @@
+PROOF GAP @13
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ f(n, x) = frac(1, n) * arctan(x^{n}))
+3. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ |arctan(x^{n})| < frac(π, 2))
+4. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ |f(n, x)| < frac(π, 2 * n))
+5. forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (f(n, x)) = 0
+6. forall (N), N : RealSet → NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ N(ε) = floor(frac(π, 2 * ε)) ∧ n > N(ε) ∧ x ∈ RealSet ⇒ |f(n, x) - 0| < frac(π, 2 * n))))
+7. forall (N), N : RealSet → NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ N(ε) = floor(frac(π, 2 * ε)) ∧ n > N(ε) ∧ x ∈ RealSet ⇒ frac(π, 2 * n) ≤ frac(π, 2 * (N(ε) + 1)))))
+8. forall (N), N : RealSet → NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ N(ε) = floor(frac(π, 2 * ε)) ∧ n > N(ε) ∧ x ∈ RealSet ⇒ frac(π, 2 * (N(ε) + 1)) < ε)))
+9. forall (N), N : RealSet → NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ N(ε) = floor(frac(π, 2 * ε)) ∧ n > N(ε) ∧ x ∈ RealSet ⇒ |f(n, x) - 0| < ε)))
+10. UniformConvergent(f, IntervalLoRo(-∞, +∞), fun x [x ∈ RealSet] . 0)
+11. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ FunDeri(f, 2, 1)(n, x) = frac(x^{n - 1}, 1 + x^{2 * n}))
+12. FunDeri(fun x [x ∈ RealSet] . seqlim_{ n → +∞ } (f(n, x)), 1, 1)(1) = 0
+13. seqlim_{ n → +∞ } (FunDeri(f, 2, 1)(n, 1)) = frac(1, 2)
+14. FunDeri(fun x [x ∈ RealSet] . seqlim_{ n → +∞ } (f(n, x)), 1, 1)(1) ≠ seqlim_{ n → +∞ } (FunDeri(f, 2, 1)(n, 1))
+
+GOAL:
+UniformConvergent(f, IntervalLoRo(-∞, +∞), fun x [x ∈ RealSet] . 0) ∧ FunDeri(fun x [x ∈ RealSet] . seqlim_{ n → +∞ } (f(n, x)), 1, 1)(1) ≠ seqlim_{ n → +∞ } (FunDeri(f, 2, 1)(n, 1))
+
+METHOD:

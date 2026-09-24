@@ -1,0 +1,21 @@
+PROOF GAP @4
+ASSUM:
+1. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. x : CartesianProd(RealSet, RealSet) → RealSet
+3. y : CartesianProd(RealSet, RealSet) → RealSet
+4. z : CartesianProd(RealSet, RealSet) → RealSet
+5. E : CartesianProd(RealSet, RealSet) → RealSet
+6. F : CartesianProd(RealSet, RealSet) → RealSet
+7. G : CartesianProd(RealSet, RealSet) → RealSet
+8. a ∈ RealSet ∧ a > 0
+9. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ∧ 0 < u ∧ u < a ∧ 0 < v ∧ v < 2 * π ⇒ x(u, v) = u * cos(v)
+10. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ∧ 0 < u ∧ u < a ∧ 0 < v ∧ v < 2 * π ⇒ y(u, v) = u * sin(v)
+11. forall (u) (v), u ∈ RealSet ∧ v ∈ RealSet ∧ 0 < u ∧ u < a ∧ 0 < v ∧ v < 2 * π ⇒ z(u, v) = v
+12. forall (u) (v), u ∈ RealSet ∧ 0 < u ∧ u < a ∧ v ∈ RealSet ∧ 0 < v ∧ v < 2 * π ⇒ E(u, v) = FunDeri(x, 1, 1)(u, v)^{2} + FunDeri(y, 1, 1)(u, v)^{2} + FunDeri(z, 1, 1)(u, v)^{2}
+13. forall (u) (v), u ∈ RealSet ∧ 0 < u ∧ u < a ∧ v ∈ RealSet ∧ 0 < v ∧ v < 2 * π ⇒ FunDeri(x, 1, 1)(u, v)^{2} + FunDeri(y, 1, 1)(u, v)^{2} + FunDeri(z, 1, 1)(u, v)^{2} = cos(v)^{2} + sin(v)^{2}
+14. forall (v), v ∈ RealSet ∧ 0 < v ∧ v < 2 * π ⇒ cos(v)^{2} + sin(v)^{2} = 1
+
+GOAL:
+forall (u) (v), u ∈ RealSet ∧ 0 < u ∧ u < a ∧ v ∈ RealSet ∧ 0 < v ∧ v < 2 * π ⇒ E(u, v) = 1
+
+METHOD:

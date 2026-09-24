@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. y : NonNegIntegerSet → RealSet ∧ IsSeq(y)
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n) = x(n) * sqrtn(n, n)
+4. seqlim_{ n → +∞ } (sqrtn(n, n)) = 1
+5. forall (a), a ∈ RealSet ∧ a ∈ AccumulationPointSet(x) ⇒ (exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ seqlim_{ k → +∞ } (x(p(k))) = a)
+
+GOAL:
+forall (a), a ∈ RealSet ∧ a ∈ AccumulationPointSet(x) ⇒ (exists (p), p : NonNegIntegerSet → NonNegIntegerSet ∧ IsSubseqIndexFunc(p) ∧ seqlim_{ k → +∞ } (sqrtn(k + 1, k + 1)) = 1)
+
+METHOD:

@@ -1,0 +1,12 @@
+PROOF GAP @6
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ (forall (α), α ∈ RealSet ∧ x ≥ 0 ∧ α ≥ 0 ⇒ (x + α)^{2} + 1 > 0)
+2. forall (x), x ∈ RealSet ⇒ (forall (α), α ∈ RealSet ∧ x ≥ 0 ∧ α ≥ 0 ⇒ 0 < frac(1, (x + α)^{2} + 1))
+3. forall (x), x ∈ RealSet ⇒ (forall (α), α ∈ RealSet ∧ x ≥ 0 ∧ α ≥ 0 ⇒ frac(1, (x + α)^{2} + 1) ≤ frac(1, 1 + x^{2}))
+4. forall (x), x ∈ RealSet ⇒ (forall (α), α ∈ RealSet ∧ x ≥ 0 ∧ α ≥ 0 ⇒ 0 < frac(1, 1 + x^{2}))
+5. DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x)) = frac(π, 2)
+
+GOAL:
+exists (I), I ∈ RealSet /\ DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x)) = I
+
+METHOD:

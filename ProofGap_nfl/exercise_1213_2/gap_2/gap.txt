@@ -1,0 +1,15 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. c ∈ RealSet
+4. φ ∈ RealSet
+5. a^{2} + b^{2} > 0
+6. sin(φ) = frac(b, sqrtn(2, a^{2} + b^{2}))
+7. cos(φ) = frac(a, sqrtn(2, a^{2} + b^{2}))
+8. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ FunDeri(fun x [x ∈ RealSet] . e^{a * x} * cos(b * x + c), 1, n)(x) = (a^{2} + b^{2})^{frac(n, 2)} * e^{a * x} * cos(b * x + c + n * φ)
+
+GOAL:
+forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ FunDeri(fun x [x ∈ RealSet] . e^{a * x} * cos(b * x + c), 1, n)(x) = e^{a * x} * (a^{2} + b^{2})^{frac(n, 2)} * cos(b * x + c + n * φ)
+
+METHOD:

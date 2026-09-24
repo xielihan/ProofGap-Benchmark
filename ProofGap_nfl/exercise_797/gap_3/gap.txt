@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ IntervalLoRo(0, 1) ⇒ f(x) = e^{x} * cos(frac(1, x))
+3. ε_{0} = 1
+4. x = (fun n [n ∈ NonNegIntegerSet] . frac(2, (2 * n + 1) * π))
+5. `x'` = (fun n [n ∈ NonNegIntegerSet] . frac(1, n * π))
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ∈ IntervalLoRo(0, 1) ∧ `x'`(n) ∈ IntervalLoRo(0, 1)
+7. forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ |x(n) - `x'`(n)| = frac(1, (2 * n + 1) * n * π) ∧ frac(1, (2 * n + 1) * n * π) < δ))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |f(x(n)) - f(`x'`(n))| = e^{frac(1, n * π)} ∧ e^{frac(1, n * π)} > 1
+
+METHOD:

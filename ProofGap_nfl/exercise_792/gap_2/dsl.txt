@@ -1,0 +1,12 @@
+1. get_forall (GOAL: {forall (`x'`), `x'` ∈ RealSet => (forall (`x''`), `x'` ∈ RealSet /\ `x''` ∈ RealSet => |f(`x'`) - f(`x''`)| = |`x'` - `x''` + sin(`x'`) - sin(`x''`)|)}) (`x'` := {a})
+2. get_condition (hypothesis 4: {a ∈ RealSet}) in (GOAL: {a ∈ RealSet => forall (`x''`), a ∈ RealSet /\ `x''` ∈ RealSet => |f(a) - f(`x''`)| = |a - `x''` + sin(a) - sin(`x''`)|})
+3. get_forall (GOAL: {forall (`x''`), a ∈ RealSet /\ `x''` ∈ RealSet => |f(a) - f(`x''`)| = |a - `x''` + sin(a) - sin(`x''`)|}) (`x''` := {b})
+4. get_condition (hypothesis 5: {a ∈ RealSet /\ b ∈ RealSet}) in (GOAL: {(a ∈ RealSet /\ b ∈ RealSet) => |f(a) - f(b)| = |a - b + sin(a) - sin(b)|})
+5. destruct_and (hypothesis 5: {a ∈ RealSet /\ b ∈ RealSet}) as (hypothesis 6: {a ∈ RealSet}) (hypothesis 7: {b ∈ RealSet})
+6. get_prop (hypothesis 2: {forall (x), x ∈ RealSet => f(x) = x + sin(x)}) (x := {a}) as (hypothesis 8: {a ∈ RealSet => f(a) = a + sin(a)})
+7. use_condition (hypothesis 6: {a ∈ RealSet}) in (hypothesis 8: {a ∈ RealSet => f(a) = a + sin(a)}) as (hypothesis 9: {f(a) = a + sin(a)})
+8. get_prop (hypothesis 2: {forall (x), x ∈ RealSet => f(x) = x + sin(x)}) (x := {b}) as (hypothesis 10: {b ∈ RealSet => f(b) = b + sin(b)})
+9. use_condition (hypothesis 7: {b ∈ RealSet}) in (hypothesis 10: {b ∈ RealSet => f(b) = b + sin(b)}) as (hypothesis 11: {f(b) = b + sin(b)})
+10. rewrite (left_to_right, equation) (hypothesis 9: {f(a) = a + sin(a)}); from (GOAL: {|f(a) - f(b)| = |a - b + sin(a) - sin(b)|}) to (GOAL: {|a + sin(a) - f(b)| = |a - b + sin(a) - sin(b)|})
+11. rewrite (left_to_right, equation) (hypothesis 11: {f(b) = b + sin(b)}); from (GOAL: {|a + sin(a) - f(b)| = |a - b + sin(a) - sin(b)|}) to (GOAL: {|a + sin(a) - (b + sin(b))| = |a - b + sin(a) - sin(b)|})
+12. autosolve all_hypothesis

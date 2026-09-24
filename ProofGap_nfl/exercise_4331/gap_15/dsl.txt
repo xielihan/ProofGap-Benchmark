@@ -1,0 +1,12 @@
+1. get_forall (GOAL: {forall (x_{0}) (y_{0}), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ (forall (C), C ⊆ CartesianProd(RealSet, RealSet) ⇒ ScalarCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . FunDeri(u, n, 1)(x, y)) * diff(fun s [s ∈ RealSet] . s)) = 0) ∧ Δu(x_{0}, y_{0}) ≠ 0 ∧ Δu(x_{0}, y_{0}) < 0 ⇒ (exists (S_{0}), S_{0} ⊆ CartesianProd(RealSet, RealSet) ∧ (forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ S_{0} ⇒ Δu(x, y) < 0))}) (x_{0} := {x0}) (y_{0} := {y0})
+2. get_condition (hypothesis 21: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ (forall (C), C ⊆ CartesianProd(RealSet, RealSet) ⇒ ScalarCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . FunDeri(u, n, 1)(x, y)) * diff(fun s [s ∈ RealSet] . s)) = 0) ∧ Δu(x0, y0) ≠ 0 ∧ Δu(x0, y0) < 0}) in (GOAL: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ (forall (C), C ⊆ CartesianProd(RealSet, RealSet) ⇒ ScalarCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . FunDeri(u, n, 1)(x, y)) * diff(fun s [s ∈ RealSet] . s)) = 0) ∧ Δu(x0, y0) ≠ 0 ∧ Δu(x0, y0) < 0 ⇒ (exists (S_{0}), S_{0} ⊆ CartesianProd(RealSet, RealSet) ∧ (forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ S_{0} ⇒ Δu(x, y) < 0))})
+3. exists (S_{0} := {∅})
+4. get_prop (theorem 'Thm 1. (EmptySetSubset)': {forall (A), ∅ ⊆ A}) (A := {CartesianProd(RealSet, RealSet)}) as (hypothesis 22: {∅ ⊆ CartesianProd(RealSet, RealSet)})
+5. assert (hypothesis 23: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ ∅ ⇒ Δu(x, y) < 0}) by proof {
+  1. get_forall (GOAL: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ ∅ ⇒ Δu(x, y) < 0}) (x := {x1}) (y := {y1})
+  2. get_condition (hypothesis 23: {x1 ∈ RealSet ∧ y1 ∈ RealSet ∧ (x1, y1) ∈ ∅}) in (GOAL: {x1 ∈ RealSet ∧ y1 ∈ RealSet ∧ (x1, y1) ∈ ∅ ⇒ Δu(x1, y1) < 0})
+  3. destruct_and (hypothesis 23: {x1 ∈ RealSet ∧ y1 ∈ RealSet ∧ (x1, y1) ∈ ∅}) as (hypothesis 24: {x1 ∈ RealSet}) (hypothesis 25: {y1 ∈ RealSet}) (hypothesis 26: {(x1, y1) ∈ ∅})
+  4. get_prop (theorem 'Thm 2. (EmptySetHasNoElements)': {forall (A), Not (A ∈ ∅)}) (A := {(x1, y1)}) as (hypothesis 27: {Not ((x1, y1) ∈ ∅)})
+  5. autosolve (hypothesis 26: {(x1, y1) ∈ ∅}) (hypothesis 27: {Not ((x1, y1) ∈ ∅)})
+}
+6. autosolve (hypothesis 22: {∅ ⊆ CartesianProd(RealSet, RealSet)}) (hypothesis 23: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ ∅ ⇒ Δu(x, y) < 0})

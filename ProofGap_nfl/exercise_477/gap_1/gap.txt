@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. x ≠ 0
+
+GOAL:
+lim_{ x → 0 } (frac(cos(x) - cos(3 * x), x^{2})) = lim_{ x → 0 } (frac(2 * sin(2 * x) * sin(x), x^{2}))
+
+METHOD:
+[@method 利用三角变换 @]

@@ -1,0 +1,10 @@
+PROOF GAP @4
+ASSUM:
+1. forall (a), a ∈ RealSet ⇒ (forall (b), a ∈ RealSet ∧ b ∈ RealSet ⇒ (exists (ξ), ξ ∈ RealSet ∧ (a ≠ b ⇒ min(a, b) < ξ ∧ ξ < max(a, b)) ∧ |arctan(a) - arctan(b)| = |frac(a - b, 1 + ξ^{2})|))
+2. forall (a), a ∈ RealSet ⇒ (forall (b), a ∈ RealSet ∧ b ∈ RealSet ⇒ (exists (ξ), ξ ∈ RealSet ∧ |frac(a - b, 1 + ξ^{2})| ≤ |a - b|))
+3. forall (a), a ∈ RealSet ⇒ (forall (b), a ∈ RealSet ∧ b ∈ RealSet ⇒ |arctan(a) - arctan(b)| ≤ |a - b|)
+
+GOAL:
+forall (a) (b), a ∈ RealSet ∧ b ∈ RealSet ⇒ |arctan(a) - arctan(b)| ≤ |a - b|
+
+METHOD:

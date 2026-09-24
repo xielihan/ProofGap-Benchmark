@@ -1,0 +1,4 @@
+1. get_exists (hypothesis 6: {exists (ξ_{1}) (ξ_{2}), ξ_{1} ∈ RealSet ∧ 0 ≤ ξ_{1} ∧ ξ_{1} ≤ 50 ∧ ξ_{2} ∈ RealSet ∧ 50 ≤ ξ_{2} ∧ ξ_{2} ≤ 100 ∧ frac(1 - e^{-50}, 100 + ξ_{1}) + frac(e^{-50} - e^{-100}, 100 + ξ_{2}) ≤ frac(1 - e^{-50}, 100 + ξ_{1}) + frac(e^{-50} - e^{-100}, 100 + ξ_{1})}) (ξ_{1} := {a}) (ξ_{2} := {b})
+2. destruct_and (hypothesis 7: {a ∈ RealSet ∧ 0 ≤ a ∧ a ≤ 50 ∧ b ∈ RealSet ∧ 50 ≤ b ∧ b ≤ 100 ∧ frac(1 - e^{-50}, 100 + a) + frac(e^{-50} - e^{-100}, 100 + b) ≤ frac(1 - e^{-50}, 100 + a) + frac(e^{-50} - e^{-100}, 100 + a)}) as (hypothesis 8: {a ∈ RealSet}) (hypothesis 9: {0 ≤ a}) (hypothesis 10: {a ≤ 50}) (hypothesis 11: {b ∈ RealSet}) (hypothesis 12: {50 ≤ b}) (hypothesis 13: {b ≤ 100}) (hypothesis 14: {frac(1 - e^{-50}, 100 + a) + frac(e^{-50} - e^{-100}, 100 + b) ≤ frac(1 - e^{-50}, 100 + a) + frac(e^{-50} - e^{-100}, 100 + a)})
+3. exists (ξ_{1} := {a})
+4. autosolve all_hypothesis

@@ -1,0 +1,33 @@
+PROOF GAP @20
+ASSUM:
+1. x : NonNegIntegerSet → RealSet
+2. a ∈ RealSet
+3. L ∈ RealSet
+4. IsSeq(x)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ∈ RealSet ∧ x(n) ≠ 0
+6. forall (n), n ∈ NonNegIntegerSet ⇒ seqlim_{ n → +∞ } (x(n)) = a
+7. a ≠ 0 ⇒ seqlim_{ n → +∞ } (x(n + 1)) = a
+8. a ≠ 0 ⇒ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = frac(seqlim_{ n → +∞ } (x(n + 1)), seqlim_{ n → +∞ } (x(n)))
+9. a ≠ 0 ⇒ frac(seqlim_{ n → +∞ } (x(n + 1)), seqlim_{ n → +∞ } (x(n))) = frac(a, a)
+10. a ≠ 0 ⇒ frac(a, a) = 1
+11. a ≠ 0 ⇒ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = 1
+12. a ≠ 0 ⇒ L = 1
+13. forall (m), m ∈ NonNegIntegerSet ∧ a = 0 ⇒ (exists (y), y : NonNegIntegerSet → RealSet ∧ y = (fun n [n ∈ NonNegIntegerSet] . cases{ 1 if n = 1 ∨ n = 2; frac(1, 2^{m}) if n = 2 * m + 1 ∨ n = 2 * m + 2 }))
+14. a = 0 ⇒ (exists (y), y : NonNegIntegerSet → RealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n) ≠ 0))
+15. a = 0 ⇒ (exists (y), y : NonNegIntegerSet → RealSet ∧ seqlim_{ n → +∞ } (y(n)) = 0)
+16. forall (m), m ∈ NonNegIntegerSet ∧ a = 0 ⇒ (exists (y), y : NonNegIntegerSet → RealSet ∧ seqlim_{ m → +∞ } (y(2 * m) / y(2 * m - 1)) = 1)
+17. forall (m), m ∈ NonNegIntegerSet ∧ a = 0 ⇒ (exists (y), y : NonNegIntegerSet → RealSet ∧ seqlim_{ m → +∞ } (y(2 * m + 1) / y(2 * m)) = frac(1, 2))
+18. a = 0 ⇒ (exists (y), y : NonNegIntegerSet → RealSet ∧ DivergentSeq(fun n [n ∈ NonNegIntegerSet] . y(n + 1) / y(n)))
+19. forall (b), b ∈ RealSet ∧ a = 0 ∧ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = b ∧ |b| > 1 ⇒ (exists (r), r ∈ RealSet ∧ |b| > r ∧ r > 1)
+20. forall (b), b ∈ RealSet ∧ a = 0 ∧ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = b ∧ |b| > 1 ⇒ seqlim_{ n → +∞ } (|x(n + 1)| / |x(n)|) = |b|
+21. forall (b), b ∈ RealSet ∧ a = 0 ∧ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = b ∧ |b| > 1 ⇒ (exists (r), r ∈ RealSet ∧ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ |b| > r ∧ r > 1 ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ |x(n + 1)| / |x(n)| > r)))
+22. forall (b), b ∈ RealSet ∧ a = 0 ∧ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = b ∧ |b| > 1 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ |x(n)| = |x(N)| * (prod_{ i = N }^{ n - 1 } (|x(i + 1)| / |x(i)|))))
+23. forall (b), b ∈ RealSet ∧ a = 0 ∧ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = b ∧ |b| > 1 ⇒ (exists (r), r ∈ RealSet ∧ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ r > 1 ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ |x(n)| > |x(N)| * r^{n - N})))
+24. forall (b), b ∈ RealSet ∧ a = 0 ∧ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = b ∧ |b| > 1 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ seqlim_{ n → +∞ } (x(n)) = ∞))
+25. forall (b), b ∈ RealSet ∧ a = 0 ∧ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = b ∧ |b| > 1 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ False))
+26. forall (b), b ∈ RealSet ∧ a = 0 ∧ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = b ⇒ -1 ≤ b
+
+GOAL:
+forall (b), b ∈ RealSet ∧ a = 0 ∧ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = b ⇒ b ≤ 1
+
+METHOD:

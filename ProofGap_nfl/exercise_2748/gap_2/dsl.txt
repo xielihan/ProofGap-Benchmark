@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ seqlim_{ n → +∞ } (f(n, x)) = h(x)}) (x := {x0})
+get_condition (hypothesis 6: {x0∈RealSet ∧ x0∈[0,1]}) in (GOAL: {x0∈RealSet ∧ x0∈[0,1] ⇒ seqlim_{n→+∞}(f(n,x0))=h(x0)})
+get_prop (hypothesis 4: {forall (x), x∈RealSet ∧ x∈[0,1] ⇒ h(x)=0}) (x := {x0}) as (hypothesis 7: {x0∈RealSet ∧ x0∈[0,1] ⇒ h(x0)=0})
+get_prop (hypothesis 5: {forall (x), x∈RealSet ∧ x∈[0,1] ⇒ seqlim_{n→+∞}(f(n,x))=0}) (x := {x0}) as (hypothesis 8: {x0∈RealSet ∧ x0∈[0,1] ⇒ seqlim_{n→+∞}(f(n,x0))=0})
+autosolve all_hypothesis

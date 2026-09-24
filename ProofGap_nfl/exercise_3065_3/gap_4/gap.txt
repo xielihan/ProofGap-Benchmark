@@ -1,0 +1,18 @@
+PROOF GAP @4
+ASSUM:
+1. p : NonNegIntegerSet → RealSet
+2. q : NonNegIntegerSet → RealSet
+3. P ∈ RealSet
+4. Q ∈ RealSet
+5. R : NonNegIntegerSet → RealSet
+6. R = (fun n [n ∈ NonNegIntegerSet ∧ n ≥ 1] . prod_{ k = 1 }^{ n } (p(k) * q(k)))
+7. ConvergentSeqTo(fun n [n ∈ NonNegIntegerSet ∧ n ≥ 1] . prod_{ k = 1 }^{ n } (p(k)), P)
+8. ConvergentSeqTo(fun n [n ∈ NonNegIntegerSet ∧ n ≥ 1] . prod_{ k = 1 }^{ n } (q(k)), Q)
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ R(n) = (prod_{ k = 1 }^{ n } (p(k))) * (prod_{ k = 1 }^{ n } (q(k)))
+10. seqlim_{ n → +∞ } (prod_{ k = 1 }^{ n } (p(k))) = P
+11. seqlim_{ n → +∞ } (prod_{ k = 1 }^{ n } (q(k))) = Q
+
+GOAL:
+seqlim_{ n → +∞ } (R(n)) = P * Q
+
+METHOD:

@@ -1,0 +1,1 @@
+apply (hypothesis 24: {forall (E), E ∈ RealSet ∧ E > 0 => (forall (n), n ∈ NonNegIntegerSet ∧ n > 10 => lg(n) > 1)})

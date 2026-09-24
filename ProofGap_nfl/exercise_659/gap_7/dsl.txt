@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ x ∈ IntervalLoRo(0, +∞) ∧ n ∈ PosIntegerSet ⇒ frac(e^{x}, f(n, x)) = frac(e^{x}, x^{n})}) (n := {n1}) (x := {x1})
+get_condition (hypothesis 9: {n1 ∈ NonNegIntegerSet ∧ x1 ∈ RealSet ∧ x1 ∈ IntervalLoRo(0, +∞) ∧ n1 ∈ PosIntegerSet}) in (GOAL: {n1 ∈ NonNegIntegerSet ∧ x1 ∈ RealSet ∧ x1 ∈ IntervalLoRo(0, +∞) ∧ n1 ∈ PosIntegerSet ⇒ frac(e^{x1}, f(n1, x1)) = frac(e^{x1}, x1^{n1})})
+get_prop (hypothesis 2: {forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ IntervalLoRo(0, +∞) ⇒ f(n, x) = x^{n}}) (n := {n1}) (x := {x1}) as (hypothesis 10: {n1 ∈ NonNegIntegerSet ∧ x1 ∈ RealSet ∧ n1 ∈ PosIntegerSet ∧ x1 ∈ IntervalLoRo(0, +∞) ⇒ f(n1, x1) = x1^{n1}})
+assert (hypothesis 11: {n1 ∈ NonNegIntegerSet ∧ x1 ∈ RealSet ∧ n1 ∈ PosIntegerSet ∧ x1 ∈ IntervalLoRo(0, +∞)})
+use_condition (hypothesis 11: {n1 ∈ NonNegIntegerSet ∧ x1 ∈ RealSet ∧ n1 ∈ PosIntegerSet ∧ x1 ∈ IntervalLoRo(0, +∞)}) in (hypothesis 10: {n1 ∈ NonNegIntegerSet ∧ x1 ∈ RealSet ∧ n1 ∈ PosIntegerSet ∧ x1 ∈ IntervalLoRo(0, +∞) ⇒ f(n1, x1) = x1^{n1}}) as (hypothesis 12: {f(n1, x1) = x1^{n1}})
+rewrite (left_to_right, equation) (hypothesis 12: {f(n1, x1) = x1^{n1}}); from (GOAL: {frac(e^{x1}, f(n1, x1)) = frac(e^{x1}, x1^{n1})}) to (GOAL: {frac(e^{x1}, x1^{n1}) = frac(e^{x1}, x1^{n1})})
+autosolve all_hypothesis

@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. y = fun x . arctan(tanh(x))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = frac(1, 1 + tanh(x)^{2}) * frac(1, cosh(x)^{2}) ∧ frac(1, 1 + tanh(x)^{2}) * frac(1, cosh(x)^{2}) = frac(1, cosh(2 * x))
+
+METHOD:

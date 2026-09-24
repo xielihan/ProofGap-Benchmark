@@ -1,0 +1,21 @@
+PROOF GAP @11
+ASSUM:
+1. A : NonNegIntegerSet → RealSet
+2. n ∈ NonNegIntegerSet
+3. forall (x), x ∈ RealSet ⇒ sin(x) = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x^{2 * n + 1}, (2 * n + 1)!))
+4. forall (x), x ∈ RealSet ⇒ cos(x) = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x^{2 * n}, (2 * n)!))
+5. forall (x), x ∈ RealSet ⇒ AbsoluteConvergentSeries(sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x^{2 * n + 1}, (2 * n + 1)!)))
+6. forall (x), x ∈ RealSet ⇒ AbsoluteConvergentSeries(sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(x^{2 * n}, (2 * n)!)))
+7. forall (x), x ∈ RealSet ⇒ sin(x)^{2} + cos(x)^{2} = (sum_{ n_{1} = 0 }^{ +∞ } (sum_{ n_{2} = 0 }^{ +∞ } ((-1)^{n_{1} + n_{2}} * frac(x^{2 * (n_{1} + n_{2}) + 2}, (2 * n_{1} + 1)! * (2 * n_{2} + 1)!)))) + (sum_{ k_{1} = 0 }^{ +∞ } (sum_{ k_{2} = 0 }^{ +∞ } ((-1)^{k_{1} + k_{2}} * frac(x^{2 * (k_{1} + k_{2})}, (2 * k_{1})! * (2 * k_{2})!))))
+8. forall (x), x ∈ RealSet ⇒ sin(x)^{2} + cos(x)^{2} = (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * x^{2 * n + 2} * (sum_{ n_{1} + n_{2} = n } (frac(1, (2 * n_{1} + 1)! * (2 * n_{2} + 1)!))))) + (sum_{ m = 0 }^{ +∞ } ((-1)^{m} * x^{2 * m} * (sum_{ k_{1} + k_{2} = m } (frac(1, (2 * k_{1})! * (2 * k_{2})!)))))
+9. forall (x), x ∈ RealSet ⇒ sin(x)^{2} + cos(x)^{2} = 1 + (sum_{ n = 0 }^{ +∞ } ((-1)^{n + 1} * x^{2 * n + 2} * A(n)))
+10. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ A(n) = (sum_{ k_{1} + k_{2} = n + 1 } (frac(1, (2 * k_{1})! * (2 * k_{2})!))) - (sum_{ n_{1} + n_{2} = n } (frac(1, (2 * n_{1} + 1)! * (2 * n_{2} + 1)!))))
+11. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ A(n) = frac(1, (2 * n + 2)!) * (sum_{ s = 0 }^{ 2 * n + 2 } ((-1)^{s} * Combination(2 * n + 2, s))))
+12. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ A(n) = frac((1 + -1)^{2 * n + 2}, (2 * n + 2)!))
+13. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ A(n) = 0)
+14. forall (x), x ∈ RealSet ⇒ sin(x)^{2} + cos(x)^{2} = 1
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ sin(x)^{2} + cos(x)^{2} = 1
+
+METHOD:

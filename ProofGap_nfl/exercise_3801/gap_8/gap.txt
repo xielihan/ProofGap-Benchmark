@@ -1,0 +1,19 @@
+PROOF GAP @8
+ASSUM:
+1. α ∈ RealSet
+2. β ∈ RealSet
+3. I : CartesianProd(RealSet, RealSet) → RealSet
+4. J : CartesianProd(RealSet, RealSet) → RealSet
+5. K : CartesianProd(RealSet, RealSet) → RealSet
+6. α ≥ 0 ⇒ β ≥ 0 ⇒ lim_{ x → 0^+ } (frac(arctan(α * x) * arctan(β * x), x^{2})) = α * β
+7. forall (x), x ∈ RealSet ∧ α ≥ 0 ∧ β ≥ 0 ∧ 1 ≤ x ∧ x < +∞ ⇒ |frac(arctan(α * x) * arctan(β * x), x^{2})| < frac(π^{2}, 4) * frac(1, x^{2})
+8. forall (x), x ∈ RealSet ∧ α ≥ 0 ∧ β ≥ 0 ∧ 1 ≤ x ∧ x < +∞ ⇒ DefInt(1, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(1, x^{2})) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)) < +∞
+9. α ≥ 0 ⇒ β ≥ 0 ⇒ I(α, β) = DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(arctan(α * x) * arctan(β * x), x^{2})) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)) ⇒ ContinuousFuncOn(I, CartesianProd([0, +∞), [0, +∞)))
+10. forall (x), x ∈ RealSet ∧ α ≥ 0 ∧ β ≥ 0 ∧ J(α, β) = DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(arctan(β * x), x * (1 + α^{2} * x^{2}))) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)) ⇒ (forall (α_{0}), α_{0} ∈ RealSet ∧ α_{0} > 0 ∧ α ≥ α_{0} ∧ β ≥ 0 ∧ 1 ≤ x ∧ x < +∞ ⇒ |frac(arctan(β * x), x * (1 + α^{2} * x^{2}))| < frac(π, 2) * frac(1, x * (1 + (α_{0})^{2} * x^{2})))
+11. forall (x), x ∈ RealSet ∧ α ≥ 0 ∧ β ≥ 0 ∧ J(α, β) = DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(arctan(β * x), x * (1 + α^{2} * x^{2}))) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)) ⇒ (forall (α_{0}), α_{0} ∈ RealSet ∧ α_{0} > 0 ∧ α ≥ α_{0} ∧ β ≥ 0 ∧ 1 ≤ x ∧ x < +∞ ⇒ DefInt(1, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(1, x * (1 + (α_{0})^{2} * x^{2}))) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)) < +∞)
+12. α ≥ 0 ⇒ β ≥ 0 ⇒ J(α, β) = DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(arctan(β * x), x * (1 + α^{2} * x^{2}))) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)) ⇒ ContinuousFuncOn(J, CartesianProd(IntervalLoRo(0, +∞), [0, +∞)))
+
+GOAL:
+α ≥ 0 ⇒ β ≥ 0 ⇒ J(α, β) = DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(arctan(β * x), x * (1 + α^{2} * x^{2}))) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)) ⇒ (forall (α), α ∈ RealSet ⇒ (forall (β), β ∈ RealSet ∧ α > 0 ∧ β ≥ 0 ⇒ FunDeri(I, 1, 1)(α, β) = J(α, β)))
+
+METHOD:

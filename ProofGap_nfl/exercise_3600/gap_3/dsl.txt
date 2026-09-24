@@ -1,0 +1,22 @@
+get_forall (GOAL: {forall (x) (y), x ∈ RealSet ∧ |x| < 1 ∧ y ∈ RealSet ∧ |y| < 1 ⇒ f(x, y) = (sum_{ m = 1 }^{ +∞ } ((-1)^{m - 1} * frac(x^{m}, m))) * (sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(y^{n}, n)))}) (x := {x0}) (y := {y0})
+get_condition (hypothesis 5: {x0 ∈ RealSet ∧ |x0| < 1 ∧ y0 ∈ RealSet ∧ |y0| < 1}) in (GOAL: {x0 ∈ RealSet ∧ |x0| < 1 ∧ y0 ∈ RealSet ∧ |y0| < 1 ⇒ f(x0, y0) = (sum_{ m = 1 }^{ +∞ } ((-1)^{m - 1} * frac(x0^{m}, m))) * (sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(y0^{n}, n)))})
+destruct_and (hypothesis 5: {x0 ∈ RealSet ∧ |x0| < 1 ∧ y0 ∈ RealSet ∧ |y0| < 1}) as (hypothesis 6: {x0 ∈ RealSet}) (hypothesis 7: {|x0| < 1}) (hypothesis 8: {y0 ∈ RealSet}) (hypothesis 9: {|y0| < 1})
+assert (hypothesis 10: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ 1 + x0 > 0 ∧ 1 + y0 > 0}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (hypothesis 2: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ 1 + x > 0 ∧ 1 + y > 0 ⇒ f(x, y) = ln(1 + x) * ln(1 + y)}) (x := {x0}) (y := {y0}) as (hypothesis 11: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ 1 + x0 > 0 ∧ 1 + y0 > 0 ⇒ f(x0, y0) = ln(1 + x0) * ln(1 + y0)})
+use_condition (hypothesis 10: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ 1 + x0 > 0 ∧ 1 + y0 > 0}) in (hypothesis 11: {x0 ∈ RealSet ∧ y0 ∈ RealSet ∧ 1 + x0 > 0 ∧ 1 + y0 > 0 ⇒ f(x0, y0) = ln(1 + x0) * ln(1 + y0)}) as (hypothesis 12: {f(x0, y0) = ln(1 + x0) * ln(1 + y0)})
+get_prop (hypothesis 3: {forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ ln(1 + x) = sum_{ m = 1 }^{ +∞ } ((-1)^{m - 1} * frac(x^{m}, m))}) (x := {x0}) as (hypothesis 13: {x0 ∈ RealSet ∧ |x0| < 1 ⇒ ln(1 + x0) = sum_{ m = 1 }^{ +∞ } ((-1)^{m - 1} * frac(x0^{m}, m))})
+assert (hypothesis 14: {x0 ∈ RealSet ∧ |x0| < 1}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 14: {x0 ∈ RealSet ∧ |x0| < 1}) in (hypothesis 13: {x0 ∈ RealSet ∧ |x0| < 1 ⇒ ln(1 + x0) = sum_{ m = 1 }^{ +∞ } ((-1)^{m - 1} * frac(x0^{m}, m))}) as (hypothesis 15: {ln(1 + x0) = sum_{ m = 1 }^{ +∞ } ((-1)^{m - 1} * frac(x0^{m}, m))})
+get_prop (hypothesis 4: {forall (y), y ∈ RealSet ∧ |y| < 1 ⇒ ln(1 + y) = sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(y^{n}, n))}) (y := {y0}) as (hypothesis 16: {y0 ∈ RealSet ∧ |y0| < 1 ⇒ ln(1 + y0) = sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(y0^{n}, n))})
+assert (hypothesis 17: {y0 ∈ RealSet ∧ |y0| < 1}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 17: {y0 ∈ RealSet ∧ |y0| < 1}) in (hypothesis 16: {y0 ∈ RealSet ∧ |y0| < 1 ⇒ ln(1 + y0) = sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(y0^{n}, n))}) as (hypothesis 18: {ln(1 + y0) = sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(y0^{n}, n))})
+rewrite (left_to_right, equation) (hypothesis 12: {f(x0, y0) = ln(1 + x0) * ln(1 + y0)}); from (GOAL: {f(x0, y0) = (sum_{ m = 1 }^{ +∞ } ((-1)^{m - 1} * frac(x0^{m}, m))) * (sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(y0^{n}, n)))}) to (GOAL: {ln(1 + x0) * ln(1 + y0) = (sum_{ m = 1 }^{ +∞ } ((-1)^{m - 1} * frac(x0^{m}, m))) * (sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(y0^{n}, n)))})
+rewrite (left_to_right, equation) (hypothesis 15: {ln(1 + x0) = sum_{ m = 1 }^{ +∞ } ((-1)^{m - 1} * frac(x0^{m}, m))}); from (GOAL: {ln(1 + x0) * ln(1 + y0) = (sum_{ m = 1 }^{ +∞ } ((-1)^{m - 1} * frac(x0^{m}, m))) * (sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(y0^{n}, n)))}) to (GOAL: {(sum_{ m = 1 }^{ +∞ } ((-1)^{m - 1} * frac(x0^{m}, m))) * ln(1 + y0) = (sum_{ m = 1 }^{ +∞ } ((-1)^{m - 1} * frac(x0^{m}, m))) * (sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(y0^{n}, n)))})
+rewrite (left_to_right, equation) (hypothesis 18: {ln(1 + y0) = sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(y0^{n}, n))}); from (GOAL: {(sum_{ m = 1 }^{ +∞ } ((-1)^{m - 1} * frac(x0^{m}, m))) * ln(1 + y0) = (sum_{ m = 1 }^{ +∞ } ((-1)^{m - 1} * frac(x0^{m}, m))) * (sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(y0^{n}, n)))}) to (GOAL: {(sum_{ m = 1 }^{ +∞ } ((-1)^{m - 1} * frac(x0^{m}, m))) * (sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(y0^{n}, n))) = (sum_{ m = 1 }^{ +∞ } ((-1)^{m - 1} * frac(x0^{m}, m))) * (sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(y0^{n}, n)))})
+autosolve all_hypothesis

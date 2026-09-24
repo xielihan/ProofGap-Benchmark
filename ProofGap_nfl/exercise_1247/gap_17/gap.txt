@@ -1,0 +1,25 @@
+PROOF GAP @17
+ASSUM:
+1. θ : RealSet → RealSet
+2. θ = (fun x [x ∈ RealSet ∧ x ∈ NonNegRealSet] . frac(1, 4) + frac(1, 2) * (sqrtn(2, x * (x + 1)) - x))
+3. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ sqrtn(2, x + 1) - sqrtn(2, x) = frac(1, 2 * sqrtn(2, x + θ(x)))
+4. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ θ(x) = frac(1, 4) + frac(1, 2) * (sqrtn(2, x * (x + 1)) - x)
+5. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ∧ x = 0 ⇒ θ(0) = frac(1, 4)
+6. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ∧ x > 0 ⇒ 0 ≤ sqrtn(2, x * (x + 1)) - x
+7. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ∧ x > 0 ⇒ sqrtn(2, x * (x + 1)) - x = frac(x, sqrtn(2, x * (x + 1)) + x)
+8. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ∧ x > 0 ⇒ frac(x, sqrtn(2, x * (x + 1)) + x) < frac(x, 2 * x)
+9. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ∧ x > 0 ⇒ frac(x, 2 * x) = frac(1, 2)
+10. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ∧ x > 0 ⇒ sqrtn(2, x * (x + 1)) - x < frac(1, 2)
+11. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ∧ x > 0 ⇒ frac(1, 4) ≤ θ(x)
+12. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ∧ x > 0 ⇒ θ(x) < frac(1, 2)
+13. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ frac(1, 4) ≤ θ(x)
+14. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ θ(x) ≤ frac(1, 2)
+15. lim_{ x → 0^+ } (θ(x)) = frac(1, 4)
+16. lim_{ x → +∞ } (θ(x)) = lim_{ x → +∞ } (frac(1, 4) + frac(x, 2 * (sqrtn(2, x * (x + 1)) + x)))
+17. lim_{ x → +∞ } (frac(1, 4) + frac(x, 2 * (sqrtn(2, x * (x + 1)) + x))) = frac(1, 2)
+18. lim_{ x → +∞ } (θ(x)) = frac(1, 2)
+
+GOAL:
+exists (θ), θ : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ sqrtn(2, x + 1) - sqrtn(2, x) = frac(1, 2 * sqrtn(2, x + θ(x)))) ∧ (forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ frac(1, 4) ≤ θ(x)) ∧ (forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ θ(x) ≤ frac(1, 2)) ∧ lim_{ x → 0^+ } (θ(x)) = frac(1, 4) ∧ lim_{ x → +∞ } (θ(x)) = frac(1, 2)
+
+METHOD:

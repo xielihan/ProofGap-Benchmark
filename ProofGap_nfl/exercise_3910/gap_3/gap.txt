@@ -1,0 +1,21 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet
+2. A ∈ RealSet
+3. b ∈ RealSet
+4. B ∈ RealSet
+5. f : CartesianProd(RealSet, RealSet) → RealSet
+6. F : CartesianProd(RealSet, RealSet) → RealSet
+7. I ∈ RealSet
+8. a ≤ A
+9. b ≤ B
+10. FuncOfClassKOn(F, CartesianProd([a, A], [b, B]), 2)
+11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ∈ [a, A] ∧ y ∈ [b, B] ⇒ f(x, y) = FunDeri(FunDeri(F, 1, 1), 2, 1)(x, y)
+12. I = DefInt(a, A, (fun x [x ∈ RealSet ∧ x ∈ [a, A]] . DefInt(b, B, (fun y [y ∈ RealSet ∧ y ∈ [b, B]] . f(x, y)) * diff(fun y [y ∈ RealSet ∧ y ∈ [b, B]] . y))) * diff(fun x [x ∈ RealSet ∧ x ∈ [a, A]] . x))
+13. I = DefInt(a, A, (fun x [x ∈ RealSet ∧ x ∈ [a, A]] . FunDeri(F, 1, 1)(x, B) - FunDeri(F, 1, 1)(x, b)) * diff(fun x [x ∈ RealSet ∧ x ∈ [a, A]] . x))
+14. I = ((fun x [x ∈ RealSet ∧ x ∈ [a, A]] . F(x, B))|_{a}^{A}) - ((fun x [x ∈ RealSet ∧ x ∈ [a, A]] . F(x, b))|_{a}^{A})
+
+GOAL:
+I = F(A, B) - F(a, B) - F(A, b) + F(a, b)
+
+METHOD:

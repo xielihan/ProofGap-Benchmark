@@ -1,0 +1,5 @@
+1. get_forall (GOAL: {forall (n), n ∈ IntegerSet ∧ n = 2 => n! < frac(n + 1, 2)^{n}}) (n := {n1})
+2. get_condition (hypothesis 5: {n1 ∈ IntegerSet ∧ n1 = 2}) in (GOAL: {n1 ∈ IntegerSet ∧ n1 = 2 => n1! < frac(n1 + 1, 2)^{n1}})
+3. destruct_and (hypothesis 5: {n1 ∈ IntegerSet ∧ n1 = 2}) as (hypothesis 6: {n1 ∈ IntegerSet}) (hypothesis 7: {n1 = 2})
+4. rewrite (left_to_right, equation) (hypothesis 7: {n1 = 2}); from (GOAL: {n1! < frac(n1 + 1, 2)^{n1}}) to (GOAL: {2! < frac(2 + 1, 2)^{2}})
+5. autosolve all_hypothesis

@@ -1,0 +1,20 @@
+PROOF GAP @6
+ASSUM:
+1. p ∈ RealSet ∧ p > 0
+2. V : CartesianProd(RealSet, RealSet) → RealSet
+3. F : CartesianProd(CartesianProd(RealSet, RealSet), RealSet) → RealSet
+4. x ∈ RealSet ∧ x > 0
+5. y ∈ RealSet ∧ y > 0
+6. λ ∈ RealSet
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ∧ y > 0 ⇒ V(x, y) = π * y^{2} * x
+8. F = (fun x, y, λ [x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet] . V(x, y) - λ * (x + y - p))
+9. forall (x) (y) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 1, 1)(x, y, λ) = π * y^{2} - λ
+10. forall (x) (y) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 2, 1)(x, y, λ) = 2 * π * x * y - λ
+11. exists (x) (y) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet ∧ FunDeri(F, 1, 1)(x, y, λ) = 0
+12. exists (x) (y) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet ∧ FunDeri(F, 2, 1)(x, y, λ) = 0
+13. exists (x) (y), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ x + y = p
+
+GOAL:
+exists (x), x ∈ RealSet ∧ x = frac(p, 3)
+
+METHOD:

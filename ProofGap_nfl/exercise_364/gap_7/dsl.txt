@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ φ(x) = φ(x + 2 * (b - a))}) (x := {z})
+get_condition (hypothesis 16: {z ∈ RealSet}) in (GOAL: {z ∈ RealSet ⇒ φ(z) = φ(z + 2 * (b - a))})
+get_prop (hypothesis 12: {forall (x), x ∈ RealSet ⇒ f(x) = 2 * (y_{0} - y_{1}) + f(x + 2 * (b - a))}) (x := {z}) as (hypothesis 17: {z ∈ RealSet ⇒ f(z) = 2 * (y_{0} - y_{1}) + f(z + 2 * (b - a))})
+get_prop (hypothesis 15: {forall (x), x ∈ RealSet ⇒ f(x) - f(x + 2 * (b - a)) = 2 * (y_{0} - y_{1}) + φ(x) - φ(x + 2 * (b - a))}) (x := {z}) as (hypothesis 18: {z ∈ RealSet ⇒ f(z) - f(z + 2 * (b - a)) = 2 * (y_{0} - y_{1}) + φ(z) - φ(z + 2 * (b - a))})
+use_condition (hypothesis 16: {z ∈ RealSet}) in (hypothesis 17: {z ∈ RealSet ⇒ f(z) = 2 * (y_{0} - y_{1}) + f(z + 2 * (b - a))}) as (hypothesis 19: {f(z) = 2 * (y_{0} - y_{1}) + f(z + 2 * (b - a))})
+use_condition (hypothesis 16: {z ∈ RealSet}) in (hypothesis 18: {z ∈ RealSet ⇒ f(z) - f(z + 2 * (b - a)) = 2 * (y_{0} - y_{1}) + φ(z) - φ(z + 2 * (b - a))}) as (hypothesis 20: {f(z) - f(z + 2 * (b - a)) = 2 * (y_{0} - y_{1}) + φ(z) - φ(z + 2 * (b - a))})
+autosolve all_hypothesis

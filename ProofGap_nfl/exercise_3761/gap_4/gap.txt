@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. p ∈ RealSet ∧ p > 0
+2. forall (A), A ∈ RealSet ∧ A ≥ 1 ⇒ |DefInt(1, A, (fun x [x ∈ RealSet] . cos(x)) * diff(fun x [x ∈ RealSet] . x))| = |sin(A) - sin(1)| ∧ |sin(A) - sin(1)| ≤ 2
+3. forall (α), α ∈ RealSet ∧ α ∈ NonNegRealSet ⇒ MonoDecFuncOn(fun x [x ∈ RealSet ∧ x ≥ 1] . frac(e^{-α * x}, x^{p}), [1, +∞))
+4. forall (x) (α), x ∈ RealSet ∧ α ∈ RealSet ∧ x ≥ 1 ∧ α ∈ NonNegRealSet ⇒ 0 < frac(e^{-α * x}, x^{p}) ∧ frac(e^{-α * x}, x^{p}) ≤ frac(1, x^{p})
+
+GOAL:
+lim_{ x → +∞ } (frac(1, x^{p})) = 0
+
+METHOD:

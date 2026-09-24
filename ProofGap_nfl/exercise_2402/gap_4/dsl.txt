@@ -1,0 +1,2 @@
+1. rewrite_in limit (left_to_right, equation) (hypothesis 5: {forall (b), b ∈ RealSet ⇒ DefInt(0, b, (fun x [x ∈ RealSet] . frac(1, a^{2} + x^{2})) * diff(fun x [x ∈ RealSet] . x)) = frac(1, a) * arctan(frac(b, a))}); from (hypothesis 4: {S = 2 * a^{3} * (lim_{ b → +∞ } (DefInt(0, b, (fun x [x ∈ RealSet] . frac(1, a^{2} + x^{2})) * diff(fun x [x ∈ RealSet] . x))))}) to (hypothesis 6: {S = 2 * a^{3} * (lim_{ b → +∞ } (frac(1, a) * arctan(frac(b, a))))})
+2. apply (hypothesis 6: {S = 2 * a^{3} * (lim_{ b → +∞ } (frac(1, a) * arctan(frac(b, a))))})

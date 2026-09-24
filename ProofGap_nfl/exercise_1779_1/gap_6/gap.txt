@@ -1,0 +1,15 @@
+PROOF GAP @6
+ASSUM:
+1. C ∈ RealSet
+2. C_{1} ∈ RealSet
+3. x ∈ RealSet ∧ x > sqrtn(2, 2)
+4. forall (x), x ∈ RealSet ∧ x > sqrtn(2, 2) ⇒ (forall (t), t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2) ∧ x = sqrtn(2, 2) * sec(t) ⇒ 0 < t)
+5. forall (x), x ∈ RealSet ∧ x > sqrtn(2, 2) ⇒ (forall (t), t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2) ∧ x = sqrtn(2, 2) * sec(t) ⇒ t < frac(π, 2))
+6. forall (x), x ∈ RealSet ∧ x > sqrtn(2, 2) ⇒ (forall (t), t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2) ∧ x = sqrtn(2, 2) * sec(t) ⇒ frac(x^{2}, sqrtn(2, x^{2} - 2)) = frac(2 * sec(t)^{2}, sqrtn(2, 2) * tan(t)))
+7. forall (x), x ∈ RealSet ∧ x > sqrtn(2, 2) ⇒ (forall (t), t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2) ∧ x = sqrtn(2, 2) * sec(t) ⇒ diff(fun x [x ∈ RealSet] . x) = sqrtn(2, 2) * sec(t) * tan(t) * diff(fun t [t ∈ RealSet] . t))
+8. { `F_2` | forall (x), x ∈ RealSet ∧ x > sqrtn(2, 2) ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x^{2}, sqrtn(2, x^{2} - 2)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_4` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2) ⇒ FunDeri(`F_3`, 1, 1)(t) = sec(t)^{3} * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_4`(t) = 2 * `F_3`(t)) }
+
+GOAL:
+{ `F_6` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2) ⇒ FunDeri(`F_5`, 1, 1)(t) = sec(t)^{3} * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_6`(t) = 2 * `F_5`(t)) } = { `F_8` | exists (`F_7`), `F_7` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2) ⇒ FunDeri(`F_7`, 1, 1)(t) = frac(1, (1 - sin(t)^{2})^{2}) * FunDeri(fun t [t ∈ RealSet] . sin(t), 1, 1)(t) ∧ `F_8`(t) = 2 * `F_7`(t)) }
+
+METHOD:

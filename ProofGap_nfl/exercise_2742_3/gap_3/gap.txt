@@ -1,0 +1,16 @@
+PROOF GAP @3
+ASSUM:
+1. F : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. f : RealSet → RealSet
+3. x_{0} ∈ RealSet
+4. I ⊆ RealSet
+5. I = (x_{0}, +∞)
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ Defined(F(n), I)
+7. Defined(f, I)
+8. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (forall (x), x ∈ RealSet ∧ x ∈ I ⇒ |F(n, x) - f(x)| < ε)))
+9. exists (N), N : RealSet → NonNegIntegerSet ∧ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ N(ε) ∈ PosIntegerSet)
+
+GOAL:
+UniformConvergent(F, I, f) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ Defined(F(n), I))
+
+METHOD:

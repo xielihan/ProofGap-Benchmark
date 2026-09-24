@@ -1,0 +1,7 @@
+get_prop (theorem 'Thm 117. (MonotoneBoundedSequenceConverges)': {forall (a), (MonoIncSeq(a) \/ MonoDecSeq(a)) => (BoundedSeq(a)) => ConvergentSeq(a)}) (a := {x}) as (hypothesis 14: {(MonoIncSeq(x) \/ MonoDecSeq(x)) => BoundedSeq(x) => ConvergentSeq(x)})
+assert (hypothesis 15: {MonoIncSeq(x) \/ MonoDecSeq(x)}) by proof {
+  or_intro left
+  apply (hypothesis 6: {MonoIncSeq(x)})
+}
+use_condition (hypothesis 15: {MonoIncSeq(x) \/ MonoDecSeq(x)}) (hypothesis 13: {BoundedSeq(x)}) in (hypothesis 14: {(MonoIncSeq(x) \/ MonoDecSeq(x)) => BoundedSeq(x) => ConvergentSeq(x)}) as (hypothesis 16: {ConvergentSeq(x)})
+apply (hypothesis 16: {ConvergentSeq(x)})

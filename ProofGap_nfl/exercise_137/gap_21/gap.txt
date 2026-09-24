@@ -1,0 +1,32 @@
+PROOF GAP @21
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ∈ RealSet
+3. forall (m) (n), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 ≤ x(m + n) ∧ x(m + n) ≤ x(m) + x(n)
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ≤ n * x(1)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 ≤ frac(x(n), n) ∧ frac(x(n), n) ≤ x(1)
+6. BoundedSeq(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(x(n), n))
+7. a = seqliminf_{ n → +∞ } (frac(x(n), n))
+8. A = seqlimsup_{ n → +∞ } (frac(x(n), n))
+9. 0 ≤ a
+10. a ≤ A
+11. A ≤ x(1)
+12. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N > 1 ∧ frac(x(N), N) < a + ε)
+13. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N > 1 ∧ frac(x(N), N) < a + ε ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (forall (q) (r), q ∈ IntegerSet ∧ r ∈ IntegerSet ∧ q = floor(frac(n, N)) ∧ r = n - q * N ⇒ q ∈ PosIntegerSet)))
+14. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N > 1 ∧ frac(x(N), N) < a + ε ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (forall (q) (r), q ∈ IntegerSet ∧ r ∈ IntegerSet ∧ q = floor(frac(n, N)) ∧ r = n - q * N ⇒ r ∈ NonNegIntegerSet)))
+15. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N > 1 ∧ frac(x(N), N) < a + ε ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (forall (q) (r), q ∈ IntegerSet ∧ r ∈ IntegerSet ∧ q = floor(frac(n, N)) ∧ r = n - q * N ⇒ r < N)))
+16. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N > 1 ∧ frac(x(N), N) < a + ε ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (forall (q) (r), q ∈ IntegerSet ∧ r ∈ IntegerSet ∧ q = floor(frac(n, N)) ∧ r = n - q * N ⇒ n = q * N + r)))
+17. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N > 1 ∧ frac(x(N), N) < a + ε ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (forall (q) (r), q ∈ IntegerSet ∧ r ∈ IntegerSet ∧ q = floor(frac(n, N)) ∧ r = n - q * N ⇒ x(n) = x(q * N + r))))
+18. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N > 1 ∧ frac(x(N), N) < a + ε ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (forall (q) (r), q ∈ IntegerSet ∧ r ∈ IntegerSet ∧ q = floor(frac(n, N)) ∧ r = n - q * N ⇒ x(q * N + r) ≤ q * x(N) + x(r))))
+19. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N > 1 ∧ frac(x(N), N) < a + ε ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (forall (q) (r), q ∈ IntegerSet ∧ r ∈ IntegerSet ∧ q = floor(frac(n, N)) ∧ r = n - q * N ⇒ x(n) ≤ q * x(N) + x(r))))
+20. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N > 1 ∧ frac(x(N), N) < a + ε ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (forall (q) (r), q ∈ IntegerSet ∧ r ∈ IntegerSet ∧ q = floor(frac(n, N)) ∧ r = n - q * N ⇒ x(r) ≤ r * x(1))))
+21. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N > 1 ∧ frac(x(N), N) < a + ε ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (forall (q) (r), q ∈ IntegerSet ∧ r ∈ IntegerSet ∧ q = floor(frac(n, N)) ∧ r = n - q * N ⇒ r * x(1) ≤ N * x(1))))
+22. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N > 1 ∧ frac(x(N), N) < a + ε ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (forall (q) (r), q ∈ IntegerSet ∧ r ∈ IntegerSet ∧ q = floor(frac(n, N)) ∧ r = n - q * N ⇒ frac(x(n), n) ≤ frac(q * x(N), n) + frac(N * x(1), n))))
+23. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N > 1 ∧ frac(x(N), N) < a + ε ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (forall (q) (r), q ∈ IntegerSet ∧ r ∈ IntegerSet ∧ q = floor(frac(n, N)) ∧ r = n - q * N ⇒ frac(q * x(N), n) ≤ frac(x(N), N))))
+24. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N > 1 ∧ frac(x(N), N) < a + ε ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (forall (q) (r), q ∈ IntegerSet ∧ r ∈ IntegerSet ∧ q = floor(frac(n, N)) ∧ r = n - q * N ⇒ frac(x(n), n) < a + ε + frac(N * x(1), n))))
+25. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ A ≤ a + ε
+
+GOAL:
+A ≤ a
+
+METHOD:

@@ -1,0 +1,6 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ≠ 2 ⇒ frac((x^{2} - x - 2)^{20}, (x^{3} - 12 * x + 16)^{10}) = frac((x - 2)^{20} * (x + 1)^{20}, (x - 2)^{20} * (x + 4)^{10})}) (x := {a})
+2. get_condition (hypothesis 2: {a ∈ RealSet ∧ a ≠ 2}) in (GOAL: {a ∈ RealSet ∧ a ≠ 2 ⇒ frac((a^{2} - a - 2)^{20}, (a^{3} - 12 * a + 16)^{10}) = frac((a - 2)^{20} * (a + 1)^{20}, (a - 2)^{20} * (a + 4)^{10})})
+3. get_prop (hypothesis 1: {forall (x), x ∈ RealSet ∧ x ≠ 2 ⇒ x^{2} - x - 2 = (x - 2) * (x + 1) ∧ x^{3} - 12 * x + 16 = (x - 2)^{2} * (x + 4)}) (x := {a}) as (hypothesis 3: {a ∈ RealSet ∧ a ≠ 2 ⇒ a^{2} - a - 2 = (a - 2) * (a + 1) ∧ a^{3} - 12 * a + 16 = (a - 2)^{2} * (a + 4)})
+4. use_condition (hypothesis 2: {a ∈ RealSet ∧ a ≠ 2}) in (hypothesis 3: {a ∈ RealSet ∧ a ≠ 2 ⇒ a^{2} - a - 2 = (a - 2) * (a + 1) ∧ a^{3} - 12 * a + 16 = (a - 2)^{2} * (a + 4)}) as (hypothesis 4: {a^{2} - a - 2 = (a - 2) * (a + 1) ∧ a^{3} - 12 * a + 16 = (a - 2)^{2} * (a + 4)})
+5. destruct_and (hypothesis 4: {a^{2} - a - 2 = (a - 2) * (a + 1) ∧ a^{3} - 12 * a + 16 = (a - 2)^{2} * (a + 4)}) as (hypothesis 5: {a^{2} - a - 2 = (a - 2) * (a + 1)}) (hypothesis 6: {a^{3} - 12 * a + 16 = (a - 2)^{2} * (a + 4)})
+6. autosolve all_hypothesis

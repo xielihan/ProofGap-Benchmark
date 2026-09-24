@@ -1,0 +1,7 @@
+destruct_and (hypothesis 1: {h ∈ RealSet ∧ h ≠ 0}) as (hypothesis 7: {h ∈ RealSet}) (hypothesis 8: {h ≠ 0})
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ φ(x) = 2 * x + h}) (x := {z})
+get_condition (hypothesis 9: {z ∈ RealSet}) in (GOAL: {z ∈ RealSet ⇒ φ(z) = 2 * z + h})
+get_prop (hypothesis 6: {forall (x), x ∈ RealSet ⇒ φ(x) = frac((x + h)^{2} - x^{2}, h)}) (x := {z}) as (hypothesis 10: {z ∈ RealSet ⇒ φ(z) = frac((z + h)^{2} - z^{2}, h)})
+use_condition (hypothesis 9: {z ∈ RealSet}) in (hypothesis 10: {z ∈ RealSet ⇒ φ(z) = frac((z + h)^{2} - z^{2}, h)}) as (hypothesis 11: {φ(z) = frac((z + h)^{2} - z^{2}, h)})
+rewrite (left_to_right, equation) (hypothesis 11: {φ(z) = frac((z + h)^{2} - z^{2}, h)}); from (GOAL: {φ(z) = 2 * z + h}) to (GOAL: {frac((z + h)^{2} - z^{2}, h) = 2 * z + h})
+autosolve all_hypothesis

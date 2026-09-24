@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. y : NonNegIntegerSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x = 0 ⇒ seqlim_{ n → +∞ } ((1 + frac(x, n))^{n}) = e^{x}
+3. forall (x), x ∈ RealSet ∧ x = 0 ⇒ seqlim_{ n → +∞ } (sum_{ k = 0 }^{ n } (frac(x^{k}, k!))) = e^{x}
+4. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n) = frac(n, x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ seqlim_{ n → +∞ } ((1 + frac(x, n))^{n}) = seqlim_{ n → +∞ } ((1 + frac(1, y(n)))^{y(n) * x})
+
+METHOD:
+[@method 根据 "第71题结果" @]

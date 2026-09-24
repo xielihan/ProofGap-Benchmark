@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. (higher_{order})_{terms} ∈ RealSet
+3. forall (t) (x) (y), t ∈ RealSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ 1 + x > 0 ⇒ f(x, y) = DefInt(0, 1, (1 + x)^{t^{2} * y} * diff(fun t [t ∈ RealSet] . t))
+4. forall (x) (t) (y), x ∈ RealSet ∧ 1 + x > 0 ∧ t ∈ RealSet ∧ y ∈ RealSet ⇒ (1 + x)^{t^{2} * y} = e^{t^{2} * y * ln(1 + x)}
+5. forall (t) (y) (x), t ∈ RealSet ∧ y ∈ RealSet ∧ x ∈ RealSet ∧ 1 + x > 0 ⇒ e^{t^{2} * y * ln(1 + x)} ≈_{ (higher_{order})_{terms} } 1 + t^{2} * y * ln(1 + x) + frac(1, 2!) * (t^{2} * y * ln(1 + x))^{2}
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 1 + x > 0 ⇒ ln(1 + x) ≈_{ (higher_{order})_{terms} } x - frac(x^{2}, 2)
+
+METHOD:

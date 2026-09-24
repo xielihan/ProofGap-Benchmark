@@ -1,0 +1,12 @@
+get_prop (theorem 'Thm 450. (SquareRootSquareCancellation)': {forall (u), u ∈ RealSet => u >= 0 => sqrtn(2, u)^2 = u}) (u := {5}) as (hypothesis 23: {5 ∈ RealSet => 5 >= 0 => sqrtn(2, 5)^2 = 5})
+use_condition (obvious: {5 ∈ RealSet}) (obvious: {5 >= 0}) in (hypothesis 23: {5 ∈ RealSet => 5 >= 0 => sqrtn(2, 5)^2 = 5}) as (hypothesis 24: {sqrtn(2, 5)^2 = 5})
+assert (hypothesis 25: {sqrtn(2, 5) >= 0})
+assert (hypothesis 26: {(sqrtn(2, 5) - 2.236) * (sqrtn(2, 5) + 2.236) = 5 - 2.236^2})
+assert (hypothesis 27: {5 - 2.236^2 > 0})
+assert (hypothesis 28: {sqrtn(2, 5) + 2.236 > 0})
+assert (hypothesis 29: {sqrtn(2, 5) - 2.236 > 0})
+assert (hypothesis 30: {(2.237 - sqrtn(2, 5)) * (2.237 + sqrtn(2, 5)) = 2.237^2 - 5})
+assert (hypothesis 31: {2.237^2 - 5 > 0})
+assert (hypothesis 32: {2.237 + sqrtn(2, 5) > 0})
+assert (hypothesis 33: {2.237 - sqrtn(2, 5) > 0})
+autosolve all_hypothesis

@@ -1,0 +1,19 @@
+PROOF GAP @4
+ASSUM:
+1. C_{0} ∈ RealSet
+2. A ∈ RealSet
+3. B ∈ RealSet
+4. C ∈ RealSet
+5. D ∈ RealSet
+6. Q = (fun x [x ∈ RealSet] . x^{4} + 2 * x^{3} + 3 * x^{2} + 2 * x + 1)
+7. forall (x), x ∈ RealSet ⇒ Q(x) = (x^{2} + x + 1)^{2}
+8. Q_{1} = (fun x [x ∈ RealSet] . x^{2} + x + 1)
+9. Q_{2} = (fun x [x ∈ RealSet] . x^{2} + x + 1)
+10. forall (x), x ∈ RealSet ⇒ frac(1, x^{4} + 2 * x^{3} + 3 * x^{2} + 2 * x + 1) = FunDeri(frac(A * x + B, x^{2} + x + 1), 1, 1) + frac(C * x + D, x^{2} + x + 1)
+11. forall (x), x ∈ RealSet ⇒ 1 ≡ A * (x^{2} + x + 1) - (2 * x + 1) * (A * x + B) + (C * x + D) * (x^{2} + x + 1)
+
+GOAL:
+A = frac(2, 3)
+
+METHOD:
+[@method 两边同时比较系数 @]

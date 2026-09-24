@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. C ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x + 1 ≠ 0 ⇒ frac(x^{5}, x + 1) = x^{4} - x^{3} + x^{2} - x + 1 - frac(1, x + 1)
+
+METHOD:

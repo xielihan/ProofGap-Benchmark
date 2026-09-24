@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. p ∈ NonNegIntegerSet
+3. A : NonNegIntegerSet → RealSet
+4. t : RealSet → ComplexSet
+5. p ∈ PosIntegerSet
+6. forall (x), x ∈ RealSet ⇒ f(x) = sin(x)^{2 * p}
+7. forall (x), x ∈ RealSet ⇒ t(x) = cos(x) + __IMAGINARY_UNIT__ * sin(x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ sin(x) = frac(1, 2 * __IMAGINARY_UNIT__) * (t(x) - bar(t(x)))
+
+METHOD:

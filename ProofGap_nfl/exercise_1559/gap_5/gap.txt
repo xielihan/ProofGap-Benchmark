@@ -1,0 +1,16 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. m ∈ RealSet ∧ m > 0
+3. n ∈ RealSet ∧ n > 0
+4. f : RealSet → RealSet
+5. forall (x), x ∈ RealSet ∧ x > 0 ⇒ f(x) = x^{m} + frac(a, x)^{n}
+6. forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(f, 1, 1)(x) = frac(m * x^{m + n} - n * a^{n}, x^{n + 1})
+7. forall (x), x ∈ RealSet ∧ FunDeri(f, 1, 1)(x) = 0 ⇒ x = frac(n, m)^{frac(1, m + n)} * a^{frac(n, m + n)}
+8. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < frac(n, m)^{frac(1, m + n)} * a^{frac(n, m + n)} ⇒ FunDeri(f, 1, 1)(x) < 0
+9. forall (x), x ∈ RealSet ∧ x > frac(n, m)^{frac(1, m + n)} * a^{frac(n, m + n)} ⇒ FunDeri(f, 1, 1)(x) > 0
+
+GOAL:
+MinimumPointOn(f, IntervalLoRo(0, +∞)) = { frac(n, m)^{frac(1, m + n)} * a^{frac(n, m + n)} }
+
+METHOD:

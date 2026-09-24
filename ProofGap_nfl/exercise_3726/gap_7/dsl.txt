@@ -1,0 +1,26 @@
+get_forall (GOAL: {forall (n), n ∈ IntegerSet ⇒ (forall (x), n ∈ IntegerSet ∧ x ∈ RealSet ⇒ x^{2} * FunDeri(J, 2, 2)(n, x) + x * FunDeri(J, 2, 1)(n, x) + (x^{2} - n^{2}) * J(n, x) = 0)}) (n := {n0})
+get_condition (hypothesis 9: {n0 ∈ IntegerSet}) in (GOAL: {n0 ∈ IntegerSet ⇒ (forall (x), n0 ∈ IntegerSet ∧ x ∈ RealSet ⇒ x^{2} * FunDeri(J, 2, 2)(n0, x) + x * FunDeri(J, 2, 1)(n0, x) + (x^{2} - n0^{2}) * J(n0, x) = 0)})
+get_forall (GOAL: {forall (x), n0 ∈ IntegerSet ∧ x ∈ RealSet ⇒ x^{2} * FunDeri(J, 2, 2)(n0, x) + x * FunDeri(J, 2, 1)(n0, x) + (x^{2} - n0^{2}) * J(n0, x) = 0}) (x := {x0})
+get_condition (hypothesis 10: {n0 ∈ IntegerSet ∧ x0 ∈ RealSet}) in (GOAL: {n0 ∈ IntegerSet ∧ x0 ∈ RealSet ⇒ x0^{2} * FunDeri(J, 2, 2)(n0, x0) + x0 * FunDeri(J, 2, 1)(n0, x0) + (x0^{2} - n0^{2}) * J(n0, x0) = 0})
+get_prop (hypothesis 7: {forall (n), n ∈ IntegerSet ⇒ (forall (x), n ∈ IntegerSet ∧ x ∈ RealSet ⇒ x^{2} * FunDeri(J, 2, 2)(n, x) + x * FunDeri(J, 2, 1)(n, x) + (x^{2} - n^{2}) * J(n, x) = -frac(1, π) * ((fun φ [φ ∈ RealSet] . (n + x * cos(φ)) * sin(n * φ - x * sin(φ)))|_{0}^{π}))}) (n := {n0}) as (hypothesis 11: {n0 ∈ IntegerSet ⇒ (forall (x), n0 ∈ IntegerSet ∧ x ∈ RealSet ⇒ x^{2} * FunDeri(J, 2, 2)(n0, x) + x * FunDeri(J, 2, 1)(n0, x) + (x^{2} - n0^{2}) * J(n0, x) = -frac(1, π) * ((fun φ [φ ∈ RealSet] . (n0 + x * cos(φ)) * sin(n0 * φ - x * sin(φ)))|_{0}^{π}))})
+assert (obvious: {forall (x), n0 ∈ IntegerSet ∧ x ∈ RealSet ⇒ x^{2} * FunDeri(J, 2, 2)(n0, x) + x * FunDeri(J, 2, 1)(n0, x) + (x^{2} - n0^{2}) * J(n0, x) = -frac(1, π) * ((fun φ [φ ∈ RealSet] . (n0 + x * cos(φ)) * sin(n0 * φ - x * sin(φ)))|_{0}^{π})}) by proof {
+apply (hypothesis 11: {n0 ∈ IntegerSet ⇒ (forall (x), n0 ∈ IntegerSet ∧ x ∈ RealSet ⇒ x^{2} * FunDeri(J, 2, 2)(n0, x) + x * FunDeri(J, 2, 1)(n0, x) + (x^{2} - n0^{2}) * J(n0, x) = -frac(1, π) * ((fun φ [φ ∈ RealSet] . (n0 + x * cos(φ)) * sin(n0 * φ - x * sin(φ)))|_{0}^{π}))})
+apply (hypothesis 9: {n0 ∈ IntegerSet})
+}
+get_prop (hypothesis 12: {forall (x), n0 ∈ IntegerSet ∧ x ∈ RealSet ⇒ x^{2} * FunDeri(J, 2, 2)(n0, x) + x * FunDeri(J, 2, 1)(n0, x) + (x^{2} - n0^{2}) * J(n0, x) = -frac(1, π) * ((fun φ [φ ∈ RealSet] . (n0 + x * cos(φ)) * sin(n0 * φ - x * sin(φ)))|_{0}^{π})}) (x := {x0}) as (hypothesis 13: {n0 ∈ IntegerSet ∧ x0 ∈ RealSet ⇒ x0^{2} * FunDeri(J, 2, 2)(n0, x0) + x0 * FunDeri(J, 2, 1)(n0, x0) + (x0^{2} - n0^{2}) * J(n0, x0) = -frac(1, π) * ((fun φ [φ ∈ RealSet] . (n0 + x0 * cos(φ)) * sin(n0 * φ - x0 * sin(φ)))|_{0}^{π})})
+assert (obvious: {x0^{2} * FunDeri(J, 2, 2)(n0, x0) + x0 * FunDeri(J, 2, 1)(n0, x0) + (x0^{2} - n0^{2}) * J(n0, x0) = -frac(1, π) * ((fun φ [φ ∈ RealSet] . (n0 + x0 * cos(φ)) * sin(n0 * φ - x0 * sin(φ)))|_{0}^{π})}) by proof {
+apply (hypothesis 13: {n0 ∈ IntegerSet ∧ x0 ∈ RealSet ⇒ x0^{2} * FunDeri(J, 2, 2)(n0, x0) + x0 * FunDeri(J, 2, 1)(n0, x0) + (x0^{2} - n0^{2}) * J(n0, x0) = -frac(1, π) * ((fun φ [φ ∈ RealSet] . (n0 + x0 * cos(φ)) * sin(n0 * φ - x0 * sin(φ)))|_{0}^{π})})
+apply (hypothesis 10: {n0 ∈ IntegerSet ∧ x0 ∈ RealSet})
+}
+get_prop (hypothesis 8: {forall (n), n ∈ IntegerSet ⇒ (forall (x), n ∈ IntegerSet ∧ x ∈ RealSet ⇒ -frac(1, π) * ((fun φ [φ ∈ RealSet] . (n + x * cos(φ)) * sin(n * φ - x * sin(φ)))|_{0}^{π}) = 0)}) (n := {n0}) as (hypothesis 15: {n0 ∈ IntegerSet ⇒ (forall (x), n0 ∈ IntegerSet ∧ x ∈ RealSet ⇒ -frac(1, π) * ((fun φ [φ ∈ RealSet] . (n0 + x * cos(φ)) * sin(n0 * φ - x * sin(φ)))|_{0}^{π}) = 0)})
+assert (obvious: {forall (x), n0 ∈ IntegerSet ∧ x ∈ RealSet ⇒ -frac(1, π) * ((fun φ [φ ∈ RealSet] . (n0 + x * cos(φ)) * sin(n0 * φ - x * sin(φ)))|_{0}^{π}) = 0}) by proof {
+apply (hypothesis 15: {n0 ∈ IntegerSet ⇒ (forall (x), n0 ∈ IntegerSet ∧ x ∈ RealSet ⇒ -frac(1, π) * ((fun φ [φ ∈ RealSet] . (n0 + x * cos(φ)) * sin(n0 * φ - x * sin(φ)))|_{0}^{π}) = 0)})
+apply (hypothesis 9: {n0 ∈ IntegerSet})
+}
+get_prop (hypothesis 16: {forall (x), n0 ∈ IntegerSet ∧ x ∈ RealSet ⇒ -frac(1, π) * ((fun φ [φ ∈ RealSet] . (n0 + x * cos(φ)) * sin(n0 * φ - x * sin(φ)))|_{0}^{π}) = 0}) (x := {x0}) as (hypothesis 17: {n0 ∈ IntegerSet ∧ x0 ∈ RealSet ⇒ -frac(1, π) * ((fun φ [φ ∈ RealSet] . (n0 + x0 * cos(φ)) * sin(n0 * φ - x0 * sin(φ)))|_{0}^{π}) = 0})
+assert (obvious: {-frac(1, π) * ((fun φ [φ ∈ RealSet] . (n0 + x0 * cos(φ)) * sin(n0 * φ - x0 * sin(φ)))|_{0}^{π}) = 0}) by proof {
+apply (hypothesis 17: {n0 ∈ IntegerSet ∧ x0 ∈ RealSet ⇒ -frac(1, π) * ((fun φ [φ ∈ RealSet] . (n0 + x0 * cos(φ)) * sin(n0 * φ - x0 * sin(φ)))|_{0}^{π}) = 0})
+apply (hypothesis 10: {n0 ∈ IntegerSet ∧ x0 ∈ RealSet})
+}
+rewrite (left_to_right, equation) (hypothesis 14: {x0^{2} * FunDeri(J, 2, 2)(n0, x0) + x0 * FunDeri(J, 2, 1)(n0, x0) + (x0^{2} - n0^{2}) * J(n0, x0) = -frac(1, π) * ((fun φ [φ ∈ RealSet] . (n0 + x0 * cos(φ)) * sin(n0 * φ - x0 * sin(φ)))|_{0}^{π})}) from (GOAL: {x0^{2} * FunDeri(J, 2, 2)(n0, x0) + x0 * FunDeri(J, 2, 1)(n0, x0) + (x0^{2} - n0^{2}) * J(n0, x0) = 0}) to (GOAL: {-frac(1, π) * ((fun φ [φ ∈ RealSet] . (n0 + x0 * cos(φ)) * sin(n0 * φ - x0 * sin(φ)))|_{0}^{π}) = 0})
+apply (hypothesis 18: {-frac(1, π) * ((fun φ [φ ∈ RealSet] . (n0 + x0 * cos(φ)) * sin(n0 * φ - x0 * sin(φ)))|_{0}^{π}) = 0})

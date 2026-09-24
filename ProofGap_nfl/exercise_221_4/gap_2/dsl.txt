@@ -1,0 +1,8 @@
+1. get_condition (hypothesis 8: {c = 0}) (hypothesis 9: {d ≠ 0}) in (GOAL: {c = 0 => d ≠ 0 => (forall (x), x ∈ RealSet => f(x) = frac(a, d) * x + frac(b, d))})
+2. get_forall (GOAL: {forall (x), x ∈ RealSet => f(x) = frac(a, d) * x + frac(b, d)}) (x := {z})
+3. get_condition (hypothesis 10: {z ∈ RealSet}) in (GOAL: {z ∈ RealSet => f(z) = frac(a, d) * z + frac(b, d)})
+4. get_prop (hypothesis 6: {forall (x), x ∈ RealSet ∧ c * x + d ≠ 0 => f(x) = frac(a * x + b, c * x + d)}) (x := {z}) as (hypothesis 11: {z ∈ RealSet ∧ c * z + d ≠ 0 => f(z) = frac(a * z + b, c * z + d)})
+5. rewrite (left_to_right, equation) (hypothesis 8: {c = 0}); from (hypothesis 11: {z ∈ RealSet ∧ c * z + d ≠ 0 => f(z) = frac(a * z + b, c * z + d)}) to (hypothesis 12: {z ∈ RealSet ∧ 0 * z + d ≠ 0 => f(z) = frac(a * z + b, 0 * z + d)})
+6. assert (hypothesis 13: {z ∈ RealSet ∧ 0 * z + d ≠ 0})
+7. use_condition (hypothesis 13: {z ∈ RealSet ∧ 0 * z + d ≠ 0}) in (hypothesis 12: {z ∈ RealSet ∧ 0 * z + d ≠ 0 => f(z) = frac(a * z + b, 0 * z + d)}) as (hypothesis 14: {f(z) = frac(a * z + b, 0 * z + d)})
+8. autosolve all_hypothesis

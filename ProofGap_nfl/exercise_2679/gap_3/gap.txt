@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x + n ≠ 0
+3. (exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x = -n) ⇒ (exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x + n = 0)
+4. (exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x = -n) ⇒ ¬Defined(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . (-1)^{n} / (x + n), PosIntegerSet)
+
+GOAL:
+forall (a), a : NonNegIntegerSet → RealSet ∧ ¬(exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x = -n) ∧ a = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . 1 / |x + n|) ⇒ seqlim_{ n → +∞ } (a(n)) = 0
+
+METHOD:

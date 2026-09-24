@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. b : NonNegIntegerSet → RealSet
+3. n ∈ NonNegIntegerSet
+4. k ∈ NonNegIntegerSet
+5. n ∈ PosIntegerSet
+6. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≤ n ⇒ a(k) ∈ RealSet ∧ b(k) ∈ RealSet
+7. forall (x), x ∈ RealSet ⇒ sum_{ k = 1 }^{ n } ((a(k) * x + b(k))^{2}) ≥ 0
+8. forall (x), x ∈ RealSet ⇒ sum_{ k = 1 }^{ n } ((a(k) * x + b(k))^{2}) = (sum_{ k = 1 }^{ n } (a(k)^{2})) * x^{2} + 2 * (sum_{ k = 1 }^{ n } (a(k) * b(k))) * x + (sum_{ k = 1 }^{ n } (b(k)^{2}))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (sum_{ k = 1 }^{ n } (a(k)^{2})) * x^{2} + 2 * (sum_{ k = 1 }^{ n } (a(k) * b(k))) * x + (sum_{ k = 1 }^{ n } (b(k)^{2})) ≥ 0
+
+METHOD:

@@ -1,0 +1,17 @@
+PROOF GAP @7
+ASSUM:
+1. F : RealSet → RealSet
+2. forall (α), α ∈ RealSet ⇒ F(α) = DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(cos(x), 1 + (x + α)^{2})) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x))
+3. forall (`α_{0}`), `α_{0}` ∈ RealSet ⇒ (exists (M), M ∈ RealSet ∧ M = max(|`α_{0}` - 1|, |`α_{0}` + 1|))
+4. forall (`α_{0}`), `α_{0}` ∈ RealSet ⇒ (exists (M), M ∈ RealSet ∧ M = max(|`α_{0}` - 1|, |`α_{0}` + 1|) ∧ (forall (x), x ∈ RealSet ∧ x > M ⇒ (forall (α), α ∈ RealSet ∧ x > M ∧ α ∈ IntervalLoRo(`α_{0}` - 1, `α_{0}` + 1) ⇒ |frac(cos(x), 1 + (x + α)^{2})| ≤ frac(1, 1 + (x - M)^{2}))))
+5. forall (`α_{0}`), `α_{0}` ∈ RealSet ⇒ (exists (M), M ∈ RealSet ∧ M = max(|`α_{0}` - 1|, |`α_{0}` + 1|) ∧ (forall (x), x ∈ RealSet ∧ x > M ⇒ (forall (α), α ∈ RealSet ∧ x > M ∧ α ∈ IntervalLoRo(`α_{0}` - 1, `α_{0}` + 1) ⇒ |FunDeri(fun α [α ∈ RealSet] . frac(cos(x), 1 + (x + α)^{2}), 1, 1)(α)| = |frac(2 * (x + α) * cos(x), (1 + (x + α)^{2})^{2})|)))
+6. forall (`α_{0}`), `α_{0}` ∈ RealSet ⇒ (exists (M), M ∈ RealSet ∧ M = max(|`α_{0}` - 1|, |`α_{0}` + 1|) ∧ (forall (x), x ∈ RealSet ∧ x > M ⇒ (forall (α), α ∈ RealSet ∧ x > M ∧ α ∈ IntervalLoRo(`α_{0}` - 1, `α_{0}` + 1) ⇒ |frac(2 * (x + α) * cos(x), (1 + (x + α)^{2})^{2})| ≤ frac(2, 1 + (x - M)^{2}))))
+7. forall (`α_{0}`), `α_{0}` ∈ RealSet ⇒ (exists (M), M ∈ RealSet ∧ M = max(|`α_{0}` - 1|, |`α_{0}` + 1|) ∧ (forall (x), x ∈ RealSet ∧ x > M ⇒ (forall (α), α ∈ RealSet ∧ x > M ∧ α ∈ IntervalLoRo(`α_{0}` - 1, `α_{0}` + 1) ⇒ |FunDeri(fun α [α ∈ RealSet] . frac(cos(x), 1 + (x + α)^{2}), 1, 1)(α)| ≤ frac(2, 1 + (x - M)^{2}))))
+8. forall (`α_{0}`), `α_{0}` ∈ RealSet ⇒ (exists (M), M ∈ RealSet ∧ M = max(|`α_{0}` - 1|, |`α_{0}` + 1|) ∧ ConvergentSeries(DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(1, 1 + (x - M)^{2})) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x))))
+9. forall (`α_{0}`), `α_{0}` ∈ RealSet ⇒ UniformConvergent(fun α [α ∈ RealSet ∧ α ∈ IntervalLoRo(`α_{0}` - 1, `α_{0}` + 1)] . DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(cos(x), 1 + (x + α)^{2})) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)), IntervalLoRo(`α_{0}` - 1, `α_{0}` + 1), F)
+
+GOAL:
+forall (`α_{0}`), `α_{0}` ∈ RealSet ⇒ UniformConvergent(fun α [α ∈ RealSet ∧ α ∈ IntervalLoRo(`α_{0}` - 1, `α_{0}` + 1)] . DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x ≥ 0] . FunDeri(fun α [α ∈ RealSet] . frac(cos(x), 1 + (x + α)^{2}), 1, 1)(α)) * diff(fun x [x ∈ RealSet ∧ x ≥ 0] . x)), IntervalLoRo(`α_{0}` - 1, `α_{0}` + 1), FunDeri(F, 1, 1))
+
+METHOD:
+[@method 根据 "魏尔斯特拉斯准则" @]

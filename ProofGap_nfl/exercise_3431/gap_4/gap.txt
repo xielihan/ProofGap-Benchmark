@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. Y : RealSet → RealSet
+2. X : RealSet → RealSet
+3. InverseFunc(Y) = X
+4. forall (x), x ∈ RealSet ⇒ FunDeri(Y, 1, 1)(x) * FunDeri(Y, 1, 3)(x) - 3 * FunDeri(Y, 1, 2)(x)^{2} = x
+5. forall (y), y ∈ RealSet ⇒ FunDeri(X, 1, 1)(y) ≠ 0
+6. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(Y, 1, 1)(x) = frac(1, FunDeri(X, 1, 1)(y)))
+7. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(Y, 1, 2)(x) = -frac(FunDeri(X, 1, 2)(y), FunDeri(X, 1, 1)(y)^{3}))
+8. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(Y, 1, 3)(x) = frac(3 * FunDeri(X, 1, 2)(y)^{2} - FunDeri(X, 1, 1)(y) * FunDeri(X, 1, 3)(y), FunDeri(X, 1, 1)(y)^{5}))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(Y, 1, 1)(x) * FunDeri(Y, 1, 3)(x) - 3 * FunDeri(Y, 1, 2)(x)^{2} = -frac(FunDeri(X, 1, 3)(y), FunDeri(X, 1, 1)(y)^{5}))
+
+METHOD:

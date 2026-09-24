@@ -1,0 +1,17 @@
+PROOF GAP @7
+ASSUM:
+1. x ∈ RealSet
+2. a : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = n * e^{-n * x}
+4. seqlim_{ n → +∞ } (frac((n + 1) * e^{-(n + 1) * x}, n * e^{-n * x})) = e^{-x}
+5. x > 0 ⇒ e^{-x} < 1
+6. x > 0 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+7. x = 0 ⇒ sum_{ n = 1 }^{ +∞ } (a(n)) = sum_{ n = 1 }^{ +∞ } (n)
+8. x = 0 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+9. x < 0 ⇒ e^{-x} > 1
+
+GOAL:
+x < 0 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+METHOD:
+[@method 根据 "比值判别法" @]

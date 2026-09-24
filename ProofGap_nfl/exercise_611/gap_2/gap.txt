@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. y : NonNegIntegerSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x = 0 ⇒ seqlim_{ n → +∞ } ((1 + frac(x, n))^{n}) = e^{x}
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x = 0 ⇒ seqlim_{ n → +∞ } (sum_{ k = 0 }^{ n } (frac(x^{k}, k!))) = e^{x}
+
+METHOD:

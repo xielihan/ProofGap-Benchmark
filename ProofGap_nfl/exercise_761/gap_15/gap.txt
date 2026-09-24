@@ -1,0 +1,25 @@
+PROOF GAP @15
+ASSUM:
+1. ε ∈ RealSet
+2. 0 ≤ ε
+3. ε < 1
+4. Y(0) = (fun x [x ∈ RealSet] . x)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ Y(n) = (fun x [x ∈ RealSet] . x + ε * sin(Y(n - 1, x)))
+6. exists (y), y : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (Y(n, x)) = y(x))
+7. forall (y), y : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (Y(n, x)) = y(x)) ⇒ (forall (x), x ∈ RealSet ⇒ y(x) - ε * sin(y(x)) = x)
+8. forall (y), y : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (Y(n, x)) = y(x)) ⇒ (forall (x), x ∈ RealSet ⇒ (forall (z), z ∈ RealSet ∧ z - ε * sin(z) = x ⇒ z = y(x)))
+9. forall (x), x ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |Y(n, x) - Y(n, x_{0})| = |x - x_{0} + ε * (sin(Y(n - 1, x)) - sin(Y(n - 1, x_{0})))|))
+10. forall (x), x ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |Y(n, x) - Y(n, x_{0})| ≤ |x - x_{0}| + ε * |Y(n - 1, x) - Y(n - 1, x_{0})|))
+11. forall (x), x ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |Y(n, x) - Y(n, x_{0})| ≤ |x - x_{0}| * (sum_{ i = 0 }^{ n } (ε^{i}))))
+12. forall (x), x ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |Y(n, x) - Y(n, x_{0})| ≤ |x - x_{0}| * frac(1 - ε^{n + 1}, 1 - ε)))
+13. forall (x), x ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |x - x_{0}| * frac(1 - ε^{n + 1}, 1 - ε) ≤ frac(1, 1 - ε) * |x - x_{0}|))
+14. forall (x), x ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |Y(n, x) - Y(n, x_{0})| ≤ frac(1, 1 - ε) * |x - x_{0}|))
+15. forall (y), y : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (Y(n, x)) = y(x)) ⇒ (forall (x), x ∈ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ |y(x) - y(x_{0})| ≤ frac(1, 1 - ε) * |x - x_{0}|))
+16. forall (y), y : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (Y(n, x)) = y(x)) ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ lim_{ x → x_{0} } (y(x)) = y(x_{0}))
+17. forall (y), y : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (Y(n, x)) = y(x)) ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ ContinuousFuncAt(y, x_{0}))
+18. forall (y), y : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ seqlim_{ n → +∞ } (Y(n, x)) = y(x)) ⇒ ContinuousFunc(y)
+
+GOAL:
+exists (y), y : RealSet → RealSet ∧ ContinuousFunc(y) ∧ (forall (x), x ∈ RealSet ⇒ y(x) - ε * sin(y(x)) = x) ∧ (forall (y2), y2 : RealSet → RealSet ∧ ContinuousFunc(y2) ∧ (forall (x), x ∈ RealSet ⇒ y2(x) - ε * sin(y2(x)) = x) ⇒ y2 = y)
+
+METHOD:

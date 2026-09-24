@@ -1,0 +1,10 @@
+1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n + 1) > frac(1, n + 1) ∧ frac(1, n + 1) > 0}) (n := {m})
+2. get_condition (hypothesis 10: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet}) in (GOAL: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ x(m + 1) > frac(1, m + 1) ∧ frac(1, m + 1) > 0})
+3. destruct_and (hypothesis 10: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet}) as (hypothesis 11: {m ∈ NonNegIntegerSet}) (hypothesis 12: {m ∈ PosIntegerSet})
+4. assert (hypothesis 13: {m > 0})
+5. assert (hypothesis 14: {m + 1 > 0})
+6. get_prop (hypothesis 8: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ln(n + 1) < sum_{ k = 1 }^{ n } (frac(1, k))}) (n := {m}) as (hypothesis 15: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ ln(m + 1) < sum_{ k = 1 }^{ m } (frac(1, k))})
+7. use_condition (hypothesis 10: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet}) in (hypothesis 15: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ ln(m + 1) < sum_{ k = 1 }^{ m } (frac(1, k))}) as (hypothesis 16: {ln(m + 1) < sum_{ k = 1 }^{ m } (frac(1, k))})
+8. get_prop (hypothesis 9: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n + 1) = (sum_{ k = 1 }^{ n } (frac(1, k))) + frac(1, n + 1) - ln(n + 1)}) (n := {m}) as (hypothesis 17: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ x(m + 1) = (sum_{ k = 1 }^{ m } (frac(1, k))) + frac(1, m + 1) - ln(m + 1)})
+9. use_condition (hypothesis 10: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet}) in (hypothesis 17: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ x(m + 1) = (sum_{ k = 1 }^{ m } (frac(1, k))) + frac(1, m + 1) - ln(m + 1)}) as (hypothesis 18: {x(m + 1) = (sum_{ k = 1 }^{ m } (frac(1, k))) + frac(1, m + 1) - ln(m + 1)})
+10. autosolve all_hypothesis

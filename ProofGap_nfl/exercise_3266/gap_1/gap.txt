@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. m ∈ NonNegIntegerSet
+3. n ∈ NonNegIntegerSet
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x, y) = e^{x} * sin(y)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(FunDeri(f, 1, m), 2, n)(x, y) = e^{x} * sin(y + frac(n * π, 2))
+
+METHOD:

@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. a > 0
+
+GOAL:
+lim_{ x → 0 } (frac((a + x)^{x} - a^{x}, x^{2})) = lim_{ x → 0 } (frac((a + x)^{x} * (ln(a + x) + frac(x, a + x)) - a^{x} * ln(a), 2 * x))
+
+METHOD:
+[@method 根据 "洛必达法则" @]

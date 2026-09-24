@@ -1,0 +1,23 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet
+2. A ∈ RealSet
+3. b ∈ RealSet
+4. B ∈ RealSet
+5. f : CartesianProd(RealSet, RealSet) → RealSet
+6. φ : RealSet → RealSet
+7. F : RealSet → RealSet
+8. a < A
+9. b < B
+10. ContinuousFuncOn(f, CartesianProd(IntervalLoRo(a, A), IntervalLoRo(b, B)))
+11. ContinuousFuncOn(φ, IntervalLoRo(a, A))
+12. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, A) ⇒ φ(x) ∈ IntervalLoRo(b, B)
+13. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, A) ⇒ F(x) = f(x, φ(x))
+14. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, A) ⇒ (exists (y_{0}), y_{0} ∈ RealSet ∧ y_{0} = φ(x_{0}))
+15. forall (x_{0}) (y_{0}), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, A) ∧ y_{0} = φ(x_{0}) ⇒ (x_{0}, y_{0}) ∈ CartesianProd(IntervalLoRo(a, A), IntervalLoRo(b, B))
+16. forall (x_{0}) (y_{0}), x_{0} ∈ RealSet ∧ y_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, A) ∧ y_{0} = φ(x_{0}) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ CartesianProd(IntervalLoRo(a, A), IntervalLoRo(b, B)) ∧ |x - x_{0}| < δ ∧ |y - y_{0}| < δ ⇒ |f(x, y) - f(x_{0}, y_{0})| < ε)))
+
+GOAL:
+forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ IntervalLoRo(a, A) ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (exists (η), η ∈ RealSet ∧ η > 0 ∧ η < δ ∧ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, A) ∧ |x - x_{0}| < η ⇒ |φ(x) - φ(x_{0})| < δ))))
+
+METHOD:

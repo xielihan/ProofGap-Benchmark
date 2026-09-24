@@ -1,0 +1,22 @@
+PROOF GAP @9
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. v : CartesianProd(RealSet, RealSet) → RealSet
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ 0 ∧ y ≠ 0 ∧ x^{2} + y^{2} > 0 ⇒ e^{frac(u(x, y), x)} * cos(frac(v(x, y), y)) = frac(x, sqrtn(2, 2))
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ 0 ∧ y ≠ 0 ∧ x^{2} + y^{2} > 0 ⇒ e^{frac(u(x, y), x)} * sin(frac(v(x, y), y)) = frac(y, sqrtn(2, 2))
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ 0 ∧ y ≠ 0 ⇒ tan(frac(v(x, y), y)) = frac(y, x)
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ 0 ∧ y ≠ 0 ⇒ e^{frac(2 * u(x, y), x)} = frac(x^{2} + y^{2}, 2)
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ 0 ∧ y ≠ 0 ⇒ sec(frac(v(x, y), y))^{2} * frac(y * diff(v) - v(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y), y^{2}) = frac(x * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) - y * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x), x^{2})
+8. FuncOfClassK(v, 2)
+9. v(1, 1) = frac(π, 4)
+10. FunDeri(v, 1, 1)(1, 1) = -frac(1, 2) ∧ FunDeri(v, 2, 1)(1, 1) = frac(π, 4) + frac(1, 2)
+11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ 0 ∧ y ≠ 0 ⇒ 2 * sec(frac(v(x, y), y))^{2} * tan(frac(v(x, y), y)) * frac(y * diff(v) - v(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y), y^{2})^{2} + sec(frac(v(x, y), y))^{2} * frac(y^{2} * diff^{2}(v) - 2 * (y * diff(v) - v(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y), y^{3}) = frac(-2 * (x * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) - y * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x), x^{3})
+12. FunDeri(v, 1, 2)(1, 1) = frac(1, 2) ∧ FunDeri(FunDeri(v, 1, 1), 2, 1)(1, 1) = -frac(1, 2) ∧ FunDeri(v, 2, 2)(1, 1) = frac(1, 2)
+13. FuncOfClassK(u, 2)
+14. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ 0 ∧ y ≠ 0 ⇒ 2 * e^{frac(2 * u(x, y), x)} * frac(x * diff(u) - u(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x), x^{2}) = x * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + y * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+15. FunDeri(u, 1, 1)(1, 1) = frac(1, 2) ∧ FunDeri(u, 2, 1)(1, 1) = frac(1, 2)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ≠ 0 ∧ y ≠ 0 ⇒ 4 * e^{frac(2 * u(x, y), x)} * frac(x * diff(u) - u(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x), x^{2})^{2} + 2 * e^{frac(2 * u(x, y), x)} * frac(x^{2} * diff^{2}(u) - 2 * (x * diff(u) - u(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x), x^{3}) = diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x)^{2} + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)^{2}
+
+METHOD:

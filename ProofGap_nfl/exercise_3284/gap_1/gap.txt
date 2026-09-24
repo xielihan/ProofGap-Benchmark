@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. f : CartesianProd(RealSet, RealSet) → RealSet
+3. DiffableFunc(f)
+4. DiffableFunc(FunDeri(f, 1, 1))
+5. DiffableFunc(FunDeri(f, 2, 1))
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ≠ 0 ⇒ u(x, y) = f(x, frac(x, y))
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ∈ RealSet \ { 0 } ⇒ FunDeri(u, 1, 1)(x, y) = FunDeri(f, 1, 1)(x, frac(x, y)) + frac(1, y) * FunDeri(f, 2, 1)(x, frac(x, y))
+
+METHOD:

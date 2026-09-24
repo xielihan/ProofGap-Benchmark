@@ -1,0 +1,16 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. n ∈ NonNegIntegerSet ∧ n > 0
+4. i ∈ IntegerSet
+5. 0 < a
+6. a < b
+7. q = sqrtn(n, frac(b, a))
+8. n ∈ PosIntegerSet ⇒ q^{n} = frac(b, a)
+9. exists (x), x : NonNegIntegerSet → RealSet ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n ⇒ x(i) = a * q^{i})
+
+GOAL:
+exists (ξ), ξ : NonNegIntegerSet → RealSet ∧ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ n - 1 ⇒ ξ(i) = a * q^{i})
+
+METHOD:

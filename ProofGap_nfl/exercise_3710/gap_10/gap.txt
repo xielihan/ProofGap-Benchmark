@@ -1,0 +1,27 @@
+PROOF GAP @10
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. Δ ∈ RealSet
+4. u : CartesianProd(RealSet, RealSet) → RealSet
+5. f : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+6. F : RealSet → RealSet
+7. λ ∈ RealSet
+8. x ∈ RealSet
+9. forall (x) (a) (b), x ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ⇒ f(x, a, b) = x^{2} - (a * x + b)
+10. forall (a) (b), a ∈ RealSet ∧ b ∈ RealSet ⇒ u(a, b) = sup({ f(x, a, b)^{2} | 1 ≤ x ∧ x ≤ 3 })
+11. Δ = sup({ |f(x, a, b)| | 1 ≤ x ∧ x ≤ 3 })
+12. forall (x), x ∈ RealSet ⇒ FunDeri(f, 1, 1)(x, a, b) = 2 * x - a
+13. forall (x), x ∈ RealSet ∧ FunDeri(f, 1, 1)(x, a, b) = 0 ⇒ x = frac(a, 2)
+14. 2 < a ∧ a < 6 ⇒ u(a, b) = max(f(1, a, b)^{2}, f(3, a, b)^{2}, f(frac(a, 2), a, b)^{2})
+15. a ≤ 2 ∨ a ≥ 6 ⇒ u(a, b) = max(f(1, a, b)^{2}, f(3, a, b)^{2})
+16. f(1, a, b) = 1 - a - b
+17. f(3, a, b) = 9 - 3 * a - b
+18. f(frac(a, 2), a, b) = -(frac(a^{2}, 4) + b)
+19. (1 - a - b)^{2} = (9 - 3 * a - b)^{2}
+20. (9 - 3 * a - b)^{2} = (frac(a^{2}, 4) + b)^{2}
+
+GOAL:
+1 - a - b = 9 - 3 * a - b ⇒ 9 - 3 * a - b ≠ -(frac(a^{2}, 4) + b)
+
+METHOD:

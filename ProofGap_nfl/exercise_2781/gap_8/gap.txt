@@ -1,0 +1,17 @@
+PROOF GAP @8
+ASSUM:
+1. a : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. s : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+3. S ∈ RealSet
+4. forall (x), x ∈ RealSet ∧ sin(frac(x, 2)) = 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ sum_{ k = 1 }^{ n } (sin(x) * sin(k * x)) = 0)
+5. forall (x), x ∈ RealSet ∧ sin(frac(x, 2)) ≠ 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |sum_{ k = 1 }^{ n } (sin(x) * sin(k * x))| = |sin(x)| * |sum_{ k = 1 }^{ n } (sin(k * x))| ∧ |sin(x)| * |sum_{ k = 1 }^{ n } (sin(k * x))| ≤ |sin(x)| * frac(1, |sin(frac(x, 2))|) ∧ |sin(x)| * frac(1, |sin(frac(x, 2))|) = 2 * |cos(frac(x, 2))| ∧ 2 * |cos(frac(x, 2))| ≤ 2)
+6. forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ x ∈ NonNegRealSet ∧ n ∈ PosIntegerSet ⇒ |sum_{ k = 1 }^{ n } (sin(x) * sin(k * x))| ≤ 2
+7. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ MonoDecSeq(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(1, sqrtn(2, n + x)))
+8. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, sqrtn(2, n + x)) ≤ frac(1, sqrtn(2, n)))
+9. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ seqlim_{ n → +∞ } (frac(1, sqrtn(2, n + x))) = 0
+10. UniformConvergent(s, NonNegRealSet, S)
+
+GOAL:
+a : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ∧ s : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ∧ S ∈ RealSet ∧ (forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ NonNegRealSet ⇒ a(n, x) = frac(sin(x) * sin(n * x), sqrtn(2, n + x))) ∧ (forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ NonNegRealSet ⇒ s(n, x) = sum_{ k = 1 }^{ n } (a(k, x))) ⇒ UniformConvergent(s, NonNegRealSet, S)
+
+METHOD:

@@ -1,0 +1,28 @@
+PROOF GAP @9
+ASSUM:
+1. a ∈ RealSet
+2. A ∈ RealSet
+3. b ∈ RealSet
+4. B ∈ RealSet
+5. f : CartesianProd(RealSet, RealSet) → RealSet
+6. φ : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+7. F : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+8. a ≤ A
+9. b ≤ B
+10. ContinuousFuncOn(f, CartesianProd([a, A], [b, B]))
+11. exists (`φ_{0}`), `φ_{0}` : RealSet → RealSet ∧ UniformConvergent(φ, [a, A], `φ_{0}`)
+12. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [a, A] ⇒ b ≤ φ(n, x) ∧ φ(n, x) ≤ B
+13. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [a, A] ⇒ F(n, x) = f(x, φ(n, x))
+14. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [a, A] ⇒ (x, φ(n, x)) ∈ CartesianProd([a, A], [b, B])
+15. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [a, A] ⇒ F(n, x) = f(x, φ(n, x))
+16. UniformContinuousFuncOn(f, CartesianProd([a, A], [b, B]))
+17. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x_{1}) (x_{2}) (y_{1}) (y_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ y_{1} ∈ RealSet ∧ y_{2} ∈ RealSet ∧ (x_{1}, y_{1}) ∈ CartesianProd([a, A], [b, B]) ∧ (x_{2}, y_{2}) ∈ CartesianProd([a, A], [b, B]) ∧ |x_{1} - x_{2}| < δ ∧ |y_{1} - y_{2}| < δ ⇒ |f(x_{1}, y_{1}) - f(x_{2}, y_{2})| < ε))
+18. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (y_{1}) (y_{2}), y_{1} ∈ RealSet ∧ y_{2} ∈ RealSet ∧ y_{1} ∈ [b, B] ∧ y_{2} ∈ [b, B] ∧ |y_{1} - y_{2}| < δ ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [a, A] ⇒ |f(x, y_{1}) - f(x, y_{2})| < ε)))
+19. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (m) (n) (x), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ [a, A] ∧ m > N ∧ n > N ⇒ |φ(n, x) - φ(m, x)| < δ)))
+20. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (m) (n) (x), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ [a, A] ∧ m > N ∧ n > N ⇒ |F(n, x) - F(m, x)| = |f(x, φ(n, x)) - f(x, φ(m, x))| ∧ |f(x, φ(n, x)) - f(x, φ(m, x))| < ε))
+21. exists (H), H : RealSet → RealSet ∧ UniformConvergent(F, [a, A], H)
+
+GOAL:
+exists (H), H : RealSet → RealSet ∧ UniformConvergent(F, [a, A], H)
+
+METHOD:

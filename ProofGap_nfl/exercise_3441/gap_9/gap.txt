@@ -1,0 +1,20 @@
+PROOF GAP @9
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. u : RealSet → RealSet
+4. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-1, 1) ⇒ (1 - x^{2})^{2} * FunDeri(y, 1, 2)(x) = -y(x)
+5. forall (t), t ∈ RealSet ⇒ x(t) = tanh(t) ∧ y(x(t)) = frac(u(t), cosh(t)) ∧ cosh(t) ≠ 0
+6. forall (t), t ∈ RealSet ⇒ FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(t) = frac(1, cosh(t)^{2})
+7. forall (t), t ∈ RealSet ⇒ FunDeri(y, 1, 1)(x(t)) = frac(frac(FunDeri(u, 1, 1)(t) * cosh(t) - u(t) * sinh(t), cosh(t)^{2}), frac(1, cosh(t)^{2}))
+8. forall (t), t ∈ RealSet ⇒ frac(frac(FunDeri(u, 1, 1)(t) * cosh(t) - u(t) * sinh(t), cosh(t)^{2}), frac(1, cosh(t)^{2})) = FunDeri(u, 1, 1)(t) * cosh(t) - u(t) * sinh(t)
+9. forall (t), t ∈ RealSet ⇒ FunDeri(y, 1, 1)(x(t)) = FunDeri(u, 1, 1)(t) * cosh(t) - u(t) * sinh(t)
+10. forall (t), t ∈ RealSet ⇒ FunDeri(y, 1, 2)(x(t)) = frac(FunDeri(u, 1, 2)(t) * cosh(t) - u(t) * cosh(t), frac(1, cosh(t)^{2}))
+11. forall (t), t ∈ RealSet ⇒ frac(FunDeri(u, 1, 2)(t) * cosh(t) - u(t) * cosh(t), frac(1, cosh(t)^{2})) = (FunDeri(u, 1, 2)(t) - u(t)) * cosh(t)^{3}
+12. forall (t), t ∈ RealSet ⇒ FunDeri(y, 1, 2)(x(t)) = (FunDeri(u, 1, 2)(t) - u(t)) * cosh(t)^{3}
+13. forall (t), t ∈ RealSet ⇒ 1 - x(t)^{2} = 1 - tanh(t)^{2}
+
+GOAL:
+forall (t), t ∈ RealSet ⇒ 1 - tanh(t)^{2} = frac(1, cosh(t)^{2})
+
+METHOD:

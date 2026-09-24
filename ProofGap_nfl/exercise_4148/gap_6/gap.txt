@@ -1,0 +1,25 @@
+PROOF GAP @6
+ASSUM:
+1. V ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. I_{z} ∈ RealSet
+3. I_{zx} ∈ RealSet
+4. I_{zy} ∈ RealSet
+5. x ∈ RealSet
+6. y ∈ RealSet
+7. z ∈ RealSet ∧ z ≥ 0
+8. u ∈ RealSet ∧ -1 ≤ u ∧ u ≤ 1
+9. v ∈ RealSet ∧ -1 ≤ v ∧ v ≤ 1
+10. J ∈ RealSet
+11. V = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, z ≥ 0, z ≤ x^{2} + y^{2}, -1 ≤ x + y ∧ x + y ≤ 1, -1 ≤ x - y ∧ x - y ≤ 1 }
+12. I_{z} = I_{zx} + I_{zy}
+13. x = frac(u + v, 2)
+14. y = frac(u - v, 2)
+15. x + y = u
+16. x - y = v
+17. z = frac(u^{2} + v^{2}, 2)
+18. |J| = frac(1, 2)
+
+GOAL:
+I_{z} = DefInt(-1, 1, DefInt(-1, 1, DefInt(0, frac(u^{2} + v^{2}, 2), frac(1, 2) * (frac(u - v, 2)^{2} + frac(u + v, 2)^{2}) * diff(fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ frac(u^{2} + v^{2}, 2)] . z)) * diff(fun v [v ∈ RealSet ∧ -1 ≤ v ∧ v ≤ 1] . v)) * diff(fun u [u ∈ RealSet ∧ -1 ≤ u ∧ u ≤ 1] . u))
+
+METHOD:

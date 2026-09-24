@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (F), F : RealSet → RealSet ⇒ (forall (f), f : RealSet → RealSet ⇒ (forall (g), g : RealSet → RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ ContinuousFuncAt(f, x_{0}) ∧ ¬ContinuousFuncAt(g, x_{0}) ∧ F = f + g ∧ ContinuousFuncAt(F, x_{0}) ⇒ g = F - f)))
+
+METHOD:

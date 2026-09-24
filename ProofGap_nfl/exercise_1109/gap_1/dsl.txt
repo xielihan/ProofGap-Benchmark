@@ -1,0 +1,9 @@
+1. get_prop (hypothesis 7: {forall (t), t ∈ RealSet ∧ t > 0 ⇒ f(t) = lg(t)}) (t := {x}) as (hypothesis 8: {x ∈ RealSet ∧ x > 0 ⇒ f(x) = lg(x)})
+2. get_prop (hypothesis 7: {forall (t), t ∈ RealSet ∧ t > 0 ⇒ f(t) = lg(t)}) (t := {x + Δx}) as (hypothesis 9: {x + Δx ∈ RealSet ∧ x + Δx > 0 ⇒ f(x + Δx) = lg(x + Δx)})
+3. assert (hypothesis 10: {x ∈ RealSet ∧ x > 0})
+4. assert (hypothesis 11: {x + Δx ∈ RealSet ∧ x + Δx > 0})
+5. use_condition (hypothesis 10: {x ∈ RealSet ∧ x > 0}) in (hypothesis 8: {x ∈ RealSet ∧ x > 0 ⇒ f(x) = lg(x)}) as (hypothesis 12: {f(x) = lg(x)})
+6. use_condition (hypothesis 11: {x + Δx ∈ RealSet ∧ x + Δx > 0}) in (hypothesis 9: {x + Δx ∈ RealSet ∧ x + Δx > 0 ⇒ f(x + Δx) = lg(x + Δx)}) as (hypothesis 13: {f(x + Δx) = lg(x + Δx)})
+7. rewrite (left_to_right, equation) (hypothesis 13: {f(x + Δx) = lg(x + Δx)}); from (GOAL: {|f(x + Δx) - f(x)| = |lg(x + Δx) - lg(x)|}) to (GOAL: {|lg(x + Δx) - f(x)| = |lg(x + Δx) - lg(x)|})
+8. rewrite (left_to_right, equation) (hypothesis 12: {f(x) = lg(x)}); from (GOAL: {|lg(x + Δx) - f(x)| = |lg(x + Δx) - lg(x)|}) to (GOAL: {|lg(x + Δx) - lg(x)| = |lg(x + Δx) - lg(x)|})
+9. autosolve all_hypothesis

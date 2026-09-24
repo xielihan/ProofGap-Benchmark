@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. φ : RealSet → RealSet
+3. ψ : RealSet → RealSet
+4. exists (`ψ_1`), `ψ_1` : RealSet → RealSet ∧ (forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 1)(x, y) = `ψ_1`(x))
+5. exists (`φ_1`), `φ_1` : RealSet → RealSet ∧ (forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = DefInt(0, x, (fun t [t ∈ RealSet] . `φ_1`(t)) * diff(fun t [t ∈ RealSet] . t)) + ψ(y))
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = φ(x) + ψ(y)
+
+GOAL:
+z = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . φ(x) + ψ(y)) ⇒ (forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(FunDeri(z, 1, 1), 2, 1)(x, y) = 0)
+
+METHOD:

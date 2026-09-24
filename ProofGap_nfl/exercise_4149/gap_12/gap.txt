@@ -1,0 +1,28 @@
+PROOF GAP @12
+ASSUM:
+1. V ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. I_{z} ∈ RealSet
+3. x ∈ RealSet
+4. y ∈ RealSet
+5. z ∈ RealSet ∧ z > 0
+6. r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1
+7. φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π
+8. V = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x^{2} + y^{2} + z^{2} ≤ 2, x^{2} + y^{2} ≤ z^{2}, z > 0 }
+9. x = r * cos(φ)
+10. y = r * sin(φ)
+11. 0 ≤ φ
+12. φ ≤ 2 * π
+13. 0 ≤ r
+14. r ≤ 1
+15. r ≤ z
+16. z ≤ sqrtn(2, 2 - r^{2})
+17. I_{z} = DefInt(0, 2 * π, DefInt(0, 1, DefInt(r, sqrtn(2, 2 - r^{2}), r^{2} * r * diff(fun z [z ∈ RealSet ∧ r ≤ z ∧ z ≤ sqrtn(2, 2 - r^{2})] . z)) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1] . r)) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . φ))
+18. I_{z} = DefInt(0, 2 * π, DefInt(0, 1, (r^{3} * sqrtn(2, 2 - r^{2}) - r^{5}) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1] . r)) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . φ))
+19. DefInt(0, 1, r^{3} * sqrtn(2, 2 - r^{2}) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1] . r)) = frac(8 * sqrtn(2, 2) - 7, 15)
+20. DefInt(0, 1, r^{5} * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1] . r)) = frac(1, 6)
+21. I_{z} = DefInt(0, 2 * π, (frac(8 * sqrtn(2, 2) - 7, 15) - frac(1, 6)) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . φ))
+
+GOAL:
+I_{z} = frac(π, 15) * (16 * sqrtn(2, 2) - 19)
+
+METHOD:

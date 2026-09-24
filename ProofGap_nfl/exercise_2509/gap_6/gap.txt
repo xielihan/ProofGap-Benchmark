@@ -1,0 +1,23 @@
+PROOF GAP @6
+ASSUM:
+1. E ⊆ CartesianProd(RealSet, RealSet)
+2. a ∈ RealSet ∧ a > 0
+3. b ∈ RealSet ∧ b > 0
+4. ξ ∈ RealSet
+5. η ∈ RealSet
+6. A ∈ RealSet
+7. V ∈ RealSet
+8. x ∈ RealSet
+9. y : RealSet → RealSet
+10. E = { (x, y) | x ∈ RealSet, y ∈ RealSet, frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) ≤ 1, 0 ≤ x, x ≤ a, 0 ≤ y, y ≤ b }
+11. A = frac(π * a * b, 4)
+12. forall (x), x ∈ RealSet ∧ x ∈ [-a, a] ⇒ y(x)^{2} = frac(b^{2}, a^{2}) * (a^{2} - x^{2})
+13. V = π * DefInt(-a, a, frac(b^{2}, a^{2}) * (a^{2} - x^{2}) * diff(x))
+14. π * DefInt(-a, a, frac(b^{2}, a^{2}) * (a^{2} - x^{2}) * diff(x)) = frac(4, 3) * π * a * b^{2}
+15. V = frac(4, 3) * π * a * b^{2}
+
+GOAL:
+2 * π * η * A = frac(2, 3) * π * a * b^{2}
+
+METHOD:
+[@method 根据 "古尔丹第二定理" @]

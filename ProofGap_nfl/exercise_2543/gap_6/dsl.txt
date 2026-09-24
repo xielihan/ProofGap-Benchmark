@@ -1,0 +1,7 @@
+1. get_prop (hypothesis 13: {forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ 18 ⇒ t(i) = frac(i, 18) ∧ y(i) = f(t(i))}) (i := {0}) as (hypothesis 15: {0 ∈ IntegerSet ∧ 0 ≤ 0 ∧ 0 ≤ 18 ⇒ t(0) = frac(0, 18) ∧ y(0) = f(t(0))})
+2. use_condition (obvious: {0 ∈ IntegerSet ∧ 0 ≤ 0 ∧ 0 ≤ 18}) in (hypothesis 15: {0 ∈ IntegerSet ∧ 0 ≤ 0 ∧ 0 ≤ 18 ⇒ t(0) = frac(0, 18) ∧ y(0) = f(t(0))}) as (hypothesis 16: {t(0) = frac(0, 18) ∧ y(0) = f(t(0))})
+3. destruct_and (hypothesis 16: {t(0) = frac(0, 18) ∧ y(0) = f(t(0))}) as (hypothesis 17: {t(0) = frac(0, 18)}) (hypothesis 18: {y(0) = f(t(0))})
+4. rewrite (left_to_right, equation) (hypothesis 14: {t(0) = 0}); from (hypothesis 18: {y(0) = f(t(0))}) to (hypothesis 19: {y(0) = f(0)})
+5. assert (hypothesis 20: {f(0) = 1})
+6. rewrite (left_to_right, equation) (hypothesis 20: {f(0) = 1}); from (hypothesis 19: {y(0) = f(0)}) to (hypothesis 21: {y(0) = 1})
+7. apply (hypothesis 21: {y(0) = 1})

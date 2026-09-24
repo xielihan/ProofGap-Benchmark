@@ -1,0 +1,12 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ⇒ x^{m} * (a - x)^{n} ≤ frac(m^{m} * n^{n}, (m + n)^{m + n}) * a^{m + n}}) (x := {x0})
+get_condition (hypothesis 13: {x0 ∈ RealSet ∧ 0 ≤ x0 ∧ x0 ≤ a}) in (GOAL: {x0 ∈ RealSet ∧ 0 ≤ x0 ∧ x0 ≤ a ⇒ x0^{m} * (a - x0)^{n} ≤ frac(m^{m} * n^{n}, (m + n)^{m + n}) * a^{m + n}})
+get_prop (hypothesis 12: {forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ⇒ f(x) ≤ f(frac(m * a, m + n))}) (x := {x0}) as (hypothesis 14: {x0 ∈ RealSet ∧ 0 ≤ x0 ∧ x0 ≤ a ⇒ f(x0) ≤ f(frac(m * a, m + n))})
+use_condition (hypothesis 13: {x0 ∈ RealSet ∧ 0 ≤ x0 ∧ x0 ≤ a}) in (hypothesis 14: {x0 ∈ RealSet ∧ 0 ≤ x0 ∧ x0 ≤ a ⇒ f(x0) ≤ f(frac(m * a, m + n))}) as (hypothesis 15: {f(x0) ≤ f(frac(m * a, m + n))})
+assert (hypothesis 16: {f(x0) = x0^{m} * (a - x0)^{n}}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 7: {f = (fun x [x ∈ RealSet] . x^{m} * (a - x)^{n})}); from (GOAL: {f(x0) = x0^{m} * (a - x0)^{n}}) to (GOAL: {(fun x [x ∈ RealSet] . x^{m} * (a - x)^{n})(x0) = x0^{m} * (a - x0)^{n}})
+  autosolve all_hypothesis using FunctionApplySolver
+}
+rewrite (left_to_right, equation) (hypothesis 16: {f(x0) = x0^{m} * (a - x0)^{n}}); from (hypothesis 15: {f(x0) ≤ f(frac(m * a, m + n))}) to (hypothesis 17: {x0^{m} * (a - x0)^{n} ≤ f(frac(m * a, m + n))})
+rewrite (left_to_right, equation) (hypothesis 10: {f(frac(m * a, m + n)) = frac(m * a, m + n)^{m} * (a - frac(m * a, m + n))^{n}}); from (hypothesis 17: {x0^{m} * (a - x0)^{n} ≤ f(frac(m * a, m + n))}) to (hypothesis 18: {x0^{m} * (a - x0)^{n} ≤ frac(m * a, m + n)^{m} * (a - frac(m * a, m + n))^{n}})
+rewrite (left_to_right, equation) (hypothesis 11: {frac(m * a, m + n)^{m} * (a - frac(m * a, m + n))^{n} = frac(m^{m} * n^{n}, (m + n)^{m + n}) * a^{m + n}}); from (hypothesis 18: {x0^{m} * (a - x0)^{n} ≤ frac(m * a, m + n)^{m} * (a - frac(m * a, m + n))^{n}}) to (hypothesis 19: {x0^{m} * (a - x0)^{n} ≤ frac(m^{m} * n^{n}, (m + n)^{m + n}) * a^{m + n}})
+apply (hypothesis 19: {x0^{m} * (a - x0)^{n} ≤ frac(m^{m} * n^{n}, (m + n)^{m + n}) * a^{m + n}})

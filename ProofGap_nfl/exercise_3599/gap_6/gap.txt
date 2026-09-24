@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x, y) = sin(x^{2} + y^{2})
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ sin(x^{2} + y^{2}) = sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac((x^{2} + y^{2})^{2 * n + 1}, (2 * n + 1)!))
+4. forall (x) (y) (n), x ∈ RealSet ∧ y ∈ RealSet ∧ n ∈ NonNegIntegerSet ⇒ (x^{2} + y^{2})^{2 * n + 1} = sum_{ k = 0 }^{ 2 * n + 1 } (frac((2 * n + 1)! * x^{2 * k} * y^{2 * (2 * n + 1 - k)}, k! * (2 * n + 1 - k)!))
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x, y) = sum_{ n = 0 }^{ +∞ } (sum_{ k = 0 }^{ 2 * n + 1 } ((-1)^{n} * frac(x^{2 * k} * y^{2 * (2 * n + 1 - k)}, k! * (2 * n + 1 - k)!)))
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x, y) = sum_{ n = 0 }^{ +∞ } (sum_{ k = 0 }^{ 2 * n + 1 } ((-1)^{n} * frac(x^{2 * k} * y^{2 * (2 * n + 1 - k)}, k! * (2 * n + 1 - k)!)))
+7. forall (x), x ∈ RealSet
+
+GOAL:
+forall (y), y ∈ RealSet
+
+METHOD:

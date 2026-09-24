@@ -1,0 +1,30 @@
+PROOF GAP @12
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. P : CartesianProd(RealSet, RealSet) → RealSet
+3. Q : CartesianProd(RealSet, RealSet) → RealSet
+4. L ∈ RealSet
+5. M ∈ RealSet
+6. α ∈ RealSet
+7. x ∈ RealSet
+8. y ∈ RealSet
+9. ContinuousFuncOn(P, C)
+10. ContinuousFuncOn(Q, C)
+11. L = ScalarCurveInt(C, diff(fun s [s ∈ RealSet] . s))
+12. M = max({ sqrtn(2, P(x, y)^{2} + Q(x, y)^{2}) | (x, y) ∈ C, x ∈ RealSet, y ∈ RealSet })
+13. |VectorCurveInt(C, P * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + Q * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))| = |ScalarCurveInt(C, (fun s [s ∈ RealSet] . P * cos(α) + Q * sin(α)) * diff(fun s [s ∈ RealSet] . s))|
+14. |ScalarCurveInt(C, (fun s [s ∈ RealSet] . P * cos(α) + Q * sin(α)) * diff(fun s [s ∈ RealSet] . s))| ≤ ScalarCurveInt(C, (fun s [s ∈ RealSet] . |P * cos(α) + Q * sin(α)|) * diff(fun s [s ∈ RealSet] . s))
+15. (P * cos(α) + Q * sin(α))^{2} + (P * sin(α) - Q * cos(α))^{2} = P^{2} + Q^{2}
+16. (P * cos(α) + Q * sin(α))^{2} ≤ P^{2} + Q^{2}
+17. |P * cos(α) + Q * sin(α)| ≤ sqrtn(2, P^{2} + Q^{2})
+18. sqrtn(2, P^{2} + Q^{2}) ≤ M
+19. |P * cos(α) + Q * sin(α)| ≤ M
+20. ScalarCurveInt(C, (fun s [s ∈ RealSet] . |P * cos(α) + Q * sin(α)|) * diff(fun s [s ∈ RealSet] . s)) ≤ ScalarCurveInt(C, (fun s [s ∈ RealSet] . M) * diff(fun s [s ∈ RealSet] . s))
+21. ScalarCurveInt(C, (fun s [s ∈ RealSet] . M) * diff(fun s [s ∈ RealSet] . s)) = M * ScalarCurveInt(C, diff(fun s [s ∈ RealSet] . s))
+22. M * ScalarCurveInt(C, diff(fun s [s ∈ RealSet] . s)) = L * M
+23. ScalarCurveInt(C, (fun s [s ∈ RealSet] . M) * diff(fun s [s ∈ RealSet] . s)) = L * M
+
+GOAL:
+|VectorCurveInt(C, P * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + Q * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))| ≤ L * M
+
+METHOD:

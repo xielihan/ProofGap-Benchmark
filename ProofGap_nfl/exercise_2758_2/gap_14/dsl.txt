@@ -1,0 +1,13 @@
+get_forall (GOAL: {forall (N), N ∈ NonNegIntegerSet ⇒ (exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ∧ (exists (x), x ∈ RealSet ∧ x = n ∧ |f(n, x) - g(x)| > ε_{0}))}) (N := {N0})
+get_condition (hypothesis 19: {N0 ∈ NonNegIntegerSet}) in (GOAL: {N0 ∈ NonNegIntegerSet ⇒ (exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N0 ∧ (exists (x), x ∈ RealSet ∧ x = n ∧ |f(n, x) - g(x)| > ε_{0}))})
+assert (hypothesis 20: {exists (x), x ∈ RealSet ∧ x = N0 + 1 ∧ |f(N0 + 1, x) - g(x)| > ε_{0}}) by proof {
+  exists (x := {N0 + 1})
+  get_prop (hypothesis 18: {forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x = n ⇒ |f(n, x) - g(x)| > ε_{0}}) (x := {N0 + 1}) (n := {N0 + 1}) as (hypothesis 20: {N0 + 1 ∈ RealSet ∧ N0 + 1 ∈ NonNegIntegerSet ∧ N0 + 1 ∈ PosIntegerSet ∧ N0 + 1 = N0 + 1 ⇒ |f(N0 + 1, N0 + 1) - g(N0 + 1)| > ε_{0}})
+  assert (hypothesis 21: {N0 + 1 ∈ RealSet ∧ N0 + 1 ∈ NonNegIntegerSet ∧ N0 + 1 ∈ PosIntegerSet ∧ N0 + 1 = N0 + 1}) by proof {
+    autosolve all_hypothesis
+  }
+  use_condition (hypothesis 21: {N0 + 1 ∈ RealSet ∧ N0 + 1 ∈ NonNegIntegerSet ∧ N0 + 1 ∈ PosIntegerSet ∧ N0 + 1 = N0 + 1}) in (hypothesis 20: {N0 + 1 ∈ RealSet ∧ N0 + 1 ∈ NonNegIntegerSet ∧ N0 + 1 ∈ PosIntegerSet ∧ N0 + 1 = N0 + 1 ⇒ |f(N0 + 1, N0 + 1) - g(N0 + 1)| > ε_{0}}) as (hypothesis 22: {|f(N0 + 1, N0 + 1) - g(N0 + 1)| > ε_{0}})
+  autosolve all_hypothesis
+}
+exists (n := {N0 + 1})
+autosolve all_hypothesis

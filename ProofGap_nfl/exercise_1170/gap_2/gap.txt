@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ y(x) = sin(x)^{2} * ln(x)
+3. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ y(x) = frac(1 - cos(2 * x), 2) * ln(x) ∧ frac(1 - cos(2 * x), 2) * ln(x) = frac(1, 2) * ln(x) - frac(1, 2) * cos(2 * x) * ln(x)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ FunDeri(y, 1, 6)(x) = frac((-1)^{5}, 2) * frac(2 * 3 * 4 * 5, x^{6}) - frac(1, 2) * FunDeri(fun x [x ∈ RealSet ∧ x ∈ PosRealSet] . cos(2 * x) * ln(x), 1, 6)(x)
+
+METHOD:
+[@method 根据 "Leibniz公式" @]

@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. I ⊆ RealSet
+3. C ∈ RealSet
+4. x ∈ I
+5. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ 1 + cos(x) ≠ 0
+6. { `F_2` | forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1 + sin(x), 1 + cos(x)) * e^{x} * FunDeri(fun x [x ∈ RealSet ∧ x ∈ I] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(1 + 2 * sin(frac(x, 2)) * cos(frac(x, 2)), 2 * cos(frac(x, 2))^{2}) * e^{x} * FunDeri(fun x [x ∈ RealSet ∧ x ∈ I] . x, 1, 1)(x) }
+
+GOAL:
+{ `F_4` | forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(1 + sin(x), 1 + cos(x)) * e^{x} * FunDeri(fun x [x ∈ RealSet ∧ x ∈ I] . x, 1, 1)(x) } = { `F_7` | exists (`F_5`) (`F_6`), `F_5` : RealSet → RealSet ∧ `F_6` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(e^{x}, 2 * cos(frac(x, 2))^{2}) * FunDeri(fun x [x ∈ RealSet ∧ x ∈ I] . x, 1, 1)(x) ∧ FunDeri(`F_6`, 1, 1)(x) = e^{x} * tan(frac(x, 2)) * FunDeri(fun x [x ∈ RealSet ∧ x ∈ I] . x, 1, 1)(x) ∧ `F_7`(x) = `F_5`(x) + `F_6`(x)) }
+
+METHOD:

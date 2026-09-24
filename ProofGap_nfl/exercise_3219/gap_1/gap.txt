@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ≠ 0 ∧ (forall (k), k ∈ IntegerSet ⇒ frac(x^{2}, y) ≠ frac(π, 2) + k * π) ⇒ u(x, y) = tan(frac(x^{2}, y))
+
+GOAL:
+forall (y), y ∈ RealSet ⇒ y ≠ 0
+
+METHOD:

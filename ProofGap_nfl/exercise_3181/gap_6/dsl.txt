@@ -1,0 +1,7 @@
+1. assert (hypothesis 8: {forall (b), b ∈ RealSet ∧ b ≠ 0 ⇒ lim_{ x → 0 } (frac(x - b, x + b)) = frac(-b, b)}) by proof {
+2. get_forall (GOAL: {forall (b), b ∈ RealSet ∧ b ≠ 0 ⇒ lim_{ x → 0 } (frac(x - b, x + b)) = frac(-b, b)}) (b := {b0})
+3. get_condition (hypothesis 8: {b0 ∈ RealSet ∧ b0 ≠ 0}) in (GOAL: {b0 ∈ RealSet ∧ b0 ≠ 0 ⇒ lim_{ x → 0 } (frac(x - b0, x + b0)) = frac(-b0, b0)})
+4. autosolve all_hypothesis
+}
+5. rewrite_in limit (left_to_right, equation) (hypothesis 8: {forall (b), b ∈ RealSet ∧ b ≠ 0 ⇒ lim_{ x → 0 } (frac(x - b, x + b)) = frac(-b, b)}); from (GOAL: {lim_{ y → 0 } (lim_{ x → 0 } (frac(x - y, x + y))) = lim_{ y → 0 } (frac(-y, y))}) to (GOAL: {lim_{ y → 0 } (frac(-y, y)) = lim_{ y → 0 } (frac(-y, y))})
+6. autosolve all_hypothesis

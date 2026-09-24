@@ -1,0 +1,14 @@
+PROOF GAP @5
+ASSUM:
+1. p ∈ RealSet ∧ 0 < p ∧ p < 1
+2. B : CartesianProd(RealSet, RealSet) → RealSet
+3. p > 0
+4. forall (p), p ∈ RealSet ∧ 0 < p ∧ p < 1 ⇒ B(p, 1 - p) = DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . frac(x^{p - 1}, 1 + x)) * diff(fun x [x ∈ RealSet ∧ x > 0] . x))
+5. DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . frac(x^{p - 1} * ln(x), 1 + x)) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . FunDeri(fun p [p ∈ RealSet ∧ 0 < p ∧ p < 1] . x^{p - 1} / (1 + x), 1, 1)(p)) * diff(fun x [x ∈ RealSet ∧ x > 0] . x))
+6. forall (x), x ∈ RealSet ∧ x > 0 ∧ x < 1 ⇒ (forall (p_{0}), p_{0} ∈ RealSet ⇒ (forall (p_{1}), p_{1} ∈ RealSet ∧ 0 < p_{0} ∧ p_{0} ≤ p ∧ p ≤ p_{1} ∧ p_{1} < 1 ⇒ |frac(x^{p - 1} * ln(x), 1 + x)| ≤ frac(x^{p_{0} - 1} * |ln(x)|, 1 + x)))
+7. forall (p_{0}), p_{0} ∈ RealSet ⇒ (forall (p_{1}), p_{1} ∈ RealSet ∧ 0 < p_{0} ∧ p_{0} ≤ p ∧ p ≤ p_{1} ∧ p_{1} < 1 ⇒ DefInt(0, 1, (fun x [x ∈ RealSet ∧ x > 0 ∧ x < 1] . frac(x^{p_{0} - 1} * |ln(x)|, 1 + x)) * diff(fun x [x ∈ RealSet ∧ x > 0 ∧ x < 1] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet ∧ x > 0 ∧ x < 1] . frac(x^{p_{0} - 1} * |ln(x)|, 1 + x)) * diff(fun x [x ∈ RealSet ∧ x > 0 ∧ x < 1] . x)))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≥ 1 ⇒ (forall (p_{0}), p_{0} ∈ RealSet ⇒ (forall (p_{1}), p_{1} ∈ RealSet ∧ 0 < p_{0} ∧ p_{0} ≤ p ∧ p ≤ p_{1} ∧ p_{1} < 1 ⇒ 0 ≤ frac(x^{p - 1} * ln(x), 1 + x)))
+
+METHOD:

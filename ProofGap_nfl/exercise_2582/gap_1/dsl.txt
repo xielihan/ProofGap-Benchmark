@@ -1,0 +1,10 @@
+1. assert (hypothesis 3: {forall (n), n ∈ NonNegIntegerSet => a(n+1) = frac(((n+1)!)^2, 2^((n+1)^2))}) by proof {
+  1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet => a(n+1) = frac(((n+1)!)^2, 2^((n+1)^2))}) (n := {k})
+  2. get_condition (hypothesis 3: {k ∈ NonNegIntegerSet}) in (GOAL: {k ∈ NonNegIntegerSet => a(k+1) = frac(((k+1)!)^2, 2^((k+1)^2))})
+  3. get_prop (hypothesis 2: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet => a(n) = frac((n!)^2, 2^(n^2))}) (n := {k+1}) as (hypothesis 4: {k+1 ∈ NonNegIntegerSet /\ k+1 ∈ PosIntegerSet => a(k+1) = frac(((k+1)!)^2, 2^((k+1)^2))})
+  4. use_condition (obvious: {k+1 ∈ NonNegIntegerSet /\ k+1 ∈ PosIntegerSet}) in (hypothesis 4: {k+1 ∈ NonNegIntegerSet /\ k+1 ∈ PosIntegerSet => a(k+1) = frac(((k+1)!)^2, 2^((k+1)^2))}) as (hypothesis 5: {a(k+1) = frac(((k+1)!)^2, 2^((k+1)^2))})
+  5. apply (hypothesis 5: {a(k+1) = frac(((k+1)!)^2, 2^((k+1)^2))})
+}
+2. rewrite_in limit (left_to_right, equation) (hypothesis 3: {forall (n), n ∈ NonNegIntegerSet => a(n+1) = frac(((n+1)!)^2, 2^((n+1)^2))}); from (GOAL: {seqlim_{n -> +∞}(frac(a(n+1), a(n))) = seqlim_{n -> +∞}(frac(frac(((n+1)!)^2, 2^((n+1)^2)), frac((n!)^2, 2^(n^2))))}) to (GOAL: {seqlim_{n -> +∞}(frac(frac(((n+1)!)^2, 2^((n+1)^2)), a(n))) = seqlim_{n -> +∞}(frac(frac(((n+1)!)^2, 2^((n+1)^2)), frac((n!)^2, 2^(n^2))))})
+3. rewrite_in limit (left_to_right, equation) (hypothesis 2: {forall (n), n ∈ NonNegIntegerSet /\ n ∈ PosIntegerSet => a(n) = frac((n!)^2, 2^(n^2))}); from (GOAL: {seqlim_{n -> +∞}(frac(frac(((n+1)!)^2, 2^((n+1)^2)), a(n))) = seqlim_{n -> +∞}(frac(frac(((n+1)!)^2, 2^((n+1)^2)), frac((n!)^2, 2^(n^2))))}) to (GOAL: {seqlim_{n -> +∞}(frac(frac(((n+1)!)^2, 2^((n+1)^2)), frac((n!)^2, 2^(n^2)))) = seqlim_{n -> +∞}(frac(frac(((n+1)!)^2, 2^((n+1)^2)), frac((n!)^2, 2^(n^2))))})
+4. autosolve all_hypothesis

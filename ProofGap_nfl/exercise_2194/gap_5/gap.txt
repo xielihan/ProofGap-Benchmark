@@ -1,0 +1,23 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. x : NonNegIntegerSet → RealSet
+3. Δx : IntegerSet → RealSet
+4. ω : IntegerSet → RealSet
+5. d ∈ RealSet ∧ d > 0
+6. n ∈ NonNegIntegerSet ∧ n > 0
+7. i ∈ IntegerSet
+8. i_{0} ∈ IntegerSet ∧ 0 ≤ i_{0} ∧ i_{0} ≤ n - 1
+9. δ ∈ RealSet ∧ δ > 0
+10. η ∈ RealSet ∧ η > 0
+11. forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ f(x) = sgn(sin(frac(π, x)))
+12. f(0) ∈ RealSet
+13. BoundedFuncOn(f, [0, 1])
+14. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ (¬ContinuousFuncAt(f, x) ⇔ x ∈ { 0 } ∪ { frac(1, n) | n ∈ PosIntegerSet })
+15. forall (α) (β), α ∈ RealSet ∧ β ∈ RealSet ∧ 0 ≤ α ∧ α < β ∧ β ≤ 1 ⇒ OscillationOn(f, [α, β]) ≤ 2
+16. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ FiniteSet({ x | x ∈ [frac(ε, 5), 1], ¬ContinuousFuncAt(f, x) })
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ IntegrableFuncOn(f, [frac(ε, 5), 1])
+
+METHOD:

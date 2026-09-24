@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. f = (fun x [x ∈ RealSet] . 0)
+2. g = (fun x [x ∈ RealSet] . cases{ 1 if x ≥ 0; -1 if x < 0 })
+3. ContinuousFunc(f)
+4. ¬ContinuousFuncAt(g, 0)
+5. forall (x), x ∈ RealSet ⇒ f(x) * g(x) = 0
+
+GOAL:
+ContinuousFunc(fun x [x ∈ RealSet] . f(x) * g(x))
+
+METHOD:

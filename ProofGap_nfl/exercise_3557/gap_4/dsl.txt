@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (n_{1}), n_{1} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ |n_{1}| ≥ 1}) (n_{1} := {a})
+get_condition (hypothesis 7: {a ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))}) in (GOAL: {a ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ |a| ≥ 1})
+get_prop (hypothesis 6: {forall (n), n ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ |n| ≥ 1}) (n := {a}) as (hypothesis 8: {a ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ |a| ≥ 1})
+use_condition (hypothesis 7: {a ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))}) in (hypothesis 8: {a ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ⇒ |a| ≥ 1}) as (hypothesis 9: {|a| ≥ 1})
+apply (hypothesis 9: {|a| ≥ 1})

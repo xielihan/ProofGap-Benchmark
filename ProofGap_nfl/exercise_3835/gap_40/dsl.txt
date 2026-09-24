@@ -1,0 +1,5 @@
+get_condition (hypothesis 49: {(forall (t), t ∈ RealSet ⇒ f(t) = sin(α * sqrtn(2, t)))}) in (GOAL: {(forall (t), t ∈ RealSet ⇒ f(t) = sin(α * sqrtn(2, t))) ⇒ F(p) = DefInt(0, +∞, e^{-p * t} * sin(α * sqrtn(2, t)) * diff(t))})
+get_prop (hypothesis 49: {forall (t), t ∈ RealSet ⇒ f(t) = sin(α * sqrtn(2, t))}) (t := {t}) as (hypothesis 50: {t ∈ RealSet ⇒ f(t) = sin(α * sqrtn(2, t))})
+use_condition (hypothesis 7: {t ∈ RealSet}) in (hypothesis 50: {t ∈ RealSet ⇒ f(t) = sin(α * sqrtn(2, t))}) as (hypothesis 51: {f(t) = sin(α * sqrtn(2, t))})
+rewrite (left_to_right, equation) (hypothesis 51: {f(t) = sin(α * sqrtn(2, t))}); from (hypothesis 10: {F(p) = DefInt(0, +∞, e^{-p * t} * f(t) * diff(t))}) to (hypothesis 52: {F(p) = DefInt(0, +∞, e^{-p * t} * sin(α * sqrtn(2, t)) * diff(t))})
+apply (hypothesis 52: {F(p) = DefInt(0, +∞, e^{-p * t} * sin(α * sqrtn(2, t)) * diff(t))})

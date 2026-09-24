@@ -1,0 +1,9 @@
+get_prop (theorem 'Thm 366. (PSeriesConvergesForExponentAboveOne)': {forall (p), p ∈ RealSet => p > 1 => ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ p))}) (p := {frac(3, 2)}) as (hypothesis 10: {frac(3, 2) ∈ RealSet => frac(3, 2) > 1 => ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ (frac(3, 2))))})
+assert (hypothesis 11: {frac(3, 2) ∈ RealSet}) by proof {
+  autosolve
+}
+assert (hypothesis 12: {frac(3, 2) > 1}) by proof {
+  autosolve
+}
+use_condition (hypothesis 11: {frac(3, 2) ∈ RealSet}) (hypothesis 12: {frac(3, 2) > 1}) in (hypothesis 10: {frac(3, 2) ∈ RealSet => frac(3, 2) > 1 => ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ (frac(3, 2))))}) as (hypothesis 13: {ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ (frac(3, 2))))})
+autosolve all_hypothesis

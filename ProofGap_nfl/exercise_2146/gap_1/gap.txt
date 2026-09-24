@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. t : RealSet → RealSet
+3. C ∈ RealSet
+4. C_{1} ∈ RealSet
+5. t(x) = tan(frac(x, 2))
+
+GOAL:
+-π < x ∧ x < π ⇒ t(x) ∈ RealSet
+
+METHOD:

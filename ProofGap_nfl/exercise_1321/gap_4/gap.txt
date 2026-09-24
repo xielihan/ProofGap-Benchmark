@@ -1,0 +1,10 @@
+PROOF GAP @4
+ASSUM:
+1. lim_{ x → 0 } (frac(3 * tan(4 * x) - 12 * tan(x), 3 * sin(4 * x) - 12 * sin(x))) = lim_{ x → 0 } (frac(12 * sec(4 * x)^{2} - 12 * sec(x)^{2}, 12 * cos(4 * x) - 12 * cos(x)))
+2. forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ∧ cos(4 * x) ≠ 0 ∧ 12 * cos(4 * x) - 12 * cos(x) ≠ 0 ⇒ frac(12 * sec(4 * x)^{2} - 12 * sec(x)^{2}, 12 * cos(4 * x) - 12 * cos(x)) = -frac(cos(4 * x) + cos(x), cos(x)^{2} * cos(4 * x)^{2})
+3. lim_{ x → 0 } (-frac(cos(4 * x) + cos(x), cos(x)^{2} * cos(4 * x)^{2})) = -2
+
+GOAL:
+lim_{ x → 0 } (frac(3 * tan(4 * x) - 12 * tan(x), 3 * sin(4 * x) - 12 * sin(x))) = -2
+
+METHOD:

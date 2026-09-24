@@ -1,0 +1,8 @@
+1. get_condition (hypothesis 11: {sin(x) ≠ 0}) in (GOAL: {sin(x) ≠ 0 ⇒ frac(FunDeri(fun t . sin(t), 1, 1)(x), FunDeri(fun t . cos(t), 1, 1)(x)) = frac(cos(x), -sin(x))})
+2. get_prop (theorem 'Thm 178. (SineDerivative)': {forall (x), x ∈ RealSet => FunDeri(fun x . sin(x), 1, 1)(x) = cos(x)}) (x := {x}) as (hypothesis 12: {x ∈ RealSet => FunDeri(fun t . sin(t), 1, 1)(x) = cos(x)})
+3. use_condition (hypothesis 1: {x ∈ RealSet}) in (hypothesis 12: {x ∈ RealSet => FunDeri(fun t . sin(t), 1, 1)(x) = cos(x)}) as (hypothesis 13: {FunDeri(fun t . sin(t), 1, 1)(x) = cos(x)})
+4. get_prop (theorem 'Thm 179. (CosineDerivative)': {forall (x), x ∈ RealSet => FunDeri(fun x . cos(x), 1, 1)(x) = -sin(x)}) (x := {x}) as (hypothesis 14: {x ∈ RealSet => FunDeri(fun t . cos(t), 1, 1)(x) = -sin(x)})
+5. use_condition (hypothesis 1: {x ∈ RealSet}) in (hypothesis 14: {x ∈ RealSet => FunDeri(fun t . cos(t), 1, 1)(x) = -sin(x)}) as (hypothesis 15: {FunDeri(fun t . cos(t), 1, 1)(x) = -sin(x)})
+6. rewrite (left_to_right, equation) (hypothesis 13: {FunDeri(fun t . sin(t), 1, 1)(x) = cos(x)}); from (GOAL: {frac(FunDeri(fun t . sin(t), 1, 1)(x), FunDeri(fun t . cos(t), 1, 1)(x)) = frac(cos(x), -sin(x))}) to (GOAL: {frac(cos(x), FunDeri(fun t . cos(t), 1, 1)(x)) = frac(cos(x), -sin(x))})
+7. rewrite (left_to_right, equation) (hypothesis 15: {FunDeri(fun t . cos(t), 1, 1)(x) = -sin(x)}); from (GOAL: {frac(cos(x), FunDeri(fun t . cos(t), 1, 1)(x)) = frac(cos(x), -sin(x))}) to (GOAL: {frac(cos(x), -sin(x)) = frac(cos(x), -sin(x))})
+8. autosolve all_hypothesis

@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. VP ∈ RealSet
+2. forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < 1 ⇒ VP = lim_{ ε → 0^+ } (DefInt(-1, 0 - ε, (fun x [x ∈ RealSet] . frac(1, x)) * diff(fun x [x ∈ RealSet] . x)) + DefInt(0 + ε, 1, (fun x [x ∈ RealSet] . frac(1, x)) * diff(fun x [x ∈ RealSet] . x)))
+3. forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < 1 ⇒ DefInt(-1, 0 - ε, (fun x [x ∈ RealSet] . frac(1, x)) * diff(fun x [x ∈ RealSet] . x)) + DefInt(0 + ε, 1, (fun x [x ∈ RealSet] . frac(1, x)) * diff(fun x [x ∈ RealSet] . x)) = ln(ε) - ln(1) + ln(1) - ln(ε)
+4. forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < 1 ⇒ ln(ε) - ln(1) + ln(1) - ln(ε) = 0
+5. forall (ε), ε ∈ RealSet ∧ 0 < ε ∧ ε < 1 ⇒ lim_{ ε → 0^+ } (DefInt(-1, 0 - ε, (fun x [x ∈ RealSet] . frac(1, x)) * diff(fun x [x ∈ RealSet] . x)) + DefInt(0 + ε, 1, (fun x [x ∈ RealSet] . frac(1, x)) * diff(fun x [x ∈ RealSet] . x))) = 0
+
+GOAL:
+VP = 0
+
+METHOD:

@@ -1,0 +1,16 @@
+PROOF GAP @6
+ASSUM:
+1. x ∈ RealSet
+2. y ∈ RealSet ∧ y ≥ 0
+3. a : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(x^{n}, n + y^{n})
+5. y = 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(x^{n}, n))
+6. y = 0 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+7. y > 0 ⇒ |frac(x, y)| < 1 ⇒ |x| < y
+8. y > 0 ⇒ |frac(x, y)| < 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |a(n)| = frac(|x|^{n}, n + y^{n}) ∧ frac(|x|^{n}, n + y^{n}) < |frac(x, y)|^{n})
+9. y > 0 ⇒ |frac(x, y)| < 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+GOAL:
+y > 0 ⇒ |frac(x, y)| ≥ 1 ⇒ y > 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |a(n)| = |frac(x, y)|^{n} * frac(1, 1 + frac(n, y^{n})))
+
+METHOD:

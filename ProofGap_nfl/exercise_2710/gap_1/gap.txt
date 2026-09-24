@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. y ∈ RealSet
+3. A_{1} ⊆ NonNegIntegerSet
+4. A_{2} ⊆ NonNegIntegerSet
+5. |x * y| < 1
+6. forall (n), n ∈ NonNegIntegerSet ⇒ (n ∈ A_{1} ⇔ (exists (k), k ∈ NonNegIntegerSet ∧ n = 2 * k))
+7. forall (n), n ∈ NonNegIntegerSet ⇒ (n ∈ A_{2} ⇔ (exists (k), k ∈ NonNegIntegerSet ∧ n = 2 * k + 1))
+
+GOAL:
+sum_{ n = 0 }^{ +∞ } (x^{floor(frac(n, 2))} * y^{floor(frac(n + 1, 2))}) = (sum_{ n ∈ A_{1} } (x^{floor(frac(n, 2))} * y^{floor(frac(n + 1, 2))})) + (sum_{ n ∈ A_{2} } (x^{floor(frac(n, 2))} * y^{floor(frac(n + 1, 2))}))
+
+METHOD:

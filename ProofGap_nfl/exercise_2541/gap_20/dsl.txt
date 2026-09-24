@@ -1,0 +1,6 @@
+1. get_prop (hypothesis 13: {forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ 6 ⇒ x(i) = frac(i, 6) ∧ y(i) = e^{x(i)^{2}}}) (i := {4}) as (hypothesis 26: {4 ∈ IntegerSet ∧ 0 ≤ 4 ∧ 4 ≤ 6 ⇒ x(4) = frac(4, 6) ∧ y(4) = e^{x(4)^{2}}})
+2. use_condition (obvious: {4 ∈ IntegerSet ∧ 0 ≤ 4 ∧ 4 ≤ 6}) in (hypothesis 26: {4 ∈ IntegerSet ∧ 0 ≤ 4 ∧ 4 ≤ 6 ⇒ x(4) = frac(4, 6) ∧ y(4) = e^{x(4)^{2}}}) as (hypothesis 27: {x(4) = frac(4, 6) ∧ y(4) = e^{x(4)^{2}}})
+3. destruct_and (hypothesis 27: {x(4) = frac(4, 6) ∧ y(4) = e^{x(4)^{2}}}) as (hypothesis 28: {x(4) = frac(4, 6)}) (hypothesis 29: {y(4) = e^{x(4)^{2}}})
+4. rewrite (left_to_right, equation) (hypothesis 25: {x(4) = frac(2, 3)}); from (hypothesis 29: {y(4) = e^{x(4)^{2}}}) to (hypothesis 29: {y(4) = e^{frac(2, 3)^{2}}})
+5. autoreplace no_hypothesis; from (frac(2, 3)^{2}) to (frac(4, 9)); from (hypothesis 29: {y(4) = e^{frac(2, 3)^{2}}}) to (hypothesis 30: {y(4) = e^{frac(4, 9)}})
+6. apply (hypothesis 30: {y(4) = e^{frac(4, 9)}})

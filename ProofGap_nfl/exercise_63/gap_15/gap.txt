@@ -1,0 +1,25 @@
+PROOF GAP @15
+ASSUM:
+1. a ∈ RealSet
+2. a > 0
+3. a = 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ sqrtn(n, a) = 1)
+4. a = 1 ⇒ seqlim_{ n → +∞ } (sqrtn(n, a)) = 1
+5. a > 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (1 + ε)^{n} > 1 + n * ε))
+6. a > 1 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ IntegerSet ∧ N = floor(frac(a - 1, ε))))
+7. a > 1 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N ⇒ 1 + n * ε > a)))
+8. a > 1 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N ⇒ (1 + ε)^{n} > a)))
+9. a > 1 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N ⇒ 1 < sqrtn(n, a))))
+10. a > 1 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N ⇒ sqrtn(n, a) < 1 + ε)))
+11. a > 1 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N ⇒ 1 < 1 + ε)))
+12. a > 1 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N ⇒ |sqrtn(n, a) - 1| < ε)))
+13. a > 1 ⇒ seqlim_{ n → +∞ } (sqrtn(n, a)) = 1
+14. 0 < a ⇒ a < 1 ⇒ `a'` = frac(1, a)
+15. 0 < a ⇒ a < 1 ⇒ `a'` > 1
+16. 0 < a ⇒ a < 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ sqrtn(n, a) = frac(1, sqrtn(n, `a'`)))
+17. 0 < a ⇒ a < 1 ⇒ seqlim_{ n → +∞ } (sqrtn(n, `a'`)) = 1
+18. 0 < a ⇒ a < 1 ⇒ seqlim_{ n → +∞ } (sqrtn(n, a)) = 1
+
+GOAL:
+seqlim_{ n → +∞ } (sqrtn(n, a)) = 1
+
+METHOD:

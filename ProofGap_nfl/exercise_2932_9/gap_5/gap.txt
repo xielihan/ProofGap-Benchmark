@@ -1,0 +1,15 @@
+PROOF GAP @5
+ASSUM:
+1. I ∈ RealSet
+2. forall (x), x ∈ RealSet ∧ 10 ≤ x ∧ x ≤ 100 ⇒ ln(1 + x) = ln(x * (1 + frac(1, x)))
+3. forall (x), x ∈ RealSet ∧ 10 ≤ x ∧ x ≤ 100 ⇒ ln(x * (1 + frac(1, x))) = ln(x) + (sum_{ n = 1 }^{ +∞ } (frac((-1)^{n - 1}, n) * frac(1, x)^{n}))
+4. forall (x), x ∈ RealSet ∧ 10 ≤ x ∧ x ≤ 100 ⇒ ln(1 + x) = ln(x) + (sum_{ n = 1 }^{ +∞ } (frac((-1)^{n - 1}, n) * frac(1, x)^{n}))
+5. I = DefInt(10, 100, (fun x [x ∈ RealSet] . frac(ln(1 + x), x)) * diff(fun x [x ∈ RealSet] . x))
+6. I = DefInt(10, 100, (fun x [x ∈ RealSet] . frac(ln(x), x)) * diff(fun x [x ∈ RealSet] . x)) + (sum_{ n = 1 }^{ +∞ } (frac((-1)^{n + 1}, n^{2}) * frac(1, 10^{n}) * (1 - frac(1, 10^{n}))))
+7. DefInt(10, 100, (fun x [x ∈ RealSet] . frac(ln(x), x)) * diff(fun x [x ∈ RealSet] . x)) = frac(3, 2) * ln(10)^{2}
+8. sum_{ n = 1 }^{ +∞ } (frac((-1)^{n + 1}, n^{2}) * frac(1, 10^{n}) * (1 - frac(1, 10^{n}))) = frac(1, 10) * (1 - frac(1, 10)) - frac(1, 4 * 10^{2}) * (1 - frac(1, 10^{2})) + frac(1, 9 * 10^{3}) * (1 - frac(1, 10^{3})) + sum_{ n = 4 }^{ +∞ } (frac((-1)^{n + 1}, n^{2}) * frac(1, 10^{n}) * (1 - frac(1, 10^{n})))
+
+GOAL:
+I = frac(3, 2) * ln(10)^{2} + frac(1, 10) * (1 - frac(1, 10)) - frac(1, 4 * 10^{2}) * (1 - frac(1, 10^{2})) + frac(1, 9 * 10^{3}) * (1 - frac(1, 10^{3})) + sum_{ n = 4 }^{ +∞ } (frac((-1)^{n + 1}, n^{2}) * frac(1, 10^{n}) * (1 - frac(1, 10^{n})))
+
+METHOD:

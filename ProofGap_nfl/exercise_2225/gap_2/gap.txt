@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. lim_{ n → +∞ } (ln(frac(sqrtn(n, n!), n))) = lim_{ n → +∞ } (frac(1, n) * ((sum_{ i = 1 }^{ n } (ln(i))) - n * ln(n)))
+
+GOAL:
+lim_{ n → +∞ } (frac(1, n) * ((sum_{ i = 1 }^{ n } (ln(i))) - n * ln(n))) = lim_{ n → +∞ } (sum_{ i = 1 }^{ n } (ln(frac(i, n)) * frac(1, n)))
+
+METHOD:

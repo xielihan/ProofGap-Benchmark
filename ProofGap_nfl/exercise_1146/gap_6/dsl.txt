@@ -1,0 +1,7 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = -frac(25, y(x)^{3})}) (x := {z})
+2. get_condition (hypothesis 8: {z ∈ RealSet}) in (GOAL: {z ∈ RealSet ⇒ FunDeri(y, 1, 2)(z) = -frac(25, y(z)^{3})})
+3. get_prop (hypothesis 4: {forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = -frac(y(x) - x * FunDeri(y, 1, 1)(x), y(x)^{2})}) (x := {z}) as (hypothesis 9: {z ∈ RealSet ⇒ FunDeri(y, 1, 2)(z) = -frac(y(z) - z * FunDeri(y, 1, 1)(z), y(z)^{2})})
+4. get_prop (hypothesis 5: {forall (x), x ∈ RealSet ⇒ -frac(y(x) - x * FunDeri(y, 1, 1)(x), y(x)^{2}) = -frac(y(x) + frac(x^{2}, y(x)), y(x)^{2})}) (x := {z}) as (hypothesis 10: {z ∈ RealSet ⇒ -frac(y(z) - z * FunDeri(y, 1, 1)(z), y(z)^{2}) = -frac(y(z) + frac(z^{2}, y(z)), y(z)^{2})})
+5. get_prop (hypothesis 6: {forall (x), x ∈ RealSet ⇒ -frac(y(x) + frac(x^{2}, y(x)), y(x)^{2}) = -frac(x^{2} + y(x)^{2}, y(x)^{3})}) (x := {z}) as (hypothesis 11: {z ∈ RealSet ⇒ -frac(y(z) + frac(z^{2}, y(z)), y(z)^{2}) = -frac(z^{2} + y(z)^{2}, y(z)^{3})})
+6. get_prop (hypothesis 7: {forall (x), x ∈ RealSet ⇒ -frac(x^{2} + y(x)^{2}, y(x)^{3}) = -frac(25, y(x)^{3})}) (x := {z}) as (hypothesis 12: {z ∈ RealSet ⇒ -frac(z^{2} + y(z)^{2}, y(z)^{3}) = -frac(25, y(z)^{3})})
+7. autosolve all_hypothesis

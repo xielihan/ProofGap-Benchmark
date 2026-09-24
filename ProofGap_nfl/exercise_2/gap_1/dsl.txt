@@ -1,0 +1,5 @@
+1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n = 1 ⇒ 1 = frac(n * (n + 1) * (2 * n + 1), 6)}) (n := {n1})
+2. get_condition (hypothesis 1: {n1 ∈ NonNegIntegerSet ∧ n1 = 1}) in (GOAL: {n1 ∈ NonNegIntegerSet ∧ n1 = 1 ⇒ 1 = frac(n1 * (n1 + 1) * (2 * n1 + 1), 6)})
+3. destruct_and (hypothesis 1: {n1 ∈ NonNegIntegerSet ∧ n1 = 1}) as (hypothesis 2: {n1 ∈ NonNegIntegerSet}) (hypothesis 3: {n1 = 1})
+4. rewrite (left_to_right, equation) (hypothesis 3: {n1 = 1}); from (GOAL: {1 = frac(n1 * (n1 + 1) * (2 * n1 + 1), 6)}) to (GOAL: {1 = frac(1 * (1 + 1) * (2 * 1 + 1), 6)})
+5. autosolve all_hypothesis

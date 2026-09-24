@@ -1,0 +1,5 @@
+rewrite (left_to_right, equation) (hypothesis 1: {x = tan(t)}); from (GOAL: {arctan(x) = t}) to (GOAL: {arctan(tan(t)) = t})
+destruct_and (hypothesis 2: {t ∈ RealSet /\ 0 ≤ t}) as (hypothesis 6: {t ∈ RealSet}) (hypothesis 7: {0 ≤ t})
+get_prop (theorem 'Thm 396. (ArctangentTangentPrincipalInverse)': {forall (theta), theta ∈ RealSet => -frac(π, 2) < theta /\ theta < frac(π, 2) => arctan(tan(theta)) = theta}) (theta := {t}) as (hypothesis 8: {t ∈ RealSet => -frac(π, 2) < t /\ t < frac(π, 2) => arctan(tan(t)) = t})
+use_condition (hypothesis 6: {t ∈ RealSet}) (obvious: {-frac(π, 2) < t /\ t < frac(π, 2)}) in (hypothesis 8: {t ∈ RealSet => -frac(π, 2) < t /\ t < frac(π, 2) => arctan(tan(t)) = t}) as (hypothesis 9: {arctan(tan(t)) = t})
+apply (hypothesis 9: {arctan(tan(t)) = t})

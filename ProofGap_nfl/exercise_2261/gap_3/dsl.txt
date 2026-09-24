@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (t), t : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2) ∧ t(x) = sin(x) ⇒ t(x) ≤ 1)}) (t := {g})
+get_condition (hypothesis 5: {g : RealSet → RealSet}) in (GOAL: {g : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2) ∧ g(x) = sin(x) ⇒ g(x) ≤ 1)})
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2) ∧ g(x) = sin(x) ⇒ g(x) ≤ 1}) (x := {y})
+get_condition (hypothesis 6: {y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ frac(π, 2) ∧ g(y) = sin(y)}) in (GOAL: {y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ frac(π, 2) ∧ g(y) = sin(y) ⇒ g(y) ≤ 1})
+destruct_and (hypothesis 6: {y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ frac(π, 2) ∧ g(y) = sin(y)}) as (hypothesis 7: {y ∈ RealSet}) (hypothesis 8: {0 ≤ y}) (hypothesis 9: {y ≤ frac(π, 2)}) (hypothesis 10: {g(y) = sin(y)})
+get_prop (theorem 'Thm 166. (SineBounded)': {forall (x), x ∈ RealSet => -1 <= sin(x) /\ sin(x) <= 1}) (x := {y}) as (hypothesis 11: {y ∈ RealSet => -1 <= sin(y) /\ sin(y) <= 1})
+use_condition (hypothesis 7: {y ∈ RealSet}) in (hypothesis 11: {y ∈ RealSet => -1 <= sin(y) /\ sin(y) <= 1}) as (hypothesis 12: {-1 <= sin(y) /\ sin(y) <= 1})
+destruct_and (hypothesis 12: {-1 <= sin(y) /\ sin(y) <= 1}) as (hypothesis 13: {-1 <= sin(y)}) (hypothesis 14: {sin(y) <= 1})
+autosolve all_hypothesis

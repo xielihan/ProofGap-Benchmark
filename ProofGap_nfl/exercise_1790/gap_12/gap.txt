@@ -1,0 +1,23 @@
+PROOF GAP @12
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. C ∈ RealSet
+4. a < b
+5. forall (x), x ∈ RealSet ⇒ x > -a ∨ x < -b
+6. forall (x), x ∈ RealSet ∧ x > -a ⇒ (exists (t), t ∈ RealSet ∧ t > 0 ∧ x + a = (b - a) * sinh(t)^{2})
+7. forall (x), x ∈ RealSet ∧ x > -a ⇒ (exists (t), t ∈ RealSet ∧ t > 0)
+8. forall (x), x ∈ RealSet ∧ x > -a ⇒ (exists (t), t ∈ RealSet ∧ t > 0 ∧ sqrtn(2, (x + a) * (x + b)) = (b - a) * sinh(t) * cosh(t))
+9. forall (x), x ∈ RealSet ∧ x > -a ⇒ (exists (t), t ∈ RealSet ∧ t > 0 ∧ diff(fun x [x ∈ RealSet] . x) = 2 * (b - a) * sinh(t) * cosh(t) * diff(fun t [t ∈ RealSet] . t))
+10. forall (x), x ∈ RealSet ∧ x > -a ⇒ { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = sqrtn(2, (x + a) * (x + b)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_4` | exists (`F_3`), `F_3` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(t) = sinh(t)^{2} * cosh(t)^{2} * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_4`(t) = 2 * (b - a)^{2} * `F_3`(t)) }
+11. forall (x), x ∈ RealSet ∧ x > -a ⇒ { `F_6` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(t) = sinh(t)^{2} * cosh(t)^{2} * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_6`(t) = 2 * (b - a)^{2} * `F_5`(t)) } = { `F_8` | exists (`F_7`), `F_7` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ⇒ FunDeri(`F_7`, 1, 1)(t) = sinh(2 * t)^{2} * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_8`(t) = frac(1, 2) * (b - a)^{2} * `F_7`(t)) }
+12. forall (x), x ∈ RealSet ∧ x > -a ⇒ { `F_10` | exists (`F_9`), `F_9` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ⇒ FunDeri(`F_9`, 1, 1)(t) = sinh(2 * t)^{2} * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_10`(t) = frac(1, 2) * (b - a)^{2} * `F_9`(t)) } = { `F_12` | exists (`F_11`), `F_11` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ⇒ FunDeri(`F_11`, 1, 1)(t) = (cosh(4 * t) - 1) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_12`(t) = frac(1, 4) * (b - a)^{2} * `F_11`(t)) }
+13. forall (x), x ∈ RealSet ∧ x > -a ⇒ { `F_14` | exists (`F_13`), `F_13` : RealSet → RealSet ∧ (forall (t), t ∈ RealSet ⇒ FunDeri(`F_13`, 1, 1)(t) = (cosh(4 * t) - 1) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) ∧ `F_14`(t) = frac(1, 4) * (b - a)^{2} * `F_13`(t)) } = { `F_15` | exists (C), C ∈ RealSet ∧ (forall (t), t ∈ RealSet ⇒ `F_15`(t) = frac(1, 4) * (b - a)^{2} * (frac(1, 4) * sinh(4 * t) - t) + C) }
+14. forall (x), x ∈ RealSet ∧ x > -a ⇒ (exists (t), t ∈ RealSet ∧ t > 0 ∧ frac(1, 4) * (b - a)^{2} * (frac(1, 4) * sinh(4 * t) - t) + C = frac(2 * x + a + b, 4) * sqrtn(2, (x + a) * (x + b)) - frac((b - a)^{2}, 4) * ln(sqrtn(2, x + a) + sqrtn(2, x + b)) + C)
+15. forall (x), x ∈ RealSet ∧ x > -a ⇒ { `F_16` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_16`, 1, 1)(x) = sqrtn(2, (x + a) * (x + b)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_17` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_17`(x) = frac(2 * x + a + b, 4) * sqrtn(2, (x + a) * (x + b)) - frac((b - a)^{2}, 4) * ln(sqrtn(2, x + a) + sqrtn(2, x + b)) + C) }
+16. forall (x), x ∈ RealSet ∧ x < -b ⇒ { `F_18` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_18`, 1, 1)(x) = sqrtn(2, (x + a) * (x + b)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_19` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_19`(x) = frac(2 * x + a + b, 4) * sqrtn(2, (x + a) * (x + b)) + frac((b - a)^{2}, 4) * ln(sqrtn(2, -x - a) + sqrtn(2, -x - b)) + C) }
+
+GOAL:
+{ `F_20` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_20`, 1, 1)(x) = sqrtn(2, (x + a) * (x + b)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_21` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_21`(x) = cases{ frac(2 * x + a + b, 4) * sqrtn(2, (x + a) * (x + b)) - frac((b - a)^{2}, 4) * ln(sqrtn(2, x + a) + sqrtn(2, x + b)) + C if x + a > 0 ∧ x + b > 0; frac(2 * x + a + b, 4) * sqrtn(2, (x + a) * (x + b)) + frac((b - a)^{2}, 4) * ln(sqrtn(2, -x - a) + sqrtn(2, -x - b)) + C if x + a < 0 ∧ x + b < 0 }) }
+
+METHOD:

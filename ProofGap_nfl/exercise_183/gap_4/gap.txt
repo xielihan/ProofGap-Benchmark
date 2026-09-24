@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. forall (x), 0 < x ∧ x < 1 ⇒ y(x) = a + (b - a) * x
+5. ContinuousFuncOn(y, IntervalLoRo(0, 1))
+6. a < b ⇒ MonoIncFuncOn(y, IntervalLoRo(0, 1))
+7. a < b ⇒ lim_{ x → 0^+ } (y(x)) = a
+
+GOAL:
+a < b ⇒ lim_{ x → 1^- } (y(x)) = b
+
+METHOD:

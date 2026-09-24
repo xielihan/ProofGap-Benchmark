@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ∧ x > 0 ⇒ sqrtn(2, x * (x + 1)) - x < frac(1, 2)}) (x := {x0})
+get_condition (hypothesis 10: {x0 ∈ RealSet ∧ x0 ∈ NonNegRealSet ∧ x0 > 0}) in (GOAL: {x0 ∈ RealSet ∧ x0 ∈ NonNegRealSet ∧ x0 > 0 ⇒ sqrtn(2, x0 * (x0 + 1)) - x0 < frac(1, 2)})
+get_prop (hypothesis 7: {forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ∧ x > 0 ⇒ sqrtn(2, x * (x + 1)) - x = frac(x, sqrtn(2, x * (x + 1)) + x)}) (x := {x0}) as (hypothesis 11: {x0 ∈ RealSet ∧ x0 ∈ NonNegRealSet ∧ x0 > 0 ⇒ sqrtn(2, x0 * (x0 + 1)) - x0 = frac(x0, sqrtn(2, x0 * (x0 + 1)) + x0)})
+use_condition (hypothesis 10: {x0 ∈ RealSet ∧ x0 ∈ NonNegRealSet ∧ x0 > 0}) in (hypothesis 11: {x0 ∈ RealSet ∧ x0 ∈ NonNegRealSet ∧ x0 > 0 ⇒ sqrtn(2, x0 * (x0 + 1)) - x0 = frac(x0, sqrtn(2, x0 * (x0 + 1)) + x0)}) as (hypothesis 12: {sqrtn(2, x0 * (x0 + 1)) - x0 = frac(x0, sqrtn(2, x0 * (x0 + 1)) + x0)})
+get_prop (hypothesis 8: {forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ∧ x > 0 ⇒ frac(x, sqrtn(2, x * (x + 1)) + x) < frac(x, 2 * x)}) (x := {x0}) as (hypothesis 13: {x0 ∈ RealSet ∧ x0 ∈ NonNegRealSet ∧ x0 > 0 ⇒ frac(x0, sqrtn(2, x0 * (x0 + 1)) + x0) < frac(x0, 2 * x0)})
+use_condition (hypothesis 10: {x0 ∈ RealSet ∧ x0 ∈ NonNegRealSet ∧ x0 > 0}) in (hypothesis 13: {x0 ∈ RealSet ∧ x0 ∈ NonNegRealSet ∧ x0 > 0 ⇒ frac(x0, sqrtn(2, x0 * (x0 + 1)) + x0) < frac(x0, 2 * x0)}) as (hypothesis 14: {frac(x0, sqrtn(2, x0 * (x0 + 1)) + x0) < frac(x0, 2 * x0)})
+get_prop (hypothesis 9: {forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ∧ x > 0 ⇒ frac(x, 2 * x) = frac(1, 2)}) (x := {x0}) as (hypothesis 15: {x0 ∈ RealSet ∧ x0 ∈ NonNegRealSet ∧ x0 > 0 ⇒ frac(x0, 2 * x0) = frac(1, 2)})
+use_condition (hypothesis 10: {x0 ∈ RealSet ∧ x0 ∈ NonNegRealSet ∧ x0 > 0}) in (hypothesis 15: {x0 ∈ RealSet ∧ x0 ∈ NonNegRealSet ∧ x0 > 0 ⇒ frac(x0, 2 * x0) = frac(1, 2)}) as (hypothesis 16: {frac(x0, 2 * x0) = frac(1, 2)})
+autosolve all_hypothesis

@@ -1,0 +1,7 @@
+PROOF GAP @4
+ASSUM:
+
+GOAL:
+0.999848 < 1
+
+METHOD:

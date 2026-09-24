@@ -1,0 +1,17 @@
+PROOF GAP @9
+ASSUM:
+1. R : NonNegIntegerSet → RealSet
+2. forall (m), m ∈ NonNegIntegerSet ⇒ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ R(N) = sum_{ m = N + 1 }^{ +∞ } (frac(1, (2 * m - 1)!)))
+3. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ k! > frac(k, e)^{k}
+4. forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ R(N) < sum_{ n = N + 1 }^{ +∞ } (frac(e, 2 * n - 1)^{2 * n - 1})
+5. forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ R(N) ≤ sum_{ n = N + 1 }^{ +∞ } (frac(e, 2 * N + 1)^{2 * n - 1})
+6. forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ sum_{ n = N + 1 }^{ +∞ } (frac(e, 2 * N + 1)^{2 * n - 1}) = frac(e, 2 * N + 1)^{2 * N + 1} * (sum_{ l = 0 }^{ +∞ } (frac(e, 2 * N + 1)^{2 * l}))
+7. forall (N), N ∈ NonNegIntegerSet ∧ N ≥ 1 ⇒ frac(e, 2 * N + 1) < 1
+8. forall (N), N ∈ NonNegIntegerSet ∧ N ≥ 1 ⇒ R(N) < frac(e, 2 * N + 1)^{2 * N + 1} * frac(1, 1 - frac(e, 2 * N + 1)^{2})
+9. forall (N), N ∈ NonNegIntegerSet ∧ N = 5 ⇒ R(N) < frac(e, 11)^{11} * frac(121, 113.614)
+10. forall (N), N ∈ NonNegIntegerSet ∧ N = 5 ⇒ frac(e, 11)^{11} * frac(121, 113.614) ≈_{ 10^{-5} } 10^{-6.6374}
+
+GOAL:
+forall (N), N ∈ NonNegIntegerSet ∧ N = 5 ⇒ 10^{-6.6374} < 10^{-5}
+
+METHOD:

@@ -1,0 +1,18 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. c ∈ RealSet ∧ c > 0
+4. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+5. C ⊆ CartesianProd(RealSet, RealSet)
+6. S ∈ RealSet
+7. x : RealSet → RealSet
+8. y : RealSet → RealSet
+9. t ∈ RealSet ∧ t ≥ 0
+10. forall (t), t ∈ RealSet ∧ t ∈ [0, +∞) ⇒ x(t) = frac(a * c * t^{n}, 1 + t^{2 * n + 1}) ∧ y(t) = frac(b * c * t^{n + 1}, 1 + t^{2 * n + 1})
+11. C = { (x(t), y(t)) | t ∈ [0, +∞) }
+
+GOAL:
+forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ x(t) * diff(fun t [t ∈ RealSet ∧ t ≥ 0] . y(t)) - y(t) * diff(fun t [t ∈ RealSet ∧ t ≥ 0] . x(t)) = frac(a * b * c^{2} * t^{2 * n}, (1 + t^{2 * n + 1})^{2}) * diff(fun t [t ∈ RealSet ∧ t ≥ 0] . t)
+
+METHOD:

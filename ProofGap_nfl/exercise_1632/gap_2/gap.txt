@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. x ∈ RealSet ∧ x ≠ 0
+3. C ∈ RealSet
+4. C ∈ RealSet
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = (frac(a, x) + frac(a^{2}, x^{2}) + frac(a^{3}, x^{3})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ `F_3`(x) = a * ln(|x|) - frac(a^{2}, x) - frac(a^{3}, 2 * x^{2}) + C) }
+
+METHOD:

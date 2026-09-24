@@ -1,0 +1,8 @@
+assert (hypothesis 11: {π ∈ RealSet ∧ π > 0 ∧ π < 4}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 12: {frac(3 * 5 * 2 * π, 4! * 2^{4}) * frac(8!, 2^{9} * 4! * 4!) = frac(175 * π, 16384)}) by proof {
+  autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 12: {frac(3 * 5 * 2 * π, 4! * 2^{4}) * frac(8!, 2^{9} * 4! * 4!) = frac(175 * π, 16384)}); from (GOAL: {frac(3 * 5 * 2 * π, 4! * 2^{4}) * frac(8!, 2^{9} * 4! * 4!) < frac(1, 10)}) to (GOAL: {frac(175 * π, 16384) < frac(1, 10)})
+autosolve all_hypothesis

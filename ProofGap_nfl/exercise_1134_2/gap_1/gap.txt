@@ -1,0 +1,15 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. u : RealSet → RealSet
+3. v : RealSet → RealSet
+4. I ⊆ RealSet
+5. DiffableFuncOn(u, I)
+6. DiffableFuncOn(v, I)
+7. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ v(x) ≠ 0
+8. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ y(x) = frac(u(x), v(x))
+
+GOAL:
+diff(y) = frac(v * diff(u) - u * diff(v), v^{2})
+
+METHOD:

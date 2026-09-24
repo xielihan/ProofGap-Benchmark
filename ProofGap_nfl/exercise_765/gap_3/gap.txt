@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = (1 + x^{2}) * sgn(x)
+3. forall (x), x ∈ RealSet ⇒ sgn(y(x)) = sgn(x)
+4. forall (x), x ∈ RealSet ⇒ sgn(x)^{2} = cases{ 1 if x ≠ 0; 0 if x = 0 }
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ y(x) * sgn(y(x)) = (1 + x^{2}) * sgn(x)^{2}
+
+METHOD:

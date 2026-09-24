@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (t), t ∈ RealSet ∧ r = 1 ⇒ DefInt(1, +∞, t^{r - 1} * sin(t) * diff(fun t [t ∈ RealSet] . t)) = DefInt(1, +∞, sin(t) * diff(fun t [t ∈ RealSet] . t))}) (t := {u})
+get_condition (hypothesis 14: {u ∈ RealSet ∧ r = 1}) in (GOAL: {u ∈ RealSet ∧ r = 1 ⇒ DefInt(1, +∞, u^{r - 1} * sin(u) * diff(fun t [t ∈ RealSet] . t)) = DefInt(1, +∞, sin(u) * diff(fun t [t ∈ RealSet] . t))})
+destruct_and (hypothesis 14: {u ∈ RealSet ∧ r = 1}) as (hypothesis 15: {u ∈ RealSet}) (hypothesis 16: {r = 1})
+rewrite (left_to_right, equation) (hypothesis 16: {r = 1}); from (GOAL: {DefInt(1, +∞, u^{r - 1} * sin(u) * diff(fun t [t ∈ RealSet] . t)) = DefInt(1, +∞, sin(u) * diff(fun t [t ∈ RealSet] . t))}) to (GOAL: {DefInt(1, +∞, u^{1 - 1} * sin(u) * diff(fun t [t ∈ RealSet] . t)) = DefInt(1, +∞, sin(u) * diff(fun t [t ∈ RealSet] . t))})
+autoreplace no_hypothesis; from (u^{1 - 1}) to (1); from (GOAL: {DefInt(1, +∞, u^{1 - 1} * sin(u) * diff(fun t [t ∈ RealSet] . t)) = DefInt(1, +∞, sin(u) * diff(fun t [t ∈ RealSet] . t))}) to (GOAL: {DefInt(1, +∞, 1 * sin(u) * diff(fun t [t ∈ RealSet] . t)) = DefInt(1, +∞, sin(u) * diff(fun t [t ∈ RealSet] . t))})
+autoreplace no_hypothesis; from (1 * sin(u)) to (sin(u)); from (GOAL: {DefInt(1, +∞, 1 * sin(u) * diff(fun t [t ∈ RealSet] . t)) = DefInt(1, +∞, sin(u) * diff(fun t [t ∈ RealSet] . t))}) to (GOAL: {DefInt(1, +∞, sin(u) * diff(fun t [t ∈ RealSet] . t)) = DefInt(1, +∞, sin(u) * diff(fun t [t ∈ RealSet] . t))})
+autosolve all_hypothesis

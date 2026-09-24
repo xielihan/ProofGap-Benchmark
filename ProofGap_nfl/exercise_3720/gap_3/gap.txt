@@ -1,0 +1,16 @@
+PROOF GAP @3
+ASSUM:
+1. F : RealSet → RealSet
+2. f : RealSet → RealSet
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. a < b
+6. DiffableFuncOn(f, [a, b])
+7. forall (x), x ∈ RealSet ⇒ F(x) = DefInt(a, b, (fun y [y ∈ RealSet] . f(y) * |x - y|) * diff(fun y [y ∈ RealSet] . y))
+8. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ F(x) = DefInt(a, x, (fun y [y ∈ RealSet] . (x - y) * f(y)) * diff(fun y [y ∈ RealSet] . y)) + DefInt(x, b, (fun y [y ∈ RealSet] . (y - x) * f(y)) * diff(fun y [y ∈ RealSet] . y))
+9. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ FunDeri(F, 1, 1)(x) = DefInt(a, x, f * diff(fun y [y ∈ RealSet] . y)) + DefInt(b, x, f * diff(fun y [y ∈ RealSet] . y))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ FunDeri(F, 1, 2)(x) = f(x) + f(x)
+
+METHOD:

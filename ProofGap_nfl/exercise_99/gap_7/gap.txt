@@ -1,0 +1,15 @@
+PROOF GAP @7
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = n^{2} - 9 * n - 100
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n^{2} - 9 * n ≥ 0 ⇒ n ≥ 9
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n^{2} - 9 * n < 0 ⇒ 0 < n
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n^{2} - 9 * n < 0 ⇒ n < 9
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) ≥ -120
+7. x(4) = -120
+8. x(5) = -120
+
+GOAL:
+min({ x(n) | n ∈ PosIntegerSet }) = -120
+
+METHOD:

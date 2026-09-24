@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. A ⊆ RealSet
+2. C ⊆ RealSet
+3. u : CartesianProd(RealSet, NonNegIntegerSet) → RealSet
+4. forall (x), x ∈ RealSet ∧ 2 * x + 1 ≠ 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ≥ 1 ⇒ u(x, n) = frac(n, n + 1) * frac(x, 2 * x + 1)^{n})
+
+GOAL:
+seqlim_{ n → +∞ } (frac(frac(n, n + 1), frac(n + 1, n + 2))) = 1
+
+METHOD:

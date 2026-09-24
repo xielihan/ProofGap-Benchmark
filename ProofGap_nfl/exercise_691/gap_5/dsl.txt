@@ -1,0 +1,1 @@
+1. apply (hypothesis 7: {forall (k), k ∈ IntegerSet ∧ k ≠ 0 ⇒ lim_{ x → k * π } (y(x)) = ∞})

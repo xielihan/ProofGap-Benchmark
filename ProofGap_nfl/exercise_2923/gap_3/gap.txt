@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. π > 0
+2. π < 4
+
+GOAL:
+exists (n), n ∈ NonNegIntegerSet ∧ (exists (Δ), Δ ∈ RealSet ∧ Δ ≥ 0 ∧ n = 2 ∧ Δ = 0)
+
+METHOD:

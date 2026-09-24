@@ -1,0 +1,35 @@
+PROOF GAP @17
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. k ∈ RealSet ∧ k > 0
+3. ρ : CartesianProd(RealSet, RealSet) → RealSet
+4. M ∈ RealSet
+5. M_{x} ∈ RealSet
+6. M_{y} ∈ RealSet
+7. x_{0} ∈ RealSet
+8. y_{0} ∈ RealSet
+9. I_{1} ∈ RealSet
+10. I_{2} ∈ RealSet
+11. I_{3} ∈ RealSet
+12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} ≤ a^{2} ⇒ ρ(x, y) = k * sqrtn(2, (x - a)^{2} + y^{2})
+13. M = DefInt(-a, a, (fun x [x ∈ RealSet] . DefInt(-sqrtn(2, a^{2} - x^{2}), sqrtn(2, a^{2} - x^{2}), (fun y [y ∈ RealSet] . k * sqrtn(2, (x - a)^{2} + y^{2})) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+14. M = I_{1} - I_{2} + I_{3}
+15. I_{1} = k * DefInt(-a, a, (fun x [x ∈ RealSet] . sqrtn(2, 2 * a) * (a - x) * sqrtn(2, a + x)) * diff(fun x [x ∈ RealSet] . x))
+16. k * DefInt(-a, a, (fun x [x ∈ RealSet] . sqrtn(2, 2 * a) * (a - x) * sqrtn(2, a + x)) * diff(fun x [x ∈ RealSet] . x)) = frac(32, 15) * k * a^{3}
+17. I_{1} = frac(32, 15) * k * a^{3}
+18. I_{2} = frac(k, 2) * DefInt(0, 2 * a, (fun t [t ∈ RealSet] . t^{2} * ln(t)) * diff(fun t [t ∈ RealSet] . t))
+19. frac(k, 2) * DefInt(0, 2 * a, (fun t [t ∈ RealSet] . t^{2} * ln(t)) * diff(fun t [t ∈ RealSet] . t)) = frac(4, 3) * k * a^{3} * ln(2 * a) - frac(4, 9) * k * a^{3}
+20. I_{2} = frac(4, 3) * k * a^{3} * ln(2 * a) - frac(4, 9) * k * a^{3}
+21. I_{3} = 2 * k * DefInt(0, sqrtn(2, 2 * a), (fun t [t ∈ RealSet] . t * (2 * a - t^{2})^{2} * ln(t + sqrtn(2, 2 * a))) * diff(fun t [t ∈ RealSet] . t))
+22. 2 * k * DefInt(0, sqrtn(2, 2 * a), (fun t [t ∈ RealSet] . t * (2 * a - t^{2})^{2} * ln(t + sqrtn(2, 2 * a))) * diff(fun t [t ∈ RealSet] . t)) = frac(44, 45) * k * a^{3} + frac(4, 3) * k * a^{3} * ln(2 * a)
+23. I_{3} = frac(44, 45) * k * a^{3} + frac(4, 3) * k * a^{3} * ln(2 * a)
+24. M = frac(32, 15) * k * a^{3} - (frac(4, 3) * k * a^{3} * ln(2 * a) - frac(4, 9) * k * a^{3}) + frac(44, 45) * k * a^{3} + frac(4, 3) * k * a^{3} * ln(2 * a)
+25. frac(32, 15) * k * a^{3} - (frac(4, 3) * k * a^{3} * ln(2 * a) - frac(4, 9) * k * a^{3}) + frac(44, 45) * k * a^{3} + frac(4, 3) * k * a^{3} * ln(2 * a) = frac(32, 9) * k * a^{3}
+26. M = frac(32, 9) * k * a^{3}
+27. M_{y} = DefInt(-a, a, (fun x [x ∈ RealSet] . DefInt(-sqrtn(2, a^{2} - x^{2}), sqrtn(2, a^{2} - x^{2}), (fun y [y ∈ RealSet] . k * x * sqrtn(2, (x - a)^{2} + y^{2})) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+28. DefInt(-a, a, (fun x [x ∈ RealSet] . DefInt(-sqrtn(2, a^{2} - x^{2}), sqrtn(2, a^{2} - x^{2}), (fun y [y ∈ RealSet] . k * x * sqrtn(2, (x - a)^{2} + y^{2})) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x)) = -frac(32, 45) * k * a^{4}
+
+GOAL:
+M_{y} = -frac(32, 45) * k * a^{4}
+
+METHOD:

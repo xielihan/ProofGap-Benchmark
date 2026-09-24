@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. y ∈ RealSet ∧ y ≥ 0
+3. a : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(x^{n}, n + y^{n})
+5. y = 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(x^{n}, n))
+
+GOAL:
+y = 0 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+METHOD:

@@ -1,0 +1,17 @@
+PROOF GAP @3
+ASSUM:
+1. α ∈ RealSet
+2. p : NonNegIntegerSet → RealSet
+3. q : NonNegIntegerSet → RealSet
+4. β : NonNegIntegerSet → RealSet
+5. γ : NonNegIntegerSet → RealSet
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ q(n) = cases{ 1 + frac(1, n^{α}) if exists (k), k ∈ NonNegIntegerSet ∧ (n = 3 * k + 1 ∨ n = 3 * k + 3); (1 - frac(1, n^{α}))^{2} if exists (k), k ∈ NonNegIntegerSet ∧ n = 3 * k + 2 }
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ q(n) = 1 + β(n)
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(n) = 1 + γ(n)
+9. α > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (|β(n)|))
+10. α > 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (ln(q(n))))
+
+GOAL:
+α ≤ 0 ⇒ ¬ConvergentSeqTo(q, 1)
+
+METHOD:

@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. exists (x), x ∈ RealSet ∧ x > -1
+2. exists (x), x ∈ RealSet ∧ x ≠ 0
+3. lim_{ x → 0 } (frac(ln(1 + x), x)) = lim_{ x → 0 } (ln((1 + x)^{frac(1, x)}))
+4. lim_{ x → 0 } (ln((1 + x)^{frac(1, x)})) = ln(e)
+
+GOAL:
+ln(e) = 1
+
+METHOD:

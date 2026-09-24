@@ -1,0 +1,9 @@
+PROOF GAP @4
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(-1, 1) ∧ t = tanh(frac(x, 2)))
+2. forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(-1, 1) ∧ (t = tanh(frac(x, 2)) ⇒ sinh(x) = frac(2 * t, 1 - t^{2})))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ t ∈ IntervalLoRo(-1, 1) ∧ (t = tanh(frac(x, 2)) ⇒ cosh(x) = frac(1 + t^{2}, 1 - t^{2})))
+
+METHOD:

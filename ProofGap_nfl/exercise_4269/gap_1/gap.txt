@@ -1,0 +1,15 @@
+PROOF GAP @1
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. γ : RealSet → CartesianProd(RealSet, RealSet)
+5. FuncOfClassK(γ, 1)
+6. C = ImageOn(γ, [0, 1])
+7. γ(0) = (0, 0)
+8. γ(1) = (a, b)
+
+GOAL:
+(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * cos(y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * sin(y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) = diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * cos(y))
+
+METHOD:

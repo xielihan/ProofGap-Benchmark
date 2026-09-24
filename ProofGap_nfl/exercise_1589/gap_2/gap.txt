@@ -1,0 +1,19 @@
+PROOF GAP @2
+ASSUM:
+1. P ∈ RealSet
+2. k ∈ RealSet
+3. F : RealSet → RealSet
+4. α ∈ RealSet
+5. y : RealSet → RealSet
+6. P > 0
+7. k > 0
+8. 0 ≤ α
+9. α < frac(π, 2)
+10. F(α) * cos(α) = k * (P - F(α) * sin(α))
+11. y(α) = cos(α) + k * sin(α)
+12. F(α) = frac(k * P, cos(α) + k * sin(α))
+
+GOAL:
+y(α) = cos(α) + k * sin(α)
+
+METHOD:

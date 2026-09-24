@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. S ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ y(x) = e^{-x} * sin(x)
+4. forall (k), k ∈ IntegerSet ⇒ sin(k * π) = 0
+5. S = seqlim_{ n → +∞ } (sum_{ k = 0 }^{ n } ((-1)^{k} * DefInt(k * π, (k + 1) * π, (fun x [x ∈ RealSet] . e^{-x} * sin(x)) * diff(fun x [x ∈ RealSet] . x))))
+
+GOAL:
+forall (k), k ∈ NonNegIntegerSet ⇒ DefInt(k * π, (k + 1) * π, (fun x [x ∈ RealSet] . e^{-x} * sin(x)) * diff(fun x [x ∈ RealSet] . x)) = ((fun x [x ∈ RealSet] . -e^{-x} * (sin(x) + cos(x)) / 2)|_{k * π}^{(k + 1) * π})
+
+METHOD:

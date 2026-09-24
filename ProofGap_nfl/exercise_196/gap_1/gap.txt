@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. c ∈ RealSet
+4. f : RealSet → RealSet
+5. forall (x), x ∈ RealSet ⇒ f(x) = a * x^{2} + b * x + c
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ f(x + 3) - 3 * f(x + 2) + 3 * f(x + 1) - f(x) = a * (x + 3)^{2} + b * (x + 3) + c - 3 * (a * (x + 2)^{2} + b * (x + 2) + c) + 3 * (a * (x + 1)^{2} + b * (x + 1) + c) - (a * x^{2} + b * x + c)
+
+METHOD:

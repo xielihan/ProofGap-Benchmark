@@ -1,0 +1,13 @@
+get_condition (hypothesis 23: {1 - a - b = 9 - 3 * a - b}) (hypothesis 24: {9 - 3 * a - b = frac(a^{2}, 4) + b}) in (GOAL: {1 - a - b = 9 - 3 * a - b ⇒ 9 - 3 * a - b = frac(a^{2}, 4) + b ⇒ b = -frac(7, 2)})
+use_condition (hypothesis 23: {1 - a - b = 9 - 3 * a - b}) (hypothesis 24: {9 - 3 * a - b = frac(a^{2}, 4) + b}) in (hypothesis 22: {1 - a - b = 9 - 3 * a - b ⇒ 9 - 3 * a - b = frac(a^{2}, 4) + b ⇒ a = 4}) as (hypothesis 25: {a = 4})
+rewrite (left_to_right, equation) (hypothesis 25: {a = 4}); from (hypothesis 24: {9 - 3 * a - b = frac(a^{2}, 4) + b}) to (hypothesis 26: {9 - 3 * 4 - b = frac(4^{2}, 4) + b})
+assert (hypothesis 27: {b * 2 = -7}) by proof {
+  1. autosolve (hypothesis 26: {9 - 3 * 4 - b = frac(4^{2}, 4) + b})
+}
+assert (hypothesis 28: {frac(b, 1) = b})
+get_prop (theorem 'Thm 408. (FractionScalingByNonzeroFactor)': {forall (a) (b) (c), a ∈ RealSet => b ∈ RealSet => c ∈ RealSet => b ≠ 0 => c ≠ 0 => frac(a * c, b * c) = frac(a, b)}) (a := {b}) (b := {1}) (c := {2}) as (hypothesis 29: {b ∈ RealSet => 1 ∈ RealSet => 2 ∈ RealSet => 1 ≠ 0 => 2 ≠ 0 => frac(b * 2, 1 * 2) = frac(b, 1)})
+use_condition (hypothesis 2: {b ∈ RealSet}) (obvious: {1 ∈ RealSet}) (obvious: {2 ∈ RealSet}) (obvious: {1 ≠ 0}) (obvious: {2 ≠ 0}) in (hypothesis 29: {b ∈ RealSet => 1 ∈ RealSet => 2 ∈ RealSet => 1 ≠ 0 => 2 ≠ 0 => frac(b * 2, 1 * 2) = frac(b, 1)}) as (hypothesis 30: {frac(b * 2, 1 * 2) = frac(b, 1)})
+rewrite (right_to_left, equation) (hypothesis 28: {frac(b, 1) = b}); from (GOAL: {b = -frac(7, 2)}) to (GOAL: {frac(b, 1) = -frac(7, 2)})
+rewrite (right_to_left, equation) (hypothesis 30: {frac(b * 2, 1 * 2) = frac(b, 1)}); from (GOAL: {frac(b, 1) = -frac(7, 2)}) to (GOAL: {frac(b * 2, 1 * 2) = -frac(7, 2)})
+rewrite (left_to_right, equation) (hypothesis 27: {b * 2 = -7}); from (GOAL: {frac(b * 2, 1 * 2) = -frac(7, 2)}) to (GOAL: {frac(-7, 1 * 2) = -frac(7, 2)})
+autosolve all_hypothesis

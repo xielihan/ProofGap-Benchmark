@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet ∧ ContinuousFuncOn(f, [0, 1])
+2. x : RealSet → RealSet
+3. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π ⇒ sin(x) ∈ [0, 1]
+4. forall (t), t ∈ RealSet ∧ t ∈ [0, π] ⇒ x(t) = π - t
+
+GOAL:
+forall (t), t ∈ RealSet ∧ 0 ≤ x(t) ∧ x(t) ≤ π ∧ 0 ≤ t ∧ t ≤ π ⇒ diff(x) = -diff(fun t [t ∈ RealSet ∧ t ∈ [0, π]] . t)
+
+METHOD:

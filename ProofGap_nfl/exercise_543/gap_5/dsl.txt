@@ -1,0 +1,10 @@
+destruct_and (hypothesis 1: {a ∈ RealSet /\ a > 0}) as (hypothesis 6: {a ∈ RealSet}) (hypothesis 7: {a > 0})
+get_prop (theorem 'Thm 174. (ExponentialLogarithmInverse)': {forall (x) (a), x ∈ RealSet => a ∈ RealSet => (a > 0 => a ≠ 1 => (log(a, a ^ x) = x /\ (x > 0 => a ^ (log(a, x)) = x)))}) (x := {1}) (a := {e}) as (hypothesis 8: {1 ∈ RealSet => e ∈ RealSet => e > 0 => e ≠ 1 => (ln(e ^ 1) = 1 /\ (1 > 0 => e ^ (ln(1)) = 1))})
+use_condition (obvious: {1 ∈ RealSet}) (obvious: {e ∈ RealSet}) (obvious: {e > 0}) (obvious: {e ≠ 1}) in (hypothesis 8: {1 ∈ RealSet => e ∈ RealSet => e > 0 => e ≠ 1 => (ln(e ^ 1) = 1 /\ (1 > 0 => e ^ (ln(1)) = 1))}) as (hypothesis 9: {ln(e ^ 1) = 1 /\ (1 > 0 => e ^ (ln(1)) = 1)})
+destruct_and (hypothesis 9: {ln(e ^ 1) = 1 /\ (1 > 0 => e ^ (ln(1)) = 1)}) as (hypothesis 10: {ln(e ^ 1) = 1}) (hypothesis 11: {1 > 0 => e ^ (ln(1)) = 1})
+autoreplace no_hypothesis; from (e ^ 1) to (e); from (hypothesis 10: {ln(e ^ 1) = 1}) to (hypothesis 12: {ln(e) = 1})
+get_prop (theorem 'Thm 186. (LogarithmProductFormula)': {forall (x) (y) (a), x ∈ RealSet => y ∈ RealSet => a ∈ RealSet => (a > 0 => a ≠ 1 => x > 0 => y > 0 => log(a, x * y) = log(a, x) + log(a, y))}) (x := {e}) (y := {a}) (a := {e}) as (hypothesis 13: {e ∈ RealSet => a ∈ RealSet => e ∈ RealSet => e > 0 => e ≠ 1 => e > 0 => a > 0 => ln(e * a) = ln(e) + ln(a)})
+use_condition (obvious: {e ∈ RealSet}) (hypothesis 6: {a ∈ RealSet}) (obvious: {e ∈ RealSet}) (obvious: {e > 0}) (obvious: {e ≠ 1}) (obvious: {e > 0}) (hypothesis 7: {a > 0}) in (hypothesis 13: {e ∈ RealSet => a ∈ RealSet => e ∈ RealSet => e > 0 => e ≠ 1 => e > 0 => a > 0 => ln(e * a) = ln(e) + ln(a)}) as (hypothesis 14: {ln(e * a) = ln(e) + ln(a)})
+rewrite (left_to_right, equation) (hypothesis 14: {ln(e * a) = ln(e) + ln(a)}); from (GOAL: {1 + ln(a) = ln(e * a)}) to (GOAL: {1 + ln(a) = ln(e) + ln(a)})
+rewrite (left_to_right, equation) (hypothesis 12: {ln(e) = 1}); from (GOAL: {1 + ln(a) = ln(e) + ln(a)}) to (GOAL: {1 + ln(a) = 1 + ln(a)})
+autosolve all_hypothesis

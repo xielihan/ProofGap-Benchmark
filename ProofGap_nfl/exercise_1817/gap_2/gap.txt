@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. C ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ a^{2} + x^{2} ≠ 0
+4. forall (x), x ∈ RealSet ∧ a = 0 ⇒ x ≠ 0
+
+GOAL:
+a = 0 ⇒ { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, (a^{2} + x^{2})^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(1, x^{4}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+METHOD:

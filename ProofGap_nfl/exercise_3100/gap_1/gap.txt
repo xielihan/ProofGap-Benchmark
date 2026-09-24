@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. ζ : RealSet → RealSet
+2. p : NonNegIntegerSet → NonNegIntegerSet
+3. k ∈ NonNegIntegerSet
+4. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(1, +∞) ⇒ ζ(x) = sum_{ k = 1 }^{ +∞ } (frac(1, k^{x}))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ p(n) ∈ PrimeSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(1, +∞) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (1 - frac(1, p(n)^{x}))^{-1} = sum_{ m = 0 }^{ +∞ } (frac(1, (p(n)^{m})^{x})))
+
+METHOD:

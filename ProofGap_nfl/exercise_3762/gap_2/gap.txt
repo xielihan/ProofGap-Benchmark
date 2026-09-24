@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. forall (α), α ∈ RealSet ∧ α = 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . sqrtn(2, α) * e^{-α * x^{2}}) * diff(fun x [x ∈ RealSet] . x)) = 0
+2. α > 0 ⇒ t = sqrtn(2, α) * x
+
+GOAL:
+forall (α), α ∈ RealSet ∧ α > 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . sqrtn(2, α) * e^{-α * x^{2}}) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, +∞, (fun t [t ∈ RealSet] . e^{-t^{2}}) * diff(fun t [t ∈ RealSet] . t))
+
+METHOD:

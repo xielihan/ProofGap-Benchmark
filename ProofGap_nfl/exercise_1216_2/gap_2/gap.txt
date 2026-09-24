@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. p ∈ NonNegIntegerSet
+3. p ∈ PosIntegerSet
+4. forall (x), x ∈ RealSet ⇒ f(x) = cos(x)^{2 * p}
+5. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ FunDeri(f, 1, n)(x) = FunDeri(fun x [x ∈ RealSet] . cos(x)^{2 * p}, 1, n)(x)
+
+GOAL:
+forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ FunDeri(f, 1, n)(x) = sum_{ k = 0 }^{ p - 1 } (2^{n - 2 * p + 1} * (p - k)^{n} * Combination(2 * p, k) * cos((2 * p - 2 * k) * x + frac(n * π, 2)))
+
+METHOD:

@@ -1,0 +1,13 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t = y(x) ⇒ 2 * t = e^{x} - e^{-x})}) (x := {a})
+get_condition (hypothesis 4: {a ∈ RealSet}) in (GOAL: {a ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t = y(a) ⇒ 2 * t = e^{a} - e^{-a})})
+get_forall (GOAL: {forall (t), t ∈ RealSet ∧ t = y(a) ⇒ 2 * t = e^{a} - e^{-a}}) (t := {b})
+get_condition (hypothesis 5: {b ∈ RealSet ∧ b = y(a)}) in (GOAL: {b ∈ RealSet ∧ b = y(a) ⇒ 2 * b = e^{a} - e^{-a}})
+get_prop (hypothesis 2: {forall (x), x ∈ RealSet ⇒ y(x) = sinh(x)}) (x := {a}) as (hypothesis 6: {a ∈ RealSet ⇒ y(a) = sinh(a)})
+use_condition (hypothesis 4: {a ∈ RealSet}) in (hypothesis 6: {a ∈ RealSet ⇒ y(a) = sinh(a)}) as (hypothesis 7: {y(a) = sinh(a)})
+get_prop (hypothesis 3: {forall (x), x ∈ RealSet ⇒ sinh(x) = frac(1, 2) * (e^{x} - e^{-x})}) (x := {a}) as (hypothesis 8: {a ∈ RealSet ⇒ sinh(a) = frac(1, 2) * (e^{a} - e^{-a})})
+use_condition (hypothesis 4: {a ∈ RealSet}) in (hypothesis 8: {a ∈ RealSet ⇒ sinh(a) = frac(1, 2) * (e^{a} - e^{-a})}) as (hypothesis 9: {sinh(a) = frac(1, 2) * (e^{a} - e^{-a})})
+destruct_and (hypothesis 5: {b ∈ RealSet ∧ b = y(a)}) as (hypothesis 10: {b ∈ RealSet}) (hypothesis 11: {b = y(a)})
+rewrite (left_to_right, equation) (hypothesis 11: {b = y(a)}); from (GOAL: {2 * b = e^{a} - e^{-a}}) to (GOAL: {2 * y(a) = e^{a} - e^{-a}})
+rewrite (left_to_right, equation) (hypothesis 7: {y(a) = sinh(a)}); from (GOAL: {2 * y(a) = e^{a} - e^{-a}}) to (GOAL: {2 * sinh(a) = e^{a} - e^{-a}})
+rewrite (left_to_right, equation) (hypothesis 9: {sinh(a) = frac(1, 2) * (e^{a} - e^{-a})}); from (GOAL: {2 * sinh(a) = e^{a} - e^{-a}}) to (GOAL: {2 * (frac(1, 2) * (e^{a} - e^{-a})) = e^{a} - e^{-a}})
+autosolve all_hypothesis

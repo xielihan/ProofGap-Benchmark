@@ -1,0 +1,31 @@
+PROOF GAP @4
+ASSUM:
+1. c ∈ RealSet
+2. u_{1} ∈ RealSet
+3. u_{2} ∈ RealSet
+4. v_{1} ∈ RealSet
+5. v_{2} ∈ RealSet
+6. x ∈ RealSet
+7. y ∈ RealSet
+8. u ∈ RealSet
+9. v ∈ RealSet
+10. D ⊆ CartesianProd(RealSet, RealSet)
+11. S ∈ RealSet
+12. I : CartesianProd(RealSet, RealSet) → RealSet
+13. c > 0
+14. 0 < u_{1}
+15. u_{1} < u_{2}
+16. 0 < v_{1}
+17. v_{1} < v_{2}
+18. D = { (x, y) | x ∈ RealSet, y ∈ RealSet, x > 0, y > 0, exists (u) (v), u ∈ RealSet ∧ v ∈ RealSet ∧ u_{1} ≤ u, u ≤ u_{2}, v_{1} ≤ v, v ≤ v_{2}, x = c * cosh(u) * cos(v), y = c * sinh(u) * sin(v) }
+19. S = VolumeInt(D, diff(fun x [x ∈ RealSet] . x) * diff(fun y [y ∈ RealSet] . y))
+20. x = c * cosh(u) * cos(v)
+21. y = c * sinh(u) * sin(v)
+22. |I(u, v)| = |c^{2} * cosh(u)^{2} - c^{2} * cos(v)^{2}|
+23. cosh(u)^{2} ≥ 1
+24. 1 ≥ cos(v)^{2}
+
+GOAL:
+|I(u, v)| = c^{2} * (cosh(u)^{2} - cos(v)^{2})
+
+METHOD:

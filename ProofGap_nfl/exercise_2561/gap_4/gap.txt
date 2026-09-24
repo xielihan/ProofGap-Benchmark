@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. IsSeq(a)
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(n, 2 * n - 1)
+4. seqlim_{ n → +∞ } (a(n)) = frac(1, 2)
+5. frac(1, 2) ≠ 0
+6. ¬seqlim_{ n → +∞ } (a(n)) = 0
+7. forall (c) (N), N ∈ NonNegIntegerSet ⇒ (DivergentSeries(sum_{ n = N }^{ +∞ } (c(n))) ⇔ Not(ConvergentSeries(sum_{ n = N }^{ +∞ } (c(n)))))
+
+GOAL:
+DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+METHOD:

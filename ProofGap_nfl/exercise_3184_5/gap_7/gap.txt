@@ -1,0 +1,15 @@
+PROOF GAP @7
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ∈ PosRealSet ∧ x ≠ 1 ∧ x + y > 0 ⇒ f(x, y) = log(x, x + y)
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x ∈ PosRealSet ∧ x ≠ 1 ∧ x + y > 0 ⇒ f(x, y) = frac(ln(x + y), ln(x))
+4. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ∧ x ≠ 1 ⇒ lim_{ y → 0 } (f(x, y)) = lim_{ y → 0 } (frac(ln(x + y), ln(x)))
+5. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ∧ x ≠ 1 ⇒ lim_{ y → 0 } (frac(ln(x + y), ln(x))) = frac(ln(x), ln(x))
+6. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ∧ x ≠ 1 ⇒ frac(ln(x), ln(x)) = 1
+7. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ∧ x ≠ 1 ⇒ lim_{ y → 0 } (f(x, y)) = 1
+8. lim_{ x → 1 } (lim_{ y → 0 } (f(x, y))) = lim_{ x → 1 } (1)
+
+GOAL:
+lim_{ x → 1 } (1) = 1
+
+METHOD:

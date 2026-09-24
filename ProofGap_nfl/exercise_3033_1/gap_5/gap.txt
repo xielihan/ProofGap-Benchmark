@@ -1,0 +1,15 @@
+PROOF GAP @5
+ASSUM:
+1. x ∈ RealSet
+2. s : NonNegIntegerSet → RealSet
+3. |x| < 1
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ s(n) = frac(x^{n + 1}, (1 - x^{n}) * (1 - x^{n + 1}))
+5. x ≠ 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, 1 - x^{n}) - frac(1, 1 - x^{n + 1}) = frac(1 - x, x) * s(n))
+6. x ≠ 0 ⇒ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ sum_{ k = 1 }^{ N } (frac(1 - x, x) * s(k)) = frac(1, 1 - x) - frac(1, 1 - x^{N + 1}))
+7. x ≠ 0 ⇒ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ sum_{ k = 1 }^{ N } (s(k)) = frac(x, (1 - x)^{2}) - frac(x, 1 - x) * frac(1, 1 - x^{N + 1}))
+8. x ≠ 0 ⇒ (forall (N), N ∈ NonNegIntegerSet ⇒ seqlim_{ N → +∞ } (frac(1, 1 - x^{N + 1})) = 1)
+
+GOAL:
+x ≠ 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ ConvergentSeriesTo(sum_{ n = 1 }^{ +∞ } (s(n)), frac(x^{2}, (1 - x)^{2})))
+
+METHOD:

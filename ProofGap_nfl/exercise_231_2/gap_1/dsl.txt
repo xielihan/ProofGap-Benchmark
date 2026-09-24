@@ -1,0 +1,4 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ f(-x) = sqrtn(3, (1 + x)^{2}) + sqrtn(3, (1 - x)^{2})}) (x := {x0})
+2. get_condition (hypothesis 3: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ f(-x0) = sqrtn(3, (1 + x0)^{2}) + sqrtn(3, (1 - x0)^{2})})
+3. get_prop (hypothesis 2: {forall (x), x ∈ RealSet ⇒ f(x) = sqrtn(3, (1 - x)^{2}) + sqrtn(3, (1 + x)^{2})}) (x := {-x0}) as (hypothesis 4: {-x0 ∈ RealSet ⇒ f(-x0) = sqrtn(3, (1 - (-x0))^{2}) + sqrtn(3, (1 + (-x0))^{2})})
+4. autosolve all_hypothesis

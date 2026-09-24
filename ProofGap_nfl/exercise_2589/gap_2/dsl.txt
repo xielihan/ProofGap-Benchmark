@@ -1,0 +1,10 @@
+rewrite_in sum (left_to_right, equation) (hypothesis 4: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = frac(1, n^{2})}); from (GOAL: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (b(n)))}) to (GOAL: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{2})) )})
+get_prop (theorem 'Thm 366. (PSeriesConvergesForExponentAboveOne)': {forall (p), p ∈ RealSet => p > 1 => ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ p))}) (p := {2}) as (hypothesis 6: {2 ∈ RealSet => 2 > 1 => ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ 2))})
+assert (hypothesis 7: {2 ∈ RealSet}) by proof {
+  autosolve
+}
+assert (hypothesis 8: {2 > 1}) by proof {
+  autosolve
+}
+use_condition (hypothesis 7: {2 ∈ RealSet}) (hypothesis 8: {2 > 1}) in (hypothesis 6: {2 ∈ RealSet => 2 > 1 => ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ 2))}) as (hypothesis 9: {ConvergentSeries(sum_{n = 1}^{+∞}(1 / n ^ 2))})
+autosolve all_hypothesis

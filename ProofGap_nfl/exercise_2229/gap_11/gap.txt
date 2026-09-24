@@ -1,0 +1,19 @@
+PROOF GAP @11
+ASSUM:
+1. x ∈ RealSet
+2. x > 0
+3. forall (k), k ∈ IntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ k ∈ IntegerSet ∧ 1 ≤ k ∧ k ≤ n ⇒ 0 ≤ sqrtn(2, (x + frac(k, n)) * (x + frac(k + 1, n))) - (x + frac(k, n)))
+4. forall (k), k ∈ IntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ k ∈ IntegerSet ∧ 1 ≤ k ∧ k ≤ n ⇒ sqrtn(2, (x + frac(k, n)) * (x + frac(k + 1, n))) - (x + frac(k, n)) = frac((x + frac(k, n)) * (x + frac(k + 1, n)) - (x + frac(k, n))^{2}, sqrtn(2, (x + frac(k, n)) * (x + frac(k + 1, n))) + x + frac(k, n)))
+5. forall (k), k ∈ IntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ k ∈ IntegerSet ∧ 1 ≤ k ∧ k ≤ n ⇒ sqrtn(2, (x + frac(k, n)) * (x + frac(k + 1, n))) - (x + frac(k, n)) ≤ frac(1, 2 * x) * (x + frac(k, n)) * frac(1, n))
+6. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ 0 ≤ frac(sum_{ k = 1 }^{ n } (sqrtn(2, (n * x + k) * (n * x + k + 1))), n^{2}) - (sum_{ k = 1 }^{ n } (frac(1, n) * (x + frac(k, n))))
+7. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ frac(sum_{ k = 1 }^{ n } (sqrtn(2, (n * x + k) * (n * x + k + 1))), n^{2}) - (sum_{ k = 1 }^{ n } (frac(1, n) * (x + frac(k, n)))) ≤ frac(1, 2 * x * n^{2}) * (sum_{ k = 1 }^{ n } (x + frac(k, n)))
+8. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ frac(1, 2 * x * n^{2}) * (sum_{ k = 1 }^{ n } (x + frac(k, n))) = frac(1, 2 * n) + frac(1, 4 * x) * (1 + frac(1, n)) * frac(1, n)
+9. seqlim_{ n → +∞ } (frac(1, 2 * n) + frac(1, 4 * x) * (1 + frac(1, n)) * frac(1, n)) = 0
+10. seqlim_{ n → +∞ } (frac(sum_{ k = 1 }^{ n } (sqrtn(2, (n * x + k) * (n * x + k + 1))), n^{2})) = seqlim_{ n → +∞ } (frac(1, n) * (sum_{ k = 1 }^{ n } (x + frac(k, n))))
+11. seqlim_{ n → +∞ } (frac(1, n) * (sum_{ k = 1 }^{ n } (x + frac(k, n)))) = DefInt(0, 1, (fun t [t ∈ RealSet] . x + t) * diff(fun t [t ∈ RealSet] . t))
+12. DefInt(0, 1, (fun t [t ∈ RealSet] . x + t) * diff(fun t [t ∈ RealSet] . t)) = x + frac(1, 2)
+
+GOAL:
+seqlim_{ n → +∞ } (frac(sum_{ k = 1 }^{ n } (sqrtn(2, (n * x + k) * (n * x + k + 1))), n^{2})) = x + frac(1, 2)
+
+METHOD:

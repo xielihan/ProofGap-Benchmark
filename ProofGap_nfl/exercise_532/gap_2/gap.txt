@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ PosRealSet ⇒ x > 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ sin(ln(x + 1)) - sin(ln(x)) = 2 * cos(frac(ln(x + 1) + ln(x), 2)) * sin(frac(ln(x + 1) - ln(x), 2))
+
+METHOD:

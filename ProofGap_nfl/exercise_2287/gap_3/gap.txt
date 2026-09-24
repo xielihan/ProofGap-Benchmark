@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. I : NonNegIntegerSet → RealSet
+2. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = DefInt(0, frac(π, 4), (fun x [x ∈ RealSet] . ((sin(x) - cos(x)) / (sin(x) + cos(x)))^{2 * n + 1}) * diff(fun x [x ∈ RealSet] . x))
+3. forall (x), x ∈ RealSet ∧ sin(x) + cos(x) ≠ 0 ⇒ (sin(x) - cos(x)) / (sin(x) + cos(x)) = tan(x - frac(π, 4))
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ I(n) = DefInt(0, frac(π, 4), (fun x [x ∈ RealSet] . tan(x - frac(π, 4))^{2 * n + 1}) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ I(n) = DefInt(0, frac(π, 4), (fun x [x ∈ RealSet] . tan(x - frac(π, 4))^{2 * n - 1} * (sec(x - frac(π, 4))^{2} - 1)) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

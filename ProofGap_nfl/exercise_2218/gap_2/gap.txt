@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. DefInt(0, 100 * π, (fun x [x ∈ RealSet] . sqrtn(2, 1 - cos(2 * x))) * diff(fun x [x ∈ RealSet] . x)) = sum_{ k = 1 }^{ 100 } (sqrtn(2, 2) * DefInt((k - 1) * π, k * π, (fun x [x ∈ RealSet] . sqrtn(2, sin(x)^{2})) * diff(fun x [x ∈ RealSet] . x)))
+
+GOAL:
+sum_{ k = 1 }^{ 100 } (sqrtn(2, 2) * DefInt((k - 1) * π, k * π, (fun x [x ∈ RealSet] . sqrtn(2, sin(x)^{2})) * diff(fun x [x ∈ RealSet] . x))) = sum_{ k = 1 }^{ 100 } (sqrtn(2, 2) * DefInt(0, π, (fun x [x ∈ RealSet] . sqrtn(2, sin(x)^{2})) * diff(fun x [x ∈ RealSet] . x)))
+
+METHOD:

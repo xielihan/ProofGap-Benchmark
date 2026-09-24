@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. forall (k), k ∈ IntegerSet ⇒ a ≠ k * π
+3. lim_{ x → 0 } (frac(cot(a + 2 * x) - 2 * cot(a + x) + cot(a), x^{2})) = lim_{ x → 0 } (frac(-sin(x) * sin(a + x) * (sin(a) - sin(a + 2 * x)), x^{2} * sin(a) * sin(a + x)^{2} * sin(a + 2 * x)))
+
+GOAL:
+lim_{ x → 0 } (frac(-sin(x) * sin(a + x) * (sin(a) - sin(a + 2 * x)), x^{2} * sin(a) * sin(a + x)^{2} * sin(a + 2 * x))) = lim_{ x → 0 } (frac(sin(x), x)^{2} * frac(2 * cos(a + x), sin(a) * sin(a + x) * sin(a + 2 * x)))
+
+METHOD:

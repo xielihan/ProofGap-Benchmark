@@ -1,0 +1,4 @@
+get_exists (hypothesis 2: {exists (t), t ∈ RealSet ∧ t > 0 ∧ e^{frac(x, 6)} = t}) (t := {t0})
+exists (t := {t0})
+assert (hypothesis 3: {t0 ∈ RealSet ∧ t0 > 0})
+apply (hypothesis 3: {t0 ∈ RealSet ∧ t0 > 0})

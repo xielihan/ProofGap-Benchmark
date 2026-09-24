@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. N ∈ NonNegIntegerSet
+2. R : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ R(N) = sum_{ n = N + 1 }^{ +∞ } (frac(1, n^{2})))
+4. forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ R(N) = sum_{ n = N + 1 }^{ +∞ } (frac(1, n^{2}))
+
+GOAL:
+forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ R(N) < sum_{ n = N + 1 }^{ +∞ } (frac(1, n * (n - 1)))
+
+METHOD:

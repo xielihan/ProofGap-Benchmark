@@ -1,0 +1,22 @@
+PROOF GAP @7
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. x_{1} ∈ RealSet
+4. x_{2} ∈ RealSet
+5. x_{3} ∈ RealSet
+6. x_{4} ∈ RealSet
+7. m ∈ RealSet ∧ m > 0
+8. ξ ∈ RealSet
+9. forall (t), t ∈ RealSet ⇒ f(t) = t + e^{t}
+10. forall (t), t ∈ RealSet ⇒ FunDeri(f, 1, 1)(t) = 1 + e^{t} ∧ 1 + e^{t} > 0
+11. forall (t), t ∈ RealSet ⇒ FunDeri(f, 1, 2)(t) = e^{t} ∧ e^{t} > 0
+12. f(0) = 1
+13. f(-1) = frac(1, e) - 1
+14. frac(1, e) - 1 < 0
+15. ξ ∈ IntervalLoRo(-1, 0) ∧ f(ξ) = 0 ∧ (forall (ξ1), ξ1 ∈ RealSet ∧ ξ1 ∈ IntervalLoRo(-1, 0) ∧ f(ξ1) = 0 ⇒ ξ1 = ξ)
+
+GOAL:
+f(0) * FunDeri(f, 1, 2)(0) > 0
+
+METHOD:

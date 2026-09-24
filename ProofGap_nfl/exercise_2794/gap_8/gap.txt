@@ -1,0 +1,24 @@
+PROOF GAP @8
+ASSUM:
+1. S : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. F : RealSet → RealSet
+3. k ∈ NonNegIntegerSet
+4. N ∈ NonNegIntegerSet
+5. x_{0} ∈ RealSet
+6. ε_{0} ∈ RealSet
+7. S = (fun n [n ∈ NonNegIntegerSet] . fun x [x ∈ RealSet] . sum_{ k = 1 }^{ n } (k * x * e^{-(k * x)} - (k - 1) * x * e^{-((k - 1) * x)}))
+8. F = (fun x [x ∈ RealSet] . 0)
+9. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ S(n, x) = n * x * e^{-(n * x)}
+10. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ seqlim_{ n → +∞ } (S(n, x)) = 0
+11. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ ConvergentSeq(fun n [n ∈ NonNegIntegerSet] . S(n, x))
+12. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ F(x) = 0
+13. ContinuousFuncOn(F, [0, 1])
+14. UniformConvergent(S, [0, 1], F) ⇒ ε_{0} = frac(1, 2) * e^{-1}
+15. UniformConvergent(S, [0, 1], F) ⇒ ε_{0} > 0
+16. UniformConvergent(S, [0, 1], F) ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ∧ n ≥ N ⇒ |S(n, x) - F(x)| < ε_{0}))
+17. UniformConvergent(S, [0, 1], F) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ x_{0} = frac(1, n))
+
+GOAL:
+UniformConvergent(S, [0, 1], F) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ N ⇒ x_{0} ∈ [0, 1])
+
+METHOD:

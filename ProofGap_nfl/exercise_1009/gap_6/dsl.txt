@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (Δx), Δx ∈ RealSet /\ Δx ≠ 0 => frac(f(0 + Δx) - f(0), Δx) = sin(frac(1, Δx))}) (Δx := {h})
+get_condition (hypothesis 8: {h ∈ RealSet /\ h ≠ 0}) in (GOAL: {(h ∈ RealSet /\ h ≠ 0) => frac(f(0 + h) - f(0), h) = sin(frac(1, h))})
+destruct_and (hypothesis 8: {h ∈ RealSet /\ h ≠ 0}) as (hypothesis 9: {h ∈ RealSet}) (hypothesis 10: {h ≠ 0})
+get_prop (hypothesis 2: {forall (x), x ∈ RealSet => f(x) = cases{ x * sin(frac(1, x)) if x ≠ 0; 0 if x = 0 }}) (x := {h}) as (hypothesis 11: {h ∈ RealSet => f(h) = cases{ h * sin(frac(1, h)) if h ≠ 0; 0 if h = 0 }})
+use_condition (hypothesis 9: {h ∈ RealSet}) in (hypothesis 11: {h ∈ RealSet => f(h) = cases{ h * sin(frac(1, h)) if h ≠ 0; 0 if h = 0 }}) as (hypothesis 12: {f(h) = cases{ h * sin(frac(1, h)) if h ≠ 0; 0 if h = 0 }})
+autosolve all_hypothesis

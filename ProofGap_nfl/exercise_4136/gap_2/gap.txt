@@ -1,0 +1,26 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. c ∈ RealSet ∧ c > 0
+4. rho : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+5. E ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+6. Mass ∈ RealSet
+7. x_{0} ∈ RealSet
+8. y_{0} ∈ RealSet
+9. z_{0} ∈ RealSet
+10. x ∈ RealSet
+11. y ∈ RealSet
+12. z ∈ RealSet
+13. ω ∈ RealSet
+14. rho = (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . 1)
+15. E = { (x, y, z) | x ∈ RealSet, y ∈ RealSet, z ∈ RealSet, frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}) ≤ 1, x ≥ 0, y ≥ 0, z ≥ 0 }
+16. x = a * r * cos(φ) * cos(ψ)
+17. y = b * r * sin(φ) * cos(ψ)
+18. z = c * r * sin(ψ)
+19. 0 ≤ r
+
+GOAL:
+r ≤ 1
+
+METHOD:

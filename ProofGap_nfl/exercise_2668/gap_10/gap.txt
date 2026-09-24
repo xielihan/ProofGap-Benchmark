@@ -1,0 +1,16 @@
+PROOF GAP @10
+ASSUM:
+1. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (-1)^{n} * frac(sin(n)^{2}, n) = (-1)^{n} * frac(1, 2 * n) + (-1)^{n + 1} * frac(cos(2 * n), 2 * n)
+2. ConvergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n} * frac(1, 2 * n)))
+3. forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ sum_{ n = 1 }^{ N } ((-1)^{n + 1} * frac(cos(2 * n), 2 * n)) = (sum_{ n = 1 }^{ N } (frac(cos(2 * n), 2 * n))) - (sum_{ n = 1 }^{ floor(frac(N, 2)) } (frac(2 * cos(4 * n), 4 * n)))
+4. MonoDecSeq(fun k [k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet] . frac(1, 2 * k))
+5. seqlim_{ k → +∞ } (frac(1, 2 * k)) = 0
+6. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ |sum_{ n = 1 }^{ k } (cos(2 * n))| = |frac(sin(2 * k + 1) - sin(1), 2 * sin(1))| ∧ |frac(sin(2 * k + 1) - sin(1), 2 * sin(1))| ≤ frac(1, sin(1))
+7. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(cos(2 * n), 2 * n)))
+8. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(cos(4 * n), 2 * n)))
+9. exists (S_{1}) (S_{2}), S_{1} ∈ RealSet ∧ S_{2} ∈ RealSet ∧ ConvergentSeriesTo(sum_{ n = 1 }^{ +∞ } (frac(cos(2 * n), 2 * n)), S_{1}) ∧ ConvergentSeriesTo(sum_{ n = 1 }^{ +∞ } (frac(cos(4 * n), 2 * n)), S_{2})
+
+GOAL:
+exists (S_{1}) (S_{2}), S_{1} ∈ RealSet ∧ S_{2} ∈ RealSet ∧ seqlim_{ N → +∞ } (sum_{ n = 1 }^{ N } ((-1)^{n + 1} * frac(cos(2 * n), 2 * n))) = S_{1} - S_{2}
+
+METHOD:

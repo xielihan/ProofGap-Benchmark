@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (f) (a) (b) (σ), f : RealSet → RealSet ∧ a : NonNegIntegerSet → RealSet ∧ b : NonNegIntegerSet → RealSet ∧ σ : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ∧ ContinuousFuncOn(f, [-π, π]) ∧ (forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ σ(n, x) = a(0) / 2 + (sum_{ i = 1 }^{ n - 1 } ((1 - frac(i, n)) * (a(i) * cos(i * x) + b(i) * sin(i * x))))) ⇒ (forall (η), η ∈ RealSet ∧ η > 0 ⇒ UniformConvergent(σ, [-π + η, π - η], f))
+
+GOAL:
+forall (f) (a) (b) (σ), f : RealSet → RealSet ∧ a : NonNegIntegerSet → RealSet ∧ b : NonNegIntegerSet → RealSet ∧ σ : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ∧ ContinuousFuncOn(f, [-π, π]) ∧ f(-π) = f(π) ∧ (forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ σ(n, x) = a(0) / 2 + (sum_{ i = 1 }^{ n - 1 } ((1 - frac(i, n)) * (a(i) * cos(i * x) + b(i) * sin(i * x))))) ⇒ UniformConvergent(σ, [-π, π], f)
+
+METHOD:

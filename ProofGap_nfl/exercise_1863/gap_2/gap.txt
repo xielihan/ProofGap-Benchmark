@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet ∧ x^{4} + 2 * x^{2} - 1 > 0
+2. C ∈ RealSet
+3. x^{4} + 2 * x^{2} - 1 = (x^{2} + 1)^{2} - 2
+
+GOAL:
+diff(fun x [x ∈ RealSet] . x^{2} + 1) = 2 * x * diff(fun x [x ∈ RealSet] . x)
+
+METHOD:

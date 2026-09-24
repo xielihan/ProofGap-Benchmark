@@ -1,0 +1,28 @@
+PROOF GAP @14
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. θ ∈ RealSet
+4. 0 < a
+5. a < b
+6. x = (fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ b^{2}] . sqrtn(2, t))
+7. forall (t), t ∈ RealSet ∧ t ≤ b^{2} ⇒ a^{2} ≤ t
+8. forall (t), t ∈ RealSet ∧ a^{2} ≤ t ⇒ t ≤ b^{2}
+9. DefInt(a, b, (fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . sin(x^{2})) * diff(fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . x)) = frac(1, 2) * DefInt(a^{2}, b^{2}, (fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ b^{2}] . frac(sin(t), sqrtn(2, t))) * diff(fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ b^{2}] . t))
+10. f = (fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ b^{2}] . sin(t))
+11. φ = (fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ b^{2}] . frac(1, sqrtn(2, t)))
+12. ContinuousFuncOn(f, [a^{2}, b^{2}])
+13. ContinuousFuncOn(φ, [a^{2}, b^{2}])
+14. MonoDecFuncOn(φ, [a^{2}, b^{2}])
+15. forall (t), t ∈ RealSet ∧ t ∈ [a^{2}, b^{2}] ⇒ φ(t) > 0
+16. exists (ξ), ξ ∈ RealSet ∧ a^{2} ≤ ξ ∧ ξ ≤ b^{2} ∧ frac(1, 2) * DefInt(a^{2}, b^{2}, (fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ b^{2}] . frac(sin(t), sqrtn(2, t))) * diff(fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ b^{2}] . t)) = frac(1, 2 * a) * DefInt(a^{2}, ξ, (fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ ξ] . sin(t)) * diff(fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ ξ] . t))
+17. exists (ξ), ξ ∈ RealSet ∧ a^{2} ≤ ξ ∧ ξ ≤ b^{2} ∧ DefInt(a^{2}, ξ, (fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ ξ] . sin(t)) * diff(fun t [t ∈ RealSet ∧ a^{2} ≤ t ∧ t ≤ ξ] . t)) = cos(a^{2}) - cos(ξ)
+18. exists (ξ), ξ ∈ RealSet ∧ a^{2} ≤ ξ ∧ ξ ≤ b^{2} ∧ cos(a^{2}) - cos(ξ) = 2 * sin(frac(ξ + a^{2}, 2)) * sin(frac(ξ - a^{2}, 2))
+19. exists (ξ), ξ ∈ RealSet ∧ a^{2} ≤ ξ ∧ ξ ≤ b^{2} ∧ θ = sin(frac(ξ + a^{2}, 2)) * sin(frac(ξ - a^{2}, 2))
+20. |θ| ≤ 1
+21. DefInt(a, b, (fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . sin(x^{2})) * diff(fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . x)) = frac(θ, a)
+
+GOAL:
+exists (ξ), ξ ∈ RealSet ∧ a^{2} ≤ ξ ∧ ξ ≤ b^{2} ∧ |θ| ≤ 1 ∧ DefInt(a, b, (fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . sin(x^{2})) * diff(fun x [x ∈ RealSet ∧ a ≤ x ∧ x ≤ b] . x)) = frac(θ, a)
+
+METHOD:

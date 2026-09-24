@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. 0 ≤ |b|
+5. |b| < a
+6. y = fun x . frac(b, a) * x + frac(2 * sqrtn(2, a^{2} - b^{2}), a) * arctan(sqrtn(2, frac(a - b, a + b)) * tanh(frac(x, 2)))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = frac(b, a) + frac(2 * sqrtn(2, a^{2} - b^{2}), a) * frac(1, 1 + frac(a - b, a + b) * tanh(frac(x, 2))^{2}) * sqrtn(2, frac(a - b, a + b)) * frac(1, 2 * cosh(frac(x, 2))^{2})
+
+METHOD:

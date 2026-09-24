@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. lim_{ x → +∞ } (frac(x^{2} + 10 * x + 100, 0.001 * x^{3})) = 0
+
+GOAL:
+exists (M_{1}), M_{1} ∈ RealSet ∧ M_{1} ∈ PosRealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ∧ x > M_{1} ⇒ frac(x^{2} + 10 * x + 100, 0.001 * x^{3}) < 1)
+
+METHOD:

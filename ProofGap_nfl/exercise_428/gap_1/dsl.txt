@@ -1,0 +1,5 @@
+get_condition (hypothesis 5: {m = n}) in (GOAL: {m = n ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ frac(m, 1 - x^{m}) - frac(n, 1 - x^{n}) = 0)})
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ frac(m, 1 - x^{m}) - frac(n, 1 - x^{n}) = 0}) (x := {z})
+get_condition (hypothesis 6: {z ∈ RealSet ∧ z ≠ 1}) in (GOAL: {z ∈ RealSet ∧ z ≠ 1 ⇒ frac(m, 1 - z^{m}) - frac(n, 1 - z^{n}) = 0})
+rewrite (left_to_right, equation) (hypothesis 5: {m = n}); from (GOAL: {frac(m, 1 - z^{m}) - frac(n, 1 - z^{n}) = 0}) to (GOAL: {frac(n, 1 - z^{n}) - frac(n, 1 - z^{n}) = 0})
+autosolve all_hypothesis

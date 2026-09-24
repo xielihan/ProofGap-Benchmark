@@ -1,0 +1,10 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x > 0 ∧ y > 0 ⇒ frac(a^{2} * b^{2}, 2 * x * y) = frac(a^{3} * b, 2 * x * sqrtn(2, a^{2} - x^{2}))}) (x := {x0})
+get_condition (hypothesis 12: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x0 > 0 ∧ y > 0 ⇒ frac(a^{2} * b^{2}, 2 * x0 * y) = frac(a^{3} * b, 2 * x0 * sqrtn(2, a^{2} - x0^{2}))})
+get_forall (GOAL: {forall (y), y ∈ RealSet ∧ x0 > 0 ∧ y > 0 ⇒ frac(a^{2} * b^{2}, 2 * x0 * y) = frac(a^{3} * b, 2 * x0 * sqrtn(2, a^{2} - x0^{2}) )}) (y := {y0})
+get_condition (hypothesis 13: {y0 ∈ RealSet ∧ x0 > 0 ∧ y0 > 0}) in (GOAL: {y0 ∈ RealSet ∧ x0 > 0 ∧ y0 > 0 ⇒ frac(a^{2} * b^{2}, 2 * x0 * y0) = frac(a^{3} * b, 2 * x0 * sqrtn(2, a^{2} - x0^{2}) )})
+get_prop (hypothesis 10: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x > 0 ∧ y > 0 ⇒ y = frac(b, a) * sqrtn(2, a^{2} - x^{2}))}) (x := {x0}) as (hypothesis 14: {x0 ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x0 > 0 ∧ y > 0 ⇒ y = frac(b, a) * sqrtn(2, a^{2} - x0^{2}))})
+use_condition (hypothesis 12: {x0 ∈ RealSet}) in (hypothesis 14: {x0 ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x0 > 0 ∧ y > 0 ⇒ y = frac(b, a) * sqrtn(2, a^{2} - x0^{2}))}) as (hypothesis 15: {forall (y), y ∈ RealSet ∧ x0 > 0 ∧ y > 0 ⇒ y = frac(b, a) * sqrtn(2, a^{2} - x0^{2})})
+get_prop (hypothesis 15: {forall (y), y ∈ RealSet ∧ x0 > 0 ∧ y > 0 ⇒ y = frac(b, a) * sqrtn(2, a^{2} - x0^{2})}) (y := {y0}) as (hypothesis 16: {y0 ∈ RealSet ∧ x0 > 0 ∧ y0 > 0 ⇒ y0 = frac(b, a) * sqrtn(2, a^{2} - x0^{2})})
+use_condition (hypothesis 13: {y0 ∈ RealSet ∧ x0 > 0 ∧ y0 > 0}) in (hypothesis 16: {y0 ∈ RealSet ∧ x0 > 0 ∧ y0 > 0 ⇒ y0 = frac(b, a) * sqrtn(2, a^{2} - x0^{2})}) as (hypothesis 17: {y0 = frac(b, a) * sqrtn(2, a^{2} - x0^{2})})
+rewrite (left_to_right, equation) (hypothesis 17: {y0 = frac(b, a) * sqrtn(2, a^{2} - x0^{2})}); from (GOAL: {frac(a^{2} * b^{2}, 2 * x0 * y0) = frac(a^{3} * b, 2 * x0 * sqrtn(2, a^{2} - x0^{2}))}) to (GOAL: {frac(a^{2} * b^{2}, 2 * x0 * (frac(b, a) * sqrtn(2, a^{2} - x0^{2}))) = frac(a^{3} * b, 2 * x0 * sqrtn(2, a^{2} - x0^{2}))})
+autosolve all_hypothesis

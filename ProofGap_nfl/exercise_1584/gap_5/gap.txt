@@ -1,0 +1,22 @@
+PROOF GAP @5
+ASSUM:
+1. S_{1} ∈ RealSet
+2. S_{2} ∈ RealSet
+3. a ∈ RealSet
+4. x ∈ RealSet
+5. I : RealSet → RealSet
+6. S_{1} > 0
+7. S_{2} > 0
+8. a > 0
+9. 0 < x
+10. x < a
+11. I(x) = frac(S_{1}, x^{2}) + frac(S_{2}, (a - x)^{2})
+12. FunDeri(I, 1, 1)(x) = -frac(2 * S_{1}, x^{3}) + frac(2 * S_{2}, (a - x)^{3})
+13. FunDeri(I, 1, 1)(x) = 0 ⇒ x ∈ MinimumPointOn(I, IntervalLoRo(0, a))
+14. S_{2} * x^{3} = S_{1} * (a - x)^{3} ⇒ FunDeri(I, 1, 1)(x) = 0
+15. x = a * (1 + sqrtn(3, frac(S_{2}, S_{1})))^{-1} ⇒ S_{2} * x^{3} = S_{1} * (a - x)^{3}
+
+GOAL:
+x = a * (1 + sqrtn(3, frac(S_{2}, S_{1})))^{-1} ⇒ x ∈ MinimumPointOn(I, IntervalLoRo(0, a))
+
+METHOD:

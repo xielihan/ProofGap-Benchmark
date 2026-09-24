@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 1 ∧ t = sqrtn(2, 1 + e^{x}) ⇒ x = ln(t^{2} - 1))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 1 ∧ t = sqrtn(2, 1 + e^{x}) ⇒ diff(fun x [x ∈ RealSet] . x) = frac(2 * t, t^{2} - 1) * diff(fun t [t ∈ RealSet] . t))
+
+METHOD:

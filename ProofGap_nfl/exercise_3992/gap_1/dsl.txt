@@ -1,0 +1,2 @@
+exists (r := {0}) (φ := {0})
+autosolve (hypothesis 10: {x = 0})

@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. a = (fun n [n ∈ NonNegIntegerSet] . frac(2 + (-1)^{n}, 2^{n}))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(2 + (-1)^{n}, 2^{n})
+
+METHOD:

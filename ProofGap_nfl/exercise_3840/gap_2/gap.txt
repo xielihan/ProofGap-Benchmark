@@ -1,0 +1,25 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. f : RealSet → RealSet
+3. u : CartesianProd(RealSet, RealSet) → RealSet
+4. x ∈ RealSet
+5. t ∈ RealSet ∧ t > 0
+6. ξ ∈ RealSet
+7. M ∈ RealSet ∧ M > 0
+8. I_{1} ∈ RealSet
+9. I_{2} ∈ RealSet
+10. I_{3} ∈ RealSet
+11. δ ∈ RealSet ∧ δ > 0
+12. η ∈ RealSet ∧ η > 0
+13. ε ∈ RealSet ∧ ε > 0
+14. ContinuousFuncOn(f, IntervalLoRo(-∞, +∞))
+15. DefInt(-∞, +∞, (fun ξ [ξ ∈ RealSet] . |f(ξ)|) * diff(fun ξ [ξ ∈ RealSet] . ξ)) < +∞
+16. forall (x) (t), t ∈ RealSet ∧ x ∈ RealSet ∧ t > 0 ⇒ u(x, t) = frac(1, 2 * a * sqrtn(2, π * t)) * DefInt(-∞, +∞, (fun ξ [ξ ∈ RealSet] . f(ξ) * e^{-frac((ξ - x)^{2}, 4 * a^{2} * t)}) * diff(fun ξ [ξ ∈ RealSet] . ξ))
+17. forall (x) (t), t ∈ RealSet ∧ x ∈ RealSet ∧ t > 0 ⇒ |f(ξ) * e^{-frac((ξ - x)^{2}, 4 * a^{2} * t)}| ≤ |f(ξ)|
+
+GOAL:
+ConvergentSeries(DefInt(-∞, +∞, (fun ξ [ξ ∈ RealSet] . f(ξ) * e^{-frac((ξ - x)^{2}, 4 * a^{2} * t)}) * diff(fun ξ [ξ ∈ RealSet] . ξ)))
+
+METHOD:
+[@method 根据 "含参积分一致收敛判别法" @]

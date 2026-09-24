@@ -1,0 +1,25 @@
+PROOF GAP @17
+ASSUM:
+1. x : NonNegIntegerSet → RealSet
+2. G : NonNegIntegerSet → RealSet
+3. A : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ PosIntegerSet ⇒ (forall (i), i ∈ PosIntegerSet ∧ i ≤ n ⇒ x(i) > 0)
+5. forall (i), i ∈ PosIntegerSet ⇒ (forall (n), n ∈ PosIntegerSet ⇒ G(n) = (prod_{ i = 1 }^{ n } (x(i)))^{frac(1, n)})
+6. forall (i), i ∈ PosIntegerSet ⇒ (forall (n), n ∈ PosIntegerSet ⇒ A(n) = frac(1, n) * (sum_{ i = 1 }^{ n } (x(i))))
+7. forall (n), n ∈ PosIntegerSet ∧ n = 1 ⇒ G(n) = x(1)
+8. forall (n), n ∈ PosIntegerSet ∧ n = 1 ⇒ A(n) = x(1)
+9. forall (n), n ∈ PosIntegerSet ∧ n = 1 ⇒ G(n) ≤ A(n)
+10. forall (n), n ∈ PosIntegerSet ∧ n = 2 ⇒ G(n) = sqrtn(2, x(1) * x(2))
+11. forall (n), n ∈ PosIntegerSet ∧ n = 2 ⇒ A(n) = frac(x(1) + x(2), 2)
+12. forall (n), n ∈ PosIntegerSet ∧ n = 2 ⇒ G(n) ≤ A(n)
+13. forall (n), n ∈ PosIntegerSet ⇒ (forall (k), k ∈ PosIntegerSet ∧ k ≥ 2 ∧ (forall (m), m ∈ PosIntegerSet ∧ m = k ⇒ G(k) ≤ A(k)) ∧ n = k + 1 ⇒ G(k + 1) = (G(k)^{k} * x(k + 1))^{frac(1, k + 1)})
+14. forall (n), n ∈ PosIntegerSet ⇒ (forall (k), k ∈ PosIntegerSet ∧ k ≥ 2 ∧ (forall (m), m ∈ PosIntegerSet ∧ m = k ⇒ G(k) ≤ A(k)) ∧ n = k + 1 ⇒ G(k + 1) ≤ G(k)^{frac(k, k + 1)} * x(k + 1)^{frac(1, k + 1)})
+15. forall (n), n ∈ PosIntegerSet ⇒ (forall (k), k ∈ PosIntegerSet ∧ k ≥ 2 ∧ (forall (m), m ∈ PosIntegerSet ∧ m = k ⇒ G(k) ≤ A(k)) ∧ n = k + 1 ⇒ G(k)^{frac(k, k + 1)} * x(k + 1)^{frac(1, k + 1)} ≤ A(k)^{frac(k, k + 1)} * x(k + 1)^{frac(1, k + 1)})
+16. forall (n), n ∈ PosIntegerSet ⇒ (forall (k), k ∈ PosIntegerSet ∧ k ≥ 2 ∧ (forall (m), m ∈ PosIntegerSet ∧ m = k ⇒ G(k) ≤ A(k)) ∧ n = k + 1 ⇒ A(k)^{frac(k, k + 1)} * x(k + 1)^{frac(1, k + 1)} ≤ frac(k, k + 1) * A(k) + frac(1, k + 1) * x(k + 1))
+17. forall (n), n ∈ PosIntegerSet ⇒ (forall (k), k ∈ PosIntegerSet ∧ k ≥ 2 ∧ (forall (m), m ∈ PosIntegerSet ∧ m = k ⇒ G(k) ≤ A(k)) ∧ n = k + 1 ⇒ frac(k, k + 1) * A(k) + frac(1, k + 1) * x(k + 1) = frac(1, k + 1) * ((sum_{ i = 1 }^{ k } (x(i))) + x(k + 1)))
+18. forall (n), n ∈ PosIntegerSet ⇒ (forall (k), k ∈ PosIntegerSet ∧ k ≥ 2 ∧ (forall (m), m ∈ PosIntegerSet ∧ m = k ⇒ G(k) ≤ A(k)) ∧ n = k + 1 ⇒ frac(1, k + 1) * ((sum_{ i = 1 }^{ k } (x(i))) + x(k + 1)) = A(k + 1))
+19. forall (n), n ∈ PosIntegerSet ⇒ (forall (k), k ∈ PosIntegerSet ∧ k ≥ 2 ∧ (forall (m), m ∈ PosIntegerSet ∧ m = k ⇒ G(k) ≤ A(k)) ∧ n = k + 1 ⇒ frac(k, k + 1) * A(k) + frac(1, k + 1) * x(k + 1) = A(k + 1))
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2 ∧ (forall (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ m = k ⇒ G(k) ≤ A(k)) ∧ n = k + 1 ⇒ G(k + 1) ≤ A(k + 1))
+
+METHOD:

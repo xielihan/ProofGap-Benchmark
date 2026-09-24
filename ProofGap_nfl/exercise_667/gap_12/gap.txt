@@ -1,0 +1,25 @@
+PROOF GAP @12
+ASSUM:
+1. f : RealSet → RealSet
+2. ε ∈ RealSet ∧ ε > 0
+3. x_{0} ∈ RealSet
+4. δ ∈ RealSet
+5. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ f(x) = frac(1, x)
+6. ε = 0.001
+7. x_{0} ∈ IntervalLoRo(0, 1)
+8. forall (x), x ∈ RealSet ⇒ |f(x) - f(x_{0})| = frac(|x - x_{0}|, |x| * |x_{0}|)
+9. forall (x), x ∈ RealSet ⇒ |x| ≥ |x_{0}| - |x - x_{0}|
+10. forall (x), x ∈ RealSet ∧ |x - x_{0}| < |x_{0}| ⇒ |f(x) - f(x_{0})| ≤ frac(|x - x_{0}|, |x_{0}|^{2} - |x_{0}| * |x - x_{0}|)
+11. forall (x), x ∈ RealSet ∧ frac(|x - x_{0}|, |x_{0}|^{2} - |x_{0}| * |x - x_{0}|) < ε ⇒ |f(x) - f(x_{0})| < ε
+12. forall (x), x ∈ RealSet ∧ |x - x_{0}| < frac(ε * (x_{0})^{2}, 1 + ε * |x_{0}|) ⇒ frac(|x - x_{0}|, |x_{0}|^{2} - |x_{0}| * |x - x_{0}|) < ε
+13. forall (x), x ∈ RealSet ∧ |x - x_{0}| < frac(ε * (x_{0})^{2}, 1 + ε * |x_{0}|) ⇒ |f(x) - f(x_{0})| < ε
+14. frac(ε * (x_{0})^{2}, 1 + ε * |x_{0}|) > 0
+15. ε = 0.001 ⇒ δ ≈_{ 0.001 * (x_{0})^{2} } 0.001 * (x_{0})^{2}
+16. x_{0} = 0.1 ⇒ δ = 10^{-5}
+17. x_{0} = 0.01 ⇒ δ = 10^{-7}
+18. x_{0} = 0.001 ⇒ δ = 10^{-9}
+
+GOAL:
+exists (δ), δ > 0 ∧ (forall (x), x_{0} ∈ IntervalLoRo(0, 1) ∧ x ∈ RealSet ∧ x ≠ 0 ∧ |x - x_{0}| < δ ⇒ |f(x) - f(x_{0})| < ε)
+
+METHOD:

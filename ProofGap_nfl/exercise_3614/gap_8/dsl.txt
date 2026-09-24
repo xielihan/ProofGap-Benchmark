@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 10: {A = FunDeri(F, 1, 2)(0, 0)}); from (GOAL: {A = 0}) to (GOAL: {FunDeri(F, 1, 2)(0, 0) = 0})
+autosolve (hypothesis 5: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ F(x, y) = y^{2} - 1 + e^{-x^{3}}}) (hypothesis 6: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(F, 1, 1)(x, y) = -3 * x^{2} * e^{-x^{3}})})

@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. I ∈ RealSet
+2. I = DefInt(-∞, +∞, (fun x [x ∈ RealSet] . DefInt(x^{2} + 1, +∞, (fun y [y ∈ RealSet] . frac(1, x^{4} + y^{2})) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+3. I = DefInt(-∞, +∞, (fun x [x ∈ RealSet] . DefInt(x^{2} + 1, +∞, (fun y [y ∈ RealSet] . frac(1, x^{4} + y^{2})) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+4. I = 2 * DefInt(0, +∞, (fun x [x ∈ RealSet] . DefInt(x^{2} + 1, +∞, (fun y [y ∈ RealSet] . frac(1, x^{4} + y^{2})) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+5. forall (x), x ∈ RealSet ∧ x > 0 ⇒ DefInt(x^{2} + 1, +∞, (fun y [y ∈ RealSet] . frac(1, x^{4} + y^{2})) * diff(fun y [y ∈ RealSet] . y)) = frac(1, x^{2}) * (frac(π, 2) - arctan(1 + frac(1, x^{2})))
+6. I = 2 * DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . frac(1, x^{2}) * (frac(π, 2) - arctan(1 + frac(1, x^{2})))) * diff(fun x [x ∈ RealSet] . x))
+7. lim_{ x → 0^+ } (frac(frac(π, 2) - arctan(1 + frac(1, x^{2})), x)) = 0
+
+GOAL:
+I = 2 * DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(1, x^{4} + x^{2} + frac(1, 2))) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

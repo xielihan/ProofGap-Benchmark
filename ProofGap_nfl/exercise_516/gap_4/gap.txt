@@ -1,0 +1,16 @@
+PROOF GAP @4
+ASSUM:
+1. a_{1} ∈ RealSet
+2. a_{2} ∈ RealSet
+3. b_{1} ∈ RealSet
+4. b_{2} ∈ RealSet
+5. a_{1} > 0
+6. a_{2} > 0
+7. forall (x), x ∈ RealSet ⇒ frac(a_{1} * x + b_{1}, a_{2} * x + b_{2})^{x} = frac(a_{1}, a_{2})^{x} * frac(x + frac(b_{1}, a_{1}), x + frac(b_{2}, a_{2}))^{x}
+8. a_{1} = a_{2} ⇒ lim_{ x → +∞ } (frac(a_{1} * x + b_{1}, a_{2} * x + b_{2})^{x}) = e^{frac(b_{1} - b_{2}, a_{1})}
+9. a_{1} < a_{2} ⇒ 0 < frac(a_{1}, a_{2})
+
+GOAL:
+a_{1} < a_{2} ⇒ frac(a_{1}, a_{2}) < 1
+
+METHOD:

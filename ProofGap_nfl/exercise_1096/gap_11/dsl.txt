@@ -1,0 +1,2 @@
+1. get_condition (hypothesis 12: {sin(x) ≠ 0}) in (GOAL: {sin(x) ≠ 0 ⇒ frac(cos(x), -sin(x)) = -frac(cos(x), sin(x))})
+2. autosolve all_hypothesis

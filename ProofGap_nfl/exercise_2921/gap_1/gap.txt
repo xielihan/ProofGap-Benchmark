@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. R : NonNegIntegerSet → RealSet
+
+GOAL:
+sqrtn(3, 9) = 2 * (1 + frac(1, 8))^{frac(1, 3)}
+
+METHOD:

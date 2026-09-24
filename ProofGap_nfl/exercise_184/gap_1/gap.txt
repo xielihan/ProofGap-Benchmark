@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ y(x) = frac(1, 1 - x)
+
+GOAL:
+ContinuousFuncOn(y, IntervalLoRo(0, 1))
+
+METHOD:

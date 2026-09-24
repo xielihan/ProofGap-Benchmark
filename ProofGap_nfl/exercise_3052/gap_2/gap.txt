@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. p : IntegerSet → RealSet
+2. P : IntegerSet → RealSet
+3. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ p(n) = frac(n^{3} - 1, n^{3} + 1)
+4. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ (forall (i), i ∈ IntegerSet ∧ i ≥ 2 ⇒ P(n) = prod_{ i = 2 }^{ n } (p(i)))
+5. forall (n), n ∈ IntegerSet ∧ n ≥ 2 ⇒ (forall (i), i ∈ IntegerSet ∧ i ≥ 2 ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ P(n) = prod_{ i = 2 }^{ n } (frac(i^{3} - 1, i^{3} + 1)))
+
+GOAL:
+forall (n), n ∈ IntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ P(n) = frac(2, 3) * frac(n^{2} + n + 1, n * (n + 1))
+
+METHOD:

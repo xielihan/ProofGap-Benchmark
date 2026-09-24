@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ≠ sqrtn(2, 2) ∧ x ≠ -sqrtn(2, 2) ⇒ frac(x^{2} - 2 - 4 * x + 6, 2 - x^{2}) = -1 - frac(4 * x, 2 - x^{2}) + frac(6, 2 - x^{2})}) (x := {x0})
+get_condition (hypothesis 3: {x0 ∈ RealSet ∧ x0 ≠ sqrtn(2, 2) ∧ x0 ≠ -sqrtn(2, 2)}) in (GOAL: {x0 ∈ RealSet ∧ x0 ≠ sqrtn(2, 2) ∧ x0 ≠ -sqrtn(2, 2) ⇒ frac(x0^{2} - 2 - 4 * x0 + 6, 2 - x0^{2}) = -1 - frac(4 * x0, 2 - x0^{2}) + frac(6, 2 - x0^{2})})
+autoreplace (hypothesis 3: {x0 ∈ RealSet ∧ x0 ≠ sqrtn(2, 2) ∧ x0 ≠ -sqrtn(2, 2)}); from (frac(x0^{2} - 2 - 4 * x0 + 6, 2 - x0^{2})) to (-1 - frac(4 * x0, 2 - x0^{2}) + frac(6, 2 - x0^{2})); from (GOAL: {frac(x0^{2} - 2 - 4 * x0 + 6, 2 - x0^{2}) = -1 - frac(4 * x0, 2 - x0^{2}) + frac(6, 2 - x0^{2})}) to (GOAL: {-1 - frac(4 * x0, 2 - x0^{2}) + frac(6, 2 - x0^{2}) = -1 - frac(4 * x0, 2 - x0^{2}) + frac(6, 2 - x0^{2})})
+assert (hypothesis 4: {-1 - frac(4 * x0, 2 - x0^{2}) + frac(6, 2 - x0^{2}) = -1 - frac(4 * x0, 2 - x0^{2}) + frac(6, 2 - x0^{2})})
+apply (hypothesis 4: {-1 - frac(4 * x0, 2 - x0^{2}) + frac(6, 2 - x0^{2}) = -1 - frac(4 * x0, 2 - x0^{2}) + frac(6, 2 - x0^{2})})

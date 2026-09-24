@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (η), η ∈ RealSet ∧ η = frac(ε^{2}, 8) ∧ 0 < η)}) (ε := {ε0})
+get_condition (hypothesis 8: {ε0 ∈ RealSet ∧ ε0 > 0}) in (GOAL: {ε0 ∈ RealSet ∧ ε0 > 0 ⇒ (exists (η), η ∈ RealSet ∧ η = frac(ε0^{2}, 8) ∧ 0 < η)})
+exists (η := {frac(ε0^{2}, 8)})
+autosolve all_hypothesis

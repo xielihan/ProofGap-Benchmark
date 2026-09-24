@@ -1,0 +1,13 @@
+PROOF GAP @7
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. forall (x), x ∈ RealSet ∧ x > 0 ∧ x ≠ a ∧ x * ln(x) ≠ a * ln(a) ⇒ frac(x^{x} - a^{a}, x - a) = a^{a} * frac(e^{x * ln(x) - a * ln(a)} - 1, x * ln(x) - a * ln(a)) * frac(x * ln(x) - a * ln(a), x - a)
+3. forall (x), x ∈ RealSet ∧ x > 0 ∧ x ≠ a ⇒ frac(x * ln(x) - a * ln(a), x - a) = frac(x * ln(x) - x * ln(a), x - a) + ln(a)
+4. forall (x), x ∈ RealSet ∧ x > 0 ∧ x ≠ a ⇒ frac(x * ln(x) - x * ln(a), x - a) + ln(a) = frac(x, a) * frac(ln(1 + frac(x - a, a)), frac(x - a, a)) + ln(a)
+5. lim_{ x → a } (frac(x * ln(x) - a * ln(a), x - a)) = 1 + ln(a)
+6. 1 + ln(a) = ln(e * a)
+7. lim_{ x → a } (frac(e^{x * ln(x) - a * ln(a)} - 1, x * ln(x) - a * ln(a))) = 1
+GOAL:
+lim_{ x → a } (frac(x^{x} - a^{a}, x - a)) = a^{a} * ln(e * a)
+
+METHOD:

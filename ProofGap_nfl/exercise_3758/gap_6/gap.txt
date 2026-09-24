@@ -1,0 +1,12 @@
+PROOF GAP @6
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ (forall (α), x ∈ RealSet ∧ α ∈ RealSet ⇒ 1 + x^{2} > 0)
+2. forall (x), x ∈ RealSet ⇒ (forall (α), x ∈ RealSet ∧ α ∈ RealSet ⇒ |frac(cos(α * x), 1 + x^{2})| ≤ frac(1, 1 + x^{2}))
+3. DefInt(-∞, +∞, (fun x [x ∈ RealSet] . frac(1, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x)) = π
+4. exists (I), I ∈ RealSet /\ DefInt(-∞, +∞, (fun x [x ∈ RealSet] . frac(1, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x)) = I
+5. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (A), A ∈ RealSet ∧ A > 0 ∧ DefInt(-∞, -A, (fun x [x ∈ RealSet] . frac(1, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x)) + DefInt(A, +∞, (fun x [x ∈ RealSet] . frac(1, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x)) < ε)
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (A), A ∈ RealSet ∧ A > 0 ∧ (forall (α), α ∈ RealSet ⇒ |DefInt(-∞, -A, (fun x [x ∈ RealSet] . frac(cos(α * x), 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x))| + |DefInt(A, +∞, (fun x [x ∈ RealSet] . frac(cos(α * x), 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x))| ≤ DefInt(-∞, -A, (fun x [x ∈ RealSet] . frac(1, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x)) + DefInt(A, +∞, (fun x [x ∈ RealSet] . frac(1, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x))))
+
+METHOD:

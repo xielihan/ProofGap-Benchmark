@@ -1,0 +1,2 @@
+get_condition (hypothesis 6: {(forall (x), x ∈ RealSet ∧ 0 < x ∧ x < frac(π, 2) ⇒ F(x) = f(x)) ∧ (forall (x), x ∈ RealSet ∧ frac(π, 2) < x ∧ x < π ⇒ F(x) = -f(π - x)) ∧ (forall (x), x ∈ RealSet ∧ -π < x ∧ x < π ⇒ F(-x) = F(x))}) in (GOAL: {(forall (x), x ∈ RealSet ∧ 0 < x ∧ x < frac(π, 2) ⇒ F(x) = f(x)) ∧ (forall (x), x ∈ RealSet ∧ frac(π, 2) < x ∧ x < π ⇒ F(x) = -f(π - x)) ∧ (forall (x), x ∈ RealSet ∧ -π < x ∧ x < π ⇒ F(-x) = F(x)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < x ∧ x < frac(π, 2) ⇒ F(x) = f(x))})
+autosolve all_hypothesis

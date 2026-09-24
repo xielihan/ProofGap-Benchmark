@@ -1,0 +1,24 @@
+PROOF GAP @7
+ASSUM:
+1. R : CartesianProd(RealSet, RealSet) → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. p ∈ IntegerSet
+5. q ∈ IntegerSet
+6. n ∈ NonNegIntegerSet ∧ n > 0
+7. k ∈ IntegerSet
+8. ElementaryFuncSet ⊆ RealSet
+9. n ∈ PosIntegerSet
+10. p + q = k * n
+11. forall (x), x ∈ RealSet ∧ x ≠ a ∧ a = b ⇒ (x - a)^{frac(p, n)} * (x - b)^{frac(q, n)} = (x - a)^{k}
+12. a = b ⇒ { `F_2` | forall (x), x ∈ RealSet ∧ x ≠ a ⇒ FunDeri(`F_2`, 1, 1)(x) = R(x, (x - a)^{k}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } ∈ ElementaryFuncSet
+13. a ≠ b ⇒ (exists (y), y : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ b ⇒ y(x) = frac(x - a, x - b)))
+14. a ≠ b ⇒ (exists (y), y : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ y(x) ≠ 1 ⇒ x = frac(a - b * y(x), 1 - y(x))))
+15. a ≠ b ⇒ (exists (y), y : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ y(x) ≠ 1 ⇒ diff(fun x [x ∈ RealSet] . x) = frac(a - b, (1 - y(x))^{2}) * diff(fun x [x ∈ RealSet] . y(x))))
+16. a ≠ b ⇒ (exists (y), y : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ y(x) ≠ 1 ⇒ x - a = frac((a - b) * y(x), 1 - y(x))))
+17. a ≠ b ⇒ (exists (y), y : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ y(x) ≠ 1 ⇒ x - b = frac(a - b, 1 - y(x))))
+
+GOAL:
+a ≠ b ⇒ (exists (y), y : RealSet → RealSet ∧ { `F_3` | forall (x), x ∈ RealSet ∧ x ≠ a ∧ x ≠ b ⇒ FunDeri(`F_3`, 1, 1)(x) = R(x, (x - a)^{frac(p, n)} * (x - b)^{frac(q, n)}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | exists (`F_4`), `F_4` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ y(x) ≠ 1 ⇒ FunDeri(`F_4`, 1, 1)(x) = R(frac(a - b * y(x), 1 - y(x)), y(x)^{frac(p, n)} * frac(a - b, 1 - y(x))^{k}) * frac(1, (1 - y(x))^{2}) * FunDeri(fun x [x ∈ RealSet] . y(x), 1, 1)(x) ∧ `F_5`(x) = (a - b) * `F_4`(x)) })
+
+METHOD:

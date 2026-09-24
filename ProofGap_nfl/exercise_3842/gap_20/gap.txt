@@ -1,0 +1,28 @@
+PROOF GAP @20
+ASSUM:
+1. B : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ⇒ B(x, y) = DefInt(0, 1, (fun t [t ∈ RealSet ∧ 0 < t ∧ t < 1] . t^{x - 1} * (1 - t)^{y - 1}) * diff(fun t [t ∈ RealSet ∧ 0 < t ∧ t < 1] . t))
+3. forall (x) (y) (t), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ t ∈ RealSet ∧ 0 < t ∧ t < 1 ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ∧ x_{0} > 0 ∧ y_{0} > 0 ∧ x ≥ x_{0} ∧ y ≥ y_{0} ⇒ 0 < t^{x - 1} * (1 - t)^{y - 1}))
+4. forall (x) (y) (t), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ t ∈ RealSet ∧ 0 < t ∧ t < 1 ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ∧ x_{0} > 0 ∧ y_{0} > 0 ∧ x ≥ x_{0} ∧ y ≥ y_{0} ⇒ t^{x - 1} * (1 - t)^{y - 1} ≤ t^{x_{0} - 1} * (1 - t)^{y_{0} - 1}))
+5. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (y_{0}), y_{0} ∈ RealSet ∧ y_{0} > 0 ⇒ ConvergentSeries(DefInt(0, 1, (fun t [t ∈ RealSet ∧ 0 < t ∧ t < 1] . t^{x_{0} - 1} * (1 - t)^{y_{0} - 1}) * diff(fun t [t ∈ RealSet ∧ 0 < t ∧ t < 1] . t))))
+6. forall (x) (y), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (y_{0}), y_{0} ∈ RealSet ∧ y_{0} > 0 ⇒ ConvergentSeries(DefInt(0, 1, (fun t [t ∈ RealSet ∧ 0 < t ∧ t < 1] . t^{x - 1} * (1 - t)^{y - 1}) * diff(fun t [t ∈ RealSet ∧ 0 < t ∧ t < 1] . t)))))
+7. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (y_{0}), y_{0} ∈ RealSet ∧ y_{0} > 0 ⇒ ContinuousFuncOn(B, CartesianProd([x_{0}, +∞), [y_{0}, +∞))))
+8. ContinuousFuncOn(B, CartesianProd(PosRealSet, PosRealSet))
+9. forall (t) (x) (y), t ∈ RealSet ∧ 0 < t ∧ t < 1 ∧ x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ⇒ FunDeri(fun x, y, t [x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ t ∈ RealSet ∧ 0 < t ∧ t < 1] . t^{x - 1} * (1 - t)^{y - 1}, 1, 1) = t^{x - 1} * (1 - t)^{y - 1} * ln(t)
+10. forall (x) (y) (t), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ t ∈ RealSet ∧ 0 < t ∧ t < 1 ⇒ (forall (x_{0}), x_{0} ∈ RealSet ⇒ (forall (y_{0}), y_{0} ∈ RealSet ∧ x_{0} > 0 ∧ y_{0} > 0 ∧ x ≥ x_{0} ∧ y ≥ y_{0} ⇒ |t^{x - 1} * (1 - t)^{y - 1} * ln(t)| ≤ t^{x_{0} - 1} * (1 - t)^{y_{0} - 1} * |ln(t)|))
+11. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (y_{0}), y_{0} ∈ RealSet ∧ y_{0} > 0 ⇒ ConvergentSeries(DefInt(0, 1, (fun t [t ∈ RealSet ∧ 0 < t ∧ t < 1] . t^{x_{0} - 1} * (1 - t)^{y_{0} - 1} * |ln(t)|) * diff(fun t [t ∈ RealSet ∧ 0 < t ∧ t < 1] . t))))
+12. forall (x) (y), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (y_{0}), y_{0} ∈ RealSet ∧ y_{0} > 0 ⇒ ConvergentSeries(DefInt(0, 1, (fun t [t ∈ RealSet ∧ 0 < t ∧ t < 1] . t^{x - 1} * (1 - t)^{y - 1} * ln(t)) * diff(fun t [t ∈ RealSet ∧ 0 < t ∧ t < 1] . t)))))
+13. forall (x) (y), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (y_{0}), y_{0} ∈ RealSet ∧ y_{0} > 0 ⇒ FunDeri(B, 1, 1)(x, y) = DefInt(0, 1, (fun t [t ∈ RealSet ∧ 0 < t ∧ t < 1] . t^{x - 1} * (1 - t)^{y - 1} * ln(t)) * diff(fun t [t ∈ RealSet ∧ 0 < t ∧ t < 1] . t))))
+14. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (y_{0}), y_{0} ∈ RealSet ∧ y_{0} > 0 ⇒ ContinuousFuncOn(FunDeri(B, 1, 1), CartesianProd([x_{0}, +∞), [y_{0}, +∞))))
+15. ContinuousFuncOn(FunDeri(B, 1, 1), CartesianProd(PosRealSet, PosRealSet))
+16. forall (x) (y), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ⇒ FunDeri(B, 2, 1)(x, y) = DefInt(0, 1, (fun t [t ∈ RealSet ∧ 0 < t ∧ t < 1] . t^{x - 1} * (1 - t)^{y - 1} * ln(1 - t)) * diff(fun t [t ∈ RealSet ∧ 0 < t ∧ t < 1] . t))
+17. ContinuousFuncOn(FunDeri(B, 2, 1), CartesianProd(PosRealSet, PosRealSet))
+18. forall (x) (y), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ (forall (i), n ∈ PosIntegerSet ∧ i ∈ NonNegIntegerSet ∧ i ≤ n ⇒ FunDeri(FunDeri(B, 1, i), 2, n - i)(x, y) = DefInt(0, 1, (fun t [t ∈ RealSet ∧ 0 < t ∧ t < 1] . t^{x - 1} * (1 - t)^{y - 1} * ln(t)^{i} * ln(1 - t)^{n - i}) * diff(fun t [t ∈ RealSet ∧ 0 < t ∧ t < 1] . t))))
+19. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (i), n ∈ PosIntegerSet ∧ i ∈ NonNegIntegerSet ∧ i ≤ n ⇒ ContinuousFuncOn(FunDeri(FunDeri(B, 1, i), 2, n - i), CartesianProd(PosRealSet, PosRealSet)))
+20. ContinuousFuncOn(B, CartesianProd(PosRealSet, PosRealSet))
+21. forall (n) (i), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ i ∈ NonNegIntegerSet ∧ i ≤ n ⇒ ContinuousFuncOn(FunDeri(FunDeri(B, 1, i), 2, n - i), CartesianProd(PosRealSet, PosRealSet))
+
+GOAL:
+ContinuousFuncOn(B, CartesianProd(PosRealSet, PosRealSet)) ∧ (forall (n) (i), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ i ∈ NonNegIntegerSet ∧ i ≤ n ⇒ ContinuousFuncOn(FunDeri(FunDeri(B, 1, i), 2, n - i), CartesianProd(PosRealSet, PosRealSet)))
+
+METHOD:

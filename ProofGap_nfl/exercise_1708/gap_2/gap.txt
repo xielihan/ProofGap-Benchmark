@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet ∧ x ≠ 0
+2. { `F_2` | forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, cosh(x)^{2} * sqrtn(3, tanh(x)^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x)) } = { `F_3` | forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = tanh(x)^{-frac(2, 3)} * FunDeri(fun x [x ∈ RealSet] . tanh(x), 1, 1)(x) }
+
+GOAL:
+{ `F_4` | forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_4`, 1, 1)(x) = tanh(x)^{-frac(2, 3)} * FunDeri(fun x [x ∈ RealSet] . tanh(x), 1, 1)(x) } = { `F_5` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ `F_5`(x) = 3 * sqrtn(3, tanh(x)) + C) }
+
+METHOD:

@@ -1,0 +1,20 @@
+PROOF GAP @11
+ASSUM:
+1. I : CartesianProd(IntegerSet, RealSet) → RealSet
+2. C ∈ RealSet
+3. exists (`F_1`), `F_1` : RealSet → RealSet ∧ (forall (n) (x), n ∈ IntegerSet ∧ n ≥ 3 ∧ x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ I(n, x) = { `F_1` | forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ FunDeri(`F_1`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), sin(x)^{n}) })
+4. forall (n), n ∈ IntegerSet ∧ n ≥ 3 ⇒ (forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ I(n, x) = { `F_3` | forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), sin(x)^{n}) })
+5. forall (n), n ∈ IntegerSet ∧ n ≥ 3 ⇒ (forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ I(n, x) = { `F_4` | forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(sin(x)^{2} + cos(x)^{2}, sin(x)^{n}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) })
+6. forall (n), n ∈ IntegerSet ∧ n ≥ 3 ⇒ (forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ I(n, x) = { `F_8` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ FunDeri(`F_5`, 1, 1)(x) = cos(x) * FunDeri(fun x [x ∈ RealSet ∧ sin(x) ≠ 0] . frac(1, sin(x)^{n - 1}), 1, 1)(x) ∧ `F_8`(x) = I(n - 2, x) - frac(1, n - 1) * `F_5`(x)) })
+7. forall (n), n ∈ IntegerSet ∧ n ≥ 3 ⇒ (forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ I(n, x) = I(n - 2, x) - frac(cos(x), (n - 1) * sin(x)^{n - 1}) - frac(1, n - 1) * I(n - 2, x))
+8. forall (n), n ∈ IntegerSet ∧ n ≥ 3 ⇒ (forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ I(n, x) = -frac(cos(x), (n - 1) * sin(x)^{n - 1}) + frac(n - 2, n - 1) * I(n - 2, x))
+9. forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ I(1, x) = { `F_9` | forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ FunDeri(`F_9`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), sin(x)) }
+10. { `F_9` | forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ FunDeri(`F_9`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), sin(x)) } = { `F_10` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ `F_10`(x) = ln(|tan(frac(x, 2))|) + C) }
+11. forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ I(1, x) = { `F_10` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ `F_10`(x) = ln(|tan(frac(x, 2))|) + C) }
+12. forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ I(5, x) = { `F_11` | forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ FunDeri(`F_11`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), sin(x)^{5}) }
+13. forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ { `F_11` | forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ FunDeri(`F_11`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), sin(x)^{5}) } = -frac(cos(x), 4 * sin(x)^{4}) + frac(3, 4) * I(3, x)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ I(5, x) = -frac(cos(x), 4 * sin(x)^{4}) + frac(3, 4) * I(3, x)
+
+METHOD:

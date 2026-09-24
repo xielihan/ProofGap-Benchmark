@@ -1,0 +1,4 @@
+assert (hypothesis 10: {2 * frac(1, 3) < 0.666667}) by proof {
+  autosolve all_hypothesis
+}
+apply (hypothesis 10: {2 * frac(1, 3) < 0.666667})

@@ -1,0 +1,9 @@
+assert (hypothesis 8: {(a * cos(θ) * (4 * cos(θ)^{2} - 3))^{2} = a^{2} * cos(θ)^{2} * (4 * cos(θ)^{2} - 3)^{2}}) by proof {
+  autosolve using PolyRatSolver
+}
+assert (hypothesis 9: {π - frac(π, 6) = frac(5 * π, 6)}) by proof {
+  autosolve using PolyRatSolver
+}
+rewrite (left_to_right, equation) (hypothesis 8: {(a * cos(θ) * (4 * cos(θ)^{2} - 3))^{2} = a^{2} * cos(θ)^{2} * (4 * cos(θ)^{2} - 3)^{2}}); from (hypothesis 7: {S = 2 * (frac(1, 2) * DefInt(0, frac(π, 6), (a * cos(θ) * (4 * cos(θ)^{2} - 3))^{2} * diff(fun θ [θ ∈ RealSet] . θ)) + frac(1, 2) * DefInt(frac(π, 2), π - frac(π, 6), (a * cos(θ) * (4 * cos(θ)^{2} - 3))^{2} * diff(fun θ [θ ∈ RealSet] . θ)))}) to (hypothesis 10: {S = 2 * (frac(1, 2) * DefInt(0, frac(π, 6), a^{2} * cos(θ)^{2} * (4 * cos(θ)^{2} - 3)^{2} * diff(fun θ [θ ∈ RealSet] . θ)) + frac(1, 2) * DefInt(frac(π, 2), π - frac(π, 6), a^{2} * cos(θ)^{2} * (4 * cos(θ)^{2} - 3)^{2} * diff(fun θ [θ ∈ RealSet] . θ)))})
+rewrite (left_to_right, equation) (hypothesis 9: {π - frac(π, 6) = frac(5 * π, 6)}); from (hypothesis 10: {S = 2 * (frac(1, 2) * DefInt(0, frac(π, 6), a^{2} * cos(θ)^{2} * (4 * cos(θ)^{2} - 3)^{2} * diff(fun θ [θ ∈ RealSet] . θ)) + frac(1, 2) * DefInt(frac(π, 2), π - frac(π, 6), a^{2} * cos(θ)^{2} * (4 * cos(θ)^{2} - 3)^{2} * diff(fun θ [θ ∈ RealSet] . θ)))}) to (hypothesis 11: {S = 2 * (frac(1, 2) * DefInt(0, frac(π, 6), a^{2} * cos(θ)^{2} * (4 * cos(θ)^{2} - 3)^{2} * diff(fun θ [θ ∈ RealSet] . θ)) + frac(1, 2) * DefInt(frac(π, 2), frac(5 * π, 6), a^{2} * cos(θ)^{2} * (4 * cos(θ)^{2} - 3)^{2} * diff(fun θ [θ ∈ RealSet] . θ)))})
+autosolve (hypothesis 11: {S = 2 * (frac(1, 2) * DefInt(0, frac(π, 6), a^{2} * cos(θ)^{2} * (4 * cos(θ)^{2} - 3)^{2} * diff(fun θ [θ ∈ RealSet] . θ)) + frac(1, 2) * DefInt(frac(π, 2), frac(5 * π, 6), a^{2} * cos(θ)^{2} * (4 * cos(θ)^{2} - 3)^{2} * diff(fun θ [θ ∈ RealSet] . θ)))})

@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet ∧ a ∈ PosRealSet
+3. a ≠ 1
+4. forall (t), t ∈ RealSet ⇒ f(t) = frac(1, 2) * (a^{t} + a^{-t})
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x + y) + f(x - y) = frac(1, 2) * (a^{x + y} + a^{-x - y}) + frac(1, 2) * (a^{x - y} + a^{-x + y}))
+
+METHOD:

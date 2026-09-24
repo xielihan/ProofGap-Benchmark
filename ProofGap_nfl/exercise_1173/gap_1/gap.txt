@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = x * cos(2 * x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ diff^{10}(y) = FunDeri(fun x [x ∈ RealSet] . x * cos(2 * x), 1, 10)(x) * diff(fun x [x ∈ RealSet] . x)^{10}
+
+METHOD:

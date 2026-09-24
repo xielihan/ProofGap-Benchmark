@@ -1,0 +1,5 @@
+get_prop (theorem 'Thm 450. (SquareRootSquareCancellation)': {forall (u), u ∈ RealSet => u >= 0 => sqrtn(2, u)^2 = u}) (u := {2}) as (hypothesis 7: {2 ∈ RealSet ⇒ 2 ≥ 0 ⇒ sqrtn(2, 2)^2 = 2})
+use_condition (obvious: {2 ∈ RealSet}) (obvious: {2 ≥ 0}) in (hypothesis 7: {2 ∈ RealSet ⇒ 2 ≥ 0 ⇒ sqrtn(2, 2)^2 = 2}) as (hypothesis 8: {sqrtn(2, 2)^2 = 2})
+get_prop (theorem 'Thm 355. (NonnegativeNthRoot)': {forall (x) (n), x ∈ RealSet => n ∈ IntegerSet => (x >= 0 => n > 0 => sqrt(n, x) >= 0)}) (x := {2}) (n := {2}) as (hypothesis 9: {2 ∈ RealSet ⇒ 2 ∈ IntegerSet ⇒ 2 ≥ 0 ⇒ 2 > 0 ⇒ sqrt(2, 2) ≥ 0})
+use_condition (obvious: {2 ∈ RealSet}) (obvious: {2 ∈ IntegerSet}) (obvious: {2 ≥ 0}) (obvious: {2 > 0}) in (hypothesis 9: {2 ∈ RealSet ⇒ 2 ∈ IntegerSet ⇒ 2 ≥ 0 ⇒ 2 > 0 ⇒ sqrt(2, 2) ≥ 0}) as (hypothesis 10: {sqrt(2, 2) ≥ 0})
+autosolve all_hypothesis

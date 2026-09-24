@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. f : RealSet → RealSet
+3. forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x) = f(ln(x))
+4. FuncOfClassK(f, 3)
+5. forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(y, 1, 1)(x) = frac(1, x) * FunDeri(f, 1, 1)(ln(x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(y, 1, 2)(x) = -frac(1, x^{2}) * FunDeri(f, 1, 1)(ln(x)) + frac(1, x^{2}) * FunDeri(f, 1, 2)(ln(x)) ∧ -frac(1, x^{2}) * FunDeri(f, 1, 1)(ln(x)) + frac(1, x^{2}) * FunDeri(f, 1, 2)(ln(x)) = frac(1, x^{2}) * (FunDeri(f, 1, 2)(ln(x)) - FunDeri(f, 1, 1)(ln(x)))
+
+METHOD:

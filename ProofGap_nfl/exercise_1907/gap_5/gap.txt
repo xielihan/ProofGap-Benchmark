@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. x ∈ RealSet ∧ x ≠ 0
+2. C ∈ RealSet
+3. { `F_2` | forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x^{4} - 3, x * (x^{8} + 3 * x^{4} + 2)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(1 - frac(3, x^{4}), x^{5} * (1 + frac(3, x^{4}) + frac(2, x^{8}))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+4. { `F_4` | forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(1 - frac(3, x^{4}), x^{5} * (1 + frac(3, x^{4}) + frac(2, x^{8}))) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(-frac(1, 4) * (1 - frac(3, x^{4})), frac(2, x^{8}) + frac(3, x^{4}) + 1) * FunDeri(fun x [x ∈ RealSet ∧ x ≠ 0] . frac(1, x^{4}), 1, 1)(x) }
+5. { `F_6` | forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_6`, 1, 1)(x) = frac(-frac(1, 4) * (1 - frac(3, x^{4})), frac(2, x^{8}) + frac(3, x^{4}) + 1) * FunDeri(fun x [x ∈ RealSet ∧ x ≠ 0] . frac(1, x^{4}), 1, 1)(x) } = { `F_8` | exists (`F_7`), `F_7` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_7`, 1, 1)(x) = (frac(5, frac(2, x^{4}) + 1) - frac(4, frac(1, x^{4}) + 1)) * FunDeri(fun x [x ∈ RealSet ∧ x ≠ 0] . frac(1, x^{4}), 1, 1)(x) ∧ `F_8`(x) = -frac(1, 4) * `F_7`(x)) }
+6. { `F_10` | exists (`F_9`), `F_9` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_9`, 1, 1)(x) = (frac(5, frac(2, x^{4}) + 1) - frac(4, frac(1, x^{4}) + 1)) * FunDeri(fun x [x ∈ RealSet ∧ x ≠ 0] . frac(1, x^{4}), 1, 1)(x) ∧ `F_10`(x) = -frac(1, 4) * `F_9`(x)) } = { `F_11` | exists (C_{-}) (C_{+}), C_{-} ∈ RealSet ∧ C_{+} ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x < 0 ⇒ `F_11`(x) = -frac(5, 8) * ln(frac(2, x^{4}) + 1) + ln(frac(1, x^{4}) + 1) + C_{-}) ∧ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ `F_11`(x) = -frac(5, 8) * ln(frac(2, x^{4}) + 1) + ln(frac(1, x^{4}) + 1) + C_{+}) }
+
+GOAL:
+-frac(5, 8) * ln(frac(2, x^{4}) + 1) + ln(frac(1, x^{4}) + 1) + C = frac(5, 8) * ln(frac(x^{4}, x^{4} + 2)) - ln(frac(x^{4}, x^{4} + 1)) + C
+
+METHOD:

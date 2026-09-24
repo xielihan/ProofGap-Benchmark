@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. lim_{ x → +∞ } (x - ln(cosh(x))) = lim_{ x → +∞ } (x - ln(frac(e^{2 * x} + 1, 2 * e^{x})))
+2. lim_{ x → +∞ } (x - ln(cosh(x))) = lim_{ x → +∞ } (2 * x + ln(2) - ln(1 + e^{2 * x}))
+
+GOAL:
+lim_{ x → +∞ } (x - ln(cosh(x))) = lim_{ x → +∞ } (ln(2) - ln(e^{-2 * x} + 1))
+
+METHOD:

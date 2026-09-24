@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. C ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ x = a * tan(t) ⇒ -frac(π, 2) < t)
+4. forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ x = a * tan(t) ⇒ t < frac(π, 2))
+5. forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ∧ x = a * tan(t) ⇒ (x^{2} + a^{2})^{frac(3, 2)} = a^{3} * sec(t)^{3})
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ -frac(π, 2) < t ∧ t < frac(π, 2) ∧ x = a * tan(t) ⇒ diff(fun x [x ∈ RealSet] . x) = a * sec(t)^{2} * diff(fun t [t ∈ RealSet] . t))
+
+METHOD:

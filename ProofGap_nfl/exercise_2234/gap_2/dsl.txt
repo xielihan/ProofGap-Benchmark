@@ -1,0 +1,2 @@
+autoreplace no_hypothesis; from (frac(e^{x^{2}}, e^{x^{2}} * (1 - frac(1, 2 * x^{2})))) to (frac(1, 1 - frac(1, 2 * x^{2}))); from (GOAL: {lim_{ x → +∞ } (frac(e^{x^{2}}, e^{x^{2}} * (1 - frac(1, 2 * x^{2})))) = 1}) to (GOAL: {lim_{ x → +∞ } (frac(1, 1 - frac(1, 2 * x^{2}))) = 1})
+autosolve all_hypothesis

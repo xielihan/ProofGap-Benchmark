@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. a < b
+5. Defined(f, (a, b))
+6. forall (c), c ∈ RealSet ∧ c ∈ IntervalLoRo(a, b) ⇒ (exists (δ), δ ∈ RealSet ∧ δ ∈ PosRealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ∧ 0 < |x - c| ∧ |x - c| < δ ⇒ frac(f(x) - f(c), x - c) > 0))
+
+GOAL:
+forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ a < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < b ⇒ (forall (c), c ∈ RealSet ∧ x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ c ∈ [x_{1}, x_{2}] ⇒ (exists (`δ_c`), `δ_c` ∈ RealSet ∧ `δ_c` ∈ PosRealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ∧ 0 < |x - c| ∧ |x - c| < `δ_c` ⇒ frac(f(x) - f(c), x - c) > 0))))
+
+METHOD:

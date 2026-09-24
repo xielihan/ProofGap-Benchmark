@@ -1,0 +1,2 @@
+rewrite (right_to_left, equation) (hypothesis 10: {frac(2, π) * DefInt(0, π, (fun x [x ∈ RealSet] . cos(a * x)) * diff(fun x [x ∈ RealSet] . x)) = frac(2, a * π) * sin(a * π)}); from (GOAL: {A(0) = frac(2, a * π) * sin(a * π)}) to (GOAL: {A(0) = frac(2, π) * DefInt(0, π, (fun x [x ∈ RealSet] . cos(a * x)) * diff(fun x [x ∈ RealSet] . x))})
+apply (hypothesis 9: {A(0) = frac(2, π) * DefInt(0, π, (fun x [x ∈ RealSet] . cos(a * x)) * diff(fun x [x ∈ RealSet] . x))})

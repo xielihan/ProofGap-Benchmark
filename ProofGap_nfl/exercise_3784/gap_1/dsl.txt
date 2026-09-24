@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ 0 < x ∧ x ≤ 1 ⇒ FunDeri(fun n [n ∈ RealSet ∧ n > 0] . x^{n - 1}, 1, 1)(n) = x^{n - 1} * ln(x)}) (x := {x0})
+get_condition (hypothesis 6: {x0 ∈ RealSet ∧ 0 < x0 ∧ x0 ≤ 1}) in (GOAL: {x0 ∈ RealSet ∧ 0 < x0 ∧ x0 ≤ 1 ⇒ FunDeri(fun n [n ∈ RealSet ∧ n > 0] . x0^{n - 1}, 1, 1)(n) = x0^{n - 1} * ln(x0)})
+get_prop (theorem 'Thm 391. (CompositeExponentialDerivative)': {forall (a) (u) (x), u : RealSet -> RealSet => a ∈ RealSet => x ∈ RealSet => a > 0 => DiffableFuncAt(u, x) => FunDeri(fun t . a ^ (u(t)), 1, 1)(x) = a ^ (u(x)) * ln(a) * FunDeri(u, 1, 1)(x)}) (a := {x0}) (u := {fun t . t - 1}) (x := {n}) as (hypothesis 7: {(fun t . t - 1) : RealSet -> RealSet => x0 ∈ RealSet => n ∈ RealSet => x0 > 0 => DiffableFuncAt(fun t . t - 1, n) => FunDeri(fun t . x0 ^ (t - 1), 1, 1)(n) = x0 ^ (n - 1) * ln(x0) * FunDeri(fun t . t - 1, 1, 1)(n)})
+autosolve all_hypothesis

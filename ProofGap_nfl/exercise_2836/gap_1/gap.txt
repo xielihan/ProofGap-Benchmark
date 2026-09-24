@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. a : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = (1 + frac(1, n))^{-n^{2}}
+
+GOAL:
+sum_{ n = 1 }^{ +∞ } ((1 + frac(1, n))^{-n^{2}} * e^{-(n * x)}) = sum_{ n = 1 }^{ +∞ } (a(n) * (e^{-x})^{n})
+
+METHOD:

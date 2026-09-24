@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. y_{1} : RealSet → RealSet
+3. y_{2} : RealSet → RealSet
+4. V_{x} ∈ RealSet
+5. forall (x), x ∈ RealSet ∧ -frac(2, sqrtn(2, 3)) * a ≤ x ∧ x ≤ frac(2, sqrtn(2, 3)) * a ⇒ y_{1}(x) = frac(x + sqrtn(2, 4 * a^{2} - 3 * x^{2}), 2)
+6. forall (x), x ∈ RealSet ∧ -frac(2, sqrtn(2, 3)) * a ≤ x ∧ x ≤ frac(2, sqrtn(2, 3)) * a ⇒ y_{2}(x) = frac(x - sqrtn(2, 4 * a^{2} - 3 * x^{2}), 2)
+7. forall (x), x ∈ RealSet ∧ -frac(2, sqrtn(2, 3)) * a ≤ x ∧ x ≤ frac(2, sqrtn(2, 3)) * a ⇒ y_{1}(x) = frac(x + sqrtn(2, 4 * a^{2} - 3 * x^{2}), 2)
+8. forall (x), x ∈ RealSet ∧ -frac(2, sqrtn(2, 3)) * a ≤ x ∧ x ≤ frac(2, sqrtn(2, 3)) * a ⇒ y_{2}(x) = frac(x - sqrtn(2, 4 * a^{2} - 3 * x^{2}), 2)
+
+GOAL:
+Dom(y_{1}) = [-frac(2, sqrtn(2, 3)) * a, frac(2, sqrtn(2, 3)) * a]
+
+METHOD:

@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. IsSeq(a)
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(n, 2 * n - 1)
+4. seqlim_{ n → +∞ } (a(n)) = frac(1, 2)
+
+GOAL:
+frac(1, 2) ≠ 0
+
+METHOD:

@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ frac(x^{9}, sqrtn(2, 2)) ≤ frac(x^{9}, sqrtn(2, 1 + x)) ∧ frac(x^{9}, sqrtn(2, 1 + x)) ≤ x^{9}
+2. frac(1, sqrtn(2, 2)) * DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . x^{9}) * diff(fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . x)) ≤ DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . frac(x^{9}, sqrtn(2, 1 + x))) * diff(fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . x))
+3. DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . frac(x^{9}, sqrtn(2, 1 + x))) * diff(fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . x)) ≤ DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . x^{9}) * diff(fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . x))
+4. DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . x^{9}) * diff(fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . x)) = frac(1, 10)
+
+GOAL:
+frac(1, 10 * sqrtn(2, 2)) ≤ DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . frac(x^{9}, sqrtn(2, 1 + x))) * diff(fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . x))
+
+METHOD:

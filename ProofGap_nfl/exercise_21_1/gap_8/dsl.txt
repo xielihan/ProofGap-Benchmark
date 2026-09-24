@@ -1,0 +1,13 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ |x - y| ≥ -(|x| - |y|))}) (x := {a})
+get_condition (hypothesis 8: {a ∈ RealSet}) in (GOAL: {a ∈ RealSet ⇒ (forall (y), a ∈ RealSet ∧ y ∈ RealSet ⇒ |a - y| ≥ -(|a| - |y|))})
+get_forall (GOAL: {forall (y), a ∈ RealSet ∧ y ∈ RealSet ⇒ |a - y| ≥ -(|a| - |y|)}) (y := {b})
+get_condition (hypothesis 9: {a ∈ RealSet ∧ b ∈ RealSet}) in (GOAL: {a ∈ RealSet ∧ b ∈ RealSet ⇒ |a - b| ≥ -(|a| - |b|)})
+get_prop (hypothesis 5: {forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ |x - y| = |y - x|)}) (x := {a}) as (hypothesis 10: {a ∈ RealSet ⇒ (forall (y), a ∈ RealSet ∧ y ∈ RealSet ⇒ |a - y| = |y - a|)})
+use_condition (hypothesis 8: {a ∈ RealSet}) in (hypothesis 10: {a ∈ RealSet ⇒ (forall (y), a ∈ RealSet ∧ y ∈ RealSet ⇒ |a - y| = |y - a|)}) as (hypothesis 11: {forall (y), a ∈ RealSet ∧ y ∈ RealSet ⇒ |a - y| = |y - a|})
+get_prop (hypothesis 11: {forall (y), a ∈ RealSet ∧ y ∈ RealSet ⇒ |a - y| = |y - a|}) (y := {b}) as (hypothesis 12: {a ∈ RealSet ∧ b ∈ RealSet ⇒ |a - b| = |b - a|})
+use_condition (hypothesis 9: {a ∈ RealSet ∧ b ∈ RealSet}) in (hypothesis 12: {a ∈ RealSet ∧ b ∈ RealSet ⇒ |a - b| = |b - a|}) as (hypothesis 13: {|a - b| = |b - a|})
+get_prop (hypothesis 6: {forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ |y - x| ≥ |y| - |x|)}) (x := {a}) as (hypothesis 14: {a ∈ RealSet ⇒ (forall (y), a ∈ RealSet ∧ y ∈ RealSet ⇒ |y - a| ≥ |y| - |a|)})
+use_condition (hypothesis 8: {a ∈ RealSet}) in (hypothesis 14: {a ∈ RealSet ⇒ (forall (y), a ∈ RealSet ∧ y ∈ RealSet ⇒ |y - a| ≥ |y| - |a|)}) as (hypothesis 15: {forall (y), a ∈ RealSet ∧ y ∈ RealSet ⇒ |y - a| ≥ |y| - |a|})
+get_prop (hypothesis 15: {forall (y), a ∈ RealSet ∧ y ∈ RealSet ⇒ |y - a| ≥ |y| - |a|}) (y := {b}) as (hypothesis 16: {a ∈ RealSet ∧ b ∈ RealSet ⇒ |b - a| ≥ |b| - |a|})
+use_condition (hypothesis 9: {a ∈ RealSet ∧ b ∈ RealSet}) in (hypothesis 16: {a ∈ RealSet ∧ b ∈ RealSet ⇒ |b - a| ≥ |b| - |a|}) as (hypothesis 17: {|b - a| ≥ |b| - |a|})
+autosolve all_hypothesis

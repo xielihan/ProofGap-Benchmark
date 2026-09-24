@@ -1,0 +1,24 @@
+PROOF GAP @7
+ASSUM:
+1. P_{xy} ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. P_{yz} ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. P_{xz} ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+4. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+5. F : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+6. n ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+7. x ∈ RealSet
+8. y ∈ RealSet
+9. z ∈ RealSet
+10. λ ∈ RealSet
+11. S = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x^{2} + 2 * y^{2} + 3 * z^{2} + 2 * x * y + 2 * x * z + 4 * y * z = 8 }
+12. F(x, y, z) = x^{2} + 2 * y^{2} + 3 * z^{2} + 2 * x * y + 2 * x * z + 4 * y * z
+13. n = (FunDeri(F, 1, 1)(x, y, z), FunDeri(F, 2, 1)(x, y, z), FunDeri(F, 3, 1)(x, y, z))
+14. n = (2 * (x + y + z), 2 * (x + 2 * y + 2 * z), 2 * (x + 2 * y + 3 * z))
+15. x + 2 * y + 3 * z = λ
+16. x = 0
+17. y = -λ
+
+GOAL:
+z = λ
+
+METHOD:

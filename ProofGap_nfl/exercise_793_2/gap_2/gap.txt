@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. `x'` : NonNegIntegerSet → RealSet
+3. `x''` : NonNegIntegerSet → RealSet
+4. forall (x), x ∈ RealSet ⇒ f(x) = x^{2}
+5. ε_{0} = 1
+6. forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ (exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ frac(1, n) < δ)
+
+GOAL:
+forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ (exists (n), n ∈ NonNegIntegerSet ∧ (n ∈ PosIntegerSet ∧ frac(1, n) < δ ⇒ `x'`(n) = n + frac(1, n) ⇒ `x''`(n) = n ⇒ |`x'`(n) - `x''`(n)| = frac(1, n)))
+
+METHOD:

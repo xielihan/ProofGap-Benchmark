@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (l), l ∈ RealSet ∧ l > 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ MonoDecFuncOn(fun x [x ∈ RealSet] . frac(1, n^{x}), [0, l]) ∧ (forall (x), x ∈ RealSet ∧ x ∈ [0, l] ⇒ frac(1, n^{x}) ≤ 1))
+
+METHOD:

@@ -1,0 +1,4 @@
+get_prop (hypothesis 2: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = n^{2} - 9 * n - 100}) (n := {5}) as (hypothesis 8: {5 ∈ NonNegIntegerSet ∧ 5 ∈ PosIntegerSet ⇒ x(5) = 5^{2} - 9 * 5 - 100})
+use_condition (obvious: {5 ∈ NonNegIntegerSet ∧ 5 ∈ PosIntegerSet}) in (hypothesis 8: {5 ∈ NonNegIntegerSet ∧ 5 ∈ PosIntegerSet ⇒ x(5) = 5^{2} - 9 * 5 - 100}) as (hypothesis 9: {x(5) = 5^{2} - 9 * 5 - 100})
+autoreplace no_hypothesis; from (5^{2} - 9 * 5 - 100) to (-120); from (hypothesis 9: {x(5) = 5^{2} - 9 * 5 - 100}) to (hypothesis 10: {x(5) = -120})
+apply (hypothesis 10: {x(5) = -120})

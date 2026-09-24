@@ -1,0 +1,22 @@
+PROOF GAP @8
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. m ∈ NonNegIntegerSet
+3. ε ∈ RealSet
+4. l ∈ RealSet
+5. n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet
+6. b : NonNegIntegerSet → RealSet
+7. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ ε = frac(1 - q, 2))
+8. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ 0 < ε)
+9. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ ε < 1 - q)
+10. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ l = q + ε)
+11. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ l < 1)
+12. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ (exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ frac(a(n + 1), a(n)) < l)))
+13. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ 0 < a(n) ∧ a(n) ≤ a(n_{0}) * l^{n - n_{0}}))
+14. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ ConvergentSeries(sum_{ n = n_{0} }^{ +∞ } (l^{n - n_{0}})))
+15. forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ ConvergentSeries(sum_{ n = n_{0} }^{ +∞ } (a(n))))
+
+GOAL:
+forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))))
+
+METHOD:

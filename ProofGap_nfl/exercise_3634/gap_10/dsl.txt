@@ -1,0 +1,6 @@
+get_prop (hypothesis 7: {forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ⇒ y = 3 * x}) (y := {1}) (x := {0}) as (hypothesis 14: {1 ∈ RealSet ∧ 0 ∈ RealSet ⇒ 1 = 3 * 0})
+assert (hypothesis 15: {1 ∈ RealSet ∧ 0 ∈ RealSet}) by proof {
+  autosolve
+}
+use_condition (hypothesis 15: {1 ∈ RealSet ∧ 0 ∈ RealSet}) in (hypothesis 14: {1 ∈ RealSet ∧ 0 ∈ RealSet ⇒ 1 = 3 * 0}) as (hypothesis 16: {1 = 3 * 0})
+autosolve all_hypothesis

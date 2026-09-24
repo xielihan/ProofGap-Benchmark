@@ -1,0 +1,22 @@
+PROOF GAP @5
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. z : RealSet → RealSet
+4. a ∈ RealSet ∧ a ≠ 0
+5. v_{1} : RealSet → CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+6. v_{2} : RealSet → CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+7. θ : RealSet → RealSet
+8. forall (t), t ∈ RealSet ⇒ x(t) = a * e^{t} * cos(t)
+9. forall (t), t ∈ RealSet ⇒ y(t) = a * e^{t} * sin(t)
+10. forall (t), t ∈ RealSet ⇒ z(t) = a * e^{t}
+11. forall (t), t ∈ RealSet ⇒ x(t)^{2} + y(t)^{2} = z(t)^{2}
+12. forall (t), t ∈ RealSet ⇒ v_{1}(t) = (x(t), y(t), z(t))
+13. forall (t), t ∈ RealSet ⇒ v_{2}(t) = (FunDeri(x, 1, 1)(t), FunDeri(y, 1, 1)(t), FunDeri(z, 1, 1)(t))
+14. forall (t), t ∈ RealSet ⇒ FunDeri(x, 1, 1)(t) = a * e^{t} * (cos(t) - sin(t))
+15. forall (t), t ∈ RealSet ⇒ FunDeri(y, 1, 1)(t) = a * e^{t} * (sin(t) + cos(t))
+
+GOAL:
+forall (t), t ∈ RealSet ⇒ FunDeri(z, 1, 1)(t) = a * e^{t}
+
+METHOD:

@@ -1,0 +1,17 @@
+PROOF GAP @9
+ASSUM:
+1. I : NonNegIntegerSet → RealSet
+2. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = DefInt(0, frac(π, 4), (fun x [x ∈ RealSet] . tan(x)^{2 * n}) * diff(fun x [x ∈ RealSet] . x))
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ I(n) = DefInt(0, frac(π, 4), (fun x [x ∈ RealSet] . tan(x)^{2 * n - 2} * (sec(x)^{2} - 1)) * diff(fun x [x ∈ RealSet] . x))
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ DefInt(0, frac(π, 4), (fun x [x ∈ RealSet] . tan(x)^{2 * n - 2} * (sec(x)^{2} - 1)) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, frac(π, 4), (fun x [x ∈ RealSet] . tan(x)^{2 * n - 2}) * diff(fun x [x ∈ RealSet] . tan(x))) - DefInt(0, frac(π, 4), (fun x [x ∈ RealSet] . tan(x)^{2 * n - 2}) * diff(fun x [x ∈ RealSet] . x))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ I(n) = frac(1, 2 * n - 1) - I(n - 1)
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ I(n) = frac(1, 2 * n - 1) - I(n - 1)
+7. I(0) = DefInt(0, frac(π, 4), diff(fun x [x ∈ RealSet] . x))
+8. DefInt(0, frac(π, 4), diff(fun x [x ∈ RealSet] . x)) = frac(π, 4)
+9. I(0) = frac(π, 4)
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ I(n) = (sum_{ k = 1 }^{ n } ((-1)^{n - k} * frac(1, 2 * k - 1))) + (-1)^{n} * I(0)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ I(n) = (-1)^{n} * (frac(π, 4) - (sum_{ k = 1 }^{ n } ((-1)^{k - 1} * frac(1, 2 * k - 1))))
+
+METHOD:

@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = e^{x} * cos(x)
+3. forall (x), x ∈ RealSet ⇒ e^{x} * (cos(x) + __IMAGINARY_UNIT__ * sin(x)) = e^{x} * e^{__IMAGINARY_UNIT__ * x}
+4. forall (x), x ∈ RealSet ⇒ e^{x} * e^{__IMAGINARY_UNIT__ * x} = e^{(1 + __IMAGINARY_UNIT__) * x}
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ e^{(1 + __IMAGINARY_UNIT__) * x} = sum_{ n = 0 }^{ +∞ } (frac(((1 + __IMAGINARY_UNIT__) * x)^{n}, n!))
+
+METHOD:

@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. S ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ y(x) = e^{-x} * sin(x)
+
+GOAL:
+forall (k), k ∈ IntegerSet ⇒ sin(k * π) = 0
+
+METHOD:

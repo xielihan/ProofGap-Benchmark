@@ -1,0 +1,7 @@
+assert (hypothesis 6: {b * t ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (hypothesis 5: {forall (x), x ∈ RealSet ⇒ J_{0}(x) = frac(1, π) * DefInt(0, π, cos(x * sin(φ)) * diff(φ))}) (x := {b * t}) as (hypothesis 7: {b * t ∈ RealSet ⇒ J_{0}(b * t) = frac(1, π) * DefInt(0, π, cos(b * t * sin(φ)) * diff(φ))})
+use_condition (hypothesis 6: {b * t ∈ RealSet}) in (hypothesis 7: {b * t ∈ RealSet ⇒ J_{0}(b * t) = frac(1, π) * DefInt(0, π, cos(b * t * sin(φ)) * diff(φ))}) as (hypothesis 8: {J_{0}(b * t) = frac(1, π) * DefInt(0, π, cos(b * t * sin(φ)) * diff(φ))})
+rewrite (left_to_right, equation) (hypothesis 8: {J_{0}(b * t) = frac(1, π) * DefInt(0, π, cos(b * t * sin(φ)) * diff(φ))}); from (GOAL: {DefInt(0, +∞, e^{-a * t} * J_{0}(b * t) * diff(t)) = DefInt(0, +∞, e^{-a * t} * (frac(1, π) * DefInt(0, π, cos(b * t * sin(φ)) * diff(φ))) * diff(t))}) to (GOAL: {DefInt(0, +∞, e^{-a * t} * (frac(1, π) * DefInt(0, π, cos(b * t * sin(φ)) * diff(φ))) * diff(t)) = DefInt(0, +∞, e^{-a * t} * (frac(1, π) * DefInt(0, π, cos(b * t * sin(φ)) * diff(φ))) * diff(t))})
+autosolve all_hypothesis

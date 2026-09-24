@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ f(x, y) = sin(x) * sinh(y)
+3. forall (y), y ∈ RealSet ⇒ sinh(y) = frac(e^{y} - e^{-y}, 2)
+4. forall (y), y ∈ RealSet ⇒ sinh(y) = frac(1, 2) * ((sum_{ n = 0 }^{ +∞ } (frac(y^{n}, n!))) - (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * frac(y^{n}, n!))))
+5. forall (y), y ∈ RealSet ⇒ sinh(y) = sum_{ n = 0 }^{ +∞ } (frac(y^{2 * n + 1}, (2 * n + 1)!))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ sin(x) = sum_{ m = 0 }^{ +∞ } ((-1)^{m} * frac(x^{2 * m + 1}, (2 * m + 1)!))
+
+METHOD:

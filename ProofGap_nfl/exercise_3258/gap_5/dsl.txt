@@ -1,0 +1,22 @@
+1. get_forall (GOAL: {forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ⇒ 6 * sin(y + frac(3 * π, 2)) - 6 * cos(x) = -6 * (cos(y) + cos(x))}) (y := {y0}) (x := {x0})
+2. get_condition (hypothesis 7: {y0 ∈ RealSet ∧ x0 ∈ RealSet}) in (GOAL: {y0 ∈ RealSet ∧ x0 ∈ RealSet ⇒ 6 * sin(y0 + frac(3 * π, 2)) - 6 * cos(x0) = -6 * (cos(y0) + cos(x0))})
+3. destruct_and (hypothesis 7: {y0 ∈ RealSet ∧ x0 ∈ RealSet}) as (hypothesis 8: {y0 ∈ RealSet}) (hypothesis 9: {x0 ∈ RealSet})
+4. assert (hypothesis 10: {sin(y0 + frac(3 * π, 2)) = -cos(y0)}) by proof {
+  1. assert (hypothesis 10: {frac(3 * π, 2) ∈ RealSet}) by proof {
+    1. autosolve all_hypothesis
+  }
+  2. get_prop (theorem 'Thm 180. (SineAdditionFormula)': {forall (x) (y), x ∈ RealSet => y ∈ RealSet => sin (x + y) = sin(x) * cos(y) + cos(x) * sin(y)}) (x := {y0}) (y := {frac(3 * π, 2)}) as (hypothesis 11: {y0 ∈ RealSet => frac(3 * π, 2) ∈ RealSet => sin (y0 + frac(3 * π, 2)) = sin(y0) * cos(frac(3 * π, 2)) + cos(y0) * sin(frac(3 * π, 2))})
+  3. use_condition (hypothesis 8: {y0 ∈ RealSet}) (hypothesis 10: {frac(3 * π, 2) ∈ RealSet}) in (hypothesis 11: {y0 ∈ RealSet => frac(3 * π, 2) ∈ RealSet => sin (y0 + frac(3 * π, 2)) = sin(y0) * cos(frac(3 * π, 2)) + cos(y0) * sin(frac(3 * π, 2))}) as (hypothesis 12: {sin (y0 + frac(3 * π, 2)) = sin(y0) * cos(frac(3 * π, 2)) + cos(y0) * sin(frac(3 * π, 2))})
+  4. get_prop (theorem 'Thm 369. (CosineAtOddHalfPi)': {forall (n), n ∈ IntegerSet => cos((2 * n + 1) * π / 2) = 0}) (n := {1}) as (hypothesis 13: {1 ∈ IntegerSet => cos((2 * 1 + 1) * π / 2) = 0})
+  5. use_condition (obvious: {1 ∈ IntegerSet}) in (hypothesis 13: {1 ∈ IntegerSet => cos((2 * 1 + 1) * π / 2) = 0}) as (hypothesis 14: {cos((2 * 1 + 1) * π / 2) = 0})
+  6. autoreplace no_hypothesis; from ((2 * 1 + 1) * π / 2) to (frac(3 * π, 2)); from (hypothesis 14: {cos((2 * 1 + 1) * π / 2) = 0}) to (hypothesis 15: {cos(frac(3 * π, 2)) = 0})
+  7. get_prop (theorem 'Thm 371. (SineAtOddHalfPi)': {forall (n), n ∈ IntegerSet => sin((2 * n + 1) * π / 2) = (-1) ^ n}) (n := {1}) as (hypothesis 16: {1 ∈ IntegerSet => sin((2 * 1 + 1) * π / 2) = (-1) ^ 1})
+  8. use_condition (obvious: {1 ∈ IntegerSet}) in (hypothesis 16: {1 ∈ IntegerSet => sin((2 * 1 + 1) * π / 2) = (-1) ^ 1}) as (hypothesis 17: {sin((2 * 1 + 1) * π / 2) = (-1) ^ 1})
+  9. autoreplace no_hypothesis; from ((2 * 1 + 1) * π / 2) to (frac(3 * π, 2)); from (hypothesis 17: {sin((2 * 1 + 1) * π / 2) = (-1) ^ 1}) to (hypothesis 18: {sin(frac(3 * π, 2)) = (-1) ^ 1})
+  10. autoreplace no_hypothesis; from ((-1) ^ 1) to (-1); from (hypothesis 18: {sin(frac(3 * π, 2)) = (-1) ^ 1}) to (hypothesis 19: {sin(frac(3 * π, 2)) = -1})
+  11. rewrite (left_to_right, equation) (hypothesis 15: {cos(frac(3 * π, 2)) = 0}); from (hypothesis 12: {sin (y0 + frac(3 * π, 2)) = sin(y0) * cos(frac(3 * π, 2)) + cos(y0) * sin(frac(3 * π, 2))}) to (hypothesis 12: {sin (y0 + frac(3 * π, 2)) = sin(y0) * 0 + cos(y0) * sin(frac(3 * π, 2))})
+  12. rewrite (left_to_right, equation) (hypothesis 19: {sin(frac(3 * π, 2)) = -1}); from (hypothesis 12: {sin (y0 + frac(3 * π, 2)) = sin(y0) * 0 + cos(y0) * sin(frac(3 * π, 2))}) to (hypothesis 12: {sin (y0 + frac(3 * π, 2)) = sin(y0) * 0 + cos(y0) * (-1)})
+  13. autosolve all_hypothesis
+}
+5. rewrite (left_to_right, equation) (hypothesis 10: {sin(y0 + frac(3 * π, 2)) = -cos(y0)}); from (GOAL: {6 * sin(y0 + frac(3 * π, 2)) - 6 * cos(x0) = -6 * (cos(y0) + cos(x0))}) to (GOAL: {6 * (-cos(y0)) - 6 * cos(x0) = -6 * (cos(y0) + cos(x0))})
+6. autosolve all_hypothesis

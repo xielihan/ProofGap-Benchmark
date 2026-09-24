@@ -1,0 +1,28 @@
+PROOF GAP @8
+ASSUM:
+1. f : RealSet → RealSet
+2. F : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. α ∈ RealSet
+6. β ∈ RealSet
+7. a < b
+8. a < α
+9. α < β
+10. β < b
+11. ContinuouslyDiffableFuncOn(f, IntervalLoRo(a, b))
+12. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ IntervalLoRo(a, b - frac(1, n)) ⇒ F(n, x) = n * (f(x + frac(1, n)) - f(x))
+13. `α'` = (α + a) / 2
+14. `β'` = (β + b) / 2
+15. a < `α'`
+16. `α'` < α
+17. α < β
+18. β < `β'`
+19. `β'` < b
+20. ContinuousFuncOn(FunDeri(f, 1, 1), [`α'`, `β'`])
+21. UniformContinuousFuncOn(FunDeri(f, 1, 1), [`α'`, `β'`])
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ x ∈ [α, β] ∧ n ∈ PosIntegerSet ⇒ (exists (θ), θ ∈ RealSet ∧ 0 < θ ∧ θ < 1 ∧ F(n, x) = FunDeri(f, 1, 1)(x + frac(θ, n))))
+
+METHOD:

@@ -1,0 +1,8 @@
+get_prop (hypothesis 1: {forall (x), x ∈ RealSet ∧ x > 0 ⇒ lim_{ x → 1 } (frac(x^{x} - x, ln(x) - x + 1)) = lim_{ x → 1 } (frac(x^{x} * (ln(x) + 1) - 1, frac(1, x) - 1))}) (x := {1}) as (hypothesis 4: {1 ∈ RealSet ∧ 1 > 0 ⇒ lim_{ x → 1 } (frac(x^{x} - x, ln(x) - x + 1)) = lim_{ x → 1 } (frac(x^{x} * (ln(x) + 1) - 1, frac(1, x) - 1))})
+assert (hypothesis 5: {lim_{ x → 1 } (frac(x^{x} - x, ln(x) - x + 1)) = lim_{ x → 1 } (frac(x^{x} * (ln(x) + 1) - 1, frac(1, x) - 1))}) by proof {
+  apply (hypothesis 4: {1 ∈ RealSet ∧ 1 > 0 ⇒ lim_{ x → 1 } (frac(x^{x} - x, ln(x) - x + 1)) = lim_{ x → 1 } (frac(x^{x} * (ln(x) + 1) - 1, frac(1, x) - 1))})
+  autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 5: {lim_{ x → 1 } (frac(x^{x} - x, ln(x) - x + 1)) = lim_{ x → 1 } (frac(x^{x} * (ln(x) + 1) - 1, frac(1, x) - 1))}); from (GOAL: {lim_{ x → 1 } (frac(x^{x} - x, ln(x) - x + 1)) = -2}) to (GOAL: {lim_{ x → 1 } (frac(x^{x} * (ln(x) + 1) - 1, frac(1, x) - 1)) = -2})
+rewrite (left_to_right, equation) (hypothesis 2: {lim_{ x → 1 } (frac(x^{x} * (ln(x) + 1) - 1, frac(1, x) - 1)) = lim_{ x → 1 } (frac(x^{x} * (ln(x) + 1)^{2} + x^{x - 1}, -frac(1, x^{2})))}); from (GOAL: {lim_{ x → 1 } (frac(x^{x} * (ln(x) + 1) - 1, frac(1, x) - 1)) = -2}) to (GOAL: {lim_{ x → 1 } (frac(x^{x} * (ln(x) + 1)^{2} + x^{x - 1}, -frac(1, x^{2}))) = -2})
+apply (hypothesis 3: {lim_{ x → 1 } (frac(x^{x} * (ln(x) + 1)^{2} + x^{x - 1}, -frac(1, x^{2}))) = -2})

@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. E : NonNegIntegerSet → RealSet
+2. A : NonNegIntegerSet → RealSet
+3. forall (j), j ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ |x| < frac(π, 2) ⇒ sec(x) = sum_{ j = 0 }^{ +∞ } (frac(E(j), (2 * j)!) * x^{2 * j}))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ cos(x) = sum_{ k = 0 }^{ +∞ } ((-1)^{k} * frac(x^{2 * k}, (2 * k)!))
+
+METHOD:

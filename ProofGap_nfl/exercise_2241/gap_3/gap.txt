@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. DefInt(0, 2 * π, (fun x [x ∈ RealSet] . x^{2} * cos(x)) * diff(fun x [x ∈ RealSet] . x)) = ((fun x [x ∈ RealSet] . x^{2} * sin(x))|_{0}^{2 * π}) - 2 * DefInt(0, 2 * π, (fun x [x ∈ RealSet] . x * sin(x)) * diff(fun x [x ∈ RealSet] . x))
+2. DefInt(0, 2 * π, (fun x [x ∈ RealSet] . x^{2} * cos(x)) * diff(fun x [x ∈ RealSet] . x)) = 2 * (((fun x [x ∈ RealSet] . x * cos(x))|_{0}^{2 * π}) - DefInt(0, 2 * π, (fun x [x ∈ RealSet] . cos(x)) * diff(fun x [x ∈ RealSet] . x)))
+
+GOAL:
+DefInt(0, 2 * π, (fun x [x ∈ RealSet] . x^{2} * cos(x)) * diff(fun x [x ∈ RealSet] . x)) = 4 * π
+
+METHOD:

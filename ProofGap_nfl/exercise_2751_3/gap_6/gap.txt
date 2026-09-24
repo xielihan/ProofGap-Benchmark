@@ -1,0 +1,18 @@
+PROOF GAP @6
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. g : RealSet → RealSet
+3. ε ∈ RealSet
+4. ε ∈ PosRealSet
+5. forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ≥ 1 + ε ⇒ f(n, x) = frac(x^{n}, 1 + x^{n})
+6. forall (x), x ∈ RealSet ∧ x ≥ 1 + ε ⇒ g(x) = 1
+7. forall (x), x ∈ RealSet ∧ x ≥ 1 + ε ⇒ seqlim_{ n → +∞ } (f(n, x)) = 1
+8. forall (x), x ∈ RealSet ∧ x ≥ 1 + ε ⇒ g(x) = 1
+9. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ≥ 1 + ε ⇒ |f(n, x) - g(x)| = frac(1, 1 + x^{n})
+10. forall (x) (n), x ∈ RealSet ∧ n ∈ NonNegIntegerSet ∧ x ≥ 1 + ε ∧ n ∈ PosIntegerSet ⇒ frac(1, 1 + x^{n}) < frac(1, (1 + ε)^{n})
+11. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ≥ 1 + ε ⇒ |f(n, x) - g(x)| < frac(1, (1 + ε)^{n})
+
+GOAL:
+forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ≥ 1 + ε ⇒ (forall (`ε'`), `ε'` ∈ RealSet ∧ `ε'` > 0 ∧ frac(1, (1 + ε)^{n}) < `ε'` ⇒ |f(n, x) - g(x)| < `ε'`)
+
+METHOD:

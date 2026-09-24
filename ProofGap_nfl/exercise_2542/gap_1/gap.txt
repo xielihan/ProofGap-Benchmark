@@ -1,0 +1,15 @@
+PROOF GAP @1
+ASSUM:
+1. I ∈ RealSet
+2. I_{k} : NonNegIntegerSet → RealSet
+3. R : NonNegIntegerSet → RealSet
+4. J ∈ RealSet
+5. Δ ∈ RealSet
+6. `Δ'` ∈ RealSet
+7. θ ∈ RealSet ∧ 0 < θ ∧ θ < 1
+8. I = DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . (e^{x} - 1) * ln(frac(1, x))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ e^{x} = 1 + (sum_{ k = 1 }^{ n } (frac(x^{k}, k!))) + Δ(n + 1))
+
+METHOD:

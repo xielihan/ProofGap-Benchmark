@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. x ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ y(x) = x^{2} * sin(2 * x)
+4. FunDeri(y, 1, 50)(x) = x^{2} * FunDeri(fun x [x ∈ RealSet] . sin(2 * x), 1, 50)(x) + Combination(50, 1) * 2 * x * FunDeri(fun x [x ∈ RealSet] . sin(2 * x), 1, 49)(x) + 2 * Combination(50, 2) * FunDeri(fun x [x ∈ RealSet] . sin(2 * x), 1, 48)(x)
+
+GOAL:
+FunDeri(y, 1, 50)(x) = 2^{50} * x^{2} * sin(2 * x + frac(50, 2) * π) + 100 * x * 2^{49} * sin(2 * x + frac(49, 2) * π) + frac(50 * 49, 1 * 2) * 2^{49} * sin(2 * x + frac(48, 2) * π)
+
+METHOD:

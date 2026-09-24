@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. α ∈ RealSet
+3. C ∈ RealSet
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = (sin(5 * x) - sin(5 * α)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_3`(x) = -frac(1, 5) * cos(5 * x) - x * sin(5 * α) + C) }
+
+METHOD:

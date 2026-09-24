@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. m ∈ NonNegIntegerSet
+2. n ∈ NonNegIntegerSet
+3. x ∈ RealSet
+4. m ∈ PosIntegerSet
+5. n ∈ PosIntegerSet
+6. m ≠ n
+7. x ≠ 0 ⇒ cosh(x) > 0
+
+GOAL:
+x ≠ 0 ⇒ sinh(x) ≠ 0
+
+METHOD:

@@ -1,0 +1,11 @@
+1. get_forall (GOAL: {forall (x) (t), t ∈ RealSet ∧ x ∈ RealSet ∧ t ∈ PosRealSet ⇒ FunDeri(v, 2, 1)(x, t) = a^{2} * FunDeri(v, 1, 2)(x, t)}) (x := {x0}) (t := {t0})
+2. get_condition (hypothesis 25: {t0 ∈ RealSet ∧ x0 ∈ RealSet ∧ t0 ∈ PosRealSet}) in (GOAL: {t0 ∈ RealSet ∧ x0 ∈ RealSet ∧ t0 ∈ PosRealSet ⇒ FunDeri(v, 2, 1)(x0, t0) = a^{2} * FunDeri(v, 1, 2)(x0, t0)})
+3. destruct_and (hypothesis 25: {t0 ∈ RealSet ∧ x0 ∈ RealSet ∧ t0 ∈ PosRealSet}) as (hypothesis 26: {t0 ∈ RealSet}) (hypothesis 27: {x0 ∈ RealSet}) (hypothesis 28: {t0 ∈ PosRealSet})
+4. assert (hypothesis 29: {t0 ∈ RealSet ∧ t0 ∈ PosRealSet}) by proof {
+  1. autosolve all_hypothesis
+}
+5. get_prop (hypothesis 24: {forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t ∈ PosRealSet ⇒ FunDeri(v, 2, 1)(x, t) = a^{2} * FunDeri(v, 1, 2)(x, t))}) (x := {x0}) as (hypothesis 30: {x0 ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t ∈ PosRealSet ⇒ FunDeri(v, 2, 1)(x0, t) = a^{2} * FunDeri(v, 1, 2)(x0, t))})
+6. use_condition (hypothesis 27: {x0 ∈ RealSet}) in (hypothesis 30: {x0 ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t ∈ PosRealSet ⇒ FunDeri(v, 2, 1)(x0, t) = a^{2} * FunDeri(v, 1, 2)(x0, t))}) as (hypothesis 31: {forall (t), t ∈ RealSet ∧ t ∈ PosRealSet ⇒ FunDeri(v, 2, 1)(x0, t) = a^{2} * FunDeri(v, 1, 2)(x0, t)})
+7. get_prop (hypothesis 31: {forall (t), t ∈ RealSet ∧ t ∈ PosRealSet ⇒ FunDeri(v, 2, 1)(x0, t) = a^{2} * FunDeri(v, 1, 2)(x0, t)}) (t := {t0}) as (hypothesis 32: {t0 ∈ RealSet ∧ t0 ∈ PosRealSet ⇒ FunDeri(v, 2, 1)(x0, t0) = a^{2} * FunDeri(v, 1, 2)(x0, t0)})
+8. use_condition (hypothesis 29: {t0 ∈ RealSet ∧ t0 ∈ PosRealSet}) in (hypothesis 32: {t0 ∈ RealSet ∧ t0 ∈ PosRealSet ⇒ FunDeri(v, 2, 1)(x0, t0) = a^{2} * FunDeri(v, 1, 2)(x0, t0)}) as (hypothesis 33: {FunDeri(v, 2, 1)(x0, t0) = a^{2} * FunDeri(v, 1, 2)(x0, t0)})
+9. apply (hypothesis 33: {FunDeri(v, 2, 1)(x0, t0) = a^{2} * FunDeri(v, 1, 2)(x0, t0)})

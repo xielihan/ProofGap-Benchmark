@@ -1,0 +1,3 @@
+assert (hypothesis 29: {a ≠ 0 ⇒ L = 1})
+assert (hypothesis 30: {a = 0 ⇒ DivergentSeq(fun n [n ∈ NonNegIntegerSet] . x(n + 1) / x(n)) ∨ (exists (b), b ∈ RealSet ∧ b ∈ [-1, 1] ∧ seqlim_{ n → +∞ } (x(n + 1) / x(n)) = b)})
+autosolve all_hypothesis

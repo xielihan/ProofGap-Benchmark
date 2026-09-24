@@ -1,0 +1,17 @@
+PROOF GAP @6
+ASSUM:
+1. S_{n} : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. S : RealSet → RealSet
+3. k ∈ NonNegIntegerSet
+4. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ S_{n}(n, x) = sum_{ k = 1 }^{ n } (frac(x, ((k - 1) * x + 1) * (k * x + 1)))
+5. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ S_{n}(n, x) = sum_{ k = 1 }^{ n } (frac(x, ((k - 1) * x + 1) * (k * x + 1))))
+6. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ sum_{ k = 1 }^{ n } (frac(x, ((k - 1) * x + 1) * (k * x + 1))) = sum_{ k = 1 }^{ n } (frac(1, (k - 1) * x + 1) - frac(1, k * x + 1)))
+7. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ sum_{ k = 1 }^{ n } (frac(1, (k - 1) * x + 1) - frac(1, k * x + 1)) = 1 - frac(1, n * x + 1))
+8. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ PosRealSet ⇒ S_{n}(n, x) = 1 - frac(1, n * x + 1))
+9. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ S(x) = lim_{ n → +∞ } (S_{n}(n, x)) ∧ lim_{ n → +∞ } (S_{n}(n, x)) = 1
+10. ε_{0} = frac(1, 4)
+
+GOAL:
+exists (x), x : NonNegIntegerSet → RealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x(n) = frac(1, n) ⇒ x(n) ∈ PosRealSet)
+
+METHOD:

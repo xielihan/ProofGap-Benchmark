@@ -1,0 +1,19 @@
+PROOF GAP @1
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. D ⊆ CartesianProd(RealSet, RealSet)
+3. a ∈ RealSet ∧ a > 0
+4. b ∈ RealSet ∧ b > 0
+5. x ∈ RealSet
+6. y ∈ RealSet
+7. C = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet, frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) = 1 }
+8. D = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet, frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) ≤ 1 }
+9. P : CartesianProd(RealSet, RealSet) → RealSet
+10. Q : CartesianProd(RealSet, RealSet) → RealSet
+11. P = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x + y)
+12. Q = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . -(x - y))
+
+GOAL:
+VectorCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x + y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x - y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . FunDeri(Q, 1, 1)(x, y) - FunDeri(P, 2, 1)(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+
+METHOD:

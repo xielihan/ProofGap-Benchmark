@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. f : RealSet → RealSet
+3. x ∈ RealSet
+4. n ∈ PosIntegerSet
+5. forall (x), x ∈ RealSet ⇒ f(x) = cos(x)^{n - 1} * sin((n + 1) * x)
+6. PeriodicFunc(f, π)
+7. OddFunc(f)
+
+GOAL:
+DefInt(0, π, cos(x)^{n - 1} * sin((n + 1) * x) * diff(fun x [x ∈ RealSet] . x)) = DefInt(-frac(π, 2), frac(π, 2), f(x) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

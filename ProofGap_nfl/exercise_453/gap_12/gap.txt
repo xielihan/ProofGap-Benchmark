@@ -1,0 +1,25 @@
+PROOF GAP @12
+ASSUM:
+1. α ∈ RealSet
+2. β ∈ RealSet
+3. m ∈ IntegerSet
+4. n ∈ IntegerSet
+5. m * n ≠ 0
+6. m ∈ PosIntegerSet ⇒ n ∈ PosIntegerSet ⇒ lim_{ x → 0 } (frac(sqrtn(m, 1 + α * x) * sqrtn(n, 1 + β * x) - 1, x)) = lim_{ x → 0 } (frac((1 + α * x)^{n} * (1 + β * x)^{m} - 1, x * (sqrtn(m * n, (1 + α * x)^{n * (m * n - 1)} * (1 + β * x)^{m * (m * n - 1)}) + sqrtn(m * n, (1 + α * x)^{n * (m * n - 2)} * (1 + β * x)^{m * (m * n - 2)}) + sqrtn(m * n, (1 + α * x)^{n} * (1 + β * x)^{m}) + 1)))
+7. m ∈ PosIntegerSet ⇒ n ∈ PosIntegerSet ⇒ (exists (r), r : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ (1 + α * x)^{n} * (1 + β * x)^{m} - 1 = x * (n * α + m * β) + x^{2} * r(x)))
+8. m ∈ PosIntegerSet ⇒ n ∈ PosIntegerSet ⇒ lim_{ x → 0 } (sqrtn(m * n, (1 + α * x)^{n * (m * n - 1)} * (1 + β * x)^{m * (m * n - 1)}) + sqrtn(m * n, (1 + α * x)^{n * (m * n - 2)} * (1 + β * x)^{m * (m * n - 2)}) + sqrtn(m * n, (1 + α * x)^{n} * (1 + β * x)^{m}) + 1) = m * n
+9. m ∈ PosIntegerSet ⇒ n ∈ PosIntegerSet ⇒ lim_{ x → 0 } (frac(sqrtn(m, 1 + α * x) * sqrtn(n, 1 + β * x) - 1, x)) = frac(n * α + m * β, m * n)
+10. m ∈ PosIntegerSet ⇒ n ∈ PosIntegerSet ⇒ frac(n * α + m * β, m * n) = frac(α, m) + frac(β, n)
+11. m ∈ PosIntegerSet ⇒ n ∈ PosIntegerSet ⇒ lim_{ x → 0 } (frac(sqrtn(m, 1 + α * x) * sqrtn(n, 1 + β * x) - 1, x)) = frac(α, m) + frac(β, n)
+12. m ∈ NegIntegerSet ⇒ n ∈ NegIntegerSet ⇒ `m'` = -m
+13. m ∈ NegIntegerSet ⇒ n ∈ NegIntegerSet ⇒ `n'` = -n
+14. m ∈ NegIntegerSet ⇒ n ∈ NegIntegerSet ⇒ `m'` ∈ PosIntegerSet
+15. m ∈ NegIntegerSet ⇒ n ∈ NegIntegerSet ⇒ `n'` ∈ PosIntegerSet
+16. m ∈ NegIntegerSet ⇒ n ∈ NegIntegerSet ⇒ (forall (x), x ∈ RealSet ⇒ sqrtn(m, 1 + α * x) * sqrtn(n, 1 + β * x) - 1 = frac(1 - sqrtn(`m'`, 1 + α * x) * sqrtn(`n'`, 1 + β * x), sqrtn(`m'`, 1 + α * x) * sqrtn(`n'`, 1 + β * x)))
+17. m ∈ NegIntegerSet ⇒ n ∈ NegIntegerSet ⇒ lim_{ x → 0 } (sqrtn(`m'`, 1 + α * x) * sqrtn(`n'`, 1 + β * x)) = 1
+18. m ∈ NegIntegerSet ⇒ n ∈ NegIntegerSet ⇒ lim_{ x → 0 } (frac(sqrtn(m, 1 + α * x) * sqrtn(n, 1 + β * x) - 1, x)) = -frac(α, `m'`) - frac(β, `n'`)
+
+GOAL:
+m ∈ NegIntegerSet ⇒ n ∈ NegIntegerSet ⇒ -frac(α, `m'`) - frac(β, `n'`) = frac(α, m) + frac(β, n)
+
+METHOD:

@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. u : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, n^{a}) > 0 ∧ sin(frac(1, n^{a})) > 0
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = ln(frac(1, n^{a})) - ln(sin(frac(1, n^{a})))
+5. a < 0 ⇒ (exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ ¬sin(n^{-a}) > 0)
+
+GOAL:
+a = 0 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = -ln(sin(1)))
+
+METHOD:

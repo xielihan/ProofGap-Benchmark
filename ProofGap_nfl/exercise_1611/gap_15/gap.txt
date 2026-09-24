@@ -1,0 +1,26 @@
+PROOF GAP @15
+ASSUM:
+1. p ∈ RealSet ∧ p > 0
+2. ξ ∈ RealSet
+3. η ∈ RealSet
+4. y : RealSet → RealSet
+5. forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x)^{2} = 2 * p * x
+6. forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(y, 1, 1)(x) = frac(p, y(x))
+7. forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(y, 1, 2)(x) = -frac(p^{2}, y(x)^{3})
+8. forall (x), x ∈ RealSet ∧ x > 0 ⇒ ξ = x - frac(FunDeri(y, 1, 1)(x) * (1 + FunDeri(y, 1, 1)(x)^{2}), FunDeri(y, 1, 2)(x))
+9. forall (x), x ∈ RealSet ∧ x > 0 ⇒ x - frac(FunDeri(y, 1, 1)(x) * (1 + FunDeri(y, 1, 1)(x)^{2}), FunDeri(y, 1, 2)(x)) = x + frac(frac(p, y(x)) * (1 + frac(p^{2}, y(x)^{2})), frac(p^{2}, y(x)^{3}))
+10. forall (x), x ∈ RealSet ∧ x > 0 ⇒ x + frac(frac(p, y(x)) * (1 + frac(p^{2}, y(x)^{2})), frac(p^{2}, y(x)^{3})) = x + frac(y(x)^{2} + p^{2}, p)
+11. forall (x), x ∈ RealSet ∧ x > 0 ⇒ x + frac(y(x)^{2} + p^{2}, p) = x + frac(2 * p * x + p^{2}, p)
+12. forall (x), x ∈ RealSet ∧ x > 0 ⇒ x + frac(2 * p * x + p^{2}, p) = 3 * x + p
+13. forall (x), x ∈ RealSet ∧ x > 0 ⇒ ξ = 3 * x + p
+14. forall (x), x ∈ RealSet ∧ x > 0 ⇒ η = y(x) + frac(1 + FunDeri(y, 1, 1)(x)^{2}, FunDeri(y, 1, 2)(x))
+15. forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x) + frac(1 + FunDeri(y, 1, 1)(x)^{2}, FunDeri(y, 1, 2)(x)) = y(x) - frac(1 + frac(p^{2}, y(x)^{2}), frac(p^{2}, y(x)^{3}))
+16. forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x) - frac(1 + frac(p^{2}, y(x)^{2}), frac(p^{2}, y(x)^{3})) = -frac(y(x)^{3}, p^{2})
+17. forall (x), x ∈ RealSet ∧ x > 0 ⇒ η = -frac(y(x)^{3}, p^{2})
+18. forall (x), x ∈ RealSet ∧ x > 0 ⇒ x = frac(ξ - p, 3)
+19. forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x)^{3} = -p^{2} * η
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x)^{6} = 8 * p^{3} * x^{3}
+
+METHOD:

@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. lim_{ x → 0 } (frac(x^{2}, sqrtn(2, 1 + x * sin(x)) - sqrtn(2, cos(x)))) = lim_{ x → 0 } (frac(x^{2} * (sqrtn(2, 1 + x * sin(x)) + sqrtn(2, cos(x))), 1 + x * sin(x) - cos(x)))
+
+GOAL:
+lim_{ x → 0 } (frac(x^{2} * (sqrtn(2, 1 + x * sin(x)) + sqrtn(2, cos(x))), 1 + x * sin(x) - cos(x))) = lim_{ x → 0 } (frac(sqrtn(2, 1 + x * sin(x)) + sqrtn(2, cos(x)), frac(sin(x), x) + frac(2 * sin(frac(x, 2))^{2}, x^{2})))
+
+METHOD:

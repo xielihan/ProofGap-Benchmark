@@ -1,0 +1,22 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet
+2. A ∈ RealSet
+3. b ∈ RealSet
+4. B ∈ RealSet
+5. R ⊆ CartesianProd(RealSet, RealSet)
+6. X : RealSet → RealSet
+7. Y : RealSet → RealSet
+8. a ≤ A
+9. b ≤ B
+10. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ R = { (x, y) | x ∈ RealSet, y ∈ RealSet, a ≤ x ∧ x ≤ A, b ≤ y ∧ y ≤ B })
+11. ContinuousFuncOn(X, [a, A])
+12. ContinuousFuncOn(Y, [b, B])
+13. VolumeInt(R, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . X(x) * Y(y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = DefInt(a, A, (fun x [x ∈ RealSet] . DefInt(b, B, (fun y [y ∈ RealSet] . X(x) * Y(y)) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+14. DefInt(a, A, (fun x [x ∈ RealSet] . DefInt(b, B, (fun y [y ∈ RealSet] . X(x) * Y(y)) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x)) = DefInt(a, A, (fun x [x ∈ RealSet] . X(x)) * diff(fun x [x ∈ RealSet] . x)) * DefInt(b, B, (fun y [y ∈ RealSet] . Y(y)) * diff(fun y [y ∈ RealSet] . y))
+15. VolumeInt(R, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . X(x) * Y(y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = DefInt(a, A, (fun x [x ∈ RealSet] . X(x)) * diff(fun x [x ∈ RealSet] . x)) * DefInt(b, B, (fun y [y ∈ RealSet] . Y(y)) * diff(fun y [y ∈ RealSet] . y))
+
+GOAL:
+VolumeInt(R, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . X(x) * Y(y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = DefInt(a, A, (fun x [x ∈ RealSet] . X(x)) * diff(fun x [x ∈ RealSet] . x)) * DefInt(b, B, (fun y [y ∈ RealSet] . Y(y)) * diff(fun y [y ∈ RealSet] . y))
+
+METHOD:

@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. t : RealSet → RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ [-1, 1] ∧ t(x) = sqrtn(2, 5 - 4 * x) ⇒ 5 - 4 * x > 0
+
+METHOD:

@@ -1,0 +1,23 @@
+PROOF GAP @8
+ASSUM:
+1. r : RealSet → RealSet
+2. a ∈ RealSet ∧ a > 0
+3. x : RealSet → RealSet
+4. y : RealSet → RealSet
+5. s ∈ RealSet
+6. P_{1} ∈ RealSet
+7. P_{2} ∈ RealSet
+8. P_{3} ∈ RealSet
+9. forall (φ), φ ∈ RealSet ∧ cos(2 * φ) ≥ 0 ⇒ r(φ)^{2} = a^{2} * cos(2 * φ)
+10. forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ < frac(π, 4) ⇒ y(φ) = a * sqrtn(2, cos(2 * φ)) * sin(φ)
+11. forall (φ), φ ∈ RealSet ∧ cos(2 * φ) > 0 ⇒ diff(s) = frac(a, sqrtn(2, cos(2 * φ))) * diff(φ)
+12. P_{1} = 2 * 2 * π * DefInt(0, frac(π, 4), a^{2} * sin(φ) * diff(φ))
+13. 2 * 2 * π * DefInt(0, frac(π, 4), a^{2} * sin(φ) * diff(φ)) = 2 * π * a^{2} * (2 - sqrtn(2, 2))
+14. P_{1} = 2 * π * a^{2} * (2 - sqrtn(2, 2))
+15. forall (φ), φ ∈ RealSet ∧ -frac(π, 4) ≤ φ ∧ φ ≤ frac(π, 4) ⇒ x(φ) = a * sqrtn(2, cos(2 * φ)) * cos(φ)
+16. P_{2} = 2 * π * DefInt(-frac(π, 4), frac(π, 4), a * sqrtn(2, cos(2 * φ)) * cos(φ) * frac(a, sqrtn(2, cos(2 * φ))) * diff(φ))
+
+GOAL:
+2 * π * DefInt(-frac(π, 4), frac(π, 4), a * sqrtn(2, cos(2 * φ)) * cos(φ) * frac(a, sqrtn(2, cos(2 * φ))) * diff(φ)) = 2 * π * a^{2} * sqrtn(2, 2)
+
+METHOD:

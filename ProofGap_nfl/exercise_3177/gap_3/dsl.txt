@@ -1,0 +1,8 @@
+1. get_forall (GOAL: {forall (t), t ∈ RealSet ⇒ f(t) = sqrtn(2, 1 + t^{2})}) (t := {t0})
+2. get_condition (hypothesis 5: {t0 ∈ RealSet}) in (GOAL: {t0 ∈ RealSet ⇒ f(t0) = sqrtn(2, 1 + t0^{2})})
+3. get_prop (hypothesis 3: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x > 0 ⇒ f(y / x) = sqrtn(2, 1 + (y / x)^{2})}) (x := {1}) (y := {t0}) as (hypothesis 6: {1 ∈ RealSet ∧ t0 ∈ RealSet ∧ 1 > 0 ⇒ f((t0) / (1)) = sqrtn(2, 1 + ((t0) / (1))^{2})})
+4. assert (hypothesis 7: {1 ∈ RealSet ∧ t0 ∈ RealSet ∧ 1 > 0}) by proof {
+5. autosolve all_hypothesis
+}
+6. use_condition (hypothesis 7: {1 ∈ RealSet ∧ t0 ∈ RealSet ∧ 1 > 0}) in (hypothesis 6: {1 ∈ RealSet ∧ t0 ∈ RealSet ∧ 1 > 0 ⇒ f((t0) / (1)) = sqrtn(2, 1 + ((t0) / (1))^{2})}) as (hypothesis 8: {f((t0) / (1)) = sqrtn(2, 1 + ((t0) / (1))^{2})})
+7. autosolve all_hypothesis

@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (k), k ∈ IntegerSet ∧ 1 ≤ k ∧ k ≤ n - 1 ⇒ sqrtn(2, k * (n - k)) ≤ frac(n, 2))
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (k), k ∈ IntegerSet ∧ 1 ≤ k ∧ k ≤ n - 1 ⇒ frac(1, 2) * (ln(k) + ln(n - k)) ≤ ln(frac(n, 2)))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ sum_{ k = 1 }^{ n - 1 } (ln(k)) ≤ (n - 1) * ln(frac(n, 2))
+
+METHOD:

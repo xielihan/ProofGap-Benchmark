@@ -1,0 +1,12 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, n^{p}) > 0}) (n := {n})
+get_condition (hypothesis 5: {n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet}) in (GOAL: {n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(1, n^{p}) > 0})
+destruct_and (hypothesis 5: {n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet}) as (hypothesis 6: {n ∈ NonNegIntegerSet}) (hypothesis 7: {n ∈ PosIntegerSet})
+assert (hypothesis 8: {n ∈ RealSet ∧ n > 0}) by proof {
+  autosolve all_hypothesis
+}
+destruct_and (hypothesis 8: {n ∈ RealSet ∧ n > 0}) as (hypothesis 9: {n ∈ RealSet}) (hypothesis 10: {n > 0})
+get_prop (theorem 387: {forall (a) (u), a ∈ RealSet ⇒ u ∈ RealSet ⇒ a > 0 ⇒ a ^ u > 0}) (a := {n}) (u := {p}) as (hypothesis 11: {n ∈ RealSet ⇒ p ∈ RealSet ⇒ n > 0 ⇒ n ^ p > 0})
+use_condition (hypothesis 9: {n ∈ RealSet}) in (hypothesis 11: {n ∈ RealSet ⇒ p ∈ RealSet ⇒ n > 0 ⇒ n ^ p > 0}) as (hypothesis 12: {p ∈ RealSet ⇒ n > 0 ⇒ n ^ p > 0})
+use_condition (hypothesis 3: {p ∈ RealSet}) in (hypothesis 12: {p ∈ RealSet ⇒ n > 0 ⇒ n ^ p > 0}) as (hypothesis 13: {n > 0 ⇒ n ^ p > 0})
+use_condition (hypothesis 10: {n > 0}) in (hypothesis 13: {n > 0 ⇒ n ^ p > 0}) as (hypothesis 14: {n ^ p > 0})
+autosolve all_hypothesis

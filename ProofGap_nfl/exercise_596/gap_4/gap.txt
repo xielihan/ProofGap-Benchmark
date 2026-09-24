@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. forall (x), x ∈ RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ x ≠ 0
+3. lim_{ x → 0^- } (frac(1, x)) = -∞
+4. lim_{ x → 0^- } (e^{frac(1, x)}) = 0
+5. lim_{ x → 0^- } (frac(1, 1 + e^{frac(1, x)})) = 1
+
+GOAL:
+lim_{ x → 0^+ } (frac(1, x)) = +∞
+
+METHOD:

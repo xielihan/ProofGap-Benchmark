@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = (prod_{ k = 1 }^{ n } (frac(2 * k - 1, 2 * k)))^{p}}) (n := {n1})
+get_condition (hypothesis 4: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet}) in (GOAL: {n1 ∈ NonNegIntegerSet ∧ n1 ∈ PosIntegerSet ⇒ a(n1) = (prod_{ k = 1 }^{ n1 } (frac(2 * k - 1, 2 * k)))^{p}})
+rewrite (left_to_right, equation) (hypothesis 2: {a = (fun n [n ∈ NonNegIntegerSet] . (prod_{ k = 1 }^{ n } (frac(2 * k - 1, 2 * k)))^{p})}); from (GOAL: {a(n1) = (prod_{ k = 1 }^{ n1 } (frac(2 * k - 1, 2 * k)))^{p}}) to (GOAL: {(fun n [n ∈ NonNegIntegerSet] . (prod_{ k = 1 }^{ n } (frac(2 * k - 1, 2 * k)))^{p})(n1) = (prod_{ k = 1 }^{ n1 } (frac(2 * k - 1, 2 * k)))^{p}})
+autosolve all_hypothesis

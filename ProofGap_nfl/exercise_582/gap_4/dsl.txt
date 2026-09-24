@@ -1,0 +1,2 @@
+rewrite_in limit (left_to_right, equation) (hypothesis 3: {forall (x), x ∈ RealSet ∧ x > 0 ⇒ sqrtn(2, x^{2} + x) - x = frac(x, sqrtn(2, x^{2} + x) + x)}); from (GOAL: {lim_{ x → +∞ } (arccos(sqrtn(2, x^{2} + x) - x)) = lim_{ x → +∞ } (arccos(frac(x, sqrtn(2, x^{2} + x) + x)))}) to (GOAL: {lim_{ x → +∞ } (arccos(frac(x, sqrtn(2, x^{2} + x) + x))) = lim_{ x → +∞ } (arccos(frac(x, sqrtn(2, x^{2} + x) + x)))})
+autosolve all_hypothesis

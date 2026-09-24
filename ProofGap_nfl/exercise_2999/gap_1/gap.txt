@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ frac((-1)^{n} * n, (2 * n + 1)!) = frac((-1)^{n}, 2) * (frac(1, (2 * n)!) - frac(1, (2 * n + 1)!))
+
+METHOD:

@@ -1,0 +1,19 @@
+PROOF GAP @9
+ASSUM:
+1. f : RealSet → RealSet
+2. a : NonNegIntegerSet → RealSet
+3. b : NonNegIntegerSet → RealSet
+4. forall (x), x ∈ RealSet ⇒ f(x) = sin(x)^{4}
+5. forall (x), x ∈ RealSet ⇒ sin(x)^{4} = frac(1 - cos(2 * x), 2)^{2}
+6. forall (x), x ∈ RealSet ⇒ sin(x)^{4} = frac(3, 8) - frac(1, 2) * cos(2 * x) + frac(1, 8) * cos(4 * x)
+7. a(0) = frac(2, π) * DefInt(0, π, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π] . sin(x)^{4}) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π] . x))
+8. a(0) = frac(2, π) * DefInt(0, π, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π] . frac(3, 8) - frac(1, 2) * cos(2 * x) + frac(1, 8) * cos(4 * x)) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π] . x))
+9. frac(2, π) * DefInt(0, π, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π] . frac(3, 8) - frac(1, 2) * cos(2 * x) + frac(1, 8) * cos(4 * x)) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π] . x)) = frac(3, 4)
+10. a(0) = frac(3, 4)
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(2, π) * DefInt(0, π, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π] . sin(x)^{4} * cos(n * x)) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π] . x))
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = cases{ 0 if n ≠ 2 ∧ n ≠ 4; -frac(1, 2) if n = 2; frac(1, 8) if n = 4 }
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = frac(1, π) * DefInt(-π, π, (fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . sin(x)^{4} * sin(n * x)) * diff(fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . x)) ∧ frac(1, π) * DefInt(-π, π, (fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . sin(x)^{4} * sin(n * x)) * diff(fun x [x ∈ RealSet ∧ -π ≤ x ∧ x ≤ π] . x)) = 0
+
+METHOD:

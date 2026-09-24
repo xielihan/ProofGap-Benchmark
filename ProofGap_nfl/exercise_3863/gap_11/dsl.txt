@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 12: {FunDeri(fun p [p ∈ RealSet ∧ 0 < p ∧ p < 1] . B(p, 1 - p), 1, 1)(p) = FunDeri(fun p [p ∈ RealSet ∧ 0 < p ∧ p < 1] . frac(π, sin(p * π)), 1, 1)(p)}); from (GOAL: {FunDeri(fun p [p ∈ RealSet ∧ 0 < p ∧ p < 1] . B(p, 1 - p), 1, 1)(p) = -frac(π^{2} * cos(p * π), sin(p * π)^{2})}) to (GOAL: {FunDeri(fun p [p ∈ RealSet ∧ 0 < p ∧ p < 1] . frac(π, sin(p * π)), 1, 1)(p) = -frac(π^{2} * cos(p * π), sin(p * π)^{2})})
+autosolve all_hypothesis

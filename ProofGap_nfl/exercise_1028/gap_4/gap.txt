@@ -1,0 +1,15 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. T ∈ RealSet
+3. DiffableFuncOn(f, RealSet)
+4. PeriodicFunc(f, T)
+5. T ≠ 0
+6. forall (x), x ∈ RealSet ⇒ f(x + T) = f(x)
+7. forall (x), x ∈ RealSet ⇒ FunDeri(f, 1, 1)(x + T) = FunDeri(f, 1, 1)(x)
+8. PeriodicFunc(FunDeri(f, 1, 1), T)
+
+GOAL:
+PeriodicFunc(FunDeri(f, 1, 1), T)
+
+METHOD:

@@ -1,0 +1,6 @@
+get_condition (hypothesis 27: {0 ≤ x}) in (GOAL: {0 ≤ x ⇒ x < 4 ⇒ t < 1})
+get_condition (hypothesis 28: {x < 4}) in (GOAL: {x < 4 ⇒ t < 1})
+use_condition (hypothesis 27: {0 ≤ x}) (hypothesis 28: {x < 4}) in (hypothesis 24: {0 ≤ x ⇒ x < 4 ⇒ t = frac(sqrtn(2, x), 2) ∧ x = (2 * t)^{2}}) as (hypothesis 29: {t = frac(sqrtn(2, x), 2) ∧ x = (2 * t)^{2}})
+destruct_and (hypothesis 29: {t = frac(sqrtn(2, x), 2) ∧ x = (2 * t)^{2}}) as (hypothesis 30: {t = frac(sqrtn(2, x), 2)}) (hypothesis 31: {x = (2 * t)^{2}})
+use_condition (hypothesis 27: {0 ≤ x}) (hypothesis 28: {x < 4}) in (hypothesis 26: {0 ≤ x ⇒ x < 4 ⇒ 0 ≤ t}) as (hypothesis 32: {0 ≤ t})
+autosolve all_hypothesis

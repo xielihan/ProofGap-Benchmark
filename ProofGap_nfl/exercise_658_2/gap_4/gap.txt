@@ -1,0 +1,19 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. f : RealSet → RealSet
+3. g : RealSet → RealSet
+4. C ∈ RealSet
+5. n ∈ RealSet
+6. lim_{ x → 1^- } (x) = 1
+7. -1 ≤ x
+8. x < 1
+9. f(x) = sqrtn(2, frac(1 + x, 1 - x))
+10. forall (x), x ∈ RealSet ∧ -1 ≤ x ∧ x < 1 ⇒ frac(sqrtn(2, frac(1 + x, 1 - x)), sqrtn(2, 2) * frac(1, sqrtn(2, 1 - x))) = frac(sqrtn(2, 1 + x), sqrtn(2, 2))
+11. lim_{ x → 1^- } (frac(sqrtn(2, frac(1 + x, 1 - x)), sqrtn(2, 2) * frac(1, sqrtn(2, 1 - x)))) = 1
+12. (sqrtn(2, frac(1 + x, 1 - x))) ∼_{ x → 1^- } sqrtn(2, 2) * frac(1, 1 - x)^{frac(1, 2)}
+
+GOAL:
+g(x) = sqrtn(2, 2) * frac(1, 1 - x)^{frac(1, 2)} ∧ n = frac(1, 2) ⇒ (exists (C) (n), C ∈ RealSet ∧ C ≠ 0 ∧ n ∈ RealSet ∧ g(x) = C * frac(1, 1 - x)^{n} ∧ (f(x)) ∼_{ x → 1^- } (g(x)))
+
+METHOD:

@@ -1,0 +1,31 @@
+PROOF GAP @12
+ASSUM:
+1. φ : CartesianProd(RealSet, RealSet) → RealSet
+2. p ∈ RealSet
+3. m ∈ RealSet
+4. M ∈ RealSet
+5. D ⊆ CartesianProd(RealSet, RealSet)
+6. x : CartesianProd(RealSet, RealSet) → RealSet
+7. y : CartesianProd(RealSet, RealSet) → RealSet
+8. D = { (x, y) | x ∈ RealSet, y ∈ RealSet, x^{2} + y^{2} ≤ 1 }
+9. ContinuousFuncOn(φ, D)
+10. 0 < m
+11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D ⇒ m ≤ |φ(x, y)| ∧ |φ(x, y)| ≤ M
+12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ x^{2} + x * y + y^{2} = frac(1, 2) * (x^{2} + y^{2}) + frac(1, 2) * (x + y)^{2} ∧ frac(1, 2) * (x^{2} + y^{2}) + frac(1, 2) * (x + y)^{2} > 0
+13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D ∧ (x, y) ≠ (0, 0) ⇒ frac(m, (x^{2} + x * y + y^{2})^{p}) ≤ frac(|φ(x, y)|, (x^{2} + x * y + y^{2})^{p}) ∧ frac(|φ(x, y)|, (x^{2} + x * y + y^{2})^{p}) ≤ frac(M, (x^{2} + x * y + y^{2})^{p})
+14. (exists (I), I ∈ RealSet ∧ I = VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(φ(x, y), (x^{2} + x * y + y^{2})^{p})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))) ⇔ (exists (J), J ∈ RealSet ∧ J = VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, (x^{2} + x * y + y^{2})^{p})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)))
+15. forall (r) (θ), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1 ∧ θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ 2 * π ⇒ x(r, θ) = r * cos(θ)
+16. forall (r) (θ), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1 ∧ θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ 2 * π ⇒ y(r, θ) = r * sin(θ)
+17. forall (r) (θ), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ 1 ∧ θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ 2 * π ⇒ x(r, θ)^{2} + x(r, θ) * y(r, θ) + y(r, θ)^{2} = r^{2} * (1 + frac(1, 2) * sin(2 * θ))
+18. VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, (x^{2} + x * y + y^{2})^{p})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = DefInt(0, 2 * π, (fun θ [θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ 2 * π] . frac(1, (1 + frac(1, 2) * sin(2 * θ))^{p})) * diff(fun θ [θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ 2 * π] . θ)) * DefInt(0, 1, (fun r [r ∈ RealSet ∧ 0 < r ∧ r ≤ 1] . frac(1, r^{2 * p - 1})) * diff(fun r [r ∈ RealSet ∧ 0 < r ∧ r ≤ 1] . r))
+19. forall (θ), θ ∈ RealSet ∧ θ ∈ [0, 2 * π] ⇒ 1 + frac(1, 2) * sin(2 * θ) ≥ frac(1, 2) ∧ frac(1, 2) > 0
+20. exists (A), A ∈ RealSet ∧ A = DefInt(0, 2 * π, (fun θ [θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ 2 * π] . frac(1, (1 + frac(1, 2) * sin(2 * θ))^{p})) * diff(fun θ [θ ∈ RealSet ∧ 0 ≤ θ ∧ θ ≤ 2 * π] . θ))
+21. DefInt(0, 1, (fun r [r ∈ RealSet ∧ 0 < r ∧ r ≤ 1] . frac(1, r^{2 * p - 1})) * diff(fun r [r ∈ RealSet ∧ 0 < r ∧ r ≤ 1] . r)) = cases{ frac(1, 2 * (1 - p)) if p < 1; +∞ if p ≥ 1 }
+22. p < 1 ⇒ (exists (J), J ∈ RealSet ∧ J = VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, (x^{2} + x * y + y^{2})^{p})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)))
+23. p < 1 ⇒ (exists (I), I ∈ RealSet ∧ I = VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(φ(x, y), (x^{2} + x * y + y^{2})^{p})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)))
+24. p ≥ 1 ⇒ ¬(exists (J), J ∈ RealSet ∧ J = VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, (x^{2} + x * y + y^{2})^{p})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)))
+
+GOAL:
+p ≥ 1 ⇒ ¬(exists (I), I ∈ RealSet ∧ I = VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(φ(x, y), (x^{2} + x * y + y^{2})^{p})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)))
+
+METHOD:

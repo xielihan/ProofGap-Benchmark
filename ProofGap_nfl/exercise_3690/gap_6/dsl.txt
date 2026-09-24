@@ -1,0 +1,2 @@
+get_condition (hypothesis 16: {FunDeri(F, 3, 1)(α, h, R, λ) = 0}) in (GOAL: {FunDeri(F, 3, 1)(α, h, R, λ) = 0 ⇒ 6 * R * h + 3 * R^{2} * tan(α) - (2 * R + 2 * h + frac(2 * R, cos(α))) * λ = 0})
+autosolve all_hypothesis

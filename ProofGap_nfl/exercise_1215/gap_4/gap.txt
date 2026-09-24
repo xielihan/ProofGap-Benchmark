@@ -1,0 +1,17 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → RealSet
+2. p ∈ NonNegIntegerSet
+3. A : NonNegIntegerSet → RealSet
+4. t : RealSet → ComplexSet
+5. p ∈ PosIntegerSet
+6. forall (x), x ∈ RealSet ⇒ f(x) = sin(x)^{2 * p}
+7. forall (x), x ∈ RealSet ⇒ t(x) = cos(x) + __IMAGINARY_UNIT__ * sin(x)
+8. forall (x), x ∈ RealSet ⇒ sin(x) = frac(1, 2 * __IMAGINARY_UNIT__) * (t(x) - bar(t(x)))
+9. forall (x), x ∈ RealSet ⇒ sin(x)^{2 * p} = frac(1, (2 * __IMAGINARY_UNIT__)^{2 * p}) * (t(x) - bar(t(x)))^{2 * p}
+10. forall (x), x ∈ RealSet ⇒ sin(x)^{2 * p} = frac(1, (2 * __IMAGINARY_UNIT__)^{2 * p}) * (sum_{ k = 0 }^{ 2 * p } (Combination(2 * p, k) * t(x)^{2 * p - k} * (-1)^{k} * bar(t(x))^{k}))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ f(x) = (-1)^{p} * frac(1, (2 * __IMAGINARY_UNIT__)^{2 * p}) * Combination(2 * p, p) + frac(2, (2 * __IMAGINARY_UNIT__)^{2 * p}) * (sum_{ k = 0 }^{ p - 1 } (Combination(2 * p, k) * (-1)^{k} * cos((2 * p - 2 * k) * x)))
+
+METHOD:

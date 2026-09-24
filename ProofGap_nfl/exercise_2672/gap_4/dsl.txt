@@ -1,0 +1,13 @@
+get_forall (GOAL: {forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ b(k + 1) ≤ b(k)}) (k := {k0})
+get_condition (hypothesis 6: {k0 ∈ NonNegIntegerSet ∧ k0 ∈ PosIntegerSet}) in (GOAL: {k0 ∈ NonNegIntegerSet ∧ k0 ∈ PosIntegerSet ⇒ b(k0 + 1) ≤ b(k0)})
+get_prop (hypothesis 4: {forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ frac(2, k + 1) < b(k) ∧ b(k) < frac(2, k)}) (k := {k0}) as (hypothesis 7: {k0 ∈ NonNegIntegerSet ∧ k0 ∈ PosIntegerSet ⇒ frac(2, k0 + 1) < b(k0) ∧ b(k0) < frac(2, k0)})
+get_prop (hypothesis 4: {forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ frac(2, k + 1) < b(k) ∧ b(k) < frac(2, k)}) (k := {k0 + 1}) as (hypothesis 8: {k0 + 1 ∈ NonNegIntegerSet ∧ k0 + 1 ∈ PosIntegerSet ⇒ frac(2, k0 + 1 + 1) < b(k0 + 1) ∧ b(k0 + 1) < frac(2, k0 + 1)})
+use_condition (hypothesis 6: {k0 ∈ NonNegIntegerSet ∧ k0 ∈ PosIntegerSet}) in (hypothesis 7: {k0 ∈ NonNegIntegerSet ∧ k0 ∈ PosIntegerSet ⇒ frac(2, k0 + 1) < b(k0) ∧ b(k0) < frac(2, k0)}) as (hypothesis 9: {frac(2, k0 + 1) < b(k0) ∧ b(k0) < frac(2, k0)})
+assert (hypothesis 10: {k0 + 1 ∈ NonNegIntegerSet ∧ k0 + 1 ∈ PosIntegerSet}) by proof {
+  destruct_and (hypothesis 6: {k0 ∈ NonNegIntegerSet ∧ k0 ∈ PosIntegerSet}) as (hypothesis 11: {k0 ∈ NonNegIntegerSet}) (hypothesis 12: {k0 ∈ PosIntegerSet})
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 10: {k0 + 1 ∈ NonNegIntegerSet ∧ k0 + 1 ∈ PosIntegerSet}) in (hypothesis 8: {k0 + 1 ∈ NonNegIntegerSet ∧ k0 + 1 ∈ PosIntegerSet ⇒ frac(2, k0 + 1 + 1) < b(k0 + 1) ∧ b(k0 + 1) < frac(2, k0 + 1)}) as (hypothesis 11: {frac(2, k0 + 1 + 1) < b(k0 + 1) ∧ b(k0 + 1) < frac(2, k0 + 1)})
+destruct_and (hypothesis 9: {frac(2, k0 + 1) < b(k0) ∧ b(k0) < frac(2, k0)}) as (hypothesis 12: {frac(2, k0 + 1) < b(k0)}) (hypothesis 13: {b(k0) < frac(2, k0)})
+destruct_and (hypothesis 11: {frac(2, k0 + 1 + 1) < b(k0 + 1) ∧ b(k0 + 1) < frac(2, k0 + 1)}) as (hypothesis 14: {frac(2, k0 + 1 + 1) < b(k0 + 1)}) (hypothesis 15: {b(k0 + 1) < frac(2, k0 + 1)})
+autosolve all_hypothesis

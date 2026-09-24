@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. R : RealSet → RealSet
+3. f : RealSet → RealSet
+4. P ∈ CartesianProd(RealSet, RealSet)
+5. forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x) = ln(x)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(y, 1, 1)(x) = frac(1, x)
+
+METHOD:

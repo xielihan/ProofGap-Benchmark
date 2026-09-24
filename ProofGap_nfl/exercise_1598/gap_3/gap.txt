@@ -1,0 +1,20 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet
+2. y : RealSet → RealSet
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. R ∈ RealSet
+6. ε ∈ RealSet
+7. a > 0
+8. b > 0
+9. y(x) ∈ RealSet
+10. frac(x^{2}, a^{2}) - frac(y(x)^{2}, b^{2}) = 1
+11. ε = frac(sqrtn(2, a^{2} + b^{2}), a)
+12. y(x) ≠ 0 ⇔ |x| > a
+13. y(x) ≠ 0 ⇒ FunDeri(y, 1, 1)(x) = frac(b^{2} * x, a^{2} * y(x))
+
+GOAL:
+y(x) ≠ 0 ⇒ FunDeri(y, 1, 2)(x) = -frac(b^{4}, a^{2} * y(x)^{3})
+
+METHOD:

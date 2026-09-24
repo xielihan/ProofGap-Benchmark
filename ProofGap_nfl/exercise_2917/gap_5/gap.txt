@@ -1,0 +1,14 @@
+PROOF GAP @5
+ASSUM:
+1. z ∈ ComplexSet
+2. c : NonNegIntegerSet → ComplexSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n ∈ PosIntegerSet ⇒ c(n) = frac((1 + __IMAGINARY_UNIT__)^{n}, (n + 1) * (n + 2))
+4. seqlim_{ n → +∞ } (|frac(c(n), c(n + 1))|) = frac(1, |1 + __IMAGINARY_UNIT__|)
+5. |1 + __IMAGINARY_UNIT__| = sqrtn(2, 2)
+6. RadiusOfConvergence(c) = frac(1, sqrtn(2, 2))
+7. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n) * z^{n})) ⇔ |z| ≤ frac(1, sqrtn(2, 2))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), z = x + y * __IMAGINARY_UNIT__ ∧ x ∈ RealSet ∧ y ∈ RealSet ⇒ (|z| ≤ frac(1, sqrtn(2, 2)) ⇔ x^{2} + y^{2} ≤ frac(1, 2)))
+
+METHOD:

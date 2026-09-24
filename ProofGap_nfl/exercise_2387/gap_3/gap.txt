@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet
+2. f : RealSet → RealSet ∧ Defined(f, [a, +∞))
+3. forall (b), b ∈ RealSet ⇒ (forall (c), c ∈ RealSet ∧ a ≤ b ∧ b < c ⇒ IntegrableFuncOn(f, [b, c]))
+4. forall (x), x ∈ RealSet ⇒ (exists (L), L ∈ RealSet ∧ DefInt(a, +∞, f(x) * diff(fun x [x ∈ RealSet] . x)) = L)
+5. MonoDecFuncOn(f, [a, +∞)) ∨ MonoIncFuncOn(f, [a, +∞))
+6. MonoDecFuncOn(f, [a, +∞)) ⇒ (exists (c), c ∈ RealSet ∧ c ≥ a ∧ f(c) < 0 ∧ (forall (x), x ∈ RealSet ∧ x ≥ c ⇒ f(x) ≤ f(c)))
+7. MonoDecFuncOn(f, [a, +∞)) ⇒ (exists (c), c ∈ RealSet ∧ c ≥ a ∧ f(c) < 0 ∧ (forall (x), x ∈ RealSet ⇒ DefInt(c, +∞, f(x) * diff(fun x [x ∈ RealSet] . x)) ≤ DefInt(c, +∞, f(c) * diff(fun x [x ∈ RealSet] . x))))
+
+GOAL:
+MonoDecFuncOn(f, [a, +∞)) ⇒ (exists (c), c ∈ RealSet ∧ c ≥ a ∧ f(c) < 0 ∧ DefInt(c, +∞, f(c) * diff(fun x [x ∈ RealSet] . x)) = -∞)
+
+METHOD:

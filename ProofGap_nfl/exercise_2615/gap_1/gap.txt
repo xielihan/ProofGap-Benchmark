@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. a : NonNegIntegerSet → RealSet ∧ IsSeq(a)
+2. PosSeq(a)
+
+GOAL:
+forall (α) (n_{0}), α ∈ RealSet ∧ α > 0 ∧ n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ frac(ln(frac(1, a(n))), ln(n)) ≥ 1 + α) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ frac(1, a(n)) ≥ n^{1 + α})
+
+METHOD:

@@ -1,0 +1,28 @@
+PROOF GAP @13
+ASSUM:
+1. F : CartesianProd(RealSet, RealSet) → RealSet
+2. φ : CartesianProd(RealSet, RealSet) → RealSet
+3. ψ : CartesianProd(RealSet, RealSet) → RealSet
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ x = cos(φ(x, y)) * cos(ψ(x, y))
+5. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ⇒ y = cos(φ(x, y)) * sin(ψ(x, y))
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ F(x, y) = sin(φ(x, y))
+7. φ ∈ RealSet
+8. ψ ∈ RealSet
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ sin(φ(x, y)) * cos(φ(x, y)) ≠ 0
+10. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ 1 = -sin(φ(x, y)) * cos(ψ(x, y)) * FunDeri(φ, 1, 1)(x, y) - cos(φ(x, y)) * sin(ψ(x, y)) * FunDeri(ψ, 1, 1)(x, y)
+11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ 0 = -sin(φ(x, y)) * sin(ψ(x, y)) * FunDeri(φ, 1, 1)(x, y) + cos(φ(x, y)) * cos(ψ(x, y)) * FunDeri(ψ, 1, 1)(x, y)
+12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(φ, 1, 1)(x, y) = -frac(cos(ψ(x, y)), sin(φ(x, y)))
+13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(ψ, 1, 1)(x, y) = -frac(sin(ψ(x, y)), cos(φ(x, y)))
+14. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(F, 1, 1)(x, y) = cos(φ(x, y)) * FunDeri(φ, 1, 1)(x, y)
+15. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ cos(φ(x, y)) * FunDeri(φ, 1, 1)(x, y) = -cot(φ(x, y)) * cos(ψ(x, y))
+16. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(F, 1, 1)(x, y) = -cot(φ(x, y)) * cos(ψ(x, y))
+17. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(F, 1, 2)(x, y) = FunDeri(FunDeri(F, 1, 1), φ, 1)(x, y) * FunDeri(φ, 1, 1)(x, y) + FunDeri(FunDeri(F, 1, 1), ψ, 1)(x, y) * FunDeri(ψ, 1, 1)(x, y)
+18. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(F, 1, 2)(x, y) = frac(cos(ψ(x, y)), sin(φ(x, y))^{2}) * -frac(cos(ψ(x, y)), sin(φ(x, y))) + cot(φ(x, y)) * sin(ψ(x, y)) * -frac(sin(ψ(x, y)), cos(φ(x, y)))
+19. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(F, 1, 2)(x, y) = -frac(cos(ψ(x, y))^{2} + sin(ψ(x, y))^{2} * sin(φ(x, y))^{2}, sin(φ(x, y))^{3})
+20. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(F, 1, 2)(x, y) = -frac(sin(φ(x, y))^{2} + cos(φ(x, y))^{2} * cos(ψ(x, y))^{2}, sin(φ(x, y))^{3})
+21. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ x^{2} + y^{2} + F(x, y)^{2} = 1
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(F, 1, 1)(x, y) = -frac(x, F(x, y))
+
+METHOD:

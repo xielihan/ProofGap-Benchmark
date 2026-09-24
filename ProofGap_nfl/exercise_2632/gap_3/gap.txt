@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. B ∈ RealSet
+2. n_{0} ∈ NonNegIntegerSet
+3. B = frac(1, 5040)
+4. n_{0} = 1
+5. B ∈ PosRealSet ∧ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ e^{t} ≥ B * t^{7})
+6. n_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ e^{sqrtn(2, n)} ≥ B * n^{frac(7, 2)})
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ 0 < n^{2} * e^{-sqrtn(2, n)} ∧ n^{2} * e^{-sqrtn(2, n)} ≤ frac(1, B) * n^{-frac(3, 2)}
+
+METHOD:

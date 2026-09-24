@@ -1,0 +1,4 @@
+get_prop (hypothesis 16: {forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ g(x, y, z) = frac(1, sqrtn(2, (x - a)^{2} + (y - b)^{2} + (z - c)^{2}))}) (x := {ξ}) (y := {η}) (z := {ζ}) as (hypothesis 20: {ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet ⇒ g(ξ, η, ζ) = frac(1, sqrtn(2, (ξ - a)^{2} + (η - b)^{2} + (ζ - c)^{2}))})
+assert (hypothesis 21: {ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet})
+use_condition (hypothesis 21: {ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet}) in (hypothesis 20: {ξ ∈ RealSet ∧ η ∈ RealSet ∧ ζ ∈ RealSet ⇒ g(ξ, η, ζ) = frac(1, sqrtn(2, (ξ - a)^{2} + (η - b)^{2} + (ζ - c)^{2}))}) as (hypothesis 22: {g(ξ, η, ζ) = frac(1, sqrtn(2, (ξ - a)^{2} + (η - b)^{2} + (ζ - c)^{2}))})
+apply (hypothesis 22: {g(ξ, η, ζ) = frac(1, sqrtn(2, (ξ - a)^{2} + (η - b)^{2} + (ζ - c)^{2}))})

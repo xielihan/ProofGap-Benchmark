@@ -1,0 +1,19 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. c : NonNegIntegerSet → RealSet
+5. d : NonNegIntegerSet → RealSet
+6. s : NonNegIntegerSet → RealSet
+7. a > 0
+8. b > 0
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ c(n) = frac(a^{n}, n)
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ d(n) = frac(b^{n}, n^{2})
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ s(n) = c(n) + d(n)
+12. RadiusOfConvergence(c) = frac(1, a)
+
+GOAL:
+RadiusOfConvergence(d) = frac(1, b)
+
+METHOD:

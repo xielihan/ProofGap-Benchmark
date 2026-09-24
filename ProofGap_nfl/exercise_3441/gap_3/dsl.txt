@@ -1,0 +1,6 @@
+1. get_forall (GOAL: {forall (t), t ∈ RealSet ⇒ frac(frac(FunDeri(u, 1, 1)(t) * cosh(t) - u(t) * sinh(t), cosh(t)^{2}), frac(1, cosh(t)^{2})) = FunDeri(u, 1, 1)(t) * cosh(t) - u(t) * sinh(t)}) (t := {t0})
+2. get_condition (hypothesis 8: {t0 ∈ RealSet}) in (GOAL: {t0 ∈ RealSet ⇒ frac(frac(FunDeri(u, 1, 1)(t0) * cosh(t0) - u(t0) * sinh(t0), cosh(t0)^{2}), frac(1, cosh(t0)^{2})) = FunDeri(u, 1, 1)(t0) * cosh(t0) - u(t0) * sinh(t0)})
+3. get_prop (hypothesis 5: {forall (t), t ∈ RealSet ⇒ x(t) = tanh(t) ∧ y(x(t)) = frac(u(t), cosh(t)) ∧ cosh(t) ≠ 0}) (t := {t0}) as (hypothesis 9: {t0 ∈ RealSet ⇒ x(t0) = tanh(t0) ∧ y(x(t0)) = frac(u(t0), cosh(t0)) ∧ cosh(t0) ≠ 0})
+4. use_condition (hypothesis 8: {t0 ∈ RealSet}) in (hypothesis 9: {t0 ∈ RealSet ⇒ x(t0) = tanh(t0) ∧ y(x(t0)) = frac(u(t0), cosh(t0)) ∧ cosh(t0) ≠ 0}) as (hypothesis 10: {x(t0) = tanh(t0) ∧ y(x(t0)) = frac(u(t0), cosh(t0)) ∧ cosh(t0) ≠ 0})
+5. destruct_and (hypothesis 10: {x(t0) = tanh(t0) ∧ y(x(t0)) = frac(u(t0), cosh(t0)) ∧ cosh(t0) ≠ 0}) as (hypothesis 11: {x(t0) = tanh(t0)}) (hypothesis 12: {y(x(t0)) = frac(u(t0), cosh(t0))}) (hypothesis 13: {cosh(t0) ≠ 0})
+6. autosolve all_hypothesis

@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. p ∈ RealSet
+3. q ∈ RealSet
+4. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ y(x) = frac((1 - x)^{p}, (1 + x)^{q})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ (frac((1 - x)^{p}, (1 + x)^{q}))' = frac(-p * (1 - x)^{p - 1} * (1 + x)^{q} - q * (1 + x)^{q - 1} * (1 - x)^{p}, (1 + x)^{2 * q}) ∧ frac(-p * (1 - x)^{p - 1} * (1 + x)^{q} - q * (1 + x)^{q - 1} * (1 - x)^{p}, (1 + x)^{2 * q}) = -frac((1 - x)^{p - 1} * (p + q + (p - q) * x), (1 + x)^{q + 1})
+
+METHOD:

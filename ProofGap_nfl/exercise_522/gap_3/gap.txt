@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ 0 < |x - frac(π, 4)| ∧ |x - frac(π, 4)| < frac(π, 8) ⇒ lim_{ x → frac(π, 4) } (tan(x)^{tan(2 * x)}) = lim_{ x → frac(π, 4) } (tan(x)^{frac(2 * tan(x), 1 - tan(x)^{2})})
+2. lim_{ x → frac(π, 4) } (tan(x)^{frac(2 * tan(x), 1 - tan(x)^{2})}) = lim_{ x → frac(π, 4) } ((1 + tan(x) - 1)^{frac(1, tan(x) - 1) * frac(-2 * tan(x), tan(x) + 1)})
+
+GOAL:
+lim_{ x → frac(π, 4) } ((1 + tan(x) - 1)^{frac(1, tan(x) - 1) * frac(-2 * tan(x), tan(x) + 1)}) = e^{-1}
+
+METHOD:

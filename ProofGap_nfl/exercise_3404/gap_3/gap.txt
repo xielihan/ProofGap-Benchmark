@@ -1,0 +1,20 @@
+PROOF GAP @3
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. v : CartesianProd(RealSet, RealSet) → RealSet
+3. D ⊆ CartesianProd(RealSet, RealSet)
+4. u : D → RealSet
+5. v : D → RealSet
+6. FuncOfClassKOn(u, D, 2)
+7. FuncOfClassKOn(v, D, 2)
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D ⇒ y ≠ 0 ∧ sin(v(x, y)) ≠ 0 ∧ x * cos(v(x, y)) + y * cos(u(x, y)) ≠ 0
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D ⇒ u(x, y) + v(x, y) = x + y
+10. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D ⇒ frac(sin(u(x, y)), sin(v(x, y))) = frac(x, y)
+11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D ⇒ y * sin(u(x, y)) - x * sin(v(x, y)) = 0
+12. diff(u) + diff(v) = diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D] . x) + diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D] . y)
+
+GOAL:
+(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D] . sin(u(x, y))) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D] . y) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D] . y * cos(u(x, y))) * diff(u) = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D] . sin(v(x, y))) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D] . x) + (fun x, y [x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ∈ D] . x * cos(v(x, y))) * diff(v)
+
+METHOD:
+[@method 两边同时求微分 @]

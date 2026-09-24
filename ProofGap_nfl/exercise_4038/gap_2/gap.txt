@@ -1,0 +1,18 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. S ∈ RealSet
+4. D ⊆ CartesianProd(RealSet, RealSet)
+5. z : CartesianProd(RealSet, RealSet) → RealSet
+6. x ∈ RealSet
+7. y ∈ RealSet
+8. 0 < b
+9. b ≤ a
+10. D = { (x, y) | x ∈ RealSet, y ∈ RealSet, frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) ≤ 1 }
+11. forall (u) (v), u ∈ RealSet => v ∈ RealSet => u^{2} + v^{2} + z(u, v)^{2} = a^{2}
+
+GOAL:
+z(x, y) ≠ 0 ⇒ sqrtn(2, 1 + FunDeri(z, 1, 1)(x, y)^{2} + FunDeri(z, 2, 1)(x, y)^{2}) = sqrtn(2, 1 + frac(x^{2}, z(x, y)^{2}) + frac(y^{2}, z(x, y)^{2}))
+
+METHOD:

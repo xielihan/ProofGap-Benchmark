@@ -1,0 +1,1 @@
+apply (hypothesis 31: {forall (E), E ∈ RealSet ∧ E > 0 => (exists (N_{3}), N_{3} ∈ NonNegIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > N_{3} ∧ n ∈ PosIntegerSet => |x_{3}(n)| > E))})

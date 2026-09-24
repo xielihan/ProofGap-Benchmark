@@ -1,0 +1,12 @@
+get_forall (GOAL: {forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ [1, 10] ∧ x_{2} ∈ [1, 10] ∧ |x_{1} - x_{2}| ≤ frac(9, n) ⇒ |f(x_{1}) - f(x_{2})| = |(x_{1})^{2} - (x_{2})^{2}|)}) (x_{1} := {u0})
+get_condition (hypothesis 4: {u0 ∈ RealSet}) in (GOAL: {u0 ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ u0 ∈ [1, 10] ∧ x_{2} ∈ [1, 10] ∧ |u0 - x_{2}| ≤ frac(9, n) ⇒ |f(u0) - f(x_{2})| = |u0^{2} - x_{2}^{2}|)})
+get_forall (GOAL: {forall (x_{2}), x_{2} ∈ RealSet ∧ u0 ∈ [1, 10] ∧ x_{2} ∈ [1, 10] ∧ |u0 - x_{2}| ≤ frac(9, n) ⇒ |f(u0) - f(x_{2})| = |u0^{2} - x_{2}^{2}|}) (x_{2} := {v0})
+get_condition (hypothesis 5: {v0 ∈ RealSet ∧ u0 ∈ [1, 10] ∧ v0 ∈ [1, 10] ∧ |u0 - v0| ≤ frac(9, n)}) in (GOAL: {v0 ∈ RealSet ∧ u0 ∈ [1, 10] ∧ v0 ∈ [1, 10] ∧ |u0 - v0| ≤ frac(9, n) ⇒ |f(u0) - f(v0)| = |u0^{2} - v0^{2}|})
+destruct_and (hypothesis 5: {v0 ∈ RealSet ∧ u0 ∈ [1, 10] ∧ v0 ∈ [1, 10] ∧ |u0 - v0| ≤ frac(9, n)}) as (hypothesis 6: {v0 ∈ RealSet}) (hypothesis 7: {u0 ∈ [1, 10]}) (hypothesis 8: {v0 ∈ [1, 10]}) (hypothesis 9: {|u0 - v0| ≤ frac(9, n)})
+get_prop (hypothesis 3: {forall (x), x ∈ RealSet ⇒ f(x) = x^{2}}) (x := {u0}) as (hypothesis 10: {u0 ∈ RealSet ⇒ f(u0) = u0^{2}})
+use_condition (hypothesis 4: {u0 ∈ RealSet}) in (hypothesis 10: {u0 ∈ RealSet ⇒ f(u0) = u0^{2}}) as (hypothesis 11: {f(u0) = u0^{2}})
+get_prop (hypothesis 3: {forall (x), x ∈ RealSet ⇒ f(x) = x^{2}}) (x := {v0}) as (hypothesis 12: {v0 ∈ RealSet ⇒ f(v0) = v0^{2}})
+use_condition (hypothesis 6: {v0 ∈ RealSet}) in (hypothesis 12: {v0 ∈ RealSet ⇒ f(v0) = v0^{2}}) as (hypothesis 13: {f(v0) = v0^{2}})
+rewrite (left_to_right, equation) (hypothesis 11: {f(u0) = u0^{2}}); from (GOAL: {|f(u0) - f(v0)| = |u0^{2} - v0^{2}|}) to (GOAL: {|u0^{2} - f(v0)| = |u0^{2} - v0^{2}|})
+rewrite (left_to_right, equation) (hypothesis 13: {f(v0) = v0^{2}}); from (GOAL: {|u0^{2} - f(v0)| = |u0^{2} - v0^{2}|}) to (GOAL: {|u0^{2} - v0^{2}| = |u0^{2} - v0^{2}|})
+autosolve all_hypothesis

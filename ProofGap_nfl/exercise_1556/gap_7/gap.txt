@@ -1,0 +1,19 @@
+PROOF GAP @7
+ASSUM:
+1. f : RealSet → RealSet
+2. F : RealSet → RealSet
+3. I ⊆ RealSet
+4. C ∈ RealSet ∧ C > 0
+5. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ f(x) ≥ 0
+6. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ F(x) = C * f(x)^{2}
+7. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ MaximumPointOn(F, I) ⇒ (forall (x), x ∈ RealSet ∧ x ∈ I ∧ x ≠ x_{0} ⇒ F(x_{0}) ≥ F(x))
+8. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ MaximumPointOn(F, I) ⇒ (forall (x), x ∈ RealSet ∧ x ∈ I ∧ x ≠ x_{0} ⇒ C * f(x_{0})^{2} ≥ C * f(x)^{2})
+9. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ MaximumPointOn(F, I) ⇒ (forall (x), x ∈ RealSet ∧ x ∈ I ∧ x ≠ x_{0} ⇒ f(x_{0}) ≥ f(x))
+10. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ MaximumPointOn(F, I) ⇒ x_{0} ∈ MaximumPointOn(f, I)
+11. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ MaximumPointOn(f, I) ⇒ (forall (x), x ∈ RealSet ∧ x ∈ I ∧ x ≠ x_{0} ⇒ f(x_{0}) ≥ f(x))
+12. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ MaximumPointOn(f, I) ⇒ (forall (x), x ∈ RealSet ∧ x ∈ I ∧ x ≠ x_{0} ⇒ C * f(x_{0})^{2} ≥ C * f(x)^{2})
+
+GOAL:
+forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ MaximumPointOn(f, I) ⇒ (forall (x), x ∈ RealSet ∧ x ∈ I ∧ x ≠ x_{0} ⇒ F(x_{0}) ≥ F(x))
+
+METHOD:

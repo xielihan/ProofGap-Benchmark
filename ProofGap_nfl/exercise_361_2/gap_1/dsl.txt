@@ -1,0 +1,10 @@
+get_forall (GOAL: {forall (t), t ∈ RealSet /\ c * (x_{0} + t) + d ≠ 0 /\ c * (x_{0} - t) + d ≠ 0 => y(x_{0} + t) + y(x_{0} - t) = frac(a * (x_{0} + t) + b, c * (x_{0} + t) + d) + frac(a * (x_{0} - t) + b, c * (x_{0} - t) + d)}) (t := {u})
+get_condition (hypothesis 11: {u ∈ RealSet /\ c * (x_{0} + u) + d ≠ 0 /\ c * (x_{0} - u) + d ≠ 0}) in (GOAL: {u ∈ RealSet /\ c * (x_{0} + u) + d ≠ 0 /\ c * (x_{0} - u) + d ≠ 0 => y(x_{0} + u) + y(x_{0} - u) = frac(a * (x_{0} + u) + b, c * (x_{0} + u) + d) + frac(a * (x_{0} - u) + b, c * (x_{0} - u) + d)})
+destruct_and (hypothesis 11: {u ∈ RealSet /\ c * (x_{0} + u) + d ≠ 0 /\ c * (x_{0} - u) + d ≠ 0}) as (hypothesis 12: {u ∈ RealSet}) (hypothesis 13: {c * (x_{0} + u) + d ≠ 0}) (hypothesis 14: {c * (x_{0} - u) + d ≠ 0})
+assert (hypothesis 15: {x_{0} + u ∈ RealSet /\ c * (x_{0} + u) + d ≠ 0})
+assert (hypothesis 16: {x_{0} - u ∈ RealSet /\ c * (x_{0} - u) + d ≠ 0})
+get_prop (hypothesis 10: {forall (x), x ∈ RealSet /\ c * x + d ≠ 0 => y(x) = frac(a * x + b, c * x + d)}) (x := {x_{0} + u}) as (hypothesis 17: {x_{0} + u ∈ RealSet /\ c * (x_{0} + u) + d ≠ 0 => y(x_{0} + u) = frac(a * (x_{0} + u) + b, c * (x_{0} + u) + d)})
+use_condition (hypothesis 15: {x_{0} + u ∈ RealSet /\ c * (x_{0} + u) + d ≠ 0}) in (hypothesis 17: {x_{0} + u ∈ RealSet /\ c * (x_{0} + u) + d ≠ 0 => y(x_{0} + u) = frac(a * (x_{0} + u) + b, c * (x_{0} + u) + d)}) as (hypothesis 18: {y(x_{0} + u) = frac(a * (x_{0} + u) + b, c * (x_{0} + u) + d)})
+get_prop (hypothesis 10: {forall (x), x ∈ RealSet /\ c * x + d ≠ 0 => y(x) = frac(a * x + b, c * x + d)}) (x := {x_{0} - u}) as (hypothesis 19: {x_{0} - u ∈ RealSet /\ c * (x_{0} - u) + d ≠ 0 => y(x_{0} - u) = frac(a * (x_{0} - u) + b, c * (x_{0} - u) + d)})
+use_condition (hypothesis 16: {x_{0} - u ∈ RealSet /\ c * (x_{0} - u) + d ≠ 0}) in (hypothesis 19: {x_{0} - u ∈ RealSet /\ c * (x_{0} - u) + d ≠ 0 => y(x_{0} - u) = frac(a * (x_{0} - u) + b, c * (x_{0} - u) + d)}) as (hypothesis 20: {y(x_{0} - u) = frac(a * (x_{0} - u) + b, c * (x_{0} - u) + d)})
+autosolve all_hypothesis

@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. I : RealSet → RealSet
+2. infinity ∈ RealSet
+3. forall (α), α ∈ RealSet ∧ |α| < frac(1, 2) ⇒ I(α) = DefInt(0, 2, (fun x [x ∈ RealSet] . frac(x^{α}, sqrtn(3, (x - 1) * (x - 2)^{2}))) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+I(1) = infinity
+
+METHOD:

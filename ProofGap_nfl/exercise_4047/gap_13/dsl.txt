@@ -1,0 +1,8 @@
+1. get_forall (GOAL: {forall (ψ), ψ ∈ RealSet ∧ `ψ_{1}` ≤ ψ ∧ ψ ≤ `ψ_{2}` ⇒ sqrtn(2, E * G - F^{2}) = R^{2} * cos(ψ)}) (ψ := {v})
+2. get_condition (hypothesis 32: {v ∈ RealSet ∧ `ψ_{1}` ≤ v ∧ v ≤ `ψ_{2}`}) in (GOAL: {v ∈ RealSet ∧ `ψ_{1}` ≤ v ∧ v ≤ `ψ_{2}` ⇒ sqrtn(2, E * G - F^{2}) = R^{2} * cos(v)})
+3. get_prop (hypothesis 22: {forall (ψ), ψ ∈ RealSet ∧ ψ ≤ `ψ_{2}` ⇒ `ψ_{1}` ≤ ψ}) (ψ := {`ψ_{1}` - 1}) as (hypothesis 33: {`ψ_{1}` - 1 ∈ RealSet ∧ `ψ_{1}` - 1 ≤ `ψ_{2}` ⇒ `ψ_{1}` ≤ `ψ_{1}` - 1})
+4. assert (hypothesis 34: {`ψ_{1}` - 1 ∈ RealSet ∧ `ψ_{1}` - 1 ≤ `ψ_{2}`}) by proof {
+  1. autosolve all_hypothesis
+}
+5. use_condition (hypothesis 34: {`ψ_{1}` - 1 ∈ RealSet ∧ `ψ_{1}` - 1 ≤ `ψ_{2}`}) in (hypothesis 33: {`ψ_{1}` - 1 ∈ RealSet ∧ `ψ_{1}` - 1 ≤ `ψ_{2}` ⇒ `ψ_{1}` ≤ `ψ_{1}` - 1}) as (hypothesis 35: {`ψ_{1}` ≤ `ψ_{1}` - 1})
+6. autosolve all_hypothesis

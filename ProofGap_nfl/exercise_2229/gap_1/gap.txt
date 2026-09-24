@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. x > 0
+
+GOAL:
+forall (k), k ∈ IntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ k ∈ IntegerSet ∧ 1 ≤ k ∧ k ≤ n ⇒ 0 ≤ sqrtn(2, (x + frac(k, n)) * (x + frac(k + 1, n))) - (x + frac(k, n)))
+
+METHOD:

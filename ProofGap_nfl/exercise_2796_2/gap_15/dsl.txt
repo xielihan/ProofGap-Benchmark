@@ -1,0 +1,10 @@
+get_forall (GOAL: {forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [0, 1] ∧ x_{0} ∈ RationalSet ⇒ (exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet)}) (x_{0} := {u})
+get_condition (hypothesis 22: {u ∈ RealSet ∧ u ∈ [0, 1] ∧ u ∈ RationalSet}) in (GOAL: {u ∈ RealSet ∧ u ∈ [0, 1] ∧ u ∈ RationalSet ⇒ (exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet)})
+get_prop (hypothesis 21: {forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [0, 1] ∧ x_{0} ∈ RationalSet ⇒ (exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ m = m)}) (x_{0} := {u}) as (hypothesis 23: {u ∈ RealSet ∧ u ∈ [0, 1] ∧ u ∈ RationalSet ⇒ (exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ m = m)})
+assert (hypothesis 24: {exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ m = m}) by proof {
+  autosolve all_hypothesis
+}
+get_exists (hypothesis 24: {exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ m = m}) (m := {q})
+destruct_and (hypothesis 25: {q ∈ NonNegIntegerSet ∧ q ∈ PosIntegerSet ∧ q = q}) as (hypothesis 26: {q ∈ NonNegIntegerSet}) (hypothesis 27: {q ∈ PosIntegerSet}) (hypothesis 28: {q = q})
+exists (m := {q})
+autosolve all_hypothesis

@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet ∧ x ≠ 0
+2. t = x^{2}
+3. t > 0
+4. lim_{ x → 0 } (x^{2}) = 0
+
+GOAL:
+lim_{ x → 0 } (frac(1 - cos(x^{2}), x^{2} * sin(x^{2}))) = lim_{ t → 0 } (frac(1 - cos(t), t * sin(t)))
+
+METHOD:

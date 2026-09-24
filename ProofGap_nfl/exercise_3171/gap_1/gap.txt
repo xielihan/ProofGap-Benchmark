@@ -1,0 +1,19 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. x ∈ RealSet
+3. y ∈ RealSet
+4. z ∈ RealSet
+5. t ∈ RealSet
+6. s ∈ RealSet
+7. D ⊆ RealSet
+8. f : RealSet → RealSet ∧ Defined(f, D)
+9. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+10. L ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+11. C ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+12. S = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, y - a * x ∈ D, z = f(y - a * x) }
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ (exists (s), s ∈ RealSet ∧ s = y - a * x)
+
+METHOD:

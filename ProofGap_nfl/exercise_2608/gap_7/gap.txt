@@ -1,0 +1,17 @@
+PROOF GAP @7
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. p ∈ RealSet
+3. n ∈ NonNegIntegerSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(1, n^{p}) * sin(frac(π, n))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ≥ 0
+6. seqlim_{ n → +∞ } (frac(frac(1, n^{p}) * sin(frac(π, n)), frac(1, n^{p + 1}))) = π
+7. (a(n)) ∼_{ n → +∞ } (frac(1, n^{p + 1}))
+8. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{p + 1}))) ⇔ p + 1 > 1
+9. p + 1 > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+10. p + 1 > 1 ⇔ p > 0
+
+GOAL:
+p ∈ { p | p ∈ RealSet, p > 0 } ⇔ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+METHOD:

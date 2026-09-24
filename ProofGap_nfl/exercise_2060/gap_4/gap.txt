@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet ⇒ cos(x) ≠ 0
+3. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(sin(x), cos(x) * sqrtn(2, 1 + sin(x)^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(-FunDeri(fun x [x ∈ RealSet] . cos(x), 1, 1)(x), cos(x) * sqrtn(2, 2 - cos(x)^{2})) }
+4. { `F_4` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(sin(x), cos(x) * sqrtn(2, 1 + sin(x)^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_6` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . cos(x), 1, 1)(x), cos(x)^{2} * sqrtn(2, 2 * sec(x)^{2} - 1)) ∧ `F_6`(x) = -`F_5`(x)) }
+5. { `F_7` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_7`, 1, 1)(x) = frac(sin(x), cos(x) * sqrtn(2, 1 + sin(x)^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_8` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_8`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . sec(x), 1, 1)(x), sqrtn(2, 2 * sec(x)^{2} - 1)) }
+
+GOAL:
+{ `F_9` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_9`, 1, 1)(x) = frac(sin(x), cos(x) * sqrtn(2, 1 + sin(x)^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_10` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_10`(x) = frac(1, sqrtn(2, 2)) * ln(|sqrtn(2, 2) * sec(x) + sqrtn(2, 2 * sec(x)^{2} - 1)|) + C) }
+
+METHOD:

@@ -1,0 +1,16 @@
+PROOF GAP @8
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ y(x) = e^{x} * cos(x)
+3. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = e^{x} * (cos(x) - sin(x))
+4. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = e^{x} * (cos(x) - sin(x) + -sin(x) - cos(x))
+5. forall (x), x ∈ RealSet ⇒ e^{x} * (cos(x) - sin(x) + -sin(x) - cos(x)) = -2 * e^{x} * sin(x)
+6. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = -2 * e^{x} * sin(x)
+7. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 3)(x) = -2 * e^{x} * (sin(x) + cos(x))
+8. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 4)(x) = -2 * e^{x} * (sin(x) + cos(x) + cos(x) - sin(x))
+9. forall (x), x ∈ RealSet ⇒ -2 * e^{x} * (sin(x) + cos(x) + cos(x) - sin(x)) = -4 * e^{x} * cos(x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 4)(x) = -4 * e^{x} * cos(x)
+
+METHOD:

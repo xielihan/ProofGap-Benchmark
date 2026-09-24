@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. a = 0
+2. b = frac(π, 2)
+3. f = (fun x [x ∈ RealSet ∧ x ≠ 0] . frac(1, x) + cos(frac(1, x)))
+
+GOAL:
+DiffableFuncOn(f, IntervalLoRo(0, frac(π, 2)))
+
+METHOD:

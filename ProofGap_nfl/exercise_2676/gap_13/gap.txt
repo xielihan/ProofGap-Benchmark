@@ -1,0 +1,20 @@
+PROOF GAP @13
+ASSUM:
+1. p ∈ RealSet
+2. seqlim_{ n → +∞ } (1 / n^{p + frac(1, n)} / (1 / n^{p})) = seqlim_{ n → +∞ } (1 / sqrtn(n, n))
+3. seqlim_{ n → +∞ } (1 / sqrtn(n, n)) = 1
+4. seqlim_{ n → +∞ } (1 / n^{p + frac(1, n)} / (1 / n^{p})) = 1
+5. p > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{p}))
+6. p > 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} / n^{p + frac(1, n)}))
+7. p ≤ 0 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} / n^{p + frac(1, n)}))
+8. 0 < p ⇒ p ≤ 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (-1)^{n - 1} / n^{p + frac(1, n)} = (-1)^{n - 1} / n^{p} * (1 / sqrtn(n, n)))
+9. 0 < p ⇒ p ≤ 1 ⇒ ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n} / n^{p}))
+10. forall (b), b : NonNegIntegerSet → RealSet ∧ 0 < p ∧ p ≤ 1 ∧ b = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . 1 / sqrtn(n, n)) ⇒ MonoIncSeq(b)
+11. forall (b), b : NonNegIntegerSet → RealSet ∧ 0 < p ∧ p ≤ 1 ∧ b = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . 1 / sqrtn(n, n)) ⇒ seqlim_{ n → +∞ } (b(n)) = 1
+12. forall (b), b : NonNegIntegerSet → RealSet ∧ 0 < p ∧ p ≤ 1 ∧ b = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . 1 / sqrtn(n, n)) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} / n^{p} * b(n)))
+13. 0 < p ⇒ p ≤ 1 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{p + frac(1, n)}))
+
+GOAL:
+0 < p ⇒ p ≤ 1 ⇒ ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} / n^{p + frac(1, n)}))
+
+METHOD:

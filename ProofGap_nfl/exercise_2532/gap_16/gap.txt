@@ -1,0 +1,46 @@
+PROOF GAP @16
+ASSUM:
+1. x ∈ RealSet
+2. y ∈ RealSet
+3. h ∈ RealSet
+4. R_{n} ∈ RealSet
+5. x_{0} ∈ RealSet
+6. x_{1} ∈ RealSet
+7. x_{2} ∈ RealSet
+8. x_{3} ∈ RealSet
+9. x_{4} ∈ RealSet
+10. x_{5} ∈ RealSet
+11. x_{6} ∈ RealSet
+12. x_{7} ∈ RealSet
+13. x_{8} ∈ RealSet
+14. y_{0} ∈ RealSet
+15. y_{1} ∈ RealSet
+16. y_{2} ∈ RealSet
+17. y_{3} ∈ RealSet
+18. y_{4} ∈ RealSet
+19. y_{5} ∈ RealSet
+20. y_{6} ∈ RealSet
+21. y_{7} ∈ RealSet
+22. y_{8} ∈ RealSet
+23. y_{i} ∈ RealSet
+24. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ 1 + x ≠ 0
+25. h = frac(1, 8)
+26. frac(1, 8) = 0.125
+27. h = 0.125
+28. x_{0} = 0
+29. y_{0} = 1
+30. x_{1} = frac(1, 8)
+31. frac(1, 8) = 0.125
+32. y_{1} = 0.88889
+33. x_{2} = 0.25
+34. y_{2} = 0.8
+35. x_{3} = 0.375
+36. y_{3} = 0.72727
+37. x_{4} = 0.5
+38. y_{4} = 0.66667
+39. x_{5} = 0.625
+
+GOAL:
+y_{5} = 0.61538
+
+METHOD:

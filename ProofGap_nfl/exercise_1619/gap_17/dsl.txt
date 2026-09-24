@@ -1,0 +1,3 @@
+exists (ξ_{1} := {2.087})
+assert (hypothesis 20: {2.087 ∈ RealSet ∧ |2.087 - 2.087| < 0.001})
+apply (hypothesis 20: {2.087 ∈ RealSet ∧ |2.087 - 2.087| < 0.001})

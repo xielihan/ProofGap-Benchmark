@@ -1,0 +1,22 @@
+PROOF GAP @10
+ASSUM:
+1. a = (fun n [n ∈ NonNegIntegerSet] . (-1)^{n})
+2. b = (fun n [n ∈ NonNegIntegerSet] . (-1)^{n + 1})
+3. c = (fun n [n ∈ NonNegIntegerSet] . a(n) + b(n))
+4. DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+5. DivergentSeries(sum_{ n = 1 }^{ +∞ } (b(n)))
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ c(n) = 0
+7. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n)))
+8. A = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(1, n))
+9. B = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(1, n))
+10. C = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . A(n) + B(n))
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ C(n) = frac(2, n)
+12. DivergentSeries(sum_{ n = 1 }^{ +∞ } (A(n)))
+13. DivergentSeries(sum_{ n = 1 }^{ +∞ } (B(n)))
+14. DivergentSeries(sum_{ n = 1 }^{ +∞ } (C(n)))
+15. exists (a) (b) (c), a : NonNegIntegerSet → RealSet ∧ b : NonNegIntegerSet → RealSet ∧ c : NonNegIntegerSet → RealSet ∧ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))) ∧ DivergentSeries(sum_{ n = 1 }^{ +∞ } (b(n))) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n)))
+
+GOAL:
+exists (A) (B) (C), DivergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ∧ DivergentSeries(sum_{ n = 1 }^{ +∞ } (B(n))) ∧ DivergentSeries(sum_{ n = 1 }^{ +∞ } (C(n)))
+
+METHOD:

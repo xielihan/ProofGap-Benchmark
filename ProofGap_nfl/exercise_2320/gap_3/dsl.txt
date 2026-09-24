@@ -1,0 +1,5 @@
+1. get_prop (hypothesis 8: {forall (t), t ∈ RealSet ∧ t ≥ 0 ⇒ v(t) = v_{0} + g * t}) (t := {T}) as (hypothesis 12: {T ∈ RealSet ∧ T ≥ 0 ⇒ v(T) = v_{0} + g * T})
+2. use_condition (obvious: {T ∈ RealSet ∧ T ≥ 0}) in (hypothesis 12: {T ∈ RealSet ∧ T ≥ 0 ⇒ v(T) = v_{0} + g * T}) as (hypothesis 13: {v(T) = v_{0} + g * T})
+3. rewrite (left_to_right, equation) (hypothesis 9: {v_{T} = v(T)}); from (GOAL: {frac(1, 2) * g * T + v_{0} = frac(1, 2) * (v_{0} + v_{T})}) to (GOAL: {frac(1, 2) * g * T + v_{0} = frac(1, 2) * (v_{0} + v(T))})
+4. rewrite (left_to_right, equation) (hypothesis 13: {v(T) = v_{0} + g * T}); from (GOAL: {frac(1, 2) * g * T + v_{0} = frac(1, 2) * (v_{0} + v(T))}) to (GOAL: {frac(1, 2) * g * T + v_{0} = frac(1, 2) * (v_{0} + (v_{0} + g * T))})
+5. autosolve all_hypothesis

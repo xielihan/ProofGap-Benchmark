@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x > 1 ⇒ sinh(sqrtn(2, x^{2} + x)) - sinh(sqrtn(2, x^{2} - x)) = 2 * sinh(frac(sqrtn(2, x^{2} + x) - sqrtn(2, x^{2} - x), 2)) * cosh(frac(sqrtn(2, x^{2} + x) + sqrtn(2, x^{2} - x), 2))
+
+METHOD:

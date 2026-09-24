@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. E : RealSet → RealSet
+2. F : RealSet → RealSet
+3. forall (k), k ∈ RealSet ∧ 0 < k ∧ k < 1 ⇒ E(k) = DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet] . sqrtn(2, 1 - k^{2} * sin(φ)^{2})) * diff(fun φ [φ ∈ RealSet] . φ))
+4. forall (k), k ∈ RealSet ∧ 0 < k ∧ k < 1 ⇒ F(k) = DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet] . frac(1, sqrtn(2, 1 - k^{2} * sin(φ)^{2}))) * diff(fun φ [φ ∈ RealSet] . φ))
+5. forall (k), k ∈ RealSet ∧ 0 < k ∧ k < 1 ⇒ FunDeri(E, 1, 1)(k) = -DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet] . frac(k * sin(φ)^{2}, sqrtn(2, 1 - k^{2} * sin(φ)^{2}))) * diff(fun φ [φ ∈ RealSet] . φ))
+6. forall (k), k ∈ RealSet ∧ 0 < k ∧ k < 1 ⇒ FunDeri(E, 1, 1)(k) = frac(1, k) * DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet] . frac(1 - k^{2} * sin(φ)^{2} - 1, sqrtn(2, 1 - k^{2} * sin(φ)^{2}))) * diff(fun φ [φ ∈ RealSet] . φ))
+7. forall (k), k ∈ RealSet ∧ 0 < k ∧ k < 1 ⇒ FunDeri(E, 1, 1)(k) = frac(E(k) - F(k), k)
+
+GOAL:
+forall (k), k ∈ RealSet ∧ 0 < k ∧ k < 1 ⇒ FunDeri(F, 1, 1)(k) = DefInt(0, frac(π, 2), (fun φ [φ ∈ RealSet] . frac(k * sin(φ)^{2}, (1 - k^{2} * sin(φ)^{2})^{frac(3, 2)})) * diff(fun φ [φ ∈ RealSet] . φ))
+
+METHOD:

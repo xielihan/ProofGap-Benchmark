@@ -1,0 +1,67 @@
+rewrite (left_to_right, equation) (hypothesis 10: {b = frac(1, sqrtn(2, 2))}); from (GOAL: {frac(π, 2 * b * sqrtn(2, 4 * b - a^{2})) = frac(π * sqrtn(2, 2 * (sqrtn(2, 2) - 1)), 2)}) to (GOAL: {frac(π, 2 * frac(1, sqrtn(2, 2)) * sqrtn(2, 4 * frac(1, sqrtn(2, 2)) - a^{2})) = frac(π * sqrtn(2, 2 * (sqrtn(2, 2) - 1)), 2)})
+rewrite (left_to_right, equation) (hypothesis 9: {a = sqrtn(2, sqrtn(2, 2) - 1)}); from (GOAL: {frac(π, 2 * frac(1, sqrtn(2, 2)) * sqrtn(2, 4 * frac(1, sqrtn(2, 2)) - a^{2})) = frac(π * sqrtn(2, 2 * (sqrtn(2, 2) - 1)), 2)}) to (GOAL: {frac(π, 2 * frac(1, sqrtn(2, 2)) * sqrtn(2, 4 * frac(1, sqrtn(2, 2)) - sqrtn(2, sqrtn(2, 2) - 1)^{2})) = frac(π * sqrtn(2, 2 * (sqrtn(2, 2) - 1)), 2)})
+get_prop (theorem 'Thm 355. (NonnegativeNthRoot)': {forall (x) (n), x ∈ RealSet => n ∈ IntegerSet => (x >= 0 => n > 0 => sqrt(n, x) >= 0)}) as (hypothesis 17: {forall (x) (n), x ∈ RealSet => n ∈ IntegerSet => (x >= 0 => n > 0 => sqrt(n, x) >= 0)})
+get_prop (theorem 'Thm 450. (SquareRootSquareCancellation)': {forall (u), u ∈ RealSet => u >= 0 => sqrtn(2, u)^2 = u}) as (hypothesis 18: {forall (u), u ∈ RealSet => u >= 0 => sqrtn(2, u)^2 = u})
+assert (hypothesis 19: {sqrtn(2, 2) >= 0}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 20: {sqrtn(2, 2)^2 = 2}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 21: {sqrtn(2, 2) >= 1}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 22: {sqrtn(2, sqrtn(2, 2) - 1)^2 = sqrtn(2, 2) - 1}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 23: {sqrtn(2, 2) != 0}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 24: {2 * frac(1, sqrtn(2, 2)) = sqrtn(2, 2)}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 25: {4 * frac(1, sqrtn(2, 2)) - sqrtn(2, sqrtn(2, 2) - 1)^2 = sqrtn(2, 2) + 1}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 26: {sqrtn(2, sqrtn(2, 2) + 1)^2 = sqrtn(2, 2) + 1}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 27: {sqrtn(2, 2 * (sqrtn(2, 2) - 1))^2 = 2 * (sqrtn(2, 2) - 1)}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 28: {sqrtn(2, sqrtn(2, 2) + 1) >= 0}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 29: {sqrtn(2, 2 * (sqrtn(2, 2) - 1)) >= 0}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 30: {sqrtn(2, 2) * sqrtn(2, sqrtn(2, 2) + 1) * sqrtn(2, 2 * (sqrtn(2, 2) - 1)) >= 0}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 31: {2 * (sqrtn(2, 2) + 1) * 2 * (sqrtn(2, 2) - 1) = 4 * (sqrtn(2, 2)^2 - 1)}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 32: {2 * (sqrtn(2, 2) + 1) * 2 * (sqrtn(2, 2) - 1) = 4}) by proof {
+rewrite (left_to_right, equation) (hypothesis 31: {2 * (sqrtn(2, 2) + 1) * 2 * (sqrtn(2, 2) - 1) = 4 * (sqrtn(2, 2)^2 - 1)}); from (GOAL: {2 * (sqrtn(2, 2) + 1) * 2 * (sqrtn(2, 2) - 1) = 4}) to (GOAL: {4 * (sqrtn(2, 2)^2 - 1) = 4})
+rewrite (left_to_right, equation) (hypothesis 20: {sqrtn(2, 2)^2 = 2}); from (GOAL: {4 * (sqrtn(2, 2)^2 - 1) = 4}) to (GOAL: {4 * (2 - 1) = 4})
+autosolve all_hypothesis
+}
+assert (hypothesis 33: {sqrtn(2, 2)^2 * sqrtn(2, sqrtn(2, 2) + 1)^2 * sqrtn(2, 2 * (sqrtn(2, 2) - 1))^2 = 4}) by proof {
+rewrite (left_to_right, equation) (hypothesis 20: {sqrtn(2, 2)^2 = 2}); from (GOAL: {sqrtn(2, 2)^2 * sqrtn(2, sqrtn(2, 2) + 1)^2 * sqrtn(2, 2 * (sqrtn(2, 2) - 1))^2 = 4}) to (GOAL: {2 * sqrtn(2, sqrtn(2, 2) + 1)^2 * sqrtn(2, 2 * (sqrtn(2, 2) - 1))^2 = 4})
+rewrite (left_to_right, equation) (hypothesis 26: {sqrtn(2, sqrtn(2, 2) + 1)^2 = sqrtn(2, 2) + 1}); from (GOAL: {2 * sqrtn(2, sqrtn(2, 2) + 1)^2 * sqrtn(2, 2 * (sqrtn(2, 2) - 1))^2 = 4}) to (GOAL: {2 * (sqrtn(2, 2) + 1) * sqrtn(2, 2 * (sqrtn(2, 2) - 1))^2 = 4})
+rewrite (left_to_right, equation) (hypothesis 27: {sqrtn(2, 2 * (sqrtn(2, 2) - 1))^2 = 2 * (sqrtn(2, 2) - 1)}); from (GOAL: {2 * (sqrtn(2, 2) + 1) * sqrtn(2, 2 * (sqrtn(2, 2) - 1))^2 = 4}) to (GOAL: {2 * (sqrtn(2, 2) + 1) * (2 * (sqrtn(2, 2) - 1)) = 4})
+autosolve (hypothesis 32: {2 * (sqrtn(2, 2) + 1) * 2 * (sqrtn(2, 2) - 1) = 4})
+}
+assert (hypothesis 34: {(sqrtn(2, 2) * sqrtn(2, sqrtn(2, 2) + 1) * sqrtn(2, 2 * (sqrtn(2, 2) - 1)))^2 = sqrtn(2, 2)^2 * sqrtn(2, sqrtn(2, 2) + 1)^2 * sqrtn(2, 2 * (sqrtn(2, 2) - 1))^2}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 35: {(sqrtn(2, 2) * sqrtn(2, sqrtn(2, 2) + 1) * sqrtn(2, 2 * (sqrtn(2, 2) - 1)))^2 = 4}) by proof {
+rewrite (left_to_right, equation) (hypothesis 34: {(sqrtn(2, 2) * sqrtn(2, sqrtn(2, 2) + 1) * sqrtn(2, 2 * (sqrtn(2, 2) - 1)))^2 = sqrtn(2, 2)^2 * sqrtn(2, sqrtn(2, 2) + 1)^2 * sqrtn(2, 2 * (sqrtn(2, 2) - 1))^2}); from (GOAL: {(sqrtn(2, 2) * sqrtn(2, sqrtn(2, 2) + 1) * sqrtn(2, 2 * (sqrtn(2, 2) - 1)))^2 = 4}) to (GOAL: {sqrtn(2, 2)^2 * sqrtn(2, sqrtn(2, 2) + 1)^2 * sqrtn(2, 2 * (sqrtn(2, 2) - 1))^2 = 4})
+autosolve (hypothesis 33: {sqrtn(2, 2)^2 * sqrtn(2, sqrtn(2, 2) + 1)^2 * sqrtn(2, 2 * (sqrtn(2, 2) - 1))^2 = 4})
+}
+assert (hypothesis 36: {sqrtn(2, 2) * sqrtn(2, sqrtn(2, 2) + 1) * sqrtn(2, 2 * (sqrtn(2, 2) - 1)) = 2}) by proof {
+autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 25: {4 * frac(1, sqrtn(2, 2)) - sqrtn(2, sqrtn(2, 2) - 1)^2 = sqrtn(2, 2) + 1}); from (GOAL: {frac(π, 2 * frac(1, sqrtn(2, 2)) * sqrtn(2, 4 * frac(1, sqrtn(2, 2)) - sqrtn(2, sqrtn(2, 2) - 1)^{2})) = frac(π * sqrtn(2, 2 * (sqrtn(2, 2) - 1)), 2)}) to (GOAL: {frac(π, 2 * frac(1, sqrtn(2, 2)) * sqrtn(2, sqrtn(2, 2) + 1)) = frac(π * sqrtn(2, 2 * (sqrtn(2, 2) - 1)), 2)})
+rewrite (left_to_right, equation) (hypothesis 24: {2 * frac(1, sqrtn(2, 2)) = sqrtn(2, 2)}); from (GOAL: {frac(π, 2 * frac(1, sqrtn(2, 2)) * sqrtn(2, sqrtn(2, 2) + 1)) = frac(π * sqrtn(2, 2 * (sqrtn(2, 2) - 1)), 2)}) to (GOAL: {frac(π, sqrtn(2, 2) * sqrtn(2, sqrtn(2, 2) + 1)) = frac(π * sqrtn(2, 2 * (sqrtn(2, 2) - 1)), 2)})
+autosolve all_hypothesis

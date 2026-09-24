@@ -1,0 +1,6 @@
+1. exists (c := {c})
+2. assert (hypothesis 31: {c ∈ RealSet})
+3. get_prop (theorem 'Thm 452. (OpenIntervalMembership)': {forall (x) (a) (b), x ∈ RealSet => a ∈ RealSet => b ∈ RealSet => (x ∈ (a, b) <==> (x > a /\ x < b))}) (x := {c}) (a := {a}) (b := {b}) as (hypothesis 32: {c ∈ RealSet => a ∈ RealSet => b ∈ RealSet => (c ∈ (a, b) <==> (c > a /\ c < b))})
+4. use_condition (hypothesis 31: {c ∈ RealSet}) (hypothesis 2: {a ∈ RealSet}) (hypothesis 3: {b ∈ RealSet}) in (hypothesis 32: {c ∈ RealSet => a ∈ RealSet => b ∈ RealSet => (c ∈ (a, b) <==> (c > a /\ c < b))}) as (hypothesis 33: {c ∈ (a, b) <==> (c > a /\ c < b)})
+5. rewrite (left_to_right, iff) (hypothesis 33: {c ∈ (a, b) <==> (c > a /\ c < b)}); from (GOAL: {c ∈ RealSet ∧ c ∈ IntervalLoRo(a, b) ∧ |FunDeri(f, 1, 2)(c)| ≥ frac(4, (b - a)^{2}) * |f(b) - f(a)|}) to (GOAL: {c ∈ RealSet ∧ (c > a /\ c < b) ∧ |FunDeri(f, 1, 2)(c)| ≥ frac(4, (b - a)^{2}) * |f(b) - f(a)|})
+6. autosolve all_hypothesis

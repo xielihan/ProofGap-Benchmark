@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ tan(x)^{2} = sec(x)^{2} - 1
+
+METHOD:

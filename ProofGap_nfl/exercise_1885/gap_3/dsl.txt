@@ -1,0 +1,3 @@
+exists (A := {frac(1, 2)}) (B := {frac(1, 2)}) (C := {-frac(1, 2)}) (D := {frac(1, 2)})
+assert (hypothesis 4: {frac(1, 2) ∈ RealSet ∧ frac(1, 2) ∈ RealSet ∧ -frac(1, 2) ∈ RealSet ∧ frac(1, 2) ∈ RealSet ∧ (frac(1, 2) = frac(1, 2) ⇒ frac(1, 2) = frac(1, 2) ⇒ -frac(1, 2) = -frac(1, 2) ⇒ frac(1, 2) = frac(1, 2) ⇒ frac(1, 2) + -frac(1, 2) = 0)})
+apply (hypothesis 4: {frac(1, 2) ∈ RealSet ∧ frac(1, 2) ∈ RealSet ∧ -frac(1, 2) ∈ RealSet ∧ frac(1, 2) ∈ RealSet ∧ (frac(1, 2) = frac(1, 2) ⇒ frac(1, 2) = frac(1, 2) ⇒ -frac(1, 2) = -frac(1, 2) ⇒ frac(1, 2) = frac(1, 2) ⇒ frac(1, 2) + -frac(1, 2) = 0)})

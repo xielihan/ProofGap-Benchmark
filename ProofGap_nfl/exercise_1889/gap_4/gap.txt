@@ -1,0 +1,16 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. A ∈ RealSet
+3. B ∈ RealSet
+4. C ∈ RealSet
+5. D ∈ RealSet
+6. x ∈ RealSet
+7. frac(x^{2}, x^{4} + 3 * x^{3} + frac(9, 2) * x^{2} + 3 * x + 1) = frac(A * x + B, x^{2} + 2 * x + 2) + frac(C * x + D, x^{2} + x + frac(1, 2))
+8. A ∈ RealSet
+9. B ∈ RealSet
+
+GOAL:
+C ∈ RealSet
+
+METHOD:

@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. R : NonNegIntegerSet → RealSet
+2. arctan(1.2) = arctan(1) + arctan(frac(1, 11))
+3. arctan(1) = frac(π, 4)
+4. arctan(frac(1, 11)) = sum_{ n = 0 }^{ +∞ } (frac((-1)^{n} * frac(1, 11)^{2 * n + 1}, 2 * n + 1))
+
+GOAL:
+arctan(1.2) = frac(π, 4) + sum_{ n = 0 }^{ +∞ } (frac((-1)^{n} * frac(1, 11)^{2 * n + 1}, 2 * n + 1))
+
+METHOD:

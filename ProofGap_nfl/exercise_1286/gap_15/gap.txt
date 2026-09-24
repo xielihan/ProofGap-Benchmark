@@ -1,0 +1,12 @@
+PROOF GAP @15
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. a < b
+5. Defined(f, (a, b))
+6. forall (c), c ∈ RealSet ∧ c ∈ IntervalLoRo(a, b) ⇒ (exists (δ), δ ∈ RealSet ∧ δ ∈ PosRealSet ∧ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ∧ 0 < |x - c| ∧ |x - c| < δ ⇒ frac(f(x) - f(c), x - c) > 0))
+GOAL:
+StrictMonoIncFuncOn(f, IntervalLoRo(a, b))
+
+METHOD:

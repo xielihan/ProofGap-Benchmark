@@ -1,0 +1,6 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ -frac(p, y(x)^{2}) * FunDeri(y, 1, 1)(x) = -frac(p^{2}, y(x)^{3})}) (x := {z})
+2. get_condition (hypothesis 6: {z ∈ RealSet}) in (GOAL: {z ∈ RealSet ⇒ -frac(p, y(z)^{2}) * FunDeri(y, 1, 1)(z) = -frac(p^{2}, y(z)^{3})})
+3. get_prop (hypothesis 4: {forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = frac(p, y(x))}) (x := {z}) as (hypothesis 7: {z ∈ RealSet ⇒ FunDeri(y, 1, 1)(z) = frac(p, y(z))})
+4. use_condition (hypothesis 6: {z ∈ RealSet}) in (hypothesis 7: {z ∈ RealSet ⇒ FunDeri(y, 1, 1)(z) = frac(p, y(z))}) as (hypothesis 8: {FunDeri(y, 1, 1)(z) = frac(p, y(z))})
+5. rewrite (left_to_right, equation) (hypothesis 8: {FunDeri(y, 1, 1)(z) = frac(p, y(z))}); from (GOAL: {-frac(p, y(z)^{2}) * FunDeri(y, 1, 1)(z) = -frac(p^{2}, y(z)^{3})}) to (GOAL: {-frac(p, y(z)^{2}) * frac(p, y(z)) = -frac(p^{2}, y(z)^{3})})
+6. autosolve all_hypothesis

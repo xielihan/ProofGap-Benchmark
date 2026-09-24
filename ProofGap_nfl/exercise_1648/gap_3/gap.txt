@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ sqrtn(2, 1 - sin(2 * x)) = sqrtn(2, (cos(x) - sin(x))^{2})
+2. forall (x), x ∈ RealSet ⇒ sqrtn(2, (cos(x) - sin(x))^{2}) = sgn(cos(x) - sin(x)) * (cos(x) - sin(x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ cos(x) - sin(x) ≠ 0 ⇒ { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = sqrtn(2, 1 - sin(2 * x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = sgn(cos(x) - sin(x)) * (cos(x) - sin(x)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+METHOD:

@@ -1,0 +1,3 @@
+get_prop (hypothesis 15: {forall (`α₀`), `α₀` ∈ RealSet ∧ `α₀` > 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . x * e^{-`α₀` * x^{2}}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 2 * `α₀`)}) (`α₀` := {α}) as (hypothesis 18: {α ∈ RealSet ∧ α > 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . x * e^{-α * x^{2}}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 2 * α)})
+use_condition (hypothesis 1: {α ∈ RealSet ∧ α > 0}) in (hypothesis 18: {α ∈ RealSet ∧ α > 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet] . x * e^{-α * x^{2}}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 2 * α)}) as (hypothesis 19: {DefInt(0, +∞, (fun x [x ∈ RealSet] . x * e^{-α * x^{2}}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, 2 * α)})
+autosolve all_hypothesis

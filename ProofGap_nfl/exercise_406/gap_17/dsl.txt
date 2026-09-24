@@ -1,0 +1,18 @@
+get_forall (GOAL: {forall (E), E ∈ RealSet ∧ E > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ x > N ⇒ f(x) > E))}) (E := {E0})
+get_condition (hypothesis 20: {E0 ∈ RealSet ∧ E0 > 0}) in (GOAL: {E0 ∈ RealSet ∧ E0 > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ x > N ⇒ f(x) > E0))})
+get_prop (hypothesis 8: {forall (E), E ∈ RealSet ∧ E > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x| > N ⇒ f(x) > E))}) (E := {E0}) as (hypothesis 21: {E0 ∈ RealSet ∧ E0 > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x| > N ⇒ f(x) > E0))})
+use_condition (hypothesis 20: {E0 ∈ RealSet ∧ E0 > 0}) in (hypothesis 21: {E0 ∈ RealSet ∧ E0 > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x| > N ⇒ f(x) > E0))}) as (hypothesis 22: {exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x| > N ⇒ f(x) > E0)})
+get_exists (hypothesis 22: {exists (N), N ∈ RealSet ∧ N > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x| > N ⇒ f(x) > E0)}) (N := {N0})
+destruct_and (hypothesis 23: {N0 ∈ RealSet ∧ N0 > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x| > N0 ⇒ f(x) > E0)}) as (hypothesis 24: {N0 ∈ RealSet}) (hypothesis 25: {N0 > 0}) (hypothesis 26: {forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x| > N0 ⇒ f(x) > E0})
+exists (N := {N0})
+assert (hypothesis 27: {forall (x), x ∈ RealSet ∧ x ∈ D ∧ x > N0 ⇒ f(x) > E0}) by proof {
+  get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ D ∧ x > N0 ⇒ f(x) > E0}) (x := {x0})
+  get_condition (hypothesis 27: {x0 ∈ RealSet ∧ x0 ∈ D ∧ x0 > N0}) in (GOAL: {x0 ∈ RealSet ∧ x0 ∈ D ∧ x0 > N0 ⇒ f(x0) > E0})
+  destruct_and (hypothesis 27: {x0 ∈ RealSet ∧ x0 ∈ D ∧ x0 > N0}) as (hypothesis 28: {x0 ∈ RealSet}) (hypothesis 29: {x0 ∈ D}) (hypothesis 30: {x0 > N0})
+  get_prop (hypothesis 26: {forall (x), x ∈ RealSet ∧ x ∈ D ∧ |x| > N0 ⇒ f(x) > E0}) (x := {x0}) as (hypothesis 31: {x0 ∈ RealSet ∧ x0 ∈ D ∧ |x0| > N0 ⇒ f(x0) > E0})
+  assert (hypothesis 32: {|x0| > N0})
+  assert (hypothesis 33: {x0 ∈ RealSet ∧ x0 ∈ D ∧ |x0| > N0})
+  use_condition (hypothesis 33: {x0 ∈ RealSet ∧ x0 ∈ D ∧ |x0| > N0}) in (hypothesis 31: {x0 ∈ RealSet ∧ x0 ∈ D ∧ |x0| > N0 ⇒ f(x0) > E0}) as (hypothesis 34: {f(x0) > E0})
+  apply (hypothesis 34: {f(x0) > E0})
+}
+autosolve all_hypothesis

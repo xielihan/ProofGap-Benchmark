@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. a : NonNegIntegerSet → RealSet ∧ IsSeq(a)
+2. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+3. forall (n), n ∈ PosIntegerSet ⇒ a(n) ∈ RealSet
+4. forall (k), k ∈ PosIntegerSet ⇒ seqlim_{ n → +∞ } (x(frac(n * (n - 1), 2) + k)) = a(k)
+
+GOAL:
+{ a(k) | k ∈ PosIntegerSet } ⊆ AccumulationPointSet(x)
+
+METHOD:

@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ y(x) = frac(1, 4) * ln(frac(sqrtn(4, 1 + x^{4}) + x, sqrtn(4, 1 + x^{4}) - x)) - frac(1, 2) * arctan(frac(sqrtn(4, 1 + x^{4}), x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ y(x) = frac(1, 4) * ln(frac(sqrtn(4, 1 + x^{4}) + x, sqrtn(4, 1 + x^{4}) - x)) - frac(1, 2) * arctan(frac(sqrtn(4, 1 + x^{4}), x))
+
+METHOD:

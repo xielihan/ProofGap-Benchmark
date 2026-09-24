@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. α ∈ RealSet
+
+GOAL:
+|x| < 1 ⇒ frac(x * sin(α), 1 - 2 * x * cos(α) + x^{2}) = frac(__IMAGINARY_UNIT__ * x, 2) * (frac(1, x - (cos(α) - __IMAGINARY_UNIT__ * sin(α))) - frac(1, x - (cos(α) + __IMAGINARY_UNIT__ * sin(α))))
+
+METHOD:

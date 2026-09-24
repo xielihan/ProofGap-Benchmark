@@ -1,0 +1,8 @@
+1. assert (hypothesis 3: {forall (x), x ∈ RealSet ∧ x ≠ 2 ⇒ frac((x - 2)^{20} * (x + 1)^{20}, (x - 2)^{20} * (x + 4)^{10}) = frac((x + 1)^{20}, (x + 4)^{10})}) by proof {
+  1. get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ≠ 2 ⇒ frac((x - 2)^{20} * (x + 1)^{20}, (x - 2)^{20} * (x + 4)^{10}) = frac((x + 1)^{20}, (x + 4)^{10})}) (x := {a})
+  2. get_condition (hypothesis 3: {a ∈ RealSet ∧ a ≠ 2}) in (GOAL: {a ∈ RealSet ∧ a ≠ 2 ⇒ frac((a - 2)^{20} * (a + 1)^{20}, (a - 2)^{20} * (a + 4)^{10}) = frac((a + 1)^{20}, (a + 4)^{10})})
+  3. autosolve all_hypothesis
+}
+2. rewrite_in limit (left_to_right, equation) (hypothesis 2: {forall (x), x ∈ RealSet ∧ x ≠ 2 ⇒ frac((x^{2} - x - 2)^{20}, (x^{3} - 12 * x + 16)^{10}) = frac((x - 2)^{20} * (x + 1)^{20}, (x - 2)^{20} * (x + 4)^{10})}); from (GOAL: {lim_{ x → 2 } (frac((x^{2} - x - 2)^{20}, (x^{3} - 12 * x + 16)^{10})) = lim_{ x → 2 } (frac((x + 1)^{20}, (x + 4)^{10}))}) to (GOAL: {lim_{ x → 2 } (frac((x - 2)^{20} * (x + 1)^{20}, (x - 2)^{20} * (x + 4)^{10})) = lim_{ x → 2 } (frac((x + 1)^{20}, (x + 4)^{10}))})
+3. rewrite_in limit (left_to_right, equation) (hypothesis 3: {forall (x), x ∈ RealSet ∧ x ≠ 2 ⇒ frac((x - 2)^{20} * (x + 1)^{20}, (x - 2)^{20} * (x + 4)^{10}) = frac((x + 1)^{20}, (x + 4)^{10})}); from (GOAL: {lim_{ x → 2 } (frac((x - 2)^{20} * (x + 1)^{20}, (x - 2)^{20} * (x + 4)^{10})) = lim_{ x → 2 } (frac((x + 1)^{20}, (x + 4)^{10}))}) to (GOAL: {lim_{ x → 2 } (frac((x + 1)^{20}, (x + 4)^{10})) = lim_{ x → 2 } (frac((x + 1)^{20}, (x + 4)^{10}))})
+4. autosolve all_hypothesis

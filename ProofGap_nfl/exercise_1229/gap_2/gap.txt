@@ -1,0 +1,15 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. f : RealSet → RealSet
+3. φ : RealSet → RealSet
+4. forall (x), x ∈ RealSet ⇒ y(x) = f(φ(x))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ FuncOfClassK(f, n) ∧ FuncOfClassK(φ, n)
+6. forall (x), x ∈ RealSet ⇒ x ∈ Dom(φ) ∧ φ(x) ∈ Dom(f)
+7. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n = 1 ⇒ FunDeri(y, 1, 1)(x) = FunDeri(f, fun x [x ∈ RealSet] . φ(x), 1)(φ(x)) * FunDeri(φ, 1, 1)(x)
+8. forall (n), n ∈ NonNegIntegerSet ∧ n = 1 ⇒ (exists (A), A : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ∧ A = (fun k, x [k ∈ NonNegIntegerSet ∧ x ∈ RealSet] . FunDeri(φ, 1, 1)(x)))
+
+GOAL:
+forall (n) (A) (x), n ∈ NonNegIntegerSet ∧ A : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ∧ x ∈ RealSet ∧ n = 1 ∧ A = (fun k, x [k ∈ NonNegIntegerSet ∧ x ∈ RealSet] . FunDeri(φ, 1, 1)(x)) ⇒ FunDeri(y, 1, 1)(x) = sum_{ k = 1 }^{ 1 } (A(k, x) * FunDeri(f, fun x [x ∈ RealSet] . φ(x), k)(φ(x)))
+
+METHOD:

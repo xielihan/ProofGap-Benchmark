@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ 1 + x * e^{x} > 0 ∧ x + sqrtn(2, 1 + x^{2}) > 0 ⇒ lim_{ x → 0 } (frac(ln(1 + x * e^{x}), ln(x + sqrtn(2, 1 + x^{2})))) = lim_{ x → 0 } (frac(frac(ln(1 + x * e^{x}), x * e^{x}) * x * e^{x}, frac(1, 2) * ln(1 + x^{2}) + frac(ln(1 + frac(x, sqrtn(2, 1 + x^{2}))), frac(x, sqrtn(2, 1 + x^{2}))) * frac(x, sqrtn(2, 1 + x^{2}))))
+
+METHOD:

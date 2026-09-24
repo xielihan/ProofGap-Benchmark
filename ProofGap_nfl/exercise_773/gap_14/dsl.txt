@@ -1,0 +1,2 @@
+assert (hypothesis 16: {(forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 2 * π) ⇒ 0 ≤ y(x)) /\ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 2 * π) ⇒ y(x) ≤ 2)})
+autosolve all_hypothesis

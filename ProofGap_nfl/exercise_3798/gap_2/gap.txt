@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. α ∈ RealSet ∧ |α| ≤ 1
+2. I = (fun α [α ∈ RealSet ∧ |α| ≤ 1] . DefInt(0, 1, (fun x [x ∈ RealSet] . frac(ln(1 - α^{2} * x^{2}), sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x)))
+3. ContinuousFuncOn(I, [-1, 1])
+
+GOAL:
+forall (`α₀`), 0 < `α₀` ∧ `α₀` < 1 ∧ `α₀` ∈ RealSet ⇒ (forall (α), α ∈ RealSet ∧ |α| ≤ `α₀` ⇒ IntegrableFuncOn(fun x [x ∈ RealSet] . FunDeri(fun α [α ∈ RealSet] . frac(ln(1 - α^{2} * x^{2}), sqrtn(2, 1 - x^{2})), 1, 1), [0, 1]))
+
+METHOD:

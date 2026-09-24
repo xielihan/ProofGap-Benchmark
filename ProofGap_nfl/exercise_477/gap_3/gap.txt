@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet
+2. x ≠ 0
+3. lim_{ x → 0 } (frac(cos(x) - cos(3 * x), x^{2})) = lim_{ x → 0 } (frac(2 * sin(2 * x) * sin(x), x^{2}))
+4. lim_{ x → 0 } (frac(2 * sin(2 * x) * sin(x), x^{2})) = 4 * (lim_{ x → 0 } (frac(sin(x), x)^{2} * cos(x)))
+
+GOAL:
+4 * (lim_{ x → 0 } (frac(sin(x), x)^{2} * cos(x))) = 4
+
+METHOD:

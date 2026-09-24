@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 23: {B = DefInt(1, +∞, (fun y [y ∈ RealSet] . frac(1, y^{2} + 1)) * diff(fun y [y ∈ RealSet] . y))}); from (GOAL: {B = frac(π, 4)}) to (GOAL: {DefInt(1, +∞, (fun y [y ∈ RealSet] . frac(1, y^{2} + 1)) * diff(fun y [y ∈ RealSet] . y)) = frac(π, 4)})
+autosolve (hypothesis 24: {DefInt(1, +∞, (fun y [y ∈ RealSet] . frac(1, y^{2} + 1)) * diff(fun y [y ∈ RealSet] . y)) = frac(π, 4)})

@@ -1,0 +1,18 @@
+PROOF GAP @8
+ASSUM:
+1. f : RealSet → RealSet
+2. B : RealSet → RealSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = cases{ sin(x) if |x| ≤ π; 0 if |x| > π }
+4. ContinuousFunc(f)
+5. OddFunc(f)
+6. forall (λ), λ ∈ RealSet ⇒ B(λ) = frac(2, π) * DefInt(0, +∞, (fun ξ [ξ ∈ RealSet] . f(ξ) * sin(λ * ξ)) * diff(fun ξ [ξ ∈ RealSet] . ξ))
+7. forall (λ), λ ∈ RealSet ⇒ B(λ) = frac(2, π) * DefInt(0, π, (fun ξ [ξ ∈ RealSet] . sin(ξ) * sin(λ * ξ)) * diff(fun ξ [ξ ∈ RealSet] . ξ))
+8. forall (λ), λ ∈ RealSet ∧ λ ≠ 1 ∧ λ ≠ -1 ⇒ frac(2, π) * DefInt(0, π, (fun ξ [ξ ∈ RealSet] . sin(ξ) * sin(λ * ξ)) * diff(fun ξ [ξ ∈ RealSet] . ξ)) = frac(2 * sin(λ * π), π * (1 - λ^{2}))
+9. forall (λ), λ ∈ RealSet ∧ λ ≠ 1 ∧ λ ≠ -1 ⇒ B(λ) = frac(2 * sin(λ * π), π * (1 - λ^{2}))
+10. forall (x), x ∈ RealSet ⇒ f(x) = frac(2, π) * DefInt(0, +∞, (fun λ [λ ∈ RealSet] . frac(sin(λ * π), 1 - λ^{2}) * sin(λ * x)) * diff(fun λ [λ ∈ RealSet] . λ))
+11. forall (x), x ∈ RealSet ⇒ lim_{ λ → 1 } (frac(sin(λ * π), 1 - λ^{2}) * sin(λ * x)) = frac(π, 2) * sin(x)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ f(x) = frac(2, π) * DefInt(0, +∞, (fun λ [λ ∈ RealSet] . frac(sin(λ * π), 1 - λ^{2}) * sin(λ * x)) * diff(fun λ [λ ∈ RealSet] . λ))
+
+METHOD:

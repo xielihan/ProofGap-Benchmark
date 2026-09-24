@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. forall (x), x ∈ RealSet ∧ x ∈ IntervalClCl(0, 1) ∧ 0 ≤ x ∧ x ≤ 1 ⇒ frac(x^{b} - x^{a}, ln(x)) = DefInt(a, b, (fun y [y ∈ RealSet ∧ y ∈ IntervalClCl(a, b)] . x^{y}) * diff(fun y [y ∈ RealSet] . y))
+
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . cos(ln(frac(1, x))) * frac(x^{b} - x^{a}, ln(x))) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1)] . cos(ln(frac(1, x))) * DefInt(a, b, (fun y [y ∈ RealSet ∧ y ∈ IntervalClCl(a, b)] . x^{y}) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

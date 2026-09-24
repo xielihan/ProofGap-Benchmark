@@ -1,0 +1,17 @@
+PROOF GAP @7
+ASSUM:
+1. φ : RealSet → RealSet
+2. ψ : RealSet → RealSet
+3. forall (x), x ∈ RealSet ⇒ φ(x) = x^{2}
+4. forall (x), x ∈ RealSet ⇒ ψ(x) = 2^{x}
+5. forall (x), x ∈ RealSet ⇒ φ(φ(x)) = (x^{2})^{2}
+6. forall (x), x ∈ RealSet ⇒ (x^{2})^{2} = x^{4}
+7. forall (x), x ∈ RealSet ⇒ φ(φ(x)) = x^{4}
+8. forall (x), x ∈ RealSet ⇒ φ(ψ(x)) = (2^{x})^{2}
+9. forall (x), x ∈ RealSet ⇒ (2^{x})^{2} = 2^{2 * x}
+10. forall (x), x ∈ RealSet ⇒ φ(ψ(x)) = 2^{2 * x}
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ ψ(φ(x)) = 2^{x^{2}}
+
+METHOD:

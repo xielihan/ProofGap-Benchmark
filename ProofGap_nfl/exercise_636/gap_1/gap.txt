@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. y = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . prod_{ k = 1 }^{ n } (cos(frac(k * a, n * sqrtn(2, n)))))
+3. φ = (fun x [x ∈ RealSet ∧ cos(x) ≠ 0] . ln(1 + tan(x)^{2}))
+4. ψ = (fun x [x ∈ RealSet] . x^{2})
+5. α = (fun k, n [k ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ n > 0] . frac(k * a, n * sqrtn(2, n)))
+
+GOAL:
+exists (N_{0}), N_{0} ∈ NonNegIntegerSet ∧ N_{0} ∈ PosIntegerSet ∧ (forall (n) (k), n ∈ NonNegIntegerSet ∧ k ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ k ∈ PosIntegerSet ∧ n > N_{0} ∧ 1 ≤ k ∧ k ≤ n ⇒ cos(frac(k * a, n * sqrtn(2, n))) > 0)
+
+METHOD:

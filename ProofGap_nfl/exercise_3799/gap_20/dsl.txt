@@ -1,0 +1,10 @@
+get_condition (hypothesis 22: {α < 0}) in (GOAL: {α < 0 ⇒ I(α) = -frac(π, 2) * (1 - α - sqrtn(2, 1 + α^{2}))})
+use_condition (hypothesis 22: {α < 0}) in (hypothesis 21: {α < 0 ⇒ I(α) = -I(-α)}) as (hypothesis 23: {I(α) = -I(-α)})
+get_prop (hypothesis 20: {forall (u), u > 0 ⇒ I(u) = frac(π, 2) * (1 + u - sqrtn(2, 1 + u^{2}))}) (u := {-α}) as (hypothesis 24: {-α > 0 ⇒ I(-α) = frac(π, 2) * (1 + -α - sqrtn(2, 1 + (-α)^{2}))})
+assert (hypothesis 25: {-α > 0}) by proof {
+  autosolve (hypothesis 22: {α < 0})
+}
+use_condition (hypothesis 25: {-α > 0}) in (hypothesis 24: {-α > 0 ⇒ I(-α) = frac(π, 2) * (1 + -α - sqrtn(2, 1 + (-α)^{2}))}) as (hypothesis 26: {I(-α) = frac(π, 2) * (1 + -α - sqrtn(2, 1 + (-α)^{2}))})
+rewrite (left_to_right, equation) (hypothesis 23: {I(α) = -I(-α)}); from (GOAL: {I(α) = -frac(π, 2) * (1 - α - sqrtn(2, 1 + α^{2}))}) to (GOAL: {-I(-α) = -frac(π, 2) * (1 - α - sqrtn(2, 1 + α^{2}))})
+rewrite (left_to_right, equation) (hypothesis 26: {I(-α) = frac(π, 2) * (1 + -α - sqrtn(2, 1 + (-α)^{2}))}); from (GOAL: {-I(-α) = -frac(π, 2) * (1 - α - sqrtn(2, 1 + α^{2}))}) to (GOAL: {-(frac(π, 2) * (1 + -α - sqrtn(2, 1 + (-α)^{2}))) = -frac(π, 2) * (1 - α - sqrtn(2, 1 + α^{2}))})
+autosolve all_hypothesis

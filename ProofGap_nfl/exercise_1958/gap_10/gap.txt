@@ -1,0 +1,19 @@
+PROOF GAP @10
+ASSUM:
+1. x ∈ RealSet ∧ |x| > 1
+2. t ∈ RealSet
+3. C ∈ RealSet
+4. x > 1 ⇒ x = sec(t) ⇒ 0 < t
+5. x > 1 ⇒ x = sec(t) ⇒ t < frac(π, 2)
+6. x > 1 ⇒ x = sec(t) ⇒ diff(fun x [x ∈ RealSet] . x) = sec(t) * tan(t) * diff(fun t [t ∈ RealSet] . t)
+7. x > 1 ⇒ x = sec(t) ⇒ sqrtn(2, x^{2} - 1) = tan(t)
+8. x > 1 ⇒ { `F_2` | forall (x), x ∈ RealSet ∧ |x| > 1 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, (x^{2} + 1) * sqrtn(2, x^{2} - 1)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (t), t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2) ⇒ FunDeri(`F_3`, 1, 1)(t) = frac(sec(t), 1 + sec(t)^{2}) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) }
+9. x > 1 ⇒ { `F_4` | forall (t), t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2) ⇒ FunDeri(`F_4`, 1, 1)(t) = frac(sec(t), 1 + sec(t)^{2}) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) } = { `F_5` | forall (t), t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2) ⇒ FunDeri(`F_5`, 1, 1)(t) = frac(cos(t), cos(t)^{2} + 1) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) }
+10. x > 1 ⇒ { `F_6` | forall (t), t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2) ⇒ FunDeri(`F_6`, 1, 1)(t) = frac(cos(t), cos(t)^{2} + 1) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) } = { `F_7` | forall (t), t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2) ⇒ FunDeri(`F_7`, 1, 1)(t) = frac(FunDeri(fun t [t ∈ RealSet] . sin(t), 1, 1)(t), 2 - sin(t)^{2}) }
+11. x > 1 ⇒ { `F_8` | forall (t), t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2) ⇒ FunDeri(`F_8`, 1, 1)(t) = frac(FunDeri(fun t [t ∈ RealSet] . sin(t), 1, 1)(t), 2 - sin(t)^{2}) } = { `F_9` | exists (C), C ∈ RealSet ∧ (forall (t), t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2) ⇒ `F_9`(t) = frac(1, 2 * sqrtn(2, 2)) * ln(|frac(sqrtn(2, 2) + sin(t), sqrtn(2, 2) - sin(t))|) + C) }
+12. x > 1 ⇒ frac(1, 2 * sqrtn(2, 2)) * ln(|frac(sqrtn(2, 2) + sin(t), sqrtn(2, 2) - sin(t))|) + C = frac(1, 2 * sqrtn(2, 2)) * ln(|frac(sqrtn(2, 2) * x + sqrtn(2, x^{2} - 1), sqrtn(2, 2) * x - sqrtn(2, x^{2} - 1))|) + C
+
+GOAL:
+x < -1 ⇒ x = sec(t) ⇒ π < t
+
+METHOD:

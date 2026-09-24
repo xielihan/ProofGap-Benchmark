@@ -1,0 +1,41 @@
+PROOF GAP @16
+ASSUM:
+1. u ∈ RealSet
+2. V ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. R ∈ RealSet ∧ R > 0
+4. a ∈ RealSet
+5. b ∈ RealSet
+6. c ∈ RealSet
+7. g : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+8. ξ ∈ RealSet
+9. η ∈ RealSet
+10. ζ ∈ RealSet
+11. θ ∈ RealSet ∧ |θ| < 1
+12. h : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+13. ω ∈ RealSet
+14. a^{2} + b^{2} + c^{2} > R^{2}
+15. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ ((x, y, z) ∈ V ⇔ x^{2} + y^{2} + z^{2} ≤ R^{2})
+16. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ g(x, y, z) = frac(1, sqrtn(2, (x - a)^{2} + (y - b)^{2} + (z - c)^{2}))
+17. u = VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . g(x, y, z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . ω))
+18. ContinuousFuncOn(g, V)
+19. (ξ, η, ζ) ∈ V ∧ u = g(ξ, η, ζ) * frac(4, 3) * π * R^{3}
+20. g(ξ, η, ζ) = frac(1, sqrtn(2, (ξ - a)^{2} + (η - b)^{2} + (ζ - c)^{2}))
+21. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ∈ V ⇒ sqrtn(2, a^{2} + b^{2} + c^{2}) - R ≤ sqrtn(2, (x - a)^{2} + (y - b)^{2} + (z - c)^{2})
+22. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ∈ V ⇒ sqrtn(2, (x - a)^{2} + (y - b)^{2} + (z - c)^{2}) ≤ sqrtn(2, a^{2} + b^{2} + c^{2}) + R
+23. sqrtn(2, a^{2} + b^{2} + c^{2}) - R ≤ sqrtn(2, a^{2} + b^{2} + c^{2}) + R
+24. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ∈ V ⇒ frac(1, sqrtn(2, a^{2} + b^{2} + c^{2}) + R) ≤ g(x, y, z)
+25. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ∈ V ⇒ g(x, y, z) ≤ frac(1, sqrtn(2, a^{2} + b^{2} + c^{2}) - R)
+26. frac(1, sqrtn(2, a^{2} + b^{2} + c^{2}) + R) ≤ frac(1, sqrtn(2, a^{2} + b^{2} + c^{2}) - R)
+27. g(ξ, η, ζ) = frac(1, sqrtn(2, a^{2} + b^{2} + c^{2}) - R) ⇒ h = (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . frac(1, sqrtn(2, a^{2} + b^{2} + c^{2}) - R) - g(x, y, z))
+28. g(ξ, η, ζ) = frac(1, sqrtn(2, a^{2} + b^{2} + c^{2}) - R) ⇒ (forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ∈ V ⇒ h(x, y, z) ≥ 0)
+29. g(ξ, η, ζ) = frac(1, sqrtn(2, a^{2} + b^{2} + c^{2}) - R) ⇒ VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . h(x, y, z)) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . ω)) = 0
+30. g(ξ, η, ζ) = frac(1, sqrtn(2, a^{2} + b^{2} + c^{2}) - R) ⇒ (forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x, y, z) ∈ V ⇒ h(x, y, z) = 0)
+31. g(ξ, η, ζ) = frac(1, sqrtn(2, a^{2} + b^{2} + c^{2}) - R) ⇒ False
+32. g(ξ, η, ζ) ≠ frac(1, sqrtn(2, a^{2} + b^{2} + c^{2}) - R)
+33. g(ξ, η, ζ) ≠ frac(1, sqrtn(2, a^{2} + b^{2} + c^{2}) - R)
+
+GOAL:
+g(ξ, η, ζ) ≠ frac(1, sqrtn(2, a^{2} + b^{2} + c^{2}) + R)
+
+METHOD:
+[@method 同理 @]

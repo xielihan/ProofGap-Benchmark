@@ -1,0 +1,15 @@
+PROOF GAP @8
+ASSUM:
+1. x ∈ RealSet
+2. ContinuousFunc(fun t [t ∈ RealSet] . sqrtn(2, 1 + t^{2}))
+3. ContinuousFunc(fun t [t ∈ RealSet] . frac(1, sqrtn(2, 1 + t^{4})))
+4. ContinuousFunc(fun t [t ∈ RealSet] . cos(π * t^{2}))
+5. forall (t), t ∈ RealSet ⇒ 1 + t^{4} > 0
+6. FunDeri(fun x [x ∈ RealSet] . DefInt(0, x^{2}, (fun t [t ∈ RealSet] . sqrtn(2, 1 + t^{2})) * diff(fun t [t ∈ RealSet] . t)), 1, 1)(x) = FunDeri(fun x [x ∈ RealSet] . x^{2}, 1, 1)(x) * sqrtn(2, 1 + (x^{2})^{2})
+7. FunDeri(fun x [x ∈ RealSet] . x^{2}, 1, 1)(x) * sqrtn(2, 1 + (x^{2})^{2}) = 2 * x * sqrtn(2, 1 + x^{4})
+8. FunDeri(fun x [x ∈ RealSet] . DefInt(0, x^{2}, (fun t [t ∈ RealSet] . sqrtn(2, 1 + t^{2})) * diff(fun t [t ∈ RealSet] . t)), 1, 1)(x) = 2 * x * sqrtn(2, 1 + x^{4})
+
+GOAL:
+FunDeri(fun x [x ∈ RealSet] . DefInt(x^{2}, x^{3}, (fun t [t ∈ RealSet] . frac(1, sqrtn(2, 1 + t^{4}))) * diff(fun t [t ∈ RealSet] . t)), 1, 1)(x) = FunDeri(fun x [x ∈ RealSet] . DefInt(x^{2}, 0, (fun t [t ∈ RealSet] . frac(1, sqrtn(2, 1 + t^{4}))) * diff(fun t [t ∈ RealSet] . t)), 1, 1)(x) + FunDeri(fun x [x ∈ RealSet] . DefInt(0, x^{3}, (fun t [t ∈ RealSet] . frac(1, sqrtn(2, 1 + t^{4}))) * diff(fun t [t ∈ RealSet] . t)), 1, 1)(x)
+
+METHOD:

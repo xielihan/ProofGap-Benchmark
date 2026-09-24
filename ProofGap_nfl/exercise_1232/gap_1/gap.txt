@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n = 1 ⇒ (forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(fun x [x ∈ RealSet] . e^{frac(1, x)}, 1, 1)(x) = -frac(1, x^{2}) * e^{frac(1, x)})
+
+METHOD:

@@ -1,0 +1,5 @@
+assert (hypothesis 25: {FunDeri(f, 1, 1)(x, y) = 0}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 14: {FunDeri(f, 1, 1)(x, y) = 2 * (sum_{ i = 1 }^{ n } (m(i) * (x - X(i))))}); from (GOAL: {FunDeri(f, 1, 1)(x, y) = 0}) to (GOAL: {2 * (sum_{ i = 1 }^{ n } (m(i) * (x - X(i)))) = 0})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

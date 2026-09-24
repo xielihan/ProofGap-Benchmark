@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. seqlim_{ n → +∞ } (sin(n^{2})) = 0 ⇒ seqlim_{ n → +∞ } (sin(n^{2})^{2}) = 0
+2. forall (n), n ∈ NonNegIntegerSet ∧ seqlim_{ n → +∞ } (sin(n^{2})) = 0 ⇒ sin(n^{2})^{2} + cos(n^{2})^{2} = 1
+
+GOAL:
+seqlim_{ n → +∞ } (sin(n^{2})) = 0 ⇒ seqlim_{ n → +∞ } (cos(n^{2})^{2}) = 1
+
+METHOD:

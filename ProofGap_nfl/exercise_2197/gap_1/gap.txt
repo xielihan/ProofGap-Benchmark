@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. χ : RealSet → RealSet
+2. ω : NonNegIntegerSet → RealSet
+3. Δx : NonNegIntegerSet → RealSet
+4. forall (x), x ∈ RealSet ∧ x ∉ RationalSet ⇒ χ(x) = 0
+5. forall (x), x ∈ RealSet ∧ x ∈ RationalSet ⇒ χ(x) = 1
+
+GOAL:
+forall (a), a ∈ RealSet ⇒ (forall (b), a ∈ RealSet ∧ b ∈ RealSet ∧ a < b ⇒ (forall (α) (β), α ∈ RealSet ∧ β ∈ RealSet ∧ a ≤ α ∧ α < β ∧ β ≤ b ⇒ OscillationOn(χ, [α, β]) = 1))
+
+METHOD:

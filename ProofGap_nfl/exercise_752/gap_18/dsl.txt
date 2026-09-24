@@ -1,0 +1,5 @@
+1. get_forall (GOAL: {forall (T), T ∈ RealSet ∧ T < 0 ⇒ S > 0}) (T := {T1})
+2. get_condition (hypothesis 28: {T1 ∈ RealSet ∧ T1 < 0}) in (GOAL: {T1 ∈ RealSet ∧ T1 < 0 ⇒ S > 0})
+3. get_prop (hypothesis 27: {forall (T), T ∈ RealSet ∧ T < 0 ⇒ S = -T}) (T := {T1}) as (hypothesis 29: {T1 ∈ RealSet ∧ T1 < 0 ⇒ S = -T1})
+4. use_condition (hypothesis 28: {T1 ∈ RealSet ∧ T1 < 0}) in (hypothesis 29: {T1 ∈ RealSet ∧ T1 < 0 ⇒ S = -T1}) as (hypothesis 30: {S = -T1})
+5. autosolve all_hypothesis

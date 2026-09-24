@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x ≠ 0 ∧ x + y ≠ 0 ∧ 1 + frac(1, x) > 0 ⇒ (1 + frac(1, x))^{frac(x^{2}, x + y)} = e^{x * ln(1 + frac(1, x)) * frac(x, x + y)})
+
+METHOD:

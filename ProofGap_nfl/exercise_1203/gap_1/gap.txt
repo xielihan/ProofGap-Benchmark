@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. n ∈ NonNegIntegerSet
+4. forall (x), x ∈ RealSet ⇒ y(x) = x^{2} * sin(a * x)
+5. a ≠ 0
+6. n ∈ PosIntegerSet
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, n)(x) = a^{n} * x^{2} * sin(a * x + frac(n, 2) * π) + 2 * n * a^{n - 1} * x * sin(a * x + frac(n - 1, 2) * π) + n * (n - 1) * a^{n - 2} * sin(a * x + frac(n - 2, 2) * π)
+
+METHOD:

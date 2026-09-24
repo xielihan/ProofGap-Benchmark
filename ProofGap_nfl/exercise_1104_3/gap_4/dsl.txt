@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 4: {y_{0} = a^{2}}); from (GOAL: {sqrtn(2, y_{0}) = a}) to (GOAL: {sqrtn(2, a^{2}) = a})
+autosolve all_hypothesis

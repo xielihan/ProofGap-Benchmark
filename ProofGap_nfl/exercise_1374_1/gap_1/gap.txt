@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ sin(x) ≠ 0 ⇒ frac(x^{2} * sin(frac(1, x)), sin(x)) = frac(x, sin(x)) * x * sin(frac(1, x))
+
+METHOD:

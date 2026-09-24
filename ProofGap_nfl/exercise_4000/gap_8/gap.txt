@@ -1,0 +1,21 @@
+PROOF GAP @8
+ASSUM:
+1. c ∈ RealSet ∧ c > 0
+2. λ ∈ RealSet ∧ frac(4 * c^{2}, 3) ≤ λ ∧ λ ≤ frac(5 * c^{2}, 3)
+3. μ ∈ RealSet ∧ frac(c^{2}, 3) ≤ μ ∧ μ ≤ frac(2 * c^{2}, 3)
+4. D ⊆ CartesianProd(RealSet, RealSet)
+5. S ∈ RealSet
+6. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ ((x, y) ∈ D ⇔ x > 0 ∧ y > 0 ∧ (exists (λ) (μ), λ ∈ RealSet ∧ λ ∈ { frac(4 * c^{2}, 3), frac(5 * c^{2}, 3) } ∧ μ ∈ RealSet ∧ μ ∈ { frac(c^{2}, 3), frac(2 * c^{2}, 3) } ∧ frac(x^{2}, λ) + frac(y^{2}, λ - c^{2}) = 1 ∧ frac(x^{2}, μ) + frac(y^{2}, μ - c^{2}) = 1)))
+7. S = VolumeInt(D, diff(fun x [x ∈ RealSet] . x) * diff(fun y [y ∈ RealSet] . y))
+8. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (exists (λ), λ ∈ RealSet ∧ λ^{2} - (x^{2} + y^{2} + c^{2}) * λ + c^{2} * x^{2} = 0))
+9. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (exists (λ), λ ∈ RealSet ∧ λ = frac(x^{2} + y^{2} + c^{2} + sqrtn(2, (x^{2} + y^{2} + c^{2})^{2} - 4 * c^{2} * x^{2}), 2)))
+10. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (exists (μ), μ ∈ RealSet ∧ μ = frac(x^{2} + y^{2} + c^{2} - sqrtn(2, (x^{2} + y^{2} + c^{2})^{2} - 4 * c^{2} * x^{2}), 2)))
+11. forall (λ), λ ∈ RealSet ∧ frac(4 * c^{2}, 3) ≤ λ ∧ λ ≤ frac(5 * c^{2}, 3) ⇒ λ > c^{2}
+12. forall (μ), μ ∈ RealSet ∧ frac(c^{2}, 3) ≤ μ ∧ μ ≤ frac(2 * c^{2}, 3) ⇒ 0 < μ
+13. forall (μ), μ ∈ RealSet ∧ frac(c^{2}, 3) ≤ μ ∧ μ ≤ frac(2 * c^{2}, 3) ⇒ μ < c^{2}
+14. forall (λ), λ ∈ RealSet ∧ frac(4 * c^{2}, 3) ≤ λ ∧ λ ≤ frac(5 * c^{2}, 3) ⇒ (forall (μ), μ ∈ RealSet ∧ frac(c^{2}, 3) ≤ μ ∧ μ ≤ frac(2 * c^{2}, 3) ⇒ (forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ |frac(D(λ, μ), D(x, y))| = frac(4 * sqrtn(2, λ * μ * (c^{2} - μ) * (λ - c^{2})), λ - μ))))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (λ), λ ∈ RealSet ∧ frac(4 * c^{2}, 3) ≤ λ ∧ λ ≤ frac(5 * c^{2}, 3) ⇒ (forall (μ), μ ∈ RealSet ∧ frac(c^{2}, 3) ≤ μ ∧ μ ≤ frac(2 * c^{2}, 3) ⇒ |frac(D(x, y), D(λ, μ))| = frac(λ - μ, 4 * sqrtn(2, λ * μ * (c^{2} - μ) * (λ - c^{2}))))))
+
+METHOD:

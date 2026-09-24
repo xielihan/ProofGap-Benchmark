@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet
+3. J_{0} : RealSet → RealSet
+4. t ∈ RealSet
+5. forall (x), x ∈ RealSet ⇒ J_{0}(x) = frac(1, π) * DefInt(0, π, cos(x * sin(φ)) * diff(φ))
+6. DefInt(0, +∞, e^{-a * t} * J_{0}(b * t) * diff(t)) = frac(1, π) * DefInt(0, +∞, e^{-a * t} * diff(t)) * DefInt(0, π, cos(b * t * sin(φ)) * diff(φ))
+
+GOAL:
+forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ π ⇒ ConvergentSeries(DefInt(0, +∞, e^{-a * t} * cos(b * t * sin(φ)) * diff(t)))
+
+METHOD:

@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ tanh(x) ≠ 0 ∧ e^{2 * x} - 1 ≠ 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 < |x| ∧ |x| < frac(π, 2) ⇒ sin(x) ≠ 0 ∧ sin(2 * x) ≠ 0
+
+METHOD:

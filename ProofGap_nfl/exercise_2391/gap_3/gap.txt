@@ -1,0 +1,16 @@
+PROOF GAP @3
+ASSUM:
+1. li : RealSet → RealSet
+2. g : RealSet → RealSet
+3. α : RealSet → RealSet
+4. VP ∈ RealSet
+5. ξ ∈ RealSet
+6. e ∈ RealSet
+7. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x < 1 ⇒ lim_{ ξ → 0^+ } (frac(1, ln(ξ))) = 0
+8. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x < 1 ⇒ g = (fun ξ [ξ ∈ RealSet] . cases{ frac(1, ln(ξ)) if 0 < ξ ∧ ξ < 1; 0 if ξ = 0 })
+9. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x < 1 ⇒ ContinuousFuncOn(g, [0, x])
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x < 1 ⇒ (exists (L), L ∈ RealSet ∧ DefInt(0, x, (fun ξ [ξ ∈ RealSet] . frac(1, ln(ξ))) * diff(fun ξ [ξ ∈ RealSet] . ξ)) = L)
+
+METHOD:

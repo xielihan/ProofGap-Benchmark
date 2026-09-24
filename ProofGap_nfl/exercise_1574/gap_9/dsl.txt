@@ -1,0 +1,2 @@
+exists (x := {frac(sqrtn(3, 4), 2) * p})
+autosolve all_hypothesis

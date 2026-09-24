@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. α ∈ RealSet
+2. I = (fun α [α ∈ RealSet] . DefInt(1, +∞, (fun x [x ∈ RealSet ∧ x ≥ 1] . frac(arctan(α * x), x^{2} * sqrtn(2, x^{2} - 1))) * diff(fun x [x ∈ RealSet] . x)))
+3. I(0) = 0
+4. α > 0 ⇒ lim_{ x → +∞ } (x^{3} * frac(arctan(α * x), x^{2} * sqrtn(2, x^{2} - 1))) = frac(π, 2)
+
+GOAL:
+α > 0 ⇒ exists (L), L ∈ RealSet ∧ lim_{b -> +∞}(DefInt(1, b, (fun x [x ∈ RealSet ∧ x ≥ 1] . frac(arctan(α * x), x^{2} * sqrtn(2, x^{2} - 1))) * diff(fun x [x ∈ RealSet] . x))) = L
+
+METHOD:

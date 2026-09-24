@@ -1,0 +1,3 @@
+get_prop (theorem 'Thm 351. (AbsolutelyConvergentSeriesDefinition)': {forall (a), AbsoluteConvergentSeries(sum_{ n = 0 }^{ +∞ } (a(n))) <==> ConvergentSeries(sum_{ n = 0 }^{ +∞ } (|a(n)|))}) (a := {A}) as (hypothesis 13: {AbsoluteConvergentSeries(sum_{ n = 0 }^{ +∞ } (A(n))) ⇔ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (|A(n)|))})
+rewrite (left_to_right, iff) (hypothesis 13: {AbsoluteConvergentSeries(sum_{ n = 0 }^{ +∞ } (A(n))) ⇔ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (|A(n)|))}); from (GOAL: {AbsoluteConvergentSeries(sum_{ k = 0 }^{ +∞ } (A(k)))}) to (GOAL: {ConvergentSeries(sum_{ k = 0 }^{ +∞ } (|A(k)|))})
+apply (hypothesis 12: {ConvergentSeries(sum_{ k = 0 }^{ +∞ } (|A(k)|))})

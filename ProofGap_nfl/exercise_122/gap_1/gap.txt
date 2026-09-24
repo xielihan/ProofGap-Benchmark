@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. a : NonNegIntegerSet → RealSet ∧ IsSeq(a)
+2. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) ∈ RealSet
+
+GOAL:
+forall (k), k ∈ PosIntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n ≥ 2 ∧ k ≤ n ⇒ x(frac(n * (n - 1), 2) + k) = a(k) + frac(1, n)) ⇒ seqlim_{ n → +∞ } (x(frac(n * (n - 1), 2) + k)) = a(k)
+
+METHOD:

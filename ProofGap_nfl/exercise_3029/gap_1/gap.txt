@@ -1,0 +1,17 @@
+PROOF GAP @1
+ASSUM:
+1. S : RealSet → RealSet
+2. D ⊆ RealSet
+3. x ∈ RealSet
+4. t ∈ RealSet
+5. n ∈ NonNegIntegerSet
+6. a : NonNegIntegerSet → RealSet
+7. F : RealSet → RealSet
+8. G : RealSet → RealSet
+9. g : RealSet → RealSet
+10. C ∈ RealSet
+
+GOAL:
+seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
+
+METHOD:

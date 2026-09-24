@@ -1,0 +1,24 @@
+PROOF GAP @3
+ASSUM:
+1. p : NonNegIntegerSet → RealSet
+2. q : NonNegIntegerSet → RealSet
+3. A : NonNegIntegerSet → RealSet
+4. B : NonNegIntegerSet → RealSet
+5. C : NonNegIntegerSet → RealSet
+6. P ∈ RealSet
+7. Q ∈ RealSet
+8. seqlim_{ n → +∞ } (prod_{ i ∈ PosIntegerSet ∧ i ≤ n } (p(i))) = P
+9. seqlim_{ n → +∞ } (prod_{ i ∈ PosIntegerSet ∧ i ≤ n } (q(i))) = Q
+10. P ≠ 0
+11. Q ≠ 0
+12. forall (i), i ∈ PosIntegerSet ⇒ q(i) ≠ 0
+13. forall (n), n ∈ PosIntegerSet ⇒ A(n) = prod_{ i ∈ PosIntegerSet ∧ i ≤ n } (p(i))
+14. forall (n), n ∈ PosIntegerSet ⇒ B(n) = prod_{ i ∈ PosIntegerSet ∧ i ≤ n } (q(i))
+15. forall (n), n ∈ PosIntegerSet ⇒ C(n) = prod_{ i ∈ PosIntegerSet ∧ i ≤ n } (frac(p(i), q(i)))
+16. forall (n), n ∈ PosIntegerSet ⇒ C(n) = frac(A(n), B(n))
+17. seqlim_{ n → +∞ } (A(n)) = P
+
+GOAL:
+seqlim_{ n → +∞ } (B(n)) = Q
+
+METHOD:

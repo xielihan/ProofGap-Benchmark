@@ -1,0 +1,12 @@
+1. assert (hypothesis 4: {forall (x), x ∈ RealSet => sin(a) - sin(a + 2 * x) = -2 * cos(a + x) * sin(x)}) by proof {
+  1. get_forall (GOAL: {forall (x), x ∈ RealSet => sin(a) - sin(a + 2 * x) = -2 * cos(a + x) * sin(x)}) (x := {x0})
+  2. get_condition (hypothesis 4: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet => sin(a) - sin(a + 2 * x0) = -2 * cos(a + x0) * sin(x0)})
+  3. assert (hypothesis 5: {a + 2 * x0 ∈ RealSet})
+  4. get_prop (theorem 'Thm 198. (SumToProductSineDifference)': {forall (x) (y), x ∈ RealSet => y ∈ RealSet => sin(x) - sin(y) = 2 * cos((x + y) / 2) * sin((x - y) / 2)}) (x := {a + 2 * x0}) (y := {a}) as (hypothesis 6: {a + 2 * x0 ∈ RealSet => a ∈ RealSet => sin(a + 2 * x0) - sin(a) = 2 * cos((a + 2 * x0 + a) / 2) * sin((a + 2 * x0 - a) / 2)})
+  5. use_condition (hypothesis 5: {a + 2 * x0 ∈ RealSet}) (hypothesis 1: {a ∈ RealSet}) in (hypothesis 6: {a + 2 * x0 ∈ RealSet => a ∈ RealSet => sin(a + 2 * x0) - sin(a) = 2 * cos((a + 2 * x0 + a) / 2) * sin((a + 2 * x0 - a) / 2)}) as (hypothesis 7: {sin(a + 2 * x0) - sin(a) = 2 * cos((a + 2 * x0 + a) / 2) * sin((a + 2 * x0 - a) / 2)})
+  6. autoreplace no_hypothesis; from ((a + 2 * x0 + a) / 2) to (a + x0); from (hypothesis 7: {sin(a + 2 * x0) - sin(a) = 2 * cos((a + 2 * x0 + a) / 2) * sin((a + 2 * x0 - a) / 2)}) to (hypothesis 8: {sin(a + 2 * x0) - sin(a) = 2 * cos(a + x0) * sin((a + 2 * x0 - a) / 2)})
+  7. autoreplace no_hypothesis; from ((a + 2 * x0 - a) / 2) to (x0); from (hypothesis 8: {sin(a + 2 * x0) - sin(a) = 2 * cos(a + x0) * sin((a + 2 * x0 - a) / 2)}) to (hypothesis 9: {sin(a + 2 * x0) - sin(a) = 2 * cos(a + x0) * sin(x0)})
+  8. autosolve all_hypothesis
+}
+2. rewrite_in limit (left_to_right, equation) (hypothesis 4: {forall (x), x ∈ RealSet => sin(a) - sin(a + 2 * x) = -2 * cos(a + x) * sin(x)}); from (GOAL: {lim_{ x → 0 } (frac(-sin(x) * sin(a + x) * (sin(a) - sin(a + 2 * x)), x^{2} * sin(a) * sin(a + x)^{2} * sin(a + 2 * x))) = lim_{ x → 0 } (frac(sin(x), x)^{2} * frac(2 * cos(a + x), sin(a) * sin(a + x) * sin(a + 2 * x)))}) to (GOAL: {lim_{ x → 0 } (frac(-sin(x) * sin(a + x) * (-2 * cos(a + x) * sin(x)), x^{2} * sin(a) * sin(a + x)^{2} * sin(a + 2 * x))) = lim_{ x → 0 } (frac(sin(x), x)^{2} * frac(2 * cos(a + x), sin(a) * sin(a + x) * sin(a + 2 * x)))})
+3. autosolve all_hypothesis

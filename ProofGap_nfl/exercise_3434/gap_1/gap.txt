@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. forall (t), t ∈ RealSet ⇒ x(t) = e^{t}
+4. forall (x), x ∈ RealSet ∧ x > 0 ⇒ x^{2} * FunDeri(y, 1, 2)(x) + x * FunDeri(y, 1, 1)(x) + y(x) = 0
+
+GOAL:
+forall (t), t ∈ RealSet ⇒ FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(t) = e^{t} ∧ e^{t} = x(t)
+
+METHOD:

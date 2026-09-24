@@ -1,0 +1,5 @@
+1. get_exists (hypothesis 5: {exists (δ), δ ∈ RealSet /\ δ > 0 /\ Defined(φ, (a - δ, a + δ)) /\ ContinuousFuncAt(φ, a)}) (δ := {d})
+2. destruct_and (hypothesis 9: {d ∈ RealSet /\ d > 0 /\ Defined(φ, (a - d, a + d)) /\ ContinuousFuncAt(φ, a)}) as (hypothesis 10: {d ∈ RealSet}) (hypothesis 11: {d > 0}) (hypothesis 12: {Defined(φ, (a - d, a + d))}) (hypothesis 13: {ContinuousFuncAt(φ, a)})
+3. get_prop (theorem 'Thm 484. (ContinuousFunctionValueLimit)': {forall (f) (a), f : RealSet -> RealSet => a ∈ RealSet => ContinuousFuncAt(f, a) => lim_{x -> a} (f(x)) = f(a)}) (f := {φ}) (a := {a}) as (hypothesis 14: {φ : RealSet -> RealSet => a ∈ RealSet => ContinuousFuncAt(φ, a) => lim_{x -> a} (φ(x)) = φ(a)})
+4. use_condition (hypothesis 3: {φ : RealSet -> RealSet}) (hypothesis 1: {a ∈ RealSet}) (hypothesis 13: {ContinuousFuncAt(φ, a)}) in (hypothesis 14: {φ : RealSet -> RealSet => a ∈ RealSet => ContinuousFuncAt(φ, a) => lim_{x -> a} (φ(x)) = φ(a)}) as (hypothesis 15: {lim_{x -> a} (φ(x)) = φ(a)})
+5. apply (hypothesis 15: {lim_{x -> a} (φ(x)) = φ(a)})

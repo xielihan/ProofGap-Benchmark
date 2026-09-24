@@ -1,0 +1,6 @@
+get_condition (hypothesis 12: {K = 0}) in (GOAL: {K = 0 => (forall (x), x ∈ RealSet => F(x + T) = F(x))})
+get_forall (GOAL: {forall (x), x ∈ RealSet => F(x + T) = F(x)}) (x := {x1})
+get_condition (hypothesis 13: {x1 ∈ RealSet}) in (GOAL: {x1 ∈ RealSet => F(x1 + T) = F(x1)})
+get_prop (hypothesis 11: {forall (x), x ∈ RealSet => F(x + T) - F(x) = K}) (x := {x1}) as (hypothesis 14: {x1 ∈ RealSet => F(x1 + T) - F(x1) = K})
+use_condition (hypothesis 13: {x1 ∈ RealSet}) in (hypothesis 14: {x1 ∈ RealSet => F(x1 + T) - F(x1) = K}) as (hypothesis 15: {F(x1 + T) - F(x1) = K})
+autosolve all_hypothesis

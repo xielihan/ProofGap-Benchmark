@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ prod_{ k = 0 }^{ n - 1 } (x - k) = x * (prod_{ k = 1 }^{ n - 1 } (x - k))
+
+METHOD:

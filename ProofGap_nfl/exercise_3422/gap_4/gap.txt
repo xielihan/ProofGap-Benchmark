@@ -1,0 +1,21 @@
+PROOF GAP @4
+ASSUM:
+1. Φ : CartesianProd(RealSet, RealSet) → RealSet
+2. z : CartesianProd(RealSet, RealSet) → RealSet
+3. x_{0} ∈ RealSet
+4. y_{0} ∈ RealSet
+5. z_{0} ∈ RealSet
+6. Surface_{2} ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+7. ConeWithVertex : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → PowerSet(CartesianProd(RealSet, CartesianProd(RealSet, RealSet)))
+8. P_{0} ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+9. DiffableFunc(Φ)
+10. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ z(x, y) ≠ z_{0} ⇒ Φ(frac(x - x_{0}, z(x, y) - z_{0}), frac(y - y_{0}, z(x, y) - z_{0})) = 0
+11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ DiffableFuncAt(z, (x, y))
+12. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ z(x, y) ≠ z_{0} ⇒ FunDeri(Φ, 1, 1)(frac(x - x_{0}, z(x, y) - z_{0}), frac(y - y_{0}, z(x, y) - z_{0})) * frac(z(x, y) - z_{0} - (x - x_{0}) * FunDeri(z, 1, 1)(x, y), (z(x, y) - z_{0})^{2}) - FunDeri(Φ, 2, 1)(frac(x - x_{0}, z(x, y) - z_{0}), frac(y - y_{0}, z(x, y) - z_{0})) * frac((y - y_{0}) * FunDeri(z, 1, 1)(x, y), (z(x, y) - z_{0})^{2}) = 0)
+13. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ z(x, y) ≠ z_{0} ⇒ -FunDeri(Φ, 1, 1)(frac(x - x_{0}, z(x, y) - z_{0}), frac(y - y_{0}, z(x, y) - z_{0})) * frac((x - x_{0}) * FunDeri(z, 2, 1)(x, y), (z(x, y) - z_{0})^{2}) + FunDeri(Φ, 2, 1)(frac(x - x_{0}, z(x, y) - z_{0}), frac(y - y_{0}, z(x, y) - z_{0})) * frac(z(x, y) - z_{0} - (y - y_{0}) * FunDeri(z, 2, 1)(x, y), (z(x, y) - z_{0})^{2}) = 0)
+14. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ z(x, y) ≠ z_{0} ∧ (x - x_{0}) * FunDeri(Φ, 1, 1)(frac(x - x_{0}, z(x, y) - z_{0}), frac(y - y_{0}, z(x, y) - z_{0})) + (y - y_{0}) * FunDeri(Φ, 2, 1)(frac(x - x_{0}, z(x, y) - z_{0}), frac(y - y_{0}, z(x, y) - z_{0})) ≠ 0 ⇒ FunDeri(z, 1, 1)(x, y) = frac((z(x, y) - z_{0}) * FunDeri(Φ, 1, 1)(frac(x - x_{0}, z(x, y) - z_{0}), frac(y - y_{0}, z(x, y) - z_{0})), (x - x_{0}) * FunDeri(Φ, 1, 1)(frac(x - x_{0}, z(x, y) - z_{0}), frac(y - y_{0}, z(x, y) - z_{0})) + (y - y_{0}) * FunDeri(Φ, 2, 1)(frac(x - x_{0}, z(x, y) - z_{0}), frac(y - y_{0}, z(x, y) - z_{0}))))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ z(x, y) ≠ z_{0} ∧ (x - x_{0}) * FunDeri(Φ, 1, 1)(frac(x - x_{0}, z(x, y) - z_{0}), frac(y - y_{0}, z(x, y) - z_{0})) + (y - y_{0}) * FunDeri(Φ, 2, 1)(frac(x - x_{0}, z(x, y) - z_{0}), frac(y - y_{0}, z(x, y) - z_{0})) ≠ 0 ⇒ FunDeri(z, 2, 1)(x, y) = frac((z(x, y) - z_{0}) * FunDeri(Φ, 2, 1)(frac(x - x_{0}, z(x, y) - z_{0}), frac(y - y_{0}, z(x, y) - z_{0})), (x - x_{0}) * FunDeri(Φ, 1, 1)(frac(x - x_{0}, z(x, y) - z_{0}), frac(y - y_{0}, z(x, y) - z_{0})) + (y - y_{0}) * FunDeri(Φ, 2, 1)(frac(x - x_{0}, z(x, y) - z_{0}), frac(y - y_{0}, z(x, y) - z_{0}))))
+
+METHOD:

@@ -1,0 +1,41 @@
+PROOF GAP @22
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. u : CartesianProd(RealSet, RealSet) → RealSet
+3. v : CartesianProd(RealSet, RealSet) → RealSet
+4. w : CartesianProd(RealSet, RealSet) → RealSet
+5. p : CartesianProd(RealSet, RealSet) → RealSet
+6. q : CartesianProd(RealSet, RealSet) → RealSet
+7. S : CartesianProd(RealSet, RealSet) → RealSet
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ p(x, y) = FunDeri(z, 1, 1)(x, y) ∧ q(x, y) = FunDeri(z, 2, 1)(x, y)
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ q(x, y) * (1 + q(x, y)) * FunDeri(z, 1, 2)(x, y) - (1 + p(x, y) + q(x, y) + 2 * p(x, y) * q(x, y)) * FunDeri(FunDeri(z, 1, 1), 2, 1)(x, y) + p(x, y) * (1 + p(x, y)) * FunDeri(z, 2, 2)(x, y) = 0
+10. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ u(x, y) = x + z(x, y) ∧ v(x, y) = y + z(x, y) ∧ w(u(x, y), v(x, y)) = x + y + z(x, y)
+11. ContinuouslyDiffableFunc(z)
+12. ContinuouslyDiffableFunc(w)
+13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ S(x, y) = 1 - FunDeri(w, 1, 1)(u(x, y), v(x, y)) - FunDeri(w, 2, 1)(u(x, y), v(x, y)) ∧ S(x, y) ≠ 0
+14. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ diff(z) = p(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + q(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+15. diff(u) = diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + diff(z)
+16. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + diff(z) = (1 + p(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + q(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+17. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ diff(u) = (1 + p(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + q(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+18. diff(v) = diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) + diff(z)
+19. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y) + diff(z) = p(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (1 + q(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+20. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ diff(v) = p(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (1 + q(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)
+21. diff^{2}(u) = diff^{2}(v)
+22. diff^{2}(v) = diff^{2}(w)
+23. diff^{2}(w) = diff^{2}(z)
+24. diff^{2}(u) = diff^{2}(z)
+25. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ diff^{2}(w) = FunDeri(w, 1, 2)(u(x, y), v(x, y)) * diff(u)^{2} + 2 * FunDeri(FunDeri(w, 1, 1), 2, 1)(u(x, y), v(x, y)) * diff(u) * diff(v) + FunDeri(w, 2, 2)(u(x, y), v(x, y)) * diff(v)^{2} + FunDeri(w, 1, 1)(u(x, y), v(x, y)) * diff^{2}(u) + FunDeri(w, 2, 1)(u(x, y), v(x, y)) * diff^{2}(v)
+26. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ S(x, y) * diff^{2}(z) = FunDeri(w, 1, 2)(u(x, y), v(x, y)) * ((1 + p(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + q(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))^{2} + 2 * FunDeri(FunDeri(w, 1, 1), 2, 1)(u(x, y), v(x, y)) * ((1 + p(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + q(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) * (p(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (1 + q(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) + FunDeri(w, 2, 2)(u(x, y), v(x, y)) * (p(x, y) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) + (1 + q(x, y)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))^{2}
+27. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 2)(x, y) = frac(1, S(x, y)) * ((1 + p(x, y))^{2} * FunDeri(w, 1, 2)(u(x, y), v(x, y)) + 2 * p(x, y) * (1 + p(x, y)) * FunDeri(FunDeri(w, 1, 1), 2, 1)(u(x, y), v(x, y)) + p(x, y)^{2} * FunDeri(w, 2, 2)(u(x, y), v(x, y)))
+28. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(FunDeri(z, 1, 1), 2, 1)(x, y) = frac(1, S(x, y)) * (q(x, y) * (p(x, y) + 1) * FunDeri(w, 1, 2)(u(x, y), v(x, y)) + (1 + p(x, y) + q(x, y) + 2 * p(x, y) * q(x, y)) * FunDeri(FunDeri(w, 1, 1), 2, 1)(u(x, y), v(x, y)) + p(x, y) * (q(x, y) + 1) * FunDeri(w, 2, 2)(u(x, y), v(x, y)))
+29. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 2, 2)(x, y) = frac(1, S(x, y)) * (q(x, y)^{2} * FunDeri(w, 1, 2)(u(x, y), v(x, y)) + 2 * q(x, y) * (q(x, y) + 1) * FunDeri(FunDeri(w, 1, 1), 2, 1)(u(x, y), v(x, y)) + (q(x, y) + 1)^{2} * FunDeri(w, 2, 2)(u(x, y), v(x, y)))
+30. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ q(x, y) * (1 + q(x, y)) * (1 + p(x, y))^{2} - (1 + p(x, y) + q(x, y) + 2 * p(x, y) * q(x, y)) * q(x, y) * (p(x, y) + 1) + p(x, y) * (1 + p(x, y)) * q(x, y)^{2} = 0
+31. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ p(x, y)^{2} * q(x, y) * (1 + q(x, y)) - (1 + p(x, y) + q(x, y) + 2 * p(x, y) * q(x, y)) * p(x, y) * (q(x, y) + 1) + p(x, y) * (1 + p(x, y)) * (q(x, y) + 1)^{2} = 0
+32. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ 2 * p(x, y) * (1 + p(x, y)) * q(x, y) * (1 + q(x, y)) - (1 + p(x, y) + q(x, y) + 2 * p(x, y) * q(x, y))^{2} + 2 * q(x, y) * (q(x, y) + 1) * p(x, y) * (1 + p(x, y)) = -(1 + p(x, y) + q(x, y))^{2}
+33. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ -frac((1 + p(x, y) + q(x, y))^{2}, S(x, y)) * FunDeri(FunDeri(w, 1, 1), 2, 1)(u(x, y), v(x, y)) = 0
+34. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(FunDeri(w, 1, 1), 2, 1)(u(x, y), v(x, y)) = 0
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(FunDeri(w, 1, 1), 2, 1)(u(x, y), v(x, y)) = 0
+
+METHOD:

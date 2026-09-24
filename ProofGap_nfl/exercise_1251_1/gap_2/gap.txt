@@ -1,0 +1,8 @@
+PROOF GAP @2
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ (exists (ξ), ξ ∈ RealSet ∧ (x < ξ ∧ ξ < y ∨ y < ξ ∧ ξ < x) ∧ sin(x) - sin(y) = (x - y) * cos(ξ)))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ (exists (ξ), ξ ∈ RealSet ∧ |sin(x) - sin(y)| = |(x - y) * cos(ξ)|))
+
+METHOD:

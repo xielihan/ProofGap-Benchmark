@@ -1,0 +1,18 @@
+PROOF GAP @5
+ASSUM:
+1. y : (-frac(2, sqrt(3)), frac(2, sqrt(3))) → RealSet
+2. z : (-frac(2, sqrt(3)), frac(2, sqrt(3))) → RealSet
+3. forall (x), x ∈ (-frac(2, sqrt(3)), frac(2, sqrt(3))) ⇒ x - 2 * y(x) ≠ 0
+4. forall (x), x ∈ (-frac(2, sqrt(3)), frac(2, sqrt(3))) ⇒ z(x) = x^{2} + y(x)^{2}
+5. forall (x), x ∈ (-frac(2, sqrt(3)), frac(2, sqrt(3))) ⇒ x^{2} - x * y(x) + y(x)^{2} = 1
+6. FuncOfClassK(y, 2)
+7. forall (x), x ∈ (-frac(2, sqrt(3)), frac(2, sqrt(3))) ⇒ x - 2 * y(x) ≠ 0
+8. forall (x), x ∈ (-frac(2, sqrt(3)), frac(2, sqrt(3))) ⇒ 2 * x - y(x) - x * FunDeri(y, 1, 1)(x) + 2 * y(x) * FunDeri(y, 1, 1)(x) = 0
+9. forall (x), x ∈ (-frac(2, sqrt(3)), frac(2, sqrt(3))) ⇒ 2 - 2 * FunDeri(y, 1, 1)(x) - x * FunDeri(y, 1, 2)(x) + 2 * FunDeri(y, 1, 1)(x)^{2} + 2 * y(x) * FunDeri(y, 1, 2)(x) = 0
+10. forall (x), x ∈ (-frac(2, sqrt(3)), frac(2, sqrt(3))) ∧ x - 2 * y(x) ≠ 0 ⇒ FunDeri(y, 1, 1)(x) = frac(2 * x - y(x), x - 2 * y(x))
+11. forall (x), x ∈ (-frac(2, sqrt(3)), frac(2, sqrt(3))) ∧ x - 2 * y(x) ≠ 0 ⇒ FunDeri(y, 1, 2)(x) = frac(6 * (x^{2} - x * y(x) + y(x)^{2}), (x - 2 * y(x))^{3})
+
+GOAL:
+forall (x), x ∈ (-frac(2, sqrt(3)), frac(2, sqrt(3))) ∧ x - 2 * y(x) ≠ 0 ⇒ frac(6 * (x^{2} - x * y(x) + y(x)^{2}), (x - 2 * y(x))^{3}) = frac(6, (x - 2 * y(x))^{3})
+
+METHOD:

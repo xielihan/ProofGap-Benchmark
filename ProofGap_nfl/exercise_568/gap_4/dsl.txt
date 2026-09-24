@@ -1,0 +1,6 @@
+autoreplace no_hypothesis; from (frac(e ^ 2, e ^ 2)) to (1); from (GOAL: {ln(frac(e ^ 2, e ^ 2)) = 0}) to (GOAL: {ln(1) = 0})
+get_prop (theorem 'Thm 174. (ExponentialLogarithmInverse)': {forall (x) (a), x ∈ RealSet => a ∈ RealSet => (a > 0 => a != 1 => (log(a, a ^ x) = x /\ (x > 0 => a ^ (log(a, x)) = x)))}) (x := {0}) (a := {e}) as (hypothesis 5: {0 ∈ RealSet => e ∈ RealSet => e > 0 => e != 1 => (log(e, e ^ 0) = 0 /\ (0 > 0 => e ^ (log(e, 0)) = 0))})
+use_condition (obvious: {0 ∈ RealSet}) (obvious: {e ∈ RealSet}) (obvious: {e > 0}) (obvious: {e != 1}) in (hypothesis 5: {0 ∈ RealSet => e ∈ RealSet => e > 0 => e != 1 => (log(e, e ^ 0) = 0 /\ (0 > 0 => e ^ (log(e, 0)) = 0))}) as (hypothesis 6: {log(e, e ^ 0) = 0 /\ (0 > 0 => e ^ (log(e, 0)) = 0)})
+destruct_and (hypothesis 6: {log(e, e ^ 0) = 0 /\ (0 > 0 => e ^ (log(e, 0)) = 0)}) as (hypothesis 7: {log(e, e ^ 0) = 0}) (hypothesis 8: {0 > 0 => e ^ (log(e, 0)) = 0})
+autoreplace no_hypothesis; from (e ^ 0) to (1); from (hypothesis 7: {log(e, e ^ 0) = 0}) to (hypothesis 9: {ln(1) = 0})
+apply (hypothesis 9: {ln(1) = 0})

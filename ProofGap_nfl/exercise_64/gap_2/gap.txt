@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. a > 1
+3. b = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . sqrtn(n, n))
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = sqrtn(n, n)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) > 1
+
+METHOD:

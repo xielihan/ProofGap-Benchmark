@@ -1,0 +1,8 @@
+get_exists (hypothesis 11: {exists (x), x : NonNegIntegerSet → RealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x(n) = frac(1, n + 1) ⇒ |f(n, x(n)) - 0| = n * frac(1, n + 1) * (1 - frac(1, n + 1))^{n})}) (x := {x0})
+exists (x := {x0})
+assert (hypothesis 13: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x0(n) = frac(1, n + 1) ⇒ n * frac(1, n + 1) * (1 - frac(1, n + 1))^{n} = frac(n, n + 1)^{n + 1}}) by proof {
+  get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x0(n) = frac(1, n + 1) ⇒ n * frac(1, n + 1) * (1 - frac(1, n + 1))^{n} = frac(n, n + 1)^{n + 1}}) (n := {n0})
+  get_condition (hypothesis 13: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0(n0) = frac(1, n0 + 1)}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0(n0) = frac(1, n0 + 1) ⇒ n0 * frac(1, n0 + 1) * (1 - frac(1, n0 + 1))^{n0} = frac(n0, n0 + 1)^{n0 + 1}})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

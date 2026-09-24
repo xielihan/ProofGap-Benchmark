@@ -1,0 +1,16 @@
+PROOF GAP @5
+ASSUM:
+1. Γ : RealSet → RealSet
+2. x ∈ RealSet
+3. forall (m), m ∈ NonNegIntegerSet ⇒ x ≠ -m
+4. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (k), k ∈ NonNegIntegerSet ∧ k ≤ n ⇒ Γ(x) = seqlim_{ n → +∞ } (frac(n! * n^{x}, prod_{ k = 0 }^{ n } (x + k))))
+5. Γ(x) ≠ 0
+6. frac(Γ(x + 1), Γ(x)) = frac(seqlim_{ n → +∞ } (frac(n! * n^{x + 1}, prod_{ k = 1 }^{ n + 1 } (x + k))), seqlim_{ n → +∞ } (frac(n! * n^{x}, prod_{ k = 0 }^{ n } (x + k))))
+7. frac(Γ(x + 1), Γ(x)) = seqlim_{ n → +∞ } (frac(frac(n! * n^{x + 1}, prod_{ k = 1 }^{ n + 1 } (x + k)), frac(n! * n^{x}, prod_{ k = 0 }^{ n } (x + k))))
+8. frac(Γ(x + 1), Γ(x)) = seqlim_{ n → +∞ } (frac(n * x, x + n + 1))
+9. seqlim_{ n → +∞ } (frac(n * x, x + n + 1)) = x
+
+GOAL:
+frac(Γ(x + 1), Γ(x)) = x
+
+METHOD:

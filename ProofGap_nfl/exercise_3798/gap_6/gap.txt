@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. α ∈ RealSet ∧ |α| ≤ 1
+2. I = (fun α [α ∈ RealSet ∧ |α| ≤ 1] . DefInt(0, 1, (fun x [x ∈ RealSet] . frac(ln(1 - α^{2} * x^{2}), sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x)))
+3. ContinuousFuncOn(I, [-1, 1])
+4. forall (`α₀`), 0 < `α₀` ∧ `α₀` < 1 ∧ `α₀` ∈ RealSet ⇒ (forall (α), α ∈ RealSet ∧ |α| ≤ `α₀` ⇒ IntegrableFuncOn(fun x [x ∈ RealSet] . FunDeri(fun α [α ∈ RealSet] . frac(ln(1 - α^{2} * x^{2}), sqrtn(2, 1 - x^{2})), 1, 1), [0, 1]))
+5. |α| < 1 ∧ α ≠ 0 ⇒ FunDeri(I, 1, 1)(α) = DefInt(0, 1, (fun x [x ∈ RealSet] . frac(-2 * α * x^{2}, (1 - α^{2} * x^{2}) * sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x))
+6. |α| < 1 ∧ α ≠ 0 ⇒ FunDeri(I, 1, 1)(α) = frac(2, α) * DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1 - α^{2} * x^{2} - 1, (1 - α^{2} * x^{2}) * sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x))
+7. |α| < 1 ∧ α ≠ 0 ⇒ FunDeri(I, 1, 1)(α) = frac(2, α) * DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1, sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x)) - frac(2, α) * DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1, (1 - α^{2} * x^{2}) * sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet] . frac(1, sqrtn(2, 1 - x^{2}))) * diff(fun x [x ∈ RealSet] . x)) = frac(π, 2)
+
+METHOD:

@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet ∧ a > 1
+2. x ∈ RealSet ∧ 0 < x
+3. x < frac(1, a)
+
+GOAL:
+lim_{ x → 0^+ } (ln(x * ln(a)) * ln(frac(ln(a * x), ln(frac(x, a))))) = lim_{ x → 0^+ } (ln(frac(ln(a) + ln(x), ln(x) - ln(a))^{ln(x) + ln(ln(a))}))
+
+METHOD:

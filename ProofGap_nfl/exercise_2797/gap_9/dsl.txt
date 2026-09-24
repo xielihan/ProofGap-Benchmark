@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (a), a ∈ RealSet ∧ a > 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ContinuousFuncOn(fun x [x ∈ RealSet ∧ x ∈ [a, +∞)] . frac(ln(n), n^{x}), [a, +∞)))}) (a := {a0})
+get_condition (hypothesis 11: {a0 ∈ RealSet ∧ a0 > 1}) in (GOAL: {a0 ∈ RealSet ∧ a0 > 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ContinuousFuncOn(fun x [x ∈ RealSet ∧ x ∈ [a0, +∞)] . frac(ln(n), n^{x}), [a0, +∞)))})
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ContinuousFuncOn(fun x [x ∈ RealSet ∧ x ∈ [a0, +∞)] . frac(ln(n), n^{x}), [a0, +∞))}) (n := {n0})
+get_condition (hypothesis 12: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ ContinuousFuncOn(fun x [x ∈ RealSet ∧ x ∈ [a0, +∞)] . frac(ln(n0), n0^{x}), [a0, +∞))})
+autosolve all_hypothesis

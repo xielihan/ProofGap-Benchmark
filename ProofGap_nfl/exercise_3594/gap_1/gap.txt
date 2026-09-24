@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ 1 + x + y > 0 ⇒ f(x, y) = ln(1 + x + y)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ |x| + |y| < 1 ⇒ f(x, y) = ln(1 + x + y)
+
+METHOD:

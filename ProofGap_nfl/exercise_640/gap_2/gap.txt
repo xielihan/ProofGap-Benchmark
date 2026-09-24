@@ -1,0 +1,15 @@
+PROOF GAP @2
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. m ∈ RealSet
+3. ε ∈ RealSet
+4. 0 < ε
+5. ε < 1
+6. x(0) = m
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = m + ε * sin(x(n - 1))
+8. x(2) - x(1) = ε * (sin(x(1)) - sin(x(0)))
+
+GOAL:
+x(2) - x(1) = 2 * ε * sin(frac(x(1) - x(0), 2)) * cos(frac(x(1) + x(0), 2))
+
+METHOD:

@@ -1,0 +1,3 @@
+destruct_and (hypothesis 4: {a ∈ RealSet ∧ a > 0}) as (hypothesis 23: {a ∈ RealSet}) (hypothesis 24: {a > 0})
+exists (x := {a}) (y := {0})
+autosolve all_hypothesis

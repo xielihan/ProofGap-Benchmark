@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. s : NonNegIntegerSet → RealSet
+3. R : NonNegIntegerSet → RealSet
+4. |x| ≠ 1
+5. forall (n), n ∈ NonNegIntegerSet ⇒ s(n) = frac(x^{2^{n}}, 1 - x^{2^{n + 1}})
+6. forall (n), n ∈ NonNegIntegerSet ⇒ R(n) = frac(x^{2^{n + 1}}, 1 - x^{2^{n + 1}})
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ frac(x, 1 - x) = (sum_{ k = 0 }^{ n } (s(k))) + R(n)
+
+METHOD:

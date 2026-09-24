@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ (forall (α), x ∈ RealSet ∧ α ∈ RealSet ⇒ 1 + x^{2} > 0)
+2. forall (x), x ∈ RealSet ⇒ (forall (α), x ∈ RealSet ∧ α ∈ RealSet ⇒ |frac(cos(α * x), 1 + x^{2})| ≤ frac(1, 1 + x^{2}))
+
+GOAL:
+DefInt(-∞, +∞, (fun x [x ∈ RealSet] . frac(1, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x)) = π
+
+METHOD:

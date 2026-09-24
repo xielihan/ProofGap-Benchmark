@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. a ∈ RealSet ∧ a ≠ 0
+4. forall (t), t ∈ RealSet ⇒ x(t) = a * cos(t)
+5. forall (t), t ∈ RealSet ⇒ y(t) = a * sin(t)
+
+GOAL:
+forall (t), t ∈ RealSet ∧ sin(t) ≠ 0 ⇒ FunDeri(y, x, 1)(t) = frac(a * cos(t), -a * sin(t)) ∧ frac(a * cos(t), -a * sin(t)) = -cot(t)
+
+METHOD:

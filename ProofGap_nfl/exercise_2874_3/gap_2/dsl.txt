@@ -1,0 +1,11 @@
+assert (hypothesis 12: {1 + x^{2} > 0}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 13: {1 + x^{2} ≠ 0}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 14: {1 + frac(x, 1 + x^{2}) * h ≠ 0}) by proof {
+  autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 10: {y = frac(frac(h, 1 + x^{2}), 1 + frac(x, 1 + x^{2}) * h)}); from (GOAL: {frac(x + y, 1 - x * y) = x + h}) to (GOAL: {frac(x + frac(frac(h, 1 + x^{2}), 1 + frac(x, 1 + x^{2}) * h), 1 - x * frac(frac(h, 1 + x^{2}), 1 + frac(x, 1 + x^{2}) * h)) = x + h})
+autosolve all_hypothesis

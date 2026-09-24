@@ -1,0 +1,22 @@
+PROOF GAP @9
+ASSUM:
+1. Γ : RealSet → RealSet
+2. x ∈ RealSet ∧ x > 0
+3. t ∈ RealSet ∧ t > 0
+4. x_{0} ∈ RealSet ∧ x_{0} > 0
+5. x_{1} ∈ RealSet
+6. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+7. forall (x), x ∈ RealSet ∧ x > 0 ⇒ Γ(x) = DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))
+8. forall (x), x ∈ RealSet ∧ x > 0 ⇒ Γ(x) = DefInt(0, 1, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t)) + DefInt(1, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))
+9. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ x_{1} > x_{0} ∧ x_{0} > 0 ∧ x ≥ x_{0} ∧ 0 < t ∧ t < 1 ⇒ 0 < t^{x - 1} * e^{-t})
+10. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ x_{1} > x_{0} ∧ x_{0} > 0 ∧ x ≥ x_{0} ∧ 0 < t ∧ t < 1 ⇒ t^{x - 1} * e^{-t} ≤ t^{x_{0} - 1} * e^{-t})
+11. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ x_{1} > x_{0} ∧ x_{0} > 0 ⇒ (exists (L), L ∈ RealSet ∧ lim_{u -> 0^+}(DefInt(u, 1, (fun t [t ∈ RealSet ∧ t > 0] . t^{x_{0} - 1} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))) = L))
+12. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ x_{1} > x_{0} ∧ x_{0} > 0 ⇒ UniformConvergent(fun n [n ∈ NonNegIntegerSet] . (fun x [x ∈ [x_{0}, x_{1}]] . DefInt(frac(1, n + 1), 1, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))), [x_{0}, x_{1}], fun x [x ∈ [x_{0}, x_{1}]] . DefInt(0, 1, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))))
+13. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ x_{1} > x_{0} ∧ x_{0} > 0 ∧ x ≤ x_{1} ∧ t ≥ 1 ⇒ t^{x - 1} * e^{-t} ≤ t^{x_{1} - 1} * e^{-t})
+14. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ x_{1} > x_{0} ∧ x_{0} > 0 ⇒ (exists (L), L ∈ RealSet ∧ lim_{T -> +∞}(DefInt(1, T, (fun t [t ∈ RealSet ∧ t > 0] . t^{x_{1} - 1} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))) = L))
+15. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ x_{1} > x_{0} ∧ x_{0} > 0 ⇒ UniformConvergent(fun n [n ∈ NonNegIntegerSet] . (fun x [x ∈ [x_{0}, x_{1}]] . DefInt(1, n + 1, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))), [x_{0}, x_{1}], fun x [x ∈ [x_{0}, x_{1}]] . DefInt(1, +∞, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))))
+
+GOAL:
+forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} > 0 ⇒ (forall (x_{1}), x_{1} ∈ RealSet ∧ x_{1} > x_{0} ∧ x_{0} > 0 ⇒ UniformConvergent(fun n [n ∈ NonNegIntegerSet] . (fun x [x ∈ [x_{0}, x_{1}]] . DefInt(frac(1, n + 1), n + 1, (fun t [t ∈ RealSet ∧ t > 0] . t^{x - 1} * e^{-t}) * diff(fun t [t ∈ RealSet ∧ t > 0] . t))), [x_{0}, x_{1}], Γ))
+
+METHOD:

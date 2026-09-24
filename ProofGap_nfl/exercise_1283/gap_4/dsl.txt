@@ -1,0 +1,6 @@
+get_prop (hypothesis 3: {forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, +∞) ⇒ FunDeri(f, 1, 1)(x) = 1 + cos(x)}) (x := {π}) as (hypothesis 5: {π ∈ RealSet ∧ π ∈ IntervalLoRo(0, +∞) ⇒ FunDeri(f, 1, 1)(π) = 1 + cos(π)})
+use_condition (obvious: {π ∈ RealSet ∧ π ∈ IntervalLoRo(0, +∞)}) in (hypothesis 5: {π ∈ RealSet ∧ π ∈ IntervalLoRo(0, +∞) ⇒ FunDeri(f, 1, 1)(π) = 1 + cos(π)}) as (hypothesis 6: {FunDeri(f, 1, 1)(π) = 1 + cos(π)})
+get_prop (theorem 'Thm 368. (CosineAtIntegerPi)': {forall (n), n ∈ IntegerSet ⇒ cos(n * π) = (-1) ^ n}) (n := {1}) as (hypothesis 7: {1 ∈ IntegerSet ⇒ cos(1 * π) = (-1) ^ 1})
+use_condition (obvious: {1 ∈ IntegerSet}) in (hypothesis 7: {1 ∈ IntegerSet ⇒ cos(1 * π) = (-1) ^ 1}) as (hypothesis 8: {cos(1 * π) = (-1) ^ 1})
+rewrite (left_to_right, equation) (hypothesis 8: {cos(1 * π) = (-1) ^ 1}); from (hypothesis 6: {FunDeri(f, 1, 1)(π) = 1 + cos(π)}) to (hypothesis 6: {FunDeri(f, 1, 1)(π) = 1 + (-1) ^ 1})
+autosolve all_hypothesis

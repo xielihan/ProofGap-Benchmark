@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = e^{-x^{2}}
+3. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = -2 * x * e^{-x^{2}}
+4. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = e^{-x^{2}} * (4 * x^{2} - 2)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ^ 2 < frac(1, 2) ⇒ FunDeri(y, 1, 2)(x) < 0
+
+METHOD:

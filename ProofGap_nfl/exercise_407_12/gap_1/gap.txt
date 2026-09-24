@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. A ∈ RealSet
+3. b ∈ RealSet
+4. f : IntervalLoRo(A, +∞) → RealSet
+5. lim_{ x → +∞ } (f(x)) = b
+6. forall (x), x ∈ RealSet ∧ x > A ⇒ f(x) > b
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ RealSet ∧ N > 0 ∧ N > A ∧ (forall (x), x ∈ RealSet ∧ x > N ⇒ 0 < f(x) - b ∧ f(x) - b < ε))
+
+METHOD:

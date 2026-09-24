@@ -1,0 +1,21 @@
+PROOF GAP @7
+ASSUM:
+1. t ∈ RealSet ∧ 0 ≤ t
+2. f : RealSet → RealSet
+3. F : RealSet → RealSet
+4. J : CartesianProd(PosIntegerSet, RealSet) → RealSet
+5. ContinuousFuncOn(f, [0, t])
+6. forall (s), s ∈ RealSet ∧ s ∈ [0, t] ⇒ F(s) = DefInt(0, s, (fun τ [τ ∈ RealSet ∧ τ ∈ [0, s]] . f(τ)) * diff(fun τ [τ ∈ RealSet ∧ τ ∈ [0, s]] . τ))
+7. forall (s), s ∈ RealSet ∧ s ∈ [0, t] ⇒ J(1, s) = F(s)
+8. forall (k) (s), k ∈ PosIntegerSet ∧ s ∈ RealSet ∧ s ∈ [0, t] ⇒ J(k + 1, s) = DefInt(0, s, (fun u [u ∈ RealSet ∧ u ∈ [0, s]] . f(u) * J(k, u)) * diff(fun u [u ∈ RealSet ∧ u ∈ [0, s]] . u))
+9. forall (s), s ∈ RealSet ∧ s ∈ [0, t] ⇒ FunDeri(F, 1, 1)(s) = f(s)
+10. forall (s), s ∈ RealSet ∧ s ∈ [0, t] ⇒ J(1, s) = frac(1, 1!) * F(s)^{1}
+11. forall (k), k ∈ PosIntegerSet ⇒ J(k + 1, t) = DefInt(0, t, (fun u [u ∈ RealSet ∧ u ∈ [0, t]] . f(u) * J(k, u)) * diff(fun u [u ∈ RealSet ∧ u ∈ [0, t]] . u))
+12. forall (k) (s), k ∈ PosIntegerSet ∧ s ∈ RealSet ∧ s ∈ [0, t] ∧ (forall (v), v ∈ RealSet ∧ v ∈ [0, t] ⇒ J(k, v) = frac(1, k!) * F(v)^{k}) ⇒ J(k + 1, s) = frac(1, k!) * DefInt(0, s, (fun u [u ∈ RealSet ∧ u ∈ [0, s]] . f(u) * F(u)^{k}) * diff(fun u [u ∈ RealSet ∧ u ∈ [0, s]] . u))
+13. forall (k) (s), k ∈ PosIntegerSet ∧ s ∈ RealSet ∧ s ∈ [0, t] ∧ (forall (v), v ∈ RealSet ∧ v ∈ [0, t] ⇒ J(k, v) = frac(1, k!) * F(v)^{k}) ⇒ frac(1, k!) * DefInt(0, s, (fun u [u ∈ RealSet ∧ u ∈ [0, s]] . f(u) * F(u)^{k}) * diff(fun u [u ∈ RealSet ∧ u ∈ [0, s]] . u)) = frac(1, k!) * DefInt(0, s, (fun u [u ∈ RealSet ∧ u ∈ [0, s]] . F(u)^{k} * FunDeri(F, 1, 1)(u)) * diff(fun u [u ∈ RealSet ∧ u ∈ [0, s]] . u))
+14. forall (k) (s), k ∈ PosIntegerSet ∧ s ∈ RealSet ∧ s ∈ [0, t] ∧ (forall (v), v ∈ RealSet ∧ v ∈ [0, t] ⇒ J(k, v) = frac(1, k!) * F(v)^{k}) ⇒ frac(1, k!) * DefInt(0, s, (fun u [u ∈ RealSet ∧ u ∈ [0, s]] . F(u)^{k} * FunDeri(F, 1, 1)(u)) * diff(fun u [u ∈ RealSet ∧ u ∈ [0, s]] . u)) = frac(1, k!) * frac(F(s)^{k + 1}, k + 1)
+
+GOAL:
+forall (k) (s), k ∈ PosIntegerSet ∧ s ∈ RealSet ∧ s ∈ [0, t] ⇒ frac(1, k!) * frac(F(s)^{k + 1}, k + 1) = frac(1, (k + 1)!) * F(s)^{k + 1}
+
+METHOD:

@@ -1,0 +1,27 @@
+get_forall (GOAL: {forall (A) (A_{0}) (x), A ∈ RealSet ∧ A > 0 ∧ A_{0} ∈ RealSet ∧ A_{0} > 0 ∧ x ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ A > A_{0} ⇒ (forall (α), α ∈ RealSet ∧ a ≤ α ∧ α ≤ b ⇒ DefInt(A, +∞, α * e^{-α * x} * diff(fun x [x ∈ RealSet] . x)) = e^{-α * A})}) (A_{0} := {B1}) (A := {A1}) (x := {x1})
+get_condition (hypothesis 12: {A1 ∈ RealSet ∧ A1 > 0 ∧ B1 ∈ RealSet ∧ B1 > 0 ∧ x1 ∈ RealSet}) in (GOAL: {A1 ∈ RealSet ∧ A1 > 0 ∧ B1 ∈ RealSet ∧ B1 > 0 ∧ x1 ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ A1 > B1 ⇒ (forall (α), α ∈ RealSet ∧ a ≤ α ∧ α ≤ b ⇒ DefInt(A1, +∞, α * e^{-α * x1} * diff(fun x [x ∈ RealSet] . x)) = e^{-α * A1}))})
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ A1 > B1 ⇒ (forall (α), α ∈ RealSet ∧ a ≤ α ∧ α ≤ b ⇒ DefInt(A1, +∞, α * e^{-α * x1} * diff(fun x [x ∈ RealSet] . x)) = e^{-α * A1})}) (ε := {ε1})
+get_condition (hypothesis 13: {ε1 ∈ RealSet ∧ ε1 > 0 ∧ A1 > B1}) in (GOAL: {ε1 ∈ RealSet ∧ ε1 > 0 ∧ A1 > B1 ⇒ (forall (α), α ∈ RealSet ∧ a ≤ α ∧ α ≤ b ⇒ DefInt(A1, +∞, α * e^{-α * x1} * diff(fun x [x ∈ RealSet] . x)) = e^{-α * A1})})
+get_forall (GOAL: {forall (α), α ∈ RealSet ∧ a ≤ α ∧ α ≤ b ⇒ DefInt(A1, +∞, α * e^{-α * x1} * diff(fun x [x ∈ RealSet] . x)) = e^{-α * A1}}) (α := {α1})
+get_condition (hypothesis 14: {α1 ∈ RealSet ∧ a ≤ α1 ∧ α1 ≤ b}) in (GOAL: {α1 ∈ RealSet ∧ a ≤ α1 ∧ α1 ≤ b ⇒ DefInt(A1, +∞, α1 * e^{-α1 * x1} * diff(fun x [x ∈ RealSet] . x)) = e^{-α1 * A1}})
+destruct_and (hypothesis 12: {A1 ∈ RealSet ∧ A1 > 0 ∧ B1 ∈ RealSet ∧ B1 > 0 ∧ x1 ∈ RealSet}) as (hypothesis 15: {A1 ∈ RealSet}) (hypothesis 16: {A1 > 0}) (hypothesis 17: {B1 ∈ RealSet}) (hypothesis 18: {B1 > 0}) (hypothesis 19: {x1 ∈ RealSet})
+get_prop (hypothesis 10: {forall (A_{0}), A_{0} ∈ RealSet ∧ A_{0} > 0 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ A_{0} = frac(1, a) * ln(frac(1, ε)))}) (A_{0} := {B1}) as (hypothesis 20: {B1 ∈ RealSet ∧ B1 > 0 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ B1 = frac(1, a) * ln(frac(1, ε)))})
+use_condition (obvious: {B1 ∈ RealSet ∧ B1 > 0}) in (hypothesis 20: {B1 ∈ RealSet ∧ B1 > 0 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ B1 = frac(1, a) * ln(frac(1, ε)))}) as (hypothesis 21: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ B1 = frac(1, a) * ln(frac(1, ε))})
+get_prop (hypothesis 21: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ B1 = frac(1, a) * ln(frac(1, ε))}) (ε := {1}) as (hypothesis 22: {1 ∈ RealSet ∧ 1 > 0 ⇒ B1 = frac(1, a) * ln(frac(1, 1))})
+use_condition (obvious: {1 ∈ RealSet ∧ 1 > 0}) in (hypothesis 22: {1 ∈ RealSet ∧ 1 > 0 ⇒ B1 = frac(1, a) * ln(frac(1, 1))}) as (hypothesis 23: {B1 = frac(1, a) * ln(frac(1, 1))})
+get_prop (theorem 'Thm 201. (NaturalLogarithmProduct)': {forall (x) (y), x ∈ RealSet => y ∈ RealSet => (x > 0 => y > 0 => ln (x * y) = ln(x) + ln(y))}) (x := {1}) (y := {1}) as (hypothesis 24: {1 ∈ RealSet => 1 ∈ RealSet => (1 > 0 => 1 > 0 => ln (1 * 1) = ln(1) + ln(1))})
+use_condition (obvious: {1 ∈ RealSet}) (obvious: {1 ∈ RealSet}) (obvious: {1 > 0}) (obvious: {1 > 0}) in (hypothesis 24: {1 ∈ RealSet => 1 ∈ RealSet => (1 > 0 => 1 > 0 => ln (1 * 1) = ln(1) + ln(1))}) as (hypothesis 25: {ln (1 * 1) = ln(1) + ln(1)})
+assert (hypothesis 26: {ln(1) = 0}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 27: {frac(1, 1) = 1}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 28: {B1 = frac(1, a) * ln(1)}) by proof {
+  rewrite (right_to_left, equation) (hypothesis 27: {frac(1, 1) = 1}); from (GOAL: {B1 = frac(1, a) * ln(1)}) to (GOAL: {B1 = frac(1, a) * ln(frac(1, 1))})
+  apply (hypothesis 23: {B1 = frac(1, a) * ln(frac(1, 1))})
+}
+assert (hypothesis 29: {B1 = 0}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

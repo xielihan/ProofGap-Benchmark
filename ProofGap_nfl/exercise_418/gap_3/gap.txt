@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x ≠ 3 ∧ x ≠ 5 ⇒ frac(x^{2} - 5 * x + 6, x^{2} - 8 * x + 15) = frac((x - 3) * (x - 2), (x - 3) * (x - 5)) ∧ frac((x - 3) * (x - 2), (x - 3) * (x - 5)) = frac(x - 2, x - 5)
+2. lim_{ x → 3 } (frac(x^{2} - 5 * x + 6, x^{2} - 8 * x + 15)) = lim_{ x → 3 } (frac(x - 2, x - 5))
+
+GOAL:
+lim_{ x → 3 } (frac(x - 2, x - 5)) = -frac(1, 2)
+
+METHOD:

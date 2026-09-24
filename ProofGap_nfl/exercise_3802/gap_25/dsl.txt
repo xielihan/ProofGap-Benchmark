@@ -1,0 +1,7 @@
+get_condition (hypothesis 31: {α ≥ 0}) in (GOAL: {α ≥ 0 ⇒ β ≥ 0 ⇒ α > 0 ⇒ β > 0 ⇒ FunDeri(I, 1, 1)(α, β) = 2 * π * α * β - 2 * π * α^{2} * ln(α + β) + 2 * π * α^{2} * ln(α)})
+get_condition (hypothesis 32: {β ≥ 0}) in (GOAL: {β ≥ 0 ⇒ α > 0 ⇒ β > 0 ⇒ FunDeri(I, 1, 1)(α, β) = 2 * π * α * β - 2 * π * α^{2} * ln(α + β) + 2 * π * α^{2} * ln(α)})
+get_condition (hypothesis 33: {α > 0}) in (GOAL: {α > 0 ⇒ β > 0 ⇒ FunDeri(I, 1, 1)(α, β) = 2 * π * α * β - 2 * π * α^{2} * ln(α + β) + 2 * π * α^{2} * ln(α)})
+get_condition (hypothesis 34: {β > 0}) in (GOAL: {β > 0 ⇒ FunDeri(I, 1, 1)(α, β) = 2 * π * α * β - 2 * π * α^{2} * ln(α + β) + 2 * π * α^{2} * ln(α)})
+use_condition (hypothesis 31: {α ≥ 0}) (hypothesis 32: {β ≥ 0}) (hypothesis 33: {α > 0}) (hypothesis 34: {β > 0}) in (hypothesis 27: {α ≥ 0 ⇒ β ≥ 0 ⇒ α > 0 ⇒ β > 0 ⇒ FunDeri(I, 1, 1)(α, β) = 2 * π * α * β - 2 * π * α^{2} * ln(α + β) + C(α)}) as (hypothesis 35: {FunDeri(I, 1, 1)(α, β) = 2 * π * α * β - 2 * π * α^{2} * ln(α + β) + C(α)})
+use_condition (hypothesis 31: {α ≥ 0}) (hypothesis 32: {β ≥ 0}) (hypothesis 33: {α > 0}) (hypothesis 34: {β > 0}) in (hypothesis 29: {α ≥ 0 ⇒ β ≥ 0 ⇒ α > 0 ⇒ β > 0 ⇒ C(α) = 2 * π * α^{2} * ln(α)}) as (hypothesis 36: {C(α) = 2 * π * α^{2} * ln(α)})
+autosolve all_hypothesis

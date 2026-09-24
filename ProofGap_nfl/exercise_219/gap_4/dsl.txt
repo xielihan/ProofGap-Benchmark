@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (x_{1}), x_{1} ∈ RealSet => forall (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ 0 < x_{1} ∧ x_{1} < x_{2} ∧ x_{2} < π => 0 < frac(x_{1} + x_{2}, 2)}) (x_{1} := {a})
+get_condition (hypothesis 6: {a ∈ RealSet}) in (GOAL: {a ∈ RealSet => forall (x_{2}), a ∈ RealSet ∧ x_{2} ∈ RealSet ∧ 0 < a ∧ a < x_{2} ∧ x_{2} < π => 0 < frac(a + x_{2}, 2)})
+get_forall (GOAL: {forall (x_{2}), a ∈ RealSet ∧ x_{2} ∈ RealSet ∧ 0 < a ∧ a < x_{2} ∧ x_{2} < π => 0 < frac(a + x_{2}, 2)}) (x_{2} := {b})
+get_condition (hypothesis 7: {a ∈ RealSet ∧ b ∈ RealSet ∧ 0 < a ∧ a < b ∧ b < π}) in (GOAL: {a ∈ RealSet ∧ b ∈ RealSet ∧ 0 < a ∧ a < b ∧ b < π => 0 < frac(a + b, 2)})
+destruct_and (hypothesis 7: {a ∈ RealSet ∧ b ∈ RealSet ∧ 0 < a ∧ a < b ∧ b < π}) as (hypothesis 8: {a ∈ RealSet}) (hypothesis 9: {b ∈ RealSet}) (hypothesis 10: {0 < a}) (hypothesis 11: {a < b}) (hypothesis 12: {b < π})
+autosolve all_hypothesis

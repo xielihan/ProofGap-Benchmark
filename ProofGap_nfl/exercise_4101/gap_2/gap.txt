@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. V ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. ω ∈ RealSet
+3. forall (x) (y) (z), x ∈ RealSet ∧ x ∈ IntervalCC(0, 1) ∧ y ∈ RealSet ∧ x^{2} ≤ y ∧ y ≤ x ∧ z ∈ RealSet ∧ x^{2} + y^{2} ≤ z ∧ z ≤ 2 * x^{2} + 2 * y^{2} ⇒ (x, y, z) ∈ V
+4. VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . 1) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . ω)) = DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalCC(0, 1)] . DefInt(x^{2}, x, (fun y [y ∈ RealSet ∧ x^{2} ≤ y ∧ y ≤ x] . DefInt(x^{2} + y^{2}, 2 * x^{2} + 2 * y^{2}, (fun z [z ∈ RealSet ∧ x^{2} + y^{2} ≤ z ∧ z ≤ 2 * x^{2} + 2 * y^{2}] . 1) * diff(fun z [z ∈ RealSet ∧ x^{2} + y^{2} ≤ z ∧ z ≤ 2 * x^{2} + 2 * y^{2}] . z))) * diff(fun y [y ∈ RealSet ∧ x^{2} ≤ y ∧ y ≤ x] . y))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalCC(0, 1)] . x))
+
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalCC(0, 1)] . DefInt(x^{2}, x, (fun y [y ∈ RealSet ∧ x^{2} ≤ y ∧ y ≤ x] . DefInt(x^{2} + y^{2}, 2 * x^{2} + 2 * y^{2}, (fun z [z ∈ RealSet ∧ x^{2} + y^{2} ≤ z ∧ z ≤ 2 * x^{2} + 2 * y^{2}] . 1) * diff(fun z [z ∈ RealSet ∧ x^{2} + y^{2} ≤ z ∧ z ≤ 2 * x^{2} + 2 * y^{2}] . z))) * diff(fun y [y ∈ RealSet ∧ x^{2} ≤ y ∧ y ≤ x] . y))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalCC(0, 1)] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalCC(0, 1)] . DefInt(x^{2}, x, (fun y [y ∈ RealSet ∧ x^{2} ≤ y ∧ y ≤ x] . x^{2} + y^{2}) * diff(fun y [y ∈ RealSet ∧ x^{2} ≤ y ∧ y ≤ x] . y))) * diff(fun x [x ∈ RealSet ∧ x ∈ IntervalCC(0, 1)] . x))
+
+METHOD:

@@ -1,0 +1,17 @@
+PROOF GAP @5
+ASSUM:
+1. y : RealSet → RealSet
+2. C_{1} ∈ RealSet
+3. C_{2} ∈ RealSet
+4. C_{3} ∈ RealSet
+5. C_{4} ∈ RealSet
+6. forall (x), x ∈ RealSet ⇒ y(x) = e^{frac(x, sqrtn(2, 2))} * (C_{1} * cos(frac(x, sqrtn(2, 2))) + C_{2} * sin(frac(x, sqrtn(2, 2)))) + e^{-frac(x, sqrtn(2, 2))} * (C_{3} * cos(frac(x, sqrtn(2, 2))) + C_{4} * sin(frac(x, sqrtn(2, 2))))
+7. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = e^{frac(x, sqrtn(2, 2))} * (frac(C_{1}, sqrtn(2, 2)) * cos(frac(x, sqrtn(2, 2))) + frac(C_{2}, sqrtn(2, 2)) * sin(frac(x, sqrtn(2, 2))) - frac(C_{1}, sqrtn(2, 2)) * sin(frac(x, sqrtn(2, 2))) + frac(C_{2}, sqrtn(2, 2)) * cos(frac(x, sqrtn(2, 2)))) + e^{-frac(x, sqrtn(2, 2))} * (-frac(C_{3}, sqrtn(2, 2)) * cos(frac(x, sqrtn(2, 2))) - frac(C_{4}, sqrtn(2, 2)) * sin(frac(x, sqrtn(2, 2))) - frac(C_{3}, sqrtn(2, 2)) * sin(frac(x, sqrtn(2, 2))) + frac(C_{4}, sqrtn(2, 2)) * cos(frac(x, sqrtn(2, 2))))
+8. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = e^{frac(x, sqrtn(2, 2))} * (C_{2} * cos(frac(x, sqrtn(2, 2))) - C_{1} * sin(frac(x, sqrtn(2, 2)))) + e^{-frac(x, sqrtn(2, 2))} * (C_{3} * sin(frac(x, sqrtn(2, 2))) - C_{4} * cos(frac(x, sqrtn(2, 2))))
+9. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 4)(x) = e^{frac(x, sqrtn(2, 2))} * (-C_{1} * cos(frac(x, sqrtn(2, 2))) - C_{2} * sin(frac(x, sqrtn(2, 2)))) + e^{-frac(x, sqrtn(2, 2))} * (-C_{3} * cos(frac(x, sqrtn(2, 2))) - C_{4} * sin(frac(x, sqrtn(2, 2)))) ∧ e^{frac(x, sqrtn(2, 2))} * (-C_{1} * cos(frac(x, sqrtn(2, 2))) - C_{2} * sin(frac(x, sqrtn(2, 2)))) + e^{-frac(x, sqrtn(2, 2))} * (-C_{3} * cos(frac(x, sqrtn(2, 2))) - C_{4} * sin(frac(x, sqrtn(2, 2)))) = -y(x)
+10. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 4)(x) + y(x) = 0
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 4)(x) + y(x) = 0
+
+METHOD:

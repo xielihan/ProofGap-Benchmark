@@ -1,0 +1,5 @@
+1. get_forall (GOAL: {forall (t), t ∈ RealSet ∧ sin(frac(t, 2)) ≠ 0 ⇒ FunDeri(y, x, 1)(t) = cot(frac(t, 2))}) (t := {u})
+2. get_condition (hypothesis 7: {u ∈ RealSet ∧ sin(frac(u, 2)) ≠ 0}) in (GOAL: {u ∈ RealSet ∧ sin(frac(u, 2)) ≠ 0 ⇒ FunDeri(y, x, 1)(u) = cot(frac(u, 2))})
+3. get_prop (hypothesis 5: {forall (t), t ∈ RealSet ∧ sin(frac(t, 2)) ≠ 0 ⇒ FunDeri(y, x, 1)(t) = frac(a * sin(t), a * (1 - cos(t)))}) (t := {u}) as (hypothesis 8: {u ∈ RealSet ∧ sin(frac(u, 2)) ≠ 0 ⇒ FunDeri(y, x, 1)(u) = frac(a * sin(u), a * (1 - cos(u)))})
+4. get_prop (hypothesis 6: {forall (t), t ∈ RealSet ∧ sin(frac(t, 2)) ≠ 0 ⇒ frac(a * sin(t), a * (1 - cos(t))) = cot(frac(t, 2))}) (t := {u}) as (hypothesis 9: {u ∈ RealSet ∧ sin(frac(u, 2)) ≠ 0 ⇒ frac(a * sin(u), a * (1 - cos(u))) = cot(frac(u, 2))})
+5. autosolve all_hypothesis

@@ -1,0 +1,12 @@
+PROOF GAP @6
+ASSUM:
+1. exists (x), x ∈ RealSet ∧ x > 0
+2. lim_{ x → +∞ } (x * (ln(x + 1) - ln(x))) = lim_{ x → +∞ } (ln((1 + frac(1, x))^{x}))
+3. lim_{ x → +∞ } (ln((1 + frac(1, x))^{x})) = ln(e)
+4. ln(e) = 1
+5. lim_{ x → +∞ } (x * (ln(x + 1) - ln(x))) = 1
+
+GOAL:
+lim_{ x → +∞ } (x * (ln(x + 1) - ln(x))) = 1
+
+METHOD:

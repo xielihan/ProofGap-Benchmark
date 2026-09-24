@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, 1) ⇒ y(x) = x + floor(2 * x)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 < x ∧ x < frac(1, 2) ⇒ floor(2 * x) = 0
+
+METHOD:

@@ -1,0 +1,10 @@
+get_condition (hypothesis 24: {x ≥ 0}) (hypothesis 25: {y ≥ 0}) (hypothesis 26: {x + y > 0}) in (GOAL: {x ≥ 0 ⇒ y ≥ 0 ⇒ x + y > 0 ⇒ frac(x^{n} + y^{n}, 2) ≥ frac(a, 2)^{n}})
+use_condition (obvious: {x ≥ 0}) in (hypothesis 10: {x ≥ 0 ⇒ y ≥ 0 ⇒ x + y > 0 ⇒ a = x + y}) as (hypothesis 27: {y ≥ 0 ⇒ x + y > 0 ⇒ a = x + y})
+use_condition (obvious: {y ≥ 0}) in (hypothesis 27: {y ≥ 0 ⇒ x + y > 0 ⇒ a = x + y}) as (hypothesis 28: {x + y > 0 ⇒ a = x + y})
+use_condition (obvious: {x + y > 0}) in (hypothesis 28: {x + y > 0 ⇒ a = x + y}) as (hypothesis 29: {a = x + y})
+use_condition (obvious: {x ≥ 0}) in (hypothesis 22: {x ≥ 0 ⇒ y ≥ 0 ⇒ x + y > 0 ⇒ (forall (u) (v), u ∈ RealSet ∧ u ≥ 0 ∧ v ∈ RealSet ∧ v ≥ 0 ∧ u + v = a ⇒ z(u, v) ≥ frac(a, 2)^{n})}) as (hypothesis 30: {y ≥ 0 ⇒ x + y > 0 ⇒ (forall (u) (v), u ∈ RealSet ∧ u ≥ 0 ∧ v ∈ RealSet ∧ v ≥ 0 ∧ u + v = a ⇒ z(u, v) ≥ frac(a, 2)^{n})})
+use_condition (obvious: {y ≥ 0}) in (hypothesis 30: {y ≥ 0 ⇒ x + y > 0 ⇒ (forall (u) (v), u ∈ RealSet ∧ u ≥ 0 ∧ v ∈ RealSet ∧ v ≥ 0 ∧ u + v = a ⇒ z(u, v) ≥ frac(a, 2)^{n})}) as (hypothesis 31: {x + y > 0 ⇒ (forall (u) (v), u ∈ RealSet ∧ u ≥ 0 ∧ v ∈ RealSet ∧ v ≥ 0 ∧ u + v = a ⇒ z(u, v) ≥ frac(a, 2)^{n})})
+use_condition (obvious: {x + y > 0}) in (hypothesis 31: {x + y > 0 ⇒ (forall (u) (v), u ∈ RealSet ∧ u ≥ 0 ∧ v ∈ RealSet ∧ v ≥ 0 ∧ u + v = a ⇒ z(u, v) ≥ frac(a, 2)^{n})}) as (hypothesis 32: {forall (u) (v), u ∈ RealSet ∧ u ≥ 0 ∧ v ∈ RealSet ∧ v ≥ 0 ∧ u + v = a ⇒ z(u, v) ≥ frac(a, 2)^{n}})
+get_prop (hypothesis 32: {forall (u) (v), u ∈ RealSet ∧ u ≥ 0 ∧ v ∈ RealSet ∧ v ≥ 0 ∧ u + v = a ⇒ z(u, v) ≥ frac(a, 2)^{n}}) (u := {x}) (v := {y}) as (hypothesis 33: {x ∈ RealSet ∧ x ≥ 0 ∧ y ∈ RealSet ∧ y ≥ 0 ∧ x + y = a ⇒ z(x, y) ≥ frac(a, 2)^{n}})
+use_condition (obvious: {x ∈ RealSet ∧ x ≥ 0 ∧ y ∈ RealSet ∧ y ≥ 0 ∧ x + y = a}) in (hypothesis 33: {x ∈ RealSet ∧ x ≥ 0 ∧ y ∈ RealSet ∧ y ≥ 0 ∧ x + y = a ⇒ z(x, y) ≥ frac(a, 2)^{n}}) as (hypothesis 34: {z(x, y) ≥ frac(a, 2)^{n}})
+autosolve all_hypothesis

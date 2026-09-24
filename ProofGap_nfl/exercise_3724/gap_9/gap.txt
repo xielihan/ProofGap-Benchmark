@@ -1,0 +1,21 @@
+PROOF GAP @9
+ASSUM:
+1. F : CartesianProd(RealSet, RealSet) → RealSet
+2. f : RealSet → RealSet
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ f(x) = sqrtn(2, 1 + x^{2})
+6. forall (a) (b), a ∈ RealSet ∧ b ∈ RealSet ⇒ F(a, b) = DefInt(0, 1, (fun x [x ∈ RealSet] . (a + b * x - sqrtn(2, 1 + x^{2}))^{2}) * diff(fun x [x ∈ RealSet] . x))
+7. F(a, b) = DefInt(0, 1, (fun x [x ∈ RealSet] . (a + b * x - sqrtn(2, 1 + x^{2}))^{2}) * diff(fun x [x ∈ RealSet] . x))
+8. ContinuousFunc(F)
+9. lim_{ sqrtn(2, a^{2} + b^{2}) → +∞ } (F(a, b)) = +∞
+10. FunDeri(F, 1, 1)(a, b) = 2 * DefInt(0, 1, (fun x [x ∈ RealSet] . a + b * x - sqrtn(2, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x))
+11. 2 * DefInt(0, 1, (fun x [x ∈ RealSet] . a + b * x - sqrtn(2, 1 + x^{2})) * diff(fun x [x ∈ RealSet] . x)) = 2 * a + b - (sqrtn(2, 2) + ln(1 + sqrtn(2, 2)))
+12. FunDeri(F, 1, 1)(a, b) = 2 * a + b - (sqrtn(2, 2) + ln(1 + sqrtn(2, 2)))
+13. FunDeri(F, 2, 1)(a, b) = 2 * DefInt(0, 1, (fun x [x ∈ RealSet] . x * (a + b * x - sqrtn(2, 1 + x^{2}))) * diff(fun x [x ∈ RealSet] . x))
+14. 2 * DefInt(0, 1, (fun x [x ∈ RealSet] . x * (a + b * x - sqrtn(2, 1 + x^{2}))) * diff(fun x [x ∈ RealSet] . x)) = a + frac(2, 3) * b - frac(2, 3) * (2 * sqrtn(2, 2) - 1)
+
+GOAL:
+FunDeri(F, 2, 1)(a, b) = a + frac(2, 3) * b - frac(2, 3) * (2 * sqrtn(2, 2) - 1)
+
+METHOD:

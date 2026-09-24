@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = 1 - sqrtn(3, x^{2})
+3. f(-1) = 1 - sqrtn(3, (-1)^{2})
+4. 1 - sqrtn(3, (-1)^{2}) = 0
+
+GOAL:
+f(-1) = 0
+
+METHOD:

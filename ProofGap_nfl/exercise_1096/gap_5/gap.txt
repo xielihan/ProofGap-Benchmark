@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. x ∈ RealSet
+2. FunDeri(fun x [x ∈ RealSet] . x^{3} - 2 * x^{6} - x^{9}, fun x [x ∈ RealSet] . x^{3}, 1)(x) = FunDeri(fun x [x ∈ RealSet] . x^{3} - 2 * (x^{3})^{2} - (x^{3})^{3}, fun x [x ∈ RealSet] . x^{3}, 1)(x)
+3. FunDeri(fun x [x ∈ RealSet] . x^{3} - 2 * (x^{3})^{2} - (x^{3})^{3}, fun x [x ∈ RealSet] . x^{3}, 1)(x) = 1 - 4 * x^{3} - 3 * x^{6}
+4. FunDeri(fun x [x ∈ RealSet] . x^{3} - 2 * x^{6} - x^{9}, fun x [x ∈ RealSet] . x^{3}, 1)(x) = 1 - 4 * x^{3} - 3 * x^{6}
+5. x ≠ 0 ⇒ frac(sin(x), x) = frac(sin(-x), -x)
+GOAL:
+x > 0 ⇒ FunDeri(fun x [x ∈ RealSet] . frac(sin(x), x), fun x [x ∈ RealSet] . x^{2}, 1)(x) = FunDeri(fun x [x ∈ RealSet] . frac(sin(sqrtn(2, x^{2})), sqrtn(2, x^{2})), fun x [x ∈ RealSet] . x^{2}, 1)(x)
+
+METHOD:

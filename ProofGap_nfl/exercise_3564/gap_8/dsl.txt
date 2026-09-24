@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 12: {frac((x_{0})^{2}, a^{2}) + frac((y_{0})^{2}, b^{2}) + frac((z_{0})^{2}, c^{2}) = 1}); from (hypothesis 20: {FunDeri(u, n, 1)(x_{0}, y_{0}, z_{0}) = frac(2, Δ) * (frac((x_{0})^{2}, a^{2}) + frac((y_{0})^{2}, b^{2}) + frac((z_{0})^{2}, c^{2}))}) to (hypothesis 21: {FunDeri(u, n, 1)(x_{0}, y_{0}, z_{0}) = frac(2, Δ) * 1})
+autosolve (hypothesis 21: {FunDeri(u, n, 1)(x_{0}, y_{0}, z_{0}) = frac(2, Δ) * 1})

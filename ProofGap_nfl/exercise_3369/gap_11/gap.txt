@@ -1,0 +1,24 @@
+PROOF GAP @11
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. k ∈ RealSet ∧ k ≥ 0 ∧ k < 1
+3. φ : RealSet → RealSet
+4. φ(0) = 0
+5. ContinuousFuncOn(FunDeri(φ, 1, 1), IntervalLoRo(-a, a))
+6. forall (y), y ∈ RealSet ∧ y ∈ IntervalLoRo(-a, a) ⇒ |FunDeri(φ, 1, 1)(y)| ≤ k
+7. F = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x - y - φ(y))
+8. F(0, 0) = 0
+9. forall (x) (y), y ∈ RealSet ∧ x ∈ RealSet ∧ y ∈ IntervalLoRo(-a, a) ⇒ ContinuousFuncAt(F, (x, y)) ∧ ContinuousFuncAt(FunDeri(F, 1, 1), (x, y)) ∧ ContinuousFuncAt(FunDeri(F, 2, 1), (x, y))
+10. forall (x) (y), y ∈ RealSet ∧ x ∈ RealSet ∧ y ∈ IntervalLoRo(-a, a) ⇒ FunDeri(F, 2, 1)(x, y) = -1 - FunDeri(φ, 1, 1)(y)
+11. FunDeri(F, 2, 1)(0, 0) = -1 - FunDeri(φ, 1, 1)(0)
+12. |FunDeri(φ, 1, 1)(0)| ≤ k
+13. k < 1
+14. |FunDeri(φ, 1, 1)(0)| < 1
+15. FunDeri(F, 2, 1)(0, 0) < 0
+16. FunDeri(F, 2, 1)(0, 0) ≠ 0
+17. exists (Y) (ε), Y : RealSet → RealSet ∧ ε ∈ RealSet ∧ ε > 0 ∧ DiffableFuncOn(Y, IntervalLoRo(-ε, ε)) ∧ Y(0) = 0 ∧ (forall (x) (ε), x ∈ RealSet ∧ ε ∈ RealSet ∧ x ∈ IntervalLoRo(-ε, ε) ⇒ F(x, Y(x)) = 0 ∧ (exists (y), y ∈ RealSet ∧ y ∈ IntervalLoRo(-a, a) ∧ F(x, y) = 0 ∧ (forall (y2), y2 ∈ RealSet ∧ y2 ∈ IntervalLoRo(-a, a) ∧ F(x, y2) = 0 ⇒ y2 = y)))
+
+GOAL:
+exists (Y) (ε), Y : RealSet → RealSet ∧ ε ∈ RealSet ∧ ε > 0 ∧ DiffableFuncOn(Y, IntervalLoRo(-ε, ε)) ∧ Y(0) = 0 ∧ (forall (x) (ε), x ∈ RealSet ∧ ε ∈ RealSet ∧ x ∈ IntervalLoRo(-ε, ε) ⇒ x = Y(x) + φ(Y(x)) ∧ (exists (y), y ∈ RealSet ∧ y ∈ IntervalLoRo(-a, a) ∧ x = y + φ(y) ∧ (forall (y3), y3 ∈ RealSet ∧ y3 ∈ IntervalLoRo(-a, a) ∧ x = y3 + φ(y3) ⇒ y3 = y)))
+
+METHOD:

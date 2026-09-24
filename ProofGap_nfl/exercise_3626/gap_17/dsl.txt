@@ -1,0 +1,7 @@
+get_prop (hypothesis 2: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = x^{3} + y^{3} - 3 * x * y}) (x := {1}) (y := {1}) as (hypothesis 25: {1 ∈ RealSet ∧ 1 ∈ RealSet ⇒ z(1, 1) = 1^{3} + 1^{3} - 3 * 1 * 1})
+assert (hypothesis 26: {1 ∈ RealSet ∧ 1 ∈ RealSet}) by proof {
+  1. autosolve all_hypothesis
+}
+use_condition (hypothesis 26: {1 ∈ RealSet ∧ 1 ∈ RealSet}) in (hypothesis 25: {1 ∈ RealSet ∧ 1 ∈ RealSet ⇒ z(1, 1) = 1^{3} + 1^{3} - 3 * 1 * 1}) as (hypothesis 27: {z(1, 1) = 1^{3} + 1^{3} - 3 * 1 * 1})
+rewrite (left_to_right, equation) (hypothesis 27: {z(1, 1) = 1^{3} + 1^{3} - 3 * 1 * 1}); from (GOAL: {z(1, 1) = -1}) to (GOAL: {1^{3} + 1^{3} - 3 * 1 * 1 = -1})
+autosolve all_hypothesis

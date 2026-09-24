@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. d ∈ RealSet ∧ d > 0
+2. f : RealSet → RealSet
+3. b ∈ RealSet ∧ b > 0
+4. h ∈ RealSet ∧ h > 0
+5. forall (b), b ∈ RealSet ∧ 0 < b ∧ b < d ⇒ f(b) = b * (d^{2} - b^{2})
+6. forall (b), b ∈ RealSet ∧ 0 < b ∧ b < d ⇒ (exists (h), h ∈ RealSet ∧ h > 0 ∧ h^{2} = d^{2} - b^{2})
+
+GOAL:
+forall (b), b ∈ RealSet ∧ 0 < b ∧ b < d ⇒ FunDeri(f, 1, 1)(b) = d^{2} - 3 * b^{2}
+
+METHOD:

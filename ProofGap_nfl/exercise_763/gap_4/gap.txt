@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. f = (fun x [x ∈ RealSet] . cases{ x if x ∈ RationalSet; -x if x ∈ RealSet \ RationalSet })
+2. IsFunc(f)
+3. ¬MonoIncFunc(f)
+4. ¬MonoDecFunc(f)
+
+GOAL:
+InverseFunc(f) = f
+
+METHOD:

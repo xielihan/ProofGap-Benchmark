@@ -1,0 +1,4 @@
+assert (hypothesis 14: {(p < 0 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} / n^{p}))) ∧ (p = 0 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} / n^{p}))) ∧ (forall (a), a : NonNegIntegerSet → RealSet ∧ 0 < p ∧ p ≤ 1 ∧ a = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . 1 / n^{p}) ⇒ ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} / n^{p}))) ∧ (p > 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} / n^{p})))}) by proof {
+  autosolve all_hypothesis
+}
+apply (hypothesis 14: {(p < 0 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} / n^{p}))) ∧ (p = 0 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} / n^{p}))) ∧ (forall (a), a : NonNegIntegerSet → RealSet ∧ 0 < p ∧ p ≤ 1 ∧ a = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . 1 / n^{p}) ⇒ ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} / n^{p}))) ∧ (p > 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} / n^{p})))})

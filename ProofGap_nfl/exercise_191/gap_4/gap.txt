@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. f : RealSet → IntegerSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = 1 + floor(x)
+3. floor(0.9) = 0
+4. floor(0.99) = 0
+5. floor(0.999) = 0
+
+GOAL:
+floor(1) = 1
+
+METHOD:

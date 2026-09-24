@@ -1,0 +1,16 @@
+PROOF GAP @2
+ASSUM:
+1. x_{0} ∈ RealSet
+2. n ∈ NonNegIntegerSet
+3. f : RealSet → RealSet
+4. phi : RealSet → RealSet
+5. n ∈ PosIntegerSet
+6. forall (x), x ∈ RealSet ⇒ f(x) = (x - x_{0})^{n} * phi(x)
+7. ContinuousFuncAt(phi, x_{0})
+8. phi(x_{0}) ≠ 0
+9. exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ |x - x_{0}| < δ ⇒ phi(x) * phi(x_{0}) > 0)
+
+GOAL:
+f(x_{0}) = 0
+
+METHOD:

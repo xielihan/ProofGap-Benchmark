@@ -1,0 +1,16 @@
+get_forall (GOAL: {forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ frac(|sin(n * x)|, n) ≤ frac(1, n)}) (n := {n0}) (x := {x0})
+get_condition (hypothesis 10: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet ⇒ frac(|sin(n0 * x0)|, n0) ≤ frac(1, n0)})
+destruct_and (hypothesis 10: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x0 ∈ RealSet}) as (hypothesis 11: {n0 ∈ NonNegIntegerSet}) (hypothesis 12: {n0 ∈ PosIntegerSet}) (hypothesis 13: {x0 ∈ RealSet})
+assert (hypothesis 14: {n0 * x0 ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 166. (SineBounded)': {forall (x), x ∈ RealSet => -1 <= sin(x) /\ sin(x) <= 1}) (x := {n0 * x0}) as (hypothesis 15: {n0 * x0 ∈ RealSet => -1 <= sin(n0 * x0) /\ sin(n0 * x0) <= 1})
+use_condition (hypothesis 14: {n0 * x0 ∈ RealSet}) in (hypothesis 15: {n0 * x0 ∈ RealSet ⇒ -1 ≤ sin(n0 * x0) ∧ sin(n0 * x0) ≤ 1}) as (hypothesis 16: {-1 ≤ sin(n0 * x0) ∧ sin(n0 * x0) ≤ 1})
+destruct_and (hypothesis 16: {-1 ≤ sin(n0 * x0) ∧ sin(n0 * x0) ≤ 1}) as (hypothesis 17: {-1 ≤ sin(n0 * x0)}) (hypothesis 18: {sin(n0 * x0) ≤ 1})
+assert (hypothesis 19: {|sin(n0 * x0)| ≤ 1}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 20: {n0 > 0}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

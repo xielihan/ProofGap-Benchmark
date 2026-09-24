@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. x = 1 - y
+
+GOAL:
+lim_{ x → 1 } ((1 - x) * tan(frac(π * x, 2))) = lim_{ y → 0 } (y * cot(frac(π * y, 2)))
+
+METHOD:

@@ -1,0 +1,17 @@
+PROOF GAP @5
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. c ∈ RealSet
+5. d ∈ RealSet
+6. x_{0} ∈ RealSet
+7. y_{0} ∈ RealSet
+8. a ≠ 0
+9. forall (x), x ∈ RealSet ⇒ y(x) = a * x^{3} + b * x^{2} + c * x + d
+10. forall (t), t ∈ RealSet ⇒ y(x_{0} + t) + y(x_{0} - t) = a * (x_{0} + t)^{3} + b * (x_{0} + t)^{2} + c * (x_{0} + t) + d + a * (x_{0} - t)^{3} + b * (x_{0} - t)^{2} + c * (x_{0} - t) + d
+
+GOAL:
+forall (t), t ∈ RealSet ⇒ y(-frac(b, 3 * a) + t) + y(-frac(b, 3 * a) - t) = 2 * y(-frac(b, 3 * a))
+
+METHOD:

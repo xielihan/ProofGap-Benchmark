@@ -1,0 +1,29 @@
+PROOF GAP @19
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet
+3. I : RealSet → RealSet
+4. I = (fun b [b ∈ RealSet] . DefInt(0, +∞, e^{-a * x^{2}} * cos(b * x) * diff(x)))
+5. ContinuousFuncOn(fun x [x ∈ RealSet ∧ x ≥ 0] . e^{-a * x^{2}} * cos(b * x), [0, +∞))
+6. ContinuousFuncOn(fun x [x ∈ RealSet ∧ x ≥ 0] . -x * e^{-a * x^{2}} * sin(b * x), [0, +∞))
+7. forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ |e^{-a * x^{2}} * cos(b * x)| ≤ e^{-a * x^{2}}
+8. forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ |x * e^{-a * x^{2}} * sin(b * x)| ≤ x * e^{-a * x^{2}}
+9. ConvergentSeries(DefInt(0, +∞, e^{-a * x^{2}} * diff(x)))
+10. ConvergentSeries(DefInt(0, +∞, x * e^{-a * x^{2}} * diff(x)))
+11. UniformConvergent(fun b [b ∈ RealSet] . DefInt(0, +∞, e^{-a * x^{2}} * cos(b * x) * diff(x)), RealSet, I)
+12. FunDeri(I, 1, 1)(b) = -DefInt(0, +∞, x * e^{-a * x^{2}} * sin(b * x) * diff(x))
+13. DefInt(0, +∞, x * e^{-a * x^{2}} * sin(b * x) * diff(x)) = frac(b, 2 * a) * DefInt(0, +∞, e^{-a * x^{2}} * cos(b * x) * diff(x))
+14. DefInt(0, +∞, x * e^{-a * x^{2}} * sin(b * x) * diff(x)) = frac(b, 2 * a) * I(b)
+15. FunDeri(I, 1, 1)(b) = -frac(b, 2 * a) * I(b)
+16. { `F_1` | forall (b), b ∈ RealSet ⇒ FunDeri(`F_1`, 1, 1)(b) = -frac(b, 2 * a) * FunDeri(fun b [b ∈ RealSet] . b, 1, 1)(b) } = { `F_3` | exists (`F_2`), `F_2` : RealSet → RealSet ∧ (forall (b), b ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(b) = b * FunDeri(fun b [b ∈ RealSet] . b, 1, 1)(b) ∧ `F_3`(b) = -frac(1, 2 * a) * `F_2`(b)) }
+17. exists (C), C ∈ RealSet ∧ ln(I(b)) = -frac(b^{2}, 4 * a) + C
+18. C_{1} ∈ RealSet ∧ I(b) = C_{1} * e^{-frac(b^{2}, 4 * a)}
+19. I(0) = DefInt(0, +∞, e^{-a * x^{2}} * diff(x))
+20. DefInt(0, +∞, e^{-a * x^{2}} * diff(x)) = frac(1, 2) * sqrtn(2, frac(π, a))
+21. I(0) = frac(1, 2) * sqrtn(2, frac(π, a))
+22. C_{1} ∈ RealSet ∧ C_{1} = frac(1, 2) * sqrtn(2, frac(π, a))
+
+GOAL:
+I(b) = frac(1, 2) * sqrtn(2, frac(π, a)) * e^{-frac(b^{2}, 4 * a)}
+
+METHOD:

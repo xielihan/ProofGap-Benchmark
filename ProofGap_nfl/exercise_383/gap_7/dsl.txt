@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x), |x| > 1 /\ x ∈ RealSet => frac(1 + x^{4}, 1 + x^{4}) = 1}) (x := {xfresh})
+get_condition (hypothesis 9: {|xfresh| > 1 /\ xfresh ∈ RealSet}) in (GOAL: {|xfresh| > 1 /\ xfresh ∈ RealSet => frac(1 + xfresh^{4}, 1 + xfresh^{4}) = 1})
+destruct_and (hypothesis 9: {|xfresh| > 1 /\ xfresh ∈ RealSet}) as (hypothesis 10: {|xfresh| > 1}) (hypothesis 11: {xfresh ∈ RealSet})
+assert (hypothesis 12: {1 + xfresh^{4} > 0})
+autosolve all_hypothesis

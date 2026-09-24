@@ -1,0 +1,27 @@
+PROOF GAP @17
+ASSUM:
+1. p ∈ RealSet
+2. x ∈ RealSet
+3. 0 < x
+4. x < π
+5. p > 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |frac(cos(n * x), n^{p})| ≤ frac(1, n^{p}) ∧ |frac(sin(n * x), n^{p})| ≤ frac(1, n^{p}))
+6. p > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{p})))
+7. p > 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(cos(n * x), n^{p})))
+8. p > 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(sin(n * x), n^{p})))
+9. 0 < p ⇒ p ≤ 1 ⇒ MonoDecSeq(fun n [n ∈ NonNegIntegerSet ∧ n ≥ 1] . frac(1, n^{p}))
+10. 0 < p ⇒ p ≤ 1 ⇒ seqlim_{ n → +∞ } (frac(1, n^{p})) = 0
+11. 0 < p ⇒ p ≤ 1 ⇒ BoundedSeq(fun N [N ∈ NonNegIntegerSet ∧ N ≥ 1] . sum_{ n = 1 }^{ N } (cos(n * x)))
+12. 0 < p ⇒ p ≤ 1 ⇒ BoundedSeq(fun N [N ∈ NonNegIntegerSet ∧ N ≥ 1] . sum_{ n = 1 }^{ N } (sin(n * x)))
+13. 0 < p ⇒ p ≤ 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(cos(n * x), n^{p})))
+14. 0 < p ⇒ p ≤ 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(sin(n * x), n^{p})))
+15. 0 < p ⇒ p ≤ 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |frac(cos(n * x), n^{p})| ≥ frac(cos(n * x)^{2}, n^{p}) ∧ frac(cos(n * x)^{2}, n^{p}) = frac(1, 2 * n^{p}) + frac(cos(2 * n * x), 2 * n^{p}))
+16. 0 < p ⇒ p ≤ 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |frac(sin(n * x), n^{p})| ≥ frac(sin(n * x)^{2}, n^{p}) ∧ frac(sin(n * x)^{2}, n^{p}) = frac(1, 2 * n^{p}) - frac(cos(2 * n * x), 2 * n^{p}))
+17. 0 < p ⇒ p ≤ 1 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, 2 * n^{p})))
+18. 0 < p ⇒ p ≤ 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(cos(2 * n * x), 2 * n^{p})))
+19. 0 < p ⇒ p ≤ 1 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(|cos(n * x)|, n^{p})))
+20. 0 < p ⇒ p ≤ 1 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(|sin(n * x)|, n^{p})))
+
+GOAL:
+0 < p ⇒ p ≤ 1 ⇒ ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(cos(n * x), n^{p})))
+
+METHOD:

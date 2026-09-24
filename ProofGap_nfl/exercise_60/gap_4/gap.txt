@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet
+2. k ∈ RealSet
+3. a > 1
+4. λ = a - 1
+5. λ > 0
+6. a = 1 + λ
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ IntegerSet ∧ n > 2 ⇒ a^{n} = (1 + λ)^{n}
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ IntegerSet ∧ n > 2 ⇒ (1 + λ)^{n} > frac(n * (n - 1), 2) * λ^{2}
+
+METHOD:

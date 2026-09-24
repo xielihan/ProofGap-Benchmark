@@ -1,0 +1,28 @@
+PROOF GAP @6
+ASSUM:
+1. D ⊆ CartesianProd(RealSet, RealSet)
+2. D_{1} ⊆ CartesianProd(RealSet, RealSet)
+3. D_{2} ⊆ CartesianProd(RealSet, RealSet)
+4. D_{3} ⊆ CartesianProd(RealSet, RealSet)
+5. I ∈ RealSet
+6. I_{1} ∈ RealSet
+7. I_{2} ∈ RealSet
+8. I_{3} ∈ RealSet
+9. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ ((x, y) ∈ D ⇔ x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} ≤ 4))
+10. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ ((x, y) ∈ D_{1} ⇔ x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} ≤ 1))
+11. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ ((x, y) ∈ D_{2} ⇔ x ∈ RealSet ∧ y ∈ RealSet ∧ 1 ≤ x^{2} + y^{2} ∧ x^{2} + y^{2} ≤ 2))
+12. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ ((x, y) ∈ D_{3} ⇔ x ∈ RealSet ∧ y ∈ RealSet ∧ 2 ≤ x^{2} + y^{2} ∧ x^{2} + y^{2} ≤ 4))
+13. I = VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . sqrtn(3, 1 - x^{2} - y^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+14. I_{1} = VolumeInt(D_{1}, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . sqrtn(3, 1 - x^{2} - y^{2})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+15. I_{2} = VolumeInt(D_{2}, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . sqrtn(3, x^{2} + y^{2} - 1)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+16. I_{3} = VolumeInt(D_{3}, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . sqrtn(3, x^{2} + y^{2} - 1)) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+17. I = I_{1} - I_{2} - I_{3}
+18. 0 < I_{1}
+19. I_{1} < VolumeInt(D_{1}, diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+20. VolumeInt(D_{1}, diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = π
+21. I_{2} > 0
+
+GOAL:
+I_{3} > VolumeInt(D_{3}, diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+
+METHOD:

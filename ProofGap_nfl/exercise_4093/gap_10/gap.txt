@@ -1,0 +1,42 @@
+PROOF GAP @10
+ASSUM:
+1. V ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. α ∈ RealSet
+5. β ∈ RealSet
+6. m ∈ RealSet
+7. n ∈ RealSet
+8. p ∈ RealSet
+9. q ∈ RealSet
+10. s ∈ RealSet
+11. u ∈ RealSet
+12. v ∈ RealSet
+13. w ∈ RealSet
+14. x : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+15. y : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+16. z : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+17. 0 < a
+18. a < b
+19. 0 < α
+20. α < β
+21. 0 < m
+22. m < n
+23. V = { (p, q, s) | p ∈ RealSet ∧ q ∈ RealSet ∧ s ∈ RealSet ∧ p > 0 ∧ q > 0 ∧ s > 0 ∧ frac(p^{2} + q^{2}, n) ≤ s ∧ s ≤ frac(p^{2} + q^{2}, m) ∧ a^{2} ≤ p * q ∧ p * q ≤ b^{2} ∧ α * p ≤ q ∧ q ≤ β * p }
+24. u = frac(z, x^{2} + y^{2})
+25. v = x * y
+26. w = frac(y, x)
+27. x(u, v, w) = sqrtn(2, frac(v, w))
+28. y(u, v, w) = sqrtn(2, v * w)
+29. z(u, v, w) = u * v * (w + frac(1, w))
+30. v > 0
+31. w > 0
+32. exists (I), I ∈ RealSet ∧ |I| = frac(v, 2 * w) * (w + frac(1, w))
+33. V = { (u, v, w) | u ∈ RealSet ∧ v ∈ RealSet ∧ w ∈ RealSet ∧ frac(1, n) ≤ u ∧ u ≤ frac(1, m) ∧ a^{2} ≤ v ∧ v ≤ b^{2} ∧ α ≤ w ∧ w ≤ β }
+34. VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x * y * z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)) = DefInt(frac(1, n), frac(1, m), (fun u [u ∈ RealSet] . frac(u, 2)) * diff(fun u [u ∈ RealSet] . u)) * DefInt(a^{2}, b^{2}, (fun v [v ∈ RealSet] . v^{3}) * diff(fun v [v ∈ RealSet] . v)) * DefInt(α, β, (fun w [w ∈ RealSet] . w + frac(1, w^{3}) + frac(2, w)) * diff(fun w [w ∈ RealSet] . w))
+35. DefInt(frac(1, n), frac(1, m), (fun u [u ∈ RealSet] . frac(u, 2)) * diff(fun u [u ∈ RealSet] . u)) * DefInt(a^{2}, b^{2}, (fun v [v ∈ RealSet] . v^{3}) * diff(fun v [v ∈ RealSet] . v)) * DefInt(α, β, (fun w [w ∈ RealSet] . w + frac(1, w^{3}) + frac(2, w)) * diff(fun w [w ∈ RealSet] . w)) = frac(1, 32) * (frac(1, m^{2}) - frac(1, n^{2})) * (b^{8} - a^{8}) * ((β^{2} - α^{2}) * (1 + frac(1, α^{2} * β^{2})) + 4 * ln(frac(β, α)))
+
+GOAL:
+VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x * y * z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)) = frac(1, 32) * (frac(1, m^{2}) - frac(1, n^{2})) * (b^{8} - a^{8}) * ((β^{2} - α^{2}) * (1 + frac(1, α^{2} * β^{2})) + 4 * ln(frac(β, α)))
+
+METHOD:

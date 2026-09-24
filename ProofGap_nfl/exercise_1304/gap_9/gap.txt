@@ -1,0 +1,17 @@
+PROOF GAP @9
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = e^{-x^{2}}
+3. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = -2 * x * e^{-x^{2}}
+4. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = e^{-x^{2}} * (4 * x^{2} - 2)
+5. forall (x), x ∈ RealSet ∧ |x| < frac(1, sqrtn(2, 2)) ⇒ FunDeri(y, 1, 2)(x) < 0
+6. ConcaveFuncOn(y, IntervalLoRo(-frac(1, sqrtn(2, 2)), frac(1, sqrtn(2, 2))))
+7. forall (x), x ∈ RealSet ∧ |x| > frac(1, sqrtn(2, 2)) ⇒ FunDeri(y, 1, 2)(x) > 0
+8. ConvexFuncOn(y, IntervalLoRo(-∞, -frac(1, sqrtn(2, 2))))
+9. ConvexFuncOn(y, IntervalLoRo(frac(1, sqrtn(2, 2)), +∞))
+10. forall (x), x ∈ RealSet ⇒ (FunDeri(y, 1, 2)(x) = 0 ⇔ x = -frac(1, sqrtn(2, 2)) ∨ x = frac(1, sqrtn(2, 2)))
+
+GOAL:
+{ (x, e^{-x^{2}}) | x ∈ RealSet ∧ (x = -frac(1, sqrtn(2, 2)) ∨ x = frac(1, sqrtn(2, 2))) } = { (-frac(1, sqrtn(2, 2)), e^{-frac(1, 2)}), (frac(1, sqrtn(2, 2)), e^{-frac(1, 2)}) }
+
+METHOD:

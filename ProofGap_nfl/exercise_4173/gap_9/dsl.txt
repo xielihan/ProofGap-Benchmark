@@ -1,0 +1,37 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ frac(1, x^{4} + x^{2} + frac(1, 2)) = frac(1, (x^{2} + b)^{2} - (a * x)^{2})}) (x := {fresh})
+get_condition (hypothesis 13: {fresh ∈ RealSet}) in (GOAL: {fresh ∈ RealSet ⇒ frac(1, fresh^{4} + fresh^{2} + frac(1, 2)) = frac(1, (fresh^{2} + b)^{2} - (a * fresh)^{2})})
+rewrite (left_to_right, equation) (hypothesis 10: {b = frac(1, sqrtn(2, 2))}); from (GOAL: {frac(1, fresh^{4} + fresh^{2} + frac(1, 2)) = frac(1, (fresh^{2} + b)^{2} - (a * fresh)^{2})}) to (GOAL: {frac(1, fresh^{4} + fresh^{2} + frac(1, 2)) = frac(1, (fresh^{2} + frac(1, sqrtn(2, 2)))^{2} - (a * fresh)^{2})})
+rewrite (left_to_right, equation) (hypothesis 9: {a = sqrtn(2, sqrtn(2, 2) - 1)}); from (GOAL: {frac(1, fresh^{4} + fresh^{2} + frac(1, 2)) = frac(1, (fresh^{2} + frac(1, sqrtn(2, 2)))^{2} - (a * fresh)^{2})}) to (GOAL: {frac(1, fresh^{4} + fresh^{2} + frac(1, 2)) = frac(1, (fresh^{2} + frac(1, sqrtn(2, 2)))^{2} - (sqrtn(2, sqrtn(2, 2) - 1) * fresh)^{2})})
+get_prop (theorem 'Thm 355. (NonnegativeNthRoot)': {forall (x) (n), x ∈ RealSet => n ∈ IntegerSet => (x >= 0 => n > 0 => sqrt(n, x) >= 0)}) as (hypothesis 14: {forall (x) (n), x ∈ RealSet => n ∈ IntegerSet => (x >= 0 => n > 0 => sqrt(n, x) >= 0)})
+get_prop (theorem 'Thm 450. (SquareRootSquareCancellation)': {forall (u), u ∈ RealSet => u >= 0 => sqrtn(2, u)^2 = u}) as (hypothesis 15: {forall (u), u ∈ RealSet => u >= 0 => sqrtn(2, u)^2 = u})
+get_prop (theorem 'Thm 470. (QuotientOfPositiveIntegerPowers)': {forall (u) (v) (n), u ∈ RealSet => v ∈ RealSet => n ∈ PosIntegerSet => v != 0 => frac(u ^ n, v ^ n) = (frac(u, v)) ^ n}) as (hypothesis 16: {forall (u) (v) (n), u ∈ RealSet => v ∈ RealSet => n ∈ PosIntegerSet => v != 0 => frac(u ^ n, v ^ n) = (frac(u, v)) ^ n})
+assert (hypothesis 17: {sqrtn(2, 2) >= 0}) by proof {
+    autosolve all_hypothesis
+}
+assert (hypothesis 18: {sqrtn(2, 2)^2 = 2}) by proof {
+    autosolve all_hypothesis
+}
+assert (hypothesis 19: {sqrtn(2, 2) >= 1}) by proof {
+    autosolve all_hypothesis
+}
+assert (hypothesis 20: {sqrtn(2, sqrtn(2, 2) - 1)^2 = sqrtn(2, 2) - 1}) by proof {
+    autosolve all_hypothesis
+}
+assert (hypothesis 21: {sqrtn(2, 2) != 0}) by proof {
+    autosolve all_hypothesis
+}
+assert (hypothesis 22: {frac(1, sqrtn(2, 2))^2 = frac(1, 2)}) by proof {
+    autosolve all_hypothesis
+}
+assert (hypothesis 23: {2 * frac(1, sqrtn(2, 2)) = sqrtn(2, 2)}) by proof {
+    autosolve all_hypothesis
+}
+assert (hypothesis 24: {2 * frac(1, sqrtn(2, 2)) - sqrtn(2, sqrtn(2, 2) - 1)^2 = 1}) by proof {
+    autosolve all_hypothesis
+}
+assert (hypothesis 25: {(fresh^{2} + frac(1, sqrtn(2, 2)))^{2} - (sqrtn(2, sqrtn(2, 2) - 1) * fresh)^{2} = fresh^{4} + (2 * frac(1, sqrtn(2, 2)) - sqrtn(2, sqrtn(2, 2) - 1)^2) * fresh^2 + frac(1, sqrtn(2, 2))^2}) by proof {
+    autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 24: {2 * frac(1, sqrtn(2, 2)) - sqrtn(2, sqrtn(2, 2) - 1)^2 = 1}); from (hypothesis 25: {(fresh^{2} + frac(1, sqrtn(2, 2)))^{2} - (sqrtn(2, sqrtn(2, 2) - 1) * fresh)^{2} = fresh^{4} + (2 * frac(1, sqrtn(2, 2)) - sqrtn(2, sqrtn(2, 2) - 1)^2) * fresh^2 + frac(1, sqrtn(2, 2))^2}) to (hypothesis 25: {(fresh^{2} + frac(1, sqrtn(2, 2)))^{2} - (sqrtn(2, sqrtn(2, 2) - 1) * fresh)^{2} = fresh^{4} + 1 * fresh^2 + frac(1, sqrtn(2, 2))^2})
+rewrite (left_to_right, equation) (hypothesis 22: {frac(1, sqrtn(2, 2))^2 = frac(1, 2)}); from (hypothesis 25: {(fresh^{2} + frac(1, sqrtn(2, 2)))^{2} - (sqrtn(2, sqrtn(2, 2) - 1) * fresh)^{2} = fresh^{4} + 1 * fresh^2 + frac(1, sqrtn(2, 2))^2}) to (hypothesis 25: {(fresh^{2} + frac(1, sqrtn(2, 2)))^{2} - (sqrtn(2, sqrtn(2, 2) - 1) * fresh)^{2} = fresh^{4} + 1 * fresh^2 + frac(1, 2)})
+autosolve all_hypothesis

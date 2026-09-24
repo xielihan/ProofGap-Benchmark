@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. r : RealSet → RealSet
+2. p ∈ RealSet ∧ p > 0
+3. S ∈ RealSet
+4. forall (φ), φ ∈ RealSet ∧ frac(π, 4) ≤ φ ∧ φ ≤ frac(π, 2) ⇒ r(φ) = frac(p, 1 - cos(φ))
+
+GOAL:
+S = frac(1, 2) * DefInt(frac(π, 4), frac(π, 2), (fun φ [φ ∈ RealSet] . r(φ)^{2}) * diff(fun φ [φ ∈ RealSet] . φ))
+
+METHOD:

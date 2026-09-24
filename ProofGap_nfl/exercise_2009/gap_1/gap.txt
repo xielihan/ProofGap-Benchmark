@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet ∧ tan(x) > 0
+2. C ∈ RealSet
+
+GOAL:
+forall (t), t ∈ RealSet ∧ t = sqrtn(2, tan(x)) ⇒ t > 0
+
+METHOD:

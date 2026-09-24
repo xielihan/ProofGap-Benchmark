@@ -1,0 +1,18 @@
+PROOF GAP @5
+ASSUM:
+1. C ⊆ CartesianProd(RealSet, RealSet)
+2. D ⊆ CartesianProd(RealSet, RealSet)
+3. Boundary : PowerSet(CartesianProd(RealSet, RealSet)) → PowerSet(CartesianProd(RealSet, RealSet))
+4. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ D = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π ∧ 0 ≤ y ∧ y ≤ sin(x) })
+5. C = Boundary(D)
+6. P = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * (1 - cos(y)))
+7. Q = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . -e^{x} * (y - sin(y)))
+8. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(Q, 1, 1)(x, y) - FunDeri(P, 2, 1)(x, y) = e^{x} * (sin(y) - y) - e^{x} * sin(y))
+9. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ e^{x} * (sin(y) - y) - e^{x} * sin(y) = -y * e^{x})
+10. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(Q, 1, 1)(x, y) - FunDeri(P, 2, 1)(x, y) = -y * e^{x})
+11. VectorCurveInt(C, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * (1 - cos(y))) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) - (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . e^{x} * (y - sin(y))) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . -y * e^{x}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y))
+
+GOAL:
+VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . -y * e^{x}) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = -DefInt(0, π, (fun x [x ∈ RealSet ∧ x ∈ IntervalCc(0, π)] . e^{x} * DefInt(0, sin(x), (fun y [y ∈ RealSet ∧ y ∈ IntervalCc(0, sin(x))] . y) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

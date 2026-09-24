@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ y(x) > 0 ⇒ y(x)^{2} + 2 * ln(y(x)) = x^{4}
+3. DiffableFunc(y)
+4. DiffableFunc(FunDeri(y, 1, 1))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ y(x) > 0 ⇒ 2 * y(x) * FunDeri(y, 1, 1)(x) + frac(2 * FunDeri(y, 1, 1)(x), y(x)) = 4 * x^{3}
+
+METHOD:
+[@method 两边同时对 x 求 导数 @]

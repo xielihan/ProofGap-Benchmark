@@ -1,0 +1,23 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. A ∈ RealSet
+3. B ∈ RealSet
+4. a ∈ RealSet
+5. b ∈ RealSet
+6. φ : RealSet → RealSet
+7. x ∈ RealSet
+8. A < B
+9. A ≤ a
+10. a < b
+11. b ≤ B
+12. IntegrableFuncOn(f, [A, B])
+13. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (φ), φ : RealSet → RealSet ∧ ContinuousFuncOn(φ, [A, B]) ∧ DefInt(A, B, (fun x [x ∈ RealSet] . |f(x) - φ(x)|) * diff(fun x [x ∈ RealSet] . x)) < frac(ε, 4))
+14. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ UniformContinuousFuncOn(φ, [A, B])
+15. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ δ ≤ min(a - A, B - b) ∧ (forall (`x'`) (`x''`), `x'` ∈ RealSet ∧ `x'` ∈ [A, B] ∧ `x''` ∈ RealSet ∧ `x''` ∈ [A, B] ∧ |`x'` - `x''`| < δ ⇒ |φ(`x'`) - φ(`x''`)| < frac(ε, 2 * (b - a))))
+16. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (h), h ∈ RealSet ∧ |h| < δ ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ x + h ∈ [A, B])))
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (h), h ∈ RealSet ∧ |h| < δ ⇒ DefInt(a, b, (fun x [x ∈ RealSet] . |f(x + h) - f(x)|) * diff(fun x [x ∈ RealSet] . x)) ≤ DefInt(a, b, (fun x [x ∈ RealSet] . |f(x + h) - φ(x + h)|) * diff(fun x [x ∈ RealSet] . x)) + DefInt(a, b, (fun x [x ∈ RealSet] . |φ(x + h) - φ(x)|) * diff(fun x [x ∈ RealSet] . x)) + DefInt(a, b, (fun x [x ∈ RealSet] . |f(x) - φ(x)|) * diff(fun x [x ∈ RealSet] . x))))
+
+METHOD:

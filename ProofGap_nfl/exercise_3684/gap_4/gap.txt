@@ -1,0 +1,20 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet ∧ a ∈ PosRealSet
+2. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+3. x : NonNegIntegerSet → RealSet
+4. u ∈ RealSet
+5. F ∈ RealSet
+6. λ ∈ RealSet
+7. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ x(i) ∈ RealSet
+8. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ sum_{ i = 1 }^{ n } (x(i)) = a
+9. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ u = sum_{ i = 1 }^{ n } (x(i)^{2})
+10. F = u + λ * ((sum_{ i = 1 }^{ n } (x(i))) - a)
+11. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ FunDeri(F, fun x, λ [x ∈ NonNegIntegerSet ∧ λ ∈ RealSet] . x(i), 1) = 2 * x(i) + λ ∧ 2 * x(i) + λ = 0
+12. forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ x(i) = -frac(λ, 2)
+13. sum_{ i = 1 }^{ n } (x(i)) = n * -frac(λ, 2)
+
+GOAL:
+n * -frac(λ, 2) = a
+
+METHOD:

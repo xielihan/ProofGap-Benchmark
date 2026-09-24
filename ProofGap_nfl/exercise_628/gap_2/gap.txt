@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. |sum_{ k = n + 1 }^{ 2 * n } (frac(x^{k}, k!))| ≤ sum_{ k = n + 1 }^{ 2 * n } (frac(|x|^{k}, k!))
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ sum_{ k = n + 1 }^{ 2 * n } (frac(|x|^{k}, k!)) ≤ frac(|x|^{n + 1}, (n + 1)!) * (sum_{ i = 0 }^{ n - 1 } (|x|^{i}))
+
+METHOD:

@@ -1,0 +1,49 @@
+get_condition (hypothesis 18: {exists (A), A : NonNegIntegerSet → RealSet ∧ NonNegSeq(A) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ∧ (forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ |f(n, x)| ≤ A(n))}) in (GOAL: {(exists (A), A : NonNegIntegerSet → RealSet ∧ NonNegSeq(A) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ∧ (forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ |f(n, x)| ≤ A(n))) ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n)))})
+get_exists (hypothesis 18: {exists (A), A : NonNegIntegerSet → RealSet ∧ NonNegSeq(A) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ∧ (forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ |f(n, x)| ≤ A(n))}) (A := {A0})
+destruct_and (hypothesis 19: {A0 : NonNegIntegerSet → RealSet ∧ NonNegSeq(A0) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A0(n))) ∧ (forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ |f(n, x)| ≤ A0(n))}) as (hypothesis 20: {A0 : NonNegIntegerSet → RealSet}) (hypothesis 21: {NonNegSeq(A0)}) (hypothesis 22: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A0(n)))}) (hypothesis 23: {forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ |f(n, x)| ≤ A0(n)})
+get_prop (hypothesis 16: {forall (A), A : NonNegIntegerSet → RealSet ∧ NonNegSeq(A) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A(n))) ∧ (forall (n) (y), n ∈ NonNegIntegerSet ∧ y ∈ RealSet ∧ n ∈ PosIntegerSet ∧ y ∈ [0, 1] ⇒ |f(n, y)| ≤ A(n)) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x(n) = frac(3, 2) * 2^{-(n + 1)} ⇒ A(n) ≥ frac(1, n))}) (A := {A0}) as (hypothesis 24: {A0 : NonNegIntegerSet → RealSet ∧ NonNegSeq(A0) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A0(n))) ∧ (forall (n) (y), n ∈ NonNegIntegerSet ∧ y ∈ RealSet ∧ n ∈ PosIntegerSet ∧ y ∈ [0, 1] ⇒ |f(n, y)| ≤ A0(n)) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x(n) = frac(3, 2) * 2^{-(n + 1)} ⇒ A0(n) ≥ frac(1, n))})
+use_condition (obvious: {A0 : NonNegIntegerSet → RealSet ∧ NonNegSeq(A0) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A0(n))) ∧ (forall (n) (y), n ∈ NonNegIntegerSet ∧ y ∈ RealSet ∧ n ∈ PosIntegerSet ∧ y ∈ [0, 1] ⇒ |f(n, y)| ≤ A0(n))}) in (hypothesis 24: {A0 : NonNegIntegerSet → RealSet ∧ NonNegSeq(A0) ∧ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A0(n))) ∧ (forall (n) (y), n ∈ NonNegIntegerSet ∧ y ∈ RealSet ∧ n ∈ PosIntegerSet ∧ y ∈ [0, 1] ⇒ |f(n, y)| ≤ A0(n)) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x(n) = frac(3, 2) * 2^{-(n + 1)} ⇒ A0(n) ≥ frac(1, n))}) as (hypothesis 25: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x(n) = frac(3, 2) * 2^{-(n + 1)} ⇒ A0(n) ≥ frac(1, n)})
+assert (hypothesis 26: {forall (n), n ∈ NonNegIntegerSet ⇒ n ≥ 1 ⇒ 0 ≤ cases{ 0 if n = 0; frac(1, n) if n ≠ 0 } ∧ cases{ 0 if n = 0; frac(1, n) if n ≠ 0 } ≤ A0(n)}) by proof {
+  get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ⇒ n ≥ 1 ⇒ 0 ≤ cases{ 0 if n = 0; frac(1, n) if n ≠ 0 } ∧ cases{ 0 if n = 0; frac(1, n) if n ≠ 0 } ≤ A0(n)}) (n := {n0})
+  get_condition (hypothesis 26: {n0 ∈ NonNegIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ⇒ n0 ≥ 1 ⇒ 0 ≤ cases{ 0 if n0 = 0; frac(1, n0) if n0 ≠ 0 } ∧ cases{ 0 if n0 = 0; frac(1, n0) if n0 ≠ 0 } ≤ A0(n0)})
+  get_condition (hypothesis 27: {n0 ≥ 1}) in (GOAL: {n0 ≥ 1 ⇒ 0 ≤ cases{ 0 if n0 = 0; frac(1, n0) if n0 ≠ 0 } ∧ cases{ 0 if n0 = 0; frac(1, n0) if n0 ≠ 0 } ≤ A0(n0)})
+  get_prop (hypothesis 17: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = frac(3, 2) * 2^{-(n + 1)}}) (n := {n0}) as (hypothesis 28: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ x(n0) = frac(3, 2) * 2^{-(n0 + 1)}})
+  get_prop (hypothesis 25: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x(n) = frac(3, 2) * 2^{-(n + 1)} ⇒ A0(n) ≥ frac(1, n)}) (n := {n0}) as (hypothesis 29: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x(n0) = frac(3, 2) * 2^{-(n0 + 1)} ⇒ A0(n0) ≥ frac(1, n0)})
+  assert (hypothesis 30: {n0 ∈ PosIntegerSet}) by proof {
+    get_prop (theorem 'Thm 520. (NonnegativeIntegerIsInteger)': {forall (x), x ∈ NonNegIntegerSet => x ∈ IntegerSet}) (x := {n0}) as (hypothesis 30: {n0 ∈ NonNegIntegerSet ⇒ n0 ∈ IntegerSet})
+    use_condition (hypothesis 26: {n0 ∈ NonNegIntegerSet}) in (hypothesis 30: {n0 ∈ NonNegIntegerSet ⇒ n0 ∈ IntegerSet}) as (hypothesis 31: {n0 ∈ IntegerSet})
+    get_prop (theorem 'Thm 430. (IntegerAtLeastOneIsPositiveInteger)': {forall (x), x ∈ IntegerSet => x >= 1 => x ∈ PosIntegerSet}) (x := {n0}) as (hypothesis 32: {n0 ∈ IntegerSet ⇒ n0 ≥ 1 ⇒ n0 ∈ PosIntegerSet})
+    use_condition (hypothesis 31: {n0 ∈ IntegerSet}) (hypothesis 27: {n0 ≥ 1}) in (hypothesis 32: {n0 ∈ IntegerSet ⇒ n0 ≥ 1 ⇒ n0 ∈ PosIntegerSet}) as (hypothesis 33: {n0 ∈ PosIntegerSet})
+    apply (hypothesis 33: {n0 ∈ PosIntegerSet})
+  }
+  use_condition (obvious: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (hypothesis 28: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ x(n0) = frac(3, 2) * 2^{-(n0 + 1)}}) as (hypothesis 31: {x(n0) = frac(3, 2) * 2^{-(n0 + 1)}})
+  use_condition (obvious: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x(n0) = frac(3, 2) * 2^{-(n0 + 1)}}) in (hypothesis 29: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ x(n0) = frac(3, 2) * 2^{-(n0 + 1)} ⇒ A0(n0) ≥ frac(1, n0)}) as (hypothesis 32: {A0(n0) ≥ frac(1, n0)})
+  assert (hypothesis 33: {cases{ 0 if n0 = 0; frac(1, n0) if n0 ≠ 0 } = frac(1, n0)}) by proof {
+    autosolve all_hypothesis
+  }
+  rewrite (left_to_right, equation) (hypothesis 33: {cases{ 0 if n0 = 0; frac(1, n0) if n0 ≠ 0 } = frac(1, n0)}); from (GOAL: {0 ≤ cases{ 0 if n0 = 0; frac(1, n0) if n0 ≠ 0 } ∧ cases{ 0 if n0 = 0; frac(1, n0) if n0 ≠ 0 } ≤ A0(n0)}) to (GOAL: {0 ≤ frac(1, n0) ∧ frac(1, n0) ≤ A0(n0)})
+  autosolve all_hypothesis
+}
+assert (hypothesis 27: {exists (N), N ∈ NonNegIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ⇒ n ≥ N ⇒ 0 ≤ cases{ 0 if n = 0; frac(1, n) if n ≠ 0 } ∧ cases{ 0 if n = 0; frac(1, n) if n ≠ 0 } ≤ A0(n))}) by proof {
+  exists (N := {1})
+  autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 459. (FiniteSeriesTermsDoNotAffectConvergence)': {forall (a) (N) (M), N ∈ NonNegIntegerSet => M ∈ NonNegIntegerSet => (ConvergentSeries(sum_{n = N}^{+∞} (a(n))) <==> ConvergentSeries(sum_{n = M}^{+∞} (a(n))))}) (a := {A0}) (N := {1}) (M := {0}) as (hypothesis 28: {1 ∈ NonNegIntegerSet ⇒ 0 ∈ NonNegIntegerSet ⇒ (ConvergentSeries(sum_{ n = 1 }^{ +∞ } (A0(n))) ⇔ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (A0(n))))})
+assert (hypothesis 29: {ConvergentSeries(sum_{ n = 0 }^{ +∞ } (A0(n)))}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 129. (SeriesComparisonTest)': {forall (a) (b), (exists (N), N ∈ NonNegIntegerSet /\ (forall (n), n ∈ NonNegIntegerSet => n >= N => 0 <= a(n) /\ a(n) <= b(n))) => ConvergentSeries(sum_{n = 0}^{+∞}(b(n))) => ConvergentSeries(sum_{n = 0}^{+∞}(a(n)))}) (a := {fun n . cases{ 0 if n = 0; frac(1, n) if n ≠ 0 }}) (b := {A0}) as (hypothesis 30: {(exists (N), N ∈ NonNegIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ⇒ n ≥ N ⇒ 0 ≤ cases{ 0 if n = 0; frac(1, n) if n ≠ 0 } ∧ cases{ 0 if n = 0; frac(1, n) if n ≠ 0 } ≤ A0(n))) ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (A0(n))) ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (cases{ 0 if n = 0; frac(1, n) if n ≠ 0 }))})
+assert (hypothesis 31: {ConvergentSeries(sum_{ n = 0 }^{ +∞ } (cases{ 0 if n = 0; frac(1, n) if n ≠ 0 }))}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 459. (FiniteSeriesTermsDoNotAffectConvergence)': {forall (a) (N) (M), N ∈ NonNegIntegerSet => M ∈ NonNegIntegerSet => (ConvergentSeries(sum_{n = N}^{+∞} (a(n))) <==> ConvergentSeries(sum_{n = M}^{+∞} (a(n))))}) (a := {fun n . cases{ 0 if n = 0; frac(1, n) if n ≠ 0 }}) (N := {0}) (M := {1}) as (hypothesis 32: {0 ∈ NonNegIntegerSet ⇒ 1 ∈ NonNegIntegerSet ⇒ (ConvergentSeries(sum_{ n = 0 }^{ +∞ } (cases{ 0 if n = 0; frac(1, n) if n ≠ 0 })) ⇔ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (cases{ 0 if n = 0; frac(1, n) if n ≠ 0 })) )})
+assert (hypothesis 33: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (cases{ 0 if n = 0; frac(1, n) if n ≠ 0 }))}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 34: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ cases{ 0 if n = 0; frac(1, n) if n ≠ 0 } = frac(1, n)}) by proof {
+  get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ cases{ 0 if n = 0; frac(1, n) if n ≠ 0 } = frac(1, n)}) (n := {n0})
+  get_condition (hypothesis 34: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ cases{ 0 if n0 = 0; frac(1, n0) if n0 ≠ 0 } = frac(1, n0)})
+  autosolve all_hypothesis
+}
+rewrite_in sum (left_to_right, equation) (hypothesis 34: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ cases{ 0 if n = 0; frac(1, n) if n ≠ 0 } = frac(1, n)}); from (hypothesis 33: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (cases{ 0 if n = 0; frac(1, n) if n ≠ 0 }))}) to (hypothesis 35: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n)))})
+apply (hypothesis 35: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n)))})

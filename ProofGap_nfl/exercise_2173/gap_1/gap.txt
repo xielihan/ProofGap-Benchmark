@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. F : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ FunDeri(F, 1, 1)(x) = floor(x) * |sin(π * x)|
+3. F(0) = 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x < 1 ⇒ { `F_1` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_1`, 1, 1)(x) = floor(x) * |sin(π * x)| * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = 0 * sin(π * x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+METHOD:

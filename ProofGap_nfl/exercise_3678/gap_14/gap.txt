@@ -1,0 +1,27 @@
+PROOF GAP @14
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. x ∈ RealSet
+4. y ∈ RealSet
+5. z ∈ RealSet
+6. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = x^{2} + 2 * y^{2} + 3 * z^{2}
+7. S = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x^{2} + y^{2} + z^{2} ≤ 100 }
+8. (0, 0, 0) ∈ S
+9. u(0, 0, 0) = 0
+10. (10, 0, 0) ∈ S
+11. u(10, 0, 0) = 100
+12. (-10, 0, 0) ∈ S
+13. u(-10, 0, 0) = 100
+14. (0, 10, 0) ∈ S
+15. u(0, 10, 0) = 200
+16. (0, -10, 0) ∈ S
+17. u(0, -10, 0) = 200
+18. (0, 0, 10) ∈ S
+19. u(0, 0, 10) = 300
+20. (0, 0, -10) ∈ S
+
+GOAL:
+u(0, 0, -10) = 300
+
+METHOD:

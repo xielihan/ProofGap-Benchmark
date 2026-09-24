@@ -1,0 +1,15 @@
+1. get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N > 1 ∧ frac(x(N), N) < a + ε ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (forall (q) (r), q ∈ IntegerSet ∧ r ∈ IntegerSet ∧ q = floor(frac(n, N)) ∧ r = n - q * N ⇒ n = q * N + r)))}) (ε := {epsilon})
+2. get_condition (hypothesis 16: {epsilon ∈ RealSet ∧ epsilon > 0}) in (GOAL: {epsilon ∈ RealSet ∧ epsilon > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N > 1 ∧ frac(x(N), N) < a + epsilon ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N ⇒ (forall (q) (r), q ∈ IntegerSet ∧ r ∈ IntegerSet ∧ q = floor(frac(n, N)) ∧ r = n - q * N ⇒ n = q * N + r)))})
+3. get_prop (hypothesis 12: {forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N > 1 ∧ frac(x(N), N) < a + ε)}) (ε := {epsilon}) as (hypothesis 17: {epsilon ∈ RealSet ∧ epsilon > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N > 1 ∧ frac(x(N), N) < a + epsilon)})
+4. use_condition (hypothesis 16: {epsilon ∈ RealSet ∧ epsilon > 0}) in (hypothesis 17: {epsilon ∈ RealSet ∧ epsilon > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N > 1 ∧ frac(x(N), N) < a + epsilon)}) as (hypothesis 18: {exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N > 1 ∧ frac(x(N), N) < a + epsilon})
+5. get_exists (hypothesis 18: {exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ N > 1 ∧ frac(x(N), N) < a + epsilon}) (N := {N0})
+6. destruct_and (hypothesis 19: {N0 ∈ NonNegIntegerSet ∧ N0 ∈ PosIntegerSet ∧ N0 > 1 ∧ frac(x(N0), N0) < a + epsilon}) as (hypothesis 20: {N0 ∈ NonNegIntegerSet}) (hypothesis 21: {N0 ∈ PosIntegerSet}) (hypothesis 22: {N0 > 1}) (hypothesis 23: {frac(x(N0), N0) < a + epsilon})
+7. assert (hypothesis 24: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N0 ⇒ (forall (q) (r), q ∈ IntegerSet ∧ r ∈ IntegerSet ∧ q = floor(frac(n, N0)) ∧ r = n - q * N0 ⇒ n = q * N0 + r)}) by proof {
+  1. get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > N0 ⇒ (forall (q) (r), q ∈ IntegerSet ∧ r ∈ IntegerSet ∧ q = floor(frac(n, N0)) ∧ r = n - q * N0 ⇒ n = q * N0 + r)}) (n := {n0})
+  2. get_condition (hypothesis 24: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 > N0}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 > N0 ⇒ (forall (q) (r), q ∈ IntegerSet ∧ r ∈ IntegerSet ∧ q = floor(frac(n0, N0)) ∧ r = n0 - q * N0 ⇒ n0 = q * N0 + r)})
+  3. get_forall (GOAL: {forall (q) (r), q ∈ IntegerSet ∧ r ∈ IntegerSet ∧ q = floor(frac(n0, N0)) ∧ r = n0 - q * N0 ⇒ n0 = q * N0 + r}) (q := {q0}) (r := {r0})
+  4. get_condition (hypothesis 25: {q0 ∈ IntegerSet ∧ r0 ∈ IntegerSet ∧ q0 = floor(frac(n0, N0)) ∧ r0 = n0 - q0 * N0}) in (GOAL: {q0 ∈ IntegerSet ∧ r0 ∈ IntegerSet ∧ q0 = floor(frac(n0, N0)) ∧ r0 = n0 - q0 * N0 ⇒ n0 = q0 * N0 + r0})
+  5. autosolve all_hypothesis
+}
+8. exists (N := {N0})
+9. autosolve all_hypothesis

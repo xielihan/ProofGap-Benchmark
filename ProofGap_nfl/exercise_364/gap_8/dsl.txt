@@ -1,0 +1,13 @@
+get_prop (theorem 'Thm 495. (PeriodicPhiCharacterization)': {forall (φ) (T), φ : RealSet -> RealSet => T ∈ RealSet => (PeriodicFunc(φ, T) <==> (T > 0 /\ (forall (x), x ∈ RealSet => φ(x + T) = φ(x))))}) (φ := {φ}) (T := {2 * (b - a)}) as (hypothesis 18: {φ : RealSet -> RealSet => 2 * (b - a) ∈ RealSet => (PeriodicFunc(φ, 2 * (b - a)) <==> (2 * (b - a) > 0 /\ (forall (x), x ∈ RealSet => φ(x + 2 * (b - a)) = φ(x))))})
+assert (hypothesis 19: {2 * (b - a) ∈ RealSet})
+use_condition (hypothesis 17: {φ : RealSet -> RealSet}) (hypothesis 19: {2 * (b - a) ∈ RealSet}) in (hypothesis 18: {φ : RealSet -> RealSet => 2 * (b - a) ∈ RealSet => (PeriodicFunc(φ, 2 * (b - a)) <==> (2 * (b - a) > 0 /\ (forall (x), x ∈ RealSet => φ(x + 2 * (b - a)) = φ(x))))}) as (hypothesis 20: {PeriodicFunc(φ, 2 * (b - a)) <==> (2 * (b - a) > 0 /\ (forall (x), x ∈ RealSet => φ(x + 2 * (b - a)) = φ(x)))})
+rewrite (left_to_right, iff) (hypothesis 20: {PeriodicFunc(φ, 2 * (b - a)) <==> (2 * (b - a) > 0 /\ (forall (x), x ∈ RealSet => φ(x + 2 * (b - a)) = φ(x)))}); from (GOAL: {PeriodicFunc(φ, 2 * (b - a))}) to (GOAL: {2 * (b - a) > 0 /\ (forall (x), x ∈ RealSet => φ(x + 2 * (b - a)) = φ(x))})
+assert (hypothesis 21: {2 * (b - a) > 0})
+assert (hypothesis 22: {forall (x), x ∈ RealSet => φ(x + 2 * (b - a)) = φ(x)}) by proof {
+  get_forall (GOAL: {forall (x), x ∈ RealSet => φ(x + 2 * (b - a)) = φ(x)}) (x := {z})
+  get_condition (hypothesis 22: {z ∈ RealSet}) in (GOAL: {z ∈ RealSet => φ(z + 2 * (b - a)) = φ(z)})
+  get_prop (hypothesis 16: {forall (x), x ∈ RealSet => φ(x) = φ(x + 2 * (b - a))}) (x := {z}) as (hypothesis 23: {z ∈ RealSet => φ(z) = φ(z + 2 * (b - a))})
+  use_condition (hypothesis 22: {z ∈ RealSet}) in (hypothesis 23: {z ∈ RealSet => φ(z) = φ(z + 2 * (b - a))}) as (hypothesis 24: {φ(z) = φ(z + 2 * (b - a))})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

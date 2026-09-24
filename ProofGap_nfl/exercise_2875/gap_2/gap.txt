@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = ln(frac(1, 2 + 2 * x + x^{2}))
+4. 2 + 2 * x + x^{2} = 1 + (x + 1)^{2}
+
+GOAL:
+f(x) = -ln(1 + (x + 1)^{2})
+
+METHOD:

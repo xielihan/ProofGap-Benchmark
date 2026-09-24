@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. n ∈ NonNegIntegerSet
+3. n ∈ PosIntegerSet
+4. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ y(x) = frac(ln(x), x)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ diff^{n}(y) = FunDeri(y, 1, n)(x) * diff(fun x [x ∈ RealSet ∧ x ∈ PosRealSet] . x)^{n}
+
+METHOD:

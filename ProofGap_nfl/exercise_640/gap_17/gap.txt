@@ -1,0 +1,32 @@
+PROOF GAP @17
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. m ∈ RealSet
+3. ε ∈ RealSet
+4. 0 < ε
+5. ε < 1
+6. x(0) = m
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = m + ε * sin(x(n - 1))
+8. x(2) - x(1) = ε * (sin(x(1)) - sin(x(0)))
+9. x(2) - x(1) = 2 * ε * sin(frac(x(1) - x(0), 2)) * cos(frac(x(1) + x(0), 2))
+10. |x(2) - x(1)| ≤ ε * |x(1) - x(0)|
+11. |x(3) - x(2)| ≤ ε^{2} * |x(1) - x(0)|
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ |x(n) - x(n - 1)| ≤ ε^{n - 1} * |x(1) - x(0)| ⇒ |x(n + 1) - x(n)| = 2 * ε * |sin(frac(x(n) - x(n - 1), 2))| * |cos(frac(x(n) + x(n - 1), 2))|
+13. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ |x(n) - x(n - 1)| ≤ ε^{n - 1} * |x(1) - x(0)| ⇒ |x(n + 1) - x(n)| ≤ ε * |x(n) - x(n - 1)|
+14. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ |x(n) - x(n - 1)| ≤ ε^{n - 1} * |x(1) - x(0)| ⇒ |x(n + 1) - x(n)| ≤ ε^{n} * |x(1) - x(0)|
+15. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |x(n) - x(n - 1)| ≤ ε^{n - 1} * |x(1) - x(0)|
+16. forall (p), p ∈ NonNegIntegerSet ⇒ (forall (q), p ∈ NonNegIntegerSet ∧ q ∈ NonNegIntegerSet ∧ p > q ⇒ |x(p) - x(q)| ≤ sum_{ i = q + 1 }^{ p } (|x(i) - x(i - 1)|))
+17. forall (p), p ∈ NonNegIntegerSet ⇒ (forall (q), p ∈ NonNegIntegerSet ∧ q ∈ NonNegIntegerSet ∧ p > q ⇒ |x(p) - x(q)| ≤ (sum_{ i = q }^{ p - 1 } (ε^{i})) * |x(1) - x(0)|)
+18. forall (p), p ∈ NonNegIntegerSet ⇒ (forall (q), p ∈ NonNegIntegerSet ∧ q ∈ NonNegIntegerSet ∧ p > q ⇒ |x(p) - x(q)| ≤ ε^{q} * frac(1 - ε^{p - q}, 1 - ε) * |x(1) - x(0)|)
+19. forall (p), p ∈ NonNegIntegerSet ⇒ (forall (q), p ∈ NonNegIntegerSet ∧ q ∈ NonNegIntegerSet ∧ p > q ⇒ |x(1) - x(0)| = ε * |sin(x(0))|)
+20. forall (p), p ∈ NonNegIntegerSet ⇒ (forall (q), p ∈ NonNegIntegerSet ∧ q ∈ NonNegIntegerSet ∧ p > q ⇒ |x(1) - x(0)| ≤ ε)
+21. forall (p), p ∈ NonNegIntegerSet ⇒ (forall (q), p ∈ NonNegIntegerSet ∧ q ∈ NonNegIntegerSet ∧ p > q ⇒ |x(p) - x(q)| < frac(ε^{q + 1}, 1 - ε))
+22. CauchySeq(x)
+23. ConvergentSeq(x)
+24. ξ = seqlim_{ n → +∞ } (x(n))
+
+GOAL:
+ξ = m + ε * sin(ξ)
+
+METHOD:
+[@method 由 forall (n ∈ PosIntegerSet), x(n) = m + ε * sin(x(n - 1)) 两边同时求极限 n → +∞ @]

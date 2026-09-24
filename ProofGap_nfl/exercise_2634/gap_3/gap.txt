@@ -1,0 +1,16 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. c ∈ RealSet
+4. d ∈ RealSet
+5. u : NonNegIntegerSet → RealSet
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ c * ln(n) + d ≠ 0
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = e^{frac(a * ln(n) + b, c * ln(n) + d)}
+8. c ≠ 0 ⇒ b * c - a * d ≠ 0 ⇒ seqlim_{ n → +∞ } (n * (frac(u(n), u(n + 1)) - 1)) = 0
+9. c ≠ 0 ⇒ b * c - a * d ≠ 0 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (u(n)))
+
+GOAL:
+c ≠ 0 ⇒ b * c - a * d = 0 ⇒ (exists (C), C ∈ RealSet ∧ C ∈ PosRealSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = C))
+
+METHOD:

@@ -1,0 +1,18 @@
+PROOF GAP @8
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. y : NonNegIntegerSet → RealSet ∧ IsSeq(y)
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = (1 + frac(1, n))^{n}
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n) = (1 + frac(1, n))^{n + 1}
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = (1 + frac(1, n))^{n}
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = 2 + (sum_{ k = 2 }^{ n } (frac(1, k!) * (prod_{ i = 1 }^{ k - 1 } (1 - frac(i, n)))))
+7. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (m), m ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ m ∈ PosIntegerSet ∧ m > n ⇒ x(n) < x(m))
+8. MonoIncSeq(x)
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (k), k ∈ IntegerSet ∧ k > 2 ⇒ frac(1, k!) < frac(1, 2^{k - 1}))
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) < 2 + (sum_{ k = 1 }^{ n - 1 } (frac(1, 2^{k})))
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 2 + (sum_{ k = 1 }^{ n - 1 } (frac(1, 2^{k}))) = 2 + 1 - frac(1, 2^{n - 1})
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) < 3
+
+METHOD:

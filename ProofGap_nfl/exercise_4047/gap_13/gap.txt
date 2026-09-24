@@ -1,0 +1,38 @@
+PROOF GAP @13
+ASSUM:
+1. R ∈ RealSet
+2. `φ_{1}` ∈ RealSet
+3. `φ_{2}` ∈ RealSet
+4. `ψ_{1}` ∈ RealSet
+5. `ψ_{2}` ∈ RealSet
+6. x : CartesianProd(RealSet, RealSet) → RealSet
+7. y : CartesianProd(RealSet, RealSet) → RealSet
+8. z : CartesianProd(RealSet, RealSet) → RealSet
+9. E ∈ RealSet
+10. F ∈ RealSet
+11. G ∈ RealSet
+12. S ∈ RealSet
+13. R > 0
+14. -frac(π, 2) ≤ `ψ_{1}`
+15. `ψ_{1}` ≤ `ψ_{2}`
+16. `ψ_{2}` ≤ frac(π, 2)
+17. forall (φ) (ψ), φ ∈ RealSet ∧ ψ ∈ RealSet ⇒ x(φ, ψ) = R * cos(φ) * cos(ψ)
+18. forall (φ) (ψ), φ ∈ RealSet ∧ ψ ∈ RealSet ⇒ y(φ, ψ) = R * sin(φ) * cos(ψ)
+19. forall (φ) (ψ), φ ∈ RealSet ∧ ψ ∈ RealSet ⇒ z(φ, ψ) = R * sin(ψ)
+20. forall (φ), φ ∈ RealSet ∧ φ ≤ `φ_{2}` ⇒ `φ_{1}` ≤ φ
+21. forall (φ), φ ∈ RealSet ∧ `φ_{1}` ≤ φ ⇒ φ ≤ `φ_{2}`
+22. forall (ψ), ψ ∈ RealSet ∧ ψ ≤ `ψ_{2}` ⇒ `ψ_{1}` ≤ ψ
+23. forall (ψ), ψ ∈ RealSet ∧ `ψ_{1}` ≤ ψ ⇒ ψ ≤ `ψ_{2}`
+24. forall (φ) (ψ), φ ∈ RealSet ∧ `φ_{1}` ≤ φ ∧ φ ≤ `φ_{2}` ∧ ψ ∈ RealSet ∧ `ψ_{1}` ≤ ψ ∧ ψ ≤ `ψ_{2}` ⇒ E = FunDeri(x, 1, 1)(φ, ψ)^{2} + FunDeri(y, 1, 1)(φ, ψ)^{2} + FunDeri(z, 1, 1)(φ, ψ)^{2}
+25. forall (φ) (ψ), φ ∈ RealSet ∧ `φ_{1}` ≤ φ ∧ φ ≤ `φ_{2}` ∧ ψ ∈ RealSet ∧ `ψ_{1}` ≤ ψ ∧ ψ ≤ `ψ_{2}` ⇒ E = R^{2} * sin(φ)^{2} * cos(ψ)^{2} + R^{2} * cos(φ)^{2} * cos(ψ)^{2}
+26. forall (ψ), ψ ∈ RealSet ∧ `ψ_{1}` ≤ ψ ∧ ψ ≤ `ψ_{2}` ⇒ E = R^{2} * cos(ψ)^{2}
+27. forall (φ) (ψ), φ ∈ RealSet ∧ `φ_{1}` ≤ φ ∧ φ ≤ `φ_{2}` ∧ ψ ∈ RealSet ∧ `ψ_{1}` ≤ ψ ∧ ψ ≤ `ψ_{2}` ⇒ G = FunDeri(x, 2, 1)(φ, ψ)^{2} + FunDeri(y, 2, 1)(φ, ψ)^{2} + FunDeri(z, 2, 1)(φ, ψ)^{2}
+28. forall (φ) (ψ), φ ∈ RealSet ∧ `φ_{1}` ≤ φ ∧ φ ≤ `φ_{2}` ∧ ψ ∈ RealSet ∧ `ψ_{1}` ≤ ψ ∧ ψ ≤ `ψ_{2}` ⇒ G = R^{2} * cos(φ)^{2} * sin(ψ)^{2} + R^{2} * sin(φ)^{2} * sin(ψ)^{2} + R^{2} * cos(ψ)^{2}
+29. G = R^{2}
+30. forall (φ) (ψ), φ ∈ RealSet ∧ `φ_{1}` ≤ φ ∧ φ ≤ `φ_{2}` ∧ ψ ∈ RealSet ∧ `ψ_{1}` ≤ ψ ∧ ψ ≤ `ψ_{2}` ⇒ F = FunDeri(x, 1, 1)(φ, ψ) * FunDeri(x, 2, 1)(φ, ψ) + FunDeri(y, 1, 1)(φ, ψ) * FunDeri(y, 2, 1)(φ, ψ) + FunDeri(z, 1, 1)(φ, ψ) * FunDeri(z, 2, 1)(φ, ψ)
+31. F = 0
+
+GOAL:
+forall (ψ), ψ ∈ RealSet ∧ `ψ_{1}` ≤ ψ ∧ ψ ≤ `ψ_{2}` ⇒ sqrtn(2, E * G - F^{2}) = R^{2} * cos(ψ)
+
+METHOD:

@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. f = (fun x [x ∈ RealSet] . x)
+2. g = (fun x [x ∈ RealSet] . |x|)
+3. F = (fun x [x ∈ RealSet] . f(x) * g(x))
+4. (fun x [x ∈ RealSet] . f(x) * g(x)) = (fun x [x ∈ RealSet] . x * |x|)
+5. DiffableFuncAt(f, 0)
+
+GOAL:
+FunDeri(f, 1, 1)(0) = 1
+
+METHOD:

@@ -1,0 +1,29 @@
+PROOF GAP @10
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. q ∈ RealSet
+3. q_{1} ∈ RealSet
+4. n ∈ NonNegIntegerSet
+5. n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet
+6. λ ∈ RealSet ∧ λ = frac(q_{1} + q, 2 * q_{1})
+7. PosSeq(a)
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) > 0
+9. q_{1} > q
+10. q ≥ 0
+11. seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q
+12. seqlim_{ n → +∞ } (sqrtn(n, a(n))) = q
+13. ε = frac(q_{1} - q, 2)
+14. ε > 0
+15. exists (n_{0}), n_{0} ∈ NonNegIntegerSet ∧ n_{0} ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ |sqrtn(n, a(n)) - q| < ε)
+16. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ sqrtn(n, a(n)) < q + ε
+17. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ λ = frac(q_{1} + q, 2 * q_{1})
+18. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ q + ε = λ * q_{1}
+19. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ λ < 1
+20. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ λ ≥ 0
+21. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ a(n) < (λ * q_{1})^{n}
+22. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ n_{0} ⇒ frac(a(n), (q_{1})^{n}) < λ^{n}
+
+GOAL:
+seqlim_{ n → +∞ } (λ^{n}) = 0
+
+METHOD:

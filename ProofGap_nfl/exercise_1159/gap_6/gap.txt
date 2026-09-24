@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ y(x) = frac(x^{2}, 1 - x)
+3. forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ y(x) = frac(x^{2} - 1 + 1, 1 - x)
+4. forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ frac(x^{2} - 1 + 1, 1 - x) = -(x + 1) + frac(1, 1 - x)
+5. forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ y(x) = -(x + 1) + frac(1, 1 - x)
+6. forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ FunDeri(y, 1, 1)(x) = -1 + frac(1, (1 - x)^{2})
+7. forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ FunDeri(y, 1, 2)(x) = frac(2, (1 - x)^{3})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ (frac(2, (1 - x)^{3}))' = frac(2 * 3, (1 - x)^{4})
+
+METHOD:

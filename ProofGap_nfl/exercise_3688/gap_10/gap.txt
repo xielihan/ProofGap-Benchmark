@@ -1,0 +1,25 @@
+PROOF GAP @10
+ASSUM:
+1. S ∈ RealSet ∧ S > 0
+2. V : CartesianProd(RealSet, RealSet) → RealSet
+3. F : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+4. r ∈ RealSet
+5. h ∈ RealSet
+6. λ ∈ RealSet
+7. forall (r) (h), r ∈ RealSet ∧ h ∈ RealSet ∧ r > 0 ∧ h > 0 ⇒ V(r, h) = frac(1, 2) * π * r^{2} * h
+8. forall (r) (h), r ∈ RealSet ∧ h ∈ RealSet ∧ r > 0 ∧ h > 0 ⇒ S = π * (r^{2} + r * h)
+9. F = (fun r, h, λ [r ∈ RealSet ∧ h ∈ RealSet ∧ λ ∈ RealSet] . r^{2} * h - λ * (r^{2} + r * h - frac(S, π)))
+10. FunDeri(F, 1, 1)(r, h, λ) = 2 * r * h - λ * (2 * r + h)
+11. FunDeri(F, 2, 1)(r, h, λ) = r^{2} - λ * r
+12. FunDeri(F, 1, 1)(r, h, λ) = 0
+13. FunDeri(F, 2, 1)(r, h, λ) = 0
+14. r^{2} + r * h = frac(S, π)
+15. r = sqrtn(2, frac(S, 3 * π))
+16. h = 2 * sqrtn(2, frac(S, 3 * π))
+17. V(r, h) = sqrtn(2, frac(S^{3}, 27 * π))
+18. r^{2} + r * h = frac(S, π) ⇒ r^{2} ≥ 0 ∧ r * h ≤ frac(S, π)
+
+GOAL:
+h > 0 ⇒ (lim_{ r → 0^+ } (r) = 0 ⇒ lim_{ r → 0^+ } (V(r, h)) = 0)
+
+METHOD:

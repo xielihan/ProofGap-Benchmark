@@ -1,0 +1,19 @@
+PROOF GAP @9
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. a ∈ RealSet ∧ a ≠ 0
+4. forall (t), t ∈ RealSet ⇒ x(t) = a * (t - sin(t)) ∧ y(t) = a * (1 - cos(t))
+5. forall (t), t ∈ RealSet ∧ sin(frac(t, 2)) ≠ 0 ⇒ FunDeri(y, x, 1)(t) = frac(a * sin(t), a * (1 - cos(t)))
+6. forall (t), t ∈ RealSet ∧ sin(frac(t, 2)) ≠ 0 ⇒ frac(a * sin(t), a * (1 - cos(t))) = cot(frac(t, 2))
+7. forall (t), t ∈ RealSet ∧ sin(frac(t, 2)) ≠ 0 ⇒ FunDeri(y, x, 1)(t) = cot(frac(t, 2))
+8. forall (t), t ∈ RealSet ∧ sin(frac(t, 2)) ≠ 0 ⇒ FunDeri(y, x, 2)(t) = frac(-frac(1, 2 * sin(frac(t, 2))^{2}), a * (1 - cos(t)))
+9. forall (t), t ∈ RealSet ∧ sin(frac(t, 2)) ≠ 0 ⇒ frac(-frac(1, 2 * sin(frac(t, 2))^{2}), a * (1 - cos(t))) = -frac(1, 4 * a * sin(frac(t, 2))^{4})
+10. forall (t), t ∈ RealSet ∧ sin(frac(t, 2)) ≠ 0 ⇒ FunDeri(y, x, 2)(t) = -frac(1, 4 * a * sin(frac(t, 2))^{4})
+11. forall (t), t ∈ RealSet ∧ sin(frac(t, 2)) ≠ 0 ⇒ FunDeri(y, x, 3)(t) = frac(frac(cos(frac(t, 2)), 2 * a * sin(frac(t, 2))^{5}), a * (1 - cos(t)))
+12. forall (t), t ∈ RealSet ∧ sin(frac(t, 2)) ≠ 0 ⇒ frac(frac(cos(frac(t, 2)), 2 * a * sin(frac(t, 2))^{5}), a * (1 - cos(t))) = frac(cos(frac(t, 2)), 4 * a^{2} * sin(frac(t, 2))^{7})
+
+GOAL:
+forall (t), t ∈ RealSet ∧ sin(frac(t, 2)) ≠ 0 ⇒ FunDeri(y, x, 3)(t) = frac(cos(frac(t, 2)), 4 * a^{2} * sin(frac(t, 2))^{7})
+
+METHOD:

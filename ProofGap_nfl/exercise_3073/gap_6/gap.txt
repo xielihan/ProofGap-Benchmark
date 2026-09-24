@@ -1,0 +1,16 @@
+PROOF GAP @6
+ASSUM:
+1. p : NonNegIntegerSet → RealSet
+2. P : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ⇒ p(n) = sqrtn(2, frac(n + 1, n + 2))
+4. forall (N), N ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ P(N) = prod_{ n = 0 }^{ N } (p(n)))
+5. forall (n), n ∈ NonNegIntegerSet ⇒ ln(p(n)) = frac(1, 2) * ln(frac(n + 1, n + 2)) ∧ frac(1, 2) * ln(frac(n + 1, n + 2)) = frac(1, 2) * ln(1 - frac(1, n + 2))
+6. DivergentSeries(sum_{ n = 0 }^{ +∞ } (ln(1 - frac(1, n + 2))))
+7. lim_{ N → +∞ } (sum_{ n = 0 }^{ N } (ln(p(n)))) = -∞
+8. lim_{ N → +∞ } (P(N)) = 0
+9. DivergentSeq(P)
+
+GOAL:
+¬ConvergentSeq(P)
+
+METHOD:

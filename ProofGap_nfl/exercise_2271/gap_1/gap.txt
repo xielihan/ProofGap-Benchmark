@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. sqrtn(3, 1 - x) = t
+
+GOAL:
+t ∈ [-2, 0]
+
+METHOD:

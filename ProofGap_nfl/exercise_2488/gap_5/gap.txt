@@ -1,0 +1,14 @@
+PROOF GAP @5
+ASSUM:
+1. y : RealSet → RealSet
+2. P_{x} ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 4) ⇒ y(x) = tan(x)
+4. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 4) ⇒ sqrtn(2, 1 + FunDeri(y, 1, 1)(x)^{2}) = sqrtn(2, 1 + sec(x)^{4}) ∧ sqrtn(2, 1 + sec(x)^{4}) = frac(sqrtn(2, cos(x)^{4} + 1), cos(x)^{2})
+5. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 4) ⇒ P_{x} = 2 * π * DefInt(0, frac(π, 4), tan(x) * frac(sqrtn(2, cos(x)^{4} + 1), cos(x)^{2}) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 4)] . x))
+6. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 4) ⇒ P_{x} = π * DefInt(0, frac(π, 4), sqrtn(2, cos(x)^{4} + 1) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 4)] . frac(1, cos(x)^{2})))
+7. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 4) ⇒ P_{x} = ((π * (frac(sqrtn(2, cos(x)^{4} + 1), cos(x)^{2}) - ln(cos(x)^{2} + sqrtn(2, cos(x)^{4} + 1))))|_{0}^{frac(π, 4)})
+
+GOAL:
+P_{x} = π * (sqrtn(2, 5) - sqrtn(2, 2) + ln(frac((sqrtn(2, 2) + 1) * (sqrtn(2, 5) - 1), 2)))
+
+METHOD:

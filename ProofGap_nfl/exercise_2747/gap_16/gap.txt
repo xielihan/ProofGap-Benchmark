@@ -1,0 +1,29 @@
+PROOF GAP @16
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. h : RealSet → RealSet
+3. g : RealSet → RealSet
+4. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ f(n, x) = x^{n} - x^{n + 1}
+5. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ h(x) = 0
+6. forall (x), x ∈ RealSet ∧ (x = 0 ∨ x = 1) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ f(n, x) = 0)
+7. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < 1 ⇒ seqlim_{ n → +∞ } (f(n, x)) = 0
+8. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ seqlim_{ n → +∞ } (f(n, x)) = h(x)
+9. forall (n), n ∈ NonNegIntegerSet ⇒ g = (fun x [x ∈ RealSet] . x^{n} - x^{n + 1})
+10. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ |f(n, x) - h(x)| = x^{n} - x^{n + 1}
+11. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ x^{n} - x^{n + 1} = g(x)
+12. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ |f(n, x) - h(x)| = g(x)
+13. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ FunDeri(g, 1, 1)(x) = x^{n - 1} * (n - (n + 1) * x)
+14. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ⇒ (FunDeri(g, 1, 1)(x) = 0 ⇔ x = frac(n, n + 1))
+15. forall (n), n ∈ NonNegIntegerSet ⇒ MaximumPointOn(g, [0, 1]) = { frac(n, n + 1) }
+16. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ x ∈ [0, 1] ⇒ g(x) ≤ frac(n, n + 1)^{n} * (1 - frac(n, n + 1)) ∧ frac(n, n + 1)^{n} * (1 - frac(n, n + 1)) = frac(n, n + 1)^{n} * frac(1, n + 1) ∧ frac(n, n + 1)^{n} * frac(1, n + 1) < frac(1, n + 1)
+17. forall (n) (x) (ε), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ ε ∈ RealSet ∧ ε > 0 ∧ frac(1, n + 1) < ε ⇒ |f(n, x) - h(x)| < ε
+18. forall (n) (ε), n ∈ NonNegIntegerSet ∧ ε ∈ RealSet ∧ ε > 0 ∧ n > frac(1, ε) ⇒ frac(1, n + 1) < ε
+19. forall (n) (x) (ε), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ ε ∈ RealSet ∧ ε > 0 ∧ n > frac(1, ε) ⇒ |f(n, x) - h(x)| < ε
+20. exists (N), N : RealSet → NonNegIntegerSet ∧ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ N(ε) = floor(frac(1, ε)))
+21. forall (N) (n) (ε), N : RealSet → NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ ε ∈ RealSet ∧ ε > 0 ∧ n > N(ε) ⇒ (forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ |f(n, x) - h(x)| < ε)
+22. UniformConvergent(f, [0, 1], h)
+
+GOAL:
+UniformConvergent(f, [0, 1], h)
+
+METHOD:

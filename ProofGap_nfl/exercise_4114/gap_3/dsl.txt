@@ -1,0 +1,7 @@
+1. get_exists (hypothesis 11: {exists (I), I ∈ RealSet ∧ (forall (r), r ∈ RealSet => |I| = a * b * r)}) (I := {J})
+2. destruct_and (hypothesis 12: {J ∈ RealSet ∧ (forall (r), r ∈ RealSet => |J| = a * b * r)}) as (hypothesis 13: {J ∈ RealSet}) (hypothesis 14: {forall (r), r ∈ RealSet => |J| = a * b * r})
+3. get_prop (hypothesis 14: {forall (r), r ∈ RealSet => |J| = a * b * r}) (r := {0}) as (hypothesis 15: {0 ∈ RealSet => |J| = a * b * 0})
+4. get_prop (hypothesis 14: {forall (r), r ∈ RealSet => |J| = a * b * r}) (r := {1}) as (hypothesis 16: {1 ∈ RealSet => |J| = a * b * 1})
+5. use_condition (obvious: {0 ∈ RealSet}) in (hypothesis 15: {0 ∈ RealSet => |J| = a * b * 0}) as (hypothesis 17: {|J| = a * b * 0})
+6. use_condition (obvious: {1 ∈ RealSet}) in (hypothesis 16: {1 ∈ RealSet => |J| = a * b * 1}) as (hypothesis 18: {|J| = a * b * 1})
+7. autosolve (hypothesis 1: {a ∈ RealSet ∧ a > 0}) (hypothesis 2: {b ∈ RealSet ∧ b > 0}) (hypothesis 17: {|J| = a * b * 0}) (hypothesis 18: {|J| = a * b * 1})

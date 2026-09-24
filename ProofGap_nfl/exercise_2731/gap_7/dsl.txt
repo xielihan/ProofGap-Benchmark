@@ -1,0 +1,4 @@
+get_condition (hypothesis 10: {x <= 1}) in (GOAL: {x <= 1 => DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n ^ x)))})
+get_prop (theorem 'Thm 365. (PSeriesDivergesForExponentAtMostOne)': {forall (p), p ∈ RealSet => p <= 1 => DivergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n ^ p))}) (p := {x}) as (hypothesis 11: {x ∈ RealSet => x <= 1 => DivergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n ^ x))})
+use_condition (hypothesis 1: {x ∈ RealSet}) (hypothesis 10: {x <= 1}) in (hypothesis 11: {x ∈ RealSet => x <= 1 => DivergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n ^ x))}) as (hypothesis 12: {DivergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n ^ x))})
+autosolve all_hypothesis

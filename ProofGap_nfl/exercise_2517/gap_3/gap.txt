@@ -1,0 +1,23 @@
+PROOF GAP @3
+ASSUM:
+1. m ∈ RealSet ∧ m > 0
+2. R ∈ RealSet ∧ R > 0
+3. M ∈ RealSet ∧ M > 0
+4. k ∈ RealSet ∧ k > 0
+5. g ∈ RealSet ∧ g > 0
+6. f : RealSet → RealSet
+7. r : CartesianProd(RealSet, CartesianProd(NonNegIntegerSet, IntegerSet)) → RealSet
+8. W : RealSet → RealSet
+9. A_{∞} ∈ RealSet
+10. k = frac(g * R^{2}, M)
+11. forall (u), u ∈ RealSet ∧ u ≥ R ⇒ f(u) = frac(k * m * M, u^{2})
+12. forall (h) (n) (i), h ∈ RealSet ∧ h ≥ 0 ∧ n ∈ PosIntegerSet ∧ i ∈ IntegerSet ∧ 1 ≤ i ∧ i ≤ n ⇒ r(h, n, i) = sqrtn(2, (frac(h, n) * (i - 1) + R) * (frac(h, n) * i + R))
+13. forall (h), h ∈ RealSet ∧ h ≥ 0 ⇒ W(h) = seqlim_{ n → +∞ } (sum_{ i = 1 }^{ n } (f(r(h, n, i)) * frac(h, n)))
+14. A_{∞} = lim_{ h → +∞ } (W(h))
+15. forall (h) (n) (i), h ∈ RealSet ∧ h ≥ 0 ∧ n ∈ PosIntegerSet ∧ i ∈ IntegerSet ∧ 1 ≤ i ∧ i ≤ n ⇒ r(h, n, i) ≥ R ∧ r(h, n, i)^2 = (frac(h, n) * (i - 1) + R) * (frac(h, n) * i + R)
+16. forall (h) (n) (i), h ∈ RealSet ∧ h ≥ 0 ∧ n ∈ PosIntegerSet ∧ i ∈ IntegerSet ∧ 1 ≤ i ∧ i ≤ n ⇒ f(r(h, n, i)) = frac(k * m * M, (frac(h, n) * (i - 1) + R) * (frac(h, n) * i + R))
+
+GOAL:
+forall (h), h ∈ RealSet ∧ h ≥ 0 ⇒ W(h) = seqlim_{ n → +∞ } (sum_{ i = 1 }^{ n } (frac(k * m * M, (frac(h, n) * (i - 1) + R) * (frac(h, n) * i + R)) * frac(h, n)))
+
+METHOD:

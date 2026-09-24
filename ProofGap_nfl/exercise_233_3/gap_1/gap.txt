@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ (forall (k), k ∈ IntegerSet ⇒ x ≠ (2 * k + 1) * π) ∧ (forall (k), k ∈ IntegerSet ⇒ x ≠ frac(3 * (2 * k + 1) * π, 2)) ⇒ f(x) = 2 * tan(frac(x, 2)) - 3 * tan(frac(x, 3))
+
+GOAL:
+PeriodicFunc(f, 2 * π)
+
+METHOD:

@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ frac(y(n), y(n - 1)) = a^{d}}) (n := {k})
+get_condition (hypothesis 19: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2}) in (GOAL: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2 ⇒ frac(y(k), y(k - 1)) = a^{d}})
+get_prop (hypothesis 17: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ frac(y(n), y(n - 1)) = a^{x(n) - x(n - 1)}}) (n := {k}) as (hypothesis 20: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2 ⇒ frac(y(k), y(k - 1)) = a^{x(k) - x(k - 1)}})
+use_condition (hypothesis 19: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2}) in (hypothesis 20: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2 ⇒ frac(y(k), y(k - 1)) = a^{x(k) - x(k - 1)}}) as (hypothesis 21: {frac(y(k), y(k - 1)) = a^{x(k) - x(k - 1)}})
+get_prop (hypothesis 18: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ x(n) - x(n - 1) = d}) (n := {k}) as (hypothesis 22: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2 ⇒ x(k) - x(k - 1) = d})
+use_condition (hypothesis 19: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2}) in (hypothesis 22: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2 ⇒ x(k) - x(k - 1) = d}) as (hypothesis 23: {x(k) - x(k - 1) = d})
+rewrite (left_to_right, equation) (hypothesis 23: {x(k) - x(k - 1) = d}); from (hypothesis 21: {frac(y(k), y(k - 1)) = a^{x(k) - x(k - 1)}}) to (hypothesis 21: {frac(y(k), y(k - 1)) = a^{d}})
+apply (hypothesis 21: {frac(y(k), y(k - 1)) = a^{d}})

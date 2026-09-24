@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. x = frac(π, 3) + y
+
+GOAL:
+lim_{ x → frac(π, 3) } (frac(sin(x - frac(π, 3)), 1 - 2 * cos(x))) = lim_{ y → 0 } (frac(sin(y), 1 - cos(y) + sqrtn(2, 3) * sin(y)))
+
+METHOD:

@@ -1,0 +1,31 @@
+PROOF GAP @11
+ASSUM:
+1. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+2. x : CartesianProd(RealSet, RealSet) → RealSet
+3. y : CartesianProd(RealSet, RealSet) → RealSet
+4. z : CartesianProd(RealSet, RealSet) → RealSet
+5. E : CartesianProd(RealSet, RealSet) → RealSet
+6. F : CartesianProd(RealSet, RealSet) → RealSet
+7. G : CartesianProd(RealSet, RealSet) → RealSet
+8. a ∈ RealSet ∧ a > 0
+9. α ∈ RealSet ∧ 0 < α ∧ α < frac(π, 2)
+10. forall (r) (φ), r ∈ RealSet ∧ φ ∈ RealSet ⇒ x(r, φ) = r * cos(φ) * sin(α) ∧ y(r, φ) = r * sin(φ) * sin(α) ∧ z(r, φ) = r * cos(α)
+11. S = { (X, Y, Z) | X ∈ RealSet ∧ Y ∈ RealSet ∧ Z ∈ RealSet ∧ (exists (r) (φ), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ∧ φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ∧ X = x(r, φ) ∧ Y = y(r, φ) ∧ Z = z(r, φ)) }
+12. forall (r) (φ), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ∧ φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ E(r, φ) = FunDeri(x, 1, 1)(r, φ)^{2} + FunDeri(y, 1, 1)(r, φ)^{2} + FunDeri(z, 1, 1)(r, φ)^{2}
+13. forall (r) (φ), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ∧ φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ F(r, φ) = FunDeri(x, 1, 1)(r, φ) * FunDeri(x, 2, 1)(r, φ) + FunDeri(y, 1, 1)(r, φ) * FunDeri(y, 2, 1)(r, φ) + FunDeri(z, 1, 1)(r, φ) * FunDeri(z, 2, 1)(r, φ)
+14. forall (r) (φ), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ∧ φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ G(r, φ) = FunDeri(x, 2, 1)(r, φ)^{2} + FunDeri(y, 2, 1)(r, φ)^{2} + FunDeri(z, 2, 1)(r, φ)^{2}
+15. forall (r) (φ), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ∧ φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ E(r, φ) = cos(φ)^{2} * sin(α)^{2} + sin(φ)^{2} * sin(α)^{2} + cos(α)^{2}
+16. forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ cos(φ)^{2} * sin(α)^{2} + sin(φ)^{2} * sin(α)^{2} + cos(α)^{2} = 1
+17. forall (r) (φ), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ∧ φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ E(r, φ) = 1
+18. forall (r) (φ), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ∧ φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ G(r, φ) = r^{2} * cos(φ)^{2} * sin(α)^{2} + r^{2} * sin(φ)^{2} * sin(α)^{2}
+19. forall (r) (φ), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ∧ φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ r^{2} * cos(φ)^{2} * sin(α)^{2} + r^{2} * sin(φ)^{2} * sin(α)^{2} = r^{2} * sin(α)^{2}
+20. forall (r) (φ), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ∧ φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ G(r, φ) = r^{2} * sin(α)^{2}
+21. forall (r) (φ), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ∧ φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ F(r, φ) = cos(φ) * sin(α) * -r * sin(φ) * sin(α) + sin(φ) * sin(α) * r * cos(φ) * sin(α)
+22. forall (φ) (r), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ∧ r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ⇒ cos(φ) * sin(α) * -r * sin(φ) * sin(α) + sin(φ) * sin(α) * r * cos(φ) * sin(α) = 0
+23. forall (r) (φ), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ∧ φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ F(r, φ) = 0
+24. forall (r) (φ), r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a ∧ φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ sqrtn(2, E(r, φ) * G(r, φ) - F(r, φ)^{2}) = r * sin(α)
+
+GOAL:
+ScalarSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z^{2}) * diff(S)) = DefInt(0, 2 * π, fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . DefInt(0, a, (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a] . r^{2} * cos(α)^{2} * r * sin(α)) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r ≤ a] . r)) * diff(fun φ [φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π] . φ))
+
+METHOD:

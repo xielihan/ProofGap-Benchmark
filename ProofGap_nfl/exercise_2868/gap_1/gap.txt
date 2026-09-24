@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. α ∈ RealSet
+
+GOAL:
+e^{x * cos(α) + __IMAGINARY_UNIT__ * x * sin(α)} = e^{x * (cos(α) + __IMAGINARY_UNIT__ * sin(α))}
+
+METHOD:

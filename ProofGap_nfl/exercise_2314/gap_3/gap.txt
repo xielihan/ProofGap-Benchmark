@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ (0, 1]] . sgn(sin(ln(x)))) * diff(fun x [x ∈ RealSet ∧ x ∈ (0, 1]] . x)) = DefInt(e^{-π}, 1, (fun x [x ∈ RealSet ∧ x ∈ [e^{-π}, 1]] . -1) * diff(fun x [x ∈ RealSet ∧ x ∈ [e^{-π}, 1]] . x)) + (lim_{ n → +∞ } (sum_{ k = 1 }^{ n } ((-1)^{k + 1} * DefInt(e^{-(k + 1) * π}, e^{-k * π}, diff(fun x [x ∈ RealSet ∧ x ∈ [e^{-(k + 1) * π}, e^{-k * π}]] . x)))))
+2. DefInt(e^{-π}, 1, (fun x [x ∈ RealSet ∧ x ∈ [e^{-π}, 1]] . -1) * diff(fun x [x ∈ RealSet ∧ x ∈ [e^{-π}, 1]] . x)) + (lim_{ n → +∞ } (sum_{ k = 1 }^{ n } ((-1)^{k + 1} * DefInt(e^{-(k + 1) * π}, e^{-k * π}, diff(fun x [x ∈ RealSet ∧ x ∈ [e^{-(k + 1) * π}, e^{-k * π}]] . x))))) = -1 + 2 * e^{-π} * (lim_{ n → +∞ } (sum_{ k = 1 }^{ n } ((-1)^{k - 1} * e^{-(k - 1) * π})))
+
+GOAL:
+-1 + 2 * e^{-π} * (lim_{ n → +∞ } (sum_{ k = 1 }^{ n } ((-1)^{k - 1} * e^{-(k - 1) * π}))) = -1 + frac(2 * e^{-π}, 1 + e^{-π})
+
+METHOD:

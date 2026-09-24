@@ -1,0 +1,3 @@
+rewrite (left_to_right, equation) (hypothesis 1: {f = (fun x [x ∈ RealSet] . cos(x))}); from (GOAL: {cos(frac(151 * π, 180)) = f(x_{0} + Δx)}) to (GOAL: {cos(frac(151 * π, 180)) = (fun x [x ∈ RealSet] . cos(x))(x_{0} + Δx)})
+rewrite (right_to_left, equation) (hypothesis 4: {frac(151 * π, 180) = x_{0} + Δx}); from (GOAL: {cos(frac(151 * π, 180)) = (fun x [x ∈ RealSet] . cos(x))(x_{0} + Δx)}) to (GOAL: {cos(frac(151 * π, 180)) = (fun x [x ∈ RealSet] . cos(x))(frac(151 * π, 180))})
+autosolve all_hypothesis

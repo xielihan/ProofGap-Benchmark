@@ -1,0 +1,27 @@
+PROOF GAP @11
+ASSUM:
+1. F : RealSet → RealSet
+2. f : RealSet → RealSet
+3. x ∈ RealSet ∧ x ∈ [0, 1]
+4. y ∈ RealSet
+5. m ∈ RealSet
+6. ContinuousFuncOn(f, [0, 1])
+7. forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ f(x) > 0
+8. forall (y), y ∈ RealSet ∧ y ≠ 0 ⇒ F(y) = DefInt(0, 1, frac(y * f(x), x^{2} + y^{2}) * diff(fun x [x ∈ RealSet] . x))
+9. F(0) = 0
+10. y ≠ 0 ⇒ ContinuousFuncOn(fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . frac(y * f(x), x^{2} + y^{2}), [0, 1])
+11. y ≠ 0 ⇒ ContinuousFuncAt(F, y)
+12. y = 0 ⇒ F(0) = 0
+13. y = 0 ⇒ m = min(ImageOn(f, [0, 1]))
+14. y = 0 ⇒ m > 0
+15. y = 0 ⇒ y > 0 ⇒ F(y) ≥ m * DefInt(0, 1, frac(y, x^{2} + y^{2}) * diff(fun x [x ∈ RealSet] . x))
+16. y = 0 ⇒ y > 0 ⇒ m * DefInt(0, 1, frac(y, x^{2} + y^{2}) * diff(fun x [x ∈ RealSet] . x)) = m * arctan(frac(1, y))
+17. y = 0 ⇒ y > 0 ⇒ F(y) ≥ m * arctan(frac(1, y))
+18. y = 0 ⇒ y > 0 ⇒ lim_{ y → 0^+ } (arctan(frac(1, y))) = frac(π, 2)
+19. y = 0 ⇒ y > 0 ⇒ lim_{ y → 0^+ } (F(y)) ≥ frac(m * π, 2)
+20. y = 0 ⇒ y > 0 ⇒ frac(m * π, 2) > 0
+
+GOAL:
+y = 0 ⇒ y > 0 ⇒ lim_{ y → 0^+ } (F(y)) > 0
+
+METHOD:

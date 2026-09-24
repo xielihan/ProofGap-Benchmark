@@ -1,0 +1,16 @@
+PROOF GAP @6
+ASSUM:
+1. P : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. `P̅` : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+3. forall (k) (n) (x), k ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ P(n, x) = sum_{ k = 1 }^{ n } (k * x^{k - 1})
+4. forall (k) (n) (x), k ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ `P̅`(n, x) = sum_{ k = 1 }^{ n } (x^{k})
+5. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ≠ 1 ⇒ `P̅`(n, x) = frac(x * (1 - x^{n}), 1 - x)
+6. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ FunDeri(`P̅`(n), 1, 1)(x) = P(n, x)
+7. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ≠ 1 ⇒ FunDeri(fun x [x ∈ RealSet] . frac(x * (1 - x^{n}), 1 - x), 1, 1)(x) = P(n, x)
+8. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ≠ 1 ⇒ P(n, x) = frac(1 - (n + 1) * x^{n} + n * x^{n + 1}, (1 - x)^{2})
+9. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ≠ 1 ⇒ P(n, x) = frac(1 - (n + 1) * x^{n} + n * x^{n + 1}, (1 - x)^{2})
+
+GOAL:
+forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ x ≠ 1 ⇒ P(n, x) = frac(1 - (n + 1) * x^{n} + n * x^{n + 1}, (1 - x)^{2})
+
+METHOD:

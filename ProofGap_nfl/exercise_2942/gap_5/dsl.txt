@@ -1,0 +1,4 @@
+assert (hypothesis 9: {((fun x [x ∈ RealSet] . frac(x^{2}, 2))|_{0}^{π}) = frac(π^{2}, 2)}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

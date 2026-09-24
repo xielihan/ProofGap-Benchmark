@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = cot(frac(n * π, 4 * n - 2)) - 1 + 1 - sin(frac(n * π, 2 * n + 1))}) (n := {n0})
+get_condition (hypothesis 8: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ u(n0) = cot(frac(n0 * π, 4 * n0 - 2)) - 1 + 1 - sin(frac(n0 * π, 2 * n0 + 1))})
+get_prop (hypothesis 5: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = cot(frac(n * π, 4 * n - 2)) - sin(frac(n * π, 2 * n + 1))}) (n := {n0}) as (hypothesis 9: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ u(n0) = cot(frac(n0 * π, 4 * n0 - 2)) - sin(frac(n0 * π, 2 * n0 + 1))})
+autosolve (hypothesis 8: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) (hypothesis 9: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ u(n0) = cot(frac(n0 * π, 4 * n0 - 2)) - sin(frac(n0 * π, 2 * n0 + 1))})

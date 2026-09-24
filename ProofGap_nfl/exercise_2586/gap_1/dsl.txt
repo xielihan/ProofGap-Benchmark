@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 2 + frac(1, n) ≠ 0}) (n := {n})
+get_condition (hypothesis 3: {n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet}) in (GOAL: {n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 2 + frac(1, n) ≠ 0})
+destruct_and (hypothesis 3: {n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet}) as (hypothesis 4: {n ∈ NonNegIntegerSet}) (hypothesis 5: {n ∈ PosIntegerSet})
+autosolve all_hypothesis

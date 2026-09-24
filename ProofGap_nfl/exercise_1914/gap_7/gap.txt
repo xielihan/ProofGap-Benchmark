@@ -1,0 +1,16 @@
+PROOF GAP @7
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+3. x ≠ 0
+4. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ frac(1, x * (x^{10} + 1)^{2}) = frac(x^{10} + 1 - x^{10}, x * (x^{10} + 1)^{2})
+5. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ frac(x^{10} + 1 - x^{10}, x * (x^{10} + 1)^{2}) = frac(1, x * (x^{10} + 1)) - frac(x^{9}, (x^{10} + 1)^{2})
+6. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ frac(1, x * (x^{10} + 1)) - frac(x^{9}, (x^{10} + 1)^{2}) = frac(1, x) - frac(x^{9}, x^{10} + 1) - frac(x^{9}, (x^{10} + 1)^{2})
+7. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ frac(1, x * (x^{10} + 1)^{2}) = frac(1, x) - frac(x^{9}, x^{10} + 1) - frac(x^{9}, (x^{10} + 1)^{2})
+8. { `F_2` | forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(1, x * (x^{10} + 1)^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = (frac(1, x) - frac(x^{9}, x^{10} + 1) - frac(x^{9}, (x^{10} + 1)^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+9. { `F_4` | forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_4`, 1, 1)(x) = (frac(1, x) - frac(x^{9}, x^{10} + 1) - frac(x^{9}, (x^{10} + 1)^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_11` | exists (`F_5`) (`F_9`), `F_5` : RealSet → RealSet ∧ `F_9` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x^{10} + 1, 1, 1)(x), x^{10} + 1) ∧ FunDeri(`F_9`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x^{10} + 1, 1, 1)(x), (x^{10} + 1)^{2}) ∧ `F_11`(x) = ln(|x|) - frac(1, 10) * `F_5`(x) - frac(1, 10) * `F_9`(x)) }
+
+GOAL:
+{ `F_18` | exists (`F_12`) (`F_16`), `F_12` : RealSet → RealSet ∧ `F_16` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(`F_12`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x^{10} + 1, 1, 1)(x), x^{10} + 1) ∧ FunDeri(`F_16`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x^{10} + 1, 1, 1)(x), (x^{10} + 1)^{2}) ∧ `F_18`(x) = ln(|x|) - frac(1, 10) * `F_12`(x) - frac(1, 10) * `F_16`(x)) } = { `F_19` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ `F_19`(x) = ln(|x|) - frac(1, 10) * ln(x^{10} + 1) + frac(1, 10 * (x^{10} + 1)) + C) }
+
+METHOD:

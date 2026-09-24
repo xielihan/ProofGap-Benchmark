@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. q ∈ RealSet
+2. 0 < q
+3. q < 1
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| < q ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ |x^{n}| < q^{n})
+
+METHOD:

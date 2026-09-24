@@ -1,0 +1,19 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. ε ∈ RealSet
+3. k ∈ RealSet
+4. x ∈ RealSet
+5. ε > 0
+6. k > 0
+7. Defined(f, (0, ε))
+8. ContinuousFuncOn(f, IntervalLoRo(0, ε))
+9. lim_{ x → 0^+ } (f(x)) = 0
+10. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < ε ⇒ -k * x ≤ f(x) ∧ f(x) ≤ k * x
+11. lim_{ x → 0^+ } (x * ln(x)) = 0
+12. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < ε ⇒ -k * x ≤ f(x)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 < x ∧ x < ε ⇒ f(x) ≤ k * x
+
+METHOD:

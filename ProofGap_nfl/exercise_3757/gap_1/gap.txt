@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+
+GOAL:
+forall (α) (x), α ∈ RealSet ∧ x ∈ RealSet ∧ a ≤ α ∧ α ≤ b ∧ x ≥ 1 ⇒ 0 < x^{α} * e^{-x}
+
+METHOD:

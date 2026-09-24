@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. |x - x^{2}| < frac(1, 20)
+
+GOAL:
+x^{2} - x + frac(1, 20) > 0
+
+METHOD:

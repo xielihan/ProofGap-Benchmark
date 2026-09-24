@@ -1,0 +1,21 @@
+PROOF GAP @12
+ASSUM:
+1. f : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. α ∈ RealSet
+3. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ f(n, x) = n^{α} * x * e^{-n * x}
+4. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ FunDeri(f, 2, 1)(n, x) = n^{α} * e^{-n * x} * (1 - n * x)
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ FunDeri(f, 2, 1)(n, frac(1, n)) = 0
+6. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ∧ x < frac(1, n) ⇒ FunDeri(f, 2, 1)(n, x) > 0
+7. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ∧ x > frac(1, n) ⇒ FunDeri(f, 2, 1)(n, x) < 0
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ MaximumPointOn(fun x [x ∈ RealSet] . f(n, x), [0, 1]) = { frac(1, n) }
+9. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n ∈ PosIntegerSet ∧ x ∈ [0, 1] ⇒ 0 ≤ f(n, x) ∧ f(n, x) ≤ f(n, frac(1, n)) ∧ f(n, frac(1, n)) = n^{α - 1} * e^{-1}
+10. α < 1 ⇒ seqlim_{ n → +∞ } (n^{α - 1} * e^{-1}) = 0
+11. α < 1 ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n > N ∧ x ∈ [0, 1] ⇒ |f(n, x) - 0| < ε)))
+12. α < 1 ⇒ UniformConvergent(f, [0, 1], fun x [x ∈ RealSet] . 0)
+13. α ≥ 1 ⇒ ¬seqlim_{ n → +∞ } (n^{α - 1} * e^{-1}) = 0
+14. α ≥ 1 ⇒ ¬UniformConvergent(f, [0, 1], fun x [x ∈ RealSet] . 0)
+
+GOAL:
+α ∈ { α | α ∈ RealSet, α < 1 } ⇔ UniformConvergent(f, [0, 1], fun x [x ∈ RealSet] . 0)
+
+METHOD:

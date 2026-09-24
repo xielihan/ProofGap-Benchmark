@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ sin(x) ≠ 0 ⇒ y(x) = frac(x, sin(x))
+4. forall (k), k ∈ IntegerSet ⇒ sin(k * π) = 0
+
+GOAL:
+lim_{ x → 0 } (y(x)) = 1
+
+METHOD:

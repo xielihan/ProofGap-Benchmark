@@ -1,0 +1,20 @@
+PROOF GAP @12
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ f(x) = cases{ x^{2} if x ∈ RationalSet; 0 if x ∉ RationalSet }
+3. f(0) = 0
+4. forall (Δx), Δx ∈ RealSet ∧ Δx ≠ 0 ⇒ frac(f(0 + Δx) - f(0), Δx) = cases{ Δx if Δx ∈ RationalSet; 0 if Δx ∉ RationalSet }
+5. lim_{ Δx → 0 } (frac(f(0 + Δx) - f(0), Δx)) = 0
+6. DiffableFuncAt(f, 0)
+7. FunDeri(f, 1, 1)(0) = 0
+8. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x ∈ RationalSet ⇒ (exists (y), y : NonNegIntegerSet → RealSet ∧ (y = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . x + frac(sqrtn(2, 2), n)) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n) ∉ RationalSet ∧ y(n) ≠ x)))
+9. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x ∈ RationalSet ⇒ (exists (y), y : NonNegIntegerSet → RealSet ∧ (y = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . x + frac(sqrtn(2, 2), n)) ⇒ seqlim_{ n → +∞ } (y(n)) = x))
+10. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x ∈ RationalSet ⇒ (exists (y), y : NonNegIntegerSet → RealSet ∧ (y = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . x + frac(sqrtn(2, 2), n)) ⇒ seqlim_{ n → +∞ } (frac(f(y(n)) - f(x), y(n) - x)) = ∞))
+11. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x ∈ RationalSet ⇒ (exists (y), y : NonNegIntegerSet → RealSet ∧ (y = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . x + frac(sqrtn(2, 2), n)) ⇒ ¬DiffableFuncAt(f, x)))
+12. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x ∉ RationalSet ⇒ (exists (y), y : NonNegIntegerSet → RealSet ∧ (y = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . x + frac(1, n)) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ y(n) ∈ RationalSet ∧ y(n) ≠ x)))
+13. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x ∉ RationalSet ⇒ (exists (y), y : NonNegIntegerSet → RealSet ∧ (y = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . x + frac(1, n)) ⇒ seqlim_{ n → +∞ } (y(n)) = x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ x ∉ RationalSet ⇒ (exists (y), y : NonNegIntegerSet → RealSet ∧ (y = (fun n [n ∈ NonNegIntegerSet ∧ n > 0] . x + frac(1, n)) ⇒ seqlim_{ n → +∞ } (frac(f(y(n)) - f(x), y(n) - x)) = ∞))
+
+METHOD:

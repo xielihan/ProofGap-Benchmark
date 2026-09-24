@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. m ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ y(x) = e^{m * arcsin(x)} * (cos(m * arcsin(x)) + sin(m * arcsin(x)))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ -1 < x ∧ x < 1 ⇒ (e^{m * arcsin(x)} * (cos(m * arcsin(x)) + sin(m * arcsin(x))))' = e^{m * arcsin(x)} * (frac(m, sqrtn(2, 1 - x^{2})) * (cos(m * arcsin(x)) + sin(m * arcsin(x))) + frac(m, sqrtn(2, 1 - x^{2})) * (cos(m * arcsin(x)) - sin(m * arcsin(x))))
+
+METHOD:

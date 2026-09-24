@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. DiffableFunc(u)
+3. forall (x), x ∈ RealSet ⇒ u(x, x^{2}) = 1
+4. forall (x), x ∈ RealSet ⇒ FunDeri(u, 1, 1)(x, x^{2}) = x
+5. forall (x), x ∈ RealSet ⇒ FunDeri(fun x [x ∈ RealSet] . u(x, x^{2}), 1, 1)(x) = FunDeri(u, 1, 1)(x, x^{2}) + FunDeri(u, 2, 1)(x, x^{2}) * FunDeri(fun x [x ∈ RealSet] . x^{2}, 1, 1)(x)
+6. forall (x), x ∈ RealSet ⇒ FunDeri(fun x [x ∈ RealSet] . u(x, x^{2}), 1, 1)(x) = 0
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ FunDeri(fun x [x ∈ RealSet] . x^{2}, 1, 1)(x) = 2 * x
+
+METHOD:

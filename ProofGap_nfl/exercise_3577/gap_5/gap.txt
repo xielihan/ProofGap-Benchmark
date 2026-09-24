@@ -1,0 +1,14 @@
+PROOF GAP @5
+ASSUM:
+1. V ∈ RealSet ∧ V > 0
+2. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. F = (fun x, y, z, a, b, c, λ [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet] . frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}) + λ * (a * b * c - frac(3 * V, 4 * π)))
+4. forall (x) (a) (y) (b) (z) (c), x ∈ RealSet ∧ a ∈ RealSet ∧ y ∈ RealSet ∧ b ∈ RealSet ∧ z ∈ RealSet ∧ c ∈ RealSet ⇒ frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}) = 1
+5. forall (a) (b) (c), a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ⇒ a * b * c = frac(3 * V, 4 * π)
+6. forall (x) (y) (z) (a) (b) (c) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 4, 1)(x, y, z, a, b, c, λ) = -frac(2 * x^{2}, a^{3}) + λ * b * c
+7. forall (x) (a) (λ) (b) (c), x ∈ RealSet ∧ a ∈ RealSet ∧ λ ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ⇒ -frac(2 * x^{2}, a^{3}) + λ * b * c = 0
+
+GOAL:
+forall (x) (y) (z) (a) (b) (c) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ∧ c ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 4, 1)(x, y, z, a, b, c, λ) = 0
+
+METHOD:

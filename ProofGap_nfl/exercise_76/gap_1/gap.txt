@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet ∧ a ∈ PosRealSet
+2. a > 1 ⇒ b = (fun n [n ∈ PosIntegerSet] . a^{frac(1, n)} - 1)
+
+GOAL:
+a > 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) > 0)
+
+METHOD:

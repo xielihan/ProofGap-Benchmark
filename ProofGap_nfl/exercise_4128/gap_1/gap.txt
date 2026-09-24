@@ -1,0 +1,28 @@
+PROOF GAP @1
+ASSUM:
+1. a_{1} ∈ RealSet
+2. b_{1} ∈ RealSet
+3. c_{1} ∈ RealSet
+4. a_{2} ∈ RealSet
+5. b_{2} ∈ RealSet
+6. c_{2} ∈ RealSet
+7. a_{3} ∈ RealSet
+8. b_{3} ∈ RealSet
+9. c_{3} ∈ RealSet
+10. h ∈ RealSet ∧ h ∈ PosRealSet
+11. Δ ∈ RealSet ∧ Δ = a_{1} * (b_{2} * c_{3} - c_{2} * b_{3}) - b_{1} * (a_{2} * c_{3} - c_{2} * a_{3}) + c_{1} * (a_{2} * b_{3} - b_{2} * a_{3}) ∧ Δ ≠ 0
+12. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+13. v : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+14. w : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+15. V ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+16. B ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+17. u = (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . a_{1} * x + b_{1} * y + c_{1} * z)
+18. v = (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . a_{2} * x + b_{2} * y + c_{2} * z)
+19. w = (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . a_{3} * x + b_{3} * y + c_{3} * z)
+20. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ ((x, y, z) ∈ V ⇔ u(x, y, z)^{2} + v(x, y, z)^{2} + w(x, y, z)^{2} ≤ h^{2})
+21. B = { (u_{0}, v_{0}, w_{0}) | exists (x), x ∈ RealSet ∧ (exists (y), y ∈ RealSet ∧ (exists (z), z ∈ RealSet ∧ (x, y, z) ∈ V ∧ u_{0} = u(x, y, z) ∧ v_{0} = v(x, y, z) ∧ w_{0} = w(x, y, z))) }
+
+GOAL:
+forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ FunDeri(u, 1, 1)(x, y, z) * (FunDeri(v, 2, 1)(x, y, z) * FunDeri(w, 3, 1)(x, y, z) - FunDeri(v, 3, 1)(x, y, z) * FunDeri(w, 2, 1)(x, y, z)) - FunDeri(u, 2, 1)(x, y, z) * (FunDeri(v, 1, 1)(x, y, z) * FunDeri(w, 3, 1)(x, y, z) - FunDeri(v, 3, 1)(x, y, z) * FunDeri(w, 1, 1)(x, y, z)) + FunDeri(u, 3, 1)(x, y, z) * (FunDeri(v, 1, 1)(x, y, z) * FunDeri(w, 2, 1)(x, y, z) - FunDeri(v, 2, 1)(x, y, z) * FunDeri(w, 1, 1)(x, y, z)) = Δ
+
+METHOD:

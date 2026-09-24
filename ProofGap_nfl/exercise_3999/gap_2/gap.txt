@@ -1,0 +1,22 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. D ⊆ CartesianProd(RealSet, RealSet)
+4. S ∈ RealSet
+5. I : CartesianProd(RealSet, RealSet) → RealSet
+6. a > 0
+7. b > 0
+8. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ ((x, y) ∈ D ⇔ x ≥ 0 ∧ y > 0 ∧ 1 ≤ sqrtn(2, frac(x, a)) + sqrtn(2, frac(y, b)) ∧ sqrtn(2, frac(x, a)) + sqrtn(2, frac(y, b)) ≤ 2 ∧ frac(x, a) ≥ frac(y, b) ∧ frac(x, a) ≤ frac(4 * y, b)))
+9. S = VolumeInt(D, diff(fun x [x ∈ RealSet] . x) * diff(fun y [y ∈ RealSet] . y))
+10. u = sqrtn(2, frac(x, a)) + sqrtn(2, frac(y, b))
+11. v = frac(x, y)
+12. x = frac(u^{2} * v, (sqrtn(2, frac(v, a)) + frac(1, sqrtn(2, b)))^{2})
+13. x ∈ RealSet
+14. y ∈ RealSet
+15. (x, y) ∈ D
+
+GOAL:
+y = frac(u^{2}, (sqrtn(2, frac(v, a)) + frac(1, sqrtn(2, b)))^{2})
+
+METHOD:

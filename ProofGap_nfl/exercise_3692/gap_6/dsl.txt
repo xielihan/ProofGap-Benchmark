@@ -1,0 +1,2 @@
+exists (x := {frac(p, 3)})
+autosolve all_hypothesis

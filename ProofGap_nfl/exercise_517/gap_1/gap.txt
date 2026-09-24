@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ cot(x)^{2} = frac(1, x^{2}) * frac(x, sin(x))^{2} * cos(x)^{2}
+
+METHOD:

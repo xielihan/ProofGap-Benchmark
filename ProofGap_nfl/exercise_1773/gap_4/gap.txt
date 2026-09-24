@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. t = tan(x)
+2. cos(x) ≠ 0
+3. frac(1, cos(x)^{4}) * diff(fun x [x ∈ RealSet] . x) = (1 + t^{2}) * diff(fun t [t ∈ RealSet] . t)
+4. frac(sin(x)^{2}, cos(x)^{6}) * diff(fun x [x ∈ RealSet] . x) = (t^{4} + t^{2}) * diff(fun t [t ∈ RealSet] . t)
+
+GOAL:
+{ `F_2` | forall (x), x ∈ RealSet ∧ cos(x) ≠ 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(sin(x)^{2}, cos(x)^{6}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (t), t ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(t) = (t^{4} + t^{2}) * FunDeri(fun t [t ∈ RealSet] . t, 1, 1)(t) }
+
+METHOD:

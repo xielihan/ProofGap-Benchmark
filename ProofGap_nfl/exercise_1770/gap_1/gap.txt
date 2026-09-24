@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. t = 2 - 5 * x^{3}
+
+GOAL:
+x^{3} = frac(1, 5) * (2 - t)
+
+METHOD:

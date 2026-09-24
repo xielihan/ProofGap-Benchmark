@@ -1,0 +1,20 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. c ∈ RealSet ∧ c > 0
+4. V ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+5. Vol ∈ RealSet
+6. x : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+7. y : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+8. z : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+9. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ V = { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ (x / a + y / b)^{2} + (z / c)^{2} ≤ 1 ∧ x > 0 ∧ y > 0 ∧ z > 0 }))
+10. forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ (forall (ψ), ψ ∈ RealSet ⇒ x(r, φ, ψ) = a * r * cos(φ)^{2} * cos(ψ)))
+11. forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ (forall (ψ), ψ ∈ RealSet ⇒ y(r, φ, ψ) = b * r * sin(φ)^{2} * cos(ψ)))
+12. forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ (forall (ψ), ψ ∈ RealSet ⇒ z(r, φ, ψ) = c * r * sin(ψ)))
+13. exists (I), I ∈ RealSet ∧ (forall (r), r ∈ RealSet ⇒ (forall (φ), φ ∈ RealSet ⇒ (forall (ψ), ψ ∈ RealSet ⇒ |I| = 2 * a * b * c * r^{2} * cos(φ) * sin(φ) * cos(ψ))))
+
+GOAL:
+V = { (r, φ, ψ) | r ∈ RealSet ∧ φ ∈ RealSet ∧ ψ ∈ RealSet ∧ 0 < φ ∧ φ < frac(π, 2) ∧ 0 < ψ ∧ ψ < frac(π, 2) ∧ 0 < r ∧ r ≤ 1 }
+
+METHOD:

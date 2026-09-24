@@ -1,0 +1,15 @@
+PROOF GAP @3
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. a ∈ RealSet
+4. S ∈ RealSet
+5. a > 0
+6. forall (t), t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2) ⇒ x(t) = a * cos(t)^{3} ∧ y(t) = a * sin(t)^{3}
+7. S = 4 * DefInt(0, a, (fun x, y [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ a] . y) * diff(fun x, y [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ a ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ a] . x))
+8. S = 4 * DefInt(frac(π, 2), 0, (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2)] . -3 * a^{2} * sin(t)^{4} * cos(t)^{2}) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2)] . t))
+
+GOAL:
+S = 12 * a^{2} * DefInt(0, frac(π, 2), (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2)] . sin(t)^{4} - sin(t)^{6}) * diff(fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2)] . t))
+
+METHOD:

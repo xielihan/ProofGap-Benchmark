@@ -1,0 +1,2 @@
+get_prop (theorem 'Thm 420. (ArcsineSpecialValue)': {arcsin(frac(1, sqrtn(2, 2))) = frac(π, 4)}) as (hypothesis 5: {arcsin(frac(1, sqrtn(2, 2))) = frac(π, 4)})
+apply (hypothesis 5: {arcsin(frac(1, sqrtn(2, 2))) = frac(π, 4)})

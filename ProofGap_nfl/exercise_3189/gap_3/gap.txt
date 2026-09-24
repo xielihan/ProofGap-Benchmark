@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x > 0 ∧ y > 0 ⇒ 0 ≤ frac(x * y, x^{2} + y^{2})^{x^{2}})
+2. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x > 0 ∧ y > 0 ⇒ frac(x * y, x^{2} + y^{2})^{x^{2}} ≤ frac(1, 2)^{x^{2}})
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x > 0 ∧ y > 0 ⇒ 0 ≤ frac(1, 2)^{x^{2}})
+
+METHOD:

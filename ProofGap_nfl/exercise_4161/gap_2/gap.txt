@@ -1,0 +1,16 @@
+PROOF GAP @2
+ASSUM:
+1. φ : CartesianProd(RealSet, RealSet) → RealSet
+2. m ∈ RealSet ∧ m > 0
+3. M ∈ RealSet ∧ M > 0
+4. p ∈ RealSet
+5. D ⊆ CartesianProd(RealSet, RealSet)
+6. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ D = { (x, y) | x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} > 1 })
+7. Defined(φ, D)
+8. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ (x, y) ∈ D ⇒ m ≤ |φ(x, y)| ∧ |φ(x, y)| ≤ M)
+9. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ (x, y) ∈ D ⇒ frac(m, (x^{2} + y^{2})^{p}) ≤ |frac(φ(x, y), (x^{2} + y^{2})^{p})| ∧ |frac(φ(x, y), (x^{2} + y^{2})^{p})| ≤ frac(M, (x^{2} + y^{2})^{p}))
+
+GOAL:
+IntegrableFuncOn(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(φ(x, y), (x^{2} + y^{2})^{p}), D) ⇔ IntegrableFuncOn(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, (x^{2} + y^{2})^{p}), D)
+
+METHOD:

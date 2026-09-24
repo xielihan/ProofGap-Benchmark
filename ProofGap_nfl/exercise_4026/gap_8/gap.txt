@@ -1,0 +1,21 @@
+PROOF GAP @8
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. c ∈ RealSet ∧ c > 0
+4. V ∈ RealSet
+5. x = a * r * cos(φ)
+6. y = b * r * sin(φ)
+7. exists (z), z ∈ RealSet ∧ frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) + frac(z^{2}, c^{2}) = 1
+8. (frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}))^{2} = frac(x^{2}, a^{2}) - frac(y^{2}, b^{2})
+9. exists (z), z ∈ RealSet ∧ (z = c * sqrtn(2, 1 - r^{2}) ∨ z = -c * sqrtn(2, 1 - r^{2}))
+10. r^{2} = cos(φ)^{2} - sin(φ)^{2}
+11. cos(φ)^{2} - sin(φ)^{2} = cos(2 * φ)
+12. r^{2} = cos(2 * φ)
+13. 0 ≤ r
+14. r ∈ RealSet ∧ φ ∈ RealSet
+
+GOAL:
+r ≤ 1
+
+METHOD:

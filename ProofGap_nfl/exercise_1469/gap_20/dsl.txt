@@ -1,0 +1,2 @@
+exists (x_{0} := {ξ})
+autosolve (hypothesis 4: {ξ ∈ RealSet ∧ ξ ∈ PosRealSet})

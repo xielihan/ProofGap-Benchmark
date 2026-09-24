@@ -1,0 +1,13 @@
+PROOF GAP @6
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. a < b
+5. DiffableFuncOn(f, IntervalLoRo(a, b))
+6. BoundedFuncOn(FunDeri(f, 1, 1), IntervalLoRo(a, b))
+7. exists (M), M ∈ RealSet ∧ M > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(a, b) ⇒ |FunDeri(f, 1, 1)(x)| ≤ M)
+GOAL:
+UniformContinuousFuncOn(f, IntervalLoRo(a, b))
+
+METHOD:

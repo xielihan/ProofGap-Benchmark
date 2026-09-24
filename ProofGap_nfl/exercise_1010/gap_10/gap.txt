@@ -1,0 +1,21 @@
+PROOF GAP @10
+ASSUM:
+1. x_{0} ∈ RealSet
+2. f : RealSet → RealSet
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. forall (x), x ∈ RealSet ⇒ f(x) = cases{ x^{2} if x ≤ x_{0}; a * x + b if x > x_{0} }
+6. f(x_{0}) = (x_{0})^{2}
+7. (x_{0})^{2} = lim_{ x → x_{0}^- } (f(x))
+8. f(x_{0}) = lim_{ x → x_{0}^- } (f(x))
+9. lim_{ x → x_{0}^+ } (f(x)) = a * x_{0} + b
+10. (x_{0})^{2} = a * x_{0} + b ⇒ ContinuousFuncAt(f, x_{0})
+11. FunDeri(f, 1, 1)(x_{0}) = 2 * x_{0}
+12. FunDeri(f, 1, 1)(x_{0}) = a
+13. a = 2 * x_{0} ⇒ DiffableFuncAt(f, x_{0})
+14. (x_{0})^{2} = 2 * (x_{0})^{2} + b
+
+GOAL:
+b = -(x_{0})^{2}
+
+METHOD:

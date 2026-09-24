@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. forall (x), x ≠ 0 ⇒ x ∈ RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ e^{x} - 1 ≠ 0
+3. lim_{ x → 0 } (frac(1, x) - frac(1, e^{x} - 1)) = lim_{ x → 0 } (frac(e^{x} - 1 - x, x * (e^{x} - 1)))
+4. lim_{ x → 0 } (frac(e^{x} - 1 - x, x * (e^{x} - 1))) = lim_{ x → 0 } (frac(e^{x} - 1, e^{x} - 1 + x * e^{x}))
+5. lim_{ x → 0 } (frac(e^{x} - 1, e^{x} - 1 + x * e^{x})) = lim_{ x → 0 } (frac(e^{x}, e^{x} * (x + 2)))
+6. lim_{ x → 0 } (frac(e^{x}, e^{x} * (x + 2))) = frac(1, 2)
+
+GOAL:
+lim_{ x → 0 } (frac(1, x) - frac(1, e^{x} - 1)) = frac(1, 2)
+
+METHOD:

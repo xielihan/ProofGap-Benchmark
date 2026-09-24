@@ -1,0 +1,7 @@
+get_prop (theorem 'Thm 242. (HyperbolicSineDefinition)': {forall (x), x ∈ RealSet => sinh(x) = (e ^ x - e ^ (-x)) / 2}) (x := {α}) as (hypothesis 4: {α ∈ RealSet => sinh(α) = (e ^ α - e ^ (-α)) / 2})
+use_condition (hypothesis 2: {α ∈ RealSet}) in (hypothesis 4: {α ∈ RealSet => sinh(α) = (e ^ α - e ^ (-α)) / 2}) as (hypothesis 5: {sinh(α) = (e ^ α - e ^ (-α)) / 2})
+get_prop (theorem 'Thm 243. (HyperbolicCosineDefinition)': {forall (x), x ∈ RealSet => cosh(x) = (e ^ x + e ^ (-x)) / 2}) (x := {α}) as (hypothesis 6: {α ∈ RealSet => cosh(α) = (e ^ α + e ^ (-α)) / 2})
+use_condition (hypothesis 2: {α ∈ RealSet}) in (hypothesis 6: {α ∈ RealSet => cosh(α) = (e ^ α + e ^ (-α)) / 2}) as (hypothesis 7: {cosh(α) = (e ^ α + e ^ (-α)) / 2})
+rewrite (left_to_right, equation) (hypothesis 7: {cosh(α) = (e ^ α + e ^ (-α)) / 2}); from (GOAL: {cosh(α) + sinh(α) = e^{α}}) to (GOAL: {(e ^ α + e ^ (-α)) / 2 + sinh(α) = e^{α}})
+rewrite (left_to_right, equation) (hypothesis 5: {sinh(α) = (e ^ α - e ^ (-α)) / 2}); from (GOAL: {(e ^ α + e ^ (-α)) / 2 + sinh(α) = e^{α}}) to (GOAL: {(e ^ α + e ^ (-α)) / 2 + (e ^ α - e ^ (-α)) / 2 = e^{α}})
+autosolve all_hypothesis

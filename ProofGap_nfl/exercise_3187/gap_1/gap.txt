@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ x ≠ 0 ∧ y ≠ 0 ⇒ frac(sin(x * y), x) = frac(sin(x * y), x * y) * y)
+
+METHOD:

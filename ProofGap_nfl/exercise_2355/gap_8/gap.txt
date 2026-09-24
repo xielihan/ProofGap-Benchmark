@@ -1,0 +1,23 @@
+PROOF GAP @8
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. x ∈ RealSet ∧ x > 0
+5. a > 0
+6. b > 0
+7. Defined(f, [2 * sqrtn(2, a * b), +∞]) ∧ IntegrableFuncOn((fun t [t ∈ RealSet ∧ t ∈ NonNegRealSet] . f(sqrtn(2, t^{2} + 4 * a * b))), [0, +∞))
+8. t ∈ RealSet
+9. t = a * x - frac(b, x)
+10. a * x + frac(b, x) = sqrtn(2, t^{2} + 4 * a * b)
+11. x = frac(1, 2 * a) * (t + sqrtn(2, t^{2} + 4 * a * b))
+12. diff(fun x [x ∈ RealSet ∧ x > 0] . x) = frac(1, 2 * a) * frac(t + sqrtn(2, t^{2} + 4 * a * b), sqrtn(2, t^{2} + 4 * a * b)) * diff(fun t [t ∈ RealSet] . t)
+13. DefInt(0, +∞, f(a * x + frac(b, x)) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = frac(1, 2 * a) * DefInt(-∞, +∞, f(sqrtn(2, t^{2} + 4 * a * b)) * frac(t + sqrtn(2, t^{2} + 4 * a * b), sqrtn(2, t^{2} + 4 * a * b)) * diff(fun t [t ∈ RealSet] . t))
+14. DefInt(0, +∞, f(a * x + frac(b, x)) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = frac(1, 2 * a) * DefInt(-∞, 0, f(sqrtn(2, t^{2} + 4 * a * b)) * frac(t + sqrtn(2, t^{2} + 4 * a * b), sqrtn(2, t^{2} + 4 * a * b)) * diff(fun t [t ∈ RealSet] . t)) + frac(1, 2 * a) * DefInt(0, +∞, f(sqrtn(2, t^{2} + 4 * a * b)) * frac(t + sqrtn(2, t^{2} + 4 * a * b), sqrtn(2, t^{2} + 4 * a * b)) * diff(fun t [t ∈ RealSet] . t))
+15. DefInt(0, +∞, f(a * x + frac(b, x)) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = frac(1, 2 * a) * DefInt(0, +∞, f(sqrtn(2, t^{2} + 4 * a * b)) * frac(sqrtn(2, t^{2} + 4 * a * b) - t, sqrtn(2, t^{2} + 4 * a * b)) * diff(fun t [t ∈ RealSet] . t)) + frac(1, 2 * a) * DefInt(0, +∞, f(sqrtn(2, t^{2} + 4 * a * b)) * frac(t + sqrtn(2, t^{2} + 4 * a * b), sqrtn(2, t^{2} + 4 * a * b)) * diff(fun t [t ∈ RealSet] . t))
+16. DefInt(0, +∞, f(a * x + frac(b, x)) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = frac(1, 2 * a) * DefInt(0, +∞, f(sqrtn(2, t^{2} + 4 * a * b)) * frac(sqrtn(2, t^{2} + 4 * a * b) - t + sqrtn(2, t^{2} + 4 * a * b) + t, sqrtn(2, t^{2} + 4 * a * b)) * diff(fun t [t ∈ RealSet] . t))
+
+GOAL:
+DefInt(0, +∞, f(a * x + frac(b, x)) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = frac(1, a) * DefInt(0, +∞, f(sqrtn(2, t^{2} + 4 * a * b)) * diff(fun t [t ∈ RealSet] . t))
+
+METHOD:

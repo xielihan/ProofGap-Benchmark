@@ -1,0 +1,13 @@
+PROOF GAP @7
+ASSUM:
+1. prod_{ k = 1 }^{ +∞ } (frac(2 * k, 2 * k - 1) * frac(2 * k, 2 * k + 1)) = frac(π, 2)
+2. seqlim_{ n → +∞ } (frac(prod_{ k = 1 }^{ n } (2 * k), prod_{ k = 1 }^{ n } (2 * k - 1))^{2} * frac(1, 2 * n + 1)) = frac(π, 2)
+3. frac(prod_{ k = 1 }^{ n } (2 * k - 1), prod_{ k = 1 }^{ n } (2 * k))^{2} ∼_{ n → +∞ } (frac(2, π * (2 * n + 1)))
+4. (frac(prod_{ k = 1 }^{ n } (2 * k - 1), prod_{ k = 1 }^{ n } (2 * k))) ∼_{ n → +∞ } (sqrtn(2, frac(2, π * (2 * n + 1))))
+5. (sqrtn(2, frac(2, π * (2 * n + 1)))) ∼_{ n → +∞ } (frac(1, sqrtn(2, π * n)))
+6. (frac(prod_{ k = 1 }^{ n } (2 * k - 1), prod_{ k = 1 }^{ n } (2 * k))) ∼_{ n → +∞ } (frac(1, sqrtn(2, π * n)))
+
+GOAL:
+(frac(prod_{ k = 1 }^{ n } (2 * k - 1), prod_{ k = 1 }^{ n } (2 * k))) ∼_{ n → +∞ } (frac(1, sqrtn(2, π * n)))
+
+METHOD:

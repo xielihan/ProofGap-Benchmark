@@ -1,0 +1,12 @@
+get_forall (GOAL: {forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ x(2 * k - 1) = (2 * k - 1)^{(-1)^{2 * k - 1}}}) (k := {k0})
+get_condition (hypothesis 7: {k0 ∈ NonNegIntegerSet ∧ k0 ∈ PosIntegerSet}) in (GOAL: {k0 ∈ NonNegIntegerSet ∧ k0 ∈ PosIntegerSet ⇒ x(2 * k0 - 1) = (2 * k0 - 1)^{(-1)^{2 * k0 - 1}}})
+destruct_and (hypothesis 7: {k0 ∈ NonNegIntegerSet ∧ k0 ∈ PosIntegerSet}) as (hypothesis 8: {k0 ∈ NonNegIntegerSet}) (hypothesis 9: {k0 ∈ PosIntegerSet})
+assert (hypothesis 10: {2 * k0 - 1 ∈ IntegerSet})
+assert (hypothesis 11: {2 * k0 - 1 >= 1})
+get_prop (theorem 'Thm 430. (IntegerAtLeastOneIsPositiveInteger)': {forall (x), x ∈ IntegerSet => x >= 1 => x ∈ PosIntegerSet}) (x := {2 * k0 - 1}) as (hypothesis 12: {2 * k0 - 1 ∈ IntegerSet => 2 * k0 - 1 >= 1 => 2 * k0 - 1 ∈ PosIntegerSet})
+use_condition (hypothesis 10: {2 * k0 - 1 ∈ IntegerSet}) (hypothesis 11: {2 * k0 - 1 >= 1}) in (hypothesis 12: {2 * k0 - 1 ∈ IntegerSet => 2 * k0 - 1 >= 1 => 2 * k0 - 1 ∈ PosIntegerSet}) as (hypothesis 13: {2 * k0 - 1 ∈ PosIntegerSet})
+get_prop (theorem 'Thm 516. (PositiveIntegerIsNonnegativeInteger)': {forall (x), x ∈ PosIntegerSet => x ∈ NonNegIntegerSet}) (x := {2 * k0 - 1}) as (hypothesis 14: {2 * k0 - 1 ∈ PosIntegerSet => 2 * k0 - 1 ∈ NonNegIntegerSet})
+use_condition (hypothesis 13: {2 * k0 - 1 ∈ PosIntegerSet}) in (hypothesis 14: {2 * k0 - 1 ∈ PosIntegerSet => 2 * k0 - 1 ∈ NonNegIntegerSet}) as (hypothesis 15: {2 * k0 - 1 ∈ NonNegIntegerSet})
+get_prop (hypothesis 3: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = n^{(-1)^{n}}}) (n := {2 * k0 - 1}) as (hypothesis 16: {(2 * k0 - 1) ∈ NonNegIntegerSet ∧ (2 * k0 - 1) ∈ PosIntegerSet ⇒ x(2 * k0 - 1) = (2 * k0 - 1)^{(-1)^{2 * k0 - 1}}})
+apply (hypothesis 16: {(2 * k0 - 1) ∈ NonNegIntegerSet ∧ (2 * k0 - 1) ∈ PosIntegerSet ⇒ x(2 * k0 - 1) = (2 * k0 - 1)^{(-1)^{2 * k0 - 1}}})
+autosolve all_hypothesis

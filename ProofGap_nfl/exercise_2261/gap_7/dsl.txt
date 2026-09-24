@@ -1,0 +1,10 @@
+get_forall (GOAL: {forall (t), t : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ frac(π, 2) ≤ x ∧ x ≤ frac(3 * π, 2) ∧ t(x) = sin(π - x) ⇒ t(x) ≤ 1)}) (t := {g})
+get_condition (hypothesis 9: {g : RealSet → RealSet}) in (GOAL: {g : RealSet → RealSet ⇒ (forall (x), x ∈ RealSet ∧ frac(π, 2) ≤ x ∧ x ≤ frac(3 * π, 2) ∧ g(x) = sin(π - x) ⇒ g(x) ≤ 1)})
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ frac(π, 2) ≤ x ∧ x ≤ frac(3 * π, 2) ∧ g(x) = sin(π - x) ⇒ g(x) ≤ 1}) (x := {y})
+get_condition (hypothesis 10: {y ∈ RealSet ∧ frac(π, 2) ≤ y ∧ y ≤ frac(3 * π, 2) ∧ g(y) = sin(π - y)}) in (GOAL: {y ∈ RealSet ∧ frac(π, 2) ≤ y ∧ y ≤ frac(3 * π, 2) ∧ g(y) = sin(π - y) ⇒ g(y) ≤ 1})
+destruct_and (hypothesis 10: {y ∈ RealSet ∧ frac(π, 2) ≤ y ∧ y ≤ frac(3 * π, 2) ∧ g(y) = sin(π - y)}) as (hypothesis 11: {y ∈ RealSet}) (hypothesis 12: {frac(π, 2) ≤ y}) (hypothesis 13: {y ≤ frac(3 * π, 2)}) (hypothesis 14: {g(y) = sin(π - y)})
+assert (hypothesis 15: {π - y ∈ RealSet})
+get_prop (theorem 'Thm 166. (SineBounded)': {forall (x), x ∈ RealSet => -1 <= sin(x) /\ sin(x) <= 1}) (x := {π - y}) as (hypothesis 16: {π - y ∈ RealSet => -1 <= sin(π - y) /\ sin(π - y) <= 1})
+use_condition (hypothesis 15: {π - y ∈ RealSet}) in (hypothesis 16: {π - y ∈ RealSet => -1 <= sin(π - y) /\ sin(π - y) <= 1}) as (hypothesis 17: {-1 <= sin(π - y) /\ sin(π - y) <= 1})
+destruct_and (hypothesis 17: {-1 <= sin(π - y) /\ sin(π - y) <= 1}) as (hypothesis 18: {-1 <= sin(π - y)}) (hypothesis 19: {sin(π - y) <= 1})
+autosolve all_hypothesis

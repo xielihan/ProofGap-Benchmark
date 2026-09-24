@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x = 0 ⇒ x ∈ MinimumPoint(y)}) (x := {x0})
+get_condition (hypothesis 14: {x0 ∈ RealSet ∧ x0 = 0}) in (GOAL: {x0 ∈ RealSet ∧ x0 = 0 ⇒ x0 ∈ MinimumPoint(y)})
+destruct_and (hypothesis 14: {x0 ∈ RealSet ∧ x0 = 0}) as (hypothesis 15: {x0 ∈ RealSet}) (hypothesis 16: {x0 = 0})
+rewrite (left_to_right, equation) (hypothesis 16: {x0 = 0}); from (GOAL: {x0 ∈ MinimumPoint(y)}) to (GOAL: {0 ∈ MinimumPoint(y)})
+apply (hypothesis 12: {0 ∈ MinimumPoint(y)})

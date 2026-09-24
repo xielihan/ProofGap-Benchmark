@@ -1,0 +1,33 @@
+PROOF GAP @18
+ASSUM:
+1. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+2. x ∈ RealSet ∧ x ≥ 0
+3. y ∈ RealSet ∧ y ≥ 0
+4. z : CartesianProd(RealSet, RealSet) → RealSet
+5. F : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+6. a ∈ RealSet
+7. x = 0 ⇒ y = 0 ⇒ frac(x^{n} + y^{n}, 2) = 0
+8. x = 0 ⇒ y = 0 ⇒ frac(x + y, 2)^{n} = 0
+9. x = 0 ⇒ y = 0 ⇒ frac(x^{n} + y^{n}, 2) ≥ frac(x + y, 2)^{n}
+10. x ≥ 0 ⇒ y ≥ 0 ⇒ x + y > 0 ⇒ a = x + y
+11. x ≥ 0 ⇒ y ≥ 0 ⇒ x + y > 0 ⇒ a > 0
+12. x ≥ 0 ⇒ y ≥ 0 ⇒ x + y > 0 ⇒ z = (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(x^{n} + y^{n}, 2))
+13. x ≥ 0 ⇒ y ≥ 0 ⇒ x + y > 0 ⇒ F = (fun x, y, λ [x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet] . frac(x^{n} + y^{n}, 2) + λ * (x + y - a))
+14. forall (λ), λ ∈ RealSet ∧ x ≥ 0 ∧ y ≥ 0 ∧ x + y > 0 ⇒ FunDeri(F, 1, 1)(x, y, λ) = frac(n, 2) * x^{n - 1} + λ
+15. forall (λ), λ ∈ RealSet ∧ x ≥ 0 ∧ y ≥ 0 ∧ x + y > 0 ⇒ FunDeri(F, 2, 1)(x, y, λ) = frac(n, 2) * y^{n - 1} + λ
+16. exists (λ), λ ∈ RealSet ∧ (x ≥ 0 ⇒ y ≥ 0 ⇒ x + y > 0 ⇒ FunDeri(F, 1, 1)(x, y, λ) = 0 ∧ FunDeri(F, 2, 1)(x, y, λ) = 0 ∧ x + y = a ⇒ x = y ∧ x = frac(a, 2) ∧ y = frac(a, 2))
+17. x ≥ 0 ⇒ y ≥ 0 ⇒ x + y > 0 ⇒ z(0, a) = z(a, 0)
+18. x ≥ 0 ⇒ y ≥ 0 ⇒ x + y > 0 ⇒ z(a, 0) = frac(a^{n}, 2)
+19. x ≥ 0 ⇒ y ≥ 0 ⇒ x + y > 0 ⇒ z(0, a) = frac(a^{n}, 2)
+20. x ≥ 0 ⇒ y ≥ 0 ⇒ x + y > 0 ⇒ z(frac(a, 2), frac(a, 2)) = frac(a, 2)^{n}
+21. x ≥ 0 ⇒ y ≥ 0 ⇒ x + y > 0 ⇒ frac(a^{n}, 2) ≥ frac(a, 2)^{n}
+22. x ≥ 0 ⇒ y ≥ 0 ⇒ x + y > 0 ⇒ (forall (u) (v), u ∈ RealSet ∧ u ≥ 0 ∧ v ∈ RealSet ∧ v ≥ 0 ∧ u + v = a ⇒ z(u, v) ≥ frac(a, 2)^{n})
+23. x ≥ 0 ⇒ y ≥ 0 ⇒ x + y > 0 ⇒ frac(x^{n} + y^{n}, 2) = z(x, y)
+24. x ≥ 0 ⇒ y ≥ 0 ⇒ x + y > 0 ⇒ frac(x^{n} + y^{n}, 2) ≥ frac(a, 2)^{n}
+25. x ≥ 0 ⇒ y ≥ 0 ⇒ x + y > 0 ⇒ frac(a, 2)^{n} = frac(x + y, 2)^{n}
+26. x ≥ 0 ⇒ y ≥ 0 ⇒ x + y > 0 ⇒ frac(x^{n} + y^{n}, 2) ≥ frac(x + y, 2)^{n}
+
+GOAL:
+frac(x^{n} + y^{n}, 2) ≥ frac(x + y, 2)^{n}
+
+METHOD:

@@ -1,0 +1,23 @@
+PROOF GAP @5
+ASSUM:
+1. S ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ∧ OutwardOrientedSurface(S)
+2. V ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+3. U ⊆ CartesianProd(RealSet, CartesianProd(RealSet, RealSet))
+4. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+5. v : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+6. w : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+7. S = { (x, y, z) | |x - y + z| + |y - z + x| + |z - x + y| = 1 ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet }
+8. V = { (x, y, z) | |x - y + z| + |y - z + x| + |z - x + y| ≤ 1 ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet }
+9. U = { (u_{0}, v_{0}, w_{0}) | |u_{0}| + |v_{0}| + |w_{0}| ≤ 1 ∧ u_{0} ∈ RealSet ∧ v_{0} ∈ RealSet ∧ w_{0} ∈ RealSet }
+10. u = (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x - y + z)
+11. v = (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y - z + x)
+12. w = (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z - x + y)
+13. VectorSurfaceInt(S, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x - y + z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y - z + x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) + (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z - x + y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y)) = VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . 3) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z))
+14. JacobianDeterminant(u, v, w) = 4
+15. VolumeInt(V, (fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . 3) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . x) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . y) * diff(fun x, y, z [x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet] . z)) = VolumeInt(U, (fun u_{0}, v_{0}, w_{0} [u_{0} ∈ RealSet ∧ v_{0} ∈ RealSet ∧ w_{0} ∈ RealSet] . 3 * frac(1, 4)) * diff(fun u_{0}, v_{0}, w_{0} [u_{0} ∈ RealSet ∧ v_{0} ∈ RealSet ∧ w_{0} ∈ RealSet] . u_{0}) * diff(fun u_{0}, v_{0}, w_{0} [u_{0} ∈ RealSet ∧ v_{0} ∈ RealSet ∧ w_{0} ∈ RealSet] . v_{0}) * diff(fun u_{0}, v_{0}, w_{0} [u_{0} ∈ RealSet ∧ v_{0} ∈ RealSet ∧ w_{0} ∈ RealSet] . w_{0}))
+16. VolumeInt(U, (fun u_{0}, v_{0}, w_{0} [u_{0} ∈ RealSet ∧ v_{0} ∈ RealSet ∧ w_{0} ∈ RealSet] . 1) * diff(fun u_{0}, v_{0}, w_{0} [u_{0} ∈ RealSet ∧ v_{0} ∈ RealSet ∧ w_{0} ∈ RealSet] . u_{0}) * diff(fun u_{0}, v_{0}, w_{0} [u_{0} ∈ RealSet ∧ v_{0} ∈ RealSet ∧ w_{0} ∈ RealSet] . v_{0}) * diff(fun u_{0}, v_{0}, w_{0} [u_{0} ∈ RealSet ∧ v_{0} ∈ RealSet ∧ w_{0} ∈ RealSet] . w_{0})) = frac(4, 3)
+
+GOAL:
+VolumeInt(U, (fun u_{0}, v_{0}, w_{0} [u_{0} ∈ RealSet ∧ v_{0} ∈ RealSet ∧ w_{0} ∈ RealSet] . 3 * frac(1, 4)) * diff(fun u_{0}, v_{0}, w_{0} [u_{0} ∈ RealSet ∧ v_{0} ∈ RealSet ∧ w_{0} ∈ RealSet] . u_{0}) * diff(fun u_{0}, v_{0}, w_{0} [u_{0} ∈ RealSet ∧ v_{0} ∈ RealSet ∧ w_{0} ∈ RealSet] . v_{0}) * diff(fun u_{0}, v_{0}, w_{0} [u_{0} ∈ RealSet ∧ v_{0} ∈ RealSet ∧ w_{0} ∈ RealSet] . w_{0})) = frac(3, 4) * frac(4, 3)
+
+METHOD:

@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. V ∈ RealSet
+2. V = DefInt(0, 1, (fun x [x ∈ RealSet] . DefInt(0, 1 - x, (fun y [y ∈ RealSet] . 1 + x + y) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x))
+3. DefInt(0, 1, (fun x [x ∈ RealSet] . DefInt(0, 1 - x, (fun y [y ∈ RealSet] . 1 + x + y) * diff(fun y [y ∈ RealSet] . y))) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 1, (fun x [x ∈ RealSet] . frac(3, 2) - x - frac(x^{2}, 2)) * diff(fun x [x ∈ RealSet] . x))
+4. DefInt(0, 1, (fun x [x ∈ RealSet] . frac(3, 2) - x - frac(x^{2}, 2)) * diff(fun x [x ∈ RealSet] . x)) = frac(5, 6)
+
+GOAL:
+V = frac(5, 6)
+
+METHOD:

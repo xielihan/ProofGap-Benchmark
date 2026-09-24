@@ -1,0 +1,30 @@
+PROOF GAP @7
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. v : CartesianProd(RealSet, RealSet) → RealSet
+3. w : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+4. z : CartesianProd(RealSet, RealSet) → RealSet
+5. forall (x), x ∈ RealSet
+6. forall (y), y ∈ RealSet
+7. z ∈ RealSet
+8. forall (x), x ∈ RealSet ⇒ x ≠ 0
+9. forall (y), y ∈ RealSet ⇒ y ≠ 0
+10. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ u(x, y) = frac(x, y))
+11. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ v(x, y) = x)
+12. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ w(x, y, z) = x * z - y)
+13. FuncOfClassK(u, 2)
+14. FuncOfClassK(v, 2)
+15. FuncOfClassK(w, 2)
+16. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(w, z, 1)(x, y, z) ≠ 0)
+17. forall (y), y ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ y * FunDeri(z, y, 2)(x, y) + 2 * FunDeri(z, y, 1)(x, y) = frac(2, x))
+18. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ diff(u) = FunDeri(u, x, 1)(x, y) * diff(x) + FunDeri(u, y, 1)(x, y) * diff(y))
+19. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ diff(v) = FunDeri(v, x, 1)(x, y) * diff(x) + FunDeri(v, y, 1)(x, y) * diff(y))
+20. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ diff(w) = FunDeri(w, x, 1)(x, y, z) * diff(x) + FunDeri(w, y, 1)(x, y, z) * diff(y) + FunDeri(w, z, 1)(x, y, z) * diff(z))
+21. diff(w) = FunDeri(w, u, 1)(u, v) * diff(u) + FunDeri(w, v, 1)(u, v) * diff(v)
+22. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ FunDeri(z, x, 1)(x, y) = frac(1, FunDeri(w, z, 1)(x, y, z)) * (FunDeri(w, u, 1)(u, v) * FunDeri(u, x, 1)(x, y) + FunDeri(w, v, 1)(u, v) * FunDeri(v, x, 1)(x, y) - FunDeri(w, x, 1)(x, y, z)))
+23. forall (y), y ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ FunDeri(z, y, 1)(x, y) = frac(1, FunDeri(w, z, 1)(x, y, z)) * (FunDeri(w, u, 1)(u, v) * FunDeri(u, y, 1)(x, y) + FunDeri(w, v, 1)(u, v) * FunDeri(v, y, 1)(x, y) - FunDeri(w, y, 1)(x, y, z)))
+
+GOAL:
+forall (y), y ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ FunDeri(w, y, 1)(x, y, z) = x * FunDeri(z, y, 1)(x, y) - 1)
+
+METHOD:

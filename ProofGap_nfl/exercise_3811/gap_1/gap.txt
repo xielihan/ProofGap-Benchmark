@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. n ∈ NonNegIntegerSet ∧ n > 0
+2. b ∈ RealSet
+3. n ∈ PosIntegerSet
+
+GOAL:
+DefInt(0, +∞, e^{-x^{2}} * cos(2 * b * x) * diff(x)) = frac(sqrtn(2, π), 2) * e^{-b^{2}}
+
+METHOD:
+[@method 根据 "3809题结果" @]

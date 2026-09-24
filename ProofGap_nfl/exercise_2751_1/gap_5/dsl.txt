@@ -1,0 +1,11 @@
+get_forall (GOAL: {forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 - ε ⇒ |f(n, x) - g(x)| < (1 - ε)^{n}}) (n := {m}) (x := {y})
+get_condition (hypothesis 12: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 - ε}) in (GOAL: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 - ε ⇒ |f(m, y) - g(y)| < (1 - ε)^{m}})
+get_prop (hypothesis 10: {forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 - ε ⇒ |f(n, x) - g(x)| = frac(x^{n}, 1 + x^{n})}) (n := {m}) (x := {y}) as (hypothesis 13: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 - ε ⇒ |f(m, y) - g(y)| = frac(y^{m}, 1 + y^{m})})
+use_condition (hypothesis 12: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 - ε}) in (hypothesis 13: {m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 - ε ⇒ |f(m, y) - g(y)| = frac(y^{m}, 1 + y^{m})}) as (hypothesis 14: {|f(m, y) - g(y)| = frac(y^{m}, 1 + y^{m})})
+get_prop (hypothesis 11: {forall (x) (n), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 - ε ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(x^{n}, 1 + x^{n}) < (1 - ε)^{n}}) (x := {y}) (n := {m}) as (hypothesis 15: {y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 - ε ∧ m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ frac(y^{m}, 1 + y^{m}) < (1 - ε)^{m}})
+assert (hypothesis 16: {y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 - ε ∧ m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 16: {y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 - ε ∧ m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet}) in (hypothesis 15: {y ∈ RealSet ∧ 0 ≤ y ∧ y ≤ 1 - ε ∧ m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ⇒ frac(y^{m}, 1 + y^{m}) < (1 - ε)^{m}}) as (hypothesis 17: {frac(y^{m}, 1 + y^{m}) < (1 - ε)^{m}})
+rewrite (left_to_right, equation) (hypothesis 14: {|f(m, y) - g(y)| = frac(y^{m}, 1 + y^{m})}); from (GOAL: {|f(m, y) - g(y)| < (1 - ε)^{m}}) to (GOAL: {frac(y^{m}, 1 + y^{m}) < (1 - ε)^{m}})
+apply (hypothesis 17: {frac(y^{m}, 1 + y^{m}) < (1 - ε)^{m}})

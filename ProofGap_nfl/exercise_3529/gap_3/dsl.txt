@@ -1,0 +1,4 @@
+get_prop (hypothesis 11: {forall (t), t ∈ RealSet => z(t) = c * cos(t)^{2}}) (t := {frac(π, 4)}) as (hypothesis 14: {frac(π, 4) ∈ RealSet => z(frac(π, 4)) = c * cos(frac(π, 4))^{2}})
+use_condition (obvious: {frac(π, 4) ∈ RealSet}) in (hypothesis 14: {frac(π, 4) ∈ RealSet => z(frac(π, 4)) = c * cos(frac(π, 4))^{2}}) as (hypothesis 15: {z(frac(π, 4)) = c * cos(frac(π, 4))^{2}})
+rewrite (left_to_right, equation) (hypothesis 15: {z(frac(π, 4)) = c * cos(frac(π, 4))^{2}}); from (GOAL: {z(frac(π, 4)) = frac(c, 2)}) to (GOAL: {c * cos(frac(π, 4))^{2} = frac(c, 2)})
+autosolve all_hypothesis

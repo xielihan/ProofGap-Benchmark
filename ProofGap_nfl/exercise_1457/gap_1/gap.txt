@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. P : RealSet → RealSet
+2. E_{P} ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ x ∈ [-2, 1] ⇒ P(x) = x * (x - 1)^{2} * (x + 2)
+
+GOAL:
+E_{P} = sup({ |P(x)| | x ∈ [-2, 1] })
+
+METHOD:

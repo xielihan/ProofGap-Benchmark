@@ -1,0 +1,30 @@
+PROOF GAP @13
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet ∧ b > 0
+3. ε ∈ RealSet
+4. c ∈ RealSet
+5. P_{x} ∈ RealSet
+6. P_{y} ∈ RealSet
+7. y : RealSet → RealSet
+8. 0 < b
+9. b ≤ a
+10. ε = frac(sqrtn(2, a^{2} - b^{2}), a)
+11. c = sqrtn(2, a^{2} - b^{2})
+12. forall (x), x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a ⇒ y(x)^{2} = b^{2} - frac(b^{2}, a^{2}) * x^{2}
+13. forall (x), x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a ⇒ y(x) * FunDeri(y, 1, 1)(x) = -frac(b^{2}, a^{2}) * x
+14. forall (x), x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a ⇒ y(x) * sqrtn(2, 1 + FunDeri(y, 1, 1)(x)^{2}) = sqrtn(2, y(x)^{2} + (y(x) * FunDeri(y, 1, 1)(x))^{2})
+15. forall (x), x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a ⇒ sqrtn(2, y(x)^{2} + (y(x) * FunDeri(y, 1, 1)(x))^{2}) = frac(b, a) * sqrtn(2, a^{2} - frac(a^{2} - b^{2}, a^{2}) * x^{2})
+16. forall (x), x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a ⇒ frac(b, a) * sqrtn(2, a^{2} - frac(a^{2} - b^{2}, a^{2}) * x^{2}) = frac(b, a) * sqrtn(2, a^{2} - ε^{2} * x^{2})
+17. forall (x), x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a ⇒ y(x) * sqrtn(2, 1 + FunDeri(y, 1, 1)(x)^{2}) = frac(b, a) * sqrtn(2, a^{2} - ε^{2} * x^{2})
+18. forall (x), x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a ⇒ P_{x} = 2 * π * frac(b, a) * DefInt(-a, a, sqrtn(2, a^{2} - ε^{2} * x^{2}) * diff(fun x [x ∈ RealSet ∧ -a ≤ x ∧ x ≤ a] . x))
+19. P_{x} = frac(2 * π * b, a) * (a * sqrtn(2, a^{2} - ε^{2} * a^{2}) + frac(a^{2}, ε) * arcsin(ε))
+20. frac(2 * π * b, a) * (a * sqrtn(2, a^{2} - ε^{2} * a^{2}) + frac(a^{2}, ε) * arcsin(ε)) = 2 * π * b * (b + frac(a, ε) * arcsin(ε))
+21. P_{x} = 2 * π * b * (b + frac(a, ε) * arcsin(ε))
+22. forall (x), x ∈ RealSet ∧ -b ≤ x ∧ x ≤ b ⇒ y(x) * sqrtn(2, 1 + FunDeri(y, 1, 1)(x)^{2}) = frac(a, b) * sqrtn(2, b^{2} + frac(a^{2} - b^{2}, b^{2}) * x^{2}) ∧ frac(a, b) * sqrtn(2, b^{2} + frac(a^{2} - b^{2}, b^{2}) * x^{2}) = frac(a, b) * sqrtn(2, b^{2} + frac(c^{2}, b^{2}) * x^{2})
+23. forall (x), x ∈ RealSet ∧ -b ≤ x ∧ x ≤ b ⇒ P_{y} = 2 * π * frac(a, b) * DefInt(-b, b, sqrtn(2, b^{2} + frac(c^{2}, b^{2}) * x^{2}) * diff(fun x [x ∈ RealSet ∧ -b ≤ x ∧ x ≤ b] . x))
+
+GOAL:
+P_{y} = 2 * π * a * (a + frac(b^{2}, 2 * c) * ln(frac(a + c, a - c)))
+
+METHOD:

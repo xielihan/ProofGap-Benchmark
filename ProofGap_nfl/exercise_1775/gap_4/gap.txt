@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet ∧ t ∈ RealSet ∧ t = e^{frac(x, 2)}
+2. t > 0
+3. e^{x} = t^{2}
+4. diff(fun x [x ∈ RealSet] . x) = frac(2 * diff(fun t [t ∈ RealSet] . t), t)
+
+GOAL:
+frac(1, e^{frac(x, 2)} + e^{x}) * diff(fun x [x ∈ RealSet] . x) = frac(2, t^{2} * (1 + t)) * diff(fun t [t ∈ RealSet] . t)
+
+METHOD:

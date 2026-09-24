@@ -1,0 +1,16 @@
+PROOF GAP @7
+ASSUM:
+1. f : RealSet → RealSet
+2. x ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = (x + |x|) * (1 - x)
+4. x + |x| ≥ 0
+5. f(x) = 0 ⇒ x ∈ { x | x ∈ RealSet, x ≤ 0 ∨ x = 1 }
+6. f(x) > 0 ⇒ x + |x| > 0 ∧ 1 - x > 0
+7. f(x) > 0 ⇒ x ∈ { x | x ∈ RealSet, 0 < x ∧ x < 1 }
+8. f(x) < 0 ⇒ x + |x| > 0 ∧ 1 - x < 0
+9. f(x) < 0 ⇒ x ∈ { x | x ∈ RealSet, 1 < x ∧ x < +∞ }
+
+GOAL:
+(f(x) = 0 ⇒ x ∈ { x | x ∈ RealSet, x ≤ 0 ∨ x = 1 }) ∧ (f(x) > 0 ⇒ x ∈ { x | x ∈ RealSet, 0 < x ∧ x < 1 }) ∧ (f(x) < 0 ⇒ x ∈ { x | x ∈ RealSet, 1 < x ∧ x < +∞ }) ⇔ x ∈ RealSet ∧ (f(x) = 0 ∨ f(x) > 0 ∨ f(x) < 0)
+
+METHOD:

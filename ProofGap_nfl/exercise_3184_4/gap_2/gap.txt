@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. f : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ∧ 1 + x * y ≠ 0 ∧ cos(frac(x * y, 1 + x * y)) ≠ 0 ⇒ f(x, y) = frac(1, x * y) * tan(frac(x * y, 1 + x * y))
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ lim_{ y → +∞ } (f(x, y)) = lim_{ y → +∞ } (frac(1, x * y) * tan(frac(x * y, 1 + x * y)))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ lim_{ y → +∞ } (frac(1, x * y) * tan(frac(x * y, 1 + x * y))) = 0 * tan(1)
+
+METHOD:

@@ -1,0 +1,4 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet /\ (a + b * x) / (a - b * x) > 0 /\ a - b * x != 0 => FunDeri(y, 1, n)(x) = FunDeri(y, 1, 1 + n - 1)(x)}) (x := {x0})
+2. get_condition (hypothesis 9: {x0 ∈ RealSet /\ (a + b * x0) / (a - b * x0) > 0 /\ a - b * x0 != 0}) in (GOAL: {x0 ∈ RealSet /\ (a + b * x0) / (a - b * x0) > 0 /\ a - b * x0 != 0 => FunDeri(y, 1, n)(x0) = FunDeri(y, 1, 1 + n - 1)(x0)})
+3. autoreplace no_hypothesis; from (1 + n - 1) to (n); from (GOAL: {FunDeri(y, 1, n)(x0) = FunDeri(y, 1, 1 + n - 1)(x0)}) to (GOAL: {FunDeri(y, 1, n)(x0) = FunDeri(y, 1, n)(x0)})
+4. autosolve all_hypothesis

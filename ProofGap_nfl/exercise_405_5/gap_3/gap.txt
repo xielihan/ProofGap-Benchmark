@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet
+2. η ∈ RealSet
+3. f : RealSet → RealSet
+4. η > 0
+5. Defined(f, (a - η, a))
+6. forall (E), E ∈ RealSet ∧ E > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ 0 < a - x ∧ a - x < δ ⇒ f(x) < -E))
+7. a = 1 ⇒ f = (fun x [x ∈ RealSet ∧ x < 1] . frac(1, x - 1)) ⇒ lim_{ x → 1^- } (f(x)) = -∞
+
+GOAL:
+forall (E), E ∈ RealSet ∧ E > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ 0 < a - x ∧ a - x < δ ⇒ f(x) < -E))
+
+METHOD:

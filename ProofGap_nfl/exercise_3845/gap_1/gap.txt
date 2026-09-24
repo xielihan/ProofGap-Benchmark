@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. B : CartesianProd(RealSet, RealSet) → RealSet
+2. Gamma : RealSet → RealSet
+
+GOAL:
+forall (t) (x), t ∈ RealSet ∧ x ∈ RealSet ∧ t = x / (1 + x) ∧ x ∈ IntervalLoRo(0, +∞) ⇒ 0 < t
+
+METHOD:

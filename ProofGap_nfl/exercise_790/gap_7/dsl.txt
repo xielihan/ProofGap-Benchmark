@@ -1,0 +1,6 @@
+1. get_forall (GOAL: {forall (ε_{0}), ε_{0} ∈ RealSet /\ 0 < ε_{0} /\ ε_{0} < 1 => (forall (δ), δ ∈ RealSet /\ δ > 0 => 1 > ε_{0})}) (ε_{0} := {e0})
+2. get_condition (hypothesis 13: {e0 ∈ RealSet /\ 0 < e0 /\ e0 < 1}) in (GOAL: {e0 ∈ RealSet /\ 0 < e0 /\ e0 < 1 => (forall (δ), δ ∈ RealSet /\ δ > 0 => 1 > e0)})
+3. destruct_and (hypothesis 13: {e0 ∈ RealSet /\ 0 < e0 /\ e0 < 1}) as (hypothesis 14: {e0 ∈ RealSet}) (hypothesis 15: {0 < e0}) (hypothesis 16: {e0 < 1})
+4. get_forall (GOAL: {forall (δ), δ ∈ RealSet /\ δ > 0 => 1 > e0}) (δ := {d})
+5. get_condition (hypothesis 17: {d ∈ RealSet /\ d > 0}) in (GOAL: {d ∈ RealSet /\ d > 0 => 1 > e0})
+6. autosolve (hypothesis 16: {e0 < 1})

@@ -1,0 +1,13 @@
+exists (x_{0} := {ξ})
+assert (hypothesis 25: {k > sinh(ξ) ⇒ f(ξ) < 0}) by proof {
+  get_condition (hypothesis 25: {k > sinh(ξ)}) in (GOAL: {k > sinh(ξ) ⇒ f(ξ) < 0})
+  get_prop (hypothesis 7: {forall (x), x ∈ RealSet ⇒ f(x) = cosh(x) - k * x}) (x := {ξ}) as (hypothesis 26: {ξ ∈ RealSet ⇒ f(ξ) = cosh(ξ) - k * ξ})
+  use_condition (obvious: {ξ ∈ RealSet}) in (hypothesis 26: {ξ ∈ RealSet ⇒ f(ξ) = cosh(ξ) - k * ξ}) as (hypothesis 27: {f(ξ) = cosh(ξ) - k * ξ})
+  assert (hypothesis 28: {cosh(ξ) = ξ * sinh(ξ)})
+  rewrite (left_to_right, equation) (hypothesis 27: {f(ξ) = cosh(ξ) - k * ξ}); from (GOAL: {f(ξ) < 0}) to (GOAL: {cosh(ξ) - k * ξ < 0})
+  rewrite (left_to_right, equation) (hypothesis 28: {cosh(ξ) = ξ * sinh(ξ)}); from (GOAL: {cosh(ξ) - k * ξ < 0}) to (GOAL: {ξ * sinh(ξ) - k * ξ < 0})
+  assert (hypothesis 29: {ξ * sinh(ξ) - k * ξ = ξ * (sinh(ξ) - k)})
+  rewrite (left_to_right, equation) (hypothesis 29: {ξ * sinh(ξ) - k * ξ = ξ * (sinh(ξ) - k)}); from (GOAL: {ξ * sinh(ξ) - k * ξ < 0}) to (GOAL: {ξ * (sinh(ξ) - k) < 0})
+  autosolve (hypothesis 4: {ξ ∈ RealSet ∧ ξ ∈ PosRealSet}) (hypothesis 25: {k > sinh(ξ)}) using SgnSolver
+}
+autosolve (hypothesis 4: {ξ ∈ RealSet ∧ ξ ∈ PosRealSet}) (hypothesis 25: {k > sinh(ξ) ⇒ f(ξ) < 0})

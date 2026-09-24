@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = arctan(x)^{2}
+4. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ FunDeri(f, 1, 2 * k - 1)(0) = FunDeri(fun x [x ∈ RealSet] . arctan(x) * arctan(x), 1, 2 * k - 1)(0)
+
+GOAL:
+forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ FunDeri(fun x [x ∈ RealSet] . arctan(x) * arctan(x), 1, 2 * k - 1)(0) = 0
+
+METHOD:

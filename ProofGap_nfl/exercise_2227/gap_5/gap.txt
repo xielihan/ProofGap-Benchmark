@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. forall (k), k ∈ IntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ k ∈ IntegerSet ∧ n ∈ PosIntegerSet ∧ 1 ≤ k ∧ k < n ∧ n > 3 ⇒ cos(frac(k * π, n^{2})) > 0)
+2. forall (k), k ∈ IntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ k ∈ IntegerSet ∧ n ∈ PosIntegerSet ∧ 1 ≤ k ∧ k < n ∧ n > 3 ⇒ 0 ≤ frac(k * π, n^{2}) - sin(frac(k * π, n^{2})))
+3. forall (k), k ∈ IntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ k ∈ IntegerSet ∧ n ∈ PosIntegerSet ∧ 1 ≤ k ∧ k < n ∧ n > 3 ⇒ frac(k * π, n^{2}) - sin(frac(k * π, n^{2})) ≤ tan(frac(k * π, n^{2})) - sin(frac(k * π, n^{2})))
+4. forall (k), k ∈ IntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ k ∈ IntegerSet ∧ n ∈ PosIntegerSet ∧ 1 ≤ k ∧ k < n ∧ n > 3 ⇒ tan(frac(k * π, n^{2})) - sin(frac(k * π, n^{2})) ≤ tan(frac(k * π, n^{2})) * (1 - cos(frac(k * π, n^{2}))))
+
+GOAL:
+forall (k), k ∈ IntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ k ∈ IntegerSet ∧ n ∈ PosIntegerSet ∧ 1 ≤ k ∧ k < n ∧ n > 3 ⇒ tan(frac(k * π, n^{2})) * (1 - cos(frac(k * π, n^{2}))) ≤ frac(sin(frac(k * π, n^{2})), cos(frac(k * π, n^{2}))) * (1 - cos(frac(k * π, n^{2}))))
+
+METHOD:

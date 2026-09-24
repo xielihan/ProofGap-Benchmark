@@ -1,0 +1,13 @@
+PROOF GAP @6
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ |x^{2} - 4| = |x - 2| * |x + 2|
+2. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ (δ > 0 ⇒ δ = min(1, frac(ε, 5))))
+3. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ (δ = min(1, frac(ε, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < δ ⇒ |x - 2| < 1)))
+4. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ (δ = min(1, frac(ε, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < δ ⇒ 1 < x)))
+5. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ (δ = min(1, frac(ε, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < δ ⇒ x < 3)))
+6. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ (δ = min(1, frac(ε, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < δ ⇒ |x + 2| < 5)))
+
+GOAL:
+forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ (δ = min(1, frac(ε, 5)) ⇒ (forall (x), x ∈ RealSet ∧ 0 < |x - 2| ∧ |x - 2| < δ ⇒ |x^{2} - 4| < 5 * |x - 2|)))
+
+METHOD:

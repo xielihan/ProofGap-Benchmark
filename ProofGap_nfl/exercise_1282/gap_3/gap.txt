@@ -1,0 +1,21 @@
+PROOF GAP @3
+ASSUM:
+1. R : RealSet → RealSet
+2. a : NonNegIntegerSet → RealSet
+3. b : NonNegIntegerSet → RealSet
+4. m ∈ NonNegIntegerSet
+5. n ∈ NonNegIntegerSet
+6. m + n ≥ 1
+7. m ≠ n
+8. a(n) * b(m) ≠ 0
+9. forall (i), i ∈ NonNegIntegerSet ∧ i ≤ n ⇒ a(i) ∈ RealSet
+10. forall (j), j ∈ NonNegIntegerSet ∧ j ≤ m ⇒ b(j) ∈ RealSet
+11. forall (j), j ∈ NonNegIntegerSet ∧ 0 ≤ j ∧ j ≤ m ⇒ (forall (i), i ∈ NonNegIntegerSet ∧ 0 ≤ i ∧ i ≤ n ⇒ (forall (x), x ∈ RealSet ∧ sum_{ j = 0 }^{ m } (b(j) * x^{j}) ≠ 0 ⇒ R(x) = frac(sum_{ i = 0 }^{ n } (a(i) * x^{i}), sum_{ j = 0 }^{ m } (b(j) * x^{j}))))
+12. forall (x), x ∈ RealSet ∧ sum_{ j = 0 }^{ m } (b(j) * x^{j}) ≠ 0 ⇒ FunDeri(R, 1, 1)(x) = frac((sum_{ i = 1 }^{ n } (i * a(i) * x^{i - 1})) * (sum_{ j = 0 }^{ m } (b(j) * x^{j})) - (sum_{ j = 1 }^{ m } (j * b(j) * x^{j - 1})) * (sum_{ i = 0 }^{ n } (a(i) * x^{i})), (sum_{ j = 0 }^{ m } (b(j) * x^{j}))^{2})
+13. forall (x), x ∈ RealSet ∧ x ≠ 0 ∧ sum_{ j = 0 }^{ m } (b(j) * x^{j}) ≠ 0 ⇒ FunDeri(R, 1, 1)(x) = frac(x^{m + n - 1}, (sum_{ j = 0 }^{ m } (b(j) * x^{j}))^{2}) * ((n - m) * a(n) * b(m) + frac((n - m + 1) * a(n) * b(m - 1) - (n - m - 1) * a(n - 1) * b(m), x) + frac(a(1) * b(0) - a(0) * b(1), x^{m + n - 1}))
+14. m ∈ PosIntegerSet
+15. n ∈ PosIntegerSet
+GOAL:
+exists (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ PosRealSet ∧ (forall (x), x ∈ RealSet ∧ |x| > x_{0} ⇒ sum_{ j = 0 }^{ m } (b(j) * x^{j}) ≠ 0)
+
+METHOD:

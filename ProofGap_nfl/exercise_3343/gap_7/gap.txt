@@ -1,0 +1,18 @@
+PROOF GAP @7
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. x_{0} ∈ RealSet
+3. y_{0} ∈ RealSet
+4. x_{0}^{2} + y_{0}^{2} > 0
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} > 0 ⇒ z(x, y) = ln(x^{2} + y^{2})
+6. |grad(z, x_{0}, y_{0})| > 0 ∧ (exists (l), l ∈ CartesianProd(RealSet, RealSet) ∧ (l = frac(1, |grad(z, x_{0}, y_{0})|) * grad(z, x_{0}, y_{0}) ∨ l = -frac(1, |grad(z, x_{0}, y_{0})|) * grad(z, x_{0}, y_{0})))
+7. forall (l), l ∈ CartesianProd(RealSet, RealSet) ∧ (l = frac(1, |grad(z, x_{0}, y_{0})|) * grad(z, x_{0}, y_{0}) ∨ l = -frac(1, |grad(z, x_{0}, y_{0})|) * grad(z, x_{0}, y_{0})) ⇒ (FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . l, 1)(x_{0}, y_{0}) = |grad(z, x_{0}, y_{0})| ∨ FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . l, 1)(x_{0}, y_{0}) = -|grad(z, x_{0}, y_{0})|)
+8. |grad(z, x_{0}, y_{0})| = sqrtn(2, FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), 1, 1)(x_{0}, y_{0})^{2} + FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), 2, 1)(x_{0}, y_{0})^{2})
+9. FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), 1, 1)(x_{0}, y_{0}) = frac(2 * x_{0}, (x_{0})^{2} + (y_{0})^{2})
+10. FunDeri(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . z(x, y), 2, 1)(x_{0}, y_{0}) = frac(2 * y_{0}, (x_{0})^{2} + (y_{0})^{2})
+11. |grad(z, x_{0}, y_{0})| = sqrtn(2, frac(2 * x_{0}, (x_{0})^{2} + (y_{0})^{2})^{2} + frac(2 * y_{0}, (x_{0})^{2} + (y_{0})^{2})^{2})
+
+GOAL:
+sqrtn(2, frac(2 * x_{0}, (x_{0})^{2} + (y_{0})^{2})^{2} + frac(2 * y_{0}, (x_{0})^{2} + (y_{0})^{2})^{2}) = frac(2, sqrtn(2, (x_{0})^{2} + (y_{0})^{2}))
+
+METHOD:

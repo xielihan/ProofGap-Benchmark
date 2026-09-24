@@ -1,0 +1,26 @@
+PROOF GAP @17
+ASSUM:
+1. f : RealSet → RealSet
+2. ξ ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = x - 0.1 * sin(x) - 2
+4. f(2) = -0.091
+5. f(frac(2 * π, 3)) = 0.0237
+6. forall (x), x ∈ RealSet ∧ 2 < x ∧ x < frac(2 * π, 3) ⇒ FunDeri(f, 1, 1)(x) ≠ 0
+7. existsUnique (ξ_{1}), ξ_{1} ∈ RealSet ∧ ξ_{1} ∈ IntervalLoRo(2, frac(2 * π, 3)) ∧ f(ξ_{1}) = 0
+8. exists (x_{1}), x_{1} ∈ RealSet ∧ x_{1} = 2.075
+9. exists (x_{2}), x_{2} ∈ RealSet ∧ x_{2} = 2.080
+10. exists (x_{3}), x_{3} ∈ RealSet ∧ x_{3} = 2.083
+11. exists (x_{4}), x_{4} ∈ RealSet ∧ x_{4} = 2.087
+12. f(2.087) = 0.00003
+13. forall (x), x ∈ RealSet ⇒ FunDeri(f, 1, 1)(x) = 1 - 0.1 * cos(x)
+14. forall (x), x ∈ RealSet ⇒ FunDeri(f, 1, 2)(x) = 0.1 * sin(x)
+15. exists (m_{1}), m_{1} ∈ RealSet ∧ m_{1} = |FunDeri(f, 1, 1)(2)|
+16. |FunDeri(f, 1, 1)(2)| = 1 - 0.1 * cos(2)
+17. 1 - 0.1 * cos(2) = 0.959
+18. exists (m_{1}), m_{1} ∈ RealSet ∧ m_{1} = 0.959
+19. exists (ξ_{1}), ξ_{1} ∈ RealSet ∧ (exists (m_{1}), m_{1} ∈ RealSet ∧ |2.087 - ξ_{1}| ≤ frac(|f(2.087)|, m_{1}))
+
+GOAL:
+exists (ξ_{1}), ξ_{1} ∈ RealSet ∧ |2.087 - ξ_{1}| < 0.001
+
+METHOD:

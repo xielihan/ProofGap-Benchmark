@@ -1,0 +1,10 @@
+PROOF GAP @4
+ASSUM:
+1. forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ (1 - x = t ⇒ x = 1 - t))
+2. forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ (1 - x = t ⇒ diff(fun x [x ∈ RealSet] . x) = -diff(fun t [t ∈ RealSet] . t)))
+3. forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ (1 - x = t ⇒ x ∈ RealSet))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ (1 - x = t ⇒ t ∈ RealSet))
+
+METHOD:

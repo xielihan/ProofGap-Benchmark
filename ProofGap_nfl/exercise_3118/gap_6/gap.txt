@@ -1,0 +1,22 @@
+PROOF GAP @6
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. θ ∈ RealSet
+3. `θ_1` ∈ RealSet
+4. `θ_2` ∈ RealSet
+5. n ∈ PosIntegerSet
+6. |θ| < 1
+7. 0 < `θ_1`
+8. `θ_1` < 1
+9. 0 < `θ_2`
+10. `θ_2` < 1
+11. (2 * n - 1)!! = prod_{ k = 1 }^{ n } (2 * k - 1)
+12. (2 * n - 1)!! = frac((2 * n)!, 2^{n} * n!)
+13. frac((2 * n)!, 2^{n} * n!) = frac(sqrtn(2, 2 * π * 2 * n) * (2 * n)^{2 * n} * e^{-2 * n} * e^{frac(`θ_1`, 24 * n)}, 2^{n} * sqrtn(2, 2 * π * n) * n^{n} * e^{-n} * e^{frac(`θ_2`, 12 * n)})
+14. frac(sqrtn(2, 2 * π * 2 * n) * (2 * n)^{2 * n} * e^{-2 * n} * e^{frac(`θ_1`, 24 * n)}, 2^{n} * sqrtn(2, 2 * π * n) * n^{n} * e^{-n} * e^{frac(`θ_2`, 12 * n)}) = sqrtn(2, 2) * (2 * n)^{n} * e^{-n + frac(θ, 12 * n)}
+15. (2 * n - 1)!! ∼_{ n → +∞ } sqrtn(2, 2) * (2 * n)^{n} * e^{-n}
+
+GOAL:
+(2 * n - 1)!! = sqrtn(2, 2) * (2 * n)^{n} * e^{-n + frac(θ, 12 * n)}
+
+METHOD:

@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (l), l ∈ RealSet ∧ l ∈ RationalSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ RationalSet ⇒ χ(x) = 1)}) (l := {l0})
+get_condition (hypothesis 5: {l0 ∈ RealSet ∧ l0 ∈ RationalSet}) in (GOAL: {l0 ∈ RealSet ∧ l0 ∈ RationalSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ RationalSet ⇒ χ(x) = 1)})
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ RationalSet ⇒ χ(x) = 1}) (x := {x0})
+get_condition (hypothesis 6: {x0 ∈ RealSet ∧ x0 ∈ RationalSet}) in (GOAL: {x0 ∈ RealSet ∧ x0 ∈ RationalSet ⇒ χ(x0) = 1})
+destruct_and (hypothesis 6: {x0 ∈ RealSet ∧ x0 ∈ RationalSet}) as (hypothesis 7: {x0 ∈ RealSet}) (hypothesis 8: {x0 ∈ RationalSet})
+get_prop (hypothesis 2: {forall (x), x ∈ RealSet ⇒ χ(x) = cases{ 1 if x ∈ RationalSet; 0 if x ∈ RealSet ∧ x ∉ RationalSet }}) (x := {x0}) as (hypothesis 9: {x0 ∈ RealSet ⇒ χ(x0) = cases{ 1 if x0 ∈ RationalSet; 0 if x0 ∈ RealSet ∧ x0 ∉ RationalSet }})
+use_condition (hypothesis 7: {x0 ∈ RealSet}) in (hypothesis 9: {x0 ∈ RealSet ⇒ χ(x0) = cases{ 1 if x0 ∈ RationalSet; 0 if x0 ∈ RealSet ∧ x0 ∉ RationalSet }}) as (hypothesis 10: {χ(x0) = cases{ 1 if x0 ∈ RationalSet; 0 if x0 ∈ RealSet ∧ x0 ∉ RationalSet }})
+autosolve all_hypothesis

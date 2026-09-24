@@ -1,0 +1,2 @@
+1. rewrite (left_to_right, equation) (hypothesis 14: {M = 2 * a * `ρ_0` * DefInt(0, π, (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ π] . sin(frac(t, 2))) * diff(fun t [t ∈ RealSet] . t))}); from (GOAL: {M = 4 * a * `ρ_0`}) to (GOAL: {2 * a * `ρ_0` * DefInt(0, π, (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ π] . sin(frac(t, 2))) * diff(fun t [t ∈ RealSet] . t)) = 4 * a * `ρ_0`})
+2. apply (hypothesis 15: {2 * a * `ρ_0` * DefInt(0, π, (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ π] . sin(frac(t, 2))) * diff(fun t [t ∈ RealSet] . t)) = 4 * a * `ρ_0`})

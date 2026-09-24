@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ x ∈ IntervalLoRo(-∞, 0) ∨ x ∈ IntervalLoRo(0, +∞)
+
+METHOD:

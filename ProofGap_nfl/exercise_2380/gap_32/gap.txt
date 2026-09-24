@@ -1,0 +1,41 @@
+PROOF GAP @32
+ASSUM:
+1. p ∈ RealSet
+2. q ∈ RealSet ∧ q ≠ 0
+3. r = frac(p + 1, q)
+4. forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ⇒ DefInt(0, +∞, x^{p} * sin(x^{q}) * diff(fun x [x ∈ RealSet] . x)) = frac(1, |q|) * DefInt(0, +∞, t^{r - 1} * sin(t) * diff(fun t [t ∈ RealSet] . t)))
+5. lim_{ t → 0^+ } (t^{-r} * t^{r - 1} * sin(t)) = lim_{ t → 0^+ } (frac(sin(t), t))
+6. lim_{ t → 0^+ } (frac(sin(t), t)) = 1
+7. lim_{ t → 0^+ } (t^{-r} * t^{r - 1} * sin(t)) = 1
+8. forall (t), t ∈ RealSet ∧ -1 < r ⇒ DefInt(0, 1, t^{r - 1} * sin(t) * diff(fun t [t ∈ RealSet] . t)) < +∞
+9. forall (t), t ∈ RealSet ∧ -1 < r ⇒ DefInt(0, 1, |t^{r - 1} * sin(t)| * diff(fun t [t ∈ RealSet] . t)) < +∞
+10. forall (t), t ∈ RealSet ⇒ (forall (A), A ∈ RealSet ∧ A > 1 ⇒ |DefInt(1, A, sin(t) * diff(fun t [t ∈ RealSet] . t))| ≤ 2)
+11. r < 1 ⇒ lim_{ t → +∞ } (t^{r - 1}) = 0
+12. r < 1 ⇒ MonoDecFuncOn(fun t [t ∈ RealSet ∧ t ∈ [1, +∞)] . t^{r - 1}, [1, +∞))
+13. forall (t), t ∈ RealSet ∧ r < 1 ⇒ DefInt(1, +∞, t^{r - 1} * sin(t) * diff(fun t [t ∈ RealSet] . t)) < +∞
+14. forall (t), t ∈ RealSet ∧ r = 1 ⇒ DefInt(1, +∞, t^{r - 1} * sin(t) * diff(fun t [t ∈ RealSet] . t)) = DefInt(1, +∞, sin(t) * diff(fun t [t ∈ RealSet] . t))
+15. forall (t), t ∈ RealSet ∧ r = 1 ⇒ DefInt(1, +∞, t^{r - 1} * sin(t) * diff(fun t [t ∈ RealSet] . t)) = +∞
+16. r > 1 ⇒ lim_{ t → +∞ } (t^{r - 1}) = +∞
+17. r > 1 ⇒ (forall (A), A ∈ RealSet ∧ A > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ 2 * N * π + frac(π, 4) > A))
+18. forall (t), t ∈ RealSet ∧ r > 1 ⇒ (forall (A), A ∈ RealSet ∧ A > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ |DefInt(2 * N * π + frac(π, 4), 2 * N * π + frac(π, 2), t^{r - 1} * sin(t) * diff(fun t [t ∈ RealSet] . t))| > sqrtn(2, 2) * |DefInt(2 * N * π + frac(π, 4), 2 * N * π + frac(π, 2), sin(t) * diff(fun t [t ∈ RealSet] . t))|))
+19. forall (t), t ∈ RealSet ∧ r > 1 ⇒ (forall (A), A ∈ RealSet ∧ A > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ sqrtn(2, 2) * |DefInt(2 * N * π + frac(π, 4), 2 * N * π + frac(π, 2), sin(t) * diff(fun t [t ∈ RealSet] . t))| = 1))
+20. forall (t), t ∈ RealSet ∧ r > 1 ⇒ (forall (A), A ∈ RealSet ∧ A > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ |DefInt(2 * N * π + frac(π, 4), 2 * N * π + frac(π, 2), t^{r - 1} * sin(t) * diff(fun t [t ∈ RealSet] . t))| > 1))
+21. forall (t), t ∈ RealSet ∧ r > 1 ⇒ DefInt(1, +∞, t^{r - 1} * sin(t) * diff(fun t [t ∈ RealSet] . t)) = +∞
+22. -1 < r
+23. r < 1
+24. forall (t), t ∈ RealSet ∧ r < 0 ⇒ |t^{r - 1} * sin(t)| ≤ t^{r - 1}
+25. forall (t), t ∈ RealSet ∧ r < 0 ⇒ DefInt(1, +∞, t^{r - 1} * diff(fun t [t ∈ RealSet] . t)) < +∞
+26. forall (t), t ∈ RealSet ∧ r < 0 ⇒ DefInt(1, +∞, |t^{r - 1} * sin(t)| * diff(fun t [t ∈ RealSet] . t)) < +∞
+27. forall (t), t ∈ RealSet ∧ r = 0 ⇒ DefInt(1, +∞, |t^{r - 1} * sin(t)| * diff(fun t [t ∈ RealSet] . t)) = DefInt(1, +∞, |frac(sin(t), t)| * diff(fun t [t ∈ RealSet] . t))
+28. forall (t), t ∈ RealSet ∧ r = 0 ⇒ DefInt(1, +∞, |frac(sin(t), t)| * diff(fun t [t ∈ RealSet] . t)) = +∞
+29. forall (t), t ∈ RealSet ∧ r = 0 ⇒ DefInt(1, +∞, |t^{r - 1} * sin(t)| * diff(fun t [t ∈ RealSet] . t)) = +∞
+30. forall (t), t ∈ RealSet ∧ r > 0 ⇒ DefInt(1, +∞, |t^{r - 1} * sin(t)| * diff(fun t [t ∈ RealSet] . t)) ≥ DefInt(1, +∞, frac(|sin(t)|, t) * diff(fun t [t ∈ RealSet] . t))
+31. forall (t), t ∈ RealSet ∧ r > 0 ⇒ DefInt(1, +∞, frac(|sin(t)|, t) * diff(fun t [t ∈ RealSet] . t)) = +∞
+32. forall (t), t ∈ RealSet ∧ r > 0 ⇒ DefInt(1, +∞, |t^{r - 1} * sin(t)| * diff(fun t [t ∈ RealSet] . t)) ≥ +∞
+33. -1 < frac(p + 1, q)
+34. frac(p + 1, q) < 0
+
+GOAL:
+0 ≤ frac(p + 1, q)
+
+METHOD:

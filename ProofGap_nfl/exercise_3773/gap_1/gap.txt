@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. IntegrableFuncOn(f, IntervalLoRo(0, +∞))
+
+GOAL:
+forall (α), α ∈ RealSet ∧ α ∈ [0, 1] ⇒ ConvergentSeries(DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-(α * x)} * f(x)) * diff(fun x [x ∈ RealSet] . x)))
+
+METHOD:
+[@method 根据 "含参反常积分一致收敛定理" @]

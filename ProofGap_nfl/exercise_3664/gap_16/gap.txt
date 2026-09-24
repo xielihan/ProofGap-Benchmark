@@ -1,0 +1,26 @@
+PROOF GAP @16
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = sin(x) * sin(y) * sin(z)
+3. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x > 0 ∧ y > 0 ∧ z > 0 ∧ x + y + z = frac(π, 2) ⇒ 0 < x ∧ x < frac(π, 2) ∧ 0 < y ∧ y < frac(π, 2) ∧ 0 < z ∧ z < frac(π, 2)
+4. w = (fun x, y, z [x ∈ RealSet ∧ x > 0 ∧ x < frac(π, 2) ∧ y ∈ RealSet ∧ y > 0 ∧ y < frac(π, 2) ∧ z ∈ RealSet ∧ z > 0 ∧ z < frac(π, 2)] . ln(u(x, y, z)))
+5. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x > 0 ∧ y > 0 ∧ z > 0 ∧ x + y + z = frac(π, 2) ⇒ w(x, y, z) = ln(sin(x)) + ln(sin(y)) + ln(sin(z))
+6. F = (fun x, y, z, λ [x ∈ RealSet ∧ x > 0 ∧ x < frac(π, 2) ∧ y ∈ RealSet ∧ y > 0 ∧ y < frac(π, 2) ∧ z ∈ RealSet ∧ z > 0 ∧ z < frac(π, 2) ∧ λ ∈ RealSet] . w(x, y, z) + λ * (x + y + z - frac(π, 2)))
+7. forall (x) (y) (z) (λ), x ∈ RealSet ∧ x > 0 ∧ x < frac(π, 2) ∧ y ∈ RealSet ∧ y > 0 ∧ y < frac(π, 2) ∧ z ∈ RealSet ∧ z > 0 ∧ z < frac(π, 2) ∧ λ ∈ RealSet ⇒ FunDeri(F, 1, 1)(x, y, z, λ) = cot(x) + λ
+8. forall (x) (y) (z) (λ), x ∈ RealSet ∧ x > 0 ∧ x < frac(π, 2) ∧ y ∈ RealSet ∧ y > 0 ∧ y < frac(π, 2) ∧ z ∈ RealSet ∧ z > 0 ∧ z < frac(π, 2) ∧ λ ∈ RealSet ⇒ FunDeri(F, 2, 1)(x, y, z, λ) = cot(y) + λ
+9. forall (x) (y) (z) (λ), x ∈ RealSet ∧ x > 0 ∧ x < frac(π, 2) ∧ y ∈ RealSet ∧ y > 0 ∧ y < frac(π, 2) ∧ z ∈ RealSet ∧ z > 0 ∧ z < frac(π, 2) ∧ λ ∈ RealSet ⇒ FunDeri(F, 3, 1)(x, y, z, λ) = cot(z) + λ
+10. exists (x) (λ), x ∈ RealSet ∧ x > 0 ∧ x < frac(π, 2) ∧ λ ∈ RealSet ∧ cot(x) + λ = 0
+11. exists (y) (λ), y ∈ RealSet ∧ y > 0 ∧ y < frac(π, 2) ∧ λ ∈ RealSet ∧ cot(y) + λ = 0
+12. exists (z) (λ), z ∈ RealSet ∧ z > 0 ∧ z < frac(π, 2) ∧ λ ∈ RealSet ∧ cot(z) + λ = 0
+13. exists (x) (y) (z), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ∧ z > 0 ∧ x + y + z = frac(π, 2)
+14. exists (x), x ∈ RealSet ∧ x > 0 ∧ x < frac(π, 2) ∧ x = frac(π, 6)
+15. exists (y), y ∈ RealSet ∧ y > 0 ∧ y < frac(π, 2) ∧ y = frac(π, 6)
+16. exists (z), z ∈ RealSet ∧ z > 0 ∧ z < frac(π, 2) ∧ z = frac(π, 6)
+17. u(frac(π, 6), frac(π, 6), frac(π, 6)) = frac(1, 8)
+18. forall (x) (y) (z) (P), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ P ∈ CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) ∧ P = (x, y, z) ∧ P ∈ { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x ≥ 0 ∧ y ≥ 0 ∧ z ≥ 0 ∧ x + y + z = frac(π, 2) } ∧ (x = 0 ∨ y = 0 ∨ z = 0) ⇒ u(x, y, z) = 0
+19. MaximumPointOn(u, { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x > 0 ∧ y > 0 ∧ z > 0 ∧ x + y + z = frac(π, 2) }) = (frac(π, 6), frac(π, 6), frac(π, 6))
+
+GOAL:
+max(ImageOn(u, { (x, y, z) | x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet, x > 0 ∧ y > 0 ∧ z > 0 ∧ x + y + z = frac(π, 2) })) = frac(1, 8)
+
+METHOD:

@@ -1,0 +1,5 @@
+1. get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x = a ⇒ FunDeri(y, 1, 1)(a) = A * (a - b) * (a - c)}) (x := {z})
+2. get_condition (hypothesis 12: {z ∈ RealSet ∧ z = a}) in (GOAL: {z ∈ RealSet ∧ z = a ⇒ FunDeri(y, 1, 1)(a) = A * (a - b) * (a - c)})
+3. get_prop (hypothesis 11: {forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = A * ((x - b) * (x - c) + (x - a) * (x - c) + (x - a) * (x - b))}) (x := {a}) as (hypothesis 13: {a ∈ RealSet ⇒ FunDeri(y, 1, 1)(a) = A * ((a - b) * (a - c) + (a - a) * (a - c) + (a - a) * (a - b))})
+4. use_condition (hypothesis 3: {a ∈ RealSet}) in (hypothesis 13: {a ∈ RealSet ⇒ FunDeri(y, 1, 1)(a) = A * ((a - b) * (a - c) + (a - a) * (a - c) + (a - a) * (a - b))}) as (hypothesis 14: {FunDeri(y, 1, 1)(a) = A * ((a - b) * (a - c) + (a - a) * (a - c) + (a - a) * (a - b))})
+5. autosolve (hypothesis 14: {FunDeri(y, 1, 1)(a) = A * ((a - b) * (a - c) + (a - a) * (a - c) + (a - a) * (a - b))})

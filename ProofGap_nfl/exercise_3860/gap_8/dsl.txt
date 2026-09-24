@@ -1,0 +1,27 @@
+destruct_and (hypothesis 2: {n ∈ RealSet ∧ n ≠ 0 ∧ frac(m + 1, n) > 0}) as (hypothesis 13: {n ∈ RealSet}) (hypothesis 14: {n ≠ 0}) (hypothesis 15: {frac(m + 1, n) > 0})
+assert (hypothesis 16: {n > 0 ∨ n < 0}) by proof {
+  autosolve all_hypothesis
+}
+assert (hypothesis 17: {n > 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . x^{m} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = frac(1, |n|) * Gamma(frac(m + 1, n))}) by proof {
+  get_condition (hypothesis 17: {n > 0}) in (GOAL: {n > 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . x^{m} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = frac(1, |n|) * Gamma(frac(m + 1, n))})
+  get_prop (theorem 'Thm 490. (AbsoluteValueOfNonnegativeReal)': {forall (x), x ∈ RealSet ⇒ (x >= 0 <==> |x| = x)}) (x := {n}) as (hypothesis 18: {n ∈ RealSet ⇒ (n >= 0 <==> |n| = n)})
+  use_condition (hypothesis 13: {n ∈ RealSet}) in (hypothesis 18: {n ∈ RealSet ⇒ (n >= 0 <==> |n| = n)}) as (hypothesis 19: {n >= 0 <==> |n| = n})
+  assert (hypothesis 20: {|n| = n}) by proof {
+    autosolve all_hypothesis
+  }
+  use_condition (hypothesis 17: {n > 0}) (hypothesis 15: {frac(m + 1, n) > 0}) in (hypothesis 7: {n > 0 ⇒ frac(m + 1, n) > 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . x^{m} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = frac(1, n) * Gamma(frac(m + 1, n))}) as (hypothesis 21: {DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . x^{m} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = frac(1, n) * Gamma(frac(m + 1, n))})
+  rewrite (left_to_right, equation) (hypothesis 20: {|n| = n}); from (GOAL: {DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . x^{m} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = frac(1, |n|) * Gamma(frac(m + 1, n))}) to (GOAL: {DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . x^{m} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = frac(1, n) * Gamma(frac(m + 1, n))})
+  autosolve all_hypothesis
+}
+assert (hypothesis 18: {n < 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . x^{m} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = frac(1, |n|) * Gamma(frac(m + 1, n))}) by proof {
+  get_condition (hypothesis 18: {n < 0}) in (GOAL: {n < 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . x^{m} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = frac(1, |n|) * Gamma(frac(m + 1, n))})
+  get_prop (theorem 'Thm 489. (AbsoluteValueOfNonpositiveReal)': {forall (x), x ∈ RealSet ⇒ (x <= 0 <==> |x| = -x)}) (x := {n}) as (hypothesis 19: {n ∈ RealSet ⇒ (n <= 0 <==> |n| = -n)})
+  use_condition (hypothesis 13: {n ∈ RealSet}) in (hypothesis 19: {n ∈ RealSet ⇒ (n <= 0 <==> |n| = -n)}) as (hypothesis 20: {n <= 0 <==> |n| = -n})
+  assert (hypothesis 21: {|n| = -n}) by proof {
+    autosolve all_hypothesis
+  }
+  use_condition (hypothesis 18: {n < 0}) (hypothesis 15: {frac(m + 1, n) > 0}) in (hypothesis 12: {n < 0 ⇒ frac(m + 1, n) > 0 ⇒ DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . x^{m} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = -frac(1, n) * Gamma(frac(m + 1, n))}) as (hypothesis 22: {DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . x^{m} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = -frac(1, n) * Gamma(frac(m + 1, n))})
+  rewrite (left_to_right, equation) (hypothesis 21: {|n| = -n}); from (GOAL: {DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . x^{m} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = frac(1, |n|) * Gamma(frac(m + 1, n))}) to (GOAL: {DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . x^{m} * e^{-x^{n}}) * diff(fun x [x ∈ RealSet ∧ x > 0] . x)) = frac(1, -n) * Gamma(frac(m + 1, n))})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

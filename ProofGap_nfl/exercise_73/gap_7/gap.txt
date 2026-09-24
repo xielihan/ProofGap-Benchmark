@@ -1,0 +1,13 @@
+PROOF GAP @7
+ASSUM:
+1. (exists (m) (n), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n)) ⇒ (exists (m) (n), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n))
+2. (exists (m) (n), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n)) ⇒ (exists (m) (n) (θ), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ θ : NonNegIntegerSet → RealSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ frac(m, n) = 2 + (sum_{ k = 2 }^{ n } (frac(1, k!))) + frac(θ(n), n! * n))
+3. (exists (m) (n), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n)) ⇒ (exists (n) (θ), n ∈ NonNegIntegerSet ∧ θ : NonNegIntegerSet → RealSet ∧ n ∈ PosIntegerSet ∧ 0 < θ(n))
+4. (exists (m) (n), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n)) ⇒ (exists (n) (θ), n ∈ NonNegIntegerSet ∧ θ : NonNegIntegerSet → RealSet ∧ n ∈ PosIntegerSet ∧ θ(n) < 1)
+5. (exists (m) (n), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n)) ⇒ (exists (n) (m) (θ), n ∈ NonNegIntegerSet ∧ m ∈ NonNegIntegerSet ∧ θ : NonNegIntegerSet → RealSet ∧ n ∈ PosIntegerSet ∧ m ∈ PosIntegerSet ∧ n! * frac(m, n) = n! * (2 + (sum_{ k = 2 }^{ n } (frac(1, k!)))) + frac(θ(n), n))
+6. (exists (m) (n), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n)) ⇒ (exists (n) (m), n ∈ NonNegIntegerSet ∧ m ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ m ∈ PosIntegerSet ∧ n! * frac(m, n) ∈ IntegerSet)
+
+GOAL:
+(exists (m) (n), m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ PosIntegerSet ∧ e = frac(m, n)) ⇒ (exists (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ∈ IntegerSet)
+
+METHOD:

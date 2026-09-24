@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. x_{0} ∈ RealSet
+5. y_{0} ∈ RealSet
+6. forall (x), x ∈ RealSet ⇒ y(x) = a * x + b
+
+GOAL:
+forall (x_{0}), x_{0} ∈ RealSet ⇒ y(x_{0}) = a * x_{0} + b
+
+METHOD:

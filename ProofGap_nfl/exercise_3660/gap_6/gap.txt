@@ -1,0 +1,20 @@
+PROOF GAP @6
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. m ∈ RealSet ∧ m > 0
+3. n ∈ RealSet ∧ n > 0
+4. p ∈ RealSet ∧ p > 0
+5. a ∈ RealSet ∧ a > 0
+6. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x > 0 ∧ y > 0 ∧ z > 0 ⇒ u(x, y, z) = x^{m} * y^{n} * z^{p}
+7. w = (fun x, y, z [x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ∧ z > 0] . ln(u(x, y, z)))
+8. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x > 0 ∧ y > 0 ∧ z > 0 ⇒ w(x, y, z) = m * ln(x) + n * ln(y) + p * ln(z)
+9. F = (fun x, y, z, λ [x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ∧ z > 0 ∧ λ ∈ RealSet ∧ λ ≠ 0] . w(x, y, z) - frac(1, λ) * (x + y + z - a))
+10. forall (x) (y) (z) (λ), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ∧ z > 0 ∧ λ ∈ RealSet ∧ λ ≠ 0 ⇒ FunDeri(F, 1, 1)(x, y, z, λ) = frac(m, x) - frac(1, λ)
+11. forall (x) (y) (z) (λ), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ∧ z > 0 ∧ λ ∈ RealSet ∧ λ ≠ 0 ⇒ FunDeri(F, 2, 1)(x, y, z, λ) = frac(n, y) - frac(1, λ)
+12. forall (x) (y) (z) (λ), x ∈ RealSet ∧ x > 0 ∧ y ∈ RealSet ∧ y > 0 ∧ z ∈ RealSet ∧ z > 0 ∧ λ ∈ RealSet ∧ λ ≠ 0 ⇒ FunDeri(F, 3, 1)(x, y, z, λ) = frac(p, z) - frac(1, λ)
+13. exists (x) (λ), x ∈ RealSet ∧ x > 0 ∧ λ ∈ RealSet ∧ λ ≠ 0 ∧ frac(m, x) - frac(1, λ) = 0
+
+GOAL:
+exists (y) (λ), y ∈ RealSet ∧ y > 0 ∧ λ ∈ RealSet ∧ λ ≠ 0 ∧ frac(n, y) - frac(1, λ) = 0
+
+METHOD:

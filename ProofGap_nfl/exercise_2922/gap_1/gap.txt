@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. R : NonNegIntegerSet → RealSet
+
+GOAL:
+arctan(1.2) = arctan(1) + arctan(frac(1, 11))
+
+METHOD:
+[@method 根据 "反正切加法公式" @]

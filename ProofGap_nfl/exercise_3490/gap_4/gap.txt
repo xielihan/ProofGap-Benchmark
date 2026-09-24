@@ -1,0 +1,16 @@
+PROOF GAP @4
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. v : CartesianProd(RealSet, RealSet) → RealSet
+3. z : CartesianProd(RealSet, RealSet) → RealSet
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x + sqrtn(2, 1 + x^{2}) > 0 ∧ y + sqrtn(2, 1 + y^{2}) > 0 ⇒ u(x, y) = ln(x + sqrtn(2, 1 + x^{2})) ∧ v(x, y) = ln(y + sqrtn(2, 1 + y^{2}))
+5. ContinuouslyDiffableFunc(z)
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ (1 + x^{2}) * FunDeri(z, 1, 2)(x, y) + (1 + y^{2}) * FunDeri(z, 2, 2)(x, y) + x * FunDeri(z, 1, 1)(x, y) + y * FunDeri(z, 2, 1)(x, y) = 0
+7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 1)(x, y) = FunDeri(z, u, 1)(x, y) * FunDeri(u, 1, 1)(x, y)
+8. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, u, 1)(x, y) * FunDeri(u, 1, 1)(x, y) = frac(1, sqrtn(2, 1 + x^{2})) * FunDeri(z, u, 1)(x, y)
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 1)(x, y) = frac(1, sqrtn(2, 1 + x^{2})) * FunDeri(z, u, 1)(x, y)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 2, 1)(x, y) = frac(1, sqrtn(2, 1 + y^{2})) * FunDeri(z, v, 1)(x, y)
+
+METHOD:

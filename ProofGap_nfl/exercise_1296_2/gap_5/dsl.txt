@@ -1,0 +1,8 @@
+destruct_and (hypothesis 3: {b ∈ RealSet /\ b ∈ PosRealSet}) as (hypothesis 10: {b ∈ RealSet}) (hypothesis 11: {b ∈ PosRealSet})
+get_forall (GOAL: {forall (s), s ∈ RealSet /\ s ≠ 0 ⇒ b^{s} > 0}) (s := {s1})
+get_condition (hypothesis 12: {s1 ∈ RealSet /\ s1 ≠ 0}) in (GOAL: {s1 ∈ RealSet /\ s1 ≠ 0 ⇒ b^{s1} > 0})
+destruct_and (hypothesis 12: {s1 ∈ RealSet /\ s1 ≠ 0}) as (hypothesis 13: {s1 ∈ RealSet}) (hypothesis 14: {s1 ≠ 0})
+get_prop (theorem 'Thm 387. (PositiveBasePowerPositive)': {forall (a) (u), a ∈ RealSet => u ∈ RealSet => a > 0 => a ^ u > 0}) (a := {b}) (u := {s1}) as (hypothesis 15: {b ∈ RealSet => s1 ∈ RealSet => b > 0 => b ^ s1 > 0})
+use_condition (hypothesis 10: {b ∈ RealSet}) (hypothesis 13: {s1 ∈ RealSet}) in (hypothesis 15: {b ∈ RealSet => s1 ∈ RealSet => b > 0 => b ^ s1 > 0}) as (hypothesis 16: {b > 0 => b ^ s1 > 0})
+apply (hypothesis 16: {b > 0 => b ^ s1 > 0})
+autosolve (hypothesis 11: {b ∈ PosRealSet})

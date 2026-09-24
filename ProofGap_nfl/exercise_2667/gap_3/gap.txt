@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. MonoDecSeq(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(ln(n)^{100}, n))
+2. seqlim_{ n → +∞ } (frac(ln(n)^{100}, n)) = 0
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |sum_{ k = 1 }^{ n } (sin(frac(k * π, 4)))| = |frac(cos(frac(π, 8)) - cos((n + frac(1, 2)) * frac(π, 4)), 2 * sin(frac(π, 8)))| ∧ |frac(cos(frac(π, 8)) - cos((n + frac(1, 2)) * frac(π, 4)), 2 * sin(frac(π, 8)))| ≤ frac(1, sin(frac(π, 8)))
+
+METHOD:

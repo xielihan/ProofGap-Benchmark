@@ -1,0 +1,18 @@
+PROOF GAP @4
+ASSUM:
+1. y : RealSet → RealSet
+2. f : RealSet → RealSet
+3. φ : RealSet → RealSet
+4. forall (x), x ∈ RealSet ⇒ y(x) = f(φ(x))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ FuncOfClassK(f, n) ∧ FuncOfClassK(φ, n)
+6. forall (x), x ∈ RealSet ⇒ x ∈ Dom(φ) ∧ φ(x) ∈ Dom(f)
+7. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ n = 1 ⇒ FunDeri(y, 1, 1)(x) = FunDeri(f, fun x [x ∈ RealSet] . φ(x), 1)(φ(x)) * FunDeri(φ, 1, 1)(x)
+8. forall (n), n ∈ NonNegIntegerSet ∧ n = 1 ⇒ (exists (A), A : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ∧ A = (fun k, x [k ∈ NonNegIntegerSet ∧ x ∈ RealSet] . FunDeri(φ, 1, 1)(x)))
+9. forall (n) (A) (x), n ∈ NonNegIntegerSet ∧ A : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ∧ x ∈ RealSet ∧ n = 1 ∧ A = (fun k, x [k ∈ NonNegIntegerSet ∧ x ∈ RealSet] . FunDeri(φ, 1, 1)(x)) ⇒ FunDeri(y, 1, 1)(x) = sum_{ k = 1 }^{ 1 } (A(k, x) * FunDeri(f, fun x [x ∈ RealSet] . φ(x), k)(φ(x)))
+10. forall (m) (A) (x), m ∈ NonNegIntegerSet ∧ A : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ∧ x ∈ RealSet ∧ m ∈ PosIntegerSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, m)(x) = sum_{ k = 1 }^{ m } (A(k, x) * FunDeri(f, fun x [x ∈ RealSet] . φ(x), k)(φ(x)))) ⇒ FunDeri(y, 1, m + 1)(x) = sum_{ k = 1 }^{ m } (FunDeri(fun x [x ∈ RealSet] . A(k, x), 1, 1)(x) * FunDeri(f, fun x [x ∈ RealSet] . φ(x), k)(φ(x)) + A(k, x) * FunDeri(f, fun x [x ∈ RealSet] . φ(x), k + 1)(φ(x)) * FunDeri(φ, 1, 1)(x))
+11. forall (m) (A) (k), m ∈ NonNegIntegerSet ∧ A : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ∧ k ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, m)(x) = sum_{ k = 1 }^{ m } (A(k, x) * FunDeri(f, fun x [x ∈ RealSet] . φ(x), k)(φ(x)))) ⇒ (exists (B), B : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ∧ B = (fun k, x [k ∈ NonNegIntegerSet ∧ x ∈ RealSet] . cases{ FunDeri(fun x [x ∈ RealSet] . A(1, x), 1, 1)(x) if k = 1; FunDeri(φ, 1, 1)(x) * A(k - 1, x) + FunDeri(fun x [x ∈ RealSet] . A(k, x), 1, 1)(x) if 2 ≤ k ∧ k ≤ m; A(m, x) * FunDeri(φ, 1, 1)(x) if k = m + 1 }))
+
+GOAL:
+forall (m) (A) (B) (k) (x), m ∈ NonNegIntegerSet ∧ A : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ∧ B : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ∧ k ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ m ∈ PosIntegerSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, m)(x) = sum_{ k = 1 }^{ m } (A(k, x) * FunDeri(f, fun x [x ∈ RealSet] . φ(x), k)(φ(x)))) ∧ B = (fun k, x [k ∈ NonNegIntegerSet ∧ x ∈ RealSet] . cases{ FunDeri(fun x [x ∈ RealSet] . A(1, x), 1, 1)(x) if k = 1; FunDeri(φ, 1, 1)(x) * A(k - 1, x) + FunDeri(fun x [x ∈ RealSet] . A(k, x), 1, 1)(x) if 2 ≤ k ∧ k ≤ m; A(m, x) * FunDeri(φ, 1, 1)(x) if k = m + 1 }) ⇒ FunDeri(y, 1, m + 1)(x) = sum_{ k = 1 }^{ m + 1 } (B(k, x) * FunDeri(f, fun x [x ∈ RealSet] . φ(x), k)(φ(x)))
+
+METHOD:

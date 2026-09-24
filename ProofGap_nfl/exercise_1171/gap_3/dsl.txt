@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 3: {diff^{5}(y) = 5! * diff(fun x [x ∈ RealSet] . x)^{5}}); from (GOAL: {diff^{5}(y) = 120 * diff(fun x [x ∈ RealSet] . x)^{5}}) to (GOAL: {5! * diff(fun x [x ∈ RealSet] . x)^{5} = 120 * diff(fun x [x ∈ RealSet] . x)^{5}})
+apply (hypothesis 4: {5! * diff(fun x [x ∈ RealSet] . x)^{5} = 120 * diff(fun x [x ∈ RealSet] . x)^{5}})

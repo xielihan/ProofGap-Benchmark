@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet
+3. I : RealSet → RealSet
+4. I = (fun b [b ∈ RealSet] . DefInt(0, +∞, e^{-a * x^{2}} * cos(b * x) * diff(x)))
+5. ContinuousFuncOn(fun x [x ∈ RealSet ∧ x ≥ 0] . e^{-a * x^{2}} * cos(b * x), [0, +∞))
+
+GOAL:
+ContinuousFuncOn(fun x [x ∈ RealSet ∧ x ≥ 0] . -x * e^{-a * x^{2}} * sin(b * x), [0, +∞))
+
+METHOD:

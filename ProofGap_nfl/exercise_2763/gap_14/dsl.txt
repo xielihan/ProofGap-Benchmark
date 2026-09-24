@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |F(n, x_{n}) - f(x_{n})| > ε_{0}}) (n := {n0})
+get_condition (hypothesis 21: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ |F(n0, x_{n0}) - f(x_{n0})| > ε_{0}})
+get_prop (hypothesis 18: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |F(n, x_{n}) - f(x_{n})| = n^{2} * frac(1, n^{2})}) (n := {n0}) as (hypothesis 22: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ |F(n0, x_{n0}) - f(x_{n0})| = n0^{2} * frac(1, n0^{2})})
+get_prop (hypothesis 19: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ n^{2} * frac(1, n^{2}) = 1}) (n := {n0}) as (hypothesis 23: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ n0^{2} * frac(1, n0^{2}) = 1})
+get_prop (hypothesis 20: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 1 > ε_{0}}) (n := {n0}) as (hypothesis 24: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ⇒ 1 > ε_{0}})
+autosolve all_hypothesis

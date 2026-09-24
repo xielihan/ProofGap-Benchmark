@@ -1,0 +1,7 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+lim_{ u → 0 } (frac(arctan(u), u)) = 1
+
+METHOD:

@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. y : RealSet → RealSet
+2. a ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ ¬(exists (k), k ∈ IntegerSet ∧ x = k * π) ⇒ y(x) = arctan(frac(1, sin(x)))
+4. forall (k), k ∈ IntegerSet ⇒ ¬ContinuousFuncAt(y, k * π)
+
+GOAL:
+forall (k), k ∈ IntegerSet ⇒ lim_{ x → (k * π)^- } (y(x)) = (-1)^{k} * frac(π, 2)
+
+METHOD:

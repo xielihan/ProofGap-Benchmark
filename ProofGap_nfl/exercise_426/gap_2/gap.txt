@@ -1,0 +1,12 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. n ∈ NonNegIntegerSet ∧ n > 0
+3. n ∈ PosIntegerSet
+4. x = a + y
+5. lim_{ x → a } (x) = a ⇒ lim_{ y → 0 } (y) = 0
+
+GOAL:
+x ≠ a ⇒ y ≠ 0
+
+METHOD:

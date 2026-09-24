@@ -1,0 +1,15 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. u : RealSet → RealSet
+3. v : RealSet → RealSet
+4. I ⊆ RealSet
+5. FuncOfClassKOn(u, I, 2)
+6. FuncOfClassKOn(v, I, 2)
+7. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ v(x) ≠ 0 ∧ frac(u(x), v(x)) > 0
+8. forall (x), x ∈ RealSet ∧ x ∈ I ⇒ y(x) = ln(frac(u(x), v(x)))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ I ⇒ FunDeri(y, 1, 1)(x) = frac(FunDeri(u, 1, 1)(x), u(x)) - frac(FunDeri(v, 1, 1)(x), v(x))
+
+METHOD:

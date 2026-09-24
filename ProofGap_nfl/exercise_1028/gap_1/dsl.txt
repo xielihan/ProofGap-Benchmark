@@ -1,0 +1,5 @@
+get_prop (theorem 'Thm 284. (PeriodicFunctionDefinition)': {forall (f) (T), f : RealSet -> RealSet => T ∈ RealSet => (PeriodicFunc(f, T) <==> (T > 0 /\ (forall (x), x ∈ RealSet => f(x + T) = f(x))))}) (f := {f}) (T := {T}) as (hypothesis 6: {f : RealSet → RealSet ⇒ T ∈ RealSet ⇒ (PeriodicFunc(f, T) ⇔ (T > 0 ∧ (forall (x), x ∈ RealSet ⇒ f(x + T) = f(x))))})
+use_condition (hypothesis 1: {f : RealSet → RealSet}) (hypothesis 2: {T ∈ RealSet}) in (hypothesis 6: {f : RealSet → RealSet ⇒ T ∈ RealSet ⇒ (PeriodicFunc(f, T) ⇔ (T > 0 ∧ (forall (x), x ∈ RealSet ⇒ f(x + T) = f(x))))}) as (hypothesis 7: {PeriodicFunc(f, T) ⇔ (T > 0 ∧ (forall (x), x ∈ RealSet ⇒ f(x + T) = f(x)))})
+rewrite (left_to_right, iff) (hypothesis 7: {PeriodicFunc(f, T) ⇔ (T > 0 ∧ (forall (x), x ∈ RealSet ⇒ f(x + T) = f(x)))}); from (hypothesis 4: {PeriodicFunc(f, T)}) to (hypothesis 4: {T > 0 ∧ (forall (x), x ∈ RealSet ⇒ f(x + T) = f(x))})
+destruct_and (hypothesis 4: {T > 0 ∧ (forall (x), x ∈ RealSet ⇒ f(x + T) = f(x))}) as (hypothesis 8: {T > 0}) (hypothesis 9: {forall (x), x ∈ RealSet ⇒ f(x + T) = f(x)})
+apply (hypothesis 9: {forall (x), x ∈ RealSet ⇒ f(x + T) = f(x)})

@@ -1,0 +1,3 @@
+get_prop (hypothesis 9: {forall (x) (a) (b), x ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ⇒ f(x, a, b) = x^{2} - (a * x + b)}) (x := {3}) (a := {a}) (b := {b}) as (hypothesis 17: {3 ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ⇒ f(3, a, b) = 3^{2} - (a * 3 + b)})
+use_condition (obvious: {3 ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet}) in (hypothesis 17: {3 ∈ RealSet ∧ a ∈ RealSet ∧ b ∈ RealSet ⇒ f(3, a, b) = 3^{2} - (a * 3 + b)}) as (hypothesis 18: {f(3, a, b) = 3^{2} - (a * 3 + b)})
+autosolve (hypothesis 18: {f(3, a, b) = 3^{2} - (a * 3 + b)})

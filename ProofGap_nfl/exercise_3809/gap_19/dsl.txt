@@ -1,0 +1,7 @@
+assert (obvious: {I(b) = C_{1} * e^{-frac(b^{2}, 4 * a)}})
+assert (obvious: {C_{1} = frac(1, 2) * sqrtn(2, frac(π, a))})
+assert (GOAL: {I(b) = frac(1, 2) * sqrtn(2, frac(π, a)) * e^{-frac(b^{2}, 4 * a)}}) by proof {
+    rewrite (right_to_left, equation) (hypothesis 24: {C_{1} = frac(1, 2) * sqrtn(2, frac(π, a))}) from (GOAL: {I(b) = frac(1, 2) * sqrtn(2, frac(π, a)) * e^{-frac(b^{2}, 4 * a)}}) to (GOAL: {I(b) = C_{1} * e^{-frac(b^{2}, 4 * a)}})
+    apply (hypothesis 23: {I(b) = C_{1} * e^{-frac(b^{2}, 4 * a)}})
+}
+apply (hypothesis 25: {I(b) = frac(1, 2) * sqrtn(2, frac(π, a)) * e^{-frac(b^{2}, 4 * a)}})

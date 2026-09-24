@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. p ∈ RealSet
+2. q ∈ RealSet
+3. q < 1
+4. lim_{ x → 1^+ } ((x - 1)^{q} * frac(1, x^{p} * ln(x)^{q})) = lim_{ x → 1^+ } (frac(1, x^{p}) * frac(x - 1, ln(x))^{q})
+5. lim_{ x → 1^+ } (frac(1, x^{p}) * frac(x - 1, ln(x))^{q}) = (lim_{ x → 1^+ } (frac(x - 1, ln(x))))^{q}
+
+GOAL:
+(lim_{ x → 1^+ } (frac(x - 1, ln(x))))^{q} = (lim_{ x → 1^+ } (frac(1, x)))^{q}
+
+METHOD:

@@ -1,0 +1,18 @@
+get_forall (GOAL: {forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ ε < 1 - q)}) (a := {c})
+get_condition (hypothesis 9: {c : NonNegIntegerSet → RealSet}) in (GOAL: {c : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(c) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(c(n + 1), c(n))) = q ⇒ ε < 1 - q)})
+get_forall (GOAL: {forall (q), q ∈ RealSet ∧ PosSeq(c) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(c(n + 1), c(n))) = q ⇒ ε < 1 - q}) (q := {r})
+get_condition (hypothesis 10: {r ∈ RealSet ∧ PosSeq(c) ∧ r < 1 ∧ seqlim_{ n → +∞ } (frac(c(n + 1), c(n))) = r}) in (GOAL: {r ∈ RealSet ∧ PosSeq(c) ∧ r < 1 ∧ seqlim_{ n → +∞ } (frac(c(n + 1), c(n))) = r ⇒ ε < 1 - r})
+get_prop (hypothesis 7: {forall (a), a : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(a) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(a(n + 1), a(n))) = q ⇒ ε = frac(1 - q, 2))}) (a := {c}) as (hypothesis 11: {c : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(c) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(c(n + 1), c(n))) = q ⇒ ε = frac(1 - q, 2))})
+use_condition (hypothesis 9: {c : NonNegIntegerSet → RealSet}) in (hypothesis 11: {c : NonNegIntegerSet → RealSet ⇒ (forall (q), q ∈ RealSet ∧ PosSeq(c) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(c(n + 1), c(n))) = q ⇒ ε = frac(1 - q, 2))}) as (hypothesis 12: {forall (q), q ∈ RealSet ∧ PosSeq(c) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(c(n + 1), c(n))) = q ⇒ ε = frac(1 - q, 2)})
+get_prop (hypothesis 12: {forall (q), q ∈ RealSet ∧ PosSeq(c) ∧ q < 1 ∧ seqlim_{ n → +∞ } (frac(c(n + 1), c(n))) = q ⇒ ε = frac(1 - q, 2)}) (q := {r}) as (hypothesis 13: {r ∈ RealSet ∧ PosSeq(c) ∧ r < 1 ∧ seqlim_{ n → +∞ } (frac(c(n + 1), c(n))) = r ⇒ ε = frac(1 - r, 2)})
+use_condition (hypothesis 10: {r ∈ RealSet ∧ PosSeq(c) ∧ r < 1 ∧ seqlim_{ n → +∞ } (frac(c(n + 1), c(n))) = r}) in (hypothesis 13: {r ∈ RealSet ∧ PosSeq(c) ∧ r < 1 ∧ seqlim_{ n → +∞ } (frac(c(n + 1), c(n))) = r ⇒ ε = frac(1 - r, 2)}) as (hypothesis 14: {ε = frac(1 - r, 2)})
+destruct_and (hypothesis 10: {r ∈ RealSet ∧ PosSeq(c) ∧ r < 1 ∧ seqlim_{ n → +∞ } (frac(c(n + 1), c(n))) = r}) as (hypothesis 15: {r ∈ RealSet}) (hypothesis 16: {PosSeq(c)}) (hypothesis 17: {r < 1}) (hypothesis 18: {seqlim_{ n → +∞ } (frac(c(n + 1), c(n))) = r})
+assert (hypothesis 19: {1 - r > 0}) by proof {
+  autosolve all_hypothesis
+}
+get_prop (theorem 'Thm 469. (SmallerPositiveDenominatorIncreasesFraction)': {forall (a) (b) (c), a ∈ RealSet => b ∈ RealSet => c ∈ RealSet => a > 0 => b > 0 => c > 0 => b - c > 0 => frac(a, b) < frac(a, b - c)}) (a := {1 - r}) (b := {2}) (c := {1}) as (hypothesis 20: {1 - r ∈ RealSet => 2 ∈ RealSet => 1 ∈ RealSet => 1 - r > 0 => 2 > 0 => 1 > 0 => 2 - 1 > 0 => frac(1 - r, 2) < frac(1 - r, 2 - 1)})
+use_condition (obvious: {1 - r ∈ RealSet}) (obvious: {2 ∈ RealSet}) (obvious: {1 ∈ RealSet}) (hypothesis 19: {1 - r > 0}) (obvious: {2 > 0}) (obvious: {1 > 0}) (obvious: {2 - 1 > 0}) in (hypothesis 20: {1 - r ∈ RealSet => 2 ∈ RealSet => 1 ∈ RealSet => 1 - r > 0 => 2 > 0 => 1 > 0 => 2 - 1 > 0 => frac(1 - r, 2) < frac(1 - r, 2 - 1)}) as (hypothesis 21: {frac(1 - r, 2) < frac(1 - r, 2 - 1)})
+assert (hypothesis 22: {frac(1 - r, 2 - 1) = 1 - r}) by proof {
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

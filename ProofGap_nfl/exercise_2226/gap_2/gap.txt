@@ -1,0 +1,13 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. f : RealSet → RealSet
+4. a ≠ b
+5. ContinuousFuncOn(f, [min(a, b), max(a, b)])
+6. seqlim_{ n → +∞ } (frac(1, n) * (sum_{ k = 1 }^{ n } (f(a + k * frac(b - a, n))))) = DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalCC(0, 1)] . f(a + (b - a) * x)) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ IntervalCC(0, 1)] . f(a + (b - a) * x)) * diff(fun x [x ∈ RealSet] . x)) = frac(1, b - a) * DefInt(a, b, (fun x [x ∈ RealSet] . f(x)) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

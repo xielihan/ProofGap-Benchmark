@@ -1,0 +1,15 @@
+PROOF GAP @7
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+3. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = sqrtn(2, tanh(x)^{2} + 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(tanh(x)^{2} + 1, sqrtn(2, tanh(x)^{2} + 1)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+4. { `F_4` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = sqrtn(2, tanh(x)^{2} + 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = frac(2 * cosh(x)^{2} - 1, sqrtn(2, 1 + tanh(x)^{2})) * FunDeri(fun x [x ∈ RealSet] . tanh(x), 1, 1)(x) }
+5. { `F_6` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_6`, 1, 1)(x) = sqrtn(2, tanh(x)^{2} + 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_10` | exists (`F_7`), `F_7` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_7`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), sqrtn(2, tanh(x)^{2} + 1)) ∧ `F_10`(x) = 2 * `F_7`(x) - ln(tanh(x) + sqrtn(2, 1 + tanh(x)^{2}))) }
+6. { `F_11` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_11`, 1, 1)(x) = sqrtn(2, tanh(x)^{2} + 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_15` | exists (`F_12`), `F_12` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_12`, 1, 1)(x) = frac(cosh(x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x), sqrtn(2, sinh(x)^{2} + cosh(x)^{2})) ∧ `F_15`(x) = 2 * `F_12`(x) - ln(tanh(x) + sqrtn(2, 1 + tanh(x)^{2}))) }
+7. { `F_16` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_16`, 1, 1)(x) = sqrtn(2, tanh(x)^{2} + 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_20` | exists (`F_17`), `F_17` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_17`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . sqrtn(2, 2) * sinh(x), 1, 1)(x), sqrtn(2, 1 + 2 * sinh(x)^{2})) ∧ `F_20`(x) = sqrtn(2, 2) * `F_17`(x) - ln(tanh(x) + sqrtn(2, 1 + tanh(x)^{2}))) }
+8. { `F_21` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_21`, 1, 1)(x) = sqrtn(2, tanh(x)^{2} + 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_22` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_22`(x) = sqrtn(2, 2) * ln(sqrtn(2, 2) * sinh(x) + sqrtn(2, 1 + 2 * sinh(x)^{2})) - ln(tanh(x) + sqrtn(2, 1 + tanh(x)^{2})) + C) }
+
+GOAL:
+{ `F_23` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_23`, 1, 1)(x) = sqrtn(2, tanh(x)^{2} + 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_24` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_24`(x) = frac(1, sqrtn(2, 2)) * ln(frac(sqrtn(2, 1 + tanh(x)^{2}) + sqrtn(2, 2) * tanh(x), sqrtn(2, 1 + tanh(x)^{2}) - sqrtn(2, 2) * tanh(x))) - ln(tanh(x) + sqrtn(2, 1 + tanh(x)^{2})) + C) }
+
+METHOD:

@@ -1,0 +1,9 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet
+2. FunDeri(fun x [x ∈ RealSet] . x^{3} - 2 * x^{6} - x^{9}, fun x [x ∈ RealSet] . x^{3}, 1)(x) = FunDeri(fun x [x ∈ RealSet] . x^{3} - 2 * (x^{3})^{2} - (x^{3})^{3}, fun x [x ∈ RealSet] . x^{3}, 1)(x)
+
+GOAL:
+FunDeri(fun t [t ∈ RealSet] . t - 2 * t^{2} - t^{3}, 1, 1)(x^{3}) = 1 - 4 * x^{3} - 3 * x^{6}
+
+METHOD:

@@ -1,0 +1,8 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x > 0 ⇒ (exists (t), t ∈ RealSet ∧ x = frac(1, t) ∧ t > 0)}) (x := {x0})
+get_condition (hypothesis 7: {x0 ∈ RealSet ∧ x0 > 0}) in (GOAL: {x0 ∈ RealSet ∧ x0 > 0 ⇒ (exists (t), t ∈ RealSet ∧ x0 = frac(1, t) ∧ t > 0)})
+get_prop (hypothesis 6: {forall (x), x ∈ RealSet ∧ x > 0 ⇒ (exists (t), t ∈ RealSet ∧ t > 0 ∧ x = frac(1, t))}) (x := {x0}) as (hypothesis 8: {x0 ∈ RealSet ∧ x0 > 0 ⇒ (exists (t), t ∈ RealSet ∧ t > 0 ∧ x0 = frac(1, t))})
+use_condition (hypothesis 7: {x0 ∈ RealSet ∧ x0 > 0}) in (hypothesis 8: {x0 ∈ RealSet ∧ x0 > 0 ⇒ (exists (t), t ∈ RealSet ∧ t > 0 ∧ x0 = frac(1, t))}) as (hypothesis 9: {exists (t), t ∈ RealSet ∧ t > 0 ∧ x0 = frac(1, t)})
+get_exists (hypothesis 9: {exists (t), t ∈ RealSet ∧ t > 0 ∧ x0 = frac(1, t)}) (t := {t0})
+exists (t := {t0})
+assert (hypothesis 10: {t0 ∈ RealSet ∧ x0 = frac(1, t0) ∧ t0 > 0})
+apply (hypothesis 10: {t0 ∈ RealSet ∧ x0 = frac(1, t0) ∧ t0 > 0})

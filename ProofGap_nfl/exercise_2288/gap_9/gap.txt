@@ -1,0 +1,18 @@
+PROOF GAP @9
+ASSUM:
+1. m ∈ IntegerSet
+2. n ∈ IntegerSet
+3. forall (x), x ∈ RealSet ⇒ e^{__IMAGINARY_UNIT__ * x} = cos(x) + __IMAGINARY_UNIT__ * sin(x)
+4. m = n ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * n * x} * e^{-__IMAGINARY_UNIT__ * m * x}) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 2 * π, (fun x [x ∈ RealSet] . 1) * diff(fun x [x ∈ RealSet] . x))
+5. m = n ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . 1) * diff(fun x [x ∈ RealSet] . x)) = 2 * π
+6. m = n ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * n * x} * e^{-__IMAGINARY_UNIT__ * m * x}) * diff(fun x [x ∈ RealSet] . x)) = 2 * π
+7. m ≠ n ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * n * x} * e^{-__IMAGINARY_UNIT__ * m * x}) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 2 * π, (fun x [x ∈ RealSet] . (cos(n * x) + __IMAGINARY_UNIT__ * sin(n * x)) * (cos(m * x) - __IMAGINARY_UNIT__ * sin(m * x))) * diff(fun x [x ∈ RealSet] . x))
+8. m ≠ n ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . (cos(n * x) + __IMAGINARY_UNIT__ * sin(n * x)) * (cos(m * x) - __IMAGINARY_UNIT__ * sin(m * x))) * diff(fun x [x ∈ RealSet] . x)) = DefInt(0, 2 * π, (fun x [x ∈ RealSet] . cos((m - n) * x)) * diff(fun x [x ∈ RealSet] . x)) - __IMAGINARY_UNIT__ * DefInt(0, 2 * π, (fun x [x ∈ RealSet] . sin((m - n) * x)) * diff(fun x [x ∈ RealSet] . x))
+9. m ≠ n ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . cos((m - n) * x)) * diff(fun x [x ∈ RealSet] . x)) - __IMAGINARY_UNIT__ * DefInt(0, 2 * π, (fun x [x ∈ RealSet] . sin((m - n) * x)) * diff(fun x [x ∈ RealSet] . x)) = 0
+10. m ≠ n ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * n * x} * e^{-__IMAGINARY_UNIT__ * m * x}) * diff(fun x [x ∈ RealSet] . x)) = 0
+11. m = n ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * n * x} * e^{-__IMAGINARY_UNIT__ * m * x}) * diff(fun x [x ∈ RealSet] . x)) = 2 * π
+
+GOAL:
+(m ≠ n ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * n * x} * e^{-__IMAGINARY_UNIT__ * m * x}) * diff(fun x [x ∈ RealSet] . x)) = 0) ∧ (m = n ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * n * x} * e^{-__IMAGINARY_UNIT__ * m * x}) * diff(fun x [x ∈ RealSet] . x)) = 2 * π)
+
+METHOD:

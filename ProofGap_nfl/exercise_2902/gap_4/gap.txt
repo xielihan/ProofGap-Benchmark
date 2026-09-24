@@ -1,0 +1,14 @@
+PROOF GAP @4
+ASSUM:
+1. F : RealSet → RealSet
+2. x ∈ RealSet
+3. n ∈ NonNegIntegerSet
+4. forall (x), x ∈ RealSet ∧ x ∈ [-1, 1] ⇒ F(x) = DefInt(0, x, (fun t [t ∈ RealSet] . frac(1, sqrtn(2, 1 - t^{4}))) * diff(fun t [t ∈ RealSet] . t))
+5. forall (t), t ∈ RealSet ⇒ frac(1, sqrtn(2, 1 - t^{4})) = 1 + (sum_{ n = 1 }^{ +∞ } (frac((2 * n - 1)!!, (2 * n)!!) * t^{4 * n}))
+6. forall (x), x ∈ RealSet ∧ x ∈ [-1, 1] ⇒ F(x) = DefInt(0, x, (fun t [t ∈ RealSet] . 1 + (sum_{ n = 1 }^{ +∞ } (frac((2 * n - 1)!!, (2 * n)!!) * t^{4 * n}))) * diff(fun t [t ∈ RealSet] . t))
+7. forall (x), x ∈ RealSet ∧ x ∈ [-1, 1] ⇒ F(x) = x + (sum_{ n = 1 }^{ +∞ } (frac((2 * n - 1)!!, (2 * n)!!) * frac(x^{4 * n + 1}, 4 * n + 1)))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ [-1, 1] ⇒ F(x) = x + (sum_{ n = 1 }^{ +∞ } (frac((2 * n - 1)!!, (2 * n)!!) * frac(x^{4 * n + 1}, 4 * n + 1)))
+
+METHOD:

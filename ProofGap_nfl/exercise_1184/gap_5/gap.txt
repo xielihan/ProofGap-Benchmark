@@ -1,0 +1,18 @@
+PROOF GAP @5
+ASSUM:
+1. y : RealSet → RealSet
+2. C_{1} ∈ RealSet
+3. C_{2} ∈ RealSet
+4. n ∈ RealSet
+5. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ y(x) = x^{n} * (C_{1} * cos(ln(x)) + C_{2} * sin(ln(x)))
+6. A = (fun x [x ∈ RealSet ∧ x ∈ PosRealSet] . C_{1} * cos(ln(x)) + C_{2} * sin(ln(x)))
+7. B = (fun x [x ∈ RealSet ∧ x ∈ PosRealSet] . C_{2} * cos(ln(x)) - C_{1} * sin(ln(x)))
+8. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ FunDeri(y, 1, 1)(x) = n * x^{n - 1} * A(x) + x^{n - 1} * B(x)
+9. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ FunDeri(y, 1, 2)(x) = x^{n - 2} * ((n^{2} - n - 1) * A(x) + (2 * n - 1) * B(x))
+10. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ x^{2} * FunDeri(y, 1, 2)(x) + (1 - 2 * n) * x * FunDeri(y, 1, 1)(x) + (1 + n^{2}) * y(x) = x^{n} * ((n^{2} - n - 1) * A(x) + (2 * n - 1) * B(x)) + (1 - 2 * n) * x^{n} * (n * A(x) + B(x)) + (1 + n^{2}) * x^{n} * A(x) ∧ x^{n} * ((n^{2} - n - 1) * A(x) + (2 * n - 1) * B(x)) + (1 - 2 * n) * x^{n} * (n * A(x) + B(x)) + (1 + n^{2}) * x^{n} * A(x) = 0
+11. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ x^{2} * FunDeri(y, 1, 2)(x) + (1 - 2 * n) * x * FunDeri(y, 1, 1)(x) + (1 + n^{2}) * y(x) = 0
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ x^{2} * FunDeri(y, 1, 2)(x) + (1 - 2 * n) * x * FunDeri(y, 1, 1)(x) + (1 + n^{2}) * y(x) = 0
+
+METHOD:

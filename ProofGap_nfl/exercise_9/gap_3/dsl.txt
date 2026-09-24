@@ -1,0 +1,8 @@
+1. get_forall (GOAL: {forall (n), n ∈ IntegerSet ∧ n = 2 ⇒ prod_{ i = 1 }^{ n } ((2 * i)!) = 48}) (n := {n1})
+2. get_condition (hypothesis 3: {n1 ∈ IntegerSet ∧ n1 = 2}) in (GOAL: {n1 ∈ IntegerSet ∧ n1 = 2 ⇒ prod_{ i = 1 }^{ n1 } ((2 * i)!) = 48})
+3. get_prop (hypothesis 1: {forall (n), n ∈ IntegerSet ∧ n = 2 ⇒ prod_{ i = 1 }^{ n } ((2 * i)!) = 2! * 4!}) (n := {n1}) as (hypothesis 4: {n1 ∈ IntegerSet ∧ n1 = 2 ⇒ prod_{ i = 1 }^{ n1 } ((2 * i)!) = 2! * 4!})
+4. use_condition (hypothesis 3: {n1 ∈ IntegerSet ∧ n1 = 2}) in (hypothesis 4: {n1 ∈ IntegerSet ∧ n1 = 2 ⇒ prod_{ i = 1 }^{ n1 } ((2 * i)!) = 2! * 4!}) as (hypothesis 5: {prod_{ i = 1 }^{ n1 } ((2 * i)!) = 2! * 4!})
+5. get_prop (hypothesis 2: {forall (n), n ∈ IntegerSet ∧ n = 2 ⇒ 2! * 4! = 48}) (n := {n1}) as (hypothesis 6: {n1 ∈ IntegerSet ∧ n1 = 2 ⇒ 2! * 4! = 48})
+6. use_condition (hypothesis 3: {n1 ∈ IntegerSet ∧ n1 = 2}) in (hypothesis 6: {n1 ∈ IntegerSet ∧ n1 = 2 ⇒ 2! * 4! = 48}) as (hypothesis 7: {2! * 4! = 48})
+7. rewrite (left_to_right, equation) (hypothesis 5: {prod_{ i = 1 }^{ n1 } ((2 * i)!) = 2! * 4!}); from (GOAL: {prod_{ i = 1 }^{ n1 } ((2 * i)!) = 48}) to (GOAL: {2! * 4! = 48})
+8. apply (hypothesis 7: {2! * 4! = 48})

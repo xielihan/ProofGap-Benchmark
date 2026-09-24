@@ -1,0 +1,9 @@
+get_prop (hypothesis 12: {forall (r), r ∈ RealSet ⇒ r ≥ 0}) (r := {-1}) as (hypothesis 16: {-1 ∈ RealSet ⇒ -1 ≥ 0})
+assert (hypothesis 17: {-1 ∈ RealSet}) by proof {
+  1. autosolve all_hypothesis
+}
+use_condition (hypothesis 17: {-1 ∈ RealSet}) in (hypothesis 16: {-1 ∈ RealSet ⇒ -1 ≥ 0}) as (hypothesis 18: {-1 ≥ 0})
+assert (hypothesis 19: {Vol = frac(4 * π * a^{3}, 3)}) by proof {
+  1. autosolve all_hypothesis
+}
+apply (hypothesis 19: {Vol = frac(4 * π * a^{3}, 3)})

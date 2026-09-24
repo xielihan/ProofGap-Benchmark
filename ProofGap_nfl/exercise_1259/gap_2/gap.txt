@@ -1,0 +1,17 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. x_{0} ∈ RealSet ∧ a < x_{0} ∧ x_{0} < b
+5. a < b
+6. Dom(f) = (a, b)
+7. DiffableFuncOn(f, IntervalLoRo(a, b))
+8. forall (x), x ∈ RealSet ∧ a < x ∧ x < b ⇒ FunDeri(f, 1, 1)(x) = 0
+9. x_{0} = x_{0}
+10. a < x_{0}
+
+GOAL:
+x_{0} < b
+
+METHOD:

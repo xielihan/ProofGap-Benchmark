@@ -1,0 +1,23 @@
+PROOF GAP @12
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. I : RealSet → RealSet
+4. (a, b) ≠ (0, 0)
+5. forall (a), a ∈ RealSet ⇒ I(a) = DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . ln(a^{2} * sin(x)^{2} + b^{2} * cos(x)^{2})) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . x))
+6. a > 0 ⇒ b > 0 ⇒ FunDeri(I, 1, 1)(a) = DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . frac(2 * a * sin(x)^{2}, a^{2} * sin(x)^{2} + b^{2} * cos(x)^{2})) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . x))
+7. a > 0 ⇒ b > 0 ⇒ a = b ⇒ FunDeri(I, 1, 1)(b) = frac(2, b) * DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . sin(x)^{2}) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . x))
+8. a > 0 ⇒ b > 0 ⇒ a = b ⇒ frac(2, b) * DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . sin(x)^{2}) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . x)) = frac(π, 2 * b)
+9. a > 0 ⇒ b > 0 ⇒ a = b ⇒ FunDeri(I, 1, 1)(b) = frac(π, 2 * b)
+10. forall (x) (t), x ∈ RealSet ∧ 0 ≤ x ∧ x < frac(π, 2) ∧ t ∈ RealSet ∧ t ≥ 0 ∧ a > 0 ∧ b > 0 ∧ a ≠ b ∧ t = tan(x) ⇒ FunDeri(I, 1, 1)(a) = frac(2, a) * DefInt(0, +∞, (fun t [t ∈ RealSet ∧ t ≥ 0] . frac(t^{2}, (t^{2} + 1) * (t^{2} + frac(b^{2}, a^{2})))) * diff(fun t [t ∈ RealSet ∧ t ≥ 0] . t))
+11. forall (x) (t), x ∈ RealSet ∧ 0 ≤ x ∧ x < frac(π, 2) ∧ t ∈ RealSet ∧ t ≥ 0 ∧ a > 0 ∧ b > 0 ∧ a ≠ b ∧ t = tan(x) ⇒ FunDeri(I, 1, 1)(a) = frac(2, a) * ((fun t [t ∈ RealSet ∧ t ≥ 0] . frac(a^{2}, a^{2} - b^{2}) * arctan(t) - frac(b^{2}, a^{2} - b^{2}) * frac(a, b) * arctan(frac(a * t, b)))|_{0}^{+∞})
+12. forall (x) (t), x ∈ RealSet ∧ 0 ≤ x ∧ x < frac(π, 2) ∧ t ∈ RealSet ∧ t ≥ 0 ∧ a > 0 ∧ b > 0 ∧ a ≠ b ∧ t = tan(x) ⇒ frac(2, a) * ((fun t [t ∈ RealSet ∧ t ≥ 0] . frac(a^{2}, a^{2} - b^{2}) * arctan(t) - frac(b^{2}, a^{2} - b^{2}) * frac(a, b) * arctan(frac(a * t, b)))|_{0}^{+∞}) = frac(π, a + b)
+13. forall (x) (t), x ∈ RealSet ∧ 0 ≤ x ∧ x < frac(π, 2) ∧ t ∈ RealSet ∧ t ≥ 0 ∧ a > 0 ∧ b > 0 ∧ a ≠ b ∧ t = tan(x) ⇒ FunDeri(I, 1, 1)(a) = frac(π, a + b)
+14. a > 0 ⇒ b > 0 ⇒ FunDeri(I, 1, 1)(a) = frac(π, a + b)
+15. a > 0 ⇒ b > 0 ⇒ (exists (C), C ∈ RealSet ∧ I(a) = π * ln(a + b) + C)
+16. exists (C), C ∈ RealSet ∧ (a > 0 ⇒ b > 0 ⇒ I(b) = π * ln(2 * b) + C)
+
+GOAL:
+a > 0 ⇒ b > 0 ⇒ I(b) = DefInt(0, frac(π, 2), (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . ln(b^{2})) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ frac(π, 2)] . x))
+
+METHOD:

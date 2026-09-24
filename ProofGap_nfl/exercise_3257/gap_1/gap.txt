@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y > 0 ⇒ u(x, y) = x * ln(x * y)
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y > 0 ⇒ FunDeri(u, 1, 1)(x, y) = ln(x * y) + 1
+
+METHOD:

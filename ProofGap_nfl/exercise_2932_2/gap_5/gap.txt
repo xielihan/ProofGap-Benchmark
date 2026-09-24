@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ 2 ≤ x ∧ x ≤ 4 ⇒ e^{frac(1, x)} = sum_{ n = 0 }^{ +∞ } (frac(1, n! * x^{n}))
+2. DefInt(2, 4, (fun x [x ∈ RealSet] . e^{frac(1, x)}) * diff(fun x [x ∈ RealSet] . x)) = DefInt(2, 4, (fun x [x ∈ RealSet] . sum_{ n = 0 }^{ +∞ } (frac(1, n! * x^{n}))) * diff(fun x [x ∈ RealSet] . x))
+3. exists (Δ), Δ ∈ RealSet ∧ DefInt(2, 4, (fun x [x ∈ RealSet] . e^{frac(1, x)}) * diff(fun x [x ∈ RealSet] . x)) = 2 + ln(2) + frac(1, 2! * 4) + frac(3, 3! * 32) + frac(7, 4! * 192) + Δ
+4. 2 + ln(2) + frac(1, 2! * 4) + frac(3, 3! * 32) + frac(7, 4! * 192) ≈_{ 0.0001 } 2.8352
+
+GOAL:
+exists (Δ), Δ ∈ RealSet ∧ 0 < Δ
+
+METHOD:

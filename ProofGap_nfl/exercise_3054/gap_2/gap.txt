@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. P : IntegerSet → RealSet
+2. forall (n), n ∈ IntegerSet ∧ n ≥ 0 ⇒ (forall (i), i ∈ IntegerSet ∧ i ≥ 0 ⇒ P(n) = prod_{ i = 0 }^{ n } (1 + frac(1, 2)^{2^{i}}))
+3. forall (n), n ∈ IntegerSet ∧ n ≥ 0 ⇒ (forall (i), i ∈ IntegerSet ∧ i ≥ 0 ∧ n ∈ NonNegIntegerSet ⇒ (1 - frac(1, 2)) * P(n) = (1 - frac(1, 2)) * (prod_{ i = 0 }^{ n } (1 + frac(1, 2)^{2^{i}})))
+
+GOAL:
+forall (n), n ∈ IntegerSet ∧ n ≥ 0 ∧ n ∈ NonNegIntegerSet ⇒ (1 - frac(1, 2)) * P(n) = 1 - frac(1, 2)^{2^{n + 1}}
+
+METHOD:

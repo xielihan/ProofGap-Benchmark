@@ -1,0 +1,15 @@
+PROOF GAP @7
+ASSUM:
+1. x ∈ RealSet
+2. a = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . (-1)^{n - 1} * (2^{n} * sin(x)^{2 * n} / n))
+3. seqlim_{ n → +∞ } (sqrtn(n, |a(n)|)) = (sqrtn(2, 2) * sin(x))^{2}
+4. (sqrtn(2, 2) * sin(x))^{2} < 1 ⇒ (exists (k), k ∈ IntegerSet ∧ |x - k * π| < frac(π, 4))
+5. (sqrtn(2, 2) * sin(x))^{2} < 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+6. (sqrtn(2, 2) * sin(x))^{2} = 1 ⇒ (exists (k), k ∈ IntegerSet ∧ |x - k * π| = frac(π, 4))
+7. (sqrtn(2, 2) * sin(x))^{2} = 1 ⇒ sum_{ n = 1 }^{ +∞ } (a(n)) = sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} / n)
+8. (sqrtn(2, 2) * sin(x))^{2} = 1 ⇒ ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+GOAL:
+(sqrtn(2, 2) * sin(x))^{2} > 1 ⇒ (exists (α), α ∈ RealSet ∧ (sqrtn(2, 2) * sin(x))^{2} > α ∧ α > 1)
+
+METHOD:

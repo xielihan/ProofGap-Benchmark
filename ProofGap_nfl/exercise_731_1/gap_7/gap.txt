@@ -1,0 +1,15 @@
+PROOF GAP @7
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ [0, 2] ⇒ f(x) = cases{ x^{2} if 0 ≤ x ∧ x ≤ 1; 2 - x if 1 < x ∧ x ≤ 2 }
+3. ContinuousFuncOn(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x^{2}, [0, 1])
+4. ContinuousFuncOn(fun x [x ∈ RealSet ∧ 1 < x ∧ x ≤ 2] . 2 - x, (1, 2])
+5. f(1) = 1
+6. lim_{ x → 1^- } (f(x)) = 1
+7. lim_{ x → 1^+ } (f(x)) = 1
+8. ContinuousFuncAt(f, 1)
+
+GOAL:
+ContinuousFuncOn(f, [0, 2])
+
+METHOD:

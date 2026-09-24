@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. P : RealSet → RealSet
+2. E_{P} ∈ RealSet
+3. forall (x), x ∈ RealSet ∧ x ∈ [-2, 1] ⇒ P(x) = x * (x - 1)^{2} * (x + 2)
+4. E_{P} = sup({ |P(x)| | x ∈ [-2, 1] })
+5. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-2, 1) ⇒ FunDeri(P, 1, 1)(x) = 2 * (x - 1) * (2 * x^{2} + 2 * x - 1)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-2, 1) ⇒ (FunDeri(P, 1, 1)(x) = 0 ⇔ x = 1 ∨ x = frac(-1 - sqrtn(2, 3), 2) ∨ x = frac(-1 + sqrtn(2, 3), 2))
+
+METHOD:

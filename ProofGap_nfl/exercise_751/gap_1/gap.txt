@@ -1,0 +1,14 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. x ∈ RealSet
+4. Defined(f, [a, +∞))
+5. ContinuousFuncOn(f, [a, +∞))
+6. exists (A), A ∈ RealSet ∧ lim_{ x → +∞ } (f(x)) = A
+7. A = lim_{ x → +∞ } (f(x))
+
+GOAL:
+A ∈ RealSet
+
+METHOD:

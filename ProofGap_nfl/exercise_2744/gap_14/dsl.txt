@@ -1,0 +1,4 @@
+assert (hypothesis 23: {frac(1, 0.1) = 10}) by proof {
+  autosolve all_hypothesis
+}
+apply (hypothesis 23: {frac(1, 0.1) = 10})

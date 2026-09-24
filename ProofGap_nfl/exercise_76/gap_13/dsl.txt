@@ -1,0 +1,6 @@
+get_condition (hypothesis 15: {a > 1}) in (GOAL: {a > 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > 1 ⇒ 1 - frac(1, n + 1) = frac(n, n + 1))})
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n > 1 ⇒ 1 - frac(1, n + 1) = frac(n, n + 1)}) (n := {n0})
+get_condition (hypothesis 16: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 > 1}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 > 1 ⇒ 1 - frac(1, n0 + 1) = frac(n0, n0 + 1)})
+destruct_and (hypothesis 16: {n0 ∈ NonNegIntegerSet ∧ n0 ∈ PosIntegerSet ∧ n0 > 1}) as (hypothesis 17: {n0 ∈ NonNegIntegerSet}) (hypothesis 18: {n0 ∈ PosIntegerSet}) (hypothesis 19: {n0 > 1})
+autoreplace (hypothesis 19: {n0 > 1}); from (1 - frac(1, n0 + 1)) to (frac(n0, n0 + 1)); from (GOAL: {1 - frac(1, n0 + 1) = frac(n0, n0 + 1)}) to (GOAL: {frac(n0, n0 + 1) = frac(n0, n0 + 1)})
+autosolve all_hypothesis

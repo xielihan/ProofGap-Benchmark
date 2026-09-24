@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. α ∈ RealSet
+2. β ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ sin(x)^{4} = frac(1, 8) * (cos(4 * x) - 4 * cos(2 * x) + 3)
+
+METHOD:

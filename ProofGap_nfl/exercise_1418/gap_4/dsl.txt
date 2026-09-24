@@ -1,0 +1,13 @@
+get_prop (hypothesis 6: {forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 2)(x) = -cos(x) + cosh(x)}) (x := {0}) as (hypothesis 7: {0 ∈ RealSet ⇒ FunDeri(y, 1, 2)(0) = -cos(0) + cosh(0)})
+assert (hypothesis 8: {FunDeri(y, 1, 2)(0) = -cos(0) + cosh(0)}) by proof {
+  apply (hypothesis 7: {0 ∈ RealSet ⇒ FunDeri(y, 1, 2)(0) = -cos(0) + cosh(0)})
+  autosolve all_hypothesis
+}
+assert (hypothesis 9: {cos(0) = 1})
+get_prop (theorem 'Thm 243. (HyperbolicCosineDefinition)': {forall (x), x ∈ RealSet => cosh(x) = (e ^ x + e ^ (-x)) / 2}) (x := {0}) as (hypothesis 10: {0 ∈ RealSet => cosh(0) = (e ^ 0 + e ^ (-0)) / 2})
+use_condition (obvious: {0 ∈ RealSet}) in (hypothesis 10: {0 ∈ RealSet => cosh(0) = (e ^ 0 + e ^ (-0)) / 2}) as (hypothesis 11: {cosh(0) = (e ^ 0 + e ^ (-0)) / 2})
+assert (hypothesis 12: {cosh(0) = 1})
+rewrite (left_to_right, equation) (hypothesis 8: {FunDeri(y, 1, 2)(0) = -cos(0) + cosh(0)}); from (GOAL: {FunDeri(y, 1, 2)(0) = 0}) to (GOAL: {-cos(0) + cosh(0) = 0})
+rewrite (left_to_right, equation) (hypothesis 9: {cos(0) = 1}); from (GOAL: {-cos(0) + cosh(0) = 0}) to (GOAL: {-1 + cosh(0) = 0})
+rewrite (left_to_right, equation) (hypothesis 12: {cosh(0) = 1}); from (GOAL: {-1 + cosh(0) = 0}) to (GOAL: {-1 + 1 = 0})
+autosolve all_hypothesis

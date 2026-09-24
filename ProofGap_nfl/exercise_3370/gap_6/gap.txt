@@ -1,0 +1,21 @@
+PROOF GAP @6
+ASSUM:
+1. y : RealSet → RealSet
+2. φ : RealSet → RealSet
+3. k ∈ RealSet ∧ k ≠ 0
+4. ω ∈ RealSet ∧ ω > 0
+5. DiffableFunc(φ)
+6. PeriodicFunc(φ, ω)
+7. forall (t), t ∈ RealSet ⇒ |FunDeri(φ, 1, 1)(t)| < |k|
+8. forall (x), x ∈ RealSet ⇒ x = k * y(x) + φ(y(x))
+9. X = (fun t [t ∈ RealSet] . k * t + φ(t))
+10. forall (t), t ∈ RealSet ⇒ FunDeri(X, 1, 1)(t) = k + FunDeri(φ, 1, 1)(t)
+11. forall (t), t ∈ RealSet ⇒ |FunDeri(φ, 1, 1)(t)| < |k|
+12. forall (t), t ∈ RealSet ⇒ (k > 0 ⇒ FunDeri(X, 1, 1)(t) > 0) ∧ (k < 0 ⇒ FunDeri(X, 1, 1)(t) < 0)
+13. StrictMonoIncFunc(X) ∨ StrictMonoDecFunc(X)
+14. ContinuousFunc(X)
+
+GOAL:
+BoundedFunc(φ)
+
+METHOD:

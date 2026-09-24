@@ -1,0 +1,13 @@
+PROOF GAP @5
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x) = x^{frac(1, x)}
+3. forall (x), x ∈ RealSet ∧ x > 0 ⇒ y(x) = e^{frac(ln(x), x)}
+4. forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(y, 1, 1)(x) = x^{frac(1, x) - 2} * (1 - ln(x))
+5. forall (x), x ∈ RealSet ∧ x > 0 ∧ FunDeri(y, 1, 1)(x) = 0 ⇒ 1 - ln(x) = 0
+6. forall (x), x ∈ RealSet ∧ x > 0 ∧ FunDeri(y, 1, 1)(x) = 0 ⇒ x = e
+
+GOAL:
+forall (x), x ∈ RealSet ∧ 0 < x ∧ x < e ⇒ FunDeri(y, 1, 1)(x) > 0
+
+METHOD:

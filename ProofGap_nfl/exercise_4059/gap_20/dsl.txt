@@ -1,0 +1,3 @@
+rewrite (left_to_right, equation) (hypothesis 29: {M_{y} = -frac(32, 45) * k * a^{4}}); from (GOAL: {frac(M_{y}, M) = -frac(a, 5)}) to (GOAL: {frac(-frac(32, 45) * k * a^{4}, M) = -frac(a, 5)})
+rewrite (left_to_right, equation) (hypothesis 26: {M = frac(32, 9) * k * a^{3}}); from (GOAL: {frac(-frac(32, 45) * k * a^{4}, M) = -frac(a, 5)}) to (GOAL: {frac(-frac(32, 45) * k * a^{4}, frac(32, 9) * k * a^{3}) = -frac(a, 5)})
+autosolve (hypothesis 1: {a ∈ RealSet ∧ a > 0}) (hypothesis 2: {k ∈ RealSet ∧ k > 0}) using PolyRatSolver

@@ -1,0 +1,6 @@
+1. get_forall (GOAL: {forall (t), t ∈ RealSet ∧ t ≠ 0 ∧ t ≠ 1 ∧ t ≠ -1 ⇒ FunDeri(x, 1, 1)(t) = 1 - frac(1, t^{2})}) (t := {t0})
+2. get_condition (hypothesis 7: {t0 ∈ RealSet ∧ t0 ≠ 0 ∧ t0 ≠ 1 ∧ t0 ≠ -1}) in (GOAL: {t0 ∈ RealSet ∧ t0 ≠ 0 ∧ t0 ≠ 1 ∧ t0 ≠ -1 ⇒ FunDeri(x, 1, 1)(t0) = 1 - frac(1, t0^{2})})
+3. assert (hypothesis 8: {t0 ∈ RealSet ∧ t0 ≠ 0}) by proof {
+1. autosolve all_hypothesis
+}
+4. autosolve all_hypothesis

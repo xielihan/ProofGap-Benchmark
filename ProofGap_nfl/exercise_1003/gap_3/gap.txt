@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ sin(x^{2}) ≥ 0 ⇒ f(x) = sqrtn(2, sin(x^{2}))
+3. forall (x), x ∈ RealSet ∧ (exists (k), k ∈ NonNegIntegerSet ∧ sqrtn(2, 2 * k * π) < |x| ∧ |x| < sqrtn(2, (2 * k + 1) * π)) ⇒ FunDeri(f, 1, 1)(x) = frac(x * cos(x^{2}), sqrtn(2, sin(x^{2})))
+4. forall (x), x ∈ RealSet ∧ x = 0 ⇒ lim_{ t → 0^+ } (frac(f(t) - f(0), t - 0)) = 1
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x = 0 ⇒ lim_{ t → 0^- } (frac(f(t) - f(0), t - 0)) = -1
+
+METHOD:

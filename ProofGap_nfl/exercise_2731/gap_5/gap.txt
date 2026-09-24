@@ -1,0 +1,14 @@
+PROOF GAP @5
+ASSUM:
+1. x ∈ RealSet
+2. a : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac((n + x)^{n}, n^{n + x})
+4. exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n > N ⇒ a(n) > 0)
+5. seqlim_{ n → +∞ } (frac(a(n), frac(1, n^{x}))) = seqlim_{ n → +∞ } ((1 + frac(x, n))^{n})
+6. seqlim_{ n → +∞ } ((1 + frac(x, n))^{n}) = e^{x}
+7. seqlim_{ n → +∞ } (frac(a(n), frac(1, n^{x}))) = e^{x}
+
+GOAL:
+x > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, n^{x})))
+
+METHOD:

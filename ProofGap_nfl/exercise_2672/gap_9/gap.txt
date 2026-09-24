@@ -1,0 +1,17 @@
+PROOF GAP @9
+ASSUM:
+1. b : NonNegIntegerSet → RealSet
+2. b = (fun k [k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet] . sum_{ n = k^{2} }^{ (k + 1)^{2} - 1 } (frac(1, n)))
+3. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ sum_{ n = k^{2} }^{ (k + 1)^{2} - 1 } (frac((-1)^{floor(sqrtn(2, n))}, n)) = (-1)^{k} * b(k)
+4. forall (k), k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ⇒ frac(2, k + 1) < b(k) ∧ b(k) < frac(2, k)
+5. PosSeq(b)
+6. MonoDecSeq(b)
+7. seqlim_{ k → +∞ } (b(k)) = 0
+8. ConvergentSeries(sum_{ k = 1 }^{ +∞ } ((-1)^{k} * b(k)))
+9. forall (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ⇒ (exists (K), K ∈ NonNegIntegerSet ∧ K ∈ PosIntegerSet ∧ sum_{ k = 1 }^{ K } ((-1)^{k} * b(k)) ≤ sum_{ n = 1 }^{ N } (frac((-1)^{floor(sqrtn(2, n))}, n)) ∧ sum_{ n = 1 }^{ N } (frac((-1)^{floor(sqrtn(2, n))}, n)) ≤ sum_{ k = 1 }^{ K + 1 } ((-1)^{k} * b(k)))
+10. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (frac((-1)^{floor(sqrtn(2, n))}, n)))
+
+GOAL:
+DivergentSeries(sum_{ n = 1 }^{ +∞ } (|frac((-1)^{floor(sqrtn(2, n))}, n)|))
+
+METHOD:

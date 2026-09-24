@@ -1,0 +1,25 @@
+get_condition (hypothesis 12: {a > 1}) in (GOAL: {a > 1 => (forall (ε), ε ∈ RealSet ∧ ε > 0 => (exists (N1), exists (N2), N1 ∈ IntegerSet ∧ N2 ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N1 ∧ n > N2 => |sqrtn(n, a) - 1| < ε)))})
+use_condition (hypothesis 12: {a > 1}) in (hypothesis 9: {a > 1 => (forall (ε), ε ∈ RealSet ∧ ε > 0 => (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N => 1 < sqrtn(n, a))))}) as (hypothesis 13: {forall (ε), ε ∈ RealSet ∧ ε > 0 => (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N => 1 < sqrtn(n, a)))})
+use_condition (hypothesis 12: {a > 1}) in (hypothesis 10: {a > 1 => (forall (ε), ε ∈ RealSet ∧ ε > 0 => (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N => sqrtn(n, a) < 1 + ε)))}) as (hypothesis 14: {forall (ε), ε ∈ RealSet ∧ ε > 0 => (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N => sqrtn(n, a) < 1 + ε))})
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 => (exists (N1), exists (N2), N1 ∈ IntegerSet ∧ N2 ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N1 ∧ n > N2 => |sqrtn(n, a) - 1| < ε))}) (ε := {eps0})
+get_condition (hypothesis 15: {eps0 ∈ RealSet ∧ eps0 > 0}) in (GOAL: {eps0 ∈ RealSet ∧ eps0 > 0 => (exists (N1), exists (N2), N1 ∈ IntegerSet ∧ N2 ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N1 ∧ n > N2 => |sqrtn(n, a) - 1| < eps0))})
+get_prop (hypothesis 13: {forall (ε), ε ∈ RealSet ∧ ε > 0 => (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N => 1 < sqrtn(n, a)))}) (ε := {eps0}) as (hypothesis 16: {eps0 ∈ RealSet ∧ eps0 > 0 => (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N => 1 < sqrtn(n, a)))})
+use_condition (hypothesis 15: {eps0 ∈ RealSet ∧ eps0 > 0}) in (hypothesis 16: {eps0 ∈ RealSet ∧ eps0 > 0 => (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N => 1 < sqrtn(n, a)))}) as (hypothesis 17: {exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N => 1 < sqrtn(n, a))})
+get_exists (hypothesis 17: {exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N => 1 < sqrtn(n, a))}) (N := {Nlo})
+destruct_and (hypothesis 18: {Nlo ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > Nlo => 1 < sqrtn(n, a))}) as (hypothesis 19: {Nlo ∈ IntegerSet}) (hypothesis 20: {forall (n), n ∈ IntegerSet ∧ n > Nlo => 1 < sqrtn(n, a)})
+get_prop (hypothesis 14: {forall (ε), ε ∈ RealSet ∧ ε > 0 => (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N => sqrtn(n, a) < 1 + ε))}) (ε := {eps0}) as (hypothesis 21: {eps0 ∈ RealSet ∧ eps0 > 0 => (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N => sqrtn(n, a) < 1 + eps0))})
+use_condition (hypothesis 15: {eps0 ∈ RealSet ∧ eps0 > 0}) in (hypothesis 21: {eps0 ∈ RealSet ∧ eps0 > 0 => (exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N => sqrtn(n, a) < 1 + eps0))}) as (hypothesis 22: {exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N => sqrtn(n, a) < 1 + eps0)})
+get_exists (hypothesis 22: {exists (N), N ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > N => sqrtn(n, a) < 1 + eps0)}) (N := {Nhi})
+destruct_and (hypothesis 23: {Nhi ∈ IntegerSet ∧ (forall (n), n ∈ IntegerSet ∧ n > Nhi => sqrtn(n, a) < 1 + eps0)}) as (hypothesis 24: {Nhi ∈ IntegerSet}) (hypothesis 25: {forall (n), n ∈ IntegerSet ∧ n > Nhi => sqrtn(n, a) < 1 + eps0})
+exists (N1 := {Nlo}) (N2 := {Nhi})
+assert (hypothesis 26: {forall (n), n ∈ IntegerSet ∧ n > Nlo ∧ n > Nhi => |sqrtn(n, a) - 1| < eps0}) by proof {
+  get_forall (GOAL: {forall (n), n ∈ IntegerSet ∧ n > Nlo ∧ n > Nhi => |sqrtn(n, a) - 1| < eps0}) (n := {n0})
+  get_condition (hypothesis 26: {n0 ∈ IntegerSet ∧ n0 > Nlo ∧ n0 > Nhi}) in (GOAL: {n0 ∈ IntegerSet ∧ n0 > Nlo ∧ n0 > Nhi => |sqrtn(n0, a) - 1| < eps0})
+  destruct_and (hypothesis 26: {n0 ∈ IntegerSet ∧ n0 > Nlo ∧ n0 > Nhi}) as (hypothesis 27: {n0 ∈ IntegerSet}) (hypothesis 28: {n0 > Nlo}) (hypothesis 29: {n0 > Nhi})
+  get_prop (hypothesis 20: {forall (n), n ∈ IntegerSet ∧ n > Nlo => 1 < sqrtn(n, a)}) (n := {n0}) as (hypothesis 30: {n0 ∈ IntegerSet ∧ n0 > Nlo => 1 < sqrtn(n0, a)})
+  use_condition (obvious: {n0 ∈ IntegerSet ∧ n0 > Nlo}) in (hypothesis 30: {n0 ∈ IntegerSet ∧ n0 > Nlo => 1 < sqrtn(n0, a)}) as (hypothesis 31: {1 < sqrtn(n0, a)})
+  get_prop (hypothesis 25: {forall (n), n ∈ IntegerSet ∧ n > Nhi => sqrtn(n, a) < 1 + eps0}) (n := {n0}) as (hypothesis 32: {n0 ∈ IntegerSet ∧ n0 > Nhi => sqrtn(n0, a) < 1 + eps0})
+  use_condition (obvious: {n0 ∈ IntegerSet ∧ n0 > Nhi}) in (hypothesis 32: {n0 ∈ IntegerSet ∧ n0 > Nhi => sqrtn(n0, a) < 1 + eps0}) as (hypothesis 33: {sqrtn(n0, a) < 1 + eps0})
+  autosolve all_hypothesis
+}
+autosolve all_hypothesis

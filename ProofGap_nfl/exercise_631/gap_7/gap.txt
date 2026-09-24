@@ -1,0 +1,17 @@
+PROOF GAP @7
+ASSUM:
+1. x ∈ RealSet
+2. φ = (fun t [t ∈ RealSet] . ln(cos(t)))
+3. ψ = (fun t [t ∈ RealSet] . -frac(t^{2}, 2))
+4. α = (fun m, n [m ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet] . frac(x, 2^{m}))
+5. forall (t), t ∈ RealSet ∧ cos(t) > 0 ⇒ lim_{ t → 0 } (frac(φ(t), ψ(t))) = 1
+6. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N) (ε), N : RealSet → NonNegIntegerSet ∧ N(ε) ∈ PosIntegerSet ∧ (forall (n) (m), n ∈ NonNegIntegerSet ∧ m ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ m ∈ PosIntegerSet ∧ n > N(ε) ∧ 1 ≤ m ∧ m ≤ n ⇒ |α(m, n)| < ε))
+7. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ sum_{ m = 1 }^{ n } (ψ(α(m, n))) = -frac(x^{2}, 2) * (sum_{ m = 1 }^{ n } (frac(1, 4^{m})))
+8. seqlim_{ n → +∞ } (sum_{ m = 1 }^{ n } (ψ(α(m, n)))) = -frac(x^{2}, 6)
+9. seqlim_{ n → +∞ } (sum_{ m = 1 }^{ n } (φ(α(m, n)))) = -frac(x^{2}, 6)
+10. seqlim_{ n → +∞ } (prod_{ m = 1 }^{ n } (cos(frac(x, 2^{m})))) = e^{-frac(x^{2}, 6)}
+
+GOAL:
+seqlim_{ n → +∞ } (prod_{ m = 1 }^{ n } (cos(frac(x, 2^{m})))) = e^{-frac(x^{2}, 6)}
+
+METHOD:

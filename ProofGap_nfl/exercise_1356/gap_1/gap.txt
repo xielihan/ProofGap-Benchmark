@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. forall (x), 0 < |x| ∧ |x| < π ⇒ x ∈ RealSet
+
+GOAL:
+lim_{ x → 0 } (cot(x) - frac(1, x)) = lim_{ x → 0 } (frac(x * cos(x) - sin(x), x * sin(x)))
+
+METHOD:

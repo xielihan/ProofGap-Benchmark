@@ -1,0 +1,3 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ RealSet \ IntegerSet => sum_{ n = -∞ }^{ +∞ } (frac(1, (n - (x + 1))^{2})) = sum_{ n = -∞ }^{ +∞ } (frac(1, (n - 1 - x)^{2}))}) (x := {x0})
+get_condition (hypothesis 25: {x0 ∈ RealSet ∧ x0 ∈ RealSet \ IntegerSet}) in (GOAL: {x0 ∈ RealSet ∧ x0 ∈ RealSet \ IntegerSet => sum_{ n = -∞ }^{ +∞ } (frac(1, (n - (x0 + 1))^{2})) = sum_{ n = -∞ }^{ +∞ } (frac(1, (n - 1 - x0)^{2}))})
+autosolve all_hypothesis

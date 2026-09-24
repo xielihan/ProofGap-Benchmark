@@ -1,0 +1,19 @@
+PROOF GAP @9
+ASSUM:
+1. p ∈ RealSet
+2. q ∈ RealSet
+3. a : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = cases{ frac(1, n^{p}) if Odd(n); -frac(1, n^{q}) if Even(n) }
+5. p > 1 ⇒ q > 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+6. p > 1 ⇒ q > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+7. 0 < p ⇒ p = q ⇒ q ≤ 1 ⇒ ¬AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+8. 0 < p ⇒ p = q ⇒ q ≤ 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+9. 0 < p ⇒ p = q ⇒ q ≤ 1 ⇒ ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+10. p ≤ 0 ∨ q ≤ 0 ⇒ seqlim_{ n → +∞ } (a(n)) ≠ 0
+11. p ≤ 0 ∨ q ≤ 0 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+12. p > 0 ⇒ q > 0 ⇒ ¬(p > 1 ∧ q > 1) ⇒ p ≠ q ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+GOAL:
+(p > 1 ⇒ q > 1 ⇒ AbsoluteConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))) ∧ (0 < p ⇒ p = q ⇒ q ≤ 1 ⇒ ConditionalConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))) ∧ (p ≤ 0 ∨ q ≤ 0 ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))) ∧ (p > 0 ⇒ q > 0 ⇒ ¬(p > 1 ∧ q > 1) ⇒ p ≠ q ⇒ DivergentSeries(sum_{ n = 1 }^{ +∞ } (a(n))))
+
+METHOD:

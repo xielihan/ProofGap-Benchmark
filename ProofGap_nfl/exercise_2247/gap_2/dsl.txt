@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ∈ [0, 0.75] ∧ t(x) = frac(1, x + 1) ⇒ x ≤ 0.75}) (x := {x0})
+get_condition (hypothesis 3: {x0 ∈ RealSet ∧ x0 ∈ [0, 0.75] ∧ t(x0) = frac(1, x0 + 1)}) in (GOAL: {x0 ∈ RealSet ∧ x0 ∈ [0, 0.75] ∧ t(x0) = frac(1, x0 + 1) ⇒ x0 ≤ 0.75})
+destruct_and (hypothesis 3: {x0 ∈ RealSet ∧ x0 ∈ [0, 0.75] ∧ t(x0) = frac(1, x0 + 1)}) as (hypothesis 4: {x0 ∈ RealSet}) (hypothesis 5: {x0 ∈ [0, 0.75]}) (hypothesis 6: {t(x0) = frac(1, x0 + 1)})
+get_prop (theorem 'Thm 487. (ClosedIntervalMembership)': {forall (x) (a) (b), x ∈ RealSet => a ∈ RealSet => b ∈ RealSet => (x ∈ [a, b] <==> (x >= a /\ x <= b))}) (x := {x0}) (a := {0}) (b := {0.75}) as (hypothesis 7: {x0 ∈ RealSet => 0 ∈ RealSet => 0.75 ∈ RealSet => (x0 ∈ [0, 0.75] <==> (x0 >= 0 /\ x0 <= 0.75))})
+use_condition (hypothesis 4: {x0 ∈ RealSet}) (obvious: {0 ∈ RealSet}) (obvious: {0.75 ∈ RealSet}) in (hypothesis 7: {x0 ∈ RealSet => 0 ∈ RealSet => 0.75 ∈ RealSet => (x0 ∈ [0, 0.75] <==> (x0 >= 0 /\ x0 <= 0.75))}) as (hypothesis 8: {x0 ∈ [0, 0.75] <==> (x0 >= 0 /\ x0 <= 0.75)})
+rewrite (left_to_right, iff) (hypothesis 8: {x0 ∈ [0, 0.75] <==> (x0 >= 0 /\ x0 <= 0.75)}); from (hypothesis 5: {x0 ∈ [0, 0.75]}) to (hypothesis 9: {x0 >= 0 /\ x0 <= 0.75})
+autosolve all_hypothesis

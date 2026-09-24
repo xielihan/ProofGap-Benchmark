@@ -1,0 +1,24 @@
+PROOF GAP @15
+ASSUM:
+1. F : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ NonNegRealSet ⇒ FunDeri(F, 1, 1)(x) = floor(x) * |sin(π * x)|
+3. F(0) = 0
+4. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x < 1 ⇒ { `F_1` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_1`, 1, 1)(x) = floor(x) * |sin(π * x)| * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = 0 * sin(π * x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+5. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x < 1 ⇒ { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = 0 * sin(π * x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | exists (C_{1}), C_{1} ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_3`(x) = C_{1}) }
+6. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x < 1 ⇒ { `F_1` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_1`, 1, 1)(x) = floor(x) * |sin(π * x)| * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | exists (C_{1}), C_{1} ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_3`(x) = C_{1}) }
+7. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x < 1 ⇒ F(1) - F(0) = 0
+8. forall (x), x ∈ RealSet ∧ 1 ≤ x ∧ x < 2 ⇒ { `F_4` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = floor(x) * |sin(π * x)| * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_6` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = sin(π * x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_6`(x) = -`F_5`(x)) }
+9. forall (x), x ∈ RealSet ∧ 1 ≤ x ∧ x < 2 ⇒ { `F_6` | exists (`F_5`), `F_5` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_5`, 1, 1)(x) = sin(π * x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_6`(x) = -`F_5`(x)) } = { `F_7` | exists (C_{2}), C_{2} ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_7`(x) = frac(1, π) * cos(π * x) + C_{2}) }
+10. forall (x), x ∈ RealSet ∧ 1 ≤ x ∧ x < 2 ⇒ { `F_4` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = floor(x) * |sin(π * x)| * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_7` | exists (C_{2}), C_{2} ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_7`(x) = frac(1, π) * cos(π * x) + C_{2}) }
+11. forall (x), x ∈ RealSet ∧ 1 ≤ x ∧ x < 2 ⇒ F(2) - F(1) = frac(2, π)
+12. forall (x), x ∈ RealSet ∧ 2 ≤ x ∧ x < 3 ⇒ { `F_8` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_8`, 1, 1)(x) = floor(x) * |sin(π * x)| * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_10` | exists (`F_9`), `F_9` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_9`, 1, 1)(x) = sin(π * x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_10`(x) = 2 * `F_9`(x)) }
+13. forall (x), x ∈ RealSet ∧ 2 ≤ x ∧ x < 3 ⇒ { `F_10` | exists (`F_9`), `F_9` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_9`, 1, 1)(x) = sin(π * x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) ∧ `F_10`(x) = 2 * `F_9`(x)) } = { `F_11` | exists (C_{3}), C_{3} ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_11`(x) = -frac(2, π) * cos(π * x) + C_{3}) }
+14. forall (x), x ∈ RealSet ∧ 2 ≤ x ∧ x < 3 ⇒ { `F_8` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_8`, 1, 1)(x) = floor(x) * |sin(π * x)| * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_11` | exists (C_{3}), C_{3} ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_11`(x) = -frac(2, π) * cos(π * x) + C_{3}) }
+15. forall (x), x ∈ RealSet ∧ 2 ≤ x ∧ x < 3 ⇒ F(3) - F(2) = frac(2 * 2, π)
+16. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ≥ 0 ∧ n = floor(x) ⇒ n ∈ NonNegIntegerSet)
+17. forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ≥ 0 ∧ n = floor(x) ⇒ n ≤ x)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ (forall (x), x ∈ RealSet ∧ x ≥ 0 ∧ n = floor(x) ⇒ x < n + 1)
+
+METHOD:

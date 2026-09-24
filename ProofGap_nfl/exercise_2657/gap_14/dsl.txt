@@ -1,0 +1,11 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε_{1} = frac(ε, 2 * m + 1) ∧ N = p(N_{1}) ∧ n ≥ N ⇒ (forall (s), s ∈ NonNegIntegerSet ∧ s ∈ PosIntegerSet ∧ Δ(n, s) = sum_{ i = n }^{ n + s } (a(i)) ⇒ (2 * m + 1) * ε_{1} = ε))}) (n := {n0})
+get_condition (hypothesis 32: {n0 ∈ NonNegIntegerSet}) in (GOAL: {n0 ∈ NonNegIntegerSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε_{1} = frac(ε, 2 * m + 1) ∧ N = p(N_{1}) ∧ n0 ≥ N ⇒ (forall (s), s ∈ NonNegIntegerSet ∧ s ∈ PosIntegerSet ∧ Δ(n0, s) = sum_{ i = n0 }^{ n0 + s } (a(i)) ⇒ (2 * m + 1) * ε_{1} = ε))})
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ ε_{1} = frac(ε, 2 * m + 1) ∧ N = p(N_{1}) ∧ n0 ≥ N ⇒ (forall (s), s ∈ NonNegIntegerSet ∧ s ∈ PosIntegerSet ∧ Δ(n0, s) = sum_{ i = n0 }^{ n0 + s } (a(i)) ⇒ (2 * m + 1) * ε_{1} = ε)}) (ε := {ε})
+get_condition (hypothesis 33: {ε ∈ RealSet ∧ ε > 0 ∧ ε_{1} = frac(ε, 2 * m + 1) ∧ N = p(N_{1}) ∧ n0 ≥ N}) in (GOAL: {ε ∈ RealSet ∧ ε > 0 ∧ ε_{1} = frac(ε, 2 * m + 1) ∧ N = p(N_{1}) ∧ n0 ≥ N ⇒ (forall (s), s ∈ NonNegIntegerSet ∧ s ∈ PosIntegerSet ∧ Δ(n0, s) = sum_{ i = n0 }^{ n0 + s } (a(i)) ⇒ (2 * m + 1) * ε_{1} = ε)})
+get_forall (GOAL: {forall (s), s ∈ NonNegIntegerSet ∧ s ∈ PosIntegerSet ∧ Δ(n0, s) = sum_{ i = n0 }^{ n0 + s } (a(i)) ⇒ (2 * m + 1) * ε_{1} = ε}) (s := {s0})
+get_condition (hypothesis 34: {s0 ∈ NonNegIntegerSet ∧ s0 ∈ PosIntegerSet ∧ Δ(n0, s0) = sum_{ i = n0 }^{ n0 + s0 } (a(i))}) in (GOAL: {s0 ∈ NonNegIntegerSet ∧ s0 ∈ PosIntegerSet ∧ Δ(n0, s0) = sum_{ i = n0 }^{ n0 + s0 } (a(i)) ⇒ (2 * m + 1) * ε_{1} = ε})
+assert (hypothesis 35: {ε_{1} = frac(ε, 2 * m + 1)}) by proof {
+  autosolve all_hypothesis
+}
+rewrite (left_to_right, equation) (hypothesis 35: {ε_{1} = frac(ε, 2 * m + 1)}); from (GOAL: {(2 * m + 1) * ε_{1} = ε}) to (GOAL: {(2 * m + 1) * frac(ε, 2 * m + 1) = ε})
+autosolve all_hypothesis

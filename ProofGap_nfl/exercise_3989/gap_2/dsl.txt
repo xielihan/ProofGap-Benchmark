@@ -1,0 +1,2 @@
+exists (r := {y}) (θ := {π / 2})
+autosolve (hypothesis 5: {y ∈ RealSet})

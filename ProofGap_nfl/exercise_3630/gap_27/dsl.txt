@@ -1,0 +1,7 @@
+get_condition (hypothesis 35: {c = 0}) in (GOAL: {c = 0 ⇒ ¬(exists (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ ((x, y) ∈ MaximumPoint(z) ∨ (x, y) ∈ MinimumPoint(z)))})
+assert (hypothesis 36: {a^{2} + b^{2} + c^{2} = a^{2} + b^{2}}) by proof {
+rewrite (left_to_right, equation) (hypothesis 35: {c = 0}); from (GOAL: {a^{2} + b^{2} + c^{2} = a^{2} + b^{2}}) to (GOAL: {a^{2} + b^{2} + 0^{2} = a^{2} + b^{2}})
+autosolve
+}
+rewrite (left_to_right, equation) (hypothesis 36: {a^{2} + b^{2} + c^{2} = a^{2} + b^{2}}); from (hypothesis 5: {a^{2} + b^{2} + c^{2} ≠ 0}) to (hypothesis 37: {a^{2} + b^{2} ≠ 0})
+autosolve (hypothesis 16: {a^{2} + b^{2} ≠ 0 ⇒ c = 0 ⇒ ¬(exists (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ ((x, y) ∈ MaximumPoint(z) ∨ (x, y) ∈ MinimumPoint(z)))}) (hypothesis 35: {c = 0}) (hypothesis 37: {a^{2} + b^{2} ≠ 0})

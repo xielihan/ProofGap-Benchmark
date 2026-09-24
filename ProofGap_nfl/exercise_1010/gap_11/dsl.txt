@@ -1,0 +1,10 @@
+get_condition (hypothesis 16: {(a, b) = (2 * x_{0}, -(x_{0})^{2})}) in (GOAL: {(a, b) = (2 * x_{0}, -(x_{0})^{2}) ⇒ ContinuousFuncAt(f, x_{0}) ∧ DiffableFuncAt(f, x_{0})})
+assert (hypothesis 17: {a = 2 * x_{0}})
+assert (hypothesis 18: {b = -(x_{0})^{2}})
+assert (hypothesis 19: {(x_{0})^{2} = a * x_{0} + b}) by proof {
+  rewrite (left_to_right, equation) (hypothesis 17: {a = 2 * x_{0}}); from (GOAL: {(x_{0})^{2} = a * x_{0} + b}) to (GOAL: {(x_{0})^{2} = (2 * x_{0}) * x_{0} + b})
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 19: {(x_{0})^{2} = a * x_{0} + b}) in (hypothesis 10: {(x_{0})^{2} = a * x_{0} + b ⇒ ContinuousFuncAt(f, x_{0})}) as (hypothesis 20: {ContinuousFuncAt(f, x_{0})})
+use_condition (hypothesis 17: {a = 2 * x_{0}}) in (hypothesis 13: {a = 2 * x_{0} ⇒ DiffableFuncAt(f, x_{0})}) as (hypothesis 21: {DiffableFuncAt(f, x_{0})})
+autosolve all_hypothesis

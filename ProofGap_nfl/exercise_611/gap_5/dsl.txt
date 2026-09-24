@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ seqlim_{ n → +∞ } ((1 + frac(x, n))^{n}) = e^{x}}) (x := {a})
+get_condition (hypothesis 7: {a ∈ RealSet ∧ a ≠ 0}) in (GOAL: {a ∈ RealSet ∧ a ≠ 0 ⇒ seqlim_{ n → +∞ } ((1 + frac(a, n))^{n}) = e^{a}})
+get_prop (hypothesis 5: {forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ seqlim_{ n → +∞ } ((1 + frac(x, n))^{n}) = seqlim_{ n → +∞ } ((1 + frac(1, y(n)))^{y(n) * x})}) (x := {a}) as (hypothesis 8: {a ∈ RealSet ∧ a ≠ 0 ⇒ seqlim_{ n → +∞ } ((1 + frac(a, n))^{n}) = seqlim_{ n → +∞ } ((1 + frac(1, y(n)))^{y(n) * a})})
+get_prop (hypothesis 6: {forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ seqlim_{ n → +∞ } ((1 + frac(1, y(n)))^{y(n) * x}) = e^{x}}) (x := {a}) as (hypothesis 9: {a ∈ RealSet ∧ a ≠ 0 ⇒ seqlim_{ n → +∞ } ((1 + frac(1, y(n)))^{y(n) * a}) = e^{a}})
+use_condition (hypothesis 7: {a ∈ RealSet ∧ a ≠ 0}) in (hypothesis 8: {a ∈ RealSet ∧ a ≠ 0 ⇒ seqlim_{ n → +∞ } ((1 + frac(a, n))^{n}) = seqlim_{ n → +∞ } ((1 + frac(1, y(n)))^{y(n) * a})}) as (hypothesis 10: {seqlim_{ n → +∞ } ((1 + frac(a, n))^{n}) = seqlim_{ n → +∞ } ((1 + frac(1, y(n)))^{y(n) * a})})
+use_condition (hypothesis 7: {a ∈ RealSet ∧ a ≠ 0}) in (hypothesis 9: {a ∈ RealSet ∧ a ≠ 0 ⇒ seqlim_{ n → +∞ } ((1 + frac(1, y(n)))^{y(n) * a}) = e^{a}}) as (hypothesis 11: {seqlim_{ n → +∞ } ((1 + frac(1, y(n)))^{y(n) * a}) = e^{a}})
+autosolve all_hypothesis

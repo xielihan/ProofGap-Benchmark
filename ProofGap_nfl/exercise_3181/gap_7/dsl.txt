@@ -1,0 +1,8 @@
+1. assert (hypothesis 9: {forall (y), (y ∈ RealSet /\ y != 0) => frac(-y, y) = -1}) by proof {
+  1. get_forall (GOAL: {forall (y), (y ∈ RealSet /\ y != 0) => frac(-y, y) = -1}) (y := {y0})
+  2. get_condition (hypothesis 9: {y0 ∈ RealSet /\ y0 != 0}) in (GOAL: {(y0 ∈ RealSet /\ y0 != 0) => frac(-y0, y0) = -1})
+  3. destruct_and (hypothesis 9: {y0 ∈ RealSet /\ y0 != 0}) as (hypothesis 10: {y0 ∈ RealSet}) (hypothesis 11: {y0 != 0})
+  4. autosolve all_hypothesis
+}
+2. rewrite_in limit (left_to_right, equation) (hypothesis 9: {forall (y), (y ∈ RealSet /\ y != 0) => frac(-y, y) = -1}); from (GOAL: {lim_{ y → 0 } (frac(-y, y)) = -1}) to (GOAL: {lim_{ y → 0 } (-1) = -1})
+3. autosolve all_hypothesis

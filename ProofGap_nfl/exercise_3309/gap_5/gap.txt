@@ -1,0 +1,16 @@
+PROOF GAP @5
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. a ≠ 0
+5. forall (x) (t), x ∈ RealSet ∧ t ∈ RealSet ∧ t > 0 ⇒ u(x, t) = frac(1, 2 * a * sqrtn(2, π * t)) * e^{-frac((x - b)^{2}, 4 * a^{2} * t)}
+6. forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ FunDeri(u, 2, 1)(x, t) = frac(1, 8 * a^{3} * t^{2} * sqrtn(2, π * t)) * e^{-frac((x - b)^{2}, 4 * a^{2} * t)} * ((x - b)^{2} - 2 * a^{2} * t))
+7. forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ FunDeri(u, 1, 1)(x, t) = -frac(x - b, 4 * a^{3} * t * sqrtn(2, π * t)) * e^{-frac((x - b)^{2}, 4 * a^{2} * t)})
+8. forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ FunDeri(u, 1, 2)(x, t) = frac(1, 8 * a^{5} * t^{2} * sqrtn(2, π * t)) * e^{-frac((x - b)^{2}, 4 * a^{2} * t)} * ((x - b)^{2} - 2 * a^{2} * t))
+9. forall (x), x ∈ RealSet ⇒ (forall (t), t ∈ RealSet ∧ t > 0 ⇒ FunDeri(u, 2, 1)(x, t) = a^{2} * FunDeri(u, 1, 2)(x, t))
+
+GOAL:
+forall (x) (t), x ∈ RealSet ∧ t ∈ RealSet ∧ t > 0 ⇒ FunDeri(u, 2, 1)(x, t) = a^{2} * FunDeri(u, 1, 2)(x, t)
+
+METHOD:

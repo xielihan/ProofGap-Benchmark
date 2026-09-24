@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ (forall (k), k ∈ IntegerSet ⇒ x ≠ frac(2 * k - 1, 2) * π) ⇒ y(x) = arctan(tan(x)^{2})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ (forall (k), k ∈ IntegerSet ⇒ x ≠ frac(2 * k - 1, 2) * π) ⇒ FunDeri(y, 1, 1)(x) = frac(1, 1 + tan(x)^{4}) * 2 * tan(x) * sec(x)^{2}
+
+METHOD:

@@ -1,0 +1,19 @@
+PROOF GAP @5
+ASSUM:
+1. x_{0} ∈ RealSet
+2. n ∈ NonNegIntegerSet
+3. f : RealSet → RealSet
+4. phi : RealSet → RealSet
+5. n ∈ PosIntegerSet
+6. forall (x), x ∈ RealSet ⇒ f(x) = (x - x_{0})^{n} * phi(x)
+7. ContinuousFuncAt(phi, x_{0})
+8. phi(x_{0}) ≠ 0
+9. exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ |x - x_{0}| < δ ⇒ phi(x) * phi(x_{0}) > 0)
+10. f(x_{0}) = 0
+11. Odd(n) ⇒ (forall (δ), δ ∈ RealSet ∧ δ > 0 ⇒ (exists (x_{1}) (x_{2}), x_{1} ∈ RealSet ∧ x_{2} ∈ RealSet ∧ 0 < |x_{1} - x_{0}| ∧ |x_{1} - x_{0}| < δ ∧ 0 < |x_{2} - x_{0}| ∧ |x_{2} - x_{0}| < δ ∧ f(x_{1}) > f(x_{0}) ∧ f(x_{2}) < f(x_{0})))
+12. Odd(n) ⇒ x_{0} ∉ MaximumPoint(f) ∪ MinimumPoint(f)
+
+GOAL:
+Even(n) ⇒ phi(x_{0}) > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ 0 < |x - x_{0}| ∧ |x - x_{0}| < δ ⇒ f(x) > f(x_{0}) ∧ f(x_{0}) = 0))
+
+METHOD:

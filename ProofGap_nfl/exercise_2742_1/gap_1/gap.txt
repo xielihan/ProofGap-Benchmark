@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. F : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. f : RealSet → RealSet
+3. x_{0} ∈ RealSet
+4. I ⊆ RealSet
+5. I = (x_{0}, +∞)
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ F(n) : I → RealSet
+
+GOAL:
+forall (y), y ∈ RealSet ∧ y ∈ I ⇒ f(y) ∈ RealSet
+
+METHOD:

@@ -1,0 +1,2 @@
+get_prop (theorem 'Thm 459. (FiniteSeriesTermsDoNotAffectConvergence)': {forall (a) (N) (M), N ∈ NonNegIntegerSet ⇒ M ∈ NonNegIntegerSet ⇒ (ConvergentSeries(sum_{n = N}^{+∞}(a(n))) ⇔ ConvergentSeries(sum_{n = M}^{+∞}(a(n))))}) (a := {fun m . p(m) * 2^{-m}}) (N := {0}) (M := {1}) as (hypothesis 20: {0 ∈ NonNegIntegerSet ⇒ 1 ∈ NonNegIntegerSet ⇒ (ConvergentSeries(sum_{m = 0}^{+∞}(p(m) * 2^{-m})) ⇔ ConvergentSeries(sum_{m = 1}^{+∞}(p(m) * 2^{-m})))})
+autosolve all_hypothesis

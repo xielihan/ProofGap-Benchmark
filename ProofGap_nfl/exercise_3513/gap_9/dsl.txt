@@ -1,0 +1,7 @@
+get_forall (GOAL: {forall (y), y ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ FunDeri(u, y, 1)(x, y) = -frac(x, y^{2}))}) (y := {y0})
+get_condition (hypothesis 26: {y0 ∈ RealSet}) in (GOAL: {y0 ∈ RealSet ⇒ (forall (x), x ∈ RealSet ⇒ FunDeri(u, y0, 1)(x, y0) = -frac(x, y0^{2}))})
+get_forall (GOAL: {(forall (x), x ∈ RealSet ⇒ FunDeri(u, y0, 1)(x, y0) = -frac(x, y0^{2}))}) (x := {x0})
+get_condition (hypothesis 27: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ FunDeri(u, y0, 1)(x0, y0) = -frac(x0, y0^{2})})
+get_prop (hypothesis 8: {forall (x), x ∈ RealSet ⇒ x ≠ 0}) (x := {0}) as (hypothesis 28: {0 ∈ RealSet ⇒ 0 ≠ 0})
+use_condition (obvious: {0 ∈ RealSet}) in (hypothesis 28: {0 ∈ RealSet ⇒ 0 ≠ 0}) as (hypothesis 29: {0 ≠ 0})
+autosolve all_hypothesis

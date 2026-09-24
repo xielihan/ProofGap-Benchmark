@@ -1,0 +1,15 @@
+get_forall (GOAL: {forall (δ), δ ∈ RealSet /\ δ > 0 => (exists (n), n ∈ NonNegIntegerSet /\ (n ∈ PosIntegerSet /\ frac(1, 2 * n) < δ => x(n) = frac(1, n) => `x'`(n) = frac(1, 2 * n) => `x'`(n) ∈ IntervalLoRo(0, 1)))}) (δ := {d})
+get_condition (hypothesis 10: {d ∈ RealSet /\ d > 0}) in (GOAL: {d ∈ RealSet /\ d > 0 => (exists (n), n ∈ NonNegIntegerSet /\ (n ∈ PosIntegerSet /\ frac(1, 2 * n) < d => x(n) = frac(1, n) => `x'`(n) = frac(1, 2 * n) => `x'`(n) ∈ IntervalLoRo(0, 1)))})
+assert (hypothesis 11: {1 ∈ PosIntegerSet /\ frac(1, 2 * 1) < d => x(1) = frac(1, 1) => `x'`(1) = frac(1, 2 * 1) => `x'`(1) ∈ IntervalLoRo(0, 1)}) by proof {
+  get_condition (hypothesis 11: {1 ∈ PosIntegerSet /\ frac(1, 2 * 1) < d}) (hypothesis 12: {x(1) = frac(1, 1)}) (hypothesis 13: {`x'`(1) = frac(1, 2 * 1)}) in (GOAL: {1 ∈ PosIntegerSet /\ frac(1, 2 * 1) < d => x(1) = frac(1, 1) => `x'`(1) = frac(1, 2 * 1) => `x'`(1) ∈ IntervalLoRo(0, 1)})
+  rewrite (left_to_right, equation) (hypothesis 13: {`x'`(1) = frac(1, 2 * 1)}); from (GOAL: {`x'`(1) ∈ IntervalLoRo(0, 1)}) to (GOAL: {frac(1, 2 * 1) ∈ IntervalLoRo(0, 1)})
+  get_prop (theorem 'Thm 452. (OpenIntervalMembership)': {forall (x) (a) (b), x ∈ RealSet => a ∈ RealSet => b ∈ RealSet => (x ∈ (a, b) <==> (x > a /\ x < b))}) (x := {frac(1, 2 * 1)}) (a := {0}) (b := {1}) as (hypothesis 14: {frac(1, 2 * 1) ∈ RealSet => 0 ∈ RealSet => 1 ∈ RealSet => (frac(1, 2 * 1) ∈ IntervalLoRo(0, 1) <==> (frac(1, 2 * 1) > 0 /\ frac(1, 2 * 1) < 1))})
+  assert (hypothesis 15: {frac(1, 2 * 1) ∈ RealSet})
+  assert (hypothesis 16: {0 ∈ RealSet})
+  assert (hypothesis 17: {1 ∈ RealSet})
+  use_condition (hypothesis 15: {frac(1, 2 * 1) ∈ RealSet}) (hypothesis 16: {0 ∈ RealSet}) (hypothesis 17: {1 ∈ RealSet}) in (hypothesis 14: {frac(1, 2 * 1) ∈ RealSet => 0 ∈ RealSet => 1 ∈ RealSet => (frac(1, 2 * 1) ∈ IntervalLoRo(0, 1) <==> (frac(1, 2 * 1) > 0 /\ frac(1, 2 * 1) < 1))}) as (hypothesis 18: {frac(1, 2 * 1) ∈ IntervalLoRo(0, 1) <==> (frac(1, 2 * 1) > 0 /\ frac(1, 2 * 1) < 1)})
+  rewrite (left_to_right, iff) (hypothesis 18: {frac(1, 2 * 1) ∈ IntervalLoRo(0, 1) <==> (frac(1, 2 * 1) > 0 /\ frac(1, 2 * 1) < 1)}); from (GOAL: {frac(1, 2 * 1) ∈ IntervalLoRo(0, 1)}) to (GOAL: {frac(1, 2 * 1) > 0 /\ frac(1, 2 * 1) < 1})
+  autosolve all_hypothesis
+}
+exists (n := {1})
+autosolve all_hypothesis

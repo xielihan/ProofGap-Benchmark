@@ -1,0 +1,4 @@
+1. get_condition (hypothesis 17: {ρ = 1}) in (GOAL: {ρ = 1 ⇒ K_{2} = 0})
+2. use_condition (hypothesis 17: {ρ = 1}) in (hypothesis 15: {ρ = 1 ⇒ K_{2} = frac(1, 2) * DefInt(0, 2 * π, (fun ψ [ψ ∈ RealSet] . sin(m * ψ)) * diff(fun ψ [ψ ∈ RealSet] . ψ))}) as (hypothesis 18: {K_{2} = frac(1, 2) * DefInt(0, 2 * π, (fun ψ [ψ ∈ RealSet] . sin(m * ψ)) * diff(fun ψ [ψ ∈ RealSet] . ψ))})
+3. use_condition (hypothesis 17: {ρ = 1}) in (hypothesis 16: {ρ = 1 ⇒ frac(1, 2) * DefInt(0, 2 * π, (fun ψ [ψ ∈ RealSet] . sin(m * ψ)) * diff(fun ψ [ψ ∈ RealSet] . ψ)) = 0}) as (hypothesis 19: {frac(1, 2) * DefInt(0, 2 * π, (fun ψ [ψ ∈ RealSet] . sin(m * ψ)) * diff(fun ψ [ψ ∈ RealSet] . ψ)) = 0})
+4. autosolve (hypothesis 18: {K_{2} = frac(1, 2) * DefInt(0, 2 * π, (fun ψ [ψ ∈ RealSet] . sin(m * ψ)) * diff(fun ψ [ψ ∈ RealSet] . ψ))}) (hypothesis 19: {frac(1, 2) * DefInt(0, 2 * π, (fun ψ [ψ ∈ RealSet] . sin(m * ψ)) * diff(fun ψ [ψ ∈ RealSet] . ψ)) = 0})

@@ -1,0 +1,19 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. k ∈ RealSet
+3. T ∈ RealSet
+4. k > 0
+5. T > 0
+6. forall (x), x ∈ RealSet ⇒ f(x + T) = k * f(x)
+7. a = k^{frac(1, T)}
+8. a > 0
+9. a^{T} = k
+10. forall (x), x ∈ RealSet ⇒ f(x + T) = a^{T} * f(x)
+11. φ = (fun x [x ∈ RealSet] . a^{-x} * f(x))
+12. forall (x), x ∈ RealSet ⇒ φ(x + T) = a^{-(x + T)} * f(x + T)
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ φ(x + T) = a^{-x} * a^{-T} * a^{T} * f(x)
+
+METHOD:

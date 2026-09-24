@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. F : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (α) (x), α ∈ RealSet ∧ x ∈ RealSet ∧ α ≥ 0 ∧ x > 0 ⇒ F(α, x) = -frac(α * sin(x) + cos(x), 1 + α^{2}) * e^{-(α * x)}
+
+GOAL:
+forall (α), α ∈ RealSet ∧ α ≥ 0 ⇒ lim_{ x → 0^+ } (frac(sin(x), x) * e^{-(α * x)}) = 1
+
+METHOD:

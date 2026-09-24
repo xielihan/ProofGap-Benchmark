@@ -1,0 +1,3 @@
+get_prop (hypothesis 4: {forall (t), t ∈ RealSet ⇒ f(t) = t^{3} - 3 * t^{2} - 9 * t + h}) (t := {3}) as (hypothesis 8: {3 ∈ RealSet ⇒ f(3) = 3^{3} - 3 * 3^{2} - 9 * 3 + h})
+use_condition (obvious: {3 ∈ RealSet}) in (hypothesis 8: {3 ∈ RealSet ⇒ f(3) = 3^{3} - 3 * 3^{2} - 9 * 3 + h}) as (hypothesis 9: {f(3) = 3^{3} - 3 * 3^{2} - 9 * 3 + h})
+autosolve all_hypothesis

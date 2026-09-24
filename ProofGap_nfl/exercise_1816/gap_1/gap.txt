@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. C ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ frac(x^{2}, (1 + x^{2})^{2}) * diff(fun x [x ∈ RealSet] . x) = frac(1, 2) * frac(x, (1 + x^{2})^{2}) * diff(fun x [x ∈ RealSet] . 1 + x^{2})
+
+METHOD:

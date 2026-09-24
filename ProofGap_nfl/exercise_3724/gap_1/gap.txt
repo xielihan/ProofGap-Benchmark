@@ -1,0 +1,13 @@
+PROOF GAP @1
+ASSUM:
+1. F : CartesianProd(RealSet, RealSet) → RealSet
+2. f : RealSet → RealSet
+3. a ∈ RealSet
+4. b ∈ RealSet
+5. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ f(x) = sqrtn(2, 1 + x^{2})
+6. forall (a) (b), a ∈ RealSet ∧ b ∈ RealSet ⇒ F(a, b) = DefInt(0, 1, (fun x [x ∈ RealSet] . (a + b * x - sqrtn(2, 1 + x^{2}))^{2}) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+F(a, b) = DefInt(0, 1, (fun x [x ∈ RealSet] . (a + b * x - sqrtn(2, 1 + x^{2}))^{2}) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

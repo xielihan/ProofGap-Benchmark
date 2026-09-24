@@ -1,0 +1,2 @@
+rewrite_in limit (left_to_right, equation) (hypothesis 3: {forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ frac(sum_{ i = 1 }^{ n } ((2 * i - 1)^{2}), sum_{ i = 1 }^{ n } ((2 * i)^{2})) = frac(2 * n - 1, 2 * (n + 1))}); from (GOAL: {seqlim_{ n -> +infty } (frac(sum_{ i = 1 }^{ n } ((2 * i - 1)^{2}), sum_{ i = 1 }^{ n } ((2 * i)^{2}))) = 1}) to (GOAL: {seqlim_{ n -> +infty } (frac(2 * n - 1, 2 * (n + 1))) = 1})
+apply (hypothesis 4: {seqlim_{ n -> +infty } (frac(2 * n - 1, 2 * (n + 1))) = 1})

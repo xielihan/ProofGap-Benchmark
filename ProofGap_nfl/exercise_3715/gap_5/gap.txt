@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. lim_{ y → 0 } (DefInt(0, 1, (fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . frac(x, y^{2}) * e^{-frac(x^{2}, y^{2})}) * diff(fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . x))) = lim_{ y → 0 } (-((fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . frac(1, 2) * e^{-frac(x^{2}, y^{2})})|_{0}^{1}))
+2. lim_{ y → 0 } (-((fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . frac(1, 2) * e^{-frac(x^{2}, y^{2})})|_{0}^{1})) = lim_{ y → 0 } (frac(1, 2) - frac(1, 2) * e^{-frac(1, y^{2})})
+3. lim_{ y → 0 } (frac(1, 2) - frac(1, 2) * e^{-frac(1, y^{2})}) = frac(1, 2)
+4. lim_{ y → 0 } (-((fun x [x ∈ RealSet ∧ x ∈ [0, 1]] . frac(1, 2) * e^{-frac(x^{2}, y^{2})})|_{0}^{1})) = frac(1, 2)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ [0, 1] ⇒ lim_{ y → 0 } (frac(x, y^{2}) * e^{-frac(x^{2}, y^{2})}) = 0
+
+METHOD:

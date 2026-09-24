@@ -1,0 +1,10 @@
+PROOF GAP @3
+ASSUM:
+1. t : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ IntervalCC(0, 0.75) ∧ t(x) = frac(1, x + 1) ⇒ 0 ≤ x
+3. forall (x), x ∈ RealSet ∧ x ∈ IntervalCC(0, 0.75) ∧ t(x) = frac(1, x + 1) ⇒ x ≤ 0.75
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ∈ IntervalCC(0, 0.75) ∧ t(x) = frac(1, x + 1) ⇒ frac(4, 7) ≤ t(x)
+
+METHOD:

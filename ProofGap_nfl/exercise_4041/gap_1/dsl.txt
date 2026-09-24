@@ -1,0 +1,11 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ sqrtn(2, 1 + FunDeri(z, 1, 1)(x, y)^{2} + FunDeri(z, 2, 1)(x, y)^{2}) = sqrtn(2, 1 + frac(x, sqrtn(2, x^{2} + y^{2}))^{2} + frac(y, sqrtn(2, x^{2} + y^{2}))^{2}))}) (x := {xx})
+get_condition (hypothesis 10: {xx ∈ RealSet}) in (GOAL: {xx ∈ RealSet ⇒ forall (y), y ∈ RealSet ∧ (xx, y) ≠ (0, 0) ⇒ sqrtn(2, 1 + FunDeri(z, 1, 1)(xx, y)^{2} + FunDeri(z, 2, 1)(xx, y)^{2}) = sqrtn(2, 1 + frac(xx, sqrtn(2, xx^{2} + y^{2}))^{2} + frac(y, sqrtn(2, xx^{2} + y^{2}))^{2})})
+get_forall (GOAL: {forall (y), y ∈ RealSet ∧ (xx, y) ≠ (0, 0) ⇒ sqrtn(2, 1 + FunDeri(z, 1, 1)(xx, y)^{2} + FunDeri(z, 2, 1)(xx, y)^{2}) = sqrtn(2, 1 + frac(xx, sqrtn(2, xx^{2} + y^{2}))^{2} + frac(y, sqrtn(2, xx^{2} + y^{2}))^{2})}) (y := {yy})
+get_condition (hypothesis 11: {yy ∈ RealSet ∧ (xx, yy) ≠ (0, 0)}) in (GOAL: {yy ∈ RealSet ∧ (xx, yy) ≠ (0, 0) ⇒ sqrtn(2, 1 + FunDeri(z, 1, 1)(xx, yy)^{2} + FunDeri(z, 2, 1)(xx, yy)^{2}) = sqrtn(2, 1 + frac(xx, sqrtn(2, xx^{2} + yy^{2}))^{2} + frac(yy, sqrtn(2, xx^{2} + yy^{2}))^{2})})
+assert (hypothesis 12: {FunDeri(z, 1, 1)(xx, yy) = frac(xx, sqrtn(2, xx^{2} + yy^{2}))}) by proof {
+autosolve all_hypothesis
+}
+assert (hypothesis 13: {FunDeri(z, 2, 1)(xx, yy) = frac(yy, sqrtn(2, xx^{2} + yy^{2}))}) by proof {
+autosolve all_hypothesis
+}
+autosolve all_hypothesis

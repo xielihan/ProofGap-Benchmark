@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. u : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+2. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ⇒ u(x, y, z) = sin(x) * sin(y) * sin(z)
+3. forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x > 0 ∧ y > 0 ∧ z > 0 ∧ x + y + z = frac(π, 2) ⇒ 0 < x ∧ x < frac(π, 2) ∧ 0 < y ∧ y < frac(π, 2) ∧ 0 < z ∧ z < frac(π, 2)
+4. w = (fun x, y, z [x ∈ RealSet ∧ x > 0 ∧ x < frac(π, 2) ∧ y ∈ RealSet ∧ y > 0 ∧ y < frac(π, 2) ∧ z ∈ RealSet ∧ z > 0 ∧ z < frac(π, 2)] . ln(u(x, y, z)))
+
+GOAL:
+forall (x) (y) (z), x ∈ RealSet ∧ y ∈ RealSet ∧ z ∈ RealSet ∧ x > 0 ∧ y > 0 ∧ z > 0 ∧ x + y + z = frac(π, 2) ⇒ w(x, y, z) = ln(sin(x)) + ln(sin(y)) + ln(sin(z))
+
+METHOD:

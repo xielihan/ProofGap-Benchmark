@@ -1,0 +1,4 @@
+rewrite (left_to_right, equation) (hypothesis 16: {ξ = frac(DefInt(0, s, x(t) * diff(t)), s)}); from (GOAL: {ξ = frac(2 * a^{2} * sin(α), 2 * a * α)}) to (GOAL: {frac(DefInt(0, s, x(t) * diff(t)), s) = frac(2 * a^{2} * sin(α), 2 * a * α)})
+rewrite (left_to_right, equation) (hypothesis 15: {DefInt(0, s, x(t) * diff(t)) = 2 * a^{2} * sin(α)}); from (GOAL: {frac(DefInt(0, s, x(t) * diff(t)), s) = frac(2 * a^{2} * sin(α), 2 * a * α)}) to (GOAL: {frac(2 * a^{2} * sin(α), s) = frac(2 * a^{2} * sin(α), 2 * a * α)})
+rewrite (left_to_right, equation) (hypothesis 10: {s = 2 * a * α}); from (GOAL: {frac(2 * a^{2} * sin(α), s) = frac(2 * a^{2} * sin(α), 2 * a * α)}) to (GOAL: {frac(2 * a^{2} * sin(α), 2 * a * α) = frac(2 * a^{2} * sin(α), 2 * a * α)})
+autosolve all_hypothesis

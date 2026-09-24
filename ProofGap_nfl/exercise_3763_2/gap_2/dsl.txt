@@ -1,0 +1,3 @@
+get_prop (hypothesis 1: {forall (α) (x) (t), x ∈ RealSet ∧ t ∈ RealSet ∧ α ∈ RealSet ⇒ t = x - α}) (α := {0}) (x := {0}) (t := {1}) as (hypothesis 3: {0 ∈ RealSet ∧ 1 ∈ RealSet ∧ 0 ∈ RealSet ⇒ 1 = 0 - 0})
+use_condition (obvious: {0 ∈ RealSet ∧ 1 ∈ RealSet ∧ 0 ∈ RealSet}) in (hypothesis 3: {0 ∈ RealSet ∧ 1 ∈ RealSet ∧ 0 ∈ RealSet ⇒ 1 = 0 - 0}) as (hypothesis 4: {1 = 0 - 0})
+autosolve all_hypothesis

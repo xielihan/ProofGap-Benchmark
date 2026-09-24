@@ -1,0 +1,15 @@
+get_forall (GOAL: {forall (k), k ∈ IntegerSet ⇒ y((k + frac(1, 2)) * π) = 5}) (k := {k0})
+get_condition (hypothesis 10: {k0 ∈ IntegerSet}) in (GOAL: {k0 ∈ IntegerSet ⇒ y((k0 + frac(1, 2)) * π) = 5})
+get_prop (hypothesis 6: {forall (x), x ∈ RealSet ∧ (exists (k), k ∈ IntegerSet ∧ x = (k + frac(1, 2)) * π) ⇒ y(x) = 5}) (x := {(k0 + frac(1, 2)) * π}) as (hypothesis 11: {(k0 + frac(1, 2)) * π ∈ RealSet ∧ (exists (k), k ∈ IntegerSet ∧ (k0 + frac(1, 2)) * π = (k + frac(1, 2)) * π) ⇒ y((k0 + frac(1, 2)) * π) = 5})
+assert (hypothesis 12: {(k0 + frac(1, 2)) * π ∈ RealSet ∧ (exists (k), k ∈ IntegerSet ∧ (k0 + frac(1, 2)) * π = (k + frac(1, 2)) * π)}) by proof {
+  assert (hypothesis 12: {(k0 + frac(1, 2)) * π ∈ RealSet})
+  assert (hypothesis 13: {exists (k), k ∈ IntegerSet ∧ (k0 + frac(1, 2)) * π = (k + frac(1, 2)) * π}) by proof {
+    exists (k := {k0})
+    assert (hypothesis 13: {k0 ∈ IntegerSet ∧ (k0 + frac(1, 2)) * π = (k0 + frac(1, 2)) * π})
+    apply (hypothesis 13: {k0 ∈ IntegerSet ∧ (k0 + frac(1, 2)) * π = (k0 + frac(1, 2)) * π})
+  }
+  assert (hypothesis 14: {(k0 + frac(1, 2)) * π ∈ RealSet ∧ (exists (k), k ∈ IntegerSet ∧ (k0 + frac(1, 2)) * π = (k + frac(1, 2)) * π)})
+  apply (hypothesis 14: {(k0 + frac(1, 2)) * π ∈ RealSet ∧ (exists (k), k ∈ IntegerSet ∧ (k0 + frac(1, 2)) * π = (k + frac(1, 2)) * π)})
+}
+use_condition (hypothesis 12: {(k0 + frac(1, 2)) * π ∈ RealSet ∧ (exists (k), k ∈ IntegerSet ∧ (k0 + frac(1, 2)) * π = (k + frac(1, 2)) * π)}) in (hypothesis 11: {(k0 + frac(1, 2)) * π ∈ RealSet ∧ (exists (k), k ∈ IntegerSet ∧ (k0 + frac(1, 2)) * π = (k + frac(1, 2)) * π) ⇒ y((k0 + frac(1, 2)) * π) = 5}) as (hypothesis 13: {y((k0 + frac(1, 2)) * π) = 5})
+apply (hypothesis 13: {y((k0 + frac(1, 2)) * π) = 5})

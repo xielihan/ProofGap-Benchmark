@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. B : CartesianProd(NonNegIntegerSet, NonNegIntegerSet) → RealSet
+2. m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet
+3. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+4. forall (m) (n), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ B(m, n) = DefInt(0, 1, (fun x [x ∈ RealSet] . x^{m - 1} * (1 - x)^{n - 1}) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+n ≥ 2 ⇒ B(m, n) = ((fun x [x ∈ RealSet] . frac(1, m) * x^{m} * (1 - x)^{n - 1})|_{0}^{1}) + frac(n - 1, m) * DefInt(0, 1, (fun x [x ∈ RealSet] . x^{m} * (1 - x)^{n - 2}) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:
+[@method 分部积分法 @]

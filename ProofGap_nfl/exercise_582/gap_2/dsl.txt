@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ x > 0 ⇒ sqrtn(2, x^{2} + x) + x ≠ 0}) (x := {x0})
+get_condition (hypothesis 2: {x0 ∈ RealSet ∧ x0 > 0}) in (GOAL: {x0 ∈ RealSet ∧ x0 > 0 ⇒ sqrtn(2, x0^{2} + x0) + x0 ≠ 0})
+destruct_and (hypothesis 2: {x0 ∈ RealSet ∧ x0 > 0}) as (hypothesis 3: {x0 ∈ RealSet}) (hypothesis 4: {x0 > 0})
+assert (hypothesis 5: {sqrtn(2, x0^{2} + x0) ≥ 0})
+autosolve all_hypothesis

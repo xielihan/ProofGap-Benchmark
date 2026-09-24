@@ -1,0 +1,9 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ seqlim_{ n → +∞ } (sin(n^{2})) = 0 ⇒ sin(n^{2})^{2} + cos(n^{2})^{2} = 1}) (n := {n0})
+get_condition (hypothesis 2: {n0 ∈ NonNegIntegerSet ∧ seqlim_{ n → +∞ } (sin(n^{2})) = 0}) in (GOAL: {n0 ∈ NonNegIntegerSet ∧ seqlim_{ n → +∞ } (sin(n^{2})) = 0 ⇒ sin(n0^{2})^{2} + cos(n0^{2})^{2} = 1})
+destruct_and (hypothesis 2: {n0 ∈ NonNegIntegerSet ∧ seqlim_{ n → +∞ } (sin(n^{2})) = 0}) as (hypothesis 3: {n0 ∈ NonNegIntegerSet}) (hypothesis 4: {seqlim_{ n → +∞ } (sin(n^{2})) = 0})
+get_prop (theorem 'Thm 168. (PythagoreanTrigonometricIdentity)': {forall (x), x ∈ RealSet => (sin(x)) ^ 2 + (cos(x)) ^ 2 = 1}) (x := {n0^{2}}) as (hypothesis 5: {n0^{2} ∈ RealSet ⇒ sin(n0^{2})^{2} + cos(n0^{2})^{2} = 1})
+assert (hypothesis 6: {n0^{2} ∈ RealSet}) by proof {
+  autosolve all_hypothesis
+}
+use_condition (hypothesis 6: {n0^{2} ∈ RealSet}) in (hypothesis 5: {n0^{2} ∈ RealSet ⇒ sin(n0^{2})^{2} + cos(n0^{2})^{2} = 1}) as (hypothesis 7: {sin(n0^{2})^{2} + cos(n0^{2})^{2} = 1})
+autosolve all_hypothesis

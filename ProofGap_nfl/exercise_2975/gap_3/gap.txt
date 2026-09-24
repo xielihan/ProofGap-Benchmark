@@ -1,0 +1,13 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. F : RealSet → RealSet
+3. a : NonNegIntegerSet → RealSet
+4. IntegrableFuncOn(f, IntervalLoRo(0, frac(π, 2)))
+5. forall (x), x ∈ RealSet ∧ -π < x ∧ x < π ⇒ F(-x) = F(x)
+6. forall (n), n ∈ NonNegIntegerSet ⇒ DefInt(0, frac(π, 2), (fun t [t ∈ RealSet] . f(t) * cos(2 * n * t)) * diff(fun t [t ∈ RealSet] . t)) + DefInt(frac(π, 2), π, (fun t [t ∈ RealSet] . F(t) * cos(2 * n * t)) * diff(fun t [t ∈ RealSet] . t)) = 0)
+
+GOAL:
+forall (n), n ∈ NonNegIntegerSet ⇒ DefInt(frac(π, 2), π, (fun t [t ∈ RealSet] . (f(π - t) + F(t)) * cos(2 * n * t)) * diff(fun t [t ∈ RealSet] . t)) = 0
+
+METHOD:

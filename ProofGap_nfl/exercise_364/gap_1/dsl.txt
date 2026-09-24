@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ f(b + x) - y_{0} = y_{0} - f(2 * a - b - x)}) (x := {u})
+get_condition (hypothesis 9: {u ∈ RealSet}) in (GOAL: {u ∈ RealSet ⇒ f(b + u) - y_{0} = y_{0} - f(2 * a - b - u)})
+get_prop (hypothesis 7: {forall (x), x ∈ RealSet ⇒ f(a + x) - y_{0} = y_{0} - f(a - x)}) (x := {u + b - a}) as (hypothesis 10: {u + b - a ∈ RealSet ⇒ f(a + (u + b - a)) - y_{0} = y_{0} - f(a - (u + b - a))})
+use_condition (obvious: {u + b - a ∈ RealSet}) in (hypothesis 10: {u + b - a ∈ RealSet ⇒ f(a + (u + b - a)) - y_{0} = y_{0} - f(a - (u + b - a))}) as (hypothesis 11: {f(a + (u + b - a)) - y_{0} = y_{0} - f(a - (u + b - a))})
+autosolve all_hypothesis

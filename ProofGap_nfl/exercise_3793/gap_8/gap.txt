@@ -1,0 +1,17 @@
+PROOF GAP @8
+ASSUM:
+1. α ∈ RealSet ∧ α > 0
+2. β ∈ RealSet ∧ β > 0
+3. lim_{ x → 0^+ } (frac(e^{-α * x^{2}} - e^{-β * x^{2}}, x)) = lim_{ x → 0^+ } (-2 * α * x * e^{-α * x^{2}} + 2 * β * x * e^{-β * x^{2}})
+4. lim_{ x → 0^+ } (-2 * α * x * e^{-α * x^{2}} + 2 * β * x * e^{-β * x^{2}}) = 0
+5. lim_{ x → 0^+ } (frac(e^{-α * x^{2}} - e^{-β * x^{2}}, x)) = 0
+6. lim_{ x → +∞ } (x^{2} * frac(e^{-α * x^{2}} - e^{-β * x^{2}}, x)) = lim_{ x → +∞ } (frac(x, e^{α * x^{2}}) - frac(x, e^{β * x^{2}}))
+7. lim_{ x → +∞ } (frac(x, e^{α * x^{2}}) - frac(x, e^{β * x^{2}})) = 0
+8. lim_{ x → +∞ } (x^{2} * frac(e^{-α * x^{2}} - e^{-β * x^{2}}, x)) = 0
+9. ConvergentSeries(DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(e^{-α * x^{2}} - e^{-β * x^{2}}, x)) * diff(fun x [x ∈ RealSet] . x)))
+10. I = (fun α [α ∈ RealSet ∧ α > 0] . DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(e^{-α * x^{2}} - e^{-β * x^{2}}, x)) * diff(fun x [x ∈ RealSet] . x)))
+
+GOAL:
+DefInt(0, +∞, (fun x [x ∈ RealSet] . FunDeri(fun α [α ∈ RealSet ∧ α > 0] . frac(e^{-α * x^{2}} - e^{-β * x^{2}}, x), 1, 1)) * diff(fun x [x ∈ RealSet] . x)) = -DefInt(0, +∞, (fun x [x ∈ RealSet] . x * e^{-α * x^{2}}) * diff(fun x [x ∈ RealSet] . x))
+
+METHOD:

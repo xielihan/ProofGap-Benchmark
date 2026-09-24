@@ -1,0 +1,9 @@
+get_prop (hypothesis 12: {forall (r), r ∈ RealSet ⇒ r ≥ 0}) (r := {-1}) as (hypothesis 15: {-1 ∈ RealSet ⇒ -1 ≥ 0})
+assert (hypothesis 16: {-1 ∈ RealSet}) by proof {
+  1. autosolve all_hypothesis
+}
+use_condition (hypothesis 16: {-1 ∈ RealSet}) in (hypothesis 15: {-1 ∈ RealSet ⇒ -1 ≥ 0}) as (hypothesis 17: {-1 ≥ 0})
+assert (hypothesis 18: {Vol = frac(4 * π * a^{3}, 3) * DefInt(0, frac(π, 2), (fun ψ [ψ ∈ RealSet] . sin(ψ)) * diff(fun ψ [ψ ∈ RealSet] . ψ))}) by proof {
+  1. autosolve all_hypothesis
+}
+apply (hypothesis 18: {Vol = frac(4 * π * a^{3}, 3) * DefInt(0, frac(π, 2), (fun ψ [ψ ∈ RealSet] . sin(ψ)) * diff(fun ψ [ψ ∈ RealSet] . ψ))})

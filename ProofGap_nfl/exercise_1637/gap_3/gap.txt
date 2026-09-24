@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet
+2. x > 0
+3. frac((sqrtn(2, 2 * x) - sqrtn(3, 3 * x))^{2}, x) = 2 - 2 * sqrtn(6, 72) * x^{-frac(1, 6)} + sqrtn(3, 9) * x^{-frac(1, 3)}
+4. { `F_2` | forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_2`, 1, 1)(x) = frac((sqrtn(2, 2 * x) - sqrtn(3, 3 * x))^{2}, x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_3`, 1, 1)(x) = (2 - 2 * sqrtn(6, 72) * x^{-frac(1, 6)} + sqrtn(3, 9) * x^{-frac(1, 3)}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+
+GOAL:
+exists (C), C ∈ RealSet ∧ { `F_4` | forall (x), x ∈ RealSet ∧ x > 0 ⇒ FunDeri(`F_4`, 1, 1)(x) = frac((sqrtn(2, 2 * x) - sqrtn(3, 3 * x))^{2}, x) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 0 ⇒ `F_5`(x) = 2 * x - frac(12, 5) * sqrtn(6, 72 * x^{5}) + frac(3, 2) * sqrtn(3, 9 * x^{2}) + C) }
+
+METHOD:

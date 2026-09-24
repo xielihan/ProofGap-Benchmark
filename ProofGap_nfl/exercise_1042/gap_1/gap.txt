@@ -1,0 +1,16 @@
+PROOF GAP @1
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. F : RealSet → RealSet
+4. a ∈ RealSet
+5. b ∈ RealSet
+6. a ≠ 0
+7. forall (t), t ∈ RealSet ⇒ x(t) = a * cosh(t)
+8. y = fun t . (b * sinh(t))
+9. forall (t), t ∈ RealSet ∧ x(t) ∈ Dom(F) ⇒ y(t) = F(x(t))
+
+GOAL:
+forall (t), t ∈ RealSet ⇒ FunDeri(y, 1, 1)(t) = b * cosh(t)
+
+METHOD:

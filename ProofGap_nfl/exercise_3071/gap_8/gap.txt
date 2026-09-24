@@ -1,0 +1,27 @@
+PROOF GAP @8
+ASSUM:
+1. n_{0} ∈ NonNegIntegerSet
+2. a ∈ RealSet
+3. a_{1} ∈ RealSet
+4. b ∈ RealSet
+5. b_{1} ∈ RealSet
+6. p : IntegerSet → RealSet
+7. A : IntegerSet → RealSet
+8. P : IntegerSet → RealSet
+9. n_{0} ∈ PosIntegerSet
+10. forall (n), n ∈ IntegerSet ∧ n ≥ n_{0} ⇒ n^{2} + a * n + b > 0
+11. forall (n), n ∈ IntegerSet ∧ n ≥ n_{0} ⇒ p(n) = frac(n^{2} + a_{1} * n + b_{1}, n^{2} + a * n + b)
+12. forall (n), n ∈ IntegerSet ∧ n ≥ n_{0} ⇒ A(n) = frac((a_{1} - a) * n + b_{1} - b, n^{2} + a * n + b)
+13. forall (N), N ∈ IntegerSet ∧ N ≥ n_{0} ⇒ (forall (n), n ∈ IntegerSet ⇒ P(N) = prod_{ n = n_{0} }^{ N } (p(n)))
+14. forall (n), n ∈ IntegerSet ∧ n ≥ n_{0} ⇒ p(n) = 1 + A(n)
+15. forall (n), n ∈ IntegerSet ∧ a_{1} = a ⇒ (A(n)) ∼_{ n → +∞ } (frac(b_{1} - b, n^{2}))
+16. a_{1} = a ⇒ ConvergentSeries(sum_{ n = n_{0} }^{ +∞ } (frac(1, n^{2})))
+17. a_{1} = a ⇒ ConvergentSeries(sum_{ n = n_{0} }^{ +∞ } (A(n)))
+18. a_{1} = a ⇒ ConvergentSeq(P)
+19. forall (n), n ∈ IntegerSet ∧ a_{1} ≠ a ⇒ (A(n)) ∼_{ n → +∞ } (frac(a_{1} - a, n))
+20. a_{1} ≠ a ⇒ DivergentSeries(sum_{ n = n_{0} }^{ +∞ } (A(n)))
+
+GOAL:
+a_{1} ≠ a ⇒ DivergentSeq(P)
+
+METHOD:

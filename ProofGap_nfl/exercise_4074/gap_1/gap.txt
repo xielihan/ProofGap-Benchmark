@@ -1,0 +1,17 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. p_{0} ∈ RealSet
+4. p : CartesianProd(RealSet, RealSet) → RealSet
+5. p_{up} ∈ RealSet
+6. D ⊆ CartesianProd(RealSet, RealSet)
+7. a > 0
+8. b > 0
+9. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ ((x, y) ∈ D ⇔ (x, y) ∈ CartesianProd(RealSet, RealSet) ∧ frac(x^{2}, a^{2}) + frac(y^{2}, b^{2}) ≤ 1))
+10. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ∧ (x, y) ∈ D ⇒ p(x, y) = p_{0} * (1 - frac(x^{2}, a^{2}) - frac(y^{2}, b^{2})))
+
+GOAL:
+p_{up} = frac(1, π * a * b) * VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . p(x, y)) * diff(fun x [x ∈ RealSet] . x) * diff(fun y [y ∈ RealSet] . y))
+
+METHOD:

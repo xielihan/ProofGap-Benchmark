@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. ξ ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ f(x) = x - 0.1 * sin(x) - 2
+
+GOAL:
+f(2) = -0.091
+
+METHOD:

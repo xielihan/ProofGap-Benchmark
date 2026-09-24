@@ -1,0 +1,16 @@
+PROOF GAP @5
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. p ∈ RealSet
+3. q ∈ RealSet
+4. k ∈ NonNegIntegerSet
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(prod_{ k = 1 }^{ n } (2 * k - 1), prod_{ k = 1 }^{ n } (2 * k))^{p} * frac(1, n^{q})
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(a(n), a(n + 1)) = frac(2 * n + 2, 2 * n + 1)^{p} * frac(n + 1, n)^{q}
+7. seqlim_{ n → +∞ } (n * (frac(a(n), a(n + 1)) - 1)) = lim_{ x → 0 } (frac(frac(2 + 2 * x, 2 + x)^{p} * (1 + x)^{q} - 1, x))
+8. lim_{ x → 0 } (frac(frac(2 + 2 * x, 2 + x)^{p} * (1 + x)^{q} - 1, x)) = q + frac(p, 2)
+9. seqlim_{ n → +∞ } (n * (frac(a(n), a(n + 1)) - 1)) = q + frac(p, 2)
+
+GOAL:
+q + frac(p, 2) > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+
+METHOD:

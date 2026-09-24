@@ -1,0 +1,13 @@
+PROOF GAP @6
+ASSUM:
+1. x ∈ RealSet
+2. exists (A) (B) (C) (D), A ∈ RealSet ∧ B ∈ RealSet ∧ C ∈ RealSet ∧ D ∈ RealSet ∧ (A = frac(1, 2) ⇒ B = frac(1, 2) ⇒ C = -frac(1, 2) ⇒ D = frac(1, 2) ⇒ frac(1, x^{4} + x^{2} + 1) = frac(A * x + B, x^{2} + x + 1) + frac(C * x + D, x^{2} - x + 1))
+3. exists (A) (B) (C) (D), A ∈ RealSet ∧ B ∈ RealSet ∧ C ∈ RealSet ∧ D ∈ RealSet ∧ (A = frac(1, 2) ⇒ B = frac(1, 2) ⇒ C = -frac(1, 2) ⇒ D = frac(1, 2) ⇒ 1 = (A * x + B) * (x^{2} - x + 1) + (C * x + D) * (x^{2} + x + 1))
+4. exists (A) (B) (C) (D), A ∈ RealSet ∧ B ∈ RealSet ∧ C ∈ RealSet ∧ D ∈ RealSet ∧ (A = frac(1, 2) ⇒ B = frac(1, 2) ⇒ C = -frac(1, 2) ⇒ D = frac(1, 2) ⇒ A + C = 0)
+5. exists (A) (B) (C) (D), A ∈ RealSet ∧ B ∈ RealSet ∧ C ∈ RealSet ∧ D ∈ RealSet ∧ (A = frac(1, 2) ⇒ B = frac(1, 2) ⇒ C = -frac(1, 2) ⇒ D = frac(1, 2) ⇒ -A + B + C + D = 0)
+6. exists (A) (B) (C) (D), A ∈ RealSet ∧ B ∈ RealSet ∧ C ∈ RealSet ∧ D ∈ RealSet ∧ (A = frac(1, 2) ⇒ B = frac(1, 2) ⇒ C = -frac(1, 2) ⇒ D = frac(1, 2) ⇒ A - B + C + D = 0)
+
+GOAL:
+exists (A) (B) (C) (D), A ∈ RealSet ∧ B ∈ RealSet ∧ C ∈ RealSet ∧ D ∈ RealSet ∧ (A = frac(1, 2) ⇒ B = frac(1, 2) ⇒ C = -frac(1, 2) ⇒ D = frac(1, 2) ⇒ B + D = 1)
+
+METHOD:

@@ -1,0 +1,25 @@
+PROOF GAP @12
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. F : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+3. A ∈ RealSet
+4. B ∈ RealSet
+5. C ∈ RealSet
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = A * x^{2} + 2 * B * x * y + C * y^{2}
+7. F = (fun x, y, λ [x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet] . A * x^{2} + 2 * B * x * y + C * y^{2} - λ * (x^{2} + y^{2} - 1))
+8. forall (x) (y) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 1, 1)(x, y, λ) = 2 * ((A - λ) * x + B * y)
+9. forall (x) (y) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 2, 1)(x, y, λ) = 2 * (B * x + (C - λ) * y)
+10. exists (λ) (x) (y), λ ∈ RealSet ∧ x ∈ RealSet ∧ y ∈ RealSet ∧ (A - λ) * x + B * y = 0
+11. exists (x) (λ) (y), x ∈ RealSet ∧ λ ∈ RealSet ∧ y ∈ RealSet ∧ B * x + (C - λ) * y = 0
+12. exists (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} = 1
+13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} = 1 ⇒ x ≠ 0 ∨ y ≠ 0
+14. exists (λ), λ ∈ RealSet ∧ λ^{2} - (A + C) * λ + A * C - B^{2} = 0
+15. (A - C)^{2} + 4 * B^{2} = 0 ⇒ A = C
+16. (A - C)^{2} + 4 * B^{2} = 0 ⇒ B = 0
+17. (A - C)^{2} + 4 * B^{2} = 0 ⇒ (forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} = 1 ⇒ z(x, y) = A)
+18. (A - C)^{2} + 4 * B^{2} = 0 ⇒ MaximumPointOn(z, { (x, y) | x ∈ RealSet, y ∈ RealSet, x^{2} + y^{2} = 1 }) = { (x, y) | x ∈ RealSet, y ∈ RealSet, x^{2} + y^{2} = 1 }
+
+GOAL:
+(A - C)^{2} + 4 * B^{2} = 0 ⇒ MinimumPointOn(z, { (x, y) | x ∈ RealSet, y ∈ RealSet, x^{2} + y^{2} = 1 }) = { (x, y) | x ∈ RealSet, y ∈ RealSet, x^{2} + y^{2} = 1 }
+
+METHOD:

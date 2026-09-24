@@ -1,0 +1,10 @@
+PROOF GAP @4
+ASSUM:
+1. lim_{ x → 1 } ((2 - x)^{sec(frac(π * x, 2))}) = lim_{ x → 1 } ((1 + 1 - x)^{frac(1, 1 - x) * frac(π * (x - 1), sin(frac(π * (x - 1), 2))) * frac(1, π)})
+2. lim_{ x → 1 } ((1 + 1 - x)^{frac(1, 1 - x)}) = e
+3. lim_{ x → 1 } (frac(π * (x - 1), sin(frac(π * (x - 1), 2))) * frac(1, π)) = frac(2, π)
+
+GOAL:
+lim_{ x → 1 } ((2 - x)^{sec(frac(π * x, 2))}) = e^{frac(2, π)}
+
+METHOD:

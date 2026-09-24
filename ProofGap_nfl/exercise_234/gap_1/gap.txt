@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. χ : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ χ(x) = cases{ 1 if x ∈ RationalSet; 0 if x ∈ RealSet ∧ x ∉ RationalSet }
+
+GOAL:
+forall (l), l ∈ RealSet ∧ l ∈ RationalSet ⇒ (forall (x), x ∈ RealSet ∧ x ∈ RationalSet ⇒ x + l ∈ RationalSet)
+
+METHOD:

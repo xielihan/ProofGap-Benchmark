@@ -1,0 +1,11 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. f : RealSet → RealSet
+3. forall (x), x ∈ RealSet ⇒ y(x) = f(x^{2})
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ FuncOfClassK(f, n)
+
+GOAL:
+forall (n) (x), n ∈ NonNegIntegerSet ∧ n = 1 ∧ x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = 2 * x * FunDeri(f, 1, 1)(x^{2})
+
+METHOD:

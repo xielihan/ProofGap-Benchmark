@@ -1,0 +1,16 @@
+PROOF GAP @6
+ASSUM:
+1. r : RealSet → RealSet
+2. a ∈ RealSet ∧ a > 0
+3. s ∈ RealSet
+4. forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ r(φ) = a * tanh(frac(φ, 2))
+5. forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ FunDeri(r, 1, 1)(φ) = frac(a, 2) * frac(1, cosh(frac(φ, 2))^{2})
+6. forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ sqrtn(2, r(φ)^{2} + FunDeri(r, 1, 1)(φ)^{2}) = frac(a, 2 * cosh(frac(φ, 2))^{2}) * sqrtn(2, 4 * sinh(frac(φ, 2))^{2} * cosh(frac(φ, 2))^{2} + 1)
+7. forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ sqrtn(2, r(φ)^{2} + FunDeri(r, 1, 1)(φ)^{2}) = frac(a, 2 * cosh(frac(φ, 2))^{2}) * sqrtn(2, sinh(φ)^{2} + 1)
+8. forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ sqrtn(2, r(φ)^{2} + FunDeri(r, 1, 1)(φ)^{2}) = frac(a * cosh(φ), 2 * cosh(frac(φ, 2))^{2})
+9. forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ sqrtn(2, r(φ)^{2} + FunDeri(r, 1, 1)(φ)^{2}) = frac(a * cosh(φ), 1 + cosh(φ))
+
+GOAL:
+forall (φ), φ ∈ RealSet ∧ 0 ≤ φ ∧ φ ≤ 2 * π ⇒ sqrtn(2, r(φ)^{2} + FunDeri(r, 1, 1)(φ)^{2}) = a * (1 - frac(1, 1 + cosh(φ)))
+
+METHOD:

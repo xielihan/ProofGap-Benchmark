@@ -1,0 +1,6 @@
+1. get_prop (theorem 'Thm 476. (EqualityPreservedByMultiplication)': {forall (a) (b) (c), a ∈ RealSet => b ∈ RealSet => c ∈ RealSet => a = b => a * c = b * c}) (a := {frac(π, 2)}) (b := {frac(A^{2}, 4)}) (c := {4}) as (hypothesis 37: {frac(π, 2) ∈ RealSet => frac(A^{2}, 4) ∈ RealSet => 4 ∈ RealSet => frac(π, 2) = frac(A^{2}, 4) => frac(π, 2) * 4 = frac(A^{2}, 4) * 4})
+2. assert (hypothesis 38: {frac(π, 2) * 4 = frac(A^{2}, 4) * 4}) by proof {
+  1. apply (hypothesis 37: {frac(π, 2) ∈ RealSet => frac(A^{2}, 4) ∈ RealSet => 4 ∈ RealSet => frac(π, 2) = frac(A^{2}, 4) => frac(π, 2) * 4 = frac(A^{2}, 4) * 4})
+  2. autosolve all_hypothesis
+}
+3. autosolve all_hypothesis

@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet => |sin(x)| ≤ 1}) (x := {y})
+get_condition (hypothesis 2: {y ∈ RealSet}) in (GOAL: {y ∈ RealSet => |sin(y)| ≤ 1})
+get_prop (theorem 'Thm 166. (SineBounded)': {forall (x), x ∈ RealSet => -1 <= sin(x) /\ sin(x) <= 1}) (x := {y}) as (hypothesis 3: {y ∈ RealSet => -1 <= sin(y) /\ sin(y) <= 1})
+use_condition (hypothesis 2: {y ∈ RealSet}) in (hypothesis 3: {y ∈ RealSet => -1 <= sin(y) /\ sin(y) <= 1}) as (hypothesis 4: {-1 <= sin(y) /\ sin(y) <= 1})
+destruct_and (hypothesis 4: {-1 <= sin(y) /\ sin(y) <= 1}) as (hypothesis 5: {-1 <= sin(y)}) (hypothesis 6: {sin(y) <= 1})
+autosolve all_hypothesis

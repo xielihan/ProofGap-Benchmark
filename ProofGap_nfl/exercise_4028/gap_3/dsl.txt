@@ -1,0 +1,6 @@
+assert (hypothesis 5: {exists (y), y ∈ RealSet ∧ (y = frac(0, 2) ∨ y = 2 * 0)}) by proof {
+  exists (y := {0})
+  autosolve
+}
+exists (x := {0})
+autosolve (hypothesis 5: {exists (y), y ∈ RealSet ∧ (y = frac(0, 2) ∨ y = 2 * 0)})

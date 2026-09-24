@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. u : CartesianProd(RealSet, RealSet) → RealSet
+2. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ u(x, y) = frac(x, sqrtn(2, x^{2} + y^{2}))
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ FunDeri(u, 1, 1)(x, y) = frac(1, sqrtn(2, x^{2} + y^{2})) - frac(2 * x * x, 2 * (x^{2} + y^{2})^{frac(3, 2)}) ∧ frac(1, sqrtn(2, x^{2} + y^{2})) - frac(2 * x * x, 2 * (x^{2} + y^{2})^{frac(3, 2)}) = frac(y^{2}, (x^{2} + y^{2})^{frac(3, 2)})
+4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ FunDeri(u, 2, 1)(x, y) = -frac(x * y, (x^{2} + y^{2})^{frac(3, 2)})
+5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ FunDeri(u, 1, 2)(x, y) = -frac(3, 2) * y^{2} * frac(2 * x, (x^{2} + y^{2})^{frac(5, 2)}) ∧ -frac(3, 2) * y^{2} * frac(2 * x, (x^{2} + y^{2})^{frac(5, 2)}) = -frac(3 * x * y^{2}, (x^{2} + y^{2})^{frac(5, 2)})
+
+GOAL:
+forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ (x, y) ≠ (0, 0) ⇒ FunDeri(u, 2, 2)(x, y) = -frac(x, (x^{2} + y^{2})^{frac(3, 2)}) + frac(3, 2) * x * y * frac(2 * y, (x^{2} + y^{2})^{frac(5, 2)}) ∧ -frac(x, (x^{2} + y^{2})^{frac(3, 2)}) + frac(3, 2) * x * y * frac(2 * y, (x^{2} + y^{2})^{frac(5, 2)}) = frac(x * (2 * y^{2} - x^{2}), (x^{2} + y^{2})^{frac(5, 2)})
+
+METHOD:

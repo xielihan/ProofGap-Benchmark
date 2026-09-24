@@ -1,0 +1,15 @@
+PROOF GAP @5
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. φ : RealSet → RealSet
+3. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ≠ 0 ⇒ z(x, y) = e^{y} * φ(y * e^{frac(x^{2}, 2 * y^{2})})
+4. DiffableFunc(φ)
+5. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ≠ 0 ⇒ FunDeri(z, 1, 1)(x, y) = e^{y} * FunDeri(φ, fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y * e^{frac(x^{2}, 2 * y^{2})}, 1)(y * e^{frac(x^{2}, 2 * y^{2})}) * frac(x, y) * e^{frac(x^{2}, 2 * y^{2})})
+6. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ≠ 0 ⇒ FunDeri(z, 2, 1)(x, y) = e^{y} * φ(y * e^{frac(x^{2}, 2 * y^{2})}) + e^{y} * FunDeri(φ, fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y * e^{frac(x^{2}, 2 * y^{2})}, 1)(y * e^{frac(x^{2}, 2 * y^{2})}) * (e^{frac(x^{2}, 2 * y^{2})} - frac(x^{2}, y^{2}) * e^{frac(x^{2}, 2 * y^{2})}))
+7. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ≠ 0 ⇒ (x^{2} - y^{2}) * FunDeri(z, 1, 1)(x, y) + x * y * FunDeri(z, 2, 1)(x, y) = x * y * e^{y} * φ(y * e^{frac(x^{2}, 2 * y^{2})}))
+8. forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ≠ 0 ⇒ x * y * e^{y} * φ(y * e^{frac(x^{2}, 2 * y^{2})}) = x * y * z(x, y))
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ≠ 0 ⇒ (x^{2} - y^{2}) * FunDeri(z, 1, 1)(x, y) + x * y * FunDeri(z, 2, 1)(x, y) = x * y * z(x, y))
+
+METHOD:

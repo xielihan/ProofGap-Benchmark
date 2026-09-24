@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ≠ 0 ⇒ FunDeri(z, x, 2)(x, y) = y^{2} * FunDeri(z, u, 2)(u(x, y), v(x, y))}) (x := {a}) (y := {b})
+get_condition (hypothesis 9: {a ∈ RealSet ∧ b ∈ RealSet ∧ b ≠ 0}) in (GOAL: {a ∈ RealSet ∧ b ∈ RealSet ∧ b ≠ 0 ⇒ FunDeri(z, a, 2)(a, b) = b^{2} * FunDeri(z, u, 2)(u(a, b), v(a, b))})
+get_prop (hypothesis 5: {forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ y ≠ 0 ∧ u(x, y) = x * y ∧ v(x, y) = frac(1, y)}) (x := {0}) (y := {0}) as (hypothesis 10: {0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ≠ 0 ∧ u(0, 0) = 0 * 0 ∧ v(0, 0) = frac(1, 0)})
+destruct_and (hypothesis 10: {0 ∈ RealSet ∧ 0 ∈ RealSet ∧ 0 ≠ 0 ∧ u(0, 0) = 0 * 0 ∧ v(0, 0) = frac(1, 0)}) as (hypothesis 11: {0 ∈ RealSet}) (hypothesis 12: {0 ∈ RealSet}) (hypothesis 13: {0 ≠ 0}) (hypothesis 14: {u(0, 0) = 0 * 0}) (hypothesis 15: {v(0, 0) = frac(1, 0)})
+autosolve all_hypothesis

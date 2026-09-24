@@ -1,0 +1,14 @@
+PROOF GAP @3
+ASSUM:
+1. f : RealSet → RealSet
+2. F : RealSet → RealSet
+3. forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(0, π) ⇒ f(x) = frac(sin(x), x)
+4. lim_{ x → 0^+ } (frac(sin(x), x)) = 1
+5. F = (fun x [x ∈ RealSet] . cases{ 1 if x = 0; frac(sin(x), x) if 0 < x ∧ x < π; 0 if x = π })
+6. ContinuousFuncOn(F, [0, π])
+
+GOAL:
+UniformContinuousFuncOn(F, [0, π])
+
+METHOD:
+[@method 根据 "康托尔定理" @]

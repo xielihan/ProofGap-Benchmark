@@ -1,0 +1,5 @@
+get_prop (theorem 'Thm 365. (PSeriesDivergesForExponentAtMostOne)': {forall (p), p ∈ RealSet => p <= 1 => DivergentSeries(sum_{n = 1}^{+∞}(1 / n ^ p))}) (p := {1}) as (hypothesis 6: {1 ∈ RealSet => 1 <= 1 => DivergentSeries(sum_{n = 1}^{+∞}(1 / n ^ 1))})
+use_condition (obvious: {1 ∈ RealSet}) in (hypothesis 6: {1 ∈ RealSet => 1 <= 1 => DivergentSeries(sum_{n = 1}^{+∞}(1 / n ^ 1))}) as (hypothesis 7: {1 <= 1 => DivergentSeries(sum_{n = 1}^{+∞}(1 / n ^ 1))})
+use_condition (obvious: {1 <= 1}) in (hypothesis 7: {1 <= 1 => DivergentSeries(sum_{n = 1}^{+∞}(1 / n ^ 1))}) as (hypothesis 8: {DivergentSeries(sum_{n = 1}^{+∞}(1 / n ^ 1))})
+autoreplace no_hypothesis; from (1 / n ^ 1) to (frac(1, n)); from (hypothesis 8: {DivergentSeries(sum_{n = 1}^{+∞}(1 / n ^ 1))}) to (hypothesis 9: {DivergentSeries(sum_{n = 1}^{+∞}(frac(1, n)))})
+apply (hypothesis 9: {DivergentSeries(sum_{n = 1}^{+∞}(frac(1, n)))})

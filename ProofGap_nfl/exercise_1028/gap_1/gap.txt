@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. T ∈ RealSet
+3. DiffableFuncOn(f, RealSet)
+4. PeriodicFunc(f, T)
+5. T ≠ 0
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ f(x + T) = f(x)
+
+METHOD:

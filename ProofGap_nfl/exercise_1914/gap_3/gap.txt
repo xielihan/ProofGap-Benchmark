@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet
+2. C ∈ RealSet
+3. x ≠ 0
+4. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ frac(1, x * (x^{10} + 1)^{2}) = frac(x^{10} + 1 - x^{10}, x * (x^{10} + 1)^{2})
+5. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ frac(x^{10} + 1 - x^{10}, x * (x^{10} + 1)^{2}) = frac(1, x * (x^{10} + 1)) - frac(x^{9}, (x^{10} + 1)^{2})
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ frac(1, x * (x^{10} + 1)) - frac(x^{9}, (x^{10} + 1)^{2}) = frac(1, x) - frac(x^{9}, x^{10} + 1) - frac(x^{9}, (x^{10} + 1)^{2})
+
+METHOD:

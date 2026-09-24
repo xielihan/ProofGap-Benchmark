@@ -1,0 +1,12 @@
+PROOF GAP @4
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. lim_{ x → 0 } (frac(ln(a^{x} - x * ln(a)) - ln(b^{x} - x * ln(b)), x^{2})) = lim_{ x → 0 } (frac(frac((a^{x} - 1) * ln(a), a^{x} - x * ln(a)) - frac((b^{x} - 1) * ln(b), b^{x} - x * ln(b)), 2 * x))
+4. lim_{ x → 0 } (frac(frac((a^{x} - 1) * ln(a), a^{x} - x * ln(a)) - frac((b^{x} - 1) * ln(b), b^{x} - x * ln(b)), 2 * x)) = lim_{ x → 0 } (frac(1, 2) * (frac(a^{x} * ln(a)^{2} * (a^{x} - x * ln(a)) - (a^{x} - 1)^{2} * ln(a)^{2}, (a^{x} - x * ln(a))^{2}) - frac(b^{x} * ln(b)^{2} * (b^{x} - x * ln(b)) - (b^{x} - 1)^{2} * ln(b)^{2}, (b^{x} - x * ln(b))^{2})))
+5. lim_{ x → 0 } (frac(1, 2) * (frac(a^{x} * ln(a)^{2} * (a^{x} - x * ln(a)) - (a^{x} - 1)^{2} * ln(a)^{2}, (a^{x} - x * ln(a))^{2}) - frac(b^{x} * ln(b)^{2} * (b^{x} - x * ln(b)) - (b^{x} - 1)^{2} * ln(b)^{2}, (b^{x} - x * ln(b))^{2}))) = frac(1, 2) * (ln(a)^{2} - ln(b)^{2})
+
+GOAL:
+lim_{ x → 0 } (frac(a^{x} - x * ln(a), b^{x} - x * ln(b))^{frac(1, x^{2})}) = e^{frac(ln(a)^{2} - ln(b)^{2}, 2)}
+
+METHOD:

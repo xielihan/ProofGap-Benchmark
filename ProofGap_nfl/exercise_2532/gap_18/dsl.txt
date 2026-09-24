@@ -1,0 +1,4 @@
+rewrite (left_to_right, equation) (hypothesis 42: {y_{6} = frac(1, 1 + x_{6})}); from (GOAL: {|y_{6} - 0.57143| < 0.00001}) to (GOAL: {|frac(1, 1 + x_{6}) - 0.57143| < 0.00001})
+rewrite (left_to_right, equation) (hypothesis 41: {x_{6} = 0.75}); from (GOAL: {|frac(1, 1 + x_{6}) - 0.57143| < 0.00001}) to (GOAL: {|frac(1, 1 + 0.75) - 0.57143| < 0.00001})
+autoreplace no_hypothesis; from (frac(1, 1 + 0.75)) to (frac(4, 7)); from (GOAL: {|frac(1, 1 + 0.75) - 0.57143| < 0.00001}) to (GOAL: {|frac(4, 7) - 0.57143| < 0.00001})
+autosolve all_hypothesis

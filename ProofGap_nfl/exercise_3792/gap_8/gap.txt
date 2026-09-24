@@ -1,0 +1,18 @@
+PROOF GAP @8
+ASSUM:
+1. a ∈ RealSet ∧ a > 0
+2. b ∈ RealSet ∧ b > 0
+3. f = (fun x [x ∈ RealSet ∧ x ≥ 0] . frac(π, 2) - arctan(x))
+4. ContinuousFuncOn(f, [0, +∞))
+5. forall (x), x ∈ RealSet ∧ x ≥ 0 ⇒ f(x) > 0
+6. lim_{ x → +∞ } (x^{2} * frac(f(x), x)) = lim_{ x → +∞ } (frac(frac(π, 2) - arctan(x), x^{-1}))
+7. lim_{ x → +∞ } (frac(frac(π, 2) - arctan(x), x^{-1})) = lim_{ x → +∞ } (frac(-frac(1, 1 + x^{2}), -frac(1, x^{2})))
+8. lim_{ x → +∞ } (frac(-frac(1, 1 + x^{2}), -frac(1, x^{2}))) = 1
+9. lim_{ x → +∞ } (x^{2} * frac(f(x), x)) = 1
+10. forall (A), A ∈ RealSet ∧ A > 0 ⇒ ConvergentSeries(DefInt(A, +∞, (fun x [x ∈ RealSet] . frac(f(x), x)) * diff(fun x [x ∈ RealSet] . x)))
+
+GOAL:
+DefInt(0, +∞, (fun x [x ∈ RealSet] . frac(frac(π, 2) - arctan(a * x) - (frac(π, 2) - arctan(b * x)), x)) * diff(fun x [x ∈ RealSet] . x)) = frac(π, 2) * ln(frac(b, a))
+
+METHOD:
+[@method 根据 "傅茹兰公式" @]

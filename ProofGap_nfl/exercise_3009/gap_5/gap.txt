@@ -1,0 +1,19 @@
+PROOF GAP @5
+ASSUM:
+1. x ∈ RealSet
+2. a ∈ RealSet
+3. d ∈ RealSet
+4. b : NonNegIntegerSet → RealSet
+5. f : RealSet → RealSet
+6. C ∈ RealSet
+7. d > 0
+8. forall (k), k ∈ NonNegIntegerSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ b(n) = frac(prod_{ k = 0 }^{ n - 1 } (a + k * d), prod_{ k = 1 }^{ n } (k * d)))
+9. exists (m), m ∈ NonNegIntegerSet ∧ (m ∈ NonNegIntegerSet ∧ a = -m * d ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ m + 1 ⇒ b(n) = 0))
+10. exists (m), m ∈ NonNegIntegerSet ∧ (m ∈ NonNegIntegerSet ∧ a = -m * d ⇒ sum_{ n = 1 }^{ +∞ } (b(n) * x^{n}) = sum_{ n = 1 }^{ m } (b(n) * x^{n}))
+11. ¬(exists (m), m ∈ NonNegIntegerSet ∧ a = -m * d) ⇒ lim_{ n → +∞ } (|frac(b(n), b(n + 1))|) = lim_{ n → +∞ } (frac((n + 1) * d, a + n * d))
+12. ¬(exists (m), m ∈ NonNegIntegerSet ∧ a = -m * d) ⇒ lim_{ n → +∞ } (frac((n + 1) * d, a + n * d)) = 1
+
+GOAL:
+¬(exists (m), m ∈ NonNegIntegerSet ∧ a = -m * d) ⇒ lim_{ n → +∞ } (|frac(b(n), b(n + 1))|) = 1
+
+METHOD:

@@ -1,0 +1,14 @@
+PROOF GAP @2
+ASSUM:
+1. S ∈ RealSet
+2. f : RealSet → RealSet
+3. g : RealSet → RealSet
+4. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π ⇒ f(x) = x + sin(x)^{2}
+5. forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ π ⇒ g(x) = x
+6. S = DefInt(0, π, (fun x [x ∈ RealSet] . f(x) - g(x)) * diff(fun x [x ∈ RealSet] . x))
+7. S = DefInt(0, π, (fun x [x ∈ RealSet] . x + sin(x)^{2} - x) * diff(fun x [x ∈ RealSet] . x))
+
+GOAL:
+S = ((fun x [x ∈ RealSet] . frac(x, 2) - frac(1, 4) * sin(2 * x))|_{0}^{π})
+
+METHOD:

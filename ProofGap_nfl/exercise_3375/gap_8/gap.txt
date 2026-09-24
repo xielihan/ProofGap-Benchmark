@@ -1,0 +1,17 @@
+PROOF GAP @8
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ y(x) = 2 * x * arctan(frac(y(x), x))
+3. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ frac(y(x), x) = 2 * arctan(frac(y(x), x))
+4. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ frac(y(x), x) ≠ 1
+5. forall (x), x ∈ RealSet ⇒ x ≠ 0
+6. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ diff(fun x [x ∈ RealSet ∧ x ≠ 0] . frac(y(x), x)) = frac(2 * diff(fun x [x ∈ RealSet ∧ x ≠ 0] . frac(y(x), x)), 1 + frac(y(x), x)^{2})
+7. diff(fun x [x ∈ RealSet ∧ x ≠ 0] . frac(y(x), x)) = 0
+8. frac((fun x [x ∈ RealSet] . x) * diff(y) - (fun x [x ∈ RealSet] . y(x)) * diff(fun x [x ∈ RealSet] . x), fun x [x ∈ RealSet ∧ x ≠ 0] . x^{2}) = 0
+9. forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(y, 1, 1)(x) = frac(y(x), x)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ FunDeri(y, 1, 2)(x) = frac(x * FunDeri(y, 1, 1)(x) - y(x), x^{2})
+
+METHOD:
+[@method 两边同时对 x 求 导数 @]

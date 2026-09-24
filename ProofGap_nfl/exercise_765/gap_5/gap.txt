@@ -1,0 +1,12 @@
+PROOF GAP @5
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ⇒ y(x) = (1 + x^{2}) * sgn(x)
+3. forall (x), x ∈ RealSet ⇒ sgn(y(x)) = sgn(x)
+4. forall (x), x ∈ RealSet ⇒ sgn(x)^{2} = cases{ 1 if x ≠ 0; 0 if x = 0 }
+5. forall (x), x ∈ RealSet ⇒ y(x) * sgn(y(x)) = (1 + x^{2}) * sgn(x)^{2}
+6. Dom(InverseFunc(y)) = (-∞, -1) ∪ { 0 } ∪ (1, +∞)
+GOAL:
+forall (t), t ∈ RealSet ∧ t ∈ Dom(InverseFunc(y)) ⇒ InverseFunc(y, t) = cases{ sqrtn(2, t * sgn(t) - 1) if t ≥ 1; -sqrtn(2, t * sgn(t) - 1) if t ≤ -1; 0 if t = 0 }
+
+METHOD:

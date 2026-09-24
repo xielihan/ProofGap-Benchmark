@@ -1,0 +1,4 @@
+1. rewrite (left_to_right, equation) (hypothesis 5: {Eq(a, PosInfty)}) from (GOAL: {Eq(Lim(y, b, Lim(x, a, f(x, y))), 1)}) to (GOAL: {Eq(Lim(y, b, Lim(x, PosInfty, f(x, y))), 1)})
+2. rewrite (left_to_right, equation) (hypothesis 6: {Eq(b, PosInfty)}) from (GOAL: {Eq(Lim(y, b, Lim(x, PosInfty, f(x, y))), 1)}) to (GOAL: {Eq(Lim(y, PosInfty, Lim(x, PosInfty, f(x, y))), 1)})
+3. rewrite (left_to_right, equation) (hypothesis 14: {Eq(Lim(y, PosInfty, Lim(x, PosInfty, f(x, y))), 1)}) from (GOAL: {Eq(Lim(y, PosInfty, Lim(x, PosInfty, f(x, y))), 1)}) to (GOAL: {Eq(1, 1)})
+4. autosolve (hypothesis 5: {Eq(a, PosInfty)}) (hypothesis 6: {Eq(b, PosInfty)}) (hypothesis 14: {Eq(Lim(y, PosInfty, Lim(x, PosInfty, f(x, y))), 1)}) using Reflexivity

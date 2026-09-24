@@ -1,0 +1,5 @@
+get_condition (hypothesis 12: {p > 1}) in (GOAL: {p > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{p}))})
+get_prop (theorem 'Thm 366. (PSeriesConvergesForExponentAboveOne)': {forall (p), p ∈ RealSet ⇒ p > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{p}))}) (p := {p}) as (hypothesis 13: {p ∈ RealSet ⇒ p > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{p}))})
+use_condition (hypothesis 1: {p ∈ RealSet}) in (hypothesis 13: {p ∈ RealSet ⇒ p > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{p}))}) as (hypothesis 14: {p > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{p}))})
+use_condition (hypothesis 12: {p > 1}) in (hypothesis 14: {p > 1 ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{p}))}) as (hypothesis 15: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{p}))})
+autosolve (hypothesis 15: {ConvergentSeries(sum_{ n = 1 }^{ +∞ } (1 / n^{p}))})

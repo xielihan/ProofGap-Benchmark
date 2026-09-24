@@ -1,0 +1,5 @@
+1. get_forall (GOAL: {forall (ξ), ξ ∈ RealSet ∧ ξ ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(ξ) * (b - a) ⇒ ξ^{2} < 0}) (ξ := {xi0})
+2. get_condition (hypothesis 13: {xi0 ∈ RealSet ∧ xi0 ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(xi0) * (b - a)}) in (GOAL: {xi0 ∈ RealSet ∧ xi0 ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(xi0) * (b - a) ⇒ xi0^{2} < 0})
+3. get_prop (hypothesis 12: {forall (ξ), ξ ∈ RealSet ∧ ξ ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(ξ) * (b - a) ⇒ ξ^{2} = a * b}) (ξ := {xi0}) as (hypothesis 14: {xi0 ∈ RealSet ∧ xi0 ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(xi0) * (b - a) ⇒ xi0^{2} = a * b})
+4. use_condition (hypothesis 13: {xi0 ∈ RealSet ∧ xi0 ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(xi0) * (b - a)}) in (hypothesis 14: {xi0 ∈ RealSet ∧ xi0 ∈ IntervalLoRo(a, b) ∧ f(b) - f(a) = FunDeri(f, 1, 1)(xi0) * (b - a) ⇒ xi0^{2} = a * b}) as (hypothesis 15: {xi0^{2} = a * b})
+5. autosolve (hypothesis 4: {a * b < 0}) (hypothesis 15: {xi0^{2} = a * b})

@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ [-2, 2] ⇒ y(x) = arcsin(frac(x, 2))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| < 2 ⇒ FunDeri(y, 1, 1)(x) = frac(1, sqrtn(2, 1 - frac(x, 2)^{2})) * frac(1, 2) ∧ frac(1, sqrtn(2, 1 - frac(x, 2)^{2})) * frac(1, 2) = frac(1, sqrtn(2, 4 - x^{2}))
+
+METHOD:

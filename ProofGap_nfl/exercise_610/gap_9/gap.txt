@@ -1,0 +1,38 @@
+PROOF GAP @9
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. n ∈ NonNegIntegerSet
+4. l ∈ RealSet
+5. x ∈ RealSet
+6. F : RealSet → RealSet
+7. g : RealSet → RealSet
+8. α ∈ RealSet
+9. L ∈ RealSet
+10. ε ∈ RealSet ∧ ε > 0
+11. G ∈ RealSet ∧ G > 0
+12. X_{0} ∈ RealSet
+13. X_{1} ∈ RealSet
+14. X ∈ RealSet
+15. τ ∈ RealSet
+16. m ∈ NonNegIntegerSet
+17. n ∈ PosIntegerSet
+18. Defined(f, (a, +∞))
+19. forall (b), b ∈ RealSet ∧ b > a ⇒ BoundedFuncOn(f, IntervalLoRo(a, b))
+20. l ∈ RealSet ∨ l = +∞ ∨ l = -∞
+21. lim_{ x → +∞ } (frac(f(x + 1) - f(x), x^{n})) = l
+22. L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (X_{0}), X_{0} ∈ RealSet ∧ X_{0} ∈ PosRealSet ∧ X_{0} > α ∧ (forall (x), x ∈ RealSet ∧ x ≥ X_{0} ⇒ |frac(F(x + 1) - F(x), g(x + 1) - g(x)) - L| < frac(ε, 2))))
+23. L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ x > X_{0} + 1 ⇒ (exists (m), m ∈ NonNegIntegerSet ∧ m ∈ PosIntegerSet ∧ m ≤ x - X_{0} ∧ x - X_{0} < m + 1))
+24. L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ x > X_{0} + 1 ⇒ τ = x - X_{0} - m)
+25. L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ x > X_{0} + 1 ⇒ 0 ≤ τ)
+26. L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ x > X_{0} + 1 ⇒ τ < 1)
+27. L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ x > X_{0} + 1 ⇒ x = X_{0} + τ + m)
+28. L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ x > X_{0} + 1 ⇒ frac(F(x) - F(X_{0} + τ), g(x) - g(X_{0} + τ)) - L = sum_{ k = 1 }^{ m } (frac(g(X_{0} + τ + k) - g(X_{0} + τ + k - 1), g(x) - g(X_{0} + τ)) * (frac(F(X_{0} + τ + k) - F(X_{0} + τ + k - 1), g(X_{0} + τ + k) - g(X_{0} + τ + k - 1)) - L)))
+29. L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ x > X_{0} + 1 ⇒ |frac(F(x) - F(X_{0} + τ), g(x) - g(X_{0} + τ)) - L| < frac(ε, 2))
+30. L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (X_{1}), X_{1} ∈ RealSet ∧ X_{1} ∈ PosRealSet ∧ X_{1} > α ∧ (forall (x), x ∈ RealSet ∧ x > X_{1} ⇒ |frac(g(X_{0} + τ), g(x))| < frac(1, 2) ∧ |frac(F(X_{0} + τ) - L * g(X_{0} + τ), g(x))| < frac(ε, 4))))
+31. L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ X = max(X_{0} + 1, X_{1}))
+
+GOAL:
+L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ x > X ⇒ |frac(F(x), g(x)) - L| < frac(3, 2) * frac(ε, 2) + frac(ε, 4))
+
+METHOD:

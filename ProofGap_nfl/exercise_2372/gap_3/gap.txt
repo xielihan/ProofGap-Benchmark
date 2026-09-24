@@ -1,0 +1,9 @@
+PROOF GAP @3
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ 0 < x ∧ x < frac(1, 2) ⇒ 1 - x^{2} ≠ 0 ∧ ln(x) ∈ RealSet
+2. lim_{ x → 0^+ } (sqrtn(2, x) * frac(ln(x), 1 - x^{2})) = 0
+
+GOAL:
+exists (I_{1}), I_{1} ∈ RealSet ∧ DefInt(0, frac(1, 2), (fun x [x ∈ RealSet] . frac(ln(x), 1 - x^{2})) * diff(fun x [x ∈ RealSet] . x)) = I_{1}
+
+METHOD:

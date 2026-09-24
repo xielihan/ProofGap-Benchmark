@@ -1,0 +1,17 @@
+PROOF GAP @2
+ASSUM:
+1. f : RealSet → RealSet
+2. m : RealSet → RealSet
+3. M : RealSet → RealSet
+4. a ∈ RealSet
+5. b ∈ RealSet
+6. a < b
+7. ContinuousFuncOn(f, [a, b])
+8. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ (forall (ξ), ξ ∈ RealSet ∧ ξ ∈ [a, x] ⇒ m(x) = inf({ f(ξ) | ξ ∈ RealSet, ξ ∈ [a, x] }))
+9. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ (forall (ξ), ξ ∈ RealSet ∧ ξ ∈ [a, x] ⇒ M(x) = sup({ f(ξ) | ξ ∈ RealSet, ξ ∈ [a, x] }))
+10. forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [a, b] ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ [a, b] ∧ |x - x_{0}| < δ ⇒ |f(x) - f(x_{0})| < ε)))
+
+GOAL:
+forall (x_{0}), x_{0} ∈ RealSet ∧ x_{0} ∈ [a, b] ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ [a, b] ∧ |x - x_{0}| < δ ⇒ |f(x) - f(x_{0})| < ε)))
+
+METHOD:

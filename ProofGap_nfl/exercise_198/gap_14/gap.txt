@@ -1,0 +1,28 @@
+PROOF GAP @14
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. c ∈ RealSet
+5. forall (x), x ∈ RealSet ⇒ f(x) = a * x^{2} + b * x + c
+6. f(-2) = 0
+7. f(0) = 1
+8. f(1) = 5
+9. f(-2) = 4 * a - 2 * b + c
+10. 4 * a - 2 * b + c = 0
+11. f(-2) = 0
+12. f(0) = c
+13. c = 1
+14. f(0) = 1
+15. f(1) = a + b + c
+16. a + b + c = 5
+17. f(1) = 5
+18. a = frac(7, 6)
+19. b = frac(17, 6)
+20. c = 1
+21. forall (x), x ∈ RealSet ⇒ f(x) = frac(7, 6) * x^{2} + frac(17, 6) * x + 1
+
+GOAL:
+f(-1) = -frac(2, 3)
+
+METHOD:

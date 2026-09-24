@@ -1,0 +1,18 @@
+PROOF GAP @7
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. c : NonNegIntegerSet → RealSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac((-1)^{n + 1}, sqrtn(2, n))
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ConvergentSeries(sum_{ n = 1 }^{ +∞ } (a(n)))
+5. forall (n) (k), n ∈ NonNegIntegerSet ∧ k ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≤ n ⇒ c(n) = sum_{ k = 1 }^{ n } (a(k) * a(n - k + 1))
+6. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n))) ⇒ (sum_{ n = 1 }^{ +∞ } (frac((-1)^{n + 1}, sqrtn(2, n))))^{2} = sum_{ n = 1 }^{ +∞ } (c(n))
+7. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n))) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ c(n) = sum_{ k = 1 }^{ n } (frac((-1)^{k + 1}, sqrtn(2, k)) * frac((-1)^{n - k + 2}, sqrtn(2, n - k + 1))))
+8. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n))) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ c(n) = (-1)^{n + 3} * (sum_{ k = 1 }^{ n } (frac(1, sqrtn(2, k) * sqrtn(2, n - k + 1)))))
+9. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n))) ⇒ (forall (n) (k), n ∈ NonNegIntegerSet ∧ k ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≤ n ⇒ k * (n - k + 1) ≤ n^{2})
+10. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n))) ⇒ (forall (n) (k), n ∈ NonNegIntegerSet ∧ k ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≤ n ⇒ frac(1, sqrtn(2, k) * sqrtn(2, n - k + 1)) ≥ frac(1, n))
+11. ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n))) ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |c(n)| ≥ sum_{ k = 1 }^{ n } (frac(1, n)) ∧ sum_{ k = 1 }^{ n } (frac(1, n)) = 1)
+
+GOAL:
+ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n))) ⇒ False
+
+METHOD:

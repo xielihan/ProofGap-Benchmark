@@ -1,0 +1,18 @@
+get_forall (GOAL: {forall (f), f : RealSet → RealSet ∧ DiffableFunc(f) ∧ (forall (x), x ∈ RealSet ⇒ (x ∈ Dom(f) ⇔ -x ∈ Dom(f))) ⇒ (EvenFunc(f) ⇒ OddFunc(FunDeri(f, 1, 1))) ∧ (OddFunc(f) ⇒ EvenFunc(FunDeri(f, 1, 1)))}) (f := {f0})
+get_condition (hypothesis 9: {f0 : RealSet → RealSet ∧ DiffableFunc(f0) ∧ (forall (x), x ∈ RealSet ⇒ (x ∈ Dom(f0) ⇔ -x ∈ Dom(f0)))}) in (GOAL: {f0 : RealSet → RealSet ∧ DiffableFunc(f0) ∧ (forall (x), x ∈ RealSet ⇒ (x ∈ Dom(f0) ⇔ -x ∈ Dom(f0))) ⇒ (EvenFunc(f0) ⇒ OddFunc(FunDeri(f0, 1, 1))) ∧ (OddFunc(f0) ⇒ EvenFunc(FunDeri(f0, 1, 1)))})
+destruct_and (hypothesis 9: {f0 : RealSet → RealSet ∧ DiffableFunc(f0) ∧ (forall (x), x ∈ RealSet ⇒ (x ∈ Dom(f0) ⇔ -x ∈ Dom(f0)))}) as (hypothesis 10: {f0 : RealSet → RealSet}) (hypothesis 11: {DiffableFunc(f0)}) (hypothesis 12: {forall (x), x ∈ RealSet ⇒ (x ∈ Dom(f0) ⇔ -x ∈ Dom(f0))})
+get_prop (hypothesis 4: {forall (f), f : RealSet → RealSet ∧ DiffableFunc(f) ∧ (forall (x), x ∈ RealSet ⇒ (x ∈ Dom(f) ⇔ -x ∈ Dom(f))) ∧ EvenFunc(f) ⇒ OddFunc(FunDeri(f, 1, 1))}) (f := {f0}) as (hypothesis 13: {f0 : RealSet → RealSet ∧ DiffableFunc(f0) ∧ (forall (x), x ∈ RealSet ⇒ (x ∈ Dom(f0) ⇔ -x ∈ Dom(f0))) ∧ EvenFunc(f0) ⇒ OddFunc(FunDeri(f0, 1, 1))})
+get_prop (hypothesis 8: {forall (f), f : RealSet → RealSet ∧ DiffableFunc(f) ∧ (forall (x), x ∈ RealSet ⇒ (x ∈ Dom(f) ⇔ -x ∈ Dom(f))) ∧ OddFunc(f) ⇒ EvenFunc(FunDeri(f, 1, 1))}) (f := {f0}) as (hypothesis 14: {f0 : RealSet → RealSet ∧ DiffableFunc(f0) ∧ (forall (x), x ∈ RealSet ⇒ (x ∈ Dom(f0) ⇔ -x ∈ Dom(f0))) ∧ OddFunc(f0) ⇒ EvenFunc(FunDeri(f0, 1, 1))})
+assert (hypothesis 15: {EvenFunc(f0) ⇒ OddFunc(FunDeri(f0, 1, 1))}) by proof {
+  get_condition (hypothesis 15: {EvenFunc(f0)}) in (GOAL: {EvenFunc(f0) ⇒ OddFunc(FunDeri(f0, 1, 1))})
+  assert (hypothesis 16: {f0 : RealSet → RealSet ∧ DiffableFunc(f0) ∧ (forall (x), x ∈ RealSet ⇒ (x ∈ Dom(f0) ⇔ -x ∈ Dom(f0))) ∧ EvenFunc(f0)})
+  use_condition (hypothesis 16: {f0 : RealSet → RealSet ∧ DiffableFunc(f0) ∧ (forall (x), x ∈ RealSet ⇒ (x ∈ Dom(f0) ⇔ -x ∈ Dom(f0))) ∧ EvenFunc(f0)}) in (hypothesis 13: {f0 : RealSet → RealSet ∧ DiffableFunc(f0) ∧ (forall (x), x ∈ RealSet ⇒ (x ∈ Dom(f0) ⇔ -x ∈ Dom(f0))) ∧ EvenFunc(f0) ⇒ OddFunc(FunDeri(f0, 1, 1))}) as (hypothesis 17: {OddFunc(FunDeri(f0, 1, 1))})
+  apply (hypothesis 17: {OddFunc(FunDeri(f0, 1, 1))})
+}
+assert (hypothesis 16: {OddFunc(f0) ⇒ EvenFunc(FunDeri(f0, 1, 1))}) by proof {
+  get_condition (hypothesis 16: {OddFunc(f0)}) in (GOAL: {OddFunc(f0) ⇒ EvenFunc(FunDeri(f0, 1, 1))})
+  assert (hypothesis 17: {f0 : RealSet → RealSet ∧ DiffableFunc(f0) ∧ (forall (x), x ∈ RealSet ⇒ (x ∈ Dom(f0) ⇔ -x ∈ Dom(f0))) ∧ OddFunc(f0)})
+  use_condition (hypothesis 17: {f0 : RealSet → RealSet ∧ DiffableFunc(f0) ∧ (forall (x), x ∈ RealSet ⇒ (x ∈ Dom(f0) ⇔ -x ∈ Dom(f0))) ∧ OddFunc(f0)}) in (hypothesis 14: {f0 : RealSet → RealSet ∧ DiffableFunc(f0) ∧ (forall (x), x ∈ RealSet ⇒ (x ∈ Dom(f0) ⇔ -x ∈ Dom(f0))) ∧ OddFunc(f0) ⇒ EvenFunc(FunDeri(f0, 1, 1))}) as (hypothesis 18: {EvenFunc(FunDeri(f0, 1, 1))})
+  apply (hypothesis 18: {EvenFunc(FunDeri(f0, 1, 1))})
+}
+autosolve (hypothesis 15: {EvenFunc(f0) ⇒ OddFunc(FunDeri(f0, 1, 1))}) (hypothesis 16: {OddFunc(f0) ⇒ EvenFunc(FunDeri(f0, 1, 1))})

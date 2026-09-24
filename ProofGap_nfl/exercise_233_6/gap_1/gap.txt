@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ tan(x) ≥ 0 ∧ cos(x) ≠ 0 ⇒ f(x) = sqrtn(2, tan(x))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ tan(x) ≥ 0 ∧ cos(x) ≠ 0 ⇒ tan(x + π) = tan(x)
+
+METHOD:

@@ -1,0 +1,11 @@
+PROOF GAP @4
+ASSUM:
+1. x ∈ RealSet
+2. forall (f), f : RealSet → RealSet ⇒ (forall (A), A ⊆ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ A ⊆ RealSet ∧ x_{0} ∈ A ∧ BoundedFuncOn(f, A) ∧ MonoIncFuncOn(f, A) ∧ ¬ContinuousFuncAt(f, x_{0}) ∧ ¬x_{0} = inf(A) ⇒ (forall (x) (A), x ∈ RealSet ∧ A ⊆ RealSet ∧ x ∈ A ∧ x < x_{0} ⇒ f(x) ≤ f(x_{0}))))
+3. forall (f), f : RealSet → RealSet ⇒ (forall (A), A ⊆ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ A ⊆ RealSet ∧ x_{0} ∈ A ∧ BoundedFuncOn(f, A) ∧ MonoIncFuncOn(f, A) ∧ ¬ContinuousFuncAt(f, x_{0}) ∧ ¬x_{0} = inf(A) ⇒ lim_{ x → x_{0}^- } (f(x)) ≤ f(x_{0})))
+4. forall (f), f : RealSet → RealSet ⇒ (forall (A), A ⊆ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ A ⊆ RealSet ∧ x_{0} ∈ A ∧ BoundedFuncOn(f, A) ∧ MonoIncFuncOn(f, A) ∧ ¬ContinuousFuncAt(f, x_{0}) ∧ ¬x_{0} = sup(A) ⇒ (forall (x) (A), x ∈ RealSet ∧ A ⊆ RealSet ∧ x ∈ A ∧ x > x_{0} ⇒ f(x) ≥ f(x_{0}))))
+
+GOAL:
+forall (f), f : RealSet → RealSet ⇒ (forall (A), A ⊆ RealSet ⇒ (forall (x_{0}), x_{0} ∈ RealSet ∧ A ⊆ RealSet ∧ x_{0} ∈ A ∧ BoundedFuncOn(f, A) ∧ MonoIncFuncOn(f, A) ∧ ¬ContinuousFuncAt(f, x_{0}) ∧ ¬x_{0} = sup(A) ⇒ lim_{ x → x_{0}^+ } (f(x)) ≥ f(x_{0})))
+
+METHOD:

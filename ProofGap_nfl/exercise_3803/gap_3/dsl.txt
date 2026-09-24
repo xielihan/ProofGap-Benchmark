@@ -1,0 +1,5 @@
+get_condition (hypothesis 8: {I = DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x))}) in (GOAL: {I = DefInt(0, +∞, (fun x [x ∈ RealSet] . e^{-x^{2}}) * diff(fun x [x ∈ RealSet] . x)) ⇒ (forall (u) (t), u ∈ RealSet ∧ t ∈ RealSet ∧ u ≥ 0 ∧ t ≥ 0 ⇒ u * e^{-((1 + t^{2}) * u^{2})} ≥ 0)})
+get_forall (GOAL: {forall (u) (t), u ∈ RealSet ∧ t ∈ RealSet ∧ u ≥ 0 ∧ t ≥ 0 ⇒ u * e^{-((1 + t^{2}) * u^{2})} ≥ 0}) (u := {u0}) (t := {t0})
+get_condition (hypothesis 9: {u0 ∈ RealSet ∧ t0 ∈ RealSet ∧ u0 ≥ 0 ∧ t0 ≥ 0}) in (GOAL: {u0 ∈ RealSet ∧ t0 ∈ RealSet ∧ u0 ≥ 0 ∧ t0 ≥ 0 ⇒ u0 * e^{-((1 + t0^{2}) * u0^{2})} ≥ 0})
+destruct_and (hypothesis 9: {u0 ∈ RealSet ∧ t0 ∈ RealSet ∧ u0 ≥ 0 ∧ t0 ≥ 0}) as (hypothesis 10: {u0 ∈ RealSet}) (hypothesis 11: {t0 ∈ RealSet}) (hypothesis 12: {u0 ≥ 0}) (hypothesis 13: {t0 ≥ 0})
+autosolve all_hypothesis

@@ -1,0 +1,12 @@
+PROOF GAP @5
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet ∧ x ≠ sqrtn(2, 2) ∧ x ≠ -sqrtn(2, 2) ⇒ frac((2 - x)^{2}, 2 - x^{2}) = frac(x^{2} - 2 - 4 * x + 6, 2 - x^{2})
+3. forall (x), x ∈ RealSet ∧ x ≠ sqrtn(2, 2) ∧ x ≠ -sqrtn(2, 2) ⇒ frac(x^{2} - 2 - 4 * x + 6, 2 - x^{2}) = -1 - frac(4 * x, 2 - x^{2}) + frac(6, 2 - x^{2})
+4. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac((2 - x)^{2}, 2 - x^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = (-1 - frac(4 * x, 2 - x^{2}) + frac(6, 2 - x^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+5. { `F_4` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = (-1 - frac(4 * x, 2 - x^{2}) + frac(6, 2 - x^{2})) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_5`(x) = -x + 2 * ln(|2 - x^{2}|) + frac(3, sqrtn(2, 2)) * ln(|frac(sqrtn(2, 2) + x, sqrtn(2, 2) - x)|) + C) }
+
+GOAL:
+{ `F_6` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_6`, 1, 1)(x) = frac((2 - x)^{2}, 2 - x^{2}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_7` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_7`(x) = -x + 2 * ln(|2 - x^{2}|) + frac(3, sqrtn(2, 2)) * ln(|frac(sqrtn(2, 2) + x, sqrtn(2, 2) - x)|) + C) }
+
+METHOD:

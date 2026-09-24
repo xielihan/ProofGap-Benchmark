@@ -1,0 +1,15 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ (t = frac(a * x + b, sqrtn(2, a)) ⇒ frac(1, a) * (a * x + b)^{2} = t^{2}))}) (x := {y})
+get_condition (hypothesis 7: {y ∈ RealSet}) in (GOAL: {y ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ (t = frac(a * y + b, sqrtn(2, a)) ⇒ frac(1, a) * (a * y + b)^{2} = t^{2}))})
+get_prop (hypothesis 6: {forall (x), x ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ (t = frac(a * x + b, sqrtn(2, a)) ⇒ diff(fun x [x ∈ RealSet] . x) = frac(1, sqrtn(2, a)) * diff(fun t [t ∈ RealSet] . t)))}) (x := {y}) as (hypothesis 8: {y ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ (t = frac(a * y + b, sqrtn(2, a)) ⇒ diff(fun y [y ∈ RealSet] . y) = frac(1, sqrtn(2, a)) * diff(fun t [t ∈ RealSet] . t)))})
+use_condition (hypothesis 7: {y ∈ RealSet}) in (hypothesis 8: {y ∈ RealSet ⇒ (exists (t), t ∈ RealSet ∧ (t = frac(a * y + b, sqrtn(2, a)) ⇒ diff(fun y [y ∈ RealSet] . y) = frac(1, sqrtn(2, a)) * diff(fun t [t ∈ RealSet] . t)))}) as (hypothesis 9: {exists (t), t ∈ RealSet ∧ (t = frac(a * y + b, sqrtn(2, a)) ⇒ diff(fun y [y ∈ RealSet] . y) = frac(1, sqrtn(2, a)) * diff(fun t [t ∈ RealSet] . t))})
+get_exists (hypothesis 9: {exists (t), t ∈ RealSet ∧ (t = frac(a * y + b, sqrtn(2, a)) ⇒ diff(fun y [y ∈ RealSet] . y) = frac(1, sqrtn(2, a)) * diff(fun t [t ∈ RealSet] . t))}) (t := {s})
+destruct_and (hypothesis 10: {s ∈ RealSet ∧ (s = frac(a * y + b, sqrtn(2, a)) ⇒ diff(fun y [y ∈ RealSet] . y) = frac(1, sqrtn(2, a)) * diff(fun t [t ∈ RealSet] . t))}) as (hypothesis 11: {s ∈ RealSet}) (hypothesis 12: {s = frac(a * y + b, sqrtn(2, a)) ⇒ diff(fun y [y ∈ RealSet] . y) = frac(1, sqrtn(2, a)) * diff(fun t [t ∈ RealSet] . t)})
+get_prop (theorem 'Thm 450. (SquareRootSquareCancellation)': {forall (u), u ∈ RealSet => u >= 0 => sqrtn(2, u)^2 = u}) (u := {a}) as (hypothesis 13: {a ∈ RealSet => a >= 0 => sqrtn(2, a)^2 = a})
+use_condition (obvious: {a ∈ RealSet}) (obvious: {a >= 0}) in (hypothesis 13: {a ∈ RealSet => a >= 0 => sqrtn(2, a)^2 = a}) as (hypothesis 14: {sqrtn(2, a)^2 = a})
+assert (hypothesis 15: {s = frac(a * y + b, sqrtn(2, a)) ⇒ frac(1, a) * (a * y + b)^{2} = s^{2}}) by proof {
+  1. get_condition (hypothesis 15: {s = frac(a * y + b, sqrtn(2, a))}) in (GOAL: {s = frac(a * y + b, sqrtn(2, a)) ⇒ frac(1, a) * (a * y + b)^{2} = s^{2}})
+  2. rewrite (left_to_right, equation) (hypothesis 15: {s = frac(a * y + b, sqrtn(2, a))}); from (GOAL: {frac(1, a) * (a * y + b)^{2} = s^{2}}) to (GOAL: {frac(1, a) * (a * y + b)^{2} = frac(a * y + b, sqrtn(2, a))^{2}})
+  3. autosolve (hypothesis 1: {a ∈ RealSet ∧ a > 0}) (hypothesis 2: {b ∈ RealSet}) (hypothesis 7: {y ∈ RealSet}) (hypothesis 14: {sqrtn(2, a)^2 = a})
+}
+exists (t := {s})
+autosolve (hypothesis 11: {s ∈ RealSet}) (hypothesis 15: {s = frac(a * y + b, sqrtn(2, a)) ⇒ frac(1, a) * (a * y + b)^{2} = s^{2}})

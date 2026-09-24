@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ⇒ -frac(x^{2} + y(x)^{2}, y(x)^{3}) = -frac(25, y(x)^{3})}) (x := {x0})
+get_condition (hypothesis 7: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet ⇒ -frac(x0^{2} + y(x0)^{2}, y(x0)^{3}) = -frac(25, y(x0)^{3})})
+get_prop (hypothesis 2: {forall (x), x ∈ RealSet ⇒ x^{2} + y(x)^{2} = 25}) (x := {x0}) as (hypothesis 8: {x0 ∈ RealSet ⇒ x0^{2} + y(x0)^{2} = 25})
+use_condition (hypothesis 7: {x0 ∈ RealSet}) in (hypothesis 8: {x0 ∈ RealSet ⇒ x0^{2} + y(x0)^{2} = 25}) as (hypothesis 9: {x0^{2} + y(x0)^{2} = 25})
+rewrite (left_to_right, equation) (hypothesis 9: {x0^{2} + y(x0)^{2} = 25}); from (GOAL: {-frac(x0^{2} + y(x0)^{2}, y(x0)^{3}) = -frac(25, y(x0)^{3})}) to (GOAL: {-frac(25, y(x0)^{3}) = -frac(25, y(x0)^{3})})
+autosolve all_hypothesis

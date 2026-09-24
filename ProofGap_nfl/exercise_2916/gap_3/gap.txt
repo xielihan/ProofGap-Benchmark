@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. z ∈ ComplexSet
+2. c : NonNegIntegerSet → ComplexSet
+3. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n ∈ PosIntegerSet ⇒ c(n) = frac(1, n * 2^{n})
+4. seqlim_{ n → +∞ } (|frac(c(n), c(n + 1))|) = 2
+5. RadiusOfConvergence(c) = 2
+
+GOAL:
+ConvergentSeries(sum_{ n = 1 }^{ +∞ } (c(n) * (z - 1 - __IMAGINARY_UNIT__)^{n})) ⇔ |z - 1 - __IMAGINARY_UNIT__| < 2
+
+METHOD:

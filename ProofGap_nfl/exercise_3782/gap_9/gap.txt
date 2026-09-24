@@ -1,0 +1,17 @@
+PROOF GAP @9
+ASSUM:
+1. F : RealSet → RealSet
+2. forall (α), α ∈ RealSet ∧ 0 < α ∧ α < 1 ⇒ F(α) = DefInt(0, +∞, (fun x [x ∈ RealSet ∧ x > 0] . frac(e^{-x}, |sin(x)|^{α})) * diff(fun x [x ∈ RealSet ∧ x > 0] . x))
+3. forall (α), α ∈ RealSet ∧ 0 < α ∧ α < 1 ⇒ F(α) = sum_{ n = 0 }^{ +∞ } (DefInt(n * π, (n + 1) * π, (fun x [x ∈ RealSet ∧ n * π < x ∧ x < (n + 1) * π] . frac(e^{-x}, |sin(x)|^{α})) * diff(fun x [x ∈ RealSet ∧ n * π < x ∧ x < (n + 1) * π] . x)))
+4. forall (α), α ∈ RealSet ∧ 0 < α ∧ α < 1 ⇒ F(α) = sum_{ n = 0 }^{ +∞ } (DefInt(0, π, (fun t [t ∈ RealSet ∧ 0 < t ∧ t < π] . frac(e^{-(n * π + t)}, sin(t)^{α})) * diff(fun t [t ∈ RealSet ∧ 0 < t ∧ t < π] . t)))
+5. forall (`α_0`), `α_0` ∈ RealSet ∧ 0 < `α_0` ∧ `α_0` < 1 ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ (forall (α), α ∈ RealSet ∧ 0 < α ∧ α ≤ `α_0` ∧ n ∈ NonNegIntegerSet ⇒ DefInt(0, π, (fun t [t ∈ RealSet ∧ 0 < t ∧ t < π] . frac(e^{-(n * π + t)}, sin(t)^{α})) * diff(fun t [t ∈ RealSet ∧ 0 < t ∧ t < π] . t)) ≤ e^{-(n * π)} * DefInt(0, π, (fun t [t ∈ RealSet ∧ 0 < t ∧ t < π] . frac(1, sin(t)^{`α_0`})) * diff(fun t [t ∈ RealSet ∧ 0 < t ∧ t < π] . t))))
+6. forall (`α_0`), `α_0` ∈ RealSet ∧ 0 < `α_0` ∧ `α_0` < 1 ⇒ DefInt(0, π, (fun t [t ∈ RealSet ∧ 0 < t ∧ t < π] . frac(1, sin(t)^{`α_0`})) * diff(fun t [t ∈ RealSet ∧ 0 < t ∧ t < π] . t)) = 2 * DefInt(0, frac(π, 2), (fun t [t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2)] . frac(1, sin(t)^{`α_0`})) * diff(fun t [t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2)] . t))
+7. forall (`α_0`), `α_0` ∈ RealSet ∧ 0 < `α_0` ∧ `α_0` < 1 ⇒ DefInt(0, π, (fun t [t ∈ RealSet ∧ 0 < t ∧ t < π] . frac(1, sin(t)^{`α_0`})) * diff(fun t [t ∈ RealSet ∧ 0 < t ∧ t < π] . t)) < +∞
+8. forall (`α_0`), `α_0` ∈ RealSet ∧ 0 < `α_0` ∧ `α_0` < 1 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (e^{-(n * π)} * DefInt(0, π, (fun t [t ∈ RealSet ∧ 0 < t ∧ t < π] . frac(1, sin(t)^{`α_0`})) * diff(fun t [t ∈ RealSet ∧ 0 < t ∧ t < π] . t))))
+9. forall (`α_0`), `α_0` ∈ RealSet ∧ 0 < `α_0` ∧ `α_0` < 1 ⇒ UniformConvergent((fun N [N ∈ NonNegIntegerSet] . (fun α [α ∈ RealSet ∧ 0 < α ∧ α ≤ `α_0`] . sum_{ n = 0 }^{ N } (DefInt(0, π, (fun t [t ∈ RealSet ∧ 0 < t ∧ t < π] . frac(e^{-(n * π + t)}, sin(t)^{α})) * diff(fun t [t ∈ RealSet ∧ 0 < t ∧ t < π] . t))))), (0, `α_0`], F)
+10. forall (`α_0`), `α_0` ∈ RealSet ∧ 0 < `α_0` ∧ `α_0` < 1 ⇒ UniformConvergent((fun N [N ∈ NonNegIntegerSet] . (fun α [α ∈ RealSet ∧ 0 < α ∧ α ≤ `α_0`] . DefInt(0, (N + 1) * π, (fun x [x ∈ RealSet ∧ 0 < x ∧ x < (N + 1) * π] . frac(e^{-x}, |sin(x)|^{α})) * diff(fun x [x ∈ RealSet ∧ 0 < x ∧ x < (N + 1) * π] . x)))), (0, `α_0`], F)
+
+GOAL:
+forall (`α_0`), `α_0` ∈ RealSet ∧ 0 < `α_0` ∧ `α_0` < 1 ⇒ ContinuousFuncOn(F, (0, `α_0`])
+
+METHOD:

@@ -1,0 +1,8 @@
+rewrite (left_to_right, equation) (hypothesis 16: {δ = frac(ε^{3}, 4)}); from (GOAL: {forall (`x'`) (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ `x'` ∈ [-10, 10] ∧ `x''` ∈ [-10, 10] ∧ |`x'` - `x''`| < δ ⇒ |y(`x'`) - y(`x''`)| < ε}) to (GOAL: {forall (`x'`) (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ `x'` ∈ [-10, 10] ∧ `x''` ∈ [-10, 10] ∧ |`x'` - `x''`| < frac(ε^{3}, 4) ⇒ |y(`x'`) - y(`x''`)| < ε})
+get_forall (GOAL: {forall (`x'`) (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ `x'` ∈ [-10, 10] ∧ `x''` ∈ [-10, 10] ∧ |`x'` - `x''`| < frac(ε^{3}, 4) ⇒ |y(`x'`) - y(`x''`)| < ε}) (`x'` := {u}) (`x''` := {v})
+get_condition (hypothesis 17: {u ∈ RealSet ∧ v ∈ RealSet ∧ u ∈ [-10, 10] ∧ v ∈ [-10, 10] ∧ |u - v| < frac(ε^{3}, 4)}) in (GOAL: {u ∈ RealSet ∧ v ∈ RealSet ∧ u ∈ [-10, 10] ∧ v ∈ [-10, 10] ∧ |u - v| < frac(ε^{3}, 4) ⇒ |y(u) - y(v)| < ε})
+destruct_and (hypothesis 17: {u ∈ RealSet ∧ v ∈ RealSet ∧ u ∈ [-10, 10] ∧ v ∈ [-10, 10] ∧ |u - v| < frac(ε^{3}, 4)}) as (hypothesis 18: {u ∈ RealSet}) (hypothesis 19: {v ∈ RealSet}) (hypothesis 20: {u ∈ [-10, 10]}) (hypothesis 21: {v ∈ [-10, 10]}) (hypothesis 22: {|u - v| < frac(ε^{3}, 4)})
+assert (hypothesis 23: {u ∈ RealSet ∧ v ∈ RealSet ∧ |u - v| < frac(ε^{3}, 4)})
+get_prop (hypothesis 15: {forall (`x'`) (`x''`), `x'` ∈ RealSet ∧ `x''` ∈ RealSet ∧ |`x'` - `x''`| < frac(ε^{3}, 4) ⇒ |y(`x'`) - y(`x''`)| < ε}) (`x'` := {u}) (`x''` := {v}) as (hypothesis 24: {u ∈ RealSet ∧ v ∈ RealSet ∧ |u - v| < frac(ε^{3}, 4) ⇒ |y(u) - y(v)| < ε})
+use_condition (hypothesis 23: {u ∈ RealSet ∧ v ∈ RealSet ∧ |u - v| < frac(ε^{3}, 4)}) in (hypothesis 24: {u ∈ RealSet ∧ v ∈ RealSet ∧ |u - v| < frac(ε^{3}, 4) ⇒ |y(u) - y(v)| < ε}) as (hypothesis 25: {|y(u) - y(v)| < ε})
+apply (hypothesis 25: {|y(u) - y(v)| < ε})

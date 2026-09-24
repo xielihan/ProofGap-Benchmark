@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ ComplexSet ∧ x ≠ 0
+2. Splus : ComplexSet → ComplexSet
+3. Sminus : ComplexSet → ComplexSet
+
+GOAL:
+sum_{ n = -∞ }^{ +∞ } (frac(n, 2^{|n|}) * x^{n}) = (sum_{ n = 1 }^{ +∞ } (frac(n, 2^{n}) * x^{n})) + (sum_{ n = 1 }^{ +∞ } (frac(-n, 2^{n}) * x^{-n}))
+
+METHOD:

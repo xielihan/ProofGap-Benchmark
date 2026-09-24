@@ -1,0 +1,17 @@
+PROOF GAP @5
+ASSUM:
+1. m ∈ NonNegIntegerSet
+2. n ∈ NonNegIntegerSet
+3. x ∈ RealSet
+4. m ∈ PosIntegerSet
+5. n ∈ PosIntegerSet
+6. m ≠ n
+7. x ≠ 0 ⇒ cosh(x) > 0
+8. x ≠ 0 ⇒ sinh(x) ≠ 0
+9. x ≠ 0 ⇒ lim_{ x → 0 } (ln(cosh(x)) / (sqrtn(m, cosh(x)) - sqrtn(n, cosh(x)))) = lim_{ x → 0 } (tanh(x) / (sinh(x) * (frac(1, m) * cosh(x)^{frac(1, m) - 1} - frac(1, n) * cosh(x)^{frac(1, n) - 1})))
+10. x ≠ 0 ⇒ lim_{ x → 0 } (tanh(x) / (sinh(x) * (frac(1, m) * cosh(x)^{frac(1, m) - 1} - frac(1, n) * cosh(x)^{frac(1, n) - 1}))) = frac(1, frac(1, m) - frac(1, n))
+
+GOAL:
+x ≠ 0 ⇒ frac(1, frac(1, m) - frac(1, n)) = frac(m * n, n - m)
+
+METHOD:

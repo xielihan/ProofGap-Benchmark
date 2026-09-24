@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. S : RealSet → RealSet
+2. P : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+3. forall (n) (x) (k), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ x ≠ 1 ∧ k ∈ NonNegIntegerSet ∧ k ≤ n ⇒ P(n, x) = sum_{ k = 0 }^{ n } (x^{k})
+4. forall (n) (x), n ∈ NonNegIntegerSet ∧ x ∈ RealSet ∧ x ≠ 1 ⇒ P(n, x) = frac(1 - x^{n + 1}, 1 - x)
+5. forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ seqlim_{ n → +∞ } (P(n, x)) = frac(1, 1 - x)
+6. forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ S(x) = frac(1, 1 - x)
+
+GOAL:
+forall (x), x ∈ RealSet ∧ |x| < 1 ⇒ ConvergentSeriesTo(sum_{ n = 0 }^{ +∞ } (x^{n}), frac(1, 1 - x))
+
+METHOD:

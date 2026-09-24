@@ -1,0 +1,6 @@
+get_prop (hypothesis 24: {forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ 6 ⇒ x_{i} = i * h ∧ y_{i} = f(x_{i})}) (i := {5}) as (hypothesis 38: {5 ∈ IntegerSet ∧ 0 ≤ 5 ∧ 5 ≤ 6 ⇒ x_{5} = 5 * h ∧ y_{5} = f(x_{5})})
+use_condition (obvious: {5 ∈ IntegerSet ∧ 0 ≤ 5 ∧ 5 ≤ 6}) in (hypothesis 38: {5 ∈ IntegerSet ∧ 0 ≤ 5 ∧ 5 ≤ 6 ⇒ x_{5} = 5 * h ∧ y_{5} = f(x_{5})}) as (hypothesis 39: {x_{5} = 5 * h ∧ y_{5} = f(x_{5})})
+destruct_and (hypothesis 39: {x_{5} = 5 * h ∧ y_{5} = f(x_{5})}) as (hypothesis 40: {x_{5} = 5 * h}) (hypothesis 41: {y_{5} = f(x_{5})})
+rewrite (left_to_right, equation) (hypothesis 23: {h = frac(π, 6)}); from (hypothesis 40: {x_{5} = 5 * h}) to (hypothesis 42: {x_{5} = 5 * frac(π, 6)})
+autoreplace no_hypothesis; from (5 * frac(π, 6)) to (frac(5 * π, 6)); from (hypothesis 42: {x_{5} = 5 * frac(π, 6)}) to (hypothesis 43: {x_{5} = frac(5 * π, 6)})
+apply (hypothesis 43: {x_{5} = frac(5 * π, 6)})

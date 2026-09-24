@@ -1,0 +1,16 @@
+PROOF GAP @3
+ASSUM:
+1. y : RealSet → RealSet
+2. m ∈ NonNegIntegerSet
+3. n ∈ NonNegIntegerSet
+4. m ∈ PosIntegerSet
+5. n ∈ PosIntegerSet
+6. Odd(m)
+7. forall (x), x ∈ RealSet ⇒ y(x) = x^{m} * (1 - x)^{n}
+8. forall (x), x ∈ RealSet ⇒ FunDeri(y, 1, 1)(x) = x^{m - 1} * (1 - x)^{n - 1} * (m - (m + n) * x)
+9. forall (x), x ∈ RealSet ∧ FunDeri(y, 1, 1)(x) = 0 ⇒ x = 0 ∨ x = 1 ∨ x = frac(m, m + n)
+
+GOAL:
+exists (δ), δ ∈ RealSet ∧ δ > 0 ∧ (forall (x), x ∈ RealSet ∧ x ∈ IntervalLoRo(-δ, δ) ∧ x ≠ 0 ⇒ sgn(FunDeri(y, 1, 1)(x)) = sgn(FunDeri(y, 1, 1)(frac(x, 2))))
+
+METHOD:

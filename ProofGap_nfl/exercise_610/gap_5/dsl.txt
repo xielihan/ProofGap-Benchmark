@@ -1,0 +1,7 @@
+get_condition (hypothesis 27: {L ∈ RealSet}) in (GOAL: {L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ x > X_{0} + 1 ⇒ x = X_{0} + τ + m)})
+get_forall (GOAL: {forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ x > X_{0} + 1 ⇒ x = X_{0} + τ + m}) (ε := {eps})
+get_condition (hypothesis 28: {eps ∈ RealSet ∧ eps > 0 ∧ x > X_{0} + 1}) in (GOAL: {eps ∈ RealSet ∧ eps > 0 ∧ x > X_{0} + 1 ⇒ x = X_{0} + τ + m})
+use_condition (hypothesis 27: {L ∈ RealSet}) in (hypothesis 24: {L ∈ RealSet ⇒ (forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ x > X_{0} + 1 ⇒ τ = x - X_{0} - m)}) as (hypothesis 29: {forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ x > X_{0} + 1 ⇒ τ = x - X_{0} - m})
+get_prop (hypothesis 29: {forall (ε), ε ∈ RealSet ∧ ε > 0 ∧ x > X_{0} + 1 ⇒ τ = x - X_{0} - m}) (ε := {eps}) as (hypothesis 30: {eps ∈ RealSet ∧ eps > 0 ∧ x > X_{0} + 1 ⇒ τ = x - X_{0} - m})
+use_condition (hypothesis 28: {eps ∈ RealSet ∧ eps > 0 ∧ x > X_{0} + 1}) in (hypothesis 30: {eps ∈ RealSet ∧ eps > 0 ∧ x > X_{0} + 1 ⇒ τ = x - X_{0} - m}) as (hypothesis 31: {τ = x - X_{0} - m})
+autosolve (hypothesis 31: {τ = x - X_{0} - m})

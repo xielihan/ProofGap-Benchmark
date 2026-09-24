@@ -1,0 +1,3 @@
+get_forall (GOAL: {forall (C), C ∈ RealSet}) (C := {C0})
+get_prop (hypothesis 8: {forall (C_{1}), C_{1} ∈ RealSet}) (C_{1} := {C0}) as (hypothesis 10: {C0 ∈ RealSet})
+apply (hypothesis 10: {C0 ∈ RealSet})

@@ -1,0 +1,23 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. x : RealSet → RealSet
+4. y : RealSet → RealSet
+5. s ∈ RealSet
+6. ε ∈ RealSet
+7. a = 1
+8. b = frac(1, 2)
+9. forall (t), t ∈ RealSet ⇒ x(t) = a * sin(t)
+10. forall (t), t ∈ RealSet ⇒ y(t) = b * cos(t)
+11. ε = frac(sqrtn(2, a^{2} - b^{2}), a)
+12. s = DefInt(0, 2 * π, (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ 2 * π] . sqrtn(2, FunDeri(x, 1, 1)(t)^{2} + FunDeri(y, 1, 1)(t)^{2})) * diff(fun t [t ∈ RealSet] . t))
+13. forall (t), t ∈ RealSet ⇒ FunDeri(x, 1, 1)(t) = a * cos(t) ∧ FunDeri(y, 1, 1)(t) = -b * sin(t)
+14. forall (t), t ∈ RealSet ⇒ sqrtn(2, FunDeri(x, 1, 1)(t)^{2} + FunDeri(y, 1, 1)(t)^{2}) = sqrtn(2, a^{2} * cos(t)^{2} + b^{2} * sin(t)^{2})
+15. forall (t), t ∈ RealSet ⇒ sqrtn(2, a^{2} * cos(t)^{2} + b^{2} * sin(t)^{2}) = a * sqrtn(2, 1 - ε^{2} * sin(t)^{2})
+16. s = 4 * a * DefInt(0, frac(π, 2), (fun t [t ∈ RealSet ∧ 0 ≤ t ∧ t ≤ frac(π, 2)] . sqrtn(2, 1 - ε^{2} * sin(t)^{2})) * diff(fun t [t ∈ RealSet] . t))
+
+GOAL:
+4.844 < s ∧ s < 4.845
+
+METHOD:

@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. p ∈ RealSet
+2. I ∈ RealSet
+3. I = DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . DefInt(1 - x, +∞, (fun y [y ∈ RealSet ∧ y ≥ 1 - x] . frac(1, (x + y)^{p})) * diff(fun y [y ∈ RealSet ∧ y ≥ 1 - x] . y))) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x))
+
+GOAL:
+I = DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . DefInt(1 - x, +∞, (fun y [y ∈ RealSet ∧ y ≥ 1 - x] . frac(1, (x + y)^{p})) * diff(fun y [y ∈ RealSet ∧ y ≥ 1 - x] . y))) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x))
+
+METHOD:

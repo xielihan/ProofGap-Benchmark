@@ -1,0 +1,20 @@
+PROOF GAP @13
+ASSUM:
+1. x ∈ RealSet ∧ |x| > 1
+2. t ∈ RealSet
+3. C ∈ RealSet
+4. forall (x), x ∈ RealSet ∧ x > 1 ⇒ (exists (t), t ∈ RealSet ∧ 0 < t ∧ t < frac(π, 2) ∧ x = sec(t))
+5. forall (x) (t), x ∈ RealSet ∧ t ∈ RealSet ∧ x > 1 ∧ 0 < t ∧ t < frac(π, 2) ∧ x = sec(t) ⇒ diff(fun x [x ∈ RealSet] . x) = sec(t) * tan(t) * diff(fun t [t ∈ RealSet] . t)
+6. forall (x) (t), x ∈ RealSet ∧ t ∈ RealSet ∧ x > 1 ∧ 0 < t ∧ t < frac(π, 2) ∧ x = sec(t) ⇒ sqrtn(2, x^{2} - 1) = tan(t)
+7. forall (x) (t), x ∈ RealSet ∧ t ∈ RealSet ∧ x > 1 ∧ 0 < t ∧ t < frac(π, 2) ∧ x = sec(t) ⇒ frac(1, (x^{2} + 1) * sqrtn(2, x^{2} - 1)) * diff(fun x [x ∈ RealSet] . x) = frac(sec(t), 1 + sec(t)^{2}) * diff(fun t [t ∈ RealSet] . t)
+8. forall (x), x ∈ RealSet ∧ x < -1 ⇒ (exists (t), t ∈ RealSet ∧ π < t ∧ t < frac(3 * π, 2) ∧ x = sec(t))
+9. forall (x) (t), x ∈ RealSet ∧ t ∈ RealSet ∧ x < -1 ∧ π < t ∧ t < frac(3 * π, 2) ∧ x = sec(t) ⇒ diff(fun x [x ∈ RealSet] . x) = sec(t) * tan(t) * diff(fun t [t ∈ RealSet] . t)
+10. forall (x) (t), x ∈ RealSet ∧ t ∈ RealSet ∧ x < -1 ∧ π < t ∧ t < frac(3 * π, 2) ∧ x = sec(t) ⇒ sqrtn(2, x^{2} - 1) = tan(t)
+11. forall (x) (t), x ∈ RealSet ∧ t ∈ RealSet ∧ x < -1 ∧ π < t ∧ t < frac(3 * π, 2) ∧ x = sec(t) ⇒ frac(1, (x^{2} + 1) * sqrtn(2, x^{2} - 1)) * diff(fun x [x ∈ RealSet] . x) = frac(sec(t), 1 + sec(t)^{2}) * diff(fun t [t ∈ RealSet] . t)
+12. { `F_{+}` | forall (x), x ∈ RealSet ∧ x > 1 ⇒ FunDeri(`F_{+}`, 1, 1)(x) = frac(1, (x^{2} + 1) * sqrtn(2, x^{2} - 1)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `G_{+}` | exists (C_{+}), C_{+} ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x > 1 ⇒ `G_{+}`(x) = frac(1, 2 * sqrtn(2, 2)) * ln(|frac(x * sqrtn(2, 2) + sqrtn(2, x^{2} - 1), x * sqrtn(2, 2) - sqrtn(2, x^{2} - 1))|) + C_{+}) }
+13. { `F_{-}` | forall (x), x ∈ RealSet ∧ x < -1 ⇒ FunDeri(`F_{-}`, 1, 1)(x) = frac(1, (x^{2} + 1) * sqrtn(2, x^{2} - 1)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `G_{-}` | exists (C_{-}), C_{-} ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x < -1 ⇒ `G_{-}`(x) = frac(1, 2 * sqrtn(2, 2)) * ln(|frac(x * sqrtn(2, 2) + sqrtn(2, x^{2} - 1), x * sqrtn(2, 2) - sqrtn(2, x^{2} - 1))|) + C_{-}) }
+
+GOAL:
+{ `F_12` | forall (x), x ∈ RealSet ∧ |x| > 1 ⇒ FunDeri(`F_12`, 1, 1)(x) = frac(1, (x^{2} + 1) * sqrtn(2, x^{2} - 1)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_13` | exists (C_{-}) (C_{+}), C_{-} ∈ RealSet ∧ C_{+} ∈ RealSet ∧ (forall (x), x ∈ RealSet ∧ x < -1 ⇒ `F_13`(x) = frac(1, 2 * sqrtn(2, 2)) * ln(|frac(x * sqrtn(2, 2) + sqrtn(2, x^{2} - 1), x * sqrtn(2, 2) - sqrtn(2, x^{2} - 1))|) + C_{-}) ∧ (forall (x), x ∈ RealSet ∧ x > 1 ⇒ `F_13`(x) = frac(1, 2 * sqrtn(2, 2)) * ln(|frac(x * sqrtn(2, 2) + sqrtn(2, x^{2} - 1), x * sqrtn(2, 2) - sqrtn(2, x^{2} - 1))|) + C_{+}) }
+
+METHOD:

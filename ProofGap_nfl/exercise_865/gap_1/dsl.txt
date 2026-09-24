@@ -1,0 +1,1 @@
+1. apply (hypothesis 4: {forall (x), x ∈ RealSet ⇒ y(x) = sin(x)^{n} * cos(n * x)})

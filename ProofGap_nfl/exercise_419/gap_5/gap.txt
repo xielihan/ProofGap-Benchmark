@@ -1,0 +1,11 @@
+PROOF GAP @5
+ASSUM:
+1. forall (x), x ∈ RealSet ∧ x ≠ 1 ⇒ frac(x^{3} - 3 * x + 2, x^{4} - 4 * x + 3) = frac((x - 1)^{2} * (x + 2), (x - 1)^{2} * (x^{2} + 2 * x + 3)) ∧ frac((x - 1)^{2} * (x + 2), (x - 1)^{2} * (x^{2} + 2 * x + 3)) = frac(x + 2, x^{2} + 2 * x + 3)
+2. lim_{ x → 1 } (frac(x^{3} - 3 * x + 2, x^{4} - 4 * x + 3)) = lim_{ x → 1 } (frac(x + 2, x^{2} + 2 * x + 3))
+3. lim_{ x → 1 } (frac(x + 2, x^{2} + 2 * x + 3)) = frac(3, 6)
+4. frac(3, 6) = frac(1, 2)
+
+GOAL:
+lim_{ x → 1 } (frac(x^{3} - 3 * x + 2, x^{4} - 4 * x + 3)) = frac(1, 2)
+
+METHOD:

@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ x(n) > sqrtn(2, a)}) (n := {k})
+get_condition (hypothesis 11: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2}) in (GOAL: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2 ⇒ x(k) > sqrtn(2, a)})
+get_prop (hypothesis 9: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n ≥ 2 ⇒ sqrtn(2, a) < x(n - 1) ∧ x(n - 1) < x(n)}) (n := {k}) as (hypothesis 12: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2 ⇒ sqrtn(2, a) < x(k - 1) ∧ x(k - 1) < x(k)})
+use_condition (hypothesis 11: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2}) in (hypothesis 12: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≥ 2 ⇒ sqrtn(2, a) < x(k - 1) ∧ x(k - 1) < x(k)}) as (hypothesis 13: {sqrtn(2, a) < x(k - 1) ∧ x(k - 1) < x(k)})
+destruct_and (hypothesis 13: {sqrtn(2, a) < x(k - 1) ∧ x(k - 1) < x(k)}) as (hypothesis 14: {sqrtn(2, a) < x(k - 1)}) (hypothesis 15: {x(k - 1) < x(k)})
+autosolve (hypothesis 14: {sqrtn(2, a) < x(k - 1)}) (hypothesis 15: {x(k - 1) < x(k)})

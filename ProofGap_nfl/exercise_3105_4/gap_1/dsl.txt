@@ -1,0 +1,2 @@
+1. rewrite (right_to_left, equation) (hypothesis 6: {Eq(Γ(1), 1)}) from (GOAL: {Impl(Eq(n, 1), Eq(Γ(n), 1))}) to (GOAL: {Impl(Eq(n, Γ(1)), Eq(Γ(n), 1))})
+2. autosolve all_hypothesis

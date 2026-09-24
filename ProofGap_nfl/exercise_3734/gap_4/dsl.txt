@@ -1,0 +1,3 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet ∧ 0 < x ∧ x < frac(π, 2) ⇒ FunDeri(g, 2, 1)(x, a) = frac(1, tan(x)) * frac(tan(x), 1 + a^{2} * tan(x)^{2})}) (x := {x0})
+get_condition (hypothesis 10: {x0 ∈ RealSet ∧ 0 < x0 ∧ x0 < frac(π, 2)}) in (GOAL: {x0 ∈ RealSet ∧ 0 < x0 ∧ x0 < frac(π, 2) ⇒ FunDeri(g, 2, 1)(x0, a) = frac(1, tan(x0)) * frac(tan(x0), 1 + a^{2} * tan(x0)^{2})})
+autosolve (hypothesis 1: {a ∈ RealSet}) (hypothesis 5: {forall (x) (a), x ∈ RealSet ∧ a ∈ RealSet ∧ 0 < x ∧ x < frac(π, 2) ⇒ g(x, a) = frac(arctan(a * tan(x)), tan(x))}) (hypothesis 10: {x0 ∈ RealSet ∧ 0 < x0 ∧ x0 < frac(π, 2)})

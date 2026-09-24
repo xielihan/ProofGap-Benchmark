@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+
+GOAL:
+ContinuousFunc(fun t [t ∈ RealSet] . sqrtn(2, 1 + t^{2}))
+
+METHOD:

@@ -1,0 +1,18 @@
+PROOF GAP @6
+ASSUM:
+1. a : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+2. s : CartesianProd(NonNegIntegerSet, RealSet) → RealSet
+3. S : RealSet → RealSet
+4. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ a(n, x) = frac(cos(frac(2 * n * π, 3)), sqrtn(2, n^{2} + x^{2}))
+5. forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ s(n, x) = sum_{ k = 1 }^{ n } (frac(cos(frac(2 * k * π, 3)), sqrtn(2, k^{2} + x^{2})))
+6. forall (x), x ∈ RealSet ⇒ S(x) = sum_{ n = 1 }^{ +∞ } (frac(cos(frac(2 * n * π, 3)), sqrtn(2, n^{2} + x^{2})))
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ |sum_{ k = 1 }^{ n } (cos(frac(2 * k * π, 3)))| ≤ frac(1, |sin(frac(π, 3))|) ∧ frac(1, |sin(frac(π, 3))|) = frac(2, sqrtn(2, 3))
+8. forall (x), x ∈ RealSet ⇒ MonoDecSeq(fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . frac(1, sqrtn(2, n^{2} + x^{2})))
+9. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < frac(1, sqrtn(2, n^{2} + x^{2})) ∧ frac(1, sqrtn(2, n^{2} + x^{2})) ≤ frac(1, n))
+10. forall (ε), ε ∈ RealSet ∧ ε > 0 ⇒ (exists (N), N ∈ NonNegIntegerSet ∧ N ∈ PosIntegerSet ∧ (forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ∧ n > N ⇒ frac(1, sqrtn(2, n^{2} + x^{2})) < ε))
+11. UniformConvergent(s, RealSet, S)
+
+GOAL:
+forall (u) (v) (L), u : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ∧ v : CartesianProd(NonNegIntegerSet, RealSet) → RealSet ∧ L : RealSet → RealSet ∧ (forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ u(n, x) = frac(cos(frac(2 * n * π, 3)), sqrtn(2, n^{2} + x^{2}))) ∧ (forall (n) (x), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ x ∈ RealSet ⇒ v(n, x) = sum_{ k = 1 }^{ n } (u(k, x))) ∧ (forall (x), x ∈ RealSet ⇒ L(x) = sum_{ n = 1 }^{ +∞ } (u(n, x))) ⇒ UniformConvergent(v, RealSet, L)
+
+METHOD:

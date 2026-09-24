@@ -1,0 +1,22 @@
+PROOF GAP @11
+ASSUM:
+1. C ∈ RealSet
+2. x ∈ RealSet
+3. z ∈ RealSet
+4. x^{2} + 3 * x + 2 ≥ 0
+5. x + sqrtn(2, x^{2} + 3 * x + 2) ≠ 0
+6. sqrtn(2, x^{2} + 3 * x + 2) = z * (x + 1) ⇒ z ∈ RealSet
+7. sqrtn(2, x^{2} + 3 * x + 2) = z * (x + 1) ⇒ x + 1 ≠ 0
+8. sqrtn(2, x^{2} + 3 * x + 2) = z * (x + 1) ⇒ x = frac(2 - z^{2}, z^{2} - 1)
+9. sqrtn(2, x^{2} + 3 * x + 2) = z * (x + 1) ⇒ diff(fun x [x ∈ RealSet] . x) = -frac(2 * z, (z^{2} - 1)^{2}) * diff(fun z [z ∈ RealSet] . z)
+10. sqrtn(2, x^{2} + 3 * x + 2) = z * (x + 1) ⇒ sqrtn(2, x^{2} + 3 * x + 2) = frac(z, z^{2} - 1)
+11. sqrtn(2, x^{2} + 3 * x + 2) = z * (x + 1) ⇒ z^{2} - 1 ≠ 0
+12. sqrtn(2, x^{2} + 3 * x + 2) = z * (x + 1) ⇒ { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(x - sqrtn(2, x^{2} + 3 * x + 2), x + sqrtn(2, x^{2} + 3 * x + 2)) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (z), z ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(z) = frac(2 * z * (2 - z - z^{2}), (z^{2} - z - 2) * (z^{2} - 1)^{2}) * FunDeri(fun z [z ∈ RealSet] . z, 1, 1)(z) }
+13. sqrtn(2, x^{2} + 3 * x + 2) = z * (x + 1) ⇒ z^{2} - z - 2 ≠ 0
+14. sqrtn(2, x^{2} + 3 * x + 2) = z * (x + 1) ⇒ z^{2} - 1 ≠ 0
+15. sqrtn(2, x^{2} + 3 * x + 2) = z * (x + 1) ⇒ frac(2 * z * (2 - z - z^{2}), (z^{2} - z - 2) * (z^{2} - 1)^{2}) = -frac(17, 108 * (z + 1)) + frac(5, 18 * (z + 1)^{2}) + frac(1, 3 * (z + 1)^{3}) + frac(3, 4 * (z - 1)) - frac(16, 27 * (z - 2))
+
+GOAL:
+sqrtn(2, x^{2} + 3 * x + 2) = z * (x + 1) ⇒ z ≠ -1
+
+METHOD:

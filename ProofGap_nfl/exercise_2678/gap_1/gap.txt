@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. a = (fun n [n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet] . (-1)^{n - 1} * (2^{n} * sin(x)^{2 * n} / n))
+
+GOAL:
+seqlim_{ n → +∞ } (sqrtn(n, |a(n)|)) = (sqrtn(2, 2) * sin(x))^{2}
+
+METHOD:

@@ -1,0 +1,26 @@
+PROOF GAP @13
+ASSUM:
+1. p ∈ RealSet
+2. φ : CartesianProd(RealSet, RealSet) → RealSet
+3. D ⊆ CartesianProd(RealSet, RealSet)
+4. forall (z), z ∈ CartesianProd(RealSet, RealSet) ⇒ (z ∈ D ⇔ (exists (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ z = (x, y) ∧ x^{2} + y^{2} ≤ 1))
+5. Defined(φ, D)
+6. ContinuousFuncOn(φ, D)
+7. BoundedFuncOn(φ, D)
+8. exists (m) (M), m ∈ RealSet ∧ M ∈ RealSet ∧ (forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} < 1 ⇒ frac(m, (1 - x^{2} - y^{2})^{p}) ≤ frac(|φ(x, y)|, (1 - x^{2} - y^{2})^{p}) ∧ frac(|φ(x, y)|, (1 - x^{2} - y^{2})^{p}) ≤ frac(M, (1 - x^{2} - y^{2})^{p}))
+9. VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(φ(x, y), (1 - x^{2} - y^{2})^{p})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) < +∞ ⇔ VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, (1 - x^{2} - y^{2})^{p})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) < +∞
+10. VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, (1 - x^{2} - y^{2})^{p})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = DefInt(0, 2 * π, (fun θ [θ ∈ RealSet] . 1) * diff(fun θ [θ ∈ RealSet] . θ)) * DefInt(0, 1, (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r < 1] . frac(r, (1 - r^{2})^{p})) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r < 1] . r))
+11. DefInt(0, 2 * π, (fun θ [θ ∈ RealSet] . 1) * diff(fun θ [θ ∈ RealSet] . θ)) * DefInt(0, 1, (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r < 1] . frac(r, (1 - r^{2})^{p})) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r < 1] . r)) = 2 * π * DefInt(0, 1, (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r < 1] . frac(r, (1 - r)^{p} * (1 + r)^{p})) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r < 1] . r))
+12. lim_{ r → 1^- } ((1 - r)^{p} * frac(r, (1 - r)^{p} * (1 + r)^{p})) = 2^{-p}
+13. p < 1 ⇒ DefInt(0, 1, (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r < 1] . frac(r, (1 - r)^{p} * (1 + r)^{p})) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r < 1] . r)) < +∞
+14. p < 1 ⇒ VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, (1 - x^{2} - y^{2})^{p})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) < +∞
+15. p > 1 ⇒ DefInt(0, 1, (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r < 1] . frac(r, (1 - r)^{p} * (1 + r)^{p})) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r < 1] . r)) = +∞
+16. p > 1 ⇒ VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, (1 - x^{2} - y^{2})^{p})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = +∞
+17. p = 1 ⇒ DefInt(0, 1, (fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r < 1] . frac(r, 1 - r^{2})) * diff(fun r [r ∈ RealSet ∧ 0 ≤ r ∧ r < 1] . r)) = lim_{ r → 1^- } (-frac(1, 2) * ln(1 - r^{2}))
+18. p = 1 ⇒ lim_{ r → 1^- } (-frac(1, 2) * ln(1 - r^{2})) = +∞
+19. p = 1 ⇒ VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(1, (1 - x^{2} - y^{2})^{p})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) = +∞
+
+GOAL:
+VolumeInt(D, (fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . frac(φ(x, y), (1 - x^{2} - y^{2})^{p})) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . x) * diff(fun x, y [x ∈ RealSet ∧ y ∈ RealSet] . y)) < +∞ ⇔ p < 1
+
+METHOD:

@@ -1,0 +1,9 @@
+get_condition (hypothesis 27: {α ≥ 0}) in (GOAL: {α ≥ 0 ⇒ β ≥ 0 ⇒ α > 0 ⇒ β > 0 ⇒ (exists (C), C : RealSet → RealSet ∧ FunDeri(I, 1, 1)(α, β) = 2 * π * α * β - 2 * π * α^{2} * ln(α + β) + C(α))})
+get_condition (hypothesis 28: {β ≥ 0}) in (GOAL: {β ≥ 0 ⇒ α > 0 ⇒ β > 0 ⇒ (exists (C), C : RealSet → RealSet ∧ FunDeri(I, 1, 1)(α, β) = 2 * π * α * β - 2 * π * α^{2} * ln(α + β) + C(α))})
+get_condition (hypothesis 29: {α > 0}) in (GOAL: {α > 0 ⇒ β > 0 ⇒ (exists (C), C : RealSet → RealSet ∧ FunDeri(I, 1, 1)(α, β) = 2 * π * α * β - 2 * π * α^{2} * ln(α + β) + C(α))})
+get_condition (hypothesis 30: {β > 0}) in (GOAL: {β > 0 ⇒ (exists (C), C : RealSet → RealSet ∧ FunDeri(I, 1, 1)(α, β) = 2 * π * α * β - 2 * π * α^{2} * ln(α + β) + C(α))})
+use_condition (hypothesis 27: {α ≥ 0}) (hypothesis 28: {β ≥ 0}) (hypothesis 29: {α > 0}) (hypothesis 30: {β > 0}) in (hypothesis 25: {α ≥ 0 ⇒ β ≥ 0 ⇒ α > 0 ⇒ β > 0 ⇒ FunDeri(I, 1, 1)(α, β) = J(α, β)}) as (hypothesis 31: {FunDeri(I, 1, 1)(α, β) = J(α, β)})
+use_condition (hypothesis 27: {α ≥ 0}) (hypothesis 28: {β ≥ 0}) (hypothesis 29: {α > 0}) (hypothesis 30: {β > 0}) in (hypothesis 26: {α ≥ 0 ⇒ β ≥ 0 ⇒ α > 0 ⇒ β > 0 ⇒ (exists (C), C : RealSet → RealSet ∧ J(α, β) = 2 * π * α * β - 2 * π * α^{2} * ln(α + β) + C(α))}) as (hypothesis 32: {exists (C), C : RealSet → RealSet ∧ J(α, β) = 2 * π * α * β - 2 * π * α^{2} * ln(α + β) + C(α)})
+get_exists (hypothesis 32: {exists (C), C : RealSet → RealSet ∧ J(α, β) = 2 * π * α * β - 2 * π * α^{2} * ln(α + β) + C(α)}) (C := {C0})
+exists (C := {C0})
+autosolve all_hypothesis

@@ -1,0 +1,2 @@
+1. get_forall (GOAL: {forall (t), (Impl(And(And(And(Belong(t, RealSet), Neq(t, 0)), Neq(t, 1)), Neq(t, Neg(1))), Eq(frac(Minus(Mult(2, t), frac(2, Power(t, 3))), Minus(1, frac(1, Power(t, 2)))), Mult(2, Plus(t, frac(1, t))))))}) (t := {t})
+2. autosolve all_hypothesis

@@ -1,0 +1,5 @@
+get_prop (hypothesis 9: {forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i ≤ 10 => x(i) = i * h ∧ y(i) = f(x(i))}) (i := {8}) as (hypothesis 26: {8 ∈ IntegerSet ∧ 0 ≤ 8 ∧ 8 ≤ 10 => x(8) = 8 * h ∧ y(8) = f(x(8))})
+use_condition (obvious: {8 ∈ IntegerSet ∧ 0 ≤ 8 ∧ 8 ≤ 10}) in (hypothesis 26: {8 ∈ IntegerSet ∧ 0 ≤ 8 ∧ 8 ≤ 10 => x(8) = 8 * h ∧ y(8) = f(x(8))}) as (hypothesis 27: {x(8) = 8 * h ∧ y(8) = f(x(8))})
+destruct_and (hypothesis 27: {x(8) = 8 * h ∧ y(8) = f(x(8))}) as (hypothesis 28: {x(8) = 8 * h}) (hypothesis 29: {y(8) = f(x(8))})
+rewrite (left_to_right, equation) (hypothesis 7: {h = frac(1, 10)}); from (hypothesis 28: {x(8) = 8 * h}) to (hypothesis 28: {x(8) = 8 * frac(1, 10)})
+autosolve (hypothesis 28: {x(8) = 8 * frac(1, 10)})

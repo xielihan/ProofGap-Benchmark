@@ -1,0 +1,15 @@
+PROOF GAP @5
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. a < b
+4. f = (fun x [x ∈ RealSet] . cases{ 1 if x ∈ RationalSet; -1 if x ∉ RationalSet })
+5. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ |f(x)| = 1
+6. ContinuousFuncOn(fun x [x ∈ RealSet] . |f(x)|, [a, b])
+7. IntegrableFuncOn(fun x [x ∈ RealSet] . |f(x)|, [a, b])
+8. forall (x), x : NonNegIntegerSet → RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (i), i ∈ IntegerSet ∧ 0 ≤ i ∧ i < n ⇒ OscillationOn(f, [x(i), x(i + 1)]) = 2))
+
+GOAL:
+forall (x), x : NonNegIntegerSet → RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ sum_{ i = 0 }^{ n - 1 } (OscillationOn(f, [x(i), x(i + 1)]) * (x(i + 1) - x(i))) = 2 * (b - a))
+
+METHOD:

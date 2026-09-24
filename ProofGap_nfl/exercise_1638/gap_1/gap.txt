@@ -1,0 +1,9 @@
+PROOF GAP @1
+ASSUM:
+1. x ∈ RealSet
+2. x ≠ 0
+
+GOAL:
+sqrtn(2, x^{4} + x^{-4} + 2) = x^{2} + frac(1, x^{2})
+
+METHOD:

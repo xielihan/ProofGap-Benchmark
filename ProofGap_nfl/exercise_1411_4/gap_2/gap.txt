@@ -1,0 +1,11 @@
+PROOF GAP @2
+ASSUM:
+1. x ∈ RealSet ∧ x ≠ 0 ∧ 1 + frac(x, 100) > 0
+2. ε ∈ RealSet ∧ ε > 0
+3. |x| ≈_{ ε } 0
+4. ln(1 + frac(x, 100)) ≈_{ frac(x^{2}, 20000) } frac(x, 100) - frac(x^{2}, 20000)
+
+GOAL:
+frac(ln(2), ln(1 + frac(x, 100))) ≈_{ ε } frac(ln(2), frac(x, 100))
+
+METHOD:

@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. φ = (fun x [x ∈ RealSet] . sqrtn(3, 1 + x) - 1)
+2. ψ = (fun x [x ∈ RealSet] . frac(x, 3))
+3. α = (fun k, n [k ∈ NonNegIntegerSet ∧ n ∈ NonNegIntegerSet ∧ n > 0] . frac(k, n^{2}))
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ frac(sqrtn(3, 1 + x) - 1, frac(x, 3)) = frac(3, sqrtn(3, (1 + x)^{2}) + sqrtn(3, 1 + x) + 1)
+
+METHOD:

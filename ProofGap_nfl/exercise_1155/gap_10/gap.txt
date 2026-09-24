@@ -1,0 +1,23 @@
+PROOF GAP @10
+ASSUM:
+1. x : RealSet → RealSet
+2. y : RealSet → RealSet
+3. ω ∈ RealSet
+4. v : RealSet → RealSet
+5. w : RealSet → RealSet
+6. forall (t), t ∈ RealSet ⇒ x(t) = 4 * sin(ω * t) - 3 * cos(ω * t)
+7. forall (t), t ∈ RealSet ⇒ y(t) = 3 * sin(ω * t) + 4 * cos(ω * t)
+8. forall (t), t ∈ RealSet ⇒ x(t)^{2} + y(t)^{2} = 16 * sin(ω * t)^{2} + 9 * cos(ω * t)^{2} - 24 * sin(ω * t) * cos(ω * t) + 9 * sin(ω * t)^{2} + 16 * cos(ω * t)^{2} + 24 * sin(ω * t) * cos(ω * t)
+9. forall (t), t ∈ RealSet ⇒ x(t)^{2} + y(t)^{2} = 25 * (sin(ω * t)^{2} + cos(ω * t)^{2})
+10. forall (t), t ∈ RealSet ⇒ x(t)^{2} + y(t)^{2} = 25
+11. { (x(t), y(t)) | t ∈ RealSet } ⊆ { (X, Y) | X ∈ RealSet, Y ∈ RealSet, X^{2} + Y^{2} = 25 }
+12. forall (t), t ∈ RealSet ⇒ FunDeri(x, 1, 1)(t) = 4 * ω * cos(ω * t) + 3 * ω * sin(ω * t)
+13. forall (t), t ∈ RealSet ⇒ FunDeri(y, 1, 1)(t) = 3 * ω * cos(ω * t) - 4 * ω * sin(ω * t)
+14. forall (t), t ∈ RealSet ⇒ v(t) = sqrtn(2, FunDeri(x, 1, 1)(t)^{2} + FunDeri(y, 1, 1)(t)^{2})
+15. forall (t), t ∈ RealSet ⇒ v(t) = 5 * |ω|
+16. forall (t), t ∈ RealSet ⇒ FunDeri(x, 1, 2)(t) = -4 * ω^{2} * sin(ω * t) + 3 * ω^{2} * cos(ω * t)
+
+GOAL:
+forall (t), t ∈ RealSet ⇒ FunDeri(y, 1, 2)(t) = -3 * ω^{2} * sin(ω * t) - 4 * ω^{2} * cos(ω * t)
+
+METHOD:

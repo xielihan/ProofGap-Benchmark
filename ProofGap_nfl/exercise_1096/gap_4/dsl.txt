@@ -1,0 +1,6 @@
+1. get_condition (hypothesis 5: {x ≠ 0}) in (GOAL: {x ≠ 0 ⇒ frac(sin(x), x) = frac(sin(-x), -x)})
+2. get_prop (theorem 'Thm 466. (SineOdd)': {forall (x), x ∈ RealSet => sin(-x) = -sin(x)}) (x := {x}) as (hypothesis 6: {x ∈ RealSet => sin(-x) = -sin(x)})
+3. use_condition (hypothesis 1: {x ∈ RealSet}) in (hypothesis 6: {x ∈ RealSet => sin(-x) = -sin(x)}) as (hypothesis 7: {sin(-x) = -sin(x)})
+4. rewrite (left_to_right, equation) (hypothesis 7: {sin(-x) = -sin(x)}); from (GOAL: {frac(sin(x), x) = frac(sin(-x), -x)}) to (GOAL: {frac(sin(x), x) = frac(-sin(x), -x)})
+5. autoreplace (hypothesis 5: {x ≠ 0}); from (frac(-sin(x), -x)) to (frac(sin(x), x)); from (GOAL: {frac(sin(x), x) = frac(-sin(x), -x)}) to (GOAL: {frac(sin(x), x) = frac(sin(x), x)})
+6. autosolve all_hypothesis

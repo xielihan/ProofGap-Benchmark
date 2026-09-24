@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 3: {h = frac(1 - 0, 8)}); from (GOAL: {h = frac(1, 8)}) to (GOAL: {frac(1 - 0, 8) = frac(1, 8)})
+autosolve all_hypothesis

@@ -1,0 +1,2 @@
+1. get_forall (GOAL: {forall (n), (Impl(Belong(n, NonNegIntegerSet), Eq(SeqLim(N, PosInfty, BigSumSup(Eq(k, Plus(n, 1)), N, frac(1, Mult(k, Plus(k, 1))))), SeqLim(N, PosInfty, BigSumSup(Eq(k, Plus(n, 1)), N, Minus(frac(1, k), frac(1, Plus(k, 1))))))))}) (n := {n})
+2. autosolve all_hypothesis

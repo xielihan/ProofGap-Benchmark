@@ -1,0 +1,31 @@
+PROOF GAP @14
+ASSUM:
+1. a ∈ RealSet
+2. h ∈ RealSet
+3. S ⊆ CartesianProd(CartesianProd(RealSet, RealSet), RealSet)
+4. X ∈ RealSet
+5. Y ∈ RealSet
+6. P ∈ CartesianProd(RealSet, RealSet)
+7. a > 0
+8. h ≥ 0
+9. forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ (forall (z), z ∈ RealSet ⇒ ((x, y, z) ∈ S ⇔ x^{2} + y^{2} = a^{2} ∧ x ≥ 0 ∧ 0 ≤ z ∧ z ≤ h)))
+10. Y = 0
+11. x = a * cos(θ)
+12. y = a * sin(θ)
+13. -frac(π, 2) ≤ θ
+14. θ ≤ frac(π, 2)
+15. forall (z), z ∈ RealSet ∧ z ≤ h ⇒ 0 ≤ z
+16. forall (z), z ∈ RealSet ∧ 0 ≤ z ⇒ z ≤ h
+17. diff(S) = a * diff(fun θ, z [θ ∈ RealSet ∧ z ∈ RealSet] . θ) * diff(fun θ, z [θ ∈ RealSet ∧ z ∈ RealSet] . z)
+18. diff(X) = (fun θ, z [θ ∈ RealSet ∧ z ∈ RealSet] . z * cos(θ)) * diff(S)
+19. X = ScalarSurfaceInt(S, (fun θ, z [θ ∈ RealSet ∧ z ∈ RealSet] . z * cos(θ)) * diff(S))
+20. X = DefInt(-frac(π, 2), frac(π, 2), (fun θ [θ ∈ RealSet] . DefInt(0, h, (fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ h] . a * z * cos(θ)) * diff(fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ h] . z))) * diff(fun θ [θ ∈ RealSet ∧ -frac(π, 2) ≤ θ ∧ θ ≤ frac(π, 2)] . θ))
+21. X = a * DefInt(-frac(π, 2), frac(π, 2), (fun θ [θ ∈ RealSet ∧ -frac(π, 2) ≤ θ ∧ θ ≤ frac(π, 2)] . cos(θ)) * diff(fun θ [θ ∈ RealSet ∧ -frac(π, 2) ≤ θ ∧ θ ≤ frac(π, 2)] . θ)) * DefInt(0, h, (fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ h] . z) * diff(fun z [z ∈ RealSet ∧ 0 ≤ z ∧ z ≤ h] . z))
+22. X = a * h^{2}
+23. P = (X, Y)
+24. (X, Y) = (a * h^{2}, 0)
+
+GOAL:
+P = (a * h^{2}, 0)
+
+METHOD:

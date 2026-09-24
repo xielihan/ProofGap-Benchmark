@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. forall (x), x ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ sqrtn(2, 1 + x + x^{2}) - sqrtn(2, 1 - x + x^{2}) = frac(2 * x, sqrtn(2, 1 + x + x^{2}) + sqrtn(2, 1 - x + x^{2}))
+
+METHOD:

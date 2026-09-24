@@ -1,0 +1,4 @@
+get_prop (hypothesis 3: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = n + frac(100, n)}) (n := {10}) as (hypothesis 6: {10 ∈ NonNegIntegerSet ∧ 10 ∈ PosIntegerSet ⇒ x(10) = 10 + frac(100, 10)})
+use_condition (obvious: {10 ∈ NonNegIntegerSet ∧ 10 ∈ PosIntegerSet}) in (hypothesis 6: {10 ∈ NonNegIntegerSet ∧ 10 ∈ PosIntegerSet ⇒ x(10) = 10 + frac(100, 10)}) as (hypothesis 7: {x(10) = 10 + frac(100, 10)})
+autoreplace no_hypothesis; from (10 + frac(100, 10)) to (20); from (hypothesis 7: {x(10) = 10 + frac(100, 10)}) to (hypothesis 8: {x(10) = 20})
+apply (hypothesis 8: {x(10) = 20})

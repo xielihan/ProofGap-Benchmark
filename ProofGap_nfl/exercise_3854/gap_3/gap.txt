@@ -1,0 +1,19 @@
+PROOF GAP @3
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. c ∈ RealSet
+4. m ∈ RealSet
+5. n ∈ RealSet
+6. B : CartesianProd(RealSet, RealSet) → RealSet
+7. a < b
+8. forall (x), x ∈ RealSet ∧ x ∈ [a, b] ⇒ x + c > 0
+9. t = frac(b + c, b - a) * frac(x - a, x + c)
+10. 0 ≤ t
+11. t ≤ 1
+12. l = frac(b - a, b + c)
+
+GOAL:
+b + c ≠ 0
+
+METHOD:

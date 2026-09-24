@@ -1,0 +1,10 @@
+get_forall (GOAL: {forall (x), x ∈ RealSet => sum_{ n = 0 }^{ +∞ } (frac(x^{2 * n}, (2 * n)!)) = frac(e^{x} + e^{-x}, 2) /\ frac(e^{x} + e^{-x}, 2) = cosh(x)}) (x := {x0})
+get_condition (hypothesis 8: {x0 ∈ RealSet}) in (GOAL: {x0 ∈ RealSet => sum_{ n = 0 }^{ +∞ } (frac(x0^{2 * n}, (2 * n)!)) = frac(e^{x0} + e^{-x0}, 2) /\ frac(e^{x0} + e^{-x0}, 2) = cosh(x0)})
+get_prop (hypothesis 2: {forall (n), n ∈ NonNegIntegerSet => (forall (x), x ∈ RealSet => F(x) = sum_{ n = 0 }^{ +∞ } (frac(x^{2 * n}, (2 * n)!)))}) (n := {0}) as (hypothesis 9: {0 ∈ NonNegIntegerSet => (forall (x), x ∈ RealSet => F(x) = sum_{ n = 0 }^{ +∞ } (frac(x^{2 * n}, (2 * n)!)))})
+use_condition (obvious: {0 ∈ NonNegIntegerSet}) in (hypothesis 9: {0 ∈ NonNegIntegerSet => (forall (x), x ∈ RealSet => F(x) = sum_{ n = 0 }^{ +∞ } (frac(x^{2 * n}, (2 * n)!)))}) as (hypothesis 10: {forall (x), x ∈ RealSet => F(x) = sum_{ n = 0 }^{ +∞ } (frac(x^{2 * n}, (2 * n)!))})
+get_prop (hypothesis 10: {forall (x), x ∈ RealSet => F(x) = sum_{ n = 0 }^{ +∞ } (frac(x^{2 * n}, (2 * n)!))}) (x := {x0}) as (hypothesis 11: {x0 ∈ RealSet => F(x0) = sum_{ n = 0 }^{ +∞ } (frac(x0^{2 * n}, (2 * n)!))})
+use_condition (hypothesis 8: {x0 ∈ RealSet}) in (hypothesis 11: {x0 ∈ RealSet => F(x0) = sum_{ n = 0 }^{ +∞ } (frac(x0^{2 * n}, (2 * n)!))}) as (hypothesis 12: {F(x0) = sum_{ n = 0 }^{ +∞ } (frac(x0^{2 * n}, (2 * n)!))})
+get_prop (hypothesis 7: {forall (x), x ∈ RealSet => F(x) = frac(e^{x} + e^{-x}, 2) /\ frac(e^{x} + e^{-x}, 2) = cosh(x)}) (x := {x0}) as (hypothesis 13: {x0 ∈ RealSet => F(x0) = frac(e^{x0} + e^{-x0}, 2) /\ frac(e^{x0} + e^{-x0}, 2) = cosh(x0)})
+use_condition (hypothesis 8: {x0 ∈ RealSet}) in (hypothesis 13: {x0 ∈ RealSet => F(x0) = frac(e^{x0} + e^{-x0}, 2) /\ frac(e^{x0} + e^{-x0}, 2) = cosh(x0)}) as (hypothesis 14: {F(x0) = frac(e^{x0} + e^{-x0}, 2) /\ frac(e^{x0} + e^{-x0}, 2) = cosh(x0)})
+destruct_and (hypothesis 14: {F(x0) = frac(e^{x0} + e^{-x0}, 2) /\ frac(e^{x0} + e^{-x0}, 2) = cosh(x0)}) as (hypothesis 15: {F(x0) = frac(e^{x0} + e^{-x0}, 2)}) (hypothesis 16: {frac(e^{x0} + e^{-x0}, 2) = cosh(x0)})
+autosolve all_hypothesis

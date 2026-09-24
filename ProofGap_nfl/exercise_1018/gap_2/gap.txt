@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. forall (f), f : RealSet → RealSet ⇒ (forall (a), a ∈ RealSet ∧ DiffableFuncAt(f, a) ⇒ ContinuousFuncAt(f, a))
+2. f = (fun x [x ∈ RealSet] . sgn(x))
+3. a = 0
+
+GOAL:
+¬ContinuousFuncAt(f, 0)
+
+METHOD:

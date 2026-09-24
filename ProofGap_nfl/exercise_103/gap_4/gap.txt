@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. x : NonNegIntegerSet → RealSet
+2. IsSeq(x)
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(n) = 1 + frac(n, n + 1) * cos(frac(n * π, 2))
+4. x(1) = 1
+5. x(2) = 1 - frac(2, 3)
+6. x(3) = 1
+
+GOAL:
+x(4) = 1 + frac(4, 5)
+
+METHOD:

@@ -1,0 +1,5 @@
+1. get_condition (hypothesis 22: {s = 0}) in (GOAL: {s = 0 ⇒ min(a, b) ≤ Delta(s, a, b)})
+2. rewrite (left_to_right, equation) (hypothesis 22: {s = 0}); from (GOAL: {min(a, b) ≤ Delta(s, a, b)}) to (GOAL: {min(a, b) ≤ Delta(0, a, b)})
+3. rewrite (left_to_right, equation) (hypothesis 13: {Delta(0, a, b) = sqrtn(2, a * b)}); from (GOAL: {min(a, b) ≤ Delta(0, a, b)}) to (GOAL: {min(a, b) ≤ sqrtn(2, a * b)})
+4. use_condition (hypothesis 22: {s = 0}) in (hypothesis 20: {s = 0 ⇒ min(a, b) ≤ sqrtn(2, a * b)}) as (hypothesis 23: {min(a, b) ≤ sqrtn(2, a * b)})
+5. apply (hypothesis 23: {min(a, b) ≤ sqrtn(2, a * b)})

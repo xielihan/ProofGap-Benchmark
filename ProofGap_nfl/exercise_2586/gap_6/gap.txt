@@ -1,0 +1,14 @@
+PROOF GAP @6
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(n^{2}, (2 + frac(1, n))^{n})
+3. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 2 + frac(1, n) ≠ 0
+4. seqlim_{ n → +∞ } (sqrtn(n, a(n))) = seqlim_{ n → +∞ } (sqrtn(n, frac(n^{2}, (2 + frac(1, n))^{n})))
+5. seqlim_{ n → +∞ } (sqrtn(n, frac(n^{2}, (2 + frac(1, n))^{n}))) = seqlim_{ n → +∞ } (frac(sqrtn(n, n) * sqrtn(n, n), 2 + frac(1, n)))
+6. seqlim_{ n → +∞ } (frac(sqrtn(n, n) * sqrtn(n, n), 2 + frac(1, n))) = frac(1, 2)
+7. seqlim_{ n → +∞ } (sqrtn(n, a(n))) = frac(1, 2)
+
+GOAL:
+frac(1, 2) < 1
+
+METHOD:

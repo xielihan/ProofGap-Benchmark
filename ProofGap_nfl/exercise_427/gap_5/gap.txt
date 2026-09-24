@@ -1,0 +1,15 @@
+PROOF GAP @5
+ASSUM:
+1. n > 0
+2. n ∈ PosIntegerSet
+3. x = 1 + y
+4. lim_{ x → 1 } (x) = 1 ⇒ lim_{ y → 0 } (y) = 0
+5. x ≠ 1 ⇒ y ≠ 0
+6. lim_{ x → 1 } (frac(x^{n + 1} - (n + 1) * x + n, (x - 1)^{2})) = lim_{ y → 0 } (frac((1 + y)^{n + 1} - (n + 1) * (1 + y) + n, y^{2}))
+7. frac((1 + y)^{n + 1} - (n + 1) * (1 + y) + n, y^{2}) = sum_{ k = 2 }^{ n + 1 } (Combination(n + 1, k) * y^{k - 2})
+8. y ≠ 0
+
+GOAL:
+lim_{ y → 0 } (sum_{ k = 2 }^{ n + 1 } (Combination(n + 1, k) * y^{k - 2})) = frac(n * (n + 1), 2)
+
+METHOD:

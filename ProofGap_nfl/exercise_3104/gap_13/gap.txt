@@ -1,0 +1,23 @@
+PROOF GAP @13
+ASSUM:
+1. a : NonNegIntegerSet → RealSet
+2. ε : NonNegIntegerSet → RealSet
+3. θ : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) = frac(n! * e^{n}, n^{n + frac(1, 2)})
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(a(n), a(n + 1)) = frac((1 + frac(1, n))^{n + frac(1, 2)}, e)
+6. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ln(frac(1 + frac(1, 2 * n + 1), 1 - frac(1, 2 * n + 1))) = 2 * frac(1, 2 * n + 1) * (1 + (sum_{ k = 1 }^{ +∞ } (frac(1, (2 * k + 1) * (2 * n + 1)^{2 * k}))))
+7. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (n + frac(1, 2)) * ln(1 + frac(1, n)) = 1 + (sum_{ k = 1 }^{ +∞ } (frac(1, (2 * k + 1) * (2 * n + 1)^{2 * k})))
+8. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 1 < (n + frac(1, 2)) * ln(1 + frac(1, n))
+9. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (n + frac(1, 2)) * ln(1 + frac(1, n)) < 1 + frac(1, 12 * n * (n + 1))
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ e < (1 + frac(1, n))^{n + frac(1, 2)}
+11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (1 + frac(1, n))^{n + frac(1, 2)} < e^{1 + frac(1, 12 * n * (n + 1))}
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ 0 < a(n + 1)
+13. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n + 1) < a(n)
+14. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ a(n) * e^{-frac(1, 12 * n)} < a(n + 1) * e^{-frac(1, 12 * n * (n + 1))}
+15. MonoDecSeq(a)
+16. BoundedBelowSeq(a)
+
+GOAL:
+ConvergentSeq(a)
+
+METHOD:

@@ -1,0 +1,27 @@
+PROOF GAP @13
+ASSUM:
+1. z : CartesianProd(RealSet, RealSet) → RealSet
+2. D ⊆ CartesianProd(RealSet, RealSet)
+3. F : CartesianProd(RealSet, CartesianProd(RealSet, RealSet)) → RealSet
+4. x ∈ RealSet
+5. y ∈ RealSet
+6. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ z(x, y) = x^{2} + y^{2} - 12 * x + 16 * y
+7. D = { (x, y) | x ∈ RealSet, y ∈ RealSet, x^{2} + y^{2} ≤ 25 }
+8. ContinuousFuncOn(z, D)
+9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 1, 1)(x, y) = 2 * x - 12
+10. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ⇒ FunDeri(z, 2, 1)(x, y) = 2 * y + 16
+11. ¬(exists (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x^{2} + y^{2} < 25 ∧ FunDeri(z, 1, 1)(x, y) = 0 ∧ FunDeri(z, 2, 1)(x, y) = 0)
+12. MaximumPointOn(z, D) ⊆ { (x, y) | x ∈ RealSet, y ∈ RealSet, x^{2} + y^{2} = 25 }
+13. MinimumPointOn(z, D) ⊆ { (x, y) | x ∈ RealSet, y ∈ RealSet, x^{2} + y^{2} = 25 }
+14. F = (fun x, y, λ [x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet] . z(x, y) - λ * (x^{2} + y^{2} - 25))
+15. forall (x) (y) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 1, 1)(x, y, λ) = 2 * x - 12 - 2 * λ * x
+16. forall (x) (y) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet ⇒ FunDeri(F, 2, 1)(x, y, λ) = 2 * y + 16 - 2 * λ * y
+17. forall (x) (y) (λ), x ∈ RealSet ∧ y ∈ RealSet ∧ λ ∈ RealSet ∧ FunDeri(F, 1, 1)(x, y, λ) = 0 ∧ FunDeri(F, 2, 1)(x, y, λ) = 0 ∧ x^{2} + y^{2} = 25 ⇒ (x, y) ∈ { (3, -4), (-3, 4) }
+18. z(3, -4) = -75
+19. z(-3, 4) = 125
+20. MaximumPointOn(z, D) = { (-3, 4) }
+
+GOAL:
+MinimumPointOn(z, D) = { (3, -4) }
+
+METHOD:

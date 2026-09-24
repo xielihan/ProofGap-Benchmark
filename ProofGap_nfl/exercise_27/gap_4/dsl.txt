@@ -1,0 +1,7 @@
+get_prop (theorem 'Thm 493. (PositivePowerPreservesStrictNonnegativeOrder)': {forall (a) (b) (t), a ∈ RealSet => b ∈ RealSet => t ∈ RealSet => a >= 0 => b >= 0 => t > 0 => a < b => a ^ t < b ^ t}) (a := {2 * |x|}) (b := {4 * x + 3}) (t := {2}) as (hypothesis 5: {2 * |x| ∈ RealSet => 4 * x + 3 ∈ RealSet => 2 ∈ RealSet => 2 * |x| >= 0 => 4 * x + 3 >= 0 => 2 > 0 => 2 * |x| < 4 * x + 3 => (2 * |x|) ^ 2 < (4 * x + 3) ^ 2})
+use_condition (obvious: {2 * |x| ∈ RealSet}) (obvious: {4 * x + 3 ∈ RealSet}) (obvious: {2 ∈ RealSet}) (obvious: {2 * |x| >= 0}) (obvious: {4 * x + 3 >= 0}) (obvious: {2 > 0}) (hypothesis 4: {2 * |x| < 4 * x + 3}) in (hypothesis 5: {2 * |x| ∈ RealSet => 4 * x + 3 ∈ RealSet => 2 ∈ RealSet => 2 * |x| >= 0 => 4 * x + 3 >= 0 => 2 > 0 => 2 * |x| < 4 * x + 3 => (2 * |x|) ^ 2 < (4 * x + 3) ^ 2}) as (hypothesis 6: {(2 * |x|) ^ 2 < (4 * x + 3) ^ 2})
+autoreplace no_hypothesis; from ((2 * |x|)^{2}) to (4 * |x|^{2}); from (hypothesis 6: {(2 * |x|) ^ 2 < (4 * x + 3) ^ 2}) to (hypothesis 7: {4 * |x|^{2} < (4 * x + 3)^{2}})
+get_prop (theorem 'Thm 377. (AbsoluteValueSquared)': {forall (x), x ∈ RealSet => (|x| ^ 2 = x ^ 2)}) (x := {x}) as (hypothesis 8: {x ∈ RealSet => |x| ^ 2 = x ^ 2})
+use_condition (hypothesis 1: {x ∈ RealSet}) in (hypothesis 8: {x ∈ RealSet => |x| ^ 2 = x ^ 2}) as (hypothesis 9: {|x| ^ 2 = x ^ 2})
+rewrite (left_to_right, equation) (hypothesis 9: {|x| ^ 2 = x ^ 2}); from (hypothesis 7: {4 * |x|^{2} < (4 * x + 3)^{2}}) to (hypothesis 10: {4 * x^{2} < (4 * x + 3)^{2}})
+apply (hypothesis 10: {4 * x^{2} < (4 * x + 3)^{2}})

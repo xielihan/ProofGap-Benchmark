@@ -1,0 +1,11 @@
+PROOF GAP @3
+ASSUM:
+1. x : NonNegIntegerSet → RealSet ∧ IsSeq(x)
+2. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ x(2 * n - 1) = frac(1, 2^{n}) ∧ x(2 * n) = frac(2^{n} - 1, 2^{n})
+3. seqlim_{ n → +∞ } (x(2 * n - 1)) = 0
+4. seqlim_{ n → +∞ } (x(2 * n)) = 1
+
+GOAL:
+AccumulationPointSet(x) = { 0, 1 }
+
+METHOD:

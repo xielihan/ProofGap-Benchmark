@@ -1,0 +1,19 @@
+PROOF GAP @1
+ASSUM:
+1. n ∈ NonNegIntegerSet
+2. a : IntegerSet → RealSet
+3. y : RealSet → RealSet
+4. D ∈ RealSet
+5. δ ∈ RealSet
+6. k ∈ IntegerSet
+7. forall (k), k ∈ IntegerSet ∧ 0 ≤ k ∧ k ≤ n ⇒ a(k) ∈ RealSet
+8. FuncOfClassKOn(y, PosRealSet, n)
+9. forall (t) (x), t ∈ RealSet ∧ x ∈ RealSet ⇒ x = e^{t}
+10. D = frac(diff, diff(fun t [t ∈ RealSet] . t))
+11. δ = frac(diff, diff(fun x [x ∈ RealSet] . x))
+12. forall (x), x ∈ RealSet ∧ x ∈ PosRealSet ⇒ sum_{ k = 0 }^{ n } (a(k) * x^{k} * FunDeri(y, 1, k)(x)) = 0
+
+GOAL:
+D = frac(diff, diff(fun t [t ∈ RealSet] . t))
+
+METHOD:

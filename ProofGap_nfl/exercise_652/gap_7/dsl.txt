@@ -1,0 +1,11 @@
+assert (hypothesis 7: {forall (t), t ∈ RealSet => frac(t^{10} * e^{t}, e^{2 * t}) = frac(t^{10}, e^{t})}) by proof {
+  get_forall (GOAL: {forall (t), t ∈ RealSet => frac(t^{10} * e^{t}, e^{2 * t}) = frac(t^{10}, e^{t})}) (t := {z})
+  get_condition (hypothesis 7: {z ∈ RealSet}) in (GOAL: {z ∈ RealSet => frac(z^{10} * e^{z}, e^{2 * z}) = frac(z^{10}, e^{z})})
+  get_prop (theorem 'Thm 204. (ExponentAdditionLaw)': {forall (a) (x) (y), a ∈ RealSet => x ∈ RealSet => y ∈ RealSet => (a > 0 => a ^ (x + y) = a ^ x * a ^ y)}) (a := {e}) (x := {z}) (y := {z}) as (hypothesis 8: {e ∈ RealSet => z ∈ RealSet => z ∈ RealSet => (e > 0 => e ^ (z + z) = e ^ z * e ^ z)})
+  use_condition (obvious: {e ∈ RealSet}) (hypothesis 7: {z ∈ RealSet}) (hypothesis 7: {z ∈ RealSet}) (obvious: {e > 0}) in (hypothesis 8: {e ∈ RealSet => z ∈ RealSet => z ∈ RealSet => (e > 0 => e ^ (z + z) = e ^ z * e ^ z)}) as (hypothesis 9: {e ^ (z + z) = e ^ z * e ^ z})
+  autoreplace no_hypothesis; from (2 * z) to (z + z); from (GOAL: {frac(z^{10} * e^{z}, e^{2 * z}) = frac(z^{10}, e^{z})}) to (GOAL: {frac(z^{10} * e^{z}, e^{z + z}) = frac(z^{10}, e^{z})})
+  rewrite (left_to_right, equation) (hypothesis 9: {e ^ (z + z) = e ^ z * e ^ z}); from (GOAL: {frac(z^{10} * e^{z}, e^{z + z}) = frac(z^{10}, e^{z})}) to (GOAL: {frac(z^{10} * e^{z}, e^{z} * e^{z}) = frac(z^{10}, e^{z})})
+  autosolve all_hypothesis
+}
+rewrite_in limit (left_to_right, equation) (hypothesis 7: {forall (t), t ∈ RealSet => frac(t^{10} * e^{t}, e^{2 * t}) = frac(t^{10}, e^{t})}); from (GOAL: {lim_{ x -> +infty } (frac(x^{10} * e^{x}, e^{2 * x})) = lim_{ x -> +infty } (frac(x^{10}, e^{x}))}) to (GOAL: {lim_{ x -> +infty } (frac(x^{10}, e^{x})) = lim_{ x -> +infty } (frac(x^{10}, e^{x}))})
+autosolve all_hypothesis

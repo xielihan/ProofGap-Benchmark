@@ -1,0 +1,5 @@
+get_forall (GOAL: {forall (k), k ∈ RealSet ∧ k ∈ PosRealSet ⇒ OscillationOn(f_{3}, [-k, k]) = 2 * k}) (k := {t})
+get_condition (hypothesis 24: {t ∈ RealSet ∧ t ∈ PosRealSet}) in (GOAL: {t ∈ RealSet ∧ t ∈ PosRealSet ⇒ OscillationOn(f_{3}, [-t, t]) = 2 * t})
+get_prop (hypothesis 23: {forall (k), k ∈ RealSet ∧ k ∈ PosRealSet ⇒ OscillationOn(f_{3}, [-k, k]) = 3 * k - k}) (k := {t}) as (hypothesis 25: {t ∈ RealSet ∧ t ∈ PosRealSet ⇒ OscillationOn(f_{3}, [-t, t]) = 3 * t - t})
+use_condition (hypothesis 24: {t ∈ RealSet ∧ t ∈ PosRealSet}) in (hypothesis 25: {t ∈ RealSet ∧ t ∈ PosRealSet ⇒ OscillationOn(f_{3}, [-t, t]) = 3 * t - t}) as (hypothesis 26: {OscillationOn(f_{3}, [-t, t]) = 3 * t - t})
+autosolve all_hypothesis

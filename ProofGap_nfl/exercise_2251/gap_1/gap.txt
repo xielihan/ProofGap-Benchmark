@@ -1,0 +1,10 @@
+PROOF GAP @1
+ASSUM:
+1. phi_{1} : RealSet → RealSet
+2. phi_{2} : RealSet → RealSet
+3. phi_{3} : RealSet → RealSet
+4. forall (x), x ∈ RealSet ∧ x ∈ [-1, 1] ⇒ phi_{1}(x) = x^{frac(2, 3)}
+GOAL:
+DefInt(-1, 1, diff(fun x [x ∈ RealSet] . x)) = 2
+
+METHOD:

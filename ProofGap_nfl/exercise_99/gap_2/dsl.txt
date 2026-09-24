@@ -1,0 +1,4 @@
+get_forall (GOAL: {forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ∧ n^{2} - 9 * n < 0 ⇒ 0 < n}) (n := {k})
+get_condition (hypothesis 4: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k^{2} - 9 * k < 0}) in (GOAL: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k^{2} - 9 * k < 0 ⇒ 0 < k})
+destruct_and (hypothesis 4: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k^{2} - 9 * k < 0}) as (hypothesis 5: {k ∈ NonNegIntegerSet}) (hypothesis 6: {k ∈ PosIntegerSet}) (hypothesis 7: {k^{2} - 9 * k < 0})
+autosolve all_hypothesis

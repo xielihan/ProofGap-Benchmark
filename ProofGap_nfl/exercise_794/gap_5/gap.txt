@@ -1,0 +1,14 @@
+PROOF GAP @5
+ASSUM:
+1. f : RealSet → RealSet
+2. forall (x), x ∈ RealSet ∧ x ∈ [-1, 1] ⇒ f(x) = frac(x, 4 - x^{2})
+3. forall (x), x ∈ RealSet ∧ x ∈ [-1, 1] ⇒ 4 - x^{2} ≠ 0
+4. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ [-1, 1] ∧ x_{2} ∈ [-1, 1] ⇒ 4 - (x_{1})^{2} ≠ 0)
+5. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ [-1, 1] ∧ x_{2} ∈ [-1, 1] ⇒ 4 - (x_{2})^{2} ≠ 0)
+6. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ [-1, 1] ∧ x_{2} ∈ [-1, 1] ⇒ |f(x_{1}) - f(x_{2})| = |frac(x_{1}, 4 - (x_{1})^{2}) - frac(x_{2}, 4 - (x_{2})^{2})|)
+7. forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ [-1, 1] ∧ x_{2} ∈ [-1, 1] ⇒ |f(x_{1}) - f(x_{2})| = |frac(4 + x_{1} * x_{2}, (4 - (x_{1})^{2}) * (4 - (x_{2})^{2}))| * |x_{1} - x_{2}|)
+
+GOAL:
+forall (x_{1}), x_{1} ∈ RealSet ⇒ (forall (x_{2}), x_{2} ∈ RealSet ∧ x_{1} ∈ [-1, 1] ∧ x_{2} ∈ [-1, 1] ⇒ |frac(4 + x_{1} * x_{2}, (4 - (x_{1})^{2}) * (4 - (x_{2})^{2}))| ≤ frac(5, 9))
+
+METHOD:

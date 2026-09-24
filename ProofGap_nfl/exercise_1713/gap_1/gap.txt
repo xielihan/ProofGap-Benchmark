@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+1. C ∈ RealSet
+
+GOAL:
+forall (x), x ∈ RealSet ∧ x ≠ 0 ⇒ frac(x^{2} - 1, x^{4} + 1) * diff(fun x [x ∈ RealSet] . x) = frac(1 - frac(1, x^{2}), x^{2} + frac(1, x^{2})) * diff(fun x [x ∈ RealSet] . x) ∧ frac(1 - frac(1, x^{2}), x^{2} + frac(1, x^{2})) * diff(fun x [x ∈ RealSet] . x) = frac(diff(fun x [x ∈ RealSet ∧ x ≠ 0] . x + frac(1, x)), (x + frac(1, x))^{2} - 2)
+
+METHOD:

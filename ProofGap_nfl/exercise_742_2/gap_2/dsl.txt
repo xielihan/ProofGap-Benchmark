@@ -1,0 +1,2 @@
+rewrite (left_to_right, equation) (hypothesis 2: {g = f}); from (GOAL: {¬ContinuousFuncAt(g, 0)}) to (GOAL: {¬ContinuousFuncAt(f, 0)})
+apply (hypothesis 3: {¬ContinuousFuncAt(f, 0)})

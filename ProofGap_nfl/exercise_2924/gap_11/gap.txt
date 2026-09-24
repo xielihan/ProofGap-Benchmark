@@ -1,0 +1,22 @@
+PROOF GAP @11
+ASSUM:
+1. S : NonNegIntegerSet → RealSet
+2. Δ : NonNegIntegerSet → RealSet
+3. m ∈ NonNegIntegerSet ∧ m > 0
+4. e = 1 + (sum_{ m = 1 }^{ +∞ } (frac(1, m!)))
+5. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ S(n) = 1 + (sum_{ m = 1 }^{ n } (frac(1, m!)))
+6. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ Δ(n) = sum_{ m = n + 1 }^{ +∞ } (frac(1, m!))
+7. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ Δ(n) = sum_{ m = n + 1 }^{ +∞ } (frac(1, m!))
+8. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ sum_{ m = n + 1 }^{ +∞ } (frac(1, m!)) < frac(1, n! * n)
+9. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ⇒ Δ(n) < frac(1, n! * n)
+10. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ frac(1, n! * n) < 10^{-6} ⇒ Δ(n) < 10^{-6}
+11. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n! * n > 10^{6} ⇒ frac(1, n! * n) < 10^{-6}
+12. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n = 9 ⇒ n! * n > 10^{6}
+13. forall (n), n ∈ NonNegIntegerSet ∧ n > 0 ∧ n = 9 ⇒ Δ(n) < 10^{-6}
+14. Δ(9) < 10^{-6}
+15. |e - (1 + (sum_{ n = 1 }^{ 9 } (frac(1, n!))))| < 10^{-6}
+
+GOAL:
+2 < 2.718282 ∧ 2.718282 < 3
+
+METHOD:

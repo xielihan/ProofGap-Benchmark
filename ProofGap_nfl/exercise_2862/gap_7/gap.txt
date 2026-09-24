@@ -1,0 +1,14 @@
+PROOF GAP @7
+ASSUM:
+1. x ∈ RealSet
+2. |x| < 1 ⇒ frac(1, 1 + x + x^{2}) = frac(1, __IMAGINARY_UNIT__ * sqrtn(2, 3)) * (frac(1, x + frac(1 - __IMAGINARY_UNIT__ * sqrtn(2, 3), 2)) - frac(1, x + frac(1 + __IMAGINARY_UNIT__ * sqrtn(2, 3), 2)))
+3. |x| < 1 ⇒ frac(1, 1 + x + x^{2}) = frac(1, __IMAGINARY_UNIT__ * sqrtn(2, 3)) * (sum_{ n = 0 }^{ +∞ } ((-1)^{n} * (frac(1 + __IMAGINARY_UNIT__ * sqrtn(2, 3), 2)^{n + 1} - frac(1 - __IMAGINARY_UNIT__ * sqrtn(2, 3), 2)^{n + 1}) * x^{n}))
+4. forall (n), n ∈ NonNegIntegerSet ⇒ (-1)^{n} * (frac(1 + __IMAGINARY_UNIT__ * sqrtn(2, 3), 2)^{n + 1} - frac(1 - __IMAGINARY_UNIT__ * sqrtn(2, 3), 2)^{n + 1}) = 2 * __IMAGINARY_UNIT__ * sin(frac(2 * (n + 1) * π, 3))
+5. |x| < 1 ⇒ |x| < min(frac(2, |1 + __IMAGINARY_UNIT__ * sqrtn(2, 3)|), frac(2, |1 - __IMAGINARY_UNIT__ * sqrtn(2, 3)|))
+6. min(frac(2, |1 + __IMAGINARY_UNIT__ * sqrtn(2, 3)|), frac(2, |1 - __IMAGINARY_UNIT__ * sqrtn(2, 3)|)) = 1
+7. |x| < 1
+
+GOAL:
+frac(1, 1 + x + x^{2}) = frac(2, sqrtn(2, 3)) * (sum_{ n = 0 }^{ +∞ } (x^{n} * sin(frac(2 * (n + 1) * π, 3))))
+
+METHOD:

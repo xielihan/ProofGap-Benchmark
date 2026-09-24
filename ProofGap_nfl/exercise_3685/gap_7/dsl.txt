@@ -1,0 +1,6 @@
+get_forall (GOAL: {forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ x(i) = frac((a * (prod_{ j = 1 }^{ n } (α(j)^{frac(1, α(j))})))^{frac(1, β)}, α(i))^{frac(1, α(i))}}) (i := {k})
+get_condition (hypothesis 21: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≤ n}) in (GOAL: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≤ n ⇒ x(k) = frac((a * (prod_{ j = 1 }^{ n } (α(j)^{frac(1, α(j))})))^{frac(1, β)}, α(k))^{frac(1, α(k))}})
+get_prop (hypothesis 17: {forall (i), i ∈ NonNegIntegerSet ∧ i ∈ PosIntegerSet ∧ i ≤ n ⇒ x(i) = frac(λ, α(i))^{frac(1, α(i))}}) (i := {k}) as (hypothesis 22: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≤ n ⇒ x(k) = frac(λ, α(k))^{frac(1, α(k))}})
+use_condition (hypothesis 21: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≤ n}) in (hypothesis 22: {k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet ∧ k ≤ n ⇒ x(k) = frac(λ, α(k))^{frac(1, α(k))}}) as (hypothesis 23: {x(k) = frac(λ, α(k))^{frac(1, α(k))}})
+rewrite (right_to_left, equation) (hypothesis 20: {λ = (a * (prod_{ i = 1 }^{ n } (α(i)^{frac(1, α(i))})))^{frac(1, β)}}); from (GOAL: {x(k) = frac((a * (prod_{ j = 1 }^{ n } (α(j)^{frac(1, α(j))})))^{frac(1, β)}, α(k))^{frac(1, α(k))}}) to (GOAL: {x(k) = frac(λ, α(k))^{frac(1, α(k))}})
+autosolve all_hypothesis

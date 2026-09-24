@@ -1,0 +1,21 @@
+PROOF GAP @8
+ASSUM:
+1. f : RealSet → RealSet
+2. a ∈ RealSet
+3. b ∈ RealSet
+4. c ∈ RealSet
+5. d ∈ RealSet
+6. forall (x), x ∈ RealSet ∧ c * x + d ≠ 0 ⇒ f(x) = frac(a * x + b, c * x + d)
+7. forall (x), x ∈ RealSet ∧ c * x + d ≠ 0 ⇒ f(x) = frac(a, c) + frac(b - a * frac(d, c), c * x + d)
+8. c = 0 ⇒ d ≠ 0 ⇒ (forall (x), x ∈ RealSet ⇒ f(x) = frac(a, d) * x + frac(b, d))
+9. c = 0 ⇒ d ≠ 0 ⇒ a / d > 0 ⇒ StrictMonoIncFuncOn(f, RealSet)
+10. c = 0 ⇒ d ≠ 0 ⇒ a / d < 0 ⇒ StrictMonoDecFuncOn(f, RealSet)
+11. c > 0 ⇒ b > a * frac(d, c) ⇒ StrictMonoDecFuncOn(f, IntervalLoRo(-∞, -frac(d, c)))
+12. c > 0 ⇒ b > a * frac(d, c) ⇒ StrictMonoDecFuncOn(f, IntervalLoRo(-frac(d, c), +∞))
+13. c > 0 ⇒ b < frac(a * d, c) ⇒ StrictMonoIncFuncOn(f, IntervalLoRo(-∞, -frac(d, c)))
+14. c ≠ 0
+
+GOAL:
+c > 0 ⇒ b < frac(a * d, c) ⇒ StrictMonoIncFuncOn(f, IntervalLoRo(-frac(d, c), +∞))
+
+METHOD:

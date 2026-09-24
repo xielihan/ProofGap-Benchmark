@@ -1,0 +1,13 @@
+PROOF GAP @4
+ASSUM:
+1. C ∈ RealSet
+2. forall (x), x ∈ RealSet
+3. forall (x), x ∈ RealSet ⇒ x ≠ 0
+4. forall (x), x ∈ RealSet ⇒ frac(2^{x} * 3^{x}, 9^{x} - 4^{x}) * diff(fun x [x ∈ RealSet] . x) = frac(frac(3, 2)^{x}, (frac(3, 2)^{x})^{2} - 1) * diff(fun x [x ∈ RealSet] . x)
+5. { `F_2` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_2`, 1, 1)(x) = frac(2^{x} * 3^{x}, 9^{x} - 4^{x}) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(frac(3, 2)^{x}, (frac(3, 2)^{x})^{2} - 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) }
+6. { `F_3` | forall (x), x ∈ RealSet ⇒ FunDeri(`F_3`, 1, 1)(x) = frac(frac(3, 2)^{x}, (frac(3, 2)^{x})^{2} - 1) * FunDeri(fun x [x ∈ RealSet] . x, 1, 1)(x) } = { `F_5` | exists (`F_4`), `F_4` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . frac(3, 2)^{x}, 1, 1)(x), (frac(3, 2)^{x})^{2} - 1) ∧ `F_5`(x) = frac(1, ln(3) - ln(2)) * `F_4`(x)) }
+
+GOAL:
+{ `F_5` | exists (`F_4`), `F_4` : RealSet → RealSet ∧ (forall (x), x ∈ RealSet ⇒ FunDeri(`F_4`, 1, 1)(x) = frac(FunDeri(fun x [x ∈ RealSet] . frac(3, 2)^{x}, 1, 1)(x), (frac(3, 2)^{x})^{2} - 1) ∧ `F_5`(x) = frac(1, ln(3) - ln(2)) * `F_4`(x)) } = { `F_6` | exists (C), C ∈ RealSet ∧ (forall (x), x ∈ RealSet ⇒ `F_6`(x) = frac(1, 2 * (ln(3) - ln(2))) * ln(|frac(3^{x} - 2^{x}, 3^{x} + 2^{x})|) + C) }
+
+METHOD:

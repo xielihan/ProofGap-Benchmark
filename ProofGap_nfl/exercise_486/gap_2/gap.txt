@@ -1,0 +1,10 @@
+PROOF GAP @2
+ASSUM:
+1. a ∈ RealSet
+2. forall (k), k ∈ IntegerSet ⇒ a ≠ frac(2 * k + 1, 2) * π
+3. lim_{ x → a } (frac(sec(x) - sec(a), x - a)) = lim_{ x → a } (frac(cos(a) - cos(x), (x - a) * cos(x) * cos(a)))
+
+GOAL:
+lim_{ x → a } (frac(cos(a) - cos(x), (x - a) * cos(x) * cos(a))) = lim_{ x → a } (frac(sin(frac(x + a, 2)), cos(x) * cos(a)) * frac(sin(frac(x - a, 2)), frac(x - a, 2)))
+
+METHOD:

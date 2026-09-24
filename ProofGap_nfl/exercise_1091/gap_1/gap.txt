@@ -1,0 +1,15 @@
+PROOF GAP @1
+ASSUM:
+1. u : RealSet → RealSet
+2. v : RealSet → RealSet
+3. w : RealSet → RealSet
+4. y : RealSet → RealSet
+5. DiffableFunc(u)
+6. DiffableFunc(v)
+7. DiffableFunc(w)
+8. forall (x), x ∈ RealSet ⇒ y(x) = u(x) * v(x) * w(x)
+
+GOAL:
+diff(y) = (fun x [x ∈ RealSet] . v(x) * w(x)) * diff(u) + (fun x [x ∈ RealSet] . u(x) * w(x)) * diff(v) + (fun x [x ∈ RealSet] . u(x) * v(x)) * diff(w)
+
+METHOD:

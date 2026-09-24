@@ -1,0 +1,31 @@
+PROOF GAP @12
+ASSUM:
+1. a : NonNegIntegerSet → RealSet ∧ PosSeq(a)
+2. x ∈ RealSet ∧ x ∈ PosRealSet
+3. s : NonNegIntegerSet → RealSet
+4. R : NonNegIntegerSet → RealSet
+5. u : NonNegIntegerSet → RealSet
+6. α : NonNegIntegerSet → RealSet
+7. n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet
+8. k ∈ NonNegIntegerSet ∧ k ∈ PosIntegerSet
+9. DivergentSeries(sum_{ n = 1 }^{ +∞ } (frac(1, a(n))))
+10. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ s(n) = prod_{ k = 1 }^{ n } (frac(a(k), a(k + 1) + x))
+11. R(n) = frac(a(n + 1), x) * s(n)
+12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ frac(a(1), x) = (sum_{ k = 1 }^{ n } (s(k))) + R(n)
+13. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ R(n) = frac(a(1), x) * (prod_{ k = 2 }^{ n + 1 } (frac(a(k), a(k) + x)))
+14. α(k) = -frac(x, a(k) + x)
+15. u(n) = prod_{ k = 2 }^{ n + 1 } (1 + α(k))
+16. forall (k), k ∈ NonNegIntegerSet ∧ k ≥ 2 ⇒ -1 < α(k) ∧ α(k) < 0 ∧ 0 < 1 + α(k) ∧ 1 + α(k) < 1
+17. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ R(n) = frac(a(1), x) * u(n)
+18. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ ln(u(n)) = sum_{ k = 2 }^{ n + 1 } (ln(1 + α(k)))
+19. DivergentSeries(sum_{ k = 2 }^{ +∞ } (frac(1, a(k) + x)))
+20. sum_{ k = 2 }^{ +∞ } (α(k)) = -∞
+21. sum_{ k = 2 }^{ +∞ } (ln(1 + α(k))) = -∞
+22. seqlim_{ n → +∞ } (u(n)) = 0
+23. seqlim_{ n → +∞ } (R(n)) = 0
+24. ConvergentSeriesTo(sum_{ n = 1 }^{ +∞ } (s(n)), frac(a(1), x))
+
+GOAL:
+sum_{ n = 1 }^{ +∞ } (s(n)) = frac(a(1), x)
+
+METHOD:

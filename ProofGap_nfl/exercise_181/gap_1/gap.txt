@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. y : RealSet → RealSet
+2. E_{x} ⊆ RealSet
+3. x ∈ RealSet
+4. E_{x} = [-1, 0) ∪ (0, 1]
+5. forall (x), x ∈ RealSet ∧ x ∈ E_{x} ⇒ y(x) = cot(frac(π * x, 4))
+
+GOAL:
+E_{x} = [-1, 0) ∪ (0, 1]
+
+METHOD:

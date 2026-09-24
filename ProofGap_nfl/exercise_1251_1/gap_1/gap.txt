@@ -1,0 +1,8 @@
+PROOF GAP @1
+ASSUM:
+
+GOAL:
+forall (x), x ∈ RealSet ⇒ (forall (y), y ∈ RealSet ⇒ x < y ⇒ (exists (ξ), ξ ∈ RealSet ∧ x < ξ ∧ ξ < y ∧ sin(x) - sin(y) = (x - y) * cos(ξ)))
+
+METHOD:
+[@method 根据 "拉格朗日中值定理" @]

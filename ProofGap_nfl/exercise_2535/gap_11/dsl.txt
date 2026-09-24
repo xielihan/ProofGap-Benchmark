@@ -1,0 +1,3 @@
+rewrite (left_to_right, equation) (hypothesis 12: {y_{3} = sqrtn(2, x_{3})}); from (GOAL: {y_{3} = sqrtn(2, 7)}) to (GOAL: {sqrtn(2, x_{3}) = sqrtn(2, 7)})
+rewrite (left_to_right, equation) (hypothesis 24: {x_{3} = 7}); from (GOAL: {sqrtn(2, x_{3}) = sqrtn(2, 7)}) to (GOAL: {sqrtn(2, 7) = sqrtn(2, 7)})
+autosolve all_hypothesis

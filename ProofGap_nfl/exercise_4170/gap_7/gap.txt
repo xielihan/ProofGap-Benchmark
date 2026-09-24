@@ -1,0 +1,16 @@
+PROOF GAP @7
+ASSUM:
+1. p ∈ RealSet
+2. I ∈ RealSet
+3. I = DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . DefInt(1 - x, +∞, (fun y [y ∈ RealSet ∧ y ≥ 1 - x] . frac(1, (x + y)^{p})) * diff(fun y [y ∈ RealSet ∧ y ≥ 1 - x] . y))) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x))
+4. I = DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . DefInt(1 - x, +∞, (fun y [y ∈ RealSet ∧ y ≥ 1 - x] . frac(1, (x + y)^{p})) * diff(fun y [y ∈ RealSet ∧ y ≥ 1 - x] . y))) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x))
+5. p > 1 ⇒ (forall (x), x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1 ⇒ DefInt(1 - x, +∞, (fun y [y ∈ RealSet ∧ y ≥ 1 - x] . frac(1, (x + y)^{p})) * diff(fun y [y ∈ RealSet ∧ y ≥ 1 - x] . y)) = frac(1, p - 1))
+6. p > 1 ⇒ I = DefInt(0, 1, (fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . frac(1, p - 1)) * diff(fun x [x ∈ RealSet ∧ 0 ≤ x ∧ x ≤ 1] . x))
+7. p > 1 ⇒ I = frac(1, p - 1)
+8. p ≤ 1 ⇒ I = +∞
+9. p > 1 ⇒ I = frac(1, p - 1)
+
+GOAL:
+p ≤ 1 ⇒ I = +∞
+
+METHOD:

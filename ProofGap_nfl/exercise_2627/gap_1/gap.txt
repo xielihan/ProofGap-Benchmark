@@ -1,0 +1,12 @@
+PROOF GAP @1
+ASSUM:
+1. a ∈ RealSet
+2. b ∈ RealSet
+3. u : NonNegIntegerSet → RealSet
+4. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ n + a ≥ 0 ∧ n^{2} + n + b ≥ 0
+5. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ u(n) = sqrtn(2, n + a) - sqrtn(4, n^{2} + n + b)
+
+GOAL:
+forall (α) (β), α ∈ RealSet ∧ β ∈ RealSet ∧ α + β ≠ 0 ∧ α^{2} + β^{2} ≠ 0 ⇒ α - β = frac(α^{4} - β^{4}, (α + β) * (α^{2} + β^{2}))
+
+METHOD:

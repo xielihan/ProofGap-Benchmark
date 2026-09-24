@@ -1,0 +1,12 @@
+PROOF GAP @3
+ASSUM:
+1. x ∈ RealSet ∧ x ≥ -1
+2. C ∈ RealSet
+3. t = sqrtn(6, x + 1)
+4. x ≥ -1
+5. t ≥ 0
+
+GOAL:
+x = t^{6} - 1
+
+METHOD:
