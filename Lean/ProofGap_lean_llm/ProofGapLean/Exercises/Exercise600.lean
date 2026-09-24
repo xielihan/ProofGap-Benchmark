@@ -10,17 +10,17 @@ def f (x : ℝ) : ℝ := x + (Int.floor (x ^ 2) : ℝ)
 def leftFilter : Filter ℝ := nhdsWithin 1 (Set.Iio 1)
 def rightFilter : Filter ℝ := nhdsWithin 1 (Set.Ioi 1)
 
-/-- Source: `proof_gap/exercise_600/1.txt`. -/
+/-- Exercise 600, gap 1. -/
 theorem gap1 : f 1 = 2 := by
   norm_num [f]
 
-/-- Source: `proof_gap/exercise_600/2.txt`. -/
+/-- Exercise 600, gap 2. -/
 theorem gap2 (L : ℝ) :
     Filter.Tendsto f leftFilter (nhds L) ↔
       Filter.Tendsto (fun x => x + (Int.floor (x ^ 2) : ℝ)) leftFilter (nhds L) := by
   rfl
 
-/-- Source: `proof_gap/exercise_600/3.txt`. -/
+/-- Exercise 600, gap 3. -/
 theorem gap3 :
     Filter.Tendsto (fun x => x + (Int.floor (x ^ 2) : ℝ))
       leftFilter (nhds (1 + 0)) := by
@@ -52,22 +52,22 @@ theorem gap3 :
     simp [hfloor]
   simpa using hId.congr' hEq.symm
 
-/-- Source: `proof_gap/exercise_600/4.txt`. -/
+/-- Exercise 600, gap 4. -/
 theorem gap4 : (1 : ℝ) + 0 = 1 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_600/5.txt`. -/
+/-- Exercise 600, gap 5. -/
 theorem gap5 : Filter.Tendsto f leftFilter (nhds 1) := by
   apply (gap2 1).2
   simpa using gap3
 
-/-- Source: `proof_gap/exercise_600/6.txt`. -/
+/-- Exercise 600, gap 6. -/
 theorem gap6 (L : ℝ) :
     Filter.Tendsto f rightFilter (nhds L) ↔
       Filter.Tendsto (fun x => x + (Int.floor (x ^ 2) : ℝ)) rightFilter (nhds L) := by
   rfl
 
-/-- Source: `proof_gap/exercise_600/7.txt`. -/
+/-- Exercise 600, gap 7. -/
 theorem gap7 :
     Filter.Tendsto (fun x => x + (Int.floor (x ^ 2) : ℝ))
       rightFilter (nhds (1 + 1)) := by
@@ -112,11 +112,11 @@ theorem gap7 :
     simp [hfloor]
   exact hBase.congr' hEq.symm
 
-/-- Source: `proof_gap/exercise_600/8.txt`. -/
+/-- Exercise 600, gap 8. -/
 theorem gap8 : (1 : ℝ) + 1 = 2 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_600/9.txt`. -/
+/-- Exercise 600, gap 9. -/
 theorem gap9 : Filter.Tendsto f rightFilter (nhds 2) := by
   apply (gap6 2).2
   rw [← gap8]

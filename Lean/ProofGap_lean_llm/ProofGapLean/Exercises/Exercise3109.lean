@@ -57,7 +57,7 @@ def SufficientConditions (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ)
   SummableFromOne c ∧
   HasProductFromOne f F (Set.Ioo a b)
 
-/-- Source: `proof_gap/exercise_3109/1.txt`; logarithmic derivative. -/
+/-- Exercise 3109, gap 1; logarithmic derivative. -/
 theorem gap1 (F : ℝ → ℝ) (x : ℝ)
     (hF : DifferentiableAt ℝ F x) (hF0 : F x ≠ 0) :
     deriv (G F) x = deriv F x / F x := by
@@ -78,21 +78,21 @@ theorem gap1 (F : ℝ → ℝ) (x : ℝ)
     norm_num
     ring
 
-/-- Source: `proof_gap/exercise_3109/2.txt`; rearrange. -/
+/-- Exercise 3109, gap 2; rearrange. -/
 theorem gap2 (F : ℝ → ℝ) (x : ℝ)
     (hF : DifferentiableAt ℝ F x) (hF0 : F x ≠ 0) :
     deriv F x = F x * deriv (G F) x := by
   rw [gap1 F x hF hF0]
   field_simp
 
-/-- Source: `proof_gap/exercise_3109/3.txt`; definitional identity. -/
+/-- Exercise 3109, gap 3; definitional identity. -/
 theorem gap3 (f : ℕ → ℝ → ℝ) (F : ℝ → ℝ) (a b x : ℝ)
     (hprod : HasProductFromOne f F (Set.Ioo a b))
     (hx : x ∈ Set.Ioo a b) :
     deriv (G F) x = deriv (fun y => Real.log |F y|) x := by
   rfl
 
-/-- Source: `proof_gap/exercise_3109/4.txt`; equal on a neighborhood. -/
+/-- Exercise 3109, gap 4; equal on a neighborhood. -/
 theorem gap4 (f : ℕ → ℝ → ℝ) (F : ℝ → ℝ) (a b x : ℝ)
     (hx : x ∈ Set.Ioo a b)
     (hseries : ∀ y ∈ Set.Ioo a b, G F y = logSeries f y) :
@@ -101,7 +101,7 @@ theorem gap4 (f : ℕ → ℝ → ℝ) (F : ℝ → ℝ) (a b x : ℝ)
   filter_upwards [Ioo_mem_nhds hx.1 hx.2] with y hy
   exact hseries y hy
 
-/-- Source: `proof_gap/exercise_3109/5.txt`; termwise derivative sum. -/
+/-- Exercise 3109, gap 5; termwise derivative sum. -/
 theorem gap5 (f : ℕ → ℝ → ℝ) (F : ℝ → ℝ) (x : ℝ)
     (hG : deriv (G F) x = deriv (logSeries f) x)
     (htermwise :
@@ -110,7 +110,7 @@ theorem gap5 (f : ℕ → ℝ → ℝ) (F : ℝ → ℝ) (x : ℝ)
     deriv (G F) x = ∑' n : ℕ, derivativeLogTerm f n x := by
   rw [hG, htermwise.tsum_eq]
 
-/-- Source: `proof_gap/exercise_3109/6.txt`; differentiate each factor. -/
+/-- Exercise 3109, gap 6; differentiate each factor. -/
 theorem gap6 (f : ℕ → ℝ → ℝ) (F : ℝ → ℝ) (x : ℝ)
     (hdiff : ∀ n : ℕ, DifferentiableAt ℝ (f (n + 1)) x)
     (hnz : ∀ n : ℕ, 1 + f (n + 1) x ≠ 0)
@@ -139,27 +139,27 @@ theorem gap6 (f : ℕ → ℝ → ℝ) (F : ℝ → ℝ) (x : ℝ)
   · rw [sign_pos hpos, abs_of_pos hpos]
     norm_num
 
-/-- Source: `proof_gap/exercise_3109/7.txt`; left endpoint. -/
+/-- Exercise 3109, gap 7; left endpoint. -/
 theorem gap7 (a b x₀ : ℝ) (hx₀ : x₀ ∈ Set.Ioo a b) :
     ∃ a₁ : ℝ, a < a₁ ∧ a₁ < x₀ := by
   exact ⟨(a + x₀) / 2, by constructor <;> linarith [hx₀.1]⟩
 
-/-- Source: `proof_gap/exercise_3109/8.txt`; same left endpoint. -/
+/-- Exercise 3109, gap 8; same left endpoint. -/
 theorem gap8 (a b x₀ : ℝ) (hx₀ : x₀ ∈ Set.Ioo a b) :
     ∃ a₁ : ℝ, a < a₁ ∧ a₁ < x₀ := by
   exact gap7 a b x₀ hx₀
 
-/-- Source: `proof_gap/exercise_3109/9.txt`; right endpoint. -/
+/-- Exercise 3109, gap 9; right endpoint. -/
 theorem gap9 (a b x₀ : ℝ) (hx₀ : x₀ ∈ Set.Ioo a b) :
     ∃ b₁ : ℝ, x₀ < b₁ ∧ b₁ < b := by
   exact ⟨(x₀ + b) / 2, by constructor <;> linarith [hx₀.2]⟩
 
-/-- Source: `proof_gap/exercise_3109/10.txt`; same right endpoint. -/
+/-- Exercise 3109, gap 10; same right endpoint. -/
 theorem gap10 (a b x₀ : ℝ) (hx₀ : x₀ ∈ Set.Ioo a b) :
     ∃ b₁ : ℝ, x₀ < b₁ ∧ b₁ < b := by
   exact gap9 a b x₀ hx₀
 
-/-- Source: `proof_gap/exercise_3109/11.txt`. -/
+/-- Exercise 3109, gap 11. -/
 theorem gap11 (a b x₀ : ℝ) (hx₀ : x₀ ∈ Set.Ioo a b) :
     a < b := by
   exact hx₀.1.trans hx₀.2
@@ -223,7 +223,7 @@ private theorem inner_absTerm_le
       add_le_add hmv' le_rfl
     _ = |f (n + 1) x₀| + (b - a) * c (n + 1) := by ring
 
-/-- Source: `proof_gap/exercise_3109/12.txt`; inner uniform absolute series. -/
+/-- Exercise 3109, gap 12; inner uniform absolute series. -/
 theorem gap12 (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ) (F : ℝ → ℝ)
     (a b x₀ : ℝ) (hx₀ : x₀ ∈ Set.Ioo a b)
     (h : SufficientConditions f c F a b) :
@@ -250,7 +250,7 @@ theorem gap12 (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ) (F : ℝ → ℝ)
   exact inner_absTerm_le f c a b x₀ a₁ b₁ hx₀ hnest
     hdiff hderiv hc0 n x ⟨hx.1.le, hx.2.le⟩
 
-/-- Source: `proof_gap/exercise_3109/13.txt`; uniform small tail. -/
+/-- Exercise 3109, gap 13; uniform small tail. -/
 theorem gap13 (f : ℕ → ℝ → ℝ) (a₁ b₁ : ℝ)
     (huniform :
       HasSumUniformlyOn (absTerm f)
@@ -280,7 +280,7 @@ theorem gap13 (f : ℕ → ℝ → ℝ) (a₁ b₁ : ℝ)
   | succ k =>
       simpa [s, absTerm] using hN k (by omega) x hx
 
-/-- Source: `proof_gap/exercise_3109/14.txt`; logarithm bound. -/
+/-- Exercise 3109, gap 14; logarithm bound. -/
 theorem gap14 (f : ℕ → ℝ → ℝ) (a₁ b₁ : ℝ) (N : ℕ)
     (hsmall :
       ∀ n : ℕ, N < n → ∀ x ∈ Set.Ioo a₁ b₁, |f n x| < 1 / 2) :
@@ -307,7 +307,7 @@ theorem gap14 (f : ℕ → ℝ → ℝ) (a₁ b₁ : ℝ) (N : ℕ)
     _ ≤ 2 * |u| := by gcongr <;> norm_num
     _ = 2 * |f n x| := by rfl
 
-/-- Source: `proof_gap/exercise_3109/15.txt`; derivative ratio bound. -/
+/-- Exercise 3109, gap 15; derivative ratio bound. -/
 theorem gap15 (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ)
     (a₁ b₁ : ℝ) (N : ℕ)
     (hsmall :
@@ -330,7 +330,7 @@ theorem gap15 (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ)
   apply (div_le_iff₀ (by linarith : 0 < |1 + f n x|)).2
   nlinarith [abs_nonneg (deriv (f n) x)]
 
-/-- Source: `proof_gap/exercise_3109/16.txt`; uniform log series. -/
+/-- Exercise 3109, gap 16; uniform log series. -/
 theorem gap16 (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ) (F : ℝ → ℝ)
     (a b x₀ a₁ b₁ : ℝ)
     (hx₀ : x₀ ∈ Set.Ioo a b)
@@ -369,7 +369,7 @@ theorem gap16 (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ) (F : ℝ → ℝ)
   simpa [logTerm, absTerm, Real.norm_eq_abs] using
     h1.trans (mul_le_mul_of_nonneg_left h2' (by norm_num))
 
-/-- Source: `proof_gap/exercise_3109/17.txt`; derivative terms uniform. -/
+/-- Exercise 3109, gap 17; derivative terms uniform. -/
 theorem gap17 (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ) (F : ℝ → ℝ)
     (a b x₀ a₁ b₁ : ℝ)
     (hx₀ : x₀ ∈ Set.Ioo a b)
@@ -516,7 +516,7 @@ private theorem hasDerivAt_logSeries
       (Ioo_mem_nhds hy'.1 hy'.2))
     (hnz (n + 1) (by omega) y hy')
 
-/-- Source: `proof_gap/exercise_3109/18.txt`; termwise differentiation. -/
+/-- Exercise 3109, gap 18; termwise differentiation. -/
 theorem gap18 (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ) (F : ℝ → ℝ)
     (a b x₀ a₁ b₁ : ℝ)
     (hx₀ : x₀ ∈ Set.Ioo a b)
@@ -533,7 +533,7 @@ theorem gap18 (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ) (F : ℝ → ℝ)
       ⟨hnest.1.trans hy.1, hy.2.trans hnest.2.2.2⟩
   exact (hsum.differentiableAt.congr_of_eventuallyEq heq).differentiableWithinAt
 
-/-- Source: `proof_gap/exercise_3109/19.txt`; product continuity. -/
+/-- Exercise 3109, gap 19; product continuity. -/
 theorem gap19 (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ) (F : ℝ → ℝ)
     (a b x₀ a₁ b₁ : ℝ)
     (hx₀ : x₀ ∈ Set.Ioo a b)
@@ -578,12 +578,12 @@ theorem gap19 (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ) (F : ℝ → ℝ)
     (Eventually.of_forall hfin).frequently).mono
       (fun x hx => ⟨hx.1.le, hx.2.le⟩)
 
-/-- Source: `proof_gap/exercise_3109/20.txt`; positive branch. -/
+/-- Exercise 3109, gap 20; positive branch. -/
 theorem gap20 (F : ℝ → ℝ) (x : ℝ) (hFpos : 0 < F x) :
     F x = Real.exp (G F x) := by
   rw [G, abs_of_pos hFpos, Real.exp_log hFpos]
 
-/-- Source: `proof_gap/exercise_3109/21.txt`; positive derivative branch. -/
+/-- Exercise 3109, gap 21; positive derivative branch. -/
 theorem gap21 (F : ℝ → ℝ) (a₁ b₁ x : ℝ)
     (hx : x ∈ Set.Ioo a₁ b₁)
     (hlocal : ∀ y ∈ Set.Ioo a₁ b₁, F y = Real.exp (G F y))
@@ -598,7 +598,7 @@ theorem gap21 (F : ℝ → ℝ) (a₁ b₁ x : ℝ)
       ((hG x hx).differentiableAt
         (Ioo_mem_nhds hx.1 hx.2)).hasDerivAt).deriv
 
-/-- Source: `proof_gap/exercise_3109/22.txt`; substitute series. -/
+/-- Exercise 3109, gap 22; substitute series. -/
 theorem gap22 (f : ℕ → ℝ → ℝ) (F : ℝ → ℝ) (x : ℝ)
     (hFexp : F x = Real.exp (G F x))
     (hG : deriv (G F) x = derivativeRatioSeries f x) :
@@ -606,7 +606,7 @@ theorem gap22 (f : ℕ → ℝ → ℝ) (F : ℝ → ℝ) (x : ℝ)
       F x * derivativeRatioSeries f x := by
   rw [hFexp, hG]
 
-/-- Source: `proof_gap/exercise_3109/23.txt`; positive formula. -/
+/-- Exercise 3109, gap 23; positive formula. -/
 theorem gap23 (f : ℕ → ℝ → ℝ) (F : ℝ → ℝ) (x : ℝ)
     (hF : deriv F x = Real.exp (G F x) * deriv (G F) x)
     (hFexp : F x = Real.exp (G F x))
@@ -614,13 +614,13 @@ theorem gap23 (f : ℕ → ℝ → ℝ) (F : ℝ → ℝ) (x : ℝ)
     deriv F x = F x * derivativeRatioSeries f x := by
   rw [hF, ← hFexp, hG]
 
-/-- Source: `proof_gap/exercise_3109/24.txt`; negative branch. -/
+/-- Exercise 3109, gap 24; negative branch. -/
 theorem gap24 (F : ℝ → ℝ) (x : ℝ) (hFneg : F x < 0) :
     F x = -Real.exp (G F x) := by
   rw [G, abs_of_neg hFneg, Real.exp_log (neg_pos.mpr hFneg)]
   ring
 
-/-- Source: `proof_gap/exercise_3109/25.txt`; negative derivative branch. -/
+/-- Exercise 3109, gap 25; negative derivative branch. -/
 theorem gap25 (F : ℝ → ℝ) (a₁ b₁ x : ℝ)
     (hx : x ∈ Set.Ioo a₁ b₁)
     (hlocal : ∀ y ∈ Set.Ioo a₁ b₁, F y = -Real.exp (G F y))
@@ -636,7 +636,7 @@ theorem gap25 (F : ℝ → ℝ) (a₁ b₁ x : ℝ)
     deriv F x = deriv (fun y => -Real.exp (G F y)) x := heq.deriv_eq
     _ = _ := by simpa [neg_mul] using hd.deriv
 
-/-- Source: `proof_gap/exercise_3109/26.txt`; substitute negative branch. -/
+/-- Exercise 3109, gap 26; substitute negative branch. -/
 theorem gap26 (f : ℕ → ℝ → ℝ) (F : ℝ → ℝ) (x : ℝ)
     (hFexp : F x = -Real.exp (G F x))
     (hG : deriv (G F) x = derivativeRatioSeries f x) :
@@ -644,7 +644,7 @@ theorem gap26 (f : ℕ → ℝ → ℝ) (F : ℝ → ℝ) (x : ℝ)
       F x * derivativeRatioSeries f x := by
   rw [hFexp, hG]
 
-/-- Source: `proof_gap/exercise_3109/27.txt`; negative formula. -/
+/-- Exercise 3109, gap 27; negative formula. -/
 theorem gap27 (f : ℕ → ℝ → ℝ) (F : ℝ → ℝ) (x : ℝ)
     (hF : deriv F x = -Real.exp (G F x) * deriv (G F) x)
     (hFexp : F x = -Real.exp (G F x))
@@ -652,7 +652,7 @@ theorem gap27 (f : ℕ → ℝ → ℝ) (F : ℝ → ℝ) (x : ℝ)
     deriv F x = F x * derivativeRatioSeries f x := by
   rw [hF, ← hFexp, hG]
 
-/-- Source: `proof_gap/exercise_3109/28.txt`; final theorem. -/
+/-- Exercise 3109, gap 28; final theorem. -/
 theorem gap28 (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ) (F : ℝ → ℝ)
     (a b : ℝ) (h : SufficientConditions f c F a b) :
     ∀ x ∈ Set.Ioo a b,

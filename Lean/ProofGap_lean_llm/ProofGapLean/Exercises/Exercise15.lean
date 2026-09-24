@@ -4,7 +4,7 @@ import Mathlib.Data.Real.Archimedean
 /-!
 # Exercise 15
 
-Semantic formalization of `proof_gap/exercise_15/{1,...,13}.txt`.
+Semantic formalization of Exercise 15, gaps 1,...,13.
 The source discusses existence and characterization of suprema and infima.
 -/
 
@@ -64,7 +64,7 @@ def InfimumExists : Prop :=
     ∃ α : ℝ, IsGLB A α ∧ α = sInf A
 
 /--
-Source: `proof_gap/exercise_15/1.txt`.
+Exercise 15, gap 1.
 
 The two source binders named `m` shadow one another.  They are unified into the
 actual maximum witness.
@@ -73,14 +73,14 @@ theorem gap1 : MaximumIsUpperBound := by
   intro A m hgreatest a ha
   exact hgreatest.2 ha
 
-/-- Source: `proof_gap/exercise_15/2.txt`; uses the same repaired witness scope. -/
+/-- Exercise 15, gap 2; uses the same repaired witness scope. -/
 theorem gap2
     (h1 : MaximumIsUpperBound) :
     MaximumIsLeastUpperBound := by
   intro A m hgreatest M hupper
   exact hupper m hgreatest.1
 
-/-- Source: `proof_gap/exercise_15/3.txt`; uses the same repaired witness scope. -/
+/-- Exercise 15, gap 3; uses the same repaired witness scope. -/
 theorem gap3
     (h1 : MaximumIsUpperBound)
     (h2 : MaximumIsLeastUpperBound) :
@@ -88,7 +88,7 @@ theorem gap3
   intro A m hgreatest
   exact hgreatest.csSup_eq.symm
 
-/-- Source: `proof_gap/exercise_15/4.txt`. -/
+/-- Exercise 15, gap 4. -/
 theorem gap4
     (h1 : MaximumIsUpperBound)
     (h2 : MaximumIsLeastUpperBound)
@@ -100,7 +100,7 @@ theorem gap4
   exact hnomax ⟨a, ha, haupper⟩
 
 /--
-Source: `proof_gap/exercise_15/5.txt`.
+Exercise 15, gap 5.
 
 The missing nonemptiness premise is explicit.
 -/
@@ -112,7 +112,7 @@ theorem gap5
   exact ⟨a, h4 A hnomax ha⟩
 
 /--
-Source: `proof_gap/exercise_15/6.txt`.
+Exercise 15, gap 6.
 
 `NoMaximum A` alone does not imply `A.Nonempty` (the empty set is a
 counterexample), so nonemptiness is restored as a premise.
@@ -124,7 +124,7 @@ theorem gap6
   intro A hA hnomax
   exact hA
 
-/-- Source: `proof_gap/exercise_15/7.txt`. -/
+/-- Exercise 15, gap 7. -/
 theorem gap7
     (h4 : MembersAreNotUpperBounds)
     (h5 : NonUpperBoundsNonempty)
@@ -137,21 +137,21 @@ theorem gap7
   intro a ha
   exact (hv ha).trans (le_of_not_gt hnlt)
 
-/-- Source: `proof_gap/exercise_15/8.txt`. -/
+/-- Exercise 15, gap 8. -/
 theorem gap8
     (h7 : SeparateNonUpperAndUpperBounds) :
     LeastUpperBoundIsUpperBound := by
   intro A β hnomax hleast a ha
   exact hleast.1 ha
 
-/-- Source: `proof_gap/exercise_15/9.txt`. -/
+/-- Exercise 15, gap 9. -/
 theorem gap9
     (h8 : LeastUpperBoundIsUpperBound) :
     LeastUpperBoundIsLeast := by
   intro A β hnomax hleast M hupper
   exact hleast.2 hupper
 
-/-- Source: `proof_gap/exercise_15/10.txt`. -/
+/-- Exercise 15, gap 10. -/
 theorem gap10
     (h8 : LeastUpperBoundIsUpperBound)
     (h9 : LeastUpperBoundIsLeast) :
@@ -169,7 +169,7 @@ theorem gap10
   have hlub : IsLUB A β := hleast
   exact (hlub.csSup_eq hA).symm
 
-/-- Source: `proof_gap/exercise_15/11.txt`. -/
+/-- Exercise 15, gap 11. -/
 theorem gap11
     (h3 : MaximumEqualsSupremum)
     (h10 : LeastUpperBoundEqualsSupremum) :
@@ -177,14 +177,14 @@ theorem gap11
   intro A hA hbdd
   exact ⟨sSup A, isLUB_csSup hA hbdd, rfl⟩
 
-/-- Source: `proof_gap/exercise_15/12.txt`. -/
+/-- Exercise 15, gap 12. -/
 theorem gap12
     (h11 : SupremumExists) :
     InfimumExists := by
   intro A hA hbdd
   exact ⟨sInf A, isGLB_csInf hA hbdd, rfl⟩
 
-/-- Source: `proof_gap/exercise_15/13.txt`. -/
+/-- Exercise 15, gap 13. -/
 theorem gap13
     (h11 : SupremumExists)
     (h12 : InfimumExists) :

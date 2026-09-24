@@ -9,7 +9,7 @@ namespace ProofGap.Exercise125
 def indexSet (x : ℕ → ℝ) (I : ℕ → Set ℝ) (k : ℕ) : Set ℕ :=
   {n | 0 < n ∧ x n ∈ I k}
 
-/-- Source: `proof_gap/exercise_125/1.txt`. -/
+/-- Exercise 125, gap 1. -/
 theorem gap1
     (x : ℕ → ℝ)
     (hbounded : Bornology.IsBounded (Set.range x)) :
@@ -22,21 +22,21 @@ theorem gap1
     simpa [Real.dist_eq] using hdist
   exact ⟨(neg_le_of_abs_le habs), (le_of_abs_le habs)⟩
 
-/-- Source: `proof_gap/exercise_125/2.txt`; the interval sequence is explicit. -/
+/-- Exercise 125, gap 2; the interval sequence is explicit. -/
 theorem gap2
     (I : ℕ → Set ℝ)
     (hnested : ∀ k : ℕ, 0 < k → I k ⊆ I (k - 1)) :
     ∀ k : ℕ, 0 < k → I k ⊆ I (k - 1) := by
   exact hnested
 
-/-- Source: `proof_gap/exercise_125/3.txt`. -/
+/-- Exercise 125, gap 3. -/
 theorem gap3
     (x : ℕ → ℝ) (I : ℕ → Set ℝ)
     (hinfinite : ∀ k : ℕ, 0 < k → (indexSet x I k).Infinite) :
     ∀ k : ℕ, 0 < k → (indexSet x I k).Infinite := by
   exact hinfinite
 
-/-- Source: `proof_gap/exercise_125/4.txt`; endpoint functions are named. -/
+/-- Exercise 125, gap 4; endpoint functions are named. -/
 theorem gap4
     (I : ℕ → Set ℝ)
     (a b : ℕ → ℝ)
@@ -44,7 +44,7 @@ theorem gap4
     ∀ k : ℕ, 0 < k → I k = Set.Icc (a k) (b k) := by
   exact hI
 
-/-- Source: `proof_gap/exercise_125/5.txt`. -/
+/-- Exercise 125, gap 5. -/
 theorem gap5
     (a b : ℕ → ℝ) (a₀ b₀ : ℝ)
     (hlen : ∀ k : ℕ, 0 < k →
@@ -53,7 +53,7 @@ theorem gap5
       b k - a k = (b₀ - a₀) / (2 : ℝ) ^ k := by
   exact hlen
 
-/-- Source: `proof_gap/exercise_125/6.txt`. -/
+/-- Exercise 125, gap 6. -/
 theorem gap6
     (a b : ℕ → ℝ)
     (hnested : ∀ k : ℕ, 0 < k →
@@ -62,7 +62,7 @@ theorem gap6
       Set.Icc (a (k + 1)) (b (k + 1)) ⊆ Set.Icc (a k) (b k) := by
   exact hnested
 
-/-- Source: `proof_gap/exercise_125/7.txt`. -/
+/-- Exercise 125, gap 7. -/
 theorem gap7
     (a b : ℕ → ℝ) (a₀ b₀ : ℝ)
     (hlen : ∀ k : ℕ, 0 < k →
@@ -81,7 +81,7 @@ theorem gap7
   rw [one_div_pow]
   ring
 
-/-- Source: `proof_gap/exercise_125/8.txt`; the common endpoint limit is named. -/
+/-- Exercise 125, gap 8; the common endpoint limit is named. -/
 theorem gap8
     (a b : ℕ → ℝ)
     (hnested : ∀ k : ℕ,
@@ -116,28 +116,28 @@ theorem gap8
     simpa only [sub_add_cancel, zero_add] using hsum
   exact ⟨c, ha_lim, hb_lim⟩
 
-/-- Source: `proof_gap/exercise_125/9.txt`. -/
+/-- Exercise 125, gap 9. -/
 theorem gap9
     (x : ℕ → ℝ) (p : ℕ → ℕ) (a : ℕ → ℝ)
     (hlower : ∀ k : ℕ, 0 < k → a k ≤ x (p k)) :
     ∀ k : ℕ, 0 < k → a k ≤ x (p k) := by
   exact hlower
 
-/-- Source: `proof_gap/exercise_125/10.txt`. -/
+/-- Exercise 125, gap 10. -/
 theorem gap10
     (x : ℕ → ℝ) (p : ℕ → ℕ) (b : ℕ → ℝ)
     (hupper : ∀ k : ℕ, 0 < k → x (p k) ≤ b k) :
     ∀ k : ℕ, 0 < k → x (p k) ≤ b k := by
   exact hupper
 
-/-- Source: `proof_gap/exercise_125/11.txt`. -/
+/-- Exercise 125, gap 11. -/
 theorem gap11
     (a b : ℕ → ℝ)
     (hab : ∀ k : ℕ, 0 < k → a k ≤ b k) :
     ∀ k : ℕ, 0 < k → a k ≤ b k := by
   exact hab
 
-/-- Source: `proof_gap/exercise_125/12.txt`. -/
+/-- Exercise 125, gap 12. -/
 theorem gap12
     (x : ℕ → ℝ) (p : ℕ → ℕ) (a b : ℕ → ℝ) (c : ℝ)
     (hlower : ∀ k : ℕ, 0 < k → a k ≤ x (p k))
@@ -151,28 +151,28 @@ theorem gap12
   rw [abs_le]
   constructor <;> linarith [hck.1, hck.2]
 
-/-- Source: `proof_gap/exercise_125/13.txt`. -/
+/-- Exercise 125, gap 13. -/
 theorem gap13
     (p : ℕ → ℕ)
     (hp : StrictMono p) :
     StrictMono p := by
   exact hp
 
-/-- Source: `proof_gap/exercise_125/14.txt`. -/
+/-- Exercise 125, gap 14. -/
 theorem gap14
     (x : ℕ → ℝ) (p : ℕ → ℕ) (c : ℝ)
     (hlim : Tendsto (x ∘ p) atTop (𝓝 c)) :
     Tendsto (x ∘ p) atTop (𝓝 c) := by
   exact hlim
 
-/-- Source: `proof_gap/exercise_125/15.txt`. -/
+/-- Exercise 125, gap 15. -/
 theorem gap15
     (x : ℕ → ℝ) (p : ℕ → ℕ) (c : ℝ)
     (hlim : Tendsto (x ∘ p) atTop (𝓝 c)) :
     ProofGap.ConvergentSeq (x ∘ p) := by
   exact ⟨c, hlim⟩
 
-/-- Source: `proof_gap/exercise_125/16.txt`; Bolzano-Weierstrass for real sequences. -/
+/-- Exercise 125, gap 16; Bolzano-Weierstrass for real sequences. -/
 theorem gap16
     (x : ℕ → ℝ)
     (hbounded : Bornology.IsBounded (Set.range x)) :

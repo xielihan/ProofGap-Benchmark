@@ -16,7 +16,7 @@ def rewritten (x : ℝ) : ℝ :=
   Real.sqrt (Real.rpow x (3 / 4) +
     Real.sqrt (Real.rpow x (1 / 2) + 1))
 
-/-- Source: `proof_gap/exercise_650_5/1.txt`. -/
+/-- Exercise 650_5, gap 1. -/
 private lemma positive_identities {x : ℝ} (hx : 0 < x) :
     normalized x = rewritten x ∧
       rewritten x =
@@ -153,7 +153,7 @@ theorem gap1 (L : ℝ) :
   · intro h
     exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_650_5/2.txt`. -/
+/-- Exercise 650_5, gap 2. -/
 theorem gap2 :
     Filter.Tendsto rewritten (nhdsWithin 0 (Set.Ioi 0)) (nhds 1) := by
   let model : ℝ → ℝ := fun x =>
@@ -173,12 +173,12 @@ theorem gap2 :
     exact (positive_identities hx).2
   exact hmodel.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_650_5/3.txt`. -/
+/-- Exercise 650_5, gap 3. -/
 theorem gap3 :
     Filter.Tendsto normalized (nhdsWithin 0 (Set.Ioi 0)) (nhds 1) := by
   exact (gap1 1).mpr gap2
 
-/-- Source: `proof_gap/exercise_650_5/4.txt`. -/
+/-- Exercise 650_5, gap 4. -/
 theorem gap4 :
     Asymptotics.IsEquivalent (nhdsWithin 0 (Set.Ioi 0)) nested scale := by
   change Asymptotics.IsLittleO (nhdsWithin 0 (Set.Ioi 0))
@@ -211,7 +211,7 @@ theorem gap4 :
       mul_le_mul_of_nonneg_left hnorm.le (norm_nonneg _)
     _ = c * ‖scale x‖ := mul_comm _ _
 
-/-- Source: `proof_gap/exercise_650_5/5.txt`. -/
+/-- Exercise 650_5, gap 5. -/
 theorem gap5 :
     Asymptotics.IsEquivalent (nhdsWithin 0 (Set.Ioi 0)) nested scale := by
   exact gap4

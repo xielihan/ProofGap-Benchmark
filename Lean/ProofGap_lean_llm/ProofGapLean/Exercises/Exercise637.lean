@@ -11,7 +11,7 @@ def Recurrence (a : ℝ) (x : ℕ → ℝ) : Prop :=
   x 1 = Real.sqrt a ∧
     ∀ n ≥ 2, x n = Real.sqrt (a + x (n - 1))
 
-/-- Source: `proof_gap/exercise_637/1.txt`. -/
+/-- Exercise 637, gap 1. -/
 private lemma recurrence_facts (a : ℝ) (x : ℕ → ℝ) (ha : 0 < a)
     (hx : Recurrence a x) :
     (∀ n ≥ 1, 0 < x n) ∧
@@ -83,13 +83,13 @@ theorem gap1 (a : ℝ) (x : ℕ → ℝ) (ha : 0 < a)
   have h := hs hsub
   simpa [Nat.sub_add_cancel hm1, Nat.sub_add_cancel hn1] using h
 
-/-- Source: `proof_gap/exercise_637/2.txt`; add the missing range `n≥2`. -/
+/-- Exercise 637, gap 2; add the missing range `n≥2`. -/
 theorem gap2 (a : ℝ) (x : ℕ → ℝ) (ha : 0 < a)
     (hx : Recurrence a x) :
     ∀ n ≥ 2, x n ^ 2 = a + x (n - 1) := by
   exact (recurrence_facts a x ha hx).2.1
 
-/-- Source: `proof_gap/exercise_637/3.txt`; add `n≥2`. -/
+/-- Exercise 637, gap 3; add `n≥2`. -/
 theorem gap3 (a : ℝ) (x : ℕ → ℝ) (ha : 0 < a)
     (hx : Recurrence a x) :
     ∀ n ≥ 2, x n = a / x n + x (n - 1) / x n := by
@@ -104,7 +104,7 @@ theorem gap3 (a : ℝ) (x : ℕ → ℝ) (ha : 0 < a)
     _ = a / x n + x (n - 1) / x n := by
       exact add_div _ _ _
 
-/-- Source: `proof_gap/exercise_637/4.txt`; the strict inequality starts at `n≥3`. -/
+/-- Exercise 637, gap 4; the strict inequality starts at `n≥3`. -/
 theorem gap4 (a : ℝ) (x : ℕ → ℝ) (ha : 0 < a)
     (hx : Recurrence a x) :
     ∀ n ≥ 3, Real.sqrt a < x (n - 1) := by
@@ -115,7 +115,7 @@ theorem gap4 (a : ℝ) (x : ℕ → ℝ) (ha : 0 < a)
     (show 1 < n - 1 by omega)
   simpa [hx.1] using h
 
-/-- Source: `proof_gap/exercise_637/5.txt`; add the missing range `n≥2`. -/
+/-- Exercise 637, gap 5; add the missing range `n≥2`. -/
 theorem gap5 (a : ℝ) (x : ℕ → ℝ) (ha : 0 < a)
     (hx : Recurrence a x) :
     ∀ n ≥ 2, x (n - 1) < x n := by
@@ -123,7 +123,7 @@ theorem gap5 (a : ℝ) (x : ℕ → ℝ) (ha : 0 < a)
   have h := (recurrence_facts a x ha hx).2.2 (n - 1) (by omega)
   simpa [Nat.sub_add_cancel (show 1 ≤ n by omega)] using h
 
-/-- Source: `proof_gap/exercise_637/6.txt`; the strict inequality starts at `n≥2`. -/
+/-- Exercise 637, gap 6; the strict inequality starts at `n≥2`. -/
 theorem gap6 (a : ℝ) (x : ℕ → ℝ) (ha : 0 < a)
     (hx : Recurrence a x) :
     ∀ n ≥ 2, Real.sqrt a < x n := by
@@ -134,7 +134,7 @@ theorem gap6 (a : ℝ) (x : ℕ → ℝ) (ha : 0 < a)
     (show 1 < n by omega)
   simpa [hx.1] using h
 
-/-- Source: `proof_gap/exercise_637/7.txt`; add the missing range `n≥2`. -/
+/-- Exercise 637, gap 7; add the missing range `n≥2`. -/
 theorem gap7 (a : ℝ) (x : ℕ → ℝ) (ha : 0 < a)
     (hx : Recurrence a x) :
     ∀ n ≥ 2, x n < a / x n + 1 := by
@@ -147,13 +147,13 @@ theorem gap7 (a : ℝ) (x : ℕ → ℝ) (ha : 0 < a)
     x n = a / x n + x (n - 1) / x n := gap3 a x ha hx n hn
     _ < a / x n + 1 := by linarith
 
-/-- Source: `proof_gap/exercise_637/8.txt`; the strict inequality starts at `n≥2`. -/
+/-- Exercise 637, gap 8; the strict inequality starts at `n≥2`. -/
 theorem gap8 (a : ℝ) (x : ℕ → ℝ) (ha : 0 < a)
     (hx : Recurrence a x) :
     ∀ n ≥ 2, Real.sqrt a < x n := by
   exact gap6 a x ha hx
 
-/-- Source: `proof_gap/exercise_637/9.txt`. -/
+/-- Exercise 637, gap 9. -/
 theorem gap9 (a : ℝ) (x : ℕ → ℝ) (ha : 0 < a)
     (hx : Recurrence a x) :
     ∀ n ≥ 1, x n < Real.sqrt a + 1 := by
@@ -176,7 +176,7 @@ theorem gap9 (a : ℝ) (x : ℕ → ℝ) (ha : 0 < a)
     have hmain := gap7 a x ha hx n hn2
     linarith
 
-/-- Source: `proof_gap/exercise_637/10.txt`. -/
+/-- Exercise 637, gap 10. -/
 theorem gap10 (a : ℝ) (x : ℕ → ℝ) (ha : 0 < a)
     (hx : Recurrence a x) :
     ∃ M, ∀ n, |x n| ≤ M := by
@@ -190,7 +190,7 @@ theorem gap10 (a : ℝ) (x : ℕ → ℝ) (ha : 0 < a)
     rw [abs_of_nonneg (le_of_lt hpos)]
     exact le_trans (le_of_lt (gap9 a x ha hx n hn1)) (le_max_right _ _)
 
-/-- Source: `proof_gap/exercise_637/11.txt`. -/
+/-- Exercise 637, gap 11. -/
 theorem gap11 (a : ℝ) (x : ℕ → ℝ) (ha : 0 < a)
     (hx : Recurrence a x) :
     ∃ l, Filter.Tendsto x Filter.atTop (nhds l) := by
@@ -218,7 +218,7 @@ theorem gap11 (a : ℝ) (x : ℕ → ℝ) (ha : 0 < a)
   filter_upwards [Filter.eventually_ge_atTop 1] with n hn
   simp [y, Nat.sub_add_cancel hn]
 
-/-- Source: `proof_gap/exercise_637/12.txt`. -/
+/-- Exercise 637, gap 12. -/
 theorem gap12 (a : ℝ) (x : ℕ → ℝ) (ha : 0 < a)
     (hx : Recurrence a x) :
     ∃ l, l ^ 2 = a + l := by
@@ -227,7 +227,7 @@ theorem gap12 (a : ℝ) (x : ℕ → ℝ) (ha : 0 < a)
   have hs := Real.sq_sqrt hdisc
   nlinarith
 
-/-- Source: `proof_gap/exercise_637/13.txt`; replace the informal `±` by the two roots. -/
+/-- Exercise 637, gap 13; replace the informal `±` by the two roots. -/
 theorem gap13 (a l : ℝ) (ha : 0 ≤ a) :
     l ^ 2 = a + l ↔
       l = (1 + Real.sqrt (1 + 4 * a)) / 2 ∨
@@ -251,7 +251,7 @@ theorem gap13 (a l : ℝ) (ha : 0 ≤ a) :
     · nlinarith
     · nlinarith
 
-/-- Source: `proof_gap/exercise_637/14.txt`; restrict to the positive root. -/
+/-- Exercise 637, gap 14; restrict to the positive root. -/
 theorem gap14 (a l : ℝ) (ha : 0 < a) (hl : 0 < l) :
     l ^ 2 = a + l ↔
       l = (1 + Real.sqrt (1 + 4 * a)) / 2 := by
@@ -270,7 +270,7 @@ theorem gap14 (a l : ℝ) (ha : 0 < a) (hl : 0 < l) :
     apply (gap13 a l (le_of_lt ha)).2
     exact Or.inl hroot
 
-/-- Source: `proof_gap/exercise_637/15.txt`. -/
+/-- Exercise 637, gap 15. -/
 theorem gap15 (a : ℝ) (x : ℕ → ℝ) (ha : 0 < a)
     (hx : Recurrence a x) :
     Filter.Tendsto x Filter.atTop

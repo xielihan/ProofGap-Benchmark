@@ -9,11 +9,11 @@ noncomputable section
 def g (x : ℝ) : ℝ := if 0 ≤ x then 1 else -1
 def f (_x : ℝ) : ℝ := 0
 
-/-- Source: `proof_gap/exercise_742_1/1.txt`. -/
+/-- Exercise 742_1, gap 1. -/
 theorem gap1 : Continuous f := by
   simpa [f] using (continuous_const : Continuous (fun _ : ℝ => (0 : ℝ)))
 
-/-- Source: `proof_gap/exercise_742_1/2.txt`. -/
+/-- Exercise 742_1, gap 2. -/
 theorem gap2 : ¬ ContinuousAt g 0 := by
   intro h
   rw [Metric.continuousAt_iff] at h
@@ -29,12 +29,12 @@ theorem gap2 : ¬ ContinuousAt g 0 := by
   have hout := hcont hdist
   norm_num [g, not_le.mpr hy, Real.dist_eq] at hout
 
-/-- Source: `proof_gap/exercise_742_1/3.txt`. -/
+/-- Exercise 742_1, gap 3. -/
 theorem gap3 : ∀ x, f x * g x = 0 := by
   intro x
   simp [f]
 
-/-- Source: `proof_gap/exercise_742_1/4.txt`. -/
+/-- Exercise 742_1, gap 4. -/
 theorem gap4 : Continuous (fun x => f x * g x) := by
   simpa [f] using (continuous_const : Continuous (fun _ : ℝ => (0 : ℝ)))
 

@@ -22,7 +22,7 @@ def target (p : ℝ × ℝ) : ℝ :=
 def upperBound (p : ℝ × ℝ) : ℝ :=
   1 / |p.1| + 1 / |p.2|
 
-/-- Source: `proof_gap/exercise_3185/1.txt`; exclude the zero denominator. -/
+/-- Exercise 3185, gap 1; exclude the zero denominator. -/
 private theorem abs_add (x y : ℝ) : |x + y| ≤ |x| + |y| := by
   exact abs_add_le x y
 
@@ -32,7 +32,7 @@ theorem gap1 :
   intro x y hxy
   exact abs_nonneg _
 
-/-- Source: `proof_gap/exercise_3185/2.txt`; both denominators are positive off the origin. -/
+/-- Exercise 3185, gap 2; both denominators are positive off the origin. -/
 theorem gap2 :
     ∀ x y : ℝ, (x, y) ≠ (0, 0) →
       |(x + y) / (x ^ 2 - x * y + y ^ 2)| ≤
@@ -57,7 +57,7 @@ theorem gap2 :
   apply (div_le_div_iff₀ hden hcomp).2
   exact mul_le_mul_of_nonneg_left hcomp_le (abs_nonneg (x + y))
 
-/-- Source: `proof_gap/exercise_3185/3.txt`; the comparison denominator `|xy|` is nonzero. -/
+/-- Exercise 3185, gap 3; the comparison denominator `|xy|` is nonzero. -/
 theorem gap3 :
     ∀ x y : ℝ, x ≠ 0 → y ≠ 0 →
       |x + y| / (x ^ 2 + y ^ 2 - |x * y|) ≤
@@ -74,7 +74,7 @@ theorem gap3 :
   apply (div_le_div_iff₀ hden hprod).2
   exact mul_le_mul_of_nonneg_left hprod_le (abs_nonneg (x + y))
 
-/-- Source: `proof_gap/exercise_3185/4.txt`; split the nonzero product. -/
+/-- Exercise 3185, gap 4; split the nonzero product. -/
 theorem gap4 :
     ∀ x y : ℝ, x ≠ 0 → y ≠ 0 →
       |x + y| / |x * y| ≤ 1 / |x| + 1 / |y| := by
@@ -90,7 +90,7 @@ theorem gap4 :
       field_simp [abs_ne_zero.mpr hx, abs_ne_zero.mpr hy]
       <;> ring
 
-/-- Source: `proof_gap/exercise_3185/5.txt`; reciprocal bounds use nonzero coordinates. -/
+/-- Exercise 3185, gap 5; reciprocal bounds use nonzero coordinates. -/
 theorem gap5 :
     ∀ x y : ℝ, x ≠ 0 → y ≠ 0 →
       0 ≤ 1 / |x| + 1 / |y| := by
@@ -99,7 +99,7 @@ theorem gap5 :
     (div_nonneg zero_le_one (abs_nonneg x))
     (div_nonneg zero_le_one (abs_nonneg y))
 
-/-- Source: `proof_gap/exercise_3185/6.txt`; product-filter limit. -/
+/-- Exercise 3185, gap 6; product-filter limit. -/
 theorem gap6 :
     Tendsto upperBound atTop₂ (𝓝 0) := by
   have hinv : Tendsto (fun x : ℝ => 1 / |x|) atTop (𝓝 0) := by
@@ -128,7 +128,7 @@ theorem gap6 :
     (fun p : ℝ × ℝ => 1 / |p.1| + 1 / |p.2|) atTop₂ (𝓝 0)
   simpa only [zero_add] using hfirst.add hsecond
 
-/-- Source: `proof_gap/exercise_3185/7.txt`; squeeze at `(∞,∞)`. -/
+/-- Exercise 3185, gap 7; squeeze at `(∞,∞)`. -/
 theorem gap7 :
     Tendsto target atTop₂ (𝓝 0) := by
   have hfst :

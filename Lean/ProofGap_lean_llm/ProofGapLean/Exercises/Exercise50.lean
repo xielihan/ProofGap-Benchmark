@@ -7,7 +7,7 @@ open scoped Topology
 /-!
 # Exercise 50
 
-Semantic formalization of `proof_gap/exercise_50/{1,2,3}.txt`.
+Semantic formalization of Exercise 50, gaps 1,2,3.
 The source ellipses are represented by finite geometric sums.
 -/
 
@@ -28,7 +28,7 @@ def closedRatio (a b : ℝ) (n : ℕ) : ℝ :=
 def SameLimit (u v : ℕ → ℝ) : Prop :=
   ∀ l : ℝ, Tendsto u atTop (𝓝 l) ↔ Tendsto v atTop (𝓝 l)
 
-/-- Source: `proof_gap/exercise_50/1.txt`. -/
+/-- Exercise 50, gap 1. -/
 theorem gap1
     (a b : ℝ)
     (ha : |a| < 1)
@@ -59,7 +59,7 @@ theorem gap1
   intro l
   exact Filter.tendsto_congr heq
 
-/-- Source: `proof_gap/exercise_50/2.txt`. -/
+/-- Exercise 50, gap 2. -/
 theorem gap2
     (a b : ℝ)
     (ha : |a| < 1)
@@ -102,7 +102,7 @@ theorem gap2
   convert hfinal using 1
   field_simp [haone, hbone]
 
-/-- Source: `proof_gap/exercise_50/3.txt`. -/
+/-- Exercise 50, gap 3. -/
 theorem gap3
     (a b : ℝ)
     (ha : |a| < 1)

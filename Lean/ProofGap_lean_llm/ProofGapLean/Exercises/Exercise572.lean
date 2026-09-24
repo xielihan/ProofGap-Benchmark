@@ -27,7 +27,7 @@ def reduced (x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_572/1.txt`. -/
+/-- Exercise 572, gap 1. -/
 private theorem tendsto_punctured_comp
     {f g : ℝ → ℝ} {L : ℝ}
     (hf : Filter.Tendsto f
@@ -62,7 +62,7 @@ theorem gap1 (L : ℝ) :
     rw [Real.cos_sub_cos, hadd, hsub]
   rw [hfun]
 
-/-- Source: `proof_gap/exercise_572/2.txt`. -/
+/-- Exercise 572, gap 2. -/
 theorem gap2 (L : ℝ) :
     HasLimitAtZero original L ↔ HasLimitAtZero normalized L := by
   rw [gap1]
@@ -108,7 +108,7 @@ theorem gap2 (L : ℝ) :
       Filter.map normalized (nhdsWithin 0 ({0} : Set ℝ)ᶜ) ≤ nhds L
   rw [Filter.map_congr heq]
 
-/-- Source: `proof_gap/exercise_572/3.txt`. -/
+/-- Exercise 572, gap 3. -/
 theorem gap3 (L : ℝ) :
     HasLimitAtZero normalized L ↔ HasLimitAtZero reduced L := by
   unfold HasLimitAtZero
@@ -207,7 +207,7 @@ theorem gap3 (L : ℝ) :
     rw [Filter.map_congr hrel]
     exact hmul
 
-/-- Source: `proof_gap/exercise_572/4.txt`. -/
+/-- Exercise 572, gap 4. -/
 theorem gap4 : HasLimitAtZero reduced (-2) := by
   unfold HasLimitAtZero
   have hbase :
@@ -252,7 +252,7 @@ theorem gap4 : HasLimitAtZero reduced (-2) := by
     (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds (-2))
   simpa only [mul_one] using (hconst.mul hquot).mul hexp
 
-/-- Source: `proof_gap/exercise_572/5.txt`. -/
+/-- Exercise 572, gap 5. -/
 theorem gap5 : HasLimitAtZero original (-2) := by
   exact (gap2 (-2)).2 ((gap3 (-2)).2 gap4)
 

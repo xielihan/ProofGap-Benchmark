@@ -7,13 +7,13 @@ noncomputable section
 def y (x : ℝ) : ℝ := (Real.exp x - Real.exp (-x)) / 2
 def arcsinh (t : ℝ) : ℝ := Real.log (t + Real.sqrt (1 + t ^ 2))
 
-/-- Source: `proof_gap/exercise_228/1.txt`. -/
+/-- Exercise 228, gap 1. -/
 theorem gap1 : ∀ x, 2 * y x = Real.exp x - Real.exp (-x) := by
   intro x
   unfold y
   ring
 
-/-- Source: `proof_gap/exercise_228/2.txt`. -/
+/-- Exercise 228, gap 2. -/
 theorem gap2 : ∀ x,
     (Real.exp x) ^ 2 - 2 * y x * Real.exp x - 1 = 0 := by
   intro x
@@ -26,7 +26,7 @@ theorem gap2 : ∀ x,
     _ = Real.exp (-x + x) - 1 := by rw [Real.exp_add]
     _ = 0 := by norm_num
 
-/-- Source: `proof_gap/exercise_228/3.txt`. -/
+/-- Exercise 228, gap 3. -/
 theorem gap3 : ∀ x, x = arcsinh (y x) := by
   intro x
   unfold arcsinh
@@ -55,13 +55,13 @@ theorem gap3 : ∀ x, x = arcsinh (y x) := by
         (Real.exp x + Real.exp (-x)) / 2 = Real.exp x by ring]
   rw [Real.log_exp]
 
-/-- Source: `proof_gap/exercise_228/4.txt`. -/
+/-- Exercise 228, gap 4. -/
 theorem gap4 : ∀ x,
     arcsinh (y x) = Real.log (y x + Real.sqrt (1 + (y x) ^ 2)) := by
   intro x
   rfl
 
-/-- Source: `proof_gap/exercise_228/5.txt`. -/
+/-- Exercise 228, gap 5. -/
 theorem gap5 : ∀ x,
     x = Real.log (y x + Real.sqrt (1 + (y x) ^ 2)) := by
   intro x

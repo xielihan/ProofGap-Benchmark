@@ -10,13 +10,13 @@ noncomputable section
 
 def f (x : ℝ) : ℝ := x / (4 - x ^ 2)
 
-/-- Source: `proof_gap/exercise_794/1.txt`. -/
+/-- Exercise 794, gap 1. -/
 theorem gap1 (x₁ x₂ : ℝ) (hx₁ : x₁ ∈ Set.Icc (-1 : ℝ) 1)
     (hx₂ : x₂ ∈ Set.Icc (-1 : ℝ) 1) :
     |f x₁ - f x₂| = |x₁ / (4 - x₁ ^ 2) - x₂ / (4 - x₂ ^ 2)| := by
   rfl
 
-/-- Source: `proof_gap/exercise_794/2.txt`. -/
+/-- Exercise 794, gap 2. -/
 theorem gap2 (x₁ x₂ : ℝ) (hx₁ : x₁ ∈ Set.Icc (-1 : ℝ) 1)
     (hx₂ : x₂ ∈ Set.Icc (-1 : ℝ) 1) :
     |x₁ / (4 - x₁ ^ 2) - x₂ / (4 - x₂ ^ 2)| =
@@ -37,7 +37,7 @@ theorem gap2 (x₁ x₂ : ℝ) (hx₁ : x₁ ∈ Set.Icc (-1 : ℝ) 1)
     field_simp [hd₁, hd₂] <;> ring
   rw [hident, abs_mul]
 
-/-- Source: `proof_gap/exercise_794/3.txt`. -/
+/-- Exercise 794, gap 3. -/
 theorem gap3 (x₁ x₂ : ℝ) (hx₁ : x₁ ∈ Set.Icc (-1 : ℝ) 1)
     (hx₂ : x₂ ∈ Set.Icc (-1 : ℝ) 1) :
     |f x₁ - f x₂| =
@@ -48,7 +48,7 @@ theorem gap3 (x₁ x₂ : ℝ) (hx₁ : x₁ ∈ Set.Icc (-1 : ℝ) 1)
     _ = |(4 + x₁ * x₂) / ((4 - x₁ ^ 2) * (4 - x₂ ^ 2))| * |x₁ - x₂| :=
       gap2 x₁ x₂ hx₁ hx₂
 
-/-- Source: `proof_gap/exercise_794/4.txt`; correct strict `<5/9` to `≤5/9` at the endpoints. -/
+/-- Exercise 794, gap 4; correct strict `<5/9` to `≤5/9` at the endpoints. -/
 theorem gap4 (x₁ x₂ : ℝ) (hx₁ : x₁ ∈ Set.Icc (-1 : ℝ) 1)
     (hx₂ : x₂ ∈ Set.Icc (-1 : ℝ) 1) :
     |(4 + x₁ * x₂) / ((4 - x₁ ^ 2) * (4 - x₂ ^ 2))| ≤ (4 + 1 : ℝ) / (3 * 3) := by
@@ -82,15 +82,15 @@ theorem gap4 (x₁ x₂ : ℝ) (hx₁ : x₁ ∈ Set.Icc (-1 : ℝ) 1)
   norm_num
   nlinarith [hnum_le, hden]
 
-/-- Source: `proof_gap/exercise_794/5.txt`; remove irrelevant quantified points. -/
+/-- Exercise 794, gap 5; remove irrelevant quantified points. -/
 theorem gap5 : (4 + 1 : ℝ) / (3 * 3) = 5 / 9 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_794/6.txt`; remove irrelevant quantified points. -/
+/-- Exercise 794, gap 6; remove irrelevant quantified points. -/
 theorem gap6 : (5 / 9 : ℝ) < 1 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_794/7.txt`. -/
+/-- Exercise 794, gap 7. -/
 theorem gap7 (x₁ x₂ : ℝ) (hx₁ : x₁ ∈ Set.Icc (-1 : ℝ) 1)
     (hx₂ : x₂ ∈ Set.Icc (-1 : ℝ) 1) :
     |(4 + x₁ * x₂) / ((4 - x₁ ^ 2) * (4 - x₂ ^ 2))| < 1 := by
@@ -100,7 +100,7 @@ theorem gap7 (x₁ x₂ : ℝ) (hx₁ : x₁ ∈ Set.Icc (-1 : ℝ) 1)
     _ = 5 / 9 := gap5
     _ < 1 := gap6
 
-/-- Source: `proof_gap/exercise_794/8.txt`; move `δ` under `ε`. -/
+/-- Exercise 794, gap 8; move `δ` under `ε`. -/
 theorem gap8 :
     ∀ ε > 0, ∃ δ > 0, ∀ x₁ ∈ Set.Icc (-1 : ℝ) 1,
       ∀ x₂ ∈ Set.Icc (-1 : ℝ) 1,
@@ -123,12 +123,12 @@ theorem gap8 :
     _ ≤ |x₁ - x₂| := hprod
     _ < ε := hdist
 
-/-- Source: `proof_gap/exercise_794/9.txt`. -/
+/-- Exercise 794, gap 9. -/
 theorem gap9 : UniformContinuousOn f (Set.Icc (-1 : ℝ) 1) := by
   apply Metric.uniformContinuousOn_iff.mpr
   simpa only [Real.dist_eq] using gap8
 
-/-- Source: `proof_gap/exercise_794/10.txt`. -/
+/-- Exercise 794, gap 10. -/
 theorem gap10 : UniformContinuousOn f (Set.Icc (-1 : ℝ) 1) := by
   exact gap9
 

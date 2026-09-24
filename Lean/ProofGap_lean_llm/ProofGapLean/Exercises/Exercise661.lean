@@ -8,7 +8,7 @@ noncomputable section
 def envelope (F : ℕ → ℝ → ℝ) (q : ℝ → ℕ) (x : ℝ) : ℝ :=
   (q x : ℝ) * ((Finset.Icc 1 (q x)).sum (fun k => |F k x|) + 1)
 
-/-- Source: `proof_gap/exercise_661/1.txt`; replace the overloaded `f(n,x),f(x)` by a family `F` and its envelope. -/
+/-- Exercise 661, gap 1; replace the overloaded `f(n,x),f(x)` by a family `F` and its envelope. -/
 theorem gap1 (F : ℕ → ℝ → ℝ) (q : ℝ → ℕ) (x : ℝ) (n : ℕ)
     (hn : 1 ≤ n) (hnq : n ≤ q x) (hq : 1 ≤ q x) :
     |F n x / envelope F q x| =
@@ -30,7 +30,7 @@ theorem gap1 (F : ℕ → ℝ → ℝ) (q : ℝ → ℕ) (x : ℝ) (n : ℕ)
     mul_pos hqpos' hfactor
   rw [abs_of_pos hden]
 
-/-- Source: `proof_gap/exercise_661/2.txt`; make the finite sum and positive index explicit. -/
+/-- Exercise 661, gap 2; make the finite sum and positive index explicit. -/
 theorem gap2 (F : ℕ → ℝ → ℝ) (q : ℝ → ℕ) (x : ℝ) (n : ℕ)
     (hn : 1 ≤ n) (hnq : n ≤ q x) (hq : 1 ≤ q x) :
     |F n x| / ((q x : ℝ) *
@@ -75,7 +75,7 @@ theorem gap2 (F : ℕ → ℝ → ℝ) (q : ℝ → ℕ) (x : ℝ) (n : ℕ)
         _ = (Finset.Icc 1 (q x)).sum (fun k => |F k x|) + 1 := by
           simp [hqne]
 
-/-- Source: `proof_gap/exercise_661/3.txt`. -/
+/-- Exercise 661, gap 3. -/
 theorem gap3 (F : ℕ → ℝ → ℝ) (q : ℝ → ℕ) (x : ℝ) (n : ℕ)
     (hn : 1 ≤ n) (hnq : n ≤ q x) (hq : 1 ≤ q x) :
     |F n x / envelope F q x| < 1 / (q x : ℝ) := by
@@ -86,7 +86,7 @@ theorem gap3 (F : ℕ → ℝ → ℝ) (q : ℝ → ℕ) (x : ℝ) (n : ℕ)
       gap1 F q x n hn hnq hq
     _ < 1 / (q x : ℝ) := gap2 F q x n hn hnq hq
 
-/-- Source: `proof_gap/exercise_661/4.txt`; bind the integer selector tending to infinity. -/
+/-- Exercise 661, gap 4; bind the integer selector tending to infinity. -/
 theorem gap4 (F : ℕ → ℝ → ℝ) (q : ℝ → ℕ) (n : ℕ) (hn : 1 ≤ n)
     (hq : Filter.Tendsto q Filter.atTop Filter.atTop) :
     Filter.Tendsto (fun x => F n x / envelope F q x)
@@ -127,7 +127,7 @@ theorem gap4 (F : ℕ → ℝ → ℝ) (q : ℝ → ℕ) (n : ℕ) (hn : 1 ≤ n
   simpa only [Real.dist_eq, sub_zero] using
     (lt_trans hbound hrecip)
 
-/-- Source: `proof_gap/exercise_661/5.txt`. -/
+/-- Exercise 661, gap 5. -/
 theorem gap5 (F : ℕ → ℝ → ℝ) (q : ℝ → ℕ)
     (hq : Filter.Tendsto q Filter.atTop Filter.atTop) :
     ∀ n ≥ 1, Filter.Tendsto (fun x => F n x / envelope F q x)
@@ -135,7 +135,7 @@ theorem gap5 (F : ℕ → ℝ → ℝ) (q : ℝ → ℕ)
   intro n hn
   exact gap4 F q n hn hq
 
-/-- Source: `proof_gap/exercise_661/6.txt`; correct the overloaded self-reference by constructing a separate dominating function. -/
+/-- Exercise 661, gap 6; correct the overloaded self-reference by constructing a separate dominating function. -/
 theorem gap6 (x₀ : ℝ) (F : ℕ → ℝ → ℝ) :
     ∃ g : ℝ → ℝ, ∀ n ≥ 1,
       Filter.Tendsto (fun x => F n x / g x) Filter.atTop (nhds 0) := by

@@ -12,7 +12,7 @@ def inv (y : ℝ) : ℝ :=
   else 0
 def invDomain : Set ℝ := {y | 1 < |y| ∨ y = 0}
 
-/-- Source: `proof_gap/exercise_765/1.txt`; restore the missing relation `y=f x`. -/
+/-- Exercise 765, gap 1; restore the missing relation `y=f x`. -/
 private theorem continuous_inv : Continuous inv := by
   have hinv :
       inv = fun y : ℝ => Real.sqrt (y - 1) - Real.sqrt (-y - 1) := by
@@ -57,7 +57,7 @@ theorem gap1 (x y : ℝ) (hy : y = f x) :
         nlinarith [sq_nonneg x]
       rw [Real.sign_of_neg hfx, Real.sign_of_neg hxneg]
 
-/-- Source: `proof_gap/exercise_765/2.txt`. -/
+/-- Exercise 765, gap 2. -/
 theorem gap2 (x : ℝ) :
     (Real.sign x) ^ 2 = if x = 0 then 0 else 1 := by
   by_cases hx : x = 0
@@ -70,13 +70,13 @@ theorem gap2 (x : ℝ) :
         lt_of_le_of_ne (le_of_not_gt hxpos) hx
       simp [Real.sign_of_neg hxneg]
 
-/-- Source: `proof_gap/exercise_765/3.txt`; restore `y=f x`. -/
+/-- Exercise 765, gap 3; restore `y=f x`. -/
 theorem gap3 (x y : ℝ) (hy : y = f x) :
     y * Real.sign y = (1 + x ^ 2) * (Real.sign x) ^ 2 := by
   rw [gap1 x y hy, hy]
   simp [f, pow_two, mul_assoc]
 
-/-- Source: `proof_gap/exercise_765/4.txt`. -/
+/-- Exercise 765, gap 4. -/
 theorem gap4 : Set.range f = invDomain := by
   ext y
   constructor
@@ -129,7 +129,7 @@ theorem gap4 : Set.range f = invDomain := by
         ring
     · exact ⟨0, by simp [f]⟩
 
-/-- Source: `proof_gap/exercise_765/5.txt`; bind `x` to the inverse value. -/
+/-- Exercise 765, gap 5; bind `x` to the inverse value. -/
 theorem gap5 (y : ℝ) (hy : y ∈ invDomain) :
     inv y =
       if 1 ≤ y then Real.sqrt (y * Real.sign y - 1)
@@ -137,11 +137,11 @@ theorem gap5 (y : ℝ) (hy : y ∈ invDomain) :
       else 0 := by
   rfl
 
-/-- Source: `proof_gap/exercise_765/6.txt`. -/
+/-- Exercise 765, gap 6. -/
 theorem gap6 : ContinuousOn inv invDomain := by
   exact continuous_inv.continuousOn
 
-/-- Source: `proof_gap/exercise_765/7.txt`; use the total zero extension encoded above. -/
+/-- Exercise 765, gap 7; use the total zero extension encoded above. -/
 theorem gap7 : Continuous inv := by
   exact continuous_inv
 

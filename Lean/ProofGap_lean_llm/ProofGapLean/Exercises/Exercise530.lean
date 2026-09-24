@@ -13,7 +13,7 @@ def rewritten (x : ℝ) : ℝ :=
 def HasLimitAtPosInfinity (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f Filter.atTop (nhds L)
 
-/-- Source: `proof_gap/exercise_530/1.txt`. -/
+/-- Exercise 530, gap 1. -/
 theorem gap1 (L : ℝ) :
     HasLimitAtPosInfinity original L ↔ HasLimitAtPosInfinity rewritten L := by
   unfold HasLimitAtPosInfinity
@@ -33,7 +33,7 @@ theorem gap1 (L : ℝ) :
     rw [hlogpow, hratio, Real.log_div hx1 hx0]
   exact ⟨fun h => h.congr' heq, fun h => h.congr' heq.symm⟩
 
-/-- Source: `proof_gap/exercise_530/2.txt`. -/
+/-- Exercise 530, gap 2. -/
 theorem gap2 : HasLimitAtPosInfinity rewritten (Real.log (Real.exp 1)) := by
   unfold HasLimitAtPosInfinity rewritten
   have hrpow :
@@ -43,11 +43,11 @@ theorem gap2 : HasLimitAtPosInfinity rewritten (Real.log (Real.exp 1)) := by
     simpa using Real.tendsto_one_add_div_rpow_exp (1 : ℝ)
   exact (Real.continuousAt_log (Real.exp_ne_zero 1)).tendsto.comp hrpow
 
-/-- Source: `proof_gap/exercise_530/3.txt`. -/
+/-- Exercise 530, gap 3. -/
 theorem gap3 : Real.log (Real.exp 1) = 1 := by
   exact Real.log_exp 1
 
-/-- Source: `proof_gap/exercise_530/4.txt`. -/
+/-- Exercise 530, gap 4. -/
 theorem gap4 : HasLimitAtPosInfinity original 1 := by
   apply (gap1 1).mpr
   simpa only [gap3] using gap2

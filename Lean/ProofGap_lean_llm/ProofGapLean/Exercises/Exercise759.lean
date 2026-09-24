@@ -116,12 +116,12 @@ private theorem mobius_eq_inverse_iff (a b c d : ℝ)
         simp [ha, hb, hc]
       simp [mobius, hb, hc, ha]
 
-/-- Source: `proof_gap/exercise_759/1.txt`; bind `y` as the value `f x`. -/
+/-- Exercise 759, gap 1; bind `y` as the value `f x`. -/
 theorem gap1 (a b c d x y : ℝ) (hy : y = mobius a b c d x) :
     y = (a * x + b) / (c * x + d) := by
   simpa [mobius] using hy
 
-/-- Source: `proof_gap/exercise_759/2.txt`; require the denominator used when solving for `x`. -/
+/-- Exercise 759, gap 2; require the denominator used when solving for `x`. -/
 theorem gap2 (a b c d x y : ℝ) (hy : y = mobius a b c d x)
     (hdom : c * x + d ≠ 0)
     (hden : y * c - a ≠ 0) :
@@ -132,13 +132,13 @@ theorem gap2 (a b c d x y : ℝ) (hy : y = mobius a b c d x)
   ring_nf at hy' ⊢
   linarith
 
-/-- Source: `proof_gap/exercise_759/3.txt`; state the inverse formula on points where it is defined. -/
+/-- Exercise 759, gap 3; state the inverse formula on points where it is defined. -/
 theorem gap3 (a b c d x : ℝ) (hdet : a * d - b * c ≠ 0)
     (hden : c * x - a ≠ 0) :
     mobius (-d) b c (-a) x = (-d * x + b) / (c * x - a) := by
   simpa only [mobius, sub_eq_add_neg]
 
-/-- Source: `proof_gap/exercise_759/4.txt`; interpret “inverse equals itself” as involutivity. -/
+/-- Exercise 759, gap 4; interpret “inverse equals itself” as involutivity. -/
 theorem gap4 (a b c d : ℝ) (hdet : a * d - b * c ≠ 0)
     (h : ∀ x, mobius a b c d x = mobius (-d) b c (-a) x) :
     ∀ x, c * x + d ≠ 0 →
@@ -147,7 +147,7 @@ theorem gap4 (a b c d : ℝ) (hdet : a * d - b * c ≠ 0)
   rw [h (mobius a b c d x)]
   exact inverse_comp_mobius a b c d x hdet hx
 
-/-- Source: `proof_gap/exercise_759/5.txt`; add the nonzero denominators needed by division. -/
+/-- Exercise 759, gap 5; add the nonzero denominators needed by division. -/
 theorem gap5 (a b c d x : ℝ) (htrace : a + d = 0) :
     mobius a b c d x = mobius (-d) b c (-a) x := by
   have ha : -d = a := by
@@ -156,7 +156,7 @@ theorem gap5 (a b c d x : ℝ) (htrace : a + d = 0) :
     linarith
   simp [mobius, ha, hd]
 
-/-- Source: `proof_gap/exercise_759/6.txt`; retain the intended sufficient direction. -/
+/-- Exercise 759, gap 6; retain the intended sufficient direction. -/
 theorem gap6 (a b c d : ℝ) (hdet : a * d - b * c ≠ 0)
     (htrace : a + d = 0) :
     ∀ x, c * x + d ≠ 0 →
@@ -164,7 +164,7 @@ theorem gap6 (a b c d : ℝ) (hdet : a * d - b * c ≠ 0)
   apply gap4 a b c d hdet
   exact fun x => gap5 a b c d x htrace
 
-/-- Source: `proof_gap/exercise_759/7.txt`; state the pointwise self-inverse
+/-- Exercise 759, gap 7; state the pointwise self-inverse
 characterization on its common domain, including scalar identity maps. -/
 theorem gap7 (a b c d : ℝ) (hdet : a * d - b * c ≠ 0) :
     (∀ x, c * x + d ≠ 0 → c * x - a ≠ 0 →

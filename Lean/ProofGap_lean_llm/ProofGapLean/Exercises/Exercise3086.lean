@@ -28,13 +28,13 @@ def partialProduct (x : ℕ → ℝ) (n : ℕ) : ℝ :=
 def ConvergentProduct (x : ℕ → ℝ) : Prop :=
   ∃ P : ℝ, Tendsto (partialProduct x) atTop (𝓝 P)
 
-/-- Source: `proof_gap/exercise_3086/1.txt`; bind the whole sequence `x`. -/
+/-- Exercise 3086, gap 1; bind the whole sequence `x`. -/
 theorem gap1 (x : ℕ → ℝ) (hx : Tendsto x atTop (𝓝 0)) :
     ∀ n, p x n = 1 + alpha x n := by
   intro n
   simp [alpha]
 
-/-- Source: `proof_gap/exercise_3086/2.txt`; cosine is at most one. -/
+/-- Exercise 3086, gap 2; cosine is at most one. -/
 theorem gap2 (x : ℕ → ℝ) (hx : Tendsto x atTop (𝓝 0)) :
     ∀ n, alpha x n ≤ 0 := by
   intro n
@@ -42,7 +42,7 @@ theorem gap2 (x : ℕ → ℝ) (hx : Tendsto x atTop (𝓝 0)) :
   exact sub_nonpos.mpr (Real.cos_le_one _)
 
 /--
-Source: `proof_gap/exercise_3086/3.txt`; convergence to zero alone is
+Exercise 3086, gap 3; convergence to zero alone is
 insufficient, so retain the necessary square-summability premise.
 -/
 theorem gap3 (x : ℕ → ℝ) (hx : Tendsto x atTop (𝓝 0))
@@ -71,7 +71,7 @@ theorem gap3 (x : ℕ → ℝ) (hx : Tendsto x atTop (𝓝 0))
   nlinarith [sq_nonneg t]
 
 /--
-Source: `proof_gap/exercise_3086/4.txt`; state convergence of the partial
+Exercise 3086, gap 4; state convergence of the partial
 product sequence and retain summability of its additive deviations.
 -/
 theorem gap4 (x : ℕ → ℝ) (hx : Tendsto x atTop (𝓝 0))
@@ -190,7 +190,7 @@ theorem gap4 (x : ℕ → ℝ) (hx : Tendsto x atTop (𝓝 0))
     exact ⟨sSup (Set.range (fun k : ℕ => partialProduct x (N + k))),
       hshift _ hu_tend⟩
 
-/-- Source: `proof_gap/exercise_3086/5.txt`; square summability is the correct criterion. -/
+/-- Exercise 3086, gap 5; square summability is the correct criterion. -/
 theorem gap5 (x : ℕ → ℝ)
     (hxsq : SummableFromOne (fun n => (x n) ^ 2)) :
     ConvergentProduct x := by

@@ -22,7 +22,7 @@ def cancelled (x : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_440/1.txt`. -/
+/-- Exercise 440, gap 1. -/
 private lemma near_three_gt_two :
     ∀ᶠ x : ℝ in nhdsWithin (3 : ℝ) ({3} : Set ℝ)ᶜ, 2 < x := by
   exact
@@ -54,7 +54,7 @@ theorem gap1 : HasLimitAt original 3 (-1 / 16) ↔
   apply (div_eq_div_iff hD (mul_ne_zero hD hc)).2
   ring
 
-/-- Source: `proof_gap/exercise_440/2.txt`. -/
+/-- Exercise 440, gap 2. -/
 theorem gap2 : HasLimitAt original 3 (-1 / 16) ↔
     HasLimitAt factored 3 (-1 / 16) := by
   calc
@@ -78,7 +78,7 @@ theorem gap2 : HasLimitAt original 3 (-1 / 16) ↔
       simp only [rationalized, factored]
       rw [hnum, mul_comm (x + 3) (x - 3)]
 
-/-- Source: `proof_gap/exercise_440/3.txt`. -/
+/-- Exercise 440, gap 3. -/
 theorem gap3 : HasLimitAt factored 3 (-1 / 16) ↔
     HasLimitAt cancelled 3 (-1 / 16) := by
   unfold HasLimitAt
@@ -113,7 +113,7 @@ theorem gap3 : HasLimitAt factored 3 (-1 / 16) ↔
     apply (div_eq_div_iff hden hq).2
     ring
 
-/-- Source: `proof_gap/exercise_440/4.txt`. -/
+/-- Exercise 440, gap 4. -/
 theorem gap4 : HasLimitAt cancelled 3 (-1 / 16) := by
   unfold HasLimitAt
   have hs16 : Real.sqrt (16 : ℝ) = 4 := by
@@ -155,7 +155,7 @@ theorem gap4 : HasLimitAt cancelled 3 (-1 / 16) := by
   rw [← hvalue]
   exact hcont.tendsto.mono_left inf_le_left
 
-/-- Source: `proof_gap/exercise_440/5.txt`. -/
+/-- Exercise 440, gap 5. -/
 theorem gap5 : HasLimitAt original 3 (-1 / 16) := by
   exact gap2.mpr (gap3.mpr gap4)
 

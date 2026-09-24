@@ -25,14 +25,14 @@ private theorem x_pos (n : ℕ) : 0 < x n := by
     (div_lt_one (by positivity)).mpr hpow
   linarith
 
-/-- Source: `proof_gap/exercise_79/1.txt`; the product is explicit. -/
+/-- Exercise 79, gap 1; the product is explicit. -/
 theorem gap1 :
     ∀ n : ℕ, x (n + 1) = x n * (1 - 1 / (2 : ℝ) ^ (n + 1)) := by
   intro n
   unfold x
   rw [Finset.prod_Icc_succ_top (by omega)]
 
-/-- Source: `proof_gap/exercise_79/2.txt`. -/
+/-- Exercise 79, gap 2. -/
 theorem gap2 :
     ∀ n : ℕ, x n * (1 - 1 / (2 : ℝ) ^ (n + 1)) < x n := by
   intro n
@@ -41,24 +41,24 @@ theorem gap2 :
     linarith
   simpa using mul_lt_mul_of_pos_left hfac (x_pos n)
 
-/-- Source: `proof_gap/exercise_79/3.txt`. -/
+/-- Exercise 79, gap 3. -/
 theorem gap3 :
     ∀ n : ℕ, x (n + 1) < x n := by
   intro n
   rw [gap1]
   exact gap2 n
 
-/-- Source: `proof_gap/exercise_79/4.txt`. -/
+/-- Exercise 79, gap 4. -/
 theorem gap4 :
     Antitone x := by
   exact antitone_nat_of_succ_le fun n => (gap3 n).le
 
-/-- Source: `proof_gap/exercise_79/5.txt`. -/
+/-- Exercise 79, gap 5. -/
 theorem gap5 :
     ∀ n : ℕ, 0 < x n := by
   exact x_pos
 
-/-- Source: `proof_gap/exercise_79/6.txt`; strictness starts at n=1. -/
+/-- Exercise 79, gap 6; strictness starts at n=1. -/
 theorem gap6 :
     ∀ n : ℕ, 0 < n → x n < 1 := by
   intro n hn
@@ -67,12 +67,12 @@ theorem gap6 :
   have hchain := lt_of_le_of_lt hxn hx1
   simpa [x] using hchain
 
-/-- Source: `proof_gap/exercise_79/7.txt`. -/
+/-- Exercise 79, gap 7. -/
 theorem gap7 :
     (0 : ℝ) < 1 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_79/8.txt`. -/
+/-- Exercise 79, gap 8. -/
 theorem gap8 :
     Bornology.IsBounded (Set.range x) := by
   apply isBounded_iff_bddBelow_bddAbove.mpr
@@ -87,7 +87,7 @@ theorem gap8 :
     have := gap4 (Nat.zero_le n)
     simpa [x] using this
 
-/-- Source: `proof_gap/exercise_79/9.txt`. -/
+/-- Exercise 79, gap 9. -/
 theorem gap9
     (hmono : Antitone x)
     (hbelow : BddBelow (Set.range x)) :
@@ -106,7 +106,7 @@ theorem gap9
     (k := 0) (hmono.antitoneOn (Set.Ici 0)) hbelow'
   rwa [himage] at ht
 
-/-- Source: `proof_gap/exercise_79/10.txt`. -/
+/-- Exercise 79, gap 10. -/
 theorem gap10
     (hconv : Convergent x) :
     Convergent x := by

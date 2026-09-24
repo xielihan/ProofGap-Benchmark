@@ -13,7 +13,7 @@ noncomputable section
 def y (x : ℝ) : ℝ :=
   x / ((1 - x) ^ 2 * (1 + x) ^ 3)
 
-/-- Source: `proof_gap/exercise_847/1.txt`; exclude both poles `x = ±1`. -/
+/-- Exercise 847, gap 1; exclude both poles `x = ±1`. -/
 theorem gap1 (x : ℝ) (hden : (1 - x) ^ 2 * (1 + x) ^ 3 ≠ 0) :
     HasDerivAt y
       (((1 - x) ^ 2 * (1 + x) ^ 3 -
@@ -57,7 +57,7 @@ theorem gap1 (x : ℝ) (hden : (1 - x) ^ 2 * (1 + x) ^ 3 ≠ 0) :
   rw [hsq] at hquot
   exact hquot
 
-/-- Source: `proof_gap/exercise_847/2.txt`; exclude both poles `x = ±1`. -/
+/-- Exercise 847, gap 2; exclude both poles `x = ±1`. -/
 theorem gap2 (x : ℝ) (hden : (1 - x) ^ 2 * (1 + x) ^ 3 ≠ 0) :
     HasDerivAt y
       ((1 - x + 4 * x ^ 2) / ((1 - x) ^ 3 * (1 + x) ^ 4)) x := by

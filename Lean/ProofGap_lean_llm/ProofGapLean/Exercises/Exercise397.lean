@@ -13,7 +13,7 @@ def imageOn (g : ℝ → ℝ) (s : Set ℝ) : Set ℝ :=
 def OscillationOn (g : ℝ → ℝ) (s : Set ℝ) : ℝ :=
   sSup (imageOn g s) - sInf (imageOn g s)
 
-/-- Source: `proof_gap/exercise_397/1.txt`. -/
+/-- Exercise 397, gap 1. -/
 private theorem oscillationOn_sq_Ioo
     (a b : ℝ) (ha : 0 ≤ a) (hab : a < b) :
     OscillationOn f (Set.Ioo a b) = b ^ 2 - a ^ 2 := by
@@ -62,69 +62,69 @@ theorem gap1 :
     sInf (imageOn f (Set.Ioo 1 3)), ?_⟩
   rfl
 
-/-- Source: `proof_gap/exercise_397/2.txt`. -/
+/-- Exercise 397, gap 2. -/
 theorem gap2 : ∃ m₀ : ℝ, m₀ = 1 := by
   exact ⟨1, rfl⟩
 
-/-- Source: `proof_gap/exercise_397/3.txt`. -/
+/-- Exercise 397, gap 3. -/
 theorem gap3 : ∃ M₀ : ℝ, M₀ = 9 := by
   exact ⟨9, rfl⟩
 
-/-- Source: `proof_gap/exercise_397/4.txt`. -/
+/-- Exercise 397, gap 4. -/
 theorem gap4 : OscillationOn f (Set.Ioo 1 3) = 8 := by
   calc
     OscillationOn f (Set.Ioo 1 3) = (3 : ℝ) ^ 2 - (1 : ℝ) ^ 2 :=
       oscillationOn_sq_Ioo 1 3 (by norm_num) (by norm_num)
     _ = 8 := by norm_num
 
-/-- Source: `proof_gap/exercise_397/5.txt`. -/
+/-- Exercise 397, gap 5. -/
 theorem gap5 : ∃ m₀ : ℝ, m₀ = (1.9 : ℝ) ^ 2 := by
   exact ⟨(1.9 : ℝ) ^ 2, rfl⟩
 
-/-- Source: `proof_gap/exercise_397/6.txt`. -/
+/-- Exercise 397, gap 6. -/
 theorem gap6 : ∃ M₀ : ℝ, M₀ = (2.1 : ℝ) ^ 2 := by
   exact ⟨(2.1 : ℝ) ^ 2, rfl⟩
 
-/-- Source: `proof_gap/exercise_397/7.txt`. -/
+/-- Exercise 397, gap 7. -/
 theorem gap7 : OscillationOn f (Set.Ioo 1.9 2.1) =
     (2.1 : ℝ) ^ 2 - (1.9 : ℝ) ^ 2 := by
   exact oscillationOn_sq_Ioo (1.9 : ℝ) 2.1 (by norm_num) (by norm_num)
 
-/-- Source: `proof_gap/exercise_397/8.txt`. -/
+/-- Exercise 397, gap 8. -/
 theorem gap8 : (2.1 : ℝ) ^ 2 - (1.9 : ℝ) ^ 2 = 0.8 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_397/9.txt`. -/
+/-- Exercise 397, gap 9. -/
 theorem gap9 : OscillationOn f (Set.Ioo 1.9 2.1) = 0.8 := by
   calc
     OscillationOn f (Set.Ioo 1.9 2.1) = (2.1 : ℝ) ^ 2 - (1.9 : ℝ) ^ 2 := gap7
     _ = 0.8 := gap8
 
-/-- Source: `proof_gap/exercise_397/10.txt`. -/
+/-- Exercise 397, gap 10. -/
 theorem gap10 : OscillationOn f (Set.Ioo 1.99 2.01) =
     (2.01 : ℝ) ^ 2 - (1.99 : ℝ) ^ 2 := by
   exact oscillationOn_sq_Ioo (1.99 : ℝ) 2.01 (by norm_num) (by norm_num)
 
-/-- Source: `proof_gap/exercise_397/11.txt`. -/
+/-- Exercise 397, gap 11. -/
 theorem gap11 : (2.01 : ℝ) ^ 2 - (1.99 : ℝ) ^ 2 = 0.08 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_397/12.txt`. -/
+/-- Exercise 397, gap 12. -/
 theorem gap12 : OscillationOn f (Set.Ioo 1.99 2.01) = 0.08 := by
   calc
     OscillationOn f (Set.Ioo 1.99 2.01) = (2.01 : ℝ) ^ 2 - (1.99 : ℝ) ^ 2 := gap10
     _ = 0.08 := gap11
 
-/-- Source: `proof_gap/exercise_397/13.txt`. -/
+/-- Exercise 397, gap 13. -/
 theorem gap13 : OscillationOn f (Set.Ioo 1.999 2.001) =
     (2.001 : ℝ) ^ 2 - (1.999 : ℝ) ^ 2 := by
   exact oscillationOn_sq_Ioo (1.999 : ℝ) 2.001 (by norm_num) (by norm_num)
 
-/-- Source: `proof_gap/exercise_397/14.txt`. -/
+/-- Exercise 397, gap 14. -/
 theorem gap14 : (2.001 : ℝ) ^ 2 - (1.999 : ℝ) ^ 2 = 0.008 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_397/15.txt`. -/
+/-- Exercise 397, gap 15. -/
 theorem gap15 : OscillationOn f (Set.Ioo 1.999 2.001) = 0.008 := by
   calc
     OscillationOn f (Set.Ioo 1.999 2.001) = (2.001 : ℝ) ^ 2 - (1.999 : ℝ) ^ 2 := gap13

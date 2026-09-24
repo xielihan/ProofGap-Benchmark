@@ -14,23 +14,23 @@ def IsCenter (f : ℝ → ℝ) (a y : ℝ) : Prop :=
 def phi (f : ℝ → ℝ) (a b y₀ y₁ x : ℝ) : ℝ :=
   f x + (y₀ - y₁) / (b - a) * x
 
-/-- Source: `proof_gap/exercise_364/1.txt`. -/
+/-- Exercise 364, gap 1. -/
 theorem gap1 (f : ℝ → ℝ) (a y₀ : ℝ) (ha : IsCenter f a y₀) :
     ∀ x, f (a + x) - y₀ = y₀ - f (a - x) := by
   simpa [IsCenter] using ha
 
-/-- Source: `proof_gap/exercise_364/2.txt`. -/
+/-- Exercise 364, gap 2. -/
 theorem gap2 (f : ℝ → ℝ) (b y₁ : ℝ) (hb : IsCenter f b y₁) :
     ∀ x, f (b + x) - y₁ = y₁ - f (b - x) := by
   simpa [IsCenter] using hb
 
-/-- Source: `proof_gap/exercise_364/3.txt`. -/
+/-- Exercise 364, gap 3. -/
 theorem gap3 (f : ℝ → ℝ) (a b y₀ : ℝ) (ha : IsCenter f a y₀) :
     ∀ x, f (b + x) - y₀ = y₀ - f (2 * a - b - x) := by
   intro x
   convert ha (b - a + x) using 1 <;> ring
 
-/-- Source: `proof_gap/exercise_364/4.txt`. -/
+/-- Exercise 364, gap 4. -/
 theorem gap4 (f : ℝ → ℝ) (a b y₀ y₁ : ℝ)
     (ha : IsCenter f a y₀) (hb : IsCenter f b y₁) : ∀ x,
     2 * y₁ - f (b - x) = 2 * y₀ - f (2 * a - b - x) := by
@@ -39,7 +39,7 @@ theorem gap4 (f : ℝ → ℝ) (a b y₀ y₁ : ℝ)
   have h_a := gap3 f a b y₀ ha x
   linarith
 
-/-- Source: `proof_gap/exercise_364/5.txt`. -/
+/-- Exercise 364, gap 5. -/
 theorem gap5 (f : ℝ → ℝ) (a b y₀ y₁ : ℝ)
     (ha : IsCenter f a y₀) (hb : IsCenter f b y₁) : ∀ x,
     f (b - x) = 2 * (y₁ - y₀) + f (2 * a - b - x) := by
@@ -47,28 +47,28 @@ theorem gap5 (f : ℝ → ℝ) (a b y₀ y₁ : ℝ)
   have h := gap4 f a b y₀ y₁ ha hb x
   linarith
 
-/-- Source: `proof_gap/exercise_364/6.txt`. -/
+/-- Exercise 364, gap 6. -/
 theorem gap6 (f : ℝ → ℝ) (a b y₀ y₁ : ℝ)
     (ha : IsCenter f a y₀) (hb : IsCenter f b y₁) : ∀ x,
     f x = 2 * (y₁ - y₀) + f (2 * a - 2 * b + x) := by
   intro x
   convert gap5 f a b y₀ y₁ ha hb (b - x) using 1 <;> ring
 
-/-- Source: `proof_gap/exercise_364/7.txt`. -/
+/-- Exercise 364, gap 7. -/
 theorem gap7 (f : ℝ → ℝ) (a b y₀ y₁ : ℝ)
     (ha : IsCenter f a y₀) (hb : IsCenter f b y₁) : ∀ x,
     f x = 2 * (y₀ - y₁) + f (2 * (b - a) + x) := by
   intro x
   convert gap6 f b a y₁ y₀ hb ha x using 1 <;> ring
 
-/-- Source: `proof_gap/exercise_364/8.txt`. -/
+/-- Exercise 364, gap 8. -/
 theorem gap8 (f : ℝ → ℝ) (a b y₀ y₁ : ℝ) (hab : b ≠ a) : ∀ x,
     f x = -(y₀ - y₁) / (b - a) * x + phi f a b y₀ y₁ x := by
   intro x
   unfold phi
   ring
 
-/-- Source: `proof_gap/exercise_364/9.txt`. -/
+/-- Exercise 364, gap 9. -/
 theorem gap9 (f : ℝ → ℝ) (a b y₀ y₁ : ℝ) (hab : b ≠ a) : ∀ x,
     f (x + 2 * (b - a)) =
       -(y₀ - y₁) / (b - a) * (x + 2 * (b - a)) +
@@ -76,7 +76,7 @@ theorem gap9 (f : ℝ → ℝ) (a b y₀ y₁ : ℝ) (hab : b ≠ a) : ∀ x,
   intro x
   exact gap8 f a b y₀ y₁ hab (x + 2 * (b - a))
 
-/-- Source: `proof_gap/exercise_364/10.txt`. -/
+/-- Exercise 364, gap 10. -/
 theorem gap10 (f : ℝ → ℝ) (a b y₀ y₁ : ℝ) (hab : b ≠ a) : ∀ x,
     f x - f (x + 2 * (b - a)) =
       2 * (y₀ - y₁) + phi f a b y₀ y₁ x -
@@ -86,7 +86,7 @@ theorem gap10 (f : ℝ → ℝ) (a b y₀ y₁ : ℝ) (hab : b ≠ a) : ∀ x,
   unfold phi
   field_simp [hba] <;> ring
 
-/-- Source: `proof_gap/exercise_364/11.txt`. -/
+/-- Exercise 364, gap 11. -/
 theorem gap11 (f : ℝ → ℝ) (a b y₀ y₁ : ℝ) (hab : b ≠ a)
     (ha : IsCenter f a y₀) (hb : IsCenter f b y₁) : ∀ x,
     phi f a b y₀ y₁ x = phi f a b y₀ y₁ (x + 2 * (b - a)) := by
@@ -97,7 +97,7 @@ theorem gap11 (f : ℝ → ℝ) (a b y₀ y₁ : ℝ) (hab : b ≠ a)
   have hphi := gap10 f a b y₀ y₁ hab x
   linarith
 
-/-- Source: `proof_gap/exercise_364/12.txt`. -/
+/-- Exercise 364, gap 12. -/
 theorem gap12 (f : ℝ → ℝ) (a b y₀ y₁ : ℝ) (hab : b ≠ a)
     (ha : IsCenter f a y₀) (hb : IsCenter f b y₁) :
     Function.Periodic (phi f a b y₀ y₁) (2 * (b - a)) := by
@@ -105,13 +105,13 @@ theorem gap12 (f : ℝ → ℝ) (a b y₀ y₁ : ℝ) (hab : b ≠ a)
   symm
   exact gap11 f a b y₀ y₁ hab ha hb x
 
-/-- Source: `proof_gap/exercise_364/13.txt`. -/
+/-- Exercise 364, gap 13. -/
 theorem gap13 (f : ℝ → ℝ) (a b y₀ y₁ : ℝ) (hab : b ≠ a)
     (hy : y₀ = y₁) : ∀ x, f x = phi f a b y₀ y₁ x := by
   intro x
   simp [phi, hy]
 
-/-- Source: `proof_gap/exercise_364/14.txt`. -/
+/-- Exercise 364, gap 14. -/
 theorem gap14 (f : ℝ → ℝ) (a b y₀ y₁ : ℝ) (hab : b ≠ a)
     (ha : IsCenter f a y₀) (hb : IsCenter f b y₁)
     (hy : y₀ = y₁) :
@@ -125,7 +125,7 @@ theorem gap14 (f : ℝ → ℝ) (a b y₀ y₁ : ℝ) (hab : b ≠ a)
     _ = phi f a b y₀ y₁ x := hp x
     _ = f x := (gap13 f a b y₀ y₁ hab hy x).symm
 
-/-- Source: `proof_gap/exercise_364/15.txt`; move the function witness outside the point quantifier. -/
+/-- Exercise 364, gap 15; move the function witness outside the point quantifier. -/
 theorem gap15 (f : ℝ → ℝ) (a b y₀ y₁ : ℝ) (hab : b ≠ a)
     (ha : IsCenter f a y₀) (hb : IsCenter f b y₁) :
     ∃ psi : ℝ → ℝ,

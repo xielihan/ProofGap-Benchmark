@@ -141,7 +141,7 @@ private theorem blockStart_succ_strict (q : ℕ) (hq : 0 < q) :
   rw [blockStart_succ]
   omega
 
-/-- Source: `proof_gap/exercise_117/1.txt`; replace both ellipses by sets/index data. -/
+/-- Exercise 117, gap 1; replace both ellipses by sets/index data. -/
 theorem gap1
     (x : ℕ → ℝ)
     (henum : GridEnumeration x) :
@@ -212,12 +212,12 @@ theorem gap1
       simpa [p, Function.comp_apply, add_assoc, add_comm, add_left_comm]
         using hx.symm
 
-/-- Source: `proof_gap/exercise_117/2.txt`. -/
+/-- Exercise 117, gap 2. -/
 theorem gap2 :
     Tendsto (fun n : ℕ => 1 / ((n : ℝ) + 1)) atTop (𝓝 0) := by
   exact reciprocal_succ_tendsto
 
-/-- Source: `proof_gap/exercise_117/3.txt`. -/
+/-- Exercise 117, gap 3. -/
 theorem gap3 :
     Tendsto (fun n : ℕ => 1 + 1 / ((n : ℝ) + 1)) atTop (𝓝 1) := by
   have h :
@@ -226,7 +226,7 @@ theorem gap3 :
     tendsto_const_nhds.add reciprocal_succ_tendsto
   simpa using h
 
-/-- Source: `proof_gap/exercise_117/4.txt`. -/
+/-- Exercise 117, gap 4. -/
 theorem gap4 :
     Tendsto (fun n : ℕ => 1 / 2 + 1 / ((n : ℝ) + 1))
       atTop (𝓝 (1 / 2)) := by
@@ -236,7 +236,7 @@ theorem gap4 :
     tendsto_const_nhds.add reciprocal_succ_tendsto
   simpa using h
 
-/-- Source: `proof_gap/exercise_117/5.txt`. -/
+/-- Exercise 117, gap 5. -/
 theorem gap5 :
     Tendsto (fun n : ℕ => 1 / 3 + 1 / ((n : ℝ) + 1))
       atTop (𝓝 (1 / 3)) := by

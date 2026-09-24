@@ -26,7 +26,7 @@ def normalized (x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_579/1.txt`. -/
+/-- Exercise 579, gap 1. -/
 private theorem local_sin_ne_zero {x : ℝ} (hx : x ≠ 0)
     (hxpi : |x| < Real.pi) : Real.sin x ≠ 0 := by
   rcases lt_or_gt_of_ne hx with hneg | hpos
@@ -168,7 +168,7 @@ theorem gap1 (L : ℝ) :
   · intro h
     exact h.congr' heq_rev
 
-/-- Source: `proof_gap/exercise_579/2.txt`. -/
+/-- Exercise 579, gap 2. -/
 theorem gap2 (L : ℝ) :
     HasLimitAtZero tanhExpanded L ↔ HasLimitAtZero normalized L := by
   have heq :
@@ -194,16 +194,16 @@ theorem gap2 (L : ℝ) :
   · intro h
     exact h.congr' heq_rev
 
-/-- Source: `proof_gap/exercise_579/3.txt`. -/
+/-- Exercise 579, gap 3. -/
 theorem gap3 : HasLimitAtZero normalized (2 * (1 - 1 / 2) / 1) := by
   norm_num
   exact (gap2 1).mp tanhExpanded_limit_one
 
-/-- Source: `proof_gap/exercise_579/4.txt`. -/
+/-- Exercise 579, gap 4. -/
 theorem gap4 : (2 : ℝ) * (1 - 1 / 2) / 1 = 1 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_579/5.txt`. -/
+/-- Exercise 579, gap 5. -/
 theorem gap5 : HasLimitAtZero tanhExpanded 1 := by
   have hn := gap3
   rw [gap4] at hn

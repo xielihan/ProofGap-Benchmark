@@ -31,7 +31,7 @@ def NonzeroConvergentProduct : Prop :=
 def DivergentProduct : Prop :=
   ¬NonzeroConvergentProduct
 
-/-- Source: `proof_gap/exercise_3069/1.txt`; retain the definition of arbitrary `p`. -/
+/-- Exercise 3069, gap 1; retain the definition of arbitrary `p`. -/
 private theorem partialProduct_formula :
     (∀ n : ℕ, 2 ≤ n → partialProduct n = 1 / (n : ℝ)) ∧
       Tendsto partialProduct atTop (𝓝 0) := by
@@ -86,7 +86,7 @@ theorem gap1 (p : ℕ → ℝ) (hp : ∀ n, p n = factor n) :
   simp only [factor, harmonicTerm]
   ring
 
-/-- Source: `proof_gap/exercise_3069/2.txt`. -/
+/-- Exercise 3069, gap 2. -/
 theorem gap2 : ¬Summable harmonicTerm := by
   intro hs
   rcases hs with ⟨a, ha⟩
@@ -171,7 +171,7 @@ theorem gap2 : ¬Summable harmonicTerm := by
   linarith
 
 /--
-Source: `proof_gap/exercise_3069/3.txt`; divergence means failure to converge
+Exercise 3069, gap 3; divergence means failure to converge
 to a nonzero product value.
 -/
 theorem gap3 : DivergentProduct := by
@@ -181,7 +181,7 @@ theorem gap3 : DivergentProduct := by
     tendsto_nhds_unique hlim partialProduct_formula.2
   exact hP hPzero
 
-/-- Source: `proof_gap/exercise_3069/4.txt`; replace the ellipsis and require `n ≥ 2`. -/
+/-- Exercise 3069, gap 4; replace the ellipsis and require `n ≥ 2`. -/
 theorem gap4 (P : ℕ → ℝ) (hP : ∀ n, P n = partialProduct n) :
     ∀ n : ℕ, 2 ≤ n → P n = 1 / (n : ℝ) := by
   intro n hn
@@ -189,13 +189,13 @@ theorem gap4 (P : ℕ → ℝ) (hP : ∀ n, P n = partialProduct n) :
     P n = partialProduct n := hP n
     _ = 1 / (n : ℝ) := partialProduct_formula.1 n hn
 
-/-- Source: `proof_gap/exercise_3069/5.txt`. -/
+/-- Exercise 3069, gap 5. -/
 theorem gap5 (P : ℕ → ℝ) (hP : ∀ n, P n = partialProduct n) :
     Tendsto P atTop (𝓝 0) := by
   apply partialProduct_formula.2.congr'
   exact Filter.Eventually.of_forall (fun n => (hP n).symm)
 
-/-- Source: `proof_gap/exercise_3069/6.txt`. -/
+/-- Exercise 3069, gap 6. -/
 theorem gap6 :
     ∀ n : ℕ, 2 ≤ n → factor n ≠ 0 := by
   intro n hn
@@ -208,7 +208,7 @@ theorem gap6 :
   field_simp [hn0] at hzero
   nlinarith
 
-/-- Source: `proof_gap/exercise_3069/7.txt`. -/
+/-- Exercise 3069, gap 7. -/
 theorem gap7 : DivergentProduct := by
   exact gap3
 

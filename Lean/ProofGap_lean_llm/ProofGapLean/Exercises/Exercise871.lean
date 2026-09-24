@@ -23,7 +23,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 
 def finalDerivative (x : ℝ) : ℝ := 2 / Real.sin x ^ 2
 
-/-- Source: `proof_gap/exercise_871/1.txt`; require both half-angle
+/-- Exercise 871, gap 1; require both half-angle
 denominators to be nonzero. -/
 theorem gap1 (x : ℝ) (hcos : Real.cos (half x) ≠ 0)
     (hsin : Real.sin (half x) ≠ 0) :
@@ -89,7 +89,7 @@ theorem gap1 (x : ℝ) (hcos : Real.cos (half x) ≠ 0)
   unfold expandedDerivative sec csc
   field_simp [hcos, hsin] <;> ring
 
-/-- Source: `proof_gap/exercise_871/2.txt`; retain the common domain of
+/-- Exercise 871, gap 2; retain the common domain of
 `tan (x/2)` and `cot (x/2)`. -/
 theorem gap2 (x : ℝ) (hcos : Real.cos (half x) ≠ 0)
     (hsin : Real.sin (half x) ≠ 0) :
@@ -126,7 +126,7 @@ theorem gap2 (x : ℝ) (hcos : Real.cos (half x) ≠ 0)
       unfold finalDerivative
       rw [hdouble]
 
-/-- Source: `proof_gap/exercise_871/3.txt`; restrict to the source function's
+/-- Exercise 871, gap 3; restrict to the source function's
 domain. -/
 theorem gap3 (x : ℝ) (hcos : Real.cos (half x) ≠ 0)
     (hsin : Real.sin (half x) ≠ 0) :

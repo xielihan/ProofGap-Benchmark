@@ -136,13 +136,13 @@ private theorem v_tendsto_zero : Tendsto v atTop (𝓝 0) := by
   simpa [v, Function.comp_def] using
     (Real.continuousAt_log (by norm_num : (1 : ℝ) ≠ 0)).tendsto.comp hone
 
-/-- Source: `proof_gap/exercise_3099/1.txt`; use one explicitly defined witness. -/
+/-- Exercise 3099, gap 1; use one explicitly defined witness. -/
 theorem gap1 :
     ∃ a : ℕ → ℝ, a = alpha ∧ ∀ k : ℕ, 1 ≤ k →
       a (2 * k - 1) = -(1 / Real.sqrt k) := by
   exact ⟨alpha, rfl, alpha_odd⟩
 
-/-- Source: `proof_gap/exercise_3099/2.txt`; use the same explicit witness. -/
+/-- Exercise 3099, gap 2; use the same explicit witness. -/
 theorem gap2 :
     ∃ a : ℕ → ℝ, a = alpha ∧ ∀ k : ℕ, 1 ≤ k →
       a (2 * k) =
@@ -150,7 +150,7 @@ theorem gap2 :
           1 / ((k : ℝ) * Real.sqrt k) := by
   exact ⟨alpha, rfl, alpha_even⟩
 
-/-- Source: `proof_gap/exercise_3099/3.txt`; paired indices start at one. -/
+/-- Exercise 3099, gap 3; paired indices start at one. -/
 theorem gap3 :
     ∀ k : ℕ, 1 ≤ k →
       beta k = 1 / (k : ℝ) + 1 / ((k : ℝ) * Real.sqrt k) := by
@@ -158,7 +158,7 @@ theorem gap3 :
   rw [beta, alpha_odd k hk, alpha_even k hk]
   ring
 
-/-- Source: `proof_gap/exercise_3099/4.txt`. -/
+/-- Exercise 3099, gap 4. -/
 theorem gap4 : ¬SummableFromOne beta := by
   intro hb
   rcases (seriesConverges_iff _).mp hb with ⟨s, hs⟩
@@ -177,7 +177,7 @@ theorem gap4 : ¬SummableFromOne beta := by
   apply Real.not_summable_one_div_natCast
   exact (summable_nat_add_iff 1).1 (by simpa using htail)
 
-/-- Source: `proof_gap/exercise_3099/5.txt`; retain the explicit witness. -/
+/-- Exercise 3099, gap 5; retain the explicit witness. -/
 theorem gap5 :
     ∃ a : ℕ → ℝ, a = alpha ∧ ¬SummableFromOne a := by
   refine ⟨alpha, rfl, ?_⟩
@@ -201,7 +201,7 @@ theorem gap5 :
   apply gap4
   exact (seriesConverges_iff _).2 ⟨s, hpairs⟩
 
-/-- Source: `proof_gap/exercise_3099/6.txt`; replace the scalar big-O token. -/
+/-- Exercise 3099, gap 6; replace the scalar big-O token. -/
 theorem gap6 :
     ((fun k => b k - 2 / (k : ℝ)) =O[atTop] bRemainderScale) := by
   rw [Asymptotics.isBigO_iff]
@@ -276,7 +276,7 @@ theorem gap6 :
     abs_of_nonneg (pow_nonneg ht0 3)]
   nlinarith
 
-/-- Source: `proof_gap/exercise_3099/7.txt`. -/
+/-- Exercise 3099, gap 7. -/
 theorem gap7 : ¬SummableFromOne b := by
   intro hb
   rcases (seriesConverges_iff _).mp hb with ⟨s, hs⟩
@@ -307,7 +307,7 @@ theorem gap7 : ¬SummableFromOne b := by
   apply Real.not_summable_one_div_natCast
   exact (summable_nat_add_iff 1).1 (by simpa using htail)
 
-/-- Source: `proof_gap/exercise_3099/8.txt`; retain the explicit witness. -/
+/-- Exercise 3099, gap 8; retain the explicit witness. -/
 theorem gap8 :
     ∃ a : ℕ → ℝ, a = alpha ∧
       ¬SummableFromOne (fun n => (a n) ^ 2) := by
@@ -333,7 +333,7 @@ theorem gap8 :
   exact (seriesConverges_iff _).2 ⟨s, hpairs⟩
 
 /--
-Source: `proof_gap/exercise_3099/9.txt`; the logarithmic product identity
+Exercise 3099, gap 9; the logarithmic product identity
 requires `k ≥ 2` because the first odd factor is zero.
 -/
 theorem gap9 :
@@ -379,17 +379,17 @@ private theorem c_tail_summable :
   push_cast
   congr 1
 
-/-- Source: `proof_gap/exercise_3099/10.txt`. -/
+/-- Exercise 3099, gap 10. -/
 theorem gap10 : SummableFromOne c := by
   apply seriesConverges_of_summable
   exact (summable_nat_add_iff 1).1
     (by simpa [Nat.add_assoc] using c_tail_summable)
 
-/-- Source: `proof_gap/exercise_3099/11.txt`. -/
+/-- Exercise 3099, gap 11. -/
 theorem gap11 : Tendsto v atTop (𝓝 0) := by
   exact v_tendsto_zero
 
-/-- Source: `proof_gap/exercise_3099/12.txt`. -/
+/-- Exercise 3099, gap 12. -/
 theorem gap12 : SummableFromOne v := by
   rcases (seriesConverges_iff _).mp gap10 with ⟨s, hs⟩
   let P : ℕ → ℝ := fun n => ∑ i ∈ Finset.range n, v (i + 1)
@@ -417,7 +417,7 @@ theorem gap12 : SummableFromOne v := by
     rw [Finset.sum_range_succ]
   exact (seriesConverges_iff _).2 ⟨s, tendsto_of_even_odd heven hodd⟩
 
-/-- Source: `proof_gap/exercise_3099/13.txt`; provide one witness for all three properties. -/
+/-- Exercise 3099, gap 13; provide one witness for all three properties. -/
 theorem gap13 :
     ∃ a : ℕ → ℝ, a = alpha ∧
       ¬SummableFromOne a ∧

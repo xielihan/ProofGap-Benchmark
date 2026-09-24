@@ -25,7 +25,7 @@ def NonzeroConvergentProduct (p : ℕ → ℝ) : Prop :=
 def DivergentProduct (p : ℕ → ℝ) : Prop :=
   ¬NonzeroConvergentProduct p
 
-/-- Source: `proof_gap/exercise_3066/1.txt`. -/
+/-- Exercise 3066, gap 1. -/
 private theorem partialProduct_reciprocalTerm_eq_factorialReciprocal (n : ℕ) :
     partialProduct reciprocalTerm n = factorialReciprocal n := by
   have hfac : ∀ m : ℕ, ∏ i ∈ Finset.Icc 1 m, i = Nat.factorial m := by
@@ -64,7 +64,7 @@ theorem gap1 (p : ℕ → ℝ) (hp : ∀ n, p n = reciprocalTerm n) :
   rw [hp_inv]
   exact hinv
 
-/-- Source: `proof_gap/exercise_3066/2.txt`. -/
+/-- Exercise 3066, gap 2. -/
 theorem gap2 (p : ℕ → ℝ) (hp : ∀ n, p n = reciprocalTerm n) :
     ¬Tendsto p atTop (𝓝 1) := by
   intro h1
@@ -72,7 +72,7 @@ theorem gap2 (p : ℕ → ℝ) (hp : ∀ n, p n = reciprocalTerm n) :
   have hEq : (0 : ℝ) = 1 := tendsto_nhds_unique h0 h1
   exact zero_ne_one hEq
 
-/-- Source: `proof_gap/exercise_3066/3.txt`; retain the definition of arbitrary `P`. -/
+/-- Exercise 3066, gap 3; retain the definition of arbitrary `P`. -/
 theorem gap3 (P : ℕ → ℝ) (hP : ∀ n, P n = factorialReciprocal n) :
     Tendsto P atTop (𝓝 0) := by
   have hfac_ge : ∀ n : ℕ, n ≤ Nat.factorial n := by
@@ -102,14 +102,14 @@ theorem gap3 (P : ℕ → ℝ) (hP : ∀ n, P n = factorialReciprocal n) :
   rw [hP_inv]
   exact hinv
 
-/-- Source: `proof_gap/exercise_3066/4.txt`; spell out the positive-integer domain. -/
+/-- Exercise 3066, gap 4; spell out the positive-integer domain. -/
 theorem gap4 :
     ∀ n : ℕ, 0 < n → (1 / (n : ℝ)) ≠ 0 := by
   intro n hn
   exact one_div_ne_zero (Nat.cast_ne_zero.mpr (ne_of_gt hn))
 
 /--
-Source: `proof_gap/exercise_3066/5.txt`; divergence means failure to converge
+Exercise 3066, gap 5; divergence means failure to converge
 to a nonzero product value.
 -/
 theorem gap5 : DivergentProduct reciprocalTerm := by

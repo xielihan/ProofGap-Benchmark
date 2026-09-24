@@ -10,7 +10,7 @@ noncomputable section
 def y (x : ℝ) : ℝ :=
   Real.cos (2 * x) - 2 * Real.sin x
 
-/-- Source: `proof_gap/exercise_862/1.txt`. -/
+/-- Exercise 862, gap 1. -/
 theorem gap1 (x : ℝ) :
     HasDerivAt y (-2 * Real.sin (2 * x) - 2 * Real.cos x) x := by
   have hid : HasDerivAt (fun t : ℝ => 2 * t) 2 x := by
@@ -26,14 +26,14 @@ theorem gap1 (x : ℝ) :
       (Real.hasDerivAt_sin x).mul_const 2
   simpa only [y] using hcos.sub hsin
 
-/-- Source: `proof_gap/exercise_862/2.txt`. -/
+/-- Exercise 862, gap 2. -/
 theorem gap2 (x : ℝ) :
     -2 * Real.sin (2 * x) - 2 * Real.cos x =
       -2 * Real.cos x * (1 + 2 * Real.sin x) := by
   rw [Real.sin_two_mul]
   ring
 
-/-- Source: `proof_gap/exercise_862/3.txt`. -/
+/-- Exercise 862, gap 3. -/
 theorem gap3 (x : ℝ) :
     HasDerivAt y (-2 * Real.cos x * (1 + 2 * Real.sin x)) x := by
   rw [← gap2 x]

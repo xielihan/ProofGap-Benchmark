@@ -11,7 +11,7 @@ noncomputable section
 def target (x : ℝ) : ℝ := x * Real.sin (Real.sqrt x)
 def scale (x : ℝ) : ℝ := Real.rpow x (3 / 2)
 
-/-- Source: `proof_gap/exercise_650_2/1.txt`. -/
+/-- Exercise 650_2, gap 1. -/
 theorem gap1 :
     Filter.Tendsto
       (fun x : ℝ => target x / (x * Real.sqrt x))
@@ -47,7 +47,7 @@ theorem gap1 :
   dsimp [target]
   field_simp [hx0, hsqrt0] <;> ring
 
-/-- Source: `proof_gap/exercise_650_2/2.txt`. -/
+/-- Exercise 650_2, gap 2. -/
 theorem gap2 :
     Asymptotics.IsEquivalent (nhdsWithin 0 (Set.Ioi 0)) target scale := by
   have hscale :
@@ -80,7 +80,7 @@ theorem gap2 :
   rw [halg, norm_mul]
   exact mul_le_mul_of_nonneg_right hnorm (norm_nonneg _)
 
-/-- Source: `proof_gap/exercise_650_2/3.txt`. -/
+/-- Exercise 650_2, gap 3. -/
 theorem gap3 :
     Asymptotics.IsEquivalent (nhdsWithin 0 (Set.Ioi 0)) target scale := by
   exact gap2

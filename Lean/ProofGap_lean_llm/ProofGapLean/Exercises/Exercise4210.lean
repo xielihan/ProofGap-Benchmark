@@ -473,7 +473,7 @@ private theorem coneVolume_closedForm
           Real.Gamma (((d : ℝ) + 2) / 2)) := by
       rw [integral_div_pow d _ (ha (Fin.last d))]
 
-/-! Source: `results/stage1_gpt55/09_重积分与含参积分/exercise_4210_autoformalization_result/exercise_4210.md`. -/
+/-! Exercise 4210. -/
 
 private theorem baseConeFormula
     (d : ℕ) (hd : 0 < d) (a : BaseVec d)

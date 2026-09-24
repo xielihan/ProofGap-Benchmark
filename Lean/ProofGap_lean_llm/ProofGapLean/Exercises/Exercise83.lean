@@ -24,7 +24,7 @@ def IsCauchy (u : ℕ → ℝ) : Prop :=
 def Convergent (u : ℕ → ℝ) : Prop :=
   ∃ l : ℝ, Tendsto u atTop (𝓝 l)
 
-/-- Source: `proof_gap/exercise_83/1.txt`; the sine tail is explicit. -/
+/-- Exercise 83, gap 1; the sine tail is explicit. -/
 theorem gap1 :
     ∀ m n : ℕ, n < m → |x m - x n| = |tail n m| := by
   intro m n hnm
@@ -36,7 +36,7 @@ theorem gap1 :
     (show 1 ≤ n + 1 by omega) (show n + 1 ≤ m + 1 by omega)
   linarith
 
-/-- Source: `proof_gap/exercise_83/2.txt`; the geometric sum is explicit. -/
+/-- Exercise 83, gap 2; the geometric sum is explicit. -/
 theorem gap2 :
     ∀ m n : ℕ, n < m →
       |tail n m| ≤ 1 / (2 : ℝ) ^ (n + 1) * geometricTail n m := by
@@ -68,7 +68,7 @@ theorem gap2 :
       rw [pow_add]
       field_simp
 
-/-- Source: `proof_gap/exercise_83/3.txt`. -/
+/-- Exercise 83, gap 3. -/
 theorem gap3 :
     ∀ m n : ℕ, n < m →
       1 / (2 : ℝ) ^ (n + 1) * geometricTail n m <
@@ -90,7 +90,7 @@ theorem gap3 :
   have hcoef : 0 < 1 / (2 : ℝ) ^ (n + 1) := by positivity
   exact mul_lt_mul_of_pos_left hgeom hcoef
 
-/-- Source: `proof_gap/exercise_83/4.txt`. -/
+/-- Exercise 83, gap 4. -/
 theorem gap4 :
     ∀ m n : ℕ, n < m →
       1 / (2 : ℝ) ^ (n + 1) * (1 / (1 - 1 / 2)) =
@@ -100,7 +100,7 @@ theorem gap4 :
   rw [pow_succ]
   field_simp
 
-/-- Source: `proof_gap/exercise_83/5.txt`. -/
+/-- Exercise 83, gap 5. -/
 theorem gap5 :
     ∀ m n : ℕ, n < m → |x m - x n| < 1 / (2 : ℝ) ^ n := by
   intro m n hnm
@@ -108,7 +108,7 @@ theorem gap5 :
   exact lt_of_le_of_lt (gap2 m n hnm) <|
     (gap3 m n hnm).trans_eq (gap4 m n hnm)
 
-/-- Source: `proof_gap/exercise_83/6.txt`; N depends on ε. -/
+/-- Exercise 83, gap 6; N depends on ε. -/
 theorem gap6 :
     ∀ ε : ℝ, 0 < ε →
       ∃ N : ℕ, ∀ n : ℕ, N < n → 1 / (2 : ℝ) ^ n < ε := by
@@ -123,7 +123,7 @@ theorem gap6 :
   intro n hn
   simpa only [one_div, inv_pow] using hN n (by omega)
 
-/-- Source: `proof_gap/exercise_83/7.txt`; N depends on ε. -/
+/-- Exercise 83, gap 7; N depends on ε. -/
 theorem gap7 :
     ∀ ε : ℝ, 0 < ε →
       ∃ N : ℕ, ∀ m n : ℕ, N < n → n < m → |x m - x n| < ε := by
@@ -131,11 +131,11 @@ theorem gap7 :
   rcases gap6 ε hε with ⟨N, hN⟩
   exact ⟨N, fun m n hn hnm => lt_trans (gap5 m n hnm) (hN n hn)⟩
 
-/-- Source: `proof_gap/exercise_83/8.txt`. -/
+/-- Exercise 83, gap 8. -/
 theorem gap8 (h : IsCauchy x) : IsCauchy x := by
   exact h
 
-/-- Source: `proof_gap/exercise_83/9.txt`. -/
+/-- Exercise 83, gap 9. -/
 theorem gap9 (h : IsCauchy x) : Convergent x := by
   have hcauchy : CauchySeq x := by
     rw [Metric.cauchySeq_iff]
@@ -153,7 +153,7 @@ theorem gap9 (h : IsCauchy x) : Convergent x := by
         simpa [Real.dist_eq] using htail
   exact cauchySeq_tendsto_of_complete hcauchy
 
-/-- Source: `proof_gap/exercise_83/10.txt`. -/
+/-- Exercise 83, gap 10. -/
 theorem gap10 (h : Convergent x) : Convergent x := by
   exact h
 

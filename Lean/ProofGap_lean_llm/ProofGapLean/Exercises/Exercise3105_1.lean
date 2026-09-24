@@ -136,7 +136,7 @@ private lemma factorPartialProduct_eq_prod_div (x : ℝ) (n : ℕ) :
   rw [Finset.prod_div_distrib]
 
 /--
-Source: `proof_gap/exercise_3105_1/1.txt`; exclude the poles and start the
+Exercise 3105_1, gap 1; exclude the poles and start the
 finite product at a positive cutoff.
 -/
 theorem gap1 (n : ℕ) (x : ℝ) (hn : 1 ≤ n) (hx : admissible x) :
@@ -153,7 +153,7 @@ theorem gap1 (n : ℕ) (x : ℝ) (hn : 1 ≤ n) (hx : admissible x) :
   rw [prod_one_add_div]
   field_simp [hx0, hprod0, hfact0]
 
-/-- Source: `proof_gap/exercise_3105_1/2.txt`; all denominators are nonzero on `admissible x`. -/
+/-- Exercise 3105_1, gap 2; all denominators are nonzero on `admissible x`. -/
 theorem gap2 (n : ℕ) (x : ℝ) (hn : 1 ≤ n) (hx : admissible x) :
     eulerApproximant x n =
       (1 / x) *
@@ -202,7 +202,7 @@ private lemma factorPartialProduct_eq_euler_mul (x : ℝ) (n : ℕ)
     _ = x * eulerApproximant x n * Real.rpow (((n : ℝ) + 1) / n) x := by ring
 
 /--
-Source: `proof_gap/exercise_3105_1/3.txt`; the infinite product is represented
+Exercise 3105_1, gap 3; the infinite product is represented
 by convergence of its partial products.
 -/
 theorem gap3 (Gamma : ℝ → ℝ)

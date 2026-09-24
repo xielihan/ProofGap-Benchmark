@@ -18,7 +18,7 @@ def cancelled (x : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_413/1.txt`. -/
+/-- Exercise 413, gap 1. -/
 theorem gap1 : HasLimitAt original 0 10 ↔ HasLimitAt expanded 0 10 := by
   have h : original = expanded := by
     funext x
@@ -27,7 +27,7 @@ theorem gap1 : HasLimitAt original 0 10 ↔ HasLimitAt expanded 0 10 := by
     ring
   rw [h]
 
-/-- Source: `proof_gap/exercise_413/2.txt`. -/
+/-- Exercise 413, gap 2. -/
 theorem gap2 : HasLimitAt expanded 0 10 ↔ HasLimitAt cancelled 0 10 := by
   have h_eq :
       expanded =ᶠ[nhdsWithin 0 ({0} : Set ℝ)ᶜ] cancelled := by
@@ -43,7 +43,7 @@ theorem gap2 : HasLimitAt expanded 0 10 ↔ HasLimitAt cancelled 0 10 := by
   · intro h
     exact h.congr' h_eq.symm
 
-/-- Source: `proof_gap/exercise_413/3.txt`. -/
+/-- Exercise 413, gap 3. -/
 theorem gap3 : HasLimitAt cancelled 0 10 := by
   unfold HasLimitAt
   have hcont : ContinuousAt cancelled 0 := by
@@ -54,7 +54,7 @@ theorem gap3 : HasLimitAt cancelled 0 10 := by
     · norm_num
   simpa [cancelled] using hcont.tendsto.mono_left inf_le_left
 
-/-- Source: `proof_gap/exercise_413/4.txt`. -/
+/-- Exercise 413, gap 4. -/
 theorem gap4 : HasLimitAt original 0 10 := by
   rw [gap1, gap2]
   exact gap3

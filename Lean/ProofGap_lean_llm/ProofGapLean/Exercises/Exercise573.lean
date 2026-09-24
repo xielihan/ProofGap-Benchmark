@@ -19,7 +19,7 @@ def exponentialForm (x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_573/1.txt`. -/
+/-- Exercise 573, gap 1. -/
 theorem gap1 (L : ℝ) :
     HasLimitAtZero original L ↔ HasLimitAtZero exponentialForm L := by
   unfold HasLimitAtZero
@@ -101,7 +101,7 @@ theorem gap1 (L : ℝ) :
   · intro h
     exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_573/2.txt`. -/
+/-- Exercise 573, gap 2. -/
 theorem gap2 : HasLimitAtZero exponentialForm (Real.exp 2) := by
   unfold HasLimitAtZero
   let t : ℝ → ℝ := fun x => x / (x + 1)
@@ -224,7 +224,7 @@ theorem gap2 : HasLimitAtZero exponentialForm (Real.exp 2) := by
     exact Real.rpow_def_of_pos hx (b x)
   exact hrepr.congr' hout_eq.symm
 
-/-- Source: `proof_gap/exercise_573/3.txt`. -/
+/-- Exercise 573, gap 3. -/
 theorem gap3 : HasLimitAtZero original (Real.exp 2) := by
   exact (gap1 (Real.exp 2)).2 gap2
 

@@ -22,7 +22,7 @@ def HasLimitAtNegInfinity (f : ℝ → ℝ) (L : ℝ) : Prop :=
 def HasLimitAtPosInfinity (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f Filter.atTop (nhds L)
 
-/-- Source: `proof_gap/exercise_594/1.txt`. -/
+/-- Exercise 594, gap 1. -/
 private theorem original_eq_rationalized_fn : original = rationalized := by
   funext x
   unfold original rationalized
@@ -202,7 +202,7 @@ theorem gap1 (L : ℝ) :
   unfold HasLimitAtNegInfinity
   rw [original_eq_rationalized_fn]
 
-/-- Source: `proof_gap/exercise_594/2.txt`. -/
+/-- Exercise 594, gap 2. -/
 theorem gap2 (L : ℝ) :
     HasLimitAtNegInfinity rationalized L ↔ HasLimitAtNegInfinity normalizedNeg L := by
   unfold HasLimitAtNegInfinity
@@ -218,21 +218,21 @@ theorem gap2 (L : ℝ) :
   · intro h
     exact Filter.Tendsto.congr' heq.symm h
 
-/-- Source: `proof_gap/exercise_594/3.txt`. -/
+/-- Exercise 594, gap 3. -/
 theorem gap3 : HasLimitAtNegInfinity normalizedNeg (-1) := by
   exact normalizedNeg_tendsto
 
-/-- Source: `proof_gap/exercise_594/4.txt`. -/
+/-- Exercise 594, gap 4. -/
 theorem gap4 : HasLimitAtNegInfinity original (-1) := by
   exact (gap1 (-1)).2 ((gap2 (-1)).2 gap3)
 
-/-- Source: `proof_gap/exercise_594/5.txt`. -/
+/-- Exercise 594, gap 5. -/
 theorem gap5 (L : ℝ) :
     HasLimitAtPosInfinity original L ↔ HasLimitAtPosInfinity rationalized L := by
   unfold HasLimitAtPosInfinity
   rw [original_eq_rationalized_fn]
 
-/-- Source: `proof_gap/exercise_594/6.txt`. -/
+/-- Exercise 594, gap 6. -/
 theorem gap6 (L : ℝ) :
     HasLimitAtPosInfinity rationalized L ↔ HasLimitAtPosInfinity normalizedPos L := by
   unfold HasLimitAtPosInfinity
@@ -248,11 +248,11 @@ theorem gap6 (L : ℝ) :
   · intro h
     exact Filter.Tendsto.congr' heq.symm h
 
-/-- Source: `proof_gap/exercise_594/7.txt`. -/
+/-- Exercise 594, gap 7. -/
 theorem gap7 : HasLimitAtPosInfinity normalizedPos 1 := by
   exact normalizedPos_tendsto
 
-/-- Source: `proof_gap/exercise_594/8.txt`. -/
+/-- Exercise 594, gap 8. -/
 theorem gap8 : HasLimitAtPosInfinity original 1 := by
   exact (gap5 1).2 ((gap6 1).2 gap7)
 

@@ -22,7 +22,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 def finalDerivative (x : ℝ) : ℝ :=
   1 / (1 + x ^ 2)
 
-/-- Source: `proof_gap/exercise_925/1.txt`; exclude the pole `x = 1` in the
+/-- Exercise 925, gap 1; exclude the pole `x = 1` in the
 rational arctangent argument. -/
 theorem gap1 (x : ℝ) (hx : x ≠ 1) :
     HasDerivAt y (expandedDerivative x) x := by
@@ -42,7 +42,7 @@ theorem gap1 (x : ℝ) (hx : x ≠ 1) :
   exact
     (Real.hasDerivAt_arctan ((1 + x) / (1 - x))).comp x hinner
 
-/-- Source: `proof_gap/exercise_925/2.txt`; the algebraic simplification uses
+/-- Exercise 925, gap 2; the algebraic simplification uses
 the nonzero denominator `1 - x`. -/
 theorem gap2 (x : ℝ) (hx : x ≠ 1) :
     expandedDerivative x = finalDerivative x := by
@@ -52,7 +52,7 @@ theorem gap2 (x : ℝ) (hx : x ≠ 1) :
   have hsum2 : 1 + ((1 + x) / (1 - x)) ^ 2 ≠ 0 := by positivity
   field_simp [hden, hsum1, hsum2] <;> ring
 
-/-- Source: `proof_gap/exercise_925/3.txt`; the source expression remains
+/-- Exercise 925, gap 3; the source expression remains
 undefined and discontinuous across its rational pole. -/
 theorem gap3 (x : ℝ) (hx : x ≠ 1) :
     HasDerivAt y (finalDerivative x) x := by

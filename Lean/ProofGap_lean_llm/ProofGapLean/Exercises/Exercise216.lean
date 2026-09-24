@@ -7,14 +7,14 @@ namespace ProofGap.Exercise216
 def f (x : ℝ) : ℝ := x ^ 2
 def domain : Set ℝ := Set.Iic 0
 
-/-- Source: `proof_gap/exercise_216/1.txt`. -/
+/-- Exercise 216, gap 1. -/
 theorem gap1 : ∀ x₁ x₂ : ℝ, x₁ < x₂ → x₂ < 0 →
     f x₂ - f x₁ = (x₂ - x₁) * (x₂ + x₁) := by
   intro x₁ x₂ hlt hx₂
   simp only [f]
   ring
 
-/-- Source: `proof_gap/exercise_216/2.txt`. -/
+/-- Exercise 216, gap 2. -/
 theorem gap2 : ∀ x₁ x₂ : ℝ, x₁ < x₂ → x₂ < 0 →
     (x₂ - x₁) * (x₂ + x₁) < 0 := by
   intro x₁ x₂ hlt hx₂
@@ -22,13 +22,13 @@ theorem gap2 : ∀ x₁ x₂ : ℝ, x₁ < x₂ → x₂ < 0 →
   have hadd : x₂ + x₁ < 0 := by linarith
   exact mul_neg_of_pos_of_neg hsub hadd
 
-/-- Source: `proof_gap/exercise_216/3.txt`. -/
+/-- Exercise 216, gap 3. -/
 theorem gap3 : ∀ x₁ x₂ : ℝ, x₁ < x₂ → x₂ < 0 → f x₂ - f x₁ < 0 := by
   intro x₁ x₂ hlt hx₂
   rw [gap1 x₁ x₂ hlt hx₂]
   exact gap2 x₁ x₂ hlt hx₂
 
-/-- Source: `proof_gap/exercise_216/4.txt`. -/
+/-- Exercise 216, gap 4. -/
 theorem gap4 : StrictAntiOn f domain := by
   intro x hx y hy hxy
   change y ≤ 0 at hy
@@ -40,7 +40,7 @@ theorem gap4 : StrictAntiOn f domain := by
     have := gap3 x y hxy hyneg
     linarith
 
-/-- Source: `proof_gap/exercise_216/5.txt`. -/
+/-- Exercise 216, gap 5. -/
 theorem gap5 : StrictAntiOn f domain := by
   exact gap4
 

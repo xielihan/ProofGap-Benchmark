@@ -14,7 +14,7 @@ def y (α x : ℝ) : ℝ :=
 
 def stationarySet (α : ℝ) : Set ℝ := {x | deriv (y α) x = 0}
 
-/-- Source: `proof_gap/exercise_840/1.txt`; the source's biconditional equated
+/-- Exercise 840, gap 1; the source's biconditional equated
 `y'=0` with `y'=formula`; state the intended derivative formula. -/
 theorem gap1 (α x : ℝ) :
     HasDerivAt (y α)
@@ -26,7 +26,7 @@ theorem gap1 (α x : ℝ) :
       (((hasDerivAt_id x).mul_const (Real.cos α)).sub_const (Real.sin α))) using 1 <;>
     simp only [id_eq] <;> ring
 
-/-- Source: `proof_gap/exercise_840/2.txt`; remove the malformed stationary
+/-- Exercise 840, gap 2; remove the malformed stationary
 biconditional and retain the trigonometric simplification. -/
 theorem gap2 (α x : ℝ) :
     Real.sin α * (x * Real.cos α - Real.sin α) +
@@ -38,32 +38,32 @@ theorem gap2 (α x : ℝ) :
   rw [hs, hc]
   ring
 
-/-- Source: `proof_gap/exercise_840/3.txt`; state the simplified derivative
+/-- Exercise 840, gap 3; state the simplified derivative
 formula. -/
 theorem gap3 (α x : ℝ) :
     HasDerivAt (y α) (x * Real.sin (2 * α) + Real.cos (2 * α)) x := by
   simpa only [gap2 α x] using gap1 α x
 
-/-- Source: `proof_gap/exercise_840/4.txt`. -/
+/-- Exercise 840, gap 4. -/
 theorem gap4 (α x : ℝ) (hstat : deriv (y α) x = 0) :
     x * Real.sin (2 * α) + Real.cos (2 * α) = 0 := by
   rw [(gap3 α x).deriv] at hstat
   exact hstat
 
-/-- Source: `proof_gap/exercise_840/5.txt`; add the stationary equation. -/
+/-- Exercise 840, gap 5; add the stationary equation. -/
 theorem gap5 (α x : ℝ) (hs : Real.sin (2 * α) ≠ 0)
     (hstat : x * Real.sin (2 * α) + Real.cos (2 * α) = 0) :
     x = -Real.cos (2 * α) / Real.sin (2 * α) := by
   apply (eq_div_iff hs).2
   linarith
 
-/-- Source: `proof_gap/exercise_840/6.txt`. -/
+/-- Exercise 840, gap 6. -/
 theorem gap6 (α : ℝ) (hs : Real.sin (2 * α) ≠ 0) :
     -Real.cos (2 * α) / Real.sin (2 * α) = -Real.cot (2 * α) := by
   rw [Real.cot_eq_cos_div_sin]
   ring
 
-/-- Source: `proof_gap/exercise_840/7.txt`. -/
+/-- Exercise 840, gap 7. -/
 theorem gap7 (α x : ℝ) (hs : Real.sin (2 * α) ≠ 0)
     (hstat : x * Real.sin (2 * α) + Real.cos (2 * α) = 0) :
     x = -Real.cot (2 * α) := by
@@ -71,7 +71,7 @@ theorem gap7 (α x : ℝ) (hs : Real.sin (2 * α) ≠ 0)
     x = -Real.cos (2 * α) / Real.sin (2 * α) := gap5 α x hs hstat
     _ = -Real.cot (2 * α) := gap6 α hs
 
-/-- Source: `proof_gap/exercise_840/8.txt`; replace `±1` by a disjunction. -/
+/-- Exercise 840, gap 8; replace `±1` by a disjunction. -/
 theorem gap8 (α : ℝ) (hs : Real.sin (2 * α) = 0) :
     Real.cos (2 * α) = 1 ∨ Real.cos (2 * α) = -1 := by
   have hc : Real.cos (2 * α) ^ 2 = 1 := by
@@ -85,7 +85,7 @@ theorem gap8 (α : ℝ) (hs : Real.sin (2 * α) = 0) :
   · right
     linarith
 
-/-- Source: `proof_gap/exercise_840/9.txt`; the literal claim `±1=0` is
+/-- Exercise 840, gap 9; the literal claim `±1=0` is
 false; state the intended contradiction with the stationary equation. -/
 theorem gap9 (α x : ℝ) (hs : Real.sin (2 * α) = 0)
     (hstat : x * Real.sin (2 * α) + Real.cos (2 * α) = 0) :
@@ -94,14 +94,14 @@ theorem gap9 (α x : ℝ) (hs : Real.sin (2 * α) = 0)
     simpa [hs] using hstat
   rcases gap8 α hs with h | h <;> linarith
 
-/-- Source: `proof_gap/exercise_840/10.txt`; retain the stationary premise
+/-- Exercise 840, gap 10; retain the stationary premise
 whose contradiction is intended. -/
 theorem gap10 (α x : ℝ) (hs : Real.sin (2 * α) = 0) :
     deriv (y α) x = 0 → False := by
   intro hstat
   exact gap9 α x hs (gap4 α x hstat)
 
-/-- Source: `proof_gap/exercise_840/11.txt`; make the conditional singleton
+/-- Exercise 840, gap 11; make the conditional singleton
 set explicit. -/
 theorem gap11 (α : ℝ) :
     stationarySet α =

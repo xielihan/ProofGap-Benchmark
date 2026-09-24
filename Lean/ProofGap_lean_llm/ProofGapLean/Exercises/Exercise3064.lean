@@ -127,13 +127,13 @@ private theorem tendsto_alternatingHarmonicPartial :
   filter_upwards [] with n
   exact (alternatingHarmonicPartial_eq_sum_range n).symm
 
-/-- Source: `proof_gap/exercise_3064/1.txt`; use an exact product and real powers. -/
+/-- Exercise 3064, gap 1; use an exact product and real powers. -/
 theorem gap1 (a : ℝ) (ha : 0 < a) (P : ℕ → ℝ)
     (hP : ∀ n, P n = partialProduct a n) :
     ∀ n, P n = partialProduct a n := by
   exact hP
 
-/-- Source: `proof_gap/exercise_3064/2.txt`; replace both ellipses by finite operators. -/
+/-- Exercise 3064, gap 2; replace both ellipses by finite operators. -/
 theorem gap2 (a : ℝ) (ha : 0 < a) :
     ∀ n, partialProduct a n = closedForm a n := by
   intro n
@@ -149,14 +149,14 @@ theorem gap2 (a : ℝ) (ha : 0 < a) :
   rw [exponent, pow_succ]
   ring
 
-/-- Source: `proof_gap/exercise_3064/3.txt`. -/
+/-- Exercise 3064, gap 3. -/
 theorem gap3 (a : ℝ) (ha : 0 < a) (P : ℕ → ℝ)
     (hP : ∀ n, P n = partialProduct a n) :
     ∀ n, P n = closedForm a n := by
   intro n
   rw [hP n, gap2 a ha n]
 
-/-- Source: `proof_gap/exercise_3064/4.txt`; interpret the variable exponent by `Real.rpow`. -/
+/-- Exercise 3064, gap 4; interpret the variable exponent by `Real.rpow`. -/
 theorem gap4 (a : ℝ) (ha : 0 < a) (P : ℕ → ℝ)
     (hP : ∀ n, P n = partialProduct a n) :
     Tendsto P atTop (𝓝 (Real.rpow a (-Real.log 2))) := by
@@ -171,13 +171,13 @@ theorem gap4 (a : ℝ) (ha : 0 < a) (P : ℕ → ℝ)
   filter_upwards [] with n
   exact (gap3 a ha P hP n).symm
 
-/-- Source: `proof_gap/exercise_3064/5.txt`. -/
+/-- Exercise 3064, gap 5. -/
 theorem gap5 (a : ℝ) (ha : 0 < a) :
     ConvergentProduct a := by
   refine ⟨Real.rpow a (-Real.log 2), ?_⟩
   exact gap4 a ha (partialProduct a) (fun _ => rfl)
 
-/-- Source: `proof_gap/exercise_3064/6.txt`; interpret the value by `Real.rpow`. -/
+/-- Exercise 3064, gap 6; interpret the value by `Real.rpow`. -/
 theorem gap6 (a : ℝ) (ha : 0 < a) :
     HasProduct a (Real.rpow a (-Real.log 2)) := by
   exact gap4 a ha (partialProduct a) (fun _ => rfl)

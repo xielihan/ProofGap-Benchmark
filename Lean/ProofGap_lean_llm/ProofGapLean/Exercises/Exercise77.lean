@@ -18,7 +18,7 @@ def decimalUpper (p : ℕ → ℕ) (n : ℕ) : ℝ :=
 def Convergent (u : ℕ → ℝ) : Prop :=
   ∃ l : ℝ, Tendsto u atTop (𝓝 l)
 
-/-- Source: `proof_gap/exercise_77/1.txt`. -/
+/-- Exercise 77, gap 1. -/
 theorem gap1 (p : ℕ → ℕ) :
     ∀ n : ℕ, x p (n + 1) = x p n + (p (n + 1) : ℝ) / 10 ^ (n + 1) := by
   intro n
@@ -26,7 +26,7 @@ theorem gap1 (p : ℕ → ℕ) :
   rw [Finset.sum_Icc_succ_top (by omega)]
   ring
 
-/-- Source: `proof_gap/exercise_77/2.txt`; the missing positive-digit premise is explicit. -/
+/-- Exercise 77, gap 2; the missing positive-digit premise is explicit. -/
 theorem gap2 (p : ℕ → ℕ) :
     ∀ n : ℕ, 0 < p (n + 1) → x p (n + 1) > x p n := by
   intro n hn
@@ -35,7 +35,7 @@ theorem gap2 (p : ℕ → ℕ) :
   have hpow : 0 < (10 : ℝ) ^ (n + 1) := by positivity
   linarith [div_pos hp hpow]
 
-/-- Source: `proof_gap/exercise_77/3.txt`; strict monotonicity needs every digit positive. -/
+/-- Exercise 77, gap 3; strict monotonicity needs every digit positive. -/
 theorem gap3
     (p : ℕ → ℕ)
     (hpos : ∀ i : ℕ, 0 < i → 0 < p i) :
@@ -44,7 +44,7 @@ theorem gap3
   intro n
   exact gap2 p n (hpos (n + 1) (by omega))
 
-/-- Source: `proof_gap/exercise_77/4.txt`; n>1 makes the lower bound strict. -/
+/-- Exercise 77, gap 4; n>1 makes the lower bound strict. -/
 theorem gap4
     (p : ℕ → ℕ)
     (hpos : ∀ i : ℕ, 0 < i → 0 < p i) :
@@ -58,7 +58,7 @@ theorem gap4
     linarith
   exact lt_of_le_of_lt hx1 (hmono hn)
 
-/-- Source: `proof_gap/exercise_77/5.txt`; the geometric sum is explicit. -/
+/-- Exercise 77, gap 5; the geometric sum is explicit. -/
 theorem gap5
     (p : ℕ → ℕ)
     (hdigit : ∀ i : ℕ, 0 < i → p i ≤ 9) :
@@ -77,7 +77,7 @@ theorem gap5
   field_simp
   nlinarith
 
-/-- Source: `proof_gap/exercise_77/6.txt`; the geometric sum is explicit. -/
+/-- Exercise 77, gap 6; the geometric sum is explicit. -/
 theorem gap6 (p : ℕ → ℕ) :
     ∀ n : ℕ, decimalUpper p n < 1 + (p 0 : ℝ) := by
   intro n
@@ -95,13 +95,13 @@ theorem gap6 (p : ℕ → ℕ) :
   norm_num
   nlinarith
 
-/-- Source: `proof_gap/exercise_77/7.txt`. -/
+/-- Exercise 77, gap 7. -/
 theorem gap7 (p : ℕ → ℕ) :
     (p 0 : ℝ) + 1 / 10 < 1 + (p 0 : ℝ) := by
   have : (1 / 10 : ℝ) < 1 := by norm_num
   linarith
 
-/-- Source: `proof_gap/exercise_77/8.txt`. -/
+/-- Exercise 77, gap 8. -/
 theorem gap8
     (p : ℕ → ℕ)
     (hupper : ∀ n : ℕ, x p n < 1 + (p 0 : ℝ)) :
@@ -119,7 +119,7 @@ theorem gap8
     rcases hy with ⟨n, rfl⟩
     exact le_of_lt (hupper n)
 
-/-- Source: `proof_gap/exercise_77/9.txt`. -/
+/-- Exercise 77, gap 9. -/
 theorem gap9
     (p : ℕ → ℕ)
     (hmono : Monotone (x p))
@@ -138,7 +138,7 @@ theorem gap9
     (by rwa [himage])
   rwa [himage] at ht
 
-/-- Source: `proof_gap/exercise_77/10.txt`. -/
+/-- Exercise 77, gap 10. -/
 theorem gap10
     (p : ℕ → ℕ)
     (hconv : Convergent (x p)) :

@@ -9,13 +9,13 @@ def base (k T : ℝ) : ℝ := Real.rpow k (1 / T)
 def periodicFactor (a : ℝ) (f : ℝ → ℝ) (x : ℝ) : ℝ :=
   Real.rpow a (-x) * f x
 
-/-- Source: `proof_gap/exercise_236/1.txt`. -/
+/-- Exercise 236, gap 1. -/
 theorem gap1 (k T : ℝ) (hk : 0 < k) (hT : 0 < T) :
     0 < base k T := by
   unfold base
   exact Real.rpow_pos_of_pos hk _
 
-/-- Source: `proof_gap/exercise_236/2.txt`. -/
+/-- Exercise 236, gap 2. -/
 theorem gap2 (k T : ℝ) (hk : 0 < k) (hT : 0 < T) :
     Real.rpow (base k T) T = k := by
   have hdiv : (1 / T) * T = (1 : ℝ) := by
@@ -28,7 +28,7 @@ theorem gap2 (k T : ℝ) (hk : 0 < k) (hT : 0 < T) :
     _ = Real.rpow k 1 := by rw [hdiv]
     _ = k := Real.rpow_one k
 
-/-- Source: `proof_gap/exercise_236/3.txt`. -/
+/-- Exercise 236, gap 3. -/
 theorem gap3 (f : ℝ → ℝ) (k T : ℝ) (hk : 0 < k) (hT : 0 < T)
     (hscale : ∀ x, f (x + T) = k * f x) : ∀ x,
     f (x + T) = Real.rpow (base k T) T * f x := by
@@ -38,14 +38,14 @@ theorem gap3 (f : ℝ → ℝ) (k T : ℝ) (hk : 0 < k) (hT : 0 < T)
     _ = Real.rpow (base k T) T * f x := by
       rw [gap2 k T hk hT]
 
-/-- Source: `proof_gap/exercise_236/4.txt`. -/
+/-- Exercise 236, gap 4. -/
 theorem gap4 (f : ℝ → ℝ) (k T : ℝ) : ∀ x,
     periodicFactor (base k T) f (x + T) =
       Real.rpow (base k T) (-(x + T)) * f (x + T) := by
   intro x
   rfl
 
-/-- Source: `proof_gap/exercise_236/5.txt`. -/
+/-- Exercise 236, gap 5. -/
 theorem gap5 (f : ℝ → ℝ) (k T : ℝ) (hk : 0 < k) (hT : 0 < T)
     (hscale : ∀ x, f (x + T) = k * f x) : ∀ x,
     Real.rpow (base k T) (-(x + T)) * f (x + T) =
@@ -68,7 +68,7 @@ theorem gap5 (f : ℝ → ℝ) (k T : ℝ) (hk : 0 < k) (hT : 0 < T)
           Real.rpow (base k T) T * f x := by
       simp only [mul_assoc]
 
-/-- Source: `proof_gap/exercise_236/6.txt`. -/
+/-- Exercise 236, gap 6. -/
 theorem gap6 (f : ℝ → ℝ) (k T : ℝ) (hk : 0 < k) (hT : 0 < T) : ∀ x,
     Real.rpow (base k T) (-x) * Real.rpow (base k T) (-T) *
         Real.rpow (base k T) T * f x =
@@ -84,14 +84,14 @@ theorem gap6 (f : ℝ → ℝ) (k T : ℝ) (hk : 0 < k) (hT : 0 < T) : ∀ x,
       _ = 1 := by simp
   simpa only [mul_assoc, hcancel, mul_one]
 
-/-- Source: `proof_gap/exercise_236/7.txt`. -/
+/-- Exercise 236, gap 7. -/
 theorem gap7 (f : ℝ → ℝ) (k T : ℝ) : ∀ x,
     Real.rpow (base k T) (-x) * f x =
       periodicFactor (base k T) f x := by
   intro x
   rfl
 
-/-- Source: `proof_gap/exercise_236/8.txt`. -/
+/-- Exercise 236, gap 8. -/
 theorem gap8 (f : ℝ → ℝ) (k T : ℝ) (hk : 0 < k) (hT : 0 < T)
     (hscale : ∀ x, f (x + T) = k * f x) : ∀ x,
     periodicFactor (base k T) f (x + T) =
@@ -109,13 +109,13 @@ theorem gap8 (f : ℝ → ℝ) (k T : ℝ) (hk : 0 < k) (hT : 0 < T)
     _ = periodicFactor (base k T) f x :=
       gap7 f k T x
 
-/-- Source: `proof_gap/exercise_236/9.txt`. -/
+/-- Exercise 236, gap 9. -/
 theorem gap9 (f : ℝ → ℝ) (k T : ℝ) (hk : 0 < k) (hT : 0 < T)
     (hscale : ∀ x, f (x + T) = k * f x) :
     Function.Periodic (periodicFactor (base k T) f) T := by
   exact gap8 f k T hk hT hscale
 
-/-- Source: `proof_gap/exercise_236/10.txt`. -/
+/-- Exercise 236, gap 10. -/
 theorem gap10 (f : ℝ → ℝ) (k T : ℝ) (hk : 0 < k) (hT : 0 < T) : ∀ x,
     f x = Real.rpow (base k T) x * periodicFactor (base k T) f x := by
   intro x
@@ -136,13 +136,13 @@ theorem gap10 (f : ℝ → ℝ) (k T : ℝ) (hk : 0 < k) (hT : 0 < T) : ∀ x,
           (Real.rpow (base k T) (-x) * f x) :=
       mul_assoc _ _ _
 
-/-- Source: `proof_gap/exercise_236/11.txt`. -/
+/-- Exercise 236, gap 11. -/
 theorem gap11 (f : ℝ → ℝ) (k T : ℝ) (hk : 0 < k) (hT : 0 < T)
     (hscale : ∀ x, f (x + T) = k * f x) :
     Function.Periodic (periodicFactor (base k T) f) T := by
   exact gap9 f k T hk hT hscale
 
-/-- Source: `proof_gap/exercise_236/12.txt`; move witnesses outside the point quantifier. -/
+/-- Exercise 236, gap 12; move witnesses outside the point quantifier. -/
 theorem gap12 (f : ℝ → ℝ) (k T : ℝ) (hk : 0 < k) (hT : 0 < T)
     (hscale : ∀ x, f (x + T) = k * f x) :
     ∃ a : ℝ, ∃ phi : ℝ → ℝ,

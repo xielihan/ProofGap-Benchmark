@@ -22,7 +22,7 @@ denominator.  This avoids treating Lean's totalized `0 / 0 = 0` as part of
 the intended domain. -/
 def SingularPoint (_f : ℝ → ℝ) (a : ℝ) : Prop := 4 - a ^ 2 = 0
 
-/-- Source: `proof_gap/exercise_692/1.txt`; formulate equality of the two
+/-- Exercise 692, gap 1; formulate equality of the two
 limits rather than an implication guarded by a free singular point. -/
 theorem gap1 (L : ℝ) :
     Filter.Tendsto y (nhds 2) (nhds L) ↔
@@ -61,7 +61,7 @@ theorem gap1 (L : ℝ) :
       ring
   rw [hfun]
 
-/-- Source: `proof_gap/exercise_692/2.txt`. -/
+/-- Exercise 692, gap 2. -/
 theorem gap2 :
     Filter.Tendsto transformed (nhds 2) (nhds 0) := by
   unfold transformed
@@ -195,13 +195,13 @@ theorem gap2 :
     rw [Real.sqrt_eq_zero_of_nonpos harg_nonpos]
     exact hε
 
-/-- Source: `proof_gap/exercise_692/3.txt`. -/
+/-- Exercise 692, gap 3. -/
 theorem gap3 :
     Filter.Tendsto y (nhds 2) (nhds 0) := by
   rw [gap1 0]
   exact gap2
 
-/-- Source: `proof_gap/exercise_692/4.txt`. -/
+/-- Exercise 692, gap 4. -/
 theorem gap4 :
     Filter.Tendsto y (nhds (-2)) (nhds 0) := by
   have hr0 := (continuousAt_id.neg :
@@ -220,17 +220,17 @@ theorem gap4 :
   rw [heven] at h
   exact h
 
-/-- Source: `proof_gap/exercise_692/5.txt`; bind the actual singular point. -/
+/-- Exercise 692, gap 5; bind the actual singular point. -/
 theorem gap5 : SingularPoint y 2 := by
   unfold SingularPoint
   norm_num
 
-/-- Source: `proof_gap/exercise_692/6.txt`; bind the actual singular point. -/
+/-- Exercise 692, gap 6; bind the actual singular point. -/
 theorem gap6 : SingularPoint y (-2) := by
   unfold SingularPoint
   norm_num
 
-/-- Source: `proof_gap/exercise_692/7.txt`; bind the two limit values
+/-- Exercise 692, gap 7; bind the two limit values
 independently. -/
 theorem gap7 :
     (∃ L : ℝ, Filter.Tendsto y (nhds 2) (nhds L)) ∧
@@ -239,7 +239,7 @@ theorem gap7 :
   · exact ⟨0, gap3⟩
   · exact ⟨0, gap4⟩
 
-/-- Source: `proof_gap/exercise_692/8.txt`. -/
+/-- Exercise 692, gap 8. -/
 theorem gap8 (x : ℝ) (hx : x ∈ ({2, -2} : Set ℝ)) :
     SingularPoint y x := by
   rcases hx with (rfl | rfl)

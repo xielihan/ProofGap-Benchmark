@@ -13,7 +13,7 @@ def original (x : ℝ) : ℝ :=
 def simplified (x : ℝ) : ℝ :=
   Real.rpow ((1 + x) / (2 + x)) (1 / (1 + Real.sqrt x))
 
-/-- Source: `proof_gap/exercise_506_2/1.txt`; express equality of the two represented limits. -/
+/-- Exercise 506_2, gap 1; express equality of the two represented limits. -/
 private theorem original_eq_simplified_of_nonneg
     {x : ℝ} (hx : 0 ≤ x) (hne : x ≠ 1) :
     original x = simplified x := by
@@ -115,7 +115,7 @@ theorem gap1 (L : ℝ) :
       h.mono_left inf_le_left
     exact hs.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_506_2/2.txt`. -/
+/-- Exercise 506_2, gap 2. -/
 theorem gap2 :
     Filter.Tendsto simplified (nhds 1) (nhds (Real.sqrt (2 / 3))) := by
   have hvalue : simplified 1 = Real.sqrt (2 / 3) := by
@@ -129,7 +129,7 @@ theorem gap2 :
   rw [← hvalue]
   exact simplified_continuousAt_one.tendsto
 
-/-- Source: `proof_gap/exercise_506_2/3.txt`. -/
+/-- Exercise 506_2, gap 3. -/
 theorem gap3 :
     Filter.Tendsto original (nhdsWithin 1 ({1} : Set ℝ)ᶜ)
       (nhds (Real.sqrt (2 / 3))) := by

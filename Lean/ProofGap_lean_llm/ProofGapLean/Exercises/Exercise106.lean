@@ -49,7 +49,7 @@ private theorem even_tendsto :
   filter_upwards with n
   exact (x_even n).symm
 
-/-- Source: `proof_gap/exercise_106/1.txt`; infimum -∞ means unbounded below. -/
+/-- Exercise 106, gap 1; infimum -∞ means unbounded below. -/
 theorem gap1 : ¬ BddBelow values := by
   intro hb
   rcases hb with ⟨a, ha⟩
@@ -61,7 +61,7 @@ theorem gap1 : ¬ BddBelow values := by
     ⟨2 * n + 1, by omega, rfl⟩
   linarith [ha hmem]
 
-/-- Source: `proof_gap/exercise_106/2.txt`; supremum +∞ means unbounded above. -/
+/-- Exercise 106, gap 2; supremum +∞ means unbounded above. -/
 theorem gap2 : ¬ BddAbove values := by
   intro hb
   rcases hb with ⟨a, ha⟩
@@ -73,12 +73,12 @@ theorem gap2 : ¬ BddAbove values := by
     ⟨2 * n + 2, by omega, rfl⟩
   linarith [ha hmem]
 
-/-- Source: `proof_gap/exercise_106/3.txt`; the odd subsequence tends to -∞. -/
+/-- Exercise 106, gap 3; the odd subsequence tends to -∞. -/
 theorem gap3 :
     Tendsto (fun n : ℕ => x (2 * n + 1)) atTop (atBot : Filter ℝ) := by
   exact odd_tendsto
 
-/-- Source: `proof_gap/exercise_106/4.txt`; the even subsequence tends to +∞. -/
+/-- Exercise 106, gap 4; the even subsequence tends to +∞. -/
 theorem gap4 :
     Tendsto (fun n : ℕ => x (2 * n + 2)) atTop (atTop : Filter ℝ) := by
   exact even_tendsto

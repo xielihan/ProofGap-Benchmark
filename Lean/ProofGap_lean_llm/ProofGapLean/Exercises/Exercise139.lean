@@ -27,7 +27,7 @@ private theorem partialSum_add_tail (x : ℕ → ℝ) {N n : ℕ}
   rw [Icc_eq_Ico_succ, Icc_eq_Ico_succ, Icc_eq_Ico_succ]
   exact Finset.sum_Ico_consecutive x (by omega) (by omega)
 
-/-- Source: `proof_gap/exercise_139/1.txt`. -/
+/-- Exercise 139, gap 1. -/
 theorem gap1 (x : ℕ → ℝ)
     (hx : Tendsto x atTop (atTop : Filter ℝ)) :
     ∀ M : ℝ, 0 < M →
@@ -39,7 +39,7 @@ theorem gap1 (x : ℕ → ℝ)
   rcases hev with ⟨N, hN⟩
   exact ⟨N, fun n hn => hN n hn.le⟩
 
-/-- Source: `proof_gap/exercise_139/2.txt`; N depends on M and n>N. -/
+/-- Exercise 139, gap 2; N depends on M and n>N. -/
 theorem gap2 (x : ℕ → ℝ) :
     ∀ M : ℝ, 0 < M → ∀ N n : ℕ, N < n →
       cesaro x n =
@@ -58,7 +58,7 @@ theorem gap2 (x : ℕ → ℝ) :
   rw [cesaro, hdiff, ← partialSum_add_tail x hN.le]
   field_simp [hn0, hden]
 
-/-- Source: `proof_gap/exercise_139/3.txt`. -/
+/-- Exercise 139, gap 3. -/
 theorem gap3 (x : ℕ → ℝ) (M : ℝ) (N n : ℕ)
     (hM : 0 < M) (hN : N < n)
     (htail : ∀ k : ℕ, N < k → k ≤ n → x k > 3 * M) :
@@ -101,7 +101,7 @@ theorem gap3 (x : ℕ → ℝ) (M : ℝ) (N n : ℕ)
   have hmul := mul_lt_mul_of_pos_right havg hw0
   linarith
 
-/-- Source: `proof_gap/exercise_139/4.txt`. -/
+/-- Exercise 139, gap 4. -/
 theorem gap4 (x : ℕ → ℝ) (M : ℝ) (N n : ℕ)
     (h : cesaro x n >
       partialSum x N / (n : ℝ) + 3 * M * (1 - (N : ℝ) / n)) :
@@ -109,13 +109,13 @@ theorem gap4 (x : ℕ → ℝ) (M : ℝ) (N n : ℕ)
       partialSum x N / (n : ℝ) + 3 * M * (1 - (N : ℝ) / n) := by
   exact h
 
-/-- Source: `proof_gap/exercise_139/5.txt`. -/
+/-- Exercise 139, gap 5. -/
 theorem gap5 (x : ℕ → ℝ) (N : ℕ) :
     Tendsto (fun n : ℕ => partialSum x N / (n : ℝ)) atTop
       (𝓝 0) := by
   exact tendsto_const_div_atTop_nhds_zero_nat _
 
-/-- Source: `proof_gap/exercise_139/6.txt`. -/
+/-- Exercise 139, gap 6. -/
 theorem gap6 (N : ℕ) :
     Tendsto (fun n : ℕ => 1 - (N : ℝ) / n) atTop
       (𝓝 1) := by
@@ -124,7 +124,7 @@ theorem gap6 (N : ℕ) :
     tendsto_const_div_atTop_nhds_zero_nat _
   simpa using tendsto_const_nhds.sub h
 
-/-- Source: `proof_gap/exercise_139/7.txt`; N' depends on M and N. -/
+/-- Exercise 139, gap 7; N' depends on M and N. -/
 theorem gap7 (x : ℕ → ℝ) (M : ℝ) (N : ℕ)
     (hM : 0 < M) :
     ∃ N' : ℕ, N < N' ∧ ∀ n : ℕ, N' < n →
@@ -146,7 +146,7 @@ theorem gap7 (x : ℕ → ℝ) (M : ℝ) (N : ℕ)
   refine ⟨max (max K₁ K₂) N + 1, by omega, fun n hn => ?_⟩
   exact ⟨hK₁ n (by omega), hK₂ n (by omega)⟩
 
-/-- Source: `proof_gap/exercise_139/8.txt`; the cutoff is existential. -/
+/-- Exercise 139, gap 8; the cutoff is existential. -/
 theorem gap8 (x : ℕ → ℝ)
     (hx : Tendsto x atTop (atTop : Filter ℝ)) :
     ∀ M : ℝ, 0 < M →
@@ -193,7 +193,7 @@ theorem gap8 (x : ℕ → ℝ)
   rw [cesaro, ← partialSum_add_tail x hNn.le, add_div]
   nlinarith
 
-/-- Source: `proof_gap/exercise_139/9.txt`. -/
+/-- Exercise 139, gap 9. -/
 theorem gap9 (x : ℕ → ℝ)
     (hx : Tendsto x atTop (atTop : Filter ℝ)) :
     Tendsto (cesaro x) atTop (atTop : Filter ℝ) := by
@@ -204,7 +204,7 @@ theorem gap9 (x : ℕ → ℝ)
   have hn' : N < n := Nat.lt_of_succ_le hn
   exact le_of_lt ((le_max_left M 1).trans_lt (hN n hn'))
 
-/-- Source: `proof_gap/exercise_139/10.txt`. -/
+/-- Exercise 139, gap 10. -/
 theorem gap10 (x : ℕ → ℝ)
     (hx : Tendsto x atTop (atTop : Filter ℝ)) :
     Tendsto (cesaro x) atTop (atTop : Filter ℝ) := by

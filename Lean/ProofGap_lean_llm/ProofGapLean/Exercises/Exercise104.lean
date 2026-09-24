@@ -36,7 +36,7 @@ private theorem triangular_four_mul_add_three (k : ℕ) :
   rw [show 4 * k + 3 - 1 = 2 * (2 * k + 1) by omega]
   simp [Nat.mul_assoc, Nat.mul_comm]
 
-/-- Source: `proof_gap/exercise_104/1.txt`. -/
+/-- Exercise 104, gap 1. -/
 theorem gap1 : ∀ k : ℕ, x (4 * k) = 1 - 2 + 3 := by
   intro k
   unfold x
@@ -51,7 +51,7 @@ theorem gap1 : ∀ k : ℕ, x (4 * k) = 1 - 2 + 3 := by
       (-1 : ℝ) ^ ((2 * k) * (4 * k - 1)) = 1)]
   norm_num
 
-/-- Source: `proof_gap/exercise_104/2.txt`. -/
+/-- Exercise 104, gap 2. -/
 theorem gap2 : ∀ k : ℕ, x (4 * k + 1) = 1 + 2 + 3 := by
   intro k
   unfold x
@@ -66,7 +66,7 @@ theorem gap2 : ∀ k : ℕ, x (4 * k + 1) = 1 + 2 + 3 := by
       (-1 : ℝ) ^ ((4 * k + 1) * (2 * k)) = 1)]
   norm_num
 
-/-- Source: `proof_gap/exercise_104/3.txt`. -/
+/-- Exercise 104, gap 3. -/
 theorem gap3 : ∀ k : ℕ, x (4 * k + 2) = 1 - 2 - 3 := by
   intro k
   unfold x
@@ -83,7 +83,7 @@ theorem gap3 : ∀ k : ℕ, x (4 * k + 2) = 1 - 2 - 3 := by
       (-1 : ℝ) ^ ((2 * k + 1) * (4 * k + 1)) = -1)]
   norm_num
 
-/-- Source: `proof_gap/exercise_104/4.txt`. -/
+/-- Exercise 104, gap 4. -/
 theorem gap4 : ∀ k : ℕ, x (4 * k + 3) = 1 + 2 - 3 := by
   intro k
   unfold x
@@ -105,7 +105,7 @@ private theorem x_bounds (n : ℕ) : -4 ≤ x n ∧ x n ≤ 6 := by
     rcases neg_one_pow_eq_or ℝ (n * (n - 1) / 2) with h₂ | h₂ <;>
     norm_num [x, h₁, h₂]
 
-/-- Source: `proof_gap/exercise_104/5.txt`. -/
+/-- Exercise 104, gap 5. -/
 theorem gap5 : sInf values = -4 := by
   have hleast : IsLeast values (-4) := by
     constructor
@@ -117,7 +117,7 @@ theorem gap5 : sInf values = -4 := by
       exact (x_bounds n).1
   exact hleast.csInf_eq
 
-/-- Source: `proof_gap/exercise_104/6.txt`. -/
+/-- Exercise 104, gap 6. -/
 theorem gap6 : sSup values = 6 := by
   have hgreatest : IsGreatest values 6 := by
     constructor
@@ -129,7 +129,7 @@ theorem gap6 : sSup values = 6 := by
       exact (x_bounds n).2
   exact hgreatest.csSup_eq
 
-/-- Source: `proof_gap/exercise_104/7.txt`. -/
+/-- Exercise 104, gap 7. -/
 theorem gap7 : sInf (ProofGap.ClusterSet x) = -4 := by
   let p : ℕ → ℕ := fun k => 4 * k + 2
   have hp : StrictMono p := by
@@ -152,7 +152,7 @@ theorem gap7 : sInf (ProofGap.ClusterSet x) = -4 := by
       exact (x_bounds (q k)).1
   exact hleast.csInf_eq
 
-/-- Source: `proof_gap/exercise_104/8.txt`. -/
+/-- Exercise 104, gap 8. -/
 theorem gap8 : sSup (ProofGap.ClusterSet x) = 6 := by
   let p : ℕ → ℕ := fun k => 4 * k + 1
   have hp : StrictMono p := by

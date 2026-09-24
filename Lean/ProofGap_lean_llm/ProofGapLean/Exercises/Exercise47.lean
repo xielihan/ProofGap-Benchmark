@@ -5,7 +5,7 @@ open scoped Topology
 /-!
 # Exercise 47
 
-Semantic formalization of `proof_gap/exercise_47/{1,...,4}.txt`.
+Semantic formalization of Exercise 47, gaps 1,...,4.
 -/
 
 namespace ProofGap.Exercise47
@@ -26,7 +26,7 @@ def reciprocal (n : ℕ) : ℝ :=
 def SameLimit (a b : ℕ → ℝ) : Prop :=
   ∀ l : ℝ, Tendsto a atTop (𝓝 l) ↔ Tendsto b atTop (𝓝 l)
 
-/-- Source: `proof_gap/exercise_47/1.txt`. -/
+/-- Exercise 47, gap 1. -/
 theorem gap1 :
     SameLimit u rationalized := by
   have hur : ∀ n, u n = rationalized n := by
@@ -40,7 +40,7 @@ theorem gap1 :
   intro l
   exact Filter.tendsto_congr hur
 
-/-- Source: `proof_gap/exercise_47/2.txt`. -/
+/-- Exercise 47, gap 2. -/
 theorem gap2
     (h1 : SameLimit u rationalized) :
     SameLimit rationalized reciprocal := by
@@ -61,7 +61,7 @@ theorem gap2
   intro l
   exact Filter.tendsto_congr hrr
 
-/-- Source: `proof_gap/exercise_47/3.txt`. -/
+/-- Exercise 47, gap 3. -/
 theorem gap3
     (h2 : SameLimit rationalized reciprocal) :
     Tendsto reciprocal atTop (𝓝 0) := by
@@ -82,7 +82,7 @@ theorem gap3
     · exact le_add_of_nonneg_left (Real.sqrt_nonneg _)
   · simpa [one_div] using hinv
 
-/-- Source: `proof_gap/exercise_47/4.txt`. -/
+/-- Exercise 47, gap 4. -/
 theorem gap4
     (h1 : SameLimit u rationalized)
     (h2 : SameLimit rationalized reciprocal)

@@ -492,32 +492,32 @@ private theorem conditionally_summable_alternatingLog :
   apply (summable_nat_add_iff 1).mp
   simpa [Nat.add_assoc, Nat.add_comm, Nat.add_left_comm] using hSquareTail
 
-/-- Source: `proof_gap/exercise_3091/1.txt`. -/
+/-- Exercise 3091, gap 1. -/
 theorem gap1 : ConditionallySummableFromTwo alternatingLogTerm := by
   exact conditionally_summable_alternatingLog
 
-/-- Source: `proof_gap/exercise_3091/2.txt`. -/
+/-- Exercise 3091, gap 2. -/
 theorem gap2 : ¬SummableFromTwo logSquareTerm := by
   exact not_summable_logSquare_from_two
 
-/-- Source: `proof_gap/exercise_3091/3.txt`; retain the series lower bound. -/
+/-- Exercise 3091, gap 3; retain the series lower bound. -/
 theorem gap3 :
     ∀ n : ℕ, 2 ≤ n → (Real.log n) ^ 2 < (n : ℝ) := by
   intro n hn
   exact log_sq_lt_nat n hn
 
-/-- Source: `proof_gap/exercise_3091/4.txt`; positivity starts at `n = 2`. -/
+/-- Exercise 3091, gap 4; positivity starts at `n = 2`. -/
 theorem gap4 :
     ∀ n : ℕ, 2 ≤ n → harmonicTerm n < logSquareTerm n := by
   intro n hn
   exact harmonic_lt_logSquare n hn
 
-/-- Source: `proof_gap/exercise_3091/5.txt`. -/
+/-- Exercise 3091, gap 5. -/
 theorem gap5 : ¬SummableFromTwo harmonicTerm := by
   exact not_summable_harmonic_from_two
 
 /--
-Source: `proof_gap/exercise_3091/6.txt`; the partial products collapse to
+Exercise 3091, gap 6; the partial products collapse to
 zero and hence diverge in the nonzero-product sense.
 -/
 theorem gap6 : DivergentProduct := by

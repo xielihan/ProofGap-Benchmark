@@ -14,7 +14,7 @@ def domain : Set ℝ := {x | 0 < x ∧ -1 ≤ arg x ∧ arg x ≤ 1}
 def y (x : ℝ) : ℝ := Real.arcsin (arg x)
 def valueSet : Set ℝ := {t | ∃ x ∈ domain, t = y x}
 
-/-- Source: `proof_gap/exercise_169/1.txt`. -/
+/-- Exercise 169, gap 1. -/
 theorem gap1 : ∀ x : ℝ, x ∈ domain → 1 / 10 ≤ x / 10 := by
   intro x hx
   have hxdivpos : 0 < x / 10 := by
@@ -28,7 +28,7 @@ theorem gap1 : ∀ x : ℝ, x ∈ domain → 1 / 10 ≤ x / 10 := by
     linarith
   exact (Real.log_le_log_iff (by norm_num) hxdivpos).1 hlog
 
-/-- Source: `proof_gap/exercise_169/2.txt`. -/
+/-- Exercise 169, gap 2. -/
 theorem gap2 : ∀ x : ℝ, x ∈ domain → x / 10 ≤ 10 := by
   intro x hx
   by_cases hz : x / 10 ≤ 0
@@ -42,31 +42,31 @@ theorem gap2 : ∀ x : ℝ, x ∈ domain → x / 10 ≤ 10 := by
       simpa only [one_mul] using hmul
     exact (Real.log_le_log_iff hzpos (by norm_num)).1 hlog
 
-/-- Source: `proof_gap/exercise_169/3.txt`. -/
+/-- Exercise 169, gap 3. -/
 theorem gap3 : (1 / 10 : ℝ) ≤ 10 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_169/4.txt`. -/
+/-- Exercise 169, gap 4. -/
 theorem gap4 : ∀ x : ℝ, x ∈ domain → 1 ≤ x := by
   intro x hx
   linarith [gap1 x hx]
 
-/-- Source: `proof_gap/exercise_169/5.txt`. -/
+/-- Exercise 169, gap 5. -/
 theorem gap5 : ∀ x : ℝ, x ∈ domain → x ≤ 100 := by
   intro x hx
   have h := gap2 x hx
   linarith
 
-/-- Source: `proof_gap/exercise_169/6.txt`. -/
+/-- Exercise 169, gap 6. -/
 theorem gap6 : (1 : ℝ) ≤ 100 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_169/7.txt`. -/
+/-- Exercise 169, gap 7. -/
 theorem gap7 : ∀ x : ℝ, 0 < x → -1 ≤ arg x → arg x ≤ 1 → x ∈ domain := by
   intro x hxpos hxlo hxhi
   exact ⟨hxpos, hxlo, hxhi⟩
 
-/-- Source: `proof_gap/exercise_169/8.txt`. -/
+/-- Exercise 169, gap 8. -/
 theorem gap8 : domain = Set.Icc 1 100 := by
   ext x
   constructor
@@ -92,7 +92,7 @@ theorem gap8 : domain = Set.Icc 1 100 := by
       rw [div_le_iff₀ hlog10]
       simpa only [one_mul] using hloghi
 
-/-- Source: `proof_gap/exercise_169/9.txt`; remove the shadowed existential y. -/
+/-- Exercise 169, gap 9; remove the shadowed existential y. -/
 theorem gap9 : valueSet = Set.Icc (-Real.pi / 2) (Real.pi / 2) := by
   ext t
   constructor

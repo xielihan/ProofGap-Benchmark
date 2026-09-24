@@ -11,7 +11,7 @@ def ApproachesAboveAt (f : ℝ → ℝ) (a b : ℝ) : Prop :=
 
 def f (x : ℝ) : ℝ := x ^ 2
 
-/-- Source: `proof_gap/exercise_407_4/1.txt`; bind `y=f(x)` and stop shadowing `a,δ`. -/
+/-- Exercise 407_4, gap 1; bind `y=f(x)` and stop shadowing `a,δ`. -/
 theorem gap1 : ∀ ε > 0, ∃ δ > 0, ∀ x,
     0 < |x| → |x| < δ → 0 < f x ∧ f x < ε := by
   intro ε hε
@@ -29,7 +29,7 @@ theorem gap1 : ∀ ε > 0, ∃ δ > 0, ∀ x,
       _ = |x| := mul_one _
       _ < ε := hxε
 
-/-- Source: `proof_gap/exercise_407_4/2.txt`; replace the false universal limit claim by its defining equivalence. -/
+/-- Exercise 407_4, gap 2; replace the false universal limit claim by its defining equivalence. -/
 theorem gap2 (g : ℝ → ℝ) (a b : ℝ) :
     ApproachesAboveAt g a b ↔
       ∀ ε > 0, ∃ δ > 0, ∀ x,
@@ -37,17 +37,17 @@ theorem gap2 (g : ℝ → ℝ) (a b : ℝ) :
           0 < g x - b ∧ g x - b < ε := by
   rfl
 
-/-- Source: `proof_gap/exercise_407_4/3.txt`; restrict the strict inequality to the punctured neighborhood. -/
+/-- Exercise 407_4, gap 3; restrict the strict inequality to the punctured neighborhood. -/
 theorem gap3 : ∀ x : ℝ, x ≠ 0 → 0 < f x := by
   intro x hx
   change 0 < x ^ 2
   simpa [pow_two] using (mul_self_pos.mpr hx)
 
-/-- Source: `proof_gap/exercise_407_4/4.txt`; define the previously free function. -/
+/-- Exercise 407_4, gap 4; define the previously free function. -/
 theorem gap4 : ApproachesAboveAt f 0 0 := by
   simpa only [ApproachesAboveAt, sub_zero] using gap1
 
-/-- Source: `proof_gap/exercise_407_4/5.txt`; exclude the limit point where equality holds. -/
+/-- Exercise 407_4, gap 5; exclude the limit point where equality holds. -/
 theorem gap5 : ∀ x : ℝ, x ≠ 0 → 0 < f x := by
   exact gap3
 

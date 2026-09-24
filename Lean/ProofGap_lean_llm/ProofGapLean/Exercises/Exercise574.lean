@@ -21,7 +21,7 @@ def exponentialForm (x : ℝ) : ℝ :=
 def HasLimitAtOne (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 1 ({1} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_574/1.txt`. -/
+/-- Exercise 574, gap 1. -/
 private theorem tendsto_log_sub_div_cos :
     Filter.Tendsto
       (fun x : ℝ =>
@@ -163,7 +163,7 @@ theorem gap1 (L : ℝ) :
   · intro h
     exact h.congr' exponential_eq_original_eventually
 
-/-- Source: `proof_gap/exercise_574/2.txt`. -/
+/-- Exercise 574, gap 2. -/
 theorem gap2 : HasLimitAtOne exponentialForm (Real.exp (2 / Real.pi)) := by
   unfold HasLimitAtOne
   have hpos :
@@ -193,7 +193,7 @@ theorem gap2 : HasLimitAtOne exponentialForm (Real.exp (2 / Real.pi)) := by
   rw [hrpow]
   simp [sec, div_eq_mul_inv]
 
-/-- Source: `proof_gap/exercise_574/3.txt`. -/
+/-- Exercise 574, gap 3. -/
 theorem gap3 : HasLimitAtOne original (Real.exp (2 / Real.pi)) := by
   unfold HasLimitAtOne
   have hb : HasDerivAt (fun x : ℝ => 2 - x) (-1) 1 := by

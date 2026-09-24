@@ -21,7 +21,7 @@ def normalized (x : ℝ) : ℝ :=
 def HasLimitAtPosInfinity (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f Filter.atTop (nhds L)
 
-/-- Source: `proof_gap/exercise_568/1.txt`. -/
+/-- Exercise 568, gap 1. -/
 private theorem eventual_original_forms :
     (original =ᶠ[Filter.atTop] logPowerRatio) ∧
       (original =ᶠ[Filter.atTop] normalized) := by
@@ -56,14 +56,14 @@ theorem gap1 (L : ℝ) :
   unfold HasLimitAtPosInfinity
   exact Filter.tendsto_congr' eventual_original_forms.1
 
-/-- Source: `proof_gap/exercise_568/2.txt`. -/
+/-- Exercise 568, gap 2. -/
 theorem gap2 (L : ℝ) :
     HasLimitAtPosInfinity logPowerRatio L ↔ HasLimitAtPosInfinity normalized L := by
   unfold HasLimitAtPosInfinity
   exact Filter.tendsto_congr'
     ((eventual_original_forms.1).symm.trans eventual_original_forms.2)
 
-/-- Source: `proof_gap/exercise_568/3.txt`. -/
+/-- Exercise 568, gap 3. -/
 theorem gap3 :
     HasLimitAtPosInfinity normalized (Real.log (Real.exp 2 / Real.exp 2)) := by
   unfold HasLimitAtPosInfinity
@@ -150,11 +150,11 @@ theorem gap3 :
   rw [hconst]
   exact hz
 
-/-- Source: `proof_gap/exercise_568/4.txt`. -/
+/-- Exercise 568, gap 4. -/
 theorem gap4 : Real.log (Real.exp 2 / Real.exp 2) = 0 := by
   rw [div_self (Real.exp_ne_zero 2), Real.log_one]
 
-/-- Source: `proof_gap/exercise_568/5.txt`. -/
+/-- Exercise 568, gap 5. -/
 theorem gap5 : HasLimitAtPosInfinity logPowerRatio 0 := by
   have hn : HasLimitAtPosInfinity normalized 0 := by
     simpa [gap4] using gap3

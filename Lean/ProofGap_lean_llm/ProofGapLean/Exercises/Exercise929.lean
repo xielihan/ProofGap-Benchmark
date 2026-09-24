@@ -19,7 +19,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 def finalDerivative (x : ℝ) : ℝ :=
   4 * x / (Real.sqrt (1 - x ^ 4) * Real.arccos (x ^ 2) ^ 3)
 
-/-- Source: `proof_gap/exercise_929/1.txt`; `x² < 1` keeps the arccosine
+/-- Exercise 929, gap 1; `x² < 1` keeps the arccosine
 argument in its strict interior and its value nonzero. -/
 theorem gap1 (x : ℝ) (hx : x ^ 2 < 1) :
     HasDerivAt y (expandedDerivative x) x := by
@@ -68,7 +68,7 @@ theorem gap1 (x : ℝ) (hx : x ^ 2 < 1) :
   simpa only [Function.comp_apply, inner, sq] using
     houter.comp x hinner
 
-/-- Source: `proof_gap/exercise_929/2.txt`; the strict-domain condition makes
+/-- Exercise 929, gap 2; the strict-domain condition makes
 both displayed denominator factors nonzero. -/
 theorem gap2 (x : ℝ) (hx : x ^ 2 < 1) :
     expandedDerivative x = finalDerivative x := by
@@ -84,7 +84,7 @@ theorem gap2 (x : ℝ) (hx : x ^ 2 < 1) :
   unfold expandedDerivative finalDerivative
   field_simp [hsqrt, ha] <;> ring
 
-/-- Source: `proof_gap/exercise_929/3.txt`; retain the nonsingular reciprocal
+/-- Exercise 929, gap 3; retain the nonsingular reciprocal
 arccosine domain. -/
 theorem gap3 (x : ℝ) (hx : x ^ 2 < 1) :
     HasDerivAt y (finalDerivative x) x := by

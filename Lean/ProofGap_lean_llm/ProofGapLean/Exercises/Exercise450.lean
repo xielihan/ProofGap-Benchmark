@@ -18,7 +18,7 @@ def f (x : ℝ) : ℝ :=
 def HasLimitAt (g : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto g (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_450/1.txt`; encode the radical expression without ellipses. -/
+/-- Exercise 450, gap 1; encode the radical expression without ellipses. -/
 private theorem exercise450_limit : HasLimitAt f 0 (7 / 36) := by
   let g : ℝ → ℝ := fun x =>
     root 3 (1 + x / 3) - root 4 (1 + x / 4)
@@ -111,7 +111,7 @@ private theorem exercise450_limit : HasLimitAt f 0 (7 / 36) := by
 theorem gap1 : HasLimitAt f 0 (7 / 36) := by
   exact exercise450_limit
 
-/-- Source: `proof_gap/exercise_450/2.txt`. -/
+/-- Exercise 450, gap 2. -/
 theorem gap2 : HasLimitAt f 0 (7 / 36) := by
   exact exercise450_limit
 

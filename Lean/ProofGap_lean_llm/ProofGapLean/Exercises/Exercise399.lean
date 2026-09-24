@@ -14,7 +14,7 @@ def lowerValue (f : ℝ → ℝ) (a b : ℝ) : ℝ := sInf (imageOn f a b)
 def upperValue (f : ℝ → ℝ) (a b : ℝ) : ℝ := sSup (imageOn f a b)
 def sumFn (f₁ f₂ : ℝ → ℝ) (x : ℝ) : ℝ := f₁ x + f₂ x
 
-/-- Source: `proof_gap/exercise_399/1.txt`; restrict the point to the common interval. -/
+/-- Exercise 399, gap 1; restrict the point to the common interval. -/
 theorem gap1 (f₁ : ℝ → ℝ) (a b : ℝ)
     (hbelow : BddBelow (imageOn f₁ a b)) :
     ∀ x ∈ Set.Ioo a b, lowerValue f₁ a b ≤ f₁ x := by
@@ -22,7 +22,7 @@ theorem gap1 (f₁ : ℝ → ℝ) (a b : ℝ)
   apply csInf_le hbelow
   exact ⟨x, hx, rfl⟩
 
-/-- Source: `proof_gap/exercise_399/2.txt`; restrict the point to the common interval. -/
+/-- Exercise 399, gap 2; restrict the point to the common interval. -/
 theorem gap2 (f₁ : ℝ → ℝ) (a b : ℝ)
     (habove : BddAbove (imageOn f₁ a b)) :
     ∀ x ∈ Set.Ioo a b, f₁ x ≤ upperValue f₁ a b := by
@@ -30,7 +30,7 @@ theorem gap2 (f₁ : ℝ → ℝ) (a b : ℝ)
   apply le_csSup habove
   exact ⟨x, hx, rfl⟩
 
-/-- Source: `proof_gap/exercise_399/3.txt`; restrict the point to the common interval. -/
+/-- Exercise 399, gap 3; restrict the point to the common interval. -/
 theorem gap3 (f₂ : ℝ → ℝ) (a b : ℝ)
     (hbelow : BddBelow (imageOn f₂ a b)) :
     ∀ x ∈ Set.Ioo a b, lowerValue f₂ a b ≤ f₂ x := by
@@ -38,7 +38,7 @@ theorem gap3 (f₂ : ℝ → ℝ) (a b : ℝ)
   apply csInf_le hbelow
   exact ⟨x, hx, rfl⟩
 
-/-- Source: `proof_gap/exercise_399/4.txt`; restrict the point to the common interval. -/
+/-- Exercise 399, gap 4; restrict the point to the common interval. -/
 theorem gap4 (f₂ : ℝ → ℝ) (a b : ℝ)
     (habove : BddAbove (imageOn f₂ a b)) :
     ∀ x ∈ Set.Ioo a b, f₂ x ≤ upperValue f₂ a b := by
@@ -46,7 +46,7 @@ theorem gap4 (f₂ : ℝ → ℝ) (a b : ℝ)
   apply le_csSup habove
   exact ⟨x, hx, rfl⟩
 
-/-- Source: `proof_gap/exercise_399/5.txt`; restrict the point to the common interval. -/
+/-- Exercise 399, gap 5; restrict the point to the common interval. -/
 theorem gap5 (f₁ f₂ : ℝ → ℝ) (a b : ℝ)
     (hbelow₁ : BddBelow (imageOn f₁ a b))
     (hbelow₂ : BddBelow (imageOn f₂ a b)) :
@@ -55,7 +55,7 @@ theorem gap5 (f₁ f₂ : ℝ → ℝ) (a b : ℝ)
   intro x hx
   exact add_le_add (gap1 f₁ a b hbelow₁ x hx) (gap3 f₂ a b hbelow₂ x hx)
 
-/-- Source: `proof_gap/exercise_399/6.txt`; add the boundedness/nonempty hypotheses needed by real `sInf`. -/
+/-- Exercise 399, gap 6; add the boundedness/nonempty hypotheses needed by real `sInf`. -/
 theorem gap6 (f₁ f₂ : ℝ → ℝ) (a b : ℝ) (hab : a < b)
     (hbelow₁ : BddBelow (imageOn f₁ a b))
     (hbelow₂ : BddBelow (imageOn f₂ a b)) :
@@ -69,7 +69,7 @@ theorem gap6 (f₁ f₂ : ℝ → ℝ) (a b : ℝ) (hab : a < b)
     rcases hy with ⟨x, hx, rfl⟩
     exact gap5 f₁ f₂ a b hbelow₁ hbelow₂ x hx
 
-/-- Source: `proof_gap/exercise_399/7.txt`; restrict the point to the common interval. -/
+/-- Exercise 399, gap 7; restrict the point to the common interval. -/
 theorem gap7 (f₁ f₂ : ℝ → ℝ) (a b : ℝ)
     (habove₁ : BddAbove (imageOn f₁ a b))
     (habove₂ : BddAbove (imageOn f₂ a b)) :
@@ -78,7 +78,7 @@ theorem gap7 (f₁ f₂ : ℝ → ℝ) (a b : ℝ)
   intro x hx
   exact add_le_add (gap2 f₁ a b habove₁ x hx) (gap4 f₂ a b habove₂ x hx)
 
-/-- Source: `proof_gap/exercise_399/8.txt`; add the boundedness/nonempty hypotheses needed by real `sSup`. -/
+/-- Exercise 399, gap 8; add the boundedness/nonempty hypotheses needed by real `sSup`. -/
 theorem gap8 (f₁ f₂ : ℝ → ℝ) (a b : ℝ) (hab : a < b)
     (habove₁ : BddAbove (imageOn f₁ a b))
     (habove₂ : BddAbove (imageOn f₂ a b)) :
@@ -92,7 +92,7 @@ theorem gap8 (f₁ f₂ : ℝ → ℝ) (a b : ℝ) (hab : a < b)
     rcases hy with ⟨x, hx, rfl⟩
     exact gap7 f₁ f₂ a b habove₁ habove₂ x hx
 
-/-- Source: `proof_gap/exercise_399/9.txt`; replace vacuous “is real” premises by actual boundedness. -/
+/-- Exercise 399, gap 9; replace vacuous “is real” premises by actual boundedness. -/
 theorem gap9 (f₁ f₂ : ℝ → ℝ) (a b : ℝ) (hab : a < b)
     (hmono₁ : MonotoneOn f₁ (Set.Ioo a b))
     (hmono₂ : MonotoneOn f₂ (Set.Ioo a b))
@@ -155,7 +155,7 @@ theorem gap9 (f₁ f₂ : ℝ → ℝ) (a b : ℝ) (hab : a < b)
     nlinarith
   · exact gap6 f₁ f₂ a b hab hbelow₁ hbelow₂
 
-/-- Source: `proof_gap/exercise_399/10.txt`; replace vacuous “is real” premises by actual boundedness. -/
+/-- Exercise 399, gap 10; replace vacuous “is real” premises by actual boundedness. -/
 theorem gap10 (f₁ f₂ : ℝ → ℝ) (a b : ℝ) (hab : a < b)
     (hmono₁ : MonotoneOn f₁ (Set.Ioo a b))
     (hmono₂ : MonotoneOn f₂ (Set.Ioo a b))
@@ -221,7 +221,7 @@ theorem gap10 (f₁ f₂ : ℝ → ℝ) (a b : ℝ) (hab : a < b)
 def f₁ (x : ℝ) : ℝ := x ^ 2
 def f₂ (x : ℝ) : ℝ := -x ^ 2
 
-/-- Source: `proof_gap/exercise_399/11.txt`; specialize the omitted counterexample interval to `(0,1)`. -/
+/-- Exercise 399, gap 11; specialize the omitted counterexample interval to `(0,1)`. -/
 theorem gap11 : lowerValue f₁ 0 1 = 0 := by
   have hne : (imageOn f₁ 0 1).Nonempty :=
     ⟨f₁ (1 / 2 : ℝ), ⟨(1 / 2 : ℝ), by norm_num, rfl⟩⟩
@@ -255,7 +255,7 @@ theorem gap11 : lowerValue f₁ 0 1 = 0 := by
       linarith
   · exact hnonneg
 
-/-- Source: `proof_gap/exercise_399/12.txt`; specialize the omitted counterexample interval to `(0,1)`. -/
+/-- Exercise 399, gap 12; specialize the omitted counterexample interval to `(0,1)`. -/
 theorem gap12 : upperValue f₁ 0 1 = 1 := by
   have hne : (imageOn f₁ 0 1).Nonempty :=
     ⟨f₁ (1 / 2 : ℝ), ⟨(1 / 2 : ℝ), by norm_num, rfl⟩⟩
@@ -293,7 +293,7 @@ theorem gap12 : upperValue f₁ 0 1 = 1 := by
     dsimp [f₁, x] at hle
     nlinarith
 
-/-- Source: `proof_gap/exercise_399/13.txt`; specialize the omitted counterexample interval to `(0,1)`. -/
+/-- Exercise 399, gap 13; specialize the omitted counterexample interval to `(0,1)`. -/
 theorem gap13 : lowerValue f₂ 0 1 = -1 := by
   have hne₁ : (imageOn f₁ 0 1).Nonempty :=
     ⟨f₁ (1 / 2 : ℝ), ⟨(1 / 2 : ℝ), by norm_num, rfl⟩⟩
@@ -330,7 +330,7 @@ theorem gap13 : lowerValue f₂ 0 1 = -1 := by
     dsimp [f₂]
     nlinarith
 
-/-- Source: `proof_gap/exercise_399/14.txt`; specialize the omitted counterexample interval to `(0,1)`. -/
+/-- Exercise 399, gap 14; specialize the omitted counterexample interval to `(0,1)`. -/
 theorem gap14 : upperValue f₂ 0 1 = 0 := by
   have hne₁ : (imageOn f₁ 0 1).Nonempty :=
     ⟨f₁ (1 / 2 : ℝ), ⟨(1 / 2 : ℝ), by norm_num, rfl⟩⟩
@@ -363,12 +363,12 @@ theorem gap14 : upperValue f₂ 0 1 = 0 := by
   · rw [gap11] at hl
     linarith
 
-/-- Source: `proof_gap/exercise_399/15.txt`. -/
+/-- Exercise 399, gap 15. -/
 theorem gap15 : ∀ x, f₁ x + f₂ x = 0 := by
   intro x
   simp [f₁, f₂]
 
-/-- Source: `proof_gap/exercise_399/16.txt`. -/
+/-- Exercise 399, gap 16. -/
 theorem gap16 :
     lowerValue (sumFn f₁ f₂) 0 1 = upperValue (sumFn f₁ f₂) 0 1 := by
   have himage : imageOn (sumFn f₁ f₂) 0 1 = {0} := by
@@ -384,7 +384,7 @@ theorem gap16 :
       simp [sumFn, f₁, f₂]
   simp [lowerValue, upperValue, himage]
 
-/-- Source: `proof_gap/exercise_399/17.txt`. -/
+/-- Exercise 399, gap 17. -/
 theorem gap17 : upperValue (sumFn f₁ f₂) 0 1 = 0 := by
   have himage : imageOn (sumFn f₁ f₂) 0 1 = {0} := by
     ext y
@@ -399,27 +399,27 @@ theorem gap17 : upperValue (sumFn f₁ f₂) 0 1 = 0 := by
       simp [sumFn, f₁, f₂]
   simp [upperValue, himage]
 
-/-- Source: `proof_gap/exercise_399/18.txt`. -/
+/-- Exercise 399, gap 18. -/
 theorem gap18 : lowerValue (sumFn f₁ f₂) 0 1 = 0 := by
   calc
     lowerValue (sumFn f₁ f₂) 0 1 = upperValue (sumFn f₁ f₂) 0 1 := gap16
     _ = 0 := gap17
 
-/-- Source: `proof_gap/exercise_399/19.txt`. -/
+/-- Exercise 399, gap 19. -/
 theorem gap19 :
     lowerValue (sumFn f₁ f₂) 0 1 >
       lowerValue f₁ 0 1 + lowerValue f₂ 0 1 := by
   rw [gap18, gap11, gap13]
   norm_num
 
-/-- Source: `proof_gap/exercise_399/20.txt`. -/
+/-- Exercise 399, gap 20. -/
 theorem gap20 :
     upperValue (sumFn f₁ f₂) 0 1 <
       upperValue f₁ 0 1 + upperValue f₂ 0 1 := by
   rw [gap17, gap12, gap14]
   norm_num
 
-/-- Source: `proof_gap/exercise_399/21.txt`. -/
+/-- Exercise 399, gap 21. -/
 theorem gap21 :
     lowerValue (sumFn f₁ f₂) 0 1 ≥
         lowerValue f₁ 0 1 + lowerValue f₂ 0 1 ∧

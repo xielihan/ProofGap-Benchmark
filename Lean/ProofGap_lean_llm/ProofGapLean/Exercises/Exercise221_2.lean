@@ -9,7 +9,7 @@ noncomputable section
 
 def f (a b c x : ℝ) : ℝ := a * x ^ 2 + b * x + c
 
-/-- Source: `proof_gap/exercise_221_2/1.txt`; completing the square requires a≠0. -/
+/-- Exercise 221_2, gap 1; completing the square requires a≠0. -/
 private theorem quadratic_sub_factor (a b c x y : ℝ) :
     f a b c y - f a b c x =
       (y - x) * (a * (x + y) + b) := by
@@ -27,7 +27,7 @@ theorem gap1 (a b c : ℝ) (ha : a ≠ 0) : ∀ x,
   unfold f
   field_simp [ha] <;> ring
 
-/-- Source: `proof_gap/exercise_221_2/2.txt`. -/
+/-- Exercise 221_2, gap 2. -/
 theorem gap2 (a b c : ℝ) (ha : 0 < a) :
     StrictAntiOn (f a b c) (Set.Iic (-b / (2 * a))) := by
   intro x hx y hy hxy
@@ -47,7 +47,7 @@ theorem gap2 (a b c : ℝ) (ha : 0 < a) :
     exact hprod
   linarith
 
-/-- Source: `proof_gap/exercise_221_2/3.txt`. -/
+/-- Exercise 221_2, gap 3. -/
 theorem gap3 (a b c : ℝ) (ha : 0 < a) :
     StrictMonoOn (f a b c) (Set.Ici (-b / (2 * a))) := by
   intro x hx y hy hxy
@@ -67,7 +67,7 @@ theorem gap3 (a b c : ℝ) (ha : 0 < a) :
     exact hprod
   linarith
 
-/-- Source: `proof_gap/exercise_221_2/4.txt`. -/
+/-- Exercise 221_2, gap 4. -/
 theorem gap4 (a b c : ℝ) (ha : a < 0) :
     StrictMonoOn (f a b c) (Set.Iic (-b / (2 * a))) := by
   intro x hx y hy hxy
@@ -87,7 +87,7 @@ theorem gap4 (a b c : ℝ) (ha : a < 0) :
     exact hprod
   linarith
 
-/-- Source: `proof_gap/exercise_221_2/5.txt`. -/
+/-- Exercise 221_2, gap 5. -/
 theorem gap5 (a b c : ℝ) (ha : a < 0) :
     StrictAntiOn (f a b c) (Set.Ici (-b / (2 * a))) := by
   intro x hx y hy hxy

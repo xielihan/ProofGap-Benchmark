@@ -30,7 +30,7 @@ private theorem y_even (k : ℕ) : y (2 * k) = 0 := by
 private theorem y_odd (k : ℕ) : y (2 * k + 1) = 1 := by
   simp [y, pow_add, pow_mul]
 
-/-- Source: `proof_gap/exercise_128/1.txt`. -/
+/-- Exercise 128, gap 1. -/
 theorem gap1 : ¬ ProofGap.ConvergentSeq x := by
   rintro ⟨l, hlim⟩
   have heven :
@@ -53,7 +53,7 @@ theorem gap1 : ¬ ProofGap.ConvergentSeq x := by
   have hl0 : l = 0 := tendsto_nhds_unique hodd hodd_const
   norm_num [hl1] at hl0
 
-/-- Source: `proof_gap/exercise_128/2.txt`. -/
+/-- Exercise 128, gap 2. -/
 theorem gap2 : ¬ ProofGap.ConvergentSeq y := by
   rintro ⟨l, hlim⟩
   have heven :
@@ -76,27 +76,27 @@ theorem gap2 : ¬ ProofGap.ConvergentSeq y := by
   have hl1 : l = 1 := tendsto_nhds_unique hodd hodd_const
   norm_num [hl0] at hl1
 
-/-- Source: `proof_gap/exercise_128/3.txt`. -/
+/-- Exercise 128, gap 3. -/
 theorem gap3 : ∀ n : ℕ, x n + y n = 1 := by
   intro n
   simp [x, y]
   ring
 
-/-- Source: `proof_gap/exercise_128/4.txt`. -/
+/-- Exercise 128, gap 4. -/
 theorem gap4 : ∀ n : ℕ, x n * y n = 0 := by
   intro n
   rcases neg_one_pow_eq_or ℝ n with h | h
   · simp [x, y, h]
   · simp [x, y, h]
 
-/-- Source: `proof_gap/exercise_128/5.txt`. -/
+/-- Exercise 128, gap 5. -/
 theorem gap5 : ProofGap.ConvergentSeq (fun n => x n + y n) := by
   refine ⟨1, ?_⟩
   apply tendsto_const_nhds.congr'
   filter_upwards with n
   exact (gap3 n).symm
 
-/-- Source: `proof_gap/exercise_128/6.txt`. -/
+/-- Exercise 128, gap 6. -/
 theorem gap6 : ProofGap.ConvergentSeq (fun n => x n * y n) := by
   refine ⟨0, ?_⟩
   apply tendsto_const_nhds.congr'

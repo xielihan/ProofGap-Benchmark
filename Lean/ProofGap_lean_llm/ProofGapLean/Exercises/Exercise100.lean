@@ -15,7 +15,7 @@ def squareForm (n : ℕ) : ℝ :=
 def values : Set ℝ :=
   {v | ∃ n : ℕ, 0 < n ∧ v = x n}
 
-/-- Source: `proof_gap/exercise_100/1.txt`; the rewrite requires positive n. -/
+/-- Exercise 100, gap 1; the rewrite requires positive n. -/
 theorem gap1 :
     ∀ n : ℕ, 0 < n → x n = squareForm n := by
   intro n hn
@@ -27,26 +27,26 @@ theorem gap1 :
   rw [hs_sq]
   ring
 
-/-- Source: `proof_gap/exercise_100/2.txt`. -/
+/-- Exercise 100, gap 2. -/
 theorem gap2 :
     ∀ n : ℕ, squareForm n ≥ 20 := by
   intro n
   unfold squareForm
   nlinarith [sq_nonneg (Real.sqrt n - 10 / Real.sqrt n)]
 
-/-- Source: `proof_gap/exercise_100/3.txt`. -/
+/-- Exercise 100, gap 3. -/
 theorem gap3 :
     ∀ n : ℕ, 0 < n → x n ≥ 20 := by
   intro n hn
   rw [gap1 n hn]
   exact gap2 n
 
-/-- Source: `proof_gap/exercise_100/4.txt`. -/
+/-- Exercise 100, gap 4. -/
 theorem gap4 :
     x 10 = 20 := by
   norm_num [x]
 
-/-- Source: `proof_gap/exercise_100/5.txt`. -/
+/-- Exercise 100, gap 5. -/
 theorem gap5 :
     IsLeast values 20 := by
   constructor
@@ -55,12 +55,12 @@ theorem gap5 :
     rcases hv with ⟨n, hn, rfl⟩
     exact gap3 n hn
 
-/-- Source: `proof_gap/exercise_100/6.txt`. -/
+/-- Exercise 100, gap 6. -/
 theorem gap6 :
     sInf values = 20 := by
   exact gap5.csInf_eq
 
-/-- Source: `proof_gap/exercise_100/7.txt`; +∞ supremum means unbounded above. -/
+/-- Exercise 100, gap 7; +∞ supremum means unbounded above. -/
 theorem gap7 :
     ¬ BddAbove values := by
   rintro ⟨B, hB⟩
@@ -75,7 +75,7 @@ theorem gap7 :
     linarith
   linarith [hB hxmem]
 
-/-- Source: `proof_gap/exercise_100/8.txt`; liminf +∞ follows from divergence. -/
+/-- Exercise 100, gap 8; liminf +∞ follows from divergence. -/
 theorem gap8 :
     Tendsto x atTop (atTop : Filter ℝ) := by
   apply tendsto_atTop.2
@@ -87,12 +87,12 @@ theorem gap8 :
   have hnonneg : 0 ≤ 100 / (n : ℝ) := by positivity
   linarith
 
-/-- Source: `proof_gap/exercise_100/9.txt`; limsup +∞ follows from divergence. -/
+/-- Exercise 100, gap 9; limsup +∞ follows from divergence. -/
 theorem gap9 :
     Tendsto x atTop (atTop : Filter ℝ) := by
   exact gap8
 
-/-- Source: `proof_gap/exercise_100/10.txt`. -/
+/-- Exercise 100, gap 10. -/
 theorem gap10 :
     Tendsto x atTop (atTop : Filter ℝ) := by
   exact gap8

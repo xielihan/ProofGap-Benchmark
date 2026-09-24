@@ -8,7 +8,7 @@ noncomputable section
 
 def y (x : ℝ) : ℝ := Real.sqrt (1 - x ^ 2)
 
-/-- Source: `proof_gap/exercise_227/1.txt`. -/
+/-- Exercise 227, gap 1. -/
 theorem gap1 : ∀ x : ℝ, -1 ≤ x → x ≤ 0 →
     x = -Real.sqrt (1 - (y x) ^ 2) := by
   intro x hxlo hxhi
@@ -20,7 +20,7 @@ theorem gap1 : ∀ x : ℝ, -1 ≤ x → x ≤ 0 →
   rw [Real.sqrt_sq_eq_abs, abs_of_nonpos hxhi]
   ring
 
-/-- Source: `proof_gap/exercise_227/2.txt`. -/
+/-- Exercise 227, gap 2. -/
 theorem gap2 : ∀ x : ℝ, 0 ≤ x → x ≤ 1 →
     x = Real.sqrt (1 - (y x) ^ 2) := by
   intro x hxlo hxhi

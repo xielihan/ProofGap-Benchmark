@@ -13,7 +13,7 @@ def boundedOn (f : ℝ → ℝ) (s : Set ℝ) : Prop :=
 def UCModulus (f : ℝ → ℝ) (s : Set ℝ) (δ ε : ℝ) : Prop :=
   ∀ x₁ ∈ s, ∀ x₂ ∈ s, |x₁ - x₂| < δ → |f x₁ - f x₂| < ε
 
-/-- Source: `proof_gap/exercise_804/1.txt`; remove shadowing endpoint
+/-- Exercise 804, gap 1; remove shadowing endpoint
 quantifiers. -/
 theorem gap1 (f g : ℝ → ℝ) (a b : ℝ)
     (hf : UniformContinuousOn f (Set.Ioo a b))
@@ -28,7 +28,7 @@ theorem gap1 (f g : ℝ → ℝ) (a b : ℝ)
   simpa only [Real.dist_eq] using
     hmod x₁ hx₁ x₂ hx₂ (by simpa only [Real.dist_eq] using hdist)
 
-/-- Source: `proof_gap/exercise_804/2.txt`; remove shadowing endpoints. -/
+/-- Exercise 804, gap 2; remove shadowing endpoints. -/
 theorem gap2 (f g : ℝ → ℝ) (a b : ℝ)
     (hf : UniformContinuousOn f (Set.Ioo a b))
     (hg : UniformContinuousOn g (Set.Ioo a b)) :
@@ -42,7 +42,7 @@ theorem gap2 (f g : ℝ → ℝ) (a b : ℝ)
   simpa only [Real.dist_eq] using
     hmod x₁ hx₁ x₂ hx₂ (by simpa only [Real.dist_eq] using hdist)
 
-/-- Source: `proof_gap/exercise_804/3.txt`; repair the quantifier order so
+/-- Exercise 804, gap 3; repair the quantifier order so
 `δ` may depend on `ε`. -/
 theorem gap3 (f g : ℝ → ℝ) (a b : ℝ) :
     ∀ ε > 0, ∃ δ > 0, ∀ x₁ ∈ Set.Ioo a b, ∀ x₂ ∈ Set.Ioo a b,
@@ -57,7 +57,7 @@ theorem gap3 (f g : ℝ → ℝ) (a b : ℝ) :
         |(f x₁ - f x₂) + (g x₁ - g x₂)| := by congr 1 <;> ring
     _ ≤ |f x₁ - f x₂| + |g x₁ - g x₂| := abs_add_le _ _
 
-/-- Source: `proof_gap/exercise_804/4.txt`; repair the quantifier order and
+/-- Exercise 804, gap 4; repair the quantifier order and
 use the two half-ε moduli. -/
 theorem gap4 (f g : ℝ → ℝ) (a b ε δ : ℝ)
     (hf : UCModulus f (Set.Ioo a b) δ (ε / 2))
@@ -70,12 +70,12 @@ theorem gap4 (f g : ℝ → ℝ) (a b ε δ : ℝ)
   have hg' := hg x₁ hx₁ x₂ hx₂ hdist
   linarith
 
-/-- Source: `proof_gap/exercise_804/5.txt`; the equality is independent of
+/-- Exercise 804, gap 5; the equality is independent of
 `δ,x₁,x₂`. -/
 theorem gap5 (ε : ℝ) : ε / 2 + ε / 2 = ε := by
   ring
 
-/-- Source: `proof_gap/exercise_804/6.txt`; repair the modulus quantifiers. -/
+/-- Exercise 804, gap 6; repair the modulus quantifiers. -/
 theorem gap6 (f g : ℝ → ℝ) (a b : ℝ)
     (hf : UniformContinuousOn f (Set.Ioo a b))
     (hg : UniformContinuousOn g (Set.Ioo a b)) :
@@ -101,7 +101,7 @@ theorem gap6 (f g : ℝ → ℝ) (a b : ℝ)
     linarith
   exact lt_of_le_of_lt htri hsum
 
-/-- Source: `proof_gap/exercise_804/7.txt`. -/
+/-- Exercise 804, gap 7. -/
 theorem gap7 (f g : ℝ → ℝ) (a b : ℝ)
     (hf : UniformContinuousOn f (Set.Ioo a b))
     (hg : UniformContinuousOn g (Set.Ioo a b)) :
@@ -114,7 +114,7 @@ theorem gap7 (f g : ℝ → ℝ) (a b : ℝ)
   simpa only [Real.dist_eq] using
     hmod x₁ hx₁ x₂ hx₂ (by simpa only [Real.dist_eq] using hdist)
 
-/-- Source: `proof_gap/exercise_804/8.txt`; remove shadowing endpoints. -/
+/-- Exercise 804, gap 8; remove shadowing endpoints. -/
 theorem gap8 (F : ℝ → ℝ) (a b : ℝ)
     (hF : UniformContinuousOn F (Set.Ioo a b)) :
     ∀ ε > 0, ∃ δ > 0, UCModulus F (Set.Ioo a b) δ ε := by
@@ -125,7 +125,7 @@ theorem gap8 (F : ℝ → ℝ) (a b : ℝ)
   simpa only [Real.dist_eq] using
     hmod x₁ hx₁ x₂ hx₂ (by simpa only [Real.dist_eq] using hdist)
 
-/-- Source: `proof_gap/exercise_804/9.txt`; make `δ` depend on `ε`. -/
+/-- Exercise 804, gap 9; make `δ` depend on `ε`. -/
 theorem gap9 (F : ℝ → ℝ) (a b : ℝ)
     (hab : a < b)
     (hF : UniformContinuousOn F (Set.Ioo a b)) :
@@ -149,7 +149,7 @@ theorem gap9 (F : ℝ → ℝ) (a b : ℝ)
     constructor <;> linarith
   simpa only [Real.dist_eq] using hmod x₁ hx₁ x₂ hx₂ hdist
 
-/-- Source: `proof_gap/exercise_804/10.txt`; make `δ` depend on `ε`. -/
+/-- Exercise 804, gap 10; make `δ` depend on `ε`. -/
 theorem gap10 (F : ℝ → ℝ) (a b : ℝ)
     (hab : a < b)
     (hF : UniformContinuousOn F (Set.Ioo a b)) :
@@ -173,7 +173,7 @@ theorem gap10 (F : ℝ → ℝ) (a b : ℝ)
     constructor <;> linarith
   simpa only [Real.dist_eq] using hmod x₁ hx₁ x₂ hx₂ hdist
 
-/-- Source: `proof_gap/exercise_804/11.txt`; replace the undefined symbol
+/-- Exercise 804, gap 11; replace the undefined symbol
 `F(a+0)` by existence of the right-hand endpoint limit. -/
 theorem gap11 (F : ℝ → ℝ) (a b : ℝ) (hab : a < b)
     (hF : UniformContinuousOn F (Set.Ioo a b)) :
@@ -221,7 +221,7 @@ theorem gap11 (F : ℝ → ℝ) (a b : ℝ) (hab : a < b)
   rcases cauchy_iff_exists_le_nhds.mp hc with ⟨La, hLa⟩
   exact ⟨La, hLa⟩
 
-/-- Source: `proof_gap/exercise_804/12.txt`; replace `F(b-0)` by existence of
+/-- Exercise 804, gap 12; replace `F(b-0)` by existence of
 the left-hand endpoint limit. -/
 theorem gap12 (F : ℝ → ℝ) (a b : ℝ) (hab : a < b)
     (hF : UniformContinuousOn F (Set.Ioo a b)) :
@@ -269,7 +269,7 @@ theorem gap12 (F : ℝ → ℝ) (a b : ℝ) (hab : a < b)
   rcases cauchy_iff_exists_le_nhds.mp hc with ⟨Lb, hLb⟩
   exact ⟨Lb, hLb⟩
 
-/-- Source: `proof_gap/exercise_804/13.txt`; bind the previously undefined
+/-- Exercise 804, gap 13; bind the previously undefined
 extension `F⋆`. -/
 theorem gap13 (F : ℝ → ℝ) (a b : ℝ) (hab : a < b)
     (hF : UniformContinuousOn F (Set.Ioo a b)) :
@@ -359,13 +359,13 @@ theorem gap13 (F : ℝ → ℝ) (a b : ℝ) (hab : a < b)
   · intro x hx
     simp [Fstar, ne_of_gt hx.1, ne_of_lt hx.2]
 
-/-- Source: `proof_gap/exercise_804/14.txt`; bind the continuous extension. -/
+/-- Exercise 804, gap 14; bind the continuous extension. -/
 theorem gap14 (F Fstar : ℝ → ℝ) (a b : ℝ)
     (hstar : ContinuousOn Fstar (Set.Icc a b)) :
     boundedOn Fstar (Set.Icc a b) := by
   exact (isCompact_Icc.image_of_continuousOn hstar).isBounded
 
-/-- Source: `proof_gap/exercise_804/15.txt`; add `a<b`. -/
+/-- Exercise 804, gap 15; add `a<b`. -/
 theorem gap15 (F : ℝ → ℝ) (a b : ℝ) (hab : a < b)
     (hF : UniformContinuousOn F (Set.Ioo a b)) :
     boundedOn F (Set.Ioo a b) := by
@@ -376,14 +376,14 @@ theorem gap15 (F : ℝ → ℝ) (a b : ℝ) (hab : a < b)
   rintro y ⟨x, hx, rfl⟩
   exact ⟨x, ⟨hx.1.le, hx.2.le⟩, hEq x hx⟩
 
-/-- Source: `proof_gap/exercise_804/16.txt`; remove irrelevant universally
+/-- Exercise 804, gap 16; remove irrelevant universally
 quantified `f,g`. -/
 theorem gap16 (F : ℝ → ℝ) (a b : ℝ) (hab : a < b)
     (hF : UniformContinuousOn F (Set.Ioo a b)) :
     boundedOn F (Set.Ioo a b) := by
   exact gap15 F a b hab hF
 
-/-- Source: `proof_gap/exercise_804/17.txt`; remove shadowing endpoints. -/
+/-- Exercise 804, gap 17; remove shadowing endpoints. -/
 theorem gap17 (f g : ℝ → ℝ) (a b : ℝ) (hab : a < b)
     (hf : UniformContinuousOn f (Set.Ioo a b))
     (hg : UniformContinuousOn g (Set.Ioo a b)) :
@@ -405,7 +405,7 @@ theorem gap17 (f g : ℝ → ℝ) (a b : ℝ) (hab : a < b)
   exact ⟨le_trans hfx.le (le_max_left _ _),
     le_trans hgx.le (le_max_left _ _)⟩
 
-/-- Source: `proof_gap/exercise_804/18.txt`; bind positive bounds before using
+/-- Exercise 804, gap 18; bind positive bounds before using
 them in denominators. -/
 theorem gap18 (f g : ℝ → ℝ) (a b L M : ℝ)
     (hL : 0 < L) (hM : 0 < M)
@@ -429,7 +429,7 @@ theorem gap18 (f g : ℝ → ℝ) (a b L M : ℝ)
       (by simpa only [Real.dist_eq] using
         (lt_of_lt_of_le hd (min_le_right δf δg)))
 
-/-- Source: `proof_gap/exercise_804/19.txt`; the algebraic identity needs no
+/-- Exercise 804, gap 19; the algebraic identity needs no
 existential `δ`. -/
 theorem gap19 (f g : ℝ → ℝ) (x₁ x₂ : ℝ) :
     |f x₁ * g x₁ - f x₂ * g x₂| =
@@ -437,7 +437,7 @@ theorem gap19 (f g : ℝ → ℝ) (x₁ x₂ : ℝ) :
   apply congrArg abs
   ring
 
-/-- Source: `proof_gap/exercise_804/20.txt`; add the bounds and two modulus
+/-- Exercise 804, gap 20; add the bounds and two modulus
 hypotheses used in the estimate. -/
 theorem gap20 (f g : ℝ → ℝ) (a b L M ε δ x₁ x₂ : ℝ)
     (hL : 0 < L) (hM : 0 < M)
@@ -466,13 +466,13 @@ theorem gap20 (f g : ℝ → ℝ) (a b L M ε δ x₁ x₂ : ℝ)
         (mul_lt_mul_of_pos_left hg' hL)
     _ = ε / (2 * M) * M + ε / (2 * L) * L := by ring
 
-/-- Source: `proof_gap/exercise_804/21.txt`; add nonzero bounds. -/
+/-- Exercise 804, gap 21; add nonzero bounds. -/
 theorem gap21 (ε L M : ℝ) (hL : L ≠ 0) (hM : M ≠ 0) :
     ε / (2 * M) * M + ε / (2 * L) * L = ε := by
   field_simp [hL, hM]
   ring
 
-/-- Source: `proof_gap/exercise_804/22.txt`; repair the modulus quantifiers. -/
+/-- Exercise 804, gap 22; repair the modulus quantifiers. -/
 theorem gap22 (f g : ℝ → ℝ) (a b : ℝ) (hab : a < b)
     (hf : UniformContinuousOn f (Set.Ioo a b))
     (hg : UniformContinuousOn g (Set.Ioo a b)) :
@@ -494,7 +494,7 @@ theorem gap22 (f g : ℝ → ℝ) (a b : ℝ) (hab : a < b)
       gap20 f g a b L M ε δ x₁ x₂ hL hM hx₁ hx₂ hb₂.1 hb₁.2 hfm hgm hd
     _ = ε := gap21 ε L M hL.ne' hM.ne'
 
-/-- Source: `proof_gap/exercise_804/23.txt`; add `a<b`, needed for boundedness
+/-- Exercise 804, gap 23; add `a<b`, needed for boundedness
 of uniformly continuous functions on the bounded interval. -/
 theorem gap23 (f g : ℝ → ℝ) (a b : ℝ) (hab : a < b)
     (hf : UniformContinuousOn f (Set.Ioo a b))
@@ -508,14 +508,14 @@ theorem gap23 (f g : ℝ → ℝ) (a b : ℝ) (hab : a < b)
   simpa only [Real.dist_eq] using
     hmod x₁ hx₁ x₂ hx₂ (by simpa only [Real.dist_eq] using hdist)
 
-/-- Source: `proof_gap/exercise_804/24.txt`. -/
+/-- Exercise 804, gap 24. -/
 theorem gap24 (f g : ℝ → ℝ) (a b : ℝ) (hab : a < b)
     (hf : UniformContinuousOn f (Set.Ioo a b))
     (hg : UniformContinuousOn g (Set.Ioo a b)) :
     UniformContinuousOn (fun x => f x * g x) (Set.Ioo a b) := by
   exact gap23 f g a b hab hf hg
 
-/-- Source: `proof_gap/exercise_804/25.txt`. -/
+/-- Exercise 804, gap 25. -/
 theorem gap25 (f g : ℝ → ℝ) (a b : ℝ) (hab : a < b)
     (hf : UniformContinuousOn f (Set.Ioo a b))
     (hg : UniformContinuousOn g (Set.Ioo a b)) :

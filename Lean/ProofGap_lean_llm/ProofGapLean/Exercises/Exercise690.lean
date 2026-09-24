@@ -13,7 +13,7 @@ def y (x : ℝ) : ℝ :=
 
 def SingularPoint (f : ℝ → ℝ) (a : ℝ) : Prop := ¬ ContinuousAt f a
 
-/-- Source: `proof_gap/exercise_690/1.txt`; the signed one-sided limits at
+/-- Exercise 690, gap 1; the signed one-sided limits at
 `-1` disagree, so the corrected two-sided assertion uses absolute value. -/
 private lemma y_eq_of_ne (x : ℝ) (hx0 : x ≠ 0) (hxm1 : x ≠ -1) (hx1 : x ≠ 1) :
     y x = (x - 1) / (x + 1) := by
@@ -92,7 +92,7 @@ theorem gap1 :
     _ ≤ 1 := habsprod.le
     _ ≤ |x - 1| := hnum
 
-/-- Source: `proof_gap/exercise_690/2.txt`; use the punctured limit, since the
+/-- Exercise 690, gap 2; use the punctured limit, since the
 totalized Lean division gives the original expression a different value at `0`. -/
 theorem gap2 :
     Filter.Tendsto y (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds (-1)) := by
@@ -128,7 +128,7 @@ theorem gap2 :
   norm_num at hr
   exact hr.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_690/3.txt`; use the punctured limit at `1`. -/
+/-- Exercise 690, gap 3; use the punctured limit at `1`. -/
 theorem gap3 :
     Filter.Tendsto y (nhdsWithin 1 ({1} : Set ℝ)ᶜ) (nhds 0) := by
   have hlocal :
@@ -163,7 +163,7 @@ theorem gap3 :
   norm_num at hr
   exact hr.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_690/4.txt`; bind the singular point. -/
+/-- Exercise 690, gap 4; bind the singular point. -/
 theorem gap4 : SingularPoint y (-1) := by
   unfold SingularPoint
   intro hc
@@ -182,7 +182,7 @@ theorem gap4 : SingularPoint y (-1) := by
   rcases (hlarge.and hsmall).exists with ⟨x, hxlarge, hxsmall⟩
   exact (not_lt_of_ge hxlarge) hxsmall
 
-/-- Source: `proof_gap/exercise_690/5.txt`; bind the singular point. -/
+/-- Exercise 690, gap 5; bind the singular point. -/
 theorem gap5 : SingularPoint y 0 := by
   unfold SingularPoint
   intro hc
@@ -192,7 +192,7 @@ theorem gap5 : SingularPoint y 0 := by
   have heq : y 0 = -1 := tendsto_nhds_unique hwithin gap2
   norm_num [y] at heq
 
-/-- Source: `proof_gap/exercise_690/6.txt`; bind the singular point. -/
+/-- Exercise 690, gap 6; bind the singular point. -/
 theorem gap6 : SingularPoint y 1 := by
   unfold SingularPoint
   intro hc
@@ -202,14 +202,14 @@ theorem gap6 : SingularPoint y 1 := by
   have heq : y 1 = 0 := tendsto_nhds_unique hwithin gap3
   norm_num [y] at heq
 
-/-- Source: `proof_gap/exercise_690/7.txt`; state both finite punctured limits
+/-- Exercise 690, gap 7; state both finite punctured limits
 with independently bound values. -/
 theorem gap7 :
     (∃ L : ℝ, Filter.Tendsto y (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)) ∧
     (∃ L : ℝ, Filter.Tendsto y (nhdsWithin 1 ({1} : Set ℝ)ᶜ) (nhds L)) := by
   exact ⟨⟨-1, gap2⟩, ⟨0, gap3⟩⟩
 
-/-- Source: `proof_gap/exercise_690/8.txt`. -/
+/-- Exercise 690, gap 8. -/
 theorem gap8 (x : ℝ) (hx : x ∈ ({-1, 0, 1} : Set ℝ)) :
     SingularPoint y x := by
   simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hx

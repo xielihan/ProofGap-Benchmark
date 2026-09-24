@@ -3,7 +3,7 @@ import ProofGapLean.Prelude.Discrete
 /-!
 # Exercise 5
 
-Semantic formalization of `proof_gap/exercise_5/{1,...,10}.txt`.
+Semantic formalization of Exercise 5, gaps 1,...,10.
 
 The source function `A(a,n)` is the step-`h` falling factorial
 `∏ i=0,...,n-1 (a-i*h)`.  The notation `C(n)^m` is the binomial coefficient
@@ -110,7 +110,7 @@ private theorem convolution_succ (h a b : ℝ) (n : ℕ) :
       rw [← hcast]
       ring
 
-/-- Source: `proof_gap/exercise_5/1.txt`. -/
+/-- Exercise 5, gap 1. -/
 theorem gap1
     (h : ℝ)
     (h1 : DefiningEquation h)
@@ -120,7 +120,7 @@ theorem gap1
   subst n
   simp [falling]
 
-/-- Source: `proof_gap/exercise_5/2.txt`. -/
+/-- Exercise 5, gap 2. -/
 theorem gap2
     (h : ℝ)
     (h1 : DefiningEquation h)
@@ -131,7 +131,7 @@ theorem gap2
   subst n
   norm_num [convolution, falling, Finset.sum_range_succ, Finset.prod_range_succ]
 
-/-- Source: `proof_gap/exercise_5/3.txt`. -/
+/-- Exercise 5, gap 3. -/
 theorem gap3
     (h : ℝ)
     (h1 : DefiningEquation h)
@@ -142,7 +142,7 @@ theorem gap3
   intro a b k hk hGB
   exact falling_succ h (a + b) k
 
-/-- Source: `proof_gap/exercise_5/4.txt`. -/
+/-- Exercise 5, gap 4. -/
 theorem gap4
     (h : ℝ)
     (h1 : DefiningEquation h)
@@ -156,7 +156,7 @@ theorem gap4
   ring
 
 /--
-Source: `proof_gap/exercise_5/5.txt`.
+Exercise 5, gap 5.
 
 The displayed first, second, penultimate, and final terms separated by an
 ellipsis are represented by the complete successor convolution.
@@ -178,7 +178,7 @@ theorem gap5
     _ = convolution h a b (k + 1) := (convolution_succ h a b k).symm
 
 /--
-Source: `proof_gap/exercise_5/6.txt`.
+Exercise 5, gap 6.
 
 This is the summation-notation version of gap 5 and therefore has the same
 semantic proposition.
@@ -195,7 +195,7 @@ theorem gap6
     ExpandedSuccessorConvolution h := by
   exact h7
 
-/-- Source: `proof_gap/exercise_5/7.txt`. -/
+/-- Exercise 5, gap 7. -/
 theorem gap7
     (h : ℝ)
     (h1 : DefiningEquation h)
@@ -219,7 +219,7 @@ theorem gap7
     n
     hn
 
-/-- Source: `proof_gap/exercise_5/8.txt`. -/
+/-- Exercise 5, gap 8. -/
 theorem gap8
     (h : ℝ)
     (h1 : DefiningEquation h)
@@ -236,7 +236,7 @@ theorem gap8
   subst h
   simp [falling]
 
-/-- Source: `proof_gap/exercise_5/9.txt`. -/
+/-- Exercise 5, gap 9. -/
 theorem gap9
     (h : ℝ)
     (h1 : DefiningEquation h)
@@ -263,7 +263,7 @@ theorem gap9
       simpa only [convolution, hpower] using hGB
 
 /--
-Source: `proof_gap/exercise_5/10.txt`.
+Exercise 5, gap 10.
 
 The goal repeats the generalized binomial identity from gap 7.
 -/

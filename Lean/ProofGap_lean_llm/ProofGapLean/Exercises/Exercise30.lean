@@ -5,7 +5,7 @@ import Mathlib.Tactic.Ring
 /-!
 # Exercise 30
 
-Semantic formalization of `proof_gap/exercise_30/{1,...,4}.txt`.
+Semantic formalization of Exercise 30, gaps 1,...,4.
 -/
 
 namespace ProofGap.Exercise30
@@ -24,17 +24,17 @@ def SimplifiedMiddle : Prop :=
 def Identity : Prop :=
   ∀ x : ℝ, ((x + |x|) / 2) ^ 2 + ((x - |x|) / 2) ^ 2 = x ^ 2
 
-/-- Source: `proof_gap/exercise_30/1.txt`. -/
+/-- Exercise 30, gap 1. -/
 theorem gap1 : ExpandedIdentity := by
   intro x
   nlinarith [sq_abs x]
 
-/-- Source: `proof_gap/exercise_30/2.txt`. -/
+/-- Exercise 30, gap 2. -/
 theorem gap2 (h1 : ExpandedIdentity) : SimplifiedMiddle := by
   intro x
   ring
 
-/-- Source: `proof_gap/exercise_30/3.txt`. -/
+/-- Exercise 30, gap 3. -/
 theorem gap3
     (h1 : ExpandedIdentity)
     (h2 : SimplifiedMiddle) :
@@ -42,7 +42,7 @@ theorem gap3
   intro x
   rw [h1 x, h2 x]
 
-/-- Source: `proof_gap/exercise_30/4.txt`. -/
+/-- Exercise 30, gap 4. -/
 theorem gap4 (h3 : Identity) : Identity := by
   exact h3
 

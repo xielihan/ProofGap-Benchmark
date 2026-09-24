@@ -7,12 +7,12 @@ namespace ProofGap.Exercise194_1
 
 def f (x : ℝ) : ℝ := x - x ^ 3
 
-/-- Source: `proof_gap/exercise_194_1/1.txt`. -/
+/-- Exercise 194_1, gap 1. -/
 theorem gap1 : ∃ x : ℝ, f x = 0 := by
   refine ⟨0, ?_⟩
   norm_num [f]
 
-/-- Source: `proof_gap/exercise_194_1/2.txt`. -/
+/-- Exercise 194_1, gap 2. -/
 theorem gap2 : {x : ℝ | f x = 0} = ({-1, 0, 1} : Set ℝ) := by
   apply Set.ext
   intro x
@@ -33,13 +33,13 @@ theorem gap2 : {x : ℝ | f x = 0} = ({-1, 0, 1} : Set ℝ) := by
     · subst x
       norm_num
 
-/-- Source: `proof_gap/exercise_194_1/3.txt`. -/
+/-- Exercise 194_1, gap 3. -/
 theorem gap3 : ∀ x : ℝ,
     f x > 0 ↔ x * (1 - x) * (1 + x) > 0 := by
   intro x
   rw [show f x = x * (1 - x) * (1 + x) by unfold f; ring]
 
-/-- Source: `proof_gap/exercise_194_1/4.txt`. -/
+/-- Exercise 194_1, gap 4. -/
 theorem gap4 :
     {x : ℝ | f x > 0} = Set.Iio (-1) ∪ Set.Ioo 0 1 := by
   apply Set.ext
@@ -65,11 +65,11 @@ theorem gap4 :
         (mul_pos (by linarith) (by linarith))
         (by linarith)
 
-/-- Source: `proof_gap/exercise_194_1/5.txt`. -/
+/-- Exercise 194_1, gap 5. -/
 theorem gap5 : ∃ x : ℝ, x * (1 - x) * (1 + x) < 0 := by
   refine ⟨2, by norm_num⟩
 
-/-- Source: `proof_gap/exercise_194_1/6.txt`. -/
+/-- Exercise 194_1, gap 6. -/
 theorem gap6 :
     {x : ℝ | f x < 0} = Set.Ioo (-1) 0 ∪ Set.Ioi 1 := by
   apply Set.ext

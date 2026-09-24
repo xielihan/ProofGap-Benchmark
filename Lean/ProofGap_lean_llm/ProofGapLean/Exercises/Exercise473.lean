@@ -23,7 +23,7 @@ def factored (m n : ℤ) (y : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_473/1.txt`; bind the substitution as `y=x-π`. -/
+/-- Exercise 473, gap 1; bind the substitution as `y=x-π`. -/
 private theorem tendsto_add_punctured (a b : ℝ) :
     Filter.Tendsto (fun x : ℝ => x + b)
       (nhdsWithin a ({a} : Set ℝ)ᶜ)
@@ -187,7 +187,7 @@ theorem gap1 : HasLimitAt (fun x => x - Real.pi) Real.pi 0 := by
   have h := (hi.sub hp).tendsto
   simpa using h.mono_left inf_le_left
 
-/-- Source: `proof_gap/exercise_473/2.txt`. -/
+/-- Exercise 473, gap 2. -/
 theorem gap2 (m n : ℤ) (hn : n ≠ 0) (L : ℝ) :
     HasLimitAt (original m n) Real.pi L ↔ HasLimitAt (shifted m n) 0 L := by
   have hadd :
@@ -227,7 +227,7 @@ theorem gap2 (m n : ℤ) (hn : n ≠ 0) (L : ℝ) :
       simpa using (original_add_pi m n (x - Real.pi)).symm
     exact (Filter.tendsto_congr' heq).mp hc
 
-/-- Source: `proof_gap/exercise_473/3.txt`. -/
+/-- Exercise 473, gap 3. -/
 theorem gap3 (m n : ℤ) (hn : n ≠ 0) (L : ℝ) :
     HasLimitAt (shifted m n) 0 L ↔ HasLimitAt (factored m n) 0 L := by
   unfold HasLimitAt
@@ -240,7 +240,7 @@ theorem gap3 (m n : ℤ) (hn : n ≠ 0) (L : ℝ) :
   apply shifted_eq_factored m n hn y
   simpa only [Set.mem_compl_iff, Set.mem_singleton_iff] using hy
 
-/-- Source: `proof_gap/exercise_473/4.txt`. -/
+/-- Exercise 473, gap 4. -/
 theorem gap4 (m n : ℤ) (hn : n ≠ 0) :
     HasLimitAt (factored m n) 0
       (sign (m - n) * ((m : ℝ) / (n : ℝ))) := by

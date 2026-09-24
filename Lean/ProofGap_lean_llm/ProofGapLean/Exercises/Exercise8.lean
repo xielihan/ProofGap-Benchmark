@@ -3,7 +3,7 @@ import ProofGapLean.Prelude.Discrete
 /-!
 # Exercise 8
 
-Semantic formalization of `proof_gap/exercise_8/{1,...,13}.txt`.
+Semantic formalization of Exercise 8, gaps 1,...,13.
 Factorials are cast to `ℝ`, because the comparison is against powers of a
 rational/real average.
 -/
@@ -67,19 +67,19 @@ def InductionStep : Prop :=
 def FinalBound : Prop :=
   ∀ n : ℕ, 0 < n → 1 < n → FactorialBound n
 
-/-- Source: `proof_gap/exercise_8/1.txt`. -/
+/-- Exercise 8, gap 1. -/
 theorem gap1 : BaseAverageValue := by
   intro n hn
   norm_num
 
-/-- Source: `proof_gap/exercise_8/2.txt`. -/
+/-- Exercise 8, gap 2. -/
 theorem gap2
     (h1 : BaseAverageValue) :
     BaseStrictInequality := by
   intro n hn
   norm_num
 
-/-- Source: `proof_gap/exercise_8/3.txt`. -/
+/-- Exercise 8, gap 3. -/
 theorem gap3
     (h1 : BaseAverageValue)
     (h2 : BaseStrictInequality) :
@@ -87,7 +87,7 @@ theorem gap3
   intro n hn
   norm_num [factorialReal]
 
-/-- Source: `proof_gap/exercise_8/4.txt`. -/
+/-- Exercise 8, gap 4. -/
 theorem gap4
     (h1 : BaseAverageValue)
     (h2 : BaseStrictInequality)
@@ -96,7 +96,7 @@ theorem gap4
   intro n hn
   norm_num [factorialReal]
 
-/-- Source: `proof_gap/exercise_8/5.txt`. -/
+/-- Exercise 8, gap 5. -/
 theorem gap5
     (h1 : BaseAverageValue)
     (h2 : BaseStrictInequality)
@@ -113,7 +113,7 @@ theorem gap5
       mul_lt_mul_of_pos_left hbound (by positivity)
     _ = (((k : ℝ) + 1) / 2) ^ k * ((k : ℝ) + 1) := by ring
 
-/-- Source: `proof_gap/exercise_8/6.txt`. -/
+/-- Exercise 8, gap 6. -/
 theorem gap6
     (h1 : BaseAverageValue)
     (h2 : BaseStrictInequality)
@@ -125,7 +125,7 @@ theorem gap6
   rw [pow_succ]
   ring
 
-/-- Source: `proof_gap/exercise_8/7.txt`. -/
+/-- Exercise 8, gap 7. -/
 theorem gap7
     (h1 : BaseAverageValue)
     (h2 : BaseStrictInequality)
@@ -137,7 +137,7 @@ theorem gap7
   intro k hk hbound
   exact (h5 k hk hbound).trans_eq (h6 k hk hbound)
 
-/-- Source: `proof_gap/exercise_8/8.txt`. -/
+/-- Exercise 8, gap 8. -/
 theorem gap8
     (h1 : BaseAverageValue)
     (h2 : BaseStrictInequality)
@@ -152,7 +152,7 @@ theorem gap8
   field_simp
   ring
 
-/-- Source: `proof_gap/exercise_8/9.txt`. -/
+/-- Exercise 8, gap 9. -/
 theorem gap9
     (h1 : BaseAverageValue)
     (h2 : BaseStrictInequality)
@@ -182,7 +182,7 @@ theorem gap9
   exact hstrict.trans_le
     (mul_le_mul_of_nonneg_right hbern (by positivity))
 
-/-- Source: `proof_gap/exercise_8/10.txt`. -/
+/-- Exercise 8, gap 10. -/
 theorem gap10
     (h1 : BaseAverageValue)
     (h2 : BaseStrictInequality)
@@ -198,7 +198,7 @@ theorem gap10
   rw [h8 k hk hbound]
   exact h9 k hk hbound
 
-/-- Source: `proof_gap/exercise_8/11.txt`. -/
+/-- Exercise 8, gap 11. -/
 theorem gap11
     (h1 : BaseAverageValue)
     (h2 : BaseStrictInequality)
@@ -230,7 +230,7 @@ theorem gap11
       norm_num
       ring
 
-/-- Source: `proof_gap/exercise_8/12.txt`. -/
+/-- Exercise 8, gap 12. -/
 theorem gap12
     (h1 : BaseAverageValue)
     (h2 : BaseStrictInequality)
@@ -257,7 +257,7 @@ theorem gap12
       · exact h11 k (by omega) (ih (by omega) (by omega))
 
 /--
-Source: `proof_gap/exercise_8/13.txt`.
+Exercise 8, gap 13.
 
 The goal duplicates gap 12 and is kept as a separate dataset item.
 -/

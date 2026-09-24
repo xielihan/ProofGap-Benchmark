@@ -61,7 +61,7 @@ def truncatedCriticalIntegral (epsilon : ℝ) : ℝ :=
 def criticalPrimitiveAt (epsilon : ℝ) : ℝ :=
   -(1 / 2 : ℝ) * Real.log (1 - (1 - epsilon) ^ 2)
 
-/-! Source: `results/stage1_gpt55/09_重积分与含参积分/exercise_4185_autoformalization_result/exercise_4185.md`. -/
+/-! Exercise 4185. -/
 
 private theorem disk_measurable : MeasurableSet disk := by
   unfold disk

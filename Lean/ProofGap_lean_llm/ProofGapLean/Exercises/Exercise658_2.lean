@@ -11,7 +11,7 @@ def target (x : ℝ) : ℝ := Real.sqrt ((1 + x) / (1 - x))
 def model (x : ℝ) : ℝ :=
   Real.sqrt 2 * (1 / Real.sqrt (1 - x))
 
-/-- Source: `proof_gap/exercise_658_2/1.txt`; restrict to `x<1`, where the radical factorization is valid. -/
+/-- Exercise 658_2, gap 1; restrict to `x<1`, where the radical factorization is valid. -/
 private theorem equivalent_of_ratio_limit
     {l : Filter ℝ} {f g : ℝ → ℝ}
     (hg : ∀ᶠ x in l, g x ≠ 0)
@@ -48,7 +48,7 @@ theorem gap1 (x : ℝ) (hx : -1 < x) (hx1 : x < 1) :
   rw [Real.sqrt_div hxp]
   field_simp [hsqrt2, hsqrtx]
 
-/-- Source: `proof_gap/exercise_658_2/2.txt`. -/
+/-- Exercise 658_2, gap 2. -/
 theorem gap2 :
     Filter.Tendsto (fun x : ℝ => Real.sqrt (1 + x) / Real.sqrt 2)
       (nhdsWithin 1 (Set.Iio 1)) (nhds 1) := by
@@ -67,7 +67,7 @@ theorem gap2 :
     norm_num [hsqrt2]
   simpa only [hval] using ht
 
-/-- Source: `proof_gap/exercise_658_2/3.txt`. -/
+/-- Exercise 658_2, gap 3. -/
 theorem gap3 :
     Filter.Tendsto (fun x : ℝ => target x / model x)
       (nhdsWithin 1 (Set.Iio 1)) (nhds 1) := by
@@ -80,7 +80,7 @@ theorem gap3 :
   filter_upwards [hnear, self_mem_nhdsWithin] with x hx hx1
   exact (gap1 x hx hx1).symm
 
-/-- Source: `proof_gap/exercise_658_2/4.txt`; make the one-sided domain explicit. -/
+/-- Exercise 658_2, gap 4; make the one-sided domain explicit. -/
 theorem gap4 :
     Asymptotics.IsEquivalent (nhdsWithin 1 (Set.Iio 1)) target model := by
   have hm :
@@ -93,7 +93,7 @@ theorem gap4 :
         (ne_of_gt (Real.sqrt_pos.2 (sub_pos.2 hx)))
   exact equivalent_of_ratio_limit hm gap3
 
-/-- Source: `proof_gap/exercise_658_2/5.txt`; unpack the singleton coefficient/exponent pair. -/
+/-- Exercise 658_2, gap 5; unpack the singleton coefficient/exponent pair. -/
 theorem gap5 (C n : ℝ) (h : (C, n) = (Real.sqrt 2, 1 / 2)) :
     Asymptotics.IsEquivalent (nhdsWithin 1 (Set.Iio 1))
       target (fun x => C * Real.rpow (1 / (1 - x)) n) := by

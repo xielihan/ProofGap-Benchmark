@@ -24,7 +24,7 @@ def normalized (a x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_488/1.txt`. -/
+/-- Exercise 488, gap 1. -/
 private theorem factored_eq_normalized (a x : ℝ) :
     factored a x = normalized a x := by
   by_cases hx : x = 0
@@ -48,7 +48,7 @@ theorem gap1 (a L : ℝ) :
     ring
   rw [h]
 
-/-- Source: `proof_gap/exercise_488/2.txt`. -/
+/-- Exercise 488, gap 2. -/
 theorem gap2 (a L : ℝ) :
     HasLimitAtZero (original a) L ↔ HasLimitAtZero (expanded a) L := by
   have h : differenceForm a = expanded a := by
@@ -63,7 +63,7 @@ theorem gap2 (a L : ℝ) :
     ring
   rw [gap1 a L, h]
 
-/-- Source: `proof_gap/exercise_488/3.txt`. -/
+/-- Exercise 488, gap 3. -/
 theorem gap3 (a L : ℝ) :
     HasLimitAtZero (expanded a) L ↔ HasLimitAtZero (factored a) L := by
   have h : expanded a = factored a := by
@@ -72,12 +72,12 @@ theorem gap3 (a L : ℝ) :
     ring
   rw [h]
 
-/-- Source: `proof_gap/exercise_488/4.txt`. -/
+/-- Exercise 488, gap 4. -/
 theorem gap4 (a L : ℝ) :
     HasLimitAtZero (original a) L ↔ HasLimitAtZero (factored a) L := by
   exact (gap2 a L).trans (gap3 a L)
 
-/-- Source: `proof_gap/exercise_488/5.txt`. -/
+/-- Exercise 488, gap 5. -/
 theorem gap5 (a L : ℝ) :
     HasLimitAtZero (original a) L ↔ HasLimitAtZero (normalized a) L := by
   rw [gap4 a L]
@@ -86,7 +86,7 @@ theorem gap5 (a L : ℝ) :
     exact factored_eq_normalized a x
   rw [h]
 
-/-- Source: `proof_gap/exercise_488/6.txt`. -/
+/-- Exercise 488, gap 6. -/
 theorem gap6 (a : ℝ) : HasLimitAtZero (normalized a) (-Real.sin a) := by
   unfold HasLimitAtZero
   have hx : Filter.Tendsto (fun x : ℝ => x)
@@ -134,7 +134,7 @@ theorem gap6 (a : ℝ) : HasLimitAtZero (normalized a) (-Real.sin a) := by
     (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds (-Real.sin a))
   simpa only [neg_mul, one_mul] using hsq.neg.mul hsin
 
-/-- Source: `proof_gap/exercise_488/7.txt`. -/
+/-- Exercise 488, gap 7. -/
 theorem gap7 (a : ℝ) : HasLimitAtZero (original a) (-Real.sin a) := by
   exact (gap5 a (-Real.sin a)).mpr (gap6 a)
 

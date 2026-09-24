@@ -18,7 +18,7 @@ def transformed (x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_517/1.txt`; interpret variable powers by `Real.rpow`. -/
+/-- Exercise 517, gap 1; interpret variable powers by `Real.rpow`. -/
 private theorem square_punctured_tendsto :
     Filter.Tendsto (fun x : ℝ => x ^ 2)
       (nhdsWithin 0 ({0} : Set ℝ)ᶜ)
@@ -184,11 +184,11 @@ theorem gap1 (L : ℝ) :
     rw [hL]
     exact original_limit
 
-/-- Source: `proof_gap/exercise_517/2.txt`. -/
+/-- Exercise 517, gap 2. -/
 theorem gap2 : HasLimitAtZero transformed (Real.exp 1) := by
   exact transformed_limit
 
-/-- Source: `proof_gap/exercise_517/3.txt`. -/
+/-- Exercise 517, gap 3. -/
 theorem gap3 : HasLimitAtZero original (Real.exp 1) := by
   exact (gap1 (Real.exp 1)).2 gap2
 

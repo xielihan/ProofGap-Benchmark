@@ -7,14 +7,14 @@ noncomputable section
 def f (x : ℝ) : ℝ := Real.cos x / Real.sin x
 def domain : Set ℝ := Set.Ioo 0 Real.pi
 
-/-- Source: `proof_gap/exercise_220/1.txt`. -/
+/-- Exercise 220, gap 1. -/
 theorem gap1 : ∀ x₁ x₂ : ℝ, 0 < x₁ → x₁ < x₂ → x₂ < Real.pi →
     f x₂ - f x₁ =
       Real.cos x₂ / Real.sin x₂ - Real.cos x₁ / Real.sin x₁ := by
   intro x₁ x₂ hx₁ hx₁₂ hx₂
   rfl
 
-/-- Source: `proof_gap/exercise_220/2.txt`. -/
+/-- Exercise 220, gap 2. -/
 theorem gap2 : ∀ x₁ x₂ : ℝ, 0 < x₁ → x₁ < x₂ → x₂ < Real.pi →
     Real.cos x₂ / Real.sin x₂ - Real.cos x₁ / Real.sin x₁ =
       (Real.cos x₂ * Real.sin x₁ - Real.cos x₁ * Real.sin x₂) /
@@ -27,7 +27,7 @@ theorem gap2 : ∀ x₁ x₂ : ℝ, 0 < x₁ → x₁ < x₂ → x₂ < Real.pi 
     ne_of_gt (Real.sin_pos_of_pos_of_lt_pi hx₂pos hx₂)
   field_simp [hs₁, hs₂]
 
-/-- Source: `proof_gap/exercise_220/3.txt`. -/
+/-- Exercise 220, gap 3. -/
 theorem gap3 : ∀ x₁ x₂ : ℝ, 0 < x₁ → x₁ < x₂ → x₂ < Real.pi →
     (Real.cos x₂ * Real.sin x₁ - Real.cos x₁ * Real.sin x₂) /
         (Real.sin x₁ * Real.sin x₂) =
@@ -36,7 +36,7 @@ theorem gap3 : ∀ x₁ x₂ : ℝ, 0 < x₁ → x₁ < x₂ → x₂ < Real.pi 
   rw [Real.sin_sub]
   ring
 
-/-- Source: `proof_gap/exercise_220/4.txt`. -/
+/-- Exercise 220, gap 4. -/
 theorem gap4 : ∀ x₁ x₂ : ℝ, 0 < x₁ → x₁ < x₂ → x₂ < Real.pi →
     Real.sin (x₁ - x₂) / (Real.sin x₁ * Real.sin x₂) < 0 := by
   intro x₁ x₂ hx₁ hx₁₂ hx₂
@@ -56,7 +56,7 @@ theorem gap4 : ∀ x₁ x₂ : ℝ, 0 < x₁ → x₁ < x₂ → x₂ < Real.pi 
     exact neg_lt_zero.mpr hsin
   exact div_neg_of_neg_of_pos hnum (mul_pos hs₁ hs₂)
 
-/-- Source: `proof_gap/exercise_220/5.txt`. -/
+/-- Exercise 220, gap 5. -/
 theorem gap5 : ∀ x₁ x₂ : ℝ, 0 < x₁ → x₁ < x₂ → x₂ < Real.pi →
     f x₂ - f x₁ < 0 := by
   intro x₁ x₂ hx₁ hx₁₂ hx₂
@@ -71,14 +71,14 @@ theorem gap5 : ∀ x₁ x₂ : ℝ, 0 < x₁ → x₁ < x₂ → x₂ < Real.pi 
       gap3 x₁ x₂ hx₁ hx₁₂ hx₂
     _ < 0 := gap4 x₁ x₂ hx₁ hx₁₂ hx₂
 
-/-- Source: `proof_gap/exercise_220/6.txt`. -/
+/-- Exercise 220, gap 6. -/
 theorem gap6 : StrictAntiOn f domain := by
   intro x₁ hx₁ x₂ hx₂ hx₁₂
   change 0 < x₁ ∧ x₁ < Real.pi at hx₁
   change 0 < x₂ ∧ x₂ < Real.pi at hx₂
   exact sub_neg.mp (gap5 x₁ x₂ hx₁.1 hx₁₂ hx₂.2)
 
-/-- Source: `proof_gap/exercise_220/7.txt`. -/
+/-- Exercise 220, gap 7. -/
 theorem gap7 : StrictAntiOn f domain := by
   exact gap6
 

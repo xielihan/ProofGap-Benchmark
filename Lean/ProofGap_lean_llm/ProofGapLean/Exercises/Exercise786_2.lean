@@ -15,7 +15,7 @@ def UCCondition (δ ε : ℝ) : Prop :=
   ∀ x₁ ∈ Set.Icc (-10 : ℝ) 10, ∀ x₂ ∈ Set.Icc (-10 : ℝ) 10,
     |x₁ - x₂| < δ → |signedCbrt x₁ - signedCbrt x₂| < ε
 
-/-- Source: `proof_gap/exercise_786_2/1.txt`; discard the unrelated repeated uniform-continuity premise. -/
+/-- Exercise 786_2, gap 1; discard the unrelated repeated uniform-continuity premise. -/
 private theorem rpow_one_third_cubed (x : ℝ) (hx : 0 ≤ x) :
     Real.rpow x (1 / 3 : ℝ) ^ 3 = x := by
   calc
@@ -59,7 +59,7 @@ theorem gap1 (y₁ y₂ : ℝ) (hne : y₁ ≠ y₂) :
     (div_eq_iff hden).2 hfactor
   rw [hquot]
 
-/-- Source: `proof_gap/exercise_786_2/2.txt`. -/
+/-- Exercise 786_2, gap 2. -/
 theorem gap2 (y₁ y₂ : ℝ) :
     |(y₁ ^ 3 - y₂ ^ 3) / (y₁ ^ 2 + y₁ * y₂ + y₂ ^ 2)| =
       |(y₁ ^ 3 - y₂ ^ 3) /
@@ -70,7 +70,7 @@ theorem gap2 (y₁ y₂ : ℝ) :
     ring
   rw [hden]
 
-/-- Source: `proof_gap/exercise_786_2/3.txt`; retain the needed nonzero difference. -/
+/-- Exercise 786_2, gap 3; retain the needed nonzero difference. -/
 theorem gap3 (y₁ y₂ : ℝ) (hne : y₁ ≠ y₂) :
     |(y₁ ^ 3 - y₂ ^ 3) /
         ((3 / 4 : ℝ) * (y₁ + y₂) ^ 2 + (1 / 4 : ℝ) * (y₁ - y₂) ^ 2)| ≤
@@ -92,7 +92,7 @@ theorem gap3 (y₁ y₂ : ℝ) (hne : y₁ ≠ y₂) :
   apply (div_le_iff₀ hA).2
   exact mul_le_mul_of_nonneg_left hle (abs_nonneg _)
 
-/-- Source: `proof_gap/exercise_786_2/4.txt`. -/
+/-- Exercise 786_2, gap 4. -/
 theorem gap4 (y₁ y₂ : ℝ) (hne : y₁ ≠ y₂) :
     |y₁ - y₂| ≤
       |y₁ ^ 3 - y₂ ^ 3| / ((1 / 4 : ℝ) * |y₁ - y₂| ^ 2) := by
@@ -107,7 +107,7 @@ theorem gap4 (y₁ y₂ : ℝ) (hne : y₁ ≠ y₂) :
     _ ≤ |y₁ ^ 3 - y₂ ^ 3| / ((1 / 4 : ℝ) * |y₁ - y₂| ^ 2) :=
       gap3 y₁ y₂ hne
 
-/-- Source: `proof_gap/exercise_786_2/5.txt`; remove the irrelevant repeated premise. -/
+/-- Exercise 786_2, gap 5; remove the irrelevant repeated premise. -/
 theorem gap5 (y₁ y₂ : ℝ) :
     (1 / 4 : ℝ) * |y₁ - y₂| ^ 3 ≤ |y₁ ^ 3 - y₂ ^ 3| := by
   by_cases hne : y₁ ≠ y₂
@@ -126,19 +126,19 @@ theorem gap5 (y₁ y₂ : ℝ) :
     subst y₂
     norm_num
 
-/-- Source: `proof_gap/exercise_786_2/6.txt`; add the omitted cube-root relations. -/
+/-- Exercise 786_2, gap 6; add the omitted cube-root relations. -/
 theorem gap6 (y₁ y₂ x₁ x₂ : ℝ) (hy₁ : y₁ ^ 3 = x₁) (hy₂ : y₂ ^ 3 = x₂) :
     |y₁ ^ 3 - y₂ ^ 3| = |x₁ - x₂| := by
   simp only [hy₁, hy₂]
 
-/-- Source: `proof_gap/exercise_786_2/7.txt`; add the omitted cube-root relations. -/
+/-- Exercise 786_2, gap 7; add the omitted cube-root relations. -/
 theorem gap7 (y₁ y₂ x₁ x₂ : ℝ) (hy₁ : y₁ ^ 3 = x₁) (hy₂ : y₂ ^ 3 = x₂) :
     (1 / 4 : ℝ) * |y₁ - y₂| ^ 3 ≤ |x₁ - x₂| := by
   calc
     (1 / 4 : ℝ) * |y₁ - y₂| ^ 3 ≤ |y₁ ^ 3 - y₂ ^ 3| := gap5 y₁ y₂
     _ = |x₁ - x₂| := gap6 y₁ y₂ x₁ x₂ hy₁ hy₂
 
-/-- Source: `proof_gap/exercise_786_2/8.txt`; add the omitted cube-root relations. -/
+/-- Exercise 786_2, gap 8; add the omitted cube-root relations. -/
 theorem gap8 (y₁ y₂ x₁ x₂ : ℝ) (hy₁ : y₁ ^ 3 = x₁) (hy₂ : y₂ ^ 3 = x₂) :
     |y₁ - y₂| ≤ Real.cbrt (4 * |x₁ - x₂|) := by
   have hpow : |y₁ - y₂| ^ 3 ≤ 4 * |x₁ - x₂| := by
@@ -174,7 +174,7 @@ theorem gap8 (y₁ y₂ x₁ x₂ : ℝ) (hy₁ : y₁ ^ 3 = x₁) (hy₂ : y₂
   rw [cbrt_eq_rpow_of_nonneg (4 * |x₁ - x₂|) harg]
   exact hbound
 
-/-- Source: `proof_gap/exercise_786_2/9.txt`; add the omitted cube-root relations. -/
+/-- Exercise 786_2, gap 9; add the omitted cube-root relations. -/
 theorem gap9 (y₁ y₂ x₁ x₂ ε : ℝ) (hε : 0 < ε)
     (hy₁ : y₁ ^ 3 = x₁) (hy₂ : y₂ ^ 3 = x₂)
     (hδ : 4 * |x₁ - x₂| < ε ^ 3) :
@@ -196,13 +196,13 @@ theorem gap9 (y₁ y₂ x₁ x₂ ε : ℝ) (hε : 0 < ε)
     mul_nonneg (sub_nonneg.mpr hεa) hquad.le
   nlinarith
 
-/-- Source: `proof_gap/exercise_786_2/10.txt`. -/
+/-- Exercise 786_2, gap 10. -/
 theorem gap10 (x₁ x₂ ε : ℝ) (hε : 0 < ε)
     (hδ : |x₁ - x₂| < ε ^ 3 / 4) :
     4 * |x₁ - x₂| < ε ^ 3 := by
   nlinarith
 
-/-- Source: `proof_gap/exercise_786_2/11.txt`; bind `yᵢ` as the cube roots of `xᵢ`. -/
+/-- Exercise 786_2, gap 11; bind `yᵢ` as the cube roots of `xᵢ`. -/
 theorem gap11 (x₁ x₂ ε : ℝ) (hε : 0 < ε)
     (hδ : |x₁ - x₂| < ε ^ 3 / 4) :
     |signedCbrt x₁ - signedCbrt x₂| < ε := by
@@ -210,7 +210,7 @@ theorem gap11 (x₁ x₂ ε : ℝ) (hε : 0 < ε)
     (signedCbrt_cubed x₁) (signedCbrt_cubed x₂)
     (gap10 x₁ x₂ ε hε hδ)
 
-/-- Source: `proof_gap/exercise_786_2/12.txt`; remove vacuous duplicated quantifiers. -/
+/-- Exercise 786_2, gap 12; remove vacuous duplicated quantifiers. -/
 theorem gap12 (δ ε : ℝ) (hδ0 : 0 < δ) (hδε : δ < ε ^ 3 / 4) :
     UCCondition δ ε := by
   have hε3 : 0 < ε ^ 3 := by
@@ -225,14 +225,14 @@ theorem gap12 (δ ε : ℝ) (hδ0 : 0 < δ) (hδε : δ < ε ^ 3 / 4) :
   intro x₁ hx₁ x₂ hx₂ hdist
   exact gap11 x₁ x₂ ε hε (lt_trans hdist hδε)
 
-/-- Source: `proof_gap/exercise_786_2/13.txt`; reverse the source's false necessity claim to the sufficient bound. -/
+/-- Exercise 786_2, gap 13; reverse the source's false necessity claim to the sufficient bound. -/
 theorem gap13 (δ : ℝ) (hδ0 : 0 < δ) (hδ : δ < 2.5 * 10 ^ (-4 : ℤ)) :
     UCCondition δ 0.1 := by
   apply gap12 δ 0.1 hδ0
   norm_num at hδ ⊢
   exact hδ
 
-/-- Source: `proof_gap/exercise_786_2/14.txt`; replace the false biconditional by the valid sufficient-condition inclusion. -/
+/-- Exercise 786_2, gap 14; replace the false biconditional by the valid sufficient-condition inclusion. -/
 theorem gap14 :
     {δ : ℝ | 0 < δ ∧ δ < 2.5 * 10 ^ (-4 : ℤ)} ⊆
       {δ : ℝ | UCCondition δ 0.1} := by

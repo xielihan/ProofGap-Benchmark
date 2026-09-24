@@ -17,7 +17,7 @@ def GridOscillationSmall (n : ℕ) : Prop :=
   ∀ k < n, ∀ x₁ ∈ cell n k, ∀ x₂ ∈ cell n k,
     |square x₁ - square x₂| < 0.0001
 
-/-- Source: `proof_gap/exercise_803/1.txt`; make the omitted equal-subinterval partition explicit. -/
+/-- Exercise 803, gap 1; make the omitted equal-subinterval partition explicit. -/
 theorem gap1 (n k : ℕ) (hn : 0 < n) (hk : k < n) :
     ∀ x₁ ∈ cell n k, ∀ x₂ ∈ cell n k,
       |x₁ - x₂| ≤ 9 / (n : ℝ) := by
@@ -32,7 +32,7 @@ theorem gap1 (n k : ℕ) (hn : 0 < n) (hk : k < n) :
   rw [abs_le]
   constructor <;> linarith
 
-/-- Source: `proof_gap/exercise_803/2.txt`; remove the irrelevant oscillation premise. -/
+/-- Exercise 803, gap 2; remove the irrelevant oscillation premise. -/
 theorem gap2 (x₁ x₂ : ℝ) :
     |x₁ ^ 2 - x₂ ^ 2| = |x₁ + x₂| * |x₁ - x₂| := by
   calc
@@ -42,7 +42,7 @@ theorem gap2 (x₁ x₂ : ℝ) :
     _ = |x₁ + x₂| * |x₁ - x₂| := by
       rw [abs_mul]
 
-/-- Source: `proof_gap/exercise_803/3.txt`; add the omitted interval and mesh hypotheses. -/
+/-- Exercise 803, gap 3; add the omitted interval and mesh hypotheses. -/
 theorem gap3 (x₁ x₂ : ℝ) (n : ℕ)
     (hx₁ : x₁ ∈ Set.Icc (1 : ℝ) 10) (hx₂ : x₂ ∈ Set.Icc (1 : ℝ) 10)
     (hmesh : |x₁ - x₂| ≤ 9 / (n : ℝ)) :
@@ -62,11 +62,11 @@ theorem gap3 (x₁ x₂ : ℝ) (n : ℕ)
     _ = ((10 + 10 : ℝ) * 9) / (n : ℝ) := by
       ring
 
-/-- Source: `proof_gap/exercise_803/4.txt`; remove the irrelevant oscillation premise. -/
+/-- Exercise 803, gap 4; remove the irrelevant oscillation premise. -/
 theorem gap4 (n : ℕ) : ((10 + 10 : ℝ) * 9) / (n : ℝ) = 180 / (n : ℝ) := by
   ring
 
-/-- Source: `proof_gap/exercise_803/5.txt`; add the omitted interval and mesh hypotheses. -/
+/-- Exercise 803, gap 5; add the omitted interval and mesh hypotheses. -/
 theorem gap5 (x₁ x₂ : ℝ) (n : ℕ)
     (hx₁ : x₁ ∈ Set.Icc (1 : ℝ) 10) (hx₂ : x₂ ∈ Set.Icc (1 : ℝ) 10)
     (hmesh : |x₁ - x₂| ≤ 9 / (n : ℝ)) :
@@ -76,7 +76,7 @@ theorem gap5 (x₁ x₂ : ℝ) (n : ℕ)
     _ ≤ ((10 + 10 : ℝ) * 9) / (n : ℝ) := gap3 x₁ x₂ n hx₁ hx₂ hmesh
     _ = 180 / (n : ℝ) := gap4 n
 
-/-- Source: `proof_gap/exercise_803/6.txt`; bind the previously free natural `n`. -/
+/-- Exercise 803, gap 6; bind the previously free natural `n`. -/
 theorem gap6 (n : ℕ) (hn : 1800000 < n) :
     180 / (n : ℝ) < 0.0001 := by
   have hnR : (1800000 : ℝ) < (n : ℝ) := Nat.cast_lt.mpr hn
@@ -86,7 +86,7 @@ theorem gap6 (n : ℕ) (hn : 1800000 < n) :
   norm_num at ⊢
   linarith
 
-/-- Source: `proof_gap/exercise_803/7.txt`; state the numeric implication directly. -/
+/-- Exercise 803, gap 7; state the numeric implication directly. -/
 theorem gap7 (n : ℕ) (hn : 0 < n) (hsmall : 180 / (n : ℝ) < 0.0001) :
     1800000 < n := by
   have hnR : (0 : ℝ) < (n : ℝ) := Nat.cast_pos.mpr hn
@@ -96,7 +96,7 @@ theorem gap7 (n : ℕ) (hn : 0 < n) (hsmall : 180 / (n : ℝ) < 0.0001) :
     linarith
   exact Nat.cast_lt.mp hcast
 
-/-- Source: `proof_gap/exercise_803/8.txt`; correct `n≥1800000` to strict `n>1800000` and expose the grid. -/
+/-- Exercise 803, gap 8; correct `n≥1800000` to strict `n>1800000` and expose the grid. -/
 theorem gap8 (n : ℕ) (hn : 1800000 < n) : GridOscillationSmall n := by
   unfold GridOscillationSmall
   intro k hk x₁ hx₁ x₂ hx₂

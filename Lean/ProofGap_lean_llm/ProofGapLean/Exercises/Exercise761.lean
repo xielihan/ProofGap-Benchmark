@@ -12,13 +12,13 @@ def Iteration (ε : ℝ) (Y : ℕ → ℝ → ℝ) : Prop :=
 def geomSum (ε : ℝ) (n : ℕ) : ℝ :=
   (Finset.range (n + 1)).sum (fun k => ε ^ k)
 
-/-- Source: `proof_gap/exercise_761/1.txt`; represent the sequence limit by `Tendsto`. -/
+/-- Exercise 761, gap 1; represent the sequence limit by `Tendsto`. -/
 theorem gap1 (ε : ℝ) (Y : ℕ → ℝ → ℝ) (y : ℝ → ℝ)
     (hlim : ∀ x, Filter.Tendsto (fun n => Y n x) Filter.atTop (nhds (y x))) :
     ∀ x, Filter.Tendsto (fun n => Y n x) Filter.atTop (nhds (y x)) := by
   exact hlim
 
-/-- Source: `proof_gap/exercise_761/2.txt`. -/
+/-- Exercise 761, gap 2. -/
 theorem gap2 (ε x : ℝ) (Y : ℕ → ℝ → ℝ) (y : ℝ → ℝ)
     (hiter : Iteration ε Y)
     (hlim : Filter.Tendsto (fun n => Y n x) Filter.atTop (nhds (y x))) :
@@ -43,7 +43,7 @@ theorem gap2 (ε x : ℝ) (Y : ℕ → ℝ → ℝ) (y : ℝ → ℝ)
   have heq := tendsto_nhds_unique hshift hright
   linarith
 
-/-- Source: `proof_gap/exercise_761/3.txt`; bind the unique root rather than `existsUnique (y(x))`. -/
+/-- Exercise 761, gap 3; bind the unique root rather than `existsUnique (y(x))`. -/
 theorem gap3 (ε x : ℝ) (hε0 : 0 ≤ ε) (hε1 : ε < 1) :
     ∃! z : ℝ, z - ε * Real.sin z = x := by
   let f : ℝ → ℝ := fun z => z - ε * Real.sin z
@@ -75,7 +75,7 @@ theorem gap3 (ε x : ℝ) (hε0 : 0 ≤ ε) (hε1 : ε < 1) :
     nlinarith [abs_nonneg (z - w)]
   exact (sub_eq_zero.mp (abs_eq_zero.mp hzero)).symm
 
-/-- Source: `proof_gap/exercise_761/4.txt`; add `n≥1` before using `n-1`. -/
+/-- Exercise 761, gap 4; add `n≥1` before using `n-1`. -/
 theorem gap4 (ε x : ℝ) (Y : ℕ → ℝ → ℝ) (n : ℕ) (hn : 1 ≤ n)
     (hiter : Iteration ε Y) :
     ∀ x₀, |Y n x - Y n x₀| =
@@ -90,7 +90,7 @@ theorem gap4 (ε x : ℝ) (Y : ℕ → ℝ → ℝ) (n : ℕ) (hn : 1 ≤ n)
   congr 1
   ring
 
-/-- Source: `proof_gap/exercise_761/5.txt`; add `n≥1`. -/
+/-- Exercise 761, gap 5; add `n≥1`. -/
 theorem gap5 (ε x : ℝ) (Y : ℕ → ℝ → ℝ) (n : ℕ) (hn : 1 ≤ n)
     (hε : 0 ≤ ε) (hiter : Iteration ε Y) :
     ∀ x₀, |Y n x - Y n x₀| ≤
@@ -109,7 +109,7 @@ theorem gap5 (ε x : ℝ) (Y : ℕ → ℝ → ℝ) (n : ℕ) (hn : 1 ≤ n)
       add_le_add le_rfl
         (mul_le_mul_of_nonneg_left (Real.abs_sin_sub_sin_le _ _) hε)
 
-/-- Source: `proof_gap/exercise_761/6.txt`; replace the ellipsis by a finite geometric sum. -/
+/-- Exercise 761, gap 6; replace the ellipsis by a finite geometric sum. -/
 theorem gap6 (ε x : ℝ) (Y : ℕ → ℝ → ℝ) (n : ℕ)
     (hε : 0 ≤ ε) (hiter : Iteration ε Y) :
     ∀ x₀, |Y n x - Y n x₀| ≤ |x - x₀| * geomSum ε n := by
@@ -129,7 +129,7 @@ theorem gap6 (ε x : ℝ) (Y : ℕ → ℝ → ℝ) (n : ℕ)
           simp only [geomSum, geom_sum_succ]
           ring
 
-/-- Source: `proof_gap/exercise_761/7.txt`; correct the unsupported equality to the geometric-sum bound. -/
+/-- Exercise 761, gap 7; correct the unsupported equality to the geometric-sum bound. -/
 theorem gap7 (ε x : ℝ) (Y : ℕ → ℝ → ℝ) (n : ℕ)
     (hεne : ε ≠ 1)
     (hbound : ∀ x₀, |Y n x - Y n x₀| ≤ |x - x₀| * geomSum ε n) :
@@ -146,7 +146,7 @@ theorem gap7 (ε x : ℝ) (Y : ℕ → ℝ → ℝ) (n : ℕ)
     ring
   simpa [hgeom] using hbound x₀
 
-/-- Source: `proof_gap/exercise_761/8.txt`. -/
+/-- Exercise 761, gap 8. -/
 theorem gap8 (ε x x₀ : ℝ) (n : ℕ) (hε0 : 0 ≤ ε) (hε1 : ε < 1) :
     |x - x₀| * ((1 - ε ^ (n + 1)) / (1 - ε)) ≤
       (1 / (1 - ε)) * |x - x₀| := by
@@ -158,7 +158,7 @@ theorem gap8 (ε x x₀ : ℝ) (n : ℕ) (hε0 : 0 ≤ ε) (hε1 : ε < 1) :
   have hmul := mul_le_mul_of_nonneg_left hfrac (abs_nonneg (x - x₀))
   nlinarith
 
-/-- Source: `proof_gap/exercise_761/9.txt`. -/
+/-- Exercise 761, gap 9. -/
 theorem gap9 (ε x : ℝ) (Y : ℕ → ℝ → ℝ) (n : ℕ)
     (hε0 : 0 ≤ ε) (hε1 : ε < 1)
     (hbound : ∀ x₀, |Y n x - Y n x₀| ≤
@@ -167,7 +167,7 @@ theorem gap9 (ε x : ℝ) (Y : ℕ → ℝ → ℝ) (n : ℕ)
   intro x₀
   exact (hbound x₀).trans (gap8 ε x x₀ n hε0 hε1)
 
-/-- Source: `proof_gap/exercise_761/10.txt`; pass the uniform bound to the pointwise limit. -/
+/-- Exercise 761, gap 10; pass the uniform bound to the pointwise limit. -/
 theorem gap10 (ε x : ℝ) (Y : ℕ → ℝ → ℝ) (y : ℝ → ℝ)
     (hε0 : 0 ≤ ε) (hε1 : ε < 1)
     (hlim : ∀ z, Filter.Tendsto (fun n => Y n z) Filter.atTop (nhds (y z)))
@@ -181,7 +181,7 @@ theorem gap10 (ε x : ℝ) (Y : ℕ → ℝ → ℝ) (y : ℝ → ℝ)
   apply le_of_tendsto hdiff.abs
   exact Filter.Eventually.of_forall fun n => hbound n x₀
 
-/-- Source: `proof_gap/exercise_761/11.txt`. -/
+/-- Exercise 761, gap 11. -/
 theorem gap11 (ε : ℝ) (y : ℝ → ℝ) (hε : ε < 1)
     (hlip : ∀ x x₀, |y x - y x₀| ≤ (1 / (1 - ε)) * |x - x₀|) :
     ∀ x₀, Filter.Tendsto y (nhds x₀) (nhds (y x₀)) := by
@@ -193,14 +193,14 @@ theorem gap11 (ε : ℝ) (y : ℝ → ℝ) (hε : ε < 1)
   intro x₀
   exact hK.continuous.tendsto x₀
 
-/-- Source: `proof_gap/exercise_761/12.txt`. -/
+/-- Exercise 761, gap 12. -/
 theorem gap12 (y : ℝ → ℝ)
     (hlim : ∀ x₀, Filter.Tendsto y (nhds x₀) (nhds (y x₀))) :
     Continuous y := by
   rw [continuous_iff_continuousAt]
   exact hlim
 
-/-- Source: `proof_gap/exercise_761/13.txt`; make function typing and uniqueness explicit. -/
+/-- Exercise 761, gap 13; make function typing and uniqueness explicit. -/
 theorem gap13 (ε : ℝ) (hε0 : 0 ≤ ε) (hε1 : ε < 1) :
     ∃! y : ℝ → ℝ, Continuous y ∧
       ∀ x, y x - ε * Real.sin (y x) = x := by

@@ -8,7 +8,7 @@ noncomputable section
 def seq (x : ℝ) : ℝ :=
   Real.rpow ((1 + x) / (2 + x)) ((1 - Real.sqrt x) / (1 - x))
 
-/-- Source: `proof_gap/exercise_506_1/1.txt`. -/
+/-- Exercise 506_1, gap 1. -/
 theorem gap1 :
     Filter.Tendsto seq (nhds 0) (nhds (1 / 2 : ℝ)) := by
   have hbase :

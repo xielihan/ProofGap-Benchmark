@@ -10,7 +10,7 @@ noncomputable section
 def y (x : ℝ) : ℝ :=
   Real.sin (Real.cos x ^ 2) * Real.cos (Real.sin x ^ 2)
 
-/-- Source: `proof_gap/exercise_864/1.txt`. -/
+/-- Exercise 864, gap 1. -/
 theorem gap1 (x : ℝ) :
     HasDerivAt y
       (-2 * Real.sin x * Real.cos x * Real.cos (Real.cos x ^ 2) *
@@ -35,7 +35,7 @@ theorem gap1 (x : ℝ) :
   convert h₁.mul h₂ using 1 <;>
     ring
 
-/-- Source: `proof_gap/exercise_864/2.txt`. -/
+/-- Exercise 864, gap 2. -/
 theorem gap2 (x : ℝ) :
     HasDerivAt y
       (-Real.sin (2 * x) *
@@ -45,13 +45,13 @@ theorem gap2 (x : ℝ) :
     rw [Real.sin_two_mul] <;>
     ring
 
-/-- Source: `proof_gap/exercise_864/3.txt`. -/
+/-- Exercise 864, gap 3. -/
 theorem gap3 (x : ℝ) :
     HasDerivAt y
       (-Real.sin (2 * x) * Real.cos (Real.cos x ^ 2 - Real.sin x ^ 2)) x := by
   simpa only [Real.cos_sub] using gap2 x
 
-/-- Source: `proof_gap/exercise_864/4.txt`. -/
+/-- Exercise 864, gap 4. -/
 theorem gap4 (x : ℝ) :
     HasDerivAt y (-Real.sin (2 * x) * Real.cos (Real.cos (2 * x))) x := by
   have h : Real.cos x ^ 2 - Real.sin x ^ 2 = Real.cos (2 * x) := by

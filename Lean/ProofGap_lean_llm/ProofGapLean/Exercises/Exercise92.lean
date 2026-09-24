@@ -20,7 +20,7 @@ def z (n : ℕ) : ℝ :=
 def telescopingProduct (x : ℕ → ℝ) (N n : ℕ) : ℝ :=
   |x N| * ∏ k ∈ Finset.Icc N (n - 1), |ratio x k|
 
-/-- Source: `proof_gap/exercise_92/1.txt`; use the quotient limit law. -/
+/-- Exercise 92, gap 1; use the quotient limit law. -/
 theorem gap1
     (x : ℕ → ℝ) (a : ℝ)
     (hx : Tendsto x atTop (𝓝 a))
@@ -29,17 +29,17 @@ theorem gap1
   unfold ratio
   exact (hx.comp (tendsto_add_atTop_nat 1)).div hx ha
 
-/-- Source: `proof_gap/exercise_92/2.txt`; both shifted and original limits are a. -/
+/-- Exercise 92, gap 2; both shifted and original limits are a. -/
 theorem gap2 (a : ℝ) (ha : a ≠ 0) :
     a / a = a / a := by
   rfl
 
-/-- Source: `proof_gap/exercise_92/3.txt`. -/
+/-- Exercise 92, gap 3. -/
 theorem gap3 (a : ℝ) (ha : a ≠ 0) :
     a / a = 1 := by
   exact div_self ha
 
-/-- Source: `proof_gap/exercise_92/4.txt`. -/
+/-- Exercise 92, gap 4. -/
 theorem gap4
     (x : ℕ → ℝ) (a : ℝ)
     (hx : Tendsto x atTop (𝓝 a))
@@ -47,7 +47,7 @@ theorem gap4
     Tendsto (ratio x) atTop (𝓝 1) := by
   simpa [gap3 a ha] using gap1 x a hx ha
 
-/-- Source: `proof_gap/exercise_92/5.txt`; z is defined on all natural indices. -/
+/-- Exercise 92, gap 5; z is defined on all natural indices. -/
 theorem gap5 :
     Tendsto z atTop (𝓝 0) := by
   have hindex :
@@ -58,7 +58,7 @@ theorem gap5 :
     omega
   exact (tendsto_pow_atTop_nhds_zero_of_lt_one (by norm_num) (by norm_num)).comp hindex
 
-/-- Source: `proof_gap/exercise_92/6.txt`; use positive pair indices. -/
+/-- Exercise 92, gap 6; use positive pair indices. -/
 theorem gap6 :
     Tendsto (fun m : ℕ => z (2 * (m + 1)) / z (2 * (m + 1) - 1))
       atTop (𝓝 1) := by
@@ -70,7 +70,7 @@ theorem gap6 :
   rw [hnum, hden]
   exact div_self (pow_ne_zero _ (by norm_num))
 
-/-- Source: `proof_gap/exercise_92/7.txt`; use positive pair indices. -/
+/-- Exercise 92, gap 7; use positive pair indices. -/
 theorem gap7 :
     Tendsto (fun m : ℕ => z (2 * (m + 1) + 1) / z (2 * (m + 1)))
       atTop (𝓝 (1 / 2)) := by
@@ -82,7 +82,7 @@ theorem gap7 :
   rw [hnum, hden, pow_succ]
   field_simp
 
-/-- Source: `proof_gap/exercise_92/8.txt`. -/
+/-- Exercise 92, gap 8. -/
 theorem gap8 :
     ¬ ∃ b : ℝ, Tendsto (ratio z) atTop (𝓝 b) := by
   rintro ⟨b, hb⟩
@@ -110,7 +110,7 @@ theorem gap8 :
   have hbhalf : b = 1 / 2 := tendsto_nhds_unique hb2 gap7
   norm_num [hbone] at hbhalf
 
-/-- Source: `proof_gap/exercise_92/9.txt`; remove the shadowed existential b. -/
+/-- Exercise 92, gap 9; remove the shadowed existential b. -/
 theorem gap9
     (x : ℕ → ℝ) (b : ℝ)
     (hratio : Tendsto (ratio x) atTop (𝓝 b)) :
@@ -119,7 +119,7 @@ theorem gap9
   filter_upwards [] with n
   simp [ratio, absRatio, abs_div]
 
-/-- Source: `proof_gap/exercise_92/10.txt`; choose N after r. -/
+/-- Exercise 92, gap 10; choose N after r. -/
 theorem gap10
     (x : ℕ → ℝ) (b r : ℝ)
     (hratio : Tendsto (ratio x) atTop (𝓝 b))
@@ -129,7 +129,7 @@ theorem gap10
     (gap9 x b hratio).eventually (Ioi_mem_nhds hrb)
   exact eventually_atTop.1 hev
 
-/-- Source: `proof_gap/exercise_92/11.txt`; the telescoping product is explicit. -/
+/-- Exercise 92, gap 11; the telescoping product is explicit. -/
 theorem gap11
     (x : ℕ → ℝ) :
     ∀ N n : ℕ, N < n → x N ≠ 0 →
@@ -177,7 +177,7 @@ theorem gap11
         ring
   exact htel d hnz
 
-/-- Source: `proof_gap/exercise_92/12.txt`; the product bound has explicit hypotheses. -/
+/-- Exercise 92, gap 12; the product bound has explicit hypotheses. -/
 theorem gap12
     (x : ℕ → ℝ) (r : ℝ) :
     ∀ N n : ℕ, N < n → x N ≠ 0 → 0 < r →
@@ -213,7 +213,7 @@ theorem gap12
       |x N| * r ^ (n - N)
   exact mul_lt_mul_of_pos_left hprod' (abs_pos.mpr hxN)
 
-/-- Source: `proof_gap/exercise_92/13.txt`. -/
+/-- Exercise 92, gap 13. -/
 theorem gap13
     (x : ℕ → ℝ) (r : ℝ) :
     ∀ N n : ℕ, N < n → x N ≠ 0 → 0 < r →
@@ -228,7 +228,7 @@ theorem gap13
   rw [gap11 x N n hNn hxN hnz]
   exact gap12 x r N n hNn hxN hr hratio
 
-/-- Source: `proof_gap/exercise_92/14.txt`; divergence is stated for absolute values. -/
+/-- Exercise 92, gap 14; divergence is stated for absolute values. -/
 theorem gap14
     (x : ℕ → ℝ) (b : ℝ)
     (hzero : Tendsto x atTop (𝓝 0))
@@ -297,7 +297,7 @@ theorem gap14
   apply (tendsto_add_atTop_iff_nat N).mp
   simpa [add_comm] using hshift
 
-/-- Source: `proof_gap/exercise_92/15.txt`. -/
+/-- Exercise 92, gap 15. -/
 theorem gap15
     (x : ℕ → ℝ) (b : ℝ)
     (hzero : Tendsto x atTop (𝓝 0))
@@ -315,7 +315,7 @@ theorem gap15
   rcases (hhigh.and hlow).exists with ⟨n, hn1, hn2⟩
   linarith
 
-/-- Source: `proof_gap/exercise_92/16.txt`. -/
+/-- Exercise 92, gap 16. -/
 theorem gap16
     (x : ℕ → ℝ) (b : ℝ)
     (hzero : Tendsto x atTop (𝓝 0))
@@ -328,7 +328,7 @@ theorem gap16
     linarith
   exact gap15 x b hzero hnz hratio hb
 
-/-- Source: `proof_gap/exercise_92/17.txt`. -/
+/-- Exercise 92, gap 17. -/
 theorem gap17
     (x : ℕ → ℝ) (b : ℝ)
     (hzero : Tendsto x atTop (𝓝 0))
@@ -339,12 +339,12 @@ theorem gap17
   have hb : 1 < |b| := lt_of_lt_of_le (by linarith) (le_abs_self b)
   exact gap15 x b hzero hnz hratio hb
 
-/-- Source: `proof_gap/exercise_92/18.txt`. -/
+/-- Exercise 92, gap 18. -/
 theorem gap18 :
     (-1 : ℝ) ≤ 1 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_92/19.txt`. -/
+/-- Exercise 92, gap 19. -/
 theorem gap19
     (x : ℕ → ℝ) (a : ℝ)
     (hx : Tendsto x atTop (𝓝 a))
@@ -352,7 +352,7 @@ theorem gap19
     Tendsto (ratio x) atTop (𝓝 1) := by
   exact gap4 x a hx ha
 
-/-- Source: `proof_gap/exercise_92/20.txt`. -/
+/-- Exercise 92, gap 20. -/
 theorem gap20
     (x : ℕ → ℝ)
     (hzero : Tendsto x atTop (𝓝 0))

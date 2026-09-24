@@ -7,7 +7,7 @@ open Filter Topology
 /-!
 # Exercise 71
 
-Semantic formalization of `proof_gap/exercise_71/{1,...,25}.txt`.
+Semantic formalization of Exercise 71, gaps 1,...,25.
 -/
 
 namespace ProofGap.Exercise71
@@ -43,26 +43,26 @@ def shiftedTransform (p : ℕ → ℝ) (n : ℕ) : ℝ :=
   Real.rpow (1 + 1 / (p n - 1)) (p n - 1) *
     (1 + 1 / (p n - 1))
 
-/-- Source: `proof_gap/exercise_71/1.txt`. -/
+/-- Exercise 71, gap 1. -/
 theorem gap1 (p : ℕ → ℝ) :
     ∀ n : ℕ, k p n ≤ p n := by
   intro n
   exact_mod_cast Int.floor_le (p n)
 
-/-- Source: `proof_gap/exercise_71/2.txt`. -/
+/-- Exercise 71, gap 2. -/
 theorem gap2 (p : ℕ → ℝ) :
     ∀ n : ℕ, p n < k p n + 1 := by
   intro n
   unfold k
   exact_mod_cast Int.lt_floor_add_one (p n)
 
-/-- Source: `proof_gap/exercise_71/3.txt`. -/
+/-- Exercise 71, gap 3. -/
 theorem gap3 (p : ℕ → ℝ) :
     ∀ n : ℕ, k p n < k p n + 1 := by
   intro n
   linarith
 
-/-- Source: `proof_gap/exercise_71/4.txt`. -/
+/-- Exercise 71, gap 4. -/
 theorem gap4
     (p : ℕ → ℝ)
     (hp : Tendsto p atTop (atTop : Filter ℝ)) :
@@ -71,7 +71,7 @@ theorem gap4
   exact tendsto_intCast_atTop_atTop.comp
     ((tendsto_floor_atTop (α := ℝ)).comp hp)
 
-/-- Source: `proof_gap/exercise_71/5.txt`; the cited Exercise 69 limit is explicit. -/
+/-- Exercise 71, gap 5; the cited Exercise 69 limit is explicit. -/
 theorem gap5
     (p : ℕ → ℝ) (e : ℝ)
     (hbase : Tendsto
@@ -102,7 +102,7 @@ theorem gap5
   rw [hkm]
   exact (Real.rpow_natCast (1 + 1 / (m n : ℝ)) (m n)).symm
 
-/-- Source: `proof_gap/exercise_71/6.txt`; positivity holds eventually. -/
+/-- Exercise 71, gap 6; positivity holds eventually. -/
 theorem gap6
     (p : ℕ → ℝ)
     (hp : Tendsto p atTop (atTop : Filter ℝ)) :
@@ -111,7 +111,7 @@ theorem gap6
   filter_upwards [hk.eventually_gt_atTop 0] with n hkn
   exact one_div_le_one_div_of_le hkn (gap1 p n)
 
-/-- Source: `proof_gap/exercise_71/7.txt`; positivity holds eventually. -/
+/-- Exercise 71, gap 7; positivity holds eventually. -/
 theorem gap7
     (p : ℕ → ℝ)
     (hp : Tendsto p atTop (atTop : Filter ℝ)) :
@@ -119,7 +119,7 @@ theorem gap7
   filter_upwards [hp.eventually_gt_atTop 0] with n hpn
   exact one_div_lt_one_div_of_lt hpn (gap2 p n)
 
-/-- Source: `proof_gap/exercise_71/8.txt`; positivity holds eventually. -/
+/-- Exercise 71, gap 8; positivity holds eventually. -/
 theorem gap8
     (p : ℕ → ℝ)
     (hp : Tendsto p atTop (atTop : Filter ℝ)) :
@@ -128,7 +128,7 @@ theorem gap8
   filter_upwards [hk.eventually_gt_atTop 0] with n hkn
   exact one_div_lt_one_div_of_lt hkn (gap3 p n)
 
-/-- Source: `proof_gap/exercise_71/9.txt`; the comparison is eventual. -/
+/-- Exercise 71, gap 9; the comparison is eventual. -/
 theorem gap9
     (p : ℕ → ℝ)
     (hp : Tendsto p atTop (atTop : Filter ℝ)) :
@@ -154,7 +154,7 @@ theorem gap9
   simpa [expSeq, kUpper, A, B, Real.rpow_eq_pow] using
     hexp.trans_le hbase
 
-/-- Source: `proof_gap/exercise_71/10.txt`; the comparison is eventual. -/
+/-- Exercise 71, gap 10; the comparison is eventual. -/
 theorem gap10
     (p : ℕ → ℝ)
     (hp : Tendsto p atTop (atTop : Filter ℝ)) :
@@ -180,7 +180,7 @@ theorem gap10
   simpa [expSeq, kLower, A, B, Real.rpow_eq_pow] using
     hexp.trans_lt hbase
 
-/-- Source: `proof_gap/exercise_71/11.txt`; the comparison is eventual. -/
+/-- Exercise 71, gap 11; the comparison is eventual. -/
 theorem gap11
     (p : ℕ → ℝ)
     (hp : Tendsto p atTop (atTop : Filter ℝ)) :
@@ -188,14 +188,14 @@ theorem gap11
   filter_upwards [gap9 p hp, gap10 p hp] with n hu hl
   exact hl.trans hu
 
-/-- Source: `proof_gap/exercise_71/12.txt`. -/
+/-- Exercise 71, gap 12. -/
 theorem gap12
     (p : ℕ → ℝ) (e : ℝ)
     (h : Tendsto (kUpper p) atTop (𝓝 e)) :
     Tendsto (kUpper p) atTop (𝓝 e) := by
   exact h
 
-/-- Source: `proof_gap/exercise_71/13.txt`; equality of raw limits becomes a pointwise identity. -/
+/-- Exercise 71, gap 13; equality of raw limits becomes a pointwise identity. -/
 theorem gap13
     (p : ℕ → ℝ)
     (hp : Tendsto p atTop (atTop : Filter ℝ)) :
@@ -214,14 +214,14 @@ theorem gap13
     ring
   simpa [kLower, kLowerProduct, B, Real.rpow_eq_pow] using hident
 
-/-- Source: `proof_gap/exercise_71/14.txt`. -/
+/-- Exercise 71, gap 14. -/
 theorem gap14
     (p : ℕ → ℝ) (e : ℝ)
     (h : Tendsto (kLowerProduct p) atTop (𝓝 e)) :
     Tendsto (kLowerProduct p) atTop (𝓝 e) := by
   exact h
 
-/-- Source: `proof_gap/exercise_71/15.txt`. -/
+/-- Exercise 71, gap 15. -/
 theorem gap15
     (p : ℕ → ℝ) (e : ℝ)
     (hid : ∀ᶠ n in atTop, kLower p n = kLowerProduct p n)
@@ -229,7 +229,7 @@ theorem gap15
     Tendsto (kLower p) atTop (𝓝 e) := by
   exact h.congr' (hid.mono fun _ hn => hn.symm)
 
-/-- Source: `proof_gap/exercise_71/16.txt`; the squeeze assumptions are explicit. -/
+/-- Exercise 71, gap 16; the squeeze assumptions are explicit. -/
 theorem gap16
     (p : ℕ → ℝ) (e : ℝ)
     (hlower : Tendsto (kLower p) atTop (𝓝 e))
@@ -239,7 +239,7 @@ theorem gap16
     Tendsto (expSeq p) atTop (𝓝 e) := by
   exact tendsto_of_tendsto_of_tendsto_of_le_of_le' hlower hupper hl hu
 
-/-- Source: `proof_gap/exercise_71/17.txt`; `q = -p` gives a pointwise identity. -/
+/-- Exercise 71, gap 17; `q = -p` gives a pointwise identity. -/
 theorem gap17
     (p q : ℕ → ℝ)
     (hqp : ∀ n : ℕ, q n = -p n) :
@@ -250,7 +250,7 @@ theorem gap17
   congr 2
   field_simp
 
-/-- Source: `proof_gap/exercise_71/18.txt`; the algebraic transform is eventual. -/
+/-- Exercise 71, gap 18; the algebraic transform is eventual. -/
 theorem gap18
     (p : ℕ → ℝ)
     (hp : Tendsto p atTop (atTop : Filter ℝ)) :
@@ -271,7 +271,7 @@ theorem gap18
   rw [hbase] at hid
   simpa [negativeTransform, ratioTransform, A, B, Real.rpow_eq_pow] using hid
 
-/-- Source: `proof_gap/exercise_71/19.txt`; the algebraic transform is eventual. -/
+/-- Exercise 71, gap 19; the algebraic transform is eventual. -/
 theorem gap19
     (p : ℕ → ℝ)
     (hp : Tendsto p atTop (atTop : Filter ℝ)) :
@@ -295,14 +295,14 @@ theorem gap19
   simpa [ratioTransform, shiftedTransform, A, B, hbase,
     Real.rpow_eq_pow] using hid
 
-/-- Source: `proof_gap/exercise_71/20.txt`. -/
+/-- Exercise 71, gap 20. -/
 theorem gap20
     (p : ℕ → ℝ) (e : ℝ)
     (h : Tendsto (shiftedTransform p) atTop (𝓝 e)) :
     Tendsto (shiftedTransform p) atTop (𝓝 e) := by
   exact h
 
-/-- Source: `proof_gap/exercise_71/21.txt`. -/
+/-- Exercise 71, gap 21. -/
 theorem gap21
     (p q : ℕ → ℝ) (e : ℝ)
     (hqp : ∀ n : ℕ, q n = -p n)
@@ -310,7 +310,7 @@ theorem gap21
     Tendsto (expSeq q) atTop (𝓝 e) := by
   exact hneg.congr' (Filter.Eventually.of_forall fun n => (gap17 p q hqp n).symm)
 
-/-- Source: `proof_gap/exercise_71/22.txt`; equal limits are represented by a common value. -/
+/-- Exercise 71, gap 22; equal limits are represented by a common value. -/
 theorem gap22
     (p q : ℕ → ℝ) (e : ℝ)
     (hp : Tendsto (expSeq p) atTop (𝓝 e))
@@ -320,21 +320,21 @@ theorem gap22
       Tendsto (expSeq q) atTop (𝓝 L) := by
   exact ⟨e, hp, hq⟩
 
-/-- Source: `proof_gap/exercise_71/23.txt`. -/
+/-- Exercise 71, gap 23. -/
 theorem gap23
     (q : ℕ → ℝ) (e : ℝ)
     (hq : Tendsto (expSeq q) atTop (𝓝 e)) :
     Tendsto (expSeq q) atTop (𝓝 e) := by
   exact hq
 
-/-- Source: `proof_gap/exercise_71/24.txt`. -/
+/-- Exercise 71, gap 24. -/
 theorem gap24
     (p : ℕ → ℝ) (e : ℝ)
     (hp : Tendsto (expSeq p) atTop (𝓝 e)) :
     Tendsto (expSeq p) atTop (𝓝 e) := by
   exact hp
 
-/-- Source: `proof_gap/exercise_71/25.txt`. -/
+/-- Exercise 71, gap 25. -/
 theorem gap25
     (p q : ℕ → ℝ) (e : ℝ)
     (hp : Tendsto (expSeq p) atTop (𝓝 e))

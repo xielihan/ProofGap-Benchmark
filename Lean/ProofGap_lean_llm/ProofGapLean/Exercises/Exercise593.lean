@@ -13,7 +13,7 @@ def rationalized (x : ℝ) : ℝ := x / (Real.sqrt (x ^ 2 + x) + x)
 def HasLimitAtPosInfinity (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f Filter.atTop (nhds L)
 
-/-- Source: `proof_gap/exercise_593/1.txt`. -/
+/-- Exercise 593, gap 1. -/
 theorem gap1 : Filter.Tendsto original Filter.atBot Filter.atTop := by
   refine Filter.tendsto_atTop.2 ?_
   intro b
@@ -22,7 +22,7 @@ theorem gap1 : Filter.Tendsto original Filter.atBot Filter.atTop := by
   unfold original
   linarith
 
-/-- Source: `proof_gap/exercise_593/2.txt`. -/
+/-- Exercise 593, gap 2. -/
 theorem gap2 (L : ℝ) :
     HasLimitAtPosInfinity original L ↔ HasLimitAtPosInfinity rationalized L := by
   have heq : original =ᶠ[Filter.atTop] rationalized := by
@@ -41,7 +41,7 @@ theorem gap2 (L : ℝ) :
   · intro h
     exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_593/3.txt`. -/
+/-- Exercise 593, gap 3. -/
 theorem gap3 : HasLimitAtPosInfinity rationalized (1 / 2) := by
   unfold HasLimitAtPosInfinity
   have hinv :
@@ -101,7 +101,7 @@ theorem gap3 : HasLimitAtPosInfinity rationalized (1 / 2) := by
     hrecip.congr' heq.symm
   simpa [one_div] using hrat
 
-/-- Source: `proof_gap/exercise_593/4.txt`. -/
+/-- Exercise 593, gap 4. -/
 theorem gap4 : HasLimitAtPosInfinity original (1 / 2) := by
   exact (gap2 (1 / 2)).mpr gap3
 

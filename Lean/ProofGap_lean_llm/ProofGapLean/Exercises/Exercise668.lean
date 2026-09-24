@@ -3,7 +3,7 @@ import Mathlib.Tactic
 
 namespace ProofGap.Exercise668
 
-/-- Source: `proof_gap/exercise_668/1.txt`; epsilon-delta witness for failure of continuity. -/
+/-- Exercise 668, gap 1; epsilon-delta witness for failure of continuity. -/
 theorem gap1 (f : ℝ → ℝ) (x₀ : ℝ) (h : ¬ ContinuousAt f x₀) :
     ∃ ε₀ > 0, ∀ δ > 0, ∃ x,
       |x - x₀| < δ ∧ ε₀ ≤ |f x - f x₀| := by
@@ -11,7 +11,7 @@ theorem gap1 (f : ℝ → ℝ) (x₀ : ℝ) (h : ¬ ContinuousAt f x₀) :
   push_neg at h
   simpa only [Real.dist_eq] using h
 
-/-- Source: `proof_gap/exercise_668/2.txt`. -/
+/-- Exercise 668, gap 2. -/
 theorem gap2 (f : ℝ → ℝ) (x₀ : ℝ) :
     ¬ ContinuousAt f x₀ ↔
       ∃ ε₀ > 0, ∀ δ > 0, ∃ x,

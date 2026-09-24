@@ -18,7 +18,7 @@ def r₂ (x : ℝ) : ℝ :=
 def y (x : ℝ) : ℝ :=
   Real.sqrt (x + r₂ x)
 
-/-- Source: `proof_gap/exercise_860/1.txt`.
+/-- Exercise 860, gap 1.
 The nested square roots are differentiated on their natural open domain. -/
 private theorem nestedRoots_pos (x : ℝ) (hx : 0 < x) :
     0 < r₁ x ∧ 0 < r₂ x ∧ 0 < y x := by
@@ -58,7 +58,7 @@ theorem gap1 (x : ℝ) (hx : 0 < x) :
   have hsqrt := hasDerivAtSqrtOfPos (x + r₂ x) (add_pos hx hr2_pos)
   simpa [y] using hsqrt.comp x harg3
 
-/-- Source: `proof_gap/exercise_860/2.txt`.
+/-- Exercise 860, gap 2.
 The positive-domain hypothesis supplies all omitted nonzero denominators. -/
 theorem gap2 (x : ℝ) (hx : 0 < x) :
     1 / (2 * y x) *
@@ -72,7 +72,7 @@ theorem gap2 (x : ℝ) (hx : 0 < x) :
   field_simp [hr1_ne, hr2_ne, hy_ne]
   ring
 
-/-- Source: `proof_gap/exercise_860/3.txt`.
+/-- Exercise 860, gap 3.
 The nested square roots are differentiated on their natural open domain. -/
 theorem gap3 (x : ℝ) (hx : 0 < x) :
     HasDerivAt y

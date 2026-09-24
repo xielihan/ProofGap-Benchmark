@@ -16,7 +16,7 @@ def rewritten (a x : ℝ) : ℝ :=
 def HasLimitAtPosInfinity (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f Filter.atTop (nhds L)
 
-/-- Source: `proof_gap/exercise_515/1.txt`; exclude the zero parameter used in the substitution. -/
+/-- Exercise 515, gap 1; exclude the zero parameter used in the substitution. -/
 private theorem original_limit_of_ne_zero (a : ℝ) (ha : a ≠ 0) :
     HasLimitAtPosInfinity (original a) (Real.exp (2 * a)) := by
   unfold HasLimitAtPosInfinity
@@ -141,7 +141,7 @@ theorem gap1 (a x : ℝ) (ha : a ≠ 0) (hxa : x ≠ a) :
   · field_simp [ha, sub_ne_zero.mpr hxa] <;> ring
   · field_simp [ha] <;> ring
 
-/-- Source: `proof_gap/exercise_515/2.txt`; exclude `a=0` in the displayed substitution. -/
+/-- Exercise 515, gap 2; exclude `a=0` in the displayed substitution. -/
 theorem gap2 (a : ℝ) (ha : a ≠ 0) (L : ℝ) :
     HasLimitAtPosInfinity (original a) L ↔
       HasLimitAtPosInfinity (rewritten a) L := by
@@ -151,13 +151,13 @@ theorem gap2 (a : ℝ) (ha : a ≠ 0) (L : ℝ) :
     exact gap1 a x ha (ne_of_gt hx)
   exact ⟨fun h => h.congr' heq, fun h => h.congr' heq.symm⟩
 
-/-- Source: `proof_gap/exercise_515/3.txt`; exclude `a=0` in the displayed substitution. -/
+/-- Exercise 515, gap 3; exclude `a=0` in the displayed substitution. -/
 theorem gap3 (a : ℝ) (ha : a ≠ 0) :
     HasLimitAtPosInfinity (rewritten a) (Real.exp (2 * a)) := by
   exact (gap2 a ha (Real.exp (2 * a))).mp
     (original_limit_of_ne_zero a ha)
 
-/-- Source: `proof_gap/exercise_515/4.txt`; the final limit also covers `a=0`. -/
+/-- Exercise 515, gap 4; the final limit also covers `a=0`. -/
 theorem gap4 (a : ℝ) :
     HasLimitAtPosInfinity (original a) (Real.exp (2 * a)) := by
   by_cases ha : a = 0

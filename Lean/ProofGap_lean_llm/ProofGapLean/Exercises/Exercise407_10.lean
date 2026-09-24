@@ -11,7 +11,7 @@ def ApproachesAboveAtInfinity (f : ℝ → ℝ) (b : ℝ) : Prop :=
 
 def f (x : ℝ) : ℝ := 1 / (1 + x ^ 2)
 
-/-- Source: `proof_gap/exercise_407_10/1.txt`; bind `y=f(x)` and remove the shadowed threshold. -/
+/-- Exercise 407_10, gap 1; bind `y=f(x)` and remove the shadowed threshold. -/
 theorem gap1 : ∀ ε > 0, ∃ N > 0, ∀ x, N < |x| →
     0 < f x ∧ f x < ε := by
   intro ε hε
@@ -49,21 +49,21 @@ theorem gap1 : ∀ ε > 0, ∃ N > 0, ∀ x, N < |x| →
   · unfold f
     exact (div_lt_iff₀ hden).2 hone
 
-/-- Source: `proof_gap/exercise_407_10/2.txt`; replace the false universal limit claim by its defining equivalence. -/
+/-- Exercise 407_10, gap 2; replace the false universal limit claim by its defining equivalence. -/
 theorem gap2 (g : ℝ → ℝ) (b : ℝ) :
     ApproachesAboveAtInfinity g b ↔
       ∀ ε > 0, ∃ N > 0, ∀ x, N < |x| →
         0 < g x - b ∧ g x - b < ε := by
   rfl
 
-/-- Source: `proof_gap/exercise_407_10/3.txt`; state the sign for the defined example. -/
+/-- Exercise 407_10, gap 3; state the sign for the defined example. -/
 theorem gap3 : ∀ x : ℝ, 0 < f x := by
   intro x
   unfold f
   apply one_div_pos.mpr
   nlinarith [sq_nonneg x]
 
-/-- Source: `proof_gap/exercise_407_10/4.txt`; define the previously free function. -/
+/-- Exercise 407_10, gap 4; define the previously free function. -/
 theorem gap4 : ApproachesAboveAtInfinity f 0 := by
   intro ε hε
   obtain ⟨N, hN, hbound⟩ := gap1 ε hε
@@ -71,7 +71,7 @@ theorem gap4 : ApproachesAboveAtInfinity f 0 := by
   intro x hx
   simpa using hbound x hx
 
-/-- Source: `proof_gap/exercise_407_10/5.txt`. -/
+/-- Exercise 407_10, gap 5. -/
 theorem gap5 : ∀ x : ℝ, 0 < f x := by
   exact gap3
 

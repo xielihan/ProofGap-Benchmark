@@ -8,7 +8,7 @@ noncomputable section
 
 def power (ε x : ℝ) : ℝ := Real.rpow x ε
 
-/-- Source: `proof_gap/exercise_650_4/1.txt`; require `x>0` and `ε>0` for the reciprocal power. -/
+/-- Exercise 650_4, gap 1; require `x>0` and `ε>0` for the reciprocal power. -/
 private theorem log_isLittleO_reciprocal_power (ε : ℝ) (hε : 0 < ε) :
     Asymptotics.IsLittleO (nhdsWithin 0 (Set.Ioi 0))
       Real.log (fun x => 1 / power ε x) := by
@@ -81,7 +81,7 @@ theorem gap1 (ε x : ℝ) (hε : 0 < ε) (hx : 0 < x) :
     Real.log x / (1 / power ε x) = power ε x * Real.log x := by
   simpa [div_eq_mul_inv, mul_comm]
 
-/-- Source: `proof_gap/exercise_650_4/2.txt`. -/
+/-- Exercise 650_4, gap 2. -/
 theorem gap2 (ε : ℝ) (hε : 0 < ε) :
     Filter.Tendsto (fun x => power ε x * Real.log x)
       (nhdsWithin 0 (Set.Ioi 0)) (nhds 0) := by
@@ -93,19 +93,19 @@ theorem gap2 (ε : ℝ) (hε : 0 < ε) :
   filter_upwards [self_mem_nhdsWithin] with x hx
   exact gap1 ε x hε hx
 
-/-- Source: `proof_gap/exercise_650_4/3.txt`. -/
+/-- Exercise 650_4, gap 3. -/
 theorem gap3 (ε : ℝ) (hε : 0 < ε) :
     Filter.Tendsto (fun x => Real.log x / (1 / power ε x))
       (nhdsWithin 0 (Set.Ioi 0)) (nhds 0) := by
   exact (log_isLittleO_reciprocal_power ε hε).tendsto_div_nhds_zero
 
-/-- Source: `proof_gap/exercise_650_4/4.txt`. -/
+/-- Exercise 650_4, gap 4. -/
 theorem gap4 (ε : ℝ) (hε : 0 < ε) :
     Asymptotics.IsLittleO (nhdsWithin 0 (Set.Ioi 0))
       Real.log (fun x => 1 / power ε x) := by
   exact log_isLittleO_reciprocal_power ε hε
 
-/-- Source: `proof_gap/exercise_650_4/5.txt`. -/
+/-- Exercise 650_4, gap 5. -/
 theorem gap5 (ε : ℝ) (hε : 0 < ε) :
     Asymptotics.IsLittleO (nhdsWithin 0 (Set.Ioi 0))
       Real.log (fun x => 1 / power ε x) := by

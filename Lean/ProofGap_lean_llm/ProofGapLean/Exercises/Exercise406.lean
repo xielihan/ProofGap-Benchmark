@@ -30,7 +30,7 @@ def negAbs (x : ℝ) : ℝ := -|x|
 def absFn (x : ℝ) : ℝ := |x|
 def negIdentity (x : ℝ) : ℝ := -x
 
-/-- Source: `proof_gap/exercise_406/1.txt`; remove the shadowed threshold `N`. -/
+/-- Exercise 406, gap 1; remove the shadowed threshold `N`. -/
 theorem gap1 : ∀ E > 0, ∃ N > 0, ∀ x,
     N < |x| → E < |identity x| := by
   intro E hE
@@ -38,16 +38,16 @@ theorem gap1 : ∀ E > 0, ∃ N > 0, ∀ x,
   intro x hx
   simpa only [identity] using hx
 
-/-- Source: `proof_gap/exercise_406/2.txt`; replace the false universal function claim by the definition. -/
+/-- Exercise 406, gap 2; replace the false universal function claim by the definition. -/
 theorem gap2 (f : ℝ → ℝ) : AbsAtInfinity f ↔
     ∀ E > 0, ∃ N > 0, ∀ x, N < |x| → E < |f x| := by
   rfl
 
-/-- Source: `proof_gap/exercise_406/3.txt`; define the example. -/
+/-- Exercise 406, gap 3; define the example. -/
 theorem gap3 : AbsAtInfinity identity := by
   simpa only [AbsAtInfinity] using gap1
 
-/-- Source: `proof_gap/exercise_406/4.txt`. -/
+/-- Exercise 406, gap 4. -/
 theorem gap4 : ∀ E > 0, ∃ N > 0, ∀ x,
     N < |x| → negAbs x < -E := by
   intro E hE
@@ -55,16 +55,16 @@ theorem gap4 : ∀ E > 0, ∃ N > 0, ∀ x,
   intro x hx
   simpa only [negAbs] using (neg_lt_neg hx)
 
-/-- Source: `proof_gap/exercise_406/5.txt`. -/
+/-- Exercise 406, gap 5. -/
 theorem gap5 (f : ℝ → ℝ) : NegAtInfinity f ↔
     ∀ E > 0, ∃ N > 0, ∀ x, N < |x| → f x < -E := by
   rfl
 
-/-- Source: `proof_gap/exercise_406/6.txt`. -/
+/-- Exercise 406, gap 6. -/
 theorem gap6 : NegAtInfinity negAbs := by
   simpa only [NegAtInfinity] using gap4
 
-/-- Source: `proof_gap/exercise_406/7.txt`. -/
+/-- Exercise 406, gap 7. -/
 theorem gap7 : ∀ E > 0, ∃ N > 0, ∀ x,
     N < |x| → E < absFn x := by
   intro E hE
@@ -72,16 +72,16 @@ theorem gap7 : ∀ E > 0, ∃ N > 0, ∀ x,
   intro x hx
   simpa only [absFn] using hx
 
-/-- Source: `proof_gap/exercise_406/8.txt`. -/
+/-- Exercise 406, gap 8. -/
 theorem gap8 (f : ℝ → ℝ) : PosAtInfinity f ↔
     ∀ E > 0, ∃ N > 0, ∀ x, N < |x| → E < f x := by
   rfl
 
-/-- Source: `proof_gap/exercise_406/9.txt`. -/
+/-- Exercise 406, gap 9. -/
 theorem gap9 : PosAtInfinity absFn := by
   simpa only [PosAtInfinity] using gap7
 
-/-- Source: `proof_gap/exercise_406/10.txt`. -/
+/-- Exercise 406, gap 10. -/
 theorem gap10 : ∀ E > 0, ∃ N > 0, ∀ x,
     x < -N → E < |identity x| := by
   intro E hE
@@ -90,16 +90,16 @@ theorem gap10 : ∀ E > 0, ∃ N > 0, ∀ x,
   have hx0 : x < 0 := lt_trans hx (neg_lt_zero.mpr hE)
   simpa only [identity, abs_of_neg hx0, neg_neg] using (neg_lt_neg hx)
 
-/-- Source: `proof_gap/exercise_406/11.txt`. -/
+/-- Exercise 406, gap 11. -/
 theorem gap11 (f : ℝ → ℝ) : AbsAtNegInfinity f ↔
     ∀ E > 0, ∃ N > 0, ∀ x, x < -N → E < |f x| := by
   rfl
 
-/-- Source: `proof_gap/exercise_406/12.txt`. -/
+/-- Exercise 406, gap 12. -/
 theorem gap12 : AbsAtNegInfinity identity := by
   simpa only [AbsAtNegInfinity] using gap10
 
-/-- Source: `proof_gap/exercise_406/13.txt`. -/
+/-- Exercise 406, gap 13. -/
 theorem gap13 : ∀ E > 0, ∃ N > 0, ∀ x,
     x < -N → identity x < -E := by
   intro E hE
@@ -107,16 +107,16 @@ theorem gap13 : ∀ E > 0, ∃ N > 0, ∀ x,
   intro x hx
   simpa only [identity] using hx
 
-/-- Source: `proof_gap/exercise_406/14.txt`. -/
+/-- Exercise 406, gap 14. -/
 theorem gap14 (f : ℝ → ℝ) : NegAtNegInfinity f ↔
     ∀ E > 0, ∃ N > 0, ∀ x, x < -N → f x < -E := by
   rfl
 
-/-- Source: `proof_gap/exercise_406/15.txt`. -/
+/-- Exercise 406, gap 15. -/
 theorem gap15 : NegAtNegInfinity identity := by
   simpa only [NegAtNegInfinity] using gap13
 
-/-- Source: `proof_gap/exercise_406/16.txt`. -/
+/-- Exercise 406, gap 16. -/
 theorem gap16 : ∀ E > 0, ∃ N > 0, ∀ x,
     x < -N → E < negIdentity x := by
   intro E hE
@@ -124,16 +124,16 @@ theorem gap16 : ∀ E > 0, ∃ N > 0, ∀ x,
   intro x hx
   simpa only [negIdentity, neg_neg] using (neg_lt_neg hx)
 
-/-- Source: `proof_gap/exercise_406/17.txt`. -/
+/-- Exercise 406, gap 17. -/
 theorem gap17 (f : ℝ → ℝ) : PosAtNegInfinity f ↔
     ∀ E > 0, ∃ N > 0, ∀ x, x < -N → E < f x := by
   rfl
 
-/-- Source: `proof_gap/exercise_406/18.txt`. -/
+/-- Exercise 406, gap 18. -/
 theorem gap18 : PosAtNegInfinity negIdentity := by
   simpa only [PosAtNegInfinity] using gap16
 
-/-- Source: `proof_gap/exercise_406/19.txt`. -/
+/-- Exercise 406, gap 19. -/
 theorem gap19 : ∀ E > 0, ∃ N > 0, ∀ x,
     N < x → E < |identity x| := by
   intro E hE
@@ -141,16 +141,16 @@ theorem gap19 : ∀ E > 0, ∃ N > 0, ∀ x,
   intro x hx
   simpa only [identity] using (lt_of_lt_of_le hx (le_abs_self x))
 
-/-- Source: `proof_gap/exercise_406/20.txt`. -/
+/-- Exercise 406, gap 20. -/
 theorem gap20 (f : ℝ → ℝ) : AbsAtPosInfinity f ↔
     ∀ E > 0, ∃ N > 0, ∀ x, N < x → E < |f x| := by
   rfl
 
-/-- Source: `proof_gap/exercise_406/21.txt`. -/
+/-- Exercise 406, gap 21. -/
 theorem gap21 : AbsAtPosInfinity identity := by
   simpa only [AbsAtPosInfinity] using gap19
 
-/-- Source: `proof_gap/exercise_406/22.txt`. -/
+/-- Exercise 406, gap 22. -/
 theorem gap22 : ∀ E > 0, ∃ N > 0, ∀ x,
     N < x → negIdentity x < -E := by
   intro E hE
@@ -158,16 +158,16 @@ theorem gap22 : ∀ E > 0, ∃ N > 0, ∀ x,
   intro x hx
   simpa only [negIdentity] using (neg_lt_neg hx)
 
-/-- Source: `proof_gap/exercise_406/23.txt`. -/
+/-- Exercise 406, gap 23. -/
 theorem gap23 (f : ℝ → ℝ) : NegAtPosInfinity f ↔
     ∀ E > 0, ∃ N > 0, ∀ x, N < x → f x < -E := by
   rfl
 
-/-- Source: `proof_gap/exercise_406/24.txt`. -/
+/-- Exercise 406, gap 24. -/
 theorem gap24 : NegAtPosInfinity negIdentity := by
   simpa only [NegAtPosInfinity] using gap22
 
-/-- Source: `proof_gap/exercise_406/25.txt`. -/
+/-- Exercise 406, gap 25. -/
 theorem gap25 : ∀ E > 0, ∃ N > 0, ∀ x,
     N < x → E < identity x := by
   intro E hE
@@ -175,12 +175,12 @@ theorem gap25 : ∀ E > 0, ∃ N > 0, ∀ x,
   intro x hx
   simpa only [identity] using hx
 
-/-- Source: `proof_gap/exercise_406/26.txt`. -/
+/-- Exercise 406, gap 26. -/
 theorem gap26 (f : ℝ → ℝ) : PosAtPosInfinity f ↔
     ∀ E > 0, ∃ N > 0, ∀ x, N < x → E < f x := by
   rfl
 
-/-- Source: `proof_gap/exercise_406/27.txt`. -/
+/-- Exercise 406, gap 27. -/
 theorem gap27 : PosAtPosInfinity identity := by
   simpa only [PosAtPosInfinity] using gap25
 

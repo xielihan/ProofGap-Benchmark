@@ -16,7 +16,7 @@ def normalized (a x : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_482/1.txt`. -/
+/-- Exercise 482, gap 1. -/
 theorem gap1 (a L : ℝ) :
     HasLimitAt (original a) a L ↔ HasLimitAt (sumToProduct a) a L := by
   have h : original a = sumToProduct a := by
@@ -25,7 +25,7 @@ theorem gap1 (a L : ℝ) :
     rw [Real.sin_sub_sin] <;> ring
   rw [h]
 
-/-- Source: `proof_gap/exercise_482/2.txt`. -/
+/-- Exercise 482, gap 2. -/
 theorem gap2 (a L : ℝ) :
     HasLimitAt (sumToProduct a) a L ↔ HasLimitAt (normalized a) a L := by
   have h : sumToProduct a = normalized a := by
@@ -37,7 +37,7 @@ theorem gap2 (a L : ℝ) :
       field_simp [sub_ne_zero.mpr hx] <;> ring
   rw [h]
 
-/-- Source: `proof_gap/exercise_482/3.txt`. -/
+/-- Exercise 482, gap 3. -/
 theorem gap3 (a : ℝ) : HasLimitAt (normalized a) a (Real.cos a) := by
   have horiginal : HasLimitAt (original a) a (Real.cos a) := by
     unfold HasLimitAt
@@ -49,7 +49,7 @@ theorem gap3 (a : ℝ) : HasLimitAt (normalized a) a (Real.cos a) := by
   exact (gap2 a (Real.cos a)).mp
     ((gap1 a (Real.cos a)).mp horiginal)
 
-/-- Source: `proof_gap/exercise_482/4.txt`. -/
+/-- Exercise 482, gap 4. -/
 theorem gap4 (a : ℝ) : HasLimitAt (original a) a (Real.cos a) := by
   exact (gap1 a (Real.cos a)).mpr
     ((gap2 a (Real.cos a)).mpr (gap3 a))

@@ -5,7 +5,7 @@ open scoped Topology
 /-!
 # Exercise 44
 
-Semantic formalization of `proof_gap/exercise_44/{1,...,6}.txt`.
+Semantic formalization of Exercise 44, gaps 1,...,6.
 The sequence is written explicitly by parity.
 -/
 
@@ -33,7 +33,7 @@ def BoundedSequence (u : ℕ → ℝ) : Prop :=
 def DoesNotTendToInfinity : Prop :=
   ¬ Tendsto x atTop atTop
 
-/-- Source: `proof_gap/exercise_44/1.txt`; repaired to quantified parity cases. -/
+/-- Exercise 44, gap 1; repaired to quantified parity cases. -/
 theorem gap1 :
     ParityFormula := by
   intro k hk
@@ -45,7 +45,7 @@ theorem gap1 :
   · simp [x, heven]
   · simp [x, hodd]
 
-/-- Source: `proof_gap/exercise_44/2.txt`. -/
+/-- Exercise 44, gap 2. -/
 theorem gap2
     (h1 : ParityFormula) :
     EvenSubsequenceDiverges := by
@@ -65,7 +65,7 @@ theorem gap2
   norm_num at *
   linarith
 
-/-- Source: `proof_gap/exercise_44/3.txt`. -/
+/-- Exercise 44, gap 3. -/
 theorem gap3
     (h1 : ParityFormula)
     (h2 : EvenSubsequenceDiverges) :
@@ -92,7 +92,7 @@ theorem gap3
   apply (div_lt_iff₀ hdenpos).2
   simpa [mul_comm] using hprod
 
-/-- Source: `proof_gap/exercise_44/4.txt`. -/
+/-- Exercise 44, gap 4. -/
 theorem gap4
     (h2 : EvenSubsequenceDiverges) :
     ¬ BoundedSequence x := by
@@ -107,7 +107,7 @@ theorem gap4
   rw [abs_of_nonneg hxnonneg] at hbound
   linarith
 
-/-- Source: `proof_gap/exercise_44/5.txt`. -/
+/-- Exercise 44, gap 5. -/
 theorem gap5
     (h3 : OddSubsequenceConverges)
     (h4 : ¬ BoundedSequence x) :
@@ -128,7 +128,7 @@ theorem gap5
   obtain ⟨k, hkhigh, hklow⟩ := (hhigh.and hlow).exists
   linarith
 
-/-- Source: `proof_gap/exercise_44/6.txt`. -/
+/-- Exercise 44, gap 6. -/
 theorem gap6
     (h4 : ¬ BoundedSequence x)
     (h5 : DoesNotTendToInfinity) :

@@ -19,7 +19,7 @@ def radicand (m n : ℕ) (x : ℝ) : ℝ :=
 def y (m n : ℕ) (x : ℝ) : ℝ :=
   nthRoot (m + n) (radicand m n x)
 
-/-- Source: `proof_gap/exercise_856/1.txt`.
+/-- Exercise 856, gap 1.
 Positive exponents and `-1 < x < 1` supply the omitted root domain. -/
 private theorem hasDerivAt_y_base (m n : ℕ) (hm : 0 < m) (hn : 0 < n) (x : ℝ)
     (hx : x ∈ Set.Ioo (-1 : ℝ) 1) :
@@ -184,7 +184,7 @@ theorem gap1 (m n : ℕ) (hm : 0 < m) (hn : 0 < n) (x : ℝ)
   rw [hderivEq] at hbase
   exact hbase
 
-/-- Source: `proof_gap/exercise_856/2.txt`.
+/-- Exercise 856, gap 2.
 The source's last denominator is algebraically incorrect for general `m,n`;
 the factor `(1-x^2)` and the numerator factor `y(x)` are restored. -/
 theorem gap2 (m n : ℕ) (hm : 0 < m) (hn : 0 < n) (x : ℝ)

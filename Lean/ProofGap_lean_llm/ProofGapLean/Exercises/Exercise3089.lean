@@ -319,7 +319,7 @@ private theorem partialProduct_tendsto_zero :
     have hkNo : No ≤ k := by omega
     exact hNo k hkNo
 
-/-- Source: `proof_gap/exercise_3089/1.txt`. -/
+/-- Exercise 3089, gap 1. -/
 theorem gap1 : ConditionallySummableFromOne term := by
   let a : ℕ → ℝ := fun n => 1 / Real.sqrt (((n + 1 : ℕ) : ℝ))
   have ha_anti : Antitone a := by
@@ -378,7 +378,7 @@ theorem gap1 : ConditionallySummableFromOne term := by
     norm_num at hgt
 
 /--
-Source: `proof_gap/exercise_3089/2.txt`; the infinite sums diverge, so state
+Exercise 3089, gap 2; the infinite sums diverge, so state
 the exact equality at every finite cutoff.
 -/
 theorem gap2 :
@@ -394,7 +394,7 @@ theorem gap2 :
     norm_num
   rw [hsign]
 
-/-- Source: `proof_gap/exercise_3089/3.txt`. -/
+/-- Exercise 3089, gap 3. -/
 theorem gap3 : ¬SummableFromOne harmonicTerm := by
   intro h
   unfold SummableFromOne at h
@@ -405,7 +405,7 @@ theorem gap3 : ¬SummableFromOne harmonicTerm := by
   simpa only [harmonicTerm, one_div] using hall
 
 /--
-Source: `proof_gap/exercise_3089/4.txt`; the partial products tend to zero,
+Exercise 3089, gap 4; the partial products tend to zero,
 so they diverge in the nonzero infinite-product sense.
 -/
 theorem gap4 : DivergentProduct := by

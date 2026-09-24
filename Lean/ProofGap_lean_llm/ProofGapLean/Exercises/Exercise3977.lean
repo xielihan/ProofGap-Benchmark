@@ -1,4 +1,4 @@
-/- Source: `results/stage1_gpt55/09_重积分与含参积分/exercise_3977_autoformalization_result/exercise_3977.md`. -/
+/- Exercise 3977. -/
 import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
 import Mathlib.Analysis.SpecialFunctions.PolarCoord
 import Mathlib.Analysis.SpecialFunctions.Integrals.Basic

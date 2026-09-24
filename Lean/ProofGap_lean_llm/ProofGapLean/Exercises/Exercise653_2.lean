@@ -9,7 +9,7 @@ noncomputable section
 
 def p (x : ℝ) : ℝ := Real.sqrt (1 + x) - Real.sqrt (1 - x)
 
-/-- Source: `proof_gap/exercise_653_2/1.txt`; the algebraic identity requires `x≠0`. -/
+/-- Exercise 653_2, gap 1; the algebraic identity requires `x≠0`. -/
 private theorem p_div_eq_near_zero (x : ℝ) (hx : x ≠ 0)
     (hlo : -1 < x) (hhi : x < 1) :
     p x / x = 2 / (Real.sqrt (1 + x) + Real.sqrt (1 - x)) := by
@@ -32,7 +32,7 @@ theorem gap1 (x : ℝ) (hx : x ≠ 0) (hlo : -1 < x) (hhi : x < 1) :
     p x / x = 2 / (Real.sqrt (1 + x) + Real.sqrt (1 - x)) := by
   exact p_div_eq_near_zero x hx hlo hhi
 
-/-- Source: `proof_gap/exercise_653_2/2.txt`. -/
+/-- Exercise 653_2, gap 2. -/
 theorem gap2 :
     Filter.Tendsto
       (fun x : ℝ => 2 / (Real.sqrt (1 + x) + Real.sqrt (1 - x)))
@@ -56,7 +56,7 @@ theorem gap2 :
   norm_num at hcont
   exact hcont
 
-/-- Source: `proof_gap/exercise_653_2/3.txt`. -/
+/-- Exercise 653_2, gap 3. -/
 theorem gap3 :
     Filter.Tendsto (fun x : ℝ => p x / x)
       (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds 1) := by
@@ -78,7 +78,7 @@ theorem gap3 :
   exact
     (p_div_eq_near_zero x (by simpa using hxmem) hxI.1 hxI.2).symm
 
-/-- Source: `proof_gap/exercise_653_2/4.txt`. -/
+/-- Exercise 653_2, gap 4. -/
 theorem gap4 :
     Asymptotics.IsEquivalent (nhdsWithin 0 ({0} : Set ℝ)ᶜ)
       p (fun x : ℝ => x) := by
@@ -110,7 +110,7 @@ theorem gap4 :
   rw [hid, norm_mul]
   exact mul_le_mul_of_nonneg_right (le_of_lt hxratio) (norm_nonneg x)
 
-/-- Source: `proof_gap/exercise_653_2/5.txt`; unpack the singleton pair. -/
+/-- Exercise 653_2, gap 5; unpack the singleton pair. -/
 theorem gap5 (C : ℝ) (n : ℕ) (h : (C, n) = (1, 1)) :
     Asymptotics.IsEquivalent (nhdsWithin 0 ({0} : Set ℝ)ᶜ)
       p (fun x => C * x ^ n) := by

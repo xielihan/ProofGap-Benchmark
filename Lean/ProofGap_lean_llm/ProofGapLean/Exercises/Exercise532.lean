@@ -17,7 +17,7 @@ def normalizedLog (x : ℝ) : ℝ := Real.log (1 + 1 / x)
 def HasLimitAtPosInfinity (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f Filter.atTop (nhds L)
 
-/-- Source: `proof_gap/exercise_532/1.txt`; restrict logarithms to `x>0`. -/
+/-- Exercise 532, gap 1; restrict logarithms to `x>0`. -/
 private theorem cosineFactor_abs_le_one (x : ℝ) :
     |Real.cos ((Real.log (x + 1) + Real.log x) / 2)| ≤ 1 := by
   apply abs_le.mpr
@@ -41,7 +41,7 @@ theorem gap1 (x : ℝ) (hx : 0 < x) : difference x = productForm x := by
   rw [ha, hb, Real.sin_add, Real.sin_sub]
   ring
 
-/-- Source: `proof_gap/exercise_532/2.txt`; restrict logarithms to `x>0`. -/
+/-- Exercise 532, gap 2; restrict logarithms to `x>0`. -/
 theorem gap2 (x : ℝ) (hx : 0 < x) : logDifference x = normalizedLog x := by
   unfold logDifference normalizedLog
   have hx0 : x ≠ 0 := ne_of_gt hx
@@ -53,7 +53,7 @@ theorem gap2 (x : ℝ) (hx : 0 < x) : logDifference x = normalizedLog x := by
       apply congrArg Real.log
       field_simp [hx0]
 
-/-- Source: `proof_gap/exercise_532/3.txt`. -/
+/-- Exercise 532, gap 3. -/
 theorem gap3 : HasLimitAtPosInfinity normalizedLog 0 := by
   unfold HasLimitAtPosInfinity normalizedLog
   have hinv :
@@ -65,7 +65,7 @@ theorem gap3 : HasLimitAtPosInfinity normalizedLog 0 := by
   simpa using
     ((Real.continuousAt_log (by norm_num : (1 : ℝ) ≠ 0)).tendsto.comp hinner)
 
-/-- Source: `proof_gap/exercise_532/4.txt`. -/
+/-- Exercise 532, gap 4. -/
 theorem gap4 : HasLimitAtPosInfinity logDifference 0 := by
   unfold HasLimitAtPosInfinity
   apply gap3.congr'
@@ -74,7 +74,7 @@ theorem gap4 : HasLimitAtPosInfinity logDifference 0 := by
   intro x hx
   exact (gap2 x (lt_of_lt_of_le zero_lt_one hx)).symm
 
-/-- Source: `proof_gap/exercise_532/5.txt`. -/
+/-- Exercise 532, gap 5. -/
 theorem gap5 :
     HasLimitAtPosInfinity (fun x => Real.sin (logDifference x / 2)) 0 := by
   unfold HasLimitAtPosInfinity
@@ -82,7 +82,7 @@ theorem gap5 :
     (Real.continuous_sin.continuousAt.tendsto.comp
       (gap4.div_const (2 : ℝ)))
 
-/-- Source: `proof_gap/exercise_532/6.txt`; express boundedness explicitly. -/
+/-- Exercise 532, gap 6; express boundedness explicitly. -/
 theorem gap6 :
     ∃ M : ℝ, ∀ x : ℝ,
       |Real.cos ((Real.log (x + 1) + Real.log x) / 2)| ≤ M := by
@@ -90,7 +90,7 @@ theorem gap6 :
   intro x
   exact cosineFactor_abs_le_one x
 
-/-- Source: `proof_gap/exercise_532/7.txt`. -/
+/-- Exercise 532, gap 7. -/
 theorem gap7 : HasLimitAtPosInfinity difference 0 := by
   unfold HasLimitAtPosInfinity
   rw [Metric.tendsto_atTop]

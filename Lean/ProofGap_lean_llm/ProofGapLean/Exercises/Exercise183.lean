@@ -11,7 +11,7 @@ def y (a b x : ℝ) : ℝ := a + (b - a) * x
 def domain : Set ℝ := Set.Ioo 0 1
 def valueSet (a b : ℝ) : Set ℝ := {t | ∃ x ∈ domain, t = y a b x}
 
-/-- Source: `proof_gap/exercise_183/1.txt`. -/
+/-- Exercise 183, gap 1. -/
 theorem gap1 (a b : ℝ) :
     Tendsto (y a b) (𝓝[Set.Ioi 0] 0) (𝓝 a) := by
   have hc : Continuous (y a b) := by
@@ -24,7 +24,7 @@ theorem gap1 (a b : ℝ) :
   · unfold y
     ring
 
-/-- Source: `proof_gap/exercise_183/2.txt`. -/
+/-- Exercise 183, gap 2. -/
 theorem gap2 (a b : ℝ) :
     Tendsto (y a b) (𝓝[Set.Iio 1] 1) (𝓝 b) := by
   have hc : Continuous (y a b) := by
@@ -37,7 +37,7 @@ theorem gap2 (a b : ℝ) :
   · unfold y
     ring
 
-/-- Source: `proof_gap/exercise_183/3.txt`. -/
+/-- Exercise 183, gap 3. -/
 theorem gap3 (a b : ℝ) (h : a < b) : valueSet a b = Set.Ioo a b := by
   ext t
   constructor
@@ -64,7 +64,7 @@ theorem gap3 (a b : ℝ) (h : a < b) : valueSet a b = Set.Ioo a b := by
     field_simp [ne_of_gt hden]
     ring
 
-/-- Source: `proof_gap/exercise_183/4.txt`. -/
+/-- Exercise 183, gap 4. -/
 theorem gap4 (a b : ℝ) (h : b < a) : valueSet a b = Set.Ioo b a := by
   ext t
   constructor

@@ -21,7 +21,7 @@ def normalized (a x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_497/1.txt`; require `cos a≠0`. -/
+/-- Exercise 497, gap 1; require `cos a≠0`. -/
 private theorem tendstoTanZero :
     Filter.Tendsto Real.tan (nhds (0 : ℝ)) (nhds 0) := by
   have hsin : ContinuousAt Real.sin 0 :=
@@ -81,7 +81,7 @@ theorem gap1 (a : ℝ) (ha : Real.cos a ≠ 0) (L : ℝ) :
     unfold HasLimitAtZero at h ⊢
     exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_497/2.txt`; require `cos a≠0`. -/
+/-- Exercise 497, gap 2; require `cos a≠0`. -/
 theorem gap2 (a : ℝ) (ha : Real.cos a ≠ 0) (L : ℝ) :
     HasLimitAtZero (original a) L ↔ HasLimitAtZero (normalized a) L := by
   let F := nhdsWithin 0 ({0} : Set ℝ)ᶜ
@@ -135,7 +135,7 @@ theorem gap2 (a : ℝ) (ha : Real.cos a ≠ 0) (L : ℝ) :
       exact h.congr' heq.symm
     exact (gap1 a ha L).mpr hadd
 
-/-- Source: `proof_gap/exercise_497/3.txt`; require `cos a≠0`. -/
+/-- Exercise 497, gap 3; require `cos a≠0`. -/
 theorem gap3 (a : ℝ) (ha : Real.cos a ≠ 0) :
     HasLimitAtZero (normalized a) (Real.tan a ^ 4 - 1) := by
   let F := nhdsWithin 0 ({0} : Set ℝ)ᶜ
@@ -217,13 +217,13 @@ theorem gap3 (a : ℝ) (ha : Real.cos a ≠ 0) :
   · simp [hd]
   · field_simp [hx0, hd] <;> ring
 
-/-- Source: `proof_gap/exercise_497/4.txt`; require `cos a≠0`. -/
+/-- Exercise 497, gap 4; require `cos a≠0`. -/
 theorem gap4 (a : ℝ) (ha : Real.cos a ≠ 0) :
     HasLimitAtZero (original a) (Real.tan a ^ 4 - 1) := by
   exact
     (gap2 a ha (Real.tan a ^ 4 - 1)).mpr (gap3 a ha)
 
-/-- Source: `proof_gap/exercise_497/5.txt`; require `cos a≠0`. -/
+/-- Exercise 497, gap 5; require `cos a≠0`. -/
 theorem gap5 (a : ℝ) (ha : Real.cos a ≠ 0) :
     Real.tan a ^ 4 - 1 = -Real.cos (2 * a) / Real.cos a ^ 4 := by
   rw [Real.tan_eq_sin_div_cos]

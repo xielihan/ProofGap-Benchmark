@@ -24,7 +24,7 @@ private theorem x_tendsto_one : Tendsto x atTop (𝓝 1) := by
     (tendsto_const_nhds.sub hinv :
       Tendsto (fun n : ℕ => 1 - 1 / (n : ℝ)) atTop (𝓝 (1 - 0)))
 
-/-- Source: `proof_gap/exercise_101/1.txt`. -/
+/-- Exercise 101, gap 1. -/
 theorem gap1 :
     sInf values = 0 := by
   have hleast : IsLeast values 0 := by
@@ -39,7 +39,7 @@ theorem gap1 :
       linarith
   exact hleast.csInf_eq
 
-/-- Source: `proof_gap/exercise_101/2.txt`. -/
+/-- Exercise 101, gap 2. -/
 theorem gap2 :
     sSup values = 1 := by
   have hlub : IsLUB values 1 := by
@@ -59,17 +59,17 @@ theorem gap2 :
       linarith [hb hxmem]
   exact hlub.csSup_eq ⟨x 1, ⟨1, by omega, rfl⟩⟩
 
-/-- Source: `proof_gap/exercise_101/3.txt`; the convergent sequence has liminf 1. -/
+/-- Exercise 101, gap 3; the convergent sequence has liminf 1. -/
 theorem gap3 :
     Tendsto x atTop (𝓝 1) := by
   exact x_tendsto_one
 
-/-- Source: `proof_gap/exercise_101/4.txt`; the convergent sequence has limsup 1. -/
+/-- Exercise 101, gap 4; the convergent sequence has limsup 1. -/
 theorem gap4 :
     Tendsto x atTop (𝓝 1) := by
   exact x_tendsto_one
 
-/-- Source: `proof_gap/exercise_101/5.txt`. -/
+/-- Exercise 101, gap 5. -/
 theorem gap5 :
     Tendsto x atTop (𝓝 1) := by
   exact x_tendsto_one

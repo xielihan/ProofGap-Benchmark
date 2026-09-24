@@ -29,7 +29,7 @@ def IsCauchy (u : ℕ → ℝ) : Prop :=
 def Convergent (u : ℕ → ℝ) : Prop :=
   ∃ l : ℝ, Tendsto u atTop (𝓝 l)
 
-/-- Source: `proof_gap/exercise_84/1.txt`. -/
+/-- Exercise 84, gap 1. -/
 theorem gap1 :
     ∀ m n : ℕ, n < m → |x m - x n| = |tail n m| := by
   intro m n hnm
@@ -40,7 +40,7 @@ theorem gap1 :
     (show 1 ≤ n + 1 by omega) (show n + 1 ≤ m + 1 by omega)
   linarith
 
-/-- Source: `proof_gap/exercise_84/2.txt`. -/
+/-- Exercise 84, gap 2. -/
 theorem gap2 :
     ∀ m n : ℕ, n < m → |tail n m| < squareTail n m := by
   intro m n hnm
@@ -73,14 +73,14 @@ theorem gap2 :
       exact lt_of_le_of_lt hle hlt
   exact lt_of_le_of_lt htriangle hstrict
 
-/-- Source: `proof_gap/exercise_84/3.txt`. -/
+/-- Exercise 84, gap 3. -/
 theorem gap3 :
     ∀ m n : ℕ, n < m → |x m - x n| < squareTail n m := by
   intro m n hnm
   rw [gap1 m n hnm]
   exact gap2 m n hnm
 
-/-- Source: `proof_gap/exercise_84/4.txt`; n>0 avoids the k=1 denominator. -/
+/-- Exercise 84, gap 4; n>0 avoids the k=1 denominator. -/
 theorem gap4 :
     ∀ m n : ℕ, 0 < n → n < m →
       squareTail n m < telescopingTail n m := by
@@ -98,7 +98,7 @@ theorem gap4 :
     field_simp
     nlinarith
 
-/-- Source: `proof_gap/exercise_84/5.txt`; n>0 avoids division by zero. -/
+/-- Exercise 84, gap 5; n>0 avoids division by zero. -/
 theorem gap5 :
     ∀ m n : ℕ, 0 < n → n < m →
       telescopingTail n m = 1 / (n : ℝ) - 1 / (m : ℝ) := by
@@ -118,7 +118,7 @@ theorem gap5 :
         rw [Nat.cast_add]
         norm_num
 
-/-- Source: `proof_gap/exercise_84/6.txt`; n>0 is restored. -/
+/-- Exercise 84, gap 6; n>0 is restored. -/
 theorem gap6 :
     ∀ m n : ℕ, 0 < n → n < m →
       1 / (n : ℝ) - 1 / (m : ℝ) < 1 / (n : ℝ) := by
@@ -126,7 +126,7 @@ theorem gap6 :
   have hmpos : 0 < (m : ℝ) := by exact_mod_cast (lt_trans hn hnm)
   linarith [one_div_pos.mpr hmpos]
 
-/-- Source: `proof_gap/exercise_84/7.txt`; n>0 is restored. -/
+/-- Exercise 84, gap 7; n>0 is restored. -/
 theorem gap7 :
     ∀ m n : ℕ, 0 < n → n < m →
       squareTail n m < 1 / (n : ℝ) := by
@@ -134,7 +134,7 @@ theorem gap7 :
   exact (gap4 m n hn hnm).trans <|
     (gap5 m n hn hnm).trans_lt (gap6 m n hn hnm)
 
-/-- Source: `proof_gap/exercise_84/8.txt`; N depends on ε. -/
+/-- Exercise 84, gap 8; N depends on ε. -/
 theorem gap8 :
     ∀ ε : ℝ, 0 < ε →
       ∃ N : ℕ, ∀ m n : ℕ, N < n → n < m → |x m - x n| < ε := by
@@ -151,11 +151,11 @@ theorem gap8 :
   exact lt_trans (gap3 m n hnm)
     (lt_trans (gap7 m n (by omega) hnm) (hN n (by omega)))
 
-/-- Source: `proof_gap/exercise_84/9.txt`. -/
+/-- Exercise 84, gap 9. -/
 theorem gap9 (h : IsCauchy x) : IsCauchy x := by
   exact h
 
-/-- Source: `proof_gap/exercise_84/10.txt`. -/
+/-- Exercise 84, gap 10. -/
 theorem gap10 (h : IsCauchy x) : Convergent x := by
   have hcauchy : CauchySeq x := by
     rw [Metric.cauchySeq_iff]
@@ -173,7 +173,7 @@ theorem gap10 (h : IsCauchy x) : Convergent x := by
         simpa [Real.dist_eq] using htail
   exact cauchySeq_tendsto_of_complete hcauchy
 
-/-- Source: `proof_gap/exercise_84/11.txt`. -/
+/-- Exercise 84, gap 11. -/
 theorem gap11 (h : Convergent x) : Convergent x := by
   exact h
 

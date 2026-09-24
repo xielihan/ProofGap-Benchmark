@@ -19,7 +19,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 def finalDerivative (x : ℝ) : ℝ :=
   1 / x ^ 5 * Real.log x
 
-/-- Source: `proof_gap/exercise_908/1.txt`; logarithms and displayed
+/-- Exercise 908, gap 1; logarithms and displayed
 denominators require `x > 0`. -/
 theorem gap1 (x : ℝ) (hx : 0 < x) :
     HasDerivAt y (expandedDerivative x) x := by
@@ -70,7 +70,7 @@ theorem gap1 (x : ℝ) (hx : 0 < x) :
   field_simp [hx0]
   ring
 
-/-- Source: `proof_gap/exercise_908/2.txt`; `log (1/x) = -log x` is used on
+/-- Exercise 908, gap 2; `log (1/x) = -log x` is used on
 the positive real domain. -/
 theorem gap2 (x : ℝ) (hx : 0 < x) :
     expandedDerivative x = finalDerivative x := by
@@ -78,7 +78,7 @@ theorem gap2 (x : ℝ) (hx : 0 < x) :
   rw [show 1 / x = x⁻¹ by simp, Real.log_inv]
   ring
 
-/-- Source: `proof_gap/exercise_908/3.txt`; retain the positive domain of the
+/-- Exercise 908, gap 3; retain the positive domain of the
 source logarithm. -/
 theorem gap3 (x : ℝ) (hx : 0 < x) :
     HasDerivAt y (finalDerivative x) x := by

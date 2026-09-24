@@ -21,7 +21,7 @@ def normalized (x : ℝ) : ℝ :=
 def HasLimitAtPosInfinity (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f Filter.atTop (nhds L)
 
-/-- Source: `proof_gap/exercise_463/1.txt`; make the rationalizing factor explicit. -/
+/-- Exercise 463, gap 1; make the rationalizing factor explicit. -/
 private theorem rpow_nat_eq_explicit (x : ℝ) (n : ℕ) :
     Real.rpow x (n : ℝ) = x ^ n := by
   change x ^ (n : ℝ) = x ^ n
@@ -221,7 +221,7 @@ theorem gap1 (L : ℝ) :
       (Real.rpow_nonneg hxm1 _)
   simp [rationalized, ne_of_gt hden]
 
-/-- Source: `proof_gap/exercise_463/2.txt`; normalize by powers of `x`. -/
+/-- Exercise 463, gap 2; normalize by powers of `x`. -/
 theorem gap2 (L : ℝ) :
     HasLimitAtPosInfinity rationalized L ↔ HasLimitAtPosInfinity normalized L := by
   unfold HasLimitAtPosInfinity
@@ -229,7 +229,7 @@ theorem gap2 (L : ℝ) :
   filter_upwards [Filter.eventually_ge_atTop (2 : ℝ)] with x hx
   exact rationalized_eq_normalized_of_one_lt x (by linarith)
 
-/-- Source: `proof_gap/exercise_463/3.txt`. -/
+/-- Exercise 463, gap 3. -/
 theorem gap3 : HasLimitAtPosInfinity normalized (4 / 3) := by
   unfold HasLimitAtPosInfinity normalized pow43 pow23
   have hinv : Filter.Tendsto (fun x : ℝ => 1 / x) Filter.atTop (nhds 0) := by

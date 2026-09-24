@@ -16,7 +16,7 @@ def cancelled (x : ℝ) : ℝ := (x + 2) / (x ^ 2 + x + 1)
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_420/1.txt`. -/
+/-- Exercise 420, gap 1. -/
 theorem gap1 : HasLimitAt original 1 1 ↔ HasLimitAt factored 1 1 := by
   have hfun : original = factored := by
     funext x
@@ -30,7 +30,7 @@ theorem gap1 : HasLimitAt original 1 1 ↔ HasLimitAt factored 1 1 := by
     rw [hnum, hden]
   rw [hfun]
 
-/-- Source: `proof_gap/exercise_420/2.txt`. -/
+/-- Exercise 420, gap 2. -/
 theorem gap2 : HasLimitAt factored 1 1 ↔ HasLimitAt cancelled 1 1 := by
   have hfg :
       factored =ᶠ[nhdsWithin (1 : ℝ) ({(1 : ℝ)} : Set ℝ)ᶜ] cancelled := by
@@ -46,7 +46,7 @@ theorem gap2 : HasLimitAt factored 1 1 ↔ HasLimitAt cancelled 1 1 := by
   unfold HasLimitAt Filter.Tendsto
   rw [Filter.map_congr hfg]
 
-/-- Source: `proof_gap/exercise_420/3.txt`. -/
+/-- Exercise 420, gap 3. -/
 theorem gap3 : HasLimitAt cancelled 1 1 := by
   unfold HasLimitAt
   have hnum : ContinuousAt (fun x : ℝ => x + 2) 1 :=
@@ -63,7 +63,7 @@ theorem gap3 : HasLimitAt cancelled 1 1 := by
     norm_num [cancelled]
   simpa only [ContinuousWithinAt, hval] using hwithin
 
-/-- Source: `proof_gap/exercise_420/4.txt`. -/
+/-- Exercise 420, gap 4. -/
 theorem gap4 : HasLimitAt original 1 1 := by
   exact gap1.mpr (gap2.mpr gap3)
 

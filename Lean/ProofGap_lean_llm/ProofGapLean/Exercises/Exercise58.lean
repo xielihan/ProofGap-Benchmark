@@ -9,7 +9,7 @@ open scoped Topology
 /-!
 # Exercise 58
 
-Semantic formalization of `proof_gap/exercise_58/{1,...,10}.txt`.
+Semantic formalization of Exercise 58, gaps 1,...,10.
 The binomial ellipsis is represented by the full finite binomial sum.
 -/
 
@@ -29,13 +29,13 @@ def u (n : ℕ) : ℝ :=
 def upper (n : ℕ) : ℝ :=
   2 / ((n : ℝ) - 1)
 
-/-- Source: `proof_gap/exercise_58/1.txt`. -/
+/-- Exercise 58, gap 1. -/
 theorem gap1 :
     ∀ n : ℕ, (2 : ℝ) ^ n = (1 + 1 : ℝ) ^ n := by
   intro n
   norm_num
 
-/-- Source: `proof_gap/exercise_58/2.txt`. -/
+/-- Exercise 58, gap 2. -/
 theorem gap2
     (h1 : ∀ n : ℕ, (2 : ℝ) ^ n = (1 + 1 : ℝ) ^ n) :
     ∀ n : ℕ, (1 + 1 : ℝ) ^ n = binomialExpansion n := by
@@ -47,7 +47,7 @@ theorem gap2
   simp only [Nat.cast_sum, Nat.cast_pow, Nat.cast_ofNat] at hcast
   exact hcast.symm
 
-/-- Source: `proof_gap/exercise_58/3.txt`. -/
+/-- Exercise 58, gap 3. -/
 theorem gap3
     (h2 : ∀ n : ℕ, (1 + 1 : ℝ) ^ n = binomialExpansion n) :
     ∀ n : ℕ, binomialExpansion n > lowerTerm n := by
@@ -75,7 +75,7 @@ theorem gap3
     rw [← hchoose]
     linarith
 
-/-- Source: `proof_gap/exercise_58/4.txt`. -/
+/-- Exercise 58, gap 4. -/
 theorem gap4
     (h1 : ∀ n : ℕ, (2 : ℝ) ^ n = (1 + 1 : ℝ) ^ n)
     (h2 : ∀ n : ℕ, (1 + 1 : ℝ) ^ n = binomialExpansion n)
@@ -85,14 +85,14 @@ theorem gap4
   rw [h1 n, h2 n]
   exact h3 n
 
-/-- Source: `proof_gap/exercise_58/5.txt`; positive `n` is restored. -/
+/-- Exercise 58, gap 5; positive `n` is restored. -/
 theorem gap5 :
     ∀ n : ℕ, 0 < n → 0 < u n := by
   intro n hn
   unfold u
   positivity
 
-/-- Source: `proof_gap/exercise_58/6.txt`; the source condition `n>2` is restored. -/
+/-- Exercise 58, gap 6; the source condition `n>2` is restored. -/
 theorem gap6
     (h4 : ∀ n : ℕ, (2 : ℝ) ^ n > lowerTerm n) :
     ∀ n : ℕ, 2 < n → u n < upper n := by
@@ -107,7 +107,7 @@ theorem gap6
   unfold lowerTerm at h4
   nlinarith [h4 n]
 
-/-- Source: `proof_gap/exercise_58/7.txt`; a valid denominator condition is restored. -/
+/-- Exercise 58, gap 7; a valid denominator condition is restored. -/
 theorem gap7 :
     ∀ n : ℕ, 1 < n → 0 < upper n := by
   intro n hn
@@ -115,7 +115,7 @@ theorem gap7 :
   have hncast : (1 : ℝ) < (n : ℝ) := by exact_mod_cast hn
   exact div_pos (by norm_num) (by linarith)
 
-/-- Source: `proof_gap/exercise_58/8.txt`. -/
+/-- Exercise 58, gap 8. -/
 theorem gap8 :
     Tendsto upper atTop (𝓝 0) := by
   have hmap : Tendsto (fun n : ℕ => n - 1) atTop atTop := by
@@ -133,7 +133,7 @@ theorem gap8 :
   rw [Nat.cast_sub hn]
   norm_num
 
-/-- Source: `proof_gap/exercise_58/9.txt`. -/
+/-- Exercise 58, gap 9. -/
 theorem gap9
     (h5 : ∀ n : ℕ, 0 < n → 0 < u n)
     (h6 : ∀ n : ℕ, 2 < n → u n < upper n)
@@ -146,7 +146,7 @@ theorem gap9
     exact (h6 n hn).le
   · exact h8
 
-/-- Source: `proof_gap/exercise_58/10.txt`. -/
+/-- Exercise 58, gap 10. -/
 theorem gap10
     (h9 : Tendsto u atTop (𝓝 0)) :
     Tendsto u atTop (𝓝 0) := by

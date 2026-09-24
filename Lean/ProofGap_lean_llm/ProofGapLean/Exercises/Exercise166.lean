@@ -12,12 +12,12 @@ def domain : Set ℝ := {x | 0 ≤ 2 + x - x ^ 2}
 def y (x : ℝ) : ℝ := Real.sqrt (2 + x - x ^ 2)
 def valueSet : Set ℝ := {t | ∃ x ∈ domain, t = y x}
 
-/-- Source: `proof_gap/exercise_166/1.txt`. -/
+/-- Exercise 166, gap 1. -/
 theorem gap1 : ∀ x : ℝ, 0 ≤ 2 + x - x ^ 2 → x ∈ domain := by
   intro x hx
   exact hx
 
-/-- Source: `proof_gap/exercise_166/2.txt`. -/
+/-- Exercise 166, gap 2. -/
 theorem gap2 : domain = Set.Icc (-1) 2 := by
   ext x
   constructor
@@ -36,7 +36,7 @@ theorem gap2 : domain = Set.Icc (-1) 2 := by
       mul_nonneg (by linarith) (by linarith)
     nlinarith
 
-/-- Source: `proof_gap/exercise_166/3.txt`; complete the square. -/
+/-- Exercise 166, gap 3; complete the square. -/
 theorem gap3 : ∀ x : ℝ,
     y x = Real.sqrt (9 / 4 - (x - 1 / 2) ^ 2) := by
   intro x
@@ -44,7 +44,7 @@ theorem gap3 : ∀ x : ℝ,
   congr 1
   ring_nf
 
-/-- Source: `proof_gap/exercise_166/4.txt`; the bound is restricted to the domain. -/
+/-- Exercise 166, gap 4; the bound is restricted to the domain. -/
 theorem gap4 : ∀ x : ℝ, x ∈ domain →
     Real.sqrt (9 / 4 - (x - 1 / 2) ^ 2) ≤ 3 / 2 := by
   intro x _
@@ -53,13 +53,13 @@ theorem gap4 : ∀ x : ℝ, x ∈ domain →
   · norm_num
   · nlinarith [sq_nonneg (x - 1 / 2)]
 
-/-- Source: `proof_gap/exercise_166/5.txt`. -/
+/-- Exercise 166, gap 5. -/
 theorem gap5 : ∀ x : ℝ, x ∈ domain → y x ≤ 3 / 2 := by
   intro x hx
   rw [gap3 x]
   exact gap4 x hx
 
-/-- Source: `proof_gap/exercise_166/6.txt`; remove the shadowed existential y. -/
+/-- Exercise 166, gap 6; remove the shadowed existential y. -/
 theorem gap6 : valueSet = Set.Icc 0 (3 / 2) := by
   ext t
   constructor

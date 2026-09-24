@@ -64,29 +64,29 @@ private theorem high_subsequence_tendsto :
   push_cast
   linarith [show (0 : ℝ) ≤ n by positivity]
 
-/-- Source: `proof_gap/exercise_109/1.txt`. -/
+/-- Exercise 109, gap 1. -/
 theorem gap1 : x 1 = 1 + 1 := by
   norm_num [x, Real.sin_pi_div_two]
 
-/-- Source: `proof_gap/exercise_109/2.txt`. -/
+/-- Exercise 109, gap 2. -/
 theorem gap2 : x 2 = 1 + 0 := by
   norm_num [x, Real.sin_pi]
 
-/-- Source: `proof_gap/exercise_109/3.txt`. -/
+/-- Exercise 109, gap 3. -/
 theorem gap3 : x 3 = 1 - 3 := by
   rw [x]
   norm_num
   rw [sin_three_pi_div_two]
   norm_num
 
-/-- Source: `proof_gap/exercise_109/4.txt`. -/
+/-- Exercise 109, gap 4. -/
 theorem gap4 : x 4 = 1 + 0 := by
   rw [x]
   norm_num
   have hang : (4 : ℝ) * Real.pi / 2 = 2 * Real.pi := by ring
   rw [hang, Real.sin_two_pi]
 
-/-- Source: `proof_gap/exercise_109/5.txt`. -/
+/-- Exercise 109, gap 5. -/
 theorem gap5 : x 5 = 1 + 5 := by
   rw [x]
   norm_num
@@ -95,7 +95,7 @@ theorem gap5 : x 5 = 1 + 5 := by
   rw [hang, Real.sin_add_two_pi, Real.sin_pi_div_two]
   norm_num
 
-/-- Source: `proof_gap/exercise_109/6.txt`. -/
+/-- Exercise 109, gap 6. -/
 theorem gap6 : ¬ BddBelow values := by
   intro hb
   rcases hb with ⟨a, ha⟩
@@ -106,7 +106,7 @@ theorem gap6 : ¬ BddBelow values := by
     ⟨4 * n + 3, by omega, rfl⟩
   linarith [ha hmem]
 
-/-- Source: `proof_gap/exercise_109/7.txt`. -/
+/-- Exercise 109, gap 7. -/
 theorem gap7 : ¬ BddAbove values := by
   intro hb
   rcases hb with ⟨a, ha⟩
@@ -117,12 +117,12 @@ theorem gap7 : ¬ BddAbove values := by
     ⟨4 * n + 1, by omega, rfl⟩
   linarith [ha hmem]
 
-/-- Source: `proof_gap/exercise_109/8.txt`. -/
+/-- Exercise 109, gap 8. -/
 theorem gap8 :
     Tendsto (fun n : ℕ => x (4 * n + 3)) atTop (atBot : Filter ℝ) := by
   exact low_subsequence_tendsto
 
-/-- Source: `proof_gap/exercise_109/9.txt`. -/
+/-- Exercise 109, gap 9. -/
 theorem gap9 :
     Tendsto (fun n : ℕ => x (4 * n + 1)) atTop (atTop : Filter ℝ) := by
   exact high_subsequence_tendsto

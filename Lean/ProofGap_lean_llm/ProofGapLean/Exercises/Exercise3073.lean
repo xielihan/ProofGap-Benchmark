@@ -36,7 +36,7 @@ def NonzeroConvergentProduct : Prop :=
 def DivergentProduct : Prop :=
   ¬NonzeroConvergentProduct
 
-/-- Source: `proof_gap/exercise_3073/1.txt`; retain the definition of arbitrary `p`. -/
+/-- Exercise 3073, gap 1; retain the definition of arbitrary `p`. -/
 private lemma logRangeSum_eq (n : ℕ) :
     (∑ i ∈ Finset.range n, logRatioTerm i) =
       -Real.log ((n : ℝ) + 1) := by
@@ -78,7 +78,7 @@ theorem gap1 (p : ℕ → ℝ) (hp : ∀ n, p n = rootTerm n) :
             rw [Real.log_mul hs hs]
     _ = (1 / 2 : ℝ) * Real.log (ratio n) := by rw [hsq]
 
-/-- Source: `proof_gap/exercise_3073/2.txt`. -/
+/-- Exercise 3073, gap 2. -/
 theorem gap2 :
     ∀ n,
       (1 / 2 : ℝ) * Real.log (ratio n) =
@@ -93,13 +93,13 @@ theorem gap2 :
   unfold ratio logRatioTerm
   rw [hid]
 
-/-- Source: `proof_gap/exercise_3073/3.txt`; retain the definition of arbitrary `p`. -/
+/-- Exercise 3073, gap 3; retain the definition of arbitrary `p`. -/
 theorem gap3 (p : ℕ → ℝ) (hp : ∀ n, p n = rootTerm n) :
     ∀ n, Real.log (p n) = (1 / 2 : ℝ) * logRatioTerm n := by
   intro n
   rw [gap1 p hp n, gap2 n]
 
-/-- Source: `proof_gap/exercise_3073/4.txt`. -/
+/-- Exercise 3073, gap 4. -/
 theorem gap4 : ¬Summable logRatioTerm := by
   intro hsum
   have harg :
@@ -140,7 +140,7 @@ theorem gap4 : ¬Summable logRatioTerm := by
   rcases (hgt.and hle).exists with ⟨n, hn_gt, hn_le⟩
   exact (not_lt_of_ge hn_le) hn_gt
 
-/-- Source: `proof_gap/exercise_3073/5.txt`; express divergence to `-∞` by a filter limit. -/
+/-- Exercise 3073, gap 5; express divergence to `-∞` by a filter limit. -/
 theorem gap5 : Tendsto logPartialSum atTop atBot := by
   have hpartial :
       ∀ n : ℕ, logPartialSum n = -Real.log ((n : ℝ) + 2) := by
@@ -169,7 +169,7 @@ theorem gap5 : Tendsto logPartialSum atTop atBot := by
   linarith
 
 /--
-Source: `proof_gap/exercise_3073/6.txt`; divergence means failure to converge
+Exercise 3073, gap 6; divergence means failure to converge
 to a nonzero product value.
 -/
 theorem gap6 : DivergentProduct := by

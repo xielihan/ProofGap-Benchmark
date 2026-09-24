@@ -100,7 +100,7 @@ private theorem exists_f₁_eq_one (k : ℝ) (hk : 0 < k) :
   dsimp [t]
   rw [Real.sin_add_nat_mul_two_pi, Real.sin_pi_div_two]
 
-/-- Source: `proof_gap/exercise_641/1.txt`; require a positive neighborhood radius. -/
+/-- Exercise 641, gap 1; require a positive neighborhood radius. -/
 theorem gap1 (k : ℝ) (hk : 0 < k) : oscillationOn f₁ k = 2 := by
   apply oscillationOn_eq_of_upper_of_approx
   · intro x hx y hy
@@ -122,7 +122,7 @@ theorem gap1 (k : ℝ) (hk : 0 < k) : oscillationOn f₁ k = 2 := by
     norm_num at ha ⊢
     exact ha
 
-/-- Source: `proof_gap/exercise_641/2.txt`. -/
+/-- Exercise 641, gap 2. -/
 theorem gap2 : oscillationAt f₁ 2 := by
   unfold oscillationAt
   have heq : (fun n : ℕ => oscillationOn f₁ (1 / ((n : ℝ) + 1))) =
@@ -133,7 +133,7 @@ theorem gap2 : oscillationAt f₁ 2 := by
   rw [heq]
   exact tendsto_const_nhds
 
-/-- Source: `proof_gap/exercise_641/3.txt`; express `+∞` as unbounded oscillation. -/
+/-- Exercise 641, gap 3; express `+∞` as unbounded oscillation. -/
 theorem gap3 (k : ℝ) (hk : 0 < k) : unboundedOscillationOn f₂ k := by
   intro M
   obtain ⟨n : ℕ, hn⟩ :=
@@ -165,7 +165,7 @@ theorem gap3 (k : ℝ) (hk : 0 < k) : unboundedOscillationOn f₂ k := by
   have htone : 1 < t := lt_of_le_of_lt (le_max_right _ _) ht_big
   nlinarith
 
-/-- Source: `proof_gap/exercise_641/4.txt`; express divergence of local oscillation to `+∞`. -/
+/-- Exercise 641, gap 4; express divergence of local oscillation to `+∞`. -/
 theorem gap4 :
     ∀ k > 0, unboundedOscillationOn f₂ k := by
   exact gap3
@@ -186,7 +186,7 @@ private theorem f₃_abs_le (k x : ℝ) (hk : 0 ≤ k)
       · exact hk
     _ = 3 * k := by ring
 
-/-- Source: `proof_gap/exercise_641/5.txt`; require a positive radius. -/
+/-- Exercise 641, gap 5; require a positive radius. -/
 theorem gap5 (k : ℝ) (hk : 0 < k) :
     4 * k ≤ oscillationOn f₃ k := by
   have hb := oscillationOn_bounds_of_pair_bound f₃ k (6 * k) hk.le
@@ -205,7 +205,7 @@ theorem gap5 (k : ℝ) (hk : 0 < k) :
     rw [hdiff, abs_of_pos (by positivity)]
   simpa [heq] using hpair
 
-/-- Source: `proof_gap/exercise_641/6.txt`. -/
+/-- Exercise 641, gap 6. -/
 theorem gap6 (k : ℝ) : 3 * k - k = 2 * k := by
   ring
 
@@ -227,7 +227,7 @@ private theorem oscillationOn_f₃_bounds (k : ℝ) (hk : 0 ≤ k) :
   change 0 ≤ sSup s ∧ sSup s ≤ 6 * k
   exact ⟨le_csSup hbdd hzero, csSup_le ⟨0, hzero⟩ hupper⟩
 
-/-- Source: `proof_gap/exercise_641/7.txt`. -/
+/-- Exercise 641, gap 7. -/
 theorem gap7 : oscillationAt f₃ 0 := by
   unfold oscillationAt
   apply squeeze_zero'
@@ -240,7 +240,7 @@ theorem gap7 : oscillationAt f₃ 0 := by
         Filter.Tendsto (fun n : ℕ => 1 / ((n : ℝ) + 1))
           Filter.atTop (nhds 0)).const_mul 6
 
-/-- Source: `proof_gap/exercise_641/8.txt`; the finite-radius endpoint formula in the source is not the supremum, so state its limiting role. -/
+/-- Exercise 641, gap 8; the finite-radius endpoint formula in the source is not the supremum, so state its limiting role. -/
 theorem gap8 :
     Filter.Tendsto
       (fun k : ℝ => (1 / Real.pi) *
@@ -272,7 +272,7 @@ theorem gap8 :
     norm_num
   simpa only [hcalc] using (hpos.sub hneg).const_mul (1 / Real.pi)
 
-/-- Source: `proof_gap/exercise_641/9.txt`. -/
+/-- Exercise 641, gap 9. -/
 theorem gap9 (k : ℝ) (hk : k ≠ 0) :
     (1 / Real.pi) * (Real.arctan (1 / k) - Real.arctan (1 / (-k))) =
       (2 / Real.pi) * Real.arctan (1 / k) := by
@@ -305,7 +305,7 @@ private theorem f₄_pair_le_one (x y : ℝ) : |f₄ x - f₄ y| ≤ 1 := by
   rw [abs_le]
   constructor <;> linarith
 
-/-- Source: `proof_gap/exercise_641/10.txt`. -/
+/-- Exercise 641, gap 10. -/
 theorem gap10 : oscillationAt f₄ 1 := by
   unfold oscillationAt
   let r : ℕ → ℝ := fun n => 1 / ((n : ℝ) + 1)
@@ -344,7 +344,7 @@ theorem gap10 : oscillationAt f₄ 1 := by
     tendsto_const_nhds
   simpa [r] using Filter.Tendsto.squeeze' hlower hone hlow_le hupp
 
-/-- Source: `proof_gap/exercise_641/11.txt`; require a positive radius. -/
+/-- Exercise 641, gap 11; require a positive radius. -/
 theorem gap11 (k : ℝ) (hk : 0 < k) : oscillationOn f₅ k = 2 := by
   apply oscillationOn_eq_of_upper_of_approx
   · intro x hx y hy
@@ -389,7 +389,7 @@ theorem gap11 (k : ℝ) (hk : 0 < k) : oscillationOn f₅ k = 2 := by
     rw [hfpos, hfneg, sub_neg_eq_add, ← two_mul, abs_of_nonneg (by positivity)]
     exact hax
 
-/-- Source: `proof_gap/exercise_641/12.txt`. -/
+/-- Exercise 641, gap 12. -/
 theorem gap12 : oscillationAt f₅ 2 := by
   unfold oscillationAt
   have heq : (fun n : ℕ => oscillationOn f₅ (1 / ((n : ℝ) + 1))) =
@@ -400,7 +400,7 @@ theorem gap12 : oscillationAt f₅ 2 := by
   rw [heq]
   exact tendsto_const_nhds
 
-/-- Source: `proof_gap/exercise_641/13.txt`; correct the finite-radius formula to a one-sided endpoint span used in the limit. -/
+/-- Exercise 641, gap 13; correct the finite-radius formula to a one-sided endpoint span used in the limit. -/
 theorem gap13 :
     Filter.Tendsto
       (fun k : ℝ => |1 / (1 + Real.exp (1 / k)) -
@@ -447,7 +447,7 @@ private theorem f₆_pair_le_one (x y : ℝ) : |f₆ x - f₆ y| ≤ 1 := by
   rw [abs_le]
   constructor <;> linarith
 
-/-- Source: `proof_gap/exercise_641/14.txt`. -/
+/-- Exercise 641, gap 14. -/
 theorem gap14 : oscillationAt f₆ 1 := by
   unfold oscillationAt
   let r : ℕ → ℝ := fun n => 1 / ((n : ℝ) + 1)
@@ -481,7 +481,7 @@ theorem gap14 : oscillationAt f₆ 1 := by
       (by simp [r]; positivity) (fun x _ y _ => f₆_pair_le_one x y)).2.1
   simpa [r] using Filter.Tendsto.squeeze' hlower tendsto_const_nhds hlow_le hupp
 
-/-- Source: `proof_gap/exercise_641/15.txt`; correct the finite-radius formula to the endpoint span whose limit is used. -/
+/-- Exercise 641, gap 15; correct the finite-radius formula to the endpoint span whose limit is used. -/
 theorem gap15 :
     Filter.Tendsto
       (fun k : ℝ => Real.rpow (1 + k) (1 / k) -
@@ -575,7 +575,7 @@ private theorem f₇_pair_le_span (x y : ℝ) :
   rw [abs_le]
   constructor <;> linarith
 
-/-- Source: `proof_gap/exercise_641/16.txt`. -/
+/-- Exercise 641, gap 16. -/
 theorem gap16 : oscillationAt f₇ (Real.exp 1 - Real.exp (-1)) := by
   unfold oscillationAt
   let r : ℕ → ℝ := fun n => 1 / ((n : ℝ) + 1)

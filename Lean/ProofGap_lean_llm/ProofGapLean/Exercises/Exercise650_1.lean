@@ -4,7 +4,7 @@ import Mathlib.Tactic.Linarith
 
 namespace ProofGap.Exercise650_1
 
-/-- Source: `proof_gap/exercise_650_1/1.txt`. -/
+/-- Exercise 650_1, gap 1. -/
 theorem gap1 :
     Filter.Tendsto (fun x : ℝ => (2 * x - x ^ 2) / x)
       (nhdsWithin 0 (Set.Ioi 0)) (nhds 2) := by
@@ -24,7 +24,7 @@ theorem gap1 :
   have hx0 : x ≠ 0 := ne_of_gt hx
   field_simp [hx0]
 
-/-- Source: `proof_gap/exercise_650_1/2.txt`. -/
+/-- Exercise 650_1, gap 2. -/
 theorem gap2 :
     Asymptotics.IsEquivalent (nhdsWithin 0 (Set.Ioi 0))
       (fun x : ℝ => 2 * x - x ^ 2) (fun x => 2 * x) := by
@@ -49,7 +49,7 @@ theorem gap2 :
   rw [abs_of_nonpos hleft, abs_of_pos hright]
   nlinarith
 
-/-- Source: `proof_gap/exercise_650_1/3.txt`. -/
+/-- Exercise 650_1, gap 3. -/
 theorem gap3 :
     Asymptotics.IsEquivalent (nhdsWithin 0 (Set.Ioi 0))
       (fun x : ℝ => 2 * x - x ^ 2) (fun x => 2 * x) := by

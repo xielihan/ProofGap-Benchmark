@@ -65,12 +65,12 @@ private lemma positiveReciprocalInterval (a b x : ℝ)
       have h := (div_lt_iff₀ hb).1 hlo
       nlinarith
 
-/-- Source: `proof_gap/exercise_157/1.txt`; positivity is conditional on domain membership. -/
+/-- Exercise 157, gap 1; positivity is conditional on domain membership. -/
 theorem gap1 : ∀ x : ℝ, x ∈ domain → 0 < Real.sin (Real.pi / x) := by
   intro x hx
   exact hx.2
 
-/-- Source: `proof_gap/exercise_157/2.txt`; k is existential and x≠0 is explicit. -/
+/-- Exercise 157, gap 2; k is existential and x≠0 is explicit. -/
 theorem gap2 : ∀ x : ℝ, x ∈ domain ↔ angleCondition x := by
   intro x
   constructor
@@ -141,7 +141,7 @@ theorem gap2 : ∀ x : ℝ, x ∈ domain ↔ angleCondition x := by
       convert hsinu using 1
       simpa only [Nat.cast_add, Nat.cast_one] using hperiod.symm
 
-/-- Source: `proof_gap/exercise_157/3.txt`; handle k=0 without the undefined endpoint 1/0. -/
+/-- Exercise 157, gap 3; handle k=0 without the undefined endpoint 1/0. -/
 theorem gap3 : ∀ x : ℝ, angleCondition x ↔ intervalCondition x := by
   intro x
   constructor
@@ -230,7 +230,7 @@ theorem gap3 : ∀ x : ℝ, angleCondition x ↔ intervalCondition x := by
       rw [div_neg] at hyang
       constructor <;> linarith
 
-/-- Source: `proof_gap/exercise_157/4.txt`. -/
+/-- Exercise 157, gap 4. -/
 theorem gap4 : domain = {x : ℝ | intervalCondition x} := by
   ext x
   exact (gap2 x).trans (gap3 x)

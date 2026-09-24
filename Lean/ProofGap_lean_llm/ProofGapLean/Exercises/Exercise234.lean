@@ -14,7 +14,7 @@ noncomputable def indicatorValue (x : ℝ) : ℝ := by
 
 def chi (x : ℝ) : ℝ := indicatorValue x
 
-/-- Source: `proof_gap/exercise_234/1.txt`. -/
+/-- Exercise 234, gap 1. -/
 theorem gap1 : ∀ x l, IsRational l → IsRational x →
     IsRational (x + l) := by
   intro x l hl hx
@@ -23,7 +23,7 @@ theorem gap1 : ∀ x l, IsRational l → IsRational x →
   refine ⟨qx + ql, ?_⟩
   norm_num [hqx, hql]
 
-/-- Source: `proof_gap/exercise_234/2.txt`. -/
+/-- Exercise 234, gap 2. -/
 theorem gap2 : ∀ x l, IsRational l → ¬IsRational x →
     ¬IsRational (x + l) := by
   intro x l hl hx hxl
@@ -33,7 +33,7 @@ theorem gap2 : ∀ x l, IsRational l → ¬IsRational x →
   refine ⟨qsum - ql, ?_⟩
   norm_num [hqsum, hql]
 
-/-- Source: `proof_gap/exercise_234/3.txt`. -/
+/-- Exercise 234, gap 3. -/
 theorem gap3 : ∀ x l, IsRational l →
     chi (x + l) = indicatorValue x := by
   classical
@@ -44,23 +44,23 @@ theorem gap3 : ∀ x l, IsRational l →
   · have hsum : ¬IsRational (x + l) := gap2 x l hl hx
     simp [chi, indicatorValue, hx, hsum]
 
-/-- Source: `proof_gap/exercise_234/4.txt`. -/
+/-- Exercise 234, gap 4. -/
 theorem gap4 : ∀ x l, IsRational l →
     indicatorValue x = chi x := by
   intro x l hl
   rfl
 
-/-- Source: `proof_gap/exercise_234/5.txt`. -/
+/-- Exercise 234, gap 5. -/
 theorem gap5 : ∀ x l, IsRational l → chi (x + l) = chi x := by
   intro x l hl
   simpa [chi] using gap3 x l hl
 
-/-- Source: `proof_gap/exercise_234/6.txt`. -/
+/-- Exercise 234, gap 6. -/
 theorem gap6 : ∀ l, IsRational l → Function.Periodic chi l := by
   intro l hl x
   exact gap5 x l hl
 
-/-- Source: `proof_gap/exercise_234/7.txt`. -/
+/-- Exercise 234, gap 7. -/
 theorem gap7 : ∀ l, IsRational l → Function.Periodic chi l := by
   intro l hl
   exact gap6 l hl

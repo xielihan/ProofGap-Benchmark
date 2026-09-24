@@ -19,7 +19,7 @@ def quotient (n : ℕ) (x : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_424/1.txt`; replace ellipses by a finite sum. -/
+/-- Exercise 424, gap 1; replace ellipses by a finite sum. -/
 private theorem sumPowers_eq_range_sum (n : ℕ) (x : ℝ) :
     sumPowers n x =
       (Finset.range n).sum (fun j => x ^ (j + 1)) := by
@@ -102,7 +102,7 @@ theorem gap1 (n : ℕ) : ∀ x,
     simp
   simp [sumPowers, Finset.sum_sub_distrib, hc]
 
-/-- Source: `proof_gap/exercise_424/2.txt`; replace the nested geometric ellipses by `weightedSum`. -/
+/-- Exercise 424, gap 2; replace the nested geometric ellipses by `weightedSum`. -/
 theorem gap2 (n : ℕ) : ∀ x,
     sumPowers n x - n = (x - 1) * weightedSum n x := by
   intro x
@@ -127,12 +127,12 @@ theorem gap2 (n : ℕ) : ∀ x,
               rw [← geom_sum_factor (n + 1) x]
               ring
 
-/-- Source: `proof_gap/exercise_424/3.txt`. -/
+/-- Exercise 424, gap 3. -/
 theorem gap3 (n : ℕ) : ∀ x,
     sumPowers n x - n = (x - 1) * weightedSum n x := by
   exact gap2 n
 
-/-- Source: `proof_gap/exercise_424/4.txt`. -/
+/-- Exercise 424, gap 4. -/
 theorem gap4 (n : ℕ) :
     HasLimitAt (quotient n) 1 (n * (n + 1) / 2) ↔
       HasLimitAt (weightedSum n) 1 (n * (n + 1) / 2) := by
@@ -150,7 +150,7 @@ theorem gap4 (n : ℕ) :
   · intro h
     exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_424/5.txt`. -/
+/-- Exercise 424, gap 5. -/
 theorem gap5 (n : ℕ) :
     HasLimitAt (weightedSum n) 1 (n * (n + 1) / 2) := by
   unfold HasLimitAt
@@ -161,7 +161,7 @@ theorem gap5 (n : ℕ) :
   rw [weightedSum_one] at ht
   exact ht.mono_left inf_le_left
 
-/-- Source: `proof_gap/exercise_424/6.txt`. -/
+/-- Exercise 424, gap 6. -/
 theorem gap6 (n : ℕ) :
     (Finset.Icc 1 n).sum (fun k => k) = n * (n + 1) / 2 := by
   have hsubset : Finset.Icc 1 n ⊆ Finset.range (n + 1) := by
@@ -178,7 +178,7 @@ theorem gap6 (n : ℕ) :
     _ = n * (n + 1) / 2 := by
           simpa [Finset.sum_range_id, Nat.mul_comm]
 
-/-- Source: `proof_gap/exercise_424/7.txt`. -/
+/-- Exercise 424, gap 7. -/
 theorem gap7 (n : ℕ) :
     HasLimitAt (quotient n) 1 (n * (n + 1) / 2) := by
   exact (gap4 n).2 (gap5 n)

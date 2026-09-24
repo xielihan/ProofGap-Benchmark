@@ -20,7 +20,7 @@ def exponentialForm (x : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_522/1.txt`. -/
+/-- Exercise 522, gap 1. -/
 private theorem tendsto_tan_and_log_quotient :
     Filter.Tendsto Real.tan
         (nhdsWithin (Real.pi / 4) ({Real.pi / 4} : Set ℝ)ᶜ) (nhds 1) ∧
@@ -132,7 +132,7 @@ theorem gap1 (L : ℝ) :
     rw [Real.tan_two_mul]
   rw [hfun]
 
-/-- Source: `proof_gap/exercise_522/2.txt`. -/
+/-- Exercise 522, gap 2. -/
 theorem gap2 (L : ℝ) :
     HasLimitAt original (Real.pi / 4) L ↔
       HasLimitAt exponentialForm (Real.pi / 4) L := by
@@ -166,7 +166,7 @@ theorem gap2 (L : ℝ) :
     _ ↔ HasLimitAt exponentialForm (Real.pi / 4) L := by
       rw [show doubleAngle = exponentialForm from funext hpoint]
 
-/-- Source: `proof_gap/exercise_522/3.txt`. -/
+/-- Exercise 522, gap 3. -/
 theorem gap3 : HasLimitAt exponentialForm (Real.pi / 4) (Real.exp (-1)) := by
   unfold HasLimitAt
   let l := nhdsWithin (Real.pi / 4) ({Real.pi / 4} : Set ℝ)ᶜ
@@ -227,7 +227,7 @@ theorem gap3 : HasLimitAt exponentialForm (Real.pi / 4) (Real.exp (-1)) := by
           congr 1
           ring
 
-/-- Source: `proof_gap/exercise_522/4.txt`. -/
+/-- Exercise 522, gap 4. -/
 theorem gap4 : HasLimitAt original (Real.pi / 4) (Real.exp (-1)) := by
   exact (gap2 (Real.exp (-1))).mpr gap3
 

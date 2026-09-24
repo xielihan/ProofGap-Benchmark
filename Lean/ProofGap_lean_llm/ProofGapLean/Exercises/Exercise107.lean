@@ -30,7 +30,7 @@ private theorem x_tendsto_atBot :
     tendsto_neg_atTop_atBot.comp hcast
   exact Filter.tendsto_atBot_mono x_le_neg_nat hneg
 
-/-- Source: `proof_gap/exercise_107/1.txt`. -/
+/-- Exercise 107, gap 1. -/
 theorem gap1 : ¬ BddBelow values := by
   intro hb
   rcases hb with ⟨a, ha⟩
@@ -40,7 +40,7 @@ theorem gap1 : ¬ BddBelow values := by
   have hmem : x n ∈ values := ⟨n, by omega, rfl⟩
   linarith [ha hmem]
 
-/-- Source: `proof_gap/exercise_107/2.txt`. -/
+/-- Exercise 107, gap 2. -/
 theorem gap2 : sSup values = -1 := by
   have hgreatest : IsGreatest values (-1) := by
     constructor
@@ -52,11 +52,11 @@ theorem gap2 : sSup values = -1 := by
       linarith [x_le_neg_nat n]
   exact hgreatest.csSup_eq
 
-/-- Source: `proof_gap/exercise_107/3.txt`. -/
+/-- Exercise 107, gap 3. -/
 theorem gap3 : Tendsto x atTop (atBot : Filter ℝ) := by
   exact x_tendsto_atBot
 
-/-- Source: `proof_gap/exercise_107/4.txt`. -/
+/-- Exercise 107, gap 4. -/
 theorem gap4 : Tendsto x atTop (atBot : Filter ℝ) := by
   exact x_tendsto_atBot
 

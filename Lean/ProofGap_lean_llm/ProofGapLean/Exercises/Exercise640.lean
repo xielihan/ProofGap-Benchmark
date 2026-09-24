@@ -16,7 +16,7 @@ def Recurrence (ε m : ℝ) (x : ℕ → ℝ) : Prop :=
 def geometricBlock (ε : ℝ) (i j : ℕ) : ℝ :=
   (Finset.Icc j (i - 1)).sum (fun k => ε ^ k)
 
-/-- Source: `proof_gap/exercise_640/1.txt`. -/
+/-- Exercise 640, gap 1. -/
 private theorem abs_sin_le_abs_local (t : ℝ) :
     |Real.sin t| ≤ |t| := by
   exact (Real.abs_sin_le_abs : |Real.sin t| ≤ |t|)
@@ -108,7 +108,7 @@ theorem gap1 (ε m : ℝ) (x : ℕ → ℝ) (hx : Recurrence ε m x) :
     x 2 - x 1 = ε * (Real.sin (x 1) - Real.sin (x 0)) := by
   simpa using recurrence_diff ε m x 1 (by omega) hx
 
-/-- Source: `proof_gap/exercise_640/2.txt`. -/
+/-- Exercise 640, gap 2. -/
 theorem gap2 (ε : ℝ) (x : ℕ → ℝ) :
     ε * (Real.sin (x 1) - Real.sin (x 0)) =
       2 * ε * Real.sin ((x 1 - x 0) / 2) *
@@ -116,7 +116,7 @@ theorem gap2 (ε : ℝ) (x : ℕ → ℝ) :
   rw [Real.sin_sub_sin]
   ring
 
-/-- Source: `proof_gap/exercise_640/3.txt`. -/
+/-- Exercise 640, gap 3. -/
 theorem gap3 (ε m : ℝ) (x : ℕ → ℝ) (hx : Recurrence ε m x) :
     x 2 - x 1 =
       2 * ε * Real.sin ((x 1 - x 0) / 2) *
@@ -126,14 +126,14 @@ theorem gap3 (ε m : ℝ) (x : ℕ → ℝ) (hx : Recurrence ε m x) :
     _ = 2 * ε * Real.sin ((x 1 - x 0) / 2) *
         Real.cos ((x 1 + x 0) / 2) := gap2 ε x
 
-/-- Source: `proof_gap/exercise_640/4.txt`. -/
+/-- Exercise 640, gap 4. -/
 theorem gap4 (ε m : ℝ) (x : ℕ → ℝ) (hε : 0 < ε)
     (hx : Recurrence ε m x) :
     |x 2 - x 1| ≤ ε * |x 1 - x 0| := by
   have h := recurrence_step_le ε m x 1 hε.le (by omega) hx
   simpa using h
 
-/-- Source: `proof_gap/exercise_640/5.txt`. -/
+/-- Exercise 640, gap 5. -/
 theorem gap5 (ε m : ℝ) (x : ℕ → ℝ) (hε : 0 < ε)
     (hx : Recurrence ε m x) :
     |x 3 - x 2| ≤ ε ^ 2 * |x 1 - x 0| := by
@@ -144,7 +144,7 @@ theorem gap5 (ε m : ℝ) (x : ℕ → ℝ) (hε : 0 < ε)
     _ ≤ ε * (ε * |x 1 - x 0|) := mul_le_mul_of_nonneg_left hprev hε.le
     _ = ε ^ 2 * |x 1 - x 0| := by ring
 
-/-- Source: `proof_gap/exercise_640/6.txt`; add `n≥1` before using `n-1`. -/
+/-- Exercise 640, gap 6; add `n≥1` before using `n-1`. -/
 theorem gap6 (ε m : ℝ) (x : ℕ → ℝ) (n : ℕ) (hn : 1 ≤ n)
     (hε : 0 ≤ ε) (hx : Recurrence ε m x)
     (hind : |x n - x (n - 1)| ≤ ε ^ (n - 1) * |x 1 - x 0|) :
@@ -156,7 +156,7 @@ theorem gap6 (ε m : ℝ) (x : ℕ → ℝ) (n : ℕ) (hn : 1 ≤ n)
   norm_num
   ring
 
-/-- Source: `proof_gap/exercise_640/7.txt`; add `n≥1`. -/
+/-- Exercise 640, gap 7; add `n≥1`. -/
 theorem gap7 (ε m : ℝ) (x : ℕ → ℝ) (n : ℕ) (hn : 1 ≤ n)
     (hε : 0 < ε) (hx : Recurrence ε m x)
     (hind : |x n - x (n - 1)| ≤ ε ^ (n - 1) * |x 1 - x 0|) :
@@ -174,7 +174,7 @@ theorem gap7 (ε m : ℝ) (x : ℕ → ℝ) (n : ℕ) (hn : 1 ≤ n)
   exact mul_le_mul_of_nonneg_left
     (abs_sin_sub_le (x n) (x (n - 1))) hε.le
 
-/-- Source: `proof_gap/exercise_640/8.txt`; add `n≥1`. -/
+/-- Exercise 640, gap 8; add `n≥1`. -/
 theorem gap8 (ε : ℝ) (x : ℕ → ℝ) (n : ℕ) (hn : 1 ≤ n)
     (hε : 0 ≤ ε)
     (hind : |x n - x (n - 1)| ≤ ε ^ (n - 1) * |x 1 - x 0|) :
@@ -189,7 +189,7 @@ theorem gap8 (ε : ℝ) (x : ℕ → ℝ) (n : ℕ) (hn : 1 ≤ n)
     _ = ε ^ n * |x 1 - x 0| := by
       rw [Nat.sub_add_cancel hn]
 
-/-- Source: `proof_gap/exercise_640/9.txt`; add `n≥1`. -/
+/-- Exercise 640, gap 9; add `n≥1`. -/
 theorem gap9 (ε m : ℝ) (x : ℕ → ℝ) (n : ℕ) (hn : 1 ≤ n)
     (hε : 0 < ε) (hx : Recurrence ε m x)
     (hind : |x n - x (n - 1)| ≤ ε ^ (n - 1) * |x 1 - x 0|) :
@@ -199,7 +199,7 @@ theorem gap9 (ε m : ℝ) (x : ℕ → ℝ) (n : ℕ) (hn : 1 ≤ n)
       recurrence_step_le ε m x n hε.le hn hx
     _ ≤ ε ^ n * |x 1 - x 0| := gap8 ε x n hn hε.le hind
 
-/-- Source: `proof_gap/exercise_640/10.txt`. -/
+/-- Exercise 640, gap 10. -/
 theorem gap10 (ε m : ℝ) (x : ℕ → ℝ) (hε0 : 0 < ε) (hε1 : ε < 1)
     (hx : Recurrence ε m x) :
     ∀ n ≥ 1, |x n - x (n - 1)| ≤ ε ^ (n - 1) * |x 1 - x 0| := by
@@ -208,7 +208,7 @@ theorem gap10 (ε m : ℝ) (x : ℕ → ℝ) (hε0 : 0 < ε) (hε1 : ε < 1)
   · simp
   · simpa using gap9 ε m x k hk hε0 hx ih
 
-/-- Source: `proof_gap/exercise_640/11.txt`; rename the index shadowing the parameter `m` and replace the ellipsis by a finite sum. -/
+/-- Exercise 640, gap 11; rename the index shadowing the parameter `m` and replace the ellipsis by a finite sum. -/
 theorem gap11 (ε m : ℝ) (x : ℕ → ℝ) (i j : ℕ) (hij : j < i)
     (hstep : ∀ n ≥ 1,
       |x n - x (n - 1)| ≤ ε ^ (n - 1) * |x 1 - x 0|) :
@@ -233,7 +233,7 @@ theorem gap11 (ε m : ℝ) (x : ℕ → ℝ) (i j : ℕ) (hij : j < i)
       unfold geometricBlock
       rw [hset, Finset.sum_mul]
 
-/-- Source: `proof_gap/exercise_640/12.txt`; use renamed sequence indices. -/
+/-- Exercise 640, gap 12; use renamed sequence indices. -/
 theorem gap12 (ε : ℝ) (x : ℕ → ℝ) (i j : ℕ) (hij : j < i)
     (hε : ε ≠ 1)
     (hbound : |x i - x j| ≤ geometricBlock ε i j * |x 1 - x 0|) :
@@ -252,7 +252,7 @@ theorem gap12 (ε : ℝ) (x : ℕ → ℝ) (i j : ℕ) (hij : j < i)
     _ = ε ^ j * ((1 - ε ^ (i - j)) / (1 - ε)) *
         |x 1 - x 0| := by rw [hgeom]
 
-/-- Source: `proof_gap/exercise_640/13.txt`; remove irrelevant shadowing indices. -/
+/-- Exercise 640, gap 13; remove irrelevant shadowing indices. -/
 theorem gap13 (ε m : ℝ) (x : ℕ → ℝ) (hε : 0 ≤ ε)
     (hx : Recurrence ε m x) :
     |x 1 - x 0| = ε * |Real.sin (x 0)| := by
@@ -263,7 +263,7 @@ theorem gap13 (ε m : ℝ) (x : ℕ → ℝ) (hε : 0 ≤ ε)
   ring_nf
   rw [abs_mul, abs_of_nonneg hε]
 
-/-- Source: `proof_gap/exercise_640/14.txt`. -/
+/-- Exercise 640, gap 14. -/
 theorem gap14 (ε : ℝ) (x : ℕ → ℝ) (hε : 0 ≤ ε) :
     ε * |Real.sin (x 0)| ≤ ε := by
   calc
@@ -271,7 +271,7 @@ theorem gap14 (ε : ℝ) (x : ℕ → ℝ) (hε : 0 ≤ ε) :
       mul_le_mul_of_nonneg_left (Real.abs_sin_le_one (x 0)) hε
     _ = ε := by ring
 
-/-- Source: `proof_gap/exercise_640/15.txt`. -/
+/-- Exercise 640, gap 15. -/
 theorem gap15 (ε m : ℝ) (x : ℕ → ℝ) (hε : 0 ≤ ε)
     (hx : Recurrence ε m x) :
     |x 1 - x 0| ≤ ε := by
@@ -284,7 +284,7 @@ theorem gap15 (ε m : ℝ) (x : ℕ → ℝ) (hε : 0 ≤ ε)
   rw [hdiff, abs_mul, abs_of_nonneg hε]
   exact gap14 ε x hε
 
-/-- Source: `proof_gap/exercise_640/16.txt`; rename shadowing indices. -/
+/-- Exercise 640, gap 16; rename shadowing indices. -/
 theorem gap16 (ε m : ℝ) (x : ℕ → ℝ) (i j : ℕ) (hij : j < i)
     (hε0 : 0 < ε) (hε1 : ε < 1) (hx : Recurrence ε m x) :
     |x i - x j| < ε ^ (j + 1) / (1 - ε) := by
@@ -316,7 +316,7 @@ theorem gap16 (ε m : ℝ) (x : ℕ → ℝ) (i j : ℕ) (hij : j < i)
         (mul_lt_mul_of_pos_left hprod hA)
     _ = ε ^ (j + 1) / (1 - ε) := by rw [pow_succ]
 
-/-- Source: `proof_gap/exercise_640/17.txt`; bind the fixed sequence index. -/
+/-- Exercise 640, gap 17; bind the fixed sequence index. -/
 theorem gap17 (ε m : ℝ) (x : ℕ → ℝ) (i : ℕ)
     (hε0 : 0 < ε) (hε1 : ε < 1) (hx : Recurrence ε m x) :
     Filter.Tendsto (fun n => |x (n + i + 1) - x n|)
@@ -345,7 +345,7 @@ theorem gap17 (ε m : ℝ) (x : ℕ → ℝ) (i : ℕ)
   have hb := gap16 ε m x (n + i + 1) n (by omega) hε0 hε1 hx
   simpa [Real.dist_eq] using lt_trans hb (hN n hn)
 
-/-- Source: `proof_gap/exercise_640/18.txt`. -/
+/-- Exercise 640, gap 18. -/
 theorem gap18 (ε m : ℝ) (x : ℕ → ℝ)
     (hε0 : 0 < ε) (hε1 : ε < 1) (hx : Recurrence ε m x) :
     ∃ ξ, Filter.Tendsto x Filter.atTop (nhds ξ) := by
@@ -382,7 +382,7 @@ theorem gap18 (ε m : ℝ) (x : ℕ → ℝ)
       simpa [Real.dist_eq] using lt_trans hb ht
   exact cauchySeq_tendsto_of_complete hc
 
-/-- Source: `proof_gap/exercise_640/19.txt`. -/
+/-- Exercise 640, gap 19. -/
 theorem gap19 (ε m : ℝ) (x : ℕ → ℝ)
     (hx : Recurrence ε m x)
     (hconv : ∃ ξ, Filter.Tendsto x Filter.atTop (nhds ξ)) :
@@ -408,7 +408,7 @@ theorem gap19 (ε m : ℝ) (x : ℕ → ℝ)
   rw [heq] at hshift
   exact ⟨ξ, tendsto_nhds_unique hshift hrhs⟩
 
-/-- Source: `proof_gap/exercise_640/20.txt`. -/
+/-- Exercise 640, gap 20. -/
 theorem gap20 (ε m : ℝ) (x : ℕ → ℝ)
     (hx : Recurrence ε m x)
     (hconv : ∃ ξ, Filter.Tendsto x Filter.atTop (nhds ξ)) :
@@ -417,14 +417,14 @@ theorem gap20 (ε m : ℝ) (x : ℕ → ℝ)
   refine ⟨ξ, ?_⟩
   linarith
 
-/-- Source: `proof_gap/exercise_640/21.txt`; bind the selected fixed point. -/
+/-- Exercise 640, gap 21; bind the selected fixed point. -/
 theorem gap21 (ε m ξ : ℝ) (hξ : ξ - ε * Real.sin ξ = m) :
     ∀ ξ₁, ξ₁ - ε * Real.sin ξ₁ = m →
       ξ₁ - ξ = ε * (Real.sin ξ₁ - Real.sin ξ) := by
   intro ξ₁ hξ₁
   linarith
 
-/-- Source: `proof_gap/exercise_640/22.txt`. -/
+/-- Exercise 640, gap 22. -/
 theorem gap22 (ε m ξ : ℝ) (hε : 0 ≤ ε)
     (hξ : ξ - ε * Real.sin ξ = m) :
     ∀ ξ₁, ξ₁ - ε * Real.sin ξ₁ = m →
@@ -438,7 +438,7 @@ theorem gap22 (ε m ξ : ℝ) (hε : 0 ≤ ε)
     _ ≤ ε * |ξ₁ - ξ| :=
       mul_le_mul_of_nonneg_left (abs_sin_sub_le ξ₁ ξ) hε
 
-/-- Source: `proof_gap/exercise_640/23.txt`. -/
+/-- Exercise 640, gap 23. -/
 theorem gap23 (ε m ξ : ℝ) (hε0 : 0 ≤ ε) (hε1 : ε < 1)
     (hξ : ξ - ε * Real.sin ξ = m) :
     ∀ ξ₁, ξ₁ - ε * Real.sin ξ₁ = m → ξ₁ = ξ := by
@@ -449,7 +449,7 @@ theorem gap23 (ε m ξ : ℝ) (hε0 : 0 ≤ ε) (hε1 : ε < 1)
     nlinarith
   exact sub_eq_zero.mp (abs_eq_zero.mp hz)
 
-/-- Source: `proof_gap/exercise_640/24.txt`. -/
+/-- Exercise 640, gap 24. -/
 theorem gap24 (ε m : ℝ) (x : ℕ → ℝ)
     (hε0 : 0 < ε) (hε1 : ε < 1) (hx : Recurrence ε m x) :
     ∃ ξ, Filter.Tendsto x Filter.atTop (nhds ξ) ∧

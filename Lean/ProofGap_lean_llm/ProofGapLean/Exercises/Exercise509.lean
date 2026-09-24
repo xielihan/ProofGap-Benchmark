@@ -11,7 +11,7 @@ noncomputable section
 def seq (n : ℕ) : ℝ :=
   Real.sin (2 * Real.pi * n / (3 * n + 1)) ^ n
 
-/-- Source: `proof_gap/exercise_509/1.txt`. -/
+/-- Exercise 509, gap 1. -/
 private theorem angle_tendsto :
     Filter.Tendsto
       (fun n : ℕ => 2 * Real.pi * n / (3 * n + 1))
@@ -61,7 +61,7 @@ theorem gap1 (n : ℕ) :
       ⟨Real.neg_one_le_sin (2 * Real.pi * n / (3 * n + 1)),
         Real.sin_le_one (2 * Real.pi * n / (3 * n + 1))⟩
 
-/-- Source: `proof_gap/exercise_509/2.txt`. -/
+/-- Exercise 509, gap 2. -/
 theorem gap2 : Filter.Tendsto seq Filter.atTop (nhds 0) := by
   have hsin :
       Filter.Tendsto

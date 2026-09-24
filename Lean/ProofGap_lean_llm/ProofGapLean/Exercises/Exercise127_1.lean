@@ -6,14 +6,14 @@ open Filter
 
 namespace ProofGap.Exercise127_1
 
-/-- Source: `proof_gap/exercise_127_1/1.txt`. -/
+/-- Exercise 127_1, gap 1. -/
 theorem gap1
     (x y : ℕ → ℝ) :
     ∀ n : ℕ, y n = (x n + y n) - x n := by
   intro n
   ring
 
-/-- Source: `proof_gap/exercise_127_1/2.txt`. -/
+/-- Exercise 127_1, gap 2. -/
 theorem gap2
     (x y : ℕ → ℝ)
     (hx : ProofGap.ConvergentSeq x)
@@ -27,7 +27,7 @@ theorem gap2
   ext n
   ring
 
-/-- Source: `proof_gap/exercise_127_1/3.txt`. -/
+/-- Exercise 127_1, gap 3. -/
 theorem gap3
     (x y : ℕ → ℝ)
     (hx : ProofGap.ConvergentSeq x)
@@ -36,7 +36,7 @@ theorem gap3
     False := by
   exact hy (gap2 x y hx hsum)
 
-/-- Source: `proof_gap/exercise_127_1/4.txt`. -/
+/-- Exercise 127_1, gap 4. -/
 theorem gap4
     (x y : ℕ → ℝ)
     (hx : ProofGap.ConvergentSeq x)
@@ -45,7 +45,7 @@ theorem gap4
   intro hsum
   exact gap3 x y hx hy hsum
 
-/-- Source: `proof_gap/exercise_127_1/5.txt`. -/
+/-- Exercise 127_1, gap 5. -/
 theorem gap5
     (x y : ℕ → ℝ)
     (h : ¬ ProofGap.ConvergentSeq (fun n => x n + y n)) :

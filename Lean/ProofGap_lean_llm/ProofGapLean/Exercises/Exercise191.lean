@@ -6,23 +6,23 @@ noncomputable section
 
 def f (x : ℝ) : ℝ := 1 + (⌊x⌋ : ℤ)
 
-/-- Source: `proof_gap/exercise_191/1.txt`. -/
+/-- Exercise 191, gap 1. -/
 theorem gap1 : f 0.9 = f 0.99 := by
   norm_num [f]
 
-/-- Source: `proof_gap/exercise_191/2.txt`. -/
+/-- Exercise 191, gap 2. -/
 theorem gap2 : f 0.99 = f 0.999 := by
   norm_num [f]
 
-/-- Source: `proof_gap/exercise_191/3.txt`. -/
+/-- Exercise 191, gap 3. -/
 theorem gap3 : f 0.999 = 1 := by
   norm_num [f]
 
-/-- Source: `proof_gap/exercise_191/4.txt`. -/
+/-- Exercise 191, gap 4. -/
 theorem gap4 : f 0.9 = 1 := by
   norm_num [f]
 
-/-- Source: `proof_gap/exercise_191/5.txt`. -/
+/-- Exercise 191, gap 5. -/
 theorem gap5 : f 1 = 2 := by
   norm_num [f]
 

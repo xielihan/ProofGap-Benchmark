@@ -28,7 +28,7 @@ def normalized (x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_521/1.txt`; localize the power rewrite to the punctured limit instead of all real `x`. -/
+/-- Exercise 521, gap 1; localize the power rewrite to the punctured limit instead of all real `x`. -/
 private theorem tendsto_log_one_plus_div_local :
     Filter.Tendsto (fun x : ℝ => Real.log (1 + x) / x)
       (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds 1) := by
@@ -94,20 +94,20 @@ theorem gap1 (L : ℝ) :
   · intro h
     exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_521/2.txt`; exclude `x=0`. -/
+/-- Exercise 521, gap 2; exclude `x=0`. -/
 theorem gap2 (x : ℝ) (hx : x ≠ 0) :
     differenceQuotient x = polynomialForm x := by
   unfold differenceQuotient polynomialForm
   rw [Real.cos_two_mul]
   ring
 
-/-- Source: `proof_gap/exercise_521/3.txt`; exclude `x=0`. -/
+/-- Exercise 521, gap 3; exclude `x=0`. -/
 theorem gap3 (x : ℝ) (hx : x ≠ 0) :
     polynomialForm x = factored x := by
   unfold polynomialForm factored
   field_simp [hx] <;> ring
 
-/-- Source: `proof_gap/exercise_521/4.txt`; exclude `x=0`. -/
+/-- Exercise 521, gap 4; exclude `x=0`. -/
 theorem gap4 (x : ℝ) (hx : x ≠ 0) :
     factored x = normalized x := by
   have hcos :
@@ -120,7 +120,7 @@ theorem gap4 (x : ℝ) (hx : x ≠ 0) :
   rw [hone]
   field_simp [hx] <;> ring
 
-/-- Source: `proof_gap/exercise_521/5.txt`. -/
+/-- Exercise 521, gap 5. -/
 theorem gap5 : HasLimitAtZero normalized (3 / 2) := by
   unfold HasLimitAtZero
   have hhalf :
@@ -164,7 +164,7 @@ theorem gap5 : HasLimitAtZero normalized (3 / 2) := by
     exact hfull.mono_left inf_le_left
   simpa [normalized] using hfactor.mul (hsin.pow 2)
 
-/-- Source: `proof_gap/exercise_521/6.txt`. -/
+/-- Exercise 521, gap 6. -/
 theorem gap6 : HasLimitAtZero differenceQuotient (3 / 2) := by
   unfold HasLimitAtZero
   apply gap5.congr'
@@ -175,7 +175,7 @@ theorem gap6 : HasLimitAtZero differenceQuotient (3 / 2) := by
     _ = polynomialForm x := (gap3 x hx0).symm
     _ = differenceQuotient x := (gap2 x hx0).symm
 
-/-- Source: `proof_gap/exercise_521/7.txt`. -/
+/-- Exercise 521, gap 7. -/
 theorem gap7 : HasLimitAtZero original (Real.exp (3 / 2)) := by
   apply (gap1 (Real.exp (3 / 2))).mpr
   unfold HasLimitAtZero

@@ -18,7 +18,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 def finalDerivative (x : ℝ) : ℝ :=
   1 / Real.sqrt (4 - x ^ 2)
 
-/-- Source: `proof_gap/exercise_913/1.txt`; the inverse sine is
+/-- Exercise 913, gap 1; the inverse sine is
 differentiated strictly inside its real domain. -/
 theorem gap1 (x : ℝ) (hx : |x| < 2) :
     HasDerivAt y (expandedDerivative x) x := by
@@ -33,7 +33,7 @@ theorem gap1 (x : ℝ) (hx : |x| < 2) :
   simpa [y, expandedDerivative] using
     (Real.hasDerivAt_arcsin hne_neg hne_pos).comp x hlin
 
-/-- Source: `proof_gap/exercise_913/2.txt`; the strict interior hypothesis
+/-- Exercise 913, gap 2; the strict interior hypothesis
 makes both square-root denominators positive. -/
 theorem gap2 (x : ℝ) (hx : |x| < 2) :
     expandedDerivative x = finalDerivative x := by
@@ -66,7 +66,7 @@ theorem gap2 (x : ℝ) (hx : |x| < 2) :
   rw [hs]
   field_simp [ne_of_gt hsa]
 
-/-- Source: `proof_gap/exercise_913/3.txt`; retain the nonsingular inverse
+/-- Exercise 913, gap 3; retain the nonsingular inverse
 trigonometric domain. -/
 theorem gap3 (x : ℝ) (hx : |x| < 2) :
     HasDerivAt y (finalDerivative x) x := by

@@ -20,7 +20,7 @@ def normalized (y : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_495/1.txt`; bind `y=x-π/3`. -/
+/-- Exercise 495, gap 1; bind `y=x-π/3`. -/
 theorem gap1 (L : ℝ) :
     HasLimitAt original (Real.pi / 3) L ↔ HasLimitAt shifted 0 L := by
   have hfun (y : ℝ) :
@@ -78,7 +78,7 @@ theorem gap1 (L : ℝ) :
       simpa only [Function.comp_apply] using h.comp h_sub
     exact hc.congr' (Filter.Eventually.of_forall hfun')
 
-/-- Source: `proof_gap/exercise_495/2.txt`. -/
+/-- Exercise 495, gap 2. -/
 theorem gap2 (L : ℝ) :
     HasLimitAt shifted 0 L ↔ HasLimitAt normalized 0 L := by
   have heq (y : ℝ) (hy : y ≠ 0) : shifted y = normalized y := by
@@ -113,7 +113,7 @@ theorem gap2 (L : ℝ) :
       simpa only [Set.mem_compl_iff, Set.mem_singleton_iff] using hy
     exact (heq y hy').symm
 
-/-- Source: `proof_gap/exercise_495/3.txt`. -/
+/-- Exercise 495, gap 3. -/
 theorem gap3 : HasLimitAt normalized 0 (1 / Real.sqrt 3) := by
   have hsin :
       Filter.Tendsto (fun y : ℝ => Real.sin y / y)
@@ -169,7 +169,7 @@ theorem gap3 : HasLimitAt normalized 0 (1 / Real.sqrt 3) := by
     simpa [normalized] using hsin.div hden hsqrt_ne
   exact hquot
 
-/-- Source: `proof_gap/exercise_495/4.txt`. -/
+/-- Exercise 495, gap 4. -/
 theorem gap4 : HasLimitAt original (Real.pi / 3) (1 / Real.sqrt 3) := by
   exact (gap1 (1 / Real.sqrt 3)).2 ((gap2 (1 / Real.sqrt 3)).2 gap3)
 

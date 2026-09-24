@@ -7,7 +7,7 @@ open scoped Topology
 /-!
 # Exercise 56
 
-Semantic formalization of `proof_gap/exercise_56/{1,...,7}.txt`.
+Semantic formalization of Exercise 56, gaps 1,...,7.
 -/
 
 namespace ProofGap.Exercise56
@@ -23,18 +23,18 @@ def closed (n : ℕ) : ℝ :=
 def SameLimit (u v : ℕ → ℝ) : Prop :=
   ∀ l : ℝ, Tendsto u atTop (𝓝 l) ↔ Tendsto v atTop (𝓝 l)
 
-/-- Source: `proof_gap/exercise_56/1.txt`. -/
+/-- Exercise 56, gap 1. -/
 theorem gap1 :
     (1 / (1 * 2) : ℝ) = 1 - 1 / 2 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_56/2.txt`. -/
+/-- Exercise 56, gap 2. -/
 theorem gap2
     (h1 : (1 / (1 * 2) : ℝ) = 1 - 1 / 2) :
     (1 / (2 * 3) : ℝ) = 1 / 2 - 1 / 3 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_56/3.txt`; positive `n` is restored. -/
+/-- Exercise 56, gap 3; positive `n` is restored. -/
 theorem gap3 :
     ∀ n : ℕ, 0 < n →
       1 / ((n : ℝ) * ((n : ℝ) + 1)) =
@@ -45,7 +45,7 @@ theorem gap3 :
   field_simp [hnreal]
   ring
 
-/-- Source: `proof_gap/exercise_56/4.txt`. -/
+/-- Exercise 56, gap 4. -/
 theorem gap4
     (h3 : ∀ n : ℕ, 0 < n →
       1 / ((n : ℝ) * ((n : ℝ) + 1)) =
@@ -68,7 +68,7 @@ theorem gap4
         simp only [Nat.cast_add, Nat.cast_one]
         ring
 
-/-- Source: `proof_gap/exercise_56/5.txt`. -/
+/-- Exercise 56, gap 5. -/
 theorem gap5
     (h4 : ∀ n : ℕ, 0 < n → telescopingSum n = closed n) :
     SameLimit telescopingSum closed := by
@@ -78,7 +78,7 @@ theorem gap5
   intro l
   exact Filter.tendsto_congr' heq
 
-/-- Source: `proof_gap/exercise_56/6.txt`. -/
+/-- Exercise 56, gap 6. -/
 theorem gap6
     (h5 : SameLimit telescopingSum closed) :
     Tendsto closed atTop (𝓝 1) := by
@@ -87,7 +87,7 @@ theorem gap6
     (tendsto_const_nhds (x := (1 : ℝ))).sub
       (tendsto_one_div_add_atTop_nhds_zero_nat (𝕜 := ℝ))
 
-/-- Source: `proof_gap/exercise_56/7.txt`. -/
+/-- Exercise 56, gap 7. -/
 theorem gap7
     (h5 : SameLimit telescopingSum closed)
     (h6 : Tendsto closed atTop (𝓝 1)) :

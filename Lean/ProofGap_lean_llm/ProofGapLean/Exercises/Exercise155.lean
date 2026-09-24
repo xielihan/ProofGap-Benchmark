@@ -13,7 +13,7 @@ def phaseCondition (x : ℝ) : Prop :=
 
 def domain : Set ℝ := {x | 0 ≤ x ∧ phaseCondition x}
 
-/-- Source: `proof_gap/exercise_155/1.txt`; nonnegativity is conditional, not universal. -/
+/-- Exercise 155, gap 1; nonnegativity is conditional, not universal. -/
 theorem gap1 : ∀ x : ℝ, x ∈ domain → 0 ≤ Real.sin (Real.sqrt x) := by
   intro x hx
   rcases hx.2 with ⟨k, hklo, hkhi⟩
@@ -32,14 +32,14 @@ theorem gap1 : ∀ x : ℝ, x ∈ domain → 0 ≤ Real.sin (Real.sqrt x) := by
   rw [← harg]
   simpa only using hsin.trans_eq (Real.sin_add_nat_mul_two_pi t k).symm
 
-/-- Source: `proof_gap/exercise_155/2.txt`; k is existentially chosen for each domain point. -/
+/-- Exercise 155, gap 2; k is existentially chosen for each domain point. -/
 theorem gap2 : ∀ x : ℝ, x ∈ domain ↔
     0 ≤ x ∧ ∃ k : ℕ, 2 * (k : ℝ) * Real.pi ≤ Real.sqrt x ∧
       Real.sqrt x ≤ (2 * (k : ℝ) + 1) * Real.pi := by
   intro x
   rfl
 
-/-- Source: `proof_gap/exercise_155/3.txt`; squaring the nonnegative endpoints. -/
+/-- Exercise 155, gap 3; squaring the nonnegative endpoints. -/
 theorem gap3 : ∀ x : ℝ, x ∈ domain ↔
     ∃ k : ℕ, 4 * (k : ℝ) ^ 2 * Real.pi ^ 2 ≤ x ∧
       x ≤ (2 * (k : ℝ) + 1) ^ 2 * Real.pi ^ 2 := by
@@ -75,7 +75,7 @@ theorem gap3 : ∀ x : ℝ, x ∈ domain ↔
     · exact (sq_le_sq₀ hleft0 (Real.sqrt_nonneg x)).1 hlow_sq
     · exact (sq_le_sq₀ (Real.sqrt_nonneg x) hright0).1 hupp_sq
 
-/-- Source: `proof_gap/exercise_155/4.txt`. -/
+/-- Exercise 155, gap 4. -/
 theorem gap4 :
     domain =
       {x : ℝ | ∃ k : ℕ, 4 * (k : ℝ) ^ 2 * Real.pi ^ 2 ≤ x ∧

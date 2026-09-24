@@ -20,7 +20,7 @@ def normalized (x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_500/1.txt`. -/
+/-- Exercise 500, gap 1. -/
 private theorem limit_data :
     (original =ᶠ[nhdsWithin 0 ({0} : Set ℝ)ᶜ] rationalized) ∧
       (rationalized =ᶠ[nhdsWithin 0 ({0} : Set ℝ)ᶜ] normalized) ∧
@@ -190,18 +190,18 @@ theorem gap1 (L : ℝ) :
   unfold HasLimitAtZero
   exact Filter.tendsto_congr' limit_data.1
 
-/-- Source: `proof_gap/exercise_500/2.txt`. -/
+/-- Exercise 500, gap 2. -/
 theorem gap2 (L : ℝ) :
     HasLimitAtZero rationalized L ↔ HasLimitAtZero normalized L := by
   unfold HasLimitAtZero
   exact Filter.tendsto_congr' limit_data.2.1
 
-/-- Source: `proof_gap/exercise_500/3.txt`. -/
+/-- Exercise 500, gap 3. -/
 theorem gap3 : HasLimitAtZero normalized (4 / 3) := by
   unfold HasLimitAtZero
   exact limit_data.2.2
 
-/-- Source: `proof_gap/exercise_500/4.txt`. -/
+/-- Exercise 500, gap 4. -/
 theorem gap4 : HasLimitAtZero original (4 / 3) := by
   exact (gap1 (4 / 3)).2 ((gap2 (4 / 3)).2 gap3)
 

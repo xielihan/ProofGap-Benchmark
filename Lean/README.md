@@ -1,5 +1,7 @@
 # Shared Lean environment
 
+Both Lean datasets are based on Demidovich's mathematical analysis exercises
+(吉米多维奇《数学分析习题集》).
 `ProofGap_lean/` contains AST-printed Lean statements; `ProofGap_lean_llm/`
 contains LLM-converted formalizations with reference proofs. Both use the
 configuration and dependency cache in this `Lean/` directory.
@@ -55,7 +57,7 @@ lake build ProofGapLeanBackend
 ```
 
 Backend exercises are separate modules so generated helper declarations can
-reuse names. The source subset was selected by last-gap compilation, so a
+reuse names. The backend dataset was selected by last-gap compilation, so a
 full build can report errors in other gaps. `sorry` placeholders do not count
 as completed proofs.
 

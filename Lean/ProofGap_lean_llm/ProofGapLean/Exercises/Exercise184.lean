@@ -13,7 +13,7 @@ def y (x : ℝ) : ℝ := 1 / (1 - x)
 def domain : Set ℝ := Set.Ioo 0 1
 def valueSet : Set ℝ := {t | ∃ x ∈ domain, t = y x}
 
-/-- Source: `proof_gap/exercise_184/1.txt`. -/
+/-- Exercise 184, gap 1. -/
 theorem gap1 : Tendsto y (𝓝[Set.Ioi 0] 0) (𝓝 1) := by
   have hc : ContinuousAt y 0 := by
     unfold y
@@ -24,7 +24,7 @@ theorem gap1 : Tendsto y (𝓝[Set.Ioi 0] 0) (𝓝 1) := by
     hc.continuousWithinAt
   simpa [y] using htend
 
-/-- Source: `proof_gap/exercise_184/2.txt`. -/
+/-- Exercise 184, gap 2. -/
 theorem gap2 : Tendsto y (𝓝[Set.Iio 1] 1) atTop := by
   have hsub :
       Tendsto (fun x : ℝ => 1 - x) (𝓝[Set.Iio 1] 1) (𝓝[Set.Ioi 0] 0) := by
@@ -40,7 +40,7 @@ theorem gap2 : Tendsto y (𝓝[Set.Iio 1] 1) atTop := by
   simpa only [one_div, Function.comp_apply] using
     tendsto_inv_nhdsGT_zero.comp hsub
 
-/-- Source: `proof_gap/exercise_184/3.txt`; replace the free family `E_x`. -/
+/-- Exercise 184, gap 3; replace the free family `E_x`. -/
 theorem gap3 : valueSet = Set.Ioi 1 := by
   ext t
   constructor

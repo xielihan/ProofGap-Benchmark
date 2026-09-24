@@ -19,7 +19,7 @@ def normalized (x : ℝ) : ℝ :=
     (2 + Real.log (1 + x ^ 4 * Real.exp (-2 * x)) /
       (x ^ 4 * Real.exp (-2 * x)) * x ^ 3 * Real.exp (-2 * x))
 
-/-- Source: `proof_gap/exercise_566_1/1.txt`; compare the punctured limits of the algebraically rewritten expressions. -/
+/-- Exercise 566_1, gap 1; compare the punctured limits of the algebraically rewritten expressions. -/
 theorem gap1 (L : ℝ) :
     Filter.Tendsto original (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L) ↔
       Filter.Tendsto rewritten (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L) := by
@@ -71,7 +71,7 @@ theorem gap1 (L : ℝ) :
     rw [hlog1, hlog2]
   rw [h]
 
-/-- Source: `proof_gap/exercise_566_1/2.txt`. -/
+/-- Exercise 566_1, gap 2. -/
 theorem gap2 :
     Filter.Tendsto normalized (nhdsWithin 0 ({0} : Set ℝ)ᶜ)
       (nhds (1 / 2 : ℝ)) := by

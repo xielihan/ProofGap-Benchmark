@@ -7,7 +7,7 @@ noncomputable section
 
 def f (x : ℝ) : ℝ := Real.arctan x
 
-/-- Source: `proof_gap/exercise_798/1.txt`. -/
+/-- Exercise 798, gap 1. -/
 private theorem uniformContinuousOn_rays_of_continuousOn_of_tendsto
     (g : ℝ → ℝ) (a b Ltop Lbot : ℝ)
     (hplus : ContinuousOn g (Set.Ici a))
@@ -107,44 +107,44 @@ private theorem uniformContinuousOn_rays_of_continuousOn_of_tendsto
 theorem gap1 : ContinuousOn f (Set.Iic 1) := by
   simpa [f] using Real.continuous_arctan.continuousOn
 
-/-- Source: `proof_gap/exercise_798/2.txt`. -/
+/-- Exercise 798, gap 2. -/
 theorem gap2 : ContinuousOn f (Set.Ici 0) := by
   simpa [f] using Real.continuous_arctan.continuousOn
 
-/-- Source: `proof_gap/exercise_798/3.txt`. -/
+/-- Exercise 798, gap 3. -/
 theorem gap3 : Filter.Tendsto f Filter.atTop (nhds (Real.pi / 2)) := by
   change Filter.map Real.arctan Filter.atTop ≤ nhds (Real.pi / 2)
   exact le_trans Real.tendsto_arctan_atTop inf_le_left
 
-/-- Source: `proof_gap/exercise_798/4.txt`. -/
+/-- Exercise 798, gap 4. -/
 theorem gap4 : Filter.Tendsto f Filter.atBot (nhds (-Real.pi / 2)) := by
   change Filter.map Real.arctan Filter.atBot ≤ nhds (-Real.pi / 2)
   rw [neg_div]
   exact le_trans Real.tendsto_arctan_atBot inf_le_left
 
-/-- Source: `proof_gap/exercise_798/5.txt`. -/
+/-- Exercise 798, gap 5. -/
 theorem gap5 : UniformContinuousOn f (Set.Ici 0) := by
   exact (uniformContinuousOn_rays_of_continuousOn_of_tendsto
     f 0 1 (Real.pi / 2) (-Real.pi / 2) gap2 gap1 gap3 gap4).1
 
-/-- Source: `proof_gap/exercise_798/6.txt`. -/
+/-- Exercise 798, gap 6. -/
 theorem gap6 : UniformContinuousOn f (Set.Iic 1) := by
   exact (uniformContinuousOn_rays_of_continuousOn_of_tendsto
     f 0 1 (Real.pi / 2) (-Real.pi / 2) gap2 gap1 gap3 gap4).2
 
-/-- Source: `proof_gap/exercise_798/7.txt`; remove the function-valued `δ₁(ε)` shadowing. -/
+/-- Exercise 798, gap 7; remove the function-valued `δ₁(ε)` shadowing. -/
 theorem gap7 :
     ∀ ε > 0, ∃ δ₁ > 0, ∀ x₁ ∈ Set.Iic (1 : ℝ), ∀ x₂ ∈ Set.Iic (1 : ℝ),
       |x₁ - x₂| < δ₁ → |f x₁ - f x₂| < ε := by
   simpa only [Metric.uniformContinuousOn_iff, Real.dist_eq] using gap6
 
-/-- Source: `proof_gap/exercise_798/8.txt`; remove the function-valued `δ₂(ε)` shadowing. -/
+/-- Exercise 798, gap 8; remove the function-valued `δ₂(ε)` shadowing. -/
 theorem gap8 :
     ∀ ε > 0, ∃ δ₂ > 0, ∀ x₁ ∈ Set.Ici (0 : ℝ), ∀ x₂ ∈ Set.Ici (0 : ℝ),
       |x₁ - x₂| < δ₂ → |f x₁ - f x₂| < ε := by
   simpa only [Metric.uniformContinuousOn_iff, Real.dist_eq] using gap5
 
-/-- Source: `proof_gap/exercise_798/9.txt`; move `δ` under `ε` and make it small enough for the overlap argument. -/
+/-- Exercise 798, gap 9; move `δ` under `ε` and make it small enough for the overlap argument. -/
 theorem gap9 :
     ∀ ε > 0, ∃ δ > 0, δ ≤ 1 ∧ ∀ x₁ x₂ : ℝ, |x₁ - x₂| < δ →
       (x₁ ∈ Set.Iic (1 : ℝ) ∧ x₂ ∈ Set.Iic (1 : ℝ)) ∨
@@ -169,7 +169,7 @@ theorem gap9 :
     · change 0 ≤ x2
       linarith
 
-/-- Source: `proof_gap/exercise_798/10.txt`; move `δ` under `ε`. -/
+/-- Exercise 798, gap 10; move `δ` under `ε`. -/
 theorem gap10 :
     ∀ ε > 0, ∃ δ > 0, ∀ x₁ x₂ : ℝ,
       |x₁ - x₂| < δ → |f x₁ - f x₂| < ε := by
@@ -190,11 +190,11 @@ theorem gap10 :
     · exact h1 x1 hleft.1 x2 hleft.2 hdist1
     · exact h2 x1 hright.1 x2 hright.2 hdist2
 
-/-- Source: `proof_gap/exercise_798/11.txt`. -/
+/-- Exercise 798, gap 11. -/
 theorem gap11 : UniformContinuous f := by
   simpa only [Metric.uniformContinuous_iff, Real.dist_eq] using gap10
 
-/-- Source: `proof_gap/exercise_798/12.txt`. -/
+/-- Exercise 798, gap 12. -/
 theorem gap12 : UniformContinuous f := by
   exact gap11
 

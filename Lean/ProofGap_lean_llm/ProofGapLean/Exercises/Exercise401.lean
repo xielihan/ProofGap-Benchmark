@@ -11,35 +11,35 @@ def HasLimitAt (f : ℝ → ℝ) (a b : ℝ) : Prop :=
   ∀ ε > 0, ∃ δ > 0, ∀ x,
     0 < |x - a| → |x - a| < δ → |f x - b| < ε
 
-/-- Source: `proof_gap/exercise_401/1.txt`. -/
+/-- Exercise 401, gap 1. -/
 theorem gap1 : ∀ x : ℝ, |x ^ 2 - 4| = |x - 2| * |x + 2| := by
   intro x
   rw [show x ^ 2 - 4 = (x - 2) * (x + 2) by ring, abs_mul]
 
-/-- Source: `proof_gap/exercise_401/2.txt`. -/
+/-- Exercise 401, gap 2. -/
 theorem gap2 : ∀ x : ℝ, |x - 2| < 1 → 1 < x := by
   intro x hx
   have h := (abs_lt.mp hx).1
   linarith
 
-/-- Source: `proof_gap/exercise_401/3.txt`. -/
+/-- Exercise 401, gap 3. -/
 theorem gap3 : ∀ x : ℝ, |x - 2| < 1 → x < 3 := by
   intro x hx
   have h := (abs_lt.mp hx).2
   linarith
 
-/-- Source: `proof_gap/exercise_401/4.txt`. -/
+/-- Exercise 401, gap 4. -/
 theorem gap4 : ∀ x : ℝ, |x - 2| < 1 → (1 : ℝ) < 3 := by
   intro x hx
   norm_num
 
-/-- Source: `proof_gap/exercise_401/5.txt`. -/
+/-- Exercise 401, gap 5. -/
 theorem gap5 : ∀ x : ℝ, |x - 2| < 1 →
     |x ^ 2 - 4| = |x - 2| * |x + 2| := by
   intro x hx
   exact gap1 x
 
-/-- Source: `proof_gap/exercise_401/6.txt`. -/
+/-- Exercise 401, gap 6. -/
 theorem gap6 : ∀ x : ℝ, 0 < |x - 2| → |x - 2| < 1 →
     |x - 2| * |x + 2| < 5 * |x - 2| := by
   intro x hx0 hx
@@ -52,14 +52,14 @@ theorem gap6 : ∀ x : ℝ, 0 < |x - 2| → |x - 2| < 1 →
     mul_lt_mul_of_pos_left hxplus hx0
   simpa [mul_comm] using hprod
 
-/-- Source: `proof_gap/exercise_401/7.txt`. -/
+/-- Exercise 401, gap 7. -/
 theorem gap7 : ∀ x : ℝ, 0 < |x - 2| → |x - 2| < 1 →
     |x ^ 2 - 4| < 5 * |x - 2| := by
   intro x hx0 hx
   rw [gap1 x]
   exact gap6 x hx0 hx
 
-/-- Source: `proof_gap/exercise_401/8.txt`; choose `δ` after `ε`, not uniformly for every tolerance. -/
+/-- Exercise 401, gap 8; choose `δ` after `ε`, not uniformly for every tolerance. -/
 theorem gap8 : ∀ ε > 0, ∃ δ > 0, ∀ x : ℝ,
     0 < |x - 2| → |x - 2| < δ → |x ^ 2 - 4| < ε := by
   intro ε hε
@@ -85,28 +85,28 @@ theorem gap8 : ∀ ε > 0, ∃ δ > 0, ∀ x : ℝ,
   rw [gap1 x]
   exact lt_trans hprod hscale
 
-/-- Source: `proof_gap/exercise_401/9.txt`. -/
+/-- Exercise 401, gap 9. -/
 theorem gap9 : HasLimitAt (fun x : ℝ => x ^ 2) 2 4 := by
   unfold HasLimitAt
   simpa using gap8
 
-/-- Source: `proof_gap/exercise_401/10.txt`. -/
+/-- Exercise 401, gap 10. -/
 theorem gap10 : ∃ δ : ℝ, δ = 0.02 := by
   exact ⟨0.02, rfl⟩
 
-/-- Source: `proof_gap/exercise_401/11.txt`. -/
+/-- Exercise 401, gap 11. -/
 theorem gap11 : ∃ δ : ℝ, δ = 0.002 := by
   exact ⟨0.002, rfl⟩
 
-/-- Source: `proof_gap/exercise_401/12.txt`. -/
+/-- Exercise 401, gap 12. -/
 theorem gap12 : ∃ δ : ℝ, δ = 0.0002 := by
   exact ⟨0.0002, rfl⟩
 
-/-- Source: `proof_gap/exercise_401/13.txt`. -/
+/-- Exercise 401, gap 13. -/
 theorem gap13 : ∃ δ : ℝ, δ = 0.00002 := by
   exact ⟨0.00002, rfl⟩
 
-/-- Source: `proof_gap/exercise_401/14.txt`. -/
+/-- Exercise 401, gap 14. -/
 theorem gap14 : HasLimitAt (fun x : ℝ => x ^ 2) 2 4 := by
   exact gap9
 

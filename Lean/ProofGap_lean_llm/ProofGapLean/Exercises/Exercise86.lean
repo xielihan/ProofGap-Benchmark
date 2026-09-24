@@ -74,13 +74,13 @@ private theorem variation_monotone (x : ℕ → ℝ) : Monotone (variation x) :=
   · intro k hk hnot
     positivity
 
-/-- Source: `proof_gap/exercise_86/1.txt`; y is the variation sequence of x. -/
+/-- Exercise 86, gap 1; y is the variation sequence of x. -/
 theorem gap1 :
     ∀ x : ℕ → ℝ, HasBoundedVariation x → Monotone (variation x) := by
   intro x _
   exact variation_monotone x
 
-/-- Source: `proof_gap/exercise_86/2.txt`; y is the variation sequence of x. -/
+/-- Exercise 86, gap 2; y is the variation sequence of x. -/
 theorem gap2 :
     ∀ x : ℕ → ℝ, HasBoundedVariation x →
       Bornology.IsBounded (Set.range (variation x)) := by
@@ -110,7 +110,7 @@ theorem gap2 :
       rw [this]
       exact hcpos.le
 
-/-- Source: `proof_gap/exercise_86/3.txt`. -/
+/-- Exercise 86, gap 3. -/
 theorem gap3 :
     ∀ x : ℕ → ℝ, HasBoundedVariation x → Convergent (variation x) := by
   intro x hx
@@ -129,14 +129,14 @@ theorem gap3 :
     (k := 0) (hmono.monotoneOn (Set.Ici 0)) hbound'
   rwa [himage] at ht
 
-/-- Source: `proof_gap/exercise_86/4.txt`. -/
+/-- Exercise 86, gap 4. -/
 theorem gap4 :
     ∀ x : ℕ → ℝ, HasBoundedVariation x →
       IsCauchy (variation x) := by
   intro x hx
   exact convergent_isCauchy (gap3 x hx)
 
-/-- Source: `proof_gap/exercise_86/5.txt`; remove irrelevant N and ε binders. -/
+/-- Exercise 86, gap 5; remove irrelevant N and ε binders. -/
 theorem gap5 :
     ∀ x : ℕ → ℝ, ∀ m n : ℕ, n < m →
       |x m - x n| = |differenceTail x n m| := by
@@ -156,7 +156,7 @@ theorem gap5 :
     intro j hj
     congr 2 <;> omega
 
-/-- Source: `proof_gap/exercise_86/6.txt`; remove irrelevant N and ε binders. -/
+/-- Exercise 86, gap 6; remove irrelevant N and ε binders. -/
 theorem gap6 :
     ∀ x : ℕ → ℝ, ∀ m n : ℕ, n < m →
       |differenceTail x n m| ≤ variationTail x n m := by
@@ -178,14 +178,14 @@ private theorem variationTail_eq_abs
     (show 2 ≤ n + 1 by omega) (show n + 1 ≤ m + 1 by omega)
   linarith
 
-/-- Source: `proof_gap/exercise_86/7.txt`; y is explicitly variation x. -/
+/-- Exercise 86, gap 7; y is explicitly variation x. -/
 theorem gap7 :
     ∀ x : ℕ → ℝ, ∀ m n : ℕ, 1 ≤ n → n < m →
       variationTail x n m = |variation x m - variation x n| := by
   intro x m n hn hnm
   exact variationTail_eq_abs x m n hn hnm
 
-/-- Source: `proof_gap/exercise_86/8.txt`; the Cauchy cutoff depends on ε. -/
+/-- Exercise 86, gap 8; the Cauchy cutoff depends on ε. -/
 theorem gap8 :
     ∀ x : ℕ → ℝ, HasBoundedVariation x →
       ∀ ε : ℝ, 0 < ε →
@@ -194,7 +194,7 @@ theorem gap8 :
   intro x hx
   exact gap4 x hx
 
-/-- Source: `proof_gap/exercise_86/9.txt`; the Cauchy cutoff depends on ε. -/
+/-- Exercise 86, gap 9; the Cauchy cutoff depends on ε. -/
 theorem gap9 :
     ∀ x : ℕ → ℝ, HasBoundedVariation x →
       ∀ ε : ℝ, 0 < ε →
@@ -211,19 +211,19 @@ theorem gap9 :
       variationTail_eq_abs x m n (by omega) hnm
     _ < ε := hN m n (by omega) hnm
 
-/-- Source: `proof_gap/exercise_86/10.txt`. -/
+/-- Exercise 86, gap 10. -/
 theorem gap10 :
     ∀ x : ℕ → ℝ, HasBoundedVariation x → IsCauchy x := by
   intro x hx
   exact gap9 x hx
 
-/-- Source: `proof_gap/exercise_86/11.txt`. -/
+/-- Exercise 86, gap 11. -/
 theorem gap11 :
     ∀ x : ℕ → ℝ, HasBoundedVariation x → Convergent x := by
   intro x hx
   exact isCauchy_convergent (gap10 x hx)
 
-/-- Source: `proof_gap/exercise_86/12.txt`; the alternating counterexample is explicit. -/
+/-- Exercise 86, gap 12; the alternating counterexample is explicit. -/
 theorem gap12 :
     Tendsto z atTop (𝓝 0) := by
   have hmajorant :
@@ -254,7 +254,7 @@ theorem gap12 :
       nlinarith
   · exact hmajorant
 
-/-- Source: `proof_gap/exercise_86/13.txt`. -/
+/-- Exercise 86, gap 13. -/
 theorem gap13 :
     ¬ Convergent omega := by
   have homega : Tendsto omega atTop atTop := by
@@ -274,7 +274,7 @@ theorem gap13 :
   rcases (hhigh.and hlow).exists with ⟨n, hn1, hn2⟩
   linarith
 
-/-- Source: `proof_gap/exercise_86/14.txt`. -/
+/-- Exercise 86, gap 14. -/
 theorem gap14 :
     Monotone omega := by
   intro n m hnm
@@ -286,7 +286,7 @@ theorem gap14 :
   · intro k hk hnot
     positivity
 
-/-- Source: `proof_gap/exercise_86/15.txt`; strictness requires n>1. -/
+/-- Exercise 86, gap 15; strictness requires n>1. -/
 theorem gap15 :
     ∀ n : ℕ, 1 < n →
       variation z (2 * n) >
@@ -323,7 +323,7 @@ theorem gap15 :
   unfold variation
   exact hstrict
 
-/-- Source: `proof_gap/exercise_86/16.txt`; n>0 is restored. -/
+/-- Exercise 86, gap 16; n>0 is restored. -/
 theorem gap16 :
     ∀ n : ℕ, 0 < n →
       (∑ k ∈ Finset.Icc 1 n, |z (2 * k) - z (2 * k - 1)|) =
@@ -371,14 +371,14 @@ private theorem evenJumps_le_variation (n : ℕ) :
   intro i hi hnot
   exact abs_nonneg _
 
-/-- Source: `proof_gap/exercise_86/17.txt`; strictness requires n>1. -/
+/-- Exercise 86, gap 17; strictness requires n>1. -/
 theorem gap17 :
     ∀ n : ℕ, 1 < n → variation z (2 * n) > 2 * omega n := by
   intro n hn
   rw [← gap16 n (by omega)]
   exact gap15 n hn
 
-/-- Source: `proof_gap/exercise_86/18.txt`. -/
+/-- Exercise 86, gap 18. -/
 theorem gap18 :
     ¬ HasBoundedVariation z := by
   intro hz
@@ -401,7 +401,7 @@ theorem gap18 :
     exact evenJumps_le_variation n
   nlinarith
 
-/-- Source: `proof_gap/exercise_86/19.txt`. -/
+/-- Exercise 86, gap 19. -/
 theorem gap19 :
     (∀ x : ℕ → ℝ, HasBoundedVariation x → Convergent x) ∧
       (∃ z₀ : ℕ → ℝ, Tendsto z₀ atTop (𝓝 0) ∧

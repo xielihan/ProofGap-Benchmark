@@ -16,7 +16,7 @@ def normalized (x : ℝ) : ℝ :=
 def HasLimitAtPosInfinity (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f Filter.atTop (nhds L)
 
-/-- Source: `proof_gap/exercise_589/1.txt`. -/
+/-- Exercise 589, gap 1. -/
 private theorem eventually_pos_real :
     ∀ᶠ x : ℝ in Filter.atTop, 0 < x := by
   refine Filter.eventually_atTop.2 ?_
@@ -69,7 +69,7 @@ theorem gap1 (L : ℝ) :
   unfold HasLimitAtPosInfinity
   exact Filter.tendsto_congr' hfg
 
-/-- Source: `proof_gap/exercise_589/2.txt`. -/
+/-- Exercise 589, gap 2. -/
 theorem gap2 (L : ℝ) :
     HasLimitAtPosInfinity transformed L ↔ HasLimitAtPosInfinity normalized L := by
   have hfun : transformed = normalized := by
@@ -81,7 +81,7 @@ theorem gap2 (L : ℝ) :
     field_simp [ne_of_gt hspos]
   rw [hfun]
 
-/-- Source: `proof_gap/exercise_589/3.txt`. -/
+/-- Exercise 589, gap 3. -/
 theorem gap3 : HasLimitAtPosInfinity normalized 1 := by
   unfold HasLimitAtPosInfinity
   have hq :
@@ -266,7 +266,7 @@ theorem gap3 : HasLimitAtPosInfinity normalized 1 := by
     Filter.atTop (nhds 1)
   simpa only [one_mul] using hratio.mul hw
 
-/-- Source: `proof_gap/exercise_589/4.txt`. -/
+/-- Exercise 589, gap 4. -/
 theorem gap4 : HasLimitAtPosInfinity original 1 := by
   exact (gap1 1).2 ((gap2 1).2 gap3)
 

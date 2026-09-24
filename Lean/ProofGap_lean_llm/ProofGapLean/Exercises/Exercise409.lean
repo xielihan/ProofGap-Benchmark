@@ -28,7 +28,7 @@ def HasLimitAtInfinity (f : ℝ → ℝ) (L : ℝ) : Prop :=
 def AbsTendsToInfinity (f : ℝ → ℝ) : Prop :=
   ∀ E > 0, ∃ N > 0, ∀ x, N < |x| → E < |f x|
 
-/-- Source: `proof_gap/exercise_409/1.txt`; express division by the common power without ellipses. -/
+/-- Exercise 409, gap 1; express division by the common power without ellipses. -/
 private theorem aux_hasLimit_congr {f g : ℝ → ℝ} {L : ℝ}
     (hg : HasLimitAtInfinity g L) (hfg : ∀ x, f x = g x) :
     HasLimitAtInfinity f L := by
@@ -464,7 +464,7 @@ theorem gap1 (n m : ℕ) (a b : ℕ → ℝ) : ∀ x, x ≠ 0 →
   · simp [hq]
   · field_simp [hq, pow_ne_zero m hx] <;> ring
 
-/-- Source: `proof_gap/exercise_409/2.txt`; unsigned infinity is expressed using absolute values. -/
+/-- Exercise 409, gap 2; unsigned infinity is expressed using absolute values. -/
 theorem gap2 (n m : ℕ) (a : ℕ → ℝ) (ha : a 0 ≠ 0) (hnm : m < n) :
     AbsTendsToInfinity (normalizedNumerator n m a) := by
   have hlead :
@@ -476,12 +476,12 @@ theorem gap2 (n m : ℕ) (a : ℕ → ℝ) (ha : a 0 ≠ 0) (hnm : m < n) :
   intro x hx
   exact aux_normalized_factor n m a x hx hnm
 
-/-- Source: `proof_gap/exercise_409/3.txt`. -/
+/-- Exercise 409, gap 3. -/
 theorem gap3 (n m : ℕ) (b : ℕ → ℝ) (hnm : m < n) :
     HasLimitAtInfinity (normalizedDenominator m b) (b 0) := by
   simpa [normalizedDenominator] using aux_poly_normalized_limit m b
 
-/-- Source: `proof_gap/exercise_409/4.txt`; use magnitude because the sign at the two ends need not agree. -/
+/-- Exercise 409, gap 4; use magnitude because the sign at the two ends need not agree. -/
 theorem gap4 (n m : ℕ) (a b : ℕ → ℝ)
     (ha : a 0 ≠ 0) (hb : b 0 ≠ 0) (hnm : m < n) :
     AbsTendsToInfinity (R n m a b) := by
@@ -494,18 +494,18 @@ theorem gap4 (n m : ℕ) (a b : ℕ → ℝ)
   intro x hx
   exact gap1 n m a b x hx
 
-/-- Source: `proof_gap/exercise_409/5.txt`. -/
+/-- Exercise 409, gap 5. -/
 theorem gap5 (n m : ℕ) (a : ℕ → ℝ) (hnm : n = m) :
     HasLimitAtInfinity (normalizedNumerator n m a) (a 0) := by
   subst m
   simpa [normalizedNumerator] using aux_poly_normalized_limit n a
 
-/-- Source: `proof_gap/exercise_409/6.txt`. -/
+/-- Exercise 409, gap 6. -/
 theorem gap6 (n m : ℕ) (b : ℕ → ℝ) (hnm : n = m) :
     HasLimitAtInfinity (normalizedDenominator m b) (b 0) := by
   simpa [normalizedDenominator] using aux_poly_normalized_limit m b
 
-/-- Source: `proof_gap/exercise_409/7.txt`. -/
+/-- Exercise 409, gap 7. -/
 theorem gap7 (n m : ℕ) (a b : ℕ → ℝ)
     (hb : b 0 ≠ 0) (hnm : n = m) :
     HasLimitAtInfinity (R n m a b) (a 0 / b 0) := by
@@ -521,17 +521,17 @@ theorem gap7 (n m : ℕ) (a b : ℕ → ℝ)
   intro x hx
   exact gap1 n n a b x hx
 
-/-- Source: `proof_gap/exercise_409/8.txt`. -/
+/-- Exercise 409, gap 8. -/
 theorem gap8 (n m : ℕ) (a : ℕ → ℝ) (hnm : n < m) :
     HasLimitAtInfinity (normalizedNumerator n m a) 0 := by
   simpa [normalizedNumerator] using aux_poly_over_higher_limit_zero n m a hnm
 
-/-- Source: `proof_gap/exercise_409/9.txt`. -/
+/-- Exercise 409, gap 9. -/
 theorem gap9 (n m : ℕ) (b : ℕ → ℝ) (hnm : n < m) :
     HasLimitAtInfinity (normalizedDenominator m b) (b 0) := by
   simpa [normalizedDenominator] using aux_poly_normalized_limit m b
 
-/-- Source: `proof_gap/exercise_409/10.txt`. -/
+/-- Exercise 409, gap 10. -/
 theorem gap10 (n m : ℕ) (a b : ℕ → ℝ)
     (hb : b 0 ≠ 0) (hnm : n < m) :
     HasLimitAtInfinity (R n m a b) 0 := by
@@ -548,7 +548,7 @@ theorem gap10 (n m : ℕ) (a b : ℕ → ℝ)
     exact gap1 n m a b x hx
   simpa using hresult
 
-/-- Source: `proof_gap/exercise_409/11.txt`; replace the mixed real/∞ piecewise value by three typed cases. -/
+/-- Exercise 409, gap 11; replace the mixed real/∞ piecewise value by three typed cases. -/
 theorem gap11 (n m : ℕ) (a b : ℕ → ℝ)
     (ha : a 0 ≠ 0) (hb : b 0 ≠ 0) :
     (m < n → AbsTendsToInfinity (R n m a b)) ∧

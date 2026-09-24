@@ -27,7 +27,7 @@ def upperBound (x : ℝ) : ℝ :=
   Real.rpow (1 / 2 : ℝ) (x ^ 2)
 
 /--
-Source: `proof_gap/exercise_3189/1.txt`; use real exponentiation on
+Exercise 3189, gap 1; use real exponentiation on
 the positive-base domain.
 -/
 theorem gap1 :
@@ -38,7 +38,7 @@ theorem gap1 :
   unfold ratioBase
   positivity
 
-/-- Source: `proof_gap/exercise_3189/2.txt`; AM-GM and monotonicity of `rpow`. -/
+/-- Exercise 3189, gap 2; AM-GM and monotonicity of `rpow`. -/
 theorem gap2 :
     ∀ x y : ℝ, 0 < x → 0 < y →
       Real.rpow (ratioBase x y) (x ^ 2) ≤ upperBound x := by
@@ -52,7 +52,7 @@ theorem gap2 :
     nlinarith [sq_nonneg (x - y)]
   · positivity
 
-/-- Source: `proof_gap/exercise_3189/3.txt`; positivity of the upper bound. -/
+/-- Exercise 3189, gap 3; positivity of the upper bound. -/
 theorem gap3 :
     ∀ x : ℝ, 0 ≤ upperBound x := by
   intro x
@@ -60,7 +60,7 @@ theorem gap3 :
   apply Real.rpow_nonneg
   norm_num
 
-/-- Source: `proof_gap/exercise_3189/4.txt`; one-variable exponential decay. -/
+/-- Exercise 3189, gap 4; one-variable exponential decay. -/
 theorem gap4 :
     Tendsto upperBound atTop (𝓝 0) := by
   have hsquare : Tendsto (fun x : ℝ => x ^ 2) atTop atTop := by
@@ -101,7 +101,7 @@ theorem gap4 :
   exact Real.tendsto_exp_atBot.comp hinner
 
 /--
-Source: `proof_gap/exercise_3189/5.txt`; on the `(∞,∞)` filter the
+Exercise 3189, gap 5; on the `(∞,∞)` filter the
 base is eventually positive, so the `rpow` squeeze is valid.
 -/
 theorem gap5 :

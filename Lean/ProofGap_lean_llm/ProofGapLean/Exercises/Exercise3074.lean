@@ -41,7 +41,7 @@ private lemma partialProduct_eq_prod_range (n : ℕ) :
     Finset.Ico_add_one_right_eq_Icc] at h
   exact h
 
-/-- Source: `proof_gap/exercise_3074/1.txt`; the rewrite requires `n ≥ 1`. -/
+/-- Exercise 3074, gap 1; the rewrite requires `n ≥ 1`. -/
 theorem gap1 (p : ℕ → ℝ) (hp : ∀ n, p n = term n) :
     ∀ n : ℕ, 1 ≤ n → p n = normalizedTerm n := by
   intro n hn
@@ -57,7 +57,7 @@ theorem gap1 (p : ℕ → ℝ) (hp : ∀ n, p n = term n) :
     positivity
   field_simp
 
-/-- Source: `proof_gap/exercise_3074/2.txt`; the logarithmic rewrite starts at one. -/
+/-- Exercise 3074, gap 2; the logarithmic rewrite starts at one. -/
 theorem gap2 (p : ℕ → ℝ) (hp : ∀ n, p n = term n) :
     ∀ n : ℕ, 1 ≤ n →
       Real.log (p n) = -(1 / 2 : ℝ) * logarithmicTerm n := by
@@ -67,7 +67,7 @@ theorem gap2 (p : ℕ → ℝ) (hp : ∀ n, p n = term n) :
   rw [one_div, Real.log_inv, Real.log_sqrt (by positivity)]
   ring
 
-/-- Source: `proof_gap/exercise_3074/3.txt`; use exact sums from index one. -/
+/-- Exercise 3074, gap 3; use exact sums from index one. -/
 theorem gap3 (p : ℕ → ℝ) (hp : ∀ n, p n = term n) :
     sumFromOne (fun n => Real.log (p n)) =
       -(1 / 2 : ℝ) * sumFromOne logarithmicTerm := by
@@ -77,7 +77,7 @@ theorem gap3 (p : ℕ → ℝ) (hp : ∀ n, p n = term n) :
   intro k
   exact gap2 p hp (k + 1) (by omega)
 
-/-- Source: `proof_gap/exercise_3074/4.txt`. -/
+/-- Exercise 3074, gap 4. -/
 theorem gap4 :
     SummableFromOne (fun n => 1 / (n : ℝ) ^ 2) := by
   unfold SummableFromOne
@@ -86,12 +86,12 @@ theorem gap4 :
     Real.summable_one_div_nat_pow.mpr (by norm_num)
   exact (summable_nat_add_iff 1).2 hs
 
-/-- Source: `proof_gap/exercise_3074/5.txt`. -/
+/-- Exercise 3074, gap 5. -/
 theorem gap5 : SummableFromOne logarithmicTerm := by
   simpa [SummableFromOne, logarithmicTerm] using
     Real.summable_log_one_add_of_summable gap4
 
-/-- Source: `proof_gap/exercise_3074/6.txt`; retain the definition of arbitrary `p`. -/
+/-- Exercise 3074, gap 6; retain the definition of arbitrary `p`. -/
 theorem gap6 (p : ℕ → ℝ) (hp : ∀ n, p n = term n) :
     SummableFromOne (fun n => Real.log (p n)) := by
   unfold SummableFromOne
@@ -99,7 +99,7 @@ theorem gap6 (p : ℕ → ℝ) (hp : ∀ n, p n = term n) :
   intro k
   exact (gap2 p hp (k + 1) (by omega)).symm
 
-/-- Source: `proof_gap/exercise_3074/7.txt`. -/
+/-- Exercise 3074, gap 7. -/
 theorem gap7 : NonzeroConvergentProduct := by
   let f : ℕ → ℝ := fun k => term (k + 1)
   have hfpos : ∀ k, 0 < f k := by

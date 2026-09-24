@@ -34,7 +34,7 @@ def HasTailProduct (f : ℕ → ℝ → ℝ) (N₀ : ℕ)
 def logTailTerm (f : ℕ → ℝ → ℝ) (N₀ : ℕ) (k : ℕ) (x : ℝ) : ℝ :=
   Real.log (1 + tail f N₀ (k + 1) x)
 
-/-- Source: `proof_gap/exercise_3108/1.txt`; the irrelevant point `x` is removed. -/
+/-- Exercise 3108, gap 1; the irrelevant point `x` is removed. -/
 theorem gap1 (c : ℕ → ℝ)
     (hc0 : ∀ n : ℕ, 1 ≤ n → 0 ≤ c n)
     (hcsum : SummableFromOne c) :
@@ -42,7 +42,7 @@ theorem gap1 (c : ℕ → ℝ)
   apply (tendsto_add_atTop_iff_nat 1).1
   exact hcsum.tendsto_atTop_zero
 
-/-- Source: `proof_gap/exercise_3108/2.txt`; the majorant forces pointwise convergence. -/
+/-- Exercise 3108, gap 2; the majorant forces pointwise convergence. -/
 theorem gap2 (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ) (a b : ℝ)
     (hbound :
       ∀ n : ℕ, 1 ≤ n → ∀ x ∈ Set.Ioo a b, |f n x| ≤ c n)
@@ -60,7 +60,7 @@ theorem gap2 (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ) (a b : ℝ)
       (hbound n (by omega) x hx).trans_lt
         ((le_abs_self (c n)).trans_lt (by simpa [Real.dist_eq] using hN n (by omega)))⟩
 
-/-- Source: `proof_gap/exercise_3108/3.txt`; choose one cutoff uniformly. -/
+/-- Exercise 3108, gap 3; choose one cutoff uniformly. -/
 theorem gap3 (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ) (a b : ℝ)
     (hbound :
       ∀ n : ℕ, 1 ≤ n → ∀ x ∈ Set.Ioo a b, |f n x| ≤ c n)
@@ -76,7 +76,7 @@ theorem gap3 (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ) (a b : ℝ)
   exact (hbound n (by omega) x hx).trans_lt
     ((le_abs_self (c n)).trans_lt (by simpa [Real.dist_eq] using hN n (by omega)))
 
-/-- Source: `proof_gap/exercise_3108/4.txt`; fix one positive `δ`. -/
+/-- Exercise 3108, gap 4; fix one positive `δ`. -/
 theorem gap4 (f : ℕ → ℝ → ℝ) (a b δ : ℝ) (N₀ : ℕ)
     (hδ : 0 < δ)
     (hsmall :
@@ -87,7 +87,7 @@ theorem gap4 (f : ℕ → ℝ → ℝ) (a b δ : ℝ) (N₀ : ℕ)
   intro k hk x hx
   exact hsmall (N₀ + k) (by omega) x hx
 
-/-- Source: `proof_gap/exercise_3108/5.txt`; the tail uses the same fixed cutoff. -/
+/-- Exercise 3108, gap 5; the tail uses the same fixed cutoff. -/
 theorem gap5 (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ) (a b : ℝ) (N₀ : ℕ)
     (hbound :
       ∀ n : ℕ, 1 ≤ n → ∀ x ∈ Set.Ioo a b, |f n x| ≤ c n) :
@@ -97,7 +97,7 @@ theorem gap5 (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ) (a b : ℝ) (N₀ : ℕ
   intro k hk x hx
   exact hbound (N₀ + k) (by omega) x hx
 
-/-- Source: `proof_gap/exercise_3108/6.txt`; absolute convergence. -/
+/-- Exercise 3108, gap 6; absolute convergence. -/
 theorem gap6 (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ) (a b : ℝ) (N₀ : ℕ)
     (hbound :
       ∀ k : ℕ, 1 ≤ k → ∀ x ∈ Set.Ioo a b,
@@ -112,7 +112,7 @@ theorem gap6 (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ) (a b : ℝ) (N₀ : ℕ
   exact Summable.of_nonneg_of_le (fun k => abs_nonneg _)
     (fun k => hbound (k + 1) (by omega) x hx) hmajor
 
-/-- Source: `proof_gap/exercise_3108/7.txt`; logarithm on a small tail. -/
+/-- Exercise 3108, gap 7; logarithm on a small tail. -/
 theorem gap7 (f : ℕ → ℝ → ℝ) (a b : ℝ) (N₀ : ℕ)
     (hsmall :
       ∀ k : ℕ, 1 ≤ k → ∀ x ∈ Set.Ioo a b,
@@ -127,7 +127,7 @@ theorem gap7 (f : ℕ → ℝ → ℝ) (a b : ℝ) (N₀ : ℕ)
   rw [← summable_abs_iff]
   simpa [tail] using hsum x hx
 
-/-- Source: `proof_gap/exercise_3108/8.txt`; split finite head and tail. -/
+/-- Exercise 3108, gap 8; split finite head and tail. -/
 theorem gap8 (f : ℕ → ℝ → ℝ) (F G : ℝ → ℝ)
     (a b : ℝ) (N₀ : ℕ)
     (hF : HasProductFromOne f F (Set.Ioo a b))
@@ -166,7 +166,7 @@ theorem gap8 (f : ℕ → ℝ → ℝ) (F G : ℝ → ℝ)
   have heq : F x = H * G x := tendsto_nhds_unique hfull hfull'
   simpa [H, mul_comm] using heq
 
-/-- Source: `proof_gap/exercise_3108/9.txt`; logarithm and tail product. -/
+/-- Exercise 3108, gap 9; logarithm and tail product. -/
 theorem gap9 (f : ℕ → ℝ → ℝ) (G L : ℝ → ℝ)
     (a b : ℝ) (N₀ : ℕ)
     (hG : HasTailProduct f N₀ G (Set.Ioo a b))
@@ -221,7 +221,7 @@ theorem gap9 (f : ℕ → ℝ → ℝ) (G L : ℝ → ℝ)
     tendsto_nhds_unique hlogs htendstoTsum
   exact (hL x hx).trans heq
 
-/-- Source: `proof_gap/exercise_3108/10.txt`; factor-2 logarithm bound. -/
+/-- Exercise 3108, gap 10; factor-2 logarithm bound. -/
 theorem gap10 (f : ℕ → ℝ → ℝ) (a b : ℝ) (N₀ : ℕ)
     (hsmall :
       ∀ k : ℕ, 1 ≤ k → ∀ x ∈ Set.Ioo a b,
@@ -249,7 +249,7 @@ theorem gap10 (f : ℕ → ℝ → ℝ) (a b : ℝ) (N₀ : ℕ)
     _ ≤ 2 * |u| := by gcongr <;> norm_num
     _ = 2 * |tail f N₀ k x| := by rfl
 
-/-- Source: `proof_gap/exercise_3108/11.txt`; scale majorant. -/
+/-- Exercise 3108, gap 11; scale majorant. -/
 theorem gap11 (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ)
     (a b : ℝ) (N₀ : ℕ)
     (hbound :
@@ -262,7 +262,7 @@ theorem gap11 (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ)
   gcongr
   exact hbound k hk x hx
 
-/-- Source: `proof_gap/exercise_3108/12.txt`; combine two bounds. -/
+/-- Exercise 3108, gap 12; combine two bounds. -/
 theorem gap12 (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ)
     (a b : ℝ) (N₀ : ℕ)
     (hlog :
@@ -279,7 +279,7 @@ theorem gap12 (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ)
   intro k hk x hx
   exact (hlog k hk x hx).trans (gap11 f c a b N₀ hbound k hk x hx)
 
-/-- Source: `proof_gap/exercise_3108/13.txt`; uniform M-test. -/
+/-- Exercise 3108, gap 13; uniform M-test. -/
 theorem gap13 (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ) (L : ℝ → ℝ)
     (a b : ℝ) (N₀ : ℕ)
     (hc0 : ∀ n : ℕ, 1 ≤ n → 0 ≤ c n)
@@ -303,7 +303,7 @@ theorem gap13 (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ) (L : ℝ → ℝ)
       (fun k x hx => by simpa [Real.norm_eq_abs] using hbound k x hx)
   exact h.congr_right fun x hx => (hL x hx).symm
 
-/-- Source: `proof_gap/exercise_3108/14.txt`; uniform continuous limit. -/
+/-- Exercise 3108, gap 14; uniform continuous limit. -/
 theorem gap14 (f : ℕ → ℝ → ℝ) (L : ℝ → ℝ)
     (a b : ℝ) (N₀ : ℕ)
     (hcont :
@@ -317,7 +317,7 @@ theorem gap14 (f : ℕ → ℝ → ℝ) (L : ℝ → ℝ)
     continuousOn_finset_sum (Finset.range N)
       (fun k hk => hcont k)).frequently
 
-/-- Source: `proof_gap/exercise_3108/15.txt`; tail product is exp L. -/
+/-- Exercise 3108, gap 15; tail product is exp L. -/
 theorem gap15 (G L : ℝ → ℝ) (a b : ℝ)
     (hL : ContinuousOn L (Set.Ioo a b))
     (hGL : ∀ x ∈ Set.Ioo a b, G x = Real.exp (L x)) :
@@ -325,7 +325,7 @@ theorem gap15 (G L : ℝ → ℝ) (a b : ℝ)
   exact (Real.continuous_exp.comp_continuousOn hL).congr
     (fun x hx => hGL x hx)
 
-/-- Source: `proof_gap/exercise_3108/16.txt`; finite head times tail. -/
+/-- Exercise 3108, gap 16; finite head times tail. -/
 theorem gap16 (f : ℕ → ℝ → ℝ) (F G : ℝ → ℝ)
     (a b : ℝ) (N₀ : ℕ)
     (hf : ∀ n : ℕ, 1 ≤ n → ContinuousOn (f n) (Set.Ioo a b))
@@ -343,7 +343,7 @@ theorem gap16 (f : ℕ → ℝ → ℝ) (F G : ℝ → ℝ)
     exact continuousOn_const.add (hf n (Finset.mem_Icc.mp hn).1)
   exact (hG.mul hhead).congr (fun x hx => hfactor x hx)
 
-/-- Source: `proof_gap/exercise_3108/17.txt`; final product theorem. -/
+/-- Exercise 3108, gap 17; final product theorem. -/
 theorem gap17 (f : ℕ → ℝ → ℝ) (c : ℕ → ℝ) (F : ℝ → ℝ)
     (a b : ℝ)
     (hf : ∀ n : ℕ, 1 ≤ n → ContinuousOn (f n) (Set.Ioo a b))

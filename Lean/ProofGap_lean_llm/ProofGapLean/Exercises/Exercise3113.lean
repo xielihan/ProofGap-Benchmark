@@ -48,7 +48,7 @@ private lemma evenProduct50_real' :
       (34243224702511976248246432895208185975118675053719198827915654463488000000000000 : ℝ) := by
   simpa only [Nat.cast_mul, Nat.cast_ofNat] using evenProduct50_real
 
-/-- Source: `proof_gap/exercise_3113/1.txt`. -/
+/-- Exercise 3113, gap 1. -/
 theorem gap1 :
     wallisRatio =
       (Nat.factorial 100 : ℝ) /
@@ -57,7 +57,7 @@ theorem gap1 :
     oddProduct50_real, evenProduct50_real', Nat.factorial]
 
 /--
-Source: `proof_gap/exercise_3113/2.txt`; correct the Stirling remainder
+Exercise 3113, gap 2; correct the Stirling remainder
 denominators and retain `0<θᵢ<1`.
 -/
 theorem gap2 :
@@ -159,7 +159,7 @@ theorem gap2 :
     ring
   rw [hRHS, hexpquot, hbaseq]
 
-/-- Source: `proof_gap/exercise_3113/3.txt`; bind the effective remainder and its bound. -/
+/-- Exercise 3113, gap 3; bind the effective remainder and its bound. -/
 theorem gap3 :
     ∃ θ : ℝ, |θ| < 1 ∧
       wallisRatio = (0.0798 : ℝ) * Real.exp (θ / 300) := by
@@ -285,7 +285,7 @@ private theorem exp_linear_remainder_bound (u : ℝ)
     have hu2 : 0 ≤ u ^ 2 := sq_nonneg u
     nlinarith [mul_le_mul_of_nonneg_right hexple hu2]
 
-/-- Source: `proof_gap/exercise_3113/4.txt`; replace informal `≈` by a Taylor error bound. -/
+/-- Exercise 3113, gap 4; replace informal `≈` by a Taylor error bound. -/
 theorem gap4 :
     ∀ θ : ℝ, |θ| < 1 →
       LinearizedExp (0.0798 : ℝ) 300 θ := by
@@ -314,7 +314,7 @@ theorem gap4 :
       have he := Real.exp_pos (1 / 300)
       nlinarith
 
-/-- Source: `proof_gap/exercise_3113/5.txt`; keep the same bounded witness and both estimates. -/
+/-- Exercise 3113, gap 5; keep the same bounded witness and both estimates. -/
 theorem gap5 :
     ∃ θ : ℝ,
       |θ| < 1 ∧

@@ -18,7 +18,7 @@ def normalized (x : ℝ) : ℝ :=
 def HasLimitAtPosInfinity (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f Filter.atTop (nhds L)
 
-/-- Source: `proof_gap/exercise_578/1.txt`. -/
+/-- Exercise 578, gap 1. -/
 theorem gap1 (L : ℝ) :
     HasLimitAtPosInfinity original L ↔ HasLimitAtPosInfinity exponentialCosh L := by
   have hfun : original = exponentialCosh := by
@@ -31,7 +31,7 @@ theorem gap1 (L : ℝ) :
     field_simp [Real.exp_ne_zero] <;> ring
   rw [hfun]
 
-/-- Source: `proof_gap/exercise_578/2.txt`. -/
+/-- Exercise 578, gap 2. -/
 theorem gap2 (L : ℝ) :
     HasLimitAtPosInfinity exponentialCosh L ↔ HasLimitAtPosInfinity expanded L := by
   have hfun : exponentialCosh = expanded := by
@@ -49,12 +49,12 @@ theorem gap2 (L : ℝ) :
     ring
   rw [hfun]
 
-/-- Source: `proof_gap/exercise_578/3.txt`. -/
+/-- Exercise 578, gap 3. -/
 theorem gap3 (L : ℝ) :
     HasLimitAtPosInfinity original L ↔ HasLimitAtPosInfinity expanded L := by
   exact (gap1 L).trans (gap2 L)
 
-/-- Source: `proof_gap/exercise_578/4.txt`. -/
+/-- Exercise 578, gap 4. -/
 theorem gap4 (L : ℝ) :
     HasLimitAtPosInfinity expanded L ↔ HasLimitAtPosInfinity normalized L := by
   have hfun : expanded = normalized := by
@@ -76,7 +76,7 @@ theorem gap4 (L : ℝ) :
     ring
   rw [hfun]
 
-/-- Source: `proof_gap/exercise_578/5.txt`. -/
+/-- Exercise 578, gap 5. -/
 theorem gap5 : HasLimitAtPosInfinity normalized (Real.log 2) := by
   have hneg :
       Filter.Tendsto (fun x : ℝ => -2 * x)
@@ -108,7 +108,7 @@ theorem gap5 : HasLimitAtPosInfinity normalized (Real.log 2) := by
         Filter.Tendsto (fun _ : ℝ => Real.log 2)
           Filter.atTop (nhds (Real.log 2))).sub hlog)
 
-/-- Source: `proof_gap/exercise_578/6.txt`. -/
+/-- Exercise 578, gap 6. -/
 theorem gap6 : HasLimitAtPosInfinity expanded (Real.log 2) := by
   exact (gap4 (Real.log 2)).mpr gap5
 

@@ -9,40 +9,40 @@ noncomputable section
 
 def secantSlope (h : ℝ) : ℝ := ((1 + h) ^ 3 - 1 ^ 3) / h
 
-/-- Source: `proof_gap/exercise_826/1.txt`; type the secant slope explicitly. -/
+/-- Exercise 826, gap 1; type the secant slope explicitly. -/
 theorem gap1 (h : ℝ) : secantSlope h = ((1 + h) ^ 3 - 1 ^ 3) / h := by
   rfl
 
-/-- Source: `proof_gap/exercise_826/2.txt`; add the omitted `h≠0`. -/
+/-- Exercise 826, gap 2; add the omitted `h≠0`. -/
 theorem gap2 (h : ℝ) (hh : h ≠ 0) :
     ((1 + h) ^ 3 - 1 ^ 3) / h = 3 + 3 * h + h ^ 2 := by
   field_simp [hh]
   ring
 
-/-- Source: `proof_gap/exercise_826/3.txt`; add the omitted `h≠0`. -/
+/-- Exercise 826, gap 3; add the omitted `h≠0`. -/
 theorem gap3 (h : ℝ) (hh : h ≠ 0) :
     secantSlope h = 3 + 3 * h + h ^ 2 := by
   exact (gap1 h).trans (gap2 h hh)
 
-/-- Source: `proof_gap/exercise_826/4.txt`; specialize the source value `h=0.001`. -/
+/-- Exercise 826, gap 4; specialize the source value `h=0.001`. -/
 theorem gap4 : secantSlope 0.001 = 3 + 3 * 0.001 + 0.001 ^ 2 := by
   exact gap3 0.001 (by norm_num)
 
-/-- Source: `proof_gap/exercise_826/5.txt`. -/
+/-- Exercise 826, gap 5. -/
 theorem gap5 : (3 : ℝ) + 3 * 0.001 + 0.001 ^ 2 = 3.003001 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_826/6.txt`. -/
+/-- Exercise 826, gap 6. -/
 theorem gap6 : secantSlope 0.001 = 3.003001 := by
   exact gap4.trans gap5
 
-/-- Source: `proof_gap/exercise_826/7.txt`; express the limit by `Tendsto`. -/
+/-- Exercise 826, gap 7; express the limit by `Tendsto`. -/
 theorem gap7 (l₁ : ℝ)
     (hl : Filter.Tendsto secantSlope (nhdsWithin 0 {0}ᶜ) (nhds l₁)) :
     Filter.Tendsto secantSlope (nhdsWithin 0 {0}ᶜ) (nhds l₁) := by
   exact hl
 
-/-- Source: `proof_gap/exercise_826/8.txt`; express the punctured limit by `Tendsto`. -/
+/-- Exercise 826, gap 8; express the punctured limit by `Tendsto`. -/
 theorem gap8 :
     Filter.Tendsto secantSlope (nhdsWithin 0 {0}ᶜ) (nhds 3) := by
   let F : Filter ℝ := nhdsWithin (0 : ℝ) (({0} : Set ℝ)ᶜ)
@@ -68,7 +68,7 @@ theorem gap8 :
     simpa [pow_two] using hp
   exact Filter.Tendsto.congr' heq.symm hpoly
 
-/-- Source: `proof_gap/exercise_826/9.txt`. -/
+/-- Exercise 826, gap 9. -/
 theorem gap9 (l₁ : ℝ)
     (hl : Filter.Tendsto secantSlope (nhdsWithin 0 {0}ᶜ) (nhds l₁)) :
     l₁ = 3 := by

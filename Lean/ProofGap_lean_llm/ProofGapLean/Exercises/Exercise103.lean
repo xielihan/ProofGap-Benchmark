@@ -116,15 +116,15 @@ private theorem x_p₂_tendsto : Tendsto (x ∘ p₂) atTop (𝓝 2) := by
   filter_upwards with k
   simpa [one_div, Function.comp_apply] using (x_p₂ k).symm
 
-/-- Source: `proof_gap/exercise_103/1.txt`. -/
+/-- Exercise 103, gap 1. -/
 theorem gap1 : x 1 = 1 := by
   norm_num [x, Real.cos_pi_div_two]
 
-/-- Source: `proof_gap/exercise_103/2.txt`. -/
+/-- Exercise 103, gap 2. -/
 theorem gap2 : x 2 = 1 - 2 / 3 := by
   norm_num [x, Real.cos_pi]
 
-/-- Source: `proof_gap/exercise_103/3.txt`. -/
+/-- Exercise 103, gap 3. -/
 theorem gap3 : x 3 = 1 := by
   rw [x]
   norm_num
@@ -133,7 +133,7 @@ theorem gap3 : x 3 = 1 := by
     Real.cos_pi_div_two, Real.sin_pi_div_two]
   norm_num
 
-/-- Source: `proof_gap/exercise_103/4.txt`. -/
+/-- Exercise 103, gap 4. -/
 theorem gap4 : x 4 = 1 + 4 / 5 := by
   rw [x]
   norm_num
@@ -141,7 +141,7 @@ theorem gap4 : x 4 = 1 + 4 / 5 := by
   rw [hang, Real.cos_two_pi]
   norm_num
 
-/-- Source: `proof_gap/exercise_103/5.txt`. -/
+/-- Exercise 103, gap 5. -/
 theorem gap5 : sInf values = 0 := by
   have hglb : IsGLB values 0 := by
     constructor
@@ -159,7 +159,7 @@ theorem gap5 : sInf values = 0 := by
       linarith [hb hmem]
   exact hglb.csInf_eq ⟨x 1, ⟨1, by omega, rfl⟩⟩
 
-/-- Source: `proof_gap/exercise_103/6.txt`. -/
+/-- Exercise 103, gap 6. -/
 theorem gap6 : sSup values = 2 := by
   have hlub : IsLUB values 2 := by
     constructor
@@ -177,7 +177,7 @@ theorem gap6 : sSup values = 2 := by
       linarith [hb hmem]
   exact hlub.csSup_eq ⟨x 1, ⟨1, by omega, rfl⟩⟩
 
-/-- Source: `proof_gap/exercise_103/7.txt`. -/
+/-- Exercise 103, gap 7. -/
 theorem gap7 : sInf (ProofGap.ClusterSet x) = 0 := by
   have hleast : IsLeast (ProofGap.ClusterSet x) 0 := by
     constructor
@@ -189,7 +189,7 @@ theorem gap7 : sInf (ProofGap.ClusterSet x) = 0 := by
       exact (x_bounds (p k)).1
   exact hleast.csInf_eq
 
-/-- Source: `proof_gap/exercise_103/8.txt`. -/
+/-- Exercise 103, gap 8. -/
 theorem gap8 : sSup (ProofGap.ClusterSet x) = 2 := by
   have hgreatest : IsGreatest (ProofGap.ClusterSet x) 2 := by
     constructor

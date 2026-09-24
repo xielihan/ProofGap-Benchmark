@@ -15,7 +15,7 @@ def auxiliary (x Δx : ℝ) : ℝ :=
   (x + Δx) * Real.sqrt (1 - x ^ 2) -
     x * Real.sqrt (1 - (x + Δx) ^ 2)
 
-/-- Source: `proof_gap/exercise_828_8/1.txt`; bind `Δy` and add `Δx≠0`. -/
+/-- Exercise 828_8, gap 1; bind `Δy` and add `Δx≠0`. -/
 private theorem tendsto_div_sin_at_zero :
     Filter.Tendsto (fun u : ℝ => u / Real.sin u)
       (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds 1) := by
@@ -33,7 +33,7 @@ theorem gap1 (Δy Δx x : ℝ) (hΔy : Δy = increment x Δx)
   rw [hΔy]
   rfl
 
-/-- Source: `proof_gap/exercise_828_8/2.txt`; add a local-domain hypothesis
+/-- Exercise 828_8, gap 2; add a local-domain hypothesis
 under which the arcsine subtraction identity is valid. -/
 theorem gap2 (x Δx : ℝ)
     (hformula :
@@ -43,7 +43,7 @@ theorem gap2 (x Δx : ℝ)
       Real.arcsin (auxiliary x Δx) / Δx := by
   rw [hformula]
 
-/-- Source: `proof_gap/exercise_828_8/3.txt`; bind `Δy` and the local
+/-- Exercise 828_8, gap 3; bind `Δy` and the local
 subtraction identity. -/
 theorem gap3 (Δy Δx x : ℝ) (hΔy : Δy = increment x Δx)
     (hformula :
@@ -53,7 +53,7 @@ theorem gap3 (Δy Δx x : ℝ) (hΔy : Δy = increment x Δx)
   rw [hΔy]
   simpa [increment] using gap2 x Δx hformula
 
-/-- Source: `proof_gap/exercise_828_8/4.txt`; add nonzero denominators. -/
+/-- Exercise 828_8, gap 4; add nonzero denominators. -/
 theorem gap4 (x Δx : ℝ) (hΔx : Δx ≠ 0)
     (ht : auxiliary x Δx ≠ 0) :
     Real.arcsin (auxiliary x Δx) / Δx =
@@ -61,7 +61,7 @@ theorem gap4 (x Δx : ℝ) (hΔx : Δx ≠ 0)
         (auxiliary x Δx / Δx) := by
   field_simp [hΔx, ht]
 
-/-- Source: `proof_gap/exercise_828_8/5.txt`; bind the previously undefined
+/-- Exercise 828_8, gap 5; bind the previously undefined
 `t` as `auxiliary x Δx`. -/
 theorem gap5 (x Δx : ℝ) (hΔx : Δx ≠ 0)
     (ht : auxiliary x Δx ≠ 0)
@@ -98,7 +98,7 @@ theorem gap5 (x Δx : ℝ) (hΔx : Δx ≠ 0)
           (auxiliary x Δx / Δx) := gap4 x Δx hΔx ht
     _ = _ := by rw [hratio]
 
-/-- Source: `proof_gap/exercise_828_8/6.txt`; bind `t` as a function of
+/-- Exercise 828_8, gap 6; bind `t` as a function of
 `Δx` and add `|x|<1`. -/
 theorem gap6 (x : ℝ) (hx : |x| < 1) :
     Filter.Tendsto (auxiliary x) (nhds 0) (nhds 0) := by
@@ -118,7 +118,7 @@ theorem gap6 (x : ℝ) (hx : |x| < 1) :
   rw [hzero] at hca
   exact hca
 
-/-- Source: `proof_gap/exercise_828_8/7.txt`; replace the unspecified
+/-- Exercise 828_8, gap 7; replace the unspecified
 derivative limit by `Tendsto`. -/
 theorem gap7 (x : ℝ) (hxneg : x ≠ -1) (hxpos : x ≠ 1) :
     Filter.Tendsto (quotient x) (nhdsWithin 0 ({0} : Set ℝ)ᶜ)
@@ -133,7 +133,7 @@ theorem gap7 (x : ℝ) (hxneg : x ≠ -1) (hxpos : x ≠ 1) :
   rw [← hfun, hd.deriv]
   simpa only [smul_eq_mul] using hd.tendsto_slope_zero
 
-/-- Source: `proof_gap/exercise_828_8/8.txt`; bind all limits and state their
+/-- Exercise 828_8, gap 8; bind all limits and state their
 product conclusion. -/
 theorem gap8 (x : ℝ) (hx : |x| < 1) :
     Filter.Tendsto (quotient x) (nhdsWithin 0 ({0} : Set ℝ)ᶜ)
@@ -152,14 +152,14 @@ theorem gap8 (x : ℝ) (hx : |x| < 1) :
   rw [← hfun]
   simpa only [smul_eq_mul, mul_one] using hslope
 
-/-- Source: `proof_gap/exercise_828_8/9.txt`; make the two limit values
+/-- Exercise 828_8, gap 9; make the two limit values
 explicit. -/
 theorem gap9 (x : ℝ) :
     (1 / Real.sqrt (1 - x ^ 2)) * (1 : ℝ) =
       1 / Real.sqrt (1 - x ^ 2) := by
   simp
 
-/-- Source: `proof_gap/exercise_828_8/10.txt`; add the interior-domain
+/-- Exercise 828_8, gap 10; add the interior-domain
 condition. -/
 theorem gap10 (x : ℝ) (hx : |x| < 1) :
     HasDerivAt Real.arcsin (1 / Real.sqrt (1 - x ^ 2)) x := by
@@ -168,7 +168,7 @@ theorem gap10 (x : ℝ) (hx : |x| < 1) :
   have hxpos : x ≠ 1 := ne_of_lt hx'.2
   exact Real.hasDerivAt_arcsin hxneg hxpos
 
-/-- Source: `proof_gap/exercise_828_8/11.txt`; represent the substitution by
+/-- Exercise 828_8, gap 11; represent the substitution by
 equivalence of the two punctured limits. -/
 theorem gap11 :
     Filter.Tendsto (fun t : ℝ => Real.arcsin t / t)
@@ -190,13 +190,13 @@ theorem gap11 :
     rw [← hvalue]
     exact hq
 
-/-- Source: `proof_gap/exercise_828_8/12.txt`. -/
+/-- Exercise 828_8, gap 12. -/
 theorem gap12 :
     Filter.Tendsto (fun u : ℝ => u / Real.sin u)
       (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds 1) := by
   exact tendsto_div_sin_at_zero
 
-/-- Source: `proof_gap/exercise_828_8/13.txt`. -/
+/-- Exercise 828_8, gap 13. -/
 theorem gap13 :
     Filter.Tendsto (fun t : ℝ => Real.arcsin t / t)
       (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds 1) := by

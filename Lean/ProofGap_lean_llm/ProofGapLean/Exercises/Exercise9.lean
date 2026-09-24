@@ -3,7 +3,7 @@ import ProofGapLean.Prelude.Discrete
 /-!
 # Exercise 9
 
-Semantic formalization of `proof_gap/exercise_9/{1,...,11}.txt`.
+Semantic formalization of Exercise 9, gaps 1,...,11.
 The products and factorials are natural-number expressions.
 -/
 
@@ -62,19 +62,19 @@ def InductionStep : Prop :=
 def CorrectedFinalBound : Prop :=
   ∀ n : ℕ, 1 < n → MainBound n
 
-/-- Source: `proof_gap/exercise_9/1.txt`. -/
+/-- Exercise 9, gap 1. -/
 theorem gap1 : BaseProductValue := by
   intro n hn
   norm_num [Nat.factorial]
 
-/-- Source: `proof_gap/exercise_9/2.txt`. -/
+/-- Exercise 9, gap 2. -/
 theorem gap2
     (h1 : BaseProductValue) :
     BasePowerValue := by
   intro n hn
   norm_num [Nat.factorial]
 
-/-- Source: `proof_gap/exercise_9/3.txt`. -/
+/-- Exercise 9, gap 3. -/
 theorem gap3
     (h1 : BaseProductValue)
     (h2 : BasePowerValue) :
@@ -82,7 +82,7 @@ theorem gap3
   intro n hn
   norm_num [Nat.factorial]
 
-/-- Source: `proof_gap/exercise_9/4.txt`. -/
+/-- Exercise 9, gap 4. -/
 theorem gap4
     (h1 : BaseProductValue)
     (h2 : BasePowerValue)
@@ -98,7 +98,7 @@ theorem gap4
   rw [Finset.prod_Icc_succ_top (by omega)]
   simpa [Nat.mul_add, Nat.add_assoc] using hmul
 
-/-- Source: `proof_gap/exercise_9/5.txt`. -/
+/-- Exercise 9, gap 5. -/
 theorem gap5
     (h1 : BaseProductValue)
     (h2 : BasePowerValue)
@@ -123,7 +123,7 @@ theorem gap5
   rw [hsplit, pow_succ]
   ac_rfl
 
-/-- Source: `proof_gap/exercise_9/6.txt`. -/
+/-- Exercise 9, gap 6. -/
 theorem gap6
     (h1 : BaseProductValue)
     (h2 : BasePowerValue)
@@ -135,7 +135,7 @@ theorem gap6
   rw [← h5 k hk hbound]
   exact h4 k hk hbound
 
-/-- Source: `proof_gap/exercise_9/7.txt`. -/
+/-- Exercise 9, gap 7. -/
 theorem gap7
     (h1 : BaseProductValue)
     (h2 : BasePowerValue)
@@ -165,7 +165,7 @@ theorem gap7
           omega
   exact (Nat.mul_lt_mul_left (pow_pos (Nat.factorial_pos _) _)).2 htail
 
-/-- Source: `proof_gap/exercise_9/8.txt`. -/
+/-- Exercise 9, gap 8. -/
 theorem gap8
     (h1 : BaseProductValue)
     (h2 : BasePowerValue)
@@ -180,7 +180,7 @@ theorem gap8
   simp only [Nat.factorial_succ]
   ring
 
-/-- Source: `proof_gap/exercise_9/9.txt`. -/
+/-- Exercise 9, gap 9. -/
 theorem gap9
     (h1 : BaseProductValue)
     (h2 : BasePowerValue)
@@ -197,7 +197,7 @@ theorem gap9
   exact (h7 k hk hbound).trans (h6 k hk hbound)
 
 /--
-Source: `proof_gap/exercise_9/10.txt`.
+Exercise 9, gap 10.
 
 The source quantifies over every `n`, but its strict inequality is false at
 `n=0` and `n=1`.  The missing condition `1 < n`, already present throughout
@@ -227,7 +227,7 @@ theorem gap10
       · exact h9 k (by omega) (ih (by omega))
 
 /--
-Source: `proof_gap/exercise_9/11.txt`.
+Exercise 9, gap 11.
 
 This repeats the corrected final result from gap 10.
 -/

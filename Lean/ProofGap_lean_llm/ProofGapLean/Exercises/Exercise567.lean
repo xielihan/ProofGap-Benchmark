@@ -26,7 +26,7 @@ def cancelled (x : ℝ) : ℝ := Real.exp x * Real.sqrt (1 + x ^ 2)
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_567/1.txt`. -/
+/-- Exercise 567, gap 1. -/
 private theorem logRatio_comp_at_zero
     (g : ℝ → ℝ)
     (hg : Filter.Tendsto g
@@ -344,7 +344,7 @@ theorem gap1 (L : ℝ) :
   · intro h
     exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_567/2.txt`. -/
+/-- Exercise 567, gap 2. -/
 theorem gap2 (L : ℝ) :
     HasLimitAtZero expanded L ↔ HasLimitAtZero reduced L := by
   have hexp : HasLimitAtZero expanded 1 := expanded_limit_at_zero
@@ -358,7 +358,7 @@ theorem gap2 (L : ℝ) :
     have hL : L = 1 := tendsto_nhds_unique h hred
     simpa [hL] using hexp
 
-/-- Source: `proof_gap/exercise_567/3.txt`. -/
+/-- Exercise 567, gap 3. -/
 theorem gap3 (L : ℝ) :
     HasLimitAtZero reduced L ↔ HasLimitAtZero cancelled L := by
   constructor
@@ -367,11 +367,11 @@ theorem gap3 (L : ℝ) :
   · intro h
     exact h.congr' reduced_eq_cancelled_ne_zero.symm
 
-/-- Source: `proof_gap/exercise_567/4.txt`. -/
+/-- Exercise 567, gap 4. -/
 theorem gap4 : HasLimitAtZero cancelled 1 := by
   exact cancelled_limit_at_zero
 
-/-- Source: `proof_gap/exercise_567/5.txt`. -/
+/-- Exercise 567, gap 5. -/
 theorem gap5 : HasLimitAtZero original 1 := by
   exact (gap1 1).mpr ((gap2 1).mpr ((gap3 1).mpr gap4))
 

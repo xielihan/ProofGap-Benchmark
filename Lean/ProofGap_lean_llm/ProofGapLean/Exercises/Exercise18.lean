@@ -4,7 +4,7 @@ import Mathlib.Data.Real.Archimedean
 /-!
 # Exercise 18
 
-Semantic formalization of `proof_gap/exercise_18/{1,...,15}.txt`.
+Semantic formalization of Exercise 18, gaps 1,...,15.
 
 The source notation `{x}` denotes an arbitrary set of real numbers, not a
 singleton.  We therefore fix a set `X` and define `negSet X = {-x | x ∈ X}`.
@@ -69,7 +69,7 @@ private lemma negSet_bddAbove {X : Set ℝ} (hX : BddBelow X) :
   rintro y ⟨x, hx, rfl⟩
   linarith [hm hx]
 
-/-- Source: `proof_gap/exercise_18/1.txt`. -/
+/-- Exercise 18, gap 1. -/
 theorem gap1
     (X : Set ℝ)
     (hX : Admissible X) :
@@ -78,7 +78,7 @@ theorem gap1
   exact (isGLB_csInf (negSet_nonempty hX.1) (negSet_bddBelow hX.2.1)).1
     ⟨x, hx, rfl⟩
 
-/-- Source: `proof_gap/exercise_18/2.txt`. -/
+/-- Exercise 18, gap 2. -/
 theorem gap2
     (X : Set ℝ)
     (hX : Admissible X)
@@ -90,7 +90,7 @@ theorem gap2
   rcases hy with ⟨x, hx, rfl⟩
   exact ⟨x, hx, hylt⟩
 
-/-- Source: `proof_gap/exercise_18/3.txt`. -/
+/-- Exercise 18, gap 3. -/
 theorem gap3
     (X : Set ℝ)
     (h1 : InfIsLowerBound X) :
@@ -98,7 +98,7 @@ theorem gap3
   intro x hx
   linarith [h1 x hx]
 
-/-- Source: `proof_gap/exercise_18/4.txt`. -/
+/-- Exercise 18, gap 4. -/
 theorem gap4
     (X : Set ℝ)
     (h2 : InfIsApproached X) :
@@ -107,7 +107,7 @@ theorem gap4
   rcases h2 ε hε with ⟨x, hx, hlt⟩
   exact ⟨x, hx, by linarith⟩
 
-/-- Source: `proof_gap/exercise_18/5.txt`. -/
+/-- Exercise 18, gap 5. -/
 theorem gap5
     (X : Set ℝ)
     (hX : Admissible X)
@@ -128,21 +128,21 @@ theorem gap5
       linarith
   exact (hlub.csSup_eq hX.1).symm
 
-/-- Source: `proof_gap/exercise_18/6.txt`. -/
+/-- Exercise 18, gap 6. -/
 theorem gap6
     (X : Set ℝ)
     (h5 : -sInf (negSet X) = sSup X) :
     sInf (negSet X) = -sSup X := by
   linarith
 
-/-- Source: `proof_gap/exercise_18/7.txt`. -/
+/-- Exercise 18, gap 7. -/
 theorem gap7
     (X : Set ℝ)
     (h6 : sInf (negSet X) = -sSup X) :
     sInf (negSet X) = -sSup X := by
   exact h6
 
-/-- Source: `proof_gap/exercise_18/8.txt`. -/
+/-- Exercise 18, gap 8. -/
 theorem gap8
     (X : Set ℝ)
     (hX : Admissible X)
@@ -152,7 +152,7 @@ theorem gap8
   exact (isLUB_csSup (negSet_nonempty hX.1) (negSet_bddAbove hX.2.2)).1
     ⟨x, hx, rfl⟩
 
-/-- Source: `proof_gap/exercise_18/9.txt`. -/
+/-- Exercise 18, gap 9. -/
 theorem gap9
     (X : Set ℝ)
     (hX : Admissible X)
@@ -164,7 +164,7 @@ theorem gap9
   rcases hy with ⟨x, hx, rfl⟩
   exact ⟨x, hx, hygt⟩
 
-/-- Source: `proof_gap/exercise_18/10.txt`. -/
+/-- Exercise 18, gap 10. -/
 theorem gap10
     (X : Set ℝ)
     (h8 : SupIsUpperBound X) :
@@ -172,7 +172,7 @@ theorem gap10
   intro x hx
   linarith [h8 x hx]
 
-/-- Source: `proof_gap/exercise_18/11.txt`. -/
+/-- Exercise 18, gap 11. -/
 theorem gap11
     (X : Set ℝ)
     (h9 : SupIsApproached X) :
@@ -181,7 +181,7 @@ theorem gap11
   rcases h9 ε hε with ⟨x, hx, hlt⟩
   exact ⟨x, hx, by linarith⟩
 
-/-- Source: `proof_gap/exercise_18/12.txt`. -/
+/-- Exercise 18, gap 12. -/
 theorem gap12
     (X : Set ℝ)
     (hX : Admissible X)
@@ -202,21 +202,21 @@ theorem gap12
       linarith
   exact (hglb.csInf_eq hX.1).symm
 
-/-- Source: `proof_gap/exercise_18/13.txt`. -/
+/-- Exercise 18, gap 13. -/
 theorem gap13
     (X : Set ℝ)
     (h12 : -sSup (negSet X) = sInf X) :
     sSup (negSet X) = -sInf X := by
   linarith
 
-/-- Source: `proof_gap/exercise_18/14.txt`. -/
+/-- Exercise 18, gap 14. -/
 theorem gap14
     (X : Set ℝ)
     (h13 : sSup (negSet X) = -sInf X) :
     sSup (negSet X) = -sInf X := by
   exact h13
 
-/-- Source: `proof_gap/exercise_18/15.txt`. -/
+/-- Exercise 18, gap 15. -/
 theorem gap15
     (X : Set ℝ)
     (h7 : sInf (negSet X) = -sSup X)

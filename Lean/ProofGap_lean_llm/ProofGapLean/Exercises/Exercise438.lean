@@ -121,7 +121,7 @@ private theorem hasLimitAtCongr {f g : ℝ → ℝ} {a L : ℝ}
   unfold HasLimitAt
   exact ⟨fun hf => hf.congr' hfg, fun hg => hg.congr' hfg.symm⟩
 
-/-- Source: `proof_gap/exercise_438/1.txt`; use a signed real cube root near `x=-8`. -/
+/-- Exercise 438, gap 1; use a signed real cube root near `x=-8`. -/
 theorem gap1 : HasLimitAt original (-8) (-2) ↔
     HasLimitAt rationalized (-8) (-2) := by
   apply hasLimitAtCongr
@@ -152,12 +152,12 @@ theorem gap1 : HasLimitAt original (-8) (-2) ↔
   apply (div_eq_div_iff hcden (mul_ne_zero h8 hsden)).2
   nlinarith [hcubed]
 
-/-- Source: `proof_gap/exercise_438/2.txt`. -/
+/-- Exercise 438, gap 2. -/
 theorem gap2 : HasLimitAt original (-8) (-2) ↔
     HasLimitAt rationalized (-8) (-2) := by
   exact gap1
 
-/-- Source: `proof_gap/exercise_438/3.txt`. -/
+/-- Exercise 438, gap 3. -/
 theorem gap3 : HasLimitAt rationalized (-8) (-2) ↔
     HasLimitAt cancelled (-8) (-2) := by
   apply hasLimitAtCongr
@@ -169,7 +169,7 @@ theorem gap3 : HasLimitAt rationalized (-8) (-2) ↔
   unfold rationalized cancelled
   field_simp [hxne]
 
-/-- Source: `proof_gap/exercise_438/4.txt`. -/
+/-- Exercise 438, gap 4. -/
 theorem gap4 : HasLimitAt cancelled (-8) (-2) := by
   have hm8 : signedCbrt (-8) = -2 := by
     apply cube_injective
@@ -214,7 +214,7 @@ theorem gap4 : HasLimitAt cancelled (-8) (-2) := by
   rw [← hvalue]
   exact hcont.tendsto.mono_left inf_le_left
 
-/-- Source: `proof_gap/exercise_438/5.txt`. -/
+/-- Exercise 438, gap 5. -/
 theorem gap5 : HasLimitAt original (-8) (-2) := by
   exact gap1.mpr (gap3.mpr gap4)
 

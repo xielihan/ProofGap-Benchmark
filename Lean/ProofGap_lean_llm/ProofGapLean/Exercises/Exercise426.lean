@@ -17,7 +17,7 @@ def value (n : ℕ) (a : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_426/1.txt`; formalize the substitution `y=x-a`. -/
+/-- Exercise 426, gap 1; formalize the substitution `y=x-a`. -/
 theorem gap1 (a : ℝ) :
     Filter.Tendsto (fun x : ℝ => x - a) (nhds a) (nhds 0) := by
   have h :
@@ -25,7 +25,7 @@ theorem gap1 (a : ℝ) :
     continuousAt_id.sub continuousAt_const
   simpa only [sub_self] using h
 
-/-- Source: `proof_gap/exercise_426/2.txt`. -/
+/-- Exercise 426, gap 2. -/
 theorem gap2 (n : ℕ) (hn : 2 ≤ n) (a : ℝ) :
     HasLimitAt (original n a) a (value n a) ↔
       HasLimitAt (shifted n a) 0 (value n a) := by
@@ -64,7 +64,7 @@ theorem gap2 (n : ℕ) (hn : 2 ≤ n) (a : ℝ) :
       (Filter.Eventually.of_forall fun x => by
         simp [original, shifted, sub_eq_add_neg, add_assoc])
 
-/-- Source: `proof_gap/exercise_426/3.txt`; replace the expansion ellipsis by its finite-limit consequence. -/
+/-- Exercise 426, gap 3; replace the expansion ellipsis by its finite-limit consequence. -/
 theorem gap3 (n : ℕ) (hn : 2 ≤ n) (a : ℝ) :
     HasLimitAt (shifted n a) 0 (value n a) := by
   induction n, hn using Nat.le_induction with
@@ -136,13 +136,13 @@ theorem gap3 (n : ℕ) (hn : 2 ≤ n) (a : ℝ) :
       filter_upwards [hrec] with y hy
       exact hy.symm
 
-/-- Source: `proof_gap/exercise_426/4.txt`. -/
+/-- Exercise 426, gap 4. -/
 theorem gap4 (n : ℕ) (hn : 2 ≤ n) (a : ℝ) :
     HasLimitAt (fun _ : ℝ => value n a) 0 (value n a) := by
   unfold HasLimitAt
   exact tendsto_const_nhds
 
-/-- Source: `proof_gap/exercise_426/5.txt`. -/
+/-- Exercise 426, gap 5. -/
 theorem gap5 (n : ℕ) (hn : 2 ≤ n) (a : ℝ) :
     HasLimitAt (shifted n a) 0 (value n a) := by
   exact gap3 n hn a

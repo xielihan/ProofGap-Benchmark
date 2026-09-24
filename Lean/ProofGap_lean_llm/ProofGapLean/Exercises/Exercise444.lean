@@ -14,7 +14,7 @@ def cancelled (n : ℕ) (x : ℝ) : ℝ := 1 / rootSum n x
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_444/1.txt`; require a positive natural root degree and replace ellipses by a finite sum. -/
+/-- Exercise 444, gap 1; require a positive natural root degree and replace ellipses by a finite sum. -/
 private theorem original_limit (n : ℕ) (hn : 0 < n) :
     HasLimitAt (original n) 0 (1 / (n : ℝ)) := by
   have hdRaw :
@@ -91,18 +91,18 @@ theorem gap1 (n : ℕ) (hn : 0 < n) :
   · intro _
     exact original_limit n hn
 
-/-- Source: `proof_gap/exercise_444/2.txt`; require `n>0`. -/
+/-- Exercise 444, gap 2; require `n>0`. -/
 theorem gap2 (n : ℕ) (hn : 0 < n) :
     HasLimitAt (original n) 0 (1 / (n : ℝ)) ↔
       HasLimitAt (cancelled n) 0 (1 / (n : ℝ)) := by
   exact gap1 n hn
 
-/-- Source: `proof_gap/exercise_444/3.txt`; require `n>0`. -/
+/-- Exercise 444, gap 3; require `n>0`. -/
 theorem gap3 (n : ℕ) (hn : 0 < n) :
     HasLimitAt (cancelled n) 0 (1 / (n : ℝ)) := by
   exact cancelled_limit n hn
 
-/-- Source: `proof_gap/exercise_444/4.txt`; require `n>0`. -/
+/-- Exercise 444, gap 4; require `n>0`. -/
 theorem gap4 (n : ℕ) (hn : 0 < n) :
     HasLimitAt (original n) 0 (1 / (n : ℝ)) := by
   exact original_limit n hn

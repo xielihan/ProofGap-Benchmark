@@ -8,7 +8,7 @@ def f (x : ℝ) : ℝ := Real.arctan (1 / (1 - x))
 def leftFilter : Filter ℝ := nhdsWithin 1 (Set.Iio 1)
 def rightFilter : Filter ℝ := nhdsWithin 1 (Set.Ioi 1)
 
-/-- Source: `proof_gap/exercise_595/1.txt`. -/
+/-- Exercise 595, gap 1. -/
 private theorem arctan_one_sub_tendsto
     (l : Filter ℝ) (hl : l ≤ nhds (1 : ℝ)) :
     Filter.Tendsto (fun x : ℝ => Real.arctan (1 - x)) l (nhds 0) := by
@@ -46,7 +46,7 @@ theorem gap1 : Filter.Tendsto f leftFilter (nhds (Real.pi / 2)) := by
       (Real.arctan_inv_of_pos (sub_pos.mpr hx))
   exact hlim.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_595/2.txt`. -/
+/-- Exercise 595, gap 2. -/
 theorem gap2 : Filter.Tendsto f rightFilter (nhds (-Real.pi / 2)) := by
   have hl : rightFilter ≤ nhds (1 : ℝ) := by
     rw [rightFilter]

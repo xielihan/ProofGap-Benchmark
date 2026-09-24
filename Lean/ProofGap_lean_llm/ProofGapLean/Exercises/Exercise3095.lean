@@ -180,7 +180,7 @@ private theorem norm_even_paired_log_le (m : ℕ) (hm : 1 ≤ m) :
   exact hlog.trans hfinal
 
 /--
-Source: `proof_gap/exercise_3095/1.txt`; remove the erroneous extra factor
+Exercise 3095, gap 1; remove the erroneous extra factor
 `1/n` and retain the definition of arbitrary `p₀`.
 -/
 theorem gap1 (p₀ : ℕ → ℝ) (hp : ∀ n, p₀ n = p n) :
@@ -190,7 +190,7 @@ theorem gap1 (p₀ : ℕ → ℝ) (hp : ∀ n, p₀ n = p n) :
   rw [hp n]
   rfl
 
-/-- Source: `proof_gap/exercise_3095/2.txt`; state the asymptotic relation functionally. -/
+/-- Exercise 3095, gap 2; state the asymptotic relation functionally. -/
 theorem gap2 :
     Asymptotics.IsEquivalent atTop
       (fun n => |u n|) (fun n => 1 / (n : ℝ)) := by
@@ -218,7 +218,7 @@ theorem gap2 :
     simp only [Function.comp_apply, id_eq, x, abs_div, abs_sign]
     rw [abs_of_nonneg (by positivity : (0 : ℝ) ≤ (n : ℝ))]
 
-/-- Source: `proof_gap/exercise_3095/3.txt`. -/
+/-- Exercise 3095, gap 3. -/
 theorem gap3 :
     ¬SummableFromOne (fun n => |u n|) := by
   intro hsum
@@ -238,7 +238,7 @@ theorem gap3 :
   apply hnot
   simpa using hinv
 
-/-- Source: `proof_gap/exercise_3095/4.txt`; predecessor indices require `k ≥ 1`. -/
+/-- Exercise 3095, gap 4; predecessor indices require `k ≥ 1`. -/
 theorem gap4 :
     ∀ k : ℕ, 1 ≤ k →
       u (2 * k - 1) =
@@ -252,7 +252,7 @@ theorem gap4 :
     ring
   rw [hcast]
 
-/-- Source: `proof_gap/exercise_3095/5.txt`; paired indices start at one. -/
+/-- Exercise 3095, gap 5; paired indices start at one. -/
 theorem gap5 :
     ∀ k : ℕ, 1 ≤ k →
       u (2 * k) = Real.log (1 + (-1 : ℝ) ^ k / (2 * (k : ℝ))) := by
@@ -263,7 +263,7 @@ theorem gap5 :
   push_cast
   ring
 
-/-- Source: `proof_gap/exercise_3095/6.txt`; combine the two positive factors. -/
+/-- Exercise 3095, gap 6; combine the two positive factors. -/
 theorem gap6 :
     ∀ k : ℕ, 1 ≤ k → a k = pairedClosedForm k := by
   intro k hk
@@ -304,7 +304,7 @@ theorem gap6 :
   field_simp [hden1, hden2]
   nlinarith
 
-/-- Source: `proof_gap/exercise_3095/7.txt`; predecessor indices require `m ≥ 1`. -/
+/-- Exercise 3095, gap 7; predecessor indices require `m ≥ 1`. -/
 theorem gap7 :
     ∀ m : ℕ, 1 ≤ m → a (2 * m - 1) = 0 := by
   intro m hm
@@ -314,7 +314,7 @@ theorem gap7 :
   rw [heven, neg_one_pow_two_mul]
   norm_num
 
-/-- Source: `proof_gap/exercise_3095/8.txt`; paired indices start at one. -/
+/-- Exercise 3095, gap 8; paired indices start at one. -/
 theorem gap8 :
     ∀ m : ℕ, 1 ≤ m →
       a (2 * m) =
@@ -328,7 +328,7 @@ theorem gap8 :
   push_cast
   ring
 
-/-- Source: `proof_gap/exercise_3095/9.txt`. -/
+/-- Exercise 3095, gap 9. -/
 theorem gap9 : SummableFromOne a := by
   have hp0 :
       Summable (fun n : ℕ => 1 / (n : ℝ) ^ (2 : ℕ)) :=
@@ -355,7 +355,7 @@ theorem gap9 : SummableFromOne a := by
     (summable_nat_add_iff 1).mpr hall
   exact ⟨∑' n : ℕ, a (n + 1), hshift.tendsto_sum_tsum_nat⟩
 
-/-- Source: `proof_gap/exercise_3095/10.txt`. -/
+/-- Exercise 3095, gap 10. -/
 theorem gap10 : Tendsto u atTop (𝓝 0) := by
   have hinv :
       Tendsto (fun n : ℕ => 1 / (n : ℝ)) atTop (𝓝 0) := by
@@ -368,7 +368,7 @@ theorem gap10 : Tendsto u atTop (𝓝 0) := by
   rw [tendsto_zero_iff_norm_tendsto_zero]
   simpa only [Real.norm_eq_abs] using habs
 
-/-- Source: `proof_gap/exercise_3095/11.txt`. -/
+/-- Exercise 3095, gap 11. -/
 theorem gap11 : SummableFromOne u := by
   rcases gap9 with ⟨L, hL⟩
   let S : ℕ → ℝ := fun N => ∑ k ∈ Finset.range N, u (k + 1)
@@ -417,7 +417,7 @@ theorem gap11 : SummableFromOne u := by
     · exact hNo k (by omega)
   exact ⟨L, by simpa only [S] using hfull⟩
 
-/-- Source: `proof_gap/exercise_3095/12.txt`. -/
+/-- Exercise 3095, gap 12. -/
 theorem gap12 :
     ConditionallySummableFromOne (fun n => Real.log (p n)) := by
   constructor

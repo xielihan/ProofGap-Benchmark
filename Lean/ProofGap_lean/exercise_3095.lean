@@ -6,7 +6,7 @@ import Mathlib
 -- Last gap: 13; compilation status: passed
 -- Classification concerns only the last gap compilation, not every gap below.
 
--- Source: proofgap/exercise_3095/1.txt
+-- Exercise 3095, gap 1
 namespace regenerated_exercise_3095_gap_1
 
 attribute [local instance] Classical.propDecidable
@@ -62,7 +62,7 @@ theorem proof_gap_exercise_3095_1
   sorry
 end regenerated_exercise_3095_gap_1
 
--- Source: proofgap/exercise_3095/2.txt
+-- Exercise 3095, gap 2
 namespace regenerated_exercise_3095_gap_2
 
 attribute [local instance] Classical.propDecidable
@@ -119,7 +119,7 @@ theorem proof_gap_exercise_3095_2
   sorry
 end regenerated_exercise_3095_gap_2
 
--- Source: proofgap/exercise_3095/3.txt
+-- Exercise 3095, gap 3
 namespace regenerated_exercise_3095_gap_3
 
 attribute [local instance] Classical.propDecidable
@@ -177,7 +177,7 @@ theorem proof_gap_exercise_3095_3
   sorry
 end regenerated_exercise_3095_gap_3
 
--- Source: proofgap/exercise_3095/4.txt
+-- Exercise 3095, gap 4
 namespace regenerated_exercise_3095_gap_4
 
 attribute [local instance] Classical.propDecidable
@@ -236,7 +236,7 @@ theorem proof_gap_exercise_3095_4
   sorry
 end regenerated_exercise_3095_gap_4
 
--- Source: proofgap/exercise_3095/5.txt
+-- Exercise 3095, gap 5
 namespace regenerated_exercise_3095_gap_5
 
 attribute [local instance] Classical.propDecidable
@@ -296,7 +296,7 @@ theorem proof_gap_exercise_3095_5
   sorry
 end regenerated_exercise_3095_gap_5
 
--- Source: proofgap/exercise_3095/6.txt
+-- Exercise 3095, gap 6
 namespace regenerated_exercise_3095_gap_6
 
 attribute [local instance] Classical.propDecidable
@@ -357,7 +357,7 @@ theorem proof_gap_exercise_3095_6
   sorry
 end regenerated_exercise_3095_gap_6
 
--- Source: proofgap/exercise_3095/7.txt
+-- Exercise 3095, gap 7
 namespace regenerated_exercise_3095_gap_7
 
 attribute [local instance] Classical.propDecidable
@@ -419,7 +419,7 @@ theorem proof_gap_exercise_3095_7
   sorry
 end regenerated_exercise_3095_gap_7
 
--- Source: proofgap/exercise_3095/8.txt
+-- Exercise 3095, gap 8
 namespace regenerated_exercise_3095_gap_8
 
 attribute [local instance] Classical.propDecidable
@@ -482,7 +482,7 @@ theorem proof_gap_exercise_3095_8
   sorry
 end regenerated_exercise_3095_gap_8
 
--- Source: proofgap/exercise_3095/9.txt
+-- Exercise 3095, gap 9
 namespace regenerated_exercise_3095_gap_9
 
 attribute [local instance] Classical.propDecidable
@@ -546,7 +546,7 @@ theorem proof_gap_exercise_3095_9
   sorry
 end regenerated_exercise_3095_gap_9
 
--- Source: proofgap/exercise_3095/10.txt
+-- Exercise 3095, gap 10
 namespace regenerated_exercise_3095_gap_10
 
 attribute [local instance] Classical.propDecidable
@@ -611,7 +611,7 @@ theorem proof_gap_exercise_3095_10
   sorry
 end regenerated_exercise_3095_gap_10
 
--- Source: proofgap/exercise_3095/11.txt
+-- Exercise 3095, gap 11
 namespace regenerated_exercise_3095_gap_11
 
 attribute [local instance] Classical.propDecidable
@@ -677,7 +677,7 @@ theorem proof_gap_exercise_3095_11
   sorry
 end regenerated_exercise_3095_gap_11
 
--- Source: proofgap/exercise_3095/12.txt
+-- Exercise 3095, gap 12
 namespace regenerated_exercise_3095_gap_12
 
 attribute [local instance] Classical.propDecidable
@@ -744,7 +744,7 @@ theorem proof_gap_exercise_3095_12
   sorry
 end regenerated_exercise_3095_gap_12
 
--- Source: proofgap/exercise_3095/13.txt
+-- Exercise 3095, gap 13
 namespace regenerated_exercise_3095_gap_13
 
 attribute [local instance] Classical.propDecidable

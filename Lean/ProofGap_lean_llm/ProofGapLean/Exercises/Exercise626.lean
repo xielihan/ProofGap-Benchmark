@@ -18,13 +18,13 @@ def IsRightAsymptote (f : ℝ → ℝ) (k b : ℝ) : Prop :=
 def IsLeftAsymptote (f : ℝ → ℝ) (k b : ℝ) : Prop :=
   HasLimitAtNegInfinity (residual f k b) 0
 
-/-- Source: `proof_gap/exercise_626/1.txt`; remove the shadowed limit variable and exclude `x=0`. -/
+/-- Exercise 626, gap 1; remove the shadowed limit variable and exclude `x=0`. -/
 theorem gap1 (f : ℝ → ℝ) (k b x : ℝ) (hx : x ≠ 0) :
     slopeQuotient f x = residual f k b x / x + k + b / x := by
   unfold slopeQuotient residual
   field_simp [hx] <;> ring
 
-/-- Source: `proof_gap/exercise_626/2.txt`. -/
+/-- Exercise 626, gap 2. -/
 theorem gap2 (f : ℝ → ℝ) (k b : ℝ)
     (h : IsRightAsymptote f k b) :
     HasLimitAtPosInfinity (slopeQuotient f) k := by
@@ -53,7 +53,7 @@ theorem gap2 (f : ℝ → ℝ) (k b : ℝ)
     exact (gap1 f k b x (ne_of_gt hx)).symm
   exact ht.congr' heq
 
-/-- Source: `proof_gap/exercise_626/3.txt`. -/
+/-- Exercise 626, gap 3. -/
 theorem gap3 (f : ℝ → ℝ) (k b : ℝ)
     (h : IsRightAsymptote f k b) :
     HasLimitAtPosInfinity (interceptResidual f k) b := by
@@ -67,7 +67,7 @@ theorem gap3 (f : ℝ → ℝ) (k b : ℝ)
   rw [heq]
   simpa using h.add_const b
 
-/-- Source: `proof_gap/exercise_626/4.txt`. -/
+/-- Exercise 626, gap 4. -/
 theorem gap4 (f : ℝ → ℝ) (k b : ℝ)
     (hk : HasLimitAtPosInfinity (slopeQuotient f) k)
     (hb : HasLimitAtPosInfinity (interceptResidual f k) b) :
@@ -82,14 +82,14 @@ theorem gap4 (f : ℝ → ℝ) (k b : ℝ)
   rw [heq]
   simpa using hb.sub_const b
 
-/-- Source: `proof_gap/exercise_626/5.txt`; replace the free `y` equation by the actual line-asymptote statement. -/
+/-- Exercise 626, gap 5; replace the free `y` equation by the actual line-asymptote statement. -/
 theorem gap5 (f : ℝ → ℝ) (k b : ℝ)
     (hk : HasLimitAtPosInfinity (slopeQuotient f) k)
     (hb : HasLimitAtPosInfinity (interceptResidual f k) b) :
     IsRightAsymptote f k b := by
   exact gap4 f k b hk hb
 
-/-- Source: `proof_gap/exercise_626/6.txt`; left-tail conclusions require left-tail hypotheses. -/
+/-- Exercise 626, gap 6; left-tail conclusions require left-tail hypotheses. -/
 theorem gap6 (f : ℝ → ℝ) (k b : ℝ)
     (hk : HasLimitAtNegInfinity (slopeQuotient f) k)
     (hb : HasLimitAtNegInfinity (interceptResidual f k) b) :
@@ -104,7 +104,7 @@ theorem gap6 (f : ℝ → ℝ) (k b : ℝ)
   rw [heq]
   simpa using hb.sub_const b
 
-/-- Source: `proof_gap/exercise_626/7.txt`; bind the two limits instead of placing limit expressions inside a singleton. -/
+/-- Exercise 626, gap 7; bind the two limits instead of placing limit expressions inside a singleton. -/
 theorem gap7 (f : ℝ → ℝ) (k b : ℝ)
     (hk : HasLimitAtPosInfinity (slopeQuotient f) k)
     (hb : HasLimitAtPosInfinity (interceptResidual f k) b) :

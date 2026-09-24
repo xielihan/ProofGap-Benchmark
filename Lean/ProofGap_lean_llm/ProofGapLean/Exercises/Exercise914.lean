@@ -21,7 +21,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 def finalDerivative (x : ℝ) : ℝ :=
   1 / Real.sqrt (1 + 2 * x - x ^ 2)
 
-/-- Source: `proof_gap/exercise_914/1.txt`; the hypothesis places the
+/-- Exercise 914, gap 1; the hypothesis places the
 arccosine argument strictly between `-1` and `1`. -/
 theorem gap1 (x : ℝ) (hx : (1 - x) ^ 2 < 2) :
     HasDerivAt y (expandedDerivative x) x := by
@@ -47,7 +47,7 @@ theorem gap1 (x : ℝ) (hx : (1 - x) ^ 2 < 2) :
   simpa [y, expandedDerivative, Function.comp_def, neg_div, one_div] using
     houter.comp x hinner
 
-/-- Source: `proof_gap/exercise_914/2.txt`; the same strict inequality makes
+/-- Exercise 914, gap 2; the same strict inequality makes
 the simplified radicand positive. -/
 theorem gap2 (x : ℝ) (hx : (1 - x) ^ 2 < 2) :
     expandedDerivative x = finalDerivative x := by
@@ -80,7 +80,7 @@ theorem gap2 (x : ℝ) (hx : (1 - x) ^ 2 < 2) :
   rw [← hprod]
   field_simp [ne_of_gt (Real.sqrt_pos.2 hA), ne_of_gt hs]
 
-/-- Source: `proof_gap/exercise_914/3.txt`; retain the nonsingular arccosine
+/-- Exercise 914, gap 3; retain the nonsingular arccosine
 domain. -/
 theorem gap3 (x : ℝ) (hx : (1 - x) ^ 2 < 2) :
     HasDerivAt y (finalDerivative x) x := by

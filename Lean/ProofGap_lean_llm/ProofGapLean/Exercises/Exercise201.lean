@@ -9,12 +9,12 @@ def ArithmeticSeq (x : ℕ → ℝ) (d : ℝ) : Prop :=
   ∀ n : ℕ, x n = x 1 + ((n - 1 : ℕ) : ℝ) * d
 def y (a b : ℝ) (x : ℕ → ℝ) (n : ℕ) : ℝ := affine a b (x n)
 
-/-- Source: `proof_gap/exercise_201/1.txt`. -/
+/-- Exercise 201, gap 1. -/
 theorem gap1 (x : ℕ → ℝ) (d : ℝ) (h : ArithmeticSeq x d) :
     ∀ n, x n = x 1 + ((n - 1 : ℕ) : ℝ) * d := by
   exact h
 
-/-- Source: `proof_gap/exercise_201/2.txt`; n must be positive before n-1. -/
+/-- Exercise 201, gap 2; n must be positive before n-1. -/
 theorem gap2 (a b : ℝ) (x : ℕ → ℝ) :
     ∀ n : ℕ, 0 < n →
       y a b x n - y a b x (n - 1) =
@@ -22,7 +22,7 @@ theorem gap2 (a b : ℝ) (x : ℕ → ℝ) :
   intro n _
   rfl
 
-/-- Source: `proof_gap/exercise_201/3.txt`; n≥2 is required for n-2. -/
+/-- Exercise 201, gap 3; n≥2 is required for n-2. -/
 theorem gap3 (a b d : ℝ) (x : ℕ → ℝ) (h : ArithmeticSeq x d) :
     ∀ n : ℕ, 2 ≤ n →
       y a b x n - y a b x (n - 1) =
@@ -33,7 +33,7 @@ theorem gap3 (a b d : ℝ) (x : ℕ → ℝ) (h : ArithmeticSeq x d) :
   rw [h n, h (n - 1)]
   congr 2
 
-/-- Source: `proof_gap/exercise_201/4.txt`; n≥2 prevents natural underflow. -/
+/-- Exercise 201, gap 4; n≥2 prevents natural underflow. -/
 theorem gap4 (a b d : ℝ) (x : ℕ → ℝ) :
     ∀ n : ℕ, 2 ≤ n →
       (a * (x 1 + ((n - 1 : ℕ) : ℝ) * d) + b) -
@@ -43,7 +43,7 @@ theorem gap4 (a b d : ℝ) (x : ℕ → ℝ) :
   rw [hsub, Nat.cast_add, Nat.cast_one]
   ring
 
-/-- Source: `proof_gap/exercise_201/5.txt`. -/
+/-- Exercise 201, gap 5. -/
 theorem gap5 (a b d : ℝ) (x : ℕ → ℝ) (h : ArithmeticSeq x d) :
     ∀ n : ℕ, 2 ≤ n → y a b x n - y a b x (n - 1) = a * d := by
   intro n hn
@@ -54,12 +54,12 @@ theorem gap5 (a b d : ℝ) (x : ℕ → ℝ) (h : ArithmeticSeq x d) :
       gap3 a b d x h n hn
     _ = a * d := gap4 a b d x n hn
 
-/-- Source: `proof_gap/exercise_201/6.txt`. -/
+/-- Exercise 201, gap 6. -/
 theorem gap6 (a b d : ℝ) (x : ℕ → ℝ) (h : ArithmeticSeq x d) :
     ∀ n : ℕ, 2 ≤ n → y a b x n - y a b x (n - 1) = a * d := by
   exact gap5 a b d x h
 
-/-- Source: `proof_gap/exercise_201/7.txt`. -/
+/-- Exercise 201, gap 7. -/
 theorem gap7 (a b d : ℝ) (x : ℕ → ℝ) (h : ArithmeticSeq x d) :
     ∀ n : ℕ, 2 ≤ n → y a b x n - y a b x (n - 1) = a * d := by
   exact gap5 a b d x h

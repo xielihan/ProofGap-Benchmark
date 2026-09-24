@@ -30,7 +30,7 @@ private theorem x_succ (n : ℕ) :
   unfold x
   rw [Finset.prod_Icc_succ_top (by omega)]
 
-/-- Source: `proof_gap/exercise_78/1.txt`; the source cutoff 10 is false. -/
+/-- Exercise 78, gap 1; the source cutoff 10 is false. -/
 theorem gap1 :
     ∀ n : ℕ, n < 9 → x (n + 1) > x n := by
   intro n hn
@@ -47,7 +47,7 @@ theorem gap1 :
     linarith
   simpa using mul_lt_mul_of_pos_left hfac (x_pos n)
 
-/-- Source: `proof_gap/exercise_78/2.txt`. -/
+/-- Exercise 78, gap 2. -/
 theorem gap2 :
     ∀ n : ℕ, 10 < n → ((n : ℝ) + 9) / (2 * (n : ℝ) - 1) < 1 := by
   intro n hn
@@ -56,7 +56,7 @@ theorem gap2 :
   · linarith
   · linarith
 
-/-- Source: `proof_gap/exercise_78/3.txt`. -/
+/-- Exercise 78, gap 3. -/
 theorem gap3 :
     ∀ n : ℕ, 10 < n → x (n + 1) < x n := by
   intro n hn
@@ -70,13 +70,13 @@ theorem gap3 :
         (2 * (((n + 1 : ℕ) : ℝ)) - 1)) := by positivity
   simpa using mul_lt_mul_of_pos_left hfac (x_pos n)
 
-/-- Source: `proof_gap/exercise_78/4.txt`. -/
+/-- Exercise 78, gap 4. -/
 theorem gap4 :
     ∀ n : ℕ, 0 < n → 0 < x n := by
   intro n _
   exact x_pos n
 
-/-- Source: `proof_gap/exercise_78/5.txt`. -/
+/-- Exercise 78, gap 5. -/
 theorem gap5 :
     BddBelow (Set.range x) := by
   refine ⟨0, ?_⟩
@@ -84,7 +84,7 @@ theorem gap5 :
   rcases hy with ⟨n, rfl⟩
   exact (x_pos n).le
 
-/-- Source: `proof_gap/exercise_78/6.txt`. -/
+/-- Exercise 78, gap 6. -/
 theorem gap6
     (hdec : ∀ n : ℕ, 10 < n → x (n + 1) ≤ x n)
     (hbelow : BddBelow (Set.range x)) :
@@ -102,7 +102,7 @@ theorem gap6
   exact ⟨sInf (x '' Set.Ici 11),
     Real.tendsto_atTop_csInf_of_antitoneOn_bddBelow_nat_Ici hanti hbelow'⟩
 
-/-- Source: `proof_gap/exercise_78/7.txt`. -/
+/-- Exercise 78, gap 7. -/
 theorem gap7
     (hconv : Convergent x) :
     Convergent x := by

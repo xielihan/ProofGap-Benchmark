@@ -15,7 +15,7 @@ def normalized (x : ℝ) : ℝ :=
   (1 + Real.log (1 + x ^ 2 * Real.exp (-x)) / x) /
     (2 + Real.log (1 + x ^ 4 * Real.exp (-2 * x)) / x)
 
-/-- Source: `proof_gap/exercise_566_2/1.txt`; express equality of represented limits. -/
+/-- Exercise 566_2, gap 1; express equality of represented limits. -/
 private theorem decay_limits :
     Filter.Tendsto (fun x : ℝ => x ^ 2 * Real.exp (-x))
       Filter.atTop (nhds 0) ∧
@@ -149,7 +149,7 @@ theorem gap1 (L : ℝ) :
   · intro h
     exact Filter.Tendsto.congr' heq.symm h
 
-/-- Source: `proof_gap/exercise_566_2/2.txt`. -/
+/-- Exercise 566_2, gap 2. -/
 theorem gap2 :
     Filter.Tendsto normalized Filter.atTop (nhds (1 / 2 : ℝ)) := by
   have harg2 :
@@ -204,18 +204,18 @@ theorem gap2 :
     Filter.atTop (nhds (1 / 2 : ℝ))
   exact hnum.div hden (by norm_num : (2 : ℝ) ≠ 0)
 
-/-- Source: `proof_gap/exercise_566_2/3.txt`. -/
+/-- Exercise 566_2, gap 3. -/
 theorem gap3 :
     Filter.Tendsto original Filter.atTop (nhds (1 / 2 : ℝ)) := by
   exact (gap1 (1 / 2 : ℝ)).mpr gap2
 
-/-- Source: `proof_gap/exercise_566_2/4.txt`. -/
+/-- Exercise 566_2, gap 4. -/
 theorem gap4 :
     Filter.Tendsto (fun x : ℝ => x ^ 2 * Real.exp (-x))
       Filter.atTop (nhds 0) := by
   exact decay_limits.1
 
-/-- Source: `proof_gap/exercise_566_2/5.txt`. -/
+/-- Exercise 566_2, gap 5. -/
 theorem gap5 :
     Filter.Tendsto (fun x : ℝ => x ^ 4 * Real.exp (-2 * x))
       Filter.atTop (nhds 0) := by

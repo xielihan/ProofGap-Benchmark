@@ -9,7 +9,7 @@ open scoped Topology
 /-!
 # Exercise 64
 
-Semantic formalization of `proof_gap/exercise_64/{1,...,14}.txt`.
+Semantic formalization of Exercise 64, gaps 1,...,14.
 -/
 
 namespace ProofGap.Exercise64
@@ -57,7 +57,7 @@ private theorem binomial_quadratic_lower {x : ℝ} (hx : 0 < x) (n : ℕ) :
     rw [hbin, ← hftwo]
     linarith
 
-/-- Source: `proof_gap/exercise_64/1.txt`; the valid range is restored. -/
+/-- Exercise 64, gap 1; the valid range is restored. -/
 theorem gap1 :
     ∀ n : ℕ, 1 < n → 1 < nthRootN n := by
   intro n hn
@@ -66,7 +66,7 @@ theorem gap1 :
     (by exact_mod_cast hn)
     (one_div_pos.mpr (by positivity))
 
-/-- Source: `proof_gap/exercise_64/2.txt`; the estimate is eventual. -/
+/-- Exercise 64, gap 2; the estimate is eventual. -/
 theorem gap2 :
     ∀ n : ℕ, 2 < n →
       (nthRootN n) ^ n >
@@ -88,7 +88,7 @@ theorem gap2 :
     mul_lt_mul_of_pos_right hcoef (sq_pos_of_pos (sub_pos.mpr hroot))
   exact hmul.trans hquad
 
-/-- Source: `proof_gap/exercise_64/3.txt`. -/
+/-- Exercise 64, gap 3. -/
 theorem gap3
     (h2 : ∀ n : ℕ, 2 < n →
       (nthRootN n) ^ n >
@@ -104,13 +104,13 @@ theorem gap3
       (Real.rpow_inv_natCast_pow (Nat.cast_nonneg n) hnzero)
   simpa [heq] using h2 n hn
 
-/-- Source: `proof_gap/exercise_64/4.txt`. -/
+/-- Exercise 64, gap 4. -/
 theorem gap4 :
     ∀ n : ℕ, 1 < n → 0 < nthRootN n - 1 := by
   intro n hn
   exact sub_pos.mpr (gap1 n hn)
 
-/-- Source: `proof_gap/exercise_64/5.txt`. -/
+/-- Exercise 64, gap 5. -/
 theorem gap5
     (h3 : ∀ n : ℕ, 2 < n →
       (n : ℝ) >
@@ -144,13 +144,13 @@ theorem gap5
     nlinarith
   exact (lt_div_iff₀ hsqrt).2 hprod
 
-/-- Source: `proof_gap/exercise_64/6.txt`. -/
+/-- Exercise 64, gap 6. -/
 theorem gap6 :
     ∀ n : ℕ, 0 < n → 0 < 2 / Real.sqrt n := by
   intro n hn
   exact div_pos (by norm_num) (Real.sqrt_pos.2 (by positivity))
 
-/-- Source: `proof_gap/exercise_64/7.txt`. -/
+/-- Exercise 64, gap 7. -/
 theorem gap7
     (h4 : ∀ n : ℕ, 1 < n → 0 < nthRootN n - 1)
     (h5 : ∀ n : ℕ, 2 < n →
@@ -176,7 +176,7 @@ theorem gap7
   have hadd := hdiff.add_const 1
   simpa using hadd
 
-/-- Source: `proof_gap/exercise_64/8.txt`. -/
+/-- Exercise 64, gap 8. -/
 theorem gap8
     (a : ℝ)
     (ha : 1 < a) :
@@ -184,7 +184,7 @@ theorem gap8
   intro ε hε
   exact Real.one_lt_rpow ha hε
 
-/-- Source: `proof_gap/exercise_64/9.txt`; the rebound cutoff is repaired. -/
+/-- Exercise 64, gap 9; the rebound cutoff is repaired. -/
 theorem gap9
     (a : ℝ)
     (ha : 1 < a)
@@ -198,7 +198,7 @@ theorem gap9
   obtain ⟨N, hN⟩ := Filter.eventually_atTop.1 hev
   exact ⟨N, fun n hn => hN n (Nat.le_of_lt hn)⟩
 
-/-- Source: `proof_gap/exercise_64/10.txt`; the cutoff depends on `ε`. -/
+/-- Exercise 64, gap 10; the cutoff depends on `ε`. -/
 theorem gap10
     (a : ℝ)
     (ha : 1 < a) :
@@ -212,7 +212,7 @@ theorem gap10
     (div_pos (Real.log_pos (by exact_mod_cast hn)) (Real.log_pos ha))
     (by positivity)
 
-/-- Source: `proof_gap/exercise_64/11.txt`; the cutoff depends on `ε`. -/
+/-- Exercise 64, gap 11; the cutoff depends on `ε`. -/
 theorem gap11
     (a : ℝ)
     (ha : 1 < a)
@@ -252,7 +252,7 @@ theorem gap11
   apply (div_lt_iff₀ (Real.log_pos ha)).2
   nlinarith
 
-/-- Source: `proof_gap/exercise_64/12.txt`; the cutoff depends on `ε`. -/
+/-- Exercise 64, gap 12; the cutoff depends on `ε`. -/
 theorem gap12
     (a : ℝ) :
     ∀ ε : ℝ, 0 < ε →
@@ -260,7 +260,7 @@ theorem gap12
   intro ε hε
   exact ⟨0, fun n hn => hε⟩
 
-/-- Source: `proof_gap/exercise_64/13.txt`. -/
+/-- Exercise 64, gap 13. -/
 theorem gap13
     (a : ℝ)
     (ha : 1 < a)
@@ -284,7 +284,7 @@ theorem gap13
   simp only [Real.dist_eq, sub_zero, abs_of_pos (hN₀ n h0)]
   exact hN₁ n h1
 
-/-- Source: `proof_gap/exercise_64/14.txt`. -/
+/-- Exercise 64, gap 14. -/
 theorem gap14
     (a : ℝ)
     (ha : 1 < a)

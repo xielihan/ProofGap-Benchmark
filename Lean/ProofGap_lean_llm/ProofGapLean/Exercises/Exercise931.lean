@@ -25,7 +25,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 def finalDerivative (x : ℝ) : ℝ :=
   -2 * Real.cos x * Real.arctan (Real.sin x)
 
-/-- Source: `proof_gap/exercise_931/1.txt`; `1 + sin² x` is positive for
+/-- Exercise 931, gap 1; `1 + sin² x` is positive for
 every real `x`. -/
 theorem gap1 (x : ℝ) :
     HasDerivAt y (expandedDerivative x) x := by
@@ -63,13 +63,13 @@ theorem gap1 (x : ℝ) :
     ring
   simpa only [y, hderiv] using hlog.sub hprod
 
-/-- Source: `proof_gap/exercise_931/2.txt`. -/
+/-- Exercise 931, gap 2. -/
 theorem gap2 (x : ℝ) :
     expandedDerivative x = finalDerivative x := by
   unfold expandedDerivative finalDerivative
   ring
 
-/-- Source: `proof_gap/exercise_931/3.txt`. -/
+/-- Exercise 931, gap 3. -/
 theorem gap3 (x : ℝ) :
     HasDerivAt y (finalDerivative x) x := by
   rw [← gap2 x]

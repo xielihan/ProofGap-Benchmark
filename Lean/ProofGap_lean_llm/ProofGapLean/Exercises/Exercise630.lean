@@ -22,7 +22,7 @@ def ratioSeq (x : ℝ) (n : ℕ) : ℝ :=
 def normalizedRatioSeq (x : ℝ) (n : ℕ) : ℝ :=
   (x / (2 : ℝ) ^ n) / Real.sin (x / (2 : ℝ) ^ n) * (Real.sin x / x)
 
-/-- Source: `proof_gap/exercise_630/1.txt`. -/
+/-- Exercise 630, gap 1. -/
 private theorem sin_half_identity (x : ℝ) :
     Real.sin x = 2 * Real.cos (x / 2) * Real.sin (x / 2) := by
   calc
@@ -122,7 +122,7 @@ theorem gap1 (x : ℝ) :
     Real.sin x = 2 * Real.cos (x / 2) * Real.sin (x / 2) := by
   exact sin_half_identity x
 
-/-- Source: `proof_gap/exercise_630/2.txt`. -/
+/-- Exercise 630, gap 2. -/
 theorem gap2 (x : ℝ) :
     2 * Real.cos (x / 2) * Real.sin (x / 2) =
       (2 : ℝ) ^ 2 * Real.cos (x / 2) * Real.cos (x / 4) *
@@ -132,23 +132,23 @@ theorem gap2 (x : ℝ) :
   rw [harg]
   ring
 
-/-- Source: `proof_gap/exercise_630/3.txt`; replace the ellipsis by the three-factor case. -/
+/-- Exercise 630, gap 3; replace the ellipsis by the three-factor case. -/
 theorem gap3 (x : ℝ) :
     sineFactorization x 2 = sineFactorization x 3 := by
   exact (sineFactorization_eq x 2).symm.trans (sineFactorization_eq x 3)
 
-/-- Source: `proof_gap/exercise_630/4.txt`; replace both product ellipses by `cosProduct`. -/
+/-- Exercise 630, gap 4; replace both product ellipses by `cosProduct`. -/
 theorem gap4 (x : ℝ) (n : ℕ) :
     sineFactorization x n =
       (2 : ℝ) ^ n * cosProduct x n * Real.sin (x / (2 : ℝ) ^ n) := by
   rfl
 
-/-- Source: `proof_gap/exercise_630/5.txt`; replace the product ellipsis by `Finset.prod`. -/
+/-- Exercise 630, gap 5; replace the product ellipsis by `Finset.prod`. -/
 theorem gap5 (x : ℝ) (n : ℕ) :
     Real.sin x = sineFactorization x n := by
   exact sineFactorization_eq x n
 
-/-- Source: `proof_gap/exercise_630/6.txt`; state equality of the represented limits. -/
+/-- Exercise 630, gap 6; state equality of the represented limits. -/
 theorem gap6 (x L : ℝ) (hx : x ≠ 0) :
     Filter.Tendsto (cosProduct x) Filter.atTop (nhds L) ↔
       Filter.Tendsto (ratioSeq x) Filter.atTop (nhds L) := by
@@ -164,7 +164,7 @@ theorem gap6 (x L : ℝ) (hx : x ≠ 0) :
   · exact fun h => h.congr' heq
   · exact fun h => h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_630/7.txt`; exclude `x=0` from the displayed normalization. -/
+/-- Exercise 630, gap 7; exclude `x=0` from the displayed normalization. -/
 theorem gap7 (x L : ℝ) (hx : x ≠ 0) :
     Filter.Tendsto (ratioSeq x) Filter.atTop (nhds L) ↔
       Filter.Tendsto (normalizedRatioSeq x) Filter.atTop (nhds L) := by
@@ -177,7 +177,7 @@ theorem gap7 (x L : ℝ) (hx : x ≠ 0) :
       field_simp [hx, hs, hp]
   rw [hfun]
 
-/-- Source: `proof_gap/exercise_630/8.txt`; the source quotient requires `x≠0`. -/
+/-- Exercise 630, gap 8; the source quotient requires `x≠0`. -/
 theorem gap8 (x : ℝ) (hx : x ≠ 0) :
     Filter.Tendsto (normalizedRatioSeq x) Filter.atTop
       (nhds (Real.sin x / x)) := by
@@ -218,7 +218,7 @@ theorem gap8 (x : ℝ) (hx : x ≠ 0) :
     tendsto_const_nhds
   simpa [normalizedRatioSeq] using hquot.mul hconst
 
-/-- Source: `proof_gap/exercise_630/9.txt`; the source quotient requires `x≠0`. -/
+/-- Exercise 630, gap 9; the source quotient requires `x≠0`. -/
 theorem gap9 (x : ℝ) (hx : x ≠ 0) :
     Filter.Tendsto (cosProduct x) Filter.atTop
       (nhds (Real.sin x / x)) := by
@@ -237,7 +237,7 @@ theorem gap9 (x : ℝ) (hx : x ≠ 0) :
     field_simp [hs, hp]
   exact hratio.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_630/10.txt`. -/
+/-- Exercise 630, gap 10. -/
 theorem gap10 (x : ℝ) (n : ℕ) (hx : x = 0) :
     cosProduct x n = 1 := by
   subst x

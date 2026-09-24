@@ -10,7 +10,7 @@ noncomputable section
 
 def y (a b : ℝ) (x : ℝ) : ℝ := (a * x + b) / (a + b)
 
-/-- Source: `proof_gap/exercise_837/1.txt`; state the derivative formula before solving its zero set. -/
+/-- Exercise 837, gap 1; state the derivative formula before solving its zero set. -/
 theorem gap1 (a b x : ℝ) (hab : a + b ≠ 0) :
     deriv (y a b) x = a / (a + b) := by
   unfold y
@@ -24,7 +24,7 @@ theorem gap1 (a b x : ℝ) (hab : a + b ≠ 0) :
     ((((hasDerivAt_const x (a / (a + b))).mul (hasDerivAt_id x)).add
       (hasDerivAt_const x (b / (a + b)))).deriv) using 1 <;> ring
 
-/-- Source: `proof_gap/exercise_837/2.txt`; retain the parameter-degenerate critical set explicitly. -/
+/-- Exercise 837, gap 2; retain the parameter-degenerate critical set explicitly. -/
 theorem gap2 (a b x : ℝ) (hab : a + b ≠ 0) :
     x ∈ {z : ℝ | a / (a + b) = 0} ↔ deriv (y a b) x = 0 := by
   change a / (a + b) = 0 ↔ deriv (y a b) x = 0

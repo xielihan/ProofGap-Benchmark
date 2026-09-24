@@ -18,7 +18,7 @@ def expandedDerivative (a x : ℝ) : ℝ :=
 def finalDerivative (a x : ℝ) : ℝ :=
   2 * a * x / (a ^ 2 + x ^ 4)
 
-/-- Source: `proof_gap/exercise_915/1.txt`; the scale in the arctangent
+/-- Exercise 915, gap 1; the scale in the arctangent
 argument must be nonzero. -/
 theorem gap1 (a x : ℝ) (ha : a ≠ 0) :
     HasDerivAt (y a) (expandedDerivative a x) x := by
@@ -29,7 +29,7 @@ theorem gap1 (a x : ℝ) (ha : a ≠ 0) :
   simpa [y, expandedDerivative, Function.comp_def] using
     (Real.hasDerivAt_arctan (x ^ 2 / a)).comp x hinner
 
-/-- Source: `proof_gap/exercise_915/2.txt`; a nonzero scale validates all
+/-- Exercise 915, gap 2; a nonzero scale validates all
 displayed divisions. -/
 theorem gap2 (a x : ℝ) (ha : a ≠ 0) :
     expandedDerivative a x = finalDerivative a x := by
@@ -41,7 +41,7 @@ theorem gap2 (a x : ℝ) (ha : a ≠ 0) :
   unfold expandedDerivative finalDerivative
   field_simp [ha, harg, hfinal]
 
-/-- Source: `proof_gap/exercise_915/3.txt`; retain the nonzero scale in the
+/-- Exercise 915, gap 3; retain the nonzero scale in the
 final derivative formula. -/
 theorem gap3 (a x : ℝ) (ha : a ≠ 0) :
     HasDerivAt (y a) (finalDerivative a x) x := by

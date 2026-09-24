@@ -30,7 +30,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 def finalDerivative (x : ℝ) : ℝ :=
   -8 / (3 * Real.sin x ^ 4 * cubeRoot (cot x))
 
-/-- Source: `proof_gap/exercise_873/1.txt`; interpret all fractional powers
+/-- Exercise 873, gap 1; interpret all fractional powers
 through a signed cube root and exclude the nondifferentiable zero of `cot`. -/
 private theorem rpow_one_third_cube (x : ℝ) (hx : 0 ≤ x) :
     (Real.rpow x (1 / 3 : ℝ)) ^ 3 = x := by
@@ -190,7 +190,7 @@ theorem gap1 (x : ℝ) (hsin : Real.sin x ≠ 0) (hcot : cot x ≠ 0) :
     field_simp [hr0] <;> ring
   exact hpoly'.deriv
 
-/-- Source: `proof_gap/exercise_873/2.txt`; use the signed real cube root and
+/-- Exercise 873, gap 2; use the signed real cube root and
 retain the source function's domain. -/
 theorem gap2 (x : ℝ) (hsin : Real.sin x ≠ 0) (hcot : cot x ≠ 0) :
     expandedDerivative x = finalDerivative x := by
@@ -209,7 +209,7 @@ theorem gap2 (x : ℝ) (hsin : Real.sin x ≠ 0) (hcot : cot x ≠ 0) :
   field_simp [hsin, hroot0] <;>
     nlinarith [Real.sin_sq_add_cos_sq x, hsq]
 
-/-- Source: `proof_gap/exercise_873/3.txt`; use the signed real cube root and
+/-- Exercise 873, gap 3; use the signed real cube root and
 exclude singular/nondifferentiable points. -/
 theorem gap3 (x : ℝ) (hsin : Real.sin x ≠ 0) (hcot : cot x ≠ 0) :
     deriv y x = finalDerivative x := by

@@ -469,14 +469,14 @@ private theorem summable_abs_qDeviation_from_one (s : ℝ) (hs : 1 < s) :
   · simp [qDeviation, q, hmod, abs_of_pos hrpos]
     linarith
 
-/-- Source: `proof_gap/exercise_3097/1.txt`; define the complete periodic sequence `q`. -/
+/-- Exercise 3097, gap 1; define the complete periodic sequence `q`. -/
 theorem gap1 (s : ℝ) (hs : 1 < s) :
     SummableFromOne (fun n => |qDeviation s n|) := by
   unfold SummableFromOne
   exact (summable_abs_qDeviation_from_one s hs).mono_filter
     (SummationFilter.conditional ℕ).le_atTop
 
-/-- Source: `proof_gap/exercise_3097/2.txt`. -/
+/-- Exercise 3097, gap 2. -/
 theorem gap2 (s : ℝ) (hs : 1 < s) :
     AbsolutelySummableFromOne (fun n => Real.log (q s n)) := by
   have hdabs := summable_abs_qDeviation_from_one s hs
@@ -487,7 +487,7 @@ theorem gap2 (s : ℝ) (hs : 1 < s) :
   simpa [AbsolutelySummableFromOne, SummableFromOne, qDeviation,
     Real.norm_eq_abs] using hcond
 
-/-- Source: `proof_gap/exercise_3097/3.txt`. -/
+/-- Exercise 3097, gap 3. -/
 theorem gap3 (s : ℝ) (hs : s ≤ 0) :
     ¬Tendsto (q s) atTop (𝓝 1) := by
   intro hq
@@ -502,7 +502,7 @@ theorem gap3 (s : ℝ) (hs : s ≤ 0) :
   rcases hev.exists with ⟨k, hk⟩
   linarith [q_three_mul_add_one_ge_two s hs k]
 
-/-- Source: `proof_gap/exercise_3097/4.txt`. -/
+/-- Exercise 3097, gap 4. -/
 theorem gap4 (s : ℝ) (hs : s ≤ 0) :
     ¬SummableFromOne (fun n => Real.log (q s n)) := by
   intro hsum
@@ -527,31 +527,31 @@ theorem gap4 (s : ℝ) (hs : s ≤ 0) :
       (lt_of_lt_of_le (by norm_num) hq) hq
   linarith
 
-/-- Source: `proof_gap/exercise_3097/5.txt`; use the explicit four-term refinement. -/
+/-- Exercise 3097, gap 5; use the explicit four-term refinement. -/
 theorem gap5 (s : ℝ) (hs0 : 0 < s) (hs1 : s ≤ 1) :
     ∃ a : ℕ → ℝ, a = alphaStar s ∧
       ∀ k, a (4 * k + 1) = reciprocalPower s (1 + 3 * k) := by
   exact ⟨alphaStar s, rfl, alphaStar_four_mul_add_one s⟩
 
-/-- Source: `proof_gap/exercise_3097/6.txt`. -/
+/-- Exercise 3097, gap 6. -/
 theorem gap6 (s : ℝ) (hs0 : 0 < s) (hs1 : s ≤ 1) :
     ∃ a : ℕ → ℝ, a = alphaStar s ∧
       ∀ k, a (4 * k + 2) = -reciprocalPower s (2 + 3 * k) := by
   exact ⟨alphaStar s, rfl, alphaStar_four_mul_add_two s⟩
 
-/-- Source: `proof_gap/exercise_3097/7.txt`. -/
+/-- Exercise 3097, gap 7. -/
 theorem gap7 (s : ℝ) (hs0 : 0 < s) (hs1 : s ≤ 1) :
     ∃ a : ℕ → ℝ, a = alphaStar s ∧
       ∀ k, a (4 * k + 3) = -reciprocalPower s (2 + 3 * k) := by
   exact ⟨alphaStar s, rfl, alphaStar_four_mul_add_three s⟩
 
-/-- Source: `proof_gap/exercise_3097/8.txt`. -/
+/-- Exercise 3097, gap 8. -/
 theorem gap8 (s : ℝ) (hs0 : 0 < s) (hs1 : s ≤ 1) :
     ∃ a : ℕ → ℝ, a = alphaStar s ∧
       ∀ k, a (4 * k + 4) = reciprocalPower s (3 + 3 * k) := by
   exact ⟨alphaStar s, rfl, alphaStar_four_mul_add_four s⟩
 
-/-- Source: `proof_gap/exercise_3097/9.txt`. -/
+/-- Exercise 3097, gap 9. -/
 theorem gap9 (s : ℝ) (hs0 : 0 < s) (hs1 : s ≤ 1) :
     ∀ k, 0 < beta s k := by
   intro k
@@ -569,7 +569,7 @@ theorem gap9 (s : ℝ) (hs0 : 0 < s) (hs1 : s ≤ 1) :
   ring_nf at hsec ⊢
   linarith
 
-/-- Source: `proof_gap/exercise_3097/10.txt`; interpret all real powers by `Real.rpow`. -/
+/-- Exercise 3097, gap 10; interpret all real powers by `Real.rpow`. -/
 theorem gap10 (s : ℝ) (hs0 : 0 < s) (hs1 : s ≤ 1) :
     ∀ k, beta s k ≤ betaBound s k := by
   intro k
@@ -585,7 +585,7 @@ theorem gap10 (s : ℝ) (hs0 : 0 < s) (hs1 : s ≤ 1) :
   rw [← Real.rpow_neg (by positivity : 0 ≤ (1 : ℝ) + k * 3)]
   convert h using 1 <;> ring
 
-/-- Source: `proof_gap/exercise_3097/11.txt`. -/
+/-- Exercise 3097, gap 11. -/
 theorem gap11 (s : ℝ) (hs0 : 0 < s) (hs1 : s ≤ 1) :
     ∀ k, 0 < betaBound s k := by
   intro k
@@ -594,7 +594,7 @@ theorem gap11 (s : ℝ) (hs0 : 0 < s) (hs1 : s ≤ 1) :
   exact div_pos (mul_pos (mul_pos (by norm_num) hs0) (by linarith))
     (Real.rpow_pos_of_pos hbase (s + 2))
 
-/-- Source: `proof_gap/exercise_3097/12.txt`. -/
+/-- Exercise 3097, gap 12. -/
 theorem gap12 (s : ℝ) (hs0 : 0 < s) (hs1 : s ≤ 1) :
     SummableFromOne (beta s) := by
   have hp : Summable (fun k : ℕ =>
@@ -857,12 +857,12 @@ private theorem log_p_remainder_summable (s : ℝ) (hsHalf : 1 / 2 < s) :
   rw [Real.norm_eq_abs]
   simpa only [p] using abs_log_one_add_sub_self_le_sq hk
 
-/-- Source: `proof_gap/exercise_3097/13.txt`; use one fully defined witness. -/
+/-- Exercise 3097, gap 13; use one fully defined witness. -/
 theorem gap13 (s : ℝ) (hs0 : 0 < s) (hs1 : s ≤ 1) :
     ∃ a : ℕ → ℝ, a = alphaStar s ∧ SummableFromOne a := by
   exact ⟨alphaStar s, rfl, alphaStar_conditional_summable s hs0 hs1⟩
 
-/-- Source: `proof_gap/exercise_3097/14.txt`; simplify the duplicated implications. -/
+/-- Exercise 3097, gap 14; simplify the duplicated implications. -/
 theorem gap14 (s : ℝ) (hs0 : 0 < s) (hsHalf : s ≤ 1 / 2) :
     ∃ a : ℕ → ℝ, a = alphaStar s ∧
       ¬SummableFromOne (fun n => (a n) ^ 2) := by
@@ -878,7 +878,7 @@ theorem gap14 (s : ℝ) (hs0 : 0 < s) (hsHalf : s ≤ 1 / 2) :
   apply not_summable_reciprocalPower_sq s hs0 hsHalf
   simpa only [Function.comp_def, alphaStar_four_mul_add_one] using hsub
 
-/-- Source: `proof_gap/exercise_3097/15.txt`. -/
+/-- Exercise 3097, gap 15. -/
 theorem gap15 (s : ℝ) (hs0 : 0 < s) (hsHalf : s ≤ 1 / 2) :
     ¬SummableFromOne (fun n => Real.log (p s n)) := by
   intro hlog
@@ -938,7 +938,7 @@ theorem gap15 (s : ℝ) (hs0 : 0 < s) (hsHalf : s ≤ 1 / 2) :
   funext k
   ring
 
-/-- Source: `proof_gap/exercise_3097/16.txt`; simplify the duplicated implications. -/
+/-- Exercise 3097, gap 16; simplify the duplicated implications. -/
 theorem gap16 (s : ℝ) (hsHalf : 1 / 2 < s) (hs1 : s ≤ 1) :
     ∃ a : ℕ → ℝ, a = alphaStar s ∧
       SummableFromOne (fun n => (a n) ^ 2) := by
@@ -947,7 +947,7 @@ theorem gap16 (s : ℝ) (hsHalf : 1 / 2 < s) (hs1 : s ≤ 1) :
   exact (alphaStar_sq_summable_standard s hsHalf).mono_filter
     (SummationFilter.conditional ℕ).le_atTop
 
-/-- Source: `proof_gap/exercise_3097/17.txt`. -/
+/-- Exercise 3097, gap 17. -/
 theorem gap17 (s : ℝ) (hsHalf : 1 / 2 < s) (hs1 : s ≤ 1) :
     SummableFromOne (fun n => Real.log (p s n)) := by
   have ha := alphaStar_conditional_summable s (by linarith) hs1
@@ -1133,7 +1133,7 @@ private theorem log_q_not_absolutely_summable (s : ℝ) (hs0 : 0 < s)
   funext k
   ring
 
-/-- Source: `proof_gap/exercise_3097/18.txt`; retain the full parameter range. -/
+/-- Exercise 3097, gap 18; retain the full parameter range. -/
 theorem gap18 (s : ℝ) (hsHalf : 1 / 2 < s) (hs1 : s ≤ 1) :
     ConditionallySummableFromOne (fun n => Real.log (q s n)) := by
   exact ⟨log_q_conditional_summable s hsHalf hs1,

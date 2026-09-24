@@ -16,7 +16,7 @@ def mobius (a b c d x : ℝ) : ℝ :=
 def y (x : ℝ) : ℝ :=
   1 / x + 2 / x ^ 2 + 3 / x ^ 3
 
-/-- Source: `proof_gap/exercise_844/1.txt`; make the implicit pole exclusion
+/-- Exercise 844, gap 1; make the implicit pole exclusion
 explicit. -/
 theorem gap1 (a b c d x : ℝ) (hden : c * x + d ≠ 0) :
     HasDerivAt (mobius a b c d)
@@ -30,14 +30,14 @@ theorem gap1 (a b c d x : ℝ) (hden : c * x + d ≠ 0) :
   unfold mobius
   convert hquot using 1 <;> ring
 
-/-- Source: `proof_gap/exercise_844/2.txt`; retain the rational function's
+/-- Exercise 844, gap 2; retain the rational function's
 implicit domain condition. -/
 theorem gap2 (a b c d x : ℝ) (hden : c * x + d ≠ 0) :
     (a * (c * x + d) - c * (a * x + b)) / (c * x + d) ^ 2 =
       (a * d - b * c) / (c * x + d) ^ 2 := by
   ring
 
-/-- Source: `proof_gap/exercise_844/3.txt`; make the implicit pole exclusion
+/-- Exercise 844, gap 3; make the implicit pole exclusion
 explicit. -/
 theorem gap3 (a b c d x : ℝ) (hden : c * x + d ≠ 0) :
     HasDerivAt (mobius a b c d)
@@ -45,20 +45,20 @@ theorem gap3 (a b c d x : ℝ) (hden : c * x + d ≠ 0) :
   rw [← gap2 a b c d x hden]
   exact gap1 a b c d x hden
 
-/-- Source: `proof_gap/exercise_844/4.txt`; this is the determinant form of
+/-- Exercise 844, gap 4; this is the determinant form of
 the same formula, with the determinant expanded as `a*d-b*c`. -/
 theorem gap4 (a b c d x : ℝ) (hden : c * x + d ≠ 0) :
     HasDerivAt (mobius a b c d)
       ((a * d - b * c) / (c * x + d) ^ 2) x := by
   exact gap3 a b c d x hden
 
-/-- Source: `proof_gap/exercise_844/5.txt`; bind the previously free function
+/-- Exercise 844, gap 5; bind the previously free function
 `y` and retain its natural domain. -/
 theorem gap5 (x : ℝ) (hx : x ≠ 0) :
     y x = 1 / x + 2 / x ^ 2 + 3 / x ^ 3 := by
   rfl
 
-/-- Source: `proof_gap/exercise_844/6.txt`; the derivative is asserted only
+/-- Exercise 844, gap 6; the derivative is asserted only
 on the natural domain `x ≠ 0`. -/
 theorem gap6 (x : ℝ) (hx : x ≠ 0) :
     HasDerivAt y (-(1 / x ^ 2 + 4 / x ^ 3 + 9 / x ^ 4)) x := by
@@ -84,7 +84,7 @@ theorem gap6 (x : ℝ) (hx : x ≠ 0) :
   unfold y
   convert hsum using 1 <;> ring
 
-/-- Source: `proof_gap/exercise_844/7.txt`; make the implicit pole exclusion
+/-- Exercise 844, gap 7; make the implicit pole exclusion
 explicit. -/
 theorem gap7 (a b c d x : ℝ) (hden : c * x + d ≠ 0) :
     HasDerivAt (mobius a b c d)

@@ -22,7 +22,7 @@ def cancelled (x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_475/1.txt`. -/
+/-- Exercise 475, gap 1. -/
 private theorem eventually_sin_cos_ne_zero :
     ∀ᶠ x in nhdsWithin (0 : ℝ) ({0} : Set ℝ)ᶜ,
       Real.sin x ≠ 0 ∧ Real.cos x ≠ 0 := by
@@ -66,7 +66,7 @@ theorem gap1 (L : ℝ) :
   · intro h
     exact Filter.Tendsto.congr' hEq.symm h
 
-/-- Source: `proof_gap/exercise_475/2.txt`. -/
+/-- Exercise 475, gap 2. -/
 theorem gap2 (L : ℝ) :
     HasLimitAtZero tangentExpanded L ↔ HasLimitAtZero reduced L := by
   unfold HasLimitAtZero
@@ -82,7 +82,7 @@ theorem gap2 (L : ℝ) :
   · intro h
     exact Filter.Tendsto.congr' hEq.symm h
 
-/-- Source: `proof_gap/exercise_475/3.txt`. -/
+/-- Exercise 475, gap 3. -/
 theorem gap3 (L : ℝ) :
     HasLimitAtZero reduced L ↔ HasLimitAtZero halfAngle L := by
   unfold HasLimitAtZero
@@ -113,7 +113,7 @@ theorem gap3 (L : ℝ) :
   · intro h
     exact Filter.Tendsto.congr' hEq.symm h
 
-/-- Source: `proof_gap/exercise_475/4.txt`. -/
+/-- Exercise 475, gap 4. -/
 theorem gap4 (L : ℝ) :
     HasLimitAtZero halfAngle L ↔ HasLimitAtZero cancelled L := by
   unfold HasLimitAtZero
@@ -146,7 +146,7 @@ theorem gap4 (L : ℝ) :
   · intro h
     exact Filter.Tendsto.congr' hEq.symm h
 
-/-- Source: `proof_gap/exercise_475/5.txt`. -/
+/-- Exercise 475, gap 5. -/
 theorem gap5 : HasLimitAtZero cancelled (1 / 2) := by
   unfold HasLimitAtZero
   have hhalf : ContinuousAt (fun x : ℝ => x / 2) 0 := by
@@ -168,7 +168,7 @@ theorem gap5 : HasLimitAtZero cancelled (1 / 2) := by
   rw [← hvalue]
   exact hcancelled.tendsto.mono_left inf_le_left
 
-/-- Source: `proof_gap/exercise_475/6.txt`. -/
+/-- Exercise 475, gap 6. -/
 theorem gap6 : HasLimitAtZero original (1 / 2) := by
   exact (gap1 (1 / 2)).2
     ((gap2 (1 / 2)).2

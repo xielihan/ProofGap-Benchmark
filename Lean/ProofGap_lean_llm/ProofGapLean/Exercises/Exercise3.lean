@@ -4,7 +4,7 @@ import Mathlib.Tactic.Ring
 /-!
 # Exercise 3
 
-Semantic formalization of `proof_gap/exercise_3/{1,...,9}.txt`.
+Semantic formalization of Exercise 3, gaps 1,...,9.
 
 All finite sums are indexed by natural numbers and evaluated in `ℚ`.  This
 matches the ordinary meaning of the source fractions while keeping the discrete
@@ -81,13 +81,13 @@ private theorem sumNaturals_eq (k : ℕ) :
       push_cast
       ring
 
-/-- Source: `proof_gap/exercise_3/1.txt`. -/
+/-- Exercise 3, gap 1. -/
 theorem gap1 : BaseCase := by
   intro n hn
   subst n
   norm_num [CubesFormula, sumCubes, sumNaturals]
 
-/-- Source: `proof_gap/exercise_3/2.txt`. -/
+/-- Exercise 3, gap 2. -/
 theorem gap2
     (h1 : BaseCase) :
     SuccessorSumStep := by
@@ -95,7 +95,7 @@ theorem gap2
   change sumCubes k = (sumNaturals k) ^ 2 at hCn
   rw [sumCubes_succ, hCn]
 
-/-- Source: `proof_gap/exercise_3/3.txt`. -/
+/-- Exercise 3, gap 3. -/
 theorem gap3
     (h1 : BaseCase)
     (h2 : SuccessorSumStep) :
@@ -104,7 +104,7 @@ theorem gap3
   rw [sumNaturals_eq k]
   ring
 
-/-- Source: `proof_gap/exercise_3/4.txt`. -/
+/-- Exercise 3, gap 4. -/
 theorem gap4
     (h1 : BaseCase)
     (h2 : SuccessorSumStep)
@@ -113,7 +113,7 @@ theorem gap4
   intro k n hCn hn
   ring
 
-/-- Source: `proof_gap/exercise_3/5.txt`. -/
+/-- Exercise 3, gap 5. -/
 theorem gap5
     (h1 : BaseCase)
     (h2 : SuccessorSumStep)
@@ -123,7 +123,7 @@ theorem gap5
   intro k n hCn hn
   ring
 
-/-- Source: `proof_gap/exercise_3/6.txt`. -/
+/-- Exercise 3, gap 6. -/
 theorem gap6
     (h1 : BaseCase)
     (h2 : SuccessorSumStep)
@@ -136,7 +136,7 @@ theorem gap6
   push_cast
   ring
 
-/-- Source: `proof_gap/exercise_3/7.txt`. -/
+/-- Exercise 3, gap 7. -/
 theorem gap7
     (h1 : BaseCase)
     (h2 : SuccessorSumStep)
@@ -155,7 +155,7 @@ theorem gap7
     _ = ((((k : ℚ) + 1) * ((k : ℚ) + 2)) / 2) ^ 2 := h5 k n hCn hn
     _ = (sumNaturals (k + 1)) ^ 2 := h6 k n hCn hn
 
-/-- Source: `proof_gap/exercise_3/8.txt`. -/
+/-- Exercise 3, gap 8. -/
 theorem gap8
     (h1 : BaseCase)
     (h2 : SuccessorSumStep)
@@ -171,7 +171,7 @@ theorem gap8
   | succ k ih => exact h7 k (k + 1) ih rfl
 
 /--
-Source: `proof_gap/exercise_3/9.txt`.
+Exercise 3, gap 9.
 
 The goal repeats the immediately preceding result and is retained as a distinct
 benchmark item.

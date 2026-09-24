@@ -13,7 +13,7 @@ noncomputable section
 def y (x : ℝ) : ℝ :=
   ((2 - x ^ 2) * (3 - x ^ 3)) / (1 - x) ^ 2
 
-/-- Source: `proof_gap/exercise_848/1.txt`; add the omitted pole exclusion
+/-- Exercise 848, gap 1; add the omitted pole exclusion
 `x ≠ 1`. -/
 theorem gap1 (x : ℝ) (hx : x ≠ 1) :
     HasDerivAt y
@@ -57,7 +57,7 @@ theorem gap1 (x : ℝ) (hx : x ≠ 1) :
   field_simp [hbase]
   <;> ring
 
-/-- Source: `proof_gap/exercise_848/2.txt`; add the omitted pole exclusion
+/-- Exercise 848, gap 2; add the omitted pole exclusion
 `x ≠ 1`. -/
 theorem gap2 (x : ℝ) (hx : x ≠ 1) :
     HasDerivAt y

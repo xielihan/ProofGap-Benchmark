@@ -30,7 +30,7 @@ noncomputable def χ (x : ℝ) : ℝ := by
   classical
   exact if IsRational x then 1 else 0
 
-/-- Source: `proof_gap/exercise_734/1.txt`; add the missing nonzero
+/-- Exercise 734, gap 1; add the missing nonzero
 denominator condition by choosing a positive natural denominator. -/
 private theorem absCosLeOne (a : ℝ) : |Real.cos a| ≤ 1 := by
   rw [abs_le]
@@ -57,7 +57,7 @@ theorem gap1 (x : ℝ) (hx : IsRational x) :
     ∃ q : ℤ, ∃ p : ℕ, 0 < p ∧ x = (q : ℝ) / (p : ℝ) := by
   exact hx
 
-/-- Source: `proof_gap/exercise_734/2.txt`; bind `m,n`, replace the malformed
+/-- Exercise 734, gap 2; bind `m,n`, replace the malformed
 factorial, and use the corrected even exponent. -/
 theorem gap2 (x : ℝ) (hx : IsRational x) :
     ∃ p : ℕ, 0 < p ∧
@@ -84,7 +84,7 @@ theorem gap2 (x : ℝ) (hx : IsRational x) :
   rw [harg, pow_mul, hc2]
   simp
 
-/-- Source: `proof_gap/exercise_734/3.txt`; state the iterated sequential
+/-- Exercise 734, gap 3; state the iterated sequential
 limit represented by the source's nested limits. -/
 theorem gap3 (x : ℝ) (hx : IsRational x) :
     HasIteratedLimit x 1 := by
@@ -116,7 +116,7 @@ theorem gap3 (x : ℝ) (hx : IsRational x) :
     filter_upwards [hev] with m hm
     simpa [hm] using h1
 
-/-- Source: `proof_gap/exercise_734/4.txt`; use natural `m` and the corrected
+/-- Exercise 734, gap 4; use natural `m` and the corrected
 argument `π * m! * x`. -/
 theorem gap4 (x : ℝ) (hx : ¬ IsRational x) :
     ∀ m : ℕ,
@@ -147,7 +147,7 @@ theorem gap4 (x : ℝ) (hx : ¬ IsRational x) :
   exact (eq_div_iff hmf).2 (by
     simpa [mul_comm] using hq'.symm)
 
-/-- Source: `proof_gap/exercise_734/5.txt`; bind both sequence indices. -/
+/-- Exercise 734, gap 5; bind both sequence indices. -/
 theorem gap5 (x : ℝ) (hx : ¬ IsRational x) :
     ∀ m : ℕ,
       Filter.Tendsto (fun n : ℕ => kernel x m n) Filter.atTop (nhds 0) := by
@@ -161,7 +161,7 @@ theorem gap5 (x : ℝ) (hx : ¬ IsRational x) :
     ne_of_lt (gap4 x hx m)
   simpa [kernel, hne] using hbound
 
-/-- Source: `proof_gap/exercise_734/6.txt`; state the corrected nested
+/-- Exercise 734, gap 6; state the corrected nested
 sequence limit at an irrational point. -/
 theorem gap6 (x : ℝ) (hx : ¬ IsRational x) :
     HasIteratedLimit x 0 := by
@@ -169,7 +169,7 @@ theorem gap6 (x : ℝ) (hx : ¬ IsRational x) :
   intro m
   exact gap5 x hx m
 
-/-- Source: `proof_gap/exercise_734/7.txt`; identify the iterated limit with
+/-- Exercise 734, gap 7; identify the iterated limit with
 the rational characteristic function. -/
 theorem gap7 (x : ℝ) :
     HasIteratedLimit x (χ x) ∧
@@ -183,7 +183,7 @@ theorem gap7 (x : ℝ) :
     · simpa [χ, hx] using gap6 x hx
     · simp [χ, hx]
 
-/-- Source: `proof_gap/exercise_734/8.txt`; quantify all variables and retain
+/-- Exercise 734, gap 8; quantify all variables and retain
 the local radius condition. -/
 theorem gap8 :
     ∀ x : ℝ, ∀ δ : ℝ, 0 < δ →
@@ -207,7 +207,7 @@ theorem gap8 :
   · rw [abs_lt]
     constructor <;> linarith
 
-/-- Source: `proof_gap/exercise_734/9.txt`; the source dropped both `δ` and
+/-- Exercise 734, gap 9; the source dropped both `δ` and
 the requirement that the rational witness be near `x`; restore them. -/
 theorem gap9 :
     ∀ x : ℝ, ∀ δ : ℝ, 0 < δ →
@@ -218,7 +218,7 @@ theorem gap9 :
   refine ⟨r, hr, hrx, ?_⟩
   simp [χ, hr]
 
-/-- Source: `proof_gap/exercise_734/10.txt`; restore the missing radius and
+/-- Exercise 734, gap 10; restore the missing radius and
 proximity condition for the irrational witness. -/
 theorem gap10 :
     ∀ x : ℝ, ∀ δ : ℝ, 0 < δ →
@@ -229,7 +229,7 @@ theorem gap10 :
   refine ⟨s, hs, hsx, ?_⟩
   simp [χ, hs]
 
-/-- Source: `proof_gap/exercise_734/11.txt`; bind the candidate limit. -/
+/-- Exercise 734, gap 11; bind the candidate limit. -/
 theorem gap11 (x : ℝ) :
     ¬ ∃ L : ℝ, Filter.Tendsto χ (nhds x) (nhds L) := by
   rintro ⟨L, hL⟩
@@ -250,12 +250,12 @@ theorem gap11 (x : ℝ) :
     simpa [Real.dist_eq, hχs, abs_neg] using hsL
   nlinarith [le_abs_self ((1 : ℝ) - L), le_abs_self L]
 
-/-- Source: `proof_gap/exercise_734/12.txt`. -/
+/-- Exercise 734, gap 12. -/
 theorem gap12 (x : ℝ) : ¬ ContinuousAt χ x := by
   intro h
   exact gap11 x ⟨χ x, h⟩
 
-/-- Source: `proof_gap/exercise_734/13.txt`; retain the duplicated final
+/-- Exercise 734, gap 13; retain the duplicated final
 conclusion from the source as its own canonical gap. -/
 theorem gap13 (x : ℝ) : ¬ ContinuousAt χ x := by
   exact gap12 x

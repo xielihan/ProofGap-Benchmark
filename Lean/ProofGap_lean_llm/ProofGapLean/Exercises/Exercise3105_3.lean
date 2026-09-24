@@ -35,7 +35,7 @@ def simplifiedQuotient (x : ℝ) (n : ℕ) : ℝ :=
   (n : ℝ) * x / (x + n + 1)
 
 /--
-Source: `proof_gap/exercise_3105_3/1.txt`; both Euler limits are named
+Exercise 3105_3, gap 1; both Euler limits are named
 explicitly and restricted to the non-pole domain.
 -/
 private lemma product_relations (x : ℝ) (n : ℕ) :
@@ -96,7 +96,7 @@ theorem gap1 (Gamma : ℝ → ℝ)
   · exact hGamma x hx
 
 /--
-Source: `proof_gap/exercise_3105_3/2.txt`; division of limits requires the
+Exercise 3105_3, gap 2; division of limits requires the
 denominator limit to be nonzero.
 -/
 theorem gap2 (Gamma : ℝ → ℝ) (x : ℝ)
@@ -108,7 +108,7 @@ theorem gap2 (Gamma : ℝ → ℝ) (x : ℝ)
       (𝓝 (Gamma (x + 1) / Gamma x)) := by
   simpa only [quotientApproximant] using hnum.div hden hGamma0
 
-/-- Source: `proof_gap/exercise_3105_3/3.txt`; cancel only on the non-pole domain. -/
+/-- Exercise 3105_3, gap 3; cancel only on the non-pole domain. -/
 theorem gap3 (Gamma : ℝ → ℝ) (x : ℝ)
     (hx : admissible x)
     (hquot :
@@ -150,7 +150,7 @@ theorem gap3 (Gamma : ℝ → ℝ) (x : ℝ)
     field_simp [hfact0, hpow0, hx0, hprod0, hlast0] <;> ring
   exact (tendsto_congr' heq).mp hquot
 
-/-- Source: `proof_gap/exercise_3105_3/4.txt`; the simplified quotient tends to `x`. -/
+/-- Exercise 3105_3, gap 4; the simplified quotient tends to `x`. -/
 theorem gap4 (Gamma : ℝ → ℝ) (x : ℝ)
     (hx : admissible x)
     (hGamma :
@@ -210,7 +210,7 @@ theorem gap4 (Gamma : ℝ → ℝ) (x : ℝ)
     (tendsto_congr' heq).mp hratio
   exact tendsto_nhds_unique hfromQuotient hsimplified
 
-/-- Source: `proof_gap/exercise_3105_3/5.txt`; multiply by the nonzero denominator. -/
+/-- Exercise 3105_3, gap 5; multiply by the nonzero denominator. -/
 theorem gap5 (Gamma : ℝ → ℝ) (x : ℝ)
     (hx : admissible x)
     (hGamma0 : Gamma x ≠ 0)
@@ -218,7 +218,7 @@ theorem gap5 (Gamma : ℝ → ℝ) (x : ℝ)
     Gamma (x + 1) = x * Gamma x := by
   exact (div_eq_iff hGamma0).mp hquot
 
-/-- Source: `proof_gap/exercise_3105_3/6.txt`. -/
+/-- Exercise 3105_3, gap 6. -/
 theorem gap6 (Gamma : ℝ → ℝ)
     (hGamma :
       ∀ z : ℝ, admissible z →

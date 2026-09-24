@@ -12,18 +12,18 @@ def f (x : ℝ) : ℝ := Real.sin (x ^ 2)
 
 def sample (n : ℕ) : ℝ := Real.sqrt ((n : ℝ) * Real.pi / 2)
 
-/-- Source: `proof_gap/exercise_790/1.txt`. -/
+/-- Exercise 790, gap 1. -/
 theorem gap1 : Continuous f := by
   unfold f
   exact Real.continuous_sin.comp (continuous_id.pow 2)
 
-/-- Source: `proof_gap/exercise_790/2.txt`. -/
+/-- Exercise 790, gap 2. -/
 theorem gap2 : ∃ C : ℝ, ∀ x, |f x| ≤ C := by
   refine ⟨1, ?_⟩
   intro x
   simpa [f] using Real.abs_sin_le_one (x ^ 2)
 
-/-- Source: `proof_gap/exercise_790/3.txt`; interpret the malformed `FunDeri(x,1,1)(n)` as the next sequence term. -/
+/-- Exercise 790, gap 3; interpret the malformed `FunDeri(x,1,1)(n)` as the next sequence term. -/
 theorem gap3 (n : ℕ) :
     |sample n - sample (n + 1)| =
       (Real.pi / 2) /
@@ -61,7 +61,7 @@ theorem gap3 (n : ℕ) :
   apply (eq_div_iff (ne_of_gt hsumpos)).2
   nlinarith [hdiff_sq]
 
-/-- Source: `proof_gap/exercise_790/4.txt`; replace `BigEnough(n)` by an eventual quantifier. -/
+/-- Exercise 790, gap 4; replace `BigEnough(n)` by an eventual quantifier. -/
 theorem gap4 :
     Filter.Tendsto (fun n : ℕ => (Real.pi / 2) /
       (Real.sqrt ((n : ℝ) * Real.pi / 2) +
@@ -122,13 +122,13 @@ theorem gap4 :
   rw [Real.dist_eq, sub_zero, abs_of_pos hqpos]
   exact hq
 
-/-- Source: `proof_gap/exercise_790/5.txt`; replace `BigEnough(n)` by convergence. -/
+/-- Exercise 790, gap 5; replace `BigEnough(n)` by convergence. -/
 theorem gap5 :
     Filter.Tendsto (fun n => |sample n - sample (n + 1)|)
       Filter.atTop (nhds 0) := by
   simpa only [gap3] using gap4
 
-/-- Source: `proof_gap/exercise_790/6.txt`; interpret the malformed derivative notation as the next term. -/
+/-- Exercise 790, gap 6; interpret the malformed derivative notation as the next term. -/
 theorem gap6 (n : ℕ) :
     |f (sample n) - f (sample (n + 1))| = 1 := by
   have hsamp_sq (k : ℕ) : sample k ^ 2 = (k : ℝ) * Real.pi / 2 := by
@@ -169,11 +169,11 @@ theorem gap6 (n : ℕ) :
     simpa only [sq_abs] using hsquare
   nlinarith [abs_nonneg (Real.sin x - Real.cos x)]
 
-/-- Source: `proof_gap/exercise_790/7.txt`; remove the irrelevant eventual and δ quantifiers. -/
+/-- Exercise 790, gap 7; remove the irrelevant eventual and δ quantifiers. -/
 theorem gap7 (ε₀ : ℝ) (hε0 : 0 < ε₀) (hε1 : ε₀ < 1) : 1 > ε₀ := by
   exact hε1
 
-/-- Source: `proof_gap/exercise_790/8.txt`; state the eventual counterexample sequence. -/
+/-- Exercise 790, gap 8; state the eventual counterexample sequence. -/
 theorem gap8 (ε₀ : ℝ) (hε0 : 0 < ε₀) (hε1 : ε₀ < 1) :
     ∀ δ > 0, ∃ n,
       |sample n - sample (n + 1)| < δ ∧
@@ -185,7 +185,7 @@ theorem gap8 (ε₀ : ℝ) (hε0 : 0 < ε₀) (hε1 : ε₀ < 1) :
     simpa [Real.dist_eq] using hclose
   · simpa [gap6 N] using hε1
 
-/-- Source: `proof_gap/exercise_790/9.txt`. -/
+/-- Exercise 790, gap 9. -/
 theorem gap9 : ¬ UniformContinuous f := by
   intro huc
   rw [Metric.uniformContinuous_iff] at huc
@@ -198,7 +198,7 @@ theorem gap9 : ¬ UniformContinuous f := by
     simpa [Real.dist_eq] using hsmall
   linarith
 
-/-- Source: `proof_gap/exercise_790/10.txt`. -/
+/-- Exercise 790, gap 10. -/
 theorem gap10 :
     Continuous f ∧ (∃ C : ℝ, ∀ x, |f x| ≤ C) ∧ ¬ UniformContinuous f := by
   exact ⟨gap1, gap2, gap9⟩

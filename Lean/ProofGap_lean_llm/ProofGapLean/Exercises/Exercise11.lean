@@ -3,7 +3,7 @@ import ProofGapLean.Prelude.Discrete
 /-!
 # Exercise 11
 
-Semantic formalization of `proof_gap/exercise_11/{1,...,20}.txt`.
+Semantic formalization of Exercise 11, gaps 1,...,20.
 
 For a positive nonsquare integer `c`, the source defines a Dedekind cut of the
 rationals at `√c`.  The two sets are represented directly rather than retained
@@ -126,7 +126,7 @@ private lemma noRationalBoundary_of_nonSquare
     exact_mod_cast hrat
   exact hc.2 ⟨a.num, hint⟩
 
-/-- Source: `proof_gap/exercise_11/1.txt`. -/
+/-- Exercise 11, gap 1. -/
 theorem gap1
     (c : ℕ)
     (hc : PositiveNonSquare c) :
@@ -149,7 +149,7 @@ theorem gap1
     exact_mod_cast hc_one
   exact (not_lt_of_ge hcq) hu.2
 
-/-- Source: `proof_gap/exercise_11/2.txt`. -/
+/-- Exercise 11, gap 2. -/
 theorem gap2
     (c : ℕ)
     (hc : PositiveNonSquare c)
@@ -161,7 +161,7 @@ theorem gap2
   apply hnotupper
   exact ⟨hapos, lt_of_not_ge hnotle⟩
 
-/-- Source: `proof_gap/exercise_11/3.txt`. -/
+/-- Exercise 11, gap 3. -/
 theorem gap3
     (c : ℕ)
     (hc : PositiveNonSquare c)
@@ -173,7 +173,7 @@ theorem gap3
   intro a ha
   norm_num
 
-/-- Source: `proof_gap/exercise_11/4.txt`. -/
+/-- Exercise 11, gap 4. -/
 theorem gap4
     (c : ℕ)
     (hc : PositiveNonSquare c)
@@ -186,7 +186,7 @@ theorem gap4
   intro a ha
   norm_num
 
-/-- Source: `proof_gap/exercise_11/5.txt`. -/
+/-- Exercise 11, gap 5. -/
 theorem gap5
     (c : ℕ)
     (hc : PositiveNonSquare c)
@@ -200,7 +200,7 @@ theorem gap5
   intro a ha
   norm_num
 
-/-- Source: `proof_gap/exercise_11/6.txt`. -/
+/-- Exercise 11, gap 6. -/
 theorem gap6
     (c : ℕ)
     (hc : PositiveNonSquare c)
@@ -218,7 +218,7 @@ theorem gap6
   have hsq := ha.2.2
   simpa [haeq, div_pow] using hsq
 
-/-- Source: `proof_gap/exercise_11/7.txt`. -/
+/-- Exercise 11, gap 7. -/
 theorem gap7
     (c : ℕ)
     (hc : PositiveNonSquare c)
@@ -234,7 +234,7 @@ theorem gap7
   intro a ha
   rfl
 
-/-- Source: `proof_gap/exercise_11/8.txt`. -/
+/-- Exercise 11, gap 8. -/
 theorem gap8
     (c : ℕ)
     (hc : PositiveNonSquare c)
@@ -251,7 +251,7 @@ theorem gap8
   intro a ha
   exact (noRationalBoundary_of_nonSquare hc a ha).elim
 
-/-- Source: `proof_gap/exercise_11/9.txt`. -/
+/-- Exercise 11, gap 9. -/
 theorem gap9
     (c : ℕ)
     (hc : PositiveNonSquare c)
@@ -267,7 +267,7 @@ theorem gap9
     NoRationalBoundary c := by
   exact noRationalBoundary_of_nonSquare hc
 
-/-- Source: `proof_gap/exercise_11/10.txt`. -/
+/-- Exercise 11, gap 10. -/
 theorem gap10
     (c : ℕ)
     (hc : PositiveNonSquare c)
@@ -287,7 +287,7 @@ theorem gap10
   exact lt_of_le_of_ne hle (fun heq => h9 a ⟨ha, hapos, heq⟩)
 
 /--
-Source: `proof_gap/exercise_11/11.txt`.
+Exercise 11, gap 11.
 
 The witness is explicitly a positive natural number, as required by `1/n`.
 -/
@@ -301,7 +301,7 @@ theorem gap11
   norm_num at hineq ⊢
   nlinarith
 
-/-- Source: `proof_gap/exercise_11/12.txt`; the divisor is made positive. -/
+/-- Exercise 11, gap 12; the divisor is made positive. -/
 theorem gap12
     (c : ℕ)
     (hc : PositiveNonSquare c)
@@ -313,7 +313,7 @@ theorem gap12
   norm_num at hineq ⊢
   nlinarith
 
-/-- Source: `proof_gap/exercise_11/13.txt`; the divisor is made positive. -/
+/-- Exercise 11, gap 13; the divisor is made positive. -/
 theorem gap13
     (c : ℕ)
     (hc : PositiveNonSquare c)
@@ -326,7 +326,7 @@ theorem gap13
   norm_num at hineq ⊢
   exact hineq
 
-/-- Source: `proof_gap/exercise_11/14.txt`; the divisor is made positive. -/
+/-- Exercise 11, gap 14; the divisor is made positive. -/
 theorem gap14
     (c : ℕ)
     (hc : PositiveNonSquare c)
@@ -342,7 +342,7 @@ theorem gap14
   norm_num at hbound ⊢
   exact (div_lt_one hden).mp hbound
 
-/-- Source: `proof_gap/exercise_11/15.txt`; the divisor is made positive. -/
+/-- Exercise 11, gap 15; the divisor is made positive. -/
 theorem gap15
     (c : ℕ)
     (hc : PositiveNonSquare c)
@@ -360,7 +360,7 @@ theorem gap15
   have hinc := (div_lt_one hden).mp hbound
   nlinarith
 
-/-- Source: `proof_gap/exercise_11/16.txt`. -/
+/-- Exercise 11, gap 16. -/
 theorem gap16
     (c : ℕ)
     (hc : PositiveNonSquare c)
@@ -416,7 +416,7 @@ theorem gap16
     _ < (c : ℚ) := by linarith
 
 /--
-Source: `proof_gap/exercise_11/17.txt`.
+Exercise 11, gap 17.
 
 The source incorrectly places `∃ n` outside `∀ a`.  A uniform increment cannot
 work for all rationals arbitrarily close to the cut, so the intended pointwise
@@ -439,7 +439,7 @@ theorem gap17
     linarith [one_div_pos.mpr hnq]
 
 /--
-Source: `proof_gap/exercise_11/18.txt`.
+Exercise 11, gap 18.
 
 The source rebinds `A` as an arbitrary set.  The repaired statement refers to
 the fixed lower cut.
@@ -458,7 +458,7 @@ theorem gap18
     exact (not_lt_of_ge (hgreatest a' ha')) hlt
 
 /--
-Source: `proof_gap/exercise_11/19.txt`.
+Exercise 11, gap 19.
 
 The source rebinds `B` as an arbitrary set.  The repaired statement refers to
 the fixed upper cut.
@@ -496,7 +496,7 @@ theorem gap19
   exact (not_lt_of_ge (hleast b' hb'mem)) hb'lt
 
 /--
-Source: `proof_gap/exercise_11/20.txt`.
+Exercise 11, gap 20.
 
 The malformed nested endpoint statement is repaired to the intended conjunction:
 the lower cut has no greatest element and the upper cut has no least element.

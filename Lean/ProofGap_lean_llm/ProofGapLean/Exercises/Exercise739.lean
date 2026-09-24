@@ -6,7 +6,7 @@ noncomputable section
 
 def core (x : ℝ) : ℝ := 1 / (1 - x)
 
-/-- Source: `proof_gap/exercise_739/1.txt`. -/
+/-- Exercise 739, gap 1. -/
 theorem gap1 (f : ℝ → ℝ) (hf : ∀ x : ℝ, f x = core x) :
     Filter.Tendsto f (nhdsWithin 1 (Set.Ioi 1)) atBot := by
   have hfun : f = fun x : ℝ => (1 - x)⁻¹ := by
@@ -40,7 +40,7 @@ theorem gap1 (f : ℝ → ℝ) (hf : ∀ x : ℝ, f x = core x) :
       Filter.Tendsto (fun x : ℝ => x⁻¹)
         (nhdsWithin 0 (Set.Iio 0)) atBot).comp hsub)
 
-/-- Source: `proof_gap/exercise_739/2.txt`. -/
+/-- Exercise 739, gap 2. -/
 theorem gap2 (f : ℝ → ℝ) (hf : ∀ x : ℝ, f x = core x) :
     Filter.Tendsto f (nhdsWithin 1 (Set.Iio 1)) atTop := by
   have hfun : f = fun x : ℝ => (1 - x)⁻¹ := by
@@ -74,7 +74,7 @@ theorem gap2 (f : ℝ → ℝ) (hf : ∀ x : ℝ, f x = core x) :
       Filter.Tendsto (fun x : ℝ => x⁻¹)
         (nhdsWithin 0 (Set.Ioi 0)) atTop).comp hsub)
 
-/-- Source: `proof_gap/exercise_739/3.txt`; make explicit that no assigned
+/-- Exercise 739, gap 3; make explicit that no assigned
 value at `1` can make the given totalized formula continuous. -/
 theorem gap3 (f : ℝ → ℝ) (hf : ∀ x : ℝ, f x = core x) :
     ¬ ∃ c : ℝ, f 1 = c ∧ ContinuousAt f 1 := by
@@ -95,7 +95,7 @@ theorem gap3 (f : ℝ → ℝ) (hf : ∀ x : ℝ, f x = core x) :
   obtain ⟨x, hxle, hxgt⟩ := (hle.and hgt).exists
   exact (not_lt_of_ge hxle) hxgt
 
-/-- Source: `proof_gap/exercise_739/4.txt`. -/
+/-- Exercise 739, gap 4. -/
 theorem gap4 (f : ℝ → ℝ) (hf : ∀ x : ℝ, f x = core x) :
     ∀ c : ℝ, f 1 = c → ¬ ContinuousAt f 1 := by
   intro c hfc hc

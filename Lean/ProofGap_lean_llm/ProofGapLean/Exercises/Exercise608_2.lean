@@ -12,7 +12,7 @@ def shiftedProduct (f : ℝ → ℝ) (X₀ : ℝ) (n : ℕ) : ℝ :=
 def LocallyBounded (f : ℝ → ℝ) : Prop :=
   ∀ a b : ℝ, a < b → ∃ M, ∀ x, a < x → x < b → |f x| ≤ M
 
-/-- Source: `proof_gap/exercise_608_2/1.txt`. -/
+/-- Exercise 608_2, gap 1. -/
 theorem gap1 (f : ℝ → ℝ) (A₁ c : ℝ) (hc : 0 < c)
     (hf : ∀ x, c ≤ f x)
     (hratio : Filter.Tendsto (ratio f) Filter.atTop (nhds A₁)) :
@@ -28,7 +28,7 @@ theorem gap1 (f : ℝ → ℝ) (A₁ c : ℝ) (hc : 0 < c)
       (lt_of_lt_of_le hc (hf x))
   exact (not_lt_of_ge hrpos.le) hx
 
-/-- Source: `proof_gap/exercise_608_2/2.txt`; remove shadowed tail variables. -/
+/-- Exercise 608_2, gap 2; remove shadowed tail variables. -/
 theorem gap2 (f : ℝ → ℝ) (A₁ : ℝ)
     (hpos : ∀ x, 0 < f x)
     (hratio : Filter.Tendsto (ratio f) Filter.atTop (nhds A₁))
@@ -43,13 +43,13 @@ theorem gap2 (f : ℝ → ℝ) (A₁ : ℝ)
   simp only [ratio]
   exact div_pos (hpos (x + 1)) (hpos x)
 
-/-- Source: `proof_gap/exercise_608_2/3.txt`; use the fixed tail threshold. -/
+/-- Exercise 608_2, gap 3; use the fixed tail threshold. -/
 theorem gap3 (f : ℝ → ℝ) (X₀ : ℝ) (n : ℕ)
     (hpos : ∀ x, 0 < f x) :
     0 < f (X₀ + n) / f X₀ := by
   exact div_pos (hpos (X₀ + n)) (hpos X₀)
 
-/-- Source: `proof_gap/exercise_608_2/4.txt`; replace the product ellipsis by `shiftedProduct`. -/
+/-- Exercise 608_2, gap 4; replace the product ellipsis by `shiftedProduct`. -/
 theorem gap4 (f : ℝ → ℝ) (X₀ : ℝ) (n : ℕ)
     (hpos : ∀ x, 0 < f x) :
     f (X₀ + n) / f X₀ = shiftedProduct f X₀ n := by
@@ -80,7 +80,7 @@ theorem gap4 (f : ℝ → ℝ) (X₀ : ℝ) (n : ℕ)
           rw [hx]
           ring
 
-/-- Source: `proof_gap/exercise_608_2/5.txt`; replace the product ellipsis by `shiftedProduct`. -/
+/-- Exercise 608_2, gap 5; replace the product ellipsis by `shiftedProduct`. -/
 theorem gap5 (f : ℝ → ℝ) (X₀ : ℝ) (n : ℕ)
     (hn : 0 < n)
     (hhalf : ∀ k ∈ Finset.Icc 1 n, ratio f (X₀ + k - 1) < 1 / 2)
@@ -99,11 +99,11 @@ theorem gap5 (f : ℝ → ℝ) (X₀ : ℝ) (n : ℕ)
       rw [Finset.prod_const]
       simp [hn1]
 
-/-- Source: `proof_gap/exercise_608_2/6.txt`. -/
+/-- Exercise 608_2, gap 6. -/
 theorem gap6 (n : ℕ) : 0 < (1 / 2 : ℝ) ^ n := by
   positivity
 
-/-- Source: `proof_gap/exercise_608_2/7.txt`; bind the tail threshold and geometric bound. -/
+/-- Exercise 608_2, gap 7; bind the tail threshold and geometric bound. -/
 theorem gap7 (f : ℝ → ℝ) (X₀ : ℝ)
     (hbound : ∀ n, 0 < f (X₀ + n) ∧
       f (X₀ + n) ≤ f X₀ * (1 / 2 : ℝ) ^ n) :
@@ -121,7 +121,7 @@ theorem gap7 (f : ℝ → ℝ) (X₀ : ℝ)
     (fun n => by
       simpa [Real.rpow_natCast] using (hbound (n : ℝ)).2)
 
-/-- Source: `proof_gap/exercise_608_2/8.txt`; make the contradiction with the positive lower bound explicit. -/
+/-- Exercise 608_2, gap 8; make the contradiction with the positive lower bound explicit. -/
 theorem gap8 (f : ℝ → ℝ) (A₁ c : ℝ) (hc : 0 < c)
     (hf : ∀ x, c ≤ f x)
     (hzero : A₁ = 0 → ∃ X₀,
@@ -134,18 +134,18 @@ theorem gap8 (f : ℝ → ℝ) (A₁ c : ℝ) (hc : 0 < c)
   rcases hev.exists with ⟨n, hn⟩
   exact (not_lt_of_ge (hf (X₀ + n))) hn
 
-/-- Source: `proof_gap/exercise_608_2/9.txt`. -/
+/-- Exercise 608_2, gap 9. -/
 theorem gap9 (A₁ : ℝ) (hnonneg : 0 ≤ A₁) (hnzero : A₁ = 0 → False) :
     0 < A₁ := by
   rcases hnonneg.eq_or_lt with h | h
   · exact (hnzero h.symm).elim
   · exact h
 
-/-- Source: `proof_gap/exercise_608_2/10.txt`. -/
+/-- Exercise 608_2, gap 10. -/
 theorem gap10 (A₁ : ℝ) (hA : 0 < A₁) : 0 < A₁ := by
   exact hA
 
-/-- Source: `proof_gap/exercise_608_2/11.txt`; formalize boundedness on each finite interval. -/
+/-- Exercise 608_2, gap 11; formalize boundedness on each finite interval. -/
 theorem gap11 (f : ℝ → ℝ) (c : ℝ) (hc : 0 < c)
     (hf : ∀ x, c ≤ f x) (hlocal : LocallyBounded f) :
     LocallyBounded (fun x => Real.log (f x)) := by
@@ -168,7 +168,7 @@ theorem gap11 (f : ℝ → ℝ) (c : ℝ) (hc : 0 < c)
     linarith
   · exact le_trans hhi (le_max_right _ _)
 
-/-- Source: `proof_gap/exercise_608_2/12.txt`; compare the pointwise-equal logarithmic differences. -/
+/-- Exercise 608_2, gap 12; compare the pointwise-equal logarithmic differences. -/
 theorem gap12 (f : ℝ → ℝ) (hpos : ∀ x, 0 < f x) (L : ℝ) :
     Filter.Tendsto (fun x => Real.log (f (x + 1)) - Real.log (f x))
         Filter.atTop (nhds L) ↔
@@ -181,14 +181,14 @@ theorem gap12 (f : ℝ → ℝ) (hpos : ∀ x, 0 < f x) (L : ℝ) :
     rw [ratio, Real.log_div (hpos (x + 1)).ne' (hpos x).ne']
   rw [heq]
 
-/-- Source: `proof_gap/exercise_608_2/13.txt`. -/
+/-- Exercise 608_2, gap 13. -/
 theorem gap13 (f : ℝ → ℝ) (A₁ : ℝ) (hA : 0 < A₁)
     (hratio : Filter.Tendsto (ratio f) Filter.atTop (nhds A₁)) :
     Filter.Tendsto (fun x => Real.log (ratio f x))
       Filter.atTop (nhds (Real.log A₁)) := by
   exact (Real.continuousAt_log hA.ne').tendsto.comp hratio
 
-/-- Source: `proof_gap/exercise_608_2/14.txt`. -/
+/-- Exercise 608_2, gap 14. -/
 theorem gap14 (f : ℝ → ℝ) (A₁ : ℝ) (hpos : ∀ x, 0 < f x)
     (hlog : Filter.Tendsto (fun x => Real.log (ratio f x))
       Filter.atTop (nhds (Real.log A₁))) :
@@ -331,7 +331,7 @@ private theorem tendsto_div_atTop_of_unitDiff
     _ < δ + δ := add_lt_add_of_lt_of_le hCx le_rfl
     _ = ε := by dsimp [δ]; ring
 
-/-- Source: `proof_gap/exercise_608_2/15.txt`; apply the additive difference theorem to `log ∘ f`. -/
+/-- Exercise 608_2, gap 15; apply the additive difference theorem to `log ∘ f`. -/
 theorem gap15 (f : ℝ → ℝ) (A₁ : ℝ)
     (hlocal : LocallyBounded (fun x => Real.log (f x)))
     (hdiff : Filter.Tendsto
@@ -342,12 +342,12 @@ theorem gap15 (f : ℝ → ℝ) (A₁ : ℝ)
   exact tendsto_div_atTop_of_unitDiff
     (fun x => Real.log (f x)) (Real.log A₁) hlocal hdiff
 
-/-- Source: `proof_gap/exercise_608_2/16.txt`; state the positive-base identity pointwise. -/
+/-- Exercise 608_2, gap 16; state the positive-base identity pointwise. -/
 theorem gap16 (f : ℝ → ℝ) (x : ℝ) (hfx : 0 < f x) :
     rootExpr f x = Real.rpow (Real.exp (Real.log (f x))) (1 / x) := by
   rw [rootExpr, Real.exp_log hfx]
 
-/-- Source: `proof_gap/exercise_608_2/17.txt`; rewrite the real power as an exponential. -/
+/-- Exercise 608_2, gap 17; rewrite the real power as an exponential. -/
 theorem gap17 (f : ℝ → ℝ) (x : ℝ) (hfx : 0 < f x) :
     Real.rpow (Real.exp (Real.log (f x))) (1 / x) =
       Real.exp (Real.log (f x) / x) := by
@@ -357,7 +357,7 @@ theorem gap17 (f : ℝ → ℝ) (x : ℝ) (hfx : 0 < f x) :
   congr 1
   ring
 
-/-- Source: `proof_gap/exercise_608_2/18.txt`. -/
+/-- Exercise 608_2, gap 18. -/
 theorem gap18 (f : ℝ → ℝ) (A₁ : ℝ)
     (hlog : Filter.Tendsto (fun x => Real.log (f x) / x)
       Filter.atTop (nhds (Real.log A₁))) :
@@ -365,12 +365,12 @@ theorem gap18 (f : ℝ → ℝ) (A₁ : ℝ)
       Filter.atTop (nhds (Real.exp (Real.log A₁))) := by
   exact Real.continuous_exp.continuousAt.tendsto.comp hlog
 
-/-- Source: `proof_gap/exercise_608_2/19.txt`. -/
+/-- Exercise 608_2, gap 19. -/
 theorem gap19 (A₁ : ℝ) (hA : 0 < A₁) :
     Real.exp (Real.log A₁) = A₁ := by
   exact Real.exp_log hA
 
-/-- Source: `proof_gap/exercise_608_2/20.txt`. -/
+/-- Exercise 608_2, gap 20. -/
 theorem gap20 (f : ℝ → ℝ) (A₁ : ℝ) (hA : 0 < A₁)
     (hpos : ∀ x, 0 < f x)
     (hlog : Filter.Tendsto (fun x => Real.log (f x) / x)
@@ -386,7 +386,7 @@ theorem gap20 (f : ℝ → ℝ) (A₁ : ℝ) (hA : 0 < A₁)
   rw [heq]
   simpa [gap19 A₁ hA] using gap18 f A₁ hlog
 
-/-- Source: `proof_gap/exercise_608_2/21.txt`; corrected ratio-to-root limit theorem. -/
+/-- Exercise 608_2, gap 21; corrected ratio-to-root limit theorem. -/
 theorem gap21 (f : ℝ → ℝ) (A₁ c : ℝ) (hc : 0 < c)
     (hf : ∀ x, c ≤ f x) (hlocal : LocallyBounded f)
     (hratio : Filter.Tendsto (ratio f) Filter.atTop (nhds A₁)) :

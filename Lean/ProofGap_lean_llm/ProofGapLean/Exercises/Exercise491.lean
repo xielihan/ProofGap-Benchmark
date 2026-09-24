@@ -21,7 +21,7 @@ def normalized (a x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_491/1.txt`; require `sin a≠0`. -/
+/-- Exercise 491, gap 1; require `sin a≠0`. -/
 private theorem cot_sub_cot
     (u v : ℝ) (hu : Real.sin u ≠ 0) (hv : Real.sin v ≠ 0) :
     cot u - cot v =
@@ -155,7 +155,7 @@ theorem gap1 (a : ℝ) (ha : Real.sin a ≠ 0) (L : ℝ) :
   · intro h
     exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_491/2.txt`; require `sin a≠0`. -/
+/-- Exercise 491, gap 2; require `sin a≠0`. -/
 theorem gap2 (a : ℝ) (ha : Real.sin a ≠ 0) (L : ℝ) :
     HasLimitAtZero (original a) L ↔ HasLimitAtZero (normalized a) L := by
   calc
@@ -173,7 +173,7 @@ theorem gap2 (a : ℝ) (ha : Real.sin a ≠ 0) (L : ℝ) :
       · intro h
         exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_491/3.txt`; require `sin a≠0`. -/
+/-- Exercise 491, gap 3; require `sin a≠0`. -/
 theorem gap3 (a : ℝ) (ha : Real.sin a ≠ 0) :
     HasLimitAtZero (normalized a) (2 * Real.cos a / Real.sin a ^ 3) := by
   unfold HasLimitAtZero
@@ -257,7 +257,7 @@ theorem gap3 (a : ℝ) (ha : Real.sin a ≠ 0) :
     ring
   simpa only [hcube] using hprod
 
-/-- Source: `proof_gap/exercise_491/4.txt`; require `sin a≠0`. -/
+/-- Exercise 491, gap 4; require `sin a≠0`. -/
 theorem gap4 (a : ℝ) (ha : Real.sin a ≠ 0) :
     HasLimitAtZero (original a) (2 * Real.cos a / Real.sin a ^ 3) := by
   exact

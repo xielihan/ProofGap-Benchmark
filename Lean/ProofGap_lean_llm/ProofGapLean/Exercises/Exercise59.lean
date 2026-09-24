@@ -7,7 +7,7 @@ open scoped Topology
 /-!
 # Exercise 59
 
-Semantic formalization of `proof_gap/exercise_59/{1,...,7}.txt`.
+Semantic formalization of Exercise 59, gaps 1,...,7.
 -/
 
 namespace ProofGap.Exercise59
@@ -23,14 +23,14 @@ def factorProduct (n : ℕ) : ℝ :=
 def upper (n : ℕ) : ℝ :=
   4 / (n : ℝ)
 
-/-- Source: `proof_gap/exercise_59/1.txt`. -/
+/-- Exercise 59, gap 1. -/
 theorem gap1 :
     ∀ n : ℕ, 0 < u n := by
   intro n
   unfold u
   positivity
 
-/-- Source: `proof_gap/exercise_59/2.txt`. -/
+/-- Exercise 59, gap 2. -/
 theorem gap2
     (h1 : ∀ n : ℕ, 0 < u n) :
     ∀ n : ℕ, u n = factorProduct n := by
@@ -49,7 +49,7 @@ theorem gap2
       norm_num only [Nat.cast_mul, Nat.cast_add, Nat.cast_one]
       field_simp
 
-/-- Source: `proof_gap/exercise_59/3.txt`; a positive index is restored. -/
+/-- Exercise 59, gap 3; a positive index is restored. -/
 theorem gap3
     (h2 : ∀ n : ℕ, u n = factorProduct n) :
     ∀ n : ℕ, 0 < n → factorProduct n ≤ upper n := by
@@ -84,20 +84,20 @@ theorem gap3
       mul_le_mul_of_nonneg_left hcast hnreal.le
     nlinarith
 
-/-- Source: `proof_gap/exercise_59/4.txt`; a positive index is restored. -/
+/-- Exercise 59, gap 4; a positive index is restored. -/
 theorem gap4 :
     ∀ n : ℕ, 0 < n → 0 < upper n := by
   intro n hn
   unfold upper
   positivity
 
-/-- Source: `proof_gap/exercise_59/5.txt`. -/
+/-- Exercise 59, gap 5. -/
 theorem gap5 :
     Tendsto upper atTop (𝓝 0) := by
   unfold upper
   exact tendsto_const_div_atTop_nhds_zero_nat 4
 
-/-- Source: `proof_gap/exercise_59/6.txt`. -/
+/-- Exercise 59, gap 6. -/
 theorem gap6
     (h1 : ∀ n : ℕ, 0 < u n)
     (h2 : ∀ n : ℕ, u n = factorProduct n)
@@ -111,7 +111,7 @@ theorem gap6
     exact h3 n hn
   · exact h5
 
-/-- Source: `proof_gap/exercise_59/7.txt`. -/
+/-- Exercise 59, gap 7. -/
 theorem gap7
     (h6 : Tendsto u atTop (𝓝 0)) :
     Tendsto u atTop (𝓝 0) := by

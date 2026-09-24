@@ -13,7 +13,7 @@ def tolerance (n : ℕ) : ℝ := Real.rpow 10 (-(n : ℝ))
 def lower (n : ℕ) : ℝ := 100 * (1 - δ n) ^ 2
 def upper (n : ℕ) : ℝ := 100 * (1 + δ n) ^ 2
 
-/-- Source: `proof_gap/exercise_665/1.txt`. -/
+/-- Exercise 665, gap 1. -/
 private theorem delta_closed_form (n : ℕ) :
     δ n = ((10 : ℝ) ^ (n + 1))⁻¹ := by
   unfold δ
@@ -47,7 +47,7 @@ theorem gap1 (n : ℕ) (x : ℝ)
   rw [abs_lt]
   constructor <;> linarith [h.1, h.2, hscale]
 
-/-- Source: `proof_gap/exercise_665/2.txt`; include nonnegativity needed to pass from squared bounds to square-root bounds. -/
+/-- Exercise 665, gap 2; include nonnegativity needed to pass from squared bounds to square-root bounds. -/
 theorem gap2 (n : ℕ) (x : ℝ) (hx : 0 ≤ x)
     (h : lower n < x ∧ x < upper n) :
     10 * (1 - δ n) < Real.sqrt x ∧
@@ -81,81 +81,81 @@ theorem gap2 (n : ℕ) (x : ℝ) (hx : 0 ≤ x)
     unfold upper at hu
     nlinarith [hp]
 
-/-- Source: `proof_gap/exercise_665/3.txt`. -/
+/-- Exercise 665, gap 3. -/
 theorem gap3 (n : ℕ) (x : ℝ) (hx : 0 ≤ x)
     (h : lower n < x ∧ x < upper n) :
     |Real.sqrt x - 10| < tolerance n := by
   exact gap1 n x (gap2 n x hx h)
 
-/-- Source: `proof_gap/exercise_665/4.txt`; add the omitted interval premise. -/
+/-- Exercise 665, gap 4; add the omitted interval premise. -/
 theorem gap4 (x : ℝ) (h : lower 0 < x ∧ x < upper 0) :
     (81 : ℝ) < x := by
   have hl := h.1
   norm_num [lower, delta_closed_form] at hl
   exact hl
 
-/-- Source: `proof_gap/exercise_665/5.txt`; add the omitted interval premise. -/
+/-- Exercise 665, gap 5; add the omitted interval premise. -/
 theorem gap5 (x : ℝ) (h : lower 0 < x ∧ x < upper 0) :
     x < (121 : ℝ) := by
   have hu := h.2
   norm_num [upper, delta_closed_form] at hu
   exact hu
 
-/-- Source: `proof_gap/exercise_665/6.txt`. -/
+/-- Exercise 665, gap 6. -/
 theorem gap6 : (81 : ℝ) < 121 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_665/7.txt`; add the omitted interval premise. -/
+/-- Exercise 665, gap 7; add the omitted interval premise. -/
 theorem gap7 (x : ℝ) (h : lower 1 < x ∧ x < upper 1) :
     (98.01 : ℝ) < x := by
   have hl := h.1
   norm_num [lower, delta_closed_form] at hl
   convert hl using 1 <;> norm_num
 
-/-- Source: `proof_gap/exercise_665/8.txt`; add the omitted interval premise. -/
+/-- Exercise 665, gap 8; add the omitted interval premise. -/
 theorem gap8 (x : ℝ) (h : lower 1 < x ∧ x < upper 1) :
     x < (102.01 : ℝ) := by
   have hu := h.2
   norm_num [upper, delta_closed_form] at hu
   convert hu using 1 <;> norm_num
 
-/-- Source: `proof_gap/exercise_665/9.txt`. -/
+/-- Exercise 665, gap 9. -/
 theorem gap9 : (98.01 : ℝ) < 102.01 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_665/10.txt`; correct the source typo `98.8001` to `99.8001` and add the interval premise. -/
+/-- Exercise 665, gap 10; correct the source typo `98.8001` to `99.8001` and add the interval premise. -/
 theorem gap10 (x : ℝ) (h : lower 2 < x ∧ x < upper 2) :
     (99.8001 : ℝ) < x := by
   have hl := h.1
   norm_num [lower, delta_closed_form] at hl
   convert hl using 1 <;> norm_num
 
-/-- Source: `proof_gap/exercise_665/11.txt`; add the omitted interval premise. -/
+/-- Exercise 665, gap 11; add the omitted interval premise. -/
 theorem gap11 (x : ℝ) (h : lower 2 < x ∧ x < upper 2) :
     x < (100.2001 : ℝ) := by
   have hu := h.2
   norm_num [upper, delta_closed_form] at hu
   convert hu using 1 <;> norm_num
 
-/-- Source: `proof_gap/exercise_665/12.txt`; correct the same lower-endpoint typo. -/
+/-- Exercise 665, gap 12; correct the same lower-endpoint typo. -/
 theorem gap12 : (99.8001 : ℝ) < 100.2001 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_665/13.txt`; add the omitted interval premise. -/
+/-- Exercise 665, gap 13; add the omitted interval premise. -/
 theorem gap13 (x : ℝ) (h : lower 3 < x ∧ x < upper 3) :
     (99.980001 : ℝ) < x := by
   have hl := h.1
   norm_num [lower, delta_closed_form] at hl
   convert hl using 1 <;> norm_num
 
-/-- Source: `proof_gap/exercise_665/14.txt`; add the omitted interval premise. -/
+/-- Exercise 665, gap 14; add the omitted interval premise. -/
 theorem gap14 (x : ℝ) (h : lower 3 < x ∧ x < upper 3) :
     x < (100.020001 : ℝ) := by
   have hu := h.2
   norm_num [upper, delta_closed_form] at hu
   convert hu using 1 <;> norm_num
 
-/-- Source: `proof_gap/exercise_665/15.txt`. -/
+/-- Exercise 665, gap 15. -/
 theorem gap15 : (99.980001 : ℝ) < 100.020001 := by
   norm_num
 

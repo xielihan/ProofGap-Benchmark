@@ -27,12 +27,12 @@ def ConvergentProduct : Prop :=
 def HasProduct (L : ℝ) : Prop :=
   Tendsto partialProduct atTop (𝓝 L)
 
-/-- Source: `proof_gap/exercise_3061/1.txt`; the product ellipsis is `partialProduct`. -/
+/-- Exercise 3061, gap 1; the product ellipsis is `partialProduct`. -/
 theorem gap1 (P : ℕ → ℝ) (hP : ∀ n, P n = partialProduct n) :
     ∀ n, P n = partialProduct n := by
   exact hP
 
-/-- Source: `proof_gap/exercise_3061/2.txt`; the formula is for `n ≥ 3`. -/
+/-- Exercise 3061, gap 2; the formula is for `n ≥ 3`. -/
 theorem gap2 :
     ∀ n : ℕ, 3 ≤ n →
       partialProduct n = ((n : ℝ) + 2) / (4 * ((n : ℝ) - 1)) := by
@@ -70,7 +70,7 @@ theorem gap2 :
         exact mul_ne_zero hx hxp2
       field_simp [hx, hxm1, hsq] <;> ring
 
-/-- Source: `proof_gap/exercise_3061/3.txt`; retain the product's lower bound. -/
+/-- Exercise 3061, gap 3; retain the product's lower bound. -/
 theorem gap3 (P : ℕ → ℝ) (hP : ∀ n, P n = partialProduct n) :
     ∀ n : ℕ, 3 ≤ n →
       P n = ((n : ℝ) + 2) / (4 * ((n : ℝ) - 1)) := by
@@ -78,7 +78,7 @@ theorem gap3 (P : ℕ → ℝ) (hP : ∀ n, P n = partialProduct n) :
   rw [hP n]
   exact gap2 n hn
 
-/-- Source: `proof_gap/exercise_3061/4.txt`. -/
+/-- Exercise 3061, gap 4. -/
 theorem gap4 (P : ℕ → ℝ) (hP : ∀ n, P n = partialProduct n) :
     Tendsto P atTop (𝓝 (1 / 4 : ℝ)) := by
   have hcast :
@@ -129,14 +129,14 @@ theorem gap4 (P : ℕ → ℝ) (hP : ∀ n, P n = partialProduct n) :
     field_simp [hn0, hnm1] <;> ring
   exact hquot.congr' hnorm.symm
 
-/-- Source: `proof_gap/exercise_3061/5.txt`. -/
+/-- Exercise 3061, gap 5. -/
 theorem gap5 : ConvergentProduct := by
   refine ⟨1 / 4, ?_⟩
   apply gap4 partialProduct
   intro n
   rfl
 
-/-- Source: `proof_gap/exercise_3061/6.txt`. -/
+/-- Exercise 3061, gap 6. -/
 theorem gap6 : HasProduct (1 / 4 : ℝ) := by
   apply gap4 partialProduct
   intro n

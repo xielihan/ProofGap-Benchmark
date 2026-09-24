@@ -137,7 +137,7 @@ private theorem seqLimsup_eq_of_range_limit
   · exact csSup_le ⟨L, hLmem⟩ hub
   · exact le_csSup hb hLmem
 
-/-- Source: `proof_gap/exercise_134/1.txt`; boundedness realizes liminf. -/
+/-- Exercise 134, gap 1; boundedness realizes liminf. -/
 theorem gap1 (x : ℕ → ℝ)
     (hxb : Bornology.IsBounded (Set.range x)) :
     ∃ p : ℕ → ℕ, StrictMono p ∧
@@ -145,7 +145,7 @@ theorem gap1 (x : ℕ → ℝ)
   exact (clusterSet_isClosed x).csInf_mem
     (clusterSet_nonempty x hxb) (clusterSet_bddBelow x hxb)
 
-/-- Source: `proof_gap/exercise_134/2.txt`; y depends on A and p. -/
+/-- Exercise 134, gap 2; y depends on A and p. -/
 theorem gap2 (x : ℕ → ℝ) (p : ℕ → ℕ) (A : ℝ)
     (hA : 0 < A)
     (hx0 : Nonnegative x)
@@ -168,7 +168,7 @@ theorem gap2 (x : ℕ → ℝ) (p : ℕ → ℕ) (A : ℝ)
   exact seqLimsup_eq_of_range_limit z p (ProofGap.seqLiminf x + A)
     hp hzlim hoff (by linarith)
 
-/-- Source: `proof_gap/exercise_134/3.txt`. -/
+/-- Exercise 134, gap 3. -/
 theorem gap3 (x : ℕ → ℝ) (p : ℕ → ℕ) (A : ℝ)
     (hA : 0 < A) (hx0 : Nonnegative x) (hp : StrictMono p) :
     ProofGap.seqLimsup (addWitness x p A) = A := by
@@ -185,19 +185,19 @@ theorem gap3 (x : ℕ → ℝ) (p : ℕ → ℕ) (A : ℝ)
   exact seqLimsup_eq_of_range_limit (addWitness x p A) p A
     hp hlim hoff hA.le
 
-/-- Source: `proof_gap/exercise_134/4.txt`. -/
+/-- Exercise 134, gap 4. -/
 theorem gap4 (x : ℕ → ℝ) (A : ℝ)
     (heq : ProofGap.seqLiminf x + A = ProofGap.seqLimsup x + A) :
     ProofGap.seqLiminf x + A = ProofGap.seqLimsup x + A := by
   exact heq
 
-/-- Source: `proof_gap/exercise_134/5.txt`. -/
+/-- Exercise 134, gap 5. -/
 theorem gap5 (x : ℕ → ℝ) (A : ℝ)
     (heq : ProofGap.seqLiminf x + A = ProofGap.seqLimsup x + A) :
     ProofGap.seqLiminf x = ProofGap.seqLimsup x := by
   linarith
 
-/-- Source: `proof_gap/exercise_134/6.txt`. -/
+/-- Exercise 134, gap 6. -/
 theorem gap6 (x : ℕ → ℝ)
     (hxb : Bornology.IsBounded (Set.range x))
     (heq : ProofGap.seqLiminf x = ProofGap.seqLimsup x) :
@@ -205,7 +205,7 @@ theorem gap6 (x : ℕ → ℝ)
   exact ⟨ProofGap.seqLiminf x,
     tendsto_of_bounded_of_liminf_eq_limsup x hxb heq⟩
 
-/-- Source: `proof_gap/exercise_134/7.txt`; y depends on A and p. -/
+/-- Exercise 134, gap 7; y depends on A and p. -/
 theorem gap7 (x : ℕ → ℝ) (p : ℕ → ℕ) (A : ℝ)
     (hA : 0 < A)
     (hx0 : Nonnegative x)
@@ -231,28 +231,28 @@ theorem gap7 (x : ℕ → ℝ) (p : ℕ → ℕ) (A : ℝ)
   exact seqLimsup_eq_of_range_limit z p (A * ProofGap.seqLiminf x)
     hp hzlim hoff (mul_nonneg hA.le hlinf0)
 
-/-- Source: `proof_gap/exercise_134/8.txt`. -/
+/-- Exercise 134, gap 8. -/
 theorem gap8 (x : ℕ → ℝ) (A : ℝ)
     (hA : 0 < A)
     (heq : A * ProofGap.seqLiminf x = A * ProofGap.seqLimsup x) :
     A * ProofGap.seqLiminf x = A * ProofGap.seqLimsup x := by
   exact heq
 
-/-- Source: `proof_gap/exercise_134/9.txt`. -/
+/-- Exercise 134, gap 9. -/
 theorem gap9 (x : ℕ → ℝ) (A : ℝ)
     (hA : 0 < A)
     (heq : A * ProofGap.seqLiminf x = A * ProofGap.seqLimsup x) :
     ProofGap.seqLiminf x = ProofGap.seqLimsup x := by
   exact (mul_left_cancel₀ (ne_of_gt hA)) heq
 
-/-- Source: `proof_gap/exercise_134/10.txt`. -/
+/-- Exercise 134, gap 10. -/
 theorem gap10 (x : ℕ → ℝ)
     (hxb : Bornology.IsBounded (Set.range x))
     (heq : ProofGap.seqLiminf x = ProofGap.seqLimsup x) :
     ProofGap.ConvergentSeq x := by
   exact gap6 x hxb heq
 
-/-- Source: `proof_gap/exercise_134/11.txt`; retain boundedness and coherent witnesses. -/
+/-- Exercise 134, gap 11; retain boundedness and coherent witnesses. -/
 theorem gap11 (x : ℕ → ℝ)
     (hx0 : Nonnegative x)
     (hxb : Bornology.IsBounded (Set.range x))

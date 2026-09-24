@@ -87,7 +87,7 @@ private def curveMissesCube (φ ψ : ℝ → ℝ) (a : ℝ) : Prop :=
 private def curveEntersInterior (φ ψ : ℝ → ℝ) (a : ℝ) : Prop :=
   ∃ x ∈ Icc (0 : ℝ) a, φ x ∈ Ioo (0 : ℝ) a ∧ ψ x ∈ Ioo (0 : ℝ) a
 
-/-! Source: `results/stage1_gpt55/09_重积分与含参积分/exercise_4194_autoformalization_result/exercise_4194.md`. -/
+/-! Exercise 4194. -/
 
 private abbrev Point2 := ℝ × ℝ
 

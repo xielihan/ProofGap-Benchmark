@@ -18,7 +18,7 @@ def normalized (x : ℝ) : ℝ :=
 def HasLimitAtPosInfinity (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f Filter.atTop (nhds L)
 
-/-- Source: `proof_gap/exercise_535/1.txt`. -/
+/-- Exercise 535, gap 1. -/
 theorem gap1 (L : ℝ) :
     HasLimitAtPosInfinity original L ↔ HasLimitAtPosInfinity expanded L := by
   have hfunctions : original = expanded := by
@@ -95,7 +95,7 @@ theorem gap1 (L : ℝ) :
     rw [hlog3, hlog2]
   rw [hfunctions]
 
-/-- Source: `proof_gap/exercise_535/2.txt`. -/
+/-- Exercise 535, gap 2. -/
 theorem gap2 : HasLimitAtPosInfinity normalized (3 / 2) := by
   have hlin3 :
       Filter.Tendsto (fun x : ℝ => -3 * x) Filter.atTop Filter.atBot := by

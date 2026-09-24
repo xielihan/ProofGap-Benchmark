@@ -14,7 +14,7 @@ def rationalSeq (n : ℕ) : ℝ := 1 / ((n : ℝ) + 1)
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_607/1.txt`; replace the non-functional arbitrary rational representation by a well-defined equivalent counterexample. -/
+/-- Exercise 607, gap 1; replace the non-functional arbitrary rational representation by a well-defined equivalent counterexample. -/
 theorem gap1 : HasLimitAt φ 0 0 := by
   unfold HasLimitAt
   refine Metric.tendsto_nhds.2 ?_
@@ -36,7 +36,7 @@ theorem gap1 : HasLimitAt φ 0 0 := by
   · simp [φ, h, hε]
   · simpa [φ, h, Real.dist_eq] using hx
 
-/-- Source: `proof_gap/exercise_607/2.txt`; use the same well-defined counterexample. -/
+/-- Exercise 607, gap 2; use the same well-defined counterexample. -/
 theorem gap2 : HasLimitAt ψ 0 1 := by
   unfold HasLimitAt
   have hc :
@@ -49,14 +49,14 @@ theorem gap2 : HasLimitAt ψ 0 1 := by
     simpa using hx
   simp [ψ, hx0]
 
-/-- Source: `proof_gap/exercise_607/3.txt`; bind one irrational sequence instead of shadowing `x,n`. -/
+/-- Exercise 607, gap 3; bind one irrational sequence instead of shadowing `x,n`. -/
 theorem gap3 (u : ℕ → ℝ) (hu : Filter.Tendsto u Filter.atTop (nhds 0))
     (hirr : ∀ n, Irrational (u n)) :
     ∀ n, φ (u n) = 0 := by
   intro n
   simp [φ, hirr n]
 
-/-- Source: `proof_gap/exercise_607/4.txt`. -/
+/-- Exercise 607, gap 4. -/
 theorem gap4 (u : ℕ → ℝ) (hu : Filter.Tendsto u Filter.atTop (nhds 0))
     (hirr : ∀ n, Irrational (u n)) :
     ∀ n, ψ (φ (u n)) = 0 := by
@@ -64,7 +64,7 @@ theorem gap4 (u : ℕ → ℝ) (hu : Filter.Tendsto u Filter.atTop (nhds 0))
   rw [gap3 u hu hirr n]
   simp [ψ]
 
-/-- Source: `proof_gap/exercise_607/5.txt`; use an explicit nonzero rational sequence. -/
+/-- Exercise 607, gap 5; use an explicit nonzero rational sequence. -/
 theorem gap5 :
     Filter.Tendsto rationalSeq Filter.atTop (nhds 0) ∧
       ∀ n, φ (rationalSeq n) ≠ 0 := by
@@ -104,12 +104,12 @@ theorem gap5 :
       simp [rationalSeq]
     simpa [φ, hrat, abs_of_pos hpos] using hpos.ne'
 
-/-- Source: `proof_gap/exercise_607/6.txt`; use the explicit rational sequence. -/
+/-- Exercise 607, gap 6; use the explicit rational sequence. -/
 theorem gap6 : ∀ n, ψ (φ (rationalSeq n)) = 1 := by
   intro n
   simp [ψ, gap5.2 n]
 
-/-- Source: `proof_gap/exercise_607/7.txt`. -/
+/-- Exercise 607, gap 7. -/
 theorem gap7 : ¬ ∃ L : ℝ, HasLimitAt (fun x => ψ (φ x)) 0 L := by
   rintro ⟨L, hL⟩
   have hrne : ∀ n, rationalSeq n ≠ 0 := by
@@ -167,7 +167,7 @@ theorem gap7 : ¬ ∃ L : ℝ, HasLimitAt (fun x => ψ (φ x)) 0 L := by
   have hLzero : L = 0 := tendsto_nhds_unique hirrL hirr0
   exact zero_ne_one (hLzero.symm.trans hLone)
 
-/-- Source: `proof_gap/exercise_607/8.txt`; state the composition counterexample with fixed witnesses. -/
+/-- Exercise 607, gap 8; state the composition counterexample with fixed witnesses. -/
 theorem gap8 :
     ∃ (a A B : ℝ) (p q : ℝ → ℝ),
       HasLimitAt p a A ∧ HasLimitAt q A B ∧

@@ -28,7 +28,7 @@ def EpsilonRightLimitAt (f : ℝ → ℝ) (a b : ℝ) : Prop :=
 
 def g (x : ℝ) : ℝ := x + 1
 
-/-- Source: `proof_gap/exercise_403/1.txt`. -/
+/-- Exercise 403, gap 1. -/
 theorem gap1 : ∀ a b : ℝ, ∀ f : ℝ → ℝ,
     HasLimitAt f a b ↔ EpsilonLimitAt f a b := by
   intro a b f
@@ -62,7 +62,7 @@ theorem gap1 : ∀ a b : ℝ, ∀ f : ℝ → ℝ,
     have hout := hδprop x hxpos hxabs
     simpa only [Real.dist_eq] using hout
 
-/-- Source: `proof_gap/exercise_403/2.txt`. -/
+/-- Exercise 403, gap 2. -/
 theorem gap2 : HasLimitAt (fun x : ℝ => x + 1) 1 2 := by
   rw [gap1]
   intro ε hε
@@ -71,7 +71,7 @@ theorem gap2 : HasLimitAt (fun x : ℝ => x + 1) 1 2 := by
   have heq : x + 1 - 2 = x - 1 := by ring
   rwa [heq]
 
-/-- Source: `proof_gap/exercise_403/3.txt`. -/
+/-- Exercise 403, gap 3. -/
 theorem gap3 : ∀ a b : ℝ, ∀ f : ℝ → ℝ,
     HasLeftLimitAt f a b ↔ EpsilonLeftLimitAt f a b := by
   intro a b f
@@ -103,7 +103,7 @@ theorem gap3 : ∀ a b : ℝ, ∀ f : ℝ → ℝ,
     have hout := hδprop x hxpos hxδ
     simpa only [Real.dist_eq] using hout
 
-/-- Source: `proof_gap/exercise_403/4.txt`; define the previously free example `g(x)=x+1`. -/
+/-- Exercise 403, gap 4; define the previously free example `g(x)=x+1`. -/
 theorem gap4 : HasLeftLimitAt g 1 2 := by
   rw [gap3]
   intro ε hε
@@ -115,7 +115,7 @@ theorem gap4 : HasLeftLimitAt g 1 2 := by
   rw [heq, abs_of_neg (sub_neg.mpr hxa)]
   simpa only [neg_sub] using hxd
 
-/-- Source: `proof_gap/exercise_403/5.txt`. -/
+/-- Exercise 403, gap 5. -/
 theorem gap5 : ∀ a b : ℝ, ∀ f : ℝ → ℝ,
     HasRightLimitAt f a b ↔ EpsilonRightLimitAt f a b := by
   intro a b f
@@ -147,7 +147,7 @@ theorem gap5 : ∀ a b : ℝ, ∀ f : ℝ → ℝ,
     have hout := hδprop x hxpos hxδ
     simpa only [Real.dist_eq] using hout
 
-/-- Source: `proof_gap/exercise_403/6.txt`; define the previously free example `g(x)=x+1`. -/
+/-- Exercise 403, gap 6; define the previously free example `g(x)=x+1`. -/
 theorem gap6 : HasRightLimitAt g 1 2 := by
   rw [gap5]
   intro ε hε

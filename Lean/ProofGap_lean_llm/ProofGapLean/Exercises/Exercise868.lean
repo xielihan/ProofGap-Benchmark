@@ -17,7 +17,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 def finalDerivative (x : ℝ) : ℝ :=
   -(1 + Real.cos x ^ 2) / (2 * Real.sin x ^ 3)
 
-/-- Source: `proof_gap/exercise_868/1.txt`; restrict to the domain of the
+/-- Exercise 868, gap 1; restrict to the domain of the
 quotient. -/
 theorem gap1 (x : ℝ) (hsin : Real.sin x ≠ 0) :
     deriv y x = expandedDerivative x := by
@@ -38,7 +38,7 @@ theorem gap1 (x : ℝ) (hsin : Real.sin x ≠ 0) :
   field_simp [hsin]
   ring
 
-/-- Source: `proof_gap/exercise_868/2.txt`; retain the source function's
+/-- Exercise 868, gap 2; retain the source function's
 domain while simplifying its derivative. -/
 theorem gap2 (x : ℝ) (hsin : Real.sin x ≠ 0) :
     expandedDerivative x = finalDerivative x := by
@@ -56,7 +56,7 @@ theorem gap2 (x : ℝ) (hsin : Real.sin x ≠ 0) :
   rw [hnum]
   field_simp [hsin] <;> ring
 
-/-- Source: `proof_gap/exercise_868/3.txt`; restrict to the domain of the
+/-- Exercise 868, gap 3; restrict to the domain of the
 source function. -/
 theorem gap3 (x : ℝ) (hsin : Real.sin x ≠ 0) :
     deriv y x = finalDerivative x := by

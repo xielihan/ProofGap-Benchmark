@@ -17,7 +17,7 @@ noncomputable section
 def y (x : ℝ) : ℝ :=
   1 / (Real.sqrt (1 + x ^ 2) * (x + Real.sqrt (1 + x ^ 2)))
 
-/-- Source: `proof_gap/exercise_859/1.txt`. -/
+/-- Exercise 859, gap 1. -/
 theorem gap1 (x : ℝ) :
     HasDerivAt y
       (-(1 / ((1 + x ^ 2) * (x + Real.sqrt (1 + x ^ 2)) ^ 2)) *
@@ -96,7 +96,7 @@ theorem gap1 (x : ℝ) :
   rw [hdval, hden] at hinv
   convert hinv using 1 <;> ring
 
-/-- Source: `proof_gap/exercise_859/2.txt`. -/
+/-- Exercise 859, gap 2. -/
 theorem gap2 (x : ℝ) :
     -(1 / ((1 + x ^ 2) * (x + Real.sqrt (1 + x ^ 2)) ^ 2)) *
           (Real.sqrt (1 + x ^ 2) +
@@ -143,7 +143,7 @@ theorem gap2 (x : ℝ) :
   rw [hnum, hrpow]
   field_simp [hu_ne, hs_ne, ht_ne] <;> ring
 
-/-- Source: `proof_gap/exercise_859/3.txt`. -/
+/-- Exercise 859, gap 3. -/
 theorem gap3 (x : ℝ) :
     HasDerivAt y (-(1 / Real.rpow (1 + x ^ 2) (3 / 2 : ℝ))) x := by
   simpa only [gap2 x] using gap1 x

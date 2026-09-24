@@ -17,7 +17,7 @@ def exponentialForm (x h : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_537/1.txt`. -/
+/-- Exercise 537, gap 1. -/
 private theorem eventually_valid537 (x : ℝ) (hx : 0 < x) :
     ∀ᶠ h in nhdsWithin 0 ({0} : Set ℝ)ᶜ,
       0 < x + h ∧ 0 < x - h ∧ h ≠ 0 := by
@@ -60,7 +60,7 @@ theorem gap1 (x : ℝ) (hx : 0 < x) (L : ℝ) :
   unfold HasLimitAtZero
   exact Filter.tendsto_congr' heq
 
-/-- Source: `proof_gap/exercise_537/2.txt`. -/
+/-- Exercise 537, gap 2. -/
 theorem gap2 (x : ℝ) (hx : 0 < x) (L : ℝ) :
     HasLimitAtZero (combined x) L ↔ HasLimitAtZero (exponentialForm x) L := by
   have hx0 : x ≠ 0 := ne_of_gt hx
@@ -98,7 +98,7 @@ theorem gap2 (x : ℝ) (hx : 0 < x) (L : ℝ) :
   unfold HasLimitAtZero
   exact Filter.tendsto_congr' heq
 
-/-- Source: `proof_gap/exercise_537/3.txt`. -/
+/-- Exercise 537, gap 3. -/
 theorem gap3 (x : ℝ) (hx : 0 < x) :
     HasLimitAtZero (exponentialForm x) (-(1 / x ^ 2) * lg (Real.exp 1)) := by
   apply (gap2 x hx (-(1 / x ^ 2) * lg (Real.exp 1))).mp
@@ -155,7 +155,7 @@ theorem gap3 (x : ℝ) (hx : 0 < x) :
     field_simp [hh0, hlog10] <;> ring
   exact (Filter.tendsto_congr' heq).mp hscaled
 
-/-- Source: `proof_gap/exercise_537/4.txt`. -/
+/-- Exercise 537, gap 4. -/
 theorem gap4 (x : ℝ) (hx : 0 < x) :
     HasLimitAtZero (combined x) (-(1 / x ^ 2) * lg (Real.exp 1)) := by
   exact

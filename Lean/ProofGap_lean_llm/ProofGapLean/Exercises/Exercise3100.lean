@@ -248,7 +248,7 @@ private theorem gap7_proof (x : ℝ) (hx : 1 < x) :
   exact gap6_proof x hx
 
 /--
-Source: `proof_gap/exercise_3100/1.txt`; add the missing constant term and
+Exercise 3100, gap 1; add the missing constant term and
 replace the ellipsis by an exact geometric tsum.
 -/
 theorem gap1 (x : ℝ) (hx : 1 < x) (p : ℕ) (hp : p.Prime) :
@@ -257,37 +257,37 @@ theorem gap1 (x : ℝ) (hx : 1 < x) (p : ℕ) (hp : p.Prime) :
   exact gap1_proof x hx p hp
 
 /--
-Source: `proof_gap/exercise_3100/2.txt`; use the complete finite set of
+Exercise 3100, gap 2; use the complete finite set of
 primes up to `N` and the exact smooth-number expansion.
 -/
 theorem gap2 (x : ℝ) (hx : 1 < x) (N : ℕ) :
     eulerPartialProduct x N = smoothSeries x N := by
   exact gap2_proof x hx N
 
-/-- Source: `proof_gap/exercise_3100/3.txt`; state the finite-set inclusion exactly. -/
+/-- Exercise 3100, gap 3; state the finite-set inclusion exactly. -/
 theorem gap3 :
     ∀ N n : ℕ, 1 ≤ n → n ≤ N → IsSmoothUpTo N n := by
   exact gap3_proof
 
-/-- Source: `proof_gap/exercise_3100/4.txt`; replace the tail ellipsis by a tsum. -/
+/-- Exercise 3100, gap 4; replace the tail ellipsis by a tsum. -/
 theorem gap4 (x : ℝ) (hx : 1 < x) :
     ∀ N,
       |zetaSeries x - eulerPartialProduct x N| ≤ tailSeries x N := by
   exact gap4_proof x hx
 
-/-- Source: `proof_gap/exercise_3100/5.txt`. -/
+/-- Exercise 3100, gap 5. -/
 theorem gap5 (x : ℝ) (hx : 1 < x) :
     Tendsto
       (fun N => |zetaSeries x - eulerPartialProduct x N|)
       atTop (𝓝 0) := by
   exact gap5_proof x hx
 
-/-- Source: `proof_gap/exercise_3100/6.txt`; state the infinite product by its cutoffs. -/
+/-- Exercise 3100, gap 6; state the infinite product by its cutoffs. -/
 theorem gap6 (x : ℝ) (hx : 1 < x) :
     Tendsto (eulerPartialProduct x) atTop (𝓝 (zetaSeries x)) := by
   exact gap6_proof x hx
 
-/-- Source: `proof_gap/exercise_3100/7.txt`. -/
+/-- Exercise 3100, gap 7. -/
 theorem gap7 (x : ℝ) (hx : 1 < x) :
     Tendsto (eulerPartialProduct x) atTop (𝓝 (zetaSeries x)) := by
   exact gap7_proof x hx

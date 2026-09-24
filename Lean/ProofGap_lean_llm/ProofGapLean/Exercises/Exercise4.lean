@@ -3,7 +3,7 @@ import ProofGapLean.Prelude.Finite
 /-!
 # Exercise 4
 
-Semantic formalization of `proof_gap/exercise_4/{1,...,6}.txt`.
+Semantic formalization of Exercise 4, gaps 1,...,6.
 The source ellipsis `1 + 2 + 2² + ... + 2ⁿ⁻¹` is represented by the standard
 finite sum `∑ i ∈ range n, 2^i`.
 -/
@@ -30,12 +30,12 @@ def SimplifyPowers : Prop :=
 def InductionStep : Prop :=
   ∀ n k : ℕ, n = k → GeometricFormula k → GeometricFormula (k + 1)
 
-/-- Source: `proof_gap/exercise_4/1.txt`. -/
+/-- Exercise 4, gap 1. -/
 theorem gap1 : BaseCase := by
   intro n hn
   norm_num
 
-/-- Source: `proof_gap/exercise_4/2.txt`. -/
+/-- Exercise 4, gap 2. -/
 theorem gap2
     (h1 : BaseCase) :
     AddNextPower := by
@@ -43,7 +43,7 @@ theorem gap2
   change geometricSum k = 2 ^ k - 1 at hGk
   rw [geometricSum, Finset.sum_range_succ, ← geometricSum, hGk]
 
-/-- Source: `proof_gap/exercise_4/3.txt`. -/
+/-- Exercise 4, gap 3. -/
 theorem gap3
     (h1 : BaseCase)
     (h2 : AddNextPower) :
@@ -53,7 +53,7 @@ theorem gap3
   have hpos : 0 < 2 ^ k := pow_pos (by norm_num) k
   omega
 
-/-- Source: `proof_gap/exercise_4/4.txt`. -/
+/-- Exercise 4, gap 4. -/
 theorem gap4
     (h1 : BaseCase)
     (h2 : AddNextPower)
@@ -65,7 +65,7 @@ theorem gap4
     geometricSum (k + 1) = (2 ^ k - 1) + 2 ^ k := h2 n k hnk hGk
     _ = 2 ^ (k + 1) - 1 := h3 n k hnk hGk
 
-/-- Source: `proof_gap/exercise_4/5.txt`. -/
+/-- Exercise 4, gap 5. -/
 theorem gap5
     (h1 : BaseCase)
     (h2 : AddNextPower)
@@ -79,7 +79,7 @@ theorem gap5
   exact Nat.le_induction hbase (fun k _ ih => h4 k k rfl ih) n hn
 
 /--
-Source: `proof_gap/exercise_4/6.txt`.
+Exercise 4, gap 6.
 
 The final source goal drops the positive-integer qualifier.  Interpreting the
 index as `ℕ` is mathematically sound because the identity also holds for `n=0`.

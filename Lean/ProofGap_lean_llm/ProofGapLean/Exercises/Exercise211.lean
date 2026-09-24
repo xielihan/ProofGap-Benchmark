@@ -7,7 +7,7 @@ noncomputable section
 
 def exterior : Set ℝ := {t | 2 ≤ |t|}
 
-/-- Source: `proof_gap/exercise_211/1.txt`; x must be nonzero. -/
+/-- Exercise 211, gap 1; x must be nonzero. -/
 private theorem exists_add_inv_eq_of_two_le_abs (t : ℝ) (ht : 2 ≤ |t|) :
     ∃ x : ℝ, x ≠ 0 ∧ x + 1 / x = t := by
   let d : ℝ := Real.sqrt (t ^ 2 - 4)
@@ -38,7 +38,7 @@ theorem gap1 (f : ℝ → ℝ)
   field_simp [hx]
   ring
 
-/-- Source: `proof_gap/exercise_211/2.txt`; the premise only determines f on |t|≥2. -/
+/-- Exercise 211, gap 2; the premise only determines f on |t|≥2. -/
 theorem gap2 (f : ℝ → ℝ)
     (h : ∀ x : ℝ, x ≠ 0 → f (x + 1 / x) = x ^ 2 + 1 / x ^ 2) :
     ∀ t : ℝ, t ∈ exterior → f t = t ^ 2 - 2 := by

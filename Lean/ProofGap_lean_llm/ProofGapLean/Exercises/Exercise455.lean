@@ -14,7 +14,7 @@ def quotient (m n : ℤ) (x : ℝ) : ℝ :=
 def HasLimitAt (g : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto g (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_455/1.txt`; replace geometric ellipses by the resulting identity near `x=1`. -/
+/-- Exercise 455, gap 1; replace geometric ellipses by the resulting identity near `x=1`. -/
 private theorem inv_mul_div_inv_mul_of_ne
     (a b c : ℝ) (hc : c ≠ 0) :
     (c⁻¹ * a) / (c⁻¹ * b) = a / b := by
@@ -104,12 +104,12 @@ theorem gap1 (m n : ℕ) (hm : 0 < m) (hn : 0 < n) :
   simpa using
     hasLimitAt_quotient_of_ne_zero (m : ℤ) (n : ℤ) (by omega) (by omega)
 
-/-- Source: `proof_gap/exercise_455/2.txt`. -/
+/-- Exercise 455, gap 2. -/
 theorem gap2 (m n : ℕ) (hm : 0 < m) (hn : 0 < n) :
     HasLimitAt (quotient m n) 1 ((n : ℝ) / m) := by
   exact gap1 m n hm hn
 
-/-- Source: `proof_gap/exercise_455/3.txt`. -/
+/-- Exercise 455, gap 3. -/
 theorem gap3 (m' n' : ℕ) (hm : 0 < m') (hn : 0 < n') : ∀ x, 0 < x →
     quotient (-(m' : ℤ)) (-(n' : ℤ)) x =
       ((1 - root m' x) / (1 - root n' x)) * (root n' x / root m' x) := by
@@ -130,31 +130,31 @@ theorem gap3 (m' n' : ℕ) (hm : 0 < m') (hn : 0 < n') : ∀ x, 0 < x →
   · simp [hxn1]
   field_simp [hxm, hxn, hxm1, hxn1]
 
-/-- Source: `proof_gap/exercise_455/4.txt`. -/
+/-- Exercise 455, gap 4. -/
 theorem gap4 (m' n' : ℕ) (hm : 0 < m') (hn : 0 < n') :
     HasLimitAt (quotient (-(m' : ℤ)) (-(n' : ℤ))) 1 ((n' : ℝ) / m') := by
   simpa using
     hasLimitAt_quotient_of_ne_zero (-(m' : ℤ)) (-(n' : ℤ))
       (by omega) (by omega)
 
-/-- Source: `proof_gap/exercise_455/5.txt`. -/
+/-- Exercise 455, gap 5. -/
 theorem gap5 (m' n' : ℕ) (hm : 0 < m') (hn : 0 < n') :
     (n' : ℝ) / m' = ((-(n' : ℤ) : ℤ) : ℝ) / (-(m' : ℤ) : ℤ) := by
   norm_num
 
-/-- Source: `proof_gap/exercise_455/6.txt`. -/
+/-- Exercise 455, gap 6. -/
 theorem gap6 (m' n' : ℕ) (hm : 0 < m') (hn : 0 < n') :
     HasLimitAt (quotient (-(m' : ℤ)) (-(n' : ℤ))) 1
       (((-(n' : ℤ) : ℤ) : ℝ) / (-(m' : ℤ) : ℤ)) := by
   rw [← gap5 m' n' hm hn]
   exact gap4 m' n' hm hn
 
-/-- Source: `proof_gap/exercise_455/7.txt`. -/
+/-- Exercise 455, gap 7. -/
 theorem gap7 (m n : ℤ) (hm : m ≠ 0) (hn : n ≠ 0) :
     HasLimitAt (quotient m n) 1 ((n : ℝ) / m) := by
   exact hasLimitAt_quotient_of_ne_zero m n hm hn
 
-/-- Source: `proof_gap/exercise_455/8.txt`. -/
+/-- Exercise 455, gap 8. -/
 theorem gap8 (m n : ℤ) (hm : m ≠ 0) (hn : n ≠ 0) :
     HasLimitAt (quotient m n) 1 ((n : ℝ) / m) := by
   exact gap7 m n hm hn

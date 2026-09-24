@@ -15,19 +15,19 @@ def cancelled (x : ℝ) : ℝ := (x + 2) / (x ^ 2 + 2 * x + 3)
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_419/1.txt`. -/
+/-- Exercise 419, gap 1. -/
 theorem gap1 : ∀ x : ℝ,
     x ^ 3 - 3 * x + 2 = (x - 1) ^ 2 * (x + 2) := by
   intro x
   ring
 
-/-- Source: `proof_gap/exercise_419/2.txt`. -/
+/-- Exercise 419, gap 2. -/
 theorem gap2 : ∀ x : ℝ,
     x ^ 4 - 4 * x + 3 = (x - 1) ^ 2 * (x ^ 2 + 2 * x + 3) := by
   intro x
   ring
 
-/-- Source: `proof_gap/exercise_419/3.txt`. -/
+/-- Exercise 419, gap 3. -/
 theorem gap3 : HasLimitAt original 1 (1 / 2) ↔
     HasLimitAt factored 1 (1 / 2) := by
   have hfun : original = factored := by
@@ -36,7 +36,7 @@ theorem gap3 : HasLimitAt original 1 (1 / 2) ↔
     rw [gap1 x, gap2 x]
   rw [hfun]
 
-/-- Source: `proof_gap/exercise_419/4.txt`. -/
+/-- Exercise 419, gap 4. -/
 theorem gap4 : HasLimitAt factored 1 (1 / 2) ↔
     HasLimitAt cancelled 1 (1 / 2) := by
   unfold HasLimitAt
@@ -54,7 +54,7 @@ theorem gap4 : HasLimitAt factored 1 (1 / 2) ↔
   · intro h
     exact Filter.Tendsto.congr' heq.symm h
 
-/-- Source: `proof_gap/exercise_419/5.txt`. -/
+/-- Exercise 419, gap 5. -/
 theorem gap5 : HasLimitAt cancelled 1 (3 / 6) := by
   have hcont : ContinuousAt cancelled 1 := by
     unfold cancelled
@@ -69,11 +69,11 @@ theorem gap5 : HasLimitAt cancelled 1 (3 / 6) := by
   rw [← hval]
   exact hcont.mono_left inf_le_left
 
-/-- Source: `proof_gap/exercise_419/6.txt`. -/
+/-- Exercise 419, gap 6. -/
 theorem gap6 : (3 : ℝ) / 6 = 1 / 2 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_419/7.txt`. -/
+/-- Exercise 419, gap 7. -/
 theorem gap7 : HasLimitAt original 1 (1 / 2) := by
   apply gap3.mpr
   apply gap4.mpr

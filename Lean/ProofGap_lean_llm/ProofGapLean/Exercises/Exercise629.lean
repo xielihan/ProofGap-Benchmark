@@ -13,7 +13,7 @@ def productSeq (x : ℝ) (n : ℕ) : ℝ :=
   (Finset.range (n + 1)).prod (fun k => 1 + x ^ (2 ^ k))
 def powerSeq (x : ℝ) (n : ℕ) : ℝ := x ^ (2 ^ (n + 1))
 
-/-- Source: `proof_gap/exercise_629/1.txt`. -/
+/-- Exercise 629, gap 1. -/
 private lemma doubleExponentStep (x : ℝ) (n : ℕ) :
     x ^ (2 ^ (n + 1)) = (x ^ (2 ^ n)) ^ 2 := by
   calc
@@ -28,7 +28,7 @@ theorem gap1 (x : ℝ) (hx : |x| < 1) :
   apply (eq_div_iff hxne).2
   ring
 
-/-- Source: `proof_gap/exercise_629/2.txt`. -/
+/-- Exercise 629, gap 2. -/
 theorem gap2 (x : ℝ) (hx : |x| < 1) :
     1 + x ^ 2 = (1 - x ^ 4) / (1 - x ^ 2) := by
   rcases abs_lt.mp hx with ⟨hlo, hhi⟩
@@ -41,7 +41,7 @@ theorem gap2 (x : ℝ) (hx : |x| < 1) :
   apply (eq_div_iff hxne).2
   ring
 
-/-- Source: `proof_gap/exercise_629/3.txt`. -/
+/-- Exercise 629, gap 3. -/
 theorem gap3 (x : ℝ) (hx : |x| < 1) (n : ℕ) :
     1 + x ^ (2 ^ n) =
       (1 - x ^ (2 ^ (n + 1))) / (1 - x ^ (2 ^ n)) := by
@@ -60,7 +60,7 @@ theorem gap3 (x : ℝ) (hx : |x| < 1) (n : ℕ) :
   rw [doubleExponentStep]
   ring
 
-/-- Source: `proof_gap/exercise_629/4.txt`; replace the product ellipsis by `Finset.range`. -/
+/-- Exercise 629, gap 4; replace the product ellipsis by `Finset.range`. -/
 theorem gap4 (x : ℝ) (hx : |x| < 1) (n : ℕ) :
     productSeq x n = (1 - x ^ (2 ^ (n + 1))) / (1 - x) := by
   have hxne : 1 - x ≠ 0 := by
@@ -78,7 +78,7 @@ theorem gap4 (x : ℝ) (hx : |x| < 1) (n : ℕ) :
       field_simp [hxne]
       ring
 
-/-- Source: `proof_gap/exercise_629/5.txt`. -/
+/-- Exercise 629, gap 5. -/
 theorem gap5 (x : ℝ) (hx : |x| < 1) :
     Filter.Tendsto (powerSeq x) Filter.atTop (nhds 0) := by
   have hle : ∀ n : ℕ, n ≤ 2 ^ n := by
@@ -101,7 +101,7 @@ theorem gap5 (x : ℝ) (hx : |x| < 1) :
   rw [Real.dist_eq, sub_zero, powerSeq, abs_pow]
   exact lt_of_le_of_lt hbound hN
 
-/-- Source: `proof_gap/exercise_629/6.txt`. -/
+/-- Exercise 629, gap 6. -/
 theorem gap6 (x : ℝ) (hx : |x| < 1) :
     Filter.Tendsto (productSeq x) Filter.atTop (nhds (1 / (1 - x))) := by
   have hconst : Filter.Tendsto (fun _ : ℕ => (1 : ℝ))

@@ -861,7 +861,7 @@ private lemma fourier_limit_of_scaled
   filter_upwards with R
   exact (fourier_partial_eq x R).symm
 
-/-- Semantic source: `results/stage1_gpt55/09_重积分与含参积分/exercise_3881_autoformalization_result/exercise_3881.md`. -/
+/-- Exercise 3881. -/
 private theorem originalProblem :
     ∀ x : ℝ,
       ImproperHasValue

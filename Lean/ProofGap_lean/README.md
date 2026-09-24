@@ -1,8 +1,10 @@
 # ProofGap_lean
 
-This dataset contains 1,884 exercise files printed directly into Lean from
-the same proof-gap ASTs used for `ProofGap_nfl/`. It shares its Lean and Mathlib
-environment with `ProofGap_lean_llm/`.
+Based on Demidovich's mathematical analysis exercises
+(吉米多维奇《数学分析习题集》), this dataset contains 1,884 exercise files
+printed directly into Lean using the same proof-gap AST representation as
+the NFL printer. It shares its Lean and Mathlib environment with
+`ProofGap_lean_llm/`. Coverage and some gap statements differ across datasets.
 
 ## Environment and checking
 
@@ -37,10 +39,9 @@ release and lock every dependency revision. Both Lean datasets use the
 
 ## Compilation status
 
-The source subset is `all_gaps_printed__last_gap_compiles`: every non-internal
-gap was printed to Lean and the last gap compiled without errors in the
-original selection. This does not guarantee that each whole exercise file or
-the complete dataset will compile. `sorry` placeholders are retained, and
+Every non-internal gap was printed to Lean, and exercises were selected by
+successful compilation of the last gap. This does not guarantee that each
+whole exercise file or the complete dataset will compile. `sorry` placeholders are retained, and
 successful compilation alone does not establish completed proofs.
 
-See the [benchmark overview](../../README.md) for dataset counts and provenance.
+See the [benchmark overview](../../README.md) for dataset counts and scope.

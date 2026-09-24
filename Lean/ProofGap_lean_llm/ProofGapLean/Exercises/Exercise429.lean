@@ -19,7 +19,7 @@ def expanded (n : ℕ) (x a : ℝ) : ℝ :=
 def closed (n : ℕ) (x a : ℝ) : ℝ :=
   ((n - 1 : ℕ) : ℝ) / n * (x + a / 2)
 
-/-- Source: `proof_gap/exercise_429/1.txt`; replace both summation ellipses by finite sums. -/
+/-- Exercise 429, gap 1; replace both summation ellipses by finite sums. -/
 private theorem sum_range_natCast (n : ℕ) :
     (Finset.range n).sum (fun i => (i : ℝ)) =
       (n : ℝ) * ((n : ℝ) - 1) / 2 := by
@@ -124,7 +124,7 @@ theorem gap1 (x a : ℝ) :
   · simpa only [average_eq_expanded] using h
   · simpa only [average_eq_expanded] using h
 
-/-- Source: `proof_gap/exercise_429/2.txt`. -/
+/-- Exercise 429, gap 2. -/
 theorem gap2 (x a : ℝ) :
     Filter.Tendsto (fun n => expanded n x a) Filter.atTop (nhds (x + a / 2)) ↔
       Filter.Tendsto (fun n => closed n x a) Filter.atTop (nhds (x + a / 2)) := by
@@ -132,12 +132,12 @@ theorem gap2 (x a : ℝ) :
   · simpa only [expanded_eq_closed] using h
   · simpa only [expanded_eq_closed] using h
 
-/-- Source: `proof_gap/exercise_429/3.txt`. -/
+/-- Exercise 429, gap 3. -/
 theorem gap3 (x a : ℝ) :
     Filter.Tendsto (fun n => closed n x a) Filter.atTop (nhds (x + a / 2)) := by
   exact closed_tendsto x a
 
-/-- Source: `proof_gap/exercise_429/4.txt`. -/
+/-- Exercise 429, gap 4. -/
 theorem gap4 (x a : ℝ) :
     Filter.Tendsto (fun n => average n x a) Filter.atTop (nhds (x + a / 2)) := by
   apply (gap1 x a).2

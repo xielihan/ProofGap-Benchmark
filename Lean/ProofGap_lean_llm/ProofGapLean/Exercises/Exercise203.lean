@@ -15,17 +15,17 @@ def logDomain : Set ℝ := {x | 0 < x ∧ Real.log x ∈ targetDomain}
 def floorRatio (x : ℝ) : ℝ := (⌊x⌋ : ℤ) / x
 def floorRatioDomain : Set ℝ := {x | floorRatio x ∈ targetDomain}
 
-/-- Source: `proof_gap/exercise_203/1.txt`; positivity is a composite-domain condition. -/
+/-- Exercise 203, gap 1; positivity is a composite-domain condition. -/
 theorem gap1 : ∀ x : ℝ, x ∈ sinDomain → 0 < Real.sin x := by
   intro x hx
   exact hx.1
 
-/-- Source: `proof_gap/exercise_203/2.txt`. -/
+/-- Exercise 203, gap 2. -/
 theorem gap2 : ∀ x : ℝ, x ∈ sinDomain → Real.sin x < 1 := by
   intro x hx
   exact hx.2
 
-/-- Source: `proof_gap/exercise_203/3.txt`. -/
+/-- Exercise 203, gap 3. -/
 theorem gap3 : (0 : ℝ) < 1 := by
   norm_num
 
@@ -106,7 +106,7 @@ private theorem sin_pos_iff_exists_int_interval (x : ℝ) :
       0 < Real.sin (x - (k : ℝ) * (2 * Real.pi)) := hsin
       _ = Real.sin x := Real.sin_sub_int_mul_two_pi x k
 
-/-- Source: `proof_gap/exercise_203/4.txt`; k is existential for each x, not outside the set equality. -/
+/-- Exercise 203, gap 4; k is existential for each x, not outside the set equality. -/
 theorem gap4 :
     sinDomain =
       {x : ℝ | ∃ k : ℤ,
@@ -149,21 +149,21 @@ theorem gap4 :
         rw [hjk_eq]
         ring
 
-/-- Source: `proof_gap/exercise_203/5.txt`; positivity is conditional. -/
+/-- Exercise 203, gap 5; positivity is conditional. -/
 theorem gap5 : ∀ x : ℝ, x ∈ logDomain → 0 < Real.log x := by
   intro x hx
   exact hx.2.1
 
-/-- Source: `proof_gap/exercise_203/6.txt`. -/
+/-- Exercise 203, gap 6. -/
 theorem gap6 : ∀ x : ℝ, x ∈ logDomain → Real.log x < 1 := by
   intro x hx
   exact hx.2.2
 
-/-- Source: `proof_gap/exercise_203/7.txt`. -/
+/-- Exercise 203, gap 7. -/
 theorem gap7 : (0 : ℝ) < 1 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_203/8.txt`. -/
+/-- Exercise 203, gap 8. -/
 theorem gap8 : logDomain = Set.Ioo 1 (Real.exp 1) := by
   ext x
   constructor
@@ -175,21 +175,21 @@ theorem gap8 : logDomain = Set.Ioo 1 (Real.exp 1) := by
     exact ⟨hxpos, (Real.log_pos_iff hxpos.le).2 hxone,
       (Real.log_lt_iff_lt_exp hxpos).2 hxexp⟩
 
-/-- Source: `proof_gap/exercise_203/9.txt`; positivity is conditional. -/
+/-- Exercise 203, gap 9; positivity is conditional. -/
 theorem gap9 : ∀ x : ℝ, x ∈ floorRatioDomain → 0 < floorRatio x := by
   intro x hx
   exact hx.1
 
-/-- Source: `proof_gap/exercise_203/10.txt`. -/
+/-- Exercise 203, gap 10. -/
 theorem gap10 : ∀ x : ℝ, x ∈ floorRatioDomain → floorRatio x < 1 := by
   intro x hx
   exact hx.2
 
-/-- Source: `proof_gap/exercise_203/11.txt`. -/
+/-- Exercise 203, gap 11. -/
 theorem gap11 : (0 : ℝ) < 1 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_203/12.txt`; express nonintegrality without a mismatched natural-number set. -/
+/-- Exercise 203, gap 12; express nonintegrality without a mismatched natural-number set. -/
 theorem gap12 :
     floorRatioDomain = {x : ℝ | 1 < x ∧ x ≠ (⌊x⌋ : ℤ)} := by
   apply Set.ext

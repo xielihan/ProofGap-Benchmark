@@ -15,7 +15,7 @@ def IsLeastPositivePeriod (g : ℝ → ℝ) (T : ℝ) : Prop :=
   0 < T ∧ Function.Periodic g T ∧
     ∀ T', 0 < T' → Function.Periodic g T' → T ≤ T'
 
-/-- Source: `proof_gap/exercise_233_2/1.txt`. -/
+/-- Exercise 233_2, gap 1. -/
 private theorem f_factor (x : ℝ) :
     f x = (1 / 3 : ℝ) * Real.sin x *
       (4 * Real.cos x ^ 2 + 3 * Real.cos x + 2) := by
@@ -58,7 +58,7 @@ theorem gap1 : Function.Periodic f (2 * Real.pi) := by
       _ = Real.sin (3 * x) := Real.sin_add_two_pi _
   rw [h1, h2, h3]
 
-/-- Source: `proof_gap/exercise_233_2/2.txt`; represent `min` by the least-positive-period predicate. -/
+/-- Exercise 233_2, gap 2; represent `min` by the least-positive-period predicate. -/
 theorem gap2 : IsLeastPositivePeriod f (2 * Real.pi) := by
   refine ⟨?_, gap1, ?_⟩
   · nlinarith [Real.pi_pos]

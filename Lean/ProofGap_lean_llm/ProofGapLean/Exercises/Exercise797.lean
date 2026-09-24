@@ -14,7 +14,7 @@ def f (x : ℝ) : ℝ := Real.exp x * Real.cos (1 / x)
 def xseq (n : ℕ) : ℝ := 2 / ((2 * n + 1 : ℕ) * Real.pi)
 def xseq' (n : ℕ) : ℝ := 1 / ((n : ℝ) * Real.pi)
 
-/-- Source: `proof_gap/exercise_797/1.txt`; add `n≥1`. -/
+/-- Exercise 797, gap 1; add `n≥1`. -/
 private lemma one_lt_pi : (1 : ℝ) < Real.pi := by
   exact lt_of_lt_of_le (by norm_num) Real.two_le_pi
 
@@ -54,7 +54,7 @@ theorem gap1 (n : ℕ) (hn : 1 ≤ n) : xseq n ∈ Set.Ioo (0 : ℝ) 1 := by
     apply (div_lt_iff₀ hdenpos).2
     simpa using hden
 
-/-- Source: `proof_gap/exercise_797/2.txt`; bind the primed sequence index and
+/-- Exercise 797, gap 2; bind the primed sequence index and
 add `n≥1`. -/
 theorem gap2 (n : ℕ) (hn : 1 ≤ n) : xseq' n ∈ Set.Ioo (0 : ℝ) 1 := by
   constructor
@@ -77,7 +77,7 @@ theorem gap2 (n : ℕ) (hn : 1 ≤ n) : xseq' n ∈ Set.Ioo (0 : ℝ) 1 := by
     apply (div_lt_iff₀ hdenpos).2
     simpa using hden
 
-/-- Source: `proof_gap/exercise_797/3.txt`; replace `BigEnough(n)` by an
+/-- Exercise 797, gap 3; replace `BigEnough(n)` by an
 explicit eventual statement. -/
 theorem gap3 :
     ∃ N, ∀ n ≥ N,
@@ -97,7 +97,7 @@ theorem gap3 :
     field_simp [ne_of_gt hnpos, ne_of_gt hoddpos, hpi0] <;> ring
   rw [hid, abs_neg, abs_of_pos (by positivity)]
 
-/-- Source: `proof_gap/exercise_797/4.txt`; replace `BigEnough`. -/
+/-- Exercise 797, gap 4; replace `BigEnough`. -/
 theorem gap4 :
     ∀ δ > 0, ∃ N, ∀ n ≥ N,
       1 / ((2 * n + 1 : ℕ) * n * Real.pi) < δ := by
@@ -135,7 +135,7 @@ theorem gap4 :
   have hscale := mul_le_mul_of_nonneg_right hden_ge hδ.le
   nlinarith
 
-/-- Source: `proof_gap/exercise_797/5.txt`. -/
+/-- Exercise 797, gap 5. -/
 theorem gap5 :
     ∀ δ > 0, ∃ N, ∀ n ≥ N, |xseq n - xseq' n| < δ := by
   intro δ hδ
@@ -149,7 +149,7 @@ theorem gap5 :
       h₁ n (le_trans (Nat.le_max_left N₁ N₂) hn)
     _ < δ := h₂ n (le_trans (Nat.le_max_right N₁ N₂) hn)
 
-/-- Source: `proof_gap/exercise_797/6.txt`; bind `n≥1`. -/
+/-- Exercise 797, gap 6; bind `n≥1`. -/
 theorem gap6 (n : ℕ) (hn : 1 ≤ n) :
     |f (xseq n) - f (xseq' n)| =
       Real.exp (1 / ((n : ℝ) * Real.pi)) := by
@@ -174,7 +174,7 @@ theorem gap6 (n : ℕ) (hn : 1 ≤ n) :
   rw [abs_of_pos (Real.exp_pos _), hcos']
   simp [xseq']
 
-/-- Source: `proof_gap/exercise_797/7.txt`; bind `n≥1`. -/
+/-- Exercise 797, gap 7; bind `n≥1`. -/
 theorem gap7 (n : ℕ) (hn : 1 ≤ n) :
     1 < Real.exp (1 / ((n : ℝ) * Real.pi)) := by
   have hnpos : (0 : ℝ) < (n : ℝ) := by
@@ -184,17 +184,17 @@ theorem gap7 (n : ℕ) (hn : 1 ≤ n) :
     _ < Real.exp (1 / ((n : ℝ) * Real.pi)) :=
       Real.exp_lt_exp.mpr (by positivity)
 
-/-- Source: `proof_gap/exercise_797/8.txt`; make the fixed witness explicit. -/
+/-- Exercise 797, gap 8; make the fixed witness explicit. -/
 theorem gap8 : (1 : ℝ) = 1 := by
   rfl
 
-/-- Source: `proof_gap/exercise_797/9.txt`; replace `BigEnough` by `n≥1`. -/
+/-- Exercise 797, gap 9; replace `BigEnough` by `n≥1`. -/
 theorem gap9 (n : ℕ) (hn : 1 ≤ n) :
     1 < |f (xseq n) - f (xseq' n)| := by
   rw [gap6 n hn]
   exact gap7 n hn
 
-/-- Source: `proof_gap/exercise_797/10.txt`. -/
+/-- Exercise 797, gap 10. -/
 theorem gap10 : ¬UniformContinuousOn f (Set.Ioo (0 : ℝ) 1) := by
   intro huc
   obtain ⟨δ, hδ, hcontrol⟩ :=
@@ -215,7 +215,7 @@ theorem gap10 : ¬UniformContinuousOn f (Set.Ioo (0 : ℝ) 1) := by
     simpa only [Real.dist_eq] using hsmall
   nlinarith [gap9 n hn1]
 
-/-- Source: `proof_gap/exercise_797/11.txt`. -/
+/-- Exercise 797, gap 11. -/
 theorem gap11 : ¬UniformContinuousOn f (Set.Ioo (0 : ℝ) 1) := by
   exact gap10
 

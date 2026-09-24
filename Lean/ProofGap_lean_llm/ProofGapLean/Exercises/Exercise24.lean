@@ -4,19 +4,19 @@ import Mathlib.Tactic.Linarith
 /-!
 # Exercise 24
 
-Semantic formalization of `proof_gap/exercise_24/{1,2,3}.txt`.
+Semantic formalization of Exercise 24, gaps 1,2,3.
 -/
 
 namespace ProofGap.Exercise24
 
-/-- Source: `proof_gap/exercise_24/1.txt`. -/
+/-- Exercise 24, gap 1. -/
 theorem gap1 (x : ℝ) :
     |x| > |x + 1| ↔ x ^ 2 > (x + 1) ^ 2 := by
   constructor <;> intro h
   · nlinarith [sq_abs x, sq_abs (x + 1), abs_nonneg x, abs_nonneg (x + 1)]
   · nlinarith [sq_abs x, sq_abs (x + 1), abs_nonneg x, abs_nonneg (x + 1)]
 
-/-- Source: `proof_gap/exercise_24/2.txt`. -/
+/-- Exercise 24, gap 2. -/
 theorem gap2
     (x : ℝ)
     (h1 : |x| > |x + 1| ↔ x ^ 2 > (x + 1) ^ 2) :
@@ -24,7 +24,7 @@ theorem gap2
   rw [h1]
   constructor <;> intro h <;> nlinarith
 
-/-- Source: `proof_gap/exercise_24/3.txt`. -/
+/-- Exercise 24, gap 3. -/
 theorem gap3
     (x : ℝ)
     (h2 : |x| > |x + 1| ↔ 2 * x + 1 < 0) :

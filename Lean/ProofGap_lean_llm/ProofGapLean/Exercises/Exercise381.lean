@@ -20,12 +20,12 @@ noncomputable def f (x : ℝ) : ℝ := by
 def BoundedOn (g : ℝ → ℝ) (s : Set ℝ) : Prop :=
   ∃ M : ℝ, 0 < M ∧ ∀ x ∈ s, |g x| ≤ M
 
-/-- Source: `proof_gap/exercise_381/1.txt`; use the unique reduced rational denominator. -/
+/-- Exercise 381, gap 1; use the unique reduced rational denominator. -/
 theorem gap1 : ∀ x₀ : ℝ, ∃ M : ℝ, f x₀ = M := by
   intro x₀
   exact ⟨f x₀, rfl⟩
 
-/-- Source: `proof_gap/exercise_381/2.txt`. -/
+/-- Exercise 381, gap 2. -/
 theorem gap2 : ∀ x₀ : ℝ, ∀ δ > 0,
     Set.Infinite {x : ℝ | IsRational x ∧ x₀ - δ < x ∧ x < x₀ + δ} := by
   intro x₀ δ hδ
@@ -79,7 +79,7 @@ theorem gap2 : ∀ x₀ : ℝ, ∀ δ > 0,
   have hgs_real : (g n : ℝ) ≤ (s : ℝ) := by exact_mod_cast hgs
   exact ⟨⟨g n, rfl⟩, lt_trans har hrg_real, lt_of_le_of_lt hgs_real hsb⟩
 
-/-- Source: `proof_gap/exercise_381/3.txt`; keep the bound local to the chosen interval. -/
+/-- Exercise 381, gap 3; keep the bound local to the chosen interval. -/
 theorem gap3 : ∀ x₀ : ℝ, ∀ δ > 0,
     BoundedOn f (Set.Ioo (x₀ - δ) (x₀ + δ)) →
       ∃ M : ℝ, 0 < M ∧
@@ -87,7 +87,7 @@ theorem gap3 : ∀ x₀ : ℝ, ∀ δ > 0,
   intro x₀ δ hδ h
   simpa [BoundedOn] using h
 
-/-- Source: `proof_gap/exercise_381/4.txt`; compare the reduced denominator directly with the local real bound. -/
+/-- Exercise 381, gap 4; compare the reduced denominator directly with the local real bound. -/
 theorem gap4 : ∀ x₀ : ℝ, ∀ δ > 0, ∀ M > 0,
     (∀ x ∈ Set.Ioo (x₀ - δ) (x₀ + δ), |f x| ≤ M) →
       ∀ x ∈ Set.Ioo (x₀ - δ) (x₀ + δ),
@@ -95,7 +95,7 @@ theorem gap4 : ∀ x₀ : ℝ, ∀ δ > 0, ∀ M > 0,
   intro x₀ δ hδ M hM hbound x hx hrat
   exact (le_abs_self (f x)).trans (hbound x hx)
 
-/-- Source: `proof_gap/exercise_381/5.txt`; bind the rational representative instead of using global existential numerators. -/
+/-- Exercise 381, gap 5; bind the rational representative instead of using global existential numerators. -/
 theorem gap5 : ∀ x₀ : ℝ, ∀ δ > 0, ∀ M > 0, ∀ q : ℚ,
     (q : ℝ) ∈ Set.Ioo (x₀ - δ) (x₀ + δ) →
       (q.den : ℝ) ≤ M →
@@ -107,7 +107,7 @@ theorem gap5 : ∀ x₀ : ℝ, ∀ δ > 0, ∀ M > 0, ∀ q : ℚ,
   rw [Rat.cast_def] at h
   exact (lt_div_iff₀ hd).mp h
 
-/-- Source: `proof_gap/exercise_381/6.txt`. -/
+/-- Exercise 381, gap 6. -/
 theorem gap6 : ∀ x₀ : ℝ, ∀ δ > 0, ∀ M > 0, ∀ q : ℚ,
     (q : ℝ) ∈ Set.Ioo (x₀ - δ) (x₀ + δ) →
       (q.den : ℝ) ≤ M →
@@ -119,14 +119,14 @@ theorem gap6 : ∀ x₀ : ℝ, ∀ δ > 0, ∀ M > 0, ∀ q : ℚ,
   rw [Rat.cast_def] at h
   exact (div_lt_iff₀ hd).mp h
 
-/-- Source: `proof_gap/exercise_381/7.txt`. -/
+/-- Exercise 381, gap 7. -/
 theorem gap7 : ∀ x₀ : ℝ, ∀ δ > 0, ∀ M > 0,
     (x₀ - δ) * M < (x₀ + δ) * M := by
   intro x₀ δ hδ M hM
   apply mul_lt_mul_of_pos_right _ hM
   linarith
 
-/-- Source: `proof_gap/exercise_381/8.txt`; use reduced rationals to obtain the intended finite set. -/
+/-- Exercise 381, gap 8; use reduced rationals to obtain the intended finite set. -/
 theorem gap8 : ∀ x₀ : ℝ, ∀ δ > 0, ∀ M > 0,
     Set.Finite {q : ℚ |
       (q : ℝ) ∈ Set.Ioo (x₀ - δ) (x₀ + δ) ∧ (q.den : ℝ) ≤ M} := by
@@ -180,7 +180,7 @@ theorem gap8 : ∀ x₀ : ℝ, ∀ δ > 0, ∀ M > 0,
   refine ⟨(q.num, q.den), ⟨⟨hnumlowerZ, hnumupperZ⟩, hdenlower, hdenupper⟩, ?_⟩
   simpa using Rat.num_div_den q
 
-/-- Source: `proof_gap/exercise_381/9.txt`. -/
+/-- Exercise 381, gap 9. -/
 theorem gap9 : ∀ x₀ : ℝ, ∀ δ > 0,
     BoundedOn f (Set.Ioo (x₀ - δ) (x₀ + δ)) → False := by
   intro x₀ δ hδ hb
@@ -212,13 +212,13 @@ theorem gap9 : ∀ x₀ : ℝ, ∀ δ > 0,
     exact ⟨q, ⟨hqIoo, hf_le⟩, hqeq⟩
   exact (gap2 x₀ δ hδ) hFinite
 
-/-- Source: `proof_gap/exercise_381/10.txt`. -/
+/-- Exercise 381, gap 10. -/
 theorem gap10 : ∀ x₀ : ℝ, ∀ δ > 0,
     ¬BoundedOn f (Set.Ioo (x₀ - δ) (x₀ + δ)) := by
   intro x₀ δ hδ hb
   exact gap9 x₀ δ hδ hb
 
-/-- Source: `proof_gap/exercise_381/11.txt`; repair the shadowed denominator witnesses in the source definition. -/
+/-- Exercise 381, gap 11; repair the shadowed denominator witnesses in the source definition. -/
 theorem gap11 :
     (∀ x : ℝ, ∃ M : ℝ, f x = M) ∧
       ∀ x₀ : ℝ, ∀ δ > 0,

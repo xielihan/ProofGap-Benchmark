@@ -18,7 +18,7 @@ def expandedDerivative (n : ℕ) (x : ℝ) : ℝ :=
 def finalDerivative (n : ℕ) (x : ℝ) : ℝ :=
   (n : ℝ) * Real.sin x / Real.cos x ^ (n + 1)
 
-/-- Source: `proof_gap/exercise_869/1.txt`; restrict to the domain of the
+/-- Exercise 869, gap 1; restrict to the domain of the
 reciprocal power. -/
 theorem gap1 (n : ℕ) (x : ℝ) (hcos : Real.cos x ≠ 0) :
     deriv (y n) x = expandedDerivative n x := by
@@ -38,7 +38,7 @@ theorem gap1 (n : ℕ) (x : ℝ) (hcos : Real.cos x ≠ 0) :
   rw [Nat.mul_comm 2 n, pow_mul]
   ring_nf
 
-/-- Source: `proof_gap/exercise_869/2.txt`; retain the source function's
+/-- Exercise 869, gap 2; retain the source function's
 domain while simplifying its derivative. -/
 theorem gap2 (n : ℕ) (x : ℝ) (hcos : Real.cos x ≠ 0) :
     expandedDerivative n x = finalDerivative n x := by
@@ -57,7 +57,7 @@ theorem gap2 (n : ℕ) (x : ℝ) (hcos : Real.cos x ≠ 0) :
       rw [hpow]
       field_simp [hcos]
 
-/-- Source: `proof_gap/exercise_869/3.txt`; restrict to the domain of the
+/-- Exercise 869, gap 3; restrict to the domain of the
 source function. -/
 theorem gap3 (n : ℕ) (x : ℝ) (hcos : Real.cos x ≠ 0) :
     deriv (y n) x = finalDerivative n x := by

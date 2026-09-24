@@ -25,7 +25,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 def finalDerivative (x : ℝ) : ℝ :=
   1 / (x ^ 2 + 2)
 
-/-- Source: `proof_gap/exercise_916/1.txt`; exclude the pole in the
+/-- Exercise 916, gap 1; exclude the pole in the
 arccotangent argument. -/
 theorem gap1 (x : ℝ) (hx : x ≠ 0) :
     HasDerivAt y (expandedDerivative x) x := by
@@ -46,7 +46,7 @@ theorem gap1 (x : ℝ) (hx : x ≠ 0) :
   unfold y expandedDerivative
   convert hcomp.const_mul (1 / Real.sqrt 2) using 1 <;> simp <;> ring
 
-/-- Source: `proof_gap/exercise_916/2.txt`; the simplification divides by
+/-- Exercise 916, gap 2; the simplification divides by
 the original nonzero `x`. -/
 theorem gap2 (x : ℝ) (hx : x ≠ 0) :
     expandedDerivative x = finalDerivative x := by
@@ -60,7 +60,7 @@ theorem gap2 (x : ℝ) (hx : x ≠ 0) :
   rw [hrewrite]
   field_simp [hsqrt, hx2, hsum]
 
-/-- Source: `proof_gap/exercise_916/3.txt`; the chosen source expression is
+/-- Exercise 916, gap 3; the chosen source expression is
 not differentiable through its reciprocal pole. -/
 theorem gap3 (x : ℝ) (hx : x ≠ 0) :
     HasDerivAt y (finalDerivative x) x := by

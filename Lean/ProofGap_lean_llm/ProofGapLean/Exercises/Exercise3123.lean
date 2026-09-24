@@ -19,7 +19,7 @@ def Within (actual rounded tolerance : ℝ) : Prop :=
   |actual - rounded| ≤ tolerance
 
 /--
-Source: `proof_gap/exercise_3123/1.txt`; replace global informal `≈`
+Exercise 3123, gap 1; replace global informal `≈`
 by an explicit error bound on the interpolation interval.
 -/
 private theorem lagrange_error_bound {x : ℝ}
@@ -221,7 +221,7 @@ theorem gap1 :
   exact (lagrange_error_bound hx).trans (by norm_num)
 
 /--
-Source: `proof_gap/exercise_3123/2.txt`; the rounded-coefficient model
+Exercise 3123, gap 2; the rounded-coefficient model
 is also restricted to the data interval with a quantitative error.
 -/
 theorem gap2 :
@@ -254,22 +254,22 @@ theorem gap2 :
     _ ≤ 106 / 99 + 1 / 100 := add_le_add hlag hdiff
     _ ≤ 11 / 10 := by norm_num
 
-/-- Source: `proof_gap/exercise_3123/3.txt`; evaluate the model, not a free `y`. -/
+/-- Exercise 3123, gap 3; evaluate the model, not a free `y`. -/
 theorem gap3 :
     Within (decimalSqrtModel 4) 1.564 0.0005 := by
   norm_num [Within, decimalSqrtModel]
 
-/-- Source: `proof_gap/exercise_3123/4.txt`; evaluate the model, not a free `y`. -/
+/-- Exercise 3123, gap 4; evaluate the model, not a free `y`. -/
 theorem gap4 :
     Within (decimalSqrtModel 9) 2.463 0.0005 := by
   norm_num [Within, decimalSqrtModel]
 
-/-- Source: `proof_gap/exercise_3123/5.txt`; evaluate the model, not a free `y`. -/
+/-- Exercise 3123, gap 5; evaluate the model, not a free `y`. -/
 theorem gap5 :
     Within (decimalSqrtModel 16) 3.637 0.0005 := by
   norm_num [Within, decimalSqrtModel]
 
-/-- Source: `proof_gap/exercise_3123/6.txt`; evaluate the model, not a free `y`. -/
+/-- Exercise 3123, gap 6; evaluate the model, not a free `y`. -/
 theorem gap6 :
     Within (decimalSqrtModel 36) 6.447 0.0005 := by
   norm_num [Within, decimalSqrtModel]

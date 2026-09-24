@@ -13,7 +13,7 @@ def imageOn (g : ℝ → ℝ) (s : Set ℝ) : Set ℝ :=
 def OscillationOn (g : ℝ → ℝ) (s : Set ℝ) : ℝ :=
   sSup (imageOn g s) - sInf (imageOn g s)
 
-/-- Source: `proof_gap/exercise_398/1.txt`. -/
+/-- Exercise 398, gap 1. -/
 private theorem oscillationOn_symmetric_interval (a : ℝ) (ha : 0 < a) :
     OscillationOn f (Set.Ioo (-a) a) =
       Real.pi / 2 - (-Real.pi / 2) := by
@@ -131,18 +131,18 @@ theorem gap1 : OscillationOn f (Set.Ioo (-1) 1) =
   simpa using
     (oscillationOn_symmetric_interval (1 : ℝ) (by norm_num))
 
-/-- Source: `proof_gap/exercise_398/2.txt`. -/
+/-- Exercise 398, gap 2. -/
 theorem gap2 : Real.pi / 2 - (-Real.pi / 2) = Real.pi := by
   ring
 
-/-- Source: `proof_gap/exercise_398/3.txt`. -/
+/-- Exercise 398, gap 3. -/
 theorem gap3 : OscillationOn f (Set.Ioo (-1) 1) = Real.pi := by
   calc
     OscillationOn f (Set.Ioo (-1) 1) =
         Real.pi / 2 - (-Real.pi / 2) := gap1
     _ = Real.pi := gap2
 
-/-- Source: `proof_gap/exercise_398/4.txt`. -/
+/-- Exercise 398, gap 4. -/
 theorem gap4 : OscillationOn f (Set.Ioo (-0.1) 0.1) = Real.pi := by
   calc
     OscillationOn f (Set.Ioo (-0.1) 0.1) =
@@ -150,7 +150,7 @@ theorem gap4 : OscillationOn f (Set.Ioo (-0.1) 0.1) = Real.pi := by
       oscillationOn_symmetric_interval (0.1 : ℝ) (by norm_num)
     _ = Real.pi := gap2
 
-/-- Source: `proof_gap/exercise_398/5.txt`. -/
+/-- Exercise 398, gap 5. -/
 theorem gap5 : OscillationOn f (Set.Ioo (-0.01) 0.01) = Real.pi := by
   calc
     OscillationOn f (Set.Ioo (-0.01) 0.01) =
@@ -158,7 +158,7 @@ theorem gap5 : OscillationOn f (Set.Ioo (-0.01) 0.01) = Real.pi := by
       oscillationOn_symmetric_interval (0.01 : ℝ) (by norm_num)
     _ = Real.pi := gap2
 
-/-- Source: `proof_gap/exercise_398/6.txt`. -/
+/-- Exercise 398, gap 6. -/
 theorem gap6 : OscillationOn f (Set.Ioo (-0.001) 0.001) = Real.pi := by
   calc
     OscillationOn f (Set.Ioo (-0.001) 0.001) =

@@ -15,7 +15,7 @@ def shifted (n : ℕ) : ℝ :=
 def rationalized (n : ℕ) : ℝ :=
   paritySign n * Real.sin (Real.pi / (Real.sqrt (n ^ 2 + 1) + n))
 
-/-- Source: `proof_gap/exercise_604/1.txt`. -/
+/-- Exercise 604, gap 1. -/
 private theorem paritySign_mul_sin_sub_nat_mul_pi
     (n : ℕ) (x : ℝ) :
     paritySign n * Real.sin (x - n * Real.pi) = Real.sin x := by
@@ -52,7 +52,7 @@ theorem gap1 (L : ℝ) :
     exact (paritySign_mul_sin_sub_nat_mul_pi n _).symm
   rw [hfun]
 
-/-- Source: `proof_gap/exercise_604/2.txt`. -/
+/-- Exercise 604, gap 2. -/
 theorem gap2 (L : ℝ) :
     Filter.Tendsto shifted Filter.atTop (nhds L) ↔
       Filter.Tendsto rationalized Filter.atTop (nhds L) := by
@@ -84,7 +84,7 @@ theorem gap2 (L : ℝ) :
     rw [harg]
   rw [hfun]
 
-/-- Source: `proof_gap/exercise_604/3.txt`. -/
+/-- Exercise 604, gap 3. -/
 theorem gap3 : Filter.Tendsto rationalized Filter.atTop (nhds 0) := by
   have harg :
       Filter.Tendsto
@@ -147,7 +147,7 @@ theorem gap3 : Filter.Tendsto rationalized Filter.atTop (nhds 0) := by
   by_cases h : Even n <;>
     simpa [rationalized, paritySign, h, Real.dist_eq] using hs
 
-/-- Source: `proof_gap/exercise_604/4.txt`. -/
+/-- Exercise 604, gap 4. -/
 theorem gap4 : Filter.Tendsto seq Filter.atTop (nhds 0) := by
   exact (gap1 0).2 ((gap2 0).2 gap3)
 

@@ -11,7 +11,7 @@ noncomputable def runningInf (f : ℝ → ℝ) (a x : ℝ) : ℝ :=
 noncomputable def runningSup (f : ℝ → ℝ) (a x : ℝ) : ℝ :=
   sSup (f '' Set.Icc a x)
 
-/-- Source: `proof_gap/exercise_748/1.txt`. -/
+/-- Exercise 748, gap 1. -/
 private theorem runningSup_continuousOn_aux (f : ℝ → ℝ) (a b : ℝ)
     (hf : ContinuousOn f (Set.Icc a b)) :
     ContinuousOn (runningSup f a) (Set.Icc a b) := by
@@ -108,7 +108,7 @@ theorem gap1 (f : ℝ → ℝ) (a b : ℝ) (hf : ContinuousOn f (Set.Icc a b)) :
   have hout := hmain hx (by simpa [Real.dist_eq] using hdist)
   simpa [Real.dist_eq] using hout
 
-/-- Source: `proof_gap/exercise_748/2.txt`; move `δ` under `x₀, ε`. -/
+/-- Exercise 748, gap 2; move `δ` under `x₀, ε`. -/
 theorem gap2 (f : ℝ → ℝ) (a b : ℝ) (hf : ContinuousOn f (Set.Icc a b)) :
     ∀ x₀ ∈ Set.Icc a b, ∀ ε > 0,
       ∃ δ > 0, ∀ x ∈ Set.Icc a b,
@@ -123,7 +123,7 @@ theorem gap2 (f : ℝ → ℝ) (a b : ℝ) (hf : ContinuousOn f (Set.Icc a b)) :
   have hclose := hmain x hx hdist
   linarith [(abs_lt.mp hclose).1]
 
-/-- Source: `proof_gap/exercise_748/3.txt`; remove the irrelevant existential `δ`. -/
+/-- Exercise 748, gap 3; remove the irrelevant existential `δ`. -/
 theorem gap3 (f : ℝ → ℝ) (a x₀ ε : ℝ) (ha : a ≤ x₀)
     (hbdd : BddBelow (f '' Set.Icc a x₀)) :
     f x₀ - ε ≥ runningInf f a x₀ - ε := by
@@ -132,7 +132,7 @@ theorem gap3 (f : ℝ → ℝ) (a x₀ ε : ℝ) (ha : a ≤ x₀)
     csInf_le hbdd ⟨x₀, ⟨ha, le_rfl⟩, rfl⟩
   linarith
 
-/-- Source: `proof_gap/exercise_748/4.txt`; move `δ` under `x₀, ε`. -/
+/-- Exercise 748, gap 4; move `δ` under `x₀, ε`. -/
 theorem gap4 (f : ℝ → ℝ) (a b : ℝ)
     (hright : ∀ x₀ ∈ Set.Icc a b, ∀ ε > 0,
       ∃ δ > 0, ∀ x, x₀ < x → x < x₀ + δ → f x > f x₀ - ε) :
@@ -148,7 +148,7 @@ theorem gap4 (f : ℝ → ℝ) (a b : ℝ)
   have hinf := gap3 f a x₀ ε hx₀.1 (hbdd x₀ hx₀)
   linarith
 
-/-- Source: `proof_gap/exercise_748/5.txt`; move `δ` under `x₀, ε`. -/
+/-- Exercise 748, gap 5; move `δ` under `x₀, ε`. -/
 theorem gap5 (f : ℝ → ℝ) (a b : ℝ)
     (hpoint : ∀ x₀ ∈ Set.Icc a b, ∀ ε > 0,
       ∃ δ > 0, ∀ x, x₀ < x → x < x₀ + δ →
@@ -184,7 +184,7 @@ theorem gap5 (f : ℝ → ℝ) (a b : ℝ)
     rw [Real.sInf_of_not_bddBelow hb, Real.sInf_of_not_bddBelow hbx]
     linarith
 
-/-- Source: `proof_gap/exercise_748/6.txt`; state monotonicity without irrelevant `δ, ε`. -/
+/-- Exercise 748, gap 6; state monotonicity without irrelevant `δ, ε`. -/
 theorem gap6 (f : ℝ → ℝ) (a : ℝ) :
     ∀ x₀ x, a ≤ x₀ → x₀ ≤ x → BddBelow (f '' Set.Icc a x) →
       runningInf f a x ≤ runningInf f a x₀ := by
@@ -195,7 +195,7 @@ theorem gap6 (f : ℝ → ℝ) (a : ℝ) :
   · rintro y ⟨z, hz, rfl⟩
     exact csInf_le hbdd ⟨z, ⟨hz.1, hz.2.trans hx₀x⟩, rfl⟩
 
-/-- Source: `proof_gap/exercise_748/7.txt`; retain the local lower estimate. -/
+/-- Exercise 748, gap 7; retain the local lower estimate. -/
 theorem gap7 (f : ℝ → ℝ) (a b : ℝ)
     (hlower : ∀ x₀ ∈ Set.Icc a b, ∀ ε > 0,
       ∃ δ > 0, ∀ x, x₀ < x → x < x₀ + δ →
@@ -205,14 +205,14 @@ theorem gap7 (f : ℝ → ℝ) (a b : ℝ)
         runningInf f a x ≥ runningInf f a x₀ - ε := by
   exact hlower
 
-/-- Source: `proof_gap/exercise_748/8.txt`; remove irrelevant `x, δ`. -/
+/-- Exercise 748, gap 8; remove irrelevant `x, δ`. -/
 theorem gap8 (f : ℝ → ℝ) (a b : ℝ) :
     ∀ x₀ ∈ Set.Icc a b, ∀ ε > 0,
       runningInf f a x₀ ≥ runningInf f a x₀ - ε := by
   intro x₀ hx₀ ε hε
   linarith
 
-/-- Source: `proof_gap/exercise_748/9.txt`; express the right limit by `nhdsWithin`. -/
+/-- Exercise 748, gap 9; express the right limit by `nhdsWithin`. -/
 theorem gap9 (f : ℝ → ℝ) (a b : ℝ)
     (hright : ∀ x₀ ∈ Set.Icc a b, ∀ ε > 0,
       ∃ δ > 0, ∀ x, x₀ < x → x < x₀ + δ →
@@ -232,7 +232,7 @@ theorem gap9 (f : ℝ → ℝ) (a b : ℝ)
   rw [Real.dist_eq]
   exact hmain x hx hnear.2
 
-/-- Source: `proof_gap/exercise_748/10.txt`. -/
+/-- Exercise 748, gap 10. -/
 theorem gap10 (f : ℝ → ℝ) (a b x₀ : ℝ)
     (hf : ContinuousOn f (Set.Icc a b)) (hx₀ : x₀ ∈ Set.Icc a b)
     (hmin : runningInf f a x₀ = f x₀) :
@@ -248,7 +248,7 @@ theorem gap10 (f : ℝ → ℝ) (a b x₀ : ℝ)
   have hclose := hmain x hx hdist
   linarith [(abs_lt.mp hclose).2]
 
-/-- Source: `proof_gap/exercise_748/11.txt`; add the missing restriction `x≤x₀`. -/
+/-- Exercise 748, gap 11; add the missing restriction `x≤x₀`. -/
 theorem gap11 (f : ℝ → ℝ) (a x₀ x : ℝ)
     (hx : a ≤ x) (hxx₀ : x ≤ x₀)
     (hbdd : BddBelow (f '' Set.Icc a x₀))
@@ -260,7 +260,7 @@ theorem gap11 (f : ℝ → ℝ) (a x₀ x : ℝ)
   · rintro y ⟨z, hz, rfl⟩
     exact csInf_le hbdd ⟨z, ⟨hz.1, hz.2.trans hxx₀⟩, rfl⟩
 
-/-- Source: `proof_gap/exercise_748/12.txt`; add the missing left-neighborhood condition. -/
+/-- Exercise 748, gap 12; add the missing left-neighborhood condition. -/
 theorem gap12 (f : ℝ → ℝ) (a x₀ ε : ℝ) (hε : 0 < ε)
     (hleft : ∃ δ > 0, ∀ x, x₀ - δ < x → x < x₀ →
       runningInf f a x < runningInf f a x₀ + ε) :
@@ -268,14 +268,14 @@ theorem gap12 (f : ℝ → ℝ) (a x₀ ε : ℝ) (hε : 0 < ε)
       runningInf f a x < runningInf f a x₀ + ε := by
   exact hleft
 
-/-- Source: `proof_gap/exercise_748/13.txt`; remove the irrelevant quantified `x`. -/
+/-- Exercise 748, gap 13; remove the irrelevant quantified `x`. -/
 theorem gap13 (f : ℝ → ℝ) (a b : ℝ) :
     ∀ x₀ ∈ Set.Icc a b, ∀ ε > 0,
       runningInf f a x₀ < runningInf f a x₀ + ε := by
   intro x₀ hx₀ ε hε
   linarith
 
-/-- Source: `proof_gap/exercise_748/14.txt`; add the omitted left-neighborhood condition. -/
+/-- Exercise 748, gap 14; add the omitted left-neighborhood condition. -/
 theorem gap14 (f : ℝ → ℝ) (a b x₀ x₁ : ℝ)
     (hx₀ : x₀ ∈ Set.Icc a b)
     (hattain : runningInf f a x₀ = f x₁) (ha : a ≤ x₁) (hx₁ : x₁ < x₀)
@@ -298,7 +298,7 @@ theorem gap14 (f : ℝ → ℝ) (a b x₀ x₁ : ℝ)
       _ = runningInf f a x₀ := hattain.symm
   · exact gap6 f a x x₀ hax (le_of_lt hxx₀) hbdd
 
-/-- Source: `proof_gap/exercise_748/15.txt`; express the left limit by `nhdsWithin`. -/
+/-- Exercise 748, gap 15; express the left limit by `nhdsWithin`. -/
 theorem gap15 (f : ℝ → ℝ) (a b : ℝ)
     (hleft : ∀ x₀ ∈ Set.Icc a b, ∀ ε > 0,
       ∃ δ > 0, ∀ x, x₀ - δ < x → x < x₀ →
@@ -318,18 +318,18 @@ theorem gap15 (f : ℝ → ℝ) (a b : ℝ)
   rw [Real.dist_eq]
   exact hmain x hnear.1 hx
 
-/-- Source: `proof_gap/exercise_748/16.txt`. -/
+/-- Exercise 748, gap 16. -/
 theorem gap16 (f : ℝ → ℝ) (a b : ℝ)
     (hcont : ∀ x₀ ∈ Set.Icc a b, ContinuousAt (runningInf f a) x₀) :
     ∀ x₀ ∈ Set.Icc a b, ContinuousAt (runningInf f a) x₀ := by
   exact hcont
 
-/-- Source: `proof_gap/exercise_748/17.txt`; formalize “similarly” for the running supremum. -/
+/-- Exercise 748, gap 17; formalize “similarly” for the running supremum. -/
 theorem gap17 (f : ℝ → ℝ) (a b : ℝ) (hf : ContinuousOn f (Set.Icc a b)) :
     ContinuousOn (runningSup f a) (Set.Icc a b) := by
   exact runningSup_continuousOn_aux f a b hf
 
-/-- Source: `proof_gap/exercise_748/18.txt`. -/
+/-- Exercise 748, gap 18. -/
 theorem gap18 (f : ℝ → ℝ) (a b : ℝ)
     (hmin : ContinuousOn (runningInf f a) (Set.Icc a b))
     (hmax : ContinuousOn (runningSup f a) (Set.Icc a b)) :

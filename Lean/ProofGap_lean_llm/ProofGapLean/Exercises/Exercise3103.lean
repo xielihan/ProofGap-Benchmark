@@ -100,19 +100,19 @@ private theorem evenOddWallisTerm_eq_W (n : ℕ) :
       field_simp [hden]
       ring
 
-/-- Source: `proof_gap/exercise_3103/1.txt`; use convergence of partial products. -/
+/-- Exercise 3103, gap 1; use convergence of partial products. -/
 theorem gap1 : HasWallisProduct (Real.pi / 2) := by
   unfold HasWallisProduct
   exact Real.Wallis.tendsto_W_nhds_pi_div_two.congr'
     (Eventually.of_forall fun n => (wallisPartialProduct_eq_W n).symm)
 
-/-- Source: `proof_gap/exercise_3103/2.txt`. -/
+/-- Exercise 3103, gap 2. -/
 theorem gap2 :
     Tendsto evenOddWallisTerm atTop (𝓝 (Real.pi / 2)) := by
   exact Real.Wallis.tendsto_W_nhds_pi_div_two.congr'
     (Eventually.of_forall fun n => (evenOddWallisTerm_eq_W n).symm)
 
-/-- Source: `proof_gap/exercise_3103/3.txt`. -/
+/-- Exercise 3103, gap 3. -/
 theorem gap3 :
     Asymptotics.IsEquivalent atTop
       (fun n : ℕ => (oddEvenRatio n) ^ 2) squareModel := by
@@ -138,7 +138,7 @@ theorem gap3 :
   simp only [Pi.div_apply]
   field_simp [he, ho, hd, hpi]
 
-/-- Source: `proof_gap/exercise_3103/4.txt`; both sides are eventually positive. -/
+/-- Exercise 3103, gap 4; both sides are eventually positive. -/
 theorem gap4 :
     Asymptotics.IsEquivalent atTop oddEvenRatio ratioModel := by
   have hsquare_ne : ∀ᶠ n : ℕ in atTop, squareModel n ≠ 0 :=
@@ -205,7 +205,7 @@ theorem gap4 :
   simp only [Pi.div_apply]
   rw [Real.sqrt_sq_eq_abs, abs_of_nonneg (div_nonneg hratio_nonneg hmodel_pos.le)]
 
-/-- Source: `proof_gap/exercise_3103/5.txt`. -/
+/-- Exercise 3103, gap 5. -/
 theorem gap5 :
     Asymptotics.IsEquivalent atTop oddEvenRatio ratioModel := by
   exact gap4

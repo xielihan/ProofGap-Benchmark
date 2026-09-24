@@ -16,7 +16,7 @@ def productForm (x : ℝ) : ℝ :=
 def HasLimitAtPosInfinity (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f Filter.atTop (nhds L)
 
-/-- Source: `proof_gap/exercise_505/1.txt`; restrict the square roots to `x≥0`. -/
+/-- Exercise 505, gap 1; restrict the square roots to `x≥0`. -/
 theorem gap1 (x : ℝ) (hx : 0 ≤ x) : difference x = productForm x := by
   let a : ℝ := Real.sqrt (x + 1)
   let b : ℝ := Real.sqrt x
@@ -36,7 +36,7 @@ theorem gap1 (x : ℝ) (hx : 0 ≤ x) : difference x = productForm x := by
       rw [Real.sin_add, Real.sin_sub]
       ring
 
-/-- Source: `proof_gap/exercise_505/2.txt`; restrict the square roots to `x≥0`. -/
+/-- Exercise 505, gap 2; restrict the square roots to `x≥0`. -/
 theorem gap2 (x : ℝ) (hx : 0 ≤ x) :
     rootDifference x = 1 / (Real.sqrt (x + 1) + Real.sqrt x) := by
   unfold rootDifference
@@ -50,7 +50,7 @@ theorem gap2 (x : ℝ) (hx : 0 ≤ x) :
   apply (eq_div_iff hne).2
   nlinarith [Real.sq_sqrt hx1, Real.sq_sqrt hx]
 
-/-- Source: `proof_gap/exercise_505/3.txt`. -/
+/-- Exercise 505, gap 3. -/
 theorem gap3 :
     HasLimitAtPosInfinity
       (fun x => 1 / (Real.sqrt (x + 1) + Real.sqrt x)) 0 := by
@@ -70,7 +70,7 @@ theorem gap3 :
     tendsto_inv_atTop_zero
   simpa [one_div] using hinv.comp hden
 
-/-- Source: `proof_gap/exercise_505/4.txt`. -/
+/-- Exercise 505, gap 4. -/
 theorem gap4 : HasLimitAtPosInfinity rootDifference 0 := by
   unfold HasLimitAtPosInfinity
   have heq :
@@ -80,7 +80,7 @@ theorem gap4 : HasLimitAtPosInfinity rootDifference 0 := by
     exact (gap2 x hx).symm
   exact gap3.congr' heq
 
-/-- Source: `proof_gap/exercise_505/5.txt`. -/
+/-- Exercise 505, gap 5. -/
 theorem gap5 :
     HasLimitAtPosInfinity (fun x => Real.sin (rootDifference x / 2)) 0 := by
   unfold HasLimitAtPosInfinity
@@ -92,12 +92,12 @@ theorem gap5 :
   simpa [div_eq_mul_inv] using
     (Real.continuous_sin.tendsto 0).comp hhalf
 
-/-- Source: `proof_gap/exercise_505/6.txt`; restrict the square roots to `x≥0`. -/
+/-- Exercise 505, gap 6; restrict the square roots to `x≥0`. -/
 theorem gap6 (x : ℝ) (hx : 0 ≤ x) :
     |Real.cos ((Real.sqrt (x + 1) + Real.sqrt x) / 2)| ≤ 1 := by
   exact Real.abs_cos_le_one _
 
-/-- Source: `proof_gap/exercise_505/7.txt`. -/
+/-- Exercise 505, gap 7. -/
 theorem gap7 : HasLimitAtPosInfinity difference 0 := by
   unfold HasLimitAtPosInfinity
   rw [Metric.tendsto_nhds]

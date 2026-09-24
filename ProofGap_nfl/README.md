@@ -1,23 +1,18 @@
 # ProofGap_nfl
 
-This dataset contains 25,987 NFL proof-gap statements from 2,947 exercises.
-The base snapshot was printed from the same proof-gap ASTs used by the backend
-Lean printer. Each item is stored as `exercise_<id>/gap_<gap_id>/gap.txt`.
+Based on Demidovich's mathematical analysis exercises
+(吉米多维奇《数学分析习题集》), this dataset contains 25,987 NFL proof-gap
+statements from 2,947 exercises. The NFL and backend Lean printers operate
+on common proof-gap ASTs. Each item is stored as
+`exercise_<id>/gap_<gap_id>/gap.txt`.
 For 9,385 gaps, a sibling `dsl.txt` contains a reference answer; the remaining
 16,602 gaps have no packaged answer.
 
-The base gap and answer files come from `ex_gap_25987_gap_dsl_20260910.zip`.
-On 2026-09-24, the 13 previously failing gap/DSL pairs were replaced with the
-corresponding pairs from `ProofGap_83_Linux_PASS_gap_dsl_with_logs_20260924.zip`,
-copied byte-for-byte. Eight gap statements have content changes; the other five
-gap files only gain a final newline. Other gap/answer files retain their base
-archive contents. The changed statements may differ from the unchanged
-backend Lean snapshot.
+Coverage and some gap statements differ from the backend Lean dataset;
+matching exercise and gap IDs alone does not guarantee equivalent statements.
 
 On 2026-09-24, all 9,385 current packaged DSL answers passed with the macOS
-arm64 verifier and supplied theorem library, with zero failures. All 9,372
-previously passing answers remained unchanged and passed again. These results
-apply to the updated gap statements.
+arm64 verifier and bundled theorem library, with zero failures.
 
 Use `gap.txt` as model input and reserve `dsl.txt` for reference or evaluation.
 
@@ -33,19 +28,17 @@ python3 check.py exercise_2/gap_1/gap.txt exercise_2/gap_1/dsl.txt
 
 - `check.py`: Python 3.9+ entry point for one gap and one candidate DSL proof.
 - `settings.ini`: verifier settings, including the theorem-library path.
-- `thm/all_lib_idx.md`: the supplied `all_lib_idx(1).md`, copied byte-for-byte.
+- `thm/all_lib_idx.md`: the theorem library used by the verifier.
 - `bin/test_dsl`: Linux x86-64 verifier (glibc 2.34 or newer).
 - `bin/test_dsl_windows.exe`: Windows x86-64 verifier.
 - `bin/test_dsl_macos_arm64`: macOS arm64 verifier (macOS 15 or newer).
 
-The Linux and Windows binaries come from the supplied AAAI artifact. The
-macOS binary was built from the current proofgrader source in an isolated
-build directory and depends only on the macOS system library.
+The macOS binary depends only on the macOS system library.
 
 The macOS binary identifies local binders from declaration positions, preserves
 free bounds and limit parameters, and avoids capturing free variables during
 instantiation, including compound substitution values. It does not use the
-historical empty-result fallback in `get_binders`. The supplied Linux and Windows binaries
+historical empty-result fallback in `get_binders`. The bundled Linux and Windows binaries
 have not been rebuilt with this fix. To use the fix on those platforms, build
 `test_dsl` from the updated proofgrader source and select it with `--binary`.
 
@@ -111,4 +104,4 @@ free parameters, alpha-equivalence, and capture avoidance.
 The checker entry point was
 previously tested for admit rejection, malformed DSL rejection, and timeout
 handling. Linux and Windows binaries were inspected but were not executed on
-the macOS host. See the [benchmark overview](../README.md) for the dataset sources.
+the macOS host. See the [benchmark overview](../README.md) for dataset details.

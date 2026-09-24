@@ -25,7 +25,7 @@ def final (x : ℝ) : ℝ := difference x / Real.cosh x
 def HasLimitAtPosInfinity (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f Filter.atTop (nhds L)
 
-/-- Source: `proof_gap/exercise_577/1.txt`; restrict the radicals to the intended tail `x≥1`. -/
+/-- Exercise 577, gap 1; restrict the radicals to the intended tail `x≥1`. -/
 private theorem roots_scaled (x : ℝ) (hx : 1 ≤ x) :
     u x = x * Real.sqrt (1 + 1 / x) ∧
       v x = x * Real.sqrt (1 - 1 / x) := by
@@ -149,7 +149,7 @@ theorem gap1 (x : ℝ) (hx : 1 ≤ x) : difference x = productForm x := by
           Real.cosh ((u x + v x) / 2) := by
       rfl
 
-/-- Source: `proof_gap/exercise_577/2.txt`; restrict the radicals to `x≥1`. -/
+/-- Exercise 577, gap 2; restrict the radicals to `x≥1`. -/
 theorem gap2 (x : ℝ) (hx : 1 ≤ x) : rootDifference x = rationalized x := by
   have hx0 : 0 ≤ x := le_trans zero_le_one hx
   have hplus : 0 ≤ x ^ 2 + x := by
@@ -171,7 +171,7 @@ theorem gap2 (x : ℝ) (hx : 1 ≤ x) : rootDifference x = rationalized x := by
   apply (eq_div_iff hsum).2
   nlinarith
 
-/-- Source: `proof_gap/exercise_577/3.txt`; require `x≥1` before dividing by `x`. -/
+/-- Exercise 577, gap 3; require `x≥1` before dividing by `x`. -/
 theorem gap3 (x : ℝ) (hx : 1 ≤ x) :
     rationalized x = normalizedDifference x := by
   have hxpos : 0 < x := lt_of_lt_of_le zero_lt_one hx
@@ -189,7 +189,7 @@ theorem gap3 (x : ℝ) (hx : 1 ≤ x) :
   rw [hu, hv]
   field_simp [hxne, hden] <;> ring
 
-/-- Source: `proof_gap/exercise_577/4.txt`. -/
+/-- Exercise 577, gap 4. -/
 theorem gap4 : HasLimitAtPosInfinity normalizedDifference 1 := by
   unfold HasLimitAtPosInfinity
   have hinv :
@@ -221,7 +221,7 @@ theorem gap4 : HasLimitAtPosInfinity normalizedDifference 1 := by
   intro x
   simp [normalizedDifference, one_div]
 
-/-- Source: `proof_gap/exercise_577/5.txt`. -/
+/-- Exercise 577, gap 5. -/
 theorem gap5 : HasLimitAtPosInfinity rootDifference 1 := by
   unfold HasLimitAtPosInfinity at *
   have heq :
@@ -231,7 +231,7 @@ theorem gap5 : HasLimitAtPosInfinity rootDifference 1 := by
     exact ((gap2 x hx).trans (gap3 x hx)).symm
   exact gap4.congr' heq
 
-/-- Source: `proof_gap/exercise_577/6.txt`; restrict the radical identity to `x≥1`. -/
+/-- Exercise 577, gap 6; restrict the radical identity to `x≥1`. -/
 theorem gap6 (x : ℝ) (hx : 1 ≤ x) : coshRatio x = expRatio x := by
   have hden : Real.exp x + Real.exp (-x) ≠ 0 := by
     have h1 := Real.exp_pos x
@@ -241,7 +241,7 @@ theorem gap6 (x : ℝ) (hx : 1 ≤ x) : coshRatio x = expRatio x := by
   simp only [Real.cosh_eq]
   field_simp [hden] <;> ring
 
-/-- Source: `proof_gap/exercise_577/7.txt`. -/
+/-- Exercise 577, gap 7. -/
 theorem gap7 : HasLimitAtPosInfinity expRatio 1 := by
   unfold HasLimitAtPosInfinity
   have hinv :
@@ -393,7 +393,7 @@ theorem gap7 : HasLimitAtPosInfinity expRatio 1 := by
     field_simp [Real.exp_ne_zero, hden] <;> ring
   exact hquot.congr' heq
 
-/-- Source: `proof_gap/exercise_577/8.txt`. -/
+/-- Exercise 577, gap 8. -/
 theorem gap8 : HasLimitAtPosInfinity coshRatio 1 := by
   unfold HasLimitAtPosInfinity at *
   have heq :
@@ -403,7 +403,7 @@ theorem gap8 : HasLimitAtPosInfinity coshRatio 1 := by
     exact (gap6 x hx).symm
   exact gap7.congr' heq
 
-/-- Source: `proof_gap/exercise_577/9.txt`. -/
+/-- Exercise 577, gap 9. -/
 theorem gap9 : HasLimitAtPosInfinity final (2 * Real.sinh (1 / 2)) := by
   unfold HasLimitAtPosInfinity at *
   have hhalf :

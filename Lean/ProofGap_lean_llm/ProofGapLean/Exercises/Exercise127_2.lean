@@ -31,44 +31,44 @@ private theorem y₂_tendsto_atTop :
     nlinarith [show (0 : ℝ) ≤ n by positivity]
   · exact tendsto_natCast_atTop_atTop
 
-/-- Source: `proof_gap/exercise_127_2/1.txt`. -/
+/-- Exercise 127_2, gap 1. -/
 theorem gap1 : ProofGap.ConvergentSeq x := by
   exact ⟨0, x_tendsto⟩
 
-/-- Source: `proof_gap/exercise_127_2/2.txt`. -/
+/-- Exercise 127_2, gap 2. -/
 theorem gap2 : ¬ ProofGap.ConvergentSeq y₁ := by
   rintro ⟨l, hl⟩
   exact not_tendsto_nhds_of_tendsto_atTop y₁_tendsto_atTop l hl
 
-/-- Source: `proof_gap/exercise_127_2/3.txt`; the product identity is positive-indexed. -/
+/-- Exercise 127_2, gap 3; the product identity is positive-indexed. -/
 theorem gap3 : ∀ n : ℕ, 0 < n → x n * y₁ n = 1 := by
   intro n hn
   simp [x, y₁, hn.ne']
 
-/-- Source: `proof_gap/exercise_127_2/4.txt`. -/
+/-- Exercise 127_2, gap 4. -/
 theorem gap4 : ProofGap.ConvergentSeq (fun n => x n * y₁ n) := by
   refine ⟨1, ?_⟩
   apply tendsto_const_nhds.congr'
   filter_upwards [eventually_ge_atTop 1] with n hn
   exact (gap3 n (by omega)).symm
 
-/-- Source: `proof_gap/exercise_127_2/5.txt`; start the second example separately. -/
+/-- Exercise 127_2, gap 5; start the second example separately. -/
 theorem gap5 : ProofGap.ConvergentSeq x := by
   exact gap1
 
-/-- Source: `proof_gap/exercise_127_2/6.txt`. -/
+/-- Exercise 127_2, gap 6. -/
 theorem gap6 : ¬ ProofGap.ConvergentSeq y₂ := by
   rintro ⟨l, hl⟩
   exact not_tendsto_nhds_of_tendsto_atTop y₂_tendsto_atTop l hl
 
-/-- Source: `proof_gap/exercise_127_2/7.txt`. -/
+/-- Exercise 127_2, gap 7. -/
 theorem gap7 : ∀ n : ℕ, 0 < n → x n * y₂ n = n := by
   intro n hn
   rw [x, y₂]
   have hnR : (n : ℝ) ≠ 0 := by exact_mod_cast hn.ne'
   field_simp
 
-/-- Source: `proof_gap/exercise_127_2/8.txt`. -/
+/-- Exercise 127_2, gap 8. -/
 theorem gap8 : ¬ ProofGap.ConvergentSeq (fun n => x n * y₂ n) := by
   have htop :
       Tendsto (fun n => x n * y₂ n) atTop (atTop : Filter ℝ) := by

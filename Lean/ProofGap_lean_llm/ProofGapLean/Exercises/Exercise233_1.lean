@@ -15,7 +15,7 @@ def IsLeastPositivePeriod (g : ℝ → ℝ) (T : ℝ) : Prop :=
   0 < T ∧ Function.Periodic g T ∧
     ∀ T', 0 < T' → Function.Periodic g T' → T ≤ T'
 
-/-- Source: `proof_gap/exercise_233_1/1.txt`. -/
+/-- Exercise 233_1, gap 1. -/
 theorem gap1 (A B lambda : ℝ) (hlambda : 0 < lambda) : ∀ x,
     f A B lambda (x + period lambda) =
       A * Real.cos (lambda * (x + period lambda)) +
@@ -23,7 +23,7 @@ theorem gap1 (A B lambda : ℝ) (hlambda : 0 < lambda) : ∀ x,
   intro x
   rfl
 
-/-- Source: `proof_gap/exercise_233_1/2.txt`. -/
+/-- Exercise 233_1, gap 2. -/
 theorem gap2 (A B lambda : ℝ) (hlambda : 0 < lambda) : ∀ x,
     A * Real.cos (lambda * (x + period lambda)) +
         B * Real.sin (lambda * (x + period lambda)) =
@@ -37,14 +37,14 @@ theorem gap2 (A B lambda : ℝ) (hlambda : 0 < lambda) : ∀ x,
     Real.sin_two_pi]
   ring
 
-/-- Source: `proof_gap/exercise_233_1/3.txt`. -/
+/-- Exercise 233_1, gap 3. -/
 theorem gap3 (A B lambda : ℝ) (hlambda : 0 < lambda) : ∀ x,
     A * Real.cos (lambda * x) + B * Real.sin (lambda * x) =
       f A B lambda x := by
   intro x
   rfl
 
-/-- Source: `proof_gap/exercise_233_1/4.txt`. -/
+/-- Exercise 233_1, gap 4. -/
 theorem gap4 (A B lambda : ℝ) (hlambda : 0 < lambda) : ∀ x,
     f A B lambda (x + period lambda) = f A B lambda x := by
   intro x
@@ -57,13 +57,13 @@ theorem gap4 (A B lambda : ℝ) (hlambda : 0 < lambda) : ∀ x,
       gap2 A B lambda hlambda x
     _ = f A B lambda x := gap3 A B lambda hlambda x
 
-/-- Source: `proof_gap/exercise_233_1/5.txt`. -/
+/-- Exercise 233_1, gap 5. -/
 theorem gap5 (A B lambda : ℝ) (hlambda : 0 < lambda) :
     Function.Periodic (f A B lambda) (period lambda) := by
   intro x
   exact gap4 A B lambda hlambda x
 
-/-- Source: `proof_gap/exercise_233_1/6.txt`; exclude the zero function before asserting a fundamental period. -/
+/-- Exercise 233_1, gap 6; exclude the zero function before asserting a fundamental period. -/
 theorem gap6 (A B lambda : ℝ) (hlambda : 0 < lambda)
     (hnonzero : A ≠ 0 ∨ B ≠ 0) :
     IsLeastPositivePeriod (f A B lambda) (period lambda) := by

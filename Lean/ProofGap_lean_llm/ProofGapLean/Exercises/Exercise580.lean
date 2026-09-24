@@ -34,7 +34,7 @@ def normalized (n : ℕ) : ℝ :=
       (Real.pi / 2)) ^ 2 +
     Real.pi ^ 2 * (Real.sin (Real.pi / (2 * n)) / (Real.pi / (2 * n))) ^ 2)
 
-/-- Source: `proof_gap/exercise_580/1.txt`; exclude the zero sequence index. -/
+/-- Exercise 580, gap 1; exclude the zero sequence index. -/
 private theorem tendsto_real_const_div_nat (c : ℝ) :
     Filter.Tendsto (fun n : ℕ => c / (n : ℝ)) Filter.atTop (nhds 0) := by
   have hcast :
@@ -75,7 +75,7 @@ theorem gap1 (n : ℕ) (hn : 0 < n) : seq n = exponentialForm n := by
   rw [Real.cosh_eq]
   ring_nf
 
-/-- Source: `proof_gap/exercise_580/2.txt`; exclude `n=0`. -/
+/-- Exercise 580, gap 2; exclude `n=0`. -/
 theorem gap2 (n : ℕ) (hn : 0 < n) : scaledDifference n = squareForm n := by
   have hnR : (n : ℝ) ≠ 0 := by
     norm_num [Nat.ne_of_gt hn]
@@ -101,7 +101,7 @@ theorem gap2 (n : ℕ) (hn : 0 < n) : scaledDifference n = squareForm n := by
   rw [harg, hneg, Real.exp_add, Real.exp_add]
   nlinarith [hprod]
 
-/-- Source: `proof_gap/exercise_580/3.txt`; exclude `n=0`. -/
+/-- Exercise 580, gap 3; exclude `n=0`. -/
 theorem gap3 (n : ℕ) (hn : 0 < n) : scaledDifference n = sineForm n := by
   have hnR : (n : ℝ) ≠ 0 := by
     norm_num [Nat.ne_of_gt hn]
@@ -118,7 +118,7 @@ theorem gap3 (n : ℕ) (hn : 0 < n) : scaledDifference n = sineForm n := by
   unfold squareForm sineForm
   rw [htrig]
 
-/-- Source: `proof_gap/exercise_580/4.txt`; exclude `n=0`. -/
+/-- Exercise 580, gap 4; exclude `n=0`. -/
 theorem gap4 (n : ℕ) (hn : 0 < n) : scaledDifference n = normalized n := by
   have hnR : (n : ℝ) ≠ 0 := by
     norm_num [Nat.ne_of_gt hn]
@@ -127,7 +127,7 @@ theorem gap4 (n : ℕ) (hn : 0 < n) : scaledDifference n = normalized n := by
   field_simp [hnR, Real.pi_ne_zero]
   <;> ring
 
-/-- Source: `proof_gap/exercise_580/5.txt`. -/
+/-- Exercise 580, gap 5. -/
 theorem gap5 : Filter.Tendsto normalized Filter.atTop (nhds (2 * Real.pi ^ 2)) := by
   have hx' := tendsto_real_const_div_nat (Real.pi / 2)
   have hx :
@@ -192,14 +192,14 @@ theorem gap5 : Filter.Tendsto normalized Filter.atTop (nhds (2 * Real.pi ^ 2)) :
       ((hs.pow 2).const_mul (Real.pi ^ 2))
   convert hall using 1 <;> norm_num <;> ring
 
-/-- Source: `proof_gap/exercise_580/6.txt`. -/
+/-- Exercise 580, gap 6. -/
 theorem gap6 :
     Filter.Tendsto scaledDifference Filter.atTop (nhds (2 * Real.pi ^ 2)) := by
   refine gap5.congr' ?_
   filter_upwards [eventually_nat_pos] with n hn
   exact (gap4 n hn).symm
 
-/-- Source: `proof_gap/exercise_580/7.txt`. -/
+/-- Exercise 580, gap 7. -/
 theorem gap7 : Filter.Tendsto seq Filter.atTop (nhds (Real.exp (Real.pi ^ 2))) := by
   let b : ℕ → ℝ := fun n =>
     (Real.exp (Real.pi / (n : ℝ)) + Real.exp (-Real.pi / (n : ℝ))) /

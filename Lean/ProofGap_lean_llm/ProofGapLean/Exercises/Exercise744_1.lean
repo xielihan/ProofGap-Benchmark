@@ -9,13 +9,13 @@ noncomputable section
 def f (x : ℝ) : ℝ := Real.sign x
 def g (x : ℝ) : ℝ := 1 + x ^ 2
 
-/-- Source: `proof_gap/exercise_744_1/1.txt`. -/
+/-- Exercise 744_1, gap 1. -/
 theorem gap1 : ∀ x, f (g x) = 1 := by
   intro x
   unfold f g
   exact Real.sign_of_pos (by nlinarith [sq_nonneg x])
 
-/-- Source: `proof_gap/exercise_744_1/2.txt`. -/
+/-- Exercise 744_1, gap 2. -/
 theorem gap2 : Continuous (f ∘ g) := by
   have h : f ∘ g = fun _ : ℝ => (1 : ℝ) := by
     funext x
@@ -23,7 +23,7 @@ theorem gap2 : Continuous (f ∘ g) := by
   rw [h]
   exact continuous_const
 
-/-- Source: `proof_gap/exercise_744_1/3.txt`. -/
+/-- Exercise 744_1, gap 3. -/
 theorem gap3 : ∀ x, g (f x) = if x = 0 then 1 else 2 := by
   intro x
   by_cases hx : x = 0
@@ -34,7 +34,7 @@ theorem gap3 : ∀ x, g (f x) = if x = 0 then 1 else 2 := by
     · simp [f, g, hx, Real.sign_of_pos hxpos]
       norm_num
 
-/-- Source: `proof_gap/exercise_744_1/4.txt`. -/
+/-- Exercise 744_1, gap 4. -/
 theorem gap4 : ¬ ContinuousAt (g ∘ f) 0 := by
   intro h
   rw [Metric.continuousAt_iff] at h

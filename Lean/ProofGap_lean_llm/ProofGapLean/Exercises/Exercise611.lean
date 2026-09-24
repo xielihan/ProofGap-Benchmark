@@ -81,41 +81,41 @@ private theorem partialExp_monotone {x : ℝ} (hx : 0 ≤ x) :
   exact le_add_of_nonneg_right
     (div_nonneg (pow_nonneg hx _) (by positivity))
 
-/-- Source: `proof_gap/exercise_611/1.txt`. -/
+/-- Exercise 611, gap 1. -/
 theorem gap1 (x : ℝ) (hx : x = 0) :
     Filter.Tendsto (binomialSeq x) Filter.atTop (nhds (Real.exp x)) := by
   exact binomialSeq_tendsto x
 
-/-- Source: `proof_gap/exercise_611/2.txt`; define `y(n)=n/x`. -/
+/-- Exercise 611, gap 2; define `y(n)=n/x`. -/
 theorem gap2 (x : ℝ) (hx : x ≠ 0) (L : ℝ) :
     Filter.Tendsto (binomialSeq x) Filter.atTop (nhds L) ↔
       Filter.Tendsto (transformed x) Filter.atTop (nhds L) := by
   exact ⟨fun h => h.congr' (transformed_eventuallyEq x hx),
     fun h => h.congr' (transformed_eventuallyEq x hx).symm⟩
 
-/-- Source: `proof_gap/exercise_611/3.txt`. -/
+/-- Exercise 611, gap 3. -/
 theorem gap3 (x : ℝ) (hx : x ≠ 0) :
     Filter.Tendsto (transformed x) Filter.atTop (nhds (Real.exp x)) := by
   exact (binomialSeq_tendsto x).congr' (transformed_eventuallyEq x hx)
 
-/-- Source: `proof_gap/exercise_611/4.txt`. -/
+/-- Exercise 611, gap 4. -/
 theorem gap4 (x : ℝ) (hx : x ≠ 0) :
     Filter.Tendsto (binomialSeq x) Filter.atTop (nhds (Real.exp x)) := by
   exact binomialSeq_tendsto x
 
-/-- Source: `proof_gap/exercise_611/5.txt`. -/
+/-- Exercise 611, gap 5. -/
 theorem gap5 (x : ℝ) (hx : x = 0) :
     Filter.Tendsto (partialExp x) Filter.atTop (nhds (Real.exp x)) := by
   exact partialExp_tendsto x
 
-/-- Source: `proof_gap/exercise_611/6.txt`; replace the coefficient ellipsis by the binomial sum. -/
+/-- Exercise 611, gap 6; replace the coefficient ellipsis by the binomial sum. -/
 theorem gap6 (x : ℝ) (n : ℕ) (hx : 0 < x) (hn : 0 < n) :
     binomialSeq x n = binomialExpansion x n := by
   unfold binomialSeq binomialExpansion
   rw [add_comm]
   simp [add_pow, mul_comm]
 
-/-- Source: `proof_gap/exercise_611/7.txt`; compare the explicit finite sums. -/
+/-- Exercise 611, gap 7; compare the explicit finite sums. -/
 theorem gap7 (x : ℝ) (n : ℕ) (hx : 0 < x) :
     binomialExpansion x n ≤ partialExp x n := by
   by_cases hn : n = 0
@@ -140,13 +140,13 @@ theorem gap7 (x : ℝ) (n : ℕ) (hx : 0 < x) :
         rw [div_pow]
         field_simp [hnR]
 
-/-- Source: `proof_gap/exercise_611/8.txt`. -/
+/-- Exercise 611, gap 8. -/
 theorem gap8 (x : ℝ) (n : ℕ) (hx : 0 < x) (hn : 0 < n) :
     binomialSeq x n ≤ partialExp x n := by
   rw [gap6 x n hx hn]
   exact gap7 x n hx
 
-/-- Source: `proof_gap/exercise_611/9.txt`; replace the truncated ellipsis by `truncatedBinomial`. -/
+/-- Exercise 611, gap 9; replace the truncated ellipsis by `truncatedBinomial`. -/
 theorem gap9 (x : ℝ) (m n : ℕ) (hx : 0 < x) (hmn : n < m) :
     truncatedBinomial x m n < binomialSeq x m := by
   rw [gap6 x m hx (by omega)]
@@ -170,19 +170,19 @@ theorem gap9 (x : ℝ) (m n : ℕ) (hx : 0 < x) (hmn : n < m) :
     ∑ k ∈ Finset.range (m + 1), f k
   linarith
 
-/-- Source: `proof_gap/exercise_611/10.txt`. -/
+/-- Exercise 611, gap 10. -/
 theorem gap10 (x : ℝ) (n : ℕ) (hx : 0 < x) :
     partialExp x n ≤ Real.exp x := by
   apply le_of_tendsto_of_tendsto tendsto_const_nhds (partialExp_tendsto x)
   filter_upwards [Filter.eventually_ge_atTop n] with m hm
   exact partialExp_monotone hx.le hm
 
-/-- Source: `proof_gap/exercise_611/11.txt`. -/
+/-- Exercise 611, gap 11. -/
 theorem gap11 (x : ℝ) (hx : 0 < x) :
     Filter.Tendsto (partialExp x) Filter.atTop (nhds (Real.exp x)) := by
   exact partialExp_tendsto x
 
-/-- Source: `proof_gap/exercise_611/12.txt`; replace the false two-term remainder identity by the exact finite Cauchy product. -/
+/-- Exercise 611, gap 12; replace the false two-term remainder identity by the exact finite Cauchy product. -/
 theorem gap12 (x : ℝ) (n : ℕ) (hx : x < 0) :
     partialExp x n * partialExp (-x) n = convolution x n := by
   unfold partialExp convolution
@@ -191,7 +191,7 @@ theorem gap12 (x : ℝ) (n : ℕ) (hx : x < 0) :
   intro i hi
   rw [Finset.mul_sum]
 
-/-- Source: `proof_gap/exercise_611/13.txt`. -/
+/-- Exercise 611, gap 13. -/
 theorem gap13 (x : ℝ) (hx : x < 0) :
     Filter.Tendsto (fun n : ℕ => x ^ n / (n.factorial : ℝ))
       Filter.atTop (nhds 0) := by
@@ -199,12 +199,12 @@ theorem gap13 (x : ℝ) (hx : x < 0) :
   have hz := hs.tendsto_atTop_zero
   simpa only [Real.exp_eq_exp_ℝ] using hz
 
-/-- Source: `proof_gap/exercise_611/14.txt`. -/
+/-- Exercise 611, gap 14. -/
 theorem gap14 (x : ℝ) (hx : x < 0) :
     Filter.Tendsto (partialExp x) Filter.atTop (nhds (Real.exp x)) := by
   exact partialExp_tendsto x
 
-/-- Source: `proof_gap/exercise_611/15.txt`. -/
+/-- Exercise 611, gap 15. -/
 theorem gap15 (x : ℝ) :
     Filter.Tendsto (binomialSeq x) Filter.atTop (nhds (Real.exp x)) ∧
       Filter.Tendsto (partialExp x) Filter.atTop (nhds (Real.exp x)) := by

@@ -4,7 +4,7 @@ import Mathlib.Data.Real.Archimedean
 /-!
 # Exercise 20
 
-Semantic formalization of `proof_gap/exercise_20/{1,...,14}.txt`.
+Semantic formalization of Exercise 20, gaps 1,...,14.
 The two operand sets are arbitrary nonempty bounded sets of nonnegative reals;
 they are not the whole nonnegative ray.  The product set is their pointwise
 product.
@@ -62,7 +62,7 @@ def PerturbationFormula (X Y : Set ℝ) : Prop :=
   ∀ ε : ℝ, 0 < ε →
     ∃ ε' : ℝ, ε' = (sInf X + sInf Y) * ε + ε ^ 2
 
-/-- Source: `proof_gap/exercise_20/1.txt`. -/
+/-- Exercise 20, gap 1. -/
 theorem gap1
     (X Y : Set ℝ)
     (hXY : AdmissiblePair X Y) :
@@ -71,7 +71,7 @@ theorem gap1
     ⟨hX, hY, hXbelow, hYbelow, hXabove, hYabove, hXnonneg, hYnonneg⟩
   exact (isGLB_csInf hX hXbelow).2 hXnonneg
 
-/-- Source: `proof_gap/exercise_20/2.txt`. -/
+/-- Exercise 20, gap 2. -/
 theorem gap2
     (X Y : Set ℝ)
     (hXY : AdmissiblePair X Y)
@@ -81,7 +81,7 @@ theorem gap2
     ⟨hX, hY, hXbelow, hYbelow, hXabove, hYabove, hXnonneg, hYnonneg⟩
   exact (isGLB_csInf hY hYbelow).2 hYnonneg
 
-/-- Source: `proof_gap/exercise_20/3.txt`. -/
+/-- Exercise 20, gap 3. -/
 theorem gap3
     (X Y : Set ℝ)
     (hXY : AdmissiblePair X Y)
@@ -93,7 +93,7 @@ theorem gap3
   intro x hx y hy
   exact (isGLB_csInf hX hXbelow).1 hx
 
-/-- Source: `proof_gap/exercise_20/4.txt`. -/
+/-- Exercise 20, gap 4. -/
 theorem gap4
     (X Y : Set ℝ)
     (h3 : XInfLowerBound X Y)
@@ -102,7 +102,7 @@ theorem gap4
   intro x hx y hy
   exact h1
 
-/-- Source: `proof_gap/exercise_20/5.txt`. -/
+/-- Exercise 20, gap 5. -/
 theorem gap5
     (X Y : Set ℝ)
     (hXY : AdmissiblePair X Y)
@@ -113,7 +113,7 @@ theorem gap5
   intro x hx y hy
   exact (isGLB_csInf hY hYbelow).1 hy
 
-/-- Source: `proof_gap/exercise_20/6.txt`. -/
+/-- Exercise 20, gap 6. -/
 theorem gap6
     (X Y : Set ℝ)
     (h5 : YInfLowerBound X Y)
@@ -122,7 +122,7 @@ theorem gap6
   intro x hx y hy
   exact h2
 
-/-- Source: `proof_gap/exercise_20/7.txt`. -/
+/-- Exercise 20, gap 7. -/
 theorem gap7
     (X Y : Set ℝ)
     (hXY : AdmissiblePair X Y)
@@ -138,7 +138,7 @@ theorem gap7
     ⟨y, hy, hylt⟩
   exact ⟨x, hx, y, hy, hXnonneg x hx, hxlt, hYnonneg y hy, hylt⟩
 
-/-- Source: `proof_gap/exercise_20/8.txt`. -/
+/-- Exercise 20, gap 8. -/
 theorem gap8
     (X Y : Set ℝ)
     (h1 : 0 ≤ sInf X)
@@ -152,7 +152,7 @@ theorem gap8
   have hyl := h5 x hx y hy
   exact mul_le_mul hxl hyl h2 (h1.trans hxl)
 
-/-- Source: `proof_gap/exercise_20/9.txt`; the `ε'` quantifier is repaired. -/
+/-- Exercise 20, gap 9; the `ε'` quantifier is repaired. -/
 theorem gap9
     (X Y : Set ℝ)
     (h7 : SeparateInfApproximations X Y) :
@@ -171,7 +171,7 @@ theorem gap9
         mul_lt_mul_of_pos_left hylt (by linarith)
   · ring
 
-/-- Source: `proof_gap/exercise_20/10.txt`; the `ε'` quantifier is repaired. -/
+/-- Exercise 20, gap 10; the `ε'` quantifier is repaired. -/
 theorem gap10
     (X Y : Set ℝ)
     (h9 : ProductPerturbationWitness X Y) :
@@ -179,7 +179,7 @@ theorem gap10
   intro ε hε
   exact ⟨(sInf X + sInf Y) * ε + ε ^ 2, rfl⟩
 
-/-- Source: `proof_gap/exercise_20/11.txt`. -/
+/-- Exercise 20, gap 11. -/
 theorem gap11
     (X Y : Set ℝ)
     (hXY : AdmissiblePair X Y)
@@ -241,14 +241,14 @@ theorem gap11
       linarith
   exact (hglb.csInf_eq hprod).symm
 
-/-- Source: `proof_gap/exercise_20/12.txt`. -/
+/-- Exercise 20, gap 12. -/
 theorem gap12
     (X Y : Set ℝ)
     (h11 : sInf X * sInf Y = sInf (productSet X Y)) :
     sInf (productSet X Y) = sInf X * sInf Y := by
   exact h11.symm
 
-/-- Source: `proof_gap/exercise_20/13.txt`. -/
+/-- Exercise 20, gap 13. -/
 theorem gap13
     (X Y : Set ℝ)
     (hXY : AdmissiblePair X Y)
@@ -309,7 +309,7 @@ theorem gap13
         exact (not_lt_of_ge (hM ⟨x, hx, y, hy, rfl⟩)) (hMP.trans_le hxy)
   exact hlub.csSup_eq hprod
 
-/-- Source: `proof_gap/exercise_20/14.txt`. -/
+/-- Exercise 20, gap 14. -/
 theorem gap14
     (X Y : Set ℝ)
     (h12 : sInf (productSet X Y) = sInf X * sInf Y)

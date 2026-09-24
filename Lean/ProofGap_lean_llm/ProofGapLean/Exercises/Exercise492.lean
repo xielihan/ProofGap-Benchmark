@@ -24,7 +24,7 @@ def normalized (a x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_492/1.txt`. -/
+/-- Exercise 492, gap 1. -/
 private theorem original_product_identity (a : ℝ) :
     original a = productToSum a := by
   funext x
@@ -148,7 +148,7 @@ theorem gap1 (a L : ℝ) :
     HasLimitAtZero (original a) L ↔ HasLimitAtZero (productToSum a) L := by
   rw [original_product_identity]
 
-/-- Source: `proof_gap/exercise_492/2.txt`. -/
+/-- Exercise 492, gap 2. -/
 theorem gap2 (a L : ℝ) :
     HasLimitAtZero (original a) L ↔ HasLimitAtZero (rearranged a) L := by
   calc
@@ -156,12 +156,12 @@ theorem gap2 (a L : ℝ) :
     _ ↔ HasLimitAtZero (rearranged a) L := by
       rw [product_rearranged_identity]
 
-/-- Source: `proof_gap/exercise_492/3.txt`. -/
+/-- Exercise 492, gap 3. -/
 theorem gap3 (a L : ℝ) :
     HasLimitAtZero (rearranged a) L ↔ HasLimitAtZero (normalized a) L := by
   rw [rearranged_normalized_identity]
 
-/-- Source: `proof_gap/exercise_492/4.txt`. -/
+/-- Exercise 492, gap 4. -/
 theorem gap4 (a : ℝ) :
     HasLimitAtZero (normalized a) ((3 / 2 : ℝ) * Real.sin (2 * a)) := by
   rw [normalized_limitForm_identity]
@@ -245,7 +245,7 @@ theorem gap4 (a : ℝ) :
     simpa using hthree.mul hsinScaled
   simpa only [zero_add] using hfirst.add hsecond
 
-/-- Source: `proof_gap/exercise_492/5.txt`. -/
+/-- Exercise 492, gap 5. -/
 theorem gap5 (a : ℝ) :
     HasLimitAtZero (original a) ((3 / 2 : ℝ) * Real.sin (2 * a)) := by
   apply (gap2 a ((3 / 2 : ℝ) * Real.sin (2 * a))).mpr

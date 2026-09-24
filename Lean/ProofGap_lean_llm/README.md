@@ -1,19 +1,19 @@
 # ProofGap_lean_llm
 
 ProofGap_lean_llm is the LLM-converted Lean 4 dataset in ProofGap-Benchmark,
-built from worked mathematical exercises and packaged with reference proofs.
+built from Demidovich's mathematical analysis exercises
+(吉米多维奇《数学分析习题集》) and packaged with reference proofs.
 Each benchmark target is a theorem named `gapN` inside an `Exercise*.lean`
 module.
 
-This project comes from `ProofGap-Lean/` in `aaai_data_anonymized.zip`.
-The `ProofGap_nfl/` and `ProofGap_lean/` datasets contain two
-printer outputs from the same proof-gap abstract syntax trees; this directory
-uses the `llm` suffix to identify its LLM conversion origin. See the
-[benchmark overview](../../README.md) for dataset sizes and snapshot differences.
+The `ProofGap_nfl/` and `ProofGap_lean/` datasets use two printers over common
+proof-gap abstract syntax trees; this directory uses the `llm` suffix to
+identify LLM conversion. See the [benchmark overview](../../README.md) for
+dataset sizes and differences in coverage and statements.
 The Lean module namespace and build target remain `ProofGapLean`. Environment
 configuration is shared with `ProofGap_lean/` in the parent `Lean/` directory.
 
-## Dataset snapshot
+## Dataset contents
 
 - **3,015** exercise modules
 - **26,116** `gapN` theorems
@@ -43,9 +43,6 @@ ProofGap_lean_llm/
 - `ProofGapLean/Prelude/` contains the local definitions and checking support
   required by the exercises.
 - `ProofGapLean.lean` imports all 3,015 exercise modules.
-
-The benchmark does not require `OriginalExercises`, scratch files, build
-caches, or local copies of Mathlib.
 
 ## Build
 

@@ -6,7 +6,7 @@ open scoped Topology
 /-!
 # Exercise 46
 
-Semantic formalization of `proof_gap/exercise_46/{1,2,3}.txt`.
+Semantic formalization of Exercise 46, gaps 1,2,3.
 -/
 
 namespace ProofGap.Exercise46
@@ -22,7 +22,7 @@ def v (n : ℕ) : ℝ :=
 def SameLimit (a b : ℕ → ℝ) : Prop :=
   ∀ l : ℝ, Tendsto a atTop (𝓝 l) ↔ Tendsto b atTop (𝓝 l)
 
-/-- Source: `proof_gap/exercise_46/1.txt`. -/
+/-- Exercise 46, gap 1. -/
 theorem gap1 :
     SameLimit u v := by
   have huv : u =ᶠ[atTop] v := by
@@ -33,7 +33,7 @@ theorem gap1 :
   intro l
   exact Filter.tendsto_congr' huv
 
-/-- Source: `proof_gap/exercise_46/2.txt`. -/
+/-- Exercise 46, gap 2. -/
 theorem gap2
     (h1 : SameLimit u v) :
     Tendsto v atTop (𝓝 0) := by
@@ -60,7 +60,7 @@ theorem gap2
   have hnreal : (n : ℝ) ≠ 0 := Nat.cast_ne_zero.mpr hn
   field_simp [hnreal]
 
-/-- Source: `proof_gap/exercise_46/3.txt`. -/
+/-- Exercise 46, gap 3. -/
 theorem gap3
     (h1 : SameLimit u v)
     (h2 : Tendsto v atTop (𝓝 0)) :

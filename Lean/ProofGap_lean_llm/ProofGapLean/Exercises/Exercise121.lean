@@ -72,14 +72,14 @@ private theorem target_isClosed (a : ℕ → ℝ) (p : ℕ) :
   rw [heq]
   exact (Set.finite_Icc 1 p).image a |>.isClosed
 
-/-- Source: `proof_gap/exercise_121/1.txt`. -/
+/-- Exercise 121, gap 1. -/
 theorem gap1
     (x a : ℕ → ℝ) (p : ℕ)
     (h : ProofGap.ClusterSet x = targets a p) :
     ProofGap.ClusterSet x = targets a p := by
   exact h
 
-/-- Source: `proof_gap/exercise_121/2.txt`; all construction binders are explicit. -/
+/-- Exercise 121, gap 2; all construction binders are explicit. -/
 theorem gap2
     (x a : ℕ → ℝ) (p : ℕ)
     (hp : 0 < p)

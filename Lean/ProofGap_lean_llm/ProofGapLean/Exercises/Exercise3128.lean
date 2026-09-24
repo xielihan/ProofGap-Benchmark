@@ -19,7 +19,7 @@ def generalizedBernstein (f : ℝ → ℝ) (a b : ℝ)
       ((x - a) ^ k * (b - x) ^ (n - k) / (b - a) ^ n)
 
 /--
-Source: `proof_gap/exercise_3128/1.txt`; interval preservation needs
+Exercise 3128, gap 1; interval preservation needs
 the endpoint order `a<b`.
 -/
 theorem gap1 (a b x y : ℝ) (hab : a < b)
@@ -38,7 +38,7 @@ theorem gap1 (a b x y : ℝ) (hab : a < b)
         simpa [add_comm] using add_le_add_left hmul a
       _ = b := by ring
 
-/-- Source: `proof_gap/exercise_3128/2.txt`; invert a nondegenerate affine map. -/
+/-- Exercise 3128, gap 2; invert a nondegenerate affine map. -/
 theorem gap2 (a b x y : ℝ) (hab : a < b)
     (hx : x = affineMap a b y) :
     y = (x - a) / (b - a) := by
@@ -48,7 +48,7 @@ theorem gap2 (a b x y : ℝ) (hab : a < b)
   unfold affineMap
   ring
 
-/-- Source: `proof_gap/exercise_3128/3.txt`; complementary normalized coordinate. -/
+/-- Exercise 3128, gap 3; complementary normalized coordinate. -/
 theorem gap3 (a b x y : ℝ) (hab : a < b)
     (hx : x = affineMap a b y) :
     1 - y = (b - x) / (b - a) := by
@@ -58,14 +58,14 @@ theorem gap3 (a b x y : ℝ) (hab : a < b)
   unfold affineMap
   ring
 
-/-- Source: `proof_gap/exercise_3128/4.txt`; substitute the affine coordinate. -/
+/-- Exercise 3128, gap 4; substitute the affine coordinate. -/
 theorem gap4 (f : ℝ → ℝ) (a b x y : ℝ)
     (hx : x = affineMap a b y) :
     f x = f (affineMap a b y) := by
   exact congrArg f hx
 
 /--
-Source: `proof_gap/exercise_3128/5.txt`; define the generalized
+Exercise 3128, gap 5; define the generalized
 Bernstein polynomial on a nondegenerate interval and positive degree.
 -/
 theorem gap5 (f : ℝ → ℝ) (a b x : ℝ)

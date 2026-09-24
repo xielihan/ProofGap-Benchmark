@@ -18,13 +18,13 @@ def normalized (x : ℕ → ℝ) (n : ℕ) : ℝ := x n / (n : ℝ)
 def normalizedValues (x : ℕ → ℝ) : Set ℝ :=
   {v | ∃ n : ℕ, 0 < n ∧ v = normalized x n}
 
-/-- Source: `proof_gap/exercise_137/1.txt`; n>1 avoids underflow. -/
+/-- Exercise 137, gap 1; n>1 avoids underflow. -/
 theorem gap1 (x : ℕ → ℝ) (hsub : Subadditive x) :
     ∀ n : ℕ, 1 < n → x n ≤ x (n - 1) + x 1 := by
   intro n hn
   simpa [Nat.sub_add_cancel (by omega : 1 ≤ n)] using hsub (n - 1) 1
 
-/-- Source: `proof_gap/exercise_137/2.txt`; n>2 avoids underflow. -/
+/-- Exercise 137, gap 2; n>2 avoids underflow. -/
 theorem gap2 (x : ℕ → ℝ) (hsub : Subadditive x) :
     ∀ n : ℕ, 2 < n →
       x (n - 1) + x 1 ≤ x (n - 2) + x 1 + x 1 := by
@@ -33,7 +33,7 @@ theorem gap2 (x : ℕ → ℝ) (hsub : Subadditive x) :
     simpa [Nat.sub_sub] using gap1 x hsub (n - 1) (by omega)
   linarith
 
-/-- Source: `proof_gap/exercise_137/3.txt`; positive indices are restored. -/
+/-- Exercise 137, gap 3; positive indices are restored. -/
 theorem gap3 (x : ℕ → ℝ) (hsub : Subadditive x) :
     ∀ n : ℕ, 0 < n → x n ≤ (n : ℝ) * x 1 := by
   intro n hn
@@ -49,36 +49,36 @@ theorem gap3 (x : ℕ → ℝ) (hsub : Subadditive x) :
           exact ih (by omega)
         _ = ((k + 1 + 1 : ℕ) : ℝ) * x 1 := by push_cast; ring
 
-/-- Source: `proof_gap/exercise_137/4.txt`. -/
+/-- Exercise 137, gap 4. -/
 theorem gap4 (x : ℕ → ℝ) (hsub : Subadditive x) :
     ∀ n : ℕ, 0 < n → x n ≤ (n : ℝ) * x 1 := by
   exact gap3 x hsub
 
-/-- Source: `proof_gap/exercise_137/5.txt`; division uses n>0. -/
+/-- Exercise 137, gap 5; division uses n>0. -/
 theorem gap5 (x : ℕ → ℝ) (hx0 : Nonnegative x) :
     ∀ n : ℕ, 0 < n → 0 ≤ normalized x n := by
   intro n hn
   exact div_nonneg (hx0 n) (Nat.cast_nonneg n)
 
-/-- Source: `proof_gap/exercise_137/6.txt`; division uses n>0. -/
+/-- Exercise 137, gap 6; division uses n>0. -/
 theorem gap6 (x : ℕ → ℝ) (hsub : Subadditive x) :
     ∀ n : ℕ, 0 < n → normalized x n ≤ x 1 := by
   intro n hn
   rw [normalized, div_le_iff₀ (by positivity)]
   simpa [mul_comm] using gap3 x hsub n hn
 
-/-- Source: `proof_gap/exercise_137/7.txt`. -/
+/-- Exercise 137, gap 7. -/
 theorem gap7 (x : ℕ → ℝ) (hx0 : Nonnegative x) : 0 ≤ x 1 := by
   exact hx0 1
 
-/-- Source: `proof_gap/exercise_137/8.txt`. -/
+/-- Exercise 137, gap 8. -/
 theorem gap8 (x : ℕ → ℝ) (hx0 : Nonnegative x) (hsub : Subadditive x) :
     Bornology.IsBounded (normalizedValues x) := by
   apply (Metric.isBounded_Icc (0 : ℝ) (x 1)).subset
   rintro v ⟨n, hn, rfl⟩
   exact ⟨gap5 x hx0 n hn, gap6 x hsub n hn⟩
 
-/-- Source: `proof_gap/exercise_137/9.txt`. -/
+/-- Exercise 137, gap 9. -/
 theorem gap9 (x : ℕ → ℝ) (hx0 : Nonnegative x) :
     0 ≤ sInf (normalizedValues x) := by
   apply le_csInf
@@ -86,7 +86,7 @@ theorem gap9 (x : ℕ → ℝ) (hx0 : Nonnegative x) :
   · rintro v ⟨n, hn, rfl⟩
     exact gap5 x hx0 n hn
 
-/-- Source: `proof_gap/exercise_137/10.txt`. -/
+/-- Exercise 137, gap 10. -/
 theorem gap10 (x : ℕ → ℝ) :
     Nonnegative x →
     sInf (normalizedValues x) ≤ x 1 := by
@@ -100,11 +100,11 @@ theorem gap10 (x : ℕ → ℝ) :
       csInf_le hbelow ⟨1, by omega, rfl⟩
     _ = x 1 := by simp [normalized]
 
-/-- Source: `proof_gap/exercise_137/11.txt`. -/
+/-- Exercise 137, gap 11. -/
 theorem gap11 (x : ℕ → ℝ) (hx0 : Nonnegative x) : 0 ≤ x 1 := by
   exact gap7 x hx0
 
-/-- Source: `proof_gap/exercise_137/12.txt`. -/
+/-- Exercise 137, gap 12. -/
 theorem gap12 (x : ℕ → ℝ) :
     ∀ ε : ℝ, 0 < ε →
       ∃ N : ℕ, 0 < N ∧
@@ -129,7 +129,7 @@ theorem gap12 (x : ℕ → ℝ) :
     rw [hinf0]
     simpa using ⟨N, hN, hv⟩
 
-/-- Source: `proof_gap/exercise_137/13.txt`; q and r depend on n. -/
+/-- Exercise 137, gap 13; q and r depend on n. -/
 theorem gap13 :
     ∀ N n : ℕ, 0 < N → N < n →
       ∃ q r : ℕ, n = q * N + r := by
@@ -138,25 +138,25 @@ theorem gap13 :
   rw [Nat.mul_comm]
   exact (Nat.div_add_mod n N).symm
 
-/-- Source: `proof_gap/exercise_137/14.txt`. -/
+/-- Exercise 137, gap 14. -/
 theorem gap14 :
     ∀ N n : ℕ, 0 < N → N < n →
       0 < n / N := by
   intro N n hN hNn
   exact Nat.div_pos hNn.le hN
 
-/-- Source: `proof_gap/exercise_137/15.txt`. -/
+/-- Exercise 137, gap 15. -/
 theorem gap15 :
     ∀ N n : ℕ, 0 < N → N < n → 0 ≤ n % N := by
   omega
 
-/-- Source: `proof_gap/exercise_137/16.txt`. -/
+/-- Exercise 137, gap 16. -/
 theorem gap16 :
     ∀ N n : ℕ, 0 < N → n % N < N := by
   intro N n hN
   exact Nat.mod_lt n hN
 
-/-- Source: `proof_gap/exercise_137/17.txt`. -/
+/-- Exercise 137, gap 17. -/
 theorem gap17 (x : ℕ → ℝ) :
     ∀ N n : ℕ, 0 < N →
       x n = x ((n / N) * N + n % N) := by
@@ -165,7 +165,7 @@ theorem gap17 (x : ℕ → ℝ) :
   rw [Nat.mul_comm]
   exact (Nat.div_add_mod n N).symm
 
-/-- Source: `proof_gap/exercise_137/18.txt`; q,r are the Euclidean quotient/remainder. -/
+/-- Exercise 137, gap 18; q,r are the Euclidean quotient/remainder. -/
 theorem gap18 (x : ℕ → ℝ) (hsub : Subadditive x) :
     Nonnegative x →
     ∀ N n : ℕ, 0 < N →
@@ -182,7 +182,7 @@ theorem gap18 (x : ℕ → ℝ) (hsub : Subadditive x) :
   exact hfloor.trans
     (add_le_add (mul_le_mul_of_nonneg_right hqle (hx0 N)) le_rfl)
 
-/-- Source: `proof_gap/exercise_137/19.txt`. -/
+/-- Exercise 137, gap 19. -/
 theorem gap19 (x : ℕ → ℝ) (hsub : Subadditive x) :
     x 0 ≤ 0 →
     ∀ N n : ℕ, 0 < N →
@@ -195,7 +195,7 @@ theorem gap19 (x : ℕ → ℝ) (hsub : Subadditive x) :
   · exact add_le_add le_rfl
       (gap3 x hsub (n % N) (Nat.pos_of_ne_zero hr0))
 
-/-- Source: `proof_gap/exercise_137/20.txt`. -/
+/-- Exercise 137, gap 20. -/
 theorem gap20 (x : ℕ → ℝ) (hx1 : 0 ≤ x 1) :
     ∀ N n : ℕ, 0 < N →
       (n / N : ℝ) * x N + (n % N : ℝ) * x 1 ≤
@@ -269,7 +269,7 @@ private theorem block_bound
           (mul_le_mul_of_nonneg_right hqle (hx0 N))
           (mul_le_mul_of_nonneg_right hrle (hx0 1))
 
-/-- Source: `proof_gap/exercise_137/21.txt`. -/
+/-- Exercise 137, gap 21. -/
 theorem gap21 (x : ℕ → ℝ) (hsub : Subadditive x) (hx1 : 0 ≤ x 1) :
     Nonnegative x →
     ∀ N n : ℕ, 0 < N → 0 < n →
@@ -277,7 +277,7 @@ theorem gap21 (x : ℕ → ℝ) (hsub : Subadditive x) (hx1 : 0 ≤ x 1) :
   intro hx0 N n hN hn
   exact block_bound x hsub hx0 N n hN hn
 
-/-- Source: `proof_gap/exercise_137/22.txt`; n>0 is explicit. -/
+/-- Exercise 137, gap 22; n>0 is explicit. -/
 theorem gap22 (x : ℕ → ℝ) (hsub : Subadditive x) (hx1 : 0 ≤ x 1) :
     Nonnegative x →
     ∀ N n : ℕ, 0 < N → 0 < n →
@@ -291,7 +291,7 @@ theorem gap22 (x : ℕ → ℝ) (hsub : Subadditive x) (hx1 : 0 ≤ x 1) :
       exact (div_le_div_iff_of_pos_right (by positivity)).2 hb
     _ = (n / N : ℝ) * x N / n + (N : ℝ) * x 1 / n := by ring
 
-/-- Source: `proof_gap/exercise_137/23.txt`. -/
+/-- Exercise 137, gap 23. -/
 theorem gap23 (x : ℕ → ℝ) :
     ∀ N n : ℕ, 0 < N → 0 < n →
       (n / N : ℝ) * x N / n + (N : ℝ) * x 1 / n ≤
@@ -301,7 +301,7 @@ theorem gap23 (x : ℕ → ℝ) :
   field_simp
   exact le_rfl
 
-/-- Source: `proof_gap/exercise_137/24.txt`; N is chosen after ε. -/
+/-- Exercise 137, gap 24; N is chosen after ε. -/
 theorem gap24 (x : ℕ → ℝ) :
     ∀ ε : ℝ, 0 < ε →
       ∃ N : ℕ, 0 < N ∧ ∀ n : ℕ, N < n →
@@ -313,7 +313,7 @@ theorem gap24 (x : ℕ → ℝ) :
   intro n hn
   linarith
 
-/-- Source: `proof_gap/exercise_137/25.txt`. -/
+/-- Exercise 137, gap 25. -/
 theorem gap25 (x : ℕ → ℝ) (hsub : Subadditive x) (hx0 : Nonnegative x) :
     ∀ ε : ℝ, 0 < ε →
       ∃ N : ℕ, ∀ n : ℕ, N < n →
@@ -401,7 +401,7 @@ private theorem normalized_seqLiminf_eq_inf
       (sInf (normalizedValues x)) (normalized_tendsto_inf x hsub hx0)]
   simp
 
-/-- Source: `proof_gap/exercise_137/26.txt`. -/
+/-- Exercise 137, gap 26. -/
 theorem gap26 (x : ℕ → ℝ) (hsub : Subadditive x) (hx0 : Nonnegative x) :
     ∀ ε : ℝ, 0 < ε →
       ProofGap.seqLimsup (normalized x) ≤
@@ -410,23 +410,23 @@ theorem gap26 (x : ℕ → ℝ) (hsub : Subadditive x) (hx0 : Nonnegative x) :
   rw [normalized_seqLimsup_eq_inf x hsub hx0]
   linarith
 
-/-- Source: `proof_gap/exercise_137/27.txt`. -/
+/-- Exercise 137, gap 27. -/
 theorem gap27 (x : ℕ → ℝ) (hsub : Subadditive x) (hx0 : Nonnegative x) :
     ProofGap.seqLimsup (normalized x) ≤ sInf (normalizedValues x) := by
   rw [normalized_seqLimsup_eq_inf x hsub hx0]
 
-/-- Source: `proof_gap/exercise_137/28.txt`. -/
+/-- Exercise 137, gap 28. -/
 theorem gap28 (x : ℕ → ℝ) (hsub : Subadditive x) (hx0 : Nonnegative x) :
     ProofGap.seqLimsup (normalized x) = ProofGap.seqLiminf (normalized x) := by
   rw [normalized_seqLimsup_eq_inf x hsub hx0,
     normalized_seqLiminf_eq_inf x hsub hx0]
 
-/-- Source: `proof_gap/exercise_137/29.txt`. -/
+/-- Exercise 137, gap 29. -/
 theorem gap29 (x : ℕ → ℝ) (hsub : Subadditive x) (hx0 : Nonnegative x) :
     ∃ a : ℝ, Tendsto (normalized x) atTop (𝓝 a) := by
   exact ⟨sInf (normalizedValues x), normalized_tendsto_inf x hsub hx0⟩
 
-/-- Source: `proof_gap/exercise_137/30.txt`. -/
+/-- Exercise 137, gap 30. -/
 theorem gap30 (x : ℕ → ℝ) (hsub : Subadditive x) (hx0 : Nonnegative x) :
     ∃ a : ℝ, Tendsto (normalized x) atTop (𝓝 a) := by
   exact gap29 x hsub hx0

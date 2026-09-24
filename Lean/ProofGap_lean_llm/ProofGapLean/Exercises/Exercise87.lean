@@ -11,7 +11,7 @@ def FailsCauchy (x : ℕ → ℝ) : Prop :=
     ∀ N : ℕ, ∃ n₀ m₀ : ℕ,
       N < n₀ ∧ N < m₀ ∧ ε₀ ≤ |x n₀ - x m₀|
 
-/-- Source: `proof_gap/exercise_87/1.txt`; remove the rebound N witness. -/
+/-- Exercise 87, gap 1; remove the rebound N witness. -/
 theorem gap1 (x : ℕ → ℝ) :
     ¬ IsCauchy x ↔ FailsCauchy x := by
   unfold IsCauchy FailsCauchy
@@ -28,7 +28,7 @@ theorem gap1 (x : ℕ → ℝ) :
     rcases h N with ⟨n, m, hn, hm, hdist⟩
     exact ⟨m, n, hn, hm, hdist⟩
 
-/-- Source: `proof_gap/exercise_87/2.txt`. -/
+/-- Exercise 87, gap 2. -/
 theorem gap2 (x : ℕ → ℝ) :
     ¬ IsCauchy x ↔ FailsCauchy x := by
   exact gap1 x

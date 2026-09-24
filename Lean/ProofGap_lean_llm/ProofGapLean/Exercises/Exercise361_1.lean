@@ -9,7 +9,7 @@ def f (a b x : ℝ) : ℝ := a * x + b
 def IsCenter (g : ℝ → ℝ) (x₀ y₀ : ℝ) : Prop :=
   ∀ t, g (x₀ + t) + g (x₀ - t) = 2 * y₀
 
-/-- Source: `proof_gap/exercise_361_1/1.txt`. -/
+/-- Exercise 361_1, gap 1. -/
 theorem gap1 (a b x₀ y₀ : ℝ) :
     IsCenter (f a b) x₀ y₀ ↔ y₀ = a * x₀ + b := by
   constructor
@@ -22,7 +22,7 @@ theorem gap1 (a b x₀ y₀ : ℝ) :
     rw [h]
     ring
 
-/-- Source: `proof_gap/exercise_361_1/2.txt`. -/
+/-- Exercise 361_1, gap 2. -/
 theorem gap2 (a b x₀ y₀ : ℝ) (hpoint : y₀ = a * x₀ + b) :
     IsCenter (f a b) x₀ y₀ := by
   exact (gap1 a b x₀ y₀).2 hpoint

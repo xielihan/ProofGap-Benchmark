@@ -13,7 +13,7 @@ def recurrence (x : ℕ → ℝ) : Prop :=
 
 def diff (x : ℕ → ℝ) (n : ℕ) : ℝ := x (n + 1) - x n
 
-/-- Source: `proof_gap/exercise_148/1.txt`; n≥2 is required to invoke the recurrence at n+1. -/
+/-- Exercise 148, gap 1; n≥2 is required to invoke the recurrence at n+1. -/
 theorem gap1 (x : ℕ → ℝ) (hrec : recurrence x) :
     ∀ n : ℕ, 2 ≤ n →
       diff x n = (x n + x (n - 1)) / 2 - x n := by
@@ -22,14 +22,14 @@ theorem gap1 (x : ℕ → ℝ) (hrec : recurrence x) :
   rw [hrec (n + 1) (by omega)]
   congr 2 <;> omega
 
-/-- Source: `proof_gap/exercise_148/2.txt`; n is positive before using n-1. -/
+/-- Exercise 148, gap 2; n is positive before using n-1. -/
 theorem gap2 (x : ℕ → ℝ) :
     ∀ n : ℕ, 0 < n →
       (x n + x (n - 1)) / 2 - x n = (x (n - 1) - x n) / 2 := by
   intro n _
   ring
 
-/-- Source: `proof_gap/exercise_148/3.txt`; replace the ellipsis by the difference recurrence. -/
+/-- Exercise 148, gap 3; replace the ellipsis by the difference recurrence. -/
 theorem gap3 (x : ℕ → ℝ) (hrec : recurrence x) :
     ∀ n : ℕ, 2 ≤ n → diff x n = -(diff x (n - 1)) / 2 := by
   intro n hn
@@ -38,7 +38,7 @@ theorem gap3 (x : ℕ → ℝ) (hrec : recurrence x) :
   rw [Nat.sub_add_cancel (by omega : 1 ≤ n)]
   ring
 
-/-- Source: `proof_gap/exercise_148/4.txt`; closed form of the difference recurrence. -/
+/-- Exercise 148, gap 4; closed form of the difference recurrence. -/
 theorem gap4 (x : ℕ → ℝ) (hrec : recurrence x) :
     ∀ n : ℕ, 0 < n →
       diff x n = (x 2 - x 1) / ((-2 : ℝ) ^ (n - 1)) := by
@@ -59,7 +59,7 @@ theorem gap4 (x : ℕ → ℝ) (hrec : recurrence x) :
         rw [hp]
         ring
 
-/-- Source: `proof_gap/exercise_148/5.txt`. -/
+/-- Exercise 148, gap 5. -/
 theorem gap5 (x : ℕ → ℝ) (a b : ℝ) (h1 : x 1 = a) (h2 : x 2 = b) :
     ∀ n : ℕ, 0 < n →
       (x 2 - x 1) / ((-2 : ℝ) ^ (n - 1)) =
@@ -67,7 +67,7 @@ theorem gap5 (x : ℕ → ℝ) (a b : ℝ) (h1 : x 1 = a) (h2 : x 2 = b) :
   intro n _
   rw [h1, h2]
 
-/-- Source: `proof_gap/exercise_148/6.txt`. -/
+/-- Exercise 148, gap 6. -/
 theorem gap6 (x : ℕ → ℝ) (a b : ℝ)
     (h1 : x 1 = a) (h2 : x 2 = b) (hrec : recurrence x) :
     ∀ n : ℕ, 0 < n →
@@ -75,7 +75,7 @@ theorem gap6 (x : ℕ → ℝ) (a b : ℝ)
   intro n hn
   rw [gap4 x hrec n hn, gap5 x a b h1 h2 n hn]
 
-/-- Source: `proof_gap/exercise_148/7.txt`; the telescoping range is explicit. -/
+/-- Exercise 148, gap 7; the telescoping range is explicit. -/
 theorem gap7 (x : ℕ → ℝ) :
     ∀ n : ℕ, x (n + 1) =
       (∑ m ∈ Finset.Icc 1 n, (x (m + 1) - x m)) + x 1 := by
@@ -91,7 +91,7 @@ theorem gap7 (x : ℕ → ℝ) :
       simp [ih]
       ring
 
-/-- Source: `proof_gap/exercise_148/8.txt`. -/
+/-- Exercise 148, gap 8. -/
 theorem gap8 (x : ℕ → ℝ) (a b : ℝ)
     (h1 : x 1 = a)
     (hdiff : ∀ n : ℕ, 0 < n →
@@ -111,7 +111,7 @@ theorem gap8 (x : ℕ → ℝ) (a b : ℝ)
   rw [← diff, hdiff m hmpos]
   ring
 
-/-- Source: `proof_gap/exercise_148/9.txt`. -/
+/-- Exercise 148, gap 9. -/
 theorem gap9 (x : ℕ → ℝ) (a b : ℝ)
     (h1 : x 1 = a)
     (hdiff : ∀ n : ℕ, 0 < n →
@@ -143,7 +143,7 @@ private theorem geometricIcc (n : ℕ) :
           rw [inv_pow]
         _ = (-(1 : ℝ) / 2) ^ n := by norm_num
 
-/-- Source: `proof_gap/exercise_148/10.txt`. -/
+/-- Exercise 148, gap 10. -/
 theorem gap10 (x : ℕ → ℝ) (a b : ℝ)
     (hformula : ∀ n : ℕ, x (n + 1) =
       (b - a) * (∑ m ∈ Finset.Icc 1 n,
@@ -174,12 +174,12 @@ theorem gap10 (x : ℕ → ℝ) (a b : ℝ)
     field_simp
   exact (tendsto_add_atTop_iff_nat 1).mp hshift
 
-/-- Source: `proof_gap/exercise_148/11.txt`. -/
+/-- Exercise 148, gap 11. -/
 theorem gap11 (a b : ℝ) :
     (b - a) / (1 - (-(1 : ℝ) / 2)) + a = (a + 2 * b) / 3 := by
   ring
 
-/-- Source: `proof_gap/exercise_148/12.txt`. -/
+/-- Exercise 148, gap 12. -/
 theorem gap12 (x : ℕ → ℝ) (a b : ℝ)
     (h1 : x 1 = a) (h2 : x 2 = b) (hrec : recurrence x) :
     Tendsto x atTop (𝓝 ((a + 2 * b) / 3)) := by

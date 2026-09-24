@@ -24,7 +24,7 @@ def finalDerivative (n : ℕ) (x : ℝ) : ℝ :=
   (n : ℝ) * Real.sin x ^ (n - 1) *
     Real.cos (((n : ℝ) + 1) * x)
 
-/-- Source: `proof_gap/exercise_865/1.txt`. -/
+/-- Exercise 865, gap 1. -/
 theorem gap1 (n : ℕ) (x : ℝ) :
     deriv (y n) x = expandedDerivative n x := by
   unfold y expandedDerivative
@@ -38,7 +38,7 @@ theorem gap1 (n : ℕ) (x : ℝ) :
     simp only [Function.comp_apply, Pi.pow_apply] <;>
     ring
 
-/-- Source: `proof_gap/exercise_865/2.txt`. -/
+/-- Exercise 865, gap 2. -/
 theorem gap2 (n : ℕ) (x : ℝ) :
     expandedDerivative n x = factoredDerivative n x := by
   cases n with
@@ -47,7 +47,7 @@ theorem gap2 (n : ℕ) (x : ℝ) :
   | succ n =>
       simp [expandedDerivative, factoredDerivative, pow_succ] <;> ring
 
-/-- Source: `proof_gap/exercise_865/3.txt`. -/
+/-- Exercise 865, gap 3. -/
 theorem gap3 (n : ℕ) (x : ℝ) :
     factoredDerivative n x = finalDerivative n x := by
   unfold factoredDerivative finalDerivative
@@ -55,7 +55,7 @@ theorem gap3 (n : ℕ) (x : ℝ) :
     ring
   rw [← Real.cos_add, harg]
 
-/-- Source: `proof_gap/exercise_865/4.txt`. -/
+/-- Exercise 865, gap 4. -/
 theorem gap4 (n : ℕ) (x : ℝ) :
     deriv (y n) x = finalDerivative n x := by
   calc

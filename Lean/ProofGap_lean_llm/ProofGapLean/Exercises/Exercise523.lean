@@ -20,7 +20,7 @@ def exponentialForm (x : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_523/1.txt`. -/
+/-- Exercise 523, gap 1. -/
 private theorem tendsto_of_eventually_eq
     {α β : Type*} {f g : α → β} {l : Filter α} {l' : Filter β}
     (h : f =ᶠ[l] g) (hf : Filter.Tendsto f l l') :
@@ -169,7 +169,7 @@ theorem gap1 (L : ℝ) :
   unfold HasLimitAt
   exact tendsto_iff_of_eventually_eq heq
 
-/-- Source: `proof_gap/exercise_523/2.txt`. -/
+/-- Exercise 523, gap 2. -/
 theorem gap2 (L : ℝ) :
     HasLimitAt original (Real.pi / 2) L ↔
       HasLimitAt exponentialForm (Real.pi / 2) L := by
@@ -184,7 +184,7 @@ theorem gap2 (L : ℝ) :
   unfold HasLimitAt
   exact tendsto_iff_of_eventually_eq heq
 
-/-- Source: `proof_gap/exercise_523/3.txt`. -/
+/-- Exercise 523, gap 3. -/
 theorem gap3 : HasLimitAt exponentialForm (Real.pi / 2) (Real.exp 0) := by
   unfold HasLimitAt
   have hcot :
@@ -218,11 +218,11 @@ theorem gap3 : HasLimitAt exponentialForm (Real.pi / 2) (Real.exp 0) := by
     simpa only [Function.comp_apply] using hexp.comp hinner
   exact hfull.mono_left inf_le_left
 
-/-- Source: `proof_gap/exercise_523/4.txt`. -/
+/-- Exercise 523, gap 4. -/
 theorem gap4 : Real.exp 0 = 1 := by
   exact Real.exp_zero
 
-/-- Source: `proof_gap/exercise_523/5.txt`. -/
+/-- Exercise 523, gap 5. -/
 theorem gap5 : HasLimitAt original (Real.pi / 2) 1 := by
   apply (gap2 1).mpr
   simpa [gap4] using gap3

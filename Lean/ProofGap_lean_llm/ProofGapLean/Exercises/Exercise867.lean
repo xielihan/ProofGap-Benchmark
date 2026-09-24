@@ -11,7 +11,7 @@ noncomputable section
 
 def y (x : ℝ) : ℝ := Real.sin x ^ 2 / Real.sin (x ^ 2)
 
-/-- Source: `proof_gap/exercise_867/1.txt`; restrict to the domain of the
+/-- Exercise 867, gap 1; restrict to the domain of the
 quotient. -/
 theorem gap1 (x : ℝ) (hden : Real.sin (x ^ 2) ≠ 0) :
     deriv y x =

@@ -22,7 +22,7 @@ def normalized (x : ℝ) : ℝ :=
 def HasLimitAtPosInfinity (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f Filter.atTop (nhds L)
 
-/-- Source: `proof_gap/exercise_464/1.txt`; multiply by the displayed conjugate. -/
+/-- Exercise 464, gap 1; multiply by the displayed conjugate. -/
 private theorem rationalized_eq_normalized_of_pos {x : ℝ} (hx : 0 < x) :
     rationalized x = normalized x := by
   let u : ℝ := Real.sqrt (1 + 2 / x)
@@ -134,7 +134,7 @@ theorem gap1 (L : ℝ) :
     simp [rationalized, hconj]
   exact Filter.tendsto_congr' heq
 
-/-- Source: `proof_gap/exercise_464/2.txt`; perform the second rationalization and normalization. -/
+/-- Exercise 464, gap 2; perform the second rationalization and normalization. -/
 theorem gap2 (L : ℝ) :
     HasLimitAtPosInfinity rationalized L ↔ HasLimitAtPosInfinity normalized L := by
   unfold HasLimitAtPosInfinity
@@ -143,7 +143,7 @@ theorem gap2 (L : ℝ) :
     exact rationalized_eq_normalized_of_pos hx
   exact Filter.tendsto_congr' heq
 
-/-- Source: `proof_gap/exercise_464/3.txt`. -/
+/-- Exercise 464, gap 3. -/
 theorem gap3 : HasLimitAtPosInfinity normalized (-1 / 4) := by
   unfold HasLimitAtPosInfinity
   have hinv :

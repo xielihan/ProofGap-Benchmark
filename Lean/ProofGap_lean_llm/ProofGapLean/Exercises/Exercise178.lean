@@ -9,11 +9,11 @@ def y (x : ℝ) : ℝ := x ^ 2
 def domain : Set ℝ := Set.Icc 1 2
 def valueSet : Set ℝ := {t | ∃ x ∈ domain, t = y x}
 
-/-- Source: `proof_gap/exercise_178/1.txt`. -/
+/-- Exercise 178, gap 1. -/
 theorem gap1 : ContinuousOn y domain := by
   exact (continuous_id.pow 2).continuousOn
 
-/-- Source: `proof_gap/exercise_178/2.txt`. -/
+/-- Exercise 178, gap 2. -/
 theorem gap2 : MonotoneOn y domain := by
   intro a ha b hb hab
   change a ∈ Set.Icc (1 : ℝ) 2 at ha
@@ -21,15 +21,15 @@ theorem gap2 : MonotoneOn y domain := by
   unfold y
   nlinarith [ha.1, hb.1]
 
-/-- Source: `proof_gap/exercise_178/3.txt`. -/
+/-- Exercise 178, gap 3. -/
 theorem gap3 : y 1 = 1 := by
   norm_num [y]
 
-/-- Source: `proof_gap/exercise_178/4.txt`. -/
+/-- Exercise 178, gap 4. -/
 theorem gap4 : y 2 = 4 := by
   norm_num [y]
 
-/-- Source: `proof_gap/exercise_178/5.txt`; replace the free family `E_x` by the stated domain. -/
+/-- Exercise 178, gap 5; replace the free family `E_x` by the stated domain. -/
 theorem gap5 : valueSet = Set.Icc 1 4 := by
   ext t
   constructor

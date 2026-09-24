@@ -5,7 +5,7 @@ import Mathlib.Tactic.Ring
 
 namespace ProofGap.Exercise799
 
-/-- Source: `proof_gap/exercise_799/1.txt`. -/
+/-- Exercise 799, gap 1. -/
 theorem gap1 (x₁ x₂ : ℝ) (hx₁ : x₁ ∈ Set.Ici (1 : ℝ))
     (hx₂ : x₂ ∈ Set.Ici (1 : ℝ)) :
     |Real.sqrt x₁ - Real.sqrt x₂| =
@@ -26,7 +26,7 @@ theorem gap1 (x₁ x₂ : ℝ) (hx₁ : x₁ ∈ Set.Ici (1 : ℝ))
     nlinarith [Real.sq_sqrt hx₁0, Real.sq_sqrt hx₂0]
   exact congrArg (fun x : ℝ => |x|) hquot
 
-/-- Source: `proof_gap/exercise_799/2.txt`. -/
+/-- Exercise 799, gap 2. -/
 theorem gap2 (x₁ x₂ : ℝ) (hx₁ : x₁ ∈ Set.Ici (1 : ℝ))
     (hx₂ : x₂ ∈ Set.Ici (1 : ℝ)) :
     |(x₁ - x₂) / (Real.sqrt x₁ + Real.sqrt x₂)| ≤
@@ -42,7 +42,7 @@ theorem gap2 (x₁ x₂ : ℝ) (hx₁ : x₁ ∈ Set.Ici (1 : ℝ))
   rw [abs_div, abs_of_pos hdenpos]
   exact div_le_div_of_nonneg_left (abs_nonneg _) (by norm_num) hden
 
-/-- Source: `proof_gap/exercise_799/3.txt`. -/
+/-- Exercise 799, gap 3. -/
 theorem gap3 (x₁ x₂ : ℝ) (hx₁ : x₁ ∈ Set.Ici (1 : ℝ))
     (hx₂ : x₂ ∈ Set.Ici (1 : ℝ)) :
     |Real.sqrt x₁ - Real.sqrt x₂| ≤ |x₁ - x₂| / 2 := by
@@ -52,7 +52,7 @@ theorem gap3 (x₁ x₂ : ℝ) (hx₁ : x₁ ∈ Set.Ici (1 : ℝ))
       gap1 x₁ x₂ hx₁ hx₂
     _ ≤ |x₁ - x₂| / 2 := gap2 x₁ x₂ hx₁ hx₂
 
-/-- Source: `proof_gap/exercise_799/4.txt`; move `ε` outside the existential
+/-- Exercise 799, gap 4; move `ε` outside the existential
 so that the modulus may depend on it. -/
 theorem gap4 :
     ∀ ε > 0, ∃ δ > 0, ∀ x₁ ∈ Set.Ici (1 : ℝ), ∀ x₂ ∈ Set.Ici (1 : ℝ),
@@ -68,7 +68,7 @@ theorem gap4 :
     _ < ε := hhalf
     _ = (1 / 2 : ℝ) * (2 * ε) := by ring
 
-/-- Source: `proof_gap/exercise_799/5`; move `ε` outside the existential. -/
+/-- Exercise 799, gap 5; move `ε` outside the existential. -/
 theorem gap5 :
     ∀ ε > 0, ∃ δ > 0, ∀ x₁ ∈ Set.Ici (1 : ℝ), ∀ x₂ ∈ Set.Ici (1 : ℝ),
       |x₁ - x₂| < δ → (1 / 2 : ℝ) * (2 * ε) = ε := by
@@ -77,7 +77,7 @@ theorem gap5 :
   intro x₁ hx₁ x₂ hx₂ hdist
   ring
 
-/-- Source: `proof_gap/exercise_799/6`; repair the modulus quantifier order. -/
+/-- Exercise 799, gap 6; repair the modulus quantifier order. -/
 theorem gap6 :
     ∀ ε > 0, ∃ δ > 0, ∀ x₁ ∈ Set.Ici (1 : ℝ), ∀ x₂ ∈ Set.Ici (1 : ℝ),
       |x₁ - x₂| < δ → |Real.sqrt x₁ - Real.sqrt x₂| < ε := by
@@ -90,7 +90,7 @@ theorem gap6 :
       hmod x₁ hx₁ x₂ hx₂ hdist
     _ = ε := by ring
 
-/-- Source: `proof_gap/exercise_799/7.txt`; replace the unbound `f` by the
+/-- Exercise 799, gap 7; replace the unbound `f` by the
 specified square-root function. -/
 theorem gap7 : UniformContinuousOn Real.sqrt (Set.Ici (1 : ℝ)) := by
   rw [Metric.uniformContinuousOn_iff]
@@ -102,7 +102,7 @@ theorem gap7 : UniformContinuousOn Real.sqrt (Set.Ici (1 : ℝ)) := by
     simpa only [Real.dist_eq] using hdist
   simpa only [Real.dist_eq] using hmod x₁ hx₁ x₂ hx₂ habs
 
-/-- Source: `proof_gap/exercise_799/8.txt`. -/
+/-- Exercise 799, gap 8. -/
 theorem gap8 : UniformContinuousOn Real.sqrt (Set.Ici (1 : ℝ)) := by
   exact gap7
 

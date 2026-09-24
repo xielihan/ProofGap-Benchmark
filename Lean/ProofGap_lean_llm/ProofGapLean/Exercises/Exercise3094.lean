@@ -168,7 +168,7 @@ private theorem summableFromOne_congr {f g : ℕ → ℝ}
     intro k hk
     exact (hfg (k + 1) (by omega)).symm
 
-/-- Source: `proof_gap/exercise_3094/1.txt`; use real powers and require `n ≥ 1`. -/
+/-- Exercise 3094, gap 1; use real powers and require `n ≥ 1`. -/
 theorem gap1 :
     ∀ n : ℕ, 1 ≤ n →
       Real.log (p n) = 1 / (n : ℝ) * Real.log (signedPower n) := by
@@ -178,7 +178,7 @@ theorem gap1 :
     1 / (n : ℝ) * Real.log (signedPower n)
   rw [Real.log_rpow (signedPower_pos n hn)]
 
-/-- Source: `proof_gap/exercise_3094/2.txt`; use the positive-index power law. -/
+/-- Exercise 3094, gap 2; use the positive-index power law. -/
 theorem gap2 :
     ∀ n : ℕ, 1 ≤ n →
       1 / (n : ℝ) * Real.log (signedPower n) = logarithmicTerm n := by
@@ -191,18 +191,18 @@ theorem gap2 :
   rw [Real.log_rpow hnpos]
   ring
 
-/-- Source: `proof_gap/exercise_3094/3.txt`. -/
+/-- Exercise 3094, gap 3. -/
 theorem gap3 :
     ∀ n : ℕ, 1 ≤ n → Real.log (p n) = logarithmicTerm n := by
   intro n hn
   exact (gap1 n hn).trans (gap2 n hn)
 
-/-- Source: `proof_gap/exercise_3094/4.txt`. -/
+/-- Exercise 3094, gap 4. -/
 theorem gap4 : ConditionallySummableFromOne logarithmicTerm := by
   exact ⟨logarithmicTerm_ordered_tendsto,
     abs_logarithmicTerm_not_ordered⟩
 
-/-- Source: `proof_gap/exercise_3094/5.txt`. -/
+/-- Exercise 3094, gap 5. -/
 theorem gap5 :
     ConditionallySummableFromOne (fun n => Real.log (p n)) := by
   rcases gap4 with ⟨hconv, habs⟩

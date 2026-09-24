@@ -55,7 +55,7 @@ private def radialKernel (ρ r : ℝ) : ℝ :=
 private def radialFormula (f : ℝ → ℝ) (R₁ R₂ r : ℝ) : ℝ :=
   4 * Real.pi * ∫ ρ in R₁..R₂, f ρ * radialKernel ρ r
 
-/-! Source: `results/stage1_gpt55/09_重积分与含参积分/exercise_4156_autoformalization_result/exercise_4156.md`. -/
+/-! Exercise 4156. -/
 
 private def ball (R : ℝ) : Set Point3 :=
   {q | squaredRadius q ≤ R ^ 2}

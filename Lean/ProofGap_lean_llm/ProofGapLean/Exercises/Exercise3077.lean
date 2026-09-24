@@ -134,7 +134,7 @@ private theorem partialProduct_eq_range (x : ℝ) (n : ℕ) :
       ring
 
 /--
-Source: `proof_gap/exercise_3077/1.txt`; make the missing `x` argument explicit
+Exercise 3077, gap 1; make the missing `x` argument explicit
 and formalize the additive `O(1/n²)` remainder.
 -/
 theorem gap1 :
@@ -150,7 +150,7 @@ theorem gap1 :
   · exact Eventually.of_forall fun _ => rfl
 
 /--
-Source: `proof_gap/exercise_3077/2.txt`; make `alpha` depend on `x` and
+Exercise 3077, gap 2; make `alpha` depend on `x` and
 formalize its remainder.
 -/
 theorem gap2 :
@@ -160,7 +160,7 @@ theorem gap2 :
   intro x
   exact (alpha_isBigO x).sub (secondOrder_isBigO x)
 
-/-- Source: `proof_gap/exercise_3077/3.txt`; strict negativity needs `x ≠ 0` and `n ≥ 1`. -/
+/-- Exercise 3077, gap 3; strict negativity needs `x ≠ 0` and `n ≥ 1`. -/
 theorem gap3 :
     ∀ x : ℝ, x ≠ 0 → ∀ n : ℕ, 1 ≤ n → alpha x n < 0 := by
   intro x hx n hn
@@ -182,7 +182,7 @@ theorem gap3 :
   linarith
 
 /--
-Source: `proof_gap/exercise_3077/4.txt`; replace the `bigO` summand and
+Exercise 3077, gap 4; replace the `bigO` summand and
 unspecified lower cutoff by the actual remainder and a sum from one.
 -/
 theorem gap4 :
@@ -198,7 +198,7 @@ theorem gap4 :
   unfold remainder
   ring
 
-/-- Source: `proof_gap/exercise_3077/5.txt`. -/
+/-- Exercise 3077, gap 5. -/
 theorem gap5 :
     ∀ x : ℝ, SummableFromOne (alpha x) := by
   intro x
@@ -206,7 +206,7 @@ theorem gap5 :
   exact (alpha_summable x).comp_injective Nat.succ_injective
 
 /--
-Source: `proof_gap/exercise_3077/6.txt`; convergence applies to the partial
+Exercise 3077, gap 6; convergence applies to the partial
 product sequence indexed by its cutoff.
 -/
 theorem gap6 :

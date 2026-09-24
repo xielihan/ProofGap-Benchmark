@@ -11,7 +11,7 @@ def f (x : ℝ) : ℝ := (1 + x ^ 2) / (1 + x ^ 4)
 def BoundedOn (g : ℝ → ℝ) (s : Set ℝ) : Prop :=
   ∃ M : ℝ, ∀ x ∈ s, |g x| ≤ M
 
-/-- Source: `proof_gap/exercise_383/1.txt`. -/
+/-- Exercise 383, gap 1. -/
 theorem gap1 : ∀ x, |x| ≤ 1 → |f x| < (1 + 1 : ℝ) / 1 := by
   intro x hx
   rw [abs_of_nonneg]
@@ -24,19 +24,19 @@ theorem gap1 : ∀ x, |x| ≤ 1 → |f x| < (1 + 1 : ℝ) / 1 := by
     exact div_nonneg (by nlinarith [sq_nonneg x])
       (by nlinarith [sq_nonneg (x ^ 2)])
 
-/-- Source: `proof_gap/exercise_383/2.txt`. -/
+/-- Exercise 383, gap 2. -/
 theorem gap2 : ∀ x : ℝ, |x| ≤ 1 → (1 + 1 : ℝ) / 1 = 2 := by
   intro x hx
   norm_num
 
-/-- Source: `proof_gap/exercise_383/3.txt`. -/
+/-- Exercise 383, gap 3. -/
 theorem gap3 : ∀ x, |x| ≤ 1 → |f x| < 2 := by
   intro x hx
   calc
     |f x| < (1 + 1 : ℝ) / 1 := gap1 x hx
     _ = 2 := gap2 x hx
 
-/-- Source: `proof_gap/exercise_383/4.txt`. -/
+/-- Exercise 383, gap 4. -/
 theorem gap4 : ∀ x, 1 < |x| →
     |f x| < (1 + x ^ 4) / (1 + x ^ 4) := by
   intro x hx
@@ -63,20 +63,20 @@ theorem gap4 : ∀ x, 1 < |x| →
   · unfold f
     exact div_nonneg (by nlinarith [sq_nonneg x]) hden.le
 
-/-- Source: `proof_gap/exercise_383/5.txt`. -/
+/-- Exercise 383, gap 5. -/
 theorem gap5 : ∀ x : ℝ, 1 < |x| →
     (1 + x ^ 4) / (1 + x ^ 4) = 1 := by
   intro x hx
   exact div_self (ne_of_gt (by nlinarith [sq_nonneg (x ^ 2)]))
 
-/-- Source: `proof_gap/exercise_383/6.txt`. -/
+/-- Exercise 383, gap 6. -/
 theorem gap6 : ∀ x, 1 < |x| → |f x| < 1 := by
   intro x hx
   calc
     |f x| < (1 + x ^ 4) / (1 + x ^ 4) := gap4 x hx
     _ = 1 := gap5 x hx
 
-/-- Source: `proof_gap/exercise_383/7.txt`. -/
+/-- Exercise 383, gap 7. -/
 theorem gap7 : ∀ x : ℝ, |f x| < 2 := by
   intro x
   by_cases hx : |x| ≤ 1
@@ -84,13 +84,13 @@ theorem gap7 : ∀ x : ℝ, |f x| < 2 := by
   · have hx' : 1 < |x| := lt_of_not_ge hx
     exact lt_trans (gap6 x hx') (by norm_num)
 
-/-- Source: `proof_gap/exercise_383/8.txt`. -/
+/-- Exercise 383, gap 8. -/
 theorem gap8 : BoundedOn f Set.univ := by
   refine ⟨2, ?_⟩
   intro x hx
   exact (gap7 x).le
 
-/-- Source: `proof_gap/exercise_383/9.txt`. -/
+/-- Exercise 383, gap 9. -/
 theorem gap9 : BoundedOn f Set.univ := by
   exact gap8
 

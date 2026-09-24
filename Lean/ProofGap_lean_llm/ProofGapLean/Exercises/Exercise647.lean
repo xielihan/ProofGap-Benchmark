@@ -10,7 +10,7 @@ def IsOrder (f : ℝ → ℝ) (n : ℕ) : Prop :=
   ∃ K ≥ 0, ∀ᶠ x in nhdsWithin 0 (Set.Ioi 0),
     |f x| ≤ K * x ^ n
 
-/-- Source: `proof_gap/exercise_647/1.txt`; represent `O(x^n)` by an explicit eventual bound. -/
+/-- Exercise 647, gap 1; represent `O(x^n)` by an explicit eventual bound. -/
 theorem gap1 (f : ℝ → ℝ) (n : ℕ) (C K : ℝ)
     (h : ∀ᶠ x in nhdsWithin 0 (Set.Ioi 0), |f x| ≤ K * x ^ n) :
     ∀ᶠ x in nhdsWithin 0 (Set.Ioi 0),
@@ -22,13 +22,13 @@ theorem gap1 (f : ℝ → ℝ) (n : ℕ) (C K : ℝ)
       mul_le_mul_of_nonneg_left hx (abs_nonneg C)
     _ = (|C| * K) * x ^ n := by ring
 
-/-- Source: `proof_gap/exercise_647/2.txt`; finiteness becomes existence of a real bound. -/
+/-- Exercise 647, gap 2; finiteness becomes existence of a real bound. -/
 theorem gap2 (C K : ℝ) (hK : 0 ≤ K) :
     ∃ M ≥ 0, |C| * K ≤ M := by
   refine ⟨|C| * K, mul_nonneg (abs_nonneg C) hK, ?_⟩
   exact le_rfl
 
-/-- Source: `proof_gap/exercise_647/3.txt`. -/
+/-- Exercise 647, gap 3. -/
 theorem gap3 (f : ℝ → ℝ) (n : ℕ) (C : ℝ)
     (hf : IsOrder f n) :
     ∃ K ≥ 0, ∀ᶠ x in nhdsWithin 0 (Set.Ioi 0),
@@ -37,13 +37,13 @@ theorem gap3 (f : ℝ → ℝ) (n : ℕ) (C : ℝ)
   refine ⟨|C| * K, mul_nonneg (abs_nonneg C) hK, ?_⟩
   exact gap1 f n C K hf
 
-/-- Source: `proof_gap/exercise_647/4.txt`; interpret equality of big-O symbols as closure under scalar multiplication. -/
+/-- Exercise 647, gap 4; interpret equality of big-O symbols as closure under scalar multiplication. -/
 theorem gap4 (f : ℝ → ℝ) (n : ℕ) (C : ℝ)
     (hf : IsOrder f n) :
     IsOrder (fun x => C * f x) n := by
   exact gap3 f n C hf
 
-/-- Source: `proof_gap/exercise_647/5.txt`; state the eventual triangle bound. -/
+/-- Exercise 647, gap 5; state the eventual triangle bound. -/
 theorem gap5 (f g : ℝ → ℝ) (n m : ℕ) (hnm : n < m)
     (hf : IsOrder f n) (hg : IsOrder g m) :
     ∃ K ≥ 0, ∀ᶠ x in nhdsWithin 0 (Set.Ioo 0 1),
@@ -75,13 +75,13 @@ theorem gap5 (f g : ℝ → ℝ) (n m : ℕ) (hnm : n < m)
       add_le_add_right (mul_le_mul_of_nonneg_left hpow hK₂) _
     _ = (K₁ + K₂) * x ^ n := by ring
 
-/-- Source: `proof_gap/exercise_647/6.txt`; the two finite big-O bounds combine to one finite bound. -/
+/-- Exercise 647, gap 6; the two finite big-O bounds combine to one finite bound. -/
 theorem gap6 (K₁ K₂ : ℝ) (h₁ : 0 ≤ K₁) (h₂ : 0 ≤ K₂) :
     ∃ K ≥ 0, K₁ + K₂ ≤ K := by
   refine ⟨K₁ + K₂, add_nonneg h₁ h₂, ?_⟩
   exact le_rfl
 
-/-- Source: `proof_gap/exercise_647/7.txt`. -/
+/-- Exercise 647, gap 7. -/
 theorem gap7 (f g : ℝ → ℝ) (n m : ℕ) (hnm : n < m)
     (hf : IsOrder f n) (hg : IsOrder g m) :
     ∃ K ≥ 0, ∀ᶠ x in nhdsWithin 0 (Set.Ioi 0),
@@ -105,13 +105,13 @@ theorem gap7 (f g : ℝ → ℝ) (n m : ℕ) (hnm : n < m)
     · exact Filter.le_principal_iff.mpr hmem
   exact ⟨K, hK, hle hbound⟩
 
-/-- Source: `proof_gap/exercise_647/8.txt`; interpret equality of big-O symbols as the sum closure rule. -/
+/-- Exercise 647, gap 8; interpret equality of big-O symbols as the sum closure rule. -/
 theorem gap8 (f g : ℝ → ℝ) (n m : ℕ) (hnm : n < m)
     (hf : IsOrder f n) (hg : IsOrder g m) :
     IsOrder (fun x => f x + g x) n := by
   exact gap7 f g n m hnm hf hg
 
-/-- Source: `proof_gap/exercise_647/9.txt`; state the product of eventual bounds. -/
+/-- Exercise 647, gap 9; state the product of eventual bounds. -/
 theorem gap9 (f g : ℝ → ℝ) (n m : ℕ)
     (hf : IsOrder f n) (hg : IsOrder g m) :
     ∃ K ≥ 0, ∀ᶠ x in nhdsWithin 0 (Set.Ioi 0),
@@ -129,26 +129,26 @@ theorem gap9 (f g : ℝ → ℝ) (n m : ℕ)
       rw [pow_add]
       ring
 
-/-- Source: `proof_gap/exercise_647/10.txt`. -/
+/-- Exercise 647, gap 10. -/
 theorem gap10 (K₁ K₂ : ℝ) (h₁ : 0 ≤ K₁) (h₂ : 0 ≤ K₂) :
     ∃ K ≥ 0, K₁ * K₂ ≤ K := by
   refine ⟨K₁ * K₂, mul_nonneg h₁ h₂, ?_⟩
   exact le_rfl
 
-/-- Source: `proof_gap/exercise_647/11.txt`. -/
+/-- Exercise 647, gap 11. -/
 theorem gap11 (f g : ℝ → ℝ) (n m : ℕ)
     (hf : IsOrder f n) (hg : IsOrder g m) :
     ∃ K ≥ 0, ∀ᶠ x in nhdsWithin 0 (Set.Ioi 0),
       |f x * g x| ≤ K * x ^ (n + m) := by
   exact gap9 f g n m hf hg
 
-/-- Source: `proof_gap/exercise_647/12.txt`; interpret equality of big-O symbols as the product closure rule. -/
+/-- Exercise 647, gap 12; interpret equality of big-O symbols as the product closure rule. -/
 theorem gap12 (f g : ℝ → ℝ) (n m : ℕ)
     (hf : IsOrder f n) (hg : IsOrder g m) :
     IsOrder (fun x => f x * g x) (n + m) := by
   exact gap11 f g n m hf hg
 
-/-- Source: `proof_gap/exercise_647/13.txt`; corrected package of the three big-O closure rules. -/
+/-- Exercise 647, gap 13; corrected package of the three big-O closure rules. -/
 theorem gap13 (f g : ℝ → ℝ) (n m : ℕ) (C : ℝ)
     (hf : IsOrder f n) (hg : IsOrder g m) :
     IsOrder (fun x => C * f x) n ∧

@@ -54,7 +54,7 @@ private theorem prodSeq_bounded
   simp only [prodSeq, sub_zero, abs_mul]
   exact mul_le_mul hxabs hyabs (abs_nonneg _) hrx0
 
-/-- Source: `proof_gap/exercise_132_1/1.txt`; boundedness realizes limsup. -/
+/-- Exercise 132_1, gap 1; boundedness realizes limsup. -/
 theorem gap1 (x : ℕ → ℝ) (hx0 : Nonnegative x)
     (hxb : Bornology.IsBounded (Set.range x)) :
     ∃ p : ℕ → ℕ, StrictMono p ∧
@@ -66,7 +66,7 @@ theorem gap1 (x : ℕ → ℝ) (hx0 : Nonnegative x)
   filter_upwards with k
   exact hx0 (p k)
 
-/-- Source: `proof_gap/exercise_132_1/2.txt`. -/
+/-- Exercise 132_1, gap 2. -/
 theorem gap2 (y : ℕ → ℝ) (p : ℕ → ℕ) (β : ℝ)
     (hy0 : Nonnegative y) (hy : Tendsto (y ∘ p) atTop (𝓝 β)) :
     0 ≤ β := by
@@ -74,7 +74,7 @@ theorem gap2 (y : ℕ → ℝ) (p : ℕ → ℕ) (β : ℝ)
   filter_upwards with k
   exact hy0 (p k)
 
-/-- Source: `proof_gap/exercise_132_1/3.txt`. -/
+/-- Exercise 132_1, gap 3. -/
 theorem gap3 (y : ℕ → ℝ) (p : ℕ → ℕ) (β : ℝ)
     (hbounded : Bornology.IsBounded (Set.range y))
     (hp : StrictMono p)
@@ -82,27 +82,27 @@ theorem gap3 (y : ℕ → ℝ) (p : ℕ → ℕ) (β : ℝ)
     β ≤ ProofGap.seqLimsup y := by
   exact le_csSup (clusterSet_bddAbove y hbounded) ⟨p, hp, hy⟩
 
-/-- Source: `proof_gap/exercise_132_1/4.txt`. -/
+/-- Exercise 132_1, gap 4. -/
 theorem gap4 (x y : ℕ → ℝ) (p : ℕ → ℕ) (α β : ℝ)
     (hx : Tendsto (x ∘ p) atTop (𝓝 α))
     (hy : Tendsto (y ∘ p) atTop (𝓝 β)) :
     Tendsto (prodSeq x y ∘ p) atTop (𝓝 (α * β)) := by
   simpa [prodSeq, Function.comp_def] using hx.mul hy
 
-/-- Source: `proof_gap/exercise_132_1/5.txt`. -/
+/-- Exercise 132_1, gap 5. -/
 theorem gap5 (x y : ℕ → ℝ) (p : ℕ → ℕ) (v : ℝ)
     (hp : StrictMono p) (h : Tendsto (prodSeq x y ∘ p) atTop (𝓝 v)) :
     v ∈ ProofGap.ClusterSet (prodSeq x y) := by
   exact ⟨p, hp, h⟩
 
-/-- Source: `proof_gap/exercise_132_1/6.txt`; correct the reversed cluster inequality. -/
+/-- Exercise 132_1, gap 6; correct the reversed cluster inequality. -/
 theorem gap6 (x y : ℕ → ℝ) (v : ℝ)
     (hbounded : Bornology.IsBounded (Set.range (prodSeq x y)))
     (h : v ∈ ProofGap.ClusterSet (prodSeq x y)) :
     v ≤ ProofGap.seqLimsup (prodSeq x y) := by
   exact le_csSup (clusterSet_bddAbove (prodSeq x y) hbounded) h
 
-/-- Source: `proof_gap/exercise_132_1/7.txt`. -/
+/-- Exercise 132_1, gap 7. -/
 theorem gap7 (x y : ℕ → ℝ) (α β : ℝ)
     (hα : α = ProofGap.seqLimsup x) (hα0 : 0 ≤ α)
     (hβ : β ≤ ProofGap.seqLimsup y) (hβ0 : 0 ≤ β) :
@@ -111,7 +111,7 @@ theorem gap7 (x y : ℕ → ℝ) (α β : ℝ)
   have hysup0 : 0 ≤ ProofGap.seqLimsup y := hβ0.trans hβ
   exact mul_le_mul le_rfl hβ hβ0 (by assumption)
 
-/-- Source: `proof_gap/exercise_132_1/8.txt`; use a subsequence realizing product limsup. -/
+/-- Exercise 132_1, gap 8; use a subsequence realizing product limsup. -/
 theorem gap8 (x y : ℕ → ℝ)
     (hx0 : Nonnegative x) (hy0 : Nonnegative y)
     (hxb : Bornology.IsBounded (Set.range x))
@@ -159,7 +159,7 @@ theorem gap8 (x y : ℕ → ℝ)
   rw [heq]
   exact mul_le_mul hβle hγle hγ0 hxsup0
 
-/-- Source: `proof_gap/exercise_132_1/9.txt`. -/
+/-- Exercise 132_1, gap 9. -/
 theorem gap9 (x y : ℕ → ℝ)
     (hx0 : Nonnegative x) (hy0 : Nonnegative y)
     (hzero : ProofGap.seqLiminf x = 0) :
@@ -178,7 +178,7 @@ theorem gap9 (x y : ℕ → ℝ)
       Set.not_nonempty_iff_eq_empty.mp hne
     rw [heq, Real.sInf_empty]
 
-/-- Source: `proof_gap/exercise_132_1/10.txt`; remove the rebound N₀. -/
+/-- Exercise 132_1, gap 10; remove the rebound N₀. -/
 theorem gap10 (x : ℕ → ℝ)
     (hbounded : Bornology.IsBounded (Set.range x))
     (hpos : 0 < ProofGap.seqLiminf x) :
@@ -206,7 +206,7 @@ theorem gap10 (x : ℕ → ℝ)
     csInf_le (clusterSet_bddBelow x hbounded) hβmem
   linarith
 
-/-- Source: `proof_gap/exercise_132_1/11.txt`; choose one coherent subsequence. -/
+/-- Exercise 132_1, gap 11; choose one coherent subsequence. -/
 theorem gap11 (x y : ℕ → ℝ)
     (hprod : Bornology.IsBounded (Set.range (prodSeq x y))) :
     ∃ p : ℕ → ℕ, StrictMono p ∧
@@ -229,7 +229,7 @@ theorem gap11 (x y : ℕ → ℝ)
   rw [heq] at hlim
   exact ⟨p, hp, hlim⟩
 
-/-- Source: `proof_gap/exercise_132_1/12.txt`. -/
+/-- Exercise 132_1, gap 12. -/
 theorem gap12 (x : ℕ → ℝ) (p : ℕ → ℕ) (β' : ℝ)
     (hbounded : Bornology.IsBounded (Set.range x))
     (hp : StrictMono p)
@@ -237,24 +237,24 @@ theorem gap12 (x : ℕ → ℝ) (p : ℕ → ℕ) (β' : ℝ)
     β' ≥ ProofGap.seqLiminf x := by
   exact csInf_le (clusterSet_bddBelow x hbounded) ⟨p, hp, h⟩
 
-/-- Source: `proof_gap/exercise_132_1/13.txt`. -/
+/-- Exercise 132_1, gap 13. -/
 theorem gap13 (x : ℕ → ℝ) (βstar : ℝ)
     (h : ProofGap.seqLiminf x = βstar) :
     ProofGap.seqLiminf x = βstar := by
   exact h
 
-/-- Source: `proof_gap/exercise_132_1/14.txt`. -/
+/-- Exercise 132_1, gap 14. -/
 theorem gap14 (βstar : ℝ) (h : 0 < βstar) : 0 < βstar := by
   exact h
 
-/-- Source: `proof_gap/exercise_132_1/15.txt`. -/
+/-- Exercise 132_1, gap 15. -/
 theorem gap15 (x : ℕ → ℝ) (β' : ℝ)
     (hlo : 0 < ProofGap.seqLiminf x)
     (hβ : ProofGap.seqLiminf x ≤ β') :
     0 < β' := by
   linarith
 
-/-- Source: `proof_gap/exercise_132_1/16.txt`. -/
+/-- Exercise 132_1, gap 16. -/
 theorem gap16 (x y : ℕ → ℝ) (p : ℕ → ℕ) (α' β' : ℝ)
     (hprod : Tendsto (prodSeq x y ∘ p) atTop (𝓝 α'))
     (hx : Tendsto (x ∘ p) atTop (𝓝 β'))
@@ -273,38 +273,38 @@ theorem gap16 (x y : ℕ → ℝ) (p : ℕ → ℕ) (α' β' : ℝ)
   have hk' : x (p k) ≠ 0 := by simpa [Function.comp_apply] using hk
   exact mul_div_cancel_left₀ (y (p k)) hk'
 
-/-- Source: `proof_gap/exercise_132_1/17.txt`. -/
+/-- Exercise 132_1, gap 17. -/
 theorem gap17 (y : ℕ → ℝ) (p : ℕ → ℕ) (v : ℝ)
     (hp : StrictMono p) (h : Tendsto (y ∘ p) atTop (𝓝 v)) :
     v ∈ ProofGap.ClusterSet y := by
   exact ⟨p, hp, h⟩
 
-/-- Source: `proof_gap/exercise_132_1/18.txt`. -/
+/-- Exercise 132_1, gap 18. -/
 theorem gap18 (y : ℕ → ℝ) (v : ℝ)
     (hbounded : Bornology.IsBounded (Set.range y))
     (h : v ∈ ProofGap.ClusterSet y) :
     v ≥ ProofGap.seqLiminf y := by
   exact csInf_le (clusterSet_bddBelow y hbounded) h
 
-/-- Source: `proof_gap/exercise_132_1/19.txt`. -/
+/-- Exercise 132_1, gap 19. -/
 theorem gap19 (x y : ℕ → ℝ) :
     ProofGap.seqLiminf (prodSeq x y) =
       ProofGap.seqLiminf (prodSeq x y) := by
   rfl
 
-/-- Source: `proof_gap/exercise_132_1/20.txt`. -/
+/-- Exercise 132_1, gap 20. -/
 theorem gap20 (α' β' l : ℝ)
     (hβ : 0 < β') (hdiv : l ≤ α' / β') :
     α' ≥ β' * l := by
   exact (le_div_iff₀' hβ).mp hdiv
 
-/-- Source: `proof_gap/exercise_132_1/21.txt`. -/
+/-- Exercise 132_1, gap 21. -/
 theorem gap21 (lx ly β' : ℝ)
     (hlx : lx ≤ β') (hlx0 : 0 ≤ lx) (hly0 : 0 ≤ ly) :
     β' * ly ≥ lx * ly := by
   exact mul_le_mul_of_nonneg_right hlx hly0
 
-/-- Source: `proof_gap/exercise_132_1/22.txt`. -/
+/-- Exercise 132_1, gap 22. -/
 theorem gap22 (x y : ℕ → ℝ)
     (hx0 : Nonnegative x) (hy0 : Nonnegative y)
     (hxb : Bornology.IsBounded (Set.range x))
@@ -356,7 +356,7 @@ theorem gap22 (x y : ℕ → ℝ)
   rw [heq]
   exact mul_le_mul hβge hγge hly0 hβ0
 
-/-- Source: `proof_gap/exercise_132_1/23.txt`. -/
+/-- Exercise 132_1, gap 23. -/
 theorem gap23 (x y : ℕ → ℝ)
     (hx0 : Nonnegative x) (hy0 : Nonnegative y)
     (hxb : Bornology.IsBounded (Set.range x))

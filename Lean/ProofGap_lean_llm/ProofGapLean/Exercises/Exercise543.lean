@@ -28,7 +28,7 @@ def expQuotient (a x : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_543/1.txt`; restrict logarithms and denominators to their domain. -/
+/-- Exercise 543, gap 1; restrict logarithms and denominators to their domain. -/
 private theorem tendsto_id_from_punctured (a : ℝ) :
     Filter.Tendsto (fun x : ℝ => x)
       (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds a) := by
@@ -62,14 +62,14 @@ theorem gap1 (a x : ℝ) (ha : 0 < a) (hx : 0 < x) (hxa : x ≠ a) :
     rw [hpowx, hpowa, hexp]
     field_simp [hd, sub_ne_zero.mpr hxa]
 
-/-- Source: `proof_gap/exercise_543/2.txt`; replace the malformed premise `x→a` by a pointwise punctured-domain identity. -/
+/-- Exercise 543, gap 2; replace the malformed premise `x→a` by a pointwise punctured-domain identity. -/
 theorem gap2 (a x : ℝ) (ha : 0 < a) (hx : 0 < x) (hxa : x ≠ a) :
     logQuotient a x = splitLog a x := by
   unfold logQuotient splitLog
   field_simp [sub_ne_zero.mpr hxa]
   ring
 
-/-- Source: `proof_gap/exercise_543/3.txt`; make the punctured-domain identity explicit. -/
+/-- Exercise 543, gap 3; make the punctured-domain identity explicit. -/
 theorem gap3 (a x : ℝ) (ha : 0 < a) (hx : 0 < x) (hxa : x ≠ a) :
     splitLog a x = normalized a x := by
   have harg : 1 + (x - a) / a = x / a := by
@@ -79,7 +79,7 @@ theorem gap3 (a x : ℝ) (ha : 0 < a) (hx : 0 < x) (hxa : x ≠ a) :
   rw [harg, Real.log_div hx.ne' ha.ne']
   field_simp [ha.ne', sub_ne_zero.mpr hxa]
 
-/-- Source: `proof_gap/exercise_543/4.txt`; remove the shadowing outer quantifier. -/
+/-- Exercise 543, gap 4; remove the shadowing outer quantifier. -/
 theorem gap4 (a : ℝ) (ha : 0 < a) :
     HasLimitAt (normalized a) a (1 + Real.log a) := by
   have hid := tendsto_id_from_punctured a
@@ -128,12 +128,12 @@ theorem gap4 (a : ℝ) (ha : 0 < a) :
   unfold normalized
   rw [harg x, hden x]
 
-/-- Source: `proof_gap/exercise_543/5.txt`; remove the malformed `x→a` premise. -/
+/-- Exercise 543, gap 5; remove the malformed `x→a` premise. -/
 theorem gap5 (a : ℝ) (ha : 0 < a) :
     1 + Real.log a = Real.log (Real.exp 1 * a) := by
   rw [Real.log_mul (Real.exp_ne_zero 1) ha.ne', Real.log_exp]
 
-/-- Source: `proof_gap/exercise_543/6.txt`; state the limit directly. -/
+/-- Exercise 543, gap 6; state the limit directly. -/
 theorem gap6 (a : ℝ) (ha : 0 < a) :
     HasLimitAt (logQuotient a) a (Real.log (Real.exp 1 * a)) := by
   rw [← gap5 a ha]
@@ -149,7 +149,7 @@ theorem gap6 (a : ℝ) (ha : 0 < a) :
     normalized a x = splitLog a x := (gap3 a x ha hx hxa).symm
     _ = logQuotient a x := (gap2 a x ha hx hxa).symm
 
-/-- Source: `proof_gap/exercise_543/7.txt`. -/
+/-- Exercise 543, gap 7. -/
 theorem gap7 (a : ℝ) (ha : 0 < a) :
     HasLimitAt (expQuotient a) a 1 := by
   have hid := tendsto_id_from_punctured a
@@ -272,7 +272,7 @@ theorem gap7 (a : ℝ) (ha : 0 < a) :
   refine hcomp.congr' (Filter.Eventually.of_forall (fun x => ?_))
   simp [expQuotient, Function.comp_apply, div_eq_mul_inv, mul_comm]
 
-/-- Source: `proof_gap/exercise_543/8.txt`. -/
+/-- Exercise 543, gap 8. -/
 theorem gap8 (a : ℝ) (ha : 0 < a) :
     HasLimitAt (original a) a (powSelf a * Real.log (Real.exp 1 * a)) := by
   have hconst :

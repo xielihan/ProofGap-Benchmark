@@ -15,7 +15,7 @@ def smallBranch (y : ℝ) : ℝ :=
 def largeBranch (y : ℝ) : ℝ :=
   (1 + Real.sqrt (1 - y ^ 2)) / y
 
-/-- Source: `proof_gap/exercise_769/1.txt`; add the defining relation and clear
+/-- Exercise 769, gap 1; add the defining relation and clear
 the nonzero denominator `1+x²`. -/
 theorem gap1 (x y : ℝ) (h : y = rationalMap x) :
     x ^ 2 * y - 2 * x + y = 0 := by
@@ -25,7 +25,7 @@ theorem gap1 (x y : ℝ) (h : y = rationalMap x) :
   field_simp [hden] at h
   nlinarith
 
-/-- Source: `proof_gap/exercise_769/2.txt`; interpret `±` as the two inverse
+/-- Exercise 769, gap 2; interpret `±` as the two inverse
 branches and handle `y=0` separately. -/
 theorem gap2 (x y : ℝ) (hy : |y| ≤ 1)
     (h : x ^ 2 * y - 2 * x + y = 0) :
@@ -61,7 +61,7 @@ theorem gap2 (x y : ℝ) (hy : |y| ≤ 1)
       field_simp [hy0]
       nlinarith [heq, hsnonneg]
 
-/-- Source: `proof_gap/exercise_769/3.txt`; state equality on the punctured
+/-- Exercise 769, gap 3; state equality on the punctured
 neighborhood where both quotients are defined. -/
 theorem gap3 :
     ∀ᶠ y in nhdsWithin 0 ({0} : Set ℝ)ᶜ,
@@ -99,7 +99,7 @@ theorem gap3 :
     _ = y ^ 2 / (y * (1 + Real.sqrt (1 - y ^ 2))) := by
       rw [hnum]
 
-/-- Source: `proof_gap/exercise_769/4.txt`. -/
+/-- Exercise 769, gap 4. -/
 theorem gap4 :
     Filter.Tendsto
       (fun y : ℝ => y ^ 2 / (y * (1 + Real.sqrt (1 - y ^ 2))))
@@ -154,7 +154,7 @@ theorem gap4 :
     field_simp [hyne, hconj]
   exact (Filter.Tendsto.congr' heq.symm) ht
 
-/-- Source: `proof_gap/exercise_769/5.txt`. -/
+/-- Exercise 769, gap 5. -/
 theorem gap5 :
     Filter.Tendsto (fun y : ℝ => (1 - Real.sqrt (1 - y ^ 2)) / y)
       (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds 0) := by
@@ -167,7 +167,7 @@ theorem gap5 :
     exact hy.symm
   exact (Filter.Tendsto.congr' heq) gap4
 
-/-- Source: `proof_gap/exercise_769/6.txt`; replace the unsigned `∞` by the
+/-- Exercise 769, gap 6; replace the unsigned `∞` by the
 two one-sided infinite limits. -/
 theorem gap6 :
     Filter.Tendsto largeBranch (nhdsWithin 0 (Set.Ioi 0))
@@ -214,7 +214,7 @@ theorem gap6 :
           mul_le_mul_of_nonpos_right hnum hinvnonpos
       _ ≤ b := hby
 
-/-- Source: `proof_gap/exercise_769/7.txt`; represent the multivalued inverse
+/-- Exercise 769, gap 7; represent the multivalued inverse
 as a fiber and make the `y=0` branch explicit. -/
 theorem gap7 (y : ℝ) (hy : |y| ≤ 1) :
     inverseFiber y =

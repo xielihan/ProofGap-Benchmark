@@ -20,7 +20,7 @@ def cancelled (a x : ℝ) : ℝ :=
 def HasRightLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a (Set.Ioi a)) (nhds L)
 
-/-- Source: `proof_gap/exercise_439/1.txt`; the square-root domain makes this a right-hand limit. -/
+/-- Exercise 439, gap 1; the square-root domain makes this a right-hand limit. -/
 private theorem equivalent_forms_of_lt (a x : ℝ) (ha : 0 < a) (hx : a < x) :
     original a x = rationalized a x ∧
       rationalized a x = cancelled a x := by
@@ -67,13 +67,13 @@ theorem gap1 (a : ℝ) (ha : 0 < a) :
     exact (equivalent_forms_of_lt a x ha hx).1
   exact Filter.tendsto_congr' hEq
 
-/-- Source: `proof_gap/exercise_439/2.txt`; use the right-hand domain. -/
+/-- Exercise 439, gap 2; use the right-hand domain. -/
 theorem gap2 (a : ℝ) (ha : 0 < a) :
     HasRightLimitAt (original a) a (1 / Real.sqrt (2 * a)) ↔
       HasRightLimitAt (rationalized a) a (1 / Real.sqrt (2 * a)) := by
   exact gap1 a ha
 
-/-- Source: `proof_gap/exercise_439/3.txt`; use the right-hand domain. -/
+/-- Exercise 439, gap 3; use the right-hand domain. -/
 theorem gap3 (a : ℝ) (ha : 0 < a) :
     HasRightLimitAt (rationalized a) a (1 / Real.sqrt (2 * a)) ↔
       HasRightLimitAt (cancelled a) a (1 / Real.sqrt (2 * a)) := by
@@ -84,7 +84,7 @@ theorem gap3 (a : ℝ) (ha : 0 < a) :
     exact (equivalent_forms_of_lt a x ha hx).2
   exact Filter.tendsto_congr' hEq
 
-/-- Source: `proof_gap/exercise_439/4.txt`; use the right-hand domain. -/
+/-- Exercise 439, gap 4; use the right-hand domain. -/
 theorem gap4 (a : ℝ) (ha : 0 < a) :
     HasRightLimitAt (cancelled a) a (1 / Real.sqrt (2 * a)) := by
   have hsqrt_sub :
@@ -125,7 +125,7 @@ theorem gap4 (a : ℝ) (ha : 0 < a) :
     hcont.continuousWithinAt
   simpa only [hvalue] using ht
 
-/-- Source: `proof_gap/exercise_439/5.txt`; use the right-hand domain. -/
+/-- Exercise 439, gap 5; use the right-hand domain. -/
 theorem gap5 (a : ℝ) (ha : 0 < a) :
     HasRightLimitAt (original a) a (1 / Real.sqrt (2 * a)) := by
   exact (gap1 a ha).2 ((gap3 a ha).2 (gap4 a ha))

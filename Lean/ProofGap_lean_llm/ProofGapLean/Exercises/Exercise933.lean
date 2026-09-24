@@ -25,7 +25,7 @@ def expandedDerivative (a b x : ℝ) : ℝ :=
 def finalDerivative (a b x : ℝ) : ℝ :=
   (a ^ 2 + b ^ 2) / ((x + a) * (b ^ 2 + x ^ 2))
 
-/-- Source: `proof_gap/exercise_933/1.txt`; require `b ≠ 0` and `x+a > 0`
+/-- Exercise 933, gap 1; require `b ≠ 0` and `x+a > 0`
 so the square-root quotient is positive and every parameter division is
 defined. -/
 theorem gap1 (a b x : ℝ) (hb : b ≠ 0) (hxa : 0 < x + a) :
@@ -71,7 +71,7 @@ theorem gap1 (a b x : ℝ) (hb : b ≠ 0) (hxa : 0 < x + a) :
     field_simp [hb, hden1, hden2] <;> ring
   simpa [y, expandedDerivative] using hlog'.add hatan'
 
-/-- Source: `proof_gap/exercise_933/2.txt`; the same hypotheses make all
+/-- Exercise 933, gap 2; the same hypotheses make all
 denominators in the rational simplification nonzero. -/
 theorem gap2 (a b x : ℝ) (hb : b ≠ 0) (hxa : 0 < x + a) :
     expandedDerivative a b x = finalDerivative a b x := by
@@ -84,7 +84,7 @@ theorem gap2 (a b x : ℝ) (hb : b ≠ 0) (hxa : 0 < x + a) :
   field_simp [hb, hxa0, hb2, hquad]
   ring
 
-/-- Source: `proof_gap/exercise_933/3.txt`; make the source's free parameters
+/-- Exercise 933, gap 3; make the source's free parameters
 explicit and retain the logarithm and quotient domains. -/
 theorem gap3 (a b x : ℝ) (hb : b ≠ 0) (hxa : 0 < x + a) :
     HasDerivAt (y a b) (finalDerivative a b x) x := by

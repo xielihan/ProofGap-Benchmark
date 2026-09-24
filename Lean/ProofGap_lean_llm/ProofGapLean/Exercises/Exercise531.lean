@@ -15,7 +15,7 @@ def rewritten (a x : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_531/1.txt`. -/
+/-- Exercise 531, gap 1. -/
 private theorem originalLimitAt (a : ℝ) (ha : 0 < a) :
     HasLimitAt (original a) a (1 / a) := by
   unfold HasLimitAt
@@ -43,7 +43,7 @@ theorem gap1 (a : ℝ) (ha : 0 < a) (L : ℝ) :
   · intro h
     exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_531/2.txt`. -/
+/-- Exercise 531, gap 2. -/
 theorem gap2 (a : ℝ) (ha : 0 < a) (L : ℝ) :
     HasLimitAt (quotientLog a) a L ↔ HasLimitAt (rewritten a) a L := by
   have hpos : ∀ᶠ x : ℝ in nhdsWithin a ({a} : Set ℝ)ᶜ, 0 < x :=
@@ -69,7 +69,7 @@ theorem gap2 (a : ℝ) (ha : 0 < a) (L : ℝ) :
   · intro h
     exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_531/3.txt`. -/
+/-- Exercise 531, gap 3. -/
 theorem gap3 (a : ℝ) (ha : 0 < a) :
     HasLimitAt (rewritten a) a (Real.log (Real.exp (1 / a))) := by
   have hrew : HasLimitAt (rewritten a) a (1 / a) :=
@@ -77,12 +77,12 @@ theorem gap3 (a : ℝ) (ha : 0 < a) :
       ((gap1 a ha (1 / a)).mp (originalLimitAt a ha))
   simpa only [Real.log_exp] using hrew
 
-/-- Source: `proof_gap/exercise_531/4.txt`. -/
+/-- Exercise 531, gap 4. -/
 theorem gap4 (a : ℝ) (ha : 0 < a) :
     Real.log (Real.exp (1 / a)) = 1 / a := by
   exact Real.log_exp (1 / a)
 
-/-- Source: `proof_gap/exercise_531/5.txt`. -/
+/-- Exercise 531, gap 5. -/
 theorem gap5 (a : ℝ) (ha : 0 < a) :
     HasLimitAt (original a) a (1 / a) := by
   exact originalLimitAt a ha

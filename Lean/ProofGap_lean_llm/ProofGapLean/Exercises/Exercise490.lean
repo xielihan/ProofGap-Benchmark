@@ -157,7 +157,7 @@ private theorem tendsto_sin_div_zero :
   change (x - 0)⁻¹ • (Real.sin x - Real.sin 0) = Real.sin x / x
   simp [div_eq_mul_inv, mul_comm]
 
-/-- Source: `proof_gap/exercise_490/1.txt`; require `cos a≠0`. -/
+/-- Exercise 490, gap 1; require `cos a≠0`. -/
 theorem gap1 (a : ℝ) (ha : Real.cos a ≠ 0) (L : ℝ) :
     HasLimitAtZero (original a) L ↔ HasLimitAtZero (differenceForm a) L := by
   have h : original a = differenceForm a := by
@@ -166,7 +166,7 @@ theorem gap1 (a : ℝ) (ha : Real.cos a ≠ 0) (L : ℝ) :
     ring
   rw [h]
 
-/-- Source: `proof_gap/exercise_490/2.txt`; require `cos a≠0`. -/
+/-- Exercise 490, gap 2; require `cos a≠0`. -/
 theorem gap2 (a : ℝ) (ha : Real.cos a ≠ 0) (L : ℝ) :
     HasLimitAtZero (original a) L ↔ HasLimitAtZero (expanded a) L := by
   unfold HasLimitAtZero
@@ -176,7 +176,7 @@ theorem gap2 (a : ℝ) (ha : Real.cos a ≠ 0) (L : ℝ) :
     exact original_eq_expanded_at a x hx.1 ha hx.2.1 hx.2.2
   exact ⟨fun h => h.congr' heq, fun h => h.congr' heq.symm⟩
 
-/-- Source: `proof_gap/exercise_490/3.txt`; require `cos a≠0`. -/
+/-- Exercise 490, gap 3; require `cos a≠0`. -/
 theorem gap3 (a : ℝ) (ha : Real.cos a ≠ 0) (L : ℝ) :
     HasLimitAtZero (original a) L ↔ HasLimitAtZero (combined a) L := by
   calc
@@ -190,7 +190,7 @@ theorem gap3 (a : ℝ) (ha : Real.cos a ≠ 0) (L : ℝ) :
         exact expanded_eq_combined_at a x hx.1 ha hx.2.1 hx.2.2
       exact ⟨fun h => h.congr' heq, fun h => h.congr' heq.symm⟩
 
-/-- Source: `proof_gap/exercise_490/4.txt`; require `cos a≠0`. -/
+/-- Exercise 490, gap 4; require `cos a≠0`. -/
 theorem gap4 (a : ℝ) (ha : Real.cos a ≠ 0) (L : ℝ) :
     HasLimitAtZero (combined a) L ↔ HasLimitAtZero (normalized a) L := by
   unfold HasLimitAtZero
@@ -200,12 +200,12 @@ theorem gap4 (a : ℝ) (ha : Real.cos a ≠ 0) (L : ℝ) :
     exact combined_eq_normalized_at a x hx.1 ha hx.2.1 hx.2.2
   exact ⟨fun h => h.congr' heq, fun h => h.congr' heq.symm⟩
 
-/-- Source: `proof_gap/exercise_490/5.txt`; require `cos a≠0`. -/
+/-- Exercise 490, gap 5; require `cos a≠0`. -/
 theorem gap5 (a : ℝ) (ha : Real.cos a ≠ 0) (L : ℝ) :
     HasLimitAtZero (original a) L ↔ HasLimitAtZero (normalized a) L := by
   exact (gap3 a ha L).trans (gap4 a ha L)
 
-/-- Source: `proof_gap/exercise_490/6.txt`; require `cos a≠0`. -/
+/-- Exercise 490, gap 6; require `cos a≠0`. -/
 theorem gap6 (a : ℝ) (ha : Real.cos a ≠ 0) :
     HasLimitAtZero (original a) (2 * Real.sin a / Real.cos a ^ 3) := by
   apply (gap5 a ha (2 * Real.sin a / Real.cos a ^ 3)).mpr

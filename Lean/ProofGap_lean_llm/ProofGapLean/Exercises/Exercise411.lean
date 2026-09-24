@@ -20,7 +20,7 @@ def HasLimitAt (g : ℝ → ℝ) (a L : ℝ) : Prop :=
 def HasLimitAtInfinity (g : ℝ → ℝ) (L : ℝ) : Prop :=
   ∀ ε > 0, ∃ N > 0, ∀ x, N < |x| → |g x - L| < ε
 
-/-- Source: `proof_gap/exercise_411/1.txt`. -/
+/-- Exercise 411, gap 1. -/
 private theorem f_hasLimitAtInfinity_half :
     HasLimitAtInfinity f (1 / 2) := by
   unfold HasLimitAtInfinity
@@ -94,15 +94,15 @@ theorem gap1 : HasLimitAt f 0 ((-1) / (-1)) := by
         continuousAt_id).sub continuousAt_const) (by norm_num)
   simpa [f] using hc.tendsto.mono_left inf_le_left
 
-/-- Source: `proof_gap/exercise_411/2.txt`. -/
+/-- Exercise 411, gap 2. -/
 theorem gap2 : ((-1 : ℝ) / (-1)) = 1 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_411/3.txt`. -/
+/-- Exercise 411, gap 3. -/
 theorem gap3 : HasLimitAt f 0 1 := by
   simpa using gap1
 
-/-- Source: `proof_gap/exercise_411/4.txt`. -/
+/-- Exercise 411, gap 4. -/
 theorem gap4 : HasLimitAt f 1 (2 / 3) ↔ HasLimitAt factored 1 (2 / 3) := by
   have h : f = factored := by
     funext x
@@ -110,7 +110,7 @@ theorem gap4 : HasLimitAt f 1 (2 / 3) ↔ HasLimitAt factored 1 (2 / 3) := by
     congr 1 <;> ring
   rw [h]
 
-/-- Source: `proof_gap/exercise_411/5.txt`. -/
+/-- Exercise 411, gap 5. -/
 theorem gap5 : HasLimitAt factored 1 (2 / 3) ↔
     HasLimitAt cancelled 1 (2 / 3) := by
   have heq : factored =ᶠ[nhdsWithin 1 ({1} : Set ℝ)ᶜ] cancelled := by
@@ -126,7 +126,7 @@ theorem gap5 : HasLimitAt factored 1 (2 / 3) ↔
       Filter.map cancelled (nhdsWithin 1 ({1} : Set ℝ)ᶜ) ≤ nhds (2 / 3 : ℝ)
   rw [Filter.map_congr heq]
 
-/-- Source: `proof_gap/exercise_411/6.txt`. -/
+/-- Exercise 411, gap 6. -/
 theorem gap6 : HasLimitAt cancelled 1 (2 / 3) := by
   unfold HasLimitAt
   have hc : ContinuousAt cancelled 1 := by
@@ -141,11 +141,11 @@ theorem gap6 : HasLimitAt cancelled 1 (2 / 3) := by
     hc.tendsto.mono_left hsub
   convert ht using 1 <;> norm_num [cancelled]
 
-/-- Source: `proof_gap/exercise_411/7.txt`. -/
+/-- Exercise 411, gap 7. -/
 theorem gap7 : HasLimitAt f 1 (2 / 3) := by
   exact gap4.mpr (gap5.mpr gap6)
 
-/-- Source: `proof_gap/exercise_411/8.txt`. -/
+/-- Exercise 411, gap 8. -/
 theorem gap8 : HasLimitAtInfinity f (1 / 2) ↔
     HasLimitAtInfinity normalized (1 / 2) := by
   have heq : ∀ x : ℝ, x ≠ 0 → f x = normalized x := by
@@ -183,11 +183,11 @@ theorem gap8 : HasLimitAtInfinity f (1 / 2) ↔
       norm_num at this
     simpa [← heq x hx0] using hbound x hx
 
-/-- Source: `proof_gap/exercise_411/9.txt`. -/
+/-- Exercise 411, gap 9. -/
 theorem gap9 : HasLimitAtInfinity normalized (1 / 2) := by
   exact gap8.mp f_hasLimitAtInfinity_half
 
-/-- Source: `proof_gap/exercise_411/10.txt`. -/
+/-- Exercise 411, gap 10. -/
 theorem gap10 : HasLimitAtInfinity f (1 / 2) := by
   exact f_hasLimitAtInfinity_half
 

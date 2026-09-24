@@ -3,7 +3,7 @@ import ProofGapLean.Prelude.Elementary
 /-!
 # Exercise 21 (part 2)
 
-Semantic formalization of `proof_gap/exercise_21_2/{1,...,7}.txt`.
+Semantic formalization of Exercise 21_2, gaps 1,...,7.
 The source's informal ellipses `x₁ + ... + xₙ` are represented by finite lists
 of real numbers.
 -/
@@ -32,7 +32,7 @@ def FinalInequality : Prop :=
   ∀ (x : ℝ) (xs : List ℝ),
     |x + xs.sum| ≥ |x| - sumAbs xs
 
-/-- Source: `proof_gap/exercise_21_2/1.txt`. -/
+/-- Exercise 21_2, gap 1. -/
 theorem gap1 : InitialReverseStep := by
   intro x xs
   have htri := abs_add_le (x + xs.sum) (-xs.sum)
@@ -40,21 +40,21 @@ theorem gap1 : InitialReverseStep := by
   rw [hsum, abs_neg] at htri
   linarith
 
-/-- Source: `proof_gap/exercise_21_2/2.txt`. -/
+/-- Exercise 21_2, gap 2. -/
 theorem gap2
     (h1 : InitialReverseStep) :
     HeadTailTriangleStep := by
   intro x xs
   exact abs_add_le x xs.sum
 
-/-- Source: `proof_gap/exercise_21_2/3.txt`. -/
+/-- Exercise 21_2, gap 3. -/
 theorem gap3
     (h2 : HeadTailTriangleStep) :
     TwoTermTriangleStep := by
   intro x₁ x₂ xs
   linarith [h2 x₂ xs]
 
-/-- Source: `proof_gap/exercise_21_2/4.txt`. -/
+/-- Exercise 21_2, gap 4. -/
 theorem gap4
     (h2 : HeadTailTriangleStep)
     (h3 : TwoTermTriangleStep) :
@@ -68,13 +68,13 @@ theorem gap4
       apply (h2 x xs).trans
       simpa [add_comm] using add_le_add_left ih |x|
 
-/-- Source: `proof_gap/exercise_21_2/5.txt`. -/
+/-- Exercise 21_2, gap 5. -/
 theorem gap5
     (h4 : FiniteTriangle) :
     FiniteTriangle := by
   exact h4
 
-/-- Source: `proof_gap/exercise_21_2/6.txt`. -/
+/-- Exercise 21_2, gap 6. -/
 theorem gap6
     (h1 : InitialReverseStep)
     (h5 : FiniteTriangle) :
@@ -82,7 +82,7 @@ theorem gap6
   intro x xs
   linarith [h1 x xs, h5 xs]
 
-/-- Source: `proof_gap/exercise_21_2/7.txt`. -/
+/-- Exercise 21_2, gap 7. -/
 theorem gap7
     (h6 : FinalInequality) :
     FinalInequality := by

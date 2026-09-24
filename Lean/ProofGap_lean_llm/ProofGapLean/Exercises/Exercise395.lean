@@ -10,7 +10,7 @@ def f (x : ℝ) : ℝ := Int.floor x
 def openRange : Set ℤ := {y | ∃ x ∈ Set.Ioo (0 : ℝ) 2, y = f x}
 def closedRange : Set ℤ := {y | ∃ x ∈ Set.Icc (0 : ℝ) 2, y = f x}
 
-/-- Source: `proof_gap/exercise_395/1.txt`. -/
+/-- Exercise 395, gap 1. -/
 private lemma int_eq_floor_of_eq_f {y : ℤ} {x : ℝ}
     (h : (y : ℝ) = f x) : y = Int.floor x := by
   have h' := congrArg Int.floor h
@@ -32,7 +32,7 @@ theorem gap1 : sInf openRange = 0 := by
   · exact csInf_le ⟨0, hlower⟩ hzero
   · exact le_csInf ⟨0, hzero⟩ hlower
 
-/-- Source: `proof_gap/exercise_395/2.txt`. -/
+/-- Exercise 395, gap 2. -/
 theorem gap2 : sSup openRange = 1 := by
   have hone : (1 : ℤ) ∈ openRange := by
     change ∃ x ∈ Set.Ioo (0 : ℝ) 2, (1 : ℤ) = f x
@@ -49,7 +49,7 @@ theorem gap2 : sSup openRange = 1 := by
   · exact csSup_le ⟨1, hone⟩ hupper
   · exact le_csSup ⟨1, hupper⟩ hone
 
-/-- Source: `proof_gap/exercise_395/3.txt`. -/
+/-- Exercise 395, gap 3. -/
 theorem gap3 : sInf closedRange = 0 := by
   have hzero : (0 : ℤ) ∈ closedRange := by
     change ∃ x ∈ Set.Icc (0 : ℝ) 2, (0 : ℤ) = f x
@@ -66,7 +66,7 @@ theorem gap3 : sInf closedRange = 0 := by
   · exact csInf_le ⟨0, hlower⟩ hzero
   · exact le_csInf ⟨0, hzero⟩ hlower
 
-/-- Source: `proof_gap/exercise_395/4.txt`. -/
+/-- Exercise 395, gap 4. -/
 theorem gap4 : sSup closedRange = 2 := by
   have htwo : (2 : ℤ) ∈ closedRange := by
     change ∃ x ∈ Set.Icc (0 : ℝ) 2, (2 : ℤ) = f x

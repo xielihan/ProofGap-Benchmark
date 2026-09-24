@@ -10,14 +10,14 @@ def inverseFiber (y : ℝ) : Set ℝ := {x | quadraticMap x = y}
 def lowerBranch (y : ℝ) : ℝ := 1 - Real.sqrt (1 - y)
 def upperBranch (y : ℝ) : ℝ := 1 + Real.sqrt (1 - y)
 
-/-- Source: `proof_gap/exercise_768/1.txt`; replace the false universal
+/-- Exercise 768, gap 1; replace the false universal
 equation by an implication from `y=2x-x²`. -/
 theorem gap1 (x y : ℝ) (h : y = quadraticMap x) :
     x ^ 2 - 2 * x + y = 0 := by
   unfold quadraticMap at h
   nlinarith
 
-/-- Source: `proof_gap/exercise_768/2.txt`; interpret `±` as a disjunction and
+/-- Exercise 768, gap 2; interpret `±` as a disjunction and
 add `y≤1`. -/
 theorem gap2 (x y : ℝ) (hy : y ≤ 1)
     (h : x ^ 2 - 2 * x + y = 0) :
@@ -37,7 +37,7 @@ theorem gap2 (x y : ℝ) (hy : y ≤ 1)
   · left
     linarith
 
-/-- Source: `proof_gap/exercise_768/3.txt`; split the two meanings of `±`. -/
+/-- Exercise 768, gap 3; split the two meanings of `±`. -/
 theorem gap3 (y : ℝ) (hy : y ≤ 1) :
     (2 - Real.sqrt (4 - 4 * y)) / 2 = lowerBranch y ∧
       (2 + Real.sqrt (4 - 4 * y)) / 2 = upperBranch y := by
@@ -65,7 +65,7 @@ theorem gap3 (y : ℝ) (hy : y ≤ 1) :
   · unfold upperBranch
     linarith
 
-/-- Source: `proof_gap/exercise_768/4.txt`; add the defining quadratic
+/-- Exercise 768, gap 4; add the defining quadratic
 equation. -/
 theorem gap4 (x y : ℝ) (hy : y ≤ 1)
     (h : quadraticMap x = y) :
@@ -82,7 +82,7 @@ theorem gap4 (x y : ℝ) (hy : y ≤ 1)
       x = (2 + Real.sqrt (4 - 4 * y)) / 2 := hx
       _ = upperBranch y := hbranches.2
 
-/-- Source: `proof_gap/exercise_768/5.txt`; represent the inverse of a
+/-- Exercise 768, gap 5; represent the inverse of a
 non-injective function as a fiber-valued map. -/
 theorem gap5 (y : ℝ) (hy : y ≤ 1) :
     inverseFiber y = {lowerBranch y, upperBranch y} := by

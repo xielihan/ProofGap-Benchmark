@@ -20,7 +20,7 @@ def exponentialForm (n : ℕ) : ℝ :=
       ((2 * Real.tan (1 / (n : ℝ))) / (1 / (n : ℝ))) *
       (1 / (1 - Real.tan (1 / (n : ℝ)))))
 
-/-- Source: `proof_gap/exercise_546/1.txt`. -/
+/-- Exercise 546, gap 1. -/
 theorem gap1 (L : ℝ) :
     Filter.Tendsto seq Filter.atTop (nhds L) ↔
       Filter.Tendsto tangentForm Filter.atTop (nhds L) := by
@@ -58,7 +58,7 @@ theorem gap1 (L : ℝ) :
     Filter.map tangentForm Filter.atTop ≤ nhds L
   rw [Filter.map_congr heq]
 
-/-- Source: `proof_gap/exercise_546/2.txt`. -/
+/-- Exercise 546, gap 2. -/
 theorem gap2 :
     Filter.Tendsto exponentialForm Filter.atTop (nhds (Real.exp 2)) := by
   let x : ℕ → ℝ := fun n => 1 / (n : ℝ)

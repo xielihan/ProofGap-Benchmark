@@ -21,7 +21,7 @@ def signedCbrt (x : ℝ) : ℝ :=
 def y (x : ℝ) : ℝ :=
   (1 + x) * Real.sqrt (2 + x ^ 2) * signedCbrt (3 + x ^ 3)
 
-/-- Source: `proof_gap/exercise_855/1.txt`.
+/-- Exercise 855, gap 1.
 The cube-root argument must be nonzero for the displayed derivative to exist. -/
 private theorem _signedCbrtSquare (z : ℝ) (hz : z ≠ 0) :
     signedCbrt (z ^ 2) = Real.rpow |z| (2 / 3 : ℝ) := by
@@ -200,7 +200,7 @@ theorem gap1 (x : ℝ) (hcube : 3 + x ^ 3 ≠ 0) :
   field_simp [hsqrt0, hd0]
   ring
 
-/-- Source: `proof_gap/exercise_855/2.txt`.
+/-- Exercise 855, gap 2.
 The same necessary nonzero condition is made explicit. -/
 theorem gap2 (x : ℝ) (hcube : 3 + x ^ 3 ≠ 0) :
     HasDerivAt y

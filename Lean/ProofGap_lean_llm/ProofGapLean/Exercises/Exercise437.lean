@@ -23,7 +23,7 @@ def cancelled (x : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_437/1.txt`. -/
+/-- Exercise 437, gap 1. -/
 private theorem hasLimitAtCongr {f g : ℝ → ℝ} {a L : ℝ}
     (hfg : f =ᶠ[nhdsWithin a ({a} : Set ℝ)ᶜ] g) :
     HasLimitAt f a L ↔ HasLimitAt g a L := by
@@ -59,7 +59,7 @@ theorem gap1 : HasLimitAt original 4 (4 / 3) ↔
   unfold original rationalized
   field_simp [hminus, hplus, hother]
 
-/-- Source: `proof_gap/exercise_437/2.txt`. -/
+/-- Exercise 437, gap 2. -/
 theorem gap2 : HasLimitAt rationalized 4 (4 / 3) ↔
     HasLimitAt factored 4 (4 / 3) := by
   apply hasLimitAtCongr
@@ -80,7 +80,7 @@ theorem gap2 : HasLimitAt rationalized 4 (4 / 3) ↔
   unfold rationalized factored
   rw [hnum, hden]
 
-/-- Source: `proof_gap/exercise_437/3.txt`. -/
+/-- Exercise 437, gap 3. -/
 theorem gap3 : HasLimitAt factored 4 (4 / 3) ↔
     HasLimitAt cancelled 4 (4 / 3) := by
   apply hasLimitAtCongr
@@ -93,7 +93,7 @@ theorem gap3 : HasLimitAt factored 4 (4 / 3) ↔
   unfold factored cancelled
   field_simp [hfactor, hden]
 
-/-- Source: `proof_gap/exercise_437/4.txt`. -/
+/-- Exercise 437, gap 4. -/
 theorem gap4 : HasLimitAt cancelled 4 (4 / 3) := by
   unfold HasLimitAt
   have hc1 : ContinuousAt (fun x : ℝ => Real.sqrt x) 4 :=
@@ -135,7 +135,7 @@ theorem gap4 : HasLimitAt cancelled 4 (4 / 3) := by
   rw [← hcval]
   exact hcont.tendsto.mono_left inf_le_left
 
-/-- Source: `proof_gap/exercise_437/5.txt`. -/
+/-- Exercise 437, gap 5. -/
 theorem gap5 : HasLimitAt original 4 (4 / 3) := by
   exact gap1.mpr (gap2.mpr (gap3.mpr gap4))
 

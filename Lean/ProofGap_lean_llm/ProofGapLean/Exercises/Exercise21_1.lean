@@ -3,7 +3,7 @@ import ProofGapLean.Prelude.Elementary
 /-!
 # Exercise 21 (part 1)
 
-Semantic formalization of `proof_gap/exercise_21_1/{1,...,13}.txt`.
+Semantic formalization of Exercise 21_1, gaps 1,...,13.
 Both source proofs of the reverse triangle inequality are retained.
 -/
 
@@ -44,12 +44,12 @@ def SquareComparisonExpanded : Prop :=
 def SquareComparison : Prop :=
   ∀ x y : ℝ, (x - y) ^ 2 ≥ (|x| - |y|) ^ 2
 
-/-- Source: `proof_gap/exercise_21_1/1.txt`. -/
+/-- Exercise 21_1, gap 1. -/
 theorem gap1 : P1 := by
   intro x y
   rw [sub_eq_add_neg]
 
-/-- Source: `proof_gap/exercise_21_1/2.txt`. -/
+/-- Exercise 21_1, gap 2. -/
 theorem gap2 (h1 : P1) : P2 := by
   intro x y
   have htri := abs_add_le (x + -y) y
@@ -58,12 +58,12 @@ theorem gap2 (h1 : P1) : P2 := by
   rw [abs_neg]
   linarith
 
-/-- Source: `proof_gap/exercise_21_1/3.txt`. -/
+/-- Exercise 21_1, gap 3. -/
 theorem gap3 (h1 : P1) (h2 : P2) : P3 := by
   intro x y
   rw [abs_neg]
 
-/-- Source: `proof_gap/exercise_21_1/4.txt`. -/
+/-- Exercise 21_1, gap 4. -/
 theorem gap4 (h1 : P1) (h2 : P2) (h3 : P3) : P4 := by
   intro x y
   calc
@@ -71,22 +71,22 @@ theorem gap4 (h1 : P1) (h2 : P2) (h3 : P3) : P4 := by
     _ ≥ |x| - |-y| := h2 x y
     _ = |x| - |y| := h3 x y
 
-/-- Source: `proof_gap/exercise_21_1/5.txt`. -/
+/-- Exercise 21_1, gap 5. -/
 theorem gap5 (h4 : P4) : P5 := by
   intro x y
   exact abs_sub_comm x y
 
-/-- Source: `proof_gap/exercise_21_1/6.txt`. -/
+/-- Exercise 21_1, gap 6. -/
 theorem gap6 (h4 : P4) (h5 : P5) : P6 := by
   intro y x
   exact h4 y x
 
-/-- Source: `proof_gap/exercise_21_1/7.txt`. -/
+/-- Exercise 21_1, gap 7. -/
 theorem gap7 (h6 : P6) : P7 := by
   intro y x
   ring
 
-/-- Source: `proof_gap/exercise_21_1/8.txt`. -/
+/-- Exercise 21_1, gap 8. -/
 theorem gap8 (h5 : P5) (h6 : P6) (h7 : P7) : P8 := by
   intro x y
   calc
@@ -94,7 +94,7 @@ theorem gap8 (h5 : P5) (h6 : P6) (h7 : P7) : P8 := by
     _ ≥ |y| - |x| := h6 y x
     _ = -(|x| - |y|) := h7 y x
 
-/-- Source: `proof_gap/exercise_21_1/9.txt`. -/
+/-- Exercise 21_1, gap 9. -/
 theorem gap9 (h4 : P4) (h8 : P8) : ReverseTriangle := by
   intro x y
   by_cases hnonneg : 0 ≤ |x| - |y|
@@ -103,12 +103,12 @@ theorem gap9 (h4 : P4) (h8 : P8) : ReverseTriangle := by
   · rw [abs_of_neg (lt_of_not_ge hnonneg)]
     exact h8 x y
 
-/-- Source: `proof_gap/exercise_21_1/10.txt`. -/
+/-- Exercise 21_1, gap 10. -/
 theorem gap10 (h9 : ReverseTriangle) : SquareComparisonExpanded := by
   intro x y
   nlinarith [le_abs_self (x * y)]
 
-/-- Source: `proof_gap/exercise_21_1/11.txt`. -/
+/-- Exercise 21_1, gap 11. -/
 theorem gap11
     (h10 : SquareComparisonExpanded) :
     SquareComparison := by
@@ -117,7 +117,7 @@ theorem gap11
   rw [abs_mul] at h
   nlinarith [sq_abs x, sq_abs y]
 
-/-- Source: `proof_gap/exercise_21_1/12.txt`. -/
+/-- Exercise 21_1, gap 12. -/
 theorem gap12
     (h11 : SquareComparison) :
     ReverseTriangle := by
@@ -127,7 +127,7 @@ theorem gap12
     simpa only [sq_abs] using h11 x y
   exact (sq_le_sq₀ (abs_nonneg _) (abs_nonneg _)).mp hsq
 
-/-- Source: `proof_gap/exercise_21_1/13.txt`. -/
+/-- Exercise 21_1, gap 13. -/
 theorem gap13
     (h12 : ReverseTriangle) :
     ReverseTriangle := by

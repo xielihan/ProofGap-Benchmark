@@ -7,7 +7,7 @@ namespace ProofGap.Exercise3105_4
 
 noncomputable section
 
-/-- Source: `proof_gap/exercise_3105_4/1.txt`; the recurrence first applies at `n=2`. -/
+/-- Exercise 3105_4, gap 1; the recurrence first applies at `n=2`. -/
 theorem gap1 (Gamma : ℝ → ℝ)
     (hrec : ∀ x : ℝ, 0 < x → Gamma (x + 1) = x * Gamma x) :
     ∀ n : ℕ, 2 ≤ n →
@@ -18,7 +18,7 @@ theorem gap1 (Gamma : ℝ → ℝ)
   have h := hrec ((n - 1 : ℕ) : ℝ) (Nat.cast_pos.mpr hnsub)
   simpa [Nat.cast_sub hn1] using h
 
-/-- Source: `proof_gap/exercise_3105_4/2.txt`; two recurrence steps require `n≥3`. -/
+/-- Exercise 3105_4, gap 2; two recurrence steps require `n≥3`. -/
 theorem gap2 (Gamma : ℝ → ℝ)
     (hrec : ∀ x : ℝ, 0 < x → Gamma (x + 1) = x * Gamma x) :
     ∀ n : ℕ, 3 ≤ n →
@@ -55,7 +55,7 @@ theorem gap2 (Gamma : ℝ → ℝ)
       ring
 
 /--
-Source: `proof_gap/exercise_3105_4/3.txt`; replace the ellipsis by the exact
+Exercise 3105_4, gap 3; replace the ellipsis by the exact
 finite recurrence chain ending at `Gamma 1`.
 -/
 theorem gap3 (Gamma : ℝ → ℝ)
@@ -94,7 +94,7 @@ theorem gap3 (Gamma : ℝ → ℝ)
   rw [hcast] at hs
   exact hs
 
-/-- Source: `proof_gap/exercise_3105_4/4.txt`; the terminal value `Gamma 1 = 1` is explicit. -/
+/-- Exercise 3105_4, gap 4; the terminal value `Gamma 1 = 1` is explicit. -/
 theorem gap4 (Gamma : ℝ → ℝ)
     (hrec : ∀ x : ℝ, 0 < x → Gamma (x + 1) = x * Gamma x)
     (hGammaOne : Gamma 1 = 1) :

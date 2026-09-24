@@ -16,7 +16,7 @@ def normalized (a b x : ℝ) : ℝ :=
 def HasLimitAtPosInfinity (g : ℝ → ℝ) (L : ℝ) : Prop :=
   ∀ ε > 0, ∃ N > 0, ∀ x, N < x → |g x - L| < ε
 
-/-- Source: `proof_gap/exercise_457/1.txt`. -/
+/-- Exercise 457, gap 1. -/
 private theorem hasLimitAtPosInfinity_congr_of_tail_eq
     {f g : ℝ → ℝ} {L : ℝ}
     (hfg : ∃ C > 0, ∀ x, C < x → f x = g x) :
@@ -82,7 +82,7 @@ theorem gap1 (a b : ℝ) :
           (Real.sqrt ((x + a) * (x + b))) ^ 2 - x ^ 2 := by ring
       _ = (x + a) * (x + b) - x ^ 2 := by rw [hs]
 
-/-- Source: `proof_gap/exercise_457/2.txt`. -/
+/-- Exercise 457, gap 2. -/
 theorem gap2 (a b : ℝ) :
     HasLimitAtPosInfinity (rationalized a b) ((a + b) / 2) ↔
       HasLimitAtPosInfinity (normalized a b) ((a + b) / 2) := by
@@ -157,7 +157,7 @@ theorem gap2 (a b : ℝ) :
     field_simp [hxne, hd, hleft]
     ring
 
-/-- Source: `proof_gap/exercise_457/3.txt`. -/
+/-- Exercise 457, gap 3. -/
 theorem gap3 (a b : ℝ) :
     HasLimitAtPosInfinity (normalized a b) ((a + b) / 2) := by
   have hinv : Filter.Tendsto (fun x : ℝ => x⁻¹) Filter.atTop

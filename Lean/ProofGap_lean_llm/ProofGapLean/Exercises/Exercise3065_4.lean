@@ -19,7 +19,7 @@ def ConvergentProduct (p : ℕ → ℝ) : Prop :=
 def quotientPartialProduct (p q : ℕ → ℝ) (n : ℕ) : ℝ :=
   partialProduct p n / partialProduct q n
 
-/-- Source: `proof_gap/exercise_3065_4/1.txt`; replace both product ellipses exactly. -/
+/-- Exercise 3065_4, gap 1; replace both product ellipses exactly. -/
 theorem gap1 (p q : ℕ → ℝ) (P Q : ℝ)
     (hp : HasProduct p P) (hq : HasProduct q Q)
     (hP0 : P ≠ 0) (hQ0 : Q ≠ 0)
@@ -28,7 +28,7 @@ theorem gap1 (p q : ℕ → ℝ) (P Q : ℝ)
     ∀ n, R n = quotientPartialProduct p q n := by
   exact hR
 
-/-- Source: `proof_gap/exercise_3065_4/2.txt`; the denominator limit is nonzero. -/
+/-- Exercise 3065_4, gap 2; the denominator limit is nonzero. -/
 theorem gap2 (p q : ℕ → ℝ) (P Q : ℝ)
     (hp : HasProduct p P) (hq : HasProduct q Q)
     (hP0 : P ≠ 0) (hQ0 : Q ≠ 0)
@@ -40,7 +40,7 @@ theorem gap2 (p q : ℕ → ℝ) (P Q : ℝ)
   unfold HasProduct at hp hq
   simpa only [quotientPartialProduct] using hp.div hq hQ0
 
-/-- Source: `proof_gap/exercise_3065_4/3.txt`; retain `Q ≠ 0` for division. -/
+/-- Exercise 3065_4, gap 3; retain `Q ≠ 0` for division. -/
 theorem gap3 (p q : ℕ → ℝ) (P Q : ℝ)
     (hp : HasProduct p P) (hq : HasProduct q Q)
     (hP0 : P ≠ 0) (hQ0 : Q ≠ 0) :
@@ -54,7 +54,7 @@ theorem gap3 (p q : ℕ → ℝ) (P Q : ℝ)
       simp only [quotientPartialProduct, partialProduct,
         Finset.prod_div_distrib])
 
-/-- Source: `proof_gap/exercise_3065_4/4.txt`; retain `Q ≠ 0` for division. -/
+/-- Exercise 3065_4, gap 4; retain `Q ≠ 0` for division. -/
 theorem gap4 (p q : ℕ → ℝ) (P Q : ℝ)
     (hp : HasProduct p P) (hq : HasProduct q Q)
     (hP0 : P ≠ 0) (hQ0 : Q ≠ 0) :
@@ -67,7 +67,7 @@ theorem gap4 (p q : ℕ → ℝ) (P Q : ℝ)
       simp only [quotientPartialProduct, partialProduct,
         Finset.prod_div_distrib])
 
-/-- Source: `proof_gap/exercise_3065_4/5.txt`; retain `Q ≠ 0` for division. -/
+/-- Exercise 3065_4, gap 5; retain `Q ≠ 0` for division. -/
 theorem gap5 (p q : ℕ → ℝ) (P Q : ℝ)
     (hp : HasProduct p P) (hq : HasProduct q Q)
     (hP0 : P ≠ 0) (hQ0 : Q ≠ 0) :

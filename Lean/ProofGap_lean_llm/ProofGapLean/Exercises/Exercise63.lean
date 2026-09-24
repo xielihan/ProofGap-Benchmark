@@ -7,7 +7,7 @@ open scoped Topology
 /-!
 # Exercise 63
 
-Semantic formalization of `proof_gap/exercise_63/{1,...,14}.txt`.
+Semantic formalization of Exercise 63, gaps 1,...,14.
 -/
 
 namespace ProofGap.Exercise63
@@ -32,7 +32,7 @@ private theorem converges_of_pos {a : ℝ} (ha : 0 < a) :
   simpa using
     (tendsto_const_nhds (x := a)).rpow hexp (Or.inl ha.ne')
 
-/-- Source: `proof_gap/exercise_63/1.txt`. -/
+/-- Exercise 63, gap 1. -/
 theorem gap1
     (a : ℝ)
     (ha : a = 1) :
@@ -40,7 +40,7 @@ theorem gap1
   subst a
   exact converges_of_pos (by norm_num)
 
-/-- Source: `proof_gap/exercise_63/2.txt`; positivity conditions are restored. -/
+/-- Exercise 63, gap 2; positivity conditions are restored. -/
 theorem gap2
     (a : ℝ) :
     ∀ (ε : ℝ) (n : ℕ), 1 < a → 0 < ε → 1 < n →
@@ -71,7 +71,7 @@ theorem gap2
     nlinarith
   exact hstrict.trans_le hmul
 
-/-- Source: `proof_gap/exercise_63/3.txt`; the cutoff depends on `ε`. -/
+/-- Exercise 63, gap 3; the cutoff depends on `ε`. -/
 theorem gap3
     (a : ℝ) :
     ∀ ε : ℝ, 0 < ε → ∀ n : ℕ, cutoff a ε < n →
@@ -93,7 +93,7 @@ theorem gap3
   have := (div_lt_iff₀ hε).mp hratio
   nlinarith
 
-/-- Source: `proof_gap/exercise_63/4.txt`. -/
+/-- Exercise 63, gap 4. -/
 theorem gap4
     (a : ℝ)
     (h2 : ∀ (ε : ℝ) (n : ℕ), 1 < a → 0 < ε → 1 < n →
@@ -106,7 +106,7 @@ theorem gap4
   exact (h3 ε hε n hn).trans_le
     (one_add_mul_le_pow (by linarith : (-2 : ℝ) ≤ ε) n)
 
-/-- Source: `proof_gap/exercise_63/5.txt`. -/
+/-- Exercise 63, gap 5. -/
 theorem gap5
     (a : ℝ)
     (ha : 1 < a) :
@@ -119,7 +119,7 @@ theorem gap5
     omega
   exact Real.one_lt_rpow ha (one_div_pos.mpr (Nat.cast_pos.mpr hnpos))
 
-/-- Source: `proof_gap/exercise_63/6.txt`. -/
+/-- Exercise 63, gap 6. -/
 theorem gap6
     (a : ℝ)
     (ha : 1 < a)
@@ -139,14 +139,14 @@ theorem gap6
   simpa [Real.pow_rpow_inv_natCast (by linarith : 0 ≤ 1 + ε)
     (Nat.ne_of_gt hnpos)] using hr
 
-/-- Source: `proof_gap/exercise_63/7.txt`. -/
+/-- Exercise 63, gap 7. -/
 theorem gap7
     (a : ℝ) :
     ∀ ε : ℝ, 0 < ε → ∀ n : ℕ, cutoff a ε < n → 1 < 1 + ε := by
   intro ε hε n hn
   linarith
 
-/-- Source: `proof_gap/exercise_63/8.txt`. -/
+/-- Exercise 63, gap 8. -/
 theorem gap8
     (a : ℝ)
     (ha : 1 < a)
@@ -160,7 +160,7 @@ theorem gap8
   rw [abs_of_pos (sub_pos.mpr (h5 ε hε n hn))]
   linarith [h6 ε hε n hn]
 
-/-- Source: `proof_gap/exercise_63/9.txt`. -/
+/-- Exercise 63, gap 9. -/
 theorem gap9
     (a : ℝ)
     (ha : 1 < a)
@@ -175,7 +175,7 @@ theorem gap9
   simpa [Real.dist_eq] using
     h8 ε hε n (lt_of_lt_of_le (Nat.lt_succ_self _) hn)
 
-/-- Source: `proof_gap/exercise_63/10.txt`. -/
+/-- Exercise 63, gap 10. -/
 theorem gap10
     (a : ℝ)
     (ha0 : 0 < a)
@@ -184,7 +184,7 @@ theorem gap10
   apply (lt_div_iff₀ ha0).2
   simpa using ha1
 
-/-- Source: `proof_gap/exercise_63/11.txt`. -/
+/-- Exercise 63, gap 11. -/
 theorem gap11
     (a : ℝ)
     (ha0 : 0 < a)
@@ -198,7 +198,7 @@ theorem gap11
       Real.inv_rpow ha0.le (1 / (n : ℝ))]
   simp
 
-/-- Source: `proof_gap/exercise_63/12.txt`. -/
+/-- Exercise 63, gap 12. -/
 theorem gap12
     (a : ℝ)
     (ha0 : 0 < a)
@@ -208,7 +208,7 @@ theorem gap12
     Converges a := by
   exact converges_of_pos ha0
 
-/-- Source: `proof_gap/exercise_63/13.txt`. -/
+/-- Exercise 63, gap 13. -/
 theorem gap13
     (a : ℝ)
     (ha : 0 < a)
@@ -221,7 +221,7 @@ theorem gap13
   · exact h1 haeq
   · exact h9 h1a
 
-/-- Source: `proof_gap/exercise_63/14.txt`. -/
+/-- Exercise 63, gap 14. -/
 theorem gap14
     (a : ℝ)
     (ha : 0 < a)

@@ -17,7 +17,7 @@ def f (n : ℕ) (x : ℝ) : ℝ := numerator n x / (1 - x) ^ (n - 1)
 def HasLimitAt (g : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto g (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_456/1.txt`; replace products and exponent ellipses by `Finset` products. -/
+/-- Exercise 456, gap 1; replace products and exponent ellipses by `Finset` products. -/
 private theorem exercise456_main (n : ℕ) :
     Filter.Tendsto (fun x : ℝ => root n x) (nhds 1) (nhds 1) ∧
       HasLimitAt (f n) 1 (1 / (n.factorial : ℝ)) ∧
@@ -141,17 +141,17 @@ theorem gap1 (n : ℕ) (hn : 0 < n) :
     HasLimitAt (f n) 1 (1 / (n.factorial : ℝ)) := by
   exact (exercise456_main n).2.1
 
-/-- Source: `proof_gap/exercise_456/2.txt`; encode the geometric products by their closed limit. -/
+/-- Exercise 456, gap 2; encode the geometric products by their closed limit. -/
 theorem gap2 (n : ℕ) (hn : 0 < n) :
     HasLimitAt (f n) 1 (1 / (n.factorial : ℝ)) := by
   exact gap1 n hn
 
-/-- Source: `proof_gap/exercise_456/3.txt`. -/
+/-- Exercise 456, gap 3. -/
 theorem gap3 (n : ℕ) :
     Filter.Tendsto (fun x : ℝ => root n x) (nhds 1) (nhds 1) := by
   exact (exercise456_main n).1
 
-/-- Source: `proof_gap/exercise_456/4.txt`. -/
+/-- Exercise 456, gap 4. -/
 theorem gap4 (n : ℕ) (hn : 0 < n) :
     HasLimitAt (f n) 1
       (((Finset.Icc 2 n).prod (fun k => (n.factorial : ℝ) / k)) /
@@ -160,14 +160,14 @@ theorem gap4 (n : ℕ) (hn : 0 < n) :
   rw [hvalue]
   exact (exercise456_main n).2.1
 
-/-- Source: `proof_gap/exercise_456/5.txt`. -/
+/-- Exercise 456, gap 5. -/
 theorem gap5 (n : ℕ) (hn : 0 < n) :
     ((Finset.Icc 2 n).prod (fun k => (n.factorial : ℝ) / k)) /
         (n.factorial : ℝ) ^ (n - 1) =
       1 / (n.factorial : ℝ) := by
   exact (exercise456_main n).2.2
 
-/-- Source: `proof_gap/exercise_456/6.txt`. -/
+/-- Exercise 456, gap 6. -/
 theorem gap6 (n : ℕ) (hn : 0 < n) :
     HasLimitAt (f n) 1 (1 / (n.factorial : ℝ)) := by
   exact gap1 n hn

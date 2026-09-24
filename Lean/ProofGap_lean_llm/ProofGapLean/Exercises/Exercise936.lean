@@ -39,7 +39,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 def finalDerivative (x : ℝ) : ℝ :=
   1 / (1 + x ^ 4)
 
-/-- Source: `proof_gap/exercise_936/1.txt`; both logarithmic quadratics are
+/-- Exercise 936, gap 1; both logarithmic quadratics are
 positive, while the arctangent quotient requires `x² ≠ 1`. -/
 private theorem quadratics_pos (x : ℝ) : 0 < A x ∧ 0 < B x := by
   have hs : (Real.sqrt 2) ^ 2 = 2 := by norm_num
@@ -132,7 +132,7 @@ theorem gap1 (x : ℝ) (hx : x ^ 2 ≠ 1) :
   rw [← heq]
   exact hraw
 
-/-- Source: `proof_gap/exercise_936/2.txt`; retain the nonzero quotient
+/-- Exercise 936, gap 2; retain the nonzero quotient
 denominator used in the rational simplification. -/
 theorem gap2 (x : ℝ) (hx : x ^ 2 ≠ 1) :
     expandedDerivative x = finalDerivative x := by
@@ -205,7 +205,7 @@ theorem gap2 (x : ℝ) (hx : x ^ 2 ≠ 1) :
   rw [hlogPart, hatanPart]
   field_simp [hfinal] <;> ring
 
-/-- Source: `proof_gap/exercise_936/3.txt`; the displayed primitive has poles
+/-- Exercise 936, gap 3; the displayed primitive has poles
 at `x = ±1` even though the simplified rational expression is finite there. -/
 theorem gap3 (x : ℝ) (hx : x ^ 2 ≠ 1) :
     HasDerivAt y (finalDerivative x) x := by

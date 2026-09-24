@@ -11,7 +11,7 @@ noncomputable section
 def differenceQuotient (f : ℝ → ℝ) (a h : ℝ) : ℝ :=
   (f (a + h) - f a) / h
 
-/-- Source: `proof_gap/exercise_832/1.txt`; replace symbolic arrows by `Tendsto`. -/
+/-- Exercise 832, gap 1; replace symbolic arrows by `Tendsto`. -/
 private theorem differentiableAt_punctured_slope
     (f : ℝ → ℝ) (a : ℝ) (hf : DifferentiableAt ℝ f a) :
     Filter.Tendsto (fun x => (f x - f a) / (x - a))
@@ -49,7 +49,7 @@ theorem gap1 (a : ℝ) :
       ContinuousAt (fun x : ℝ => x - a) a)
   simpa only [sub_self] using h
 
-/-- Source: `proof_gap/exercise_832/2.txt`; express change of variables as equivalence of punctured limits. -/
+/-- Exercise 832, gap 2; express change of variables as equivalence of punctured limits. -/
 theorem gap2 (f : ℝ → ℝ) (a L : ℝ) :
     Filter.Tendsto (fun x => (f x - f a) / (x - a))
       (nhdsWithin a {a}ᶜ) (nhds L) ↔
@@ -94,7 +94,7 @@ theorem gap2 (f : ℝ → ℝ) (a L : ℝ) :
     simp only [Function.comp_apply, differenceQuotient]
     rw [show a + (x - a) = x by ring]
 
-/-- Source: `proof_gap/exercise_832/3.txt`; replace the undefined limit value by `Tendsto`. -/
+/-- Exercise 832, gap 3; replace the undefined limit value by `Tendsto`. -/
 theorem gap3 (f : ℝ → ℝ) (a : ℝ) (hf : DifferentiableAt ℝ f a) :
     Filter.Tendsto (differenceQuotient f a)
       (nhdsWithin 0 {0}ᶜ) (nhds (deriv f a)) := by
@@ -102,7 +102,7 @@ theorem gap3 (f : ℝ → ℝ) (a : ℝ) (hf : DifferentiableAt ℝ f a) :
     (gap2 f a (deriv f a)).mp
       (differentiableAt_punctured_slope f a hf)
 
-/-- Source: `proof_gap/exercise_832/4.txt`; replace the undefined limit value by `Tendsto`. -/
+/-- Exercise 832, gap 4; replace the undefined limit value by `Tendsto`. -/
 theorem gap4 (f : ℝ → ℝ) (a : ℝ) (hf : DifferentiableAt ℝ f a) :
     Filter.Tendsto (fun x => (f x - f a) / (x - a))
       (nhdsWithin a {a}ᶜ) (nhds (deriv f a)) := by

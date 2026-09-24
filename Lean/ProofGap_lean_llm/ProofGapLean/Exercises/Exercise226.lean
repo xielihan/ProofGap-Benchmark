@@ -9,7 +9,7 @@ noncomputable section
 
 def y (x : ℝ) : ℝ := (1 - x) / (1 + x)
 
-/-- Source: `proof_gap/exercise_226/1.txt`; exclude x=-1. -/
+/-- Exercise 226, gap 1; exclude x=-1. -/
 theorem gap1 : ∀ x : ℝ, x ≠ -1 → y x + x * y x = 1 - x := by
   intro x hx
   have hden : 1 + x ≠ 0 := by
@@ -19,7 +19,7 @@ theorem gap1 : ∀ x : ℝ, x ≠ -1 → y x + x * y x = 1 - x := by
   simp only [y]
   field_simp [hden]
 
-/-- Source: `proof_gap/exercise_226/2.txt`; the map is an involution off its pole. -/
+/-- Exercise 226, gap 2; the map is an involution off its pole. -/
 theorem gap2 : ∀ x : ℝ, x ≠ -1 → x = (1 - y x) / (1 + y x) := by
   intro x hx
   have hden : 1 + x ≠ 0 := by

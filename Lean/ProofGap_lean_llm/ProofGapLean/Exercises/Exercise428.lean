@@ -23,7 +23,7 @@ def intermediateValue (m l : ℕ) : ℝ :=
 def HasLimitAt (g : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto g (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_428/1.txt`. -/
+/-- Exercise 428, gap 1. -/
 private def quotientSum : ℕ → ℝ → ℝ
   | 0, _ => 0
   | k + 1, x => quotientSum k x + geometricSum k x
@@ -126,13 +126,13 @@ theorem gap1 (m n : ℕ) (hmn : m = n) :
   rw [hf]
   exact tendsto_const_nhds
 
-/-- Source: `proof_gap/exercise_428/2.txt`; bind the difference witness. -/
+/-- Exercise 428, gap 2; bind the difference witness. -/
 theorem gap2 (m n : ℕ) (hmn : m < n) :
     ∃ l : ℕ, 0 < l ∧ m + l = n := by
   refine ⟨n - m, Nat.sub_pos_of_lt hmn, ?_⟩
   omega
 
-/-- Source: `proof_gap/exercise_428/3.txt`; replace ellipses by geometric sums and require nonzero denominators. -/
+/-- Exercise 428, gap 3; replace ellipses by geometric sums and require nonzero denominators. -/
 theorem gap3 (m n : ℕ) : ∀ x, x ≠ 1 →
     geometricSum m x ≠ 0 → geometricSum n x ≠ 0 →
     f m n x =
@@ -152,7 +152,7 @@ theorem gap3 (m n : ℕ) : ∀ x, x ≠ 1 →
   rw [hmfac, hnfac]
   field_simp [hxsub, hgm, hgn]
 
-/-- Source: `proof_gap/exercise_428/4.txt`; use the bound difference `l` and a closed intermediate value. -/
+/-- Exercise 428, gap 4; use the bound difference `l` and a closed intermediate value. -/
 theorem gap4 (m n l : ℕ) (hm : 0 < m) (hl : 0 < l) (h : m + l = n) :
     HasLimitAt (f m n) 1 (intermediateValue m l) := by
   subst n
@@ -218,12 +218,12 @@ theorem gap4 (m n l : ℕ) (hm : 0 < m) (hl : 0 < l) (h : m + l = n) :
         ((m + l : ℕ) : ℝ) * quotientSum m x))
       (geometricSum m x * geometricSum (m + l) x) hxsub).symm
 
-/-- Source: `proof_gap/exercise_428/5.txt`. -/
+/-- Exercise 428, gap 5. -/
 theorem gap5 (m n l : ℕ) (hm : 0 < m) (hl : 0 < l) (h : m + l = n) :
     HasLimitAt (f m n) 1 (intermediateValue m l) := by
   exact gap4 m n l hm hl h
 
-/-- Source: `proof_gap/exercise_428/6.txt`. -/
+/-- Exercise 428, gap 6. -/
 theorem gap6 (m n l : ℕ) (hm : 0 < m) (hl : 0 < l) (h : m + l = n) :
     intermediateValue m l =
       -(((m : ℝ) * l * (l - 1) / 2 +
@@ -231,7 +231,7 @@ theorem gap6 (m n l : ℕ) (hm : 0 < m) (hl : 0 < l) (h : m + l = n) :
   subst n
   simp [intermediateValue, Nat.cast_add]
 
-/-- Source: `proof_gap/exercise_428/7.txt`. -/
+/-- Exercise 428, gap 7. -/
 theorem gap7 (m n l : ℕ) (hm : 0 < m) (hl : 0 < l) (h : m + l = n) :
     intermediateValue m l =
       -((m : ℝ) * l * (m + l) / (2 * m * n)) := by
@@ -243,7 +243,7 @@ theorem gap7 (m n l : ℕ) (hm : 0 < m) (hl : 0 < l) (h : m + l = n) :
   field_simp [hmR, hsumR]
   ring
 
-/-- Source: `proof_gap/exercise_428/8.txt`. -/
+/-- Exercise 428, gap 8. -/
 theorem gap8 (m n l : ℕ) (hm : 0 < m) (hl : 0 < l) (h : m + l = n) :
     intermediateValue m l = value m n := by
   subst n
@@ -254,14 +254,14 @@ theorem gap8 (m n l : ℕ) (hm : 0 < m) (hl : 0 < l) (h : m + l = n) :
   field_simp [hmR, hsumR]
   ring
 
-/-- Source: `proof_gap/exercise_428/9.txt`. -/
+/-- Exercise 428, gap 9. -/
 theorem gap9 (m n : ℕ) (hm : 0 < m) (hn : 0 < n) (hmn : m < n) :
     HasLimitAt (f m n) 1 (value m n) := by
   obtain ⟨l, hl, h⟩ := gap2 m n hmn
   rw [← gap8 m n l hm hl h]
   exact gap4 m n l hm hl h
 
-/-- Source: `proof_gap/exercise_428/10.txt`. -/
+/-- Exercise 428, gap 10. -/
 theorem gap10 (m n : ℕ) (hm : 0 < m) (hn : 0 < n) :
     HasLimitAt (f m n) 1 (value m n) := by
   rcases lt_trichotomy m n with hmn | hmn | hnm

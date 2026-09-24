@@ -31,7 +31,7 @@ def normalized (x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_494/1.txt`. -/
+/-- Exercise 494, gap 1. -/
 private theorem sin_ratio_limit
     (c d : ℝ) (hc : c ≠ 0) (hd : d ≠ 0) :
     Filter.Tendsto
@@ -107,16 +107,16 @@ theorem gap1 (x : ℝ) : originalNumerator x = expanded1 x := by
   rw [hprod]
   ring
 
-/-- Source: `proof_gap/exercise_494/2.txt`. -/
+/-- Exercise 494, gap 2. -/
 theorem gap2 (x : ℝ) : expanded1 x = expanded2 x := by
   unfold expanded1 expanded2
   ring
 
-/-- Source: `proof_gap/exercise_494/3.txt`. -/
+/-- Exercise 494, gap 3. -/
 theorem gap3 (x : ℝ) : originalNumerator x = expanded2 x := by
   rw [gap1 x, gap2 x]
 
-/-- Source: `proof_gap/exercise_494/4.txt`. -/
+/-- Exercise 494, gap 4. -/
 theorem gap4 (x : ℝ) : originalNumerator x = expanded3 x := by
   have hprod :
       Real.cos (6 * x) + Real.cos (2 * x) =
@@ -143,7 +143,7 @@ theorem gap4 (x : ℝ) : originalNumerator x = expanded3 x := by
   rw [hprod, hdouble]
   ring
 
-/-- Source: `proof_gap/exercise_494/5.txt`. -/
+/-- Exercise 494, gap 5. -/
 theorem gap5 (x : ℝ) : expanded3 x = sineSquares x := by
   have hs (t : ℝ) :
       Real.sin t ^ 2 = (1 - Real.cos (2 * t)) / 2 := by
@@ -155,11 +155,11 @@ theorem gap5 (x : ℝ) : expanded3 x = sineSquares x := by
   rw [hs x, hs (2 * x), hs (3 * x)]
   ring_nf
 
-/-- Source: `proof_gap/exercise_494/6.txt`. -/
+/-- Exercise 494, gap 6. -/
 theorem gap6 (x : ℝ) : originalNumerator x = sineSquares x := by
   rw [gap4 x, gap5 x]
 
-/-- Source: `proof_gap/exercise_494/7.txt`. -/
+/-- Exercise 494, gap 7. -/
 theorem gap7 (L : ℝ) :
     HasLimitAtZero original L ↔ HasLimitAtZero transformed L := by
   have hden (x : ℝ) :
@@ -174,7 +174,7 @@ theorem gap7 (L : ℝ) :
     rw [gap6 x, hden x]
   rw [hfun]
 
-/-- Source: `proof_gap/exercise_494/8.txt`. -/
+/-- Exercise 494, gap 8. -/
 theorem gap8 (L : ℝ) :
     HasLimitAtZero original L ↔ HasLimitAtZero normalized L := by
   have hpoint (x : ℝ) : transformed x = normalized x := by
@@ -186,7 +186,7 @@ theorem gap8 (L : ℝ) :
   have hfun : transformed = normalized := funext hpoint
   rw [gap7 L, hfun]
 
-/-- Source: `proof_gap/exercise_494/9.txt`. -/
+/-- Exercise 494, gap 9. -/
 theorem gap9 : HasLimitAtZero normalized ((1 / 4 : ℝ) * (4 + 16 + 36)) := by
   have h1 :
       Filter.Tendsto (fun x : ℝ => Real.sin x / Real.sin (x / 2))
@@ -211,11 +211,11 @@ theorem gap9 : HasLimitAtZero normalized ((1 / 4 : ℝ) * (4 + 16 + 36)) := by
   unfold HasLimitAtZero normalized
   convert hall using 1 <;> norm_num
 
-/-- Source: `proof_gap/exercise_494/10.txt`. -/
+/-- Exercise 494, gap 10. -/
 theorem gap10 : (1 / 4 : ℝ) * (4 + 16 + 36) = 14 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_494/11.txt`. -/
+/-- Exercise 494, gap 11. -/
 theorem gap11 : HasLimitAtZero original 14 := by
   apply (gap8 14).2
   rw [← gap10]

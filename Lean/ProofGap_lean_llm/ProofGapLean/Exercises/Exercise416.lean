@@ -15,12 +15,12 @@ def f (x : ℝ) : ℝ :=
 def HasLimitAtInfinity (g : ℝ → ℝ) (L : ℝ) : Prop :=
   ∀ ε > 0, ∃ N > 0, ∀ x, N < |x| → |g x - L| < ε
 
-/-- Source: `proof_gap/exercise_416/1.txt`. -/
+/-- Exercise 416, gap 1. -/
 theorem gap1 : ∃ degreeNumerator degreeDenominator : ℕ,
     degreeNumerator = degreeDenominator := by
   exact ⟨0, 0, rfl⟩
 
-/-- Source: `proof_gap/exercise_416/2.txt`. -/
+/-- Exercise 416, gap 2. -/
 theorem gap2 :
     HasLimitAtInfinity f (((2 : ℝ) ^ 20 * 3 ^ 30) / 2 ^ 50) := by
   let h : ℝ → ℝ := fun y =>
@@ -62,12 +62,12 @@ theorem gap2 :
   rw [hfx, h0] at hnear
   simpa [Real.dist_eq] using hnear
 
-/-- Source: `proof_gap/exercise_416/3.txt`. -/
+/-- Exercise 416, gap 3. -/
 theorem gap3 :
     ((2 : ℝ) ^ 20 * 3 ^ 30) / 2 ^ 50 = ((3 : ℝ) / 2) ^ 30 := by
   norm_num [div_pow]
 
-/-- Source: `proof_gap/exercise_416/4.txt`. -/
+/-- Exercise 416, gap 4. -/
 theorem gap4 : HasLimitAtInfinity f (((3 : ℝ) / 2) ^ 30) := by
   simpa only [gap3] using gap2
 

@@ -18,7 +18,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 def finalDerivative (x : ℝ) : ℝ :=
   1 / (|x| * Real.sqrt (x ^ 2 - 1))
 
-/-- Source: `proof_gap/exercise_920/1.txt`; `|x| > 1` puts `1/x` strictly
+/-- Exercise 920, gap 1; `|x| > 1` puts `1/x` strictly
 inside the arccosine domain and excludes the reciprocal pole. -/
 theorem gap1 (x : ℝ) (hx : 1 < |x|) :
     HasDerivAt y (expandedDerivative x) x := by
@@ -67,7 +67,7 @@ theorem gap1 (x : ℝ) (hx : 1 < |x|) :
   simpa only [y, Real.arccos_eq_pi_div_two_sub_arcsin, hcoef] using
     harcsin.const_sub (Real.pi / 2)
 
-/-- Source: `proof_gap/exercise_920/2.txt`; the absolute value is retained
+/-- Exercise 920, gap 2; the absolute value is retained
 when extracting `sqrt (x^2)` on both components of the domain. -/
 theorem gap2 (x : ℝ) (hx : 1 < |x|) :
     expandedDerivative x = finalDerivative x := by
@@ -133,7 +133,7 @@ theorem gap2 (x : ℝ) (hx : 1 < |x|) :
       field_simp [hA0, hx0]
     _ = 1 / (|x| * Real.sqrt (x ^ 2 - 1)) := by rw [hden]
 
-/-- Source: `proof_gap/exercise_920/3.txt`; retain the two real branches
+/-- Exercise 920, gap 3; retain the two real branches
 `x < -1` and `x > 1`. -/
 theorem gap3 (x : ℝ) (hx : 1 < |x|) :
     HasDerivAt y (finalDerivative x) x := by

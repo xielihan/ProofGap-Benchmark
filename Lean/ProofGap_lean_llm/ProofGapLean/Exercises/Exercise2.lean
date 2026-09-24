@@ -8,9 +8,9 @@ import Mathlib.Tactic.Ext
 
 Semantic Lean formalization of:
 
-* `proof_gap/exercise_2/1.txt`
+* Exercise 2, gap 1
 * ...
-* `proof_gap/exercise_2/9.txt`
+* Exercise 2, gap 9
 
 The source proves the sum-of-squares identity by induction.  Natural-number
 indices are summed in `ℚ`, which gives the source operation `frac` its standard
@@ -49,7 +49,7 @@ private theorem sumSquares_succ (k : ℕ) :
   simp only [Nat.cast_add, Nat.cast_one]
   ring
 
-/-- Source: `proof_gap/exercise_2/1.txt`. -/
+/-- Exercise 2, gap 1. -/
 theorem gap1 :
     ∀ n : ℕ, n = 1 → SumSquaresFormula n := by
   intro n hn
@@ -57,7 +57,7 @@ theorem gap1 :
   norm_num [SumSquaresFormula, sumSquares, closedForm]
 
 /--
-Source: `proof_gap/exercise_2/2.txt`.
+Exercise 2, gap 2.
 
 The source introduces the induction case with `n = k` but omits the induction
 hypothesis.  `SumSquaresFormula n` is added as the missing premise.
@@ -69,7 +69,7 @@ theorem gap2
   subst k
   exact hn
 
-/-- Source: `proof_gap/exercise_2/3.txt`; the missing induction hypothesis is explicit. -/
+/-- Exercise 2, gap 3; the missing induction hypothesis is explicit. -/
 theorem gap3
     (h1 : ∀ n : ℕ, n = 1 → SumSquaresFormula n)
     (h2 : ∀ n k : ℕ, n = k → SumSquaresFormula n → SumSquaresFormula k) :
@@ -81,7 +81,7 @@ theorem gap3
   change sumSquares n = closedForm n at hn
   exact congrArg (fun q : ℚ => q + ((n : ℚ) + 1) ^ 2) hn
 
-/-- Source: `proof_gap/exercise_2/4.txt`; the missing induction hypothesis is explicit. -/
+/-- Exercise 2, gap 4; the missing induction hypothesis is explicit. -/
 theorem gap4
     (h1 : ∀ n : ℕ, n = 1 → SumSquaresFormula n)
     (h2 : ∀ n k : ℕ, n = k → SumSquaresFormula n → SumSquaresFormula k)
@@ -97,7 +97,7 @@ theorem gap4
   simp only [closedForm, expandedSuccessorForm]
   ring
 
-/-- Source: `proof_gap/exercise_2/5.txt`. -/
+/-- Exercise 2, gap 5. -/
 theorem gap5
     (h1 : ∀ n : ℕ, n = 1 → SumSquaresFormula n)
     (h2 : ∀ n k : ℕ, n = k → SumSquaresFormula n → SumSquaresFormula k)
@@ -113,7 +113,7 @@ theorem gap5
   push_cast
   ring
 
-/-- Source: `proof_gap/exercise_2/6.txt`; the missing induction hypothesis is explicit. -/
+/-- Exercise 2, gap 6; the missing induction hypothesis is explicit. -/
 theorem gap6
     (h1 : ∀ n : ℕ, n = 1 → SumSquaresFormula n)
     (h2 : ∀ n k : ℕ, n = k → SumSquaresFormula n → SumSquaresFormula k)
@@ -133,7 +133,7 @@ theorem gap6
     _ = closedForm (k + 1) := h5 n k hnk
 
 /--
-Source: `proof_gap/exercise_2/7.txt`.
+Exercise 2, gap 7.
 
 This duplicates gap 6 in the source; it is retained because the dataset treats
 it as a separate benchmark item.
@@ -155,7 +155,7 @@ theorem gap7
   exact h6
 
 /--
-Source: `proof_gap/exercise_2/8.txt`.
+Exercise 2, gap 8.
 
 The source's positive-integer induction is made explicit: `0 < n` is the
 membership condition and the induction step takes the missing hypothesis.
@@ -182,7 +182,7 @@ theorem gap8
     n hn
 
 /--
-Source: `proof_gap/exercise_2/9.txt`.
+Exercise 2, gap 9.
 
 The source drops the positive-integer qualifier.  Over `ℕ`, the additional
 zero case is meaningful and the same identity holds at zero.

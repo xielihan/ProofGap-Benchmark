@@ -27,7 +27,7 @@ def normalized (p x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_478/1.txt`; require the omitted parameter condition `p≠0`. -/
+/-- Exercise 478, gap 1; require the omitted parameter condition `p≠0`. -/
 private theorem original_half_numerator (x : ℝ) :
     1 + Real.sin x - Real.cos x =
       2 * Real.sin (x / 2) ^ 2 + Real.sin x := by
@@ -128,7 +128,7 @@ theorem gap1 (p : ℝ) (hp : p ≠ 0) (L : ℝ) :
   unfold HasLimitAtZero
   simpa [heq]
 
-/-- Source: `proof_gap/exercise_478/2.txt`; require `p≠0`. -/
+/-- Exercise 478, gap 2; require `p≠0`. -/
 theorem gap2 (p : ℝ) (hp : p ≠ 0) (L : ℝ) :
     HasLimitAtZero (halfAngle p) L ↔ HasLimitAtZero (factored p) L := by
   have ha : p / 2 ≠ 0 := div_ne_zero hp (by norm_num)
@@ -156,12 +156,12 @@ theorem gap2 (p : ℝ) (hp : p ≠ 0) (L : ℝ) :
   · intro h
     exact h.congr' heq'
 
-/-- Source: `proof_gap/exercise_478/3.txt`; require `p≠0`. -/
+/-- Exercise 478, gap 3; require `p≠0`. -/
 theorem gap3 (p : ℝ) (hp : p ≠ 0) (L : ℝ) :
     HasLimitAtZero (original p) L ↔ HasLimitAtZero (factored p) L := by
   exact (gap1 p hp L).trans (gap2 p hp L)
 
-/-- Source: `proof_gap/exercise_478/4.txt`; require `p≠0`. -/
+/-- Exercise 478, gap 4; require `p≠0`. -/
 theorem gap4 (p : ℝ) (hp : p ≠ 0) (L : ℝ) :
     HasLimitAtZero (original p) L ↔ HasLimitAtZero (normalized p) L := by
   have ha : p / 2 ≠ 0 := div_ne_zero hp (by norm_num)
@@ -193,7 +193,7 @@ theorem gap4 (p : ℝ) (hp : p ≠ 0) (L : ℝ) :
       exact h.congr' heq'
   exact (gap3 p hp L).trans hlim
 
-/-- Source: `proof_gap/exercise_478/5.txt`; require `p≠0`. -/
+/-- Exercise 478, gap 5; require `p≠0`. -/
 theorem gap5 (p : ℝ) (hp : p ≠ 0) :
     HasLimitAtZero (normalized p) (1 / p) := by
   unfold HasLimitAtZero
@@ -238,7 +238,7 @@ theorem gap5 (p : ℝ) (hp : p ≠ 0) :
     (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds (1 / p))
   convert hprod using 1 <;> norm_num
 
-/-- Source: `proof_gap/exercise_478/6.txt`; require `p≠0`. -/
+/-- Exercise 478, gap 6; require `p≠0`. -/
 theorem gap6 (p : ℝ) (hp : p ≠ 0) :
     HasLimitAtZero (original p) (1 / p) := by
   exact (gap4 p hp (1 / p)).mpr (gap5 p hp)

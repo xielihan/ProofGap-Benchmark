@@ -8,27 +8,27 @@ noncomputable section
 def φ (x : ℝ) : ℝ := x ^ 2
 def ψ (x : ℝ) : ℝ := Real.rpow 2 x
 
-/-- Source: `proof_gap/exercise_204/1.txt`. -/
+/-- Exercise 204, gap 1. -/
 theorem gap1 : ∀ x, φ (φ x) = (x ^ 2) ^ 2 := by
   intro x
   rfl
 
-/-- Source: `proof_gap/exercise_204/2.txt`. -/
+/-- Exercise 204, gap 2. -/
 theorem gap2 : ∀ x : ℝ, (x ^ 2) ^ 2 = x ^ 4 := by
   intro x
   ring
 
-/-- Source: `proof_gap/exercise_204/3.txt`. -/
+/-- Exercise 204, gap 3. -/
 theorem gap3 : ∀ x, φ (φ x) = x ^ 4 := by
   intro x
   rw [gap1, gap2]
 
-/-- Source: `proof_gap/exercise_204/4.txt`. -/
+/-- Exercise 204, gap 4. -/
 theorem gap4 : ∀ x, φ (ψ x) = (Real.rpow 2 x) ^ 2 := by
   intro x
   rfl
 
-/-- Source: `proof_gap/exercise_204/5.txt`. -/
+/-- Exercise 204, gap 5. -/
 theorem gap5 : ∀ x, (Real.rpow 2 x) ^ 2 = Real.rpow 2 (2 * x) := by
   intro x
   calc
@@ -39,17 +39,17 @@ theorem gap5 : ∀ x, (Real.rpow 2 x) ^ 2 = Real.rpow 2 (2 * x) := by
       (Real.rpow_mul (by norm_num : (0 : ℝ) ≤ 2) x 2).symm
     _ = Real.rpow 2 (2 * x) := by ring_nf
 
-/-- Source: `proof_gap/exercise_204/6.txt`. -/
+/-- Exercise 204, gap 6. -/
 theorem gap6 : ∀ x, φ (ψ x) = Real.rpow 2 (2 * x) := by
   intro x
   rw [gap4, gap5]
 
-/-- Source: `proof_gap/exercise_204/7.txt`. -/
+/-- Exercise 204, gap 7. -/
 theorem gap7 : ∀ x, ψ (ψ x) = Real.rpow 2 (Real.rpow 2 x) := by
   intro x
   rfl
 
-/-- Source: `proof_gap/exercise_204/8.txt`. -/
+/-- Exercise 204, gap 8. -/
 theorem gap8 : ∀ x, ψ (φ x) = Real.rpow 2 (x ^ 2) := by
   intro x
   rfl

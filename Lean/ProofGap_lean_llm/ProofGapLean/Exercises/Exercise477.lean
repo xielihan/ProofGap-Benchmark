@@ -15,7 +15,7 @@ def normalized (x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_477/1.txt`. -/
+/-- Exercise 477, gap 1. -/
 theorem gap1 (L : ℝ) :
     HasLimitAtZero original L ↔ HasLimitAtZero productForm L := by
   have hfun : original = productForm := by
@@ -33,7 +33,7 @@ theorem gap1 (L : ℝ) :
     rw [hnum]
   rw [hfun]
 
-/-- Source: `proof_gap/exercise_477/2.txt`. -/
+/-- Exercise 477, gap 2. -/
 theorem gap2 (L : ℝ) :
     HasLimitAtZero productForm L ↔ HasLimitAtZero normalized L := by
   have hfun : productForm = normalized := by
@@ -47,7 +47,7 @@ theorem gap2 (L : ℝ) :
       ring
   rw [hfun]
 
-/-- Source: `proof_gap/exercise_477/3.txt`. -/
+/-- Exercise 477, gap 3. -/
 theorem gap3 : HasLimitAtZero normalized 4 := by
   unfold HasLimitAtZero
   have hsin :
@@ -72,7 +72,7 @@ theorem gap3 : HasLimitAtZero normalized 4 := by
     (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds 4)
   simpa using (hconst.mul (hsin.pow 2)).mul hcos
 
-/-- Source: `proof_gap/exercise_477/4.txt`. -/
+/-- Exercise 477, gap 4. -/
 theorem gap4 : HasLimitAtZero original 4 := by
   exact (gap1 4).mpr ((gap2 4).mpr gap3)
 

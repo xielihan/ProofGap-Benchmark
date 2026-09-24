@@ -17,7 +17,7 @@ def evenSquareSum (n : ℕ) : ℝ :=
 def ratio (n : ℕ) : ℝ := oddSquareSum n / evenSquareSum n
 def closedRatio (n : ℕ) : ℝ := ((2 * n - 1 : ℕ) : ℝ) / (2 * (n + 1))
 
-/-- Source: `proof_gap/exercise_431/1.txt`; replace the odd-square ellipsis by a finite sum. -/
+/-- Exercise 431, gap 1; replace the odd-square ellipsis by a finite sum. -/
 theorem gap1 : ∀ n : ℕ,
     oddSquareSum n = (n : ℝ) / 3 * (4 * (n : ℝ) ^ 2 - 1) := by
   intro n
@@ -29,7 +29,7 @@ theorem gap1 : ∀ n : ℕ,
       norm_num [Nat.cast_add, Nat.cast_mul]
       ring
 
-/-- Source: `proof_gap/exercise_431/2.txt`; replace the even-square ellipsis by a finite sum. -/
+/-- Exercise 431, gap 2; replace the even-square ellipsis by a finite sum. -/
 theorem gap2 : ∀ n : ℕ,
     evenSquareSum n = 2 * (n : ℝ) * (n + 1) * (2 * n + 1) / 3 := by
   intro n
@@ -41,7 +41,7 @@ theorem gap2 : ∀ n : ℕ,
       norm_num [Nat.cast_add, Nat.cast_mul]
       ring
 
-/-- Source: `proof_gap/exercise_431/3.txt`. -/
+/-- Exercise 431, gap 3. -/
 theorem gap3 :
     Filter.Tendsto ratio Filter.atTop (nhds 1) ↔
       Filter.Tendsto closedRatio Filter.atTop (nhds 1) := by
@@ -63,7 +63,7 @@ theorem gap3 :
     <;> ring
   exact Filter.tendsto_congr' heq
 
-/-- Source: `proof_gap/exercise_431/4.txt`. -/
+/-- Exercise 431, gap 4. -/
 theorem gap4 : Filter.Tendsto closedRatio Filter.atTop (nhds 1) := by
   have hcast :
       Filter.Tendsto (fun n : ℕ => (n : ℝ)) Filter.atTop Filter.atTop :=
@@ -104,7 +104,7 @@ theorem gap4 : Filter.Tendsto closedRatio Filter.atTop (nhds 1) := by
     <;> ring
   exact (Filter.tendsto_congr' heq).2 halt
 
-/-- Source: `proof_gap/exercise_431/5.txt`. -/
+/-- Exercise 431, gap 5. -/
 theorem gap5 : Filter.Tendsto ratio Filter.atTop (nhds 1) := by
   exact gap3.mpr gap4
 

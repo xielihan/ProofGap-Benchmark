@@ -4,7 +4,7 @@ open Filter Topology
 
 namespace ProofGap.Exercise93
 
-/-- Source: `proof_gap/exercise_93/1.txt`. -/
+/-- Exercise 93, gap 1. -/
 theorem gap1
     (x : ℕ → ℝ) (a : ℝ)
     (hx : Tendsto x atTop (𝓝 a)) :
@@ -16,7 +16,7 @@ theorem gap1
   rcases eventually_atTop.1 hev with ⟨N, hN⟩
   exact ⟨N + 1, by omega, fun n hn => hN n (by omega)⟩
 
-/-- Source: `proof_gap/exercise_93/2.txt`; remove the rebound N and unused ε. -/
+/-- Exercise 93, gap 2; remove the rebound N and unused ε. -/
 theorem gap2
     (x : ℕ → ℝ) (a : ℝ)
     (hx : Tendsto x atTop (𝓝 a)) :
@@ -29,7 +29,7 @@ theorem gap2
     convert this using 1 <;> ring
   linarith [hN n hn]
 
-/-- Source: `proof_gap/exercise_93/3.txt`; spell out the two max bounds on M. -/
+/-- Exercise 93, gap 3; spell out the two max bounds on M. -/
 theorem gap3
     (x : ℕ → ℝ) (a M : ℝ) (N : ℕ)
     (htail : ∀ n : ℕ, N < n → |x n| < |a| + 1)
@@ -41,7 +41,7 @@ theorem gap3
   · exact hfinite n hn
   · exact le_trans (le_of_lt (htail n (by omega))) haM
 
-/-- Source: `proof_gap/exercise_93/4.txt`. -/
+/-- Exercise 93, gap 4. -/
 theorem gap4
     (x : ℕ → ℝ)
     (hbound : ∃ M : ℝ, ∀ n : ℕ, |x n| ≤ M) :
@@ -58,7 +58,7 @@ theorem gap4
     rcases hy with ⟨n, rfl⟩
     exact (abs_le.mp (hM n)).2
 
-/-- Source: `proof_gap/exercise_93/5.txt`. -/
+/-- Exercise 93, gap 5. -/
 theorem gap5
     (x : ℕ → ℝ)
     (hbound : Bornology.IsBounded (Set.range x)) :

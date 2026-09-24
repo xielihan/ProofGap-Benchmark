@@ -11,7 +11,7 @@ def DyadicCondition (f : ℝ → ℝ) (x₀ : ℝ) : Prop :=
   ∀ n ≥ 1, ∃ δ > 0, ∀ x,
     |x - x₀| < δ → |f x - f x₀| < dyadic n
 
-/-- Source: `proof_gap/exercise_669_2/1.txt`. -/
+/-- Exercise 669_2, gap 1. -/
 theorem gap1 (ε : ℝ) (hε : 0 < ε) :
     ∃ n ≥ 1, dyadic n < ε := by
   have hlim :
@@ -24,14 +24,14 @@ theorem gap1 (ε : ℝ) (hε : 0 < ε) :
   simpa [dyadic, div_pow] using
     hN (max N 1) (le_max_left N 1)
 
-/-- Source: `proof_gap/exercise_669_2/2.txt`; bind the dyadic continuity hypothesis. -/
+/-- Exercise 669_2, gap 2; bind the dyadic continuity hypothesis. -/
 theorem gap2 (f : ℝ → ℝ) (x₀ ε : ℝ)
     (hdyadic : DyadicCondition f x₀) (hε : 0 < ε) :
     ∃ n ≥ 1, ∃ δ > 0, ∀ x,
       |x - x₀| < δ → |f x - f x₀| < dyadic n := by
   exact ⟨1, le_rfl, hdyadic 1 le_rfl⟩
 
-/-- Source: `proof_gap/exercise_669_2/3.txt`; remove shadowed existential binders. -/
+/-- Exercise 669_2, gap 3; remove shadowed existential binders. -/
 theorem gap3 (f : ℝ → ℝ) (x₀ ε : ℝ)
     (hdyadic : DyadicCondition f x₀) (hε : 0 < ε) :
     ∃ n ≥ 1, ∃ δ > 0, ∀ x,
@@ -43,7 +43,7 @@ theorem gap3 (f : ℝ → ℝ) (x₀ ε : ℝ)
   intro x hx
   exact ⟨hbound x hx, hnε⟩
 
-/-- Source: `proof_gap/exercise_669_2/4.txt`. -/
+/-- Exercise 669_2, gap 4. -/
 theorem gap4 (f : ℝ → ℝ) (x₀ : ℝ)
     (hdyadic : DyadicCondition f x₀) :
     ContinuousAt f x₀ := by
@@ -56,7 +56,7 @@ theorem gap4 (f : ℝ → ℝ) (x₀ : ℝ)
   have hout : |f x - f x₀| < ε := lt_trans hpair.1 hpair.2
   simpa [Real.dist_eq] using hout
 
-/-- Source: `proof_gap/exercise_669_2/5.txt`; corrected equivalence with dyadic epsilon tests. -/
+/-- Exercise 669_2, gap 5; corrected equivalence with dyadic epsilon tests. -/
 theorem gap5 (f : ℝ → ℝ) (x₀ : ℝ) :
     ContinuousAt f x₀ ↔ DyadicCondition f x₀ := by
   constructor

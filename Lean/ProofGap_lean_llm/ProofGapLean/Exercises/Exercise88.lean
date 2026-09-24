@@ -23,7 +23,7 @@ def IsCauchy (u : ℕ → ℝ) : Prop :=
 def Convergent (u : ℕ → ℝ) : Prop :=
   ∃ l : ℝ, Tendsto u atTop (𝓝 l)
 
-/-- Source: `proof_gap/exercise_88/1.txt`; choose m=2n for each n. -/
+/-- Exercise 88, gap 1; choose m=2n for each n. -/
 theorem gap1 :
     ∀ n : ℕ, 0 < n →
       ∃ m : ℕ, m = 2 * n ∧ |x m - x n| = harmonicTail n := by
@@ -55,7 +55,7 @@ theorem gap1 :
   exact lt_of_lt_of_le (by positivity : 0 < 1 / ((n + 1 : ℕ) : ℝ))
     hsingle
 
-/-- Source: `proof_gap/exercise_88/2.txt`; strictness fails at n=1. -/
+/-- Exercise 88, gap 2; strictness fails at n=1. -/
 theorem gap2 :
     ∀ n : ℕ, 1 < n → harmonicTail n > constantTail n := by
   intro n hn
@@ -99,7 +99,7 @@ theorem gap2 :
     _ = ∑ k ∈ S, 1 / (k : ℝ) := by
       rw [add_comm, Finset.sum_erase_add _ _ hs]
 
-/-- Source: `proof_gap/exercise_88/3.txt`. -/
+/-- Exercise 88, gap 3. -/
 theorem gap3 :
     ∀ n : ℕ, 0 < n → constantTail n = 1 / 2 := by
   intro n hn
@@ -112,7 +112,7 @@ theorem gap3 :
   have hnR : (n : ℝ) ≠ 0 := by exact_mod_cast (ne_of_gt hn)
   field_simp
 
-/-- Source: `proof_gap/exercise_88/4.txt`; m depends on n. -/
+/-- Exercise 88, gap 4; m depends on n. -/
 theorem gap4 :
     ∀ n : ℕ, 1 < n →
       ∃ m : ℕ, n < m ∧ |x m - x n| > 1 / 2 := by
@@ -123,7 +123,7 @@ theorem gap4 :
   rw [← gap3 n (by omega)]
   exact gap2 n hn
 
-/-- Source: `proof_gap/exercise_88/5.txt`. -/
+/-- Exercise 88, gap 5. -/
 theorem gap5 :
     ¬ IsCauchy x := by
   intro hc
@@ -140,7 +140,7 @@ theorem gap5 :
   rw [abs_sub_comm] at hsmall
   linarith
 
-/-- Source: `proof_gap/exercise_88/6.txt`. -/
+/-- Exercise 88, gap 6. -/
 theorem gap6 :
     ¬ Convergent x := by
   intro hconv
@@ -154,7 +154,7 @@ theorem gap6 :
     have hd := hN n (by omega) m (by omega)
     simpa [Real.dist_eq] using hd⟩
 
-/-- Source: `proof_gap/exercise_88/7.txt`. -/
+/-- Exercise 88, gap 7. -/
 theorem gap7
     (h : ¬ Convergent x) :
     ¬ Convergent x := by

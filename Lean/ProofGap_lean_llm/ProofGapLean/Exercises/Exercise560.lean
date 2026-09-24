@@ -18,7 +18,7 @@ def factored (a x : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_560/1.txt`. -/
+/-- Exercise 560, gap 1. -/
 private theorem original_eq_factored (a : ℝ) (ha : 0 < a) :
     original a = factored a := by
   funext x
@@ -131,7 +131,7 @@ theorem gap1 (a : ℝ) (ha : 0 < a) (L : ℝ) :
   unfold HasLimitAt
   rw [original_eq_factored a ha]
 
-/-- Source: `proof_gap/exercise_560/2.txt`. -/
+/-- Exercise 560, gap 2. -/
 theorem gap2 (a : ℝ) (ha : 0 < a) :
     HasLimitAt (factored a) a
       (Real.rpow a (Real.rpow a a) * Real.log a) := by
@@ -245,7 +245,7 @@ theorem gap2 (a : ℝ) (ha : 0 < a) :
     (hpt.congr' hpm.symm).mono_left inf_le_left
   simpa [factored, g] using hp.mul (hslope.comp hg)
 
-/-- Source: `proof_gap/exercise_560/3.txt`. -/
+/-- Exercise 560, gap 3. -/
 theorem gap3 (a : ℝ) (ha : 0 < a) :
     HasLimitAt (original a) a
       (Real.rpow a (Real.rpow a a) * Real.log a) := by

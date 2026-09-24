@@ -13,12 +13,12 @@ def arccot (x : ℝ) : ℝ := Real.pi / 2 - Real.arctan x
 def y (x : ℝ) : ℝ := arccot x / Real.pi
 def valueSet : Set ℝ := Set.range y
 
-/-- Source: `proof_gap/exercise_180/1.txt`. -/
+/-- Exercise 180, gap 1. -/
 theorem gap1 : Continuous y := by
   unfold y arccot
   exact (continuous_const.sub Real.continuous_arctan).div_const _
 
-/-- Source: `proof_gap/exercise_180/2.txt`. -/
+/-- Exercise 180, gap 2. -/
 theorem gap2 : StrictAnti y := by
   intro a b hab
   unfold y arccot
@@ -26,32 +26,32 @@ theorem gap2 : StrictAnti y := by
   have h := Real.arctan_strictMono hab
   linarith
 
-/-- Source: `proof_gap/exercise_180/3.txt`. -/
+/-- Exercise 180, gap 3. -/
 theorem gap3 : Tendsto arccot atBot (𝓝 Real.pi) := by
   have hatan : Tendsto Real.arctan atBot (𝓝 (-(Real.pi / 2))) :=
     Real.tendsto_arctan_atBot.mono_right inf_le_left
   unfold arccot
   convert tendsto_const_nhds.sub hatan using 1 <;> ring
 
-/-- Source: `proof_gap/exercise_180/4.txt`. -/
+/-- Exercise 180, gap 4. -/
 theorem gap4 : Tendsto y atBot (𝓝 1) := by
   unfold y
   convert gap3.div_const Real.pi using 1
   field_simp [Real.pi_ne_zero]
 
-/-- Source: `proof_gap/exercise_180/5.txt`. -/
+/-- Exercise 180, gap 5. -/
 theorem gap5 : Tendsto arccot atTop (𝓝 0) := by
   have hatan : Tendsto Real.arctan atTop (𝓝 (Real.pi / 2)) :=
     Real.tendsto_arctan_atTop.mono_right inf_le_left
   unfold arccot
   convert tendsto_const_nhds.sub hatan using 1 <;> ring
 
-/-- Source: `proof_gap/exercise_180/6.txt`. -/
+/-- Exercise 180, gap 6. -/
 theorem gap6 : Tendsto y atTop (𝓝 0) := by
   unfold y
   simpa using gap5.div_const Real.pi
 
-/-- Source: `proof_gap/exercise_180/7.txt`; replace the free family `E_x`. -/
+/-- Exercise 180, gap 7; replace the free family `E_x`. -/
 theorem gap7 : valueSet = Set.Ioo 0 1 := by
   ext t
   constructor

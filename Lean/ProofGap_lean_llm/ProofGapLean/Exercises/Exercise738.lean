@@ -11,7 +11,7 @@ noncomputable section
 
 def core (x : ℝ) : ℝ := (1 - Real.cos x) / x ^ 2
 
-/-- Source: `proof_gap/exercise_738/1.txt`; the source's equivalence with
+/-- Exercise 738, gap 1; the source's equivalence with
 `ContinuousAt f 0` is false because the displayed limit is independent of
 `f 0`; isolate the actual limit computation. -/
 theorem gap1 :
@@ -66,7 +66,7 @@ theorem gap1 :
   rw [core, htrig]
   field_simp [hx0] <;> ring
 
-/-- Source: `proof_gap/exercise_738/2.txt`; include the punctured definition
+/-- Exercise 738, gap 2; include the punctured definition
 of `f` needed for the removable-extension criterion. -/
 theorem gap2 (f : ℝ → ℝ)
     (hf : ∀ x : ℝ, x ≠ 0 → f x = core x) :
@@ -100,7 +100,7 @@ theorem gap2 (f : ℝ → ℝ)
       simpa [h0] using (mem_of_mem_nhds hs)
     · exact hu_sub ⟨hx, by simpa using hx0⟩
 
-/-- Source: `proof_gap/exercise_738/3.txt`. -/
+/-- Exercise 738, gap 3. -/
 theorem gap3 (f : ℝ → ℝ)
     (hf : ∀ x : ℝ, x ≠ 0 → f x = core x)
     (h0 : f 0 ∈ ({(1 / 2 : ℝ)} : Set ℝ)) :

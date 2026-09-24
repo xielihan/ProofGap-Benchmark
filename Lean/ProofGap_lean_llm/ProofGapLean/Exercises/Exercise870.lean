@@ -21,7 +21,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 
 def finalDerivative (x : ℝ) : ℝ := x ^ 2 / denominator x ^ 2
 
-/-- Source: `proof_gap/exercise_870/1.txt`; restrict to the domain of the
+/-- Exercise 870, gap 1; restrict to the domain of the
 quotient. -/
 theorem gap1 (x : ℝ) (hden : denominator x ≠ 0) :
     deriv y x = expandedDerivative x := by
@@ -39,7 +39,7 @@ theorem gap1 (x : ℝ) (hden : denominator x ≠ 0) :
   unfold y expandedDerivative
   convert (hnum.div hden' hden).deriv using 1 <;> ring
 
-/-- Source: `proof_gap/exercise_870/2.txt`; retain the source function's
+/-- Exercise 870, gap 2; retain the source function's
 domain while simplifying its derivative. -/
 theorem gap2 (x : ℝ) (hden : denominator x ≠ 0) :
     expandedDerivative x = finalDerivative x := by
@@ -54,7 +54,7 @@ theorem gap2 (x : ℝ) (hden : denominator x ≠ 0) :
       _ = x ^ 2 := by rw [Real.sin_sq_add_cos_sq, mul_one]
   rw [hnum]
 
-/-- Source: `proof_gap/exercise_870/3.txt`; restrict to the domain of the
+/-- Exercise 870, gap 3; restrict to the domain of the
 source function. -/
 theorem gap3 (x : ℝ) (hden : denominator x ≠ 0) :
     deriv y x = finalDerivative x := by

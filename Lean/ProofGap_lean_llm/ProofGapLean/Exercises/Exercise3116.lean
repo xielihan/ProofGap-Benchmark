@@ -32,14 +32,14 @@ def LinearizedExp (A scale θ : ℝ) : Prop :=
   |A * Real.exp (θ / scale) - A * (1 + θ / scale)| ≤
     |A| * Real.exp (1 / scale) / (2 * scale ^ 2)
 
-/-- Source: `proof_gap/exercise_3116/1.txt`; substitution `x=sin t`. -/
+/-- Exercise 3116, gap 1; substitution `x=sin t`. -/
 theorem gap1 : targetIntegral = cosineIntegral := by
   have H :=
     integral_sin_pow_mul_cos_pow_odd
       (a := (0 : ℝ)) (b := Real.pi / 2) 0 50
   simpa [targetIntegral, cosineIntegral] using H.symm
 
-/-- Source: `proof_gap/exercise_3116/2.txt`; Wallis integral formula. -/
+/-- Exercise 3116, gap 2; Wallis integral formula. -/
 theorem gap2 :
     cosineIntegral = evenProduct50 / oddProduct51 := by
   rw [cosineIntegral, EulerSine.integral_cos_pow_eq,
@@ -48,7 +48,7 @@ theorem gap2 :
   norm_num [evenProduct50, oddProduct51, Finset.prod_range_succ,
     Finset.prod_Icc_succ_top]
 
-/-- Source: `proof_gap/exercise_3116/3.txt`; convert double factorials to factorials. -/
+/-- Exercise 3116, gap 3; convert double factorials to factorials. -/
 theorem gap3 :
     evenProduct50 / oddProduct51 =
       ((2 : ℝ) ^ 100 * (Nat.factorial 50 : ℝ) ^ 2) /
@@ -56,7 +56,7 @@ theorem gap3 :
   norm_num [evenProduct50, oddProduct51, Finset.prod_Icc_succ_top,
     Nat.factorial]
 
-/-- Source: `proof_gap/exercise_3116/4.txt`; retain both Stirling remainder bounds. -/
+/-- Exercise 3116, gap 4; retain both Stirling remainder bounds. -/
 theorem gap4 :
     ∃ θ₁ θ₂ : ℝ,
       0 < θ₁ ∧ θ₁ < 1 ∧ 0 < θ₂ ∧ θ₂ < 1 ∧
@@ -176,7 +176,7 @@ theorem gap4 :
     ring
   rw [hRHS, hbaseOrig, hexpquot, hbaseq]
 
-/-- Source: `proof_gap/exercise_3116/5.txt`; bind the effective remainder. -/
+/-- Exercise 3116, gap 5; bind the effective remainder. -/
 theorem gap5 :
     ∃ θ : ℝ, |θ| < 1 ∧
       targetIntegral = exactPrefactor * Real.exp (θ / 300) := by
@@ -231,7 +231,7 @@ theorem gap5 :
   rw [gap1, gap2, gap3]
   exact hratio
 
-/-- Source: `proof_gap/exercise_3116/6.txt`; quantify the decimal approximation error. -/
+/-- Exercise 3116, gap 6; quantify the decimal approximation error. -/
 theorem gap6 :
     ∃ θ : ℝ, |θ| < 1 ∧
       targetIntegral = (0.1241 : ℝ) * Real.exp (θ / 300) := by
@@ -350,7 +350,7 @@ private theorem exp_linear_remainder_bound (u : ℝ)
     have hu2 : 0 ≤ u ^ 2 := sq_nonneg u
     nlinarith [mul_le_mul_of_nonneg_right hexple hu2]
 
-/-- Source: `proof_gap/exercise_3116/7.txt`; replace informal `≈` by a Taylor error bound. -/
+/-- Exercise 3116, gap 7; replace informal `≈` by a Taylor error bound. -/
 theorem gap7 :
     ∀ θ : ℝ, |θ| < 1 →
       LinearizedExp (0.1241 : ℝ) 300 θ := by
@@ -379,7 +379,7 @@ theorem gap7 :
       have he := Real.exp_pos (1 / 300)
       nlinarith
 
-/-- Source: `proof_gap/exercise_3116/8.txt`; retain one witness for value and approximation. -/
+/-- Exercise 3116, gap 8; retain one witness for value and approximation. -/
 theorem gap8 :
     ∃ θ : ℝ,
       |θ| < 1 ∧

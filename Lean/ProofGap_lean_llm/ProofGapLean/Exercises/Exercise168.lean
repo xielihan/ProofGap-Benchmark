@@ -13,12 +13,12 @@ def domain : Set ℝ := {x | |arg x| ≤ 1}
 def y (x : ℝ) : ℝ := Real.arccos (arg x)
 def valueSet : Set ℝ := {t | ∃ x ∈ domain, t = y x}
 
-/-- Source: `proof_gap/exercise_168/1.txt`. -/
+/-- Exercise 168, gap 1. -/
 theorem gap1 : ∀ x : ℝ, |arg x| ≤ 1 → x ∈ domain := by
   intro x hx
   exact hx
 
-/-- Source: `proof_gap/exercise_168/2.txt`. -/
+/-- Exercise 168, gap 2. -/
 theorem gap2 : ∀ x : ℝ, |arg x| ≤ 1 := by
   intro x
   rw [abs_le]
@@ -31,13 +31,13 @@ theorem gap2 : ∀ x : ℝ, |arg x| ≤ 1 := by
     apply (div_le_iff₀ hden).2
     nlinarith [sq_nonneg (x - 1)]
 
-/-- Source: `proof_gap/exercise_168/3.txt`. -/
+/-- Exercise 168, gap 3. -/
 theorem gap3 : domain = Set.univ := by
   ext x
   simp only [Set.mem_univ, iff_true]
   exact gap2 x
 
-/-- Source: `proof_gap/exercise_168/4.txt`; remove the shadowed existential y. -/
+/-- Exercise 168, gap 4; remove the shadowed existential y. -/
 theorem gap4 : valueSet = Set.Icc 0 Real.pi := by
   ext t
   constructor

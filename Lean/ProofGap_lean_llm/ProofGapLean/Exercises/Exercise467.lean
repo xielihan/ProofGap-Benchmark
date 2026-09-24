@@ -16,7 +16,7 @@ def transformed (n : ℕ) (x : ℝ) : ℝ := 2 * geometricFactor n x
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_467/1.txt`; expand the difference of `n`th powers. -/
+/-- Exercise 467, gap 1; expand the difference of `n`th powers. -/
 theorem gap1 (n : ℕ) (hn : 0 < n) (L : ℝ) :
     HasLimitAt (original n) 0 L ↔ HasLimitAt (transformed n) 0 L := by
   unfold HasLimitAt
@@ -47,7 +47,7 @@ theorem gap1 (n : ℕ) (hn : 0 < n) (L : ℝ) :
   rw [hfactor, hab]
   field_simp [hx0]
 
-/-- Source: `proof_gap/exercise_467/2.txt`. -/
+/-- Exercise 467, gap 2. -/
 theorem gap2 (n : ℕ) (hn : 0 < n) :
     HasLimitAt (transformed n) 0 (2 * n) := by
   unfold HasLimitAt

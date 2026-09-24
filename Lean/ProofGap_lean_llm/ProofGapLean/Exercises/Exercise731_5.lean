@@ -11,7 +11,7 @@ noncomputable def f (x : ℝ) : ℝ := by
 def IsInteger (x : ℝ) : Prop := ∃ z : ℤ, x = (z : ℝ)
 def SingularPoint (g : ℝ → ℝ) (a : ℝ) : Prop := ¬ ContinuousAt g a
 
-/-- Source: `proof_gap/exercise_731_5/1.txt`; remove the free outer
+/-- Exercise 731_5, gap 1; remove the free outer
 `SingularPoint(f,x)` guard and quantify the point whose limit is tested. -/
 theorem gap1 :
     ∀ x : ℝ, ¬ IsInteger x →
@@ -93,13 +93,13 @@ theorem gap1 :
   refine ⟨z, ?_⟩
   nlinarith [Real.pi_pos]
 
-/-- Source: `proof_gap/exercise_731_5/2.txt`; remove the free outer guard. -/
+/-- Exercise 731_5, gap 2; remove the free outer guard. -/
 theorem gap2 :
     ∀ x : ℝ, ¬ IsInteger x → SingularPoint f x := by
   intro x hx hcont
   exact gap1 x hx ⟨f x, hcont⟩
 
-/-- Source: `proof_gap/exercise_731_5/3.txt`. -/
+/-- Exercise 731_5, gap 3. -/
 theorem gap3 (x : ℝ) (hx : x ∈ {x : ℝ | ¬ IsInteger x}) :
     SingularPoint f x := by
   exact gap2 x hx

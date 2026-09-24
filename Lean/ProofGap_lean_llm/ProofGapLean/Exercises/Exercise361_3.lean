@@ -10,12 +10,12 @@ def cubic (a b c d x : ℝ) : ℝ :=
 def centerX (a b : ℝ) : ℝ := -b / (3 * a)
 def centerY (a b c d : ℝ) : ℝ := cubic a b c d (centerX a b)
 
-/-- Source: `proof_gap/exercise_361_3/1.txt`; a genuine cubic requires `a≠0`. -/
+/-- Exercise 361_3, gap 1; a genuine cubic requires `a≠0`. -/
 theorem gap1 (a b : ℝ) (ha : a ≠ 0) :
     centerX a b = -b / (3 * a) := by
   rfl
 
-/-- Source: `proof_gap/exercise_361_3/2.txt`. -/
+/-- Exercise 361_3, gap 2. -/
 theorem gap2 (a b c d : ℝ) (ha : a ≠ 0) :
     centerY a b c d =
       a * centerX a b ^ 3 + b * centerX a b ^ 2 +

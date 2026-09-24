@@ -20,7 +20,7 @@ def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
 def DivergesInAbsAtZero (f : ℝ → ℝ) : Prop :=
   Filter.Tendsto (fun a => |f a|) (nhdsWithin 0 ({0} : Set ℝ)ᶜ) Filter.atTop
 
-/-- Source: `proof_gap/exercise_468/1.txt`. -/
+/-- Exercise 468, gap 1. -/
 private lemma eventually_discriminant_nonneg (b c : ℝ) (hb : 0 < b) :
     ∀ᶠ a in nhdsWithin 0 ({0} : Set ℝ)ᶜ,
       0 ≤ b ^ 2 - 4 * a * c := by
@@ -90,12 +90,12 @@ theorem gap1 (b c a : ℝ) : x₁ b c a =
     (-b + Real.sqrt (b ^ 2 - 4 * a * c)) / (2 * a) := by
   rfl
 
-/-- Source: `proof_gap/exercise_468/2.txt`. -/
+/-- Exercise 468, gap 2. -/
 theorem gap2 (b c a : ℝ) : x₂ b c a =
     (-b - Real.sqrt (b ^ 2 - 4 * a * c)) / (2 * a) := by
   rfl
 
-/-- Source: `proof_gap/exercise_468/3.txt`; the two-sided signed infinite limit is replaced by divergence in absolute value. -/
+/-- Exercise 468, gap 3; the two-sided signed infinite limit is replaced by divergence in absolute value. -/
 theorem gap3 (b c : ℝ) (hb : 0 < b) : DivergesInAbsAtZero (x₂ b c) := by
   unfold DivergesInAbsAtZero
   refine Filter.tendsto_atTop.2 ?_
@@ -156,7 +156,7 @@ theorem gap3 (b c : ℝ) (hb : 0 < b) : DivergesInAbsAtZero (x₂ b c) := by
   simpa [x₂, abs_div, abs_mul,
     abs_of_nonneg (show (0 : ℝ) ≤ 2 by linarith)] using hfinal
 
-/-- Source: `proof_gap/exercise_468/4.txt`; rationalize the finite root. -/
+/-- Exercise 468, gap 4; rationalize the finite root. -/
 theorem gap4 (b c L : ℝ) (hb : 0 < b) :
     HasLimitAtZero (x₁ b c) L ↔ HasLimitAtZero (conjugateForm b c) L := by
   unfold HasLimitAtZero
@@ -170,7 +170,7 @@ theorem gap4 (b c L : ℝ) (hb : 0 < b) :
   · intro h
     exact Filter.Tendsto.congr' heq.symm h
 
-/-- Source: `proof_gap/exercise_468/5.txt`. -/
+/-- Exercise 468, gap 5. -/
 theorem gap5 (b c L : ℝ) (hb : 0 < b) :
     HasLimitAtZero (conjugateForm b c) L ↔
       HasLimitAtZero (reciprocalForm b c) L := by
@@ -186,7 +186,7 @@ theorem gap5 (b c L : ℝ) (hb : 0 < b) :
   · intro h
     exact Filter.Tendsto.congr' heq.symm h
 
-/-- Source: `proof_gap/exercise_468/6.txt`. -/
+/-- Exercise 468, gap 6. -/
 theorem gap6 (b c : ℝ) (hb : 0 < b) :
     HasLimitAtZero (reciprocalForm b c) (-c / b) := by
   unfold HasLimitAtZero
@@ -214,18 +214,18 @@ theorem gap6 (b c : ℝ) (hb : 0 < b) :
   rw [← hval]
   exact hrec.tendsto.mono_left inf_le_left
 
-/-- Source: `proof_gap/exercise_468/7.txt`. -/
+/-- Exercise 468, gap 7. -/
 theorem gap7 (b c : ℝ) (hb : 0 < b) :
     HasLimitAtZero (x₁ b c) (-c / b) := by
   apply (gap4 b c (-c / b) hb).2
   apply (gap5 b c (-c / b) hb).2
   exact gap6 b c hb
 
-/-- Source: `proof_gap/exercise_468/8.txt`; restore the missing sign hypothesis and use two-sided absolute divergence. -/
+/-- Exercise 468, gap 8; restore the missing sign hypothesis and use two-sided absolute divergence. -/
 theorem gap8 (b c : ℝ) (hb : 0 < b) : DivergesInAbsAtZero (x₂ b c) := by
   exact gap3 b c hb
 
-/-- Source: `proof_gap/exercise_468/9.txt`; restore the missing hypothesis `0 < b`. -/
+/-- Exercise 468, gap 9; restore the missing hypothesis `0 < b`. -/
 theorem gap9 (b c : ℝ) (hb : 0 < b) :
     HasLimitAtZero (x₁ b c) (-c / b) := by
   exact gap7 b c hb

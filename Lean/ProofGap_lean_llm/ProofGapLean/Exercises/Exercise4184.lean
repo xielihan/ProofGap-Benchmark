@@ -50,7 +50,7 @@ def truncatedIntegral (a p epsilon : ℝ) : ℝ :=
 def logarithmicExpression (a epsilon : ℝ) : ℝ :=
   a * Real.log a - a + epsilon - a * Real.log epsilon
 
-/-! Source: `results/stage1_gpt55/09_重积分与含参积分/exercise_4184_autoformalization_result/exercise_4184.md`. -/
+/-! Exercise 4184. -/
 
 private theorem square_eq_prod (a : ℝ) :
     square a = Icc (0 : ℝ) a ×ˢ Icc (0 : ℝ) a := by

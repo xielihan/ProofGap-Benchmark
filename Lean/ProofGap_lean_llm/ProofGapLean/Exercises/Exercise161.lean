@@ -17,12 +17,12 @@ def intervalCondition (x : ℝ) : Prop :=
     pow10 (((2 : ℝ) * k - 1 / 2) * Real.pi) < x ∧
     x < pow10 (((2 : ℝ) * k + 1 / 2) * Real.pi)
 
-/-- Source: `proof_gap/exercise_161/1.txt`; positivity is conditional on the logarithm's domain. -/
+/-- Exercise 161, gap 1; positivity is conditional on the logarithm's domain. -/
 theorem gap1 : ∀ x : ℝ, x ∈ domain → 0 < Real.cos (lg x) := by
   intro x hx
   exact hx.2
 
-/-- Source: `proof_gap/exercise_161/2.txt`; k is existentially chosen. -/
+/-- Exercise 161, gap 2; k is existentially chosen. -/
 theorem gap2 : ∀ x : ℝ, x ∈ domain ↔
     0 < x ∧ ∃ k : ℤ,
       ((2 : ℝ) * k - 1 / 2) * Real.pi < lg x ∧
@@ -67,7 +67,7 @@ theorem gap2 : ∀ x : ℝ, x ∈ domain ↔
     dsimp [u] at hcosu
     rwa [hperiod] at hcosu
 
-/-- Source: `proof_gap/exercise_161/3.txt`. -/
+/-- Exercise 161, gap 3. -/
 theorem gap3 : ∀ x : ℝ, x ∈ domain ↔ intervalCondition x := by
   intro x
   constructor
@@ -103,7 +103,7 @@ theorem gap3 : ∀ x : ℝ, x ∈ domain ↔ intervalCondition x := by
       exact (Real.rpow_lt_rpow_left_iff (by norm_num : (1 : ℝ) < 10)).1
         (by simpa [pow10] using hkhi')
 
-/-- Source: `proof_gap/exercise_161/4.txt`. -/
+/-- Exercise 161, gap 4. -/
 theorem gap4 : domain = {x : ℝ | intervalCondition x} := by
   ext x
   exact gap3 x

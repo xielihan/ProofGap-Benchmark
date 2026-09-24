@@ -26,7 +26,7 @@ def normalized (x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_499/1.txt`. -/
+/-- Exercise 499, gap 1. -/
 private theorem transformations_eventually :
     ∀ᶠ x in nhdsWithin 0 ({0} : Set ℝ)ᶜ,
       original x = rationalized x ∧
@@ -131,7 +131,7 @@ theorem gap1 (L : ℝ) :
   · intro h
     exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_499/2.txt`. -/
+/-- Exercise 499, gap 2. -/
 theorem gap2 (L : ℝ) :
     HasLimitAtZero original L ↔ HasLimitAtZero expanded L := by
   unfold HasLimitAtZero
@@ -144,7 +144,7 @@ theorem gap2 (L : ℝ) :
   · intro h
     exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_499/3.txt`. -/
+/-- Exercise 499, gap 3. -/
 theorem gap3 (L : ℝ) :
     HasLimitAtZero original L ↔ HasLimitAtZero normalized L := by
   unfold HasLimitAtZero
@@ -158,7 +158,7 @@ theorem gap3 (L : ℝ) :
   · intro h
     exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_499/4.txt`. -/
+/-- Exercise 499, gap 4. -/
 theorem gap4 : HasLimitAtZero normalized (1 / 4) := by
   unfold HasLimitAtZero normalized
   have hto0 : Filter.Tendsto (fun x : ℝ => x)
@@ -257,7 +257,7 @@ theorem gap4 : HasLimitAtZero normalized (1 / 4) := by
     exact hone.div hden (by norm_num : (2 : ℝ) ≠ 0)
   convert (hsin.mul hsecond).mul hthird using 1 <;> norm_num
 
-/-- Source: `proof_gap/exercise_499/5.txt`. -/
+/-- Exercise 499, gap 5. -/
 theorem gap5 : HasLimitAtZero original (1 / 4) := by
   exact (gap3 (1 / 4)).2 gap4
 

@@ -18,7 +18,7 @@ def factored (a x : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_486/1.txt`; require `cos a≠0`. -/
+/-- Exercise 486, gap 1; require `cos a≠0`. -/
 private theorem secant_eventually_cos_ne (a : ℝ) (ha : Real.cos a ≠ 0) :
     ∀ᶠ x in nhdsWithin a ({a} : Set ℝ)ᶜ, Real.cos x ≠ 0 :=
   (Real.continuous_cos.continuousAt.eventually_ne ha).filter_mono inf_le_left
@@ -39,7 +39,7 @@ theorem gap1 (a : ℝ) (ha : Real.cos a ≠ 0) (L : ℝ) :
   unfold original transformed sec
   field_simp [ha, hcx, hne]
 
-/-- Source: `proof_gap/exercise_486/2.txt`; require `cos a≠0`. -/
+/-- Exercise 486, gap 2; require `cos a≠0`. -/
 theorem gap2 (a : ℝ) (ha : Real.cos a ≠ 0) (L : ℝ) :
     HasLimitAt (transformed a) a L ↔ HasLimitAt (factored a) a L := by
   unfold HasLimitAt
@@ -68,12 +68,12 @@ theorem gap2 (a : ℝ) (ha : Real.cos a ≠ 0) (L : ℝ) :
   rw [htrig]
   field_simp [ha, hcx, hne]
 
-/-- Source: `proof_gap/exercise_486/3.txt`; require `cos a≠0`. -/
+/-- Exercise 486, gap 3; require `cos a≠0`. -/
 theorem gap3 (a : ℝ) (ha : Real.cos a ≠ 0) (L : ℝ) :
     HasLimitAt (original a) a L ↔ HasLimitAt (factored a) a L := by
   exact (gap1 a ha L).trans (gap2 a ha L)
 
-/-- Source: `proof_gap/exercise_486/4.txt`; require `cos a≠0`. -/
+/-- Exercise 486, gap 4; require `cos a≠0`. -/
 theorem gap4 (a : ℝ) (ha : Real.cos a ≠ 0) :
     HasLimitAt (original a) a (Real.sin a / Real.cos a ^ 2) := by
   apply (gap3 a ha (Real.sin a / Real.cos a ^ 2)).2

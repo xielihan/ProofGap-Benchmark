@@ -9,7 +9,7 @@ noncomputable section
 
 def y (x : ℝ) : ℝ := Real.sin (Real.sin (Real.sin x))
 
-/-- Source: `proof_gap/exercise_866/1.txt`. -/
+/-- Exercise 866, gap 1. -/
 theorem gap1 (x : ℝ) :
     deriv y x =
       Real.cos x * Real.cos (Real.sin x) *

@@ -3,7 +3,7 @@ import ProofGapLean.Prelude.Discrete
 /-!
 # Exercise 12
 
-Semantic formalization of `proof_gap/exercise_12/{1,...,25}.txt`.
+Semantic formalization of Exercise 12, gaps 1,...,25.
 The exercise constructs the rational Dedekind cut for the cube root of two.
 -/
 
@@ -123,12 +123,12 @@ private lemma noRationalCubeBoundary : NoRationalBoundary := by
       gcongr
     norm_num [hint] at hpow
 
-/-- Source: `proof_gap/exercise_12/1.txt`. -/
+/-- Exercise 12, gap 1. -/
 theorem gap1 : LowerDefinition := by
   intro a ha
   exact ha
 
-/-- Source: `proof_gap/exercise_12/2.txt`; `n` is made a positive natural. -/
+/-- Exercise 12, gap 2; `n` is made a positive natural. -/
 theorem gap2
     (h1 : LowerDefinition) :
     ExpandCubeIncrement := by
@@ -139,14 +139,14 @@ theorem gap2
     (a + 1) ^ 3 = a ^ 3 + (3 * a ^ 2 + 3 * a + 1) := by ring
     _ < 2 := by linarith
 
-/-- Source: `proof_gap/exercise_12/3.txt`; duplicate of gap 2. -/
+/-- Exercise 12, gap 3; duplicate of gap 2. -/
 theorem gap3
     (h1 : LowerDefinition)
     (h2 : ExpandCubeIncrement) :
     ExpandCubeIncrement := by
   exact h2
 
-/-- Source: `proof_gap/exercise_12/4.txt`; `n` is made a positive natural. -/
+/-- Exercise 12, gap 4; `n` is made a positive natural. -/
 theorem gap4
     (h1 : LowerDefinition)
     (h2 : ExpandCubeIncrement)
@@ -160,7 +160,7 @@ theorem gap4
   norm_num at hcube
   linarith
 
-/-- Source: `proof_gap/exercise_12/5.txt`; `n` is made a positive natural. -/
+/-- Exercise 12, gap 5; `n` is made a positive natural. -/
 theorem gap5
     (h1 : LowerDefinition)
     (h4 : NonpositiveIncrement) :
@@ -172,7 +172,7 @@ theorem gap5
   norm_num at hbound ⊢
   exact (div_lt_one hden).mp hbound
 
-/-- Source: `proof_gap/exercise_12/6.txt`; duplicate of gap 5. -/
+/-- Exercise 12, gap 6; duplicate of gap 5. -/
 theorem gap6
     (h1 : LowerDefinition)
     (h4 : NonpositiveIncrement)
@@ -180,7 +180,7 @@ theorem gap6
     PositiveIncrementEstimate := by
   exact h5
 
-/-- Source: `proof_gap/exercise_12/7.txt`. -/
+/-- Exercise 12, gap 7. -/
 theorem gap7
     (h1 : LowerDefinition)
     (h2 : ExpandCubeIncrement)
@@ -252,7 +252,7 @@ theorem gap7
     linarith
 
 /--
-Source: `proof_gap/exercise_12/8.txt`.
+Exercise 12, gap 8.
 
 The source incorrectly asks for one uniform increment for every point of the
 lower cut.  The existential is moved inside the pointwise quantifier.
@@ -265,7 +265,7 @@ theorem gap8
   exact ⟨n, hn, hcube⟩
 
 /--
-Source: `proof_gap/exercise_12/9.txt`.
+Exercise 12, gap 9.
 
 The rebound arbitrary set `A` is replaced by the fixed lower cut.
 -/
@@ -279,12 +279,12 @@ theorem gap9
     linarith [one_div_pos.mpr hnq]
   exact (not_lt_of_ge (hgreatest _ ha')) hlt
 
-/-- Source: `proof_gap/exercise_12/10.txt`. -/
+/-- Exercise 12, gap 10. -/
 theorem gap10 : UpperCubeAtLeast := by
   intro b hb
   exact le_of_not_gt hb.2
 
-/-- Source: `proof_gap/exercise_12/11.txt`. -/
+/-- Exercise 12, gap 11. -/
 theorem gap11
     (h10 : UpperCubeAtLeast) :
     PositiveNumerator := by
@@ -292,7 +292,7 @@ theorem gap11
   intro b hb
   norm_num
 
-/-- Source: `proof_gap/exercise_12/12.txt`. -/
+/-- Exercise 12, gap 12. -/
 theorem gap12
     (h10 : UpperCubeAtLeast)
     (h11 : PositiveNumerator) :
@@ -301,7 +301,7 @@ theorem gap12
   intro b hb
   norm_num
 
-/-- Source: `proof_gap/exercise_12/13.txt`. -/
+/-- Exercise 12, gap 13. -/
 theorem gap13
     (h11 : PositiveNumerator)
     (h12 : PositiveDenominator) :
@@ -310,7 +310,7 @@ theorem gap13
   intro b hb
   norm_num
 
-/-- Source: `proof_gap/exercise_12/14.txt`. -/
+/-- Exercise 12, gap 14. -/
 theorem gap14
     (h13 : CoprimeWitnesses) :
     CubedFractionWitnesses := by
@@ -318,7 +318,7 @@ theorem gap14
   intro b hb
   exact (noRationalCubeBoundary b hb).elim
 
-/-- Source: `proof_gap/exercise_12/15.txt`. -/
+/-- Exercise 12, gap 15. -/
 theorem gap15
     (h14 : CubedFractionWitnesses) :
     IntegerCubeEquation := by
@@ -326,7 +326,7 @@ theorem gap15
   intro b hb
   exact (noRationalCubeBoundary b hb).elim
 
-/-- Source: `proof_gap/exercise_12/16.txt`. -/
+/-- Exercise 12, gap 16. -/
 theorem gap16
     (h15 : IntegerCubeEquation) :
     EvenNumerator := by
@@ -334,7 +334,7 @@ theorem gap16
   intro b hb
   exact (noRationalCubeBoundary b hb).elim
 
-/-- Source: `proof_gap/exercise_12/17.txt`. -/
+/-- Exercise 12, gap 17. -/
 theorem gap17
     (h13 : CoprimeWitnesses)
     (h16 : EvenNumerator) :
@@ -343,7 +343,7 @@ theorem gap17
   intro b hb
   exact (noRationalCubeBoundary b hb).elim
 
-/-- Source: `proof_gap/exercise_12/18.txt`. -/
+/-- Exercise 12, gap 18. -/
 theorem gap18
     (h15 : IntegerCubeEquation)
     (h16 : EvenNumerator) :
@@ -352,7 +352,7 @@ theorem gap18
   intro b hb
   exact (noRationalCubeBoundary b hb).elim
 
-/-- Source: `proof_gap/exercise_12/19.txt`. -/
+/-- Exercise 12, gap 19. -/
 theorem gap19
     (h18 : DenominatorCubeEquation) :
     EvenDenominatorCube := by
@@ -360,14 +360,14 @@ theorem gap19
   intro b hb
   exact (noRationalCubeBoundary b hb).elim
 
-/-- Source: `proof_gap/exercise_12/20.txt`. -/
+/-- Exercise 12, gap 20. -/
 theorem gap20
     (h17 : OddDenominator)
     (h19 : EvenDenominatorCube) :
     NoRationalBoundary := by
   exact noRationalCubeBoundary
 
-/-- Source: `proof_gap/exercise_12/21.txt`. -/
+/-- Exercise 12, gap 21. -/
 theorem gap21
     (h10 : UpperCubeAtLeast)
     (h20 : NoRationalBoundary) :
@@ -376,7 +376,7 @@ theorem gap21
   have hle := h10 b hb
   exact lt_of_le_of_ne hle (fun heq => h20 b ⟨hb, heq.symm⟩)
 
-/-- Source: `proof_gap/exercise_12/22.txt`. -/
+/-- Exercise 12, gap 22. -/
 theorem gap22
     (h21 : UpperCubeStrict) :
     PointwiseLower := by
@@ -436,7 +436,7 @@ theorem gap22
         _ = (b - 1 / (n : ℚ)) ^ 3 := by ring
 
 /--
-Source: `proof_gap/exercise_12/23.txt`.
+Exercise 12, gap 23.
 
 The source's uniform decrement is replaced by the pointwise witness from gap 22.
 -/
@@ -450,7 +450,7 @@ theorem gap23
   exact ⟨Set.mem_univ _, not_lt_of_ge hcube.le⟩
 
 /--
-Source: `proof_gap/exercise_12/24.txt`.
+Exercise 12, gap 24.
 
 The rebound arbitrary set `B` is replaced by the fixed upper cut.
 -/
@@ -465,7 +465,7 @@ theorem gap24
   exact (not_lt_of_ge (hleast _ hb')) hlt
 
 /--
-Source: `proof_gap/exercise_12/25.txt`.
+Exercise 12, gap 25.
 
 The malformed nested statement is restored to the conjunction of the two
 endpoint properties.

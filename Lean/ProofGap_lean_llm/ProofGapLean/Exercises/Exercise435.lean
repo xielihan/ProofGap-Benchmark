@@ -17,7 +17,7 @@ def normalized (x : ℝ) : ℝ :=
 def HasLimitAtPosInfinity (f : ℝ → ℝ) (L : ℝ) : Prop :=
   ∀ ε > 0, ∃ N > 0, ∀ x, N < x → |f x - L| < ε
 
-/-- Source: `proof_gap/exercise_435/1.txt`. -/
+/-- Exercise 435, gap 1. -/
 theorem gap1 :
     HasLimitAtPosInfinity original 1 ↔ HasLimitAtPosInfinity normalized 1 := by
   have hEq : ∀ x : ℝ, 0 < x → original x = normalized x := by
@@ -119,7 +119,7 @@ theorem gap1 :
     rw [hEq x (lt_trans hN hx)]
     exact hlim x hx
 
-/-- Source: `proof_gap/exercise_435/2.txt`. -/
+/-- Exercise 435, gap 2. -/
 theorem gap2 : HasLimitAtPosInfinity normalized 1 := by
   have hinv :
       Filter.Tendsto (fun x : ℝ => 1 / x) Filter.atTop (nhds 0) := by
@@ -189,7 +189,7 @@ theorem gap2 : HasLimitAtPosInfinity normalized 1 := by
     le_trans (le_max_left N 1) (le_of_lt hx)
   simpa [Real.dist_eq] using hN x hxN
 
-/-- Source: `proof_gap/exercise_435/3.txt`. -/
+/-- Exercise 435, gap 3. -/
 theorem gap3 : HasLimitAtPosInfinity original 1 := by
   exact gap1.mpr gap2
 

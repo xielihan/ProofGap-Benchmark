@@ -20,7 +20,7 @@ def cancelled (x : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_498/1.txt`. -/
+/-- Exercise 498, gap 1. -/
 private theorem eventually_trig_regular :
     ∀ᶠ x : ℝ in nhdsWithin (Real.pi / 4) ({Real.pi / 4} : Set ℝ)ᶜ,
       Real.sin x ≠ 0 ∧ Real.sin x ≠ Real.cos x := by
@@ -93,7 +93,7 @@ theorem gap1 (L : ℝ) :
     · field_simp [hs, hq]
   exact Filter.tendsto_congr' heq
 
-/-- Source: `proof_gap/exercise_498/2.txt`. -/
+/-- Exercise 498, gap 2. -/
 theorem gap2 (L : ℝ) :
     HasLimitAt sineCosine (Real.pi / 4) L ↔
       HasLimitAt cancelled (Real.pi / 4) L := by
@@ -126,7 +126,7 @@ theorem gap2 (L : ℝ) :
     · field_simp [hd, hq]
   exact Filter.tendsto_congr' heq
 
-/-- Source: `proof_gap/exercise_498/3.txt`. -/
+/-- Exercise 498, gap 3. -/
 theorem gap3 : HasLimitAt cancelled (Real.pi / 4) (3 / 4) := by
   unfold HasLimitAt
   have hden :
@@ -165,7 +165,7 @@ theorem gap3 : HasLimitAt cancelled (Real.pi / 4) (3 / 4) := by
   rw [← hval]
   exact hcont.tendsto.mono_left inf_le_left
 
-/-- Source: `proof_gap/exercise_498/4.txt`. -/
+/-- Exercise 498, gap 4. -/
 theorem gap4 : HasLimitAt original (Real.pi / 4) (3 / 4) := by
   exact (gap1 (3 / 4)).2 ((gap2 (3 / 4)).2 gap3)
 

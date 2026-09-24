@@ -13,13 +13,13 @@ def y (x : ℝ) : ℝ :=
   (Real.exp x - Real.exp (-x)) / (Real.exp x + Real.exp (-x))
 def arctanh (t : ℝ) : ℝ := (1 / 2) * Real.log ((1 + t) / (1 - t))
 
-/-- Source: `proof_gap/exercise_229/1.txt`. -/
+/-- Exercise 229, gap 1. -/
 theorem gap1 : ∀ x,
     y x = (Real.exp x - Real.exp (-x)) / (Real.exp x + Real.exp (-x)) := by
   intro x
   rfl
 
-/-- Source: `proof_gap/exercise_229/2.txt`. -/
+/-- Exercise 229, gap 2. -/
 theorem gap2 : ∀ x,
     (Real.exp x - Real.exp (-x)) / (Real.exp x + Real.exp (-x)) =
       ((Real.exp x) ^ 2 - 1) / ((Real.exp x) ^ 2 + 1) := by
@@ -32,13 +32,13 @@ theorem gap2 : ∀ x,
     positivity
   field_simp [hx, hsum, hsquare]
 
-/-- Source: `proof_gap/exercise_229/3.txt`. -/
+/-- Exercise 229, gap 3. -/
 theorem gap3 : ∀ x,
     y x = ((Real.exp x) ^ 2 - 1) / ((Real.exp x) ^ 2 + 1) := by
   intro x
   simpa [y] using gap2 x
 
-/-- Source: `proof_gap/exercise_229/4.txt`. -/
+/-- Exercise 229, gap 4. -/
 theorem gap4 : ∀ x, Real.exp (2 * x) = (1 + y x) / (1 - y x) := by
   intro x
   rw [gap3 x]
@@ -54,13 +54,13 @@ theorem gap4 : ∀ x, Real.exp (2 * x) = (1 + y x) / (1 - y x) := by
   field_simp [hd, hout]
   <;> ring
 
-/-- Source: `proof_gap/exercise_229/5.txt`. -/
+/-- Exercise 229, gap 5. -/
 theorem gap5 : ∀ x, 0 < (1 + y x) / (1 - y x) := by
   intro x
   rw [← gap4 x]
   exact Real.exp_pos _
 
-/-- Source: `proof_gap/exercise_229/6.txt`. -/
+/-- Exercise 229, gap 6. -/
 theorem gap6 : ∀ x, -1 < y x := by
   intro x
   rw [y]
@@ -70,7 +70,7 @@ theorem gap6 : ∀ x, -1 < y x := by
   apply (lt_div_iff₀ hsum).2
   linarith
 
-/-- Source: `proof_gap/exercise_229/7.txt`. -/
+/-- Exercise 229, gap 7. -/
 theorem gap7 : ∀ x, y x < 1 := by
   intro x
   rw [y]
@@ -80,23 +80,23 @@ theorem gap7 : ∀ x, y x < 1 := by
   apply (div_lt_iff₀ hsum).2
   linarith
 
-/-- Source: `proof_gap/exercise_229/8.txt`. -/
+/-- Exercise 229, gap 8. -/
 theorem gap8 : (-1 : ℝ) < 1 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_229/9.txt`. -/
+/-- Exercise 229, gap 9. -/
 theorem gap9 : ∀ x, x = arctanh (y x) := by
   intro x
   rw [arctanh, ← gap4 x, Real.log_exp]
   ring
 
-/-- Source: `proof_gap/exercise_229/10.txt`. -/
+/-- Exercise 229, gap 10. -/
 theorem gap10 : ∀ x,
     arctanh (y x) = (1 / 2) * Real.log ((1 + y x) / (1 - y x)) := by
   intro x
   rfl
 
-/-- Source: `proof_gap/exercise_229/11.txt`. -/
+/-- Exercise 229, gap 11. -/
 theorem gap11 : ∀ x,
     x = (1 / 2) * Real.log ((1 + y x) / (1 - y x)) := by
   intro x

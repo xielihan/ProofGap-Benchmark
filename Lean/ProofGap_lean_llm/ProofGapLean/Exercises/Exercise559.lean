@@ -17,7 +17,7 @@ def normalized (a b x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_559/1.txt`; require `a≠b` so the denominator is not identically zero. -/
+/-- Exercise 559, gap 1; require `a≠b` so the denominator is not identically zero. -/
 theorem gap1 (a b : ℝ) (ha : 0 < a) (hb : 0 < b) (hab : a ≠ b) (L : ℝ) :
     HasLimitAtZero (original a b) L ↔ HasLimitAtZero (normalized a b) L := by
   unfold HasLimitAtZero
@@ -49,7 +49,7 @@ theorem gap1 (a b : ℝ) (ha : 0 < a) (hb : 0 < b) (hab : a ≠ b) (L : ℝ) :
   · intro h
     exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_559/2.txt`; require `a≠b`. -/
+/-- Exercise 559, gap 2; require `a≠b`. -/
 theorem gap2 (a b : ℝ) (ha : 0 < a) (hb : 0 < b) (hab : a ≠ b) :
     HasLimitAtZero (normalized a b)
       ((Real.log a - Real.log b) * (1 / (Real.log a - Real.log b) ^ 2)) := by
@@ -133,7 +133,7 @@ theorem gap2 (a b : ℝ) (ha : 0 < a) (hb : 0 < b) (hab : a ≠ b) :
   unfold normalized
   exact hnum.mul hrecip
 
-/-- Source: `proof_gap/exercise_559/3.txt`; require `a≠b`. -/
+/-- Exercise 559, gap 3; require `a≠b`. -/
 theorem gap3 (a b : ℝ) (ha : 0 < a) (hb : 0 < b) (hab : a ≠ b) :
     (Real.log a - Real.log b) * (1 / (Real.log a - Real.log b) ^ 2) =
       1 / (Real.log a - Real.log b) := by
@@ -147,13 +147,13 @@ theorem gap3 (a b : ℝ) (ha : 0 < a) (hb : 0 < b) (hab : a ≠ b) :
   have hlog : Real.log a - Real.log b ≠ 0 := sub_ne_zero.mpr hlogeq
   field_simp [hlog]
 
-/-- Source: `proof_gap/exercise_559/4.txt`; require `a≠b`. -/
+/-- Exercise 559, gap 4; require `a≠b`. -/
 theorem gap4 (a b : ℝ) (ha : 0 < a) (hb : 0 < b) (hab : a ≠ b) :
     1 / (Real.log a - Real.log b) = (Real.log (a / b))⁻¹ := by
   rw [Real.log_div ha.ne' hb.ne']
   simp only [one_div]
 
-/-- Source: `proof_gap/exercise_559/5.txt`; require `a≠b`. -/
+/-- Exercise 559, gap 5; require `a≠b`. -/
 theorem gap5 (a b : ℝ) (ha : 0 < a) (hb : 0 < b) (hab : a ≠ b) :
     HasLimitAtZero (normalized a b) (Real.log (a / b))⁻¹ := by
   have h := gap2 a b ha hb hab

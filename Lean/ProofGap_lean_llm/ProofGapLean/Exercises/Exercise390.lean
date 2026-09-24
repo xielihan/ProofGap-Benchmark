@@ -11,7 +11,7 @@ def f (x : ℝ) : ℝ := 2 * x / (1 + x ^ 2)
 def rangeOnPositive : Set ℝ :=
   {y | ∃ x ∈ Set.Ioi (0 : ℝ), y = f x}
 
-/-- Source: `proof_gap/exercise_390/1.txt`. -/
+/-- Exercise 390, gap 1. -/
 theorem gap1 : StrictMonoOn f (Set.Ioo 0 1) := by
   intro x hx y hy hxy
   have hdx : 0 < 1 + x ^ 2 := by
@@ -29,7 +29,7 @@ theorem gap1 : StrictMonoOn f (Set.Ioo 0 1) := by
   apply (div_lt_div_iff₀ hdx hdy).2
   nlinarith [hfactor]
 
-/-- Source: `proof_gap/exercise_390/2.txt`. -/
+/-- Exercise 390, gap 2. -/
 theorem gap2 : StrictAntiOn f (Set.Ioi 1) := by
   intro x hx y hy hxy
   have hx0 : 0 < x := lt_trans zero_lt_one hx
@@ -49,11 +49,11 @@ theorem gap2 : StrictAntiOn f (Set.Ioi 1) := by
   apply (div_lt_div_iff₀ hdy hdx).2
   nlinarith [hfactor]
 
-/-- Source: `proof_gap/exercise_390/3.txt`. -/
+/-- Exercise 390, gap 3. -/
 theorem gap3 : f 1 = 1 := by
   norm_num [f]
 
-/-- Source: `proof_gap/exercise_390/4.txt`. -/
+/-- Exercise 390, gap 4. -/
 theorem gap4 : sInf rangeOnPositive = 0 := by
   have hnonempty : rangeOnPositive.Nonempty := by
     refine ⟨f 1, ?_⟩
@@ -88,7 +88,7 @@ theorem gap4 : sInf rangeOnPositive = 0 := by
     exact (not_lt_of_ge (csInf_le hbdd hnmem)) hflt
   · exact le_csInf hnonempty hnonneg
 
-/-- Source: `proof_gap/exercise_390/5.txt`. -/
+/-- Exercise 390, gap 5. -/
 theorem gap5 : sSup rangeOnPositive = f 1 := by
   have hnonempty : rangeOnPositive.Nonempty := by
     refine ⟨f 1, ?_⟩
@@ -107,11 +107,11 @@ theorem gap5 : sSup rangeOnPositive = f 1 := by
     ⟨1, by norm_num, rfl⟩
   exact le_antisymm (csSup_le hnonempty hupper) (le_csSup hbdd hone_mem)
 
-/-- Source: `proof_gap/exercise_390/6.txt`. -/
+/-- Exercise 390, gap 6. -/
 theorem gap6 : f 1 = 1 := by
   exact gap3
 
-/-- Source: `proof_gap/exercise_390/7.txt`. -/
+/-- Exercise 390, gap 7. -/
 theorem gap7 : sSup rangeOnPositive = 1 := by
   calc
     sSup rangeOnPositive = f 1 := gap5

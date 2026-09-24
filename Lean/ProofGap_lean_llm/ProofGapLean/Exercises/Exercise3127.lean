@@ -54,7 +54,7 @@ def cubeClosedForm (n : ℕ) (x : ℝ) : ℝ :=
     1 / (n : ℝ) ^ 2 * x
 
 /--
-Source: `proof_gap/exercise_3127/1.txt`; specialize to the identity
+Exercise 3127, gap 1; specialize to the identity
 function and require a positive Bernstein degree.
 -/
 private theorem cast_choose_step (n k : ℕ) :
@@ -188,7 +188,7 @@ theorem gap1 :
   intro n hn x
   rfl
 
-/-- Source: `proof_gap/exercise_3127/2.txt`; reindex the positive first moment. -/
+/-- Exercise 3127, gap 2; reindex the positive first moment. -/
 theorem gap2 :
     ∀ n : ℕ, 1 ≤ n → ∀ x : ℝ,
       firstMomentSum n x = x * reducedBinomialSum n x := by
@@ -228,7 +228,7 @@ theorem gap2 :
   rw [hcoef']
   ring
 
-/-- Source: `proof_gap/exercise_3127/3.txt`; apply the binomial theorem. -/
+/-- Exercise 3127, gap 3; apply the binomial theorem. -/
 theorem gap3 :
     ∀ n : ℕ, 1 ≤ n → ∀ x : ℝ,
       x * reducedBinomialSum n x =
@@ -240,14 +240,14 @@ theorem gap3 :
   simpa [hpred, mul_comm, mul_left_comm, mul_assoc] using
     (add_pow x (1 - x) (n - 1)).symm
 
-/-- Source: `proof_gap/exercise_3127/4.txt`; simplify the binomial power. -/
+/-- Exercise 3127, gap 4; simplify the binomial power. -/
 theorem gap4 :
     ∀ n : ℕ, 1 ≤ n → ∀ x : ℝ,
       x * (x + (1 - x)) ^ (n - 1) = x := by
   intro n hn x
   simp
 
-/-- Source: `proof_gap/exercise_3127/5.txt`; Bernstein reproduces affine functions. -/
+/-- Exercise 3127, gap 5; Bernstein reproduces affine functions. -/
 theorem gap5 :
     ∀ n : ℕ, 1 ≤ n → ∀ x : ℝ,
       bernstein n (fun z => z) x = x := by
@@ -258,14 +258,14 @@ theorem gap5 :
     _ = x * (x + (1 - x)) ^ (n - 1) := gap3 n hn x
     _ = x := gap4 n hn x
 
-/-- Source: `proof_gap/exercise_3127/6.txt`; specialize to the square function. -/
+/-- Exercise 3127, gap 6; specialize to the square function. -/
 theorem gap6 :
     ∀ n : ℕ, 1 ≤ n → ∀ x : ℝ,
       bernstein n (fun z => z ^ 2) x = secondMomentSum n x := by
   intro n hn x
   simpa only [bernstein, secondMomentSum, div_pow]
 
-/-- Source: `proof_gap/exercise_3127/7.txt`; evaluate the second binomial moment. -/
+/-- Exercise 3127, gap 7; evaluate the second binomial moment. -/
 theorem gap7 :
     ∀ n : ℕ, 1 ≤ n → ∀ x : ℝ,
       bernstein n (fun z => z ^ 2) x = squareIntermediate n x := by
@@ -301,7 +301,7 @@ theorem gap7 :
     field_simp [hn0]
     ring
 
-/-- Source: `proof_gap/exercise_3127/8.txt`; algebraic form of the second moment. -/
+/-- Exercise 3127, gap 8; algebraic form of the second moment. -/
 theorem gap8 :
     ∀ n : ℕ, 1 ≤ n → ∀ x : ℝ,
       squareIntermediate n x = squareClosedForm n x := by
@@ -312,7 +312,7 @@ theorem gap8 :
   field_simp [hn0]
   ring
 
-/-- Source: `proof_gap/exercise_3127/9.txt`. -/
+/-- Exercise 3127, gap 9. -/
 theorem gap9 :
     ∀ n : ℕ, 1 ≤ n → ∀ x : ℝ,
       bernstein n (fun z => z ^ 2) x = squareClosedForm n x := by
@@ -321,7 +321,7 @@ theorem gap9 :
     bernstein n (fun z => z ^ 2) x = squareIntermediate n x := gap7 n hn x
     _ = squareClosedForm n x := gap8 n hn x
 
-/-- Source: `proof_gap/exercise_3127/10.txt`; specialize to the cube function. -/
+/-- Exercise 3127, gap 10; specialize to the cube function. -/
 theorem gap10 :
     ∀ n : ℕ, 1 ≤ n → ∀ x : ℝ,
       bernstein n (fun z => z ^ 3) x = thirdMomentSum n x := by
@@ -329,7 +329,7 @@ theorem gap10 :
   simpa only [bernstein, thirdMomentSum, div_pow]
 
 /--
-Source: `proof_gap/exercise_3127/11.txt`; the source difference factor
+Exercise 3127, gap 11; the source difference factor
 `x/(n-2)+1` is false.  Replace it by the equivalent falling-factorial
 factor `x+1/(n-2)` and require `n≥3`.
 -/
@@ -375,7 +375,7 @@ theorem gap11 :
   field_simp [hn0, hn20, hnm10]
   ring
 
-/-- Source: `proof_gap/exercise_3127/12.txt`; closed third-moment formula. -/
+/-- Exercise 3127, gap 12; closed third-moment formula. -/
 theorem gap12 :
     ∀ n : ℕ, 1 ≤ n → ∀ x : ℝ,
       bernstein n (fun z => z ^ 3) x = cubeClosedForm n x := by

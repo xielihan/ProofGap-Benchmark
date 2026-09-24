@@ -8,7 +8,7 @@ open scoped Topology
 /-!
 # Exercise 61
 
-Semantic formalization of `proof_gap/exercise_61/{1,...,10}.txt`.
+Semantic formalization of Exercise 61, gaps 1,...,10.
 The auxiliary integer is selected separately for each real parameter `a`.
 -/
 
@@ -62,13 +62,13 @@ private theorem factorProduct_le_pow (a : ℝ) (n : ℕ) :
         div_le_self (abs_nonneg a) (by norm_num)
       exact mul_le_mul ih hratio (by positivity) (by positivity)
 
-/-- Source: `proof_gap/exercise_61/1.txt`; the witness is chosen pointwise. -/
+/-- Exercise 61, gap 1; the witness is chosen pointwise. -/
 theorem gap1 :
     ∀ a : ℝ, ∃ k : ℕ, 0 < k := by
   intro a
   exact ⟨1, by omega⟩
 
-/-- Source: `proof_gap/exercise_61/2.txt`; the quantifier order is repaired. -/
+/-- Exercise 61, gap 2; the quantifier order is repaired. -/
 theorem gap2
     (h1 : ∀ a : ℝ, ∃ k : ℕ, 0 < k) :
     ∀ a : ℝ, ∃ k : ℕ, LargeCutoff a k := by
@@ -79,7 +79,7 @@ theorem gap2
   · simpa [Nat.cast_add, Nat.cast_one] using
       Nat.lt_floor_add_one (2 * |a|)
 
-/-- Source: `proof_gap/exercise_61/3.txt`; nonnegativity includes `a=0`. -/
+/-- Exercise 61, gap 3; nonnegativity includes `a=0`. -/
 theorem gap3
     (a : ℝ) (k : ℕ)
     (hk : LargeCutoff a k) :
@@ -87,7 +87,7 @@ theorem gap3
   intro n hn
   exact abs_nonneg _
 
-/-- Source: `proof_gap/exercise_61/4.txt`; ellipses are a finite product. -/
+/-- Exercise 61, gap 4; ellipses are a finite product. -/
 theorem gap4
     (a : ℝ) (k : ℕ)
     (hk : LargeCutoff a k) :
@@ -98,7 +98,7 @@ theorem gap4
   rw [abs_div, abs_pow]
   simp
 
-/-- Source: `proof_gap/exercise_61/5.txt`; `≤` includes `a=0`. -/
+/-- Exercise 61, gap 5; `≤` includes `a=0`. -/
 theorem gap5
     (a : ℝ) (k : ℕ)
     (hk : LargeCutoff a k)
@@ -136,7 +136,7 @@ theorem gap5
   intro n hn
   exact Nat.le_induction hbase hstep n (Nat.le_of_lt hn)
 
-/-- Source: `proof_gap/exercise_61/6.txt`. -/
+/-- Exercise 61, gap 6. -/
 theorem gap6
     (a : ℝ) (k : ℕ) :
     ∀ n : ℕ, k < n →
@@ -149,7 +149,7 @@ theorem gap6
   field_simp
   ring
 
-/-- Source: `proof_gap/exercise_61/7.txt`; nonnegativity includes `a=0`. -/
+/-- Exercise 61, gap 7; nonnegativity includes `a=0`. -/
 theorem gap7
     (a : ℝ) (k : ℕ) :
     ∀ n : ℕ, k < n → 0 ≤ upper a k n := by
@@ -157,7 +157,7 @@ theorem gap7
   unfold upper
   positivity
 
-/-- Source: `proof_gap/exercise_61/8.txt`. -/
+/-- Exercise 61, gap 8. -/
 theorem gap8
     (a : ℝ) (k : ℕ) :
     Tendsto (upper a k) atTop (𝓝 0) := by
@@ -167,7 +167,7 @@ theorem gap8
   unfold upper
   simpa [div_pow] using hpow.const_mul ((2 * |a|) ^ k)
 
-/-- Source: `proof_gap/exercise_61/9.txt`. -/
+/-- Exercise 61, gap 9. -/
 theorem gap9
     (a : ℝ)
     (h2 : ∀ a : ℝ, ∃ k : ℕ, LargeCutoff a k) :
@@ -177,7 +177,7 @@ theorem gap9
       Tendsto (fun n : ℕ => a ^ n / (Nat.factorial n : ℝ))
         atTop (𝓝 0))
 
-/-- Source: `proof_gap/exercise_61/10.txt`. -/
+/-- Exercise 61, gap 10. -/
 theorem gap10
     (a : ℝ)
     (h9 : Tendsto (u a) atTop (𝓝 0)) :

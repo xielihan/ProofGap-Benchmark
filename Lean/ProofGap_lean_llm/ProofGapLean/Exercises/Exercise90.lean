@@ -7,7 +7,7 @@ namespace ProofGap.Exercise90
 def Convergent (x : ℕ → ℝ) : Prop :=
   ∃ a : ℝ, Tendsto x atTop (𝓝 a)
 
-/-- Source: `proof_gap/exercise_90/1.txt`; extract the convergent subsequence. -/
+/-- Exercise 90, gap 1; extract the convergent subsequence. -/
 theorem gap1
     (x : ℕ → ℝ)
     (hsub : ∃ a : ℝ, ∃ p : ℕ → ℕ,
@@ -25,7 +25,7 @@ theorem gap1
   rcases eventually_atTop.1 hev with ⟨N, hN⟩
   exact ⟨N, fun k hk => hN k (by omega)⟩
 
-/-- Source: `proof_gap/exercise_90/2.txt`; bracket n between consecutive subsequence indices. -/
+/-- Exercise 90, gap 2; bracket n between consecutive subsequence indices. -/
 theorem gap2
     (p : ℕ → ℕ) (hp : StrictMono p) :
     ∀ N : ℕ, ∃ N' : ℕ, ∀ n : ℕ, N' < n →
@@ -61,7 +61,7 @@ theorem gap2
     exact (Nat.find_min hex hklt) hnk
   exact ⟨k, hkN, hpk, by rwa [hkadd]⟩
 
-/-- Source: `proof_gap/exercise_90/3.txt`; k is chosen after n. -/
+/-- Exercise 90, gap 3; k is chosen after n. -/
 theorem gap3
     (x : ℕ → ℝ) (p : ℕ → ℕ) (a ε : ℝ)
     (hsub : Tendsto (x ∘ p) atTop (𝓝 a))
@@ -74,7 +74,7 @@ theorem gap3
   rcases eventually_atTop.1 hev with ⟨N, hN⟩
   exact ⟨N, fun n k hk => hN k (by omega)⟩
 
-/-- Source: `proof_gap/exercise_90/4.txt`; k+1 remains in the convergent tail. -/
+/-- Exercise 90, gap 4; k+1 remains in the convergent tail. -/
 theorem gap4
     (x : ℕ → ℝ) (p : ℕ → ℕ) (a ε : ℝ)
     (hsub : Tendsto (x ∘ p) atTop (𝓝 a))
@@ -83,7 +83,7 @@ theorem gap4
   rcases gap3 x p a ε hsub hε with ⟨N, hN⟩
   exact ⟨N, fun k hk => hN k (k + 1) (by omega)⟩
 
-/-- Source: `proof_gap/exercise_90/5.txt`. -/
+/-- Exercise 90, gap 5. -/
 theorem gap5
     (x : ℕ → ℝ) (p : ℕ → ℕ)
     (hmono : Monotone x) :
@@ -91,7 +91,7 @@ theorem gap5
   intro n k h
   exact hmono h
 
-/-- Source: `proof_gap/exercise_90/6.txt`. -/
+/-- Exercise 90, gap 6. -/
 theorem gap6
     (x : ℕ → ℝ) (p : ℕ → ℕ)
     (hmono : Monotone x) :
@@ -99,7 +99,7 @@ theorem gap6
   intro n k h
   exact hmono h
 
-/-- Source: `proof_gap/exercise_90/7.txt`. -/
+/-- Exercise 90, gap 7. -/
 theorem gap7
     (x : ℕ → ℝ) (p : ℕ → ℕ)
     (hmono : Monotone x) (hp : StrictMono p) :
@@ -107,7 +107,7 @@ theorem gap7
   intro k
   exact hmono (hp.monotone (by omega))
 
-/-- Source: `proof_gap/exercise_90/8.txt`; the cutoff depends on ε. -/
+/-- Exercise 90, gap 8; the cutoff depends on ε. -/
 theorem gap8
     (x : ℕ → ℝ) (a : ℝ)
     (hmono : Monotone x)
@@ -129,7 +129,7 @@ theorem gap8
   rw [abs_lt] at hkclose hksclose ⊢
   constructor <;> linarith
 
-/-- Source: `proof_gap/exercise_90/9.txt`. -/
+/-- Exercise 90, gap 9. -/
 theorem gap9
     (x : ℕ → ℝ)
     (hmono : Monotone x)
@@ -139,7 +139,7 @@ theorem gap9
   rcases hsub with ⟨a, p, hp, hxp⟩
   exact ⟨a, gap8 x a hmono ⟨p, hp, hxp⟩⟩
 
-/-- Source: `proof_gap/exercise_90/10.txt`. -/
+/-- Exercise 90, gap 10. -/
 theorem gap10
     (x : ℕ → ℝ)
     (hmono : Antitone x)
@@ -157,7 +157,7 @@ theorem gap10
   refine ⟨a, ?_⟩
   simpa using hneg.neg
 
-/-- Source: `proof_gap/exercise_90/11.txt`. -/
+/-- Exercise 90, gap 11. -/
 theorem gap11
     (x : ℕ → ℝ)
     (hmono : Monotone x ∨ Antitone x)
@@ -168,7 +168,7 @@ theorem gap11
   · exact gap9 x hmono hsub
   · exact gap10 x hanti hsub
 
-/-- Source: `proof_gap/exercise_90/12.txt`. -/
+/-- Exercise 90, gap 12. -/
 theorem gap12
     (x : ℕ → ℝ)
     (hconv : Convergent x) :

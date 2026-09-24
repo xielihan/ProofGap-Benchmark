@@ -3,7 +3,7 @@ import ProofGapLean.Prelude.Elementary
 /-!
 # Exercise 26
 
-Semantic formalization of `proof_gap/exercise_26/{1,...,12}.txt`.
+Semantic formalization of Exercise 26, gaps 1,...,12.
 The substitution is `t = x - 2`.  Several generated gaps split the interval
 `-8 ≤ t ∧ t ≤ 4` into false standalone equivalences; those gaps are repaired
 to retain the complete interval.
@@ -23,7 +23,7 @@ def IntervalT (t : ℝ) : Prop :=
 def IntervalX (x : ℝ) : Prop :=
   -8 ≤ x - 2 ∧ x - 2 ≤ 4
 
-/-- Source: `proof_gap/exercise_26/1.txt`. -/
+/-- Exercise 26, gap 1. -/
 theorem gap1
     (x t : ℝ)
     (ht : t = x - 2) :
@@ -32,7 +32,7 @@ theorem gap1
   unfold Original Transformed
   constructor <;> intro h <;> convert h using 1 <;> ring
 
-/-- Source: `proof_gap/exercise_26/2.txt`. -/
+/-- Exercise 26, gap 2. -/
 theorem gap2
     (x t : ℝ)
     (ht : t = x - 2)
@@ -42,7 +42,7 @@ theorem gap2
   unfold Transformed
   constructor <;> intro h <;> linarith
 
-/-- Source: `proof_gap/exercise_26/3.txt`. -/
+/-- Exercise 26, gap 3. -/
 theorem gap3
     (x t : ℝ)
     (ht : t = x - 2)
@@ -61,7 +61,7 @@ theorem gap3
     · rw [abs_of_neg (lt_of_not_ge ht4)]
       constructor <;> intro h <;> nlinarith
 
-/-- Source: `proof_gap/exercise_26/4.txt`. -/
+/-- Exercise 26, gap 4. -/
 theorem gap4
     (x t : ℝ)
     (ht : t = x - 2)
@@ -71,7 +71,7 @@ theorem gap4
   rw [h3]
   constructor <;> intro h <;> linarith
 
-/-- Source: `proof_gap/exercise_26/5.txt`. -/
+/-- Exercise 26, gap 5. -/
 theorem gap5
     (x t : ℝ)
     (ht : t = x - 2)
@@ -84,7 +84,7 @@ theorem gap5
   · rw [abs_of_neg (lt_of_not_ge ht0)]
     constructor <;> intro h <;> nlinarith
 
-/-- Source: `proof_gap/exercise_26/6.txt`; repaired to the full interval. -/
+/-- Exercise 26, gap 6; repaired to the full interval. -/
 theorem gap6
     (x t : ℝ)
     (ht : t = x - 2)
@@ -100,7 +100,7 @@ theorem gap6
       mul_nonpos_of_nonneg_of_nonpos (by linarith) (by linarith)
     nlinarith
 
-/-- Source: `proof_gap/exercise_26/7.txt`; repaired to the full interval. -/
+/-- Exercise 26, gap 7; repaired to the full interval. -/
 theorem gap7
     (x t : ℝ)
     (ht : t = x - 2)
@@ -108,7 +108,7 @@ theorem gap7
     Original x ↔ IntervalT t := by
   exact h6
 
-/-- Source: `proof_gap/exercise_26/8.txt`; repaired to the full interval. -/
+/-- Exercise 26, gap 8; repaired to the full interval. -/
 theorem gap8
     (x t : ℝ)
     (ht : t = x - 2)
@@ -116,7 +116,7 @@ theorem gap8
     Original x ↔ IntervalT t := by
   exact h7
 
-/-- Source: `proof_gap/exercise_26/9.txt`; repaired to the translated interval. -/
+/-- Exercise 26, gap 9; repaired to the translated interval. -/
 theorem gap9
     (x t : ℝ)
     (ht : t = x - 2)
@@ -124,7 +124,7 @@ theorem gap9
     Original x ↔ IntervalX x := by
   simpa [IntervalT, IntervalX, ht] using h8
 
-/-- Source: `proof_gap/exercise_26/10.txt`; repaired to the translated interval. -/
+/-- Exercise 26, gap 10; repaired to the translated interval. -/
 theorem gap10
     (x t : ℝ)
     (ht : t = x - 2)
@@ -132,7 +132,7 @@ theorem gap10
     Original x ↔ IntervalX x := by
   exact h9
 
-/-- Source: `proof_gap/exercise_26/11.txt`; repaired to the translated interval. -/
+/-- Exercise 26, gap 11; repaired to the translated interval. -/
 theorem gap11
     (x t : ℝ)
     (ht : t = x - 2)
@@ -140,7 +140,7 @@ theorem gap11
     Original x ↔ IntervalX x := by
   exact h10
 
-/-- Source: `proof_gap/exercise_26/12.txt`. -/
+/-- Exercise 26, gap 12. -/
 theorem gap12
     (x : ℝ)
     (h11 : Original x ↔ IntervalX x) :

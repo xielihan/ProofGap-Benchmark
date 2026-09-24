@@ -30,7 +30,7 @@ private theorem harmonic_eq_mathlib (n : ℕ) :
       push_cast
       norm_num [Rat.cast_inv, Rat.cast_natCast]
 
-/-- Source: `proof_gap/exercise_146/1.txt`; n must be positive. -/
+/-- Exercise 146, gap 1; n must be positive. -/
 theorem gap1 : ∀ n : ℕ, 0 < n →
     Real.log (1 + 1 / (n : ℝ)) < 1 / (n : ℝ) := by
   intro n hn
@@ -41,7 +41,7 @@ theorem gap1 : ∀ n : ℕ, 0 < n →
       exact ne_of_gt (lt_add_of_pos_right 1 (by positivity)))
   convert h using 1 <;> ring
 
-/-- Source: `proof_gap/exercise_146/2.txt`; n must be positive. -/
+/-- Exercise 146, gap 2; n must be positive. -/
 theorem gap2 : ∀ n : ℕ, 0 < n →
     Real.log (n + 1) - Real.log n < 1 / (n : ℝ) := by
   intro n hn
@@ -50,12 +50,12 @@ theorem gap2 : ∀ n : ℕ, 0 < n →
   convert gap1 n hn using 1
   field_simp
 
-/-- Source: `proof_gap/exercise_146/3.txt`. -/
+/-- Exercise 146, gap 3. -/
 theorem gap3 : ∀ k : ℕ, 0 < k →
     Real.log (k + 1) - Real.log k < 1 / (k : ℝ) := by
   exact gap2
 
-/-- Source: `proof_gap/exercise_146/4.txt`; n must be positive. -/
+/-- Exercise 146, gap 4; n must be positive. -/
 theorem gap4 : ∀ n : ℕ, 0 < n → Real.log (n + 1) < harmonic n := by
   intro n hn
   induction n using Nat.case_strong_induction_on with
@@ -74,31 +74,31 @@ theorem gap4 : ∀ n : ℕ, 0 < n → Real.log (n + 1) < harmonic n := by
         norm_num [Nat.cast_add, Nat.cast_one] at hstep ⊢
         linarith
 
-/-- Source: `proof_gap/exercise_146/5.txt`. -/
+/-- Exercise 146, gap 5. -/
 theorem gap5 : ∀ n : ℕ, 0 < n →
     eulerSeq (n + 1) = harmonic n + 1 / (n + 1 : ℝ) - Real.log (n + 1) := by
   intro n _
   rw [eulerSeq, harmonic_succ_local]
   norm_num [Nat.cast_add, Nat.cast_one]
 
-/-- Source: `proof_gap/exercise_146/6.txt`. -/
+/-- Exercise 146, gap 6. -/
 theorem gap6 : ∀ n : ℕ, 0 < n →
     harmonic n + 1 / (n + 1 : ℝ) - Real.log (n + 1) > 1 / (n + 1 : ℝ) := by
   intro n hn
   linarith [gap4 n hn]
 
-/-- Source: `proof_gap/exercise_146/7.txt`. -/
+/-- Exercise 146, gap 7. -/
 theorem gap7 : ∀ n : ℕ, 0 < 1 / (n + 1 : ℝ) := by
   intro n
   positivity
 
-/-- Source: `proof_gap/exercise_146/8.txt`. -/
+/-- Exercise 146, gap 8. -/
 theorem gap8 : ∀ n : ℕ, 0 < n → 0 < eulerSeq (n + 1) := by
   intro n hn
   rw [gap5 n hn]
   exact lt_trans (gap7 n) (gap6 n hn)
 
-/-- Source: `proof_gap/exercise_146/9.txt`. -/
+/-- Exercise 146, gap 9. -/
 theorem gap9 : BddBelow (Set.range eulerSeq) := by
   refine ⟨0, ?_⟩
   rintro x ⟨n, rfl⟩
@@ -109,7 +109,7 @@ theorem gap9 : BddBelow (Set.range eulerSeq) := by
       | zero => norm_num [eulerSeq, harmonic]
       | succ n => exact (gap8 (n + 1) (by omega)).le
 
-/-- Source: `proof_gap/exercise_146/10.txt`; n must be positive. -/
+/-- Exercise 146, gap 10; n must be positive. -/
 theorem gap10 : ∀ n : ℕ, 0 < n →
     eulerSeq n - eulerSeq (n + 1) =
       -1 / (n + 1 : ℝ) + Real.log (n + 1) - Real.log n := by
@@ -118,7 +118,7 @@ theorem gap10 : ∀ n : ℕ, 0 < n →
   norm_num [Nat.cast_add, Nat.cast_one]
   ring
 
-/-- Source: `proof_gap/exercise_146/11.txt`; n must be positive. -/
+/-- Exercise 146, gap 11; n must be positive. -/
 theorem gap11 : ∀ n : ℕ, 0 < n →
     -1 / (n + 1 : ℝ) + Real.log (n + 1) - Real.log n =
       Real.log (1 + 1 / (n : ℝ)) - 1 / (n + 1 : ℝ) := by
@@ -130,14 +130,14 @@ theorem gap11 : ∀ n : ℕ, 0 < n →
   congr 1
   field_simp
 
-/-- Source: `proof_gap/exercise_146/12.txt`. -/
+/-- Exercise 146, gap 12. -/
 theorem gap12 : ∀ n : ℕ, 0 < n →
     eulerSeq n - eulerSeq (n + 1) =
       Real.log (1 + 1 / (n : ℝ)) - 1 / (n + 1 : ℝ) := by
   intro n hn
   rw [gap10 n hn, gap11 n hn]
 
-/-- Source: `proof_gap/exercise_146/13.txt`; n must be positive. -/
+/-- Exercise 146, gap 13; n must be positive. -/
 theorem gap13 : ∀ n : ℕ, 0 < n →
     1 / (n + 1 : ℝ) < Real.log (1 + 1 / (n : ℝ)) := by
   intro n hn
@@ -167,13 +167,13 @@ theorem gap13 : ∀ n : ℕ, 0 < n →
     simpa only [neg_div] using h
   exact neg_lt_neg_iff.mp h'
 
-/-- Source: `proof_gap/exercise_146/14.txt`. -/
+/-- Exercise 146, gap 14. -/
 theorem gap14 : ∀ n : ℕ, 0 < n → 0 < eulerSeq n - eulerSeq (n + 1) := by
   intro n hn
   rw [gap12 n hn]
   linarith [gap13 n hn]
 
-/-- Source: `proof_gap/exercise_146/15.txt`; monotonicity holds on the positive-index tail. -/
+/-- Exercise 146, gap 15; monotonicity holds on the positive-index tail. -/
 theorem gap15 : Antitone (fun n => eulerSeq (n + 1)) := by
   apply antitone_nat_of_succ_le
   intro n
@@ -181,14 +181,14 @@ theorem gap15 : Antitone (fun n => eulerSeq (n + 1)) := by
   norm_num [Nat.add_assoc] at h ⊢
   linarith
 
-/-- Source: `proof_gap/exercise_146/16.txt`. -/
+/-- Exercise 146, gap 16. -/
 theorem gap16 : ProofGap.ConvergentSeq eulerSeq := by
   refine ⟨Real.eulerMascheroniConstant, ?_⟩
   apply Real.tendsto_harmonic_sub_log.congr'
   filter_upwards with n
   simp only [eulerSeq, harmonic_eq_mathlib]
 
-/-- Source: `proof_gap/exercise_146/17.txt`. -/
+/-- Exercise 146, gap 17. -/
 theorem gap17 :
     ∃ C : ℝ, Tendsto eulerSeq atTop (𝓝 C) := by
   exact gap16
@@ -495,7 +495,7 @@ private theorem gammaDecimal :
     norm_num only [Nat.cast_ofNat] at hgamma
     nlinarith [logThousandBounds.1]
 
-/-- Source: `proof_gap/exercise_146/18.txt`; formalize the displayed decimal approximation. -/
+/-- Exercise 146, gap 18; formalize the displayed decimal approximation. -/
 theorem gap18 (C : ℝ) (hC : Tendsto eulerSeq atTop (𝓝 C)) :
     |C - 0.577216| < 0.000001 := by
   have hgamma : Tendsto eulerSeq atTop (𝓝 Real.eulerMascheroniConstant) :=
@@ -508,7 +508,7 @@ theorem gap18 (C : ℝ) (hC : Tendsto eulerSeq atTop (𝓝 C)) :
   rw [hCeq]
   exact gammaDecimal
 
-/-- Source: `proof_gap/exercise_146/19.txt`; n=0 is excluded from log n. -/
+/-- Exercise 146, gap 19; n=0 is excluded from log n. -/
 theorem gap19 (C : ℝ) (hC : Tendsto eulerSeq atTop (𝓝 C)) :
     ∃ ε : ℕ → ℝ, ∀ n : ℕ, 0 < n →
       harmonic n = C + Real.log n + ε n := by
@@ -517,7 +517,7 @@ theorem gap19 (C : ℝ) (hC : Tendsto eulerSeq atTop (𝓝 C)) :
   simp only [eulerSeq]
   ring
 
-/-- Source: `proof_gap/exercise_146/20.txt`; retain the same expansion witness. -/
+/-- Exercise 146, gap 20; retain the same expansion witness. -/
 theorem gap20 (C : ℝ) (hC : Tendsto eulerSeq atTop (𝓝 C)) :
     ∃ ε : ℕ → ℝ,
       (∀ n : ℕ, 0 < n → harmonic n = C + Real.log n + ε n) ∧
@@ -528,7 +528,7 @@ theorem gap20 (C : ℝ) (hC : Tendsto eulerSeq atTop (𝓝 C)) :
     ring
   · convert hC.sub tendsto_const_nhds using 1 <;> simp
 
-/-- Source: `proof_gap/exercise_146/21.txt`. -/
+/-- Exercise 146, gap 21. -/
 theorem gap21 : ProofGap.ConvergentSeq eulerSeq := by
   exact gap16
 

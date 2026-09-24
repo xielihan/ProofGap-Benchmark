@@ -15,7 +15,7 @@ def transformed (a x : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_485/1.txt`; remove the shadowed outer `x` and require `sin a≠0`. -/
+/-- Exercise 485, gap 1; remove the shadowed outer `x` and require `sin a≠0`. -/
 private theorem original_limit_from_derivative (a : ℝ)
     (ha : Real.sin a ≠ 0) :
     HasLimitAt (original a) a (-1 / Real.sin a ^ 2) := by
@@ -55,14 +55,14 @@ theorem gap1 (a : ℝ) (ha : Real.sin a ≠ 0) (L : ℝ) :
   · intro h
     exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_485/2.txt`; evaluate the varying factor inside the limit. -/
+/-- Exercise 485, gap 2; evaluate the varying factor inside the limit. -/
 theorem gap2 (a : ℝ) (ha : Real.sin a ≠ 0) :
     HasLimitAt (transformed a) a (-1 / Real.sin a ^ 2) := by
   exact
     (gap1 a ha (-1 / Real.sin a ^ 2)).mp
       (original_limit_from_derivative a ha)
 
-/-- Source: `proof_gap/exercise_485/3.txt`; require `sin a≠0`. -/
+/-- Exercise 485, gap 3; require `sin a≠0`. -/
 theorem gap3 (a : ℝ) (ha : Real.sin a ≠ 0) :
     HasLimitAt (original a) a (-1 / Real.sin a ^ 2) := by
   exact original_limit_from_derivative a ha

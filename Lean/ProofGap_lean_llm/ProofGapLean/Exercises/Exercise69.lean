@@ -9,7 +9,7 @@ open Filter Topology
 /-!
 # Exercise 69
 
-Semantic formalization of `proof_gap/exercise_69/{1,...,32}.txt`.
+Semantic formalization of Exercise 69, gaps 1,...,32.
 -/
 
 namespace ProofGap.Exercise69
@@ -49,13 +49,13 @@ def BoundedBelowOnPos (u : ℕ → ℝ) : Prop :=
 def onePlusReciprocal (n : ℕ) : ℝ :=
   1 + 1 / (n : ℝ)
 
-/-- Source: `proof_gap/exercise_69/1.txt`; the positive-index domain is restored. -/
+/-- Exercise 69, gap 1; the positive-index domain is restored. -/
 theorem gap1 :
     ∀ n : ℕ, 0 < n → x n = (1 + 1 / (n : ℝ)) ^ n := by
   intro n _
   rfl
 
-/-- Source: `proof_gap/exercise_69/2.txt`; the ellipsis is an explicit binomial sum. -/
+/-- Exercise 69, gap 2; the ellipsis is an explicit binomial sum. -/
 theorem gap2 :
     ∀ n : ℕ, 0 < n →
       (1 + 1 / (n : ℝ)) ^ n = binomialExpansion n := by
@@ -63,7 +63,7 @@ theorem gap2 :
   rw [add_comm]
   simp [binomialExpansion, add_pow, mul_comm]
 
-/-- Source: `proof_gap/exercise_69/3.txt`. -/
+/-- Exercise 69, gap 3. -/
 theorem gap3
     (h2 : ∀ n : ℕ, 0 < n →
       (1 + 1 / (n : ℝ)) ^ n = binomialExpansion n) :
@@ -121,7 +121,7 @@ private theorem binomial_term_eq_factorial_term
   rw [← hrangeIco, hprodRange, hchoose]
   field_simp
 
-/-- Source: `proof_gap/exercise_69/4.txt`; all omitted products are finite. -/
+/-- Exercise 69, gap 4; all omitted products are finite. -/
 theorem gap4 :
     ∀ n : ℕ, 0 < n → x n = factorialExpansion n := by
   intro n hn
@@ -133,7 +133,7 @@ theorem gap4 :
     have := Finset.mem_range.mp hj
     omega)
 
-/-- Source: `proof_gap/exercise_69/5.txt`. -/
+/-- Exercise 69, gap 5. -/
 theorem gap5 :
     MonoIncOnPos x := by
   intro n hn
@@ -225,7 +225,7 @@ private theorem factorial_term_lt_geometric
   exact hterm.trans_le
     (one_div_le_one_div_of_le (pow_pos (by norm_num) _) hfact)
 
-/-- Source: `proof_gap/exercise_69/6.txt`; the geometric sum and valid range are explicit. -/
+/-- Exercise 69, gap 6; the geometric sum and valid range are explicit. -/
 theorem gap6 :
     ∀ n : ℕ, 1 < n → x n < geometricUpper n := by
   intro n hn
@@ -262,7 +262,7 @@ theorem gap6 :
   rw [← hgeometric]
   linarith
 
-/-- Source: `proof_gap/exercise_69/7.txt`. -/
+/-- Exercise 69, gap 7. -/
 theorem gap7 :
     ∀ n : ℕ, 0 < n →
       geometricUpper n = 3 - 1 / (2 : ℝ) ^ (n - 1) := by
@@ -289,7 +289,7 @@ theorem gap7 :
   rw [hsum]
   ring
 
-/-- Source: `proof_gap/exercise_69/8.txt`; the positive-index domain is restored. -/
+/-- Exercise 69, gap 8; the positive-index domain is restored. -/
 theorem gap8 :
     ∀ n : ℕ, 0 < n →
       3 - 1 / (2 : ℝ) ^ (n - 1) < 3 := by
@@ -298,7 +298,7 @@ theorem gap8 :
   have : 0 < 1 / (2 : ℝ) ^ (n - 1) := one_div_pos.mpr hp
   linarith
 
-/-- Source: `proof_gap/exercise_69/9.txt`. -/
+/-- Exercise 69, gap 9. -/
 theorem gap9 :
     ∀ n : ℕ, 0 < n → x n < 3 := by
   intro n hn
@@ -308,13 +308,13 @@ theorem gap9 :
   · have hn2 : 1 < n := by omega
     exact (gap6 n hn2).trans ((gap7 n hn).trans_lt (gap8 n hn))
 
-/-- Source: `proof_gap/exercise_69/10.txt`. -/
+/-- Exercise 69, gap 10. -/
 theorem gap10
     (h9 : ∀ n : ℕ, 0 < n → x n < 3) :
     BoundedAboveOnPos x := by
   exact ⟨3, fun n hn => (h9 n hn).le⟩
 
-/-- Source: `proof_gap/exercise_69/11.txt`. -/
+/-- Exercise 69, gap 11. -/
 theorem gap11
     (hmono : MonoIncOnPos x)
     (hbounded : BoundedAboveOnPos x) :
@@ -332,7 +332,7 @@ theorem gap11
   rw [← tendsto_add_atTop_iff_nat 1]
   simpa [v, Nat.add_comm] using tendsto_atTop_ciSup hvmono hvbdd
 
-/-- Source: `proof_gap/exercise_69/12.txt`; exclude the zero denominator at `n = 1`. -/
+/-- Exercise 69, gap 12; exclude the zero denominator at `n = 1`. -/
 theorem gap12 :
     ∀ n : ℕ, 1 < n →
       ((n : ℝ) ^ 2 / ((n : ℝ) ^ 2 - 1)) ^ n =
@@ -344,7 +344,7 @@ theorem gap12 :
   field_simp
   ring
 
-/-- Source: `proof_gap/exercise_69/13.txt`; Bernoulli's strict form needs `1 < n`. -/
+/-- Exercise 69, gap 13; Bernoulli's strict form needs `1 < n`. -/
 theorem gap13 :
     ∀ n : ℕ, 1 < n →
       (1 + 1 / ((n : ℝ) ^ 2 - 1)) ^ n >
@@ -382,7 +382,7 @@ theorem gap13 :
   have hfinal := hstrict.trans_le hmul'
   simpa [a, div_eq_mul_inv] using hfinal
 
-/-- Source: `proof_gap/exercise_69/14.txt`. -/
+/-- Exercise 69, gap 14. -/
 theorem gap14 :
     ∀ n : ℕ, 1 < n →
       1 + (n : ℝ) / ((n : ℝ) ^ 2 - 1) >
@@ -396,7 +396,7 @@ theorem gap14 :
     nlinarith
   linarith
 
-/-- Source: `proof_gap/exercise_69/15.txt`. -/
+/-- Exercise 69, gap 15. -/
 theorem gap15 :
     ∀ n : ℕ, 1 < n →
       ((n : ℝ) ^ 2 / ((n : ℝ) ^ 2 - 1)) ^ n >
@@ -405,7 +405,7 @@ theorem gap15 :
   rw [gap12 n hn]
   exact (gap14 n hn).trans (gap13 n hn)
 
-/-- Source: `proof_gap/exercise_69/16.txt`; the denominator requires `1 < n`. -/
+/-- Exercise 69, gap 16; the denominator requires `1 < n`. -/
 theorem gap16 :
     ∀ n : ℕ, 1 < n →
       ((n : ℝ) / ((n : ℝ) - 1)) ^ n >
@@ -447,7 +447,7 @@ theorem gap16 :
   rw [hleft, hright] at hmul
   exact hmul
 
-/-- Source: `proof_gap/exercise_69/17.txt`. -/
+/-- Exercise 69, gap 17. -/
 theorem gap17 :
     ∀ n : ℕ, 1 < n →
       (1 + 1 / ((n : ℝ) - 1)) ^ n >
@@ -466,7 +466,7 @@ theorem gap17 :
   rw [hleft, hright]
   exact gap16 n hn
 
-/-- Source: `proof_gap/exercise_69/18.txt`; subtraction is used only when `1 < n`. -/
+/-- Exercise 69, gap 18; subtraction is used only when `1 < n`. -/
 theorem gap18 :
     ∀ n : ℕ, 1 < n → y (n - 1) > y n := by
   intro n hn
@@ -478,20 +478,20 @@ theorem gap18 :
   rw [Nat.sub_add_cancel hle, hcast]
   exact gap17 n hn
 
-/-- Source: `proof_gap/exercise_69/19.txt`. -/
+/-- Exercise 69, gap 19. -/
 theorem gap19 :
     MonoDecOnPos y := by
   intro n hn
   exact (gap18 (n + 1) (by omega)).le
 
-/-- Source: `proof_gap/exercise_69/20.txt`; the positive-index domain is restored. -/
+/-- Exercise 69, gap 20; the positive-index domain is restored. -/
 theorem gap20 :
     ∀ n : ℕ, 0 < n →
       y n = x n * (1 + 1 / (n : ℝ)) := by
   intro n _
   simp [x, y, pow_succ]
 
-/-- Source: `proof_gap/exercise_69/21.txt`. -/
+/-- Exercise 69, gap 21. -/
 theorem gap21 :
     ∀ n : ℕ, 0 < n →
       x n * (1 + 1 / (n : ℝ)) >
@@ -511,7 +511,7 @@ theorem gap21 :
     nlinarith : 1 + (n : ℝ) * (1 / (n : ℝ)) <
       1 + ((n : ℝ) + 1) * (1 / (n : ℝ))).trans_le hbern
 
-/-- Source: `proof_gap/exercise_69/22.txt`; the equality fails at `n = 0`. -/
+/-- Exercise 69, gap 22; the equality fails at `n = 0`. -/
 theorem gap22 :
     ∀ n : ℕ, 0 < n →
       1 + (n : ℝ) * (1 / (n : ℝ)) = 2 := by
@@ -520,7 +520,7 @@ theorem gap22 :
   field_simp
   norm_num
 
-/-- Source: `proof_gap/exercise_69/23.txt`. -/
+/-- Exercise 69, gap 23. -/
 theorem gap23 :
     ∀ n : ℕ, 0 < n → y n > 2 := by
   intro n hn
@@ -529,13 +529,13 @@ theorem gap23 :
     2 = 1 + (n : ℝ) * (1 / (n : ℝ)) := (gap22 n hn).symm
     _ < x n * (1 + 1 / (n : ℝ)) := gap21 n hn
 
-/-- Source: `proof_gap/exercise_69/24.txt`. -/
+/-- Exercise 69, gap 24. -/
 theorem gap24
     (h23 : ∀ n : ℕ, 0 < n → y n > 2) :
     BoundedBelowOnPos y := by
   exact ⟨2, fun n hn => (h23 n hn).le⟩
 
-/-- Source: `proof_gap/exercise_69/25.txt`. -/
+/-- Exercise 69, gap 25. -/
 theorem gap25
     (hmono : MonoDecOnPos y)
     (hbounded : BoundedBelowOnPos y) :
@@ -553,7 +553,7 @@ theorem gap25
   rw [← tendsto_add_atTop_iff_nat 1]
   simpa [v, Nat.add_comm] using tendsto_atTop_ciInf hvanti hvbdd
 
-/-- Source: `proof_gap/exercise_69/26.txt`; stated as the product limit law. -/
+/-- Exercise 69, gap 26; stated as the product limit law. -/
 theorem gap26
     (e : ℝ)
     (hx : Tendsto x atTop (𝓝 e))
@@ -562,12 +562,12 @@ theorem gap26
   have hprod := hx.mul hrecip
   convert hprod using 1
 
-/-- Source: `proof_gap/exercise_69/27.txt`. -/
+/-- Exercise 69, gap 27. -/
 theorem gap27 (e : ℝ) :
     e * 1 = e := by
   simp
 
-/-- Source: `proof_gap/exercise_69/28.txt`. -/
+/-- Exercise 69, gap 28. -/
 theorem gap28
     (e : ℝ)
     (hx : Tendsto x atTop (𝓝 e))
@@ -575,7 +575,7 @@ theorem gap28
     Tendsto y atTop (𝓝 e) := by
   simpa using gap26 e hx hrecip
 
-/-- Source: `proof_gap/exercise_69/29.txt`; equality of limits is expressed by a common limit. -/
+/-- Exercise 69, gap 29; equality of limits is expressed by a common limit. -/
 theorem gap29
     (e : ℝ)
     (hx : Tendsto x atTop (𝓝 e))
@@ -583,21 +583,21 @@ theorem gap29
     ∃ L : ℝ, Tendsto x atTop (𝓝 L) ∧ Tendsto y atTop (𝓝 L) := by
   exact ⟨e, hx, hy⟩
 
-/-- Source: `proof_gap/exercise_69/30.txt`. -/
+/-- Exercise 69, gap 30. -/
 theorem gap30
     (e : ℝ)
     (hx : Tendsto x atTop (𝓝 e)) :
     Tendsto x atTop (𝓝 e) := by
   exact hx
 
-/-- Source: `proof_gap/exercise_69/31.txt`. -/
+/-- Exercise 69, gap 31. -/
 theorem gap31
     (e : ℝ)
     (hy : Tendsto y atTop (𝓝 e)) :
     Tendsto y atTop (𝓝 e) := by
   exact hy
 
-/-- Source: `proof_gap/exercise_69/32.txt`. -/
+/-- Exercise 69, gap 32. -/
 theorem gap32
     (e : ℝ)
     (hxi : MonoIncOnPos x)

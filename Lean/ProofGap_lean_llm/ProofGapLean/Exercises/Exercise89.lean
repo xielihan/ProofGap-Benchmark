@@ -4,7 +4,7 @@ open Filter Topology
 
 namespace ProofGap.Exercise89
 
-/-- Source: `proof_gap/exercise_89/1.txt`. -/
+/-- Exercise 89, gap 1. -/
 theorem gap1
     (x : ℕ → ℝ) (a : ℝ)
     (hx : Tendsto x atTop (𝓝 a)) :
@@ -18,14 +18,14 @@ theorem gap1
   rcases eventually_atTop.1 hev with ⟨N, hN⟩
   exact ⟨N, fun n hn => hN n (by omega)⟩
 
-/-- Source: `proof_gap/exercise_89/2.txt`; p must be a subsequence index. -/
+/-- Exercise 89, gap 2; p must be a subsequence index. -/
 theorem gap2 :
     ∀ p : ℕ → ℕ, StrictMono p →
       Tendsto p atTop atTop := by
   intro p hp
   exact hp.tendsto_atTop
 
-/-- Source: `proof_gap/exercise_89/3.txt`; remove ε and put N before its cutoff. -/
+/-- Exercise 89, gap 3; remove ε and put N before its cutoff. -/
 theorem gap3 :
     ∀ p : ℕ → ℕ, StrictMono p →
       ∀ N : ℕ, ∃ k₀ : ℕ, ∀ k : ℕ, k₀ < k → N < p k := by
@@ -37,7 +37,7 @@ theorem gap3 :
     have := hk₀ k (by omega)
     omega⟩
 
-/-- Source: `proof_gap/exercise_89/4.txt`; k₀ depends on ε. -/
+/-- Exercise 89, gap 4; k₀ depends on ε. -/
 theorem gap4
     (x : ℕ → ℝ) (a : ℝ) (p : ℕ → ℕ)
     (hx : Tendsto x atTop (𝓝 a))
@@ -49,7 +49,7 @@ theorem gap4
   rcases gap3 p hp N with ⟨k₀, hk₀⟩
   exact ⟨k₀, fun k hk => hN (p k) (hk₀ k hk)⟩
 
-/-- Source: `proof_gap/exercise_89/5.txt`. -/
+/-- Exercise 89, gap 5. -/
 theorem gap5
     (x : ℕ → ℝ) (a : ℝ) (p : ℕ → ℕ)
     (hx : Tendsto x atTop (𝓝 a))
@@ -57,7 +57,7 @@ theorem gap5
     Tendsto (x ∘ p) atTop (𝓝 a) := by
   exact hx.comp (gap2 p hp)
 
-/-- Source: `proof_gap/exercise_89/6.txt`; equality of limits is a common Tendsto value. -/
+/-- Exercise 89, gap 6; equality of limits is a common Tendsto value. -/
 theorem gap6
     (x : ℕ → ℝ) (a : ℝ) (p : ℕ → ℕ)
     (hx : Tendsto x atTop (𝓝 a))
@@ -65,14 +65,14 @@ theorem gap6
     Tendsto (x ∘ p) atTop (𝓝 a) ∧ Tendsto x atTop (𝓝 a) := by
   exact ⟨gap5 x a p hx hp, hx⟩
 
-/-- Source: `proof_gap/exercise_89/7.txt`. -/
+/-- Exercise 89, gap 7. -/
 theorem gap7
     (x : ℕ → ℝ) (a : ℝ)
     (hx : Tendsto x atTop (𝓝 a)) :
     Tendsto x atTop (𝓝 a) := by
   exact hx
 
-/-- Source: `proof_gap/exercise_89/8.txt`; p must be a subsequence index. -/
+/-- Exercise 89, gap 8; p must be a subsequence index. -/
 theorem gap8
     (x : ℕ → ℝ) (a : ℝ)
     (hx : Tendsto x atTop (𝓝 a)) :
@@ -81,7 +81,7 @@ theorem gap8
   intro p hp
   exact gap5 x a p hx hp
 
-/-- Source: `proof_gap/exercise_89/9.txt`. -/
+/-- Exercise 89, gap 9. -/
 theorem gap9
     (x : ℕ → ℝ) (a : ℝ) (p : ℕ → ℕ)
     (hx : Tendsto x atTop (𝓝 a))

@@ -16,7 +16,7 @@ def BoundedAboveOn (g : ℝ → ℝ) (s : Set ℝ) : Prop :=
 def BoundedBelowOn (g : ℝ → ℝ) (s : Set ℝ) : Prop :=
   ∃ M : ℝ, ∀ x ∈ s, M ≤ g x
 
-/-- Source: `proof_gap/exercise_385/1.txt`; restrict to `(0,ε)` and use a valid non-strict upper bound. -/
+/-- Exercise 385, gap 1; restrict to `(0,ε)` and use a valid non-strict upper bound. -/
 theorem gap1 : ∀ ε > 0, ∀ x ∈ Set.Ioo 0 ε,
     f x ≤ max 0 (Real.log ε) := by
   intro ε hε x hx
@@ -37,14 +37,14 @@ theorem gap1 : ∀ ε > 0, ∀ x ∈ Set.Ioo 0 ε,
       nlinarith
     exact (hprod.trans hlog_le).trans (le_max_right _ _)
 
-/-- Source: `proof_gap/exercise_385/2.txt`; require a nonempty positive interval. -/
+/-- Exercise 385, gap 2; require a nonempty positive interval. -/
 theorem gap2 : ∀ ε > 0, BoundedAboveOn f (Set.Ioo 0 ε) := by
   intro ε hε
   refine ⟨max 0 (Real.log ε), ?_⟩
   intro x hx
   exact gap1 ε hε x hx
 
-/-- Source: `proof_gap/exercise_385/3.txt`; require a nonempty positive interval. -/
+/-- Exercise 385, gap 3; require a nonempty positive interval. -/
 theorem gap3 : ∀ ε > 0, ¬BoundedBelowOn f (Set.Ioo 0 ε) := by
   intro ε hε hbounded
   rcases hbounded with ⟨M, hM⟩
@@ -91,7 +91,7 @@ theorem gap3 : ∀ ε > 0, ¬BoundedBelowOn f (Set.Ioo 0 ε) := by
   rw [hsin, mul_one] at this
   exact (not_lt_of_ge this) hlog
 
-/-- Source: `proof_gap/exercise_385/4.txt`; require `ε>0`. -/
+/-- Exercise 385, gap 4; require `ε>0`. -/
 theorem gap4 : ∀ ε > 0,
     BoundedAboveOn f (Set.Ioo 0 ε) ∧
       ¬BoundedBelowOn f (Set.Ioo 0 ε) := by

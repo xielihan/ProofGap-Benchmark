@@ -15,7 +15,7 @@ def f (x : ℝ) : ℝ := 1 + signedCbrt (x - 2)
 def IsCenter (g : ℝ → ℝ) (x₀ y₀ : ℝ) : Prop :=
   ∀ t, g (x₀ + t) + g (x₀ - t) = 2 * y₀
 
-/-- Source: `proof_gap/exercise_361_5/1.txt`; state the actual reflected-value identity directly. -/
+/-- Exercise 361_5, gap 1; state the actual reflected-value identity directly. -/
 theorem gap1 : ∀ t, f (2 + t) + f (2 - t) = 2 := by
   intro t
   change (1 + signedCbrt ((2 + t) - 2)) +
@@ -35,7 +35,7 @@ theorem gap1 : ∀ t, f (2 + t) + f (2 - t) = 2 := by
       exact not_le_of_gt ht
     simp [signedCbrt, ht0, hneg] <;> ring
 
-/-- Source: `proof_gap/exercise_361_5/2.txt`. -/
+/-- Exercise 361_5, gap 2. -/
 theorem gap2 : IsCenter f 2 1 := by
   simpa [IsCenter] using gap1
 

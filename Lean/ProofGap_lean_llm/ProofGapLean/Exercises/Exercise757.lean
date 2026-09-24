@@ -7,7 +7,7 @@ noncomputable section
 def average (f : ℝ → ℝ) (x : ℕ → ℝ) (n : ℕ) : ℝ :=
   (1 / (n : ℝ)) * (Finset.Icc 1 n).sum (fun i => f (x i))
 
-/-- Source: `proof_gap/exercise_757/1.txt`; replace the ellipsis by an indexed finite sum. -/
+/-- Exercise 757, gap 1; replace the ellipsis by an indexed finite sum. -/
 theorem gap1 (f : ℝ → ℝ) (x : ℕ → ℝ) (n : ℕ) (hn : 1 ≤ n)
     (hmono : Monotone x)
     (hconst : x 1 = x n) :
@@ -30,7 +30,7 @@ theorem gap1 (f : ℝ → ℝ) (x : ℕ → ℝ) (n : ℕ) (hn : 1 ≤ n)
   rw [average, hsum]
   field_simp [show (n : ℝ) ≠ 0 by positivity]
 
-/-- Source: `proof_gap/exercise_757/2.txt`; replace the ellipsis by monotonicity on the finite index range. -/
+/-- Exercise 757, gap 2; replace the ellipsis by monotonicity on the finite index range. -/
 theorem gap2 (f : ℝ → ℝ) (x : ℕ → ℝ) (n : ℕ) (a b : ℝ)
     (hn : 1 ≤ n) (hmono : Monotone x) (ha : a < x 1) (hb : x n < b)
     (hcont : ContinuousOn f (Set.Ioo a b)) (hne : x 1 ≠ x n) :
@@ -39,7 +39,7 @@ theorem gap2 (f : ℝ → ℝ) (x : ℕ → ℝ) (n : ℕ) (a b : ℝ)
   intro z hz
   exact ⟨lt_of_lt_of_le ha hz.1, lt_of_le_of_lt hz.2 hb⟩
 
-/-- Source: `proof_gap/exercise_757/3.txt`; remove shadowing of `x` and `n`. -/
+/-- Exercise 757, gap 3; remove shadowing of `x` and `n`. -/
 theorem gap3 (f : ℝ → ℝ) (x : ℕ → ℝ) (n : ℕ)
     (hcont : ContinuousOn f (Set.Icc (x 1) (x n))) :
     ∃ m M : ℝ, ∀ z ∈ Set.Icc (x 1) (x n), m ≤ f z ∧ f z ≤ M := by
@@ -51,28 +51,28 @@ theorem gap3 (f : ℝ → ℝ) (x : ℕ → ℝ) (n : ℕ)
   intro z hz
   exact ⟨hm ⟨z, hz, rfl⟩, hM ⟨z, hz, rfl⟩⟩
 
-/-- Source: `proof_gap/exercise_757/4.txt`; use the bounds on all sampled points. -/
+/-- Exercise 757, gap 4; use the bounds on all sampled points. -/
 theorem gap4 (f : ℝ → ℝ) (x : ℕ → ℝ) (n : ℕ) (hn : 1 ≤ n)
     (hmono : Monotone x)
     (hbounds : ∃ m M : ℝ, ∀ z ∈ Set.Icc (x 1) (x n), m ≤ f z ∧ f z ≤ M) :
     ∃ m : ℝ, m ≤ average f x n := by
   exact ⟨average f x n, le_rfl⟩
 
-/-- Source: `proof_gap/exercise_757/5.txt`; use the bounds on all sampled points. -/
+/-- Exercise 757, gap 5; use the bounds on all sampled points. -/
 theorem gap5 (f : ℝ → ℝ) (x : ℕ → ℝ) (n : ℕ) (hn : 1 ≤ n)
     (hmono : Monotone x)
     (hbounds : ∃ m M : ℝ, ∀ z ∈ Set.Icc (x 1) (x n), m ≤ f z ∧ f z ≤ M) :
     ∃ M : ℝ, average f x n ≤ M := by
   exact ⟨average f x n, le_rfl⟩
 
-/-- Source: `proof_gap/exercise_757/6.txt`; make the average the common intermediate value. -/
+/-- Exercise 757, gap 6; make the average the common intermediate value. -/
 theorem gap6 (f : ℝ → ℝ) (x : ℕ → ℝ) (n : ℕ)
     (hlower : ∃ m : ℝ, m ≤ average f x n)
     (hupper : ∃ M : ℝ, average f x n ≤ M) :
     ∃ m M : ℝ, m ≤ M := by
   exact ⟨average f x n, average f x n, le_rfl⟩
 
-/-- Source: `proof_gap/exercise_757/7.txt`; remove shadowing existential variables. -/
+/-- Exercise 757, gap 7; remove shadowing existential variables. -/
 theorem gap7 (f : ℝ → ℝ) (x : ℕ → ℝ) (n : ℕ)
     (hne : x 1 ≠ x n) (hcont : ContinuousOn f (Set.Icc (x 1) (x n)))
     (hrange : ∃ m M : ℝ,
@@ -102,7 +102,7 @@ theorem gap7 (f : ℝ → ℝ) (x : ℕ → ℝ) (n : ℕ)
     rcases (intermediate_value_Icc hvu hcuv) ht with ⟨ξ, hξ, hξeq⟩
     exact ⟨ξ, hsub hξ, neg_inj.mp hξeq⟩
 
-/-- Source: `proof_gap/exercise_757/8.txt`; combine the equal-endpoint and distinct-endpoint cases. -/
+/-- Exercise 757, gap 8; combine the equal-endpoint and distinct-endpoint cases. -/
 theorem gap8 (f : ℝ → ℝ) (x : ℕ → ℝ) (n : ℕ) (hn : 1 ≤ n)
     (heq : x 1 = x n → f (x 1) = average f x n)
     (hne : x 1 ≠ x n → ∃ ξ ∈ Set.Icc (x 1) (x n), f ξ = average f x n) :

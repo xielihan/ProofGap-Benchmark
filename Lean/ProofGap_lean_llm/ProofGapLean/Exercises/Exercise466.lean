@@ -16,7 +16,7 @@ def normalized (n : ℕ) (x : ℝ) : ℝ :=
 def HasLimitAtPosInfinity (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f Filter.atTop (nhds L)
 
-/-- Source: `proof_gap/exercise_466/1.txt`; divide both summands by `x^n`. -/
+/-- Exercise 466, gap 1; divide both summands by `x^n`. -/
 theorem gap1 (n : ℕ) (hn : 0 < n) (L : ℝ) :
     HasLimitAtPosInfinity (original n) L ↔
       HasLimitAtPosInfinity (normalized n) L := by
@@ -79,7 +79,7 @@ theorem gap1 (n : ℕ) (hn : 0 < n) (L : ℝ) :
     exact hx.symm
   exact ⟨Filter.Tendsto.congr' heq, Filter.Tendsto.congr' heq'⟩
 
-/-- Source: `proof_gap/exercise_466/2.txt`. -/
+/-- Exercise 466, gap 2. -/
 theorem gap2 (n : ℕ) (hn : 0 < n) :
     HasLimitAtPosInfinity (normalized n) ((2 : ℝ) ^ n) := by
   unfold HasLimitAtPosInfinity normalized

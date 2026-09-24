@@ -10,7 +10,7 @@ def x (n : ℕ) : ℝ :=
 def values : Set ℝ :=
   {v | ∃ n : ℕ, 0 < n ∧ v = x n}
 
-/-- Source: `proof_gap/exercise_96/1.txt`. -/
+/-- Exercise 96, gap 1. -/
 theorem gap1 :
     ∀ n : ℕ, n = 3 → n ^ 2 > 2 ^ n := by
   intro n hn
@@ -36,7 +36,7 @@ private theorem square_le_two_pow_of_four_le :
         rw [hpow]
         exact le_trans hstep (Nat.mul_le_mul_left 2 hprev)
 
-/-- Source: `proof_gap/exercise_96/2.txt`. -/
+/-- Exercise 96, gap 2. -/
 theorem gap2 :
     ∀ n : ℕ, n ≠ 3 → n ^ 2 ≤ 2 ^ n := by
   intro n hn
@@ -48,7 +48,7 @@ theorem gap2 :
     · exact (hn rfl).elim
   · exact square_le_two_pow_of_four_le n (by omega)
 
-/-- Source: `proof_gap/exercise_96/3.txt`. -/
+/-- Exercise 96, gap 3. -/
 theorem gap3 :
     IsGreatest values (x 3) := by
   constructor
@@ -66,12 +66,12 @@ theorem gap3 :
       have hx3 : (1 : ℝ) < x 3 := by norm_num [x]
       exact le_trans hxle (le_of_lt hx3)
 
-/-- Source: `proof_gap/exercise_96/4.txt`. -/
+/-- Exercise 96, gap 4. -/
 theorem gap4 :
     x 3 = 9 / 8 := by
   norm_num [x]
 
-/-- Source: `proof_gap/exercise_96/5.txt`. -/
+/-- Exercise 96, gap 5. -/
 theorem gap5 :
     IsGreatest values (9 / 8) := by
   rw [← gap4]

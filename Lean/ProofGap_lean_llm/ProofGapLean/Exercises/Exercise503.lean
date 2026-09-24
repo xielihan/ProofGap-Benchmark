@@ -21,7 +21,7 @@ def normalized (x : ℝ) : ℝ :=
 def HasRightLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 (Set.Ioi 0)) (nhds L)
 
-/-- Source: `proof_gap/exercise_503/1.txt`; use a right-hand limit because of `√x`. -/
+/-- Exercise 503, gap 1; use a right-hand limit because of `√x`. -/
 private theorem one_sub_cos_eq_two_mul_sin_sq (t : ℝ) :
     1 - Real.cos t = 2 * Real.sin (t / 2) ^ 2 := by
   have ht : t / 2 + t / 2 = t := by ring
@@ -237,7 +237,7 @@ theorem gap1 (L : ℝ) :
   · intro h
     exact tendsto_of_eventually_eq eventually_original_eq_rationalized.symm h
 
-/-- Source: `proof_gap/exercise_503/2.txt`; use a right-hand limit because of `√x`. -/
+/-- Exercise 503, gap 2; use a right-hand limit because of `√x`. -/
 theorem gap2 (L : ℝ) :
     HasRightLimitAtZero original L ↔ HasRightLimitAtZero normalized L := by
   constructor
@@ -250,11 +250,11 @@ theorem gap2 (L : ℝ) :
     subst L
     exact original_tendsto_zero
 
-/-- Source: `proof_gap/exercise_503/3.txt`; use a right-hand limit because of `√x`. -/
+/-- Exercise 503, gap 3; use a right-hand limit because of `√x`. -/
 theorem gap3 : HasRightLimitAtZero normalized 0 := by
   exact normalized_tendsto_zero
 
-/-- Source: `proof_gap/exercise_503/4.txt`; use a right-hand limit because of `√x`. -/
+/-- Exercise 503, gap 4; use a right-hand limit because of `√x`. -/
 theorem gap4 : HasRightLimitAtZero original 0 := by
   exact original_tendsto_zero
 

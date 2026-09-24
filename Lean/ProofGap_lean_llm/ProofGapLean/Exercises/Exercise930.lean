@@ -18,7 +18,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 def finalDerivative (x : ℝ) : ℝ :=
   (1 + x ^ 4) / (1 + x ^ 6)
 
-/-- Source: `proof_gap/exercise_930/1.txt`. -/
+/-- Exercise 930, gap 1. -/
 theorem gap1 (x : ℝ) :
     HasDerivAt y (expandedDerivative x) x := by
   unfold y expandedDerivative
@@ -32,7 +32,7 @@ theorem gap1 (x : ℝ) :
       field_simp [hden3, hden6] <;> ring
   exact (Real.hasDerivAt_arctan x).add hCubic
 
-/-- Source: `proof_gap/exercise_930/2.txt`. -/
+/-- Exercise 930, gap 2. -/
 theorem gap2 (x : ℝ) :
     expandedDerivative x = finalDerivative x := by
   unfold expandedDerivative finalDerivative
@@ -41,7 +41,7 @@ theorem gap2 (x : ℝ) :
   field_simp [ne_of_gt h2, ne_of_gt h6]
   ring
 
-/-- Source: `proof_gap/exercise_930/3.txt`. -/
+/-- Exercise 930, gap 3. -/
 theorem gap3 (x : ℝ) :
     HasDerivAt y (finalDerivative x) x := by
   rw [← gap2 x]

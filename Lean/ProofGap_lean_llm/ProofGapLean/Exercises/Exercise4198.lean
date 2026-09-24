@@ -1065,7 +1065,7 @@ private theorem ball_setLIntegral_value
   unfold closedBetaReal
   ring
 
-/-! Source: `results/stage1_gpt55/09_重积分与含参积分/exercise_4198_autoformalization_result/exercise_4198.md`. -/
+/-! Exercise 4198. -/
 
 private theorem closedProblem (p : ℝ) :
     (IntegrableOn (closedIntegrand p) closedBall MeasureTheory.volume ↔ p < 1) ∧

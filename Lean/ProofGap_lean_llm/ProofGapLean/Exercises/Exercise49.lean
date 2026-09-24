@@ -6,7 +6,7 @@ open scoped Topology
 /-!
 # Exercise 49
 
-Semantic formalization of `proof_gap/exercise_49/{1,2,3}.txt`.
+Semantic formalization of Exercise 49, gaps 1,2,3.
 -/
 
 namespace ProofGap.Exercise49
@@ -23,7 +23,7 @@ def normalized (n : ℕ) : ℝ :=
 def SameLimit (a b : ℕ → ℝ) : Prop :=
   ∀ l : ℝ, Tendsto a atTop (𝓝 l) ↔ Tendsto b atTop (𝓝 l)
 
-/-- Source: `proof_gap/exercise_49/1.txt`. -/
+/-- Exercise 49, gap 1. -/
 theorem gap1 :
     SameLimit u normalized := by
   have hun : ∀ n, u n = normalized n := by
@@ -44,7 +44,7 @@ theorem gap1 :
   intro l
   exact Filter.tendsto_congr hun
 
-/-- Source: `proof_gap/exercise_49/2.txt`. -/
+/-- Exercise 49, gap 2. -/
 theorem gap2
     (h1 : SameLimit u normalized) :
     Tendsto normalized atTop (𝓝 (1 / 3 : ℝ)) := by
@@ -68,7 +68,7 @@ theorem gap2
     simpa using hpowsucc.add tendsto_const_nhds
   simpa using hnum.div hden (by norm_num)
 
-/-- Source: `proof_gap/exercise_49/3.txt`. -/
+/-- Exercise 49, gap 3. -/
 theorem gap3
     (h1 : SameLimit u normalized)
     (h2 : Tendsto normalized atTop (𝓝 (1 / 3 : ℝ))) :

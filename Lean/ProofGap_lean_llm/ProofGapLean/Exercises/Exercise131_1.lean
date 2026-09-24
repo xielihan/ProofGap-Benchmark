@@ -73,14 +73,14 @@ private theorem tendsto_y_of_sum_x
     Tendsto (y ∘ p) atTop (𝓝 (α - β)) := by
   simpa [sumSeq, Function.comp_def] using hsum.sub hx
 
-/-- Source: `proof_gap/exercise_131_1/1.txt`; boundedness ensures realization of limsup. -/
+/-- Exercise 131_1, gap 1; boundedness ensures realization of limsup. -/
 theorem gap1 (x : ℕ → ℝ) (hx : Bornology.IsBounded (Set.range x)) :
     ∃ p : ℕ → ℕ, StrictMono p ∧
       Tendsto (x ∘ p) atTop (𝓝 (ProofGap.seqLimsup x)) := by
   exact (clusterSet_isClosed x).csSup_mem
     (clusterSet_nonempty x hx) (clusterSet_bddAbove x hx)
 
-/-- Source: `proof_gap/exercise_131_1/2.txt`. -/
+/-- Exercise 131_1, gap 2. -/
 theorem gap2 (y : ℕ → ℝ) (p : ℕ → ℕ) (β : ℝ)
     (hbounded : Bornology.IsBounded (Set.range y))
     (hp : StrictMono p)
@@ -88,42 +88,42 @@ theorem gap2 (y : ℕ → ℝ) (p : ℕ → ℕ) (β : ℝ)
     β ≤ ProofGap.seqLimsup y := by
   exact le_csSup (clusterSet_bddAbove y hbounded) ⟨p, hp, hy⟩
 
-/-- Source: `proof_gap/exercise_131_1/3.txt`. -/
+/-- Exercise 131_1, gap 3. -/
 theorem gap3 (x y : ℕ → ℝ) (p : ℕ → ℕ) (α β : ℝ)
     (hx : Tendsto (x ∘ p) atTop (𝓝 α))
     (hy : Tendsto (y ∘ p) atTop (𝓝 β)) :
     Tendsto (sumSeq x y ∘ p) atTop (𝓝 (α + β)) := by
   simpa [sumSeq, Function.comp_def] using hx.add hy
 
-/-- Source: `proof_gap/exercise_131_1/4.txt`. -/
+/-- Exercise 131_1, gap 4. -/
 theorem gap4 (x y : ℕ → ℝ) (p : ℕ → ℕ) (α β : ℝ)
     (hp : StrictMono p)
     (hlim : Tendsto (sumSeq x y ∘ p) atTop (𝓝 (α + β))) :
     α + β ∈ ProofGap.ClusterSet (sumSeq x y) := by
   exact ⟨p, hp, hlim⟩
 
-/-- Source: `proof_gap/exercise_131_1/5.txt`; the source inequality is reversed. -/
+/-- Exercise 131_1, gap 5; the source inequality is reversed. -/
 theorem gap5 (x y : ℕ → ℝ) (α β : ℝ)
     (hbounded : Bornology.IsBounded (Set.range (sumSeq x y)))
     (hcluster : α + β ∈ ProofGap.ClusterSet (sumSeq x y)) :
     α + β ≤ ProofGap.seqLimsup (sumSeq x y) := by
   exact le_csSup (clusterSet_bddAbove (sumSeq x y) hbounded) hcluster
 
-/-- Source: `proof_gap/exercise_131_1/6.txt`; retain the corrected direction. -/
+/-- Exercise 131_1, gap 6; retain the corrected direction. -/
 theorem gap6 (x y : ℕ → ℝ) (α β : ℝ)
     (hbounded : Bornology.IsBounded (Set.range (sumSeq x y)))
     (hcluster : α + β ∈ ProofGap.ClusterSet (sumSeq x y)) :
     α + β ≤ ProofGap.seqLimsup (sumSeq x y) := by
   exact gap5 x y α β hbounded hcluster
 
-/-- Source: `proof_gap/exercise_131_1/7.txt`. -/
+/-- Exercise 131_1, gap 7. -/
 theorem gap7 (x y : ℕ → ℝ) (α β : ℝ)
     (hα : α = ProofGap.seqLimsup x)
     (hβ : β ≤ ProofGap.seqLimsup y) :
     α + β ≤ ProofGap.seqLimsup x + ProofGap.seqLimsup y := by
   linarith
 
-/-- Source: `proof_gap/exercise_131_1/8.txt`; use the valid bounded-sequence theorem. -/
+/-- Exercise 131_1, gap 8; use the valid bounded-sequence theorem. -/
 theorem gap8 (x y : ℕ → ℝ)
     (hx : Bornology.IsBounded (Set.range x))
     (hy : Bornology.IsBounded (Set.range y)) :
@@ -159,7 +159,7 @@ theorem gap8 (x y : ℕ → ℝ)
   dsimp [z] at *
   linarith
 
-/-- Source: `proof_gap/exercise_131_1/9.txt`. -/
+/-- Exercise 131_1, gap 9. -/
 theorem gap9 (x y : ℕ → ℝ)
     (hxy : Bornology.IsBounded (Set.range (sumSeq x y))) :
     ∃ p : ℕ → ℕ, StrictMono p ∧
@@ -169,7 +169,7 @@ theorem gap9 (x y : ℕ → ℝ)
     (clusterSet_nonempty (sumSeq x y) hxy)
     (clusterSet_bddBelow (sumSeq x y) hxy)
 
-/-- Source: `proof_gap/exercise_131_1/10.txt`. -/
+/-- Exercise 131_1, gap 10. -/
 theorem gap10 (x : ℕ → ℝ) (p : ℕ → ℕ) (β' : ℝ)
     (hbounded : Bornology.IsBounded (Set.range x))
     (hp : StrictMono p)
@@ -177,46 +177,46 @@ theorem gap10 (x : ℕ → ℝ) (p : ℕ → ℕ) (β' : ℝ)
     ProofGap.seqLiminf x ≤ β' := by
   exact csInf_le (clusterSet_bddBelow x hbounded) ⟨p, hp, h⟩
 
-/-- Source: `proof_gap/exercise_131_1/11.txt`. -/
+/-- Exercise 131_1, gap 11. -/
 theorem gap11 (x y : ℕ → ℝ) (p : ℕ → ℕ) (α' β' : ℝ)
     (hsum : Tendsto (sumSeq x y ∘ p) atTop (𝓝 α'))
     (hx : Tendsto (x ∘ p) atTop (𝓝 β')) :
     Tendsto (y ∘ p) atTop (𝓝 (α' - β')) := by
   exact tendsto_y_of_sum_x x y p α' β' hsum hx
 
-/-- Source: `proof_gap/exercise_131_1/12.txt`. -/
+/-- Exercise 131_1, gap 12. -/
 theorem gap12 (y : ℕ → ℝ) (p : ℕ → ℕ) (v : ℝ)
     (hp : StrictMono p) (h : Tendsto (y ∘ p) atTop (𝓝 v)) :
     v ∈ ProofGap.ClusterSet y := by
   exact ⟨p, hp, h⟩
 
-/-- Source: `proof_gap/exercise_131_1/13.txt`. -/
+/-- Exercise 131_1, gap 13. -/
 theorem gap13 (y : ℕ → ℝ) (v : ℝ)
     (hbounded : Bornology.IsBounded (Set.range y))
     (h : v ∈ ProofGap.ClusterSet y) :
     ProofGap.seqLiminf y ≤ v := by
   exact csInf_le (clusterSet_bddBelow y hbounded) h
 
-/-- Source: `proof_gap/exercise_131_1/14.txt`. -/
+/-- Exercise 131_1, gap 14. -/
 theorem gap14 (x y : ℕ → ℝ) :
     ProofGap.seqLiminf (sumSeq x y) =
       ProofGap.seqLiminf (sumSeq x y) := by
   rfl
 
-/-- Source: `proof_gap/exercise_131_1/15.txt`. -/
+/-- Exercise 131_1, gap 15. -/
 theorem gap15 (α' β' : ℝ) (y : ℕ → ℝ)
     (h : ProofGap.seqLiminf y ≤ α' - β') :
     α' ≥ β' + ProofGap.seqLiminf y := by
   linarith
 
-/-- Source: `proof_gap/exercise_131_1/16.txt`. -/
+/-- Exercise 131_1, gap 16. -/
 theorem gap16 (x y : ℕ → ℝ) (β' : ℝ)
     (h : ProofGap.seqLiminf x ≤ β') :
     β' + ProofGap.seqLiminf y ≥
       ProofGap.seqLiminf x + ProofGap.seqLiminf y := by
   linarith
 
-/-- Source: `proof_gap/exercise_131_1/17.txt`. -/
+/-- Exercise 131_1, gap 17. -/
 theorem gap17 (x y : ℕ → ℝ)
     (hx : Bornology.IsBounded (Set.range x))
     (hy : Bornology.IsBounded (Set.range y)) :
@@ -252,7 +252,7 @@ theorem gap17 (x y : ℕ → ℝ)
   dsimp [z] at *
   linarith
 
-/-- Source: `proof_gap/exercise_131_1/18.txt`. -/
+/-- Exercise 131_1, gap 18. -/
 theorem gap18 (x y : ℕ → ℝ)
     (hx : Bornology.IsBounded (Set.range x))
     (hy : Bornology.IsBounded (Set.range y)) :

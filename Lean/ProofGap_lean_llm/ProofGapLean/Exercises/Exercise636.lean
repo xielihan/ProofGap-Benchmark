@@ -25,7 +25,7 @@ def squareSum (a : ℝ) (n : ℕ) : ℝ :=
   (Finset.Icc 1 n).sum (fun k =>
     (k : ℝ) ^ 2 * a ^ 2 / (n : ℝ) ^ 3)
 
-/-- Source: `proof_gap/exercise_636/1.txt`; restrict `k` to the product range. -/
+/-- Exercise 636, gap 1; restrict `k` to the product range. -/
 private theorem sum_Icc_sq_real (n : ℕ) :
     (Finset.Icc 1 n).sum (fun k => (k : ℝ) ^ 2) =
       (n : ℝ) * (n + 1) * (2 * n + 1) / 6 := by
@@ -88,7 +88,7 @@ theorem gap1 (a : ℝ) :
   apply Real.cos_pos_of_mem_Ioo
   exact abs_lt.mp habs
 
-/-- Source: `proof_gap/exercise_636/2.txt`; replace `BigEnough` and the product ellipsis explicitly. -/
+/-- Exercise 636, gap 2; replace `BigEnough` and the product ellipsis explicitly. -/
 theorem gap2 (a : ℝ)
     (hpos : ∃ N, ∀ n ≥ N, ∀ k ∈ Finset.Icc 1 n,
       0 < Real.cos (angle a n k)) :
@@ -120,7 +120,7 @@ theorem gap2 (a : ℝ)
   intro k hk
   exact ne_of_gt (hN n hn k hk)
 
-/-- Source: `proof_gap/exercise_636/3.txt`. -/
+/-- Exercise 636, gap 3. -/
 theorem gap3 (a : ℝ)
     (hpos : ∃ N, ∀ n ≥ N, ∀ k ∈ Finset.Icc 1 n,
       0 < Real.cos (angle a n k)) :
@@ -147,7 +147,7 @@ theorem gap3 (a : ℝ)
     Real.log_one, Real.log_pow]
   ring
 
-/-- Source: `proof_gap/exercise_636/4.txt`. -/
+/-- Exercise 636, gap 4. -/
 theorem gap4 (a : ℝ)
     (hpos : ∃ N, ∀ n ≥ N, ∀ k ∈ Finset.Icc 1 n,
       0 < Real.cos (angle a n k)) :
@@ -161,7 +161,7 @@ theorem gap4 (a : ℝ)
   have hn₂ : n ≥ N₂ := le_trans (le_max_right _ _) hn
   rw [h₁ n hn₁, h₂ n hn₂]
 
-/-- Source: `proof_gap/exercise_636/5.txt`. -/
+/-- Exercise 636, gap 5. -/
 theorem gap5 :
     Filter.Tendsto (fun x : ℝ => Real.log (1 + Real.tan x ^ 2) / x ^ 2)
       (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds 1) := by
@@ -230,7 +230,7 @@ theorem gap5 :
     field_simp [hx0, ht0] <;> ring
   simpa using hprod.congr' heq
 
-/-- Source: `proof_gap/exercise_636/6.txt`. -/
+/-- Exercise 636, gap 6. -/
 theorem gap6 (a : ℝ) (k : ℕ) :
     Filter.Tendsto (fun n : ℕ => angle a n k)
       Filter.atTop (nhds 0) := by
@@ -251,7 +251,7 @@ theorem gap6 (a : ℝ) (k : ℕ) :
   simpa [angle, div_eq_mul_inv, mul_inv, mul_assoc] using
     (hc.mul hsqrtInv).mul hinv
 
-/-- Source: `proof_gap/exercise_636/7.txt`; replace the sum ellipsis by `squareSum`. -/
+/-- Exercise 636, gap 7; replace the sum ellipsis by `squareSum`. -/
 theorem gap7 (a : ℝ) (L : ℝ) :
     Filter.Tendsto (squareSum a) Filter.atTop (nhds L) ↔
       Filter.Tendsto (fun n : ℕ =>
@@ -277,7 +277,7 @@ theorem gap7 (a : ℝ) (L : ℝ) :
         ring
   rw [heq]
 
-/-- Source: `proof_gap/exercise_636/8.txt`. -/
+/-- Exercise 636, gap 8. -/
 theorem gap8 (a : ℝ) :
     Filter.Tendsto (fun n : ℕ =>
       (n : ℝ) * (n + 1) * (2 * n + 1) * a ^ 2 /
@@ -303,12 +303,12 @@ theorem gap8 (a : ℝ) :
     positivity
   field_simp [hn0]
 
-/-- Source: `proof_gap/exercise_636/9.txt`. -/
+/-- Exercise 636, gap 9. -/
 theorem gap9 (a : ℝ) :
     Filter.Tendsto (squareSum a) Filter.atTop (nhds (a ^ 2 / 3)) := by
   exact (gap7 a (a ^ 2 / 3)).2 (gap8 a)
 
-/-- Source: `proof_gap/exercise_636/10.txt`. -/
+/-- Exercise 636, gap 10. -/
 theorem gap10 (a : ℝ) :
     Filter.Tendsto (fun n => Real.log (productSeq a n))
       Filter.atTop (nhds (-(a ^ 2 / 6))) := by
@@ -466,7 +466,7 @@ theorem gap10 (a : ℝ) :
   filter_upwards [Filter.eventually_ge_atTop N] with n hn
   exact (hN n hn).symm
 
-/-- Source: `proof_gap/exercise_636/11.txt`. -/
+/-- Exercise 636, gap 11. -/
 theorem gap11 (a : ℝ) :
     Filter.Tendsto (productSeq a) Filter.atTop
       (nhds (Real.exp (-(a ^ 2 / 6)))) := by

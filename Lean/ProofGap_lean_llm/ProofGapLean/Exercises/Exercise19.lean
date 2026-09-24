@@ -4,7 +4,7 @@ import Mathlib.Data.Real.Archimedean
 /-!
 # Exercise 19
 
-Semantic formalization of `proof_gap/exercise_19/{1,...,8}.txt`.
+Semantic formalization of Exercise 19, gaps 1,...,8.
 The source notation `{x}` and `{y}` denotes arbitrary real sets.  Their
 Minkowski sum is represented explicitly, with the nonempty bounded hypotheses
 needed for finite suprema and infima.
@@ -34,7 +34,7 @@ def SumInfApproximation (X Y : Set ℝ) : Prop :=
   ∀ ε : ℝ, 0 < ε →
     ∃ z ∈ sumSet X Y, z < sInf X + sInf Y + ε
 
-/-- Source: `proof_gap/exercise_19/1.txt`. -/
+/-- Exercise 19, gap 1. -/
 theorem gap1
     (X Y : Set ℝ)
     (hXY : AdmissiblePair X Y) :
@@ -44,7 +44,7 @@ theorem gap1
   exact ⟨(isGLB_csInf hX hXbelow).1 hx,
     (isGLB_csInf hY hYbelow).1 hy⟩
 
-/-- Source: `proof_gap/exercise_19/2.txt`. -/
+/-- Exercise 19, gap 2. -/
 theorem gap2
     (X Y : Set ℝ)
     (hXY : AdmissiblePair X Y)
@@ -59,7 +59,7 @@ theorem gap2
     ⟨y, hy, hylt⟩
   exact ⟨x, hx, y, hy, hxlt, hylt⟩
 
-/-- Source: `proof_gap/exercise_19/3.txt`. -/
+/-- Exercise 19, gap 3. -/
 theorem gap3
     (X Y : Set ℝ)
     (h1 : SeparateLowerBounds X Y) :
@@ -69,7 +69,7 @@ theorem gap3
   rcases h1 x hx y hy with ⟨hxl, hyl⟩
   linarith
 
-/-- Source: `proof_gap/exercise_19/4.txt`. -/
+/-- Exercise 19, gap 4. -/
 theorem gap4
     (X Y : Set ℝ)
     (h2 : SeparateInfApproximations X Y) :
@@ -79,7 +79,7 @@ theorem gap4
   refine ⟨x + y, ⟨x, hx, y, hy, rfl⟩, ?_⟩
   linarith
 
-/-- Source: `proof_gap/exercise_19/5.txt`. -/
+/-- Exercise 19, gap 5. -/
 theorem gap5
     (X Y : Set ℝ)
     (hXY : AdmissiblePair X Y)
@@ -105,14 +105,14 @@ theorem gap5
       linarith
   exact (hglb.csInf_eq hsum).symm
 
-/-- Source: `proof_gap/exercise_19/6.txt`. -/
+/-- Exercise 19, gap 6. -/
 theorem gap6
     (X Y : Set ℝ)
     (h5 : sInf X + sInf Y = sInf (sumSet X Y)) :
     sInf (sumSet X Y) = sInf X + sInf Y := by
   exact h5.symm
 
-/-- Source: `proof_gap/exercise_19/7.txt`. -/
+/-- Exercise 19, gap 7. -/
 theorem gap7
     (X Y : Set ℝ)
     (hXY : AdmissiblePair X Y)
@@ -145,7 +145,7 @@ theorem gap7
       linarith
   exact hlub.csSup_eq hsum
 
-/-- Source: `proof_gap/exercise_19/8.txt`. -/
+/-- Exercise 19, gap 8. -/
 theorem gap8
     (X Y : Set ℝ)
     (h6 : sInf (sumSet X Y) = sInf X + sInf Y)

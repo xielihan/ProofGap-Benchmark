@@ -13,7 +13,7 @@ def paritySign (n : ℤ) : ℝ := if Even n then 1 else -1
 def leftFilter (n : ℤ) : Filter ℝ := nhdsWithin (n : ℝ) (Set.Iio n)
 def rightFilter (n : ℤ) : Filter ℝ := nhdsWithin (n : ℝ) (Set.Ioi n)
 
-/-- Source: `proof_gap/exercise_601/1.txt`. -/
+/-- Exercise 601, gap 1. -/
 private theorem oneSidedSignLimits (n : ℤ) :
     Filter.Tendsto (fun x => Real.sign (Real.sin (Real.pi * x)))
         (leftFilter n) (nhds (paritySign (n - 1))) ∧
@@ -154,38 +154,38 @@ theorem gap1 (n : ℤ) : f n = 0 := by
   rw [f, show Real.pi * (n : ℝ) = (n : ℝ) * Real.pi by ring,
     Real.sin_int_mul_pi, Real.sign_zero]
 
-/-- Source: `proof_gap/exercise_601/2.txt`. -/
+/-- Exercise 601, gap 2. -/
 theorem gap2 (n : ℤ) (L : ℝ) :
     Filter.Tendsto f (leftFilter n) (nhds L) ↔
       Filter.Tendsto (fun x => Real.sign (Real.sin (Real.pi * x)))
         (leftFilter n) (nhds L) := by
   rfl
 
-/-- Source: `proof_gap/exercise_601/3.txt`. -/
+/-- Exercise 601, gap 3. -/
 theorem gap3 (n : ℤ) :
     Filter.Tendsto (fun x => Real.sign (Real.sin (Real.pi * x)))
       (leftFilter n) (nhds (paritySign (n - 1))) := by
   exact (oneSidedSignLimits n).1
 
-/-- Source: `proof_gap/exercise_601/4.txt`. -/
+/-- Exercise 601, gap 4. -/
 theorem gap4 (n : ℤ) :
     Filter.Tendsto f (leftFilter n) (nhds (paritySign (n - 1))) := by
   simpa [f] using gap3 n
 
-/-- Source: `proof_gap/exercise_601/5.txt`. -/
+/-- Exercise 601, gap 5. -/
 theorem gap5 (n : ℤ) (L : ℝ) :
     Filter.Tendsto f (rightFilter n) (nhds L) ↔
       Filter.Tendsto (fun x => Real.sign (Real.sin (Real.pi * x)))
         (rightFilter n) (nhds L) := by
   rfl
 
-/-- Source: `proof_gap/exercise_601/6.txt`. -/
+/-- Exercise 601, gap 6. -/
 theorem gap6 (n : ℤ) :
     Filter.Tendsto (fun x => Real.sign (Real.sin (Real.pi * x)))
       (rightFilter n) (nhds (paritySign n)) := by
   exact (oneSidedSignLimits n).2
 
-/-- Source: `proof_gap/exercise_601/7.txt`. -/
+/-- Exercise 601, gap 7. -/
 theorem gap7 (n : ℤ) :
     Filter.Tendsto f (rightFilter n) (nhds (paritySign n)) := by
   simpa [f] using gap6 n

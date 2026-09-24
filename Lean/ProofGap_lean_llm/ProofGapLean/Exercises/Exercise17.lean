@@ -3,7 +3,7 @@ import ProofGapLean.Prelude.Elementary
 /-!
 # Exercise 17
 
-Semantic formalization of `proof_gap/exercise_17/{1,...,6}.txt`.
+Semantic formalization of Exercise 17, gaps 1,...,6.
 All three source sets consist of rational numbers.  They are embedded into
 `ℝ` before applying `sSup` and `sInf`, because `ℚ` is not conditionally
 complete.
@@ -136,7 +136,7 @@ private lemma isGLB_BPrime_negSqrtTwo : IsGLB BPrime (-Real.sqrt 2) := by
     have hMle := hlower hqmem
     linarith [hqmin.trans_le (min_le_left M 0)]
 
-/-- Source: `proof_gap/exercise_17/1.txt`. -/
+/-- Exercise 17, gap 1. -/
 theorem gap1 :
     sSup E = sSup A := by
   have hEne : E.Nonempty := ⟨0, 0, by norm_num, by norm_num⟩
@@ -144,21 +144,21 @@ theorem gap1 :
   exact (isLUB_E_sqrtTwo.csSup_eq hEne).trans
     (isLUB_A_sqrtTwo.csSup_eq hAne).symm
 
-/-- Source: `proof_gap/exercise_17/2.txt`. -/
+/-- Exercise 17, gap 2. -/
 theorem gap2
     (h1 : sSup E = sSup A) :
     sSup A = Real.sqrt 2 := by
   have hAne : A.Nonempty := ⟨0, 0, by norm_num, Or.inl le_rfl⟩
   exact isLUB_A_sqrtTwo.csSup_eq hAne
 
-/-- Source: `proof_gap/exercise_17/3.txt`. -/
+/-- Exercise 17, gap 3. -/
 theorem gap3
     (h1 : sSup E = sSup A)
     (h2 : sSup A = Real.sqrt 2) :
     sSup E = Real.sqrt 2 := by
   exact h1.trans h2
 
-/-- Source: `proof_gap/exercise_17/4.txt`. -/
+/-- Exercise 17, gap 4. -/
 theorem gap4
     (h1 : sSup E = sSup A)
     (h2 : sSup A = Real.sqrt 2)
@@ -169,14 +169,14 @@ theorem gap4
   exact (isGLB_E_negSqrtTwo.csInf_eq hEne).trans
     (isGLB_BPrime_negSqrtTwo.csInf_eq hBne).symm
 
-/-- Source: `proof_gap/exercise_17/5.txt`. -/
+/-- Exercise 17, gap 5. -/
 theorem gap5
     (h4 : sInf E = sInf BPrime) :
     sInf BPrime = -Real.sqrt 2 := by
   have hBne : BPrime.Nonempty := ⟨0, 0, by norm_num, Or.inl le_rfl⟩
   exact isGLB_BPrime_negSqrtTwo.csInf_eq hBne
 
-/-- Source: `proof_gap/exercise_17/6.txt`. -/
+/-- Exercise 17, gap 6. -/
 theorem gap6
     (h4 : sInf E = sInf BPrime)
     (h5 : sInf BPrime = -Real.sqrt 2) :

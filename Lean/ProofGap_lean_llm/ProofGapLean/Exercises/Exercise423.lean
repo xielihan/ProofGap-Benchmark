@@ -15,7 +15,7 @@ def cancelled (x : ℝ) : ℝ := (x + 1) ^ 20 / (x + 4) ^ 10
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_423/1.txt`. -/
+/-- Exercise 423, gap 1. -/
 theorem gap1 : HasLimitAt original 2 (((3 : ℝ) / 2) ^ 10) ↔
     HasLimitAt factored 2 (((3 : ℝ) / 2) ^ 10) := by
   have h : original = factored := by
@@ -24,7 +24,7 @@ theorem gap1 : HasLimitAt original 2 (((3 : ℝ) / 2) ^ 10) ↔
     congr 1 <;> ring
   rw [h]
 
-/-- Source: `proof_gap/exercise_423/2.txt`. -/
+/-- Exercise 423, gap 2. -/
 theorem gap2 : HasLimitAt factored 2 (((3 : ℝ) / 2) ^ 10) ↔
     HasLimitAt cancelled 2 (((3 : ℝ) / 2) ^ 10) := by
   unfold HasLimitAt
@@ -37,7 +37,7 @@ theorem gap2 : HasLimitAt factored 2 (((3 : ℝ) / 2) ^ 10) ↔
   simpa [factored, cancelled] using
     (mul_div_mul_left ((x + 1) ^ 20) ((x + 4) ^ 10) hpow)
 
-/-- Source: `proof_gap/exercise_423/3.txt`. -/
+/-- Exercise 423, gap 3. -/
 theorem gap3 : HasLimitAt cancelled 2 ((3 : ℝ) ^ 20 / 6 ^ 10) := by
   unfold HasLimitAt
   have hcont : ContinuousAt cancelled 2 := by
@@ -53,11 +53,11 @@ theorem gap3 : HasLimitAt cancelled 2 ((3 : ℝ) ^ 20 / 6 ^ 10) := by
     hcont.tendsto.mono_left inf_le_left
   convert ht using 1 <;> norm_num [cancelled]
 
-/-- Source: `proof_gap/exercise_423/4.txt`. -/
+/-- Exercise 423, gap 4. -/
 theorem gap4 : (3 : ℝ) ^ 20 / 6 ^ 10 = ((3 : ℝ) / 2) ^ 10 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_423/5.txt`. -/
+/-- Exercise 423, gap 5. -/
 theorem gap5 : HasLimitAt original 2 (((3 : ℝ) / 2) ^ 10) := by
   apply gap1.mpr
   apply gap2.mpr

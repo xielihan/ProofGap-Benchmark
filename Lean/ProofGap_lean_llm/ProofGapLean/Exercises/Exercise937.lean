@@ -26,7 +26,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 def finalDerivative (x : ℝ) : ℝ :=
   Real.arcsin x ^ 2
 
-/-- Source: `proof_gap/exercise_937/1.txt`; restrict square root and inverse
+/-- Exercise 937, gap 1; restrict square root and inverse
 sine to the common open interval `(-1,1)`. -/
 theorem gap1 (x : ℝ) (hx : |x| < 1) :
     HasDerivAt y (expandedDerivative x) x := by
@@ -71,14 +71,14 @@ theorem gap1 (x : ℝ) (hx : |x| < 1) :
   unfold y expandedDerivative
   convert (hterm1.add hterm2).sub (hid.const_mul 2) using 1 <;> ring
 
-/-- Source: `proof_gap/exercise_937/2.txt`; the strict-domain hypothesis makes
+/-- Exercise 937, gap 2; the strict-domain hypothesis makes
 the repeated square-root denominator nonzero. -/
 theorem gap2 (x : ℝ) (hx : |x| < 1) :
     expandedDerivative x = finalDerivative x := by
   unfold expandedDerivative finalDerivative
   ring
 
-/-- Source: `proof_gap/exercise_937/3.txt`; retain the nonsingular open domain
+/-- Exercise 937, gap 3; retain the nonsingular open domain
 in the final derivative statement. -/
 theorem gap3 (x : ℝ) (hx : |x| < 1) :
     HasDerivAt y (finalDerivative x) x := by

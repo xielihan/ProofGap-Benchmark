@@ -4,12 +4,12 @@ import Mathlib.Tactic.Linarith
 /-!
 # Exercise 23
 
-Semantic formalization of `proof_gap/exercise_23/{1,2,3}.txt`.
+Semantic formalization of Exercise 23, gaps 1,2,3.
 -/
 
 namespace ProofGap.Exercise23
 
-/-- Source: `proof_gap/exercise_23/1.txt`. -/
+/-- Exercise 23, gap 1. -/
 theorem gap1 (x : ℝ) :
     |x - 2| ≥ 10 ↔ x - 2 ≥ 10 ∨ x - 2 ≤ -10 := by
   constructor
@@ -27,7 +27,7 @@ theorem gap1 (x : ℝ) :
     · rw [abs_of_nonpos (by linarith)]
       linarith
 
-/-- Source: `proof_gap/exercise_23/2.txt`. -/
+/-- Exercise 23, gap 2. -/
 theorem gap2
     (x : ℝ)
     (h1 : |x - 2| ≥ 10 ↔ x - 2 ≥ 10 ∨ x - 2 ≤ -10) :
@@ -39,7 +39,7 @@ theorem gap2
   · exact Or.inl (by linarith)
   · exact Or.inr (by linarith)
 
-/-- Source: `proof_gap/exercise_23/3.txt`. -/
+/-- Exercise 23, gap 3. -/
 theorem gap3
     (x : ℝ)
     (h2 : |x - 2| ≥ 10 ↔ x ≥ 12 ∨ x ≤ -8) :

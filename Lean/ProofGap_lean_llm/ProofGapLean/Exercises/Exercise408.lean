@@ -19,7 +19,7 @@ def normalizedTail (n : ℕ) (a : ℕ → ℝ) (x : ℝ) : ℝ :=
 def AbsTendsToInfinity (f : ℝ → ℝ) : Prop :=
   ∀ M > 0, ∃ E > 0, ∀ x, E < |x| → M < |f x|
 
-/-- Source: `proof_gap/exercise_408/1.txt`; exclude `x=0` before using reciprocal powers. -/
+/-- Exercise 408, gap 1; exclude `x=0` before using reciprocal powers. -/
 private lemma real_sum_nonneg (s : Finset ℕ) (f : ℕ → ℝ) :
     (∀ i ∈ s, 0 ≤ f i) → 0 ≤ s.sum f := by
   induction s using Finset.induction_on with
@@ -231,7 +231,7 @@ theorem gap1 (n : ℕ) (a : ℕ → ℝ) (ha : a 0 ≠ 0) :
   intro x hx
   exact polynomial_lower_bound n a ha x hx
 
-/-- Source: `proof_gap/exercise_408/2.txt`. -/
+/-- Exercise 408, gap 2. -/
 theorem gap2 (n : ℕ) : ∀ i ∈ Finset.Icc 1 n,
     ∀ ε > 0, ∃ E > 0, ∀ x : ℝ, E < |x| →
       1 / |x| ^ i < ε := by
@@ -253,7 +253,7 @@ theorem gap2 (n : ℕ) : ∀ i ∈ Finset.Icc 1 n,
       nlinarith
     exact lt_of_le_of_lt hpow hsmall
 
-/-- Source: `proof_gap/exercise_408/3.txt`; bind the large-radius threshold once. -/
+/-- Exercise 408, gap 3; bind the large-radius threshold once. -/
 theorem gap3 (n : ℕ) (a : ℕ → ℝ) (ha : a 0 ≠ 0) :
     ∃ E₁ > 0, ∀ x, E₁ < |x| →
       1 / 2 < |1 - normalizedTail n a x| := by
@@ -266,7 +266,7 @@ theorem gap3 (n : ℕ) (a : ℕ → ℝ) (ha : a 0 ≠ 0) :
   rw [abs_of_nonneg hone]
   linarith
 
-/-- Source: `proof_gap/exercise_408/4.txt`; include the threshold supplied by the tail estimate. -/
+/-- Exercise 408, gap 4; include the threshold supplied by the tail estimate. -/
 theorem gap4 (n : ℕ) (a : ℕ → ℝ) (ha : a 0 ≠ 0) :
     ∃ E₁ > 0, ∀ x, E₁ < |x| →
       (1 / 2 : ℝ) * |a 0| * |x| ^ n < |p n a x| := by
@@ -288,7 +288,7 @@ theorem gap4 (n : ℕ) (a : ℕ → ℝ) (ha : a 0 ≠ 0) :
     _ < (|a 0| * |x| ^ n) * (1 - normalizedTail n a x) := hscaled
     _ ≤ |p n a x| := hlower
 
-/-- Source: `proof_gap/exercise_408/5.txt`; choose `E` after the requested bound `M`. -/
+/-- Exercise 408, gap 5; choose `E` after the requested bound `M`. -/
 theorem gap5 (n : ℕ) (hn : 0 < n) (a : ℕ → ℝ) (ha : a 0 ≠ 0) :
     ∀ M > 0, ∃ E > 0, ∀ x, E < |x| → M < |p n a x| := by
   intro M hM
@@ -317,12 +317,12 @@ theorem gap5 (n : ℕ) (hn : 0 < n) (a : ℕ → ℝ) (ha : a 0 ≠ 0) :
       nlinarith
     exact lt_trans hMpow (hp x hxE₁)
 
-/-- Source: `proof_gap/exercise_408/6.txt`. -/
+/-- Exercise 408, gap 6. -/
 theorem gap6 (n : ℕ) (hn : 0 < n) (a : ℕ → ℝ) (ha : a 0 ≠ 0) :
     AbsTendsToInfinity (p n a) := by
   simpa [AbsTendsToInfinity] using (gap5 n hn a ha)
 
-/-- Source: `proof_gap/exercise_408/7.txt`; retain the missing nonzero leading coefficient and positive degree. -/
+/-- Exercise 408, gap 7; retain the missing nonzero leading coefficient and positive degree. -/
 theorem gap7 (n : ℕ) (hn : 0 < n) (a : ℕ → ℝ) (ha : a 0 ≠ 0) :
     AbsTendsToInfinity (p n a) := by
   exact gap6 n hn a ha

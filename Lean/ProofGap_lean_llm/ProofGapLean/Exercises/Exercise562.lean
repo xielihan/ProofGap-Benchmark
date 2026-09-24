@@ -17,7 +17,7 @@ def normalized (x : ℝ) : ℝ :=
 def HasLimitAtPosInfinity (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f Filter.atTop (nhds L)
 
-/-- Source: `proof_gap/exercise_562/1.txt`. -/
+/-- Exercise 562, gap 1. -/
 private theorem original_eq_normalized_of_pos {x : ℝ} (hx : 0 < x) :
     original x = normalized x := by
   unfold original normalized
@@ -71,7 +71,7 @@ theorem gap1 (L : ℝ) :
   · intro h
     exact h.congr' (heq.mono fun x hx => hx.symm)
 
-/-- Source: `proof_gap/exercise_562/2.txt`. -/
+/-- Exercise 562, gap 2. -/
 theorem gap2 : HasLimitAtPosInfinity normalized (3 * Real.log 2) := by
   unfold HasLimitAtPosInfinity
   have hi : Filter.Tendsto (fun x : ℝ => x⁻¹) Filter.atTop (nhds 0) :=
@@ -185,7 +185,7 @@ theorem gap2 : HasLimitAtPosInfinity normalized (3 * Real.log 2) := by
     field_simp [hx0] <;> ring
   simpa [normalized] using hA.mul hB
 
-/-- Source: `proof_gap/exercise_562/3.txt`. -/
+/-- Exercise 562, gap 3. -/
 theorem gap3 : 3 * Real.log 2 = Real.log 8 := by
   calc
     3 * Real.log 2 = Real.log ((2 : ℝ) ^ 3) :=
@@ -194,7 +194,7 @@ theorem gap3 : 3 * Real.log 2 = Real.log 8 := by
       congr 1
       norm_num
 
-/-- Source: `proof_gap/exercise_562/4.txt`. -/
+/-- Exercise 562, gap 4. -/
 theorem gap4 : HasLimitAtPosInfinity original (Real.log 8) := by
   rw [← gap3]
   exact (gap1 (3 * Real.log 2)).mpr gap2

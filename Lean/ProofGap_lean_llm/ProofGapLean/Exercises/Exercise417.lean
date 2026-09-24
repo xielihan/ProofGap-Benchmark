@@ -23,7 +23,7 @@ def f (n : ℕ) (x : ℝ) : ℝ := numerator n x / denominator n x
 def HasLimitAtInfinity (g : ℝ → ℝ) (L : ℝ) : Prop :=
   ∀ ε > 0, ∃ N > 0, ∀ x, N < |x| → |g x - L| < ε
 
-/-- Source: `proof_gap/exercise_417/1.txt`. -/
+/-- Exercise 417, gap 1. -/
 private theorem exercise417_prod_powers
     (s : Finset ℕ) (x : ℝ) :
     s.prod (fun k => x ^ k) = x ^ (s.sum (fun k => k)) := by
@@ -73,7 +73,7 @@ theorem gap1 (n : ℕ) :
       degreeNumerator = (Finset.Icc 1 n).sum (fun k => k) := by
   exact ⟨(Finset.Icc 1 n).sum (fun k => k), rfl⟩
 
-/-- Source: `proof_gap/exercise_417/2.txt`. -/
+/-- Exercise 417, gap 2. -/
 theorem gap2 (n : ℕ) :
     (Finset.Icc 1 n).sum (fun k => k) = n * (n + 1) / 2 := by
   have hsubset : Finset.Icc 1 n ⊆ Finset.range (n + 1) := by
@@ -92,18 +92,18 @@ theorem gap2 (n : ℕ) :
     _ = n * (n + 1) / 2 := by
       simpa [Nat.mul_comm] using (Finset.sum_range_id (n + 1))
 
-/-- Source: `proof_gap/exercise_417/3.txt`. -/
+/-- Exercise 417, gap 3. -/
 theorem gap3 (n : ℕ) :
     ∃ degreeNumerator : ℕ, degreeNumerator = n * (n + 1) / 2 := by
   exact ⟨(Finset.Icc 1 n).sum (fun k => k), gap2 n⟩
 
-/-- Source: `proof_gap/exercise_417/4.txt`; equal degrees require the omitted oddness of `n`. -/
+/-- Exercise 417, gap 4; equal degrees require the omitted oddness of `n`. -/
 theorem gap4 (n : ℕ) (hodd : Odd n) :
     ∃ degreeNumerator degreeDenominator : ℕ,
       degreeNumerator = degreeDenominator := by
   exact ⟨0, 0, rfl⟩
 
-/-- Source: `proof_gap/exercise_417/5.txt`; require positive odd `n` so the denominator exponent has the stated degree. -/
+/-- Exercise 417, gap 5; require positive odd `n` so the denominator exponent has the stated degree. -/
 theorem gap5 (n : ℕ) (hn : 0 < n) (hodd : Odd n) :
     HasLimitAtInfinity (f n)
       (1 / Real.rpow n (n * (n + 1) / 2 : ℕ)) := by

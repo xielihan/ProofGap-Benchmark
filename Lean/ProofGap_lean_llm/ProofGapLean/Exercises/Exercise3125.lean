@@ -16,7 +16,7 @@ def P (x : ℝ) : ℝ :=
       ((1 : ℝ) * (3 / 2) * (1 / 2) * 2)
 
 /--
-Source: `proof_gap/exercise_3125/1.txt`; define `P` as the Lagrange
+Exercise 3125, gap 1; define `P` as the Lagrange
 interpolant of `|x|` at `0, ±1/2, ±1`.
 -/
 theorem gap1 :
@@ -33,7 +33,7 @@ theorem gap1 :
   intro x
   rfl
 
-/-- Source: `proof_gap/exercise_3125/2.txt`; simplify the fixed interpolant. -/
+/-- Exercise 3125, gap 2; simplify the fixed interpolant. -/
 theorem gap2 :
     ∀ x : ℝ, P x = x ^ 2 / 3 * (7 - 4 * x ^ 2) := by
   intro x

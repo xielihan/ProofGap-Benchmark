@@ -16,7 +16,7 @@ def rewritten (x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_544/1.txt`. -/
+/-- Exercise 544, gap 1. -/
 private theorem rewritten_exponent_eq (x : ℝ) :
     (Real.exp x / x) * Real.exp (-x) = 1 / x := by
   calc
@@ -134,7 +134,7 @@ theorem gap1 (L : ℝ) :
     filter_upwards [eventually_valid] with x hx
     exact (original_eq_rewritten_of x hx.1 hx.2).symm
 
-/-- Source: `proof_gap/exercise_544/2.txt`. -/
+/-- Exercise 544, gap 2. -/
 theorem gap2 : HasLimitAtZero rewritten (Real.exp 1 * Real.exp 1) := by
   unfold HasLimitAtZero
   have hlim :
@@ -164,13 +164,13 @@ theorem gap2 : HasLimitAtZero rewritten (Real.exp 1 * Real.exp 1) := by
   rw [rewritten, hexponent]
   exact congrArg (fun y : ℝ => Real.exp 1 * y) hpow
 
-/-- Source: `proof_gap/exercise_544/3.txt`. -/
+/-- Exercise 544, gap 3. -/
 theorem gap3 : Real.exp 1 * Real.exp 1 = Real.exp 2 := by
   calc
     Real.exp 1 * Real.exp 1 = Real.exp (1 + 1) := (Real.exp_add 1 1).symm
     _ = Real.exp 2 := by norm_num
 
-/-- Source: `proof_gap/exercise_544/4.txt`. -/
+/-- Exercise 544, gap 4. -/
 theorem gap4 : HasLimitAtZero original (Real.exp 2) := by
   have h := (gap1 (Real.exp 1 * Real.exp 1)).2 gap2
   simpa only [gap3] using h

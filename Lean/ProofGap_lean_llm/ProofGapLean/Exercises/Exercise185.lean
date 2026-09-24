@@ -14,7 +14,7 @@ def y (x : ℝ) : ℝ := x / (2 * x - 1)
 def domain : Set ℝ := Set.Ioo 0 1 \ {1 / 2}
 def valueSet : Set ℝ := {t | ∃ x ∈ domain, t = y x}
 
-/-- Source: `proof_gap/exercise_185/1.txt`; exclude the pole x=1/2. -/
+/-- Exercise 185, gap 1; exclude the pole x=1/2. -/
 theorem gap1 : ∀ x : ℝ, x ≠ 1 / 2 →
     y x = 1 / 2 + (1 / 2) * (1 / (2 * x - 1)) := by
   intro x hx
@@ -34,7 +34,7 @@ theorem gap1 : ∀ x : ℝ, x ≠ 1 / 2 →
         field_simp [hden]
   simpa only [div_eq_mul_inv, one_mul] using hcalc
 
-/-- Source: `proof_gap/exercise_185/2.txt`; the source incorrectly quantifies x around a limit statement. -/
+/-- Exercise 185, gap 2; the source incorrectly quantifies x around a limit statement. -/
 theorem gap2 : Tendsto y (𝓝[Set.Ioi 0] 0) (𝓝 0) := by
   have hc : ContinuousAt y 0 := by
     unfold y
@@ -44,7 +44,7 @@ theorem gap2 : Tendsto y (𝓝[Set.Ioi 0] 0) (𝓝 0) := by
     hc.continuousWithinAt
   simpa [y] using ht
 
-/-- Source: `proof_gap/exercise_185/3.txt`. -/
+/-- Exercise 185, gap 3. -/
 theorem gap3 : Tendsto y (𝓝[Set.Iio (1 / 2)] (1 / 2)) atBot := by
   let l : Filter ℝ := 𝓝[Set.Iio (1 / 2)] (1 / 2)
   have hden : Tendsto (fun x : ℝ => 2 * x - 1) l (𝓝[Set.Iio 0] 0) := by
@@ -70,7 +70,7 @@ theorem gap3 : Tendsto y (𝓝[Set.Iio (1 / 2)] (1 / 2)) atBot := by
   change x < 1 / 2 at hx
   simpa only [one_div] using (gap1 x (ne_of_lt hx)).symm
 
-/-- Source: `proof_gap/exercise_185/4.txt`. -/
+/-- Exercise 185, gap 4. -/
 theorem gap4 : Tendsto y (𝓝[Set.Ioi (1 / 2)] (1 / 2)) atTop := by
   let l : Filter ℝ := 𝓝[Set.Ioi (1 / 2)] (1 / 2)
   have hden : Tendsto (fun x : ℝ => 2 * x - 1) l (𝓝[Set.Ioi 0] 0) := by
@@ -96,7 +96,7 @@ theorem gap4 : Tendsto y (𝓝[Set.Ioi (1 / 2)] (1 / 2)) atTop := by
   change 1 / 2 < x at hx
   simpa only [one_div] using (gap1 x (ne_of_gt hx)).symm
 
-/-- Source: `proof_gap/exercise_185/5.txt`. -/
+/-- Exercise 185, gap 5. -/
 theorem gap5 : Tendsto y (𝓝[Set.Iio 1] 1) (𝓝 1) := by
   have hc : ContinuousAt y 1 := by
     unfold y
@@ -106,7 +106,7 @@ theorem gap5 : Tendsto y (𝓝[Set.Iio 1] 1) (𝓝 1) := by
     hc.continuousWithinAt
   convert ht using 1 <;> norm_num [y]
 
-/-- Source: `proof_gap/exercise_185/6.txt`; replace the free family `E_x`. -/
+/-- Exercise 185, gap 6; replace the free family `E_x`. -/
 theorem gap6 : valueSet = Set.Iio 0 ∪ Set.Ioi 1 := by
   ext t
   constructor

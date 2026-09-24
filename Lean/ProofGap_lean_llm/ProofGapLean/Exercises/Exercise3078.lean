@@ -146,7 +146,7 @@ private theorem partialProduct_eq_range (c x : ℝ) (n : ℕ) :
       ring
 
 /--
-Source: `proof_gap/exercise_3078/1.txt`; correct the exponential sign to
+Exercise 3078, gap 1; correct the exponential sign to
 match the displayed cancellation and formalize the big-O remainder.
 -/
 theorem gap1 (c : ℝ) (hc : 0 < c) :
@@ -170,7 +170,7 @@ theorem gap1 (c : ℝ) (hc : 0 < c) :
     ring
   · exact Eventually.of_forall fun _ => rfl
 
-/-- Source: `proof_gap/exercise_3078/2.txt`; formalize the simplified remainder. -/
+/-- Exercise 3078, gap 2; formalize the simplified remainder. -/
 theorem gap2 (c : ℝ) (hc : 0 < c) :
     ∀ x : ℝ,
       ((fun n => p c x n - simplifiedApproximation c x n) =O[atTop]
@@ -185,7 +185,7 @@ theorem gap2 (c : ℝ) (hc : 0 < c) :
     ring
   · exact Eventually.of_forall fun _ => rfl
 
-/-- Source: `proof_gap/exercise_3078/3.txt`; bind `x` and state the function-level big-O. -/
+/-- Exercise 3078, gap 3; bind `x` and state the function-level big-O. -/
 theorem gap3 (c : ℝ) (hc : 0 < c) :
     ∀ x : ℝ, ((fun n => p c x n - 1) =O[atTop] inverseSquare) := by
   intro x
@@ -198,7 +198,7 @@ private theorem p_sub_one_summable (c : ℝ) (hc : 0 < c) (x : ℝ) :
     Summable (fun n : ℕ => p c x n - 1) :=
   summable_of_isBigO_nat inverseSquare_summable (gap3 c hc x)
 
-/-- Source: `proof_gap/exercise_3078/4.txt`; retain the positive parameter domain. -/
+/-- Exercise 3078, gap 4; retain the positive parameter domain. -/
 theorem gap4 (c : ℝ) (hc : 0 < c) :
     ∀ x : ℝ, SummableFromOne (fun n => Real.log (p c x n)) := by
   intro x
@@ -209,7 +209,7 @@ theorem gap4 (c : ℝ) (hc : 0 < c) :
     Real.summable_log_one_add_of_summable hs
 
 /--
-Source: `proof_gap/exercise_3078/5.txt`; convergence applies to the cutoff
+Exercise 3078, gap 5; convergence applies to the cutoff
 sequence of partial products and may have value zero.
 -/
 theorem gap5 (c : ℝ) (hc : 0 < c) :

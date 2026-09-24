@@ -14,7 +14,7 @@ def rationalized (x : ℝ) : ℝ :=
 def HasLimitAtPosInfinity (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f Filter.atTop (nhds L)
 
-/-- Source: `proof_gap/exercise_582/1.txt`. -/
+/-- Exercise 582, gap 1. -/
 theorem gap1 (L : ℝ) :
     HasLimitAtPosInfinity original L ↔ HasLimitAtPosInfinity rationalized L := by
   unfold HasLimitAtPosInfinity
@@ -41,7 +41,7 @@ theorem gap1 (L : ℝ) :
   · intro h
     exact Filter.Tendsto.congr' h_eq.symm h
 
-/-- Source: `proof_gap/exercise_582/2.txt`. -/
+/-- Exercise 582, gap 2. -/
 theorem gap2 : HasLimitAtPosInfinity rationalized (Real.arccos (1 / 2)) := by
   unfold HasLimitAtPosInfinity rationalized
   have hinv :
@@ -132,7 +132,7 @@ theorem gap2 : HasLimitAtPosInfinity rationalized (Real.arccos (1 / 2)) := by
     Filter.Tendsto.congr' h_eq hform
   exact (Real.continuous_arccos.tendsto (1 / 2)).comp hratio
 
-/-- Source: `proof_gap/exercise_582/3.txt`. -/
+/-- Exercise 582, gap 3. -/
 theorem gap3 : Real.arccos (1 / 2) = Real.pi / 3 := by
   calc
     Real.arccos (1 / 2) =
@@ -143,7 +143,7 @@ theorem gap3 : Real.arccos (1 / 2) = Real.pi / 3 := by
         (by nlinarith [Real.pi_pos])
         (by nlinarith [Real.pi_pos])
 
-/-- Source: `proof_gap/exercise_582/4.txt`. -/
+/-- Exercise 582, gap 4. -/
 theorem gap4 : HasLimitAtPosInfinity original (Real.pi / 3) := by
   apply (gap1 (Real.pi / 3)).2
   rw [← gap3]

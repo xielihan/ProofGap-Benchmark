@@ -17,7 +17,7 @@ def HasLeftAsymptote (a b : ℝ) : Prop :=
 def HasRightAsymptote (a b : ℝ) : Prop :=
   Filter.Tendsto (residual a b) Filter.atTop (nhds 0)
 
-/-- Source: `proof_gap/exercise_470/1.txt`; exclude zeros of the rationalizing denominator. -/
+/-- Exercise 470, gap 1; exclude zeros of the rationalizing denominator. -/
 private theorem radicand_nonneg (x : ℝ) : 0 ≤ x ^ 2 - x + 1 := by
   nlinarith [sq_nonneg (x - 1 / 2)]
 
@@ -219,21 +219,21 @@ theorem gap1 (a₁ b₁ x : ℝ) (hx : conjugate a₁ b₁ x ≠ 0) :
   unfold residual numerator conjugate curve
   nlinarith [hs]
 
-/-- Source: `proof_gap/exercise_470/2.txt`; restore the omitted asymptote hypothesis. -/
+/-- Exercise 470, gap 2; restore the omitted asymptote hypothesis. -/
 theorem gap2 (a₁ b₁ : ℝ) (h : HasLeftAsymptote a₁ b₁) :
     1 - a₁ ^ 2 = 0 := by
   have ha := (left_parameters a₁ b₁ h).1
   rw [ha]
   norm_num
 
-/-- Source: `proof_gap/exercise_470/3.txt`; restore the omitted asymptote hypothesis. -/
+/-- Exercise 470, gap 3; restore the omitted asymptote hypothesis. -/
 theorem gap3 (a₁ b₁ : ℝ) (h : HasLeftAsymptote a₁ b₁) :
     1 + 2 * a₁ * b₁ = 0 := by
   rcases left_parameters a₁ b₁ h with ⟨ha, hb⟩
   rw [ha, hb]
   norm_num
 
-/-- Source: `proof_gap/exercise_470/4.txt`. -/
+/-- Exercise 470, gap 4. -/
 theorem gap4 (a₁ : ℝ) (h : 1 - a₁ ^ 2 = 0) :
     a₁ = 1 ∨ a₁ = -1 := by
   have hfac : (a₁ - 1) * (a₁ + 1) = 0 := by
@@ -244,7 +244,7 @@ theorem gap4 (a₁ : ℝ) (h : 1 - a₁ ^ 2 = 0) :
   · right
     linarith
 
-/-- Source: `proof_gap/exercise_470/5.txt`. -/
+/-- Exercise 470, gap 5. -/
 theorem gap5 (a₁ b₁ : ℝ) (ha : a₁ = 1 ∨ a₁ = -1)
     (hab : 1 + 2 * a₁ * b₁ = 0) :
     b₁ = -1 / 2 ∨ b₁ = 1 / 2 := by
@@ -256,30 +256,30 @@ theorem gap5 (a₁ b₁ : ℝ) (ha : a₁ = 1 ∨ a₁ = -1)
     norm_num at hab ⊢
     linarith
 
-/-- Source: `proof_gap/exercise_470/6.txt`; specialize the first candidate pair. -/
+/-- Exercise 470, gap 6; specialize the first candidate pair. -/
 theorem gap6 (x : ℝ) :
     conjugate 1 (-1 / 2) x = curve x + x - 1 / 2 := by
   unfold conjugate
   ring
 
-/-- Source: `proof_gap/exercise_470/7.txt`; rationalize the first candidate. -/
+/-- Exercise 470, gap 7; rationalize the first candidate. -/
 theorem gap7 (x : ℝ) (hx : curve x - x + 1 / 2 ≠ 0) :
     curve x + x - 1 / 2 = (3 / 4) / (curve x - x + 1 / 2) := by
   exact left_rationalized x
 
-/-- Source: `proof_gap/exercise_470/8.txt`. -/
+/-- Exercise 470, gap 8. -/
 theorem gap8 :
     Filter.Tendsto (fun x => curve x + x - 1 / 2) Filter.atBot (nhds 0) := by
   exact left_small
 
-/-- Source: `proof_gap/exercise_470/9.txt`. -/
+/-- Exercise 470, gap 9. -/
 theorem gap9 :
     Filter.Tendsto (residual 1 (-1 / 2)) Filter.atBot Filter.atTop := by
   exact left_large.congr' (Filter.Eventually.of_forall (fun x => by
     unfold residual
     ring))
 
-/-- Source: `proof_gap/exercise_470/10.txt`; the first candidate contradicts a left asymptote. -/
+/-- Exercise 470, gap 10; the first candidate contradicts a left asymptote. -/
 theorem gap10 : ¬ HasLeftAsymptote 1 (-1 / 2) := by
   intro h
   change Filter.Tendsto (residual 1 (-1 / 2)) Filter.atBot (nhds 0) at h
@@ -290,41 +290,41 @@ theorem gap10 : ¬ HasLeftAsymptote 1 (-1 / 2) := by
   rcases (hlt.and hge).exists with ⟨x, hx, hx'⟩
   exact (not_lt_of_ge hx') hx
 
-/-- Source: `proof_gap/exercise_470/11.txt`; specialize the surviving left candidate. -/
+/-- Exercise 470, gap 11; specialize the surviving left candidate. -/
 theorem gap11 (x : ℝ) :
     conjugate (-1) (1 / 2) x = curve x - x + 1 / 2 := by
   unfold conjugate
   ring
 
-/-- Source: `proof_gap/exercise_470/12.txt`. -/
+/-- Exercise 470, gap 12. -/
 theorem gap12 :
     Filter.Tendsto (fun x => curve x - x + 1 / 2) Filter.atBot Filter.atTop := by
   exact left_large
 
-/-- Source: `proof_gap/exercise_470/13.txt`. -/
+/-- Exercise 470, gap 13. -/
 theorem gap13 : HasLeftAsymptote (-1) (1 / 2) := by
   unfold HasLeftAsymptote
   exact left_small.congr' (Filter.Eventually.of_forall (fun x => by
     unfold residual
     ring))
 
-/-- Source: `proof_gap/exercise_470/14.txt`. -/
+/-- Exercise 470, gap 14. -/
 theorem gap14 (a₁ b₁ : ℝ) (h : HasLeftAsymptote a₁ b₁) : a₁ = -1 := by
   exact (left_parameters a₁ b₁ h).1
 
-/-- Source: `proof_gap/exercise_470/15.txt`. -/
+/-- Exercise 470, gap 15. -/
 theorem gap15 (a₁ b₁ : ℝ) (h : HasLeftAsymptote a₁ b₁) : b₁ = 1 / 2 := by
   exact (left_parameters a₁ b₁ h).2
 
-/-- Source: `proof_gap/exercise_470/16.txt`. -/
+/-- Exercise 470, gap 16. -/
 theorem gap16 (a₂ b₂ : ℝ) (h : HasRightAsymptote a₂ b₂) : a₂ = 1 := by
   exact (right_parameters a₂ b₂ h).1
 
-/-- Source: `proof_gap/exercise_470/17.txt`. -/
+/-- Exercise 470, gap 17. -/
 theorem gap17 (a₂ b₂ : ℝ) (h : HasRightAsymptote a₂ b₂) : b₂ = -1 / 2 := by
   exact (right_parameters a₂ b₂ h).2
 
-/-- Source: `proof_gap/exercise_470/18.txt`. -/
+/-- Exercise 470, gap 18. -/
 theorem gap18 (a₁ b₁ a₂ b₂ : ℝ)
     (h : (a₁, b₁, a₂, b₂) = (-1, 1 / 2, 1, -1 / 2)) :
     HasLeftAsymptote a₁ b₁ ∧ HasRightAsymptote a₂ b₂ := by

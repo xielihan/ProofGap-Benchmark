@@ -25,7 +25,7 @@ def scaled (x : ℝ) : ℝ :=
 def HasRightLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a (Set.Ioi a)) (nhds L)
 
-/-- Source: `proof_gap/exercise_460/1.txt`; rationalize the difference of square roots. -/
+/-- Exercise 460, gap 1; rationalize the difference of square roots. -/
 private theorem nonneg_eq_of_sq_eq
     (p q : ℝ) (hp : 0 ≤ p) (hq : 0 ≤ q) (hsq : p ^ 2 = q ^ 2) : p = q := by
   by_contra hne
@@ -239,7 +239,7 @@ theorem gap1 (L : ℝ) :
   · intro h
     exact Filter.Tendsto.congr' heq.symm h
 
-/-- Source: `proof_gap/exercise_460/2.txt`; scale numerator and denominator by `√x`. -/
+/-- Exercise 460, gap 2; scale numerator and denominator by `√x`. -/
 theorem gap2 (L : ℝ) :
     HasRightLimitAt rationalized 0 L ↔
       HasRightLimitAt (fun x => 2 * scaled x) 0 L := by
@@ -255,7 +255,7 @@ theorem gap2 (L : ℝ) :
   · intro h
     exact Filter.Tendsto.congr' heq.symm h
 
-/-- Source: `proof_gap/exercise_460/3.txt`. -/
+/-- Exercise 460, gap 3. -/
 theorem gap3 : HasRightLimitAt (fun x => 2 * scaled x) 0 1 := by
   have hinner : Continuous (fun x : ℝ => x + x * Real.sqrt x) :=
     continuous_id.add (continuous_id.mul Real.continuous_sqrt)

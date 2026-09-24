@@ -40,7 +40,7 @@ private theorem hasLimitAtCongr {f g : ℝ → ℝ} {a L : ℝ}
   unfold HasLimitAt
   exact ⟨fun hf => hf.congr' hfg, fun hg => hg.congr' hfg.symm⟩
 
-/-- Source: `proof_gap/exercise_443/1.txt`. -/
+/-- Exercise 443, gap 1. -/
 theorem gap1 : HasLimitAt original 8 (12 / 5) ↔
     HasLimitAt cancelled 8 (12 / 5) := by
   apply hasLimitAtCongr
@@ -79,12 +79,12 @@ theorem gap1 : HasLimitAt original 8 (12 / 5) ↔
   rw [hleft]
   nlinarith
 
-/-- Source: `proof_gap/exercise_443/2.txt`. -/
+/-- Exercise 443, gap 2. -/
 theorem gap2 : HasLimitAt original 8 (12 / 5) ↔
     HasLimitAt cancelled 8 (12 / 5) := by
   exact gap1
 
-/-- Source: `proof_gap/exercise_443/3.txt`. -/
+/-- Exercise 443, gap 3. -/
 theorem gap3 : HasLimitAt cancelled 8 (12 / 5) := by
   have hs8 := cbrt_spec (8 : ℝ) (by norm_num)
   have hc8 : cbrt 8 = 2 := by
@@ -133,7 +133,7 @@ theorem gap3 : HasLimitAt cancelled 8 (12 / 5) := by
   rw [← hvalue]
   exact hcont.tendsto.mono_left inf_le_left
 
-/-- Source: `proof_gap/exercise_443/4.txt`. -/
+/-- Exercise 443, gap 4. -/
 theorem gap4 : HasLimitAt original 8 (12 / 5) := by
   exact gap1.mpr gap3
 

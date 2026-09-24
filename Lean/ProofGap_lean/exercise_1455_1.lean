@@ -6,7 +6,7 @@ import Mathlib
 -- Last gap: 7; compilation status: passed
 -- Classification concerns only the last gap compilation, not every gap below.
 
--- Source: proofgap/exercise_1455_1/1.txt
+-- Exercise 1455_1, gap 1
 namespace regenerated_exercise_1455_1_gap_1
 
 attribute [local instance] Classical.propDecidable
@@ -60,7 +60,7 @@ theorem proof_gap_exercise_1455_1_1
   sorry
 end regenerated_exercise_1455_1_gap_1
 
--- Source: proofgap/exercise_1455_1/2.txt
+-- Exercise 1455_1, gap 2
 namespace regenerated_exercise_1455_1_gap_2
 
 attribute [local instance] Classical.propDecidable
@@ -116,7 +116,7 @@ theorem proof_gap_exercise_1455_1_2
   sorry
 end regenerated_exercise_1455_1_gap_2
 
--- Source: proofgap/exercise_1455_1/3.txt
+-- Exercise 1455_1, gap 3
 namespace regenerated_exercise_1455_1_gap_3
 
 attribute [local instance] Classical.propDecidable
@@ -173,7 +173,7 @@ theorem proof_gap_exercise_1455_1_3
   sorry
 end regenerated_exercise_1455_1_gap_3
 
--- Source: proofgap/exercise_1455_1/4.txt
+-- Exercise 1455_1, gap 4
 namespace regenerated_exercise_1455_1_gap_4
 
 attribute [local instance] Classical.propDecidable
@@ -231,7 +231,7 @@ theorem proof_gap_exercise_1455_1_4
   sorry
 end regenerated_exercise_1455_1_gap_4
 
--- Source: proofgap/exercise_1455_1/5.txt
+-- Exercise 1455_1, gap 5
 namespace regenerated_exercise_1455_1_gap_5
 
 attribute [local instance] Classical.propDecidable
@@ -290,7 +290,7 @@ theorem proof_gap_exercise_1455_1_5
   sorry
 end regenerated_exercise_1455_1_gap_5
 
--- Source: proofgap/exercise_1455_1/6.txt
+-- Exercise 1455_1, gap 6
 namespace regenerated_exercise_1455_1_gap_6
 
 attribute [local instance] Classical.propDecidable
@@ -350,7 +350,7 @@ theorem proof_gap_exercise_1455_1_6
   sorry
 end regenerated_exercise_1455_1_gap_6
 
--- Source: proofgap/exercise_1455_1/7.txt
+-- Exercise 1455_1, gap 7
 namespace regenerated_exercise_1455_1_gap_7
 
 attribute [local instance] Classical.propDecidable

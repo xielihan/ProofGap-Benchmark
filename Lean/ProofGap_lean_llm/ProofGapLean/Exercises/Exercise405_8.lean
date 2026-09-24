@@ -12,7 +12,7 @@ def TendsToNegInfinityFromRight (f : ℝ → ℝ) (a : ℝ) : Prop :=
 
 def g (x : ℝ) : ℝ := -1 / (x - 1)
 
-/-- Source: `proof_gap/exercise_405_8/1.txt`. -/
+/-- Exercise 405_8, gap 1. -/
 theorem gap1 : ∀ a : ℝ, ∀ f : ℝ → ℝ,
     TendsToNegInfinityFromRight f a ↔
       ∀ E > 0, ∃ δ > 0, ∀ x,
@@ -20,7 +20,7 @@ theorem gap1 : ∀ a : ℝ, ∀ f : ℝ → ℝ,
   intro a f
   rfl
 
-/-- Source: `proof_gap/exercise_405_8/2.txt`; define the previously free example. -/
+/-- Exercise 405_8, gap 2; define the previously free example. -/
 theorem gap2 : TendsToNegInfinityFromRight g 1 := by
   intro E hE
   refine ⟨1 / E, one_div_pos.mpr hE, ?_⟩

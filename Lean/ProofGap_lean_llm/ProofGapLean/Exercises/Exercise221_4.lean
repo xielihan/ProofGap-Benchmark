@@ -9,13 +9,13 @@ noncomputable section
 
 def f (a b c d x : ℝ) : ℝ := (a * x + b) / (c * x + d)
 
-/-- Source: `proof_gap/exercise_221_4/1.txt`; exclude the pole. -/
+/-- Exercise 221_4, gap 1; exclude the pole. -/
 theorem gap1 (a b c d : ℝ) : ∀ x, c * x + d ≠ 0 →
     f a b c d x = (a * x + b) / (c * x + d) := by
   intro x hx
   rfl
 
-/-- Source: `proof_gap/exercise_221_4/2.txt`; require c≠0 and exclude the pole. -/
+/-- Exercise 221_4, gap 2; require c≠0 and exclude the pole. -/
 theorem gap2 (a b c d : ℝ) (hc : c ≠ 0) : ∀ x, c * x + d ≠ 0 →
     (a * x + b) / (c * x + d) =
       a / c + (b - a * (d / c)) / (c * x + d) := by
@@ -24,13 +24,13 @@ theorem gap2 (a b c d : ℝ) (hc : c ≠ 0) : ∀ x, c * x + d ≠ 0 →
   field_simp [hc, hx, hx']
   <;> ring
 
-/-- Source: `proof_gap/exercise_221_4/3.txt`. -/
+/-- Exercise 221_4, gap 3. -/
 theorem gap3 (a b c d : ℝ) (hc : c ≠ 0) : ∀ x, c * x + d ≠ 0 →
     f a b c d x = a / c + (b - a * (d / c)) / (c * x + d) := by
   intro x hx
   simpa [f] using gap2 a b c d hc x hx
 
-/-- Source: `proof_gap/exercise_221_4/4.txt`; d>0 fixes the missing denominator sign. -/
+/-- Exercise 221_4, gap 4; d>0 fixes the missing denominator sign. -/
 theorem gap4 (a b d : ℝ) (ha : 0 < a) (hd : 0 < d) :
     StrictMono (f a b 0 d) := by
   intro x y hxy
@@ -38,7 +38,7 @@ theorem gap4 (a b d : ℝ) (ha : 0 < a) (hd : 0 < d) :
   apply (div_lt_div_iff_of_pos_right hd).2
   nlinarith
 
-/-- Source: `proof_gap/exercise_221_4/5.txt`; d>0 fixes the missing denominator sign. -/
+/-- Exercise 221_4, gap 5; d>0 fixes the missing denominator sign. -/
 theorem gap5 (a b d : ℝ) (ha : a < 0) (hd : 0 < d) :
     StrictAnti (f a b 0 d) := by
   intro x y hxy
@@ -57,7 +57,7 @@ private theorem f_sub_f (a b c d x y : ℝ)
   field_simp [hx, hy, hx', hy']
   <;> ring
 
-/-- Source: `proof_gap/exercise_221_4/6.txt`. -/
+/-- Exercise 221_4, gap 6. -/
 theorem gap6 (a b c d : ℝ) (hc : 0 < c) (h : b > a * (d / c)) :
     StrictAntiOn (f a b c d) (Set.Iio (-d / c)) := by
   intro x hx y hy hxy
@@ -88,7 +88,7 @@ theorem gap6 (a b c d : ℝ) (hc : 0 < c) (h : b > a * (d / c)) :
   rw [← f_sub_f a b c d x y hdx.ne hdy.ne] at hquot
   linarith
 
-/-- Source: `proof_gap/exercise_221_4/7.txt`. -/
+/-- Exercise 221_4, gap 7. -/
 theorem gap7 (a b c d : ℝ) (hc : 0 < c) (h : b > a * (d / c)) :
     StrictAntiOn (f a b c d) (Set.Ioi (-d / c)) := by
   intro x hx y hy hxy
@@ -118,7 +118,7 @@ theorem gap7 (a b c d : ℝ) (hc : 0 < c) (h : b > a * (d / c)) :
   rw [← f_sub_f a b c d x y hdx.ne' hdy.ne'] at hquot
   linarith
 
-/-- Source: `proof_gap/exercise_221_4/8.txt`. -/
+/-- Exercise 221_4, gap 8. -/
 theorem gap8 (a b c d : ℝ) (hc : 0 < c) (h : b < a * d / c) :
     StrictMonoOn (f a b c d) (Set.Iio (-d / c)) := by
   intro x hx y hy hxy
@@ -145,7 +145,7 @@ theorem gap8 (a b c d : ℝ) (hc : 0 < c) (h : b < a * d / c) :
   rw [← f_sub_f a b c d x y hdx.ne hdy.ne] at hquot
   linarith
 
-/-- Source: `proof_gap/exercise_221_4/9.txt`. -/
+/-- Exercise 221_4, gap 9. -/
 theorem gap9 (a b c d : ℝ) (hc : 0 < c) (h : b < a * d / c) :
     StrictMonoOn (f a b c d) (Set.Ioi (-d / c)) := by
   intro x hx y hy hxy

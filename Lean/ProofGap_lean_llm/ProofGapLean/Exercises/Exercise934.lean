@@ -24,7 +24,7 @@ def expandedDerivative (a x : ℝ) : ℝ :=
 def finalDerivative (a x : ℝ) : ℝ :=
   Real.sqrt (a ^ 2 - x ^ 2)
 
-/-- Source: `proof_gap/exercise_934/1.txt`; supplement `a > 0` with
+/-- Exercise 934, gap 1; supplement `a > 0` with
 `|x| < a` so the root and inverse sine are in their strict domains. -/
 theorem gap1 (a x : ℝ) (ha : 0 < a) (hx : |x| < a) :
     HasDerivAt (y a) (expandedDerivative a x) x := by
@@ -109,7 +109,7 @@ theorem gap1 (a x : ℝ) (ha : 0 < a) (hx : |x| < a) :
     simpa using HasDerivAt.mul (hasDerivAt_const x (a ^ 2 / 2)) harcsin
   simpa [y, expandedDerivative] using HasDerivAt.add hfirst hsecond
 
-/-- Source: `proof_gap/exercise_934/2.txt`; strict interiority makes the
+/-- Exercise 934, gap 2; strict interiority makes the
 square-root denominator positive. -/
 theorem gap2 (a x : ℝ) (ha : 0 < a) (hx : |x| < a) :
     expandedDerivative a x = finalDerivative a x := by
@@ -122,7 +122,7 @@ theorem gap2 (a x : ℝ) (ha : 0 < a) (hx : |x| < a) :
   unfold expandedDerivative finalDerivative
   field_simp [hs.ne'] <;> nlinarith [hs_sq]
 
-/-- Source: `proof_gap/exercise_934/3.txt`; retain the positive scale and open
+/-- Exercise 934, gap 3; retain the positive scale and open
 inverse-trigonometric domain. -/
 theorem gap3 (a x : ℝ) (ha : 0 < a) (hx : |x| < a) :
     HasDerivAt (y a) (finalDerivative a x) x := by

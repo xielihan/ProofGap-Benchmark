@@ -31,7 +31,7 @@ def split3 (x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_504/1.txt`; remove the shadowed outer `x` and its irrelevant interval premise. -/
+/-- Exercise 504, gap 1; remove the shadowed outer `x` and its irrelevant interval premise. -/
 private theorem tendsto_mul_punctured (a : ℝ) (ha : a ≠ 0) :
     Filter.Tendsto (fun x : ℝ => a * x)
       (nhdsWithin 0 ({0} : Set ℝ)ᶜ)
@@ -416,23 +416,23 @@ theorem gap1 (L : ℝ) :
     ring
   rw [h]
 
-/-- Source: `proof_gap/exercise_504/2.txt`; remove the shadowed outer `x`. -/
+/-- Exercise 504, gap 2; remove the shadowed outer `x`. -/
 theorem gap2 (L : ℝ) :
     HasLimitAtZero original L ↔ HasLimitAtZero split2 L := by
   rw [hasLimitAtZero_iff_eq original_limit L,
     hasLimitAtZero_iff_eq split2_limit L]
 
-/-- Source: `proof_gap/exercise_504/3.txt`; remove the shadowed outer `x`. -/
+/-- Exercise 504, gap 3; remove the shadowed outer `x`. -/
 theorem gap3 (L : ℝ) :
     HasLimitAtZero original L ↔ HasLimitAtZero split3 L := by
   rw [hasLimitAtZero_iff_eq original_limit L,
     hasLimitAtZero_iff_eq split3_limit L]
 
-/-- Source: `proof_gap/exercise_504/4.txt`; remove the shadowed outer `x`. -/
+/-- Exercise 504, gap 4; remove the shadowed outer `x`. -/
 theorem gap4 : HasLimitAtZero split3 3 := by
   exact split3_limit
 
-/-- Source: `proof_gap/exercise_504/5.txt`; remove the shadowed outer `x`. -/
+/-- Exercise 504, gap 5; remove the shadowed outer `x`. -/
 theorem gap5 : HasLimitAtZero original 3 := by
   exact original_limit
 

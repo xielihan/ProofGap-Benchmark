@@ -12,7 +12,7 @@ def cube (x : ℝ) : ℝ := x ^ 3
 def increment (x Δx : ℝ) : ℝ := cube (x + Δx) - cube x
 def quotient (x Δx : ℝ) : ℝ := increment x Δx / Δx
 
-/-- Source: `proof_gap/exercise_828_2/1.txt`; replace the false universal
+/-- Exercise 828_2, gap 1; replace the false universal
 quantifier over `Δy` by its increment definition and add `Δx≠0`. -/
 private theorem hasDerivAt_cube (x : ℝ) : HasDerivAt cube (3 * x ^ 2) x := by
   change HasDerivAt (fun y : ℝ => y ^ 3) (3 * x ^ 2) x
@@ -27,13 +27,13 @@ theorem gap1 (Δy Δx x : ℝ) (hΔy : Δy = increment x Δx)
     Δy / Δx = ((x + Δx) ^ 3 - x ^ 3) / Δx := by
   simpa [hΔy, increment, cube]
 
-/-- Source: `proof_gap/exercise_828_2/2.txt`; add `Δx≠0`. -/
+/-- Exercise 828_2, gap 2; add `Δx≠0`. -/
 theorem gap2 (x Δx : ℝ) (hΔx : Δx ≠ 0) :
     ((x + Δx) ^ 3 - x ^ 3) / Δx =
       3 * x ^ 2 + 3 * x * Δx + Δx ^ 2 := by
   field_simp [hΔx] <;> ring
 
-/-- Source: `proof_gap/exercise_828_2/3.txt`; bind `Δy` and add `Δx≠0`. -/
+/-- Exercise 828_2, gap 3; bind `Δy` and add `Δx≠0`. -/
 theorem gap3 (Δy Δx x : ℝ) (hΔy : Δy = increment x Δx)
     (hΔx : Δx ≠ 0) :
     Δy / Δx = 3 * x ^ 2 + 3 * x * Δx + Δx ^ 2 := by
@@ -41,7 +41,7 @@ theorem gap3 (Δy Δx x : ℝ) (hΔy : Δy = increment x Δx)
     Δy / Δx = ((x + Δx) ^ 3 - x ^ 3) / Δx := gap1 Δy Δx x hΔy hΔx
     _ = 3 * x ^ 2 + 3 * x * Δx + Δx ^ 2 := gap2 x Δx hΔx
 
-/-- Source: `proof_gap/exercise_828_2/4.txt`; replace the unspecified `lim`
+/-- Exercise 828_2, gap 4; replace the unspecified `lim`
 operator by the difference-quotient `Tendsto` statement. -/
 theorem gap4 (x : ℝ) :
     Filter.Tendsto (quotient x) (nhdsWithin 0 ({0} : Set ℝ)ᶜ)
@@ -69,7 +69,7 @@ theorem gap4 (x : ℝ) :
   rw [Filter.map_congr heq]
   exact hpoly
 
-/-- Source: `proof_gap/exercise_828_2/5.txt`; state equality of the two
+/-- Exercise 828_2, gap 5; state equality of the two
 punctured-limit formulations. -/
 theorem gap5 (x L : ℝ) :
     Filter.Tendsto (quotient x) (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L) ↔
@@ -88,7 +88,7 @@ theorem gap5 (x L : ℝ) :
         (nhdsWithin 0 ({0} : Set ℝ)ᶜ) ≤ nhds L
   rw [Filter.map_congr heq]
 
-/-- Source: `proof_gap/exercise_828_2/6.txt`. -/
+/-- Exercise 828_2, gap 6. -/
 theorem gap6 (x : ℝ) :
     Filter.Tendsto (fun Δx => 3 * x ^ 2 + 3 * x * Δx + Δx ^ 2)
       (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds (3 * x ^ 2)) := by
@@ -99,7 +99,7 @@ theorem gap6 (x : ℝ) :
   simpa using
     ((tendsto_const_nhds.add (tendsto_const_nhds.mul hid)).add (hid.pow 2))
 
-/-- Source: `proof_gap/exercise_828_2/7.txt`. -/
+/-- Exercise 828_2, gap 7. -/
 theorem gap7 (x : ℝ) : HasDerivAt cube (3 * x ^ 2) x := by
   exact hasDerivAt_cube x
 

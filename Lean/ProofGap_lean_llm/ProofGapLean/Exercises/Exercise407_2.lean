@@ -11,7 +11,7 @@ def ApproachesBelowFromLeft (f : ℝ → ℝ) (a b : ℝ) : Prop :=
 
 def f (x : ℝ) : ℝ := x
 
-/-- Source: `proof_gap/exercise_407_2/1.txt`; bind `y=f(x)` and the fixed limit point. -/
+/-- Exercise 407_2, gap 1; bind `y=f(x)` and the fixed limit point. -/
 theorem gap1 : ∀ ε > 0, ∃ δ > 0, ∀ x,
     0 < -x → -x < δ → 0 < -f x ∧ -f x < ε := by
   intro ε hε
@@ -21,7 +21,7 @@ theorem gap1 : ∀ ε > 0, ∃ δ > 0, ∀ x,
   · simpa [f] using hx
   · simpa [f] using hδ
 
-/-- Source: `proof_gap/exercise_407_2/2.txt`; replace the false universal limit claim by its defining equivalence. -/
+/-- Exercise 407_2, gap 2; replace the false universal limit claim by its defining equivalence. -/
 theorem gap2 (g : ℝ → ℝ) (a b : ℝ) :
     ApproachesBelowFromLeft g a b ↔
       ∀ ε > 0, ∃ δ > 0, ∀ x,
@@ -29,16 +29,16 @@ theorem gap2 (g : ℝ → ℝ) (a b : ℝ) :
           0 < b - g x ∧ b - g x < ε := by
   rfl
 
-/-- Source: `proof_gap/exercise_407_2/3.txt`; restrict the inequality to the left side. -/
+/-- Exercise 407_2, gap 3; restrict the inequality to the left side. -/
 theorem gap3 : ∀ x : ℝ, x < 0 → f x < 0 := by
   intro x hx
   simpa [f] using hx
 
-/-- Source: `proof_gap/exercise_407_2/4.txt`; define the previously free function. -/
+/-- Exercise 407_2, gap 4; define the previously free function. -/
 theorem gap4 : ApproachesBelowFromLeft f 0 0 := by
   simpa [ApproachesBelowFromLeft] using gap1
 
-/-- Source: `proof_gap/exercise_407_2/5.txt`; restrict the inequality to the left side. -/
+/-- Exercise 407_2, gap 5; restrict the inequality to the left side. -/
 theorem gap5 : ∀ x : ℝ, x < 0 → f x < 0 := by
   exact gap3
 

@@ -17,7 +17,7 @@ def rewritten (x : ℝ) (n : ℕ) : ℝ :=
   Real.rpow (1 + 1 / (((n : ℝ) - 1) / (x + 1)))
     ((((n : ℝ) - 1) / (x + 1)) * (x + 1) + 1)
 
-/-- Source: `proof_gap/exercise_527/1.txt`; require the nonzero substitution divisor `x+1`. -/
+/-- Exercise 527, gap 1; require the nonzero substitution divisor `x+1`. -/
 private theorem tendsto_of_eventually_eq {α β : Type*}
     {f g : α → β} {l : Filter α} {la : Filter β}
     (hfg : f =ᶠ[l] g) (hg : Filter.Tendsto g l la) :
@@ -194,13 +194,13 @@ theorem gap1 (x : ℝ) (hx : x ≠ -1) (L : ℝ) :
   · intro hr
     exact tendsto_of_eventually_eq heq hr
 
-/-- Source: `proof_gap/exercise_527/2.txt`; require `x+1≠0` in the displayed substitution. -/
+/-- Exercise 527, gap 2; require `x+1≠0` in the displayed substitution. -/
 theorem gap2 (x : ℝ) (hx : x ≠ -1) :
     Filter.Tendsto (rewritten x) Filter.atTop (nhds (Real.exp (x + 1))) := by
   exact (gap1 x hx (Real.exp (x + 1))).mp
     (seq_tendsto_exp_of_ne x hx)
 
-/-- Source: `proof_gap/exercise_527/3.txt`; the final limit remains valid for every real `x`. -/
+/-- Exercise 527, gap 3; the final limit remains valid for every real `x`. -/
 theorem gap3 (x : ℝ) :
     Filter.Tendsto (seq x) Filter.atTop (nhds (Real.exp (x + 1))) := by
   by_cases hx : x = -1

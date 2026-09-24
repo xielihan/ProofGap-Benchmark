@@ -18,7 +18,7 @@ def cancelled (x : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_448/1.txt`. -/
+/-- Exercise 448, gap 1. -/
 private theorem original_eventuallyEq_cancelled :
     original =ᶠ[nhdsWithin 0 ({0} : Set ℝ)ᶜ] cancelled := by
   have hcub : ∀ {y : ℝ}, 0 ≤ y → cbrt y ^ 3 = y := by
@@ -106,12 +106,12 @@ theorem gap1 : HasLimitAt original 0 (3 / 2) ↔
   unfold HasLimitAt
   exact Filter.tendsto_congr' original_eventuallyEq_cancelled
 
-/-- Source: `proof_gap/exercise_448/2.txt`. -/
+/-- Exercise 448, gap 2. -/
 theorem gap2 : HasLimitAt original 0 (3 / 2) ↔
     HasLimitAt cancelled 0 (3 / 2) := by
   exact gap1
 
-/-- Source: `proof_gap/exercise_448/3.txt`. -/
+/-- Exercise 448, gap 3. -/
 theorem gap3 : HasLimitAt cancelled 0 (3 / 2) := by
   let smooth : ℝ → ℝ := fun x =>
     (Real.exp (Real.log ((1 + x) ^ 2) * (1 / 3 : ℝ)) +
@@ -158,7 +158,7 @@ theorem gap3 : HasLimitAt cancelled 0 (3 / 2) := by
   rw [← hv]
   exact hs.tendsto.mono_left inf_le_left
 
-/-- Source: `proof_gap/exercise_448/4.txt`. -/
+/-- Exercise 448, gap 4. -/
 theorem gap4 : HasLimitAt original 0 (3 / 2) := by
   exact gap1.mpr gap3
 

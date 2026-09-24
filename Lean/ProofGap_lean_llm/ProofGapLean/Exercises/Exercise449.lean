@@ -22,7 +22,7 @@ def cancelled (x : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_449/1.txt`; replace the radical ellipsis by a six-term finite sum. -/
+/-- Exercise 449, gap 1; replace the radical ellipsis by a six-term finite sum. -/
 private theorem root_pow_self
     (k : ℕ) (hk : 0 < k) (t : ℝ) (ht : 0 ≤ t) :
     root k (t ^ k) = t := by
@@ -301,24 +301,24 @@ theorem gap1 : HasLimitAt original 7 (4 + 4 / 27) ↔
     simpa using hx7
   exact Filter.tendsto_congr' heq
 
-/-- Source: `proof_gap/exercise_449/2.txt`. -/
+/-- Exercise 449, gap 2. -/
 theorem gap2 : HasLimitAt original 7 (4 + 4 / 27) ↔
     HasLimitAt cancelled 7 (4 + 4 / 27) := by
   exact gap1
 
-/-- Source: `proof_gap/exercise_449/3.txt`. -/
+/-- Exercise 449, gap 3. -/
 theorem gap3 : HasLimitAt cancelled 7 ((189 * 4 * 8 : ℝ) / 1458) := by
   exact cancelled_limit_at_seven
 
-/-- Source: `proof_gap/exercise_449/4.txt`. -/
+/-- Exercise 449, gap 4. -/
 theorem gap4 : (189 * 4 * 8 : ℝ) / 1458 = 6048 / 1458 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_449/5.txt`. -/
+/-- Exercise 449, gap 5. -/
 theorem gap5 : (6048 : ℝ) / 1458 = 4 + 4 / 27 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_449/6.txt`. -/
+/-- Exercise 449, gap 6. -/
 theorem gap6 : HasLimitAt cancelled 7 (4 + 4 / 27) := by
   rw [← gap5, ← gap4]
   exact gap3

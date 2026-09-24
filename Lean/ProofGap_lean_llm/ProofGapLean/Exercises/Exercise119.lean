@@ -9,7 +9,7 @@ namespace ProofGap.Exercise119
 def x (n : ℕ) : ℝ :=
   3 * (1 - 1 / (n : ℝ)) + 2 * (-1 : ℝ) ^ n
 
-/-- Source: `proof_gap/exercise_119/1.txt`. -/
+/-- Exercise 119, gap 1. -/
 theorem gap1 :
     ∀ n : ℕ, 2 * (-1 : ℝ) ^ n ∈ ({2, -2} : Set ℝ) := by
   intro n
@@ -73,7 +73,7 @@ private theorem one_mem_cluster : 1 ∈ ProofGap.ClusterSet x := by
   filter_upwards with k
   simpa [p, Function.comp_apply] using (x_odd k).symm
 
-/-- Source: `proof_gap/exercise_119/2.txt`. -/
+/-- Exercise 119, gap 2. -/
 theorem gap2 :
     ProofGap.ClusterSet x = ({5, 1} : Set ℝ) := by
   ext a

@@ -638,7 +638,7 @@ private theorem dirichletLIntegral_eq
             rw [← ENNReal.ofReal_mul hconstant]
             exact congrArg ENNReal.ofReal halgebra
 
-/-! Source: `results/stage1_gpt55/09_重积分与含参积分/exercise_4216_autoformalization_result/exercise_4216.md`. -/
+/-! Exercise 4216. -/
 
 private theorem baseDirichletFormula
     {n : ℕ} (hn : 0 < n) (p : BaseVec n) (hp : ∀ i, 0 < p i) :

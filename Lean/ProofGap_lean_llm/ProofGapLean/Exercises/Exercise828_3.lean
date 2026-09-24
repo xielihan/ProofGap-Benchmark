@@ -12,7 +12,7 @@ def y (x : ℝ) : ℝ := 1 / x
 
 def quotient (x Δx : ℝ) : ℝ := (y (x + Δx) - y x) / Δx
 
-/-- Source: `proof_gap/exercise_828_3/1.txt`; define `Δy` as the actual function increment. -/
+/-- Exercise 828_3, gap 1; define `Δy` as the actual function increment. -/
 private theorem y_hasDerivAt (x : ℝ) (hx : x ≠ 0) :
     HasDerivAt y (-1 / x ^ 2) x := by
   have hy : y = fun z : ℝ => z⁻¹ := by
@@ -25,7 +25,7 @@ theorem gap1 (x Δx Δy : ℝ) (hΔy : Δy = y (x + Δx) - y x) :
     Δy / Δx = (1 / (x + Δx) - 1 / x) / Δx := by
   simpa [y] using congrArg (fun z : ℝ => z / Δx) hΔy
 
-/-- Source: `proof_gap/exercise_828_3/2.txt`; add all omitted nonzero denominators. -/
+/-- Exercise 828_3, gap 2; add all omitted nonzero denominators. -/
 theorem gap2 (x Δx : ℝ) (hx : x ≠ 0) (hΔx : Δx ≠ 0)
     (hsum : x + Δx ≠ 0) :
     (1 / (x + Δx) - 1 / x) / Δx = -1 / (x * (Δx + x)) := by
@@ -33,7 +33,7 @@ theorem gap2 (x Δx : ℝ) (hx : x ≠ 0) (hΔx : Δx ≠ 0)
     simpa [add_comm] using hsum
   field_simp [hx, hΔx, hsum, hsum'] <;> ring
 
-/-- Source: `proof_gap/exercise_828_3/3.txt`; define `Δy` and add denominator hypotheses. -/
+/-- Exercise 828_3, gap 3; define `Δy` and add denominator hypotheses. -/
 theorem gap3 (x Δx Δy : ℝ) (hx : x ≠ 0) (hΔx : Δx ≠ 0)
     (hsum : x + Δx ≠ 0) (hΔy : Δy = y (x + Δx) - y x) :
     Δy / Δx = -1 / (x * (Δx + x)) := by
@@ -42,7 +42,7 @@ theorem gap3 (x Δx Δy : ℝ) (hx : x ≠ 0) (hΔx : Δx ≠ 0)
       gap1 x Δx Δy hΔy
     _ = -1 / (x * (Δx + x)) := gap2 x Δx hx hΔx hsum
 
-/-- Source: `proof_gap/exercise_828_3/4.txt`; replace the undefined limit-value term by `Tendsto`. -/
+/-- Exercise 828_3, gap 4; replace the undefined limit-value term by `Tendsto`. -/
 theorem gap4 (x : ℝ) (hx : x ≠ 0) :
     Filter.Tendsto (quotient x) (nhdsWithin 0 {0}ᶜ) (nhds (deriv y x)) := by
   have ht : ContinuousAt (fun Δx : ℝ => x + Δx) 0 :=
@@ -71,7 +71,7 @@ theorem gap4 (x : ℝ) (hx : x ≠ 0) :
   rw [(y_hasDerivAt x hx).deriv]
   exact Filter.Tendsto.congr' heq.symm (hlim.mono_left inf_le_left)
 
-/-- Source: `proof_gap/exercise_828_3/5.txt`; state equality of the two punctured-limit representatives. -/
+/-- Exercise 828_3, gap 5; state equality of the two punctured-limit representatives. -/
 theorem gap5 (x : ℝ) (hx : x ≠ 0) :
     Filter.EventuallyEq (nhdsWithin 0 {0}ᶜ) (quotient x)
       (fun Δx => -1 / (x * (Δx + x))) := by
@@ -88,7 +88,7 @@ theorem gap5 (x : ℝ) (hx : x ≠ 0) :
     simpa using hΔx
   simpa [quotient, y] using gap2 x Δx hx hΔx0 hsumΔx
 
-/-- Source: `proof_gap/exercise_828_3/6.txt`; add `x≠0`. -/
+/-- Exercise 828_3, gap 6; add `x≠0`. -/
 theorem gap6 (x : ℝ) (hx : x ≠ 0) :
     Filter.Tendsto (fun Δx => -1 / (x * (Δx + x)))
       (nhds 0) (nhds (-1 / x ^ 2)) := by
@@ -99,7 +99,7 @@ theorem gap6 (x : ℝ) (hx : x ≠ 0) :
       (by simpa using mul_ne_zero hx hx)
   simpa only [ContinuousAt, zero_add, pow_two] using hcont
 
-/-- Source: `proof_gap/exercise_828_3/7.txt`; add `x≠0`. -/
+/-- Exercise 828_3, gap 7; add `x≠0`. -/
 theorem gap7 (x : ℝ) (hx : x ≠ 0) : deriv y x = -1 / x ^ 2 := by
   exact (y_hasDerivAt x hx).deriv
 

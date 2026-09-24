@@ -25,13 +25,13 @@ def oddRatio (p n : ℕ) : ℝ :=
   (((2 * n + 1 : ℕ) : ℝ) ^ p) /
     ((((n + 1 : ℕ) : ℝ) ^ (p + 1)) - (n : ℝ) ^ (p + 1))
 
-/-- Source: `proof_gap/exercise_145/1.txt`. -/
+/-- Exercise 145, gap 1. -/
 theorem gap1 (p : ℕ) : StrictMono (y p) := by
   intro m n hmn
   unfold y
   exact pow_lt_pow_left₀ (by exact_mod_cast hmn) (Nat.cast_nonneg m) (by omega)
 
-/-- Source: `proof_gap/exercise_145/2.txt`. -/
+/-- Exercise 145, gap 2. -/
 theorem gap2 (p : ℕ) : Tendsto (y p) atTop atTop := by
   have hcast :
       Tendsto (fun n : ℕ => (n : ℝ)) atTop atTop :=
@@ -90,7 +90,7 @@ private theorem normalizedFirstLimit (p : ℕ) :
       (tendsto_one_div_atTop_nhds_zero_nat (𝕜 := ℝ))).pow p using 1 <;> norm_num
   convert hnum.div (denomLimit p) (by positivity) using 1 <;> norm_num
 
-/-- Source: `proof_gap/exercise_145/3.txt`; the increment quotient is named explicitly. -/
+/-- Exercise 145, gap 3; the increment quotient is named explicitly. -/
 theorem gap3 (p : ℕ) :
     Tendsto (firstRatio p) atTop (𝓝 (1 / (p + 1 : ℝ))) := by
   apply (normalizedFirstLimit p).congr'
@@ -103,7 +103,7 @@ theorem gap3 (p : ℕ) :
   rw [hbase, div_pow]
   field_simp [hn0]
 
-/-- Source: `proof_gap/exercise_145/4.txt`; replace the informal little-o expression by its normalized quotient. -/
+/-- Exercise 145, gap 4; replace the informal little-o expression by its normalized quotient. -/
 theorem gap4 (p : ℕ) :
     Tendsto (fun n : ℕ =>
       ((1 + 1 / (n : ℝ)) ^ p) /
@@ -112,12 +112,12 @@ theorem gap4 (p : ℕ) :
       atTop (𝓝 (1 / (p + 1 : ℝ))) := by
   exact normalizedFirstLimit p
 
-/-- Source: `proof_gap/exercise_145/5.txt`. -/
+/-- Exercise 145, gap 5. -/
 theorem gap5 (p : ℕ) :
     Tendsto (firstRatio p) atTop (𝓝 (1 / (p + 1 : ℝ))) := by
   exact gap3 p
 
-/-- Source: `proof_gap/exercise_145/6.txt`. -/
+/-- Exercise 145, gap 6. -/
 theorem gap6 (p : ℕ) :
     Tendsto (fun n => (powSum p (n + 1) - powSum p n) /
       (y p (n + 1) - y p n)) atTop (𝓝 (1 / (p + 1 : ℝ))) := by
@@ -134,13 +134,13 @@ theorem gap6 (p : ℕ) :
     simp [add_comm]
   simp [firstRatio, y, hsum]
 
-/-- Source: `proof_gap/exercise_145/7.txt`. -/
+/-- Exercise 145, gap 7. -/
 theorem gap7 (p : ℕ) :
     (fun n => powSum p n / y p n) =
       (fun n => powSum p n / (n : ℝ) ^ (p + 1)) := by
   rfl
 
-/-- Source: `proof_gap/exercise_145/8.txt`. -/
+/-- Exercise 145, gap 8. -/
 theorem gap8 (p : ℕ) :
     Tendsto (fun n => powSum p n / (n : ℝ) ^ (p + 1))
       atTop (𝓝 (1 / (p + 1 : ℝ))) := by
@@ -148,19 +148,19 @@ theorem gap8 (p : ℕ) :
     (powSum p) (y p) (1 / (p + 1 : ℝ))
     (gap1 p) (gap2 p) (gap6 p)
 
-/-- Source: `proof_gap/exercise_145/9.txt`. -/
+/-- Exercise 145, gap 9. -/
 theorem gap9 (p : ℕ) :
     Tendsto (fun n => powSum p n / y p n)
       atTop (𝓝 (1 / (p + 1 : ℝ))) := by
   simpa [y] using gap8 p
 
-/-- Source: `proof_gap/exercise_145/10.txt`; p>0 is required for strict increase. -/
+/-- Exercise 145, gap 10; p>0 is required for strict increase. -/
 theorem gap10 (p : ℕ) (hp : 0 < p) : StrictMono (v p) := by
   intro m n hmn
   unfold v
   exact pow_lt_pow_left₀ (by exact_mod_cast hmn) (Nat.cast_nonneg m) hp.ne'
 
-/-- Source: `proof_gap/exercise_145/11.txt`; p>0 is required for divergence. -/
+/-- Exercise 145, gap 11; p>0 is required for divergence. -/
 theorem gap11 (p : ℕ) (hp : 0 < p) : Tendsto (v p) atTop atTop := by
   have hcast :
       Tendsto (fun n : ℕ => (n : ℝ)) atTop atTop :=
@@ -174,7 +174,7 @@ theorem gap11 (p : ℕ) (hp : 0 < p) : Tendsto (v p) atTop atTop := by
           hp.ne'
   · exact hcast
 
-/-- Source: `proof_gap/exercise_145/12.txt`; the exact increment quotient. -/
+/-- Exercise 145, gap 12; the exact increment quotient. -/
 theorem gap12 (p n : ℕ) :
     secondRatio p n =
       (((p + 1 : ℝ) * ((n + 1 : ℕ) : ℝ) ^ p +
@@ -336,7 +336,7 @@ private theorem secondRawLimit (q : ℕ) :
     ne_of_gt (sub_pos.mpr hpow)
   field_simp [hn0, hdiff]
 
-/-- Source: `proof_gap/exercise_145/13.txt`; the ellipses are replaced by the asymptotic limit they denote. -/
+/-- Exercise 145, gap 13; the ellipses are replaced by the asymptotic limit they denote. -/
 theorem gap13 (p : ℕ) (hp : 0 < p) :
     Tendsto (secondRatio p) atTop (𝓝 (1 / 2 : ℝ)) := by
   cases p with
@@ -348,17 +348,17 @@ theorem gap13 (p : ℕ) (hp : 0 < p) :
       norm_num [Nat.cast_add, Nat.cast_one, Nat.add_assoc]
       rw [show (q : ℝ) + 1 + 1 = (q : ℝ) + 2 by ring]
 
-/-- Source: `proof_gap/exercise_145/14.txt`. -/
+/-- Exercise 145, gap 14. -/
 theorem gap14 (p : ℕ) (hp : 0 < p) :
     Tendsto (secondRatio p) atTop (𝓝 (1 / 2 : ℝ)) := by
   exact gap13 p hp
 
-/-- Source: `proof_gap/exercise_145/15.txt`. -/
+/-- Exercise 145, gap 15. -/
 theorem gap15 (p : ℕ) (hp : 0 < p) :
     Tendsto (secondRatio p) atTop (𝓝 (1 / 2 : ℝ)) := by
   exact gap13 p hp
 
-/-- Source: `proof_gap/exercise_145/16.txt`. -/
+/-- Exercise 145, gap 16. -/
 theorem gap16 (p : ℕ) :
     (fun n => u p n / v p n) =
       (fun n => powSum p n / (n : ℝ) ^ p - (n : ℝ) / (p + 1 : ℝ)) := by
@@ -371,7 +371,7 @@ theorem gap16 (p : ℕ) :
     field_simp [hnpow]
     ring
 
-/-- Source: `proof_gap/exercise_145/17.txt`. -/
+/-- Exercise 145, gap 17. -/
 theorem gap17 (p : ℕ) (hp : 0 < p) :
     Tendsto (fun n => powSum p n / (n : ℝ) ^ p -
       (n : ℝ) / (p + 1 : ℝ)) atTop (𝓝 (1 / 2 : ℝ)) := by
@@ -382,18 +382,18 @@ theorem gap17 (p : ℕ) (hp : 0 < p) :
   rw [gap16 p] at h
   exact h
 
-/-- Source: `proof_gap/exercise_145/18.txt`. -/
+/-- Exercise 145, gap 18. -/
 theorem gap18 (p : ℕ) (hp : 0 < p) :
     Tendsto (fun n => u p n / v p n) atTop (𝓝 (1 / 2 : ℝ)) := by
   exact ProofGap.Exercise143.gap22
     (u p) (v p) (1 / 2 : ℝ)
     (gap10 p hp) (gap11 p hp) (gap13 p hp)
 
-/-- Source: `proof_gap/exercise_145/19.txt`. -/
+/-- Exercise 145, gap 19. -/
 theorem gap19 (p : ℕ) : StrictMono (y p) := by
   exact gap1 p
 
-/-- Source: `proof_gap/exercise_145/20.txt`. -/
+/-- Exercise 145, gap 20. -/
 theorem gap20 (p : ℕ) : Tendsto (y p) atTop atTop := by
   exact gap2 p
 
@@ -410,7 +410,7 @@ private theorem normalizedOddLimit (p : ℕ) :
       (tendsto_one_div_atTop_nhds_zero_nat (𝕜 := ℝ))).pow p using 1 <;> norm_num
   exact hnum.div (denomLimit p) (by positivity)
 
-/-- Source: `proof_gap/exercise_145/21.txt`. -/
+/-- Exercise 145, gap 21. -/
 theorem gap21 (p : ℕ) :
     Tendsto (oddRatio p) atTop (𝓝 ((2 : ℝ) ^ p / (p + 1 : ℝ))) := by
   apply (normalizedOddLimit p).congr'
@@ -424,7 +424,7 @@ theorem gap21 (p : ℕ) :
   rw [hbase, div_pow]
   field_simp [hn0]
 
-/-- Source: `proof_gap/exercise_145/22.txt`; replace little-o by the normalized quotient. -/
+/-- Exercise 145, gap 22; replace little-o by the normalized quotient. -/
 theorem gap22 (p : ℕ) :
     Tendsto (fun n : ℕ =>
       ((2 : ℝ) + 1 / n) ^ p /
@@ -433,12 +433,12 @@ theorem gap22 (p : ℕ) :
       atTop (𝓝 ((2 : ℝ) ^ p / (p + 1 : ℝ))) := by
   exact normalizedOddLimit p
 
-/-- Source: `proof_gap/exercise_145/23.txt`. -/
+/-- Exercise 145, gap 23. -/
 theorem gap23 (p : ℕ) :
     Tendsto (oddRatio p) atTop (𝓝 ((2 : ℝ) ^ p / (p + 1 : ℝ))) := by
   exact gap21 p
 
-/-- Source: `proof_gap/exercise_145/24.txt`. -/
+/-- Exercise 145, gap 24. -/
 theorem gap24 (p : ℕ) :
     Tendsto (fun n => (oddPowSum p (n + 1) - oddPowSum p n) /
       (y p (n + 1) - y p n))
@@ -460,13 +460,13 @@ theorem gap24 (p : ℕ) :
     ring
   simp [oddRatio, y, hsum]
 
-/-- Source: `proof_gap/exercise_145/25.txt`. -/
+/-- Exercise 145, gap 25. -/
 theorem gap25 (p : ℕ) :
     (fun n => oddPowSum p n / y p n) =
       (fun n => oddPowSum p n / (n : ℝ) ^ (p + 1)) := by
   rfl
 
-/-- Source: `proof_gap/exercise_145/26.txt`. -/
+/-- Exercise 145, gap 26. -/
 theorem gap26 (p : ℕ) :
     Tendsto (fun n => oddPowSum p n / (n : ℝ) ^ (p + 1))
       atTop (𝓝 ((2 : ℝ) ^ p / (p + 1 : ℝ))) := by
@@ -474,13 +474,13 @@ theorem gap26 (p : ℕ) :
     (oddPowSum p) (y p) ((2 : ℝ) ^ p / (p + 1 : ℝ))
     (gap19 p) (gap20 p) (gap24 p)
 
-/-- Source: `proof_gap/exercise_145/27.txt`. -/
+/-- Exercise 145, gap 27. -/
 theorem gap27 (p : ℕ) :
     Tendsto (fun n => oddPowSum p n / y p n)
       atTop (𝓝 ((2 : ℝ) ^ p / (p + 1 : ℝ))) := by
   simpa [y] using gap26 p
 
-/-- Source: `proof_gap/exercise_145/28.txt`; the three asymptotic formulas. -/
+/-- Exercise 145, gap 28; the three asymptotic formulas. -/
 theorem gap28 (p : ℕ) (hp : 0 < p) :
     Tendsto (fun n => powSum p n / (n : ℝ) ^ (p + 1))
         atTop (𝓝 (1 / (p + 1 : ℝ))) ∧

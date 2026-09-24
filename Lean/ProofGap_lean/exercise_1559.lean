@@ -6,7 +6,7 @@ import Mathlib
 -- Last gap: 8; compilation status: passed
 -- Classification concerns only the last gap compilation, not every gap below.
 
--- Source: proofgap/exercise_1559/1.txt
+-- Exercise 1559, gap 1
 namespace regenerated_exercise_1559_gap_1
 
 attribute [local instance] Classical.propDecidable
@@ -64,7 +64,7 @@ theorem proof_gap_exercise_1559_1
   sorry
 end regenerated_exercise_1559_gap_1
 
--- Source: proofgap/exercise_1559/2.txt
+-- Exercise 1559, gap 2
 namespace regenerated_exercise_1559_gap_2
 
 attribute [local instance] Classical.propDecidable
@@ -123,7 +123,7 @@ theorem proof_gap_exercise_1559_2
   sorry
 end regenerated_exercise_1559_gap_2
 
--- Source: proofgap/exercise_1559/3.txt
+-- Exercise 1559, gap 3
 namespace regenerated_exercise_1559_gap_3
 
 attribute [local instance] Classical.propDecidable
@@ -183,7 +183,7 @@ theorem proof_gap_exercise_1559_3
   sorry
 end regenerated_exercise_1559_gap_3
 
--- Source: proofgap/exercise_1559/4.txt
+-- Exercise 1559, gap 4
 namespace regenerated_exercise_1559_gap_4
 
 attribute [local instance] Classical.propDecidable
@@ -244,7 +244,7 @@ theorem proof_gap_exercise_1559_4
   sorry
 end regenerated_exercise_1559_gap_4
 
--- Source: proofgap/exercise_1559/5.txt
+-- Exercise 1559, gap 5
 namespace regenerated_exercise_1559_gap_5
 
 attribute [local instance] Classical.propDecidable
@@ -306,7 +306,7 @@ theorem proof_gap_exercise_1559_5
   sorry
 end regenerated_exercise_1559_gap_5
 
--- Source: proofgap/exercise_1559/6.txt
+-- Exercise 1559, gap 6
 namespace regenerated_exercise_1559_gap_6
 
 attribute [local instance] Classical.propDecidable
@@ -369,7 +369,7 @@ theorem proof_gap_exercise_1559_6
   sorry
 end regenerated_exercise_1559_gap_6
 
--- Source: proofgap/exercise_1559/7.txt
+-- Exercise 1559, gap 7
 namespace regenerated_exercise_1559_gap_7
 
 attribute [local instance] Classical.propDecidable
@@ -433,7 +433,7 @@ theorem proof_gap_exercise_1559_7
   sorry
 end regenerated_exercise_1559_gap_7
 
--- Source: proofgap/exercise_1559/8.txt
+-- Exercise 1559, gap 8
 namespace regenerated_exercise_1559_gap_8
 
 attribute [local instance] Classical.propDecidable

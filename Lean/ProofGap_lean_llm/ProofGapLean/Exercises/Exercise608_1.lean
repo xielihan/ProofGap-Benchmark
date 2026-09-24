@@ -19,7 +19,7 @@ def errorSum (f : ℝ → ℝ) (A X₀ t : ℝ) (n : ℕ) : ℝ :=
   (Finset.Icc 1 n).sum (fun k =>
     f (X₀ + t + k) - f (X₀ + t + k - 1) - A)
 
-/-- Source: `proof_gap/exercise_608_1/1.txt`; remove shadowed witnesses. -/
+/-- Exercise 608_1, gap 1; remove shadowed witnesses. -/
 private theorem telescoping_error_sum (f : ℝ → ℝ) (A X₀ t : ℝ) (n : ℕ) :
     (Finset.Icc 1 n).sum (fun k =>
       f (X₀ + t + k) - f (X₀ + t + k - 1) - A) =
@@ -57,7 +57,7 @@ theorem gap1 (f : ℝ → ℝ) (A a : ℝ)
   have hbx : b ≤ x := le_trans (le_max_left b (a + 1)) hx
   simpa [Metric.mem_ball, Real.dist_eq] using hb x hbx
 
-/-- Source: `proof_gap/exercise_608_1/2.txt`. -/
+/-- Exercise 608_1, gap 2. -/
 theorem gap2 (x X₀ ε : ℝ) (hε : 0 < ε) (hx : X₀ + 1 < x) :
     ∃ n : ℕ, 1 ≤ n ∧ (n : ℝ) ≤ x - X₀ ∧ x - X₀ < n + 1 := by
   let n : ℕ := ⌊x - X₀⌋₊
@@ -76,25 +76,25 @@ theorem gap2 (x X₀ ε : ℝ) (hε : 0 < ε) (hx : X₀ + 1 < x) :
     linarith
   exact ⟨n, hn1, hnle, hylt⟩
 
-/-- Source: `proof_gap/exercise_608_1/3.txt`; define `τ=x-X₀-n`. -/
+/-- Exercise 608_1, gap 3; define `τ=x-X₀-n`. -/
 theorem gap3 (x X₀ : ℝ) (n : ℕ) (hn : (n : ℝ) ≤ x - X₀) :
     0 ≤ τ x X₀ n := by
   dsimp [τ]
   linarith
 
-/-- Source: `proof_gap/exercise_608_1/4.txt`; define `τ=x-X₀-n`. -/
+/-- Exercise 608_1, gap 4; define `τ=x-X₀-n`. -/
 theorem gap4 (x X₀ : ℝ) (n : ℕ) (hn : x - X₀ < n + 1) :
     τ x X₀ n < 1 := by
   dsimp [τ]
   linarith
 
-/-- Source: `proof_gap/exercise_608_1/5.txt`; bind the integer witness. -/
+/-- Exercise 608_1, gap 5; bind the integer witness. -/
 theorem gap5 (x X₀ : ℝ) (n : ℕ) :
     x = X₀ + τ x X₀ n + n := by
   dsimp [τ]
   ring
 
-/-- Source: `proof_gap/exercise_608_1/6.txt`; bind `n,τ` and the nonzero denominators. -/
+/-- Exercise 608_1, gap 6; bind `n,τ` and the nonzero denominators. -/
 theorem gap6 (f : ℝ → ℝ) (A x X₀ t : ℝ) (n : ℕ)
     (hx : x = X₀ + t + n) (hxn : x ≠ 0) (hn : n ≠ 0) :
     normalized f x - A =
@@ -108,7 +108,7 @@ theorem gap6 (f : ℝ → ℝ) (A x X₀ t : ℝ) (n : ℕ)
   rw [hx]
   field_simp [hn', hx'] <;> ring
 
-/-- Source: `proof_gap/exercise_608_1/7.txt`; add the missing size premise for `n/x≤1`. -/
+/-- Exercise 608_1, gap 7; add the missing size premise for `n/x≤1`. -/
 theorem gap7 (f : ℝ → ℝ) (A x X₀ t : ℝ) (n : ℕ)
     (hx : x = X₀ + t + n) (hxpos : 0 < x)
     (hbase : 0 ≤ X₀ + t) :
@@ -136,7 +136,7 @@ theorem gap7 (f : ℝ → ℝ) (A x X₀ t : ℝ) (n : ℕ)
       simp only [one_mul]
       rw [hx]
 
-/-- Source: `proof_gap/exercise_608_1/8.txt`; replace the ellipsis by `errorSum`. -/
+/-- Exercise 608_1, gap 8; replace the ellipsis by `errorSum`. -/
 theorem gap8 (f : ℝ → ℝ) (A X₀ t : ℝ) (n : ℕ) (hn : n ≠ 0) :
     |(f (X₀ + t + n) - f (X₀ + t)) / n - A| =
       (1 / n) * |errorSum f A X₀ t n| := by
@@ -150,7 +150,7 @@ theorem gap8 (f : ℝ → ℝ) (A X₀ t : ℝ) (n : ℕ) (hn : n ≠ 0) :
   rw [hrearrange, abs_div, abs_of_pos hnpos]
   field_simp [hn'] <;> ring
 
-/-- Source: `proof_gap/exercise_608_1/9.txt`; replace both ellipses by finite sums. -/
+/-- Exercise 608_1, gap 9; replace both ellipses by finite sums. -/
 theorem gap9 (f : ℝ → ℝ) (A X₀ t : ℝ) (n : ℕ) :
     (1 / (n : ℝ)) * |errorSum f A X₀ t n| ≤
       (1 / n) * (Finset.Icc 1 n).sum (fun k =>
@@ -183,7 +183,7 @@ theorem gap9 (f : ℝ → ℝ) (A X₀ t : ℝ) (n : ℕ) :
     mul_nonneg hcoef hdiff
   nlinarith
 
-/-- Source: `proof_gap/exercise_608_1/10.txt`; bind the tail estimate. -/
+/-- Exercise 608_1, gap 10; bind the tail estimate. -/
 theorem gap10 (f : ℝ → ℝ) (A X₀ t ε : ℝ) (n : ℕ)
     (hn : 0 < n)
     (hterm : ∀ k ∈ Finset.Icc 1 n,
@@ -215,14 +215,14 @@ theorem gap10 (f : ℝ → ℝ) (A X₀ t ε : ℝ) (n : ℕ)
     _ = ε / 3 := by
       field_simp [ne_of_gt hnR] <;> ring
 
-/-- Source: `proof_gap/exercise_608_1/11.txt`. -/
+/-- Exercise 608_1, gap 11. -/
 theorem gap11 (f : ℝ → ℝ) (A X₀ t ε : ℝ) (n : ℕ)
     (hbound : (1 / (n : ℝ)) * (Finset.Icc 1 n).sum (fun k =>
       |f (X₀ + t + k) - f (X₀ + t + k - 1) - A|) < ε / 3) :
     (1 / (n : ℝ)) * |errorSum f A X₀ t n| < ε / 3 := by
   exact lt_of_le_of_lt (gap9 f A X₀ t n) hbound
 
-/-- Source: `proof_gap/exercise_608_1/12.txt`; bind a fixed `τ∈[0,1]`. -/
+/-- Exercise 608_1, gap 12; bind a fixed `τ∈[0,1]`. -/
 theorem gap12 (f : ℝ → ℝ) (X₀ t : ℝ) (ht0 : 0 ≤ t) (ht1 : t ≤ 1) :
     Filter.Tendsto (fun x : ℝ => f (X₀ + t) / x)
       Filter.atTop (nhds 0) := by
@@ -232,7 +232,7 @@ theorem gap12 (f : ℝ → ℝ) (X₀ t : ℝ) (ht0 : 0 ≤ t) (ht1 : t ≤ 1) :
       Filter.atTop (nhds (f (X₀ + t))) := tendsto_const_nhds
   simpa [div_eq_mul_inv] using hc.mul hinv
 
-/-- Source: `proof_gap/exercise_608_1/13.txt`. -/
+/-- Exercise 608_1, gap 13. -/
 theorem gap13 (A X₀ : ℝ) :
     Filter.Tendsto (fun x : ℝ => (X₀ + 1) * A / x)
       Filter.atTop (nhds 0) := by
@@ -242,17 +242,17 @@ theorem gap13 (A X₀ : ℝ) :
       Filter.atTop (nhds ((X₀ + 1) * A)) := tendsto_const_nhds
   simpa [div_eq_mul_inv] using hc.mul hinv
 
-/-- Source: `proof_gap/exercise_608_1/14.txt`; replace the reversed `∀x∃X` quantifiers by an eventual estimate. -/
+/-- Exercise 608_1, gap 14; replace the reversed `∀x∃X` quantifiers by an eventual estimate. -/
 theorem gap14 (f : ℝ → ℝ) (A ε : ℝ)
     (h₁ : ∀ᶠ x in Filter.atTop, |normalized f x - A| < ε / 3 + ε / 3 + ε / 3) :
     ∀ᶠ x in Filter.atTop, |normalized f x - A| < ε / 3 + ε / 3 + ε / 3 := by
   exact h₁
 
-/-- Source: `proof_gap/exercise_608_1/15.txt`; remove irrelevant shadowed `x,X`. -/
+/-- Exercise 608_1, gap 15; remove irrelevant shadowed `x,X`. -/
 theorem gap15 (ε : ℝ) : ε / 3 + ε / 3 + ε / 3 = ε := by
   ring
 
-/-- Source: `proof_gap/exercise_608_1/16.txt`; state the eventual epsilon estimate. -/
+/-- Exercise 608_1, gap 16; state the eventual epsilon estimate. -/
 theorem gap16 (f : ℝ → ℝ) (A : ℝ)
     (h : ∀ ε > 0, ∀ᶠ x in Filter.atTop,
       |normalized f x - A| < ε / 3 + ε / 3 + ε / 3) :
@@ -260,7 +260,7 @@ theorem gap16 (f : ℝ → ℝ) (A : ℝ)
   intro ε hε
   simpa [gap15] using h ε hε
 
-/-- Source: `proof_gap/exercise_608_1/17.txt`; corrected Stolz-type conclusion. -/
+/-- Exercise 608_1, gap 17; corrected Stolz-type conclusion. -/
 theorem gap17 (f : ℝ → ℝ) (A : ℝ)
     (hlocal : ∀ a b : ℝ, a < b → ∃ M, ∀ x, a < x → x < b → |f x| ≤ M)
     (hdiff : Filter.Tendsto (difference f) Filter.atTop (nhds A)) :
@@ -406,7 +406,7 @@ theorem gap17 (f : ℝ → ℝ) (A : ℝ)
   rw [Real.dist_eq, hdecomp]
   exact hsum
 
-/-- Source: `proof_gap/exercise_608_1/18.txt`; express equality of the two limits through a common value. -/
+/-- Exercise 608_1, gap 18; express equality of the two limits through a common value. -/
 theorem gap18 (f : ℝ → ℝ) (A : ℝ)
     (hlocal : ∀ a b : ℝ, a < b → ∃ M, ∀ x, a < x → x < b → |f x| ≤ M)
     (hdiff : Filter.Tendsto (difference f) Filter.atTop (nhds A)) :

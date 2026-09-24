@@ -27,7 +27,7 @@ def ConvergentProduct : Prop :=
 def HasProduct (L : ℝ) : Prop :=
   Tendsto partialProduct atTop (𝓝 L)
 
-/-- Source: `proof_gap/exercise_3062/1.txt`; division requires `n ≥ 1`. -/
+/-- Exercise 3062, gap 1; division requires `n ≥ 1`. -/
 theorem gap1 :
     ∀ n : ℕ, 1 ≤ n →
       1 + 1 / ((n : ℝ) * ((n : ℝ) + 2)) =
@@ -39,12 +39,12 @@ theorem gap1 :
   field_simp [ne_of_gt hnpos, hn2]
   <;> ring
 
-/-- Source: `proof_gap/exercise_3062/2.txt`; the product ellipsis is `partialProduct`. -/
+/-- Exercise 3062, gap 2; the product ellipsis is `partialProduct`. -/
 theorem gap2 (P : ℕ → ℝ) (hP : ∀ n, P n = partialProduct n) :
     ∀ n, P n = partialProduct n := by
   exact hP
 
-/-- Source: `proof_gap/exercise_3062/3.txt`; replace the telescoping ellipsis exactly. -/
+/-- Exercise 3062, gap 3; replace the telescoping ellipsis exactly. -/
 theorem gap3 :
     ∀ n : ℕ,
       partialProduct n = 2 * ((n : ℝ) + 1) / ((n : ℝ) + 2) := by
@@ -75,13 +75,13 @@ theorem gap3 :
       field_simp [h1, h2, h3]
       <;> ring
 
-/-- Source: `proof_gap/exercise_3062/4.txt`. -/
+/-- Exercise 3062, gap 4. -/
 theorem gap4 (P : ℕ → ℝ) (hP : ∀ n, P n = partialProduct n) :
     ∀ n : ℕ, P n = 2 * ((n : ℝ) + 1) / ((n : ℝ) + 2) := by
   intro n
   rw [hP n, gap3 n]
 
-/-- Source: `proof_gap/exercise_3062/5.txt`. -/
+/-- Exercise 3062, gap 5. -/
 theorem gap5 (P : ℕ → ℝ) (hP : ∀ n, P n = partialProduct n) :
     Tendsto P atTop (𝓝 2) := by
   have htop :
@@ -112,12 +112,12 @@ theorem gap5 (P : ℕ → ℝ) (hP : ∀ n, P n = partialProduct n) :
     tendsto_const_nhds
   simpa using hconst2.sub (hconst2.mul hinv)
 
-/-- Source: `proof_gap/exercise_3062/6.txt`. -/
+/-- Exercise 3062, gap 6. -/
 theorem gap6 : ConvergentProduct := by
   refine ⟨2, ?_⟩
   exact gap5 partialProduct (fun n => rfl)
 
-/-- Source: `proof_gap/exercise_3062/7.txt`. -/
+/-- Exercise 3062, gap 7. -/
 theorem gap7 : HasProduct 2 := by
   exact gap5 partialProduct (fun n => rfl)
 

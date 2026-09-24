@@ -9,7 +9,7 @@ open Filter Topology
 /-!
 # Exercise 72
 
-Semantic formalization of `proof_gap/exercise_72/{1,...,26}.txt`.
+Semantic formalization of Exercise 72, gaps 1,...,26.
 -/
 
 namespace ProofGap.Exercise72
@@ -65,7 +65,7 @@ private theorem omega_tendsto_exp :
       1 / (Nat.factorial j : ℝ)) atTop (𝓝 (Real.exp 1))
   simpa only [Function.comp_apply, one_pow, one_div, Real.exp_eq_exp_ℝ] using hs'
 
-/-- Source: `proof_gap/exercise_72/1.txt`; the ellipsis is a finite sum/product. -/
+/-- Exercise 72, gap 1; the ellipsis is a finite sum/product. -/
 theorem gap1 :
     ∀ n : ℕ, 0 < n → x n = productExpansion n := by
   intro n hn
@@ -87,7 +87,7 @@ private theorem product_term_pos {n j : ℕ} (hj : j ≤ n) :
     exact_mod_cast hin
   exact mul_pos (by positivity) (Finset.prod_pos hfactor)
 
-/-- Source: `proof_gap/exercise_72/2.txt`; the truncated expansion is explicit. -/
+/-- Exercise 72, gap 2; the truncated expansion is explicit. -/
 theorem gap2 :
     ∀ n k : ℕ, 0 < k → k < n →
       x n > truncatedProductExpansion n k := by
@@ -111,7 +111,7 @@ theorem gap2 :
     ∑ j ∈ Finset.range (k + 1), f j
   linarith
 
-/-- Source: `proof_gap/exercise_72/3.txt`. -/
+/-- Exercise 72, gap 3. -/
 theorem gap3
     (e : ℝ)
     (hx : Tendsto x atTop (𝓝 e)) :
@@ -126,7 +126,7 @@ theorem gap3
   apply le_of_tendsto_of_tendsto tendsto_const_nhds omega_tendsto_exp
   exact (Filter.eventually_ge_atTop k).mono fun n hn => omega_monotone hn
 
-/-- Source: `proof_gap/exercise_72/4.txt`; the putative limit is named explicitly. -/
+/-- Exercise 72, gap 4; the putative limit is named explicitly. -/
 theorem gap4
     (e L : ℝ)
     (hL : Tendsto omega atTop (𝓝 L))
@@ -136,7 +136,7 @@ theorem gap4
   filter_upwards [Filter.eventually_ge_atTop (1 : ℕ)] with k hk
   exact hbound k (by omega)
 
-/-- Source: `proof_gap/exercise_72/5.txt`. -/
+/-- Exercise 72, gap 5. -/
 theorem gap5 :
     ∀ n : ℕ, 1 < n → x n < omega n := by
   intro n hn
@@ -175,7 +175,7 @@ theorem gap5 :
       have hone : 0 < 1 / (n : ℝ) := one_div_pos.mpr hnR
       linarith
 
-/-- Source: `proof_gap/exercise_72/6.txt`; both limits are named. -/
+/-- Exercise 72, gap 6; both limits are named. -/
 theorem gap6
     (e L : ℝ)
     (hx : Tendsto x atTop (𝓝 e))
@@ -186,7 +186,7 @@ theorem gap6
   filter_upwards [Filter.eventually_ge_atTop (1 : ℕ)] with n hn
   exact hbound n (by omega)
 
-/-- Source: `proof_gap/exercise_72/7.txt`. -/
+/-- Exercise 72, gap 7. -/
 theorem gap7
     (e : ℝ)
     (hupper : ∀ k : ℕ, 0 < k → omega k ≤ e)
@@ -200,7 +200,7 @@ theorem gap7
   have he : e = Real.exp 1 := le_antisymm he_le hexp_le
   simpa [he] using omega_tendsto_exp
 
-/-- Source: `proof_gap/exercise_72/8.txt`; `m = 0` is excluded from strict positivity. -/
+/-- Exercise 72, gap 8; `m = 0` is excluded from strict positivity. -/
 theorem gap8 :
     ∀ n m : ℕ, 0 < m → 0 < omega (n + m) - omega n := by
   intro n m hm
@@ -221,7 +221,7 @@ theorem gap8 :
     positivity
   · exact ⟨n + 1, Finset.mem_Ico.mpr ⟨le_rfl, by omega⟩⟩
 
-/-- Source: `proof_gap/exercise_72/9.txt`; the omitted tail is an explicit finite sum. -/
+/-- Exercise 72, gap 9; the omitted tail is an explicit finite sum. -/
 theorem gap9 :
     ∀ n m : ℕ, omega (n + m) - omega n = tail n m := by
   intro n m
@@ -246,7 +246,7 @@ theorem gap9 :
         congr 1
         omega
 
-/-- Source: `proof_gap/exercise_72/10.txt`; strictness requires at least two terms. -/
+/-- Exercise 72, gap 10; strictness requires at least two terms. -/
 theorem gap10 :
     ∀ n m : ℕ, 2 < m →
       tail n m <
@@ -331,7 +331,7 @@ private theorem tail_le_geometric (n m : ℕ) :
         field_simp
       rw [hb, one_pow]
 
-/-- Source: `proof_gap/exercise_72/11.txt`; the finite geometric sum is explicit. -/
+/-- Exercise 72, gap 11; the finite geometric sum is explicit. -/
 theorem gap11 :
     ∀ n m : ℕ, 0 < m →
       1 / (Nat.factorial (n + 1) : ℝ) * geometricFactor n m <
@@ -379,14 +379,14 @@ theorem gap11 :
   rw [hremform]
   nlinarith [mul_pos (mul_pos hcoeff hratio) hrpow]
 
-/-- Source: `proof_gap/exercise_72/12.txt`. -/
+/-- Exercise 72, gap 12. -/
 theorem gap12 :
     ∀ n : ℕ, 0 < remainderBound n := by
   intro n
   unfold remainderBound
   positivity
 
-/-- Source: `proof_gap/exercise_72/13.txt`. -/
+/-- Exercise 72, gap 13. -/
 theorem gap13
     (e : ℝ)
     (hω : Tendsto omega atTop (𝓝 e))
@@ -398,7 +398,7 @@ theorem gap13
     exact (Filter.eventually_ge_atTop n).mono fun m hnm => hmono hnm
   linarith
 
-/-- Source: `proof_gap/exercise_72/14.txt`. -/
+/-- Exercise 72, gap 14. -/
 theorem gap14
     (e : ℝ)
     (hω : Tendsto omega atTop (𝓝 e)) :
@@ -416,7 +416,7 @@ theorem gap14
   exact (tail_le_geometric n m).trans
     (gap11 n m (by omega)).le
 
-/-- Source: `proof_gap/exercise_72/15.txt`. -/
+/-- Exercise 72, gap 15. -/
 theorem gap15 :
     ∀ n : ℕ, remainderBound n = sharperBound n := by
   intro n
@@ -425,14 +425,14 @@ theorem gap15 :
   push_cast
   field_simp
 
-/-- Source: `proof_gap/exercise_72/16.txt`. -/
+/-- Exercise 72, gap 16. -/
 theorem gap16 :
     ∀ n : ℕ, 0 ≤ sharperBound n := by
   intro n
   unfold sharperBound
   positivity
 
-/-- Source: `proof_gap/exercise_72/17.txt`; the right side is undefined at zero informally. -/
+/-- Exercise 72, gap 17; the right side is undefined at zero informally. -/
 theorem gap17 :
     ∀ n : ℕ, 0 < n →
       ((n : ℝ) + 2) / ((n : ℝ) + 1) ^ 2 < 1 / (n : ℝ) := by
@@ -441,7 +441,7 @@ theorem gap17 :
   rw [div_lt_div_iff₀ (sq_pos_of_pos (by linarith : (0 : ℝ) < n + 1)) hnR]
   nlinarith
 
-/-- Source: `proof_gap/exercise_72/18.txt`. -/
+/-- Exercise 72, gap 18. -/
 theorem gap18
     (e : ℝ)
     (hω : Tendsto omega atTop (𝓝 e)) :
@@ -456,7 +456,7 @@ theorem gap18
       omega_monotone hnm
   linarith
 
-/-- Source: `proof_gap/exercise_72/19.txt`; the bound is restricted to positive n. -/
+/-- Exercise 72, gap 19; the bound is restricted to positive n. -/
 theorem gap19
     (e : ℝ)
     (hω : Tendsto omega atTop (𝓝 e)) :
@@ -471,14 +471,14 @@ theorem gap19
   have hcoeff : 0 < 1 / (Nat.factorial n : ℝ) := by positivity
   exact hrem.trans_lt (mul_lt_mul_of_pos_left hratio hcoeff)
 
-/-- Source: `proof_gap/exercise_72/20.txt`; the strict positivity fails at zero. -/
+/-- Exercise 72, gap 20; the strict positivity fails at zero. -/
 theorem gap20 :
     ∀ n : ℕ, 0 < n →
       0 < 1 / (Nat.factorial n : ℝ) * (1 / (n : ℝ)) := by
   intro n hn
   positivity
 
-/-- Source: `proof_gap/exercise_72/21.txt`; one function θ works on positive indices. -/
+/-- Exercise 72, gap 21; one function θ works on positive indices. -/
 theorem gap21
     (e : ℝ)
     (hω : Tendsto omega atTop (𝓝 e)) :
@@ -492,7 +492,7 @@ theorem gap21
   field_simp
   ring
 
-/-- Source: `proof_gap/exercise_72/22.txt`; θ is tied to the remainder identity. -/
+/-- Exercise 72, gap 22; θ is tied to the remainder identity. -/
 theorem gap22
     (e : ℝ) (θ : ℕ → ℝ)
     (hid : ∀ n : ℕ, 0 < n →
@@ -511,7 +511,7 @@ theorem gap22
   · exact h.1
   · linarith
 
-/-- Source: `proof_gap/exercise_72/23.txt`; the same θ is used. -/
+/-- Exercise 72, gap 23; the same θ is used. -/
 theorem gap23
     (e : ℝ) (θ : ℕ → ℝ)
     (hid : ∀ n : ℕ, 0 < n →
@@ -536,12 +536,12 @@ theorem gap23
     linarith
   exact (div_lt_div_iff_of_pos_right hden).mp hu'
 
-/-- Source: `proof_gap/exercise_72/24.txt`. -/
+/-- Exercise 72, gap 24. -/
 theorem gap24 :
     1 / ((Nat.factorial 8 : ℝ) * 8) < 0.0000032 := by
   norm_num [Nat.factorial]
 
-/-- Source: `proof_gap/exercise_72/25.txt`; `±` is an absolute-error bound. -/
+/-- Exercise 72, gap 25; `±` is an absolute-error bound. -/
 theorem gap25
     (e : ℝ)
     (hθ : ∃ θ : ℕ → ℝ,
@@ -556,7 +556,7 @@ theorem gap25
   rw [abs_le]
   constructor <;> norm_num <;> nlinarith
 
-/-- Source: `proof_gap/exercise_72/26.txt`. -/
+/-- Exercise 72, gap 26. -/
 theorem gap26
     (e : ℝ)
     (hω : Tendsto omega atTop (𝓝 e)) :

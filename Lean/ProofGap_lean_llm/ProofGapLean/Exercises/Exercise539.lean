@@ -19,7 +19,7 @@ def sineRatio (a b x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_539/1.txt`; require the denominator parameter `b≠0`. -/
+/-- Exercise 539, gap 1; require the denominator parameter `b≠0`. -/
 theorem gap1 (a b : ℝ) (hb : b ≠ 0) (L : ℝ) :
     HasLimitAtZero (original a b) L ↔ HasLimitAtZero (factored a b) L := by
   have hcancel (A B C D : ℝ) (hB : B ≠ 0) (hC : C ≠ 0) (hD : D ≠ 0) :
@@ -39,7 +39,7 @@ theorem gap1 (a b : ℝ) (hb : b ≠ 0) (L : ℝ) :
         · exact hcancel _ _ _ _ hB hA hD
   rw [hfun]
 
-/-- Source: `proof_gap/exercise_539/2.txt`; require `b≠0`. -/
+/-- Exercise 539, gap 2; require `b≠0`. -/
 theorem gap2 (a b : ℝ) (hb : b ≠ 0) :
     HasLimitAtZero (sineRatio a b) (a ^ 2 / b ^ 2) := by
   unfold HasLimitAtZero

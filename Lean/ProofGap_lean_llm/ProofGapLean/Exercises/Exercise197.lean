@@ -8,56 +8,56 @@ namespace ProofGap.Exercise197
 def f (a b x : ℝ) : ℝ := a * x + b
 def FitsData (a b : ℝ) : Prop := f a b 0 = -2 ∧ f a b 3 = 5
 
-/-- Source: `proof_gap/exercise_197/1.txt`. -/
+/-- Exercise 197, gap 1. -/
 theorem gap1 (a b : ℝ) : f a b 0 = b := by
   simp [f]
 
-/-- Source: `proof_gap/exercise_197/2.txt`. -/
+/-- Exercise 197, gap 2. -/
 theorem gap2 (a b : ℝ) (h : FitsData a b) : b = -2 := by
   simpa [FitsData, f] using h.1
 
-/-- Source: `proof_gap/exercise_197/3.txt`. -/
+/-- Exercise 197, gap 3. -/
 theorem gap3 (a b : ℝ) (h : FitsData a b) : f a b 0 = -2 := by
   exact h.1
 
-/-- Source: `proof_gap/exercise_197/4.txt`. -/
+/-- Exercise 197, gap 4. -/
 theorem gap4 (a b : ℝ) : f a b 3 = 3 * a + b := by
   unfold f
   ring
 
-/-- Source: `proof_gap/exercise_197/5.txt`. -/
+/-- Exercise 197, gap 5. -/
 theorem gap5 (a b : ℝ) (h : FitsData a b) : 3 * a + b = 5 := by
   rw [← gap4]
   exact h.2
 
-/-- Source: `proof_gap/exercise_197/6.txt`. -/
+/-- Exercise 197, gap 6. -/
 theorem gap6 (a b : ℝ) (h : FitsData a b) : f a b 3 = 5 := by
   exact h.2
 
-/-- Source: `proof_gap/exercise_197/7.txt`. -/
+/-- Exercise 197, gap 7. -/
 theorem gap7 (a b : ℝ) (h : FitsData a b) : a = 7 / 3 := by
   have hb := gap2 a b h
   have ha := gap5 a b h
   norm_num at ⊢
   linarith
 
-/-- Source: `proof_gap/exercise_197/8.txt`. -/
+/-- Exercise 197, gap 8. -/
 theorem gap8 (a b : ℝ) (h : FitsData a b) : b = -2 := by
   exact gap2 a b h
 
-/-- Source: `proof_gap/exercise_197/9.txt`. -/
+/-- Exercise 197, gap 9. -/
 theorem gap9 (a b : ℝ) (h : FitsData a b) :
     ∀ x, f a b x = (7 / 3) * x - 2 := by
   intro x
   rw [f, gap7 a b h, gap8 a b h]
   ring
 
-/-- Source: `proof_gap/exercise_197/10.txt`. -/
+/-- Exercise 197, gap 10. -/
 theorem gap10 (a b : ℝ) (h : FitsData a b) : f a b 1 = 1 / 3 := by
   rw [gap9 a b h]
   norm_num
 
-/-- Source: `proof_gap/exercise_197/11.txt`. -/
+/-- Exercise 197, gap 11. -/
 theorem gap11 (a b : ℝ) (h : FitsData a b) : f a b 2 = 8 / 3 := by
   rw [gap9 a b h]
   norm_num

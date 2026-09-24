@@ -675,7 +675,7 @@ private theorem sqrt_pow_integral (n : ℕ) :
       field_simp [hfac]
       ring
 
-/-! Source: `results/stage1_gpt55/09_重积分与含参积分/exercise_4207_autoformalization_result/exercise_4207.md`. -/
+/-! Exercise 4207. -/
 
 private theorem baseSimplexFormula (n : ℕ) (hn : 0 < n) :
     baseIntegral n =

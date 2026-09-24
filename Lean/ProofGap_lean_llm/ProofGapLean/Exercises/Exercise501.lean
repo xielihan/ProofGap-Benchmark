@@ -26,7 +26,7 @@ def normalized (x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_501/1.txt`. -/
+/-- Exercise 501, gap 1. -/
 private theorem tendsto_cos_zero :
     Filter.Tendsto (fun x : ℝ => Real.cos x)
       (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds 1) := by
@@ -134,7 +134,7 @@ theorem gap1 (L : ℝ) :
   · intro h
     exact Filter.Tendsto.congr' heq.symm h
 
-/-- Source: `proof_gap/exercise_501/2.txt`; replace the six-term ellipsis by `rootSum`. -/
+/-- Exercise 501, gap 2; replace the six-term ellipsis by `rootSum`. -/
 theorem gap2 (L : ℝ) :
     HasLimitAtZero original L ↔ HasLimitAtZero rationalized L := by
   rw [gap1]
@@ -186,7 +186,7 @@ theorem gap2 (L : ℝ) :
   · intro h
     exact Filter.Tendsto.congr' heq.symm h
 
-/-- Source: `proof_gap/exercise_501/3.txt`; replace the six-term ellipsis by `rootSum`. -/
+/-- Exercise 501, gap 3; replace the six-term ellipsis by `rootSum`. -/
 theorem gap3 (L : ℝ) :
     HasLimitAtZero original L ↔ HasLimitAtZero normalized L := by
   rw [gap2]
@@ -221,7 +221,7 @@ theorem gap3 (L : ℝ) :
   · intro h
     exact Filter.Tendsto.congr' heq.symm h
 
-/-- Source: `proof_gap/exercise_501/4.txt`. -/
+/-- Exercise 501, gap 4. -/
 theorem gap4 : HasLimitAtZero normalized (-1 / 12) := by
   unfold HasLimitAtZero
   let F := nhdsWithin 0 ({0} : Set ℝ)ᶜ
@@ -329,7 +329,7 @@ theorem gap4 : HasLimitAtZero normalized (-1 / 12) := by
       ring
   exact Filter.Tendsto.congr' heq.symm hF
 
-/-- Source: `proof_gap/exercise_501/5.txt`. -/
+/-- Exercise 501, gap 5. -/
 theorem gap5 : HasLimitAtZero original (-1 / 12) := by
   exact (gap3 (-1 / 12)).mpr gap4
 

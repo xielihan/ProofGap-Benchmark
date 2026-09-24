@@ -6,13 +6,13 @@ noncomputable section
 
 def f (x : ℝ) : ℝ := Real.log (x + Real.sqrt (1 + x ^ 2))
 
-/-- Source: `proof_gap/exercise_231_5/1.txt`. -/
+/-- Exercise 231_5, gap 1. -/
 theorem gap1 : ∀ x,
     f (-x) = Real.log (-x + Real.sqrt (1 + x ^ 2)) := by
   intro x
   simp [f]
 
-/-- Source: `proof_gap/exercise_231_5/2.txt`. -/
+/-- Exercise 231_5, gap 2. -/
 theorem gap2 : ∀ x,
     Real.log (-x + Real.sqrt (1 + x ^ 2)) =
       Real.log (1 / (x + Real.sqrt (1 + x ^ 2))) := by
@@ -32,7 +32,7 @@ theorem gap2 : ∀ x,
   field_simp [hne]
   nlinarith
 
-/-- Source: `proof_gap/exercise_231_5/3.txt`. -/
+/-- Exercise 231_5, gap 3. -/
 theorem gap3 : ∀ x,
     Real.log (1 / (x + Real.sqrt (1 + x ^ 2))) =
       -Real.log (x + Real.sqrt (1 + x ^ 2)) := by
@@ -40,13 +40,13 @@ theorem gap3 : ∀ x,
   simpa [one_div] using
     (Real.log_inv (x + Real.sqrt (1 + x ^ 2)))
 
-/-- Source: `proof_gap/exercise_231_5/4.txt`. -/
+/-- Exercise 231_5, gap 4. -/
 theorem gap4 : ∀ x,
     -Real.log (x + Real.sqrt (1 + x ^ 2)) = -f x := by
   intro x
   rfl
 
-/-- Source: `proof_gap/exercise_231_5/5.txt`. -/
+/-- Exercise 231_5, gap 5. -/
 theorem gap5 : ∀ x, f (-x) = -f x := by
   intro x
   calc
@@ -55,7 +55,7 @@ theorem gap5 : ∀ x, f (-x) = -f x := by
     _ = -Real.log (x + Real.sqrt (1 + x ^ 2)) := gap3 x
     _ = -f x := gap4 x
 
-/-- Source: `proof_gap/exercise_231_5/6.txt`. -/
+/-- Exercise 231_5, gap 6. -/
 theorem gap6 : Function.Odd f := by
   exact gap5
 

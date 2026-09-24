@@ -18,19 +18,19 @@ def LocallyBoundedOn (g : ℝ → ℝ) (s : Set ℝ) : Prop :=
 def ExampleProperties (g : ℝ → ℝ) : Prop :=
   LocallyBoundedOn g domain ∧ ¬BoundedOn g domain
 
-/-- Source: `proof_gap/exercise_382_1/1.txt`. -/
+/-- Exercise 382_1, gap 1. -/
 theorem gap1 (h : ExampleProperties f) : domain = Set.Ioo 0 1 := by
   rfl
 
-/-- Source: `proof_gap/exercise_382_1/2.txt`. -/
+/-- Exercise 382_1, gap 2. -/
 theorem gap2 (h : ExampleProperties f) : LocallyBoundedOn f domain := by
   exact h.1
 
-/-- Source: `proof_gap/exercise_382_1/3.txt`. -/
+/-- Exercise 382_1, gap 3. -/
 theorem gap3 (h : ExampleProperties f) : ¬BoundedOn f domain := by
   exact h.2
 
-/-- Source: `proof_gap/exercise_382_1/4.txt`. -/
+/-- Exercise 382_1, gap 4. -/
 theorem gap4 : ExampleProperties f := by
   constructor
   · intro x₀ hx₀

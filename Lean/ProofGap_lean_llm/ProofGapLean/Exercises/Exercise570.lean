@@ -30,7 +30,7 @@ def normalized (x : ℝ) : ℝ :=
 def HasLimitAtPosInfinity (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f Filter.atTop (nhds L)
 
-/-- Source: `proof_gap/exercise_570/1.txt`. -/
+/-- Exercise 570, gap 1. -/
 private lemma log_one_add_div_tendsto
     {u : ℝ → ℝ}
     (hu : Filter.Tendsto u Filter.atTop (nhds 0))
@@ -82,7 +82,7 @@ theorem gap1 (L : ℝ) :
   · intro h
     exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_570/2.txt`. -/
+/-- Exercise 570, gap 2. -/
 theorem gap2 (L : ℝ) :
     HasLimitAtPosInfinity rationalized L ↔ HasLimitAtPosInfinity reduced L := by
   unfold HasLimitAtPosInfinity
@@ -246,7 +246,7 @@ theorem gap2 (L : ℝ) :
       simpa using hmul
     exact hmul'.congr' hrat_eq.symm
 
-/-- Source: `proof_gap/exercise_570/3.txt`. -/
+/-- Exercise 570, gap 3. -/
 theorem gap3 (L : ℝ) :
     HasLimitAtPosInfinity reduced L ↔ HasLimitAtPosInfinity normalized L := by
   unfold HasLimitAtPosInfinity
@@ -316,7 +316,7 @@ theorem gap3 (L : ℝ) :
   · intro h
     exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_570/4.txt`. -/
+/-- Exercise 570, gap 4. -/
 theorem gap4 : HasLimitAtPosInfinity normalized (1 / 8) := by
   unfold HasLimitAtPosInfinity
   have hinv : Filter.Tendsto (fun x : ℝ => 1 / x) Filter.atTop (nhds 0) := by
@@ -374,7 +374,7 @@ theorem gap4 : HasLimitAtPosInfinity normalized (1 / 8) := by
   norm_num at hquot ⊢
   exact hquot
 
-/-- Source: `proof_gap/exercise_570/5.txt`. -/
+/-- Exercise 570, gap 5. -/
 theorem gap5 : HasLimitAtPosInfinity rationalized (1 / 8) := by
   exact (gap2 (1 / 8)).2 ((gap3 (1 / 8)).2 gap4)
 

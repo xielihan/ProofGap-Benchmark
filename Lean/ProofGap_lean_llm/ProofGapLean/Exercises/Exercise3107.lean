@@ -156,14 +156,14 @@ private theorem log_sum_integral_bounds (t : ℝ) (ht : 0 < t) (n : ℕ) :
             ring
   exact ⟨hleft, hright, hint⟩
 
-/-- Source: `proof_gap/exercise_3107/1.txt`. -/
+/-- Exercise 3107, gap 1. -/
 theorem gap1 (a b t : ℝ) (ha : 0 < a) (hb : 0 < b)
     (ht : t = b / a) :
     0 < t := by
   rw [ht]
   exact div_pos hb ha
 
-/-- Source: `proof_gap/exercise_3107/2.txt`; the means require a positive sample count. -/
+/-- Exercise 3107, gap 2; the means require a positive sample count. -/
 theorem gap2 (a b : ℝ) (ha : 0 < a) (hb : 0 < b) :
     ∀ n : ℕ, 1 ≤ n →
       rawRatio a b n = normalizedRatio (b / a) n := by
@@ -197,7 +197,7 @@ theorem gap2 (a b : ℝ) (ha : 0 < a) (hb : 0 < b) :
     rawProduct_eq a b ha.ne', rawSum_eq a b ha.ne', hrpow]
   field_simp
 
-/-- Source: `proof_gap/exercise_3107/3.txt`; formalize the scalar big-O as a sequence estimate. -/
+/-- Exercise 3107, gap 3; formalize the scalar big-O as a sequence estimate. -/
 theorem gap3 (t : ℝ) :
     sumRemainder t =O[atTop] (fun n : ℕ => (n : ℝ)) := by
   have h :=
@@ -208,7 +208,7 @@ theorem gap3 (t : ℝ) :
   rw [sumRemainder, normalizedSum_eq]
   ring
 
-/-- Source: `proof_gap/exercise_3107/4.txt`; the logarithmic mean identity starts at `n=1`. -/
+/-- Exercise 3107, gap 4; the logarithmic mean identity starts at `n=1`. -/
 theorem gap4 (t : ℝ) (ht : 0 < t) :
     ∀ n : ℕ, 1 ≤ n →
       Real.log (geometricMean t n) =
@@ -386,7 +386,7 @@ private theorem logRemainder_bound (t : ℝ) (ht : 0 < t) (m : ℕ)
       dsimp [C]
       ring
 
-/-- Source: `proof_gap/exercise_3107/5.txt`; state the asymptotic remainder at function level. -/
+/-- Exercise 3107, gap 5; state the asymptotic remainder at function level. -/
 theorem gap5 (t : ℝ) (ht : 0 < t) :
     (fun n : ℕ => logRemainder t (n + 1))
       =O[atTop]
@@ -430,7 +430,7 @@ private theorem geometricMean_eq_exp_logRemainder (t : ℝ) (ht : 0 < t)
   field_simp [hnt.ne', Real.exp_ne_zero]
 
 /--
-Source: `proof_gap/exercise_3107/6.txt`; replace the exponentiated big-O
+Exercise 3107, gap 6; replace the exponentiated big-O
 placeholder by a remainder function.
 -/
 theorem gap6 (t : ℝ) (ht : 0 < t) :
@@ -447,7 +447,7 @@ theorem gap6 (t : ℝ) (ht : 0 < t) :
   exact geometricMean_eq_exp_logRemainder t ht n hn
 
 /--
-Source: `proof_gap/exercise_3107/7.txt`; expose both numerator and
+Exercise 3107, gap 7; expose both numerator and
 arithmetic-mean remainder functions.
 -/
 theorem gap7 (t : ℝ) (ht : 0 < t) :
@@ -519,7 +519,7 @@ private theorem normalizedRatio_eq_exp (t : ℝ) (ht : 0 < t)
   field_simp [Real.exp_ne_zero, hden.ne', ht.ne', hn0]
 
 /--
-Source: `proof_gap/exercise_3107/8.txt`; normalize the bounded denominator
+Exercise 3107, gap 8; normalize the bounded denominator
 remainder to `O(1/n)`.
 -/
 theorem gap8 (t : ℝ) (ht : 0 < t) :
@@ -556,7 +556,7 @@ private theorem log_div_nat_succ_tendsto_zero :
     Real.isLittleO_log_id_atTop.tendsto_div_nhds_zero.comp harg
   simpa only [Function.comp_apply, id_eq, Nat.cast_add, Nat.cast_one] using h
 
-/-- Source: `proof_gap/exercise_3107/9.txt`. -/
+/-- Exercise 3107, gap 9. -/
 theorem gap9 (t : ℝ) (ht : 0 < t) :
     Tendsto (normalizedRatio t) atTop (𝓝 (2 / Real.exp 1)) := by
   have hEshift :
@@ -611,7 +611,7 @@ theorem gap9 (t : ℝ) (ht : 0 < t) :
   filter_upwards [Filter.eventually_ge_atTop 1] with n hn
   exact (normalizedRatio_eq_exp t ht n hn).symm
 
-/-- Source: `proof_gap/exercise_3107/10.txt`; restore the positive parameter premises. -/
+/-- Exercise 3107, gap 10; restore the positive parameter premises. -/
 theorem gap10 (a b : ℝ) (ha : 0 < a) (hb : 0 < b) :
     Tendsto (rawRatio a b) atTop (𝓝 (2 / Real.exp 1)) := by
   have ht : 0 < b / a := div_pos hb ha

@@ -10,7 +10,7 @@ def f (x : ℝ) : ℝ := Real.sin (1 / x)
 def witnessSeq (x₀ : ℝ) (n : ℕ) : ℝ :=
   1 / (2 * ((n : ℝ) + 1) * Real.pi + x₀)
 
-/-- Source: `proof_gap/exercise_642/1.txt`. -/
+/-- Exercise 642, gap 1. -/
 private theorem sin_nat_period (x : ℝ) :
     ∀ n : ℕ, Real.sin (2 * (n : ℝ) * Real.pi + x) = Real.sin x := by
   intro n
@@ -34,7 +34,7 @@ theorem gap1 (α : ℝ) (hα : |α| ≤ 1) :
   exact ⟨Real.arcsin α, Real.arcsin_mem_Icc α,
     Real.sin_arcsin hlo hhi⟩
 
-/-- Source: `proof_gap/exercise_642/2.txt`; bind the explicitly constructed sequence. -/
+/-- Exercise 642, gap 2; bind the explicitly constructed sequence. -/
 theorem gap2 (x₀ : ℝ) :
     Filter.Tendsto (witnessSeq x₀) Filter.atTop (nhds 0) := by
   have hden :
@@ -80,21 +80,21 @@ theorem gap2 (x₀ : ℝ) :
   rw [hwitness]
   simpa only [Function.comp_apply] using hinv.comp hden
 
-/-- Source: `proof_gap/exercise_642/3.txt`; bind `α,x₀` before choosing the sequence. -/
+/-- Exercise 642, gap 3; bind `α,x₀` before choosing the sequence. -/
 theorem gap3 (α x₀ : ℝ) (hx₀ : Real.sin x₀ = α) :
     ∀ n, f (witnessSeq x₀ n) =
       Real.sin (1 / witnessSeq x₀ n) := by
   intro n
   rfl
 
-/-- Source: `proof_gap/exercise_642/4.txt`; remove the unbound existential sequence. -/
+/-- Exercise 642, gap 4; remove the unbound existential sequence. -/
 theorem gap4 (x₀ : ℝ) :
     ∀ n, Real.sin (1 / witnessSeq x₀ n) =
       Real.sin (2 * ((n : ℝ) + 1) * Real.pi + x₀) := by
   intro n
   simp [witnessSeq, one_div]
 
-/-- Source: `proof_gap/exercise_642/5.txt`; bind the selected inverse-sine witness. -/
+/-- Exercise 642, gap 5; bind the selected inverse-sine witness. -/
 theorem gap5 (α x₀ : ℝ) (hx₀ : Real.sin x₀ = α) :
     ∀ n : ℕ, Real.sin (2 * ((n : ℝ) + 1) * Real.pi + x₀) = α := by
   intro n
@@ -103,7 +103,7 @@ theorem gap5 (α x₀ : ℝ) (hx₀ : Real.sin x₀ = α) :
       simpa [Nat.cast_succ] using sin_nat_period x₀ (Nat.succ n)
     _ = α := hx₀
 
-/-- Source: `proof_gap/exercise_642/6.txt`; use the explicit witness sequence. -/
+/-- Exercise 642, gap 6; use the explicit witness sequence. -/
 theorem gap6 (α x₀ : ℝ) (hx₀ : Real.sin x₀ = α) :
     ∀ n, f (witnessSeq x₀ n) = α := by
   intro n
@@ -116,7 +116,7 @@ theorem gap6 (α x₀ : ℝ) (hx₀ : Real.sin x₀ = α) :
         (sin_nat_period x₀ (Nat.succ n))
     _ = α := hx₀
 
-/-- Source: `proof_gap/exercise_642/7.txt`; the sequence depends on `α`. -/
+/-- Exercise 642, gap 7; the sequence depends on `α`. -/
 theorem gap7 (α : ℝ) (hα : |α| ≤ 1) :
     ∃ u : ℕ → ℝ,
       Filter.Tendsto (fun n => f (u n)) Filter.atTop (nhds α) := by
@@ -129,7 +129,7 @@ theorem gap7 (α : ℝ) (hα : |α| ≤ 1) :
   rw [hfun]
   exact tendsto_const_nhds
 
-/-- Source: `proof_gap/exercise_642/8.txt`. -/
+/-- Exercise 642, gap 8. -/
 theorem gap8 (α : ℝ) (hα : -1 ≤ α ∧ α ≤ 1) :
     ∃ u : ℕ → ℝ, Filter.Tendsto u Filter.atTop (nhds 0) ∧
       Filter.Tendsto (fun n => f (u n)) Filter.atTop (nhds α) := by

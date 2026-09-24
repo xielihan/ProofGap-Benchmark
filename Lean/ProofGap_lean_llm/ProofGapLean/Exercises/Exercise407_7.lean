@@ -12,7 +12,7 @@ def ApproachesBelowAtInfinity (f : ℝ → ℝ) (b : ℝ) : Prop :=
 
 def f (x : ℝ) : ℝ := -1 / (1 + x ^ 2)
 
-/-- Source: `proof_gap/exercise_407_7/1.txt`; bind `y=f(x)` and remove the shadowed threshold. -/
+/-- Exercise 407_7, gap 1; bind `y=f(x)` and remove the shadowed threshold. -/
 theorem gap1 : ∀ ε > 0, ∃ N > 0, ∀ x, N < |x| →
     0 < -f x ∧ -f x < ε := by
   intro ε hε
@@ -50,14 +50,14 @@ theorem gap1 : ∀ ε > 0, ∃ N > 0, ∀ x, N < |x| →
   · simpa only [f, neg_div, neg_neg] using hpos
   · simpa only [f, neg_div, neg_neg] using hsmall
 
-/-- Source: `proof_gap/exercise_407_7/2.txt`; replace the false universal limit claim by its defining equivalence. -/
+/-- Exercise 407_7, gap 2; replace the false universal limit claim by its defining equivalence. -/
 theorem gap2 (g : ℝ → ℝ) (b : ℝ) :
     ApproachesBelowAtInfinity g b ↔
       ∀ ε > 0, ∃ N > 0, ∀ x, N < |x| →
         0 < b - g x ∧ b - g x < ε := by
   rfl
 
-/-- Source: `proof_gap/exercise_407_7/3.txt`; state the sign for the defined example. -/
+/-- Exercise 407_7, gap 3; state the sign for the defined example. -/
 theorem gap3 : ∀ x : ℝ, f x < 0 := by
   intro x
   have hden : 0 < 1 + x ^ 2 := by
@@ -66,12 +66,12 @@ theorem gap3 : ∀ x : ℝ, f x < 0 := by
   have hneg : -(1 / (1 + x ^ 2)) < 0 := neg_lt_zero.mpr hpos
   simpa only [f, neg_div] using hneg
 
-/-- Source: `proof_gap/exercise_407_7/4.txt`; define the previously free function. -/
+/-- Exercise 407_7, gap 4; define the previously free function. -/
 theorem gap4 : ApproachesBelowAtInfinity f 0 := by
   unfold ApproachesBelowAtInfinity
   simpa only [zero_sub] using gap1
 
-/-- Source: `proof_gap/exercise_407_7/5.txt`. -/
+/-- Exercise 407_7, gap 5. -/
 theorem gap5 : ∀ x : ℝ, f x < 0 := by
   exact gap3
 

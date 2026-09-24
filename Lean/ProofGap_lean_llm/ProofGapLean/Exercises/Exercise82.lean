@@ -28,7 +28,7 @@ def IsCauchy (u : ℕ → ℝ) : Prop :=
 def Convergent (u : ℕ → ℝ) : Prop :=
   ∃ l : ℝ, Tendsto u atTop (𝓝 l)
 
-/-- Source: `proof_gap/exercise_82/1.txt`; the tail ellipsis is a finite sum. -/
+/-- Exercise 82, gap 1; the tail ellipsis is a finite sum. -/
 theorem gap1 (a : ℕ → ℝ) (q : ℝ) :
     ∀ m n : ℕ, n < m →
       |x a q m - x a q n| = |tail a q n m| := by
@@ -38,7 +38,7 @@ theorem gap1 (a : ℕ → ℝ) (q : ℝ) :
   rw [← Finset.Ico_add_one_right_eq_Icc]
   exact (Finset.sum_Ico_eq_sub (fun i => a i * q ^ i) (by omega)).symm
 
-/-- Source: `proof_gap/exercise_82/2.txt`; the absolute tail is explicit. -/
+/-- Exercise 82, gap 2; the absolute tail is explicit. -/
 theorem gap2 (a : ℕ → ℝ) (q : ℝ) :
     ∀ m n : ℕ, n < m →
       |x a q m - x a q n| ≤ absTail a q n m := by
@@ -54,7 +54,7 @@ theorem gap2 (a : ℕ → ℝ) (q : ℝ) :
       intro i hi
       rw [abs_mul, abs_pow]
 
-/-- Source: `proof_gap/exercise_82/3.txt`; the geometric sum is explicit. -/
+/-- Exercise 82, gap 3; the geometric sum is explicit. -/
 theorem gap3
     (a : ℕ → ℝ) (q M : ℝ)
     (ha : ∀ i : ℕ, |a i| < M)
@@ -85,7 +85,7 @@ theorem gap3
         _ = (M * |q| ^ (n + 1)) * |q| ^ j := by ring
   exact (gap2 a q m n hnm).trans_lt htail
 
-/-- Source: `proof_gap/exercise_82/4.txt`; q=0 is excluded from the strict bound. -/
+/-- Exercise 82, gap 4; q=0 is excluded from the strict bound. -/
 theorem gap4
     (q M : ℝ)
     (hM : 0 < M) (hq0 : q ≠ 0) (hq : |q| < 1) :
@@ -112,7 +112,7 @@ theorem gap4
     mul_pos hM (pow_pos hrpos _)
   exact mul_lt_mul_of_pos_left hgeom hcoef
 
-/-- Source: `proof_gap/exercise_82/5.txt`. -/
+/-- Exercise 82, gap 5. -/
 theorem gap5
     (a : ℕ → ℝ) (q M : ℝ)
     (hbound : ∀ m n : ℕ, n < m →
@@ -127,7 +127,7 @@ theorem gap5
   intro m n hnm
   exact lt_trans (hbound m n hnm) (hgeom m n hnm)
 
-/-- Source: `proof_gap/exercise_82/6.txt`; N depends on ε. -/
+/-- Exercise 82, gap 6; N depends on ε. -/
 theorem gap6
     (q M : ℝ)
     (hM : 0 < M) (hq : |q| < 1) :
@@ -149,7 +149,7 @@ theorem gap6
   rcases eventually_atTop.1 hev with ⟨N, hN⟩
   exact ⟨N, fun n hn => hN n (by omega)⟩
 
-/-- Source: `proof_gap/exercise_82/7.txt`; repair the uniform-cutoff quantifier. -/
+/-- Exercise 82, gap 7; repair the uniform-cutoff quantifier. -/
 theorem gap7
     (a : ℕ → ℝ) (q M : ℝ)
     (ha : ∀ i : ℕ, |a i| < M)
@@ -185,13 +185,13 @@ theorem gap7
       (div_lt_div_iff_of_pos_right hden).2 hscaled
     _ = ε := by field_simp [hden.ne']
 
-/-- Source: `proof_gap/exercise_82/8.txt`. -/
+/-- Exercise 82, gap 8. -/
 theorem gap8 (a : ℕ → ℝ) (q : ℝ)
     (h : IsCauchy (x a q)) :
     IsCauchy (x a q) := by
   exact h
 
-/-- Source: `proof_gap/exercise_82/9.txt`. -/
+/-- Exercise 82, gap 9. -/
 theorem gap9 (a : ℕ → ℝ) (q : ℝ)
     (h : IsCauchy (x a q)) :
     Convergent (x a q) := by
@@ -211,7 +211,7 @@ theorem gap9 (a : ℕ → ℝ) (q : ℝ)
         simpa [Real.dist_eq] using htail
   exact cauchySeq_tendsto_of_complete hcauchy
 
-/-- Source: `proof_gap/exercise_82/10.txt`. -/
+/-- Exercise 82, gap 10. -/
 theorem gap10 (a : ℕ → ℝ) (q : ℝ)
     (h : Convergent (x a q)) :
     Convergent (x a q) := by

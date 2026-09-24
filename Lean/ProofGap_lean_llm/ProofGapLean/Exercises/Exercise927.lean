@@ -25,7 +25,7 @@ def expandedDerivative (a b x : ℝ) : ℝ :=
 def finalDerivative (a b x : ℝ) : ℝ :=
   1 / (a + b * Real.cos x)
 
-/-- Source: `proof_gap/exercise_927/1.txt`; replace the inconsistent global
+/-- Exercise 927, gap 1; replace the inconsistent global
 parameter assumptions by pointwise `b < a`, `0 ≤ b`, and exclude tangent
 poles at `x/2`. -/
 theorem gap1 (a b x : ℝ) (hab : b < a) (hb : 0 ≤ b)
@@ -91,7 +91,7 @@ theorem gap1 (a b x : ℝ) (hab : b < a) (hb : 0 ≤ b)
   simp only [expandedDerivative, sec, one_div, inv_pow]
   ring_nf
 
-/-- Source: `proof_gap/exercise_927/2.txt`; the parameter inequalities make
+/-- Exercise 927, gap 2; the parameter inequalities make
 all constant radicands and denominators positive, while `hcos` handles the
 half-angle tangent. -/
 theorem gap2 (a b x : ℝ) (hab : b < a) (hb : 0 ≤ b)
@@ -160,7 +160,7 @@ theorem gap2 (a b x : ℝ) (hab : b < a) (hb : 0 ≤ b)
   field_simp [ne_of_gt hsum, ne_of_gt hsqrtq, hcos,
     ne_of_gt hfracpos, ne_of_gt htrigpos]
 
-/-- Source: `proof_gap/exercise_927/3.txt`; retain the corrected parameter
+/-- Exercise 927, gap 3; retain the corrected parameter
 dependencies and the half-angle tangent domain. -/
 theorem gap3 (a b x : ℝ) (hab : b < a) (hb : 0 ≤ b)
     (hcos : Real.cos (x / 2) ≠ 0) :

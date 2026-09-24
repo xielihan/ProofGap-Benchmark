@@ -18,7 +18,7 @@ def signComposition (x : ℝ) : ℝ :=
   else if x = 1 then 0
   else -1
 
-/-- Source: `proof_gap/exercise_744_2/1.txt`; add the two intervals on which
+/-- Exercise 744_2, gap 1; add the two intervals on which
 `x(1-x²)` is positive. -/
 theorem gap1 :
     ∀ x, (x < -1 ∨ (0 < x ∧ x < 1)) → 0 < cubicLike x := by
@@ -37,7 +37,7 @@ theorem gap1 :
         _ = 1 - x ^ 2 := by ring
     exact mul_pos hx.1 hfac
 
-/-- Source: `proof_gap/exercise_744_2/2.txt`; add the two intervals on which
+/-- Exercise 744_2, gap 2; add the two intervals on which
 `x(1-x²)` is negative. -/
 theorem gap2 :
     ∀ x, ((-1 < x ∧ x < 0) ∨ 1 < x) → cubicLike x < 0 := by
@@ -56,7 +56,7 @@ theorem gap2 :
         _ < 0 := mul_neg_of_neg_of_pos (by linarith) (by linarith)
     exact mul_neg_of_pos_of_neg hx0 hfac
 
-/-- Source: `proof_gap/exercise_744_2/3.txt`. -/
+/-- Exercise 744_2, gap 3. -/
 theorem gap3 : ∀ x, signFn (cubicLike x) = signComposition x := by
   intro x
   by_cases hltm1 : x < -1
@@ -94,7 +94,7 @@ theorem gap3 : ∀ x, signFn (cubicLike x) = signComposition x := by
       simpa [signFn] using Real.sign_of_neg hc
     simpa [signComposition, hltm1, heqm1, hlt0, heq0, hlt1, heq1] using hs
 
-/-- Source: `proof_gap/exercise_744_2/4.txt`. -/
+/-- Exercise 744_2, gap 4. -/
 theorem gap4 : ¬ContinuousAt (fun x => signFn (cubicLike x)) (-1) := by
   intro h
   rw [Metric.continuousAt_iff] at h
@@ -120,7 +120,7 @@ theorem gap4 : ¬ContinuousAt (fun x => signFn (cubicLike x)) (-1) := by
   rw [hyval, haval] at hout
   norm_num [Real.dist_eq] at hout
 
-/-- Source: `proof_gap/exercise_744_2/5.txt`. -/
+/-- Exercise 744_2, gap 5. -/
 theorem gap5 : ¬ContinuousAt (fun x => signFn (cubicLike x)) 0 := by
   intro h
   rw [Metric.continuousAt_iff] at h
@@ -163,7 +163,7 @@ theorem gap5 : ¬ContinuousAt (fun x => signFn (cubicLike x)) 0 := by
   rw [hyval, h0val] at hout
   norm_num [Real.dist_eq] at hout
 
-/-- Source: `proof_gap/exercise_744_2/6.txt`. -/
+/-- Exercise 744_2, gap 6. -/
 theorem gap6 : ¬ContinuousAt (fun x => signFn (cubicLike x)) 1 := by
   intro h
   rw [Metric.continuousAt_iff] at h
@@ -202,7 +202,7 @@ theorem gap6 : ¬ContinuousAt (fun x => signFn (cubicLike x)) 1 := by
   rw [hyval, h1val] at hout
   norm_num [Real.dist_eq] at hout
 
-/-- Source: `proof_gap/exercise_744_2/7.txt`. -/
+/-- Exercise 744_2, gap 7. -/
 theorem gap7 : ∀ x, cubicLike (signFn x) = 0 := by
   intro x
   rcases lt_trichotomy x 0 with hx | hx | hx
@@ -217,7 +217,7 @@ theorem gap7 : ∀ x, cubicLike (signFn x) = 0 := by
     rw [hs]
     norm_num [cubicLike]
 
-/-- Source: `proof_gap/exercise_744_2/8.txt`. -/
+/-- Exercise 744_2, gap 8. -/
 theorem gap8 : Continuous (fun x => cubicLike (signFn x)) := by
   have hzero :
       (fun x : ℝ => cubicLike (signFn x)) = (fun _ : ℝ => (0 : ℝ)) := by

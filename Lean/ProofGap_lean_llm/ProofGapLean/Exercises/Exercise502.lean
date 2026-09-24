@@ -19,7 +19,7 @@ def normalized (x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_502/1.txt`. -/
+/-- Exercise 502, gap 1. -/
 private theorem sqHalfTendstoPunctured :
     Filter.Tendsto (fun x : ℝ => x ^ 2 / 2)
       (nhdsWithin 0 ({0} : Set ℝ)ᶜ)
@@ -125,14 +125,14 @@ theorem gap1 (L : ℝ) :
   unfold HasLimitAtZero
   exact Filter.tendsto_congr' originalEventuallyEqHalfAngle
 
-/-- Source: `proof_gap/exercise_502/2.txt`. -/
+/-- Exercise 502, gap 2. -/
 theorem gap2 (L : ℝ) :
     HasLimitAtZero original L ↔ HasLimitAtZero normalized L := by
   refine (gap1 L).trans ?_
   unfold HasLimitAtZero
   exact Filter.tendsto_congr' halfAngleEventuallyEqNormalized
 
-/-- Source: `proof_gap/exercise_502/3.txt`. -/
+/-- Exercise 502, gap 3. -/
 theorem gap3 : HasLimitAtZero normalized (Real.sqrt 2) := by
   unfold HasLimitAtZero
   have hsin :
@@ -146,7 +146,7 @@ theorem gap3 : HasLimitAtZero normalized (Real.sqrt 2) := by
   simpa [normalized] using
     ((hc.mul hsin).mul (divSinTendstoPunctured.pow 2))
 
-/-- Source: `proof_gap/exercise_502/4.txt`. -/
+/-- Exercise 502, gap 4. -/
 theorem gap4 : HasLimitAtZero original (Real.sqrt 2) := by
   exact (gap2 (Real.sqrt 2)).2 gap3
 

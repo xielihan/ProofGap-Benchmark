@@ -19,7 +19,7 @@ def exponentialForm (x : ℝ) (n : ℕ) : ℝ :=
     ((1 / Real.tan (angle x n) ^ 2) *
       (Real.tan (angle x n) / angle x n) ^ 2 * (-x ^ 2 / 2))
 
-/-- Source: `proof_gap/exercise_528/1.txt`. -/
+/-- Exercise 528, gap 1. -/
 private theorem angle_tendsto_zero (x : ℝ) :
     Filter.Tendsto (angle x) Filter.atTop (nhds 0) := by
   have hsqrt :
@@ -170,7 +170,7 @@ theorem gap1 (x L : ℝ) :
   · intro h
     exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_528/2.txt`. -/
+/-- Exercise 528, gap 2. -/
 theorem gap2 (x L : ℝ) :
     Filter.Tendsto (seq x) Filter.atTop (nhds L) ↔
       Filter.Tendsto (exponentialForm x) Filter.atTop (nhds L) := by
@@ -221,7 +221,7 @@ theorem gap2 (x L : ℝ) :
     · intro h
       exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_528/3.txt`. -/
+/-- Exercise 528, gap 3. -/
 theorem gap3 (x : ℝ) :
     Filter.Tendsto (exponentialForm x) Filter.atTop
       (nhds (Real.exp (-x ^ 2 / 2))) := by
@@ -329,7 +329,7 @@ theorem gap3 (x : ℝ) :
           ring
     exact hexp.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_528/4.txt`. -/
+/-- Exercise 528, gap 4. -/
 theorem gap4 (x : ℝ) :
     Filter.Tendsto (seq x) Filter.atTop (nhds (Real.exp (-x ^ 2 / 2))) := by
   exact (gap2 x (Real.exp (-x ^ 2 / 2))).mpr (gap3 x)

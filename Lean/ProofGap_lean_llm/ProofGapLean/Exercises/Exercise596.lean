@@ -11,7 +11,7 @@ def f (x : ℝ) : ℝ := 1 / (1 + Real.exp (1 / x))
 def leftFilter : Filter ℝ := nhdsWithin 0 (Set.Iio 0)
 def rightFilter : Filter ℝ := nhdsWithin 0 (Set.Ioi 0)
 
-/-- Source: `proof_gap/exercise_596/1.txt`. -/
+/-- Exercise 596, gap 1. -/
 theorem gap1 : Filter.Tendsto f leftFilter (nhds 1) := by
   unfold f
   have hinv :
@@ -34,7 +34,7 @@ theorem gap1 : Filter.Tendsto f leftFilter (nhds 1) := by
       leftFilter (nhds ((1 : ℝ) / (1 + 0))) at hquot
   simpa only [add_zero, div_one] using hquot
 
-/-- Source: `proof_gap/exercise_596/2.txt`. -/
+/-- Exercise 596, gap 2. -/
 theorem gap2 : Filter.Tendsto f rightFilter (nhds 0) := by
   have hinv :
       Filter.Tendsto (fun x : ℝ => 1 / x) rightFilter Filter.atTop := by

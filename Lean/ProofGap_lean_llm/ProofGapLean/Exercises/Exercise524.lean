@@ -21,7 +21,7 @@ def exponentialForm (x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_524/1.txt`. -/
+/-- Exercise 524, gap 1. -/
 private theorem tendsto_of_eventuallyEq
     {α β : Type*} {l : Filter α} {F : Filter β} {f g : α → β}
     (hfg : f =ᶠ[l] g) (hf : Filter.Tendsto f l F) :
@@ -218,7 +218,7 @@ theorem gap1 (L : ℝ) :
   · intro h
     exact tendsto_of_eventuallyEq limit_data.1.symm h
 
-/-- Source: `proof_gap/exercise_524/2.txt`. -/
+/-- Exercise 524, gap 2. -/
 theorem gap2 (L : ℝ) :
     HasLimitAtZero original L ↔ HasLimitAtZero exponentialForm L := by
   have hforms := limit_data.1.trans limit_data.2.1
@@ -228,11 +228,11 @@ theorem gap2 (L : ℝ) :
   · intro h
     exact tendsto_of_eventuallyEq hforms.symm h
 
-/-- Source: `proof_gap/exercise_524/3.txt`. -/
+/-- Exercise 524, gap 3. -/
 theorem gap3 : HasLimitAtZero exponentialForm (Real.exp (-2)) := by
   exact tendsto_of_eventuallyEq limit_data.2.1 limit_data.2.2
 
-/-- Source: `proof_gap/exercise_524/4.txt`. -/
+/-- Exercise 524, gap 4. -/
 theorem gap4 : HasLimitAtZero original (Real.exp (-2)) := by
   exact tendsto_of_eventuallyEq limit_data.1.symm limit_data.2.2
 

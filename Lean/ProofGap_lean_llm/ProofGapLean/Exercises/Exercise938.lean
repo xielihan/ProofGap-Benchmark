@@ -28,7 +28,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 def finalDerivative (x : ℝ) : ℝ :=
   -Real.arccos x / x ^ 2
 
-/-- Source: `proof_gap/exercise_938/1.txt`; require `|x| < 1` for the
+/-- Exercise 938, gap 1; require `|x| < 1` for the
 square-root and arccosine derivatives and `x ≠ 0` for the quotient and
 positive logarithm argument. -/
 private lemma s_interval_facts (x : ℝ) (hinside : |x| < 1) (hx : x ≠ 0) :
@@ -107,7 +107,7 @@ theorem gap1 (x : ℝ) (hinside : |x| < 1) (hx : x ≠ 0) :
   simpa only [y, expandedDerivative, zero_mul, zero_add] using
     hfirst.add ((hasDerivAt_const x (1 / 2 : ℝ)).mul hlog)
 
-/-- Source: `proof_gap/exercise_938/2.txt`; these hypotheses make every
+/-- Exercise 938, gap 2; these hypotheses make every
 factor `x`, `s x`, and `1-s x` in the cancellation nonzero. -/
 theorem gap2 (x : ℝ) (hinside : |x| < 1) (hx : x ≠ 0) :
     expandedDerivative x = finalDerivative x := by
@@ -130,7 +130,7 @@ theorem gap2 (x : ℝ) (hinside : |x| < 1) (hx : x ≠ 0) :
   field_simp [hx, hsne] <;>
     ring
 
-/-- Source: `proof_gap/exercise_938/3.txt`; retain the punctured open interval
+/-- Exercise 938, gap 3; retain the punctured open interval
 on which the original logarithmic quotient is real and differentiable. -/
 theorem gap3 (x : ℝ) (hinside : |x| < 1) (hx : x ≠ 0) :
     HasDerivAt y (finalDerivative x) x := by

@@ -19,7 +19,7 @@ def transformed (x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_519/1.txt`; interpret variable powers by `Real.rpow`. -/
+/-- Exercise 519, gap 1; interpret variable powers by `Real.rpow`. -/
 private theorem tendsto_of_eventually_eq
     {α β : Type*} {l : Filter α} {la : Filter β} {f g : α → β}
     (hfg : f =ᶠ[l] g) (hg : Filter.Tendsto g l la) :
@@ -274,15 +274,15 @@ theorem gap1 (L : ℝ) :
   · intro h
     exact tendsto_of_eventually_eq eventually_original_eq_transformed h
 
-/-- Source: `proof_gap/exercise_519/2.txt`. -/
+/-- Exercise 519, gap 2. -/
 theorem gap2 : HasLimitAtZero transformed (Real.exp 0) := by
   exact (gap1 (Real.exp 0)).mp original_tendsto_exp_zero
 
-/-- Source: `proof_gap/exercise_519/3.txt`. -/
+/-- Exercise 519, gap 3. -/
 theorem gap3 : Real.exp 0 = 1 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_519/4.txt`. -/
+/-- Exercise 519, gap 4. -/
 theorem gap4 : HasLimitAtZero original 1 := by
   simpa using original_tendsto_exp_zero
 

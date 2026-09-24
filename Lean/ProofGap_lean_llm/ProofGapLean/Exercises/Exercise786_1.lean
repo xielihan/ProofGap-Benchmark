@@ -15,7 +15,7 @@ def Modulus (δ ε : ℝ) : Prop :=
   ∀ x₁ ∈ Set.Icc (-10 : ℝ) 10, ∀ x₂ ∈ Set.Icc (-10 : ℝ) 10,
     |x₁ - x₂| < δ → |cubeRoot x₁ - cubeRoot x₂| < ε
 
-/-- Source: `proof_gap/exercise_786_1/1.txt`; use a signed real cube root and
+/-- Exercise 786_1, gap 1; use a signed real cube root and
 bind `yᵢ³=xᵢ` explicitly. -/
 private theorem oneThirdRpow_cube (x : ℝ) (hx : 0 ≤ x) :
     Real.rpow x (1 / 3 : ℝ) ^ 3 = x := by
@@ -110,7 +110,7 @@ theorem gap1 (y₁ y₂ : ℝ) (hne : y₁ ≠ y₂) :
   apply (eq_div_iff hden).2
   ring
 
-/-- Source: `proof_gap/exercise_786_1/2.txt`. -/
+/-- Exercise 786_1, gap 2. -/
 theorem gap2 (y₁ y₂ : ℝ) (hne : y₁ ≠ y₂) :
     |(y₁ ^ 3 - y₂ ^ 3) / (y₁ ^ 2 + y₁ * y₂ + y₂ ^ 2)| =
       |(y₁ ^ 3 - y₂ ^ 3) /
@@ -122,7 +122,7 @@ theorem gap2 (y₁ y₂ : ℝ) (hne : y₁ ≠ y₂) :
     ring
   rw [hden]
 
-/-- Source: `proof_gap/exercise_786_1/3.txt`. -/
+/-- Exercise 786_1, gap 3. -/
 theorem gap3 (y₁ y₂ : ℝ) (hne : y₁ ≠ y₂) :
     |(y₁ ^ 3 - y₂ ^ 3) /
         ((3 / 4 : ℝ) * (y₁ + y₂) ^ 2 + (1 / 4 : ℝ) * (y₁ - y₂) ^ 2)| ≤
@@ -147,7 +147,7 @@ theorem gap3 (y₁ y₂ : ℝ) (hne : y₁ ≠ y₂) :
   apply (div_le_div_iff₀ hlarge hsmall).2
   exact mul_le_mul_of_nonneg_left hden (abs_nonneg _)
 
-/-- Source: `proof_gap/exercise_786_1/4.txt`. -/
+/-- Exercise 786_1, gap 4. -/
 theorem gap4 (y₁ y₂ : ℝ) (hne : y₁ ≠ y₂) :
     |y₁ - y₂| ≤
       |y₁ ^ 3 - y₂ ^ 3| / ((1 / 4 : ℝ) * |y₁ - y₂| ^ 2) := by
@@ -162,7 +162,7 @@ theorem gap4 (y₁ y₂ : ℝ) (hne : y₁ ≠ y₂) :
     _ ≤ |y₁ ^ 3 - y₂ ^ 3| /
           ((1 / 4 : ℝ) * |y₁ - y₂| ^ 2) := gap3 y₁ y₂ hne
 
-/-- Source: `proof_gap/exercise_786_1/5.txt`. -/
+/-- Exercise 786_1, gap 5. -/
 theorem gap5 (y₁ y₂ : ℝ) :
     (1 / 4 : ℝ) * |y₁ - y₂| ^ 3 ≤ |y₁ ^ 3 - y₂ ^ 3| := by
   by_cases hne : y₁ ≠ y₂
@@ -180,13 +180,13 @@ theorem gap5 (y₁ y₂ : ℝ) :
     subst y₂
     simp
 
-/-- Source: `proof_gap/exercise_786_1/6.txt`; restore `xᵢ=yᵢ³`. -/
+/-- Exercise 786_1, gap 6; restore `xᵢ=yᵢ³`. -/
 theorem gap6 (y₁ y₂ x₁ x₂ : ℝ) (hx₁ : x₁ = y₁ ^ 3)
     (hx₂ : x₂ = y₂ ^ 3) :
     |y₁ ^ 3 - y₂ ^ 3| = |x₁ - x₂| := by
   rw [hx₁, hx₂]
 
-/-- Source: `proof_gap/exercise_786_1/7.txt`; restore `xᵢ=yᵢ³`. -/
+/-- Exercise 786_1, gap 7; restore `xᵢ=yᵢ³`. -/
 theorem gap7 (y₁ y₂ x₁ x₂ : ℝ) (hx₁ : x₁ = y₁ ^ 3)
     (hx₂ : x₂ = y₂ ^ 3) :
     (1 / 4 : ℝ) * |y₁ - y₂| ^ 3 ≤ |x₁ - x₂| := by
@@ -195,7 +195,7 @@ theorem gap7 (y₁ y₂ x₁ x₂ : ℝ) (hx₁ : x₁ = y₁ ^ 3)
         |y₁ ^ 3 - y₂ ^ 3| := gap5 y₁ y₂
     _ = |x₁ - x₂| := gap6 y₁ y₂ x₁ x₂ hx₁ hx₂
 
-/-- Source: `proof_gap/exercise_786_1/8.txt`; use a cube root rather than the
+/-- Exercise 786_1, gap 8; use a cube root rather than the
 ambiguous `sqrtn`. -/
 theorem gap8 (y₁ y₂ x₁ x₂ : ℝ)
     (h : (1 / 4 : ℝ) * |y₁ - y₂| ^ 3 ≤ |x₁ - x₂|) :
@@ -220,7 +220,7 @@ theorem gap8 (y₁ y₂ x₁ x₂ : ℝ)
     nonneg_le_of_cube_le ha hc0 hcubed
   simpa [a, z] using hac
 
-/-- Source: `proof_gap/exercise_786_1/9.txt`; add the bound obtained in gap 8. -/
+/-- Exercise 786_1, gap 9; add the bound obtained in gap 8. -/
 theorem gap9 (x₁ x₂ y₁ y₂ ε : ℝ) (hε : 0 < ε)
     (hy : |y₁ - y₂| ≤ cubeRoot (4 * |x₁ - x₂|))
     (hx : 4 * |x₁ - x₂| < ε ^ 3) :
@@ -241,13 +241,13 @@ theorem gap9 (x₁ x₂ y₁ y₂ ε : ℝ) (hε : 0 < ε)
     simpa [z] using hy
   linarith
 
-/-- Source: `proof_gap/exercise_786_1/10.txt`. -/
+/-- Exercise 786_1, gap 10. -/
 theorem gap10 (x₁ x₂ ε : ℝ) (hε : 0 < ε)
     (hx : |x₁ - x₂| < ε ^ 3 / 4) :
     4 * |x₁ - x₂| < ε ^ 3 := by
   nlinarith
 
-/-- Source: `proof_gap/exercise_786_1/11.txt`; restore `yᵢ³=xᵢ`. -/
+/-- Exercise 786_1, gap 11; restore `yᵢ³=xᵢ`. -/
 theorem gap11 (x₁ x₂ y₁ y₂ ε : ℝ) (hε : 0 < ε)
     (hx₁ : x₁ = y₁ ^ 3) (hx₂ : x₂ = y₂ ^ 3)
     (hx : |x₁ - x₂| < ε ^ 3 / 4) :
@@ -260,7 +260,7 @@ theorem gap11 (x₁ x₂ y₁ y₂ ε : ℝ) (hε : 0 < ε)
     gap10 x₁ x₂ ε hε hx
   exact gap9 x₁ x₂ y₁ y₂ ε hε hy hcube
 
-/-- Source: `proof_gap/exercise_786_1/12.txt`. -/
+/-- Exercise 786_1, gap 12. -/
 theorem gap12 (δ ε x₁ x₂ : ℝ) (hδ0 : 0 < δ)
     (hδ : δ < ε ^ 3 / 4) (hmod : Modulus δ ε)
     (hx : |x₁ - x₂| < δ)
@@ -269,7 +269,7 @@ theorem gap12 (δ ε x₁ x₂ : ℝ) (hδ0 : 0 < δ)
     |cubeRoot x₁ - cubeRoot x₂| < ε := by
   exact hmod x₁ hx₁ x₂ hx₂ hx
 
-/-- Source: `proof_gap/exercise_786_1/13.txt`; reverse the false necessity
+/-- Exercise 786_1, gap 13; reverse the false necessity
 claim and state the sufficient modulus for `ε=1`. -/
 theorem gap13 (δ : ℝ) (hδ0 : 0 < δ) (hδ : δ < (1 : ℝ) / 4) :
     Modulus δ 1 := by
@@ -283,7 +283,7 @@ theorem gap13 (δ : ℝ) (hδ0 : 0 < δ) (hδ : δ < (1 : ℝ) / 4) :
     (by norm_num) (signedCubeRoot_cube x₁).symm
     (signedCubeRoot_cube x₂).symm hdist
 
-/-- Source: `proof_gap/exercise_786_1/14.txt`; the claimed biconditional is
+/-- Exercise 786_1, gap 14; the claimed biconditional is
 not a sharp characterization, so retain its sufficient direction. -/
 theorem gap14 (δ : ℝ) :
     δ ∈ {d : ℝ | 0 < d ∧ d < (1 : ℝ) / 4} → Modulus δ 1 := by

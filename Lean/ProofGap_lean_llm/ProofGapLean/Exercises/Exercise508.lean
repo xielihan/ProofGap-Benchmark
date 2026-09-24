@@ -13,7 +13,7 @@ def exponent (x : ℝ) : ℝ := x ^ 3 / (1 - x)
 def exponentNormalized (x : ℝ) : ℝ := x ^ 2 / (1 / x - 1)
 def f (x : ℝ) : ℝ := Real.rpow (base x) (exponent x)
 
-/-- Source: `proof_gap/exercise_508/1.txt`. -/
+/-- Exercise 508, gap 1. -/
 theorem gap1 : Filter.Tendsto base Filter.atTop (nhds (3 / 2)) := by
   have hinv :
       Filter.Tendsto (fun x : ℝ => x⁻¹) Filter.atTop (nhds 0) :=
@@ -50,7 +50,7 @@ theorem gap1 : Filter.Tendsto base Filter.atTop (nhds (3 / 2)) := by
   unfold base
   field_simp [hx0, hbaseDen, hnormDen]
 
-/-- Source: `proof_gap/exercise_508/2.txt`; exclude both vanishing denominators. -/
+/-- Exercise 508, gap 2; exclude both vanishing denominators. -/
 theorem gap2 (x : ℝ) (hx0 : x ≠ 0) (hx1 : x ≠ 1) :
     exponent x = exponentNormalized x := by
   have h1x : 1 - x ≠ 0 := sub_ne_zero.mpr (Ne.symm hx1)
@@ -65,7 +65,7 @@ theorem gap2 (x : ℝ) (hx0 : x ≠ 0) (hx1 : x ≠ 1) :
   unfold exponent exponentNormalized
   field_simp [hx0, h1x, hnorm]
 
-/-- Source: `proof_gap/exercise_508/3.txt`. -/
+/-- Exercise 508, gap 3. -/
 theorem gap3 : Filter.Tendsto exponentNormalized Filter.atTop Filter.atBot := by
   refine Filter.tendsto_atBot.2 ?_
   intro b
@@ -92,7 +92,7 @@ theorem gap3 : Filter.Tendsto exponentNormalized Filter.atTop Filter.atBot := by
       _ = x ^ 3 := by ring
   exact hprod.trans (hsquare.trans hcubic)
 
-/-- Source: `proof_gap/exercise_508/4.txt`. -/
+/-- Exercise 508, gap 4. -/
 theorem gap4 : Filter.Tendsto exponent Filter.atTop Filter.atBot := by
   refine gap3.congr' ?_
   filter_upwards [Filter.eventually_gt_atTop (1 : ℝ)] with x hx
@@ -100,7 +100,7 @@ theorem gap4 : Filter.Tendsto exponent Filter.atTop Filter.atBot := by
   have hx1 : x ≠ 1 := ne_of_gt hx
   simpa only [gap2 x hx0 hx1]
 
-/-- Source: `proof_gap/exercise_508/5.txt`; interpret the real exponent by `Real.rpow`. -/
+/-- Exercise 508, gap 5; interpret the real exponent by `Real.rpow`. -/
 theorem gap5 : Filter.Tendsto f Filter.atTop (nhds 0) := by
   have hlogpos : 0 < Real.log (3 / 2 : ℝ) :=
     Real.log_pos (by norm_num)

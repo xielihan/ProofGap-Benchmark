@@ -19,7 +19,7 @@ def rightContinuousAt (h : ℝ → ℝ) (x : ℝ) : Prop :=
 def lowerStep (a p x : ℝ) : ℝ := if a ≤ x ∧ x ≤ p then 1 else 0
 def upperStep (a p x : ℝ) : ℝ := if a ≤ x ∧ x ≤ p then -1 else 0
 
-/-- Source: `proof_gap/exercise_750/1.txt`; remove the spurious existentially
+/-- Exercise 750, gap 1; remove the spurious existentially
 bound copies of `a` and `x₀`. -/
 private theorem bounded_image_order_bounds (f : ℝ → ℝ) (a b : ℝ)
     (hab : a ≤ b) (hf : boundedOn f (Set.Icc a b)) :
@@ -58,7 +58,7 @@ theorem gap1 (f : ℝ → ℝ) (a b : ℝ)
     exact le_csInf hne hall
   linarith
 
-/-- Source: `proof_gap/exercise_750/2.txt`; make the witness depend on
+/-- Exercise 750, gap 2; make the witness depend on
 `x₀, ε`, as required by the infimum approximation. -/
 theorem gap2 (f : ℝ → ℝ) (a b x₀ ε : ℝ)
     (hx₀ : x₀ ∈ Set.Ioc a b) (hε : 0 < ε)
@@ -73,7 +73,7 @@ theorem gap2 (f : ℝ → ℝ) (a b x₀ ε : ℝ)
   · rintro y ⟨z, hz, rfl⟩
     exact csInf_le hbdd ⟨z, ⟨hz.1, lt_trans hz.2 hxx₀⟩, rfl⟩
 
-/-- Source: `proof_gap/exercise_750/3.txt`; make the witness local to
+/-- Exercise 750, gap 3; make the witness local to
 `x₀, ε`. -/
 theorem gap3 (f : ℝ → ℝ) (a b x₀ ε : ℝ)
     (hx₀ : x₀ ∈ Set.Ioc a b) (hε : 0 < ε)
@@ -88,7 +88,7 @@ theorem gap3 (f : ℝ → ℝ) (a b x₀ ε : ℝ)
   unfold lowerOpen
   exact csInf_le (hbdd.mono hsubset) ⟨a, ⟨le_rfl, hax⟩, rfl⟩
 
-/-- Source: `proof_gap/exercise_750/4.txt`. -/
+/-- Exercise 750, gap 4. -/
 theorem gap4 (f : ℝ → ℝ) (a b x₀ ε : ℝ)
     (hf : boundedOn f (Set.Icc a b)) (hx₀ : x₀ ∈ Set.Ioc a b)
     (hε : 0 < ε) :
@@ -97,7 +97,7 @@ theorem gap4 (f : ℝ → ℝ) (a b x₀ ε : ℝ)
   obtain ⟨ξ₀, hξ₀, hlt⟩ := gap1 f a b hf x₀ hx₀ ε hε
   exact ⟨ξ₀, hξ₀, fun _ _ _ => hlt⟩
 
-/-- Source: `proof_gap/exercise_750/5.txt`; make the infimum witness local. -/
+/-- Exercise 750, gap 5; make the infimum witness local. -/
 theorem gap5 (f : ℝ → ℝ) (a b x₀ ε : ℝ)
     (hx₀ : x₀ ∈ Set.Ioc a b) (hε : 0 < ε) :
     ∃ ξ₀ ∈ Set.Ico a x₀, ∀ x, ξ₀ < x → x < x₀ →
@@ -106,7 +106,7 @@ theorem gap5 (f : ℝ → ℝ) (a b x₀ ε : ℝ)
   intro x hx₁ hx₂
   exact lt_add_of_pos_right _ hε
 
-/-- Source: `proof_gap/exercise_750/6.txt`. -/
+/-- Exercise 750, gap 6. -/
 theorem gap6 (f : ℝ → ℝ) (a b : ℝ)
     (hf : boundedOn f (Set.Icc a b)) :
     ∀ x₀ ∈ Set.Ioc a b, leftContinuousAt (lowerOpen f a) x₀ := by
@@ -145,13 +145,13 @@ theorem gap6 (f : ℝ → ℝ) (a b : ℝ)
   rw [Real.dist_eq, abs_of_nonneg (sub_nonneg.mpr hlo)]
   linarith
 
-/-- Source: `proof_gap/exercise_750/7.txt`. -/
+/-- Exercise 750, gap 7. -/
 theorem gap7 (f : ℝ → ℝ) (a b : ℝ)
     (hf : boundedOn f (Set.Icc a b)) :
     ∀ x₀ ∈ Set.Ioc a b, leftContinuousAt (lowerOpen f a) x₀ := by
   exact gap6 f a b hf
 
-/-- Source: `proof_gap/exercise_750/8.txt`; remove the shadowing quantifiers
+/-- Exercise 750, gap 8; remove the shadowing quantifiers
 over the fixed endpoints. -/
 theorem gap8 (f : ℝ → ℝ) (a b : ℝ)
     (hf : boundedOn f (Set.Icc a b)) :
@@ -203,7 +203,7 @@ theorem gap8 (f : ℝ → ℝ) (a b : ℝ)
   rw [Real.dist_eq, abs_of_nonpos (sub_nonpos.mpr hhi)]
   linarith
 
-/-- Source: `proof_gap/exercise_750/9.txt`; the source omitted the function
+/-- Exercise 750, gap 9; the source omitted the function
 whose running infimum is being computed, so retain the intended equality as an
 explicit hypothesis. -/
 theorem gap9 (mbar : ℝ → ℝ) (a p : ℝ)
@@ -211,14 +211,14 @@ theorem gap9 (mbar : ℝ → ℝ) (a p : ℝ)
     ∀ x, mbar x = lowerStep a p x := by
   exact hm
 
-/-- Source: `proof_gap/exercise_750/10.txt`; analogous explicit hypothesis for
+/-- Exercise 750, gap 10; analogous explicit hypothesis for
 the running supremum. -/
 theorem gap10 (Mbar : ℝ → ℝ) (a p : ℝ)
     (hM : ∀ x, Mbar x = upperStep a p x) :
     ∀ x, Mbar x = upperStep a p x := by
   exact hM
 
-/-- Source: `proof_gap/exercise_750/11.txt`; add `a ≤ p`, needed by the
+/-- Exercise 750, gap 11; add `a ≤ p`, needed by the
 piecewise counterexample. -/
 theorem gap11 (a p : ℝ) (hap : a ≤ p) :
     ¬rightContinuousAt (lowerStep a p) p := by
@@ -241,7 +241,7 @@ theorem gap11 (a p : ℝ) (hap : a ≤ p) :
   rcases hfalse.exists with ⟨x, hx⟩
   exact hx
 
-/-- Source: `proof_gap/exercise_750/12.txt`; add `a ≤ p`. -/
+/-- Exercise 750, gap 12; add `a ≤ p`. -/
 theorem gap12 (a p : ℝ) (hap : a ≤ p) :
     ¬rightContinuousAt (upperStep a p) p := by
   intro h
@@ -263,7 +263,7 @@ theorem gap12 (a p : ℝ) (hap : a ≤ p) :
   rcases hfalse.exists with ⟨x, hx⟩
   exact hx
 
-/-- Source: `proof_gap/exercise_750/13.txt`; separate the universal
+/-- Exercise 750, gap 13; separate the universal
 left-continuity result from the explicit right-discontinuous counterexamples. -/
 theorem gap13 (f : ℝ → ℝ) (a b p : ℝ)
     (hf : boundedOn f (Set.Icc a b)) (hap : a ≤ p) :

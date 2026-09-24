@@ -28,7 +28,7 @@ def normalized (n : ℕ) (α : ℕ → ℝ) (x : ℝ) : ℝ :=
 def HasLimitAtPosInfinity (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f Filter.atTop (nhds L)
 
-/-- Source: `proof_gap/exercise_465/1`; rationalize the `n`th-root difference. -/
+/-- Exercise 465, gap 1; rationalize the `n`th-root difference. -/
 private theorem geom_sum_Icc (n : ℕ) (a b : ℝ) :
     (a - b) * (Finset.Icc 1 n).sum (fun j => a ^ (n - j) * b ^ (j - 1)) =
       a ^ n - b ^ n := by
@@ -420,7 +420,7 @@ theorem gap1 (n : ℕ) (hn : 0 < n) (α : ℕ → ℝ) (L : ℝ) :
   · intro h
     exact Filter.Tendsto.congr' heq.symm h
 
-/-- Source: `proof_gap/exercise_465/2`; expand the product numerator. -/
+/-- Exercise 465, gap 2; expand the product numerator. -/
 theorem gap2 (n : ℕ) (hn : 0 < n) (α : ℕ → ℝ) (L : ℝ) :
     HasLimitAtPosInfinity (rationalized n α) L ↔
       HasLimitAtPosInfinity (normalized n α) L := by
@@ -437,7 +437,7 @@ theorem gap2 (n : ℕ) (hn : 0 < n) (α : ℕ → ℝ) (L : ℝ) :
       tendsto_nhds_unique h hnorm
     simpa [hL] using hrat
 
-/-- Source: `proof_gap/exercise_465/3`; replace the little-o term by an explicit vanishing term. -/
+/-- Exercise 465, gap 3; replace the little-o term by an explicit vanishing term. -/
 theorem gap3 (n : ℕ) (hn : 0 < n) (α : ℕ → ℝ) :
     HasLimitAtPosInfinity (normalized n α)
       ((indices n).sum α / n) := by

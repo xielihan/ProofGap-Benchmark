@@ -20,7 +20,7 @@ def exponentialForm (a α β x : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_548/1.txt`; restrict real powers to `x>0` and exclude the puncture. -/
+/-- Exercise 548, gap 1; restrict real powers to `x>0` and exclude the puncture. -/
 private theorem rpow_secant_tendsto (a γ : ℝ) (ha : 0 < a) :
     Filter.Tendsto
       (fun x => (Real.rpow x γ - Real.rpow a γ) / (x - a))
@@ -82,7 +82,7 @@ theorem gap1 (a α β x : ℝ) (ha : 0 < a) (hx : 0 < x) (hxa : x ≠ a) :
   · simp [hden]
   · field_simp [hpa α, hpa β, hden] <;> ring
 
-/-- Source: `proof_gap/exercise_548/2.txt`; the displayed factorization also divides by `α`. -/
+/-- Exercise 548, gap 2; the displayed factorization also divides by `α`. -/
 theorem gap2 (a α β x : ℝ) (ha : 0 < a) (hx : 0 < x)
     (hxa : x ≠ a) (hα : α ≠ 0) (hβ : β ≠ 0) :
     original a α β x = exponentialForm a α β x := by
@@ -129,7 +129,7 @@ theorem gap2 (a α β x : ℝ) (ha : 0 < a) (hx : 0 < x)
     simpa using he
   field_simp [hα, hβ, hlog, hEβ] <;> ring
 
-/-- Source: `proof_gap/exercise_548/3.txt`; replace the malformed `x→a` premise by the limit itself. -/
+/-- Exercise 548, gap 3; replace the malformed `x→a` premise by the limit itself. -/
 theorem gap3 (a : ℝ) (ha : 0 < a) :
     HasLimitAt (fun x => Real.log (x / a)) a 0 := by
   unfold HasLimitAt
@@ -148,7 +148,7 @@ theorem gap3 (a : ℝ) (ha : 0 < a) :
         (show (1 : ℝ) ≠ 0 from one_ne_zero)).tendsto
   simpa only [Function.comp_apply] using hloglim.comp hdivlim
 
-/-- Source: `proof_gap/exercise_548/4.txt`. -/
+/-- Exercise 548, gap 4. -/
 theorem gap4 (a α β : ℝ) (ha : 0 < a) (hβ : β ≠ 0) :
     HasLimitAt (original a α β) a ((α / β) * Real.rpow a (α - β)) := by
   unfold HasLimitAt

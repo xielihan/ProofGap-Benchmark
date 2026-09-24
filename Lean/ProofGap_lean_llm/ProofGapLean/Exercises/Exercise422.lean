@@ -16,7 +16,7 @@ def cancelled (x : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_422/1.txt`. -/
+/-- Exercise 422, gap 1. -/
 theorem gap1 : HasLimitAt original (-1) (1 / 3) ↔
     HasLimitAt factored (-1) (1 / 3) := by
   have h : original = factored := by
@@ -25,7 +25,7 @@ theorem gap1 : HasLimitAt original (-1) (1 / 3) ↔
     congr 1 <;> ring
   rw [h]
 
-/-- Source: `proof_gap/exercise_422/2.txt`. -/
+/-- Exercise 422, gap 2. -/
 theorem gap2 : HasLimitAt factored (-1) (1 / 3) ↔
     HasLimitAt cancelled (-1) (1 / 3) := by
   unfold HasLimitAt
@@ -46,7 +46,7 @@ theorem gap2 : HasLimitAt factored (-1) (1 / 3) ↔
       Filter.map cancelled (nhdsWithin (-1) ({-1} : Set ℝ)ᶜ) ≤ nhds (1 / 3)
   rw [Filter.map_congr heq]
 
-/-- Source: `proof_gap/exercise_422/3.txt`. -/
+/-- Exercise 422, gap 3. -/
 theorem gap3 : HasLimitAt cancelled (-1) (1 / 3) := by
   have hnum :
       ContinuousAt (fun x : ℝ => x ^ 2 - x - 1) (-1) :=
@@ -67,7 +67,7 @@ theorem gap3 : HasLimitAt cancelled (-1) (1 / 3) := by
   rw [hvalue] at ht
   exact ht
 
-/-- Source: `proof_gap/exercise_422/4.txt`. -/
+/-- Exercise 422, gap 4. -/
 theorem gap4 : HasLimitAt original (-1) (1 / 3) := by
   exact gap1.mpr (gap2.mpr gap3)
 

@@ -20,7 +20,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 def finalDerivative (x : ℝ) : ℝ :=
   -x / Real.sqrt (1 - x ^ 2) * Real.arccos x
 
-/-- Source: `proof_gap/exercise_918/1.txt`; both square root and arccosine
+/-- Exercise 918, gap 1; both square root and arccosine
 are differentiated strictly inside `(-1,1)`. -/
 private lemma sqrtArg_pos (x : ℝ) (hx : |x| < 1) : 0 < 1 - x ^ 2 := by
   have hbounds : -1 < x ∧ x < 1 := abs_lt.mp hx
@@ -66,7 +66,7 @@ theorem gap1 (x : ℝ) (hx : |x| < 1) :
   rw [hcoeff] at hderiv
   exact hderiv
 
-/-- Source: `proof_gap/exercise_918/2.txt`; the strict-domain hypothesis
+/-- Exercise 918, gap 2; the strict-domain hypothesis
 makes the square-root quotient equal to one. -/
 theorem gap2 (x : ℝ) (hx : |x| < 1) :
     expandedDerivative x = finalDerivative x := by
@@ -77,7 +77,7 @@ theorem gap2 (x : ℝ) (hx : |x| < 1) :
   field_simp [hsqrt_ne]
   ring
 
-/-- Source: `proof_gap/exercise_918/3.txt`; retain the common open domain of
+/-- Exercise 918, gap 3; retain the common open domain of
 the square root and inverse cosine. -/
 theorem gap3 (x : ℝ) (hx : |x| < 1) :
     HasDerivAt y (finalDerivative x) x := by

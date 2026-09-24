@@ -59,14 +59,14 @@ private theorem exists_unit_rat_seq (y : ℝ) (hy : y ∈ Set.Icc (0 : ℝ) 1) :
         omega
       exact hlim.comp hshift
 
-/-- Source: `proof_gap/exercise_118/1.txt`; the enumerating ellipsis becomes a range equality. -/
+/-- Exercise 118, gap 1; the enumerating ellipsis becomes a range equality. -/
 theorem gap1
     (x : ℕ → ℝ)
     (henum : EnumeratesUnitRationals x) :
     Set.range x = unitRationals := by
   exact henum
 
-/-- Source: `proof_gap/exercise_118/2.txt`. -/
+/-- Exercise 118, gap 2. -/
 theorem gap2
     (x : ℕ → ℝ)
     (henum : EnumeratesUnitRationals x) :
@@ -98,14 +98,14 @@ theorem gap2
     hcluster_comp.of_comp hftop
   exact TopologicalSpace.FirstCountableTopology.tendsto_subseq hcluster
 
-/-- Source: `proof_gap/exercise_118/3.txt`. -/
+/-- Exercise 118, gap 3. -/
 theorem gap3
     (x : ℕ → ℝ)
     (henum : EnumeratesUnitRationals x) :
     ∀ y : ℝ, y ∈ Set.Icc (0 : ℝ) 1 → y ∈ ProofGap.ClusterSet x := by
   exact gap2 x henum
 
-/-- Source: `proof_gap/exercise_118/4.txt`. -/
+/-- Exercise 118, gap 4. -/
 theorem gap4
     (x : ℕ → ℝ)
     (henum : EnumeratesUnitRationals x) :

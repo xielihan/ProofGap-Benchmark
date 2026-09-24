@@ -13,7 +13,7 @@ def higherTerms (n : ℕ) (x : ℝ) : ℝ :=
 def remainder (n : ℕ) (x : ℝ) : ℝ :=
   (1 + x) ^ n - 1 - n * x
 
-/-- Source: `proof_gap/exercise_650_7/1.txt`; replace the binomial ellipsis by `higherTerms`. -/
+/-- Exercise 650_7, gap 1; replace the binomial ellipsis by `higherTerms`. -/
 private theorem remainder_eq_mul_higherTerms (n : ℕ) (x : ℝ) :
     remainder n x = x * higherTerms n x := by
   cases n with
@@ -72,7 +72,7 @@ theorem gap1 (x : ℝ) (n : ℕ) (hx : x ≠ 0) :
   rw [remainder_eq_mul_higherTerms]
   simp [hx]
 
-/-- Source: `proof_gap/exercise_650_7/2.txt`; replace the ellipsis by the complete higher-term sum. -/
+/-- Exercise 650_7, gap 2; replace the ellipsis by the complete higher-term sum. -/
 theorem gap2 (n : ℕ) :
     Filter.Tendsto (higherTerms n) (nhdsWithin 0 (Set.Ioi 0)) (nhds 0) := by
   have hcont : ContinuousAt (higherTerms n) 0 := by
@@ -98,7 +98,7 @@ theorem gap2 (n : ℕ) :
     simp [hk0]
   simpa only [hzero] using hcont.tendsto.mono_left inf_le_left
 
-/-- Source: `proof_gap/exercise_650_7/3.txt`. -/
+/-- Exercise 650_7, gap 3. -/
 theorem gap3 (n : ℕ) :
     Filter.Tendsto (fun x : ℝ => remainder n x / x)
       (nhdsWithin 0 (Set.Ioi 0)) (nhds 0) := by
@@ -106,7 +106,7 @@ theorem gap3 (n : ℕ) :
   filter_upwards [self_mem_nhdsWithin] with x hx
   exact (gap1 x n (ne_of_gt hx)).symm
 
-/-- Source: `proof_gap/exercise_650_7/4.txt`. -/
+/-- Exercise 650_7, gap 4. -/
 theorem gap4 (n : ℕ) :
     Asymptotics.IsLittleO (nhdsWithin 0 (Set.Ioi 0))
       (remainder n) (fun x : ℝ => x) := by
@@ -119,7 +119,7 @@ theorem gap4 (n : ℕ) :
   refine (Asymptotics.isLittleO_iff_tendsto hzero).2 ?_
   simpa [div_eq_mul_inv, mul_comm] using (gap3 n)
 
-/-- Source: `proof_gap/exercise_650_7/5.txt`; make the little-o remainder function explicit. -/
+/-- Exercise 650_7, gap 5; make the little-o remainder function explicit. -/
 theorem gap5 (n : ℕ) :
     ∃ r : ℝ → ℝ, Asymptotics.IsLittleO (nhdsWithin 0 (Set.Ioi 0))
         r (fun x : ℝ => x) ∧
@@ -129,7 +129,7 @@ theorem gap5 (n : ℕ) :
   unfold remainder
   ring
 
-/-- Source: `proof_gap/exercise_650_7/6.txt`. -/
+/-- Exercise 650_7, gap 6. -/
 theorem gap6 (n : ℕ) :
     ∃ r : ℝ → ℝ, Asymptotics.IsLittleO (nhdsWithin 0 (Set.Ioi 0))
         r (fun x : ℝ => x) ∧

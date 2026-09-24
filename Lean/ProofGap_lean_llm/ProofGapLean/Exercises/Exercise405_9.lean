@@ -11,7 +11,7 @@ def TendsToPosInfinityFromRight (f : ℝ → ℝ) (a : ℝ) : Prop :=
 
 def f (x : ℝ) : ℝ := 1 / (x - 1)
 
-/-- Source: `proof_gap/exercise_405_9/1.txt`; bind `a` and the chosen `δ` instead of re-quantifying them inside. -/
+/-- Exercise 405_9, gap 1; bind `a` and the chosen `δ` instead of re-quantifying them inside. -/
 theorem gap1 : ∀ E > 0, ∃ δ > 0, ∀ x,
     0 < x - 1 → x - 1 < δ → E < f x := by
   intro E hE
@@ -22,13 +22,13 @@ theorem gap1 : ∀ E > 0, ∃ δ > 0, ∀ x,
     nlinarith
   simpa only [f] using (lt_div_iff₀ hx0).2 hmul
 
-/-- Source: `proof_gap/exercise_405_9/2.txt`; replace the false universal claim by the defining equivalence. -/
+/-- Exercise 405_9, gap 2; replace the false universal claim by the defining equivalence. -/
 theorem gap2 : TendsToPosInfinityFromRight f 1 ↔
     ∀ E > 0, ∃ δ > 0, ∀ x,
       0 < x - 1 → x - 1 < δ → E < f x := by
   rfl
 
-/-- Source: `proof_gap/exercise_405_9/3.txt`; define the previously free function. -/
+/-- Exercise 405_9, gap 3; define the previously free function. -/
 theorem gap3 : TendsToPosInfinityFromRight f 1 := by
   exact gap1
 

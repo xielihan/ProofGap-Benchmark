@@ -8,7 +8,7 @@ def x (n : ℕ) : ℝ :=
 def values : Set ℝ :=
   {v | ∃ n : ℕ, 0 < n ∧ v = x n}
 
-/-- Source: `proof_gap/exercise_99/1.txt`; n=0 is a counterexample. -/
+/-- Exercise 99, gap 1; n=0 is a counterexample. -/
 theorem gap1 :
     ∀ n : ℕ, 0 < n → 9 * n ≤ n ^ 2 → n ≥ 9 := by
   intro n hn hquad
@@ -16,25 +16,25 @@ theorem gap1 :
   have hnlt : n < 9 := by omega
   interval_cases n <;> norm_num at hquad
 
-/-- Source: `proof_gap/exercise_99/2.txt`. -/
+/-- Exercise 99, gap 2. -/
 theorem gap2 :
     ∀ n : ℕ, n ^ 2 - 9 * n < 0 → 0 < n := by
   intro n h
   omega
 
-/-- Source: `proof_gap/exercise_99/3.txt`. -/
+/-- Exercise 99, gap 3. -/
 theorem gap3 :
     ∀ n : ℕ, n ^ 2 - 9 * n < 0 → n < 9 := by
   intro n h
   omega
 
-/-- Source: `proof_gap/exercise_99/4.txt`. -/
+/-- Exercise 99, gap 4. -/
 theorem gap4 :
     ∀ n : ℕ, n ^ 2 - 9 * n < 0 → 0 < 9 := by
   intro n h
   omega
 
-/-- Source: `proof_gap/exercise_99/5.txt`. -/
+/-- Exercise 99, gap 5. -/
 theorem gap5 :
     IsLeast values (x 4) := by
   constructor
@@ -57,17 +57,17 @@ theorem gap5 :
       norm_num
       nlinarith [hprod]
 
-/-- Source: `proof_gap/exercise_99/6.txt`. -/
+/-- Exercise 99, gap 6. -/
 theorem gap6 :
     x 4 = x 5 := by
   norm_num [x]
 
-/-- Source: `proof_gap/exercise_99/7.txt`. -/
+/-- Exercise 99, gap 7. -/
 theorem gap7 :
     x 5 = -120 := by
   norm_num [x]
 
-/-- Source: `proof_gap/exercise_99/8.txt`. -/
+/-- Exercise 99, gap 8. -/
 theorem gap8 :
     IsLeast values (-120) := by
   rw [← gap7, ← gap6]

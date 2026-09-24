@@ -13,7 +13,7 @@ def transformed (a x : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_484/1.txt`; require `cos a≠0`. -/
+/-- Exercise 484, gap 1; require `cos a≠0`. -/
 private theorem tendsto_congr_eventually
     {α β : Type*} {f g : α → β} {l : Filter α} {l' : Filter β}
     (hfg : f =ᶠ[l] g) :
@@ -52,7 +52,7 @@ theorem gap1 (a : ℝ) (ha : Real.cos a ≠ 0) (L : ℝ) :
     field_simp [hcx, ha, hxa]
   exact tendsto_congr_eventually heq
 
-/-- Source: `proof_gap/exercise_484/2.txt`; require `cos a≠0`. -/
+/-- Exercise 484, gap 2; require `cos a≠0`. -/
 theorem gap2 (a : ℝ) (ha : Real.cos a ≠ 0) :
     HasLimitAt (transformed a) a (1 / Real.cos a ^ 2) := by
   unfold HasLimitAt
@@ -125,7 +125,7 @@ theorem gap2 (a : ℝ) (ha : Real.cos a ≠ 0) :
   dsimp [F] at hfinal ⊢
   convert hfinal using 1 <;> field_simp [ha] <;> ring
 
-/-- Source: `proof_gap/exercise_484/3.txt`; require `cos a≠0`. -/
+/-- Exercise 484, gap 3; require `cos a≠0`. -/
 theorem gap3 (a : ℝ) (ha : Real.cos a ≠ 0) :
     HasLimitAt (original a) a (1 / Real.cos a ^ 2) := by
   exact (gap1 a ha (1 / Real.cos a ^ 2)).mpr (gap2 a ha)

@@ -50,21 +50,21 @@ private theorem clusterSet_bddBelow
     BddBelow (ProofGap.ClusterSet x) :=
   ((hx.closure).subset (clusterSet_subset_closure_range x)).bddBelow
 
-/-- Source: `proof_gap/exercise_136/1.txt`. -/
+/-- Exercise 136, gap 1. -/
 theorem gap1 (x : ℕ → ℝ)
     (hxb : Bornology.IsBounded (Set.range x)) :
     ProofGap.seqLiminf x ∈ ProofGap.ClusterSet x := by
   exact (clusterSet_isClosed x).csInf_mem
     (clusterSet_nonempty x hxb) (clusterSet_bddBelow x hxb)
 
-/-- Source: `proof_gap/exercise_136/2.txt`. -/
+/-- Exercise 136, gap 2. -/
 theorem gap2 (x : ℕ → ℝ)
     (hxb : Bornology.IsBounded (Set.range x)) :
     ProofGap.seqLimsup x ∈ ProofGap.ClusterSet x := by
   exact (clusterSet_isClosed x).csSup_mem
     (clusterSet_nonempty x hxb) (clusterSet_bddAbove x hxb)
 
-/-- Source: `proof_gap/exercise_136/3.txt`; remove irrelevant a and N binders. -/
+/-- Exercise 136, gap 3; remove irrelevant a and N binders. -/
 theorem gap3 (x : ℕ → ℝ)
     (hstep : Tendsto (increment x) atTop (𝓝 0)) :
     ∀ ε : ℝ, 0 < ε →
@@ -76,7 +76,7 @@ theorem gap3 (x : ℕ → ℝ)
   have := hN n hn.le
   simpa [increment, Real.dist_eq] using this
 
-/-- Source: `proof_gap/exercise_136/4.txt`; both crossing witnesses depend on a and N. -/
+/-- Exercise 136, gap 4; both crossing witnesses depend on a and N. -/
 theorem gap4 (x : ℕ → ℝ)
     (hxb : Bornology.IsBounded (Set.range x)) :
     ∀ a : ℝ, ProofGap.seqLiminf x < a → a < ProofGap.seqLimsup x →
@@ -97,19 +97,19 @@ theorem gap4 (x : ℕ → ℝ)
   rcases (hq_above.and hq_large).exists with ⟨j, hj_above, hj_large⟩
   exact ⟨p i, q j, hi_large, hj_large, hi_below, hj_above⟩
 
-/-- Source: `proof_gap/exercise_136/5.txt`; choose the last crossing index coherently. -/
+/-- Exercise 136, gap 5; choose the last crossing index coherently. -/
 theorem gap5 (x : ℕ → ℝ) (a : ℝ) (n' n'' : ℕ)
     (hord : n' < n'') (hbelow : x n' < a) (habove : a < x n'') :
     ∃ nstar : ℕ, n' ≤ nstar ∧ nstar ≤ n'' - 1 := by
   exact ⟨n', le_rfl, by omega⟩
 
-/-- Source: `proof_gap/exercise_136/6.txt`. -/
+/-- Exercise 136, gap 6. -/
 theorem gap6 (x : ℕ → ℝ) (a : ℝ) (n' n'' : ℕ)
     (hord : n' < n'') (hbelow : x n' < a) (habove : a < x n'') :
     ∃ nstar : ℕ, n' ≤ nstar ∧ nstar < n'' ∧ x nstar < a := by
   exact ⟨n', le_rfl, hord, hbelow⟩
 
-/-- Source: `proof_gap/exercise_136/7.txt`. -/
+/-- Exercise 136, gap 7. -/
 theorem gap7 (x : ℕ → ℝ) (a : ℝ) (n' n'' : ℕ)
     (hord : n' < n'') (hbelow : x n' < a) (habove : a < x n'') :
     ∃ nstar : ℕ, n' ≤ nstar ∧ nstar < n'' ∧
@@ -135,40 +135,40 @@ theorem gap7 (x : ℕ → ℝ) (a : ℝ) (n' n'' : ℕ)
   exact (Nat.findGreatest_is_greatest (Nat.lt_succ_self nstar) hnext_bound)
     ⟨by omega, hnext_below⟩
 
-/-- Source: `proof_gap/exercise_136/8.txt`. -/
+/-- Exercise 136, gap 8. -/
 theorem gap8 (n' nstar N : ℕ)
     (hN : N < n') (hstar : n' ≤ nstar) :
     N < nstar := by
   omega
 
-/-- Source: `proof_gap/exercise_136/9.txt`. -/
+/-- Exercise 136, gap 9. -/
 theorem gap9 (nstar N N' : ℕ)
     (hN : max N N' < nstar) :
     N' < nstar := by
   omega
 
-/-- Source: `proof_gap/exercise_136/10.txt`. -/
+/-- Exercise 136, gap 10. -/
 theorem gap10 (x : ℕ → ℝ) (a : ℝ) (nstar : ℕ)
     (hbelow : x nstar < a) (habove : a ≤ x (nstar + 1)) :
     |x nstar - a| ≤ |x (nstar + 1) - x nstar| := by
   rw [abs_of_nonpos (by linarith), abs_of_nonneg (by linarith)]
   linarith
 
-/-- Source: `proof_gap/exercise_136/11.txt`. -/
+/-- Exercise 136, gap 11. -/
 theorem gap11 (x : ℕ → ℝ) (ε : ℝ) (nstar N : ℕ)
     (hstep : ∀ n : ℕ, N < n → |x (n + 1) - x n| < ε)
     (hN : N < nstar) :
     |x (nstar + 1) - x nstar| < ε := by
   exact hstep nstar hN
 
-/-- Source: `proof_gap/exercise_136/12.txt`. -/
+/-- Exercise 136, gap 12. -/
 theorem gap12 (x : ℕ → ℝ) (a ε : ℝ) (nstar : ℕ)
     (hcross : |x nstar - a| ≤ |x (nstar + 1) - x nstar|)
     (hstep : |x (nstar + 1) - x nstar| < ε) :
     |x nstar - a| < ε := by
   exact hcross.trans_lt hstep
 
-/-- Source: `proof_gap/exercise_136/13.txt`; p depends on a. -/
+/-- Exercise 136, gap 13; p depends on a. -/
 theorem gap13 (x : ℕ → ℝ)
     (hxb : Bornology.IsBounded (Set.range x))
     (hstep : Tendsto (increment x) atTop (𝓝 0)) :
@@ -210,7 +210,7 @@ theorem gap13 (x : ℕ → ℝ)
   | succ j =>
       simpa [p] using (Classical.choose_spec (hnear (p j) j)).2
 
-/-- Source: `proof_gap/exercise_136/14.txt`; move exists p inside forall a. -/
+/-- Exercise 136, gap 14; move exists p inside forall a. -/
 theorem gap14 (x : ℕ → ℝ)
     (hxb : Bornology.IsBounded (Set.range x))
     (hstep : Tendsto (increment x) atTop (𝓝 0)) :
@@ -234,7 +234,7 @@ theorem gap14 (x : ℕ → ℝ)
   rw [Real.dist_eq]
   exact (hpclose k (by omega)).trans (hK k hkK)
 
-/-- Source: `proof_gap/exercise_136/15.txt`. -/
+/-- Exercise 136, gap 15. -/
 theorem gap15 (x : ℕ → ℝ)
     (hxb : Bornology.IsBounded (Set.range x))
     (hstep : Tendsto (increment x) atTop (𝓝 0)) :
@@ -243,7 +243,7 @@ theorem gap15 (x : ℕ → ℝ)
   intro a hainf hasup
   exact gap14 x hxb hstep a hainf hasup
 
-/-- Source: `proof_gap/exercise_136/16.txt`. -/
+/-- Exercise 136, gap 16. -/
 theorem gap16 (x : ℕ → ℝ)
     (hxb : Bornology.IsBounded (Set.range x))
     (hstep : Tendsto (increment x) atTop (𝓝 0)) :
@@ -251,7 +251,7 @@ theorem gap16 (x : ℕ → ℝ)
       a ∈ ProofGap.ClusterSet x := by
   exact gap15 x hxb hstep
 
-/-- Source: `proof_gap/exercise_136/17.txt`; retain the hypotheses dropped in the source. -/
+/-- Exercise 136, gap 17; retain the hypotheses dropped in the source. -/
 theorem gap17 (x : ℕ → ℝ)
     (hxb : Bornology.IsBounded (Set.range x))
     (hstep : Tendsto (increment x) atTop (𝓝 0)) :

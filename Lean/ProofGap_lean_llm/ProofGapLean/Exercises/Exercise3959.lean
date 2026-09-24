@@ -1,4 +1,4 @@
-/- Source: `results/stage1_gpt55/09_重积分与含参积分/exercise_3959_autoformalization_result/exercise_3959.md`. -/
+/- Exercise 3959. -/
 import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
 import Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic
 import Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv

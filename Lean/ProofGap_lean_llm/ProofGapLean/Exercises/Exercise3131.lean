@@ -39,7 +39,7 @@ def normalizedBase (a b k : ℝ) (n : ℕ) (x : ℝ) : ℝ :=
   (Real.exp (k * (b - a) / n) - 1) * ((x - a) / (b - a)) + 1
 
 /--
-Source: `proof_gap/exercise_3131/1.txt`; make the interval,
+Exercise 3131, gap 1; make the interval,
 nonzero denominator, and positive Bernstein degree explicit.
 -/
 theorem gap1 (a b k x : ℝ) (hab : a < b) (hx : x ∈ Set.Icc a b) :
@@ -49,14 +49,14 @@ theorem gap1 (a b k x : ℝ) (hab : a < b) (hx : x ∈ Set.Icc a b) :
   intro n hn
   rfl
 
-/-- Source: `proof_gap/exercise_3131/2.txt`; substitute the exponential function. -/
+/-- Exercise 3131, gap 2; substitute the exponential function. -/
 theorem gap2 (a b k x : ℝ) (hab : a < b) (hx : x ∈ Set.Icc a b) :
     ∀ n : ℕ, 1 ≤ n →
       expBernstein a b k n x = substitutedSum a b k n x := by
   intro n hn
   rfl
 
-/-- Source: `proof_gap/exercise_3131/3.txt`; factor out `exp(ka)/(b-a)^n`. -/
+/-- Exercise 3131, gap 3; factor out `exp(ka)/(b-a)^n`. -/
 theorem gap3 (a b k x : ℝ) (hab : a < b) (hx : x ∈ Set.Icc a b) :
     ∀ n : ℕ, 1 ≤ n →
       expBernstein a b k n x = factoredSum a b k n x := by
@@ -72,7 +72,7 @@ theorem gap3 (a b k x : ℝ) (hab : a < b) (hx : x ∈ Set.Icc a b) :
   rw [Real.exp_add]
   ring
 
-/-- Source: `proof_gap/exercise_3131/4.txt`; apply the binomial theorem. -/
+/-- Exercise 3131, gap 4; apply the binomial theorem. -/
 theorem gap4 (a b k x : ℝ) (hab : a < b) (hx : x ∈ Set.Icc a b) :
     ∀ n : ℕ, 1 ≤ n →
       expBernstein a b k n x =
@@ -98,7 +98,7 @@ theorem gap4 (a b k x : ℝ) (hab : a < b) (hx : x ∈ Set.Icc a b) :
   rw [hexp j, mul_pow]
   ring
 
-/-- Source: `proof_gap/exercise_3131/5.txt`; move the denominator inside the power. -/
+/-- Exercise 3131, gap 5; move the denominator inside the power. -/
 theorem gap5 (a b k x : ℝ) (hab : a < b) (hx : x ∈ Set.Icc a b) :
     ∀ n : ℕ, 1 ≤ n →
       expBernstein a b k n x =
@@ -109,7 +109,7 @@ theorem gap5 (a b k x : ℝ) (hab : a < b) (hx : x ∈ Set.Icc a b) :
   rw [div_pow]
   ring
 
-/-- Source: `proof_gap/exercise_3131/6.txt`; normalize the affine base. -/
+/-- Exercise 3131, gap 6; normalize the affine base. -/
 theorem gap6 (a b k x : ℝ) (hab : a < b) (hx : x ∈ Set.Icc a b) :
     ∀ n : ℕ, 1 ≤ n →
       Real.exp (k * a) *
@@ -122,7 +122,7 @@ theorem gap6 (a b k x : ℝ) (hab : a < b) (hx : x ∈ Set.Icc a b) :
   have hba : b - a ≠ 0 := ne_of_gt (sub_pos.mpr hab)
   field_simp [hba] <;> ring
 
-/-- Source: `proof_gap/exercise_3131/7.txt`; final closed exponential form. -/
+/-- Exercise 3131, gap 7; final closed exponential form. -/
 theorem gap7 (a b k x : ℝ) (hab : a < b) (hx : x ∈ Set.Icc a b) :
     ∀ n : ℕ, 1 ≤ n →
       expBernstein a b k n x =

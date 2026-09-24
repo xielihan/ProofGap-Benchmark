@@ -10,7 +10,7 @@ noncomputable section
 def target (x : ℝ) : ℝ := Real.log x / (1 - x) ^ 2
 def model (x : ℝ) : ℝ := 1 / (x - 1)
 
-/-- Source: `proof_gap/exercise_658_5/1.txt`; exclude `x=1`. -/
+/-- Exercise 658_5, gap 1; exclude `x=1`. -/
 theorem gap1 (x : ℝ) (hx : x ≠ 1) :
     target x / model x = Real.log (1 + (x - 1)) / (x - 1) := by
   have hxm1 : x - 1 ≠ 0 := sub_ne_zero.mpr hx
@@ -19,7 +19,7 @@ theorem gap1 (x : ℝ) (hx : x ≠ 1) :
   rw [show 1 + (x - 1) = x by ring]
   field_simp [hxm1, h1mx] <;> ring
 
-/-- Source: `proof_gap/exercise_658_5/2.txt`. -/
+/-- Exercise 658_5, gap 2. -/
 theorem gap2 :
     Filter.Tendsto (fun x : ℝ => Real.log (1 + (x - 1)) / (x - 1))
       (nhdsWithin 1 ({1} : Set ℝ)ᶜ) (nhds 1) := by
@@ -33,7 +33,7 @@ theorem gap2 :
       (nhdsWithin 1 ({1} : Set ℝ)ᶜ) (nhds 1) at hs
   simpa [div_eq_mul_inv, mul_comm] using hs
 
-/-- Source: `proof_gap/exercise_658_5/3.txt`. -/
+/-- Exercise 658_5, gap 3. -/
 theorem gap3 :
     Filter.Tendsto (fun x : ℝ => target x / model x)
       (nhdsWithin 1 ({1} : Set ℝ)ᶜ) (nhds 1) := by
@@ -41,7 +41,7 @@ theorem gap3 :
   filter_upwards [self_mem_nhdsWithin] with x hx
   exact (gap1 x (by simpa using hx)).symm
 
-/-- Source: `proof_gap/exercise_658_5/4.txt`. -/
+/-- Exercise 658_5, gap 4. -/
 theorem gap4 :
     Asymptotics.IsEquivalent (nhdsWithin 1 ({1} : Set ℝ)ᶜ)
       target model := by
@@ -72,7 +72,7 @@ theorem gap4 :
   rw [heq, norm_mul]
   exact mul_le_mul_of_nonneg_right hsmall.le (norm_nonneg _)
 
-/-- Source: `proof_gap/exercise_658_5/5.txt`. -/
+/-- Exercise 658_5, gap 5. -/
 theorem gap5 :
     Asymptotics.IsBigO (nhdsWithin 1 ({1} : Set ℝ)ᶜ)
       target model := by

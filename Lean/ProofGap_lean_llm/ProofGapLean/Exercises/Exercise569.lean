@@ -26,7 +26,7 @@ def exponentialForm (a x : ℝ) : ℝ :=
 def HasRightLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 (Set.Ioi 0)) (nhds L)
 
-/-- Source: `proof_gap/exercise_569/1.txt`. -/
+/-- Exercise 569, gap 1. -/
 private theorem logSlopeAux :
     Filter.Tendsto (fun h : ℝ => Real.log (1 + h) / h)
       (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds 1) := by
@@ -236,7 +236,7 @@ theorem gap1 (a : ℝ) (ha : 1 < a) (L : ℝ) :
   · intro h
     exact h.congr' (originalEqLogPower a ha).symm
 
-/-- Source: `proof_gap/exercise_569/2.txt`. -/
+/-- Exercise 569, gap 2. -/
 theorem gap2 (a : ℝ) (ha : 1 < a) (L : ℝ) :
     HasRightLimitAtZero (logPower a) L ↔
       HasRightLimitAtZero (exponentialForm a) L := by
@@ -247,14 +247,14 @@ theorem gap2 (a : ℝ) (ha : 1 < a) (L : ℝ) :
   · intro h
     exact h.congr' (logPowerEqExponential a ha).symm
 
-/-- Source: `proof_gap/exercise_569/3.txt`. -/
+/-- Exercise 569, gap 3. -/
 theorem gap3 (a : ℝ) (ha : 1 < a) :
     HasRightLimitAtZero (exponentialForm a) (Real.log (Real.rpow a 2)) := by
   have h := logPowerLimit a ha
   unfold HasRightLimitAtZero at h ⊢
   exact h.congr' (logPowerEqExponential a ha)
 
-/-- Source: `proof_gap/exercise_569/4.txt`. -/
+/-- Exercise 569, gap 4. -/
 theorem gap4 (a : ℝ) (ha : 1 < a) :
     HasRightLimitAtZero (logPower a) (Real.log (Real.rpow a 2)) := by
   exact (gap2 a ha (Real.log (Real.rpow a 2))).mpr (gap3 a ha)

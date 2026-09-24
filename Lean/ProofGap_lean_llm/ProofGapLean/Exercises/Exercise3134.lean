@@ -154,7 +154,7 @@ private theorem dirichletHalfKernel_periodic (n : ℕ) :
   rw [hmul, Real.cos_add_nat_mul_two_pi]
 
 /--
-Source: `proof_gap/exercise_3134/1.txt`; the blanket negation is false.
+Exercise 3134, gap 1; the blanket negation is false.
 For the Fejér means of `f`, endpoint mismatch is the obstruction.
 -/
 theorem gap1 (f : ℝ → ℝ)
@@ -254,7 +254,7 @@ theorem gap1 (f : ℝ → ℝ)
   dsimp [d, ε] at *
   linarith
 
-/-- Source: `proof_gap/exercise_3134/4.txt`; integral form of the partial sum. -/
+/-- Exercise 3134, gap 4; integral form of the partial sum. -/
 theorem gap4 (f : ℝ → ℝ)
     (hf : ContinuousOn f (Set.Icc (-Real.pi) Real.pi)) :
     ∀ n : ℕ, ∀ x : ℝ,
@@ -361,7 +361,7 @@ theorem gap4 (f : ℝ → ℝ)
     ring
 
 /--
-Source: `proof_gap/exercise_3134/5.txt`; the quotient form excludes
+Exercise 3134, gap 5; the quotient form excludes
 the zeros of `sin(v/2)`.
 -/
 theorem gap5 :
@@ -397,7 +397,7 @@ theorem gap5 :
       rw [hA, hC, Real.sin_sub, Real.sin_add]
       ring
 
-/-- Source: `proof_gap/exercise_3134/6.txt`; use a periodic representative. -/
+/-- Exercise 3134, gap 6; use a periodic representative. -/
 theorem gap6 (f : ℝ → ℝ)
     (hf : Continuous f)
     (hper : Function.Periodic f (2 * Real.pi)) :
@@ -591,7 +591,7 @@ private theorem fejerKernel_eq_proxyEarly (n : ℕ) (t : ℝ)
       unfold fejerKernelProxyEarly at ih
       linarith [hs, ih]
 
-/-- Source: `proof_gap/exercise_3134/7.txt`; Cesàro average requires `n≥1`. -/
+/-- Exercise 3134, gap 7; Cesàro average requires `n≥1`. -/
 theorem gap7 (f : ℝ → ℝ) :
     ∀ n : ℕ, 1 ≤ n → ∀ x : ℝ,
       fejerMean f n x =
@@ -599,7 +599,7 @@ theorem gap7 (f : ℝ → ℝ) :
   intro n hn x
   simp [fejerMean, Nat.ne_of_gt hn]
 
-/-- Source: `proof_gap/exercise_3134/8.txt`; Fejér-kernel integral formula. -/
+/-- Exercise 3134, gap 8; Fejér-kernel integral formula. -/
 theorem gap8 (f : ℝ → ℝ)
     (hf : Continuous f)
     (hper : Function.Periodic f (2 * Real.pi)) :
@@ -856,7 +856,7 @@ private theorem continuous_mul_fejerKernel_intervalIntegrable
     simpa [Set.uIoc_of_le Real.pi_pos.le] using ht
   rw [fejerKernel_eq_proxy n t ht'.1 ht'.2]
 
-/-- Source: `proof_gap/exercise_3134/9.txt`; Fejér-kernel normalization. -/
+/-- Exercise 3134, gap 9; Fejér-kernel normalization. -/
 theorem gap9 :
     ∀ n : ℕ, 1 ≤ n →
       1 =
@@ -867,7 +867,7 @@ theorem gap9 :
   have hn0 : (n : ℝ) ≠ 0 := by exact_mod_cast (Nat.ne_of_gt hn)
   field_simp [hn0, Real.pi_ne_zero]
 
-/-- Source: `proof_gap/exercise_3134/10.txt`; subtract the normalized constant. -/
+/-- Exercise 3134, gap 10; subtract the normalized constant. -/
 theorem gap10 (f : ℝ → ℝ)
     (hf : Continuous f)
     (hper : Function.Periodic f (2 * Real.pi)) :
@@ -906,7 +906,7 @@ theorem gap10 (f : ℝ → ℝ)
   have hn0 : (n : ℝ) ≠ 0 := by exact_mod_cast (Nat.ne_of_gt hn)
   field_simp [hn0, Real.pi_ne_zero]
 
-/-- Source: `proof_gap/exercise_3134/11.txt`; boundedness is on the compact interval. -/
+/-- Exercise 3134, gap 11; boundedness is on the compact interval. -/
 theorem gap11 (f : ℝ → ℝ)
     (hf : ContinuousOn f (Set.Icc (-Real.pi) Real.pi)) :
     ∃ M : ℝ, 0 ≤ M ∧
@@ -918,7 +918,7 @@ theorem gap11 (f : ℝ → ℝ)
   intro x hx
   exact (hC ⟨x, hx, rfl⟩).trans (le_max_left _ _)
 
-/-- Source: `proof_gap/exercise_3134/12.txt`; uniform continuity on an inner interval. -/
+/-- Exercise 3134, gap 12; uniform continuity on an inner interval. -/
 theorem gap12 (f : ℝ → ℝ)
     (hf : ContinuousOn f (Set.Icc (-Real.pi) Real.pi)) :
     ∀ η : ℝ, 0 < η → η < Real.pi →
@@ -943,7 +943,7 @@ theorem gap12 (f : ℝ → ℝ)
     exact lt_of_le_of_lt hxx (by linarith)
   simpa [Real.dist_eq] using hcontrol x' hx'full x'' hx''full hd
 
-/-- Source: `proof_gap/exercise_3134/13.txt`; define the two integral pieces. -/
+/-- Exercise 3134, gap 13; define the two integral pieces. -/
 theorem gap13 (f : ℝ → ℝ) (n : ℕ) (x τ : ℝ)
     (hn : 1 ≤ n) (hτ0 : 0 ≤ τ) (hτπ : τ ≤ Real.pi)
     (hint :
@@ -962,7 +962,7 @@ theorem gap13 (f : ℝ → ℝ) (n : ℕ) (x τ : ℝ)
       rw [Set.uIcc_of_le hτπ, Set.uIcc_of_le Real.pi_pos.le]
       exact Set.Icc_subset_Icc_left hτ0))).symm
 
-/-- Source: `proof_gap/exercise_3134/14.txt`; the near piece uses uniform continuity. -/
+/-- Exercise 3134, gap 14; the near piece uses uniform continuity. -/
 theorem gap14 (f : ℝ → ℝ) (n : ℕ) (x τ ε : ℝ)
     (hn : 1 ≤ n) (hτ : 0 < τ) (hτπ : τ ≤ Real.pi) (hε : 0 < ε)
     (hnear :
@@ -1112,7 +1112,7 @@ theorem gap14 (f : ℝ → ℝ) (n : ℕ) (x τ ε : ℝ)
     rw [hzero]
     simp [hε]
 
-/-- Source: `proof_gap/exercise_3134/15.txt`; quantitative far-tail bound. -/
+/-- Exercise 3134, gap 15; quantitative far-tail bound. -/
 theorem gap15 (f : ℝ → ℝ) (n : ℕ) (x τ M : ℝ)
     (hn : 1 ≤ n) (hτ : 0 < τ) (hτπ : τ < Real.pi)
     (hM : 0 ≤ M) (hbound : ∀ z : ℝ, |f z| ≤ M) :
@@ -1204,7 +1204,7 @@ theorem gap15 (f : ℝ → ℝ) (n : ℕ) (x τ M : ℝ)
           ring
 
 /--
-Source: `proof_gap/exercise_3134/17.txt`; matching endpoints yield a
+Exercise 3134, gap 17; matching endpoints yield a
 continuous periodic extension, not continuity of the original partial-domain
 function on all of `ℝ`.
 -/
@@ -1254,7 +1254,7 @@ theorem gap17 (f : ℝ → ℝ)
       rw [AddCircle.liftIco_coe_apply]
       exact ⟨hx.1, by rw [hsum]; exact lt_of_le_of_ne hx.2 hxp⟩
 
-/-- Source: `proof_gap/exercise_3134/18.txt`; compact uniform continuity of the extension. -/
+/-- Exercise 3134, gap 18; compact uniform continuity of the extension. -/
 theorem gap18 (F : ℝ → ℝ)
     (hF : Continuous F)
     (hper : Function.Periodic F (2 * Real.pi)) :
@@ -1401,7 +1401,7 @@ private theorem fejerMean_congr_Icc
     intro k hk
     rw [hpartial]
 
-/-- Source: `proof_gap/exercise_3134/3.txt`; matching endpoints give global convergence. -/
+/-- Exercise 3134, gap 3; matching endpoints give global convergence. -/
 theorem gap3 (f : ℝ → ℝ)
     (hf : ContinuousOn f (Set.Icc (-Real.pi) Real.pi))
     (hend : f (-Real.pi) = f Real.pi) :
@@ -1716,7 +1716,7 @@ private theorem fejerMean_sub_eq_error_of_periodization
   have hn0 : (n : ℝ) ≠ 0 := by exact_mod_cast (Nat.ne_of_gt hn)
   field_simp [hn0, Real.pi_ne_zero]
 
-/-- Source: `proof_gap/exercise_3134/2.txt`; local Fejér convergence. -/
+/-- Exercise 3134, gap 2; local Fejér convergence. -/
 theorem gap2 (f : ℝ → ℝ)
     (hf : ContinuousOn f (Set.Icc (-Real.pi) Real.pi)) :
     ∀ η : ℝ, 0 < η → η < Real.pi →
@@ -1907,7 +1907,7 @@ theorem gap2 (f : ℝ → ℝ)
   exact (abs_add_le _ _).trans_lt
     (by linarith [hnearE, hfarLe.trans_lt hfarSmall])
 
-/-- Source: `proof_gap/exercise_3134/16.txt`; explicit local uniform conclusion. -/
+/-- Exercise 3134, gap 16; explicit local uniform conclusion. -/
 theorem gap16 (f : ℝ → ℝ)
     (hf : ContinuousOn f (Set.Icc (-Real.pi) Real.pi)) :
     ∀ η : ℝ, 0 < η → η < Real.pi →
@@ -1915,7 +1915,7 @@ theorem gap16 (f : ℝ → ℝ)
         (Set.Icc (-Real.pi + η) (Real.pi - η)) := by
   exact gap2 f hf
 
-/-- Source: `proof_gap/exercise_3134/19.txt`; global quantitative conclusion. -/
+/-- Exercise 3134, gap 19; global quantitative conclusion. -/
 theorem gap19 (f : ℝ → ℝ)
     (hf : ContinuousOn f (Set.Icc (-Real.pi) Real.pi))
     (hend : f (-Real.pi) = f Real.pi) :
@@ -2184,7 +2184,7 @@ private theorem alternatingSinSum_bound (n : ℕ) (x : ℝ)
   norm_num at hrhs
   nlinarith [abs_nonneg (alternatingSinSum n x)]
 
-/-- Source: `proof_gap/exercise_3134/20.txt`; Fourier sums of the sawtooth. -/
+/-- Exercise 3134, gap 20; Fourier sums of the sawtooth. -/
 theorem gap20 :
     ∀ x ∈ Set.Icc (-Real.pi) Real.pi,
       Tendsto (fun n : ℕ => partialSum (fun z : ℝ => z) n x) atTop
@@ -2301,7 +2301,7 @@ theorem gap20 :
               (fejerMean (fun z : ℝ => z) n x - x) using 1 <;> ring
       _ < ε := by linarith
 
-/-- Source: `proof_gap/exercise_3134/21.txt`; make the endpoint cases explicit. -/
+/-- Exercise 3134, gap 21; make the endpoint cases explicit. -/
 theorem gap21 :
     ∀ x ∈ Set.Icc (-Real.pi) Real.pi,
       sawtoothLimit x =
@@ -2309,7 +2309,7 @@ theorem gap21 :
   intro x hx
   rfl
 
-/-- Source: `proof_gap/exercise_3134/22.txt`; pointwise Fejér limit. -/
+/-- Exercise 3134, gap 22; pointwise Fejér limit. -/
 theorem gap22 :
     ∀ x ∈ Set.Icc (-Real.pi) Real.pi,
       Tendsto (fun n : ℕ => fejerMean (fun z : ℝ => z) n x) atTop
@@ -2320,7 +2320,7 @@ theorem gap22 :
   filter_upwards [eventually_ge_atTop 1] with n hn
   simp [fejerMean, Nat.ne_of_gt hn, one_div]
 
-/-- Source: `proof_gap/exercise_3134/23.txt`; the assumed open-interval uniform limit. -/
+/-- Exercise 3134, gap 23; the assumed open-interval uniform limit. -/
 theorem gap23
     (h :
       UniformConvergesOn (fejerMean (fun z : ℝ => z)) (fun z : ℝ => z)
@@ -2353,7 +2353,7 @@ theorem gap23
   simpa [sawtoothLimit, hxl, hxr] using
     hN n (le_trans (le_max_left _ _) hn) x hxopen
 
-/-- Source: `proof_gap/exercise_3134/24.txt`; a uniform limit of continuous means is continuous. -/
+/-- Exercise 3134, gap 24; a uniform limit of continuous means is continuous. -/
 theorem gap24
     (hcont :
       ∀ n : ℕ,
@@ -2374,7 +2374,7 @@ theorem gap24
     simpa [Real.dist_eq, abs_sub_comm] using hN n hn x hx
   exact ht.continuousOn (Filter.Eventually.frequently (Filter.Eventually.of_forall hcont))
 
-/-- Source: `proof_gap/exercise_3134/25.txt`; right endpoint discontinuity. -/
+/-- Exercise 3134, gap 25; right endpoint discontinuity. -/
 theorem gap25 : ¬ContinuousAt sawtoothLimit Real.pi := by
   intro h
   rcases (Metric.continuousAt_iff.mp h (Real.pi / 2) (by positivity)) with
@@ -2399,7 +2399,7 @@ theorem gap25 : ¬ContinuousAt sawtoothLimit Real.pi := by
   rw [hsaw, hsawpi, Real.dist_eq, sub_zero, abs_of_pos (by linarith [Real.pi_pos])] at hout
   linarith
 
-/-- Source: `proof_gap/exercise_3134/26.txt`; left endpoint discontinuity. -/
+/-- Exercise 3134, gap 26; left endpoint discontinuity. -/
 theorem gap26 : ¬ContinuousAt sawtoothLimit (-Real.pi) := by
   intro h
   rcases (Metric.continuousAt_iff.mp h (Real.pi / 2) (by positivity)) with
@@ -2425,7 +2425,7 @@ theorem gap26 : ¬ContinuousAt sawtoothLimit (-Real.pi) := by
     abs_of_nonpos (by linarith [Real.pi_pos])] at hout
   linarith
 
-/-- Source: `proof_gap/exercise_3134/27.txt`; contradiction for the sawtooth. -/
+/-- Exercise 3134, gap 27; contradiction for the sawtooth. -/
 theorem gap27 :
     UniformConvergesOn (fejerMean (fun z : ℝ => z)) (fun z : ℝ => z)
       (Set.Ioo (-Real.pi) Real.pi) → False := by
@@ -2433,7 +2433,7 @@ theorem gap27 :
   exact gap1 (fun z : ℝ => z) continuous_id.continuousOn
     (by linarith [Real.pi_pos]) h
 
-/-- Source: `proof_gap/exercise_3134/28.txt`; corrected complete Fejér conclusion. -/
+/-- Exercise 3134, gap 28; corrected complete Fejér conclusion. -/
 theorem gap28 (f : ℝ → ℝ)
     (hf : ContinuousOn f (Set.Icc (-Real.pi) Real.pi)) :
     (∀ η : ℝ, 0 < η → η < Real.pi →

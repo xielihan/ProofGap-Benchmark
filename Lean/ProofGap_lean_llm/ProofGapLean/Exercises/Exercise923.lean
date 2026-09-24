@@ -18,7 +18,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 def finalDerivative (x : ℝ) : ℝ :=
   (Real.sin x + Real.cos x) / Real.sqrt (Real.sin (2 * x))
 
-/-- Source: `proof_gap/exercise_923/1.txt`; positivity of `sin (2x)` is
+/-- Exercise 923, gap 1; positivity of `sin (2x)` is
 equivalent to the inverse-sine argument lying strictly inside `(-1,1)`. -/
 private theorem sin_sub_cos_sq_identity (x : ℝ) :
     1 - (Real.sin x - Real.cos x) ^ 2 = Real.sin (2 * x) := by
@@ -57,7 +57,7 @@ theorem gap1 (x : ℝ) (hx : 0 < Real.sin (2 * x)) :
   simpa [y, expandedDerivative, div_eq_mul_inv, mul_comm] using
     harcsin.comp x hinner
 
-/-- Source: `proof_gap/exercise_923/2.txt`; the positive radicand permits the
+/-- Exercise 923, gap 2; the positive radicand permits the
 displayed square-root rewrite. -/
 theorem gap2 (x : ℝ) (hx : 0 < Real.sin (2 * x)) :
     expandedDerivative x = finalDerivative x := by
@@ -65,7 +65,7 @@ theorem gap2 (x : ℝ) (hx : 0 < Real.sin (2 * x)) :
   rw [sin_sub_cos_sq_identity x]
   rw [add_comm (Real.cos x) (Real.sin x)]
 
-/-- Source: `proof_gap/exercise_923/3.txt`; retain the real differentiability
+/-- Exercise 923, gap 3; retain the real differentiability
 domain of the inverse-sine composition. -/
 theorem gap3 (x : ℝ) (hx : 0 < Real.sin (2 * x)) :
     HasDerivAt y (finalDerivative x) x := by

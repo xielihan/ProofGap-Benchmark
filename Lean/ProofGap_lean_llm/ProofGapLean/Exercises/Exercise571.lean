@@ -22,7 +22,7 @@ def normalized (x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_571/1.txt`. -/
+/-- Exercise 571, gap 1. -/
 private lemma exp_sq_sub_one_ne_zero {x : ℝ} (hx : x ≠ 0) :
     Real.exp (x ^ 2) - 1 ≠ 0 := by
   have hx2 : 0 < x ^ 2 := by
@@ -62,7 +62,7 @@ theorem gap1 (L : ℝ) :
   field_simp [hD, hs]
   nlinarith [Real.sq_sqrt (le_of_lt hxpos)]
 
-/-- Source: `proof_gap/exercise_571/2.txt`. -/
+/-- Exercise 571, gap 2. -/
 theorem gap2 (L : ℝ) :
     HasLimitAtZero rationalized L ↔ HasLimitAtZero normalized L := by
   unfold HasLimitAtZero
@@ -79,7 +79,7 @@ theorem gap2 (L : ℝ) :
   unfold rationalized normalized
   field_simp [hx0, hD, hs, hs'] <;> ring
 
-/-- Source: `proof_gap/exercise_571/3.txt`. -/
+/-- Exercise 571, gap 3. -/
 theorem gap3 : HasLimitAtZero normalized (1 / 2) := by
   unfold HasLimitAtZero
   have hsq :
@@ -153,7 +153,7 @@ theorem gap3 : HasLimitAtZero normalized (1 / 2) := by
   have hquot := hsin.div hden (by norm_num : (1 : ℝ) * 2 ≠ 0)
   simpa [normalized] using hquot
 
-/-- Source: `proof_gap/exercise_571/4.txt`. -/
+/-- Exercise 571, gap 4. -/
 theorem gap4 : HasLimitAtZero original (1 / 2) := by
   exact
     (gap1 (1 / 2 : ℝ)).mpr

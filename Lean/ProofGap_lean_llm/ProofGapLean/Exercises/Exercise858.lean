@@ -19,7 +19,7 @@ def q (x : ℝ) : ℝ :=
 def y (x : ℝ) : ℝ :=
   signedCbrt (q x)
 
-/-- Source: `proof_gap/exercise_858/1.txt`.
+/-- Exercise 858, gap 1.
 Both the quotient denominator and cube-root argument must be nonzero. -/
 private theorem rpowCbrtProduct (u : ℝ) (hu : 0 < u) :
     Real.rpow (u ^ 2) (1 / 3 : ℝ) * Real.rpow u (1 / 3 : ℝ) = u := by
@@ -215,7 +215,7 @@ theorem gap1 (x : ℝ) (hden : 1 - x ^ 3 ≠ 0) (hnum : 1 + x ^ 3 ≠ 0) :
     ring
   exact (hasDerivAtSignedCbrt hq0).comp x hq
 
-/-- Source: `proof_gap/exercise_858/2.txt`.
+/-- Exercise 858, gap 2.
 The omitted domain conditions are made explicit. -/
 theorem gap2 (x : ℝ) (hden : 1 - x ^ 3 ≠ 0) (hnum : 1 + x ^ 3 ≠ 0) :
     1 / (3 * signedCbrt ((q x) ^ 2)) *
@@ -275,7 +275,7 @@ theorem gap2 (x : ℝ) (hden : 1 - x ^ 3 ≠ 0) (hnum : 1 + x ^ 3 ≠ 0) :
       rw [mul_comm (1 + x ^ 3) (1 - x ^ 3)]
       ring
 
-/-- Source: `proof_gap/exercise_858/3.txt`.
+/-- Exercise 858, gap 3.
 The omitted domain conditions are made explicit. -/
 theorem gap3 (x : ℝ) (hden : 1 - x ^ 3 ≠ 0) (hnum : 1 + x ^ 3 ≠ 0) :
     HasDerivAt y

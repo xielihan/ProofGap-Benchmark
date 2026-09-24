@@ -29,7 +29,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 def finalDerivative (x : ℝ) : ℝ :=
   1 / (1 + x ^ 3)
 
-/-- Source: `proof_gap/exercise_935/1.txt`; exclude `x = -1`, where the
+/-- Exercise 935, gap 1; exclude `x = -1`, where the
 logarithm argument vanishes and the target rational function has a pole. -/
 private lemma quadratic_pos (x : ℝ) : 0 < x ^ 2 - x + 1 := by
   nlinarith [sq_nonneg (x - (1 / 2 : ℝ))]
@@ -108,7 +108,7 @@ theorem gap1 (x : ℝ) (hx : x ≠ -1) :
     (hlog.const_mul (1 / 6)).add
       (hatan.const_mul (1 / Real.sqrt 3)) using 1 <;> ring
 
-/-- Source: `proof_gap/exercise_935/2.txt`; the omitted condition `x ≠ -1`
+/-- Exercise 935, gap 2; the omitted condition `x ≠ -1`
 is exactly the nonzero factor in `1+x³`. -/
 theorem gap2 (x : ℝ) (hx : x ≠ -1) :
     expandedDerivative x = finalDerivative x := by
@@ -167,7 +167,7 @@ theorem gap2 (x : ℝ) (hx : x ≠ -1) :
   rw [show 1 + x ^ 3 = (x + 1) * (x ^ 2 - x + 1) by ring]
   exact hmain
 
-/-- Source: `proof_gap/exercise_935/3.txt`; retain the logarithm's punctured
+/-- Exercise 935, gap 3; retain the logarithm's punctured
 domain in the final derivative statement. -/
 theorem gap3 (x : ℝ) (hx : x ≠ -1) :
     HasDerivAt y (finalDerivative x) x := by

@@ -10,7 +10,7 @@ def f (x : ℝ) : ℝ := Real.sqrt (max (Real.cos (1 / x)) 0)
 def HasLimitAtZero (g : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto g (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_602/1.txt`; use the nonnegative-part real extension of the partially defined radical. -/
+/-- Exercise 602, gap 1; use the nonnegative-part real extension of the partially defined radical. -/
 theorem gap1 : ∃ M : ℝ, ∀ x : ℝ, |f x| ≤ M := by
   refine ⟨1, ?_⟩
   intro x
@@ -23,7 +23,7 @@ theorem gap1 : ∃ M : ℝ, ∀ x : ℝ, |f x| ≤ M := by
   have hsqrt_nonneg := Real.sqrt_nonneg (max (Real.cos (1 / x)) 0)
   nlinarith
 
-/-- Source: `proof_gap/exercise_602/2.txt`; use the same total real extension. -/
+/-- Exercise 602, gap 2; use the same total real extension. -/
 theorem gap2 : HasLimitAtZero (fun x => x * f x) 0 := by
   unfold HasLimitAtZero
   rcases gap1 with ⟨M, hM⟩

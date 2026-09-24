@@ -18,19 +18,19 @@ def cancelled (x : ℝ) : ℝ := (Real.sin x + 1) / (Real.sin x - 1)
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_493/1.txt`. -/
+/-- Exercise 493, gap 1. -/
 theorem gap1 (x : ℝ) :
     2 * Real.sin x ^ 2 + Real.sin x - 1 =
       (2 * Real.sin x - 1) * (Real.sin x + 1) := by
   ring
 
-/-- Source: `proof_gap/exercise_493/2.txt`. -/
+/-- Exercise 493, gap 2. -/
 theorem gap2 (x : ℝ) :
     2 * Real.sin x ^ 2 - 3 * Real.sin x + 1 =
       (2 * Real.sin x - 1) * (Real.sin x - 1) := by
   ring
 
-/-- Source: `proof_gap/exercise_493/3.txt`. -/
+/-- Exercise 493, gap 3. -/
 theorem gap3 (L : ℝ) :
     HasLimitAt original (Real.pi / 6) L ↔
       HasLimitAt factored (Real.pi / 6) L := by
@@ -41,7 +41,7 @@ theorem gap3 (L : ℝ) :
     rw [gap1, gap2]
   rw [hfun]
 
-/-- Source: `proof_gap/exercise_493/4.txt`. -/
+/-- Exercise 493, gap 4. -/
 theorem gap4 (L : ℝ) :
     HasLimitAt factored (Real.pi / 6) L ↔
       HasLimitAt cancelled (Real.pi / 6) L := by
@@ -94,7 +94,7 @@ theorem gap4 (L : ℝ) :
   · intro h
     exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_493/5.txt`. -/
+/-- Exercise 493, gap 5. -/
 theorem gap5 : HasLimitAt cancelled (Real.pi / 6) (-3) := by
   unfold HasLimitAt
   have hden : Real.sin (Real.pi / 6) - 1 ≠ 0 := by
@@ -116,7 +116,7 @@ theorem gap5 : HasLimitAt cancelled (Real.pi / 6) (-3) := by
   rw [← hval]
   exact hcont.mono_left inf_le_left
 
-/-- Source: `proof_gap/exercise_493/6.txt`. -/
+/-- Exercise 493, gap 6. -/
 theorem gap6 : HasLimitAt original (Real.pi / 6) (-3) := by
   exact (gap3 (-3)).mpr ((gap4 (-3)).mpr gap5)
 

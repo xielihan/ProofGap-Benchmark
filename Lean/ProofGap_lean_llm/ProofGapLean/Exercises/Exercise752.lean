@@ -13,7 +13,7 @@ def increment (f : ℝ → ℝ) (x₀ T y : ℝ) : ℝ :=
   f (x₀ + (y + 1) * T) - f (x₀ + y * T)
 def eps (n : ℕ) : ℝ := 1 / (n + 1 : ℝ)
 
-/-- Source: `proof_gap/exercise_752/1.txt`; index `g` by the step `T`. -/
+/-- Exercise 752, gap 1; index `g` by the step `T`. -/
 theorem gap1 (f : ℝ → ℝ) (x₀ : ℝ)
     (hf : ContinuousOn f (Set.Ioi x₀)) :
     ∀ T > 0, ContinuousOn (increment f x₀ T) (Set.Ici 1) := by
@@ -49,7 +49,7 @@ theorem gap1 (f : ℝ → ℝ) (x₀ : ℝ)
     houterB.comp (f := fun z : ℝ => z * T) (x := y) hargB
   simpa [increment, Function.comp_def] using (hA.sub hB).continuousWithinAt
 
-/-- Source: `proof_gap/exercise_752/2.txt`; index `g` by `T`. -/
+/-- Exercise 752, gap 2; index `g` by `T`. -/
 theorem gap2 (f : ℝ → ℝ) (x₀ : ℝ)
     (hf : boundedOn f (Set.Ioi x₀)) :
     ∀ T > 0, boundedOn (increment f x₀ T) (Set.Ici 1) := by
@@ -65,7 +65,7 @@ theorem gap2 (f : ℝ → ℝ) (x₀ : ℝ)
   · exact ⟨x₀ + (y + 1) * T, lt_add_of_pos_right x₀ hya, rfl⟩
   · exact ⟨x₀ + y * T, lt_add_of_pos_right x₀ hyb, rfl⟩
 
-/-- Source: `proof_gap/exercise_752/3.txt`; replace the unbound sequence by
+/-- Exercise 752, gap 3; replace the unbound sequence by
 `εₙ=1/(n+1)`. -/
 theorem gap3 : Filter.Tendsto eps Filter.atTop (nhds 0) := by
   rw [Metric.tendsto_atTop]
@@ -86,7 +86,7 @@ theorem gap3 : Filter.Tendsto eps Filter.atTop (nhds 0) := by
     positivity
   simpa [Real.dist_eq, abs_of_pos heps0] using heps
 
-/-- Source: `proof_gap/exercise_752/4.txt`; the displayed growth estimate needs
+/-- Exercise 752, gap 4; the displayed growth estimate needs
 a fixed sign, not merely an absolute lower bound. -/
 theorem gap4 (f : ℝ → ℝ) (x₀ T : ℝ) (n p k : ℕ)
     (hT : 0 < T) (hn : ∀ j ≥ p, eps n ≤ increment f x₀ T j)
@@ -114,7 +114,7 @@ theorem gap4 (f : ℝ → ℝ) (x₀ T : ℝ) (n p k : ℕ)
       rw [hcountR, add_mul, one_mul]
       linarith
 
-/-- Source: `proof_gap/exercise_752/5.txt`; state the eventual-one-sign
+/-- Exercise 752, gap 5; state the eventual-one-sign
 alternative that contradicts boundedness. -/
 theorem gap5 (f : ℝ → ℝ) (x₀ T : ℝ)
     (hT : 0 < T) (hf : boundedOn f (Set.Ioi x₀)) :
@@ -218,7 +218,7 @@ theorem gap5 (f : ℝ → ℝ) (x₀ T : ℝ)
     rw [Real.dist_eq, abs_of_pos hdiff0] at hd
     linarith
 
-/-- Source: `proof_gap/exercise_752/6.txt`; make the selected integer depend on
+/-- Exercise 752, gap 6; make the selected integer depend on
 `n` and on `T`. -/
 theorem gap6 (f : ℝ → ℝ) (x₀ T : ℝ) (hT : 0 < T)
     (hc : ContinuousOn f (Set.Ioi x₀))
@@ -304,7 +304,7 @@ theorem gap6 (f : ℝ → ℝ) (x₀ T : ℝ) (hT : 0 < T)
       exact hup hk hpp hkpos
     exact (gap5 f x₀ T hT hb) ⟨n, p, Or.inr htail⟩
 
-/-- Source: `proof_gap/exercise_752/7.txt`; bind the integer selector and
+/-- Exercise 752, gap 7; bind the integer selector and
 require it to tend to infinity. -/
 theorem gap7 (x₀ T : ℝ) (k : ℕ → ℕ)
     (hT : 0 < T) (hk : Filter.Tendsto k Filter.atTop Filter.atTop) :
@@ -320,7 +320,7 @@ theorem gap7 (x₀ T : ℝ) (k : ℕ → ℕ)
     nlinarith
   nlinarith
 
-/-- Source: `proof_gap/exercise_752/8.txt`; bind the selected sequence. -/
+/-- Exercise 752, gap 8; bind the selected sequence. -/
 theorem gap8 (f : ℝ → ℝ) (T : ℝ) (x : ℕ → ℝ)
     (hx : Filter.Tendsto x Filter.atTop (Filter.atTop : Filter ℝ))
     (hd : ∀ n, |f (x n + T) - f (x n)| < eps n) :
@@ -338,7 +338,7 @@ theorem gap8 (f : ℝ → ℝ) (T : ℝ) (x : ℕ → ℝ)
     simpa [Real.dist_eq, abs_of_pos heps0] using he
   simpa [Real.dist_eq] using lt_trans (hd n) heps
 
-/-- Source: `proof_gap/exercise_752/9`; repair the existential scope and add
+/-- Exercise 752, gap 9; repair the existential scope and add
 the omitted positivity assumption on `T`. -/
 theorem gap9 (f : ℝ → ℝ) (x₀ : ℝ)
     (hc : ContinuousOn f (Set.Ioi x₀))

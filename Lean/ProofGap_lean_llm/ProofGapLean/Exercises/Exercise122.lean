@@ -53,14 +53,14 @@ private theorem reciprocal_shift_tendsto (i : ℕ) :
     ((tendsto_inv_atTop_zero :
       Tendsto (fun r : ℝ => r⁻¹) atTop (𝓝 0)).comp hden)
 
-/-- Source: `proof_gap/exercise_122/1.txt`. -/
+/-- Exercise 122, gap 1. -/
 theorem gap1
     (x a : ℕ → ℝ)
     (h : ∀ n : ℕ, 0 < n → a n ∈ ProofGap.ClusterSet x) :
     ∀ n : ℕ, 0 < n → a n ∈ ProofGap.ClusterSet x := by
   exact h
 
-/-- Source: `proof_gap/exercise_122/2.txt`. -/
+/-- Exercise 122, gap 2. -/
 theorem gap2
     (x a : ℕ → ℝ)
     (h : ∀ n : ℕ, 0 < n → a n ∈ ProofGap.ClusterSet x) :
@@ -73,7 +73,7 @@ theorem gap2
   filter_upwards [hevent] with k hk
   exact h (p k) hk
 
-/-- Source: `proof_gap/exercise_122/3.txt`; the triangular ellipsis is explicit. -/
+/-- Exercise 122, gap 3; the triangular ellipsis is explicit. -/
 theorem gap3
     (x a : ℕ → ℝ)
     (hconstruct : Construction x a) :

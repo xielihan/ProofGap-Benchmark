@@ -16,15 +16,15 @@ def f (x : ℝ) : ℝ :=
 def HasLimitAtInfinity (g : ℝ → ℝ) (L : ℝ) : Prop :=
   ∀ ε > 0, ∃ N > 0, ∀ x, N < |x| → |g x - L| < ε
 
-/-- Source: `proof_gap/exercise_415/1.txt`. -/
+/-- Exercise 415, gap 1. -/
 theorem gap1 : ∃ degreeNumerator : ℕ, degreeNumerator = 5 := by
   exact ⟨5, rfl⟩
 
-/-- Source: `proof_gap/exercise_415/2.txt`. -/
+/-- Exercise 415, gap 2. -/
 theorem gap2 : ∃ degreeDenominator : ℕ, degreeDenominator = 5 := by
   exact ⟨5, rfl⟩
 
-/-- Source: `proof_gap/exercise_415/3.txt`. -/
+/-- Exercise 415, gap 3. -/
 theorem gap3 : HasLimitAtInfinity f (1 / (5 : ℝ) ^ 5) := by
   let h : ℝ → ℝ := fun y =>
     ((1 - y) * (1 - 2 * y) * (1 - 3 * y) *

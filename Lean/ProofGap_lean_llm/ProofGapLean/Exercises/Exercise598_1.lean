@@ -10,7 +10,7 @@ noncomputable section
 
 def f (x : ℝ) : ℝ := 2 * x / (1 + x)
 
-/-- Source: `proof_gap/exercise_598_1/1.txt`; replace `BigEnough` by an explicit left-tail bound. -/
+/-- Exercise 598_1, gap 1; replace `BigEnough` by an explicit left-tail bound. -/
 theorem gap1 (x : ℝ) (hx : x < -1) : 2 < f x := by
   unfold f
   have hden : 1 + x < 0 := by linarith
@@ -23,7 +23,7 @@ theorem gap1 (x : ℝ) (hx : x < -1) : 2 < f x := by
   rw [hid]
   linarith
 
-/-- Source: `proof_gap/exercise_598_1/2.txt`. -/
+/-- Exercise 598_1, gap 2. -/
 theorem gap2 : Filter.Tendsto f Filter.atBot (nhds 2) := by
   rw [Metric.tendsto_nhds]
   intro ε hε
@@ -48,7 +48,7 @@ theorem gap2 : Filter.Tendsto f Filter.atBot (nhds 2) := by
   rw [Real.dist_eq, hdiff, abs_of_pos (div_pos (by norm_num) hnegden)]
   exact hratio
 
-/-- Source: `proof_gap/exercise_598_1/3.txt`. -/
+/-- Exercise 598_1, gap 3. -/
 theorem gap3 : Filter.Tendsto f Filter.atBot (nhds 2) := by
   exact gap2
 

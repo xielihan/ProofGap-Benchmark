@@ -16,7 +16,7 @@ def reciprocalSquareForm (n : ℕ) : ℝ :=
 def values : Set ℝ :=
   {v | ∃ n : ℕ, 0 < n ∧ v = x n}
 
-/-- Source: `proof_gap/exercise_97/1.txt`; the rewrite requires positive n. -/
+/-- Exercise 97, gap 1; the rewrite requires positive n. -/
 theorem gap1 :
     ∀ n : ℕ, 0 < n → x n = reciprocalSquareForm n := by
   intro n hn
@@ -31,7 +31,7 @@ theorem gap1 :
   rw [ht_sq]
   nlinarith [hs_sq]
 
-/-- Source: `proof_gap/exercise_97/2.txt`. -/
+/-- Exercise 97, gap 2. -/
 theorem gap2 :
     ∀ n : ℕ, reciprocalSquareForm n ≤ 1 / 20 := by
   intro n
@@ -39,14 +39,14 @@ theorem gap2 :
   exact one_div_le_one_div_of_le (by norm_num)
     (by nlinarith [sq_nonneg (fourthRoot n - 10 / fourthRoot n)])
 
-/-- Source: `proof_gap/exercise_97/3.txt`; use the positive-index sequence. -/
+/-- Exercise 97, gap 3; use the positive-index sequence. -/
 theorem gap3 :
     ∀ n : ℕ, 0 < n → x n ≤ 1 / 20 := by
   intro n hn
   rw [gap1 n hn]
   exact gap2 n
 
-/-- Source: `proof_gap/exercise_97/4.txt`. -/
+/-- Exercise 97, gap 4. -/
 theorem gap4 :
     x 100 = 1 / 20 := by
   unfold x
@@ -58,7 +58,7 @@ theorem gap4 :
   rw [hsqrt]
   norm_num
 
-/-- Source: `proof_gap/exercise_97/5.txt`. -/
+/-- Exercise 97, gap 5. -/
 theorem gap5 :
     IsGreatest values (x 100) := by
   constructor
@@ -68,12 +68,12 @@ theorem gap5 :
     rw [gap4]
     exact gap3 n hn
 
-/-- Source: `proof_gap/exercise_97/6.txt`. -/
+/-- Exercise 97, gap 6. -/
 theorem gap6 :
     x 100 = 1 / 20 := by
   exact gap4
 
-/-- Source: `proof_gap/exercise_97/7.txt`. -/
+/-- Exercise 97, gap 7. -/
 theorem gap7 :
     IsGreatest values (1 / 20) := by
   rw [← gap4]

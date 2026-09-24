@@ -10,7 +10,7 @@ def y (x : ℝ) : ℝ :=
 def inverse (t : ℝ) : ℝ :=
   if t < 1 then t else if t ≤ 16 then Real.sqrt t else Real.log t / Real.log 2
 
-/-- Source: `proof_gap/exercise_230/1.txt`; make the inverse a function and bind its argument to y(x). -/
+/-- Exercise 230, gap 1; make the inverse a function and bind its argument to y(x). -/
 theorem gap1 : ∀ x, inverse (y x) = x := by
   intro x
   by_cases hx : x < 1

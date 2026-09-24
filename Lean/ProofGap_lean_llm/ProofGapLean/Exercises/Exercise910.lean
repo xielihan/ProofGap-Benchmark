@@ -28,7 +28,7 @@ def finalDerivative (x : ℝ) : ℝ :=
   -(1 + x + 1 / x + Real.log (1 / x)) /
     ((1 + x * Real.log (1 / x)) * (1 + x * Real.log (inner x)))
 
-/-- Source: `proof_gap/exercise_910/1.txt`; all three nested logarithms are
+/-- Exercise 910, gap 1; all three nested logarithms are
 restricted to positive arguments. -/
 theorem gap1 (x : ℝ) (hx : 0 < x)
     (hinner : 0 < inner x) (houter : 0 < outer x) :
@@ -63,7 +63,7 @@ theorem gap1 (x : ℝ) (hx : 0 < x)
   simpa [y, expandedDerivative, one_div] using
     (Real.hasDerivAt_log (ne_of_gt houter)).comp x hOuter
 
-/-- Source: `proof_gap/exercise_910/2.txt`; retain the full nested-logarithm
+/-- Exercise 910, gap 2; retain the full nested-logarithm
 domain while simplifying the derivative. -/
 theorem gap2 (x : ℝ) (hx : 0 < x)
     (hinner : 0 < inner x) (houter : 0 < outer x) :

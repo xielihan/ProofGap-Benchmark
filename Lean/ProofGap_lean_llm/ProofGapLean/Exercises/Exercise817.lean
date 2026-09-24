@@ -6,15 +6,15 @@ noncomputable section
 
 def f (x : ℝ) : ℝ := Real.sign x
 
-/-- Source: `proof_gap/exercise_817/1.txt`. -/
+/-- Exercise 817, gap 1. -/
 theorem gap1 (x y : ℝ) : f (x * y) = Real.sign (x * y) := by
   rfl
 
-/-- Source: `proof_gap/exercise_817/2.txt`. -/
+/-- Exercise 817, gap 2. -/
 theorem gap2 (x y : ℝ) (h : x * y > 0) : x * y > 0 := by
   exact h
 
-/-- Source: `proof_gap/exercise_817/3.txt`. -/
+/-- Exercise 817, gap 3. -/
 theorem gap3 (x y : ℝ) (h : x * y > 0) :
     Real.sign (x * y) = Real.sign x * Real.sign y := by
   have hx : x ≠ 0 := by
@@ -39,24 +39,24 @@ theorem gap3 (x y : ℝ) (h : x * y > 0) :
     · simp [Real.sign_of_pos h, Real.sign_of_pos hxpos,
         Real.sign_of_pos hypos]
 
-/-- Source: `proof_gap/exercise_817/4.txt`. -/
+/-- Exercise 817, gap 4. -/
 theorem gap4 (x y : ℝ) (h : x * y > 0) :
     Real.sign x * Real.sign y = 1 := by
   calc
     Real.sign x * Real.sign y = Real.sign (x * y) := (gap3 x y h).symm
     _ = 1 := Real.sign_of_pos h
 
-/-- Source: `proof_gap/exercise_817/5.txt`. -/
+/-- Exercise 817, gap 5. -/
 theorem gap5 (x y : ℝ) (h : x * y > 0) : Real.sign (x * y) = 1 := by
   calc
     Real.sign (x * y) = Real.sign x * Real.sign y := gap3 x y h
     _ = 1 := gap4 x y h
 
-/-- Source: `proof_gap/exercise_817/6.txt`. -/
+/-- Exercise 817, gap 6. -/
 theorem gap6 (x y : ℝ) (h : x * y < 0) : x * y < 0 := by
   exact h
 
-/-- Source: `proof_gap/exercise_817/7.txt`. -/
+/-- Exercise 817, gap 7. -/
 theorem gap7 (x y : ℝ) (h : x * y < 0) :
     Real.sign (x * y) = Real.sign x * Real.sign y := by
   have hx : x ≠ 0 := by
@@ -81,42 +81,42 @@ theorem gap7 (x y : ℝ) (h : x * y < 0) :
       exfalso
       exact (not_lt_of_ge (le_of_lt hprodpos)) h
 
-/-- Source: `proof_gap/exercise_817/8.txt`. -/
+/-- Exercise 817, gap 8. -/
 theorem gap8 (x y : ℝ) (h : x * y < 0) :
     Real.sign x * Real.sign y = -1 := by
   calc
     Real.sign x * Real.sign y = Real.sign (x * y) := (gap7 x y h).symm
     _ = -1 := Real.sign_of_neg h
 
-/-- Source: `proof_gap/exercise_817/9.txt`. -/
+/-- Exercise 817, gap 9. -/
 theorem gap9 (x y : ℝ) (h : x * y < 0) : Real.sign (x * y) = -1 := by
   calc
     Real.sign (x * y) = Real.sign x * Real.sign y := gap7 x y h
     _ = -1 := gap8 x y h
 
-/-- Source: `proof_gap/exercise_817/10.txt`. -/
+/-- Exercise 817, gap 10. -/
 theorem gap10 (x y : ℝ) (h : x * y = 0) : x = 0 ∨ y = 0 := by
   exact mul_eq_zero.mp h
 
-/-- Source: `proof_gap/exercise_817/11.txt`. -/
+/-- Exercise 817, gap 11. -/
 theorem gap11 (x y : ℝ) (h : x * y = 0) :
     Real.sign (x * y) = Real.sign x * Real.sign y := by
   rcases gap10 x y h with hx | hy
   · simp [hx]
   · simp [hy]
 
-/-- Source: `proof_gap/exercise_817/12.txt`. -/
+/-- Exercise 817, gap 12. -/
 theorem gap12 (x y : ℝ) (h : x * y = 0) :
     Real.sign x * Real.sign y = 0 := by
   rcases gap10 x y h with hx | hy
   · simp [hx]
   · simp [hy]
 
-/-- Source: `proof_gap/exercise_817/13.txt`. -/
+/-- Exercise 817, gap 13. -/
 theorem gap13 (x y : ℝ) (h : x * y = 0) : Real.sign (x * y) = 0 := by
   simp [h]
 
-/-- Source: `proof_gap/exercise_817/14.txt`. -/
+/-- Exercise 817, gap 14. -/
 theorem gap14 (x y : ℝ) :
     Real.sign (x * y) = Real.sign x * Real.sign y := by
   rcases lt_trichotomy (x * y) 0 with hneg | hzero | hpos
@@ -124,11 +124,11 @@ theorem gap14 (x y : ℝ) :
   · exact gap11 x y hzero
   · exact gap3 x y hpos
 
-/-- Source: `proof_gap/exercise_817/15.txt`. -/
+/-- Exercise 817, gap 15. -/
 theorem gap15 (x y : ℝ) : f (x * y) = f x * f y := by
   simpa [f] using (gap14 x y)
 
-/-- Source: `proof_gap/exercise_817/16.txt`; remove vacuous real-set membership premises. -/
+/-- Exercise 817, gap 16; remove vacuous real-set membership premises. -/
 theorem gap16 : ∀ x y : ℝ, f (x * y) = f x * f y := by
   intro x y
   exact gap15 x y

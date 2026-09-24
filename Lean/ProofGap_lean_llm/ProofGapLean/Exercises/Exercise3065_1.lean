@@ -31,7 +31,7 @@ def ConvergentProduct (u : ℕ → ℝ) : Prop :=
 def DivergentProduct (u : ℕ → ℝ) : Prop :=
   ¬ConvergentProduct u
 
-/-- Source: `proof_gap/exercise_3065_1/1.txt`. -/
+/-- Exercise 3065_1, gap 1. -/
 theorem gap1 : ConvergentProduct pTerm := by
   refine ⟨0, (tendsto_const_nhds : Tendsto (fun _ : ℕ => (0 : ℝ)) atTop (𝓝 0)).congr' ?_⟩
   filter_upwards [eventually_ge_atTop 1] with n hn
@@ -40,7 +40,7 @@ theorem gap1 : ConvergentProduct pTerm := by
   apply Finset.prod_eq_zero (show 1 ∈ Finset.Icc 1 n by simp [hn])
   norm_num [pTerm]
 
-/-- Source: `proof_gap/exercise_3065_1/2.txt`. -/
+/-- Exercise 3065_1, gap 2. -/
 theorem gap2 : ConvergentProduct qTerm := by
   have hq_one_le (n : ℕ) : 1 ≤ qTerm n := by
     unfold qTerm
@@ -152,7 +152,7 @@ theorem gap2 : ConvergentProduct qTerm := by
   all_goals assumption
 
 /--
-Source: `proof_gap/exercise_3065_1/3.txt`; the two divergent infinite products
+Exercise 3065_1, gap 3; the two divergent infinite products
 are replaced by equality of every finite partial product.
 -/
 theorem gap3 :
@@ -166,7 +166,7 @@ theorem gap3 :
   simp only [pTerm, qTerm]
   ring
 
-/-- Source: `proof_gap/exercise_3065_1/4.txt`. -/
+/-- Exercise 3065_1, gap 4. -/
 theorem gap4 : DivergentProduct (fun _ => (2 : ℝ)) := by
   rintro ⟨L, hL⟩
   have hpartial (n : ℕ) :
@@ -186,7 +186,7 @@ theorem gap4 : DivergentProduct (fun _ => (2 : ℝ)) := by
   rw [hpartial (max N1 N2)] at hs
   linarith
 
-/-- Source: `proof_gap/exercise_3065_1/5.txt`; retain definitions of arbitrary `p` and `q`. -/
+/-- Exercise 3065_1, gap 5; retain definitions of arbitrary `p` and `q`. -/
 theorem gap5 (p q : ℕ → ℝ)
     (hp : ∀ n, p n = pTerm n) (hq : ∀ n, q n = qTerm n) :
     ¬ConvergentProduct (fun n => p n + q n) := by
@@ -198,7 +198,7 @@ theorem gap5 (p q : ℕ → ℝ)
     ring
   exact gap4 (hfun ▸ hconv)
 
-/-- Source: `proof_gap/exercise_3065_1/6.txt`. -/
+/-- Exercise 3065_1, gap 6. -/
 theorem gap6 :
     ∃ p q : ℕ → ℝ,
       ¬(ConvergentProduct p ∧ ConvergentProduct q →

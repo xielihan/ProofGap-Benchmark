@@ -18,7 +18,7 @@ def expanded (n : ℕ) (x a : ℝ) : ℝ :=
       a ^ 2 / (n : ℝ) ^ 2 *
         (Finset.Icc 1 (n - 1)).sum (fun i => ((i : ℝ) ^ 2)))
 
-/-- Source: `proof_gap/exercise_430/1.txt`; replace summation ellipses by finite sums. -/
+/-- Exercise 430, gap 1; replace summation ellipses by finite sums. -/
 private theorem sum_Icc_eq_sum_range_of_zero
     (f : ℕ → ℝ) (hf : f 0 = 0) (n : ℕ) :
     (Finset.Icc 1 (n - 1)).sum f = (Finset.range n).sum f := by
@@ -128,7 +128,7 @@ theorem gap1 (x a : ℝ) :
     exact average_eq_expanded n hn x a
   exact Filter.tendsto_congr' heq
 
-/-- Source: `proof_gap/exercise_430/2.txt`. -/
+/-- Exercise 430, gap 2. -/
 theorem gap2 (x a : ℝ) :
     Filter.Tendsto (fun n => expanded n x a) Filter.atTop
       (nhds (x ^ 2 + a * x + a ^ 2 / 3)) := by

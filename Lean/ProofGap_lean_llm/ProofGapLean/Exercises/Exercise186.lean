@@ -14,7 +14,7 @@ def y (x : ℝ) : ℝ := Real.sqrt (x - x ^ 2)
 def domain : Set ℝ := Set.Icc 0 1
 def valueSet : Set ℝ := {t | ∃ x ∈ domain, t = y x}
 
-/-- Source: `proof_gap/exercise_186/1.txt`. -/
+/-- Exercise 186, gap 1. -/
 theorem gap1 : ∀ x : ℝ,
     y x = Real.sqrt (1 / 4 - (x - 1 / 2) ^ 2) := by
   intro x
@@ -22,7 +22,7 @@ theorem gap1 : ∀ x : ℝ,
   congr 1
   ring
 
-/-- Source: `proof_gap/exercise_186/2.txt`. -/
+/-- Exercise 186, gap 2. -/
 theorem gap2 : y (1 / 2) = 1 / 2 := by
   rw [gap1]
   norm_num only [sub_self, ne_eq, OfNat.ofNat_ne_zero, not_false_eq_true,
@@ -31,21 +31,21 @@ theorem gap2 : y (1 / 2) = 1 / 2 := by
   have hs0 := Real.sqrt_nonneg (1 / 4)
   nlinarith
 
-/-- Source: `proof_gap/exercise_186/3.txt`. -/
+/-- Exercise 186, gap 3. -/
 theorem gap3 : Tendsto y (𝓝 0) (𝓝 0) := by
   have hc : ContinuousAt y 0 := by
     unfold y
     fun_prop
   convert hc.tendsto using 1 <;> norm_num [y]
 
-/-- Source: `proof_gap/exercise_186/4.txt`; positivity holds only in the interior. -/
+/-- Exercise 186, gap 4; positivity holds only in the interior. -/
 theorem gap4 : ∀ x : ℝ, x ∈ Set.Ioo 0 1 → 0 < y x := by
   intro x hx
   unfold y
   apply Real.sqrt_pos.2
   nlinarith [mul_pos hx.1 (sub_pos.mpr hx.2)]
 
-/-- Source: `proof_gap/exercise_186/5.txt`; remove the shadowed existential y. -/
+/-- Exercise 186, gap 5; remove the shadowed existential y. -/
 theorem gap5 : sInf valueSet = 0 := by
   have hleast : IsLeast valueSet 0 := by
     constructor
@@ -55,7 +55,7 @@ theorem gap5 : sInf valueSet = 0 := by
       exact Real.sqrt_nonneg _
   exact hleast.csInf_eq
 
-/-- Source: `proof_gap/exercise_186/6.txt`; the natural square-root domain includes both zero endpoints. -/
+/-- Exercise 186, gap 6; the natural square-root domain includes both zero endpoints. -/
 theorem gap6 : valueSet = Set.Icc 0 (1 / 2) := by
   ext t
   constructor

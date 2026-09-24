@@ -1085,7 +1085,7 @@ private theorem radialMeasure_integral_eq
           baseOneDimensionalIntegral f p := by
       rfl
 
-/-! Source: `results/stage1_gpt55/09_重积分与含参积分/exercise_4217_autoformalization_result/exercise_4217.md`. -/
+/-! Exercise 4217. -/
 
 private theorem baseLiouvilleFormula
     {n : ℕ} (hn : 0 < n) (f : ℝ → ℝ) (hf : Continuous f)

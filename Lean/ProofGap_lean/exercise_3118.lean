@@ -6,7 +6,7 @@ import Mathlib
 -- Last gap: 6; compilation status: passed
 -- Classification concerns only the last gap compilation, not every gap below.
 
--- Source: proofgap/exercise_3118/1.txt
+-- Exercise 3118, gap 1
 namespace regenerated_exercise_3118_gap_1
 
 attribute [local instance] Classical.propDecidable
@@ -70,7 +70,7 @@ theorem proof_gap_exercise_3118_1
   sorry
 end regenerated_exercise_3118_gap_1
 
--- Source: proofgap/exercise_3118/2.txt
+-- Exercise 3118, gap 2
 namespace regenerated_exercise_3118_gap_2
 
 attribute [local instance] Classical.propDecidable
@@ -135,7 +135,7 @@ theorem proof_gap_exercise_3118_2
   sorry
 end regenerated_exercise_3118_gap_2
 
--- Source: proofgap/exercise_3118/3.txt
+-- Exercise 3118, gap 3
 namespace regenerated_exercise_3118_gap_3
 
 attribute [local instance] Classical.propDecidable
@@ -201,7 +201,7 @@ theorem proof_gap_exercise_3118_3
   sorry
 end regenerated_exercise_3118_gap_3
 
--- Source: proofgap/exercise_3118/4.txt
+-- Exercise 3118, gap 4
 namespace regenerated_exercise_3118_gap_4
 
 attribute [local instance] Classical.propDecidable
@@ -268,7 +268,7 @@ theorem proof_gap_exercise_3118_4
   sorry
 end regenerated_exercise_3118_gap_4
 
--- Source: proofgap/exercise_3118/5.txt
+-- Exercise 3118, gap 5
 namespace regenerated_exercise_3118_gap_5
 
 attribute [local instance] Classical.propDecidable
@@ -336,7 +336,7 @@ theorem proof_gap_exercise_3118_5
   sorry
 end regenerated_exercise_3118_gap_5
 
--- Source: proofgap/exercise_3118/6.txt
+-- Exercise 3118, gap 6
 namespace regenerated_exercise_3118_gap_6
 
 attribute [local instance] Classical.propDecidable

@@ -13,7 +13,7 @@ def ratioTerm (x y : ℕ → ℝ) (n : ℕ) : ℝ := x n / y n
 
 def Increasing (y : ℕ → ℝ) : Prop := StrictMono y
 
-/-- Source: `proof_gap/exercise_143/1.txt`; both cutoffs depend on ε. -/
+/-- Exercise 143, gap 1; both cutoffs depend on ε. -/
 theorem gap1 (x y : ℕ → ℝ) (a : ℝ)
     (hy : Increasing y) (hyInf : Tendsto y atTop atTop)
     (hΔ : Tendsto (ratioIncrement x y) atTop (𝓝 a)) :
@@ -31,7 +31,7 @@ theorem gap1 (x y : ℕ → ℝ) (a : ℝ)
   · simpa [Real.dist_eq] using hK₁ n (by omega)
   · exact hK₂ n (by omega)
 
-/-- Source: `proof_gap/exercise_143/2.txt`; replace the fixed-N quantifier error by a tail statement. -/
+/-- Exercise 143, gap 2; replace the fixed-N quantifier error by a tail statement. -/
 theorem gap2 (x y : ℕ → ℝ) (a : ℝ)
     (hΔ : Tendsto (ratioIncrement x y) atTop (𝓝 a)) :
     ∀ ε > 0, ∃ N, ∀ n > N,
@@ -45,7 +45,7 @@ theorem gap2 (x y : ℕ → ℝ) (a : ℝ)
   rw [abs_lt] at habs
   constructor <;> linarith
 
-/-- Source: `proof_gap/exercise_143/3.txt`. -/
+/-- Exercise 143, gap 3. -/
 theorem gap3 (x y : ℕ → ℝ) (a : ℝ)
     (hΔ : Tendsto (ratioIncrement x y) atTop (𝓝 a)) :
     ∀ ε > 0, ∃ N, ratioIncrement x y (N + 2) ∈
@@ -54,7 +54,7 @@ theorem gap3 (x y : ℕ → ℝ) (a : ℝ)
   rcases gap2 x y a hΔ ε hε with ⟨N, hN⟩
   exact ⟨N, hN (N + 2) (by omega)⟩
 
-/-- Source: `proof_gap/exercise_143/4.txt`; the source ellipsis denotes all intermediate increments. -/
+/-- Exercise 143, gap 4; the source ellipsis denotes all intermediate increments. -/
 theorem gap4 (x y : ℕ → ℝ) (a : ℝ)
     (hΔ : Tendsto (ratioIncrement x y) atTop (𝓝 a)) :
     ∀ ε > 0, ∃ N, ∀ k ≥ N,
@@ -63,14 +63,14 @@ theorem gap4 (x y : ℕ → ℝ) (a : ℝ)
   rcases gap2 x y a hΔ ε hε with ⟨N, hN⟩
   exact ⟨N + 1, fun k hk => hN k (by omega)⟩
 
-/-- Source: `proof_gap/exercise_143/5.txt`. -/
+/-- Exercise 143, gap 5. -/
 theorem gap5 (x y : ℕ → ℝ) (a : ℝ)
     (hΔ : Tendsto (ratioIncrement x y) atTop (𝓝 a)) :
     ∀ ε > 0, ∃ N, ∀ n > N,
       ratioIncrement x y n ∈ Set.Ioo (a - ε / 2) (a + ε / 2) := by
   exact gap2 x y a hΔ
 
-/-- Source: `proof_gap/exercise_143/6.txt`; N is chosen after ε. -/
+/-- Exercise 143, gap 6; N is chosen after ε. -/
 theorem gap6 (x y : ℕ → ℝ) (a : ℝ) (hy : Increasing y)
     (hΔ : Tendsto (ratioIncrement x y) atTop (𝓝 a)) :
     ∀ ε > 0, ∃ N, ∀ n > N,
@@ -82,7 +82,7 @@ theorem gap6 (x y : ℕ → ℝ) (a : ℝ) (hy : Increasing y)
   have hlo := (hN n hn).1
   exact (lt_div_iff₀ hpos).mp (by simpa [ratioIncrement] using hlo)
 
-/-- Source: `proof_gap/exercise_143/7.txt`. -/
+/-- Exercise 143, gap 7. -/
 theorem gap7 (x y : ℕ → ℝ) (a : ℝ) (hy : Increasing y)
     (hΔ : Tendsto (ratioIncrement x y) atTop (𝓝 a)) :
     ∀ ε > 0, ∃ N, ∀ n > N,
@@ -95,7 +95,7 @@ theorem gap7 (x y : ℕ → ℝ) (a : ℝ) (hy : Increasing y)
   rw [ratioIncrement, div_lt_iff₀ hpos] at hhi
   exact hhi
 
-/-- Source: `proof_gap/exercise_143/8.txt`. -/
+/-- Exercise 143, gap 8. -/
 theorem gap8 (y : ℕ → ℝ) (a : ℝ) (hy : Increasing y) :
     ∀ ε > 0, ∀ n,
       (a - ε / 2) * (y (n + 1) - y n) <
@@ -104,28 +104,28 @@ theorem gap8 (y : ℕ → ℝ) (a : ℝ) (hy : Increasing y) :
   have hpos : 0 < y (n + 1) - y n := sub_pos.mpr (hy (by omega))
   exact mul_lt_mul_of_pos_right (by linarith) hpos
 
-/-- Source: `proof_gap/exercise_143/9.txt`. -/
+/-- Exercise 143, gap 9. -/
 theorem gap9 (x y : ℕ → ℝ) (a : ℝ) (hy : Increasing y)
     (hΔ : Tendsto (ratioIncrement x y) atTop (𝓝 a)) :
     ∀ ε > 0, ∃ N, ∀ n > N,
       (a - ε / 2) * (y (n + 1) - y n) < x (n + 1) - x n := by
   exact gap6 x y a hy hΔ
 
-/-- Source: `proof_gap/exercise_143/10.txt`. -/
+/-- Exercise 143, gap 10. -/
 theorem gap10 (x y : ℕ → ℝ) (a : ℝ) (hy : Increasing y)
     (hΔ : Tendsto (ratioIncrement x y) atTop (𝓝 a)) :
     ∀ ε > 0, ∃ N, ∀ n > N,
       x (n + 1) - x n < (a + ε / 2) * (y (n + 1) - y n) := by
   exact gap7 x y a hy hΔ
 
-/-- Source: `proof_gap/exercise_143/11.txt`. -/
+/-- Exercise 143, gap 11. -/
 theorem gap11 (y : ℕ → ℝ) (a : ℝ) (hy : Increasing y) :
     ∀ ε > 0, ∀ n,
       (a - ε / 2) * (y (n + 1) - y n) <
         (a + ε / 2) * (y (n + 1) - y n) := by
   exact gap8 y a hy
 
-/-- Source: `proof_gap/exercise_143/12.txt`; the summed range is made explicit. -/
+/-- Exercise 143, gap 12; the summed range is made explicit. -/
 theorem gap12 (x y : ℕ → ℝ) (a : ℝ) (N n : ℕ) (hN : N < n)
     (h : ∀ k, N < k → k ≤ n →
       (a - 1) * (y (k + 1) - y k) < x (k + 1) - x k) :
@@ -144,7 +144,7 @@ theorem gap12 (x y : ℕ → ℝ) (a : ℝ) (N n : ℕ) (hN : N < n)
         rw [Nat.sub_add_cancel (by omega : 1 ≤ n)] at ih'
         linarith
 
-/-- Source: `proof_gap/exercise_143/13.txt`; the summed range is made explicit. -/
+/-- Exercise 143, gap 13; the summed range is made explicit. -/
 theorem gap13 (x y : ℕ → ℝ) (a : ℝ) (N n : ℕ) (hN : N < n)
     (h : ∀ k, N < k → k ≤ n →
       x (k + 1) - x k < (a + 1) * (y (k + 1) - y k)) :
@@ -162,7 +162,7 @@ theorem gap13 (x y : ℕ → ℝ) (a : ℝ) (N n : ℕ) (hN : N < n)
         rw [Nat.sub_add_cancel (by omega : 1 ≤ n)] at ih'
         linarith
 
-/-- Source: `proof_gap/exercise_143/14.txt`. -/
+/-- Exercise 143, gap 14. -/
 theorem gap14 (y : ℕ → ℝ) (a ε : ℝ) (N n : ℕ)
     (hε : 0 < ε) (hy : Increasing y) (hN : N < n) :
     (a - ε / 2) * (y (n + 1) - y (N + 1)) <
@@ -171,7 +171,7 @@ theorem gap14 (y : ℕ → ℝ) (a ε : ℝ) (N n : ℕ)
     sub_pos.mpr (hy (by omega))
   exact mul_lt_mul_of_pos_right (by linarith) hypos
 
-/-- Source: `proof_gap/exercise_143/15.txt`; the ratio denominator is positive. -/
+/-- Exercise 143, gap 15; the ratio denominator is positive. -/
 theorem gap15 (x y : ℕ → ℝ) (a : ℝ) (N n : ℕ)
     (hy : Increasing y) (hN : N < n)
     (hl : (a - 1) * (y (n + 1) - y (N + 1)) <
@@ -188,7 +188,7 @@ theorem gap15 (x y : ℕ → ℝ) (a : ℝ) (N n : ℕ)
   · have := (div_lt_iff₀ hdenpos).2 hu
     linarith
 
-/-- Source: `proof_gap/exercise_143/16.txt`; corrected to the exact decomposition identity. -/
+/-- Exercise 143, gap 16; corrected to the exact decomposition identity. -/
 theorem gap16 (x y : ℕ → ℝ) (a : ℝ) (N n : ℕ)
     (hyn : y n ≠ 0) (hden : y n - y (N + 1) ≠ 0) :
     ratioTerm x y n - a =
@@ -199,7 +199,7 @@ theorem gap16 (x y : ℕ → ℝ) (a : ℝ) (N n : ℕ)
   field_simp [hyn, hden]
   ring
 
-/-- Source: `proof_gap/exercise_143/17.txt`. -/
+/-- Exercise 143, gap 17. -/
 theorem gap17 (x y : ℕ → ℝ) (a ε : ℝ) (N n : ℕ)
     (hfactor : |1 - y (N + 1) / y n| ≤ 1)
     (htail : |(x n - x (N + 1)) / (y n - y (N + 1)) - a| < ε / 2)
@@ -230,7 +230,7 @@ theorem gap17 (x y : ℕ → ℝ) (a ε : ℝ) (N n : ℕ)
         mul_le_mul hfactor htail.le (abs_nonneg _) (by positivity)
       linarith
 
-/-- Source: `proof_gap/exercise_143/18.txt`; N' is chosen after ε and N. -/
+/-- Exercise 143, gap 18; N' is chosen after ε and N. -/
 theorem gap18 (x y : ℕ → ℝ) (a ε : ℝ) (N : ℕ)
     (hε : 0 < ε) (hyInf : Tendsto y atTop atTop) :
     ∃ N' > N, ∀ n > N',
@@ -289,13 +289,13 @@ private theorem telescope_upper
         rw [Nat.sub_add_cancel (by omega : 1 ≤ n)] at ih'
         linarith
 
-/-- Source: `proof_gap/exercise_143/19.txt`; all cutoffs are explicitly bound. -/
+/-- Exercise 143, gap 19; all cutoffs are explicitly bound. -/
 theorem gap19 (x y : ℕ → ℝ) (a : ℝ)
     (h : ∀ ε > 0, ∃ N, ∀ n > N, |ratioTerm x y n - a| < ε) :
     ∀ ε > 0, ∃ N, ∀ n > N, |ratioTerm x y n - a| < ε := by
   exact h
 
-/-- Source: `proof_gap/exercise_143/20.txt`. -/
+/-- Exercise 143, gap 20. -/
 theorem gap20 (x y : ℕ → ℝ) (a : ℝ)
     (h : ∀ ε > 0, ∃ N, ∀ n > N, |ratioTerm x y n - a| < ε) :
     Tendsto (ratioTerm x y) atTop (𝓝 a) := by
@@ -305,13 +305,13 @@ theorem gap20 (x y : ℕ → ℝ) (a : ℝ)
   exact ⟨N + 1, fun n hn => by
     simpa [Real.dist_eq] using hN n (by omega)⟩
 
-/-- Source: `proof_gap/exercise_143/21.txt`. -/
+/-- Exercise 143, gap 21. -/
 theorem gap21 (x y : ℕ → ℝ) (a : ℝ)
     (h : Tendsto (ratioIncrement x y) atTop (𝓝 a)) :
     a = a := by
   rfl
 
-/-- Source: `proof_gap/exercise_143/22.txt`; Stolz--Cesàro conclusion. -/
+/-- Exercise 143, gap 22; Stolz--Cesàro conclusion. -/
 theorem gap22 (x y : ℕ → ℝ) (a : ℝ)
     (hy : Increasing y) (hyInf : Tendsto y atTop atTop)
     (hΔ : Tendsto (ratioIncrement x y) atTop (𝓝 a)) :
@@ -379,7 +379,7 @@ theorem gap22 (x y : ℕ → ℝ) (a : ℝ)
   rw [Real.dist_eq, hdecomp]
   exact (abs_add_le _ _).trans_lt (by linarith)
 
-/-- Source: `proof_gap/exercise_143/23.txt`; equality of the two finite limits. -/
+/-- Exercise 143, gap 23; equality of the two finite limits. -/
 theorem gap23 (x y : ℕ → ℝ) (a : ℝ)
     (hy : Increasing y) (hyInf : Tendsto y atTop atTop)
     (hΔ : Tendsto (ratioIncrement x y) atTop (𝓝 a)) :

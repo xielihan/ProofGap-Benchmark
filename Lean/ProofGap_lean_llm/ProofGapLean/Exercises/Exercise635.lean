@@ -18,7 +18,7 @@ def logSum (n : ℕ) : ℝ :=
 def linearSum (n : ℕ) : ℝ :=
   (Finset.Icc 1 n).sum (fun k => (k : ℝ) / (n : ℝ) ^ 2)
 
-/-- Source: `proof_gap/exercise_635/1.txt`; replace the product ellipsis by `Finset.prod`. -/
+/-- Exercise 635, gap 1; replace the product ellipsis by `Finset.prod`. -/
 private lemma sum_range_succ_cast (n : ℕ) :
     (Finset.range (n + 1)).sum (fun k => (k : ℝ)) =
       (n : ℝ) * ((n : ℝ) + 1) / 2 := by
@@ -162,7 +162,7 @@ theorem gap1 (n : ℕ) : Real.log (productSeq n) = logSum n := by
           Real.log_mul (ne_of_gt (hf a)) (ne_of_gt hs)
         _ = Real.log (f a) + s.sum (fun k => Real.log (f k)) := by rw [ih]
 
-/-- Source: `proof_gap/exercise_635/2.txt`. -/
+/-- Exercise 635, gap 2. -/
 theorem gap2 :
     Filter.Tendsto (fun x : ℝ => Real.log (1 + x) / x)
       (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds 1) := by
@@ -170,7 +170,7 @@ theorem gap2 :
     smul_eq_mul, inv_one] using
     (Real.hasDerivAt_log (show (1 : ℝ) ≠ 0 by norm_num)).tendsto_slope_zero
 
-/-- Source: `proof_gap/exercise_635/3.txt`. -/
+/-- Exercise 635, gap 3. -/
 theorem gap3 (k : ℕ) :
     Filter.Tendsto (fun n : ℕ => (k : ℝ) / (n : ℝ) ^ 2)
       Filter.atTop (nhds 0) := by
@@ -186,7 +186,7 @@ theorem gap3 (k : ℕ) :
           Filter.atTop (nhds ((k : ℝ) * 0 ^ 2)))
   simpa [div_eq_mul_inv, inv_pow] using h
 
-/-- Source: `proof_gap/exercise_635/4.txt`. -/
+/-- Exercise 635, gap 4. -/
 theorem gap4 :
     Filter.Tendsto linearSum Filter.atTop (nhds (1 / 2 : ℝ)) := by
   have hone :
@@ -205,7 +205,7 @@ theorem gap4 :
     ne_of_gt (Nat.cast_pos.mpr (by omega : 0 < n))
   field_simp [hnR] <;> ring
 
-/-- Source: `proof_gap/exercise_635/5.txt`. -/
+/-- Exercise 635, gap 5. -/
 theorem gap5 :
     Filter.Tendsto logSum Filter.atTop (nhds (1 / 2 : ℝ)) := by
   have hupper :
@@ -226,7 +226,7 @@ theorem gap5 :
   have h := gap4.sub herr
   simpa using h
 
-/-- Source: `proof_gap/exercise_635/6.txt`. -/
+/-- Exercise 635, gap 6. -/
 theorem gap6 :
     Filter.Tendsto productSeq Filter.atTop (nhds (Real.exp (1 / 2))) := by
   have h :
@@ -237,7 +237,7 @@ theorem gap6 :
   intro n
   rw [← gap1 n, Real.exp_log (productSeq_pos n)]
 
-/-- Source: `proof_gap/exercise_635/7.txt`. -/
+/-- Exercise 635, gap 7. -/
 theorem gap7 : Real.exp (1 / 2) = Real.sqrt (Real.exp 1) := by
   have hsq : (Real.exp (1 / 2)) ^ 2 = Real.exp 1 := by
     rw [pow_two, ← Real.exp_add]
@@ -248,7 +248,7 @@ theorem gap7 : Real.exp (1 / 2) = Real.sqrt (Real.exp 1) := by
     Real.sq_sqrt (Real.exp_pos 1).le
   nlinarith
 
-/-- Source: `proof_gap/exercise_635/8.txt`. -/
+/-- Exercise 635, gap 8. -/
 theorem gap8 :
     Filter.Tendsto productSeq Filter.atTop (nhds (Real.sqrt (Real.exp 1))) := by
   rw [← gap7]

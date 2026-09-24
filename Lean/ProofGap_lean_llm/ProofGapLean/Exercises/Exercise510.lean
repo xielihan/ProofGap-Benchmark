@@ -11,7 +11,7 @@ def exponent (x : ℝ) : ℝ := Real.tan (2 * x)
 def f (x : ℝ) : ℝ := Real.rpow (base x) (exponent x)
 def rightFilter : Filter ℝ := nhdsWithin (Real.pi / 4) (Set.Ioi (Real.pi / 4))
 
-/-- Source: `proof_gap/exercise_510/1.txt`; localize the false global bound to the required right neighborhood. -/
+/-- Exercise 510, gap 1; localize the false global bound to the required right neighborhood. -/
 theorem gap1 :
     ∃ δ > 0, ∀ x : ℝ, Real.pi / 4 < x → x < Real.pi / 4 + δ →
       1 < base x := by
@@ -24,7 +24,7 @@ theorem gap1 :
   have htan := Real.strictMonoOn_tan hleft hright (by nlinarith [Real.pi_pos])
   simpa only [base, Real.tan_pi_div_four] using htan
 
-/-- Source: `proof_gap/exercise_510/2.txt`; replace the meaningless global “less than infinity” by local boundedness. -/
+/-- Exercise 510, gap 2; replace the meaningless global “less than infinity” by local boundedness. -/
 theorem gap2 :
     ∃ δ > 0, ∃ M : ℝ, ∀ x : ℝ,
       Real.pi / 4 < x → x < Real.pi / 4 + δ → base x < M := by
@@ -37,11 +37,11 @@ theorem gap2 :
   have htan := Real.strictMonoOn_tan hleft hright (by nlinarith [Real.pi_pos])
   simpa only [base] using htan
 
-/-- Source: `proof_gap/exercise_510/3.txt`; a concrete real upper comparison. -/
+/-- Exercise 510, gap 3; a concrete real upper comparison. -/
 theorem gap3 : (1 : ℝ) < 2 := by
   exact one_lt_two
 
-/-- Source: `proof_gap/exercise_510/4.txt`. -/
+/-- Exercise 510, gap 4. -/
 theorem gap4 : Filter.Tendsto exponent rightFilter Filter.atBot := by
   have hcont :
       ContinuousAt (fun x : ℝ => Real.pi - 2 * x) (Real.pi / 4) :=
@@ -85,7 +85,7 @@ theorem gap4 : Filter.Tendsto exponent rightFilter Filter.atBot := by
   rw [heq]
   linarith
 
-/-- Source: `proof_gap/exercise_510/5.txt`; interpret the variable power by `Real.rpow`. -/
+/-- Exercise 510, gap 5; interpret the variable power by `Real.rpow`. -/
 theorem gap5 : Filter.Tendsto f rightFilter (nhds 0) := by
   have hleft : Real.pi / 4 ∈ Set.Ioo (-(Real.pi / 2)) (Real.pi / 2) := by
     constructor <;> nlinarith [Real.pi_pos]

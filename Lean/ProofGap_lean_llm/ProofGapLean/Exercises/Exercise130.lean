@@ -27,7 +27,7 @@ private theorem odd_strictMono : StrictMono (fun k : ℕ => 2 * k + 1) := by
   exact Nat.add_lt_add_right
     ((Nat.mul_lt_mul_left (by omega : 0 < 2)).2 hab) 1
 
-/-- Source: `proof_gap/exercise_130/1.txt`. -/
+/-- Exercise 130, gap 1. -/
 theorem gap1 :
     Tendsto (fun n => alternatingX n * alternatingY n) atTop (𝓝 0) := by
   apply tendsto_const_nhds.congr'
@@ -36,7 +36,7 @@ theorem gap1 :
   · simp [alternatingX, alternatingY, h]
   · simp [alternatingX, alternatingY, h]
 
-/-- Source: `proof_gap/exercise_130/2.txt`. -/
+/-- Exercise 130, gap 2. -/
 theorem gap2 : ¬ ProofGap.ConvergentSeq alternatingX := by
   rintro ⟨l, hlim⟩
   have heven := hlim.comp even_strictMono.tendsto_atTop
@@ -55,7 +55,7 @@ theorem gap2 : ¬ ProofGap.ConvergentSeq alternatingX := by
   have hl0 : l = 0 := tendsto_nhds_unique hodd hodd_const
   norm_num [hl1] at hl0
 
-/-- Source: `proof_gap/exercise_130/3.txt`. -/
+/-- Exercise 130, gap 3. -/
 theorem gap3 : ¬ ProofGap.ConvergentSeq alternatingY := by
   rintro ⟨l, hlim⟩
   have heven := hlim.comp even_strictMono.tendsto_atTop
@@ -74,7 +74,7 @@ theorem gap3 : ¬ ProofGap.ConvergentSeq alternatingY := by
   have hl1 : l = 1 := tendsto_nhds_unique hodd hodd_const
   norm_num [hl0] at hl1
 
-/-- Source: `proof_gap/exercise_130/4.txt`. -/
+/-- Exercise 130, gap 4. -/
 theorem gap4 :
     ¬ (Tendsto alternatingX atTop (𝓝 0) ∨
       Tendsto alternatingY atTop (𝓝 0)) := by
@@ -82,7 +82,7 @@ theorem gap4 :
   · exact gap2 ⟨0, hx⟩
   · exact gap3 ⟨0, hy⟩
 
-/-- Source: `proof_gap/exercise_130/5.txt`; separate the second example. -/
+/-- Exercise 130, gap 5; separate the second example. -/
 theorem gap5 :
     Tendsto (fun n => smallX n * largeY n) atTop (𝓝 0) := by
   apply inv_nat_tendsto.congr'
@@ -91,7 +91,7 @@ theorem gap5 :
   dsimp [smallX, largeY]
   field_simp
 
-/-- Source: `proof_gap/exercise_130/6.txt`. -/
+/-- Exercise 130, gap 6. -/
 theorem gap6 :
     Tendsto smallX atTop (𝓝 0) := by
   have hsq :
@@ -102,7 +102,7 @@ theorem gap6 :
   filter_upwards with n
   simp [smallX]
 
-/-- Source: `proof_gap/exercise_130/7.txt`. -/
+/-- Exercise 130, gap 7. -/
 theorem gap7 :
     ¬ ProofGap.ConvergentSeq largeY := by
   have htop :

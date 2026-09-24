@@ -91,7 +91,7 @@ private theorem original_limit_exp (a b : ℝ) (ha : 0 < a) (hb : 0 < b) :
   congr 1
   ring
 
-/-- Source: `proof_gap/exercise_558/1.txt`. -/
+/-- Exercise 558, gap 1. -/
 theorem gap1 (a b : ℝ) (ha : 0 < a) (hb : 0 < b) (L : ℝ) :
     HasLimitAtZero (original a b) L ↔ HasLimitAtZero (rewritten a b) L := by
   have hfun : original a b = rewritten a b := by
@@ -140,7 +140,7 @@ private theorem exponential_eq_original_eventually
     · field_simp [hS, hd]
     · field_simp [hS, hd, hx0]
 
-/-- Source: `proof_gap/exercise_558/2.txt`. -/
+/-- Exercise 558, gap 2. -/
 theorem gap2 (a b : ℝ) (ha : 0 < a) (hb : 0 < b) :
     HasLimitAtZero (exponentialForm a b)
       (Real.exp (-((1 / 2 : ℝ) * Real.log a + (1 / 2 : ℝ) * Real.log b))) := by
@@ -155,14 +155,14 @@ theorem gap2 (a b : ℝ) (ha : 0 < a) (hb : 0 < b) :
   apply congrArg Real.exp
   ring
 
-/-- Source: `proof_gap/exercise_558/3.txt`. -/
+/-- Exercise 558, gap 3. -/
 theorem gap3 (a b : ℝ) :
     Real.exp (-((1 / 2 : ℝ) * Real.log a + (1 / 2 : ℝ) * Real.log b)) =
       Real.exp (-(1 / 2 : ℝ) * (Real.log a + Real.log b)) := by
   apply congrArg Real.exp
   ring
 
-/-- Source: `proof_gap/exercise_558/4.txt`. -/
+/-- Exercise 558, gap 4. -/
 theorem gap4 (a b : ℝ) (ha : 0 < a) (hb : 0 < b) :
     Real.exp (-(1 / 2 : ℝ) * (Real.log a + Real.log b)) =
       1 / Real.sqrt (a * b) := by
@@ -196,7 +196,7 @@ theorem gap4 (a b : ℝ) (ha : 0 < a) (hb : 0 < b) :
     _ = 1 / Real.sqrt (a * b) := by
       exact (one_div _).symm
 
-/-- Source: `proof_gap/exercise_558/5.txt`. -/
+/-- Exercise 558, gap 5. -/
 theorem gap5 (a b : ℝ) (ha : 0 < a) (hb : 0 < b) :
     HasLimitAtZero (exponentialForm a b) (1 / Real.sqrt (a * b)) := by
   rw [← gap4 a b ha hb, ← gap3 a b]

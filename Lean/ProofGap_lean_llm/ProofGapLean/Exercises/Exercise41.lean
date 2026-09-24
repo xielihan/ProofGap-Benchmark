@@ -7,7 +7,7 @@ open scoped Topology
 /-!
 # Exercise 41
 
-Semantic formalization of `proof_gap/exercise_41/{1,...,11}.txt`.
+Semantic formalization of Exercise 41, gaps 1,...,11.
 The textbook indexes the sequence from one.  Lean sequences are functions on
 `ℕ`; the same formula is used at zero as a harmless extension.
 -/
@@ -45,7 +45,7 @@ def ErrorFromCutoff : Prop :=
 def Converges : Prop :=
   Tendsto x atTop (𝓝 1)
 
-/-- Source: `proof_gap/exercise_41/1.txt`. -/
+/-- Exercise 41, gap 1. -/
 theorem gap1 : ErrorFormula := by
   intro n
   have hden : 0 < (n : ℝ) + 1 := by positivity
@@ -55,7 +55,7 @@ theorem gap1 : ErrorFormula := by
     ring
   rw [hx, abs_neg, abs_of_pos (one_div_pos.mpr hden)]
 
-/-- Source: `proof_gap/exercise_41/2.txt`. -/
+/-- Exercise 41, gap 2. -/
 theorem gap2
     (h1 : ErrorFormula) :
     ErrorTransfer := by
@@ -63,7 +63,7 @@ theorem gap2
   rw [h1 n]
   exact hn
 
-/-- Source: `proof_gap/exercise_41/3.txt`. -/
+/-- Exercise 41, gap 3. -/
 theorem gap3
     (h2 : ErrorTransfer) :
     IndexEstimate := by
@@ -73,7 +73,7 @@ theorem gap3
   apply (div_lt_iff₀ (by positivity : 0 < (n : ℝ) + 1)).2
   simpa [mul_comm] using hprod
 
-/-- Source: `proof_gap/exercise_41/4.txt`. -/
+/-- Exercise 41, gap 4. -/
 theorem gap4
     (h2 : ErrorTransfer)
     (h3 : IndexEstimate) :
@@ -81,7 +81,7 @@ theorem gap4
   intro n ε hε hn
   exact h2 n ε hε (h3 n ε hε hn)
 
-/-- Source: `proof_gap/exercise_41/5.txt`. -/
+/-- Exercise 41, gap 5. -/
 theorem gap5
     (h4 : ErrorFromIndex) :
     ErrorFromCutoff := by
@@ -97,41 +97,41 @@ theorem gap5
     Nat.lt_floor_add_one (1 / ε)
   linarith
 
-/-- Source: `proof_gap/exercise_41/6.txt`. -/
+/-- Exercise 41, gap 6. -/
 theorem gap6
     (h5 : ErrorFromCutoff) :
     N (0.1 : ℝ) = 10 := by
   norm_num [N]
 
-/-- Source: `proof_gap/exercise_41/7.txt`. -/
+/-- Exercise 41, gap 7. -/
 theorem gap7
     (h5 : ErrorFromCutoff)
     (h6 : N (0.1 : ℝ) = 10) :
     N (0.01 : ℝ) = 100 := by
   norm_num [N]
 
-/-- Source: `proof_gap/exercise_41/8.txt`. -/
+/-- Exercise 41, gap 8. -/
 theorem gap8
     (h5 : ErrorFromCutoff)
     (h7 : N (0.01 : ℝ) = 100) :
     N (0.001 : ℝ) = 1000 := by
   norm_num [N]
 
-/-- Source: `proof_gap/exercise_41/9.txt`. -/
+/-- Exercise 41, gap 9. -/
 theorem gap9
     (h5 : ErrorFromCutoff)
     (h8 : N (0.001 : ℝ) = 1000) :
     N (0.0001 : ℝ) = 10000 := by
   norm_num [N]
 
-/-- Source: `proof_gap/exercise_41/10.txt`. -/
+/-- Exercise 41, gap 10. -/
 theorem gap10
     (h5 : ErrorFromCutoff) :
     Converges := by
   simpa [Converges, x] using
     (tendsto_natCast_div_add_atTop (1 : ℝ))
 
-/-- Source: `proof_gap/exercise_41/11.txt`. -/
+/-- Exercise 41, gap 11. -/
 theorem gap11
     (h10 : Converges) :
     Converges := by

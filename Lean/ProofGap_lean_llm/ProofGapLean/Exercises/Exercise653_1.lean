@@ -5,7 +5,7 @@ namespace ProofGap.Exercise653_1
 
 def p (x : ℝ) : ℝ := 2 * x - 3 * x ^ 3 + x ^ 5
 
-/-- Source: `proof_gap/exercise_653_1/1.txt`. -/
+/-- Exercise 653_1, gap 1. -/
 theorem gap1 :
     Filter.Tendsto (fun x : ℝ => p x / (2 * x))
       (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds 1) := by
@@ -25,7 +25,7 @@ theorem gap1 :
   unfold p
   field_simp [hx0]
 
-/-- Source: `proof_gap/exercise_653_1/2.txt`. -/
+/-- Exercise 653_1, gap 2. -/
 theorem gap2 :
     Asymptotics.IsEquivalent (nhdsWithin 0 ({0} : Set ℝ)ᶜ)
       p (fun x : ℝ => 2 * x) := by
@@ -36,7 +36,7 @@ theorem gap2 :
     exact mul_ne_zero (by norm_num) hx0
   exact (Asymptotics.isEquivalent_iff_tendsto_one hne).2 gap1
 
-/-- Source: `proof_gap/exercise_653_1/3.txt`; unpack the singleton pair. -/
+/-- Exercise 653_1, gap 3; unpack the singleton pair. -/
 theorem gap3 (C : ℝ) (n : ℕ) (h : (C, n) = (2, 1)) :
     Asymptotics.IsEquivalent (nhdsWithin 0 ({0} : Set ℝ)ᶜ)
       p (fun x => C * x ^ n) := by

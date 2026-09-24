@@ -13,7 +13,7 @@ def transformed (a x : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_483/1.txt`. -/
+/-- Exercise 483, gap 1. -/
 private theorem original_eq_transformed {a x : ℝ} :
     original a x = transformed a x := by
   have hx : (x + a) / 2 + (x - a) / 2 = x := by
@@ -43,7 +43,7 @@ theorem gap1 (a L : ℝ) :
   unfold HasLimitAt
   rw [h_eq]
 
-/-- Source: `proof_gap/exercise_483/2.txt`. -/
+/-- Exercise 483, gap 2. -/
 theorem gap2 (a : ℝ) : HasLimitAt (transformed a) a (-Real.sin a) := by
   refine (gap1 a (-Real.sin a)).mp ?_
   have hslope : slope Real.cos a = original a := by
@@ -54,7 +54,7 @@ theorem gap2 (a : ℝ) : HasLimitAt (transformed a) a (-Real.sin a) := by
   rw [← hslope]
   exact (Real.hasDerivAt_cos a).tendsto_slope
 
-/-- Source: `proof_gap/exercise_483/3.txt`. -/
+/-- Exercise 483, gap 3. -/
 theorem gap3 (a : ℝ) : HasLimitAt (original a) a (-Real.sin a) := by
   exact (gap1 a (-Real.sin a)).mpr (gap2 a)
 

@@ -27,7 +27,7 @@ def quadraticCoefficient (m n : ℕ) : ℝ :=
 def finalValue (m n : ℕ) : ℝ :=
   (1 / 2 : ℝ) * m * n * ((n : ℝ) - m)
 
-/-- Source: `proof_gap/exercise_414/1.txt`; replace ellipses by finite binomial sums. -/
+/-- Exercise 414, gap 1; replace ellipses by finite binomial sums. -/
 private theorem binomialExpansion_eq_pow (r s : ℕ) (x : ℝ) :
     binomialExpansion r s x = (1 + (r : ℝ) * x) ^ s := by
   unfold binomialExpansion
@@ -106,7 +106,7 @@ theorem gap1 (m n : ℕ) : ∀ x, x ≠ 0 →
   intro x hx
   simpa [h, binomialExpansion_eq_pow]
 
-/-- Source: `proof_gap/exercise_414/2.txt`; express the little-o statement by its resulting limit. -/
+/-- Exercise 414, gap 2; express the little-o statement by its resulting limit. -/
 theorem gap2 (m n : ℕ) :
     HasLimitAt (h m n) 0 (quadraticCoefficient m n) := by
   unfold HasLimitAt
@@ -170,18 +170,18 @@ theorem gap2 (m n : ℕ) :
     ring
   exact hlim.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_414/3.txt`. -/
+/-- Exercise 414, gap 3. -/
 theorem gap3 (m n : ℕ) :
     quadraticCoefficient m n = finalValue m n := by
   simp only [quadraticCoefficient, finalValue, choose_two_cast]
   ring
 
-/-- Source: `proof_gap/exercise_414/4.txt`. -/
+/-- Exercise 414, gap 4. -/
 theorem gap4 (m n : ℕ) :
     HasLimitAt (h m n) 0 (finalValue m n) := by
   simpa only [gap3] using gap2 m n
 
-/-- Source: `proof_gap/exercise_414/5.txt`. -/
+/-- Exercise 414, gap 5. -/
 theorem gap5 (m n : ℕ) :
     HasLimitAt (h m n) 0 (finalValue m n) := by
   exact gap4 m n

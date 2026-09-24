@@ -19,7 +19,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 def finalDerivative (x : ℝ) : ℝ :=
   Real.sqrt x / (2 * (1 + x))
 
-/-- Source: `proof_gap/exercise_917/1.txt`; the displayed square-root
+/-- Exercise 917, gap 1; the displayed square-root
 derivative is valid for `x > 0`. -/
 theorem gap1 (x : ℝ) (hx : 0 < x) :
     HasDerivAt y (expandedDerivative x) x := by
@@ -41,7 +41,7 @@ theorem gap1 (x : ℝ) (hx : 0 < x) :
     simpa only [Function.comp_apply, hcoef] using h
   simpa only [y, expandedDerivative] using hsqrtDeriv.sub hatanDeriv
 
-/-- Source: `proof_gap/exercise_917/2.txt`; positivity makes every square-root
+/-- Exercise 917, gap 2; positivity makes every square-root
 denominator nonzero. -/
 theorem gap2 (x : ℝ) (hx : 0 < x) :
     expandedDerivative x = finalDerivative x := by
@@ -52,7 +52,7 @@ theorem gap2 (x : ℝ) (hx : 0 < x) :
   have hsquare : (Real.sqrt x) ^ 2 = x := Real.sq_sqrt hx.le
   field_simp [hsqrt_ne, hone] <;> nlinarith [hsquare]
 
-/-- Source: `proof_gap/exercise_917/3.txt`; retain the open square-root domain
+/-- Exercise 917, gap 3; retain the open square-root domain
 used by the staged derivation. -/
 theorem gap3 (x : ℝ) (hx : 0 < x) :
     HasDerivAt y (finalDerivative x) x := by

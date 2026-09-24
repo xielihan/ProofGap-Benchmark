@@ -18,7 +18,7 @@ def value (m n : ℤ) (alpha beta : ℝ) : ℝ :=
 def HasLimitAt (g : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto g (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_453/1.txt`; replace the radical-product ellipsis by the closed limit. -/
+/-- Exercise 453, gap 1; replace the radical-product ellipsis by the closed limit. -/
 private theorem quotient_limit (m n : ℤ) (alpha beta : ℝ) :
     HasLimitAt (quotient m n alpha beta) 0 (value m n alpha beta) := by
   have hroot (k : ℤ) (a : ℝ) :
@@ -62,7 +62,7 @@ theorem gap1 (m n : ℕ) (hm : 0 < m) (hn : 0 < n) (alpha beta : ℝ) :
     HasLimitAt (quotient m n alpha beta) 0 (value m n alpha beta) := by
   simpa using (quotient_limit (m : ℤ) (n : ℤ) alpha beta)
 
-/-- Source: `proof_gap/exercise_453/2.txt`. -/
+/-- Exercise 453, gap 2. -/
 theorem gap2 (m n : ℕ) (hm : 0 < m) (hn : 0 < n) (alpha beta : ℝ) :
     HasLimitAt (quotient m n alpha beta) 0
       (((n : ℝ) * alpha + (m : ℝ) * beta) / ((m : ℝ) * n)) := by
@@ -75,7 +75,7 @@ theorem gap2 (m n : ℕ) (hm : 0 < m) (hn : 0 < n) (alpha beta : ℝ) :
   rw [hclosed]
   simpa [value] using gap1 m n hm hn alpha beta
 
-/-- Source: `proof_gap/exercise_453/3.txt`. -/
+/-- Exercise 453, gap 3. -/
 theorem gap3 (m n : ℕ) (hm : 0 < m) (hn : 0 < n) (alpha beta : ℝ) :
     ((n : ℝ) * alpha + (m : ℝ) * beta) / ((m : ℝ) * n) =
       alpha / m + beta / n := by
@@ -83,12 +83,12 @@ theorem gap3 (m n : ℕ) (hm : 0 < m) (hn : 0 < n) (alpha beta : ℝ) :
   have hn0 : (n : ℝ) ≠ 0 := by positivity
   field_simp [hm0, hn0]
 
-/-- Source: `proof_gap/exercise_453/4.txt`. -/
+/-- Exercise 453, gap 4. -/
 theorem gap4 (m n : ℕ) (hm : 0 < m) (hn : 0 < n) (alpha beta : ℝ) :
     HasLimitAt (quotient m n alpha beta) 0 (alpha / m + beta / n) := by
   simpa [value] using gap1 m n hm hn alpha beta
 
-/-- Source: `proof_gap/exercise_453/5.txt`. -/
+/-- Exercise 453, gap 5. -/
 theorem gap5 (m' n' : ℕ) (hm : 0 < m') (hn : 0 < n')
     (alpha beta : ℝ) : ∀ x, 0 < 1 + alpha * x → 0 < 1 + beta * x →
     root (-(m' : ℤ)) (1 + alpha * x) * root (-(n' : ℤ)) (1 + beta * x) - 1 =
@@ -121,7 +121,7 @@ theorem gap5 (m' n' : ℕ) (hm : 0 < m') (hn : 0 < n')
   change A⁻¹ * B⁻¹ - 1 = (1 - A * B) / (A * B)
   field_simp [hA0, hB0]
 
-/-- Source: `proof_gap/exercise_453/6.txt`. -/
+/-- Exercise 453, gap 6. -/
 theorem gap6 (m' n' : ℕ) (hm : 0 < m') (hn : 0 < n')
     (alpha beta : ℝ) :
     HasLimitAt (quotient (-(m' : ℤ)) (-(n' : ℤ)) alpha beta) 0
@@ -129,27 +129,27 @@ theorem gap6 (m' n' : ℕ) (hm : 0 < m') (hn : 0 < n')
   simpa [value, div_neg, neg_div, sub_eq_add_neg] using
     (quotient_limit (-(m' : ℤ)) (-(n' : ℤ)) alpha beta)
 
-/-- Source: `proof_gap/exercise_453/7.txt`. -/
+/-- Exercise 453, gap 7. -/
 theorem gap7 (m' n' : ℕ) (hm : 0 < m') (hn : 0 < n')
     (alpha beta : ℝ) :
     -alpha / (m' : ℝ) - beta / (n' : ℝ) =
       value (-(m' : ℤ)) (-(n' : ℤ)) alpha beta := by
   simp [value, div_neg, neg_div, sub_eq_add_neg]
 
-/-- Source: `proof_gap/exercise_453/8.txt`. -/
+/-- Exercise 453, gap 8. -/
 theorem gap8 (m' n' : ℕ) (hm : 0 < m') (hn : 0 < n')
     (alpha beta : ℝ) :
     HasLimitAt (quotient (-(m' : ℤ)) (-(n' : ℤ)) alpha beta) 0
       (value (-(m' : ℤ)) (-(n' : ℤ)) alpha beta) := by
   exact quotient_limit (-(m' : ℤ)) (-(n' : ℤ)) alpha beta
 
-/-- Source: `proof_gap/exercise_453/9.txt`. -/
+/-- Exercise 453, gap 9. -/
 theorem gap9 (m n : ℤ) (hm : m ≠ 0) (hn : n ≠ 0)
     (alpha beta : ℝ) :
     HasLimitAt (quotient m n alpha beta) 0 (value m n alpha beta) := by
   exact quotient_limit m n alpha beta
 
-/-- Source: `proof_gap/exercise_453/10.txt`. -/
+/-- Exercise 453, gap 10. -/
 theorem gap10 (m n : ℤ) (hm : m ≠ 0) (hn : n ≠ 0)
     (alpha beta : ℝ) :
     HasLimitAt (quotient m n alpha beta) 0 (value m n alpha beta) := by

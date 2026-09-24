@@ -9,7 +9,7 @@ noncomputable section
 
 def f (x : ℝ) : ℝ := Real.arcsin ((1 - x) / (1 + x))
 
-/-- Source: `proof_gap/exercise_581/1.txt`. -/
+/-- Exercise 581, gap 1. -/
 theorem gap1 : Filter.Tendsto f Filter.atTop (nhds (Real.arcsin (-1))) := by
   unfold f
   have h_inv : Filter.Tendsto (fun x : ℝ => 1 / x) Filter.atTop (nhds 0) := by
@@ -42,12 +42,12 @@ theorem gap1 : Filter.Tendsto f Filter.atTop (nhds (Real.arcsin (-1))) := by
     h_ratio.congr' h_eq
   exact Real.continuous_arcsin.continuousAt.tendsto.comp h_arg
 
-/-- Source: `proof_gap/exercise_581/2.txt`. -/
+/-- Exercise 581, gap 2. -/
 theorem gap2 : Real.arcsin (-1) = -Real.pi / 2 := by
   rw [Real.arcsin_neg, Real.arcsin_one]
   ring
 
-/-- Source: `proof_gap/exercise_581/3.txt`. -/
+/-- Exercise 581, gap 3. -/
 theorem gap3 : Filter.Tendsto f Filter.atTop (nhds (-Real.pi / 2)) := by
   simpa only [gap2] using gap1
 

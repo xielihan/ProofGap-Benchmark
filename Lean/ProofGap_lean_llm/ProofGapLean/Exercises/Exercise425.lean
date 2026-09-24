@@ -16,7 +16,7 @@ def cancelled (m n : ℕ) (x : ℝ) : ℝ := geometricSum m x / geometricSum n x
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_425/1.txt`; replace ellipses by geometric sums. -/
+/-- Exercise 425, gap 1; replace ellipses by geometric sums. -/
 private theorem geometricSum_factor (n : ℕ) (x : ℝ) :
     (x - 1) * geometricSum n x = x ^ n - 1 := by
   induction n with
@@ -80,12 +80,12 @@ theorem gap1 (m n : ℕ) (hm : 0 < m) (hn : 0 < n) :
     filter_upwards [original_eventuallyEq_cancelled m n] with x hx
     exact hx.symm
 
-/-- Source: `proof_gap/exercise_425/2.txt`. -/
+/-- Exercise 425, gap 2. -/
 theorem gap2 (m n : ℕ) (hm : 0 < m) (hn : 0 < n) :
     HasLimitAt (cancelled m n) 1 ((m : ℝ) / n) := by
   exact cancelled_hasLimit m n hn
 
-/-- Source: `proof_gap/exercise_425/3.txt`. -/
+/-- Exercise 425, gap 3. -/
 theorem gap3 (m n : ℕ) (hm : 0 < m) (hn : 0 < n) :
     HasLimitAt (original m n) 1 ((m : ℝ) / n) := by
   exact (gap1 m n hm hn).2 (gap2 m n hm hn)

@@ -20,7 +20,7 @@ def cancelled (x : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_447/1.txt`; use signed cube roots around zero. -/
+/-- Exercise 447, gap 1; use signed cube roots around zero. -/
 private lemma cube_strict {a b : ℝ} (h : a < b) : a ^ 3 < b ^ 3 := by
   have hs : 0 < (b - a) ^ 2 := pow_pos (sub_pos.mpr h) 2
   have hq : 0 < b ^ 2 + b * a + a ^ 2 := by
@@ -251,12 +251,12 @@ theorem gap1 : HasLimitAt original 0 (2 / 27) ↔
     change cancelled x ∈ s at hx
     simpa [heq] using hx
 
-/-- Source: `proof_gap/exercise_447/2.txt`. -/
+/-- Exercise 447, gap 2. -/
 theorem gap2 : HasLimitAt original 0 (2 / 27) ↔
     HasLimitAt cancelled 0 (2 / 27) := by
   exact gap1
 
-/-- Source: `proof_gap/exercise_447/3.txt`. -/
+/-- Exercise 447, gap 3. -/
 theorem gap3 : HasLimitAt cancelled 0 (2 / 27) := by
   unfold HasLimitAt
   have hvalue : cancelled 0 = (2 / 27 : ℝ) := by
@@ -264,7 +264,7 @@ theorem gap3 : HasLimitAt cancelled 0 (2 / 27) := by
   rw [← hvalue]
   exact cancelled_continuousAt_zero.tendsto.mono_left inf_le_left
 
-/-- Source: `proof_gap/exercise_447/4.txt`. -/
+/-- Exercise 447, gap 4. -/
 theorem gap4 : HasLimitAt original 0 (2 / 27) := by
   exact gap1.mpr gap3
 

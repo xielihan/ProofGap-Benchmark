@@ -8,7 +8,7 @@ namespace ProofGap.Exercise834
 
 def y (x : ℝ) : ℝ := 2 + x - x ^ 2
 
-/-- Source: `proof_gap/exercise_834/1.txt`. -/
+/-- Exercise 834, gap 1. -/
 theorem gap1 (x : ℝ) : HasDerivAt y (1 - 2 * x) x := by
   convert
     (((hasDerivAt_const x (2 : ℝ)).add (hasDerivAt_id x)).sub
@@ -17,19 +17,19 @@ theorem gap1 (x : ℝ) : HasDerivAt y (1 - 2 * x) x := by
     simp [y, pow_two]
   · simp [id, two_mul]
 
-/-- Source: `proof_gap/exercise_834/2.txt`. -/
+/-- Exercise 834, gap 2. -/
 theorem gap2 : HasDerivAt y 1 0 := by
   convert gap1 (0 : ℝ) using 1 <;> norm_num
 
-/-- Source: `proof_gap/exercise_834/3.txt`. -/
+/-- Exercise 834, gap 3. -/
 theorem gap3 : HasDerivAt y 0 ((1 : ℝ) / 2) := by
   convert gap1 ((1 : ℝ) / 2) using 1 <;> norm_num
 
-/-- Source: `proof_gap/exercise_834/4.txt`. -/
+/-- Exercise 834, gap 4. -/
 theorem gap4 : HasDerivAt y (-1) 1 := by
   convert gap1 (1 : ℝ) using 1 <;> norm_num
 
-/-- Source: `proof_gap/exercise_834/5.txt`. -/
+/-- Exercise 834, gap 5. -/
 theorem gap5 : HasDerivAt y 21 (-10) := by
   convert gap1 (-10 : ℝ) using 1 <;> norm_num
 

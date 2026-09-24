@@ -18,7 +18,7 @@ def incrementSum (a : ℝ) (n : ℕ) : ℝ :=
   (Finset.Icc 1 n).sum (fun k =>
     Real.rpow a ((k : ℝ) / (n : ℝ) ^ 2) - 1)
 
-/-- Source: `proof_gap/exercise_634/1.txt`; add `a≠1`, needed by division by `log a`. -/
+/-- Exercise 634, gap 1; add `a≠1`, needed by division by `log a`. -/
 private theorem exp_remainder_bound {x : ℝ} (hx : |x| ≤ (1 / 2 : ℝ)) :
     0 ≤ Real.exp x - 1 - x ∧
       Real.exp x - 1 - x ≤ 2 * x ^ 2 := by
@@ -93,7 +93,7 @@ theorem gap1 (a : ℝ) (ha : 0 < a) (ha1 : a ≠ 1) :
   rw [hfun]
   simpa [hlog] using hslope.div_const (Real.log a)
 
-/-- Source: `proof_gap/exercise_634/2.txt`. -/
+/-- Exercise 634, gap 2. -/
 theorem gap2 (a : ℝ) (k : ℕ) :
     Filter.Tendsto (fun n : ℕ =>
       (k : ℝ) / (n : ℝ) ^ 2 * Real.log a)
@@ -104,7 +104,7 @@ theorem gap2 (a : ℝ) (k : ℕ) :
   have h := (hinv.pow 2).const_mul ((k : ℝ) * Real.log a)
   simpa [div_eq_mul_inv, inv_pow, mul_assoc, mul_left_comm, mul_comm] using h
 
-/-- Source: `proof_gap/exercise_634/3.txt`. -/
+/-- Exercise 634, gap 3. -/
 theorem gap3 (a : ℝ) :
     Filter.Tendsto (exponentSum a) Filter.atTop
       (nhds ((1 / 2 : ℝ) * Real.log a)) := by
@@ -154,7 +154,7 @@ theorem gap3 (a : ℝ) :
     exact_mod_cast hnNat
   field_simp [hn0]
 
-/-- Source: `proof_gap/exercise_634/4.txt`. -/
+/-- Exercise 634, gap 4. -/
 theorem gap4 (a : ℝ) (ha : 0 < a) :
     Filter.Tendsto (incrementSum a) Filter.atTop
       (nhds ((1 / 2 : ℝ) * Real.log a)) := by

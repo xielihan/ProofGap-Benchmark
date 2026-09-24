@@ -21,7 +21,7 @@ def centeredForm (values : ℤ → ℝ) (x₀ h x : ℝ) : ℝ :=
       (x - x₀) ^ 2
 
 /--
-Source: `proof_gap/exercise_3122/1.txt`; the left node carries `y(-1)`,
+Exercise 3122, gap 1; the left node carries `y(-1)`,
 and `h ≠ 0` makes the three interpolation nodes distinct.
 -/
 theorem gap1 (values : ℤ → ℝ) (x₀ h : ℝ) (hh : h ≠ 0) :
@@ -36,7 +36,7 @@ theorem gap1 (values : ℤ → ℝ) (x₀ h : ℝ) (hh : h ≠ 0) :
   intro x
   rfl
 
-/-- Source: `proof_gap/exercise_3122/2.txt`; simplify the same interpolant. -/
+/-- Exercise 3122, gap 2; simplify the same interpolant. -/
 theorem gap2 (values : ℤ → ℝ) (x₀ h : ℝ) (hh : h ≠ 0) :
     ∀ x : ℝ,
       lagrangeInterpolant values x₀ h x =

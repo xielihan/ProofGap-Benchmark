@@ -22,7 +22,7 @@ def core5 (x : ℝ) : ℝ := (1 / x ^ 2) * Real.exp (-(1 / x ^ 2))
 def core6 (x : ℝ) : ℝ := Real.rpow x x
 def core7 (x : ℝ) : ℝ := x * (Real.log x) ^ 2
 
-/-- Source: `proof_gap/exercise_740/1.txt`; the conjunction of continuity
+/-- Exercise 740, gap 1; the conjunction of continuity
 claims for seven unrelated functions cannot be equivalent to this single
 limit.  Keep the intended first limit computation. -/
 private def shiftedExpLog (a x : ℝ) : ℝ :=
@@ -200,14 +200,14 @@ theorem gap1 :
   have hout := hlim.congr' hcore.symm
   convert hout using 1 <;> norm_num
 
-/-- Source: `proof_gap/exercise_740/2.txt`; state the removable-extension
+/-- Exercise 740, gap 2; state the removable-extension
 criterion only for `f₁`, with its needed punctured formula hypothesis. -/
 theorem gap2 (f₁ : ℝ → ℝ)
     (h₁ : ∀ x : ℝ, x ≠ 0 → f₁ x = core1 x) :
     ContinuousAt f₁ 0 ↔ f₁ 0 = (3 / 2 : ℝ) := by
   exact continuousAt_iff_of_punctured_limit f₁ core1 (3 / 2 : ℝ) h₁ gap1
 
-/-- Source: `proof_gap/exercise_740/3.txt`; isolate the second limit. -/
+/-- Exercise 740, gap 3; isolate the second limit. -/
 theorem gap3 :
     Filter.Tendsto core2 (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds 2) := by
   have hinner : HasDerivAt (fun x : ℝ => 2 * x) 2 0 := by
@@ -249,14 +249,14 @@ theorem gap3 :
   have hout := h.congr' heq.symm
   simpa using hout
 
-/-- Source: `proof_gap/exercise_740/4.txt`; state the criterion only for
+/-- Exercise 740, gap 4; state the criterion only for
 `f₂`. -/
 theorem gap4 (f₂ : ℝ → ℝ)
     (h₂ : ∀ x : ℝ, x ≠ 0 → f₂ x = core2 x) :
     ContinuousAt f₂ 0 ↔ f₂ 0 = 2 := by
   exact continuousAt_iff_of_punctured_limit f₂ core2 2 h₂ gap3
 
-/-- Source: `proof_gap/exercise_740/5.txt`; isolate the third limit. -/
+/-- Exercise 740, gap 5; isolate the third limit. -/
 theorem gap5 :
     Filter.Tendsto core3 (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds 0) := by
   have hc : ContinuousAt (fun x : ℝ => |Real.sin x|) 0 :=
@@ -296,14 +296,14 @@ theorem gap5 :
         _ = |Real.sin x| := by ring
     exact le_trans (le_abs_self (core3 x)) habs
 
-/-- Source: `proof_gap/exercise_740/6.txt`; state the criterion only for
+/-- Exercise 740, gap 6; state the criterion only for
 `f₃`. -/
 theorem gap6 (f₃ : ℝ → ℝ)
     (h₃ : ∀ x : ℝ, x ≠ 0 → f₃ x = core3 x) :
     ContinuousAt f₃ 0 ↔ f₃ 0 = 0 := by
   exact continuousAt_iff_of_punctured_limit f₃ core3 0 h₃ gap5
 
-/-- Source: `proof_gap/exercise_740/7.txt`; translate the real exponent with
+/-- Exercise 740, gap 7; translate the real exponent with
 `Real.rpow` and isolate the fourth limit. -/
 theorem gap7 :
     Filter.Tendsto core4 (nhdsWithin 0 ({0} : Set ℝ)ᶜ)
@@ -333,14 +333,14 @@ theorem gap7 :
   congr 1
   simp only [div_eq_mul_inv, one_mul]
 
-/-- Source: `proof_gap/exercise_740/8.txt`; state the criterion only for
+/-- Exercise 740, gap 8; state the criterion only for
 `f₄`. -/
 theorem gap8 (f₄ : ℝ → ℝ)
     (h₄ : ∀ x : ℝ, x ≠ 0 → f₄ x = core4 x) :
     ContinuousAt f₄ 0 ↔ f₄ 0 = Real.exp 1 := by
   exact continuousAt_iff_of_punctured_limit f₄ core4 (Real.exp 1) h₄ gap7
 
-/-- Source: `proof_gap/exercise_740/9.txt`; isolate the fifth limit. -/
+/-- Exercise 740, gap 9; isolate the fifth limit. -/
 theorem gap9 :
     Filter.Tendsto core5 (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds 0) := by
   let F : Filter ℝ := nhdsWithin 0 ({0} : Set ℝ)ᶜ
@@ -363,14 +363,14 @@ theorem gap9 :
   filter_upwards with x
   simp [core5, one_div, pow_one]
 
-/-- Source: `proof_gap/exercise_740/10.txt`; state the criterion only for
+/-- Exercise 740, gap 10; state the criterion only for
 `f₅`. -/
 theorem gap10 (f₅ : ℝ → ℝ)
     (h₅ : ∀ x : ℝ, x ≠ 0 → f₅ x = core5 x) :
     ContinuousAt f₅ 0 ↔ f₅ 0 = 0 := by
   exact continuousAt_iff_of_punctured_limit f₅ core5 0 h₅ gap9
 
-/-- Source: `proof_gap/exercise_740/11.txt`; the source defines `x^x` only
+/-- Exercise 740, gap 11; the source defines `x^x` only
 for `x>0`, so use a right-hand limit and `Real.rpow`. -/
 theorem gap11 :
     Filter.Tendsto core6 (nhdsWithin 0 (Set.Ioi 0)) (nhds 1) := by
@@ -412,14 +412,14 @@ theorem gap11 :
   have hout := h.congr' heq.symm
   convert hout using 1 <;> norm_num
 
-/-- Source: `proof_gap/exercise_740/12.txt`; continuity is relative to the
+/-- Exercise 740, gap 12; continuity is relative to the
 closed half-line because the source supplies no negative-side definition. -/
 theorem gap12 (f₆ : ℝ → ℝ)
     (h₆ : ∀ x : ℝ, 0 < x → f₆ x = core6 x) :
     ContinuousWithinAt f₆ (Set.Ici 0) 0 ↔ f₆ 0 = 1 := by
   exact continuousWithinAt_iff_of_right_limit f₆ core6 1 h₆ gap11
 
-/-- Source: `proof_gap/exercise_740/13.txt`; use the right-hand limit imposed
+/-- Exercise 740, gap 13; use the right-hand limit imposed
 by the logarithm's domain. -/
 theorem gap13 :
     Filter.Tendsto core7 (nhdsWithin 0 (Set.Ioi 0)) (nhds 0) := by
@@ -441,14 +441,14 @@ theorem gap13 :
   rw [neg_neg, Real.exp_log hxpos]
   ring
 
-/-- Source: `proof_gap/exercise_740/14.txt`; continuity is relative to the
+/-- Exercise 740, gap 14; continuity is relative to the
 closed half-line. -/
 theorem gap14 (f₇ : ℝ → ℝ)
     (h₇ : ∀ x : ℝ, 0 < x → f₇ x = core7 x) :
     ContinuousWithinAt f₇ (Set.Ici 0) 0 ↔ f₇ 0 = 0 := by
   exact continuousWithinAt_iff_of_right_limit f₇ core7 0 h₇ gap13
 
-/-- Source: `proof_gap/exercise_740/15.txt`; replace the source's
+/-- Exercise 740, gap 15; replace the source's
 non-associative seven-tuple notation by seven value hypotheses, and use
 one-sided continuity for the two functions defined only on `x>0`. -/
 theorem gap15

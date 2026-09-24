@@ -16,7 +16,7 @@ def HasProduct (p : ℕ → ℝ) (P : ℝ) : Prop :=
 def ConvergentProduct (p : ℕ → ℝ) : Prop :=
   ∃ P : ℝ, HasProduct p P
 
-/-- Source: `proof_gap/exercise_3065_3/1.txt`; replace both product ellipses exactly. -/
+/-- Exercise 3065_3, gap 1; replace both product ellipses exactly. -/
 theorem gap1 (p q : ℕ → ℝ) (P Q : ℝ)
     (hp : HasProduct p P) (hq : HasProduct q Q)
     (hP0 : P ≠ 0) (hQ0 : Q ≠ 0)
@@ -27,7 +27,7 @@ theorem gap1 (p q : ℕ → ℝ) (P Q : ℝ)
   rw [hReq]
   exact hp.mul hq
 
-/-- Source: `proof_gap/exercise_3065_3/2.txt`. -/
+/-- Exercise 3065_3, gap 2. -/
 theorem gap2 (p q : ℕ → ℝ) (P Q : ℝ)
     (hp : HasProduct p P) (hq : HasProduct q Q)
     (hP0 : P ≠ 0) (hQ0 : Q ≠ 0) :
@@ -38,7 +38,7 @@ theorem gap2 (p q : ℕ → ℝ) (P Q : ℝ)
   intro n
   simp only [partialProduct, Finset.prod_mul_distrib]
 
-/-- Source: `proof_gap/exercise_3065_3/3.txt`. -/
+/-- Exercise 3065_3, gap 3. -/
 theorem gap3 (p q : ℕ → ℝ) (P Q : ℝ)
     (hp : HasProduct p P) (hq : HasProduct q Q)
     (hP0 : P ≠ 0) (hQ0 : Q ≠ 0) :
@@ -48,7 +48,7 @@ theorem gap3 (p q : ℕ → ℝ) (P Q : ℝ)
   intro n
   simp only [partialProduct, Finset.prod_mul_distrib]
 
-/-- Source: `proof_gap/exercise_3065_3/4.txt`. -/
+/-- Exercise 3065_3, gap 4. -/
 theorem gap4 (p q : ℕ → ℝ) (P Q : ℝ)
     (hp : HasProduct p P) (hq : HasProduct q Q)
     (hP0 : P ≠ 0) (hQ0 : Q ≠ 0) :

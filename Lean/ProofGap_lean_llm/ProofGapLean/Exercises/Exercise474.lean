@@ -16,7 +16,7 @@ def normalized (x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_474/1.txt`. -/
+/-- Exercise 474, gap 1. -/
 theorem gap1 (x : ℝ) : 1 - Real.cos x = 2 * Real.sin (x / 2) ^ 2 := by
   have hx : x / 2 + x / 2 = x := by ring
   calc
@@ -25,7 +25,7 @@ theorem gap1 (x : ℝ) : 1 - Real.cos x = 2 * Real.sin (x / 2) ^ 2 := by
       rw [Real.cos_add]
       nlinarith [Real.sin_sq_add_cos_sq (x / 2)]
 
-/-- Source: `proof_gap/exercise_474/2.txt`. -/
+/-- Exercise 474, gap 2. -/
 theorem gap2 (L : ℝ) :
     HasLimitAtZero original L ↔ HasLimitAtZero halfAngle L := by
   have hfun : original = halfAngle := by
@@ -34,7 +34,7 @@ theorem gap2 (L : ℝ) :
     rw [gap1]
   rw [hfun]
 
-/-- Source: `proof_gap/exercise_474/3.txt`. -/
+/-- Exercise 474, gap 3. -/
 theorem gap3 (L : ℝ) :
     HasLimitAtZero halfAngle L ↔ HasLimitAtZero normalized L := by
   unfold HasLimitAtZero
@@ -50,7 +50,7 @@ theorem gap3 (L : ℝ) :
   · intro h
     exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_474/4.txt`. -/
+/-- Exercise 474, gap 4. -/
 theorem gap4 : HasLimitAtZero normalized (1 / 2) := by
   unfold HasLimitAtZero
   have hscale :
@@ -83,7 +83,7 @@ theorem gap4 : HasLimitAtZero normalized (1 / 2) := by
     (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds (1 / 2 : ℝ))
   simpa only [one_pow, mul_one] using hhalf.mul (hratio.pow 2)
 
-/-- Source: `proof_gap/exercise_474/5.txt`. -/
+/-- Exercise 474, gap 5. -/
 theorem gap5 : HasLimitAtZero halfAngle (1 / 2) := by
   exact (gap3 (1 / 2)).mpr gap4
 

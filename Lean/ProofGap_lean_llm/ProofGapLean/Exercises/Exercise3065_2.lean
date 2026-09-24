@@ -19,7 +19,7 @@ def ConvergentProduct (p : ℕ → ℝ) : Prop :=
 def squarePartialProduct (p : ℕ → ℝ) (n : ℕ) : ℝ :=
   partialProduct (fun i => (p i) ^ 2) n
 
-/-- Source: `proof_gap/exercise_3065_2/1.txt`; replace both ellipses by exact products. -/
+/-- Exercise 3065_2, gap 1; replace both ellipses by exact products. -/
 theorem gap1 (p : ℕ → ℝ) (Q : ℕ → ℝ)
     (hQ : ∀ n, Q n = squarePartialProduct p n) :
     ∀ n, Q n = (partialProduct p n) ^ 2 := by
@@ -27,7 +27,7 @@ theorem gap1 (p : ℕ → ℝ) (Q : ℕ → ℝ)
   rw [hQ n]
   simp only [squarePartialProduct, partialProduct, Finset.prod_pow]
 
-/-- Source: `proof_gap/exercise_3065_2/2.txt`. -/
+/-- Exercise 3065_2, gap 2. -/
 theorem gap2 (p : ℕ → ℝ) (P : ℝ) (hP : HasProduct p P)
     (hP0 : P ≠ 0) (Q : ℕ → ℝ)
     (hQ : ∀ n, Q n = squarePartialProduct p n) :
@@ -39,7 +39,7 @@ theorem gap2 (p : ℕ → ℝ) (P : ℝ) (hP : HasProduct p P)
   rw [hQ']
   simpa [pow_two] using hP.mul hP
 
-/-- Source: `proof_gap/exercise_3065_2/3.txt`. -/
+/-- Exercise 3065_2, gap 3. -/
 theorem gap3 (p : ℕ → ℝ) (P : ℝ) (hP : HasProduct p P)
     (hP0 : P ≠ 0) :
     ConvergentProduct (fun n => (p n) ^ 2) := by
@@ -47,14 +47,14 @@ theorem gap3 (p : ℕ → ℝ) (P : ℝ) (hP : HasProduct p P)
   exact gap2 p P hP hP0
     (partialProduct (fun n => (p n) ^ 2)) (fun n => rfl)
 
-/-- Source: `proof_gap/exercise_3065_2/4.txt`. -/
+/-- Exercise 3065_2, gap 4. -/
 theorem gap4 (p : ℕ → ℝ) (P : ℝ) (hP : HasProduct p P)
     (hP0 : P ≠ 0) :
     HasProduct (fun n => (p n) ^ 2) (P ^ 2) := by
   exact gap2 p P hP hP0
     (partialProduct (fun n => (p n) ^ 2)) (fun n => rfl)
 
-/-- Source: `proof_gap/exercise_3065_2/5.txt`. -/
+/-- Exercise 3065_2, gap 5. -/
 theorem gap5 (p : ℕ → ℝ) (P : ℝ) (hP : HasProduct p P)
     (hP0 : P ≠ 0) :
     HasProduct (fun n => (p n) ^ 2) (P ^ 2) := by

@@ -6,7 +6,7 @@ noncomputable section
 
 def f (x : ℝ) : ℝ := Real.tan (Real.sqrt x)
 
-/-- Source: `proof_gap/exercise_233_7/1.txt`. -/
+/-- Exercise 233_7, gap 1. -/
 theorem gap1 : ¬∃ T : ℝ, 0 < T ∧ Function.Periodic f T := by
   rintro ⟨T, hT, hper⟩
   let x : ℝ := min (T / 2) ((Real.pi / 4) ^ 2)
@@ -43,7 +43,7 @@ theorem gap1 : ¬∃ T : ℝ, 0 < T ∧ Function.Periodic f T := by
     exact Real.tan_pos_of_pos_of_lt_pi_div_two hsqrt_pos hsqrt_lt
   exact (ne_of_gt hfx_pos) hfx
 
-/-- Source: `proof_gap/exercise_233_7/2.txt`. -/
+/-- Exercise 233_7, gap 2. -/
 theorem gap2 : {T : ℝ | 0 < T ∧ Function.Periodic f T} = ∅ := by
   apply Set.Subset.antisymm
   · intro T hT

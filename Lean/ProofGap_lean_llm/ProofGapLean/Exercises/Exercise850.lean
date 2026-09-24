@@ -13,7 +13,7 @@ noncomputable section
 def y (p q : ℕ) (x : ℝ) : ℝ :=
   x ^ p * (1 - x) ^ q / (1 + x)
 
-/-- Source: `proof_gap/exercise_850/1.txt`; interpret the power parameters as
+/-- Exercise 850, gap 1; interpret the power parameters as
 natural exponents and restore the source exercise's condition `x ≠ -1`. -/
 private theorem hasDerivAt_nat_power
     {f : ℝ → ℝ} {f' x : ℝ} (hf : HasDerivAt f f' x) :
@@ -55,7 +55,7 @@ theorem gap1 (p q : ℕ) (x : ℝ) (hx : x ≠ -1) :
     convert HasDerivAt.add hone hid using 1 <;> ring
   convert HasDerivAt.div hnum hden hne using 1 <;> ring
 
-/-- Source: `proof_gap/exercise_850/2.txt`; positivity of the natural
+/-- Exercise 850, gap 2; positivity of the natural
 exponents is needed for the displayed common-factor extraction. -/
 theorem gap2 (p q : ℕ) (x : ℝ) (hp : 0 < p) (hq : 0 < q)
     (hx : x ≠ -1) :

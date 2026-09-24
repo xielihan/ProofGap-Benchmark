@@ -20,13 +20,13 @@ def exponentSum (n : ℕ) : ℝ :=
 def Convergent (u : ℕ → ℝ) : Prop :=
   ∃ l : ℝ, Tendsto u atTop (𝓝 l)
 
-/-- Source: `proof_gap/exercise_80/1.txt`; the product is explicit. -/
+/-- Exercise 80, gap 1; the product is explicit. -/
 theorem gap1 : ∀ n : ℕ, x (n + 1) = x n * (1 + 1 / (2 : ℝ) ^ (n + 1)) := by
   intro n
   unfold x
   rw [Finset.prod_Icc_succ_top (by omega)]
 
-/-- Source: `proof_gap/exercise_80/2.txt`. -/
+/-- Exercise 80, gap 2. -/
 theorem gap2 : ∀ n : ℕ, x n * (1 + 1 / (2 : ℝ) ^ (n + 1)) > x n := by
   intro n
   have hx : 0 < x n := by
@@ -37,28 +37,28 @@ theorem gap2 : ∀ n : ℕ, x n * (1 + 1 / (2 : ℝ) ^ (n + 1)) > x n := by
     linarith
   simpa using mul_lt_mul_of_pos_left hfac hx
 
-/-- Source: `proof_gap/exercise_80/3.txt`. -/
+/-- Exercise 80, gap 3. -/
 theorem gap3 : ∀ n : ℕ, x (n + 1) > x n := by
   intro n
   rw [gap1]
   exact gap2 n
 
-/-- Source: `proof_gap/exercise_80/4.txt`. -/
+/-- Exercise 80, gap 4. -/
 theorem gap4 : Monotone x := by
   exact monotone_nat_of_le_succ fun n => (gap3 n).le
 
-/-- Source: `proof_gap/exercise_80/5.txt`; equality at a=0 is excluded. -/
+/-- Exercise 80, gap 5; equality at a=0 is excluded. -/
 theorem gap5 : ∀ a : ℝ, a ≠ 0 → 1 + a < Real.exp a := by
   intro a ha
   simpa [add_comm] using Real.add_one_lt_exp ha
 
-/-- Source: `proof_gap/exercise_80/6.txt`. -/
+/-- Exercise 80, gap 6. -/
 theorem gap6 : ∀ n : ℕ, 0 < x n := by
   intro n
   unfold x
   positivity
 
-/-- Source: `proof_gap/exercise_80/7.txt`; the exponential product is explicit. -/
+/-- Exercise 80, gap 7; the exponential product is explicit. -/
 theorem gap7 : ∀ n : ℕ, 0 < n → x n < expProduct n := by
   intro n hn
   unfold x expProduct
@@ -70,13 +70,13 @@ theorem gap7 : ∀ n : ℕ, 0 < n → x n < expProduct n := by
     exact gap5 (1 / (2 : ℝ) ^ i) (by positivity)
   · exact ⟨1, Finset.mem_Icc.mpr ⟨by omega, hn⟩⟩
 
-/-- Source: `proof_gap/exercise_80/8.txt`; both ellipses are finite. -/
+/-- Exercise 80, gap 8; both ellipses are finite. -/
 theorem gap8 : ∀ n : ℕ, expProduct n = Real.exp (exponentSum n) := by
   intro n
   unfold expProduct exponentSum
   rw [Real.exp_sum]
 
-/-- Source: `proof_gap/exercise_80/9.txt`. -/
+/-- Exercise 80, gap 9. -/
 theorem gap9 : ∀ n : ℕ, Real.exp (exponentSum n) < Real.exp 1 := by
   intro n
   rw [Real.exp_lt_exp]
@@ -94,11 +94,11 @@ theorem gap9 : ∀ n : ℕ, Real.exp (exponentSum n) < Real.exp 1 := by
   norm_num
   linarith
 
-/-- Source: `proof_gap/exercise_80/10.txt`. -/
+/-- Exercise 80, gap 10. -/
 theorem gap10 : 0 < Real.exp 1 := by
   positivity
 
-/-- Source: `proof_gap/exercise_80/11.txt`. -/
+/-- Exercise 80, gap 11. -/
 theorem gap11 : Bornology.IsBounded (Set.range x) := by
   apply isBounded_iff_bddBelow_bddAbove.mpr
   constructor
@@ -115,7 +115,7 @@ theorem gap11 : Bornology.IsBounded (Set.range x) := by
     · exact le_of_lt <| lt_trans (gap7 n (Nat.pos_of_ne_zero hn))
         (by rw [gap8]; exact gap9 n)
 
-/-- Source: `proof_gap/exercise_80/12.txt`. -/
+/-- Exercise 80, gap 12. -/
 theorem gap12
     (hmono : Monotone x)
     (hupper : BddAbove (Set.range x)) :
@@ -134,7 +134,7 @@ theorem gap12
     (k := 0) (hmono.monotoneOn (Set.Ici 0)) hupper'
   rwa [himage] at ht
 
-/-- Source: `proof_gap/exercise_80/13.txt`. -/
+/-- Exercise 80, gap 13. -/
 theorem gap13 (hconv : Convergent x) : Convergent x := by
   exact hconv
 

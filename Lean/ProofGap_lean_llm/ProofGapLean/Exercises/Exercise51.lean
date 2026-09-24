@@ -8,7 +8,7 @@ open scoped Topology
 /-!
 # Exercise 51
 
-Semantic formalization of `proof_gap/exercise_51/{1,2,3}.txt`.
+Semantic formalization of Exercise 51, gaps 1,2,3.
 The source ellipsis is represented by a `Finset.range` sum.
 -/
 
@@ -25,7 +25,7 @@ def closed (n : ℕ) : ℝ :=
 def SameLimit (a b : ℕ → ℝ) : Prop :=
   ∀ l : ℝ, Tendsto a atTop (𝓝 l) ↔ Tendsto b atTop (𝓝 l)
 
-/-- Source: `proof_gap/exercise_51/1.txt`. -/
+/-- Exercise 51, gap 1. -/
 theorem gap1 :
     SameLimit u closed := by
   have heq : ∀ n, u n = closed n := by
@@ -53,7 +53,7 @@ theorem gap1 :
   intro l
   exact Filter.tendsto_congr heq
 
-/-- Source: `proof_gap/exercise_51/2.txt`. -/
+/-- Exercise 51, gap 2. -/
 theorem gap2
     (h1 : SameLimit u closed) :
     Tendsto closed atTop (𝓝 (1 / 2 : ℝ)) := by
@@ -71,7 +71,7 @@ theorem gap2
   have hnreal : (n : ℝ) ≠ 0 := Nat.cast_ne_zero.mpr hn
   field_simp [hnreal]
 
-/-- Source: `proof_gap/exercise_51/3.txt`. -/
+/-- Exercise 51, gap 3. -/
 theorem gap3
     (h1 : SameLimit u closed)
     (h2 : Tendsto closed atTop (𝓝 (1 / 2 : ℝ))) :

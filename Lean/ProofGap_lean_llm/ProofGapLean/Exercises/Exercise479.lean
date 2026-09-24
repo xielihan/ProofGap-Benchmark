@@ -20,7 +20,7 @@ def reduced (y : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_479/1.txt`. -/
+/-- Exercise 479, gap 1. -/
 private theorem tendsto_translate_punctured (a c : ℝ) :
     Filter.Tendsto (fun x : ℝ => x + c)
       (nhdsWithin a (({a} : Set ℝ)ᶜ))
@@ -49,7 +49,7 @@ theorem gap1 (L : ℝ) :
     exact div_mul_div_comm _ _ _ _
   rw [hfun]
 
-/-- Source: `proof_gap/exercise_479/2.txt`; use `y=x-π/4`. -/
+/-- Exercise 479, gap 2; use `y=x-π/4`. -/
 theorem gap2 (L : ℝ) :
     HasLimitAt sineCosine (Real.pi / 4) L ↔ HasLimitAt shifted 0 L := by
   have hfun :
@@ -84,7 +84,7 @@ theorem gap2 (L : ℝ) :
     rw [← hback]
     simpa [Function.comp_def] using h.comp hsub
 
-/-- Source: `proof_gap/exercise_479/3.txt`. -/
+/-- Exercise 479, gap 3. -/
 theorem gap3 (L : ℝ) :
     HasLimitAt shifted 0 L ↔ HasLimitAt reduced 0 L := by
   have hI :
@@ -118,7 +118,7 @@ theorem gap3 (L : ℝ) :
   · intro h
     exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_479/4.txt`. -/
+/-- Exercise 479, gap 4. -/
 theorem gap4 : HasLimitAt reduced 0 (1 / 2) := by
   have hcont : ContinuousAt reduced 0 := by
     unfold reduced
@@ -133,7 +133,7 @@ theorem gap4 : HasLimitAt reduced 0 (1 / 2) := by
     (show nhdsWithin 0 (({0} : Set ℝ)ᶜ) ≤ nhds 0 from inf_le_left)
   simpa [reduced] using ht
 
-/-- Source: `proof_gap/exercise_479/5.txt`. -/
+/-- Exercise 479, gap 5. -/
 theorem gap5 : HasLimitAt original (Real.pi / 4) (1 / 2) := by
   exact
     (gap1 (1 / 2)).2

@@ -44,12 +44,12 @@ private theorem iter_eq_closedForm (n : ℕ) (x : ℝ) :
       rw [hsquare]
       exact closedForm_step k x
 
-/-- Source: `proof_gap/exercise_209/1.txt`; make the previously overloaded `f(n,x)` an iterate. -/
+/-- Exercise 209, gap 1; make the previously overloaded `f(n,x)` an iterate. -/
 theorem gap1 : ∀ x, iter 2 x = closedForm 2 x := by
   intro x
   exact iter_eq_closedForm 2 x
 
-/-- Source: `proof_gap/exercise_209/2.txt`. -/
+/-- Exercise 209, gap 2. -/
 theorem gap2 : ∀ k x, iter k x = closedForm k x →
     iter (k + 1) x =
       (x / Real.sqrt (1 + (k : ℝ) * x ^ 2)) /
@@ -66,20 +66,20 @@ theorem gap2 : ∀ k x, iter k x = closedForm k x →
     rw [div_pow, Real.sq_sqrt hA.le]
   rw [hsquare]
 
-/-- Source: `proof_gap/exercise_209/3.txt`. -/
+/-- Exercise 209, gap 3. -/
 theorem gap3 : ∀ (k : ℕ) (x : ℝ),
     (x / Real.sqrt (1 + (k : ℝ) * x ^ 2)) /
         Real.sqrt (1 + x ^ 2 / (1 + (k : ℝ) * x ^ 2)) =
       closedForm (k + 1) x := by
   exact closedForm_step
 
-/-- Source: `proof_gap/exercise_209/4.txt`. -/
+/-- Exercise 209, gap 4. -/
 theorem gap4 : ∀ k x, iter k x = closedForm k x →
     iter (k + 1) x = closedForm (k + 1) x := by
   intro k x h
   rw [gap2 k x h, gap3 k x]
 
-/-- Source: `proof_gap/exercise_209/5.txt`. -/
+/-- Exercise 209, gap 5. -/
 theorem gap5 : ∀ n x, 0 < n → iter n x = closedForm n x := by
   intro n x _
   exact iter_eq_closedForm n x

@@ -45,7 +45,7 @@ private theorem b_mem_cluster (a b : ℝ) :
   simp [x, pow_add, pow_mul]
   ring
 
-/-- Source: `proof_gap/exercise_120/1.txt`. -/
+/-- Exercise 120, gap 1. -/
 theorem gap1 (a b : ℝ) :
     ProofGap.ClusterSet (x a b) = ({a, b} : Set ℝ) := by
   ext y

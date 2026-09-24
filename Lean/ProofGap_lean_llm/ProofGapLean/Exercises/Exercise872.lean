@@ -21,7 +21,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 
 def finalDerivative (x : ℝ) : ℝ := 1 + Real.tan x ^ 6
 
-/-- Source: `proof_gap/exercise_872/1.txt`; restrict to points where tangent
+/-- Exercise 872, gap 1; restrict to points where tangent
 is defined. -/
 theorem gap1 (x : ℝ) (hcos : Real.cos x ≠ 0) :
     deriv y x = expandedDerivative x := by
@@ -65,7 +65,7 @@ theorem gap1 (x : ℝ) (hcos : Real.cos x ≠ 0) :
       unfold expandedDerivative sec
       field_simp [hcos]
 
-/-- Source: `proof_gap/exercise_872/2.txt`; the identity uses
+/-- Exercise 872, gap 2; the identity uses
 `sec² x = 1 + tan² x` on tangent's domain. -/
 theorem gap2 (x : ℝ) (hcos : Real.cos x ≠ 0) :
     expandedDerivative x = finalDerivative x := by
@@ -78,7 +78,7 @@ theorem gap2 (x : ℝ) (hcos : Real.cos x ≠ 0) :
   rw [hsec]
   ring
 
-/-- Source: `proof_gap/exercise_872/3.txt`; restrict to the source function's
+/-- Exercise 872, gap 3; restrict to the source function's
 domain. -/
 theorem gap3 (x : ℝ) (hcos : Real.cos x ≠ 0) :
     deriv y x = finalDerivative x := by

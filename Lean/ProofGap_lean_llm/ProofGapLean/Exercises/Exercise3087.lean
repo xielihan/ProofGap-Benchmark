@@ -80,7 +80,7 @@ private theorem tangentRemainderFn_hasDerivAt :
     (htan.sub (hasDerivAt_const (x := 0) (1 : ℝ))).sub hlinear
 
 /--
-Source: `proof_gap/exercise_3087/1.txt`; boundedness alone does not imply
+Exercise 3087, gap 1; boundedness alone does not imply
 series convergence, so include the missing summability premise.
 -/
 theorem gap1 (alpha : ℕ → ℝ)
@@ -89,13 +89,13 @@ theorem gap1 (alpha : ℕ → ℝ)
     SummableFromOne alpha := by
   exact hsum
 
-/-- Source: `proof_gap/exercise_3087/2.txt`. -/
+/-- Exercise 3087, gap 2. -/
 theorem gap2 (alpha : ℕ → ℝ) (hsum : SummableFromOne alpha) :
     Tendsto alpha atTop (𝓝 0) := by
   apply Summable.tendsto_atTop_zero
   exact (summable_nat_add_iff 1).mp hsum
 
-/-- Source: `proof_gap/exercise_3087/3.txt`; restrict to the bounded positive indices. -/
+/-- Exercise 3087, gap 3; restrict to the bounded positive indices. -/
 theorem gap3 (alpha : ℕ → ℝ)
     (hbound : ∀ n : ℕ, 1 ≤ n → |alpha n| < Real.pi / 4) :
     ∀ n : ℕ, 1 ≤ n →
@@ -115,7 +115,7 @@ theorem gap3 (alpha : ℕ → ℝ)
     Real.tan_pi_div_four]
   ring
 
-/-- Source: `proof_gap/exercise_3087/4.txt`; replace the ellipsis by an exact tsum. -/
+/-- Exercise 3087, gap 4; replace the ellipsis by an exact tsum. -/
 theorem gap4 (alpha : ℕ → ℝ)
     (hbound : ∀ n : ℕ, 1 ≤ n → |alpha n| < Real.pi / 4) :
     ∀ n : ℕ, 1 ≤ n →
@@ -148,7 +148,7 @@ theorem gap4 (alpha : ℕ → ℝ)
   field_simp [hne]
   ring
 
-/-- Source: `proof_gap/exercise_3087/5.txt`; state little-o as a function relation. -/
+/-- Exercise 3087, gap 5; state little-o as a function relation. -/
 theorem gap5 (alpha : ℕ → ℝ) (hsum : SummableFromOne alpha) :
     tangentRemainder alpha =o[atTop] alpha := by
   have ha : Tendsto alpha atTop (𝓝 0) := gap2 alpha hsum
@@ -164,7 +164,7 @@ theorem gap5 (alpha : ℕ → ℝ) (hsum : SummableFromOne alpha) :
     rfl
 
 /--
-Source: `proof_gap/exercise_3087/6.txt`; little-o alone does not preserve a
+Exercise 3087, gap 6; little-o alone does not preserve a
 conditionally convergent series, so require summability of the remainder.
 -/
 theorem gap6 (alpha : ℕ → ℝ) (hsum : SummableFromOne alpha)
@@ -177,7 +177,7 @@ theorem gap6 (alpha : ℕ → ℝ) (hsum : SummableFromOne alpha)
   ring
 
 /--
-Source: `proof_gap/exercise_3087/7.txt`; convergence alone does not imply
+Exercise 3087, gap 7; convergence alone does not imply
 square summability, so require absolute summability of the transformed term.
 -/
 theorem gap7 (alpha : ℕ → ℝ)
@@ -197,7 +197,7 @@ theorem gap7 (alpha : ℕ → ℝ)
   have hnonneg : 0 ≤ |transformedTerm alpha (k + 1)| := abs_nonneg _
   nlinarith
 
-/-- Source: `proof_gap/exercise_3087/8.txt`; use asymptotic equivalence to recover `alpha²`. -/
+/-- Exercise 3087, gap 8; use asymptotic equivalence to recover `alpha²`. -/
 theorem gap8 (alpha : ℕ → ℝ) (hsum : SummableFromOne alpha)
     (hsq : SummableFromOne (fun n => (transformedTerm alpha n) ^ 2)) :
     SummableFromOne (fun n => (alpha n) ^ 2) := by
@@ -217,7 +217,7 @@ theorem gap8 (alpha : ℕ → ℝ) (hsum : SummableFromOne alpha)
   nlinarith
 
 /--
-Source: `proof_gap/exercise_3087/9.txt`; a little-o bound is eventual, not
+Exercise 3087, gap 9; a little-o bound is eventual, not
 pointwise at every index.
 -/
 theorem gap9 (alpha r : ℕ → ℝ) (hr : r =o[atTop] alpha)
@@ -239,7 +239,7 @@ theorem gap9 (alpha r : ℕ → ℝ) (hr : r =o[atTop] alpha)
     _ = |alpha n| := mul_one _
 
 /--
-Source: `proof_gap/exercise_3087/10.txt`; the square of a little-o remainder
+Exercise 3087, gap 10; the square of a little-o remainder
 is controlled only eventually.
 -/
 theorem gap10 (alpha r : ℕ → ℝ) (hr : r =o[atTop] alpha)
@@ -336,7 +336,7 @@ private theorem nonzeroConvergentTangentProduct_of_summable
     exact ht
 
 /--
-Source: `proof_gap/exercise_3087/11.txt`; apply convergence to the cutoff
+Exercise 3087, gap 11; apply convergence to the cutoff
 sequence and retain the square-summability established in the source chain.
 -/
 theorem gap11 (alpha : ℕ → ℝ)
@@ -347,7 +347,7 @@ theorem gap11 (alpha : ℕ → ℝ)
   exact nonzeroConvergentTangentProduct_of_summable alpha hbound hsum
 
 /--
-Source: `proof_gap/exercise_3087/12.txt`; absolute summability is a direct
+Exercise 3087, gap 12; absolute summability is a direct
 sufficient condition for the tangent partial products.
 -/
 theorem gap12 (alpha : ℕ → ℝ)

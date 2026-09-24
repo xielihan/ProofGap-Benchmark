@@ -12,7 +12,7 @@ def r₁ (x : ℝ) : ℝ := (x ^ 2 + 10 * x + 100) / (0.001 * x ^ 3)
 def r₂ (x : ℝ) : ℝ := Real.log x ^ 1000 / Real.sqrt x
 def r₃ (x : ℝ) : ℝ := x ^ 10 * Real.exp x / Real.exp (2 * x)
 
-/-- Source: `proof_gap/exercise_652/1.txt`. -/
+/-- Exercise 652, gap 1. -/
 theorem gap1 : Filter.Tendsto r₁ Filter.atTop (nhds 0) := by
   have hinv :
       Filter.Tendsto (fun x : ℝ => x⁻¹) Filter.atTop (nhds 0) :=
@@ -48,11 +48,11 @@ theorem gap1 : Filter.Tendsto r₁ Filter.atTop (nhds 0) := by
   norm_num [r₁]
   field_simp [ne_of_gt hx] <;> ring
 
-/-- Source: `proof_gap/exercise_652/2.txt`; replace `BigEnough` by an eventual assertion. -/
+/-- Exercise 652, gap 2; replace `BigEnough` by an eventual assertion. -/
 theorem gap2 : ∀ᶠ x in Filter.atTop, r₁ x < 1 := by
   exact gap1.eventually (Iio_mem_nhds (by norm_num : (0 : ℝ) < 1))
 
-/-- Source: `proof_gap/exercise_652/3.txt`; replace `BigEnough` by an eventual assertion. -/
+/-- Exercise 652, gap 3; replace `BigEnough` by an eventual assertion. -/
 theorem gap3 :
     ∀ᶠ x in Filter.atTop,
       x ^ 2 + 10 * x + 100 < (0.001 : ℝ) * x ^ 3 := by
@@ -63,7 +63,7 @@ theorem gap3 :
     mul_pos (by norm_num) (pow_pos hx 3)
   exact (div_lt_one hd).mp h
 
-/-- Source: `proof_gap/exercise_652/4.txt`. -/
+/-- Exercise 652, gap 4. -/
 theorem gap4 : Filter.Tendsto r₂ Filter.atTop (nhds 0) := by
   have hloghalf :
       Filter.Tendsto (fun x : ℝ => Real.log x / 2)
@@ -108,48 +108,48 @@ theorem gap4 : Filter.Tendsto r₂ Filter.atTop (nhds 0) := by
   rw [r₂, hsqrt, div_pow]
   field_simp [Real.exp_ne_zero] <;> ring
 
-/-- Source: `proof_gap/exercise_652/5.txt`; replace `BigEnough` by an eventual assertion. -/
+/-- Exercise 652, gap 5; replace `BigEnough` by an eventual assertion. -/
 theorem gap5 : ∀ᶠ x in Filter.atTop, r₂ x < 1 := by
   exact gap4.eventually (Iio_mem_nhds (by norm_num : (0 : ℝ) < 1))
 
-/-- Source: `proof_gap/exercise_652/6.txt`; replace `BigEnough` by an eventual assertion. -/
+/-- Exercise 652, gap 6; replace `BigEnough` by an eventual assertion. -/
 theorem gap6 :
     ∀ᶠ x in Filter.atTop, Real.log x ^ 1000 < Real.sqrt x := by
   filter_upwards [gap5, Filter.eventually_gt_atTop (0 : ℝ)] with x h hx
   change Real.log x ^ 1000 / Real.sqrt x < 1 at h
   exact (div_lt_one (Real.sqrt_pos.2 hx)).mp h
 
-/-- Source: `proof_gap/exercise_652/7.txt`. -/
+/-- Exercise 652, gap 7. -/
 theorem gap7 (x : ℝ) :
     x ^ 10 * Real.exp x / Real.exp (2 * x) = x ^ 10 / Real.exp x := by
   rw [show (2 : ℝ) * x = x + x by ring, Real.exp_add]
   field_simp [Real.exp_ne_zero] <;> ring
 
-/-- Source: `proof_gap/exercise_652/8.txt`. -/
+/-- Exercise 652, gap 8. -/
 theorem gap8 :
     Filter.Tendsto (fun x : ℝ => x ^ 10 / Real.exp x)
       Filter.atTop (nhds 0) := by
   simpa [div_eq_mul_inv, ← Real.exp_neg] using
     (Real.tendsto_pow_mul_exp_neg_atTop_nhds_zero 10)
 
-/-- Source: `proof_gap/exercise_652/9.txt`. -/
+/-- Exercise 652, gap 9. -/
 theorem gap9 : Filter.Tendsto r₃ Filter.atTop (nhds 0) := by
   refine gap8.congr' ?_
   filter_upwards with x
   exact (gap7 x).symm
 
-/-- Source: `proof_gap/exercise_652/10.txt`; replace `BigEnough` by an eventual assertion. -/
+/-- Exercise 652, gap 10; replace `BigEnough` by an eventual assertion. -/
 theorem gap10 : ∀ᶠ x in Filter.atTop, r₃ x < 1 := by
   exact gap9.eventually (Iio_mem_nhds (by norm_num : (0 : ℝ) < 1))
 
-/-- Source: `proof_gap/exercise_652/11.txt`; replace `BigEnough` by an eventual assertion. -/
+/-- Exercise 652, gap 11; replace `BigEnough` by an eventual assertion. -/
 theorem gap11 :
     ∀ᶠ x in Filter.atTop, x ^ 10 * Real.exp x < Real.exp (2 * x) := by
   filter_upwards [gap10] with x h
   change x ^ 10 * Real.exp x / Real.exp (2 * x) < 1 at h
   exact (div_lt_one (Real.exp_pos (2 * x))).mp h
 
-/-- Source: `proof_gap/exercise_652/12.txt`; use one common eventual threshold. -/
+/-- Exercise 652, gap 12; use one common eventual threshold. -/
 theorem gap12 :
     ∀ᶠ x in Filter.atTop,
       x ^ 2 + 10 * x + 100 < 0.001 * x ^ 3 ∧

@@ -44,7 +44,7 @@ def RiemannAdmissible (f : ℝ → ℝ) (a b : ℝ) : Prop :=
   Tendsto (riemannSum f a b) atTop (𝓝 (∫ x in a..b, f x))
 
 /--
-Source: `proof_gap/exercise_3106/1.txt`; factor positivity and the logarithm
+Exercise 3106, gap 1; factor positivity and the logarithm
 identity hold eventually, which is all the limit argument uses.
 -/
 private theorem eventual_sample_control (f : ℝ → ℝ) (a b : ℝ)
@@ -180,7 +180,7 @@ theorem gap1 (f : ℝ → ℝ) (a b : ℝ)
   simpa [productSequence, g] using hlog (Finset.Icc 1 n) hgpos
 
 /--
-Source: `proof_gap/exercise_3106/2.txt`; make the uniform per-factor
+Exercise 3106, gap 2; make the uniform per-factor
 `O(δₙ²)` remainder explicit.
 -/
 theorem gap2 (f : ℝ → ℝ) (a b : ℝ)
@@ -222,7 +222,7 @@ theorem gap2 (f : ℝ → ℝ) (a b : ℝ)
         (sq_nonneg _)
 
 /--
-Source: `proof_gap/exercise_3106/3.txt`; summing `n` uniform quadratic
+Exercise 3106, gap 3; summing `n` uniform quadratic
 remainders gives a function-level `O(1/n)` estimate.
 -/
 theorem gap3 (f : ℝ → ℝ) (a b : ℝ)
@@ -257,7 +257,7 @@ theorem gap3 (f : ℝ → ℝ) (a b : ℝ)
       unfold delta
       field_simp [ne_of_gt hnpos]
 
-/-- Source: `proof_gap/exercise_3106/4.txt`; use the right-endpoint Riemann-sum premise. -/
+/-- Exercise 3106, gap 4; use the right-endpoint Riemann-sum premise. -/
 theorem gap4 (f : ℝ → ℝ) (a b : ℝ)
     (hf : RiemannAdmissible f a b) :
     Tendsto
@@ -302,7 +302,7 @@ theorem gap4 (f : ℝ → ℝ) (a b : ℝ)
     (tendsto_add_atTop_iff_nat 1).2 hf.2.2
   simpa [totalLogRemainder] using hremainder.add hsum
 
-/-- Source: `proof_gap/exercise_3106/5.txt`; exponentiate the logarithmic limit. -/
+/-- Exercise 3106, gap 5; exponentiate the logarithmic limit. -/
 theorem gap5 (f : ℝ → ℝ) (a b : ℝ)
     (hf : RiemannAdmissible f a b) :
     Tendsto (productSequence f a b) atTop
@@ -328,7 +328,7 @@ theorem gap5 (f : ℝ → ℝ) (a b : ℝ)
     (Real.continuous_exp.tendsto _).comp (gap4 f a b hf)
   exact (tendsto_congr' heq).2 hexp
 
-/-- Source: `proof_gap/exercise_3106/6.txt`; unfold the finite product sequence. -/
+/-- Exercise 3106, gap 6; unfold the finite product sequence. -/
 theorem gap6 (f : ℝ → ℝ) (a b : ℝ)
     (hf : RiemannAdmissible f a b) :
     Tendsto

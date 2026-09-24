@@ -16,7 +16,7 @@ def cancelled (x : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_446/1.txt`. -/
+/-- Exercise 446, gap 1. -/
 private theorem cbrt_spec (x : ℝ) (hx : 0 ≤ x) :
     cbrt x ^ 3 = x ∧ cbrt (x ^ 2) = cbrt x ^ 2 := by
   constructor
@@ -110,12 +110,12 @@ theorem gap1 : HasLimitAt original 0 (1 / 4) ↔
     change original x ∈ s
     rwa [hxeq]
 
-/-- Source: `proof_gap/exercise_446/2.txt`. -/
+/-- Exercise 446, gap 2. -/
 theorem gap2 : HasLimitAt original 0 (1 / 4) ↔
     HasLimitAt cancelled 0 (1 / 4) := by
   exact gap1
 
-/-- Source: `proof_gap/exercise_446/3.txt`. -/
+/-- Exercise 446, gap 3. -/
 theorem gap3 : HasLimitAt cancelled 0 (1 / 4) := by
   have hspec8 := cbrt_spec (8 : ℝ) (by norm_num)
   have h8cube : cbrt 8 ^ 3 = 8 := hspec8.1
@@ -225,7 +225,7 @@ theorem gap3 : HasLimitAt cancelled 0 (1 / 4) := by
   rw [← hvalue]
   exact hc.tendsto.mono_left inf_le_left
 
-/-- Source: `proof_gap/exercise_446/4.txt`. -/
+/-- Exercise 446, gap 4. -/
 theorem gap4 : HasLimitAt original 0 (1 / 4) := by
   exact gap1.mpr gap3
 

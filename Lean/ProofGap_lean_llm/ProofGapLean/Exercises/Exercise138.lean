@@ -36,7 +36,7 @@ private theorem partialSum_add_tailSum (x : ℕ → ℝ) {N n : ℕ}
   rw [Icc_eq_Ico_succ, Icc_eq_Ico_succ, Icc_eq_Ico_succ]
   exact Finset.sum_Ico_consecutive x (by omega) (by omega)
 
-/-- Source: `proof_gap/exercise_138/1.txt`; fix N and require N≤n. -/
+/-- Exercise 138, gap 1; fix N and require N≤n. -/
 theorem gap1 (x : ℕ → ℝ) :
     ∀ N n : ℕ, N ≤ n → 0 < n →
       cesaro x n =
@@ -47,7 +47,7 @@ theorem gap1 (x : ℕ → ℝ) :
   field_simp
   ring
 
-/-- Source: `proof_gap/exercise_138/2.txt`; the tail ellipsis is a finite sum. -/
+/-- Exercise 138, gap 2; the tail ellipsis is a finite sum. -/
 theorem gap2 (x : ℕ → ℝ) :
     ∀ N n : ℕ, N < n →
       partialSum x N / (n : ℝ) +
@@ -66,7 +66,7 @@ theorem gap2 (x : ℕ → ℝ) :
   field_simp [hn0, hden]
   <;> ring
 
-/-- Source: `proof_gap/exercise_138/3.txt`. -/
+/-- Exercise 138, gap 3. -/
 theorem gap3 (x : ℕ → ℝ) :
     ∀ N n : ℕ, N < n →
       cesaro x n =
@@ -83,7 +83,7 @@ theorem gap3 (x : ℕ → ℝ) :
             (1 - (N : ℝ) / n) :=
       gap2 x N n hN
 
-/-- Source: `proof_gap/exercise_138/4.txt`. -/
+/-- Exercise 138, gap 4. -/
 theorem gap4 (x : ℕ → ℝ) (a : ℝ)
     (hx : Tendsto x atTop (𝓝 a)) :
     ∀ ε : ℝ, 0 < ε →
@@ -93,7 +93,7 @@ theorem gap4 (x : ℕ → ℝ) (a : ℝ)
   exact ⟨N, fun n hn => by
     simpa [Real.dist_eq] using hN n hn.le⟩
 
-/-- Source: `proof_gap/exercise_138/5.txt`; N depends on ε and n>N. -/
+/-- Exercise 138, gap 5; N depends on ε and n>N. -/
 theorem gap5 (x : ℕ → ℝ) (a : ℝ)
     (hx : Tendsto x atTop (𝓝 a)) :
     ∀ ε : ℝ, 0 < ε →
@@ -141,7 +141,7 @@ theorem gap5 (x : ℕ → ℝ) (a : ℝ)
     rw [hcast] at hhi
     simpa [tailSum, mul_comm] using hhi
 
-/-- Source: `proof_gap/exercise_138/6.txt`; the error depends on n and ε. -/
+/-- Exercise 138, gap 6; the error depends on n and ε. -/
 theorem gap6 (x : ℕ → ℝ) (a ε : ℝ) (N n : ℕ)
     (havg : tailSum x N n / ((n : ℝ) - N) ∈ Set.Ioo (a - ε) (a + ε)) :
     ∃ α : ℝ,
@@ -151,7 +151,7 @@ theorem gap6 (x : ℕ → ℝ) (a ε : ℝ) (N n : ℕ)
   rw [abs_lt]
   constructor <;> linarith
 
-/-- Source: `proof_gap/exercise_138/7.txt`; α is pointwise. -/
+/-- Exercise 138, gap 7; α is pointwise. -/
 theorem gap7 (x : ℕ → ℝ) (a α : ℝ) (N n : ℕ)
     (hN : N < n)
     (hα : tailSum x N n / ((n : ℝ) - N) = a + α) :
@@ -171,7 +171,7 @@ theorem gap7 (x : ℕ → ℝ) (a α : ℝ) (N n : ℕ)
   rw [htail]
   field_simp [hn0]
 
-/-- Source: `proof_gap/exercise_138/8.txt`. -/
+/-- Exercise 138, gap 8. -/
 theorem gap8 (x : ℕ → ℝ) (a α : ℝ) (N n : ℕ)
     (hn : 0 < n)
     (hid : cesaro x n =
@@ -207,7 +207,7 @@ theorem gap8 (x : ℕ → ℝ) (a α : ℝ) (N n : ℕ)
     _ = |partialSum x N| / (n : ℝ) + |α| +
           (|a| + |α|) * (N : ℝ) / n := by ring
 
-/-- Source: `proof_gap/exercise_138/9.txt`; N' depends on ε and N. -/
+/-- Exercise 138, gap 9; N' depends on ε and N. -/
 theorem gap9 (x : ℕ → ℝ) (a ε : ℝ) (N : ℕ)
     (hε : 0 < ε) :
     ∃ N' : ℕ, N < N' ∧ ∀ n : ℕ, N' < n →
@@ -233,7 +233,7 @@ theorem gap9 (x : ℕ → ℝ) (a ε : ℝ) (N : ℕ)
   refine ⟨max (max K₁ K₂) N + 1, by omega, fun n hn => ?_⟩
   exact ⟨hK₁ n (by omega), hK₂ n (by omega)⟩
 
-/-- Source: `proof_gap/exercise_138/10.txt`. -/
+/-- Exercise 138, gap 10. -/
 theorem gap10 (x : ℕ → ℝ) (a ε : ℝ)
     (hx : Tendsto x atTop (𝓝 a))
     (hε : 0 < ε) :
@@ -269,7 +269,7 @@ theorem gap10 (x : ℕ → ℝ) (a ε : ℝ)
     exact (by simpa [mul_div_assoc] using hle.trans_lt hlt)
   linarith
 
-/-- Source: `proof_gap/exercise_138/11.txt`; Cesàro convergence. -/
+/-- Exercise 138, gap 11; Cesàro convergence. -/
 theorem gap11 (x : ℕ → ℝ) (a : ℝ)
     (hx : Tendsto x atTop (𝓝 a)) :
     Tendsto (cesaro x) atTop (𝓝 a) := by
@@ -282,20 +282,20 @@ theorem gap11 (x : ℕ → ℝ) (a : ℝ)
   rw [cesaro, partialSum_eq_sum_range_shift]
   simp only [inv_mul_eq_div]
 
-/-- Source: `proof_gap/exercise_138/12.txt`; express the common limit by Tendsto. -/
+/-- Exercise 138, gap 12; express the common limit by Tendsto. -/
 theorem gap12 (x : ℕ → ℝ) (a : ℝ)
     (hx : Tendsto x atTop (𝓝 a)) :
     Tendsto (cesaro x) atTop (𝓝 a) ∧ Tendsto x atTop (𝓝 a) := by
   exact ⟨gap11 x a hx, hx⟩
 
-/-- Source: `proof_gap/exercise_138/13.txt`. -/
+/-- Exercise 138, gap 13. -/
 theorem gap13 (x : ℕ → ℝ)
     (hx : ProofGap.ConvergentSeq x) :
     ProofGap.ConvergentSeq (cesaro x) := by
   rcases hx with ⟨a, ha⟩
   exact ⟨a, gap11 x a ha⟩
 
-/-- Source: `proof_gap/exercise_138/14.txt`; the alternating example has convergent means. -/
+/-- Exercise 138, gap 14; the alternating example has convergent means. -/
 theorem gap14 :
     ¬ ProofGap.ConvergentSeq (fun n : ℕ => (-1 : ℝ) ^ (n + 1)) ∧
       ProofGap.ConvergentSeq
@@ -352,7 +352,7 @@ theorem gap14 :
       (hK n (by omega))
   exact ⟨by simpa [z] using hz_not, ⟨0, by simpa [z] using hmean⟩⟩
 
-/-- Source: `proof_gap/exercise_138/15.txt`; retain the original convergent-sequence case. -/
+/-- Exercise 138, gap 15; retain the original convergent-sequence case. -/
 theorem gap15 (x : ℕ → ℝ) (a : ℝ)
     (hx : Tendsto x atTop (𝓝 a)) :
     ProofGap.ConvergentSeq (cesaro x) ∧

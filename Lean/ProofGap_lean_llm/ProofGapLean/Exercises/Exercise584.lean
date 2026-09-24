@@ -11,7 +11,7 @@ def f (x : ℝ) : ℝ := arccot (x / Real.sqrt (1 + x ^ 2))
 def HasLimitAtNegInfinity (g : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto g Filter.atBot (nhds L)
 
-/-- Source: `proof_gap/exercise_584/1.txt`. -/
+/-- Exercise 584, gap 1. -/
 theorem gap1 : HasLimitAtNegInfinity f (arccot (-1)) := by
   unfold HasLimitAtNegInfinity f
   have hinv :
@@ -61,13 +61,13 @@ theorem gap1 : HasLimitAtNegInfinity f (arccot (-1)) := by
         Continuous (fun x : ℝ => Real.pi / 2 - Real.arctan x))
   exact hcont.continuousAt.tendsto.comp hinner
 
-/-- Source: `proof_gap/exercise_584/2.txt`. -/
+/-- Exercise 584, gap 2. -/
 theorem gap2 : arccot (-1) = (3 / 4 : ℝ) * Real.pi := by
   unfold arccot
   rw [Real.arctan_neg, Real.arctan_one]
   ring
 
-/-- Source: `proof_gap/exercise_584/3.txt`. -/
+/-- Exercise 584, gap 3. -/
 theorem gap3 : HasLimitAtNegInfinity f ((3 / 4 : ℝ) * Real.pi) := by
   rw [← gap2]
   exact gap1

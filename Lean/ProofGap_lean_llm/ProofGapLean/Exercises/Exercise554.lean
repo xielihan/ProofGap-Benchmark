@@ -15,7 +15,7 @@ def rewritten (a b : ℝ) (n : ℕ) : ℝ :=
   Real.rpow (1 + 1 / (a / d))
     ((a / d) * (d / (1 / (n : ℝ))) * (1 / a))
 
-/-- Source: `proof_gap/exercise_554/1.txt`; require `b≠1` for the displayed substitution. -/
+/-- Exercise 554, gap 1; require `b≠1` for the displayed substitution. -/
 private theorem explicit_rpow_def_of_pos (x y : ℝ) (hx : 0 < x) :
     Real.rpow x y = Real.exp (Real.log x * y) := by
   change x ^ y = Real.exp (Real.log x * y)
@@ -290,21 +290,21 @@ theorem gap1 (a b : ℝ) (ha : 0 < a) (hb : 0 < b) (hb1 : b ≠ 1) (L : ℝ) :
   · intro h
     exact h.congr' (seq_rewritten_eventuallyEq a b ha hb hb1).symm
 
-/-- Source: `proof_gap/exercise_554/2.txt`; require `b≠1` for the substitution denominator. -/
+/-- Exercise 554, gap 2; require `b≠1` for the substitution denominator. -/
 theorem gap2 (a b : ℝ) (ha : 0 < a) (hb : 0 < b) (hb1 : b ≠ 1) :
     Filter.Tendsto (rewritten a b) Filter.atTop
       (nhds (Real.exp ((1 / a) * Real.log b))) := by
   exact (gap1 a b ha hb hb1 (Real.exp ((1 / a) * Real.log b))).mp
     (seq_tendsto_exp a b ha hb)
 
-/-- Source: `proof_gap/exercise_554/3.txt`. -/
+/-- Exercise 554, gap 3. -/
 theorem gap3 (a b : ℝ) (ha : 0 < a) (hb : 0 < b) :
     Real.exp ((1 / a) * Real.log b) = Real.rpow b (1 / a) := by
   rw [explicit_rpow_def_of_pos b (1 / a) hb]
   congr 1
   ring
 
-/-- Source: `proof_gap/exercise_554/4.txt`; the final result also covers `b=1`. -/
+/-- Exercise 554, gap 4; the final result also covers `b=1`. -/
 theorem gap4 (a b : ℝ) (ha : 0 < a) (hb : 0 < b) :
     Filter.Tendsto (seq a b) Filter.atTop (nhds (Real.rpow b (1 / a))) := by
   by_cases hb1 : b = 1

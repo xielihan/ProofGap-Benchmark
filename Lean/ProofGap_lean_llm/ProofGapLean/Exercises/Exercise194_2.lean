@@ -23,12 +23,12 @@ def negativeCondition (x : ℝ) : Prop :=
     (-(2 * (k : ℝ) + 1) * Real.pi < Real.pi / x ∧
       Real.pi / x < -2 * (k : ℝ) * Real.pi)
 
-/-- Source: `proof_gap/exercise_194_2/1.txt`; give an admissible root. -/
+/-- Exercise 194_2, gap 1; give an admissible root. -/
 theorem gap1 : ∃ x ∈ domain, f x = 0 := by
   refine ⟨1, by norm_num [domain], ?_⟩
   simp [f]
 
-/-- Source: `proof_gap/exercise_194_2/2.txt`; bind the root and integer coherently. -/
+/-- Exercise 194_2, gap 2; bind the root and integer coherently. -/
 theorem gap2 : ∀ x ∈ domain,
     f x = 0 ↔ ∃ k : ℤ, k ≠ 0 ∧ Real.pi / x = (k : ℝ) * Real.pi := by
   intro x hx
@@ -45,15 +45,15 @@ theorem gap2 : ∀ x ∈ domain,
   · rintro ⟨k, _, hk⟩
     exact ⟨k, hk.symm⟩
 
-/-- Source: `proof_gap/exercise_194_2/3.txt`; the source existential had no relation to x. -/
+/-- Exercise 194_2, gap 3; the source existential had no relation to x. -/
 theorem gap3 : ∃ k : ℤ, k ≠ 0 := by
   exact ⟨1, by norm_num⟩
 
-/-- Source: `proof_gap/exercise_194_2/4.txt`. -/
+/-- Exercise 194_2, gap 4. -/
 theorem gap4 : ∃ k : ℤ, k ≠ 0 := by
   exact gap3
 
-/-- Source: `proof_gap/exercise_194_2/5.txt`; use an explicit image of nonzero integers. -/
+/-- Exercise 194_2, gap 5; use an explicit image of nonzero integers. -/
 theorem gap5 :
     {x : ℝ | x ∈ domain ∧ f x = 0} =
       {x : ℝ | ∃ k : ℤ, k ≠ 0 ∧ x = 1 / (k : ℝ)} := by
@@ -286,13 +286,13 @@ private theorem pi_div_lt_mul_pi_iff (a x : ℝ) :
   rw [show Real.pi / x = (1 / x) * Real.pi by ring]
   constructor <;> intro h <;> nlinarith [Real.pi_pos]
 
-/-- Source: `proof_gap/exercise_194_2/6.txt`; restore x≠0. -/
+/-- Exercise 194_2, gap 6; restore x≠0. -/
 theorem gap6 : ∀ x ∈ domain, f x > 0 ↔ positiveCondition x := by
   intro x _
   simpa [f, positiveCondition] using
     sin_pos_iff_nat_intervals (Real.pi / x)
 
-/-- Source: `proof_gap/exercise_194_2/7.txt`; replace reciprocal endpoint 1/0 by x>1. -/
+/-- Exercise 194_2, gap 7; replace reciprocal endpoint 1/0 by x>1. -/
 theorem gap7 :
     {x : ℝ | x ∈ domain ∧ f x > 0} =
       {x : ℝ | 1 < x ∨
@@ -400,13 +400,13 @@ theorem gap7 :
         (mul_pi_lt_pi_div_iff _ _).mpr hlow,
         (pi_div_lt_mul_pi_iff _ _).mpr hupp⟩⟩
 
-/-- Source: `proof_gap/exercise_194_2/8.txt`; restore x≠0. -/
+/-- Exercise 194_2, gap 8; restore x≠0. -/
 theorem gap8 : ∀ x ∈ domain, f x < 0 ↔ negativeCondition x := by
   intro x _
   simpa [f, negativeCondition] using
     sin_neg_iff_nat_intervals (Real.pi / x)
 
-/-- Source: `proof_gap/exercise_194_2/9.txt`. -/
+/-- Exercise 194_2, gap 9. -/
 theorem gap9 :
     {x : ℝ | x ∈ domain ∧ f x < 0} =
       {x : ℝ |

@@ -11,7 +11,7 @@ def f (x : ℝ) : ℝ := Real.arctan ((x - 4) / (x - 2) ^ 2)
 def HasLimitAtTwo (g : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto g (nhdsWithin 2 ({2} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_583/1.txt`. -/
+/-- Exercise 583, gap 1. -/
 theorem gap1 : HasLimitAtTwo f (-Real.pi / 2) := by
   unfold HasLimitAtTwo
   have hid0 :

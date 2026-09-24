@@ -9,7 +9,7 @@ def f (x : ℝ) : ℝ := x - Int.floor x
 def rangeOnUnit : Set ℝ :=
   {y | ∃ x ∈ Set.Icc (0 : ℝ) 1, y = f x}
 
-/-- Source: `proof_gap/exercise_396/1.txt`. -/
+/-- Exercise 396, gap 1. -/
 theorem gap1 : sInf rangeOnUnit = 0 := by
   have hbelow : BddBelow rangeOnUnit := by
     refine ⟨0, ?_⟩
@@ -27,7 +27,7 @@ theorem gap1 : sInf rangeOnUnit = 0 := by
       rcases hy with ⟨x, hx, rfl⟩
       exact sub_nonneg.mpr (Int.floor_le x)
 
-/-- Source: `proof_gap/exercise_396/2.txt`; `1` is the supremum but is not attained. -/
+/-- Exercise 396, gap 2; `1` is the supremum but is not attained. -/
 theorem gap2 : sSup rangeOnUnit = 1 := by
   have hzero : 0 ∈ rangeOnUnit := by
     change ∃ x ∈ Set.Icc (0 : ℝ) 1, 0 = f x

@@ -7,7 +7,7 @@ open Filter
 /-!
 # Exercise 73
 
-Semantic formalization of `proof_gap/exercise_73/{1,...,12}.txt`.
+Semantic formalization of Exercise 73, gaps 1,...,12.
 -/
 
 namespace ProofGap.Exercise73
@@ -28,7 +28,7 @@ def RemainderData (e : ℝ) (θ : ℕ → ℝ) : Prop :=
     e = omega n + θ n / ((Nat.factorial n : ℝ) * (n : ℝ)) ∧
     0 < θ n ∧ θ n < 1
 
-/-- Source: `proof_gap/exercise_73/1.txt`; the factorial sum and denominator data are explicit. -/
+/-- Exercise 73, gap 1; the factorial sum and denominator data are explicit. -/
 theorem gap1
     (e : ℝ) (m : ℤ) (n : ℕ)
     (hrat : RatRep e m n)
@@ -40,7 +40,7 @@ theorem gap1
   rcases hremainder with ⟨θ, hθ⟩
   exact ⟨θ, he.symm.trans (hθ n hn).1⟩
 
-/-- Source: `proof_gap/exercise_73/2.txt`; use the same remainder witness. -/
+/-- Exercise 73, gap 2; use the same remainder witness. -/
 theorem gap2
     (e : ℝ) (θ : ℕ → ℝ)
     (hθ : RemainderData e θ) :
@@ -48,7 +48,7 @@ theorem gap2
   intro n hn
   exact (hθ n hn).2.1
 
-/-- Source: `proof_gap/exercise_73/3.txt`; use the same remainder witness. -/
+/-- Exercise 73, gap 3; use the same remainder witness. -/
 theorem gap3
     (e : ℝ) (θ : ℕ → ℝ)
     (hθ : RemainderData e θ) :
@@ -56,7 +56,7 @@ theorem gap3
   intro n hn
   exact (hθ n hn).2.2
 
-/-- Source: `proof_gap/exercise_73/4.txt`. -/
+/-- Exercise 73, gap 4. -/
 theorem gap4
     (m : ℤ) (n : ℕ) (θ : ℕ → ℝ)
     (hn : 0 < n)
@@ -70,7 +70,7 @@ theorem gap4
   have hf0 : (Nat.factorial n : ℝ) ≠ 0 := by positivity
   field_simp
 
-/-- Source: `proof_gap/exercise_73/5.txt`; integer membership is an explicit witness. -/
+/-- Exercise 73, gap 5; integer membership is an explicit witness. -/
 theorem gap5
     (m : ℤ) (n : ℕ)
     (hn : 0 < n) :
@@ -81,7 +81,7 @@ theorem gap5
   push_cast
   field_simp
 
-/-- Source: `proof_gap/exercise_73/6.txt`. -/
+/-- Exercise 73, gap 6. -/
 theorem gap6
     (n : ℕ) :
     IsInteger ((Nat.factorial n : ℝ) * omega n) := by
@@ -103,7 +103,7 @@ theorem gap6
   rw [Nat.cast_div_charZero hd]
   field_simp
 
-/-- Source: `proof_gap/exercise_73/7.txt`; θ is no longer a disconnected existential. -/
+/-- Exercise 73, gap 7; θ is no longer a disconnected existential. -/
 theorem gap7
     (n : ℕ) (θ : ℕ → ℝ)
     (hn : 0 < n)
@@ -111,7 +111,7 @@ theorem gap7
     0 < θ n / (n : ℝ) := by
   exact div_pos hθ (by positivity)
 
-/-- Source: `proof_gap/exercise_73/8.txt`; θ is no longer a disconnected existential. -/
+/-- Exercise 73, gap 8; θ is no longer a disconnected existential. -/
 theorem gap8
     (n : ℕ) (θ : ℕ → ℝ)
     (hn : 0 < n)
@@ -122,12 +122,12 @@ theorem gap8
   have : (1 : ℝ) ≤ n := by exact_mod_cast hn
   linarith
 
-/-- Source: `proof_gap/exercise_73/9.txt`. -/
+/-- Exercise 73, gap 9. -/
 theorem gap9 :
     (0 : ℝ) < 1 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_73/10.txt`; an integer cannot differ from an integer by a number in `(0,1)`. -/
+/-- Exercise 73, gap 10; an integer cannot differ from an integer by a number in `(0,1)`. -/
 theorem gap10
     (A B r : ℝ)
     (hA : IsInteger A)
@@ -148,7 +148,7 @@ theorem gap10
     exact_mod_cast (show ((a - b : ℤ) : ℝ) < 1 by simpa [← her])
   omega
 
-/-- Source: `proof_gap/exercise_73/11.txt`; exclude every integer fraction representation. -/
+/-- Exercise 73, gap 11; exclude every integer fraction representation. -/
 theorem gap11
     (e : ℝ)
     (hcontra : ∀ m : ℤ, ∀ n : ℕ, 0 < n → RatRep e m n → False) :
@@ -157,7 +157,7 @@ theorem gap11
   intro m n hn heq
   exact hcontra m n hn ⟨hn, heq⟩
 
-/-- Source: `proof_gap/exercise_73/12.txt`; standard Mathlib irrationality. -/
+/-- Exercise 73, gap 12; standard Mathlib irrationality. -/
 theorem gap12
     (e : ℝ)
     (hnotrat : ∀ m : ℤ, ∀ n : ℕ, 0 < n →

@@ -39,7 +39,7 @@ def Within (actual approximate tolerance : ℝ) : Prop :=
   |actual - approximate| ≤ tolerance
 
 /--
-Source: `proof_gap/exercise_3126/1.txt`; the node data determine an
+Exercise 3126, gap 1; the node data determine an
 interpolating polynomial, not the values of an otherwise arbitrary `y`.
 -/
 theorem gap1 :
@@ -58,14 +58,14 @@ theorem gap1 :
   intro x
   rfl
 
-/-- Source: `proof_gap/exercise_3126/2.txt`; expand the interpolating polynomial exactly. -/
+/-- Exercise 3126, gap 2; expand the interpolating polynomial exactly. -/
 theorem gap2 :
     ∀ x : ℝ, lagrangeModel x = cubicModel x := by
   intro x
   norm_num [lagrangeModel, cubicModel] <;> ring
 
 /--
-Source: `proof_gap/exercise_3126/3.txt`; a uniform function error is
+Exercise 3126, gap 3; a uniform function error is
 the missing hypothesis needed to control the integral error.
 -/
 theorem gap3 (y : ℝ → ℝ) (ε : ℝ)
@@ -92,7 +92,7 @@ theorem gap3 (y : ℝ → ℝ) (ε : ℝ)
         exact hbound x ⟨le_of_lt hx.1, hx.2⟩)
   simpa [Real.norm_eq_abs, mul_comm] using hnorm
 
-/-- Source: `proof_gap/exercise_3126/4.txt`; fundamental theorem for the polynomial. -/
+/-- Exercise 3126, gap 4; fundamental theorem for the polynomial. -/
 theorem gap4 :
     modelIntegral = antiderivative 2 - antiderivative 0 := by
   unfold modelIntegral
@@ -127,13 +127,13 @@ theorem gap4 :
       fun_prop
     exact hc_cont.intervalIntegrable 0 2
 
-/-- Source: `proof_gap/exercise_3126/5.txt`; evaluate the endpoints. -/
+/-- Exercise 3126, gap 5; evaluate the endpoints. -/
 theorem gap5 :
     antiderivative 2 - antiderivative 0 = 22 / 3 := by
   norm_num [antiderivative]
 
 /--
-Source: `proof_gap/exercise_3126/6.txt`; propagate the same uniform
+Exercise 3126, gap 6; propagate the same uniform
 error bound to the final integral estimate.
 -/
 theorem gap6 (y : ℝ → ℝ) (ε : ℝ)

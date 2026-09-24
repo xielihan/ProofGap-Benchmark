@@ -9,18 +9,18 @@ def f (x : ℝ) : ℝ := Real.sin x / x
 def HasLimitAtPosInfinity (g : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto g Filter.atTop (nhds L)
 
-/-- Source: `proof_gap/exercise_472/1.txt`. -/
+/-- Exercise 472, gap 1. -/
 theorem gap1 : HasLimitAtPosInfinity reciprocal 0 := by
   unfold HasLimitAtPosInfinity reciprocal
   simpa only [one_div] using
     (tendsto_inv_atTop_zero :
       Filter.Tendsto (fun x : ℝ => x⁻¹) Filter.atTop (nhds 0))
 
-/-- Source: `proof_gap/exercise_472/2.txt`. -/
+/-- Exercise 472, gap 2. -/
 theorem gap2 (x : ℝ) : |Real.sin x| ≤ 1 := by
   exact (abs_le).2 ⟨Real.neg_one_le_sin x, Real.sin_le_one x⟩
 
-/-- Source: `proof_gap/exercise_472/3.txt`; squeeze by `1/x` on the positive tail. -/
+/-- Exercise 472, gap 3; squeeze by `1/x` on the positive tail. -/
 theorem gap3 : HasLimitAtPosInfinity f 0 := by
   have hrec : Filter.Tendsto reciprocal Filter.atTop (nhds 0) := gap1
   have hneg :
@@ -46,7 +46,7 @@ theorem gap3 : HasLimitAtPosInfinity f 0 := by
   exact tendsto_of_tendsto_of_tendsto_of_le_of_le'
     hneg hrec (hbounds.mono fun _ hx => hx.1) (hbounds.mono fun _ hx => hx.2)
 
-/-- Source: `proof_gap/exercise_472/4.txt`. -/
+/-- Exercise 472, gap 4. -/
 theorem gap4 : HasLimitAtPosInfinity f 0 := by
   exact gap3
 

@@ -11,7 +11,7 @@ noncomputable section
 def y (x : ℝ) : ℝ := (x ^ 2 - 1) / (x ^ 3 - 3 * x + 2)
 def SingularPoint (f : ℝ → ℝ) (a : ℝ) : Prop := ¬ ContinuousAt f a
 
-/-- Source: `proof_gap/exercise_689/1.txt`; remove the unrelated free
+/-- Exercise 689, gap 1; remove the unrelated free
 `SingularPoint(y,x)` guard and state the polynomial factorization globally. -/
 private theorem abs_div_sub_tendsto_atTop
     (a : ℝ) (f : ℝ → ℝ) (hf : ContinuousAt f a) (hfa : f a ≠ 0) :
@@ -90,7 +90,7 @@ theorem gap1 (x : ℝ) :
       ((x - 1) * (x + 1)) / ((x - 1) ^ 2 * (x + 2)) := by
   congr 1 <;> ring
 
-/-- Source: `proof_gap/exercise_689/2.txt`; the two-sided signed limit at `1`
+/-- Exercise 689, gap 2; the two-sided signed limit at `1`
 does not equal `+∞`, so record the correct divergence in absolute value. -/
 theorem gap2 :
     Filter.Tendsto (fun x => |y x|)
@@ -119,7 +119,7 @@ theorem gap2 :
     (a := (1 : ℝ)) (f := fun x : ℝ => (x + 1) / (x + 2)) hf hfa
   simpa only [hy] using ht
 
-/-- Source: `proof_gap/exercise_689/3.txt`; likewise, the one-sided signed
+/-- Exercise 689, gap 3; likewise, the one-sided signed
 limits at `-2` have opposite signs, while the absolute value tends to `+∞`. -/
 theorem gap3 :
     Filter.Tendsto (fun x => |y x|)
@@ -148,19 +148,19 @@ theorem gap3 :
     (a := (-2 : ℝ)) (f := fun x : ℝ => (x + 1) / (x - 1)) hf hfa
   simpa only [hy] using ht
 
-/-- Source: `proof_gap/exercise_689/4.txt`; bind the actual singular point. -/
+/-- Exercise 689, gap 4; bind the actual singular point. -/
 theorem gap4 : SingularPoint y 1 := by
   unfold SingularPoint
   exact not_continuousAt_of_abs_tendsto_atTop
     (f := y) (a := (1 : ℝ)) gap2
 
-/-- Source: `proof_gap/exercise_689/5.txt`; bind the actual singular point. -/
+/-- Exercise 689, gap 5; bind the actual singular point. -/
 theorem gap5 : SingularPoint y (-2) := by
   unfold SingularPoint
   exact not_continuousAt_of_abs_tendsto_atTop
     (f := y) (a := (-2 : ℝ)) gap3
 
-/-- Source: `proof_gap/exercise_689/6.txt`. -/
+/-- Exercise 689, gap 6. -/
 theorem gap6 (x : ℝ) (hx : x ∈ ({1, -2} : Set ℝ)) :
     SingularPoint y x := by
   simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hx

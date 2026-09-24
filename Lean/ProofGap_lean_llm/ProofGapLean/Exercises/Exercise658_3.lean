@@ -12,7 +12,7 @@ def cbrt (x : ℝ) : ℝ := Real.rpow x (1 / 3)
 def target (x : ℝ) : ℝ := x / cbrt (1 - x ^ 3)
 def model (x : ℝ) : ℝ := (1 / cbrt 3) * (1 / cbrt (1 - x))
 
-/-- Source: `proof_gap/exercise_658_3/1.txt`; restrict to the left neighborhood of `1`. -/
+/-- Exercise 658_3, gap 1; restrict to the left neighborhood of `1`. -/
 theorem gap1 (x : ℝ) (hx0 : 0 < x) (hx1 : x < 1) :
     target x =
       (x / cbrt (1 - x)) * (1 / cbrt (1 + x + x ^ 2)) := by
@@ -34,7 +34,7 @@ theorem gap1 (x : ℝ) (hx0 : 0 < x) (hx1 : x < 1) :
   rw [hfactor, hrpow]
   field_simp [ha, hb]
 
-/-- Source: `proof_gap/exercise_658_3/2.txt`. -/
+/-- Exercise 658_3, gap 2. -/
 theorem gap2 :
     Filter.Tendsto (fun x : ℝ => target x / model x)
       (nhdsWithin 1 (Set.Iio 1)) (nhds 1) := by
@@ -126,7 +126,7 @@ theorem gap2 :
     exact hquot'.mono_left inf_le_left
   exact hlim.congr' hformula.symm
 
-/-- Source: `proof_gap/exercise_658_3/3.txt`. -/
+/-- Exercise 658_3, gap 3. -/
 theorem gap3 :
     Asymptotics.IsEquivalent (nhdsWithin 1 (Set.Iio 1)) target model := by
   have hmodel :
@@ -166,7 +166,7 @@ theorem gap3 :
   rw [hid, norm_mul]
   exact mul_le_mul_of_nonneg_right (le_of_lt hs) (norm_nonneg _)
 
-/-- Source: `proof_gap/exercise_658_3/4.txt`; unpack the singleton pair and preserve the one-sided domain. -/
+/-- Exercise 658_3, gap 4; unpack the singleton pair and preserve the one-sided domain. -/
 theorem gap4 (C n : ℝ) (h : (C, n) = (1 / cbrt 3, 1 / 3)) :
     Asymptotics.IsEquivalent (nhdsWithin 1 (Set.Iio 1))
       target (fun x => C * Real.rpow (1 / (1 - x)) n) := by

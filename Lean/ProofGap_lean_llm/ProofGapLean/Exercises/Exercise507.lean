@@ -8,7 +8,7 @@ noncomputable section
 
 def f (x : ℝ) : ℝ := Real.rpow ((x + 2) / (2 * x - 1)) (x ^ 2)
 
-/-- Source: `proof_gap/exercise_507/1.txt`; interpret the variable exponent by `Real.rpow`. -/
+/-- Exercise 507, gap 1; interpret the variable exponent by `Real.rpow`. -/
 theorem gap1 : Filter.Tendsto f Filter.atTop (nhds 0) := by
   let c : ℝ := Real.log (2 / 3 : ℝ)
   have hc : c < 0 := by

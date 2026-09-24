@@ -17,7 +17,7 @@ def normalized (a b x : ℝ) : ℝ :=
 def HasLimitAtPosInfinity (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f Filter.atTop (nhds L)
 
-/-- Source: `proof_gap/exercise_551/1.txt`; interpret the unsigned infinity as the positive tail where real powers are defined. -/
+/-- Exercise 551, gap 1; interpret the unsigned infinity as the positive tail where real powers are defined. -/
 private theorem original_eventuallyEq_normalized (a b : ℝ) :
     original a b =ᶠ[Filter.atTop] normalized a b := by
   filter_upwards [Filter.eventually_gt_atTop (0 : ℝ),
@@ -231,7 +231,7 @@ theorem gap1 (a b L : ℝ) :
     exact h.congr'
       (Filter.EventuallyEq.symm (original_eventuallyEq_normalized a b))
 
-/-- Source: `proof_gap/exercise_551/2.txt`; retain the correct exponents `x+a`, `x+b`, and `2x+a+b`. -/
+/-- Exercise 551, gap 2; retain the correct exponents `x+a`, `x+b`, and `2x+a+b`. -/
 theorem gap2 (a b : ℝ) :
     HasLimitAtPosInfinity (normalized a b)
       ((Real.exp a * Real.exp b) / Real.exp (2 * (a + b))) := by
@@ -254,7 +254,7 @@ theorem gap2 (a b : ℝ) :
       tendsto_rpow_one_add_div_linear (a + b) 2 (a + b)
   exact (ha.mul hb).div hab (Real.exp_ne_zero _)
 
-/-- Source: `proof_gap/exercise_551/3.txt`. -/
+/-- Exercise 551, gap 3. -/
 theorem gap3 (a b : ℝ) :
     (Real.exp a * Real.exp b) / Real.exp (2 * (a + b)) =
       Real.exp (-(a + b)) := by
@@ -262,7 +262,7 @@ theorem gap3 (a b : ℝ) :
   congr 1
   ring
 
-/-- Source: `proof_gap/exercise_551/4.txt`; use the corrected normalized expression. -/
+/-- Exercise 551, gap 4; use the corrected normalized expression. -/
 theorem gap4 (a b : ℝ) :
     HasLimitAtPosInfinity (normalized a b) (Real.exp (-(a + b))) := by
   rw [← gap3 a b]

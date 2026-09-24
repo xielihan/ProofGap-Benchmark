@@ -67,7 +67,7 @@ private lemma exists_positive_preimage (t : ℝ) (ht : 1 ≤ t) :
   rw [harg]
   exact hcot
 
-/-- Source: `proof_gap/exercise_181/1.txt`. -/
+/-- Exercise 181, gap 1. -/
 theorem gap1 : domain = Set.Ico (-1) 0 ∪ Set.Ioc 0 1 := by
   ext x
   constructor
@@ -86,7 +86,7 @@ theorem gap1 : domain = Set.Ico (-1) 0 ∪ Set.Ioc 0 1 := by
       rw [abs_of_pos hxlo]
       exact ⟨hxlo, hxhi⟩
 
-/-- Source: `proof_gap/exercise_181/2.txt`. -/
+/-- Exercise 181, gap 2. -/
 theorem gap2 : ∀ x : ℝ, x ∈ Set.Ioc 0 1 →
     Real.pi * x / 4 ∈ Set.Ioc 0 (Real.pi / 4) := by
   intro x hx
@@ -96,7 +96,7 @@ theorem gap2 : ∀ x : ℝ, x ∈ Set.Ioc 0 1 →
     simpa only [mul_one] using
       mul_le_mul_of_nonneg_left hx.2 Real.pi_pos.le
 
-/-- Source: `proof_gap/exercise_181/3.txt`. -/
+/-- Exercise 181, gap 3. -/
 theorem gap3 : ∀ x : ℝ, x ∈ Set.Ioc 0 1 → y x ∈ Set.Ici 1 := by
   intro x hx
   have htheta := gap2 x hx
@@ -123,7 +123,7 @@ theorem gap3 : ∀ x : ℝ, x ∈ Set.Ioc 0 1 → y x ∈ Set.Ici 1 := by
   change 1 ≤ Real.cos theta / Real.sin theta
   exact (le_div_iff₀ hsin).2 (by simpa using hsincos)
 
-/-- Source: `proof_gap/exercise_181/4.txt`. -/
+/-- Exercise 181, gap 4. -/
 theorem gap4 : ∀ x : ℝ, x ∈ Set.Ico (-1) 0 →
     Real.pi * x / 4 ∈ Set.Ico (-Real.pi / 4) 0 := by
   intro x hx
@@ -134,7 +134,7 @@ theorem gap4 : ∀ x : ℝ, x ∈ Set.Ico (-1) 0 →
   · exact div_neg_of_neg_of_pos (mul_neg_of_pos_of_neg Real.pi_pos hx.2)
       (by norm_num)
 
-/-- Source: `proof_gap/exercise_181/5.txt`. -/
+/-- Exercise 181, gap 5. -/
 theorem gap5 : ∀ x : ℝ, x ∈ Set.Ico (-1) 0 → y x ∈ Set.Iic (-1) := by
   intro x hx
   have hnegx : -x ∈ Set.Ioc (0 : ℝ) 1 := by
@@ -145,7 +145,7 @@ theorem gap5 : ∀ x : ℝ, x ∈ Set.Ico (-1) 0 → y x ∈ Set.Iic (-1) := by
   change y x ≤ -1
   linarith
 
-/-- Source: `proof_gap/exercise_181/6.txt`; endpoints ±1 are attained, so the source's strict `1<|t|` is corrected. -/
+/-- Exercise 181, gap 6; endpoints ±1 are attained, so the source's strict `1<|t|` is corrected. -/
 theorem gap6 : valueSet = {t : ℝ | 1 ≤ |t|} := by
   ext t
   constructor

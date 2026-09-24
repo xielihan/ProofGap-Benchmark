@@ -12,7 +12,7 @@ def normalized (x : ℝ) : ℝ := Real.sin (5 * x) / (5 * x)
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_471/1.txt`. -/
+/-- Exercise 471, gap 1. -/
 theorem gap1 (L : ℝ) :
     HasLimitAtZero original L ↔
       HasLimitAtZero (fun x => 5 * normalized x) L := by
@@ -30,7 +30,7 @@ theorem gap1 (L : ℝ) :
   · exact Filter.Tendsto.congr' hEq
   · exact Filter.Tendsto.congr' hEq.symm
 
-/-- Source: `proof_gap/exercise_471/2.txt`. -/
+/-- Exercise 471, gap 2. -/
 theorem gap2 : HasLimitAtZero (fun x => 5 * normalized x) (5 * 1) := by
   have hscale :
       Filter.Tendsto (fun x : ℝ => 5 * x)
@@ -64,11 +64,11 @@ theorem gap2 : HasLimitAtZero (fun x => 5 * normalized x) (5 * 1) := by
     tendsto_const_nhds
   simpa using hconst.mul hnorm
 
-/-- Source: `proof_gap/exercise_471/3.txt`. -/
+/-- Exercise 471, gap 3. -/
 theorem gap3 : (5 : ℝ) * 1 = 5 := by
   simp
 
-/-- Source: `proof_gap/exercise_471/4.txt`. -/
+/-- Exercise 471, gap 4. -/
 theorem gap4 : HasLimitAtZero (fun x => 5 * normalized x) 5 := by
   simpa using gap2
 

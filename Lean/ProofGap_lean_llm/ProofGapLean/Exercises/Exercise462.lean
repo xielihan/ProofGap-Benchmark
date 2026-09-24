@@ -25,7 +25,7 @@ def normalized (x : ℝ) : ℝ :=
 def HasLimitAtPosInfinity (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f Filter.atTop (nhds L)
 
-/-- Source: `proof_gap/exercise_462/1.txt`; replace the six-term ellipsis by a finite sum. -/
+/-- Exercise 462, gap 1; replace the six-term ellipsis by a finite sum. -/
 private theorem eventualRootData :
     ∀ᶠ x : ℝ in Filter.atTop,
       2 < x ∧
@@ -91,7 +91,7 @@ theorem gap1 (L : ℝ) :
   · intro h
     exact h.congr' hEq.symm
 
-/-- Source: `proof_gap/exercise_462/2.txt`; divide numerator and denominator by `x^5`. -/
+/-- Exercise 462, gap 2; divide numerator and denominator by `x^5`. -/
 theorem gap2 (L : ℝ) :
     HasLimitAtPosInfinity rationalized L ↔ HasLimitAtPosInfinity normalized L := by
   have hEq : rationalized =ᶠ[Filter.atTop] normalized := by
@@ -106,7 +106,7 @@ theorem gap2 (L : ℝ) :
   · intro h
     exact h.congr' hEq.symm
 
-/-- Source: `proof_gap/exercise_462/3.txt`. -/
+/-- Exercise 462, gap 3. -/
 theorem gap3 : HasLimitAtPosInfinity normalized 2 := by
   have hinv :
       Filter.Tendsto (fun x : ℝ => x⁻¹) Filter.atTop (nhds 0) :=

@@ -10,17 +10,17 @@ noncomputable section
 
 def f (x : ℝ) : ℝ := (1 - x) / (1 + x)
 
-/-- Source: `proof_gap/exercise_193/1.txt`. -/
+/-- Exercise 193, gap 1. -/
 theorem gap1 : f 0 = 1 := by
   norm_num [f]
 
-/-- Source: `proof_gap/exercise_193/2.txt`; exclude x=1. -/
+/-- Exercise 193, gap 2; exclude x=1. -/
 theorem gap2 : ∀ x : ℝ, x ≠ 1 → f (-x) = (1 + x) / (1 - x) := by
   intro x _
   simp only [f]
   congr 1 <;> ring
 
-/-- Source: `proof_gap/exercise_193/3.txt`; exclude x=-2. -/
+/-- Exercise 193, gap 3; exclude x=-2. -/
 theorem gap3 : ∀ x : ℝ, x ≠ -2 →
     f (x + 1) = (1 - (x + 1)) / (1 + x + 1) := by
   intro x _
@@ -28,23 +28,23 @@ theorem gap3 : ∀ x : ℝ, x ≠ -2 →
   congr 1
   ring
 
-/-- Source: `proof_gap/exercise_193/4.txt`; exclude x=-2. -/
+/-- Exercise 193, gap 4; exclude x=-2. -/
 theorem gap4 : ∀ x : ℝ, x ≠ -2 →
     (1 - (x + 1)) / (1 + x + 1) = -x / (x + 2) := by
   intro x _
   congr 1 <;> ring
 
-/-- Source: `proof_gap/exercise_193/5.txt`; exclude x=-2. -/
+/-- Exercise 193, gap 5; exclude x=-2. -/
 theorem gap5 : ∀ x : ℝ, x ≠ -2 → f (x + 1) = -x / (x + 2) := by
   intro x hx
   rw [gap3 x hx, gap4 x hx]
 
-/-- Source: `proof_gap/exercise_193/6.txt`; exclude the pole x=-1. -/
+/-- Exercise 193, gap 6; exclude the pole x=-1. -/
 theorem gap6 : ∀ x : ℝ, x ≠ -1 → f x + 1 = (1 - x) / (1 + x) + 1 := by
   intro x _
   rfl
 
-/-- Source: `proof_gap/exercise_193/7.txt`; exclude the pole x=-1. -/
+/-- Exercise 193, gap 7; exclude the pole x=-1. -/
 theorem gap7 : ∀ x : ℝ, x ≠ -1 →
     (1 - x) / (1 + x) + 1 = 2 / (1 + x) := by
   intro x hx
@@ -55,18 +55,18 @@ theorem gap7 : ∀ x : ℝ, x ≠ -1 →
   field_simp [h]
   ring
 
-/-- Source: `proof_gap/exercise_193/8.txt`; exclude the pole x=-1. -/
+/-- Exercise 193, gap 8; exclude the pole x=-1. -/
 theorem gap8 : ∀ x : ℝ, x ≠ -1 → f x + 1 = 2 / (1 + x) := by
   intro x hx
   rw [gap6 x hx, gap7 x hx]
 
-/-- Source: `proof_gap/exercise_193/9.txt`; exclude x=0 and the induced pole x=-1. -/
+/-- Exercise 193, gap 9; exclude x=0 and the induced pole x=-1. -/
 theorem gap9 : ∀ x : ℝ, x ≠ 0 → x ≠ -1 →
     f (1 / x) = (1 - 1 / x) / (1 + 1 / x) := by
   intro x _ _
   rfl
 
-/-- Source: `proof_gap/exercise_193/10.txt`. -/
+/-- Exercise 193, gap 10. -/
 theorem gap10 : ∀ x : ℝ, x ≠ 0 → x ≠ -1 →
     (1 - 1 / x) / (1 + 1 / x) = (x - 1) / (x + 1) := by
   intro x hx hxm
@@ -76,19 +76,19 @@ theorem gap10 : ∀ x : ℝ, x ≠ 0 → x ≠ -1 →
     linarith
   field_simp [hx, hxp]
 
-/-- Source: `proof_gap/exercise_193/11.txt`. -/
+/-- Exercise 193, gap 11. -/
 theorem gap11 : ∀ x : ℝ, x ≠ 0 → x ≠ -1 →
     f (1 / x) = (x - 1) / (x + 1) := by
   intro x hx hxm
   rw [gap9 x hx hxm, gap10 x hx hxm]
 
-/-- Source: `proof_gap/exercise_193/12.txt`; exclude both poles and the zero of f. -/
+/-- Exercise 193, gap 12; exclude both poles and the zero of f. -/
 theorem gap12 : ∀ x : ℝ, x ≠ -1 → x ≠ 1 →
     1 / f x = 1 / ((1 - x) / (1 + x)) := by
   intro x _ _
   rfl
 
-/-- Source: `proof_gap/exercise_193/13.txt`. -/
+/-- Exercise 193, gap 13. -/
 theorem gap13 : ∀ x : ℝ, x ≠ -1 → x ≠ 1 →
     1 / ((1 - x) / (1 + x)) = (1 + x) / (1 - x) := by
   intro x hxm hxp
@@ -102,7 +102,7 @@ theorem gap13 : ∀ x : ℝ, x ≠ -1 → x ≠ 1 →
     linarith
   field_simp [hden, hnum]
 
-/-- Source: `proof_gap/exercise_193/14.txt`. -/
+/-- Exercise 193, gap 14. -/
 theorem gap14 : ∀ x : ℝ, x ≠ -1 → x ≠ 1 →
     1 / f x = (1 + x) / (1 - x) := by
   intro x hxm hxp

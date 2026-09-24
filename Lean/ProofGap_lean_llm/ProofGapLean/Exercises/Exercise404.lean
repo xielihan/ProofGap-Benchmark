@@ -15,7 +15,7 @@ def HasLimitAtPosInfinity (f : ℝ → ℝ) (b : ℝ) : Prop :=
 
 def g (x : ℝ) : ℝ := 1 / x
 
-/-- Source: `proof_gap/exercise_404/1.txt`. -/
+/-- Exercise 404, gap 1. -/
 private theorem reciprocal_hasLimitAtInfinity : HasLimitAtInfinity g 0 := by
   intro ε hε
   refine ⟨1 / ε, one_div_pos.mpr hε, ?_⟩
@@ -33,21 +33,21 @@ theorem gap1 : ∀ f : ℝ → ℝ, ∀ b,
   intro f b
   rfl
 
-/-- Source: `proof_gap/exercise_404/2.txt`. -/
+/-- Exercise 404, gap 2. -/
 theorem gap2 : ∀ f : ℝ → ℝ, ∀ b,
     HasLimitAtNegInfinity f b ↔
       ∀ ε > 0, ∃ N > 0, ∀ x, x < -N → |f x - b| < ε := by
   intro f b
   rfl
 
-/-- Source: `proof_gap/exercise_404/3.txt`. -/
+/-- Exercise 404, gap 3. -/
 theorem gap3 : ∀ f : ℝ → ℝ, ∀ b,
     HasLimitAtPosInfinity f b ↔
       ∀ ε > 0, ∃ N > 0, ∀ x, N < x → |f x - b| < ε := by
   intro f b
   rfl
 
-/-- Source: `proof_gap/exercise_404/4.txt`; define the previously free example `g(x)=1/x`. -/
+/-- Exercise 404, gap 4; define the previously free example `g(x)=1/x`. -/
 theorem gap4 :
     HasLimitAtNegInfinity g 0 ↔ HasLimitAtPosInfinity g 0 := by
   have hall : HasLimitAtInfinity g 0 := reciprocal_hasLimitAtInfinity
@@ -70,7 +70,7 @@ theorem gap4 :
     rw [abs_of_neg hxneg]
     simpa using (neg_lt_neg hx)
 
-/-- Source: `proof_gap/exercise_404/5.txt`; define the previously free example `g(x)=1/x`. -/
+/-- Exercise 404, gap 5; define the previously free example `g(x)=1/x`. -/
 theorem gap5 :
     HasLimitAtPosInfinity g 0 ↔ HasLimitAtInfinity g 0 := by
   constructor
@@ -85,11 +85,11 @@ theorem gap5 :
     have hxpos : 0 < x := lt_trans hN hx
     simpa [abs_of_pos hxpos] using hx
 
-/-- Source: `proof_gap/exercise_404/6.txt`; define the previously free example `g(x)=1/x`. -/
+/-- Exercise 404, gap 6; define the previously free example `g(x)=1/x`. -/
 theorem gap6 : HasLimitAtInfinity g 0 := by
   exact reciprocal_hasLimitAtInfinity
 
-/-- Source: `proof_gap/exercise_404/7.txt`; define the previously free example `g(x)=1/x`. -/
+/-- Exercise 404, gap 7; define the previously free example `g(x)=1/x`. -/
 theorem gap7 : HasLimitAtNegInfinity g 0 := by
   intro ε hε
   rcases reciprocal_hasLimitAtInfinity ε hε with ⟨N, hN, hlim⟩

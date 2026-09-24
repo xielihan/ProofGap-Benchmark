@@ -26,7 +26,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 def finalDerivative (_x : ℝ) : ℝ :=
   1
 
-/-- Source: `proof_gap/exercise_926/1.txt`; exclude zeros of the quotient's
+/-- Exercise 926, gap 1; exclude zeros of the quotient's
 trigonometric denominator. -/
 theorem gap1 (x : ℝ) (hx : Real.sin x - Real.cos x ≠ 0) :
     HasDerivAt y (expandedDerivative x) x := by
@@ -71,7 +71,7 @@ theorem gap1 (x : ℝ) (hx : Real.sin x - Real.cos x ≠ 0) :
   rw [hderiv] at hraw
   exact hraw
 
-/-- Source: `proof_gap/exercise_926/2.txt`; the simplification is valid on
+/-- Exercise 926, gap 2; the simplification is valid on
 each component of the quotient's domain. -/
 theorem gap2 (x : ℝ) (hx : Real.sin x - Real.cos x ≠ 0) :
     expandedDerivative x = finalDerivative x := by
@@ -83,7 +83,7 @@ theorem gap2 (x : ℝ) (hx : Real.sin x - Real.cos x ≠ 0) :
       ((Real.sin x + Real.cos x) / (Real.sin x - Real.cos x))]
   field_simp [hx, hden] <;> ring
 
-/-- Source: `proof_gap/exercise_926/3.txt`; retain the omitted rational
+/-- Exercise 926, gap 3; retain the omitted rational
 trigonometric poles in the final derivative statement. -/
 theorem gap3 (x : ℝ) (hx : Real.sin x - Real.cos x ≠ 0) :
     HasDerivAt y (finalDerivative x) x := by

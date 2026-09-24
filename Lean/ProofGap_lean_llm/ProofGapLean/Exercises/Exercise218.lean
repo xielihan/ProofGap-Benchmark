@@ -9,12 +9,12 @@ noncomputable section
 def f (x : ℝ) : ℝ := Real.cos x
 def domain : Set ℝ := Set.Icc 0 Real.pi
 
-/-- Source: `proof_gap/exercise_218/1.txt`. -/
+/-- Exercise 218, gap 1. -/
 theorem gap1 : ∀ x₁ x₂, f x₂ - f x₁ = Real.cos x₂ - Real.cos x₁ := by
   intro x₁ x₂
   rfl
 
-/-- Source: `proof_gap/exercise_218/2.txt`. -/
+/-- Exercise 218, gap 2. -/
 theorem gap2 : ∀ x₁ x₂ : ℝ,
     Real.cos x₂ - Real.cos x₁ =
       -2 * Real.sin ((x₂ + x₁) / 2) * Real.sin ((x₂ - x₁) / 2) := by
@@ -36,38 +36,38 @@ theorem gap2 : ∀ x₁ x₂ : ℝ,
       dsimp [u, v]
       ring
 
-/-- Source: `proof_gap/exercise_218/3.txt`. -/
+/-- Exercise 218, gap 3. -/
 theorem gap3 : ∀ x₁ x₂,
     f x₂ - f x₁ =
       -2 * Real.sin ((x₂ + x₁) / 2) * Real.sin ((x₂ - x₁) / 2) := by
   intro x₁ x₂
   simpa [f] using (gap2 x₁ x₂)
 
-/-- Source: `proof_gap/exercise_218/4.txt`. -/
+/-- Exercise 218, gap 4. -/
 theorem gap4 : ∀ x₁ x₂ : ℝ, 0 < x₁ → x₁ < x₂ → x₂ < Real.pi →
     0 < (x₁ + x₂) / 2 := by
   intro x₁ x₂ hx₁ hx₁₂ hx₂
   linarith
 
-/-- Source: `proof_gap/exercise_218/5.txt`. -/
+/-- Exercise 218, gap 5. -/
 theorem gap5 : ∀ x₁ x₂ : ℝ, 0 < x₁ → x₁ < x₂ → x₂ < Real.pi →
     (x₁ + x₂) / 2 < Real.pi := by
   intro x₁ x₂ hx₁ hx₁₂ hx₂
   linarith
 
-/-- Source: `proof_gap/exercise_218/6.txt`. -/
+/-- Exercise 218, gap 6. -/
 theorem gap6 : ∀ x₁ x₂ : ℝ, 0 < x₁ → x₁ < x₂ → x₂ < Real.pi →
     0 < (x₂ - x₁) / 2 := by
   intro x₁ x₂ hx₁ hx₁₂ hx₂
   linarith
 
-/-- Source: `proof_gap/exercise_218/7.txt`. -/
+/-- Exercise 218, gap 7. -/
 theorem gap7 : ∀ x₁ x₂ : ℝ, 0 < x₁ → x₁ < x₂ → x₂ < Real.pi →
     (x₂ - x₁) / 2 < Real.pi / 2 := by
   intro x₁ x₂ hx₁ hx₁₂ hx₂
   linarith
 
-/-- Source: `proof_gap/exercise_218/8.txt`. -/
+/-- Exercise 218, gap 8. -/
 theorem gap8 : ∀ x₁ x₂ : ℝ, 0 < x₁ → x₁ < x₂ → x₂ < Real.pi →
     0 < Real.sin ((x₁ + x₂) / 2) := by
   intro x₁ x₂ hx₁ hx₁₂ hx₂
@@ -75,7 +75,7 @@ theorem gap8 : ∀ x₁ x₂ : ℝ, 0 < x₁ → x₁ < x₂ → x₂ < Real.pi 
     (gap4 x₁ x₂ hx₁ hx₁₂ hx₂)
     (gap5 x₁ x₂ hx₁ hx₁₂ hx₂)
 
-/-- Source: `proof_gap/exercise_218/9.txt`. -/
+/-- Exercise 218, gap 9. -/
 theorem gap9 : ∀ x₁ x₂ : ℝ, 0 < x₁ → x₁ < x₂ → x₂ < Real.pi →
     0 < Real.sin ((x₂ - x₁) / 2) := by
   intro x₁ x₂ hx₁ hx₁₂ hx₂
@@ -85,7 +85,7 @@ theorem gap9 : ∀ x₁ x₂ : ℝ, 0 < x₁ → x₁ < x₂ → x₂ < Real.pi 
     have hpi := Real.pi_pos
     linarith
 
-/-- Source: `proof_gap/exercise_218/10.txt`. -/
+/-- Exercise 218, gap 10. -/
 theorem gap10 : ∀ x₁ x₂ : ℝ, 0 < x₁ → x₁ < x₂ → x₂ < Real.pi →
     f x₂ - f x₁ < 0 := by
   intro x₁ x₂ hx₁ hx₁₂ hx₂
@@ -98,7 +98,7 @@ theorem gap10 : ∀ x₁ x₂ : ℝ, 0 < x₁ → x₁ < x₂ → x₂ < Real.pi
     linarith
   exact mul_neg_of_neg_of_pos (mul_neg_of_neg_of_pos hneg hs₁) hs₂
 
-/-- Source: `proof_gap/exercise_218/11.txt`. -/
+/-- Exercise 218, gap 11. -/
 theorem gap11 : StrictAntiOn f domain := by
   intro x hx y hy hxy
   change x ∈ Set.Icc 0 Real.pi at hx
@@ -127,7 +127,7 @@ theorem gap11 : StrictAntiOn f domain := by
     exact mul_neg_of_neg_of_pos (mul_neg_of_neg_of_pos hneg hs₁) hs₂
   exact sub_neg.mp hdiff
 
-/-- Source: `proof_gap/exercise_218/12.txt`. -/
+/-- Exercise 218, gap 12. -/
 theorem gap12 : StrictAntiOn f domain := by
   exact gap11
 

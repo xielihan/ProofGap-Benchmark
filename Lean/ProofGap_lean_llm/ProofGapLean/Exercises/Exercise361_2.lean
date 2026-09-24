@@ -18,7 +18,7 @@ def IsGraphCenter (g : ℝ → ℝ) (D : Set ℝ) (x₀ y₀ : ℝ) : Prop :=
   ∀ t, x₀ + t ∈ D → x₀ - t ∈ D →
     g (x₀ + t) + g (x₀ - t) = 2 * y₀
 
-/-- Source: `proof_gap/exercise_361_2/1.txt`; guard both points by the rational domain. -/
+/-- Exercise 361_2, gap 1; guard both points by the rational domain. -/
 theorem gap1 (a b c d : ℝ) (hc : c ≠ 0) : ∀ t, t ≠ 0 →
     f a b c d (centerX c d + t) +
       f a b c d (centerX c d - t) = 2 * centerY a c := by
@@ -37,14 +37,14 @@ theorem gap1 (a b c d : ℝ) (hc : c ≠ 0) : ∀ t, t ≠ 0 →
   field_simp [hc, ht]
   <;> ring
 
-/-- Source: `proof_gap/exercise_361_2/2.txt`; bind the vertical displacement instead of quantifying an arbitrary `y`. -/
+/-- Exercise 361_2, gap 2; bind the vertical displacement instead of quantifying an arbitrary `y`. -/
 theorem gap2 (a b c d t : ℝ) (hc : c ≠ 0) (ht : t ≠ 0) :
     verticalDisplacement a b c d t + centerY a c =
       f a b c d (centerX c d + t) := by
   unfold verticalDisplacement
   ring
 
-/-- Source: `proof_gap/exercise_361_2/3.txt`; state reflection of the two vertical displacements. -/
+/-- Exercise 361_2, gap 3; state reflection of the two vertical displacements. -/
 theorem gap3 (a b c d t : ℝ) (hc : c ≠ 0) (ht : t ≠ 0) :
     -verticalDisplacement a b c d t + centerY a c =
       f a b c d (centerX c d - t) := by
@@ -52,17 +52,17 @@ theorem gap3 (a b c d t : ℝ) (hc : c ≠ 0) (ht : t ≠ 0) :
   have h := gap1 a b c d hc t ht
   linarith
 
-/-- Source: `proof_gap/exercise_361_2/4.txt`; make the center coordinate a defined quantity and require `c≠0`. -/
+/-- Exercise 361_2, gap 4; make the center coordinate a defined quantity and require `c≠0`. -/
 theorem gap4 (c d : ℝ) (hc : c ≠ 0) :
     centerX c d = -d / c := by
   rfl
 
-/-- Source: `proof_gap/exercise_361_2/5.txt`; make the center ordinate a defined quantity and require `c≠0`. -/
+/-- Exercise 361_2, gap 5; make the center ordinate a defined quantity and require `c≠0`. -/
 theorem gap5 (a c : ℝ) (hc : c ≠ 0) :
     centerY a c = a / c := by
   rfl
 
-/-- Source: `proof_gap/exercise_361_2/6.txt`; use graph-center symmetry only where both rational values are defined. -/
+/-- Exercise 361_2, gap 6; use graph-center symmetry only where both rational values are defined. -/
 theorem gap6 (a b c d : ℝ) (hc : c ≠ 0) :
     IsGraphCenter (f a b c d) (domain c d) (centerX c d) (centerY a c) := by
   unfold IsGraphCenter

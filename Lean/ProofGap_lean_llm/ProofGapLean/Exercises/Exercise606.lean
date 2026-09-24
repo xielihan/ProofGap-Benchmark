@@ -13,7 +13,7 @@ def TailAntitone (s : ℕ → ℝ) : Prop :=
 def BoundedSeq (s : ℕ → ℝ) : Prop :=
   ∃ M : ℝ, ∀ n : ℕ, |s n| ≤ M
 
-/-- Source: `proof_gap/exercise_606/1.txt`. -/
+/-- Exercise 606, gap 1. -/
 private lemma one_le_pi_for_iteration : (1 : ℝ) ≤ Real.pi := by
   have hpi2 : 0 ≤ Real.pi / 2 := by
     apply div_nonneg
@@ -29,7 +29,7 @@ theorem gap1 (x : ℝ) (hx0 : 0 ≤ x) (hxπ : x ≤ Real.pi) :
     0 ≤ Real.sin x := by
   exact Real.sin_nonneg_of_nonneg_of_le_pi hx0 hxπ
 
-/-- Source: `proof_gap/exercise_606/2.txt`. -/
+/-- Exercise 606, gap 2. -/
 theorem gap2 (x : ℝ) (hx0 : 0 ≤ x) (hxπ : x ≤ Real.pi) :
     Real.sin x ≤ x := by
   calc
@@ -37,21 +37,21 @@ theorem gap2 (x : ℝ) (hx0 : 0 ≤ x) (hxπ : x ≤ Real.pi) :
     _ ≤ |x| := by exact Real.abs_sin_le_abs
     _ = x := abs_of_nonneg hx0
 
-/-- Source: `proof_gap/exercise_606/3.txt`. -/
+/-- Exercise 606, gap 3. -/
 theorem gap3 (x : ℝ) (hx0 : 0 ≤ x) (hxπ : x ≤ Real.pi) :
     0 ≤ Real.sin (Real.sin x) := by
   apply gap1 (Real.sin x)
   · exact gap1 x hx0 hxπ
   · exact (gap2 x hx0 hxπ).trans hxπ
 
-/-- Source: `proof_gap/exercise_606/4.txt`. -/
+/-- Exercise 606, gap 4. -/
 theorem gap4 (x : ℝ) (hx0 : 0 ≤ x) (hxπ : x ≤ Real.pi) :
     Real.sin (Real.sin x) ≤ Real.sin x := by
   apply gap2 (Real.sin x)
   · exact gap1 x hx0 hxπ
   · exact (gap2 x hx0 hxπ).trans hxπ
 
-/-- Source: `proof_gap/exercise_606/5.txt`. -/
+/-- Exercise 606, gap 5. -/
 theorem gap5 (s : ℕ → ℝ) (x : ℝ) (hx0 : 0 ≤ x) (hxπ : x ≤ Real.pi)
     (h1 : s 1 = Real.sin x) (hrec : ∀ n, s (n + 1) = Real.sin (s n)) :
     ∀ n : ℕ, 1 < n → 0 ≤ s n ∧ s n ≤ s (n - 1) := by
@@ -80,7 +80,7 @@ theorem gap5 (s : ℕ → ℝ) (x : ℝ) (hx0 : 0 ≤ x) (hxπ : x ≤ Real.pi)
     gap2 (s (n - 1)) hprev.1
       (hprev.2.trans one_le_pi_for_iteration)⟩
 
-/-- Source: `proof_gap/exercise_606/6.txt`; monotonicity starts at index `1` because `s 0` is unconstrained. -/
+/-- Exercise 606, gap 6; monotonicity starts at index `1` because `s 0` is unconstrained. -/
 theorem gap6 (s : ℕ → ℝ) (x : ℝ) (hx0 : 0 ≤ x) (hxπ : x ≤ Real.pi)
     (h1 : s 1 = Real.sin x) (hrec : ∀ n, s (n + 1) = Real.sin (s n)) :
     TailAntitone s := by
@@ -111,7 +111,7 @@ theorem gap6 (s : ℕ → ℝ) (x : ℝ) (hx0 : 0 ≤ x) (hxπ : x ≤ Real.pi)
   | succ n hmn ih =>
       exact (hadj n (by omega)).trans ih
 
-/-- Source: `proof_gap/exercise_606/7.txt`. -/
+/-- Exercise 606, gap 7. -/
 theorem gap7 (s : ℕ → ℝ) (x : ℝ) (hx0 : 0 ≤ x) (hxπ : x ≤ Real.pi)
     (h1 : s 1 = Real.sin x) (hrec : ∀ n, s (n + 1) = Real.sin (s n)) :
     BoundedSeq s := by
@@ -131,7 +131,7 @@ theorem gap7 (s : ℕ → ℝ) (x : ℝ) (hx0 : 0 ≤ x) (hxπ : x ≤ Real.pi)
       (abs_le.2 ⟨Real.neg_one_le_sin (s (n - 1)), Real.sin_le_one (s (n - 1))⟩).trans
         (le_max_right _ _)
 
-/-- Source: `proof_gap/exercise_606/8.txt`. -/
+/-- Exercise 606, gap 8. -/
 theorem gap8 (s : ℕ → ℝ) (x : ℝ) (hx0 : 0 ≤ x) (hxπ : x ≤ Real.pi)
     (h1 : s 1 = Real.sin x) (hrec : ∀ n, s (n + 1) = Real.sin (s n)) :
     ∃ μ : ℝ, Filter.Tendsto s Filter.atTop (nhds μ) ∧ 0 ≤ μ ∧ μ ≤ 1 := by
@@ -171,7 +171,7 @@ theorem gap8 (s : ℕ → ℝ) (x : ℝ) (hx0 : 0 ≤ x) (hxπ : x ≤ Real.pi)
       sInf (Set.range t) ≤ t 0 := csInf_le htbound (Set.mem_range_self 0)
       _ ≤ 1 := (hrange 0).2
 
-/-- Source: `proof_gap/exercise_606/9.txt`; express the shifted sequence limit explicitly. -/
+/-- Exercise 606, gap 9; express the shifted sequence limit explicitly. -/
 theorem gap9 (s : ℕ → ℝ) (μ : ℝ)
     (hlim : Filter.Tendsto s Filter.atTop (nhds μ))
     (hrec : ∀ n, s (n + 1) = Real.sin (s n)) :
@@ -194,12 +194,12 @@ theorem gap9 (s : ℕ → ℝ) (μ : ℝ)
       ((Filter.tendsto_add_atTop_iff_nat 1).2 hlim)
   exact tendsto_nhds_unique hshift_sin hshift_mu
 
-/-- Source: `proof_gap/exercise_606/10.txt`. -/
+/-- Exercise 606, gap 10. -/
 theorem gap10 (x : ℝ) (hx0 : 0 ≤ x) (hxπ : x ≤ Real.pi) :
     ∃ μ : ℝ, Real.sin μ = μ := by
   exact ⟨0, Real.sin_zero⟩
 
-/-- Source: `proof_gap/exercise_606/11.txt`. -/
+/-- Exercise 606, gap 11. -/
 theorem gap11 (μ : ℝ) (hμ0 : 0 ≤ μ) (hμ1 : μ ≤ 1)
     (hfix : Real.sin μ = μ) : μ = 0 := by
   apply le_antisymm ?_ hμ0
@@ -212,7 +212,7 @@ theorem gap11 (μ : ℝ) (hμ0 : 0 ≤ μ) (hμ1 : μ ≤ 1)
   rw [hfix] at hstrict
   exact (lt_irrefl |μ|) hstrict
 
-/-- Source: `proof_gap/exercise_606/12.txt`. -/
+/-- Exercise 606, gap 12. -/
 theorem gap12 (s : ℕ → ℝ) (x : ℝ) (hxπ : Real.pi < x)
     (hx2π : x ≤ 2 * Real.pi) (h1 : s 1 = Real.sin x)
     (hrec : ∀ n, s (n + 1) = Real.sin (s n)) :
@@ -239,7 +239,7 @@ theorem gap12 (s : ℕ → ℝ) (x : ℝ) (hxπ : Real.pi < x)
   subst μ
   simpa only [t, neg_neg, neg_zero] using hlim.neg
 
-/-- Source: `proof_gap/exercise_606/13.txt`; iteration of sine converges to its unique fixed point. -/
+/-- Exercise 606, gap 13; iteration of sine converges to its unique fixed point. -/
 theorem gap13 (s : ℕ → ℝ) (x : ℝ) (h1 : s 1 = Real.sin x)
     (hrec : ∀ n, s (n + 1) = Real.sin (s n)) :
     Filter.Tendsto s Filter.atTop (nhds 0) := by

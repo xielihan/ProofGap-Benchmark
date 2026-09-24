@@ -3,7 +3,7 @@ import ProofGapLean.Prelude.Elementary
 /-!
 # Exercise 27
 
-Semantic formalization of `proof_gap/exercise_27/{1,...,6}.txt`.
+Semantic formalization of Exercise 27, gaps 1,...,6.
 -/
 
 namespace ProofGap.Exercise27
@@ -11,7 +11,7 @@ namespace ProofGap.Exercise27
 def Original (x : ℝ) : Prop :=
   |x + 2| - |x| > 1
 
-/-- Source: `proof_gap/exercise_27/1.txt`; the omitted original inequality is explicit. -/
+/-- Exercise 27, gap 1; the omitted original inequality is explicit. -/
 theorem gap1
     (x : ℝ)
     (h0 : Original x) :
@@ -19,7 +19,7 @@ theorem gap1
   unfold Original at h0
   linarith
 
-/-- Source: `proof_gap/exercise_27/2.txt`. -/
+/-- Exercise 27, gap 2. -/
 theorem gap2
     (x : ℝ)
     (h1 : 1 + |x| < |x + 2|) :
@@ -29,7 +29,7 @@ theorem gap2
     mul_pos (sub_pos.mpr h1) (by positivity)
   nlinarith [sq_abs x, sq_abs (x + 2)]
 
-/-- Source: `proof_gap/exercise_27/3.txt`. -/
+/-- Exercise 27, gap 3. -/
 theorem gap3
     (x : ℝ)
     (h2 : 2 * |x| < 4 * x + 3) :
@@ -41,7 +41,7 @@ theorem gap3
     mul_pos (sub_pos.mpr h2) (by linarith [abs_nonneg x])
   nlinarith [sq_abs x]
 
-/-- Source: `proof_gap/exercise_27/4.txt`. -/
+/-- Exercise 27, gap 4. -/
 theorem gap4
     (x : ℝ)
     (h3 : 4 * x ^ 2 + 8 * x + 3 > 0) :
@@ -54,7 +54,7 @@ theorem gap4
       mul_nonpos_of_nonpos_of_nonneg (by linarith) (by linarith)
     nlinarith
 
-/-- Source: `proof_gap/exercise_27/5.txt`. -/
+/-- Exercise 27, gap 5. -/
 theorem gap5
     (x : ℝ)
     (h1 : 1 + |x| < |x + 2|)
@@ -69,7 +69,7 @@ theorem gap5
   · rw [abs_of_neg (lt_of_not_ge hx2)] at h1
     linarith
 
-/-- Source: `proof_gap/exercise_27/6.txt`. -/
+/-- Exercise 27, gap 6. -/
 theorem gap6
     (x : ℝ)
     (h4 : x > -(1 / 2 : ℝ) ∨ x < -(3 / 2 : ℝ))

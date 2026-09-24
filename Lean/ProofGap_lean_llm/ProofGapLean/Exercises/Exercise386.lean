@@ -11,14 +11,14 @@ def f (x : ℝ) : ℝ := x / (1 + x)
 def rangeOnNonnegative : Set ℝ :=
   {y | ∃ x ∈ Set.Ici (0 : ℝ), y = f x}
 
-/-- Source: `proof_gap/exercise_386/1.txt`; restore the nonnegative domain. -/
+/-- Exercise 386, gap 1; restore the nonnegative domain. -/
 theorem gap1 : ∀ x : ℝ, 0 ≤ x → 0 ≤ f x := by
   intro x hx
   unfold f
   apply div_nonneg hx
   linarith
 
-/-- Source: `proof_gap/exercise_386/2.txt`; restore the nonnegative domain. -/
+/-- Exercise 386, gap 2; restore the nonnegative domain. -/
 theorem gap2 : ∀ x : ℝ, 0 ≤ x → f x < 1 := by
   intro x hx
   unfold f
@@ -26,11 +26,11 @@ theorem gap2 : ∀ x : ℝ, 0 ≤ x → f x < 1 := by
   apply (div_lt_iff₀ hden).2
   linarith
 
-/-- Source: `proof_gap/exercise_386/3.txt`. -/
+/-- Exercise 386, gap 3. -/
 theorem gap3 : (0 : ℝ) < 1 := by
   exact zero_lt_one
 
-/-- Source: `proof_gap/exercise_386/4.txt`. -/
+/-- Exercise 386, gap 4. -/
 theorem gap4 : StrictMonoOn f (Set.Ici 0) := by
   intro x hx y hy hxy
   have hx0 : 0 ≤ x := Set.mem_Ici.mp hx
@@ -41,7 +41,7 @@ theorem gap4 : StrictMonoOn f (Set.Ici 0) := by
   apply (div_lt_div_iff₀ hxd hyd).2
   nlinarith
 
-/-- Source: `proof_gap/exercise_386/5.txt`. -/
+/-- Exercise 386, gap 5. -/
 theorem gap5 :
     Filter.Tendsto f Filter.atTop (nhds 1) := by
   have hshift :
@@ -67,7 +67,7 @@ theorem gap5 :
   field_simp [hne]
   ring
 
-/-- Source: `proof_gap/exercise_386/6.txt`. -/
+/-- Exercise 386, gap 6. -/
 theorem gap6 : sInf rangeOnNonnegative = 0 := by
   have hzero : (0 : ℝ) ∈ rangeOnNonnegative := by
     refine ⟨0, Set.mem_Ici.mpr le_rfl, ?_⟩
@@ -84,7 +84,7 @@ theorem gap6 : sInf rangeOnNonnegative = 0 := by
     rcases hy with ⟨x, hx, rfl⟩
     exact gap1 x (Set.mem_Ici.mp hx)
 
-/-- Source: `proof_gap/exercise_386/7.txt`. -/
+/-- Exercise 386, gap 7. -/
 theorem gap7 : sSup rangeOnNonnegative = 1 := by
   have hzero : (0 : ℝ) ∈ rangeOnNonnegative := by
     refine ⟨0, Set.mem_Ici.mpr le_rfl, ?_⟩
@@ -125,7 +125,7 @@ theorem gap7 : sSup rangeOnNonnegative = 1 := by
       nlinarith [hxmul]
     exact (not_lt_of_ge hle) hgt
 
-/-- Source: `proof_gap/exercise_386/8.txt`. -/
+/-- Exercise 386, gap 8. -/
 theorem gap8 :
     sInf rangeOnNonnegative = 0 ∧ sSup rangeOnNonnegative = 1 := by
   exact ⟨gap6, gap7⟩

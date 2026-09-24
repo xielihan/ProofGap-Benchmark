@@ -13,48 +13,48 @@ noncomputable def selector (x : ℝ) : ℝ := by
   classical
   exact if IsRational x then x else 2 - x
 
-/-- Source: `proof_gap/exercise_745/1.txt`; repair the implication scope. -/
+/-- Exercise 745, gap 1; repair the implication scope. -/
 theorem gap1 (x : ℝ) : IsRational x → ∃ u : ℝ, u = x := by
   intro _
   exact ⟨x, rfl⟩
 
-/-- Source: `proof_gap/exercise_745/2.txt`; repair the implication scope. -/
+/-- Exercise 745, gap 2; repair the implication scope. -/
 theorem gap2 (x : ℝ) (hx : 0 < x) : IsRational x → ∃ u : ℝ, 0 < u := by
   intro _
   exact ⟨x, hx⟩
 
-/-- Source: `proof_gap/exercise_745/3.txt`; repair the implication scope. -/
+/-- Exercise 745, gap 3; repair the implication scope. -/
 theorem gap3 (x : ℝ) (hx : x < 1) : IsRational x → ∃ u : ℝ, u < 1 := by
   intro _
   exact ⟨x, hx⟩
 
-/-- Source: `proof_gap/exercise_745/4.txt`; use the intended witness `u=x`. -/
+/-- Exercise 745, gap 4; use the intended witness `u=x`. -/
 theorem gap4 (x : ℝ) (hx0 : 0 < x) (hx1 : x < 1) :
     IsRational x → ∃ u : ℝ, u = x ∧ folded u = x := by
   intro _
   refine ⟨x, rfl, ?_⟩
   simp [folded, hx0, le_of_lt hx1]
 
-/-- Source: `proof_gap/exercise_745/5.txt`; repair the implication scope. -/
+/-- Exercise 745, gap 5; repair the implication scope. -/
 theorem gap5 (x : ℝ) : ¬ IsRational x → ∃ u : ℝ, u = 2 - x := by
   intro _
   exact ⟨2 - x, rfl⟩
 
-/-- Source: `proof_gap/exercise_745/6.txt`; use the intended witness `u=2-x`. -/
+/-- Exercise 745, gap 6; use the intended witness `u=2-x`. -/
 theorem gap6 (x : ℝ) (hx : x < 1) :
     ¬ IsRational x → ∃ u : ℝ, u = 2 - x ∧ 1 < u := by
   intro _
   refine ⟨2 - x, rfl, ?_⟩
   linarith
 
-/-- Source: `proof_gap/exercise_745/7.txt`; use the intended witness `u=2-x`. -/
+/-- Exercise 745, gap 7; use the intended witness `u=2-x`. -/
 theorem gap7 (x : ℝ) (hx : 0 < x) :
     ¬ IsRational x → ∃ u : ℝ, u = 2 - x ∧ u < 2 := by
   intro _
   refine ⟨2 - x, rfl, ?_⟩
   linarith
 
-/-- Source: `proof_gap/exercise_745/8.txt`; use the intended witness `u=2-x`. -/
+/-- Exercise 745, gap 8; use the intended witness `u=2-x`. -/
 theorem gap8 (x : ℝ) (hx0 : 0 < x) (hx1 : x < 1) :
     ¬ IsRational x → ∃ u : ℝ, u = 2 - x ∧ folded u = 2 - u := by
   intro _
@@ -65,14 +65,14 @@ theorem gap8 (x : ℝ) (hx0 : 0 < x) (hx1 : x < 1) :
   unfold folded
   rw [if_neg hu]
 
-/-- Source: `proof_gap/exercise_745/9.txt`; use the intended witness `u=2-x`. -/
+/-- Exercise 745, gap 9; use the intended witness `u=2-x`. -/
 theorem gap9 (x : ℝ) :
     ¬ IsRational x → ∃ u : ℝ, u = 2 - x ∧ 2 - u = x := by
   intro _
   refine ⟨2 - x, rfl, ?_⟩
   linarith
 
-/-- Source: `proof_gap/exercise_745/10.txt`; use the intended witness `u=2-x`. -/
+/-- Exercise 745, gap 10; use the intended witness `u=2-x`. -/
 theorem gap10 (x : ℝ) (hx0 : 0 < x) (hx1 : x < 1) :
     ¬ IsRational x → ∃ u : ℝ, u = 2 - x ∧ folded u = x := by
   intro h
@@ -82,7 +82,7 @@ theorem gap10 (x : ℝ) (hx0 : 0 < x) (hx1 : x < 1) :
     folded u = 2 - u := hfold
     _ = x := by linarith [hu]
 
-/-- Source: `proof_gap/exercise_745/11.txt`. -/
+/-- Exercise 745, gap 11. -/
 theorem gap11 (x : ℝ) (hx0 : 0 < x) (hx1 : x < 1) :
     folded (selector x) = x := by
   classical
@@ -92,7 +92,7 @@ theorem gap11 (x : ℝ) (hx0 : 0 < x) (hx1 : x < 1) :
   · rcases gap10 x hx0 hx1 h with ⟨u, hu, hfold⟩
     simpa [selector, h, hu] using hfold
 
-/-- Source: `proof_gap/exercise_745/12.txt`; retain the source's strict domain `0<x<1`. -/
+/-- Exercise 745, gap 12; retain the source's strict domain `0<x<1`. -/
 theorem gap12 : ContinuousOn (folded ∘ selector) (Set.Ioo 0 1) := by
   refine continuous_id.continuousOn.congr ?_
   intro x hx

@@ -21,7 +21,7 @@ def normalized (x : ℝ) (n : ℕ) : ℝ :=
   (n / (n * (x ^ 2 + 1) + x)) *
   Real.tan (Real.pi / 4 + x / (2 * n)) ^ n
 
-/-- Source: `proof_gap/exercise_587/1.txt`. -/
+/-- Exercise 587, gap 1. -/
 private theorem eventually_seq_eq_normalized (x : ℝ) :
     (fun n : ℕ => seq x n) =ᶠ[Filter.atTop]
       (fun n : ℕ => normalized x n) := by
@@ -65,7 +65,7 @@ theorem gap1 (x L : ℝ) :
   · intro h
     exact h.congr' (eventually_seq_eq_normalized x).symm
 
-/-- Source: `proof_gap/exercise_587/2.txt`. -/
+/-- Exercise 587, gap 2. -/
 theorem gap2 (x : ℝ) :
     Filter.Tendsto (normalized x) Filter.atTop
       (nhds (Real.exp x / (1 + x ^ 2))) := by
@@ -320,7 +320,7 @@ theorem gap2 (x : ℝ) :
   rw [← hlimit]
   simpa only [normalized] using hprod
 
-/-- Source: `proof_gap/exercise_587/3.txt`. -/
+/-- Exercise 587, gap 3. -/
 theorem gap3 (x : ℝ) :
     Filter.Tendsto (seq x) Filter.atTop
       (nhds (Real.exp x / (1 + x ^ 2))) := by

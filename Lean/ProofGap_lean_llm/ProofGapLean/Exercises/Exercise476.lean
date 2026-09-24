@@ -15,7 +15,7 @@ def cancelled (x : ℝ) : ℝ := 2 * Real.cos (4 * x)
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_476/1.txt`. -/
+/-- Exercise 476, gap 1. -/
 theorem gap1 (L : ℝ) :
     HasLimitAtZero original L ↔ HasLimitAtZero transformed L := by
   have hfun : original = transformed := by
@@ -28,7 +28,7 @@ theorem gap1 (L : ℝ) :
     ring
   rw [hfun]
 
-/-- Source: `proof_gap/exercise_476/2.txt`. -/
+/-- Exercise 476, gap 2. -/
 theorem gap2 (L : ℝ) :
     HasLimitAtZero transformed L ↔ HasLimitAtZero cancelled L := by
   have hsmall :
@@ -62,7 +62,7 @@ theorem gap2 (L : ℝ) :
   · intro hc
     exact hc.congr' h_event.symm
 
-/-- Source: `proof_gap/exercise_476/3.txt`. -/
+/-- Exercise 476, gap 3. -/
 theorem gap3 : HasLimitAtZero cancelled 2 := by
   have hcont : Continuous cancelled := by
     unfold cancelled
@@ -76,7 +76,7 @@ theorem gap3 : HasLimitAtZero cancelled 2 := by
   unfold HasLimitAtZero
   exact ht.mono_left inf_le_left
 
-/-- Source: `proof_gap/exercise_476/4.txt`. -/
+/-- Exercise 476, gap 4. -/
 theorem gap4 : HasLimitAtZero original 2 := by
   exact (gap1 2).2 ((gap2 2).2 gap3)
 

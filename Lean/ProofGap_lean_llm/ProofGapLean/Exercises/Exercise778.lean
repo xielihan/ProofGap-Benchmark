@@ -15,52 +15,52 @@ def v (x y : ℝ) : ℝ := Real.arccos (cosineArgument x y)
 
 def ε (x y : ℝ) : ℕ := if 0 ≤ x + y then 0 else 1
 
-/-- Source: `proof_gap/exercise_778/1.txt`. -/
+/-- Exercise 778, gap 1. -/
 theorem gap1 (x : ℝ) (hx : |x| ≤ 1) : 0 ≤ Real.arccos x := by
   exact Real.arccos_nonneg x
 
-/-- Source: `proof_gap/exercise_778/2.txt`. -/
+/-- Exercise 778, gap 2. -/
 theorem gap2 (x : ℝ) (hx : |x| ≤ 1) : Real.arccos x ≤ Real.pi := by
   exact Real.arccos_le_pi x
 
-/-- Source: `proof_gap/exercise_778/3.txt`. -/
+/-- Exercise 778, gap 3. -/
 theorem gap3 : 0 ≤ Real.pi := by
   exact le_of_lt Real.pi_pos
 
-/-- Source: `proof_gap/exercise_778/4.txt`. -/
+/-- Exercise 778, gap 4. -/
 theorem gap4 (y : ℝ) (hy : |y| ≤ 1) : 0 ≤ Real.arccos y := by
   exact Real.arccos_nonneg y
 
-/-- Source: `proof_gap/exercise_778/5.txt`. -/
+/-- Exercise 778, gap 5. -/
 theorem gap5 (y : ℝ) (hy : |y| ≤ 1) : Real.arccos y ≤ Real.pi := by
   exact Real.arccos_le_pi y
 
-/-- Source: `proof_gap/exercise_778/6.txt`. -/
+/-- Exercise 778, gap 6. -/
 theorem gap6 : 0 ≤ Real.pi := by
   exact gap3
 
-/-- Source: `proof_gap/exercise_778/7.txt`. -/
+/-- Exercise 778, gap 7. -/
 theorem gap7 (x y : ℝ) (hx : |x| ≤ 1) (hy : |y| ≤ 1) : 0 ≤ u x y := by
   unfold u
   exact add_nonneg (gap1 x hx) (gap4 y hy)
 
-/-- Source: `proof_gap/exercise_778/8.txt`. -/
+/-- Exercise 778, gap 8. -/
 theorem gap8 (x y : ℝ) (hx : |x| ≤ 1) (hy : |y| ≤ 1) :
     u x y ≤ 2 * Real.pi := by
   unfold u
   linarith [gap2 x hx, gap5 y hy]
 
-/-- Source: `proof_gap/exercise_778/9.txt`. -/
+/-- Exercise 778, gap 9. -/
 theorem gap9 : 0 ≤ 2 * Real.pi := by
   linarith [gap3]
 
-/-- Source: `proof_gap/exercise_778/10.txt`. -/
+/-- Exercise 778, gap 10. -/
 theorem gap10 (x y : ℝ) (hu0 : 0 ≤ u x y) (huπ : u x y ≤ Real.pi) :
     Real.arccos x ≤ Real.pi - Real.arccos y := by
   unfold u at huπ
   linarith
 
-/-- Source: `proof_gap/exercise_778/11.txt`. -/
+/-- Exercise 778, gap 11. -/
 theorem gap11 (x y : ℝ) (hx : |x| ≤ 1) (hy : |y| ≤ 1)
     (huπ : u x y ≤ Real.pi) :
     x ≥ Real.cos (Real.pi - Real.arccos y) := by
@@ -79,7 +79,7 @@ theorem gap11 (x y : ℝ) (hx : |x| ≤ 1) (hy : |y| ≤ 1)
     Real.cos_arccos hxlo hxhi
   rwa [hcx] at hcos
 
-/-- Source: `proof_gap/exercise_778/12.txt`. -/
+/-- Exercise 778, gap 12. -/
 theorem gap12 (y : ℝ) (hy : |y| ≤ 1) :
     Real.cos (Real.pi - Real.arccos y) = -y := by
   rcases abs_le.mp hy with ⟨hylo, hyhi⟩
@@ -87,7 +87,7 @@ theorem gap12 (y : ℝ) (hy : |y| ≤ 1) :
     Real.cos_arccos hylo hyhi]
   ring
 
-/-- Source: `proof_gap/exercise_778/13.txt`. -/
+/-- Exercise 778, gap 13. -/
 theorem gap13 (x y : ℝ) (hx : |x| ≤ 1) (hy : |y| ≤ 1)
     (huπ : u x y ≤ Real.pi) :
     x ≥ -y := by
@@ -95,13 +95,13 @@ theorem gap13 (x y : ℝ) (hx : |x| ≤ 1) (hy : |y| ≤ 1)
   rw [gap12 y hy] at h
   exact h
 
-/-- Source: `proof_gap/exercise_778/14.txt`. -/
+/-- Exercise 778, gap 14. -/
 theorem gap14 (x y : ℝ) (hx : |x| ≤ 1) (hy : |y| ≤ 1)
     (huπ : u x y ≤ Real.pi) :
     x + y ≥ 0 := by
   linarith [gap13 x y hx hy huπ]
 
-/-- Source: `proof_gap/exercise_778/15.txt`. -/
+/-- Exercise 778, gap 15. -/
 theorem gap15 (x y : ℝ) (hx : |x| ≤ 1) (hy : |y| ≤ 1)
     (hπu : Real.pi < u x y) :
     x + y < 0 := by
@@ -123,7 +123,7 @@ theorem gap15 (x y : ℝ) (hx : |x| ≤ 1) (hy : |y| ≤ 1)
   rw [Real.cos_arccos hxlo hxhi, gap12 y hy] at hcos
   linarith
 
-/-- Source: `proof_gap/exercise_778/16.txt`. -/
+/-- Exercise 778, gap 16. -/
 theorem gap16 (x y : ℝ) (hx : |x| ≤ 1) (hy : |y| ≤ 1) :
     Real.cos (Real.arccos x + Real.arccos y) = cosineArgument x y := by
   rcases abs_le.mp hx with ⟨hxlo, hxhi⟩
@@ -132,7 +132,7 @@ theorem gap16 (x y : ℝ) (hx : |x| ≤ 1) (hy : |y| ≤ 1) :
   rw [Real.cos_add, Real.cos_arccos hxlo hxhi,
     Real.cos_arccos hylo hyhi, Real.sin_arccos, Real.sin_arccos]
 
-/-- Source: `proof_gap/exercise_778/17.txt`. -/
+/-- Exercise 778, gap 17. -/
 theorem gap17 (x y : ℝ) (hx : |x| ≤ 1) (hy : |y| ≤ 1) :
     Real.cos (u x y) = Real.cos (v x y) := by
   have harg : cosineArgument x y = Real.cos (u x y) := by
@@ -143,19 +143,19 @@ theorem gap17 (x y : ℝ) (hx : |x| ≤ 1) (hy : |y| ≤ 1) :
   rw [Real.cos_arccos (Real.neg_one_le_cos (u x y))
     (Real.cos_le_one (u x y))]
 
-/-- Source: `proof_gap/exercise_778/18.txt`. -/
+/-- Exercise 778, gap 18. -/
 theorem gap18 (x y : ℝ) : 0 ≤ v x y := by
   exact Real.arccos_nonneg (cosineArgument x y)
 
-/-- Source: `proof_gap/exercise_778/19.txt`. -/
+/-- Exercise 778, gap 19. -/
 theorem gap19 (x y : ℝ) : v x y ≤ Real.pi := by
   exact Real.arccos_le_pi (cosineArgument x y)
 
-/-- Source: `proof_gap/exercise_778/20.txt`. -/
+/-- Exercise 778, gap 20. -/
 theorem gap20 : 0 ≤ Real.pi := by
   exact gap3
 
-/-- Source: `proof_gap/exercise_778/21.txt`. -/
+/-- Exercise 778, gap 21. -/
 theorem gap21 (x y : ℝ) (hu0 : 0 ≤ u x y) (huπ : u x y ≤ Real.pi)
     (hcos : Real.cos (u x y) = Real.cos (v x y)) :
     u x y = v x y := by
@@ -164,7 +164,7 @@ theorem gap21 (x y : ℝ) (hu0 : 0 ≤ u x y) (huπ : u x y ≤ Real.pi)
   · exact ⟨gap18 x y, gap19 x y⟩
   · exact hcos
 
-/-- Source: `proof_gap/exercise_778/22.txt`. -/
+/-- Exercise 778, gap 22. -/
 theorem gap22 (x y : ℝ) (hπu : Real.pi ≤ u x y)
     (hu2π : u x y ≤ 2 * Real.pi)
     (hcos : Real.cos (u x y) = Real.cos (v x y)) :
@@ -187,7 +187,7 @@ theorem gap22 (x y : ℝ) (hπu : Real.pi ≤ u x y)
       ⟨hw0, hwπ⟩ ⟨hv0, hvπ⟩ hwcos
   linarith
 
-/-- Source: `proof_gap/exercise_778/23.txt`; encode the two source cases with `if`. -/
+/-- Exercise 778, gap 23; encode the two source cases with `if`. -/
 theorem gap23 (x y : ℝ) (hx : |x| ≤ 1) (hy : |y| ≤ 1) :
     u x y = if 0 ≤ x + y then v x y else 2 * Real.pi - v x y := by
   have hu0 : 0 ≤ u x y := gap7 x y hx hy
@@ -209,7 +209,7 @@ theorem gap23 (x y : ℝ) (hx : |x| ≤ 1) (hy : |y| ≤ 1) :
       exact hxy (gap14 x y hx hy huπ)
     exact gap22 x y hπu hu2 hcos
 
-/-- Source: `proof_gap/exercise_778/24.txt`; give the exponent and indicator natural-number types. -/
+/-- Exercise 778, gap 24; give the exponent and indicator natural-number types. -/
 theorem gap24 (x y : ℝ) (hx : |x| ≤ 1) (hy : |y| ≤ 1) :
     u x y = (-1 : ℝ) ^ (ε x y) * v x y + 2 * (ε x y : ℝ) * Real.pi := by
   rw [gap23 x y hx hy]
@@ -217,7 +217,7 @@ theorem gap24 (x y : ℝ) (hx : |x| ≤ 1) (hy : |y| ≤ 1) :
   · simp [hxy, ε]
   · simp [hxy, ε, sub_eq_add_neg, add_comm]
 
-/-- Source: `proof_gap/exercise_778/25.txt`. -/
+/-- Exercise 778, gap 25. -/
 theorem gap25 (x y : ℝ) (hx : |x| ≤ 1) (hy : |y| ≤ 1) :
     Real.arccos x + Real.arccos y =
       (-1 : ℝ) ^ (ε x y) * Real.arccos (cosineArgument x y) +

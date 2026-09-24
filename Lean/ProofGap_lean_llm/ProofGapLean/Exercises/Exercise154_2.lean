@@ -7,23 +7,23 @@ def leftDomain : Set ℝ := {x | 0 < x + 2}
 def rightDomain : Set ℝ := {x | 0 < x - 2}
 def domain : Set ℝ := leftDomain ∩ rightDomain
 
-/-- Source: `proof_gap/exercise_154_2/1.txt`. -/
+/-- Exercise 154_2, gap 1. -/
 theorem gap1 : leftDomain = Set.Ioi (-2) := by
   ext x
   simp only [leftDomain, Set.mem_setOf_eq, Set.mem_Ioi]
   constructor <;> intro h <;> linarith
 
-/-- Source: `proof_gap/exercise_154_2/2.txt`. -/
+/-- Exercise 154_2, gap 2. -/
 theorem gap2 : rightDomain = Set.Ioi 2 := by
   ext x
   simp only [rightDomain, Set.mem_setOf_eq, Set.mem_Ioi]
   constructor <;> intro h <;> linarith
 
-/-- Source: `proof_gap/exercise_154_2/3.txt`. -/
+/-- Exercise 154_2, gap 3. -/
 theorem gap3 : domain = Set.Ioi (-2) ∩ Set.Ioi 2 := by
   rw [domain, gap1, gap2]
 
-/-- Source: `proof_gap/exercise_154_2/4.txt`. -/
+/-- Exercise 154_2, gap 4. -/
 theorem gap4 : Set.Ioi (-2 : ℝ) ∩ Set.Ioi 2 = Set.Ioi 2 := by
   ext x
   simp only [Set.mem_inter_iff, Set.mem_Ioi]
@@ -32,7 +32,7 @@ theorem gap4 : Set.Ioi (-2 : ℝ) ∩ Set.Ioi 2 = Set.Ioi 2 := by
   · intro h
     constructor <;> linarith
 
-/-- Source: `proof_gap/exercise_154_2/5.txt`. -/
+/-- Exercise 154_2, gap 5. -/
 theorem gap5 : domain = Set.Ioi 2 := by
   rw [gap3, gap4]
 

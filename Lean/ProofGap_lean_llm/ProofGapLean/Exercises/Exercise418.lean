@@ -12,7 +12,7 @@ def cancelled (x : ℝ) : ℝ := (x - 2) / (x - 5)
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_418/1.txt`. -/
+/-- Exercise 418, gap 1. -/
 theorem gap1 : HasLimitAt original 3 (-1 / 2) ↔
     HasLimitAt factored 3 (-1 / 2) := by
   have h : original = factored := by
@@ -21,7 +21,7 @@ theorem gap1 : HasLimitAt original 3 (-1 / 2) ↔
     congr 1 <;> ring
   rw [h]
 
-/-- Source: `proof_gap/exercise_418/2.txt`. -/
+/-- Exercise 418, gap 2. -/
 theorem gap2 : HasLimitAt factored 3 (-1 / 2) ↔
     HasLimitAt cancelled 3 (-1 / 2) := by
   unfold HasLimitAt
@@ -33,7 +33,7 @@ theorem gap2 : HasLimitAt factored 3 (-1 / 2) ↔
       (mul_div_mul_left (x - 2) (x - 5) (sub_ne_zero.mpr hx3))
   exact ⟨Filter.Tendsto.congr' hfg, Filter.Tendsto.congr' hfg.symm⟩
 
-/-- Source: `proof_gap/exercise_418/3.txt`. -/
+/-- Exercise 418, gap 3. -/
 theorem gap3 : HasLimitAt cancelled 3 (-1 / 2) := by
   unfold HasLimitAt cancelled
   have hc : ContinuousAt (fun x : ℝ => (x - 2) / (x - 5)) 3 :=
@@ -43,7 +43,7 @@ theorem gap3 : HasLimitAt cancelled 3 (-1 / 2) := by
     (show nhdsWithin (3 : ℝ) ({3} : Set ℝ)ᶜ ≤ nhds 3 from inf_le_left)
   convert ht using 1 <;> norm_num
 
-/-- Source: `proof_gap/exercise_418/4.txt`. -/
+/-- Exercise 418, gap 4. -/
 theorem gap4 : HasLimitAt original 3 (-1 / 2) := by
   exact gap1.mpr (gap2.mpr gap3)
 

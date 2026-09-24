@@ -38,7 +38,7 @@ private theorem exists_tail_abs_gt
     ⟨y, ⟨j, hj, rfl⟩, hy⟩
   exact ⟨j, hj, hy⟩
 
-/-- Source: `proof_gap/exercise_126/1.txt`. -/
+/-- Exercise 126, gap 1. -/
 theorem gap1
     (x : ℕ → ℝ)
     (hunbounded : ¬ Bornology.IsBounded (Set.range x)) :
@@ -46,7 +46,7 @@ theorem gap1
   rcases exists_tail_abs_gt x hunbounded 0 1 with ⟨j, hj, hlarge⟩
   exact ⟨fun _ => j, hj, hlarge⟩
 
-/-- Source: `proof_gap/exercise_126/2.txt`. -/
+/-- Exercise 126, gap 2. -/
 theorem gap2
     (x : ℕ → ℝ)
     (hunbounded : ¬ Bornology.IsBounded (Set.range x)) :
@@ -54,7 +54,7 @@ theorem gap2
       ¬ Bornology.IsBounded (x '' {n : ℕ | p k < n}) := by
   exact ⟨id, fun k => tail_not_bounded x hunbounded k⟩
 
-/-- Source: `proof_gap/exercise_126/3.txt`; remove the rebound p and k. -/
+/-- Exercise 126, gap 3; remove the rebound p and k. -/
 theorem gap3
     (x : ℕ → ℝ) (p : ℕ → ℕ)
     (htail : ∀ k : ℕ,
@@ -67,21 +67,21 @@ theorem gap3
     ⟨y, ⟨j, hj, rfl⟩, hy⟩
   exact ⟨j, hj, hy⟩
 
-/-- Source: `proof_gap/exercise_126/4.txt`. -/
+/-- Exercise 126, gap 4. -/
 theorem gap4
     (p : ℕ → ℕ)
     (hp : StrictMono p) :
     StrictMono p := by
   exact hp
 
-/-- Source: `proof_gap/exercise_126/5.txt`. -/
+/-- Exercise 126, gap 5. -/
 theorem gap5
     (x : ℕ → ℝ) (p : ℕ → ℕ)
     (hlarge : ∀ k : ℕ, 0 < k → |x (p k)| > k) :
     ∀ k : ℕ, 0 < k → |x (p k)| > k := by
   exact hlarge
 
-/-- Source: `proof_gap/exercise_126/6.txt`; only absolute values must tend to +∞. -/
+/-- Exercise 126, gap 6; only absolute values must tend to +∞. -/
 theorem gap6
     (x : ℕ → ℝ) (p : ℕ → ℕ)
     (hlarge : ∀ k : ℕ, 0 < k → |x (p k)| > k) :
@@ -94,7 +94,7 @@ theorem gap6
   filter_upwards [tendsto_atTop.1 hcast B, eventually_ge_atTop 1] with k hkB hk
   exact hkB.trans (le_of_lt (hlarge k (by omega)))
 
-/-- Source: `proof_gap/exercise_126/7.txt`; repair the false signed conclusion. -/
+/-- Exercise 126, gap 7; repair the false signed conclusion. -/
 theorem gap7
     (x : ℕ → ℝ)
     (hunbounded : ¬ Bornology.IsBounded (Set.range x)) :

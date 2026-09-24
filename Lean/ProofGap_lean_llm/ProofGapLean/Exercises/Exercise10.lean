@@ -4,7 +4,7 @@ import ProofGapLean.Prelude.Finite
 /-!
 # Exercise 10
 
-Semantic formalization of `proof_gap/exercise_10/{1,...,10}.txt`.
+Semantic formalization of Exercise 10, gaps 1,...,10.
 The source `sqrtn(2,x)` is the positive real square root `Real.sqrt x`.
 -/
 
@@ -67,7 +67,7 @@ def InductionStep : Prop :=
 def CorrectedFinalBound : Prop :=
   ∀ n : ℕ, 0 < n → WallisBound n
 
-/-- Source: `proof_gap/exercise_10/1.txt`. -/
+/-- Exercise 10, gap 1. -/
 theorem gap1 : BaseCase := by
   intro n hn
   have hspos : 0 < Real.sqrt (3 : ℝ) := Real.sqrt_pos.2 (by norm_num)
@@ -76,7 +76,7 @@ theorem gap1 : BaseCase := by
   rw [div_lt_div_iff₀ (by norm_num : (0 : ℝ) < 2) hspos]
   simpa using hslt
 
-/-- Source: `proof_gap/exercise_10/2.txt`. -/
+/-- Exercise 10, gap 2. -/
 theorem gap2
     (h1 : BaseCase) :
     AppendFactor := by
@@ -90,7 +90,7 @@ theorem gap2
   convert hmul using 1 <;>
     simp only [wallisProduct, Nat.cast_add, Nat.cast_one] <;> ring
 
-/-- Source: `proof_gap/exercise_10/3.txt`. -/
+/-- Exercise 10, gap 3. -/
 theorem gap3
     (h1 : BaseCase)
     (h2 : AppendFactor) :
@@ -105,7 +105,7 @@ theorem gap3
   field_simp [hs, hden]
   nlinarith
 
-/-- Source: `proof_gap/exercise_10/4.txt`. -/
+/-- Exercise 10, gap 4. -/
 theorem gap4
     (h1 : BaseCase)
     (h2 : AppendFactor)
@@ -115,7 +115,7 @@ theorem gap4
   rw [← h3 k hk hbound]
   exact h2 k hk hbound
 
-/-- Source: `proof_gap/exercise_10/5.txt`. -/
+/-- Exercise 10, gap 5. -/
 theorem gap5
     (h1 : BaseCase)
     (h2 : AppendFactor)
@@ -145,7 +145,7 @@ theorem gap5
   rw [div_lt_div_iff₀ hB hsC]
   simpa using hprod
 
-/-- Source: `proof_gap/exercise_10/6.txt`. -/
+/-- Exercise 10, gap 6. -/
 theorem gap6
     (h1 : BaseCase)
     (h2 : AppendFactor)
@@ -156,7 +156,7 @@ theorem gap6
   intro k hk hbound hpoly
   nlinarith
 
-/-- Source: `proof_gap/exercise_10/7.txt`. -/
+/-- Exercise 10, gap 7. -/
 theorem gap7
     (h1 : BaseCase)
     (h2 : AppendFactor)
@@ -168,7 +168,7 @@ theorem gap7
   intro k hk hbound hpoly
   exact h5 k hk hbound (h6 k hk hbound hpoly)
 
-/-- Source: `proof_gap/exercise_10/8.txt`. -/
+/-- Exercise 10, gap 8. -/
 theorem gap8
     (h1 : BaseCase)
     (h2 : AppendFactor)
@@ -185,7 +185,7 @@ theorem gap8
   convert hstep using 1 <;> norm_num <;> ring
 
 /--
-Source: `proof_gap/exercise_10/9.txt`.
+Exercise 10, gap 9.
 
 The unrestricted source goal is false at `n=0`: both sides equal one.  The
 positive-index condition used by the base case and induction step is restored.
@@ -214,7 +214,7 @@ theorem gap9
       · exact h8 k (by omega) (ih (by omega))
 
 /--
-Source: `proof_gap/exercise_10/10.txt`.
+Exercise 10, gap 10.
 
 This duplicates gap 9 and uses the same repaired positive-index domain.
 -/

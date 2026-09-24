@@ -845,7 +845,7 @@ private theorem q_log_not_summable_from_one :
   exact u_not_summable_from_one hu
 
 /--
-Source: `proof_gap/exercise_3096/1.txt`; define the missing sequence `q`,
+Exercise 3096, gap 1; define the missing sequence `q`,
 replace the ellipsis, and compare finite grouped partial sums.
 -/
 theorem gap1 :
@@ -853,7 +853,7 @@ theorem gap1 :
   exact grouped_sum_identity
 
 /--
-Source: `proof_gap/exercise_3096/2.txt`; replace the scalar big-O token by a
+Exercise 3096, gap 2; replace the scalar big-O token by a
 function-level logarithmic remainder.
 -/
 theorem gap2 :
@@ -861,27 +861,27 @@ theorem gap2 :
       comparisonTerm) := by
   exact logarithmic_remainder_isBigO
 
-/-- Source: `proof_gap/exercise_3096/3.txt`; use the exact deviation sequence. -/
+/-- Exercise 3096, gap 3; use the exact deviation sequence. -/
 theorem gap3 :
     Tendsto alpha atTop (𝓝 0) := by
   exact alpha_tendsto_zero
 
-/-- Source: `proof_gap/exercise_3096/4.txt`; the grouped formula starts at one. -/
+/-- Exercise 3096, gap 4; the grouped formula starts at one. -/
 theorem gap4 :
     ∀ n : ℕ, 1 ≤ n → alpha n < 0 := by
   exact alpha_neg
 
-/-- Source: `proof_gap/exercise_3096/5.txt`. -/
+/-- Exercise 3096, gap 5. -/
 theorem gap5 :
     ¬SummableFromOne alpha := by
   exact alpha_not_summable_from_one
 
-/-- Source: `proof_gap/exercise_3096/6.txt`. -/
+/-- Exercise 3096, gap 6. -/
 theorem gap6 :
     ¬SummableFromOne u := by
   exact u_not_summable_from_one
 
-/-- Source: `proof_gap/exercise_3096/7.txt`; retain the now-explicit definition of `q`. -/
+/-- Exercise 3096, gap 7; retain the now-explicit definition of `q`. -/
 theorem gap7 :
     ¬SummableFromOne (fun n => Real.log (q n)) := by
   exact q_log_not_summable_from_one

@@ -8,7 +8,7 @@ def EpsilonCondition (f : ℝ → ℝ) (x₀ : ℝ) (E : Set ℝ) : Prop :=
   ∀ ε ∈ E, 0 < ε → ∃ δ > 0, ∀ x,
     |x - x₀| < δ → |f x - f x₀| < ε
 
-/-- Source: `proof_gap/exercise_669_1/1.txt`; correct the reversed implication: finitely many epsilon tests do not imply continuity. -/
+/-- Exercise 669_1, gap 1; correct the reversed implication: finitely many epsilon tests do not imply continuity. -/
 theorem gap1 :
     ∃ (f : ℝ → ℝ) (x₀ : ℝ) (E : Set ℝ),
       E.Finite ∧ EpsilonCondition f x₀ E ∧ ¬ ContinuousAt f x₀ := by
@@ -33,18 +33,18 @@ theorem gap1 :
     rw [if_neg hx0, if_pos rfl] at hout
     norm_num [Real.dist_eq] at hout
 
-/-- Source: `proof_gap/exercise_669_1/2.txt`; bind the finite test set in the counterexample. -/
+/-- Exercise 669_1, gap 2; bind the finite test set in the counterexample. -/
 theorem gap2 :
     ∃ E : Set ℝ, E.Finite ∧ E.Nonempty := by
   refine ⟨{0}, ?_, ?_⟩ <;> simp
 
-/-- Source: `proof_gap/exercise_669_1/3.txt`; state the noncontinuous counterexample with its finite epsilon tests. -/
+/-- Exercise 669_1, gap 3; state the noncontinuous counterexample with its finite epsilon tests. -/
 theorem gap3 :
     ∃ (f : ℝ → ℝ) (x₀ : ℝ) (E : Set ℝ),
       E.Finite ∧ EpsilonCondition f x₀ E ∧ ¬ ContinuousAt f x₀ := by
   exact gap1
 
-/-- Source: `proof_gap/exercise_669_1/4.txt`; corrected final counterexample theorem. -/
+/-- Exercise 669_1, gap 4; corrected final counterexample theorem. -/
 theorem gap4 :
     ¬ (∀ (f : ℝ → ℝ) (x₀ : ℝ) (E : Set ℝ),
       E.Finite → EpsilonCondition f x₀ E → ContinuousAt f x₀) := by

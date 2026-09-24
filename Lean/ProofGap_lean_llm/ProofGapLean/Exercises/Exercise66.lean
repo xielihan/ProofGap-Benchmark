@@ -9,7 +9,7 @@ open scoped Topology
 /-!
 # Exercise 66
 
-Semantic formalization of `proof_gap/exercise_66/{1,...,5}.txt`.
+Semantic formalization of Exercise 66, gaps 1,...,5.
 -/
 
 namespace ProofGap.Exercise66
@@ -68,7 +68,7 @@ private theorem pow_self_le_factorial_sq (n : ℕ) :
     hfirst, hsecond, hfirst] at hp
   simpa [pow_two] using hp
 
-/-- Source: `proof_gap/exercise_66/1.txt`. -/
+/-- Exercise 66, gap 1. -/
 theorem gap1 :
     ∀ n : ℕ,
       (Nat.factorial n : ℝ) ≥
@@ -90,7 +90,7 @@ theorem gap1 :
   rw [← hsquare] at hpow
   nlinarith
 
-/-- Source: `proof_gap/exercise_66/2.txt`; positive `n` is restored. -/
+/-- Exercise 66, gap 2; positive `n` is restored. -/
 theorem gap2
     (h1 : ∀ n : ℕ,
       (Nat.factorial n : ℝ) ≥
@@ -137,7 +137,7 @@ theorem gap2
       dsimp [upper, twoRoot, e]
       field_simp
 
-/-- Source: `proof_gap/exercise_66/3.txt`. -/
+/-- Exercise 66, gap 3. -/
 theorem gap3 :
     Tendsto upper atTop (𝓝 0) := by
   have hexp :
@@ -158,7 +158,7 @@ theorem gap3 :
     atTop (𝓝 0)
   simpa only [Real.rpow_eq_pow, one_div] using hquot
 
-/-- Source: `proof_gap/exercise_66/4.txt`. -/
+/-- Exercise 66, gap 4. -/
 theorem gap4
     (h2 : ∀ n : ℕ, 0 < n → u n ≤ upper n)
     (h3 : Tendsto upper atTop (𝓝 0)) :
@@ -172,7 +172,7 @@ theorem gap4
     exact h2 n (by omega)
   · exact h3
 
-/-- Source: `proof_gap/exercise_66/5.txt`. -/
+/-- Exercise 66, gap 5. -/
 theorem gap5
     (h4 : Tendsto u atTop (𝓝 0)) :
     Tendsto u atTop (𝓝 0) := by

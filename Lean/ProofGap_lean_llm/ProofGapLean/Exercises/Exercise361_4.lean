@@ -12,7 +12,7 @@ def IsGraphCenter (g : ℝ → ℝ) (D : Set ℝ) (x₀ y₀ : ℝ) : Prop :=
   ∀ t, x₀ + t ∈ D → x₀ - t ∈ D →
     g (x₀ + t) + g (x₀ - t) = 2 * y₀
 
-/-- Source: `proof_gap/exercise_361_4/1.txt`; exclude all poles of the two reflected inputs. -/
+/-- Exercise 361_4, gap 1; exclude all poles of the two reflected inputs. -/
 theorem gap1 : ∀ t, 2 + t ∈ domain → 2 - t ∈ domain →
     f (2 + t) + f (2 - t) = 0 := by
   intro t _ _
@@ -24,7 +24,7 @@ theorem gap1 : ∀ t, 2 + t ∈ domain → 2 - t ∈ domain →
   simp only [one_div, inv_neg]
   ring
 
-/-- Source: `proof_gap/exercise_361_4/2.txt`; graph-center symmetry is restricted to the natural domain. -/
+/-- Exercise 361_4, gap 2; graph-center symmetry is restricted to the natural domain. -/
 theorem gap2 : IsGraphCenter f domain 2 0 := by
   unfold IsGraphCenter
   intro t ht hmt

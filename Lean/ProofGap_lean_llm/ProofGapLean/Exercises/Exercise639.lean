@@ -11,7 +11,7 @@ def Recurrence (x : ℝ) (y : ℕ → ℝ) : Prop :=
   y 1 = x / 2 ∧
     ∀ n ≥ 2, y n = x / 2 + y (n - 1) ^ 2 / 2
 
-/-- Source: `proof_gap/exercise_639/1.txt`; strictness requires `x>0`, not merely `x≥0`. -/
+/-- Exercise 639, gap 1; strictness requires `x>0`, not merely `x≥0`. -/
 theorem gap1 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 < x) (hx1 : x ≤ 1)
     (hy : Recurrence x y) :
     y 1 < y 2 := by
@@ -20,7 +20,7 @@ theorem gap1 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 < x) (hx1 : x ≤ 1)
     simpa using hy.2 2 (by omega)
   nlinarith [sq_nonneg (y 1)]
 
-/-- Source: `proof_gap/exercise_639/2.txt`; add the recurrence range `n≥2`. -/
+/-- Exercise 639, gap 2; add the recurrence range `n≥2`. -/
 theorem gap2 (x : ℝ) (y : ℕ → ℝ) (n : ℕ) (hn : 2 ≤ n)
     (hy : Recurrence x y) (hmono : y (n - 1) ≤ y n) :
     y (n + 1) - y n = (y n ^ 2 - y (n - 1) ^ 2) / 2 := by
@@ -30,7 +30,7 @@ theorem gap2 (x : ℝ) (y : ℕ → ℝ) (n : ℕ) (hn : 2 ≤ n)
   rw [hnext, hcur]
   ring
 
-/-- Source: `proof_gap/exercise_639/3.txt`; add the recurrence range `n≥2`. -/
+/-- Exercise 639, gap 3; add the recurrence range `n≥2`. -/
 theorem gap3 (x : ℝ) (y : ℕ → ℝ) (n : ℕ) (hn : 2 ≤ n)
     (hy : Recurrence x y) (hnonneg : 0 ≤ y (n - 1))
     (hmono : y (n - 1) ≤ y n) :
@@ -39,7 +39,7 @@ theorem gap3 (x : ℝ) (y : ℕ → ℝ) (n : ℕ) (hn : 2 ≤ n)
   have hynonneg : 0 ≤ y n := hnonneg.trans hmono
   nlinarith [sq_nonneg (y n - y (n - 1))]
 
-/-- Source: `proof_gap/exercise_639/4.txt`. -/
+/-- Exercise 639, gap 4. -/
 theorem gap4 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 ≤ x) (hx1 : x ≤ 1)
     (hy : Recurrence x y) :
     MonotoneOn y (Set.Ici 1) := by
@@ -65,40 +65,40 @@ theorem gap4 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 ≤ x) (hx1 : x ≤ 1)
   | succ b hab ih =>
       exact (ih (ha'.trans hab)).trans (hpair b (ha'.trans hab)).2
 
-/-- Source: `proof_gap/exercise_639/5.txt`. -/
+/-- Exercise 639, gap 5. -/
 theorem gap5 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 ≤ x)
     (hy : Recurrence x y) :
     0 ≤ y 1 := by
   rw [hy.1]
   linarith
 
-/-- Source: `proof_gap/exercise_639/6.txt`. -/
+/-- Exercise 639, gap 6. -/
 theorem gap6 (x : ℝ) (y : ℕ → ℝ) (hx1 : x ≤ 1)
     (hy : Recurrence x y) :
     y 1 < 1 := by
   rw [hy.1]
   linarith
 
-/-- Source: `proof_gap/exercise_639/7.txt`. -/
+/-- Exercise 639, gap 7. -/
 theorem gap7 : (0 : ℝ) < 1 := by
   exact zero_lt_one
 
-/-- Source: `proof_gap/exercise_639/8.txt`. -/
+/-- Exercise 639, gap 8. -/
 theorem gap8 (y : ℕ → ℝ) (k : ℕ) (h0 : 0 ≤ y k) (h1 : y k < 1) :
     0 ≤ y k ^ 2 := by
   exact sq_nonneg (y k)
 
-/-- Source: `proof_gap/exercise_639/9.txt`. -/
+/-- Exercise 639, gap 9. -/
 theorem gap9 (y : ℕ → ℝ) (k : ℕ) (h0 : 0 ≤ y k) (h1 : y k < 1) :
     y k ^ 2 < 1 := by
   nlinarith [sq_nonneg (y k)]
 
-/-- Source: `proof_gap/exercise_639/10.txt`. -/
+/-- Exercise 639, gap 10. -/
 theorem gap10 (y : ℕ → ℝ) (k : ℕ) (h0 : 0 ≤ y k) (h1 : y k < 1) :
     (0 : ℝ) < 1 := by
   exact gap7
 
-/-- Source: `proof_gap/exercise_639/11.txt`; bind the recurrence step. -/
+/-- Exercise 639, gap 11; bind the recurrence step. -/
 theorem gap11 (x : ℝ) (y : ℕ → ℝ) (k : ℕ) (hk : 1 ≤ k)
     (hx0 : 0 ≤ x) (hy : Recurrence x y)
     (h0 : 0 ≤ y k) (h1 : y k < 1) :
@@ -107,7 +107,7 @@ theorem gap11 (x : ℝ) (y : ℕ → ℝ) (k : ℕ) (hk : 1 ≤ k)
     simpa using hy.2 (k + 1) (by omega)
   nlinarith [sq_nonneg (y k)]
 
-/-- Source: `proof_gap/exercise_639/12.txt`; bind the recurrence step and `x≤1`. -/
+/-- Exercise 639, gap 12; bind the recurrence step and `x≤1`. -/
 theorem gap12 (x : ℝ) (y : ℕ → ℝ) (k : ℕ) (hk : 1 ≤ k)
     (hx1 : x ≤ 1) (hy : Recurrence x y)
     (h0 : 0 ≤ y k) (h1 : y k < 1) :
@@ -117,12 +117,12 @@ theorem gap12 (x : ℝ) (y : ℕ → ℝ) (k : ℕ) (hk : 1 ≤ k)
   have hsq : y k ^ 2 < 1 := gap9 y k h0 h1
   nlinarith
 
-/-- Source: `proof_gap/exercise_639/13.txt`. -/
+/-- Exercise 639, gap 13. -/
 theorem gap13 (y : ℕ → ℝ) (k : ℕ) (h0 : 0 ≤ y k) (h1 : y k < 1) :
     (0 : ℝ) < 1 := by
   exact gap7
 
-/-- Source: `proof_gap/exercise_639/14.txt`. -/
+/-- Exercise 639, gap 14. -/
 theorem gap14 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 ≤ x) (hx1 : x ≤ 1)
     (hy : Recurrence x y) :
     ∃ M, ∀ n, |y n| ≤ M := by
@@ -145,7 +145,7 @@ theorem gap14 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 ≤ x) (hx1 : x ≤ 1)
     rw [abs_of_nonneg hb.1]
     exact hb.2.le.trans (le_max_right _ _)
 
-/-- Source: `proof_gap/exercise_639/15.txt`. -/
+/-- Exercise 639, gap 15. -/
 theorem gap15 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 ≤ x) (hx1 : x ≤ 1)
     (hy : Recurrence x y) :
     ∃ l, Filter.Tendsto y Filter.atTop (nhds l) ∧ 0 ≤ l ∧ l ≤ 1 := by
@@ -198,7 +198,7 @@ theorem gap15 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 ≤ x) (hx1 : x ≤ 1)
     simp [z, hn0]
   exact ⟨⨆ n, z n, hzlim.congr' hzy, hlbounds.1, hlbounds.2⟩
 
-/-- Source: `proof_gap/exercise_639/16.txt`. -/
+/-- Exercise 639, gap 16. -/
 theorem gap16 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 ≤ x) (hx1 : x ≤ 1)
     (hy : Recurrence x y) :
     ∃ l, l = x / 2 + l ^ 2 / 2 := by
@@ -207,7 +207,7 @@ theorem gap16 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 ≤ x) (hx1 : x ≤ 1)
   have hsqrt := Real.sq_sqrt hnonneg
   nlinarith
 
-/-- Source: `proof_gap/exercise_639/17.txt`; replace `±` by the two roots. -/
+/-- Exercise 639, gap 17; replace `±` by the two roots. -/
 theorem gap17 (x l : ℝ) (hx0 : 0 ≤ x) (hx1 : x ≤ 1) :
     l = x / 2 + l ^ 2 / 2 ↔
       l = 1 - Real.sqrt (1 - x) ∨ l = 1 + Real.sqrt (1 - x) := by
@@ -231,7 +231,7 @@ theorem gap17 (x l : ℝ) (hx0 : 0 ≤ x) (hx1 : x ≤ 1) :
     · rw [hplus]
       nlinarith
 
-/-- Source: `proof_gap/exercise_639/18.txt`; select the root lying in `[0,1]`. -/
+/-- Exercise 639, gap 18; select the root lying in `[0,1]`. -/
 theorem gap18 (x l : ℝ) (hx0 : 0 ≤ x) (hx1 : x ≤ 1)
     (hl0 : 0 ≤ l) (hl1 : l ≤ 1) :
     l = x / 2 + l ^ 2 / 2 ↔
@@ -245,7 +245,7 @@ theorem gap18 (x l : ℝ) (hx0 : 0 ≤ x) (hx1 : x ≤ 1)
   · intro h
     exact (gap17 x l hx0 hx1).mpr (Or.inl h)
 
-/-- Source: `proof_gap/exercise_639/19.txt`. -/
+/-- Exercise 639, gap 19. -/
 theorem gap19 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 ≤ x) (hx1 : x ≤ 1)
     (hy : Recurrence x y) :
     Filter.Tendsto y Filter.atTop

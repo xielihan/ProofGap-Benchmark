@@ -10,13 +10,13 @@ def IsLeastPositivePeriod (g : ℝ → ℝ) (T : ℝ) : Prop :=
   0 < T ∧ Function.Periodic g T ∧
     ∀ T', 0 < T' → Function.Periodic g T' → T ≤ T'
 
-/-- Source: `proof_gap/exercise_233_6/1.txt`. -/
+/-- Exercise 233_6, gap 1. -/
 theorem gap1 : Function.Periodic f Real.pi := by
   intro x
   unfold f
   rw [Real.tan_add_pi]
 
-/-- Source: `proof_gap/exercise_233_6/2.txt`; represent `min` by the least-positive-period predicate. -/
+/-- Exercise 233_6, gap 2; represent `min` by the least-positive-period predicate. -/
 theorem gap2 : IsLeastPositivePeriod f Real.pi := by
   refine ⟨Real.pi_pos, gap1, ?_⟩
   intro T hT hper

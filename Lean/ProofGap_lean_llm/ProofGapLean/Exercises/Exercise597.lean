@@ -14,7 +14,7 @@ def HasLimitAtNegInfinity (f : ℝ → ℝ) (L : ℝ) : Prop :=
 def HasLimitAtPosInfinity (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f Filter.atTop (nhds L)
 
-/-- Source: `proof_gap/exercise_597/1.txt`. -/
+/-- Exercise 597, gap 1. -/
 private theorem original_eq_normalizedNeg : original = normalizedNeg := by
   funext x
   unfold original normalizedNeg
@@ -76,16 +76,16 @@ theorem gap1 (L : ℝ) :
     HasLimitAtNegInfinity original L ↔ HasLimitAtNegInfinity normalizedNeg L := by
   rw [original_eq_normalizedNeg]
 
-/-- Source: `proof_gap/exercise_597/2.txt`. -/
+/-- Exercise 597, gap 2. -/
 theorem gap2 : HasLimitAtNegInfinity normalizedNeg 0 := by
   rw [← original_eq_normalizedNeg]
   exact original_tendsto_atBot_zero
 
-/-- Source: `proof_gap/exercise_597/3.txt`. -/
+/-- Exercise 597, gap 3. -/
 theorem gap3 : HasLimitAtNegInfinity original 0 := by
   exact (gap1 0).2 gap2
 
-/-- Source: `proof_gap/exercise_597/4.txt`. -/
+/-- Exercise 597, gap 4. -/
 theorem gap4 (L : ℝ) :
     HasLimitAtPosInfinity original L ↔ HasLimitAtPosInfinity normalizedPos L := by
   unfold HasLimitAtPosInfinity
@@ -95,7 +95,7 @@ theorem gap4 (L : ℝ) :
   · intro h
     exact h.congr' original_eventuallyEq_normalizedPos.symm
 
-/-- Source: `proof_gap/exercise_597/5.txt`. -/
+/-- Exercise 597, gap 5. -/
 theorem gap5 : HasLimitAtPosInfinity normalizedPos 1 := by
   unfold HasLimitAtPosInfinity normalizedPos
   have hexpNeg :
@@ -118,7 +118,7 @@ theorem gap5 : HasLimitAtPosInfinity normalizedPos 1 := by
   simpa [div_eq_mul_inv] using
     (tendsto_const_nhds.add (hlog.mul hinv))
 
-/-- Source: `proof_gap/exercise_597/6.txt`. -/
+/-- Exercise 597, gap 6. -/
 theorem gap6 : HasLimitAtPosInfinity original 1 := by
   exact (gap4 1).2 gap5
 

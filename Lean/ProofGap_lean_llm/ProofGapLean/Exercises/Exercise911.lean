@@ -21,7 +21,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 def finalDerivative (x : ℝ) : ℝ :=
   2 * Real.sin (Real.log x)
 
-/-- Source: `proof_gap/exercise_911/1.txt`; the logarithm is differentiated
+/-- Exercise 911, gap 1; the logarithm is differentiated
 on its positive real domain. -/
 theorem gap1 (x : ℝ) (hx : 0 < x) :
     HasDerivAt y (expandedDerivative x) x := by
@@ -43,14 +43,14 @@ theorem gap1 (x : ℝ) (hx : 0 < x) :
   have hprod := (hasDerivAt_id x).mul hdiff
   simpa only [y, expandedDerivative, id_eq, one_mul] using hprod
 
-/-- Source: `proof_gap/exercise_911/2.txt`; the cancellation uses `x ≠ 0`,
+/-- Exercise 911, gap 2; the cancellation uses `x ≠ 0`,
 supplied by positivity. -/
 theorem gap2 (x : ℝ) (hx : 0 < x) :
     expandedDerivative x = finalDerivative x := by
   unfold expandedDerivative finalDerivative
   field_simp [hx.ne'] <;> ring
 
-/-- Source: `proof_gap/exercise_911/3.txt`; retain the logarithm's positive
+/-- Exercise 911, gap 3; retain the logarithm's positive
 domain in the final derivative statement. -/
 theorem gap3 (x : ℝ) (hx : 0 < x) :
     HasDerivAt y (finalDerivative x) x := by

@@ -10,25 +10,25 @@ noncomputable section
 
 def f (x : ℝ) : ℝ := Real.sin (x ^ 2)
 
-/-- Source: `proof_gap/exercise_233_5/1.txt`. -/
+/-- Exercise 233_5, gap 1. -/
 theorem gap1 : ∀ a x, Function.Periodic f a →
     Real.sin ((x + a) ^ 2) = Real.sin (x ^ 2) := by
   intro a x h
   simpa [f] using h x
 
-/-- Source: `proof_gap/exercise_233_5/2.txt`; replace the source's unsupported square-root witness by the valid specialization at zero. -/
+/-- Exercise 233_5, gap 2; replace the source's unsupported square-root witness by the valid specialization at zero. -/
 theorem gap2 : ∀ a, Function.Periodic f a →
     Real.sin (a ^ 2) = 0 := by
   intro a h
   simpa using gap1 a 0 h
 
-/-- Source: `proof_gap/exercise_233_5/3.txt`; retain the full translated identity needed to rule out a nonzero shift. -/
+/-- Exercise 233_5, gap 3; retain the full translated identity needed to rule out a nonzero shift. -/
 theorem gap3 : ∀ a, Function.Periodic f a →
     ∀ x, Real.sin (x ^ 2 + 2 * a * x + a ^ 2) = Real.sin (x ^ 2) := by
   intro a h x
   convert gap1 a x h using 1 <;> ring
 
-/-- Source: `proof_gap/exercise_233_5/4.txt`; state the valid conclusion of the nonperiodicity argument. -/
+/-- Exercise 233_5, gap 4; state the valid conclusion of the nonperiodicity argument. -/
 theorem gap4 : ∀ a, Function.Periodic f a → a = 0 := by
   intro a h
   by_contra ha
@@ -78,12 +78,12 @@ theorem gap4 : ∀ a, Function.Periodic f a → a = 0 := by
   rw [hsv, hcv] at htrig
   norm_num at htrig
 
-/-- Source: `proof_gap/exercise_233_5/5.txt`; zero is always a period, so exclude it. -/
+/-- Exercise 233_5, gap 5; zero is always a period, so exclude it. -/
 theorem gap5 : ∀ a, a ≠ 0 → ¬ Function.Periodic f a := by
   intro a ha h
   exact ha (gap4 a h)
 
-/-- Source: `proof_gap/exercise_233_5/6.txt`. -/
+/-- Exercise 233_5, gap 6. -/
 theorem gap6 : {T : ℝ | 0 < T ∧ Function.Periodic f T} = ∅ := by
   ext T
   simp only [Set.mem_setOf_eq, Set.mem_empty_iff_false, iff_false]

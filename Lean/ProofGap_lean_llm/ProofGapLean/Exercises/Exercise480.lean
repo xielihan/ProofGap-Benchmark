@@ -16,7 +16,7 @@ def normalized (y : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_480/1.txt`; bind `y=1-x`. -/
+/-- Exercise 480, gap 1; bind `y=1-x`. -/
 private theorem tendsto_one_sub_punctured (a : ℝ) :
     Filter.Tendsto (fun x : ℝ => 1 - x)
       (nhdsWithin a (({a} : Set ℝ)ᶜ))
@@ -92,14 +92,14 @@ theorem gap1 (L : ℝ) :
     rw [hfun]
     exact h.comp h10
 
-/-- Source: `proof_gap/exercise_480/2.txt`. -/
+/-- Exercise 480, gap 2. -/
 theorem gap2 (L : ℝ) :
     HasLimitAt shifted 0 L ↔ HasLimitAt normalized 0 L := by
   unfold HasLimitAt
   have hfun : shifted = normalized := funext shifted_eq_normalized
   rw [hfun]
 
-/-- Source: `proof_gap/exercise_480/3.txt`. -/
+/-- Exercise 480, gap 3. -/
 theorem gap3 : HasLimitAt normalized 0 (2 / Real.pi) := by
   unfold HasLimitAt
   have hscale := tendsto_pi_scale_punctured
@@ -137,7 +137,7 @@ theorem gap3 : HasLimitAt normalized 0 (2 / Real.pi) := by
     tendsto_const_nhds
   simpa [normalized] using ((hratio.mul hconst).mul hcos)
 
-/-- Source: `proof_gap/exercise_480/4.txt`. -/
+/-- Exercise 480, gap 4. -/
 theorem gap4 : HasLimitAt original 1 (2 / Real.pi) := by
   exact (gap1 (2 / Real.pi)).2 ((gap2 (2 / Real.pi)).2 gap3)
 

@@ -115,7 +115,7 @@ private theorem hasLimitAtCongr {f g : ℝ → ℝ} {a L : ℝ}
   unfold HasLimitAt
   exact ⟨fun hf => hf.congr' hfg, fun hg => hg.congr' hfg.symm⟩
 
-/-- Source: `proof_gap/exercise_441/1.txt`; use the signed real cube root. -/
+/-- Exercise 441, gap 1; use the signed real cube root. -/
 theorem gap1 : HasLimitAt original (-2) (1 / 144) ↔
     HasLimitAt cancelled (-2) (1 / 144) := by
   apply hasLimitAtCongr
@@ -166,12 +166,12 @@ theorem gap1 : HasLimitAt original (-2) (1 / 144) ↔
     _ = (x + 2) * (x ^ 2 - 2 * x + 4) := by rw [hcube]
     _ = 1 * ((x + 2) * (x ^ 2 - 2 * x + 4)) := by ring
 
-/-- Source: `proof_gap/exercise_441/2.txt`. -/
+/-- Exercise 441, gap 2. -/
 theorem gap2 : HasLimitAt original (-2) (1 / 144) ↔
     HasLimitAt cancelled (-2) (1 / 144) := by
   exact gap1
 
-/-- Source: `proof_gap/exercise_441/3.txt`. -/
+/-- Exercise 441, gap 3. -/
 theorem gap3 : HasLimitAt cancelled (-2) (1 / 144) := by
   have hm8 : signedCbrt (-8) = -2 := by
     apply cube_injective
@@ -222,7 +222,7 @@ theorem gap3 : HasLimitAt cancelled (-2) (1 / 144) := by
   rw [← hvalue]
   exact hcont.tendsto.mono_left inf_le_left
 
-/-- Source: `proof_gap/exercise_441/4.txt`. -/
+/-- Exercise 441, gap 4. -/
 theorem gap4 : HasLimitAt original (-2) (1 / 144) := by
   exact gap1.mpr gap3
 

@@ -24,7 +24,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 def finalDerivative (x : ℝ) : ℝ :=
   Real.sign x / Real.sqrt (1 - x ^ 2)
 
-/-- Source: `proof_gap/exercise_924/1.txt`; require `|x| < 1` for the inner
+/-- Exercise 924, gap 1; require `|x| < 1` for the inner
 square root and `x ≠ 0` to avoid the outer arccosine endpoint. -/
 theorem gap1 (x : ℝ) (hinside : x ^ 2 < 1) (hx : x ≠ 0) :
     HasDerivAt y (expandedDerivative x) x := by
@@ -70,7 +70,7 @@ theorem gap1 (x : ℝ) (hinside : x ^ 2 < 1) (hx : x ≠ 0) :
   simpa only [y, expandedDerivative, Function.comp_apply, hs_sq, neg_div] using
     houter.comp x hinner
 
-/-- Source: `proof_gap/exercise_924/2.txt`; the nonzero hypothesis justifies
+/-- Exercise 924, gap 2; the nonzero hypothesis justifies
 replacing `x / sqrt (x²)` by `sign x`. -/
 theorem gap2 (x : ℝ) (hinside : x ^ 2 < 1) (hx : x ≠ 0) :
     expandedDerivative x = finalDerivative x := by
@@ -87,7 +87,7 @@ theorem gap2 (x : ℝ) (hinside : x ^ 2 < 1) (hx : x ≠ 0) :
   · rw [abs_of_pos hxpos, Real.sign_of_pos hxpos]
     field_simp [hx, hs0]
 
-/-- Source: `proof_gap/exercise_924/3.txt`; the composition has a cusp at
+/-- Exercise 924, gap 3; the composition has a cusp at
 zero and singular square-root derivatives at the endpoints. -/
 theorem gap3 (x : ℝ) (hinside : x ^ 2 < 1) (hx : x ≠ 0) :
     HasDerivAt y (finalDerivative x) x := by

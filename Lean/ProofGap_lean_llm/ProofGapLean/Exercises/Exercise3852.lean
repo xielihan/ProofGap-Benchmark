@@ -334,7 +334,7 @@ private theorem integral_Ioi_eq_betaFunction (m n : ℝ) :
     (one_div_pos.mpr (sq_pos_of_ne_zero (sub_ne_zero.mpr ht.2.ne')))]
   exact transformed_integrand ht
 
-/-- Semantic source: `results/stage1_gpt55/09_重积分与含参积分/exercise_3852_autoformalization_result/exercise_3852.md`. -/
+/-- Exercise 3852. -/
 
 private theorem improperIntegral_eq_of_hasImproperIntegral
     {a : ℝ} {f : ℝ → ℝ} {L : ℝ}

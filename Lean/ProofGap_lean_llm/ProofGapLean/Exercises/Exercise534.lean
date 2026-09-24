@@ -12,7 +12,7 @@ def f (x : ℝ) : ℝ := Real.logb 10 ((100 + x ^ 2) / (1 + 100 * x ^ 2))
 def HasLimitAtInfinity (g : ℝ → ℝ) (L : ℝ) : Prop :=
   ∀ ε > 0, ∃ R > 0, ∀ x : ℝ, R < |x| → |g x - L| < ε
 
-/-- Source: `proof_gap/exercise_534/1.txt`; retain the unsigned two-sided infinity through `|x|→∞`. -/
+/-- Exercise 534, gap 1; retain the unsigned two-sided infinity through `|x|→∞`. -/
 theorem gap1 : HasLimitAtInfinity f (Real.logb 10 (1 / 100)) := by
   intro ε hε
   have hcont :
@@ -67,7 +67,7 @@ theorem gap1 : HasLimitAtInfinity f (Real.logb 10 (1 / 100)) := by
   have hout := hδlog harg
   simpa [f, Real.dist_eq] using hout
 
-/-- Source: `proof_gap/exercise_534/2.txt`. -/
+/-- Exercise 534, gap 2. -/
 theorem gap2 : Real.logb 10 (1 / 100) = -2 := by
   have h100 : (100 : ℝ) = 10 ^ 2 := by norm_num
   have hlog10 : Real.log (10 : ℝ) ≠ 0 :=
@@ -76,7 +76,7 @@ theorem gap2 : Real.logb 10 (1 / 100) = -2 := by
   field_simp [hlog10]
   <;> ring
 
-/-- Source: `proof_gap/exercise_534/3.txt`. -/
+/-- Exercise 534, gap 3. -/
 theorem gap3 : HasLimitAtInfinity f (-2) := by
   rw [← gap2]
   exact gap1

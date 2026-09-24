@@ -13,7 +13,7 @@ def expanded (a b x : ℝ) : ℝ :=
 def HasLimitZero (a b : ℝ) : Prop :=
   Filter.Tendsto (f a b) Filter.atTop (nhds 0)
 
-/-- Source: `proof_gap/exercise_469/1.txt`; remove the malformed quantifier/limit biconditional and state the algebraic identity on its domain. -/
+/-- Exercise 469, gap 1; remove the malformed quantifier/limit biconditional and state the algebraic identity on its domain. -/
 private theorem limit_coefficients_characterization (a b : ℝ) :
     HasLimitZero a b ↔ a = 1 ∧ a + b = 0 := by
   have h_add : Filter.Tendsto (fun x : ℝ => x + 1) Filter.atTop Filter.atTop := by
@@ -132,22 +132,22 @@ theorem gap1 (a b x : ℝ) (hx : x ≠ -1) : f a b x = expanded a b x := by
   field_simp [hden]
   <;> ring
 
-/-- Source: `proof_gap/exercise_469/2.txt`; the coefficient condition is necessary, not by itself equivalent. -/
+/-- Exercise 469, gap 2; the coefficient condition is necessary, not by itself equivalent. -/
 theorem gap2 (a b : ℝ) : HasLimitZero a b → 1 - a = 0 := by
   intro h
   have ha : a = 1 := ((limit_coefficients_characterization a b).1 h).1
   linarith
 
-/-- Source: `proof_gap/exercise_469/3.txt`; the second coefficient condition is also necessary. -/
+/-- Exercise 469, gap 3; the second coefficient condition is also necessary. -/
 theorem gap3 (a b : ℝ) : HasLimitZero a b → a + b = 0 := by
   intro h
   exact ((limit_coefficients_characterization a b).1 h).2
 
-/-- Source: `proof_gap/exercise_469/4.txt`; retain both coefficient conditions in the exact characterization. -/
+/-- Exercise 469, gap 4; retain both coefficient conditions in the exact characterization. -/
 theorem gap4 (a b : ℝ) : HasLimitZero a b ↔ a = 1 ∧ a + b = 0 := by
   exact limit_coefficients_characterization a b
 
-/-- Source: `proof_gap/exercise_469/5.txt`; retain both coefficient conditions in the exact characterization. -/
+/-- Exercise 469, gap 5; retain both coefficient conditions in the exact characterization. -/
 theorem gap5 (a b : ℝ) : HasLimitZero a b ↔ a = 1 ∧ b = -1 := by
   constructor
   · intro h
@@ -157,7 +157,7 @@ theorem gap5 (a b : ℝ) : HasLimitZero a b ↔ a = 1 ∧ b = -1 := by
     apply (gap4 a b).2
     exact ⟨ha, by linarith⟩
 
-/-- Source: `proof_gap/exercise_469/6.txt`. -/
+/-- Exercise 469, gap 6. -/
 theorem gap6 (a b : ℝ) (hab : (a, b) = (1, -1)) : HasLimitZero a b := by
   have ha : a = 1 := congrArg Prod.fst hab
   have hb : b = -1 := congrArg Prod.snd hab

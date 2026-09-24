@@ -43,7 +43,7 @@ def SummableFromTwo (f : ℕ → ℝ) : Prop :=
   Summable (fun k : ℕ => f (k + 2))
 
 /--
-Source: `proof_gap/exercise_3070/1.txt`; distinguish the exponent `p` from
+Exercise 3070, gap 1; distinguish the exponent `p` from
 the source's overloaded sequence name.
 -/
 private theorem base_eq_rewrittenBase (n : ℕ) : base n = rewrittenBase n := by
@@ -191,7 +191,7 @@ theorem gap1 (p : ℝ) (u : ℕ → ℝ) (hu : ∀ n, u n = term p n)
   unfold term rewrittenTerm
   rw [base_eq_rewrittenBase]
 
-/-- Source: `proof_gap/exercise_3070/2.txt`; use exact sums and real powers. -/
+/-- Exercise 3070, gap 2; use exact sums and real powers. -/
 theorem gap2 (p : ℝ) (hconv : NonzeroConvergentProduct p) :
     sumFromTwo (fun n => Real.log (rewrittenTerm p n)) =
       p * sumFromTwo (fun n => Real.log (rewrittenBase n)) := by
@@ -204,7 +204,7 @@ theorem gap2 (p : ℝ) (hconv : NonzeroConvergentProduct p) :
   have hpos := rewrittenBase_pos_of_two_le (k + 2) hk
   exact Real.log_rpow hpos p
 
-/-- Source: `proof_gap/exercise_3070/3.txt`. -/
+/-- Exercise 3070, gap 3. -/
 theorem gap3 (p : ℝ) (hconv : NonzeroConvergentProduct p) :
     SummableFromTwo (fun n => Real.log (rewrittenTerm p n)) := by
   have hs := summable_log_rewrittenBase
@@ -218,13 +218,13 @@ theorem gap3 (p : ℝ) (hconv : NonzeroConvergentProduct p) :
   have hpos := rewrittenBase_pos_of_two_le (k + 2) hk
   exact (Real.log_rpow hpos p).symm
 
-/-- Source: `proof_gap/exercise_3070/4.txt`. -/
+/-- Exercise 3070, gap 4. -/
 theorem gap4 (p : ℝ) :
     NonzeroConvergentProduct p → NonzeroConvergentProduct p := by
   intro h
   exact h
 
-/-- Source: `proof_gap/exercise_3070/5.txt`; `RealSet` is the whole real type. -/
+/-- Exercise 3070, gap 5; `RealSet` is the whole real type. -/
 theorem gap5 (p : ℝ) :
     p ∈ (Set.univ : Set ℝ) ↔ NonzeroConvergentProduct p := by
   simp only [Set.mem_univ, true_iff]

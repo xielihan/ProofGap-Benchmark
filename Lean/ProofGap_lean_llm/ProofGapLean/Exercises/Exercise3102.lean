@@ -493,7 +493,7 @@ private theorem test_gap14 (a : ℕ → ℝ) (p : ℝ)
     SamePowerOrder a p := by
   exact horder
 
-/-- Source: `proof_gap/exercise_3102/1.txt`; all divisions start at `n = 1`. -/
+/-- Exercise 3102, gap 1; all divisions start at `n = 1`. -/
 theorem gap1 (a : ℕ → ℝ) (p : ℝ)
     (ha : ∀ n : ℕ, 1 ≤ n → 0 < a n) :
     ∀ n : ℕ, 1 ≤ n →
@@ -503,7 +503,7 @@ theorem gap1 (a : ℕ → ℝ) (p : ℝ)
   exact test_gap1 a p ha
 
 /--
-Source: `proof_gap/exercise_3102/2.txt`; the source's `O(n⁻²)` placeholder is
+Exercise 3102, gap 2; the source's `O(n⁻²)` placeholder is
 represented as a function-level estimate.
 -/
 theorem gap2 (a : ℕ → ℝ) (p : ℝ)
@@ -515,7 +515,7 @@ theorem gap2 (a : ℕ → ℝ) (p : ℝ)
   exact test_gap2 a p ha
 
 /--
-Source: `proof_gap/exercise_3102/3.txt`; the two big-O terms are made into
+Exercise 3102, gap 3; the two big-O terms are made into
 separate remainder functions.
 -/
 theorem gap3 (a : ℕ → ℝ) (p ε : ℝ)
@@ -532,7 +532,7 @@ theorem gap3 (a : ℕ → ℝ) (p ε : ℝ)
   exact test_gap3 a p ε ha hε hratio
 
 /--
-Source: `proof_gap/exercise_3102/4.txt`; retain both the supplied
+Exercise 3102, gap 4; retain both the supplied
 `n⁻(1+ε)` error and the logarithmic `n⁻²` error.
 -/
 theorem gap4 (a : ℕ → ℝ) (p ε : ℝ)
@@ -543,7 +543,7 @@ theorem gap4 (a : ℕ → ℝ) (p ε : ℝ)
     (fun n => Real.log (ratioFactor a p n)) =O[atTop] decay ε := by
   exact test_gap4 a p ε ha hε hratio
 
-/-- Source: `proof_gap/exercise_3102/5.txt`; sum from the first positive index. -/
+/-- Exercise 3102, gap 5; sum from the first positive index. -/
 theorem gap5 (a : ℕ → ℝ) (p ε : ℝ)
     (ha : ∀ n : ℕ, 1 ≤ n → 0 < a n)
     (hε : 0 < ε)
@@ -553,7 +553,7 @@ theorem gap5 (a : ℕ → ℝ) (p ε : ℝ)
   exact test_gap5 a p ε ha hε hratio
 
 /--
-Source: `proof_gap/exercise_3102/6.txt`; this is convergence of the infinite
+Exercise 3102, gap 6; this is convergence of the infinite
 product, not summability of its factors.
 -/
 theorem gap6 (a : ℕ → ℝ) (p ε : ℝ)
@@ -565,7 +565,7 @@ theorem gap6 (a : ℕ → ℝ) (p ε : ℝ)
   exact test_gap6 a p ε ha hε hratio
 
 /--
-Source: `proof_gap/exercise_3102/7.txt`; convergence of the logarithms and
+Exercise 3102, gap 7; convergence of the logarithms and
 positivity of the factors supply the nonzero product limit.
 -/
 theorem gap7 (r : ℕ → ℝ) (k₀ : ℝ)
@@ -575,14 +575,14 @@ theorem gap7 (r : ℕ → ℝ) (k₀ : ℝ)
     k₀ ≠ 0 := by
   exact test_gap7 r k₀ hrpos hlog hk
 
-/-- Source: `proof_gap/exercise_3102/8.txt`. -/
+/-- Exercise 3102, gap 8. -/
 theorem gap8 (a r P : ℕ → ℝ) (k₀ : ℝ)
     (hP : ∀ N, P N = a 1 * partialProduct r N)
     (hk : HasProductFromOne r k₀) :
     Tendsto P atTop (𝓝 (a 1 * k₀)) := by
   exact test_gap8 a r P k₀ hP hk
 
-/-- Source: `proof_gap/exercise_3102/9.txt`; the finite product telescopes. -/
+/-- Exercise 3102, gap 9; the finite product telescopes. -/
 theorem gap9 (a P : ℕ → ℝ) (p : ℝ)
     (ha : ∀ n : ℕ, 1 ≤ n → 0 < a n)
     (hP : ∀ N, P N = a 1 * partialProduct (ratioFactor a p) N) :
@@ -590,14 +590,14 @@ theorem gap9 (a P : ℕ → ℝ) (p : ℝ)
       P N = a (N + 1) * powerPartialProduct p N := by
   exact test_gap9 a P p ha hP
 
-/-- Source: `proof_gap/exercise_3102/10.txt`; exclude `N = 0` from `N^p`. -/
+/-- Exercise 3102, gap 10; exclude `N = 0` from `N^p`. -/
 theorem gap10 (p : ℝ) :
     ∃ G : ℕ → ℝ, ∀ N : ℕ, 1 ≤ N →
       powerPartialProduct p N = Real.rpow N p * G N := by
   exact test_gap10 p
 
 /--
-Source: `proof_gap/exercise_3102/11.txt`; the convergent `G` is the same
+Exercise 3102, gap 11; the convergent `G` is the same
 function used in the preceding factorization.
 -/
 theorem gap11 (p : ℝ) :
@@ -607,7 +607,7 @@ theorem gap11 (p : ℝ) :
       Tendsto G atTop (𝓝 (Real.exp (C₀ * p))) := by
   exact test_gap11 p
 
-/-- Source: `proof_gap/exercise_3102/12.txt`; retain the linked product factorization. -/
+/-- Exercise 3102, gap 12; retain the linked product factorization. -/
 theorem gap12 (a P G : ℕ → ℝ) (p k₀ C₀ : ℝ)
     (hP : Tendsto P atTop (𝓝 (a 1 * k₀)))
     (hdecomp :
@@ -620,7 +620,7 @@ theorem gap12 (a P G : ℕ → ℝ) (p k₀ C₀ : ℝ)
   exact test_gap12 a P G p k₀ C₀ hP hdecomp hG
 
 /--
-Source: `proof_gap/exercise_3102/13.txt`; `O*` means asymptotic order up to a
+Exercise 3102, gap 13; `O*` means asymptotic order up to a
 nonzero constant, not ratio tending specifically to one.
 -/
 theorem gap13 (a : ℕ → ℝ) (p C : ℝ) (hC : C ≠ 0)
@@ -631,7 +631,7 @@ theorem gap13 (a : ℕ → ℝ) (p C : ℝ) (hC : C ≠ 0)
     SamePowerOrder a p := by
   exact test_gap13 a p C hC hscaled
 
-/-- Source: `proof_gap/exercise_3102/14.txt`; the final index rename changes no semantics. -/
+/-- Exercise 3102, gap 14; the final index rename changes no semantics. -/
 theorem gap14 (a : ℕ → ℝ) (p : ℝ)
     (horder : SamePowerOrder a p) :
     SamePowerOrder a p := by

@@ -12,7 +12,7 @@ def ApproachesBelowAtNegInfinity (f : ℝ → ℝ) (b : ℝ) : Prop :=
 
 def f (x : ℝ) : ℝ := 1 / x
 
-/-- Source: `proof_gap/exercise_407_8/1.txt`; bind `y=f(x)` and remove the shadowed threshold. -/
+/-- Exercise 407_8, gap 1; bind `y=f(x)` and remove the shadowed threshold. -/
 theorem gap1 : ∀ ε > 0, ∃ N > 0, ∀ x, x < -N →
     0 < -f x ∧ -f x < ε := by
   intro ε hε
@@ -40,24 +40,24 @@ theorem gap1 : ∀ ε > 0, ∃ N > 0, ∀ x, x < -N →
       exact (div_lt_iff_of_neg hx0).2 hmul
     simpa only [f, neg_div] using hquot
 
-/-- Source: `proof_gap/exercise_407_8/2.txt`; replace the false universal limit claim by its defining equivalence. -/
+/-- Exercise 407_8, gap 2; replace the false universal limit claim by its defining equivalence. -/
 theorem gap2 (g : ℝ → ℝ) (b : ℝ) :
     ApproachesBelowAtNegInfinity g b ↔
       ∀ ε > 0, ∃ N > 0, ∀ x, x < -N →
         0 < b - g x ∧ b - g x < ε := by
   rfl
 
-/-- Source: `proof_gap/exercise_407_8/3.txt`; restrict the sign to the negative half-line. -/
+/-- Exercise 407_8, gap 3; restrict the sign to the negative half-line. -/
 theorem gap3 : ∀ x : ℝ, x < 0 → f x < 0 := by
   intro x hx
   dsimp [f]
   exact one_div_neg.mpr hx
 
-/-- Source: `proof_gap/exercise_407_8/4.txt`; define the previously free function. -/
+/-- Exercise 407_8, gap 4; define the previously free function. -/
 theorem gap4 : ApproachesBelowAtNegInfinity f 0 := by
   simpa [ApproachesBelowAtNegInfinity] using gap1
 
-/-- Source: `proof_gap/exercise_407_8/5.txt`; restrict the sign to the negative half-line. -/
+/-- Exercise 407_8, gap 5; restrict the sign to the negative half-line. -/
 theorem gap5 : ∀ x : ℝ, x < 0 → f x < 0 := by
   exact gap3
 

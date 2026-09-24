@@ -233,36 +233,36 @@ private theorem deficit_tendsto :
   intro p hp
   simp only [one_div, inv_inv]
 
-/-- Source: `proof_gap/exercise_3101/1.txt`; strictness starts at `N = 2`. -/
+/-- Exercise 3101, gap 1; strictness starts at `N = 2`. -/
 theorem gap1 :
     ∀ N : ℕ, 2 ≤ N →
       harmonicPartialSum N < reciprocalEulerPartialProduct N := by
   exact harmonic_lt_euler
 
-/-- Source: `proof_gap/exercise_3101/2.txt`; `+∞` is the filter `atTop`. -/
+/-- Exercise 3101, gap 2; `+∞` is the filter `atTop`. -/
 theorem gap2 :
     Tendsto harmonicPartialSum atTop atTop := by
   exact harmonic_tendsto
 
-/-- Source: `proof_gap/exercise_3101/3.txt`; use the complete prime cutoff. -/
+/-- Exercise 3101, gap 3; use the complete prime cutoff. -/
 theorem gap3 :
     Tendsto reciprocalEulerPartialProduct atTop atTop := by
   exact euler_product_tendsto
 
 /--
-Source: `proof_gap/exercise_3101/4.txt`; use the reciprocal product with the
+Exercise 3101, gap 4; use the reciprocal product with the
 same prime-by-value cutoff as the preceding step.
 -/
 theorem gap4 :
     Tendsto primeDeficitProduct atTop (𝓝 0) := by
   exact deficit_tendsto
 
-/-- Source: `proof_gap/exercise_3101/5.txt`; state divergence over all primes by cutoff. -/
+/-- Exercise 3101, gap 5; state divergence over all primes by cutoff. -/
 theorem gap5 :
     Tendsto primeReciprocalPartialSum atTop atTop := by
   exact prime_sum_tendsto
 
-/-- Source: `proof_gap/exercise_3101/6.txt`. -/
+/-- Exercise 3101, gap 6. -/
 theorem gap6 :
     Tendsto primeReciprocalPartialSum atTop atTop ∧
       Tendsto reciprocalEulerPartialProduct atTop atTop := by

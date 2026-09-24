@@ -23,7 +23,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 def finalDerivative (x : ℝ) : ℝ :=
   Real.sin x * Real.log (Real.tan x)
 
-/-- Source: `proof_gap/exercise_912/1.txt`; positivity of both tangent
+/-- Exercise 912, gap 1; positivity of both tangent
 arguments gives the logarithm domain and excludes the relevant tangent
 poles and zeros. -/
 private theorem tan_pos_sin_cos_ne (x : ℝ) (h : 0 < Real.tan x) :
@@ -94,7 +94,7 @@ theorem gap1 (x : ℝ) (hhalf : 0 < Real.tan (x / 2))
   convert hloghalf.sub hproduct using 1 <;>
     simp [y, expandedDerivative] <;> ring
 
-/-- Source: `proof_gap/exercise_912/2.txt`; the trigonometric cancellation is
+/-- Exercise 912, gap 2; the trigonometric cancellation is
 restricted to the domain of both logarithms. -/
 theorem gap2 (x : ℝ) (hhalf : 0 < Real.tan (x / 2))
     (hfull : 0 < Real.tan x) :
@@ -120,7 +120,7 @@ theorem gap2 (x : ℝ) (hhalf : 0 < Real.tan (x / 2))
   rw [hcancel]
   ring
 
-/-- Source: `proof_gap/exercise_912/3.txt`; retain the domain of both
+/-- Exercise 912, gap 3; retain the domain of both
 logarithmic tangent terms. -/
 theorem gap3 (x : ℝ) (hhalf : 0 < Real.tan (x / 2))
     (hfull : 0 < Real.tan x) :

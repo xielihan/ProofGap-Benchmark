@@ -27,7 +27,7 @@ def decomposedBound (x : ℝ) (n : ℕ) : ℝ :=
     (|x| ^ (n + 1) / ((n + 1).factorial : ℝ) -
       (|x| / (n + 1)) * ((|x| ^ 2) ^ n / (n.factorial : ℝ)))
 
-/-- Source: `proof_gap/exercise_628/1.txt`; replace the sum ellipsis by `Finset.Icc`. -/
+/-- Exercise 628, gap 1; replace the sum ellipsis by `Finset.Icc`. -/
 private theorem sum_Icc_succ_two_mul (f : ℕ → ℝ) (n : ℕ) :
     (Finset.Icc (n + 1) (2 * n)).sum f =
       (Finset.range n).sum (fun j => f (n + 1 + j)) := by
@@ -150,7 +150,7 @@ theorem gap1 (x : ℝ) (n : ℕ) : |tail x n| ≤ absoluteTail x n := by
       simp [abs_div, abs_pow,
         abs_of_nonneg (show (0 : ℝ) ≤ (k.factorial : ℝ) by positivity)]
 
-/-- Source: `proof_gap/exercise_628/2.txt`. -/
+/-- Exercise 628, gap 2. -/
 theorem gap2 (x : ℝ) (n : ℕ) : absoluteTail x n ≤ bound x n := by
   unfold absoluteTail bound geometric
   rw [sum_Icc_succ_two_mul]
@@ -169,11 +169,11 @@ theorem gap2 (x : ℝ) (n : ℕ) : absoluteTail x n ≤ bound x n := by
     _ = (|x| ^ (n + 1) / ((n + 1).factorial : ℝ)) * |x| ^ j := by
       ring
 
-/-- Source: `proof_gap/exercise_628/3.txt`. -/
+/-- Exercise 628, gap 3. -/
 theorem gap3 (x : ℝ) (n : ℕ) : |tail x n| ≤ bound x n := by
   exact (gap1 x n).trans (gap2 x n)
 
-/-- Source: `proof_gap/exercise_628/4.txt`. -/
+/-- Exercise 628, gap 4. -/
 theorem gap4 (x : ℝ) (hx : |x| = 1) :
     Filter.Tendsto (fun n : ℕ => (n : ℝ) / ((n + 1).factorial : ℝ))
       Filter.atTop (nhds 0) := by
@@ -201,13 +201,13 @@ theorem gap4 (x : ℝ) (hx : |x| = 1) :
       (mul_le_mul_of_nonneg_right hratio
         (show (0 : ℝ) ≤ 1 / (n.factorial : ℝ) by positivity))
 
-/-- Source: `proof_gap/exercise_628/5.txt`. -/
+/-- Exercise 628, gap 5. -/
 theorem gap5 (x : ℝ) (n : ℕ) (hx : |x| ≠ 1) :
     bound x n = closedBound x n := by
   unfold bound closedBound geometric
   rw [geometric_sum_closed |x| n hx]
 
-/-- Source: `proof_gap/exercise_628/6.txt`. -/
+/-- Exercise 628, gap 6. -/
 theorem gap6 (x : ℝ) (n : ℕ) (hx : |x| ≠ 1) :
     closedBound x n = decomposedBound x n := by
   have hden : 1 - |x| ≠ 0 := sub_ne_zero.mpr (Ne.symm hx)
@@ -234,12 +234,12 @@ theorem gap6 (x : ℝ) (n : ℕ) (hx : |x| ≠ 1) :
             (|x| / (n + 1)) * ((|x| ^ 2) ^ n / (n.factorial : ℝ))) := by
       rw [hterm]
 
-/-- Source: `proof_gap/exercise_628/7.txt`. -/
+/-- Exercise 628, gap 7. -/
 theorem gap7 (x : ℝ) (n : ℕ) (hx : |x| ≠ 1) :
     bound x n = decomposedBound x n := by
   exact (gap5 x n hx).trans (gap6 x n hx)
 
-/-- Source: `proof_gap/exercise_628/8.txt`. -/
+/-- Exercise 628, gap 8. -/
 theorem gap8 (x : ℝ) (hx : |x| ≠ 1) :
     Filter.Tendsto
       (fun n : ℕ => |x| ^ (n + 1) / ((n + 1).factorial : ℝ))
@@ -247,14 +247,14 @@ theorem gap8 (x : ℝ) (hx : |x| ≠ 1) :
   simpa using
     (pow_div_factorial_tendsto_zero |x|).comp nat_succ_tendsto_atTop
 
-/-- Source: `proof_gap/exercise_628/9.txt`. -/
+/-- Exercise 628, gap 9. -/
 theorem gap9 (x : ℝ) (hx : |x| ≠ 1) :
     Filter.Tendsto
       (fun n : ℕ => (|x| ^ 2) ^ n / (n.factorial : ℝ))
       Filter.atTop (nhds 0) := by
   simpa using pow_div_factorial_tendsto_zero (x ^ 2)
 
-/-- Source: `proof_gap/exercise_628/10.txt`. -/
+/-- Exercise 628, gap 10. -/
 theorem gap10 (x : ℝ) :
     Filter.Tendsto (tail x) Filter.atTop (nhds 0) := by
   have hb : Filter.Tendsto (bound x) Filter.atTop (nhds 0) := by

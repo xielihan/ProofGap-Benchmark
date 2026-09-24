@@ -13,7 +13,7 @@ def Classified (f : ℝ → ℝ) : Prop :=
   (∃ a : ℝ, f = fun x => Real.cos (a * x)) ∨
   ∃ a : ℝ, f = fun x => Real.cosh (a * x)
 
-/-- Source: `proof_gap/exercise_818/1.txt`. -/
+/-- Exercise 818, gap 1. -/
 theorem gap1 (a : ℝ) : DAlambert (fun x => Real.cos (a * x)) := by
   intro x y
   dsimp
@@ -22,7 +22,7 @@ theorem gap1 (a : ℝ) : DAlambert (fun x => Real.cos (a * x)) := by
       Real.cos_add, Real.cos_sub]
   ring
 
-/-- Source: `proof_gap/exercise_818/2.txt`. -/
+/-- Exercise 818, gap 2. -/
 theorem gap2 (a : ℝ) : DAlambert (fun x => Real.cosh (a * x)) := by
   intro x y
   dsimp
@@ -31,14 +31,14 @@ theorem gap2 (a : ℝ) : DAlambert (fun x => Real.cosh (a * x)) := by
       Real.cosh_add, Real.cosh_sub]
   ring
 
-/-- Source: `proof_gap/exercise_818/3.txt`. -/
+/-- Exercise 818, gap 3. -/
 theorem gap3 (f : ℝ → ℝ) (hfun : DAlambert f) :
     ∀ x, 2 * f x = 2 * f x * f 0 := by
   intro x
   have h := hfun x 0
   simpa only [add_zero, sub_zero, two_mul] using h
 
-/-- Source: `proof_gap/exercise_818/4.txt`. -/
+/-- Exercise 818, gap 4. -/
 theorem gap4 (f : ℝ → ℝ) (hfun : DAlambert f) (hnz : ¬ ∀ x, f x = 0) :
     f 0 = 1 := by
   by_contra hne
@@ -53,20 +53,20 @@ theorem gap4 (f : ℝ → ℝ) (hfun : DAlambert f) (hnz : ¬ ∀ x, f x = 0) :
     apply hne
     linarith
 
-/-- Source: `proof_gap/exercise_818/5.txt`. -/
+/-- Exercise 818, gap 5. -/
 theorem gap5 (f : ℝ → ℝ) (hfun : DAlambert f) (h0 : f 0 = 1) :
     ∀ y, f y + f (-y) = 2 * f y := by
   intro y
   simpa [h0] using hfun 0 y
 
-/-- Source: `proof_gap/exercise_818/6.txt`. -/
+/-- Exercise 818, gap 6. -/
 theorem gap6 (f : ℝ → ℝ) (hfun : DAlambert f) (h0 : f 0 = 1) :
     ∀ y, f (-y) = f y := by
   intro y
   have h := gap5 f hfun h0 y
   linarith
 
-/-- Source: `proof_gap/exercise_818/7.txt`; restrict continuity to the source's full real domain. -/
+/-- Exercise 818, gap 7; restrict continuity to the source's full real domain. -/
 theorem gap7 (f : ℝ → ℝ) (hf : Continuous f) (h0 : f 0 = 1) :
     ∃ c > 0, ∀ x ∈ Set.Icc (0 : ℝ) c, 0 < f x := by
   have hopen : IsOpen (f ⁻¹' Set.Ioi (0 : ℝ)) := isOpen_Ioi.preimage hf
@@ -80,44 +80,44 @@ theorem gap7 (f : ℝ → ℝ) (hf : Continuous f) (h0 : f 0 = 1) :
     linarith [hx.2]
   exact hball hxball
 
-/-- Source: `proof_gap/exercise_818/8.txt`; define `θ` as `arccos A`. -/
+/-- Exercise 818, gap 8; define `θ` as `arccos A`. -/
 theorem gap8 (A : ℝ) (hA0 : 0 < A) (hA1 : A ≤ 1) :
     0 ≤ Real.arccos A := by
   exact Real.arccos_nonneg A
 
-/-- Source: `proof_gap/exercise_818/9.txt`; define `θ` as `arccos A`. -/
+/-- Exercise 818, gap 9; define `θ` as `arccos A`. -/
 theorem gap9 (A : ℝ) (hA0 : 0 < A) (hA1 : A ≤ 1) :
     Real.arccos A < Real.pi / 2 := by
   exact Real.arccos_lt_pi_div_two.mpr hA0
 
-/-- Source: `proof_gap/exercise_818/10.txt`. -/
+/-- Exercise 818, gap 10. -/
 theorem gap10 : 0 < Real.pi / 2 := by
   positivity
 
-/-- Source: `proof_gap/exercise_818/11.txt`; add the omitted definitions `f(c)=A`, `θ=arccos A`. -/
+/-- Exercise 818, gap 11; add the omitted definitions `f(c)=A`, `θ=arccos A`. -/
 theorem gap11 (f : ℝ → ℝ) (c A θ : ℝ)
     (hfc : f c = A) (hθ : θ = Real.arccos A) (hA0 : 0 < A) (hA1 : A ≤ 1) :
     f c = Real.cos θ := by
   rw [hfc, hθ, Real.cos_arccos (by linarith) hA1]
 
-/-- Source: `proof_gap/exercise_818/12.txt`. -/
+/-- Exercise 818, gap 12. -/
 theorem gap12 (f : ℝ → ℝ) (c : ℝ) (hfun : DAlambert f) :
     f (2 * c) = 2 * f c ^ 2 - f 0 := by
   have h := hfun c c
   rw [show c + c = 2 * c by ring, sub_self] at h
   nlinarith [h]
 
-/-- Source: `proof_gap/exercise_818/13.txt`. -/
+/-- Exercise 818, gap 13. -/
 theorem gap13 (f : ℝ → ℝ) (c θ : ℝ) (h0 : f 0 = 1)
     (hc : f c = Real.cos θ) :
     2 * f c ^ 2 - f 0 = 2 * Real.cos θ ^ 2 - 1 := by
   simp [h0, hc]
 
-/-- Source: `proof_gap/exercise_818/14.txt`. -/
+/-- Exercise 818, gap 14. -/
 theorem gap14 (θ : ℝ) : 2 * Real.cos θ ^ 2 - 1 = Real.cos (2 * θ) := by
   simpa using (Real.cos_two_mul θ).symm
 
-/-- Source: `proof_gap/exercise_818/15.txt`. -/
+/-- Exercise 818, gap 15. -/
 theorem gap15 (f : ℝ → ℝ) (c θ : ℝ) (hfun : DAlambert f)
     (h0 : f 0 = 1) (hc : f c = Real.cos θ) :
     f (2 * c) = Real.cos (2 * θ) := by
@@ -126,7 +126,7 @@ theorem gap15 (f : ℝ → ℝ) (c θ : ℝ) (hfun : DAlambert f)
     _ = 2 * Real.cos θ ^ 2 - 1 := gap13 f c θ h0 hc
     _ = Real.cos (2 * θ) := gap14 θ
 
-/-- Source: `proof_gap/exercise_818/16.txt`. -/
+/-- Exercise 818, gap 16. -/
 theorem gap16 (f : ℝ → ℝ) (c : ℝ) (hfun : DAlambert f) :
     f (3 * c) = 2 * f (2 * c) * f c - f c := by
   have h := hfun (2 * c) c
@@ -134,14 +134,14 @@ theorem gap16 (f : ℝ → ℝ) (c : ℝ) (hfun : DAlambert f) :
       show 2 * c - c = c by ring] at h
   linarith
 
-/-- Source: `proof_gap/exercise_818/17.txt`. -/
+/-- Exercise 818, gap 17. -/
 theorem gap17 (f : ℝ → ℝ) (c θ : ℝ)
     (hc : f c = Real.cos θ) (h2c : f (2 * c) = Real.cos (2 * θ)) :
     2 * f (2 * c) * f c - f c =
       2 * Real.cos (2 * θ) * Real.cos θ - Real.cos θ := by
   simp [hc, h2c]
 
-/-- Source: `proof_gap/exercise_818/18.txt`. -/
+/-- Exercise 818, gap 18. -/
 theorem gap18 (θ : ℝ) :
     2 * Real.cos (2 * θ) * Real.cos θ - Real.cos θ = Real.cos (3 * θ) := by
   have h := (gap1 (1 : ℝ)) (2 * θ) θ
@@ -150,7 +150,7 @@ theorem gap18 (θ : ℝ) :
   norm_num only [one_mul] at h
   linarith
 
-/-- Source: `proof_gap/exercise_818/19.txt`. -/
+/-- Exercise 818, gap 19. -/
 theorem gap19 (f : ℝ → ℝ) (c θ : ℝ) (hfun : DAlambert f)
     (h0 : f 0 = 1) (hc : f c = Real.cos θ) :
     f (3 * c) = Real.cos (3 * θ) := by
@@ -160,7 +160,7 @@ theorem gap19 (f : ℝ → ℝ) (c θ : ℝ) (hfun : DAlambert f)
       gap17 f c θ hc (gap15 f c θ hfun h0 hc)
     _ = Real.cos (3 * θ) := gap18 θ
 
-/-- Source: `proof_gap/exercise_818/20.txt`; type positive indices as naturals. -/
+/-- Exercise 818, gap 20; type positive indices as naturals. -/
 theorem gap20 (f : ℝ → ℝ) (c θ : ℝ) (hfun : DAlambert f)
     (h0 : f 0 = 1) (hc : f c = Real.cos θ) :
     ∀ n : ℕ, 1 ≤ n → f ((n : ℝ) * c) = Real.cos ((n : ℝ) * θ) := by
@@ -186,7 +186,7 @@ theorem gap20 (f : ℝ → ℝ) (c θ : ℝ) (hfun : DAlambert f)
   intro n hn
   exact hall n
 
-/-- Source: `proof_gap/exercise_818/21.txt`. -/
+/-- Exercise 818, gap 21. -/
 theorem gap21 (f : ℝ → ℝ) (c : ℝ) (hfun : DAlambert f) :
     f ((1 / 2 : ℝ) * c) ^ 2 = (1 / 2 : ℝ) * (f 0 + f c) := by
   have h := hfun ((1 / 2 : ℝ) * c) ((1 / 2 : ℝ) * c)
@@ -194,20 +194,20 @@ theorem gap21 (f : ℝ → ℝ) (c : ℝ) (hfun : DAlambert f) :
       show (1 / 2 : ℝ) * c - (1 / 2 : ℝ) * c = 0 by ring] at h
   nlinarith [h]
 
-/-- Source: `proof_gap/exercise_818/22.txt`. -/
+/-- Exercise 818, gap 22. -/
 theorem gap22 (f : ℝ → ℝ) (c θ : ℝ) (h0 : f 0 = 1)
     (hc : f c = Real.cos θ) :
     (1 / 2 : ℝ) * (f 0 + f c) = (1 / 2 : ℝ) * (1 + Real.cos θ) := by
   simp [h0, hc]
 
-/-- Source: `proof_gap/exercise_818/23.txt`. -/
+/-- Exercise 818, gap 23. -/
 theorem gap23 (θ : ℝ) :
     (1 / 2 : ℝ) * (1 + Real.cos θ) = Real.cos (θ / 2) ^ 2 := by
   have h := Real.cos_two_mul (θ / 2)
   rw [show 2 * (θ / 2) = θ by ring] at h
   nlinarith [h]
 
-/-- Source: `proof_gap/exercise_818/24.txt`. -/
+/-- Exercise 818, gap 24. -/
 theorem gap24 (f : ℝ → ℝ) (c θ : ℝ) (hfun : DAlambert f)
     (h0 : f 0 = 1) (hc : f c = Real.cos θ) :
     f ((1 / 2 : ℝ) * c) ^ 2 = Real.cos (θ / 2) ^ 2 := by
@@ -216,14 +216,14 @@ theorem gap24 (f : ℝ → ℝ) (c θ : ℝ) (hfun : DAlambert f)
     _ = (1 / 2 : ℝ) * (1 + Real.cos θ) := gap22 f c θ h0 hc
     _ = Real.cos (θ / 2) ^ 2 := gap23 θ
 
-/-- Source: `proof_gap/exercise_818/25.txt`; add the omitted positivity selecting the square root. -/
+/-- Exercise 818, gap 25; add the omitted positivity selecting the square root. -/
 theorem gap25 (f : ℝ → ℝ) (c θ : ℝ)
     (hsq : f ((1 / 2 : ℝ) * c) ^ 2 = Real.cos (θ / 2) ^ 2)
     (hfpos : 0 ≤ f ((1 / 2 : ℝ) * c)) (hcospos : 0 ≤ Real.cos (θ / 2)) :
     f ((1 / 2 : ℝ) * c) = Real.cos (θ / 2) := by
   nlinarith
 
-/-- Source: `proof_gap/exercise_818/26.txt`; type the index as a natural. -/
+/-- Exercise 818, gap 26; type the index as a natural. -/
 theorem gap26 (f : ℝ → ℝ) (c θ : ℝ) (hfun : DAlambert f)
     (h0 : f 0 = 1) (hc : f c = Real.cos θ)
     (hfpos : ∀ n : ℕ, 0 ≤ f (c / (2 : ℝ) ^ n))
@@ -245,7 +245,7 @@ theorem gap26 (f : ℝ → ℝ) (c θ : ℝ) (hfun : DAlambert f)
       convert hhalf using 1 <;>
         simp only [pow_succ] <;> ring
 
-/-- Source: `proof_gap/exercise_818/27.txt`; type both indices as naturals. -/
+/-- Exercise 818, gap 27; type both indices as naturals. -/
 theorem gap27 (f : ℝ → ℝ) (c θ : ℝ) (hfun : DAlambert f)
     (h0 : f 0 = 1) (hdyadic : ∀ n : ℕ,
     f (c / (2 : ℝ) ^ n) = Real.cos (θ / (2 : ℝ) ^ n)) :
@@ -260,7 +260,7 @@ theorem gap27 (f : ℝ → ℝ) (c θ : ℝ) (hfun : DAlambert f)
         hfun h0 (hdyadic n) m (Nat.one_le_iff_ne_zero.mpr hm)
     convert hmul using 1 <;> ring
 
-/-- Source: `proof_gap/exercise_818/28.txt`; bind the intended dyadic approximating sequence. -/
+/-- Exercise 818, gap 28; bind the intended dyadic approximating sequence. -/
 theorem gap28 (f : ℝ → ℝ) (c θ : ℝ) (q : ℕ → ℝ)
     (hq : ∀ n, ∃ m k : ℕ, q n = (m : ℝ) / (2 : ℝ) ^ k)
     (hdyadic : ∀ m k : ℕ,
@@ -278,7 +278,7 @@ theorem gap28 (f : ℝ → ℝ) (c θ : ℝ) (q : ℕ → ℝ)
   rw [hx, hy]
   exact hdyadic m k
 
-/-- Source: `proof_gap/exercise_818/29.txt`; add convergence of the dyadic approximants and continuity. -/
+/-- Exercise 818, gap 29; add convergence of the dyadic approximants and continuity. -/
 theorem gap29 (f : ℝ → ℝ) (c θ x : ℝ) (q : ℕ → ℝ)
     (hf : Continuous f) (hq : Filter.Tendsto q Filter.atTop (nhds x))
     (hvals : ∀ n, f (c * q n) = Real.cos (θ * q n)) :
@@ -299,13 +299,13 @@ theorem gap29 (f : ℝ → ℝ) (c θ x : ℝ) (q : ℕ → ℝ)
   rw [heq] at hleft
   exact tendsto_nhds_unique hleft hright
 
-/-- Source: `proof_gap/exercise_818/30.txt`. -/
+/-- Exercise 818, gap 30. -/
 theorem gap30 (f : ℝ → ℝ) (c θ : ℝ)
     (hscaled : ∀ x, f (c * x) = Real.cos (θ * x)) :
     ∀ x, f (c * x) = Real.cos (θ * x) := by
   exact hscaled
 
-/-- Source: `proof_gap/exercise_818/31.txt`; define `a=θ/c` and require `c≠0`. -/
+/-- Exercise 818, gap 31; define `a=θ/c` and require `c≠0`. -/
 theorem gap31 (f : ℝ → ℝ) (c θ : ℝ) (hc : c ≠ 0)
     (hscaled : ∀ x, f (c * x) = Real.cos (θ * x)) :
     ∀ x, f x = Real.cos ((θ / c) * x) := by
@@ -319,28 +319,28 @@ theorem gap31 (f : ℝ → ℝ) (c θ : ℝ) (hc : c ≠ 0)
     _ = Real.cos (θ * (x / c)) := hscaled (x / c)
     _ = Real.cos ((θ / c) * x) := by rw [harg]
 
-/-- Source: `proof_gap/exercise_818/32.txt`. -/
+/-- Exercise 818, gap 32. -/
 theorem gap32 (f : ℝ → ℝ) (c A : ℝ) (hfc : f c = A) (hA : 1 < A) :
     f c = A := by
   exact hfc
 
-/-- Source: `proof_gap/exercise_818/33.txt`; define `θ` as `arcosh A`. -/
+/-- Exercise 818, gap 33; define `θ` as `arcosh A`. -/
 theorem gap33 (A : ℝ) (hA : 1 < A) : A = Real.cosh (Real.arcosh A) := by
   exact (Real.cosh_arcosh (by linarith)).symm
 
-/-- Source: `proof_gap/exercise_818/34.txt`; add the omitted definitions. -/
+/-- Exercise 818, gap 34; add the omitted definitions. -/
 theorem gap34 (f : ℝ → ℝ) (c A θ : ℝ) (hfc : f c = A)
     (hθ : θ = Real.arcosh A) (hA : 1 < A) :
     f c = Real.cosh θ := by
   simpa [hfc, hθ] using gap33 A hA
 
-/-- Source: `proof_gap/exercise_818/35.txt`; bind the scale `a`. -/
+/-- Exercise 818, gap 35; bind the scale `a`. -/
 theorem gap35 (f : ℝ → ℝ) (a : ℝ)
     (hform : ∀ x, f x = Real.cosh (a * x)) :
     ∀ x, f x = Real.cosh (a * x) := by
   exact hform
 
-/-- Source: `proof_gap/exercise_818/36.txt`; preserve the source's constant-one branch. -/
+/-- Exercise 818, gap 36; preserve the source's constant-one branch. -/
 theorem gap36 (f : ℝ → ℝ) (hbranch : ∀ x, f x = 1) :
     ∀ x, f x = 1 := by
   exact hbranch
@@ -475,7 +475,7 @@ private theorem model_ext (f g : ℝ → ℝ) (c : ℝ)
       _ = g (-x) := hnonneg (-x) hnx
       _ = g x := hgeven x
 
-/-- Source: `proof_gap/exercise_818/37.txt`; quantify the scale and include the omitted zero solution. -/
+/-- Exercise 818, gap 37; quantify the scale and include the omitted zero solution. -/
 theorem gap37 (f : ℝ → ℝ) :
     Classified f ↔ Continuous f ∧ DAlambert f := by
   constructor

@@ -11,26 +11,26 @@ noncomputable section
 def arg (x : ℝ) : ℝ := 2 * x / (1 + x)
 def domain : Set ℝ := {x | x ≠ -1 ∧ |arg x| ≤ 1}
 
-/-- Source: `proof_gap/exercise_159/1.txt`; the arcsine condition is not true for every real x. -/
+/-- Exercise 159, gap 1; the arcsine condition is not true for every real x. -/
 theorem gap1 : ∀ x : ℝ, x ∈ domain ↔ x ≠ -1 ∧ |arg x| ≤ 1 := by
   intro x
   rfl
 
-/-- Source: `proof_gap/exercise_159/2.txt`. -/
+/-- Exercise 159, gap 2. -/
 theorem gap2 : ∀ x : ℝ, x ∈ domain → -1 ≤ arg x := by
   intro x hx
   exact (abs_le.mp hx.2).1
 
-/-- Source: `proof_gap/exercise_159/3.txt`. -/
+/-- Exercise 159, gap 3. -/
 theorem gap3 : ∀ x : ℝ, x ∈ domain → arg x ≤ 1 := by
   intro x hx
   exact (abs_le.mp hx.2).2
 
-/-- Source: `proof_gap/exercise_159/4.txt`. -/
+/-- Exercise 159, gap 4. -/
 theorem gap4 : (-1 : ℝ) ≤ 1 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_159/5.txt`; rewrite the ratio on its domain. -/
+/-- Exercise 159, gap 5; rewrite the ratio on its domain. -/
 theorem gap5 : ∀ x : ℝ, x ≠ -1 → -1 ≤ 2 - 2 / (1 + x) ↔ -1 ≤ arg x := by
   intro x
   by_cases hx : x = -1
@@ -47,7 +47,7 @@ theorem gap5 : ∀ x : ℝ, x ≠ -1 → -1 ≤ 2 - 2 / (1 + x) ↔ -1 ≤ arg x
     rw [heq]
     simp [hx]
 
-/-- Source: `proof_gap/exercise_159/6.txt`. -/
+/-- Exercise 159, gap 6. -/
 theorem gap6 : ∀ x : ℝ, x ≠ -1 → 2 - 2 / (1 + x) ≤ 1 ↔ arg x ≤ 1 := by
   intro x
   by_cases hx : x = -1
@@ -64,29 +64,29 @@ theorem gap6 : ∀ x : ℝ, x ≠ -1 → 2 - 2 / (1 + x) ≤ 1 ↔ arg x ≤ 1 :
     rw [heq]
     simp [hx]
 
-/-- Source: `proof_gap/exercise_159/7.txt`. -/
+/-- Exercise 159, gap 7. -/
 theorem gap7 : (-1 : ℝ) ≤ 1 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_159/8.txt`. -/
+/-- Exercise 159, gap 8. -/
 theorem gap8 : ∀ x : ℝ, x ∈ domain → -3 ≤ -2 / (1 + x) := by
   intro x hx
   have h := (gap5 x).2 (gap2 x hx) hx.1
   ring_nf at h ⊢
   linarith
 
-/-- Source: `proof_gap/exercise_159/9.txt`. -/
+/-- Exercise 159, gap 9. -/
 theorem gap9 : ∀ x : ℝ, x ∈ domain → -2 / (1 + x) ≤ -1 := by
   intro x hx
   have h := (gap6 x).2 (gap3 x hx) hx.1
   ring_nf at h ⊢
   linarith
 
-/-- Source: `proof_gap/exercise_159/10.txt`. -/
+/-- Exercise 159, gap 10. -/
 theorem gap10 : (-3 : ℝ) ≤ -1 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_159/11.txt`. -/
+/-- Exercise 159, gap 11. -/
 theorem gap11 : ∀ x : ℝ, x ∈ domain → 2 / 3 ≤ 1 + x := by
   intro x hx
   have hquot : -2 / (1 + x) < 0 :=
@@ -98,7 +98,7 @@ theorem gap11 : ∀ x : ℝ, x ∈ domain → 2 / 3 ≤ 1 + x := by
   have hmul := (le_div_iff₀ hden).1 (gap8 x hx)
   linarith
 
-/-- Source: `proof_gap/exercise_159/12.txt`. -/
+/-- Exercise 159, gap 12. -/
 theorem gap12 : ∀ x : ℝ, x ∈ domain → 1 + x ≤ 2 := by
   intro x hx
   have hquot : -2 / (1 + x) < 0 :=
@@ -110,27 +110,27 @@ theorem gap12 : ∀ x : ℝ, x ∈ domain → 1 + x ≤ 2 := by
   have hmul := (div_le_iff₀ hden).1 (gap9 x hx)
   linarith
 
-/-- Source: `proof_gap/exercise_159/13.txt`. -/
+/-- Exercise 159, gap 13. -/
 theorem gap13 : (2 / 3 : ℝ) ≤ 2 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_159/14.txt`. -/
+/-- Exercise 159, gap 14. -/
 theorem gap14 : ∀ x : ℝ, x ∈ domain → -(1 : ℝ) / 3 ≤ x := by
   intro x hx
   have h := gap11 x hx
   linarith
 
-/-- Source: `proof_gap/exercise_159/15.txt`. -/
+/-- Exercise 159, gap 15. -/
 theorem gap15 : ∀ x : ℝ, x ∈ domain → x ≤ 1 := by
   intro x hx
   have h := gap12 x hx
   linarith
 
-/-- Source: `proof_gap/exercise_159/16.txt`. -/
+/-- Exercise 159, gap 16. -/
 theorem gap16 : (-(1 : ℝ) / 3) ≤ 1 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_159/17.txt`. -/
+/-- Exercise 159, gap 17. -/
 theorem gap17 : domain = Set.Icc (-(1 : ℝ) / 3) 1 := by
   ext x
   constructor

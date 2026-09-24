@@ -22,7 +22,7 @@ def c₂ (x : ℝ) : ℝ :=
 def y (x : ℝ) : ℝ :=
   signedCbrt (1 + c₂ x)
 
-/-- Source: `proof_gap/exercise_861/1.txt`.
+/-- Exercise 861, gap 1.
 All three cube-root inputs are required to be nonzero. -/
 private theorem signedCbrt_pos {x : ℝ} (hx : 0 < x) :
     0 < signedCbrt x := by
@@ -125,7 +125,7 @@ theorem gap1 (x : ℝ) (h₁ : x ≠ 0) (h₂ : 1 + c₁ x ≠ 0)
   simpa [y, Function.comp_def, mul_assoc] using
     (hasDerivAt_signedCbrt (1 + c₂ x) h₃).comp x (hc2.const_add 1)
 
-/-- Source: `proof_gap/exercise_861/2.txt`.
+/-- Exercise 861, gap 2.
 The omitted nonzero conditions make the displayed reciprocals meaningful. -/
 theorem gap2 (x : ℝ) (h₁ : x ≠ 0) (h₂ : 1 + c₁ x ≠ 0)
     (h₃ : 1 + c₂ x ≠ 0) :
@@ -146,7 +146,7 @@ theorem gap2 (x : ℝ) (h₁ : x ≠ 0) (h₂ : 1 + c₁ x ≠ 0)
   field_simp [hx0, hc10, hc20]
   ring
 
-/-- Source: `proof_gap/exercise_861/3.txt`.
+/-- Exercise 861, gap 3.
 All three cube-root inputs are required to be nonzero. -/
 theorem gap3 (x : ℝ) (h₁ : x ≠ 0) (h₂ : 1 + c₁ x ≠ 0)
     (h₃ : 1 + c₂ x ≠ 0) :

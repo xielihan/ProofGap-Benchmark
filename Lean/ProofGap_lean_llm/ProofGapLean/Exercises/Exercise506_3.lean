@@ -11,7 +11,7 @@ def original (x : ℝ) : ℝ :=
 def simplified (x : ℝ) : ℝ :=
   Real.rpow ((1 + x) / (2 + x)) (1 / (1 + Real.sqrt x))
 
-/-- Source: `proof_gap/exercise_506_3/1.txt`; express equality of the two represented limits. -/
+/-- Exercise 506_3, gap 1; express equality of the two represented limits. -/
 theorem gap1 (L : ℝ) :
     Filter.Tendsto original Filter.atTop (nhds L) ↔
       Filter.Tendsto simplified Filter.atTop (nhds L) := by
@@ -28,7 +28,7 @@ theorem gap1 (L : ℝ) :
     field_simp [hleft, hright] <;> nlinarith [hs]
   exact Filter.tendsto_congr' heq
 
-/-- Source: `proof_gap/exercise_506_3/2.txt`; interpret the indeterminate notation `1^0` as its resolved value. -/
+/-- Exercise 506_3, gap 2; interpret the indeterminate notation `1^0` as its resolved value. -/
 theorem gap2 :
     Filter.Tendsto simplified Filter.atTop (nhds 1) := by
   have hshift :
@@ -100,11 +100,11 @@ theorem gap2 :
           (1 / (1 + Real.sqrt x)))
   exact Real.rpow_def_of_pos hx (1 / (1 + Real.sqrt x))
 
-/-- Source: `proof_gap/exercise_506_3/3.txt`. -/
+/-- Exercise 506_3, gap 3. -/
 theorem gap3 : (1 : ℝ) ^ (0 : ℕ) = 1 := by
   rfl
 
-/-- Source: `proof_gap/exercise_506_3/4.txt`. -/
+/-- Exercise 506_3, gap 4. -/
 theorem gap4 :
     Filter.Tendsto original Filter.atTop (nhds 1) := by
   exact (gap1 1).2 gap2

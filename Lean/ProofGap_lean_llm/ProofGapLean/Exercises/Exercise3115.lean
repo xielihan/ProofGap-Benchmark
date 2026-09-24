@@ -27,7 +27,7 @@ def LinearizedExp (A scale θ : ℝ) : Prop :=
   |A * Real.exp (θ / scale) - A * (1 + θ / scale)| ≤
     |A| * Real.exp (1 / scale) / (2 * scale ^ 2)
 
-/-- Source: `proof_gap/exercise_3115/1.txt`; include the Stirling remainder bounds. -/
+/-- Exercise 3115, gap 1; include the Stirling remainder bounds. -/
 theorem gap1 :
     ∃ θ₁ θ₂ θ₃ θ₄ : ℝ,
       0 < θ₁ ∧ θ₁ < 1 ∧ 0 < θ₂ ∧ θ₂ < 1 ∧
@@ -164,7 +164,7 @@ theorem gap1 :
   field_simp
   <;> ring
 
-/-- Source: `proof_gap/exercise_3115/2.txt`; bind the effective error to its range. -/
+/-- Exercise 3115, gap 2; bind the effective error to its range. -/
 theorem gap2 :
     ∃ θ : ℝ, |θ| < 1 ∧
       multinomialRatio = decimalModel * Real.exp (θ / 120) := by
@@ -215,7 +215,7 @@ theorem gap2 :
     dsimp [q]
     field_simp
 
-/-- Source: `proof_gap/exercise_3115/3.txt`; make the first-order approximation quantitative. -/
+/-- Exercise 3115, gap 3; make the first-order approximation quantitative. -/
 theorem gap3 :
     ∀ θ : ℝ, |θ| < 1 →
       LinearizedExp decimalModel 120 θ := by
@@ -345,7 +345,7 @@ theorem gap3 :
     _ = |decimalModel| * Real.exp (1 / 120) / (2 * 120 ^ 2) := by
       ring
 
-/-- Source: `proof_gap/exercise_3115/4.txt`; retain one witness for value and approximation. -/
+/-- Exercise 3115, gap 4; retain one witness for value and approximation. -/
 theorem gap4 :
     ∃ θ : ℝ,
       |θ| < 1 ∧

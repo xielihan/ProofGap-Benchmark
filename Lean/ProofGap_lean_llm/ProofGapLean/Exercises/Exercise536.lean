@@ -23,7 +23,7 @@ def normalized (x : ℝ) : ℝ :=
 def HasLimitAtPosInfinity (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f Filter.atTop (nhds L)
 
-/-- Source: `proof_gap/exercise_536/1.txt`. -/
+/-- Exercise 536, gap 1. -/
 theorem gap1 (L : ℝ) :
     HasLimitAtPosInfinity original L ↔ HasLimitAtPosInfinity expanded L := by
   unfold HasLimitAtPosInfinity
@@ -149,7 +149,7 @@ theorem gap1 (L : ℝ) :
   · intro h
     exact h.congr' hEq.symm
 
-/-- Source: `proof_gap/exercise_536/2.txt`. -/
+/-- Exercise 536, gap 2. -/
 theorem gap2 : HasLimitAtPosInfinity normalized (3 / 2) := by
   unfold HasLimitAtPosInfinity
   have hscale_atBot (a : ℝ) (ha : 0 < a) :

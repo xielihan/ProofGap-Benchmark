@@ -27,12 +27,12 @@ def ConvergentProduct : Prop :=
 def HasProduct (L : ℝ) : Prop :=
   Tendsto partialProduct atTop (𝓝 L)
 
-/-- Source: `proof_gap/exercise_3063/1.txt`; the product ellipsis is `partialProduct`. -/
+/-- Exercise 3063, gap 1; the product ellipsis is `partialProduct`. -/
 theorem gap1 (P : ℕ → ℝ) (hP : ∀ n, P n = partialProduct n) :
     ∀ n, P n = partialProduct n := by
   exact hP
 
-/-- Source: `proof_gap/exercise_3063/2.txt`. -/
+/-- Exercise 3063, gap 2. -/
 theorem gap2 :
     ∀ n : ℕ,
       partialProduct n =
@@ -50,7 +50,7 @@ theorem gap2 :
       have hn : (0 : ℝ) ≤ (n : ℝ) := Nat.cast_nonneg n
       field_simp <;> nlinarith
 
-/-- Source: `proof_gap/exercise_3063/3.txt`. -/
+/-- Exercise 3063, gap 3. -/
 theorem gap3 (P : ℕ → ℝ) (hP : ∀ n, P n = partialProduct n) :
     Tendsto P atTop (𝓝 (3 / 7 : ℝ)) := by
   have hnat :
@@ -90,13 +90,13 @@ theorem gap3 (P : ℕ → ℝ) (hP : ∀ n, P n = partialProduct n) :
     nlinarith
   field_simp [hd] <;> ring
 
-/-- Source: `proof_gap/exercise_3063/4.txt`. -/
+/-- Exercise 3063, gap 4. -/
 theorem gap4 : ConvergentProduct := by
   refine ⟨3 / 7, gap3 partialProduct ?_⟩
   intro n
   rfl
 
-/-- Source: `proof_gap/exercise_3063/5.txt`. -/
+/-- Exercise 3063, gap 5. -/
 theorem gap5 : HasProduct (3 / 7 : ℝ) := by
   exact gap3 partialProduct (fun n => rfl)
 

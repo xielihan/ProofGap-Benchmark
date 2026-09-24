@@ -19,7 +19,7 @@ def cancelled (x : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_496/1.txt`. -/
+/-- Exercise 496, gap 1. -/
 private theorem expanded_eventuallyEq_cancelled :
     expanded =ᶠ[nhdsWithin (Real.pi / 3)
       ({Real.pi / 3} : Set ℝ)ᶜ] cancelled := by
@@ -110,13 +110,13 @@ theorem gap1 (L : ℝ) :
         z / (Real.sqrt 3 / 2 * Real.cos x - 1 / 2 * Real.sin x)) hnum
   rw [heq]
 
-/-- Source: `proof_gap/exercise_496/2.txt`. -/
+/-- Exercise 496, gap 2. -/
 theorem gap2 (L : ℝ) :
     HasLimitAt expanded (Real.pi / 3) L ↔ HasLimitAt cancelled (Real.pi / 3) L := by
   unfold HasLimitAt Filter.Tendsto
   rw [Filter.map_congr expanded_eventuallyEq_cancelled]
 
-/-- Source: `proof_gap/exercise_496/3.txt`. -/
+/-- Exercise 496, gap 3. -/
 theorem gap3 : HasLimitAt cancelled (Real.pi / 3) (-24) := by
   have hc : Real.cos (Real.pi / 3) ≠ 0 := by
     rw [Real.cos_pi_div_three]
@@ -160,7 +160,7 @@ theorem gap3 : HasLimitAt cancelled (Real.pi / 3) (-24) := by
   rw [← hval]
   exact hcont.tendsto.mono_left inf_le_left
 
-/-- Source: `proof_gap/exercise_496/4.txt`. -/
+/-- Exercise 496, gap 4. -/
 theorem gap4 : HasLimitAt original (Real.pi / 3) (-24) := by
   exact (gap1 (-24)).2 ((gap2 (-24)).2 gap3)
 

@@ -6,7 +6,7 @@ namespace ProofGap.Exercise791
 
 noncomputable section
 
-/-- Source: `proof_gap/exercise_791/1.txt`; remove the shadowed existential `a`. -/
+/-- Exercise 791, gap 1; remove the shadowed existential `a`. -/
 theorem gap1 (f : ℝ → ℝ) (a A : ℝ)
     (hlim : Filter.Tendsto f Filter.atTop (nhds A)) :
     ∀ ε > 0, ∃ X > a, ∀ x₁ > X, ∀ x₂ > X, |f x₁ - f x₂| < ε := by
@@ -31,14 +31,14 @@ theorem gap1 (f : ℝ → ℝ) (a A : ℝ)
     dist (f x₁) (f x₂) ≤ dist (f x₁) A + dist A (f x₂) := dist_triangle _ _ _
     _ < ε := by linarith
 
-/-- Source: `proof_gap/exercise_791/2.txt`; bind `ε` outside the irrelevant existence of `X`. -/
+/-- Exercise 791, gap 2; bind `ε` outside the irrelevant existence of `X`. -/
 theorem gap2 (f : ℝ → ℝ) (a X : ℝ) (hcont : ContinuousOn f (Set.Ici a)) :
     ContinuousOn f (Set.Icc a (X + 1)) := by
   exact hcont.mono (by
     intro x hx
     exact hx.1)
 
-/-- Source: `proof_gap/exercise_791/3.txt`; remove shadowed `a, X`. -/
+/-- Exercise 791, gap 3; remove shadowed `a, X`. -/
 theorem gap3 (f : ℝ → ℝ) (a X : ℝ)
     (hcont : ContinuousOn f (Set.Icc a (X + 1))) :
     ∀ ε > 0, ∃ δ' > 0, ∀ x₁ ∈ Set.Icc a (X + 1),
@@ -50,7 +50,7 @@ theorem gap3 (f : ℝ → ℝ) (a X : ℝ)
   rw [Metric.uniformContinuousOn_iff] at hu
   simpa only [Real.dist_eq] using hu
 
-/-- Source: `proof_gap/exercise_791/4.txt`; choose a small δ to bridge the compact and tail regions. -/
+/-- Exercise 791, gap 4; choose a small δ to bridge the compact and tail regions. -/
 theorem gap4 (a X δ : ℝ) (hδ0 : 0 < δ) (hδ1 : δ ≤ 1) :
     ∀ x₁ ∈ Set.Ici a, ∀ x₂ ∈ Set.Ici a, |x₁ - x₂| < δ →
       (x₁ ∈ Set.Icc a (X + 1) ∧ x₂ ∈ Set.Icc a (X + 1)) ∨
@@ -71,7 +71,7 @@ theorem gap4 (a X δ : ℝ) (hδ0 : 0 < δ) (hδ1 : δ ≤ 1) :
     · right
       exact ⟨hx₁tail, lt_of_not_ge hx₂X⟩
 
-/-- Source: `proof_gap/exercise_791/5.txt`; move `δ` under `ε`. -/
+/-- Exercise 791, gap 5; move `δ` under `ε`. -/
 theorem gap5 (f : ℝ → ℝ) (a : ℝ)
     (hlocal : ∀ ε > 0, ∃ δ > 0, ∀ x₁ ∈ Set.Ici a, ∀ x₂ ∈ Set.Ici a,
       |x₁ - x₂| < δ → |f x₁ - f x₂| < ε) :
@@ -79,7 +79,7 @@ theorem gap5 (f : ℝ → ℝ) (a : ℝ)
       |x₁ - x₂| < δ → |f x₁ - f x₂| < ε := by
   exact hlocal
 
-/-- Source: `proof_gap/exercise_791/6.txt`. -/
+/-- Exercise 791, gap 6. -/
 theorem gap6 (f : ℝ → ℝ) (a : ℝ)
     (hε : ∀ ε > 0, ∃ δ > 0, ∀ x₁ ∈ Set.Ici a, ∀ x₂ ∈ Set.Ici a,
       |x₁ - x₂| < δ → |f x₁ - f x₂| < ε) :
@@ -87,7 +87,7 @@ theorem gap6 (f : ℝ → ℝ) (a : ℝ)
   rw [Metric.uniformContinuousOn_iff]
   simpa only [Real.dist_eq] using hε
 
-/-- Source: `proof_gap/exercise_791/7.txt`. -/
+/-- Exercise 791, gap 7. -/
 theorem gap7 (f : ℝ → ℝ) (a : ℝ)
     (hcont : ContinuousOn f (Set.Ici a))
     (hlim : ∃ A, Filter.Tendsto f Filter.atTop (nhds A)) :

@@ -21,7 +21,7 @@ def normalized (x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_586/1.txt`. -/
+/-- Exercise 586, gap 1. -/
 private theorem eventually_abs_lt_one :
     Filter.Eventually (fun x : ℝ => |x| < 1)
       (nhdsWithin 0 ({0} : Set ℝ)ᶜ) := by
@@ -132,7 +132,7 @@ theorem gap1 (L : ℝ) :
   · intro hnormalized
     exact hnormalized.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_586/2.txt`. -/
+/-- Exercise 586, gap 2. -/
 theorem gap2 : HasLimitAtZero normalized 2 := by
   unfold HasLimitAtZero
   have hid :
@@ -206,7 +206,7 @@ theorem gap2 : HasLimitAtZero normalized 2 := by
   have hatan := tendsto_self_div_arctan.comp hv
   simpa [normalized] using (hlog.mul hatan).mul hw
 
-/-- Source: `proof_gap/exercise_586/3.txt`. -/
+/-- Exercise 586, gap 3. -/
 theorem gap3 : HasLimitAtZero original 2 := by
   exact (gap1 2).mpr gap2
 

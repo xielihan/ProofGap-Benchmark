@@ -283,13 +283,13 @@ private theorem partialProduct_tendsto_one :
     simpa [Real.norm_eq_abs] using partialProduct_error_bound n
   · simpa only [one_div] using hbound
 
-/-- Source: `proof_gap/exercise_3088/1.txt`. -/
+/-- Exercise 3088, gap 1. -/
 theorem gap1 : ConditionallySummableFromOne term := by
   exact ⟨term_seriesConverges, by
     unfold SummableFromOne
     exact abs_term_shift_not_summable⟩
 
-/-- Source: `proof_gap/exercise_3088/2.txt`. -/
+/-- Exercise 3088, gap 2. -/
 theorem gap2 : SummableFromOne (fun n => (term n) ^ 2) := by
   unfold SummableFromOne
   have hp : Summable (fun n : ℕ => 1 / ((n : ℝ) ^ 2)) :=
@@ -305,14 +305,14 @@ theorem gap2 : SummableFromOne (fun n => (term n) ^ 2) := by
     norm_num
   rw [hsign]
 
-/-- Source: `proof_gap/exercise_3088/3.txt`. -/
+/-- Exercise 3088, gap 3. -/
 theorem gap3 : ConditionallySummableFromOne logTerm := by
   exact ⟨logTerm_seriesConverges, by
     unfold SummableFromOne
     exact abs_logTerm_shift_not_summable⟩
 
 /--
-Source: `proof_gap/exercise_3088/4.txt`; convergence applies to the cutoff
+Exercise 3088, gap 4; convergence applies to the cutoff
 sequence of partial products.
 -/
 theorem gap4 : NonzeroConvergentProduct := by

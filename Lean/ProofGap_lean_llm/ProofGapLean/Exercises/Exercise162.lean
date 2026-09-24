@@ -6,12 +6,12 @@ noncomputable section
 
 def domain : Set ℝ := {x | 0 ≤ -(Real.sin (Real.pi * x)) ^ 2}
 
-/-- Source: `proof_gap/exercise_162/1.txt`. -/
+/-- Exercise 162, gap 1. -/
 theorem gap1 : ∀ x : ℝ, 0 ≤ (Real.sin (Real.pi * x)) ^ 2 := by
   intro x
   exact sq_nonneg _
 
-/-- Source: `proof_gap/exercise_162/2.txt`. -/
+/-- Exercise 162, gap 2. -/
 theorem gap2 : ∀ x : ℝ,
     0 ≤ -(Real.sin (Real.pi * x)) ^ 2 ↔ Real.sin (Real.pi * x) = 0 := by
   intro x
@@ -23,7 +23,7 @@ theorem gap2 : ∀ x : ℝ,
   · intro h
     simp [h]
 
-/-- Source: `proof_gap/exercise_162/3.txt`. -/
+/-- Exercise 162, gap 3. -/
 theorem gap3 : ∀ x : ℝ,
     Real.sin (Real.pi * x) = 0 ↔ ∃ k : ℤ, x = k := by
   intro x
@@ -37,7 +37,7 @@ theorem gap3 : ∀ x : ℝ,
     apply Real.sin_eq_zero_iff.mpr
     exact ⟨k, mul_comm _ _⟩
 
-/-- Source: `proof_gap/exercise_162/4.txt`. -/
+/-- Exercise 162, gap 4. -/
 theorem gap4 : domain = {x : ℝ | ∃ k : ℤ, x = k} := by
   ext x
   exact (gap2 x).trans (gap3 x)

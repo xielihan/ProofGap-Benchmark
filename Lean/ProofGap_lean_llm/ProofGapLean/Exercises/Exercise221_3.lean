@@ -6,18 +6,18 @@ namespace ProofGap.Exercise221_3
 
 def f (x : ℝ) : ℝ := x ^ 3
 
-/-- Source: `proof_gap/exercise_221_3/1.txt`. -/
+/-- Exercise 221_3, gap 1. -/
 theorem gap1 : ∀ x₁ x₂, x₁ < x₂ → f x₂ - f x₁ = x₂ ^ 3 - x₁ ^ 3 := by
   intro x₁ x₂ h
   rfl
 
-/-- Source: `proof_gap/exercise_221_3/2.txt`. -/
+/-- Exercise 221_3, gap 2. -/
 theorem gap2 : ∀ x₁ x₂ : ℝ, x₁ < x₂ →
     x₂ ^ 3 - x₁ ^ 3 = (x₂ - x₁) * (x₂ ^ 2 + x₁ * x₂ + x₁ ^ 2) := by
   intro x₁ x₂ h
   ring
 
-/-- Source: `proof_gap/exercise_221_3/3.txt`. -/
+/-- Exercise 221_3, gap 3. -/
 theorem gap3 : ∀ x₁ x₂ : ℝ, x₁ < x₂ →
     0 < (x₂ - x₁) * (x₂ ^ 2 + x₁ * x₂ + x₁ ^ 2) := by
   intro x₁ x₂ h
@@ -27,18 +27,18 @@ theorem gap3 : ∀ x₁ x₂ : ℝ, x₁ < x₂ →
     nlinarith [hdiff_mul, sq_nonneg (x₂ + x₁)]
   exact mul_pos hdiff hquad
 
-/-- Source: `proof_gap/exercise_221_3/4.txt`. -/
+/-- Exercise 221_3, gap 4. -/
 theorem gap4 : ∀ x₁ x₂ : ℝ, x₁ < x₂ → 0 < f x₂ - f x₁ := by
   intro x₁ x₂ h
   rw [gap1 x₁ x₂ h, gap2 x₁ x₂ h]
   exact gap3 x₁ x₂ h
 
-/-- Source: `proof_gap/exercise_221_3/5.txt`. -/
+/-- Exercise 221_3, gap 5. -/
 theorem gap5 : StrictMono f := by
   intro x₁ x₂ h
   exact sub_pos.mp (gap4 x₁ x₂ h)
 
-/-- Source: `proof_gap/exercise_221_3/6.txt`. -/
+/-- Exercise 221_3, gap 6. -/
 theorem gap6 : StrictMono f := by
   exact gap5
 

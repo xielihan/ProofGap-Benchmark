@@ -19,7 +19,7 @@ def transformed (x : ℝ) : ℝ :=
 def HasLimitAtOne (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 1 ({1} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_518/1.txt`. -/
+/-- Exercise 518, gap 1. -/
 theorem gap1 (L : ℝ) :
     HasLimitAtOne original L ↔ HasLimitAtOne transformed L := by
   unfold HasLimitAtOne
@@ -28,7 +28,7 @@ theorem gap1 (L : ℝ) :
     simp [original, transformed, cot, div_eq_mul_inv, mul_comm]
   rw [hfun]
 
-/-- Source: `proof_gap/exercise_518/2.txt`. -/
+/-- Exercise 518, gap 2. -/
 theorem gap2 : HasLimitAtOne transformed (Real.exp (-1)) := by
   unfold HasLimitAtOne transformed
   have harg :
@@ -141,7 +141,7 @@ theorem gap2 : HasLimitAtOne transformed (Real.exp (-1)) := by
     (Real.rpow_def_of_pos hx
       ((1 / Real.sin (Real.pi * x)) * Real.cos (Real.pi * x))).symm
 
-/-- Source: `proof_gap/exercise_518/3.txt`. -/
+/-- Exercise 518, gap 3. -/
 theorem gap3 : HasLimitAtOne original (Real.exp (-1)) := by
   exact (gap1 (Real.exp (-1))).mpr gap2
 

@@ -23,7 +23,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 def finalDerivative (x : ℝ) : ℝ :=
   1 / (2 * x * Real.sqrt (x - 1) * Real.arccos (1 / Real.sqrt x))
 
-/-- Source: `proof_gap/exercise_932/1.txt`; `x > 1` makes the reciprocal
+/-- Exercise 932, gap 1; `x > 1` makes the reciprocal
 square root lie strictly between zero and one and makes the outer logarithm
 positive. -/
 theorem gap1 (x : ℝ) (hx : 1 < x) :
@@ -80,7 +80,7 @@ theorem gap1 (x : ℝ) (hx : 1 < x) :
   simpa only [expandedDerivative, one_div, neg_div, mul_assoc] using
     (Real.hasDerivAt_log hacos_ne).comp x hacos
 
-/-- Source: `proof_gap/exercise_932/2.txt`; the positive-domain hypothesis
+/-- Exercise 932, gap 2; the positive-domain hypothesis
 justifies combining the two square roots without a sign ambiguity. -/
 theorem gap2 (x : ℝ) (hx : 1 < x) :
     expandedDerivative x = finalDerivative x := by
@@ -110,7 +110,7 @@ theorem gap2 (x : ℝ) (hx : 1 < x) :
   rw [← hsqrt_mul]
   field_simp [hxne, hsqrt_ne, hsqrt_sub_ne, hacos_ne]
 
-/-- Source: `proof_gap/exercise_932/3.txt`; retain the nested square-root,
+/-- Exercise 932, gap 3; retain the nested square-root,
 arccosine, and logarithm domain. -/
 theorem gap3 (x : ℝ) (hx : 1 < x) :
     HasDerivAt y (finalDerivative x) x := by

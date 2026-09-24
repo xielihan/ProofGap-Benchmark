@@ -39,7 +39,7 @@ private theorem sum_Icc_one_shift_sub (u : ℝ → ℝ) (a : ℝ) :
       norm_num [Nat.cast_succ]
       ring_nf
 
-/-- Source: `proof_gap/exercise_610/1.txt`; bind one tail threshold instead of shadowing it. -/
+/-- Exercise 610, gap 1; bind one tail threshold instead of shadowing it. -/
 private theorem polyNorm_hasFiniteLimit (n : ℕ) :
     HasFiniteLimit (polyNorm n) (((n + 1 : ℕ) : ℝ)) := by
   induction n with
@@ -99,7 +99,7 @@ theorem gap1 (f g : ℝ → ℝ) (l : ℝ)
   refine ⟨X₀, fun x hx => ?_⟩
   simpa [Real.dist_eq] using hX₀ x hx
 
-/-- Source: `proof_gap/exercise_610/2.txt`; make the Archimedean integer witness explicit. -/
+/-- Exercise 610, gap 2; make the Archimedean integer witness explicit. -/
 theorem gap2 (x X₀ : ℝ) (hx : X₀ + 1 < x) :
     ∃ n : ℕ, 1 ≤ n ∧ (n : ℝ) ≤ x - X₀ ∧ x - X₀ < n + 1 := by
   have hr : 1 < x - X₀ := by linarith
@@ -112,27 +112,27 @@ theorem gap2 (x X₀ : ℝ) (hx : X₀ + 1 < x) :
   norm_num at hlt
   linarith
 
-/-- Source: `proof_gap/exercise_610/3.txt`; define `τ=x-X₀-n`. -/
+/-- Exercise 610, gap 3; define `τ=x-X₀-n`. -/
 theorem gap3 (x X₀ : ℝ) (n : ℕ)
     (hn0 : (n : ℝ) ≤ x - X₀) : 0 ≤ τ x X₀ n := by
   unfold τ
   exact sub_nonneg.mpr (by linarith)
 
-/-- Source: `proof_gap/exercise_610/4.txt`. -/
+/-- Exercise 610, gap 4. -/
 theorem gap4 (x X₀ : ℝ) (n : ℕ)
     (hn1 : x - X₀ < n + 1) : τ x X₀ n < 1 := by
   unfold τ
   norm_num at hn1 ⊢
   linarith
 
-/-- Source: `proof_gap/exercise_610/5.txt`; bind the previously free `n`. -/
+/-- Exercise 610, gap 5; bind the previously free `n`. -/
 theorem gap5 (x X₀ : ℝ) (n : ℕ) :
     x = X₀ + τ x X₀ n + n := by
   unfold τ
   push_cast
   ring
 
-/-- Source: `proof_gap/exercise_610/6.txt`; replace the ellipsis by a finite telescoping sum. -/
+/-- Exercise 610, gap 6; replace the ellipsis by a finite telescoping sum. -/
 theorem gap6 (f g : ℝ → ℝ) (l x X₀ t : ℝ) (n : ℕ)
     (hx : x = X₀ + t + n) (hden : g x ≠ g (X₀ + t))
     (hstepPos : ∀ k ∈ Finset.Icc 1 n,
@@ -169,7 +169,7 @@ theorem gap6 (f g : ℝ → ℝ) (l x X₀ t : ℝ) (n : ℕ)
     ← Finset.mul_sum, hf, hg, hx]
   field_simp [hd]
 
-/-- Source: `proof_gap/exercise_610/7.txt`; bind the integer range and tail assumption. -/
+/-- Exercise 610, gap 7; bind the integer range and tail assumption. -/
 theorem gap7 (f g : ℝ → ℝ) (l ε X₀ t : ℝ) (n k : ℕ)
     (hk : k ∈ Finset.Icc 1 n)
     (htail : ∀ y ≥ X₀, |unitRatio f g y - l| < ε / 2)
@@ -180,19 +180,19 @@ theorem gap7 (f g : ℝ → ℝ) (l ε X₀ t : ℝ) (n k : ℕ)
   have hk1 : (1 : ℝ) ≤ (k : ℝ) := by exact_mod_cast hk1nat
   linarith
 
-/-- Source: `proof_gap/exercise_610/8.txt`. -/
+/-- Exercise 610, gap 8. -/
 theorem gap8 (g : ℝ → ℝ) (x X₀ t : ℝ) (n : ℕ)
     (hx : x = X₀ + t + n) : g x = g (X₀ + t + n) := by
   simpa [hx]
 
-/-- Source: `proof_gap/exercise_610/9.txt`. -/
+/-- Exercise 610, gap 9. -/
 theorem gap9 (g : ℝ → ℝ) (X₀ t : ℝ) (n : ℕ) (hn : 0 < n)
     (hinc : UnitIncreasing g) :
     g (X₀ + t + n - 1) < g (X₀ + t + n) := by
   have h := hinc (X₀ + t + (n : ℝ) - 1)
   convert h using 1 <;> ring
 
-/-- Source: `proof_gap/exercise_610/10.txt`; replace the omitted chain by its indexed form. -/
+/-- Exercise 610, gap 10; replace the omitted chain by its indexed form. -/
 theorem gap10 (g : ℝ → ℝ) (X₀ t : ℝ) (n : ℕ)
     (hinc : UnitIncreasing g) :
     ∀ k ∈ Finset.Icc 1 n,
@@ -201,7 +201,7 @@ theorem gap10 (g : ℝ → ℝ) (X₀ t : ℝ) (n : ℕ)
   have h := hinc (X₀ + t + (k : ℝ) - 1)
   convert h using 1 <;> ring
 
-/-- Source: `proof_gap/exercise_610/11.txt`; state the endpoint consequence of the chain. -/
+/-- Exercise 610, gap 11; state the endpoint consequence of the chain. -/
 theorem gap11 (g : ℝ → ℝ) (X₀ t : ℝ) (n : ℕ) (hn : 0 < n)
     (hinc : UnitIncreasing g) :
     g (X₀ + t) < g (X₀ + t + n) := by
@@ -239,14 +239,14 @@ private theorem endpoint_lt_of_steps (g : ℝ → ℝ) (a : ℝ) (n : ℕ)
           convert hlast using 1 <;> norm_num [Nat.cast_succ] <;> ring
         exact hprev.trans hlast'
 
-/-- Source: `proof_gap/exercise_610/12.txt`. -/
+/-- Exercise 610, gap 12. -/
 theorem gap12 (g : ℝ → ℝ) (x X₀ t : ℝ) (n : ℕ) (hn : 0 < n)
     (hx : x = X₀ + t + n) (hinc : UnitIncreasing g) :
     g (X₀ + t) < g x := by
   rw [hx]
   exact gap11 g X₀ t n hn hinc
 
-/-- Source: `proof_gap/exercise_610/13.txt`; bind `k` to the telescoping range. -/
+/-- Exercise 610, gap 13; bind `k` to the telescoping range. -/
 theorem gap13 (g : ℝ → ℝ) (x X₀ t : ℝ) (n k : ℕ)
     (hk : k ∈ Finset.Icc 1 n) (hx : x = X₀ + t + n)
     (hinc : UnitIncreasing g) :
@@ -261,7 +261,7 @@ theorem gap13 (g : ℝ → ℝ) (x X₀ t : ℝ) (n k : ℕ)
   · have hend := gap12 g x X₀ t n hn hx hinc
     linarith
 
-/-- Source: `proof_gap/exercise_610/14.txt`; use positivity and unit total weight. -/
+/-- Exercise 610, gap 14; use positivity and unit total weight. -/
 theorem gap14 (f g : ℝ → ℝ) (l ε x X₀ t : ℝ) (n : ℕ)
     (hterms : ∀ k ∈ Finset.Icc 1 n,
       0 ≤ weight g X₀ t x k ∧
@@ -302,7 +302,7 @@ theorem gap14 (f g : ℝ → ℝ) (l ε x X₀ t : ℝ) (n : ℕ)
       rw [← Finset.sum_mul, hsum]
       ring
 
-/-- Source: `proof_gap/exercise_610/15.txt`; state the quotient decomposition with nonzero denominators. -/
+/-- Exercise 610, gap 15; state the quotient decomposition with nonzero denominators. -/
 theorem gap15 (f g : ℝ → ℝ) (l x y : ℝ)
     (hg : g x ≠ 0) (hxy : g x ≠ g y) :
     quotient f g x - l =
@@ -313,7 +313,7 @@ theorem gap15 (f g : ℝ → ℝ) (l x y : ℝ)
   field_simp [hg, hd]
   ring
 
-/-- Source: `proof_gap/exercise_610/16.txt`; derive the two small fixed-numerator ratios from `g→+∞`. -/
+/-- Exercise 610, gap 16; derive the two small fixed-numerator ratios from `g→+∞`. -/
 theorem gap16 (f g : ℝ → ℝ) (l y ε : ℝ) (hε : 0 < ε)
     (hg : HasPosInfiniteLimit g) :
     ∃ X₁ : ℝ, ∀ x > X₁,
@@ -346,18 +346,18 @@ theorem gap16 (f g : ℝ → ℝ) (l y ε : ℝ) (hε : 0 < ε)
     apply (div_lt_iff₀ hgx).2
     nlinarith
 
-/-- Source: `proof_gap/exercise_610/17.txt`. -/
+/-- Exercise 610, gap 17. -/
 theorem gap17 (z ε : ℝ) (hε : 0 < ε)
     (hz : |z| < (3 / 2 : ℝ) * (ε / 2) + ε / 4) :
     |z| < (3 / 2 : ℝ) * (ε / 2) + ε / 4 := by
   exact hz
 
-/-- Source: `proof_gap/exercise_610/18.txt`. -/
+/-- Exercise 610, gap 18. -/
 theorem gap18 (ε : ℝ) :
     (3 / 2 : ℝ) * (ε / 2) + ε / 4 = ε := by
   ring
 
-/-- Source: `proof_gap/exercise_610/19.txt`. -/
+/-- Exercise 610, gap 19. -/
 theorem gap19 (z ε : ℝ) (hε : 0 < ε)
     (hz : |z| < (3 / 2 : ℝ) * (ε / 2) + ε / 4) :
     |z| < ε := by
@@ -566,7 +566,7 @@ private theorem finite_stolz_eventually (f g : ℝ → ℝ) (l : ℝ)
     _ < (3 / 2 : ℝ) * (ε / 2) + ε / 4 := add_lt_add hmul hres
     _ = ε := by ring
 
-/-- Source: `proof_gap/exercise_610/20.txt`; finite-valued Stolz-type conclusion with all functions fixed. -/
+/-- Exercise 610, gap 20; finite-valued Stolz-type conclusion with all functions fixed. -/
 theorem gap20 (f g : ℝ → ℝ) (l : ℝ)
     (hf : ∀ a b : ℝ, a < b → ∃ M, ∀ x, a < x → x < b → |f x| ≤ M)
     (hgloc : ∀ a b : ℝ, a < b → ∃ M, ∀ x, a < x → x < b → |g x| ≤ M)
@@ -575,7 +575,7 @@ theorem gap20 (f g : ℝ → ℝ) (l : ℝ)
     HasFiniteLimit (quotient f g) l := by
   exact finite_stolz_eventually f g l hf hgloc ⟨0, fun y _ => hinc y⟩ hg hdiff
 
-/-- Source: `proof_gap/exercise_610/21.txt`; bind the positive-infinite difference-ratio hypothesis. -/
+/-- Exercise 610, gap 21; bind the positive-infinite difference-ratio hypothesis. -/
 theorem gap21 (f g : ℝ → ℝ)
     (hdiff : HasPosInfiniteLimit (unitRatio f g)) :
     ∀ G > 0, ∃ X₀ : ℝ, ∀ x ≥ X₀, 4 * G < unitRatio f g x := by
@@ -588,13 +588,13 @@ theorem gap21 (f g : ℝ → ℝ)
   have := hX₀ x hx
   linarith
 
-/-- Source: `proof_gap/exercise_610/22.txt`; formulate the telescoped lower bound. -/
+/-- Exercise 610, gap 22; formulate the telescoped lower bound. -/
 theorem gap22 (f g : ℝ → ℝ) (G x y : ℝ)
     (h : 4 * G < (f x - f y) / (g x - g y)) :
     4 * G < (f x - f y) / (g x - g y) := by
   exact h
 
-/-- Source: `proof_gap/exercise_610/23.txt`; infinite-case quotient decomposition. -/
+/-- Exercise 610, gap 23; infinite-case quotient decomposition. -/
 theorem gap23 (f g : ℝ → ℝ) (x y : ℝ)
     (hg : g x ≠ 0) (hxy : g x ≠ g y) :
     quotient f g x =
@@ -604,7 +604,7 @@ theorem gap23 (f g : ℝ → ℝ) (x y : ℝ)
   field_simp [hg, hd]
   ring
 
-/-- Source: `proof_gap/exercise_610/24.txt`. -/
+/-- Exercise 610, gap 24. -/
 theorem gap24 (f g : ℝ → ℝ) (y G : ℝ) (hG : 0 < G)
     (hg : HasPosInfiniteLimit g) :
     ∃ X₁ : ℝ, ∀ x > X₁, |g y / g x| < 1 / 2 ∧ |f y / g x| < G := by
@@ -615,23 +615,23 @@ theorem gap24 (f g : ℝ → ℝ) (y G : ℝ) (hG : 0 < G)
   · exact h.1
   · convert h.2 using 1 <;> ring
 
-/-- Source: `proof_gap/exercise_610/25.txt`. -/
+/-- Exercise 610, gap 25. -/
 theorem gap25 (z G : ℝ) (hG : 0 < G)
     (hz : (1 / 2 : ℝ) * (4 * G) - G < z) :
     (1 / 2 : ℝ) * (4 * G) - G < z := by
   exact hz
 
-/-- Source: `proof_gap/exercise_610/26.txt`. -/
+/-- Exercise 610, gap 26. -/
 theorem gap26 (G : ℝ) : (1 / 2 : ℝ) * (4 * G) - G = G := by
   ring
 
-/-- Source: `proof_gap/exercise_610/27.txt`. -/
+/-- Exercise 610, gap 27. -/
 theorem gap27 (z G : ℝ) (hG : 0 < G)
     (hz : (1 / 2 : ℝ) * (4 * G) - G < z) : G < z := by
   rw [gap26 G] at hz
   exact hz
 
-/-- Source: `proof_gap/exercise_610/28.txt`. -/
+/-- Exercise 610, gap 28. -/
 theorem gap28 (f g : ℝ → ℝ)
     (hf : ∀ a b : ℝ, a < b → ∃ M, ∀ x, a < x → x < b → |f x| ≤ M)
     (hgloc : ∀ a b : ℝ, a < b → ∃ M, ∀ x, a < x → x < b → |g x| ≤ M)
@@ -697,7 +697,7 @@ theorem gap28 (f g : ℝ → ℝ)
   have hresLower := (abs_lt.mp hres).1
   linarith
 
-/-- Source: `proof_gap/exercise_610/29.txt`; include the negative-infinite analogue explicitly. -/
+/-- Exercise 610, gap 29; include the negative-infinite analogue explicitly. -/
 theorem gap29 (f g : ℝ → ℝ)
     (hf : ∀ a b : ℝ, a < b → ∃ M, ∀ x, a < x → x < b → |f x| ≤ M)
     (hgloc : ∀ a b : ℝ, a < b → ∃ M, ∀ x, a < x → x < b → |g x| ≤ M)
@@ -736,7 +736,7 @@ theorem gap29 (f g : ℝ → ℝ)
   rw [heq] at hx
   linarith
 
-/-- Source: `proof_gap/exercise_610/30.txt`; package the corrected finite and infinite conclusions. -/
+/-- Exercise 610, gap 30; package the corrected finite and infinite conclusions. -/
 theorem gap30 (f g : ℝ → ℝ) (hinc : UnitIncreasing g)
     (hf : ∀ a b : ℝ, a < b → ∃ M, ∀ x, a < x → x < b → |f x| ≤ M)
     (hgloc : ∀ a b : ℝ, a < b → ∃ M, ∀ x, a < x → x < b → |g x| ≤ M)
@@ -748,14 +748,14 @@ theorem gap30 (f g : ℝ → ℝ) (hinc : UnitIncreasing g)
   · exact fun h => gap28 f g hf hgloc hinc hg h
   · exact fun h => gap29 f g hf hgloc hinc hg h
 
-/-- Source: `proof_gap/exercise_610/31.txt`; choose `g(x)=x^(n+1)`. -/
+/-- Exercise 610, gap 31; choose `g(x)=x^(n+1)`. -/
 theorem gap31 (f : ℝ → ℝ) (n : ℕ) (L : ℝ) :
     HasFiniteLimit (unitRatio f (polyG n)) L ↔
       HasFiniteLimit
         (fun x => (f (x + 1) - f x) / ((x + 1) ^ (n + 1) - x ^ (n + 1))) L := by
   rfl
 
-/-- Source: `proof_gap/exercise_610/32.txt`; replace the binomial ellipsis by `polyNorm`. -/
+/-- Exercise 610, gap 32; replace the binomial ellipsis by `polyNorm`. -/
 theorem gap32 (f : ℝ → ℝ) (n : ℕ) (x : ℝ) (hx : x ≠ 0) :
     (f (x + 1) - f x) / ((x + 1) ^ (n + 1) - x ^ (n + 1)) =
       appNormalized f n x := by
@@ -768,7 +768,7 @@ theorem gap32 (f : ℝ → ℝ) (n : ℕ) (x : ℝ) (hx : x ≠ 0) :
       ((f (x + 1) - f x) / x ^ n) * (1 / (D / x ^ n))
     field_simp [hD, hxn]
 
-/-- Source: `proof_gap/exercise_610/33.txt`; retain the missing premise naming `l`. -/
+/-- Exercise 610, gap 33; retain the missing premise naming `l`. -/
 theorem gap33 (f : ℝ → ℝ) (n : ℕ) (l : ℝ)
     (hdiff : HasFiniteLimit (fun x => (f (x + 1) - f x) / x ^ n) l) :
     HasFiniteLimit (appNormalized f n) (l / (n + 1)) := by
@@ -786,7 +786,7 @@ theorem gap33 (f : ℝ → ℝ) (n : ℕ) (l : ℝ)
   have hprod := hdiff.mul hinv
   simpa only [div_eq_mul_inv, one_mul, Nat.cast_add, Nat.cast_one] using hprod
 
-/-- Source: `proof_gap/exercise_610/34.txt`. -/
+/-- Exercise 610, gap 34. -/
 theorem gap34 (f : ℝ → ℝ) (n : ℕ) (l : ℝ)
     (hdiff : HasFiniteLimit (fun x => (f (x + 1) - f x) / x ^ n) l) :
     HasFiniteLimit (unitRatio f (polyG n)) (l / (n + 1)) := by
@@ -796,7 +796,7 @@ theorem gap34 (f : ℝ → ℝ) (n : ℕ) (l : ℝ)
   filter_upwards [Filter.eventually_gt_atTop (0 : ℝ)] with x hx
   exact (gap32 f n x (ne_of_gt hx)).symm
 
-/-- Source: `proof_gap/exercise_610/35.txt`. -/
+/-- Exercise 610, gap 35. -/
 theorem gap35 (f : ℝ → ℝ) (n : ℕ) :
     quotient f (polyG n) = fun x => f x / x ^ (n + 1) := by
   rfl
@@ -829,7 +829,7 @@ private theorem polyG_posInfinite (n : ℕ) : HasPosInfiniteLimit (polyG n) := b
   unfold HasPosInfiniteLimit polyG
   exact Filter.tendsto_pow_atTop (by omega)
 
-/-- Source: `proof_gap/exercise_610/36.txt`; apply the finite Stolz conclusion. -/
+/-- Exercise 610, gap 36; apply the finite Stolz conclusion. -/
 theorem gap36 (f : ℝ → ℝ) (n : ℕ) (l : ℝ)
     (hlocal : ∀ a b : ℝ, a < b → ∃ M, ∀ x,
       a < x → x < b → |f x| ≤ M)
@@ -839,7 +839,7 @@ theorem gap36 (f : ℝ → ℝ) (n : ℕ) (l : ℝ)
     hlocal (polyG_locallyBounded n) (polyG_eventuallyUnitIncreasing n)
     (polyG_posInfinite n) hdiff
 
-/-- Source: `proof_gap/exercise_610/37.txt`. -/
+/-- Exercise 610, gap 37. -/
 theorem gap37 (f : ℝ → ℝ) (n : ℕ) (l : ℝ)
     (hlocal : ∀ a b : ℝ, a < b → ∃ M, ∀ x,
       a < x → x < b → |f x| ≤ M)
@@ -849,7 +849,7 @@ theorem gap37 (f : ℝ → ℝ) (n : ℕ) (l : ℝ)
   have hquot := gap36 f n l hlocal hunit
   simpa only [gap35 f n] using hquot
 
-/-- Source: `proof_gap/exercise_610/38.txt`. -/
+/-- Exercise 610, gap 38. -/
 theorem gap38 (f : ℝ → ℝ) (n : ℕ) (l : ℝ)
     (hlocal : ∀ a b : ℝ, a < b → ∃ M, ∀ x,
       a < x → x < b → |f x| ≤ M)

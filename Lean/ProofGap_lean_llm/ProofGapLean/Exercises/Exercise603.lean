@@ -11,23 +11,23 @@ def f (x : ℝ) : ℝ := x * (Int.floor (1 / x) : ℝ)
 def HasLimitAtZero (g : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto g (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_603/1.txt`; exclude `x=0`. -/
+/-- Exercise 603, gap 1; exclude `x=0`. -/
 theorem gap1 (x : ℝ) (hx : x ≠ 0) :
     1 / x - 1 < (Int.floor (1 / x) : ℝ) := by
   have h : 1 / x < (Int.floor (1 / x) : ℝ) + 1 :=
     Int.lt_floor_add_one _
   linarith
 
-/-- Source: `proof_gap/exercise_603/2.txt`; exclude `x=0`. -/
+/-- Exercise 603, gap 2; exclude `x=0`. -/
 theorem gap2 (x : ℝ) (hx : x ≠ 0) :
     (Int.floor (1 / x) : ℝ) ≤ 1 / x := by
   exact Int.floor_le _
 
-/-- Source: `proof_gap/exercise_603/3.txt`; exclude `x=0`. -/
+/-- Exercise 603, gap 3; exclude `x=0`. -/
 theorem gap3 (x : ℝ) (hx : x ≠ 0) : 1 / x - 1 < 1 / x := by
   linarith
 
-/-- Source: `proof_gap/exercise_603/4.txt`. -/
+/-- Exercise 603, gap 4. -/
 theorem gap4 (x : ℝ) (hx : 0 < x) : 1 - x < f x := by
   calc
     1 - x = x * (1 / x - 1) := by
@@ -36,7 +36,7 @@ theorem gap4 (x : ℝ) (hx : 0 < x) : 1 - x < f x := by
       mul_lt_mul_of_pos_left (gap1 x (ne_of_gt hx)) hx
     _ = f x := rfl
 
-/-- Source: `proof_gap/exercise_603/5.txt`. -/
+/-- Exercise 603, gap 5. -/
 theorem gap5 (x : ℝ) (hx : 0 < x) : f x ≤ 1 := by
   calc
     f x = x * (Int.floor (1 / x) : ℝ) := rfl
@@ -45,11 +45,11 @@ theorem gap5 (x : ℝ) (hx : 0 < x) : f x ≤ 1 := by
     _ = 1 := by
       field_simp [ne_of_gt hx]
 
-/-- Source: `proof_gap/exercise_603/6.txt`. -/
+/-- Exercise 603, gap 6. -/
 theorem gap6 (x : ℝ) (hx : 0 < x) : 1 - x < (1 : ℝ) := by
   linarith
 
-/-- Source: `proof_gap/exercise_603/7.txt`. -/
+/-- Exercise 603, gap 7. -/
 theorem gap7 (x : ℝ) (hx : x < 0) : f x < 1 - x := by
   calc
     f x = x * (Int.floor (1 / x) : ℝ) := rfl
@@ -58,7 +58,7 @@ theorem gap7 (x : ℝ) (hx : x < 0) : f x < 1 - x := by
     _ = 1 - x := by
       field_simp [ne_of_lt hx]
 
-/-- Source: `proof_gap/exercise_603/8.txt`. -/
+/-- Exercise 603, gap 8. -/
 theorem gap8 (x : ℝ) (hx : x < 0) : 1 ≤ f x := by
   calc
     1 = x * (1 / x) := by
@@ -67,11 +67,11 @@ theorem gap8 (x : ℝ) (hx : x < 0) : 1 ≤ f x := by
       mul_le_mul_of_nonpos_left (gap2 x (ne_of_lt hx)) hx.le
     _ = f x := rfl
 
-/-- Source: `proof_gap/exercise_603/9.txt`. -/
+/-- Exercise 603, gap 9. -/
 theorem gap9 (x : ℝ) (hx : x < 0) : (1 : ℝ) < 1 - x := by
   linarith
 
-/-- Source: `proof_gap/exercise_603/10.txt`. -/
+/-- Exercise 603, gap 10. -/
 theorem gap10 : HasLimitAtZero f 1 := by
   unfold HasLimitAtZero
   rw [Metric.tendsto_nhds]

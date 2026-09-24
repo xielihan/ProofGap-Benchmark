@@ -12,7 +12,7 @@ def rewritten (x : ℝ) : ℝ := Real.log (Real.rpow (1 + x) (1 / x))
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_529/1.txt`. -/
+/-- Exercise 529, gap 1. -/
 theorem gap1 (L : ℝ) :
     HasLimitAtZero original L ↔ HasLimitAtZero rewritten L := by
   unfold HasLimitAtZero
@@ -36,7 +36,7 @@ theorem gap1 (L : ℝ) :
   · intro h
     exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_529/2.txt`. -/
+/-- Exercise 529, gap 2. -/
 theorem gap2 : HasLimitAtZero rewritten (Real.log (Real.exp 1)) := by
   rw [Real.log_exp]
   apply (gap1 1).mp
@@ -53,11 +53,11 @@ theorem gap2 : HasLimitAtZero rewritten (Real.log (Real.exp 1)) := by
   simpa [Real.log_one, div_eq_mul_inv, mul_comm] using
     hderiv.tendsto_slope_zero
 
-/-- Source: `proof_gap/exercise_529/3.txt`. -/
+/-- Exercise 529, gap 3. -/
 theorem gap3 : Real.log (Real.exp 1) = 1 := by
   simpa using Real.log_exp 1
 
-/-- Source: `proof_gap/exercise_529/4.txt`. -/
+/-- Exercise 529, gap 4. -/
 theorem gap4 : HasLimitAtZero original 1 := by
   rw [gap1]
   simpa [gap3] using gap2

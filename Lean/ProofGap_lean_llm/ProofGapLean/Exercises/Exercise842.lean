@@ -23,7 +23,7 @@ def factoredDerivative (x : ℝ) : ℝ :=
   -(1 - x) ^ 5 * (1 + x) * (1 + 2 * x) *
     (1 + 4 * x + 7 * x ^ 2) * (1 + x + x ^ 2) ^ 2
 
-/-- Source: `proof_gap/exercise_842/1.txt`; replace the malformed critical-point
+/-- Exercise 842, gap 1; replace the malformed critical-point
 biconditional by the derivative identity supplied by the product rule. -/
 theorem gap1 (x : ℝ) : deriv y x = expandedDerivative x := by
   have hx2 :=
@@ -62,14 +62,14 @@ theorem gap1 (x : ℝ) : deriv y x = expandedDerivative x := by
       simp only [Pi.mul_apply, Pi.sub_apply, id_eq]
       ring
 
-/-- Source: `proof_gap/exercise_842/2.txt`; isolate the intended algebraic
+/-- Exercise 842, gap 2; isolate the intended algebraic
 factorization step. -/
 theorem gap2 (x : ℝ) :
     expandedDerivative x = partiallyFactoredDerivative x := by
   unfold expandedDerivative partiallyFactoredDerivative
   ring
 
-/-- Source: `proof_gap/exercise_842/3.txt`; isolate the final factorization
+/-- Exercise 842, gap 3; isolate the final factorization
 step. -/
 theorem gap3 (x : ℝ) :
     partiallyFactoredDerivative x = factoredDerivative x := by
@@ -123,13 +123,13 @@ theorem gap4 (x : ℝ) :
     · simp [hQ]
     · simp [hR]
 
-/-- Source: `proof_gap/exercise_842/5.txt`; the intended step is that the
+/-- Exercise 842, gap 5; the intended step is that the
 first residual quadratic has no real root. -/
 theorem gap5 : ¬∃ z : ℝ, 1 + 4 * z + 7 * z ^ 2 = 0 := by
   rintro ⟨z, hz⟩
   nlinarith [sq_nonneg (7 * z + 2)]
 
-/-- Source: `proof_gap/exercise_842/6.txt`; the intended step is that the
+/-- Exercise 842, gap 6; the intended step is that the
 second residual quadratic has no real root. -/
 theorem gap6 : ¬∃ z : ℝ, 1 + z + z ^ 2 = 0 := by
   rintro ⟨z, hz⟩

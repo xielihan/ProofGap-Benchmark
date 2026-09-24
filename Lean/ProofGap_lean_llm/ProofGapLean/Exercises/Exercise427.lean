@@ -15,7 +15,7 @@ def value (n : ℕ) : ℝ := (n : ℝ) * (n + 1) / 2
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_427/1.txt`; formalize `y=x-1`. -/
+/-- Exercise 427, gap 1; formalize `y=x-1`. -/
 theorem gap1 :
     Filter.Tendsto (fun x : ℝ => x - 1) (nhds 1) (nhds 0) := by
   have h :
@@ -24,7 +24,7 @@ theorem gap1 :
   norm_num at h ⊢
   exact h
 
-/-- Source: `proof_gap/exercise_427/2.txt`. -/
+/-- Exercise 427, gap 2. -/
 theorem gap2 (n : ℕ) :
     HasLimitAt (original n) 1 (value n) ↔
       HasLimitAt (shifted n) 0 (value n) := by
@@ -64,7 +64,7 @@ theorem gap2 (n : ℕ) :
       (Filter.Eventually.of_forall fun x => by
         simp [original, shifted, sub_eq_add_neg, add_assoc])
 
-/-- Source: `proof_gap/exercise_427/3.txt`; replace the expansion ellipsis by its limit consequence. -/
+/-- Exercise 427, gap 3; replace the expansion ellipsis by its limit consequence. -/
 theorem gap3 (n : ℕ) : HasLimitAt (shifted n) 0 (value n) := by
   induction n with
   | zero =>
@@ -117,13 +117,13 @@ theorem gap3 (n : ℕ) : HasLimitAt (shifted n) 0 (value n) := by
       filter_upwards [hrec] with y hy
       exact hy.symm
 
-/-- Source: `proof_gap/exercise_427/4.txt`. -/
+/-- Exercise 427, gap 4. -/
 theorem gap4 (n : ℕ) :
     HasLimitAt (fun _ : ℝ => value n) 0 (value n) := by
   unfold HasLimitAt
   exact tendsto_const_nhds
 
-/-- Source: `proof_gap/exercise_427/5.txt`. -/
+/-- Exercise 427, gap 5. -/
 theorem gap5 (n : ℕ) : HasLimitAt (shifted n) 0 (value n) := by
   exact gap3 n
 

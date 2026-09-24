@@ -11,7 +11,7 @@ noncomputable section
 def f (x : ℝ) : ℝ :=
   Real.rpow ((x ^ 2 + 2 * x - 1) / (2 * x ^ 2 - 3 * x - 2)) (1 / x)
 
-/-- Source: `proof_gap/exercise_513/1.txt`; encode the real variable power by `Real.rpow`. -/
+/-- Exercise 513, gap 1; encode the real variable power by `Real.rpow`. -/
 theorem gap1 : Filter.Tendsto f Filter.atTop (nhds ((1 / 2 : ℝ) ^ (0 : ℕ))) := by
   have hinv :
       Filter.Tendsto (fun x : ℝ => 1 / x) Filter.atTop (nhds 0) := by
@@ -112,11 +112,11 @@ theorem gap1 : Filter.Tendsto f Filter.atTop (nhds ((1 / 2 : ℝ) ^ (0 : ℕ))) 
     exact hrpow.symm
   simpa only [pow_zero] using hfinal
 
-/-- Source: `proof_gap/exercise_513/2.txt`. -/
+/-- Exercise 513, gap 2. -/
 theorem gap2 : (1 / 2 : ℝ) ^ (0 : ℕ) = 1 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_513/3.txt`. -/
+/-- Exercise 513, gap 3. -/
 theorem gap3 : Filter.Tendsto f Filter.atTop (nhds 1) := by
   simpa only [pow_zero] using gap1
 

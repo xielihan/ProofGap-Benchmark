@@ -14,7 +14,7 @@ def f (x : ℝ) : ℝ := x ^ 2 / (fifthRoot (1 + 5 * x) - (1 + x))
 def HasLimitAt (g : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto g (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_451/1.txt`; replace the fifth-power rationalization ellipsis by its limit statement. -/
+/-- Exercise 451, gap 1; replace the fifth-power rationalization ellipsis by its limit statement. -/
 theorem gap1 : HasLimitAt f 0 (-1 / 2) := by
   unfold HasLimitAt
   let F : Filter ℝ := nhdsWithin 0 ({0} : Set ℝ)ᶜ
@@ -162,7 +162,7 @@ theorem gap1 : HasLimitAt f 0 (-1 / 2) := by
     field_simp [hden, hQne] <;> nlinarith [hfac]
   exact hG.congr' heq
 
-/-- Source: `proof_gap/exercise_451/2.txt`. -/
+/-- Exercise 451, gap 2. -/
 theorem gap2 : HasLimitAt f 0 (-1 / 2) := by
   exact gap1
 

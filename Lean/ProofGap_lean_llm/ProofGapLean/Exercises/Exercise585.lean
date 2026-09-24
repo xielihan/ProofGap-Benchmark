@@ -15,7 +15,7 @@ def transformed (x h : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_585/1.txt`. -/
+/-- Exercise 585, gap 1. -/
 theorem gap1 (x L : ℝ) :
     HasLimitAtZero (original x) L ↔ HasLimitAtZero (transformed x) L := by
   unfold HasLimitAtZero
@@ -65,7 +65,7 @@ theorem gap1 (x L : ℝ) :
   · intro htransformed
     exact htransformed.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_585/2.txt`. -/
+/-- Exercise 585, gap 2. -/
 theorem gap2 (x : ℝ) :
     HasLimitAtZero (transformed x) (1 / (1 + x ^ 2)) := by
   apply (gap1 x (1 / (1 + x ^ 2))).mp
@@ -82,7 +82,7 @@ theorem gap2 (x : ℝ) :
   have ht := hs.congr' heq
   simpa only [one_div] using ht
 
-/-- Source: `proof_gap/exercise_585/3.txt`. -/
+/-- Exercise 585, gap 3. -/
 theorem gap3 (x : ℝ) :
     HasLimitAtZero (original x) (1 / (1 + x ^ 2)) := by
   exact (gap1 x (1 / (1 + x ^ 2))).mpr (gap2 x)

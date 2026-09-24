@@ -859,7 +859,7 @@ private theorem realIntegral_eq_complexValue_im
       exact (complexKernel_im x lam α t).symm
     _ = (complexValue x lam α).im := him
 
-/-- Semantic source: `results/stage1_gpt55/09_重积分与含参积分/exercise_3878_2_autoformalization_result/exercise_3878_2.md`. -/
+/-- Exercise 3878_2. -/
 private theorem sine_setIntegral_formula
     (x lam α : ℝ) (hx : 0 < x) (hlam : 0 < lam)
     (hα₀ : -(Real.pi / 2) < α) (hα₁ : α < Real.pi / 2) :

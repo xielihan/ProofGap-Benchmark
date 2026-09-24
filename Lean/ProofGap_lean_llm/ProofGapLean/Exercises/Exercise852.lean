@@ -16,7 +16,7 @@ def signedCbrt (x : ℝ) : ℝ :=
 def y (x : ℝ) : ℝ :=
   1 / x + 1 / Real.sqrt x + 1 / signedCbrt x
 
-/-- Source: `proof_gap/exercise_852/1.txt`; use a signed real cube root and
+/-- Exercise 852, gap 1; use a signed real cube root and
 restore the omitted domain `x > 0`. -/
 theorem gap1 (x : ℝ) (hx : 0 < x) :
     HasDerivAt y

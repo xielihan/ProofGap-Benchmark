@@ -8,7 +8,7 @@ noncomputable section
 
 def f (x : ℝ) : ℝ := Real.sin x + Real.sin (x * Real.sqrt 2)
 
-/-- Source: `proof_gap/exercise_233_8/1.txt`. -/
+/-- Exercise 233_8, gap 1. -/
 theorem gap1 : ¬∃ T : ℝ, 0 < T ∧ Function.Periodic f T := by
   rintro ⟨T, hT, hper⟩
   let s : ℝ := Real.sqrt 2
@@ -103,7 +103,7 @@ theorem gap1 : ¬∃ T : ℝ, 0 < T ∧ Function.Periodic f T := by
       _ = (↑((m : ℚ) / (n : ℚ)) : ℝ) := by norm_cast
   exact irrational_sqrt_two ⟨(m : ℚ) / (n : ℚ), hsrat.symm⟩
 
-/-- Source: `proof_gap/exercise_233_8/2.txt`. -/
+/-- Exercise 233_8, gap 2. -/
 theorem gap2 : {T : ℝ | 0 < T ∧ Function.Periodic f T} = ∅ := by
   ext T
   simp only [Set.mem_setOf_eq, Set.mem_empty_iff_false, iff_false]

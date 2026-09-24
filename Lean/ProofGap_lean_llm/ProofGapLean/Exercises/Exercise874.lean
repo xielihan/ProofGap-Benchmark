@@ -37,7 +37,7 @@ def doubleAngleDerivative (a x : ℝ) : ℝ :=
 def finalDerivative (a x : ℝ) : ℝ :=
   (-16 * Real.cos (2 * x / a)) / (a * Real.sin (2 * x / a) ^ 3)
 
-/-- Source: `proof_gap/exercise_874/1.txt`; require a nonzero scale and both
+/-- Exercise 874, gap 1; require a nonzero scale and both
 reciprocal-trigonometric denominators to be nonzero. -/
 theorem gap1 (a x : ℝ) (ha : a ≠ 0)
     (hcos : Real.cos (u a x) ≠ 0) (hsin : Real.sin (u a x) ≠ 0) :
@@ -77,7 +77,7 @@ theorem gap1 (a x : ℝ) (ha : a ≠ 0)
   rw [hcancelCos]
   ring
 
-/-- Source: `proof_gap/exercise_874/2.txt`; retain the source function's full
+/-- Exercise 874, gap 2; retain the source function's full
 domain while rewriting secant, cosecant, tangent, and cotangent. -/
 theorem gap2 (a x : ℝ) (ha : a ≠ 0)
     (hcos : Real.cos (u a x) ≠ 0) (hsin : Real.sin (u a x) ≠ 0) :
@@ -88,7 +88,7 @@ theorem gap2 (a x : ℝ) (ha : a ≠ 0)
   field_simp [ha, hcos, hsin]
   <;> ring
 
-/-- Source: `proof_gap/exercise_874/3.txt`; retain all nonzero denominators
+/-- Exercise 874, gap 3; retain all nonzero denominators
 while combining the two fractions. -/
 theorem gap3 (a x : ℝ) (ha : a ≠ 0)
     (hcos : Real.cos (u a x) ≠ 0) (hsin : Real.sin (u a x) ≠ 0) :
@@ -97,14 +97,14 @@ theorem gap3 (a x : ℝ) (ha : a ≠ 0)
   field_simp [ha, hcos, hsin]
   <;> ring
 
-/-- Source: `proof_gap/exercise_874/4.txt`; restrict to the source function's
+/-- Exercise 874, gap 4; restrict to the source function's
 domain. -/
 theorem gap4 (a x : ℝ) (ha : a ≠ 0)
     (hcos : Real.cos (u a x) ≠ 0) (hsin : Real.sin (u a x) ≠ 0) :
     deriv (y a) x = combinedDerivative a x := by
   rw [gap2 a x ha hcos hsin, gap3 a x ha hcos hsin]
 
-/-- Source: `proof_gap/exercise_874/5.txt`; retain the scale and
+/-- Exercise 874, gap 5; retain the scale and
 reciprocal-trigonometric domain restrictions. -/
 theorem gap5 (a x : ℝ) (ha : a ≠ 0)
     (hcos : Real.cos (u a x) ≠ 0) (hsin : Real.sin (u a x) ≠ 0) :
@@ -125,7 +125,7 @@ theorem gap5 (a x : ℝ) (ha : a ≠ 0)
   field_simp [ha, hcos, hsin]
   <;> ring
 
-/-- Source: `proof_gap/exercise_874/6.txt`; retain all denominator conditions
+/-- Exercise 874, gap 6; retain all denominator conditions
 when applying the double-angle identities. -/
 theorem gap6 (a x : ℝ) (ha : a ≠ 0)
     (hcos : Real.cos (u a x) ≠ 0) (hsin : Real.sin (u a x) ≠ 0) :
@@ -138,7 +138,7 @@ theorem gap6 (a x : ℝ) (ha : a ≠ 0)
   field_simp [ha, hcos, hsin]
   nlinarith [Real.sin_sq_add_cos_sq (u a x)]
 
-/-- Source: `proof_gap/exercise_874/7.txt`; restrict the final derivative
+/-- Exercise 874, gap 7; restrict the final derivative
 formula to the source function's domain. -/
 theorem gap7 (a x : ℝ) (ha : a ≠ 0)
     (hcos : Real.cos (u a x) ≠ 0) (hsin : Real.sin (u a x) ≠ 0) :

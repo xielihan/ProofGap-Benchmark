@@ -35,7 +35,7 @@ def partialProduct (f : ℕ → ℝ) (N : ℕ) : ℝ :=
 def HasProductFromOne (f : ℕ → ℝ) (L : ℝ) : Prop :=
   Tendsto (partialProduct f) atTop (𝓝 L)
 
-/-- Source: `proof_gap/exercise_3105_2/1.txt`; formalize nonnegative and positive integers. -/
+/-- Exercise 3105_2, gap 1; formalize nonnegative and positive integers. -/
 theorem gap1 :
     ∀ x : ℝ, admissible x →
       ∀ n : ℕ, 1 ≤ n → 1 + x / n ≠ 0 := by
@@ -47,7 +47,7 @@ theorem gap1 :
   exact hx n hxn
 
 /--
-Source: `proof_gap/exercise_3105_2/2.txt`; bind `x` in `p` and `alpha`, and
+Exercise 3105_2, gap 2; bind `x` in `p` and `alpha`, and
 represent the asymptotic remainder at function level.
 -/
 theorem gap2 :
@@ -194,7 +194,7 @@ theorem gap2 :
   rw [hpow, abs_of_nonneg (by positivity : 0 ≤ u ^ 3)]
   exact hquot
 
-/-- Source: `proof_gap/exercise_3105_2/3.txt`; the free parameter `x` is explicit. -/
+/-- Exercise 3105_2, gap 3; the free parameter `x` is explicit. -/
 theorem gap3 :
     ∀ x : ℝ, SummableFromOne (fun n => |alpha x n|) := by
   intro x
@@ -225,7 +225,7 @@ theorem gap3 :
     ring
   exact halpha.abs
 
-/-- Source: `proof_gap/exercise_3105_2/4.txt`; the free parameter `x` is explicit. -/
+/-- Exercise 3105_2, gap 4; the free parameter `x` is explicit. -/
 theorem gap4 :
     ∀ x : ℝ, SummableFromOne (fun n => |Real.log (p x n)|) := by
   intro x
@@ -412,7 +412,7 @@ private lemma partialProduct_eq_euler_mul (x : ℝ) (n : ℕ)
     _ = x * eulerApproximant x n * Real.rpow (((n : ℝ) + 1) / n) x := by ring
 
 /--
-Source: `proof_gap/exercise_3105_2/5.txt`; retain the pole restriction and use
+Exercise 3105_2, gap 5; retain the pole restriction and use
 a witnessed nonzero-domain product limit rather than a totalized product value.
 -/
 theorem gap5 (Gamma : ℝ → ℝ)
@@ -459,7 +459,7 @@ theorem gap5 (Gamma : ℝ → ℝ)
   · field_simp
 
 /--
-Source: `proof_gap/exercise_3105_2/6.txt`; this is the explicit-factor form
+Exercise 3105_2, gap 6; this is the explicit-factor form
 of the preceding product statement.
 -/
 theorem gap6 (Gamma : ℝ → ℝ)

@@ -3,7 +3,7 @@ import ProofGapLean.Prelude.Elementary
 /-!
 # Exercise 28
 
-Semantic formalization of `proof_gap/exercise_28/{1,...,6}.txt`.
+Semantic formalization of Exercise 28, gaps 1,...,6.
 -/
 
 namespace ProofGap.Exercise28
@@ -11,7 +11,7 @@ namespace ProofGap.Exercise28
 def Original (x : ℝ) : Prop :=
   abs (|x + 1| - |x - 1|) < 1
 
-/-- Source: `proof_gap/exercise_28/1.txt`. -/
+/-- Exercise 28, gap 1. -/
 theorem gap1 (x : ℝ) :
     Original x ↔ x ^ 2 + (1 / 2 : ℝ) < |x ^ 2 - 1| := by
   let d : ℝ := abs (|x + 1| - |x - 1|)
@@ -38,7 +38,7 @@ theorem gap1 (x : ℝ) :
     apply (sq_lt_sq₀ (by dsimp [d]; positivity) (by norm_num)).1
     nlinarith
 
-/-- Source: `proof_gap/exercise_28/2.txt`. -/
+/-- Exercise 28, gap 2. -/
 theorem gap2
     (x : ℝ)
     (h1 : Original x ↔ x ^ 2 + (1 / 2 : ℝ) < |x ^ 2 - 1|) :
@@ -63,7 +63,7 @@ theorem gap2
       · nlinarith
       · linarith
 
-/-- Source: `proof_gap/exercise_28/3.txt`; repaired to the impossible branch alone. -/
+/-- Exercise 28, gap 3; repaired to the impossible branch alone. -/
 theorem gap3
     (x : ℝ)
     (h2 : Original x ↔
@@ -72,7 +72,7 @@ theorem gap3
     ¬ x ^ 2 - 1 > x ^ 2 + (1 / 2 : ℝ) := by
   linarith
 
-/-- Source: `proof_gap/exercise_28/4.txt`. -/
+/-- Exercise 28, gap 4. -/
 theorem gap4
     (x : ℝ)
     (h2 : Original x ↔
@@ -83,7 +83,7 @@ theorem gap4
   rw [h2]
   simp only [h3, false_or]
 
-/-- Source: `proof_gap/exercise_28/5.txt`. -/
+/-- Exercise 28, gap 5. -/
 theorem gap5
     (x : ℝ)
     (h4 : Original x ↔ x ^ 2 - 1 < -(x ^ 2 + (1 / 2 : ℝ))) :
@@ -91,7 +91,7 @@ theorem gap5
   rw [h4]
   constructor <;> intro h <;> linarith
 
-/-- Source: `proof_gap/exercise_28/6.txt`. -/
+/-- Exercise 28, gap 6. -/
 theorem gap6
     (x : ℝ)
     (h5 : Original x ↔ x ^ 2 < (1 / 4 : ℝ)) :

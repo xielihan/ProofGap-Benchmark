@@ -17,7 +17,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 def finalDerivative (x : ℝ) : ℝ :=
   Real.sign (Real.cos x)
 
-/-- Source: `proof_gap/exercise_921/1.txt`; exclude the cusp points where
+/-- Exercise 921, gap 1; exclude the cusp points where
 `sin x = ±1`, equivalently `cos x = 0`. -/
 theorem gap1 (x : ℝ) (hx : Real.cos x ≠ 0) :
     HasDerivAt y (expandedDerivative x) x := by
@@ -37,7 +37,7 @@ theorem gap1 (x : ℝ) (hx : Real.cos x ≠ 0) :
   simpa [y, expandedDerivative, Function.comp_def, div_eq_mul_inv, mul_comm] using
     harcsin.comp x (Real.hasDerivAt_sin x)
 
-/-- Source: `proof_gap/exercise_921/2.txt`; away from zeros of cosine,
+/-- Exercise 921, gap 2; away from zeros of cosine,
 `sqrt (cos² x) = |cos x|` yields the sign. -/
 theorem gap2 (x : ℝ) (hx : Real.cos x ≠ 0) :
     expandedDerivative x = finalDerivative x := by
@@ -51,7 +51,7 @@ theorem gap2 (x : ℝ) (hx : Real.cos x ≠ 0) :
       not_lt_of_ge (le_of_lt hpos)
     simp [abs_of_pos hpos, Real.sign, hpos, hnotneg, hx]
 
-/-- Source: `proof_gap/exercise_921/3.txt`; the composed function is not
+/-- Exercise 921, gap 3; the composed function is not
 differentiable at the omitted cusp points. -/
 theorem gap3 (x : ℝ) (hx : Real.cos x ≠ 0) :
     HasDerivAt y (finalDerivative x) x := by

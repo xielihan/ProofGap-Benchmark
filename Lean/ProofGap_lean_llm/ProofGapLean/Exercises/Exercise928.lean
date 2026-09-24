@@ -24,7 +24,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 def finalDerivative (x : ℝ) : ℝ :=
   -(2 * Real.sign x) / (1 + x ^ 2)
 
-/-- Source: `proof_gap/exercise_928/1.txt`; exclude `x = 0`, where the
+/-- Exercise 928, gap 1; exclude `x = 0`, where the
 inverse-sine argument reaches `1` and the composition has a cusp. -/
 theorem gap1 (x : ℝ) (hx : x ≠ 0) :
     HasDerivAt y (expandedDerivative x) x := by
@@ -62,7 +62,7 @@ theorem gap1 (x : ℝ) (hx : x ≠ 0) :
   simpa only [one_div] using
     (Real.hasDerivAt_arcsin hleft hright).comp x hu_deriv
 
-/-- Source: `proof_gap/exercise_928/2.txt`; the nonzero hypothesis controls
+/-- Exercise 928, gap 2; the nonzero hypothesis controls
 the absolute value arising from the square root. -/
 theorem gap2 (x : ℝ) (hx : x ≠ 0) :
     expandedDerivative x = finalDerivative x := by
@@ -88,7 +88,7 @@ theorem gap2 (x : ℝ) (hx : x ≠ 0) :
       Real.sign_of_pos hxpos]
     field_simp [hden, hx] <;> ring
 
-/-- Source: `proof_gap/exercise_928/3.txt`; retain the two smooth components
+/-- Exercise 928, gap 3; retain the two smooth components
 of the source function's domain. -/
 theorem gap3 (x : ℝ) (hx : x ≠ 0) :
     HasDerivAt y (finalDerivative x) x := by

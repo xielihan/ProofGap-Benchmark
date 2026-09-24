@@ -17,7 +17,7 @@ def rewritten (x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_514/1.txt`; interpret the variable-index root as `Real.rpow`. -/
+/-- Exercise 514, gap 1; interpret the variable-index root as `Real.rpow`. -/
 private theorem original_limit :
     HasLimitAtZero original (Real.exp (-2)) := by
   unfold HasLimitAtZero
@@ -84,11 +84,11 @@ theorem gap1 (L : ℝ) :
   · intro h
     exact h.congr' hfun.symm
 
-/-- Source: `proof_gap/exercise_514/2.txt`. -/
+/-- Exercise 514, gap 2. -/
 theorem gap2 : HasLimitAtZero rewritten (Real.exp (-2)) := by
   exact (gap1 (Real.exp (-2))).mp original_limit
 
-/-- Source: `proof_gap/exercise_514/3.txt`. -/
+/-- Exercise 514, gap 3. -/
 theorem gap3 : HasLimitAtZero original (Real.exp (-2)) := by
   exact (gap1 (Real.exp (-2))).mpr gap2
 

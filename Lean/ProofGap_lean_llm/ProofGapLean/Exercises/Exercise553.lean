@@ -20,7 +20,7 @@ def transformed (x : ℝ) (n : ℕ) : ℝ :=
   (1 / ((n : ℝ) * ((n : ℝ) + 1)) + 1 / (n : ℝ) ^ 2 -
     1 / ((n : ℝ) ^ 2 + n))
 
-/-- Source: `proof_gap/exercise_553/1.txt`. -/
+/-- Exercise 553, gap 1. -/
 theorem gap1 (x : ℝ) (hx : 0 < x) (L : ℝ) :
     Filter.Tendsto (seq x) Filter.atTop (nhds L) ↔
       Filter.Tendsto (quotient x) Filter.atTop (nhds L) := by
@@ -37,7 +37,7 @@ theorem gap1 (x : ℝ) (hx : 0 < x) (L : ℝ) :
   · intro h
     exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_553/2.txt`. -/
+/-- Exercise 553, gap 2. -/
 theorem gap2 (x : ℝ) (hx : 0 < x) (L : ℝ) :
     Filter.Tendsto (quotient x) Filter.atTop (nhds L) ↔
       Filter.Tendsto (transformed x) Filter.atTop (nhds L) := by
@@ -75,7 +75,7 @@ theorem gap2 (x : ℝ) (hx : 0 < x) (L : ℝ) :
   · intro h
     exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_553/3.txt`. -/
+/-- Exercise 553, gap 3. -/
 theorem gap3 (x : ℝ) (hx : 0 < x) :
     Filter.Tendsto (transformed x) Filter.atTop (nhds (Real.log x)) := by
   by_cases hx1 : x = 1

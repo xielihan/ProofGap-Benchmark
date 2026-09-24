@@ -6,7 +6,7 @@ open Filter Topology
 /-!
 # Exercise 76
 
-Semantic formalization of `proof_gap/exercise_76/{1,...,27}.txt`.
+Semantic formalization of Exercise 76, gaps 1,...,27.
 -/
 
 namespace ProofGap.Exercise76
@@ -32,7 +32,7 @@ def CutoffData (a : ℝ) (k : ℕ → ℕ) : Prop :=
     1 / ((k n : ℝ) + 1) ≤ b a n ∧
     b a n < 1 / (k n : ℝ)
 
-/-- Source: `proof_gap/exercise_76/1.txt`; strict positivity excludes n=0. -/
+/-- Exercise 76, gap 1; strict positivity excludes n=0. -/
 theorem gap1 :
     ∀ a : ℝ, 1 < a → ∀ n : ℕ, 0 < n → 0 < b a n := by
   intro a ha n hn
@@ -40,7 +40,7 @@ theorem gap1 :
   have hexp : 0 < (1 / (n : ℝ)) := by positivity
   exact sub_pos.mpr (Real.one_lt_rpow ha hexp)
 
-/-- Source: `proof_gap/exercise_76/2.txt`; the logarithmic identity uses n>0. -/
+/-- Exercise 76, gap 2; the logarithmic identity uses n>0. -/
 theorem gap2 :
     ∀ a : ℝ, 1 < a → ∀ n : ℕ, 0 < n →
       Real.log a / (n : ℝ) = Real.log (1 + b a n) := by
@@ -53,7 +53,7 @@ theorem gap2 :
     Real.log a / (n : ℝ) = (1 / (n : ℝ)) * Real.log a := by ring
     _ = Real.log (a ^ (1 / (n : ℝ))) := (Real.log_rpow ha0 _).symm
 
-/-- Source: `proof_gap/exercise_76/3.txt`; the factorization uses n>0. -/
+/-- Exercise 76, gap 3; the factorization uses n>0. -/
 theorem gap3 :
     ∀ a : ℝ, 1 < a → ∀ n : ℕ, 0 < n →
       scaledRootDifference a n =
@@ -69,7 +69,7 @@ theorem gap3 :
   field_simp at hid
   nlinarith
 
-/-- Source: `proof_gap/exercise_76/4.txt`. -/
+/-- Exercise 76, gap 4. -/
 theorem gap4 :
     ∀ a : ℝ, 1 < a → Tendsto (b a) atTop (𝓝 0) := by
   intro a ha
@@ -89,7 +89,7 @@ theorem gap4 :
   simpa only [b, sub_self] using hrpow.sub
     (tendsto_const_nhds : Tendsto (fun _ : ℕ => (1 : ℝ)) atTop (𝓝 1))
 
-/-- Source: `proof_gap/exercise_76/5.txt`; remove the rebound cutoff variable. -/
+/-- Exercise 76, gap 5; remove the rebound cutoff variable. -/
 theorem gap5 :
     ∀ a : ℝ, 1 < a →
       ∃ N : ℕ, 0 < N ∧
@@ -102,7 +102,7 @@ theorem gap5 :
   intro n hn
   exact ⟨gap1 a ha n (by omega), hN n (by omega)⟩
 
-/-- Source: `proof_gap/exercise_76/6.txt`; choose one cutoff value for each fixed n. -/
+/-- Exercise 76, gap 6; choose one cutoff value for each fixed n. -/
 theorem gap6 :
     ∀ a : ℝ, 1 < a →
       ∃ k : ℕ → ℕ,
@@ -183,7 +183,7 @@ theorem gap6 :
   rw [hkdef]
   omega
 
-/-- Source: `proof_gap/exercise_76/7.txt`; the limit is outside the pointwise binder. -/
+/-- Exercise 76, gap 7; the limit is outside the pointwise binder. -/
 theorem gap7 :
     ∀ a : ℝ, 1 < a → ∀ k : ℕ → ℕ,
       CutoffData a k →
@@ -208,7 +208,7 @@ theorem gap7 :
     linarith [hdata.2.1]
   exact le_trans (le_of_lt hm) (by exact_mod_cast (le_of_lt hkgt))
 
-/-- Source: `proof_gap/exercise_76/8.txt`; the inequality is eventual. -/
+/-- Exercise 76, gap 8; the inequality is eventual. -/
 theorem gap8 :
     ∀ k : ℕ → ℕ,
       Tendsto (fun n : ℕ => (k n : ℝ)) atTop (atTop : Filter ℝ) →
@@ -241,7 +241,7 @@ theorem gap8 :
   dsimp [t] at hlog ⊢
   linarith
 
-/-- Source: `proof_gap/exercise_76/9.txt`; use the selected cutoff eventually. -/
+/-- Exercise 76, gap 9; use the selected cutoff eventually. -/
 theorem gap9 :
     ∀ a : ℝ, ∀ k : ℕ → ℕ, CutoffData a k →
       ∀ᶠ n in atTop,
@@ -253,7 +253,7 @@ theorem gap9 :
   have hb := (hN n hn).2.1
   exact Real.log_le_log (by positivity) (by linarith)
 
-/-- Source: `proof_gap/exercise_76/10.txt`. -/
+/-- Exercise 76, gap 10. -/
 theorem gap10 :
     ∀ a : ℝ, ∀ k : ℕ → ℕ, CutoffData a k →
       ∀ᶠ n in atTop,
@@ -268,7 +268,7 @@ theorem gap10 :
     lt_of_lt_of_le (one_div_pos.mpr (by linarith)) hdata.2.1
   exact Real.log_lt_log (by linarith) (by linarith [hdata.2.2])
 
-/-- Source: `proof_gap/exercise_76/11.txt`; positivity of k holds eventually. -/
+/-- Exercise 76, gap 11; positivity of k holds eventually. -/
 theorem gap11 :
     ∀ k : ℕ → ℕ,
       Tendsto (fun n : ℕ => (k n : ℝ)) atTop (atTop : Filter ℝ) →
@@ -282,7 +282,7 @@ theorem gap11 :
     linarith [one_div_pos.mpr hkpos]
   simpa using Real.log_lt_sub_one_of_pos hone hne
 
-/-- Source: `proof_gap/exercise_76/12.txt`. -/
+/-- Exercise 76, gap 12. -/
 theorem gap12 :
     ∀ k : ℕ → ℕ,
       Tendsto (fun n : ℕ => (k n : ℝ)) atTop (atTop : Filter ℝ) →
@@ -293,7 +293,7 @@ theorem gap12 :
   have hkpos : 0 < (k n : ℝ) := lt_of_lt_of_le zero_lt_one hn
   exact one_div_lt_one_div_of_lt hkpos (by linarith)
 
-/-- Source: `proof_gap/exercise_76/13.txt`. -/
+/-- Exercise 76, gap 13. -/
 theorem gap13 :
     ∀ k : ℕ → ℕ,
       ∀ᶠ n in atTop,
@@ -305,7 +305,7 @@ theorem gap13 :
   field_simp
   ring
 
-/-- Source: `proof_gap/exercise_76/14.txt`. -/
+/-- Exercise 76, gap 14. -/
 theorem gap14 :
     ∀ a : ℝ, 1 < a → ∀ k : ℕ → ℕ, CutoffData a k →
       ∀ᶠ n in atTop,
@@ -336,7 +336,7 @@ theorem gap14 :
   rw [div_lt_div_iff₀ hk1pos hlogpos]
   nlinarith
 
-/-- Source: `proof_gap/exercise_76/15.txt`. -/
+/-- Exercise 76, gap 15. -/
 theorem gap15 :
     ∀ a : ℝ, 1 < a → ∀ k : ℕ → ℕ, CutoffData a k →
       ∀ᶠ n in atTop,
@@ -369,7 +369,7 @@ theorem gap15 :
   rw [div_lt_div_iff₀ hlogpos hkpos]
   nlinarith
 
-/-- Source: `proof_gap/exercise_76/16.txt`. -/
+/-- Exercise 76, gap 16. -/
 theorem gap16 :
     ∀ k : ℕ → ℕ,
       Tendsto (fun n : ℕ => (k n : ℝ)) atTop (atTop : Filter ℝ) →
@@ -380,7 +380,7 @@ theorem gap16 :
   have hkpos : 0 < (k n : ℝ) := lt_of_lt_of_le zero_lt_one hn
   field_simp [hkpos.ne']
 
-/-- Source: `proof_gap/exercise_76/17.txt`. -/
+/-- Exercise 76, gap 17. -/
 theorem gap17 :
     ∀ k : ℕ → ℕ,
       Tendsto (fun n : ℕ => (k n : ℝ)) atTop (atTop : Filter ℝ) →
@@ -410,7 +410,7 @@ private theorem scaledRootDifference_tendsto
   have hn0 : (n : ℝ) ≠ 0 := by exact_mod_cast (ne_of_gt hn)
   simp [scaledRootDifference, b, one_div, hn0]
 
-/-- Source: `proof_gap/exercise_76/18.txt`. -/
+/-- Exercise 76, gap 18. -/
 theorem gap18 :
     ∀ a : ℝ, 1 < a → Tendsto (logarithmicRatio a) atTop (𝓝 1) := by
   intro a ha
@@ -428,20 +428,20 @@ theorem gap18 :
     field_simp
   · field_simp
 
-/-- Source: `proof_gap/exercise_76/19.txt`. -/
+/-- Exercise 76, gap 19. -/
 theorem gap19 :
     ∀ a : ℝ, 1 < a →
       Tendsto (scaledRootDifference a) atTop (𝓝 (Real.log a)) := by
   intro a ha
   exact scaledRootDifference_tendsto a (lt_trans zero_lt_one ha)
 
-/-- Source: `proof_gap/exercise_76/20.txt`. -/
+/-- Exercise 76, gap 20. -/
 theorem gap20 :
     ∀ a : ℝ, 0 < a → a < 1 → 1 / a > 1 := by
   intro a ha hlt
   exact (one_lt_div ha).mpr hlt
 
-/-- Source: `proof_gap/exercise_76/21.txt`; equality of raw limits is a pointwise rewrite. -/
+/-- Exercise 76, gap 21; equality of raw limits is a pointwise rewrite. -/
 theorem gap21 :
     ∀ a : ℝ, 0 < a → a < 1 → ∀ n : ℕ, 0 < n →
       scaledRootDifference a n = reciprocalRewrite a n := by
@@ -462,7 +462,7 @@ theorem gap21 :
   field_simp [ne_of_gt hrpow]
   ring
 
-/-- Source: `proof_gap/exercise_76/22.txt`. -/
+/-- Exercise 76, gap 22. -/
 theorem gap22 :
     ∀ a : ℝ, 0 < a → a < 1 →
       Tendsto (reciprocalRewrite a) atTop (𝓝 (-Real.log (1 / a))) := by
@@ -474,20 +474,20 @@ theorem gap22 :
   filter_upwards [eventually_gt_atTop 0] with n hn
   exact gap21 a ha hlt n hn
 
-/-- Source: `proof_gap/exercise_76/23.txt`. -/
+/-- Exercise 76, gap 23. -/
 theorem gap23 :
     ∀ a : ℝ, 0 < a → a < 1 → -Real.log (1 / a) = Real.log a := by
   intro a ha _
   simp [one_div, Real.log_inv]
 
-/-- Source: `proof_gap/exercise_76/24.txt`. -/
+/-- Exercise 76, gap 24. -/
 theorem gap24 :
     ∀ a : ℝ, 0 < a → a < 1 →
       Tendsto (scaledRootDifference a) atTop (𝓝 (Real.log a)) := by
   intro a ha _
   exact scaledRootDifference_tendsto a ha
 
-/-- Source: `proof_gap/exercise_76/25.txt`. -/
+/-- Exercise 76, gap 25. -/
 theorem gap25 :
     ∀ a : ℝ, a = 1 →
       Tendsto (scaledRootDifference a) atTop (𝓝 (Real.log a)) := by
@@ -499,13 +499,13 @@ theorem gap25 :
   rw [hfun]
   simp
 
-/-- Source: `proof_gap/exercise_76/26.txt`. -/
+/-- Exercise 76, gap 26. -/
 theorem gap26 :
     ∀ a : ℝ, 0 < a →
       Tendsto (scaledRootDifference a) atTop (𝓝 (Real.log a)) := by
   exact scaledRootDifference_tendsto
 
-/-- Source: `proof_gap/exercise_76/27.txt`; retain the source assumption a>0. -/
+/-- Exercise 76, gap 27; retain the source assumption a>0. -/
 theorem gap27
     (a : ℝ)
     (ha : 0 < a)

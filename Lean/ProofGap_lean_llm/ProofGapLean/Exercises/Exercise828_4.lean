@@ -13,7 +13,7 @@ def y (x : ℝ) : ℝ := Real.sqrt x
 
 def quotient (x Δx : ℝ) : ℝ := (y (x + Δx) - y x) / Δx
 
-/-- Source: `proof_gap/exercise_828_4/1.txt`; define `Δy` as the actual function increment. -/
+/-- Exercise 828_4, gap 1; define `Δy` as the actual function increment. -/
 private theorem sqrt_deriv_value (x : ℝ) (hx : 0 < x) :
     deriv y x = 1 / (2 * Real.sqrt x) := by
   change deriv (fun z : ℝ => Real.sqrt z) x = 1 / (2 * Real.sqrt x)
@@ -43,7 +43,7 @@ theorem gap1 (x Δx Δy : ℝ) (hΔy : Δy = y (x + Δx) - y x) :
       (Real.sqrt (x + Δx) - Real.sqrt x) / Δx := by
   simpa [hΔy, y]
 
-/-- Source: `proof_gap/exercise_828_4/2.txt`; add positivity and nonzero-increment hypotheses. -/
+/-- Exercise 828_4, gap 2; add positivity and nonzero-increment hypotheses. -/
 theorem gap2 (x Δx : ℝ) (hx : 0 < x) (hxsum : 0 ≤ x + Δx)
     (hΔx : Δx ≠ 0) :
     (Real.sqrt (x + Δx) - Real.sqrt x) / Δx =
@@ -56,14 +56,14 @@ theorem gap2 (x Δx : ℝ) (hx : 0 < x) (hxsum : 0 ≤ x + Δx)
   field_simp [hΔx, hsum_ne]
   nlinarith [Real.sq_sqrt hxsum, Real.sq_sqrt (le_of_lt hx)]
 
-/-- Source: `proof_gap/exercise_828_4/3.txt`; define `Δy` and add domain hypotheses. -/
+/-- Exercise 828_4, gap 3; define `Δy` and add domain hypotheses. -/
 theorem gap3 (x Δx Δy : ℝ) (hx : 0 < x) (hxsum : 0 ≤ x + Δx)
     (hΔx : Δx ≠ 0) (hΔy : Δy = y (x + Δx) - y x) :
     Δy / Δx = 1 / (Real.sqrt (x + Δx) + Real.sqrt x) := by
   rw [hΔy]
   simpa [y] using gap2 x Δx hx hxsum hΔx
 
-/-- Source: `proof_gap/exercise_828_4/4.txt`; replace the undefined limit-value term by `Tendsto`. -/
+/-- Exercise 828_4, gap 4; replace the undefined limit-value term by `Tendsto`. -/
 theorem gap4 (x : ℝ) (hx : 0 < x) :
     Filter.Tendsto (fun Δx => 1 / (Real.sqrt (x + Δx) + Real.sqrt x))
       (nhds 0) (nhds (deriv y x)) := by
@@ -88,14 +88,14 @@ theorem gap4 (x : ℝ) (hx : 0 < x) :
     hone.div hdencont hden
   simpa only [ContinuousAt, add_zero, two_mul] using hcont
 
-/-- Source: `proof_gap/exercise_828_4/5.txt`; add `x>0`. -/
+/-- Exercise 828_4, gap 5; add `x>0`. -/
 theorem gap5 (x : ℝ) (hx : 0 < x) :
     Filter.Tendsto (fun Δx => 1 / (Real.sqrt (x + Δx) + Real.sqrt x))
       (nhds 0) (nhds (1 / (2 * Real.sqrt x))) := by
   rw [← sqrt_deriv_value x hx]
   exact gap4 x hx
 
-/-- Source: `proof_gap/exercise_828_4/6.txt`; add the square-root differentiability domain `x>0`. -/
+/-- Exercise 828_4, gap 6; add the square-root differentiability domain `x>0`. -/
 theorem gap6 (x : ℝ) (hx : 0 < x) :
     deriv y x = 1 / (2 * Real.sqrt x) := by
   exact sqrt_deriv_value x hx

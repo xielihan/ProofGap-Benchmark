@@ -6,7 +6,7 @@ open scoped Topology
 /-!
 # Exercise 48
 
-Semantic formalization of `proof_gap/exercise_48/{1,2,3}.txt`.
+Semantic formalization of Exercise 48, gaps 1,2,3.
 -/
 
 namespace ProofGap.Exercise48
@@ -20,13 +20,13 @@ def u (n : ℕ) : ℝ :=
   Real.cbrt ((n : ℝ) ^ 2) *
       Real.sin (Nat.factorial n : ℝ) / ((n : ℝ) + 1)
 
-/-- Source: `proof_gap/exercise_48/1.txt`. -/
+/-- Exercise 48, gap 1. -/
 theorem gap1 :
     ∀ n : ℕ, |Real.sin (Nat.factorial n : ℝ)| ≤ 1 := by
   intro n
   exact Real.abs_sin_le_one _
 
-/-- Source: `proof_gap/exercise_48/2.txt`. -/
+/-- Exercise 48, gap 2. -/
 theorem gap2
     (h1 : ∀ n : ℕ, |Real.sin (Nat.factorial n : ℝ)| ≤ 1) :
     Tendsto scale atTop (𝓝 0) := by
@@ -78,7 +78,7 @@ theorem gap2
   field_simp [hnpos.ne']
   nlinarith
 
-/-- Source: `proof_gap/exercise_48/3.txt`. -/
+/-- Exercise 48, gap 3. -/
 theorem gap3
     (h1 : ∀ n : ℕ, |Real.sin (Nat.factorial n : ℝ)| ≤ 1)
     (h2 : Tendsto scale atTop (𝓝 0)) :

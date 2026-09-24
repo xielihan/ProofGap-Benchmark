@@ -8,7 +8,7 @@ def f (x : ℝ) : ℝ := Real.sin x
 def rangeOnPositive : Set ℝ :=
   {y | ∃ x ∈ Set.Ioi (0 : ℝ), y = f x}
 
-/-- Source: `proof_gap/exercise_392/1.txt`. -/
+/-- Exercise 392, gap 1. -/
 private theorem rangeOnPositive_extrema :
     (∀ y ∈ rangeOnPositive, (-1 : ℝ) ≤ y) ∧
       (∀ y ∈ rangeOnPositive, y ≤ (1 : ℝ)) ∧
@@ -40,7 +40,7 @@ theorem gap1 : sInf rangeOnPositive = -1 := by
   · exact csInf_le ⟨(-1 : ℝ), h_lower⟩ h_min
   · exact le_csInf ⟨(-1 : ℝ), h_min⟩ h_lower
 
-/-- Source: `proof_gap/exercise_392/2.txt`. -/
+/-- Exercise 392, gap 2. -/
 theorem gap2 : sSup rangeOnPositive = 1 := by
   rcases rangeOnPositive_extrema with ⟨_, h_upper, _, h_max⟩
   apply le_antisymm

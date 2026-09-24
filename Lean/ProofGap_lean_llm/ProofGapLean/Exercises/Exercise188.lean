@@ -10,38 +10,38 @@ def y (x : ℝ) : ℝ := x + (⌊2 * x⌋ : ℤ)
 def domain : Set ℝ := Set.Ioo 0 1
 def valueSet : Set ℝ := {t | ∃ x ∈ domain, t = y x}
 
-/-- Source: `proof_gap/exercise_188/1.txt`. -/
+/-- Exercise 188, gap 1. -/
 theorem gap1 : ∀ x : ℝ, 0 < x → x < 1 / 2 → ⌊2 * x⌋ = (0 : ℤ) := by
   intro x hx0 hx1
   apply Int.floor_eq_iff.mpr
   norm_num
   constructor <;> linarith
 
-/-- Source: `proof_gap/exercise_188/2.txt`. -/
+/-- Exercise 188, gap 2. -/
 theorem gap2 : ∀ x : ℝ, 0 < x → x < 1 / 2 → y x = x := by
   intro x hx0 hx1
   rw [y, gap1 x hx0 hx1]
   norm_num
 
-/-- Source: `proof_gap/exercise_188/3.txt`. -/
+/-- Exercise 188, gap 3. -/
 theorem gap3 : ∀ x : ℝ, 1 / 2 ≤ x → x < 1 → ⌊2 * x⌋ = (1 : ℤ) := by
   intro x hx0 hx1
   apply Int.floor_eq_iff.mpr
   norm_num
   constructor <;> linarith
 
-/-- Source: `proof_gap/exercise_188/4.txt`. -/
+/-- Exercise 188, gap 4. -/
 theorem gap4 : ∀ x : ℝ, 1 / 2 ≤ x → x < 1 → y x = x + 1 := by
   intro x hx0 hx1
   rw [y, gap3 x hx0 hx1]
   norm_num
 
-/-- Source: `proof_gap/exercise_188/5.txt`; remove the irrelevant universal x. -/
+/-- Exercise 188, gap 5; remove the irrelevant universal x. -/
 theorem gap5 : y (1 / 2) = 3 / 2 := by
   rw [gap4 (1 / 2) (by norm_num) (by norm_num)]
   norm_num
 
-/-- Source: `proof_gap/exercise_188/6.txt`; replace the free family `E_x`. -/
+/-- Exercise 188, gap 6; replace the free family `E_x`. -/
 theorem gap6 : valueSet = Set.Ioo 0 (1 / 2) ∪ Set.Ico (3 / 2) 2 := by
   ext t
   constructor

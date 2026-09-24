@@ -10,7 +10,7 @@ def ApproachesAboveAtPosInfinity (f : ℝ → ℝ) (b : ℝ) : Prop :=
 
 def f (x : ℝ) : ℝ := 1 / x
 
-/-- Source: `proof_gap/exercise_407_12/1.txt`; bind `y=f(x)` and remove the shadowed threshold. -/
+/-- Exercise 407_12, gap 1; bind `y=f(x)` and remove the shadowed threshold. -/
 theorem gap1 : ∀ ε > 0, ∃ N > 0, ∀ x, N < x →
     0 < f x ∧ f x < ε := by
   intro ε hε
@@ -24,24 +24,24 @@ theorem gap1 : ∀ ε > 0, ∃ N > 0, ∀ x, N < x →
     have h := (div_lt_iff₀ hε).1 hx
     simpa [mul_comm] using h
 
-/-- Source: `proof_gap/exercise_407_12/2.txt`; replace the false universal limit claim by its defining equivalence. -/
+/-- Exercise 407_12, gap 2; replace the false universal limit claim by its defining equivalence. -/
 theorem gap2 (g : ℝ → ℝ) (b : ℝ) :
     ApproachesAboveAtPosInfinity g b ↔
       ∀ ε > 0, ∃ N > 0, ∀ x, N < x →
         0 < g x - b ∧ g x - b < ε := by
   rfl
 
-/-- Source: `proof_gap/exercise_407_12/3.txt`; restrict the sign to the positive half-line. -/
+/-- Exercise 407_12, gap 3; restrict the sign to the positive half-line. -/
 theorem gap3 : ∀ x : ℝ, 0 < x → 0 < f x := by
   intro x hx
   simpa [f] using (one_div_pos.mpr hx)
 
-/-- Source: `proof_gap/exercise_407_12/4.txt`; define the previously free function. -/
+/-- Exercise 407_12, gap 4; define the previously free function. -/
 theorem gap4 : ApproachesAboveAtPosInfinity f 0 := by
   unfold ApproachesAboveAtPosInfinity
   simpa only [sub_zero] using gap1
 
-/-- Source: `proof_gap/exercise_407_12/5.txt`; restrict the sign to the positive half-line. -/
+/-- Exercise 407_12, gap 5; restrict the sign to the positive half-line. -/
 theorem gap5 : ∀ x : ℝ, 0 < x → 0 < f x := by
   exact gap3
 

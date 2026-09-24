@@ -11,7 +11,7 @@ noncomputable section
 def y (x : ℝ) : ℝ := (1 + x) / (1 + x ^ 3)
 def SingularPoint (f : ℝ → ℝ) (a : ℝ) : Prop := ¬ ContinuousAt f a
 
-/-- Source: `proof_gap/exercise_688/1.txt`; use the punctured limit at the removable singularity. -/
+/-- Exercise 688, gap 1; use the punctured limit at the removable singularity. -/
 private theorem rational_limit_at_neg_one :
     Filter.Tendsto (fun x : ℝ => 1 / (x ^ 2 - x + 1))
       (nhds (-1)) (nhds (1 / 3 : ℝ)) := by
@@ -65,19 +65,19 @@ theorem gap1 (L : ℝ) :
   · intro hg
     exact (Filter.tendsto_congr' hEq).mpr (hg.mono_left inf_le_left)
 
-/-- Source: `proof_gap/exercise_688/2.txt`. -/
+/-- Exercise 688, gap 2. -/
 theorem gap2 :
     Filter.Tendsto (fun x : ℝ => 1 / (x ^ 2 - x + 1))
       (nhds (-1)) (nhds (1 / 3 : ℝ)) := by
   exact rational_limit_at_neg_one
 
-/-- Source: `proof_gap/exercise_688/3.txt`. -/
+/-- Exercise 688, gap 3. -/
 theorem gap3 :
     Filter.Tendsto y (nhdsWithin (-1) ({-1} : Set ℝ)ᶜ)
       (nhds (1 / 3 : ℝ)) := by
   exact (gap1 (1 / 3 : ℝ)).2 gap2
 
-/-- Source: `proof_gap/exercise_688/4.txt`; bind the actual singular point rather than a free `x`. -/
+/-- Exercise 688, gap 4; bind the actual singular point rather than a free `x`. -/
 theorem gap4 : SingularPoint y (-1) := by
   rw [SingularPoint]
   intro hy
@@ -97,13 +97,13 @@ theorem gap4 : SingularPoint y (-1) := by
     tendsto_nhds_unique hg0 gap2
   norm_num at hfalse
 
-/-- Source: `proof_gap/exercise_688/5.txt`; state existence of the finite punctured limit. -/
+/-- Exercise 688, gap 5; state existence of the finite punctured limit. -/
 theorem gap5 :
     ∃ L : ℝ, Filter.Tendsto y (nhdsWithin (-1) ({-1} : Set ℝ)ᶜ)
       (nhds L) := by
   exact ⟨1 / 3, gap3⟩
 
-/-- Source: `proof_gap/exercise_688/6.txt`. -/
+/-- Exercise 688, gap 6. -/
 theorem gap6 (x : ℝ) (hx : x ∈ ({-1} : Set ℝ)) :
     SingularPoint y x := by
   have hx' : x = (-1 : ℝ) := by

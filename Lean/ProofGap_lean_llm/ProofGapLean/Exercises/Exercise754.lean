@@ -4,13 +4,13 @@ namespace ProofGap.Exercise754
 
 noncomputable section
 
-/-- Source: `proof_gap/exercise_754/1.txt`. -/
+/-- Exercise 754, gap 1. -/
 theorem gap1 (f : ℝ → ℝ) (x₀ : ℝ) (hf : Monotone f) :
     ∀ x < x₀, f x ≤ f x₀ := by
   intro x hx
   exact hf hx.le
 
-/-- Source: `proof_gap/exercise_754/2.txt`; express the left limit by `nhdsWithin`. -/
+/-- Exercise 754, gap 2; express the left limit by `nhdsWithin`. -/
 theorem gap2 (f : ℝ → ℝ) (x₀ L₁ : ℝ) (hf : Monotone f)
     (hlim : Filter.Tendsto f (nhdsWithin x₀ (Set.Iio x₀)) (nhds L₁)) :
     L₁ ≤ f x₀ := by
@@ -18,7 +18,7 @@ theorem gap2 (f : ℝ → ℝ) (x₀ L₁ : ℝ) (hf : Monotone f)
   filter_upwards [self_mem_nhdsWithin] with x hx
   exact hf hx.le
 
-/-- Source: `proof_gap/exercise_754/3.txt`; bind both one-sided limits. -/
+/-- Exercise 754, gap 3; bind both one-sided limits. -/
 theorem gap3 (f : ℝ → ℝ) (x₀ : ℝ) (hf : Monotone f)
     (hbounded : ∃ C : ℝ, ∀ x, |f x| ≤ C) :
     ∃ L₁ L₂ : ℝ,
@@ -67,7 +67,7 @@ theorem gap3 (f : ℝ → ℝ) (x₀ : ℝ) (hf : Monotone f)
       filter_upwards [mem_nhdsWithin_of_mem_nhds (Iio_mem_nhds hy)] with x hx
       exact (hf hx.le).trans_lt hfy
 
-/-- Source: `proof_gap/exercise_754/4.txt`. -/
+/-- Exercise 754, gap 4. -/
 theorem gap4 (f : ℝ → ℝ) (x₀ : ℝ)
     (hlim : ∃ L₁ L₂ : ℝ,
       Filter.Tendsto f (nhdsWithin x₀ (Set.Iio x₀)) (nhds L₁) ∧

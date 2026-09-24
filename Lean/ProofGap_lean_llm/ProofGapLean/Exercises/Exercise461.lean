@@ -15,7 +15,7 @@ def rationalized (x : ℝ) : ℝ :=
 def HasLimitAtPosInfinity (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f Filter.atTop (nhds L)
 
-/-- Source: `proof_gap/exercise_461/1.txt`; use the difference-of-cubes identity. -/
+/-- Exercise 461, gap 1; use the difference-of-cubes identity. -/
 private def normalizedP (t : ℝ) : ℝ := 1 + t + t ^ 3
 
 private def normalizedQ (t : ℝ) : ℝ := 1 - t + t ^ 3
@@ -183,7 +183,7 @@ theorem gap1 (L : ℝ) :
   · intro h
     exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_461/2.txt`. -/
+/-- Exercise 461, gap 2. -/
 theorem gap2 : HasLimitAtPosInfinity rationalized (2 / 3) := by
   have heq :
       rationalized =ᶠ[Filter.atTop] (fun x : ℝ => scaledForm x⁻¹) := by

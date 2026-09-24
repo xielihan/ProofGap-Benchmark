@@ -5,7 +5,7 @@ import Mathlib.Tactic.Ring
 
 namespace ProofGap.Exercise753
 
-/-- Source: `proof_gap/exercise_753/1.txt`. -/
+/-- Exercise 753, gap 1. -/
 private theorem tendsto_add_const_atTop753 (p : ℝ) :
     Filter.Tendsto (fun x : ℝ => x + p) Filter.atTop Filter.atTop := by
   refine Filter.tendsto_atTop.2 ?_
@@ -35,7 +35,7 @@ theorem gap1 (φ : ℝ → ℝ) (p : ℝ) (hφ : Function.Periodic φ p) :
     ∀ x, φ (x + p) = φ x := by
   exact hφ
 
-/-- Source: `proof_gap/exercise_753/2.txt`. -/
+/-- Exercise 753, gap 2. -/
 theorem gap2 (φ ψ : ℝ → ℝ) (p : ℝ)
     (hlim : Filter.Tendsto (fun x => φ x - ψ x)
       Filter.atTop (nhds 0)) :
@@ -44,7 +44,7 @@ theorem gap2 (φ ψ : ℝ → ℝ) (p : ℝ)
   simpa only [Function.comp_apply] using
     hlim.comp (tendsto_add_const_atTop753 p)
 
-/-- Source: `proof_gap/exercise_753/3.txt`. -/
+/-- Exercise 753, gap 3. -/
 theorem gap3 (φ ψ : ℝ → ℝ) (p : ℝ) (hφ : Function.Periodic φ p)
     (hlim : Filter.Tendsto (fun x => φ (x + p) - ψ (x + p))
       Filter.atTop (nhds 0)) :
@@ -58,7 +58,7 @@ theorem gap3 (φ ψ : ℝ → ℝ) (p : ℝ) (hφ : Function.Periodic φ p)
   rw [← heq]
   exact hlim
 
-/-- Source: `proof_gap/exercise_753/4.txt`; replace arithmetic on unspecified
+/-- Exercise 753, gap 4; replace arithmetic on unspecified
 limit values by the corresponding `Tendsto` statement. -/
 theorem gap4 (φ ψ : ℝ → ℝ) (p : ℝ)
     (h₁ : Filter.Tendsto (fun x => φ x - ψ (x + p))
@@ -75,11 +75,11 @@ theorem gap4 (φ ψ : ℝ → ℝ) (p : ℝ)
   rw [heq]
   exact h₁.sub h₂
 
-/-- Source: `proof_gap/exercise_753/5.txt`. -/
+/-- Exercise 753, gap 5. -/
 theorem gap5 : (0 : ℝ) - 0 = 0 := by
   simp
 
-/-- Source: `proof_gap/exercise_753/6.txt`. -/
+/-- Exercise 753, gap 6. -/
 theorem gap6 (φ ψ : ℝ → ℝ) (p : ℝ)
     (h₁ : Filter.Tendsto (fun x => φ x - ψ (x + p))
       Filter.atTop (nhds 0))
@@ -89,7 +89,7 @@ theorem gap6 (φ ψ : ℝ → ℝ) (p : ℝ)
       Filter.atTop (nhds 0) := by
   simpa using gap4 φ ψ p h₁ h₂
 
-/-- Source: `proof_gap/exercise_753/7.txt`; bind one fixed counterexample and
+/-- Exercise 753, gap 7; bind one fixed counterexample and
 use the sequence `x₀+Nq` rather than one `x` equal to all of its terms. -/
 theorem gap7 (ψ : ℝ → ℝ) (p q x₀ : ℝ)
     (hq : Function.Periodic ψ q) :
@@ -104,7 +104,7 @@ theorem gap7 (ψ : ℝ → ℝ) (p q x₀ : ℝ)
       (x₀ + p) + (N : ℝ) * q by ring]
   rw [hN (x₀ + p)]
 
-/-- Source: `proof_gap/exercise_753/8.txt`; express the eventual smallness at
+/-- Exercise 753, gap 8; express the eventual smallness at
 the periodic sequence explicitly. -/
 theorem gap8 (ψ : ℝ → ℝ) (p q x₀ : ℝ)
     (hq0 : 0 < q)
@@ -129,7 +129,7 @@ theorem gap8 (ψ : ℝ → ℝ) (p q x₀ : ℝ)
   refine ⟨N, ?_⟩
   simpa only [Real.dist_eq, sub_zero] using hN N le_rfl
 
-/-- Source: `proof_gap/exercise_753/9.txt`; add positivity of the known period,
+/-- Exercise 753, gap 9; add positivity of the known period,
 needed for `x₀+Nq → +∞`. -/
 theorem gap9 (ψ : ℝ → ℝ) (p q : ℝ) (hq0 : 0 < q)
     (hq : Function.Periodic ψ q)
@@ -142,7 +142,7 @@ theorem gap9 (ψ : ℝ → ℝ) (p q : ℝ) (hq0 : 0 < q)
   rw [heq] at hlt
   exact (lt_irrefl _ hlt)
 
-/-- Source: `proof_gap/exercise_753/10.txt`. -/
+/-- Exercise 753, gap 10. -/
 theorem gap10 (ψ : ℝ → ℝ) (p q : ℝ) (hq0 : 0 < q)
     (hq : Function.Periodic ψ q)
     (hlim : Filter.Tendsto (fun x => ψ x - ψ (x + p))
@@ -152,7 +152,7 @@ theorem gap10 (ψ : ℝ → ℝ) (p q : ℝ) (hq0 : 0 < q)
   by_contra h
   exact gap9 ψ p q hq0 hq hlim ⟨x, Ne.symm h⟩
 
-/-- Source: `proof_gap/exercise_753/11.txt`; replace the ill-scoped existential
+/-- Exercise 753, gap 11; replace the ill-scoped existential
 `x` by the periodic sequence. -/
 theorem gap11 (φ ψ : ℝ → ℝ) (p x₁ : ℝ)
     (hφ : Function.Periodic φ p) (hψ : Function.Periodic ψ p) :
@@ -165,7 +165,7 @@ theorem gap11 (φ ψ : ℝ → ℝ) (p x₁ : ℝ)
     simpa only [nsmul_eq_mul] using hψ.nsmul N
   rw [hφN x₁, hψN x₁]
 
-/-- Source: `proof_gap/exercise_753/12.txt`. -/
+/-- Exercise 753, gap 12. -/
 theorem gap12 (φ ψ : ℝ → ℝ) (p x₁ : ℝ) (hp : 0 < p)
     (hlim : Filter.Tendsto (fun x => φ x - ψ x)
       Filter.atTop (nhds 0)) (hneq : φ x₁ ≠ ψ x₁) :
@@ -186,7 +186,7 @@ theorem gap12 (φ ψ : ℝ → ℝ) (p x₁ : ℝ) (hp : 0 < p)
   refine ⟨N, ?_⟩
   simpa only [Real.dist_eq, sub_zero] using hN N le_rfl
 
-/-- Source: `proof_gap/exercise_753/13.txt`; add positivity of the common
+/-- Exercise 753, gap 13; add positivity of the common
 period. -/
 theorem gap13 (φ ψ : ℝ → ℝ) (p : ℝ) (hp : 0 < p)
     (hφ : Function.Periodic φ p) (hψ : Function.Periodic ψ p)
@@ -199,7 +199,7 @@ theorem gap13 (φ ψ : ℝ → ℝ) (p : ℝ) (hp : 0 < p)
   rw [heq] at hlt
   exact (lt_irrefl _ hlt)
 
-/-- Source: `proof_gap/exercise_753/14.txt`. -/
+/-- Exercise 753, gap 14. -/
 theorem gap14 (φ ψ : ℝ → ℝ) (p : ℝ) (hp : 0 < p)
     (hφ : Function.Periodic φ p) (hψ : Function.Periodic ψ p)
     (hlim : Filter.Tendsto (fun x => φ x - ψ x)
@@ -209,7 +209,7 @@ theorem gap14 (φ ψ : ℝ → ℝ) (p : ℝ) (hp : 0 < p)
   by_contra hneq
   exact gap13 φ ψ p hp hφ hψ hlim ⟨x, hneq⟩
 
-/-- Source: `proof_gap/exercise_753/15.txt`. -/
+/-- Exercise 753, gap 15. -/
 theorem gap15 (φ ψ : ℝ → ℝ) (p : ℝ) (hp : 0 < p)
     (hφ : Function.Periodic φ p) (hψ : Function.Periodic ψ p)
     (hlim : Filter.Tendsto (fun x => φ x - ψ x)

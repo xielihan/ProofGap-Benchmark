@@ -9,7 +9,7 @@ def f (x : ℝ) : ℝ := Real.rpow 2 x
 def rangeOnInterval : Set ℝ :=
   {y | ∃ x ∈ Set.Ioo (-1 : ℝ) 2, y = f x}
 
-/-- Source: `proof_gap/exercise_394/1.txt`; the open interval has an infimum, not a minimum at `-1`. -/
+/-- Exercise 394, gap 1; the open interval has an infimum, not a minimum at `-1`. -/
 private theorem f_properties : StrictMono f ∧ Continuous f := by
   constructor
   · simpa [f] using
@@ -50,7 +50,7 @@ theorem gap1 : sInf rangeOnInterval = f (-1) := by
     exact isClosed_Ici.mem_of_tendsto htend hevent
   · exact le_csInf hnonempty hlower
 
-/-- Source: `proof_gap/exercise_394/2.txt`. -/
+/-- Exercise 394, gap 2. -/
 theorem gap2 : f (-1) = 1 / 2 := by
   have hpow :
       Real.rpow 2 (-1) = Real.exp (Real.log 2 * (-1)) := by
@@ -60,11 +60,11 @@ theorem gap2 : f (-1) = 1 / 2 := by
   rw [Real.exp_log (by norm_num : (0 : ℝ) < 2)]
   norm_num
 
-/-- Source: `proof_gap/exercise_394/3.txt`; interpret `m₀` as the infimum. -/
+/-- Exercise 394, gap 3; interpret `m₀` as the infimum. -/
 theorem gap3 : sInf rangeOnInterval = 1 / 2 := by
   rw [gap1, gap2]
 
-/-- Source: `proof_gap/exercise_394/4.txt`; the open interval has a supremum, not a maximum at `2`. -/
+/-- Exercise 394, gap 4; the open interval has a supremum, not a maximum at `2`. -/
 theorem gap4 : sSup rangeOnInterval = f 2 := by
   have hmono : StrictMono f := f_properties.1
   have hupper : f 2 ∈ upperBounds rangeOnInterval := by
@@ -93,12 +93,12 @@ theorem gap4 : sSup rangeOnInterval = f 2 := by
       exact le_csSup hbounded ⟨x, ⟨hxone, hxtwo⟩, rfl⟩
     exact isClosed_Iic.mem_of_tendsto htend hevent
 
-/-- Source: `proof_gap/exercise_394/5.txt`. -/
+/-- Exercise 394, gap 5. -/
 theorem gap5 : f 2 = 4 := by
   change Real.rpow 2 2 = 4
   norm_num [Real.rpow_two]
 
-/-- Source: `proof_gap/exercise_394/6.txt`; interpret `M₀` as the supremum. -/
+/-- Exercise 394, gap 6; interpret `M₀` as the supremum. -/
 theorem gap6 : sSup rangeOnInterval = 4 := by
   rw [gap4, gap5]
 

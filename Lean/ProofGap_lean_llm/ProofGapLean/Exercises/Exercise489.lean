@@ -24,7 +24,7 @@ def normalized (a x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_489/1.txt`. -/
+/-- Exercise 489, gap 1. -/
 private theorem cosDifferenceIdentity (u v : ℝ) :
     Real.cos u - Real.cos v =
       -2 * Real.sin ((u + v) / 2) * Real.sin ((u - v) / 2) := by
@@ -67,7 +67,7 @@ theorem gap1 (a L : ℝ) :
     ring
   rw [h]
 
-/-- Source: `proof_gap/exercise_489/2.txt`. -/
+/-- Exercise 489, gap 2. -/
 theorem gap2 (a L : ℝ) :
     HasLimitAtZero (original a) L ↔ HasLimitAtZero (expanded a) L := by
   have h : original a = expanded a := by
@@ -93,7 +93,7 @@ theorem gap2 (a L : ℝ) :
     ring
   rw [h]
 
-/-- Source: `proof_gap/exercise_489/3.txt`. -/
+/-- Exercise 489, gap 3. -/
 theorem gap3 (a L : ℝ) :
     HasLimitAtZero (expanded a) L ↔ HasLimitAtZero (factored a) L := by
   have h : expanded a = factored a := by
@@ -102,12 +102,12 @@ theorem gap3 (a L : ℝ) :
     ring
   rw [h]
 
-/-- Source: `proof_gap/exercise_489/4.txt`. -/
+/-- Exercise 489, gap 4. -/
 theorem gap4 (a L : ℝ) :
     HasLimitAtZero (original a) L ↔ HasLimitAtZero (factored a) L := by
   exact (gap2 a L).trans (gap3 a L)
 
-/-- Source: `proof_gap/exercise_489/5.txt`. -/
+/-- Exercise 489, gap 5. -/
 theorem gap5 (a L : ℝ) :
     HasLimitAtZero (original a) L ↔ HasLimitAtZero (normalized a) L := by
   have h : factored a = normalized a := by
@@ -127,7 +127,7 @@ theorem gap5 (a L : ℝ) :
     HasLimitAtZero (original a) L ↔ HasLimitAtZero (factored a) L := gap4 a L
     _ ↔ HasLimitAtZero (normalized a) L := by rw [h]
 
-/-- Source: `proof_gap/exercise_489/6.txt`. -/
+/-- Exercise 489, gap 6. -/
 theorem gap6 (a : ℝ) : HasLimitAtZero (normalized a) (-Real.cos a) := by
   unfold HasLimitAtZero normalized
   have hhalf :
@@ -173,7 +173,7 @@ theorem gap6 (a : ℝ) : HasLimitAtZero (normalized a) (-Real.cos a) := by
     exact (Real.continuous_cos.tendsto a).comp harg
   simpa using (hsinc.pow 2).neg.mul hcos
 
-/-- Source: `proof_gap/exercise_489/7.txt`. -/
+/-- Exercise 489, gap 7. -/
 theorem gap7 (a : ℝ) : HasLimitAtZero (original a) (-Real.cos a) := by
   exact (gap5 a (-Real.cos a)).mpr (gap6 a)
 

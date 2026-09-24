@@ -28,7 +28,7 @@ def exponentialForm (a b x : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_538/1.txt`; require `b≠0`. -/
+/-- Exercise 538, gap 1; require `b≠0`. -/
 private theorem tangent_pos_eventually (a : ℝ) :
     ∀ᶠ x in nhdsWithin 0 ({0} : Set ℝ)ᶜ,
       0 < Real.tan (Real.pi / 4 + a * x) := by
@@ -149,7 +149,7 @@ theorem gap1 (a b : ℝ) (hb : b ≠ 0) (L : ℝ) :
   rw [hlog]
   ring_nf
 
-/-- Source: `proof_gap/exercise_538/2.txt`; require `b≠0`. -/
+/-- Exercise 538, gap 2; require `b≠0`. -/
 theorem gap2 (a b : ℝ) (hb : b ≠ 0) (L : ℝ) :
     HasLimitAtZero (logPower a b) L ↔ HasLimitAtZero (tangentExpanded a b) L := by
   unfold HasLimitAtZero logPower tangentExpanded
@@ -228,18 +228,18 @@ private theorem exponential_limit
   exact hlog.congr'
     ((exponential_eq_logPower_eventually a b ha hb).mono fun _ hx => hx.symm)
 
-/-- Source: `proof_gap/exercise_538/3.txt`; the displayed substitution also divides by `a`. -/
+/-- Exercise 538, gap 3; the displayed substitution also divides by `a`. -/
 theorem gap3 (a b : ℝ) (ha : a ≠ 0) (hb : b ≠ 0) :
     HasLimitAtZero (exponentialForm a b)
       (Real.log (Real.exp (2 * a / b))) := by
   simpa [Real.log_exp] using exponential_limit a b ha hb
 
-/-- Source: `proof_gap/exercise_538/4.txt`; require `b≠0`. -/
+/-- Exercise 538, gap 4; require `b≠0`. -/
 theorem gap4 (a b : ℝ) (hb : b ≠ 0) :
     Real.log (Real.exp (2 * a / b)) = 2 * a / b := by
   rw [Real.log_exp]
 
-/-- Source: `proof_gap/exercise_538/5.txt`; retain both nonzero substitution parameters. -/
+/-- Exercise 538, gap 5; retain both nonzero substitution parameters. -/
 theorem gap5 (a b : ℝ) (ha : a ≠ 0) (hb : b ≠ 0) :
     HasLimitAtZero (exponentialForm a b) (2 * a / b) := by
   exact exponential_limit a b ha hb

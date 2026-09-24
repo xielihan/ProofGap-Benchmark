@@ -37,7 +37,7 @@ def partialProduct (n : ℕ) : ℝ :=
 def NonzeroConvergentProduct : Prop :=
   ∃ P : ℝ, P ≠ 0 ∧ Tendsto partialProduct atTop (𝓝 P)
 
-/-- Source: `proof_gap/exercise_3076/1.txt`; use `Real.rpow` and start at one. -/
+/-- Exercise 3076, gap 1; use `Real.rpow` and start at one. -/
 private theorem logarithmicTerm_norm_le_half (n : ℕ) (hn : 1 ≤ n) :
     ‖logarithmicTerm n‖ ≤
       2 * ‖comparisonTerm (1 / 2 : ℝ) n‖ := by
@@ -162,7 +162,7 @@ theorem gap1 (p : ℕ → ℝ) (hp : ∀ n, p n = term n) :
   rw [Real.log_rpow hnpos]
   ring
 
-/-- Source: `proof_gap/exercise_3076/2.txt`; use exact sums from index one. -/
+/-- Exercise 3076, gap 2; use exact sums from index one. -/
 theorem gap2 (p : ℕ → ℝ) (hp : ∀ n, p n = term n) :
     sumFromOne (fun n => Real.log (p n)) =
       sumFromOne logarithmicTerm := by
@@ -172,21 +172,21 @@ theorem gap2 (p : ℕ → ℝ) (hp : ∀ n, p n = term n) :
   apply gap1 p hp
   omega
 
-/-- Source: `proof_gap/exercise_3076/3.txt`; quantify the functions and a valid `ε`. -/
+/-- Exercise 3076, gap 3; quantify the functions and a valid `ε`. -/
 theorem gap3 :
     ∃ ε : ℝ, 0 < ε ∧ ε < 1 ∧
       (logarithmicTerm =O[atTop] comparisonTerm ε) := by
   refine ⟨(1 / 2 : ℝ), by norm_num, by norm_num, ?_⟩
   exact logarithmicTerm_isBigOHalf
 
-/-- Source: `proof_gap/exercise_3076/4.txt`; the comparison exponent needs `ε > 0`. -/
+/-- Exercise 3076, gap 4; the comparison exponent needs `ε > 0`. -/
 theorem gap4 :
     ∃ ε : ℝ, 0 < ε ∧ SummableFromOne (comparisonTerm ε) := by
   refine ⟨(1 / 2 : ℝ), by norm_num, ?_⟩
   exact comparisonHalf_summable
 
 /--
-Source: `proof_gap/exercise_3076/5.txt`; apply convergence to the sequence of
+Exercise 3076, gap 5; apply convergence to the sequence of
 finite partial products, not to each scalar product.
 -/
 theorem gap5 : NonzeroConvergentProduct := by

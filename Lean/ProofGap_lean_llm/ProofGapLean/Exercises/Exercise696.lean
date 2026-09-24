@@ -7,7 +7,7 @@ noncomputable section
 def y (x : ℝ) : ℝ := Real.arctan (1 / x)
 def SingularPoint (f : ℝ → ℝ) (a : ℝ) : Prop := ¬ ContinuousAt f a
 
-/-- Source: `proof_gap/exercise_696/1.txt`; bind the right-hand approach to
+/-- Exercise 696, gap 1; bind the right-hand approach to
 the actual singular point `0`. -/
 theorem gap1 :
     Filter.Tendsto y (nhdsWithin 0 (Set.Ioi 0))
@@ -26,7 +26,7 @@ theorem gap1 :
   filter_upwards [self_mem_nhdsWithin] with x hx
   simpa only [y, one_div] using (Real.arctan_inv_of_pos hx).symm
 
-/-- Source: `proof_gap/exercise_696/2.txt`; bind the left-hand approach to
+/-- Exercise 696, gap 2; bind the left-hand approach to
 the actual singular point `0`. -/
 theorem gap2 :
     Filter.Tendsto y (nhdsWithin 0 (Set.Iio 0))
@@ -45,7 +45,7 @@ theorem gap2 :
   filter_upwards [self_mem_nhdsWithin] with x hx
   simpa only [y, one_div, neg_div] using (Real.arctan_inv_of_neg hx).symm
 
-/-- Source: `proof_gap/exercise_696/3.txt`. -/
+/-- Exercise 696, gap 3. -/
 theorem gap3 : SingularPoint y 0 := by
   intro hcont
   have hright :
@@ -57,7 +57,7 @@ theorem gap3 : SingularPoint y 0 := by
     simpa [y] using heq
   exact (ne_of_gt (half_pos Real.pi_pos)) heq0.symm
 
-/-- Source: `proof_gap/exercise_696/4.txt`. -/
+/-- Exercise 696, gap 4. -/
 theorem gap4 (x : ℝ) (hx : x ∈ ({0} : Set ℝ)) :
     SingularPoint y x := by
   have hxeq : x = 0 := by

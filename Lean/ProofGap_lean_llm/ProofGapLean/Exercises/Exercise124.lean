@@ -9,7 +9,7 @@ noncomputable section
 def nthRootN (n : ℕ) : ℝ :=
   Real.rpow n (1 / (n : ℝ))
 
-/-- Source: `proof_gap/exercise_124/1.txt`. -/
+/-- Exercise 124, gap 1. -/
 theorem gap1 :
     Tendsto nthRootN atTop (𝓝 1) := by
   have hlog :
@@ -51,7 +51,7 @@ private theorem mul_nthRootN_tendsto
   norm_num at hmul
   exact hmul
 
-/-- Source: `proof_gap/exercise_124/2.txt`. -/
+/-- Exercise 124, gap 2. -/
 theorem gap2
     (x : ℕ → ℝ)
     (y : ℕ → ℝ)
@@ -93,7 +93,7 @@ theorem gap2
     field_simp
     rfl
 
-/-- Source: `proof_gap/exercise_124/3.txt`; equality of limits is a shared Tendsto value. -/
+/-- Exercise 124, gap 3; equality of limits is a shared Tendsto value. -/
 theorem gap3
     (x : ℕ → ℝ) (p : ℕ → ℕ) (l : ℝ)
     (hp : StrictMono p)
@@ -101,7 +101,7 @@ theorem gap3
     Tendsto (fun k => x (p k) * nthRootN (p k)) atTop (𝓝 l) := by
   exact mul_nthRootN_tendsto x p l hp hx
 
-/-- Source: `proof_gap/exercise_124/4.txt`. -/
+/-- Exercise 124, gap 4. -/
 theorem gap4
     (x y : ℕ → ℝ)
     (hy : ∀ n : ℕ, 0 < n → y n = x n * nthRootN n) :
@@ -138,7 +138,7 @@ theorem gap4
     field_simp
     rfl
 
-/-- Source: `proof_gap/exercise_124/5.txt`. -/
+/-- Exercise 124, gap 5. -/
 theorem gap5
     (x y : ℕ → ℝ)
     (h : ProofGap.ClusterSet x = ProofGap.ClusterSet y) :

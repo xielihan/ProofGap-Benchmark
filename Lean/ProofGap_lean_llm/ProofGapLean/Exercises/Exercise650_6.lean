@@ -6,7 +6,7 @@ noncomputable section
 
 def target (x : ℝ) : ℝ := Real.arctan (1 / x)
 
-/-- Source: `proof_gap/exercise_650_6/1.txt`. -/
+/-- Exercise 650_6, gap 1. -/
 theorem gap1 (x : ℝ) : |target x| ≤ Real.pi / 2 := by
   unfold target
   rw [abs_le]
@@ -14,7 +14,7 @@ theorem gap1 (x : ℝ) : |target x| ≤ Real.pi / 2 := by
     ⟨le_of_lt (Real.neg_pi_div_two_lt_arctan _),
       le_of_lt (Real.arctan_lt_pi_div_two _)⟩
 
-/-- Source: `proof_gap/exercise_650_6/2.txt`. -/
+/-- Exercise 650_6, gap 2. -/
 theorem gap2 :
     Asymptotics.IsBigO (nhdsWithin 0 (Set.Ioi 0))
       target (fun _ : ℝ => (1 : ℝ)) := by
@@ -22,7 +22,7 @@ theorem gap2 :
   exact Filter.Eventually.of_forall (fun x => by
     simpa only [Real.norm_eq_abs, norm_one, mul_one] using gap1 x)
 
-/-- Source: `proof_gap/exercise_650_6/3.txt`. -/
+/-- Exercise 650_6, gap 3. -/
 theorem gap3 :
     Asymptotics.IsBigO (nhdsWithin 0 (Set.Ioi 0))
       target (fun _ : ℝ => (1 : ℝ)) := by

@@ -11,7 +11,7 @@ def FactorsOn (φ ψ f : ℝ → ℝ) (s t : Set ℝ) : Prop :=
 def candidates (φ ψ : ℝ → ℝ) (s t : Set ℝ) : Set (ℝ → ℝ) :=
   {f | FactorsOn φ ψ f s t}
 
-/-- Source: `proof_gap/exercise_784/1.txt`; continuity alone does not imply
+/-- Exercise 784, gap 1; continuity alone does not imply
 constancy on fibers, so add that missing hypothesis. -/
 theorem gap1 (φ ψ : ℝ → ℝ) (a b A B : ℝ)
     (hfiber : FiberConstant φ ψ (Set.Ioo a b)) :
@@ -22,7 +22,7 @@ theorem gap1 (φ ψ : ℝ → ℝ) (a b A B : ℝ)
   apply hfiber hx₁ hx₂
   exact hφ₁.trans hφ₂.symm
 
-/-- Source: `proof_gap/exercise_784/2.txt`; restore the omitted condition that
+/-- Exercise 784, gap 2; restore the omitted condition that
 `x` was chosen from the fiber over `u`. -/
 theorem gap2 (φ ψ f : ℝ → ℝ) (a b A B x u : ℝ)
     (hx : x ∈ Set.Ioo a b) (hφx : φ x = u)
@@ -30,23 +30,23 @@ theorem gap2 (φ ψ f : ℝ → ℝ) (a b A B x u : ℝ)
     φ x = u := by
   exact hφx
 
-/-- Source: `proof_gap/exercise_784/3.txt`; restore membership of the selected
+/-- Exercise 784, gap 3; restore membership of the selected
 preimage in `(a,b)`. -/
 theorem gap3 (a b x : ℝ) (hx : x ∈ Set.Ioo a b) : a < x := by
   exact hx.1
 
-/-- Source: `proof_gap/exercise_784/4.txt`; restore membership of the selected
+/-- Exercise 784, gap 4; restore membership of the selected
 preimage in `(a,b)`. -/
 theorem gap4 (a b x : ℝ) (hx : x ∈ Set.Ioo a b) : x < b := by
   exact hx.2
 
-/-- Source: `proof_gap/exercise_784/5.txt`; Lean functions are already
+/-- Exercise 784, gap 5; Lean functions are already
 single-valued, so retain the substantive factorization property. -/
 theorem gap5 (φ ψ f : ℝ → ℝ) (s t : Set ℝ)
     (h : FactorsOn φ ψ f s t) : FactorsOn φ ψ f s t := by
   exact h
 
-/-- Source: `proof_gap/exercise_784/6.txt`; replace `IsFunc`/`Dom` by a set of
+/-- Exercise 784, gap 6; replace `IsFunc`/`Dom` by a set of
 Lean functions satisfying the intended domain factorization property. -/
 theorem gap6 (φ ψ f : ℝ → ℝ) (s t : Set ℝ)
     (hf : f ∈ candidates φ ψ s t) :

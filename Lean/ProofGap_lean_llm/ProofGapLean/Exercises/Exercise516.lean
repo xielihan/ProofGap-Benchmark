@@ -25,7 +25,7 @@ def equalSlopeForm (a b₁ b₂ x : ℝ) : ℝ :=
   Real.rpow (1 + 1 / ((x + b₂ / a) / d))
     (((x + b₂ / a) / d) * d - b₂ / a)
 
-/-- Source: `proof_gap/exercise_516/1.txt`; state the factorization on a sufficiently large positive tail. -/
+/-- Exercise 516, gap 1; state the factorization on a sufficiently large positive tail. -/
 private theorem tendsto_shifted_one_add_rpow (c v : ℝ) :
     Filter.Tendsto (fun x : ℝ => Real.rpow (1 + c / (x + v)) x)
       Filter.atTop (nhds (Real.exp c)) := by
@@ -153,7 +153,7 @@ theorem gap1 (a₁ a₂ b₁ b₂ : ℝ) (ha₁ : 0 < a₁) (ha₂ : 0 < a₂) :
   rw [original, factored, hbase]
   exact hm
 
-/-- Source: `proof_gap/exercise_516/2.txt`; require the substitution divisor to be nonzero and work on a tail. -/
+/-- Exercise 516, gap 2; require the substitution divisor to be nonzero and work on a tail. -/
 theorem gap2 (a₁ a₂ b₁ b₂ : ℝ) (ha₁ : 0 < a₁) (ha₂ : 0 < a₂)
     (hd : shiftDifference a₁ a₂ b₁ b₂ ≠ 0) :
     ∃ X : ℝ, ∀ x > X,
@@ -190,7 +190,7 @@ theorem gap2 (a₁ a₂ b₁ b₂ : ℝ) (ha₁ : 0 < a₁) (ha₂ : 0 < a₂)
   exact congrArg (fun z => Real.rpow (a₁ / a₂) x * z)
     (congrArg₂ Real.rpow hbase hexponent.symm)
 
-/-- Source: `proof_gap/exercise_516/3.txt`; require both displayed divisors to be nonzero. -/
+/-- Exercise 516, gap 3; require both displayed divisors to be nonzero. -/
 theorem gap3 (a b₁ b₂ : ℝ) (ha : 0 < a) (hb : b₁ ≠ b₂) :
     ∃ X : ℝ, ∀ x > X,
       original a a b₁ b₂ x = equalSlopeForm a b₁ b₂ x := by
@@ -213,7 +213,7 @@ theorem gap3 (a b₁ b₂ : ℝ) (ha : 0 < a) (hb : b₁ ≠ b₂) :
   rw [div_self (ne_of_gt ha), hdEq]
   simp
 
-/-- Source: `proof_gap/exercise_516/4.txt`. -/
+/-- Exercise 516, gap 4. -/
 theorem gap4 (a b₁ b₂ : ℝ) (ha : 0 < a) :
     Filter.Tendsto (original a a b₁ b₂) Filter.atTop
       (nhds (Real.exp ((b₁ - b₂) / a))) := by
@@ -251,21 +251,21 @@ theorem gap4 (a b₁ b₂ : ℝ) (ha : 0 < a) :
     rw [hratio, hnormalized]
   exact hlim.congr' heq
 
-/-- Source: `proof_gap/exercise_516/5.txt`. -/
+/-- Exercise 516, gap 5. -/
 theorem gap5 (a₁ a₂ : ℝ) (ha₁ : 0 < a₁) (ha₂ : 0 < a₂) (h : a₁ < a₂) :
     0 < a₁ / a₂ := by
   exact div_pos ha₁ ha₂
 
-/-- Source: `proof_gap/exercise_516/6.txt`. -/
+/-- Exercise 516, gap 6. -/
 theorem gap6 (a₁ a₂ : ℝ) (ha₁ : 0 < a₁) (ha₂ : 0 < a₂) (h : a₁ < a₂) :
     a₁ / a₂ < 1 := by
   exact (div_lt_one ha₂).2 h
 
-/-- Source: `proof_gap/exercise_516/7.txt`. -/
+/-- Exercise 516, gap 7. -/
 theorem gap7 (a₁ a₂ : ℝ) (h : a₁ < a₂) : (0 : ℝ) < 1 := by
   norm_num
 
-/-- Source: `proof_gap/exercise_516/8.txt`. -/
+/-- Exercise 516, gap 8. -/
 theorem gap8 (a₁ a₂ : ℝ) (ha₁ : 0 < a₁) (ha₂ : 0 < a₂) (h : a₁ < a₂) :
     Filter.Tendsto (fun x : ℝ => Real.rpow (a₁ / a₂) x)
       Filter.atTop (nhds 0) := by
@@ -295,7 +295,7 @@ theorem gap8 (a₁ a₂ : ℝ) (ha₁ : 0 < a₁) (ha₂ : 0 < a₂) (h : a₁ <
   exact Filter.Eventually.of_forall (fun x =>
     (Real.rpow_def_of_pos hq x).symm)
 
-/-- Source: `proof_gap/exercise_516/9.txt`. -/
+/-- Exercise 516, gap 9. -/
 theorem gap9 (a₁ a₂ b₁ b₂ : ℝ) (ha₁ : 0 < a₁) (ha₂ : 0 < a₂) :
     Filter.Tendsto
       (fun x : ℝ => Real.rpow ((x + b₁ / a₁) / (x + b₂ / a₂)) x)
@@ -310,7 +310,7 @@ theorem gap9 (a₁ a₂ b₁ b₂ : ℝ) (ha₁ : 0 < a₁) (ha₂ : 0 < a₂) :
       simp only [original, one_mul])
   simpa only [div_one] using hnormalized
 
-/-- Source: `proof_gap/exercise_516/10.txt`. -/
+/-- Exercise 516, gap 10. -/
 theorem gap10 (a₁ a₂ b₁ b₂ : ℝ) (ha₁ : 0 < a₁) (ha₂ : 0 < a₂)
     (h : a₁ < a₂) :
     Filter.Tendsto (original a₁ a₂ b₁ b₂) Filter.atTop (nhds 0) := by
@@ -328,12 +328,12 @@ theorem gap10 (a₁ a₂ b₁ b₂ : ℝ) (ha₁ : 0 < a₁) (ha₂ : 0 < a₂)
     exact (hX x (by linarith)).symm
   exact hf.congr' heq
 
-/-- Source: `proof_gap/exercise_516/11.txt`. -/
+/-- Exercise 516, gap 11. -/
 theorem gap11 (a₁ a₂ : ℝ) (ha₂ : 0 < a₂) (h : a₂ < a₁) :
     1 < a₁ / a₂ := by
   exact (one_lt_div ha₂).2 h
 
-/-- Source: `proof_gap/exercise_516/12.txt`. -/
+/-- Exercise 516, gap 12. -/
 theorem gap12 (a₁ a₂ : ℝ) (ha₂ : 0 < a₂) (h : a₂ < a₁) :
     Filter.Tendsto (fun x : ℝ => Real.rpow (a₁ / a₂) x)
       Filter.atTop Filter.atTop := by
@@ -363,7 +363,7 @@ theorem gap12 (a₁ a₂ : ℝ) (ha₂ : 0 < a₂) (h : a₂ < a₁) :
   exact Filter.Eventually.of_forall (fun x =>
     (Real.rpow_def_of_pos hqpos x).symm)
 
-/-- Source: `proof_gap/exercise_516/13.txt`. -/
+/-- Exercise 516, gap 13. -/
 theorem gap13 (a₁ a₂ b₁ b₂ : ℝ) (ha₁ : 0 < a₁) (ha₂ : 0 < a₂)
     (h : a₂ < a₁) :
     Filter.Tendsto (original a₁ a₂ b₁ b₂) Filter.atTop Filter.atTop := by
@@ -418,7 +418,7 @@ theorem gap13 (a₁ a₂ b₁ b₂ : ℝ) (ha₁ : 0 < a₁) (ha₂ : 0 < a₂)
     exact (hX x (by linarith)).symm
   exact hf.congr' heq
 
-/-- Source: `proof_gap/exercise_516/14.txt`; encode the three-valued case distinction by three typed implications. -/
+/-- Exercise 516, gap 14; encode the three-valued case distinction by three typed implications. -/
 theorem gap14 (a₁ a₂ b₁ b₂ : ℝ) (ha₁ : 0 < a₁) (ha₂ : 0 < a₂) :
     (a₁ = a₂ →
       Filter.Tendsto (original a₁ a₂ b₁ b₂) Filter.atTop

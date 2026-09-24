@@ -31,14 +31,14 @@ private theorem hasDerivAt_f {x : ℝ} (hx : x ≠ 0) (hsin : Real.sin x ≠ 0) 
     field_simp [hsin]
     ring
 
-/-- Source: `proof_gap/exercise_762/1.txt`. -/
+/-- Exercise 762, gap 1. -/
 theorem gap1 : ContinuousOn cot (Set.Ioo 0 Real.pi) := by
   intro x hx
   have hsin : Real.sin x ≠ 0 :=
     ne_of_gt (Real.sin_pos_of_pos_of_lt_pi hx.1 hx.2)
   exact (hasDerivAt_cot hsin).continuousAt.continuousWithinAt
 
-/-- Source: `proof_gap/exercise_762/2.txt`. -/
+/-- Exercise 762, gap 2. -/
 theorem gap2 : StrictAntiOn cot (Set.Ioo 0 Real.pi) := by
   apply strictAntiOn_of_deriv_neg (convex_Ioo 0 Real.pi) gap1
   intro x hx
@@ -49,25 +49,25 @@ theorem gap2 : StrictAntiOn cot (Set.Ioo 0 Real.pi) := by
   have hsquare : 0 < Real.sin x ^ 2 := sq_pos_of_ne_zero hsin
   exact div_neg_of_neg_of_pos (by norm_num) hsquare
 
-/-- Source: `proof_gap/exercise_762/3.txt`. -/
+/-- Exercise 762, gap 3. -/
 theorem gap3 : ContinuousOn (fun x : ℝ => 1 / x) (Set.Ioo 0 Real.pi) := by
   intro x hx
   have hx0 : x ≠ 0 := ne_of_gt hx.1
   exact (continuousAt_const.div continuousAt_id hx0).continuousWithinAt
 
-/-- Source: `proof_gap/exercise_762/4.txt`. -/
+/-- Exercise 762, gap 4. -/
 theorem gap4 : StrictAntiOn (fun x : ℝ => 1 / x) (Set.Ioo 0 Real.pi) := by
   intro a ha b hb hab
   exact one_div_lt_one_div_of_lt ha.1 hab
 
-/-- Source: `proof_gap/exercise_762/5.txt`. -/
+/-- Exercise 762, gap 5. -/
 theorem gap5 : ContinuousOn f (Set.Ioo 0 Real.pi) := by
   intro x hx
   have hsin : Real.sin x ≠ 0 :=
     ne_of_gt (Real.sin_pos_of_pos_of_lt_pi hx.1 hx.2)
   exact (hasDerivAt_f (ne_of_gt hx.1) hsin).continuousAt.continuousWithinAt
 
-/-- Source: `proof_gap/exercise_762/6.txt`; preserve the intended monotonicity claim. -/
+/-- Exercise 762, gap 6; preserve the intended monotonicity claim. -/
 theorem gap6 : StrictAntiOn f (Set.Ioo 0 Real.pi) := by
   apply strictAntiOn_of_deriv_neg (convex_Ioo 0 Real.pi) gap5
   intro x hx
@@ -113,7 +113,7 @@ private theorem tendsto_cot_factor_right :
         (show nhdsWithin (0 : ℝ) (Set.Ioi 0) ≤ nhds 0 from inf_le_left)
   simpa using hcos.div tendsto_sin_div_right (by norm_num)
 
-/-- Source: `proof_gap/exercise_762/7.txt`. -/
+/-- Exercise 762, gap 7. -/
 theorem gap7 : Filter.Tendsto f (nhdsWithin 0 (Set.Ioi 0)) Filter.atTop := by
   have hinv :
       Filter.Tendsto (fun x : ℝ => x⁻¹)
@@ -134,7 +134,7 @@ theorem gap7 : Filter.Tendsto f (nhdsWithin 0 (Set.Ioi 0)) Filter.atTop := by
   unfold f cot
   field_simp [hx0, hsin]
 
-/-- Source: `proof_gap/exercise_762/8.txt`. -/
+/-- Exercise 762, gap 8. -/
 theorem gap8 :
     Filter.Tendsto f (nhdsWithin Real.pi (Set.Iio Real.pi)) Filter.atBot := by
   let q : ℝ → ℝ :=
@@ -198,7 +198,7 @@ theorem gap8 :
   congr 1
   ring
 
-/-- Source: `proof_gap/exercise_762/9.txt`; repair malformed function-valued witnesses. -/
+/-- Exercise 762, gap 9; repair malformed function-valued witnesses. -/
 theorem gap9 (k : ℝ) :
     ∃! x : ℝ, x ∈ Set.Ioo 0 Real.pi ∧ f x = k := by
   have haev :
@@ -244,7 +244,7 @@ theorem gap9 (k : ℝ) :
     rw [hfz, hw.2] at hanti
     exact (lt_irrefl k hanti).elim
 
-/-- Source: `proof_gap/exercise_762/10.txt`. -/
+/-- Exercise 762, gap 10. -/
 theorem gap10 (k : ℝ) :
     ∃! x : ℝ, x ∈ Set.Ioo 0 Real.pi ∧ cot x = k * x := by
   obtain ⟨x, hx, huniq⟩ := gap9 k
@@ -259,7 +259,7 @@ theorem gap10 (k : ℝ) :
   unfold f
   exact (div_eq_iff (ne_of_gt hz.1.1)).2 hz.2
 
-/-- Source: `proof_gap/exercise_762/11.txt`; bind a choice of the unique root. -/
+/-- Exercise 762, gap 11; bind a choice of the unique root. -/
 theorem gap11 (r : ℝ → ℝ)
     (hr : ∀ k, r k ∈ Set.Ioo 0 Real.pi ∧ f (r k) = k) :
     Function.RightInverse r f := by
@@ -283,7 +283,7 @@ private theorem root_strictAnti (r : ℝ → ℝ)
         _ = b := (hr b).2
     exact (ne_of_lt hab) hab'
 
-/-- Source: `proof_gap/exercise_762/12.txt`; add the defining root property. -/
+/-- Exercise 762, gap 12; add the defining root property. -/
 theorem gap12 (r : ℝ → ℝ)
     (hr : ∀ k, r k ∈ Set.Ioo 0 Real.pi ∧ f (r k) = k) :
     Continuous r := by
@@ -320,13 +320,13 @@ theorem gap12 (r : ℝ → ℝ)
   rw [← heq]
   exact hc
 
-/-- Source: `proof_gap/exercise_762/13.txt`; add the defining root property. -/
+/-- Exercise 762, gap 13; add the defining root property. -/
 theorem gap13 (r : ℝ → ℝ)
     (hr : ∀ k, r k ∈ Set.Ioo 0 Real.pi ∧ f (r k) = k) :
     StrictAnti r := by
   exact root_strictAnti r hr
 
-/-- Source: `proof_gap/exercise_762/14.txt`; express uniqueness pointwise. -/
+/-- Exercise 762, gap 14; express uniqueness pointwise. -/
 theorem gap14 :
     ∃! r : ℝ → ℝ,
       Continuous r ∧

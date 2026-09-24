@@ -11,7 +11,7 @@ def LocallyBoundedOnClosed (f : ℝ → ℝ) (a b : ℝ) : Prop :=
   ∀ x₀ ∈ Set.Icc a b, ∃ δ : ℝ, 0 < δ ∧
     BoundedOn f (Set.Ioo (x₀ - δ) (x₀ + δ) ∩ Set.Icc a b)
 
-/-- Source: `proof_gap/exercise_382_2/1.txt`; use absolute values, since unboundedness may be above or below. -/
+/-- Exercise 382_2, gap 1; use absolute values, since unboundedness may be above or below. -/
 theorem gap1 (f : ℝ → ℝ) (a b : ℝ)
     (hnot : ¬BoundedOn f (Set.Icc a b)) :
     ∃ u : ℕ → ℝ,
@@ -38,7 +38,7 @@ theorem gap1 (f : ℝ → ℝ) (a b : ℝ)
     _ ≤ (n : ℝ) := (Nat.cast_le).2 hn
     _ < |f (u n)| := hu_large n
 
-/-- Source: `proof_gap/exercise_382_2/2.txt`; retain one sequence and one convergent subsequence on the fixed interval. -/
+/-- Exercise 382_2, gap 2; retain one sequence and one convergent subsequence on the fixed interval. -/
 theorem gap2 (f : ℝ → ℝ) (a b : ℝ) (hab : a ≤ b)
     (hnot : ¬BoundedOn f (Set.Icc a b)) :
     ∃ u : ℕ → ℝ, ∃ p : ℕ → ℕ, ∃ x₀ ∈ Set.Icc a b,
@@ -52,7 +52,7 @@ theorem gap2 (f : ℝ → ℝ) (a b : ℝ) (hab : a ≤ b)
   refine ⟨u, p, x₀, hx₀, hp, hu, ?_⟩
   simpa only [Function.comp_apply] using ht
 
-/-- Source: `proof_gap/exercise_382_2/3.txt`; keep `a,b` fixed instead of rebinding them under the existential. -/
+/-- Exercise 382_2, gap 3; keep `a,b` fixed instead of rebinding them under the existential. -/
 theorem gap3 (f : ℝ → ℝ) (a b : ℝ) (hab : a ≤ b)
     (hlocal : LocallyBoundedOnClosed f a b)
     (hnot : ¬BoundedOn f (Set.Icc a b)) :
@@ -89,7 +89,7 @@ theorem gap3 (f : ℝ → ℝ) (a b : ℝ) (hab : a ≤ b)
   have hlower : M < |f (u (p k))| := hN (p k) hNpk
   exact (not_lt_of_ge hupper) hlower
 
-/-- Source: `proof_gap/exercise_382_2/4.txt`. -/
+/-- Exercise 382_2, gap 4. -/
 theorem gap4 (f : ℝ → ℝ) (a b : ℝ) (hab : a ≤ b)
     (hlocal : LocallyBoundedOnClosed f a b) :
     ¬BoundedOn f (Set.Icc a b) → False := by
@@ -99,7 +99,7 @@ theorem gap4 (f : ℝ → ℝ) (a b : ℝ) (hab : a ≤ b)
   obtain ⟨δ, hδ, hbounded⟩ := hlocal x₀ hx₀
   exact hbad δ hδ hbounded
 
-/-- Source: `proof_gap/exercise_382_2/5.txt`. -/
+/-- Exercise 382_2, gap 5. -/
 theorem gap5 (f : ℝ → ℝ) (a b : ℝ) (hab : a ≤ b)
     (hlocal : LocallyBoundedOnClosed f a b) :
     BoundedOn f (Set.Icc a b) := by

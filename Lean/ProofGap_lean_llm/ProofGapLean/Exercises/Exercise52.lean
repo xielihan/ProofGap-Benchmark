@@ -8,7 +8,7 @@ open scoped Topology
 /-!
 # Exercise 52
 
-Semantic formalization of `proof_gap/exercise_52/{1,...,9}.txt`.
+Semantic formalization of Exercise 52, gaps 1,...,9.
 All alternating sums hidden by source ellipses are explicit finite sums.
 -/
 
@@ -59,14 +59,14 @@ private theorem alternating_sums (k : ℕ) :
         pow_mul]
       ring
 
-/-- Source: `proof_gap/exercise_52/1.txt`. -/
+/-- Exercise 52, gap 1. -/
 theorem gap1 :
     ∀ n k : ℕ, n = 2 * k → u n = evenExpansion k := by
   intro n k hnk
   subst n
   rfl
 
-/-- Source: `proof_gap/exercise_52/2.txt`; positive `k` is restored. -/
+/-- Exercise 52, gap 2; positive `k` is restored. -/
 theorem gap2
     (h1 : ∀ n k : ℕ, n = 2 * k → u n = evenExpansion k) :
     ∀ n k : ℕ, 0 < k → n = 2 * k →
@@ -78,7 +78,7 @@ theorem gap2
       -(k : ℝ) / ((2 * k : ℕ) : ℝ)
   rw [← Finset.sum_div, (alternating_sums k).1]
 
-/-- Source: `proof_gap/exercise_52/3.txt`; positive `k` is restored. -/
+/-- Exercise 52, gap 3; positive `k` is restored. -/
 theorem gap3
     (h2 : ∀ n k : ℕ, 0 < k → n = 2 * k →
       evenExpansion k = evenClosed k) :
@@ -91,7 +91,7 @@ theorem gap3
   norm_num
   field_simp [hkreal]
 
-/-- Source: `proof_gap/exercise_52/4.txt`; positive `k` is restored. -/
+/-- Exercise 52, gap 4; positive `k` is restored. -/
 theorem gap4
     (h1 : ∀ n k : ℕ, n = 2 * k → u n = evenExpansion k)
     (h2 : ∀ n k : ℕ, 0 < k → n = 2 * k →
@@ -104,14 +104,14 @@ theorem gap4
   exact (h1 n k hnk).trans
     ((h2 n k hk hnk).trans (h3 n k hk hnk))
 
-/-- Source: `proof_gap/exercise_52/5.txt`. -/
+/-- Exercise 52, gap 5. -/
 theorem gap5 :
     ∀ n k : ℕ, n = 2 * k + 1 → u n = oddExpansion k := by
   intro n k hnk
   subst n
   rfl
 
-/-- Source: `proof_gap/exercise_52/6.txt`. -/
+/-- Exercise 52, gap 6. -/
 theorem gap6
     (h5 : ∀ n k : ℕ, n = 2 * k + 1 → u n = oddExpansion k) :
     ∀ n k : ℕ, n = 2 * k + 1 →
@@ -125,7 +125,7 @@ theorem gap6
   rw [← Finset.sum_div, (alternating_sums k).2]
   norm_num
 
-/-- Source: `proof_gap/exercise_52/7.txt`. -/
+/-- Exercise 52, gap 7. -/
 theorem gap7
     (h5 : ∀ n k : ℕ, n = 2 * k + 1 → u n = oddExpansion k)
     (h6 : ∀ n k : ℕ, n = 2 * k + 1 →
@@ -134,7 +134,7 @@ theorem gap7
   intro n k hnk
   exact (h5 n k hnk).trans (h6 n k hnk)
 
-/-- Source: `proof_gap/exercise_52/8.txt`; irrelevant `n,k` binders are removed. -/
+/-- Exercise 52, gap 8; irrelevant `n,k` binders are removed. -/
 theorem gap8
     (h7 : ∀ n k : ℕ, n = 2 * k + 1 → u n = oddClosed k) :
     Tendsto oddClosed atTop (𝓝 (1 / 2 : ℝ)) := by
@@ -146,7 +146,7 @@ theorem gap8
     unfold oddClosed
     congr 1 <;> ring
 
-/-- Source: `proof_gap/exercise_52/9.txt`. -/
+/-- Exercise 52, gap 9. -/
 theorem gap9
     (h4 : ∀ n k : ℕ, 0 < k → n = 2 * k →
       u n = -(1 / 2 : ℝ))

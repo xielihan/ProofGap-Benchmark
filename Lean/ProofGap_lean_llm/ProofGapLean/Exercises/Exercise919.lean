@@ -34,7 +34,7 @@ def expandedDerivative (x : ℝ) : ℝ :=
 def finalDerivative (x : ℝ) : ℝ :=
   Real.arcsin (Real.sqrt (q x))
 
-/-- Source: `proof_gap/exercise_919/1.txt`; `x > 0` places every square root
+/-- Exercise 919, gap 1; `x > 0` places every square root
 and the inverse-sine argument in the required strict domains. -/
 theorem gap1 (x : ℝ) (hx : 0 < x) :
     HasDerivAt y (expandedDerivative x) x := by
@@ -94,7 +94,7 @@ theorem gap1 (x : ℝ) (hx : 0 < x) :
   rw [hq_sq, hx_sq]
   field_simp [hsqrtq_pos.ne', hsqrt1q_pos.ne', hsqrtx_pos.ne', hx1.ne']
 
-/-- Source: `proof_gap/exercise_919/2.txt`; positivity makes all displayed
+/-- Exercise 919, gap 2; positivity makes all displayed
 root and rational denominators nonzero. -/
 theorem gap2 (x : ℝ) (hx : 0 < x) :
     expandedDerivative x = finalDerivative x := by
@@ -145,7 +145,7 @@ theorem gap2 (x : ℝ) (hx : 0 < x) :
   field_simp [hsqrtq_pos.ne', hsqrt1q_pos.ne', hsqrtx_pos.ne', hx1.ne'] <;>
     linear_combination -x * hprod
 
-/-- Source: `proof_gap/exercise_919/3.txt`; retain the positive domain of the
+/-- Exercise 919, gap 3; retain the positive domain of the
 staged square-root derivation. -/
 theorem gap3 (x : ℝ) (hx : 0 < x) :
     HasDerivAt y (finalDerivative x) x := by

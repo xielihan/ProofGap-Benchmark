@@ -19,7 +19,7 @@ def closed (u : ℝ) : ℝ :=
 def HasLimitAtPosInfinity (g : ℝ → ℝ) (L : ℝ) : Prop :=
   ∀ ε > 0, ∃ N > 0, ∀ x, N < x → |g x - L| < ε
 
-/-- Source: `proof_gap/exercise_459/1.txt`; bind `t(x)=1/x`. -/
+/-- Exercise 459, gap 1; bind `t(x)=1/x`. -/
 private theorem transformed_eq_closed_of_domain (u : ℝ)
     (hu : -(1 / 2 : ℝ) ≤ u) (hu0 : u ≠ 0) :
     transformed u = closed u := by
@@ -100,7 +100,7 @@ theorem gap1 : ∀ x : ℝ, 0 < x →
   rw [hsqrt2, hsqrt1]
   field_simp [hx0] <;> ring
 
-/-- Source: `proof_gap/exercise_459/2.txt`. -/
+/-- Exercise 459, gap 2. -/
 theorem gap2 : ∀ u : ℝ, u ≠ 0 →
     -1 ≤ u →
     transformed u =
@@ -128,20 +128,20 @@ theorem gap2 : ∀ u : ℝ, u ≠ 0 →
   field_simp [hu0, hden]
   nlinarith [hB]
 
-/-- Source: `proof_gap/exercise_459/3.txt`. -/
+/-- Exercise 459, gap 3. -/
 theorem gap3 : ∀ u : ℝ, u ≠ 0 → -(1 / 2 : ℝ) ≤ u →
     transformed u = closed u := by
   intro u hu0 hu
   exact transformed_eq_closed_of_domain u hu hu0
 
-/-- Source: `proof_gap/exercise_459/4.txt`. -/
+/-- Exercise 459, gap 4. -/
 theorem gap4 : Filter.Tendsto t Filter.atTop (nhds 0) := by
   unfold t
   simpa only [one_div] using
     (tendsto_inv_atTop_zero :
       Filter.Tendsto (fun x : ℝ => x⁻¹) Filter.atTop (nhds 0))
 
-/-- Source: `proof_gap/exercise_459/5.txt`. -/
+/-- Exercise 459, gap 5. -/
 theorem gap5 : HasLimitAtPosInfinity original (-1 / 4) := by
   have hclosed_value : closed 0 = (-1 / 4 : ℝ) := by
     norm_num [closed]

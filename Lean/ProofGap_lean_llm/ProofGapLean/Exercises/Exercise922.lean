@@ -24,7 +24,7 @@ def finalDerivative (x : ℝ) : ℝ :=
   2 * Real.sign (Real.sin x) * Real.cos x /
     Real.sqrt (1 + Real.cos x ^ 2)
 
-/-- Source: `proof_gap/exercise_922/1.txt`; exclude `sin x = 0`, where the
+/-- Exercise 922, gap 1; exclude `sin x = 0`, where the
 arccosine input reaches its endpoint and the composition has a cusp. -/
 theorem gap1 (x : ℝ) (hx : Real.sin x ≠ 0) :
     HasDerivAt y (expandedDerivative x) x := by
@@ -55,7 +55,7 @@ theorem gap1 (x : ℝ) (hx : Real.sin x ≠ 0) :
   rw [hrad]
   field_simp [hsqrt_ne] <;> ring
 
-/-- Source: `proof_gap/exercise_922/2.txt`; the square-root denominator is
+/-- Exercise 922, gap 2; the square-root denominator is
 positive away from zeros of sine. -/
 theorem gap2 (x : ℝ) (hx : Real.sin x ≠ 0) :
     expandedDerivative x = factoredDerivative x := by
@@ -70,7 +70,7 @@ theorem gap2 (x : ℝ) (hx : Real.sin x ≠ 0) :
       _ = Real.sin x ^ 2 * (1 + Real.cos x ^ 2) := by rw [hsin]
   simp [expandedDerivative, factoredDerivative, hrad]
 
-/-- Source: `proof_gap/exercise_922/3.txt`; retain the sign of sine when
+/-- Exercise 922, gap 3; retain the sign of sine when
 extracting `sqrt (sin² x)`. -/
 theorem gap3 (x : ℝ) (hx : Real.sin x ≠ 0) :
     factoredDerivative x = finalDerivative x := by
@@ -88,7 +88,7 @@ theorem gap3 (x : ℝ) (hx : Real.sin x ≠ 0) :
     rw [abs_of_neg hsneg, Real.sign_of_neg hsneg]
     field_simp [hx, hsqrt_ne] <;> ring
 
-/-- Source: `proof_gap/exercise_922/4.txt`; retain the nonsingular domain in
+/-- Exercise 922, gap 4; retain the nonsingular domain in
 the final derivative statement. -/
 theorem gap4 (x : ℝ) (hx : Real.sin x ≠ 0) :
     HasDerivAt y (finalDerivative x) x := by

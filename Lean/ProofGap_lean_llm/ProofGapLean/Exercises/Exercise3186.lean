@@ -24,7 +24,7 @@ def target (p : ℝ × ℝ) : ℝ :=
 def upperBound (p : ℝ × ℝ) : ℝ :=
   1 / 2 * (1 / p.1 ^ 2 + 1 / p.2 ^ 2)
 
-/-- Source: `proof_gap/exercise_3186/1.txt`; exclude the simultaneous zero. -/
+/-- Exercise 3186, gap 1; exclude the simultaneous zero. -/
 private theorem tendsto_coords_atTop₂ :
     Tendsto (fun p : ℝ × ℝ => p.1) atTop₂ atTop ∧
       Tendsto (fun p : ℝ × ℝ => p.2) atTop₂ atTop := by
@@ -48,7 +48,7 @@ theorem gap1 :
   intro x y _
   exact div_nonneg (by positivity) (by positivity)
 
-/-- Source: `proof_gap/exercise_3186/2.txt`; the comparison denominator needs `xy≠0`. -/
+/-- Exercise 3186, gap 2; the comparison denominator needs `xy≠0`. -/
 theorem gap2 :
     ∀ x y : ℝ, x ≠ 0 → y ≠ 0 →
       (x ^ 2 + y ^ 2) / (x ^ 4 + y ^ 4) ≤
@@ -63,7 +63,7 @@ theorem gap2 :
   simpa [mul_comm, mul_left_comm, mul_assoc] using
     (mul_le_mul_of_nonneg_left hden hnum)
 
-/-- Source: `proof_gap/exercise_3186/3.txt`; algebra with nonzero coordinates. -/
+/-- Exercise 3186, gap 3; algebra with nonzero coordinates. -/
 theorem gap3 :
     ∀ x y : ℝ, x ≠ 0 → y ≠ 0 →
       (x ^ 2 + y ^ 2) / (2 * x ^ 2 * y ^ 2) =
@@ -71,14 +71,14 @@ theorem gap3 :
   intro x y hx hy
   field_simp [hx, hy] <;> ring
 
-/-- Source: `proof_gap/exercise_3186/4.txt`; reciprocal squares are defined off zero. -/
+/-- Exercise 3186, gap 4; reciprocal squares are defined off zero. -/
 theorem gap4 :
     ∀ x y : ℝ, x ≠ 0 → y ≠ 0 →
       0 ≤ 1 / 2 * (1 / x ^ 2 + 1 / y ^ 2) := by
   intro x y _ _
   positivity
 
-/-- Source: `proof_gap/exercise_3186/5.txt`; product-filter upper-bound limit. -/
+/-- Exercise 3186, gap 5; product-filter upper-bound limit. -/
 theorem gap5 :
     Tendsto upperBound atTop₂ (𝓝 0) := by
   have hinv : Tendsto (fun x : ℝ => 1 / x) atTop (𝓝 0) := by
@@ -97,7 +97,7 @@ theorem gap5 :
   simpa only [one_div, pow_two, inv_zero, add_zero, mul_zero] using
     hhalf.mul (hx.add hy)
 
-/-- Source: `proof_gap/exercise_3186/6.txt`; squeeze at `(∞,∞)`. -/
+/-- Exercise 3186, gap 6; squeeze at `(∞,∞)`. -/
 theorem gap6 :
     Tendsto target atTop₂ (𝓝 0) := by
   have hx : ∀ᶠ p : ℝ × ℝ in atTop₂, 0 < p.1 :=

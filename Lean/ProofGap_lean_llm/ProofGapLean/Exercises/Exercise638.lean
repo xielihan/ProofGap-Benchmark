@@ -12,7 +12,7 @@ def Recurrence (x : ℝ) (y : ℕ → ℝ) : Prop :=
 def oddSubseq (y : ℕ → ℝ) (n : ℕ) : ℝ := y (2 * n + 1)
 def evenSubseq (y : ℕ → ℝ) (n : ℕ) : ℝ := y (2 * n + 2)
 
-/-- Source: `proof_gap/exercise_638/1.txt`. -/
+/-- Exercise 638, gap 1. -/
 private theorem recurrence_positive_bounded
     (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 < x) (hx1 : x ≤ 1)
     (hy : Recurrence x y) :
@@ -97,7 +97,7 @@ theorem gap1 (x : ℝ) (y : ℕ → ℝ) (hx : x = 0)
         rw [hyrec n hn2, hx, hprev]
         simp
 
-/-- Source: `proof_gap/exercise_638/2.txt`. -/
+/-- Exercise 638, gap 2. -/
 theorem gap2 (x : ℝ) (y : ℕ → ℝ) (hx : x = 0)
     (hy : Recurrence x y) :
     Filter.Tendsto y Filter.atTop (nhds 0) := by
@@ -105,14 +105,14 @@ theorem gap2 (x : ℝ) (y : ℕ → ℝ) (hx : x = 0)
     Filter.eventually_atTop.2 ⟨1, fun n hn => gap1 x y hx hy n hn⟩
   exact tendsto_const_nhds.congr' hEq.symm
 
-/-- Source: `proof_gap/exercise_638/3.txt`. -/
+/-- Exercise 638, gap 3. -/
 theorem gap3 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 < x) (hx1 : x ≤ 1)
     (hy : Recurrence x y) :
     ∀ n ≥ 1, 0 < y n := by
   intro n hn
   exact (recurrence_positive_bounded x y hx0 hx1 hy n hn).1
 
-/-- Source: `proof_gap/exercise_638/4.txt`; add `n≥1` to the source parity indices. -/
+/-- Exercise 638, gap 4; add `n≥1` to the source parity indices. -/
 theorem gap4 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 < x) (hx1 : x ≤ 1)
     (hy : Recurrence x y) :
     ∀ n ≥ 1, y (2 * n) < y (2 * n + 2) := by
@@ -174,7 +174,7 @@ theorem gap4 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 < x) (hx1 : x ≤ 1)
           mul_pos (sub_pos.mpr hOdd) (add_pos hpC hpD)
         nlinarith
 
-/-- Source: `proof_gap/exercise_638/5.txt`; add `n≥1` before using `2*n-1`. -/
+/-- Exercise 638, gap 5; add `n≥1` before using `2*n-1`. -/
 theorem gap5 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 < x) (hx1 : x ≤ 1)
     (hy : Recurrence x y) :
     ∀ n ≥ 1, y (2 * n + 1) < y (2 * n - 1) := by
@@ -210,12 +210,12 @@ theorem gap5 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 < x) (hx1 : x ≤ 1)
       mul_pos (sub_pos.mpr heven) (add_pos hpB hpA)
     nlinarith
 
-/-- Source: `proof_gap/exercise_638/6.txt`. -/
+/-- Exercise 638, gap 6. -/
 theorem gap6 (x : ℝ) (y : ℕ → ℝ) (hy : Recurrence x y) :
     x / 2 = y 1 := by
   exact hy.1.symm
 
-/-- Source: `proof_gap/exercise_638/7.txt`. -/
+/-- Exercise 638, gap 7. -/
 theorem gap7 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 < x) (hx1 : x ≤ 1)
     (hy : Recurrence x y) :
     y 3 < y 1 := by
@@ -225,7 +225,7 @@ theorem gap7 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 < x) (hx1 : x ≤ 1)
   have hs : 0 < y 2 * y 2 := mul_pos hp2 hp2
   nlinarith [hy.1]
 
-/-- Source: `proof_gap/exercise_638/8.txt`; replace the ellipsis by strict decrease of the odd subsequence. -/
+/-- Exercise 638, gap 8; replace the ellipsis by strict decrease of the odd subsequence. -/
 theorem gap8 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 < x) (hx1 : x ≤ 1)
     (hy : Recurrence x y) :
     StrictAnti (oddSubseq y) := by
@@ -234,7 +234,7 @@ theorem gap8 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 < x) (hx1 : x ≤ 1)
   unfold oddSubseq
   convert gap5 x y hx0 hx1 hy (n + 1) (by omega) using 1 <;> omega
 
-/-- Source: `proof_gap/exercise_638/9.txt`; replace the ellipsis by the positive lower bound. -/
+/-- Exercise 638, gap 9; replace the ellipsis by the positive lower bound. -/
 theorem gap9 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 < x) (hx1 : x ≤ 1)
     (hy : Recurrence x y) :
     ∀ n, 0 < oddSubseq y n := by
@@ -242,23 +242,23 @@ theorem gap9 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 < x) (hx1 : x ≤ 1)
   unfold oddSubseq
   exact (recurrence_positive_bounded x y hx0 hx1 hy (2 * n + 1) (by omega)).1
 
-/-- Source: `proof_gap/exercise_638/10.txt`. -/
+/-- Exercise 638, gap 10. -/
 theorem gap10 (x : ℝ) (hx0 : 0 < x) : 0 < x / 2 := by
   linarith
 
-/-- Source: `proof_gap/exercise_638/11.txt`. -/
+/-- Exercise 638, gap 11. -/
 theorem gap11 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 < x) (hx1 : x ≤ 1)
     (hy : Recurrence x y) :
     0 < y 2 := by
   exact (recurrence_positive_bounded x y hx0 hx1 hy 2 (by omega)).1
 
-/-- Source: `proof_gap/exercise_638/12.txt`. -/
+/-- Exercise 638, gap 12. -/
 theorem gap12 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 < x) (hx1 : x ≤ 1)
     (hy : Recurrence x y) :
     y 2 < y 4 := by
   convert gap4 x y hx0 hx1 hy 1 (by omega) using 1 <;> omega
 
-/-- Source: `proof_gap/exercise_638/13.txt`; replace the ellipsis by strict increase of the even subsequence. -/
+/-- Exercise 638, gap 13; replace the ellipsis by strict increase of the even subsequence. -/
 theorem gap13 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 < x) (hx1 : x ≤ 1)
     (hy : Recurrence x y) :
     StrictMono (evenSubseq y) := by
@@ -267,7 +267,7 @@ theorem gap13 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 < x) (hx1 : x ≤ 1)
   unfold evenSubseq
   convert gap4 x y hx0 hx1 hy (n + 1) (by omega) using 1 <;> omega
 
-/-- Source: `proof_gap/exercise_638/14.txt`; replace the ellipsis by the common upper bound. -/
+/-- Exercise 638, gap 14; replace the ellipsis by the common upper bound. -/
 theorem gap14 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 < x) (hx1 : x ≤ 1)
     (hy : Recurrence x y) :
     ∀ n, evenSubseq y n < x / 2 := by
@@ -279,11 +279,11 @@ theorem gap14 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 < x) (hx1 : x ≤ 1)
   have hs : 0 < y (2 * n + 1) * y (2 * n + 1) := mul_pos hp hp
   nlinarith
 
-/-- Source: `proof_gap/exercise_638/15.txt`. -/
+/-- Exercise 638, gap 15. -/
 theorem gap15 (x : ℝ) (hx0 : 0 < x) : 0 < x / 2 := by
   linarith
 
-/-- Source: `proof_gap/exercise_638/16.txt`; use the explicit odd subsequence. -/
+/-- Exercise 638, gap 16; use the explicit odd subsequence. -/
 theorem gap16 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 < x) (hx1 : x ≤ 1)
     (hy : Recurrence x y) :
     ∃ A₁, Filter.Tendsto (oddSubseq y) Filter.atTop (nhds A₁) := by
@@ -299,7 +299,7 @@ theorem gap16 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 < x) (hx1 : x ≤ 1)
   refine ⟨-B, ?_⟩
   simpa only [neg_neg] using hB.neg
 
-/-- Source: `proof_gap/exercise_638/17.txt`; use the explicit even subsequence. -/
+/-- Exercise 638, gap 17; use the explicit even subsequence. -/
 theorem gap17 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 < x) (hx1 : x ≤ 1)
     (hy : Recurrence x y) :
     ∃ A₂, Filter.Tendsto (evenSubseq y) Filter.atTop (nhds A₂) := by
@@ -311,7 +311,7 @@ theorem gap17 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 < x) (hx1 : x ≤ 1)
     exact le_of_lt (gap14 x y hx0 hx1 hy n)
   exact monotone_bddAbove_has_limit (evenSubseq y) hmono hbdd
 
-/-- Source: `proof_gap/exercise_638/18.txt`; bind the two subsequential limits. -/
+/-- Exercise 638, gap 18; bind the two subsequential limits. -/
 theorem gap18 (x A₁ A₂ : ℝ) (y : ℕ → ℝ)
     (hodd : Filter.Tendsto (oddSubseq y) Filter.atTop (nhds A₁))
     (heven : Filter.Tendsto (evenSubseq y) Filter.atTop (nhds A₂))
@@ -333,7 +333,7 @@ theorem gap18 (x A₁ A₂ : ℝ) (y : ℕ → ℝ)
     exact hcalc
   exact tendsto_nhds_unique heven heven'
 
-/-- Source: `proof_gap/exercise_638/19.txt`; bind the two subsequential limits. -/
+/-- Exercise 638, gap 19; bind the two subsequential limits. -/
 theorem gap19 (x A₁ A₂ : ℝ) (y : ℕ → ℝ)
     (hodd : Filter.Tendsto (oddSubseq y) Filter.atTop (nhds A₁))
     (heven : Filter.Tendsto (evenSubseq y) Filter.atTop (nhds A₂))
@@ -362,14 +362,14 @@ theorem gap19 (x A₁ A₂ : ℝ) (y : ℕ → ℝ)
     exact hcalc
   exact tendsto_nhds_unique hoddShift hoddShift'
 
-/-- Source: `proof_gap/exercise_638/20.txt`; bind the coupled limit equations. -/
+/-- Exercise 638, gap 20; bind the coupled limit equations. -/
 theorem gap20 (x A₁ A₂ : ℝ)
     (h₁ : A₁ = x / 2 - A₂ ^ 2 / 2)
     (h₂ : A₂ = x / 2 - A₁ ^ 2 / 2) :
     A₁ - A₂ = (A₁ - A₂) * ((A₁ + A₂) / 2) := by
   nlinarith
 
-/-- Source: `proof_gap/exercise_638/21.txt`; bind the odd limit. -/
+/-- Exercise 638, gap 21; bind the odd limit. -/
 theorem gap21 (x A₁ : ℝ) (y : ℕ → ℝ)
     (hpos : ∀ n, 0 < oddSubseq y n)
     (hlim : Filter.Tendsto (oddSubseq y) Filter.atTop (nhds A₁)) :
@@ -377,7 +377,7 @@ theorem gap21 (x A₁ : ℝ) (y : ℕ → ℝ)
   exact ge_of_tendsto hlim
     (Filter.Eventually.of_forall fun n => le_of_lt (hpos n))
 
-/-- Source: `proof_gap/exercise_638/22.txt`; bind the odd limit and upper bound. -/
+/-- Exercise 638, gap 22; bind the odd limit and upper bound. -/
 theorem gap22 (x A₁ : ℝ) (y : ℕ → ℝ)
     (hub : ∀ n, oddSubseq y n ≤ x / 2)
     (hlim : Filter.Tendsto (oddSubseq y) Filter.atTop (nhds A₁)) :
@@ -385,11 +385,11 @@ theorem gap22 (x A₁ : ℝ) (y : ℕ → ℝ)
   exact le_of_tendsto hlim
     (Filter.Eventually.of_forall fun n => hub n)
 
-/-- Source: `proof_gap/exercise_638/23.txt`. -/
+/-- Exercise 638, gap 23. -/
 theorem gap23 (x : ℝ) (hx : x ≤ 1) : x / 2 ≤ (1 / 2 : ℝ) := by
   linarith
 
-/-- Source: `proof_gap/exercise_638/24.txt`; bind the even limit. -/
+/-- Exercise 638, gap 24; bind the even limit. -/
 theorem gap24 (A₂ : ℝ) (y : ℕ → ℝ)
     (hpos : ∀ n, 0 < evenSubseq y n)
     (hlim : Filter.Tendsto (evenSubseq y) Filter.atTop (nhds A₂)) :
@@ -397,7 +397,7 @@ theorem gap24 (A₂ : ℝ) (y : ℕ → ℝ)
   exact ge_of_tendsto hlim
     (Filter.Eventually.of_forall fun n => le_of_lt (hpos n))
 
-/-- Source: `proof_gap/exercise_638/25.txt`; bind the even limit and upper bound. -/
+/-- Exercise 638, gap 25; bind the even limit and upper bound. -/
 theorem gap25 (x A₂ : ℝ) (y : ℕ → ℝ)
     (hub : ∀ n, evenSubseq y n ≤ x / 2)
     (hlim : Filter.Tendsto (evenSubseq y) Filter.atTop (nhds A₂)) :
@@ -405,11 +405,11 @@ theorem gap25 (x A₂ : ℝ) (y : ℕ → ℝ)
   exact le_of_tendsto hlim
     (Filter.Eventually.of_forall fun n => hub n)
 
-/-- Source: `proof_gap/exercise_638/26.txt`. -/
+/-- Exercise 638, gap 26. -/
 theorem gap26 (x : ℝ) (hx : x ≤ 1) : x / 2 ≤ (1 / 2 : ℝ) := by
   linarith
 
-/-- Source: `proof_gap/exercise_638/27.txt`; bind both limits and their equations. -/
+/-- Exercise 638, gap 27; bind both limits and their equations. -/
 theorem gap27 (x A₁ A₂ : ℝ)
     (hx0 : 0 < x) (hx1 : x ≤ 1)
     (h₁ : A₁ = x / 2 - A₂ ^ 2 / 2)
@@ -422,13 +422,13 @@ theorem gap27 (x A₁ A₂ : ℝ)
   rcases hb₂ with ⟨hA₂0, hA₂x⟩
   nlinarith
 
-/-- Source: `proof_gap/exercise_638/28.txt`; bind the common limit. -/
+/-- Exercise 638, gap 28; bind the common limit. -/
 theorem gap28 (x A : ℝ) (hx0 : 0 < x) (hx1 : x ≤ 1)
     (hA : A = x / 2 - A ^ 2 / 2) :
     A = x / 2 - A ^ 2 / 2 := by
   exact hA
 
-/-- Source: `proof_gap/exercise_638/29.txt`; select the nonnegative root. -/
+/-- Exercise 638, gap 29; select the nonnegative root. -/
 theorem gap29 (x A : ℝ) (hx0 : 0 < x) (hx1 : x ≤ 1)
     (hA : A = x / 2 - A ^ 2 / 2) (hAnonneg : 0 ≤ A) :
     A = Real.sqrt (1 + x) - 1 := by
@@ -438,7 +438,7 @@ theorem gap29 (x A : ℝ) (hx0 : 0 < x) (hx1 : x ≤ 1)
   have hAplus : 0 ≤ A + 1 := by linarith
   nlinarith
 
-/-- Source: `proof_gap/exercise_638/30.txt`. -/
+/-- Exercise 638, gap 30. -/
 theorem gap30 (x : ℝ) (y : ℕ → ℝ) (hx0 : 0 ≤ x) (hx1 : x ≤ 1)
     (hy : Recurrence x y) :
     Filter.Tendsto y Filter.atTop (nhds (Real.sqrt (1 + x) - 1)) := by

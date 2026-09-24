@@ -6,7 +6,7 @@ import Mathlib
 -- Last gap: 4; compilation status: passed
 -- Classification concerns only the last gap compilation, not every gap below.
 
--- Source: proofgap/exercise_122/1.txt
+-- Exercise 122, gap 1
 namespace regenerated_exercise_122_gap_1
 
 attribute [local instance] Classical.propDecidable
@@ -61,7 +61,7 @@ theorem proof_gap_exercise_122_1
   sorry
 end regenerated_exercise_122_gap_1
 
--- Source: proofgap/exercise_122/2.txt
+-- Exercise 122, gap 2
 namespace regenerated_exercise_122_gap_2
 
 attribute [local instance] Classical.propDecidable
@@ -117,7 +117,7 @@ theorem proof_gap_exercise_122_2
   sorry
 end regenerated_exercise_122_gap_2
 
--- Source: proofgap/exercise_122/3.txt
+-- Exercise 122, gap 3
 namespace regenerated_exercise_122_gap_3
 
 attribute [local instance] Classical.propDecidable
@@ -174,7 +174,7 @@ theorem proof_gap_exercise_122_3
   sorry
 end regenerated_exercise_122_gap_3
 
--- Source: proofgap/exercise_122/4.txt
+-- Exercise 122, gap 4
 namespace regenerated_exercise_122_gap_4
 
 attribute [local instance] Classical.propDecidable

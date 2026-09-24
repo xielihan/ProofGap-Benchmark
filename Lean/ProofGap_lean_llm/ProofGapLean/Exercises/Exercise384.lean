@@ -16,7 +16,7 @@ def alternating (k : ℤ) : ℝ := if Even k then 1 else -1
 def BoundedOn (g : ℝ → ℝ) (s : Set ℝ) : Prop :=
   ∃ M : ℝ, ∀ x ∈ s, |g x| ≤ M
 
-/-- Source: `proof_gap/exercise_384/1.txt`; type the integer index explicitly. -/
+/-- Exercise 384, gap 1; type the integer index explicitly. -/
 private theorem cos_int_mul_pi_eq_alternating (k : ℤ) :
     Real.cos ((k : ℝ) * Real.pi) = alternating k := by
   rcases Int.even_or_odd k with hk | hk
@@ -89,7 +89,7 @@ theorem gap1 : ∀ k : ℤ,
   rw [harg, Real.cos_add, Real.cos_pi_div_two, Real.sin_int_mul_pi]
   ring
 
-/-- Source: `proof_gap/exercise_384/2.txt`; exclude the zero integer denominator. -/
+/-- Exercise 384, gap 2; exclude the zero integer denominator. -/
 theorem gap2 : ∀ k : ℤ, k ≠ 0 →
     f (1 / ((k : ℝ) * Real.pi)) =
       alternating k * (k : ℝ) * Real.pi := by
@@ -104,7 +104,7 @@ theorem gap2 : ∀ k : ℤ, k ≠ 0 →
   simp only [hinv, cos_int_mul_pi_eq_alternating]
   ring
 
-/-- Source: `proof_gap/exercise_384/3.txt`. -/
+/-- Exercise 384, gap 3. -/
 theorem gap3 :
     Filter.Tendsto
       (fun k : ℕ => 2 / (((2 * k + 1 : ℕ) : ℝ) * Real.pi))
@@ -128,7 +128,7 @@ theorem gap3 :
     tendsto_const_nhds
   simpa only [div_eq_mul_inv, mul_zero] using hc.mul hi
 
-/-- Source: `proof_gap/exercise_384/4.txt`; use `k+1` to avoid the zero denominator. -/
+/-- Exercise 384, gap 4; use `k+1` to avoid the zero denominator. -/
 theorem gap4 :
     Filter.Tendsto
       (fun k : ℕ => 1 / (((k + 1 : ℕ) : ℝ) * Real.pi))
@@ -149,7 +149,7 @@ theorem gap4 :
       (tendsto_inv_atTop_zero.comp hden)
   simpa only [one_div] using hi
 
-/-- Source: `proof_gap/exercise_384/5.txt`. -/
+/-- Exercise 384, gap 5. -/
 theorem gap5 :
     Filter.Tendsto
       (fun k : ℕ => |alternating (k + 1) * ((k + 1 : ℕ) : ℝ) * Real.pi|)
@@ -174,7 +174,7 @@ theorem gap5 :
     abs_of_pos Real.pi_pos]
   ring
 
-/-- Source: `proof_gap/exercise_384/6.txt`; remove the point where `1/x` is undefined. -/
+/-- Exercise 384, gap 6; remove the point where `1/x` is undefined. -/
 theorem gap6 : ∀ δ > 0,
     ¬BoundedOn f (Set.Ioo (-δ) δ \ {0}) := by
   intro δ hδ hbounded
@@ -214,13 +214,13 @@ theorem gap6 : ∀ δ > 0,
   rw [halt] at hkBound
   linarith
 
-/-- Source: `proof_gap/exercise_384/7.txt`. -/
+/-- Exercise 384, gap 7. -/
 theorem gap7 : ∀ k : ℕ, 0 < k →
     f (2 / (((2 * k + 1 : ℕ) : ℝ) * Real.pi)) = 0 := by
   intro k _
   simpa [Nat.cast_add, Nat.cast_mul] using gap1 (k : ℤ)
 
-/-- Source: `proof_gap/exercise_384/8.txt`; formulate the punctured limit. -/
+/-- Exercise 384, gap 8; formulate the punctured limit. -/
 theorem gap8 :
     ¬Filter.Tendsto (fun x : ℝ => |f x|)
       (nhdsWithin 0 ({0} : Set ℝ)ᶜ) Filter.atTop := by
@@ -247,7 +247,7 @@ theorem gap8 :
   rw [hz] at hk
   norm_num at hk
 
-/-- Source: `proof_gap/exercise_384/9.txt`. -/
+/-- Exercise 384, gap 9. -/
 theorem gap9 :
     (∀ δ > 0, ¬BoundedOn f (Set.Ioo (-δ) δ \ {0})) ∧
       ¬Filter.Tendsto (fun x : ℝ => |f x|)

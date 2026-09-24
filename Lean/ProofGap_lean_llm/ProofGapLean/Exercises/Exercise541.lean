@@ -15,7 +15,7 @@ def normalized (a y : ℝ) : ℝ :=
 def HasLimitAtZero (f : ℝ → ℝ) (L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_541/1.txt`; require a valid logarithm base `a≠1`. -/
+/-- Exercise 541, gap 1; require a valid logarithm base `a≠1`. -/
 private theorem reciprocal_logb_exp (a : ℝ) :
     1 / Real.logb a (Real.exp 1) = Real.log a := by
   simp [Real.logb]
@@ -145,7 +145,7 @@ theorem gap1 (a : ℝ) (ha : 0 < a) (ha1 : a ≠ 1) (L : ℝ) :
       tendsto_nhds_unique h (inverse_limit_log a ha ha1)
     simpa [hL] using original_limit_log a ha
 
-/-- Source: `proof_gap/exercise_541/2.txt`; require `a≠1`. -/
+/-- Exercise 541, gap 2; require `a≠1`. -/
 theorem gap2 (a : ℝ) (ha : 0 < a) (ha1 : a ≠ 1) (L : ℝ) :
     HasLimitAtZero (inverseLog a) L ↔ HasLimitAtZero (normalized a) L := by
   have heq := inverse_eq_normalized_eventually a ha ha1
@@ -155,18 +155,18 @@ theorem gap2 (a : ℝ) (ha : 0 < a) (ha1 : a ≠ 1) (L : ℝ) :
   · intro h
     exact h.congr' heq.symm
 
-/-- Source: `proof_gap/exercise_541/3.txt`; require `a≠1`. -/
+/-- Exercise 541, gap 3; require `a≠1`. -/
 theorem gap3 (a : ℝ) (ha : 0 < a) (ha1 : a ≠ 1) :
     HasLimitAtZero (normalized a) (1 / Real.logb a (Real.exp 1)) := by
   rw [reciprocal_logb_exp a]
   exact normalized_limit_log a ha ha1
 
-/-- Source: `proof_gap/exercise_541/4.txt`; require a valid logarithm base. -/
+/-- Exercise 541, gap 4; require a valid logarithm base. -/
 theorem gap4 (a : ℝ) (ha : 0 < a) (ha1 : a ≠ 1) :
     1 / Real.logb a (Real.exp 1) = Real.log a := by
   exact reciprocal_logb_exp a
 
-/-- Source: `proof_gap/exercise_541/5.txt`; the final derivative formula also covers `a=1`. -/
+/-- Exercise 541, gap 5; the final derivative formula also covers `a=1`. -/
 theorem gap5 (a : ℝ) (ha : 0 < a) :
     HasLimitAtZero (original a) (Real.log a) := by
   exact original_limit_log a ha

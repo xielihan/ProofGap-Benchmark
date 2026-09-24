@@ -20,7 +20,7 @@ def targetSum (n : ℕ) : ℝ :=
   (Finset.Icc 1 n).sum (fun k =>
     cbrt (1 + (k : ℝ) / (n : ℝ) ^ 2) - 1)
 
-/-- Source: `proof_gap/exercise_632/1.txt`. -/
+/-- Exercise 632, gap 1. -/
 private lemma cbrt_nonneg {x : ℝ} (hx : 0 ≤ x) : 0 ≤ cbrt x := by
   unfold cbrt
   exact Real.rpow_nonneg hx _
@@ -289,16 +289,16 @@ theorem gap1 (L : ℝ) :
     subst L
     exact linearized_tendsto_one
 
-/-- Source: `proof_gap/exercise_632/2.txt`. -/
+/-- Exercise 632, gap 2. -/
 theorem gap2 : Filter.Tendsto conjugateExpr (nhds 0) (nhds 1) := by
   exact conjugate_tendsto_one
 
-/-- Source: `proof_gap/exercise_632/3.txt`. -/
+/-- Exercise 632, gap 3. -/
 theorem gap3 :
     Filter.Tendsto linearized (nhdsWithin 0 ({0} : Set ℝ)ᶜ) (nhds 1) := by
   exact (gap1 1).2 gap2
 
-/-- Source: `proof_gap/exercise_632/4.txt`; bind the previously free fixed `k`. -/
+/-- Exercise 632, gap 4; bind the previously free fixed `k`. -/
 theorem gap4 (k : ℕ) :
     Filter.Tendsto (fun n : ℕ => (k : ℝ) / (n : ℝ) ^ 2)
       Filter.atTop (nhds 0) := by
@@ -310,7 +310,7 @@ theorem gap4 (k : ℕ) :
     tendsto_const_nhds
   simpa [div_eq_mul_inv, inv_pow] using hkconst.mul (hinv.pow 2)
 
-/-- Source: `proof_gap/exercise_632/5.txt`; replace the sum ellipsis by `comparisonSum`. -/
+/-- Exercise 632, gap 5; replace the sum ellipsis by `comparisonSum`. -/
 theorem gap5 :
     Filter.Tendsto comparisonSum Filter.atTop (nhds (1 / 6 : ℝ)) ↔
       Filter.Tendsto
@@ -318,7 +318,7 @@ theorem gap5 :
         Filter.atTop (nhds (1 / 6 : ℝ)) := by
   rw [comparisonSum_fun]
 
-/-- Source: `proof_gap/exercise_632/6.txt`. -/
+/-- Exercise 632, gap 6. -/
 theorem gap6 :
     Filter.Tendsto
       (fun n : ℕ => (1 / 6 : ℝ) * ((n : ℝ) * (n + 1) / (n : ℝ) ^ 2))
@@ -344,12 +344,12 @@ theorem gap6 :
   have hn0 : (n : ℝ) ≠ 0 := ne_of_gt hnR
   field_simp [hn0]
 
-/-- Source: `proof_gap/exercise_632/7.txt`. -/
+/-- Exercise 632, gap 7. -/
 theorem gap7 :
     Filter.Tendsto comparisonSum Filter.atTop (nhds (1 / 6 : ℝ)) := by
   exact gap5.mpr gap6
 
-/-- Source: `proof_gap/exercise_632/8.txt`. -/
+/-- Exercise 632, gap 8. -/
 theorem gap8 :
     Filter.Tendsto targetSum Filter.atTop (nhds (1 / 6 : ℝ)) := by
   have hinv :

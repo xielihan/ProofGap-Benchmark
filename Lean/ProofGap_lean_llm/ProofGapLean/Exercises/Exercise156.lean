@@ -22,12 +22,12 @@ def radialCondition (x : ℝ) : Prop :=
 
 def domain : Set ℝ := {x | 0 ≤ Real.cos (x ^ 2)}
 
-/-- Source: `proof_gap/exercise_156/1.txt`; the inequality is the domain condition. -/
+/-- Exercise 156, gap 1; the inequality is the domain condition. -/
 theorem gap1 : ∀ x : ℝ, x ∈ domain ↔ 0 ≤ Real.cos (x ^ 2) := by
   intro x
   rfl
 
-/-- Source: `proof_gap/exercise_156/2.txt`; the phase intervals are existential. -/
+/-- Exercise 156, gap 2; the phase intervals are existential. -/
 theorem gap2 : ∀ x : ℝ, x ∈ domain ↔ phaseCondition x := by
   intro x
   change 0 ≤ Real.cos (x ^ 2) ↔ phaseCondition x
@@ -93,7 +93,7 @@ theorem gap2 : ∀ x : ℝ, x ∈ domain ↔ phaseCondition x := by
       rw [hperiod] at hcosu
       exact hcosu
 
-/-- Source: `proof_gap/exercise_156/3.txt`. -/
+/-- Exercise 156, gap 3. -/
 theorem gap3 : ∀ x : ℝ, phaseCondition x ↔ radialCondition x := by
   intro x
   constructor
@@ -141,7 +141,7 @@ theorem gap3 : ∀ x : ℝ, phaseCondition x ↔ radialCondition x := by
       rw [Real.sq_sqrt hright0, sq_abs] at hhi_sq
       exact ⟨k, hk, hlo_sq, hhi_sq⟩
 
-/-- Source: `proof_gap/exercise_156/4.txt`. -/
+/-- Exercise 156, gap 4. -/
 theorem gap4 : domain = {x : ℝ | radialCondition x} := by
   ext x
   exact (gap2 x).trans (gap3 x)

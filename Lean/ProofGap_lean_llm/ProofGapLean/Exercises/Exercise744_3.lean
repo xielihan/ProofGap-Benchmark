@@ -7,7 +7,7 @@ noncomputable section
 def signFn (x : ℝ) : ℝ := Real.sign x
 def fractionalShift (x : ℝ) : ℝ := 1 + x - (⌊x⌋ : ℝ)
 
-/-- Source: `proof_gap/exercise_744_3/1.txt`. -/
+/-- Exercise 744_3, gap 1. -/
 theorem gap1 : ∀ x, signFn (fractionalShift x) = 1 := by
   intro x
   unfold signFn
@@ -16,7 +16,7 @@ theorem gap1 : ∀ x, signFn (fractionalShift x) = 1 := by
   have hx : (⌊x⌋ : ℝ) ≤ x := Int.floor_le x
   linarith
 
-/-- Source: `proof_gap/exercise_744_3/2.txt`. -/
+/-- Exercise 744_3, gap 2. -/
 theorem gap2 : Continuous (fun x => signFn (fractionalShift x)) := by
   have h : (fun x : ℝ => signFn (fractionalShift x)) = (fun _ : ℝ => 1) := by
     funext x
@@ -24,7 +24,7 @@ theorem gap2 : Continuous (fun x => signFn (fractionalShift x)) := by
   rw [h]
   exact continuous_const
 
-/-- Source: `proof_gap/exercise_744_3/3.txt`. -/
+/-- Exercise 744_3, gap 3. -/
 theorem gap3 : ∀ x, fractionalShift (signFn x) = 1 := by
   intro x
   rcases lt_trichotomy x 0 with hx | hx | hx
@@ -34,7 +34,7 @@ theorem gap3 : ∀ x, fractionalShift (signFn x) = 1 := by
     simp [fractionalShift, signFn]
   · simp [fractionalShift, signFn, Real.sign_of_pos hx]
 
-/-- Source: `proof_gap/exercise_744_3/4.txt`. -/
+/-- Exercise 744_3, gap 4. -/
 theorem gap4 : Continuous (fun x => fractionalShift (signFn x)) := by
   have h : (fun x : ℝ => fractionalShift (signFn x)) = (fun _ : ℝ => 1) := by
     funext x

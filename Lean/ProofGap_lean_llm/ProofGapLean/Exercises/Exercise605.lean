@@ -15,7 +15,7 @@ def halfAngle (n : ℕ) : ℝ :=
 def shifted (n : ℕ) : ℝ :=
   (1 / 2 : ℝ) * (1 - Real.cos (2 * Real.pi * (Real.sqrt (n ^ 2 + n) - n)))
 
-/-- Source: `proof_gap/exercise_605/1.txt`. -/
+/-- Exercise 605, gap 1. -/
 private theorem trig_nat_mul_two_pi (n : ℕ) :
     Real.cos (2 * Real.pi * (n : ℝ)) = 1 ∧
       Real.sin (2 * Real.pi * (n : ℝ)) = 0 := by
@@ -165,7 +165,7 @@ theorem gap1 (L : ℝ) :
     ring
   rw [h]
 
-/-- Source: `proof_gap/exercise_605/2.txt`. -/
+/-- Exercise 605, gap 2. -/
 theorem gap2 (L : ℝ) :
     Filter.Tendsto halfAngle Filter.atTop (nhds L) ↔
       Filter.Tendsto shifted Filter.atTop (nhds L) := by
@@ -190,7 +190,7 @@ theorem gap2 (L : ℝ) :
       congrArg (fun y : ℝ => (1 / 2 : ℝ) * (1 - y)) hc.symm
   rw [h]
 
-/-- Source: `proof_gap/exercise_605/3.txt`. -/
+/-- Exercise 605, gap 3. -/
 theorem gap3 : Filter.Tendsto shifted Filter.atTop (nhds 1) := by
   have hcont :
       Continuous
@@ -210,7 +210,7 @@ theorem gap3 : Filter.Tendsto shifted Filter.atTop (nhds 1) := by
     ring
   simpa only [shifted, hvalue] using hlim
 
-/-- Source: `proof_gap/exercise_605/4.txt`. -/
+/-- Exercise 605, gap 4. -/
 theorem gap4 : Filter.Tendsto seq Filter.atTop (nhds 1) := by
   exact (gap1 1).2 ((gap2 1).2 gap3)
 

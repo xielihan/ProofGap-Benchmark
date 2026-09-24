@@ -6,7 +6,7 @@ open Filter
 /-!
 # Exercise 74
 
-Semantic formalization of `proof_gap/exercise_74/{1,...,20}.txt`.
+Semantic formalization of Exercise 74, gaps 1,...,20.
 -/
 
 namespace ProofGap.Exercise74
@@ -25,7 +25,7 @@ def x (n : ℕ) : ℝ :=
 def telescopingProduct (n : ℕ) : ℝ :=
   x 1 * ∏ j ∈ Finset.Icc 2 n, x j / x (j - 1)
 
-/-- Source: `proof_gap/exercise_74/1.txt`; the intended range `k ≤ n` is explicit. -/
+/-- Exercise 74, gap 1; the intended range `k ≤ n` is explicit. -/
 theorem gap1 :
     ∀ k n : ℕ, k ≤ n →
       Real.sqrt ((k : ℝ) * ((n : ℝ) - (k : ℝ))) ≤ (n : ℝ) / 2 := by
@@ -37,7 +37,7 @@ theorem gap1 :
   · positivity
   · nlinarith [sq_nonneg ((k : ℝ) - (n : ℝ) / 2)]
 
-/-- Source: `proof_gap/exercise_74/2.txt`; logarithms use `0 < k < n`. -/
+/-- Exercise 74, gap 2; logarithms use `0 < k < n`. -/
 theorem gap2 :
     ∀ k n : ℕ, 0 < k → k < n →
       (1 / 2 : ℝ) *
@@ -60,7 +60,7 @@ theorem gap2 :
     (div_pos hnR (by norm_num))]
   exact gap1 k n hkn.le
 
-/-- Source: `proof_gap/exercise_74/3.txt`; the omitted logarithmic sum is finite. -/
+/-- Exercise 74, gap 3; the omitted logarithmic sum is finite. -/
 theorem gap3 :
     ∀ n : ℕ, 0 < n →
       logSum n ≤ ((n : ℝ) - 1) * Real.log ((n : ℝ) / 2) := by
@@ -94,7 +94,7 @@ theorem gap3 :
   ring_nf at hscaled
   simpa [Nat.cast_sub (show 1 ≤ n by omega)] using hscaled
 
-/-- Source: `proof_gap/exercise_74/4.txt`. -/
+/-- Exercise 74, gap 4. -/
 theorem gap4 :
     ∀ n : ℕ,
       (Nat.factorial (n - 1) : ℝ) ≤ ((n : ℝ) / 2) ^ (n - 1) := by
@@ -124,7 +124,7 @@ theorem gap4 :
     push_cast
     simpa [Nat.cast_sub (show 1 ≤ n by omega)] using gap3 n hnpos
 
-/-- Source: `proof_gap/exercise_74/5.txt`. -/
+/-- Exercise 74, gap 5. -/
 theorem gap5 :
     ∀ n : ℕ,
       (1 / 2 : ℝ) * (Nat.factorial n : ℝ) ≤ ((n : ℝ) / 2) ^ n := by
@@ -154,14 +154,14 @@ theorem gap5 :
               _ = n * Nat.factorial (n - 1) := by rw [hpred])]
     nlinarith
 
-/-- Source: `proof_gap/exercise_74/6.txt`. -/
+/-- Exercise 74, gap 6. -/
 theorem gap6 :
     ∀ n : ℕ,
       (Nat.factorial n : ℝ) ≤ 2 * ((n : ℝ) / 2) ^ n := by
   intro n
   nlinarith [gap5 n]
 
-/-- Source: `proof_gap/exercise_74/7.txt`. -/
+/-- Exercise 74, gap 7. -/
 theorem gap7 :
     ∀ n : ℕ,
       2 * ((n : ℝ) / 2) ^ n < euler * ((n : ℝ) / 2) ^ n := by
@@ -173,14 +173,14 @@ theorem gap7 :
   unfold euler
   exact mul_lt_mul_of_pos_right Real.exp_one_gt_two hp
 
-/-- Source: `proof_gap/exercise_74/8.txt`. -/
+/-- Exercise 74, gap 8. -/
 theorem gap8 :
     ∀ n : ℕ,
       (Nat.factorial n : ℝ) < euler * ((n : ℝ) / 2) ^ n := by
   intro n
   exact (gap6 n).trans_lt (gap7 n)
 
-/-- Source: `proof_gap/exercise_74/9.txt`; the zero-index failure is excluded. -/
+/-- Exercise 74, gap 9; the zero-index failure is excluded. -/
 theorem gap9 :
     ∀ n : ℕ, 0 < n →
       x n / x (n - 1) =
@@ -203,7 +203,7 @@ theorem gap9 :
     field_simp
     ring
 
-/-- Source: `proof_gap/exercise_74/10.txt`; the positive-index domain is restored. -/
+/-- Exercise 74, gap 10; the positive-index domain is restored. -/
 theorem gap10 :
     ∀ n : ℕ, 0 < n →
       (n : ℝ) ^ n / (((n : ℝ) - 1) ^ (n - 1) * euler) =
@@ -227,7 +227,7 @@ theorem gap10 :
     rw [hbase, div_pow, hnpow]
     field_simp
 
-/-- Source: `proof_gap/exercise_74/11.txt`. -/
+/-- Exercise 74, gap 11. -/
 theorem gap11 :
     ∀ n : ℕ, 0 < n →
       ((1 + 1 / ((n : ℝ) - 1)) ^ (n - 1) * (n : ℝ)) / euler <
@@ -263,32 +263,32 @@ theorem gap11 :
     rw [div_lt_iff₀ (Real.exp_pos 1)]
     nlinarith [mul_lt_mul_of_pos_right hpow (by linarith : (0 : ℝ) < n)]
 
-/-- Source: `proof_gap/exercise_74/12.txt`. -/
+/-- Exercise 74, gap 12. -/
 theorem gap12 :
     ∀ n : ℕ, 0 < n → x n / x (n - 1) < (n : ℝ) := by
   intro n hn
   rw [gap9 n hn, gap10 n hn]
   exact gap11 n hn
 
-/-- Source: `proof_gap/exercise_74/13.txt`. -/
+/-- Exercise 74, gap 13. -/
 theorem gap13 :
     x 1 = 1 / euler := by
   norm_num [x]
 
-/-- Source: `proof_gap/exercise_74/14.txt`. -/
+/-- Exercise 74, gap 14. -/
 theorem gap14 :
     1 / euler < 1 := by
   unfold euler
   rw [div_lt_one (Real.exp_pos 1)]
   exact Real.one_lt_exp_iff.mpr (by norm_num)
 
-/-- Source: `proof_gap/exercise_74/15.txt`. -/
+/-- Exercise 74, gap 15. -/
 theorem gap15 :
     x 1 < 1 := by
   rw [gap13]
   exact gap14
 
-/-- Source: `proof_gap/exercise_74/16.txt`; the telescoping product is explicit. -/
+/-- Exercise 74, gap 16; the telescoping product is explicit. -/
 private theorem x_pos (n : ℕ) : 0 < x n := by
   by_cases hn : n = 0
   · subst n
@@ -351,7 +351,7 @@ private theorem x_lt_factorial :
             push_cast
             ring
 
-/-- Source: `proof_gap/exercise_74/17.txt`; the omitted product is explicit. -/
+/-- Exercise 74, gap 17; the omitted product is explicit. -/
 theorem gap17 :
     ∀ n : ℕ, 0 < n →
       telescopingProduct n < (Nat.factorial n : ℝ) := by
@@ -359,19 +359,19 @@ theorem gap17 :
   rw [← gap16 n hn]
   exact x_lt_factorial n hn
 
-/-- Source: `proof_gap/exercise_74/18.txt`. -/
+/-- Exercise 74, gap 18. -/
 theorem gap18 :
     ∀ n : ℕ, 0 < n → x n < (Nat.factorial n : ℝ) := by
   exact x_lt_factorial
 
-/-- Source: `proof_gap/exercise_74/19.txt`; the source sequence starts at one. -/
+/-- Exercise 74, gap 19; the source sequence starts at one. -/
 theorem gap19 :
     ∀ n : ℕ, 0 < n →
       ((n : ℝ) / euler) ^ n < (Nat.factorial n : ℝ) := by
   intro n hn
   exact gap18 n hn
 
-/-- Source: `proof_gap/exercise_74/20.txt`. -/
+/-- Exercise 74, gap 20. -/
 theorem gap20 :
     ∀ n : ℕ, 0 < n →
       ((n : ℝ) / euler) ^ n < (Nat.factorial n : ℝ) ∧

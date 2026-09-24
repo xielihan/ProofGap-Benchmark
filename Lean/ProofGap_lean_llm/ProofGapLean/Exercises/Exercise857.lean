@@ -15,7 +15,7 @@ noncomputable section
 def y (a x : ℝ) : ℝ :=
   x / Real.sqrt (a ^ 2 - x ^ 2)
 
-/-- Source: `proof_gap/exercise_857/1.txt`.
+/-- Exercise 857, gap 1.
 The radicand is required to be positive. -/
 private lemma exp_log_half_eq_sqrt {z : ℝ} (hz : 0 < z) :
     Real.exp (Real.log z / 2) = Real.sqrt z := by
@@ -92,7 +92,7 @@ theorem gap1 (a x : ℝ) (hrad : 0 < a ^ 2 - x ^ 2) :
   field_simp [hsne, hrne]
   ring
 
-/-- Source: `proof_gap/exercise_857/2.txt`.
+/-- Exercise 857, gap 2.
 The positivity hypothesis makes every displayed denominator meaningful. -/
 theorem gap2 (a x : ℝ) (hrad : 0 < a ^ 2 - x ^ 2) :
     (Real.sqrt (a ^ 2 - x ^ 2) +
@@ -135,7 +135,7 @@ theorem gap2 (a x : ℝ) (hrad : 0 < a ^ 2 - x ^ 2) :
   field_simp [hsne, hrne] <;>
     nlinarith [Real.sq_sqrt (le_of_lt hrad)]
 
-/-- Source: `proof_gap/exercise_857/3.txt`.
+/-- Exercise 857, gap 3.
 The radicand is required to be positive. -/
 theorem gap3 (a x : ℝ) (hrad : 0 < a ^ 2 - x ^ 2) :
     HasDerivAt (y a)

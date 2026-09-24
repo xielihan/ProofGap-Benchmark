@@ -11,7 +11,7 @@ def f (x : ℝ) : ℝ := Real.sin x + Real.cos x
 def rangeOnPeriod : Set ℝ :=
   {y | ∃ x ∈ Set.Icc (0 : ℝ) (2 * Real.pi), y = f x}
 
-/-- Source: `proof_gap/exercise_393/1.txt`. -/
+/-- Exercise 393, gap 1. -/
 theorem gap1 : ∀ x,
     f x = Real.sqrt 2 * Real.sin (x + Real.pi / 4) := by
   intro x
@@ -28,7 +28,7 @@ theorem gap1 : ∀ x,
         (Real.sin x * (Real.sqrt 2 / 2) +
           Real.cos x * (Real.sqrt 2 / 2)) := by ring
 
-/-- Source: `proof_gap/exercise_393/2.txt`. -/
+/-- Exercise 393, gap 2. -/
 theorem gap2 : sInf rangeOnPeriod = -Real.sqrt 2 := by
   have hsqrt : 0 ≤ Real.sqrt (2 : ℝ) := Real.sqrt_nonneg _
   have hlower : ∀ y ∈ rangeOnPeriod, -Real.sqrt 2 ≤ y := by
@@ -61,7 +61,7 @@ theorem gap2 : sInf rangeOnPeriod = -Real.sqrt 2 := by
     · intro y hy
       exact hlower y hy
 
-/-- Source: `proof_gap/exercise_393/3.txt`. -/
+/-- Exercise 393, gap 3. -/
 theorem gap3 : sSup rangeOnPeriod = Real.sqrt 2 := by
   have hsqrt : 0 ≤ Real.sqrt (2 : ℝ) := Real.sqrt_nonneg _
   have hupper : ∀ y ∈ rangeOnPeriod, y ≤ Real.sqrt 2 := by

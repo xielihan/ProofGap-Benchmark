@@ -478,12 +478,12 @@ private theorem gap9_proof : Tendsto partialProduct atTop atTop := by
   · exact hNe k (by omega)
   · exact hNo k (by omega)
 
-/-- Source: `proof_gap/exercise_3092/1.txt`; exclude the zero denominator at `n = 1`. -/
+/-- Exercise 3092, gap 1; exclude the zero denominator at `n = 1`. -/
 theorem gap1 :
     ∀ n : ℕ, 2 ≤ n → Real.log (p n) = Real.log (rewrittenP n) := by
   exact gap1_proof
 
-/-- Source: `proof_gap/exercise_3092/2.txt`; paired terms start at `k = 1`. -/
+/-- Exercise 3092, gap 2; paired terms start at `k = 1`. -/
 theorem gap2 :
     ∀ k : ℕ, 1 ≤ k →
       u k =
@@ -491,36 +491,36 @@ theorem gap2 :
         Real.log (1 + 1 / (Real.sqrt (2 * k + 1) - 1)) := by
   exact gap2_proof
 
-/-- Source: `proof_gap/exercise_3092/3.txt`; combine the positive logarithm arguments. -/
+/-- Exercise 3092, gap 3; combine the positive logarithm arguments. -/
 theorem gap3 :
     ∀ k : ℕ, 1 ≤ k → u k = Real.log (combinedArgument k) := by
   exact gap3_proof
 
-/-- Source: `proof_gap/exercise_3092/4.txt`; retain the positive paired range. -/
+/-- Exercise 3092, gap 4; retain the positive paired range. -/
 theorem gap4 :
     ∀ k : ℕ, 1 ≤ k → 0 < Real.log (combinedArgument k) := by
   exact gap4_proof
 
-/-- Source: `proof_gap/exercise_3092/5.txt`. -/
+/-- Exercise 3092, gap 5. -/
 theorem gap5 :
     ∀ k : ℕ, 1 ≤ k → 0 < u k := by
   exact gap5_proof
 
-/-- Source: `proof_gap/exercise_3092/6.txt`; bind the whole asymptotic functions. -/
+/-- Exercise 3092, gap 6; bind the whole asymptotic functions. -/
 theorem gap6 :
     Asymptotics.IsEquivalent atTop u comparison := by
   exact gap6_proof
 
-/-- Source: `proof_gap/exercise_3092/7.txt`. -/
+/-- Exercise 3092, gap 7. -/
 theorem gap7 : ¬SummableFromOne u := by
   exact gap7_proof
 
-/-- Source: `proof_gap/exercise_3092/8.txt`. -/
+/-- Exercise 3092, gap 8. -/
 theorem gap8 :
     ¬SummableFromTwo (fun n => Real.log (p n)) := by
   exact gap8_proof
 
-/-- Source: `proof_gap/exercise_3092/9.txt`; `+∞` is the filter `atTop`. -/
+/-- Exercise 3092, gap 9; `+∞` is the filter `atTop`. -/
 theorem gap9 :
     Tendsto partialProduct atTop atTop := by
   exact gap9_proof

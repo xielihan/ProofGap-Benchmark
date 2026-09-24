@@ -4,7 +4,7 @@ import Mathlib.Data.Real.Archimedean
 /-!
 # Exercise 16
 
-Semantic formalization of `proof_gap/exercise_16/{1,...,10}.txt`.
+Semantic formalization of Exercise 16, gaps 1,...,10.
 The source set consists exactly of rational numbers strictly between zero and
 one.
 -/
@@ -47,7 +47,7 @@ def NoMaximum : Prop :=
 def NoMinimum : Prop :=
   ¬ ∃ a : ℚ, a ∈ E ∧ ∀ b : ℚ, b ∈ E → a ≤ b
 
-/-- Source: `proof_gap/exercise_16/1.txt`. -/
+/-- Exercise 16, gap 1. -/
 theorem gap1 : RaiseFraction := by
   intro m n hmem
   rcases hmem with ⟨hpos, hlt⟩
@@ -65,7 +65,7 @@ theorem gap1 : RaiseFraction := by
     apply (div_lt_one (by positivity : (0 : ℚ) < n + 1)).2
     exact_mod_cast Nat.add_lt_add_right hmn 1
 
-/-- Source: `proof_gap/exercise_16/2.txt`. -/
+/-- Exercise 16, gap 2. -/
 theorem gap2
     (h1 : RaiseFraction) :
     RaiseFractionStrictly := by
@@ -83,7 +83,7 @@ theorem gap2
   norm_num
   nlinarith
 
-/-- Source: `proof_gap/exercise_16/3.txt`. -/
+/-- Exercise 16, gap 3. -/
 theorem gap3
     (h1 : RaiseFraction)
     (h2 : RaiseFractionStrictly) :
@@ -98,7 +98,7 @@ theorem gap3
       nlinarith [mul_pos hpos (sub_pos.mpr hlt)]
     exact hsq_lt.trans hlt
 
-/-- Source: `proof_gap/exercise_16/4.txt`. -/
+/-- Exercise 16, gap 4. -/
 theorem gap4
     (h1 : RaiseFraction)
     (h2 : RaiseFractionStrictly)
@@ -109,7 +109,7 @@ theorem gap4
   rw [← div_pow]
   nlinarith [mul_pos hpos (sub_pos.mpr hlt)]
 
-/-- Source: `proof_gap/exercise_16/5.txt`. -/
+/-- Exercise 16, gap 5. -/
 theorem gap5
     (h1 : RaiseFraction)
     (h2 : RaiseFractionStrictly) :
@@ -123,7 +123,7 @@ theorem gap5
     linarith [ha.2]
   exact (not_lt_of_ge (hgreatest b hb)) hab
 
-/-- Source: `proof_gap/exercise_16/6.txt`. -/
+/-- Exercise 16, gap 6. -/
 theorem gap6
     (h3 : SquareFraction)
     (h4 : SquareFractionStrictlyLower) :
@@ -137,7 +137,7 @@ theorem gap6
     linarith [ha.1]
   exact (not_lt_of_ge (hleast b hb)) hba
 
-/-- Source: `proof_gap/exercise_16/7.txt`. -/
+/-- Exercise 16, gap 7. -/
 theorem gap7
     (h5 : NoMaximum) :
     maximumPoints E = ∅ := by
@@ -146,7 +146,7 @@ theorem gap7
   intro ha
   exact h5 ⟨a, ha.1, ha.2⟩
 
-/-- Source: `proof_gap/exercise_16/8.txt`. -/
+/-- Exercise 16, gap 8. -/
 theorem gap8
     (h6 : NoMinimum) :
     minimumPoints E = ∅ := by
@@ -155,7 +155,7 @@ theorem gap8
   intro ha
   exact h6 ⟨a, ha.1, ha.2⟩
 
-/-- Source: `proof_gap/exercise_16/9.txt`. -/
+/-- Exercise 16, gap 9. -/
 theorem gap9
     (h5 : NoMaximum)
     (h7 : maximumPoints E = ∅) :
@@ -185,7 +185,7 @@ theorem gap9
       linarith [lt_of_le_of_lt (le_max_left M 0) hqmax]
   exact hlub.csSup_eq hne
 
-/-- Source: `proof_gap/exercise_16/10.txt`. -/
+/-- Exercise 16, gap 10. -/
 theorem gap10
     (h6 : NoMinimum)
     (h8 : minimumPoints E = ∅)

@@ -5,7 +5,7 @@ open scoped Topology
 /-!
 # Exercise 42
 
-Semantic formalization of `proof_gap/exercise_42/{1,...,40}.txt`.
+Semantic formalization of Exercise 42, gaps 1,...,40.
 The four sequences and their four cutoff functions are kept distinct.
 -/
 
@@ -137,18 +137,18 @@ private theorem convergesToZero_of_hasCutoff {u : ℕ → ℝ}
   simpa [Real.dist_eq] using
     hN n ε hε (lt_of_lt_of_le (Nat.lt_succ_self (N ε)) hn)
 
-/-- Source: `proof_gap/exercise_42/1.txt`. -/
+/-- Exercise 42, gap 1. -/
 theorem gap1 : S1Abs := by
   intro n
   simp [seq1, abs_div, abs_pow]
 
-/-- Source: `proof_gap/exercise_42/2.txt`. -/
+/-- Exercise 42, gap 2. -/
 theorem gap2 (h1 : S1Abs) : S1Transfer := by
   intro n ε hε hn
   rw [h1 n]
   exact hn
 
-/-- Source: `proof_gap/exercise_42/3.txt`. -/
+/-- Exercise 42, gap 3. -/
 theorem gap3 (h2 : S1Transfer) : S1Index := by
   intro n ε hε hn
   have hnpos : 0 < (n : ℝ) :=
@@ -157,12 +157,12 @@ theorem gap3 (h2 : S1Transfer) : S1Index := by
   have hprod : 1 < (n : ℝ) * ε := (div_lt_iff₀ hε).mp hn
   simpa [mul_comm] using hprod
 
-/-- Source: `proof_gap/exercise_42/4.txt`. -/
+/-- Exercise 42, gap 4. -/
 theorem gap4 (h2 : S1Transfer) (h3 : S1Index) : S1FromIndex := by
   intro n ε hε hn
   exact h2 n ε hε (h3 n ε hε hn)
 
-/-- Source: `proof_gap/exercise_42/5.txt`. -/
+/-- Exercise 42, gap 5. -/
 theorem gap5 (h4 : S1FromIndex) : HasCutoff seq1 := by
   refine ⟨N1, ?_⟩
   intro n ε hε hn
@@ -174,11 +174,11 @@ theorem gap5 (h4 : S1FromIndex) : HasCutoff seq1 := by
     exact_mod_cast hsuc
   exact (Nat.lt_floor_add_one (1 / ε)).trans_le hcast
 
-/-- Source: `proof_gap/exercise_42/6.txt`. -/
+/-- Exercise 42, gap 6. -/
 theorem gap6 (h5 : HasCutoff seq1) : ConvergesToZero seq1 := by
   exact convergesToZero_of_hasCutoff h5
 
-/-- Source: `proof_gap/exercise_42/7.txt`. -/
+/-- Exercise 42, gap 7. -/
 theorem gap7 : S2Abs := by
   intro n
   rw [abs_of_nonneg]
@@ -186,20 +186,20 @@ theorem gap7 : S2Abs := by
   · unfold seq2
     positivity
 
-/-- Source: `proof_gap/exercise_42/8.txt`; restricted to positive indices. -/
+/-- Exercise 42, gap 8; restricted to positive indices. -/
 theorem gap8 (h7 : S2Abs) : S2Bound := by
   intro n hn
   have hnpos : 0 < (n : ℝ) := by exact_mod_cast hn
   rw [div_lt_div_iff₀ (by positivity) (by positivity)]
   nlinarith
 
-/-- Source: `proof_gap/exercise_42/9.txt`; restricted to positive indices. -/
+/-- Exercise 42, gap 9; restricted to positive indices. -/
 theorem gap9 (h7 : S2Abs) (h8 : S2Bound) : S2AbsBound := by
   intro n hn
   rw [h7 n]
   exact h8 n hn
 
-/-- Source: `proof_gap/exercise_42/10.txt`. -/
+/-- Exercise 42, gap 10. -/
 theorem gap10 (h9 : S2AbsBound) : S2Transfer := by
   intro n ε hε hn
   by_cases hzero : n = 0
@@ -208,7 +208,7 @@ theorem gap10 (h9 : S2AbsBound) : S2Transfer := by
     exact hε
   · exact (h9 n (Nat.pos_of_ne_zero hzero)).trans hn
 
-/-- Source: `proof_gap/exercise_42/11.txt`. -/
+/-- Exercise 42, gap 11. -/
 theorem gap11 (h10 : S2Transfer) : S2Index := by
   intro n ε hε hn
   have hq : 0 < 2 / ε := div_pos (by norm_num) hε
@@ -221,12 +221,12 @@ theorem gap11 (h10 : S2Transfer) : S2Index := by
   have hprod : 2 < (n : ℝ) ^ 2 * ε := (div_lt_iff₀ hε).mp hpow
   simpa [mul_comm] using hprod
 
-/-- Source: `proof_gap/exercise_42/12.txt`. -/
+/-- Exercise 42, gap 12. -/
 theorem gap12 (h10 : S2Transfer) (h11 : S2Index) : S2FromIndex := by
   intro n ε hε hn
   exact h10 n ε hε (h11 n ε hε hn)
 
-/-- Source: `proof_gap/exercise_42/13.txt`. -/
+/-- Exercise 42, gap 13. -/
 theorem gap13 (h12 : S2FromIndex) : HasCutoff seq2 := by
   refine ⟨N2, ?_⟩
   intro n ε hε hn
@@ -240,11 +240,11 @@ theorem gap13 (h12 : S2FromIndex) : HasCutoff seq2 := by
     exact_mod_cast hsuc
   exact (Nat.lt_floor_add_one (Real.sqrt (2 / ε))).trans_le hcast
 
-/-- Source: `proof_gap/exercise_42/14.txt`. -/
+/-- Exercise 42, gap 14. -/
 theorem gap14 (h13 : HasCutoff seq2) : ConvergesToZero seq2 := by
   exact convergesToZero_of_hasCutoff h13
 
-/-- Source: `proof_gap/exercise_42/15.txt`. -/
+/-- Exercise 42, gap 15. -/
 theorem gap15 : S3Abs := by
   intro n
   rw [abs_of_nonneg]
@@ -252,7 +252,7 @@ theorem gap15 : S3Abs := by
   · unfold seq3
     positivity
 
-/-- Source: `proof_gap/exercise_42/16.txt`. -/
+/-- Exercise 42, gap 16. -/
 theorem gap16 (h15 : S3Abs) : S3Bound := by
   intro n
   cases n with
@@ -264,18 +264,18 @@ theorem gap16 (h15 : S3Abs) : S3Bound := by
         simpa [Nat.add_comm] using (@Nat.factorial_mul_pow_le_factorial 1 k)
       exact_mod_cast hnat
 
-/-- Source: `proof_gap/exercise_42/17.txt`. -/
+/-- Exercise 42, gap 17. -/
 theorem gap17 (h15 : S3Abs) (h16 : S3Bound) : S3AbsBound := by
   intro n
   rw [h15 n]
   exact h16 n
 
-/-- Source: `proof_gap/exercise_42/18.txt`. -/
+/-- Exercise 42, gap 18. -/
 theorem gap18 (h17 : S3AbsBound) : S3Transfer := by
   intro n ε hε hn
   exact (h17 n).trans_lt hn
 
-/-- Source: `proof_gap/exercise_42/19.txt`. -/
+/-- Exercise 42, gap 19. -/
 theorem gap19 (h18 : S3Transfer) : S3Index := by
   intro n ε hε hn
   change (n : ℝ) > 1 + Real.logb 2 (1 / ε) at hn
@@ -307,12 +307,12 @@ theorem gap19 (h18 : S3Transfer) : S3Index := by
         (div_lt_iff₀ hε).mp hpow
       simpa [mul_comm] using hprod
 
-/-- Source: `proof_gap/exercise_42/20.txt`. -/
+/-- Exercise 42, gap 20. -/
 theorem gap20 (h18 : S3Transfer) (h19 : S3Index) : S3FromIndex := by
   intro n ε hε hn
   exact h18 n ε hε (h19 n ε hε hn)
 
-/-- Source: `proof_gap/exercise_42/21.txt`. -/
+/-- Exercise 42, gap 21. -/
 theorem gap21 (h20 : S3FromIndex) : HasCutoff seq3 := by
   refine ⟨N3, ?_⟩
   intro n ε hε hn
@@ -331,16 +331,16 @@ theorem gap21 (h20 : S3FromIndex) : HasCutoff seq3 := by
     Nat.lt_floor_add_one _
   linarith
 
-/-- Source: `proof_gap/exercise_42/22.txt`. -/
+/-- Exercise 42, gap 22. -/
 theorem gap22 (h21 : HasCutoff seq3) : ConvergesToZero seq3 := by
   exact convergesToZero_of_hasCutoff h21
 
-/-- Source: `proof_gap/exercise_42/23.txt`. -/
+/-- Exercise 42, gap 23. -/
 theorem gap23 : S4Abs := by
   intro n
   simp [seq4, abs_mul, abs_pow, abs_of_pos (by norm_num : (0 : ℝ) < 0.999)]
 
-/-- Source: `proof_gap/exercise_42/24.txt`. -/
+/-- Exercise 42, gap 24. -/
 theorem gap24 (h23 : S4Abs) : S4LogTransfer := by
   intro n ε hε hn
   rw [h23 n]
@@ -348,19 +348,19 @@ theorem gap24 (h23 : S4Abs) : S4LogTransfer := by
   rw [Real.log_pow]
   exact hn
 
-/-- Source: `proof_gap/exercise_42/25.txt`. -/
+/-- Exercise 42, gap 25. -/
 theorem gap25 (h24 : S4LogTransfer) : S4IndexLog := by
   intro n ε hε hn
   have hlog : Real.log (0.999 : ℝ) < 0 :=
     Real.log_neg (by norm_num) (by norm_num)
   exact (div_lt_iff_of_neg hlog).mp hn
 
-/-- Source: `proof_gap/exercise_42/26.txt`. -/
+/-- Exercise 42, gap 26. -/
 theorem gap26 (h24 : S4LogTransfer) (h25 : S4IndexLog) : S4FromIndex := by
   intro n ε hε hn
   exact h24 n ε hε (h25 n ε hε hn)
 
-/-- Source: `proof_gap/exercise_42/27.txt`. -/
+/-- Exercise 42, gap 27. -/
 theorem gap27 (h26 : S4FromIndex) : HasCutoff seq4 := by
   refine ⟨fun ε => Nat.floor (Real.log ε / Real.log 0.999), ?_⟩
   intro n ε hε hn
@@ -374,69 +374,69 @@ theorem gap27 (h26 : S4FromIndex) : HasCutoff seq4 := by
     exact_mod_cast hsuc
   exact (Nat.lt_floor_add_one _).trans_le hcast
 
-/-- Source: `proof_gap/exercise_42/28.txt`. -/
+/-- Exercise 42, gap 28. -/
 theorem gap28 (h27 : HasCutoff seq4) : ConvergesToZero seq4 := by
   exact convergesToZero_of_hasCutoff h27
 
-/-- Source: `proof_gap/exercise_42/29.txt`; uses the cutoff for sequence (1). -/
+/-- Exercise 42, gap 29; uses the cutoff for sequence (1). -/
 theorem gap29 : N1 (0.1 : ℝ) = 10 := by
   norm_num [N1]
 
-/-- Source: `proof_gap/exercise_42/30.txt`; uses the cutoff for sequence (1). -/
+/-- Exercise 42, gap 30; uses the cutoff for sequence (1). -/
 theorem gap30 : N1 (0.01 : ℝ) = 100 := by
   norm_num [N1]
 
-/-- Source: `proof_gap/exercise_42/31.txt`; uses the cutoff for sequence (1). -/
+/-- Exercise 42, gap 31; uses the cutoff for sequence (1). -/
 theorem gap31 : N1 (0.001 : ℝ) = 1000 := by
   norm_num [N1]
 
-/-- Source: `proof_gap/exercise_42/32.txt`; uses the cutoff for sequence (2). -/
+/-- Exercise 42, gap 32; uses the cutoff for sequence (2). -/
 theorem gap32 : N2 (0.1 : ℝ) = 4 := by
   norm_num [N2]
   change Nat.floor (Real.sqrt ((20 : ℕ) : ℝ)) = 4
   rw [Real.nat_floor_real_sqrt_eq_nat_sqrt]
   native_decide
 
-/-- Source: `proof_gap/exercise_42/33.txt`; uses the cutoff for sequence (2). -/
+/-- Exercise 42, gap 33; uses the cutoff for sequence (2). -/
 theorem gap33 : N2 (0.01 : ℝ) = 14 := by
   norm_num [N2]
   change Nat.floor (Real.sqrt ((200 : ℕ) : ℝ)) = 14
   rw [Real.nat_floor_real_sqrt_eq_nat_sqrt]
   native_decide
 
-/-- Source: `proof_gap/exercise_42/34.txt`; uses the cutoff for sequence (2). -/
+/-- Exercise 42, gap 34; uses the cutoff for sequence (2). -/
 theorem gap34 : N2 (0.001 : ℝ) = 44 := by
   norm_num [N2]
   change Nat.floor (Real.sqrt ((2000 : ℕ) : ℝ)) = 44
   rw [Real.nat_floor_real_sqrt_eq_nat_sqrt]
   native_decide
 
-/-- Source: `proof_gap/exercise_42/35.txt`; uses the cutoff for sequence (3). -/
+/-- Exercise 42, gap 35; uses the cutoff for sequence (3). -/
 theorem gap35 : N3 (0.1 : ℝ) = 4 := by
   norm_num [N3]
   change Nat.floor (Real.logb ((2 : ℕ) : ℝ) ((10 : ℕ) : ℝ)) + 1 = 4
   rw [Real.natFloor_logb_natCast]
   native_decide
 
-/-- Source: `proof_gap/exercise_42/36.txt`; uses the cutoff for sequence (3). -/
+/-- Exercise 42, gap 36; uses the cutoff for sequence (3). -/
 theorem gap36 : N3 (0.01 : ℝ) = 7 := by
   norm_num [N3]
   change Nat.floor (Real.logb ((2 : ℕ) : ℝ) ((100 : ℕ) : ℝ)) + 1 = 7
   rw [Real.natFloor_logb_natCast]
   native_decide
 
-/-- Source: `proof_gap/exercise_42/37.txt`; uses the cutoff for sequence (3). -/
+/-- Exercise 42, gap 37; uses the cutoff for sequence (3). -/
 theorem gap37 : N3 (0.001 : ℝ) = 10 := by
   norm_num [N3]
   change Nat.floor (Real.logb ((2 : ℕ) : ℝ) ((1000 : ℕ) : ℝ)) + 1 = 10
   rw [Real.natFloor_logb_natCast]
   native_decide
 
-/-- Source: `proof_gap/exercise_42/38.txt`; uses the cutoff for sequence (4). -/
+/-- Exercise 42, gap 38; uses the cutoff for sequence (4). -/
 theorem gap38 : N4 (0.1 : ℝ) = 2500 := by
   norm_num [N4]
 
-/-- Source: `proof_gap/exercise_42/39.txt`; uses the cutoff for sequence (4). -/
+/-- Exercise 42, gap 39; uses the cutoff for sequence (4). -/
 theorem gap39 : N4 (0.01 : ℝ) = 5000 := by
   norm_num [N4]
   have hlog : Real.log (100 : ℝ) = 2 * Real.log 10 := by
@@ -448,7 +448,7 @@ theorem gap39 : N4 (0.01 : ℝ) = 5000 := by
   field_simp [hne]
   norm_num
 
-/-- Source: `proof_gap/exercise_42/40.txt`; uses the cutoff for sequence (4). -/
+/-- Exercise 42, gap 40; uses the cutoff for sequence (4). -/
 theorem gap40 : N4 (0.001 : ℝ) = 7500 := by
   norm_num [N4]
   have hlog : Real.log (1000 : ℝ) = 3 * Real.log 10 := by

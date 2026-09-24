@@ -9,7 +9,7 @@ open scoped Topology
 /-!
 # Exercise 60
 
-Semantic formalization of `proof_gap/exercise_60/{1,...,24}.txt`.
+Semantic formalization of Exercise 60, gaps 1,...,24.
 The exponent `k` is real, so real powers are represented by `Real.rpow`.
 -/
 
@@ -46,7 +46,7 @@ private theorem seq_eq_negativeRewrite (a k : ℝ) (n : ℕ) :
       Real.rpow_neg (Nat.cast_nonneg n) k]
   simp [one_div, div_eq_mul_inv, mul_inv_rev]
 
-/-- Source: `proof_gap/exercise_60/1.txt`. -/
+/-- Exercise 60, gap 1. -/
 theorem gap1
     (a lam : ℝ)
     (ha : 1 < a)
@@ -54,7 +54,7 @@ theorem gap1
     0 < lam := by
   linarith
 
-/-- Source: `proof_gap/exercise_60/2.txt`. -/
+/-- Exercise 60, gap 2. -/
 theorem gap2
     (a lam : ℝ)
     (hal : a = 1 + lam) :
@@ -62,7 +62,7 @@ theorem gap2
   intro n
   rw [hal]
 
-/-- Source: `proof_gap/exercise_60/3.txt`. -/
+/-- Exercise 60, gap 3. -/
 theorem gap3
     (lam : ℝ) :
     ∀ n : ℕ, (1 + lam) ^ n = binomialExpansion lam n := by
@@ -71,7 +71,7 @@ theorem gap3
   rw [add_comm]
   simpa [mul_comm] using (add_pow lam 1 n)
 
-/-- Source: `proof_gap/exercise_60/4.txt`. -/
+/-- Exercise 60, gap 4. -/
 theorem gap4
     (lam : ℝ)
     (hlam : 0 < lam)
@@ -106,7 +106,7 @@ theorem gap4
     rw [← hftwo]
     linarith
 
-/-- Source: `proof_gap/exercise_60/5.txt`. -/
+/-- Exercise 60, gap 5. -/
 theorem gap5
     (a lam : ℝ)
     (h2 : ∀ n : ℕ, a ^ n = (1 + lam) ^ n)
@@ -120,14 +120,14 @@ theorem gap5
   rw [h2 n, h3 n]
   exact h4 n
 
-/-- Source: `proof_gap/exercise_60/6.txt`. -/
+/-- Exercise 60, gap 6. -/
 theorem gap6 :
     ∀ n : ℕ, 2 < n → (n : ℝ) - 1 > (n : ℝ) / 2 := by
   intro n hn
   have hncast : (2 : ℝ) < (n : ℝ) := by exact_mod_cast hn
   linarith
 
-/-- Source: `proof_gap/exercise_60/7.txt`. -/
+/-- Exercise 60, gap 7. -/
 theorem gap7
     (a lam : ℝ)
     (h5 : ∀ n : ℕ,
@@ -147,7 +147,7 @@ theorem gap7
     exact mul_le_mul_of_nonneg_right hcoef (sq_nonneg lam)
   exact hbound.trans_lt (h5 n)
 
-/-- Source: `proof_gap/exercise_60/8.txt`. -/
+/-- Exercise 60, gap 8. -/
 theorem gap8
     (a lam : ℝ)
     (hal : a = 1 + lam) :
@@ -158,7 +158,7 @@ theorem gap8
   rw [hal]
   ring
 
-/-- Source: `proof_gap/exercise_60/9.txt`. -/
+/-- Exercise 60, gap 9. -/
 theorem gap9
     (a lam : ℝ)
     (h7 : ∀ n : ℕ, 2 < n →
@@ -172,7 +172,7 @@ theorem gap9
   rw [← h8 n hn]
   exact h7 n hn
 
-/-- Source: `proof_gap/exercise_60/10.txt`. -/
+/-- Exercise 60, gap 10. -/
 theorem gap10
     (a : ℝ) :
     ∀ k : ℝ, k ≤ 0 →
@@ -180,7 +180,7 @@ theorem gap10
   intro k hk l
   exact Filter.tendsto_congr (seq_eq_negativeRewrite a k)
 
-/-- Source: `proof_gap/exercise_60/11.txt`. -/
+/-- Exercise 60, gap 11. -/
 theorem gap11
     (a : ℝ)
     (ha : 1 < a) :
@@ -213,7 +213,7 @@ theorem gap11
       _ = (a⁻¹) ^ n := by simp [one_div, inv_pow]
   · exact hgeom
 
-/-- Source: `proof_gap/exercise_60/12.txt`. -/
+/-- Exercise 60, gap 12. -/
 theorem gap12
     (a : ℝ)
     (h10 : ∀ k : ℝ, k ≤ 0 →
@@ -224,7 +224,7 @@ theorem gap12
   intro k hk
   exact (h10 k hk 0).mpr (h11 k hk)
 
-/-- Source: `proof_gap/exercise_60/13.txt`; positive `n` is restored. -/
+/-- Exercise 60, gap 13; positive `n` is restored. -/
 theorem gap13
     (a : ℝ)
     (ha : 1 < a) :
@@ -236,7 +236,7 @@ theorem gap13
     (Real.rpow_pos_of_pos (Nat.cast_pos.mpr hn) 1)
     (pow_pos (lt_trans zero_lt_one ha) n)
 
-/-- Source: `proof_gap/exercise_60/14.txt`. -/
+/-- Exercise 60, gap 14. -/
 theorem gap14
     (a : ℝ) :
     ∀ (k : ℝ) (n : ℕ), k = 1 →
@@ -245,7 +245,7 @@ theorem gap14
   subst k
   simp [seq, Real.rpow_one]
 
-/-- Source: `proof_gap/exercise_60/15.txt`; the source condition `n>2` is restored. -/
+/-- Exercise 60, gap 15; the source condition `n>2` is restored. -/
 theorem gap15
     (a : ℝ)
     (ha : 1 < a)
@@ -268,7 +268,7 @@ theorem gap15
     _ = (4 * (n : ℝ)) / ((n : ℝ) ^ 2 * (a - 1) ^ 2) := by
       field_simp
 
-/-- Source: `proof_gap/exercise_60/16.txt`; positive `n` is restored. -/
+/-- Exercise 60, gap 16; positive `n` is restored. -/
 theorem gap16
     (a : ℝ)
     (ha : 1 < a) :
@@ -280,7 +280,7 @@ theorem gap16
   have haa : 0 < a - 1 := sub_pos.mpr ha
   positivity
 
-/-- Source: `proof_gap/exercise_60/17.txt`. -/
+/-- Exercise 60, gap 17. -/
 theorem gap17
     (a : ℝ)
     (ha : 1 < a) :
@@ -298,7 +298,7 @@ theorem gap17
   have hnreal : (n : ℝ) ≠ 0 := Nat.cast_ne_zero.mpr hn
   field_simp [hnreal, hane]
 
-/-- Source: `proof_gap/exercise_60/18.txt`. -/
+/-- Exercise 60, gap 18. -/
 theorem gap18
     (a : ℝ)
     (ha : 1 < a)
@@ -319,7 +319,7 @@ theorem gap18
     change (n : ℝ) * (a⁻¹) ^ n = (n : ℝ) * (a ^ n)⁻¹
     rw [inv_pow]
 
-/-- Source: `proof_gap/exercise_60/19.txt`. -/
+/-- Exercise 60, gap 19. -/
 theorem gap19
     (a : ℝ)
     (ha : 1 < a) :
@@ -338,7 +338,7 @@ theorem gap19
     (Real.rpow_inv_rpow
       (pow_nonneg (le_trans zero_le_one ha.le) n) hk.ne').symm
 
-/-- Source: `proof_gap/exercise_60/20.txt`. -/
+/-- Exercise 60, gap 20. -/
 theorem gap20
     (a : ℝ)
     (ha : 1 < a) :
@@ -347,7 +347,7 @@ theorem gap20
   unfold rootBase
   exact Real.one_lt_rpow ha (one_div_pos.mpr hk)
 
-/-- Source: `proof_gap/exercise_60/21.txt`. -/
+/-- Exercise 60, gap 21. -/
 theorem gap21
     (a : ℝ)
     (h18 : Tendsto (fun n : ℕ => (n : ℝ) / a ^ n) atTop (𝓝 0))
@@ -370,7 +370,7 @@ theorem gap21
         (n : ℝ) * ((rootBase a k) ^ n)⁻¹
     rw [inv_pow]
 
-/-- Source: `proof_gap/exercise_60/22.txt`. -/
+/-- Exercise 60, gap 22. -/
 theorem gap22
     (a : ℝ)
     (h19 : ∀ (k : ℝ) (n : ℕ), 0 < k →
@@ -388,7 +388,7 @@ theorem gap22
   apply Filter.Tendsto.congr' _ hrpow
   exact Filter.Eventually.of_forall fun n => (h19 k n hk).symm
 
-/-- Source: `proof_gap/exercise_60/23.txt`. -/
+/-- Exercise 60, gap 23. -/
 theorem gap23
     (a : ℝ)
     (ha : 1 < a)
@@ -400,7 +400,7 @@ theorem gap23
   · exact h12 k hk
   · exact h22 k (lt_of_not_ge hk)
 
-/-- Source: `proof_gap/exercise_60/24.txt`. -/
+/-- Exercise 60, gap 24. -/
 theorem gap24
     (a : ℝ)
     (ha : 1 < a)

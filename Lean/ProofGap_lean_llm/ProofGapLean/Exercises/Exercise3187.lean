@@ -21,7 +21,7 @@ def factored (p : ℝ × ℝ) : ℝ :=
   (Real.sin (p.1 * p.2) / (p.1 * p.2)) * p.2
 
 /--
-Source: `proof_gap/exercise_3187/1.txt`; approach `(0,a)` through
+Exercise 3187, gap 1; approach `(0,a)` through
 the natural domain `x≠0`.
 -/
 theorem gap1 :
@@ -39,7 +39,7 @@ theorem gap1 :
       field_simp [hp, hy] <;> ring
   exact tendsto_congr' heq
 
-/-- Source: `proof_gap/exercise_3187/2.txt`; sine-ratio limit on the same domain. -/
+/-- Exercise 3187, gap 2; sine-ratio limit on the same domain. -/
 theorem gap2 :
     ∀ a : ℝ, Tendsto factored (xNonzeroFilter a) (𝓝 a) := by
   intro a
@@ -69,7 +69,7 @@ theorem gap2 :
     exact hfull.mono_left inf_le_left
   exact (tendsto_congr' heq).2 ht
 
-/-- Source: `proof_gap/exercise_3187/3.txt`; final restricted-domain limit. -/
+/-- Exercise 3187, gap 3; final restricted-domain limit. -/
 theorem gap3 :
     ∀ a : ℝ, Tendsto original (xNonzeroFilter a) (𝓝 a) := by
   intro a

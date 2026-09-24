@@ -8,7 +8,7 @@ noncomputable section
 def target (x : ℝ) : ℝ := 1 / Real.sin (Real.pi * x)
 def model (x : ℝ) : ℝ := 1 / (Real.pi * (1 - x))
 
-/-- Source: `proof_gap/exercise_658_4/1.txt`; exclude the zeros of the displayed denominators. -/
+/-- Exercise 658_4, gap 1; exclude the zeros of the displayed denominators. -/
 private theorem ratio_identity (x : ℝ) :
     target x / model x =
       Real.pi * (1 - x) / Real.sin (Real.pi * (1 - x)) := by
@@ -25,7 +25,7 @@ theorem gap1 (x : ℝ) (hx : x ≠ 1) (hsin : Real.sin (Real.pi * x) ≠ 0) :
       (Real.pi * (1 - x)) / Real.sin (Real.pi * (1 - x)) := by
   exact ratio_identity x
 
-/-- Source: `proof_gap/exercise_658_4/2.txt`. -/
+/-- Exercise 658_4, gap 2. -/
 theorem gap2 :
     Filter.Tendsto
       (fun x : ℝ => Real.pi * (1 - x) / Real.sin (Real.pi * (1 - x)))
@@ -74,7 +74,7 @@ theorem gap2 :
     mul_ne_zero Real.pi_ne_zero (sub_ne_zero.mpr (Ne.symm hx))
   simp [Real.sinc, ha]
 
-/-- Source: `proof_gap/exercise_658_4/3.txt`. -/
+/-- Exercise 658_4, gap 3. -/
 theorem gap3 :
     Filter.Tendsto (fun x : ℝ => target x / model x)
       (nhdsWithin 1 ({1} : Set ℝ)ᶜ) (nhds 1) := by
@@ -87,7 +87,7 @@ theorem gap3 :
   rw [hfun]
   exact gap2
 
-/-- Source: `proof_gap/exercise_658_4/4.txt`. -/
+/-- Exercise 658_4, gap 4. -/
 theorem gap4 :
     Asymptotics.IsEquivalent (nhdsWithin 1 ({1} : Set ℝ)ᶜ)
       target model := by
@@ -118,7 +118,7 @@ theorem gap4 :
   rw [hid, norm_mul]
   exact mul_le_mul_of_nonneg_right (le_of_lt hs) (norm_nonneg _)
 
-/-- Source: `proof_gap/exercise_658_4/5.txt`; unpack the singleton pair. -/
+/-- Exercise 658_4, gap 5; unpack the singleton pair. -/
 theorem gap5 (C : ℝ) (n : ℕ) (h : (C, n) = (1 / Real.pi, 1)) :
     Asymptotics.IsEquivalent (nhdsWithin 1 ({1} : Set ℝ)ᶜ)
       target (fun x => C * (1 / (1 - x)) ^ n) := by

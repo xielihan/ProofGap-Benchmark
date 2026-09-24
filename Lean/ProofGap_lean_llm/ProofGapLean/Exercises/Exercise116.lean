@@ -110,7 +110,7 @@ private theorem one_mem_cluster : 1 ∈ ProofGap.ClusterSet x := by
   filter_upwards with k
   simpa [p, Function.comp_apply] using (x_even k).symm
 
-/-- Source: `proof_gap/exercise_116/1.txt`; the pair definition is totalized by parity. -/
+/-- Exercise 116, gap 1; the pair definition is totalized by parity. -/
 theorem gap1 :
     ProofGap.ClusterSet x = ({0, 1} : Set ℝ) := by
   ext a

@@ -35,26 +35,26 @@ private lemma innerValues_eq_Ioc : innerValues = Set.Ioc 0 3 := by
     rw [hcos]
     ring
 
-/-- Source: `proof_gap/exercise_167/1.txt`. -/
+/-- Exercise 167, gap 1. -/
 theorem gap1 : ∀ x : ℝ, 0 < 1 - 2 * Real.cos x → x ∈ domain := by
   intro x hx
   exact hx
 
-/-- Source: `proof_gap/exercise_167/2.txt`; name the set A explicitly. -/
+/-- Exercise 167, gap 2; name the set A explicitly. -/
 theorem gap2 : domain = {x : ℝ | 0 < 1 - 2 * Real.cos x} := by
   rfl
 
-/-- Source: `proof_gap/exercise_167/3.txt`; use supremum for the image set. -/
+/-- Exercise 167, gap 3; use supremum for the image set. -/
 theorem gap3 : sSup innerValues = 3 := by
   rw [innerValues_eq_Ioc]
   exact csSup_Ioc (by norm_num)
 
-/-- Source: `proof_gap/exercise_167/4.txt`; zero is the unattained infimum. -/
+/-- Exercise 167, gap 4; zero is the unattained infimum. -/
 theorem gap4 : sInf innerValues = 0 := by
   rw [innerValues_eq_Ioc]
   exact csInf_Ioc (by norm_num)
 
-/-- Source: `proof_gap/exercise_167/5.txt`; the lower endpoint is unbounded. -/
+/-- Exercise 167, gap 5; the lower endpoint is unbounded. -/
 theorem gap5 : valueSet = Set.Iic (lg 3) := by
   ext t
   constructor

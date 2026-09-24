@@ -13,7 +13,7 @@ def rationalized (x : ℝ) : ℝ :=
 def HasLimitAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
   Filter.Tendsto f (nhdsWithin a ({a} : Set ℝ)ᶜ) (nhds L)
 
-/-- Source: `proof_gap/exercise_445/1.txt`. -/
+/-- Exercise 445, gap 1. -/
 private theorem original_eventuallyEq_rationalized :
     original =ᶠ[nhdsWithin (0 : ℝ) ({0} : Set ℝ)ᶜ] rationalized := by
   have hlim : Filter.Tendsto (fun x : ℝ => x)
@@ -51,11 +51,11 @@ theorem gap1 : HasLimitAt original 0 (-2) ↔ HasLimitAt rationalized 0 (-2) := 
   · intro h
     exact h.congr' original_eventuallyEq_rationalized.symm
 
-/-- Source: `proof_gap/exercise_445/2.txt`. -/
+/-- Exercise 445, gap 2. -/
 theorem gap2 : HasLimitAt original 0 (-2) ↔ HasLimitAt rationalized 0 (-2) := by
   exact gap1
 
-/-- Source: `proof_gap/exercise_445/3.txt`. -/
+/-- Exercise 445, gap 3. -/
 theorem gap3 : HasLimitAt rationalized 0 (-2) := by
   unfold HasLimitAt
   have hnum : ContinuousAt (fun x : ℝ => -2 * (2 + x)) 0 :=
@@ -74,7 +74,7 @@ theorem gap3 : HasLimitAt rationalized 0 (-2) := by
   rw [← hr0]
   exact hcont.tendsto.mono_left inf_le_left
 
-/-- Source: `proof_gap/exercise_445/4.txt`. -/
+/-- Exercise 445, gap 4. -/
 theorem gap4 : HasLimitAt original 0 (-2) := by
   exact gap1.mpr gap3
 

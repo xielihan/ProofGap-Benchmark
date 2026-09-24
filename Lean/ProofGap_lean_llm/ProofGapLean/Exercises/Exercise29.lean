@@ -3,7 +3,7 @@ import ProofGapLean.Prelude.Elementary
 /-!
 # Exercise 29
 
-Semantic formalization of `proof_gap/exercise_29/{1,...,7}.txt`.
+Semantic formalization of Exercise 29, gaps 1,...,7.
 -/
 
 namespace ProofGap.Exercise29
@@ -42,7 +42,7 @@ private lemma factor20 (x : ℝ) :
   have hs := Real.sq_sqrt (by norm_num : (0 : ℝ) ≤ 20)
   nlinarith
 
-/-- Source: `proof_gap/exercise_29/1.txt`; the omitted original inequality is explicit. -/
+/-- Exercise 29, gap 1; the omitted original inequality is explicit. -/
 theorem gap1
     (x : ℝ)
     (h0 : Original x) :
@@ -56,7 +56,7 @@ theorem gap1
     _ = |x| * |1 - x| := abs_mul x (1 - x)
     _ < 1 / 20 := h0
 
-/-- Source: `proof_gap/exercise_29/2.txt`; the source's `∨` is repaired to `∧`. -/
+/-- Exercise 29, gap 2; the source's `∨` is repaired to `∧`. -/
 theorem gap2
     (x : ℝ)
     (h1 : |x - x ^ 2| < (1 / 20 : ℝ)) :
@@ -65,7 +65,7 @@ theorem gap2
   rcases abs_lt.mp h1 with ⟨hl, hu⟩
   constructor <;> linarith
 
-/-- Source: `proof_gap/exercise_29/3.txt`. -/
+/-- Exercise 29, gap 3. -/
 theorem gap3
     (x : ℝ)
     (h2 : x ^ 2 - x + (1 / 20 : ℝ) > 0 ∧
@@ -79,7 +79,7 @@ theorem gap3
   rw [factor30] at hprod
   linarith [h2.2]
 
-/-- Source: `proof_gap/exercise_29/4.txt`. -/
+/-- Exercise 29, gap 4. -/
 theorem gap4
     (x : ℝ)
     (h2 : x ^ 2 - x + (1 / 20 : ℝ) > 0 ∧
@@ -93,7 +93,7 @@ theorem gap4
   rw [factor30] at hprod
   linarith [h2.2]
 
-/-- Source: `proof_gap/exercise_29/5.txt`. -/
+/-- Exercise 29, gap 5. -/
 theorem gap5
     (x : ℝ)
     (h3 : Lower30 < x)
@@ -101,7 +101,7 @@ theorem gap5
     Lower30 < Upper30 := by
   exact h3.trans h4
 
-/-- Source: `proof_gap/exercise_29/6.txt`. -/
+/-- Exercise 29, gap 6. -/
 theorem gap6
     (x : ℝ)
     (h2 : x ^ 2 - x + (1 / 20 : ℝ) > 0 ∧
@@ -116,7 +116,7 @@ theorem gap6
   rw [factor20] at hprod
   linarith [h2.1]
 
-/-- Source: `proof_gap/exercise_29/7.txt`. -/
+/-- Exercise 29, gap 7. -/
 theorem gap7
     (x : ℝ)
     (h3 : Lower30 < x)
