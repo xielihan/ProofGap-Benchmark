@@ -9,6 +9,9 @@ based on Demidovich's mathematical analysis exercises
 | [ProofGap_lean](ProofGap_lean/) | Backend-printed statements with proof placeholders | `ProofGapLeanBackend` |
 | [ProofGap_lean_llm](ProofGap_lean_llm/) | LLM-converted statements, primarily with proof placeholders | `ProofGapLean` |
 
+The variants contain disjoint exercise sets and together cover all **2,947
+exercises and 25,987 gap IDs** in NFL.
+
 Both datasets use **Lean and Mathlib `v4.29.0-rc6`** and share the dependency
 cache in `.lake/`. Their proof-completion task is described in the
 [benchmark overview](../README.md#task).
@@ -79,5 +82,6 @@ Mathlib is locked to commit `5c8398df528176d9c87ccd9226ba8f7c8852d59c`.
 Keep these configuration files together when reproducing an evaluation.
 The first setup may download the pinned toolchain and dependencies.
 
-The two individual exercises above have been checked in this environment.
+The two individual exercises above and LLM exercises 3801 and 3802 have been
+checked in this environment.
 A full build of both datasets has not been validated.

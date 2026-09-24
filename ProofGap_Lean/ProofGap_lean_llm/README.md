@@ -1,6 +1,6 @@
 # ProofGap_lean_llm
 
-**10,857 Lean gap statements across 1,072 exercise modules.** This variant
+**10,882 Lean gap statements across 1,072 exercise modules.** This variant
 uses LLM conversion to formalize Demidovich's mathematical analysis exercises
 (吉米多维奇《数学分析习题集》).
 
@@ -24,10 +24,14 @@ namespace. For example, [exercise_100.lean](exercise_100.lean) contains
 Treat suffixes such as `exercise_1014_1` and `exercise_1014_2` as distinct
 exercise identifiers.
 
-All 1,072 exercise IDs and 10,857 gap IDs occur in `ProofGap_nfl`.
+All 1,072 exercise IDs and 10,882 gap IDs occur in `ProofGap_nfl`.
 These are identifier correspondences, not a guarantee of semantic equivalence.
-The NFL dataset has broader coverage, including additional gaps in exercises
-3801 and 3802.
+Together with the disjoint backend variant, these modules cover all 2,947
+NFL exercise IDs and 25,987 NFL gap IDs.
+
+Some modules collect shared assumptions in a `CommonHypotheses` structure.
+Its fields are part of each target's allowed context and can be accessed
+through the `hcommon` parameter.
 
 ## Proof completion
 
@@ -68,8 +72,9 @@ names use `ProofGap_lean_llm.exercise_<id>`. Modules compile separately so
 that definitions can reuse names across exercises.
 
 The shared workspace pins Lean and Mathlib to `v4.29.0-rc6`. Individual
-exercise checks have been performed; a full-dataset build has not been
-validated in this workspace.
+exercise checks, including the complete modules for exercises 3801 and 3802,
+have been performed; a full-dataset build has not been validated in this
+workspace.
 
 See the [benchmark overview](../../README.md#evaluation) for evaluation and
 reporting guidance.

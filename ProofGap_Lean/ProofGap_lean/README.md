@@ -1,6 +1,6 @@
 # ProofGap_lean
 
-**15,191 Lean proof obligations across 1,884 exercises**, based on
+**15,105 Lean proof obligations across 1,875 exercises**, based on
 Demidovich's mathematical analysis exercises
 (吉米多维奇《数学分析习题集》).
 
@@ -19,9 +19,10 @@ For example, [exercise_1000.lean](exercise_1000.lean) contains
 `proof_gap_exercise_1000_1`, `proof_gap_exercise_1000_2`, and further targets.
 Each theorem's parameters specify the assumptions available for that gap.
 
-Coverage and some statements differ from the NFL and LLM variants. Preserve
-exercise suffixes and gap identifiers when selecting or reporting targets;
-matching identifiers across variants do not guarantee equivalent statements.
+This variant and the LLM variant contain disjoint exercise sets. Their union
+covers every NFL exercise and gap ID. Preserve exercise suffixes and gap
+identifiers when selecting or reporting targets; matching identifiers with
+NFL does not guarantee equivalent statements.
 
 ## Proof completion
 

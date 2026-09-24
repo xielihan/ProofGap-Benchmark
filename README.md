@@ -19,13 +19,15 @@ converted by a large language model (LLM).
 | Dataset | Construction | Exercises | Proof gaps | Reference proofs |
 | --- | --- | ---: | ---: | --- |
 | [ProofGap_nfl](ProofGap_nfl/) | NFL printed from proof-gap ASTs | 2,947 | 25,987 | 9,385 DSL answers |
-| [ProofGap_lean](ProofGap_Lean/ProofGap_lean/) | Lean printed from proof-gap ASTs | 1,884 | 15,191 | Proof placeholders |
-| [ProofGap_lean_llm](ProofGap_Lean/ProofGap_lean_llm/) | LLM-converted Lean statements | 1,072 | 10,857 | Primarily proof placeholders |
+| [ProofGap_lean](ProofGap_Lean/ProofGap_lean/) | Lean printed from proof-gap ASTs | 1,875 | 15,105 | Proof placeholders |
+| [ProofGap_lean_llm](ProofGap_Lean/ProofGap_lean_llm/) | LLM-converted Lean statements | 1,072 | 10,882 | Primarily proof placeholders |
 
 **NFL and backend Lean use two printers over a common abstract syntax tree
 (AST) representation.** The LLM variant uses a separate formalization process.
-The three variants differ in coverage and some statements; matching exercise
-and gap identifiers does not by itself establish semantic equivalence.
+The two Lean variants partition the NFL exercise IDs without overlap.
+Together, they cover all **2,947 exercises and 25,987 gap IDs** in NFL.
+Matching identifiers does not by itself establish semantic equivalence;
+some Lean statements differ from their NFL counterparts.
 Exercise variants with suffixes, such as `131_1` and `131_2`, are distinct items.
 
 Use **ProofGap_nfl** for DSL proof generation with the bundled verifier,
@@ -125,8 +127,9 @@ All **9,385 packaged NFL answers** passed the bundled macOS arm64 verifier.
 This result does not establish the same pass rate for the other platform
 binaries; see the [NFL guide](ProofGap_nfl/README.md#verification-coverage).
 
-The shared Lean environment has been checked with one exercise from each
-variant. A complete Lean dataset build has not been validated. Backend
+The shared Lean environment has been checked with individual exercises from
+both variants, including all statements in LLM exercises 3801 and 3802.
+A complete Lean dataset build has not been validated. Backend
 exercises were selected by successful compilation of their last gap, so
 other gaps in an exercise may require statement-level corrections before
 proof completion. Keep such corrections separate from proof-generation
