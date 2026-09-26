@@ -11,6 +11,8 @@ The benchmark provides structured statements in Natural Formal Language
 (NFL), Lean statements printed by the backend, and Lean formalizations
 converted with Codex and reviewed for semantic fidelity to NFL.
 
+**Paper:** [ProofGap: Benchmarking Step-Level Formal Reasoning with Local Obligations Derived from Natural-Language Solutions](https://arxiv.org/abs/2609.29296).
+
 [Datasets](#datasets) · [Task](#task) · [Quick start](#quick-start) ·
 [Evaluation](#evaluation) · [Documentation](#documentation)
 
