@@ -2,14 +2,18 @@
 
 A shared environment for the two Lean datasets in ProofGap-Benchmark.
 
-| Dataset | Construction | Build target |
-| --- | --- | --- |
-| [ProofGap_lean](ProofGap_lean/) | Printed by the backend from the same proof-gap ASTs as NFL | `ProofGapLeanBackend` |
-| [ProofGap_lean_llm](ProofGap_lean_llm/) | Converted from NFL with Codex | `ProofGapLean` |
+| Dataset | Construction | Exercises | Proof gaps | Build target |
+| --- | --- | ---: | ---: | --- |
+| [ProofGap_lean](ProofGap_lean/) | Printed by the backend from the same proof-gap ASTs as NFL | 1,875 | 15,105 | `ProofGapLeanBackend` |
+| [ProofGap_lean_llm](ProofGap_lean_llm/) | Converted from NFL with Codex | 1,072 | 10,882 | `ProofGapLean` |
 
 Both datasets use **Lean and Mathlib `v4.29.0-rc6`**. The files
 `lean-toolchain`, `lakefile.toml`, and `lake-manifest.json` pin the shared
 toolchain and dependencies.
+
+Each `exercise_<id>.lean` file contains one exercise's definitions and gap
+statements. Theorems are named `proof_gap_exercise_<id>_<gap_id>`, with
+identifiers corresponding to [ProofGap_nfl](../ProofGap_nfl/).
 
 ## Setup
 

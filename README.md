@@ -162,6 +162,4 @@ ProofGap-Benchmark/
 - [NFL syntax reference](document/NFL_syntax.md)
 - [DSL proof guide](document/DSL_guide.md)
 - [NFL data format and verifier](ProofGap_nfl/README.md)
-- [Shared Lean environment](ProofGap_Lean/README.md)
-- [Backend-printed Lean dataset](ProofGap_Lean/ProofGap_lean/README.md)
-- [LLM-converted Lean dataset](ProofGap_Lean/ProofGap_lean_llm/README.md)
+- [Lean datasets and shared environment](ProofGap_Lean/README.md)

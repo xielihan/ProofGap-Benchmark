@@ -2,3 +2,4 @@
 .DS_Store
 ProofGap_nfl/verify/
 __pycache__/
+/ProofGap_Lean/source_snapshot.json
