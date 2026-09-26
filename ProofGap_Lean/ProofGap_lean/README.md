@@ -65,6 +65,17 @@ Exercises were selected by successful compilation of their last gap. Every
 non-internal gap is included, but other gaps may have elaboration errors;
 whole-module and full-dataset compilation are not guaranteed.
 
+The 2026-09-26 refresh incorporates proofgrader updates through `32c45ddd63`,
+updating 292 modules with printer and Lean/Mathlib compatibility fixes.
+The nine exercises 89, 90, 124, 131_1, 131_2, 132_1, 132_2, 382_2, and 752
+now use `StrictMono` for subsequence index conditions previously printed as
+`True`. This restores the strictly increasing requirement for 197 affected
+gap statements. Other `True` occurrences remain, including type predicates;
+their presence alone is not a statement-correctness verdict.
+
+Complete-module checks of the refreshed exercises 89, 752, and 1009 passed
+under the shared environment. This is a sample check, not a full-dataset build.
+
 For proof-generation evaluation, identify the targets that elaborate before
 replacing their proofs. Report any statement corrections separately so that
 the evaluated proof obligations remain clear.

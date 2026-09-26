@@ -11,8 +11,11 @@ local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
 noncomputable def ex3750_integrand (n x : ℝ) : ℝ :=
   Real.sin (x + x ^ (2 : ℕ)) /. x ^ n
 
-def convergentImproper (I : ℝ) : Prop := True
-def divergentImproper (I : ℝ) : Prop := True
+def convergentImproper (I : ℝ) : Prop :=
+  ∃ approximants : ℕ -> ℝ, Tendsto approximants atTop (𝓝 I)
+
+def divergentImproper (I : ℝ) : Prop :=
+  ∀ L : ℝ, ¬ ∃ approximants : ℕ -> ℝ, Tendsto approximants atTop (𝓝 L)
 
 noncomputable def ex3750_xi (k : ℕ) : ℝ :=
   (Real.sqrt (1 + 8 * (k : ℝ) * Real.pi + Real.pi) - 1) /. 2
@@ -100,37 +103,44 @@ theorem proof_gap_exercise_3750_11 (n : ℝ) :
     n > -1 -> convergentImproper (∫ x in Set.Ioi (1 : ℝ), ex3750_integrand n x) := by sorry
 
 theorem proof_gap_exercise_3750_12 (n : ℝ) :
-    n ≤ -1 -> (fun k : ℕ => ex3750_xi k) = ex3750_xi := by sorry
-
-theorem proof_gap_exercise_3750_13 (n : ℝ) :
-    n ≤ -1 -> (fun k : ℕ => ex3750_eta k) = ex3750_eta := by sorry
-
-theorem proof_gap_exercise_3750_14 (n : ℝ) :
     n ≤ -1 ->
       ∀ k : ℕ, 0 < k ->
         ex3750_xi k ^ (2 : ℕ) + ex3750_xi k = 2 * (k : ℝ) * Real.pi + (Real.pi /. 4) ∧
         ex3750_eta k ^ (2 : ℕ) + ex3750_eta k = 2 * (k : ℝ) * Real.pi + (Real.pi /. 2) := by sorry
 
-theorem proof_gap_exercise_3750_15 (n : ℝ) :
+theorem proof_gap_exercise_3750_13 (n : ℝ) :
     n ≤ -1 -> ∀ k : ℕ, 0 < k -> ex3750_eta k > ex3750_xi k := by sorry
 
-theorem proof_gap_exercise_3750_16 (n : ℝ) :
+theorem proof_gap_exercise_3750_14 (n : ℝ) :
     n ≤ -1 -> Tendsto ex3750_xi atTop atTop := by sorry
 
-theorem proof_gap_exercise_3750_17 (n : ℝ) :
+theorem proof_gap_exercise_3750_15 (n : ℝ) :
     ∀ k : ℕ, 0 < k -> n ≤ -1 ->
       (∫ x in ex3750_xi k..ex3750_eta k, ex3750_integrand n x)
         > (1 /. Real.sqrt 2) * (∫ x in ex3750_xi k..ex3750_eta k, x ^ (-n)) := by sorry
 
-theorem proof_gap_exercise_3750_18 (n : ℝ) :
+theorem proof_gap_exercise_3750_16 (n : ℝ) :
     ∀ k : ℕ, 0 < k -> n ≤ -1 ->
       (1 /. Real.sqrt 2) * (∫ x in ex3750_xi k..ex3750_eta k, x ^ (-n))
         ≥ (1 /. Real.sqrt 2) * (∫ x in ex3750_xi k..ex3750_eta k, x) := by sorry
 
-theorem proof_gap_exercise_3750_19 (n : ℝ) :
+theorem proof_gap_exercise_3750_17 (n : ℝ) :
+    ∀ k : ℕ, 0 < k -> n ≤ -1 ->
+      (1 /. Real.sqrt 2) * (∫ x in ex3750_xi k..ex3750_eta k, x)
+        > (1 /. Real.sqrt 2) * ex3750_xi k * (ex3750_eta k - ex3750_xi k) := by sorry
+
+theorem proof_gap_exercise_3750_18 (n : ℝ) :
     ∀ k : ℕ, 0 < k -> n ≤ -1 ->
       (∫ x in ex3750_xi k..ex3750_eta k, ex3750_integrand n x)
         > (1 /. Real.sqrt 2) * ex3750_xi k * (ex3750_eta k - ex3750_xi k) := by sorry
+
+theorem proof_gap_exercise_3750_19 (n : ℝ) :
+    ∀ k : ℕ, 0 < k -> n ≤ -1 ->
+      (1 /. Real.sqrt 2) * ex3750_xi k * (ex3750_eta k - ex3750_xi k)
+        = (Real.pi /. (4 * Real.sqrt 2)) *
+            ((Real.sqrt (1 + 8 * (k : ℝ) * Real.pi + Real.pi) - 1) /.
+              (Real.sqrt (1 + 8 * (k : ℝ) * Real.pi + 2 * Real.pi)
+                + Real.sqrt (1 + 8 * (k : ℝ) * Real.pi + Real.pi))) := by sorry
 
 theorem proof_gap_exercise_3750_20 (n : ℝ) :
     n ≤ -1 ->

@@ -1,5 +1,8 @@
 import Mathlib
 
+
+namespace regenerated_exercise_752_gap_1
+
 attribute [local instance] Classical.propDecidable
 
 set_option linter.style.longLine false
@@ -42,8 +45,6 @@ def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) 
 noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
   ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
--- exercise: exercise_752
-
 theorem proof_gap_exercise_752_1
   (f : (ℝ -> ℝ))
   (x : (ℕ -> ℝ))
@@ -56,13 +57,59 @@ theorem proof_gap_exercise_752_1
   (h1 : x_0 ∈ (Set.univ : Set ℝ))
   (h2 : n ∈ (Set.univ : Set ℕ))
   (h3 : True)
-  (h4 : True)
+  (h4 : StrictMono k)
   (h5 : S ∈ (Set.univ : Set ℝ))
   (h6 : True)
   (h7 : ContinuousOn f (Set.Ioi x_0))
   (h8 : Bornology.IsBounded (f '' (Set.Ioi x_0)))
   : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T = 0)) → (x = (fun (n_1 : ℕ) => (x_0 + n_1))))) := by
   sorry
+
+end regenerated_exercise_752_gap_1
+
+namespace regenerated_exercise_752_gap_2
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_752_2
   (f : (ℝ -> ℝ))
@@ -76,7 +123,7 @@ theorem proof_gap_exercise_752_2
   (h1 : x_0 ∈ (Set.univ : Set ℝ))
   (h2 : n ∈ (Set.univ : Set ℕ))
   (h3 : True)
-  (h4 : True)
+  (h4 : StrictMono k)
   (h5 : S ∈ (Set.univ : Set ℝ))
   (h6 : True)
   (h7 : ContinuousOn f (Set.Ioi x_0))
@@ -84,6 +131,52 @@ theorem proof_gap_exercise_752_2
   (h9 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T = 0)) → (x = (fun (n_1 : ℕ) => (x_0 + n_1))))))
   : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T = 0)) → (Tendsto (fun n_1 : ℕ => (((x n_1) : ℝ) : EReal)) atTop (𝓝 ⊤)))) := by
   sorry
+
+end regenerated_exercise_752_gap_2
+
+namespace regenerated_exercise_752_gap_3
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_752_3
   (f : (ℝ -> ℝ))
@@ -97,7 +190,7 @@ theorem proof_gap_exercise_752_3
   (h1 : x_0 ∈ (Set.univ : Set ℝ))
   (h2 : n ∈ (Set.univ : Set ℕ))
   (h3 : True)
-  (h4 : True)
+  (h4 : StrictMono k)
   (h5 : S ∈ (Set.univ : Set ℝ))
   (h6 : True)
   (h7 : ContinuousOn f (Set.Ioi x_0))
@@ -106,6 +199,52 @@ theorem proof_gap_exercise_752_3
   (h10 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T = 0)) → (Tendsto (fun n_1 : ℕ => (((x n_1) : ℝ) : EReal)) atTop (𝓝 ⊤)))))
   : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T = 0)) → (Tendsto (fun n_1 : ℕ => ((f ((x n_1) + T)) - (f (x n_1)))) atTop (𝓝 0)))) := by
   sorry
+
+end regenerated_exercise_752_gap_3
+
+namespace regenerated_exercise_752_gap_4
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_752_4
   (f : (ℝ -> ℝ))
@@ -119,7 +258,7 @@ theorem proof_gap_exercise_752_4
   (h1 : x_0 ∈ (Set.univ : Set ℝ))
   (h2 : n ∈ (Set.univ : Set ℕ))
   (h3 : True)
-  (h4 : True)
+  (h4 : StrictMono k)
   (h5 : S ∈ (Set.univ : Set ℝ))
   (h6 : True)
   (h7 : ContinuousOn f (Set.Ioi x_0))
@@ -129,6 +268,52 @@ theorem proof_gap_exercise_752_4
   (h11 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T = 0)) → (Tendsto (fun n_1 : ℕ => ((f ((x n_1) + T)) - (f (x n_1)))) atTop (𝓝 0)))))
   : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (y : ℝ), (((y ∈ (Set.univ : Set ℝ)) ∧ (y ≥ 1))) → (((g : ℝ → _) y) = ((f (x_0 + ((y + 1) * T))) - (f (x_0 + (y * T)))))))) := by
   sorry
+
+end regenerated_exercise_752_gap_4
+
+namespace regenerated_exercise_752_gap_5
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_752_5
   (f : (ℝ -> ℝ))
@@ -142,7 +327,7 @@ theorem proof_gap_exercise_752_5
   (h1 : x_0 ∈ (Set.univ : Set ℝ))
   (h2 : n ∈ (Set.univ : Set ℕ))
   (h3 : True)
-  (h4 : True)
+  (h4 : StrictMono k)
   (h5 : S ∈ (Set.univ : Set ℝ))
   (h6 : True)
   (h7 : ContinuousOn f (Set.Ioi x_0))
@@ -153,6 +338,52 @@ theorem proof_gap_exercise_752_5
   (h12 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (y : ℝ), (((y ∈ (Set.univ : Set ℝ)) ∧ (y ≥ 1))) → (((g : ℝ → _) y) = ((f (x_0 + ((y + 1) * T))) - (f (x_0 + (y * T)))))))))
   : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (ContinuousOn g (Set.Ici 1)))) := by
   sorry
+
+end regenerated_exercise_752_gap_5
+
+namespace regenerated_exercise_752_gap_6
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_752_6
   (f : (ℝ -> ℝ))
@@ -166,7 +397,7 @@ theorem proof_gap_exercise_752_6
   (h1 : x_0 ∈ (Set.univ : Set ℝ))
   (h2 : n ∈ (Set.univ : Set ℕ))
   (h3 : True)
-  (h4 : True)
+  (h4 : StrictMono k)
   (h5 : S ∈ (Set.univ : Set ℝ))
   (h6 : True)
   (h7 : ContinuousOn f (Set.Ioi x_0))
@@ -178,6 +409,52 @@ theorem proof_gap_exercise_752_6
   (h13 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (ContinuousOn g (Set.Ici 1)))))
   : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (Bornology.IsBounded (g '' (Set.Ici 1))))) := by
   sorry
+
+end regenerated_exercise_752_gap_6
+
+namespace regenerated_exercise_752_gap_7
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_752_7
   (f : (ℝ -> ℝ))
@@ -191,7 +468,7 @@ theorem proof_gap_exercise_752_7
   (h1 : x_0 ∈ (Set.univ : Set ℝ))
   (h2 : n ∈ (Set.univ : Set ℕ))
   (h3 : True)
-  (h4 : True)
+  (h4 : StrictMono k)
   (h5 : S ∈ (Set.univ : Set ℝ))
   (h6 : True)
   (h7 : ContinuousOn f (Set.Ioi x_0))
@@ -205,6 +482,52 @@ theorem proof_gap_exercise_752_7
   : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (N : ℕ), (((N ∈ (Set.univ : Set ℕ)) ∧ (N ∈ ({n_1 : ℕ | 0 < n_1}))) → (exists (k_1 : ℕ), ((((k_1 ∈ (Set.univ : Set ℕ)) ∧ (k_1 ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (k_1 > N)) ∧ (|((g (k_1 : ℝ)))| < (v_uCE_uB5 N)))))))))) := by
   sorry
 
+end regenerated_exercise_752_gap_7
+
+namespace regenerated_exercise_752_gap_8
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_752_8
   (f : (ℝ -> ℝ))
   (x : (ℕ -> ℝ))
@@ -217,7 +540,7 @@ theorem proof_gap_exercise_752_8
   (h1 : x_0 ∈ (Set.univ : Set ℝ))
   (h2 : n ∈ (Set.univ : Set ℕ))
   (h3 : True)
-  (h4 : True)
+  (h4 : StrictMono k)
   (h5 : S ∈ (Set.univ : Set ℝ))
   (h6 : True)
   (h7 : ContinuousOn f (Set.Ioi x_0))
@@ -232,6 +555,52 @@ theorem proof_gap_exercise_752_8
   : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (k = (fun (n_1 : ℕ) => (k n_1))))))) := by
   sorry
 
+end regenerated_exercise_752_gap_8
+
+namespace regenerated_exercise_752_gap_9
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_752_9
   (f : (ℝ -> ℝ))
   (x : (ℕ -> ℝ))
@@ -244,7 +613,7 @@ theorem proof_gap_exercise_752_9
   (h1 : x_0 ∈ (Set.univ : Set ℝ))
   (h2 : n ∈ (Set.univ : Set ℕ))
   (h3 : True)
-  (h4 : True)
+  (h4 : StrictMono k)
   (h5 : S ∈ (Set.univ : Set ℝ))
   (h6 : True)
   (h7 : ContinuousOn f (Set.Ioi x_0))
@@ -257,8 +626,54 @@ theorem proof_gap_exercise_752_9
   (h14 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (Bornology.IsBounded (g '' (Set.Ici 1))))))
   (h15 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (N : ℕ), (((N ∈ (Set.univ : Set ℕ)) ∧ (N ∈ ({n_1 : ℕ | 0 < n_1}))) → (exists (k_1 : ℕ), ((((k_1 ∈ (Set.univ : Set ℕ)) ∧ (k_1 ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (k_1 > N)) ∧ (|((g (k_1 : ℝ)))| < (v_uCE_uB5 N)))))))))))
   (h16 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (k = (fun (n_1 : ℕ) => (k n_1))))))))
-  : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → True)))) := by
+  : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (StrictMono k))))) := by
   sorry
+
+end regenerated_exercise_752_gap_9
+
+namespace regenerated_exercise_752_gap_10
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_752_10
   (f : (ℝ -> ℝ))
@@ -272,7 +687,7 @@ theorem proof_gap_exercise_752_10
   (h1 : x_0 ∈ (Set.univ : Set ℝ))
   (h2 : n ∈ (Set.univ : Set ℕ))
   (h3 : True)
-  (h4 : True)
+  (h4 : StrictMono k)
   (h5 : S ∈ (Set.univ : Set ℝ))
   (h6 : True)
   (h7 : ContinuousOn f (Set.Ioi x_0))
@@ -285,9 +700,55 @@ theorem proof_gap_exercise_752_10
   (h14 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (Bornology.IsBounded (g '' (Set.Ici 1))))))
   (h15 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (N : ℕ), (((N ∈ (Set.univ : Set ℕ)) ∧ (N ∈ ({n_1 : ℕ | 0 < n_1}))) → (exists (k_1 : ℕ), ((((k_1 ∈ (Set.univ : Set ℕ)) ∧ (k_1 ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (k_1 > N)) ∧ (|((g (k_1 : ℝ)))| < (v_uCE_uB5 N)))))))))))
   (h16 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (k = (fun (n_1 : ℕ) => (k n_1))))))))
-  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → True)))))
+  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (StrictMono k))))))
   : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (n_1 : ℕ), (((n_1 ∈ (Set.univ : Set ℕ)) ∧ (n_1 ∈ ({n_2 : ℕ | 0 < n_2}))) → (|((g ((k n_1) : ℝ)))| < (v_uCE_uB5 n_1)))))))) := by
   sorry
+
+end regenerated_exercise_752_gap_10
+
+namespace regenerated_exercise_752_gap_11
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_752_11
   (f : (ℝ -> ℝ))
@@ -301,7 +762,7 @@ theorem proof_gap_exercise_752_11
   (h1 : x_0 ∈ (Set.univ : Set ℝ))
   (h2 : n ∈ (Set.univ : Set ℕ))
   (h3 : True)
-  (h4 : True)
+  (h4 : StrictMono k)
   (h5 : S ∈ (Set.univ : Set ℝ))
   (h6 : True)
   (h7 : ContinuousOn f (Set.Ioi x_0))
@@ -314,10 +775,56 @@ theorem proof_gap_exercise_752_11
   (h14 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (Bornology.IsBounded (g '' (Set.Ici 1))))))
   (h15 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (N : ℕ), (((N ∈ (Set.univ : Set ℕ)) ∧ (N ∈ ({n_1 : ℕ | 0 < n_1}))) → (exists (k_1 : ℕ), ((((k_1 ∈ (Set.univ : Set ℕ)) ∧ (k_1 ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (k_1 > N)) ∧ (|((g (k_1 : ℝ)))| < (v_uCE_uB5 N)))))))))))
   (h16 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (k = (fun (n_1 : ℕ) => (k n_1))))))))
-  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → True)))))
+  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (StrictMono k))))))
   (h18 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (n_1 : ℕ), (((n_1 ∈ (Set.univ : Set ℕ)) ∧ (n_1 ∈ ({n_2 : ℕ | 0 < n_2}))) → (|((g ((k n_1) : ℝ)))| < (v_uCE_uB5 n_1)))))))))
   : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (x = (fun (n_1 : ℕ) => (x_0 + ((k n_1) * T)))))))) := by
   sorry
+
+end regenerated_exercise_752_gap_11
+
+namespace regenerated_exercise_752_gap_12
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_752_12
   (f : (ℝ -> ℝ))
@@ -331,7 +838,7 @@ theorem proof_gap_exercise_752_12
   (h1 : x_0 ∈ (Set.univ : Set ℝ))
   (h2 : n ∈ (Set.univ : Set ℕ))
   (h3 : True)
-  (h4 : True)
+  (h4 : StrictMono k)
   (h5 : S ∈ (Set.univ : Set ℝ))
   (h6 : True)
   (h7 : ContinuousOn f (Set.Ioi x_0))
@@ -344,11 +851,57 @@ theorem proof_gap_exercise_752_12
   (h14 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (Bornology.IsBounded (g '' (Set.Ici 1))))))
   (h15 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (N : ℕ), (((N ∈ (Set.univ : Set ℕ)) ∧ (N ∈ ({n_1 : ℕ | 0 < n_1}))) → (exists (k_1 : ℕ), ((((k_1 ∈ (Set.univ : Set ℕ)) ∧ (k_1 ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (k_1 > N)) ∧ (|((g (k_1 : ℝ)))| < (v_uCE_uB5 N)))))))))))
   (h16 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (k = (fun (n_1 : ℕ) => (k n_1))))))))
-  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → True)))))
+  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (StrictMono k))))))
   (h18 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (n_1 : ℕ), (((n_1 ∈ (Set.univ : Set ℕ)) ∧ (n_1 ∈ ({n_2 : ℕ | 0 < n_2}))) → (|((g ((k n_1) : ℝ)))| < (v_uCE_uB5 n_1)))))))))
   (h19 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (x = (fun (n_1 : ℕ) => (x_0 + ((k n_1) * T)))))))))
   : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (Tendsto (fun n_1 : ℕ => (((x n_1) : ℝ) : EReal)) atTop (𝓝 ⊤)))))) := by
   sorry
+
+end regenerated_exercise_752_gap_12
+
+namespace regenerated_exercise_752_gap_13
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_752_13
   (f : (ℝ -> ℝ))
@@ -362,7 +915,7 @@ theorem proof_gap_exercise_752_13
   (h1 : x_0 ∈ (Set.univ : Set ℝ))
   (h2 : n ∈ (Set.univ : Set ℕ))
   (h3 : True)
-  (h4 : True)
+  (h4 : StrictMono k)
   (h5 : S ∈ (Set.univ : Set ℝ))
   (h6 : True)
   (h7 : ContinuousOn f (Set.Ioi x_0))
@@ -375,12 +928,58 @@ theorem proof_gap_exercise_752_13
   (h14 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (Bornology.IsBounded (g '' (Set.Ici 1))))))
   (h15 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (N : ℕ), (((N ∈ (Set.univ : Set ℕ)) ∧ (N ∈ ({n_1 : ℕ | 0 < n_1}))) → (exists (k_1 : ℕ), ((((k_1 ∈ (Set.univ : Set ℕ)) ∧ (k_1 ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (k_1 > N)) ∧ (|((g (k_1 : ℝ)))| < (v_uCE_uB5 N)))))))))))
   (h16 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (k = (fun (n_1 : ℕ) => (k n_1))))))))
-  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → True)))))
+  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (StrictMono k))))))
   (h18 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (n_1 : ℕ), (((n_1 ∈ (Set.univ : Set ℕ)) ∧ (n_1 ∈ ({n_2 : ℕ | 0 < n_2}))) → (|((g ((k n_1) : ℝ)))| < (v_uCE_uB5 n_1)))))))))
   (h19 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (x = (fun (n_1 : ℕ) => (x_0 + ((k n_1) * T)))))))))
   (h20 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (Tendsto (fun n_1 : ℕ => (((x n_1) : ℝ) : EReal)) atTop (𝓝 ⊤)))))))
   : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (|(((f ((x n) + T)) - (f (x n))))| = |((g ((k n) : ℝ)))|))))) := by
   sorry
+
+end regenerated_exercise_752_gap_13
+
+namespace regenerated_exercise_752_gap_14
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_752_14
   (f : (ℝ -> ℝ))
@@ -394,7 +993,7 @@ theorem proof_gap_exercise_752_14
   (h1 : x_0 ∈ (Set.univ : Set ℝ))
   (h2 : n ∈ (Set.univ : Set ℕ))
   (h3 : True)
-  (h4 : True)
+  (h4 : StrictMono k)
   (h5 : S ∈ (Set.univ : Set ℝ))
   (h6 : True)
   (h7 : ContinuousOn f (Set.Ioi x_0))
@@ -407,13 +1006,59 @@ theorem proof_gap_exercise_752_14
   (h14 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (Bornology.IsBounded (g '' (Set.Ici 1))))))
   (h15 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (N : ℕ), (((N ∈ (Set.univ : Set ℕ)) ∧ (N ∈ ({n_1 : ℕ | 0 < n_1}))) → (exists (k_1 : ℕ), ((((k_1 ∈ (Set.univ : Set ℕ)) ∧ (k_1 ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (k_1 > N)) ∧ (|((g (k_1 : ℝ)))| < (v_uCE_uB5 N)))))))))))
   (h16 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (k = (fun (n_1 : ℕ) => (k n_1))))))))
-  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → True)))))
+  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (StrictMono k))))))
   (h18 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (n_1 : ℕ), (((n_1 ∈ (Set.univ : Set ℕ)) ∧ (n_1 ∈ ({n_2 : ℕ | 0 < n_2}))) → (|((g ((k n_1) : ℝ)))| < (v_uCE_uB5 n_1)))))))))
   (h19 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (x = (fun (n_1 : ℕ) => (x_0 + ((k n_1) * T)))))))))
   (h20 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (Tendsto (fun n_1 : ℕ => (((x n_1) : ℝ) : EReal)) atTop (𝓝 ⊤)))))))
   (h21 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (|(((f ((x n) + T)) - (f (x n))))| = |((g ((k n) : ℝ)))|))))))
   : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (|((g ((k n) : ℝ)))| < (v_uCE_uB5 n)))))) := by
   sorry
+
+end regenerated_exercise_752_gap_14
+
+namespace regenerated_exercise_752_gap_15
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_752_15
   (f : (ℝ -> ℝ))
@@ -427,7 +1072,7 @@ theorem proof_gap_exercise_752_15
   (h1 : x_0 ∈ (Set.univ : Set ℝ))
   (h2 : n ∈ (Set.univ : Set ℕ))
   (h3 : True)
-  (h4 : True)
+  (h4 : StrictMono k)
   (h5 : S ∈ (Set.univ : Set ℝ))
   (h6 : True)
   (h7 : ContinuousOn f (Set.Ioi x_0))
@@ -440,7 +1085,7 @@ theorem proof_gap_exercise_752_15
   (h14 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (Bornology.IsBounded (g '' (Set.Ici 1))))))
   (h15 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (N : ℕ), (((N ∈ (Set.univ : Set ℕ)) ∧ (N ∈ ({n_1 : ℕ | 0 < n_1}))) → (exists (k_1 : ℕ), ((((k_1 ∈ (Set.univ : Set ℕ)) ∧ (k_1 ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (k_1 > N)) ∧ (|((g (k_1 : ℝ)))| < (v_uCE_uB5 N)))))))))))
   (h16 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (k = (fun (n_1 : ℕ) => (k n_1))))))))
-  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → True)))))
+  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (StrictMono k))))))
   (h18 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (n_1 : ℕ), (((n_1 ∈ (Set.univ : Set ℕ)) ∧ (n_1 ∈ ({n_2 : ℕ | 0 < n_2}))) → (|((g ((k n_1) : ℝ)))| < (v_uCE_uB5 n_1)))))))))
   (h19 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (x = (fun (n_1 : ℕ) => (x_0 + ((k n_1) * T)))))))))
   (h20 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (Tendsto (fun n_1 : ℕ => (((x n_1) : ℝ) : EReal)) atTop (𝓝 ⊤)))))))
@@ -448,6 +1093,52 @@ theorem proof_gap_exercise_752_15
   (h22 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (|((g ((k n) : ℝ)))| < (v_uCE_uB5 n)))))))
   : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (|(((f ((x n) + T)) - (f (x n))))| < (v_uCE_uB5 n)))))) := by
   sorry
+
+end regenerated_exercise_752_gap_15
+
+namespace regenerated_exercise_752_gap_16
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_752_16
   (f : (ℝ -> ℝ))
@@ -461,7 +1152,7 @@ theorem proof_gap_exercise_752_16
   (h1 : x_0 ∈ (Set.univ : Set ℝ))
   (h2 : n ∈ (Set.univ : Set ℕ))
   (h3 : True)
-  (h4 : True)
+  (h4 : StrictMono k)
   (h5 : S ∈ (Set.univ : Set ℝ))
   (h6 : True)
   (h7 : ContinuousOn f (Set.Ioi x_0))
@@ -474,7 +1165,7 @@ theorem proof_gap_exercise_752_16
   (h14 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (Bornology.IsBounded (g '' (Set.Ici 1))))))
   (h15 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (N : ℕ), (((N ∈ (Set.univ : Set ℕ)) ∧ (N ∈ ({n_1 : ℕ | 0 < n_1}))) → (exists (k_1 : ℕ), ((((k_1 ∈ (Set.univ : Set ℕ)) ∧ (k_1 ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (k_1 > N)) ∧ (|((g (k_1 : ℝ)))| < (v_uCE_uB5 N)))))))))))
   (h16 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (k = (fun (n_1 : ℕ) => (k n_1))))))))
-  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → True)))))
+  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (StrictMono k))))))
   (h18 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (n_1 : ℕ), (((n_1 ∈ (Set.univ : Set ℕ)) ∧ (n_1 ∈ ({n_2 : ℕ | 0 < n_2}))) → (|((g ((k n_1) : ℝ)))| < (v_uCE_uB5 n_1)))))))))
   (h19 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (x = (fun (n_1 : ℕ) => (x_0 + ((k n_1) * T)))))))))
   (h20 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (Tendsto (fun n_1 : ℕ => (((x n_1) : ℝ) : EReal)) atTop (𝓝 ⊤)))))))
@@ -483,6 +1174,52 @@ theorem proof_gap_exercise_752_16
   (h23 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (|(((f ((x n) + T)) - (f (x n))))| < (v_uCE_uB5 n)))))))
   : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (Tendsto (fun n_1 : ℕ => ((f ((x n_1) + T)) - (f (x n_1)))) atTop (𝓝 0)))))) := by
   sorry
+
+end regenerated_exercise_752_gap_16
+
+namespace regenerated_exercise_752_gap_17
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_752_17
   (f : (ℝ -> ℝ))
@@ -496,7 +1233,7 @@ theorem proof_gap_exercise_752_17
   (h1 : x_0 ∈ (Set.univ : Set ℝ))
   (h2 : n ∈ (Set.univ : Set ℕ))
   (h3 : True)
-  (h4 : True)
+  (h4 : StrictMono k)
   (h5 : S ∈ (Set.univ : Set ℝ))
   (h6 : True)
   (h7 : ContinuousOn f (Set.Ioi x_0))
@@ -509,7 +1246,7 @@ theorem proof_gap_exercise_752_17
   (h14 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (Bornology.IsBounded (g '' (Set.Ici 1))))))
   (h15 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (N : ℕ), (((N ∈ (Set.univ : Set ℕ)) ∧ (N ∈ ({n_1 : ℕ | 0 < n_1}))) → (exists (k_1 : ℕ), ((((k_1 ∈ (Set.univ : Set ℕ)) ∧ (k_1 ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (k_1 > N)) ∧ (|((g (k_1 : ℝ)))| < (v_uCE_uB5 N)))))))))))
   (h16 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (k = (fun (n_1 : ℕ) => (k n_1))))))))
-  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → True)))))
+  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (StrictMono k))))))
   (h18 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (n_1 : ℕ), (((n_1 ∈ (Set.univ : Set ℕ)) ∧ (n_1 ∈ ({n_2 : ℕ | 0 < n_2}))) → (|((g ((k n_1) : ℝ)))| < (v_uCE_uB5 n_1)))))))))
   (h19 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (x = (fun (n_1 : ℕ) => (x_0 + ((k n_1) * T)))))))))
   (h20 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (Tendsto (fun n_1 : ℕ => (((x n_1) : ℝ) : EReal)) atTop (𝓝 ⊤)))))))
@@ -519,6 +1256,52 @@ theorem proof_gap_exercise_752_17
   (h24 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (Tendsto (fun n_1 : ℕ => ((f ((x n_1) + T)) - (f (x n_1)))) atTop (𝓝 0)))))))
   : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T < 0)) → (S = (-T)))) := by
   sorry
+
+end regenerated_exercise_752_gap_17
+
+namespace regenerated_exercise_752_gap_18
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_752_18
   (f : (ℝ -> ℝ))
@@ -532,7 +1315,7 @@ theorem proof_gap_exercise_752_18
   (h1 : x_0 ∈ (Set.univ : Set ℝ))
   (h2 : n ∈ (Set.univ : Set ℕ))
   (h3 : True)
-  (h4 : True)
+  (h4 : StrictMono k)
   (h5 : S ∈ (Set.univ : Set ℝ))
   (h6 : True)
   (h7 : ContinuousOn f (Set.Ioi x_0))
@@ -545,7 +1328,7 @@ theorem proof_gap_exercise_752_18
   (h14 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (Bornology.IsBounded (g '' (Set.Ici 1))))))
   (h15 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (N : ℕ), (((N ∈ (Set.univ : Set ℕ)) ∧ (N ∈ ({n_1 : ℕ | 0 < n_1}))) → (exists (k_1 : ℕ), ((((k_1 ∈ (Set.univ : Set ℕ)) ∧ (k_1 ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (k_1 > N)) ∧ (|((g (k_1 : ℝ)))| < (v_uCE_uB5 N)))))))))))
   (h16 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (k = (fun (n_1 : ℕ) => (k n_1))))))))
-  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → True)))))
+  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (StrictMono k))))))
   (h18 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (n_1 : ℕ), (((n_1 ∈ (Set.univ : Set ℕ)) ∧ (n_1 ∈ ({n_2 : ℕ | 0 < n_2}))) → (|((g ((k n_1) : ℝ)))| < (v_uCE_uB5 n_1)))))))))
   (h19 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (x = (fun (n_1 : ℕ) => (x_0 + ((k n_1) * T)))))))))
   (h20 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (Tendsto (fun n_1 : ℕ => (((x n_1) : ℝ) : EReal)) atTop (𝓝 ⊤)))))))
@@ -556,6 +1339,52 @@ theorem proof_gap_exercise_752_18
   (h25 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T < 0)) → (S = (-T)))))
   : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T < 0)) → (S > 0))) := by
   sorry
+
+end regenerated_exercise_752_gap_18
+
+namespace regenerated_exercise_752_gap_19
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_752_19
   (f : (ℝ -> ℝ))
@@ -569,7 +1398,7 @@ theorem proof_gap_exercise_752_19
   (h1 : x_0 ∈ (Set.univ : Set ℝ))
   (h2 : n ∈ (Set.univ : Set ℕ))
   (h3 : True)
-  (h4 : True)
+  (h4 : StrictMono k)
   (h5 : S ∈ (Set.univ : Set ℝ))
   (h6 : True)
   (h7 : ContinuousOn f (Set.Ioi x_0))
@@ -582,7 +1411,7 @@ theorem proof_gap_exercise_752_19
   (h14 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (Bornology.IsBounded (g '' (Set.Ici 1))))))
   (h15 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (N : ℕ), (((N ∈ (Set.univ : Set ℕ)) ∧ (N ∈ ({n_1 : ℕ | 0 < n_1}))) → (exists (k_1 : ℕ), ((((k_1 ∈ (Set.univ : Set ℕ)) ∧ (k_1 ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (k_1 > N)) ∧ (|((g (k_1 : ℝ)))| < (v_uCE_uB5 N)))))))))))
   (h16 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (k = (fun (n_1 : ℕ) => (k n_1))))))))
-  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → True)))))
+  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (StrictMono k))))))
   (h18 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (n_1 : ℕ), (((n_1 ∈ (Set.univ : Set ℕ)) ∧ (n_1 ∈ ({n_2 : ℕ | 0 < n_2}))) → (|((g ((k n_1) : ℝ)))| < (v_uCE_uB5 n_1)))))))))
   (h19 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (x = (fun (n_1 : ℕ) => (x_0 + ((k n_1) * T)))))))))
   (h20 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (Tendsto (fun n_1 : ℕ => (((x n_1) : ℝ) : EReal)) atTop (𝓝 ⊤)))))))
@@ -594,6 +1423,52 @@ theorem proof_gap_exercise_752_19
   (h26 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T < 0)) → (S > 0))))
   : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T < 0)) → (exists (x_1 : (ℕ -> ℝ)), ((True ∧ (Tendsto (fun n_1 : ℕ => (((x_1 n_1) : ℝ) : EReal)) atTop (𝓝 ⊤))) ∧ (Tendsto (fun n_1 : ℕ => ((f ((x_1 n_1) + S)) - (f (x_1 n_1)))) atTop (𝓝 0)))))) := by
   sorry
+
+end regenerated_exercise_752_gap_19
+
+namespace regenerated_exercise_752_gap_20
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_752_20
   (f : (ℝ -> ℝ))
@@ -607,7 +1482,7 @@ theorem proof_gap_exercise_752_20
   (h1 : x_0 ∈ (Set.univ : Set ℝ))
   (h2 : n ∈ (Set.univ : Set ℕ))
   (h3 : True)
-  (h4 : True)
+  (h4 : StrictMono k)
   (h5 : S ∈ (Set.univ : Set ℝ))
   (h6 : True)
   (h7 : ContinuousOn f (Set.Ioi x_0))
@@ -620,7 +1495,7 @@ theorem proof_gap_exercise_752_20
   (h14 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (Bornology.IsBounded (g '' (Set.Ici 1))))))
   (h15 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (N : ℕ), (((N ∈ (Set.univ : Set ℕ)) ∧ (N ∈ ({n_1 : ℕ | 0 < n_1}))) → (exists (k_1 : ℕ), ((((k_1 ∈ (Set.univ : Set ℕ)) ∧ (k_1 ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (k_1 > N)) ∧ (|((g (k_1 : ℝ)))| < (v_uCE_uB5 N)))))))))))
   (h16 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (k = (fun (n_1 : ℕ) => (k n_1))))))))
-  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → True)))))
+  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (StrictMono k))))))
   (h18 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (n_1 : ℕ), (((n_1 ∈ (Set.univ : Set ℕ)) ∧ (n_1 ∈ ({n_2 : ℕ | 0 < n_2}))) → (|((g ((k n_1) : ℝ)))| < (v_uCE_uB5 n_1)))))))))
   (h19 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (x = (fun (n_1 : ℕ) => (x_0 + ((k n_1) * T)))))))))
   (h20 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (Tendsto (fun n_1 : ℕ => (((x n_1) : ℝ) : EReal)) atTop (𝓝 ⊤)))))))
@@ -634,6 +1509,52 @@ theorem proof_gap_exercise_752_20
   : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T < 0)) → (z = (fun (n_1 : ℕ) => ((x n_1) + S))))) := by
   sorry
 
+end regenerated_exercise_752_gap_20
+
+namespace regenerated_exercise_752_gap_21
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_752_21
   (f : (ℝ -> ℝ))
   (x : (ℕ -> ℝ))
@@ -646,7 +1567,7 @@ theorem proof_gap_exercise_752_21
   (h1 : x_0 ∈ (Set.univ : Set ℝ))
   (h2 : n ∈ (Set.univ : Set ℕ))
   (h3 : True)
-  (h4 : True)
+  (h4 : StrictMono k)
   (h5 : S ∈ (Set.univ : Set ℝ))
   (h6 : True)
   (h7 : ContinuousOn f (Set.Ioi x_0))
@@ -659,7 +1580,7 @@ theorem proof_gap_exercise_752_21
   (h14 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (Bornology.IsBounded (g '' (Set.Ici 1))))))
   (h15 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (N : ℕ), (((N ∈ (Set.univ : Set ℕ)) ∧ (N ∈ ({n_1 : ℕ | 0 < n_1}))) → (exists (k_1 : ℕ), ((((k_1 ∈ (Set.univ : Set ℕ)) ∧ (k_1 ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (k_1 > N)) ∧ (|((g (k_1 : ℝ)))| < (v_uCE_uB5 N)))))))))))
   (h16 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (k = (fun (n_1 : ℕ) => (k n_1))))))))
-  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → True)))))
+  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (StrictMono k))))))
   (h18 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (n_1 : ℕ), (((n_1 ∈ (Set.univ : Set ℕ)) ∧ (n_1 ∈ ({n_2 : ℕ | 0 < n_2}))) → (|((g ((k n_1) : ℝ)))| < (v_uCE_uB5 n_1)))))))))
   (h19 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (x = (fun (n_1 : ℕ) => (x_0 + ((k n_1) * T)))))))))
   (h20 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (Tendsto (fun n_1 : ℕ => (((x n_1) : ℝ) : EReal)) atTop (𝓝 ⊤)))))))
@@ -674,6 +1595,52 @@ theorem proof_gap_exercise_752_21
   : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T < 0)) → (Tendsto (fun n_1 : ℕ => (((z n_1) : ℝ) : EReal)) atTop (𝓝 ⊤)))) := by
   sorry
 
+end regenerated_exercise_752_gap_21
+
+namespace regenerated_exercise_752_gap_22
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_752_22
   (f : (ℝ -> ℝ))
   (x : (ℕ -> ℝ))
@@ -686,7 +1653,7 @@ theorem proof_gap_exercise_752_22
   (h1 : x_0 ∈ (Set.univ : Set ℝ))
   (h2 : n ∈ (Set.univ : Set ℕ))
   (h3 : True)
-  (h4 : True)
+  (h4 : StrictMono k)
   (h5 : S ∈ (Set.univ : Set ℝ))
   (h6 : True)
   (h7 : ContinuousOn f (Set.Ioi x_0))
@@ -699,7 +1666,7 @@ theorem proof_gap_exercise_752_22
   (h14 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (Bornology.IsBounded (g '' (Set.Ici 1))))))
   (h15 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (N : ℕ), (((N ∈ (Set.univ : Set ℕ)) ∧ (N ∈ ({n_1 : ℕ | 0 < n_1}))) → (exists (k_1 : ℕ), ((((k_1 ∈ (Set.univ : Set ℕ)) ∧ (k_1 ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (k_1 > N)) ∧ (|((g (k_1 : ℝ)))| < (v_uCE_uB5 N)))))))))))
   (h16 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (k = (fun (n_1 : ℕ) => (k n_1))))))))
-  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → True)))))
+  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (StrictMono k))))))
   (h18 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (n_1 : ℕ), (((n_1 ∈ (Set.univ : Set ℕ)) ∧ (n_1 ∈ ({n_2 : ℕ | 0 < n_2}))) → (|((g ((k n_1) : ℝ)))| < (v_uCE_uB5 n_1)))))))))
   (h19 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (x = (fun (n_1 : ℕ) => (x_0 + ((k n_1) * T)))))))))
   (h20 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (Tendsto (fun n_1 : ℕ => (((x n_1) : ℝ) : EReal)) atTop (𝓝 ⊤)))))))
@@ -715,6 +1682,52 @@ theorem proof_gap_exercise_752_22
   : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T < 0)) → (Tendsto (fun n_1 : ℕ => ((f ((z n_1) + T)) - (f (z n_1)))) atTop (𝓝 0)))) := by
   sorry
 
+end regenerated_exercise_752_gap_22
+
+namespace regenerated_exercise_752_gap_23
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_752_23
   (f : (ℝ -> ℝ))
   (x : (ℕ -> ℝ))
@@ -727,7 +1740,7 @@ theorem proof_gap_exercise_752_23
   (h1 : x_0 ∈ (Set.univ : Set ℝ))
   (h2 : n ∈ (Set.univ : Set ℕ))
   (h3 : True)
-  (h4 : True)
+  (h4 : StrictMono k)
   (h5 : S ∈ (Set.univ : Set ℝ))
   (h6 : True)
   (h7 : ContinuousOn f (Set.Ioi x_0))
@@ -740,7 +1753,7 @@ theorem proof_gap_exercise_752_23
   (h14 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (Bornology.IsBounded (g '' (Set.Ici 1))))))
   (h15 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (N : ℕ), (((N ∈ (Set.univ : Set ℕ)) ∧ (N ∈ ({n_1 : ℕ | 0 < n_1}))) → (exists (k_1 : ℕ), ((((k_1 ∈ (Set.univ : Set ℕ)) ∧ (k_1 ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (k_1 > N)) ∧ (|((g (k_1 : ℝ)))| < (v_uCE_uB5 N)))))))))))
   (h16 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (k = (fun (n_1 : ℕ) => (k n_1))))))))
-  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → True)))))
+  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (StrictMono k))))))
   (h18 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (n_1 : ℕ), (((n_1 ∈ (Set.univ : Set ℕ)) ∧ (n_1 ∈ ({n_2 : ℕ | 0 < n_2}))) → (|((g ((k n_1) : ℝ)))| < (v_uCE_uB5 n_1)))))))))
   (h19 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (x = (fun (n_1 : ℕ) => (x_0 + ((k n_1) * T)))))))))
   (h20 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (Tendsto (fun n_1 : ℕ => (((x n_1) : ℝ) : EReal)) atTop (𝓝 ⊤)))))))
@@ -757,6 +1770,52 @@ theorem proof_gap_exercise_752_23
   : (forall (T : ℝ), ((T ∈ (Set.univ : Set ℝ)) → (exists (x_1 : (ℕ -> ℝ)), ((True ∧ (Tendsto (fun n_1 : ℕ => (((x_1 n_1) : ℝ) : EReal)) atTop (𝓝 ⊤))) ∧ (Tendsto (fun n_1 : ℕ => ((f ((x_1 n_1) + T)) - (f (x_1 n_1)))) atTop (𝓝 0)))))) := by
   sorry
 
+end regenerated_exercise_752_gap_23
+
+namespace regenerated_exercise_752_gap_24
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_752_24
   (f : (ℝ -> ℝ))
   (x : (ℕ -> ℝ))
@@ -769,7 +1828,7 @@ theorem proof_gap_exercise_752_24
   (h1 : x_0 ∈ (Set.univ : Set ℝ))
   (h2 : n ∈ (Set.univ : Set ℕ))
   (h3 : True)
-  (h4 : True)
+  (h4 : StrictMono k)
   (h5 : S ∈ (Set.univ : Set ℝ))
   (h6 : True)
   (h7 : ContinuousOn f (Set.Ioi x_0))
@@ -782,7 +1841,7 @@ theorem proof_gap_exercise_752_24
   (h14 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (Bornology.IsBounded (g '' (Set.Ici 1))))))
   (h15 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (N : ℕ), (((N ∈ (Set.univ : Set ℕ)) ∧ (N ∈ ({n_1 : ℕ | 0 < n_1}))) → (exists (k_1 : ℕ), ((((k_1 ∈ (Set.univ : Set ℕ)) ∧ (k_1 ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (k_1 > N)) ∧ (|((g (k_1 : ℝ)))| < (v_uCE_uB5 N)))))))))))
   (h16 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (k = (fun (n_1 : ℕ) => (k n_1))))))))
-  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → True)))))
+  (h17 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (StrictMono k))))))
   (h18 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (forall (n_1 : ℕ), (((n_1 ∈ (Set.univ : Set ℕ)) ∧ (n_1 ∈ ({n_2 : ℕ | 0 < n_2}))) → (|((g ((k n_1) : ℝ)))| < (v_uCE_uB5 n_1)))))))))
   (h19 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (x = (fun (n_1 : ℕ) => (x_0 + ((k n_1) * T)))))))))
   (h20 : (forall (T : ℝ), (((T ∈ (Set.univ : Set ℝ)) ∧ (T > 0)) → (forall (v_uCE_uB5 : (ℕ -> ℝ)), (((∀ n_1, 0 < v_uCE_uB5 n_1) ∧ (Tendsto (fun n_1 : ℕ => (v_uCE_uB5 n_1)) atTop (𝓝 0))) → (Tendsto (fun n_1 : ℕ => (((x n_1) : ℝ) : EReal)) atTop (𝓝 ⊤)))))))
@@ -799,3 +1858,5 @@ theorem proof_gap_exercise_752_24
   (h31 : (forall (T : ℝ), ((T ∈ (Set.univ : Set ℝ)) → (exists (x_1 : (ℕ -> ℝ)), ((True ∧ (Tendsto (fun n_1 : ℕ => (((x_1 n_1) : ℝ) : EReal)) atTop (𝓝 ⊤))) ∧ (Tendsto (fun n_1 : ℕ => ((f ((x_1 n_1) + T)) - (f (x_1 n_1)))) atTop (𝓝 0)))))))
   : (forall (T : ℝ), ((T ∈ (Set.univ : Set ℝ)) → (exists (x_1 : (ℕ -> ℝ)), ((True ∧ (Tendsto (fun n_1 : ℕ => (((x_1 n_1) : ℝ) : EReal)) atTop (𝓝 ⊤))) ∧ (Tendsto (fun n_1 : ℕ => ((f ((x_1 n_1) + T)) - (f (x_1 n_1)))) atTop (𝓝 0)))))) := by
   sorry
+
+end regenerated_exercise_752_gap_24

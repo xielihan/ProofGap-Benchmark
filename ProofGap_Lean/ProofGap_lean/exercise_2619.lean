@@ -1,12 +1,9 @@
 import Mathlib
 
 -- exercise: exercise_2619
--- Regenerated from proofgap by the current printer.
--- Lean generation failed for gaps: none
--- Last gap: 5; compilation status: passed
--- Classification concerns only the last gap compilation, not every gap below.
+-- Regenerated for Lean 4.29.0-rc6 / Mathlib 5c8398d.
 
--- Exercise 2619, gap 1
+-- Source: proofgap/exercise_2619/1.txt
 namespace regenerated_exercise_2619_gap_1
 
 attribute [local instance] Classical.propDecidable
@@ -59,9 +56,10 @@ theorem proof_gap_exercise_2619_1
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ≥ 2)) → ((a n) = (1 /. (n * (Real.rpow (Real.log (n : ℝ)) p)))))))
   : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x > 1)) → ((1 /. (x * (Real.rpow (Real.log x) p))) ≥ 0))) := by
   sorry
+
 end regenerated_exercise_2619_gap_1
 
--- Exercise 2619, gap 2
+-- Source: proofgap/exercise_2619/2.txt
 namespace regenerated_exercise_2619_gap_2
 
 attribute [local instance] Classical.propDecidable
@@ -115,9 +113,10 @@ theorem proof_gap_exercise_2619_2
   (h4 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x > 1)) → ((1 /. (x * (Real.rpow (Real.log x) p))) ≥ 0))))
   : (exists (M : ℝ), (((M ∈ (Set.univ : Set ℝ)) ∧ (M > 1)) ∧ (AntitoneOn (fun (x : ℝ) => (1 /. (x * (Real.rpow (Real.log x) p)))) (Set.Ici M)))) := by
   sorry
+
 end regenerated_exercise_2619_gap_2
 
--- Exercise 2619, gap 3
+-- Source: proofgap/exercise_2619/3.txt
 namespace regenerated_exercise_2619_gap_3
 
 attribute [local instance] Classical.propDecidable
@@ -170,11 +169,12 @@ theorem proof_gap_exercise_2619_3
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ≥ 2)) → ((a n) = (1 /. (n * (Real.rpow (Real.log (n : ℝ)) p)))))))
   (h4 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x > 1)) → ((1 /. (x * (Real.rpow (Real.log x) p))) ≥ 0))))
   (h5 : (exists (M : ℝ), (((M ∈ (Set.univ : Set ℝ)) ∧ (M > 1)) ∧ (AntitoneOn (fun (x : ℝ) => (1 /. (x * (Real.rpow (Real.log x) p)))) (Set.Ici M)))))
-  : (Filter.Eventually (fun x_1 : ℝ => ((x_1 ∈ (Set.univ : Set ℝ)) ∧ (x_1 ≥ 2))) atTop ∧ ∃ L : ℝ, Tendsto (fun x_1 : ℝ => (1 /. ((1 - p) * (Real.rpow (Real.log x_1) (p - 1))))) atTop (𝓝 L) ∧ Filter.Eventually (fun x_1 : ℝ => ((x_1 ∈ (Set.univ : Set ℝ)) ∧ (x_1 ≥ 2))) atTop ∧ ∃ L : ℝ, Tendsto (fun x_1 : ℝ => (Real.log (Real.log x_1))) atTop (𝓝 L) ∧ ((∫ x in Set.Ioi (2 : ℝ), (((1 : ℝ) /. (x * (Real.rpow (Real.log x) p))) * (1 : ℝ))) = (if (p ≠ 1) then ((atTop.limUnder (fun x_1 : ℝ => (1 /. ((1 - p) * (Real.rpow (Real.log x_1) (p - 1)))))) - (1 /. ((1 - p) * (Real.rpow (Real.log (2 : ℝ)) (p - 1))))) else (if (p = 1) then ((atTop.limUnder (fun x_1 : ℝ => (Real.log (Real.log x_1)))) - (Real.log (Real.log (2 : ℝ)))) else ((atTop.limUnder (fun x_1 : ℝ => (Real.log (Real.log x_1)))) - (Real.log (Real.log (2 : ℝ)))))))) := by
+  : (Filter.Eventually (fun x_1 : ℝ => ((x_1 ∈ (Set.univ : Set ℝ)) ∧ (x_1 ≥ 2))) atTop ∧ ∃ L : ℝ, Tendsto (fun x_1 : ℝ => (1 /. ((1 - p) * (Real.rpow (Real.log x_1) (p - 1))))) atTop (𝓝 L) ∧ Filter.Eventually (fun x_1 : ℝ => ((x_1 ∈ (Set.univ : Set ℝ)) ∧ (x_1 ≥ 2))) atTop ∧ ∃ L : ℝ, Tendsto (fun x_1 : ℝ => (Real.log (Real.log x_1))) atTop (𝓝 L) ∧ ((∫ x in Set.Ioi (2 : ℝ), (((1 : ℝ) /. (x * (Real.rpow (Real.log x) p))) * (1 : ℝ))) = (if (p ≠ 1) then ((limUnder atTop (fun x_1 : ℝ => (1 /. ((1 - p) * (Real.rpow (Real.log x_1) (p - 1)))))) - (1 /. ((1 - p) * (Real.rpow (Real.log (2 : ℝ)) (p - 1))))) else (if (p = 1) then ((limUnder atTop (fun x_1 : ℝ => (Real.log (Real.log x_1)))) - (Real.log (Real.log (2 : ℝ)))) else ((limUnder atTop (fun x_1 : ℝ => (Real.log (Real.log x_1)))) - (Real.log (Real.log (2 : ℝ)))))))) := by
   sorry
+
 end regenerated_exercise_2619_gap_3
 
--- Exercise 2619, gap 4
+-- Source: proofgap/exercise_2619/4.txt
 namespace regenerated_exercise_2619_gap_4
 
 attribute [local instance] Classical.propDecidable
@@ -227,16 +227,17 @@ theorem proof_gap_exercise_2619_4
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ≥ 2)) → ((a n) = (1 /. (n * (Real.rpow (Real.log (n : ℝ)) p)))))))
   (h4 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x > 1)) → ((1 /. (x * (Real.rpow (Real.log x) p))) ≥ 0))))
   (h5 : (exists (M : ℝ), (((M ∈ (Set.univ : Set ℝ)) ∧ (M > 1)) ∧ (AntitoneOn (fun (x : ℝ) => (1 /. (x * (Real.rpow (Real.log x) p)))) (Set.Ici M)))))
-  (h6 : (∫ x in Set.Ioi (2 : ℝ), (((1 : ℝ) /. (x * (Real.rpow (Real.log x) p))) * (1 : ℝ))) = (if (p ≠ 1) then ((atTop.limUnder (fun x_1 : ℝ => (1 /. ((1 - p) * (Real.rpow (Real.log x_1) (p - 1)))))) - (1 /. ((1 - p) * (Real.rpow (Real.log (2 : ℝ)) (p - 1))))) else (if (p = 1) then ((atTop.limUnder (fun x_1 : ℝ => (Real.log (Real.log x_1)))) - (Real.log (Real.log (2 : ℝ)))) else ((atTop.limUnder (fun x_1 : ℝ => (Real.log (Real.log x_1)))) - (Real.log (Real.log (2 : ℝ)))))))
+  (h6 : (∫ x in Set.Ioi (2 : ℝ), (((1 : ℝ) /. (x * (Real.rpow (Real.log x) p))) * (1 : ℝ))) = (if (p ≠ 1) then ((limUnder atTop (fun x_1 : ℝ => (1 /. ((1 - p) * (Real.rpow (Real.log x_1) (p - 1)))))) - (1 /. ((1 - p) * (Real.rpow (Real.log (2 : ℝ)) (p - 1))))) else (if (p = 1) then ((limUnder atTop (fun x_1 : ℝ => (Real.log (Real.log x_1)))) - (Real.log (Real.log (2 : ℝ)))) else ((limUnder atTop (fun x_1 : ℝ => (Real.log (Real.log x_1)))) - (Real.log (Real.log (2 : ℝ)))))))
   (h7 : Filter.Eventually (fun x_1 : ℝ => ((x_1 ∈ (Set.univ : Set ℝ)) ∧ (x_1 ≥ 2))) atTop)
   (h8 : ∃ L : ℝ, Tendsto (fun x_1 : ℝ => (1 /. ((1 - p) * (Real.rpow (Real.log x_1) (p - 1))))) atTop (𝓝 L))
   (h9 : Filter.Eventually (fun x_1 : ℝ => ((x_1 ∈ (Set.univ : Set ℝ)) ∧ (x_1 ≥ 2))) atTop)
   (h10 : ∃ L : ℝ, Tendsto (fun x_1 : ℝ => (Real.log (Real.log x_1))) atTop (𝓝 L))
   : (Summable (fun (n : ℕ) => if (2 : ℕ) ≤ n then (a n) else 0)) ↔ (p > 1) := by
   sorry
+
 end regenerated_exercise_2619_gap_4
 
--- Exercise 2619, gap 5
+-- Source: proofgap/exercise_2619/5.txt
 namespace regenerated_exercise_2619_gap_5
 
 attribute [local instance] Classical.propDecidable
@@ -289,7 +290,7 @@ theorem proof_gap_exercise_2619_5
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ≥ 2)) → ((a n) = (1 /. (n * (Real.rpow (Real.log (n : ℝ)) p)))))))
   (h4 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x > 1)) → ((1 /. (x * (Real.rpow (Real.log x) p))) ≥ 0))))
   (h5 : (exists (M : ℝ), (((M ∈ (Set.univ : Set ℝ)) ∧ (M > 1)) ∧ (AntitoneOn (fun (x : ℝ) => (1 /. (x * (Real.rpow (Real.log x) p)))) (Set.Ici M)))))
-  (h6 : (∫ x in Set.Ioi (2 : ℝ), (((1 : ℝ) /. (x * (Real.rpow (Real.log x) p))) * (1 : ℝ))) = (if (p ≠ 1) then ((atTop.limUnder (fun x_1 : ℝ => (1 /. ((1 - p) * (Real.rpow (Real.log x_1) (p - 1)))))) - (1 /. ((1 - p) * (Real.rpow (Real.log (2 : ℝ)) (p - 1))))) else (if (p = 1) then ((atTop.limUnder (fun x_1 : ℝ => (Real.log (Real.log x_1)))) - (Real.log (Real.log (2 : ℝ)))) else ((atTop.limUnder (fun x_1 : ℝ => (Real.log (Real.log x_1)))) - (Real.log (Real.log (2 : ℝ)))))))
+  (h6 : (∫ x in Set.Ioi (2 : ℝ), (((1 : ℝ) /. (x * (Real.rpow (Real.log x) p))) * (1 : ℝ))) = (if (p ≠ 1) then ((limUnder atTop (fun x_1 : ℝ => (1 /. ((1 - p) * (Real.rpow (Real.log x_1) (p - 1)))))) - (1 /. ((1 - p) * (Real.rpow (Real.log (2 : ℝ)) (p - 1))))) else (if (p = 1) then ((limUnder atTop (fun x_1 : ℝ => (Real.log (Real.log x_1)))) - (Real.log (Real.log (2 : ℝ)))) else ((limUnder atTop (fun x_1 : ℝ => (Real.log (Real.log x_1)))) - (Real.log (Real.log (2 : ℝ)))))))
   (h7 : (Summable (fun (n : ℕ) => if (2 : ℕ) ≤ n then (a n) else 0)) ↔ (p > 1))
   (h8 : Filter.Eventually (fun x_1 : ℝ => ((x_1 ∈ (Set.univ : Set ℝ)) ∧ (x_1 ≥ 2))) atTop)
   (h9 : ∃ L : ℝ, Tendsto (fun x_1 : ℝ => (1 /. ((1 - p) * (Real.rpow (Real.log x_1) (p - 1))))) atTop (𝓝 L))
@@ -297,5 +298,5 @@ theorem proof_gap_exercise_2619_5
   (h11 : ∃ L : ℝ, Tendsto (fun x_1 : ℝ => (Real.log (Real.log x_1))) atTop (𝓝 L))
   : (p ∈ ({p_1 : ℝ | (p_1 ∈ (Set.univ : Set ℝ)) ∧ (p_1 > 1)})) ↔ (Summable (fun (n : ℕ) => if (2 : ℕ) ≤ n then (a n) else 0)) := by
   sorry
-end regenerated_exercise_2619_gap_5
 
+end regenerated_exercise_2619_gap_5

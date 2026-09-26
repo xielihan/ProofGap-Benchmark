@@ -1,12 +1,6 @@
 import Mathlib
 
--- exercise: exercise_131_1
--- Regenerated from proofgap by the current printer.
--- Lean generation failed for gaps: none
--- Last gap: 19; compilation status: passed
--- Classification concerns only the last gap compilation, not every gap below.
 
--- Exercise 131_1, gap 1
 namespace regenerated_exercise_131_1_gap_1
 
 attribute [local instance] Classical.propDecidable
@@ -57,16 +51,16 @@ theorem proof_gap_exercise_131_1_1
   (h1 : True)
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (((x n) ∈ (Set.univ : Set ℝ)) ∧ ((y n) ∈ (Set.univ : Set ℝ))))))
-  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
+  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
   (h7 : Tendsto (fun n : ℕ => (x n)) atTop (𝓝 v_uCE_uB1))
   (h8 : Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 v_uCE_uB3))
-  : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))) := by
+  : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))) := by
   sorry
+
 end regenerated_exercise_131_1_gap_1
 
--- Exercise 131_1, gap 2
 namespace regenerated_exercise_131_1_gap_2
 
 attribute [local instance] Classical.propDecidable
@@ -117,17 +111,17 @@ theorem proof_gap_exercise_131_1_2
   (h1 : True)
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (((x n) ∈ (Set.univ : Set ℝ)) ∧ ((y n) ∈ (Set.univ : Set ℝ))))))
-  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
+  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
   (h7 : Tendsto (fun n : ℕ => (x n)) atTop (𝓝 v_uCE_uB1))
   (h8 : Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 v_uCE_uB3))
-  (h9 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
-  : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ atTop.limUnder (fun n : ℕ => (y n)))))))))) := by
+  (h9 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
+  : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ limUnder atTop (fun n : ℕ => (y n)))))))))) := by
   sorry
+
 end regenerated_exercise_131_1_gap_2
 
--- Exercise 131_1, gap 3
 namespace regenerated_exercise_131_1_gap_3
 
 attribute [local instance] Classical.propDecidable
@@ -178,18 +172,18 @@ theorem proof_gap_exercise_131_1_3
   (h1 : True)
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (((x n) ∈ (Set.univ : Set ℝ)) ∧ ((y n) ∈ (Set.univ : Set ℝ))))))
-  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
+  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
   (h7 : Tendsto (fun n : ℕ => (x n)) atTop (𝓝 v_uCE_uB1))
   (h8 : Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 v_uCE_uB3))
-  (h9 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
-  (h10 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ atTop.limUnder (fun n : ℕ => (y n)))))))))))
-  : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))) := by
+  (h9 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
+  (h10 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ limUnder atTop (fun n : ℕ => (y n)))))))))))
+  : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))) := by
   sorry
+
 end regenerated_exercise_131_1_gap_3
 
--- Exercise 131_1, gap 4
 namespace regenerated_exercise_131_1_gap_4
 
 attribute [local instance] Classical.propDecidable
@@ -240,19 +234,19 @@ theorem proof_gap_exercise_131_1_4
   (h1 : True)
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (((x n) ∈ (Set.univ : Set ℝ)) ∧ ((y n) ∈ (Set.univ : Set ℝ))))))
-  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
+  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
   (h7 : Tendsto (fun n : ℕ => (x n)) atTop (𝓝 v_uCE_uB1))
   (h8 : Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 v_uCE_uB3))
-  (h9 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
-  (h10 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ atTop.limUnder (fun n : ℕ => (y n)))))))))))
-  (h11 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
+  (h9 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
+  (h10 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ limUnder atTop (fun n : ℕ => (y n)))))))))))
+  (h11 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
   : (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB1 + v_uCE_uB2) ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) (fun (n : ℕ) => ((x n) + (y n))) }))) := by
   sorry
+
 end regenerated_exercise_131_1_gap_4
 
--- Exercise 131_1, gap 5
 namespace regenerated_exercise_131_1_gap_5
 
 attribute [local instance] Classical.propDecidable
@@ -303,20 +297,20 @@ theorem proof_gap_exercise_131_1_5
   (h1 : True)
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (((x n) ∈ (Set.univ : Set ℝ)) ∧ ((y n) ∈ (Set.univ : Set ℝ))))))
-  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
+  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
   (h7 : Tendsto (fun n : ℕ => (x n)) atTop (𝓝 v_uCE_uB1))
   (h8 : Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 v_uCE_uB3))
-  (h9 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
-  (h10 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ atTop.limUnder (fun n : ℕ => (y n)))))))))))
-  (h11 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
+  (h9 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
+  (h10 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ limUnder atTop (fun n : ℕ => (y n)))))))))))
+  (h11 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
   (h12 : (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB1 + v_uCE_uB2) ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) (fun (n : ℕ) => ((x n) + (y n))) }))))
-  : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))) := by
+  : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))) := by
   sorry
+
 end regenerated_exercise_131_1_gap_5
 
--- Exercise 131_1, gap 6
 namespace regenerated_exercise_131_1_gap_6
 
 attribute [local instance] Classical.propDecidable
@@ -367,21 +361,21 @@ theorem proof_gap_exercise_131_1_6
   (h1 : True)
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (((x n) ∈ (Set.univ : Set ℝ)) ∧ ((y n) ∈ (Set.univ : Set ℝ))))))
-  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
+  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
   (h7 : Tendsto (fun n : ℕ => (x n)) atTop (𝓝 v_uCE_uB1))
   (h8 : Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 v_uCE_uB3))
-  (h9 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
-  (h10 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ atTop.limUnder (fun n : ℕ => (y n)))))))))))
-  (h11 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
+  (h9 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
+  (h10 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ limUnder atTop (fun n : ℕ => (y n)))))))))))
+  (h11 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
   (h12 : (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB1 + v_uCE_uB2) ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) (fun (n : ℕ) => ((x n) + (y n))) }))))
-  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
-  : (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L) ∧ ∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ (atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))) := by
+  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
+  : (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L) ∧ ∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ (limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))) := by
   sorry
+
 end regenerated_exercise_131_1_gap_6
 
--- Exercise 131_1, gap 7
 namespace regenerated_exercise_131_1_gap_7
 
 attribute [local instance] Classical.propDecidable
@@ -432,25 +426,25 @@ theorem proof_gap_exercise_131_1_7
   (h1 : True)
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (((x n) ∈ (Set.univ : Set ℝ)) ∧ ((y n) ∈ (Set.univ : Set ℝ))))))
-  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
+  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
   (h7 : Tendsto (fun n : ℕ => (x n)) atTop (𝓝 v_uCE_uB1))
   (h8 : Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 v_uCE_uB3))
-  (h9 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
-  (h10 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ atTop.limUnder (fun n : ℕ => (y n)))))))))))
-  (h11 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
+  (h9 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
+  (h10 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ limUnder atTop (fun n : ℕ => (y n)))))))))))
+  (h11 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
   (h12 : (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB1 + v_uCE_uB2) ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) (fun (n : ℕ) => ((x n) + (y n))) }))))
-  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
-  (h14 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
+  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
+  (h14 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
   (h15 : ∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L))
   (h16 : ∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L))
   (h17 : ∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L))
-  : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))) := by
+  : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))) := by
   sorry
+
 end regenerated_exercise_131_1_gap_7
 
--- Exercise 131_1, gap 8
 namespace regenerated_exercise_131_1_gap_8
 
 attribute [local instance] Classical.propDecidable
@@ -501,26 +495,26 @@ theorem proof_gap_exercise_131_1_8
   (h1 : True)
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (((x n) ∈ (Set.univ : Set ℝ)) ∧ ((y n) ∈ (Set.univ : Set ℝ))))))
-  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
+  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
   (h7 : Tendsto (fun n : ℕ => (x n)) atTop (𝓝 v_uCE_uB1))
   (h8 : Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 v_uCE_uB3))
-  (h9 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
-  (h10 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ atTop.limUnder (fun n : ℕ => (y n)))))))))))
-  (h11 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
+  (h9 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
+  (h10 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ limUnder atTop (fun n : ℕ => (y n)))))))))))
+  (h11 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
   (h12 : (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB1 + v_uCE_uB2) ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) (fun (n : ℕ) => ((x n) + (y n))) }))))
-  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
-  (h14 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
-  (h15 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
+  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
+  (h14 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
+  (h15 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
   (h16 : ∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L))
   (h17 : ∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L))
   (h18 : ∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L))
-  : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((x (p k)) + (y (p k)))) atTop (𝓝 v_uCE_uB3)))) := by
+  : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((x (p k)) + (y (p k)))) atTop (𝓝 v_uCE_uB3)))) := by
   sorry
+
 end regenerated_exercise_131_1_gap_8
 
--- Exercise 131_1, gap 9
 namespace regenerated_exercise_131_1_gap_9
 
 attribute [local instance] Classical.propDecidable
@@ -571,27 +565,27 @@ theorem proof_gap_exercise_131_1_9
   (h1 : True)
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (((x n) ∈ (Set.univ : Set ℝ)) ∧ ((y n) ∈ (Set.univ : Set ℝ))))))
-  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
+  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
   (h7 : Tendsto (fun n : ℕ => (x n)) atTop (𝓝 v_uCE_uB1))
   (h8 : Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 v_uCE_uB3))
-  (h9 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
-  (h10 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ atTop.limUnder (fun n : ℕ => (y n)))))))))))
-  (h11 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
+  (h9 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
+  (h10 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ limUnder atTop (fun n : ℕ => (y n)))))))))))
+  (h11 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
   (h12 : (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB1 + v_uCE_uB2) ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) (fun (n : ℕ) => ((x n) + (y n))) }))))
-  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
-  (h14 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
-  (h15 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
-  (h16 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((x (p k)) + (y (p k)))) atTop (𝓝 v_uCE_uB3)))))
+  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
+  (h14 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
+  (h15 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
+  (h16 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((x (p k)) + (y (p k)))) atTop (𝓝 v_uCE_uB3)))))
   (h17 : ∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L))
   (h18 : ∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L))
   (h19 : ∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L))
-  : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (((True ∧ (Tendsto (fun i : ℕ => (x (p (q i)))) atTop (𝓝 v_uCE_uB2_'))) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB2_'))) ∧ (v_uCE_uB2_' ≥ atTop.limUnder (fun n : ℕ => (x n))))))))) := by
+  : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (x (p (q i)))) atTop (𝓝 v_uCE_uB2_'))) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB2_'))) ∧ (v_uCE_uB2_' ≥ limUnder atTop (fun n : ℕ => (x n))))))))) := by
   sorry
+
 end regenerated_exercise_131_1_gap_9
 
--- Exercise 131_1, gap 10
 namespace regenerated_exercise_131_1_gap_10
 
 attribute [local instance] Classical.propDecidable
@@ -642,28 +636,28 @@ theorem proof_gap_exercise_131_1_10
   (h1 : True)
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (((x n) ∈ (Set.univ : Set ℝ)) ∧ ((y n) ∈ (Set.univ : Set ℝ))))))
-  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
+  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
   (h7 : Tendsto (fun n : ℕ => (x n)) atTop (𝓝 v_uCE_uB1))
   (h8 : Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 v_uCE_uB3))
-  (h9 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
-  (h10 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ atTop.limUnder (fun n : ℕ => (y n)))))))))))
-  (h11 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
+  (h9 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
+  (h10 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ limUnder atTop (fun n : ℕ => (y n)))))))))))
+  (h11 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
   (h12 : (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB1 + v_uCE_uB2) ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) (fun (n : ℕ) => ((x n) + (y n))) }))))
-  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
-  (h14 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
-  (h15 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
-  (h16 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((x (p k)) + (y (p k)))) atTop (𝓝 v_uCE_uB3)))))
-  (h17 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (x (p (q i)))) atTop (𝓝 v_uCE_uB2_'))) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB2_'))) ∧ (v_uCE_uB2_' ≥ atTop.limUnder (fun n : ℕ => (x n)))))))))))
+  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
+  (h14 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
+  (h15 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
+  (h16 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((x (p k)) + (y (p k)))) atTop (𝓝 v_uCE_uB3)))))
+  (h17 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (x (p (q i)))) atTop (𝓝 v_uCE_uB2_'))) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB2_'))) ∧ (v_uCE_uB2_' ≥ limUnder atTop (fun n : ℕ => (x n)))))))))))
   (h18 : ∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L))
   (h19 : ∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L))
   (h20 : ∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L))
-  : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (forall (i : ℕ), (((i ∈ (Set.univ : Set ℕ)) ∧ (i ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y (p (q i))) = (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))))))))) := by
+  : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (forall (i : ℕ), (((i ∈ (Set.univ : Set ℕ)) ∧ (i ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y (p (q i))) = (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))))))))) := by
   sorry
+
 end regenerated_exercise_131_1_gap_10
 
--- Exercise 131_1, gap 11
 namespace regenerated_exercise_131_1_gap_11
 
 attribute [local instance] Classical.propDecidable
@@ -714,29 +708,29 @@ theorem proof_gap_exercise_131_1_11
   (h1 : True)
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (((x n) ∈ (Set.univ : Set ℝ)) ∧ ((y n) ∈ (Set.univ : Set ℝ))))))
-  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
+  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
   (h7 : Tendsto (fun n : ℕ => (x n)) atTop (𝓝 v_uCE_uB1))
   (h8 : Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 v_uCE_uB3))
-  (h9 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
-  (h10 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ atTop.limUnder (fun n : ℕ => (y n)))))))))))
-  (h11 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
+  (h9 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
+  (h10 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ limUnder atTop (fun n : ℕ => (y n)))))))))))
+  (h11 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
   (h12 : (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB1 + v_uCE_uB2) ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) (fun (n : ℕ) => ((x n) + (y n))) }))))
-  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
-  (h14 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
-  (h15 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
-  (h16 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((x (p k)) + (y (p k)))) atTop (𝓝 v_uCE_uB3)))))
-  (h17 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (x (p (q i)))) atTop (𝓝 v_uCE_uB2_'))) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB2_'))) ∧ (v_uCE_uB2_' ≥ atTop.limUnder (fun n : ℕ => (x n)))))))))))
-  (h18 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (forall (i : ℕ), (((i ∈ (Set.univ : Set ℕ)) ∧ (i ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y (p (q i))) = (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))))))))))
+  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
+  (h14 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
+  (h15 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
+  (h16 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((x (p k)) + (y (p k)))) atTop (𝓝 v_uCE_uB3)))))
+  (h17 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (x (p (q i)))) atTop (𝓝 v_uCE_uB2_'))) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB2_'))) ∧ (v_uCE_uB2_' ≥ limUnder atTop (fun n : ℕ => (x n)))))))))))
+  (h18 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (forall (i : ℕ), (((i ∈ (Set.univ : Set ℕ)) ∧ (i ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y (p (q i))) = (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))))))))))
   (h19 : ∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L))
   (h20 : ∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L))
   (h21 : ∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L))
-  : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))) := by
+  : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))) := by
   sorry
+
 end regenerated_exercise_131_1_gap_11
 
--- Exercise 131_1, gap 12
 namespace regenerated_exercise_131_1_gap_12
 
 attribute [local instance] Classical.propDecidable
@@ -787,30 +781,30 @@ theorem proof_gap_exercise_131_1_12
   (h1 : True)
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (((x n) ∈ (Set.univ : Set ℝ)) ∧ ((y n) ∈ (Set.univ : Set ℝ))))))
-  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
+  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
   (h7 : Tendsto (fun n : ℕ => (x n)) atTop (𝓝 v_uCE_uB1))
   (h8 : Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 v_uCE_uB3))
-  (h9 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
-  (h10 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ atTop.limUnder (fun n : ℕ => (y n)))))))))))
-  (h11 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
+  (h9 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
+  (h10 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ limUnder atTop (fun n : ℕ => (y n)))))))))))
+  (h11 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
   (h12 : (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB1 + v_uCE_uB2) ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) (fun (n : ℕ) => ((x n) + (y n))) }))))
-  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
-  (h14 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
-  (h15 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
-  (h16 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((x (p k)) + (y (p k)))) atTop (𝓝 v_uCE_uB3)))))
-  (h17 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (x (p (q i)))) atTop (𝓝 v_uCE_uB2_'))) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB2_'))) ∧ (v_uCE_uB2_' ≥ atTop.limUnder (fun n : ℕ => (x n)))))))))))
-  (h18 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (forall (i : ℕ), (((i ∈ (Set.univ : Set ℕ)) ∧ (i ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y (p (q i))) = (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))))))))))
-  (h19 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
+  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
+  (h14 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
+  (h15 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
+  (h16 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((x (p k)) + (y (p k)))) atTop (𝓝 v_uCE_uB3)))))
+  (h17 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (x (p (q i)))) atTop (𝓝 v_uCE_uB2_'))) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB2_'))) ∧ (v_uCE_uB2_' ≥ limUnder atTop (fun n : ℕ => (x n)))))))))))
+  (h18 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (forall (i : ℕ), (((i ∈ (Set.univ : Set ℕ)) ∧ (i ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y (p (q i))) = (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))))))))))
+  (h19 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
   (h20 : ∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L))
   (h21 : ∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L))
   (h22 : ∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L))
-  : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))) := by
+  : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))) := by
   sorry
+
 end regenerated_exercise_131_1_gap_12
 
--- Exercise 131_1, gap 13
 namespace regenerated_exercise_131_1_gap_13
 
 attribute [local instance] Classical.propDecidable
@@ -861,31 +855,31 @@ theorem proof_gap_exercise_131_1_13
   (h1 : True)
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (((x n) ∈ (Set.univ : Set ℝ)) ∧ ((y n) ∈ (Set.univ : Set ℝ))))))
-  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
+  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
   (h7 : Tendsto (fun n : ℕ => (x n)) atTop (𝓝 v_uCE_uB1))
   (h8 : Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 v_uCE_uB3))
-  (h9 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
-  (h10 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ atTop.limUnder (fun n : ℕ => (y n)))))))))))
-  (h11 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
+  (h9 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
+  (h10 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ limUnder atTop (fun n : ℕ => (y n)))))))))))
+  (h11 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
   (h12 : (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB1 + v_uCE_uB2) ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) (fun (n : ℕ) => ((x n) + (y n))) }))))
-  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
-  (h14 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
-  (h15 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
-  (h16 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((x (p k)) + (y (p k)))) atTop (𝓝 v_uCE_uB3)))))
-  (h17 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (x (p (q i)))) atTop (𝓝 v_uCE_uB2_'))) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB2_'))) ∧ (v_uCE_uB2_' ≥ atTop.limUnder (fun n : ℕ => (x n)))))))))))
-  (h18 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (forall (i : ℕ), (((i ∈ (Set.univ : Set ℕ)) ∧ (i ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y (p (q i))) = (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))))))))))
-  (h19 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
-  (h20 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
+  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
+  (h14 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
+  (h15 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
+  (h16 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((x (p k)) + (y (p k)))) atTop (𝓝 v_uCE_uB3)))))
+  (h17 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (x (p (q i)))) atTop (𝓝 v_uCE_uB2_'))) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB2_'))) ∧ (v_uCE_uB2_' ≥ limUnder atTop (fun n : ℕ => (x n)))))))))))
+  (h18 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (forall (i : ℕ), (((i ∈ (Set.univ : Set ℕ)) ∧ (i ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y (p (q i))) = (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))))))))))
+  (h19 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
+  (h20 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
   (h21 : ∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L))
   (h22 : ∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L))
   (h23 : ∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L))
   : (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB3 - v_uCE_uB2_') ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y }))) := by
   sorry
+
 end regenerated_exercise_131_1_gap_13
 
--- Exercise 131_1, gap 14
 namespace regenerated_exercise_131_1_gap_14
 
 attribute [local instance] Classical.propDecidable
@@ -936,32 +930,32 @@ theorem proof_gap_exercise_131_1_14
   (h1 : True)
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (((x n) ∈ (Set.univ : Set ℝ)) ∧ ((y n) ∈ (Set.univ : Set ℝ))))))
-  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
+  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
   (h7 : Tendsto (fun n : ℕ => (x n)) atTop (𝓝 v_uCE_uB1))
   (h8 : Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 v_uCE_uB3))
-  (h9 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
-  (h10 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ atTop.limUnder (fun n : ℕ => (y n)))))))))))
-  (h11 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
+  (h9 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
+  (h10 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ limUnder atTop (fun n : ℕ => (y n)))))))))))
+  (h11 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
   (h12 : (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB1 + v_uCE_uB2) ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) (fun (n : ℕ) => ((x n) + (y n))) }))))
-  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
-  (h14 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
-  (h15 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
-  (h16 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((x (p k)) + (y (p k)))) atTop (𝓝 v_uCE_uB3)))))
-  (h17 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (x (p (q i)))) atTop (𝓝 v_uCE_uB2_'))) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB2_'))) ∧ (v_uCE_uB2_' ≥ atTop.limUnder (fun n : ℕ => (x n)))))))))))
-  (h18 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (forall (i : ℕ), (((i ∈ (Set.univ : Set ℕ)) ∧ (i ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y (p (q i))) = (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))))))))))
-  (h19 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
-  (h20 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
+  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
+  (h14 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
+  (h15 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
+  (h16 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((x (p k)) + (y (p k)))) atTop (𝓝 v_uCE_uB3)))))
+  (h17 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (x (p (q i)))) atTop (𝓝 v_uCE_uB2_'))) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB2_'))) ∧ (v_uCE_uB2_' ≥ limUnder atTop (fun n : ℕ => (x n)))))))))))
+  (h18 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (forall (i : ℕ), (((i ∈ (Set.univ : Set ℕ)) ∧ (i ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y (p (q i))) = (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))))))))))
+  (h19 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
+  (h20 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
   (h21 : (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB3 - v_uCE_uB2_') ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y }))))
   (h22 : ∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L))
   (h23 : ∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L))
   (h24 : ∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L))
-  : (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB3 - v_uCE_uB2_') ≥ atTop.limUnder (fun n : ℕ => (y n))))) := by
+  : (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB3 - v_uCE_uB2_') ≥ limUnder atTop (fun n : ℕ => (y n))))) := by
   sorry
+
 end regenerated_exercise_131_1_gap_14
 
--- Exercise 131_1, gap 15
 namespace regenerated_exercise_131_1_gap_15
 
 attribute [local instance] Classical.propDecidable
@@ -1012,33 +1006,33 @@ theorem proof_gap_exercise_131_1_15
   (h1 : True)
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (((x n) ∈ (Set.univ : Set ℝ)) ∧ ((y n) ∈ (Set.univ : Set ℝ))))))
-  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
+  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
   (h7 : Tendsto (fun n : ℕ => (x n)) atTop (𝓝 v_uCE_uB1))
   (h8 : Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 v_uCE_uB3))
-  (h9 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
-  (h10 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ atTop.limUnder (fun n : ℕ => (y n)))))))))))
-  (h11 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
+  (h9 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
+  (h10 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ limUnder atTop (fun n : ℕ => (y n)))))))))))
+  (h11 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
   (h12 : (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB1 + v_uCE_uB2) ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) (fun (n : ℕ) => ((x n) + (y n))) }))))
-  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
-  (h14 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
-  (h15 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
-  (h16 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((x (p k)) + (y (p k)))) atTop (𝓝 v_uCE_uB3)))))
-  (h17 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (x (p (q i)))) atTop (𝓝 v_uCE_uB2_'))) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB2_'))) ∧ (v_uCE_uB2_' ≥ atTop.limUnder (fun n : ℕ => (x n)))))))))))
-  (h18 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (forall (i : ℕ), (((i ∈ (Set.univ : Set ℕ)) ∧ (i ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y (p (q i))) = (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))))))))))
-  (h19 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
-  (h20 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
+  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
+  (h14 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
+  (h15 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
+  (h16 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((x (p k)) + (y (p k)))) atTop (𝓝 v_uCE_uB3)))))
+  (h17 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (x (p (q i)))) atTop (𝓝 v_uCE_uB2_'))) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB2_'))) ∧ (v_uCE_uB2_' ≥ limUnder atTop (fun n : ℕ => (x n)))))))))))
+  (h18 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (forall (i : ℕ), (((i ∈ (Set.univ : Set ℕ)) ∧ (i ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y (p (q i))) = (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))))))))))
+  (h19 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
+  (h20 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
   (h21 : (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB3 - v_uCE_uB2_') ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y }))))
-  (h22 : (exists (v_uCE_uB2_' : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB3 - v_uCE_uB2_') ≥ atTop.limUnder (fun n : ℕ => (y n)))))))
+  (h22 : (exists (v_uCE_uB2_' : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB3 - v_uCE_uB2_') ≥ limUnder atTop (fun n : ℕ => (y n)))))))
   (h23 : ∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L))
   (h24 : ∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L))
   (h25 : ∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L))
-  : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≥ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))) := by
+  : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≥ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))) := by
   sorry
+
 end regenerated_exercise_131_1_gap_15
 
--- Exercise 131_1, gap 16
 namespace regenerated_exercise_131_1_gap_16
 
 attribute [local instance] Classical.propDecidable
@@ -1089,34 +1083,34 @@ theorem proof_gap_exercise_131_1_16
   (h1 : True)
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (((x n) ∈ (Set.univ : Set ℝ)) ∧ ((y n) ∈ (Set.univ : Set ℝ))))))
-  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
+  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
   (h7 : Tendsto (fun n : ℕ => (x n)) atTop (𝓝 v_uCE_uB1))
   (h8 : Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 v_uCE_uB3))
-  (h9 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
-  (h10 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ atTop.limUnder (fun n : ℕ => (y n)))))))))))
-  (h11 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
+  (h9 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
+  (h10 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ limUnder atTop (fun n : ℕ => (y n)))))))))))
+  (h11 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
   (h12 : (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB1 + v_uCE_uB2) ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) (fun (n : ℕ) => ((x n) + (y n))) }))))
-  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
-  (h14 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
-  (h15 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
-  (h16 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((x (p k)) + (y (p k)))) atTop (𝓝 v_uCE_uB3)))))
-  (h17 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (x (p (q i)))) atTop (𝓝 v_uCE_uB2_'))) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB2_'))) ∧ (v_uCE_uB2_' ≥ atTop.limUnder (fun n : ℕ => (x n)))))))))))
-  (h18 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (forall (i : ℕ), (((i ∈ (Set.univ : Set ℕ)) ∧ (i ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y (p (q i))) = (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))))))))))
-  (h19 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
-  (h20 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
+  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
+  (h14 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
+  (h15 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
+  (h16 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((x (p k)) + (y (p k)))) atTop (𝓝 v_uCE_uB3)))))
+  (h17 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (x (p (q i)))) atTop (𝓝 v_uCE_uB2_'))) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB2_'))) ∧ (v_uCE_uB2_' ≥ limUnder atTop (fun n : ℕ => (x n)))))))))))
+  (h18 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (forall (i : ℕ), (((i ∈ (Set.univ : Set ℕ)) ∧ (i ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y (p (q i))) = (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))))))))))
+  (h19 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
+  (h20 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
   (h21 : (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB3 - v_uCE_uB2_') ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y }))))
-  (h22 : (exists (v_uCE_uB2_' : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB3 - v_uCE_uB2_') ≥ atTop.limUnder (fun n : ℕ => (y n)))))))
-  (h23 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≥ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
+  (h22 : (exists (v_uCE_uB2_' : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB3 - v_uCE_uB2_') ≥ limUnder atTop (fun n : ℕ => (y n)))))))
+  (h23 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≥ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
   (h24 : ∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L))
   (h25 : ∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L))
   (h26 : ∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L))
-  : (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))) ≤ atTop.limUnder (fun n : ℕ => ((x n) + (y n))) := by
+  : (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))) ≤ limUnder atTop (fun n : ℕ => ((x n) + (y n))) := by
   sorry
+
 end regenerated_exercise_131_1_gap_16
 
--- Exercise 131_1, gap 17
 namespace regenerated_exercise_131_1_gap_17
 
 attribute [local instance] Classical.propDecidable
@@ -1167,35 +1161,35 @@ theorem proof_gap_exercise_131_1_17
   (h1 : True)
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (((x n) ∈ (Set.univ : Set ℝ)) ∧ ((y n) ∈ (Set.univ : Set ℝ))))))
-  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
+  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
   (h7 : Tendsto (fun n : ℕ => (x n)) atTop (𝓝 v_uCE_uB1))
   (h8 : Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 v_uCE_uB3))
-  (h9 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
-  (h10 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ atTop.limUnder (fun n : ℕ => (y n)))))))))))
-  (h11 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
+  (h9 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
+  (h10 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ limUnder atTop (fun n : ℕ => (y n)))))))))))
+  (h11 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
   (h12 : (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB1 + v_uCE_uB2) ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) (fun (n : ℕ) => ((x n) + (y n))) }))))
-  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
-  (h14 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
-  (h15 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
-  (h16 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((x (p k)) + (y (p k)))) atTop (𝓝 v_uCE_uB3)))))
-  (h17 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (x (p (q i)))) atTop (𝓝 v_uCE_uB2_'))) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB2_'))) ∧ (v_uCE_uB2_' ≥ atTop.limUnder (fun n : ℕ => (x n)))))))))))
-  (h18 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (forall (i : ℕ), (((i ∈ (Set.univ : Set ℕ)) ∧ (i ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y (p (q i))) = (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))))))))))
-  (h19 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
-  (h20 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
+  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
+  (h14 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
+  (h15 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
+  (h16 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((x (p k)) + (y (p k)))) atTop (𝓝 v_uCE_uB3)))))
+  (h17 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (x (p (q i)))) atTop (𝓝 v_uCE_uB2_'))) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB2_'))) ∧ (v_uCE_uB2_' ≥ limUnder atTop (fun n : ℕ => (x n)))))))))))
+  (h18 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (forall (i : ℕ), (((i ∈ (Set.univ : Set ℕ)) ∧ (i ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y (p (q i))) = (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))))))))))
+  (h19 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
+  (h20 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
   (h21 : (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB3 - v_uCE_uB2_') ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y }))))
-  (h22 : (exists (v_uCE_uB2_' : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB3 - v_uCE_uB2_') ≥ atTop.limUnder (fun n : ℕ => (y n)))))))
-  (h23 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≥ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
-  (h24 : (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))) ≤ atTop.limUnder (fun n : ℕ => ((x n) + (y n))))
+  (h22 : (exists (v_uCE_uB2_' : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB3 - v_uCE_uB2_') ≥ limUnder atTop (fun n : ℕ => (y n)))))))
+  (h23 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≥ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
+  (h24 : (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))) ≤ limUnder atTop (fun n : ℕ => ((x n) + (y n))))
   (h25 : ∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L))
   (h26 : ∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L))
   (h27 : ∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L))
-  : (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))) ≤ atTop.limUnder (fun n : ℕ => ((x n) + (y n))) := by
+  : (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))) ≤ limUnder atTop (fun n : ℕ => ((x n) + (y n))) := by
   sorry
+
 end regenerated_exercise_131_1_gap_17
 
--- Exercise 131_1, gap 18
 namespace regenerated_exercise_131_1_gap_18
 
 attribute [local instance] Classical.propDecidable
@@ -1246,36 +1240,36 @@ theorem proof_gap_exercise_131_1_18
   (h1 : True)
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (((x n) ∈ (Set.univ : Set ℝ)) ∧ ((y n) ∈ (Set.univ : Set ℝ))))))
-  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
+  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
   (h7 : Tendsto (fun n : ℕ => (x n)) atTop (𝓝 v_uCE_uB1))
   (h8 : Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 v_uCE_uB3))
-  (h9 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
-  (h10 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ atTop.limUnder (fun n : ℕ => (y n)))))))))))
-  (h11 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
+  (h9 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
+  (h10 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ limUnder atTop (fun n : ℕ => (y n)))))))))))
+  (h11 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
   (h12 : (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB1 + v_uCE_uB2) ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) (fun (n : ℕ) => ((x n) + (y n))) }))))
-  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
-  (h14 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
-  (h15 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
-  (h16 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((x (p k)) + (y (p k)))) atTop (𝓝 v_uCE_uB3)))))
-  (h17 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (x (p (q i)))) atTop (𝓝 v_uCE_uB2_'))) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB2_'))) ∧ (v_uCE_uB2_' ≥ atTop.limUnder (fun n : ℕ => (x n)))))))))))
-  (h18 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (forall (i : ℕ), (((i ∈ (Set.univ : Set ℕ)) ∧ (i ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y (p (q i))) = (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))))))))))
-  (h19 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
-  (h20 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
+  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
+  (h14 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
+  (h15 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
+  (h16 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((x (p k)) + (y (p k)))) atTop (𝓝 v_uCE_uB3)))))
+  (h17 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (x (p (q i)))) atTop (𝓝 v_uCE_uB2_'))) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB2_'))) ∧ (v_uCE_uB2_' ≥ limUnder atTop (fun n : ℕ => (x n)))))))))))
+  (h18 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (forall (i : ℕ), (((i ∈ (Set.univ : Set ℕ)) ∧ (i ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y (p (q i))) = (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))))))))))
+  (h19 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
+  (h20 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
   (h21 : (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB3 - v_uCE_uB2_') ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y }))))
-  (h22 : (exists (v_uCE_uB2_' : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB3 - v_uCE_uB2_') ≥ atTop.limUnder (fun n : ℕ => (y n)))))))
-  (h23 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≥ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
-  (h24 : (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))) ≤ atTop.limUnder (fun n : ℕ => ((x n) + (y n))))
-  (h25 : (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))) ≤ atTop.limUnder (fun n : ℕ => ((x n) + (y n))))
+  (h22 : (exists (v_uCE_uB2_' : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB3 - v_uCE_uB2_') ≥ limUnder atTop (fun n : ℕ => (y n)))))))
+  (h23 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≥ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
+  (h24 : (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))) ≤ limUnder atTop (fun n : ℕ => ((x n) + (y n))))
+  (h25 : (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))) ≤ limUnder atTop (fun n : ℕ => ((x n) + (y n))))
   (h26 : ∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L))
   (h27 : ∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L))
   (h28 : ∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L))
-  : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))) := by
+  : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))) := by
   sorry
+
 end regenerated_exercise_131_1_gap_18
 
--- Exercise 131_1, gap 19
 namespace regenerated_exercise_131_1_gap_19
 
 attribute [local instance] Classical.propDecidable
@@ -1326,33 +1320,33 @@ theorem proof_gap_exercise_131_1_19
   (h1 : True)
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (((x n) ∈ (Set.univ : Set ℝ)) ∧ ((y n) ∈ (Set.univ : Set ℝ))))))
-  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
-  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (atTop.limUnder (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
+  (h4 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (x n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (x n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h5 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (y n_1)) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => (y n_1)) ∈ (Set.univ : Set ℝ))))))
+  (h6 : (forall (n : ℕ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => ((x n_1) + (y n_1))) atTop (𝓝 L) ∧ (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → (limUnder atTop (fun n_1 : ℕ => ((x n_1) + (y n_1))) ∈ (Set.univ : Set ℝ))))))
   (h7 : Tendsto (fun n : ℕ => (x n)) atTop (𝓝 v_uCE_uB1))
   (h8 : Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 v_uCE_uB3))
-  (h9 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
-  (h10 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ atTop.limUnder (fun n : ℕ => (y n)))))))))))
-  (h11 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
+  (h9 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB1)))))
+  (h10 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 v_uCE_uB2))) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 v_uCE_uB2))) ∧ (v_uCE_uB2 ≤ limUnder atTop (fun n : ℕ => (y n)))))))))))
+  (h11 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => ((x (p (q i))) + (y (p (q i))))) atTop (𝓝 (v_uCE_uB1 + v_uCE_uB2))))))))))
   (h12 : (exists (v_uCE_uB2 : ℝ), ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB1 + v_uCE_uB2) ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) (fun (n : ℕ) => ((x n) + (y n))) }))))
-  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
-  (h14 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
-  (h15 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
-  (h16 : (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((x (p k)) + (y (p k)))) atTop (𝓝 v_uCE_uB3)))))
-  (h17 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L) ∧ (((True ∧ (Tendsto (fun i : ℕ => (x (p (q i)))) atTop (𝓝 v_uCE_uB2_'))) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB2_'))) ∧ (v_uCE_uB2_' ≥ atTop.limUnder (fun n : ℕ => (x n)))))))))))
-  (h18 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (forall (i : ℕ), (((i ∈ (Set.univ : Set ℕ)) ∧ (i ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y (p (q i))) = (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))))))))))
-  (h19 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
-  (h20 : (exists (p : (ℕ -> ℕ)), (True ∧ (exists (q : (ℕ -> ℕ)), (True ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
+  (h13 : (exists (v_uCE_uB2 : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L) ∧ ((v_uCE_uB2 ∈ (Set.univ : Set ℝ)) ∧ (limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (v_uCE_uB1 + v_uCE_uB2))))))
+  (h14 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
+  (h15 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
+  (h16 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((x (p k)) + (y (p k)))) atTop (𝓝 v_uCE_uB3)))))
+  (h17 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (exists (q : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L) ∧ ((((StrictMono q) ∧ (Tendsto (fun i : ℕ => (x (p (q i)))) atTop (𝓝 v_uCE_uB2_'))) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 v_uCE_uB2_'))) ∧ (v_uCE_uB2_' ≥ limUnder atTop (fun n : ℕ => (x n)))))))))))
+  (h18 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (forall (i : ℕ), (((i ∈ (Set.univ : Set ℕ)) ∧ (i ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y (p (q i))) = (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))))))))))
+  (h19 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (((x (p (q i))) + (y (p (q i)))) - (x (p (q i))))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
+  (h20 : (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (exists (q : (ℕ -> ℕ)), ((StrictMono q) ∧ (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun i : ℕ => (y (p (q i)))) atTop (𝓝 (v_uCE_uB3 - v_uCE_uB2_'))))))))))
   (h21 : (exists (v_uCE_uB2_' : ℝ), ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB3 - v_uCE_uB2_') ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y }))))
-  (h22 : (exists (v_uCE_uB2_' : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB3 - v_uCE_uB2_') ≥ atTop.limUnder (fun n : ℕ => (y n)))))))
-  (h23 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≥ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
-  (h24 : (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))) ≤ atTop.limUnder (fun n : ℕ => ((x n) + (y n))))
-  (h25 : (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))) ≤ atTop.limUnder (fun n : ℕ => ((x n) + (y n))))
-  (h26 : atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))))
+  (h22 : (exists (v_uCE_uB2_' : ℝ), (∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L) ∧ ((v_uCE_uB2_' ∈ (Set.univ : Set ℝ)) ∧ ((v_uCE_uB3 - v_uCE_uB2_') ≥ limUnder atTop (fun n : ℕ => (y n)))))))
+  (h23 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≥ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
+  (h24 : (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))) ≤ limUnder atTop (fun n : ℕ => ((x n) + (y n))))
+  (h25 : (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))) ≤ limUnder atTop (fun n : ℕ => ((x n) + (y n))))
+  (h26 : limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))))
   (h27 : ∃ L : ℝ, Tendsto (fun n : ℕ => ((x n) + (y n))) atTop (𝓝 L))
   (h28 : ∃ L : ℝ, Tendsto (fun n : ℕ => (x n)) atTop (𝓝 L))
   (h29 : ∃ L : ℝ, Tendsto (fun n : ℕ => (y n)) atTop (𝓝 L))
-  : ((atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n))) ≤ atTop.limUnder (fun n : ℕ => ((x n) + (y n)))) ∧ (atTop.limUnder (fun n : ℕ => ((x n) + (y n))) ≤ (atTop.limUnder (fun n : ℕ => (x n)) + atTop.limUnder (fun n : ℕ => (y n)))) := by
+  : ((limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n))) ≤ limUnder atTop (fun n : ℕ => ((x n) + (y n)))) ∧ (limUnder atTop (fun n : ℕ => ((x n) + (y n))) ≤ (limUnder atTop (fun n : ℕ => (x n)) + limUnder atTop (fun n : ℕ => (y n)))) := by
   sorry
-end regenerated_exercise_131_1_gap_19
 
+end regenerated_exercise_131_1_gap_19

@@ -1,12 +1,9 @@
 import Mathlib
 
 -- exercise: exercise_2234
--- Regenerated from proofgap by the current printer.
--- Lean generation failed for gaps: none
--- Last gap: 4; compilation status: passed
--- Classification concerns only the last gap compilation, not every gap below.
+-- Regenerated for Lean 4.29.0-rc6 / Mathlib 5c8398d.
 
--- Exercise 2234, gap 1
+-- Source: proofgap/exercise_2234/1.txt
 namespace regenerated_exercise_2234_gap_1
 
 attribute [local instance] Classical.propDecidable
@@ -52,11 +49,12 @@ noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : �
   ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_2234_1
-  : (∃ L : ℝ, Tendsto (fun x : ℝ => ((Real.exp (x ^ (2 : ℕ))) /. ((Real.exp (x ^ (2 : ℕ))) * (1 - (1 /. (2 * (x ^ (2 : ℕ)))))))) atTop (𝓝 L) ∧ (Tendsto (fun x : ℝ => ((∫ t in (0 : ℝ)..x, ((Real.exp (t ^ (2 : ℕ))) * (1 : ℝ))) /. ((Real.exp (x ^ (2 : ℕ))) /. (2 * x)))) atTop (𝓝 (atTop.limUnder (fun x : ℝ => ((Real.exp (x ^ (2 : ℕ))) /. ((Real.exp (x ^ (2 : ℕ))) * (1 - (1 /. (2 * (x ^ (2 : ℕ)))))))))))) := by
+  : (∃ L : ℝ, Tendsto (fun x : ℝ => ((Real.exp (x ^ (2 : ℕ))) /. ((Real.exp (x ^ (2 : ℕ))) * (1 - (1 /. (2 * (x ^ (2 : ℕ)))))))) atTop (𝓝 L) ∧ (Tendsto (fun x : ℝ => ((∫ t in (0 : ℝ)..x, ((Real.exp (t ^ (2 : ℕ))) * (1 : ℝ))) /. ((Real.exp (x ^ (2 : ℕ))) /. (2 * x)))) atTop (𝓝 (limUnder atTop (fun x : ℝ => ((Real.exp (x ^ (2 : ℕ))) /. ((Real.exp (x ^ (2 : ℕ))) * (1 - (1 /. (2 * (x ^ (2 : ℕ)))))))))))) := by
   sorry
+
 end regenerated_exercise_2234_gap_1
 
--- Exercise 2234, gap 2
+-- Source: proofgap/exercise_2234/2.txt
 namespace regenerated_exercise_2234_gap_2
 
 attribute [local instance] Classical.propDecidable
@@ -102,13 +100,14 @@ noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : �
   ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_2234_2
-  (h1 : Tendsto (fun x : ℝ => ((∫ t in (0 : ℝ)..x, ((Real.exp (t ^ (2 : ℕ))) * (1 : ℝ))) /. ((Real.exp (x ^ (2 : ℕ))) /. (2 * x)))) atTop (𝓝 (atTop.limUnder (fun x : ℝ => ((Real.exp (x ^ (2 : ℕ))) /. ((Real.exp (x ^ (2 : ℕ))) * (1 - (1 /. (2 * (x ^ (2 : ℕ)))))))))))
+  (h1 : Tendsto (fun x : ℝ => ((∫ t in (0 : ℝ)..x, ((Real.exp (t ^ (2 : ℕ))) * (1 : ℝ))) /. ((Real.exp (x ^ (2 : ℕ))) /. (2 * x)))) atTop (𝓝 (limUnder atTop (fun x : ℝ => ((Real.exp (x ^ (2 : ℕ))) /. ((Real.exp (x ^ (2 : ℕ))) * (1 - (1 /. (2 * (x ^ (2 : ℕ)))))))))))
   (h2 : ∃ L : ℝ, Tendsto (fun x : ℝ => ((Real.exp (x ^ (2 : ℕ))) /. ((Real.exp (x ^ (2 : ℕ))) * (1 - (1 /. (2 * (x ^ (2 : ℕ)))))))) atTop (𝓝 L))
   : Tendsto (fun x : ℝ => ((Real.exp (x ^ (2 : ℕ))) /. ((Real.exp (x ^ (2 : ℕ))) * (1 - (1 /. (2 * (x ^ (2 : ℕ)))))))) atTop (𝓝 1) := by
   sorry
+
 end regenerated_exercise_2234_gap_2
 
--- Exercise 2234, gap 3
+-- Source: proofgap/exercise_2234/3.txt
 namespace regenerated_exercise_2234_gap_3
 
 attribute [local instance] Classical.propDecidable
@@ -154,14 +153,15 @@ noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : �
   ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_2234_3
-  (h1 : Tendsto (fun x : ℝ => ((∫ t in (0 : ℝ)..x, ((Real.exp (t ^ (2 : ℕ))) * (1 : ℝ))) /. ((Real.exp (x ^ (2 : ℕ))) /. (2 * x)))) atTop (𝓝 (atTop.limUnder (fun x : ℝ => ((Real.exp (x ^ (2 : ℕ))) /. ((Real.exp (x ^ (2 : ℕ))) * (1 - (1 /. (2 * (x ^ (2 : ℕ)))))))))))
+  (h1 : Tendsto (fun x : ℝ => ((∫ t in (0 : ℝ)..x, ((Real.exp (t ^ (2 : ℕ))) * (1 : ℝ))) /. ((Real.exp (x ^ (2 : ℕ))) /. (2 * x)))) atTop (𝓝 (limUnder atTop (fun x : ℝ => ((Real.exp (x ^ (2 : ℕ))) /. ((Real.exp (x ^ (2 : ℕ))) * (1 - (1 /. (2 * (x ^ (2 : ℕ)))))))))))
   (h2 : Tendsto (fun x : ℝ => ((Real.exp (x ^ (2 : ℕ))) /. ((Real.exp (x ^ (2 : ℕ))) * (1 - (1 /. (2 * (x ^ (2 : ℕ)))))))) atTop (𝓝 1))
   (h3 : ∃ L : ℝ, Tendsto (fun x : ℝ => ((Real.exp (x ^ (2 : ℕ))) /. ((Real.exp (x ^ (2 : ℕ))) * (1 - (1 /. (2 * (x ^ (2 : ℕ)))))))) atTop (𝓝 L))
   : (let asymFilter : Filter ℝ := atTop; let _ : Filter.NeBot asymFilter := (by infer_instance); let asymLeft := (fun x : ℝ => (∫ t in (0 : ℝ)..x, ((Real.exp (t ^ (2 : ℕ))) * (1 : ℝ)))); let asymRight := (fun x : ℝ => ((Real.exp (x ^ (2 : ℕ))) /. (2 * x))); (∀ᶠ asymIndex in asymFilter, asymRight asymIndex ≠ 0) ∧ Tendsto (fun asymIndex => (asymLeft asymIndex : ℝ) / (asymRight asymIndex : ℝ)) asymFilter (𝓝 (1 : ℝ))) := by
   sorry
+
 end regenerated_exercise_2234_gap_3
 
--- Exercise 2234, gap 4
+-- Source: proofgap/exercise_2234/4.txt
 namespace regenerated_exercise_2234_gap_4
 
 attribute [local instance] Classical.propDecidable
@@ -207,11 +207,11 @@ noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : �
   ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_2234_4
-  (h1 : Tendsto (fun x : ℝ => ((∫ t in (0 : ℝ)..x, ((Real.exp (t ^ (2 : ℕ))) * (1 : ℝ))) /. ((Real.exp (x ^ (2 : ℕ))) /. (2 * x)))) atTop (𝓝 (atTop.limUnder (fun x : ℝ => ((Real.exp (x ^ (2 : ℕ))) /. ((Real.exp (x ^ (2 : ℕ))) * (1 - (1 /. (2 * (x ^ (2 : ℕ)))))))))))
+  (h1 : Tendsto (fun x : ℝ => ((∫ t in (0 : ℝ)..x, ((Real.exp (t ^ (2 : ℕ))) * (1 : ℝ))) /. ((Real.exp (x ^ (2 : ℕ))) /. (2 * x)))) atTop (𝓝 (limUnder atTop (fun x : ℝ => ((Real.exp (x ^ (2 : ℕ))) /. ((Real.exp (x ^ (2 : ℕ))) * (1 - (1 /. (2 * (x ^ (2 : ℕ)))))))))))
   (h2 : Tendsto (fun x : ℝ => ((Real.exp (x ^ (2 : ℕ))) /. ((Real.exp (x ^ (2 : ℕ))) * (1 - (1 /. (2 * (x ^ (2 : ℕ)))))))) atTop (𝓝 1))
   (h3 : (let asymFilter : Filter ℝ := atTop; let _ : Filter.NeBot asymFilter := (by infer_instance); let asymLeft := (fun x : ℝ => (∫ t in (0 : ℝ)..x, ((Real.exp (t ^ (2 : ℕ))) * (1 : ℝ)))); let asymRight := (fun x : ℝ => ((Real.exp (x ^ (2 : ℕ))) /. (2 * x))); (∀ᶠ asymIndex in asymFilter, asymRight asymIndex ≠ 0) ∧ Tendsto (fun asymIndex => (asymLeft asymIndex : ℝ) / (asymRight asymIndex : ℝ)) asymFilter (𝓝 (1 : ℝ))))
   (h4 : ∃ L : ℝ, Tendsto (fun x : ℝ => ((Real.exp (x ^ (2 : ℕ))) /. ((Real.exp (x ^ (2 : ℕ))) * (1 - (1 /. (2 * (x ^ (2 : ℕ)))))))) atTop (𝓝 L))
   : (let asymFilter : Filter ℝ := atTop; let _ : Filter.NeBot asymFilter := (by infer_instance); let asymLeft := (fun x : ℝ => (∫ t in (0 : ℝ)..x, ((Real.exp (t ^ (2 : ℕ))) * (1 : ℝ)))); let asymRight := (fun x : ℝ => ((Real.exp (x ^ (2 : ℕ))) /. (2 * x))); (∀ᶠ asymIndex in asymFilter, asymRight asymIndex ≠ 0) ∧ Tendsto (fun asymIndex => (asymLeft asymIndex : ℝ) / (asymRight asymIndex : ℝ)) asymFilter (𝓝 (1 : ℝ))) := by
   sorry
-end regenerated_exercise_2234_gap_4
 
+end regenerated_exercise_2234_gap_4

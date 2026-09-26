@@ -1,12 +1,9 @@
 import Mathlib
 
 -- exercise: exercise_650_5
--- Regenerated from proofgap by the current printer.
--- Lean generation failed for gaps: none
--- Last gap: 5; compilation status: passed
--- Classification concerns only the last gap compilation, not every gap below.
+-- Regenerated for Lean 4.29.0-rc6 / Mathlib 5c8398d.
 
--- Exercise 650_5, gap 1
+-- Source: proofgap/exercise_650_5/1.txt
 namespace regenerated_exercise_650_5_gap_1
 
 attribute [local instance] Classical.propDecidable
@@ -52,11 +49,12 @@ noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : �
   ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_650_5_1
-  : (∃ L : ℝ, Tendsto (fun x : ℝ => (Real.rpow ((Real.rpow x (3 /. 4)) + (Real.rpow ((Real.rpow x (1 /. 2)) + 1) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))) (𝓝[>] 0) (𝓝 L) ∧ (Tendsto (fun x : ℝ => ((Real.rpow (x + (Real.rpow (x + (Real.rpow x (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹)) /. (Real.rpow x (1 /. 8)))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (Real.rpow ((Real.rpow x (3 /. 4)) + (Real.rpow ((Real.rpow x (1 /. 2)) + 1) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))))))) := by
+  : (∃ L : ℝ, Tendsto (fun x : ℝ => (Real.rpow ((Real.rpow x (3 /. 4)) + (Real.rpow ((Real.rpow x (1 /. 2)) + 1) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))) (𝓝[>] 0) (𝓝 L) ∧ (Tendsto (fun x : ℝ => ((Real.rpow (x + (Real.rpow (x + (Real.rpow x (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹)) /. (Real.rpow x (1 /. 8)))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (Real.rpow ((Real.rpow x (3 /. 4)) + (Real.rpow ((Real.rpow x (1 /. 2)) + 1) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))))))) := by
   sorry
+
 end regenerated_exercise_650_5_gap_1
 
--- Exercise 650_5, gap 2
+-- Source: proofgap/exercise_650_5/2.txt
 namespace regenerated_exercise_650_5_gap_2
 
 attribute [local instance] Classical.propDecidable
@@ -102,13 +100,14 @@ noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : �
   ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_650_5_2
-  (h1 : Tendsto (fun x : ℝ => ((Real.rpow (x + (Real.rpow (x + (Real.rpow x (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹)) /. (Real.rpow x (1 /. 8)))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (Real.rpow ((Real.rpow x (3 /. 4)) + (Real.rpow ((Real.rpow x (1 /. 2)) + 1) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))))))
+  (h1 : Tendsto (fun x : ℝ => ((Real.rpow (x + (Real.rpow (x + (Real.rpow x (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹)) /. (Real.rpow x (1 /. 8)))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (Real.rpow ((Real.rpow x (3 /. 4)) + (Real.rpow ((Real.rpow x (1 /. 2)) + 1) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))))))
   (h2 : ∃ L : ℝ, Tendsto (fun x : ℝ => (Real.rpow ((Real.rpow x (3 /. 4)) + (Real.rpow ((Real.rpow x (1 /. 2)) + 1) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))) (𝓝[>] 0) (𝓝 L))
   : Tendsto (fun x : ℝ => (Real.rpow ((Real.rpow x (3 /. 4)) + (Real.rpow ((Real.rpow x (1 /. 2)) + 1) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))) (𝓝[>] 0) (𝓝 1) := by
   sorry
+
 end regenerated_exercise_650_5_gap_2
 
--- Exercise 650_5, gap 3
+-- Source: proofgap/exercise_650_5/3.txt
 namespace regenerated_exercise_650_5_gap_3
 
 attribute [local instance] Classical.propDecidable
@@ -154,14 +153,15 @@ noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : �
   ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_650_5_3
-  (h1 : Tendsto (fun x : ℝ => ((Real.rpow (x + (Real.rpow (x + (Real.rpow x (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹)) /. (Real.rpow x (1 /. 8)))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (Real.rpow ((Real.rpow x (3 /. 4)) + (Real.rpow ((Real.rpow x (1 /. 2)) + 1) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))))))
+  (h1 : Tendsto (fun x : ℝ => ((Real.rpow (x + (Real.rpow (x + (Real.rpow x (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹)) /. (Real.rpow x (1 /. 8)))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (Real.rpow ((Real.rpow x (3 /. 4)) + (Real.rpow ((Real.rpow x (1 /. 2)) + 1) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))))))
   (h2 : Tendsto (fun x : ℝ => (Real.rpow ((Real.rpow x (3 /. 4)) + (Real.rpow ((Real.rpow x (1 /. 2)) + 1) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))) (𝓝[>] 0) (𝓝 1))
   (h3 : ∃ L : ℝ, Tendsto (fun x : ℝ => (Real.rpow ((Real.rpow x (3 /. 4)) + (Real.rpow ((Real.rpow x (1 /. 2)) + 1) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))) (𝓝[>] 0) (𝓝 L))
   : Tendsto (fun x : ℝ => ((Real.rpow (x + (Real.rpow (x + (Real.rpow x (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹)) /. (Real.rpow x (1 /. 8)))) (𝓝[>] 0) (𝓝 1) := by
   sorry
+
 end regenerated_exercise_650_5_gap_3
 
--- Exercise 650_5, gap 4
+-- Source: proofgap/exercise_650_5/4.txt
 namespace regenerated_exercise_650_5_gap_4
 
 attribute [local instance] Classical.propDecidable
@@ -207,15 +207,16 @@ noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : �
   ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_650_5_4
-  (h1 : Tendsto (fun x : ℝ => ((Real.rpow (x + (Real.rpow (x + (Real.rpow x (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹)) /. (Real.rpow x (1 /. 8)))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (Real.rpow ((Real.rpow x (3 /. 4)) + (Real.rpow ((Real.rpow x (1 /. 2)) + 1) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))))))
+  (h1 : Tendsto (fun x : ℝ => ((Real.rpow (x + (Real.rpow (x + (Real.rpow x (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹)) /. (Real.rpow x (1 /. 8)))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (Real.rpow ((Real.rpow x (3 /. 4)) + (Real.rpow ((Real.rpow x (1 /. 2)) + 1) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))))))
   (h2 : Tendsto (fun x : ℝ => (Real.rpow ((Real.rpow x (3 /. 4)) + (Real.rpow ((Real.rpow x (1 /. 2)) + 1) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))) (𝓝[>] 0) (𝓝 1))
   (h3 : Tendsto (fun x : ℝ => ((Real.rpow (x + (Real.rpow (x + (Real.rpow x (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹)) /. (Real.rpow x (1 /. 8)))) (𝓝[>] 0) (𝓝 1))
   (h4 : ∃ L : ℝ, Tendsto (fun x : ℝ => (Real.rpow ((Real.rpow x (3 /. 4)) + (Real.rpow ((Real.rpow x (1 /. 2)) + 1) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))) (𝓝[>] 0) (𝓝 L))
   : (let asymFilter : Filter ℝ := (𝓝[>] 0); let _ : Filter.NeBot asymFilter := (by infer_instance); let asymLeft := (fun x : ℝ => (Real.rpow (x + (Real.rpow (x + (Real.rpow x (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))); let asymRight := (fun x : ℝ => (Real.rpow x (1 /. 8))); (∀ᶠ asymIndex in asymFilter, asymRight asymIndex ≠ 0) ∧ Tendsto (fun asymIndex => (asymLeft asymIndex : ℝ) / (asymRight asymIndex : ℝ)) asymFilter (𝓝 (1 : ℝ))) := by
   sorry
+
 end regenerated_exercise_650_5_gap_4
 
--- Exercise 650_5, gap 5
+-- Source: proofgap/exercise_650_5/5.txt
 namespace regenerated_exercise_650_5_gap_5
 
 attribute [local instance] Classical.propDecidable
@@ -261,12 +262,12 @@ noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : �
   ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_650_5_5
-  (h1 : Tendsto (fun x : ℝ => ((Real.rpow (x + (Real.rpow (x + (Real.rpow x (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹)) /. (Real.rpow x (1 /. 8)))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (Real.rpow ((Real.rpow x (3 /. 4)) + (Real.rpow ((Real.rpow x (1 /. 2)) + 1) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))))))
+  (h1 : Tendsto (fun x : ℝ => ((Real.rpow (x + (Real.rpow (x + (Real.rpow x (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹)) /. (Real.rpow x (1 /. 8)))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (Real.rpow ((Real.rpow x (3 /. 4)) + (Real.rpow ((Real.rpow x (1 /. 2)) + 1) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))))))
   (h2 : Tendsto (fun x : ℝ => (Real.rpow ((Real.rpow x (3 /. 4)) + (Real.rpow ((Real.rpow x (1 /. 2)) + 1) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))) (𝓝[>] 0) (𝓝 1))
   (h3 : Tendsto (fun x : ℝ => ((Real.rpow (x + (Real.rpow (x + (Real.rpow x (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹)) /. (Real.rpow x (1 /. 8)))) (𝓝[>] 0) (𝓝 1))
   (h4 : (let asymFilter : Filter ℝ := (𝓝[>] 0); let _ : Filter.NeBot asymFilter := (by infer_instance); let asymLeft := (fun x : ℝ => (Real.rpow (x + (Real.rpow (x + (Real.rpow x (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))); let asymRight := (fun x : ℝ => (Real.rpow x (1 /. 8))); (∀ᶠ asymIndex in asymFilter, asymRight asymIndex ≠ 0) ∧ Tendsto (fun asymIndex => (asymLeft asymIndex : ℝ) / (asymRight asymIndex : ℝ)) asymFilter (𝓝 (1 : ℝ))))
   (h5 : ∃ L : ℝ, Tendsto (fun x : ℝ => (Real.rpow ((Real.rpow x (3 /. 4)) + (Real.rpow ((Real.rpow x (1 /. 2)) + 1) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))) (𝓝[>] 0) (𝓝 L))
   : (let asymFilter : Filter ℝ := (𝓝[>] 0); let _ : Filter.NeBot asymFilter := (by infer_instance); let asymLeft := (fun x : ℝ => (Real.rpow (x + (Real.rpow (x + (Real.rpow x (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))) (((2 : ℝ))⁻¹))); let asymRight := (fun x : ℝ => (Real.rpow x (1 /. 8))); (∀ᶠ asymIndex in asymFilter, asymRight asymIndex ≠ 0) ∧ Tendsto (fun asymIndex => (asymLeft asymIndex : ℝ) / (asymRight asymIndex : ℝ)) asymFilter (𝓝 (1 : ℝ))) := by
   sorry
-end regenerated_exercise_650_5_gap_5
 
+end regenerated_exercise_650_5_gap_5

@@ -3,10 +3,13 @@ import Mathlib
 noncomputable section
 
 abbrev PosIntegerSet (n : ℕ) : Prop := 0 < n
-abbrev IsSeq (x : ℕ → ℝ) : Prop := True
-axiom FunDeri {α : Type} (f : α) (i k : ℕ) : α
-abbrev MinimumPoint {α : Type} (f : α → ℝ) : Set α := Set.univ
-abbrev MinimumPointOn {α : Type} (f : α → ℝ) (s : Set α) : Set α := s
+abbrev IsSeq (x : ℕ → ℝ) : Prop := Tendsto x Filter.atTop Filter.atTop
+abbrev FunDeri (f : ℝ → ℝ → ℝ → ℝ → ℝ) (i k : ℕ) (x y z lam : ℝ) : ℝ :=
+  if i = 1 then deriv (fun t => f t y z lam) x
+  else if i = 2 then deriv (fun t => f x t z lam) y
+  else deriv (fun t => f x y t lam) z
+abbrev MinimumPoint {α : Type} (f : α → ℝ) : Set α := {x | ∀ y, f x ≤ f y}
+abbrev MinimumPointOn {α : Type} (f : α → ℝ) (s : Set α) : Set α := {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
 abbrev ContinuousFuncOn {α : Type} [TopologicalSpace α] (f : α → ℝ) (s : Set α) : Prop := ContinuousOn f s
 abbrev sqrtn (n : ℕ) (x : ℝ) : ℝ := x ^ (1 / (n : ℝ))
 abbrev frac (a b : ℝ) : ℝ := a / b
@@ -15,7 +18,7 @@ def vdot (a b : V3) : ℝ := a.1*b.1 + a.2.1*b.2.1 + a.2.2*b.2.2
 def vnorm (a : V3) : ℝ := Real.sqrt (vdot a a)
 def sumIcc (n : ℕ) (f : ℕ → ℝ) : ℝ := Finset.sum (Finset.Icc 1 n) (fun i => f i)
 
-/- exercise_3689. -/
+/- Source: exercise_3689. -/
 theorem proof_gap_exercise_3689_1 (n : ℕ) (x y z : ℕ → ℝ) (u : ℝ → ℝ → ℝ → ℝ) (F : ℝ → ℝ → ℝ → ℝ → ℝ) (N lam xp yp zp xpp ypp zpp : ℝ) (hn : PosIntegerSet n) : ∀ a b c l : ℝ, FunDeri F 1 1 a b c l = 2 * (((n:ℝ) - l) * a - sumIcc n x) := by sorry
 theorem proof_gap_exercise_3689_2 (n : ℕ) (x y z : ℕ → ℝ) (u : ℝ → ℝ → ℝ → ℝ) (F : ℝ → ℝ → ℝ → ℝ → ℝ) (N lam xp yp zp xpp ypp zpp : ℝ) (hn : PosIntegerSet n) : ∀ a b c l : ℝ, FunDeri F 2 1 a b c l = 2 * (((n:ℝ) - l) * b - sumIcc n y) := by sorry
 theorem proof_gap_exercise_3689_3 (n : ℕ) (x y z : ℕ → ℝ) (u : ℝ → ℝ → ℝ → ℝ) (F : ℝ → ℝ → ℝ → ℝ → ℝ) (N lam xp yp zp xpp ypp zpp : ℝ) (hn : PosIntegerSet n) : ∀ a b c l : ℝ, FunDeri F 3 1 a b c l = 2 * (((n:ℝ) - l) * c - sumIcc n z) := by sorry

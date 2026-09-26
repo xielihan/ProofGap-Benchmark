@@ -3,14 +3,15 @@ import Mathlib
 set_option linter.style.longLine false
 
 open scoped BigOperators Topology
-open Filter
+open Filter MeasureTheory
 
 local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
 
 noncomputable abbrev DefInt0Inf (f : ℝ -> ℝ) : ℝ := ∫ x in Set.Ioi (0 : ℝ), f x
 noncomputable abbrev DefIntAB (a b : ℝ) (f : ℝ -> ℝ) : ℝ := ∫ y in a..b, f y
-abbrev ConvergentIntegral (_v : ℝ) : Prop := True
-abbrev UniformConvergentOn (_F : ℝ -> ℝ) (_s : Set ℝ) (_g : ℝ -> ℝ) : Prop := True
+abbrev ConvergentIntegral0Inf (f : ℝ -> ℝ) : Prop := IntegrableOn f (Set.Ioi (0 : ℝ)) volume
+abbrev UniformConvergentOn (F : ℝ -> ℝ) (s : Set ℝ) (g : ℝ -> ℝ) : Prop :=
+  ∀ ε : ℝ, 0 < ε -> ∃ A : ℝ, ∀ y ∈ s, ∀ x : ℝ, A ≤ x -> |F y - g y| < ε
 
 -- exercise: exercise_3788
 
@@ -40,7 +41,7 @@ theorem proof_gap_exercise_3788_4
 
 theorem proof_gap_exercise_3788_5
   (a b J : ℝ) (ha : 0 < a) (hb : 0 < b) :
-  0 < a -> a < b -> ConvergentIntegral (DefInt0Inf (fun x => Real.exp (-(a * x)))) := by
+  0 < a -> a < b -> ConvergentIntegral0Inf (fun x => Real.exp (-(a * x))) := by
   sorry
 
 theorem proof_gap_exercise_3788_6

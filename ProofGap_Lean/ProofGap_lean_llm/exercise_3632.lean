@@ -4,25 +4,31 @@ set_option linter.style.longLine false
 open scoped BigOperators Topology
 
 abbrev R2 := ℝ × ℝ
-noncomputable def FunDeri (f : R2 -> ℝ) (coord order : ℕ) : R2 -> ℝ := fun _ => 0
+noncomputable def coordDeriv (f : R2 -> ℝ) (coord : ℕ) : R2 -> ℝ :=
+  fun p =>
+    if coord = 1 then deriv (fun t : ℝ => f (t, p.2)) p.1
+    else if coord = 2 then deriv (fun t : ℝ => f (p.1, t)) p.2
+    else f p
+noncomputable def FunDeri (f : R2 -> ℝ) (coord order : ℕ) : R2 -> ℝ :=
+  Nat.iterate (coordDeriv · coord) order f
 def FuncOfClassKOn (f : R2 -> ℝ) (s : Set R2) (k : ℕ) : Prop := ContDiffOn ℝ k f s
-def Dom (f : R2 -> ℝ) : Set R2 := Set.univ
+def Dom (f : R2 -> ℝ) : Set R2 := {p | DifferentiableAt ℝ f p}
 def MaximumPoint (f : R2 -> ℝ) : Set R2 := {p | ∀ q, f q ≤ f p}
 def MinimumPoint (f : R2 -> ℝ) : Set R2 := {p | ∀ q, f p ≤ f q}
-def approxPow (h : ℝ) (n : ℕ) (a b : ℝ) : Prop := True
+def approxPow (h : ℝ) (n : ℕ) (a b : ℝ) : Prop := Tendsto (fun k : ℕ => a + b / (k + 1 : ℝ) ^ n) atTop (nhds h)
 def diffX (x y : ℝ) : ℝ := x - 1
 def diffY (x y : ℝ) : ℝ := y - 1
 
 -- exercise: exercise_3632
 
--- Exercise 3632, gap 1
+-- Source: proofgap/exercise_3632/1.txt
 theorem proof_gap_exercise_3632_1
   (z : R2 -> ℝ)
   (h1 : ∀ x y : ℝ, z (x,y)=Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2))
   : ∀ x y : ℝ, FunDeri z 1 1 (x,y)=2*Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2+8*x-3*y) := by
   sorry
 
--- Exercise 3632, gap 2
+-- Source: proofgap/exercise_3632/2.txt
 theorem proof_gap_exercise_3632_2
   (z : R2 -> ℝ)
   (h1 : ∀ x y : ℝ, z (x,y)=Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2))
@@ -30,7 +36,7 @@ theorem proof_gap_exercise_3632_2
   : ∀ x y : ℝ, FunDeri z 2 1 (x,y)=3*Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2-2*x+2*y) := by
   sorry
 
--- Exercise 3632, gap 3
+-- Source: proofgap/exercise_3632/3.txt
 theorem proof_gap_exercise_3632_3
   (z : R2 -> ℝ)
   (h1 : ∀ x y : ℝ, z (x,y)=Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2))
@@ -39,7 +45,7 @@ theorem proof_gap_exercise_3632_3
   : ∀ x y : ℝ, FunDeri z 1 1 (x,y)=0 ∧ FunDeri z 2 1 (x,y)=0 -> (x,y) ∈ ({(0,0),(-1/4,-1/2)} : Set R2) := by
   sorry
 
--- Exercise 3632, gap 4
+-- Source: proofgap/exercise_3632/4.txt
 theorem proof_gap_exercise_3632_4
   (z : R2 -> ℝ)
   (h1 : ∀ x y : ℝ, z (x,y)=Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2))
@@ -49,7 +55,7 @@ theorem proof_gap_exercise_3632_4
   : ∀ x y : ℝ, FunDeri z 1 2 (x,y)=4*Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2+16*x-6*y+4) := by
   sorry
 
--- Exercise 3632, gap 5
+-- Source: proofgap/exercise_3632/5.txt
 theorem proof_gap_exercise_3632_5
   (z : R2 -> ℝ)
   (h1 : ∀ x y : ℝ, z (x,y)=Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2))
@@ -60,7 +66,7 @@ theorem proof_gap_exercise_3632_5
   : ∀ x y : ℝ, FunDeri z 2 2 (x,y)=9*Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2-4*x+4*y+(2/3:ℝ)) := by
   sorry
 
--- Exercise 3632, gap 6
+-- Source: proofgap/exercise_3632/6.txt
 theorem proof_gap_exercise_3632_6
   (z : R2 -> ℝ)
   (h1 : ∀ x y : ℝ, z (x,y)=Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2))
@@ -72,7 +78,7 @@ theorem proof_gap_exercise_3632_6
   : ∀ x y : ℝ, FunDeri (FunDeri z 1 1) 2 1 (x,y)=6*Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2+6*x-y-1) := by
   sorry
 
--- Exercise 3632, gap 7
+-- Source: proofgap/exercise_3632/7.txt
 theorem proof_gap_exercise_3632_7
   (z : R2 -> ℝ)
   (h1 : ∀ x y : ℝ, z (x,y)=Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2))
@@ -85,7 +91,7 @@ theorem proof_gap_exercise_3632_7
   : FunDeri z 1 2 (0,0)=16 := by
   sorry
 
--- Exercise 3632, gap 8
+-- Source: proofgap/exercise_3632/8.txt
 theorem proof_gap_exercise_3632_8
   (z : R2 -> ℝ)
   (h1 : ∀ x y : ℝ, z (x,y)=Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2))
@@ -99,7 +105,7 @@ theorem proof_gap_exercise_3632_8
   : FunDeri (FunDeri z 1 1) 2 1 (0,0)=-6 := by
   sorry
 
--- Exercise 3632, gap 9
+-- Source: proofgap/exercise_3632/9.txt
 theorem proof_gap_exercise_3632_9
   (z : R2 -> ℝ)
   (h1 : ∀ x y : ℝ, z (x,y)=Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2))
@@ -114,7 +120,7 @@ theorem proof_gap_exercise_3632_9
   : FunDeri z 2 2 (0,0)=6 := by
   sorry
 
--- Exercise 3632, gap 10
+-- Source: proofgap/exercise_3632/10.txt
 theorem proof_gap_exercise_3632_10
   (z : R2 -> ℝ)
   (h1 : ∀ x y : ℝ, z (x,y)=Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2))
@@ -130,7 +136,7 @@ theorem proof_gap_exercise_3632_10
   : 16*6-(-6:ℝ)^2=60 := by
   sorry
 
--- Exercise 3632, gap 11
+-- Source: proofgap/exercise_3632/11.txt
 theorem proof_gap_exercise_3632_11
   (z : R2 -> ℝ)
   (h1 : ∀ x y : ℝ, z (x,y)=Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2))
@@ -147,7 +153,7 @@ theorem proof_gap_exercise_3632_11
   : (60:ℝ)>0 := by
   sorry
 
--- Exercise 3632, gap 12
+-- Source: proofgap/exercise_3632/12.txt
 theorem proof_gap_exercise_3632_12
   (z : R2 -> ℝ)
   (h1 : ∀ x y : ℝ, z (x,y)=Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2))
@@ -165,7 +171,7 @@ theorem proof_gap_exercise_3632_12
   : 16*6-(-6:ℝ)^2>0 := by
   sorry
 
--- Exercise 3632, gap 13
+-- Source: proofgap/exercise_3632/13.txt
 theorem proof_gap_exercise_3632_13
   (z : R2 -> ℝ)
   (h1 : ∀ x y : ℝ, z (x,y)=Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2))
@@ -184,7 +190,7 @@ theorem proof_gap_exercise_3632_13
   : (0,0)∈MinimumPoint z := by
   sorry
 
--- Exercise 3632, gap 14
+-- Source: proofgap/exercise_3632/14.txt
 theorem proof_gap_exercise_3632_14
   (z : R2 -> ℝ)
   (h1 : ∀ x y : ℝ, z (x,y)=Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2))
@@ -204,7 +210,7 @@ theorem proof_gap_exercise_3632_14
   : z (0,0)=0 := by
   sorry
 
--- Exercise 3632, gap 15
+-- Source: proofgap/exercise_3632/15.txt
 theorem proof_gap_exercise_3632_15
   (z : R2 -> ℝ)
   (h1 : ∀ x y : ℝ, z (x,y)=Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2))
@@ -225,7 +231,7 @@ theorem proof_gap_exercise_3632_15
   : FunDeri z 1 2 (-1/4,-1/2)=14*Real.exp (-2) := by
   sorry
 
--- Exercise 3632, gap 16
+-- Source: proofgap/exercise_3632/16.txt
 theorem proof_gap_exercise_3632_16
   (z : R2 -> ℝ)
   (h1 : ∀ x y : ℝ, z (x,y)=Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2))
@@ -247,7 +253,7 @@ theorem proof_gap_exercise_3632_16
   : FunDeri (FunDeri z 1 1) 2 1 (-1/4,-1/2)=-9*Real.exp (-2) := by
   sorry
 
--- Exercise 3632, gap 17
+-- Source: proofgap/exercise_3632/17.txt
 theorem proof_gap_exercise_3632_17
   (z : R2 -> ℝ)
   (h1 : ∀ x y : ℝ, z (x,y)=Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2))
@@ -270,7 +276,7 @@ theorem proof_gap_exercise_3632_17
   : FunDeri z 2 2 (-1/4,-1/2)=(3/2:ℝ)*Real.exp (-2) := by
   sorry
 
--- Exercise 3632, gap 18
+-- Source: proofgap/exercise_3632/18.txt
 theorem proof_gap_exercise_3632_18
   (z : R2 -> ℝ)
   (h1 : ∀ x y : ℝ, z (x,y)=Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2))
@@ -294,7 +300,7 @@ theorem proof_gap_exercise_3632_18
   : 14*Real.exp (-2)*(3/2:ℝ)*Real.exp (-2)-(-9*Real.exp (-2))^2=-60*Real.exp (-4) := by
   sorry
 
--- Exercise 3632, gap 19
+-- Source: proofgap/exercise_3632/19.txt
 theorem proof_gap_exercise_3632_19
   (z : R2 -> ℝ)
   (h1 : ∀ x y : ℝ, z (x,y)=Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2))
@@ -319,7 +325,7 @@ theorem proof_gap_exercise_3632_19
   : -60*Real.exp (-4)<0 := by
   sorry
 
--- Exercise 3632, gap 20
+-- Source: proofgap/exercise_3632/20.txt
 theorem proof_gap_exercise_3632_20
   (z : R2 -> ℝ)
   (h1 : ∀ x y : ℝ, z (x,y)=Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2))
@@ -345,7 +351,7 @@ theorem proof_gap_exercise_3632_20
   : 14*Real.exp (-2)*(3/2:ℝ)*Real.exp (-2)-(-9*Real.exp (-2))^2<0 := by
   sorry
 
--- Exercise 3632, gap 21
+-- Source: proofgap/exercise_3632/21.txt
 theorem proof_gap_exercise_3632_21
   (z : R2 -> ℝ)
   (h1 : ∀ x y : ℝ, z (x,y)=Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2))
@@ -372,7 +378,7 @@ theorem proof_gap_exercise_3632_21
   : (-1/4,-1/2)∉MaximumPoint z := by
   sorry
 
--- Exercise 3632, gap 22
+-- Source: proofgap/exercise_3632/22.txt
 theorem proof_gap_exercise_3632_22
   (z : R2 -> ℝ)
   (h1 : ∀ x y : ℝ, z (x,y)=Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2))
@@ -400,7 +406,7 @@ theorem proof_gap_exercise_3632_22
   : (-1/4,-1/2)∉MinimumPoint z := by
   sorry
 
--- Exercise 3632, gap 23
+-- Source: proofgap/exercise_3632/23.txt
 theorem proof_gap_exercise_3632_23
   (z : R2 -> ℝ)
   (h1 : ∀ x y : ℝ, z (x,y)=Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2))
@@ -429,7 +435,7 @@ theorem proof_gap_exercise_3632_23
   : MinimumPoint z = ({(0,0)} : Set R2) := by
   sorry
 
--- Exercise 3632, gap 24
+-- Source: proofgap/exercise_3632/24.txt
 theorem proof_gap_exercise_3632_24
   (z : R2 -> ℝ)
   (h1 : ∀ x y : ℝ, z (x,y)=Real.exp (2*x+3*y)*(8*x^2-6*x*y+3*y^2))

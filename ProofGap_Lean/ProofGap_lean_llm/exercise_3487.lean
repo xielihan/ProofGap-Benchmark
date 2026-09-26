@@ -8,79 +8,102 @@ inductive DerivVar where
   | coord : Nat → DerivVar
   | func : BinFun → DerivVar
 
-def FDeriv (_f : BinFun) (_v : DerivVar) (_order : Nat) : BinFun :=
-  fun _ _ => 0
+def uncurryBin (f : BinFun) : ℝ × ℝ → ℝ := fun p => f p.1 p.2
 
-def DiffableFunc (_f : BinFun) : Prop := True
-def ContinuouslyDiffableFunc (_f : BinFun) : Prop := True
-def FuncOfClassK (_f : BinFun) (_k : Nat) : Prop := True
-def InReal (_x : ℝ) : Prop := True
+def coordVec : Nat → ℝ × ℝ
+  | 1 => (1, 0)
+  | 2 => (0, 1)
+  | _ => (0, 0)
+
+def firstAlong (f : BinFun) (w : ℝ × ℝ) (p : ℝ × ℝ) : ℝ :=
+  fderiv ℝ (uncurryBin f) p w
+
+def secondAlong (f : BinFun) (w : ℝ × ℝ) (p : ℝ × ℝ) : ℝ :=
+  iteratedFDeriv ℝ 2 (uncurryBin f) p ![w, w]
+
+def derivDirection : DerivVar → ℝ × ℝ → ℝ × ℝ
+  | DerivVar.coord n, _ => coordVec n
+  | DerivVar.func g, p => (firstAlong g (coordVec 1) p, firstAlong g (coordVec 2) p)
+
+def FDeriv (f : BinFun) (v : DerivVar) (order : Nat) : BinFun :=
+  fun r phi =>
+    let p : ℝ × ℝ := (r, phi)
+    let w := derivDirection v p
+    match order with
+    | 0 => f r phi
+    | 1 => firstAlong f w p
+    | _ => secondAlong f w p
+
+def DiffableFunc (f : BinFun) : Prop := Differentiable ℝ (uncurryBin f)
+def ContinuouslyDiffableFunc (f : BinFun) : Prop := ContDiff ℝ ⊤ (uncurryBin f)
+def FuncOfClassK (f : BinFun) (k : Nat) : Prop := ContDiff ℝ k (uncurryBin f)
+def InReal (x : ℝ) : Prop := x = x
 def frac (x y : ℝ) : ℝ := x / y
 
-/-- Exercise 3487, gap 1.
+/-- Source: proofgap/exercise_3487/1.txt.
 forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ FunDeri(u, x, 1)(r, φ) = frac(x(r, φ), r) * FunDeri(u, 1, 1)(r, φ) - frac(y(r, φ), r^{2}) * FunDeri(u, 2, 1)(r, φ)
 -/
 theorem proof_gap_exercise_3487_1 (x : BinFun) (y : BinFun) (u : BinFun) (v : BinFun) (I : BinFun) (h1 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> x r phi = r * Real.cos phi) (h2 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> y r phi = r * Real.sin phi) (h3 : ContinuouslyDiffableFunc u) (h4 : ContinuouslyDiffableFunc v) (h5 : ∀ r phi : ℝ, InReal r ∧ InReal phi -> I r phi = (FDeriv u (DerivVar.func x) 1) r phi * (FDeriv v (DerivVar.func y) 1) r phi - (FDeriv u (DerivVar.func y) 1) r phi * (FDeriv v (DerivVar.func x) 1) r phi) :
     ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv u (DerivVar.func x) 1) r phi = ((x r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi := by
   sorry
 
-/-- Exercise 3487, gap 2.
+/-- Source: proofgap/exercise_3487/2.txt.
 forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ FunDeri(u, y, 1)(r, φ) = frac(y(r, φ), r) * FunDeri(u, 1, 1)(r, φ) + frac(x(r, φ), r^{2}) * FunDeri(u, 2, 1)(r, φ)
 -/
 theorem proof_gap_exercise_3487_2 (x : BinFun) (y : BinFun) (u : BinFun) (v : BinFun) (I : BinFun) (h1 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> x r phi = r * Real.cos phi) (h2 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> y r phi = r * Real.sin phi) (h3 : ContinuouslyDiffableFunc u) (h4 : ContinuouslyDiffableFunc v) (h5 : ∀ r phi : ℝ, InReal r ∧ InReal phi -> I r phi = (FDeriv u (DerivVar.func x) 1) r phi * (FDeriv v (DerivVar.func y) 1) r phi - (FDeriv u (DerivVar.func y) 1) r phi * (FDeriv v (DerivVar.func x) 1) r phi) (h6 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv u (DerivVar.func x) 1) r phi = ((x r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) :
     ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv u (DerivVar.func y) 1) r phi = ((y r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi := by
   sorry
 
-/-- Exercise 3487, gap 3.
+/-- Source: proofgap/exercise_3487/3.txt.
 forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ FunDeri(v, x, 1)(r, φ) = frac(x(r, φ), r) * FunDeri(v, 1, 1)(r, φ) - frac(y(r, φ), r^{2}) * FunDeri(v, 2, 1)(r, φ)
 -/
 theorem proof_gap_exercise_3487_3 (x : BinFun) (y : BinFun) (u : BinFun) (v : BinFun) (I : BinFun) (h1 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> x r phi = r * Real.cos phi) (h2 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> y r phi = r * Real.sin phi) (h3 : ContinuouslyDiffableFunc u) (h4 : ContinuouslyDiffableFunc v) (h5 : ∀ r phi : ℝ, InReal r ∧ InReal phi -> I r phi = (FDeriv u (DerivVar.func x) 1) r phi * (FDeriv v (DerivVar.func y) 1) r phi - (FDeriv u (DerivVar.func y) 1) r phi * (FDeriv v (DerivVar.func x) 1) r phi) (h6 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv u (DerivVar.func x) 1) r phi = ((x r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) (h7 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv u (DerivVar.func y) 1) r phi = ((y r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) :
     ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv v (DerivVar.func x) 1) r phi = ((x r phi) / (r)) * (FDeriv v (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv v (DerivVar.coord 2) 1) r phi := by
   sorry
 
-/-- Exercise 3487, gap 4.
+/-- Source: proofgap/exercise_3487/4.txt.
 forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ FunDeri(v, y, 1)(r, φ) = frac(y(r, φ), r) * FunDeri(v, 1, 1)(r, φ) + frac(x(r, φ), r^{2}) * FunDeri(v, 2, 1)(r, φ)
 -/
 theorem proof_gap_exercise_3487_4 (x : BinFun) (y : BinFun) (u : BinFun) (v : BinFun) (I : BinFun) (h1 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> x r phi = r * Real.cos phi) (h2 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> y r phi = r * Real.sin phi) (h3 : ContinuouslyDiffableFunc u) (h4 : ContinuouslyDiffableFunc v) (h5 : ∀ r phi : ℝ, InReal r ∧ InReal phi -> I r phi = (FDeriv u (DerivVar.func x) 1) r phi * (FDeriv v (DerivVar.func y) 1) r phi - (FDeriv u (DerivVar.func y) 1) r phi * (FDeriv v (DerivVar.func x) 1) r phi) (h6 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv u (DerivVar.func x) 1) r phi = ((x r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) (h7 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv u (DerivVar.func y) 1) r phi = ((y r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) (h8 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv v (DerivVar.func x) 1) r phi = ((x r phi) / (r)) * (FDeriv v (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv v (DerivVar.coord 2) 1) r phi) :
     ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv v (DerivVar.func y) 1) r phi = ((y r phi) / (r)) * (FDeriv v (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv v (DerivVar.coord 2) 1) r phi := by
   sorry
 
-/-- Exercise 3487, gap 5.
+/-- Source: proofgap/exercise_3487/5.txt.
 forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ I(r, φ) = (frac(x(r, φ), r) * FunDeri(u, 1, 1)(r, φ) - frac(y(r, φ), r^{2}) * FunDeri(u, 2, 1)(r, φ)) * (frac(y(r, φ), r) * FunDeri(v, 1, 1)(r, φ) + frac(x(r, φ), r^{2}) * FunDeri(v, 2, 1)(r, φ)) - (frac(y(r, φ), r) * FunDeri(u, 1, 1)(r, φ) + frac(x(r, φ), r^{2}) * FunDeri(u, 2, 1)(r, φ)) * (frac(x(r, φ), r) * FunDeri(v, 1, 1)(r, φ) - frac(y(r, φ), r^{2}) * FunDeri(v, 2, 1)(r, φ))
 -/
 theorem proof_gap_exercise_3487_5 (x : BinFun) (y : BinFun) (u : BinFun) (v : BinFun) (I : BinFun) (h1 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> x r phi = r * Real.cos phi) (h2 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> y r phi = r * Real.sin phi) (h3 : ContinuouslyDiffableFunc u) (h4 : ContinuouslyDiffableFunc v) (h5 : ∀ r phi : ℝ, InReal r ∧ InReal phi -> I r phi = (FDeriv u (DerivVar.func x) 1) r phi * (FDeriv v (DerivVar.func y) 1) r phi - (FDeriv u (DerivVar.func y) 1) r phi * (FDeriv v (DerivVar.func x) 1) r phi) (h6 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv u (DerivVar.func x) 1) r phi = ((x r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) (h7 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv u (DerivVar.func y) 1) r phi = ((y r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) (h8 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv v (DerivVar.func x) 1) r phi = ((x r phi) / (r)) * (FDeriv v (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv v (DerivVar.coord 2) 1) r phi) (h9 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv v (DerivVar.func y) 1) r phi = ((y r phi) / (r)) * (FDeriv v (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv v (DerivVar.coord 2) 1) r phi) :
     ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> I r phi = (((x r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) * (((y r phi) / (r)) * (FDeriv v (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv v (DerivVar.coord 2) 1) r phi) - (((y r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) * (((x r phi) / (r)) * (FDeriv v (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv v (DerivVar.coord 2) 1) r phi) := by
   sorry
 
-/-- Exercise 3487, gap 6.
+/-- Source: proofgap/exercise_3487/6.txt.
 forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ I(r, φ) = frac(x(r, φ)^{2} + y(r, φ)^{2}, r^{3}) * (FunDeri(u, 1, 1)(r, φ) * FunDeri(v, 2, 1)(r, φ) - FunDeri(u, 2, 1)(r, φ) * FunDeri(v, 1, 1)(r, φ))
 -/
 theorem proof_gap_exercise_3487_6 (x : BinFun) (y : BinFun) (u : BinFun) (v : BinFun) (I : BinFun) (h1 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> x r phi = r * Real.cos phi) (h2 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> y r phi = r * Real.sin phi) (h3 : ContinuouslyDiffableFunc u) (h4 : ContinuouslyDiffableFunc v) (h5 : ∀ r phi : ℝ, InReal r ∧ InReal phi -> I r phi = (FDeriv u (DerivVar.func x) 1) r phi * (FDeriv v (DerivVar.func y) 1) r phi - (FDeriv u (DerivVar.func y) 1) r phi * (FDeriv v (DerivVar.func x) 1) r phi) (h6 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv u (DerivVar.func x) 1) r phi = ((x r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) (h7 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv u (DerivVar.func y) 1) r phi = ((y r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) (h8 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv v (DerivVar.func x) 1) r phi = ((x r phi) / (r)) * (FDeriv v (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv v (DerivVar.coord 2) 1) r phi) (h9 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv v (DerivVar.func y) 1) r phi = ((y r phi) / (r)) * (FDeriv v (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv v (DerivVar.coord 2) 1) r phi) (h10 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> I r phi = (((x r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) * (((y r phi) / (r)) * (FDeriv v (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv v (DerivVar.coord 2) 1) r phi) - (((y r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) * (((x r phi) / (r)) * (FDeriv v (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv v (DerivVar.coord 2) 1) r phi)) :
     ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> I r phi = (((x r phi)^2 + (y r phi)^2) / (r^3)) * ((FDeriv u (DerivVar.coord 1) 1) r phi * (FDeriv v (DerivVar.coord 2) 1) r phi - (FDeriv u (DerivVar.coord 2) 1) r phi * (FDeriv v (DerivVar.coord 1) 1) r phi) := by
   sorry
 
-/-- Exercise 3487, gap 7.
+/-- Source: proofgap/exercise_3487/7.txt.
 forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ x(r, φ)^{2} + y(r, φ)^{2} = r^{2}
 -/
 theorem proof_gap_exercise_3487_7 (x : BinFun) (y : BinFun) (u : BinFun) (v : BinFun) (I : BinFun) (h1 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> x r phi = r * Real.cos phi) (h2 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> y r phi = r * Real.sin phi) (h3 : ContinuouslyDiffableFunc u) (h4 : ContinuouslyDiffableFunc v) (h5 : ∀ r phi : ℝ, InReal r ∧ InReal phi -> I r phi = (FDeriv u (DerivVar.func x) 1) r phi * (FDeriv v (DerivVar.func y) 1) r phi - (FDeriv u (DerivVar.func y) 1) r phi * (FDeriv v (DerivVar.func x) 1) r phi) (h6 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv u (DerivVar.func x) 1) r phi = ((x r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) (h7 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv u (DerivVar.func y) 1) r phi = ((y r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) (h8 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv v (DerivVar.func x) 1) r phi = ((x r phi) / (r)) * (FDeriv v (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv v (DerivVar.coord 2) 1) r phi) (h9 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv v (DerivVar.func y) 1) r phi = ((y r phi) / (r)) * (FDeriv v (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv v (DerivVar.coord 2) 1) r phi) (h10 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> I r phi = (((x r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) * (((y r phi) / (r)) * (FDeriv v (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv v (DerivVar.coord 2) 1) r phi) - (((y r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) * (((x r phi) / (r)) * (FDeriv v (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv v (DerivVar.coord 2) 1) r phi)) (h11 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> I r phi = (((x r phi)^2 + (y r phi)^2) / (r^3)) * ((FDeriv u (DerivVar.coord 1) 1) r phi * (FDeriv v (DerivVar.coord 2) 1) r phi - (FDeriv u (DerivVar.coord 2) 1) r phi * (FDeriv v (DerivVar.coord 1) 1) r phi)) :
     ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (x r phi)^2 + (y r phi)^2 = r^2 := by
   sorry
 
-/-- Exercise 3487, gap 8.
+/-- Source: proofgap/exercise_3487/8.txt.
 forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ I(r, φ) = frac(1, r) * (FunDeri(u, 1, 1)(r, φ) * FunDeri(v, 2, 1)(r, φ) - FunDeri(u, 2, 1)(r, φ) * FunDeri(v, 1, 1)(r, φ))
 -/
 theorem proof_gap_exercise_3487_8 (x : BinFun) (y : BinFun) (u : BinFun) (v : BinFun) (I : BinFun) (h1 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> x r phi = r * Real.cos phi) (h2 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> y r phi = r * Real.sin phi) (h3 : ContinuouslyDiffableFunc u) (h4 : ContinuouslyDiffableFunc v) (h5 : ∀ r phi : ℝ, InReal r ∧ InReal phi -> I r phi = (FDeriv u (DerivVar.func x) 1) r phi * (FDeriv v (DerivVar.func y) 1) r phi - (FDeriv u (DerivVar.func y) 1) r phi * (FDeriv v (DerivVar.func x) 1) r phi) (h6 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv u (DerivVar.func x) 1) r phi = ((x r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) (h7 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv u (DerivVar.func y) 1) r phi = ((y r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) (h8 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv v (DerivVar.func x) 1) r phi = ((x r phi) / (r)) * (FDeriv v (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv v (DerivVar.coord 2) 1) r phi) (h9 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv v (DerivVar.func y) 1) r phi = ((y r phi) / (r)) * (FDeriv v (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv v (DerivVar.coord 2) 1) r phi) (h10 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> I r phi = (((x r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) * (((y r phi) / (r)) * (FDeriv v (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv v (DerivVar.coord 2) 1) r phi) - (((y r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) * (((x r phi) / (r)) * (FDeriv v (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv v (DerivVar.coord 2) 1) r phi)) (h11 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> I r phi = (((x r phi)^2 + (y r phi)^2) / (r^3)) * ((FDeriv u (DerivVar.coord 1) 1) r phi * (FDeriv v (DerivVar.coord 2) 1) r phi - (FDeriv u (DerivVar.coord 2) 1) r phi * (FDeriv v (DerivVar.coord 1) 1) r phi)) (h12 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (x r phi)^2 + (y r phi)^2 = r^2) :
     ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> I r phi = frac 1 r * ((FDeriv u (DerivVar.coord 1) 1) r phi * (FDeriv v (DerivVar.coord 2) 1) r phi - (FDeriv u (DerivVar.coord 2) 1) r phi * (FDeriv v (DerivVar.coord 1) 1) r phi) := by
   sorry
 
-/-- Exercise 3487, gap 9.
+/-- Source: proofgap/exercise_3487/9.txt.
 forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ I(r, φ) = frac(1, r) * (FunDeri(u, 1, 1)(r, φ) * FunDeri(v, 2, 1)(r, φ) - FunDeri(u, 2, 1)(r, φ) * FunDeri(v, 1, 1)(r, φ))
 -/
 theorem proof_gap_exercise_3487_9 (x : BinFun) (y : BinFun) (u : BinFun) (v : BinFun) (I : BinFun) (h1 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> x r phi = r * Real.cos phi) (h2 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> y r phi = r * Real.sin phi) (h3 : ContinuouslyDiffableFunc u) (h4 : ContinuouslyDiffableFunc v) (h5 : ∀ r phi : ℝ, InReal r ∧ InReal phi -> I r phi = (FDeriv u (DerivVar.func x) 1) r phi * (FDeriv v (DerivVar.func y) 1) r phi - (FDeriv u (DerivVar.func y) 1) r phi * (FDeriv v (DerivVar.func x) 1) r phi) (h6 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv u (DerivVar.func x) 1) r phi = ((x r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) (h7 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv u (DerivVar.func y) 1) r phi = ((y r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) (h8 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv v (DerivVar.func x) 1) r phi = ((x r phi) / (r)) * (FDeriv v (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv v (DerivVar.coord 2) 1) r phi) (h9 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv v (DerivVar.func y) 1) r phi = ((y r phi) / (r)) * (FDeriv v (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv v (DerivVar.coord 2) 1) r phi) (h10 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> I r phi = (((x r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) * (((y r phi) / (r)) * (FDeriv v (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv v (DerivVar.coord 2) 1) r phi) - (((y r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) * (((x r phi) / (r)) * (FDeriv v (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv v (DerivVar.coord 2) 1) r phi)) (h11 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> I r phi = (((x r phi)^2 + (y r phi)^2) / (r^3)) * ((FDeriv u (DerivVar.coord 1) 1) r phi * (FDeriv v (DerivVar.coord 2) 1) r phi - (FDeriv u (DerivVar.coord 2) 1) r phi * (FDeriv v (DerivVar.coord 1) 1) r phi)) (h12 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (x r phi)^2 + (y r phi)^2 = r^2) (h13 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> I r phi = frac 1 r * ((FDeriv u (DerivVar.coord 1) 1) r phi * (FDeriv v (DerivVar.coord 2) 1) r phi - (FDeriv u (DerivVar.coord 2) 1) r phi * (FDeriv v (DerivVar.coord 1) 1) r phi)) :
     ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> I r phi = frac 1 r * ((FDeriv u (DerivVar.coord 1) 1) r phi * (FDeriv v (DerivVar.coord 2) 1) r phi - (FDeriv u (DerivVar.coord 2) 1) r phi * (FDeriv v (DerivVar.coord 1) 1) r phi) := by
   sorry
 
-/-- Exercise 3487, gap 10.
+/-- Source: proofgap/exercise_3487/10.txt.
 forall (r) (φ), r ∈ RealSet ∧ r > 0 ∧ φ ∈ RealSet ⇒ I(r, φ) = frac(1, r) * (FunDeri(u, 1, 1)(r, φ) * FunDeri(v, 2, 1)(r, φ) - FunDeri(u, 2, 1)(r, φ) * FunDeri(v, 1, 1)(r, φ))
 -/
 theorem proof_gap_exercise_3487_10 (x : BinFun) (y : BinFun) (u : BinFun) (v : BinFun) (I : BinFun) (h1 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> x r phi = r * Real.cos phi) (h2 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> y r phi = r * Real.sin phi) (h3 : ContinuouslyDiffableFunc u) (h4 : ContinuouslyDiffableFunc v) (h5 : ∀ r phi : ℝ, InReal r ∧ InReal phi -> I r phi = (FDeriv u (DerivVar.func x) 1) r phi * (FDeriv v (DerivVar.func y) 1) r phi - (FDeriv u (DerivVar.func y) 1) r phi * (FDeriv v (DerivVar.func x) 1) r phi) (h6 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv u (DerivVar.func x) 1) r phi = ((x r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) (h7 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv u (DerivVar.func y) 1) r phi = ((y r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) (h8 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv v (DerivVar.func x) 1) r phi = ((x r phi) / (r)) * (FDeriv v (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv v (DerivVar.coord 2) 1) r phi) (h9 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (FDeriv v (DerivVar.func y) 1) r phi = ((y r phi) / (r)) * (FDeriv v (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv v (DerivVar.coord 2) 1) r phi) (h10 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> I r phi = (((x r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) * (((y r phi) / (r)) * (FDeriv v (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv v (DerivVar.coord 2) 1) r phi) - (((y r phi) / (r)) * (FDeriv u (DerivVar.coord 1) 1) r phi + ((x r phi) / (r^2)) * (FDeriv u (DerivVar.coord 2) 1) r phi) * (((x r phi) / (r)) * (FDeriv v (DerivVar.coord 1) 1) r phi - ((y r phi) / (r^2)) * (FDeriv v (DerivVar.coord 2) 1) r phi)) (h11 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> I r phi = (((x r phi)^2 + (y r phi)^2) / (r^3)) * ((FDeriv u (DerivVar.coord 1) 1) r phi * (FDeriv v (DerivVar.coord 2) 1) r phi - (FDeriv u (DerivVar.coord 2) 1) r phi * (FDeriv v (DerivVar.coord 1) 1) r phi)) (h12 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> (x r phi)^2 + (y r phi)^2 = r^2) (h13 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> I r phi = frac 1 r * ((FDeriv u (DerivVar.coord 1) 1) r phi * (FDeriv v (DerivVar.coord 2) 1) r phi - (FDeriv u (DerivVar.coord 2) 1) r phi * (FDeriv v (DerivVar.coord 1) 1) r phi)) (h14 : ∀ r phi : ℝ, InReal r ∧ r > 0 ∧ InReal phi -> I r phi = frac 1 r * ((FDeriv u (DerivVar.coord 1) 1) r phi * (FDeriv v (DerivVar.coord 2) 1) r phi - (FDeriv u (DerivVar.coord 2) 1) r phi * (FDeriv v (DerivVar.coord 1) 1) r phi)) :

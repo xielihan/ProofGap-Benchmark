@@ -24,7 +24,7 @@ def uniformlyConvergesImproperIntegral
 theorem proof_gap_exercise_3751_1
     (f : ℝ -> ℝ -> ℝ) (y1 y2 : ℝ)
     (hy : y1 < y2)
-    (hf_dom : ∀ x y, 0 ≤ x -> y ∈ Set.Ioo y1 y2 -> True) :
+    (hf_dom : ∀ y ∈ Set.Ioo y1 y2, MeasureTheory.IntegrableOn (fun x => f x y) (Set.Ici (0 : ℝ))) :
     (∀ ε0 : ℝ,
       ε0 ∈ Set.Ioi (0 : ℝ) ->
       (∀ B : ℝ, B > 0 ->
@@ -60,4 +60,3 @@ theorem proof_gap_exercise_3751_3
     ¬ uniformlyConvergesImproperIntegral f (Set.Ioo y1 y2)
         (fun y => ∫ x in Set.Ioi (0 : ℝ), f x y) := by
   sorry
-

@@ -1,12 +1,6 @@
 import Mathlib
 
--- exercise: exercise_124
--- Regenerated from proofgap by the current printer.
--- Lean generation failed for gaps: none
--- Last gap: 15; compilation status: passed
--- Classification concerns only the last gap compilation, not every gap below.
 
--- Exercise 124, gap 1
 namespace regenerated_exercise_124_gap_1
 
 attribute [local instance] Classical.propDecidable
@@ -59,9 +53,9 @@ theorem proof_gap_exercise_124_1
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y n) = ((x n) * (Real.rpow (n : ℝ) (((n : ℝ))⁻¹)))))))
   : Tendsto (fun n : ℕ => (Real.rpow n ((n)⁻¹))) atTop (𝓝 1) := by
   sorry
+
 end regenerated_exercise_124_gap_1
 
--- Exercise 124, gap 2
 namespace regenerated_exercise_124_gap_2
 
 attribute [local instance] Classical.propDecidable
@@ -113,11 +107,11 @@ theorem proof_gap_exercise_124_2
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y n) = ((x n) * (Real.rpow (n : ℝ) (((n : ℝ))⁻¹)))))))
   (h4 : Tendsto (fun n : ℕ => (Real.rpow n ((n)⁻¹))) atTop (𝓝 1))
-  : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))) := by
+  : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))) := by
   sorry
+
 end regenerated_exercise_124_gap_2
 
--- Exercise 124, gap 3
 namespace regenerated_exercise_124_gap_3
 
 attribute [local instance] Classical.propDecidable
@@ -169,12 +163,12 @@ theorem proof_gap_exercise_124_3
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y n) = ((x n) * (Real.rpow (n : ℝ) (((n : ℝ))⁻¹)))))))
   (h4 : Tendsto (fun n : ℕ => (Real.rpow n ((n)⁻¹))) atTop (𝓝 1))
-  (h5 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
-  : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))) := by
+  (h5 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
+  : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))) := by
   sorry
+
 end regenerated_exercise_124_gap_3
 
--- Exercise 124, gap 4
 namespace regenerated_exercise_124_gap_4
 
 attribute [local instance] Classical.propDecidable
@@ -226,13 +220,13 @@ theorem proof_gap_exercise_124_4
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y n) = ((x n) * (Real.rpow (n : ℝ) (((n : ℝ))⁻¹)))))))
   (h4 : Tendsto (fun n : ℕ => (Real.rpow n ((n)⁻¹))) atTop (𝓝 1))
-  (h5 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
-  (h6 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
-  : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 (atTop.limUnder (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))) := by
+  (h5 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
+  (h6 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
+  : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 (limUnder atTop (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))) := by
   sorry
+
 end regenerated_exercise_124_gap_4
 
--- Exercise 124, gap 5
 namespace regenerated_exercise_124_gap_5
 
 attribute [local instance] Classical.propDecidable
@@ -284,14 +278,14 @@ theorem proof_gap_exercise_124_5
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y n) = ((x n) * (Real.rpow (n : ℝ) (((n : ℝ))⁻¹)))))))
   (h4 : Tendsto (fun n : ℕ => (Real.rpow n ((n)⁻¹))) atTop (𝓝 1))
-  (h5 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
-  (h6 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
-  (h7 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 (atTop.limUnder (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
-  : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))) := by
+  (h5 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
+  (h6 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
+  (h7 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 (limUnder atTop (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
+  : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))) := by
   sorry
+
 end regenerated_exercise_124_gap_5
 
--- Exercise 124, gap 6
 namespace regenerated_exercise_124_gap_6
 
 attribute [local instance] Classical.propDecidable
@@ -343,15 +337,15 @@ theorem proof_gap_exercise_124_6
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y n) = ((x n) * (Real.rpow (n : ℝ) (((n : ℝ))⁻¹)))))))
   (h4 : Tendsto (fun n : ℕ => (Real.rpow n ((n)⁻¹))) atTop (𝓝 1))
-  (h5 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
-  (h6 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
-  (h7 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 (atTop.limUnder (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
-  (h8 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
-  : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))) := by
+  (h5 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
+  (h6 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
+  (h7 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 (limUnder atTop (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
+  (h8 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
+  : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))) := by
   sorry
+
 end regenerated_exercise_124_gap_6
 
--- Exercise 124, gap 7
 namespace regenerated_exercise_124_gap_7
 
 attribute [local instance] Classical.propDecidable
@@ -403,16 +397,16 @@ theorem proof_gap_exercise_124_7
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y n) = ((x n) * (Real.rpow (n : ℝ) (((n : ℝ))⁻¹)))))))
   (h4 : Tendsto (fun n : ℕ => (Real.rpow n ((n)⁻¹))) atTop (𝓝 1))
-  (h5 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
-  (h6 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
-  (h7 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 (atTop.limUnder (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
-  (h8 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
-  (h9 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
+  (h5 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
+  (h6 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
+  (h7 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 (limUnder atTop (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
+  (h8 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
+  (h9 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
   : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y }))) := by
   sorry
+
 end regenerated_exercise_124_gap_7
 
--- Exercise 124, gap 8
 namespace regenerated_exercise_124_gap_8
 
 attribute [local instance] Classical.propDecidable
@@ -464,17 +458,17 @@ theorem proof_gap_exercise_124_8
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y n) = ((x n) * (Real.rpow (n : ℝ) (((n : ℝ))⁻¹)))))))
   (h4 : Tendsto (fun n : ℕ => (Real.rpow n ((n)⁻¹))) atTop (𝓝 1))
-  (h5 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
-  (h6 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
-  (h7 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 (atTop.limUnder (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
-  (h8 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
-  (h9 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
+  (h5 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
+  (h6 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
+  (h7 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 (limUnder atTop (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
+  (h8 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
+  (h9 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
   (h10 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y }))))
-  : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))) := by
+  : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))) := by
   sorry
+
 end regenerated_exercise_124_gap_8
 
--- Exercise 124, gap 9
 namespace regenerated_exercise_124_gap_9
 
 attribute [local instance] Classical.propDecidable
@@ -526,18 +520,18 @@ theorem proof_gap_exercise_124_9
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y n) = ((x n) * (Real.rpow (n : ℝ) (((n : ℝ))⁻¹)))))))
   (h4 : Tendsto (fun n : ℕ => (Real.rpow n ((n)⁻¹))) atTop (𝓝 1))
-  (h5 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
-  (h6 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
-  (h7 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 (atTop.limUnder (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
-  (h8 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
-  (h9 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
+  (h5 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
+  (h6 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
+  (h7 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 (limUnder atTop (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
+  (h8 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
+  (h9 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
   (h10 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y }))))
-  (h11 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
-  : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))) := by
+  (h11 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
+  : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))) := by
   sorry
+
 end regenerated_exercise_124_gap_9
 
--- Exercise 124, gap 10
 namespace regenerated_exercise_124_gap_10
 
 attribute [local instance] Classical.propDecidable
@@ -589,19 +583,19 @@ theorem proof_gap_exercise_124_10
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y n) = ((x n) * (Real.rpow (n : ℝ) (((n : ℝ))⁻¹)))))))
   (h4 : Tendsto (fun n : ℕ => (Real.rpow n ((n)⁻¹))) atTop (𝓝 1))
-  (h5 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
-  (h6 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
-  (h7 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 (atTop.limUnder (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
-  (h8 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
-  (h9 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
+  (h5 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
+  (h6 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
+  (h7 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 (limUnder atTop (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
+  (h8 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
+  (h9 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
   (h10 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y }))))
-  (h11 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
-  (h12 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
-  : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 (atTop.limUnder (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))) := by
+  (h11 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
+  (h12 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
+  : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 (limUnder atTop (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))) := by
   sorry
+
 end regenerated_exercise_124_gap_10
 
--- Exercise 124, gap 11
 namespace regenerated_exercise_124_gap_11
 
 attribute [local instance] Classical.propDecidable
@@ -653,20 +647,20 @@ theorem proof_gap_exercise_124_11
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y n) = ((x n) * (Real.rpow (n : ℝ) (((n : ℝ))⁻¹)))))))
   (h4 : Tendsto (fun n : ℕ => (Real.rpow n ((n)⁻¹))) atTop (𝓝 1))
-  (h5 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
-  (h6 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
-  (h7 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 (atTop.limUnder (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
-  (h8 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
-  (h9 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
+  (h5 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
+  (h6 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
+  (h7 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 (limUnder atTop (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
+  (h8 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
+  (h9 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
   (h10 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y }))))
-  (h11 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
-  (h12 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
-  (h13 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 (atTop.limUnder (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
-  : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))) := by
+  (h11 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
+  (h12 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
+  (h13 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 (limUnder atTop (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
+  : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))) := by
   sorry
+
 end regenerated_exercise_124_gap_11
 
--- Exercise 124, gap 12
 namespace regenerated_exercise_124_gap_12
 
 attribute [local instance] Classical.propDecidable
@@ -718,21 +712,21 @@ theorem proof_gap_exercise_124_12
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y n) = ((x n) * (Real.rpow (n : ℝ) (((n : ℝ))⁻¹)))))))
   (h4 : Tendsto (fun n : ℕ => (Real.rpow n ((n)⁻¹))) atTop (𝓝 1))
-  (h5 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
-  (h6 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
-  (h7 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 (atTop.limUnder (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
-  (h8 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
-  (h9 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
+  (h5 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
+  (h6 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
+  (h7 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 (limUnder atTop (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
+  (h8 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
+  (h9 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
   (h10 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y }))))
-  (h11 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
-  (h12 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
-  (h13 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 (atTop.limUnder (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
-  (h14 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
-  : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))) := by
+  (h11 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
+  (h12 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
+  (h13 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 (limUnder atTop (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
+  (h14 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
+  : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))) := by
   sorry
+
 end regenerated_exercise_124_gap_12
 
--- Exercise 124, gap 13
 namespace regenerated_exercise_124_gap_13
 
 attribute [local instance] Classical.propDecidable
@@ -784,22 +778,22 @@ theorem proof_gap_exercise_124_13
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y n) = ((x n) * (Real.rpow (n : ℝ) (((n : ℝ))⁻¹)))))))
   (h4 : Tendsto (fun n : ℕ => (Real.rpow n ((n)⁻¹))) atTop (𝓝 1))
-  (h5 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
-  (h6 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
-  (h7 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 (atTop.limUnder (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
-  (h8 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
-  (h9 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
+  (h5 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
+  (h6 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
+  (h7 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 (limUnder atTop (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
+  (h8 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
+  (h9 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
   (h10 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y }))))
-  (h11 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
-  (h12 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
-  (h13 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 (atTop.limUnder (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
-  (h14 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
-  (h15 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
+  (h11 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
+  (h12 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
+  (h13 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 (limUnder atTop (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
+  (h14 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
+  (h15 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
   : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x }))) := by
   sorry
+
 end regenerated_exercise_124_gap_13
 
--- Exercise 124, gap 14
 namespace regenerated_exercise_124_gap_14
 
 attribute [local instance] Classical.propDecidable
@@ -851,23 +845,23 @@ theorem proof_gap_exercise_124_14
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y n) = ((x n) * (Real.rpow (n : ℝ) (((n : ℝ))⁻¹)))))))
   (h4 : Tendsto (fun n : ℕ => (Real.rpow n ((n)⁻¹))) atTop (𝓝 1))
-  (h5 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
-  (h6 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
-  (h7 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 (atTop.limUnder (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
-  (h8 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
-  (h9 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
+  (h5 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
+  (h6 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
+  (h7 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 (limUnder atTop (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
+  (h8 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
+  (h9 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
   (h10 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y }))))
-  (h11 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
-  (h12 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
-  (h13 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 (atTop.limUnder (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
-  (h14 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
-  (h15 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
+  (h11 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
+  (h12 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
+  (h13 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 (limUnder atTop (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
+  (h14 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
+  (h15 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
   (h16 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x }))))
   : ({ cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x } = { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y }) := by
   sorry
+
 end regenerated_exercise_124_gap_14
 
--- Exercise 124, gap 15
 namespace regenerated_exercise_124_gap_15
 
 attribute [local instance] Classical.propDecidable
@@ -919,20 +913,20 @@ theorem proof_gap_exercise_124_15
   (h2 : True)
   (h3 : (forall (n : ℕ), (((n ∈ (Set.univ : Set ℕ)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) → ((y n) = ((x n) * (Real.rpow (n : ℝ) (((n : ℝ))⁻¹)))))))
   (h4 : Tendsto (fun n : ℕ => (Real.rpow n ((n)⁻¹))) atTop (𝓝 1))
-  (h5 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
-  (h6 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
-  (h7 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 (atTop.limUnder (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
-  (h8 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
-  (h9 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
+  (h5 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
+  (h6 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
+  (h7 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 (limUnder atTop (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
+  (h8 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((x (p k)) * (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
+  (h9 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
   (h10 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x })) → (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y }))))
-  (h11 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
-  (h12 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
-  (h13 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 (atTop.limUnder (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
-  (h14 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
-  (h15 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (True ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
+  (h11 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (y (p k))) atTop (𝓝 a)))))))
+  (h12 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹))) atTop (𝓝 1)))))))
+  (h13 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), (∃ L : ℝ, Tendsto (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 L) ∧ ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 (limUnder atTop (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))))))))))))
+  (h14 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => ((y (p k)) /. (Real.rpow ((p k) : ℝ) ((((p k) : ℝ))⁻¹)))) atTop (𝓝 a)))))))
+  (h15 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (exists (p : (ℕ -> ℕ)), ((StrictMono p) ∧ (Tendsto (fun k : ℕ => (x (p k))) atTop (𝓝 a)))))))
   (h16 : (forall (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y })) → (a ∈ { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x }))))
   (h17 : ({ cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x } = { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y }))
   : ({ cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) x } = { cluster : ℝ | MapClusterPt cluster (atTop : Filter ℕ) y }) := by
   sorry
-end regenerated_exercise_124_gap_15
 
+end regenerated_exercise_124_gap_15

@@ -1,1201 +1,336 @@
 import Mathlib
 
-/-
-This file intentionally contains only theorem statements with `by sorry` proofs.
-No Lean compilation was run in this generation round.
+/-!
+Regenerated from `sources/exercise_3029/*.txt`.
+
+The power series is encoded with `Summable` and `tsum`.  Its convergence
+domain is a genuine set of real points where the coefficient series is
+summable; the displayed closed forms use real square root, inverse sine, log,
+and derivative.
 -/
+
+open scoped BigOperators
+open Filter
 
 namespace Exercise_3029
 
-/-- Source proof gap 1.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
+noncomputable section
 
-GOAL:
-seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
--/
-def proof_gap_exercise_3029_1_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_1 : proof_gap_exercise_3029_1_statement := by
+def coeff (n : ℕ) : ℝ :=
+  ((Nat.factorial n : ℝ) ^ 2) / (Nat.factorial (2 * n) : ℝ)
+
+def powerTerm (x : ℝ) (n : ℕ) : ℝ :=
+  coeff n * x ^ n
+
+def powerSeries (x : ℝ) : ℝ :=
+  ∑' n : ℕ, powerTerm x n
+
+def convergenceDomain : Set ℝ :=
+  {x : ℝ | Summable (fun n : ℕ => powerTerm x n)}
+
+def radiusOfConvergence (c : ℕ → ℝ) : ℝ :=
+  sSup {r : ℝ | 0 ≤ r ∧ ∀ x : ℝ, |x| < r → Summable (fun n : ℕ => c n * x ^ n)}
+
+def positiveClosedForm (x : ℝ) : ℝ :=
+  4 / (4 - x) +
+    (4 * Real.sqrt x) / ((4 - x) ^ ((3 : ℝ) / 2)) *
+      Real.arcsin (Real.sqrt x / 2)
+
+def negativeClosedForm (x : ℝ) : ℝ :=
+  4 / (4 - x) -
+    (4 * Real.sqrt |x|) / ((4 - x) ^ ((3 : ℝ) / 2)) *
+      Real.log ((Real.sqrt |x| + Real.sqrt (4 - x)) / 2)
+
+def piecewiseClosedForm (x : ℝ) : ℝ :=
+  if 0 ≤ x ∧ x < 4 then positiveClosedForm x else negativeClosedForm x
+
+def endpointTerm (sign : ℝ) (n : ℕ) : ℝ :=
+  coeff n * sign ^ n
+
+theorem proof_gap_exercise_3029_1
+    (S : ℝ → ℝ) (D : Set ℝ) (x t : ℝ) (n : ℕ)
+    (a : ℕ → ℝ) (F G g : ℝ → ℝ) (C : ℝ) :
+    Tendsto
+      (fun n : ℕ =>
+        ((((Nat.factorial (n + 1) : ℝ) ^ 2) /
+            (Nat.factorial (2 * n + 2) : ℝ)) /
+          (((Nat.factorial n : ℝ) ^ 2) / (Nat.factorial (2 * n) : ℝ))))
+      atTop
+      (nhds ((1 : ℝ) / 4)) =
+    Tendsto
+      (fun n : ℕ => ((n + 1 : ℝ) ^ 2) / ((2 * n + 2 : ℝ) * (2 * n + 1 : ℝ)))
+      atTop
+      (nhds ((1 : ℝ) / 4)) := by
   sorry
 
-/-- Source proof gap 2.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-
-GOAL:
-seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
--/
-def proof_gap_exercise_3029_2_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_2 : proof_gap_exercise_3029_2_statement := by
+theorem proof_gap_exercise_3029_2
+    (S : ℝ → ℝ) (D : Set ℝ) (x t : ℝ) (n : ℕ)
+    (a : ℕ → ℝ) (F G g : ℝ → ℝ) (C : ℝ)
+    (hratio :
+      Tendsto
+        (fun n : ℕ =>
+          ((((Nat.factorial (n + 1) : ℝ) ^ 2) /
+              (Nat.factorial (2 * n + 2) : ℝ)) /
+            (((Nat.factorial n : ℝ) ^ 2) / (Nat.factorial (2 * n) : ℝ))))
+        atTop
+        (nhds ((1 : ℝ) / 4)) =
+      Tendsto
+        (fun n : ℕ => ((n + 1 : ℝ) ^ 2) / ((2 * n + 2 : ℝ) * (2 * n + 1 : ℝ)))
+        atTop
+        (nhds ((1 : ℝ) / 4))) :
+    Tendsto
+      (fun n : ℕ => ((n + 1 : ℝ) ^ 2) / ((2 * n + 2 : ℝ) * (2 * n + 1 : ℝ)))
+      atTop
+      (nhds ((1 : ℝ) / 4)) := by
   sorry
 
-/-- Source proof gap 3.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-
-GOAL:
-seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
--/
-def proof_gap_exercise_3029_3_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_3 : proof_gap_exercise_3029_3_statement := by
+theorem proof_gap_exercise_3029_3
+    (S : ℝ → ℝ) (D : Set ℝ) (x t : ℝ) (n : ℕ)
+    (a : ℕ → ℝ) (F G g : ℝ → ℝ) (C : ℝ)
+    (hratio :
+      Tendsto
+        (fun n : ℕ =>
+          ((((Nat.factorial (n + 1) : ℝ) ^ 2) /
+              (Nat.factorial (2 * n + 2) : ℝ)) /
+            (((Nat.factorial n : ℝ) ^ 2) / (Nat.factorial (2 * n) : ℝ))))
+        atTop
+        (nhds ((1 : ℝ) / 4)) =
+      Tendsto
+        (fun n : ℕ => ((n + 1 : ℝ) ^ 2) / ((2 * n + 2 : ℝ) * (2 * n + 1 : ℝ)))
+        atTop
+        (nhds ((1 : ℝ) / 4)))
+    (hlim :
+      Tendsto
+        (fun n : ℕ => ((n + 1 : ℝ) ^ 2) / ((2 * n + 2 : ℝ) * (2 * n + 1 : ℝ)))
+        atTop
+        (nhds ((1 : ℝ) / 4))) :
+    Tendsto
+      (fun n : ℕ =>
+        ((((Nat.factorial (n + 1) : ℝ) ^ 2) /
+            (Nat.factorial (2 * n + 2) : ℝ)) /
+          (((Nat.factorial n : ℝ) ^ 2) / (Nat.factorial (2 * n) : ℝ))))
+      atTop
+      (nhds ((1 : ℝ) / 4)) := by
   sorry
 
-/-- Source proof gap 4.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
-
-GOAL:
-RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
--/
-def proof_gap_exercise_3029_4_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_4 : proof_gap_exercise_3029_4_statement := by
+theorem proof_gap_exercise_3029_4
+    (hlim :
+      Tendsto
+        (fun n : ℕ =>
+          ((((Nat.factorial (n + 1) : ℝ) ^ 2) /
+              (Nat.factorial (2 * n + 2) : ℝ)) /
+            (((Nat.factorial n : ℝ) ^ 2) / (Nat.factorial (2 * n) : ℝ))))
+        atTop
+        (nhds ((1 : ℝ) / 4))) :
+    radiusOfConvergence coeff = 4 := by
   sorry
 
-/-- Source proof gap 5.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
-14. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
-
-GOAL:
-|x| < 4 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
--/
-def proof_gap_exercise_3029_5_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_5 : proof_gap_exercise_3029_5_statement := by
+theorem proof_gap_exercise_3029_5
+    (x : ℝ) (hradius : radiusOfConvergence coeff = 4) :
+    |x| < 4 → Summable (fun n : ℕ => powerTerm x n) := by
   sorry
 
-/-- Source proof gap 6.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
-14. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
-15. |x| < 4 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-
-GOAL:
-|x| > 4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
--/
-def proof_gap_exercise_3029_6_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_6 : proof_gap_exercise_3029_6_statement := by
+theorem proof_gap_exercise_3029_6
+    (x : ℝ) (hradius : radiusOfConvergence coeff = 4) :
+    |x| > 4 → ¬ Summable (fun n : ℕ => powerTerm x n) := by
   sorry
 
-/-- Source proof gap 7.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
-14. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
-15. |x| < 4 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-16. |x| > 4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-17. a(n) = frac((n!)^{2}, (2 * n)!) * (±4)^{n}
-
-GOAL:
-|frac(a(n + 1), a(n))| = frac(2 * n + 2, 2 * n + 1)
--/
-def proof_gap_exercise_3029_7_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_7 : proof_gap_exercise_3029_7_statement := by
+theorem proof_gap_exercise_3029_7
+    (a : ℕ → ℝ) (n : ℕ)
+    (ha : ∀ m : ℕ, a m = endpointTerm 4 m ∨ a m = endpointTerm (-4) m) :
+    |a (n + 1) / a n| = (2 * n + 2 : ℝ) / (2 * n + 1 : ℝ) := by
   sorry
 
-/-- Source proof gap 8.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
-14. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
-15. |x| < 4 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-16. |x| > 4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-17. a(n) = frac((n!)^{2}, (2 * n)!) * (±4)^{n}
-18. |frac(a(n + 1), a(n))| = frac(2 * n + 2, 2 * n + 1)
-
-GOAL:
-frac(2 * n + 2, 2 * n + 1) > 1
--/
-def proof_gap_exercise_3029_8_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_8 : proof_gap_exercise_3029_8_statement := by
+theorem proof_gap_exercise_3029_8 (n : ℕ) :
+    (2 * n + 2 : ℝ) / (2 * n + 1 : ℝ) > 1 := by
   sorry
 
-/-- Source proof gap 9.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
-14. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
-15. |x| < 4 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-16. |x| > 4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-17. a(n) = frac((n!)^{2}, (2 * n)!) * (±4)^{n}
-18. |frac(a(n + 1), a(n))| = frac(2 * n + 2, 2 * n + 1)
-19. frac(2 * n + 2, 2 * n + 1) > 1
-
-GOAL:
-|frac(a(n + 1), a(n))| > 1
--/
-def proof_gap_exercise_3029_9_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_9 : proof_gap_exercise_3029_9_statement := by
+theorem proof_gap_exercise_3029_9
+    (a : ℕ → ℝ) (n : ℕ)
+    (hratio : |a (n + 1) / a n| = (2 * n + 2 : ℝ) / (2 * n + 1 : ℝ))
+    (hgt : (2 * n + 2 : ℝ) / (2 * n + 1 : ℝ) > 1) :
+    |a (n + 1) / a n| > 1 := by
   sorry
 
-/-- Source proof gap 10.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
-14. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
-15. |x| < 4 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-16. |x| > 4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-17. a(n) = frac((n!)^{2}, (2 * n)!) * (±4)^{n}
-18. |frac(a(n + 1), a(n))| = frac(2 * n + 2, 2 * n + 1)
-19. frac(2 * n + 2, 2 * n + 1) > 1
-20. |frac(a(n + 1), a(n))| > 1
-
-GOAL:
-¬seqlim_{ n → +∞ } (a(n)) = 0
--/
-def proof_gap_exercise_3029_10_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_10 : proof_gap_exercise_3029_10_statement := by
+theorem proof_gap_exercise_3029_10
+    (a : ℕ → ℝ)
+    (hratio_gt : ∀ n : ℕ, |a (n + 1) / a n| > 1) :
+    ¬ Tendsto a atTop (nhds 0) := by
   sorry
 
-/-- Source proof gap 11.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
-14. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
-15. |x| < 4 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-16. |x| > 4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-17. a(n) = frac((n!)^{2}, (2 * n)!) * (±4)^{n}
-18. |frac(a(n + 1), a(n))| = frac(2 * n + 2, 2 * n + 1)
-19. frac(2 * n + 2, 2 * n + 1) > 1
-20. |frac(a(n + 1), a(n))| > 1
-21. ¬seqlim_{ n → +∞ } (a(n)) = 0
-
-GOAL:
-x = 4 ∨ x = -4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
--/
-def proof_gap_exercise_3029_11_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_11 : proof_gap_exercise_3029_11_statement := by
+theorem proof_gap_exercise_3029_11
+    (x : ℝ)
+    (hendpoint : ∀ sign : ℝ, sign = 4 ∨ sign = -4 →
+      ¬ Tendsto (fun n : ℕ => endpointTerm sign n) atTop (nhds 0)) :
+    x = 4 ∨ x = -4 → ¬ Summable (fun n : ℕ => powerTerm x n) := by
   sorry
 
-/-- Source proof gap 12.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
-14. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
-15. |x| < 4 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-16. |x| > 4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-17. a(n) = frac((n!)^{2}, (2 * n)!) * (±4)^{n}
-18. |frac(a(n + 1), a(n))| = frac(2 * n + 2, 2 * n + 1)
-19. frac(2 * n + 2, 2 * n + 1) > 1
-20. |frac(a(n + 1), a(n))| > 1
-21. ¬seqlim_{ n → +∞ } (a(n)) = 0
-22. x = 4 ∨ x = -4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-
-GOAL:
-D = (-4, 4)
--/
-def proof_gap_exercise_3029_12_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_12 : proof_gap_exercise_3029_12_statement := by
+theorem proof_gap_exercise_3029_12
+    (D : Set ℝ)
+    (hinside : ∀ x : ℝ, |x| < 4 → x ∈ D)
+    (houtside : ∀ x : ℝ, x ∈ D → |x| < 4) :
+    D = Set.Ioo (-4 : ℝ) 4 := by
   sorry
 
-/-- Source proof gap 13.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
-14. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
-15. |x| < 4 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-16. |x| > 4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-17. a(n) = frac((n!)^{2}, (2 * n)!) * (±4)^{n}
-18. |frac(a(n + 1), a(n))| = frac(2 * n + 2, 2 * n + 1)
-19. frac(2 * n + 2, 2 * n + 1) > 1
-20. |frac(a(n + 1), a(n))| > 1
-21. ¬seqlim_{ n → +∞ } (a(n)) = 0
-22. x = 4 ∨ x = -4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-23. D = (-4, 4)
-24. 0 ≤ x ⇒ x < 4 ⇒ x = (2 * t)^{2}
-25. 0 ≤ x ⇒ x < 4 ⇒ F(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (2 * t)^{2 * n})
-
-GOAL:
-0 ≤ x ⇒ x < 4 ⇒ 0 ≤ t
--/
-def proof_gap_exercise_3029_13_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_13 : proof_gap_exercise_3029_13_statement := by
+theorem proof_gap_exercise_3029_13
+    (x t : ℝ) (hx_nonneg : 0 ≤ x) (hx_lt : x < 4)
+    (ht : x = (2 * t) ^ 2) :
+    0 ≤ t := by
   sorry
 
-/-- Source proof gap 14.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
-14. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
-15. |x| < 4 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-16. |x| > 4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-17. a(n) = frac((n!)^{2}, (2 * n)!) * (±4)^{n}
-18. |frac(a(n + 1), a(n))| = frac(2 * n + 2, 2 * n + 1)
-19. frac(2 * n + 2, 2 * n + 1) > 1
-20. |frac(a(n + 1), a(n))| > 1
-21. ¬seqlim_{ n → +∞ } (a(n)) = 0
-22. x = 4 ∨ x = -4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-23. D = (-4, 4)
-24. 0 ≤ x ⇒ x < 4 ⇒ x = (2 * t)^{2}
-25. 0 ≤ x ⇒ x < 4 ⇒ F(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (2 * t)^{2 * n})
-26. 0 ≤ x ⇒ x < 4 ⇒ 0 ≤ t
-
-GOAL:
-0 ≤ x ⇒ x < 4 ⇒ t < 1
--/
-def proof_gap_exercise_3029_14_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_14 : proof_gap_exercise_3029_14_statement := by
+theorem proof_gap_exercise_3029_14
+    (x t : ℝ) (hx_nonneg : 0 ≤ x) (hx_lt : x < 4)
+    (ht : x = (2 * t) ^ 2) (ht_nonneg : 0 ≤ t) :
+    t < 1 := by
   sorry
 
-/-- Source proof gap 15.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
-14. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
-15. |x| < 4 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-16. |x| > 4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-17. a(n) = frac((n!)^{2}, (2 * n)!) * (±4)^{n}
-18. |frac(a(n + 1), a(n))| = frac(2 * n + 2, 2 * n + 1)
-19. frac(2 * n + 2, 2 * n + 1) > 1
-20. |frac(a(n + 1), a(n))| > 1
-21. ¬seqlim_{ n → +∞ } (a(n)) = 0
-22. x = 4 ∨ x = -4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-23. D = (-4, 4)
-24. 0 ≤ x ⇒ x < 4 ⇒ x = (2 * t)^{2}
-25. 0 ≤ x ⇒ x < 4 ⇒ F(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (2 * t)^{2 * n})
-26. 0 ≤ x ⇒ x < 4 ⇒ 0 ≤ t
-27. 0 ≤ x ⇒ x < 4 ⇒ t < 1
-
-GOAL:
-0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, 4) * FunDeri(fun t [t ∈ RealSet] . 2 * arcsin(t)^{2}, 1, 1)(t)
--/
-def proof_gap_exercise_3029_15_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_15 : proof_gap_exercise_3029_15_statement := by
+theorem proof_gap_exercise_3029_15
+    (x t : ℝ) (F : ℝ → ℝ)
+    (hx_nonneg : 0 ≤ x) (hx_lt : x < 4)
+    (hF : F t = ∑' n : ℕ, coeff n * (2 * t) ^ (2 * n)) :
+    (1 - t ^ 2) * F t - 1 =
+      (t / 4) * deriv (fun u : ℝ => 2 * (Real.arcsin u) ^ 2) t := by
   sorry
 
-/-- Source proof gap 16.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
-14. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
-15. |x| < 4 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-16. |x| > 4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-17. a(n) = frac((n!)^{2}, (2 * n)!) * (±4)^{n}
-18. |frac(a(n + 1), a(n))| = frac(2 * n + 2, 2 * n + 1)
-19. frac(2 * n + 2, 2 * n + 1) > 1
-20. |frac(a(n + 1), a(n))| > 1
-21. ¬seqlim_{ n → +∞ } (a(n)) = 0
-22. x = 4 ∨ x = -4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-23. D = (-4, 4)
-24. 0 ≤ x ⇒ x < 4 ⇒ x = (2 * t)^{2}
-25. 0 ≤ x ⇒ x < 4 ⇒ F(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (2 * t)^{2 * n})
-26. 0 ≤ x ⇒ x < 4 ⇒ 0 ≤ t
-27. 0 ≤ x ⇒ x < 4 ⇒ t < 1
-28. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, 4) * FunDeri(fun t [t ∈ RealSet] . 2 * arcsin(t)^{2}, 1, 1)(t)
-
-GOAL:
-0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t)
--/
-def proof_gap_exercise_3029_16_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_16 : proof_gap_exercise_3029_16_statement := by
+theorem proof_gap_exercise_3029_16
+    (x t : ℝ) (F : ℝ → ℝ)
+    (hx_nonneg : 0 ≤ x) (hx_lt : x < 4)
+    (hderiv :
+      (1 - t ^ 2) * F t - 1 =
+        (t / 4) * deriv (fun u : ℝ => 2 * (Real.arcsin u) ^ 2) t) :
+    (1 - t ^ 2) * F t - 1 =
+      (t / Real.sqrt (1 - t ^ 2)) * Real.arcsin t := by
   sorry
 
-/-- Source proof gap 17.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
-14. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
-15. |x| < 4 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-16. |x| > 4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-17. a(n) = frac((n!)^{2}, (2 * n)!) * (±4)^{n}
-18. |frac(a(n + 1), a(n))| = frac(2 * n + 2, 2 * n + 1)
-19. frac(2 * n + 2, 2 * n + 1) > 1
-20. |frac(a(n + 1), a(n))| > 1
-21. ¬seqlim_{ n → +∞ } (a(n)) = 0
-22. x = 4 ∨ x = -4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-23. D = (-4, 4)
-24. 0 ≤ x ⇒ x < 4 ⇒ x = (2 * t)^{2}
-25. 0 ≤ x ⇒ x < 4 ⇒ F(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (2 * t)^{2 * n})
-26. 0 ≤ x ⇒ x < 4 ⇒ 0 ≤ t
-27. 0 ≤ x ⇒ x < 4 ⇒ t < 1
-28. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, 4) * FunDeri(fun t [t ∈ RealSet] . 2 * arcsin(t)^{2}, 1, 1)(t)
-29. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t)
-
-GOAL:
-0 ≤ x ⇒ x < 4 ⇒ F(t) = frac(1, 1 - t^{2}) * (1 + frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t))
--/
-def proof_gap_exercise_3029_17_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_17 : proof_gap_exercise_3029_17_statement := by
+theorem proof_gap_exercise_3029_17
+    (x t : ℝ) (F : ℝ → ℝ)
+    (hx_nonneg : 0 ≤ x) (hx_lt : x < 4)
+    (heq :
+      (1 - t ^ 2) * F t - 1 =
+        (t / Real.sqrt (1 - t ^ 2)) * Real.arcsin t) :
+    F t =
+      (1 / (1 - t ^ 2)) *
+        (1 + (t / Real.sqrt (1 - t ^ 2)) * Real.arcsin t) := by
   sorry
 
-/-- Source proof gap 18.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
-14. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
-15. |x| < 4 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-16. |x| > 4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-17. a(n) = frac((n!)^{2}, (2 * n)!) * (±4)^{n}
-18. |frac(a(n + 1), a(n))| = frac(2 * n + 2, 2 * n + 1)
-19. frac(2 * n + 2, 2 * n + 1) > 1
-20. |frac(a(n + 1), a(n))| > 1
-21. ¬seqlim_{ n → +∞ } (a(n)) = 0
-22. x = 4 ∨ x = -4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-23. D = (-4, 4)
-24. 0 ≤ x ⇒ x < 4 ⇒ x = (2 * t)^{2}
-25. 0 ≤ x ⇒ x < 4 ⇒ F(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (2 * t)^{2 * n})
-26. 0 ≤ x ⇒ x < 4 ⇒ 0 ≤ t
-27. 0 ≤ x ⇒ x < 4 ⇒ t < 1
-28. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, 4) * FunDeri(fun t [t ∈ RealSet] . 2 * arcsin(t)^{2}, 1, 1)(t)
-29. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t)
-30. 0 ≤ x ⇒ x < 4 ⇒ F(t) = frac(1, 1 - t^{2}) * (1 + frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t))
-
-GOAL:
-0 ≤ x ⇒ x < 4 ⇒ S(x) = frac(4, 4 - x) + frac(4 * sqrtn(2, x), (4 - x)^{frac(3, 2)}) * arcsin(frac(sqrtn(2, x), 2))
--/
-def proof_gap_exercise_3029_18_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_18 : proof_gap_exercise_3029_18_statement := by
+theorem proof_gap_exercise_3029_18
+    (S : ℝ → ℝ) (x t : ℝ)
+    (hx_nonneg : 0 ≤ x) (hx_lt : x < 4)
+    (ht : x = (2 * t) ^ 2)
+    (hF :
+      (∑' n : ℕ, coeff n * (2 * t) ^ (2 * n)) =
+        (1 / (1 - t ^ 2)) *
+          (1 + (t / Real.sqrt (1 - t ^ 2)) * Real.arcsin t))
+    (hS : S x = powerSeries x) :
+    S x = positiveClosedForm x := by
   sorry
 
-/-- Source proof gap 19.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
-14. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
-15. |x| < 4 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-16. |x| > 4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-17. a(n) = frac((n!)^{2}, (2 * n)!) * (±4)^{n}
-18. |frac(a(n + 1), a(n))| = frac(2 * n + 2, 2 * n + 1)
-19. frac(2 * n + 2, 2 * n + 1) > 1
-20. |frac(a(n + 1), a(n))| > 1
-21. ¬seqlim_{ n → +∞ } (a(n)) = 0
-22. x = 4 ∨ x = -4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-23. D = (-4, 4)
-24. 0 ≤ x ⇒ x < 4 ⇒ x = (2 * t)^{2}
-25. 0 ≤ x ⇒ x < 4 ⇒ F(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (2 * t)^{2 * n})
-26. 0 ≤ x ⇒ x < 4 ⇒ 0 ≤ t
-27. 0 ≤ x ⇒ x < 4 ⇒ t < 1
-28. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, 4) * FunDeri(fun t [t ∈ RealSet] . 2 * arcsin(t)^{2}, 1, 1)(t)
-29. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t)
-30. 0 ≤ x ⇒ x < 4 ⇒ F(t) = frac(1, 1 - t^{2}) * (1 + frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t))
-31. 0 ≤ x ⇒ x < 4 ⇒ S(x) = frac(4, 4 - x) + frac(4 * sqrtn(2, x), (4 - x)^{frac(3, 2)}) * arcsin(frac(sqrtn(2, x), 2))
-32. -4 < x ⇒ x < 0 ⇒ x = -(2 * t)^{2}
-33. -4 < x ⇒ x < 0 ⇒ G(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (-1)^{n} * (2 * t)^{2 * n})
-34. -4 < x ⇒ x < 0 ⇒ g(t) = sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(((n - 1)!)^{2}, (2 * n)!) * n * (2 * t)^{2 * n - 1})
-
-GOAL:
--4 < x ⇒ x < 0 ⇒ 0 < t
--/
-def proof_gap_exercise_3029_19_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_19 : proof_gap_exercise_3029_19_statement := by
+theorem proof_gap_exercise_3029_19
+    (x t : ℝ) (hx_gt : -4 < x) (hx_lt : x < 0)
+    (ht : x = -((2 * t) ^ 2)) :
+    0 < t := by
   sorry
 
-/-- Source proof gap 20.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
-14. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
-15. |x| < 4 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-16. |x| > 4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-17. a(n) = frac((n!)^{2}, (2 * n)!) * (±4)^{n}
-18. |frac(a(n + 1), a(n))| = frac(2 * n + 2, 2 * n + 1)
-19. frac(2 * n + 2, 2 * n + 1) > 1
-20. |frac(a(n + 1), a(n))| > 1
-21. ¬seqlim_{ n → +∞ } (a(n)) = 0
-22. x = 4 ∨ x = -4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-23. D = (-4, 4)
-24. 0 ≤ x ⇒ x < 4 ⇒ x = (2 * t)^{2}
-25. 0 ≤ x ⇒ x < 4 ⇒ F(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (2 * t)^{2 * n})
-26. 0 ≤ x ⇒ x < 4 ⇒ 0 ≤ t
-27. 0 ≤ x ⇒ x < 4 ⇒ t < 1
-28. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, 4) * FunDeri(fun t [t ∈ RealSet] . 2 * arcsin(t)^{2}, 1, 1)(t)
-29. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t)
-30. 0 ≤ x ⇒ x < 4 ⇒ F(t) = frac(1, 1 - t^{2}) * (1 + frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t))
-31. 0 ≤ x ⇒ x < 4 ⇒ S(x) = frac(4, 4 - x) + frac(4 * sqrtn(2, x), (4 - x)^{frac(3, 2)}) * arcsin(frac(sqrtn(2, x), 2))
-32. -4 < x ⇒ x < 0 ⇒ x = -(2 * t)^{2}
-33. -4 < x ⇒ x < 0 ⇒ G(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (-1)^{n} * (2 * t)^{2 * n})
-34. -4 < x ⇒ x < 0 ⇒ g(t) = sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(((n - 1)!)^{2}, (2 * n)!) * n * (2 * t)^{2 * n - 1})
-35. -4 < x ⇒ x < 0 ⇒ 0 < t
-
-GOAL:
--4 < x ⇒ x < 0 ⇒ t < 1
--/
-def proof_gap_exercise_3029_20_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_20 : proof_gap_exercise_3029_20_statement := by
+theorem proof_gap_exercise_3029_20
+    (x t : ℝ) (hx_gt : -4 < x) (hx_lt : x < 0)
+    (ht : x = -((2 * t) ^ 2)) (ht_pos : 0 < t) :
+    t < 1 := by
   sorry
 
-/-- Source proof gap 21.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
-14. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
-15. |x| < 4 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-16. |x| > 4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-17. a(n) = frac((n!)^{2}, (2 * n)!) * (±4)^{n}
-18. |frac(a(n + 1), a(n))| = frac(2 * n + 2, 2 * n + 1)
-19. frac(2 * n + 2, 2 * n + 1) > 1
-20. |frac(a(n + 1), a(n))| > 1
-21. ¬seqlim_{ n → +∞ } (a(n)) = 0
-22. x = 4 ∨ x = -4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-23. D = (-4, 4)
-24. 0 ≤ x ⇒ x < 4 ⇒ x = (2 * t)^{2}
-25. 0 ≤ x ⇒ x < 4 ⇒ F(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (2 * t)^{2 * n})
-26. 0 ≤ x ⇒ x < 4 ⇒ 0 ≤ t
-27. 0 ≤ x ⇒ x < 4 ⇒ t < 1
-28. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, 4) * FunDeri(fun t [t ∈ RealSet] . 2 * arcsin(t)^{2}, 1, 1)(t)
-29. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t)
-30. 0 ≤ x ⇒ x < 4 ⇒ F(t) = frac(1, 1 - t^{2}) * (1 + frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t))
-31. 0 ≤ x ⇒ x < 4 ⇒ S(x) = frac(4, 4 - x) + frac(4 * sqrtn(2, x), (4 - x)^{frac(3, 2)}) * arcsin(frac(sqrtn(2, x), 2))
-32. -4 < x ⇒ x < 0 ⇒ x = -(2 * t)^{2}
-33. -4 < x ⇒ x < 0 ⇒ G(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (-1)^{n} * (2 * t)^{2 * n})
-34. -4 < x ⇒ x < 0 ⇒ g(t) = sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(((n - 1)!)^{2}, (2 * n)!) * n * (2 * t)^{2 * n - 1})
-35. -4 < x ⇒ x < 0 ⇒ 0 < t
-36. -4 < x ⇒ x < 0 ⇒ t < 1
-
-GOAL:
--4 < x ⇒ x < 0 ⇒ 1 - (1 + t^{2}) * G(t) = t * g(t)
--/
-def proof_gap_exercise_3029_21_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_21 : proof_gap_exercise_3029_21_statement := by
+theorem proof_gap_exercise_3029_21
+    (x t : ℝ) (G g : ℝ → ℝ)
+    (hx_gt : -4 < x) (hx_lt : x < 0)
+    (hG : G t = ∑' n : ℕ, coeff n * (-1 : ℝ) ^ n * (2 * t) ^ (2 * n))
+    (hg : g t = ∑' n : ℕ,
+      (-1 : ℝ) ^ n * (coeff (n + 1)) * (n + 1 : ℝ) * (2 * t) ^ (2 * n + 1)) :
+    1 - (1 + t ^ 2) * G t = t * g t := by
   sorry
 
-/-- Source proof gap 22.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
-14. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
-15. |x| < 4 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-16. |x| > 4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-17. a(n) = frac((n!)^{2}, (2 * n)!) * (±4)^{n}
-18. |frac(a(n + 1), a(n))| = frac(2 * n + 2, 2 * n + 1)
-19. frac(2 * n + 2, 2 * n + 1) > 1
-20. |frac(a(n + 1), a(n))| > 1
-21. ¬seqlim_{ n → +∞ } (a(n)) = 0
-22. x = 4 ∨ x = -4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-23. D = (-4, 4)
-24. 0 ≤ x ⇒ x < 4 ⇒ x = (2 * t)^{2}
-25. 0 ≤ x ⇒ x < 4 ⇒ F(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (2 * t)^{2 * n})
-26. 0 ≤ x ⇒ x < 4 ⇒ 0 ≤ t
-27. 0 ≤ x ⇒ x < 4 ⇒ t < 1
-28. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, 4) * FunDeri(fun t [t ∈ RealSet] . 2 * arcsin(t)^{2}, 1, 1)(t)
-29. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t)
-30. 0 ≤ x ⇒ x < 4 ⇒ F(t) = frac(1, 1 - t^{2}) * (1 + frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t))
-31. 0 ≤ x ⇒ x < 4 ⇒ S(x) = frac(4, 4 - x) + frac(4 * sqrtn(2, x), (4 - x)^{frac(3, 2)}) * arcsin(frac(sqrtn(2, x), 2))
-32. -4 < x ⇒ x < 0 ⇒ x = -(2 * t)^{2}
-33. -4 < x ⇒ x < 0 ⇒ G(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (-1)^{n} * (2 * t)^{2 * n})
-34. -4 < x ⇒ x < 0 ⇒ g(t) = sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(((n - 1)!)^{2}, (2 * n)!) * n * (2 * t)^{2 * n - 1})
-35. -4 < x ⇒ x < 0 ⇒ 0 < t
-36. -4 < x ⇒ x < 0 ⇒ t < 1
-37. -4 < x ⇒ x < 0 ⇒ 1 - (1 + t^{2}) * G(t) = t * g(t)
-
-GOAL:
--4 < x ⇒ x < 0 ⇒ (1 + t^{2}) * FunDeri(g, 1, 1)(t) + t * g(t) = 1
--/
-def proof_gap_exercise_3029_22_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_22 : proof_gap_exercise_3029_22_statement := by
+theorem proof_gap_exercise_3029_22
+    (x t : ℝ) (G g : ℝ → ℝ)
+    (hx_gt : -4 < x) (hx_lt : x < 0)
+    (hrel : 1 - (1 + t ^ 2) * G t = t * g t) :
+    (1 + t ^ 2) * deriv g t + t * g t = 1 := by
   sorry
 
-/-- Source proof gap 23.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
-14. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
-15. |x| < 4 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-16. |x| > 4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-17. a(n) = frac((n!)^{2}, (2 * n)!) * (±4)^{n}
-18. |frac(a(n + 1), a(n))| = frac(2 * n + 2, 2 * n + 1)
-19. frac(2 * n + 2, 2 * n + 1) > 1
-20. |frac(a(n + 1), a(n))| > 1
-21. ¬seqlim_{ n → +∞ } (a(n)) = 0
-22. x = 4 ∨ x = -4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-23. D = (-4, 4)
-24. 0 ≤ x ⇒ x < 4 ⇒ x = (2 * t)^{2}
-25. 0 ≤ x ⇒ x < 4 ⇒ F(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (2 * t)^{2 * n})
-26. 0 ≤ x ⇒ x < 4 ⇒ 0 ≤ t
-27. 0 ≤ x ⇒ x < 4 ⇒ t < 1
-28. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, 4) * FunDeri(fun t [t ∈ RealSet] . 2 * arcsin(t)^{2}, 1, 1)(t)
-29. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t)
-30. 0 ≤ x ⇒ x < 4 ⇒ F(t) = frac(1, 1 - t^{2}) * (1 + frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t))
-31. 0 ≤ x ⇒ x < 4 ⇒ S(x) = frac(4, 4 - x) + frac(4 * sqrtn(2, x), (4 - x)^{frac(3, 2)}) * arcsin(frac(sqrtn(2, x), 2))
-32. -4 < x ⇒ x < 0 ⇒ x = -(2 * t)^{2}
-33. -4 < x ⇒ x < 0 ⇒ G(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (-1)^{n} * (2 * t)^{2 * n})
-34. -4 < x ⇒ x < 0 ⇒ g(t) = sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(((n - 1)!)^{2}, (2 * n)!) * n * (2 * t)^{2 * n - 1})
-35. -4 < x ⇒ x < 0 ⇒ 0 < t
-36. -4 < x ⇒ x < 0 ⇒ t < 1
-37. -4 < x ⇒ x < 0 ⇒ 1 - (1 + t^{2}) * G(t) = t * g(t)
-38. -4 < x ⇒ x < 0 ⇒ (1 + t^{2}) * FunDeri(g, 1, 1)(t) + t * g(t) = 1
-
-GOAL:
--4 < x ⇒ x < 0 ⇒ sqrtn(2, 1 + t^{2}) * FunDeri(g, 1, 1)(t) + frac(t, sqrtn(2, 1 + t^{2})) * g(t) = frac(1, sqrtn(2, 1 + t^{2}))
--/
-def proof_gap_exercise_3029_23_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_23 : proof_gap_exercise_3029_23_statement := by
+theorem proof_gap_exercise_3029_23
+    (x t : ℝ) (g : ℝ → ℝ)
+    (hx_gt : -4 < x) (hx_lt : x < 0)
+    (hode : (1 + t ^ 2) * deriv g t + t * g t = 1) :
+    Real.sqrt (1 + t ^ 2) * deriv g t +
+        (t / Real.sqrt (1 + t ^ 2)) * g t =
+      1 / Real.sqrt (1 + t ^ 2) := by
   sorry
 
-/-- Source proof gap 24.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
-14. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
-15. |x| < 4 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-16. |x| > 4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-17. a(n) = frac((n!)^{2}, (2 * n)!) * (±4)^{n}
-18. |frac(a(n + 1), a(n))| = frac(2 * n + 2, 2 * n + 1)
-19. frac(2 * n + 2, 2 * n + 1) > 1
-20. |frac(a(n + 1), a(n))| > 1
-21. ¬seqlim_{ n → +∞ } (a(n)) = 0
-22. x = 4 ∨ x = -4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-23. D = (-4, 4)
-24. 0 ≤ x ⇒ x < 4 ⇒ x = (2 * t)^{2}
-25. 0 ≤ x ⇒ x < 4 ⇒ F(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (2 * t)^{2 * n})
-26. 0 ≤ x ⇒ x < 4 ⇒ 0 ≤ t
-27. 0 ≤ x ⇒ x < 4 ⇒ t < 1
-28. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, 4) * FunDeri(fun t [t ∈ RealSet] . 2 * arcsin(t)^{2}, 1, 1)(t)
-29. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t)
-30. 0 ≤ x ⇒ x < 4 ⇒ F(t) = frac(1, 1 - t^{2}) * (1 + frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t))
-31. 0 ≤ x ⇒ x < 4 ⇒ S(x) = frac(4, 4 - x) + frac(4 * sqrtn(2, x), (4 - x)^{frac(3, 2)}) * arcsin(frac(sqrtn(2, x), 2))
-32. -4 < x ⇒ x < 0 ⇒ x = -(2 * t)^{2}
-33. -4 < x ⇒ x < 0 ⇒ G(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (-1)^{n} * (2 * t)^{2 * n})
-34. -4 < x ⇒ x < 0 ⇒ g(t) = sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(((n - 1)!)^{2}, (2 * n)!) * n * (2 * t)^{2 * n - 1})
-35. -4 < x ⇒ x < 0 ⇒ 0 < t
-36. -4 < x ⇒ x < 0 ⇒ t < 1
-37. -4 < x ⇒ x < 0 ⇒ 1 - (1 + t^{2}) * G(t) = t * g(t)
-38. -4 < x ⇒ x < 0 ⇒ (1 + t^{2}) * FunDeri(g, 1, 1)(t) + t * g(t) = 1
-39. -4 < x ⇒ x < 0 ⇒ sqrtn(2, 1 + t^{2}) * FunDeri(g, 1, 1)(t) + frac(t, sqrtn(2, 1 + t^{2})) * g(t) = frac(1, sqrtn(2, 1 + t^{2}))
-
-GOAL:
--4 < x ⇒ x < 0 ⇒ sqrtn(2, 1 + t^{2}) * g(t) = ln(t + sqrtn(2, 1 + t^{2})) + C
--/
-def proof_gap_exercise_3029_24_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_24 : proof_gap_exercise_3029_24_statement := by
+theorem proof_gap_exercise_3029_24
+    (x t C : ℝ) (g : ℝ → ℝ)
+    (hx_gt : -4 < x) (hx_lt : x < 0)
+    (hlinear :
+      Real.sqrt (1 + t ^ 2) * deriv g t +
+          (t / Real.sqrt (1 + t ^ 2)) * g t =
+        1 / Real.sqrt (1 + t ^ 2)) :
+    Real.sqrt (1 + t ^ 2) * g t =
+      Real.log (t + Real.sqrt (1 + t ^ 2)) + C := by
   sorry
 
-/-- Source proof gap 25.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
-14. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
-15. |x| < 4 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-16. |x| > 4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-17. a(n) = frac((n!)^{2}, (2 * n)!) * (±4)^{n}
-18. |frac(a(n + 1), a(n))| = frac(2 * n + 2, 2 * n + 1)
-19. frac(2 * n + 2, 2 * n + 1) > 1
-20. |frac(a(n + 1), a(n))| > 1
-21. ¬seqlim_{ n → +∞ } (a(n)) = 0
-22. x = 4 ∨ x = -4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-23. D = (-4, 4)
-24. 0 ≤ x ⇒ x < 4 ⇒ x = (2 * t)^{2}
-25. 0 ≤ x ⇒ x < 4 ⇒ F(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (2 * t)^{2 * n})
-26. 0 ≤ x ⇒ x < 4 ⇒ 0 ≤ t
-27. 0 ≤ x ⇒ x < 4 ⇒ t < 1
-28. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, 4) * FunDeri(fun t [t ∈ RealSet] . 2 * arcsin(t)^{2}, 1, 1)(t)
-29. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t)
-30. 0 ≤ x ⇒ x < 4 ⇒ F(t) = frac(1, 1 - t^{2}) * (1 + frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t))
-31. 0 ≤ x ⇒ x < 4 ⇒ S(x) = frac(4, 4 - x) + frac(4 * sqrtn(2, x), (4 - x)^{frac(3, 2)}) * arcsin(frac(sqrtn(2, x), 2))
-32. -4 < x ⇒ x < 0 ⇒ x = -(2 * t)^{2}
-33. -4 < x ⇒ x < 0 ⇒ G(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (-1)^{n} * (2 * t)^{2 * n})
-34. -4 < x ⇒ x < 0 ⇒ g(t) = sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(((n - 1)!)^{2}, (2 * n)!) * n * (2 * t)^{2 * n - 1})
-35. -4 < x ⇒ x < 0 ⇒ 0 < t
-36. -4 < x ⇒ x < 0 ⇒ t < 1
-37. -4 < x ⇒ x < 0 ⇒ 1 - (1 + t^{2}) * G(t) = t * g(t)
-38. -4 < x ⇒ x < 0 ⇒ (1 + t^{2}) * FunDeri(g, 1, 1)(t) + t * g(t) = 1
-39. -4 < x ⇒ x < 0 ⇒ sqrtn(2, 1 + t^{2}) * FunDeri(g, 1, 1)(t) + frac(t, sqrtn(2, 1 + t^{2})) * g(t) = frac(1, sqrtn(2, 1 + t^{2}))
-40. -4 < x ⇒ x < 0 ⇒ sqrtn(2, 1 + t^{2}) * g(t) = ln(t + sqrtn(2, 1 + t^{2})) + C
-
-GOAL:
--4 < x ⇒ x < 0 ⇒ g(0) = 0
--/
-def proof_gap_exercise_3029_25_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_25 : proof_gap_exercise_3029_25_statement := by
+theorem proof_gap_exercise_3029_25
+    (x t : ℝ) (g : ℝ → ℝ)
+    (hx_gt : -4 < x) (hx_lt : x < 0)
+    (hg : g t = ∑' n : ℕ,
+      (-1 : ℝ) ^ n * (coeff (n + 1)) * (n + 1 : ℝ) * (2 * t) ^ (2 * n + 1)) :
+    g 0 = 0 := by
   sorry
 
-/-- Source proof gap 26.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
-14. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
-15. |x| < 4 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-16. |x| > 4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-17. a(n) = frac((n!)^{2}, (2 * n)!) * (±4)^{n}
-18. |frac(a(n + 1), a(n))| = frac(2 * n + 2, 2 * n + 1)
-19. frac(2 * n + 2, 2 * n + 1) > 1
-20. |frac(a(n + 1), a(n))| > 1
-21. ¬seqlim_{ n → +∞ } (a(n)) = 0
-22. x = 4 ∨ x = -4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-23. D = (-4, 4)
-24. 0 ≤ x ⇒ x < 4 ⇒ x = (2 * t)^{2}
-25. 0 ≤ x ⇒ x < 4 ⇒ F(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (2 * t)^{2 * n})
-26. 0 ≤ x ⇒ x < 4 ⇒ 0 ≤ t
-27. 0 ≤ x ⇒ x < 4 ⇒ t < 1
-28. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, 4) * FunDeri(fun t [t ∈ RealSet] . 2 * arcsin(t)^{2}, 1, 1)(t)
-29. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t)
-30. 0 ≤ x ⇒ x < 4 ⇒ F(t) = frac(1, 1 - t^{2}) * (1 + frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t))
-31. 0 ≤ x ⇒ x < 4 ⇒ S(x) = frac(4, 4 - x) + frac(4 * sqrtn(2, x), (4 - x)^{frac(3, 2)}) * arcsin(frac(sqrtn(2, x), 2))
-32. -4 < x ⇒ x < 0 ⇒ x = -(2 * t)^{2}
-33. -4 < x ⇒ x < 0 ⇒ G(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (-1)^{n} * (2 * t)^{2 * n})
-34. -4 < x ⇒ x < 0 ⇒ g(t) = sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(((n - 1)!)^{2}, (2 * n)!) * n * (2 * t)^{2 * n - 1})
-35. -4 < x ⇒ x < 0 ⇒ 0 < t
-36. -4 < x ⇒ x < 0 ⇒ t < 1
-37. -4 < x ⇒ x < 0 ⇒ 1 - (1 + t^{2}) * G(t) = t * g(t)
-38. -4 < x ⇒ x < 0 ⇒ (1 + t^{2}) * FunDeri(g, 1, 1)(t) + t * g(t) = 1
-39. -4 < x ⇒ x < 0 ⇒ sqrtn(2, 1 + t^{2}) * FunDeri(g, 1, 1)(t) + frac(t, sqrtn(2, 1 + t^{2})) * g(t) = frac(1, sqrtn(2, 1 + t^{2}))
-40. -4 < x ⇒ x < 0 ⇒ sqrtn(2, 1 + t^{2}) * g(t) = ln(t + sqrtn(2, 1 + t^{2})) + C
-41. -4 < x ⇒ x < 0 ⇒ g(0) = 0
-
-GOAL:
--4 < x ⇒ x < 0 ⇒ C = 0
--/
-def proof_gap_exercise_3029_26_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_26 : proof_gap_exercise_3029_26_statement := by
+theorem proof_gap_exercise_3029_26
+    (x t C : ℝ) (g : ℝ → ℝ)
+    (hx_gt : -4 < x) (hx_lt : x < 0)
+    (hconst :
+      Real.sqrt (1 + t ^ 2) * g t =
+        Real.log (t + Real.sqrt (1 + t ^ 2)) + C)
+    (hg0 : g 0 = 0) :
+    C = 0 := by
   sorry
 
-/-- Source proof gap 27.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
-14. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
-15. |x| < 4 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-16. |x| > 4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-17. a(n) = frac((n!)^{2}, (2 * n)!) * (±4)^{n}
-18. |frac(a(n + 1), a(n))| = frac(2 * n + 2, 2 * n + 1)
-19. frac(2 * n + 2, 2 * n + 1) > 1
-20. |frac(a(n + 1), a(n))| > 1
-21. ¬seqlim_{ n → +∞ } (a(n)) = 0
-22. x = 4 ∨ x = -4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-23. D = (-4, 4)
-24. 0 ≤ x ⇒ x < 4 ⇒ x = (2 * t)^{2}
-25. 0 ≤ x ⇒ x < 4 ⇒ F(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (2 * t)^{2 * n})
-26. 0 ≤ x ⇒ x < 4 ⇒ 0 ≤ t
-27. 0 ≤ x ⇒ x < 4 ⇒ t < 1
-28. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, 4) * FunDeri(fun t [t ∈ RealSet] . 2 * arcsin(t)^{2}, 1, 1)(t)
-29. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t)
-30. 0 ≤ x ⇒ x < 4 ⇒ F(t) = frac(1, 1 - t^{2}) * (1 + frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t))
-31. 0 ≤ x ⇒ x < 4 ⇒ S(x) = frac(4, 4 - x) + frac(4 * sqrtn(2, x), (4 - x)^{frac(3, 2)}) * arcsin(frac(sqrtn(2, x), 2))
-32. -4 < x ⇒ x < 0 ⇒ x = -(2 * t)^{2}
-33. -4 < x ⇒ x < 0 ⇒ G(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (-1)^{n} * (2 * t)^{2 * n})
-34. -4 < x ⇒ x < 0 ⇒ g(t) = sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(((n - 1)!)^{2}, (2 * n)!) * n * (2 * t)^{2 * n - 1})
-35. -4 < x ⇒ x < 0 ⇒ 0 < t
-36. -4 < x ⇒ x < 0 ⇒ t < 1
-37. -4 < x ⇒ x < 0 ⇒ 1 - (1 + t^{2}) * G(t) = t * g(t)
-38. -4 < x ⇒ x < 0 ⇒ (1 + t^{2}) * FunDeri(g, 1, 1)(t) + t * g(t) = 1
-39. -4 < x ⇒ x < 0 ⇒ sqrtn(2, 1 + t^{2}) * FunDeri(g, 1, 1)(t) + frac(t, sqrtn(2, 1 + t^{2})) * g(t) = frac(1, sqrtn(2, 1 + t^{2}))
-40. -4 < x ⇒ x < 0 ⇒ sqrtn(2, 1 + t^{2}) * g(t) = ln(t + sqrtn(2, 1 + t^{2})) + C
-41. -4 < x ⇒ x < 0 ⇒ g(0) = 0
-42. -4 < x ⇒ x < 0 ⇒ C = 0
-
-GOAL:
--4 < x ⇒ x < 0 ⇒ g(t) = frac(1, sqrtn(2, 1 + t^{2})) * ln(t + sqrtn(2, 1 + t^{2}))
--/
-def proof_gap_exercise_3029_27_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_27 : proof_gap_exercise_3029_27_statement := by
+theorem proof_gap_exercise_3029_27
+    (x t C : ℝ) (g : ℝ → ℝ)
+    (hx_gt : -4 < x) (hx_lt : x < 0)
+    (hconst :
+      Real.sqrt (1 + t ^ 2) * g t =
+        Real.log (t + Real.sqrt (1 + t ^ 2)) + C)
+    (hC : C = 0) :
+    g t =
+      (1 / Real.sqrt (1 + t ^ 2)) *
+        Real.log (t + Real.sqrt (1 + t ^ 2)) := by
   sorry
 
-/-- Source proof gap 28.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
-14. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
-15. |x| < 4 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-16. |x| > 4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-17. a(n) = frac((n!)^{2}, (2 * n)!) * (±4)^{n}
-18. |frac(a(n + 1), a(n))| = frac(2 * n + 2, 2 * n + 1)
-19. frac(2 * n + 2, 2 * n + 1) > 1
-20. |frac(a(n + 1), a(n))| > 1
-21. ¬seqlim_{ n → +∞ } (a(n)) = 0
-22. x = 4 ∨ x = -4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-23. D = (-4, 4)
-24. 0 ≤ x ⇒ x < 4 ⇒ x = (2 * t)^{2}
-25. 0 ≤ x ⇒ x < 4 ⇒ F(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (2 * t)^{2 * n})
-26. 0 ≤ x ⇒ x < 4 ⇒ 0 ≤ t
-27. 0 ≤ x ⇒ x < 4 ⇒ t < 1
-28. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, 4) * FunDeri(fun t [t ∈ RealSet] . 2 * arcsin(t)^{2}, 1, 1)(t)
-29. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t)
-30. 0 ≤ x ⇒ x < 4 ⇒ F(t) = frac(1, 1 - t^{2}) * (1 + frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t))
-31. 0 ≤ x ⇒ x < 4 ⇒ S(x) = frac(4, 4 - x) + frac(4 * sqrtn(2, x), (4 - x)^{frac(3, 2)}) * arcsin(frac(sqrtn(2, x), 2))
-32. -4 < x ⇒ x < 0 ⇒ x = -(2 * t)^{2}
-33. -4 < x ⇒ x < 0 ⇒ G(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (-1)^{n} * (2 * t)^{2 * n})
-34. -4 < x ⇒ x < 0 ⇒ g(t) = sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(((n - 1)!)^{2}, (2 * n)!) * n * (2 * t)^{2 * n - 1})
-35. -4 < x ⇒ x < 0 ⇒ 0 < t
-36. -4 < x ⇒ x < 0 ⇒ t < 1
-37. -4 < x ⇒ x < 0 ⇒ 1 - (1 + t^{2}) * G(t) = t * g(t)
-38. -4 < x ⇒ x < 0 ⇒ (1 + t^{2}) * FunDeri(g, 1, 1)(t) + t * g(t) = 1
-39. -4 < x ⇒ x < 0 ⇒ sqrtn(2, 1 + t^{2}) * FunDeri(g, 1, 1)(t) + frac(t, sqrtn(2, 1 + t^{2})) * g(t) = frac(1, sqrtn(2, 1 + t^{2}))
-40. -4 < x ⇒ x < 0 ⇒ sqrtn(2, 1 + t^{2}) * g(t) = ln(t + sqrtn(2, 1 + t^{2})) + C
-41. -4 < x ⇒ x < 0 ⇒ g(0) = 0
-42. -4 < x ⇒ x < 0 ⇒ C = 0
-43. -4 < x ⇒ x < 0 ⇒ g(t) = frac(1, sqrtn(2, 1 + t^{2})) * ln(t + sqrtn(2, 1 + t^{2}))
-
-GOAL:
--4 < x ⇒ x < 0 ⇒ G(t) = frac(1, 1 + t^{2}) * (1 - t * g(t))
--/
-def proof_gap_exercise_3029_28_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_28 : proof_gap_exercise_3029_28_statement := by
+theorem proof_gap_exercise_3029_28
+    (x t : ℝ) (G g : ℝ → ℝ)
+    (hx_gt : -4 < x) (hx_lt : x < 0)
+    (hrel : 1 - (1 + t ^ 2) * G t = t * g t) :
+    G t = (1 / (1 + t ^ 2)) * (1 - t * g t) := by
   sorry
 
-/-- Source proof gap 29.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
-14. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
-15. |x| < 4 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-16. |x| > 4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-17. a(n) = frac((n!)^{2}, (2 * n)!) * (±4)^{n}
-18. |frac(a(n + 1), a(n))| = frac(2 * n + 2, 2 * n + 1)
-19. frac(2 * n + 2, 2 * n + 1) > 1
-20. |frac(a(n + 1), a(n))| > 1
-21. ¬seqlim_{ n → +∞ } (a(n)) = 0
-22. x = 4 ∨ x = -4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-23. D = (-4, 4)
-24. 0 ≤ x ⇒ x < 4 ⇒ x = (2 * t)^{2}
-25. 0 ≤ x ⇒ x < 4 ⇒ F(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (2 * t)^{2 * n})
-26. 0 ≤ x ⇒ x < 4 ⇒ 0 ≤ t
-27. 0 ≤ x ⇒ x < 4 ⇒ t < 1
-28. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, 4) * FunDeri(fun t [t ∈ RealSet] . 2 * arcsin(t)^{2}, 1, 1)(t)
-29. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t)
-30. 0 ≤ x ⇒ x < 4 ⇒ F(t) = frac(1, 1 - t^{2}) * (1 + frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t))
-31. 0 ≤ x ⇒ x < 4 ⇒ S(x) = frac(4, 4 - x) + frac(4 * sqrtn(2, x), (4 - x)^{frac(3, 2)}) * arcsin(frac(sqrtn(2, x), 2))
-32. -4 < x ⇒ x < 0 ⇒ x = -(2 * t)^{2}
-33. -4 < x ⇒ x < 0 ⇒ G(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (-1)^{n} * (2 * t)^{2 * n})
-34. -4 < x ⇒ x < 0 ⇒ g(t) = sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(((n - 1)!)^{2}, (2 * n)!) * n * (2 * t)^{2 * n - 1})
-35. -4 < x ⇒ x < 0 ⇒ 0 < t
-36. -4 < x ⇒ x < 0 ⇒ t < 1
-37. -4 < x ⇒ x < 0 ⇒ 1 - (1 + t^{2}) * G(t) = t * g(t)
-38. -4 < x ⇒ x < 0 ⇒ (1 + t^{2}) * FunDeri(g, 1, 1)(t) + t * g(t) = 1
-39. -4 < x ⇒ x < 0 ⇒ sqrtn(2, 1 + t^{2}) * FunDeri(g, 1, 1)(t) + frac(t, sqrtn(2, 1 + t^{2})) * g(t) = frac(1, sqrtn(2, 1 + t^{2}))
-40. -4 < x ⇒ x < 0 ⇒ sqrtn(2, 1 + t^{2}) * g(t) = ln(t + sqrtn(2, 1 + t^{2})) + C
-41. -4 < x ⇒ x < 0 ⇒ g(0) = 0
-42. -4 < x ⇒ x < 0 ⇒ C = 0
-43. -4 < x ⇒ x < 0 ⇒ g(t) = frac(1, sqrtn(2, 1 + t^{2})) * ln(t + sqrtn(2, 1 + t^{2}))
-44. -4 < x ⇒ x < 0 ⇒ G(t) = frac(1, 1 + t^{2}) * (1 - t * g(t))
-
-GOAL:
--4 < x ⇒ x < 0 ⇒ S(x) = frac(4, 4 - x) - frac(4 * sqrtn(2, |x|), (4 - x)^{frac(3, 2)}) * ln(frac(sqrtn(2, |x|) + sqrtn(2, 4 - x), 2))
--/
-def proof_gap_exercise_3029_29_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_29 : proof_gap_exercise_3029_29_statement := by
+theorem proof_gap_exercise_3029_29
+    (S : ℝ → ℝ) (x t : ℝ) (G g : ℝ → ℝ)
+    (hx_gt : -4 < x) (hx_lt : x < 0)
+    (ht : x = -((2 * t) ^ 2))
+    (hg :
+      g t =
+        (1 / Real.sqrt (1 + t ^ 2)) *
+          Real.log (t + Real.sqrt (1 + t ^ 2)))
+    (hG : G t = (1 / (1 + t ^ 2)) * (1 - t * g t))
+    (hS : S x = powerSeries x) :
+    S x = negativeClosedForm x := by
   sorry
 
-/-- Source proof gap 30.
-ASSUM:
-1. S : RealSet → RealSet
-2. D ⊆ RealSet
-3. x ∈ RealSet
-4. t ∈ RealSet
-5. n ∈ NonNegIntegerSet
-6. a : NonNegIntegerSet → RealSet
-7. F : RealSet → RealSet
-8. G : RealSet → RealSet
-9. g : RealSet → RealSet
-10. C ∈ RealSet
-11. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1)))
-12. seqlim_{ n → +∞ } (frac((n + 1)^{2}, (2 * n + 2) * (2 * n + 1))) = frac(1, 4)
-13. seqlim_{ n → +∞ } (frac(frac(((n + 1)!)^{2}, (2 * n + 2)!), frac((n!)^{2}, (2 * n)!))) = frac(1, 4)
-14. RadiusOfConvergence(fun n [n ∈ NonNegIntegerSet] . frac((n!)^{2}, (2 * n)!)) = 4
-15. |x| < 4 ⇒ ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-16. |x| > 4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-17. a(n) = frac((n!)^{2}, (2 * n)!) * (±4)^{n}
-18. |frac(a(n + 1), a(n))| = frac(2 * n + 2, 2 * n + 1)
-19. frac(2 * n + 2, 2 * n + 1) > 1
-20. |frac(a(n + 1), a(n))| > 1
-21. ¬seqlim_{ n → +∞ } (a(n)) = 0
-22. x = 4 ∨ x = -4 ⇒ DivergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
-23. D = (-4, 4)
-24. 0 ≤ x ⇒ x < 4 ⇒ x = (2 * t)^{2}
-25. 0 ≤ x ⇒ x < 4 ⇒ F(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (2 * t)^{2 * n})
-26. 0 ≤ x ⇒ x < 4 ⇒ 0 ≤ t
-27. 0 ≤ x ⇒ x < 4 ⇒ t < 1
-28. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, 4) * FunDeri(fun t [t ∈ RealSet] . 2 * arcsin(t)^{2}, 1, 1)(t)
-29. 0 ≤ x ⇒ x < 4 ⇒ (1 - t^{2}) * F(t) - 1 = frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t)
-30. 0 ≤ x ⇒ x < 4 ⇒ F(t) = frac(1, 1 - t^{2}) * (1 + frac(t, sqrtn(2, 1 - t^{2})) * arcsin(t))
-31. 0 ≤ x ⇒ x < 4 ⇒ S(x) = frac(4, 4 - x) + frac(4 * sqrtn(2, x), (4 - x)^{frac(3, 2)}) * arcsin(frac(sqrtn(2, x), 2))
-32. -4 < x ⇒ x < 0 ⇒ x = -(2 * t)^{2}
-33. -4 < x ⇒ x < 0 ⇒ G(t) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * (-1)^{n} * (2 * t)^{2 * n})
-34. -4 < x ⇒ x < 0 ⇒ g(t) = sum_{ n = 1 }^{ +∞ } ((-1)^{n - 1} * frac(((n - 1)!)^{2}, (2 * n)!) * n * (2 * t)^{2 * n - 1})
-35. -4 < x ⇒ x < 0 ⇒ 0 < t
-36. -4 < x ⇒ x < 0 ⇒ t < 1
-37. -4 < x ⇒ x < 0 ⇒ 1 - (1 + t^{2}) * G(t) = t * g(t)
-38. -4 < x ⇒ x < 0 ⇒ (1 + t^{2}) * FunDeri(g, 1, 1)(t) + t * g(t) = 1
-39. -4 < x ⇒ x < 0 ⇒ sqrtn(2, 1 + t^{2}) * FunDeri(g, 1, 1)(t) + frac(t, sqrtn(2, 1 + t^{2})) * g(t) = frac(1, sqrtn(2, 1 + t^{2}))
-40. -4 < x ⇒ x < 0 ⇒ sqrtn(2, 1 + t^{2}) * g(t) = ln(t + sqrtn(2, 1 + t^{2})) + C
-41. -4 < x ⇒ x < 0 ⇒ g(0) = 0
-42. -4 < x ⇒ x < 0 ⇒ C = 0
-43. -4 < x ⇒ x < 0 ⇒ g(t) = frac(1, sqrtn(2, 1 + t^{2})) * ln(t + sqrtn(2, 1 + t^{2}))
-44. -4 < x ⇒ x < 0 ⇒ G(t) = frac(1, 1 + t^{2}) * (1 - t * g(t))
-45. -4 < x ⇒ x < 0 ⇒ S(x) = frac(4, 4 - x) - frac(4 * sqrtn(2, |x|), (4 - x)^{frac(3, 2)}) * ln(frac(sqrtn(2, |x|) + sqrtn(2, 4 - x), 2))
-
-GOAL:
-D = (-4, 4) ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ⇒ S(x) = cases{ frac(4, 4 - x) + frac(4 * sqrtn(2, x), (4 - x)^{frac(3, 2)}) * arcsin(frac(sqrtn(2, x), 2)) if 0 ≤ x ∧ x < 4; frac(4, 4 - x) - frac(4 * sqrtn(2, |x|), (4 - x)^{frac(3, 2)}) * ln(frac(sqrtn(2, |x|) + sqrtn(2, 4 - x), 2)) if -4 < x ∧ x < 0 }) ⇒ D = { x | x ∈ RealSet, ConvergentSeries(sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n})) } ∧ (forall (x), x ∈ RealSet ∧ x ∈ D ⇒ S(x) = sum_{ n = 0 }^{ +∞ } (frac((n!)^{2}, (2 * n)!) * x^{n}))
--/
-def proof_gap_exercise_3029_30_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3029_30 : proof_gap_exercise_3029_30_statement := by
+theorem proof_gap_exercise_3029_30
+    (S : ℝ → ℝ) (D : Set ℝ)
+    (hD : D = Set.Ioo (-4 : ℝ) 4)
+    (hclosed : ∀ x : ℝ, x ∈ D → S x = piecewiseClosedForm x) :
+    D = convergenceDomain ∧
+      (∀ x : ℝ, x ∈ D → S x = powerSeries x) := by
   sorry
+
+end
 
 end Exercise_3029

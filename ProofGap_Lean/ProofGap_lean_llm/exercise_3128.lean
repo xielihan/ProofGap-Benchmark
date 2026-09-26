@@ -11,20 +11,20 @@ local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
 
 theorem proof_gap_exercise_3128_1
   (a b : ℝ) (f : ℝ -> ℝ) (B : ℕ × ℝ -> ℝ)
-  (hfab : True) (hab : a < b)
+  (hab : a < b)
   : ∀ (y x : ℝ), 0 ≤ y ∧ y ≤ 1 ∧ x = a + (b - a) * y → a ≤ x := by
   sorry
 
 theorem proof_gap_exercise_3128_2
   (a b : ℝ) (f : ℝ -> ℝ) (B : ℕ × ℝ -> ℝ)
-  (hfab : True) (hab : a < b)
+  (hab : a < b)
   (h6 : ∀ (y x : ℝ), 0 ≤ y ∧ y ≤ 1 ∧ x = a + (b - a) * y → a ≤ x)
   : ∀ (y x : ℝ), 0 ≤ y ∧ y ≤ 1 ∧ x = a + (b - a) * y → x ≤ b := by
   sorry
 
 theorem proof_gap_exercise_3128_3
   (a b : ℝ) (f : ℝ -> ℝ) (B : ℕ × ℝ -> ℝ)
-  (hfab : True) (hab : a < b)
+  (hab : a < b)
   (h6 : ∀ (y x : ℝ), 0 ≤ y ∧ y ≤ 1 ∧ x = a + (b - a) * y → a ≤ x)
   (h7 : ∀ (y x : ℝ), 0 ≤ y ∧ y ≤ 1 ∧ x = a + (b - a) * y → x ≤ b)
   : ∀ (y x : ℝ), 0 ≤ y ∧ y ≤ 1 ∧ x = a + (b - a) * y → y = (x - a) /. (b - a) := by
@@ -32,7 +32,7 @@ theorem proof_gap_exercise_3128_3
 
 theorem proof_gap_exercise_3128_4
   (a b : ℝ) (f : ℝ -> ℝ) (B : ℕ × ℝ -> ℝ)
-  (hfab : True) (hab : a < b)
+  (hab : a < b)
   (h6 : ∀ (y x : ℝ), 0 ≤ y ∧ y ≤ 1 ∧ x = a + (b - a) * y → a ≤ x)
   (h7 : ∀ (y x : ℝ), 0 ≤ y ∧ y ≤ 1 ∧ x = a + (b - a) * y → x ≤ b)
   (h8 : ∀ (y x : ℝ), 0 ≤ y ∧ y ≤ 1 ∧ x = a + (b - a) * y → y = (x - a) /. (b - a))
@@ -41,7 +41,7 @@ theorem proof_gap_exercise_3128_4
 
 theorem proof_gap_exercise_3128_5
   (a b : ℝ) (f : ℝ -> ℝ) (B : ℕ × ℝ -> ℝ)
-  (hfab : True) (hab : a < b)
+  (hab : a < b)
   (h6 : ∀ (y x : ℝ), 0 ≤ y ∧ y ≤ 1 ∧ x = a + (b - a) * y → a ≤ x)
   (h7 : ∀ (y x : ℝ), 0 ≤ y ∧ y ≤ 1 ∧ x = a + (b - a) * y → x ≤ b)
   (h8 : ∀ (y x : ℝ), 0 ≤ y ∧ y ≤ 1 ∧ x = a + (b - a) * y → y = (x - a) /. (b - a))
@@ -51,7 +51,7 @@ theorem proof_gap_exercise_3128_5
 
 theorem proof_gap_exercise_3128_6
   (a b : ℝ) (f : ℝ -> ℝ) (B : ℕ × ℝ -> ℝ)
-  (hfab : True) (hab : a < b)
+  (hab : a < b)
   (h6 : ∀ (y x : ℝ), 0 ≤ y ∧ y ≤ 1 ∧ x = a + (b - a) * y → a ≤ x)
   (h7 : ∀ (y x : ℝ), 0 ≤ y ∧ y ≤ 1 ∧ x = a + (b - a) * y → x ≤ b)
   (h8 : ∀ (y x : ℝ), 0 ≤ y ∧ y ≤ 1 ∧ x = a + (b - a) * y → y = (x - a) /. (b - a))

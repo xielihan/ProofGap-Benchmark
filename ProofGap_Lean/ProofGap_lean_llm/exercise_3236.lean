@@ -6,8 +6,18 @@ noncomputable section
 
 -- exercise: exercise_3236
 
-def formalDiff_3236 (_u : ℝ × ℝ -> ℝ) : Prop := True
-def formalDiff2_3236 (_u : ℝ × ℝ -> ℝ) : Prop := True
+-- The source's symbolic differentials are represented by their pointwise
+-- partial-derivative coefficients on the domain y ≠ 0.
+def formalDiff_3236 (u : ℝ × ℝ -> ℝ) : Prop :=
+  ∀ x y : ℝ, y ≠ 0 ->
+    deriv (fun x' => u (x', y)) x = 1 / y ∧
+    deriv (fun y' => u (x, y')) y = -(x / y ^ (2 : ℕ))
+
+def formalDiff2_3236 (u : ℝ × ℝ -> ℝ) : Prop :=
+  ∀ x y : ℝ, y ≠ 0 ->
+    deriv (fun x' => deriv (fun x'' => u (x'', y)) x') x = 0 ∧
+    2 * deriv (fun y' => deriv (fun x' => u (x', y')) x) y = -(2 / y ^ (2 : ℕ)) ∧
+    deriv (fun y' => deriv (fun y'' => u (x, y'')) y') y = (2 * x) / y ^ (3 : ℕ)
 
 theorem proof_gap_exercise_3236_1
   (u : ℝ × ℝ -> ℝ)

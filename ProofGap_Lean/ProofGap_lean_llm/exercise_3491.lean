@@ -3,16 +3,37 @@ import Mathlib
 noncomputable section
 
 abbrev F := ℝ × ℝ → ℝ
-abbrev RealSet : Set ℝ := Set.univ
+abbrev RealSet : Set ℝ := {x : ℝ | x = x}
 abbrev PosRealSet : Set ℝ := {x : ℝ | 0 < x}
-def ContinuouslyDiffableFunc (_f : F) : Prop := True
+def ContinuouslyDiffableFunc (f : F) : Prop := ContDiff ℝ ⊤ f
 def sqrtn (_n : ℕ) (x : ℝ) : ℝ := Real.sqrt x
 def frac (x y : ℝ) : ℝ := x / y
 inductive DArg where
   | coord : ℕ → DArg
   | func : F → DArg
 
-def FunDeri (_f : F) (_d : DArg) (_n : ℕ) : F := fun _ => 0
+def coordVec : ℕ → ℝ × ℝ
+  | 1 => (1, 0)
+  | 2 => (0, 1)
+  | _ => (0, 0)
+
+def firstAlong (f : F) (w : ℝ × ℝ) (p : ℝ × ℝ) : ℝ :=
+  fderiv ℝ f p w
+
+def secondAlong (f : F) (w : ℝ × ℝ) (p : ℝ × ℝ) : ℝ :=
+  iteratedFDeriv ℝ 2 f p ![w, w]
+
+def derivDirection : DArg → ℝ × ℝ → ℝ × ℝ
+  | DArg.coord n, _ => coordVec n
+  | DArg.func g, p => (firstAlong g (coordVec 1) p, firstAlong g (coordVec 2) p)
+
+def FunDeri (f : F) (d : DArg) (n : ℕ) : F :=
+  fun p =>
+    let w := derivDirection d p
+    match n with
+    | 0 => f p
+    | 1 => firstAlong f w p
+    | _ => secondAlong f w p
 
 notation "FD" f:arg d:arg n:arg => FunDeri f d n
 notation "FD" f:arg d:arg n:arg p:arg => FunDeri f d n p

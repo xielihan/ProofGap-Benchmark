@@ -1,5 +1,11 @@
 import Mathlib
 
+-- exercise: exercise_3736
+-- Regenerated for Lean 4.29.0-rc6 / Mathlib 5c8398d.
+
+-- Source: proofgap/exercise_3736/1.txt
+namespace regenerated_exercise_3736_gap_1
+
 attribute [local instance] Classical.propDecidable
 
 set_option linter.style.longLine false
@@ -42,12 +48,57 @@ def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) 
 noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
   ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
--- exercise: exercise_3736
-
 theorem proof_gap_exercise_3736_1
   (h1 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (0 < x)) ∧ (x ≤ 1)) → (((Real.arctan x) /. x) = (∫ y in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ))))) * (1 : ℝ)))))))
   : (∫ x in (0 : ℝ)..(1 : ℝ), ((((Real.arctan x) /. x) * ((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) = (∫ x in (0 : ℝ)..(1 : ℝ), ((((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (∫ y in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ))))) * (1 : ℝ)))) * (1 : ℝ))) := by
   sorry
+
+end regenerated_exercise_3736_gap_1
+
+-- Source: proofgap/exercise_3736/2.txt
+namespace regenerated_exercise_3736_gap_2
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_3736_2
   (h1 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (0 < x)) ∧ (x ≤ 1)) → (((Real.arctan x) /. x) = (∫ y in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ))))) * (1 : ℝ)))))))
@@ -55,56 +106,338 @@ theorem proof_gap_exercise_3736_2
   : ContinuousOn (fun (p : ℝ × ℝ) => (1 /. (1 + ((p.1 ^ (2 : ℕ)) * (p.2 ^ (2 : ℕ)))))) ((Set.Icc 0 1) ×ˢ (Set.Icc 0 1)) := by
   sorry
 
+end regenerated_exercise_3736_gap_2
+
+-- Source: proofgap/exercise_3736/3.txt
+namespace regenerated_exercise_3736_gap_3
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_3736_3
   (h1 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (0 < x)) ∧ (x ≤ 1)) → (((Real.arctan x) /. x) = (∫ y in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ))))) * (1 : ℝ)))))))
   (h2 : (∫ x in (0 : ℝ)..(1 : ℝ), ((((Real.arctan x) /. x) * ((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) = (∫ x in (0 : ℝ)..(1 : ℝ), ((((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (∫ y in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ))))) * (1 : ℝ)))) * (1 : ℝ))))
   (h3 : ContinuousOn (fun (p : ℝ × ℝ) => (1 /. (1 + ((p.1 ^ (2 : ℕ)) * (p.2 ^ (2 : ℕ)))))) ((Set.Icc 0 1) ×ˢ (Set.Icc 0 1)))
-  : (let _ : ((Set.Icc 0 1)) ⊆ ({ x_1 : ℝ | (((x_1 ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ x_1)) ∧ (x_1 ≤ 1)) }) := (by intro x hx; simpa only [Set.mem_ofPred_eq, Set.mem_univ, Set.mem_Icc, Set.mem_Ico, Set.mem_Ioc, Set.mem_Ioo, Set.mem_Ici, Set.mem_Ioi, Set.mem_Iic, Set.mem_Iio, Set.mem_prod, true_and, and_true, and_assoc, and_left_comm, and_comm] using hx); (MeasureTheory.IntegrableOn (fun (x : ℝ) => (1 /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) (Set.Icc 0 1) MeasureTheory.volume)) := by
+  : (let _ : ((Set.Icc 0 1)) ⊆ ({ x_1 : ℝ | (((x_1 ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ x_1)) ∧ (x_1 ≤ 1)) }) := (by intro x hx; simpa only [Set.mem_setOf_eq, Set.mem_univ, Set.mem_Icc, Set.mem_Ico, Set.mem_Ioc, Set.mem_Ioo, Set.mem_Ici, Set.mem_Ioi, Set.mem_Iic, Set.mem_Iio, Set.mem_prod, true_and, and_true, and_assoc, and_left_comm, and_comm] using hx); (MeasureTheory.IntegrableOn (fun (x : ℝ) => (1 /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) (Set.Icc 0 1) MeasureTheory.volume)) := by
   sorry
+
+end regenerated_exercise_3736_gap_3
+
+-- Source: proofgap/exercise_3736/4.txt
+namespace regenerated_exercise_3736_gap_4
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_3736_4
   (h1 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (0 < x)) ∧ (x ≤ 1)) → (((Real.arctan x) /. x) = (∫ y in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ))))) * (1 : ℝ)))))))
   (h2 : (∫ x in (0 : ℝ)..(1 : ℝ), ((((Real.arctan x) /. x) * ((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) = (∫ x in (0 : ℝ)..(1 : ℝ), ((((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (∫ y in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ))))) * (1 : ℝ)))) * (1 : ℝ))))
   (h3 : ContinuousOn (fun (p : ℝ × ℝ) => (1 /. (1 + ((p.1 ^ (2 : ℕ)) * (p.2 ^ (2 : ℕ)))))) ((Set.Icc 0 1) ×ˢ (Set.Icc 0 1)))
-  (h4 : (let _ : ((Set.Icc 0 1)) ⊆ ({ x_1 : ℝ | (((x_1 ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ x_1)) ∧ (x_1 ≤ 1)) }) := (by intro x hx; simpa only [Set.mem_ofPred_eq, Set.mem_univ, Set.mem_Icc, Set.mem_Ico, Set.mem_Ioc, Set.mem_Ioo, Set.mem_Ici, Set.mem_Ioi, Set.mem_Iic, Set.mem_Iio, Set.mem_prod, true_and, and_true, and_assoc, and_left_comm, and_comm] using hx); (MeasureTheory.IntegrableOn (fun (x : ℝ) => (1 /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) (Set.Icc 0 1) MeasureTheory.volume)))
+  (h4 : (let _ : ((Set.Icc 0 1)) ⊆ ({ x_1 : ℝ | (((x_1 ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ x_1)) ∧ (x_1 ≤ 1)) }) := (by intro x hx; simpa only [Set.mem_setOf_eq, Set.mem_univ, Set.mem_Icc, Set.mem_Ico, Set.mem_Ioc, Set.mem_Ioo, Set.mem_Ici, Set.mem_Ioi, Set.mem_Iic, Set.mem_Iio, Set.mem_prod, true_and, and_true, and_assoc, and_left_comm, and_comm] using hx); (MeasureTheory.IntegrableOn (fun (x : ℝ) => (1 /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) (Set.Icc 0 1) MeasureTheory.volume)))
   : (∫ x in (0 : ℝ)..(1 : ℝ), ((((Real.arctan x) /. x) * ((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) = (∫ y in (0 : ℝ)..(1 : ℝ), ((∫ x in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) * ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ)))))) * (1 : ℝ))) * (1 : ℝ))) := by
   sorry
+
+end regenerated_exercise_3736_gap_4
+
+-- Source: proofgap/exercise_3736/5.txt
+namespace regenerated_exercise_3736_gap_5
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_3736_5
   (h1 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (0 < x)) ∧ (x ≤ 1)) → (((Real.arctan x) /. x) = (∫ y in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ))))) * (1 : ℝ)))))))
   (h2 : (∫ x in (0 : ℝ)..(1 : ℝ), ((((Real.arctan x) /. x) * ((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) = (∫ x in (0 : ℝ)..(1 : ℝ), ((((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (∫ y in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ))))) * (1 : ℝ)))) * (1 : ℝ))))
   (h3 : ContinuousOn (fun (p : ℝ × ℝ) => (1 /. (1 + ((p.1 ^ (2 : ℕ)) * (p.2 ^ (2 : ℕ)))))) ((Set.Icc 0 1) ×ˢ (Set.Icc 0 1)))
-  (h4 : (let _ : ((Set.Icc 0 1)) ⊆ ({ x_1 : ℝ | (((x_1 ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ x_1)) ∧ (x_1 ≤ 1)) }) := (by intro x hx; simpa only [Set.mem_ofPred_eq, Set.mem_univ, Set.mem_Icc, Set.mem_Ico, Set.mem_Ioc, Set.mem_Ioo, Set.mem_Ici, Set.mem_Ioi, Set.mem_Iic, Set.mem_Iio, Set.mem_prod, true_and, and_true, and_assoc, and_left_comm, and_comm] using hx); (MeasureTheory.IntegrableOn (fun (x : ℝ) => (1 /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) (Set.Icc 0 1) MeasureTheory.volume)))
+  (h4 : (let _ : ((Set.Icc 0 1)) ⊆ ({ x_1 : ℝ | (((x_1 ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ x_1)) ∧ (x_1 ≤ 1)) }) := (by intro x hx; simpa only [Set.mem_setOf_eq, Set.mem_univ, Set.mem_Icc, Set.mem_Ico, Set.mem_Ioc, Set.mem_Ioo, Set.mem_Ici, Set.mem_Ioi, Set.mem_Iic, Set.mem_Iio, Set.mem_prod, true_and, and_true, and_assoc, and_left_comm, and_comm] using hx); (MeasureTheory.IntegrableOn (fun (x : ℝ) => (1 /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) (Set.Icc 0 1) MeasureTheory.volume)))
   (h5 : (∫ x in (0 : ℝ)..(1 : ℝ), ((((Real.arctan x) /. x) * ((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) = (∫ y in (0 : ℝ)..(1 : ℝ), ((∫ x in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) * ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ)))))) * (1 : ℝ))) * (1 : ℝ))))
   : (forall (y : ℝ) (t : ℝ) (x : ℝ), (((((((((((y ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ y)) ∧ (y ≤ 1)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ t)) ∧ (t ≤ (Real.pi /. 2))) ∧ (x ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ x)) ∧ (x ≤ 1)) ∧ (x = (Real.cos t))) → ((∫ x_1 in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((Real.rpow (1 - (x_1 ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) * ((1 : ℝ) + ((x_1 ^ (2 : ℕ)) * (y ^ (2 : ℕ)))))) * (1 : ℝ))) = (∫ t_1 in (0 : ℝ)..(Real.pi /. 2), (((1 : ℝ) /. ((1 : ℝ) + ((y ^ (2 : ℕ)) * ((Real.cos t_1) ^ (2 : ℕ))))) * (1 : ℝ)))))) := by
   sorry
+
+end regenerated_exercise_3736_gap_5
+
+-- Source: proofgap/exercise_3736/6.txt
+namespace regenerated_exercise_3736_gap_6
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_3736_6
   (h1 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (0 < x)) ∧ (x ≤ 1)) → (((Real.arctan x) /. x) = (∫ y in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ))))) * (1 : ℝ)))))))
   (h2 : (∫ x in (0 : ℝ)..(1 : ℝ), ((((Real.arctan x) /. x) * ((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) = (∫ x in (0 : ℝ)..(1 : ℝ), ((((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (∫ y in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ))))) * (1 : ℝ)))) * (1 : ℝ))))
   (h3 : ContinuousOn (fun (p : ℝ × ℝ) => (1 /. (1 + ((p.1 ^ (2 : ℕ)) * (p.2 ^ (2 : ℕ)))))) ((Set.Icc 0 1) ×ˢ (Set.Icc 0 1)))
-  (h4 : (let _ : ((Set.Icc 0 1)) ⊆ ({ x_1 : ℝ | (((x_1 ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ x_1)) ∧ (x_1 ≤ 1)) }) := (by intro x hx; simpa only [Set.mem_ofPred_eq, Set.mem_univ, Set.mem_Icc, Set.mem_Ico, Set.mem_Ioc, Set.mem_Ioo, Set.mem_Ici, Set.mem_Ioi, Set.mem_Iic, Set.mem_Iio, Set.mem_prod, true_and, and_true, and_assoc, and_left_comm, and_comm] using hx); (MeasureTheory.IntegrableOn (fun (x : ℝ) => (1 /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) (Set.Icc 0 1) MeasureTheory.volume)))
+  (h4 : (let _ : ((Set.Icc 0 1)) ⊆ ({ x_1 : ℝ | (((x_1 ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ x_1)) ∧ (x_1 ≤ 1)) }) := (by intro x hx; simpa only [Set.mem_setOf_eq, Set.mem_univ, Set.mem_Icc, Set.mem_Ico, Set.mem_Ioc, Set.mem_Ioo, Set.mem_Ici, Set.mem_Ioi, Set.mem_Iic, Set.mem_Iio, Set.mem_prod, true_and, and_true, and_assoc, and_left_comm, and_comm] using hx); (MeasureTheory.IntegrableOn (fun (x : ℝ) => (1 /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) (Set.Icc 0 1) MeasureTheory.volume)))
   (h5 : (∫ x in (0 : ℝ)..(1 : ℝ), ((((Real.arctan x) /. x) * ((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) = (∫ y in (0 : ℝ)..(1 : ℝ), ((∫ x in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) * ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ)))))) * (1 : ℝ))) * (1 : ℝ))))
   (h6 : (forall (y : ℝ) (t : ℝ) (x : ℝ), (((((((((((y ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ y)) ∧ (y ≤ 1)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ t)) ∧ (t ≤ (Real.pi /. 2))) ∧ (x ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ x)) ∧ (x ≤ 1)) ∧ (x = (Real.cos t))) → ((∫ x_1 in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((Real.rpow (1 - (x_1 ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) * ((1 : ℝ) + ((x_1 ^ (2 : ℕ)) * (y ^ (2 : ℕ)))))) * (1 : ℝ))) = (∫ t_1 in (0 : ℝ)..(Real.pi /. 2), (((1 : ℝ) /. ((1 : ℝ) + ((y ^ (2 : ℕ)) * ((Real.cos t_1) ^ (2 : ℕ))))) * (1 : ℝ)))))))
   : (forall (y : ℝ) (t : ℝ) (x : ℝ), (((((((((((y ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ y)) ∧ (y ≤ 1)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ t)) ∧ (t ≤ (Real.pi /. 2))) ∧ (x ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ x)) ∧ (x ≤ 1)) ∧ (x = (Real.cos t))) → ((∫ t_1 in (0 : ℝ)..(Real.pi /. 2), (((1 : ℝ) /. ((1 : ℝ) + ((y ^ (2 : ℕ)) * ((Real.cos t_1) ^ (2 : ℕ))))) * (1 : ℝ))) = (((1 /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (Real.arctan ((Real.tan (Real.pi /. 2)) /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))) - ((1 /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (Real.arctan ((Real.tan (0 : ℝ)) /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))))))) := by
   sorry
 
+end regenerated_exercise_3736_gap_6
+
+-- Source: proofgap/exercise_3736/7.txt
+namespace regenerated_exercise_3736_gap_7
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_3736_7
   (h1 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (0 < x)) ∧ (x ≤ 1)) → (((Real.arctan x) /. x) = (∫ y in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ))))) * (1 : ℝ)))))))
   (h2 : (∫ x in (0 : ℝ)..(1 : ℝ), ((((Real.arctan x) /. x) * ((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) = (∫ x in (0 : ℝ)..(1 : ℝ), ((((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (∫ y in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ))))) * (1 : ℝ)))) * (1 : ℝ))))
   (h3 : ContinuousOn (fun (p : ℝ × ℝ) => (1 /. (1 + ((p.1 ^ (2 : ℕ)) * (p.2 ^ (2 : ℕ)))))) ((Set.Icc 0 1) ×ˢ (Set.Icc 0 1)))
-  (h4 : (let _ : ((Set.Icc 0 1)) ⊆ ({ x_1 : ℝ | (((x_1 ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ x_1)) ∧ (x_1 ≤ 1)) }) := (by intro x hx; simpa only [Set.mem_ofPred_eq, Set.mem_univ, Set.mem_Icc, Set.mem_Ico, Set.mem_Ioc, Set.mem_Ioo, Set.mem_Ici, Set.mem_Ioi, Set.mem_Iic, Set.mem_Iio, Set.mem_prod, true_and, and_true, and_assoc, and_left_comm, and_comm] using hx); (MeasureTheory.IntegrableOn (fun (x : ℝ) => (1 /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) (Set.Icc 0 1) MeasureTheory.volume)))
+  (h4 : (let _ : ((Set.Icc 0 1)) ⊆ ({ x_1 : ℝ | (((x_1 ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ x_1)) ∧ (x_1 ≤ 1)) }) := (by intro x hx; simpa only [Set.mem_setOf_eq, Set.mem_univ, Set.mem_Icc, Set.mem_Ico, Set.mem_Ioc, Set.mem_Ioo, Set.mem_Ici, Set.mem_Ioi, Set.mem_Iic, Set.mem_Iio, Set.mem_prod, true_and, and_true, and_assoc, and_left_comm, and_comm] using hx); (MeasureTheory.IntegrableOn (fun (x : ℝ) => (1 /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) (Set.Icc 0 1) MeasureTheory.volume)))
   (h5 : (∫ x in (0 : ℝ)..(1 : ℝ), ((((Real.arctan x) /. x) * ((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) = (∫ y in (0 : ℝ)..(1 : ℝ), ((∫ x in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) * ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ)))))) * (1 : ℝ))) * (1 : ℝ))))
   (h6 : (forall (y : ℝ) (t : ℝ) (x : ℝ), (((((((((((y ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ y)) ∧ (y ≤ 1)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ t)) ∧ (t ≤ (Real.pi /. 2))) ∧ (x ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ x)) ∧ (x ≤ 1)) ∧ (x = (Real.cos t))) → ((∫ x_1 in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((Real.rpow (1 - (x_1 ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) * ((1 : ℝ) + ((x_1 ^ (2 : ℕ)) * (y ^ (2 : ℕ)))))) * (1 : ℝ))) = (∫ t_1 in (0 : ℝ)..(Real.pi /. 2), (((1 : ℝ) /. ((1 : ℝ) + ((y ^ (2 : ℕ)) * ((Real.cos t_1) ^ (2 : ℕ))))) * (1 : ℝ)))))))
   (h7 : (forall (y : ℝ) (t : ℝ) (x : ℝ), (((((((((((y ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ y)) ∧ (y ≤ 1)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ t)) ∧ (t ≤ (Real.pi /. 2))) ∧ (x ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ x)) ∧ (x ≤ 1)) ∧ (x = (Real.cos t))) → ((∫ t_1 in (0 : ℝ)..(Real.pi /. 2), (((1 : ℝ) /. ((1 : ℝ) + ((y ^ (2 : ℕ)) * ((Real.cos t_1) ^ (2 : ℕ))))) * (1 : ℝ))) = (((1 /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (Real.arctan ((Real.tan (Real.pi /. 2)) /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))) - ((1 /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (Real.arctan ((Real.tan (0 : ℝ)) /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))))))))
   : (forall (y : ℝ) (t : ℝ) (x : ℝ), (((((((((((y ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ y)) ∧ (y ≤ 1)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ t)) ∧ (t ≤ (Real.pi /. 2))) ∧ (x ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ x)) ∧ (x ≤ 1)) ∧ (x = (Real.cos t))) → ((((1 /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (Real.arctan ((Real.tan (Real.pi /. 2)) /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))) - ((1 /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (Real.arctan ((Real.tan (0 : ℝ)) /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))))) = (Real.pi /. (2 * (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))))) := by
   sorry
 
+end regenerated_exercise_3736_gap_7
+
+-- Source: proofgap/exercise_3736/8.txt
+namespace regenerated_exercise_3736_gap_8
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_3736_8
   (h1 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (0 < x)) ∧ (x ≤ 1)) → (((Real.arctan x) /. x) = (∫ y in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ))))) * (1 : ℝ)))))))
   (h2 : (∫ x in (0 : ℝ)..(1 : ℝ), ((((Real.arctan x) /. x) * ((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) = (∫ x in (0 : ℝ)..(1 : ℝ), ((((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (∫ y in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ))))) * (1 : ℝ)))) * (1 : ℝ))))
   (h3 : ContinuousOn (fun (p : ℝ × ℝ) => (1 /. (1 + ((p.1 ^ (2 : ℕ)) * (p.2 ^ (2 : ℕ)))))) ((Set.Icc 0 1) ×ˢ (Set.Icc 0 1)))
-  (h4 : (let _ : ((Set.Icc 0 1)) ⊆ ({ x_1 : ℝ | (((x_1 ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ x_1)) ∧ (x_1 ≤ 1)) }) := (by intro x hx; simpa only [Set.mem_ofPred_eq, Set.mem_univ, Set.mem_Icc, Set.mem_Ico, Set.mem_Ioc, Set.mem_Ioo, Set.mem_Ici, Set.mem_Ioi, Set.mem_Iic, Set.mem_Iio, Set.mem_prod, true_and, and_true, and_assoc, and_left_comm, and_comm] using hx); (MeasureTheory.IntegrableOn (fun (x : ℝ) => (1 /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) (Set.Icc 0 1) MeasureTheory.volume)))
+  (h4 : (let _ : ((Set.Icc 0 1)) ⊆ ({ x_1 : ℝ | (((x_1 ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ x_1)) ∧ (x_1 ≤ 1)) }) := (by intro x hx; simpa only [Set.mem_setOf_eq, Set.mem_univ, Set.mem_Icc, Set.mem_Ico, Set.mem_Ioc, Set.mem_Ioo, Set.mem_Ici, Set.mem_Ioi, Set.mem_Iic, Set.mem_Iio, Set.mem_prod, true_and, and_true, and_assoc, and_left_comm, and_comm] using hx); (MeasureTheory.IntegrableOn (fun (x : ℝ) => (1 /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) (Set.Icc 0 1) MeasureTheory.volume)))
   (h5 : (∫ x in (0 : ℝ)..(1 : ℝ), ((((Real.arctan x) /. x) * ((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) = (∫ y in (0 : ℝ)..(1 : ℝ), ((∫ x in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) * ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ)))))) * (1 : ℝ))) * (1 : ℝ))))
   (h6 : (forall (y : ℝ) (t : ℝ) (x : ℝ), (((((((((((y ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ y)) ∧ (y ≤ 1)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ t)) ∧ (t ≤ (Real.pi /. 2))) ∧ (x ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ x)) ∧ (x ≤ 1)) ∧ (x = (Real.cos t))) → ((∫ x_1 in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((Real.rpow (1 - (x_1 ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) * ((1 : ℝ) + ((x_1 ^ (2 : ℕ)) * (y ^ (2 : ℕ)))))) * (1 : ℝ))) = (∫ t_1 in (0 : ℝ)..(Real.pi /. 2), (((1 : ℝ) /. ((1 : ℝ) + ((y ^ (2 : ℕ)) * ((Real.cos t_1) ^ (2 : ℕ))))) * (1 : ℝ)))))))
   (h7 : (forall (y : ℝ) (t : ℝ) (x : ℝ), (((((((((((y ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ y)) ∧ (y ≤ 1)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ t)) ∧ (t ≤ (Real.pi /. 2))) ∧ (x ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ x)) ∧ (x ≤ 1)) ∧ (x = (Real.cos t))) → ((∫ t_1 in (0 : ℝ)..(Real.pi /. 2), (((1 : ℝ) /. ((1 : ℝ) + ((y ^ (2 : ℕ)) * ((Real.cos t_1) ^ (2 : ℕ))))) * (1 : ℝ))) = (((1 /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (Real.arctan ((Real.tan (Real.pi /. 2)) /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))) - ((1 /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (Real.arctan ((Real.tan (0 : ℝ)) /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))))))))
@@ -112,11 +445,58 @@ theorem proof_gap_exercise_3736_8
   : (forall (y : ℝ) (t : ℝ) (x : ℝ), (((((((((((y ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ y)) ∧ (y ≤ 1)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ t)) ∧ (t ≤ (Real.pi /. 2))) ∧ (x ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ x)) ∧ (x ≤ 1)) ∧ (x = (Real.cos t))) → ((∫ t_1 in (0 : ℝ)..(Real.pi /. 2), (((1 : ℝ) /. ((1 : ℝ) + ((y ^ (2 : ℕ)) * ((Real.cos t_1) ^ (2 : ℕ))))) * (1 : ℝ))) = (Real.pi /. (2 * (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))))) := by
   sorry
 
+end regenerated_exercise_3736_gap_8
+
+-- Source: proofgap/exercise_3736/9.txt
+namespace regenerated_exercise_3736_gap_9
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_3736_9
   (h1 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (0 < x)) ∧ (x ≤ 1)) → (((Real.arctan x) /. x) = (∫ y in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ))))) * (1 : ℝ)))))))
   (h2 : (∫ x in (0 : ℝ)..(1 : ℝ), ((((Real.arctan x) /. x) * ((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) = (∫ x in (0 : ℝ)..(1 : ℝ), ((((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (∫ y in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ))))) * (1 : ℝ)))) * (1 : ℝ))))
   (h3 : ContinuousOn (fun (p : ℝ × ℝ) => (1 /. (1 + ((p.1 ^ (2 : ℕ)) * (p.2 ^ (2 : ℕ)))))) ((Set.Icc 0 1) ×ˢ (Set.Icc 0 1)))
-  (h4 : (let _ : ((Set.Icc 0 1)) ⊆ ({ x_1 : ℝ | (((x_1 ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ x_1)) ∧ (x_1 ≤ 1)) }) := (by intro x hx; simpa only [Set.mem_ofPred_eq, Set.mem_univ, Set.mem_Icc, Set.mem_Ico, Set.mem_Ioc, Set.mem_Ioo, Set.mem_Ici, Set.mem_Ioi, Set.mem_Iic, Set.mem_Iio, Set.mem_prod, true_and, and_true, and_assoc, and_left_comm, and_comm] using hx); (MeasureTheory.IntegrableOn (fun (x : ℝ) => (1 /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) (Set.Icc 0 1) MeasureTheory.volume)))
+  (h4 : (let _ : ((Set.Icc 0 1)) ⊆ ({ x_1 : ℝ | (((x_1 ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ x_1)) ∧ (x_1 ≤ 1)) }) := (by intro x hx; simpa only [Set.mem_setOf_eq, Set.mem_univ, Set.mem_Icc, Set.mem_Ico, Set.mem_Ioc, Set.mem_Ioo, Set.mem_Ici, Set.mem_Ioi, Set.mem_Iic, Set.mem_Iio, Set.mem_prod, true_and, and_true, and_assoc, and_left_comm, and_comm] using hx); (MeasureTheory.IntegrableOn (fun (x : ℝ) => (1 /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) (Set.Icc 0 1) MeasureTheory.volume)))
   (h5 : (∫ x in (0 : ℝ)..(1 : ℝ), ((((Real.arctan x) /. x) * ((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) = (∫ y in (0 : ℝ)..(1 : ℝ), ((∫ x in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) * ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ)))))) * (1 : ℝ))) * (1 : ℝ))))
   (h6 : (forall (y : ℝ) (t : ℝ) (x : ℝ), (((((((((((y ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ y)) ∧ (y ≤ 1)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ t)) ∧ (t ≤ (Real.pi /. 2))) ∧ (x ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ x)) ∧ (x ≤ 1)) ∧ (x = (Real.cos t))) → ((∫ x_1 in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((Real.rpow (1 - (x_1 ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) * ((1 : ℝ) + ((x_1 ^ (2 : ℕ)) * (y ^ (2 : ℕ)))))) * (1 : ℝ))) = (∫ t_1 in (0 : ℝ)..(Real.pi /. 2), (((1 : ℝ) /. ((1 : ℝ) + ((y ^ (2 : ℕ)) * ((Real.cos t_1) ^ (2 : ℕ))))) * (1 : ℝ)))))))
   (h7 : (forall (y : ℝ) (t : ℝ) (x : ℝ), (((((((((((y ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ y)) ∧ (y ≤ 1)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ t)) ∧ (t ≤ (Real.pi /. 2))) ∧ (x ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ x)) ∧ (x ≤ 1)) ∧ (x = (Real.cos t))) → ((∫ t_1 in (0 : ℝ)..(Real.pi /. 2), (((1 : ℝ) /. ((1 : ℝ) + ((y ^ (2 : ℕ)) * ((Real.cos t_1) ^ (2 : ℕ))))) * (1 : ℝ))) = (((1 /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (Real.arctan ((Real.tan (Real.pi /. 2)) /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))) - ((1 /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (Real.arctan ((Real.tan (0 : ℝ)) /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))))))))
@@ -125,11 +505,58 @@ theorem proof_gap_exercise_3736_9
   : (∫ x in (0 : ℝ)..(1 : ℝ), ((((Real.arctan x) /. x) * ((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) = (∫ y in (0 : ℝ)..(1 : ℝ), ((Real.pi /. ((2 : ℝ) * (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) := by
   sorry
 
+end regenerated_exercise_3736_gap_9
+
+-- Source: proofgap/exercise_3736/10.txt
+namespace regenerated_exercise_3736_gap_10
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_3736_10
   (h1 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (0 < x)) ∧ (x ≤ 1)) → (((Real.arctan x) /. x) = (∫ y in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ))))) * (1 : ℝ)))))))
   (h2 : (∫ x in (0 : ℝ)..(1 : ℝ), ((((Real.arctan x) /. x) * ((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) = (∫ x in (0 : ℝ)..(1 : ℝ), ((((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (∫ y in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ))))) * (1 : ℝ)))) * (1 : ℝ))))
   (h3 : ContinuousOn (fun (p : ℝ × ℝ) => (1 /. (1 + ((p.1 ^ (2 : ℕ)) * (p.2 ^ (2 : ℕ)))))) ((Set.Icc 0 1) ×ˢ (Set.Icc 0 1)))
-  (h4 : (let _ : ((Set.Icc 0 1)) ⊆ ({ x_1 : ℝ | (((x_1 ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ x_1)) ∧ (x_1 ≤ 1)) }) := (by intro x hx; simpa only [Set.mem_ofPred_eq, Set.mem_univ, Set.mem_Icc, Set.mem_Ico, Set.mem_Ioc, Set.mem_Ioo, Set.mem_Ici, Set.mem_Ioi, Set.mem_Iic, Set.mem_Iio, Set.mem_prod, true_and, and_true, and_assoc, and_left_comm, and_comm] using hx); (MeasureTheory.IntegrableOn (fun (x : ℝ) => (1 /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) (Set.Icc 0 1) MeasureTheory.volume)))
+  (h4 : (let _ : ((Set.Icc 0 1)) ⊆ ({ x_1 : ℝ | (((x_1 ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ x_1)) ∧ (x_1 ≤ 1)) }) := (by intro x hx; simpa only [Set.mem_setOf_eq, Set.mem_univ, Set.mem_Icc, Set.mem_Ico, Set.mem_Ioc, Set.mem_Ioo, Set.mem_Ici, Set.mem_Ioi, Set.mem_Iic, Set.mem_Iio, Set.mem_prod, true_and, and_true, and_assoc, and_left_comm, and_comm] using hx); (MeasureTheory.IntegrableOn (fun (x : ℝ) => (1 /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) (Set.Icc 0 1) MeasureTheory.volume)))
   (h5 : (∫ x in (0 : ℝ)..(1 : ℝ), ((((Real.arctan x) /. x) * ((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) = (∫ y in (0 : ℝ)..(1 : ℝ), ((∫ x in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) * ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ)))))) * (1 : ℝ))) * (1 : ℝ))))
   (h6 : (forall (y : ℝ) (t : ℝ) (x : ℝ), (((((((((((y ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ y)) ∧ (y ≤ 1)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ t)) ∧ (t ≤ (Real.pi /. 2))) ∧ (x ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ x)) ∧ (x ≤ 1)) ∧ (x = (Real.cos t))) → ((∫ x_1 in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((Real.rpow (1 - (x_1 ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) * ((1 : ℝ) + ((x_1 ^ (2 : ℕ)) * (y ^ (2 : ℕ)))))) * (1 : ℝ))) = (∫ t_1 in (0 : ℝ)..(Real.pi /. 2), (((1 : ℝ) /. ((1 : ℝ) + ((y ^ (2 : ℕ)) * ((Real.cos t_1) ^ (2 : ℕ))))) * (1 : ℝ)))))))
   (h7 : (forall (y : ℝ) (t : ℝ) (x : ℝ), (((((((((((y ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ y)) ∧ (y ≤ 1)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ t)) ∧ (t ≤ (Real.pi /. 2))) ∧ (x ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ x)) ∧ (x ≤ 1)) ∧ (x = (Real.cos t))) → ((∫ t_1 in (0 : ℝ)..(Real.pi /. 2), (((1 : ℝ) /. ((1 : ℝ) + ((y ^ (2 : ℕ)) * ((Real.cos t_1) ^ (2 : ℕ))))) * (1 : ℝ))) = (((1 /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (Real.arctan ((Real.tan (Real.pi /. 2)) /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))) - ((1 /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (Real.arctan ((Real.tan (0 : ℝ)) /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))))))))
@@ -139,11 +566,58 @@ theorem proof_gap_exercise_3736_10
   : (∫ y in (0 : ℝ)..(1 : ℝ), ((Real.pi /. ((2 : ℝ) * (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) = (((Real.pi /. 2) * (Real.log (1 + (Real.rpow (1 + ((1 : ℕ) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))) - ((Real.pi /. 2) * (Real.log (0 + (Real.rpow (1 + ((0 : ℕ) ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))))) := by
   sorry
 
+end regenerated_exercise_3736_gap_10
+
+-- Source: proofgap/exercise_3736/11.txt
+namespace regenerated_exercise_3736_gap_11
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_3736_11
   (h1 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (0 < x)) ∧ (x ≤ 1)) → (((Real.arctan x) /. x) = (∫ y in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ))))) * (1 : ℝ)))))))
   (h2 : (∫ x in (0 : ℝ)..(1 : ℝ), ((((Real.arctan x) /. x) * ((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) = (∫ x in (0 : ℝ)..(1 : ℝ), ((((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (∫ y in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ))))) * (1 : ℝ)))) * (1 : ℝ))))
   (h3 : ContinuousOn (fun (p : ℝ × ℝ) => (1 /. (1 + ((p.1 ^ (2 : ℕ)) * (p.2 ^ (2 : ℕ)))))) ((Set.Icc 0 1) ×ˢ (Set.Icc 0 1)))
-  (h4 : (let _ : ((Set.Icc 0 1)) ⊆ ({ x_1 : ℝ | (((x_1 ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ x_1)) ∧ (x_1 ≤ 1)) }) := (by intro x hx; simpa only [Set.mem_ofPred_eq, Set.mem_univ, Set.mem_Icc, Set.mem_Ico, Set.mem_Ioc, Set.mem_Ioo, Set.mem_Ici, Set.mem_Ioi, Set.mem_Iic, Set.mem_Iio, Set.mem_prod, true_and, and_true, and_assoc, and_left_comm, and_comm] using hx); (MeasureTheory.IntegrableOn (fun (x : ℝ) => (1 /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) (Set.Icc 0 1) MeasureTheory.volume)))
+  (h4 : (let _ : ((Set.Icc 0 1)) ⊆ ({ x_1 : ℝ | (((x_1 ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ x_1)) ∧ (x_1 ≤ 1)) }) := (by intro x hx; simpa only [Set.mem_setOf_eq, Set.mem_univ, Set.mem_Icc, Set.mem_Ico, Set.mem_Ioc, Set.mem_Ioo, Set.mem_Ici, Set.mem_Ioi, Set.mem_Iic, Set.mem_Iio, Set.mem_prod, true_and, and_true, and_assoc, and_left_comm, and_comm] using hx); (MeasureTheory.IntegrableOn (fun (x : ℝ) => (1 /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) (Set.Icc 0 1) MeasureTheory.volume)))
   (h5 : (∫ x in (0 : ℝ)..(1 : ℝ), ((((Real.arctan x) /. x) * ((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) = (∫ y in (0 : ℝ)..(1 : ℝ), ((∫ x in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) * ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ)))))) * (1 : ℝ))) * (1 : ℝ))))
   (h6 : (forall (y : ℝ) (t : ℝ) (x : ℝ), (((((((((((y ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ y)) ∧ (y ≤ 1)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ t)) ∧ (t ≤ (Real.pi /. 2))) ∧ (x ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ x)) ∧ (x ≤ 1)) ∧ (x = (Real.cos t))) → ((∫ x_1 in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((Real.rpow (1 - (x_1 ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) * ((1 : ℝ) + ((x_1 ^ (2 : ℕ)) * (y ^ (2 : ℕ)))))) * (1 : ℝ))) = (∫ t_1 in (0 : ℝ)..(Real.pi /. 2), (((1 : ℝ) /. ((1 : ℝ) + ((y ^ (2 : ℕ)) * ((Real.cos t_1) ^ (2 : ℕ))))) * (1 : ℝ)))))))
   (h7 : (forall (y : ℝ) (t : ℝ) (x : ℝ), (((((((((((y ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ y)) ∧ (y ≤ 1)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ t)) ∧ (t ≤ (Real.pi /. 2))) ∧ (x ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ x)) ∧ (x ≤ 1)) ∧ (x = (Real.cos t))) → ((∫ t_1 in (0 : ℝ)..(Real.pi /. 2), (((1 : ℝ) /. ((1 : ℝ) + ((y ^ (2 : ℕ)) * ((Real.cos t_1) ^ (2 : ℕ))))) * (1 : ℝ))) = (((1 /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (Real.arctan ((Real.tan (Real.pi /. 2)) /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))) - ((1 /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (Real.arctan ((Real.tan (0 : ℝ)) /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))))))))
@@ -154,11 +628,58 @@ theorem proof_gap_exercise_3736_11
   : (((Real.pi /. 2) * (Real.log (1 + (Real.rpow (1 + ((1 : ℕ) ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))) - ((Real.pi /. 2) * (Real.log (0 + (Real.rpow (1 + ((0 : ℕ) ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))))) = ((Real.pi /. 2) * (Real.log (1 + (Real.rpow (2 : ℝ) (((2 : ℝ))⁻¹))))) := by
   sorry
 
+end regenerated_exercise_3736_gap_11
+
+-- Source: proofgap/exercise_3736/12.txt
+namespace regenerated_exercise_3736_gap_12
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_3736_12
   (h1 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (0 < x)) ∧ (x ≤ 1)) → (((Real.arctan x) /. x) = (∫ y in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ))))) * (1 : ℝ)))))))
   (h2 : (∫ x in (0 : ℝ)..(1 : ℝ), ((((Real.arctan x) /. x) * ((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) = (∫ x in (0 : ℝ)..(1 : ℝ), ((((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (∫ y in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ))))) * (1 : ℝ)))) * (1 : ℝ))))
   (h3 : ContinuousOn (fun (p : ℝ × ℝ) => (1 /. (1 + ((p.1 ^ (2 : ℕ)) * (p.2 ^ (2 : ℕ)))))) ((Set.Icc 0 1) ×ˢ (Set.Icc 0 1)))
-  (h4 : (let _ : ((Set.Icc 0 1)) ⊆ ({ x_1 : ℝ | (((x_1 ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ x_1)) ∧ (x_1 ≤ 1)) }) := (by intro x hx; simpa only [Set.mem_ofPred_eq, Set.mem_univ, Set.mem_Icc, Set.mem_Ico, Set.mem_Ioc, Set.mem_Ioo, Set.mem_Ici, Set.mem_Ioi, Set.mem_Iic, Set.mem_Iio, Set.mem_prod, true_and, and_true, and_assoc, and_left_comm, and_comm] using hx); (MeasureTheory.IntegrableOn (fun (x : ℝ) => (1 /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) (Set.Icc 0 1) MeasureTheory.volume)))
+  (h4 : (let _ : ((Set.Icc 0 1)) ⊆ ({ x_1 : ℝ | (((x_1 ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ x_1)) ∧ (x_1 ≤ 1)) }) := (by intro x hx; simpa only [Set.mem_setOf_eq, Set.mem_univ, Set.mem_Icc, Set.mem_Ico, Set.mem_Ioc, Set.mem_Ioo, Set.mem_Ici, Set.mem_Ioi, Set.mem_Iic, Set.mem_Iio, Set.mem_prod, true_and, and_true, and_assoc, and_left_comm, and_comm] using hx); (MeasureTheory.IntegrableOn (fun (x : ℝ) => (1 /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) (Set.Icc 0 1) MeasureTheory.volume)))
   (h5 : (∫ x in (0 : ℝ)..(1 : ℝ), ((((Real.arctan x) /. x) * ((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) = (∫ y in (0 : ℝ)..(1 : ℝ), ((∫ x in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) * ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ)))))) * (1 : ℝ))) * (1 : ℝ))))
   (h6 : (forall (y : ℝ) (t : ℝ) (x : ℝ), (((((((((((y ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ y)) ∧ (y ≤ 1)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ t)) ∧ (t ≤ (Real.pi /. 2))) ∧ (x ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ x)) ∧ (x ≤ 1)) ∧ (x = (Real.cos t))) → ((∫ x_1 in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((Real.rpow (1 - (x_1 ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) * ((1 : ℝ) + ((x_1 ^ (2 : ℕ)) * (y ^ (2 : ℕ)))))) * (1 : ℝ))) = (∫ t_1 in (0 : ℝ)..(Real.pi /. 2), (((1 : ℝ) /. ((1 : ℝ) + ((y ^ (2 : ℕ)) * ((Real.cos t_1) ^ (2 : ℕ))))) * (1 : ℝ)))))))
   (h7 : (forall (y : ℝ) (t : ℝ) (x : ℝ), (((((((((((y ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ y)) ∧ (y ≤ 1)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ t)) ∧ (t ≤ (Real.pi /. 2))) ∧ (x ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ x)) ∧ (x ≤ 1)) ∧ (x = (Real.cos t))) → ((∫ t_1 in (0 : ℝ)..(Real.pi /. 2), (((1 : ℝ) /. ((1 : ℝ) + ((y ^ (2 : ℕ)) * ((Real.cos t_1) ^ (2 : ℕ))))) * (1 : ℝ))) = (((1 /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (Real.arctan ((Real.tan (Real.pi /. 2)) /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))) - ((1 /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (Real.arctan ((Real.tan (0 : ℝ)) /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))))))))
@@ -170,11 +691,58 @@ theorem proof_gap_exercise_3736_12
   : (∫ y in (0 : ℝ)..(1 : ℝ), ((Real.pi /. ((2 : ℝ) * (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) = ((Real.pi /. 2) * (Real.log (1 + (Real.rpow (2 : ℝ) (((2 : ℝ))⁻¹))))) := by
   sorry
 
+end regenerated_exercise_3736_gap_12
+
+-- Source: proofgap/exercise_3736/13.txt
+namespace regenerated_exercise_3736_gap_13
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_3736_13
   (h1 : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (0 < x)) ∧ (x ≤ 1)) → (((Real.arctan x) /. x) = (∫ y in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ))))) * (1 : ℝ)))))))
   (h2 : (∫ x in (0 : ℝ)..(1 : ℝ), ((((Real.arctan x) /. x) * ((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) = (∫ x in (0 : ℝ)..(1 : ℝ), ((((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (∫ y in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ))))) * (1 : ℝ)))) * (1 : ℝ))))
   (h3 : ContinuousOn (fun (p : ℝ × ℝ) => (1 /. (1 + ((p.1 ^ (2 : ℕ)) * (p.2 ^ (2 : ℕ)))))) ((Set.Icc 0 1) ×ˢ (Set.Icc 0 1)))
-  (h4 : (let _ : ((Set.Icc 0 1)) ⊆ ({ x_1 : ℝ | (((x_1 ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ x_1)) ∧ (x_1 ≤ 1)) }) := (by intro x hx; simpa only [Set.mem_ofPred_eq, Set.mem_univ, Set.mem_Icc, Set.mem_Ico, Set.mem_Ioc, Set.mem_Ioo, Set.mem_Ici, Set.mem_Ioi, Set.mem_Iic, Set.mem_Iio, Set.mem_prod, true_and, and_true, and_assoc, and_left_comm, and_comm] using hx); (MeasureTheory.IntegrableOn (fun (x : ℝ) => (1 /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) (Set.Icc 0 1) MeasureTheory.volume)))
+  (h4 : (let _ : ((Set.Icc 0 1)) ⊆ ({ x_1 : ℝ | (((x_1 ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ x_1)) ∧ (x_1 ≤ 1)) }) := (by intro x hx; simpa only [Set.mem_setOf_eq, Set.mem_univ, Set.mem_Icc, Set.mem_Ico, Set.mem_Ioc, Set.mem_Ioo, Set.mem_Ici, Set.mem_Ioi, Set.mem_Iic, Set.mem_Iio, Set.mem_prod, true_and, and_true, and_assoc, and_left_comm, and_comm] using hx); (MeasureTheory.IntegrableOn (fun (x : ℝ) => (1 /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) (Set.Icc 0 1) MeasureTheory.volume)))
   (h5 : (∫ x in (0 : ℝ)..(1 : ℝ), ((((Real.arctan x) /. x) * ((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) = (∫ y in (0 : ℝ)..(1 : ℝ), ((∫ x in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) * ((1 : ℝ) + ((x ^ (2 : ℕ)) * (y ^ (2 : ℕ)))))) * (1 : ℝ))) * (1 : ℝ))))
   (h6 : (forall (y : ℝ) (t : ℝ) (x : ℝ), (((((((((((y ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ y)) ∧ (y ≤ 1)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ t)) ∧ (t ≤ (Real.pi /. 2))) ∧ (x ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ x)) ∧ (x ≤ 1)) ∧ (x = (Real.cos t))) → ((∫ x_1 in (0 : ℝ)..(1 : ℝ), (((1 : ℝ) /. ((Real.rpow (1 - (x_1 ^ (2 : ℕ))) (((2 : ℝ))⁻¹)) * ((1 : ℝ) + ((x_1 ^ (2 : ℕ)) * (y ^ (2 : ℕ)))))) * (1 : ℝ))) = (∫ t_1 in (0 : ℝ)..(Real.pi /. 2), (((1 : ℝ) /. ((1 : ℝ) + ((y ^ (2 : ℕ)) * ((Real.cos t_1) ^ (2 : ℕ))))) * (1 : ℝ)))))))
   (h7 : (forall (y : ℝ) (t : ℝ) (x : ℝ), (((((((((((y ∈ (Set.univ : Set ℝ)) ∧ (0 ≤ y)) ∧ (y ≤ 1)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ t)) ∧ (t ≤ (Real.pi /. 2))) ∧ (x ∈ (Set.univ : Set ℝ))) ∧ (0 ≤ x)) ∧ (x ≤ 1)) ∧ (x = (Real.cos t))) → ((∫ t_1 in (0 : ℝ)..(Real.pi /. 2), (((1 : ℝ) /. ((1 : ℝ) + ((y ^ (2 : ℕ)) * ((Real.cos t_1) ^ (2 : ℕ))))) * (1 : ℝ))) = (((1 /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (Real.arctan ((Real.tan (Real.pi /. 2)) /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))) - ((1 /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))) * (Real.arctan ((Real.tan (0 : ℝ)) /. (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹))))))))))
@@ -186,3 +754,5 @@ theorem proof_gap_exercise_3736_13
   (h13 : (∫ y in (0 : ℝ)..(1 : ℝ), ((Real.pi /. ((2 : ℝ) * (Real.rpow (1 + (y ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) = ((Real.pi /. 2) * (Real.log (1 + (Real.rpow (2 : ℝ) (((2 : ℝ))⁻¹))))))
   : (∫ x in (0 : ℝ)..(1 : ℝ), ((((Real.arctan x) /. x) * ((1 : ℝ) /. (Real.rpow (1 - (x ^ (2 : ℕ))) (((2 : ℝ))⁻¹)))) * (1 : ℝ))) = ((Real.pi /. 2) * (Real.log (1 + (Real.rpow (2 : ℝ) (((2 : ℝ))⁻¹))))) := by
   sorry
+
+end regenerated_exercise_3736_gap_13

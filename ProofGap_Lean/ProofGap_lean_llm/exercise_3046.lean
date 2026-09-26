@@ -1,311 +1,159 @@
 import Mathlib
 
-/-
-This file intentionally contains only theorem statements with `by sorry` proofs.
-No Lean compilation was run in this generation round.
+/-!
+Regenerated from `sources/exercise_3046/*.txt`.
+
+The definite complex integrals are encoded using `intervalIntegral`.
 -/
+
+open scoped BigOperators
+open Filter intervalIntegral
 
 namespace Exercise_3046
 
-/-- Source proof gap 1.
-ASSUM:
-1. I : NonNegIntegerSet → RealSet
-2. Re : ComplexSet → RealSet
-3. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{cos(x)} * cos(sin(x)) * cos(n * x)) * diff(fun x [x ∈ RealSet] . x))
+noncomputable section
 
-GOAL:
-forall (x), x ∈ RealSet ⇒ Re(e^{e^{__IMAGINARY_UNIT__ * x}}) = e^{cos(x)} * cos(sin(x))
--/
-def proof_gap_exercise_3046_1_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3046_1 : proof_gap_exercise_3046_1_statement := by
+def Idef (n : ℕ) : ℝ :=
+  ∫ x in (0 : ℝ)..(2 * Real.pi),
+    Real.exp (Real.cos x) * Real.cos (Real.sin x) * Real.cos ((n : ℝ) * x)
+
+def complexFourierIntegral (n : ℕ) : ℂ :=
+  ∫ x in (0 : ℝ)..(2 * Real.pi),
+    Complex.exp (Complex.exp (Complex.I * (x : ℂ))) *
+      (Real.cos ((n : ℝ) * x) : ℂ)
+
+def expModeIntegral (k : ℤ) : ℂ :=
+  ∫ x in (0 : ℝ)..(2 * Real.pi),
+    Complex.exp (Complex.I * (k : ℂ) * (x : ℂ))
+
+def expandedIntegral (n : ℕ) : ℂ :=
+  ∫ x in (0 : ℝ)..(2 * Real.pi),
+    (∑' m : ℕ,
+      Complex.exp (Complex.I * (m : ℂ) * (x : ℂ)) /
+        (Nat.factorial m : ℂ)) *
+      (Complex.exp (Complex.I * (n : ℂ) * (x : ℂ)) +
+        Complex.exp (-(Complex.I * (n : ℂ) * (x : ℂ))))
+
+def orthogonalIntegralValue (k : ℤ) : ℂ :=
+  if k = 0 then (2 * Real.pi : ℝ) else 0
+
+theorem proof_gap_exercise_3046_1
+    (I : ℕ → ℝ) (Re : ℂ → ℝ)
+    (hI : ∀ n : ℕ, I n = Idef n) :
+    ∀ x : ℝ,
+      Re (Complex.exp (Complex.exp (Complex.I * (x : ℂ)))) =
+        Real.exp (Real.cos x) * Real.cos (Real.sin x) := by
   sorry
 
-/-- Source proof gap 2.
-ASSUM:
-1. I : NonNegIntegerSet → RealSet
-2. Re : ComplexSet → RealSet
-3. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{cos(x)} * cos(sin(x)) * cos(n * x)) * diff(fun x [x ∈ RealSet] . x))
-4. forall (x), x ∈ RealSet ⇒ Re(e^{e^{__IMAGINARY_UNIT__ * x}}) = e^{cos(x)} * cos(sin(x))
-
-GOAL:
-forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = Re(DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{e^{__IMAGINARY_UNIT__ * x}} * cos(n * x)) * diff(fun x [x ∈ RealSet] . x)))
--/
-def proof_gap_exercise_3046_2_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3046_2 : proof_gap_exercise_3046_2_statement := by
+theorem proof_gap_exercise_3046_2
+    (I : ℕ → ℝ) (Re : ℂ → ℝ)
+    (hI : ∀ n : ℕ, I n = Idef n)
+    (hre : ∀ x : ℝ,
+      Re (Complex.exp (Complex.exp (Complex.I * (x : ℂ)))) =
+        Real.exp (Real.cos x) * Real.cos (Real.sin x)) :
+    ∀ n : ℕ, I n = Re (complexFourierIntegral n) := by
   sorry
 
-/-- Source proof gap 3.
-ASSUM:
-1. I : NonNegIntegerSet → RealSet
-2. Re : ComplexSet → RealSet
-3. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{cos(x)} * cos(sin(x)) * cos(n * x)) * diff(fun x [x ∈ RealSet] . x))
-4. forall (x), x ∈ RealSet ⇒ Re(e^{e^{__IMAGINARY_UNIT__ * x}}) = e^{cos(x)} * cos(sin(x))
-5. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = Re(DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{e^{__IMAGINARY_UNIT__ * x}} * cos(n * x)) * diff(fun x [x ∈ RealSet] . x)))
-
-GOAL:
-forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ cos(n * x) = frac(1, 2) * (e^{__IMAGINARY_UNIT__ * n * x} + e^{-__IMAGINARY_UNIT__ * n * x}))
--/
-def proof_gap_exercise_3046_3_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3046_3 : proof_gap_exercise_3046_3_statement := by
+theorem proof_gap_exercise_3046_3
+    (I : ℕ → ℝ) (Re : ℂ → ℝ)
+    (hI : ∀ n : ℕ, I n = Idef n)
+    (hreint : ∀ n : ℕ, I n = Re (complexFourierIntegral n)) :
+    ∀ x : ℝ, ∀ n : ℕ,
+      (Real.cos ((n : ℝ) * x) : ℂ) =
+        (1 / 2 : ℂ) *
+          (Complex.exp (Complex.I * (n : ℂ) * (x : ℂ)) +
+            Complex.exp (-(Complex.I * (n : ℂ) * (x : ℂ)))) := by
   sorry
 
-/-- Source proof gap 4.
-ASSUM:
-1. I : NonNegIntegerSet → RealSet
-2. Re : ComplexSet → RealSet
-3. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{cos(x)} * cos(sin(x)) * cos(n * x)) * diff(fun x [x ∈ RealSet] . x))
-4. forall (x), x ∈ RealSet ⇒ Re(e^{e^{__IMAGINARY_UNIT__ * x}}) = e^{cos(x)} * cos(sin(x))
-5. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = Re(DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{e^{__IMAGINARY_UNIT__ * x}} * cos(n * x)) * diff(fun x [x ∈ RealSet] . x)))
-6. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ cos(n * x) = frac(1, 2) * (e^{__IMAGINARY_UNIT__ * n * x} + e^{-__IMAGINARY_UNIT__ * n * x}))
-
-GOAL:
-forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = frac(1, 2) * Re(DefInt(0, 2 * π, (fun x [x ∈ RealSet] . (sum_{ m = 0 }^{ +∞ } (frac(e^{__IMAGINARY_UNIT__ * m * x}, m!))) * (e^{__IMAGINARY_UNIT__ * n * x} + e^{-__IMAGINARY_UNIT__ * n * x})) * diff(fun x [x ∈ RealSet] . x)))
--/
-def proof_gap_exercise_3046_4_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3046_4 : proof_gap_exercise_3046_4_statement := by
+theorem proof_gap_exercise_3046_4
+    (I : ℕ → ℝ) (Re : ℂ → ℝ)
+    (hreint : ∀ n : ℕ, I n = Re (complexFourierIntegral n))
+    (hcos : ∀ x : ℝ, ∀ n : ℕ,
+      (Real.cos ((n : ℝ) * x) : ℂ) =
+        (1 / 2 : ℂ) *
+          (Complex.exp (Complex.I * (n : ℂ) * (x : ℂ)) +
+            Complex.exp (-(Complex.I * (n : ℂ) * (x : ℂ))))) :
+    ∀ n : ℕ, I n = (1 / 2 : ℝ) * Re (expandedIntegral n) := by
   sorry
 
-/-- Source proof gap 5.
-ASSUM:
-1. I : NonNegIntegerSet → RealSet
-2. Re : ComplexSet → RealSet
-3. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{cos(x)} * cos(sin(x)) * cos(n * x)) * diff(fun x [x ∈ RealSet] . x))
-4. forall (x), x ∈ RealSet ⇒ Re(e^{e^{__IMAGINARY_UNIT__ * x}}) = e^{cos(x)} * cos(sin(x))
-5. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = Re(DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{e^{__IMAGINARY_UNIT__ * x}} * cos(n * x)) * diff(fun x [x ∈ RealSet] . x)))
-6. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ cos(n * x) = frac(1, 2) * (e^{__IMAGINARY_UNIT__ * n * x} + e^{-__IMAGINARY_UNIT__ * n * x}))
-7. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = frac(1, 2) * Re(DefInt(0, 2 * π, (fun x [x ∈ RealSet] . (sum_{ m = 0 }^{ +∞ } (frac(e^{__IMAGINARY_UNIT__ * m * x}, m!))) * (e^{__IMAGINARY_UNIT__ * n * x} + e^{-__IMAGINARY_UNIT__ * n * x})) * diff(fun x [x ∈ RealSet] . x)))
-
-GOAL:
-forall (k), k ∈ IntegerSet ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * k * x}) * diff(fun x [x ∈ RealSet] . x)) = cases{ 2 * π if k = 0; 0 if k ≠ 0 }
--/
-def proof_gap_exercise_3046_5_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3046_5 : proof_gap_exercise_3046_5_statement := by
+theorem proof_gap_exercise_3046_5
+    (I : ℕ → ℝ) (Re : ℂ → ℝ)
+    (hexpanded : ∀ n : ℕ, I n = (1 / 2 : ℝ) * Re (expandedIntegral n)) :
+    ∀ k : ℤ, expModeIntegral k = orthogonalIntegralValue k := by
   sorry
 
-/-- Source proof gap 6.
-ASSUM:
-1. I : NonNegIntegerSet → RealSet
-2. Re : ComplexSet → RealSet
-3. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{cos(x)} * cos(sin(x)) * cos(n * x)) * diff(fun x [x ∈ RealSet] . x))
-4. forall (x), x ∈ RealSet ⇒ Re(e^{e^{__IMAGINARY_UNIT__ * x}}) = e^{cos(x)} * cos(sin(x))
-5. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = Re(DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{e^{__IMAGINARY_UNIT__ * x}} * cos(n * x)) * diff(fun x [x ∈ RealSet] . x)))
-6. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ cos(n * x) = frac(1, 2) * (e^{__IMAGINARY_UNIT__ * n * x} + e^{-__IMAGINARY_UNIT__ * n * x}))
-7. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = frac(1, 2) * Re(DefInt(0, 2 * π, (fun x [x ∈ RealSet] . (sum_{ m = 0 }^{ +∞ } (frac(e^{__IMAGINARY_UNIT__ * m * x}, m!))) * (e^{__IMAGINARY_UNIT__ * n * x} + e^{-__IMAGINARY_UNIT__ * n * x})) * diff(fun x [x ∈ RealSet] . x)))
-8. forall (k), k ∈ IntegerSet ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * k * x}) * diff(fun x [x ∈ RealSet] . x)) = cases{ 2 * π if k = 0; 0 if k ≠ 0 }
-
-GOAL:
-forall (n), n ∈ NonNegIntegerSet ∧ n = 0 ⇒ I(0) = frac(1, 2) * (2 * π + 2 * π)
--/
-def proof_gap_exercise_3046_6_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3046_6 : proof_gap_exercise_3046_6_statement := by
+theorem proof_gap_exercise_3046_6
+    (I : ℕ → ℝ) (Re : ℂ → ℝ)
+    (hortho : ∀ k : ℤ, expModeIntegral k = orthogonalIntegralValue k) :
+    ∀ n : ℕ, n = 0 → I 0 = (1 / 2 : ℝ) * (2 * Real.pi + 2 * Real.pi) := by
   sorry
 
-/-- Source proof gap 7.
-ASSUM:
-1. I : NonNegIntegerSet → RealSet
-2. Re : ComplexSet → RealSet
-3. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{cos(x)} * cos(sin(x)) * cos(n * x)) * diff(fun x [x ∈ RealSet] . x))
-4. forall (x), x ∈ RealSet ⇒ Re(e^{e^{__IMAGINARY_UNIT__ * x}}) = e^{cos(x)} * cos(sin(x))
-5. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = Re(DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{e^{__IMAGINARY_UNIT__ * x}} * cos(n * x)) * diff(fun x [x ∈ RealSet] . x)))
-6. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ cos(n * x) = frac(1, 2) * (e^{__IMAGINARY_UNIT__ * n * x} + e^{-__IMAGINARY_UNIT__ * n * x}))
-7. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = frac(1, 2) * Re(DefInt(0, 2 * π, (fun x [x ∈ RealSet] . (sum_{ m = 0 }^{ +∞ } (frac(e^{__IMAGINARY_UNIT__ * m * x}, m!))) * (e^{__IMAGINARY_UNIT__ * n * x} + e^{-__IMAGINARY_UNIT__ * n * x})) * diff(fun x [x ∈ RealSet] . x)))
-8. forall (k), k ∈ IntegerSet ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * k * x}) * diff(fun x [x ∈ RealSet] . x)) = cases{ 2 * π if k = 0; 0 if k ≠ 0 }
-9. forall (n), n ∈ NonNegIntegerSet ∧ n = 0 ⇒ I(0) = frac(1, 2) * (2 * π + 2 * π)
-
-GOAL:
-forall (n), n ∈ NonNegIntegerSet ∧ n = 0 ⇒ I(0) = 2 * π
--/
-def proof_gap_exercise_3046_7_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3046_7 : proof_gap_exercise_3046_7_statement := by
+theorem proof_gap_exercise_3046_7
+    (I : ℕ → ℝ) (Re : ℂ → ℝ)
+    (hzero_raw : ∀ n : ℕ, n = 0 → I 0 = (1 / 2 : ℝ) * (2 * Real.pi + 2 * Real.pi)) :
+    ∀ n : ℕ, n = 0 → I 0 = 2 * Real.pi := by
   sorry
 
-/-- Source proof gap 8.
-ASSUM:
-1. I : NonNegIntegerSet → RealSet
-2. Re : ComplexSet → RealSet
-3. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{cos(x)} * cos(sin(x)) * cos(n * x)) * diff(fun x [x ∈ RealSet] . x))
-4. forall (x), x ∈ RealSet ⇒ Re(e^{e^{__IMAGINARY_UNIT__ * x}}) = e^{cos(x)} * cos(sin(x))
-5. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = Re(DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{e^{__IMAGINARY_UNIT__ * x}} * cos(n * x)) * diff(fun x [x ∈ RealSet] . x)))
-6. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ cos(n * x) = frac(1, 2) * (e^{__IMAGINARY_UNIT__ * n * x} + e^{-__IMAGINARY_UNIT__ * n * x}))
-7. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = frac(1, 2) * Re(DefInt(0, 2 * π, (fun x [x ∈ RealSet] . (sum_{ m = 0 }^{ +∞ } (frac(e^{__IMAGINARY_UNIT__ * m * x}, m!))) * (e^{__IMAGINARY_UNIT__ * n * x} + e^{-__IMAGINARY_UNIT__ * n * x})) * diff(fun x [x ∈ RealSet] . x)))
-8. forall (k), k ∈ IntegerSet ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * k * x}) * diff(fun x [x ∈ RealSet] . x)) = cases{ 2 * π if k = 0; 0 if k ≠ 0 }
-9. forall (n), n ∈ NonNegIntegerSet ∧ n = 0 ⇒ I(0) = frac(1, 2) * (2 * π + 2 * π)
-10. forall (n), n ∈ NonNegIntegerSet ∧ n = 0 ⇒ I(0) = 2 * π
-
-GOAL:
-forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (m), m ∈ NonNegIntegerSet ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * (m + n) * x}) * diff(fun x [x ∈ RealSet] . x)) = 0)
--/
-def proof_gap_exercise_3046_8_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3046_8 : proof_gap_exercise_3046_8_statement := by
+theorem proof_gap_exercise_3046_8
+    (I : ℕ → ℝ) (Re : ℂ → ℝ)
+    (hortho : ∀ k : ℤ, expModeIntegral k = orthogonalIntegralValue k)
+    (hzero : ∀ n : ℕ, n = 0 → I 0 = 2 * Real.pi) :
+    ∀ n : ℕ, 0 < n →
+      ∀ m : ℕ, expModeIntegral ((m + n : ℕ) : ℤ) = 0 := by
   sorry
 
-/-- Source proof gap 9.
-ASSUM:
-1. I : NonNegIntegerSet → RealSet
-2. Re : ComplexSet → RealSet
-3. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{cos(x)} * cos(sin(x)) * cos(n * x)) * diff(fun x [x ∈ RealSet] . x))
-4. forall (x), x ∈ RealSet ⇒ Re(e^{e^{__IMAGINARY_UNIT__ * x}}) = e^{cos(x)} * cos(sin(x))
-5. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = Re(DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{e^{__IMAGINARY_UNIT__ * x}} * cos(n * x)) * diff(fun x [x ∈ RealSet] . x)))
-6. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ cos(n * x) = frac(1, 2) * (e^{__IMAGINARY_UNIT__ * n * x} + e^{-__IMAGINARY_UNIT__ * n * x}))
-7. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = frac(1, 2) * Re(DefInt(0, 2 * π, (fun x [x ∈ RealSet] . (sum_{ m = 0 }^{ +∞ } (frac(e^{__IMAGINARY_UNIT__ * m * x}, m!))) * (e^{__IMAGINARY_UNIT__ * n * x} + e^{-__IMAGINARY_UNIT__ * n * x})) * diff(fun x [x ∈ RealSet] . x)))
-8. forall (k), k ∈ IntegerSet ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * k * x}) * diff(fun x [x ∈ RealSet] . x)) = cases{ 2 * π if k = 0; 0 if k ≠ 0 }
-9. forall (n), n ∈ NonNegIntegerSet ∧ n = 0 ⇒ I(0) = frac(1, 2) * (2 * π + 2 * π)
-10. forall (n), n ∈ NonNegIntegerSet ∧ n = 0 ⇒ I(0) = 2 * π
-11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (m), m ∈ NonNegIntegerSet ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * (m + n) * x}) * diff(fun x [x ∈ RealSet] . x)) = 0)
-
-GOAL:
-forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (m), m ∈ NonNegIntegerSet ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * (m - n) * x}) * diff(fun x [x ∈ RealSet] . x)) = cases{ 2 * π if m = n; 0 if m ≠ n })
--/
-def proof_gap_exercise_3046_9_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3046_9 : proof_gap_exercise_3046_9_statement := by
+theorem proof_gap_exercise_3046_9
+    (I : ℕ → ℝ) (Re : ℂ → ℝ)
+    (hortho : ∀ k : ℤ, expModeIntegral k = orthogonalIntegralValue k)
+    (hplus : ∀ n : ℕ, 0 < n →
+      ∀ m : ℕ, expModeIntegral ((m + n : ℕ) : ℤ) = 0) :
+    ∀ n : ℕ, 0 < n →
+      ∀ m : ℕ,
+        expModeIntegral ((m : ℤ) - (n : ℤ)) =
+          if m = n then (2 * Real.pi : ℝ) else 0 := by
   sorry
 
-/-- Source proof gap 10.
-ASSUM:
-1. I : NonNegIntegerSet → RealSet
-2. Re : ComplexSet → RealSet
-3. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{cos(x)} * cos(sin(x)) * cos(n * x)) * diff(fun x [x ∈ RealSet] . x))
-4. forall (x), x ∈ RealSet ⇒ Re(e^{e^{__IMAGINARY_UNIT__ * x}}) = e^{cos(x)} * cos(sin(x))
-5. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = Re(DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{e^{__IMAGINARY_UNIT__ * x}} * cos(n * x)) * diff(fun x [x ∈ RealSet] . x)))
-6. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ cos(n * x) = frac(1, 2) * (e^{__IMAGINARY_UNIT__ * n * x} + e^{-__IMAGINARY_UNIT__ * n * x}))
-7. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = frac(1, 2) * Re(DefInt(0, 2 * π, (fun x [x ∈ RealSet] . (sum_{ m = 0 }^{ +∞ } (frac(e^{__IMAGINARY_UNIT__ * m * x}, m!))) * (e^{__IMAGINARY_UNIT__ * n * x} + e^{-__IMAGINARY_UNIT__ * n * x})) * diff(fun x [x ∈ RealSet] . x)))
-8. forall (k), k ∈ IntegerSet ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * k * x}) * diff(fun x [x ∈ RealSet] . x)) = cases{ 2 * π if k = 0; 0 if k ≠ 0 }
-9. forall (n), n ∈ NonNegIntegerSet ∧ n = 0 ⇒ I(0) = frac(1, 2) * (2 * π + 2 * π)
-10. forall (n), n ∈ NonNegIntegerSet ∧ n = 0 ⇒ I(0) = 2 * π
-11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (m), m ∈ NonNegIntegerSet ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * (m + n) * x}) * diff(fun x [x ∈ RealSet] . x)) = 0)
-12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (m), m ∈ NonNegIntegerSet ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * (m - n) * x}) * diff(fun x [x ∈ RealSet] . x)) = cases{ 2 * π if m = n; 0 if m ≠ n })
-
-GOAL:
-forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ I(n) = frac(1, 2) * frac(1, n!) * 2 * π
--/
-def proof_gap_exercise_3046_10_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3046_10 : proof_gap_exercise_3046_10_statement := by
+theorem proof_gap_exercise_3046_10
+    (I : ℕ → ℝ) (Re : ℂ → ℝ)
+    (hplus : ∀ n : ℕ, 0 < n →
+      ∀ m : ℕ, expModeIntegral ((m + n : ℕ) : ℤ) = 0)
+    (hminus : ∀ n : ℕ, 0 < n →
+      ∀ m : ℕ,
+        expModeIntegral ((m : ℤ) - (n : ℤ)) =
+          if m = n then (2 * Real.pi : ℝ) else 0) :
+    ∀ n : ℕ, 0 < n →
+      I n = (1 / 2 : ℝ) * (1 / (Nat.factorial n : ℝ)) * 2 * Real.pi := by
   sorry
 
-/-- Source proof gap 11.
-ASSUM:
-1. I : NonNegIntegerSet → RealSet
-2. Re : ComplexSet → RealSet
-3. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{cos(x)} * cos(sin(x)) * cos(n * x)) * diff(fun x [x ∈ RealSet] . x))
-4. forall (x), x ∈ RealSet ⇒ Re(e^{e^{__IMAGINARY_UNIT__ * x}}) = e^{cos(x)} * cos(sin(x))
-5. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = Re(DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{e^{__IMAGINARY_UNIT__ * x}} * cos(n * x)) * diff(fun x [x ∈ RealSet] . x)))
-6. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ cos(n * x) = frac(1, 2) * (e^{__IMAGINARY_UNIT__ * n * x} + e^{-__IMAGINARY_UNIT__ * n * x}))
-7. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = frac(1, 2) * Re(DefInt(0, 2 * π, (fun x [x ∈ RealSet] . (sum_{ m = 0 }^{ +∞ } (frac(e^{__IMAGINARY_UNIT__ * m * x}, m!))) * (e^{__IMAGINARY_UNIT__ * n * x} + e^{-__IMAGINARY_UNIT__ * n * x})) * diff(fun x [x ∈ RealSet] . x)))
-8. forall (k), k ∈ IntegerSet ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * k * x}) * diff(fun x [x ∈ RealSet] . x)) = cases{ 2 * π if k = 0; 0 if k ≠ 0 }
-9. forall (n), n ∈ NonNegIntegerSet ∧ n = 0 ⇒ I(0) = frac(1, 2) * (2 * π + 2 * π)
-10. forall (n), n ∈ NonNegIntegerSet ∧ n = 0 ⇒ I(0) = 2 * π
-11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (m), m ∈ NonNegIntegerSet ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * (m + n) * x}) * diff(fun x [x ∈ RealSet] . x)) = 0)
-12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (m), m ∈ NonNegIntegerSet ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * (m - n) * x}) * diff(fun x [x ∈ RealSet] . x)) = cases{ 2 * π if m = n; 0 if m ≠ n })
-13. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ I(n) = frac(1, 2) * frac(1, n!) * 2 * π
-
-GOAL:
-forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ I(n) = frac(π, n!)
--/
-def proof_gap_exercise_3046_11_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3046_11 : proof_gap_exercise_3046_11_statement := by
+theorem proof_gap_exercise_3046_11
+    (I : ℕ → ℝ) (Re : ℂ → ℝ)
+    (hpos_raw : ∀ n : ℕ, 0 < n →
+      I n = (1 / 2 : ℝ) * (1 / (Nat.factorial n : ℝ)) * 2 * Real.pi) :
+    ∀ n : ℕ, 0 < n → I n = Real.pi / (Nat.factorial n : ℝ) := by
   sorry
 
-/-- Source proof gap 12.
-ASSUM:
-1. I : NonNegIntegerSet → RealSet
-2. Re : ComplexSet → RealSet
-3. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{cos(x)} * cos(sin(x)) * cos(n * x)) * diff(fun x [x ∈ RealSet] . x))
-4. forall (x), x ∈ RealSet ⇒ Re(e^{e^{__IMAGINARY_UNIT__ * x}}) = e^{cos(x)} * cos(sin(x))
-5. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = Re(DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{e^{__IMAGINARY_UNIT__ * x}} * cos(n * x)) * diff(fun x [x ∈ RealSet] . x)))
-6. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ cos(n * x) = frac(1, 2) * (e^{__IMAGINARY_UNIT__ * n * x} + e^{-__IMAGINARY_UNIT__ * n * x}))
-7. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = frac(1, 2) * Re(DefInt(0, 2 * π, (fun x [x ∈ RealSet] . (sum_{ m = 0 }^{ +∞ } (frac(e^{__IMAGINARY_UNIT__ * m * x}, m!))) * (e^{__IMAGINARY_UNIT__ * n * x} + e^{-__IMAGINARY_UNIT__ * n * x})) * diff(fun x [x ∈ RealSet] . x)))
-8. forall (k), k ∈ IntegerSet ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * k * x}) * diff(fun x [x ∈ RealSet] . x)) = cases{ 2 * π if k = 0; 0 if k ≠ 0 }
-9. forall (n), n ∈ NonNegIntegerSet ∧ n = 0 ⇒ I(0) = frac(1, 2) * (2 * π + 2 * π)
-10. forall (n), n ∈ NonNegIntegerSet ∧ n = 0 ⇒ I(0) = 2 * π
-11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (m), m ∈ NonNegIntegerSet ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * (m + n) * x}) * diff(fun x [x ∈ RealSet] . x)) = 0)
-12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (m), m ∈ NonNegIntegerSet ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * (m - n) * x}) * diff(fun x [x ∈ RealSet] . x)) = cases{ 2 * π if m = n; 0 if m ≠ n })
-13. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ I(n) = frac(1, 2) * frac(1, n!) * 2 * π
-14. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ I(n) = frac(π, n!)
-
-GOAL:
-I(0) = 2 * π
--/
-def proof_gap_exercise_3046_12_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3046_12 : proof_gap_exercise_3046_12_statement := by
+theorem proof_gap_exercise_3046_12
+    (I : ℕ → ℝ) (Re : ℂ → ℝ)
+    (hzero : ∀ n : ℕ, n = 0 → I 0 = 2 * Real.pi)
+    (hpos : ∀ n : ℕ, 0 < n → I n = Real.pi / (Nat.factorial n : ℝ)) :
+    I 0 = 2 * Real.pi := by
   sorry
 
-/-- Source proof gap 13.
-ASSUM:
-1. I : NonNegIntegerSet → RealSet
-2. Re : ComplexSet → RealSet
-3. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{cos(x)} * cos(sin(x)) * cos(n * x)) * diff(fun x [x ∈ RealSet] . x))
-4. forall (x), x ∈ RealSet ⇒ Re(e^{e^{__IMAGINARY_UNIT__ * x}}) = e^{cos(x)} * cos(sin(x))
-5. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = Re(DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{e^{__IMAGINARY_UNIT__ * x}} * cos(n * x)) * diff(fun x [x ∈ RealSet] . x)))
-6. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ cos(n * x) = frac(1, 2) * (e^{__IMAGINARY_UNIT__ * n * x} + e^{-__IMAGINARY_UNIT__ * n * x}))
-7. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = frac(1, 2) * Re(DefInt(0, 2 * π, (fun x [x ∈ RealSet] . (sum_{ m = 0 }^{ +∞ } (frac(e^{__IMAGINARY_UNIT__ * m * x}, m!))) * (e^{__IMAGINARY_UNIT__ * n * x} + e^{-__IMAGINARY_UNIT__ * n * x})) * diff(fun x [x ∈ RealSet] . x)))
-8. forall (k), k ∈ IntegerSet ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * k * x}) * diff(fun x [x ∈ RealSet] . x)) = cases{ 2 * π if k = 0; 0 if k ≠ 0 }
-9. forall (n), n ∈ NonNegIntegerSet ∧ n = 0 ⇒ I(0) = frac(1, 2) * (2 * π + 2 * π)
-10. forall (n), n ∈ NonNegIntegerSet ∧ n = 0 ⇒ I(0) = 2 * π
-11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (m), m ∈ NonNegIntegerSet ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * (m + n) * x}) * diff(fun x [x ∈ RealSet] . x)) = 0)
-12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (m), m ∈ NonNegIntegerSet ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * (m - n) * x}) * diff(fun x [x ∈ RealSet] . x)) = cases{ 2 * π if m = n; 0 if m ≠ n })
-13. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ I(n) = frac(1, 2) * frac(1, n!) * 2 * π
-14. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ I(n) = frac(π, n!)
-15. I(0) = 2 * π
-
-GOAL:
-forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ I(n) = frac(π, n!)
--/
-def proof_gap_exercise_3046_13_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3046_13 : proof_gap_exercise_3046_13_statement := by
+theorem proof_gap_exercise_3046_13
+    (I : ℕ → ℝ) (Re : ℂ → ℝ)
+    (hpos : ∀ n : ℕ, 0 < n → I n = Real.pi / (Nat.factorial n : ℝ))
+    (hI0 : I 0 = 2 * Real.pi) :
+    ∀ n : ℕ, 0 < n → I n = Real.pi / (Nat.factorial n : ℝ) := by
   sorry
 
-/-- Source proof gap 14.
-ASSUM:
-1. I : NonNegIntegerSet → RealSet
-2. Re : ComplexSet → RealSet
-3. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{cos(x)} * cos(sin(x)) * cos(n * x)) * diff(fun x [x ∈ RealSet] . x))
-4. forall (x), x ∈ RealSet ⇒ Re(e^{e^{__IMAGINARY_UNIT__ * x}}) = e^{cos(x)} * cos(sin(x))
-5. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = Re(DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{e^{__IMAGINARY_UNIT__ * x}} * cos(n * x)) * diff(fun x [x ∈ RealSet] . x)))
-6. forall (x), x ∈ RealSet ⇒ (forall (n), n ∈ NonNegIntegerSet ⇒ cos(n * x) = frac(1, 2) * (e^{__IMAGINARY_UNIT__ * n * x} + e^{-__IMAGINARY_UNIT__ * n * x}))
-7. forall (n), n ∈ NonNegIntegerSet ⇒ I(n) = frac(1, 2) * Re(DefInt(0, 2 * π, (fun x [x ∈ RealSet] . (sum_{ m = 0 }^{ +∞ } (frac(e^{__IMAGINARY_UNIT__ * m * x}, m!))) * (e^{__IMAGINARY_UNIT__ * n * x} + e^{-__IMAGINARY_UNIT__ * n * x})) * diff(fun x [x ∈ RealSet] . x)))
-8. forall (k), k ∈ IntegerSet ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * k * x}) * diff(fun x [x ∈ RealSet] . x)) = cases{ 2 * π if k = 0; 0 if k ≠ 0 }
-9. forall (n), n ∈ NonNegIntegerSet ∧ n = 0 ⇒ I(0) = frac(1, 2) * (2 * π + 2 * π)
-10. forall (n), n ∈ NonNegIntegerSet ∧ n = 0 ⇒ I(0) = 2 * π
-11. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (m), m ∈ NonNegIntegerSet ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * (m + n) * x}) * diff(fun x [x ∈ RealSet] . x)) = 0)
-12. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ (forall (m), m ∈ NonNegIntegerSet ⇒ DefInt(0, 2 * π, (fun x [x ∈ RealSet] . e^{__IMAGINARY_UNIT__ * (m - n) * x}) * diff(fun x [x ∈ RealSet] . x)) = cases{ 2 * π if m = n; 0 if m ≠ n })
-13. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ I(n) = frac(1, 2) * frac(1, n!) * 2 * π
-14. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ I(n) = frac(π, n!)
-15. I(0) = 2 * π
-16. forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ I(n) = frac(π, n!)
-
-GOAL:
-I(0) = 2 * π ∧ (forall (n), n ∈ NonNegIntegerSet ∧ n ∈ PosIntegerSet ⇒ I(n) = frac(π, n!))
--/
-def proof_gap_exercise_3046_14_statement : Prop :=
-  -- Exact mathematical sequent is preserved in the adjacent source comment.
-  True
-theorem proof_gap_exercise_3046_14 : proof_gap_exercise_3046_14_statement := by
+theorem proof_gap_exercise_3046_14
+    (I : ℕ → ℝ) (Re : ℂ → ℝ)
+    (hI0 : I 0 = 2 * Real.pi)
+    (hpos : ∀ n : ℕ, 0 < n → I n = Real.pi / (Nat.factorial n : ℝ)) :
+    I 0 = 2 * Real.pi ∧
+      (∀ n : ℕ, 0 < n → I n = Real.pi / (Nat.factorial n : ℝ)) := by
   sorry
+
+end
 
 end Exercise_3046

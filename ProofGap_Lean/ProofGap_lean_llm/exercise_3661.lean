@@ -3,9 +3,18 @@ import Mathlib
 noncomputable section
 namespace Exercise3661
 
-abbrev R := Real
-def FunDeri (F : R -> R -> R -> R -> R) (_ _ : Nat) : R -> R -> R -> R -> R := fun _ _ _ _ => 0
-def HessianDiff (F : R -> R -> R -> R -> R) : R := 0
+abbrev R := ℝ
+noncomputable def FunDeri (F : R -> R -> R -> R -> R) (coord order : Nat) : R -> R -> R -> R -> R :=
+  let step (G : R -> R -> R -> R -> R) : R -> R -> R -> R -> R :=
+    fun x y z l =>
+      if coord = 1 then deriv (fun t => G t y z l) x
+      else if coord = 2 then deriv (fun t => G x t z l) y
+      else if coord = 3 then deriv (fun t => G x y t l) z
+      else if coord = 4 then deriv (fun t => G x y z t) l
+      else G x y z l
+  Nat.iterate step order F
+noncomputable def HessianDiff (F : R -> R -> R -> R -> R) : R :=
+  deriv (fun t : R => F t t t t) 0
 def Differential (x : R) : R := x
 def ImageOn (u : R -> R -> R -> R) (S : Set (R × R × R)) : Set R := {v | ∃ p ∈ S, v = u p.1 p.2.1 p.2.2}
 def MaximumPointOn (u : R -> R -> R -> R) (S : Set (R × R × R)) : Set (R × R × R) :=
@@ -17,7 +26,7 @@ def ellipsoid (a b c : R) : Set (R × R × R) :=
 
 theorem proof_gap_exercise_3661_1
     (u : R -> R -> R -> R) (F : R -> R -> R -> R -> R) (a b c : R)
-    (ha : True) (hb : a > b) (hc : b > c ∧ c > 0)
+    (ha : a > 0) (hb : a > b) (hc : b > c ∧ c > 0)
     (hu : ∀ x y z, u x y z = x ^ 2 + y ^ 2 + z ^ 2)
     (hF : F = fun x y z l => x ^ 2 + y ^ 2 + z ^ 2 + l * (x ^ 2 / a ^ 2 + y ^ 2 / b ^ 2 + z ^ 2 / c ^ 2 - 1)) :
     ∀ x y z l, FunDeri F 1 1 x y z l = 2 * x * (1 + l / a ^ 2) := by

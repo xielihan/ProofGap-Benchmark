@@ -2,14 +2,25 @@ import Mathlib
 
 set_option linter.style.longLine false
 
-axiom FunDeri : (ℝ -> ℝ -> ℝ) -> ℕ -> ℕ -> ℝ -> ℝ -> ℝ
-axiom VectorCurveInt : Set (ℝ × ℝ) -> ℝ -> ℝ
-axiom VolumeInt : Set (ℝ × ℝ) -> ℝ -> ℝ
-axiom DefInt : ℝ -> ℝ -> ℝ -> ℝ
-axiom EvalAt : (ℝ -> ℝ) -> ℝ -> ℝ -> ℝ
-axiom diff : {α : Type} -> (α -> ℝ) -> ℝ
+noncomputable def FunDeri (f : ℝ -> ℝ -> ℝ) (coord order : ℕ) (x y : ℝ) : ℝ :=
+  match coord, order with
+  | 1, 1 => deriv (fun x => f x y) x
+  | 2, 1 => deriv (fun y => f x y) y
+  | 1, 2 => deriv (fun x => deriv (fun x => f x y) x) x
+  | 2, 2 => deriv (fun y => deriv (fun y => f x y) y) y
+  | _, _ => deriv (fun x => f x y) x
 
-def MapsRealToReal (f : ℝ -> ℝ -> ℝ) : Prop := True
+noncomputable def VectorCurveInt (C : Set (ℝ × ℝ)) (integrand : ℝ) : ℝ :=
+  ∫ p in C, integrand
+
+noncomputable def VolumeInt (D : Set (ℝ × ℝ)) (integrand : ℝ) : ℝ :=
+  ∫ p in D, integrand
+
+noncomputable def DefInt (a b integrand : ℝ) : ℝ := (b - a) * integrand
+noncomputable def EvalAt (f : ℝ -> ℝ) (a b : ℝ) : ℝ := f b - f a
+noncomputable def diff {α : Type} (f : α -> ℝ) : ℝ := sInf (Set.range f)
+
+def MapsRealToReal (f : ℝ -> ℝ -> ℝ) : Prop := ∀ y : ℝ, Continuous fun x : ℝ => f x y
 def ContinuouslyDiffableFunc (f : ℝ -> ℝ -> ℝ) : Prop := ContDiff ℝ 1 (Function.uncurry f)
 
 -- exercise: exercise_4302

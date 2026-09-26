@@ -6,16 +6,17 @@ namespace Exercise2158
 
 abbrev RealSet := Set ℝ
 
-axiom FunDeri : (ℝ → ℝ) → ℕ → ℕ → ℝ → ℝ
-axiom AntiderivativeSet : (ℝ → ℝ) → (ℝ → ℝ) → Set (ℝ → ℝ)
-
 def onUnit (x : ℝ) : Prop := -1 < x ∧ x < 1
+def FunDeri (f : ℝ → ℝ) (_ n : ℕ) : ℝ → ℝ := Nat.iterate deriv n f
+def AntiderivativeSet (F g : ℝ → ℝ) : Set (ℝ → ℝ) :=
+  {G | ∀ x : ℝ, onUnit x → HasDerivAt G (g x) x ∧ ∀ y : ℝ, onUnit y → G y = F y}
+
 def integrand (x : ℝ) : ℝ := Real.sqrt (1 - x ^ 2) * Real.arcsin x
 def finalPrimitive (C x : ℝ) : ℝ :=
   (x / 2) * Real.sqrt (1 - x ^ 2) * Real.arcsin x - x ^ 2 / 4 +
     (Real.arcsin x) ^ 2 / 4 + C
 
--- Exercise 2158, gap 1
+-- Source: proofgap/exercise_2158/1.txt
 theorem proof_gap_exercise_2158_1
     (C : ℝ) (I : ℝ → Set (ℝ → ℝ))
     (hC : C ∈ (Set.univ : RealSet))
@@ -32,7 +33,7 @@ theorem proof_gap_exercise_2158_1
         I x = AntiderivativeSet F₅ integrand := by
   sorry
 
--- Exercise 2158, gap 2
+-- Source: proofgap/exercise_2158/2.txt
 theorem proof_gap_exercise_2158_2
     (C : ℝ) (I : ℝ → Set (ℝ → ℝ))
     (hC : C ∈ (Set.univ : RealSet))
@@ -56,7 +57,7 @@ theorem proof_gap_exercise_2158_2
         I x = AntiderivativeSet F₈ integrand := by
   sorry
 
--- Exercise 2158, gap 3
+-- Source: proofgap/exercise_2158/3.txt
 theorem proof_gap_exercise_2158_3
     (C : ℝ) (I : ℝ → Set (ℝ → ℝ)) :
     ∀ x : ℝ, x ∈ (Set.univ : RealSet) ∧ onUnit x →
@@ -66,7 +67,7 @@ theorem proof_gap_exercise_2158_3
         F₉ x = (1 / 2 : ℝ) * (Real.arcsin x) ^ 2) := by
   sorry
 
--- Exercise 2158, gap 4
+-- Source: proofgap/exercise_2158/4.txt
 theorem proof_gap_exercise_2158_4
     (C : ℝ) (I : ℝ → ℝ)
     (hprev : ∀ x : ℝ, x ∈ (Set.univ : RealSet) ∧ onUnit x →
@@ -79,7 +80,7 @@ theorem proof_gap_exercise_2158_4
         (1 / 2 : ℝ) * (Real.arcsin x) ^ 2 - I x := by
   sorry
 
--- Exercise 2158, gap 5
+-- Source: proofgap/exercise_2158/5.txt
 theorem proof_gap_exercise_2158_5
     (C : ℝ) (I : ℝ → ℝ)
     (hbalance : ∀ x : ℝ, x ∈ (Set.univ : RealSet) ∧ onUnit x →
@@ -89,7 +90,7 @@ theorem proof_gap_exercise_2158_5
       I x = finalPrimitive C x := by
   sorry
 
--- Exercise 2158, gap 6
+-- Source: proofgap/exercise_2158/6.txt
 theorem proof_gap_exercise_2158_6
     (C : ℝ) :
     {F : ℝ → ℝ | ∀ x : ℝ, x ∈ (Set.univ : RealSet) ∧ onUnit x →

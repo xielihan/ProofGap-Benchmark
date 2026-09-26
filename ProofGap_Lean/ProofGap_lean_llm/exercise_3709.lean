@@ -3,10 +3,11 @@ import Mathlib
 noncomputable section
 
 abbrev PosIntegerSet (n : ℕ) : Prop := 0 < n
-abbrev IsSeq (x : ℕ → ℝ) : Prop := True
-abbrev FunDeri (f : ℝ → ℝ → ℝ) (i k : ℕ) (α p : ℝ) : ℝ := 0
-abbrev MinimumPoint {α : Type} (f : α → ℝ) : Set α := Set.univ
-abbrev MinimumPointOn {α : Type} (f : α → ℝ) (s : Set α) : Set α := s
+abbrev IsSeq (x : ℕ → ℝ) : Prop := Filter.Tendsto x Filter.atTop Filter.atTop
+abbrev FunDeri (f : ℝ → ℝ → ℝ) (i k : ℕ) (α p : ℝ) : ℝ :=
+  if i = 1 then deriv (fun t => f t p) α else deriv (fun q => f α q) p
+abbrev MinimumPoint {α : Type} (f : α → ℝ) : Set α := {x | ∀ y, f x ≤ f y}
+abbrev MinimumPointOn {α : Type} (f : α → ℝ) (s : Set α) : Set α := {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
 abbrev sqrtn (n : ℕ) (x : ℝ) : ℝ := x ^ (1 / (n : ℝ))
 abbrev frac (a b : ℝ) : ℝ := a / b
 abbrev V3 := ℝ × ℝ × ℝ
@@ -14,7 +15,7 @@ def vdot (a b : V3) : ℝ := a.1*b.1 + a.2.1*b.2.1 + a.2.2*b.2.2
 def vnorm (a : V3) : ℝ := Real.sqrt (vdot a a)
 def vcross (a b : V3) : V3 := (a.2.1*b.2.2-a.2.2*b.2.1, a.2.2*b.1-a.1*b.2.2, a.1*b.2.1-a.2.1*b.1)
 
-/- exercise_3709. -/
+/- Source: exercise_3709. -/
 theorem proof_gap_exercise_3709_1 (x y : ℕ → ℝ) (n : ℕ) (M : ℝ → ℝ → ℝ) (α p x_bar y_bar xy_bar xx_bar yy_bar α1 α2 p1 p2 : ℝ) (hx : IsSeq x) (hy : IsSeq y) (hn : PosIntegerSet n) (ha1 : 0 ≤ α1 ∧ α1 < 2*Real.pi) (ha2 : 0 ≤ α2 ∧ α2 < 2*Real.pi) (hp1 : p1 ≥ 0) (hp2 : p2 ≥ 0) : FunDeri M 1 1 α p = 2 * ((Finset.Icc 1 n).sum (fun i => (x i * Real.cos α + y i * Real.sin α - p) * (y i * Real.cos α - x i * Real.sin α))) := by sorry
 theorem proof_gap_exercise_3709_2 (x y : ℕ → ℝ) (n : ℕ) (M : ℝ → ℝ → ℝ) (α p x_bar y_bar xy_bar xx_bar yy_bar α1 α2 p1 p2 : ℝ) (hx : IsSeq x) (hy : IsSeq y) (hn : PosIntegerSet n) (ha1 : 0 ≤ α1 ∧ α1 < 2*Real.pi) (ha2 : 0 ≤ α2 ∧ α2 < 2*Real.pi) (hp1 : p1 ≥ 0) (hp2 : p2 ≥ 0) : FunDeri M 2 1 α p = -2 * ((Finset.Icc 1 n).sum (fun i => x i * Real.cos α + y i * Real.sin α - p)) := by sorry
 theorem proof_gap_exercise_3709_3 (x y : ℕ → ℝ) (n : ℕ) (M : ℝ → ℝ → ℝ) (α p x_bar y_bar xy_bar xx_bar yy_bar α1 α2 p1 p2 : ℝ) (hx : IsSeq x) (hy : IsSeq y) (hn : PosIntegerSet n) (ha1 : 0 ≤ α1 ∧ α1 < 2*Real.pi) (ha2 : 0 ≤ α2 ∧ α2 < 2*Real.pi) (hp1 : p1 ≥ 0) (hp2 : p2 ≥ 0) : FunDeri M 1 1 α p = (n:ℝ) * (2 * xy_bar * Real.cos (2*α) + (yy_bar - xx_bar) * Real.sin (2*α) - 2*p*(y_bar*Real.cos α - x_bar*Real.sin α)) := by sorry

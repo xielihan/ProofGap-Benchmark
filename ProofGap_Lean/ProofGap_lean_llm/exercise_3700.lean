@@ -3,10 +3,11 @@ import Mathlib
 noncomputable section
 
 abbrev PosIntegerSet (n : ℕ) : Prop := 0 < n
-abbrev IsSeq (x : ℕ → ℝ) : Prop := True
-axiom FunDeri {α : Type} (f : α) (i k : ℕ) : α
-abbrev MinimumPoint {α : Type} (f : α → ℝ) : Set α := Set.univ
-abbrev MinimumPointOn {α : Type} (f : α → ℝ) (s : Set α) : Set α := s
+abbrev IsSeq (x : ℕ → ℝ) : Prop := Tendsto x Filter.atTop Filter.atTop
+abbrev FunDeri (f : ℝ → ℝ → ℝ) (i k : ℕ) (t s : ℝ) : ℝ :=
+  if i = 1 then deriv (fun u => f u s) t else deriv (fun u => f t u) s
+abbrev MinimumPoint {α : Type} (f : α → ℝ) : Set α := {x | ∀ y, f x ≤ f y}
+abbrev MinimumPointOn {α : Type} (f : α → ℝ) (s : Set α) : Set α := {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
 abbrev sqrtn (n : ℕ) (x : ℝ) : ℝ := x ^ (1 / (n : ℝ))
 abbrev frac (a b : ℝ) : ℝ := a / b
 abbrev V3 := ℝ × ℝ × ℝ
@@ -17,7 +18,7 @@ def vscale (c : ℝ) (a : V3) : V3 := (c * a.1, c * a.2.1, c * a.2.2)
 def vadd (a b : V3) : V3 := (a.1 + b.1, a.2.1 + b.2.1, a.2.2 + b.2.2)
 def vsub (a b : V3) : V3 := (a.1 - b.1, a.2.1 - b.2.1, a.2.2 - b.2.2)
 
-/- exercise_3700. -/
+/- Source: exercise_3700. -/
 theorem proof_gap_exercise_3700_1 (x1 y1 z1 x2 y2 z2 m1 n1 p1 m2 n2 p2 Δ : ℝ) (l1 l2 r10 r20 r0 : V3) (r1 r2 : ℝ → V3) (u : ℝ → ℝ → V3) (w : ℝ → ℝ → ℝ) (hnz : m1*n1*p1*m2*n2*p2 ≠ 0) (hl1 : l1=(m1,n1,p1)) (hl2 : l2=(m2,n2,p2)) (hcross : vnorm (n1*p2-p1*n2, p1*m2-m1*p2, m1*n2-n1*m2) > 0) : ∀ t s : ℝ, u t s = vadd (vsub (vscale t l1) (vscale s l2)) r0 := by sorry
 theorem proof_gap_exercise_3700_2 (x1 y1 z1 x2 y2 z2 m1 n1 p1 m2 n2 p2 Δ : ℝ) (l1 l2 r10 r20 r0 : V3) (r1 r2 : ℝ → V3) (u : ℝ → ℝ → V3) (w : ℝ → ℝ → ℝ) (hnz : m1*n1*p1*m2*n2*p2 ≠ 0) (hl1 : l1=(m1,n1,p1)) (hl2 : l2=(m2,n2,p2)) (hcross : vnorm (n1*p2-p1*n2, p1*m2-m1*p2, m1*n2-n1*m2) > 0) : ∀ t s : ℝ, w t s = vdot l1 l1 * t^2 + vdot l2 l2 * s^2 + vdot r0 r0 - 2 * vdot l1 l2 * s * t + 2 * vdot l1 r0 * t - 2 * vdot l2 r0 * s := by sorry
 theorem proof_gap_exercise_3700_3 (x1 y1 z1 x2 y2 z2 m1 n1 p1 m2 n2 p2 Δ : ℝ) (l1 l2 r10 r20 r0 : V3) (r1 r2 : ℝ → V3) (u : ℝ → ℝ → V3) (w : ℝ → ℝ → ℝ) (hnz : m1*n1*p1*m2*n2*p2 ≠ 0) (hl1 : l1=(m1,n1,p1)) (hl2 : l2=(m2,n2,p2)) (hcross : vnorm (n1*p2-p1*n2, p1*m2-m1*p2, m1*n2-n1*m2) > 0) : ∀ t s : ℝ, FunDeri w 1 1 t s = 2 * (vdot l1 l1 * t - vdot l1 l2 * s + vdot l1 r0) := by sorry

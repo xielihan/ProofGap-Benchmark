@@ -1,410 +1,46 @@
 import Mathlib
 
-/-
-The source proof gaps use a custom DSL for partial derivatives and differentials.
-To avoid inventing unsupported Mathlib analysis semantics, each Lean theorem below is
-a named placeholder whose source ASSUM/GOAL is preserved verbatim in the preceding
-comment, and whose proof body is exactly `by sorry`.
--/
+noncomputable section
+
+abbrev F := ℝ × ℝ → ℝ
+
+def RDomain : Set ℝ := {x : ℝ | x = x}
+
+def frac (x y : ℝ) : ℝ := x / y
+
+def px (f : F) (p : ℝ × ℝ) : ℝ := deriv (fun x => f (x, p.2)) p.1
+def py (f : F) (p : ℝ × ℝ) : ℝ := deriv (fun y => f (p.1, y)) p.2
+def pxx (f : F) (p : ℝ × ℝ) : ℝ := px (fun q => px f q) p
+def pyy (f : F) (p : ℝ × ℝ) : ℝ := py (fun q => py f q) p
+def pxy (f : F) (p : ℝ × ℝ) : ℝ := py (fun q => px f q) p
+def pu (f : F) (p : ℝ × ℝ) : ℝ := px f p
+def pv (f : F) (p : ℝ × ℝ) : ℝ := py f p
+def puu (f : F) (p : ℝ × ℝ) : ℝ := pxx f p
+def pvv (f : F) (p : ℝ × ℝ) : ℝ := pyy f p
+def puv (f : F) (p : ℝ × ℝ) : ℝ := pxy f p
+def C2 (f : F) : Prop := ContDiff ℝ 2 f
+def C2One (f : ℝ → ℝ) : Prop := ContDiff ℝ 2 f
 
 namespace exercise_3496
 
-/-!
-===== ORIGINAL | Exercise 3496 =====
-【3496】用变量替换 $u = x + y$, $v = \frac{1}{x} + \frac{1}{y}$（其中 $x,y\in\mathbb R$ 且 $xy\ne0$） 化简方程 ${x}^{2}\frac{{\partial }^{2}z}{\partial {x}^{2}} - \left( {{x}^{2} + {y}^{2}}\right) \frac{{\partial }^{2}z}{\partial x\partial y} + {y}^{2}\frac{{\partial }^{2}z}{\partial {y}^{2}} = 0$，其中 $z=z(x,y)$ 为二阶连续可偏导函数.
-
-解 视 $z=z(u,v)$，且 $x\ne0,y\ne0$， $\frac{\partial z}{\partial x} = \frac{\partial z}{\partial u} - \frac{1}{{x}^{2}}\frac{\partial z}{\partial v},\;\frac{\partial z}{\partial y} = \frac{\partial z}{\partial u} - \frac{1}{{y}^{2}}\frac{\partial z}{\partial v}.\;\frac{{\partial }^{2}z}{\partial {x}^{2}} = \frac{{\partial }^{2}z}{\partial {u}^{2}} - \frac{2}{{x}^{2}}\frac{{\partial }^{2}z}{\partial u\partial v} + \frac{1}{{x}^{4}}\frac{{\partial }^{2}z}{\partial {v}^{2}} + \frac{2}{{x}^{3}}\frac{\partial z}{\partial v},$
-
-$\frac{{\partial }^{2}z}{\partial {y}^{2}} = \frac{{\partial }^{2}z}{\partial {u}^{2}} - \frac{2}{{y}^{2}}\frac{{\partial }^{2}z}{\partial u\partial v} + \frac{1}{{y}^{4}}\frac{{\partial }^{2}z}{\partial {v}^{2}} + \frac{2}{{y}^{3}}\frac{\partial z}{\partial v},\;\frac{{\partial }^{2}z}{\partial x\partial y} = \frac{{\partial }^{2}z}{\partial {u}^{2}} - \left( {\frac{1}{{x}^{2}} + \frac{1}{{y}^{2}}}\right) \frac{{\partial }^{2}z}{\partial u\partial v} + \frac{1}{{x}^{2}{y}^{2}}\frac{{\partial }^{2}z}{\partial {v}^{2}}.$
-
-代入原方程, 得
-
-$$
-\frac{{\left( {x}^{2} - {y}^{2}\right) }^{2}}{{x}^{2}{y}^{2}}\frac{{\partial }^{2}z}{\partial u\partial v} + 2\left( {\frac{1}{x} + \frac{1}{y}}\right) \frac{\partial z}{\partial v} = 0.
-$$
-
-注意到 $v = \frac{1}{x} + \frac{1}{y} = \frac{x + y}{xy} = \frac{u}{xy}$，其中 $xy\ne0$ ,即 ${xy} = \frac{u}{v}$，其中 $v\ne0$ ,于是,
-
-$$
-\frac{{\left( {x}^{2} - {y}^{2}\right) }^{2}}{{x}^{2}{y}^{2}} = \frac{{\left( x + y\right) }^{2}}{{x}^{2}{y}^{2}}{\left( x - y\right) }^{2} = {\left( \frac{1}{x} + \frac{1}{y}\right) }^{2}\left\lbrack  {{\left( x + y\right) }^{2} - {4xy}}\right\rbrack   = {v}^{2}\left( {{u}^{2} - 4\frac{u}{v}}\right)  = {uv}\left( {{uv} - 4}\right) .
-$$
-
-从而得变换后的方程（其中 $u\ne0$ 且 $uv\ne4$）
-
-$$
-\frac{{\partial }^{2}z}{\partial u\partial v} = \frac{2}{u\left( {4 - {uv}}\right) }\frac{\partial z}{\partial v}.
-$$
--/
-
-/--
-Exercise 3496, gap 1
-
-PROOF GAP @1
-ASSUM:
-1. u : CartesianProd(RealSet, RealSet) → RealSet
-2. v : CartesianProd(RealSet, RealSet) → RealSet
-3. z : CartesianProd(RealSet, RealSet) → RealSet
-4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ u(x, y) = x + y ∧ v(x, y) = frac(1, x) + frac(1, y)
-5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ x^{2} * FunDeri(z, x, 2)(x, y) - (x^{2} + y^{2}) * FunDeri(FunDeri(z, x, 1), y, 1)(x, y) + y^{2} * FunDeri(z, y, 2)(x, y) = 0
-6. FuncOfClassK(z, 2)
-
-GOAL:
-forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, x, 1)(x, y) = FunDeri(z, u, 1)(u(x, y), v(x, y)) - frac(1, x^{2}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-
-METHOD:
--/
-theorem proof_gap_exercise_3496_1 : True := by
-  sorry
-
-/--
-Exercise 3496, gap 2
-
-PROOF GAP @2
-ASSUM:
-1. u : CartesianProd(RealSet, RealSet) → RealSet
-2. v : CartesianProd(RealSet, RealSet) → RealSet
-3. z : CartesianProd(RealSet, RealSet) → RealSet
-4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ u(x, y) = x + y ∧ v(x, y) = frac(1, x) + frac(1, y)
-5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ x^{2} * FunDeri(z, x, 2)(x, y) - (x^{2} + y^{2}) * FunDeri(FunDeri(z, x, 1), y, 1)(x, y) + y^{2} * FunDeri(z, y, 2)(x, y) = 0
-6. FuncOfClassK(z, 2)
-7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, x, 1)(x, y) = FunDeri(z, u, 1)(u(x, y), v(x, y)) - frac(1, x^{2}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-
-GOAL:
-forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, y, 1)(x, y) = FunDeri(z, u, 1)(u(x, y), v(x, y)) - frac(1, y^{2}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-
-METHOD:
--/
-theorem proof_gap_exercise_3496_2 : True := by
-  sorry
-
-/--
-Exercise 3496, gap 3
-
-PROOF GAP @3
-ASSUM:
-1. u : CartesianProd(RealSet, RealSet) → RealSet
-2. v : CartesianProd(RealSet, RealSet) → RealSet
-3. z : CartesianProd(RealSet, RealSet) → RealSet
-4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ u(x, y) = x + y ∧ v(x, y) = frac(1, x) + frac(1, y)
-5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ x^{2} * FunDeri(z, x, 2)(x, y) - (x^{2} + y^{2}) * FunDeri(FunDeri(z, x, 1), y, 1)(x, y) + y^{2} * FunDeri(z, y, 2)(x, y) = 0
-6. FuncOfClassK(z, 2)
-7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, x, 1)(x, y) = FunDeri(z, u, 1)(u(x, y), v(x, y)) - frac(1, x^{2}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-8. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, y, 1)(x, y) = FunDeri(z, u, 1)(u(x, y), v(x, y)) - frac(1, y^{2}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-
-GOAL:
-forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, x, 2)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - frac(2, x^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, x^{4}) * FunDeri(z, v, 2)(u(x, y), v(x, y)) + frac(2, x^{3}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-
-METHOD:
--/
-theorem proof_gap_exercise_3496_3 : True := by
-  sorry
-
-/--
-Exercise 3496, gap 4
-
-PROOF GAP @4
-ASSUM:
-1. u : CartesianProd(RealSet, RealSet) → RealSet
-2. v : CartesianProd(RealSet, RealSet) → RealSet
-3. z : CartesianProd(RealSet, RealSet) → RealSet
-4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ u(x, y) = x + y ∧ v(x, y) = frac(1, x) + frac(1, y)
-5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ x^{2} * FunDeri(z, x, 2)(x, y) - (x^{2} + y^{2}) * FunDeri(FunDeri(z, x, 1), y, 1)(x, y) + y^{2} * FunDeri(z, y, 2)(x, y) = 0
-6. FuncOfClassK(z, 2)
-7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, x, 1)(x, y) = FunDeri(z, u, 1)(u(x, y), v(x, y)) - frac(1, x^{2}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-8. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, y, 1)(x, y) = FunDeri(z, u, 1)(u(x, y), v(x, y)) - frac(1, y^{2}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, x, 2)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - frac(2, x^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, x^{4}) * FunDeri(z, v, 2)(u(x, y), v(x, y)) + frac(2, x^{3}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-
-GOAL:
-forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, y, 2)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - frac(2, y^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, y^{4}) * FunDeri(z, v, 2)(u(x, y), v(x, y)) + frac(2, y^{3}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-
-METHOD:
--/
-theorem proof_gap_exercise_3496_4 : True := by
-  sorry
-
-/--
-Exercise 3496, gap 5
-
-PROOF GAP @5
-ASSUM:
-1. u : CartesianProd(RealSet, RealSet) → RealSet
-2. v : CartesianProd(RealSet, RealSet) → RealSet
-3. z : CartesianProd(RealSet, RealSet) → RealSet
-4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ u(x, y) = x + y ∧ v(x, y) = frac(1, x) + frac(1, y)
-5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ x^{2} * FunDeri(z, x, 2)(x, y) - (x^{2} + y^{2}) * FunDeri(FunDeri(z, x, 1), y, 1)(x, y) + y^{2} * FunDeri(z, y, 2)(x, y) = 0
-6. FuncOfClassK(z, 2)
-7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, x, 1)(x, y) = FunDeri(z, u, 1)(u(x, y), v(x, y)) - frac(1, x^{2}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-8. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, y, 1)(x, y) = FunDeri(z, u, 1)(u(x, y), v(x, y)) - frac(1, y^{2}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, x, 2)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - frac(2, x^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, x^{4}) * FunDeri(z, v, 2)(u(x, y), v(x, y)) + frac(2, x^{3}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-10. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, y, 2)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - frac(2, y^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, y^{4}) * FunDeri(z, v, 2)(u(x, y), v(x, y)) + frac(2, y^{3}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-
-GOAL:
-forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(FunDeri(z, x, 1), y, 1)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - (frac(1, x^{2}) + frac(1, y^{2})) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, x^{2} * y^{2}) * FunDeri(z, v, 2)(u(x, y), v(x, y))
-
-METHOD:
--/
-theorem proof_gap_exercise_3496_5 : True := by
-  sorry
-
-/--
-Exercise 3496, gap 6
-
-PROOF GAP @6
-ASSUM:
-1. u : CartesianProd(RealSet, RealSet) → RealSet
-2. v : CartesianProd(RealSet, RealSet) → RealSet
-3. z : CartesianProd(RealSet, RealSet) → RealSet
-4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ u(x, y) = x + y ∧ v(x, y) = frac(1, x) + frac(1, y)
-5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ x^{2} * FunDeri(z, x, 2)(x, y) - (x^{2} + y^{2}) * FunDeri(FunDeri(z, x, 1), y, 1)(x, y) + y^{2} * FunDeri(z, y, 2)(x, y) = 0
-6. FuncOfClassK(z, 2)
-7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, x, 1)(x, y) = FunDeri(z, u, 1)(u(x, y), v(x, y)) - frac(1, x^{2}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-8. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, y, 1)(x, y) = FunDeri(z, u, 1)(u(x, y), v(x, y)) - frac(1, y^{2}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, x, 2)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - frac(2, x^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, x^{4}) * FunDeri(z, v, 2)(u(x, y), v(x, y)) + frac(2, x^{3}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-10. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, y, 2)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - frac(2, y^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, y^{4}) * FunDeri(z, v, 2)(u(x, y), v(x, y)) + frac(2, y^{3}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(FunDeri(z, x, 1), y, 1)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - (frac(1, x^{2}) + frac(1, y^{2})) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, x^{2} * y^{2}) * FunDeri(z, v, 2)(u(x, y), v(x, y))
-
-GOAL:
-forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ frac((x^{2} - y^{2})^{2}, x^{2} * y^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + 2 * (frac(1, x) + frac(1, y)) * FunDeri(z, v, 1)(u(x, y), v(x, y)) = 0
-
-METHOD:
--/
-theorem proof_gap_exercise_3496_6 : True := by
-  sorry
-
-/--
-Exercise 3496, gap 7
-
-PROOF GAP @7
-ASSUM:
-1. u : CartesianProd(RealSet, RealSet) → RealSet
-2. v : CartesianProd(RealSet, RealSet) → RealSet
-3. z : CartesianProd(RealSet, RealSet) → RealSet
-4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ u(x, y) = x + y ∧ v(x, y) = frac(1, x) + frac(1, y)
-5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ x^{2} * FunDeri(z, x, 2)(x, y) - (x^{2} + y^{2}) * FunDeri(FunDeri(z, x, 1), y, 1)(x, y) + y^{2} * FunDeri(z, y, 2)(x, y) = 0
-6. FuncOfClassK(z, 2)
-7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, x, 1)(x, y) = FunDeri(z, u, 1)(u(x, y), v(x, y)) - frac(1, x^{2}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-8. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, y, 1)(x, y) = FunDeri(z, u, 1)(u(x, y), v(x, y)) - frac(1, y^{2}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, x, 2)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - frac(2, x^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, x^{4}) * FunDeri(z, v, 2)(u(x, y), v(x, y)) + frac(2, x^{3}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-10. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, y, 2)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - frac(2, y^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, y^{4}) * FunDeri(z, v, 2)(u(x, y), v(x, y)) + frac(2, y^{3}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(FunDeri(z, x, 1), y, 1)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - (frac(1, x^{2}) + frac(1, y^{2})) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, x^{2} * y^{2}) * FunDeri(z, v, 2)(u(x, y), v(x, y))
-12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ frac((x^{2} - y^{2})^{2}, x^{2} * y^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + 2 * (frac(1, x) + frac(1, y)) * FunDeri(z, v, 1)(u(x, y), v(x, y)) = 0
-
-GOAL:
-forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ v(x, y) = frac(1, x) + frac(1, y)
-
-METHOD:
--/
-theorem proof_gap_exercise_3496_7 : True := by
-  sorry
-
-/--
-Exercise 3496, gap 8
-
-PROOF GAP @8
-ASSUM:
-1. u : CartesianProd(RealSet, RealSet) → RealSet
-2. v : CartesianProd(RealSet, RealSet) → RealSet
-3. z : CartesianProd(RealSet, RealSet) → RealSet
-4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ u(x, y) = x + y ∧ v(x, y) = frac(1, x) + frac(1, y)
-5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ x^{2} * FunDeri(z, x, 2)(x, y) - (x^{2} + y^{2}) * FunDeri(FunDeri(z, x, 1), y, 1)(x, y) + y^{2} * FunDeri(z, y, 2)(x, y) = 0
-6. FuncOfClassK(z, 2)
-7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, x, 1)(x, y) = FunDeri(z, u, 1)(u(x, y), v(x, y)) - frac(1, x^{2}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-8. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, y, 1)(x, y) = FunDeri(z, u, 1)(u(x, y), v(x, y)) - frac(1, y^{2}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, x, 2)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - frac(2, x^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, x^{4}) * FunDeri(z, v, 2)(u(x, y), v(x, y)) + frac(2, x^{3}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-10. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, y, 2)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - frac(2, y^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, y^{4}) * FunDeri(z, v, 2)(u(x, y), v(x, y)) + frac(2, y^{3}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(FunDeri(z, x, 1), y, 1)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - (frac(1, x^{2}) + frac(1, y^{2})) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, x^{2} * y^{2}) * FunDeri(z, v, 2)(u(x, y), v(x, y))
-12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ frac((x^{2} - y^{2})^{2}, x^{2} * y^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + 2 * (frac(1, x) + frac(1, y)) * FunDeri(z, v, 1)(u(x, y), v(x, y)) = 0
-13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ v(x, y) = frac(1, x) + frac(1, y)
-
-GOAL:
-forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ frac(1, x) + frac(1, y) = frac(x + y, x * y)
-
-METHOD:
--/
-theorem proof_gap_exercise_3496_8 : True := by
-  sorry
-
-/--
-Exercise 3496, gap 9
-
-PROOF GAP @9
-ASSUM:
-1. u : CartesianProd(RealSet, RealSet) → RealSet
-2. v : CartesianProd(RealSet, RealSet) → RealSet
-3. z : CartesianProd(RealSet, RealSet) → RealSet
-4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ u(x, y) = x + y ∧ v(x, y) = frac(1, x) + frac(1, y)
-5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ x^{2} * FunDeri(z, x, 2)(x, y) - (x^{2} + y^{2}) * FunDeri(FunDeri(z, x, 1), y, 1)(x, y) + y^{2} * FunDeri(z, y, 2)(x, y) = 0
-6. FuncOfClassK(z, 2)
-7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, x, 1)(x, y) = FunDeri(z, u, 1)(u(x, y), v(x, y)) - frac(1, x^{2}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-8. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, y, 1)(x, y) = FunDeri(z, u, 1)(u(x, y), v(x, y)) - frac(1, y^{2}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, x, 2)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - frac(2, x^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, x^{4}) * FunDeri(z, v, 2)(u(x, y), v(x, y)) + frac(2, x^{3}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-10. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, y, 2)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - frac(2, y^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, y^{4}) * FunDeri(z, v, 2)(u(x, y), v(x, y)) + frac(2, y^{3}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(FunDeri(z, x, 1), y, 1)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - (frac(1, x^{2}) + frac(1, y^{2})) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, x^{2} * y^{2}) * FunDeri(z, v, 2)(u(x, y), v(x, y))
-12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ frac((x^{2} - y^{2})^{2}, x^{2} * y^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + 2 * (frac(1, x) + frac(1, y)) * FunDeri(z, v, 1)(u(x, y), v(x, y)) = 0
-13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ v(x, y) = frac(1, x) + frac(1, y)
-14. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ frac(1, x) + frac(1, y) = frac(x + y, x * y)
-
-GOAL:
-forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ frac(x + y, x * y) = frac(u(x, y), x * y)
-
-METHOD:
--/
-theorem proof_gap_exercise_3496_9 : True := by
-  sorry
-
-/--
-Exercise 3496, gap 10
-
-PROOF GAP @10
-ASSUM:
-1. u : CartesianProd(RealSet, RealSet) → RealSet
-2. v : CartesianProd(RealSet, RealSet) → RealSet
-3. z : CartesianProd(RealSet, RealSet) → RealSet
-4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ u(x, y) = x + y ∧ v(x, y) = frac(1, x) + frac(1, y)
-5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ x^{2} * FunDeri(z, x, 2)(x, y) - (x^{2} + y^{2}) * FunDeri(FunDeri(z, x, 1), y, 1)(x, y) + y^{2} * FunDeri(z, y, 2)(x, y) = 0
-6. FuncOfClassK(z, 2)
-7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, x, 1)(x, y) = FunDeri(z, u, 1)(u(x, y), v(x, y)) - frac(1, x^{2}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-8. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, y, 1)(x, y) = FunDeri(z, u, 1)(u(x, y), v(x, y)) - frac(1, y^{2}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, x, 2)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - frac(2, x^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, x^{4}) * FunDeri(z, v, 2)(u(x, y), v(x, y)) + frac(2, x^{3}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-10. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, y, 2)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - frac(2, y^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, y^{4}) * FunDeri(z, v, 2)(u(x, y), v(x, y)) + frac(2, y^{3}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(FunDeri(z, x, 1), y, 1)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - (frac(1, x^{2}) + frac(1, y^{2})) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, x^{2} * y^{2}) * FunDeri(z, v, 2)(u(x, y), v(x, y))
-12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ frac((x^{2} - y^{2})^{2}, x^{2} * y^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + 2 * (frac(1, x) + frac(1, y)) * FunDeri(z, v, 1)(u(x, y), v(x, y)) = 0
-13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ v(x, y) = frac(1, x) + frac(1, y)
-14. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ frac(1, x) + frac(1, y) = frac(x + y, x * y)
-15. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ frac(x + y, x * y) = frac(u(x, y), x * y)
-
-GOAL:
-forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ v(x, y) = frac(u(x, y), x * y)
-
-METHOD:
--/
-theorem proof_gap_exercise_3496_10 : True := by
-  sorry
-
-/--
-Exercise 3496, gap 11
-
-PROOF GAP @11
-ASSUM:
-1. u : CartesianProd(RealSet, RealSet) → RealSet
-2. v : CartesianProd(RealSet, RealSet) → RealSet
-3. z : CartesianProd(RealSet, RealSet) → RealSet
-4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ u(x, y) = x + y ∧ v(x, y) = frac(1, x) + frac(1, y)
-5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ x^{2} * FunDeri(z, x, 2)(x, y) - (x^{2} + y^{2}) * FunDeri(FunDeri(z, x, 1), y, 1)(x, y) + y^{2} * FunDeri(z, y, 2)(x, y) = 0
-6. FuncOfClassK(z, 2)
-7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, x, 1)(x, y) = FunDeri(z, u, 1)(u(x, y), v(x, y)) - frac(1, x^{2}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-8. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, y, 1)(x, y) = FunDeri(z, u, 1)(u(x, y), v(x, y)) - frac(1, y^{2}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, x, 2)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - frac(2, x^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, x^{4}) * FunDeri(z, v, 2)(u(x, y), v(x, y)) + frac(2, x^{3}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-10. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, y, 2)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - frac(2, y^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, y^{4}) * FunDeri(z, v, 2)(u(x, y), v(x, y)) + frac(2, y^{3}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(FunDeri(z, x, 1), y, 1)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - (frac(1, x^{2}) + frac(1, y^{2})) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, x^{2} * y^{2}) * FunDeri(z, v, 2)(u(x, y), v(x, y))
-12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ frac((x^{2} - y^{2})^{2}, x^{2} * y^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + 2 * (frac(1, x) + frac(1, y)) * FunDeri(z, v, 1)(u(x, y), v(x, y)) = 0
-13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ v(x, y) = frac(1, x) + frac(1, y)
-14. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ frac(1, x) + frac(1, y) = frac(x + y, x * y)
-15. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ frac(x + y, x * y) = frac(u(x, y), x * y)
-16. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ v(x, y) = frac(u(x, y), x * y)
-
-GOAL:
-forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ x * y = frac(u(x, y), v(x, y))
-
-METHOD:
--/
-theorem proof_gap_exercise_3496_11 : True := by
-  sorry
-
-/--
-Exercise 3496, gap 12
-
-PROOF GAP @12
-ASSUM:
-1. u : CartesianProd(RealSet, RealSet) → RealSet
-2. v : CartesianProd(RealSet, RealSet) → RealSet
-3. z : CartesianProd(RealSet, RealSet) → RealSet
-4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ u(x, y) = x + y ∧ v(x, y) = frac(1, x) + frac(1, y)
-5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ x^{2} * FunDeri(z, x, 2)(x, y) - (x^{2} + y^{2}) * FunDeri(FunDeri(z, x, 1), y, 1)(x, y) + y^{2} * FunDeri(z, y, 2)(x, y) = 0
-6. FuncOfClassK(z, 2)
-7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, x, 1)(x, y) = FunDeri(z, u, 1)(u(x, y), v(x, y)) - frac(1, x^{2}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-8. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, y, 1)(x, y) = FunDeri(z, u, 1)(u(x, y), v(x, y)) - frac(1, y^{2}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, x, 2)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - frac(2, x^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, x^{4}) * FunDeri(z, v, 2)(u(x, y), v(x, y)) + frac(2, x^{3}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-10. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, y, 2)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - frac(2, y^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, y^{4}) * FunDeri(z, v, 2)(u(x, y), v(x, y)) + frac(2, y^{3}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(FunDeri(z, x, 1), y, 1)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - (frac(1, x^{2}) + frac(1, y^{2})) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, x^{2} * y^{2}) * FunDeri(z, v, 2)(u(x, y), v(x, y))
-12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ frac((x^{2} - y^{2})^{2}, x^{2} * y^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + 2 * (frac(1, x) + frac(1, y)) * FunDeri(z, v, 1)(u(x, y), v(x, y)) = 0
-13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ v(x, y) = frac(1, x) + frac(1, y)
-14. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ frac(1, x) + frac(1, y) = frac(x + y, x * y)
-15. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ frac(x + y, x * y) = frac(u(x, y), x * y)
-16. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ v(x, y) = frac(u(x, y), x * y)
-17. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ x * y = frac(u(x, y), v(x, y))
-
-GOAL:
-forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ frac((x^{2} - y^{2})^{2}, x^{2} * y^{2}) = u(x, y) * v(x, y) * (u(x, y) * v(x, y) - 4)
-
-METHOD:
--/
-theorem proof_gap_exercise_3496_12 : True := by
-  sorry
-
-/--
-Exercise 3496, gap 13
-
-PROOF GAP @13
-ASSUM:
-1. u : CartesianProd(RealSet, RealSet) → RealSet
-2. v : CartesianProd(RealSet, RealSet) → RealSet
-3. z : CartesianProd(RealSet, RealSet) → RealSet
-4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ u(x, y) = x + y ∧ v(x, y) = frac(1, x) + frac(1, y)
-5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ x^{2} * FunDeri(z, x, 2)(x, y) - (x^{2} + y^{2}) * FunDeri(FunDeri(z, x, 1), y, 1)(x, y) + y^{2} * FunDeri(z, y, 2)(x, y) = 0
-6. FuncOfClassK(z, 2)
-7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, x, 1)(x, y) = FunDeri(z, u, 1)(u(x, y), v(x, y)) - frac(1, x^{2}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-8. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, y, 1)(x, y) = FunDeri(z, u, 1)(u(x, y), v(x, y)) - frac(1, y^{2}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, x, 2)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - frac(2, x^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, x^{4}) * FunDeri(z, v, 2)(u(x, y), v(x, y)) + frac(2, x^{3}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-10. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, y, 2)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - frac(2, y^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, y^{4}) * FunDeri(z, v, 2)(u(x, y), v(x, y)) + frac(2, y^{3}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(FunDeri(z, x, 1), y, 1)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - (frac(1, x^{2}) + frac(1, y^{2})) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, x^{2} * y^{2}) * FunDeri(z, v, 2)(u(x, y), v(x, y))
-12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ frac((x^{2} - y^{2})^{2}, x^{2} * y^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + 2 * (frac(1, x) + frac(1, y)) * FunDeri(z, v, 1)(u(x, y), v(x, y)) = 0
-13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ v(x, y) = frac(1, x) + frac(1, y)
-14. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ frac(1, x) + frac(1, y) = frac(x + y, x * y)
-15. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ frac(x + y, x * y) = frac(u(x, y), x * y)
-16. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ v(x, y) = frac(u(x, y), x * y)
-17. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ x * y = frac(u(x, y), v(x, y))
-18. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ frac((x^{2} - y^{2})^{2}, x^{2} * y^{2}) = u(x, y) * v(x, y) * (u(x, y) * v(x, y) - 4)
-
-GOAL:
-FunDeri(FunDeri(z, u, 1), v, 1)(u, v) = frac(2, u * (4 - u * v)) * FunDeri(z, v, 1)(u, v)
-
-METHOD:
--/
-theorem proof_gap_exercise_3496_13 : True := by
-  sorry
-
-/--
-Exercise 3496, gap 14
-
-PROOF GAP @14
-ASSUM:
-1. u : CartesianProd(RealSet, RealSet) → RealSet
-2. v : CartesianProd(RealSet, RealSet) → RealSet
-3. z : CartesianProd(RealSet, RealSet) → RealSet
-4. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ u(x, y) = x + y ∧ v(x, y) = frac(1, x) + frac(1, y)
-5. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ x^{2} * FunDeri(z, x, 2)(x, y) - (x^{2} + y^{2}) * FunDeri(FunDeri(z, x, 1), y, 1)(x, y) + y^{2} * FunDeri(z, y, 2)(x, y) = 0
-6. FuncOfClassK(z, 2)
-7. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, x, 1)(x, y) = FunDeri(z, u, 1)(u(x, y), v(x, y)) - frac(1, x^{2}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-8. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, y, 1)(x, y) = FunDeri(z, u, 1)(u(x, y), v(x, y)) - frac(1, y^{2}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-9. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, x, 2)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - frac(2, x^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, x^{4}) * FunDeri(z, v, 2)(u(x, y), v(x, y)) + frac(2, x^{3}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-10. forall (y) (x), y ∈ RealSet ∧ x ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(z, y, 2)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - frac(2, y^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, y^{4}) * FunDeri(z, v, 2)(u(x, y), v(x, y)) + frac(2, y^{3}) * FunDeri(z, v, 1)(u(x, y), v(x, y))
-11. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ FunDeri(FunDeri(z, x, 1), y, 1)(x, y) = FunDeri(z, u, 2)(u(x, y), v(x, y)) - (frac(1, x^{2}) + frac(1, y^{2})) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + frac(1, x^{2} * y^{2}) * FunDeri(z, v, 2)(u(x, y), v(x, y))
-12. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ frac((x^{2} - y^{2})^{2}, x^{2} * y^{2}) * FunDeri(FunDeri(z, u, 1), v, 1)(u(x, y), v(x, y)) + 2 * (frac(1, x) + frac(1, y)) * FunDeri(z, v, 1)(u(x, y), v(x, y)) = 0
-13. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ v(x, y) = frac(1, x) + frac(1, y)
-14. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ frac(1, x) + frac(1, y) = frac(x + y, x * y)
-15. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ frac(x + y, x * y) = frac(u(x, y), x * y)
-16. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ v(x, y) = frac(u(x, y), x * y)
-17. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ x * y = frac(u(x, y), v(x, y))
-18. forall (x) (y), x ∈ RealSet ∧ y ∈ RealSet ∧ x * y ≠ 0 ⇒ frac((x^{2} - y^{2})^{2}, x^{2} * y^{2}) = u(x, y) * v(x, y) * (u(x, y) * v(x, y) - 4)
-19. FunDeri(FunDeri(z, u, 1), v, 1)(u, v) = frac(2, u * (4 - u * v)) * FunDeri(z, v, 1)(u, v)
-
-GOAL:
-FunDeri(FunDeri(z, u, 1), v, 1)(u, v) = frac(2, u * (4 - u * v)) * FunDeri(z, v, 1)(u, v)
-
-METHOD:
--/
-theorem proof_gap_exercise_3496_14 : True := by
-  sorry
+variable (u v z : F)
+
+def hBase3496 : Prop := ∀ x y : ℝ, x*y ≠ 0 → u (x,y)=x+y ∧ v (x,y)=frac 1 x + frac 1 y
+def hPDE3496 : Prop := ∀ x y : ℝ, x*y ≠ 0 → x^2 * pxx z (x,y) - (x^2 + y^2) * pxy z (x,y) + y^2 * pyy z (x,y) = 0
+
+theorem proof_gap_exercise_3496_1 (h1 : hBase3496 u v) (h2 : hPDE3496 z) (h3 : C2 z) : ∀ x y : ℝ, x*y ≠ 0 → px z (x,y) = pu z (u (x,y), v (x,y)) - frac 1 (x^2) * pv z (u (x,y), v (x,y)) := by sorry
+theorem proof_gap_exercise_3496_2 (h1 : hBase3496 u v) (h2 : hPDE3496 z) (h3 : C2 z) : ∀ y x : ℝ, x*y ≠ 0 → py z (x,y) = pu z (u (x,y), v (x,y)) - frac 1 (y^2) * pv z (u (x,y), v (x,y)) := by sorry
+theorem proof_gap_exercise_3496_3 (h1 : hBase3496 u v) (h2 : hPDE3496 z) (h3 : C2 z) : ∀ x y : ℝ, x*y ≠ 0 → pxx z (x,y) = puu z (u (x,y), v (x,y)) - frac 2 (x^2) * puv z (u (x,y), v (x,y)) + frac 1 (x^4) * pvv z (u (x,y), v (x,y)) + frac 2 (x^3) * pv z (u (x,y), v (x,y)) := by sorry
+theorem proof_gap_exercise_3496_4 (h1 : hBase3496 u v) (h2 : hPDE3496 z) (h3 : C2 z) : ∀ y x : ℝ, x*y ≠ 0 → pyy z (x,y) = puu z (u (x,y), v (x,y)) - frac 2 (y^2) * puv z (u (x,y), v (x,y)) + frac 1 (y^4) * pvv z (u (x,y), v (x,y)) + frac 2 (y^3) * pv z (u (x,y), v (x,y)) := by sorry
+theorem proof_gap_exercise_3496_5 (h1 : hBase3496 u v) (h2 : hPDE3496 z) (h3 : C2 z) : ∀ x y : ℝ, x*y ≠ 0 → pxy z (x,y) = puu z (u (x,y), v (x,y)) - (frac 1 (x^2) + frac 1 (y^2)) * puv z (u (x,y), v (x,y)) + frac 1 (x^2 * y^2) * pvv z (u (x,y), v (x,y)) := by sorry
+theorem proof_gap_exercise_3496_6 (h1 : hBase3496 u v) (h2 : hPDE3496 z) (h3 : C2 z) : ∀ x y : ℝ, x*y ≠ 0 → frac ((x^2-y^2)^2) (x^2*y^2) * puv z (u (x,y), v (x,y)) + 2 * (frac 1 x + frac 1 y) * pv z (u (x,y), v (x,y)) = 0 := by sorry
+theorem proof_gap_exercise_3496_7 (h1 : hBase3496 u v) : ∀ x y : ℝ, x*y ≠ 0 → v (x,y) = frac 1 x + frac 1 y := by sorry
+theorem proof_gap_exercise_3496_8 : ∀ x y : ℝ, x*y ≠ 0 → frac 1 x + frac 1 y = frac (x+y) (x*y) := by sorry
+theorem proof_gap_exercise_3496_9 (h1 : hBase3496 u v) : ∀ x y : ℝ, x*y ≠ 0 → frac (x+y) (x*y) = frac (u (x,y)) (x*y) := by sorry
+theorem proof_gap_exercise_3496_10 (h1 : hBase3496 u v) : ∀ x y : ℝ, x*y ≠ 0 → v (x,y) = frac (u (x,y)) (x*y) := by sorry
+theorem proof_gap_exercise_3496_11 (h1 : hBase3496 u v) : ∀ x y : ℝ, x*y ≠ 0 → x*y = frac (u (x,y)) (v (x,y)) := by sorry
+theorem proof_gap_exercise_3496_12 (h1 : hBase3496 u v) : ∀ x y : ℝ, x*y ≠ 0 → frac ((x^2-y^2)^2) (x^2*y^2) = u (x,y) * v (x,y) * (u (x,y) * v (x,y) - 4) := by sorry
+theorem proof_gap_exercise_3496_13 : ∀ u v : ℝ, u ≠ 0 → u*v ≠ 4 → puv z (u,v) = frac 2 (u * (4 - u*v)) * pv z (u,v) := by sorry
+theorem proof_gap_exercise_3496_14 : ∀ u v : ℝ, u ≠ 0 → u*v ≠ 4 → puv z (u,v) = frac 2 (u * (4 - u*v)) * pv z (u,v) := by sorry
 
 end exercise_3496

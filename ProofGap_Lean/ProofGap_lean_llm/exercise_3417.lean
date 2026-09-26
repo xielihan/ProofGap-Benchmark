@@ -33,19 +33,19 @@ variable
   (u : ℝ -> ℝ -> ℝ) (f : ℝ -> ℝ -> ℝ -> ℝ -> ℝ)
   (g : ℝ -> ℝ -> ℝ -> ℝ) (h : ℝ -> ℝ -> ℝ)
   (z t : ℝ -> ℝ) (I₁ I₂ : ℝ -> ℝ -> ℝ -> ℝ)
-  (hu : ∀ x y : ℝ, x ∈ (Set.univ : Set ℝ) ∧ y ∈ (Set.univ : Set ℝ) -> u x y = f x y (z y) (t y))
-  (hg : ∀ y : ℝ, y ∈ (Set.univ : Set ℝ) -> g y (z y) (t y) = 0)
-  (hh : ∀ y : ℝ, y ∈ (Set.univ : Set ℝ) -> h (z y) (t y) = 0)
+  (hu : ∀ x y : ℝ, u x y = f x y (z y) (t y))
+  (hg : ∀ y : ℝ, g y (z y) (t y) = 0)
+  (hh : ∀ y : ℝ, h (z y) (t y) = 0)
   (hf : ContDiff ℝ (1 : ℕ∞) (fun p : ℝ × ℝ × ℝ × ℝ => f p.1 p.2.1 p.2.2.1 p.2.2.2))
   (hgdiff : ContDiff ℝ (1 : ℕ∞) (fun p : ℝ × ℝ × ℝ => g p.1 p.2.1 p.2.2))
   (hhdiff : ContDiff ℝ (1 : ℕ∞) (fun p : ℝ × ℝ => h p.1 p.2))
-  (hI₁ : ∀ y : ℝ, y ∈ (Set.univ : Set ℝ) -> I₁ y (z y) (t y) = pd3 g 3 y (z y) (t y) * pd2 h 4 (z y) (t y) - pd3 g 4 y (z y) (t y) * pd2 h 3 (z y) (t y))
-  (hI₁ne : ∀ y : ℝ, y ∈ (Set.univ : Set ℝ) -> I₁ y (z y) (t y) ≠ 0)
-  (hI₂ : ∀ x y : ℝ, x ∈ (Set.univ : Set ℝ) ∧ y ∈ (Set.univ : Set ℝ) -> I₂ y (z y) (t y) = pd2 h 3 (z y) (t y) * pd4 f 4 x y (z y) (t y) - pd2 h 4 (z y) (t y) * pd4 f 3 x y (z y) (t y))
+  (hI₁ : ∀ y : ℝ, I₁ y (z y) (t y) = pd3 g 3 y (z y) (t y) * pd2 h 4 (z y) (t y) - pd3 g 4 y (z y) (t y) * pd2 h 3 (z y) (t y))
+  (hI₁ne : ∀ y : ℝ, I₁ y (z y) (t y) ≠ 0)
+  (hI₂ : ∀ x y : ℝ, I₂ y (z y) (t y) = pd2 h 3 (z y) (t y) * pd4 f 4 x y (z y) (t y) - pd2 h 4 (z y) (t y) * pd4 f 3 x y (z y) (t y))
 
--- Exercise 3417, gap 1
+-- Source: proofgap/exercise_3417/1.txt
 theorem proof_gap_exercise_3417_1 :
-    ∀ x y : ℝ, x ∈ (Set.univ : Set ℝ) ∧ y ∈ (Set.univ : Set ℝ) ->
+    ∀ x y : ℝ,
       d_xy u x y =
         pd4 f 1 x y (z y) (t y) * iteratedDeriv 1 (fun s : ℝ => s) x +
         pd4 f 2 x y (z y) (t y) * iteratedDeriv 1 (fun s : ℝ => s) y +
@@ -53,49 +53,66 @@ theorem proof_gap_exercise_3417_1 :
         pd4 f 4 x y (z y) (t y) * d_y t y := by
   sorry
 
--- Exercise 3417, gap 2
+-- Source: proofgap/exercise_3417/2.txt
 theorem proof_gap_exercise_3417_2
-    (h18 : ∀ x y : ℝ, x ∈ (Set.univ : Set ℝ) ∧ y ∈ (Set.univ : Set ℝ) ->
+    (h18 : ∀ x y : ℝ,
       d_xy u x y = pd4 f 1 x y (z y) (t y) * iteratedDeriv 1 (fun s : ℝ => s) x +
         pd4 f 2 x y (z y) (t y) * iteratedDeriv 1 (fun s : ℝ => s) y +
         pd4 f 3 x y (z y) (t y) * d_y z y + pd4 f 4 x y (z y) (t y) * d_y t y) :
-    ∀ y : ℝ, y ∈ (Set.univ : Set ℝ) ->
+    ∀ y : ℝ,
       0 = pd3 g 2 y (z y) (t y) * iteratedDeriv 1 (fun s : ℝ => s) y +
           pd3 g 3 y (z y) (t y) * d_y z y +
           pd3 g 4 y (z y) (t y) * d_y t y := by
   sorry
 
--- Exercise 3417, gap 3
+-- Source: proofgap/exercise_3417/3.txt
 theorem proof_gap_exercise_3417_3
-    (h18 : ∀ x y : ℝ, x ∈ (Set.univ : Set ℝ) ∧ y ∈ (Set.univ : Set ℝ) -> True)
-    (h19 : ∀ y : ℝ, y ∈ (Set.univ : Set ℝ) -> True) :
-    ∀ y : ℝ, y ∈ (Set.univ : Set ℝ) ->
+    (h18 : ∀ x y : ℝ,
+      d_xy u x y =
+        pd4 f 1 x y (z y) (t y) * iteratedDeriv 1 (fun s : ℝ => s) x +
+        pd4 f 2 x y (z y) (t y) * iteratedDeriv 1 (fun s : ℝ => s) y +
+        pd4 f 3 x y (z y) (t y) * d_y z y +
+        pd4 f 4 x y (z y) (t y) * d_y t y)
+    (h19 : ∀ y : ℝ,
+      0 = pd3 g 2 y (z y) (t y) * iteratedDeriv 1 (fun s : ℝ => s) y +
+          pd3 g 3 y (z y) (t y) * d_y z y +
+          pd3 g 4 y (z y) (t y) * d_y t y) :
+    ∀ y : ℝ,
       0 = pd2 h 3 (z y) (t y) * d_y z y + pd2 h 4 (z y) (t y) * d_y t y := by
   sorry
 
--- Exercise 3417, gap 4
+-- Source: proofgap/exercise_3417/4.txt
 theorem proof_gap_exercise_3417_4
-    (h18 : ∀ x y : ℝ, x ∈ (Set.univ : Set ℝ) ∧ y ∈ (Set.univ : Set ℝ) -> True)
-    (h19 : ∀ y : ℝ, y ∈ (Set.univ : Set ℝ) -> True)
-    (h20 : ∀ y : ℝ, y ∈ (Set.univ : Set ℝ) -> True) :
-    ∀ y : ℝ, y ∈ (Set.univ : Set ℝ) ->
+    (h18 : ∀ x y : ℝ,
+      d_xy u x y =
+        pd4 f 1 x y (z y) (t y) * iteratedDeriv 1 (fun s : ℝ => s) x +
+        pd4 f 2 x y (z y) (t y) * iteratedDeriv 1 (fun s : ℝ => s) y +
+        pd4 f 3 x y (z y) (t y) * d_y z y +
+        pd4 f 4 x y (z y) (t y) * d_y t y)
+    (h19 : ∀ y : ℝ,
+      0 = pd3 g 2 y (z y) (t y) * iteratedDeriv 1 (fun s : ℝ => s) y +
+          pd3 g 3 y (z y) (t y) * d_y z y +
+          pd3 g 4 y (z y) (t y) * d_y t y)
+    (h20 : ∀ y : ℝ,
+      0 = pd2 h 3 (z y) (t y) * d_y z y + pd2 h 4 (z y) (t y) * d_y t y) :
+    ∀ y : ℝ,
       d_y z y = (-(pd3 g 2 y (z y) (t y)) * pd2 h 4 (z y) (t y)) /. I₁ y (z y) (t y) *
         iteratedDeriv 1 (fun s : ℝ => s) y := by
   sorry
 
--- Exercise 3417, gap 5
+-- Source: proofgap/exercise_3417/5.txt
 theorem proof_gap_exercise_3417_5
-    (h21 : ∀ y : ℝ, y ∈ (Set.univ : Set ℝ) -> d_y z y = (-(pd3 g 2 y (z y) (t y)) * pd2 h 4 (z y) (t y)) /. I₁ y (z y) (t y) * iteratedDeriv 1 (fun s : ℝ => s) y) :
-    ∀ y : ℝ, y ∈ (Set.univ : Set ℝ) ->
+    (h21 : ∀ y : ℝ, d_y z y = (-(pd3 g 2 y (z y) (t y)) * pd2 h 4 (z y) (t y)) /. I₁ y (z y) (t y) * iteratedDeriv 1 (fun s : ℝ => s) y) :
+    ∀ y : ℝ,
       d_y t y = (pd3 g 2 y (z y) (t y) * pd2 h 3 (z y) (t y)) /. I₁ y (z y) (t y) *
         iteratedDeriv 1 (fun s : ℝ => s) y := by
   sorry
 
--- Exercise 3417, gap 6
+-- Source: proofgap/exercise_3417/6.txt
 theorem proof_gap_exercise_3417_6
-    (h21 : ∀ y : ℝ, y ∈ (Set.univ : Set ℝ) -> d_y z y = (-(pd3 g 2 y (z y) (t y)) * pd2 h 4 (z y) (t y)) /. I₁ y (z y) (t y) * iteratedDeriv 1 (fun s : ℝ => s) y)
-    (h22 : ∀ y : ℝ, y ∈ (Set.univ : Set ℝ) -> d_y t y = (pd3 g 2 y (z y) (t y) * pd2 h 3 (z y) (t y)) /. I₁ y (z y) (t y) * iteratedDeriv 1 (fun s : ℝ => s) y) :
-    ∀ x y : ℝ, x ∈ (Set.univ : Set ℝ) ∧ y ∈ (Set.univ : Set ℝ) ->
+    (h21 : ∀ y : ℝ, d_y z y = (-(pd3 g 2 y (z y) (t y)) * pd2 h 4 (z y) (t y)) /. I₁ y (z y) (t y) * iteratedDeriv 1 (fun s : ℝ => s) y)
+    (h22 : ∀ y : ℝ, d_y t y = (pd3 g 2 y (z y) (t y) * pd2 h 3 (z y) (t y)) /. I₁ y (z y) (t y) * iteratedDeriv 1 (fun s : ℝ => s) y) :
+    ∀ x y : ℝ,
       d_xy u x y =
         pd4 f 1 x y (z y) (t y) * iteratedDeriv 1 (fun s : ℝ => s) x +
         pd4 f 2 x y (z y) (t y) * iteratedDeriv 1 (fun s : ℝ => s) y -
@@ -105,18 +122,32 @@ theorem proof_gap_exercise_3417_6
         iteratedDeriv 1 (fun s : ℝ => s) y := by
   sorry
 
--- Exercise 3417, gap 7
+-- Source: proofgap/exercise_3417/7.txt
 theorem proof_gap_exercise_3417_7
-    (h23 : ∀ x y : ℝ, x ∈ (Set.univ : Set ℝ) ∧ y ∈ (Set.univ : Set ℝ) -> True) :
-    ∀ x y : ℝ, x ∈ (Set.univ : Set ℝ) ∧ y ∈ (Set.univ : Set ℝ) ->
+    (h23 : ∀ x y : ℝ,
+      d_xy u x y =
+        pd4 f 1 x y (z y) (t y) * iteratedDeriv 1 (fun s : ℝ => s) x +
+        pd4 f 2 x y (z y) (t y) * iteratedDeriv 1 (fun s : ℝ => s) y -
+        (pd3 g 2 y (z y) (t y) /. I₁ y (z y) (t y)) *
+          (pd4 f 3 x y (z y) (t y) * pd2 h 4 (z y) (t y) -
+           pd4 f 4 x y (z y) (t y) * pd2 h 3 (z y) (t y)) *
+        iteratedDeriv 1 (fun s : ℝ => s) y) :
+    ∀ x y : ℝ,
       iteratedDeriv 1 (fun s => u s y) x = pd4 f 1 x y (z y) (t y) := by
   sorry
 
--- Exercise 3417, gap 8
+-- Source: proofgap/exercise_3417/8.txt
 theorem proof_gap_exercise_3417_8
-    (h23 : ∀ x y : ℝ, x ∈ (Set.univ : Set ℝ) ∧ y ∈ (Set.univ : Set ℝ) -> True)
-    (h24 : ∀ x y : ℝ, x ∈ (Set.univ : Set ℝ) ∧ y ∈ (Set.univ : Set ℝ) -> iteratedDeriv 1 (fun s => u s y) x = pd4 f 1 x y (z y) (t y)) :
-    ∀ x y : ℝ, x ∈ (Set.univ : Set ℝ) ∧ y ∈ (Set.univ : Set ℝ) ->
+    (h23 : ∀ x y : ℝ,
+      d_xy u x y =
+        pd4 f 1 x y (z y) (t y) * iteratedDeriv 1 (fun s : ℝ => s) x +
+        pd4 f 2 x y (z y) (t y) * iteratedDeriv 1 (fun s : ℝ => s) y -
+        (pd3 g 2 y (z y) (t y) /. I₁ y (z y) (t y)) *
+          (pd4 f 3 x y (z y) (t y) * pd2 h 4 (z y) (t y) -
+           pd4 f 4 x y (z y) (t y) * pd2 h 3 (z y) (t y)) *
+        iteratedDeriv 1 (fun s : ℝ => s) y)
+    (h24 : ∀ x y : ℝ, iteratedDeriv 1 (fun s => u s y) x = pd4 f 1 x y (z y) (t y)) :
+    ∀ x y : ℝ,
       iteratedDeriv 1 (fun s => u x s) y =
         pd4 f 2 x y (z y) (t y) + pd3 g 2 y (z y) (t y) * (I₂ y (z y) (t y) /. I₁ y (z y) (t y)) := by
   sorry

@@ -9,7 +9,7 @@ produce a proof that a verifier accepts.
 
 The benchmark provides structured statements in Natural Formal Language
 (NFL), Lean statements printed by the backend, and Lean formalizations
-converted with Codex and reviewed for semantic fidelity to NFL.
+converted with Codex, with ongoing review against the NFL statements.
 
 **Paper:** [ProofGap: Benchmarking Step-Level Formal Reasoning with Local Obligations Derived from Natural-Language Solutions](https://arxiv.org/abs/2609.29296).
 
@@ -22,7 +22,7 @@ converted with Codex and reviewed for semantic fidelity to NFL.
 | --- | --- | ---: | ---: | --- |
 | [ProofGap_nfl](ProofGap_nfl/) | NFL printed from proof-gap ASTs | 2,947 | 25,987 | 9,385 DSL answers |
 | [ProofGap_lean](ProofGap_Lean/ProofGap_lean/) | Lean printed from proof-gap ASTs | 1,875 | 15,105 | Proof placeholders |
-| [ProofGap_lean_llm](ProofGap_Lean/ProofGap_lean_llm/) | Codex conversion with semantic review | 1,072 | 10,882 | Primarily proof placeholders |
+| [ProofGap_lean_llm](ProofGap_Lean/ProofGap_lean_llm/) | Codex conversion with ongoing semantic review | 1,072 | 10,882 | Proof placeholders |
 
 **NFL and backend Lean use two printers over a common abstract syntax tree
 (AST) representation.** However, NFL and Lean have different logical
@@ -37,6 +37,15 @@ Together, they cover all **2,947 exercises and 25,987 gap IDs** in NFL.
 Matching identifiers does not by itself establish semantic equivalence;
 some Lean statements differ from their NFL counterparts.
 Exercise variants with suffixes, such as `131_1` and `131_2`, are distinct items.
+
+The Lean data incorporates proofgrader updates through `f40b9866a3`
+(2026-09-26). The LLM variant contains no proposition `True` tokens, and the
+backend now represents subsequence index functions with `StrictMono`.
+The latest refresh updates 18 LLM modules, including replacement of 125
+string-length targets with mathematical statements. Exercise 4330, gap 5
+also restores the two NFL premises needed for that step. Missing assumptions
+remain in other statements; see the [known issues](ProofGap_Lean/KNOWN_ISSUES.md)
+and [source snapshot](ProofGap_Lean/source_snapshot.json) for review status.
 
 Use **ProofGap_nfl** for DSL proof generation with the bundled verifier,
 **ProofGap_lean** for backend-generated Lean proof obligations, and
@@ -120,6 +129,8 @@ proof while preserving its statement and allowed context.
   Both Lean datasets contain proof placeholders. Some LLM-converted
   statements also use simplified or placeholder definitions, so compilation
   does not establish equivalence with the mathematical exercise.
+  Apply the [known-issue exclusions](ProofGap_Lean/known_issues.json) and
+  report the excluded IDs and resulting evaluation denominator.
 - **Reporting:** identify the repository commit, dataset variant, evaluated
   exercise/gap IDs, verification environment, time limit, and number of proof
   attempts. Report accepted proofs against the full evaluated set. If you
@@ -142,6 +153,14 @@ exercises were selected by successful compilation of their last gap, so
 other gaps in an exercise may require statement-level corrections before
 proof completion. Keep such corrections separate from proof-generation
 results.
+
+For the 2026-09-26 refresh, all exercise/gap IDs were checked against NFL.
+Earlier complete-module checks passed for backend exercises 89, 752, and
+1009 and LLM exercises 3052 and 3499. All 18 LLM modules in the latest refresh
+also passed complete-module checks. The repaired statement for exercise 4330,
+gap 5 was proved separately without `sorry` or added axioms; the dataset retains
+its proof placeholder. Compilation of other targets does not establish
+their statement fidelity or provability.
 
 ## Repository layout
 

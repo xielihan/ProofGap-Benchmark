@@ -1,5 +1,13 @@
 import Mathlib
 
+-- exercise: exercise_3763_2
+-- Regenerated for Lean 4.29.0-rc6 / Mathlib 5c8398d.
+
+-- Source: proofgap/exercise_3763_2/1.txt
+namespace regenerated_exercise_3763_2_gap_1
+
+attribute [local instance] Classical.propDecidable
+
 set_option linter.style.longLine false
 
 open scoped BigOperators Topology Nat
@@ -40,18 +48,110 @@ def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) 
 noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
   ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
--- exercise: exercise_3763_2
-
 theorem proof_gap_exercise_3763_2_1
   (h1 : (forall (v_uCE_uB1 : ℝ) (x : ℝ) (t : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (v_uCE_uB1 ∈ (Set.univ : Set ℝ))) → (t = (x - v_uCE_uB1)))))
   : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ x, ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))) = (∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))))) := by
   sorry
+
+end regenerated_exercise_3763_2_gap_1
+
+-- Source: proofgap/exercise_3763_2/2.txt
+namespace regenerated_exercise_3763_2_gap_2
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_3763_2_2
   (h1 : (forall (v_uCE_uB1 : ℝ) (x : ℝ) (t : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (v_uCE_uB1 ∈ (Set.univ : Set ℝ))) → (t = (x - v_uCE_uB1)))))
   (h2 : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ x, ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))) = (∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))))))
   : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ))) = (Real.rpow Real.pi (((2 : ℝ))⁻¹))))) := by
   sorry
+
+end regenerated_exercise_3763_2_gap_2
+
+-- Source: proofgap/exercise_3763_2/3.txt
+namespace regenerated_exercise_3763_2_gap_3
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_3763_2_3
   (h1 : (forall (v_uCE_uB1 : ℝ) (x : ℝ) (t : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (v_uCE_uB1 ∈ (Set.univ : Set ℝ))) → (t = (x - v_uCE_uB1)))))
@@ -60,62 +160,344 @@ theorem proof_gap_exercise_3763_2_3
   : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ x, ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))) = (Real.rpow Real.pi (((2 : ℝ))⁻¹))))) := by
   sorry
 
+end regenerated_exercise_3763_2_gap_3
+
+-- Source: proofgap/exercise_3763_2/4.txt
+namespace regenerated_exercise_3763_2_gap_4
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_3763_2_4
   (h1 : (forall (v_uCE_uB1 : ℝ) (x : ℝ) (t : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (v_uCE_uB1 ∈ (Set.univ : Set ℝ))) → (t = (x - v_uCE_uB1)))))
   (h2 : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ x, ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))) = (∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))))))
   (h3 : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ))) = (Real.rpow Real.pi (((2 : ℝ))⁻¹))))))
   (h4 : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ x, ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))) = (Real.rpow Real.pi (((2 : ℝ))⁻¹))))))
-  : (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (∃ L : ℝ, Tendsto (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 L) ∧ (Tendsto (fun a : ℝ => (∫ x in Set.Ioi A, ((Real.exp (-((x - a) ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (atTop.limUnder (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))))))))) := by
+  : (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (∃ L : ℝ, Tendsto (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 L) ∧ (Tendsto (fun a : ℝ => (∫ x in Set.Ioi A, ((Real.exp (-((x - a) ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (limUnder atTop (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))))))))) := by
   sorry
+
+end regenerated_exercise_3763_2_gap_4
+
+-- Source: proofgap/exercise_3763_2/5.txt
+namespace regenerated_exercise_3763_2_gap_5
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_3763_2_5
   (h1 : (forall (v_uCE_uB1 : ℝ) (x : ℝ) (t : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (v_uCE_uB1 ∈ (Set.univ : Set ℝ))) → (t = (x - v_uCE_uB1)))))
   (h2 : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ x, ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))) = (∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))))))
   (h3 : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ))) = (Real.rpow Real.pi (((2 : ℝ))⁻¹))))))
   (h4 : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ x, ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))) = (Real.rpow Real.pi (((2 : ℝ))⁻¹))))))
-  (h5 : (forall (A : ℝ), (∃ L : ℝ, Tendsto (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 L) ∧ (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (Tendsto (fun a : ℝ => (∫ x in Set.Ioi A, ((Real.exp (-((x - a) ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (atTop.limUnder (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))))))))))
+  (h5 : (forall (A : ℝ), (∃ L : ℝ, Tendsto (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 L) ∧ (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (Tendsto (fun a : ℝ => (∫ x in Set.Ioi A, ((Real.exp (-((x - a) ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (limUnder atTop (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))))))))))
   : (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (Tendsto (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ))))))) := by
   sorry
+
+end regenerated_exercise_3763_2_gap_5
+
+-- Source: proofgap/exercise_3763_2/6.txt
+namespace regenerated_exercise_3763_2_gap_6
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_3763_2_6
   (h1 : (forall (v_uCE_uB1 : ℝ) (x : ℝ) (t : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (v_uCE_uB1 ∈ (Set.univ : Set ℝ))) → (t = (x - v_uCE_uB1)))))
   (h2 : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ x, ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))) = (∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))))))
   (h3 : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ))) = (Real.rpow Real.pi (((2 : ℝ))⁻¹))))))
   (h4 : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ x, ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))) = (Real.rpow Real.pi (((2 : ℝ))⁻¹))))))
-  (h5 : (forall (A : ℝ), (∃ L : ℝ, Tendsto (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 L) ∧ (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (Tendsto (fun a : ℝ => (∫ x in Set.Ioi A, ((Real.exp (-((x - a) ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (atTop.limUnder (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))))))))))
+  (h5 : (forall (A : ℝ), (∃ L : ℝ, Tendsto (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 L) ∧ (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (Tendsto (fun a : ℝ => (∫ x in Set.Ioi A, ((Real.exp (-((x - a) ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (limUnder atTop (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))))))))))
   (h6 : (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (Tendsto (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ))))))))
   : (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → ((∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ))) = (Real.rpow Real.pi (((2 : ℝ))⁻¹))))) := by
   sorry
+
+end regenerated_exercise_3763_2_gap_6
+
+-- Source: proofgap/exercise_3763_2/7.txt
+namespace regenerated_exercise_3763_2_gap_7
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_3763_2_7
   (h1 : (forall (v_uCE_uB1 : ℝ) (x : ℝ) (t : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (v_uCE_uB1 ∈ (Set.univ : Set ℝ))) → (t = (x - v_uCE_uB1)))))
   (h2 : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ x, ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))) = (∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))))))
   (h3 : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ))) = (Real.rpow Real.pi (((2 : ℝ))⁻¹))))))
   (h4 : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ x, ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))) = (Real.rpow Real.pi (((2 : ℝ))⁻¹))))))
-  (h5 : (forall (A : ℝ), (∃ L : ℝ, Tendsto (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 L) ∧ (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (Tendsto (fun a : ℝ => (∫ x in Set.Ioi A, ((Real.exp (-((x - a) ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (atTop.limUnder (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))))))))))
+  (h5 : (forall (A : ℝ), (∃ L : ℝ, Tendsto (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 L) ∧ (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (Tendsto (fun a : ℝ => (∫ x in Set.Ioi A, ((Real.exp (-((x - a) ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (limUnder atTop (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))))))))))
   (h6 : (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (Tendsto (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ))))))))
   (h7 : (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → ((∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ))) = (Real.rpow Real.pi (((2 : ℝ))⁻¹))))))
   : (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (Tendsto (fun a : ℝ => (∫ x in Set.Ioi A, ((Real.exp (-((x - a) ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (Real.rpow Real.pi (((2 : ℝ))⁻¹)))))) := by
   sorry
+
+end regenerated_exercise_3763_2_gap_7
+
+-- Source: proofgap/exercise_3763_2/8.txt
+namespace regenerated_exercise_3763_2_gap_8
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_3763_2_8
   (h1 : (forall (v_uCE_uB1 : ℝ) (x : ℝ) (t : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (v_uCE_uB1 ∈ (Set.univ : Set ℝ))) → (t = (x - v_uCE_uB1)))))
   (h2 : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ x, ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))) = (∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))))))
   (h3 : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ))) = (Real.rpow Real.pi (((2 : ℝ))⁻¹))))))
   (h4 : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ x, ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))) = (Real.rpow Real.pi (((2 : ℝ))⁻¹))))))
-  (h5 : (forall (A : ℝ), (∃ L : ℝ, Tendsto (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 L) ∧ (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (Tendsto (fun a : ℝ => (∫ x in Set.Ioi A, ((Real.exp (-((x - a) ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (atTop.limUnder (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))))))))))
+  (h5 : (forall (A : ℝ), (∃ L : ℝ, Tendsto (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 L) ∧ (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (Tendsto (fun a : ℝ => (∫ x in Set.Ioi A, ((Real.exp (-((x - a) ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (limUnder atTop (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))))))))))
   (h6 : (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (Tendsto (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ))))))))
   (h7 : (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → ((∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ))) = (Real.rpow Real.pi (((2 : ℝ))⁻¹))))))
   (h8 : (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (Tendsto (fun a : ℝ => (∫ x in Set.Ioi A, ((Real.exp (-((x - a) ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (Real.rpow Real.pi (((2 : ℝ))⁻¹)))))))
   : (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > A)) ∧ ((∫ x in Set.Ioi A, ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))) > ((Real.rpow Real.pi (((2 : ℝ))⁻¹)) /. 2)))))) := by
   sorry
 
+end regenerated_exercise_3763_2_gap_8
+
+-- Source: proofgap/exercise_3763_2/9.txt
+namespace regenerated_exercise_3763_2_gap_9
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_3763_2_9
   (h1 : (forall (v_uCE_uB1 : ℝ) (x : ℝ) (t : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (v_uCE_uB1 ∈ (Set.univ : Set ℝ))) → (t = (x - v_uCE_uB1)))))
   (h2 : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ x, ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))) = (∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))))))
   (h3 : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ))) = (Real.rpow Real.pi (((2 : ℝ))⁻¹))))))
   (h4 : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ x, ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))) = (Real.rpow Real.pi (((2 : ℝ))⁻¹))))))
-  (h5 : (forall (A : ℝ), (∃ L : ℝ, Tendsto (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 L) ∧ (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (Tendsto (fun a : ℝ => (∫ x in Set.Ioi A, ((Real.exp (-((x - a) ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (atTop.limUnder (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))))))))))
+  (h5 : (forall (A : ℝ), (∃ L : ℝ, Tendsto (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 L) ∧ (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (Tendsto (fun a : ℝ => (∫ x in Set.Ioi A, ((Real.exp (-((x - a) ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (limUnder atTop (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))))))))))
   (h6 : (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (Tendsto (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ))))))))
   (h7 : (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → ((∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ))) = (Real.rpow Real.pi (((2 : ℝ))⁻¹))))))
   (h8 : (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (Tendsto (fun a : ℝ => (∫ x in Set.Ioi A, ((Real.exp (-((x - a) ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (Real.rpow Real.pi (((2 : ℝ))⁻¹)))))))
@@ -123,12 +505,59 @@ theorem proof_gap_exercise_3763_2_9
   : (exists (v_uCE_uB5__0 : ℝ), (((v_uCE_uB5__0 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB5__0 = ((Real.rpow Real.pi (((2 : ℝ))⁻¹)) /. 2))) ∧ (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (exists (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ ((∫ x in Set.Ioi A, ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))) > v_uCE_uB5__0))))))) := by
   sorry
 
+end regenerated_exercise_3763_2_gap_9
+
+-- Source: proofgap/exercise_3763_2/10.txt
+namespace regenerated_exercise_3763_2_gap_10
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_3763_2_10
   (h1 : (forall (v_uCE_uB1 : ℝ) (x : ℝ) (t : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (v_uCE_uB1 ∈ (Set.univ : Set ℝ))) → (t = (x - v_uCE_uB1)))))
   (h2 : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ x, ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))) = (∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))))))
   (h3 : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ))) = (Real.rpow Real.pi (((2 : ℝ))⁻¹))))))
   (h4 : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ x, ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))) = (Real.rpow Real.pi (((2 : ℝ))⁻¹))))))
-  (h5 : (forall (A : ℝ), (∃ L : ℝ, Tendsto (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 L) ∧ (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (Tendsto (fun a : ℝ => (∫ x in Set.Ioi A, ((Real.exp (-((x - a) ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (atTop.limUnder (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))))))))))
+  (h5 : (forall (A : ℝ), (∃ L : ℝ, Tendsto (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 L) ∧ (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (Tendsto (fun a : ℝ => (∫ x in Set.Ioi A, ((Real.exp (-((x - a) ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (limUnder atTop (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))))))))))
   (h6 : (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (Tendsto (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ))))))))
   (h7 : (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → ((∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ))) = (Real.rpow Real.pi (((2 : ℝ))⁻¹))))))
   (h8 : (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (Tendsto (fun a : ℝ => (∫ x in Set.Ioi A, ((Real.exp (-((x - a) ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (Real.rpow Real.pi (((2 : ℝ))⁻¹)))))))
@@ -137,12 +566,59 @@ theorem proof_gap_exercise_3763_2_10
   : Not (forall (v_uCE_uB5 : ℝ), (((v_uCE_uB5 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB5 > 0)) → (exists (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) ∧ (forall (B : ℝ) (v_uCE_uB1 : ℝ), ((((B ∈ (Set.univ : Set ℝ)) ∧ (B ≥ A)) ∧ (v_uCE_uB1 ∈ (Set.univ : Set ℝ))) → ((|((∫ x in Set.Ioi B, ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))))| < v_uCE_uB5) ∧ (|((∫ x in Set.Iio (-B), ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))))| < v_uCE_uB5)))))))) := by
   sorry
 
+end regenerated_exercise_3763_2_gap_10
+
+-- Source: proofgap/exercise_3763_2/11.txt
+namespace regenerated_exercise_3763_2_gap_11
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_3763_2_11
   (h1 : (forall (v_uCE_uB1 : ℝ) (x : ℝ) (t : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ (t ∈ (Set.univ : Set ℝ))) ∧ (v_uCE_uB1 ∈ (Set.univ : Set ℝ))) → (t = (x - v_uCE_uB1)))))
   (h2 : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ x, ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))) = (∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))))))
   (h3 : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ))) = (Real.rpow Real.pi (((2 : ℝ))⁻¹))))))
   (h4 : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ x, ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))) = (Real.rpow Real.pi (((2 : ℝ))⁻¹))))))
-  (h5 : (forall (A : ℝ), (∃ L : ℝ, Tendsto (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 L) ∧ (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (Tendsto (fun a : ℝ => (∫ x in Set.Ioi A, ((Real.exp (-((x - a) ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (atTop.limUnder (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))))))))))
+  (h5 : (forall (A : ℝ), (∃ L : ℝ, Tendsto (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 L) ∧ (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (Tendsto (fun a : ℝ => (∫ x in Set.Ioi A, ((Real.exp (-((x - a) ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (limUnder atTop (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))))))))))
   (h6 : (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (Tendsto (fun a : ℝ => (∫ t in Set.Ioi (A - a), ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ))))))))
   (h7 : (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → ((∫ t, ((Real.exp (-(t ^ (2 : ℕ)))) * (1 : ℝ))) = (Real.rpow Real.pi (((2 : ℝ))⁻¹))))))
   (h8 : (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) → (Tendsto (fun a : ℝ => (∫ x in Set.Ioi A, ((Real.exp (-((x - a) ^ (2 : ℕ)))) * (1 : ℝ)))) atTop (𝓝 (Real.rpow Real.pi (((2 : ℝ))⁻¹)))))))
@@ -151,3 +627,5 @@ theorem proof_gap_exercise_3763_2_11
   (h11 : Not (forall (v_uCE_uB5 : ℝ), (((v_uCE_uB5 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB5 > 0)) → (exists (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) ∧ (forall (B : ℝ) (v_uCE_uB1 : ℝ), ((((B ∈ (Set.univ : Set ℝ)) ∧ (B ≥ A)) ∧ (v_uCE_uB1 ∈ (Set.univ : Set ℝ))) → ((|((∫ x in Set.Ioi B, ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))))| < v_uCE_uB5) ∧ (|((∫ x in Set.Iio (-B), ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))))| < v_uCE_uB5)))))))))
   : (forall (v_uCE_uB1 : ℝ), ((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) → ((∫ x, ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))) = (Real.rpow Real.pi (((2 : ℝ))⁻¹))))) ∧ (Not (forall (v_uCE_uB5 : ℝ), (((v_uCE_uB5 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB5 > 0)) → (exists (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 0)) ∧ (forall (B : ℝ) (v_uCE_uB1 : ℝ), ((((B ∈ (Set.univ : Set ℝ)) ∧ (B ≥ A)) ∧ (v_uCE_uB1 ∈ (Set.univ : Set ℝ))) → ((|((∫ x in Set.Ioi B, ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))))| < v_uCE_uB5) ∧ (|((∫ x in Set.Iio (-B), ((Real.exp (-((x - v_uCE_uB1) ^ (2 : ℕ)))) * (1 : ℝ))))| < v_uCE_uB5))))))))) := by
   sorry
+
+end regenerated_exercise_3763_2_gap_11

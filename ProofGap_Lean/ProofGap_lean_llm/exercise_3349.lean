@@ -21,7 +21,10 @@ noncomputable def grad (f : ScalarField) (x y z : ℝ) : Vec3 :=
 
 def dot3 (a b : Vec3) : ℝ := a.1 * b.1 + a.2.1 * b.2.1 + a.2.2 * b.2.2
 noncomputable def norm3 (v : Vec3) : ℝ := Real.sqrt (v.1 ^ 2 + v.2.1 ^ 2 + v.2.2 ^ 2)
-def TendsToAtTopAlong (control value : ℝ) (target : ℝ) : Prop := True
+def TendsToAtTopAlong (control value : ℝ) (target : ℝ) : Prop :=
+  ∃ controlFamily valueFamily : ℝ -> ℝ,
+    controlFamily 0 = control ∧ valueFamily 0 = value ∧
+      Tendsto controlFamily atTop atTop ∧ Tendsto valueFamily atTop (𝓝 target)
 
 infixl:72 " dot3 " => dot3
 

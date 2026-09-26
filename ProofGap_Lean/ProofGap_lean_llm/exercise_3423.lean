@@ -2,90 +2,144 @@ import Mathlib
 
 set_option linter.style.longLine false
 
-open scoped BigOperators Topology Nat
-open Filter
+open scoped Topology
+
+namespace exercise_3423
 
 local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
 
-noncomputable def lpSurface (Phi : ℝ -> ℝ) (a b c : ℝ) (z : ℝ × ℝ -> ℝ) : Set (ℝ × ℝ × ℝ) :=
-  {p | a * p.1 + b * p.2.1 + c * p.2.2 = Phi (p.1 ^ (2 : ℕ) + p.2.1 ^ (2 : ℕ) + p.2.2 ^ (2 : ℕ))}
+noncomputable abbrev zₓ (z : ℝ × ℝ -> ℝ) (x y : ℝ) : ℝ := iteratedDeriv 1 (fun s => z (s, y)) x
+noncomputable abbrev zᵧ (z : ℝ × ℝ -> ℝ) (x y : ℝ) : ℝ := iteratedDeriv 1 (fun s => z (x, s)) y
+noncomputable abbrev Phi' (Phi : ℝ -> ℝ) (t : ℝ) : ℝ := iteratedDeriv 1 Phi t
 
-def lpCircleCurve (C : Set (ℝ × ℝ × ℝ)) : Prop := True
-def lpRotationSurfaceWithAxis (axis : Set (ℝ × ℝ × ℝ)) : Set (Set (ℝ × ℝ × ℝ)) := {S | True}
+noncomputable abbrev dot3 (p q : ℝ × ℝ × ℝ) : ℝ :=
+  p.1 * q.1 + p.2.1 * q.2.1 + p.2.2 * q.2.2
 
--- exercise: exercise_3423
+def plane (a b c d : ℝ) : Set (ℝ × ℝ × ℝ) :=
+  {P | a * P.1 + b * P.2.1 + c * P.2.2 = d}
 
-theorem proof_gap_exercise_3423_1
-  (Phi : ℝ -> ℝ) (z : ℝ × ℝ -> ℝ) (a b c x y x3 y3 z3 d : ℝ)
-  (Pi S C Surface3 CircleCurve : Set (ℝ × ℝ × ℝ))
-  (RotationSurfaceWithAxis : Set (ℝ × ℝ × ℝ) -> Set (Set (ℝ × ℝ × ℝ)))
+def sphere (d : ℝ) : Set (ℝ × ℝ × ℝ) :=
+  {P | P.1 ^ 2 + P.2.1 ^ 2 + P.2.2 ^ 2 = d ^ 2}
+
+def axisLine (a b c : ℝ) : Set (ℝ × ℝ × ℝ) :=
+  {P | (P.1 /. a) = (P.2.1 /. b) ∧ (P.2.1 /. b) = (P.2.2 /. c)}
+
+def graphSurface (Phi : ℝ -> ℝ) (z : ℝ × ℝ -> ℝ) (a b c : ℝ) : Set (ℝ × ℝ × ℝ) :=
+  {P | ∃ x y : ℝ, P = (x, y, z (x, y)) ∧
+    a * x + b * y + c * z (x, y) = Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2)}
+
+variable
+  (Phi : ℝ -> ℝ) (z : ℝ × ℝ -> ℝ) (a b c x₃ y₃ z₃ d : ℝ)
+  (Pi S C Surface₃ CircleCurve : Set (ℝ × ℝ × ℝ))
+  (RotationSurfaceWithAxis : Set (ℝ × ℝ × ℝ) -> Set (ℝ × ℝ × ℝ))
   (hPhi : Differentiable ℝ Phi)
-  (hEq : ∀ x y : ℝ, x ∈ (Set.univ : Set ℝ) ∧ y ∈ (Set.univ : Set ℝ) -> a * x + b * y + c * z (x,y) = Phi (x^2 + y^2 + (z (x,y))^2))
-  (hz : ∀ x y : ℝ, x ∈ (Set.univ : Set ℝ) ∧ y ∈ (Set.univ : Set ℝ) -> DifferentiableAt ℝ z (x,y))
-  : ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> ∀ y : ℝ, y ∈ (Set.univ : Set ℝ) -> a + c * iteratedDeriv 1 (fun s => z (s,y)) x = iteratedDeriv 1 Phi (x^2 + y^2 + (z (x,y))^2) * (2*x + 2 * z (x,y) * iteratedDeriv 1 (fun s => z (s,y)) x) := by
+  (hEq : ∀ x y : ℝ, a * x + b * y + c * z (x, y) = Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2))
+  (hz : ∀ x y : ℝ, DifferentiableAt ℝ z (x, y))
+
+theorem proof_gap_exercise_3423_1 :
+    ∀ x y : ℝ,
+      a + c * zₓ z x y =
+        Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2) * (2 * x + 2 * z (x, y) * zₓ z x y) := by
   sorry
 
 theorem proof_gap_exercise_3423_2
-  (Phi : ℝ -> ℝ) (z : ℝ × ℝ -> ℝ) (a b c x y x3 y3 z3 d : ℝ)
-  (Pi S C Surface3 CircleCurve : Set (ℝ × ℝ × ℝ))
-  (RotationSurfaceWithAxis : Set (ℝ × ℝ × ℝ) -> Set (Set (ℝ × ℝ × ℝ)))
-  (hPhi : Differentiable ℝ Phi)
-  (hEq : ∀ x y : ℝ, x ∈ (Set.univ : Set ℝ) ∧ y ∈ (Set.univ : Set ℝ) -> a * x + b * y + c * z (x,y) = Phi (x^2 + y^2 + (z (x,y))^2))
-  (hz : ∀ x y : ℝ, x ∈ (Set.univ : Set ℝ) ∧ y ∈ (Set.univ : Set ℝ) -> DifferentiableAt ℝ z (x,y))
-  : ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> ∀ y : ℝ, y ∈ (Set.univ : Set ℝ) -> b + c * iteratedDeriv 1 (fun s => z (x,s)) y = iteratedDeriv 1 Phi (x^2 + y^2 + (z (x,y))^2) * (2*y + 2 * z (x,y) * iteratedDeriv 1 (fun s => z (x,s)) y) := by
+    (h21 : ∀ x y : ℝ,
+      a + c * zₓ z x y =
+        Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2) * (2 * x + 2 * z (x, y) * zₓ z x y)) :
+    ∀ x y : ℝ,
+      b + c * zᵧ z x y =
+        Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2) * (2 * y + 2 * z (x, y) * zᵧ z x y) := by
   sorry
 
 theorem proof_gap_exercise_3423_3
-  (Phi : ℝ -> ℝ) (z : ℝ × ℝ -> ℝ) (a b c : ℝ)
-  : ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> ∀ y : ℝ, y ∈ (Set.univ : Set ℝ) ∧ c - 2 * z (x,y) * iteratedDeriv 1 Phi (x^2 + y^2 + (z (x,y))^2) ≠ 0 -> iteratedDeriv 1 (fun s => z (s,y)) x = (2*x*iteratedDeriv 1 Phi (x^2 + y^2 + (z (x,y))^2) - a) /. (c - 2 * z (x,y) * iteratedDeriv 1 Phi (x^2 + y^2 + (z (x,y))^2)) := by
+    (h21 : ∀ x y : ℝ,
+      a + c * zₓ z x y =
+        Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2) * (2 * x + 2 * z (x, y) * zₓ z x y))
+    (h22 : ∀ x y : ℝ,
+      b + c * zᵧ z x y =
+        Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2) * (2 * y + 2 * z (x, y) * zᵧ z x y)) :
+    ∀ x y : ℝ, c - 2 * z (x, y) * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2) ≠ 0 ->
+      zₓ z x y =
+        (2 * x * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2) - a) /.
+          (c - 2 * z (x, y) * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2)) := by
   sorry
 
 theorem proof_gap_exercise_3423_4
-  (Phi : ℝ -> ℝ) (z : ℝ × ℝ -> ℝ) (a b c : ℝ)
-  : ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> ∀ y : ℝ, y ∈ (Set.univ : Set ℝ) ∧ c - 2 * z (x,y) * iteratedDeriv 1 Phi (x^2 + y^2 + (z (x,y))^2) ≠ 0 -> iteratedDeriv 1 (fun s => z (x,s)) y = (2*y*iteratedDeriv 1 Phi (x^2 + y^2 + (z (x,y))^2) - b) /. (c - 2 * z (x,y) * iteratedDeriv 1 Phi (x^2 + y^2 + (z (x,y))^2)) := by
+    (h23 : ∀ x y : ℝ, c - 2 * z (x, y) * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2) ≠ 0 ->
+      zₓ z x y =
+        (2 * x * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2) - a) /.
+          (c - 2 * z (x, y) * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2))) :
+    ∀ x y : ℝ, c - 2 * z (x, y) * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2) ≠ 0 ->
+      zᵧ z x y =
+        (2 * y * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2) - b) /.
+          (c - 2 * z (x, y) * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2)) := by
   sorry
 
 theorem proof_gap_exercise_3423_5
-  (Phi : ℝ -> ℝ) (z : ℝ × ℝ -> ℝ) (a b c : ℝ)
-  : ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> ∀ y : ℝ, y ∈ (Set.univ : Set ℝ) ∧ c - 2 * z (x,y) * iteratedDeriv 1 Phi (x^2 + y^2 + (z (x,y))^2) ≠ 0 -> (c*y - b*z (x,y))*iteratedDeriv 1 (fun s => z (s,y)) x + (a*z (x,y) - c*x)*iteratedDeriv 1 (fun s => z (x,s)) y = (((2*x*iteratedDeriv 1 Phi (x^2 + y^2 + (z (x,y))^2) - a)*(c*y-b*z (x,y)) + (2*y*iteratedDeriv 1 Phi (x^2 + y^2 + (z (x,y))^2)-b)*(a*z (x,y)-c*x)) /. (c - 2*z (x,y)*iteratedDeriv 1 Phi (x^2+y^2+(z (x,y))^2))) := by
+    (h23 : ∀ x y : ℝ, c - 2 * z (x, y) * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2) ≠ 0 ->
+      zₓ z x y =
+        (2 * x * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2) - a) /.
+          (c - 2 * z (x, y) * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2)))
+    (h24 : ∀ x y : ℝ, c - 2 * z (x, y) * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2) ≠ 0 ->
+      zᵧ z x y =
+        (2 * y * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2) - b) /.
+          (c - 2 * z (x, y) * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2))) :
+    ∀ x y : ℝ, c - 2 * z (x, y) * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2) ≠ 0 ->
+      (c * y - b * z (x, y)) * zₓ z x y + (a * z (x, y) - c * x) * zᵧ z x y =
+        (((2 * x * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2) - a) * (c * y - b * z (x, y)) +
+          (2 * y * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2) - b) * (a * z (x, y) - c * x)) /.
+          (c - 2 * z (x, y) * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2))) := by
   sorry
 
 theorem proof_gap_exercise_3423_6
-  (Phi : ℝ -> ℝ) (z : ℝ × ℝ -> ℝ) (a b c : ℝ)
-  : ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> ∀ y : ℝ, y ∈ (Set.univ : Set ℝ) ∧ c - 2 * z (x,y) * iteratedDeriv 1 Phi (x^2 + y^2 + (z (x,y))^2) ≠ 0 -> (((2*x*iteratedDeriv 1 Phi (x^2 + y^2 + (z (x,y))^2) - a)*(c*y-b*z (x,y)) + (2*y*iteratedDeriv 1 Phi (x^2 + y^2 + (z (x,y))^2)-b)*(a*z (x,y)-c*x)) /. (c - 2*z (x,y)*iteratedDeriv 1 Phi (x^2+y^2+(z (x,y))^2))) = b*x - a*y := by
+    (h25 : ∀ x y : ℝ, c - 2 * z (x, y) * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2) ≠ 0 ->
+      (c * y - b * z (x, y)) * zₓ z x y + (a * z (x, y) - c * x) * zᵧ z x y =
+        (((2 * x * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2) - a) * (c * y - b * z (x, y)) +
+          (2 * y * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2) - b) * (a * z (x, y) - c * x)) /.
+          (c - 2 * z (x, y) * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2)))) :
+    ∀ x y : ℝ, c - 2 * z (x, y) * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2) ≠ 0 ->
+      (((2 * x * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2) - a) * (c * y - b * z (x, y)) +
+        (2 * y * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2) - b) * (a * z (x, y) - c * x)) /.
+        (c - 2 * z (x, y) * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2))) = b * x - a * y := by
   sorry
 
 theorem proof_gap_exercise_3423_7
-  (Phi : ℝ -> ℝ) (z : ℝ × ℝ -> ℝ) (a b c x3 y3 z3 : ℝ)
-  : ∀ P3 : ℝ × ℝ × ℝ, P3 ∈ (Set.univ : Set (ℝ × ℝ × ℝ)) ∧ P3 = (x3,y3,z3) -> (iteratedDeriv 1 (fun s => z (s,y3)) x3) * (c*y3 - b*z3) + (iteratedDeriv 1 (fun s => z (x3,s)) y3) * (a*z3 - c*x3) - (b*x3 - a*y3) = 0 := by
+    (h26 : ∀ x y : ℝ, c - 2 * z (x, y) * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2) ≠ 0 ->
+      (((2 * x * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2) - a) * (c * y - b * z (x, y)) +
+        (2 * y * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2) - b) * (a * z (x, y) - c * x)) /.
+        (c - 2 * z (x, y) * Phi' Phi (x ^ 2 + y ^ 2 + z (x, y) ^ 2))) = b * x - a * y) :
+    ∀ P₃ : ℝ × ℝ × ℝ, P₃ = (x₃, y₃, z₃) ->
+      dot3 (zₓ z x₃ y₃, zᵧ z x₃ y₃, -1) (c * y₃ - b * z₃, a * z₃ - c * x₃, b * x₃ - a * y₃) = 0 := by
   sorry
 
 theorem proof_gap_exercise_3423_8
-  (Phi : ℝ -> ℝ) (z : ℝ × ℝ -> ℝ) (a b c x3 y3 z3 d : ℝ)
-  (Pi S C Surface3 : Set (ℝ × ℝ × ℝ))
-  : ∀ P3 : ℝ × ℝ × ℝ, P3 ∈ (Set.univ : Set (ℝ × ℝ × ℝ)) ∧ P3 = (x3,y3,z3) -> d = Phi (d^2) := by
+    (h27 : ∀ P₃ : ℝ × ℝ × ℝ, P₃ = (x₃, y₃, z₃) ->
+      dot3 (zₓ z x₃ y₃, zᵧ z x₃ y₃, -1) (c * y₃ - b * z₃, a * z₃ - c * x₃, b * x₃ - a * y₃) = 0)
+    (hPi : ∀ P₃ : ℝ × ℝ × ℝ, P₃ = (x₃, y₃, z₃) -> Pi = plane a b c d)
+    (hS : ∀ P₃ : ℝ × ℝ × ℝ, P₃ = (x₃, y₃, z₃) -> S = sphere d)
+    (hC : ∀ P₃ : ℝ × ℝ × ℝ, P₃ = (x₃, y₃, z₃) -> C = Pi ∩ S) :
+    ∀ P₃ : ℝ × ℝ × ℝ, P₃ = (x₃, y₃, z₃) -> d = Phi (d ^ 2) := by
   sorry
 
 theorem proof_gap_exercise_3423_9
-  (Phi : ℝ -> ℝ) (z : ℝ × ℝ -> ℝ) (a b c x3 y3 z3 d : ℝ)
-  (Pi S C Surface3 : Set (ℝ × ℝ × ℝ))
-  : ∀ P3 : ℝ × ℝ × ℝ, P3 ∈ (Set.univ : Set (ℝ × ℝ × ℝ)) ∧ P3 = (x3,y3,z3) -> ∀ P : ℝ × ℝ × ℝ, P ∈ (Set.univ : Set (ℝ × ℝ × ℝ)) ∧ C ⊆ (Set.univ : Set (ℝ × ℝ × ℝ)) ∧ P ∈ C -> P ∈ Surface3 := by
+    (h32 : ∀ P₃ : ℝ × ℝ × ℝ, P₃ = (x₃, y₃, z₃) -> d = Phi (d ^ 2)) :
+    ∀ P₃ : ℝ × ℝ × ℝ, P₃ = (x₃, y₃, z₃) -> ∀ P : ℝ × ℝ × ℝ, P ∈ C -> P ∈ Surface₃ := by
   sorry
 
 theorem proof_gap_exercise_3423_10
-  (Phi : ℝ -> ℝ) (z : ℝ × ℝ -> ℝ) (a b c x3 y3 z3 d : ℝ)
-  (Pi S C Surface3 CircleCurve : Set (ℝ × ℝ × ℝ))
-  : ∀ P3 : ℝ × ℝ × ℝ, P3 ∈ (Set.univ : Set (ℝ × ℝ × ℝ)) ∧ P3 = (x3,y3,z3) -> C = CircleCurve := by
+    (h33 : ∀ P₃ : ℝ × ℝ × ℝ, P₃ = (x₃, y₃, z₃) -> ∀ P : ℝ × ℝ × ℝ, P ∈ C -> P ∈ Surface₃) :
+    ∀ P₃ : ℝ × ℝ × ℝ, P₃ = (x₃, y₃, z₃) -> C = CircleCurve := by
   sorry
 
 theorem proof_gap_exercise_3423_11
-  (Phi : ℝ -> ℝ) (z : ℝ × ℝ -> ℝ) (a b c : ℝ)
-  (Surface3 : Set (ℝ × ℝ × ℝ))
-  (RotationSurfaceWithAxis : Set (ℝ × ℝ × ℝ) -> Set (Set (ℝ × ℝ × ℝ)))
-  : Surface3 ∈ RotationSurfaceWithAxis ({p : ℝ × ℝ × ℝ | (p.1 /. a) = (p.2.1 /. b) ∧ (p.2.1 /. b) = (p.2.2 /. c)}) := by
+    (h34 : ∀ P₃ : ℝ × ℝ × ℝ, P₃ = (x₃, y₃, z₃) -> C = CircleCurve) :
+    Surface₃ = RotationSurfaceWithAxis (axisLine a b c) := by
   sorry
 
 theorem proof_gap_exercise_3423_12
-  (Phi : ℝ -> ℝ) (z : ℝ × ℝ -> ℝ) (a b c : ℝ)
-  : ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> ∀ y : ℝ, y ∈ (Set.univ : Set ℝ) -> (c*y - b*z (x,y))*iteratedDeriv 1 (fun s => z (s,y)) x + (a*z (x,y)-c*x)*iteratedDeriv 1 (fun s => z (x,s)) y = b*x - a*y := by
+    (h35 : Surface₃ = RotationSurfaceWithAxis (axisLine a b c)) :
+    ∀ x y : ℝ,
+      (c * y - b * z (x, y)) * zₓ z x y + (a * z (x, y) - c * x) * zᵧ z x y = b * x - a * y := by
   sorry
+
+end exercise_3423

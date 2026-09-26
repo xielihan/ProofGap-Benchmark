@@ -8,11 +8,12 @@ abbrev RealSet := Set ℝ
 def PosRealSet : Set ℝ := {x | 0 < x}
 def IntervalLoRo (a b : ℝ) : Set ℝ := {x | a < x ∧ x < b}
 
-axiom FunDeri : (ℝ → ℝ) → ℕ → ℕ → ℝ → ℝ
-axiom DiffableFuncOn : (ℝ → ℝ) → Set ℝ → Prop
-axiom AntiderivativeClass : (ℝ → ℝ) → Set ℝ → Set (ℝ → ℝ)
+def FunDeri (f : ℝ → ℝ) (_ n : ℕ) : ℝ → ℝ := Nat.iterate deriv n f
+def DiffableFuncOn (f : ℝ → ℝ) (s : Set ℝ) : Prop := DifferentiableOn ℝ f s
+def AntiderivativeClass (g : ℝ → ℝ) (s : Set ℝ) : Set (ℝ → ℝ) :=
+  {F | DiffableFuncOn F s ∧ ∀ x : ℝ, x ∈ s → HasDerivAt F (g x) x}
 
--- Exercise 2178, gap 1
+-- Source: proofgap/exercise_2178/1.txt
 theorem proof_gap_exercise_2178_1
     (f : ℝ → ℝ) (C : ℝ)
     (hf : f ∈ (Set.univ : Set (ℝ → ℝ)) ∧ DiffableFuncOn f PosRealSet)
@@ -23,7 +24,7 @@ theorem proof_gap_exercise_2178_1
       FunDeri f 1 1 x = 1 / Real.sqrt x := by
   sorry
 
--- Exercise 2178, gap 2
+-- Source: proofgap/exercise_2178/2.txt
 theorem proof_gap_exercise_2178_2
     (f : ℝ → ℝ) (C : ℝ)
     (hf : f ∈ (Set.univ : Set (ℝ → ℝ)) ∧ DiffableFuncOn f PosRealSet)
@@ -43,7 +44,7 @@ theorem proof_gap_exercise_2178_2
               F x = 2 * Real.sqrt x + C} := by
   sorry
 
--- Exercise 2178, gap 3
+-- Source: proofgap/exercise_2178/3.txt
 theorem proof_gap_exercise_2178_3
     (f : ℝ → ℝ) (C : ℝ)
     (hf : f ∈ (Set.univ : Set (ℝ → ℝ)) ∧ DiffableFuncOn f PosRealSet)

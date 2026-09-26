@@ -3,14 +3,15 @@ import Mathlib
 set_option linter.style.longLine false
 
 open scoped BigOperators Topology
-open Filter
+open Filter MeasureTheory
 
 local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
 
 noncomputable abbrev DefInt0Inf (f : ℝ -> ℝ) : ℝ := ∫ x in Set.Ioi (0 : ℝ), f x
 noncomputable abbrev FunDeri (f : ℝ -> ℝ) (_dir order : ℕ) (x : ℝ) : ℝ := iteratedDeriv order f x
-abbrev UniformConvergentOn (_F : ℝ -> ℝ) (_s : Set ℝ) (_g : ℝ -> ℝ) : Prop := True
-abbrev ConvergentIntegral (_v : ℝ) : Prop := True
+abbrev UniformConvergentOn (F : ℝ -> ℝ) (s : Set ℝ) (g : ℝ -> ℝ) : Prop :=
+  ∀ ε : ℝ, 0 < ε -> ∃ A : ℝ, ∀ α ∈ s, ∀ x : ℝ, A ≤ x -> |F α - g α| < ε
+abbrev ConvergentIntegral0Inf (f : ℝ -> ℝ) : Prop := IntegrableOn f (Set.Ioi (0 : ℝ)) volume
 
 -- exercise: exercise_3787
 
@@ -48,7 +49,7 @@ theorem proof_gap_exercise_3787_4
 theorem proof_gap_exercise_3787_5
   (F : ℝ -> ℝ) :
   ∀ α0 : ℝ, ∃ M : ℝ, M = max |α0 - 1| |α0 + 1| ∧
-    ConvergentIntegral (DefInt0Inf (fun x => 1 /. (1 + (x - M) ^ 2))) := by
+    ConvergentIntegral0Inf (fun x => 1 /. (1 + (x - M) ^ 2)) := by
   sorry
 
 theorem proof_gap_exercise_3787_6
@@ -77,15 +78,15 @@ theorem proof_gap_exercise_3787_9
 
 theorem proof_gap_exercise_3787_10
   (F : ℝ -> ℝ) :
-  ContinuousOn F Set.univ := by
+  ∀ α : ℝ, ContinuousAt F α := by
   sorry
 
 theorem proof_gap_exercise_3787_11
   (F : ℝ -> ℝ) :
-  DifferentiableOn ℝ F Set.univ := by
+  ∀ α : ℝ, DifferentiableAt ℝ F α := by
   sorry
 
 theorem proof_gap_exercise_3787_12
   (F : ℝ -> ℝ) :
-  ContinuousOn F Set.univ ∧ DifferentiableOn ℝ F Set.univ := by
+  (∀ α : ℝ, ContinuousAt F α) ∧ (∀ α : ℝ, DifferentiableAt ℝ F α) := by
   sorry

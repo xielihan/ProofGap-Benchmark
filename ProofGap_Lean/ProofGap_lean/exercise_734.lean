@@ -1,12 +1,9 @@
 import Mathlib
 
 -- exercise: exercise_734
--- Regenerated from proofgap by the current printer.
--- Lean generation failed for gaps: none
--- Last gap: 17; compilation status: passed
--- Classification concerns only the last gap compilation, not every gap below.
+-- Regenerated for Lean 4.29.0-rc6 / Mathlib 5c8398d.
 
--- Exercise 734, gap 1
+-- Source: proofgap/exercise_734/1.txt
 namespace regenerated_exercise_734_gap_1
 
 attribute [local instance] Classical.propDecidable
@@ -54,13 +51,14 @@ noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : �
 theorem proof_gap_exercise_734_1
   (v_uCF_u87 : (ℝ -> ℝ))
   (f : (ℕ × (ℕ × ℝ) -> ℝ))
-  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => atTop.limUnder (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
+  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => limUnder atTop (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
   (h2 : (forall (m : ℕ) (n : ℕ) (x : ℝ), ((((m ∈ ({n_1 : ℕ | 0 < n_1})) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (x ∈ (Set.univ : Set ℝ))) → ((f (m, (n, x))) = ((Real.cos ((Real.pi * (m)!) * x)) ^ n)))))
   : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), (((q ∈ (Set.univ : Set ℤ)) ∧ (x = (q /. p))) ∧ (p ∈ (Set.univ : Set ℤ)))))) := by
   sorry
+
 end regenerated_exercise_734_gap_1
 
--- Exercise 734, gap 2
+-- Source: proofgap/exercise_734/2.txt
 namespace regenerated_exercise_734_gap_2
 
 attribute [local instance] Classical.propDecidable
@@ -108,14 +106,15 @@ noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : �
 theorem proof_gap_exercise_734_2
   (v_uCF_u87 : (ℝ -> ℝ))
   (f : (ℕ × (ℕ × ℝ) -> ℝ))
-  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => atTop.limUnder (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
+  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => limUnder atTop (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
   (h2 : (forall (m : ℕ) (n : ℕ) (x : ℝ), ((((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (m ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (x ∈ (Set.univ : Set ℝ))) → ((f (m, (n, x))) = ((Real.cos ((Real.pi * (m)!) * x)) ^ n)))))
   (h3 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), (((q ∈ (Set.univ : Set ℤ)) ∧ (x = (q /. p))) ∧ (p ∈ (Set.univ : Set ℤ)))))))
   : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), (((p ∈ (Set.univ : Set ℤ)) ∧ (x = (q /. p))) ∧ (q ∈ (Set.univ : Set ℤ)))))) := by
   sorry
+
 end regenerated_exercise_734_gap_2
 
--- Exercise 734, gap 3
+-- Source: proofgap/exercise_734/3.txt
 namespace regenerated_exercise_734_gap_3
 
 attribute [local instance] Classical.propDecidable
@@ -163,15 +162,16 @@ noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : �
 theorem proof_gap_exercise_734_3
   (v_uCF_u87 : (ℝ -> ℝ))
   (f : (ℕ × (ℕ × ℝ) -> ℝ))
-  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => atTop.limUnder (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
+  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => limUnder atTop (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
   (h2 : (forall (m : ℕ) (n : ℕ) (x : ℝ), ((((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (m ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (x ∈ (Set.univ : Set ℝ))) → ((f (m, (n, x))) = ((Real.cos ((Real.pi * (m)!) * x)) ^ n)))))
   (h3 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), (((q ∈ (Set.univ : Set ℤ)) ∧ (x = (q /. p))) ∧ (p ∈ (Set.univ : Set ℤ)))))))
   (h4 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), (((p ∈ (Set.univ : Set ℤ)) ∧ (x = (q /. p))) ∧ (q ∈ (Set.univ : Set ℤ)))))))
   : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), ((((q ∈ (Set.univ : Set ℤ)) ∧ (p ∈ (Set.univ : Set ℤ))) ∧ (x = (q /. p))) ∧ (p ≠ 0))))) := by
   sorry
+
 end regenerated_exercise_734_gap_3
 
--- Exercise 734, gap 4
+-- Source: proofgap/exercise_734/4.txt
 namespace regenerated_exercise_734_gap_4
 
 attribute [local instance] Classical.propDecidable
@@ -219,16 +219,17 @@ noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : �
 theorem proof_gap_exercise_734_4
   (v_uCF_u87 : (ℝ -> ℝ))
   (f : (ℕ × (ℕ × ℝ) -> ℝ))
-  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => atTop.limUnder (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
+  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => limUnder atTop (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
   (h2 : (forall (m : ℕ) (n : ℕ) (x : ℝ), ((((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (m ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (x ∈ (Set.univ : Set ℝ))) → ((f (m, (n, x))) = ((Real.cos ((Real.pi * (m)!) * x)) ^ n)))))
   (h3 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), (((q ∈ (Set.univ : Set ℤ)) ∧ (x = (q /. p))) ∧ (p ∈ (Set.univ : Set ℤ)))))))
   (h4 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), (((p ∈ (Set.univ : Set ℤ)) ∧ (x = (q /. p))) ∧ (q ∈ (Set.univ : Set ℤ)))))))
   (h5 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), ((((q ∈ (Set.univ : Set ℤ)) ∧ (p ∈ (Set.univ : Set ℤ))) ∧ (x = (q /. p))) ∧ (p ≠ 0))))))
   : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), ((((q ∈ (Set.univ : Set ℤ)) ∧ (p ∈ (Set.univ : Set ℤ))) ∧ (x = (q /. p))) ∧ (q ≠ 0))))) := by
   sorry
+
 end regenerated_exercise_734_gap_4
 
--- Exercise 734, gap 5
+-- Source: proofgap/exercise_734/5.txt
 namespace regenerated_exercise_734_gap_5
 
 attribute [local instance] Classical.propDecidable
@@ -276,7 +277,7 @@ noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : �
 theorem proof_gap_exercise_734_5
   (v_uCF_u87 : (ℝ -> ℝ))
   (f : (ℕ × (ℕ × ℝ) -> ℝ))
-  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => atTop.limUnder (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
+  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => limUnder atTop (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
   (h2 : (forall (m : ℕ) (n : ℕ) (x : ℝ), ((((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (m ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (x ∈ (Set.univ : Set ℝ))) → ((f (m, (n, x))) = ((Real.cos ((Real.pi * (m)!) * x)) ^ n)))))
   (h3 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), (((q ∈ (Set.univ : Set ℤ)) ∧ (x = (q /. p))) ∧ (p ∈ (Set.univ : Set ℤ)))))))
   (h4 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), (((p ∈ (Set.univ : Set ℤ)) ∧ (x = (q /. p))) ∧ (q ∈ (Set.univ : Set ℤ)))))))
@@ -284,9 +285,10 @@ theorem proof_gap_exercise_734_5
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), ((((q ∈ (Set.univ : Set ℤ)) ∧ (p ∈ (Set.univ : Set ℤ))) ∧ (x = (q /. p))) ∧ (q ≠ 0))))))
   : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), ((((q ∈ (Set.univ : Set ℤ)) ∧ (p ∈ (Set.univ : Set ℤ))) ∧ (x = (q /. p))) ∧ ((Int.gcd p q) = 1))))) := by
   sorry
+
 end regenerated_exercise_734_gap_5
 
--- Exercise 734, gap 6
+-- Source: proofgap/exercise_734/6.txt
 namespace regenerated_exercise_734_gap_6
 
 attribute [local instance] Classical.propDecidable
@@ -334,7 +336,7 @@ noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : �
 theorem proof_gap_exercise_734_6
   (v_uCF_u87 : (ℝ -> ℝ))
   (f : (ℕ × (ℕ × ℝ) -> ℝ))
-  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => atTop.limUnder (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
+  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => limUnder atTop (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
   (h2 : (forall (m : ℕ) (n : ℕ) (x : ℝ), ((((m ∈ ({n_1 : ℕ | 0 < n_1})) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (x ∈ (Set.univ : Set ℝ))) → ((f (m, (n, x))) = ((Real.cos ((Real.pi * (m)!) * x)) ^ n)))))
   (h3 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), ((((q ∈ (Set.univ : Set ℤ)) ∧ (x = (q /. p))) ∧ (p ∈ (Set.univ : Set ℤ))) ∧ (p ≠ 0))))))
   (h4 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), ((((p ∈ (Set.univ : Set ℤ)) ∧ (p ≠ 0)) ∧ (x = (q /. p))) ∧ (q ∈ (Set.univ : Set ℤ)))))))
@@ -343,9 +345,10 @@ theorem proof_gap_exercise_734_6
   (h7 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), ((((q ∈ (Set.univ : Set ℤ)) ∧ (p ∈ (Set.univ : Set ℤ))) ∧ (x = (q /. p))) ∧ ((Int.gcd p q) = 1))))))
   : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℕ) (m : ℕ) (n : ℕ), ((((((((q ∈ (Set.univ : Set ℤ)) ∧ (p ∈ (Set.univ : Set ℕ))) ∧ (m ∈ (Set.univ : Set ℕ))) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x = (q /. p))) ∧ (m > p)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ ((f (m, (n, x))) = 1))))) := by
   sorry
+
 end regenerated_exercise_734_gap_6
 
--- Exercise 734, gap 7
+-- Source: proofgap/exercise_734/7.txt
 namespace regenerated_exercise_734_gap_7
 
 attribute [local instance] Classical.propDecidable
@@ -393,7 +396,7 @@ noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : �
 theorem proof_gap_exercise_734_7
   (v_uCF_u87 : (ℝ -> ℝ))
   (f : (ℕ × (ℕ × ℝ) -> ℝ))
-  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => atTop.limUnder (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
+  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => limUnder atTop (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
   (h2 : (forall (m : ℕ) (n : ℕ) (x : ℝ), ((((m ∈ ({n_1 : ℕ | 0 < n_1})) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (x ∈ (Set.univ : Set ℝ))) → ((f (m, (n, x))) = ((Real.cos ((Real.pi * (m)!) * x)) ^ n)))))
   (h3 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), ((((q ∈ (Set.univ : Set ℤ)) ∧ (x = (q /. p))) ∧ (p ∈ (Set.univ : Set ℤ))) ∧ (p ≠ 0))))))
   (h4 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), ((((p ∈ (Set.univ : Set ℤ)) ∧ (p ≠ 0)) ∧ (x = (q /. p))) ∧ (q ∈ (Set.univ : Set ℤ)))))))
@@ -403,9 +406,10 @@ theorem proof_gap_exercise_734_7
   (h8 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℕ) (m : ℕ) (n : ℕ), (((((((q ∈ (Set.univ : Set ℤ)) ∧ (p ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (m ∈ (Set.univ : Set ℕ))) ∧ (x = (q /. p))) ∧ (m > p)) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ ((f (m, (n, x))) = 1))))))
   : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℕ) (m : ℕ), ((((((q ∈ (Set.univ : Set ℤ)) ∧ (p ∈ (Set.univ : Set ℕ))) ∧ (m ∈ (Set.univ : Set ℕ))) ∧ (x = (q /. p))) ∧ (m > p)) ∧ ((v_uCF_u87 x) = 1))))) := by
   sorry
+
 end regenerated_exercise_734_gap_7
 
--- Exercise 734, gap 8
+-- Source: proofgap/exercise_734/8.txt
 namespace regenerated_exercise_734_gap_8
 
 attribute [local instance] Classical.propDecidable
@@ -453,7 +457,7 @@ noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : �
 theorem proof_gap_exercise_734_8
   (v_uCF_u87 : (ℝ -> ℝ))
   (f : (ℕ × (ℕ × ℝ) -> ℝ))
-  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => atTop.limUnder (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
+  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => limUnder atTop (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
   (h2 : (forall (m : ℕ) (n : ℕ) (x : ℝ), ((((m ∈ ({n_1 : ℕ | 0 < n_1})) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (x ∈ (Set.univ : Set ℝ))) → ((f (m, (n, x))) = ((Real.cos ((Real.pi * (m)!) * x)) ^ n)))))
   (h3 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), ((((q ∈ (Set.univ : Set ℤ)) ∧ (x = (q /. p))) ∧ (p ∈ (Set.univ : Set ℤ))) ∧ (p ≠ 0))))))
   (h4 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), ((((p ∈ (Set.univ : Set ℤ)) ∧ (p ≠ 0)) ∧ (x = (q /. p))) ∧ (q ∈ (Set.univ : Set ℤ)))))))
@@ -464,9 +468,10 @@ theorem proof_gap_exercise_734_8
   (h9 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℕ) (m : ℕ), ((((((q ∈ (Set.univ : Set ℤ)) ∧ (p ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (m ∈ (Set.univ : Set ℕ))) ∧ (x = (q /. p))) ∧ (m > p)) ∧ ((v_uCF_u87 x) = 1))))))
   : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∉ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (forall (m : ℕ), (((m ∈ (Set.univ : Set ℕ)) ∧ (m ∈ ({n_1 : ℕ | 0 < n_1}))) → (|((Real.cos ((Real.pi * (m)!) * x)))| < 1))))) := by
   sorry
+
 end regenerated_exercise_734_gap_8
 
--- Exercise 734, gap 9
+-- Source: proofgap/exercise_734/9.txt
 namespace regenerated_exercise_734_gap_9
 
 attribute [local instance] Classical.propDecidable
@@ -514,7 +519,7 @@ noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : �
 theorem proof_gap_exercise_734_9
   (v_uCF_u87 : (ℝ -> ℝ))
   (f : (ℕ × (ℕ × ℝ) -> ℝ))
-  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => atTop.limUnder (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
+  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => limUnder atTop (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
   (h2 : (forall (m : ℕ) (n : ℕ) (x : ℝ), ((((m ∈ ({n_1 : ℕ | 0 < n_1})) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (x ∈ (Set.univ : Set ℝ))) → ((f (m, (n, x))) = ((Real.cos ((Real.pi * (m)!) * x)) ^ n)))))
   (h3 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), ((((q ∈ (Set.univ : Set ℤ)) ∧ (x = (q /. p))) ∧ (p ∈ (Set.univ : Set ℤ))) ∧ (p ≠ 0))))))
   (h4 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), ((((p ∈ (Set.univ : Set ℤ)) ∧ (p ≠ 0)) ∧ (x = (q /. p))) ∧ (q ∈ (Set.univ : Set ℤ)))))))
@@ -526,9 +531,10 @@ theorem proof_gap_exercise_734_9
   (h10 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∉ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (forall (m : ℕ), ((m ∈ ({n_1 : ℕ | 0 < n_1})) → (|((Real.cos ((Real.pi * (m)!) * x)))| < 1))))))
   : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∉ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (forall (m : ℕ), (((m ∈ (Set.univ : Set ℕ)) ∧ (m ∈ ({n_1 : ℕ | 0 < n_1}))) → (Tendsto (fun n : ℕ => (Real.rpow (Real.cos ((Real.pi * (m)!) * x)) n)) atTop (𝓝 0)))))) := by
   sorry
+
 end regenerated_exercise_734_gap_9
 
--- Exercise 734, gap 10
+-- Source: proofgap/exercise_734/10.txt
 namespace regenerated_exercise_734_gap_10
 
 attribute [local instance] Classical.propDecidable
@@ -576,7 +582,7 @@ noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : �
 theorem proof_gap_exercise_734_10
   (v_uCF_u87 : (ℝ -> ℝ))
   (f : (ℕ × (ℕ × ℝ) -> ℝ))
-  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => atTop.limUnder (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
+  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => limUnder atTop (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
   (h2 : (forall (m : ℕ) (n : ℕ) (x : ℝ), ((((m ∈ ({n_1 : ℕ | 0 < n_1})) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (x ∈ (Set.univ : Set ℝ))) → ((f (m, (n, x))) = ((Real.cos ((Real.pi * (m)!) * x)) ^ n)))))
   (h3 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), ((((q ∈ (Set.univ : Set ℤ)) ∧ (x = (q /. p))) ∧ (p ∈ (Set.univ : Set ℤ))) ∧ (p ≠ 0))))))
   (h4 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), ((((p ∈ (Set.univ : Set ℤ)) ∧ (p ≠ 0)) ∧ (x = (q /. p))) ∧ (q ∈ (Set.univ : Set ℤ)))))))
@@ -589,9 +595,10 @@ theorem proof_gap_exercise_734_10
   (h11 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∉ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (forall (m : ℕ), ((m ∈ ({n_1 : ℕ | 0 < n_1})) → (Tendsto (fun n : ℕ => (Real.rpow (Real.cos ((Real.pi * (m)!) * x)) n)) atTop (𝓝 0)))))))
   : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∉ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → ((v_uCF_u87 x) = 0))) := by
   sorry
+
 end regenerated_exercise_734_gap_10
 
--- Exercise 734, gap 11
+-- Source: proofgap/exercise_734/11.txt
 namespace regenerated_exercise_734_gap_11
 
 attribute [local instance] Classical.propDecidable
@@ -639,7 +646,7 @@ noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : �
 theorem proof_gap_exercise_734_11
   (v_uCF_u87 : (ℝ -> ℝ))
   (f : (ℕ × (ℕ × ℝ) -> ℝ))
-  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => atTop.limUnder (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
+  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => limUnder atTop (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
   (h2 : (forall (m : ℕ) (n : ℕ) (x : ℝ), ((((m ∈ ({n_1 : ℕ | 0 < n_1})) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (x ∈ (Set.univ : Set ℝ))) → ((f (m, (n, x))) = ((Real.cos ((Real.pi * (m)!) * x)) ^ n)))))
   (h3 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), ((((q ∈ (Set.univ : Set ℤ)) ∧ (x = (q /. p))) ∧ (p ∈ (Set.univ : Set ℤ))) ∧ (p ≠ 0))))))
   (h4 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), ((((p ∈ (Set.univ : Set ℤ)) ∧ (p ≠ 0)) ∧ (x = (q /. p))) ∧ (q ∈ (Set.univ : Set ℤ)))))))
@@ -653,9 +660,10 @@ theorem proof_gap_exercise_734_11
   (h12 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∉ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → ((v_uCF_u87 x) = 0))))
   : (forall (x : ℝ), ((x ∈ (Set.univ : Set ℝ)) → ((v_uCF_u87 x) = (if (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1})) then 1 else (if ((x ∈ (Set.univ : Set ℝ)) ∧ (x ∉ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) then 0 else 0))))) := by
   sorry
+
 end regenerated_exercise_734_gap_11
 
--- Exercise 734, gap 12
+-- Source: proofgap/exercise_734/12.txt
 namespace regenerated_exercise_734_gap_12
 
 attribute [local instance] Classical.propDecidable
@@ -703,7 +711,7 @@ noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : �
 theorem proof_gap_exercise_734_12
   (v_uCF_u87 : (ℝ -> ℝ))
   (f : (ℕ × (ℕ × ℝ) -> ℝ))
-  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => atTop.limUnder (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
+  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => limUnder atTop (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
   (h2 : (forall (m : ℕ) (n : ℕ) (x : ℝ), ((((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (m ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (x ∈ (Set.univ : Set ℝ))) → ((f (m, (n, x))) = ((Real.cos ((Real.pi * (m)!) * x)) ^ n)))))
   (h3 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), (((q ∈ (Set.univ : Set ℤ)) ∧ (x = (q /. p))) ∧ (p ∈ (Set.univ : Set ℤ)))))))
   (h4 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), (((p ∈ (Set.univ : Set ℤ)) ∧ (x = (q /. p))) ∧ (q ∈ (Set.univ : Set ℤ)))))))
@@ -718,9 +726,10 @@ theorem proof_gap_exercise_734_12
   (h13 : (forall (x : ℝ), ((x ∈ (Set.univ : Set ℝ)) → ((v_uCF_u87 x) = (if (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1})) then 1 else (if ((x ∈ (Set.univ : Set ℝ)) ∧ (x ∉ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) then 0 else 0))))))
   : (forall (a : ℝ), ((a ∈ (Set.univ : Set ℝ)) → (forall (v_uCE_uB5 : ℝ), (((v_uCE_uB5 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB5 > 0)) → (exists (r : ℝ), ((((r ∈ (Set.univ : Set ℝ)) ∧ (r ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) ∧ (|((r - a))| < v_uCE_uB5)) ∧ ((v_uCF_u87 r) = 1))))))) := by
   sorry
+
 end regenerated_exercise_734_gap_12
 
--- Exercise 734, gap 13
+-- Source: proofgap/exercise_734/13.txt
 namespace regenerated_exercise_734_gap_13
 
 attribute [local instance] Classical.propDecidable
@@ -768,7 +777,7 @@ noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : �
 theorem proof_gap_exercise_734_13
   (v_uCF_u87 : (ℝ -> ℝ))
   (f : (ℕ × (ℕ × ℝ) -> ℝ))
-  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => atTop.limUnder (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
+  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => limUnder atTop (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
   (h2 : (forall (m : ℕ) (n : ℕ) (x : ℝ), ((((m ∈ ({n_1 : ℕ | 0 < n_1})) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (x ∈ (Set.univ : Set ℝ))) → ((f (m, (n, x))) = ((Real.cos ((Real.pi * (m)!) * x)) ^ n)))))
   (h3 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), ((((q ∈ (Set.univ : Set ℤ)) ∧ (x = (q /. p))) ∧ (p ∈ (Set.univ : Set ℤ))) ∧ (p ≠ 0))))))
   (h4 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), ((((p ∈ (Set.univ : Set ℤ)) ∧ (p ≠ 0)) ∧ (x = (q /. p))) ∧ (q ∈ (Set.univ : Set ℤ)))))))
@@ -784,9 +793,10 @@ theorem proof_gap_exercise_734_13
   (h14 : (forall (a : ℝ), ((a ∈ (Set.univ : Set ℝ)) → (forall (v_uCE_uB5 : ℝ), (((v_uCE_uB5 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB5 > 0)) → (exists (r : ℝ), ((((r ∈ (Set.univ : Set ℝ)) ∧ (r ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) ∧ (|((r - a))| < v_uCE_uB5)) ∧ ((v_uCF_u87 r) = 1))))))))
   : (forall (a : ℝ), ((a ∈ (Set.univ : Set ℝ)) → (forall (v_uCE_uB5 : ℝ), (((v_uCE_uB5 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB5 > 0)) → (exists (s : ℝ), ((((s ∈ (Set.univ : Set ℝ)) ∧ (s ∉ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) ∧ (|((s - a))| < v_uCE_uB5)) ∧ ((v_uCF_u87 s) = 0))))))) := by
   sorry
+
 end regenerated_exercise_734_gap_13
 
--- Exercise 734, gap 14
+-- Source: proofgap/exercise_734/14.txt
 namespace regenerated_exercise_734_gap_14
 
 attribute [local instance] Classical.propDecidable
@@ -834,7 +844,7 @@ noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : �
 theorem proof_gap_exercise_734_14
   (v_uCF_u87 : (ℝ -> ℝ))
   (f : (ℕ × (ℕ × ℝ) -> ℝ))
-  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L_1 : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L_1) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => atTop.limUnder (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
+  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L_1 : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L_1) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => limUnder atTop (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
   (h2 : (forall (m : ℕ) (n : ℕ) (x : ℝ), ((((m ∈ ({n_1 : ℕ | 0 < n_1})) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (x ∈ (Set.univ : Set ℝ))) → ((f (m, (n, x))) = ((Real.cos ((Real.pi * (m)!) * x)) ^ n)))))
   (h3 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), ((((q ∈ (Set.univ : Set ℤ)) ∧ (x = (q /. p))) ∧ (p ∈ (Set.univ : Set ℤ))) ∧ (p ≠ 0))))))
   (h4 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), ((((p ∈ (Set.univ : Set ℤ)) ∧ (p ≠ 0)) ∧ (x = (q /. p))) ∧ (q ∈ (Set.univ : Set ℤ)))))))
@@ -851,9 +861,10 @@ theorem proof_gap_exercise_734_14
   (h15 : (forall (a : ℝ), ((a ∈ (Set.univ : Set ℝ)) → (forall (v_uCE_uB5 : ℝ), (((v_uCE_uB5 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB5 > 0)) → (exists (s : ℝ), ((((s ∈ (Set.univ : Set ℝ)) ∧ (s ∉ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) ∧ (|((s - a))| < v_uCE_uB5)) ∧ ((v_uCF_u87 s) = 0))))))))
   : (forall (a : ℝ), ((a ∈ (Set.univ : Set ℝ)) → (Not (exists (L : ℝ), ((L ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun x : ℝ => (v_uCF_u87 x)) (𝓝[≠] a) (𝓝 L))))))) := by
   sorry
+
 end regenerated_exercise_734_gap_14
 
--- Exercise 734, gap 15
+-- Source: proofgap/exercise_734/15.txt
 namespace regenerated_exercise_734_gap_15
 
 attribute [local instance] Classical.propDecidable
@@ -901,7 +912,7 @@ noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : �
 theorem proof_gap_exercise_734_15
   (v_uCF_u87 : (ℝ -> ℝ))
   (f : (ℕ × (ℕ × ℝ) -> ℝ))
-  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L_1 : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L_1) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => atTop.limUnder (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
+  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L_1 : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L_1) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => limUnder atTop (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
   (h2 : (forall (m : ℕ) (n : ℕ) (x : ℝ), ((((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (m ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (x ∈ (Set.univ : Set ℝ))) → ((f (m, (n, x))) = ((Real.cos ((Real.pi * (m)!) * x)) ^ n)))))
   (h3 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), (((q ∈ (Set.univ : Set ℤ)) ∧ (x = (q /. p))) ∧ (p ∈ (Set.univ : Set ℤ)))))))
   (h4 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), (((p ∈ (Set.univ : Set ℤ)) ∧ (x = (q /. p))) ∧ (q ∈ (Set.univ : Set ℤ)))))))
@@ -919,9 +930,10 @@ theorem proof_gap_exercise_734_15
   (h16 : (forall (a : ℝ), ((a ∈ (Set.univ : Set ℝ)) → (Not (exists (L : ℝ), ((L ∈ (Set.univ : Set ℝ)) ∧ (Tendsto (fun x : ℝ => (v_uCF_u87 x)) (𝓝[≠] a) (𝓝 L))))))))
   : (forall (a : ℝ), ((a ∈ (Set.univ : Set ℝ)) → (Not (ContinuousAt v_uCF_u87 a)))) := by
   sorry
+
 end regenerated_exercise_734_gap_15
 
--- Exercise 734, gap 16
+-- Source: proofgap/exercise_734/16.txt
 namespace regenerated_exercise_734_gap_16
 
 attribute [local instance] Classical.propDecidable
@@ -969,7 +981,7 @@ noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : �
 theorem proof_gap_exercise_734_16
   (v_uCF_u87 : (ℝ -> ℝ))
   (f : (ℕ × (ℕ × ℝ) -> ℝ))
-  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L_1 : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L_1) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => atTop.limUnder (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
+  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L_1 : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L_1) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => limUnder atTop (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
   (h2 : (forall (m : ℕ) (n : ℕ) (x : ℝ), ((((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (m ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (x ∈ (Set.univ : Set ℝ))) → ((f (m, (n, x))) = ((Real.cos ((Real.pi * (m)!) * x)) ^ n)))))
   (h3 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), (((q ∈ (Set.univ : Set ℤ)) ∧ (x = (q /. p))) ∧ (p ∈ (Set.univ : Set ℤ)))))))
   (h4 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), (((p ∈ (Set.univ : Set ℤ)) ∧ (x = (q /. p))) ∧ (q ∈ (Set.univ : Set ℤ)))))))
@@ -988,9 +1000,10 @@ theorem proof_gap_exercise_734_16
   (h17 : (forall (a : ℝ), ((a ∈ (Set.univ : Set ℝ)) → (Not (ContinuousAt v_uCF_u87 a)))))
   : (forall (x : ℝ), ((x ∈ (Set.univ : Set ℝ)) → (Not (ContinuousAt v_uCF_u87 x)))) := by
   sorry
+
 end regenerated_exercise_734_gap_16
 
--- Exercise 734, gap 17
+-- Source: proofgap/exercise_734/17.txt
 namespace regenerated_exercise_734_gap_17
 
 attribute [local instance] Classical.propDecidable
@@ -1038,7 +1051,7 @@ noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : �
 theorem proof_gap_exercise_734_17
   (v_uCF_u87 : (ℝ -> ℝ))
   (f : (ℕ × (ℕ × ℝ) -> ℝ))
-  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L_1 : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L_1) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => atTop.limUnder (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
+  (h1 : (forall (m : ℕ) (n : ℕ) (x : ℝ), (∃ L_1 : ℝ, Tendsto (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1)) atTop (𝓝 L_1) ∧ ((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (x ∈ (Set.univ : Set ℝ))) → (Tendsto (fun m_1 : ℕ => limUnder atTop (fun n_1 : ℕ => (Real.rpow (Real.cos ((Real.pi * (m_1)!) * x)) n_1))) atTop (𝓝 (v_uCF_u87 x)))))))
   (h2 : (forall (m : ℕ) (n : ℕ) (x : ℝ), ((((((m ∈ (Set.univ : Set ℕ)) ∧ (n ∈ (Set.univ : Set ℕ))) ∧ (m ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (n ∈ ({n_1 : ℕ | 0 < n_1}))) ∧ (x ∈ (Set.univ : Set ℝ))) → ((f (m, (n, x))) = ((Real.cos ((Real.pi * (m)!) * x)) ^ n)))))
   (h3 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), (((q ∈ (Set.univ : Set ℤ)) ∧ (x = (q /. p))) ∧ (p ∈ (Set.univ : Set ℤ)))))))
   (h4 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (x ∈ ({x_1 : ℝ | ∃ q_1 : ℚ, (q_1 : ℝ) = x_1}))) → (exists (q : ℤ) (p : ℤ), (((p ∈ (Set.univ : Set ℤ)) ∧ (x = (q /. p))) ∧ (q ∈ (Set.univ : Set ℤ)))))))
@@ -1058,5 +1071,5 @@ theorem proof_gap_exercise_734_17
   (h18 : (forall (x : ℝ), ((x ∈ (Set.univ : Set ℝ)) → (Not (ContinuousAt v_uCF_u87 x)))))
   : (forall (x : ℝ), ((x ∈ (Set.univ : Set ℝ)) → (Not (ContinuousAt v_uCF_u87 x)))) := by
   sorry
-end regenerated_exercise_734_gap_17
 
+end regenerated_exercise_734_gap_17

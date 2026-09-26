@@ -1,5 +1,8 @@
 import Mathlib
 
+open Filter
+open scoped Topology
+
 noncomputable section
 
 namespace Exercise2196
@@ -10,39 +13,36 @@ def PosIntegerSet : Set ℤ := {n | 0 < n}
 def NonNegIntegerSet : Set ℕ := Set.univ
 def Icc (a b : ℝ) : Set ℝ := Set.Icc a b
 
-axiom BoundedFuncOn : (ℝ → ℝ) → Set ℝ → Prop
-axiom ContinuousFuncAt : (ℝ → ℝ) → ℝ → Prop
-axiom OscillationOn : (ℝ → ℝ) → Set ℝ → ℝ
-axiom FiniteSet : Set ℝ → Prop
-axiom IntegrableFuncOn : (ℝ → ℝ) → Set ℝ → Prop
-axiom MeshSmall : (ℕ → ℝ) → ℝ → Prop
-axiom Partition01 : (ℕ → ℝ) → (ℕ → ℝ) → ℕ → Prop
-axiom taggedSum : (ℕ → ℝ) → (ℕ → ℝ) → ℤ → ℕ → ℝ
-axiom tailOscSum : (ℕ → ℝ) → (ℕ → ℝ) → ℤ → ℕ → ℝ
-axiom headOscSum : (ℕ → ℝ) → (ℕ → ℝ) → ℤ → ℝ
-axiom headLenSum : (ℕ → ℝ) → ℤ → ℝ
-axiom riemannOscLimitZero : (ℕ → ℝ) → (ℕ → ℝ) → ℝ → Prop
+def BoundedFuncOn (f : ℝ → ℝ) (s : Set ℝ) : Prop := ∃ M : ℝ, ∀ x ∈ s, |f x| ≤ M
+def ContinuousFuncAt (f : ℝ → ℝ) (x : ℝ) : Prop := ContinuousAt f x
+noncomputable def OscillationOn (f : ℝ → ℝ) (s : Set ℝ) : ℝ := sSup ((fun p : ℝ × ℝ => |f p.1 - f p.2|) '' (s ×ˢ s))
+def FiniteSet (s : Set ℝ) : Prop := s.Finite
+def IntegrableFuncOn (f : ℝ → ℝ) (s : Set ℝ) : Prop := MeasureTheory.IntegrableOn f s
+def MeshSmall (x : ℕ → ℝ) (δ : ℝ) : Prop := ∀ i : ℕ, |x (i + 1) - x i| < δ
+def Partition01 (x Δx : ℕ → ℝ) (n : ℕ) : Prop := x 0 = 0 ∧ x n = 1 ∧ ∀ i : ℕ, i < n → x i < x (i + 1) ∧ Δx i = x (i + 1) - x i
+noncomputable def taggedSum (ω Δx : ℕ → ℝ) (_ : ℤ) (n : ℕ) : ℝ := ∑ i ∈ Finset.range n, ω i * Δx i
+noncomputable def tailOscSum (ω Δx : ℕ → ℝ) (i₀ : ℤ) (n : ℕ) : ℝ := ∑ i ∈ (Finset.range n).filter (fun (i : ℕ) => i₀ + 1 ≤ (i : ℤ)), ω i * Δx i
+noncomputable def headOscSum (ω Δx : ℕ → ℝ) (i₀ : ℤ) : ℝ := ∑ i ∈ (Finset.range (i₀.toNat + 1)), ω i * Δx i
+noncomputable def headLenSum (Δx : ℕ → ℝ) (i₀ : ℤ) : ℝ := ∑ i ∈ (Finset.range (i₀.toNat + 1)), Δx i
+def riemannOscLimitZero (ω Δx : ℕ → ℝ) (_d : ℝ) : Prop := Tendsto (fun n : ℕ => ∑ i ∈ Finset.range n, ω i * Δx i) atTop (𝓝 0)
 
 def fFormula (f : ℝ → ℝ) : Prop :=
   (∀ t : ℝ, t ∈ Icc 0 1 ∧ t ≠ 0 → f t = (1 / t) * ⌊1 / t⌋) ∧ f 0 = 0
 
 def discontinuitySet : Set ℝ := {0} ∪ {t : ℝ | ∃ n : ℤ, n ∈ PosIntegerSet ∧ 2 ≤ n ∧ t = 1 / (n : ℝ)}
 
--- Exercise 2196, gap 1
 theorem proof_gap_exercise_2196_1
     (f : ℝ → ℝ) (x Δx ω : ℕ → ℝ) (d : ℝ)
     (hf : fFormula f) :
     BoundedFuncOn f (Icc 0 1) := by
   sorry
 
--- Exercise 2196, gap 2
 theorem proof_gap_exercise_2196_2
     (f : ℝ → ℝ) (x Δx ω : ℕ → ℝ) (d : ℝ)
     (hf : fFormula f) (hbdd : BoundedFuncOn f (Icc 0 1)) :
     ∀ t : ℝ, t ∈ Icc 0 1 → (¬ ContinuousFuncAt f t ↔ t ∈ discontinuitySet) := by
   sorry
 
--- Exercise 2196, gap 3
 theorem proof_gap_exercise_2196_3
     (f : ℝ → ℝ) (x Δx ω : ℕ → ℝ) (d : ℝ)
     (hf : fFormula f) (hbdd : BoundedFuncOn f (Icc 0 1))
@@ -51,7 +51,6 @@ theorem proof_gap_exercise_2196_3
       0 ≤ α ∧ α ≤ β ∧ β ≤ 1 → OscillationOn f (Icc α β) ≤ 1 := by
   sorry
 
--- Exercise 2196, gap 4
 theorem proof_gap_exercise_2196_4
     (f : ℝ → ℝ)
     (hdisc : ∀ t : ℝ, t ∈ Icc 0 1 → (¬ ContinuousFuncAt f t ↔ t ∈ discontinuitySet)) :
@@ -59,7 +58,6 @@ theorem proof_gap_exercise_2196_4
       FiniteSet {t : ℝ | t ∈ Icc (ε / 3) 1 ∧ ¬ ContinuousFuncAt f t} := by
   sorry
 
--- Exercise 2196, gap 5
 theorem proof_gap_exercise_2196_5
     (f : ℝ → ℝ)
     (hfinite : ∀ ε : ℝ, ε ∈ (Set.univ : RealSet) ∧ ε > 0 ∧ ε ≤ 3 →
@@ -68,7 +66,6 @@ theorem proof_gap_exercise_2196_5
       IntegrableFuncOn f (Icc (ε / 3) 1) := by
   sorry
 
--- Exercise 2196, gap 6
 theorem proof_gap_exercise_2196_6
     (f : ℝ → ℝ) (x Δx ω : ℕ → ℝ) (d : ℝ)
     (hint : ∀ ε : ℝ, ε ∈ (Set.univ : RealSet) ∧ ε > 0 ∧ ε ≤ 3 →
@@ -81,7 +78,6 @@ theorem proof_gap_exercise_2196_6
               taggedSum ω Δx 0 n < ε / 3 := by
   sorry
 
--- Exercise 2196, gap 7
 theorem proof_gap_exercise_2196_7
     (x Δx ω : ℕ → ℝ) (d : ℝ) :
     ∀ ε : ℝ, ε ∈ (Set.univ : RealSet) ∧ ε > 0 ∧ ε ≤ 3 →
@@ -90,7 +86,6 @@ theorem proof_gap_exercise_2196_7
           ∃ i₀ : ℤ, i₀ ∈ (Set.univ : Set ℤ) ∧ x i₀.toNat ≤ ε / 3 := by
   sorry
 
--- Exercise 2196, gap 8
 theorem proof_gap_exercise_2196_8
     (x Δx ω : ℕ → ℝ) (d : ℝ) :
     ∀ ε : ℝ, ε ∈ (Set.univ : RealSet) ∧ ε > 0 ∧ ε ≤ 3 →
@@ -99,7 +94,6 @@ theorem proof_gap_exercise_2196_8
           ∃ i₀ : ℤ, i₀ ∈ (Set.univ : Set ℤ) ∧ ε / 3 < x (i₀ + 1).toNat := by
   sorry
 
--- Exercise 2196, gap 9
 theorem proof_gap_exercise_2196_9
     (x Δx ω : ℕ → ℝ) (d : ℝ) :
     ∀ i : ℤ, i ∈ (Set.univ : Set ℤ) →
@@ -109,7 +103,6 @@ theorem proof_gap_exercise_2196_9
             ∃ i₀ : ℤ, i₀ ∈ (Set.univ : Set ℤ) ∧ tailOscSum ω Δx i₀ n < ε / 3 := by
   sorry
 
--- Exercise 2196, gap 10
 theorem proof_gap_exercise_2196_10
     (x Δx ω : ℕ → ℝ) (d : ℝ) :
     ∀ i : ℤ, i ∈ (Set.univ : Set ℤ) →
@@ -120,7 +113,6 @@ theorem proof_gap_exercise_2196_10
               headOscSum ω Δx i₀ ≤ headLenSum Δx i₀ := by
   sorry
 
--- Exercise 2196, gap 11
 theorem proof_gap_exercise_2196_11
     (x Δx ω : ℕ → ℝ) (d : ℝ) :
     ∀ i : ℤ, i ∈ (Set.univ : Set ℤ) →
@@ -130,7 +122,6 @@ theorem proof_gap_exercise_2196_11
             ∃ i₀ : ℤ, i₀ ∈ (Set.univ : Set ℤ) ∧ headLenSum Δx i₀ < (2 * ε) / 3 := by
   sorry
 
--- Exercise 2196, gap 12
 theorem proof_gap_exercise_2196_12
     (x Δx ω : ℕ → ℝ) (d : ℝ) :
     ∀ i : ℤ, i ∈ (Set.univ : Set ℤ) →
@@ -140,7 +131,6 @@ theorem proof_gap_exercise_2196_12
             ∃ i₀ : ℤ, i₀ ∈ (Set.univ : Set ℤ) ∧ headOscSum ω Δx i₀ < (2 * ε) / 3 := by
   sorry
 
--- Exercise 2196, gap 13
 theorem proof_gap_exercise_2196_13
     (x Δx ω : ℕ → ℝ) (d : ℝ) :
     ∀ i : ℤ, i ∈ (Set.univ : Set ℤ) →
@@ -151,7 +141,6 @@ theorem proof_gap_exercise_2196_13
               taggedSum ω Δx 0 n = headOscSum ω Δx i₀ + tailOscSum ω Δx i₀ n := by
   sorry
 
--- Exercise 2196, gap 14
 theorem proof_gap_exercise_2196_14
     (x Δx ω : ℕ → ℝ) (d : ℝ) :
     ∀ i : ℤ, i ∈ (Set.univ : Set ℤ) →
@@ -162,7 +151,6 @@ theorem proof_gap_exercise_2196_14
               headOscSum ω Δx i₀ + tailOscSum ω Δx i₀ n < ε := by
   sorry
 
--- Exercise 2196, gap 15
 theorem proof_gap_exercise_2196_15
     (x Δx ω : ℕ → ℝ) (d : ℝ) :
     ∀ i : ℤ, i ∈ (Set.univ : Set ℤ) →
@@ -172,7 +160,6 @@ theorem proof_gap_exercise_2196_15
             taggedSum ω Δx 0 n < ε := by
   sorry
 
--- Exercise 2196, gap 16
 theorem proof_gap_exercise_2196_16
     (x Δx ω : ℕ → ℝ) (d : ℝ) :
     ∀ i : ℤ, i ∈ (Set.univ : Set ℤ) →
@@ -180,7 +167,6 @@ theorem proof_gap_exercise_2196_16
         riemannOscLimitZero ω Δx d := by
   sorry
 
--- Exercise 2196, gap 17
 theorem proof_gap_exercise_2196_17
     (f : ℝ → ℝ) (x Δx ω : ℕ → ℝ) (d : ℝ)
     (hlim : ∀ i : ℤ, i ∈ (Set.univ : Set ℤ) →
@@ -188,7 +174,6 @@ theorem proof_gap_exercise_2196_17
     IntegrableFuncOn f (Icc 0 1) := by
   sorry
 
--- Exercise 2196, gap 18
 theorem proof_gap_exercise_2196_18
     (f : ℝ → ℝ) (x Δx ω : ℕ → ℝ) (d : ℝ)
     (hint : IntegrableFuncOn f (Icc 0 1)) :

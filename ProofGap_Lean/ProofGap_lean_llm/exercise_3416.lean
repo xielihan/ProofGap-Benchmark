@@ -28,110 +28,117 @@ noncomputable abbrev L2 (I₁ I₂ I₃ : ℝ) (F : ℝ -> ℝ -> ℝ -> ℝ) (x
 variable
   (u y z : ℝ -> ℝ) (f g h : ℝ -> ℝ -> ℝ -> ℝ)
   (I I₁ I₂ I₃ I₄ I₅ : ℝ)
-  (hu : ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> u x = f x (y x) (z x))
-  (hg : ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> g x (y x) (z x) = 0)
-  (hh : ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> h x (y x) (z x) = 0)
+  (hu : ∀ x : ℝ, u x = f x (y x) (z x))
+  (hg : ∀ x : ℝ, g x (y x) (z x) = 0)
+  (hh : ∀ x : ℝ, h x (y x) (z x) = 0)
   (hf : ContDiff ℝ (2 : ℕ∞) (fun p : ℝ × ℝ × ℝ => f p.1 p.2.1 p.2.2))
   (hgdiff : ContDiff ℝ (2 : ℕ∞) (fun p : ℝ × ℝ × ℝ => g p.1 p.2.1 p.2.2))
   (hhdiff : ContDiff ℝ (2 : ℕ∞) (fun p : ℝ × ℝ × ℝ => h p.1 p.2.1 p.2.2))
-  (hI₁ : ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> I₁ = pd3 g 2 x (y x) (z x) * pd3 h 3 x (y x) (z x) - pd3 g 3 x (y x) (z x) * pd3 h 2 x (y x) (z x))
+  (hI₁ : ∀ x : ℝ, I₁ = pd3 g 2 x (y x) (z x) * pd3 h 3 x (y x) (z x) - pd3 g 3 x (y x) (z x) * pd3 h 2 x (y x) (z x))
   (hI₁ne : I₁ ≠ 0)
 
--- Exercise 3416, gap 1
+-- Source: proofgap/exercise_3416/1.txt
 theorem proof_gap_exercise_3416_1 :
-    ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) ->
+    ∀ x : ℝ,
       d u x = pd3 f 1 x (y x) (z x) * d (fun s : ℝ => s) x + pd3 f 2 x (y x) (z x) * d y x + pd3 f 3 x (y x) (z x) * d z x := by
   sorry
 
--- Exercise 3416, gap 2
+-- Source: proofgap/exercise_3416/2.txt
 theorem proof_gap_exercise_3416_2
-    (h21 : ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> True) :
-    ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) ->
+    (h21 : ∀ x : ℝ,
+      d u x = pd3 f 1 x (y x) (z x) * d (fun s : ℝ => s) x + pd3 f 2 x (y x) (z x) * d y x + pd3 f 3 x (y x) (z x) * d z x) :
+    ∀ x : ℝ,
       0 = pd3 g 1 x (y x) (z x) * d (fun s : ℝ => s) x + pd3 g 2 x (y x) (z x) * d y x + pd3 g 3 x (y x) (z x) * d z x := by
   sorry
 
--- Exercise 3416, gap 3
+-- Source: proofgap/exercise_3416/3.txt
 theorem proof_gap_exercise_3416_3
-    (h21 h22 : ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> True) :
-    ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) ->
+    (h21 : ∀ x : ℝ,
+      d u x = pd3 f 1 x (y x) (z x) * d (fun s : ℝ => s) x + pd3 f 2 x (y x) (z x) * d y x + pd3 f 3 x (y x) (z x) * d z x)
+    (h22 : ∀ x : ℝ,
+      0 = pd3 g 1 x (y x) (z x) * d (fun s : ℝ => s) x + pd3 g 2 x (y x) (z x) * d y x + pd3 g 3 x (y x) (z x) * d z x) :
+    ∀ x : ℝ,
       0 = pd3 h 1 x (y x) (z x) * d (fun s : ℝ => s) x + pd3 h 2 x (y x) (z x) * d y x + pd3 h 3 x (y x) (z x) * d z x := by
   sorry
 
--- Exercise 3416, gap 4
+-- Source: proofgap/exercise_3416/4.txt
 theorem proof_gap_exercise_3416_4
-    (h22 h23 : ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> True)
-    (hI₂ : ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> I₂ = pd3 g 3 x (y x) (z x) * pd3 h 1 x (y x) (z x) - pd3 g 1 x (y x) (z x) * pd3 h 3 x (y x) (z x))
-    (hI₃ : ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> I₃ = pd3 g 1 x (y x) (z x) * pd3 h 2 x (y x) (z x) - pd3 g 2 x (y x) (z x) * pd3 h 1 x (y x) (z x)) :
-    ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> d y x = (I₂ /. I₁) * d (fun s : ℝ => s) x := by
+    (h22 : ∀ x : ℝ,
+      0 = pd3 g 1 x (y x) (z x) * d (fun s : ℝ => s) x + pd3 g 2 x (y x) (z x) * d y x + pd3 g 3 x (y x) (z x) * d z x)
+    (h23 : ∀ x : ℝ,
+      0 = pd3 h 1 x (y x) (z x) * d (fun s : ℝ => s) x + pd3 h 2 x (y x) (z x) * d y x + pd3 h 3 x (y x) (z x) * d z x)
+    (hI₂ : ∀ x : ℝ, I₂ = pd3 g 3 x (y x) (z x) * pd3 h 1 x (y x) (z x) - pd3 g 1 x (y x) (z x) * pd3 h 3 x (y x) (z x))
+    (hI₃ : ∀ x : ℝ, I₃ = pd3 g 1 x (y x) (z x) * pd3 h 2 x (y x) (z x) - pd3 g 2 x (y x) (z x) * pd3 h 1 x (y x) (z x)) :
+    ∀ x : ℝ, d y x = (I₂ /. I₁) * d (fun s : ℝ => s) x := by
   sorry
 
--- Exercise 3416, gap 5
+-- Source: proofgap/exercise_3416/5.txt
 theorem proof_gap_exercise_3416_5
-    (h26 : ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> d y x = (I₂ /. I₁) * d (fun s : ℝ => s) x) :
-    ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> d z x = (I₃ /. I₁) * d (fun s : ℝ => s) x := by
+    (h26 : ∀ x : ℝ, d y x = (I₂ /. I₁) * d (fun s : ℝ => s) x) :
+    ∀ x : ℝ, d z x = (I₃ /. I₁) * d (fun s : ℝ => s) x := by
   sorry
 
--- Exercise 3416, gap 6
+-- Source: proofgap/exercise_3416/6.txt
 theorem proof_gap_exercise_3416_6
-    (h26 : ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> d y x = (I₂ /. I₁) * d (fun s : ℝ => s) x)
-    (h27 : ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> d z x = (I₃ /. I₁) * d (fun s : ℝ => s) x)
-    (hI : ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> I = I₁ * pd3 f 1 x (y x) (z x) + I₂ * pd3 f 2 x (y x) (z x) + I₃ * pd3 f 3 x (y x) (z x)) :
-    ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> d u x = (I /. I₁) * d (fun s : ℝ => s) x := by
+    (h26 : ∀ x : ℝ, d y x = (I₂ /. I₁) * d (fun s : ℝ => s) x)
+    (h27 : ∀ x : ℝ, d z x = (I₃ /. I₁) * d (fun s : ℝ => s) x)
+    (hI : ∀ x : ℝ, I = I₁ * pd3 f 1 x (y x) (z x) + I₂ * pd3 f 2 x (y x) (z x) + I₃ * pd3 f 3 x (y x) (z x)) :
+    ∀ x : ℝ, d u x = (I /. I₁) * d (fun s : ℝ => s) x := by
   sorry
 
--- Exercise 3416, gap 7
+-- Source: proofgap/exercise_3416/7.txt
 theorem proof_gap_exercise_3416_7
-    (h29 : ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> d u x = (I /. I₁) * d (fun s : ℝ => s) x) :
-    ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> iteratedDeriv 1 u x = I /. I₁ := by
+    (h29 : ∀ x : ℝ, d u x = (I /. I₁) * d (fun s : ℝ => s) x) :
+    ∀ x : ℝ, iteratedDeriv 1 u x = I /. I₁ := by
   sorry
 
--- Exercise 3416, gap 8
+-- Source: proofgap/exercise_3416/8.txt
 theorem proof_gap_exercise_3416_8 :
-    ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) ->
+    ∀ x : ℝ,
       d2 u x = L2 1 (d y x) (d z x) f x (y x) (z x) + pd3 f 2 x (y x) (z x) * d2 y x + pd3 f 3 x (y x) (z x) * d2 z x := by
   sorry
 
--- Exercise 3416, gap 9
+-- Source: proofgap/exercise_3416/9.txt
 theorem proof_gap_exercise_3416_9 :
-    ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) ->
+    ∀ x : ℝ,
       0 = L2 1 (d y x) (d z x) g x (y x) (z x) + pd3 g 2 x (y x) (z x) * d2 y x + pd3 g 3 x (y x) (z x) * d2 z x := by
   sorry
 
--- Exercise 3416, gap 10
+-- Source: proofgap/exercise_3416/10.txt
 theorem proof_gap_exercise_3416_10 :
-    ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) ->
+    ∀ x : ℝ,
       0 = L2 1 (d y x) (d z x) h x (y x) (z x) + pd3 h 2 x (y x) (z x) * d2 y x + pd3 h 3 x (y x) (z x) * d2 z x := by
   sorry
 
--- Exercise 3416, gap 11
+-- Source: proofgap/exercise_3416/11.txt
 theorem proof_gap_exercise_3416_11 :
-    ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) ->
+    ∀ x : ℝ,
       d2 y x = (pd3 g 1 x (y x) (z x) * L2 1 (d y x) (d z x) h x (y x) (z x) -
         pd3 h 1 x (y x) (z x) * L2 1 (d y x) (d z x) g x (y x) (z x)) /. I₁ := by
   sorry
 
--- Exercise 3416, gap 12
+-- Source: proofgap/exercise_3416/12.txt
 theorem proof_gap_exercise_3416_12 :
-    ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) ->
+    ∀ x : ℝ,
       d2 z x = (pd3 h 2 x (y x) (z x) * L2 1 (d y x) (d z x) g x (y x) (z x) -
         pd3 g 2 x (y x) (z x) * L2 1 (d y x) (d z x) h x (y x) (z x)) /. I₁ := by
   sorry
 
--- Exercise 3416, gap 13
+-- Source: proofgap/exercise_3416/13.txt
 theorem proof_gap_exercise_3416_13
-    (hI₄ : ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> I₄ = pd3 h 2 x (y x) (z x) * pd3 f 3 x (y x) (z x) - pd3 h 3 x (y x) (z x) * pd3 f 2 x (y x) (z x))
-    (hI₅ : ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> I₅ = pd3 f 2 x (y x) (z x) * pd3 g 3 x (y x) (z x) - pd3 f 3 x (y x) (z x) * pd3 g 2 x (y x) (z x)) :
-    ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) ->
+    (hI₄ : ∀ x : ℝ, I₄ = pd3 h 2 x (y x) (z x) * pd3 f 3 x (y x) (z x) - pd3 h 3 x (y x) (z x) * pd3 f 2 x (y x) (z x))
+    (hI₅ : ∀ x : ℝ, I₅ = pd3 f 2 x (y x) (z x) * pd3 g 3 x (y x) (z x) - pd3 f 3 x (y x) (z x) * pd3 g 2 x (y x) (z x)) :
+    ∀ x : ℝ,
       d2 u x = (I₁ * L2 1 (d y x) (d z x) f x (y x) (z x) +
         I₄ * L2 1 (d y x) (d z x) g x (y x) (z x) +
         I₅ * L2 1 (d y x) (d z x) h x (y x) (z x)) /. I₁ := by
   sorry
 
--- Exercise 3416, gap 14
+-- Source: proofgap/exercise_3416/14.txt
 theorem proof_gap_exercise_3416_14
-    (h26 : ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> d y x = (I₂ /. I₁) * d (fun s : ℝ => s) x)
-    (h27 : ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) -> d z x = (I₃ /. I₁) * d (fun s : ℝ => s) x) :
-    ∀ x : ℝ, x ∈ (Set.univ : Set ℝ) ->
+    (h26 : ∀ x : ℝ, d y x = (I₂ /. I₁) * d (fun s : ℝ => s) x)
+    (h27 : ∀ x : ℝ, d z x = (I₃ /. I₁) * d (fun s : ℝ => s) x) :
+    ∀ x : ℝ,
       d2 u x = (I₁ * L2 I₁ I₂ I₃ f x (y x) (z x) +
         I₄ * L2 I₁ I₂ I₃ g x (y x) (z x) +
         I₅ * L2 I₁ I₂ I₃ h x (y x) (z x)) /. (I₁ ^ 3) := by

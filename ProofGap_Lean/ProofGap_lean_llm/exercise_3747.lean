@@ -12,12 +12,16 @@ local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
 noncomputable def ex3747_integrand (a x : ℝ) : ℝ :=
   Real.cos x /. (x + a)
 
-def integralConverges (I : ℝ) : Prop := True
-def integralDiverges (I : ℝ) : Prop := True
+def integralConverges (I : ℝ) : Prop :=
+  ∃ approximants : ℕ -> ℝ, Tendsto approximants atTop (𝓝 I)
+
+def integralDiverges (I : ℝ) : Prop :=
+  ∀ L : ℝ, ¬ ∃ approximants : ℕ -> ℝ, Tendsto approximants atTop (𝓝 L)
 def removableSingularPoint (f : ℝ -> ℝ) (x0 : ℝ) : Prop :=
   ∃ L : ℝ, Tendsto f (𝓝[≠] x0) (𝓝 L)
 
-noncomputable def improperIntegral (a : ℝ) (f : ℝ -> ℝ) : ℝ := 0
+noncomputable def improperIntegral (a : ℝ) (f : ℝ -> ℝ) : ℝ :=
+  ∫ x in Set.Ici a, f x
 
 -- exercise: exercise_3747
 

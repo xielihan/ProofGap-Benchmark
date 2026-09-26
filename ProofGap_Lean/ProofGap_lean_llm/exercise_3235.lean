@@ -6,9 +6,31 @@ noncomputable section
 
 -- exercise: exercise_3235
 
-def formalDiff_3235 (_u : ℝ × ℝ -> ℝ) (_m _n : ℝ) : Prop := True
-def formalDiff2_3235 (_u : ℝ × ℝ -> ℝ) (_m _n : ℝ) : Prop := True
-def formalDiff2Factored_3235 (_u : ℝ × ℝ -> ℝ) (_m _n : ℝ) : Prop := True
+-- The source writes first and second differentials symbolically.  We encode those
+-- differential forms by their coefficient functions, i.e. by the corresponding
+-- pointwise partial derivative identities on the positive quadrant.
+def formalDiff_3235 (u : ℝ × ℝ -> ℝ) (m n : ℝ) : Prop :=
+  ∀ x y : ℝ, x > 0 -> y > 0 ->
+    deriv (fun x' => u (x', y)) x = Real.rpow x (m - 1) * Real.rpow y (n - 1) * m * y ∧
+    deriv (fun y' => u (x, y')) y = Real.rpow x (m - 1) * Real.rpow y (n - 1) * n * x
+
+def formalDiff2_3235 (u : ℝ × ℝ -> ℝ) (m n : ℝ) : Prop :=
+  ∀ x y : ℝ, x > 0 -> y > 0 ->
+    deriv (fun x' => deriv (fun x'' => u (x'', y)) x') x =
+        m * (m - 1) * Real.rpow x (m - 2) * Real.rpow y n ∧
+    deriv (fun y' => deriv (fun x' => u (x', y')) x) y =
+        m * n * Real.rpow x (m - 1) * Real.rpow y (n - 1) ∧
+    deriv (fun y' => deriv (fun y'' => u (x, y'')) y') y =
+        n * (n - 1) * Real.rpow x m * Real.rpow y (n - 2)
+
+def formalDiff2Factored_3235 (u : ℝ × ℝ -> ℝ) (m n : ℝ) : Prop :=
+  ∀ x y : ℝ, x > 0 -> y > 0 ->
+    deriv (fun x' => deriv (fun x'' => u (x'', y)) x') x =
+        Real.rpow x (m - 2) * Real.rpow y (n - 2) * m * (m - 1) * y ^ (2 : ℕ) ∧
+    2 * deriv (fun y' => deriv (fun x' => u (x', y')) x) y =
+        Real.rpow x (m - 2) * Real.rpow y (n - 2) * 2 * m * n * x * y ∧
+    deriv (fun y' => deriv (fun y'' => u (x, y'')) y') y =
+        Real.rpow x (m - 2) * Real.rpow y (n - 2) * n * (n - 1) * x ^ (2 : ℕ)
 
 theorem proof_gap_exercise_3235_1
   (u : ℝ × ℝ -> ℝ) (m n : ℝ)
@@ -124,4 +146,3 @@ theorem proof_gap_exercise_3235_8
   (hd2 : formalDiff2_3235 u m n)
   : formalDiff2Factored_3235 u m n := by
   sorry
-

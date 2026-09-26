@@ -1,5 +1,11 @@
 import Mathlib
 
+-- exercise: exercise_2381
+-- Regenerated for Lean 4.29.0-rc6 / Mathlib 5c8398d.
+
+-- Source: proofgap/exercise_2381/1.txt
+namespace regenerated_exercise_2381_gap_1
+
 attribute [local instance] Classical.propDecidable
 
 set_option linter.style.longLine false
@@ -42,55 +48,241 @@ def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) 
 noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
   ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
--- exercise: exercise_2381
-
 theorem proof_gap_exercise_2381_1
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q ≥ 0))
-  : (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 L) ∧ (Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))) := by
+  : (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 L) ∧ (Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))) := by
   sorry
+
+end regenerated_exercise_2381_gap_1
+
+-- Source: proofgap/exercise_2381/2.txt
+namespace regenerated_exercise_2381_gap_2
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_2381_2
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : ∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 L))
   : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1) := by
   sorry
+
+end regenerated_exercise_2381_gap_2
+
+-- Source: proofgap/exercise_2381/3.txt
+namespace regenerated_exercise_2381_gap_3
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_2381_3
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q ≥ 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : ∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 L))
   : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1) := by
   sorry
+
+end regenerated_exercise_2381_gap_3
+
+-- Source: proofgap/exercise_2381/4.txt
+namespace regenerated_exercise_2381_gap_4
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_2381_4
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : ∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 L))
   : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))) := by
   sorry
 
+end regenerated_exercise_2381_gap_4
+
+-- Source: proofgap/exercise_2381/5.txt
+namespace regenerated_exercise_2381_gap_5
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_5
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -98,12 +290,59 @@ theorem proof_gap_exercise_2381_5
   : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => (|((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))))| * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))) := by
   sorry
 
+end regenerated_exercise_2381_gap_5
+
+-- Source: proofgap/exercise_2381/6.txt
+namespace regenerated_exercise_2381_gap_6
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_6
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -112,12 +351,59 @@ theorem proof_gap_exercise_2381_6
   : (p ≥ q) → (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 1)) → (exists (N : ℕ), (((N ∈ (Set.univ : Set ℕ)) ∧ (N ∈ ({n : ℕ | 0 < n}))) ∧ ((((2 * N) * Real.pi) + (Real.pi /. 4)) > A))))) := by
   sorry
 
+end regenerated_exercise_2381_gap_6
+
+-- Source: proofgap/exercise_2381/7.txt
+namespace regenerated_exercise_2381_gap_7
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_7
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -127,12 +413,59 @@ theorem proof_gap_exercise_2381_7
   : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p ≥ q)) → (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 1)) → (exists (N : ℕ), (((N ∈ (Set.univ : Set ℕ)) ∧ (N ∈ ({n : ℕ | 0 < n}))) ∧ (((Real.rpow x p) /. (1 + (Real.rpow x q))) > (1 /. 3)))))))) := by
   sorry
 
+end regenerated_exercise_2381_gap_7
+
+-- Source: proofgap/exercise_2381/8.txt
+namespace regenerated_exercise_2381_gap_8
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_8
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -143,12 +476,59 @@ theorem proof_gap_exercise_2381_8
   : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p ≥ q)) → (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 1)) → (exists (N : ℕ), (((N ∈ (Set.univ : Set ℕ)) ∧ (N ∈ ({n : ℕ | 0 < n}))) ∧ (|((∫ x_1 in (((2 * N) * Real.pi) + (Real.pi /. 4))..(((2 * N) * Real.pi) + (Real.pi /. 2)), ((((Real.rpow x_1 p) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (Real.sin x_1)) * (1 : ℝ))))| > ((1 /. 3) * (∫ x_1 in (((2 * N) * Real.pi) + (Real.pi /. 4))..(((2 * N) * Real.pi) + (Real.pi /. 2)), ((Real.sin x_1) * (1 : ℝ))))))))))) := by
   sorry
 
+end regenerated_exercise_2381_gap_8
+
+-- Source: proofgap/exercise_2381/9.txt
+namespace regenerated_exercise_2381_gap_9
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_9
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -160,12 +540,59 @@ theorem proof_gap_exercise_2381_9
   : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p ≥ q)) → (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 1)) → (exists (N : ℕ), (((N ∈ (Set.univ : Set ℕ)) ∧ (N ∈ ({n : ℕ | 0 < n}))) ∧ (((1 /. 3) * (∫ x_1 in (((2 * N) * Real.pi) + (Real.pi /. 4))..(((2 * N) * Real.pi) + (Real.pi /. 2)), ((Real.sin x_1) * (1 : ℝ)))) = ((Real.rpow (2 : ℝ) (((2 : ℝ))⁻¹)) /. 6)))))))) := by
   sorry
 
+end regenerated_exercise_2381_gap_9
+
+-- Source: proofgap/exercise_2381/10.txt
+namespace regenerated_exercise_2381_gap_10
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_10
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -178,12 +605,59 @@ theorem proof_gap_exercise_2381_10
   : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p ≥ q)) → (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 1)) → (exists (N : ℕ), (((N ∈ (Set.univ : Set ℕ)) ∧ (N ∈ ({n : ℕ | 0 < n}))) ∧ (|((∫ x_1 in (((2 * N) * Real.pi) + (Real.pi /. 4))..(((2 * N) * Real.pi) + (Real.pi /. 2)), ((((Real.rpow x_1 p) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (Real.sin x_1)) * (1 : ℝ))))| > ((Real.rpow (2 : ℝ) (((2 : ℝ))⁻¹)) /. 6)))))))) := by
   sorry
 
+end regenerated_exercise_2381_gap_10
+
+-- Source: proofgap/exercise_2381/11.txt
+namespace regenerated_exercise_2381_gap_11
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_11
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -197,12 +671,59 @@ theorem proof_gap_exercise_2381_11
   : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p ≥ q)) → ((((∫ x_1 in Set.Ioi (1 : ℝ), ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) : ℝ) : EReal) = ⊤))) := by
   sorry
 
+end regenerated_exercise_2381_gap_11
+
+-- Source: proofgap/exercise_2381/12.txt
+namespace regenerated_exercise_2381_gap_12
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_12
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q ≥ 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -217,12 +738,59 @@ theorem proof_gap_exercise_2381_12
   : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (a > 0))))) := by
   sorry
 
+end regenerated_exercise_2381_gap_12
+
+-- Source: proofgap/exercise_2381/13.txt
+namespace regenerated_exercise_2381_gap_13
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_13
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -238,12 +806,59 @@ theorem proof_gap_exercise_2381_13
   : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ ((p + a) < (q - 1)))))) := by
   sorry
 
+end regenerated_exercise_2381_gap_13
+
+-- Source: proofgap/exercise_2381/14.txt
+namespace regenerated_exercise_2381_gap_14
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_14
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q ≥ 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -260,12 +875,59 @@ theorem proof_gap_exercise_2381_14
   : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (((q - p) - a) > 1))))) := by
   sorry
 
+end regenerated_exercise_2381_gap_14
+
+-- Source: proofgap/exercise_2381/15.txt
+namespace regenerated_exercise_2381_gap_15
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_15
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -280,15 +942,62 @@ theorem proof_gap_exercise_2381_15
   (h15 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ ((p + a) < (q - 1)))))))
   (h16 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (((q - p) - a) > 1))))))
   (h17 : ∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 L))
-  : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (atTop.limUnder (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))) := by
+  : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (limUnder atTop (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))) := by
   sorry
+
+end regenerated_exercise_2381_gap_15
+
+-- Source: proofgap/exercise_2381/16.txt
+namespace regenerated_exercise_2381_gap_16
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_2381_16
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -302,17 +1011,64 @@ theorem proof_gap_exercise_2381_16
   (h14 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (a > 0))))))
   (h15 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ ((p + a) < (q - 1)))))))
   (h16 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (((q - p) - a) > 1))))))
-  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (atTop.limUnder (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
+  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (limUnder atTop (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
   (h18 : ∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 L))
   : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 0)))))) := by
   sorry
+
+end regenerated_exercise_2381_gap_16
+
+-- Source: proofgap/exercise_2381/17.txt
+namespace regenerated_exercise_2381_gap_17
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_2381_17
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -326,18 +1082,65 @@ theorem proof_gap_exercise_2381_17
   (h14 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (a > 0))))))
   (h15 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ ((p + a) < (q - 1)))))))
   (h16 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (((q - p) - a) > 1))))))
-  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (atTop.limUnder (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
+  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (limUnder atTop (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
   (h18 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 0)))))))
   (h19 : ∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 L))
   : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 0)))))) := by
   sorry
+
+end regenerated_exercise_2381_gap_17
+
+-- Source: proofgap/exercise_2381/18.txt
+namespace regenerated_exercise_2381_gap_18
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
 
 theorem proof_gap_exercise_2381_18
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -351,19 +1154,66 @@ theorem proof_gap_exercise_2381_18
   (h14 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (a > 0))))))
   (h15 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ ((p + a) < (q - 1)))))))
   (h16 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (((q - p) - a) > 1))))))
-  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (atTop.limUnder (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
+  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (limUnder atTop (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
   (h18 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 0)))))))
   (h19 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 0)))))))
   (h20 : ∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 L))
   : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p < (q - 1))) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (MeasureTheory.IntegrableOn (fun x_1 : ℝ => (|((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))))| * (1 : ℝ))) (Set.Ioi (1 : ℝ)) MeasureTheory.volume))))))) := by
   sorry
 
+end regenerated_exercise_2381_gap_18
+
+-- Source: proofgap/exercise_2381/19.txt
+namespace regenerated_exercise_2381_gap_19
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_19
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q ≥ 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -377,7 +1227,7 @@ theorem proof_gap_exercise_2381_19
   (h14 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (a > 0))))))
   (h15 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ ((p + a) < (q - 1)))))))
   (h16 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (((q - p) - a) > 1))))))
-  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (atTop.limUnder (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
+  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (limUnder atTop (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
   (h18 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 0)))))))
   (h19 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 0)))))))
   (h20 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p < (q - 1))) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (MeasureTheory.IntegrableOn (fun x_1 : ℝ => (|((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))))| * (1 : ℝ))) (Set.Ioi (1 : ℝ)) MeasureTheory.volume))))))))
@@ -385,12 +1235,59 @@ theorem proof_gap_exercise_2381_19
   : ((q - 1) ≤ p) → ((p < q) → (exists (A_0 : ℝ), (((A_0 ∈ (Set.univ : Set ℝ)) ∧ (A_0 > 1)) ∧ (A_0 = A_0)))) := by
   sorry
 
+end regenerated_exercise_2381_gap_19
+
+-- Source: proofgap/exercise_2381/20.txt
+namespace regenerated_exercise_2381_gap_20
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_20
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -404,7 +1301,7 @@ theorem proof_gap_exercise_2381_20
   (h14 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (a > 0))))))
   (h15 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ ((p + a) < (q - 1)))))))
   (h16 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (((q - p) - a) > 1))))))
-  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (atTop.limUnder (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
+  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (limUnder atTop (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
   (h18 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 0)))))))
   (h19 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 0)))))))
   (h20 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p < (q - 1))) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (MeasureTheory.IntegrableOn (fun x_1 : ℝ => (|((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))))| * (1 : ℝ))) (Set.Ioi (1 : ℝ)) MeasureTheory.volume))))))))
@@ -413,12 +1310,59 @@ theorem proof_gap_exercise_2381_20
   : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((q - 1) ≤ p)) ∧ (p < q)) → (exists (A_0 : ℝ), (((A_0 ∈ (Set.univ : Set ℝ)) ∧ (A_0 > 1)) ∧ ((x ≥ A_0) → (((Real.rpow x (p + 1)) /. (1 + (Real.rpow x q))) > (1 /. 3))))))) := by
   sorry
 
+end regenerated_exercise_2381_gap_20
+
+-- Source: proofgap/exercise_2381/21.txt
+namespace regenerated_exercise_2381_gap_21
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_21
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -432,7 +1376,7 @@ theorem proof_gap_exercise_2381_21
   (h14 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (a > 0))))))
   (h15 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ ((p + a) < (q - 1)))))))
   (h16 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (((q - p) - a) > 1))))))
-  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (atTop.limUnder (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
+  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (limUnder atTop (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
   (h18 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 0)))))))
   (h19 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 0)))))))
   (h20 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p < (q - 1))) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (MeasureTheory.IntegrableOn (fun x_1 : ℝ => (|((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))))| * (1 : ℝ))) (Set.Ioi (1 : ℝ)) MeasureTheory.volume))))))))
@@ -442,12 +1386,59 @@ theorem proof_gap_exercise_2381_21
   : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((q - 1) ≤ p)) ∧ (p < q)) → (exists (A_0 : ℝ), (((A_0 ∈ (Set.univ : Set ℝ)) ∧ (A_0 > 1)) ∧ ((∫ x_1 in Set.Ioi A_0, ((((Real.rpow x_1 p) * |((Real.sin x_1))|) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) = (∫ x_1 in Set.Ioi A_0, ((((Real.rpow x_1 (p + 1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * |(((Real.sin x_1) /. x_1))|) * (1 : ℝ)))))))) := by
   sorry
 
+end regenerated_exercise_2381_gap_21
+
+-- Source: proofgap/exercise_2381/22.txt
+namespace regenerated_exercise_2381_gap_22
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_22
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -461,7 +1452,7 @@ theorem proof_gap_exercise_2381_22
   (h14 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (a > 0))))))
   (h15 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ ((p + a) < (q - 1)))))))
   (h16 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (((q - p) - a) > 1))))))
-  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (atTop.limUnder (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
+  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (limUnder atTop (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
   (h18 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 0)))))))
   (h19 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 0)))))))
   (h20 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p < (q - 1))) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (MeasureTheory.IntegrableOn (fun x_1 : ℝ => (|((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))))| * (1 : ℝ))) (Set.Ioi (1 : ℝ)) MeasureTheory.volume))))))))
@@ -472,12 +1463,59 @@ theorem proof_gap_exercise_2381_22
   : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((q - 1) ≤ p)) ∧ (p < q)) → (exists (A_0 : ℝ), (((A_0 ∈ (Set.univ : Set ℝ)) ∧ (A_0 > 1)) ∧ ((∫ x_1 in Set.Ioi A_0, ((((Real.rpow x_1 (p + 1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * |(((Real.sin x_1) /. x_1))|) * (1 : ℝ))) ≥ ((1 /. 3) * (∫ x_1 in Set.Ioi A_0, (|(((Real.sin x_1) /. x_1))| * (1 : ℝ))))))))) := by
   sorry
 
+end regenerated_exercise_2381_gap_22
+
+-- Source: proofgap/exercise_2381/23.txt
+namespace regenerated_exercise_2381_gap_23
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_23
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -491,7 +1529,7 @@ theorem proof_gap_exercise_2381_23
   (h14 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (a > 0))))))
   (h15 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ ((p + a) < (q - 1)))))))
   (h16 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (((q - p) - a) > 1))))))
-  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (atTop.limUnder (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
+  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (limUnder atTop (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
   (h18 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 0)))))))
   (h19 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 0)))))))
   (h20 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p < (q - 1))) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (MeasureTheory.IntegrableOn (fun x_1 : ℝ => (|((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))))| * (1 : ℝ))) (Set.Ioi (1 : ℝ)) MeasureTheory.volume))))))))
@@ -503,12 +1541,59 @@ theorem proof_gap_exercise_2381_23
   : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((q - 1) ≤ p)) ∧ (p < q)) → (exists (A_0 : ℝ), (((A_0 ∈ (Set.univ : Set ℝ)) ∧ (A_0 > 1)) ∧ (((((1 /. 3) * (∫ x_1 in Set.Ioi A_0, (|(((Real.sin x_1) /. x_1))| * (1 : ℝ)))) : ℝ) : EReal) = ⊤))))) := by
   sorry
 
+end regenerated_exercise_2381_gap_23
+
+-- Source: proofgap/exercise_2381/24.txt
+namespace regenerated_exercise_2381_gap_24
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_24
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -522,7 +1607,7 @@ theorem proof_gap_exercise_2381_24
   (h14 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (a > 0))))))
   (h15 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ ((p + a) < (q - 1)))))))
   (h16 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (((q - p) - a) > 1))))))
-  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (atTop.limUnder (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
+  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (limUnder atTop (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
   (h18 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 0)))))))
   (h19 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 0)))))))
   (h20 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p < (q - 1))) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (MeasureTheory.IntegrableOn (fun x_1 : ℝ => (|((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))))| * (1 : ℝ))) (Set.Ioi (1 : ℝ)) MeasureTheory.volume))))))))
@@ -535,12 +1620,59 @@ theorem proof_gap_exercise_2381_24
   : (forall (x : ℝ), ((((x ∈ (Set.univ : Set ℝ)) ∧ ((q - 1) ≤ p)) ∧ (p < q)) → (exists (A_0 : ℝ), (((A_0 ∈ (Set.univ : Set ℝ)) ∧ (A_0 > 1)) ∧ ((((∫ x_1 in Set.Ioi A_0, ((((Real.rpow x_1 p) * |((Real.sin x_1))|) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) : ℝ) : EReal) ≥ ⊤))))) := by
   sorry
 
+end regenerated_exercise_2381_gap_24
+
+-- Source: proofgap/exercise_2381/25.txt
+namespace regenerated_exercise_2381_gap_25
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_25
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -554,7 +1686,7 @@ theorem proof_gap_exercise_2381_25
   (h14 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (a > 0))))))
   (h15 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ ((p + a) < (q - 1)))))))
   (h16 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (((q - p) - a) > 1))))))
-  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (atTop.limUnder (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
+  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (limUnder atTop (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
   (h18 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 0)))))))
   (h19 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 0)))))))
   (h20 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p < (q - 1))) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (MeasureTheory.IntegrableOn (fun x_1 : ℝ => (|((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))))| * (1 : ℝ))) (Set.Ioi (1 : ℝ)) MeasureTheory.volume))))))))
@@ -568,12 +1700,59 @@ theorem proof_gap_exercise_2381_25
   : (forall (x : ℝ), (((((x ∈ (Set.univ : Set ℝ)) ∧ ((q - 1) ≤ p)) ∧ (p < q)) ∧ (q = 0)) → ((∫ x_1 in Set.Ioi (1 : ℝ), ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) = ((1 /. 2) * (∫ x_1 in Set.Ioi (1 : ℝ), (((Real.rpow x_1 p) * (Real.sin x_1)) * (1 : ℝ))))))) := by
   sorry
 
+end regenerated_exercise_2381_gap_25
+
+-- Source: proofgap/exercise_2381/26.txt
+namespace regenerated_exercise_2381_gap_26
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_26
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -587,7 +1766,7 @@ theorem proof_gap_exercise_2381_26
   (h14 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (a > 0))))))
   (h15 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ ((p + a) < (q - 1)))))))
   (h16 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (((q - p) - a) > 1))))))
-  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (atTop.limUnder (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
+  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (limUnder atTop (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
   (h18 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 0)))))))
   (h19 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 0)))))))
   (h20 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p < (q - 1))) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (MeasureTheory.IntegrableOn (fun x_1 : ℝ => (|((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))))| * (1 : ℝ))) (Set.Ioi (1 : ℝ)) MeasureTheory.volume))))))))
@@ -602,12 +1781,59 @@ theorem proof_gap_exercise_2381_26
   : (forall (x : ℝ), (((((x ∈ (Set.univ : Set ℝ)) ∧ ((q - 1) ≤ p)) ∧ (p < q)) ∧ (q = 0)) → (MeasureTheory.IntegrableOn (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) (Set.Ioi (1 : ℝ)) MeasureTheory.volume))) := by
   sorry
 
+end regenerated_exercise_2381_gap_26
+
+-- Source: proofgap/exercise_2381/27.txt
+namespace regenerated_exercise_2381_gap_27
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_27
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -621,7 +1847,7 @@ theorem proof_gap_exercise_2381_27
   (h14 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (a > 0))))))
   (h15 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ ((p + a) < (q - 1)))))))
   (h16 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (((q - p) - a) > 1))))))
-  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (atTop.limUnder (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
+  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (limUnder atTop (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
   (h18 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 0)))))))
   (h19 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 0)))))))
   (h20 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p < (q - 1))) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (MeasureTheory.IntegrableOn (fun x_1 : ℝ => (|((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))))| * (1 : ℝ))) (Set.Ioi (1 : ℝ)) MeasureTheory.volume))))))))
@@ -637,12 +1863,59 @@ theorem proof_gap_exercise_2381_27
   : (forall (x : ℝ), (((((x ∈ (Set.univ : Set ℝ)) ∧ ((q - 1) ≤ p)) ∧ (p < q)) ∧ (q > 0)) → ((iteratedDeriv 1 (fun t => ((Real.rpow t p) /. (1 + (Real.rpow t q)))) x) = (((Real.rpow x (p - 1)) * (p - ((q - p) * (Real.rpow x q)))) /. ((1 + (Real.rpow x q)) ^ (2 : ℕ)))))) := by
   sorry
 
+end regenerated_exercise_2381_gap_27
+
+-- Source: proofgap/exercise_2381/28.txt
+namespace regenerated_exercise_2381_gap_28
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_28
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -656,7 +1929,7 @@ theorem proof_gap_exercise_2381_28
   (h14 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (a > 0))))))
   (h15 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ ((p + a) < (q - 1)))))))
   (h16 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (((q - p) - a) > 1))))))
-  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (atTop.limUnder (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
+  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (limUnder atTop (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
   (h18 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 0)))))))
   (h19 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 0)))))))
   (h20 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p < (q - 1))) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (MeasureTheory.IntegrableOn (fun x_1 : ℝ => (|((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))))| * (1 : ℝ))) (Set.Ioi (1 : ℝ)) MeasureTheory.volume))))))))
@@ -673,12 +1946,59 @@ theorem proof_gap_exercise_2381_28
   : (forall (x : ℝ), (((((x ∈ (Set.univ : Set ℝ)) ∧ ((q - 1) ≤ p)) ∧ (p < q)) ∧ (q > 0)) → ((iteratedDeriv 1 (fun t => ((Real.rpow t p) /. (1 + (Real.rpow t q)))) x) < 0))) := by
   sorry
 
+end regenerated_exercise_2381_gap_28
+
+-- Source: proofgap/exercise_2381/29.txt
+namespace regenerated_exercise_2381_gap_29
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_29
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -692,7 +2012,7 @@ theorem proof_gap_exercise_2381_29
   (h14 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (a > 0))))))
   (h15 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ ((p + a) < (q - 1)))))))
   (h16 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (((q - p) - a) > 1))))))
-  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (atTop.limUnder (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
+  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (limUnder atTop (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
   (h18 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 0)))))))
   (h19 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 0)))))))
   (h20 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p < (q - 1))) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (MeasureTheory.IntegrableOn (fun x_1 : ℝ => (|((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))))| * (1 : ℝ))) (Set.Ioi (1 : ℝ)) MeasureTheory.volume))))))))
@@ -710,12 +2030,59 @@ theorem proof_gap_exercise_2381_29
   : ((q - 1) ≤ p) → ((p < q) → ((q > 0) → (Tendsto (fun x : ℝ => ((Real.rpow x p) /. (1 + (Real.rpow x q)))) atTop (𝓝 0)))) := by
   sorry
 
+end regenerated_exercise_2381_gap_29
+
+-- Source: proofgap/exercise_2381/30.txt
+namespace regenerated_exercise_2381_gap_30
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_30
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -729,7 +2096,7 @@ theorem proof_gap_exercise_2381_30
   (h14 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (a > 0))))))
   (h15 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ ((p + a) < (q - 1)))))))
   (h16 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (((q - p) - a) > 1))))))
-  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (atTop.limUnder (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
+  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (limUnder atTop (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
   (h18 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 0)))))))
   (h19 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 0)))))))
   (h20 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p < (q - 1))) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (MeasureTheory.IntegrableOn (fun x_1 : ℝ => (|((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))))| * (1 : ℝ))) (Set.Ioi (1 : ℝ)) MeasureTheory.volume))))))))
@@ -748,12 +2115,59 @@ theorem proof_gap_exercise_2381_30
   : (forall (x : ℝ), (((((x ∈ (Set.univ : Set ℝ)) ∧ ((q - 1) ≤ p)) ∧ (p < q)) ∧ (q > 0)) → (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 1)) → (|((∫ x_1 in (1 : ℝ)..A, ((Real.sin x_1) * (1 : ℝ))))| = |(((Real.cos (1 : ℝ)) - (Real.cos A)))|))))) := by
   sorry
 
+end regenerated_exercise_2381_gap_30
+
+-- Source: proofgap/exercise_2381/31.txt
+namespace regenerated_exercise_2381_gap_31
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_31
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q ≥ 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -767,7 +2181,7 @@ theorem proof_gap_exercise_2381_31
   (h14 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (a > 0))))))
   (h15 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ ((p + a) < (q - 1)))))))
   (h16 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (((q - p) - a) > 1))))))
-  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (atTop.limUnder (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
+  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (limUnder atTop (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
   (h18 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 0)))))))
   (h19 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 0)))))))
   (h20 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p < (q - 1))) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (MeasureTheory.IntegrableOn (fun x_1 : ℝ => (|((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))))| * (1 : ℝ))) (Set.Ioi (1 : ℝ)) MeasureTheory.volume))))))))
@@ -787,12 +2201,59 @@ theorem proof_gap_exercise_2381_31
   : ((q - 1) ≤ p) → ((p < q) → ((q > 0) → (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 1)) → (|(((Real.cos (1 : ℝ)) - (Real.cos A)))| ≤ 2))))) := by
   sorry
 
+end regenerated_exercise_2381_gap_31
+
+-- Source: proofgap/exercise_2381/32.txt
+namespace regenerated_exercise_2381_gap_32
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_32
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q ≥ 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -806,7 +2267,7 @@ theorem proof_gap_exercise_2381_32
   (h14 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (a > 0))))))
   (h15 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ ((p + a) < (q - 1)))))))
   (h16 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (((q - p) - a) > 1))))))
-  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (atTop.limUnder (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
+  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (limUnder atTop (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
   (h18 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 0)))))))
   (h19 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 0)))))))
   (h20 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p < (q - 1))) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (MeasureTheory.IntegrableOn (fun x_1 : ℝ => (|((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))))| * (1 : ℝ))) (Set.Ioi (1 : ℝ)) MeasureTheory.volume))))))))
@@ -827,12 +2288,59 @@ theorem proof_gap_exercise_2381_32
   : (forall (x : ℝ), (((((x ∈ (Set.univ : Set ℝ)) ∧ ((q - 1) ≤ p)) ∧ (p < q)) ∧ (q > 0)) → (forall (A : ℝ), (((A ∈ (Set.univ : Set ℝ)) ∧ (A > 1)) → (|((∫ x_1 in (1 : ℝ)..A, ((Real.sin x_1) * (1 : ℝ))))| ≤ 2))))) := by
   sorry
 
+end regenerated_exercise_2381_gap_32
+
+-- Source: proofgap/exercise_2381/33.txt
+namespace regenerated_exercise_2381_gap_33
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_33
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -846,7 +2354,7 @@ theorem proof_gap_exercise_2381_33
   (h14 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (a > 0))))))
   (h15 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ ((p + a) < (q - 1)))))))
   (h16 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (((q - p) - a) > 1))))))
-  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (atTop.limUnder (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
+  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (limUnder atTop (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
   (h18 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 0)))))))
   (h19 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 0)))))))
   (h20 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p < (q - 1))) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (MeasureTheory.IntegrableOn (fun x_1 : ℝ => (|((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))))| * (1 : ℝ))) (Set.Ioi (1 : ℝ)) MeasureTheory.volume))))))))
@@ -868,12 +2376,59 @@ theorem proof_gap_exercise_2381_33
   : (forall (x : ℝ), (((((x ∈ (Set.univ : Set ℝ)) ∧ ((q - 1) ≤ p)) ∧ (p < q)) ∧ (q > 0)) → (MeasureTheory.IntegrableOn (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) (Set.Ioi (1 : ℝ)) MeasureTheory.volume))) := by
   sorry
 
+end regenerated_exercise_2381_gap_33
+
+-- Source: proofgap/exercise_2381/34.txt
+namespace regenerated_exercise_2381_gap_34
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_34
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -887,7 +2442,7 @@ theorem proof_gap_exercise_2381_34
   (h14 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (a > 0))))))
   (h15 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ ((p + a) < (q - 1)))))))
   (h16 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (((q - p) - a) > 1))))))
-  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (atTop.limUnder (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
+  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (limUnder atTop (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
   (h18 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 0)))))))
   (h19 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 0)))))))
   (h20 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p < (q - 1))) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (MeasureTheory.IntegrableOn (fun x_1 : ℝ => (|((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))))| * (1 : ℝ))) (Set.Ioi (1 : ℝ)) MeasureTheory.volume))))))))
@@ -910,12 +2465,59 @@ theorem proof_gap_exercise_2381_34
   : p > (-(2 : ℝ)) := by
   sorry
 
+end regenerated_exercise_2381_gap_34
+
+-- Source: proofgap/exercise_2381/35.txt
+namespace regenerated_exercise_2381_gap_35
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_35
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -929,7 +2531,7 @@ theorem proof_gap_exercise_2381_35
   (h14 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (a > 0))))))
   (h15 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ ((p + a) < (q - 1)))))))
   (h16 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (((q - p) - a) > 1))))))
-  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (atTop.limUnder (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
+  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (limUnder atTop (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
   (h18 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 0)))))))
   (h19 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 0)))))))
   (h20 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p < (q - 1))) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (MeasureTheory.IntegrableOn (fun x_1 : ℝ => (|((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))))| * (1 : ℝ))) (Set.Ioi (1 : ℝ)) MeasureTheory.volume))))))))
@@ -953,12 +2555,59 @@ theorem proof_gap_exercise_2381_35
   : q > (p + 1) := by
   sorry
 
+end regenerated_exercise_2381_gap_35
+
+-- Source: proofgap/exercise_2381/36.txt
+namespace regenerated_exercise_2381_gap_36
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_36
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q ≥ 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -972,7 +2621,7 @@ theorem proof_gap_exercise_2381_36
   (h14 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (a > 0))))))
   (h15 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ ((p + a) < (q - 1)))))))
   (h16 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (((q - p) - a) > 1))))))
-  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (atTop.limUnder (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
+  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (limUnder atTop (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
   (h18 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 0)))))))
   (h19 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 0)))))))
   (h20 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p < (q - 1))) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (MeasureTheory.IntegrableOn (fun x_1 : ℝ => (|((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))))| * (1 : ℝ))) (Set.Ioi (1 : ℝ)) MeasureTheory.volume))))))))
@@ -997,12 +2646,59 @@ theorem proof_gap_exercise_2381_36
   : p > (-(2 : ℝ)) := by
   sorry
 
+end regenerated_exercise_2381_gap_36
+
+-- Source: proofgap/exercise_2381/37.txt
+namespace regenerated_exercise_2381_gap_37
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_37
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q ≥ 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -1016,7 +2712,7 @@ theorem proof_gap_exercise_2381_37
   (h14 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (a > 0))))))
   (h15 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ ((p + a) < (q - 1)))))))
   (h16 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (((q - p) - a) > 1))))))
-  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (atTop.limUnder (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
+  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (limUnder atTop (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
   (h18 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 0)))))))
   (h19 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 0)))))))
   (h20 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p < (q - 1))) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (MeasureTheory.IntegrableOn (fun x_1 : ℝ => (|((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))))| * (1 : ℝ))) (Set.Ioi (1 : ℝ)) MeasureTheory.volume))))))))
@@ -1042,12 +2738,59 @@ theorem proof_gap_exercise_2381_37
   : p < q := by
   sorry
 
+end regenerated_exercise_2381_gap_37
+
+-- Source: proofgap/exercise_2381/38.txt
+namespace regenerated_exercise_2381_gap_38
+
+attribute [local instance] Classical.propDecidable
+
+set_option linter.style.longLine false
+
+open scoped BigOperators Topology Nat
+
+open Filter
+
+local notation:70 x " /. " y => ((x : ℝ) / (y : ℝ))
+
+open scoped RealInnerProductSpace
+
+noncomputable def lpFunDeri {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E] (f g : E -> ℝ) : E -> ℝ :=
+  fun x => (inner ℝ (gradient f x) (gradient g x)) /. (‖gradient g x‖ ^ 2)
+
+def lpLeftDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Iio x) x
+
+def lpRightDifferentiable (f : ℝ -> ℝ) : Prop :=
+  ∀ x, DifferentiableWithinAt ℝ f (Set.Ioi x) x
+
+def lpLeftDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Iio x) x
+
+def lpRightDifferentiableOn (f : ℝ -> ℝ) (s : Set ℝ) : Prop :=
+  ∀ x ∈ s, DifferentiableWithinAt ℝ f (s ∩ Set.Ioi x) x
+
+def lpMaximumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f y ≤ f x}
+
+def lpMinimumPoints {α β : Type*} [Preorder β] (f : α -> β) : Set α :=
+  {x | ∀ y, f x ≤ f y}
+
+def lpMaximumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f y ≤ f x}
+
+def lpMinimumPointsOn {α β : Type*} [Preorder β] (f : α -> β) (s : Set α) : Set α :=
+  {x | x ∈ s ∧ ∀ y ∈ s, f x ≤ f y}
+
+noncomputable def lpRadiusOfConvergence {𝕜 : Type*} [NormedField 𝕜] (a : ℕ -> 𝕜) : ENNReal :=
+  ⨆ (r : NNReal), ⨆ (_h : Summable (fun n : ℕ => ‖a n‖ * (r : ℝ) ^ n)), (r : ENNReal)
+
 theorem proof_gap_exercise_2381_38
   (p : ℝ)
   (q : ℝ)
   (h1 : p ∈ (Set.univ : Set ℝ))
   (h2 : (q ∈ (Set.univ : Set ℝ)) ∧ (q > 0))
-  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 ((𝓝[>] 0).limUnder (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
+  (h3 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 (limUnder (𝓝[>] 0) (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))))))
   (h4 : Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h5 : Tendsto (fun x : ℝ => ((Real.rpow x ((-(1 : ℝ)) - p)) * (((Real.rpow x p) * (Real.sin x)) /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 1))
   (h6 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p > (-(2 : ℝ)))) → (IntervalIntegrable (fun x_1 : ℝ => ((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))) * (1 : ℝ))) MeasureTheory.volume (0 : ℝ) (1 : ℝ)))))
@@ -1061,7 +2804,7 @@ theorem proof_gap_exercise_2381_38
   (h14 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (a > 0))))))
   (h15 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ ((p + a) < (q - 1)))))))
   (h16 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (((q - p) - a) > 1))))))
-  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (atTop.limUnder (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
+  (h17 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 L) ∧ (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 (limUnder atTop (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))))))))))))
   (h18 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x q) /. (1 + (Real.rpow x q))) * (|((Real.sin x))| /. (Real.rpow x a)))) atTop (𝓝 0)))))))
   (h19 : (p < (q - 1)) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (Tendsto (fun x : ℝ => (((Real.rpow x ((q - p) - a)) * ((Real.rpow x p) /. (1 + (Real.rpow x q)))) * |((Real.sin x))|)) atTop (𝓝 0)))))))
   (h20 : (forall (x : ℝ), (((x ∈ (Set.univ : Set ℝ)) ∧ (p < (q - 1))) → (exists (v_uCE_uB1 : ℝ), (((v_uCE_uB1 ∈ (Set.univ : Set ℝ)) ∧ (v_uCE_uB1 > 0)) ∧ (exists (a : ℝ), (((a ∈ (Set.univ : Set ℝ)) ∧ (a = v_uCE_uB1)) ∧ (MeasureTheory.IntegrableOn (fun x_1 : ℝ => (|((((Real.rpow x_1 p) * (Real.sin x_1)) /. ((1 : ℝ) + (Real.rpow x_1 q))))| * (1 : ℝ))) (Set.Ioi (1 : ℝ)) MeasureTheory.volume))))))))
@@ -1087,3 +2830,5 @@ theorem proof_gap_exercise_2381_38
   (h40 : ∃ L : ℝ, Tendsto (fun x : ℝ => (((Real.sin x) /. x) * (1 /. (1 + (Real.rpow x q))))) (𝓝[>] 0) (𝓝 L))
   : q ≤ (p + 1) := by
   sorry
+
+end regenerated_exercise_2381_gap_38

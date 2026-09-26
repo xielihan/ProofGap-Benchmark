@@ -2,15 +2,19 @@ import Mathlib
 
 noncomputable section
 open Classical Real
+open Filter
 open scoped BigOperators
 
 def idx (n i : ℕ) : Prop := 1 ≤ i ∧ i ≤ n
 def SumI (n : ℕ) (f : ℕ → ℝ) : ℝ := Finset.sum (Finset.Icc 1 n) f
-axiom FunDeriCoordLam : ℝ → (ℕ → ℝ) → ℝ → ℕ → ℕ → ℝ
-axiom TendstoCoordSqInf : (ℕ → ℝ) → ℕ → Prop
-axiom TendstoSumSqInf : (ℕ → ℝ) → ℝ → ℕ → Prop
+noncomputable def FunDeriCoordLam (F : ℝ) (x : ℕ → ℝ) (lam : ℝ) (i : ℕ) (order : ℕ) : ℝ :=
+  Nat.iterate (fun g : ℝ => deriv (fun t : ℝ => SumI i (fun j => if j = i then t else x j) ^ 2 + lam * (SumI i (fun j => if j = i then t else x j) - F)) (x i)) order F
+def TendstoCoordSqInf (x : ℕ → ℝ) (i : ℕ) : Prop :=
+  Tendsto (fun t : ℝ => (Function.update x i t) i ^ 2) atTop atTop
+def TendstoSumSqInf (x : ℕ → ℝ) (u : ℝ) (i : ℕ) : Prop :=
+  Tendsto (fun t : ℝ => SumI i (fun j => if j = i then t else x j) ^ 2 + u) atTop atTop
 
--- Exercise 3684, gap 1
+-- Source: proofgap/exercise_3684/1.txt
 theorem proof_gap_exercise_3684_1
     (a : ℝ) (n : ℕ) (x : ℕ → ℝ) (u F lam : ℝ)
     (ha : 0 < a) (hn : 0 < n)
@@ -21,7 +25,7 @@ theorem proof_gap_exercise_3684_1
       FunDeriCoordLam F x lam i 1 = 2 * x i + lam ∧ 2 * x i + lam = 0 := by
   sorry
 
--- Exercise 3684, gap 2
+-- Source: proofgap/exercise_3684/2.txt
 theorem proof_gap_exercise_3684_2
     (n : ℕ) (x : ℕ → ℝ) (F lam : ℝ)
     (hderiv : ∀ i, idx n i →
@@ -29,14 +33,14 @@ theorem proof_gap_exercise_3684_2
     ∀ i, idx n i → x i = -(lam / 2) := by
   sorry
 
--- Exercise 3684, gap 3
+-- Source: proofgap/exercise_3684/3.txt
 theorem proof_gap_exercise_3684_3
     (n : ℕ) (x : ℕ → ℝ) (lam : ℝ)
     (hx : ∀ i, idx n i → x i = -(lam / 2)) :
     SumI n x = (n : ℝ) * (-(lam / 2)) := by
   sorry
 
--- Exercise 3684, gap 4
+-- Source: proofgap/exercise_3684/4.txt
 theorem proof_gap_exercise_3684_4
     (a lam : ℝ) (n : ℕ) (x : ℕ → ℝ)
     (hsum1 : SumI n x = (n : ℝ) * (-(lam / 2)))
@@ -44,14 +48,14 @@ theorem proof_gap_exercise_3684_4
     (n : ℝ) * (-(lam / 2)) = a := by
   sorry
 
--- Exercise 3684, gap 5
+-- Source: proofgap/exercise_3684/5.txt
 theorem proof_gap_exercise_3684_5
     (a lam : ℝ) (n : ℕ) (x : ℕ → ℝ)
     (heq : (n : ℝ) * (-(lam / 2)) = a) :
     SumI n x = a := by
   sorry
 
--- Exercise 3684, gap 6
+-- Source: proofgap/exercise_3684/6.txt
 theorem proof_gap_exercise_3684_6
     (a lam : ℝ) (n : ℕ) (x : ℕ → ℝ)
     (hn : 0 < n)
@@ -60,7 +64,7 @@ theorem proof_gap_exercise_3684_6
     ∀ i, idx n i → x i = a / n := by
   sorry
 
--- Exercise 3684, gap 7
+-- Source: proofgap/exercise_3684/7.txt
 theorem proof_gap_exercise_3684_7
     (a u : ℝ) (n : ℕ) (x : ℕ → ℝ)
     (hx : ∀ i, idx n i → x i = a / n)
@@ -68,14 +72,14 @@ theorem proof_gap_exercise_3684_7
     u = a ^ 2 / n := by
   sorry
 
--- Exercise 3684, gap 8
+-- Source: proofgap/exercise_3684/8.txt
 theorem proof_gap_exercise_3684_8
     (n i : ℕ) (x : ℕ → ℝ)
     (hi : idx n i) :
     TendstoCoordSqInf x i := by
   sorry
 
--- Exercise 3684, gap 9
+-- Source: proofgap/exercise_3684/9.txt
 theorem proof_gap_exercise_3684_9
     (u : ℝ) (n i : ℕ) (x : ℕ → ℝ)
     (hi : idx n i)
@@ -83,7 +87,7 @@ theorem proof_gap_exercise_3684_9
     TendstoSumSqInf x u i := by
   sorry
 
--- Exercise 3684, gap 10
+-- Source: proofgap/exercise_3684/10.txt
 theorem proof_gap_exercise_3684_10
     (a u : ℝ) (n : ℕ) (x : ℕ → ℝ)
     (hn : 0 < n)
@@ -91,5 +95,5 @@ theorem proof_gap_exercise_3684_10
     (hu : u = a ^ 2 / n)
     (hboundary : ∀ i, idx n i → TendstoSumSqInf x u i) :
     u = sInf {v : ℝ | ∃ y : ℕ → ℝ,
-      (∀ i, idx n i → True) ∧ SumI n y = a ∧ v = SumI n (fun i => y i ^ 2)} := by
+      (∀ i, idx n i → y i ∈ Set.Icc 0 a) ∧ SumI n y = a ∧ v = SumI n (fun i => y i ^ 2)} := by
   sorry

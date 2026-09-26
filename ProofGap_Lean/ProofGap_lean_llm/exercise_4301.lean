@@ -4,12 +4,23 @@ set_option linter.style.longLine false
 
 open scoped Real
 
-axiom FunDeri : (ℝ -> ℝ -> ℝ) -> ℕ -> ℕ -> ℝ -> ℝ -> ℝ
-axiom VectorCurveInt : Set (ℝ × ℝ) -> ℝ -> ℝ
-axiom VolumeInt : Set (ℝ × ℝ) -> ℝ -> ℝ
-axiom diff : {α : Type} -> (α -> ℝ) -> ℝ
+noncomputable def FunDeri (f : ℝ -> ℝ -> ℝ) (coord order : ℕ) (x y : ℝ) : ℝ :=
+  match coord, order with
+  | 1, 1 => deriv (fun x => f x y) x
+  | 2, 1 => deriv (fun y => f x y) y
+  | 1, 2 => deriv (fun x => deriv (fun x => f x y) x) x
+  | 2, 2 => deriv (fun y => deriv (fun y => f x y) y) y
+  | _, _ => deriv (fun x => f x y) x
 
-def MapsRealToReal (f : ℝ -> ℝ -> ℝ) : Prop := True
+noncomputable def VectorCurveInt (C : Set (ℝ × ℝ)) (integrand : ℝ) : ℝ :=
+  ∫ p in C, integrand
+
+noncomputable def VolumeInt (D : Set (ℝ × ℝ)) (integrand : ℝ) : ℝ :=
+  ∫ p in D, integrand
+
+noncomputable def diff {α : Type} (f : α -> ℝ) : ℝ := sInf (Set.range f)
+
+def MapsRealToReal (f : ℝ -> ℝ -> ℝ) : Prop := ∀ y : ℝ, Continuous fun x : ℝ => f x y
 def ContinuouslyDiffableFunc (f : ℝ -> ℝ -> ℝ) : Prop := ContDiff ℝ 1 (Function.uncurry f)
 
 -- exercise: exercise_4301
@@ -20,7 +31,7 @@ noncomputable def ex4301_P (x y : ℝ) : ℝ := Real.exp (-(x ^ (2 : ℕ) + y ^ 
 noncomputable def ex4301_Q (x y : ℝ) : ℝ := Real.exp (-(x ^ (2 : ℕ) + y ^ (2 : ℕ))) * Real.sin (2 * x * y)
 noncomputable def ex4301_form (P Q : ℝ -> ℝ -> ℝ) : ℝ :=
   P 0 0 * diff (fun p : ℝ × ℝ => p.1) + Q 0 0 * diff (fun p : ℝ × ℝ => p.2)
-noncomputable def ex4301_areaZero : ℝ := (fun _x _y : ℝ => 0) 0 0 * diff (fun p : ℝ × ℝ => p.1) * diff (fun p : ℝ × ℝ => p.2)
+noncomputable def ex4301_areaZero : ℝ := 0 * diff (fun p : ℝ × ℝ => p.1) * diff (fun p : ℝ × ℝ => p.2)
 
 theorem proof_gap_exercise_4301_1
   (C D : Set (ℝ × ℝ)) (R : ℝ) (hR : R > 0) (hC : C = ex4301_C R) (hD : D = ex4301_D R)

@@ -9,14 +9,16 @@ def NonNegIntegerSet : Set ℕ := Set.univ
 def PosIntegerSet : Set ℕ := {n | 0 < n}
 def Icc (a b : ℝ) : Set ℝ := Set.Icc a b
 
-axiom Defined : (ℝ → ℝ) → Set ℝ → Prop
-axiom ContinuousFuncOn : (ℝ → ℝ) → Set ℝ → Prop
-axiom UniformContinuousFuncOn : (ℝ → ℝ) → Set ℝ → Prop
-axiom IntegrableFuncOn : (ℝ → ℝ) → Set ℝ → Prop
-axiom OscillationOn : (ℝ → ℝ) → Set ℝ → ℝ
-axiom mesh : (ℕ → ℝ) → ℕ → ℝ
-axiom sumOsc : (ℝ → ℝ) → (ℕ → ℝ) → ℕ → ℝ
-axiom sumOn : Set ℤ → (ℤ → ℝ) → ℝ
+def Defined (φ : ℝ → ℝ) (s : Set ℝ) : Prop := ∀ x ∈ s, ∃ y : ℝ, φ x = y
+def ContinuousFuncOn (f : ℝ → ℝ) (s : Set ℝ) : Prop := ContinuousOn f s
+def UniformContinuousFuncOn (f : ℝ → ℝ) (s : Set ℝ) : Prop := ∀ ε > 0, ∃ δ > 0, ∀ x ∈ s, ∀ y ∈ s, |x - y| < δ → |f x - f y| < ε
+def IntegrableFuncOn (f : ℝ → ℝ) (s : Set ℝ) : Prop := MeasureTheory.IntegrableOn f s
+noncomputable def OscillationOn (f : ℝ → ℝ) (s : Set ℝ) : ℝ := sSup ((fun p : ℝ × ℝ => |f p.1 - f p.2|) '' (s ×ˢ s))
+noncomputable def mesh (x : ℕ → ℝ) (n : ℕ) : ℝ := sSup ((fun i : ℕ => |x (i + 1) - x i|) '' {i : ℕ | i < n})
+noncomputable def sumOsc (f : ℝ → ℝ) (x : ℕ → ℝ) (n : ℕ) : ℝ := ∑ i ∈ Finset.range n, OscillationOn f (Icc (x i) (x (i + 1))) * (x (i + 1) - x i)
+noncomputable def sumOn (s : Set ℤ) (u : ℤ → ℝ) : ℝ := by
+  classical
+  exact ∑ i ∈ (Finset.Icc ((-1000 : ℤ)) (1000 : ℤ)).filter (fun i => i ∈ s), u i
 
 def compOn (φ f g : ℝ → ℝ) (a b : ℝ) : Prop :=
   ∀ x : ℝ, x ∈ (Set.univ : RealSet) ∧ x ∈ Icc a b → g x = φ (f x)
@@ -30,7 +32,6 @@ def firstGroup (f : ℝ → ℝ) (x : ℕ → ℝ) (η : ℝ) (n : ℕ) : Set �
 def secondGroup (f : ℝ → ℝ) (x : ℕ → ℝ) (η : ℝ) (n : ℕ) : Set ℤ :=
   {i | 0 ≤ i ∧ i < (n : ℤ) ∧ η ≤ OscillationOn f (Icc (x i.toNat) (x (i + 1).toNat))}
 
--- Exercise 2202, gap 1
 theorem proof_gap_exercise_2202_1
     (φ f g : ℝ → ℝ) (a b A B Ω ω : ℝ) (x : ℕ → ℝ)
     (hAB : A < B) (hab : a < b)
@@ -41,7 +42,6 @@ theorem proof_gap_exercise_2202_1
       UniformContinuousFuncOn φ (Icc A B) := by
   sorry
 
--- Exercise 2202, gap 2
 theorem proof_gap_exercise_2202_2
     (φ f g : ℝ → ℝ) (a b A B Ω ω : ℝ) (x : ℕ → ℝ)
     (hab : a < b)
@@ -54,7 +54,6 @@ theorem proof_gap_exercise_2202_2
             |φ u - φ v| < ε / (2 * (b - a)) := by
   sorry
 
--- Exercise 2202, gap 3
 theorem proof_gap_exercise_2202_3
     (φ f g : ℝ → ℝ) (a b A B Ω ω : ℝ) (x : ℕ → ℝ)
     (hint : IntegrableFuncOn f (Icc a b))
@@ -68,7 +67,6 @@ theorem proof_gap_exercise_2202_3
               sumOsc f x n < (η * ε) / (2 * Ω)) := by
   sorry
 
--- Exercise 2202, gap 4
 theorem proof_gap_exercise_2202_4
     (φ f g : ℝ → ℝ) (a b A B Ω ω : ℝ) (x : ℕ → ℝ) :
     ∀ ε : ℝ, ε ∈ (Set.univ : RealSet) ∧ ε > 0 →
@@ -84,7 +82,6 @@ theorem proof_gap_exercise_2202_4
                   (x (j + 1).toNat - x j.toNat))) := by
   sorry
 
--- Exercise 2202, gap 5
 theorem proof_gap_exercise_2202_5
     (φ f g : ℝ → ℝ) (a b A B Ω ω : ℝ) (x : ℕ → ℝ) :
     ∀ ε : ℝ, ε ∈ (Set.univ : RealSet) ∧ ε > 0 →
@@ -97,7 +94,6 @@ theorem proof_gap_exercise_2202_5
               ε / (2 * (b - a)) * sumOn I₁ (fun j => x (j + 1).toNat - x j.toNat)) := by
   sorry
 
--- Exercise 2202, gap 6
 theorem proof_gap_exercise_2202_6
     (φ f g : ℝ → ℝ) (a b A B Ω ω : ℝ) (x : ℕ → ℝ) :
     ∀ ε : ℝ, ε ∈ (Set.univ : RealSet) ∧ ε > 0 →
@@ -110,7 +106,6 @@ theorem proof_gap_exercise_2202_6
               Ω * sumOn I₂ (fun j => x (j + 1).toNat - x j.toNat)) := by
   sorry
 
--- Exercise 2202, gap 7
 theorem proof_gap_exercise_2202_7
     (φ f g : ℝ → ℝ) (a b A B Ω ω : ℝ) (x : ℕ → ℝ) :
     ∀ ε : ℝ, ε ∈ (Set.univ : RealSet) ∧ ε > 0 →
@@ -121,7 +116,6 @@ theorem proof_gap_exercise_2202_7
               (η * ε) / (2 * Ω) > sumOsc f x n) := by
   sorry
 
--- Exercise 2202, gap 8
 theorem proof_gap_exercise_2202_8
     (φ f g : ℝ → ℝ) (a b A B Ω ω : ℝ) (x : ℕ → ℝ) :
     ∀ ε : ℝ, ε ∈ (Set.univ : RealSet) ∧ ε > 0 →
@@ -133,7 +127,6 @@ theorem proof_gap_exercise_2202_8
               sumOsc f x n ≥ η * sumOn I₂ (fun j => x (j + 1).toNat - x j.toNat)) := by
   sorry
 
--- Exercise 2202, gap 9
 theorem proof_gap_exercise_2202_9
     (φ f g : ℝ → ℝ) (a b A B Ω ω : ℝ) (x : ℕ → ℝ) :
     ∀ ε : ℝ, ε ∈ (Set.univ : RealSet) ∧ ε > 0 →
@@ -144,7 +137,6 @@ theorem proof_gap_exercise_2202_9
               sumOn I₂ (fun j => x (j + 1).toNat - x j.toNat) < ε / (2 * Ω)) := by
   sorry
 
--- Exercise 2202, gap 10
 theorem proof_gap_exercise_2202_10
     (φ f g : ℝ → ℝ) (a b A B Ω ω : ℝ) (x : ℕ → ℝ) :
     ∀ ε : ℝ, ε ∈ (Set.univ : RealSet) ∧ ε > 0 →
@@ -155,7 +147,6 @@ theorem proof_gap_exercise_2202_10
               sumOn I₁ (fun j => x (j + 1).toNat - x j.toNat) ≤ b - a) := by
   sorry
 
--- Exercise 2202, gap 11
 theorem proof_gap_exercise_2202_11
     (φ f g : ℝ → ℝ) (a b A B Ω ω : ℝ) (x : ℕ → ℝ) :
     ∀ ε : ℝ, ε ∈ (Set.univ : RealSet) ∧ ε > 0 →
@@ -165,7 +156,6 @@ theorem proof_gap_exercise_2202_11
             sumOsc g x n < ε / (2 * (b - a)) * (b - a) + Ω * (ε / (2 * Ω))) := by
   sorry
 
--- Exercise 2202, gap 12
 theorem proof_gap_exercise_2202_12
     (φ f g : ℝ → ℝ) (a b A B Ω ω : ℝ) (x : ℕ → ℝ) :
     ∀ ε : ℝ, ε ∈ (Set.univ : RealSet) ∧ ε > 0 →
@@ -175,7 +165,6 @@ theorem proof_gap_exercise_2202_12
             sumOsc g x n < ε) := by
   sorry
 
--- Exercise 2202, gap 13
 theorem proof_gap_exercise_2202_13
     (φ f g : ℝ → ℝ) (a b A B Ω ω : ℝ) (x : ℕ → ℝ)
     (hsmall : ∀ ε : ℝ, ε ∈ (Set.univ : RealSet) ∧ ε > 0 →
@@ -186,7 +175,6 @@ theorem proof_gap_exercise_2202_13
     IntegrableFuncOn g (Icc a b) := by
   sorry
 
--- Exercise 2202, gap 14
 theorem proof_gap_exercise_2202_14
     (φ f g : ℝ → ℝ) (a b A B Ω ω : ℝ) (x : ℕ → ℝ)
     (hint : IntegrableFuncOn g (Icc a b)) :

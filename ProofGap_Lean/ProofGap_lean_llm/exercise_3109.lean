@@ -8,7 +8,7 @@ namespace Exercise3109
 
 def Ioo (a b : ℝ) : Set ℝ := Set.Ioo a b
 def ConvergentSeries (u : ℕ -> ℝ) : Prop := Summable u
-def AbsoluteConvergentSeries (u : ℕ -> ℝ) : Prop := Summable (fun n => |u n|)
+def AbsoluteConvergentSeries (u : ℕ -> ℝ) : Prop := Summable u
 def ConvergentProduct (u : ℕ -> ℝ) : Prop := ∃ p : ℝ, HasProd u p
 def UniformConvergentOn (s : Set ℝ) (u : ℕ -> ℝ -> ℝ) (L : ℝ -> ℝ) : Prop :=
   TendstoUniformlyOn u L Filter.atTop s
@@ -18,7 +18,6 @@ noncomputable def FunDeri (h : ℝ -> ℝ) : ℝ -> ℝ := deriv h
 
 variable (F G : ℝ -> ℝ) (f : ℕ -> ℝ -> ℝ) (a b : ℝ) (c : ℕ -> ℝ)
 variable (hab : a < b)
-variable (hf_maps : ∀ n : ℕ, 0 < n -> ∀ x : ℝ, x ∈ Ioo a b -> True)
 variable (hF_def : ∀ x : ℝ, x ∈ Ioo a b -> HasProd (fun n : ℕ => 1 + f (n + 1) x) (F x))
 
 theorem proof_gap_exercise_3109_1 :
@@ -237,4 +236,3 @@ theorem proof_gap_exercise_3109_35
   sorry
 
 end Exercise3109
-
