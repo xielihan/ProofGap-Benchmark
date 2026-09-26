@@ -31,8 +31,5 @@ lake env lean ProofGap_lean_llm/exercise_100.lean
 To build all modules in this dataset, run `lake build ProofGapLean` from
 `ProofGap_Lean/`.
 
-Semantic review is ongoing; successful compilation alone does not establish
-fidelity to the NFL statement. See the [known issues](../KNOWN_ISSUES.md)
-before evaluation, and the [source snapshot](../source_snapshot.json) for
-provenance. Evaluation and reporting guidance is in the
-[benchmark overview](../../README.md#evaluation).
+See the [benchmark overview](../../README.md#evaluation) for evaluation and
+reporting rules.
